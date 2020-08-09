@@ -1,20 +1,20 @@
-Please!\n{STRVAR 284, 0}!
-Go! {STRVAR 284, 0}!
-I’ll battle with\n{STRVAR 284, 0}!
-It’s {STRVAR 284, 0}!
-{STRVAR 284, 0}, I’m going\nwith {STRVAR 284, 1}!
-Look at {STRVAR 284, 0}!
-I’ll show you {STRVAR 284, 0}!
-Now!\n{STRVAR 284, 0}!
-I’ll show you my\n{STRVAR 284, 0} strategy!
-I’ll {STRVAR 284, 0}!
-I’ll shock you with\n{STRVAR 284, 0}!
-This is the beginning\nof {STRVAR 284, 0}!
-This battle is\n{STRVAR 284, 0}!
-I don’t think I’ll\never lose at {STRVAR 284, 0}!
-Team {STRVAR 284, 0} is here!
-You think you can beat\n{STRVAR 284, 0}?
-{STRVAR 284, 0}!\n{STRVAR 284, 1} power!
-This is the {STRVAR 284, 0}\nPokémon!
-{STRVAR 284, 0} won’t lose!
-Please {STRVAR 284, 0}!\n{STRVAR 284, 1}!
+Please!\n{STRVAR 28, 0}!
+Go! {STRVAR 28, 0}!
+I’ll battle with\n{STRVAR 28, 0}!
+It’s {STRVAR 28, 0}!
+{STRVAR 28, 0}, I’m going\nwith {STRVAR 28, 1}!
+Look at {STRVAR 28, 0}!
+I’ll show you {STRVAR 28, 0}!
+Now!\n{STRVAR 28, 0}!
+I’ll show you my\n{STRVAR 28, 0} strategy!
+I’ll {STRVAR 28, 0}!
+I’ll shock you with\n{STRVAR 28, 0}!
+This is the beginning\nof {STRVAR 28, 0}!
+This battle is\n{STRVAR 28, 0}!
+I don’t think I’ll\never lose at {STRVAR 28, 0}!
+Team {STRVAR 28, 0} is here!
+You think you can beat\n{STRVAR 28, 0}?
+{STRVAR 28, 0}!\n{STRVAR 28, 1} power!
+This is the {STRVAR 28, 0}\nPokémon!
+{STRVAR 28, 0} won’t lose!
+Please {STRVAR 28, 0}!\n{STRVAR 28, 1}!

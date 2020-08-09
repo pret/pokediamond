@@ -2,11 +2,11 @@ POFFIN CASE
 GIVE
 TRASH
 BACK
-SMOOTH / {STRVAR 307, 0}
+SMOOTH / {STRVAR 51, 0}
        
 CLOSE
-Discard this\n{STRVAR 265, 0}?
-The {STRVAR 265, 0} was\nthrown out.
+Discard this\n{STRVAR 9, 0}?
+The {STRVAR 9, 0} was\nthrown out.
 YES
 NO
 SPICY
@@ -20,4 +20,4 @@ Raises beauty.
 Raises cuteness.
 Raises smartness.
 Raises toughness.
-{STRVAR 265, 0}{STRVAR 515, 138}Lv. {STRVAR 307, 1}
+{STRVAR 9, 0}{CURSOR_X 138}Lv. {STRVAR 51, 1}

@@ -6,9 +6,9 @@ This is the Pokémon Lottery Corner.\rIf your drawn number matches the\nID No. o
 You’ve already drawn a Loto Ticket\ntoday. Please come back tomorrow.
 Oh. I see.\nPlease do visit us again.
 Please draw a Loto Ticket.\r...\r
-Your Loto Ticket number is {STRVAR 310, 0}.\rNow, let’s see if it matches the\nID No. of any of your Pokémon.\r
-Congratulations!\rThe ID No. of your team’s\n{STRVAR 257, 0} matches your Loto\fTicket number!\r
-Congratulations!\rThe ID No. of your PC-boxed\n{STRVAR 257, 0} matches your Loto\fTicket number!\r
+Your Loto Ticket number is {STRVAR 54, 0}.\rNow, let’s see if it matches the\nID No. of any of your Pokémon.\r
+Congratulations!\rThe ID No. of your team’s\n{STRVAR 1, 0} matches your Loto\fTicket number!\r
+Congratulations!\rThe ID No. of your PC-boxed\n{STRVAR 1, 0} matches your Loto\fTicket number!\r
 I’m sorry.\nYou didn’t get a match...
 The last digit matched, so you\nwin the fourth prize!\r
 You gained a new Backdrop for use\nin Fitting Rooms.
@@ -17,7 +17,7 @@ The last three digits matched, so you\nwin the second prize!\r
 The last four digits matched, so you\nwin the first prize!\r
 Oh, my goodness, all five digits\nmatched!\rYou’ve won the jackpot prize!\nThis is just so incredible!\r...Oh, I’m sorry! Your prize!\nI got carried away there.\rHere you go!\r
 ...Oh?\nYou seem to have no room for this.\rPlease make room in your Bag and\nthen let me know.
-{STRVAR 259, 0}?\nYes, I’ve been expecting you.\rThis is the prize we’ve been holding\nfor you. Here you go!
+{STRVAR 3, 0}?\nYes, I’ve been expecting you.\rThis is the prize we’ve been holding\nfor you. Here you go!
 Please do visit again.
 They keep records of things like\nhow many battles you’ve won in a row,\for how many Pokémon you’ve caught.\rYou can check everyone’s records\nup on the third floor.
 I’m going to get commercials shown\non TV.\rThey’ll attract more customers to\nthe department store.

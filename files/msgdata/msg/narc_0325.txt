@@ -1,10 +1,10 @@
-{STRVAR 259, 0} obtained\nthe {STRVAR 264, 1}!
+{STRVAR 3, 0} obtained\nthe {STRVAR 8, 1}!
 The Bag is full...
-{STRVAR 259, 0} put the {STRVAR 264, 1}\nin the {STRVAR 264, 2} Pocket.
-{STRVAR 259, 0} found\n{STRVAR 264, 1}!
-Obtained the {STRVAR 264, 0}!\rToo bad!\nThe Bag is full...
-{STRVAR 259, 0} put the {STRVAR 264, 1}\nin the Bag.
-{STRVAR 259, 0} found\n{STRVAR 264, 1} {STRVAR 262, 2}!
-{STRVAR 259, 0} obtained\nthe {STRVAR 264, 1}!
-{STRVAR 259, 0} obtained\nthe {STRVAR 264, 1}!
-{STRVAR 259, 0} put the {STRVAR 264, 1}\nin the {STRVAR 65280, 2}{STRVAR 316, 2}{STRVAR 65280, 0} Pocket.
+{STRVAR 3, 0} put the {STRVAR 8, 1}\nin the {STRVAR 8, 2} Pocket.
+{STRVAR 3, 0} found\n{STRVAR 8, 1}!
+Obtained the {STRVAR 8, 0}!\rToo bad!\nThe Bag is full...
+{STRVAR 3, 0} put the {STRVAR 8, 1}\nin the Bag.
+{STRVAR 3, 0} found\n{STRVAR 8, 1} {STRVAR 6, 2}!
+{STRVAR 3, 0} obtained\nthe {STRVAR 8, 1}!
+{STRVAR 3, 0} obtained\nthe {STRVAR 8, 1}!
+{STRVAR 3, 0} put the {STRVAR 8, 1}\nin the {COLOR 2}{STRVAR 60, 2}{COLOR 0} Pocket.

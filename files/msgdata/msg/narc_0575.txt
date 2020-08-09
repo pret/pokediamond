@@ -10,13 +10,13 @@ Huh? I can’t seem to find my Trainer\nCase.\rSorry about that!\nMaybe next tim
 Thank you!\nPlease don’t be a stranger!\r
 Would you like to do something else?
 Oh, that’s OK.\nNext time will be fine.
-Huh? You want to give me your\n{STRVAR 281, 2}?
+Huh? You want to give me your\n{STRVAR 25, 2}?
 Thanks, but no.\nI can’t take that from you.\rMaybe another time!
-Thank you!\rYour {STRVAR 281, 2}\nwas given to {STRVAR 259, 0}.
+Thank you!\rYour {STRVAR 25, 2}\nwas given to {STRVAR 3, 0}.
 OK, see you!
 Sorry!\nSomething’s come up!
-{STRVAR 281, 2}\nwas obtained.
-{STRVAR 281, 3} was\nfound in the ground!\r{STRVAR 259, 1} disengaged\nthe {STRVAR 281, 3}!
+{STRVAR 25, 2}\nwas obtained.
+{STRVAR 25, 3} was\nfound in the ground!\r{STRVAR 3, 1} disengaged\nthe {STRVAR 25, 3}!
 The wall is bulging slightly.\nTry digging into it?
 Too bad!\nYour Bag is full!
 Too bad!\nYour Bag is full!
@@ -24,14 +24,14 @@ Hello!
                
 I’ll let you see my Trainer Case.\rMay I see your Trainer Case?
 Oh, you’re busy? Sorry to bug you!\nMaybe next time!
-Glad to have met you,\n{STRVAR 259, 0}!
+Glad to have met you,\n{STRVAR 3, 0}!
 So...
-Oh, right! You can have this\n{STRVAR 281, 2}!\rI’d really like you to have it.
+Oh, right! You can have this\n{STRVAR 25, 2}!\rI’d really like you to have it.
 Oh?\nDo you have one already?
 Oh? You don’t have room for it in\nyour Bag.\rOK, next time, then!
-OK, here you go!\nTake care of it!\rYou received {STRVAR 259, 0}’s\n{STRVAR 281, 2}!
+OK, here you go!\nTake care of it!\rYou received {STRVAR 3, 0}’s\n{STRVAR 25, 2}!
 OK, see you around!
-The {STRVAR 281, 3} was used!
+The {STRVAR 25, 3} was used!
 Discovered a small cavern!\r
 Would you like to make your\nSecret Base here?
 Would you like to move here?
@@ -56,30 +56,30 @@ That can’t be used here!
 That can’t be placed there.
 Closed up the hole.
 Someone is inside your Secret Base.\nYou may not move your base now.
-The {STRVAR 281, 0} {STRVAR 307, 1}\nwas buried right in front of you.
+The {STRVAR 25, 0} {STRVAR 51, 1}\nwas buried right in front of you.
 Something was already buried in\nthe ground.
 You can’t bury anything in a wall.
               
-Something pinged in the wall!\n{STRVAR 306, 0} confirmed!
+Something pinged in the wall!\n{STRVAR 50, 0} confirmed!
 The wall collapsed!
 Everything was dug up!
 Too bad!\nYour Bag is full!
 You can’t return to the surface\nfrom a Secret Base.
-This appears to be {STRVAR 259, 0}’s\nSecret Base.\rTake the Trainer’s Flag?
+This appears to be {STRVAR 3, 0}’s\nSecret Base.\rTake the Trainer’s Flag?
 Blocked the entrance to decorate\nthe Secret Base.
-You obtained {STRVAR 281, 2}, size {STRVAR 307, 1}!
-Oops!\n{STRVAR 281, 0}!
-Helped out {STRVAR 259, 0}!
+You obtained {STRVAR 25, 2}, size {STRVAR 51, 1}!
+Oops!\n{STRVAR 25, 0}!
+Helped out {STRVAR 3, 0}!
 I’m digging for Treasure right now.\nWant to dig with me?\rThere just might be another dig spot\nclose by...
 You can’t put down a Trap inside\na Secret Base.
 You can’t drill holes inside\na Secret Base!
-Its size grew bigger by {STRVAR 307, 0} since\nit was buried!
+Its size grew bigger by {STRVAR 51, 0} since\nit was buried!
 Blow the Trap away!
 Remove the Trap by touch!
 A Trap was found, but your Bag is\nfull. The Trap was left as is.
-The {STRVAR 281, 0} was placed in\nthe Bag’s {STRVAR 65280, 2}♈{STRVAR 65280, 0}ITEMS Pocket.
-Your Bag is full. The {STRVAR 281, 0}\ncouldn’t be put away.
-The {STRVAR 281, 0} was placed in the\nBag’s {STRVAR 65280, 2}♌{STRVAR 65280, 0}MEDICINE Pocket.
+The {STRVAR 25, 0} was placed in\nthe Bag’s {COLOR 2}♈{COLOR 0}ITEMS Pocket.
+Your Bag is full. The {STRVAR 25, 0}\ncouldn’t be put away.
+The {STRVAR 25, 0} was placed in the\nBag’s {COLOR 2}♌{COLOR 0}MEDICINE Pocket.
                  
 A Sphere was found, but your Bag is\nfull. The Sphere was left as is.
 You can’t bury a Sphere inside\na Secret Base.
@@ -88,65 +88,65 @@ I can’t accept anything that\nimportant!
 Thanks for the offer, but I’ll pass.\nSee you again tomorrow.
 ...\rThe wall started to crumble.\nIt’s too dangerous to go in.
            
-{STRVAR 259, 0} disengaged the Trap!
-{STRVAR 259, 1} has entered.
+{STRVAR 3, 0} disengaged the Trap!
+{STRVAR 3, 1} has entered.
              
              
               
-{STRVAR 281, 2}\nwas obtained!
+{STRVAR 25, 2}\nwas obtained!
                 
                     
-{STRVAR 259, 0} escaped from the Trap.
-{STRVAR 259, 0} triggered a Trap!
-{STRVAR 259, 0} triggered\n{STRVAR 259, 1}’s Trap!
+{STRVAR 3, 0} escaped from the Trap.
+{STRVAR 3, 0} triggered a Trap!
+{STRVAR 3, 0} triggered\n{STRVAR 3, 1}’s Trap!
          
            
            
-{STRVAR 259, 0} entered\n{STRVAR 259, 1}’s Secret Base.
-{STRVAR 259, 0} is digging for Treasure!
+{STRVAR 3, 0} entered\n{STRVAR 3, 1}’s Secret Base.
+{STRVAR 3, 0} is digging for Treasure!
              
             
-{STRVAR 259, 0} obtained\n{STRVAR 259, 1}’s Flag!
-{STRVAR 259, 0} took back the Flag!
-{STRVAR 259, 0} took\n{STRVAR 259, 1}’s Flag!
-{STRVAR 259, 0} talked with\n{STRVAR 259, 1}.
-{STRVAR 259, 0} talked with\nsomeone.
+{STRVAR 3, 0} obtained\n{STRVAR 3, 1}’s Flag!
+{STRVAR 3, 0} took back the Flag!
+{STRVAR 3, 0} took\n{STRVAR 3, 1}’s Flag!
+{STRVAR 3, 0} talked with\n{STRVAR 3, 1}.
+{STRVAR 3, 0} talked with\nsomeone.
                        
                        
-{STRVAR 259, 0} has left the\nunderground tunnels.
-{STRVAR 259, 0} helped {STRVAR 259, 1}!
-It’s an alert from {STRVAR 259, 0}!\n“Hello! Nice to meet you!”
-It’s an alert from {STRVAR 259, 0}!\n“Good-bye! I’m going back up!”
-It’s an alert from {STRVAR 259, 0}!\n“Let’s go to the Union Room!”
-It’s an alert from {STRVAR 259, 0}!\n“Please come here!”
+{STRVAR 3, 0} has left the\nunderground tunnels.
+{STRVAR 3, 0} helped {STRVAR 3, 1}!
+It’s an alert from {STRVAR 3, 0}!\n“Hello! Nice to meet you!”
+It’s an alert from {STRVAR 3, 0}!\n“Good-bye! I’m going back up!”
+It’s an alert from {STRVAR 3, 0}!\n“Let’s go to the Union Room!”
+It’s an alert from {STRVAR 3, 0}!\n“Please come here!”
 TRAPS
 SPHERES
 GOODS
 TREASURES
-{STRVAR 257, 1}
+{STRVAR 1, 1}
 GO UP
 CLOSE
-{STRVAR 264, 2} {STRVAR 307, 6}
-What would you like to do with\nthis {STRVAR 281, 2}?
-Threw away the {STRVAR 281, 2}.
-The {STRVAR 281, 3} was set in\nthe ground.
+{STRVAR 8, 2} {STRVAR 51, 6}
+What would you like to do with\nthis {STRVAR 25, 2}?
+Threw away the {STRVAR 25, 2}.
+The {STRVAR 25, 3} was set in\nthe ground.
 TRASH
 CANCEL
 BURY
 PUT IN BAG
 What’s that?\nYou wanted to ask me something?
-{STRVAR 285, 5}?\nLet me see...
+{STRVAR 29, 5}?\nLet me see...
 Yeah, I guess I have an answer.\rWhat would your answer be?
 Hmm...\nI can’t really decide.\r
-Oh, really?\n{STRVAR 286, 5}?\rWell, for me...\n{STRVAR 286, 6}!\r
-Oh, really?\n{STRVAR 286, 5}?\rWell, for me...\n{STRVAR 286, 6}!\r...Oh!\nIt’s the same answer!\r
+Oh, really?\n{STRVAR 30, 5}?\rWell, for me...\n{STRVAR 30, 6}!\r
+Oh, really?\n{STRVAR 30, 5}?\rWell, for me...\n{STRVAR 30, 6}!\r...Oh!\nIt’s the same answer!\r
 I see...
 Hi, may I ask you a question?\rLet’s see...\r
-How’s this? {STRVAR 285, 5}!\nWhat’s your choice?
+How’s this? {STRVAR 29, 5}!\nWhat’s your choice?
 Oh, don’t worry! You don’t have to\nanswer if you don’t want to.\r
 You’ve decided?\rWell, let me see...\nIf it were me...
-{STRVAR 286, 5} would be\nmy answer, I guess.\rWhat did you choose?\r...\n{STRVAR 286, 6}! OK!\r
-{STRVAR 286, 5} would be\nmy answer, I guess.\rWhat did you choose?\r...\n{STRVAR 286, 6}! OK!\rOh, right.\nIt’s the same as me!\r
+{STRVAR 30, 5} would be\nmy answer, I guess.\rWhat did you choose?\r...\n{STRVAR 30, 6}! OK!\r
+{STRVAR 30, 5} would be\nmy answer, I guess.\rWhat did you choose?\r...\n{STRVAR 30, 6}! OK!\rOh, right.\nIt’s the same as me!\r
 I see...
 Thanks for answering!\rI hope to see you around!\r
                
@@ -154,17 +154,17 @@ Thanks for answering!\rI hope to see you around!\r
                               
                         
 Pardon me?\nYou wanted to ask me something?
-{STRVAR 285, 5}?\nWell, let me think...
+{STRVAR 29, 5}?\nWell, let me think...
 Yes, I’ve decided!\rIf it were you, what would you\nchoose?
 I don’t know...\nI can’t really decide.\r
-Is that right?\n{STRVAR 286, 5}?\rMy answer would be...\n{STRVAR 286, 6}!\r
-Is that right?\n{STRVAR 286, 5}?\rMy answer would be...\n{STRVAR 286, 6}!\r...Oh!\nIt’s the same answer!\r
+Is that right?\n{STRVAR 30, 5}?\rMy answer would be...\n{STRVAR 30, 6}!\r
+Is that right?\n{STRVAR 30, 5}?\rMy answer would be...\n{STRVAR 30, 6}!\r...Oh!\nIt’s the same answer!\r
 I see...
 Hi, may I ask you a question?\rLet’s see...\r
-How’s this? {STRVAR 285, 5}!\nWhat’s your choice out of these?
+How’s this? {STRVAR 29, 5}!\nWhat’s your choice out of these?
 Not to worry! You don’t have to\nanswer if you don’t want to.\r
 You’ve decided?\rWell, let me think...\nIf it were me...
-{STRVAR 286, 5}, maybe?\rWhat did you choose?\r...\n{STRVAR 286, 6}! OK!\r
-{STRVAR 286, 5}, maybe?\rWhat did you choose?\r...\n{STRVAR 286, 6}! OK!\rOh, right.\nIt’s the same as me!\r
+{STRVAR 30, 5}, maybe?\rWhat did you choose?\r...\n{STRVAR 30, 6}! OK!\r
+{STRVAR 30, 5}, maybe?\rWhat did you choose?\r...\n{STRVAR 30, 6}! OK!\rOh, right.\nIt’s the same as me!\r
 I see...
 Thanks for answering!\rI hope to see you around!\r

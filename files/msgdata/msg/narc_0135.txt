@@ -1,7 +1,7 @@
-Dawn: Hi, {STRVAR 259, 0}!\nPlease, can you help me?\rI dropped my Pokédex by accident,\nand Team Galactic found it.\rNow they won’t give it back.\nPlease, I need your help.\rI’ll be waiting in front of the\nwarehouses. Please come!\r
-Lucas: Hey! {STRVAR 259, 0}!\nListen, I need your help...\rI dropped my Pokédex by accident,\nand Team Galactic found it.\rNow they won’t give it back.\nPlease, I need you to help me.\rI’ll be waiting in front of the\nwarehouses. Please come!\r
-Dawn: {STRVAR 259, 0}, are you going\nto take the Gym challenge?\rGee, you keep getting tougher and\ntougher, don’t you?\rMe? Well, I went shopping at the\ndepartment store, and...\rI mean, well, of course I’ve been\nworking on my Pokédex, but...\rI’ll catch you later!\r
-Lucas: Hey! {STRVAR 259, 0}, are you\ngoing to take on the Gym Leader?\rWow, you just keep getting tougher\nand tougher.\rMe? Well, I took a look in the\nGame Corner, and...\rI mean, yeah, of course I’ve been\nworking on my Pokédex, but...\rAnyways, keep it up!\nI’ll see you around!\r
+Dawn: Hi, {STRVAR 3, 0}!\nPlease, can you help me?\rI dropped my Pokédex by accident,\nand Team Galactic found it.\rNow they won’t give it back.\nPlease, I need your help.\rI’ll be waiting in front of the\nwarehouses. Please come!\r
+Lucas: Hey! {STRVAR 3, 0}!\nListen, I need your help...\rI dropped my Pokédex by accident,\nand Team Galactic found it.\rNow they won’t give it back.\nPlease, I need you to help me.\rI’ll be waiting in front of the\nwarehouses. Please come!\r
+Dawn: {STRVAR 3, 0}, are you going\nto take the Gym challenge?\rGee, you keep getting tougher and\ntougher, don’t you?\rMe? Well, I went shopping at the\ndepartment store, and...\rI mean, well, of course I’ve been\nworking on my Pokédex, but...\rI’ll catch you later!\r
+Lucas: Hey! {STRVAR 3, 0}, are you\ngoing to take on the Gym Leader?\rWow, you just keep getting tougher\nand tougher.\rMe? Well, I took a look in the\nGame Corner, and...\rI mean, yeah, of course I’ve been\nworking on my Pokédex, but...\rAnyways, keep it up!\nI’ll see you around!\r
 Grunt 1: Hey, you!\nYeah, you!\rThis is Team Galactic’s warehouse!\nIt ain’t no playground for kids!\r
 Grunt 1: Hey, you!\nYeah, you!\rThis is Team Galactic’s warehouse!\nIt ain’t no playground for kids!
 Grunt 2: This is the awesome Team\nGalactic’s awesome warehouse!\rA little kid like you should be playing\nat the Pokémon Gym.\rAfter all, the Gym Leader happens to\nbe a kid just like you!
@@ -10,16 +10,16 @@ Grunt 2: You’re trying to get the\nPokédex back from us?\rNot when we, Team G
 Grunt 1: Aww, that stinks!\nOur Pokémon are chumps!\rWe should get new ones from\nheadquarters.\rHumph! Who cares about some\nPokédex anyways?\rTeam Galactic’s going to own\nall the Pokémon in the world...\fNo, in the universe!\r
 There! Take it!\nTake your Pokédex!\r
 Grunt 2: Those things we had in\nthe warehouse’ve already been moved\fto Pastoria City anyway...\rSo, we’ll say “You’ll get yours!”\nAnd run like the grunts we are.\r
-Dawn: Hi, {STRVAR 259, 0}!\nPlease, can you help me?\rI dropped my Pokédex by accident,\nand Team Galactic found it.\rNow they won’t give it back.\nPlease, I need your help.\fTeam up and battle with me!
+Dawn: Hi, {STRVAR 3, 0}!\nPlease, can you help me?\rI dropped my Pokédex by accident,\nand Team Galactic found it.\rNow they won’t give it back.\nPlease, I need your help.\fTeam up and battle with me!
 Dawn: You and your Pokémon together\nwith me and my Pokémon...\rUnited like this, our dream team\nhas no chance of losing!\rI’m not letting those bad people get\naway with their dirty deeds!\r
 Dawn: I’ll be waiting.\nPlease get ready and come quickly.
 Dawn: What’s going on?\rWhy is Team Galactic out in the\nstreets like they own the place?\r
-Dawn: {STRVAR 259, 0}, thank you,\nsincerely.\rIf Professor Rowan ever finds out that\nI lost my Pokédex...\rEewww...\nI don’t want to think about it.\rSo, {STRVAR 259, 0}, what are you going\nto do now?\rI’m thinking of going to Pastoria\nCity now.\rThe Great Marsh there is home to\nmany kinds of Pokémon.\r
-Lucas: Hey! {STRVAR 259, 0}!\nListen, I need your help...\rI dropped my Pokédex by accident,\nand Team Galactic found it.\rNow they won’t give it back.\nPlease, I need you to help me.\rWill you team up with me to take\nthem on?
+Dawn: {STRVAR 3, 0}, thank you,\nsincerely.\rIf Professor Rowan ever finds out that\nI lost my Pokédex...\rEewww...\nI don’t want to think about it.\rSo, {STRVAR 3, 0}, what are you going\nto do now?\rI’m thinking of going to Pastoria\nCity now.\rThe Great Marsh there is home to\nmany kinds of Pokémon.\r
+Lucas: Hey! {STRVAR 3, 0}!\nListen, I need your help...\rI dropped my Pokédex by accident,\nand Team Galactic found it.\rNow they won’t give it back.\nPlease, I need you to help me.\rWill you team up with me to take\nthem on?
 Lucas: You and your Pokémon together\nwith me and my Pokémon...\rOur dream team’s not going to lose.\nNot with the way we work together!\rI’m not letting those criminals get\naway with this!\r
 Lucas: I’ll be waiting!\nGet ready and come quick!
 Lucas: What’s going on here?\rWhy is Team Galactic out in the\nstreets like they own the place?\r
-Lucas: {STRVAR 259, 0}, thanks,\nhonestly.\rIf Professor Rowan ever hears that\nI lost my Pokédex...\rOh, man, that’s something I do not\nwant to think about!\rSo, {STRVAR 259, 0}, what are your\nplans now?\rI’m going off to Pastoria City.\rThe Great Marsh there has all kinds\nof Pokémon.\r
+Lucas: {STRVAR 3, 0}, thanks,\nhonestly.\rIf Professor Rowan ever hears that\nI lost my Pokédex...\rOh, man, that’s something I do not\nwant to think about!\rSo, {STRVAR 3, 0}, what are your\nplans now?\rI’m going off to Pastoria City.\rThe Great Marsh there has all kinds\nof Pokémon.\r
 There!\nWould you look at those antennae?\rI don’t know what they do, but those\nare some mighty impressive antennae!\r
 Hey!\nIt’s you!\rI bet you don’t remember me, but\nI sure remember you!\rBecause of you, they took my CLEFAIRY\naway...\rMy partner called it quits and went\nback to his old country...\rI don’t know anything about any\nStorage Key!\r
 We have the Hidden Machine that teaches\nFly stored in the warehouse.\rThey said I can use it if I show them\nthat I deserve it.

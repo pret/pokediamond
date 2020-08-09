@@ -29,6 +29,11 @@ using namespace std;
 
 string ReadTextFile(string filename) {
     fstream file(filename);
+    if (!file.good()) {
+        stringstream s;
+        s << "unable to open file \"" << filename << "\" for reading";
+        throw runtime_error(s.str());
+    }
     stringstream ss;
     ss << file.rdbuf();
     file.close();
@@ -63,6 +68,11 @@ static vector<u16string> outfiles;
 
 void read_key(string keyfname) {
     fstream keyfile(keyfname, ios_base::in | ios_base::binary);
+    if (!keyfile.good()) {
+        stringstream s;
+        s << "unable to open file \"" << keyfname << "\" for reading";
+        throw runtime_error(s.str());
+    }
     keyfile.read((char *)&header.key, 2);
 }
 
@@ -89,6 +99,17 @@ uint16_t enc_short(uint16_t value, uint16_t & seed) {
     return value;
 }
 
+static map<string, uint16_t> cmdmap = {
+    {"STRVAR", 0x0100},
+    {"YESNO", 0x200},
+    {"PAUSE", 0x201},
+    {"WAIT", 0x202},
+    {"CURSOR_X", 0x203},
+    {"CURSOR_Y", 0x204},
+    {"COLOR", 0xFF00},
+    {"SIZE", 0xFF01}
+};
+
 void encode_messages() {
     int i = 1;
     for (auto message : files) {
@@ -102,13 +123,10 @@ void encode_messages() {
                 size_t pos = enclosed.find(' ');
                 string command = enclosed.substr(0, pos);
                 enclosed = enclosed.substr(pos + 1);
-                uint16_t command_i = charmap[command];
-                if (command_i != 0 || command == "STRVAR") {
+                if (cmdmap.find(command) != cmdmap.end()) {
+                    uint16_t command_i = cmdmap[command];
                     encoded += enc_short(0xFFFE, seed);
                     vector<uint16_t> args;
-                    if (command_i != 0) {
-                        args.push_back(command_i);
-                    }
                     do {
                         k = enclosed.find(',');
                         string num = enclosed.substr(0, k);
@@ -116,8 +134,12 @@ void encode_messages() {
                         args.push_back(num_i);
                         enclosed = enclosed.substr(k + 1);
                     } while (k++ != string::npos);
-                    encoded += enc_short(args[0], seed);
-                    args.erase(args.begin());
+
+                    if (command == "STRVAR") {
+                        command_i |= args[0];
+                        args.erase(args.begin());
+                    }
+                    encoded += enc_short(command_i, seed);
                     encoded += enc_short(args.size(), seed);
                     for (auto num_i : args) {
                         encoded += enc_short(num_i, seed);

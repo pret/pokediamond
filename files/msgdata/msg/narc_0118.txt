@@ -3,7 +3,7 @@ Bebe: My buddy Bill developed the\nbasic storage system.\rI tinkered with it her
 Bebe: Hiya! Been a long time!\nHow’s it going? Using the PC Boxes?\rOh? Now lookie here, that’s a National\nPokédex I’m seeing. Good for you!\rYou’ll be using my Boxes like crazy\nif you’re using that now.\rWell, I always thought a good Trainer\nought to juggle Boxes smartly, though\fI shouldn’t be the one to say so.\rOh yeah, do you want a Pokémon named\nEEVEE?
 Bebe: So, do you want that EEVEE\nthat I’ve got?
 Bebe: Here you go!\nNow, you be good to it.\r
-{STRVAR 259, 0} obtained\nan EEVEE!\r
+{STRVAR 3, 0} obtained\nan EEVEE!\r
 Would you like to give a nickname\nto the EEVEE that Bebe gave you?
 Bebe: Here you go!\rWait, I can’t do that! You can’t\ntake any more Pokémon with you!\rRight about now, my Pokémon Boxes\ncome in handy!
 Bebe: Oh, OK...\nGuess I’ll have to raise it myself.

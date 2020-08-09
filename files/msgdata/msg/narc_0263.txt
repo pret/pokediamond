@@ -1,6 +1,6 @@
 It’s a bed...\nWant to take a rest?
-{STRVAR 259, 0} quickly fell asleep\nin the bed...\r
-{STRVAR 259, 0} and the Pokémon\nbecame fully healed from the rest!
+{STRVAR 3, 0} quickly fell asleep\nin the bed...\r
+{STRVAR 3, 0} and the Pokémon\nbecame fully healed from the rest!
 Team Galactic Nap Room\rEnsure the bed is unoccupied\nbefore getting into it!
 Team Galactic TV Room\rState-of-the-art audio & video\nsystem for member use only!\rOnward to a new universe!\nTeam Galactic!
 The Team Galactic credo!\nEverything belongs to Team Galactic!\rLook beyond the world--space will\nbecome Team Galactic’s!

@@ -2,7 +2,7 @@ Oh, looking a little tired?\n...Oh, no, not you.\fI meant your Pokémon.\rIf you
 Which one needs a little love?\r
 Oh!\nHey, I’m not doing anything shady...
 Giggle... OK, let’s get started.\nOK, sweetie, just relax...\r
-{STRVAR 256, 0} looks dreamily\ncontent...\r
+{STRVAR 0, 0} looks dreamily\ncontent...\r
 Drop by again tomorrow if you’d like.
 That’s silly! I’d break that Egg\nif I tried to massage it!
 When I was massaging your Pokémon,\nI found this.\r

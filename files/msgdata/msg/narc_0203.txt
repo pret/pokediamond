@@ -20,7 +20,7 @@ There are five Contests in all:\nCool, Beauty, Cute, Smart, and Tough.\rBe sure 
 There are four different ranks to\nthe Pokémon Super Contests.\rThe four ranks are Normal, Great,\nUltra, and Master.\rThe Normal Rank is open for entry\nby any Pokémon.\rA Pokémon winning a Normal Rank\nContest may move up to the Great\fRank in the same category.\rLikewise, win a Great Contest and\nbecome eligible for the Ultra Rank.\rAn Ultra Rank winner may move up to\nthe Master Rank in the same way.\rA Master Rank winner may enter\nMaster Rank Contests as often as\fthe Trainer wishes.\r
 Which Pokémon would you like to\nenter?\r
 Please choose\na Pokémon.\r
-OK! Your Pokémon has been accepted\nfor entry!\rYour entry number is {STRVAR 306, 0}!\r
+OK! Your Pokémon has been accepted\nfor entry!\rYour entry number is {STRVAR 50, 0}!\r
 We look forward to your participation\nanother time!
 ENTER
 INFO
@@ -64,20 +64,20 @@ EXIT
                                                           
 The Contest will start right away.\nThis way, please!\r
     
-{STRVAR 259, 0} changed into a tuxedo!\r
-{STRVAR 259, 0} changed into a dress!\r
+{STRVAR 3, 0} changed into a tuxedo!\r
+{STRVAR 3, 0} changed into a dress!\r
 Right this way, please!\nGood luck!\r
-MC: We are about to get under\nway with this {STRVAR 291, 0} Pokémon\f{STRVAR 290, 1}!\rI’m Dexter, and I’ll be serving as\nthe MC and as one of the Judges!\rThe results of judging will be\nannounced at the end, so please\fbear with me!\r
-Let me introduce our contestants!\rEntry number 1!\nHere’s {STRVAR 259, 0}!\r
-Next, it’s entry number 2!\n{STRVAR 259, 0}!\r
-Entry number 3!\n{STRVAR 259, 0}!\r
-And last but not least, entry\nnumber 4! {STRVAR 259, 0}!\r
+MC: We are about to get under\nway with this {STRVAR 35, 0} Pokémon\f{STRVAR 34, 1}!\rI’m Dexter, and I’ll be serving as\nthe MC and as one of the Judges!\rThe results of judging will be\nannounced at the end, so please\fbear with me!\r
+Let me introduce our contestants!\rEntry number 1!\nHere’s {STRVAR 3, 0}!\r
+Next, it’s entry number 2!\n{STRVAR 3, 0}!\r
+Entry number 3!\n{STRVAR 3, 0}!\r
+And last but not least, entry\nnumber 4! {STRVAR 3, 0}!\r
 Let’s begin by having everyone get in\nproper attire for evaluations.\rContestants, dress up your Pokémon\nfor the Visual Competition!\r
                                                                                      
 Dexter: Congratulations!\r
-Let’s recognize our winner!\n{STRVAR 259, 0}’s {STRVAR 257, 1}!\rOur winner is awarded the\n{STRVAR 295, 2}!\r
+Let’s recognize our winner!\n{STRVAR 3, 0}’s {STRVAR 1, 1}!\rOur winner is awarded the\n{STRVAR 39, 2}!\r
 We look forward to your next\nContest challenge!\r
-We expect great things from the\nwinning team of {STRVAR 259, 0} and\f{STRVAR 257, 1}!\r
+We expect great things from the\nwinning team of {STRVAR 3, 0} and\f{STRVAR 1, 1}!\r
 Congratulations!\nHere is your prize!\r
                   
 Thank you for participating.\nWe look forward to your next visit!
@@ -129,8 +129,8 @@ DRESS-UP POINTS
     
 CANCEL
 Judging here is based on the visual\nappeal of Pokémon.\rScoring is based on voting by the\naudience.\rThe more popular the Pokémon, the\nhigher its score!\rThe Pokémon are scored in two\ncategories: Condition Points and\fDress-up Points.\r
-Condition Points are scored on\nthe Pokémon’s condition in one of\ffive categories.\rThe five conditions are: Cool, Beauty,\nCute, Smart, and Tough.\rThese conditions can be enhanced by\nfeeding Poffins to your Pokémon.\rIf the audience likes what they see,\n{STRVAR 65280, 1}♡{STRVAR 65280, 0} marks will appear.\rObviously, the more {STRVAR 65280, 1}♡{STRVAR 65280, 0} marks there\nare, the more popular the Pokémon.\r
-Dress-up Points are awarded for\nfashionably dressing up your Pokémon\fwith Accessories.\rBefore you begin, you will be given\na fashion theme.\rYour dressed-up Pokémon will be\nscored on how well it matches the\fassigned theme.\rThe audience’s approval will appear\nas pink {STRVAR 65280, 1}♡{STRVAR 65280, 0} marks.\rBe sure to position the Accessories\nproperly and attach them firmly.\fThey won’t stay on otherwise.\rThere is a time limit of 60 seconds.\rGet your Pokémon dressed up within\nthat time.\r
+Condition Points are scored on\nthe Pokémon’s condition in one of\ffive categories.\rThe five conditions are: Cool, Beauty,\nCute, Smart, and Tough.\rThese conditions can be enhanced by\nfeeding Poffins to your Pokémon.\rIf the audience likes what they see,\n{COLOR 1}♡{COLOR 0} marks will appear.\rObviously, the more {COLOR 1}♡{COLOR 0} marks there\nare, the more popular the Pokémon.\r
+Dress-up Points are awarded for\nfashionably dressing up your Pokémon\fwith Accessories.\rBefore you begin, you will be given\na fashion theme.\rYour dressed-up Pokémon will be\nscored on how well it matches the\fassigned theme.\rThe audience’s approval will appear\nas pink {COLOR 1}♡{COLOR 0} marks.\rBe sure to position the Accessories\nproperly and attach them firmly.\fThey won’t stay on otherwise.\rThere is a time limit of 60 seconds.\rGet your Pokémon dressed up within\nthat time.\r
     
 We look forward to your next visit!
 OVERALL FLOW
@@ -149,8 +149,8 @@ JUDGES
 VOLTAGE
 CANCEL
 In the Acting Competition, four\nPokémon will perform their moves for\four panel of Judges.\rThe more a Pokémon stands out, the\nhigher it scores.\rEach Pokémon will get the chance to\nperform four times.\r
-Every move has one or more {STRVAR 65280, 1}♡{STRVAR 65280, 0} marks\nthat indicate the acting score.\rThe more {STRVAR 65280, 1}♡{STRVAR 65280, 0} marks obtained, the\nhigher the Pokémon scores.\rHowever, Pokémon are not permitted\nto perform the same move two turns\fin a row.\r
-There are three Judges in all.\rYou get to choose which one you\nwant to judge your Pokémon.\rTry not to have your Pokémon scored\nby the same Judge as other Pokémon\fso it can stand out more.\rIf your Pokémon leaves a strong\nimpression, it will be rated highly,\fearning it more {STRVAR 65280, 1}♡{STRVAR 65280, 0} marks.\r
+Every move has one or more {COLOR 1}♡{COLOR 0} marks\nthat indicate the acting score.\rThe more {COLOR 1}♡{COLOR 0} marks obtained, the\nhigher the Pokémon scores.\rHowever, Pokémon are not permitted\nto perform the same move two turns\fin a row.\r
+There are three Judges in all.\rYou get to choose which one you\nwant to judge your Pokémon.\rTry not to have your Pokémon scored\nby the same Judge as other Pokémon\fso it can stand out more.\rIf your Pokémon leaves a strong\nimpression, it will be rated highly,\fearning it more {COLOR 1}♡{COLOR 0} marks.\r
 Voltage shows the excitement level\nof the Judges.\rIn a Cool Contest, if a Pokémon uses\na Cool move, Voltage goes up.\rHowever, if a Cute or Smart move is\nperformed, the Voltage goes down.\rIf the Voltage reaches 5 points, the\nPokémon earns bonus points.\rIf the Special Judge in the center\nwas chosen, 8 bonus points are\fawarded when the Voltage peaks.\rFor the other Judges, 5 bonus points\nare awarded.\r
 We look forward to your next visit!
 VISUAL PRACTICE
@@ -175,7 +175,7 @@ We look forward to your next visit!
                    
 Which Pokémon would you like to\nenter?\r
 Please choose a Pokémon.\r
-OK, your Pokémon has been registered\nfor a practice session.\rIts entry number is {STRVAR 306, 0}.\nThe practice will start right away.\r
+OK, your Pokémon has been registered\nfor a practice session.\rIts entry number is {STRVAR 50, 0}.\nThe practice will start right away.\r
 Right this way, please.\nGood luck!\r
 Your Pokémon will be evaluated by the\naudience.\rYou can enhance its condition by\nfeeding it Poffins.\rYou will also need to dress up your\nPokémon using Accessories.\rWould you like to enter a practice\nsession?
 YES

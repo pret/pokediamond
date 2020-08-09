@@ -1,11 +1,11 @@
 Hello, hello!\nI am the official Name Rater!\rWant me to rate the nicknames of\nyour Pokémon?
 Which Pokémon’s nickname should\nI critique?
-{STRVAR 257, 0}, is it?\nThat’s a decent nickname!\rBut would you like to give it\nan even better name?\rHow about it?
+{STRVAR 1, 0}, is it?\nThat’s a decent nickname!\rBut would you like to give it\nan even better name?\rHow about it?
 Ah, good. Then, what shall the new\nnickname be?
-Done! From now on, this Pokémon\nshall be known as {STRVAR 257, 0}!\rIt is a better name than before!\nHow fortunate for you!
+Done! From now on, this Pokémon\nshall be known as {STRVAR 1, 0}!\rIt is a better name than before!\nHow fortunate for you!
 I see.\nPlease come visit again.
-Done! From now on, this Pokémon\nshall be known as {STRVAR 257, 0}!\rIt looks no different from before,\nand yet, this is vastly superior!\rHow fortunate for you!
-{STRVAR 257, 0}, is it?\nThat is a truly impeccable name!\rTake good care of {STRVAR 257, 0}!
+Done! From now on, this Pokémon\nshall be known as {STRVAR 1, 0}!\rIt looks no different from before,\nand yet, this is vastly superior!\rHow fortunate for you!
+{STRVAR 1, 0}, is it?\nThat is a truly impeccable name!\rTake good care of {STRVAR 1, 0}!
 Now, now. That is merely an Egg!\nAn Egg can go by no other name!\n
 Excuse me, but do you got that\nPokémon named BUIZEL?\rWanna trade it for my CHATOT?
 Yes! So awesome! A BUIZEL!\nI so promise I’ll be good to it!\rOh yeah, CHATOT can learn some human\nspeech pretty quickly.\rTry out its move Chatter.\nYou’ll totally see what I mean.
