@@ -4772,7 +4772,7 @@ MOD17_021D99E0: ; 0x021D99E0
 	add r1, r4, #0
 	ldr r0, [r5, r0]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	ldr r0, _021D9A64 ; =0x0001020F
@@ -4839,7 +4839,7 @@ _021D9A7E:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _021D9B10 ; =0x000006C4
 	ldr r1, [r5, r0]
 	ldrb r1, [r1, #0x16]
@@ -14415,7 +14415,7 @@ _021DDFF8:
 	add r0, r6, #0
 	add r1, r4, #0
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -14531,7 +14531,7 @@ _021DE1A0:
 	add r0, r7, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #0
@@ -14563,7 +14563,7 @@ _021DE1A0:
 	add r0, r7, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #0

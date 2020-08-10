@@ -2210,7 +2210,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	ldr r0, [r5, #0x10]
 	ldr r1, [r5, #0x34]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	mov r0, #0xb5

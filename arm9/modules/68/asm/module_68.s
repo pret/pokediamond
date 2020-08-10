@@ -699,7 +699,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	ldr r0, [r0]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -963,7 +963,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	ldr r0, [r5]
 	ldr r2, [sp, #0x10]
 	add r1, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff

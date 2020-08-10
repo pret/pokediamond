@@ -5232,7 +5232,7 @@ _021D9CDC:
 	ldr r2, [r4, #0x4c]
 	add r0, r5, #0
 	add r1, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff

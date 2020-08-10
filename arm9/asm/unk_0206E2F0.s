@@ -295,7 +295,7 @@ _0206E4FA:
 	ldr r1, [sp, #0x8]
 	add r0, r4, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0x0
 	bl String_dtor
 	add r0, r4, #0x0
@@ -364,7 +364,7 @@ _0206E56A:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0x0
 	bl String_dtor
 	add r0, r4, #0x0

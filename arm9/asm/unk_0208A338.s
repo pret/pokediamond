@@ -448,7 +448,7 @@ FUN_0208A6D4: ; 0x0208A6D4
 	ldr r0, [r5, #0xc]
 	ldr r1, [r5, #0x8]
 	ldr r2, [r5, #0x4]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	b _0208A6FA
 _0208A6F4:
 	ldr r2, [r5, #0x8]

@@ -1327,7 +1327,7 @@ _021D7F86:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	b _021D8002
 _021D7FF4:
 	add r2, r7, #0
@@ -3625,7 +3625,7 @@ _021D91D6:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #4
 	str r0, [sp]
 	mov r0, #0xff
@@ -3776,7 +3776,7 @@ _021D9338:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -4191,7 +4191,7 @@ _021D969A:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #4
 	str r0, [sp]
 	mov r0, #0xff
@@ -4261,7 +4261,7 @@ _021D974E:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _021D9A54 ; =0x000F0E00
 	add r1, r4, #0
 	str r0, [sp]
@@ -4433,7 +4433,7 @@ _021D987C:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc4
 	mov r0, #0
@@ -4504,7 +4504,7 @@ _021D987C:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc0
 	mov r0, #0
@@ -4553,7 +4553,7 @@ _021D987C:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc0
 	mov r0, #0
@@ -4643,7 +4643,7 @@ _021D9AE8:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc0
 	mov r0, #0
@@ -4747,7 +4747,7 @@ _021D9AE8:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc0
 	mov r0, #0
@@ -5392,7 +5392,7 @@ _021DA0D0:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5473,7 +5473,7 @@ _021DA17C:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0

@@ -20836,7 +20836,7 @@ MOD14_021E189C: ; 0x021E189C
 	ldr r0, [r5, #0x2c]
 	ldr r1, [r5, #0x34]
 	ldr r2, [r5, #0x30]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff

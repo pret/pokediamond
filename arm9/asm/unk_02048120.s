@@ -271,7 +271,7 @@ FUN_020482F4: ; 0x020482F4
 	ldr r0, [r5, #0x20]
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x0
 	add r1, r4, #0x0
 	add r2, r0, #0x0

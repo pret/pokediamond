@@ -2,7 +2,7 @@
     .include "global.inc"
 
 	.extern UNK_020F34E0
-	.extern UNK_020F34E8
+	.extern sScriptConditionTable
 	.extern UNK_020F34FC
 	.extern UNK_020F3538
 	.extern gMain
@@ -16,26 +16,26 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start FUN_020399A0
-FUN_020399A0: ; 0x020399A0
+	thumb_func_start ScrCmd_nop
+ScrCmd_nop: ; 0x020399A0
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_020399A4
-FUN_020399A4: ; 0x020399A4
+	thumb_func_start ScrCmd_nop2
+ScrCmd_nop2: ; 0x020399A4
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_020399A8
-FUN_020399A8: ; 0x020399A8
+	thumb_func_start ScrCmd_end
+ScrCmd_end: ; 0x020399A8
 	push {r3, lr}
 	bl StopScript
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020399B4
-FUN_020399B4: ; 0x020399B4
+	thumb_func_start ScrCmd_delay
+ScrCmd_delay: ; 0x020399B4
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -480,8 +480,9 @@ FUN_02039CE4: ; 0x02039CE4
 	add r0, r1, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02039CF8
-FUN_02039CF8: ; 0x02039CF8
+	thumb_func_start ScrCmd_goto
+ScrCmd_goto: ; 0x02039CF8
+	; relative jump
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadWord
@@ -573,8 +574,8 @@ _02039DA8:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02039DAC
-FUN_02039DAC: ; 0x02039DAC
+	thumb_func_start ScrCmd_call
+ScrCmd_call: ; 0x02039DAC
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadWord
@@ -586,16 +587,16 @@ FUN_02039DAC: ; 0x02039DAC
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_02039DC4
-FUN_02039DC4: ; 0x02039DC4
+	thumb_func_start ScrCmd_return
+ScrCmd_return: ; 0x02039DC4
 	push {r3, lr}
 	bl ScriptReturn
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039DD0
-FUN_02039DD0: ; 0x02039DD0
+	thumb_func_start ScrCmd_gotoif
+ScrCmd_gotoif: ; 0x02039DD0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r2, [r5, #0x8]
@@ -606,7 +607,7 @@ FUN_02039DD0: ; 0x02039DD0
 	add r1, r0, #0x0
 	lsl r0, r4, #0x1
 	add r3, r4, r0
-	ldr r0, _02039E00 ; =UNK_020F34E8
+	ldr r0, _02039E00 ; =sScriptConditionTable
 	ldrb r2, [r5, #0x2]
 	add r0, r0, r3
 	ldrb r0, [r2, r0]
@@ -620,10 +621,10 @@ _02039DFC:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_02039E00: .word UNK_020F34E8
+_02039E00: .word sScriptConditionTable
 
-	thumb_func_start FUN_02039E04
-FUN_02039E04: ; 0x02039E04
+	thumb_func_start ScrCmd_callif
+ScrCmd_callif: ; 0x02039E04
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r2, [r5, #0x8]
@@ -634,7 +635,7 @@ FUN_02039E04: ; 0x02039E04
 	add r1, r0, #0x0
 	lsl r0, r4, #0x1
 	add r3, r4, r0
-	ldr r0, _02039E34 ; =UNK_020F34E8
+	ldr r0, _02039E34 ; =sScriptConditionTable
 	ldrb r2, [r5, #0x2]
 	add r0, r0, r3
 	ldrb r0, [r2, r0]
@@ -648,7 +649,7 @@ _02039E30:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_02039E34: .word UNK_020F34E8
+_02039E34: .word sScriptConditionTable
 
 	thumb_func_start FUN_02039E38
 FUN_02039E38: ; 0x02039E38
@@ -1883,7 +1884,7 @@ _0203A7E0:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r7, #0x0]
 	ldr r2, [r2, #0x0]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x60]
 	bl MOD05_021E8140
 	mov r3, #0x0
@@ -2011,7 +2012,7 @@ FUN_0203A8B8: ; 0x0203A8B8
 	ldr r1, [r7, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, [r6, #0x0]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x60]
 	bl MOD05_021E8140
 	add r4, r0, #0x0

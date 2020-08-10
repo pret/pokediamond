@@ -4734,7 +4734,7 @@ _021E908E:
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	add r2, r5, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -4928,7 +4928,7 @@ _021E923E:
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	add r2, r5, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0
 	bl String_dtor
 	mov r0, #1
@@ -5467,7 +5467,7 @@ _021E967A:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -5741,7 +5741,7 @@ _021E9872:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -5922,7 +5922,7 @@ _021E9A38:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -5984,7 +5984,7 @@ _021E9A6E:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -6008,7 +6008,7 @@ _021E9AF4:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -6128,7 +6128,7 @@ _021E9BAC:
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	add r2, r5, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -6223,7 +6223,7 @@ _021E9C80:
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	add r2, r5, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -6399,7 +6399,7 @@ _021E9E2A:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -8218,7 +8218,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #0x10
@@ -8273,7 +8273,7 @@ _021EACC6:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #0x10
@@ -8327,7 +8327,7 @@ _021EAD3C:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #0x20
@@ -8454,7 +8454,7 @@ _021EAE2E:
 	ldr r0, [r5, r0]
 	ldr r2, [r5, r2]
 	add r1, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0
 	add r1, r7, #0
 	add r2, r0, #0
@@ -9033,7 +9033,7 @@ _021EB298:
 	ldr r0, [r5, r0]
 	ldr r2, [sp, #0x18]
 	add r1, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -9166,7 +9166,7 @@ MOD75_021EB3D8: ; 0x021EB3D8
 	ldr r0, [r5, r0]
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -9246,7 +9246,7 @@ MOD75_021EB454: ; 0x021EB454
 	ldr r0, [r5, r0]
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -9306,7 +9306,7 @@ MOD75_021EB504: ; 0x021EB504
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #8
 	str r0, [sp]
 	mov r0, #0xff
@@ -9420,7 +9420,7 @@ _021EB616:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -9568,7 +9568,7 @@ _021EB722:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #8
 	str r0, [sp]
 	mov r0, #0xff
@@ -9610,7 +9610,7 @@ _021EB722:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r1, #0xfe
 	lsl r1, r1, #2
 	mov r0, #0
@@ -9715,7 +9715,7 @@ _021EB866:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r1, #0xfe
 	lsl r1, r1, #2
 	mov r0, #0
@@ -9807,7 +9807,7 @@ MOD75_021EB8E8: ; 0x021EB8E8
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	mov r1, #0xfe

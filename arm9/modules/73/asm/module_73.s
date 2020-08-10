@@ -4909,7 +4909,7 @@ _021D9B02:
 	ldr r0, [r2, #4]
 	ldr r1, [r2, #8]
 	ldr r2, [r2, #0x14]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, [r5, #0x18]
 	lsl r0, r6, #3
 	ldr r1, [r1, #8]
@@ -6272,7 +6272,7 @@ MOD73_021DA550: ; 0x021DA550
 	ldr r0, [r2, #4]
 	ldr r1, [r2, #8]
 	ldr r2, [r2, #0x50]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x18
 	str r0, [sp]
 	mov r1, #0
@@ -6322,7 +6322,7 @@ _021DA61A:
 	ldr r0, [r3, #4]
 	ldr r1, [r3, #8]
 	ldr r2, [r2, #0x4c]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x30
 	str r0, [sp]
 	mov r1, #0
@@ -6372,7 +6372,7 @@ _021DA682:
 	ldr r0, [r3, #4]
 	ldr r1, [r3, #8]
 	ldr r2, [r2, #0x4c]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x44
 	str r0, [sp]
 	mov r1, #0
@@ -6428,7 +6428,7 @@ MOD73_021DA6BC: ; 0x021DA6BC
 	ldr r0, [r2, #4]
 	ldr r1, [r2, #8]
 	ldr r2, [r2, #0x68]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x18
 	str r0, [sp]
 	mov r1, #0
@@ -6528,7 +6528,7 @@ _021DA79E:
 	ldr r0, [r2, #4]
 	ldr r1, [r2, #8]
 	ldr r2, [r2, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x1c]
 	ldr r5, [r0, #8]
 	b _021DA7EC

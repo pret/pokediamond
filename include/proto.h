@@ -17,6 +17,6 @@ void FUN_02005E90(int, int, int, int);
 void FUN_020056AC(int, int, int, int, int);
 void FUN_020808AC(struct BoxPokemon *, int, int, int, int);
 void * FUN_02022610(void *, int);
-void FUN_0200B7B8(u32 *, struct String *, struct String *);
+void StringExpandPlaceholders(u32 *, struct String *, struct String *);
 
 #endif //POKEDIAMOND_PROTO_H

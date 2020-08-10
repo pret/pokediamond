@@ -1719,8 +1719,8 @@ FUN_0200B7A8: ; 0x0200B7A8
 	.balign 4
 _0200B7B4: .word StrUpperFirstChar
 
-	thumb_func_start FUN_0200B7B8
-FUN_0200B7B8: ; 0x0200B7B8
+	thumb_func_start StringExpandPlaceholders
+StringExpandPlaceholders: ; 0x0200B7B8
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r6, r1, #0x0

@@ -2398,7 +2398,7 @@ _0222E95E:
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add sp, #8
 	pop {r4, pc}
 
@@ -2431,7 +2431,7 @@ _0222E996:
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x1c]
 	ldr r2, [r5, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD69_0222E9AC
@@ -2511,7 +2511,7 @@ _0222EA2E:
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	mov r1, #0x78
 	bl MOD69_0222E89C
@@ -2719,7 +2719,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	add r2, #8
 	ldr r1, [r4, r1]
 	ldr r2, [r4, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, _0222EC54 ; =0x00001B54
 	mov r0, #0
 	ldr r1, [r4, r1]

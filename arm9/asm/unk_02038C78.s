@@ -129,8 +129,8 @@ UNK_020F34DC: ; 0x020F34DC
 UNK_020F34E0: ; 0x020F34E0
 	.byte 0x03, 0x19, 0x0D, 0x06, 0x04, 0x0D, 0x15, 0x03
 
-	.global UNK_020F34E8
-UNK_020F34E8: ; 0x020F34E8
+	.global sScriptConditionTable
+sScriptConditionTable: ; 0x020F34E8
 	.byte 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x01, 0x01, 0x00, 0x00, 0x01, 0x01, 0x01
 	.byte 0x00, 0x01, 0x00, 0x00
 
@@ -149,10 +149,10 @@ UNK_020F3538: ; 0x020F3538
 
     .global gScriptCmdTable
 gScriptCmdTable: ; 0x020F355C
-    .word FUN_020399A0
-    .word FUN_020399A4
-    .word FUN_020399A8
-    .word FUN_020399B4
+    .word ScrCmd_nop
+    .word ScrCmd_nop2
+    .word ScrCmd_end
+    .word ScrCmd_delay
     .word FUN_02039A28
     .word FUN_02039A40
     .word FUN_02039A5C
@@ -171,14 +171,14 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02039C40
     .word FUN_02039C78
     .word FUN_02039CE4
-    .word FUN_02039CF8
+    .word ScrCmd_goto
     .word FUN_02039D10
     .word FUN_02039D48
     .word FUN_02039D78
-    .word FUN_02039DAC
-    .word FUN_02039DC4
-    .word FUN_02039DD0
-    .word FUN_02039E04
+    .word ScrCmd_call
+    .word ScrCmd_return
+    .word ScrCmd_gotoif
+    .word ScrCmd_callif
     .word FUN_02039E38
     .word FUN_02039E50
     .word FUN_02039E68

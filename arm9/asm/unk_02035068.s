@@ -677,7 +677,7 @@ _02035526:
 	ldr r2, [sp, #0x20]
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r2, r4, r5
 	add r2, #0x30
 	ldrb r2, [r2, #0x0]
@@ -1035,7 +1035,7 @@ _0203584C:
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x14]
 	add r0, r7, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x10
 	str r0, [sp, #0x0]
 	mov r0, #0xff

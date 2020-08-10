@@ -311,7 +311,7 @@ MOD05_021E2DD4: ; 0x021E2DD4
 	ldr r0, [r4, #8]
 	ldr r1, [r4]
 	ldr r2, [r4, #4]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -27473,7 +27473,7 @@ _021F0204:
 	ldr r0, [r4, #0x38]
 	ldr r1, [r4, #0xc]
 	ldr r2, [r4, #8]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x30]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
@@ -40043,7 +40043,7 @@ MOD05_021F6140: ; 0x021F6140
 	ldr r0, [r5, #0x34]
 	ldr r1, [r5, #0x2c]
 	ldr r2, [r5, #0x30]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0xc]
 	bl LoadPlayerDataAddress
 	add r2, r0, #0

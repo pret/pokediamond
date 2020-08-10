@@ -6224,7 +6224,7 @@ MOD11_022321EC: ; 0x022321EC
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	bl String_dtor
 	pop {r3, r4, r5, pc}
@@ -28095,7 +28095,7 @@ _0223CF5C:
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x20]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	add r0, sp, #0x68
@@ -82473,7 +82473,7 @@ MOD11_022574F0: ; 0x022574F0
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xf
@@ -83172,7 +83172,7 @@ _02257B1E:
 	ldr r2, [sp, #0x18]
 	add r0, r7, #0
 	add r1, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xf
@@ -86994,11 +86994,11 @@ MOD11_022599CC: ; 0x022599CC
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r2, [sp, #0x20]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _02259AA0 ; =0x00010203
 	ldr r1, _02259AA4 ; =0x000004CC
 	str r0, [sp]
@@ -87090,11 +87090,11 @@ MOD11_02259AB0: ; 0x02259AB0
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r2, [sp, #0x20]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _02259B84 ; =0x00010203
 	ldr r1, _02259B88 ; =0x000004CC
 	str r0, [sp]
@@ -87187,11 +87187,11 @@ MOD11_02259B94: ; 0x02259B94
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r2, [sp, #0x20]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _02259C64 ; =0x00010203
 	ldr r1, _02259C68 ; =0x000004CC
 	str r0, [sp]
@@ -87348,7 +87348,7 @@ _02259D2A:
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x28]
 	ldr r2, [sp, #0x24]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #1
 	tst r0, r4
 	beq _02259D5A
@@ -88794,7 +88794,7 @@ _0225A876:
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x30]
 	ldr r2, [sp, #0x2c]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldrh r0, [r5, #8]
 	ldrh r1, [r5, #0x10]
 	bl MOD11_0225B3D4
