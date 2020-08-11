@@ -121,8 +121,8 @@ UNK_020F2DB4: ; 0x020F2DB4
 	.byte 0x5C, 0x00, 0x01, 0x01, 0x00, 0x00, 0x92, 0x00, 0x30, 0x00, 0x01, 0x01, 0x00, 0x00, 0x93, 0x00
 	.byte 0x2D, 0x00, 0x01, 0x01, 0x00, 0x00, 0x94, 0x00
 
-	.global UNK_020F34DC
-UNK_020F34DC: ; 0x020F34DC
+	.global sNumScriptCmds
+sNumScriptCmds: ; 0x020F34DC
 	.word 721 ; NELEMS(gScriptCmdTable)
 
 	.global UNK_020F34E0
@@ -160,14 +160,14 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02039A90
     .word FUN_02039AAC
     .word FUN_02039ACC
-    .word FUN_02039AF8
-    .word FUN_02039B28
-    .word FUN_02039B50
-    .word FUN_02039B78
-    .word FUN_02039BA0
-    .word FUN_02039BBC
-    .word FUN_02039BDC
-    .word FUN_02039C08
+    .word ScrCmd_compare_local_to_local
+    .word ScrCmd_compare_local_to_value
+    .word ScrCmd_compare_local_to_addr
+    .word ScrCmd_compare_addr_to_local
+    .word ScrCmd_compare_addr_to_value
+    .word ScrCmd_compare_addr_to_addr
+    .word ScrCmd_compare_var_to_value
+    .word ScrCmd_compare_var_to_var
     .word FUN_02039C40
     .word FUN_02039C78
     .word FUN_02039CE4
@@ -994,7 +994,7 @@ FUN_02038D48: ; 0x02038D48
 	b _02038E1A
 _02038D68:
 	ldrh r1, [r4, #0xa]
-	bl FUN_02038EB0
+	bl CreateScriptContext
 	str r0, [r4, #0x38]
 	mov r0, #0x1
 	strb r0, [r4, #0x9]
@@ -1154,8 +1154,8 @@ _02038EA8:
 	nop
 _02038EAC: .word 0x0000225F
 
-	thumb_func_start FUN_02038EB0
-FUN_02038EB0: ; 0x02038EB0
+	thumb_func_start CreateScriptContext
+CreateScriptContext: ; 0x02038EB0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r6, r1, #0x0
@@ -1166,7 +1166,7 @@ FUN_02038EB0: ; 0x02038EB0
 	bne _02038EC6
 	bl ErrorHandling
 _02038EC6:
-	ldr r2, _02038EE4 ; =UNK_020F34DC
+	ldr r2, _02038EE4 ; =sNumScriptCmds
 	ldr r1, _02038EE8 ; =gScriptCmdTable
 	ldr r2, [r2, #0x0]
 	add r0, r4, #0x0
@@ -1175,36 +1175,36 @@ _02038EC6:
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	mov r3, #0x0
-	bl FUN_02038EEC
+	bl SetUpScriptContextForMap
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
 	nop
-_02038EE4: .word UNK_020F34DC
+_02038EE4: .word sNumScriptCmds
 _02038EE8: .word gScriptCmdTable
 
-	thumb_func_start FUN_02038EEC
-FUN_02038EEC: ; 0x02038EEC
+	thumb_func_start SetUpScriptContextForMap
+SetUpScriptContextForMap: ; 0x02038EEC
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r3, r4, #0x0
 	add r5, r0, #0x0
 	add r3, #0x80
 	str r5, [r3, #0x0]
-	bl FUN_02038F18
+	bl LoadScriptsAndMessagesByMapId
 	add r6, r0, #0x0
 	ldr r1, [r4, #0x7c]
 	add r0, r4, #0x0
 	bl SetupBytecodeScript
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl FUN_02039484
+	bl ScriptRunByIndex
 	ldr r1, [r5, #0x10]
 	add r0, r4, #0x0
 	bl FUN_02038B6C
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02038F18
-FUN_02038F18: ; 0x02038F18
+	thumb_func_start LoadScriptsAndMessagesByMapId
+LoadScriptsAndMessagesByMapId: ; 0x02038F18
 	push {r3-r5, lr}
 	ldr r3, _02039210 ; =0x0000283C
 	add r4, r2, #0x0
@@ -1213,7 +1213,7 @@ FUN_02038F18: ; 0x02038F18
 	mov r3, #0x1f
 	ldr r2, _02039214 ; =0x000003D1
 	lsl r3, r3, #0x4
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039210 ; =0x0000283C
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1227,7 +1227,7 @@ _02038F36:
 	ldr r2, _02039218 ; =0x00000175
 	add r3, r2, #0x0
 	sub r3, #0x29
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _0203921C ; =0x000027D8
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1240,7 +1240,7 @@ _02038F52:
 	blo _02038F6C
 	ldr r2, _02039220 ; =0x00000412
 	ldr r3, _02039224 ; =0x00000232
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039228 ; =0x000027A6
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1252,7 +1252,7 @@ _02038F6C:
 	blo _02038F84
 	ldr r2, _0203922C ; =0x00000411
 	ldr r3, _02039230 ; =0x00000233
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039234 ; =0x00002774
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1265,7 +1265,7 @@ _02038F84:
 	ldr r2, _0203923C ; =0x00000177
 	add r3, r2, #0x0
 	sub r3, #0x29
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039238 ; =0x00002710
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1280,7 +1280,7 @@ _02038F9E:
 	lsl r2, r2, #0x2
 	add r3, r2, #0x0
 	sub r3, #0x29
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039240 ; =0x000026DE
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1293,7 +1293,7 @@ _02038FBC:
 	blo _02038FD6
 	ldr r2, _02039244 ; =0x0000016D
 	mov r3, #0xc7
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039248 ; =0x000026AC
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1306,7 +1306,7 @@ _02038FD6:
 	blo _02038FF0
 	mov r2, #0xce
 	mov r3, #0xcb
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _0203924C ; =0x00002648
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1319,7 +1319,7 @@ _02038FF0:
 	ldr r2, _02039254 ; =0x00000183
 	add r3, r2, #0x0
 	sub r3, #0x9
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	add r0, r5, #0x0
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1332,7 +1332,7 @@ _0203900A:
 	blo _02039026
 	ldr r2, _02039258 ; =0x00000179
 	mov r3, #0xc7
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	add r0, r5, #0x0
 	sub r0, #0x64
 	sub r0, r4, r0
@@ -1347,7 +1347,7 @@ _02039026:
 	lsl r2, r2, #0x4
 	add r3, r2, #0x0
 	add r3, #0x1c
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _0203925C ; =0x0000251C
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1360,7 +1360,7 @@ _02039042:
 	ldr r2, _02039264 ; =0x00000187
 	add r3, r2, #0x0
 	sub r3, #0xa
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	add r0, r5, #0x0
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1375,7 +1375,7 @@ _0203905C:
 	lsl r2, r2, #0x2
 	add r3, r2, #0x0
 	sub r3, #0x2b
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	add r0, r5, #0x0
 	sub r0, #0x64
 	sub r0, r4, r0
@@ -1390,7 +1390,7 @@ _0203907C:
 	lsl r2, r2, #0x2
 	add r3, r2, #0x0
 	sub r3, #0x9
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039268 ; =0x000023F0
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1402,7 +1402,7 @@ _02039098:
 	blo _020390B0
 	mov r2, #0x0
 	mov r3, #0x9
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _0203926C ; =0x0000238C
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1415,7 +1415,7 @@ _020390B0:
 	blo _020390CA
 	mov r2, #0xcf
 	add r3, r2, #0x0
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039270 ; =0x00002328
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1428,7 +1428,7 @@ _020390CA:
 	blo _020390E4
 	ldr r2, _02039274 ; =0x00000186
 	mov r3, #0x7
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039278 ; =0x0000230A
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1442,7 +1442,7 @@ _020390E4:
 	ldr r2, _0203927C ; =0x000001CF
 	add r3, r2, #0x0
 	add r3, #0x17
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039280 ; =0x000022F6
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1455,7 +1455,7 @@ _02039100:
 	ldr r2, _02039284 ; =0x00000185
 	add r3, r2, #0x0
 	sub r3, #0x9
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _02039288 ; =0x000022C4
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1468,7 +1468,7 @@ _0203911A:
 	ldr r2, _02039290 ; =0x000001CE
 	add r3, r2, #0x0
 	add r3, #0x17
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _0203928C ; =0x00002260
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1482,7 +1482,7 @@ _02039134:
 	ldr r2, _02039294 ; =0x00000176
 	add r3, r2, #0x0
 	sub r3, #0x29
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	mov r0, #0x7d
 	lsl r0, r0, #0x6
 	sub r0, r4, r0
@@ -1496,7 +1496,7 @@ _02039152:
 	ldr r2, _0203929C ; =0x00000172
 	add r3, r2, #0x0
 	sub r3, #0x2d
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	add r0, r5, #0x0
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1509,7 +1509,7 @@ _0203916C:
 	mov r2, #0x41
 	lsl r2, r2, #0x4
 	mov r3, #0xc7
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _020392A0 ; =0x00001388
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1522,7 +1522,7 @@ _02039186:
 	mov r2, #0x41
 	lsl r2, r2, #0x4
 	mov r3, #0xc7
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	add r0, r5, #0x0
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1535,7 +1535,7 @@ _020391A0:
 	ldr r2, _020392A8 ; =0x0000017A
 	add r3, r2, #0x0
 	sub r3, #0x1c
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	mov r0, #0xaf
 	lsl r0, r0, #0x4
 	sub r0, r4, r0
@@ -1548,7 +1548,7 @@ _020391BC:
 	blo _020391D4
 	mov r2, #0x1
 	mov r3, #0xd
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	ldr r0, _020392AC ; =0x000009C4
 	sub r0, r4, r0
 	lsl r0, r0, #0x10
@@ -1560,7 +1560,7 @@ _020391D4:
 	blo _020391EE
 	mov r2, #0xcd
 	mov r3, #0xc7
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	mov r0, #0x7d
 	lsl r0, r0, #0x4
 	sub r0, r4, r0
@@ -1570,7 +1570,7 @@ _020391D4:
 _020391EE:
 	cmp r4, #0x1
 	blo _020391FE
-	bl FUN_020392D8
+	bl LoadScriptsAndMessagesForCurrentMap
 	sub r0, r4, #0x1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -1579,7 +1579,7 @@ _020391FE:
 	ldr r2, _020392B0 ; =0x00000171
 	add r3, r2, #0x0
 	sub r3, #0x34
-	bl FUN_020392B4
+	bl LoadScriptsAndMessagesParameterized
 	mov r4, #0x0
 _0203920A:
 	add r0, r4, #0x0
@@ -1627,8 +1627,8 @@ _020392A8: .word 0x0000017A
 _020392AC: .word 0x000009C4
 _020392B0: .word 0x00000171
 
-	thumb_func_start FUN_020392B4
-FUN_020392B4: ; 0x020392B4
+	thumb_func_start LoadScriptsAndMessagesParameterized
+LoadScriptsAndMessagesParameterized: ; 0x020392B4
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r1, r2, #0x0
@@ -1646,18 +1646,18 @@ FUN_020392B4: ; 0x020392B4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020392D8
-FUN_020392D8: ; 0x020392D8
+	thumb_func_start LoadScriptsAndMessagesForCurrentMap
+LoadScriptsAndMessagesForCurrentMap: ; 0x020392D8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x1c]
 	add r4, r1, #0x0
 	ldr r0, [r0, #0x0]
-	bl FUN_0203949C
+	bl LoadScriptsForCurrentMap
 	str r0, [r4, #0x7c]
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B0
+	bl GetCurrentMapMessageBank
 	add r2, r0, #0x0
 	mov r0, #0x1
 	mov r1, #0x1a
@@ -1908,8 +1908,8 @@ _0203947C:
 	nop
 _02039480: .word FUN_020351A0 
 
-	thumb_func_start FUN_02039484
-FUN_02039484: ; 0x02039484
+	thumb_func_start ScriptRunByIndex
+ScriptRunByIndex: ; 0x02039484
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r2, [r4, #0x8]
@@ -1922,8 +1922,8 @@ FUN_02039484: ; 0x02039484
 	str r0, [r4, #0x8]
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203949C
-FUN_0203949C: ; 0x0203949C
+	thumb_func_start LoadScriptsForCurrentMap
+LoadScriptsForCurrentMap: ; 0x0203949C
 	push {r3, lr}
 	bl MapHeader_GetScrSeqReleaseNo
 	add r1, r0, #0x0
@@ -1933,15 +1933,15 @@ FUN_0203949C: ; 0x0203949C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020394B0
-FUN_020394B0: ; 0x020394B0
+	thumb_func_start GetCurrentMapMessageBank
+GetCurrentMapMessageBank: ; 0x020394B0
 	ldr r3, _020394B4 ; =MapHeader_GetMsgBank
 	bx r3
 	.balign 4
 _020394B4: .word MapHeader_GetMsgBank 
 
-	thumb_func_start FUN_020394B8
-FUN_020394B8: ; 0x020394B8
+	thumb_func_start GetVarPointer
+GetVarPointer: ; 0x020394B8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -1973,7 +1973,7 @@ _020394EC: .word 0x00007FD7
 FUN_020394F0: ; 0x020394F0
 	push {r4, lr}
 	add r4, r1, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	cmp r0, #0x0
 	beq _020394FE
 	ldrh r4, [r0, #0x0]
@@ -2455,7 +2455,7 @@ _0203987C: .word FUN_02039880
 	thumb_func_start FUN_02039880
 FUN_02039880: ; 0x02039880
 	push {r4, lr}
-	bl FUN_02038EB0
+	bl CreateScriptContext
 	add r4, r0, #0x0
 _02039888:
 	add r0, r4, #0x0

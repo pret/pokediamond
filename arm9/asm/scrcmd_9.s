@@ -63,7 +63,7 @@ _02041E68:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -80,7 +80,7 @@ _02041E88:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -88,7 +88,7 @@ _02041E88:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	ldr r0, _02041FD8 ; =0x00000233
 	add r4, #0x80
@@ -119,7 +119,7 @@ _02041ECA:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -127,7 +127,7 @@ _02041ECA:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x0]
 	add r4, #0x80
 	ldr r0, [r4, #0x0]
@@ -148,7 +148,7 @@ _02041F2E:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -156,7 +156,7 @@ _02041F2E:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	mov r0, #0x8d
 	lsl r0, r0, #0x2
@@ -189,7 +189,7 @@ _02041F68:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -205,7 +205,7 @@ _02041FB4:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -292,7 +292,7 @@ _02042058:
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -300,7 +300,7 @@ _02042058:
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r7, r0, #0x0
 	ldr r0, _0204210C ; =0x00000232
 	add r5, #0x80
@@ -373,7 +373,7 @@ FUN_02042110: ; 0x02042110
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]

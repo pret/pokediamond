@@ -60,7 +60,7 @@ FUN_020438D0: ; 0x020438D0
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_0202C000
@@ -165,7 +165,7 @@ FUN_020439B4: ; 0x020439B4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	cmp r6, #0x3
 	bhi _02043A40

@@ -14,7 +14,7 @@ FUN_020413C0: ; 0x020413C0
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02005410
@@ -303,7 +303,7 @@ FUN_020415E0: ; 0x020415E0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -330,7 +330,7 @@ FUN_02041618: ; 0x02041618
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	bl FUN_02005E28
 	cmp r0, #0x0

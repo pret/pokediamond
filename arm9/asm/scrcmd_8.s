@@ -57,7 +57,7 @@ _02041C86:
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -80,7 +80,7 @@ _02041CBC:
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -147,7 +147,7 @@ _02041D5E:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	str r5, [sp, #0x4]

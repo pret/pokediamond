@@ -48,7 +48,7 @@ ScrCmd_delay: ; 0x020399B4
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	strh r7, [r0, #0x0]
 	ldr r1, _020399E4 ; =FUN_020399E8
 	add r0, r5, #0x0
@@ -68,7 +68,7 @@ FUN_020399E8: ; 0x020399E8
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldrh r1, [r0, #0x0]
 	sub r1, r1, #0x1
 	strh r1, [r0, #0x0]
@@ -204,8 +204,8 @@ FUN_02039ACC: ; 0x02039ACC
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02039AE4
-FUN_02039AE4: ; 0x02039AE4
+	thumb_func_start compare_012
+compare_012: ; 0x02039AE4
 	cmp r0, r1
 	bhs _02039AEC
 	mov r0, #0x0
@@ -219,8 +219,8 @@ _02039AF4:
 	mov r0, #0x2
 	bx lr
 
-	thumb_func_start FUN_02039AF8
-FUN_02039AF8: ; 0x02039AF8
+	thumb_func_start ScrCmd_compare_local_to_local
+ScrCmd_compare_local_to_local: ; 0x02039AF8
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x8]
@@ -240,13 +240,13 @@ FUN_02039AF8: ; 0x02039AF8
 	ldr r1, [r1, #0x64]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02039AE4
+	bl compare_012
 	strb r0, [r4, #0x2]
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_02039B28
-FUN_02039B28: ; 0x02039B28
+	thumb_func_start ScrCmd_compare_local_to_value
+ScrCmd_compare_local_to_value: ; 0x02039B28
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x8]
@@ -261,14 +261,14 @@ FUN_02039B28: ; 0x02039B28
 	ldrb r1, [r1, #0x0]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_02039AE4
+	bl compare_012
 	strb r0, [r4, #0x2]
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039B50
-FUN_02039B50: ; 0x02039B50
+	thumb_func_start ScrCmd_compare_local_to_addr
+ScrCmd_compare_local_to_addr: ; 0x02039B50
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r2, [r4, #0x8]
@@ -283,13 +283,13 @@ FUN_02039B50: ; 0x02039B50
 	bl ScriptReadWord
 	ldrb r1, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02039AE4
+	bl compare_012
 	strb r0, [r4, #0x2]
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02039B78
-FUN_02039B78: ; 0x02039B78
+	thumb_func_start ScrCmd_compare_addr_to_local
+ScrCmd_compare_addr_to_local: ; 0x02039B78
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadWord
@@ -303,14 +303,14 @@ FUN_02039B78: ; 0x02039B78
 	ldr r1, [r1, #0x64]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02039AE4
+	bl compare_012
 	strb r0, [r4, #0x2]
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039BA0
-FUN_02039BA0: ; 0x02039BA0
+	thumb_func_start ScrCmd_compare_addr_to_value
+ScrCmd_compare_addr_to_value: ; 0x02039BA0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadWord
@@ -319,13 +319,13 @@ FUN_02039BA0: ; 0x02039BA0
 	add r1, r2, #0x1
 	str r1, [r4, #0x8]
 	ldrb r1, [r2, #0x0]
-	bl FUN_02039AE4
+	bl compare_012
 	strb r0, [r4, #0x2]
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_02039BBC
-FUN_02039BBC: ; 0x02039BBC
+	thumb_func_start ScrCmd_compare_addr_to_addr
+ScrCmd_compare_addr_to_addr: ; 0x02039BBC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadWord
@@ -334,14 +334,14 @@ FUN_02039BBC: ; 0x02039BBC
 	bl ScriptReadWord
 	ldrb r1, [r0, #0x0]
 	add r0, r4, #0x0
-	bl FUN_02039AE4
+	bl compare_012
 	strb r0, [r5, #0x2]
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039BDC
-FUN_02039BDC: ; 0x02039BDC
+	thumb_func_start ScrCmd_compare_var_to_value
+ScrCmd_compare_var_to_value: ; 0x02039BDC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -349,20 +349,20 @@ FUN_02039BDC: ; 0x02039BDC
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldrh r5, [r0, #0x0]
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02039AE4
+	bl compare_012
 	strb r0, [r4, #0x2]
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039C08
-FUN_02039C08: ; 0x02039C08
+	thumb_func_start ScrCmd_compare_var_to_var
+ScrCmd_compare_var_to_var: ; 0x02039C08
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -370,7 +370,7 @@ FUN_02039C08: ; 0x02039C08
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -378,11 +378,11 @@ FUN_02039C08: ; 0x02039C08
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r1, r0, #0x0
 	ldrh r0, [r4, #0x0]
 	ldrh r1, [r1, #0x0]
-	bl FUN_02039AE4
+	bl compare_012
 	strb r0, [r5, #0x2]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -405,7 +405,7 @@ FUN_02039C40: ; 0x02039C40
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02038EB0
+	bl CreateScriptContext
 	str r0, [r6, #0x0]
 	ldrb r0, [r4, #0x0]
 	add r0, r0, #0x1
@@ -438,7 +438,7 @@ FUN_02039C78: ; 0x02039C78
 	mov r0, #0x1
 	strb r0, [r6, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02038EB0
+	bl CreateScriptContext
 	str r0, [r7, #0x0]
 	ldrb r0, [r4, #0x0]
 	ldr r1, _02039CC4 ; =FUN_02039CC8
@@ -704,14 +704,14 @@ FUN_02039E84: ; 0x02039E84
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldrh r1, [r6, #0x0]
 	add r0, r5, #0x0
@@ -731,7 +731,7 @@ FUN_02039EC0: ; 0x02039EC0
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x0]
 	add r0, r4, #0x0
@@ -805,7 +805,7 @@ FUN_02039F58: ; 0x02039F58
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -828,7 +828,7 @@ FUN_02039F88: ; 0x02039F88
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -851,7 +851,7 @@ FUN_02039FB8: ; 0x02039FB8
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -869,14 +869,14 @@ FUN_02039FDC: ; 0x02039FDC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldrh r0, [r0, #0x0]
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
@@ -892,7 +892,7 @@ FUN_0203A00C: ; 0x0203A00C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -2053,7 +2053,7 @@ FUN_0203A94C: ; 0x0203A94C
 	lsl r1, r1, #0x10
 	add r0, r5, #0x0
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x60]
 	bl MOD05_021E8144
@@ -2146,7 +2146,7 @@ FUN_0203AA0C: ; 0x0203AA0C
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, _0203AA88 ; =gMain
 	ldr r1, _0203AA8C ; =0x0000FFFF
@@ -2276,7 +2276,7 @@ FUN_0203AB00: ; 0x0203AB00
 	lsl r1, r1, #0x10
 	add r0, r6, #0x0
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
@@ -2370,7 +2370,7 @@ FUN_0203AB8C: ; 0x0203AB8C
 	str r0, [sp, #0x24]
 	ldr r1, [sp, #0x24]
 	add r0, r6, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x28]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -2435,7 +2435,7 @@ FUN_0203AC14: ; 0x0203AC14
 	str r0, [sp, #0x24]
 	ldr r1, [sp, #0x24]
 	add r0, r6, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x28]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -2544,7 +2544,7 @@ FUN_0203AD2C: ; 0x0203AD2C
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldrh r1, [r0, #0x0]
 	ldr r0, _0203AD50 ; =0x0000EEEE
 	cmp r1, r0
@@ -2585,7 +2585,7 @@ FUN_0203AD78: ; 0x0203AD78
 	lsl r1, r1, #0x10
 	add r0, r5, #0x0
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2649,7 +2649,7 @@ FUN_0203ADC4: ; 0x0203ADC4
 	str r0, [sp, #0x24]
 	ldr r1, [sp, #0x24]
 	add r0, r6, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x28]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -2714,7 +2714,7 @@ FUN_0203AE4C: ; 0x0203AE4C
 	str r0, [sp, #0x24]
 	ldr r1, [sp, #0x24]
 	add r0, r6, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x28]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -3571,14 +3571,14 @@ FUN_0203B574: ; 0x0203B574
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
 	bl FUN_02055320
@@ -3613,14 +3613,14 @@ FUN_0203B5B8: ; 0x0203B5B8
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02058B2C
@@ -3641,7 +3641,7 @@ FUN_0203B618: ; 0x0203B618
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -3811,7 +3811,7 @@ FUN_0203B790: ; 0x0203B790
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
@@ -3858,7 +3858,7 @@ FUN_0203B7F0: ; 0x0203B7F0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -3887,7 +3887,7 @@ FUN_0203B81C: ; 0x0203B81C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -3947,7 +3947,7 @@ FUN_0203B8A0: ; 0x0203B8A0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -4034,7 +4034,7 @@ FUN_0203B968: ; 0x0203B968
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -4131,7 +4131,7 @@ FUN_0203BA3C: ; 0x0203BA3C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -4139,7 +4139,7 @@ FUN_0203BA3C: ; 0x0203BA3C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -4218,7 +4218,7 @@ FUN_0203BAF4: ; 0x0203BAF4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -4262,7 +4262,7 @@ FUN_0203BB34: ; 0x0203BB34
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -4487,7 +4487,7 @@ FUN_0203BCD8: ; 0x0203BCD8
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldr r1, [r4, #0x0]
 	ldr r1, [r1, #0x4]
 	strh r1, [r0, #0x0]
@@ -4504,7 +4504,7 @@ FUN_0203BD08: ; 0x0203BD08
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	bl FUN_02031190
 	strh r0, [r4, #0x0]
@@ -4706,7 +4706,7 @@ FUN_0203BE9C: ; 0x0203BE9C
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldr r0, [r4, #0x0]
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x3
@@ -4733,7 +4733,7 @@ FUN_0203BECC: ; 0x0203BECC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	add r1, r6, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x74]
 	ldr r1, [r4, #0x0]
@@ -4786,7 +4786,7 @@ FUN_0203BF2C: ; 0x0203BF2C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -4826,7 +4826,7 @@ FUN_0203BF84: ; 0x0203BF84
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r1, r5, #0x0
 	add r1, #0x80
 	add r6, r0, #0x0
@@ -4875,7 +4875,7 @@ FUN_0203BFEC: ; 0x0203BFEC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r1, r5, #0x0
 	add r1, #0x80
 	add r6, r0, #0x0
@@ -4918,7 +4918,7 @@ FUN_0203C054: ; 0x0203C054
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -4948,7 +4948,7 @@ FUN_0203C090: ; 0x0203C090
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -5084,7 +5084,7 @@ FUN_0203C1AC: ; 0x0203C1AC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -5312,7 +5312,7 @@ FUN_0203C368: ; 0x0203C368
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -5350,7 +5350,7 @@ FUN_0203C3C8: ; 0x0203C3C8
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x74]
 	bl FUN_0206F3D8
@@ -5464,7 +5464,7 @@ FUN_0203C4B0: ; 0x0203C4B0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -5495,7 +5495,7 @@ FUN_0203C4F0: ; 0x0203C4F0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	str r1, [sp, #0x4]
@@ -5538,7 +5538,7 @@ FUN_0203C520: ; 0x0203C520
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x5
@@ -5567,7 +5567,7 @@ FUN_0203C58C: ; 0x0203C58C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	str r2, [sp, #0x4]
@@ -5597,7 +5597,7 @@ FUN_0203C5BC: ; 0x0203C5BC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -5605,7 +5605,7 @@ FUN_0203C5BC: ; 0x0203C5BC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r2, r0, #0x0
 	ldr r0, _0203C610 ; =0x0000FFFF
 	add r5, #0x80
@@ -5636,7 +5636,7 @@ FUN_0203C614: ; 0x0203C614
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -5644,7 +5644,7 @@ FUN_0203C614: ; 0x0203C614
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -5652,7 +5652,7 @@ FUN_0203C614: ; 0x0203C614
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r3, r0, #0x0
 	ldr r0, _0203C67C ; =0x0000FFFF
 	add r5, #0x80
@@ -5859,7 +5859,7 @@ FUN_0203C7F4: ; 0x0203C7F4
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldr r1, [r5, #0x0]
 	strh r1, [r0, #0x0]
 	mov r0, #0x0
@@ -5874,7 +5874,7 @@ FUN_0203C820: ; 0x0203C820
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	ldr r1, [r4, #0x0]
 	ldr r1, [r1, #0x1c]
@@ -6125,7 +6125,7 @@ FUN_0203CA2C: ; 0x0203CA2C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -6248,7 +6248,7 @@ FUN_0203CB20: ; 0x0203CB20
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -6297,14 +6297,14 @@ FUN_0203CB70: ; 0x0203CB70
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x2
@@ -6325,7 +6325,7 @@ FUN_0203CBBC: ; 0x0203CBBC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -6463,7 +6463,7 @@ FUN_0203CCF8: ; 0x0203CCF8
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	bl MOD06_022407DC
 	cmp r0, #0x0
@@ -6534,7 +6534,7 @@ FUN_0203CD90: ; 0x0203CD90
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	bl MOD06_02240844
 	cmp r0, #0x0
@@ -6659,7 +6659,7 @@ FUN_0203CE8C: ; 0x0203CE8C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -6695,7 +6695,7 @@ FUN_0203CEBC: ; 0x0203CEBC
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r3, r0, #0x0
 	ldr r0, [r7, #0x0]
 	add r1, r6, #0x0
@@ -6721,7 +6721,7 @@ FUN_0203CF04: ; 0x0203CF04
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_020244A4
@@ -6744,7 +6744,7 @@ FUN_0203CF34: ; 0x0203CF34
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0202445C
@@ -6767,7 +6767,7 @@ FUN_0203CF64: ; 0x0203CF64
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02024404
@@ -6790,7 +6790,7 @@ FUN_0203CF94: ; 0x0203CF94
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_020243C8
@@ -6829,7 +6829,7 @@ FUN_0203CFC8: ; 0x0203CFC8
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	cmp r6, #0x0
 	bne _0203D02E
@@ -7001,7 +7001,7 @@ FUN_0203D150: ; 0x0203D150
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl MOD05_021F4D80
@@ -7062,7 +7062,7 @@ FUN_0203D1C0: ; 0x0203D1C0
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0202280C
@@ -7105,7 +7105,7 @@ FUN_0203D214: ; 0x0203D214
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl MOD05_021E85FC
@@ -7136,7 +7136,7 @@ FUN_0203D248: ; 0x0203D248
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0204BEC8
@@ -7185,7 +7185,7 @@ FUN_0203D2A4: ; 0x0203D2A4
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_0204C1A8
@@ -7255,7 +7255,7 @@ FUN_0203D33C: ; 0x0203D33C
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl FUN_0205296C
@@ -7273,7 +7273,7 @@ FUN_0203D36C: ; 0x0203D36C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -7429,7 +7429,7 @@ FUN_0203D490: ; 0x0203D490
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -7460,7 +7460,7 @@ FUN_0203D4E8: ; 0x0203D4E8
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -7497,7 +7497,7 @@ FUN_0203D528: ; 0x0203D528
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x0]
 	bl FUN_02058448
@@ -7531,7 +7531,7 @@ FUN_0203D560: ; 0x0203D560
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x0]
 	bl FUN_02058448
@@ -7571,7 +7571,7 @@ FUN_0203D5CC: ; 0x0203D5CC
 	lsl r1, r1, #0x10
 	add r0, r5, #0x0
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	cmp r4, #0x0
 	bne _0203D5F0
 	mov r0, #0x0
@@ -7664,7 +7664,7 @@ FUN_0203D688: ; 0x0203D688
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -7709,7 +7709,7 @@ FUN_0203D6E0: ; 0x0203D6E0
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -7797,7 +7797,7 @@ FUN_0203D774: ; 0x0203D774
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_020239BC
@@ -7841,7 +7841,7 @@ FUN_0203D7DC: ; 0x0203D7DC
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_020239BC
@@ -7924,7 +7924,7 @@ FUN_0203D8A0: ; 0x0203D8A0
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_020239CC
@@ -8027,7 +8027,7 @@ FUN_0203D958: ; 0x0203D958
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -8575,7 +8575,7 @@ FUN_0203DDC0: ; 0x0203DDC0
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl MOD18_0224CA2C
@@ -8762,7 +8762,7 @@ FUN_0203DF38: ; 0x0203DF38
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl FUN_02025838
@@ -8797,7 +8797,7 @@ FUN_0203DF84: ; 0x0203DF84
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -8815,7 +8815,7 @@ FUN_0203DFA8: ; 0x0203DFA8
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -8840,7 +8840,7 @@ FUN_0203DFE0: ; 0x0203DFE0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -8868,7 +8868,7 @@ FUN_0203E018: ; 0x0203E018
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -9185,7 +9185,7 @@ FUN_0203E29C: ; 0x0203E29C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -9225,7 +9225,7 @@ FUN_0203E2F8: ; 0x0203E2F8
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -9285,7 +9285,7 @@ FUN_0203E38C: ; 0x0203E38C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -9312,7 +9312,7 @@ FUN_0203E3D0: ; 0x0203E3D0
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
@@ -9340,7 +9340,7 @@ FUN_0203E408: ; 0x0203E408
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
@@ -9421,7 +9421,7 @@ FUN_0203E4B0: ; 0x0203E4B0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -9440,7 +9440,7 @@ FUN_0203E4D8: ; 0x0203E4D8
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -9477,13 +9477,13 @@ FUN_0203E510: ; 0x0203E510
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	add r1, r4, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	add r1, r6, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -9651,7 +9651,7 @@ FUN_0203E684: ; 0x0203E684
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -9681,7 +9681,7 @@ FUN_0203E6C4: ; 0x0203E6C4
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -9710,7 +9710,7 @@ FUN_0203E6FC: ; 0x0203E6FC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -9749,7 +9749,7 @@ FUN_0203E744: ; 0x0203E744
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0205F688
@@ -9772,7 +9772,7 @@ FUN_0203E774: ; 0x0203E774
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
 	bl FUN_020244A4
@@ -9849,7 +9849,7 @@ FUN_0203E81C: ; 0x0203E81C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -9918,7 +9918,7 @@ FUN_0203E894: ; 0x0203E894
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl MOD06_022488EC
@@ -9941,7 +9941,7 @@ FUN_0203E8C4: ; 0x0203E8C4
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl MOD06_022488F4
@@ -10023,7 +10023,7 @@ FUN_0203E968: ; 0x0203E968
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	mov r0, #0x0
 	strh r0, [r6, #0x0]
@@ -10067,7 +10067,7 @@ FUN_0203E9CC: ; 0x0203E9CC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -10135,7 +10135,7 @@ FUN_0203EA68: ; 0x0203EA68
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, sp, #0x0
 	bl FUN_020126B4
@@ -10155,7 +10155,7 @@ FUN_0203EA90: ; 0x0203EA90
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x74]
 	bl MOD06_022411F4
@@ -10171,7 +10171,7 @@ FUN_0203EAB0: ; 0x0203EAB0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -10179,7 +10179,7 @@ FUN_0203EAB0: ; 0x0203EAB0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -10299,7 +10299,7 @@ FUN_0203EBC8: ; 0x0203EBC8
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r1, #GAME_VERSION
 	strh r1, [r0, #0x0]
 	mov r0, #0x0
@@ -10323,7 +10323,7 @@ FUN_0203EBE4: ; 0x0203EBE4
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r6, #0xc]
 	bl FUN_02022510
@@ -10409,7 +10409,7 @@ FUN_0203ECAC: ; 0x0203ECAC
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02026CB4
@@ -10506,7 +10506,7 @@ FUN_0203ED70: ; 0x0203ED70
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -10603,7 +10603,7 @@ FUN_0203EE28: ; 0x0203EE28
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -10673,7 +10673,7 @@ FUN_0203EE98: ; 0x0203EE98
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -10755,7 +10755,7 @@ FUN_0203EF58: ; 0x0203EF58
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
@@ -10886,7 +10886,7 @@ FUN_0203F058: ; 0x0203F058
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -11014,7 +11014,7 @@ FUN_0203F174: ; 0x0203F174
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -11035,7 +11035,7 @@ FUN_0203F19C: ; 0x0203F19C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
@@ -11110,7 +11110,7 @@ FUN_0203F234: ; 0x0203F234
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldr r1, _0203F250 ; =gUnk021C4918
 	ldrb r1, [r1, #0x6]
 	strh r1, [r0, #0x0]
@@ -11205,7 +11205,7 @@ FUN_0203F2E4: ; 0x0203F2E4
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0205F6C8
@@ -11229,7 +11229,7 @@ FUN_0203F31C: ; 0x0203F31C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -11300,7 +11300,7 @@ FUN_0203F3AC: ; 0x0203F3AC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -11348,7 +11348,7 @@ FUN_0203F418: ; 0x0203F418
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -11380,7 +11380,7 @@ FUN_0203F44C: ; 0x0203F44C
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0205F710
@@ -11404,7 +11404,7 @@ FUN_0203F484: ; 0x0203F484
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	ldr r5, [r5, #0x0]
 	add r4, r0, #0x0
@@ -11449,7 +11449,7 @@ FUN_0203F4D8: ; 0x0203F4D8
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0202471C
@@ -11576,7 +11576,7 @@ FUN_0203F5D4: ; 0x0203F5D4
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0205F720
@@ -11599,7 +11599,7 @@ FUN_0203F604: ; 0x0203F604
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0205F740
@@ -11622,7 +11622,7 @@ FUN_0203F634: ; 0x0203F634
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0205F760
@@ -11641,7 +11641,7 @@ FUN_0203F664: ; 0x0203F664
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r2, #0x0
@@ -11703,7 +11703,7 @@ FUN_0203F6E4: ; 0x0203F6E4
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -11737,7 +11737,7 @@ FUN_0203F720: ; 0x0203F720
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -11764,7 +11764,7 @@ FUN_0203F760: ; 0x0203F760
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -11847,7 +11847,7 @@ FUN_0203F80C: ; 0x0203F80C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -11855,7 +11855,7 @@ FUN_0203F80C: ; 0x0203F80C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -11906,7 +11906,7 @@ FUN_0203F880: ; 0x0203F880
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	cmp r4, #0x64
 	bls _0203F8A2
@@ -11945,7 +11945,7 @@ FUN_0203F8C0: ; 0x0203F8C0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -11992,7 +11992,7 @@ FUN_0203F924: ; 0x0203F924
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0205F6A8
@@ -12037,7 +12037,7 @@ FUN_0203F988: ; 0x0203F988
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -12057,7 +12057,7 @@ FUN_0203F9B0: ; 0x0203F9B0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -12113,7 +12113,7 @@ FUN_0203FA14: ; 0x0203FA14
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r1, #0x0
 	strh r1, [r0, #0x0]
 	ldr r1, _0203FA54 ; =0x0000012A
@@ -12140,7 +12140,7 @@ FUN_0203FA58: ; 0x0203FA58
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -12257,7 +12257,7 @@ FUN_0203FB64: ; 0x0203FB64
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0xf
@@ -12378,7 +12378,7 @@ FUN_0203FC58: ; 0x0203FC58
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02065078

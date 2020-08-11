@@ -34,14 +34,14 @@ FUN_020453A0: ; 0x020453A0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldr r1, _020453EC ; =UNK_020F4528
 	lsl r2, r4, #0x2
 	ldrh r1, [r1, r2]

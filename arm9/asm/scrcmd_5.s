@@ -23,7 +23,7 @@ FUN_02041194: ; 0x02041194
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0205F5D8
@@ -48,7 +48,7 @@ FUN_020411C4: ; 0x020411C4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0xc]
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -56,7 +56,7 @@ FUN_020411C4: ; 0x020411C4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -64,7 +64,7 @@ FUN_020411C4: ; 0x020411C4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl ScriptReadHalfword

@@ -30,7 +30,7 @@ FUN_02045958: ; 0x02045958
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02026CC4
@@ -62,7 +62,7 @@ FUN_020459AC: ; 0x020459AC
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -94,7 +94,7 @@ FUN_020459E8: ; 0x020459E8
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02026CC4
@@ -126,7 +126,7 @@ FUN_02045A3C: ; 0x02045A3C
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -158,7 +158,7 @@ FUN_02045A78: ; 0x02045A78
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02026CC4
@@ -190,7 +190,7 @@ FUN_02045ACC: ; 0x02045ACC
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -217,7 +217,7 @@ FUN_02045B08: ; 0x02045B08
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -244,7 +244,7 @@ FUN_02045B44: ; 0x02045B44
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -275,7 +275,7 @@ FUN_02045B80: ; 0x02045B80
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r0, r4, #0x0
 	bl FUN_02026CC4
 	mov r0, #0x0
@@ -303,7 +303,7 @@ FUN_02045BC8: ; 0x02045BC8
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -330,7 +330,7 @@ FUN_02045C04: ; 0x02045C04
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -357,7 +357,7 @@ FUN_02045C40: ; 0x02045C40
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -390,7 +390,7 @@ FUN_02045C7C: ; 0x02045C7C
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02026CC4
@@ -423,7 +423,7 @@ FUN_02045CD4: ; 0x02045CD4
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -450,7 +450,7 @@ FUN_02045D10: ; 0x02045D10
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -477,7 +477,7 @@ FUN_02045D4C: ; 0x02045D4C
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
