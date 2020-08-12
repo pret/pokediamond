@@ -1,7 +1,6 @@
 #ifndef POKEDIAMOND_SAVE_BLOCK_2_H
 #define POKEDIAMOND_SAVE_BLOCK_2_H
 
-#include "pokemon.h"
 #include "MATH_crc.h"
 
 struct Options {
@@ -32,6 +31,8 @@ struct PlayerData
     /* 0x1C */ u8 field_1C;
     /* 0x1D */ u8 field_1D_0:1;
                u8 field_1D_1:1;
+               u8 field_1D_pad:6;
+    /* 0x1E */ u8 padding_1E[2];
 };
 
 struct PlayerDataSav
