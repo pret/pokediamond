@@ -3,7 +3,7 @@
 
 #include "FS_overlay.h"
 #include "SPI_pm.h"
-#include "structs.h"
+#include "save_block_2.h"
 
 struct UnkStruct_02006234;
 
@@ -36,7 +36,7 @@ struct Unk2106FA0
     struct Unk21DBE18 * unk14;
     s32 unk18;
     s32 unk1C;
-    struct UnkStruct_021C59C8 * unk20;
+    struct SaveBlock2 * unk20;
 };
 
 struct Unk21C4818

@@ -278,7 +278,7 @@ _02033AA6:
 	bne _02033AEC
 	ldr r1, [sp, #0x4]
 	add r0, r6, #0x0
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	str r0, [sp, #0xc]
 	ldr r2, [sp, #0xc]
 	add r0, r4, #0x0
@@ -287,14 +287,14 @@ _02033AA6:
 	ldr r0, [sp, #0xc]
 	bl String_dtor
 	add r0, r6, #0x0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	add r3, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	mov r2, #0x8
 	bl FUN_020282E8
 	add r0, r6, #0x0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	add r3, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
@@ -311,14 +311,14 @@ _02033AEC:
 	cmp r0, #0x2
 	bne _02033B22
 	add r0, r6, #0x0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	add r3, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	mov r2, #0x8
 	bl FUN_020282E8
 	add r0, r6, #0x0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	add r3, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0

@@ -1068,7 +1068,7 @@ _0222FB52:
 	add r7, r0, #0
 	ldr r0, [r5, #0x48]
 	mov r1, #5
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	mov r1, #7
 	lsl r1, r1, #6
 	ldr r2, [r4, r1]
@@ -1123,7 +1123,7 @@ _0222FBA4:
 	add r0, r4, r6
 	ldr r0, [r0, #0x48]
 	mov r1, #5
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	mov r1, #7
 	lsl r1, r1, #6
 	ldr r2, [r4, r1]
@@ -1136,7 +1136,7 @@ _0222FBA4:
 	add r0, r4, r5
 	ldr r0, [r0, #0x48]
 	mov r1, #5
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	mov r1, #7
 	lsl r1, r1, #6
 	ldr r3, [r4, r1]
@@ -1325,7 +1325,7 @@ _0222FD60:
 	add r0, #0xf8
 	ldr r0, [r0]
 	mov r1, #5
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	ldr r1, [sp, #8]
 	add r4, r4, #1
 	lsl r1, r1, #2
@@ -1384,7 +1384,7 @@ _0222FDBE:
 	add r0, #0xf8
 	ldr r0, [r0]
 	mov r1, #5
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	ldr r1, [sp, #0xc]
 	lsl r1, r1, #2
 	add r1, r6, r1
@@ -1396,7 +1396,7 @@ _0222FDBE:
 	add r0, #0xf8
 	ldr r0, [r0]
 	mov r1, #5
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	lsl r1, r5, #2
 	add r1, r6, r1
 	str r0, [r1, #0x14]
@@ -2043,11 +2043,11 @@ MOD11_02230218: ; 0x02230218
 MOD11_0223021C: ; 0x0223021C
 	lsl r1, r1, #2
 	add r0, r0, r1
-	ldr r3, _02230228 ; =FUN_020239CC
+	ldr r3, _02230228 ; =PlayerData_GetTrainerGender
 	ldr r0, [r0, #0x48]
 	bx r3
 	nop
-_02230228: .word FUN_020239CC
+_02230228: .word PlayerData_GetTrainerGender
 
 	thumb_func_start MOD11_0223022C
 MOD11_0223022C: ; 0x0223022C
@@ -4690,7 +4690,7 @@ MOD11_0223158C: ; 0x0223158C
 	add r6, r1, #0
 	add r5, r0, #0
 	add r0, r6, #0
-	bl FUN_020239F4
+	bl PlayerData_CountBadges
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	add r0, r5, #0
@@ -4701,7 +4701,7 @@ MOD11_0223158C: ; 0x0223158C
 	add r4, r1, #0
 	mul r4, r0
 	add r0, r6, #0
-	bl FUN_02023A10
+	bl PlayerData_GetMoney
 	cmp r4, r0
 	bls _022315B8
 	add r4, r0, #0
@@ -11889,7 +11889,7 @@ _02234E2E:
 	mov r1, #0
 	bl MOD11_022301D4
 	add r1, r4, #0
-	bl FUN_02023A30
+	bl PlayerData_AddMoney
 	b _02234E56
 _02234E3E:
 	ldr r0, [r5, #0x68]
@@ -11900,7 +11900,7 @@ _02234E3E:
 	mov r1, #0
 	bl MOD11_022301D4
 	add r1, r4, #0
-	bl FUN_02023A54
+	bl PlayerData_SubMoney
 _02234E56:
 	cmp r4, #0
 	beq _02234E62
@@ -12639,7 +12639,7 @@ _02235416:
 	mov r1, #0x13
 	lsl r1, r1, #4
 	ldr r1, [r4, r1]
-	bl FUN_02023A30
+	bl PlayerData_AddMoney
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -33429,7 +33429,7 @@ _0223F8AE:
 	pop {r3, r4, r5, r6, r7, pc}
 _0223F8C0:
 	add r0, r7, #0
-	bl FUN_020239F4
+	bl PlayerData_CountBadges
 	cmp r0, #8
 	blt _0223F8D0
 	add sp, #0x20
@@ -33438,19 +33438,19 @@ _0223F8C0:
 _0223F8D0:
 	add r0, r7, #0
 	mov r5, #0xa
-	bl FUN_020239F4
+	bl PlayerData_CountBadges
 	cmp r0, #2
 	blt _0223F8DE
 	mov r5, #0x1e
 _0223F8DE:
 	add r0, r7, #0
-	bl FUN_020239F4
+	bl PlayerData_CountBadges
 	cmp r0, #4
 	blt _0223F8EA
 	mov r5, #0x32
 _0223F8EA:
 	add r0, r7, #0
-	bl FUN_020239F4
+	bl PlayerData_CountBadges
 	cmp r0, #6
 	blt _0223F8F6
 	mov r5, #0x46
@@ -57106,10 +57106,10 @@ MOD11_0224ADB8: ; 0x0224ADB8
 	mov r1, #0
 	bl MOD11_022301D4
 	add r4, r0, #0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	add r7, r0, #0
 	add r0, r4, #0
 	bl FUN_0202398C
@@ -57152,10 +57152,10 @@ MOD11_0224AE14: ; 0x0224AE14
 	mov r1, #0
 	bl MOD11_022301D4
 	add r4, r0, #0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	add r7, r0, #0
 	add r0, r4, #0
 	bl FUN_0202398C

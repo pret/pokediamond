@@ -2337,7 +2337,7 @@ _0202998E:
 	bne _020299A8
 	ldr r1, _020299BC ; =UNK_020EE96A
 	ldrh r1, [r1, r3]
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _020299B2
 	add r0, r4, #0x0

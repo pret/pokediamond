@@ -231,15 +231,15 @@ MOD59_021D76C0: ; 0x021D76C0
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	ldr r5, [r4]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	ldr r1, [r4, #0x70]
 	ldr r1, [r1, #0x18]
-	bl FUN_0202397C
+	bl PlayerName_StringToFlat
 	ldr r0, [r4, #4]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	ldr r1, [r4, #0x70]
 	ldr r1, [r1, #4]
-	bl FUN_020239C8
+	bl PlayerData_SetTrainerGender
 	ldr r0, [r4, #4]
 	bl FUN_02024EB4
 	ldr r1, [r4, #0x74]

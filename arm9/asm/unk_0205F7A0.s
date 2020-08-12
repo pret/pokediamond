@@ -71,8 +71,8 @@ _0205F806:
 _0205F812:
 	ldr r0, [sp, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_GetPlayerDataPtr
+	bl PlayerData_GetTrainerGender
 	str r0, [r5, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]

@@ -19,7 +19,7 @@ UNK_020EE6E0: ; 0x020EE6E0
 	.global UNK_020EE700
 UNK_020EE700: ; 0x020EE700
 	.word 0x00, 0x00, FUN_0202376C, FUN_02023770
-	.word 0x01, 0x00, FUN_020238C4, FUN_020238C8
+	.word 0x01, 0x00, Sav2_PlayerData_sizeof, Sav2_PlayerData_init
 	.word 0x02, 0x00, SavArray_Party_sizeof, SavArray_Party_init
 	.word 0x03, 0x00, FUN_0206EB80, FUN_0206EBA0
 	.word 0x04, 0x00, SavArray_Flags_sizeof, SavArray_Flags_init

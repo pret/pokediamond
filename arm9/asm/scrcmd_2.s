@@ -188,9 +188,9 @@ _0203FD10:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r5, #0x0
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x1
 	bne _0203FD2C
 	add r0, r6, #0x1

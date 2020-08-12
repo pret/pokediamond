@@ -118,7 +118,7 @@ FUN_020443A8: ; 0x020443A8
 	ldr r5, [r0, #0x0]
 	add r0, r5, #0x0
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -145,7 +145,7 @@ FUN_020443A8: ; 0x020443A8
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r7, #0x0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	cmp r5, r0
@@ -167,7 +167,7 @@ FUN_02044414: ; 0x02044414
 	add r0, #0x80
 	ldr r4, [r0, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword

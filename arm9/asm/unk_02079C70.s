@@ -4781,10 +4781,10 @@ FUN_0207C2A4: ; 0x0207C2A4
 	bl FUN_0202398C
 	str r0, [r5, #0x8]
 	add r0, r4, #0x0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	str r0, [r5, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	strb r0, [r5, #0x10]
 	pop {r3-r5, pc}
 

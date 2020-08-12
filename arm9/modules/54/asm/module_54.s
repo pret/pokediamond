@@ -2799,13 +2799,13 @@ _021D8B2A:
 	ldr r0, [r7, r0]
 	cmp r0, #0
 	beq _021D8BE4
-	bl FUN_020239C0
+	bl PlayerData_GetTrainerID_VisibleHalf
 	str r0, [sp, #0x24]
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	ldr r1, [r4, #0x2c]
-	bl FUN_02023990
+	bl PlayerName_FlatToString
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #1
@@ -3136,7 +3136,7 @@ _021D8D9E:
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	str r0, [sp, #0xc]
 	mov r0, #0xd9
 	lsl r0, r0, #2
@@ -3187,7 +3187,7 @@ _021D8E06:
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	add r1, r0, #0
 	mov r0, #0x8b
 	lsl r0, r0, #2
@@ -3718,7 +3718,7 @@ MOD54_021D91C4: ; 0x021D91C4
 	str r3, [sp, #4]
 	add r5, r1, #0
 	str r2, [sp]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	mov r7, #0
@@ -3730,10 +3730,10 @@ _021D91DC:
 	mov r2, #0x48
 	bl MIi_CpuClearFast
 	add r0, r4, #0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	str r0, [r5]
 	add r0, r4, #0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	strb r0, [r5, #4]
 	mov r0, #GAME_VERSION
 	strb r0, [r5, #5]

@@ -76,10 +76,10 @@ FUN_0206C004: ; 0x0206C004
 
 	thumb_func_start FUN_0206C008
 FUN_0206C008: ; 0x0206C008
-	ldr r3, _0206C00C ; =FUN_02023924
+	ldr r3, _0206C00C ; =PlayerData_sizeof
 	bx r3
 	.balign 4
-_0206C00C: .word FUN_02023924
+_0206C00C: .word PlayerData_sizeof
 
 	thumb_func_start FUN_0206C010
 FUN_0206C010: ; 0x0206C010
@@ -418,7 +418,7 @@ _0206C238:
 	mov r0, #0x0
 	pop {r4, pc}
 _0206C246:
-	bl FUN_02023924
+	bl PlayerData_sizeof
 	add r4, #0x20
 	add r2, r0, #0x0
 	mov r0, #0x19
@@ -995,7 +995,7 @@ FUN_0206C66C: ; 0x0206C66C
 	add r0, r4, #0x0
 	bl CopyU16StringArray
 	add r0, r6, #0x0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	str r0, [r4, #0x10]
 	add r0, r6, #0x0
 	bl FUN_02023A70
@@ -1004,7 +1004,7 @@ FUN_0206C66C: ; 0x0206C66C
 	bl FUN_02023A68
 	strb r0, [r4, #0x15]
 	add r0, r6, #0x0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	strb r0, [r4, #0x16]
 	mov r0, #0x0
 	add r1, r4, #0x0

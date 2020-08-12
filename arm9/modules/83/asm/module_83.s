@@ -976,7 +976,7 @@ MOD83_0222DD24: ; 0x0222DD24
 	str r0, [sp, #0x28]
 	ldr r0, [sp, #0x10]
 	ldr r0, [r0, #0xc]
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	cmp r0, #1
 	bne _0222DD58
 	ldr r0, _0222DEB8 ; =0x0003040F
@@ -1948,7 +1948,7 @@ MOD83_0222E48C: ; 0x0222E48C
 	add r0, r0, #4
 	str r1, [r4, r0]
 	ldr r0, [r4, #4]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #4]
 	bl FUN_02024DA0
@@ -1960,7 +1960,7 @@ MOD83_0222E48C: ; 0x0222E48C
 	bl FUN_02024D64
 	str r0, [r4, #0x4c]
 	ldr r0, [r4, #0xc]
-	bl FUN_020239F4
+	bl PlayerData_CountBadges
 	str r0, [r4, #0x50]
 	mov r0, #0x45
 	mov r1, #0xf
@@ -2476,7 +2476,7 @@ _0222E920:
 	cmp r6, #8
 	blt _0222E920
 	ldr r0, [r7, #0x10]
-	bl FUN_020239C0
+	bl PlayerData_GetTrainerID_VisibleHalf
 	add r1, r0, #0
 	ldr r0, _0222E94C ; =0x0223B870
 	bl MOD83_0222E8A4
@@ -2903,7 +2903,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	mov r1, #0
 	bl FUN_0200ABC0
 	ldr r0, [r5, #0x10]
-	bl FUN_020239C0
+	bl PlayerData_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -3050,7 +3050,7 @@ MOD83_0222EDF8: ; 0x0222EDF8
 	bl FUN_0200628C
 	ldr r0, [r0, #8]
 	str r0, [r4, #8]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #8]
 	bl FUN_02024DA0
@@ -11111,7 +11111,7 @@ _02232EE6:
 	bl ReadMsgData_ExpandPlaceholders
 	str r0, [sp, #0x20]
 	add r0, r7, #0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	cmp r0, #0
 	str r5, [sp]
 	bne _02232F30
@@ -11144,7 +11144,7 @@ _02232F4A:
 	ldr r0, [sp, #0x20]
 	bl String_dtor
 	add r0, r7, #0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -18534,7 +18534,7 @@ MOD83_02236764: ; 0x02236764
 	bl FUN_0200628C
 	ldr r0, [r0, #8]
 	str r0, [r4, #0x10]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r4, #0x14]
 	ldr r0, [r4, #0x10]
 	bl LoadPlayerDataAddress

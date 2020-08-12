@@ -11529,7 +11529,7 @@ _021E8344:
 _021E8346:
 	str r0, [r5]
 	add r0, r4, #0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r5, #8]
 	add r0, r4, #0
 	bl FUN_02023918
@@ -11551,7 +11551,7 @@ MOD05_021E835C: ; 0x021E835C
 	mov r1, #1
 	bl FUN_0200ABC0
 	ldr r0, [r4, #8]
-	bl FUN_020239F4
+	bl PlayerData_CountBadges
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -18589,8 +18589,8 @@ _021EBCC4: .word UNK05_021F7970
 MOD05_021EBCC8: ; 0x021EBCC8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_GetPlayerDataPtr
+	bl PlayerData_GetTrainerGender
 	pop {r3, pc}
 	.balign 4, 0
 
@@ -19608,7 +19608,7 @@ MOD05_021EC4F0: ; 0x021EC4F0
 	bl FUN_02023C7C
 	str r0, [sp, #4]
 	add r0, r7, #0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	bl FUN_0202398C
 	add r0, r4, #0
 	mov r1, #0x74
@@ -20947,14 +20947,14 @@ _021ECF7E:
 	cmp r0, #4
 	bne _021ECFEE
 	add r0, r4, #0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	str r0, [sp, #0x1c]
 	add r0, r4, #0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	str r0, [sp, #0x18]
 	add r0, r4, #0
 	mov r1, #0x20
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #0x90
@@ -21091,7 +21091,7 @@ MOD05_021ED0CC: ; 0x021ED0CC
 	bl MOD05_021ECD78
 	add r6, r0, #0
 	add r0, r7, #0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	add r1, sp, #0x10
 	str r0, [sp, #8]
 	ldrb r1, [r1, #1]
@@ -27230,14 +27230,14 @@ _021F000E:
 	bl FUN_020286EC
 	add r7, r0, #0
 	mov r0, #4
-	bl FUN_02023928
+	bl PlayerData_init
 	add r6, r0, #0
 	add r0, r7, #0
 	add r1, r4, #0
 	bl FUN_020283A4
 	add r1, r0, #0
 	add r0, r6, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, [r5, #0x38]
 	mov r1, #0
 	add r2, r6, #0
@@ -37402,8 +37402,8 @@ _021F4DDE:
 	lsl r0, r0, #4
 	str r0, [r4]
 	ldr r0, [r6, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239BC
+	bl Sav2_GetPlayerDataPtr
+	bl PlayerData_GetTrainerID
 	add r1, r5, #0
 	bl MOD05_021F5138
 	add r7, r0, #0

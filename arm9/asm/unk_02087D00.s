@@ -60,7 +60,7 @@ FUN_02087D00: ; 0x02087D00
 	bl FUN_02028048
 	str r0, [r7, #0x8]
 	add r0, r4, #0x0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r7, #0xc]
 	add r0, r4, #0x0
 	bl SavArray_PlayerParty_get

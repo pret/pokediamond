@@ -27,7 +27,7 @@ FUN_0208890C: ; 0x0208890C
 	bl FUN_02028048
 	str r0, [r4, #0x8]
 	add r0, r5, #0x0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
 	bl FUN_0206F158

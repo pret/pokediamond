@@ -54,7 +54,7 @@ MOD75_021E6BA0: ; 0x021E6BA0
 	add r0, r4, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	ldr r1, _021E6D64 ; =0x00000425
 	mov r3, #0
 	strb r0, [r4, r1]
@@ -481,7 +481,7 @@ MOD75_021E6FA4: ; 0x021E6FA4
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -6485,7 +6485,7 @@ _021E9EF8:
 	ldr r1, [r4, r1]
 	ldr r0, [r0]
 	mul r1, r2
-	bl FUN_02023A30
+	bl PlayerData_AddMoney
 	ldr r0, _021E9F6C ; =0x00000488
 	ldrsh r0, [r4, r0]
 	cmp r0, #1
@@ -9697,7 +9697,7 @@ _021EB866:
 	add r0, r5, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl FUN_02023A10
+	bl PlayerData_GetMoney
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]

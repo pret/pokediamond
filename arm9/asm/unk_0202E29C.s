@@ -1092,12 +1092,12 @@ FUN_0202EA9C: ; 0x0202EA9C
 	ble _0202EAC2
 	bl ErrorHandling
 _0202EAC2:
-	bl FUN_02023924
+	bl PlayerData_sizeof
 	cmp r0, #0x20
 	beq _0202EACE
 	bl ErrorHandling
 _0202EACE:
-	bl FUN_02023924
+	bl PlayerData_sizeof
 	add r1, r5, #0x0
 	add r2, r0, #0x0
 	add r0, r4, #0x0
@@ -1113,7 +1113,7 @@ _0202EACE:
 	add r1, #0x30
 	bl MI_CpuCopy8
 	add r0, r4, #0x0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	str r0, [r5, #0x0]
 	bl FUN_02033534
 	strb r0, [r5, #0x4]
@@ -1136,7 +1136,7 @@ _0202EB24:
 	ldr r4, [r1, #0x8]
 	ldr r1, _0202EB70 ; =0x00000CC4
 	add r5, r4, r1
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	ldr r1, _0202EB70 ; =0x00000CC4
 	str r0, [r4, r1]
 	bl FUN_02033534

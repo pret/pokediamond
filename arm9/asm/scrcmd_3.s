@@ -79,7 +79,7 @@ FUN_0203FF10: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -123,7 +123,7 @@ FUN_0203FF10: ; 0x0203FF10
 	str r0, [sp, #0x10]
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	add r7, r0, #0x0
 	ldr r1, [sp, #0x8]
 	add r0, sp, #0x14

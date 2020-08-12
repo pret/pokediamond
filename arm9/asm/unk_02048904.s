@@ -268,8 +268,8 @@ FUN_02048AE4: ; 0x02048AE4
 	bl FUN_02057380
 	str r0, [r5, #0x34]
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_GetPlayerDataPtr
+	bl PlayerData_GetTrainerGender
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_02034E30
@@ -321,8 +321,8 @@ FUN_02048B50: ; 0x02048B50
 	bl FUN_02034E20
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_GetPlayerDataPtr
+	bl PlayerData_GetTrainerGender
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x34]
 	add r1, r4, #0x0

@@ -275,7 +275,7 @@ _020862D6:
 	add r6, r0, #0x0
 	ldr r5, [r4, #0xc]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x1c]
 	ldr r0, [r0, #0x0]

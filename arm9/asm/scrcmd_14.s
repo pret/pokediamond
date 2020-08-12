@@ -166,7 +166,7 @@ FUN_02043B84: ; 0x02043B84
 	ldr r5, [r0, #0x0]
 	add r0, r5, #0x0
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	ldr r0, [r5, #0xc]
 	bl FUN_0202390C
 	add r6, r0, #0x0
@@ -202,7 +202,7 @@ FUN_02043BD0: ; 0x02043BD0
 	ldr r4, [r0, #0x0]
 	add r0, r4, #0x0
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	ldr r0, [r4, #0xc]
 	bl FUN_0202390C
 	add r6, r0, #0x0

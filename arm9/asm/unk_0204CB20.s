@@ -1110,7 +1110,7 @@ _0204D37C:
 	lsl r4, r5, #0x3
 	ldr r7, [r0, #0x0]
 	ldr r0, [sp, #0xc]
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -4714,7 +4714,7 @@ FUN_0204EEBC: ; 0x0204EEBC
 	beq _0204EF44
 	mov r0, #0xf
 	lsl r4, r5, #0x2
-	bl FUN_02023928
+	bl PlayerData_init
 	mov r3, #0x29
 	ldr r1, _0204EF48 ; =UNK_021C5A68
 	add r2, r0, #0x0
@@ -5338,7 +5338,7 @@ _0204F3AC:
 	mov r0, #0x29
 	lsl r0, r0, #0x4
 	ldr r0, [r2, r0]
-	bl FUN_02023AA4
+	bl PlayerData_NameAndOTIDMatchPlayer
 	cmp r0, #0x1
 	bne _0204F41A
 	ldrb r0, [r5, #0x2]
@@ -5552,7 +5552,7 @@ _0204F58C:
 	mov r0, #0x29
 	lsl r0, r0, #0x4
 	ldr r0, [r2, r0]
-	bl FUN_02023AA4
+	bl PlayerData_NameAndOTIDMatchPlayer
 	cmp r0, #0x1
 	bne _0204F5D4
 	ldrb r0, [r5, #0x1]
@@ -6044,7 +6044,7 @@ FUN_0204F930: ; 0x0204F930
 	pop {r3-r5, pc}
 _0204F96E:
 	mov r0, #0xf
-	bl FUN_02023928
+	bl PlayerData_init
 	add r4, r0, #0x0
 	mov r0, #0x14
 	mov r1, #0xf
@@ -6060,7 +6060,7 @@ _0204F988:
 _0204F990:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_0202397C
+	bl PlayerName_StringToFlat
 	mov r0, #0x5b
 	add r1, r4, #0x0
 	bl FUN_020311D0
@@ -6100,7 +6100,7 @@ FUN_0204F9BC: ; 0x0204F9BC
 	bl FUN_0202393C
 	add r0, r6, #0x0
 	mov r1, #0xf
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	str r0, [sp, #0x0]
 	bl StringGetLength
 	cmp r0, #0x0
@@ -6190,7 +6190,7 @@ FUN_0204FA78: ; 0x0204FA78
 _0204FA98:
 	mov r0, #0xf
 	lsl r4, r5, #0x2
-	bl FUN_02023928
+	bl PlayerData_init
 	ldr r2, _0204FAC8 ; =UNK_021C5A68
 	ldr r1, [r2, #0x0]
 	add r3, r1, r4

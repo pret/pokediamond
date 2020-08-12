@@ -669,7 +669,7 @@ _02035526:
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
@@ -775,8 +775,8 @@ _02035614:
 	bl FUN_02019220
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_GetPlayerDataPtr
+	bl PlayerData_GetTrainerGender
 	add r3, r0, #0x0
 	add r0, r4, #0x0
 	add r4, #0x30
@@ -1666,7 +1666,7 @@ FUN_02035D34: ; 0x02035D34
 	bl FUN_02024DA0
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0xc]
 	bl SavArray_Flags_get
@@ -1880,7 +1880,7 @@ _02035ECC:
 	add r0, r7, #0x0
 	bl FUN_0207B000
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_0207C2A4
@@ -1928,7 +1928,7 @@ _02035F4A:
 	add r0, r7, #0x0
 	bl FUN_0207B000
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_0207C2A4
@@ -1985,7 +1985,7 @@ _02035FD0:
 	add r0, r7, #0x0
 	bl FUN_0207B000
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_0207C2A4
@@ -2091,7 +2091,7 @@ _020360EA:
 	bl FUN_0206F158
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	ldr r1, _0203627C ; =UNK_020F2A90
 	add r0, r7, #0x0
 	mov r2, #0xb

@@ -210,9 +210,9 @@ FUN_02063A9C: ; 0x02063A9C
 	pop {r4, pc}
 _02063AAE:
 	ldr r0, [r1, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x1
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _02063AC2
 	mov r0, #0x2
@@ -294,9 +294,9 @@ FUN_02063B40: ; 0x02063B40
 	pop {r4, pc}
 _02063B52:
 	ldr r0, [r1, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x2
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _02063B66
 	mov r0, #0x2
@@ -398,9 +398,9 @@ FUN_02063C14: ; 0x02063C14
 	pop {r4, pc}
 _02063C26:
 	ldr r0, [r1, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x4
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _02063C3A
 	mov r0, #0x2
@@ -501,9 +501,9 @@ FUN_02063CE0: ; 0x02063CE0
 	pop {r4, pc}
 _02063CF2:
 	ldr r0, [r1, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x5
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _02063D06
 	mov r0, #0x2
@@ -587,9 +587,9 @@ FUN_02063D88: ; 0x02063D88
 	pop {r4, pc}
 _02063D9A:
 	ldr r0, [r1, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x3
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _02063DAE
 	mov r0, #0x2
@@ -673,9 +673,9 @@ FUN_02063E30: ; 0x02063E30
 	pop {r4, pc}
 _02063E42:
 	ldr r0, [r1, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x0
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _02063E56
 	mov r0, #0x2
@@ -759,9 +759,9 @@ FUN_02063ED8: ; 0x02063ED8
 	pop {r4, pc}
 _02063EEA:
 	ldr r0, [r1, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x7
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _02063EFE
 	mov r0, #0x2
@@ -845,9 +845,9 @@ FUN_02063F80: ; 0x02063F80
 	pop {r4, pc}
 _02063F92:
 	ldr r0, [r1, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x6
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	bne _02063FA6
 	mov r0, #0x2

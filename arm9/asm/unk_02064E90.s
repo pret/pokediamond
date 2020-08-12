@@ -16,7 +16,7 @@ FUN_02064E90: ; 0x02064E90
 	ldr r5, [sp, #0xbc]
 	bl FUN_020377AC
 	str r0, [sp, #0x20]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x20]
 	bl FUN_02029FC8
@@ -36,16 +36,16 @@ FUN_02064E90: ; 0x02064E90
 	mov r1, #GAME_VERSION
 	bl FUN_02065154
 	add r0, r7, #0x0
-	bl FUN_020239C0
+	bl PlayerData_GetTrainerID_VisibleHalf
 	str r0, [sp, #0x28]
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	str r0, [sp, #0x2c]
 	add r0, r7, #0x0
 	bl FUN_0202398C
 	str r0, [sp, #0x30]
 	add r0, r7, #0x0
-	bl FUN_02023A10
+	bl PlayerData_GetMoney
 	str r0, [sp, #0x34]
 	ldr r0, [r6, #0xc]
 	bl FUN_02024DA0
@@ -520,7 +520,7 @@ FUN_020652AC: ; 0x020652AC
 _020652CA:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	beq _020652E6
 	lsl r0, r4, #0x2

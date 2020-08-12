@@ -1948,7 +1948,7 @@ _021D84AA:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r0, #0
 	mov r0, #0x4b
 	lsl r0, r0, #2

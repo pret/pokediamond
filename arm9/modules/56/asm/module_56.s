@@ -1974,7 +1974,7 @@ MOD56_02212E0C: ; 0x02212E0C
 	add r0, #0xc4
 	ldr r0, [r0]
 	str r1, [sp]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	add r0, #0xc4
@@ -2044,7 +2044,7 @@ _02212E82:
 	ldr r1, [r5, #4]
 	strb r0, [r1, #0x1d]
 	ldr r0, [sp, #0x14]
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	ldr r1, [r5, #4]
 	strb r0, [r1, #0x1e]
 	ldr r0, [sp, #8]
@@ -2767,9 +2767,9 @@ MOD56_0221341C: ; 0x0221341C
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r5, _02213618 ; =0x00010200
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x36
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	add r6, r0, #0
 	mov r0, #0xd3
 	lsl r0, r0, #2
@@ -7098,14 +7098,14 @@ _02215532:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	mov r0, #0x36
-	bl FUN_02023928
+	bl PlayerData_init
 	add r6, r0, #0
 	ldr r0, [r5]
 	add r1, r4, #0
 	bl FUN_020283E8
 	add r1, r0, #0
 	add r0, r6, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	add r0, r5, #0
 	add r0, #0xc8
 	ldr r0, [r0]
@@ -8431,14 +8431,14 @@ MOD56_022160E4: ; 0x022160E4
 	cmp r6, r0
 	beq _0221611C
 	mov r0, #0x36
-	bl FUN_02023928
+	bl PlayerData_init
 	add r4, r0, #0
 	ldr r0, [r5]
 	add r1, r6, #0
 	bl FUN_020283A4
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	add r5, #0xc8
 	ldr r0, [r5]
 	mov r1, #0

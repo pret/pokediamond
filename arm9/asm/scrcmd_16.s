@@ -71,7 +71,7 @@ FUN_02043E68: ; 0x02043E68
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r5, #0x0

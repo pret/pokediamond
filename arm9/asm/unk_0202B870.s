@@ -243,7 +243,7 @@ FUN_0202B9EC: ; 0x0202B9EC
 	sub sp, #0xc
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0x4e
 	add r6, r0, #0x0
 	add r0, r4, #0x0
@@ -261,7 +261,7 @@ FUN_0202B9EC: ; 0x0202B9EC
 	str r0, [sp, #0x8]
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -718,7 +718,7 @@ FUN_0202BD6C: ; 0x0202BD6C
 	str r2, [sp, #0x0]
 	add r4, r0, #0x0
 	add r5, r1, #0x0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4c
@@ -756,7 +756,7 @@ _0202BDC4:
 	ldr r0, [r5, #0x0]
 	str r0, [r4, #0x8]
 	ldr r0, [sp, #0x4]
-	bl FUN_020239A0
+	bl PlayerData_GetPlayerName_NewString
 	str r0, [r4, #0xc]
 	ldr r0, [r7, #0x0]
 	add r6, r6, #0x1

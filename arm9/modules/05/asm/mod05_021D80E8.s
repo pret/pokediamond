@@ -1448,7 +1448,7 @@ _021D8C88:
 	cmp r0, #2
 	beq _021D8CE0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_02055320
@@ -1467,7 +1467,7 @@ _021D8C88:
 	beq _021D8CE0
 	add r0, r6, #0
 	mov r1, #4
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0
 	beq _021D8CE0
 	ldr r0, [r5, #0xc]

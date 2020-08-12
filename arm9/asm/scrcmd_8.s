@@ -194,17 +194,17 @@ _02041DCE:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r6, #0x0
 	add r7, r0, #0x0
-	bl FUN_02023990
+	bl PlayerName_FlatToString
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0x1
 	add r3, r6, #0x0
 	bl FUN_020287C0
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerData_GetTrainerGender
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

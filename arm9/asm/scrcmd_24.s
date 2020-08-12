@@ -138,7 +138,7 @@ FUN_02045E74: ; 0x02045E74
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
 	add r0, #0x80

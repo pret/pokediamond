@@ -469,7 +469,7 @@ FUN_02025C40: ; 0x02025C40
 	str r0, [sp, #0x0]
 _02025C50:
 	add r0, r6, #0x0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	add r1, r5, #0x0
 	add r1, #0xa0
 	ldr r1, [r1, #0x0]
@@ -494,7 +494,7 @@ _02025C72:
 	mov r2, #0x10
 	bl MI_CpuCopy8
 	add r0, r6, #0x0
-	bl FUN_020239BC
+	bl PlayerData_GetTrainerID
 	ldr r1, [sp, #0x0]
 	lsl r1, r1, #0x2
 	add r1, r7, r1
@@ -549,11 +549,11 @@ _02025CE8:
 	cmp r0, #0x0
 	beq _02025D32
 	add r0, r1, #0x0
-	bl FUN_02023928
+	bl PlayerData_init
 	ldr r1, [sp, #0x0]
 	add r6, r0, #0x0
 	add r1, r7, r1
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r1, _02025D3C ; =0x00000109
 	add r2, r5, r4
 	ldrb r1, [r2, r1]

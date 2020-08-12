@@ -10,13 +10,13 @@ FUN_02043C6C: ; 0x02043C6C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadWord
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02023A30
+	bl PlayerData_AddMoney
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -27,13 +27,13 @@ FUN_02043C90: ; 0x02043C90
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadWord
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02023A54
+	bl PlayerData_SubMoney
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -44,7 +44,7 @@ FUN_02043CB4: ; 0x02043CB4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -54,7 +54,7 @@ FUN_02043CB4: ; 0x02043CB4
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02023A54
+	bl PlayerData_SubMoney
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -66,7 +66,7 @@ FUN_02043CE4: ; 0x02043CE4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -80,7 +80,7 @@ FUN_02043CE4: ; 0x02043CE4
 	bl ScriptReadWord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02023A10
+	bl PlayerData_GetMoney
 	cmp r0, r4
 	bhs _02043D20
 	mov r0, #0x0
@@ -99,7 +99,7 @@ FUN_02043D28: ; 0x02043D28
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -117,7 +117,7 @@ FUN_02043D28: ; 0x02043D28
 	bl VarGet
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02023A10
+	bl PlayerData_GetMoney
 	cmp r0, r4
 	bhs _02043D6E
 	mov r0, #0x0

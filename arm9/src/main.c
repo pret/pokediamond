@@ -6,7 +6,7 @@
 #include "PAD_pad.h"
 #include "main.h"
 #include "poke_overlay.h"
-#include "options.h"
+#include "save_block_2.h"
 #include "sound.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
@@ -32,12 +32,12 @@ extern void FUN_02022294(void);
 extern void FUN_0201259C(void);
 extern void FUN_02002C14(void);
 extern void FUN_02002C50(int, int);
-extern struct UnkStruct_021C59C8 * FUN_0202254C(void);
-extern u32 FUN_02029EF8(struct UnkStruct_021C59C8 *);
+extern struct SaveBlock2 * FUN_0202254C(void);
+extern u32 FUN_02029EF8(struct SaveBlock2 *);
 extern void FUN_02020AFC(void);
 extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
-extern int FUN_020227FC(struct UnkStruct_021C59C8 *);
+extern int FUN_020227FC(struct SaveBlock2 *);
 extern void FUN_02089D90(int);
 extern void FUN_0200A2AC(void);
 extern void FUN_02015E30(void);

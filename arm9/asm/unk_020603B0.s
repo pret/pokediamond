@@ -219,14 +219,14 @@ _020604D0:
 	add r2, r6, #0x0
 	bl FUN_0202AAFC
 	ldr r0, [sp, #0x10]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [sp, #0x18]
 	mov r0, #0x4
 	bl AllocMonZeroed
 	str r0, [sp, #0x1c]
 	bl ZeroMonData
 	ldr r0, [sp, #0x18]
-	bl FUN_020239C0
+	bl PlayerData_GetTrainerID_VisibleHalf
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	str r1, [sp, #0x4]

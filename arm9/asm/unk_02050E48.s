@@ -30,7 +30,7 @@ FUN_02050E48: ; 0x02050E48
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4

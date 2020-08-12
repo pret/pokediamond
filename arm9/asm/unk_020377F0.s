@@ -752,7 +752,7 @@ FUN_02037C00: ; 0x02037C00
 	add r0, r4, #0x0
 	bl FUN_0207B000
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4
@@ -807,7 +807,7 @@ FUN_02037C7C: ; 0x02037C7C
 	add r0, r4, #0x0
 	bl FUN_0207B000
 	add r0, r5, #0x0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4
@@ -851,7 +851,7 @@ FUN_02037CF0: ; 0x02037CF0
 	add r0, r4, #0x0
 	bl FUN_0207B000
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4
@@ -1250,7 +1250,7 @@ FUN_0203800C: ; 0x0203800C
 	bl FUN_02029FC8
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r4, #0x14]
 	ldr r0, [sp, #0x18]
 	str r6, [r4, #0x18]
@@ -1375,7 +1375,7 @@ FUN_02038144: ; 0x02038144
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
 	bl SavArray_PlayerParty_get
@@ -1405,7 +1405,7 @@ FUN_02038144: ; 0x02038144
 	ldr r0, [r4, #0xc]
 	bl FUN_02029FC8
 	str r0, [r5, #0x20]
-	bl FUN_02023924
+	bl PlayerData_sizeof
 	add r1, r0, #0x0
 	mov r0, #0x20
 	bl AllocFromHeap
@@ -1897,10 +1897,10 @@ _02038572: ; jump table (using 16-bit offset)
 	.short _020385BC - _02038572 - 2; case 6
 _02038580:
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	ldr r1, [r4, #0xc]
 	add r1, #0x1c
-	bl FUN_0202395C
+	bl CopyPlayerName
 	pop {r3-r5, pc}
 _02038590:
 	ldr r0, [r5, #0xc]
@@ -2107,7 +2107,7 @@ FUN_020386E0: ; 0x020386E0
 	bl FUN_02029AFC
 	str r0, [r4, #0x18]
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl LoadPlayerDataAddress
@@ -2311,7 +2311,7 @@ _020388CC:
 	bl LoadPlayerDataAddress
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [sp, #0x8]
 	ldr r1, [r4, #0x1c]
 	add r0, r4, #0x0

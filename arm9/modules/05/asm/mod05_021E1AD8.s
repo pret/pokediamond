@@ -1827,8 +1827,8 @@ MOD05_021E28A0: ; 0x021E28A0
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x10]
 	ldr r0, [r7, #0xc]
-	bl FUN_020238F4
-	bl FUN_02023A10
+	bl Sav2_GetPlayerDataPtr
+	bl PlayerData_GetMoney
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]

@@ -1786,7 +1786,7 @@ FUN_0205DBF0: ; 0x0205DBF0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	mov r1, #0xb
 	str r1, [sp, #0x0]
 	ldrh r2, [r5, #0x28]

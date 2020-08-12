@@ -37,7 +37,7 @@ FUN_0204A048: ; 0x0204A048
 	add r0, r6, #0x0
 	add r7, r2, #0x0
 	str r3, [sp, #0x10]
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [sp, #0x14]
 	add r0, r6, #0x0
 	bl SavArray_PlayerParty_get
@@ -94,7 +94,7 @@ FUN_0204A0C8: ; 0x0204A0C8
 	add r0, r4, #0x0
 	add r5, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
 	bl SavArray_PlayerParty_get

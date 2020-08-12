@@ -14,7 +14,7 @@ FUN_02060344: ; 0x02060344
 	bl FUN_02029ACC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020238F4
+	bl Sav2_GetPlayerDataPtr
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r1, #0xa
@@ -24,7 +24,7 @@ FUN_02060344: ; 0x02060344
 _0206036A:
 	add r0, r7, #0x0
 	add r1, r5, #0x0
-	bl FUN_020239D0
+	bl PlayerData_TestBadgeFlag
 	cmp r0, #0x0
 	beq _020603A4
 	add r0, r5, #0x0
