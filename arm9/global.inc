@@ -1441,7 +1441,7 @@
 .extern FUN_020226FC
 .extern FUN_02022720
 .extern FUN_020227A0
-.extern FUN_020227DC
+.extern Sav2_InitDynamicRegion
 .extern FUN_020227FC
 .extern FUN_02022800
 .extern FUN_02022804

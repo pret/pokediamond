@@ -228,7 +228,7 @@ MOD52_021D769C: ; 0x021D769C
 	push {r4, lr}
 	add r4, r1, #0
 	add r0, r4, #0
-	bl FUN_020227DC
+	bl Sav2_InitDynamicRegion
 	add r0, r4, #0
 	bl FUN_020377E0
 	add r0, r4, #0
