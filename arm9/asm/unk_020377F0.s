@@ -1382,7 +1382,7 @@ FUN_02038144: ; 0x02038144
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x9
-	bl FUN_02022610
+	bl SavArray_get
 	str r0, [r5, #0xc]
 	ldr r0, [r4, #0xc]
 	bl FUN_02029AFC
@@ -2092,7 +2092,7 @@ FUN_020386E0: ; 0x020386E0
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
 	mov r1, #0x2
-	bl FUN_02022610
+	bl SavArray_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
 	bl FUN_02022510
@@ -2344,7 +2344,7 @@ FUN_02038914: ; 0x02038914
 	bl FUN_02046528
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_0204652C

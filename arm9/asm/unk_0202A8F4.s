@@ -29,8 +29,8 @@ FUN_0202A8F8: ; 0x0202A8F8
 
 	thumb_func_start FUN_0202A918
 FUN_0202A918: ; 0x0202A918
-	ldr r3, _0202A920 ; =FUN_02022610
+	ldr r3, _0202A920 ; =SavArray_get
 	mov r1, #0x18
 	bx r3
 	nop
-_0202A920: .word FUN_02022610
+_0202A920: .word SavArray_get

@@ -2713,7 +2713,7 @@ MOD18_0223AC24: ; 0x0223AC24
 	ldr r0, [r0, #0x1c]
 	bl MOD05_021F4608
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDBC
 	ldr r0, _0223AC78 ; =MOD18_0223A64C
 	add r1, r4, #0
@@ -5337,7 +5337,7 @@ _0223C000:
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	bl FUN_0205F740
 	add r1, r0, #0
@@ -7510,7 +7510,7 @@ _0223D07E:
 	ldr r0, _0223D0E0 ; =0x000004C8
 	ldr r0, [r1, r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDCC
 	ldr r0, _0223D0DC ; =0x02251384
 	add r2, r7, #0
@@ -8112,7 +8112,7 @@ _0223D536:
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDAC
 	mov r1, #0
 	ldr r0, _0223D59C ; =MOD18_0223E7AC
@@ -12954,7 +12954,7 @@ _0223FA34:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r5, r0, #0
 	bl FUN_0205F760
 	add r1, r0, #0
@@ -28118,7 +28118,7 @@ MOD18_02246FB4: ; 0x02246FB4
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDD8
 	ldr r0, [sp, #0xc]
 	bl FUN_020266E0
@@ -30665,7 +30665,7 @@ _022483BC:
 	bl MOD18_02247EA0
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	bl FUN_0205F720
 	add r1, r0, #0
@@ -37342,7 +37342,7 @@ _0224B946:
 	add r0, r4, #0
 	bl MOD18_02245054
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDE8
 	add r0, r4, #0
 	bl MOD18_0224BD54

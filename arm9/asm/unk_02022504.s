@@ -5,35 +5,35 @@
 
 	thumb_func_start FUN_02022504
 FUN_02022504: ; 0x02022504
-	ldr r3, _0202250C ; =FUN_02022610
+	ldr r3, _0202250C ; =SavArray_get
 	mov r1, #0x1b
 	bx r3
 	nop
-_0202250C: .word FUN_02022610
+_0202250C: .word SavArray_get
 
 	thumb_func_start FUN_02022510
 FUN_02022510: ; 0x02022510
-	ldr r3, _02022518 ; =FUN_02022610
+	ldr r3, _02022518 ; =SavArray_get
 	mov r1, #0x23
 	bx r3
 	nop
-_02022518: .word FUN_02022610
+_02022518: .word SavArray_get
 
 	thumb_func_start FUN_0202251C
 FUN_0202251C: ; 0x0202251C
-	ldr r3, _02022524 ; =FUN_02022610
+	ldr r3, _02022524 ; =SavArray_get
 	mov r1, #0x1f
 	bx r3
 	nop
-_02022524: .word FUN_02022610
+_02022524: .word SavArray_get
 
 	thumb_func_start FUN_02022528
 FUN_02022528: ; 0x02022528
-	ldr r3, _02022530 ; =FUN_02022610
+	ldr r3, _02022530 ; =SavArray_get
 	mov r1, #0x20
 	bx r3
 	nop
-_02022530: .word FUN_02022610
+_02022530: .word SavArray_get
 
 	thumb_func_start FUN_02022534
 FUN_02022534: ; 0x02022534

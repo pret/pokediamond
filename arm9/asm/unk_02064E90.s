@@ -82,7 +82,7 @@ FUN_02064E90: ; 0x02064E90
 	add r2, sp, #0x74
 	bl FUN_0204B30C
 	ldr r0, [r6, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED0C
 	add r1, sp, #0x74
 	str r1, [sp, #0x0]
@@ -223,7 +223,7 @@ FUN_02065078: ; 0x02065078
 	bl FUN_02029FC8
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_02026CB4

@@ -309,11 +309,11 @@ _02013B58: .word UNK_020ED5B5
 
 	thumb_func_start FUN_02013B5C
 FUN_02013B5C: ; 0x02013B5C
-	ldr r3, _02013B64 ; =FUN_02022610
+	ldr r3, _02013B64 ; =SavArray_get
 	mov r1, #0x22
 	bx r3
 	nop
-_02013B64: .word FUN_02022610
+_02013B64: .word SavArray_get
 
 	thumb_func_start FUN_02013B68
 FUN_02013B68: ; 0x02013B68

@@ -46,11 +46,11 @@ _02029FC4: .word MIi_CpuClear32
 
 	thumb_func_start FUN_02029FC8
 FUN_02029FC8: ; 0x02029FC8
-	ldr r3, _02029FD0 ; =FUN_02022610
+	ldr r3, _02029FD0 ; =SavArray_get
 	mov r1, #0x14
 	bx r3
 	nop
-_02029FD0: .word FUN_02022610
+_02029FD0: .word SavArray_get
 
 	thumb_func_start FUN_02029FD4
 FUN_02029FD4: ; 0x02029FD4

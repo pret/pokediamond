@@ -83,7 +83,7 @@ FUN_02035080: ; 0x02035080
 	bl FUN_02035254
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	bne _020350A6
@@ -95,7 +95,7 @@ FUN_02035080: ; 0x02035080
 	b _020350E6
 _020350A6:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _020350C2
@@ -222,7 +222,7 @@ FUN_020351A0: ; 0x020351A0
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	bne _020351D4
@@ -234,7 +234,7 @@ FUN_020351A0: ; 0x020351A0
 	b _02035240
 _020351D4:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _020351F0
@@ -323,7 +323,7 @@ FUN_02035270: ; 0x02035270
 	orr r4, r0
 _02035288:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F388
 	cmp r0, #0x0
 	bne _0203529A
@@ -331,7 +331,7 @@ _02035288:
 	orr r4, r0
 _0203529A:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ECE0
 	cmp r0, #0x0
 	bne _020352AC
@@ -917,7 +917,7 @@ FUN_02035734: ; 0x02035734
 	bl FUN_0204652C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	bne _0203575A
@@ -925,7 +925,7 @@ FUN_02035734: ; 0x02035734
 	b _0203576C
 _0203575A:
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	beq _0203576A
@@ -1076,12 +1076,12 @@ FUN_020358A0: ; 0x020358A0
 	bl FUN_0204652C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x0
 	bne _020358CE
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x0
 	beq _020358E0
@@ -1669,7 +1669,7 @@ FUN_02035D34: ; 0x02035D34
 	bl FUN_020238F4
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	str r0, [r4, #0x0]
@@ -2932,7 +2932,7 @@ FUN_020367E8: ; 0x020367E8
 	add r0, r5, #0x0
 	bl FUN_020358A0
 	ldr r0, [r6, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	bne _02036834

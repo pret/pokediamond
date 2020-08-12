@@ -16,7 +16,7 @@ void FUN_02005E80(int);
 void FUN_02005E90(int, int, int, int);
 void FUN_020056AC(int, int, int, int, int);
 void FUN_020808AC(struct BoxPokemon *, int, int, int, int);
-void * FUN_02022610(void *, int);
+void * SavArray_get(void *, int);
 void StringExpandPlaceholders(u32 *, struct String *, struct String *);
 
 #endif //POKEDIAMOND_PROTO_H

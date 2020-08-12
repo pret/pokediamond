@@ -311,7 +311,7 @@ _02063B66:
 _02063B74:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _02063B88
@@ -320,13 +320,13 @@ _02063B74:
 _02063B88:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	beq _02063BA8
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _02063BAC
@@ -423,7 +423,7 @@ _02063C4A:
 _02063C56:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _02063C6A
@@ -862,7 +862,7 @@ _02063FA6:
 _02063FB2:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _02063FC6
@@ -1023,7 +1023,7 @@ _020640DE:
 _020640EC:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _02064100
@@ -1032,13 +1032,13 @@ _020640EC:
 _02064100:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	beq _02064120
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _02064124
@@ -1138,7 +1138,7 @@ _020641D2:
 _020641D6:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _020641EA
@@ -1228,7 +1228,7 @@ FUN_02064284: ; 0x02064284
 	pop {r3, pc}
 _02064294:
 	ldr r0, [r1, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _020642A6

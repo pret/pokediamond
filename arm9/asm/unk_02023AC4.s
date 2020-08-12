@@ -175,7 +175,7 @@ FUN_02023BA4: ; 0x02023BA4
 _02023BB2:
 	add r0, r4, #0x0
 	mov r1, #0xd
-	bl FUN_02022610
+	bl SavArray_get
 	add r4, r0, #0x0
 	lsl r5, r5, #0x5
 	add r0, r4, r5
@@ -195,7 +195,7 @@ FUN_02023BD4: ; 0x02023BD4
 	push {r4, lr}
 	add r4, r1, #0x0
 	mov r1, #0xd
-	bl FUN_02022610
+	bl SavArray_get
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02023ACC
@@ -212,7 +212,7 @@ FUN_02023BE8: ; 0x02023BE8
 	pop {r3, pc}
 _02023BF6:
 	mov r1, #0xd
-	bl FUN_02022610
+	bl SavArray_get
 	pop {r3, pc}
 	nop
 _02023C00: .word UNK_02105BD4

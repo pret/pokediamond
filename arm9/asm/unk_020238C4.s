@@ -32,23 +32,23 @@ FUN_020238C8: ; 0x020238C8
 FUN_020238F4: ; 0x020238F4
 	push {r3, lr}
 	mov r1, #0x1
-	bl FUN_02022610
+	bl SavArray_get
 	add r0, r0, #0x4
 	pop {r3, pc}
 
 	thumb_func_start LoadPlayerDataAddress
 LoadPlayerDataAddress: ; 0x02023900
-	ldr r3, _02023908 ; =FUN_02022610
+	ldr r3, _02023908 ; =SavArray_get
 	mov r1, #0x1
 	bx r3
 	nop
-_02023908: .word FUN_02022610
+_02023908: .word SavArray_get
 
 	thumb_func_start FUN_0202390C
 FUN_0202390C: ; 0x0202390C
 	push {r3, lr}
 	mov r1, #0x1
-	bl FUN_02022610
+	bl SavArray_get
 	add r0, #0x24
 	pop {r3, pc}
 
@@ -56,7 +56,7 @@ FUN_0202390C: ; 0x0202390C
 FUN_02023918: ; 0x02023918
 	push {r3, lr}
 	mov r1, #0x1
-	bl FUN_02022610
+	bl SavArray_get
 	add r0, #0x26
 	pop {r3, pc}
 

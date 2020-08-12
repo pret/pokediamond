@@ -849,11 +849,11 @@ _0206F154: .word 0x000004EC
 
 	thumb_func_start FUN_0206F158
 FUN_0206F158: ; 0x0206F158
-	ldr r3, _0206F160 ; =FUN_02022610
+	ldr r3, _0206F160 ; =SavArray_get
 	mov r1, #0x3
 	bx r3
 	nop
-_0206F160: .word FUN_02022610
+_0206F160: .word SavArray_get
 
 	thumb_func_start FUN_0206F164
 FUN_0206F164: ; 0x0206F164

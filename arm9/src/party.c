@@ -123,5 +123,5 @@ BOOL PartyHasMon(struct PlayerParty * party, u16 species)
 
 struct PlayerParty * FUN_0206BB1C(void * ptr)
 {
-    return (struct PlayerParty *)FUN_02022610(ptr, 2);
+    return (struct PlayerParty *)SavArray_get(ptr, 2);
 }

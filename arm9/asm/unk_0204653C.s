@@ -197,7 +197,7 @@ _02046690:
 	pop {r3-r7, pc}
 _020466A4:
 	ldr r0, [r6, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x0
 	beq _020466BC
@@ -594,7 +594,7 @@ FUN_020469B8: ; 0x020469B8
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x0
 	beq _020469F2
@@ -639,7 +639,7 @@ FUN_02046A20: ; 0x02046A20
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x0
 	beq _02046A5A
@@ -765,7 +765,7 @@ _02046AFE:
 	pop {r4-r6, pc}
 _02046B3E:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x0
 	beq _02046B56

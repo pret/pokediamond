@@ -22,7 +22,7 @@ FUN_02085338: ; 0x02085338
 	bl FUN_02013B5C
 	str r0, [r4, #0x10]
 	add r0, r6, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED0C
 	strb r0, [r4, #0x4]
 	mov r1, #0x0

@@ -197,11 +197,11 @@ FUN_02028810: ; 0x02028810
 
 	thumb_func_start FUN_0202881C
 FUN_0202881C: ; 0x0202881C
-	ldr r3, _02028824 ; =FUN_02022610
+	ldr r3, _02028824 ; =SavArray_get
 	mov r1, #0x11
 	bx r3
 	nop
-_02028824: .word FUN_02022610
+_02028824: .word SavArray_get
 
 	thumb_func_start FUN_02028828
 FUN_02028828: ; 0x02028828

@@ -238,7 +238,7 @@ _02034F8E:
 	cmp r2, #0x0
 	beq _02034FAE
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	ldr r2, _02034FBC ; =UNK_020F2224 + 14
 	lsl r3, r4, #0x4
 	ldrh r2, [r2, r3]
@@ -263,7 +263,7 @@ FUN_02034FC0: ; 0x02034FC0
 	bl FUN_02034E78
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	ldr r2, _02034FE0 ; =UNK_020F2224 + 14
 	lsl r3, r4, #0x4
 	ldrh r2, [r2, r3]

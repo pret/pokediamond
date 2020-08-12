@@ -43,11 +43,11 @@ _02024EB0: .word 0x00000734
 
 	thumb_func_start FUN_02024EB4
 FUN_02024EB4: ; 0x02024EB4
-	ldr r3, _02024EBC ; =FUN_02022610
+	ldr r3, _02024EBC ; =SavArray_get
 	mov r1, #0xa
 	bx r3
 	nop
-_02024EBC: .word FUN_02022610
+_02024EBC: .word SavArray_get
 
 	thumb_func_start FUN_02024EC0
 FUN_02024EC0: ; 0x02024EC0
@@ -59,17 +59,17 @@ _02024EC8: .word FUN_02022634
 
 	thumb_func_start FUN_02024ECC
 FUN_02024ECC: ; 0x02024ECC
-	ldr r3, _02024ED4 ; =FUN_02022610
+	ldr r3, _02024ED4 ; =SavArray_get
 	mov r1, #0xa
 	bx r3
 	nop
-_02024ED4: .word FUN_02022610
+_02024ED4: .word SavArray_get
 
 	thumb_func_start FUN_02024ED8
 FUN_02024ED8: ; 0x02024ED8
 	push {r3, lr}
 	mov r1, #0xa
-	bl FUN_02022610
+	bl SavArray_get
 	mov r1, #0x7
 	lsl r1, r1, #0x8
 	add r0, r0, r1

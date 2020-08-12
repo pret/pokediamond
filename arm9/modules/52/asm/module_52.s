@@ -236,7 +236,7 @@ MOD52_021D769C: ; 0x021D769C
 	ldr r1, _021D76C4 ; =0x00000BB8
 	bl FUN_02023A14
 	add r0, r4, #0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ECD4
 	pop {r4, pc}
 	.align 2, 0

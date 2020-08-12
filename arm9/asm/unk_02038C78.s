@@ -177,21 +177,21 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02039D78
     .word ScrCmd_call
     .word ScrCmd_return
-    .word ScrCmd_gotoif
-    .word ScrCmd_callif
-    .word FUN_02039E38
-    .word FUN_02039E50
-    .word FUN_02039E68
+    .word ScrCmd_goto_if
+    .word ScrCmd_call_if
+    .word ScrCmd_setflag
+    .word ScrCmd_clearflag
+    .word ScrCmd_checkflag
     .word FUN_02039E84
     .word FUN_02039EC0
     .word FUN_02039EE8
     .word FUN_02039F0C
     .word FUN_02039F30
-    .word FUN_02039F58
-    .word FUN_02039F88
-    .word FUN_02039FB8
-    .word FUN_02039FDC
-    .word FUN_0203A00C
+    .word ScrCmd_addvar
+    .word ScrCmd_subvar
+    .word ScrCmd_setvar
+    .word ScrCmd_copyvar
+    .word ScrCmd_setorcopyvar
     .word FUN_0203A038
     .word FUN_0203A2C4
     .word FUN_0203A304
@@ -1946,7 +1946,7 @@ GetVarPointer: ; 0x020394B8
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x1
 	lsl r1, r1, #0xe
 	cmp r4, r1
@@ -1969,8 +1969,8 @@ _020394DE:
 	nop
 _020394EC: .word 0x00007FD7
 
-	thumb_func_start FUN_020394F0
-FUN_020394F0: ; 0x020394F0
+	thumb_func_start VarGet
+VarGet: ; 0x020394F0
 	push {r4, lr}
 	add r4, r1, #0x0
 	bl GetVarPointer
@@ -1996,41 +1996,41 @@ _02039512:
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_020394F0
+	bl VarGet
 	pop {r3-r5, pc}
 	nop
 _02039524: .word 0x00004020
 
-	thumb_func_start FUN_02039528
-FUN_02039528: ; 0x02039528
+	thumb_func_start FlagCheck
+FlagCheck: ; 0x02039528
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r1, r4, #0x0
-	bl FUN_020462B8
+	bl CheckFlagInArray
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203953C
-FUN_0203953C: ; 0x0203953C
+	thumb_func_start FlagSet
+FlagSet: ; 0x0203953C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r1, r4, #0x0
-	bl FUN_020462E4
+	bl SetFlagInArray
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039550
-FUN_02039550: ; 0x02039550
+	thumb_func_start FlagClear
+FlagClear: ; 0x02039550
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r1, r4, #0x0
-	bl FUN_0204630C
+	bl ClearFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2038,10 +2038,10 @@ FUN_02039550: ; 0x02039550
 FUN_02039564: ; 0x02039564
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x1
 	add r4, r0, #0x0
-	bl FUN_02046338
+	bl GetFlagAddr
 	mov r1, #0x0
 	strb r1, [r0, #0x0]
 	strb r1, [r0, #0x1]
@@ -2065,10 +2065,10 @@ FUN_02039564: ; 0x02039564
 FUN_0203959C: ; 0x0203959C
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0xaa
 	lsl r1, r1, #0x4
-	bl FUN_02046338
+	bl GetFlagAddr
 	mov r2, #0x18
 	mov r1, #0x0
 _020395B0:
@@ -2157,13 +2157,13 @@ FUN_02039640: ; 0x02039640
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_020462B8
+	bl CheckFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2172,13 +2172,13 @@ FUN_0203965C: ; 0x0203965C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_020462E4
+	bl SetFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2187,13 +2187,13 @@ FUN_02039678: ; 0x02039678
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_0204630C
+	bl ClearFlagInArray
 	pop {r4, pc}
 	.balign 4
 
@@ -2385,7 +2385,7 @@ _020397EC:
 	bl FUN_02039694
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl FUN_02039528
+	bl FlagCheck
 	cmp r0, #0x0
 	bne _0203984C
 	ldr r1, [r4, #0x4]
@@ -2592,11 +2592,11 @@ _02039968:
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r5, #0x0
-	bl FUN_020394F0
+	bl VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl FUN_020394F0
+	bl VarGet
 	cmp r7, r0
 	bne _02039996
 	ldrb r0, [r4, #0x5]

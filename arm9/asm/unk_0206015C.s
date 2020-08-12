@@ -85,7 +85,7 @@ _020601F2:
 	b _02060332
 _020601FE:
 	ldr r0, [r6, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	ldrb r1, [r4, #0xd]
 	cmp r1, #0x0
 	bne _02060210

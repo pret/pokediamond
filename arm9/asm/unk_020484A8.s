@@ -265,7 +265,7 @@ FUN_02048694: ; 0x02048694
 	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl FUN_020238F4

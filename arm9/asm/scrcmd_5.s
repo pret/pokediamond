@@ -16,7 +16,7 @@ FUN_02041194: ; 0x02041194
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -71,7 +71,7 @@ FUN_020411C4: ; 0x020411C4
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
 	bl FUN_0206BB1C
@@ -219,7 +219,7 @@ FUN_02041340: ; 0x02041340
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F5FC
 	mov r0, #0x0
 	pop {r3, pc}

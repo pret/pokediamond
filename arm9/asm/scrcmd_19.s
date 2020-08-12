@@ -68,7 +68,7 @@ FUN_020452B4: ; 0x020452B4
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	mov r5, #0x0
 	ldr r2, _02045300 ; =UNK_020F450C
 	strh r5, [r4, #0x0]
@@ -122,7 +122,7 @@ FUN_02045308: ; 0x02045308
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	str r0, [sp, #0x0]
 	mov r4, #0x0
 	ldr r0, [sp, #0x8]

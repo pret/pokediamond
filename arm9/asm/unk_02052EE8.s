@@ -40,7 +40,7 @@ FUN_02052EE8: ; 0x02052EE8
 	ldr r0, [r4, r1]
 	mov r1, #0x9
 	ldr r0, [r0, #0xc]
-	bl FUN_02022610
+	bl SavArray_get
 	ldr r1, _02052F64 ; =0x000004D8
 	ldr r2, _02052F68 ; =0x00002710
 	str r0, [r4, r1]

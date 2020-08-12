@@ -49,7 +49,7 @@ UNK_020FA6E8: ; 0x020FA6E8
 	thumb_func_start FUN_02079C70
 FUN_02079C70: ; 0x02079C70
 	push {r3, lr}
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F184
 	pop {r3, pc}
 

@@ -65,11 +65,11 @@ _020289A0: .word memset
 
 	thumb_func_start FUN_020289A4
 FUN_020289A4: ; 0x020289A4
-	ldr r3, _020289AC ; =FUN_02022610
+	ldr r3, _020289AC ; =SavArray_get
 	mov r1, #0x12
 	bx r3
 	nop
-_020289AC: .word FUN_02022610
+_020289AC: .word SavArray_get
 
 	thumb_func_start FUN_020289B0
 FUN_020289B0: ; 0x020289B0

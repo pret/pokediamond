@@ -16,7 +16,7 @@ FUN_02045958: ; 0x02045958
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -24,7 +24,7 @@ FUN_02045958: ; 0x02045958
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -49,14 +49,14 @@ FUN_020459AC: ; 0x020459AC
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -80,7 +80,7 @@ FUN_020459E8: ; 0x020459E8
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -88,7 +88,7 @@ FUN_020459E8: ; 0x020459E8
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -113,14 +113,14 @@ FUN_02045A3C: ; 0x02045A3C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -144,7 +144,7 @@ FUN_02045A78: ; 0x02045A78
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -152,7 +152,7 @@ FUN_02045A78: ; 0x02045A78
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -177,14 +177,14 @@ FUN_02045ACC: ; 0x02045ACC
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -204,14 +204,14 @@ FUN_02045B08: ; 0x02045B08
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -231,14 +231,14 @@ FUN_02045B44: ; 0x02045B44
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -262,14 +262,14 @@ FUN_02045B80: ; 0x02045B80
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r5, #0x80
@@ -290,14 +290,14 @@ FUN_02045BC8: ; 0x02045BC8
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -317,14 +317,14 @@ FUN_02045C04: ; 0x02045C04
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -344,14 +344,14 @@ FUN_02045C40: ; 0x02045C40
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -375,7 +375,7 @@ FUN_02045C7C: ; 0x02045C7C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -383,7 +383,7 @@ FUN_02045C7C: ; 0x02045C7C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -410,14 +410,14 @@ FUN_02045CD4: ; 0x02045CD4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -437,14 +437,14 @@ FUN_02045D10: ; 0x02045D10
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
@@ -464,14 +464,14 @@ FUN_02045D4C: ; 0x02045D4C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80

@@ -1823,7 +1823,7 @@ FUN_02061990: ; 0x02061990
 	pop {r3-r5, pc}
 _020619B0:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x2
 	mov r2, #0x11
 	bl FUN_0205F2E4
@@ -2158,7 +2158,7 @@ _02061C42:
 FUN_02061C48: ; 0x02061C48
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x2
 	mov r2, #0x11
 	bl FUN_0205F2E4
@@ -3081,7 +3081,7 @@ FUN_0206234C: ; 0x0206234C
 	push {r3-r7, lr}
 	sub sp, #0x88
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	ldr r4, _020623E8 ; =UNK_020F7658
 	add r7, r0, #0x0
 	mov r6, #0x0
@@ -3221,7 +3221,7 @@ _0206245C: .word UNK_020F79EE
 FUN_02062460: ; 0x02062460
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x2
 	mov r2, #0x9
 	bl FUN_0205F2E4

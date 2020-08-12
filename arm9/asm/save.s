@@ -22,7 +22,7 @@ UNK_020EE700: ; 0x020EE700
 	.word 0x01, 0x00, FUN_020238C4, FUN_020238C8
 	.word 0x02, 0x00, FUN_0206B8A4, FUN_0206B8C0
 	.word 0x03, 0x00, FUN_0206EB80, FUN_0206EBA0
-	.word 0x04, 0x00, FUN_02046294, FUN_0204629C
+	.word 0x04, 0x00, SavArray_Flags_sizeof, SavArray_Flags_memclear
 	.word 0x05, 0x00, FUN_0204BE14, FUN_0204BE18
 	.word 0x06, 0x00, FUN_02034D7C, FUN_02034D98
 	.word 0x07, 0x00, FUN_02023D64, FUN_02024378
@@ -156,8 +156,8 @@ _02022606:
 	.balign 4
 _0202260C: .word UNK_021C59C8
 
-	thumb_func_start FUN_02022610
-FUN_02022610: ; 0x02022610
+	thumb_func_start SavArray_get
+SavArray_get: ; 0x02022610
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -179,10 +179,10 @@ _02022630: .word 0x0002022C
 
 	thumb_func_start FUN_02022634
 FUN_02022634: ; 0x02022634
-	ldr r3, _02022638 ; =FUN_02022610
+	ldr r3, _02022638 ; =SavArray_get
 	bx r3
 	.balign 4
-_02022638: .word FUN_02022610
+_02022638: .word SavArray_get
 
 	thumb_func_start FUN_0202263C
 FUN_0202263C: ; 0x0202263C

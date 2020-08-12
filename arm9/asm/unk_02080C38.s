@@ -3547,7 +3547,7 @@ _02082666:
 	b _02082774
 _02082672:
 	ldr r0, [r4, r0]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0x0
 	ldr r0, _02082840 ; =0x00000121
 	ldrb r1, [r4, r0]

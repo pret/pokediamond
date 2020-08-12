@@ -9,15 +9,15 @@ UNK_021C5A14: ; 0x021C5A14
 
 	.text
 
-	thumb_func_start FUN_02046294
-FUN_02046294: ; 0x02046294
+	thumb_func_start SavArray_Flags_sizeof
+SavArray_Flags_sizeof: ; 0x02046294
 	mov r0, #0xeb
 	lsl r0, r0, #0x2
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0204629C
-FUN_0204629C: ; 0x0204629C
+	thumb_func_start SavArray_Flags_memclear
+SavArray_Flags_memclear: ; 0x0204629C
 	ldr r3, _020462A8 ; =memset
 	mov r2, #0xeb
 	mov r1, #0x0
@@ -26,19 +26,19 @@ FUN_0204629C: ; 0x0204629C
 	nop
 _020462A8: .word memset
 
-	thumb_func_start FUN_020462AC
-FUN_020462AC: ; 0x020462AC
-	ldr r3, _020462B4 ; =FUN_02022610
+	thumb_func_start SavArray_Flags_get
+SavArray_Flags_get: ; 0x020462AC
+	ldr r3, _020462B4 ; =SavArray_get
 	mov r1, #0x4
 	bx r3
 	nop
-_020462B4: .word FUN_02022610
+_020462B4: .word SavArray_get
 
-	thumb_func_start FUN_020462B8
-FUN_020462B8: ; 0x020462B8
+	thumb_func_start CheckFlagInArray
+CheckFlagInArray: ; 0x020462B8
 	push {r3-r5, lr}
 	add r4, r1, #0x0
-	bl FUN_02046338
+	bl GetFlagAddr
 	cmp r0, #0x0
 	beq _020462DE
 	lsr r3, r4, #0x1f
@@ -60,11 +60,11 @@ _020462E0:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020462E4
-FUN_020462E4: ; 0x020462E4
+	thumb_func_start SetFlagInArray
+SetFlagInArray: ; 0x020462E4
 	push {r4-r6, lr}
 	add r4, r1, #0x0
-	bl FUN_02046338
+	bl GetFlagAddr
 	cmp r0, #0x0
 	beq _02046308
 	lsr r5, r4, #0x1f
@@ -83,11 +83,11 @@ _02046308:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204630C
-FUN_0204630C: ; 0x0204630C
+	thumb_func_start ClearFlagInArray
+ClearFlagInArray: ; 0x0204630C
 	push {r4-r6, lr}
 	add r4, r1, #0x0
-	bl FUN_02046338
+	bl GetFlagAddr
 	cmp r0, #0x0
 	beq _02046334
 	lsr r5, r4, #0x1f
@@ -108,8 +108,8 @@ _02046334:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02046338
-FUN_02046338: ; 0x02046338
+	thumb_func_start GetFlagAddr
+GetFlagAddr: ; 0x02046338
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	cmp r1, #0x0

@@ -75,7 +75,7 @@ FUN_0205CE80: ; 0x0205CE80
 	ldr r0, [r0, #0x0]
 	str r0, [r5, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0x38]
@@ -457,13 +457,13 @@ _0205D194:
 _0205D1A4:
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	beq _0205D1C4
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _0205D1CA
@@ -1646,7 +1646,7 @@ FUN_0205DAEC: ; 0x0205DAEC
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r5, r0, #0x0
 	bl FUN_0205ED0C
 	cmp r0, #0x0
@@ -1696,7 +1696,7 @@ FUN_0205DB44: ; 0x0205DB44
 	pop {r3-r7, pc}
 _0205DB54:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _0205DB66
