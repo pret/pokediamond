@@ -166,7 +166,7 @@ FUN_020489FC: ; 0x020489FC
 	add r0, r5, #0x0
 	bl FUN_0204AB44
 	add r0, r5, #0x0
-	bl FUN_02039564
+	bl ResetTempFlagsAndVars
 	cmp r4, #0x0
 	bne _02048A28
 	add r0, r5, #0x0

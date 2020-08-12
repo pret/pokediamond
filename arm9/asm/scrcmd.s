@@ -50,17 +50,17 @@ ScrCmd_delay: ; 0x020399B4
 	add r1, r4, #0x0
 	bl GetVarPointer
 	strh r7, [r0, #0x0]
-	ldr r1, _020399E4 ; =FUN_020399E8
+	ldr r1, _020399E4 ; =RunPauseTimer
 	add r0, r5, #0x0
 	str r4, [r5, #0x64]
 	bl SetupNativeScript
 	mov r0, #0x1
 	pop {r3-r7, pc}
 	.balign 4
-_020399E4: .word FUN_020399E8 
+_020399E4: .word RunPauseTimer 
 
-	thumb_func_start FUN_020399E8
-FUN_020399E8: ; 0x020399E8
+	thumb_func_start RunPauseTimer
+RunPauseTimer: ; 0x020399E8
 	push {r3, lr}
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x64]
@@ -95,8 +95,8 @@ FUN_02039A10: ; 0x02039A10
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039A28
-FUN_02039A28: ; 0x02039A28
+	thumb_func_start ScrCmd_loadbyte
+ScrCmd_loadbyte: ; 0x02039A28
 	ldr r1, [r0, #0x8]
 	add r2, r1, #0x1
 	str r2, [r0, #0x8]
@@ -110,8 +110,8 @@ FUN_02039A28: ; 0x02039A28
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_02039A40
-FUN_02039A40: ; 0x02039A40
+	thumb_func_start ScrCmd_loadword
+ScrCmd_loadword: ; 0x02039A40
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r2, [r4, #0x8]
@@ -126,8 +126,8 @@ FUN_02039A40: ; 0x02039A40
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039A5C
-FUN_02039A5C: ; 0x02039A5C
+	thumb_func_start ScrCmd_loadbytefromaddr
+ScrCmd_loadbytefromaddr: ; 0x02039A5C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r2, [r5, #0x8]
@@ -142,8 +142,8 @@ FUN_02039A5C: ; 0x02039A5C
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02039A78
-FUN_02039A78: ; 0x02039A78
+	thumb_func_start ScrCmd_writebytetoaddr
+ScrCmd_writebytetoaddr: ; 0x02039A78
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadWord
@@ -156,8 +156,8 @@ FUN_02039A78: ; 0x02039A78
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039A90
-FUN_02039A90: ; 0x02039A90
+	thumb_func_start ScrCmd_setptrbyte
+ScrCmd_setptrbyte: ; 0x02039A90
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadWord
@@ -172,8 +172,8 @@ FUN_02039A90: ; 0x02039A90
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_02039AAC
-FUN_02039AAC: ; 0x02039AAC
+	thumb_func_start ScrCmd_copylocal
+ScrCmd_copylocal: ; 0x02039AAC
 	ldr r1, [r0, #0x8]
 	add r2, r1, #0x1
 	str r2, [r0, #0x8]
@@ -191,8 +191,8 @@ FUN_02039AAC: ; 0x02039AAC
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02039ACC
-FUN_02039ACC: ; 0x02039ACC
+	thumb_func_start ScrCmd_copybyte
+ScrCmd_copybyte: ; 0x02039ACC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadWord
@@ -740,8 +740,8 @@ FUN_02039EC0: ; 0x02039EC0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039EE8
-FUN_02039EE8: ; 0x02039EE8
+	thumb_func_start ScrCmd_settrainerflag
+ScrCmd_settrainerflag: ; 0x02039EE8
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -754,12 +754,12 @@ FUN_02039EE8: ; 0x02039EE8
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0203965C
+	bl TrainerFlagSet
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02039F0C
-FUN_02039F0C: ; 0x02039F0C
+	thumb_func_start ScrCmd_cleartrainerflag
+ScrCmd_cleartrainerflag: ; 0x02039F0C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -772,12 +772,12 @@ FUN_02039F0C: ; 0x02039F0C
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02039678
+	bl TrainerFlagClear
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02039F30
-FUN_02039F30: ; 0x02039F30
+	thumb_func_start ScrCmd_checktrainerflag
+ScrCmd_checktrainerflag: ; 0x02039F30
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -791,7 +791,7 @@ FUN_02039F30: ; 0x02039F30
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02039640
+	bl TrainerFlagCheck
 	strb r0, [r5, #0x2]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -904,20 +904,21 @@ ScrCmd_setorcopyvar: ; 0x0203A00C
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203A038
-FUN_0203A038: ; 0x0203A038
+	thumb_func_start ScrCmd_message
+ScrCmd_message: ; 0x0203A038
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
 	str r1, [r0, #0x8]
 	ldrb r2, [r2, #0x0]
 	ldr r1, [r0, #0x78]
-	bl MOD05_021E2C24
+	bl MOD05_ShowMessageInField
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203A04C
-FUN_0203A04C: ; 0x0203A04C
+	thumb_func_start ScrCmd_message_from
+ScrCmd_message_from: ; 0x0203A04C
+	; message_from bank, id
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -944,7 +945,7 @@ FUN_0203A04C: ; 0x0203A04C
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	bl MOD05_021E2C24
+	bl MOD05_ShowMessageInField
 	add r0, r5, #0x0
 	bl DestroyMsgData
 	mov r0, #0x0

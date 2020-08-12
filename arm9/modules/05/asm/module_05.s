@@ -93,8 +93,8 @@ _021E2C16:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 
-	thumb_func_start MOD05_021E2C24
-MOD05_021E2C24: ; 0x021E2C24
+	thumb_func_start MOD05_ShowMessageInField
+MOD05_ShowMessageInField: ; 0x021E2C24
 	push {r4, r5, r6, lr}
 	sub sp, #0x18
 	add r5, r0, #0

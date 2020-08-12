@@ -153,13 +153,13 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_nop2
     .word ScrCmd_end
     .word ScrCmd_delay
-    .word FUN_02039A28
-    .word FUN_02039A40
-    .word FUN_02039A5C
-    .word FUN_02039A78
-    .word FUN_02039A90
-    .word FUN_02039AAC
-    .word FUN_02039ACC
+    .word ScrCmd_loadbyte
+    .word ScrCmd_loadword
+    .word ScrCmd_loadbytefromaddr
+    .word ScrCmd_writebytetoaddr
+    .word ScrCmd_setptrbyte
+    .word ScrCmd_copylocal
+    .word ScrCmd_copybyte
     .word ScrCmd_compare_local_to_local
     .word ScrCmd_compare_local_to_value
     .word ScrCmd_compare_local_to_addr
@@ -184,15 +184,15 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_checkflag
     .word FUN_02039E84
     .word FUN_02039EC0
-    .word FUN_02039EE8
-    .word FUN_02039F0C
-    .word FUN_02039F30
+    .word ScrCmd_settrainerflag
+    .word ScrCmd_cleartrainerflag
+    .word ScrCmd_checktrainerflag
     .word ScrCmd_addvar
     .word ScrCmd_subvar
     .word ScrCmd_setvar
     .word ScrCmd_copyvar
     .word ScrCmd_setorcopyvar
-    .word FUN_0203A038
+    .word ScrCmd_message
     .word FUN_0203A2C4
     .word FUN_0203A304
     .word FUN_0203A388
@@ -226,8 +226,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_020414FC
     .word FUN_02041518
     .word FUN_02041558
-    .word FUN_02041588
-    .word FUN_020415AC
+    .word ScrCmd_waitcry
+    .word ScrCmd_playbgm
     .word FUN_020415BC
     .word FUN_020413E8
     .word FUN_020413F8
@@ -655,7 +655,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02044658
     .word FUN_0203BC2C
     .word FUN_02039A10
-    .word FUN_0203A04C
+    .word ScrCmd_message_from
     .word FUN_0203A098
     .word FUN_0203A0FC
     .word FUN_0203A13C
@@ -1958,7 +1958,7 @@ _020394D0:
 	cmp r4, r1
 	bhs _020394DE
 	add r1, r4, #0x0
-	bl FUN_02046380
+	bl GetVarAddr
 	pop {r3-r5, pc}
 _020394DE:
 	ldr r1, _020394EC ; =0x00007FD7
@@ -2034,8 +2034,8 @@ FlagClear: ; 0x02039550
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039564
-FUN_02039564: ; 0x02039564
+	thumb_func_start ResetTempFlagsAndVars
+ResetTempFlagsAndVars: ; 0x02039564
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	bl SavArray_Flags_get
@@ -2054,7 +2054,7 @@ FUN_02039564: ; 0x02039564
 	mov r1, #0x1
 	add r0, r4, #0x0
 	lsl r1, r1, #0xe
-	bl FUN_02046380
+	bl GetVarAddr
 	mov r1, #0x0
 	mov r2, #0x40
 	bl memset
@@ -2152,8 +2152,8 @@ _0203963C:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02039640
-FUN_02039640: ; 0x02039640
+	thumb_func_start TrainerFlagCheck
+TrainerFlagCheck: ; 0x02039640
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
@@ -2167,8 +2167,8 @@ FUN_02039640: ; 0x02039640
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203965C
-FUN_0203965C: ; 0x0203965C
+	thumb_func_start TrainerFlagSet
+TrainerFlagSet: ; 0x0203965C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
@@ -2182,8 +2182,8 @@ FUN_0203965C: ; 0x0203965C
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039678
-FUN_02039678: ; 0x02039678
+	thumb_func_start TrainerFlagClear
+TrainerFlagClear: ; 0x02039678
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0

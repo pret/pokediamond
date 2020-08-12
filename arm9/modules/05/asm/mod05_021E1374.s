@@ -568,7 +568,7 @@ _021E17BE:
 	bl MOD05_021E1848
 	add r1, r0, #0
 	ldr r0, [r5, #4]
-	bl FUN_02039640
+	bl TrainerFlagCheck
 	cmp r0, #0
 	bne _021E17DE
 	ldr r1, [r4, #0x10]
@@ -712,7 +712,7 @@ _021E18DC:
 	cmp r1, r7
 	beq _021E18F0
 	add r0, r6, #0
-	bl FUN_02039640
+	bl TrainerFlagCheck
 	cmp r0, #0
 	bne _021E18F0
 	lsl r0, r4, #0x10

@@ -8,7 +8,7 @@ struct SaveBlock2
     u8 filler_14[4];
     u8 gender;
     u8 padding[3];
-    // TODO: finish this struct
+    // TODO: finish this st ruct
 };
 
 struct String * FUN_020239A0(struct SaveBlock2 *, u32 heap_id);

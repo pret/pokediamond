@@ -635,7 +635,7 @@ FUN_02041BC4: ; 0x02041BC4
 	lsl r1, r1, #0x10
 	add r0, r4, #0x0
 	lsr r1, r1, #0x10
-	bl FUN_0203965C
+	bl TrainerFlagSet
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -660,7 +660,7 @@ FUN_02041BF0: ; 0x02041BF0
 	lsl r1, r1, #0x10
 	add r0, r7, #0x0
 	lsr r1, r1, #0x10
-	bl FUN_02039640
+	bl TrainerFlagCheck
 	cmp r0, #0x1
 	bne _02041C34
 	ldr r1, [r6, #0x8]

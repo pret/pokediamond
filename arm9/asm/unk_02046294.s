@@ -149,8 +149,8 @@ _02046376:
 	.balign 4
 _0204637C: .word UNK_021C5A14
 
-	thumb_func_start FUN_02046380
-FUN_02046380: ; 0x02046380
+	thumb_func_start GetVarAddr
+GetVarAddr: ; 0x02046380
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r0, #0x1

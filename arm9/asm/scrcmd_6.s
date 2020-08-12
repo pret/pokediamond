@@ -239,8 +239,8 @@ FUN_02041558: ; 0x02041558
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02041588
-FUN_02041588: ; 0x02041588
+	thumb_func_start ScrCmd_waitcry
+ScrCmd_waitcry: ; 0x02041588
 	push {r3, lr}
 	ldr r1, _02041594 ; =FUN_02041598
 	bl SetupNativeScript
@@ -262,11 +262,11 @@ _020415A6:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020415AC
-FUN_020415AC: ; 0x020415AC
+	thumb_func_start ScrCmd_playbgm
+ScrCmd_playbgm: ; 0x020415AC
 	push {r3, lr}
 	bl ScriptReadHalfword
-	bl FUN_02005C28
+	bl PlayBGM
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4

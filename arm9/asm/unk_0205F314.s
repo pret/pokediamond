@@ -18,7 +18,7 @@ FUN_0205F314: ; 0x0205F314
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_02046380
+	bl GetVarAddr
 	mov r1, #0x1
 	lsl r1, r1, #0xe
 	cmp r5, r1
@@ -44,7 +44,7 @@ _0205F33C:
 	thumb_func_start FUN_0205F344
 FUN_0205F344: ; 0x0205F344
 	push {r3, lr}
-	bl FUN_02046380
+	bl GetVarAddr
 	cmp r0, #0x0
 	bne _0205F352
 	mov r0, #0x0

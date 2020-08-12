@@ -1216,8 +1216,8 @@ FUN_02005BF8: ; 0x02005BF8
 	pop {r3-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02005C28
-FUN_02005C28: ; 0x02005C28
+	thumb_func_start PlayBGM
+PlayBGM: ; 0x02005C28
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl FUN_020048F4
