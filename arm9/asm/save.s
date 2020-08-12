@@ -20,9 +20,9 @@ UNK_020EE6E0: ; 0x020EE6E0
 UNK_020EE700: ; 0x020EE700
 	.word 0x00, 0x00, FUN_0202376C, FUN_02023770
 	.word 0x01, 0x00, FUN_020238C4, FUN_020238C8
-	.word 0x02, 0x00, FUN_0206B8A4, FUN_0206B8C0
+	.word 0x02, 0x00, SavArray_Party_sizeof, SavArray_Party_init
 	.word 0x03, 0x00, FUN_0206EB80, FUN_0206EBA0
-	.word 0x04, 0x00, SavArray_Flags_sizeof, SavArray_Flags_memclear
+	.word 0x04, 0x00, SavArray_Flags_sizeof, SavArray_Flags_init
 	.word 0x05, 0x00, FUN_0204BE14, FUN_0204BE18
 	.word 0x06, 0x00, FUN_02034D7C, FUN_02034D98
 	.word 0x07, 0x00, FUN_02023D64, FUN_02024378

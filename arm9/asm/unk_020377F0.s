@@ -397,7 +397,7 @@ FUN_0203797C: ; 0x0203797C
 	mov r2, #0x40
 	bl MIi_CpuClearFast
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl FUN_0206F158
@@ -723,7 +723,7 @@ FUN_02037C00: ; 0x02037C00
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl LoadPlayerDataAddress
@@ -782,7 +782,7 @@ FUN_02037C7C: ; 0x02037C7C
 	bl LoadPlayerDataAddress
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	mov r0, #0x1
 	strb r0, [r4, #0x11]
@@ -828,7 +828,7 @@ FUN_02037CF0: ; 0x02037CF0
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl LoadPlayerDataAddress
@@ -1229,7 +1229,7 @@ FUN_0203800C: ; 0x0203800C
 	add r4, r0, #0x0
 	bl memset
 	add r0, r5, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	str r0, [r4, #0x0]
@@ -1378,7 +1378,7 @@ FUN_02038144: ; 0x02038144
 	bl FUN_020238F4
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x9
@@ -1904,7 +1904,7 @@ _02038580:
 	pop {r3-r5, pc}
 _02038590:
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r1, [r4, #0x4]
 	bl GetPartyMonByIndex
 	ldr r2, [r4, #0xc]
@@ -1971,7 +1971,7 @@ FUN_020385CC: ; 0x020385CC
 	b _02038660
 _02038620:
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r1, [r4, #0x4]
 	bl GetPartyMonByIndex
 	mov r1, #0x6f
@@ -2297,7 +2297,7 @@ FUN_020388B4: ; 0x020388B4
 	sub sp, #0x10
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl MOD05_021ED49C
 	add r5, r0, #0x0
 	bne _020388CC

@@ -147,7 +147,7 @@ FUN_0204B1DC: ; 0x0204B1DC
 	add r0, r6, #0x0
 	bl FUN_0202A988
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl FUN_02069D50
 	ldr r0, [r5, #0xc]

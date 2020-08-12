@@ -334,7 +334,7 @@ FUN_0206AE0C: ; 0x0206AE0C
 	add r0, r4, r6
 	ldr r0, [r0, #0x4]
 	mov r1, #0x6
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	add r0, r5, #0x0
 	mov r1, #0x60
 	bl AllocFromHeap
@@ -447,7 +447,7 @@ _0206AECE:
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x40]
 	ldr r0, [r0, #0x4]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [sp, #0x28]
 	add r0, r0, #0x6
 	str r0, [sp, #0x28]
@@ -543,7 +543,7 @@ _0206AFB0:
 	ldr r0, [sp, #0x2c]
 	ldr r1, [sp, #0x40]
 	ldr r0, [r0, #0x4]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [sp, #0x30]
 	add r0, #0xe
 	str r0, [sp, #0x30]
@@ -626,7 +626,7 @@ _0206B030:
 	ldr r0, [sp, #0x34]
 	ldr r1, [sp, #0x40]
 	ldr r0, [r0, #0x4]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [sp, #0x1c]
 	add r7, #0x8
 	add r0, r0, #0x1
@@ -725,7 +725,7 @@ _0206B120:
 	ldr r0, [sp, #0x38]
 	ldr r1, [sp, #0x40]
 	ldr r0, [r0, #0x4]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [sp, #0x3c]
 	add r0, #0x10
 	str r0, [sp, #0x3c]

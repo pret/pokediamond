@@ -40,7 +40,7 @@ FUN_0204A048: ; 0x0204A048
 	bl FUN_020238F4
 	str r0, [sp, #0x14]
 	add r0, r6, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	bl AllocMonZeroed
@@ -73,7 +73,7 @@ FUN_0204A048: ; 0x0204A048
 	bl SetMonData
 	ldr r0, [sp, #0x18]
 	add r1, r4, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r5, r0, #0x0
 	beq _0204A0BC
 	add r0, r6, #0x0
@@ -97,7 +97,7 @@ FUN_0204A0C8: ; 0x0204A0C8
 	bl FUN_020238F4
 	str r0, [sp, #0x8]
 	add r0, r4, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r6, r0, #0x0
 	mov r0, #0x20
 	bl AllocMonZeroed
@@ -116,7 +116,7 @@ FUN_0204A0C8: ; 0x0204A0C8
 	bl MOD05_021ECF14
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FreeToHeap

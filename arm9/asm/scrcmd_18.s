@@ -49,7 +49,7 @@ FUN_020442BC: ; 0x020442BC
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r0, [sp, #0x10]
 	lsl r3, r7, #0x18
 	str r0, [sp, #0x0]
@@ -89,7 +89,7 @@ FUN_0204434C: ; 0x0204434C
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldrh r1, [r6, #0x0]
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -136,7 +136,7 @@ FUN_020443A8: ; 0x020443A8
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldrh r1, [r6, #0x0]
 	bl GetPartyMonByIndex
 	mov r1, #0x7
@@ -185,7 +185,7 @@ FUN_02044414: ; 0x02044414
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r6, r0, #0x0
 	bl GetPartyCount
 	lsl r0, r0, #0x18
@@ -209,7 +209,7 @@ FUN_02044414: ; 0x02044414
 	bl MOD05_021ECF14
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r0, r4, #0x0
 	bl FreeToHeap
 _02044494:
@@ -248,7 +248,7 @@ FUN_0204449C: ; 0x0204449C
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	add r3, r7, #0x0
@@ -287,7 +287,7 @@ FUN_020444F4: ; 0x020444F4
 	bl VarGet
 	add r4, r0, #0x0
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	mov r2, #0x0
@@ -357,7 +357,7 @@ FUN_02044598: ; 0x02044598
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
@@ -369,7 +369,7 @@ FUN_02044598: ; 0x02044598
 _020445E4:
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -442,7 +442,7 @@ FUN_02044658: ; 0x02044658
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	bl FUN_0204A32C
@@ -473,7 +473,7 @@ FUN_0204469C: ; 0x0204469C
 	bl VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -487,7 +487,7 @@ FUN_0204469C: ; 0x0204469C
 	bls _02044726
 _020446EA:
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -542,7 +542,7 @@ FUN_02044730: ; 0x02044730
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r2, #0x0
@@ -584,7 +584,7 @@ FUN_0204478C: ; 0x0204478C
 	bl VarGet
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -595,7 +595,7 @@ FUN_0204478C: ; 0x0204478C
 	pop {r4-r6, pc}
 _020447D2:
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -638,7 +638,7 @@ FUN_02044800: ; 0x02044800
 	bl VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
@@ -649,7 +649,7 @@ FUN_02044800: ; 0x02044800
 	beq _0204487E
 _02044848:
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -702,7 +702,7 @@ FUN_0204488C: ; 0x0204488C
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x9
@@ -742,7 +742,7 @@ FUN_020448D4: ; 0x020448D4
 	bl FUN_02034824
 	add r7, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r1, [sp, #0x0]
 	bl GetPartyMonByIndex
 	mov r1, #0x9
@@ -832,7 +832,7 @@ FUN_020449A4: ; 0x020449A4
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x9
@@ -888,7 +888,7 @@ FUN_02044A0C: ; 0x02044A0C
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	add r4, #0x13
@@ -950,7 +950,7 @@ FUN_02044A94: ; 0x02044A94
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	add r4, r0, #0x0
@@ -981,7 +981,7 @@ FUN_02044B00: ; 0x02044B00
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
@@ -1002,7 +1002,7 @@ FUN_02044B2C: ; 0x02044B2C
 	bl GetVarPointer
 	str r0, [sp, #0x0]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	mov r5, #0x0
 	add r7, r0, #0x0
@@ -1011,7 +1011,7 @@ FUN_02044B2C: ; 0x02044B2C
 	ble _02044B7A
 _02044B5A:
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -1054,7 +1054,7 @@ FUN_02044B84: ; 0x02044B84
 	bl VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	mov r5, #0x0
 	add r4, r5, #0x0
@@ -1066,7 +1066,7 @@ _02044BC8:
 	cmp r5, r0
 	beq _02044BF8
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -1113,7 +1113,7 @@ FUN_02044C0C: ; 0x02044C0C
 	bl FUN_02022510
 	str r0, [sp, #0x4]
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	mov r5, #0x0
 	add r4, r5, #0x0
@@ -1122,7 +1122,7 @@ FUN_02044C0C: ; 0x02044C0C
 	ble _02044C76
 _02044C44:
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -1167,7 +1167,7 @@ FUN_02044C88: ; 0x02044C88
 	bl GetVarPointer
 	str r0, [sp, #0x0]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	mov r5, #0x0
 	add r7, r0, #0x0
@@ -1176,7 +1176,7 @@ FUN_02044C88: ; 0x02044C88
 	ble _02044CD6
 _02044CB6:
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -1210,7 +1210,7 @@ FUN_02044CE0: ; 0x02044CE0
 	bl GetVarPointer
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
@@ -1221,7 +1221,7 @@ FUN_02044CE0: ; 0x02044CE0
 	mov r7, #0x99
 _02044D12:
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r1, r7, #0x0
@@ -1267,7 +1267,7 @@ FUN_02044D44: ; 0x02044D44
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x6f
@@ -1299,7 +1299,7 @@ FUN_02044D8C: ; 0x02044D8C
 	bl VarGet
 	add r4, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -1380,7 +1380,7 @@ FUN_02044E34: ; 0x02044E34
 	bl VarGet
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	add r1, r4, #0x0
@@ -1418,7 +1418,7 @@ FUN_02044E78: ; 0x02044E78
 	bl VarGet
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	add r4, #0x36
@@ -1452,7 +1452,7 @@ FUN_02044ED8: ; 0x02044ED8
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x6
@@ -1476,7 +1476,7 @@ FUN_02044F20: ; 0x02044F20
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r2, #0x0
@@ -1511,7 +1511,7 @@ FUN_02044F58: ; 0x02044F58
 	bl VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
@@ -1521,7 +1521,7 @@ FUN_02044F58: ; 0x02044F58
 	beq _02044FDE
 _02044F9E:
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -1578,7 +1578,7 @@ FUN_02044FE8: ; 0x02044FE8
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	mov r4, #0x0
@@ -1627,14 +1627,14 @@ FUN_0204505C: ; 0x0204505C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x10
 	add r4, #0x80
 	lsr r6, r0, #0x10
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0xc]
 	mov r0, #0x0
 	str r0, [sp, #0x8]
@@ -1723,7 +1723,7 @@ FUN_02045104: ; 0x02045104
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	add r5, r0, #0x0
@@ -1766,7 +1766,7 @@ FUN_02045170: ; 0x02045170
 	strb r1, [r0, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	add r5, r0, #0x0
@@ -1799,14 +1799,14 @@ FUN_020451D0: ; 0x020451D0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x10
 	add r4, #0x80
 	lsr r6, r0, #0x10
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r7, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x4]

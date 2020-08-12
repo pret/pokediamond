@@ -12,7 +12,7 @@ FUN_0206439C: ; 0x0206439C
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	str r0, [r4, #0x0]

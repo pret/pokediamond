@@ -2195,7 +2195,7 @@ _0206D8EA:
 	bl CalcMonLevelAndStats
 	ldr r0, [r4, #0x24]
 	add r1, r5, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [r4, #0x48]
 	add r1, r5, #0x0
 	bl FUN_02024AF0

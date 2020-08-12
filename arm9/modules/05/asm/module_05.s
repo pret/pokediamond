@@ -9333,7 +9333,7 @@ MOD05_021E72E8: ; 0x021E72E8
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0
 	bl GetPartyMonByIndex
 	pop {r4, pc}
@@ -19634,7 +19634,7 @@ _021EC544:
 	bl FUN_02023CA0
 	ldr r1, [sp]
 	add r0, r6, #0
-	bl FUN_0206B938
+	bl RemoveMonFromParty
 	ldr r1, _021EC578 ; =0x000001B9
 	add r0, r6, #0
 	bl PartyHasMon
@@ -19828,7 +19828,7 @@ _021EC6E0:
 _021EC6FA:
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r0, r5, #0
 	bl ZeroBoxMonData
 	add r0, r6, #0
@@ -21149,7 +21149,7 @@ _021ED168:
 	bl SetMonData
 	ldr r0, [sp, #4]
 	add r1, r4, #0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r0, r5, #0
 	bl MOD05_021ECD64
 	add r0, r4, #0
@@ -34755,7 +34755,7 @@ MOD05_021F3A18: ; 0x021F3A18
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	add r5, r1, #0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0
 	bl GetPartyMonByIndex
 	mov r1, #5
@@ -34824,7 +34824,7 @@ MOD05_021F3AB4: ; 0x021F3AB4
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	add r5, r1, #0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0
 	bl GetPartyMonByIndex
 	bl MOD05_021F38CC
@@ -34920,7 +34920,7 @@ MOD05_021F3B7C: ; 0x021F3B7C
 	ldr r0, [r5, #0xc]
 	add r4, r3, #0
 	add r7, r1, #0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0
 	bl GetPartyMonByIndex
 	mov r1, #5

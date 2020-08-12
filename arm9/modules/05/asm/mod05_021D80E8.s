@@ -318,7 +318,7 @@ _021D8342:
 	lsr r0, r0, #0x1f
 	bne _021D8384
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_0204A248
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
@@ -385,7 +385,7 @@ _021D83C2:
 	orr r6, r0
 _021D83E4:
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	mov r1, #0x7f
 	bl FUN_0204A138
 	cmp r0, #0xff
@@ -1471,7 +1471,7 @@ _021D8C88:
 	cmp r0, #0
 	beq _021D8CE0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	mov r1, #0x39
 	bl FUN_0204A138
 	cmp r0, #0xff
@@ -1762,7 +1762,7 @@ MOD05_021D8F38: ; 0x021D8F38
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_02023D58
@@ -1842,7 +1842,7 @@ MOD05_021D8FD0: ; 0x021D8FD0
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
@@ -1874,7 +1874,7 @@ MOD05_021D9010: ; 0x021D9010
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	bl FUN_02034E30

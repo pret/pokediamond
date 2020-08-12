@@ -571,7 +571,7 @@ _02085DDC:
 	mov r1, #0x0
 	bl FUN_02085D8C
 	ldr r0, [r6, #0x10]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r7, #0x1c]
 	bl GetPartyCount
 	mov r4, #0x0

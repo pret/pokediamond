@@ -16117,7 +16117,7 @@ _02235590:
 	add r1, #0xba
 	ldrh r1, [r1]
 	ldr r0, [r0, #8]
-	bl FUN_0206B938
+	bl RemoveMonFromParty
 	ldr r0, [r5]
 	ldr r1, _022355EC ; =0x000001B9
 	ldr r0, [r0, #8]
@@ -16186,7 +16186,7 @@ _02235640:
 	ldr r0, [r5]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
 	bl GetPartyCount
@@ -16265,7 +16265,7 @@ _022356D2:
 	ldr r0, [r5]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
 	bl GetPartyCount

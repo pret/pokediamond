@@ -66,7 +66,7 @@ FUN_02043E68: ; 0x02043E68
 	bl SavArray_get
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -110,7 +110,7 @@ FUN_02043E9C: ; 0x02043E9C
 	bl SavArray_get
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	lsl r3, r4, #0x18
 	ldr r1, [r7, #0x0]
 	add r2, r6, #0x0
@@ -224,7 +224,7 @@ FUN_02043FA0: ; 0x02043FA0
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r2, [r6, #0x0]
 	add r1, r7, #0x0
 	bl MOD05_021ED5C4
@@ -248,7 +248,7 @@ FUN_02043FF4: ; 0x02043FF4
 	bl VarGet
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x8

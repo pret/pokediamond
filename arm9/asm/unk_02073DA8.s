@@ -1226,7 +1226,7 @@ _020747CE:
 	ldrb r1, [r4, r1]
 	ldrb r2, [r4, r2]
 	ldr r0, [r0, #0x0]
-	bl FUN_0206BA38
+	bl SwapSlotsInParty
 	ldr r0, _02074840 ; =0x000005C8
 	mov r1, #0x1
 	ldr r0, [r5, r0]

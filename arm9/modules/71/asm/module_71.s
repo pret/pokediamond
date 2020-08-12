@@ -2143,7 +2143,7 @@ MOD71_0222E76C: ; 0x0222E76C
 	str r0, [r5, r1]
 	ldr r0, [r4, #0x10]
 	str r0, [r5, #4]
-	bl FUN_0206B8A4
+	bl SavArray_Party_sizeof
 	add r1, r0, #0
 	mov r0, #0x1a
 	bl AllocFromHeap
@@ -2151,8 +2151,8 @@ MOD71_0222E76C: ; 0x0222E76C
 	str r0, [r5, r1]
 	ldr r0, [r5, r1]
 	mov r1, #6
-	bl FUN_0206B8CC
-	bl FUN_0206B8A4
+	bl InitPartyWithMaxSize
+	bl SavArray_Party_sizeof
 	add r2, r0, #0
 	ldr r0, _0222E844 ; =0x0000221C
 	mov r1, #0xff

@@ -288,7 +288,7 @@ FUN_0205D024: ; 0x0205D024
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl FUN_0206F158
@@ -771,7 +771,7 @@ FUN_0205D400: ; 0x0205D400
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl FUN_0206F158
@@ -1502,7 +1502,7 @@ FUN_0205D9A8: ; 0x0205D9A8
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	bl FUN_0206F158

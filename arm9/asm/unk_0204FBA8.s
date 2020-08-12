@@ -1755,14 +1755,14 @@ FUN_02050968: ; 0x02050968
 	add r4, r1, #0x0
 	beq _02050986
 	mov r0, #0xb
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	ldr r1, _020509AC ; =UNK_021C5A6C
 	ldr r2, [r1, #0x0]
 	str r0, [r2, #0x44]
 	ldr r1, [r1, #0x0]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x44]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 _02050986:
 	cmp r5, #0x0
 	beq _02050994

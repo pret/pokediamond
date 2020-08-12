@@ -117,7 +117,7 @@ FUN_0203FF10: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	str r0, [sp, #0x10]

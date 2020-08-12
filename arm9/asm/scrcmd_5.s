@@ -74,7 +74,7 @@ FUN_020411C4: ; 0x020411C4
 	bl VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
@@ -85,7 +85,7 @@ FUN_020411C4: ; 0x020411C4
 	beq _02041286
 _0204123C:
 	ldr r0, [r7, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c

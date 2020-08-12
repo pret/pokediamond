@@ -175,7 +175,7 @@ Static arm9
 	Object scrcmd_24.o
 	Object scrcmd_25.o
 	Object unk_02046030.o
-	Object unk_02046294.o
+	Object event_data.o
 	Object unk_0204639C.o
 	Object unk_0204653C.o
 	Object unk_02047500.o

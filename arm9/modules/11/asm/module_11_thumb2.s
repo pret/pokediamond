@@ -25766,7 +25766,7 @@ _0223BC8A:
 	bl MOD11_022564A8
 	ldr r0, [sp, #0x28]
 	add r1, r6, #0
-	bl FUN_0206B900
+	bl AddMonToParty
 	cmp r0, #1
 	bne _0223BD1E
 	ldr r0, [r4, #0x28]
@@ -63816,7 +63816,7 @@ MOD11_0224E130: ; 0x0224E130
 	ldr r1, [r4, #8]
 	str r0, [r1, #4]
 	mov r0, #5
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	ldr r1, [r4, #8]
 	mov r6, #0
 	ldr r1, [r1, #4]
@@ -70358,7 +70358,7 @@ _02251662:
 	mov r1, #6
 	ldr r0, [r0, #4]
 	ldr r0, [r0]
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	ldr r0, [sp, #0x14]
 	mov r6, #0
 	bl GetPartyCount
@@ -70376,7 +70376,7 @@ _02251680:
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #4]
 	ldr r0, [r0]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r1, [r4, #8]
 	ldrb r0, [r5, #0x18]
 	ldr r1, [r1, #4]
@@ -71710,7 +71710,7 @@ _02252146:
 	bl AllocFromHeap
 	str r0, [r4, #4]
 	mov r0, #5
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	ldr r1, [r4, #4]
 	str r0, [r1]
 	ldr r0, [r4]
@@ -71753,7 +71753,7 @@ _022521AE:
 	ldr r0, [r4, #4]
 	add r1, r6, #0
 	ldr r0, [r0]
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r5, r5, #1
 	cmp r5, #6
 	blt _022521AE
@@ -71904,7 +71904,7 @@ _022522E2:
 	add r1, r0, #0
 	ldr r0, [r4, #4]
 	ldr r0, [r0]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [r4, #4]
 	ldrb r1, [r6, #0x1c]
 	add r0, r0, r5

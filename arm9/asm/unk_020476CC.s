@@ -75,7 +75,7 @@ _020476FA:
 	add r4, r7, #0x0
 _02047748:
 	add r0, r5, #0x0
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	str r0, [r4, #0x4]
 	add r6, r6, #0x1
 	add r4, r4, #0x4
@@ -268,7 +268,7 @@ FUN_02047814: ; 0x02047814
 	bl CreateMon
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -281,7 +281,7 @@ FUN_02047814: ; 0x02047814
 	bl CreateMon
 	ldr r0, [r4, #0x8]
 	add r1, r6, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r0, r6, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0xc]
@@ -405,7 +405,7 @@ _02047A0C:
 	add r0, r5, r0
 	ldr r0, [r0, #0x4]
 	add r1, r6, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	cmp r0, #0x0
 	bne _02047A20
 	bl ErrorHandling
@@ -427,7 +427,7 @@ _02047A34:
 	add r1, r5, r1
 	ldr r1, [r1, #0x4]
 	add r0, r6, #0x0
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -471,7 +471,7 @@ FUN_02047A78: ; 0x02047A78
 	bl FUN_020238F4
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r7, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl FUN_0206F158
@@ -616,7 +616,7 @@ FUN_02047BC0: ; 0x02047BC0
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -652,7 +652,7 @@ FUN_02047BC0: ; 0x02047BC0
 	bl GetPartyCount
 	add r1, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	ldr r0, [sp, #0x14]
 	mov r4, #0x0
 	bl GetPartyCount
@@ -848,7 +848,7 @@ _02047DD8:
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x4]
 	add r1, r4, #0x0
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	mov r6, #0x0
 	cmp r4, #0x0
 	ble _02047E0E
@@ -995,7 +995,7 @@ FUN_02047F1C: ; 0x02047F1C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	add r6, r2, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1013,7 +1013,7 @@ FUN_02047F38: ; 0x02047F38
 	bl FUN_020238F4
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_0206F158
@@ -1032,7 +1032,7 @@ FUN_02047F38: ; 0x02047F38
 	bl FUN_0202393C
 	ldr r0, [r4, #0x4]
 	add r1, r7, #0x0
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	mov r0, #0x42
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1058,7 +1058,7 @@ FUN_02047FA4: ; 0x02047FA4
 	ldr r0, [r5, #0xc]
 	bl FUN_020238F4
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r0, [r5, #0xc]
 	bl FUN_0206F158
 	ldr r0, [r5, #0xc]

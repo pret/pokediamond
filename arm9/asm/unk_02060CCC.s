@@ -2172,7 +2172,7 @@ FUN_02061C5C: ; 0x02061C5C
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_0204A20C
 	add r1, sp, #0x8
 	add r2, sp, #0x4

@@ -91,7 +91,7 @@ FUN_020256DC: ; 0x020256DC
 	bl InitSealsObject
 	add r0, r7, #0x0
 	strb r6, [r5, #0x7]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
 	bl FUN_020238F4

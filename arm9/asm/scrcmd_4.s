@@ -90,7 +90,7 @@ FUN_02040748: ; 0x02040748
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -313,7 +313,7 @@ FUN_0204091C: ; 0x0204091C
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -941,7 +941,7 @@ FUN_02040E4C: ; 0x02040E4C
 	bl VarGet
 	add r4, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r1, [sp, #0x0]
 	bl GetPartyMonByIndex
 	add r4, #0x36

@@ -94,7 +94,7 @@ FUN_02050ED4: ; 0x02050ED4
 	str r0, [r4, #0x14]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
@@ -627,7 +627,7 @@ _02051308:
 _0205130E:
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -1377,10 +1377,10 @@ _02051938:
 	bl AllocFromHeapAtEnd
 	str r0, [r4, #0x48]
 	mov r0, #0xb
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	mov r1, #0x3
 	str r0, [r4, #0x50]
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	add r0, r4, #0x0
 	mov r1, #0x5
 	add r0, #0x44
@@ -1464,7 +1464,7 @@ FUN_020519F0: ; 0x020519F0
 	ldr r0, [r7, #0x24]
 	add r5, r1, #0x0
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x0]
 	ldr r4, [r7, #0x4c]
 	bl FUN_020690C4
@@ -1611,7 +1611,7 @@ FUN_02051AF0: ; 0x02051AF0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	mov r4, #0x0
 _02051B04:
 	add r1, r4, #0x0
@@ -1619,7 +1619,7 @@ _02051B04:
 	mul r1, r6
 	ldr r0, [r5, #0x50]
 	add r1, r2, r1
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r4, r4, #0x1
 	cmp r4, #0x3
 	blt _02051B04
@@ -1650,7 +1650,7 @@ FUN_02051B1C: ; 0x02051B1C
 	bl MI_CpuCopy8
 	ldr r0, [r6, #0x50]
 	mov r1, #0x3
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	mov r5, #0x0
 _02051B52:
 	add r1, r5, #0x0
@@ -1658,7 +1658,7 @@ _02051B52:
 	mul r1, r4
 	ldr r0, [r6, #0x50]
 	add r1, r2, r1
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r5, r5, #0x1
 	cmp r5, #0x3
 	blt _02051B52

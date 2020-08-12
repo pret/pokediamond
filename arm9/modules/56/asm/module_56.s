@@ -210,7 +210,7 @@ MOD56_02211F88: ; 0x02211F88
 	push {r3, r4, r5, r6, r7, lr}
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp]
 	bl GetPartyCount
 	mov r5, #0
@@ -1984,7 +1984,7 @@ MOD56_02212E0C: ; 0x02212E0C
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0xc]
 	add r0, r5, #0
 	add r0, #0xc4

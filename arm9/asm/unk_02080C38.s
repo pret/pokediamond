@@ -106,7 +106,7 @@ _02080CA6:
 	b _02080DF2
 _02080CB4:
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	mov r1, #0x0
 	bl GetPartyMonByIndex
 	add r7, r0, #0x0
@@ -899,7 +899,7 @@ _020812B6:
 	mov r1, #0xb
 	bl FUN_02082ED0
 	mov r0, #0x14
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	mov r1, #0x56
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]

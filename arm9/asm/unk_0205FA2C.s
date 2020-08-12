@@ -29,7 +29,7 @@ FUN_0205FA2C: ; 0x0205FA2C
 	bl LoadPlayerDataAddress
 	str r0, [r4, #0xc]
 	add r0, r6, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	add r0, r6, #0x0
 	bl FUN_0206F158
@@ -162,7 +162,7 @@ FUN_0205FB34: ; 0x0205FB34
 	bl LoadPlayerDataAddress
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	bl FUN_0206BB28

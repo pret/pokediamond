@@ -1808,7 +1808,7 @@ FUN_020661F8: ; 0x020661F8
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	bl FUN_020377AC
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -2377,7 +2377,7 @@ _02066676:
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	bl FUN_020377AC
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2

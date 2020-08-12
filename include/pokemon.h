@@ -9,7 +9,6 @@
 #include "seals.h"
 #include "constants/pokemon.h"
 #include "string16.h"
-#include "save_block_2.h"
 
 struct BaseStats {
     /* 0x00 */ u8 hp;
@@ -198,6 +197,8 @@ struct PlayerParty
     int curCount;
     struct Pokemon mons[PARTY_SIZE];
 };
+
+#include "save_block_2.h"
 
 void ZeroMonData(struct Pokemon * pokemon);
 void ZeroBoxMonData(struct BoxPokemon * boxmon);

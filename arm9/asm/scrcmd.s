@@ -3953,7 +3953,7 @@ FUN_0203B8A0: ; 0x0203B8A0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	bl FUN_020690CC
@@ -4602,7 +4602,7 @@ FUN_0203BDB8: ; 0x0203BDB8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r4, r0, #0x0
@@ -5526,7 +5526,7 @@ FUN_0203C520: ; 0x0203C520
 	bl VarGet
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x74
@@ -6063,7 +6063,7 @@ FUN_0203C990: ; 0x0203C990
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	add r6, r0, #0x0
@@ -7939,7 +7939,7 @@ FUN_0203D8D0: ; 0x0203D8D0
 	ldr r0, [r0, #0x74]
 	bl FUN_02046528
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_02085140
 	mov r0, #0x0
 	pop {r3, pc}
@@ -10081,7 +10081,7 @@ FUN_0203E9CC: ; 0x0203E9CC
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r5, r0, #0x0
@@ -10193,7 +10193,7 @@ FUN_0203EAB0: ; 0x0203EAB0
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x5
@@ -10679,7 +10679,7 @@ FUN_0203EE98: ; 0x0203EE98
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl PartyHasMon
 	strh r0, [r4, #0x0]
@@ -10703,7 +10703,7 @@ FUN_0203EED8: ; 0x0203EED8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x0]
 	bl GetPartyCount
 	add r4, #0x80
@@ -10761,7 +10761,7 @@ FUN_0203EF58: ; 0x0203EF58
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0xc]
 	bl GetPartyCount
 	add r2, sp, #0x18

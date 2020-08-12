@@ -202,7 +202,7 @@ _020466A4:
 	cmp r0, #0x0
 	beq _020466BC
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_02085140
 _020466BC:
 	ldr r1, [r5, #0x10]
@@ -770,7 +770,7 @@ _02046B3E:
 	cmp r0, #0x0
 	beq _02046B56
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_02085140
 _02046B56:
 	ldr r1, [r4, #0x10]
@@ -1018,7 +1018,7 @@ _02046D5C:
 	bl FUN_02022510
 	str r0, [sp, #0x8]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x8]
 	bl FUN_0206B334

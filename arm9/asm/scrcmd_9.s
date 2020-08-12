@@ -242,7 +242,7 @@ FUN_02042000: ; 0x02042000
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -407,7 +407,7 @@ _02042170:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -548,7 +548,7 @@ FUN_02042288: ; 0x02042288
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_0204A20C
 	bl FUN_020690E4
 	add r2, r0, #0x0
