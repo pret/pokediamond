@@ -131,7 +131,7 @@ FUN_02088B4C: ; 0x02088B4C
 	ldr r1, _02088BA4 ; =UNK_020FD6F4
 	ldr r0, [r0, #0x14]
 	ldr r2, [r5, #0x0]
-	bl FUN_0206EFEC
+	bl CreateBagView
 	add r4, r0, #0x0
 	ldrh r0, [r5, #0x6]
 	lsl r0, r0, #0x18
@@ -177,7 +177,7 @@ _02088BBA:
 	ldr r0, [r4, #0x0]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_0206E2F0
+	bl BagView_new
 	add r5, r0, #0x0
 	bl FUN_0206E308
 	add r2, r0, #0x0
@@ -228,7 +228,7 @@ _02088C1E:
 	ldr r3, [r4, #0x0]
 	lsr r1, r1, #0x10
 	mov r2, #0x1
-	bl FUN_0206EDD4
+	bl BagTakeItem
 	cmp r0, #0x0
 	bne _02088C38
 	bl ErrorHandling
@@ -271,7 +271,7 @@ _02088C70:
 	ldr r3, [r5, #0x0]
 	add r1, r7, #0x0
 	mov r2, #0x1
-	bl FUN_0206EE50
+	bl BagHasItem
 	cmp r0, #0x1
 	bne _02088C9A
 	ldr r0, [r5, #0x18]

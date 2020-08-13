@@ -2081,7 +2081,7 @@ _0206D854:
 	ldr r0, [r4, #0x4c]
 	ldr r2, [r4, #0x5c]
 	mov r1, #0x4
-	bl FUN_0206EEF8
+	bl BagGetQuantity
 	cmp r0, #0x0
 	beq _0206D86C
 	ldr r0, [r4, #0x24]
@@ -2216,7 +2216,7 @@ _0206D8EA:
 	ldr r3, [r4, #0x5c]
 	mov r1, #0x4
 	mov r2, #0x1
-	bl FUN_0206EDD4
+	bl BagTakeItem
 	add sp, #0x20
 	pop {r4-r6, pc}
 _0206D9A0:

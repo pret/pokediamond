@@ -32,8 +32,8 @@ extern void FUN_02022294(void);
 extern void FUN_0201259C(void);
 extern void FUN_02002C14(void);
 extern void FUN_02002C50(int, int);
-extern struct SaveBlock2 * FUN_0202254C(void);
-extern u32 FUN_02029EF8(struct SaveBlock2 *);
+extern struct SaveBlock2 * SaveBlock2_new(void);
+extern void * FUN_02029EF8(struct SaveBlock2 *);
 extern void FUN_02020AFC(void);
 extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
@@ -73,7 +73,7 @@ THUMB_FUNC void NitroMain(void)
     FUN_02002C50(1, 3);
     FUN_02002C50(3, 3);
     gBacklightTop.unk18 = -1;
-    gBacklightTop.unk20 = FUN_0202254C();
+    gBacklightTop.unk20 = SaveBlock2_new();
     InitSoundData(FUN_02029EF8(gBacklightTop.unk20), Sav2_PlayerData_GetOptionsAddr(gBacklightTop.unk20));
     FUN_02020AFC();
     if (FUN_020337E8(3) == 3)
@@ -87,15 +87,17 @@ THUMB_FUNC void NitroMain(void)
         switch (OS_GetResetParameter())
         {
         case 0:
+            // Title Demo
             gBacklightTop.unk1C = 0;
             FUN_02000E7C(FS_OVERLAY_ID(MODULE_63), &MOD63_021DBE18);
             break;
         case 1:
+            // Reset transition?
             gBacklightTop.unk1C = 1;
             FUN_02000E7C(FS_OVERLAY_ID(MODULE_52), &MOD52_021D76C8);
             break;
         default:
-            ErrorHandling();
+            GF_ASSERT(0);
             break;
         }
     }
@@ -215,7 +217,7 @@ THUMB_FUNC void FUN_02000EE8(void)
     }
 }
 
-extern void FUN_0200E3A0(int, int);
+extern void FUN_0200E3A0(PMLCDTarget, int);
 extern BOOL FUN_02032DAC(void);
 extern void FUN_020225F8(void);
 extern void FUN_0202287C(void);
@@ -223,8 +225,8 @@ extern void FUN_0202287C(void);
 // No Return
 THUMB_FUNC void DoSoftReset(u32 parameter)
 {
-    FUN_0200E3A0(0, 0x7FFF);
-    FUN_0200E3A0(1, 0x7FFF);
+    FUN_0200E3A0(PM_LCD_TOP, 0x7FFF);
+    FUN_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
     if (FUN_02032DAC())
     {
         FUN_020225F8();

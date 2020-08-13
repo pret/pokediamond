@@ -10,6 +10,15 @@
 #define POCKET_BATTLE_ITEMS 6
 #define POCKET_KEY_ITEMS    7
 
+#define NUM_BAG_ITEMS        165
+#define NUM_BAG_KEY_ITEMS     50
+#define NUM_BAG_TMS_HMS      100
+#define NUM_BAG_MAIL          12
+#define NUM_BAG_MEDICINE      40
+#define NUM_BAG_BERRIES       64
+#define NUM_BAG_BALLS         15
+#define NUM_BAG_BATTLE_ITEMS  30
+
 #define HOLD_EFFECT_NONE                    0
 #define HOLD_EFFECT_HP_RESTORE              1
 #define HOLD_EFFECT_DIALGA_BOOST            2

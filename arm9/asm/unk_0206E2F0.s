@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0206E2F0
-FUN_0206E2F0: ; 0x0206E2F0
+	thumb_func_start BagView_new
+BagView_new: ; 0x0206E2F0
 	push {r4, lr}
 	mov r1, #0x78
 	bl AllocFromHeap
@@ -44,8 +44,8 @@ FUN_0206E314: ; 0x0206E314
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206E330
-FUN_0206E330: ; 0x0206E330
+	thumb_func_start BagView_setitem
+BagView_setitem: ; 0x0206E330
 	push {r3-r4}
 	mov r4, #0xc
 	mul r4, r3

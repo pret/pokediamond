@@ -396,11 +396,11 @@ MOD05_021E1654: ; 0x021E1654
 	bl FUN_0205F43C
 	add r5, r0, #0
 	ldr r0, [r7, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _021E16C4 ; =0x000001BB
 	mov r2, #1
 	mov r3, #4
-	bl FUN_0206EE50
+	bl BagHasItem
 	cmp r0, #1
 	bne _021E1692
 	cmp r6, #0x64

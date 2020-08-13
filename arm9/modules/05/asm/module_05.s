@@ -26807,11 +26807,11 @@ _021EFCB0:
 	pop {r3, r4, r5, r6, pc}
 _021EFCC4:
 	ldr r0, [r6, #0x34]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _021EFD3C ; =0x000001B5
 	mov r2, #1
 	mov r3, #4
-	bl FUN_0206EE50
+	bl BagHasItem
 	cmp r0, #1
 	bne _021EFCFE
 	add r0, r6, #0

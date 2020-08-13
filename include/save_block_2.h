@@ -13,6 +13,15 @@ struct SavArrayHeader
     u16 field_E;
 };
 
+struct SavArrayFooter
+{
+    u32 magic;
+    u32 next;
+    u32 size;
+    u16 id;
+    u16 crc;
+};
+
 struct SaveBlock2_Sub_20464 {
     u8 unk_0;
     u8 padding[3];

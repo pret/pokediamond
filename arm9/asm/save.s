@@ -21,7 +21,7 @@ UNK_020EE700: ; 0x020EE700
 	.word 0x00, 0x00, FUN_0202376C, FUN_02023770
 	.word 0x01, 0x00, Sav2_PlayerData_sizeof, Sav2_PlayerData_init
 	.word 0x02, 0x00, SavArray_Party_sizeof, SavArray_Party_init
-	.word 0x03, 0x00, FUN_0206EB80, FUN_0206EBA0
+	.word 0x03, 0x00, Sav2_Bag_sizeof, Sav2_Bag_init
 	.word 0x04, 0x00, SavArray_Flags_sizeof, SavArray_Flags_init
 	.word 0x05, 0x00, FUN_0204BE14, FUN_0204BE18
 	.word 0x06, 0x00, FUN_02034D7C, FUN_02034D98
@@ -63,8 +63,8 @@ UNK_021C59C8: ; 0x021C59C8
 
 	.text
 
-	thumb_func_start FUN_0202254C
-FUN_0202254C: ; 0x0202254C
+	thumb_func_start SaveBlock2_new
+SaveBlock2_new: ; 0x0202254C
 	push {r4, lr}
 	ldr r1, _020225E0 ; =0x000204A8
 	mov r0, #0x1
@@ -89,7 +89,7 @@ FUN_0202254C: ; 0x0202254C
 	bl MATHi_CRC16InitTable
 	ldr r0, _020225EC ; =0x00020224
 	add r0, r4, r0
-	bl FUN_020230E4
+	bl SaveBlock2_InitSubstructs
 	ldr r0, _020225F0 ; =0x00020464
 	ldr r1, _020225EC ; =0x00020224
 	add r0, r4, r0
@@ -1638,8 +1638,8 @@ _020230BE:
 _020230DC: .word UNK_020EE6DC
 _020230E0: .word UNK_020EE700
 
-	thumb_func_start FUN_020230E4
-FUN_020230E4: ; 0x020230E4
+	thumb_func_start SaveBlock2_InitSubstructs
+SaveBlock2_InitSubstructs: ; 0x020230E4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1831,6 +1831,7 @@ _02023244: .word UNK_020EE6DC
 
 	thumb_func_start FUN_02023248
 FUN_02023248: ; 0x02023248
+	; void FUN_02023248(struct SaveBlock2 * sav2, void * data, u16 id, u32 size)
 	push {r3-r5, lr}
 	ldr r5, _0202326C ; =0x20060623
 	add r4, r1, r3

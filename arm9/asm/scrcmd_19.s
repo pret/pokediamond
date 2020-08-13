@@ -32,11 +32,11 @@ FUN_02045268: ; 0x02045268
 	add r5, r4, #0x0
 _02045288:
 	ldr r0, [r6, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	lsl r1, r4, #0x2
 	ldrh r1, [r7, r1]
 	mov r2, #0x4
-	bl FUN_0206EEF8
+	bl BagGetQuantity
 	add r0, r5, r0
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -133,11 +133,11 @@ FUN_02045308: ; 0x02045308
 _02045358:
 	ldr r0, [r7, #0xc]
 	lsl r5, r4, #0x2
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _02045394 ; =UNK_020F450C
 	mov r2, #0x4
 	ldrh r1, [r1, r5]
-	bl FUN_0206EEF8
+	bl BagGetQuantity
 	add r0, r6, r0
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10

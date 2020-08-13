@@ -1159,7 +1159,7 @@ _021D7E68:
 	ldr r0, [r6, #0x10]
 	mov r1, #4
 	ldr r0, [r0, #0x14]
-	bl FUN_0206EE64
+	bl BagPocketNotEmpty
 	cmp r0, #0
 	bne _021D7E8A
 	ldr r0, _021D7F44 ; =0x0000063C

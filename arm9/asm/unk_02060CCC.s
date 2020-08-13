@@ -1726,12 +1726,12 @@ FUN_020618E0: ; 0x020618E0
 FUN_020618EC: ; 0x020618EC
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	mov r1, #0x6b
 	lsl r1, r1, #0x2
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206EE50
+	bl BagHasItem
 	pop {r3, pc}
 	.balign 4
 
@@ -2083,12 +2083,12 @@ FUN_02061B80: ; 0x02061B80
 FUN_02061BB4: ; 0x02061BB4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	mov r1, #0x6b
 	lsl r1, r1, #0x2
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206EE50
+	bl BagHasItem
 	pop {r3, pc}
 	.balign 4
 

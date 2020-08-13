@@ -32,7 +32,7 @@ FUN_0205FA2C: ; 0x0205FA2C
 	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	add r0, r6, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x0

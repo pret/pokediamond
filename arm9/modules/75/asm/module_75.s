@@ -473,7 +473,7 @@ MOD75_021E6FA4: ; 0x021E6FA4
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r1, r4, #0
 	add r1, #0xc8
 	str r0, [r1]
@@ -5004,7 +5004,7 @@ MOD75_021E92BC: ; 0x021E92BC
 	ldrh r2, [r2]
 	ldrh r3, [r4, r3]
 	sub r1, r1, #3
-	bl FUN_0206EE20
+	bl BagTakeItem2
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r3, [r0]
@@ -5226,7 +5226,7 @@ MOD75_021E947C: ; 0x021E947C
 	add r2, #0x66
 	ldrh r2, [r2]
 	sub r1, r1, #3
-	bl FUN_0206EF10
+	bl PocketGetQuantity
 	cmp r0, #1
 	bne _021E94BA
 	add r0, r4, #0
@@ -5954,7 +5954,7 @@ _021E9A6E:
 	add r2, #0x66
 	ldrh r2, [r2]
 	sub r1, r1, #3
-	bl FUN_0206EF10
+	bl PocketGetQuantity
 	cmp r0, #1
 	bne _021E9AF4
 	mov r0, #0x45

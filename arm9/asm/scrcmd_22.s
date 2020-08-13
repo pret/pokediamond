@@ -33,11 +33,11 @@ FUN_02045784: ; 0x02045784
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	mov r3, #0x4
-	bl FUN_0206ED38
+	bl BagAddItem
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -72,11 +72,11 @@ FUN_020457DC: ; 0x020457DC
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	mov r3, #0x4
-	bl FUN_0206EDD4
+	bl BagTakeItem
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -111,11 +111,11 @@ FUN_02045834: ; 0x02045834
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	mov r3, #0x4
-	bl FUN_0206ED24
+	bl BagHasSpaceForItem
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -150,11 +150,11 @@ FUN_0204588C: ; 0x0204588C
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	mov r3, #0xb
-	bl FUN_0206EE50
+	bl BagHasItem
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}

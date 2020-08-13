@@ -98,7 +98,7 @@ FUN_02050ED4: ; 0x02050ED4
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x0

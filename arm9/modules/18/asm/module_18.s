@@ -34906,7 +34906,7 @@ _0224A5A6:
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r6, r0, #0
 	ldr r0, _0224A694 ; =0x000005DC
 	bl FUN_020054C8
@@ -34915,7 +34915,7 @@ _0224A5A6:
 	lsr r1, r1, #0x10
 	mov r2, #1
 	mov r3, #4
-	bl FUN_0206ED38
+	bl BagAddItem
 	cmp r0, #0
 	beq _0224A62A
 	ldr r0, _0224A69C ; =0x022513F8

@@ -5807,10 +5807,10 @@ _021DA41E:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _021DA5D8 ; =MOD14_021E6264
 	mov r2, #9
-	bl FUN_0206EFEC
+	bl CreateBagView
 	mov r1, #0x85
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -5869,12 +5869,12 @@ _021DA498:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	lsl r1, r6, #0x10
 	lsr r1, r1, #0x10
 	mov r2, #1
 	mov r3, #9
-	bl FUN_0206EDD4
+	bl BagTakeItem
 	ldr r1, _021DA5E4 ; =MOD14_021E6A00
 	add r0, r4, #0
 	ldr r1, [r1, #8]
@@ -6122,14 +6122,14 @@ _021DA6E4:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _021DA7B4 ; =MOD14_021E6A00
 	mov r2, #1
 	ldr r1, [r1, #4]
 	mov r3, #9
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_0206ED38
+	bl BagAddItem
 	cmp r0, #0
 	beq _021DA72A
 	add r0, r4, #0
@@ -6344,14 +6344,14 @@ _021DA8BA:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _021DA9C0 ; =MOD14_021E6A00
 	mov r2, #1
 	ldr r1, [r1]
 	mov r3, #9
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_0206ED38
+	bl BagAddItem
 	cmp r0, #0
 	beq _021DA908
 	add r0, r4, #0

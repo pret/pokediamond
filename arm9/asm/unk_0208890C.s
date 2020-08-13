@@ -30,7 +30,7 @@ FUN_0208890C: ; 0x0208890C
 	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x14]
 	add r0, r5, #0x0
 	bl Sav2_PlayerData_GetOptionsAddr

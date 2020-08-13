@@ -33053,7 +33053,7 @@ _0223F598:
 	ldrh r1, [r6]
 	mov r2, #1
 	mov r3, #5
-	bl FUN_0206EDD4
+	bl BagTakeItem
 	add r0, r7, #0
 	bl MOD11_02230218
 	ldrh r1, [r6]

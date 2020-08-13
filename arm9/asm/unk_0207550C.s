@@ -1744,7 +1744,7 @@ _020763B2:
 	mov r3, #0xc
 	ldr r0, [r1, #0x4]
 	ldrh r1, [r1, #0x24]
-	bl FUN_0206EDD4
+	bl BagTakeItem
 	ldr r0, _020763F0 ; =0x000005A4
 	mov r1, #0x0
 	ldr r0, [r4, r0]
@@ -3114,7 +3114,7 @@ FUN_02076F2C: ; 0x02076F2C
 	mov r3, #0xc
 	ldr r0, [r1, #0x4]
 	ldrh r1, [r1, #0x24]
-	bl FUN_0206EDD4
+	bl BagTakeItem
 _02076F98:
 	add r0, r5, #0x0
 	bl FUN_020772CC
@@ -3392,7 +3392,7 @@ _0207716A:
 	mov r3, #0xc
 	ldr r0, [r1, #0x4]
 	ldrh r1, [r1, #0x24]
-	bl FUN_0206EDD4
+	bl BagTakeItem
 	ldr r0, _0207723C ; =0x000005EC
 	bl FUN_020054C8
 	b _02077204

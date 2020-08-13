@@ -755,7 +755,7 @@ FUN_02043308: ; 0x02043308
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -766,7 +766,7 @@ FUN_02043308: ; 0x02043308
 	lsr r1, r1, #0x10
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206ED24
+	bl BagHasSpaceForItem
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -775,7 +775,7 @@ FUN_02043330: ; 0x02043330
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -786,7 +786,7 @@ FUN_02043330: ; 0x02043330
 	lsr r1, r1, #0x10
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206ED38
+	bl BagAddItem
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -827,7 +827,7 @@ FUN_02043394: ; 0x02043394
 	add r4, r1, #0x0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r0, [r5, #0x0]
 	bl FUN_02042D04
 	ldr r0, [r0, #0x0]
@@ -1099,7 +1099,7 @@ FUN_020435A0: ; 0x020435A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -1107,7 +1107,7 @@ FUN_020435A0: ; 0x020435A0
 	add r0, r4, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206ED24
+	bl BagHasSpaceForItem
 	pop {r3-r5, pc}
 	.balign 4
 _020435C0: .word 0x000001C6
@@ -1117,7 +1117,7 @@ FUN_020435C4: ; 0x020435C4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02042D04
@@ -1128,7 +1128,7 @@ FUN_020435C4: ; 0x020435C4
 	add r0, r5, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206ED38
+	bl BagAddItem
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl FUN_0205F478
@@ -1172,7 +1172,7 @@ FUN_02043634: ; 0x02043634
 	add r4, r1, #0x0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r0, [r5, #0x0]
 	bl FUN_02042D04
 	mov r2, #0x53
@@ -1191,7 +1191,7 @@ FUN_02043660: ; 0x02043660
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -1200,7 +1200,7 @@ FUN_02043660: ; 0x02043660
 	lsl r1, r1, #0x2
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206ED24
+	bl BagHasSpaceForItem
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1209,7 +1209,7 @@ FUN_02043684: ; 0x02043684
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02042D04
@@ -1221,7 +1221,7 @@ FUN_02043684: ; 0x02043684
 	lsl r1, r1, #0x2
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206ED38
+	bl BagAddItem
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl FUN_0205F478
@@ -1263,7 +1263,7 @@ FUN_020436F0: ; 0x020436F0
 	add r4, r1, #0x0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r0, [r5, #0x0]
 	bl FUN_02042D04
 	mov r2, #0x53
@@ -1282,7 +1282,7 @@ FUN_0204371C: ; 0x0204371C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -1290,7 +1290,7 @@ FUN_0204371C: ; 0x0204371C
 	add r0, r4, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206ED24
+	bl BagHasSpaceForItem
 	pop {r3-r5, pc}
 	.balign 4
 _0204373C: .word 0x000001C7
@@ -1300,7 +1300,7 @@ FUN_02043740: ; 0x02043740
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02042D04
@@ -1311,7 +1311,7 @@ FUN_02043740: ; 0x02043740
 	add r0, r5, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0206ED38
+	bl BagAddItem
 	add r0, r4, #0x0
 	mov r1, #0x2
 	bl FUN_0205F478
@@ -1355,7 +1355,7 @@ FUN_020437B0: ; 0x020437B0
 	add r4, r1, #0x0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r0, [r5, #0x0]
 	bl FUN_02042D04
 	mov r2, #0x53

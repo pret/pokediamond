@@ -4681,11 +4681,11 @@ _0222FC2C:
 	pop {r3, r4, r5, r6, r7, pc}
 _0222FC70:
 	ldr r0, [r6, #4]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _0222FCFC ; =0x000001B5
 	mov r2, #1
 	mov r3, #0x1a
-	bl FUN_0206EE50
+	bl BagHasItem
 	cmp r0, #1
 	bne _0222FCAA
 	ldr r0, _0222FCE4 ; =0x0000366C
