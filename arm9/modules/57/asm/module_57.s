@@ -2896,7 +2896,7 @@ _021D8BA4:
 	lsr r0, r0, #0x1f
 	beq _021D8C02
 	ldr r0, [r6, #0x18]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -2906,7 +2906,7 @@ _021D8BA4:
 	mov r3, #3
 	bl FUN_0200AD38
 	ldr r0, [r6, #0x18]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r3, #2
 	add r2, r0, #0
 	str r3, [sp]
@@ -3445,7 +3445,7 @@ MOD57_021D905C: ; 0x021D905C
 	bl ErrorHandling
 _021D906E:
 	ldr r0, [r5, #0x18]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	mov r0, #0x28
 	str r0, [sp]
 	mov r0, #0x10
@@ -3476,7 +3476,7 @@ _021D906E:
 	bl FUN_0200AA90
 	add r6, r0, #0
 	ldr r0, [r5, #0x18]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -3486,7 +3486,7 @@ _021D906E:
 	mov r3, #3
 	bl FUN_0200AD38
 	ldr r0, [r5, #0x18]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r3, #2
 	add r2, r0, #0
 	str r3, [sp]

@@ -1248,7 +1248,7 @@ FUN_0202918C: ; 0x0202918C
 	orr r0, r1
 	strb r0, [r4, #0x1]
 	ldr r0, [sp, #0x0]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r1, #0xa
 	bl _s32_div_f
 	lsl r0, r0, #0x18
@@ -1317,7 +1317,7 @@ FUN_0202920C: ; 0x0202920C
 	orr r0, r1
 	strb r0, [r4, #0x1]
 	ldr r0, [sp, #0x0]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r1, #0xa
 	bl _s32_div_f
 	lsl r0, r0, #0x18

@@ -11583,7 +11583,7 @@ _021E83A8:
 	mov r1, #3
 	bl FUN_0200AD38
 	ldr r0, [r4, #0xc]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	add r2, r0, #0
 	cmp r2, #0x64
 	blt _021E83C8
@@ -11607,7 +11607,7 @@ _021E83D6:
 	mov r1, #4
 	bl FUN_0200AD38
 	ldr r0, [r4, #0xc]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r3, #2
 	add r2, r0, #0
 	str r3, [sp]

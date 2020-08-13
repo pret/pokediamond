@@ -25,7 +25,7 @@ Sav2_PlayerData_init: ; 0x020238C8
 	bl InitCoins
 	add r4, #0x26
 	add r0, r4, #0x0
-	bl FUN_02029E48
+	bl InitIGT
 	pop {r4, pc}
 
 	thumb_func_start Sav2_GetPlayerDataPtr

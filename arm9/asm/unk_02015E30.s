@@ -62,7 +62,7 @@ FUN_02015E60: ; 0x02015E60
 	bhs _02015E9A
 	ldr r0, [r1, #0x4]
 	sub r1, r4, r3
-	bl FUN_02029E54
+	bl AddIGTSeconds
 	ldr r0, _02015E9C ; =UNK_021C4898
 	str r4, [r0, #0x8]
 	str r5, [r0, #0xc]

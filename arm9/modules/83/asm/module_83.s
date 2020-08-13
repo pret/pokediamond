@@ -1052,13 +1052,13 @@ _0222DDB8:
 	bl MOD83_0222DCA0
 	ldr r0, [sp, #0x10]
 	ldr r0, [r0, #0x10]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	add r1, r0, #0
 	ldr r0, [sp, #0x28]
 	bl MOD83_0222DCF4
 	ldr r0, [sp, #0x10]
 	ldr r0, [r0, #0x10]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	add r2, r0, #0
 	mov r3, #2
 	ldr r0, [sp, #0x28]

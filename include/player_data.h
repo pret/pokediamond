@@ -2,6 +2,7 @@
 #define POKEDIAMOND_PLAYER_DATA_H
 
 #include "options.h"
+#include "igt.h"
 
 struct SaveBlock2;
 
@@ -26,9 +27,9 @@ struct PlayerDataSav
     struct Options options;
     u8 padding[2];
     struct PlayerData data;
-    u16 field_24;
-    u16 field_26;
-    u32 field_28;
+    u16 coins;
+    struct IGT igt;
+    u8 padding2[2];
 };
 
 struct Options * LoadPlayerDataAddress(struct SaveBlock2 *);

@@ -385,10 +385,10 @@ FUN_020651BC: ; 0x020651BC
 	add r5, r2, #0x0
 	add r6, r3, #0x0
 	ldr r7, [sp, #0x20]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	strh r0, [r4, #0x2a]
 	ldr r0, [sp, #0x4]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	add r1, r4, #0x0
 	add r1, #0x2e
 	strb r0, [r1, #0x0]

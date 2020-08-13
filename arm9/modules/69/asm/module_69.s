@@ -2684,7 +2684,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	bl FUN_0200AD38
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #8]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -2697,7 +2697,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	bl FUN_0200AD38
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #8]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r3, #2
 	add r2, r0, #0
 	str r3, [sp]

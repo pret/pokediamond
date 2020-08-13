@@ -104,7 +104,7 @@ Static arm9
 	Object unk_02029AE0.o
 	Object unk_02029C58.o
 	Object unk_02029CEC.o
-	Object unk_02029E48.o
+	Object igt.o
 	Object unk_02029EC4.o
 	Object unk_02029FB0.o
 	Object unk_0202A1E0.o

@@ -1978,10 +1978,10 @@
 .extern FUN_02029DD4
 .extern FUN_02029E0C
 .extern FUN_02029E2C
-.extern FUN_02029E48
-.extern FUN_02029E54
-.extern FUN_02029EBC
-.extern FUN_02029EC0
+.extern InitIGT
+.extern AddIGTSeconds
+.extern GetIGTHours
+.extern GetIGTMinutes
 .extern FUN_02029EC4
 .extern FUN_02029ECC
 .extern FUN_02029EE4
