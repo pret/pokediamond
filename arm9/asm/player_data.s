@@ -17,12 +17,12 @@ Sav2_PlayerData_init: ; 0x020238C8
 	mov r2, #0x2c
 	bl MIi_CpuClearFast
 	add r0, r4, #0x0
-	bl FUN_02024F50
+	bl Options_init
 	add r0, r4, #0x4
 	bl PlayerData_Clear
 	add r0, r4, #0x0
 	add r0, #0x24
-	bl FUN_02028910
+	bl InitCoins
 	add r4, #0x26
 	add r0, r4, #0x0
 	bl FUN_02029E48

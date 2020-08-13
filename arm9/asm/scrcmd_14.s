@@ -87,7 +87,7 @@ FUN_02043ACC: ; 0x02043ACC
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02028930
+	bl CheckCoins
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -110,7 +110,7 @@ FUN_02043AFC: ; 0x02043AFC
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02028934
+	bl GiveCoins
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -131,7 +131,7 @@ FUN_02043B28: ; 0x02043B28
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0202896C
+	bl TakeCoins
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -153,7 +153,7 @@ FUN_02043B54: ; 0x02043B54
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_0202896C
+	bl TakeCoins
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -182,7 +182,7 @@ FUN_02043B84: ; 0x02043B84
 	bl ScriptReadWord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02028930
+	bl CheckCoins
 	cmp r0, r4
 	bhs _02043BC8
 	mov r0, #0x0
@@ -222,7 +222,7 @@ FUN_02043BD0: ; 0x02043BD0
 	bl GetVarPointer
 	ldrh r5, [r0, #0x0]
 	add r0, r6, #0x0
-	bl FUN_02028930
+	bl CheckCoins
 	cmp r0, r5
 	bhs _02043C1E
 	mov r0, #0x0
@@ -260,7 +260,7 @@ FUN_02043C28: ; 0x02043C28
 	bl VarGet
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02028954
+	bl CanGiveCoins
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}

@@ -1588,7 +1588,7 @@
 .extern FUN_02024F18
 .extern FUN_02024F30
 .extern FUN_02024F44
-.extern FUN_02024F50
+.extern Options_init
 .extern FUN_02024F9C
 .extern FUN_02024FD8
 .extern FUN_02024FE0
@@ -1897,12 +1897,12 @@
 .extern FUN_02028854
 .extern FUN_0202888C
 .extern FUN_020288AC
-.extern FUN_02028910
-.extern FUN_02028918
-.extern FUN_02028930
-.extern FUN_02028934
-.extern FUN_02028954
-.extern FUN_0202896C
+.extern InitCoins
+.extern SetCoins
+.extern CheckCoins
+.extern GiveCoins
+.extern CanGiveCoins
+.extern TakeCoins
 .extern FUN_02028980
 .extern FUN_02028994
 .extern FUN_020289A4

@@ -2379,7 +2379,7 @@ _02038956:
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	add r6, r1, #0x0
-	bl FUN_02028930
+	bl CheckCoins
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x4]
 	ldr r1, [r5, #0x8]
@@ -2397,7 +2397,7 @@ _02038956:
 	ldr r0, [r4, #0xc]
 	bl FUN_0202390C
 	ldr r1, [r5, #0x0]
-	bl FUN_02028918
+	bl SetCoins
 	add r0, r7, #0x0
 	bl FUN_0205F6C8
 	ldr r1, [r5, #0x18]
@@ -2435,7 +2435,7 @@ FUN_020389CC: ; 0x020389CC
 	str r4, [r4, #0xc]
 	ldr r0, [r5, #0xc]
 	bl FUN_0202390C
-	bl FUN_02028930
+	bl CheckCoins
 	str r0, [r4, #0x0]
 	bl FUN_020126FC
 	str r0, [r4, #0x4]

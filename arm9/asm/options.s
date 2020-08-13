@@ -11,7 +11,7 @@ FUN_02024F30: ; 0x02024F30
 	mov r1, #0x2
 	bl AllocFromHeap
 	add r4, r0, #0x0
-	bl FUN_02024F50
+	bl Options_init
 	add r0, r4, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -24,8 +24,8 @@ FUN_02024F44: ; 0x02024F44
 	nop
 _02024F4C: .word MI_CpuCopy8
 
-	thumb_func_start FUN_02024F50
-FUN_02024F50: ; 0x02024F50
+	thumb_func_start Options_init
+Options_init: ; 0x02024F50
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r1, #0x0

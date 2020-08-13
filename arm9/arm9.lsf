@@ -84,11 +84,11 @@ Static arm9
 	Object unk_02022504.o
 	Object save.o
 	Object unk_0202376C.o
-	Object unk_020238C4.o
+	Object player_data.o
 	Object unk_02023AC4.o
 	Object unk_02023C40.o
 	Object unk_02024E64.o
-	Object unk_02024F30.o
+	Object options.o
 	Object unk_020250A4.o
 	Object unk_02025484.o
 	Object unk_020254B8.o
@@ -98,7 +98,7 @@ Static arm9
 	Object unk_02027E30.o
 	Object unk_020281E0.o
 	Object unk_020286F8.o
-	Object unk_02028910.o
+	Object coins.o
 	Object unk_02028980.o
 	Object unk_02029A84.o
 	Object unk_02029AE0.o

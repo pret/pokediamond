@@ -128,7 +128,7 @@ FUN_0206E394: ; 0x0206E394
 FUN_0206E39C: ; 0x0206E39C
 	push {r3, lr}
 	bl FUN_0202390C
-	bl FUN_02028930
+	bl CheckCoins
 	pop {r3, pc}
 
 	thumb_func_start FUN_0206E3A8
