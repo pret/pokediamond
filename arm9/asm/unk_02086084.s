@@ -275,7 +275,7 @@ _020862D6:
 	add r6, r0, #0x0
 	ldr r5, [r4, #0xc]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x1c]
 	ldr r0, [r0, #0x0]
@@ -323,7 +323,7 @@ _0208633A:
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_020377AC
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x0]
 	mov r0, #0xb
 	mov r1, #0x1

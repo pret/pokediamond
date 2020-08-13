@@ -268,8 +268,8 @@ FUN_02048AE4: ; 0x02048AE4
 	bl FUN_02057380
 	str r0, [r5, #0x34]
 	ldr r0, [r5, #0xc]
-	bl Sav2_GetPlayerDataPtr
-	bl PlayerData_GetTrainerGender
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerGender
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_02034E30
@@ -321,8 +321,8 @@ FUN_02048B50: ; 0x02048B50
 	bl FUN_02034E20
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_GetPlayerDataPtr
-	bl PlayerData_GetTrainerGender
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x34]
 	add r1, r4, #0x0
@@ -1999,13 +1999,13 @@ _02049884:
 	mov r2, #0x3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x24
 	bl FUN_02054608
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x34]

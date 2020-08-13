@@ -101,7 +101,7 @@ FUN_02043918: ; 0x02043918
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
 	add r0, #0x80

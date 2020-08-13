@@ -756,7 +756,7 @@ _02085F5E:
 	str r0, [r4, #0x8]
 	bl memset
 	add r0, r5, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	ldr r1, [r4, #0x8]
 	str r0, [r1, #0x24]
 	ldr r0, [r4, #0x8]

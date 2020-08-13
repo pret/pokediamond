@@ -1160,7 +1160,7 @@ _0222DFEC:
 	add r1, #0xf8
 	ldr r0, [r5, #0x48]
 	ldr r1, [r1]
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, [r5, #0x48]
 	bl FreeToHeap
 	ldr r0, [sp]
@@ -1741,13 +1741,13 @@ MOD11_0222E520: ; 0x0222E520
 	add r5, r1, #0
 _0222E532:
 	mov r0, #5
-	bl PlayerData_init
+	bl PlayerProfile_init
 	add r1, r0, #0
 	add r0, r5, #0
 	str r1, [r6, #0x48]
 	add r0, #0xf8
 	ldr r0, [r0]
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	mov r0, #0x46
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]

@@ -203,7 +203,7 @@ FUN_0200ABC0: ; 0x0200ABC0
 	add r5, r0, #0x0
 	add r0, r2, #0x0
 	add r4, r1, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl CopyU16ArrayToString
@@ -240,7 +240,7 @@ FUN_0200AC0C: ; 0x0200AC0C
 	add r5, r0, #0x0
 	add r0, r2, #0x0
 	add r6, r1, #0x0
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r2, _0200AC5C ; =0x000001F1
 	ldr r3, [r5, #0x4]
@@ -249,7 +249,7 @@ FUN_0200AC0C: ; 0x0200AC0C
 	bl NewMsgDataFromNarc
 	add r4, r0, #0x0
 	add r0, r7, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #0x0
 	bne _0200AC3E
 	ldr r2, [r5, #0xc]

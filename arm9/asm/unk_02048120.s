@@ -97,7 +97,7 @@ _0204817A:
 	bl FUN_02019150
 	add r0, r5, #0x0
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x20]
 	mov r1, #0x0

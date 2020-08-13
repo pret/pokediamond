@@ -74,7 +74,7 @@ THUMB_FUNC void NitroMain(void)
     FUN_02002C50(3, 3);
     gBacklightTop.unk18 = -1;
     gBacklightTop.unk20 = FUN_0202254C();
-    InitSoundData(FUN_02029EF8(gBacklightTop.unk20), LoadPlayerDataAddress(gBacklightTop.unk20));
+    InitSoundData(FUN_02029EF8(gBacklightTop.unk20), Sav2_PlayerData_GetOptionsAddr(gBacklightTop.unk20));
     FUN_02020AFC();
     if (FUN_020337E8(3) == 3)
         FUN_02034188(3, 0);

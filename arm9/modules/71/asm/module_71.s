@@ -207,11 +207,11 @@ MOD71_0222D780: ; 0x0222D780
 	add r6, r0, #0
 	add r0, r4, #0
 	mov r1, #0x1a
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	add r4, r0, #0
 	add r0, r6, #0
 	mov r1, #0x1a
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	add r6, r0, #0
 	mov r0, #0x61
 	lsl r0, r0, #2
@@ -2160,7 +2160,7 @@ MOD71_0222E76C: ; 0x0222E76C
 	bl memset
 	ldr r0, [r4, #4]
 	mov r1, #0x1a
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	mov r1, #0x63
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -3743,12 +3743,12 @@ MOD71_0222F4BC: ; 0x0222F4BC
 	add r4, r2, #0
 	add r6, r0, #0
 	add r5, r1, #0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0
 	add r0, r4, #0
 	bl CopyU16StringArray
 	add r0, r6, #0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	str r0, [r4, #0x10]
 	add r0, r6, #0
 	bl FUN_02023A70
@@ -3757,7 +3757,7 @@ MOD71_0222F4BC: ; 0x0222F4BC
 	bl FUN_02023A68
 	strb r0, [r4, #0x15]
 	add r0, r6, #0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	strb r0, [r4, #0x16]
 	mov r0, #0
 	add r1, r4, #0
@@ -4348,7 +4348,7 @@ _0222F9A0:
 	ldr r0, _0222FA24 ; =0x00003670
 	str r4, [r5, r0]
 	mov r0, #0x1a
-	bl PlayerData_init
+	bl PlayerProfile_init
 	add r6, r0, #0
 	ldr r0, _0222FA28 ; =0x00003694
 	add r1, r4, #0
@@ -6371,7 +6371,7 @@ _02230A40:
 	eor r0, r1
 	bl FUN_0202DFA4
 	ldr r1, [r5, #0x38]
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, [sp, #4]
 	ldr r1, _02230AE0 ; =0x000001B9
 	str r6, [r5, #0x2c]
@@ -6429,10 +6429,10 @@ MOD71_02230AE4: ; 0x02230AE4
 	add r2, sp, #4
 	bl GetMonData
 	add r0, r5, #0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r7, r0, #0
 	add r0, r5, #0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r5, r0, #0
 	add r0, r4, #0
 	bl GetMonGender

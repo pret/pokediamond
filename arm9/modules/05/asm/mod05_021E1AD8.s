@@ -1827,8 +1827,8 @@ MOD05_021E28A0: ; 0x021E28A0
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x10]
 	ldr r0, [r7, #0xc]
-	bl Sav2_GetPlayerDataPtr
-	bl PlayerData_GetMoney
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetMoney
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -1955,7 +1955,7 @@ MOD05_021E29C8: ; 0x021E29C8
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x10]
 	ldr r0, [r6, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	bl CheckCoins
 	add r2, r0, #0
 	mov r0, #1

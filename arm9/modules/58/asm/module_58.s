@@ -92,7 +92,7 @@ _021D9A36:
 	str r0, [r4, #8]
 	add r0, r6, #0
 	bl FUN_0200628C
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	add r0, r4, #0
 	bl MOD58_021D9F14

@@ -100,11 +100,11 @@ FUN_020625EC: ; 0x020625EC
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	strh r0, [r4, #0x1a]
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02025084
 	strh r0, [r4, #0x1c]
 	str r4, [r7, #0x8]

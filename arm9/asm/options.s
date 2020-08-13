@@ -67,7 +67,7 @@ FUN_02024F9C: ; 0x02024F9C
 	push {r3, lr}
 	cmp r0, #0x0
 	beq _02024FAC
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02025064
 	add r1, r0, #0x0
 _02024FAC:

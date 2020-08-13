@@ -826,8 +826,8 @@ FUN_02053D0C: ; 0x02053D0C
 	bl FUN_0201B6C8
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_GetPlayerDataPtr
-	bl PlayerData_GetTrainerGender
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	add r0, r4, #0x4
 	add r2, r6, #0x0

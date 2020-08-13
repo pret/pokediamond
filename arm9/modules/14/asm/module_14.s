@@ -1948,7 +1948,7 @@ _021D84AA:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0
 	mov r0, #0x4b
 	lsl r0, r0, #2
@@ -7532,7 +7532,7 @@ MOD14_021DB220: ; 0x021DB220
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	ldr r0, [r4]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	mov r1, #0x69
 	lsl r1, r1, #2
 	str r0, [r5, r1]

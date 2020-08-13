@@ -1830,7 +1830,7 @@ _02047400:
 	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
 	mov r1, #0x5
@@ -1874,7 +1874,7 @@ _02047470:
 	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [sp, #0x8]
 	add r0, r6, #0x0
 	mov r1, #0x5

@@ -105,9 +105,9 @@ _020454B6:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r4, #0x0
-	bl PlayerData_TestBadgeFlag
+	bl PlayerProfile_TestBadgeFlag
 	strh r0, [r6, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -130,9 +130,9 @@ _020454EA:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r4, #0x0
-	bl PlayerData_SetBadgeFlag
+	bl PlayerProfile_SetBadgeFlag
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -177,9 +177,9 @@ _02045548:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	ldrb r1, [r7, r4]
-	bl PlayerData_TestBadgeFlag
+	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x1
 	bne _02045564
 	add r0, r5, #0x1

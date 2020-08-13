@@ -2799,7 +2799,7 @@ _021D8B2A:
 	ldr r0, [r7, r0]
 	cmp r0, #0
 	beq _021D8BE4
-	bl PlayerData_GetTrainerID_VisibleHalf
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	str r0, [sp, #0x24]
 	mov r0, #0xd9
 	lsl r0, r0, #2
@@ -3136,7 +3136,7 @@ _021D8D9E:
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	str r0, [sp, #0xc]
 	mov r0, #0xd9
 	lsl r0, r0, #2
@@ -3187,7 +3187,7 @@ _021D8E06:
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	mov r0, #0x8b
 	lsl r0, r0, #2
@@ -3718,7 +3718,7 @@ MOD54_021D91C4: ; 0x021D91C4
 	str r3, [sp, #4]
 	add r5, r1, #0
 	str r2, [sp]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	mov r7, #0
@@ -3730,17 +3730,17 @@ _021D91DC:
 	mov r2, #0x48
 	bl MIi_CpuClearFast
 	add r0, r4, #0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	str r0, [r5]
 	add r0, r4, #0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	strb r0, [r5, #4]
 	mov r0, #GAME_VERSION
 	strb r0, [r5, #5]
 	mov r0, #2
 	strb r0, [r5, #6]
 	add r0, r4, #0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0
 	add r0, r5, #0
 	add r0, #8

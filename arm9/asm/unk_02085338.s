@@ -31,7 +31,7 @@ FUN_02085338: ; 0x02085338
 	strb r0, [r4, #0x2]
 	add r0, r6, #0x0
 	strb r1, [r4, #0x3]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02025084
 	str r0, [r4, #0x8]
 	cmp r5, #0x2

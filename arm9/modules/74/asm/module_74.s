@@ -29,7 +29,7 @@ MOD74_021D74E0: ; 0x021D74E0
 	ldrh r0, [r5, #6]
 	strb r0, [r4, #0xa]
 	ldr r0, [r5]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x18]
 	ldr r0, [r5]
 	bl FUN_02029FC8

@@ -1711,14 +1711,14 @@ FUN_02080AE4: ; 0x02080AE4
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r6, r2, #0x0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x7

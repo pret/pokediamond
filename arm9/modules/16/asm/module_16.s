@@ -4634,12 +4634,12 @@ _021D980C:
 	ldr r1, _021D989C ; =0x0000174C
 	str r0, [r5, r1]
 	ldr r0, [r4, #4]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	ldr r1, _021D98A0 ; =0x00001750
 	str r0, [r5, r1]
 	ldr r0, [r4, #4]
 	add r1, r6, #0
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	ldr r1, _021D98A4 ; =0x00001754
 	str r0, [r5, r1]
 	add r0, r6, #0

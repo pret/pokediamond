@@ -345,7 +345,7 @@ _02053166:
 	bl FUN_02023A28
 	strb r0, [r5, #0x14]
 	ldr r0, [sp, #0xc]
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x8]
 	bl FUN_02025614

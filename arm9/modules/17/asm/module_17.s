@@ -4251,10 +4251,10 @@ MOD17_021D95AC: ; 0x021D95AC
 	beq _021D95EC
 	add r0, r4, #0
 	mov r1, #0xd
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	add r5, r0, #0
 	add r0, r4, #0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0
 	add r0, r6, #0
 	add r1, r5, #0
@@ -4338,10 +4338,10 @@ MOD17_021D964C: ; 0x021D964C
 	beq _021D969A
 	add r0, r4, #0
 	mov r1, #0xd
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	add r5, r0, #0
 	add r0, r4, #0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0
 	add r0, r7, #0
 	add r1, r5, #0

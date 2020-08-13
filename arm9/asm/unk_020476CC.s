@@ -85,7 +85,7 @@ _02047748:
 	add r4, r7, #0x0
 _0204775C:
 	add r0, r5, #0x0
-	bl PlayerData_init
+	bl PlayerProfile_init
 	add r1, r4, #0x0
 	add r1, #0xf8
 	add r6, r6, #0x1
@@ -182,10 +182,10 @@ FUN_02047814: ; 0x02047814
 	add r5, r1, #0x0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	mov r1, #0x1
 	str r0, [sp, #0x14]
 	add r0, r6, #0x0
@@ -203,7 +203,7 @@ FUN_02047814: ; 0x02047814
 	bl String_ctor
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x10]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0x0
 	mov r1, #0x1
 	eor r1, r2
@@ -222,14 +222,14 @@ FUN_02047814: ; 0x02047814
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x10]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0xf8
 	mov r1, #0x1
 	ldr r0, [r0, #0x0]
 	eor r1, r2
-	bl PlayerData_SetTrainerGender
+	bl PlayerProfile_SetTrainerGender
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	bl FUN_0204806C
@@ -446,7 +446,7 @@ _02047A54:
 	add r1, #0xf8
 	ldr r1, [r1, #0x0]
 	add r0, r6, #0x0
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_02047A64
@@ -468,7 +468,7 @@ FUN_02047A78: ; 0x02047A78
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl SavArray_PlayerParty_get
@@ -483,7 +483,7 @@ FUN_02047A78: ; 0x02047A78
 	bl FUN_02029EF8
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0xc]
 	bl FUN_02034E30
@@ -612,7 +612,7 @@ FUN_02047BC0: ; 0x02047BC0
 	ldr r0, [r0, #0xc]
 	str r1, [sp, #0x0]
 	add r7, r2, #0x0
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -632,7 +632,7 @@ FUN_02047BC0: ; 0x02047BC0
 	str r0, [sp, #0x8]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x4]
 	mov r0, #0x15
 	mov r1, #0x6
@@ -783,7 +783,7 @@ FUN_02047D48: ; 0x02047D48
 	str r1, [sp, #0x0]
 	str r2, [sp, #0x4]
 	add r7, r3, #0x0
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -799,7 +799,7 @@ FUN_02047D48: ; 0x02047D48
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x6
@@ -953,7 +953,7 @@ _02047E2C:
 	bl FUN_02023A28
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x20]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r4, #0x0
 	mov r2, #0x1
 	bl FUN_020536D0
@@ -963,7 +963,7 @@ _02047E2C:
 	add r0, r5, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x3c
@@ -1010,7 +1010,7 @@ FUN_02047F38: ; 0x02047F38
 	add r5, r1, #0x0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl SavArray_PlayerParty_get
@@ -1029,7 +1029,7 @@ FUN_02047F38: ; 0x02047F38
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
 	add r1, r6, #0x0
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, [r4, #0x4]
 	add r1, r7, #0x0
 	bl CopyPlayerParty
@@ -1056,7 +1056,7 @@ FUN_02047FA4: ; 0x02047FA4
 	add r5, r1, #0x0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r0, [r5, #0xc]
 	bl SavArray_PlayerParty_get
 	ldr r0, [r5, #0xc]
@@ -1233,14 +1233,14 @@ FUN_020480E4: ; 0x020480E4
 	add r4, r0, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r4, #0x0
 	add r1, #0x29
 	strb r0, [r1, #0x0]
 	add r0, r4, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x3c

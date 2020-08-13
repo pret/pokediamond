@@ -94,18 +94,18 @@ FUN_020256DC: ; 0x020256DC
 	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x8
 	bl CopyU16StringArray
 	add r0, r6, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	strb r0, [r5, #0x4]
 	add r0, r6, #0x0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	str r0, [r5, #0x0]
 	ldr r0, [sp, #0x0]
 	mov r6, #0x0

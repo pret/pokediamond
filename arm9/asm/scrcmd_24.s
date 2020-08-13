@@ -138,13 +138,13 @@ FUN_02045E74: ; 0x02045E74
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x8]
 	str r6, [r4, #0xc]
 	add r0, r5, #0x0

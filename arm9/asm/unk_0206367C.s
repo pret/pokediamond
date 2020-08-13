@@ -232,7 +232,7 @@ FUN_0206384C: ; 0x0206384C
 	cmp r6, r4
 	beq _02063882
 	ldr r0, [r5, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #0x20
 	add r5, #0x98
 	str r1, [sp, #0x0]

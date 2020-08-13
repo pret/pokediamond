@@ -76,10 +76,10 @@ FUN_0206C004: ; 0x0206C004
 
 	thumb_func_start FUN_0206C008
 FUN_0206C008: ; 0x0206C008
-	ldr r3, _0206C00C ; =PlayerData_sizeof
+	ldr r3, _0206C00C ; =PlayerProfile_sizeof
 	bx r3
 	.balign 4
-_0206C00C: .word PlayerData_sizeof
+_0206C00C: .word PlayerProfile_sizeof
 
 	thumb_func_start FUN_0206C010
 FUN_0206C010: ; 0x0206C010
@@ -394,7 +394,7 @@ _0206C210:
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
@@ -418,7 +418,7 @@ _0206C238:
 	mov r0, #0x0
 	pop {r4, pc}
 _0206C246:
-	bl PlayerData_sizeof
+	bl PlayerProfile_sizeof
 	add r4, #0x20
 	add r2, r0, #0x0
 	mov r0, #0x19
@@ -990,12 +990,12 @@ FUN_0206C66C: ; 0x0206C66C
 	add r4, r2, #0x0
 	add r6, r0, #0x0
 	add r5, r1, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl CopyU16StringArray
 	add r0, r6, #0x0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	str r0, [r4, #0x10]
 	add r0, r6, #0x0
 	bl FUN_02023A70
@@ -1004,7 +1004,7 @@ FUN_0206C66C: ; 0x0206C66C
 	bl FUN_02023A68
 	strb r0, [r4, #0x15]
 	add r0, r6, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	strb r0, [r4, #0x16]
 	mov r0, #0x0
 	add r1, r4, #0x0

@@ -1643,11 +1643,11 @@ FUN_02061850: ; 0x02061850
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl PlayerData_sizeof
+	bl PlayerProfile_sizeof
 	str r0, [r5, #0x0]
 	add r0, r4, #0x0
 	add r1, r5, #0x4
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1659,7 +1659,7 @@ FUN_02061868: ; 0x02061868
 	add r5, r1, #0x0
 	bl MOD06_02248B60
 	add r4, r0, #0x0
-	bl PlayerData_sizeof
+	bl PlayerProfile_sizeof
 	ldr r1, [r4, #0x0]
 	cmp r1, r0
 	beq _02061884

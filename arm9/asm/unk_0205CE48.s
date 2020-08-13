@@ -297,7 +297,7 @@ FUN_0205D024: ; 0x0205D024
 	bl FUN_02025838
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0xc]
 	bl FUN_02022504
@@ -780,7 +780,7 @@ FUN_0205D400: ; 0x0205D400
 	bl FUN_02025838
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	mov r0, #0x7a
 	lsl r0, r0, #0x2
@@ -1433,7 +1433,7 @@ _0205D926:
 	mov r2, #0x3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
@@ -1511,7 +1511,7 @@ FUN_0205D9A8: ; 0x0205D9A8
 	bl FUN_02025838
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0xc]
 	bl FUN_02022504
@@ -1786,7 +1786,7 @@ FUN_0205DBF0: ; 0x0205DBF0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r1, [sp, #0x0]
 	ldrh r2, [r5, #0x28]

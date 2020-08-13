@@ -1606,7 +1606,7 @@ FUN_0203A590: ; 0x0203A590
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02054608
@@ -2021,7 +2021,7 @@ FUN_0203A8B8: ; 0x0203A8B8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	ldr r1, [r7, #0x0]
 	add r0, r4, #0x0
@@ -5376,7 +5376,7 @@ FUN_0203C3E8: ; 0x0203C3E8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r6, #0x4]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -6391,7 +6391,7 @@ FUN_0203CBE8: ; 0x0203CBE8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	ldr r1, [r6, #0x0]
 	add r0, r4, #0x0
@@ -6818,7 +6818,7 @@ FUN_0203CFC8: ; 0x0203CFC8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r1, [r5, #0x8]
 	str r0, [sp, #0x0]
 	add r0, r1, #0x1
@@ -6855,7 +6855,7 @@ _0203D02E:
 	bl FUN_02024518
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	lsl r1, r1, #0x10
 	add r0, r5, #0x0
@@ -7345,7 +7345,7 @@ FUN_0203D3DC: ; 0x0203D3DC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, #0x80
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x0]
@@ -7756,7 +7756,7 @@ FUN_0203D738: ; 0x0203D738
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -7764,10 +7764,10 @@ FUN_0203D738: ; 0x0203D738
 	bl FUN_02039438
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x0]
 	add r0, r6, #0x0
@@ -7783,7 +7783,7 @@ FUN_0203D774: ; 0x0203D774
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -7801,17 +7801,17 @@ FUN_0203D774: ; 0x0203D774
 	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	add r2, r7, #0x0
 	bl FUN_02053678
 	strh r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	ldrh r1, [r4, #0x0]
 	mov r2, #0x2
 	bl FUN_020536D0
@@ -7827,7 +7827,7 @@ FUN_0203D7DC: ; 0x0203D7DC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -7845,10 +7845,10 @@ FUN_0203D7DC: ; 0x0203D7DC
 	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	add r2, r7, #0x0
@@ -7865,7 +7865,7 @@ FUN_0203D834: ; 0x0203D834
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -7918,7 +7918,7 @@ FUN_0203D8A0: ; 0x0203D8A0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -7928,7 +7928,7 @@ FUN_0203D8A0: ; 0x0203D8A0
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -10039,7 +10039,7 @@ FUN_0203E968: ; 0x0203E968
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	bl FUN_02023A90
 	b _0203E9C8
 _0203E9AE:
@@ -10316,7 +10316,7 @@ FUN_0203EBE4: ; 0x0203EBE4
 	ldr r6, [r0, #0x0]
 	add r0, r6, #0x0
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	bl ScriptReadHalfword

@@ -465,7 +465,7 @@ _0208A6FA:
 	bl FUN_020545B8
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02054608
@@ -481,7 +481,7 @@ _0208A722:
 _0208A734:
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	ldr r1, [r5, #0x8]
 	add r0, r4, #0x0

@@ -7962,7 +7962,7 @@ MOD18_0223D414: ; 0x0223D414
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	add r4, r0, #0
 	ldr r0, _0223D580 ; =0x02251388
@@ -29437,7 +29437,7 @@ MOD18_022479E4: ; 0x022479E4
 	blt _022479FC
 	ldrh r0, [r0, #0x30]
 	bl FUN_0202DFA4
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _022479FC
 	add r4, #0x13
@@ -29458,7 +29458,7 @@ MOD18_02247A0C: ; 0x02247A0C
 	blt _02247A24
 	ldrh r0, [r0, #0x2c]
 	bl FUN_0202DFA4
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _02247A24
 	add r4, #0x13
@@ -32978,9 +32978,9 @@ _022495BA:
 	bne _022495E2
 	ldr r0, [r5, #0xc]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #4
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	add r7, r0, #0
 	ldr r0, [r5, #0x40]
 	ldr r2, [r4, #4]
@@ -35135,7 +35135,7 @@ MOD18_0224A78C: ; 0x0224A78C
 	bl MOD18_0224D704
 	ldr r0, [r4, #0xc]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -37483,7 +37483,7 @@ _0224BA70:
 	bl MOD18_0224DD94
 	ldr r0, [r4, #0xc]
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_020377AC
@@ -40587,7 +40587,7 @@ MOD18_0224D364: ; 0x0224D364
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r5, #0
-	bl PlayerData_GetTrainerID_VisibleHalf
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -41199,7 +41199,7 @@ _0224D8FA:
 	mov r3, #2
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x24]
-	bl PlayerData_GetTrainerID_VisibleHalf
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]

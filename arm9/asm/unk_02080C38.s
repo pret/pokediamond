@@ -112,10 +112,10 @@ _02080CB4:
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r0, [sp, #0x0]
-	bl PlayerData_GetPlayerName_NewString
+	bl PlayerProfile_GetPlayerName_NewString
 	add r5, r0, #0x0
 	mov r1, #0x0
 	add r0, sp, #0x4
@@ -131,7 +131,7 @@ _02080CB4:
 	bl FUN_02027E24
 	str r0, [sp, #0x18]
 	ldr r0, [r6, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x1c]
 	add r0, sp, #0x4
 	bl FUN_02081214
@@ -943,7 +943,7 @@ _02081304:
 	ldr r1, [r6, #0xc]
 	bl StringCopy
 	ldr r0, [r6, #0x10]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	mov r1, #0x42
 	lsl r1, r1, #0x2
 	strb r0, [r4, r1]
@@ -962,7 +962,7 @@ _02081304:
 	cmp r0, #0x0
 	ldr r0, [r6, #0x10]
 	bne _0208138E
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #0x0
 	bne _02081384
 	mov r1, #0xba
@@ -977,7 +977,7 @@ _02081384:
 	strh r1, [r4, r0]
 	b _020813A8
 _0208138E:
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #0x0
 	bne _020813A0
 	mov r0, #0x45
@@ -2262,7 +2262,7 @@ _02081D3C:
 _02081D4C:
 	add r0, r5, #0x0
 	bl FUN_0202DFA4
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r4, r5
 	strb r0, [r1, r7]
 	ldrb r0, [r4, r6]

@@ -127,7 +127,7 @@ FUN_0206E394: ; 0x0206E394
 	thumb_func_start FUN_0206E39C
 FUN_0206E39C: ; 0x0206E39C
 	push {r3, lr}
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	bl CheckCoins
 	pop {r3, pc}
 

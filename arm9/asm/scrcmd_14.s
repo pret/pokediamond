@@ -77,7 +77,7 @@ FUN_02043ACC: ; 0x02043ACC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -100,7 +100,7 @@ FUN_02043AFC: ; 0x02043AFC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -121,7 +121,7 @@ FUN_02043B28: ; 0x02043B28
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -142,7 +142,7 @@ FUN_02043B54: ; 0x02043B54
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -166,9 +166,9 @@ FUN_02043B84: ; 0x02043B84
 	ldr r5, [r0, #0x0]
 	add r0, r5, #0x0
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r0, [r5, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -202,9 +202,9 @@ FUN_02043BD0: ; 0x02043BD0
 	ldr r4, [r0, #0x0]
 	add r0, r4, #0x0
 	bl FUN_020377AC
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r0, [r4, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -242,7 +242,7 @@ FUN_02043C28: ; 0x02043C28
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword

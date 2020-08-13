@@ -55,7 +55,7 @@ MOD67_021D74E0: ; 0x021D74E0
 	bl FUN_020289A4
 	str r0, [r4, #0x44]
 	add r0, r5, #0
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x48]
 	mov r0, #0
 	mov r1, #0x2a
@@ -338,7 +338,7 @@ MOD67_021D77B0: ; 0x021D77B0
 	sub sp, #0x10
 	add r4, r0, #0
 	ldr r0, [r4, #0x48]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #0
 	bne _021D7802
 	mov r0, #0

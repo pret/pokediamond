@@ -67,7 +67,7 @@ _021D7540:
 	ldr r1, _021D75F0 ; =0x0000C324
 	str r0, [r5, r1]
 	add r0, r4, #0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r5, #8]
 	bl MOD77_021D7C24
 	bl MOD77_021D7C44

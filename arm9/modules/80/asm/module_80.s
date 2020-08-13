@@ -1593,7 +1593,7 @@ _0222E1C6:
 	bl MOD80_0222E7C8
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD80_02235850
@@ -2534,7 +2534,7 @@ MOD80_0222E8F4: ; 0x0222E8F4
 	strh r0, [r4, #0x34]
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD80_02235900
@@ -3440,7 +3440,7 @@ MOD80_0222F0A8: ; 0x0222F0A8
 	add r4, r0, #0
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD80_02235A10
@@ -13587,7 +13587,7 @@ _022342B0:
 _022342BC:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0
 	mov r0, #0x43
 	lsl r0, r0, #2
@@ -13596,7 +13596,7 @@ _022342BC:
 	bl CopyU16StringArrayN
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl PlayerData_GetTrainerID_VisibleHalf
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	mov r1, #0x47
 	lsl r1, r1, #2
 	strh r0, [r5, r1]
@@ -13618,7 +13618,7 @@ _022342BC:
 	strb r0, [r5, r1]
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	add r1, r5, #0
 	add r1, #0xf6
 	strb r0, [r1]
@@ -17647,9 +17647,9 @@ MOD80_022361AC: ; 0x022361AC
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	mov r0, #0x3e
-	bl PlayerData_init
+	bl PlayerProfile_init
 	add r4, r0, #0
-	bl PlayerData_Clear
+	bl PlayerProfile_Clear
 	mov r1, #0x43
 	lsl r1, r1, #2
 	add r0, r4, #0

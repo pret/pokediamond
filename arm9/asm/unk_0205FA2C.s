@@ -26,7 +26,7 @@ FUN_0205FA2C: ; 0x0205FA2C
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	add r0, r6, #0x0
 	bl SavArray_PlayerParty_get
@@ -159,7 +159,7 @@ FUN_0205FB34: ; 0x0205FB34
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	add r0, r5, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
 	bl SavArray_PlayerParty_get
@@ -188,7 +188,7 @@ FUN_0205FB34: ; 0x0205FB34
 	add r0, r4, #0x0
 	bl FUN_0207B000
 	add r0, r5, #0x0
-	bl Sav2_GetPlayerDataPtr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4

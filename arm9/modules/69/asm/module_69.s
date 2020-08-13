@@ -1350,7 +1350,7 @@ _0222E0D4:
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0]
-	bl PlayerData_GetTrainerGender
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _0222E10C
 	mov r1, #1
@@ -2672,7 +2672,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	bl FUN_0200ABC0
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0]
-	bl PlayerData_GetTrainerID_VisibleHalf
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -4070,7 +4070,7 @@ _0222F6FA:
 	b _0222F77A
 _0222F70C:
 	add r0, r6, #0
-	bl PlayerData_GetTrainerID
+	bl PlayerProfile_GetTrainerID
 	add r7, r0, #0
 	add r0, r4, #0
 	mov r1, #7

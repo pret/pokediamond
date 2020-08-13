@@ -32,9 +32,9 @@ struct PlayerDataSav
     u8 padding2[2];
 };
 
-struct Options * LoadPlayerDataAddress(struct SaveBlock2 *);
-struct String * PlayerData_GetPlayerName_NewString(struct PlayerData *, u32 heap_id);
-u32 PlayerData_GetTrainerID(struct PlayerData *);
-u32 PlayerData_GetTrainerGender(struct PlayerData *);
+struct Options * Sav2_PlayerData_GetOptionsAddr(struct SaveBlock2 *);
+struct String * PlayerProfile_GetPlayerName_NewString(struct PlayerData *, u32 heap_id);
+u32 PlayerProfile_GetTrainerID(struct PlayerData *);
+u32 PlayerProfile_GetTrainerGender(struct PlayerData *);
 
 #endif //POKEDIAMOND_PLAYER_DATA_H

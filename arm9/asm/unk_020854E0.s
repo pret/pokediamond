@@ -433,7 +433,7 @@ FUN_020857F8: ; 0x020857F8
 	bl FUN_020856F0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x10]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	ldr r1, [r4, #0x10]
 	str r0, [r1, #0x4]
 	ldrh r0, [r5, #0x0]
