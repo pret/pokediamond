@@ -1593,7 +1593,7 @@ _0222E1C6:
 	bl MOD80_0222E7C8
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD80_02235850
@@ -2534,7 +2534,7 @@ MOD80_0222E8F4: ; 0x0222E8F4
 	strh r0, [r4, #0x34]
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD80_02235900
@@ -3440,7 +3440,7 @@ MOD80_0222F0A8: ; 0x0222F0A8
 	add r4, r0, #0
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD80_02235A10
@@ -4801,7 +4801,7 @@ MOD80_0222FB3C: ; 0x0222FB3C
 	add r1, #0x1c
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _0222FBB8 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
@@ -10667,7 +10667,7 @@ MOD80_02232B34: ; 0x02232B34
 	add r1, #0x1c
 	ldr r1, [r5, r1]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x24]
 	cmp r0, #0
 	bne _02232B60
@@ -11653,7 +11653,7 @@ MOD80_022332EC: ; 0x022332EC
 	add r1, #0x1c
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _02233350 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
@@ -13587,7 +13587,7 @@ _022342B0:
 _022342BC:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0
 	mov r0, #0x43
 	lsl r0, r0, #2
@@ -13596,7 +13596,7 @@ _022342BC:
 	bl CopyU16StringArrayN
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	mov r1, #0x47
 	lsl r1, r1, #2
 	strh r0, [r5, r1]
@@ -13618,7 +13618,7 @@ _022342BC:
 	strb r0, [r5, r1]
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r5, #0
 	add r1, #0xf6
 	strb r0, [r1]
@@ -16117,7 +16117,7 @@ _02235590:
 	add r1, #0xba
 	ldrh r1, [r1]
 	ldr r0, [r0, #8]
-	bl FUN_0206B938
+	bl RemoveMonFromParty
 	ldr r0, [r5]
 	ldr r1, _022355EC ; =0x000001B9
 	ldr r0, [r0, #8]
@@ -16186,7 +16186,7 @@ _02235640:
 	ldr r0, [r5]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
 	bl GetPartyCount
@@ -16265,7 +16265,7 @@ _022356D2:
 	ldr r0, [r5]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [r5]
 	ldr r0, [r0, #8]
 	bl GetPartyCount
@@ -17647,14 +17647,14 @@ MOD80_022361AC: ; 0x022361AC
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	mov r0, #0x3e
-	bl FUN_02023928
+	bl PlayerProfile_init
 	add r4, r0, #0
-	bl FUN_02023948
+	bl PlayerProfile_Clear
 	mov r1, #0x43
 	lsl r1, r1, #2
 	add r0, r4, #0
 	add r1, r5, r1
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r1, _022361E0 ; =0x00000122
 	add r0, r4, #0
 	ldrb r1, [r5, r1]
@@ -19045,7 +19045,7 @@ MOD80_02236C70: ; 0x02236C70
 	add r1, #0x1c
 	ldr r1, [r5, r1]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	ldr r0, _02236CD8 ; =0x00000E98
@@ -19202,7 +19202,7 @@ MOD80_02236D8C: ; 0x02236D8C
 	add r1, #0x4c
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _02236DFC ; =0x00000EC8
 	mov r1, #0xf
 	add r0, r5, r0

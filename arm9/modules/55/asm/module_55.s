@@ -807,7 +807,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r3, #4
 	bl FUN_020068C8
 	ldr r0, [r5, #8]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02025084
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -1309,7 +1309,7 @@ _021D7F86:
 	cmp r6, #2
 	bne _021D7FF4
 	ldr r0, [r5, #8]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #0
@@ -1327,7 +1327,7 @@ _021D7F86:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	b _021D8002
 _021D7FF4:
 	add r2, r7, #0
@@ -1769,7 +1769,7 @@ MOD55_021D8320: ; 0x021D8320
 	add r0, r5, #0
 	bl MOD55_021D778C
 	ldr r0, [r5, #8]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	mov r1, #7
 	str r0, [sp]
 	mov r0, #0x34
@@ -1869,7 +1869,7 @@ MOD55_021D8404: ; 0x021D8404
 	add r5, r0, #0
 	ldr r0, [r5, #8]
 	add r4, r1, #0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp]
 	mov r0, #0x34
 	mov r1, #4
@@ -1974,7 +1974,7 @@ MOD55_021D84C8: ; 0x021D84C8
 	cmp r0, #0
 	beq _021D8534
 	mov r0, #0x34
-	bl FUN_02023928
+	bl PlayerProfile_init
 	add r4, r0, #0
 	add r0, r5, #0
 	add r0, #0xd4
@@ -1982,7 +1982,7 @@ MOD55_021D84C8: ; 0x021D84C8
 	bl String_c_str
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, [r5, #0xc]
 	mov r1, #0
 	add r2, r4, #0
@@ -3314,7 +3314,7 @@ _021D8F1A:
 	add r0, r5, r1
 	bl FUN_02019220
 	mov r0, #0x34
-	bl FUN_02023928
+	bl PlayerProfile_init
 	mov r1, #0xf2
 	lsl r1, r1, #2
 	ldrb r1, [r5, r1]
@@ -3326,7 +3326,7 @@ _021D8F1A:
 	bl FUN_020283A4
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, [r5, #0xc]
 	mov r1, #0
 	add r2, r4, #0
@@ -3504,7 +3504,7 @@ MOD55_021D90D8: ; 0x021D90D8
 	orr r0, r1
 	beq _021D9170
 	mov r0, #0x34
-	bl FUN_02023928
+	bl PlayerProfile_init
 	mov r1, #0xf2
 	lsl r1, r1, #2
 	ldrb r1, [r5, r1]
@@ -3516,7 +3516,7 @@ MOD55_021D90D8: ; 0x021D90D8
 	bl FUN_020283A4
 	add r1, r0, #0
 	add r0, r6, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, _021D9180 ; =0x000005DC
 	bl FUN_020054C8
 	ldr r2, [sp, #4]
@@ -3607,7 +3607,7 @@ _021D91D6:
 	mov r1, #0
 	bl FUN_02019620
 	ldr r0, [r5, #8]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #0
@@ -3625,7 +3625,7 @@ _021D91D6:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #4
 	str r0, [sp]
 	mov r0, #0xff
@@ -3776,7 +3776,7 @@ _021D9338:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -4166,14 +4166,14 @@ _021D969A:
 	mov r1, #0
 	bl FUN_02019620
 	mov r0, #0x34
-	bl FUN_02023928
+	bl PlayerProfile_init
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
 	bl FUN_020283A4
 	add r1, r0, #0
 	ldr r0, [sp, #0x20]
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, [r4, #0xc]
 	ldr r2, [sp, #0x20]
 	mov r1, #0
@@ -4191,7 +4191,7 @@ _021D969A:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #4
 	str r0, [sp]
 	mov r0, #0xff
@@ -4261,7 +4261,7 @@ _021D974E:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _021D9A54 ; =0x000F0E00
 	add r1, r4, #0
 	str r0, [sp]
@@ -4406,14 +4406,14 @@ _021D987C:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	mov r0, #0x34
-	bl FUN_02023928
+	bl PlayerProfile_init
 	add r5, r0, #0
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
 	bl FUN_020283E8
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, [r4, #0xc]
 	mov r1, #0
 	add r2, r5, #0
@@ -4433,7 +4433,7 @@ _021D987C:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc4
 	mov r0, #0
@@ -4504,7 +4504,7 @@ _021D987C:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc0
 	mov r0, #0
@@ -4553,7 +4553,7 @@ _021D987C:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc0
 	mov r0, #0
@@ -4643,7 +4643,7 @@ _021D9AE8:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc0
 	mov r0, #0
@@ -4747,7 +4747,7 @@ _021D9AE8:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0
 	add r1, #0xc0
 	mov r0, #0
@@ -5057,7 +5057,7 @@ MOD55_021D9E40: ; 0x021D9E40
 	add r0, r4, #0
 	bl MOD55_021D778C
 	ldr r0, [r4, #8]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	mov r1, #7
 	str r0, [sp]
 	mov r0, #0x34
@@ -5204,7 +5204,7 @@ MOD55_021D9F8C: ; 0x021D9F8C
 	add r5, r0, #0
 	mov r0, #0x34
 	add r6, r1, #0
-	bl FUN_02023928
+	bl PlayerProfile_init
 	add r4, r0, #0
 	ldr r0, [r5, #8]
 	bl FUN_020286EC
@@ -5217,7 +5217,7 @@ MOD55_021D9F8C: ; 0x021D9F8C
 	bl FUN_020283A4
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, [r5, #0xc]
 	mov r1, #0
 	add r2, r4, #0
@@ -5348,7 +5348,7 @@ MOD55_021DA0A4: ; 0x021DA0A4
 	add r5, r0, #0
 	ldr r0, [r5, #8]
 	add r6, r1, #0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	add r4, r0, #0
 	mov r0, #0xce
@@ -5392,7 +5392,7 @@ _021DA0D0:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5473,7 +5473,7 @@ _021DA17C:
 	ldr r0, [r5, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0

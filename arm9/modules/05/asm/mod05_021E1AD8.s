@@ -340,7 +340,7 @@ MOD05_021E1D38: ; 0x021E1D38
 	ldr r0, [r0]
 	ldr r1, [r1, #0x1c]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0
 	add r0, #0x9b
 	ldrb r2, [r0]
@@ -782,7 +782,7 @@ MOD05_021E2094: ; 0x021E2094
 	ldr r0, [r0]
 	ldr r1, [r1, #0x1c]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0
 	add r0, #0x9b
 	ldrb r1, [r0]
@@ -1201,7 +1201,7 @@ MOD05_021E23D0: ; 0x021E23D0
 	ldr r0, [r0]
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	str r7, [sp, #4]
@@ -1373,7 +1373,7 @@ MOD05_021E2540: ; 0x021E2540
 	ldr r0, [r0]
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	str r7, [sp]
 	mov r0, #0xff
 	str r0, [sp, #4]
@@ -1827,8 +1827,8 @@ MOD05_021E28A0: ; 0x021E28A0
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x10]
 	ldr r0, [r7, #0xc]
-	bl FUN_020238F4
-	bl FUN_02023A10
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetMoney
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -1840,7 +1840,7 @@ MOD05_021E28A0: ; 0x021E28A0
 	ldr r2, [sp, #0x10]
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -1955,8 +1955,8 @@ MOD05_021E29C8: ; 0x021E29C8
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x10]
 	ldr r0, [r6, #0xc]
-	bl FUN_0202390C
-	bl FUN_02028930
+	bl Sav2_PlayerData_GetCoinsAddr
+	bl CheckCoins
 	add r2, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -1968,7 +1968,7 @@ MOD05_021E29C8: ; 0x021E29C8
 	ldr r2, [sp, #0x10]
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -2088,7 +2088,7 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	ldr r2, [sp, #0x10]
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0

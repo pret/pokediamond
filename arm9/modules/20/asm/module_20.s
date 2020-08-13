@@ -1194,8 +1194,8 @@ MOD20_02252C40: ; 0x02252C40
 MOD20_02252C44: ; 0x02252C44
 	push {r3, lr}
 	ldr r0, [r0, #0x54]
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	beq _02252C58
 	mov r0, #1

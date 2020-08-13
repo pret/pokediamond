@@ -205,7 +205,7 @@ _0205211E:
 	str r5, [r4, #0x0]
 	str r6, [r4, #0x4]
 	add r0, r6, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	bl FUN_02052E1C
@@ -1025,10 +1025,10 @@ FUN_02052734: ; 0x02052734
 	cmp r5, r0
 	beq _02052780
 	add r0, r7, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r5, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	lsl r1, r1, #0x18
 	add r0, r5, #0x0
@@ -1177,7 +1177,7 @@ _02052852:
 	asr r4, r0, #0x7
 	b _02052872
 _0205286C:
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r4, r0, #0x0
 _02052872:
 	ldrb r0, [r5, #0x1c]
@@ -1400,7 +1400,7 @@ FUN_02052A10: ; 0x02052A10
 _02052A24:
 	sub r0, r1, #0x1
 	bl FUN_0202EF84
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	cmp r4, #0x18
 	bhi _02052AFA
@@ -1542,14 +1542,14 @@ _02052B32:
 	bl FUN_0202DFA4
 	add r7, r0, #0x0
 	beq _02052B60
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	lsl r1, r4, #0x2
 	str r0, [r5, r1]
 	add r0, r7, #0x0
 	bl FUN_02023A28
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	lsl r1, r0, #0x7
 	ldr r0, [sp, #0x0]
 	orr r1, r0
@@ -1691,7 +1691,7 @@ _02052C46:
 	bl FUN_02023A28
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x8]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r4, #0x0
 	mov r2, #0x2
 	bl FUN_020536D0
@@ -1964,7 +1964,7 @@ FUN_02052E38: ; 0x02052E38
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
 	ldr r0, [r4, #0x8]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x8]
 	bl FUN_02023A28

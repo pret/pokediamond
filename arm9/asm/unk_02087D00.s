@@ -60,16 +60,16 @@ FUN_02087D00: ; 0x02087D00
 	bl FUN_02028048
 	str r0, [r7, #0x8]
 	add r0, r4, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r7, #0xc]
 	add r0, r4, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r7, #0x10]
 	add r0, r4, #0x0
 	bl FUN_0206F158
 	str r0, [r7, #0x14]
 	add r0, r4, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r7, #0x18]
 	add r0, r5, #0x0
 	bl FUN_02027E5C

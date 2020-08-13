@@ -435,7 +435,7 @@ MOD43_02254B60: ; 0x02254B60
 	add r5, r0, #0
 	add r0, r1, #0
 	bl MOD20_02252C40
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	mov r4, #0
 _02254B72:

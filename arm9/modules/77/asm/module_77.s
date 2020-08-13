@@ -67,7 +67,7 @@ _021D7540:
 	ldr r1, _021D75F0 ; =0x0000C324
 	str r0, [r5, r1]
 	add r0, r4, #0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r5, #8]
 	bl MOD77_021D7C24
 	bl MOD77_021D7C44
@@ -2008,7 +2008,7 @@ MOD77_021D8510: ; 0x021D8510
 	add r1, r4, #0
 	ldr r0, [r5, r0]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r1, #0
 	ldr r0, _021D85CC ; =0x0000C044
 	str r1, [sp]

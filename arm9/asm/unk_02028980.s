@@ -65,11 +65,11 @@ _020289A0: .word memset
 
 	thumb_func_start FUN_020289A4
 FUN_020289A4: ; 0x020289A4
-	ldr r3, _020289AC ; =FUN_02022610
+	ldr r3, _020289AC ; =SavArray_get
 	mov r1, #0x12
 	bx r3
 	nop
-_020289AC: .word FUN_02022610
+_020289AC: .word SavArray_get
 
 	thumb_func_start FUN_020289B0
 FUN_020289B0: ; 0x020289B0
@@ -1248,7 +1248,7 @@ FUN_0202918C: ; 0x0202918C
 	orr r0, r1
 	strb r0, [r4, #0x1]
 	ldr r0, [sp, #0x0]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r1, #0xa
 	bl _s32_div_f
 	lsl r0, r0, #0x18
@@ -1317,7 +1317,7 @@ FUN_0202920C: ; 0x0202920C
 	orr r0, r1
 	strb r0, [r4, #0x1]
 	ldr r0, [sp, #0x0]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r1, #0xa
 	bl _s32_div_f
 	lsl r0, r0, #0x18
@@ -2337,7 +2337,7 @@ _0202998E:
 	bne _020299A8
 	ldr r1, _020299BC ; =UNK_020EE96A
 	ldrh r1, [r1, r3]
-	bl FUN_020239D0
+	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
 	bne _020299B2
 	add r0, r4, #0x0

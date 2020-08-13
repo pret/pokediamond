@@ -100,11 +100,11 @@ FUN_020625EC: ; 0x020625EC
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	strh r0, [r4, #0x1a]
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02025084
 	strh r0, [r4, #0x1c]
 	str r4, [r7, #0x8]
@@ -1734,7 +1734,7 @@ _02063318:
 	ldr r0, [r4, #0x30]
 	ldr r1, [r4, #0x34]
 	ldr r2, [r4, #0x44]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x30]
 	mov r1, #0x0
 	str r0, [sp, #0x0]
@@ -1764,7 +1764,7 @@ _02063318:
 	lsl r2, r2, #0x2
 	add r2, r4, r2
 	ldr r2, [r2, #0xc]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x0
 	ldr r1, [r4, #0x34]
 	add r2, r0, #0x0

@@ -91,21 +91,21 @@ FUN_020256DC: ; 0x020256DC
 	bl InitSealsObject
 	add r0, r7, #0x0
 	strb r6, [r5, #0x7]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x8
 	bl CopyU16StringArray
 	add r0, r6, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	strb r0, [r5, #0x4]
 	add r0, r6, #0x0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	str r0, [r5, #0x0]
 	ldr r0, [sp, #0x0]
 	mov r6, #0x0
@@ -279,11 +279,11 @@ _02025834:
 
 	thumb_func_start FUN_02025838
 FUN_02025838: ; 0x02025838
-	ldr r3, _02025840 ; =FUN_02022610
+	ldr r3, _02025840 ; =SavArray_get
 	mov r1, #0xf
 	bx r3
 	nop
-_02025840: .word FUN_02022610
+_02025840: .word SavArray_get
 
 	thumb_func_start FUN_02025844
 FUN_02025844: ; 0x02025844

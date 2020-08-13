@@ -66,11 +66,11 @@ FUN_020653EC: ; 0x020653EC
 	mov r1, #0xff
 	add r6, r0, #0x0
 	strb r1, [r4, #0x1a]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	strb r0, [r4, #0x16]
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02025084
 	strh r0, [r4, #0x14]
 	add r0, r4, #0x0
@@ -1808,7 +1808,7 @@ FUN_020661F8: ; 0x020661F8
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	bl FUN_020377AC
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -2101,7 +2101,7 @@ _02066426:
 	add r2, #0x10
 	ldr r1, [r5, r1]
 	ldr r2, [r3, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r2, [r5, r0]
@@ -2377,7 +2377,7 @@ _02066676:
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	bl FUN_020377AC
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
@@ -2389,7 +2389,7 @@ _02066676:
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	bl FUN_020377AC
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2

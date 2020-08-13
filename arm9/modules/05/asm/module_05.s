@@ -93,8 +93,8 @@ _021E2C16:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 
-	thumb_func_start MOD05_021E2C24
-MOD05_021E2C24: ; 0x021E2C24
+	thumb_func_start MOD05_ShowMessageInField
+MOD05_ShowMessageInField: ; 0x021E2C24
 	push {r4, r5, r6, lr}
 	sub sp, #0x18
 	add r5, r0, #0
@@ -204,7 +204,7 @@ MOD05_021E2D00: ; 0x021E2D00
 	add r0, #0x80
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	pop {r3, pc}
 	.balign 4, 0
@@ -286,7 +286,7 @@ MOD05_021E2D9C: ; 0x021E2D9C
 	mov r2, #3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_02054608
@@ -311,7 +311,7 @@ MOD05_021E2DD4: ; 0x021E2DD4
 	ldr r0, [r4, #8]
 	ldr r1, [r4]
 	ldr r2, [r4, #4]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -9333,7 +9333,7 @@ MOD05_021E72E8: ; 0x021E72E8
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0
 	bl GetPartyMonByIndex
 	pop {r4, pc}
@@ -11529,10 +11529,10 @@ _021E8344:
 _021E8346:
 	str r0, [r5]
 	add r0, r4, #0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r5, #8]
 	add r0, r4, #0
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [r5, #0xc]
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -11551,7 +11551,7 @@ MOD05_021E835C: ; 0x021E835C
 	mov r1, #1
 	bl FUN_0200ABC0
 	ldr r0, [r4, #8]
-	bl FUN_020239F4
+	bl PlayerProfile_CountBadges
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -11583,7 +11583,7 @@ _021E83A8:
 	mov r1, #3
 	bl FUN_0200AD38
 	ldr r0, [r4, #0xc]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	add r2, r0, #0
 	cmp r2, #0x64
 	blt _021E83C8
@@ -11607,7 +11607,7 @@ _021E83D6:
 	mov r1, #4
 	bl FUN_0200AD38
 	ldr r0, [r4, #0xc]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r3, #2
 	add r2, r0, #0
 	str r3, [sp]
@@ -18589,8 +18589,8 @@ _021EBCC4: .word UNK05_021F7970
 MOD05_021EBCC8: ; 0x021EBCC8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerGender
 	pop {r3, pc}
 	.balign 4, 0
 
@@ -19608,8 +19608,8 @@ MOD05_021EC4F0: ; 0x021EC4F0
 	bl FUN_02023C7C
 	str r0, [sp, #4]
 	add r0, r7, #0
-	bl FUN_020238F4
-	bl FUN_0202398C
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetNamePtr
 	add r0, r4, #0
 	mov r1, #0x74
 	add r2, sp, #0xc
@@ -19634,7 +19634,7 @@ _021EC544:
 	bl FUN_02023CA0
 	ldr r1, [sp]
 	add r0, r6, #0
-	bl FUN_0206B938
+	bl RemoveMonFromParty
 	ldr r1, _021EC578 ; =0x000001B9
 	add r0, r6, #0
 	bl PartyHasMon
@@ -19828,7 +19828,7 @@ _021EC6E0:
 _021EC6FA:
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r0, r5, #0
 	bl ZeroBoxMonData
 	add r0, r6, #0
@@ -20947,14 +20947,14 @@ _021ECF7E:
 	cmp r0, #4
 	bne _021ECFEE
 	add r0, r4, #0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	str r0, [sp, #0x1c]
 	add r0, r4, #0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	str r0, [sp, #0x18]
 	add r0, r4, #0
 	mov r1, #0x20
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #0x90
@@ -21091,7 +21091,7 @@ MOD05_021ED0CC: ; 0x021ED0CC
 	bl MOD05_021ECD78
 	add r6, r0, #0
 	add r0, r7, #0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	add r1, sp, #0x10
 	str r0, [sp, #8]
 	ldrb r1, [r1, #1]
@@ -21149,7 +21149,7 @@ _021ED168:
 	bl SetMonData
 	ldr r0, [sp, #4]
 	add r1, r4, #0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r0, r5, #0
 	bl MOD05_021ECD64
 	add r0, r4, #0
@@ -26557,7 +26557,7 @@ MOD05_021EFAAC: ; 0x021EFAAC
 	bl FUN_0204C1A8
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	add r0, r4, #0
 	bl FUN_0204BEC8
@@ -26601,7 +26601,7 @@ MOD05_021EFB14: ; 0x021EFB14
 	bl FUN_0204C1A8
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	add r0, r4, #0
 	bl FUN_0204BEC8
@@ -26629,7 +26629,7 @@ MOD05_021EFB50: ; 0x021EFB50
 	bl FUN_0204C1A8
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	add r0, r4, #0
 	bl FUN_0204BEC8
@@ -26730,7 +26730,7 @@ _021EFC20:
 	add r0, #0x8c
 	str r1, [r0]
 	ldr r0, [r4, #0x34]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02025084
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -27230,14 +27230,14 @@ _021F000E:
 	bl FUN_020286EC
 	add r7, r0, #0
 	mov r0, #4
-	bl FUN_02023928
+	bl PlayerProfile_init
 	add r6, r0, #0
 	add r0, r7, #0
 	add r1, r4, #0
 	bl FUN_020283A4
 	add r1, r0, #0
 	add r0, r6, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, [r5, #0x38]
 	mov r1, #0
 	add r2, r6, #0
@@ -27473,7 +27473,7 @@ _021F0204:
 	ldr r0, [r4, #0x38]
 	ldr r1, [r4, #0xc]
 	ldr r2, [r4, #8]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x30]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
@@ -27482,14 +27482,14 @@ _021F0204:
 	bl FUN_020545B8
 	ldr r0, [r4, #0x30]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0
 	add r0, r4, #0
 	add r0, #0x10
 	bl FUN_02054608
 	ldr r0, [r4, #0x30]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0
 	add r0, r4, #0
 	ldr r1, [r4, #0xc]
@@ -34755,7 +34755,7 @@ MOD05_021F3A18: ; 0x021F3A18
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	add r5, r1, #0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0
 	bl GetPartyMonByIndex
 	mov r1, #5
@@ -34773,7 +34773,7 @@ MOD05_021F3A18: ; 0x021F3A18
 	bl MOD05_021F39A0
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F3E8
 	add r1, sp, #4
 	strh r0, [r1]
@@ -34824,14 +34824,14 @@ MOD05_021F3AB4: ; 0x021F3AB4
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	add r5, r1, #0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0
 	bl GetPartyMonByIndex
 	bl MOD05_021F38CC
 	add r1, sp, #0
 	strh r0, [r1]
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r1, sp, #0
 	ldrh r1, [r1]
 	bl FUN_0205F3F8
@@ -34896,7 +34896,7 @@ MOD05_021F3B4C: ; 0x021F3B4C
 	add r4, r1, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F3E8
 	add r1, sp, #4
 	strh r0, [r1]
@@ -34920,7 +34920,7 @@ MOD05_021F3B7C: ; 0x021F3B7C
 	ldr r0, [r5, #0xc]
 	add r4, r3, #0
 	add r7, r1, #0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0
 	bl GetPartyMonByIndex
 	mov r1, #5
@@ -37402,8 +37402,8 @@ _021F4DDE:
 	lsl r0, r0, #4
 	str r0, [r4]
 	ldr r0, [r6, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239BC
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerID
 	add r1, r5, #0
 	bl MOD05_021F5138
 	add r7, r0, #0
@@ -40022,7 +40022,7 @@ MOD05_021F611C: ; 0x021F611C
 	mov r2, #3
 	bl FUN_020545B8
 	ldr r0, [r4, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r5, #0x38
 	add r1, r0, #0
 	add r0, r5, #0
@@ -40043,9 +40043,9 @@ MOD05_021F6140: ; 0x021F6140
 	ldr r0, [r5, #0x34]
 	ldr r1, [r5, #0x2c]
 	ldr r2, [r5, #0x30]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0
 	add r0, r5, #0
 	ldr r1, [r5, #0x2c]

@@ -26,10 +26,10 @@ FUN_0205FA2C: ; 0x0205FA2C
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	add r0, r6, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	add r0, r6, #0x0
 	bl FUN_0206F158
@@ -159,10 +159,10 @@ FUN_0205FB34: ; 0x0205FB34
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	add r0, r5, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	bl FUN_0206BB28
@@ -188,7 +188,7 @@ FUN_0205FB34: ; 0x0205FB34
 	add r0, r4, #0x0
 	bl FUN_0207B000
 	add r0, r5, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4
@@ -389,7 +389,7 @@ _0205FD14:
 _0205FD1E:
 	ldrh r1, [r4, #0x10]
 	add r0, r5, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldr r1, [r4, #0x0]
 	strh r1, [r0, #0x0]
 	add r0, r4, #0x0
@@ -447,7 +447,7 @@ FUN_0205FD70: ; 0x0205FD70
 _0205FD96:
 	ldrh r1, [r5, #0x2]
 	add r0, r6, #0x0
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	ldrh r0, [r5, #0x0]
 	cmp r0, #0x0

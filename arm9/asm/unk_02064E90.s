@@ -16,7 +16,7 @@ FUN_02064E90: ; 0x02064E90
 	ldr r5, [sp, #0xbc]
 	bl FUN_020377AC
 	str r0, [sp, #0x20]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x20]
 	bl FUN_02029FC8
@@ -36,16 +36,16 @@ FUN_02064E90: ; 0x02064E90
 	mov r1, #GAME_VERSION
 	bl FUN_02065154
 	add r0, r7, #0x0
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	str r0, [sp, #0x28]
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	str r0, [sp, #0x2c]
 	add r0, r7, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	str r0, [sp, #0x30]
 	add r0, r7, #0x0
-	bl FUN_02023A10
+	bl PlayerProfile_GetMoney
 	str r0, [sp, #0x34]
 	ldr r0, [r6, #0xc]
 	bl FUN_02024DA0
@@ -71,7 +71,7 @@ FUN_02064E90: ; 0x02064E90
 	str r5, [sp, #0xc]
 	bl FUN_02065178
 	ldr r0, [sp, #0x20]
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [sp, #0x40]
 	add r0, r6, #0x0
 	add r1, sp, #0x90
@@ -82,7 +82,7 @@ FUN_02064E90: ; 0x02064E90
 	add r2, sp, #0x74
 	bl FUN_0204B30C
 	ldr r0, [r6, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED0C
 	add r1, sp, #0x74
 	str r1, [sp, #0x0]
@@ -223,7 +223,7 @@ FUN_02065078: ; 0x02065078
 	bl FUN_02029FC8
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_02026CB4
@@ -385,10 +385,10 @@ FUN_020651BC: ; 0x020651BC
 	add r5, r2, #0x0
 	add r6, r3, #0x0
 	ldr r7, [sp, #0x20]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	strh r0, [r4, #0x2a]
 	ldr r0, [sp, #0x4]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	add r1, r4, #0x0
 	add r1, #0x2e
 	strb r0, [r1, #0x0]
@@ -520,7 +520,7 @@ FUN_020652AC: ; 0x020652AC
 _020652CA:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_020239D0
+	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
 	beq _020652E6
 	lsl r0, r4, #0x2

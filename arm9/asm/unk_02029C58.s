@@ -31,11 +31,11 @@ _02029C7C: .word MI_CpuCopy8
 
 	thumb_func_start FUN_02029C80
 FUN_02029C80: ; 0x02029C80
-	ldr r3, _02029C88 ; =FUN_02022610
+	ldr r3, _02029C88 ; =SavArray_get
 	mov r1, #0x15
 	bx r3
 	nop
-_02029C88: .word FUN_02022610
+_02029C88: .word SavArray_get
 
 	thumb_func_start FUN_02029C8C
 FUN_02029C8C: ; 0x02029C8C

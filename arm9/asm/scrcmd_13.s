@@ -10,7 +10,7 @@ FUN_0204387C: ; 0x0204387C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -18,7 +18,7 @@ FUN_0204387C: ; 0x0204387C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	cmp r0, #0x0
 	bne _020438B2
 	add r0, r4, #0x0
@@ -60,7 +60,7 @@ FUN_020438D0: ; 0x020438D0
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_0202C000
@@ -101,7 +101,7 @@ FUN_02043918: ; 0x02043918
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
 	add r0, #0x80
@@ -157,7 +157,7 @@ FUN_020439B4: ; 0x020439B4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -165,7 +165,7 @@ FUN_020439B4: ; 0x020439B4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	cmp r6, #0x3
 	bhi _02043A40

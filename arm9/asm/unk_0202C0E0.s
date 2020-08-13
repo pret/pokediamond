@@ -37,7 +37,7 @@ FUN_0202C108: ; 0x0202C108
 	add r5, r1, #0x0
 	mov r1, #0x21
 	add r4, r2, #0x0
-	bl FUN_02022610
+	bl SavArray_get
 	lsl r1, r5, #0x3
 	add r3, r0, r1
 	lsl r2, r4, #0x1
@@ -58,7 +58,7 @@ FUN_0202C12C: ; 0x0202C12C
 	add r5, r1, #0x0
 	mov r1, #0x21
 	add r4, r2, #0x0
-	bl FUN_02022610
+	bl SavArray_get
 	lsl r2, r5, #0x3
 	lsl r1, r4, #0x1
 	add r0, r0, r2

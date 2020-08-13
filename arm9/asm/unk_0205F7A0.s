@@ -24,7 +24,7 @@ FUN_0205F7A0: ; 0x0205F7A0
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	str r2, [sp, #0x4]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -71,8 +71,8 @@ _0205F806:
 _0205F812:
 	ldr r0, [sp, #0x0]
 	bl FUN_020377AC
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -164,7 +164,7 @@ FUN_0205F8CC: ; 0x0205F8CC
 	ldr r0, [r7, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	str r0, [sp, #0x0]
 	add r0, sp, #0x28
 	bl FS_InitFile
@@ -251,7 +251,7 @@ _0205F962:
 _0205F98C:
 	ldrb r1, [r6, #0x1]
 	add r0, r7, #0x0
-	bl FUN_02039528
+	bl FlagCheck
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsl r0, r0, #0x1e
@@ -298,7 +298,7 @@ _0205F9BE:
 _0205F9E8:
 	ldrb r1, [r6, #0x3]
 	add r0, r7, #0x0
-	bl FUN_02039528
+	bl FlagCheck
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsl r0, r0, #0x1e

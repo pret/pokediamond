@@ -69,7 +69,7 @@ FUN_02031734: ; 0x02031734
 	ldr r0, [r0, #0x0]
 	str r5, [r0, #0x28]
 	add r0, r5, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r1, _020317BC ; =UNK_021C5A00
 	ldr r2, [r1, #0x0]
 	str r0, [r2, #0x2c]
@@ -3810,7 +3810,7 @@ FUN_0203346C: ; 0x0203346C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	bl FUN_02030F40
 	cmp r0, #0x0
 	beq _02033482

@@ -288,7 +288,7 @@ _02054DE8: .word 0x0000010D
 FUN_02054DEC: ; 0x02054DEC
 	push {r3-r7, lr}
 	add r6, r0, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl GetPartyCount
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -297,7 +297,7 @@ FUN_02054DEC: ; 0x02054DEC
 	mov r7, #0x4c
 _02054E02:
 	add r0, r6, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r1, r7, #0x0
@@ -324,7 +324,7 @@ FUN_02054E30: ; 0x02054E30
 	push {r3-r7, lr}
 	sub sp, #0x10
 	mov r7, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x0]
 	bl GetPartyCount
 	add r4, r0, #0x0

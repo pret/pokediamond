@@ -220,7 +220,7 @@ MOD05_021D825C: ; 0x021D825C
 	pop {r4, r5, r6, pc}
 _021D827C:
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0
 	bne _021D8290
@@ -318,11 +318,11 @@ _021D8342:
 	lsr r0, r0, #0x1f
 	bne _021D8384
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_0204A248
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #1
 	bne _021D8366
@@ -346,7 +346,7 @@ _021D8384:
 	lsr r0, r0, #0x1f
 	beq _021D83A6
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED5C
 	add r0, r4, #0
 	bl MOD05_021D8D24
@@ -376,7 +376,7 @@ _021D83C2:
 	bl FUN_02057020
 	add r7, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #2
 	bl FUN_0205F264
 	cmp r0, #0
@@ -385,7 +385,7 @@ _021D83C2:
 	orr r6, r0
 _021D83E4:
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	mov r1, #0x7f
 	bl FUN_0204A138
 	cmp r0, #0xff
@@ -1050,7 +1050,7 @@ MOD05_021D8954: ; 0x021D8954
 	add r2, sp, #0
 	bl MOD05_021D90F8
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #1
 	bne _021D8998
@@ -1448,7 +1448,7 @@ _021D8C88:
 	cmp r0, #2
 	beq _021D8CE0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_02055320
@@ -1467,11 +1467,11 @@ _021D8C88:
 	beq _021D8CE0
 	add r0, r6, #0
 	mov r1, #4
-	bl FUN_020239D0
+	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0
 	beq _021D8CE0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	mov r1, #0x39
 	bl FUN_0204A138
 	cmp r0, #0xff
@@ -1611,7 +1611,7 @@ _021D8DFC:
 	bl MOD05_021D8FD0
 _021D8E0C:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F56C
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1762,7 +1762,7 @@ MOD05_021D8F38: ; 0x021D8F38
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_02023D58
@@ -1821,7 +1821,7 @@ MOD05_021D8FA8: ; 0x021D8FA8
 	push {r3, r4, r5, lr}
 	ldr r0, [r0, #0xc]
 	mov r5, #0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r4, r0, #0
 	bl FUN_0205F780
 	add r0, r0, #1
@@ -1842,7 +1842,7 @@ MOD05_021D8FD0: ; 0x021D8FD0
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
@@ -1874,7 +1874,7 @@ MOD05_021D9010: ; 0x021D9010
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	bl FUN_02034E30
@@ -1937,7 +1937,7 @@ MOD05_021D9090: ; 0x021D9090
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0
 	bne _021D90A6

@@ -92,7 +92,7 @@ _022548BE:
 	str r0, [r5, #0xc]
 	ldr r0, [sp]
 	bl MOD20_02252C40
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r7, r0, #0
 	mov r4, #0
 	add r6, r5, #0

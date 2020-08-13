@@ -291,7 +291,7 @@ MOD51_02254A68: ; 0x02254A68
 	ldr r0, [r5, #0x78]
 	str r0, [r4, #8]
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x10]
 	mov r0, #0
 	mov r1, #0xa2
@@ -1178,7 +1178,7 @@ _0225519C:
 	blt _02255160
 _022551A4:
 	bl FUN_0202EF70
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	mov r1, #0x27
 	lsl r1, r1, #4
 	ldr r2, [r5, r1]
@@ -1539,7 +1539,7 @@ MOD51_02255454: ; 0x02255454
 	add r7, r2, #0
 	str r3, [sp, #8]
 	str r4, [sp, #0xc]
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	cmp r5, r0
 	beq _02255478
 	add r0, r6, #0
@@ -1641,7 +1641,7 @@ _0225551E:
 	bl String_dtor
 _02255530:
 	ldr r0, [sp, #8]
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0
 	ldr r2, [r5]
 	mov r0, #0x1c
@@ -1667,7 +1667,7 @@ _02255530:
 	add r1, r4, r1
 	str r0, [r1, #0xc]
 	ldr r0, [sp, #8]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	ldr r2, [r5]
 	mov r1, #0x1c
 	mul r1, r2
@@ -1834,7 +1834,7 @@ MOD51_02255690: ; 0x02255690
 	cmp r0, #0
 	bne _02255714
 	mov r0, #4
-	bl FUN_02023928
+	bl PlayerProfile_init
 	str r0, [sp, #4]
 	mov r6, #0
 _022556AA:
@@ -1852,7 +1852,7 @@ _022556AA:
 	add r0, r4, #0
 	ldr r1, [sp, #4]
 	add r0, #0x10
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, [sp]
 	ldr r2, [r7, #0x50]
 	add r1, r5, #0
@@ -1875,7 +1875,7 @@ _022556E6:
 	beq _0225570E
 	ldr r0, [sp]
 	ldr r0, [r0, #0x10]
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	add r3, r0, #0
 	ldr r0, [sp]
 	add r2, r4, #0

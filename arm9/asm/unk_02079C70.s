@@ -49,7 +49,7 @@ UNK_020FA6E8: ; 0x020FA6E8
 	thumb_func_start FUN_02079C70
 FUN_02079C70: ; 0x02079C70
 	push {r3, lr}
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F184
 	pop {r3, pc}
 
@@ -1871,7 +1871,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	add r2, r2, #0x4
 	ldr r1, [r7, r1]
 	ldr r2, [r7, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r2, _0207AEAC ; =0x00000674
 	mov r1, #0x0
 	ldr r0, [r7, r2]
@@ -1890,7 +1890,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	add r2, r2, #0x4
 	ldr r1, [r7, r1]
 	ldr r2, [r7, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r2, _0207AEAC ; =0x00000674
 	mov r1, #0xe
 	ldr r0, [r7, r2]
@@ -1909,7 +1909,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	add r2, r2, #0x4
 	ldr r1, [r7, r1]
 	ldr r2, [r7, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0x0
 	mov r1, #0x6
 	mov r2, #0x0
@@ -4778,13 +4778,13 @@ FUN_0207C2A4: ; 0x0207C2A4
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	str r0, [r5, #0x8]
 	add r0, r4, #0x0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	str r0, [r5, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	strb r0, [r5, #0x10]
 	pop {r3-r5, pc}
 

@@ -3443,7 +3443,7 @@ _021D908C:
 	cmp r0, #0
 	beq _021D90DC
 	ldr r1, [r4, #0x14]
-	bl FUN_02023990
+	bl PlayerName_FlatToString
 	ldr r0, [sp, #0x14]
 	cmp r0, r6
 	bne _021D90C0
@@ -3626,7 +3626,7 @@ MOD53_021D91C8: ; 0x021D91C8
 	ldr r0, [r5, #0xc]
 	ldr r1, [r5, #0x2c]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #0xb6

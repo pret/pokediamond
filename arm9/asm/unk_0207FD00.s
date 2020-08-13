@@ -606,7 +606,7 @@ FUN_02080108: ; 0x02080108
 	ldr r0, [r5, #0x8]
 	ldr r1, [r5, #0x20]
 	add r2, r4, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0x0
 	bl String_dtor
 	add sp, #0x8
@@ -764,7 +764,7 @@ _0208036E:
 	ldr r0, [r4, #0x8]
 	ldr r1, [r4, #0x20]
 	add r2, r5, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0x0
 	bl String_dtor
 	add sp, #0x8
@@ -881,7 +881,7 @@ _02080478:
 	ldr r0, [r5, #0x8]
 	ldr r1, [r5, #0x20]
 	add r2, r4, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0x0
 	bl String_dtor
 	add sp, #0x8
@@ -1711,14 +1711,14 @@ FUN_02080AE4: ; 0x02080AE4
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r6, r2, #0x0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x7

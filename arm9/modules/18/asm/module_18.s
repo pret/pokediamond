@@ -2713,7 +2713,7 @@ MOD18_0223AC24: ; 0x0223AC24
 	ldr r0, [r0, #0x1c]
 	bl MOD05_021F4608
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDBC
 	ldr r0, _0223AC78 ; =MOD18_0223A64C
 	add r1, r4, #0
@@ -5337,7 +5337,7 @@ _0223C000:
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	bl FUN_0205F740
 	add r1, r0, #0
@@ -7510,7 +7510,7 @@ _0223D07E:
 	ldr r0, _0223D0E0 ; =0x000004C8
 	ldr r0, [r1, r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDCC
 	ldr r0, _0223D0DC ; =0x02251384
 	add r2, r7, #0
@@ -7729,7 +7729,7 @@ _0223D212:
 	ldr r1, [sp]
 	add r0, r5, #0
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, _0223D290 ; =0x02251384
 	mov r0, #0
 	ldr r1, [r1]
@@ -7962,7 +7962,7 @@ MOD18_0223D414: ; 0x0223D414
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	add r4, r0, #0
 	ldr r0, _0223D580 ; =0x02251388
@@ -8112,7 +8112,7 @@ _0223D536:
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDAC
 	mov r1, #0
 	ldr r0, _0223D59C ; =MOD18_0223E7AC
@@ -8341,7 +8341,7 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	ldr r1, [sp, #4]
 	add r0, r4, #0
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -8384,7 +8384,7 @@ MOD18_0223D744: ; 0x0223D744
 	ldr r1, [sp, #4]
 	add r0, r4, #0
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -10160,7 +10160,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r1, r1, r4
 	add r1, #0xdc
 	ldr r1, [r1]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r6, #0
@@ -12954,7 +12954,7 @@ _0223FA34:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r5, r0, #0
 	bl FUN_0205F760
 	add r1, r0, #0
@@ -28118,7 +28118,7 @@ MOD18_02246FB4: ; 0x02246FB4
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDD8
 	ldr r0, [sp, #0xc]
 	bl FUN_020266E0
@@ -29437,7 +29437,7 @@ MOD18_022479E4: ; 0x022479E4
 	blt _022479FC
 	ldrh r0, [r0, #0x30]
 	bl FUN_0202DFA4
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _022479FC
 	add r4, #0x13
@@ -29458,7 +29458,7 @@ MOD18_02247A0C: ; 0x02247A0C
 	blt _02247A24
 	ldrh r0, [r0, #0x2c]
 	bl FUN_0202DFA4
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _02247A24
 	add r4, #0x13
@@ -30665,7 +30665,7 @@ _022483BC:
 	bl MOD18_02247EA0
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	bl FUN_0205F720
 	add r1, r0, #0
@@ -32978,9 +32978,9 @@ _022495BA:
 	bne _022495E2
 	ldr r0, [r5, #0xc]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #4
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r7, r0, #0
 	ldr r0, [r5, #0x40]
 	ldr r2, [r4, #4]
@@ -34255,7 +34255,7 @@ _0224A002:
 	ldr r0, [r5, #0x70]
 	ldr r1, [r5, #0x68]
 	ldr r2, [r5, #0x6c]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r5, #0x40]
 	ldr r1, [r5, #0x68]
 	add r2, r4, #0
@@ -35135,7 +35135,7 @@ MOD18_0224A78C: ; 0x0224A78C
 	bl MOD18_0224D704
 	ldr r0, [r4, #0xc]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -37342,7 +37342,7 @@ _0224B946:
 	add r0, r4, #0
 	bl MOD18_02245054
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDE8
 	add r0, r4, #0
 	bl MOD18_0224BD54
@@ -37483,7 +37483,7 @@ _0224BA70:
 	bl MOD18_0224DD94
 	ldr r0, [r4, #0xc]
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_020377AC
@@ -38687,7 +38687,7 @@ _0224C434:
 	ldr r0, [r4, #0x70]
 	ldr r1, [r4, #0x6c]
 	ldr r2, [r4, #0x68]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x11
 	str r0, [sp]
 	mov r1, #0
@@ -38994,7 +38994,7 @@ _0224C6C4:
 	ldr r0, [r4, #0x70]
 	ldr r1, [r4, #0x6c]
 	ldr r2, [r4, #0x68]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x11
 	str r0, [sp]
 	mov r1, #0
@@ -40587,7 +40587,7 @@ MOD18_0224D364: ; 0x0224D364
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r5, #0
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -40604,7 +40604,7 @@ MOD18_0224D364: ; 0x0224D364
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0xff
@@ -40626,7 +40626,7 @@ MOD18_0224D364: ; 0x0224D364
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0xff
@@ -40698,7 +40698,7 @@ _0224D500:
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	str r5, [sp]
 	mov r0, #0xff
 	str r0, [sp, #4]
@@ -41095,7 +41095,7 @@ MOD18_0224D814: ; 0x0224D814
 	add r0, r7, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0xff
@@ -41137,7 +41137,7 @@ MOD18_0224D814: ; 0x0224D814
 	add r0, r7, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x12
 	str r0, [sp]
 	mov r0, #0xff
@@ -41183,7 +41183,7 @@ _0224D8FA:
 	add r0, r7, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0
 	str r0, [sp, #0x1c]
 	add r0, #0x45
@@ -41199,7 +41199,7 @@ _0224D8FA:
 	mov r3, #2
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x24]
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -41216,7 +41216,7 @@ _0224D8FA:
 	add r0, r7, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x1c]
 	mov r1, #0
 	str r0, [sp]
@@ -41543,7 +41543,7 @@ MOD18_0224DBE4: ; 0x0224DBE4
 	beq _0224DC04
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #4]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	ldr r2, [r4, #4]
@@ -42851,7 +42851,7 @@ _0224E454:
 	ldr r2, [sp, #0x2c]
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #0xff

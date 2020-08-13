@@ -19,10 +19,10 @@ UNK_020EE6E0: ; 0x020EE6E0
 	.global UNK_020EE700
 UNK_020EE700: ; 0x020EE700
 	.word 0x00, 0x00, FUN_0202376C, FUN_02023770
-	.word 0x01, 0x00, FUN_020238C4, FUN_020238C8
-	.word 0x02, 0x00, FUN_0206B8A4, FUN_0206B8C0
+	.word 0x01, 0x00, Sav2_PlayerData_sizeof, Sav2_PlayerData_init
+	.word 0x02, 0x00, SavArray_Party_sizeof, SavArray_Party_init
 	.word 0x03, 0x00, FUN_0206EB80, FUN_0206EBA0
-	.word 0x04, 0x00, FUN_02046294, FUN_0204629C
+	.word 0x04, 0x00, SavArray_Flags_sizeof, SavArray_Flags_init
 	.word 0x05, 0x00, FUN_0204BE14, FUN_0204BE18
 	.word 0x06, 0x00, FUN_02034D7C, FUN_02034D98
 	.word 0x07, 0x00, FUN_02023D64, FUN_02024378
@@ -129,7 +129,7 @@ _020225C4:
 	b _020225DA
 _020225D4:
 	add r0, r4, #0x0
-	bl FUN_020227DC
+	bl Sav2_InitDynamicRegion
 _020225DA:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -156,8 +156,8 @@ _02022606:
 	.balign 4
 _0202260C: .word UNK_021C59C8
 
-	thumb_func_start FUN_02022610
-FUN_02022610: ; 0x02022610
+	thumb_func_start SavArray_get
+SavArray_get: ; 0x02022610
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -179,10 +179,10 @@ _02022630: .word 0x0002022C
 
 	thumb_func_start FUN_02022634
 FUN_02022634: ; 0x02022634
-	ldr r3, _02022638 ; =FUN_02022610
+	ldr r3, _02022638 ; =SavArray_get
 	bx r3
 	.balign 4
-_02022638: .word FUN_02022610
+_02022638: .word SavArray_get
 
 	thumb_func_start FUN_0202263C
 FUN_0202263C: ; 0x0202263C
@@ -263,7 +263,7 @@ _020226B4:
 	add r0, r6, #0x0
 	bl FreeToHeap
 	ldr r0, [sp, #0x0]
-	bl FUN_020227DC
+	bl Sav2_InitDynamicRegion
 	ldr r0, [sp, #0x0]
 	mov r1, #0x0
 	str r1, [r0, #0x4]
@@ -395,8 +395,8 @@ _020227CA:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020227DC
-FUN_020227DC: ; 0x020227DC
+	thumb_func_start Sav2_InitDynamicRegion
+Sav2_InitDynamicRegion: ; 0x020227DC
 	add r2, r0, #0x0
 	mov r0, #0x1
 	str r0, [r2, #0x8]
@@ -404,13 +404,13 @@ FUN_020227DC: ; 0x020227DC
 	mov r0, #0x85
 	ldr r1, _020227F4 ; =0x00020224
 	lsl r0, r0, #0x2
-	ldr r3, _020227F8 ; =FUN_020231F4
+	ldr r3, _020227F8 ; =Sav2_InitDynamicRegion_Internal
 	add r0, r2, r0
 	add r1, r2, r1
 	bx r3
 	nop
 _020227F4: .word 0x00020224
-_020227F8: .word FUN_020231F4
+_020227F8: .word Sav2_InitDynamicRegion_Internal
 
 	thumb_func_start FUN_020227FC
 FUN_020227FC: ; 0x020227FC
@@ -1609,8 +1609,8 @@ FUN_02023074: ; 0x02023074
 	.balign 4
 _020230A8: .word 0x00020464
 
-	thumb_func_start FUN_020230AC
-FUN_020230AC: ; 0x020230AC
+	thumb_func_start SavArray_sizeof
+SavArray_sizeof: ; 0x020230AC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, _020230DC ; =UNK_020EE6DC
@@ -1667,7 +1667,7 @@ _02023112:
 	ldr r0, [r4, #0x0]
 	str r0, [r5, #0x0]
 	add r0, r6, #0x0
-	bl FUN_020230AC
+	bl SavArray_sizeof
 	str r0, [r5, #0x4]
 	str r7, [r5, #0x8]
 	mov r0, #0x0
@@ -1784,8 +1784,10 @@ _020231E6:
 _020231EC: .word UNK_020EE6DC
 _020231F0: .word 0x00000FFF
 
-	thumb_func_start FUN_020231F4
-FUN_020231F4: ; 0x020231F4
+	thumb_func_start Sav2_InitDynamicRegion_Internal
+Sav2_InitDynamicRegion_Internal: ; 0x020231F4
+	; r0: &sav2->dynamic_region
+    ; r1: &sav2->arraySpecs
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r6, r0, #0x0

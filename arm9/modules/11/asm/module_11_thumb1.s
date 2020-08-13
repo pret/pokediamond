@@ -1153,14 +1153,14 @@ _0222DFE4:
 _0222DFEC:
 	ldr r0, [r5, #0x68]
 	ldr r1, [r6, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [r5, #0x68]
 	bl FreeToHeap
 	add r1, r6, #0
 	add r1, #0xf8
 	ldr r0, [r5, #0x48]
 	ldr r1, [r1]
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, [r5, #0x48]
 	bl FreeToHeap
 	ldr r0, [sp]
@@ -1741,13 +1741,13 @@ MOD11_0222E520: ; 0x0222E520
 	add r5, r1, #0
 _0222E532:
 	mov r0, #5
-	bl FUN_02023928
+	bl PlayerProfile_init
 	add r1, r0, #0
 	add r0, r5, #0
 	str r1, [r6, #0x48]
 	add r0, #0xf8
 	ldr r0, [r0]
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	mov r0, #0x46
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -1945,7 +1945,7 @@ _0222E69E:
 	mov r7, #5
 _0222E6D2:
 	add r0, r7, #0
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	str r0, [r5, #0x68]
 	add r6, r6, #1
 	add r5, r5, #4
@@ -1997,7 +1997,7 @@ _0222E734:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2102,7 +2102,7 @@ _0222E810:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2212,7 +2212,7 @@ _0222E8FE:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2342,7 +2342,7 @@ _0222EA0C:
 	ldr r0, [sp, #4]
 	ldr r1, [r7, #0x68]
 	ldr r0, [r0, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [r7, #0x68]
 	mov r5, #0
 	bl GetPartyCount
@@ -2428,7 +2428,7 @@ _0222EAC0:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2555,7 +2555,7 @@ _0222EBC6:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2664,7 +2664,7 @@ _0222ECA6:
 	ldr r0, [sp, #4]
 	ldr r1, [r5, #0x68]
 	ldr r0, [r0, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [sp, #4]
 	add r6, r6, #1
 	add r0, r0, #4
@@ -2797,7 +2797,7 @@ _0222EDBC:
 	ldr r0, [sp, #4]
 	ldr r1, [r7, #0x68]
 	ldr r0, [r0, #4]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	ldr r0, [r7, #0x68]
 	mov r5, #0
 	bl GetPartyCount

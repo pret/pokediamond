@@ -571,7 +571,7 @@ _02085DDC:
 	mov r1, #0x0
 	bl FUN_02085D8C
 	ldr r0, [r6, #0x10]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r7, #0x1c]
 	bl GetPartyCount
 	mov r4, #0x0
@@ -756,7 +756,7 @@ _02085F5E:
 	str r0, [r4, #0x8]
 	bl memset
 	add r0, r5, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	ldr r1, [r4, #0x8]
 	str r0, [r1, #0x24]
 	ldr r0, [r4, #0x8]

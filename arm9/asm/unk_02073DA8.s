@@ -222,7 +222,7 @@ FUN_02073EEC: ; 0x02073EEC
 	add r2, #0x8
 	ldr r1, [r5, r1]
 	ldr r2, [r5, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	b _02074018
 _02073F66:
 	ldr r0, [r5, r0]
@@ -280,7 +280,7 @@ _02073F66:
 	add r2, #0x8
 	ldr r1, [r5, r1]
 	ldr r2, [r5, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, _0207404C ; =0x00000B25
 	mov r2, #0x2c
 	ldrb r3, [r5, r1]
@@ -1226,7 +1226,7 @@ _020747CE:
 	ldrb r1, [r4, r1]
 	ldrb r2, [r4, r2]
 	ldr r0, [r0, #0x0]
-	bl FUN_0206BA38
+	bl SwapSlotsInParty
 	ldr r0, _02074840 ; =0x000005C8
 	mov r1, #0x1
 	ldr r0, [r5, r0]

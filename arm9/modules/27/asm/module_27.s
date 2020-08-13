@@ -56,7 +56,7 @@ MOD27_0225489C: ; 0x0225489C
 	strb r0, [r5, #2]
 	add r0, r4, #0
 	bl MOD20_02252C40
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r0, #0
 	add r0, r5, #4
 	bl MOD27_02254A48
@@ -223,7 +223,7 @@ _0225499C:
 	blo _02254A02
 	ldr r0, [r4, #0x78]
 	bl MOD20_02252C40
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r0, #0
 	add r0, r4, #4
 	bl MOD27_02254A48

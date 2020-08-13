@@ -622,7 +622,7 @@ FUN_0202A5D4: ; 0x0202A5D4
 	add r5, r1, #0x0
 	mov r1, #0x17
 	add r4, r2, #0x0
-	bl FUN_02022610
+	bl SavArray_get
 	mov r1, #0x69
 	lsl r1, r1, #0x2
 	add r1, r0, r1
@@ -638,7 +638,7 @@ FUN_0202A5F4: ; 0x0202A5F4
 	push {r4, lr}
 	add r4, r1, #0x0
 	mov r1, #0x17
-	bl FUN_02022610
+	bl SavArray_get
 	mov r1, #0x69
 	lsl r1, r1, #0x2
 	add r1, r0, r1
@@ -1028,17 +1028,17 @@ FUN_0202A8A4: ; 0x0202A8A4
 
 	thumb_func_start FUN_0202A8CC
 FUN_0202A8CC: ; 0x0202A8CC
-	ldr r3, _0202A8D4 ; =FUN_02022610
+	ldr r3, _0202A8D4 ; =SavArray_get
 	mov r1, #0x17
 	bx r3
 	nop
-_0202A8D4: .word FUN_02022610
+_0202A8D4: .word SavArray_get
 
 	thumb_func_start FUN_0202A8D8
 FUN_0202A8D8: ; 0x0202A8D8
 	push {r3, lr}
 	mov r1, #0x17
-	bl FUN_02022610
+	bl SavArray_get
 	add r0, #0x3c
 	pop {r3, pc}
 
@@ -1046,7 +1046,7 @@ FUN_0202A8D8: ; 0x0202A8D8
 FUN_0202A8E4: ; 0x0202A8E4
 	push {r3, lr}
 	mov r1, #0x17
-	bl FUN_02022610
+	bl SavArray_get
 	mov r1, #0x71
 	lsl r1, r1, #0x2
 	add r0, r0, r1

@@ -1948,7 +1948,7 @@ _021D84AA:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0
 	mov r0, #0x4b
 	lsl r0, r0, #2
@@ -7527,12 +7527,12 @@ MOD14_021DB220: ; 0x021DB220
 	sub r0, r1, #4
 	str r2, [r5, r0]
 	ldr r0, [r4]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	mov r1, #0x49
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	ldr r0, [r4]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	mov r1, #0x69
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -8661,7 +8661,7 @@ _021DBA98:
 	lsl r0, r0, #2
 	ldrsb r1, [r5, r1]
 	ldr r0, [r7, r0]
-	bl FUN_0206B938
+	bl RemoveMonFromParty
 	mov r0, #1
 _021DBAB6:
 	strb r0, [r4, #0xb]
@@ -8878,7 +8878,7 @@ _021DBC42:
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	ldr r1, [r4]
-	bl FUN_0206B900
+	bl AddMonToParty
 	b _021DBC70
 _021DBC56:
 	mov r1, #0x1a
@@ -8891,7 +8891,7 @@ _021DBC56:
 	ldr r0, [r5, r1]
 	add r1, #0x7c
 	ldr r1, [r5, r1]
-	bl FUN_0206B900
+	bl AddMonToParty
 _021DBC70:
 	mov r0, #0x49
 	lsl r0, r0, #2
@@ -9056,7 +9056,7 @@ _021DBDB0:
 	ldrsb r1, [r1, r2]
 	add r3, #0x7c
 	ldr r2, [r5, r3]
-	bl FUN_0206B9DC
+	bl ReplacePartySlotWithMon
 	mov r0, #1
 	strb r0, [r4, #0xb]
 _021DBDC8:
@@ -9108,7 +9108,7 @@ MOD14_021DBE00: ; 0x021DBE00
 	lsl r0, r0, #2
 	ldrsb r1, [r4, r1]
 	ldr r0, [r5, r0]
-	bl FUN_0206B938
+	bl RemoveMonFromParty
 	add r0, r5, #0
 	bl MOD14_021DB934
 	mov r0, #1
@@ -9154,7 +9154,7 @@ _021DBE70:
 	lsl r0, r0, #2
 	ldrsb r1, [r4, r1]
 	ldr r0, [r5, r0]
-	bl FUN_0206B938
+	bl RemoveMonFromParty
 _021DBE7E:
 	add r0, r5, #0
 	bl MOD14_021DB934
@@ -20836,7 +20836,7 @@ MOD14_021E189C: ; 0x021E189C
 	ldr r0, [r5, #0x2c]
 	ldr r1, [r5, #0x34]
 	ldr r2, [r5, #0x30]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff

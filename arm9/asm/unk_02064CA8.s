@@ -47,7 +47,7 @@ FUN_02064CC8: ; 0x02064CC8
 	cmp r0, #0x16
 	bne _02064D08
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ECEC
 	cmp r0, #0x0
 	beq _02064D02

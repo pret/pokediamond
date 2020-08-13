@@ -166,7 +166,7 @@ _0203714A:
 	bl FUN_02039694
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02039528
+	bl FlagCheck
 	cmp r0, #0x1
 	beq _02037160
 	mov r0, #0x1
@@ -359,7 +359,7 @@ _0203728A:
 	bge _020372BE
 	ldrh r1, [r5, #0xe]
 	ldr r0, [sp, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	ldrh r1, [r5, #0xc]
 	cmp r1, r0
 	bne _020372BE

@@ -200,11 +200,11 @@ FUN_02023D3C: ; 0x02023D3C
 
 	thumb_func_start FUN_02023D58
 FUN_02023D58: ; 0x02023D58
-	ldr r3, _02023D60 ; =FUN_02022610
+	ldr r3, _02023D60 ; =SavArray_get
 	mov r1, #0x8
 	bx r3
 	nop
-_02023D60: .word FUN_02022610
+_02023D60: .word SavArray_get
 
 	thumb_func_start FUN_02023D64
 FUN_02023D64: ; 0x02023D64
@@ -2458,11 +2458,11 @@ _02024D9C: .word 0xBEEFCAFE
 
 	thumb_func_start FUN_02024DA0
 FUN_02024DA0: ; 0x02024DA0
-	ldr r3, _02024DA8 ; =FUN_02022610
+	ldr r3, _02024DA8 ; =SavArray_get
 	mov r1, #0x7
 	bx r3
 	nop
-_02024DA8: .word FUN_02022610
+_02024DA8: .word SavArray_get
 
 	thumb_func_start FUN_02024DAC
 FUN_02024DAC: ; 0x02024DAC

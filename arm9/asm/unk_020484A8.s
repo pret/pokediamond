@@ -41,7 +41,7 @@ _020484C6:
 	bl FUN_0202B03C
 _020484CC:
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r6, r0, #0x0
 	add r0, sp, #0x4
 	bl FUN_020126B4
@@ -158,7 +158,7 @@ _020485AE:
 	b _02048688
 _020485C0:
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_02085140
 	bl FUN_02022830
 	ldr r0, [r6, #0xc]
@@ -265,10 +265,10 @@ FUN_02048694: ; 0x02048694
 	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
 	bl FUN_02034E30
@@ -282,17 +282,17 @@ FUN_02048694: ; 0x02048694
 	bl FUN_0205ED0C
 	str r0, [r5, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0xc]
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [r5, #0xc]
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0x10]
 	add r0, r6, #0x0
 	bl FUN_0205ED0C
@@ -308,7 +308,7 @@ FUN_02048694: ; 0x02048694
 	bl FUN_0204B328
 _0204871E:
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_0204A25C
 	ldr r0, [sp, #0x8]
 	bl FUN_020377B0
@@ -394,7 +394,7 @@ FUN_020487E4: ; 0x020487E4
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r6, r0, #0x0
 	mov r0, #0x1a
 	mov r1, #0xc7
@@ -469,7 +469,7 @@ FUN_02048864: ; 0x02048864
 	bl FUN_0200AA80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
@@ -491,7 +491,7 @@ _020488B4:
 	add r0, r7, #0x0
 	bl DestroyMsgData
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x2c]

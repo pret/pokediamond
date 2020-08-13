@@ -3676,13 +3676,13 @@ BOOL FUN_0206A998(struct Pokemon * pokemon)
     return IsPokemonLegendaryOrMythical(species);
 }
 
-BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct SaveBlock2 * sb2, u32 heap_id)
+BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct PlayerData * sb2, u32 heap_id)
 {
-    u32 myId = FUN_020239BC(sb2);
+    u32 myId = PlayerProfile_GetTrainerID(sb2);
     u32 otId = GetBoxMonData(boxmon, MON_DATA_OTID, NULL);
-    u32 myGender = FUN_020239CC(sb2);
+    u32 myGender = PlayerProfile_GetTrainerGender(sb2);
     u32 otGender = GetBoxMonData(boxmon, MON_DATA_MET_GENDER, NULL);
-    struct String * r7 = FUN_020239A0(sb2, heap_id);
+    struct String * r7 = PlayerProfile_GetPlayerName_NewString(sb2, heap_id);
     struct String * r6 = String_ctor(OT_NAME_LENGTH + 1, heap_id);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);

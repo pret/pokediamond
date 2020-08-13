@@ -197,12 +197,12 @@ _02046690:
 	pop {r3-r7, pc}
 _020466A4:
 	ldr r0, [r6, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x0
 	beq _020466BC
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_02085140
 _020466BC:
 	ldr r1, [r5, #0x10]
@@ -594,7 +594,7 @@ FUN_020469B8: ; 0x020469B8
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x0
 	beq _020469F2
@@ -639,7 +639,7 @@ FUN_02046A20: ; 0x02046A20
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x0
 	beq _02046A5A
@@ -765,12 +765,12 @@ _02046AFE:
 	pop {r4-r6, pc}
 _02046B3E:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	cmp r0, #0x0
 	beq _02046B56
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_02085140
 _02046B56:
 	ldr r1, [r4, #0x10]
@@ -1018,7 +1018,7 @@ _02046D5C:
 	bl FUN_02022510
 	str r0, [sp, #0x8]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x8]
 	bl FUN_0206B334
@@ -1830,7 +1830,7 @@ _02047400:
 	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
 	mov r1, #0x5
@@ -1874,7 +1874,7 @@ _02047470:
 	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [sp, #0x8]
 	add r0, r6, #0x0
 	mov r1, #0x5

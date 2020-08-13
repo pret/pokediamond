@@ -1643,11 +1643,11 @@ FUN_02061850: ; 0x02061850
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_02023924
+	bl PlayerProfile_sizeof
 	str r0, [r5, #0x0]
 	add r0, r4, #0x0
 	add r1, r5, #0x4
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1659,7 +1659,7 @@ FUN_02061868: ; 0x02061868
 	add r5, r1, #0x0
 	bl MOD06_02248B60
 	add r4, r0, #0x0
-	bl FUN_02023924
+	bl PlayerProfile_sizeof
 	ldr r1, [r4, #0x0]
 	cmp r1, r0
 	beq _02061884
@@ -1823,7 +1823,7 @@ FUN_02061990: ; 0x02061990
 	pop {r3-r5, pc}
 _020619B0:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x2
 	mov r2, #0x11
 	bl FUN_0205F2E4
@@ -2158,7 +2158,7 @@ _02061C42:
 FUN_02061C48: ; 0x02061C48
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x2
 	mov r2, #0x11
 	bl FUN_0205F2E4
@@ -2172,7 +2172,7 @@ FUN_02061C5C: ; 0x02061C5C
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	bl FUN_0204A20C
 	add r1, sp, #0x8
 	add r2, sp, #0x4
@@ -3081,7 +3081,7 @@ FUN_0206234C: ; 0x0206234C
 	push {r3-r7, lr}
 	sub sp, #0x88
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	ldr r4, _020623E8 ; =UNK_020F7658
 	add r7, r0, #0x0
 	mov r6, #0x0
@@ -3221,7 +3221,7 @@ _0206245C: .word UNK_020F79EE
 FUN_02062460: ; 0x02062460
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	mov r1, #0x2
 	mov r2, #0x9
 	bl FUN_0205F2E4

@@ -2479,8 +2479,8 @@ _02027E1E:
 
 	thumb_func_start FUN_02027E24
 FUN_02027E24: ; 0x02027E24
-	ldr r3, _02027E2C ; =FUN_02022610
+	ldr r3, _02027E2C ; =SavArray_get
 	mov r1, #0xe
 	bx r3
 	nop
-_02027E2C: .word FUN_02022610
+_02027E2C: .word SavArray_get

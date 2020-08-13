@@ -2195,7 +2195,7 @@ _0206D8EA:
 	bl CalcMonLevelAndStats
 	ldr r0, [r4, #0x24]
 	add r1, r5, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [r4, #0x48]
 	add r1, r5, #0x0
 	bl FUN_02024AF0
@@ -2668,7 +2668,7 @@ FUN_0206DD6C: ; 0x0206DD6C
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	add r2, r5, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0x0
 	bl FreeToHeap
 	ldr r0, [r4, #0x4]
@@ -2719,7 +2719,7 @@ _0206DDDC:
 	b _0206DDFA
 _0206DDE4:
 	ldr r0, _0206DE00 ; =0x00000484
-	bl FUN_02005C28
+	bl PlayBGM
 	b _0206DDFA
 _0206DDEC:
 	ldr r0, _0206DE04 ; =0x000005E6
@@ -2727,7 +2727,7 @@ _0206DDEC:
 	b _0206DDFA
 _0206DDF4:
 	ldr r0, _0206DE08 ; =0x00000483
-	bl FUN_02005C28
+	bl PlayBGM
 _0206DDFA:
 	add r0, r4, #0x0
 	pop {r4, pc}

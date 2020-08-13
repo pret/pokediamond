@@ -21,7 +21,7 @@ FUN_020406CC: ; 0x020406CC
 	ldrb r5, [r1, #0x0]
 	add r0, r6, #0x0
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
 	add r1, r5, #0x0
@@ -87,10 +87,10 @@ FUN_02040748: ; 0x02040748
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -119,7 +119,7 @@ FUN_02040790: ; 0x02040790
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -146,7 +146,7 @@ FUN_020407C8: ; 0x020407C8
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -173,7 +173,7 @@ FUN_02040800: ; 0x02040800
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	bl TMHMGetMove
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
@@ -201,7 +201,7 @@ FUN_0204083C: ; 0x0204083C
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -229,7 +229,7 @@ FUN_02040874: ; 0x02040874
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	bl FUN_02054C14
 	add r3, r0, #0x0
@@ -264,7 +264,7 @@ FUN_020408BC: ; 0x020408BC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	str r0, [sp, #0x8]
 	ldr r1, [r5, #0x8]
 	add r2, r1, #0x1
@@ -310,10 +310,10 @@ FUN_0204091C: ; 0x0204091C
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -346,7 +346,7 @@ FUN_02040964: ; 0x02040964
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	mov r1, #0x1e
 	bl _s32_div_f
@@ -383,7 +383,7 @@ FUN_020409C0: ; 0x020409C0
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -410,7 +410,7 @@ FUN_020409F8: ; 0x020409F8
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -427,7 +427,7 @@ FUN_02040A30: ; 0x02040A30
 	ldr r5, [r0, #0x0]
 	add r0, r5, #0x0
 	bl FUN_020377AC
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xf
@@ -438,7 +438,7 @@ FUN_02040A30: ; 0x02040A30
 	str r0, [r7, #0x8]
 	add r0, r4, #0x0
 	ldrb r5, [r1, #0x0]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02023A28
@@ -473,7 +473,7 @@ FUN_02040A7C: ; 0x02040A7C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -538,7 +538,7 @@ FUN_02040B0C: ; 0x02040B0C
 	ldr r0, [r4, #0x0]
 	ldrb r5, [r1, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F388
 	mov r1, #0x4
 	bl FUN_02040AE4
@@ -575,7 +575,7 @@ FUN_02040B5C: ; 0x02040B5C
 	ldr r0, [r4, #0x0]
 	ldrb r5, [r1, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F398
 	mov r1, #0x4
 	bl FUN_02040AE4
@@ -612,7 +612,7 @@ FUN_02040BAC: ; 0x02040BAC
 	ldr r0, [r4, #0x0]
 	ldrb r5, [r1, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F3C0
 	mov r1, #0x4
 	bl FUN_02040AE4
@@ -650,7 +650,7 @@ FUN_02040BFC: ; 0x02040BFC
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -677,7 +677,7 @@ FUN_02040C34: ; 0x02040C34
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -704,7 +704,7 @@ FUN_02040C6C: ; 0x02040C6C
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -737,7 +737,7 @@ FUN_02040CA4: ; 0x02040CA4
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	mov r1, #0x4
 	add r2, r4, #0x0
 	bl FUN_02064E60
@@ -777,14 +777,14 @@ FUN_02040D04: ; 0x02040D04
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	sub r5, #0x95
 	add r4, r0, #0x0
 	lsl r0, r5, #0x10
@@ -832,7 +832,7 @@ FUN_02040D7C: ; 0x02040D7C
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -859,7 +859,7 @@ FUN_02040DB4: ; 0x02040DB4
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -931,17 +931,17 @@ FUN_02040E4C: ; 0x02040E4C
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r4, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r1, [sp, #0x0]
 	bl GetPartyMonByIndex
 	add r4, #0x36
@@ -975,7 +975,7 @@ FUN_02040EB4: ; 0x02040EB4
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #0x3
@@ -1007,7 +1007,7 @@ FUN_02040EF8: ; 0x02040EF8
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	sub r2, r2, #0x1
 	lsl r2, r2, #0x10
@@ -1036,7 +1036,7 @@ FUN_02040F34: ; 0x02040F34
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -1063,7 +1063,7 @@ FUN_02040F6C: ; 0x02040F6C
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -1090,7 +1090,7 @@ FUN_02040FA4: ; 0x02040FA4
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -1117,7 +1117,7 @@ FUN_02040FDC: ; 0x02040FDC
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -1144,7 +1144,7 @@ FUN_02041014: ; 0x02041014
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -1172,7 +1172,7 @@ FUN_0204104C: ; 0x0204104C
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -1203,7 +1203,7 @@ FUN_02041094: ; 0x02041094
 	ldr r0, [r5, #0x0]
 	ldrb r4, [r1, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F3C0
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
@@ -1230,7 +1230,7 @@ FUN_020410C8: ; 0x020410C8
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -1257,7 +1257,7 @@ FUN_02041100: ; 0x02041100
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
@@ -1284,7 +1284,7 @@ FUN_02041138: ; 0x02041138
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	sub r2, r2, #0x1
 	lsl r2, r2, #0x10

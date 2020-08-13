@@ -127,8 +127,8 @@ FUN_0206E394: ; 0x0206E394
 	thumb_func_start FUN_0206E39C
 FUN_0206E39C: ; 0x0206E39C
 	push {r3, lr}
-	bl FUN_0202390C
-	bl FUN_02028930
+	bl Sav2_PlayerData_GetCoinsAddr
+	bl CheckCoins
 	pop {r3, pc}
 
 	thumb_func_start FUN_0206E3A8
@@ -295,7 +295,7 @@ _0206E4FA:
 	ldr r1, [sp, #0x8]
 	add r0, r4, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0x0
 	bl String_dtor
 	add r0, r4, #0x0
@@ -364,7 +364,7 @@ _0206E56A:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0x0
 	bl String_dtor
 	add r0, r4, #0x0

@@ -26,7 +26,7 @@ _021E1396:
 	bl memset
 	str r7, [r4, #4]
 	ldr r0, [r7, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	str r0, [r4, #8]
 	mov r0, #0x45
 	lsl r0, r0, #2
@@ -388,7 +388,7 @@ MOD05_021E1654: ; 0x021E1654
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	ldr r0, [r7, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r4, r0, #0
 	bl FUN_0205F41C
 	add r6, r0, #0
@@ -553,7 +553,7 @@ MOD05_021E17A0: ; 0x021E17A0
 	add r5, r0, #0
 	ldr r0, [r5, #4]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	str r0, [sp]
 	mov r0, #0x11
 	lsl r0, r0, #4
@@ -568,7 +568,7 @@ _021E17BE:
 	bl MOD05_021E1848
 	add r1, r0, #0
 	ldr r0, [r5, #4]
-	bl FUN_02039640
+	bl TrainerFlagCheck
 	cmp r0, #0
 	bne _021E17DE
 	ldr r1, [r4, #0x10]
@@ -712,7 +712,7 @@ _021E18DC:
 	cmp r1, r7
 	beq _021E18F0
 	add r0, r6, #0
-	bl FUN_02039640
+	bl TrainerFlagCheck
 	cmp r0, #0
 	bne _021E18F0
 	lsl r0, r4, #0x10
@@ -737,7 +737,7 @@ MOD05_021E1908: ; 0x021E1908
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0
 	add r4, r2, #0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	cmp r4, #0
 	beq _021E192C
 	add r1, r4, #0

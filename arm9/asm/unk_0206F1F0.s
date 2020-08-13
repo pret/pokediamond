@@ -82,7 +82,7 @@ _0206F26C:
 	cmp r0, #0x0
 	beq _0206F280
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F304
 _0206F280:
 	ldr r0, [r4, #0x0]

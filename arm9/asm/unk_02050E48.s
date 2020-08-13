@@ -30,7 +30,7 @@ FUN_02050E48: ; 0x02050E48
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4
@@ -41,7 +41,7 @@ FUN_02050E48: ; 0x02050E48
 	bl FUN_02079C70
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x4]
 	ldr r0, [sp, #0x0]
 	str r0, [r4, #0x0]
@@ -86,7 +86,7 @@ FUN_02050ED4: ; 0x02050ED4
 	bl MI_CpuFill8
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0x24]
 	add r0, #0xac
@@ -94,7 +94,7 @@ FUN_02050ED4: ; 0x02050ED4
 	str r0, [r4, #0x14]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
@@ -627,7 +627,7 @@ _02051308:
 _0205130E:
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -791,7 +791,7 @@ _0205142C:
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0xc]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
 	bl FUN_020517C0
@@ -970,7 +970,7 @@ _020515BA:
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0xc]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
 	bl FUN_020517C0
@@ -1025,7 +1025,7 @@ _02051642:
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0xc]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
 	bl FUN_020517C0
@@ -1211,7 +1211,7 @@ FUN_020517C0: ; 0x020517C0
 	bl FUN_020545B8
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02054608
@@ -1222,7 +1222,7 @@ _020517F2:
 _020517F8:
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -1377,10 +1377,10 @@ _02051938:
 	bl AllocFromHeapAtEnd
 	str r0, [r4, #0x48]
 	mov r0, #0xb
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	mov r1, #0x3
 	str r0, [r4, #0x50]
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	add r0, r4, #0x0
 	mov r1, #0x5
 	add r0, #0x44
@@ -1464,7 +1464,7 @@ FUN_020519F0: ; 0x020519F0
 	ldr r0, [r7, #0x24]
 	add r5, r1, #0x0
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x0]
 	ldr r4, [r7, #0x4c]
 	bl FUN_020690C4
@@ -1611,7 +1611,7 @@ FUN_02051AF0: ; 0x02051AF0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	mov r4, #0x0
 _02051B04:
 	add r1, r4, #0x0
@@ -1619,7 +1619,7 @@ _02051B04:
 	mul r1, r6
 	ldr r0, [r5, #0x50]
 	add r1, r2, r1
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r4, r4, #0x1
 	cmp r4, #0x3
 	blt _02051B04
@@ -1650,7 +1650,7 @@ FUN_02051B1C: ; 0x02051B1C
 	bl MI_CpuCopy8
 	ldr r0, [r6, #0x50]
 	mov r1, #0x3
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	mov r5, #0x0
 _02051B52:
 	add r1, r5, #0x0
@@ -1658,7 +1658,7 @@ _02051B52:
 	mul r1, r4
 	ldr r0, [r6, #0x50]
 	add r1, r2, r1
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r5, r5, #0x1
 	cmp r5, #0x3
 	blt _02051B52
@@ -2154,20 +2154,20 @@ _02051EF2:
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0x4]
 	ldr r2, [r4, #0x0]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x8]
 	add r1, #0x8
 	mov r2, #0x3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x8
 	bl FUN_02054608
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x4]

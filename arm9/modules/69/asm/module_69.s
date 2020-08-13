@@ -1350,7 +1350,7 @@ _0222E0D4:
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _0222E10C
 	mov r1, #1
@@ -2398,7 +2398,7 @@ _0222E95E:
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add sp, #8
 	pop {r4, pc}
 
@@ -2431,7 +2431,7 @@ _0222E996:
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x1c]
 	ldr r2, [r5, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD69_0222E9AC
@@ -2511,7 +2511,7 @@ _0222EA2E:
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	mov r1, #0x78
 	bl MOD69_0222E89C
@@ -2672,7 +2672,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	bl FUN_0200ABC0
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0]
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -2684,7 +2684,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	bl FUN_0200AD38
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #8]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -2697,7 +2697,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	bl FUN_0200AD38
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #8]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r3, #2
 	add r2, r0, #0
 	str r3, [sp]
@@ -2719,7 +2719,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	add r2, #8
 	ldr r1, [r4, r1]
 	ldr r2, [r4, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, _0222EC54 ; =0x00001B54
 	mov r0, #0
 	ldr r1, [r4, r1]
@@ -4070,7 +4070,7 @@ _0222F6FA:
 	b _0222F77A
 _0222F70C:
 	add r0, r6, #0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	add r7, r0, #0
 	add r0, r4, #0
 	mov r1, #7
@@ -4084,7 +4084,7 @@ _0222F726:
 	ldr r1, _0222F788 ; =0x00001B54
 	add r0, r6, #0
 	ldr r1, [r5, r1]
-	bl FUN_02023990
+	bl PlayerName_FlatToString
 	ldr r2, _0222F78C ; =0x00001B58
 	add r0, r4, #0
 	ldr r2, [r5, r2]

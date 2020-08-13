@@ -5,24 +5,24 @@
 
 	thumb_func_start FUN_0205EC84
 FUN_0205EC84: ; 0x0205EC84
-	ldr r3, _0205EC88 ; =FUN_020462E4
+	ldr r3, _0205EC88 ; =SetFlagInArray
 	bx r3
 	.balign 4
-_0205EC88: .word FUN_020462E4
+_0205EC88: .word SetFlagInArray
 
 	thumb_func_start FUN_0205EC8C
 FUN_0205EC8C: ; 0x0205EC8C
-	ldr r3, _0205EC90 ; =FUN_0204630C
+	ldr r3, _0205EC90 ; =ClearFlagInArray
 	bx r3
 	.balign 4
-_0205EC90: .word FUN_0204630C
+_0205EC90: .word ClearFlagInArray
 
 	thumb_func_start FUN_0205EC94
 FUN_0205EC94: ; 0x0205EC94
-	ldr r3, _0205EC98 ; =FUN_020462B8
+	ldr r3, _0205EC98 ; =CheckFlagInArray
 	bx r3
 	.balign 4
-_0205EC98: .word FUN_020462B8
+_0205EC98: .word CheckFlagInArray
 
 	thumb_func_start FUN_0205EC9C
 FUN_0205EC9C: ; 0x0205EC9C

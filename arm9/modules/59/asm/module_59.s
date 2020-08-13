@@ -26,7 +26,7 @@ MOD59_021D74E0: ; 0x021D74E0
 	bl FUN_0200628C
 	ldr r0, [r0, #8]
 	str r0, [r4, #4]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	mov r1, #0
 	str r0, [r4, #8]
 	str r1, [r4, #0xc]
@@ -231,15 +231,15 @@ MOD59_021D76C0: ; 0x021D76C0
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	ldr r5, [r4]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r1, [r4, #0x70]
 	ldr r1, [r1, #0x18]
-	bl FUN_0202397C
+	bl PlayerName_StringToFlat
 	ldr r0, [r4, #4]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r1, [r4, #0x70]
 	ldr r1, [r1, #4]
-	bl FUN_020239C8
+	bl PlayerProfile_SetTrainerGender
 	ldr r0, [r4, #4]
 	bl FUN_02024EB4
 	ldr r1, [r4, #0x74]
@@ -995,7 +995,7 @@ _021D7C5E:
 	ldr r0, [r5, #0x64]
 	ldr r1, [r5, #0x5c]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
 	bl String_dtor
 	ldr r0, [r5, #8]

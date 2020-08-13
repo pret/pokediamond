@@ -68,7 +68,7 @@ MOD52_021D7540: ; 0x021D7540
 	mov r2, #1
 	bl MOD52_021D7604
 	add r0, r4, #0
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	bl FUN_02015E3C
 	mov r0, #1
 	pop {r4, pc}
@@ -133,7 +133,7 @@ _021D75C8:
 	bl FUN_020237A0
 _021D75D8:
 	add r0, r4, #0
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	bl FUN_02015E3C
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -178,7 +178,7 @@ MOD52_021D7604: ; 0x021D7604
 	add r0, r5, #0
 	bl FUN_0206007C
 	add r0, r5, #0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0
 	bl MTRandom
 	add r7, r0, #0
@@ -186,10 +186,10 @@ MOD52_021D7604: ; 0x021D7604
 	beq _021D7656
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_020239B8
+	bl PlayerProfile_SetTrainerID
 _021D7656:
 	add r0, r4, #0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	add r0, r7, #0
 	mov r2, #0
@@ -228,15 +228,15 @@ MOD52_021D769C: ; 0x021D769C
 	push {r4, lr}
 	add r4, r1, #0
 	add r0, r4, #0
-	bl FUN_020227DC
+	bl Sav2_InitDynamicRegion
 	add r0, r4, #0
 	bl FUN_020377E0
 	add r0, r4, #0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r1, _021D76C4 ; =0x00000BB8
-	bl FUN_02023A14
+	bl PlayerProfile_SetMoney
 	add r0, r4, #0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ECD4
 	pop {r4, pc}
 	.align 2, 0

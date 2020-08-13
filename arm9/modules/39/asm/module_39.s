@@ -49,7 +49,7 @@ MOD39_0225489C: ; 0x0225489C
 	str r1, [sp, #8]
 	str r2, [sp, #0xc]
 	bl MOD20_02252C40
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x10]
 	bl GetPartyCount
 	ldr r1, [sp, #4]
