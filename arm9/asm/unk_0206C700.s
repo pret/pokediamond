@@ -1744,7 +1744,7 @@ _0206D560:
 	ldrh r1, [r1, #0x0]
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r4, #0x28]
-	bl FUN_020697CC
+	bl MonSetMoveInSlot
 	add r0, r4, #0x0
 	mov r1, #0x14
 	add r0, #0x66

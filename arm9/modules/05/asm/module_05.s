@@ -3914,10 +3914,10 @@ _021E497A:
 	mov r6, #0
 _021E4980:
 	ldr r0, [r5, #4]
-	bl FUN_0204A1D8
+	bl GetFirstAliveMonInParty_CrashIfNone
 	add r7, r0, #0
 	ldr r0, [r5, #8]
-	bl FUN_0204A1D8
+	bl GetFirstAliveMonInParty_CrashIfNone
 	str r0, [sp]
 	add r0, r7, #0
 	mov r1, #0xa0
@@ -20875,8 +20875,8 @@ _021ECF08: .word 0x0000013A
 _021ECF0C: .word 0x00000139
 _021ECF10: .word 0x000001EA
 
-	thumb_func_start MOD05_021ECF14
-MOD05_021ECF14: ; 0x021ECF14
+	thumb_func_start MOD05_SetEggStats
+MOD05_SetEggStats: ; 0x021ECF14
 	push {r0, r1, r2, r3}
 	push {r4, r5, r6, lr}
 	sub sp, #0x20

@@ -1898,8 +1898,8 @@ FUN_020232B4: ; 0x020232B4
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_020232BC
-FUN_020232BC: ; 0x020232BC
+	thumb_func_start WriteSaveFileToFlash
+WriteSaveFileToFlash: ; 0x020232BC
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r7, r0, #0x0
@@ -2051,8 +2051,8 @@ _020233FC: .word UNK_020EE6D8
 _02023400: .word UNK_020EE6E0
 _02023404: .word 0x000204A0
 
-	thumb_func_start FUN_02023408
-FUN_02023408: ; 0x02023408
+	thumb_func_start ReadSaveFileFromFlash
+ReadSaveFileFromFlash: ; 0x02023408
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
@@ -2308,7 +2308,7 @@ _02023608:
 	str r3, [sp, #0x0]
 	mov r1, #0x1
 	str r1, [sp, #0x4]
-	mov r0, #0x6
+	mov r0, #0x6 ; CARD_REQ_READ_BACKUP
 	str r0, [sp, #0x8]
 	str r1, [sp, #0xc]
 	add r0, r5, #0x0
@@ -2338,8 +2338,8 @@ _02023652:
 	.balign 4
 _02023658: .word UNK_021C59C8
 
-	thumb_func_start FUN_0202365C
-FUN_0202365C: ; 0x0202365C
+	thumb_func_start FlashWriteCommandCallback
+FlashWriteCommandCallback: ; 0x0202365C
 	ldr r0, _02023664 ; =UNK_021C59C8
 	mov r1, #0x1
 	str r1, [r0, #0x4]
@@ -2368,7 +2368,7 @@ _02023684:
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
-	mov r1, #0x6
+	mov r1, #0x6 ; CARD_REQ_READ_BACKUP
 	str r1, [sp, #0x8]
 	mov r1, #0x1
 	str r1, [sp, #0xc]
@@ -2389,13 +2389,13 @@ _020236B2:
 	str r1, [sp, #0x0]
 	mov r0, #0x1
 	str r0, [sp, #0x4]
-	mov r0, #0x7
+	mov r0, #0x7 ; CARD_REQ_WRITE_BACKUP
 	str r0, [sp, #0x8]
 	mov r0, #0xa
 	str r0, [sp, #0xc]
 	mov r0, #0x2
 	str r0, [sp, #0x10]
-	ldr r3, _020236E0 ; =FUN_0202365C
+	ldr r3, _020236E0 ; =FlashWriteCommandCallback
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	add r2, r7, #0x0
@@ -2405,7 +2405,7 @@ _020236B2:
 	pop {r3-r7, pc}
 	.balign 4
 _020236DC: .word UNK_021C59C8
-_020236E0: .word FUN_0202365C
+_020236E0: .word FlashWriteCommandCallback
 
 	thumb_func_start WaitFlashWrite
 WaitFlashWrite: ; 0x020236E4

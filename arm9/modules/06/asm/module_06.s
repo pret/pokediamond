@@ -4864,7 +4864,7 @@ _0223BA42:
 	cmp r0, #0
 	bne _0223BA8C
 	add r0, r7, #0
-	bl FUN_0204A1D8
+	bl GetFirstAliveMonInParty_CrashIfNone
 	mov r1, #1
 	str r1, [sp, #0x34]
 	mov r1, #0xa0
@@ -5646,7 +5646,7 @@ _0223C0CE:
 	cmp r0, #0
 	bne _0223C118
 	add r0, r6, #0
-	bl FUN_0204A1D8
+	bl GetFirstAliveMonInParty_CrashIfNone
 	mov r1, #1
 	str r1, [sp, #0x2c]
 	mov r1, #0xa0

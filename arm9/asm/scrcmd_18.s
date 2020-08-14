@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_020442BC
-FUN_020442BC: ; 0x020442BC
+	thumb_func_start ScrCmd_givemon
+ScrCmd_givemon: ; 0x020442BC
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r4, r0, #0x0
@@ -60,15 +60,18 @@ FUN_020442BC: ; 0x020442BC
 	ldr r2, [sp, #0xc]
 	mov r0, #0xb
 	lsr r3, r3, #0x18
-	bl FUN_0204A048
+	bl GiveMon
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204434C
-FUN_0204434C: ; 0x0204434C
+	thumb_func_start ScrCmd_getpartyspecies
+ScrCmd_getpartyspecies: ; 0x0204434C
+	; getpartyspecies XXXX, YYYY
+	; Sets var YYYY to species of mon in party slot XXXX.
+	; If mon is an egg, the value is SPECIES_NONE.
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -110,8 +113,8 @@ _020443A2:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020443A8
-FUN_020443A8: ; 0x020443A8
+	thumb_func_start ScrCmd_checkpartymonotid
+ScrCmd_checkpartymonotid: ; 0x020443A8
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -159,8 +162,8 @@ _0204440E:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02044414
-FUN_02044414: ; 0x02044414
+	thumb_func_start ScrCmd_giveegg
+ScrCmd_giveegg: ; 0x02044414
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -206,7 +209,7 @@ FUN_02044414: ; 0x02044414
 	add r0, r4, #0x0
 	mov r2, #0x1
 	add r3, r7, #0x0
-	bl MOD05_021ECF14
+	bl MOD05_SetEggStats
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	bl AddMonToParty
@@ -218,8 +221,8 @@ _02044494:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204449C
-FUN_0204449C: ; 0x0204449C
+	thumb_func_start ScrCmd_setpartymonmove
+ScrCmd_setpartymonmove: ; 0x0204449C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -252,13 +255,13 @@ FUN_0204449C: ; 0x0204449C
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	add r3, r7, #0x0
-	bl FUN_0204A120
+	bl PartyMonSetMoveInSlot
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020444F4
-FUN_020444F4: ; 0x020444F4
+	thumb_func_start ScrCmd_partymonhasmove
+ScrCmd_partymonhasmove: ; 0x020444F4
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -332,8 +335,8 @@ _02044592:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044598
-FUN_02044598: ; 0x02044598
+	thumb_func_start ScrCmd_findpartymonwithmove
+ScrCmd_findpartymonwithmove: ; 0x02044598
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -420,8 +423,8 @@ _02044648:
 _02044650: .word 0x00000006
 _02044654: .word 0x00000000
 
-	thumb_func_start FUN_02044658
-FUN_02044658: ; 0x02044658
+	thumb_func_start ScrCmd_survivepsn
+ScrCmd_survivepsn: ; 0x02044658
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -445,13 +448,13 @@ FUN_02044658: ; 0x02044658
 	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
-	bl FUN_0204A32C
+	bl SurvivePoisoning
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0204469C
-FUN_0204469C: ; 0x0204469C
+	thumb_func_start ScrCmd_countpartymonsatorbelowlevel
+ScrCmd_countpartymonsatorbelowlevel: ; 0x0204469C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -520,8 +523,8 @@ _02044726:
 	add sp, #0xc
 	pop {r4-r7, pc}
 
-	thumb_func_start FUN_02044730
-FUN_02044730: ; 0x02044730
+	thumb_func_start ScrCmd_getpartymonlevel
+ScrCmd_getpartymonlevel: ; 0x02044730
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -562,8 +565,8 @@ _02044786:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204478C
-FUN_0204478C: ; 0x0204478C
+	thumb_func_start ScrCmd_getpartymonnature
+ScrCmd_getpartymonnature: ; 0x0204478C
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r1, r6, #0x0
@@ -615,8 +618,8 @@ _020447F2:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044800
-FUN_02044800: ; 0x02044800
+	thumb_func_start ScrCmd_findpartymonwithnature
+ScrCmd_findpartymonwithnature: ; 0x02044800
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -680,8 +683,8 @@ _0204487E:
 _02044884: .word 0x000000FF
 _02044888: .word 0x00000000
 
-	thumb_func_start FUN_0204488C
-FUN_0204488C: ; 0x0204488C
+	thumb_func_start ScrCmd_getpartymonfriendship
+ScrCmd_getpartymonfriendship: ; 0x0204488C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0

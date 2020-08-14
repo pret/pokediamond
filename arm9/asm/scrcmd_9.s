@@ -549,7 +549,7 @@ FUN_02042288: ; 0x02042288
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
 	bl SavArray_PlayerParty_get
-	bl FUN_0204A20C
+	bl GetFirstNonEggInParty
 	bl FUN_020690E4
 	add r2, r0, #0x0
 	add r0, r4, #0x0

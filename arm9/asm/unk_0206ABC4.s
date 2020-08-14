@@ -535,7 +535,7 @@ _0206AFB0:
 	lsl r2, r6, #0x18
 	ldr r0, [sp, #0x40]
 	lsr r2, r2, #0x18
-	bl FUN_020697CC
+	bl MonSetMoveInSlot
 	add r6, r6, #0x1
 	add r7, r7, #0x2
 	cmp r6, #0x4
@@ -717,7 +717,7 @@ _0206B120:
 	lsl r2, r6, #0x18
 	ldr r0, [sp, #0x40]
 	lsr r2, r2, #0x18
-	bl FUN_020697CC
+	bl MonSetMoveInSlot
 	add r6, r6, #0x1
 	add r7, r7, #0x2
 	cmp r6, #0x4

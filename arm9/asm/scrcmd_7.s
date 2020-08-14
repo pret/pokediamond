@@ -591,7 +591,7 @@ FUN_02041B70: ; 0x02041B70
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl SavArray_PlayerParty_get
-	bl FUN_0204A248
+	bl HasEnoughAlivePokemonForDoubleBattle
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}

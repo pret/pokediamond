@@ -305,7 +305,7 @@ FUN_02042F28: ; 0x02042F28
 	ldr r1, [r1, #0xc]
 	ldr r2, _02042F44 ; =0x000001EA
 	mov r0, #0x20
-	bl FUN_0204A0C8
+	bl GiveEgg
 	add sp, #0x8
 	pop {r3, pc}
 	.balign 4

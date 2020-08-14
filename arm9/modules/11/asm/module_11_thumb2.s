@@ -24516,7 +24516,7 @@ _0223B1F6:
 	add r0, r6, #0
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x18
-	bl FUN_020697CC
+	bl MonSetMoveInSlot
 	ldr r1, [r4, #4]
 	ldr r0, _0223B2D8 ; =0x0000219C
 	add r2, r1, r7

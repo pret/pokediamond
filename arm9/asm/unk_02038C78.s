@@ -299,11 +299,11 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203B81C
     .word FUN_0203B85C
     .word FUN_0203B8A0
-    .word FUN_020442BC
-    .word FUN_02044414
-    .word FUN_0204449C
-    .word FUN_020444F4
-    .word FUN_02044598
+    .word ScrCmd_givemon
+    .word ScrCmd_giveegg
+    .word ScrCmd_setpartymonmove
+    .word ScrCmd_partymonhasmove
+    .word ScrCmd_findpartymonwithmove
     .word FUN_0203BB34
     .word FUN_0203BB80
     .word FUN_0203BB84
@@ -557,8 +557,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203BA3C
     .word FUN_0203BAB0
     .word FUN_0203BAF4
-    .word FUN_0204434C
-    .word FUN_020443A8
+    .word ScrCmd_getpartyspecies
+    .word ScrCmd_checkpartymonotid
     .word FUN_02044B2C
     .word FUN_02044B84
     .word FUN_02044C0C
@@ -590,7 +590,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203DF84
     .word FUN_0203DFA8
     .word FUN_0203DFE0
-    .word FUN_0204488C
+    .word ScrCmd_getpartymonfriendship
     .word FUN_020448D4
     .word FUN_020449A4
     .word FUN_02044034
@@ -651,8 +651,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0204539C
     .word FUN_020452B4
     .word FUN_02045308
-    .word FUN_0204469C
-    .word FUN_02044658
+    .word ScrCmd_countpartymonsatorbelowlevel
+    .word ScrCmd_survivepsn
     .word FUN_0203BC2C
     .word FUN_02039A10
     .word ScrCmd_message_from
@@ -679,8 +679,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203E6C4
     .word FUN_0203E6FC
     .word FUN_0203E72C
-    .word FUN_0204478C
-    .word FUN_02044800
+    .word ScrCmd_getpartymonnature
+    .word ScrCmd_findpartymonwithnature
     .word FUN_0203E744
     .word FUN_02044158
     .word FUN_0204416C
@@ -781,7 +781,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203F2E4
     .word FUN_02043C28
     .word FUN_0203F31C
-    .word FUN_02044730
+    .word ScrCmd_getpartymonlevel
     .word FUN_0203F348
     .word FUN_0203F38C
     .word FUN_0203F39C

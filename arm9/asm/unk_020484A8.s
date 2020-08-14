@@ -29,7 +29,7 @@ FUN_020484A8: ; 0x020484A8
 	add r6, r1, #0x0
 	mov r1, #0xb
 	add r2, sp, #0x0
-	bl FUN_02022534
+	bl LoadSaveFile
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x1
@@ -51,7 +51,7 @@ _020484CC:
 	bl FUN_0202B050
 	ldr r0, [r5, #0xc]
 	add r1, r4, #0x0
-	bl FUN_02022540
+	bl SaveGame
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add sp, #0x14
@@ -309,7 +309,7 @@ FUN_02048694: ; 0x02048694
 _0204871E:
 	ldr r0, [r4, #0xc]
 	bl SavArray_PlayerParty_get
-	bl FUN_0204A25C
+	bl GiveAllMonsTheSinnohChampRibbon
 	ldr r0, [sp, #0x8]
 	bl FUN_020377B0
 	ldr r0, [sp, #0x4]

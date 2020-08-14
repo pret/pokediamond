@@ -273,7 +273,7 @@ BOOL FUN_020690E8(struct Pokemon * pokemon);
 u32 FUN_02069698(struct Pokemon * pokemon, u16 move);
 void FUN_02069708(struct Pokemon * pokemon, u16 move);
 void FUN_02069718(struct BoxPokemon * boxmon, u16 move);
-void FUN_020697CC(struct Pokemon * pokemon, u16 move, u8 slot);
+void MonSetMoveInSlot(struct Pokemon * pokemon, u16 move, u8 slot);
 u32 FUN_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0);
 void FUN_020698E0(struct Pokemon * pokemon, int slot1, int slot2);
 void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);

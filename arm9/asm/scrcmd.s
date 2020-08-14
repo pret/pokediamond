@@ -11772,7 +11772,7 @@ FUN_0203F760: ; 0x0203F760
 	mov r1, #0x20
 	ldr r0, [r0, #0xc]
 	add r2, sp, #0x0
-	bl FUN_02022534
+	bl LoadSaveFile
 	ldr r1, [sp, #0x0]
 	add r4, r0, #0x0
 	cmp r1, #0x0
