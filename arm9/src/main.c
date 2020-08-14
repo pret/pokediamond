@@ -110,7 +110,7 @@ THUMB_FUNC void NitroMain(void)
     for (;;)
     {
         FUN_02000EE8();
-        FUN_02000FE8();
+        HandleDSLidAction();
         FUN_02016464();
         if ((gMain.unk38 & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gUnk021C4918.unk8) // soft reset?
         {
@@ -234,7 +234,7 @@ THUMB_FUNC void DoSoftReset(u32 parameter)
     }
     do
     {
-        FUN_02000FE8();
+        HandleDSLidAction();
         FUN_02000EC8(parameter);
     } while (1);
 }
@@ -258,7 +258,7 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
     FUN_02032DAC();
     while (1)
     {
-        FUN_02000FE8();
+        HandleDSLidAction();
         FUN_02016464();
         if (gMain.unk48 & 1)
             break;
@@ -287,7 +287,7 @@ THUMB_FUNC void InitializeMainRNG(void)
 extern void FUN_0201CE04(void);
 extern void FUN_0201CDD0(void);
 
-THUMB_FUNC void FUN_02000FE8(void)
+THUMB_FUNC void HandleDSLidAction(void)
 {
     PMBackLightSwitch top, bottom;
     if (PAD_DetectFold())

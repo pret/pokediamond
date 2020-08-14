@@ -168,7 +168,7 @@ FUN_02089D90: ; 0x02089D90
 	bl FUN_0200A274
 	mov r4, #0x1
 _02089EE4:
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	add r0, r4, #0x0
 	add r1, r4, #0x0
 	bl OS_WaitIrq

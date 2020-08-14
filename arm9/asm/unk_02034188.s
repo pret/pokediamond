@@ -179,7 +179,7 @@ _020342E4:
 	and r0, r1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	add r0, r5, #0x0
 	tst r0, r7
 	bne _02034308

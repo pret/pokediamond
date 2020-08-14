@@ -187,7 +187,7 @@
 .extern FUN_02000E7C
 .extern FUN_02000EE8
 .extern FUN_02000F18
-.extern FUN_02000FE8
+.extern HandleDSLidAction
 .extern FUN_020010A8
 .extern FUN_02001204
 .extern FUN_02001300
