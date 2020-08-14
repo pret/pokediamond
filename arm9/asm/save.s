@@ -76,7 +76,7 @@ SaveBlock2_new: ; 0x0202254C
 	bl MIi_CpuClearFast
 	ldr r0, _020225E4 ; =UNK_021C59C8
 	str r4, [r0, #0x0]
-	bl FUN_02023570
+	bl SaveDetectFlash
 	str r0, [r4, #0x0]
 	mov r0, #0x0
 	str r0, [r4, #0x4]
@@ -207,7 +207,7 @@ _02022660:
 _02022662:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x0
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r1, _020226F8 ; =0x00020221
 	ldr r0, [sp, #0x0]
 	ldrb r0, [r0, r1]
@@ -220,19 +220,19 @@ _02022678:
 _0202267A:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x1
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r0, [sp, #0x0]
 	ldr r3, _020226F4 ; =0x00020220
 	add r2, r0, #0x0
 	ldrb r2, [r2, r3]
 	mov r1, #0x0
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r0, [sp, #0x0]
 	ldr r3, _020226F8 ; =0x00020221
 	add r2, r0, #0x0
 	ldrb r2, [r2, r3]
 	mov r1, #0x1
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	mov r0, #0x0
 	mov r2, #0x1
 	mvn r0, r0
@@ -323,7 +323,7 @@ _02022746:
 _02022748:
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r0, _0202279C ; =0x00020221
 	ldrb r0, [r4, r0]
 	cmp r0, #0x0
@@ -335,17 +335,17 @@ _0202275C:
 _0202275E:
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r2, _02022798 ; =0x00020220
 	add r0, r4, #0x0
 	ldrb r2, [r4, r2]
 	mov r1, #0x0
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r2, _0202279C ; =0x00020221
 	add r0, r4, #0x0
 	ldrb r2, [r4, r2]
 	mov r1, #0x1
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	mov r0, #0x1
 	bl FUN_02016454
 _02022784:
@@ -1582,8 +1582,8 @@ _02023054:
 	add sp, #0x24
 	pop {r3-r6, pc}
 
-	thumb_func_start FUN_02023074
-FUN_02023074: ; 0x02023074
+	thumb_func_start FlashClobberChunkFooter
+FlashClobberChunkFooter: ; 0x02023074
 	push {r4-r5, lr}
 	sub sp, #0x14
 	add r4, r2, #0x0
@@ -2223,8 +2223,8 @@ _02023564: .word UNK_020EE6D8
 _02023568: .word UNK_020EE6E0
 _0202356C: .word 0x000204A0
 
-	thumb_func_start FUN_02023570
-FUN_02023570: ; 0x02023570
+	thumb_func_start SaveDetectFlash
+SaveDetectFlash: ; 0x02023570
 	push {r3-r5, lr}
 	bl OS_GetLockID
 	add r4, r0, #0x0
