@@ -37,7 +37,7 @@ FUN_02045784: ; 0x02045784
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	mov r3, #0x4
-	bl BagAddItem
+	bl Bag_AddItem
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -76,7 +76,7 @@ FUN_020457DC: ; 0x020457DC
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	mov r3, #0x4
-	bl BagTakeItem
+	bl Bag_TakeItem
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -115,7 +115,7 @@ FUN_02045834: ; 0x02045834
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	mov r3, #0x4
-	bl BagHasSpaceForItem
+	bl Bag_HasSpaceForItem
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -154,7 +154,7 @@ FUN_0204588C: ; 0x0204588C
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	mov r3, #0xb
-	bl BagHasItem
+	bl Bag_HasItem
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r7, pc}

@@ -5004,7 +5004,7 @@ MOD75_021E92BC: ; 0x021E92BC
 	ldrh r2, [r2]
 	ldrh r3, [r4, r3]
 	sub r1, r1, #3
-	bl PocketTakeItem
+	bl Pocket_TakeItem
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r3, [r0]
@@ -5226,7 +5226,7 @@ MOD75_021E947C: ; 0x021E947C
 	add r2, #0x66
 	ldrh r2, [r2]
 	sub r1, r1, #3
-	bl PocketGetQuantity
+	bl Pocket_GetQuantity
 	cmp r0, #1
 	bne _021E94BA
 	add r0, r4, #0
@@ -5954,7 +5954,7 @@ _021E9A6E:
 	add r2, #0x66
 	ldrh r2, [r2]
 	sub r1, r1, #3
-	bl PocketGetQuantity
+	bl Pocket_GetQuantity
 	cmp r0, #1
 	bne _021E9AF4
 	mov r0, #0x45

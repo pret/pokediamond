@@ -297,7 +297,7 @@ FUN_0204B4FC: ; 0x0204B4FC
 	add r0, r4, #0x0
 	lsr r2, r2, #0x10
 	mov r3, #0x4
-	bl BagAddItem
+	bl Bag_AddItem
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4

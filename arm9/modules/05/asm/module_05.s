@@ -26811,7 +26811,7 @@ _021EFCC4:
 	ldr r1, _021EFD3C ; =0x000001B5
 	mov r2, #1
 	mov r3, #4
-	bl BagHasItem
+	bl Bag_HasItem
 	cmp r0, #1
 	bne _021EFCFE
 	add r0, r6, #0

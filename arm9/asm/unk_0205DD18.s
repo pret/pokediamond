@@ -1041,7 +1041,7 @@ FUN_0205E4A4: ; 0x0205E4A4
 	ldr r1, _0205E4D4 ; =0x000001AF
 	mov r2, #0x1
 	mov r3, #0x4
-	bl BagHasItem
+	bl Bag_HasItem
 	cmp r0, #0x1
 	bne _0205E4D0
 	ldr r0, [r4, #0xc]

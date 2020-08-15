@@ -5415,7 +5415,7 @@ _02071E5A:
 	mov r3, #0xc
 	ldr r0, [r1, #0x4]
 	ldrh r1, [r1, #0x24]
-	bl BagTakeItem
+	bl Bag_TakeItem
 	add r0, r4, #0x0
 	mov r1, #0x1a
 	bl GetItemAttr_PreloadedItemData
@@ -5666,7 +5666,7 @@ FUN_02072080: ; 0x02072080
 	ldr r1, [r4, r0]
 	ldr r0, [r1, #0x4]
 	ldrh r1, [r1, #0x24]
-	bl BagTakeItem
+	bl Bag_TakeItem
 	add r0, r5, #0x0
 	mov r1, #0x6
 	add r2, sp, #0x0
@@ -5709,7 +5709,7 @@ FUN_020720E0: ; 0x020720E0
 	lsr r1, r1, #0x10
 	mov r2, #0x1
 	mov r3, #0xc
-	bl BagAddItem
+	bl Bag_AddItem
 	add r0, r5, #0x0
 	mov r1, #0x6
 	add r2, sp, #0x1c
@@ -5825,7 +5825,7 @@ _020721B0:
 	mov r2, #0x1
 	ldr r0, [r0, #0x4]
 	mov r3, #0xc
-	bl BagAddItem
+	bl Bag_AddItem
 	cmp r0, #0x0
 	bne _0207220C
 	add r0, r5, #0x0
@@ -5854,7 +5854,7 @@ _0207220C:
 	ldr r0, [r0, #0x4]
 	mov r2, #0x1
 	mov r3, #0xc
-	bl BagTakeItem
+	bl Bag_TakeItem
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	add r2, r6, #0x0
@@ -6024,7 +6024,7 @@ _02072388:
 	ldr r0, [r0, #0x4]
 	mov r2, #0x1
 	mov r3, #0xc
-	bl BagAddItem
+	bl Bag_AddItem
 	ldr r2, _0207241C ; =0x0000069C
 	mov r1, #0x54
 	ldr r0, [r5, r2]

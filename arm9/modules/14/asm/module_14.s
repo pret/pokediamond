@@ -5874,7 +5874,7 @@ _021DA498:
 	lsr r1, r1, #0x10
 	mov r2, #1
 	mov r3, #9
-	bl BagTakeItem
+	bl Bag_TakeItem
 	ldr r1, _021DA5E4 ; =MOD14_021E6A00
 	add r0, r4, #0
 	ldr r1, [r1, #8]
@@ -6129,7 +6129,7 @@ _021DA6E4:
 	mov r3, #9
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl BagAddItem
+	bl Bag_AddItem
 	cmp r0, #0
 	beq _021DA72A
 	add r0, r4, #0
@@ -6351,7 +6351,7 @@ _021DA8BA:
 	mov r3, #9
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl BagAddItem
+	bl Bag_AddItem
 	cmp r0, #0
 	beq _021DA908
 	add r0, r4, #0

@@ -248,7 +248,7 @@ FUN_02047814: ; 0x02047814
 	mov r1, #0x4
 	mov r2, #0x14
 	add r3, r6, #0x0
-	bl BagAddItem
+	bl Bag_AddItem
 	add r0, r6, #0x0
 	bl AllocMonZeroed
 	add r6, r0, #0x0

@@ -1150,7 +1150,7 @@ FUN_0205D6BC: ; 0x0205D6BC
 	ldrh r1, [r5, #0x4]
 	mov r2, #0x1
 	mov r3, #0xb
-	bl BagTakeItem
+	bl Bag_TakeItem
 	pop {r3-r7, pc}
 	.balign 4
 _0205D710: .word MOD05_021F57F0
@@ -1575,7 +1575,7 @@ FUN_0205DA3C: ; 0x0205DA3C
 	ldrh r1, [r5, #0x4]
 	mov r2, #0x1
 	mov r3, #0xb
-	bl BagTakeItem
+	bl Bag_TakeItem
 	pop {r4-r6, pc}
 	nop
 _0205DA7C: .word FUN_0205DAAC

@@ -400,7 +400,7 @@ MOD05_021E1654: ; 0x021E1654
 	ldr r1, _021E16C4 ; =0x000001BB
 	mov r2, #1
 	mov r3, #4
-	bl BagHasItem
+	bl Bag_HasItem
 	cmp r0, #1
 	bne _021E1692
 	cmp r6, #0x64

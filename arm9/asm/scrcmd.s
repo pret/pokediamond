@@ -5093,7 +5093,7 @@ FUN_0203C1AC: ; 0x0203C1AC
 	ldr r0, [r0, #0xc]
 	bl Sav2_Bag_get
 	mov r1, #0x4
-	bl BagPocketNotEmpty
+	bl Bag_PocketNotEmpty
 	cmp r0, #0x0
 	bne _0203C1E0
 	mov r0, #0x1
@@ -8035,7 +8035,7 @@ FUN_0203D958: ; 0x0203D958
 	ldr r0, [r0, #0xc]
 	bl Sav2_Bag_get
 	add r1, r6, #0x0
-	bl BagPocketNotEmpty
+	bl Bag_PocketNotEmpty
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}

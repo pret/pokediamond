@@ -228,7 +228,7 @@ _02088C1E:
 	ldr r3, [r4, #0x0]
 	lsr r1, r1, #0x10
 	mov r2, #0x1
-	bl BagTakeItem
+	bl Bag_TakeItem
 	cmp r0, #0x0
 	bne _02088C38
 	bl ErrorHandling
@@ -271,7 +271,7 @@ _02088C70:
 	ldr r3, [r5, #0x0]
 	add r1, r7, #0x0
 	mov r2, #0x1
-	bl BagHasItem
+	bl Bag_HasItem
 	cmp r0, #0x1
 	bne _02088C9A
 	ldr r0, [r5, #0x18]

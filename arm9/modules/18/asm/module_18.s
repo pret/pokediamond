@@ -34915,7 +34915,7 @@ _0224A5A6:
 	lsr r1, r1, #0x10
 	mov r2, #1
 	mov r3, #4
-	bl BagAddItem
+	bl Bag_AddItem
 	cmp r0, #0
 	beq _0224A62A
 	ldr r0, _0224A69C ; =0x022513F8

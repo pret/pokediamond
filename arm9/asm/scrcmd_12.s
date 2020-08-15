@@ -766,7 +766,7 @@ FUN_02043308: ; 0x02043308
 	lsr r1, r1, #0x10
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagHasSpaceForItem
+	bl Bag_HasSpaceForItem
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -786,7 +786,7 @@ FUN_02043330: ; 0x02043330
 	lsr r1, r1, #0x10
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagAddItem
+	bl Bag_AddItem
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1107,7 +1107,7 @@ FUN_020435A0: ; 0x020435A0
 	add r0, r4, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagHasSpaceForItem
+	bl Bag_HasSpaceForItem
 	pop {r3-r5, pc}
 	.balign 4
 _020435C0: .word 0x000001C6
@@ -1128,7 +1128,7 @@ FUN_020435C4: ; 0x020435C4
 	add r0, r5, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagAddItem
+	bl Bag_AddItem
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl FUN_0205F478
@@ -1200,7 +1200,7 @@ FUN_02043660: ; 0x02043660
 	lsl r1, r1, #0x2
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagHasSpaceForItem
+	bl Bag_HasSpaceForItem
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1221,7 +1221,7 @@ FUN_02043684: ; 0x02043684
 	lsl r1, r1, #0x2
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagAddItem
+	bl Bag_AddItem
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl FUN_0205F478
@@ -1290,7 +1290,7 @@ FUN_0204371C: ; 0x0204371C
 	add r0, r4, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagHasSpaceForItem
+	bl Bag_HasSpaceForItem
 	pop {r3-r5, pc}
 	.balign 4
 _0204373C: .word 0x000001C7
@@ -1311,7 +1311,7 @@ FUN_02043740: ; 0x02043740
 	add r0, r5, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagAddItem
+	bl Bag_AddItem
 	add r0, r4, #0x0
 	mov r1, #0x2
 	bl FUN_0205F478

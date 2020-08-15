@@ -9811,7 +9811,7 @@ MOD06_0223E1D8: ; 0x0223E1D8
 	ldrh r1, [r5, r1]
 	ldr r0, [r5, r0]
 	mov r2, #0xb
-	bl BagGetQuantity
+	bl Bag_GetQuantity
 	add r4, r0, #0
 	b _0223E214
 _0223E1FA:
@@ -10005,7 +10005,7 @@ MOD06_0223E384: ; 0x0223E384
 	ldrh r2, [r4, r2]
 	ldr r0, [r4, r0]
 	mov r3, #0xb
-	bl BagHasSpaceForItem
+	bl Bag_HasSpaceForItem
 	b _0223E3D2
 _0223E3A8:
 	cmp r0, #1
@@ -10507,7 +10507,7 @@ _0223E7B2:
 	ldrh r2, [r4, r2]
 	ldr r0, [r4, r0]
 	mov r3, #0xb
-	bl BagAddItem
+	bl Bag_AddItem
 	b _0223E7F6
 _0223E7D0:
 	cmp r0, #1
@@ -10622,7 +10622,7 @@ _0223E88A:
 	mov r1, #0xc
 	mov r2, #1
 	mov r3, #0xb
-	bl BagAddItem
+	bl Bag_AddItem
 	cmp r0, #1
 	bne _0223E902
 	add r0, r5, #0
@@ -42756,7 +42756,7 @@ MOD06_0224E410: ; 0x0224E410
 	add r1, #0x95
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl BagGetQuantity
+	bl Bag_GetQuantity
 	ldr r1, [r5, #0xc]
 	add r3, r0, #0
 	add r2, r1, r4
@@ -42870,7 +42870,7 @@ MOD06_0224E4E4: ; 0x0224E4E4
 	add r1, #0x95
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl BagGetQuantity
+	bl Bag_GetQuantity
 	add r1, r5, r4
 	ldr r1, [r1, #8]
 	cmp r0, r1
@@ -42912,7 +42912,7 @@ MOD06_0224E520: ; 0x0224E520
 	add r0, r6, #0
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
-	bl BagTakeItem
+	bl Bag_TakeItem
 	cmp r0, #1
 	beq _0224E550
 	bl ErrorHandling

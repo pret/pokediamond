@@ -800,7 +800,7 @@ _020659DC:
 	add r1, r4, r1
 	ldrh r1, [r1, #0x22]
 	ldr r2, [r4, #0x0]
-	bl BagGetQuantity
+	bl Bag_GetQuantity
 	cmp r0, #0x0
 	ldr r1, _02065AE8 ; =0x0000013B
 	beq _02065A1A
@@ -1762,7 +1762,7 @@ FUN_020661A0: ; 0x020661A0
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl BagHasSpaceForItem
+	bl Bag_HasSpaceForItem
 	add r6, r0, #0x0
 	beq _020661D4
 	mov r0, #0x1b
@@ -1771,7 +1771,7 @@ FUN_020661A0: ; 0x020661A0
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl BagAddItem
+	bl Bag_AddItem
 _020661D4:
 	mov r0, #0x6b
 	lsl r0, r0, #0x2
@@ -1826,7 +1826,7 @@ FUN_020661F8: ; 0x020661F8
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl BagHasSpaceForItem
+	bl Bag_HasSpaceForItem
 	cmp r0, #0x0
 	beq _0206625E
 	mov r0, #0x1b
@@ -1835,7 +1835,7 @@ FUN_020661F8: ; 0x020661F8
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl BagAddItem
+	bl Bag_AddItem
 _0206625E:
 	ldrb r1, [r5, #0x18]
 	add r0, r5, #0x0

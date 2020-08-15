@@ -230,7 +230,7 @@ _02073F66:
 	ldr r0, [r0, #0x4]
 	mov r2, #0x1
 	mov r3, #0xc
-	bl BagAddItem
+	bl Bag_AddItem
 	cmp r0, #0x1
 	bne _0207400A
 	ldr r0, _02074054 ; =0x000005A4
@@ -617,7 +617,7 @@ FUN_020742A8: ; 0x020742A8
 	ldr r0, [r0, #0x4]
 	mov r2, #0x1
 	mov r3, #0xc
-	bl BagAddItem
+	bl Bag_AddItem
 	cmp r0, #0x1
 	bne _0207431A
 	ldr r0, _02074334 ; =0x000005A4

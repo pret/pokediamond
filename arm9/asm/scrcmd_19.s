@@ -36,7 +36,7 @@ _02045288:
 	lsl r1, r4, #0x2
 	ldrh r1, [r7, r1]
 	mov r2, #0x4
-	bl BagGetQuantity
+	bl Bag_GetQuantity
 	add r0, r5, r0
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -137,7 +137,7 @@ _02045358:
 	ldr r1, _02045394 ; =UNK_020F450C
 	mov r2, #0x4
 	ldrh r1, [r1, r5]
-	bl BagGetQuantity
+	bl Bag_GetQuantity
 	add r0, r6, r0
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10

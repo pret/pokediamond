@@ -4685,7 +4685,7 @@ _0222FC70:
 	ldr r1, _0222FCFC ; =0x000001B5
 	mov r2, #1
 	mov r3, #0x1a
-	bl BagHasItem
+	bl Bag_HasItem
 	cmp r0, #1
 	bne _0222FCAA
 	ldr r0, _0222FCE4 ; =0x0000366C

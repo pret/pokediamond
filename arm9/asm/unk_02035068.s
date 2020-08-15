@@ -3116,7 +3116,7 @@ _0203699A:
 	add r1, r7, #0x0
 	mov r2, #0x1
 	mov r3, #0xb
-	bl BagHasItem
+	bl Bag_HasItem
 	cmp r0, #0x1
 	bne _020369C6
 	mov r0, #0x7e

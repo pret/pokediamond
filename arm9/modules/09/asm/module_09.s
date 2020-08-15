@@ -3802,7 +3802,7 @@ MOD09_02213C84: ; 0x02213C84
 	add r1, r4, #0
 	mov r2, #1
 	add r3, r7, #0
-	bl BagTakeItem
+	bl Bag_TakeItem
 _02213CA8:
 	add r0, r5, #0
 	bl MOD11_02230218
@@ -14295,7 +14295,7 @@ MOD09_0221944C: ; 0x0221944C
 	add r1, r4, #0
 	mov r2, #1
 	add r3, r7, #0
-	bl BagTakeItem
+	bl Bag_TakeItem
 	add r0, r5, #0
 	bl MOD11_02230218
 	add r1, r4, #0
@@ -15275,7 +15275,7 @@ _02219C48:
 	ldr r0, [r3, #8]
 	ldr r3, [r3, #0xc]
 	mov r2, #1
-	bl BagHasItem
+	bl Bag_HasItem
 	cmp r0, #0
 	bne _02219C62
 	ldr r1, [r4]
@@ -15351,7 +15351,7 @@ _02219CCA:
 	lsl r2, r2, #0x10
 	ldr r1, [sp, #8]
 	lsr r2, r2, #0x10
-	bl BagGetPocketSlotN
+	bl Bag_GetPocketSlotN
 	add r5, r0, #0
 	beq _02219D3C
 	ldrh r0, [r5]

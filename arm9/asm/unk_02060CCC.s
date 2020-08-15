@@ -1731,7 +1731,7 @@ FUN_020618EC: ; 0x020618EC
 	lsl r1, r1, #0x2
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagHasItem
+	bl Bag_HasItem
 	pop {r3, pc}
 	.balign 4
 
@@ -2088,7 +2088,7 @@ FUN_02061BB4: ; 0x02061BB4
 	lsl r1, r1, #0x2
 	mov r2, #0x1
 	mov r3, #0x20
-	bl BagHasItem
+	bl Bag_HasItem
 	pop {r3, pc}
 	.balign 4
 
