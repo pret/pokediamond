@@ -1361,7 +1361,7 @@ FUN_02063028: ; 0x02063028
 	ldr r1, [r5, #0x0]
 	add r7, r0, #0x1
 	add r0, r7, #0x0
-	bl FUN_02012838
+	bl ListMenu_ctor
 	add r1, r5, #0x0
 	add r1, #0xc4
 	str r0, [r1, #0x0]
@@ -1397,7 +1397,7 @@ _0206307C:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r4, #0x64]
 	add r2, r6, #0x0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	ldrb r0, [r5, #0x18]
 	add r6, r6, #0x1
 	add r4, r4, #0x4
@@ -1409,7 +1409,7 @@ _02063094:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r5, #0x38]
 	ldr r2, _02063160 ; =0x0000FFFF
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r1, r5, #0x0
 	ldr r0, _02063164 ; =UNK_020F7C2C
 	add r1, #0xa0
@@ -1519,7 +1519,7 @@ FUN_02063178: ; 0x02063178
 	add r0, r4, #0x0
 	add r0, #0xc4
 	ldr r0, [r0, #0x0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r4, #0x0
 	add r0, #0xd4
 	bl FUN_02019570

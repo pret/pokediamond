@@ -2388,8 +2388,8 @@ _0201282C: .word UNK_020ED4A4
 _02012830: .word UNK_020ED498
 _02012834: .word 0xBC19137F
 
-	thumb_func_start FUN_02012838
-FUN_02012838: ; 0x02012838
+	thumb_func_start ListMenu_ctor
+ListMenu_ctor: ; 0x02012838
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -2421,23 +2421,23 @@ _02012862:
 _0201286E:
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02012870
-FUN_02012870: ; 0x02012870
+	thumb_func_start ListMenu_dtor
+ListMenu_dtor: ; 0x02012870
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_0201291C
+	bl ListMenu_DestroyMenuStrings
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r4, pc}
 
-	thumb_func_start FUN_02012880
-FUN_02012880: ; 0x02012880
+	thumb_func_start ListMenu_ItemFromMsgData
+ListMenu_ItemFromMsgData: ; 0x02012880
 	push {r3-r7, lr}
 	add r6, r1, #0x0
 	add r1, sp, #0x0
 	add r7, r2, #0x0
 	add r5, r3, #0x0
-	bl FUN_020128E0
+	bl ListMenu_NewItem
 	add r4, r0, #0x0
 	beq _0201289E
 	add r0, r6, #0x0
@@ -2448,14 +2448,14 @@ FUN_02012880: ; 0x02012880
 _0201289E:
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020128A0
-FUN_020128A0: ; 0x020128A0
+	thumb_func_start ListMenu_AddItem
+ListMenu_AddItem: ; 0x020128A0
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r6, r1, #0x0
 	add r1, sp, #0x0
 	add r5, r2, #0x0
-	bl FUN_020128E0
+	bl ListMenu_NewItem
 	add r4, r0, #0x0
 	beq _020128BE
 	ldr r1, [sp, #0x0]
@@ -2468,13 +2468,13 @@ _020128BE:
 	pop {r3-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020128C4
-FUN_020128C4: ; 0x020128C4
+	thumb_func_start ListMenu_CopyItem
+ListMenu_CopyItem: ; 0x020128C4
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r1, #0x0
 	add r1, sp, #0x0
-	bl FUN_020128E0
+	bl ListMenu_NewItem
 	cmp r0, #0x0
 	beq _020128DC
 	ldr r1, [r4, #0x0]
@@ -2485,8 +2485,8 @@ _020128DC:
 	add sp, #0x4
 	pop {r3-r4, pc}
 
-	thumb_func_start FUN_020128E0
-FUN_020128E0: ; 0x020128E0
+	thumb_func_start ListMenu_NewItem
+ListMenu_NewItem: ; 0x020128E0
 	push {r4, lr}
 	ldr r3, [r0, #0x0]
 	cmp r3, #0x0
@@ -2522,8 +2522,8 @@ _02012912:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0201291C
-FUN_0201291C: ; 0x0201291C
+	thumb_func_start ListMenu_DestroyMenuStrings
+ListMenu_DestroyMenuStrings: ; 0x0201291C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	mov r0, #0x0

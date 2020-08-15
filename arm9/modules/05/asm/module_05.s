@@ -27091,7 +27091,7 @@ MOD05_021EFEDC: ; 0x021EFEDC
 	add r7, r0, #0
 	add r0, r7, #1
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5]
 	mov r0, #1
 	str r0, [sp]
@@ -27132,7 +27132,7 @@ _021EFF2E:
 	ldr r0, [r5]
 	ldr r1, [r5, #8]
 	add r2, r4, #0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 _021EFF54:
 	add r4, r4, #1
 	cmp r4, #0x20
@@ -27142,7 +27142,7 @@ _021EFF54:
 	ldr r0, [r5]
 	ldr r1, [r5, #0x3c]
 	sub r3, #0xd
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r4, _021EFFC0 ; =UNK05_021F8B4C
 	add r3, sp, #0x14
 	add r2, r3, #0
@@ -27262,7 +27262,7 @@ _021F0056:
 	add r2, r1, #0
 	bl FUN_02001300
 	ldr r0, [r5]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0

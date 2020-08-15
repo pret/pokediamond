@@ -639,7 +639,7 @@ FUN_0203549C: ; 0x0203549C
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x14]
 	mov r1, #0xb
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r4, #0x24]
 	mov r5, #0x0
 	ldr r0, [sp, #0x14]
@@ -684,7 +684,7 @@ _02035526:
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r4, #0x24]
 	add r1, r7, #0x0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	ldr r0, [sp, #0x20]
 	bl String_dtor
 	add r0, r7, #0x0
@@ -698,7 +698,7 @@ _02035594:
 	ldr r0, [r4, #0x24]
 	ldr r1, [sp, #0x18]
 	ldr r2, [r2, r6]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 _020355A2:
 	ldr r0, [sp, #0x1c]
 	add r0, #0x8c
@@ -902,7 +902,7 @@ FUN_02035718: ; 0x02035718
 	mov r1, #0x0
 	bl FUN_02001C5C
 	ldr r0, [r4, #0x24]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x0
 	str r0, [r4, #0x20]
 	pop {r4, pc}
