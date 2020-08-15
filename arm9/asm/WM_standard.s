@@ -20,7 +20,6 @@ WM_Disconnect: ; 0x020D9060
 	mov r3, #0x8
 	str r12, [sp, #0x4]
 	bl WMi_CheckStateEx
-_020D909C: ; 0x020D909C
 	cmp r0, #0x0
 	addne sp, sp, #0x8
 	ldmneia sp!, {r4-r6,lr}
@@ -71,7 +70,6 @@ _020D9134:
 	mov r2, r1, lsl r5
 	mov r0, #0xd
 	bl WMi_SendCommand
-_020D9150: ; 0x020D9150
 	cmp r0, #0x0
 	moveq r0, #0x2
 	add sp, sp, #0x8
@@ -91,7 +89,6 @@ WM_StartConnectEx: ; 0x020D9168
 	mov r5, r2
 	mov r4, r3
 	bl WMi_CheckStateEx
-_020D918C: ; 0x020D918C
 	cmp r0, #0x0
 	addne sp, sp, #0x2c
 	ldmneia sp!, {r4-r7,lr}
@@ -135,7 +132,6 @@ _020D9218:
 	str r4, [sp, #0x20]
 	strh r2, [sp, #0x26]
 	bl WMi_SendCommandDirect
-_020D9230: ; 0x020D9230
 	cmp r0, #0x0
 	moveq r0, #0x2
 	add sp, sp, #0x2c
@@ -149,7 +145,6 @@ WM_EndScan: ; 0x020D9244
 	mov r0, #0x1
 	mov r1, #0x5
 	bl WMi_CheckStateEx
-_020D9258: ; 0x020D9258
 	cmp r0, #0x0
 	ldmneia sp!, {r4,lr}
 	bxne lr
@@ -159,7 +154,6 @@ _020D9258: ; 0x020D9258
 	mov r0, #0xb
 	mov r1, #0x0
 	bl WMi_SendCommand
-_020D927C: ; 0x020D927C
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmia sp!, {r4,lr}
@@ -176,7 +170,6 @@ WM_StartScanEx: ; 0x020D928C
 	mov r1, #0x2
 	mov r3, #0x5
 	bl WMi_CheckStateEx
-_020D92B0: ; 0x020D92B0
 	cmp r0, #0x0
 	addne sp, sp, #0x3c
 	ldmneia sp!, {r4-r5,lr}
@@ -257,11 +250,9 @@ _020D937C:
 	ldrh r3, [r4, #0x12]
 	strh r3, [sp, #0x14]
 	bl MI_CpuCopy8
-_020D93E8: ; 0x020D93E8
 	add r0, sp, #0x0
 	mov r1, #0x3c
 	bl WMi_SendCommandDirect
-_020D93F4: ; 0x020D93F4
 	cmp r0, #0x0
 	moveq r0, #0x2
 	add sp, sp, #0x3c
@@ -281,7 +272,6 @@ WM_StartScan: ; 0x020D940C
 	mov r1, #0x2
 	mov r3, #0x5
 	bl WMi_CheckStateEx
-_020D9430: ; 0x020D9430
 	cmp r0, #0x0
 	addne sp, sp, #0x14
 	ldmneia sp!, {r4-r5,lr}
@@ -334,7 +324,6 @@ _020D9490:
 	ldrb r2, [r4, #0xd]
 	strb r2, [sp, #0xf]
 	bl WMi_SendCommandDirect
-_020D94F8: ; 0x020D94F8
 	cmp r0, #0x0
 	moveq r0, #0x2
 	add sp, sp, #0x14
@@ -348,7 +337,6 @@ WM_EndParent: ; 0x020D950C
 	mov r0, #0x1
 	mov r1, #0x7
 	bl WMi_CheckStateEx
-_020D9520: ; 0x020D9520
 	cmp r0, #0x0
 	ldmneia sp!, {r4,lr}
 	bxne lr
@@ -358,7 +346,6 @@ _020D9520: ; 0x020D9520
 	mov r0, #0x9
 	mov r1, #0x0
 	bl WMi_SendCommand
-_020D9544: ; 0x020D9544
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmia sp!, {r4,lr}
@@ -381,7 +368,6 @@ WMi_StartParentEx: ; 0x020D9564
 	mov r0, #0x1
 	mov r1, #0x2
 	bl WMi_CheckStateEx
-_020D9580: ; 0x020D9580
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r5,lr}
@@ -398,7 +384,6 @@ _020D9580: ; 0x020D9580
 	mov r0, #0x8
 	mov r1, #0x1
 	bl WMi_SendCommand
-_020D95C0: ; 0x020D95C0
 	cmp r0, #0x0
 	moveq r0, #0x2
 	add sp, sp, #0x4
@@ -441,7 +426,6 @@ WM_SetParentParameter: ; 0x020D9624
 	mov r0, #0x1
 	mov r1, #0x2
 	bl WMi_CheckStateEx
-_020D9640: ; 0x020D9640
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r5,lr}
@@ -500,7 +484,6 @@ _020D9708:
 	mov r0, #0x7
 	mov r1, #0x1
 	bl WMi_SendCommand
-_020D9718: ; 0x020D9718
 	cmp r0, #0x0
 	moveq r0, #0x2
 	add sp, sp, #0x4
@@ -514,7 +497,6 @@ WM_End: ; 0x020D972C
 	mov r0, #0x1
 	mov r1, #0x2
 	bl WMi_CheckStateEx
-_020D9740: ; 0x020D9740
 	cmp r0, #0x0
 	ldmneia sp!, {r4,lr}
 	bxne lr
@@ -524,7 +506,6 @@ _020D9740: ; 0x020D9740
 	mov r0, #0x2
 	mov r1, #0x0
 	bl WMi_SendCommand
-_020D9764: ; 0x020D9764
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmia sp!, {r4,lr}
@@ -535,7 +516,6 @@ WM_Reset: ; 0x020D9774
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl WMi_CheckIdle
-_020D9780: ; 0x020D9780
 	cmp r0, #0x0
 	ldmneia sp!, {r4,lr}
 	bxne lr
@@ -545,7 +525,6 @@ _020D9780: ; 0x020D9780
 	mov r0, #0x1
 	mov r1, #0x0
 	bl WMi_SendCommand
-_020D97A4: ; 0x020D97A4
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmia sp!, {r4,lr}
@@ -558,7 +537,6 @@ WM_Initialize: ; 0x020D97B4
 	mov r4, r1
 	mov r1, r2
 	bl WM_Init
-_020D97C8: ; 0x020D97C8
 	cmp r0, #0x0
 	addne sp, sp, #0x8
 	ldmneia sp!, {r4,lr}
@@ -575,7 +553,6 @@ _020D97C8: ; 0x020D97C8
 	ldr r3, [r3, #0x4]
 	mov r1, #0x3
 	bl WMi_SendCommand
-_020D9808: ; 0x020D9808
 	cmp r0, #0x0
 	moveq r0, #0x2
 	add sp, sp, #0x8
@@ -589,7 +566,6 @@ WM_PowerOff: ; 0x020D981C
 	mov r0, #0x1
 	mov r1, #0x2
 	bl WMi_CheckStateEx
-_020D9830: ; 0x020D9830
 	cmp r0, #0x0
 	ldmneia sp!, {r4,lr}
 	bxne lr
@@ -599,7 +575,6 @@ _020D9830: ; 0x020D9830
 	mov r0, #0x6
 	mov r1, #0x0
 	bl WMi_SendCommand
-_020D9854: ; 0x020D9854
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmia sp!, {r4,lr}
@@ -612,7 +587,6 @@ WM_PowerOn: ; 0x020D9864
 	mov r0, #0x1
 	mov r1, r0
 	bl WMi_CheckStateEx
-_020D9878: ; 0x020D9878
 	cmp r0, #0x0
 	ldmneia sp!, {r4,lr}
 	bxne lr
@@ -622,7 +596,6 @@ _020D9878: ; 0x020D9878
 	mov r0, #0x5
 	mov r1, #0x0
 	bl WMi_SendCommand
-_020D989C: ; 0x020D989C
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmia sp!, {r4,lr}
@@ -635,7 +608,6 @@ WM_Disable: ; 0x020D98AC
 	mov r0, #0x1
 	mov r1, r0
 	bl WMi_CheckStateEx
-_020D98C0: ; 0x020D98C0
 	cmp r0, #0x0
 	ldmneia sp!, {r4,lr}
 	bxne lr
@@ -645,7 +617,6 @@ _020D98C0: ; 0x020D98C0
 	mov r0, #0x4
 	mov r1, #0x0
 	bl WMi_SendCommand
-_020D98E4: ; 0x020D98E4
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmia sp!, {r4,lr}
@@ -659,7 +630,6 @@ WM_Enable: ; 0x020D98F4
 	mov r0, #0x1
 	mov r1, #0x0
 	bl WMi_CheckStateEx
-_020D990C: ; 0x020D990C
 	cmp r0, #0x0
 	addne sp, sp, #0x8
 	ldmneia sp!, {r4,lr}
@@ -676,7 +646,6 @@ _020D990C: ; 0x020D990C
 	ldr r3, [r3, #0x4]
 	mov r1, r0
 	bl WMi_SendCommand
-_020D994C: ; 0x020D994C
 	cmp r0, #0x0
 	moveq r0, #0x2
 	add sp, sp, #0x8
