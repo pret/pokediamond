@@ -1795,7 +1795,7 @@ _021E79C6:
 	add r0, r4, #0
 	add r0, #0xc8
 	ldr r0, [r0]
-	bl FUN_0206EBC4
+	bl Bag_GetRegisteredItem
 	ldr r2, [r6]
 	lsl r1, r5, #2
 	ldrh r1, [r2, r1]
@@ -4209,7 +4209,7 @@ _021E8C84:
 	add r0, r5, #0
 	add r0, #0xc8
 	ldr r0, [r0]
-	bl FUN_0206EBC4
+	bl Bag_GetRegisteredItem
 	add r1, r5, #0
 	add r1, #0xc4
 	ldr r1, [r1]
@@ -5004,7 +5004,7 @@ MOD75_021E92BC: ; 0x021E92BC
 	ldrh r2, [r2]
 	ldrh r3, [r4, r3]
 	sub r1, r1, #3
-	bl BagTakeItem2
+	bl PocketTakeItem
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r3, [r0]
@@ -5604,7 +5604,7 @@ MOD75_021E97A8: ; 0x021E97A8
 	add r1, #0x66
 	ldrh r1, [r1]
 	ldr r0, [r0]
-	bl FUN_0206EBCC
+	bl Bag_SetRegisteredItem
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -5629,7 +5629,7 @@ MOD75_021E97E4: ; 0x021E97E4
 	add r0, #0xc8
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0206EBCC
+	bl Bag_SetRegisteredItem
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

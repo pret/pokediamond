@@ -199,7 +199,7 @@ FUN_0206E3F8: ; 0x0206E3F8
 	b _0206E4FA
 _0206E428:
 	mov r1, #0x1b
-	lsl r1, r1, #0x4
+	lsl r1, r1, #0x4 ; ITEM_POINT_CARD
 	cmp r5, r1
 	bne _0206E454
 	add r0, r6, #0x0
@@ -218,7 +218,7 @@ _0206E428:
 	bl FUN_0200AD38
 	b _0206E4FA
 _0206E454:
-	add r2, r1, #0x2
+	add r2, r1, #0x2 ; ITEM_SEAL_CASE
 	cmp r5, r2
 	bne _0206E47E
 	add r0, r6, #0x0
@@ -237,7 +237,7 @@ _0206E454:
 	bl FUN_0200AD38
 	b _0206E4FA
 _0206E47E:
-	add r2, r1, #0x3
+	add r2, r1, #0x3 ; ITEM_FASHION_CASE
 	cmp r5, r2
 	bne _0206E4C0
 	add r0, r6, #0x0
@@ -266,7 +266,7 @@ _0206E47E:
 	bl FUN_0200AD38
 	b _0206E4FA
 _0206E4C0:
-	add r1, #0xc
+	add r1, #0xc ; ITEM_COIN_CASE
 	cmp r5, r1
 	bne _0206E4EA
 	add r0, r6, #0x0

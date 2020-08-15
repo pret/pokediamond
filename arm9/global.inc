@@ -5015,12 +5015,12 @@
 .extern Sav2_Bag_new
 .extern Sav2_Bag_init
 .extern Sav2_Bag_copy
-.extern FUN_0206EBC4
-.extern FUN_0206EBCC
+.extern Bag_GetRegisteredItem
+.extern Bag_SetRegisteredItem
 .extern BagHasSpaceForItem
 .extern BagAddItem
 .extern BagTakeItem
-.extern BagTakeItem2
+.extern PocketTakeItem
 .extern BagHasItem
 .extern BagPocketNotEmpty
 .extern BagGetQuantity

@@ -1390,7 +1390,7 @@ FUN_0205D8B8: ; 0x0205D8B8
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Sav2_Bag_get
-	bl FUN_0206EBC4
+	bl Bag_GetRegisteredItem
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x0]
 	lsl r2, r2, #0x10
@@ -1705,7 +1705,7 @@ _0205DB54:
 _0205DB66:
 	ldr r0, [r5, #0xc]
 	bl Sav2_Bag_get
-	bl FUN_0206EBC4
+	bl Bag_GetRegisteredItem
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x6
