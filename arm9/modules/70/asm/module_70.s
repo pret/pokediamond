@@ -20,11 +20,11 @@ MOD70_021D74E0: ; 0x021D74E0
 	add r0, r5, #0
 	mov r1, #0xdc
 	mov r2, #0x3c
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	beq _021D7558
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -66,7 +66,7 @@ _021D7558:
 MOD70_021D755C: ; 0x021D755C
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	add r0, #0xc8
 	ldr r0, [r0]
@@ -74,7 +74,7 @@ MOD70_021D755C: ; 0x021D755C
 	add r0, r4, #0
 	bl MOD70_021D7760
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x3d
 	bl FUN_020168D0
 	mov r0, #0x3c
@@ -88,7 +88,7 @@ MOD70_021D755C: ; 0x021D755C
 MOD70_021D758C: ; 0x021D758C
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	add r0, #0xd8
 	ldr r0, [r0]

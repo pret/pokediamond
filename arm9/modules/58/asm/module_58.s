@@ -47,7 +47,7 @@ _021D9A36:
 	ldr r1, _021D9B74 ; =0x00005CB0
 	add r0, r6, #0
 	mov r2, #0x27
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _021D9B74 ; =0x00005CB0
 	mov r1, #0
 	add r4, r0, #0
@@ -81,17 +81,17 @@ _021D9A36:
 	add r3, r0, #0
 	bl FUN_0200E1D0
 	add r0, r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	bl FUN_02029ABC
 	bl FUN_02029AC8
 	ldr r1, _021D9B7C ; =0x00005B98
 	str r0, [r4, r1]
 	add r0, r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	bl FUN_02029FC8
 	str r0, [r4, #8]
 	add r0, r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	add r0, r4, #0
@@ -129,7 +129,7 @@ _021D9A36:
 	str r0, [r5]
 	b _021D9B64
 _021D9B56:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	mov r0, #0
 	str r0, [r5]
 	add sp, #0xc
@@ -154,7 +154,7 @@ _021D9B88: .word 0xFFFF7FFF
 MOD58_021D9B8C: ; 0x021D9B8C
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5]
 	add r4, r0, #0
 	cmp r1, #0
@@ -207,7 +207,7 @@ _021D9BEC: .word 0x00004318
 MOD58_021D9BF0: ; 0x021D9BF0
 	push {r3, r4, r5, r6, r7, lr}
 	str r0, [sp]
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0
 	ldr r0, _021D9CAC ; =0x00005B98
 	mov r1, #0x2d
@@ -264,7 +264,7 @@ _021D9C40:
 	add r0, r6, #0
 	bl MOD58_021D9EA0
 	ldr r0, [sp]
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	ldr r2, _021D9CB0 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb

@@ -47,7 +47,7 @@ MOD63_021D74E0: ; 0x021D74E0
 	add r0, r4, #0
 	lsl r1, r1, #2
 	mov r2, #0x1e
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r2, #0x79
 	mov r1, #0
 	lsl r2, r2, #2
@@ -86,7 +86,7 @@ MOD63_021D759C: ; 0x021D759C
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r5]
 	cmp r0, #6
@@ -347,7 +347,7 @@ _021D77B0: .word 0x00007FFF
 MOD63_021D77B4: ; 0x021D77B4
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0
 	mov r0, #0x1d
 	lsl r0, r0, #4
@@ -361,7 +361,7 @@ MOD63_021D77B4: ; 0x021D77B4
 	add r0, r6, #0
 	bl MOD63_021D7B9C
 	add r0, r7, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	add r0, r4, #0
 	bl FUN_020168D0
 	cmp r5, #1
@@ -374,20 +374,20 @@ _021D77F2:
 	mov r0, #0
 	ldr r1, _021D781C ; =UNK_020FF3D4
 	mvn r0, r0
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	b _021D7818
 _021D77FE:
 	mov r0, #0
 	ldr r1, _021D7820 ; =UNK_020FF368
 	mvn r0, r0
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	b _021D7818
 _021D780A:
 	mov r0, #0
 	bl FUN_0200415C
 	ldr r0, _021D7824 ; =SDK_OVERLAY_MODULE_63_ID
 	ldr r1, _021D7828 ; =MOD63_021DBE18
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 _021D7818:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}

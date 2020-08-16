@@ -645,7 +645,7 @@ _0222DA48:
 	ldr r1, _0222DB58 ; =0x00000EC8
 	add r0, r6, #0
 	mov r2, #0x44
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _0222DB58 ; =0x00000EC8
 	mov r1, #0
 	add r4, r0, #0
@@ -751,7 +751,7 @@ _0222DB78: .word 0x00020020
 MOD82_0222DB7C: ; 0x0222DB7C
 	push {r4, r5, r6, lr}
 	add r4, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r5, r0, #0
 	bl MOD04_021DD984
 	bl MOD82_0222D5DC
@@ -855,7 +855,7 @@ _0222DC4C: .word MOD82_0222FA14
 MOD82_0222DC50: ; 0x0222DC50
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4, #0x24]
 	bl FreeToHeap
@@ -882,7 +882,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -938,7 +938,7 @@ MOD82_0222DD04: ; 0x0222DD04
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, r1, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0
 	str r0, [r4]
 	add r0, r4, #0

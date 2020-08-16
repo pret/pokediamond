@@ -44,7 +44,7 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	ldr r1, _0222D868 ; =0x00001658
 	add r0, r5, #0
 	mov r2, #0x15
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _0222D868 ; =0x00001658
 	mov r1, #0
 	add r4, r0, #0
@@ -53,7 +53,7 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	bl MOD12_022312D8
 	str r0, [r4, #8]
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0x5b
 	str r0, [r4]
 	lsl r1, r1, #2
@@ -299,7 +299,7 @@ MOD12_0222D89C: ; 0x0222D89C
 	push {r4, r5, lr}
 	sub sp, #0xc
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4]
 	bl FUN_02082878
@@ -430,7 +430,7 @@ _0222D9AC: .word 0x00001650
 MOD12_0222D9B0: ; 0x0222D9B0
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl FUN_02012EAC
 	ldr r0, [r4, #0x2c]
@@ -515,7 +515,7 @@ MOD12_0222D9B0: ; 0x0222D9B0
 	bl MOD12_02231378
 	bl FUN_0201CD04
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -3179,7 +3179,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	ldr r1, _0222F168 ; =0x00000F68
 	add r0, r4, #0
 	mov r2, #0x16
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _0222F168 ; =0x00000F68
 	mov r1, #0
 	add r5, r0, #0
@@ -3188,7 +3188,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	bl MOD12_022312D8
 	str r0, [r5, #8]
 	add r0, r4, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0x5b
 	str r0, [r5]
 	lsl r1, r1, #2
@@ -3405,7 +3405,7 @@ MOD12_0222F19C: ; 0x0222F19C
 	push {r4, r5, lr}
 	sub sp, #0xc
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4]
 	bl FUN_02082878
@@ -3588,7 +3588,7 @@ _0222F320: .word 0x00000F1C
 MOD12_0222F324: ; 0x0222F324
 	push {r3, r4, r5, r6, r7, lr}
 	str r0, [sp]
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl FUN_02012EAC
 	add r0, r4, #0
@@ -3680,7 +3680,7 @@ _0222F3AE:
 	bl MOD12_02231378
 	bl FUN_0201CD04
 	ldr r0, [sp]
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -5019,7 +5019,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	ldr r1, _022300EC ; =0x00001BF4
 	add r0, r4, #0
 	mov r2, #0x17
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _022300EC ; =0x00001BF4
 	mov r1, #0
 	add r5, r0, #0
@@ -5028,7 +5028,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	bl MOD12_022312D8
 	str r0, [r5, #0x10]
 	add r0, r4, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0x5b
 	str r0, [r5]
 	lsl r1, r1, #2
@@ -5272,7 +5272,7 @@ MOD12_02230128: ; 0x02230128
 	push {r4, r5, lr}
 	sub sp, #0xc
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4]
 	bl FUN_02082878
@@ -5402,7 +5402,7 @@ _02230238: .word 0x00001BF0
 MOD12_0223023C: ; 0x0223023C
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_020133C8
@@ -5524,7 +5524,7 @@ _02230296:
 	bl MOD12_02231378
 	bl FUN_0201CD04
 	add r0, r7, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -41107,7 +41107,7 @@ MOD12_02241210: ; 0x02241210
 	add r0, r4, #0
 	lsl r1, r1, #6
 	mov r2, #0x18
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r2, #0x4a
 	mov r1, #0
 	lsl r2, r2, #6
@@ -41117,7 +41117,7 @@ MOD12_02241210: ; 0x02241210
 	bl MOD12_022312D8
 	str r0, [r5, #0xc]
 	add r0, r4, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0x5b
 	str r0, [r5]
 	lsl r1, r1, #2
@@ -41326,7 +41326,7 @@ MOD12_02241490: ; 0x02241490
 	push {r3, r4, r5, lr}
 	sub sp, #8
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4]
 	bl FUN_02082878
@@ -41456,7 +41456,7 @@ _022415A4: .word 0x0000127C
 MOD12_022415A8: ; 0x022415A8
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl FUN_02012EAC
 	add r0, r4, #0
@@ -41561,7 +41561,7 @@ _022415D4:
 	bl MOD12_02231378
 	bl FUN_0201CD04
 	add r0, r7, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]

@@ -21,11 +21,11 @@ MOD14_021D74E0: ; 0x021D74E0
 	add r0, r5, #0
 	lsl r1, r1, #2
 	mov r2, #9
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	beq _021D7544
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD14_021DB220
@@ -56,7 +56,7 @@ _021D7548: .word MOD14_021D7680
 	thumb_func_start MOD14_021D754C
 MOD14_021D754C: ; 0x021D754C
 	push {r4, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	mov r1, #0x6b
 	add r4, r0, #0
 	lsl r1, r1, #2
@@ -110,7 +110,7 @@ _021D75B4: .word gMain
 	thumb_func_start MOD14_021D75B8
 MOD14_021D75B8: ; 0x021D75B8
 	push {r4, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	mov r1, #0x49
 	add r4, r0, #0
 	lsl r1, r1, #2
@@ -5564,7 +5564,7 @@ _021DA1FE:
 	ldr r0, _021DA2C0 ; =MOD14_020FA5FC
 	ldr r1, [r4, r1]
 	mov r2, #9
-	bl FUN_02006234
+	bl OverlayManager_new
 	mov r1, #0x21
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -5576,7 +5576,7 @@ _021DA256:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _021DA2BC
 	mov r0, #0x12
@@ -5587,7 +5587,7 @@ _021DA256:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	mov r2, #0xf
 	mov r0, #3
 	mov r1, #0xa
@@ -5666,7 +5666,7 @@ _021DA2F2:
 	ldr r0, _021DA394 ; =UNK_020FA6E8
 	add r1, r5, r1
 	mov r2, #9
-	bl FUN_02006234
+	bl OverlayManager_new
 	mov r1, #0x21
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -5678,7 +5678,7 @@ _021DA334:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _021DA390
 	mov r0, #0x12
@@ -5688,7 +5688,7 @@ _021DA334:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	mov r2, #0xf
 	mov r0, #3
 	mov r1, #0xa
@@ -5828,7 +5828,7 @@ _021DA41E:
 	ldr r0, _021DA5E0 ; =MOD75_021EC68C
 	ldr r1, [r4, r1]
 	mov r2, #9
-	bl FUN_02006234
+	bl OverlayManager_new
 	mov r1, #0x21
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -5840,7 +5840,7 @@ _021DA488:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	bne _021DA498
 _021DA496:
@@ -5855,7 +5855,7 @@ _021DA498:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	mov r0, #0x85
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

@@ -1395,7 +1395,7 @@ _0222DFE4:
 	ldr r1, _0222E108 ; =0x00001044
 	add r0, r6, #0
 	mov r2, #0x3e
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _0222E108 ; =0x00001044
 	mov r1, #0
 	add r4, r0, #0
@@ -1511,7 +1511,7 @@ _0222E130: .word 0x00020020
 MOD80_0222E134: ; 0x0222E134
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl MOD04_021DD984
 	bl MOD80_0222D5DC
@@ -1651,7 +1651,7 @@ _0222E258: .word 0x00000B84
 MOD80_0222E25C: ; 0x0222E25C
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4, #0x48]
 	bl FreeToHeap
@@ -1684,7 +1684,7 @@ MOD80_0222E25C: ; 0x0222E25C
 	ldr r0, [r4]
 	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -1751,7 +1751,7 @@ MOD80_0222E338: ; 0x0222E338
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, r1, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0
 	str r0, [r4]
 	add r0, r4, #0
@@ -17146,7 +17146,7 @@ MOD80_02235D34: ; 0x02235D34
 	ldr r0, _02235DD0 ; =UNK_020FA6E8
 	add r1, #0x60
 	mov r2, #0x3e
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x5c]
 	mov r0, #1
 	add r4, #0xac
@@ -17164,11 +17164,11 @@ MOD80_02235DD4: ; 0x02235DD4
 	add r5, r0, #0
 	ldr r0, [r5, #0x5c]
 	mov r4, #3
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _02235DF6
 	ldr r0, [r5, #0x5c]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r2, [r5, #0x24]
 	add r0, r5, #0
 	mov r1, #5
@@ -17392,7 +17392,7 @@ _02235F94:
 	add r1, r4, #0
 	ldr r0, _02235FB8 ; =0x022375F0
 	add r1, #0x90
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x5c]
 	mov r0, #1
 	add r4, #0xac
@@ -17419,13 +17419,13 @@ _02235FD0:
 	b _0223617E
 _02235FD2:
 	ldr r0, [r4, #0x5c]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	bne _02235FDE
 	b _0223617E
 _02235FDE:
 	ldr r0, [r4, #0x5c]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r1, [r4, #0x24]
 	cmp r1, #9
 	bne _02236060

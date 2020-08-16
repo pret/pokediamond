@@ -16,9 +16,9 @@ FS_EXTERN_OVERLAY(MODULE_63);
 
 struct Unk2106FA0 gBacklightTop;
 
-extern BOOL FUN_02006234(struct Unk21DBE18 *, s32 *, int);
-extern BOOL FUN_02006290(int);
-extern void FUN_02006260(int);
+extern BOOL OverlayManager_new(struct Unk21DBE18 *, s32 *, int);
+extern BOOL OverlayManager_Run(int);
+extern void OverlayManager_delete(int);
 extern BOOL FUN_02033678(void);
 extern u32 FUN_020335B8(void);
 extern BOOL FUN_0202FB80(void);
@@ -89,12 +89,12 @@ THUMB_FUNC void NitroMain(void)
         case 0:
             // Title Demo
             gBacklightTop.unk1C = 0;
-            FUN_02000E7C(FS_OVERLAY_ID(MODULE_63), &MOD63_021DBE18);
+            RegisterMainOverlay(FS_OVERLAY_ID(MODULE_63), &MOD63_021DBE18);
             break;
         case 1:
             // Reset transition?
             gBacklightTop.unk1C = 1;
-            FUN_02000E7C(FS_OVERLAY_ID(MODULE_52), &MOD52_021D76C8);
+            RegisterMainOverlay(FS_OVERLAY_ID(MODULE_52), &MOD52_021D76C8);
             break;
         default:
             GF_ASSERT(0);
@@ -118,7 +118,7 @@ THUMB_FUNC void NitroMain(void)
         }
         if (FUN_0202FB80())
         {
-            FUN_02000E0C();
+            Main_RunOverlayManager();
             FUN_0201B5CC(gMain.unk18);
             FUN_0201B5CC(gMain.unk24);
             if (!gMain.unk30)
@@ -151,7 +151,7 @@ THUMB_FUNC void FUN_02000DF4(void)
     gBacklightTop.unk14 = NULL;
 }
 
-THUMB_FUNC void FUN_02000E0C(void)
+THUMB_FUNC void Main_RunOverlayManager(void)
 {
     if (!gBacklightTop.unkC)
     {
@@ -160,20 +160,20 @@ THUMB_FUNC void FUN_02000E0C(void)
         if (gBacklightTop.unk10 != SDK_OVERLAY_INVALID_ID)
             HandleLoadOverlay(gBacklightTop.unk10, 0);
         gBacklightTop.unk8 = gBacklightTop.unk10;
-        gBacklightTop.unkC = FUN_02006234(gBacklightTop.unk14, &gBacklightTop.unk18, 0);
+        gBacklightTop.unkC = OverlayManager_new(gBacklightTop.unk14, &gBacklightTop.unk18, 0);
         gBacklightTop.unk10 = SDK_OVERLAY_INVALID_ID;
         gBacklightTop.unk14 = NULL;
     }
-    if (FUN_02006290(gBacklightTop.unkC))
+    if (OverlayManager_Run(gBacklightTop.unkC))
     {
-        FUN_02006260(gBacklightTop.unkC);
+        OverlayManager_delete(gBacklightTop.unkC);
         gBacklightTop.unkC = 0;
         if (gBacklightTop.unk8 != SDK_OVERLAY_INVALID_ID)
             UnloadOverlayByID(gBacklightTop.unk8);
     }
 }
 
-THUMB_FUNC void FUN_02000E7C(FSOverlayID id, struct Unk21DBE18 * arg1)
+THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, struct Unk21DBE18 * arg1)
 {
     if (gBacklightTop.unk14 != NULL)
         ErrorHandling();

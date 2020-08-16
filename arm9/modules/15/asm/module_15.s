@@ -39,7 +39,7 @@ _021D74F2:
 	str r0, [r4]
 	b _021D7552
 _021D752A:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4, #0x14]
 	bl MOD15_021D8958
@@ -66,7 +66,7 @@ _021D7552:
 	thumb_func_start MOD15_021D7558
 MOD15_021D7558: ; 0x021D7558
 	push {r4, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, _021D7594 ; =gMain
 	ldr r1, [r0, #0x48]
@@ -166,7 +166,7 @@ _021D7604:
 MOD15_021D7608: ; 0x021D7608
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r1, r4, #0
 	bl MOD15_021D7774
 	mov r0, #0x22
@@ -183,10 +183,10 @@ MOD15_021D7628: ; 0x021D7628
 	add r5, r0, #0
 	mov r1, #0x68
 	mov r2, #0x22
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4]
 	bl FUN_0208540C
 	str r0, [r4, #4]
@@ -352,7 +352,7 @@ MOD15_021D7774: ; 0x021D7774
 	ldr r0, [r5, #0x18]
 	bl FUN_02088F4C
 	add r0, r4, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD15_021D7794

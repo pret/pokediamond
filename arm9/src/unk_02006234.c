@@ -3,15 +3,15 @@
 #include "poke_overlay.h"
 #include "heap.h"
 
-struct UnkStruct_02006234 * FUN_02006234(struct Unk21DBE18 * ovly_mgr, int * a1, u32 heap_id); //todo header?
-void FUN_02006260(struct UnkStruct_02006234 * a0);
-void * FUN_02006268(struct UnkStruct_02006234 * a0, u32 size, u32 heap_id);
-void * FUN_02006278(struct UnkStruct_02006234 * a0);
-void FUN_0200627C(struct UnkStruct_02006234 * a0);
-int * FUN_0200628C(struct UnkStruct_02006234 * a0);
-BOOL FUN_02006290(struct UnkStruct_02006234 * a0);
+struct UnkStruct_02006234 * OverlayManager_new(struct Unk21DBE18 * ovly_mgr, int * a1, u32 heap_id); //todo header?
+void OverlayManager_delete(struct UnkStruct_02006234 * a0);
+void * OverlayManager_CreateAndGetData(struct UnkStruct_02006234 * a0, u32 size, u32 heap_id);
+void * OverlayManager_GetData(struct UnkStruct_02006234 * a0);
+void OverlayManager_FreeData(struct UnkStruct_02006234 * a0);
+int * OverlayManager_GetField18(struct UnkStruct_02006234 * a0);
+BOOL OverlayManager_Run(struct UnkStruct_02006234 * a0);
 
-THUMB_FUNC struct UnkStruct_02006234 * FUN_02006234(struct Unk21DBE18 * ovly_mgr, int * a1, u32 heap_id)
+THUMB_FUNC struct UnkStruct_02006234 * OverlayManager_new(struct Unk21DBE18 * ovly_mgr, int * a1, u32 heap_id)
 {
     struct UnkStruct_02006234 * ret = (struct UnkStruct_02006234 *)AllocFromHeap(heap_id, sizeof(struct UnkStruct_02006234));
     ret->ovly_mgr = *ovly_mgr;
@@ -24,33 +24,33 @@ THUMB_FUNC struct UnkStruct_02006234 * FUN_02006234(struct Unk21DBE18 * ovly_mgr
     return ret;
 }
 
-THUMB_FUNC void FUN_02006260(struct UnkStruct_02006234 * a0)
+THUMB_FUNC void OverlayManager_delete(struct UnkStruct_02006234 * a0)
 {
     FreeToHeap(a0);
 }
 
-THUMB_FUNC void * FUN_02006268(struct UnkStruct_02006234 * a0, u32 size, u32 heap_id)
+THUMB_FUNC void * OverlayManager_CreateAndGetData(struct UnkStruct_02006234 * a0, u32 size, u32 heap_id)
 {
     return a0->unk1C = AllocFromHeap(heap_id, size);
 }
 
-THUMB_FUNC void * FUN_02006278(struct UnkStruct_02006234 * a0)
+THUMB_FUNC void * OverlayManager_GetData(struct UnkStruct_02006234 * a0)
 {
     return a0->unk1C;
 }
 
-THUMB_FUNC void FUN_0200627C(struct UnkStruct_02006234 * a0)
+THUMB_FUNC void OverlayManager_FreeData(struct UnkStruct_02006234 * a0)
 {
     FreeToHeap(a0->unk1C);
     a0->unk1C = NULL;
 }
 
-THUMB_FUNC int * FUN_0200628C(struct UnkStruct_02006234 * a0)
+THUMB_FUNC int * OverlayManager_GetField18(struct UnkStruct_02006234 * a0)
 {
     return a0->unk18;
 }
 
-THUMB_FUNC BOOL FUN_02006290(struct UnkStruct_02006234 * a0)
+THUMB_FUNC BOOL OverlayManager_Run(struct UnkStruct_02006234 * a0)
 {
     switch (a0->unk10)
     {

@@ -42,7 +42,7 @@ FUN_02089960: ; 0x02089960
 	add r0, r5, #0x0
 	mov r1, #0x3c
 	mov r2, #0x58
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x3c
 	add r4, r0, #0x0
@@ -52,7 +52,7 @@ FUN_02089960: ; 0x02089960
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r0, [r0, #0x8]
 	str r0, [r4, #0x34]
 	mov r0, #0x1
@@ -63,7 +63,7 @@ FUN_02089960: ; 0x02089960
 FUN_0208999C: ; 0x0208999C
 	push {r4-r6, lr}
 	add r5, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5, #0x0]
 	add r6, r0, #0x0
 	mov r4, #0x0
@@ -136,15 +136,15 @@ _02089A3C: .word 0x04001000
 FUN_02089A40: ; 0x02089A40
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r4, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	add r0, r4, #0x0
 	bl FUN_020168D0
 	ldr r0, _02089A64 ; =SDK_OVERLAY_MODULE_83_ID
 	ldr r1, _02089A68 ; =MOD83_0223A360
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	nop

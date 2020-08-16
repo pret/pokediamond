@@ -15,7 +15,7 @@ UNK_021C5A08: ; 0x021C5A08
 FUN_020372D4: ; 0x020372D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02037400
@@ -51,7 +51,7 @@ _02037318: .word UNK_021C5A08
 	thumb_func_start FUN_0203731C
 FUN_0203731C: ; 0x0203731C
 	push {r3, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	bl FUN_02037524
 	cmp r0, #0x0
 	beq _0203732E
@@ -68,7 +68,7 @@ FUN_02037334: ; 0x02037334
 	bl FUN_020374B0
 	ldr r0, _02037348 ; =SDK_OVERLAY_MODULE_63_ID
 	ldr r1, _0203734C ; =MOD63_021DBAB8
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #0x1
 	pop {r3, pc}
 	nop
@@ -101,7 +101,7 @@ _0203736C:
 	str r1, [r0, #0x8]
 	ldr r0, _02037390 ; =UNK05_021F64C8
 	add r1, r4, #0x0
-	bl FUN_02006234
+	bl OverlayManager_new
 	ldr r1, [r4, #0x0]
 	str r0, [r1, #0x0]
 	pop {r4, pc}
@@ -173,7 +173,7 @@ _020373E8:
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	mov r2, #0xb
-	bl FUN_02006234
+	bl OverlayManager_new
 	ldr r1, [r5, #0x0]
 	str r0, [r1, #0x4]
 	pop {r4-r6, pc}
@@ -200,7 +200,7 @@ FUN_02037400: ; 0x02037400
 	add r0, r5, #0x0
 	mov r1, #0xb8
 	mov r2, #0xb
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0xb8
 	add r4, r0, #0x0
@@ -218,7 +218,7 @@ FUN_02037400: ; 0x02037400
 	ldr r0, [r4, #0x0]
 	str r1, [r0, #0xc]
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r0, [r0, #0x8]
 	str r0, [r4, #0xc]
 	mov r0, #0x0
@@ -259,7 +259,7 @@ FUN_02037400: ; 0x02037400
 FUN_020374B0: ; 0x020374B0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x28]
 	bl FUN_020344D0
@@ -280,7 +280,7 @@ FUN_020374B0: ; 0x020374B0
 	ldr r0, [r4, #0x0]
 	bl FreeToHeap
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x5b
 	bl FUN_020168D0
 	mov r0, #0xb
@@ -296,11 +296,11 @@ FUN_02037504: ; 0x02037504
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _02037520
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0x0
 	beq _02037520
 	ldr r0, [r4, #0x0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02037520:

@@ -16,13 +16,13 @@ MOD78_021D74E0: ; 0x021D74E0
 	add r0, r5, #0
 	mov r1, #0xa0
 	mov r2, #0x48
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0
 	mov r2, #0xa0
 	add r4, r0, #0
 	bl memset
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r5, r0, #0
 	add r0, r4, #0
 	ldrb r1, [r5]
@@ -138,7 +138,7 @@ _021D75DE:
 	str r0, [r1, #4]
 	str r0, [r1, #8]
 	add r0, r2, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r5]
 	cmp r0, #0
@@ -231,7 +231,7 @@ _021D76B4: .word 0x000006DC
 MOD78_021D76B8: ; 0x021D76B8
 	push {r3, r4, r5, r6, r7, lr}
 	str r0, [sp]
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0
 	add r7, r6, #0
 	mov r4, #0
@@ -256,7 +256,7 @@ _021D76C8:
 	ldr r0, [r6]
 	bl FUN_0201EB70
 	ldr r0, [sp]
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	bl FUN_0201B398
 	mov r0, #0x48
 	bl FUN_020168D0

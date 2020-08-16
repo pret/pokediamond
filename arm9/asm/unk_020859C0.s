@@ -100,7 +100,7 @@ FUN_020859C0: ; 0x020859C0
 	ldr r1, _02085BA0 ; =0x0000042C
 	add r0, r5, #0x0
 	mov r2, #0x35
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _02085BA0 ; =0x0000042C
 	mov r1, #0x0
 	add r4, r0, #0x0
@@ -110,7 +110,7 @@ FUN_020859C0: ; 0x020859C0
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4, #0x0]
 	mov r0, #0x35
 	bl AllocMonZeroed
@@ -304,7 +304,7 @@ _02085BAC: .word MOD62_022310CC
 FUN_02085BB0: ; 0x02085BB0
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5, #0x0]
 	add r4, r0, #0x0
 	cmp r1, #0x0
@@ -350,7 +350,7 @@ _02085C02:
 FUN_02085C08: ; 0x02085C08
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	mov r0, #0x1
 	mov r1, #0x0
@@ -476,7 +476,7 @@ FUN_02085C08: ; 0x02085C08
 	mov r0, #0x35
 	bl MOD62_02230F70
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	bl FUN_0201CD04
 	mov r0, #0x35
 	bl FUN_020168D0

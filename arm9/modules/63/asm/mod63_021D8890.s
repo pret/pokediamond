@@ -591,7 +591,7 @@ MOD63_021D8D10: ; 0x021D8D10
 	add r0, r4, #0
 	lsl r1, r1, #2
 	mov r2, #0x4c
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r2, #0xab
 	mov r1, #0
 	lsl r2, r2, #2
@@ -622,7 +622,7 @@ _021D8D94: .word gUnk021C4918
 MOD63_021D8D98: ; 0x021D8D98
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r5, r0, #0
 	mov r0, #0xaa
 	lsl r0, r0, #2
@@ -731,18 +731,18 @@ _021D8E64: .word 0x00000A8C
 MOD63_021D8E68: ; 0x021D8E68
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl FUN_0200E31C
 	ldr r0, [r4, #0x14]
 	bl SetLCRNGSeed
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x4c
 	bl FUN_020168D0
 	ldr r0, _021D8E94 ; =SDK_OVERLAY_MODULE_63_ID
 	ldr r1, _021D8E98 ; =MOD63_021DBAB8
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
