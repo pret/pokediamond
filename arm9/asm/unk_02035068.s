@@ -10,8 +10,9 @@ UNK_020F2A8C: ; 0x020F2A8C
 
 	.global UNK_020F2A90
 UNK_020F2A90: ; 0x020F2A90
-	.byte 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0xFF, 0x00, 0x00, 0x00
+	.byte 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0xFF
 
+	.balign 4, 0
 	.global UNK_020F2A9C
 UNK_020F2A9C: ; 0x020F2A9C
 	.byte 0x00, 0x01, 0x02, 0x04, 0x03, 0x05, 0x06, 0x07, 0x08, 0x00, 0x00, 0x00
@@ -638,7 +639,7 @@ FUN_0203549C: ; 0x0203549C
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x14]
 	mov r1, #0xb
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r4, #0x24]
 	mov r5, #0x0
 	ldr r0, [sp, #0x14]
@@ -683,7 +684,7 @@ _02035526:
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r4, #0x24]
 	add r1, r7, #0x0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	ldr r0, [sp, #0x20]
 	bl String_dtor
 	add r0, r7, #0x0
@@ -697,7 +698,7 @@ _02035594:
 	ldr r0, [r4, #0x24]
 	ldr r1, [sp, #0x18]
 	ldr r2, [r2, r6]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 _020355A2:
 	ldr r0, [sp, #0x1c]
 	add r0, #0x8c
@@ -901,7 +902,7 @@ FUN_02035718: ; 0x02035718
 	mov r1, #0x0
 	bl FUN_02001C5C
 	ldr r0, [r4, #0x24]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x0
 	str r0, [r4, #0x20]
 	pop {r4, pc}
@@ -2088,14 +2089,14 @@ _020360EA:
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetProfileAddr
 	ldr r1, _0203627C ; =UNK_020F2A90
 	add r0, r7, #0x0
 	mov r2, #0xb
-	bl FUN_0206EFEC
+	bl CreateBagView
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	add r3, r5, #0x0
@@ -2325,7 +2326,7 @@ FUN_020362E4: ; 0x020362E4
 	bl FUN_0204652C
 	add r4, r0, #0x0
 	mov r0, #0xb
-	bl FUN_0206E2F0
+	bl BagView_new
 	str r0, [sp, #0x8]
 	bl FUN_0206E308
 	mov r1, #0x7e
@@ -2402,7 +2403,7 @@ _0203638A:
 	bl SavArray_PlayerParty_get
 	str r0, [r5, #0x0]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r5, #0x4]
 	ldr r0, [r6, #0xc]
 	bl FUN_02025838
@@ -2501,7 +2502,7 @@ _02036474:
 	ldr r0, [sp, #0x4]
 	str r0, [r5, #0x0]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r5, #0x4]
 	ldr r0, [r6, #0xc]
 	bl FUN_02025838
@@ -2994,7 +2995,7 @@ FUN_0203684C: ; 0x0203684C
 	bl SavArray_PlayerParty_get
 	str r0, [r5, #0x0]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r5, #0x4]
 	ldr r0, [r6, #0xc]
 	bl FUN_02025838
@@ -3097,7 +3098,7 @@ FUN_0203695C: ; 0x0203695C
 	str r0, [r6, r1]
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x0]
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
@@ -3115,7 +3116,7 @@ _0203699A:
 	add r1, r7, #0x0
 	mov r2, #0x1
 	mov r3, #0xb
-	bl FUN_0206EE50
+	bl Bag_HasItem
 	cmp r0, #0x1
 	bne _020369C6
 	mov r0, #0x7e
@@ -3523,7 +3524,7 @@ FUN_02036CEC: ; 0x02036CEC
 	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
 	bl FUN_02025838
@@ -3668,7 +3669,7 @@ FUN_02036E08: ; 0x02036E08
 	bl FUN_02024DA0
 	str r0, [sp, #0x2c]
 	ldr r0, [r4, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x30]
 	ldr r0, [r4, #0xc]
 	bl FUN_02029FC8
@@ -3705,7 +3706,7 @@ _02036E9E:
 	bl FUN_02024DA0
 	str r0, [sp, #0x3c]
 	ldr r0, [r4, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x40]
 	ldr r0, [r4, #0xc]
 	bl FUN_02029FC8

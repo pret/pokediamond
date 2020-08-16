@@ -1457,7 +1457,7 @@ _022129EA:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02212A00
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r4, #0
 	mov r1, #0
 	add r0, #0xb0
@@ -2487,7 +2487,7 @@ MOD56_02213194: ; 0x02213194
 	add r0, r6, #0
 	add r0, #0xb0
 	ldr r0, [r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r6, #0
 	mov r1, #0
 	add r0, #0xb0
@@ -3462,7 +3462,7 @@ _02213944:
 	ldr r0, [r0]
 	ldr r1, [r5, r7]
 	sub r2, r2, #1
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r6, r6, #1
 _0221395C:
 	add r4, r4, #1
@@ -3476,7 +3476,7 @@ _0221395C:
 	ldr r1, [r1]
 	mov r2, #0x1b
 	mov r3, #0x20
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r5, #0
 	add r0, #0xb0
 	add r5, #0xcc
@@ -3485,7 +3485,7 @@ _0221395C:
 	ldr r0, [r0]
 	ldr r1, [r5]
 	sub r3, #0x30
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3498,7 +3498,7 @@ MOD56_02213990: ; 0x02213990
 	add r5, r0, #0
 	mov r0, #0x22
 	mov r1, #0x36
-	bl FUN_02012838
+	bl ListMenu_ctor
 	add r1, r5, #0
 	add r1, #0xb0
 	str r0, [r1]
@@ -3683,7 +3683,7 @@ _02213AF0:
 	add r0, r5, #0
 	add r0, #0xb0
 	ldr r0, [r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r5, #0
 	mov r1, #0
 	add r0, #0xb0
@@ -3808,7 +3808,7 @@ _02213C24:
 	add r0, r5, #0
 	add r0, #0xb0
 	ldr r0, [r0]
-	bl FUN_0201291C
+	bl ListMenu_DestroyMenuStrings
 	add r0, r5, #0
 	add r0, #0xb4
 	ldr r0, [r0]
@@ -4107,7 +4107,7 @@ _02213E5C:
 	add r0, r5, #0
 	add r0, #0xb0
 	ldr r0, [r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r5, #0
 	mov r1, #0
 	add r0, #0xb0
@@ -5059,7 +5059,7 @@ MOD56_022145D4: ; 0x022145D4
 	stmia r2!, {r0, r1}
 	mov r0, #4
 	mov r1, #0x36
-	bl FUN_02012838
+	bl ListMenu_ctor
 	add r1, r5, #0
 	add r1, #0xb8
 	ldr r4, _022146C4 ; =0x02216480
@@ -5074,7 +5074,7 @@ _02214602:
 	ldr r1, [r1]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, #4
@@ -5261,7 +5261,7 @@ _0221476E:
 	add r0, r5, #0
 	add r0, #0xb8
 	ldr r0, [r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD56_02214808
@@ -5301,7 +5301,7 @@ _022147CE:
 	bl FUN_02001300
 	add r5, #0xb8
 	ldr r0, [r5]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -5338,7 +5338,7 @@ _02214820:
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
 	mov r1, #0x36
-	bl FUN_02012838
+	bl ListMenu_ctor
 	add r1, r5, #0
 	add r1, #0xb8
 	mov r6, #0
@@ -5354,7 +5354,7 @@ _0221484C:
 	ldr r1, [r1]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, r7
@@ -5524,7 +5524,7 @@ _02214994:
 	bl FUN_02001300
 	add r5, #0xb8
 	ldr r0, [r5]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r6, #0
 	pop {r4, r5, r6, pc}
 	nop
@@ -5585,7 +5585,7 @@ MOD56_022149D8: ; 0x022149D8
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x1c]
 	mov r0, #3
-	bl FUN_02012838
+	bl ListMenu_ctor
 	add r1, r5, #0
 	add r1, #0xb8
 	str r0, [r1]
@@ -5630,7 +5630,7 @@ _02214A7E:
 	ldr r1, [r1]
 	ldr r3, [r4, #4]
 	mov r2, #0x1a
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _02214ADC
 _02214A9E:
 	ldrh r0, [r7, #0x16]
@@ -5652,7 +5652,7 @@ _02214AB2:
 	ldr r1, [r1]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _02214ADC
 _02214AC8:
 	add r0, r5, #0
@@ -5663,7 +5663,7 @@ _02214AC8:
 	ldr r1, [r1]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 _02214ADC:
 	ldr r0, [sp, #0x24]
 	add r4, #8
@@ -6077,7 +6077,7 @@ _02214DEC:
 	bl FUN_02001300
 	add r4, #0xb8
 	ldr r0, [r4]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, [sp]
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}

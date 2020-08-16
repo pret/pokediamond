@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0206E2F0
-FUN_0206E2F0: ; 0x0206E2F0
+	thumb_func_start BagView_new
+BagView_new: ; 0x0206E2F0
 	push {r4, lr}
 	mov r1, #0x78
 	bl AllocFromHeap
@@ -44,8 +44,8 @@ FUN_0206E314: ; 0x0206E314
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206E330
-FUN_0206E330: ; 0x0206E330
+	thumb_func_start BagView_setitem
+BagView_setitem: ; 0x0206E330
 	push {r3-r4}
 	mov r4, #0xc
 	mul r4, r3
@@ -199,7 +199,7 @@ FUN_0206E3F8: ; 0x0206E3F8
 	b _0206E4FA
 _0206E428:
 	mov r1, #0x1b
-	lsl r1, r1, #0x4
+	lsl r1, r1, #0x4 ; ITEM_POINT_CARD
 	cmp r5, r1
 	bne _0206E454
 	add r0, r6, #0x0
@@ -218,7 +218,7 @@ _0206E428:
 	bl FUN_0200AD38
 	b _0206E4FA
 _0206E454:
-	add r2, r1, #0x2
+	add r2, r1, #0x2 ; ITEM_SEAL_CASE
 	cmp r5, r2
 	bne _0206E47E
 	add r0, r6, #0x0
@@ -237,7 +237,7 @@ _0206E454:
 	bl FUN_0200AD38
 	b _0206E4FA
 _0206E47E:
-	add r2, r1, #0x3
+	add r2, r1, #0x3 ; ITEM_FASHION_CASE
 	cmp r5, r2
 	bne _0206E4C0
 	add r0, r6, #0x0
@@ -266,7 +266,7 @@ _0206E47E:
 	bl FUN_0200AD38
 	b _0206E4FA
 _0206E4C0:
-	add r1, #0xc
+	add r1, #0xc ; ITEM_COIN_CASE
 	cmp r5, r1
 	bne _0206E4EA
 	add r0, r6, #0x0

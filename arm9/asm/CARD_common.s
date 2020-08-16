@@ -68,9 +68,8 @@ CARD_GetResultCode: ; 0x020D6700
 	.balign 4
 _020D6710: .word cardi_common
 
-;CARDi_TryWaitAsync?
-	arm_func_start FUN_020D6714
-FUN_020D6714: ; 0x020D6714
+	arm_func_start CARDi_TryWaitAsync
+CARDi_TryWaitAsync: ; 0x020D6714
 	ldr r0, _020D672C ; =cardi_common
 	ldr r0, [r0, #0x114]
 	ands r0, r0, #0x4

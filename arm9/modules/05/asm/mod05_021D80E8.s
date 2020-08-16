@@ -319,7 +319,7 @@ _021D8342:
 	bne _021D8384
 	ldr r0, [r4, #0xc]
 	bl SavArray_PlayerParty_get
-	bl FUN_0204A248
+	bl HasEnoughAlivePokemonForDoubleBattle
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
 	bl SavArray_Flags_get
@@ -387,7 +387,7 @@ _021D83E4:
 	ldr r0, [r4, #0xc]
 	bl SavArray_PlayerParty_get
 	mov r1, #0x7f
-	bl FUN_0204A138
+	bl GetIdxOfFirstPartyMonWithMove
 	cmp r0, #0xff
 	beq _021D83F8
 	mov r0, #2
@@ -1473,7 +1473,7 @@ _021D8C88:
 	ldr r0, [r5, #0xc]
 	bl SavArray_PlayerParty_get
 	mov r1, #0x39
-	bl FUN_0204A138
+	bl GetIdxOfFirstPartyMonWithMove
 	cmp r0, #0xff
 	beq _021D8CE0
 	ldr r0, _021D8D1C ; =0x00002714
@@ -1899,7 +1899,7 @@ _021D903E:
 	lsl r1, r1, #0x10
 	add r0, r4, #0
 	lsr r1, r1, #0x10
-	bl FUN_0204A29C
+	bl ApplyPoisonStep
 	cmp r0, #0
 	beq _021D9060
 	cmp r0, #1

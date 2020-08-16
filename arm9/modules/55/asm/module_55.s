@@ -3213,7 +3213,7 @@ MOD55_021D8E6C: ; 0x021D8E6C
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
 	mov r1, #0x34
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r4, _021D8FD0 ; =0x021DA3D8
 	str r0, [r5, #0x14]
 	mov r6, #0
@@ -3222,7 +3222,7 @@ _021D8EB6:
 	ldr r1, [r5, #0x10]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, #4
@@ -3241,7 +3241,7 @@ _021D8ECC:
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
 	mov r1, #0x34
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r4, _021D8FD8 ; =0x021DA438
 	str r0, [r5, #0x14]
 	mov r6, #0
@@ -3250,7 +3250,7 @@ _021D8EEE:
 	ldr r1, [r5, #0x10]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, #4
@@ -3460,7 +3460,7 @@ _021D9098:
 	add r2, r1, #0
 	bl FUN_02001300
 	ldr r0, [r5, #0x14]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r6, #0
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}

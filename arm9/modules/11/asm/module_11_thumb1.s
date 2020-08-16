@@ -1178,7 +1178,7 @@ _0222DFEC:
 	lsl r1, r1, #2
 	ldr r0, [r4, #0x58]
 	ldr r1, [r7, r1]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	ldr r0, [r4, #0x58]
 	bl FreeToHeap
 	mov r1, #0x11
@@ -1758,14 +1758,14 @@ _0222E532:
 	cmp r7, #4
 	blt _0222E532
 	mov r0, #5
-	bl FUN_0206EB88
+	bl Sav2_Bag_new
 	str r0, [r4, #0x58]
 	mov r1, #0x42
 	ldr r0, [sp, #4]
 	lsl r1, r1, #2
 	ldr r0, [r0, r1]
 	ldr r1, [r4, #0x58]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r0, #5
 	bl FUN_02023D6C
 	str r0, [r4, #0x60]

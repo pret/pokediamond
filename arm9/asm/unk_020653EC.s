@@ -800,7 +800,7 @@ _020659DC:
 	add r1, r4, r1
 	ldrh r1, [r1, #0x22]
 	ldr r2, [r4, #0x0]
-	bl FUN_0206EEF8
+	bl Bag_GetQuantity
 	cmp r0, #0x0
 	ldr r1, _02065AE8 ; =0x0000013B
 	beq _02065A1A
@@ -976,7 +976,7 @@ FUN_02065AF4: ; 0x02065AF4
 	ldrb r0, [r5, #0x1b]
 	ldr r1, [r5, #0x0]
 	add r0, r0, #0x1
-	bl FUN_02012838
+	bl ListMenu_ctor
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	add r7, r5, #0x0
@@ -995,7 +995,7 @@ _02065B7E:
 	ldr r1, [r2, #0x8]
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r5, r0]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
@@ -1011,7 +1011,7 @@ _02065B9E:
 	sub r1, #0x4c
 	ldr r1, [r5, r1]
 	ldr r2, _02065CE0 ; =0x0000FFFF
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
 	mov r1, #0x5
@@ -1280,7 +1280,7 @@ FUN_02065DD8: ; 0x02065DD8
 	str r2, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -1309,7 +1309,7 @@ _02065E14:
 	ldr r1, [r5, r7]
 	ldr r2, [r6, r2]
 	ldr r3, [r3, #0x4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r4, #0x1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -1422,7 +1422,7 @@ FUN_02065EF8: ; 0x02065EF8
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1499,7 +1499,7 @@ FUN_02065F8C: ; 0x02065F8C
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1612,7 +1612,7 @@ FUN_02066070: ; 0x02066070
 	str r0, [sp, #0x4]
 	str r0, [r6, r1]
 	add r0, r4, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	mov r1, #0x1b
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
@@ -1762,7 +1762,7 @@ FUN_020661A0: ; 0x020661A0
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206ED24
+	bl Bag_HasSpaceForItem
 	add r6, r0, #0x0
 	beq _020661D4
 	mov r0, #0x1b
@@ -1771,7 +1771,7 @@ FUN_020661A0: ; 0x020661A0
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206ED38
+	bl Bag_AddItem
 _020661D4:
 	mov r0, #0x6b
 	lsl r0, r0, #0x2
@@ -1826,7 +1826,7 @@ FUN_020661F8: ; 0x020661F8
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206ED24
+	bl Bag_HasSpaceForItem
 	cmp r0, #0x0
 	beq _0206625E
 	mov r0, #0x1b
@@ -1835,7 +1835,7 @@ FUN_020661F8: ; 0x020661F8
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206ED38
+	bl Bag_AddItem
 _0206625E:
 	ldrb r1, [r5, #0x18]
 	add r0, r5, #0x0
@@ -2383,7 +2383,7 @@ _02066676:
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	bl FUN_020377AC
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2

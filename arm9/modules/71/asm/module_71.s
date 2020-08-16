@@ -4386,7 +4386,7 @@ _0222F9E4:
 	bl FUN_02001300
 	ldr r0, _0222FA34 ; =0x0000367C
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4412,7 +4412,7 @@ MOD71_0222FA38: ; 0x0222FA38
 	str r0, [sp]
 	add r0, r0, #1
 	mov r1, #0x1a
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _0222FAD0 ; =0x0000367C
 	str r0, [r5, r1]
 	mov r0, #0x64
@@ -4438,7 +4438,7 @@ _0222FA60:
 	add r1, r6, #0
 	ldr r0, [r5, r0]
 	add r2, r4, #0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 _0222FA8A:
 	add r4, r4, #1
 	cmp r4, #0x20
@@ -4450,7 +4450,7 @@ _0222FA8A:
 	add r3, r2, #0
 	ldr r1, [r5, r1]
 	sub r3, #0xd
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r6, #0
 	bl String_dtor
 	ldr r2, _0222FAD0 ; =0x0000367C
@@ -4681,11 +4681,11 @@ _0222FC2C:
 	pop {r3, r4, r5, r6, r7, pc}
 _0222FC70:
 	ldr r0, [r6, #4]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _0222FCFC ; =0x000001B5
 	mov r2, #1
 	mov r3, #0x1a
-	bl FUN_0206EE50
+	bl Bag_HasItem
 	cmp r0, #1
 	bne _0222FCAA
 	ldr r0, _0222FCE4 ; =0x0000366C
@@ -4909,7 +4909,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	bl MOD71_02230F40
 	mov r0, #3
 	mov r1, #0x1a
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _0222FED8 ; =0x0000065C
 	mov r2, #0x11
 	str r0, [r4, r1]
@@ -4918,7 +4918,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r3, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -4926,7 +4926,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	ldr r1, [r4, r1]
 	mov r2, #0x12
 	mov r3, #1
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -4934,7 +4934,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	ldr r1, [r4, r1]
 	mov r2, #0x13
 	mov r3, #2
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	ldr r1, [r4, r0]
 	str r1, [sp, #0x10]
@@ -5024,7 +5024,7 @@ _0222FF10:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r1, _02230010 ; =MOD71_0222F538
 	ldr r0, _02230014 ; =0x00002214
 	add sp, #0x10
@@ -5063,7 +5063,7 @@ _0222FF64:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r1, _0223001C ; =MOD71_02230020
 	ldr r0, _02230014 ; =0x00002214
 	str r1, [r4, r0]
@@ -5100,7 +5100,7 @@ _0222FFB4:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r1, _02230010 ; =MOD71_0222F538
 	ldr r0, _02230014 ; =0x00002214
 	str r1, [r4, r0]
@@ -6155,7 +6155,7 @@ MOD71_02230810: ; 0x02230810
 	bl MOD71_02230F40
 	mov r0, #2
 	mov r1, #0x1a
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _02230900 ; =0x0000065C
 	mov r2, #0x11
 	str r0, [r4, r1]
@@ -6164,7 +6164,7 @@ MOD71_02230810: ; 0x02230810
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r3, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _02230900 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -6172,7 +6172,7 @@ MOD71_02230810: ; 0x02230810
 	ldr r1, [r4, r1]
 	mov r2, #0x13
 	mov r3, #1
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _02230900 ; =0x0000065C
 	ldr r1, [r4, r0]
 	sub r0, #0x94
@@ -6259,7 +6259,7 @@ _0223092E:
 	bl FUN_02001C5C
 	ldr r0, _022309E4 ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add sp, #0x10
 	mov r0, #3
 	pop {r4, pc}
@@ -6295,7 +6295,7 @@ _02230982:
 	bl FUN_02001C5C
 	ldr r0, _022309E4 ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r1, _022309DC ; =MOD71_0222F538
 	ldr r0, _022309E0 ; =0x00002214
 	str r1, [r4, r0]

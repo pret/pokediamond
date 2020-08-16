@@ -46,7 +46,7 @@ FUN_02073DB4: ; 0x02073DB4
 	bl FUN_02001C5C
 	ldr r0, _02073DF0 ; =0x000006F8
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -69,7 +69,7 @@ FUN_02073DF4: ; 0x02073DF4
 	bl FUN_020731D4
 	mov r0, #0x3
 	mov r1, #0xc
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _02073EB0 ; =0x000006F8
 	str r0, [r5, r1]
 	mov r0, #0x3
@@ -79,7 +79,7 @@ FUN_02073DF4: ; 0x02073DF4
 	ldr r0, [r5, r1]
 	sub r1, #0x40
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x4
 	bl FUN_02073DA8
 	ldr r1, _02073EB0 ; =0x000006F8
@@ -87,7 +87,7 @@ FUN_02073DF4: ; 0x02073DF4
 	ldr r0, [r5, r1]
 	sub r1, #0x3c
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x9
 	bl FUN_02073DA8
 	ldr r1, _02073EB0 ; =0x000006F8
@@ -95,7 +95,7 @@ FUN_02073DF4: ; 0x02073DF4
 	ldr r0, [r5, r1]
 	sub r1, #0x28
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	ldr r0, _02073EB0 ; =0x000006F8
 	mov r1, #0x0
 	ldr r0, [r5, r0]
@@ -155,7 +155,7 @@ FUN_02073EB8: ; 0x02073EB8
 	bl FUN_02001C5C
 	ldr r0, _02073EE4 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _02073EE8 ; =0x000005A4
 	mov r1, #0x3
 	ldr r0, [r5, r0]
@@ -186,7 +186,7 @@ FUN_02073EEC: ; 0x02073EEC
 	bl FUN_02001C5C
 	ldr r0, _02074048 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _0207404C ; =0x00000B25
 	ldrb r1, [r5, r0]
 	mov r0, #0x2c
@@ -230,7 +230,7 @@ _02073F66:
 	ldr r0, [r0, #0x4]
 	mov r2, #0x1
 	mov r3, #0xc
-	bl FUN_0206ED38
+	bl Bag_AddItem
 	cmp r0, #0x1
 	bne _0207400A
 	ldr r0, _02074054 ; =0x000005A4
@@ -381,7 +381,7 @@ FUN_020740AC: ; 0x020740AC
 	bl FUN_020731D4
 	mov r0, #0x3
 	mov r1, #0xc
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _02074168 ; =0x000006F8
 	str r0, [r5, r1]
 	mov r0, #0x6
@@ -391,7 +391,7 @@ FUN_020740AC: ; 0x020740AC
 	ldr r0, [r5, r1]
 	sub r1, #0x34
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x7
 	bl FUN_02073DA8
 	ldr r1, _02074168 ; =0x000006F8
@@ -399,7 +399,7 @@ FUN_020740AC: ; 0x020740AC
 	ldr r0, [r5, r1]
 	sub r1, #0x30
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x9
 	bl FUN_02073DA8
 	ldr r1, _02074168 ; =0x000006F8
@@ -407,7 +407,7 @@ FUN_020740AC: ; 0x020740AC
 	ldr r0, [r5, r1]
 	sub r1, #0x28
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	ldr r0, _02074168 ; =0x000006F8
 	mov r1, #0x0
 	ldr r0, [r5, r0]
@@ -467,7 +467,7 @@ FUN_02074170: ; 0x02074170
 	bl FUN_02001C5C
 	ldr r0, _0207419C ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _020741A0 ; =0x000005A4
 	mov r1, #0x7
 	ldr r0, [r5, r0]
@@ -497,7 +497,7 @@ FUN_020741A4: ; 0x020741A4
 	bl FUN_02001C5C
 	ldr r0, _020741F0 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r5, #0x0
 	mov r1, #0x2b
 	mov r2, #0x1
@@ -617,7 +617,7 @@ FUN_020742A8: ; 0x020742A8
 	ldr r0, [r0, #0x4]
 	mov r2, #0x1
 	mov r3, #0xc
-	bl FUN_0206ED38
+	bl Bag_AddItem
 	cmp r0, #0x1
 	bne _0207431A
 	ldr r0, _02074334 ; =0x000005A4
@@ -744,7 +744,7 @@ FUN_020743AC: ; 0x020743AC
 	bl FUN_02001C5C
 	ldr r0, _02074414 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _02074418 ; =0x000005A4
 	mov r1, #0x0
 	ldr r0, [r5, r0]
@@ -2324,7 +2324,7 @@ FUN_02075090: ; 0x02075090
 	bl FUN_02001C5C
 	ldr r0, _020750C0 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x1b
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
@@ -2349,7 +2349,7 @@ FUN_020750C4: ; 0x020750C4
 	bl FUN_02001C5C
 	ldr r0, _020750F4 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x1b
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
@@ -2482,7 +2482,7 @@ _020751E4:
 	bl FUN_02001C5C
 	ldr r0, _0207523C ; =0x000006F8
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x1b
 	str r0, [r6, #0x0]
 	pop {r4-r6, pc}

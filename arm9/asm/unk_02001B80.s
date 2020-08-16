@@ -772,18 +772,18 @@ FUN_020020EC: ; 0x020020EC
 	add r4, r0, #0x0
 	mov r0, #0x2
 	add r1, r5, #0x0
-	bl FUN_02012838
+	bl ListMenu_ctor
 	add r1, r4, #0x0
 	mov r2, #0x29
 	mov r3, #0x0
 	add r6, r0, #0x0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	mov r3, #0x2a
 	add r2, r3, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	sub r3, #0x2c
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r4, #0x0
 	bl DestroyMsgData
 	add r0, r5, #0x0
@@ -896,7 +896,7 @@ FUN_020021EC: ; 0x020021EC
 	add r0, r4, #0x0
 	bl FUN_02016A8C
 	ldr r0, [r5, #0x0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl FUN_02001C5C

@@ -24,10 +24,10 @@ _020D6DA8: .word cardi_common
 
 	arm_func_start CARD_TryWaitBackupAsync
 CARD_TryWaitBackupAsync: ; 0x020D6DAC
-	ldr ip, _020D6DB4 ; =FUN_020D6714
+	ldr ip, _020D6DB4 ; =CARDi_TryWaitAsync
 	bx r12
 	.balign 4
-_020D6DB4: .word FUN_020D6714
+_020D6DB4: .word CARDi_TryWaitAsync
 
 	arm_func_start CARD_WaitBackupAsync
 CARD_WaitBackupAsync: ; 0x020D6DB8
@@ -250,14 +250,11 @@ _020D7094:
 	cmp r7, #0x3
 	addls pc, pc, r7, lsl #0x2
 	b _020D7124
-_020D70A0:
-	b _020D70B0
-_020D70A4:
-	b _020D70D4
-_020D70A8:
-	b _020D70D4
-_020D70AC:
-	b _020D710C
+	; jump table
+	b _020D70B0 ; case 0
+	b _020D70D4 ; case 1
+	b _020D70D4 ; case 2
+	b _020D710C ; case 3
 _020D70B0:
 	mov r1, r5
 	add r0, r9, #0x120

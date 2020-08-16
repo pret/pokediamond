@@ -32,7 +32,7 @@ u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid);
 void InitBoxMonMoveset(struct BoxPokemon * boxmon);
 u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move);
 void FUN_02069718(struct BoxPokemon * boxmon, u16 move);
-void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot);
+void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot);
 void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
 s8 FUN_02069BD0(struct BoxPokemon * boxmon, int flavor);
 s8 FUN_02069BE4(u32 personality, int flavor);
@@ -2825,7 +2825,7 @@ u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move)
         cur_move = (u16)GetBoxMonData(boxmon, MON_DATA_MOVE1 + i, NULL);
         if (cur_move == MOVE_NONE)
         {
-            FUN_020697D4(boxmon, move, (u8)i);
+            BoxMonSetMoveInSlot(boxmon, move, (u8)i);
             ret = move;
             break;
         }
@@ -2873,12 +2873,12 @@ void FUN_02069718(struct BoxPokemon * boxmon, u16 move)
     ReleaseBoxMonLock(boxmon, decry);
 }
 
-void FUN_020697CC(struct Pokemon * pokemon, u16 move, u8 slot)
+void MonSetMoveInSlot(struct Pokemon * pokemon, u16 move, u8 slot)
 {
-    FUN_020697D4(&pokemon->box, move, slot);
+    BoxMonSetMoveInSlot(&pokemon->box, move, slot);
 }
 
-void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot)
+void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot)
 {
     u8 ppUp;
     u8 pp;

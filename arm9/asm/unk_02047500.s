@@ -239,7 +239,7 @@ _02047662:
 FUN_02047668: ; 0x02047668
 	push {r4, lr}
 	mov r4, #0x1e
-	bl FUN_0204A1D8
+	bl GetFirstAliveMonInParty_CrashIfNone
 	mov r1, #0x5
 	mov r2, #0x0
 	bl GetMonData

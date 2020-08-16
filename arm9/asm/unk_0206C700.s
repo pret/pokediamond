@@ -1744,7 +1744,7 @@ _0206D560:
 	ldrh r1, [r1, #0x0]
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r4, #0x28]
-	bl FUN_020697CC
+	bl MonSetMoveInSlot
 	add r0, r4, #0x0
 	mov r1, #0x14
 	add r0, #0x66
@@ -2081,7 +2081,7 @@ _0206D854:
 	ldr r0, [r4, #0x4c]
 	ldr r2, [r4, #0x5c]
 	mov r1, #0x4
-	bl FUN_0206EEF8
+	bl Bag_GetQuantity
 	cmp r0, #0x0
 	beq _0206D86C
 	ldr r0, [r4, #0x24]
@@ -2216,7 +2216,7 @@ _0206D8EA:
 	ldr r3, [r4, #0x5c]
 	mov r1, #0x4
 	mov r2, #0x1
-	bl FUN_0206EDD4
+	bl Bag_TakeItem
 	add sp, #0x20
 	pop {r4-r6, pc}
 _0206D9A0:

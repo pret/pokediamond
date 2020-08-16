@@ -635,7 +635,7 @@ _02085E66:
 	ldr r0, [r7, #0x1c]
 	str r0, [r4, #0x0]
 	ldr r0, [r6, #0x10]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r6, #0x10]
 	bl FUN_02025838

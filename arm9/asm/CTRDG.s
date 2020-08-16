@@ -18,13 +18,11 @@ CTRDG_CheckEnabled:
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl CTRDG_IsOptionCartridge
-_020DB128: ; 0x020DB128
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {lr}
 	bxne lr
 	bl CTRDG_IsEnabled
-_020DB13C: ; 0x020DB13C
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {lr}
@@ -44,7 +42,6 @@ CTRDG_Enable: ; 0x020DB15C
 	mov r4, r0
 	str r5, [r1, #0x0]
 	bl CTRDG_IsOptionCartridge
-_020DB17C: ; 0x020DB17C
 	cmp r0, #0x0
 	bne _020DB198
 	cmp r5, #0x0
@@ -78,7 +75,6 @@ CTRDGi_AccessCommon: ; 0x020DB1C0
 	mov r5, r2
 	mov r4, r3
 	bl CTRDG_IsExisting
-_020DB1DC: ; 0x020DB1DC
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
@@ -137,7 +133,6 @@ _020DB294:
 	ldrh r0, [r0, #0x2]
 	bl OS_UnLockCartridge
 	bl CTRDG_IsExisting
-_020DB2A4: ; 0x020DB2A4
 	cmp r0, #0x0
 	movne r0, #0x1
 	moveq r0, #0x0
@@ -166,7 +161,6 @@ CTRDGi_CopyCommon: ; 0x020DB2D8
 	mov r5, r2
 	mov r4, r3
 	bl CTRDG_IsExisting
-_020DB2F4: ; 0x020DB2F4
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
@@ -250,7 +244,6 @@ _020DB404:
 	ldrh r0, [r0, #0x2]
 	bl OS_UnLockCartridge
 	bl CTRDG_IsExisting
-_020DB414: ; 0x020DB414
 	cmp r0, #0x0
 	movne r0, #0x1
 	moveq r0, #0x0
@@ -333,7 +326,6 @@ CTRDGi_SendtoPxi: ; 0x020DB504
 	mov r0, #0xd
 	mov r2, #0x0
 	bl PXI_SendWordByFifo
-_020DB520: ; 0x020DB520
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,lr}
@@ -348,7 +340,6 @@ _020DB53C:
 	mov r1, r7
 	mov r2, r4
 	bl PXI_SendWordByFifo
-_020DB554: ; 0x020DB554
 	cmp r0, #0x0
 	bne _020DB53C
 	add sp, sp, #0x4
@@ -391,7 +382,6 @@ _020DB5A8:
 	bxne lr
 	mov r0, r7
 	bl OS_TryLockCartridge
-_020DB5DC: ; 0x020DB5DC
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,lr}
@@ -560,7 +550,6 @@ CTRDGi_GetAgbMakerCodeAtInit: ; 0x020DB808
 	stmdb sp!, {r4,lr}
 	mov r4, #0x0
 	bl CTRDGi_IsAgbCartridgeAtInit
-_020DB814: ; 0x020DB814
 	cmp r0, #0x0
 	ldrne r0, _020DB82C ; =0x027FFC30
 	ldrneh r4, [r0, #0x6]
@@ -575,7 +564,6 @@ CTRDG_GetAgbMakerCode: ; 0x020DB830
 	stmdb sp!, {r4,lr}
 	mov r4, #0x0
 	bl CTRDG_IsExisting
-_020DB83C: ; 0x020DB83C
 	cmp r0, #0x0
 	beq _020DB84C
 	bl CTRDGi_GetAgbMakerCodeAtInit
@@ -590,7 +578,6 @@ CTRDGi_GetAgbGameCodeAtInit: ; 0x020DB858
 	stmdb sp!, {r4,lr}
 	mov r4, #0x0
 	bl CTRDGi_IsAgbCartridgeAtInit
-_020DB864: ; 0x020DB864
 	cmp r0, #0x0
 	ldrne r0, _020DB87C ; =0x027FFC30
 	ldrne r4, [r0, #0x8]
@@ -605,7 +592,6 @@ CTRDG_GetAgbGameCode: ; 0x020DB880
 	stmdb sp!, {r4,lr}
 	mov r4, #0x0
 	bl CTRDG_IsExisting
-_020DB88C: ; 0x020DB88C
 	cmp r0, #0x0
 	beq _020DB89C
 	bl CTRDGi_GetAgbGameCodeAtInit
@@ -630,11 +616,9 @@ CTRDG_IsOptionCartridge:
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl CTRDG_IsExisting
-_020DB8CC: ; 0x020DB8CC
 	cmp r0, #0x0
 	beq _020DB8EC
 	bl CTRDGi_IsAgbCartridgeAtInit
-_020DB8D8: ; 0x020DB8D8
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	moveq r0, #0x1
@@ -651,11 +635,9 @@ CTRDG_IsAgbCartridge: ; 0x020DB8FC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl CTRDG_IsExisting
-_020DB908: ; 0x020DB908
 	cmp r0, #0x0
 	beq _020DB928
 	bl CTRDGi_IsAgbCartridgeAtInit
-_020DB914: ; 0x020DB914
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	movne r0, #0x1

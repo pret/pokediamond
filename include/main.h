@@ -105,6 +105,6 @@ void FUN_02000EE8(void);
 void DoSoftReset(u32 parameter);
 void FUN_02000F4C(u32 arg0, u32 arg1);
 void InitializeMainRNG(void);
-void FUN_02000FE8(void);
+void HandleDSLidAction(void);
 
 #endif //GUARD_MAIN_H

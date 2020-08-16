@@ -1957,7 +1957,7 @@ _0222E442:
 	bl FUN_02019064
 	add r0, r7, #0
 	mov r1, #0x35
-	bl FUN_02012838
+	bl ListMenu_ctor
 	mov r2, #0x67
 	ldr r1, [sp, #0x1c]
 	lsl r2, r2, #2
@@ -1990,7 +1990,7 @@ _0222E49A:
 	ldr r0, [r1, r0]
 	ldr r2, [r2, #4]
 	add r1, r4, #0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r4, #0
 	bl String_dtor
 	add r6, r6, #1
@@ -4612,7 +4612,7 @@ MOD62_0222F904: ; 0x0222F904
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r4, #0xfc
 	add r0, r4, #0
 	bl FUN_02019178

@@ -21,7 +21,7 @@ UNK_020EE700: ; 0x020EE700
 	.word 0x00, 0x00, FUN_0202376C, FUN_02023770
 	.word 0x01, 0x00, Sav2_PlayerData_sizeof, Sav2_PlayerData_init
 	.word 0x02, 0x00, SavArray_Party_sizeof, SavArray_Party_init
-	.word 0x03, 0x00, FUN_0206EB80, FUN_0206EBA0
+	.word 0x03, 0x00, Sav2_Bag_sizeof, Sav2_Bag_init
 	.word 0x04, 0x00, SavArray_Flags_sizeof, SavArray_Flags_init
 	.word 0x05, 0x00, FUN_0204BE14, FUN_0204BE18
 	.word 0x06, 0x00, FUN_02034D7C, FUN_02034D98
@@ -63,8 +63,8 @@ UNK_021C59C8: ; 0x021C59C8
 
 	.text
 
-	thumb_func_start FUN_0202254C
-FUN_0202254C: ; 0x0202254C
+	thumb_func_start SaveBlock2_new
+SaveBlock2_new: ; 0x0202254C
 	push {r4, lr}
 	ldr r1, _020225E0 ; =0x000204A8
 	mov r0, #0x1
@@ -76,7 +76,7 @@ FUN_0202254C: ; 0x0202254C
 	bl MIi_CpuClearFast
 	ldr r0, _020225E4 ; =UNK_021C59C8
 	str r4, [r0, #0x0]
-	bl FUN_02023570
+	bl SaveDetectFlash
 	str r0, [r4, #0x0]
 	mov r0, #0x0
 	str r0, [r4, #0x4]
@@ -89,7 +89,7 @@ FUN_0202254C: ; 0x0202254C
 	bl MATHi_CRC16InitTable
 	ldr r0, _020225EC ; =0x00020224
 	add r0, r4, r0
-	bl FUN_020230E4
+	bl SaveBlock2_InitSubstructs
 	ldr r0, _020225F0 ; =0x00020464
 	ldr r1, _020225EC ; =0x00020224
 	add r0, r4, r0
@@ -207,7 +207,7 @@ _02022660:
 _02022662:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x0
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r1, _020226F8 ; =0x00020221
 	ldr r0, [sp, #0x0]
 	ldrb r0, [r0, r1]
@@ -220,19 +220,19 @@ _02022678:
 _0202267A:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x1
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r0, [sp, #0x0]
 	ldr r3, _020226F4 ; =0x00020220
 	add r2, r0, #0x0
 	ldrb r2, [r2, r3]
 	mov r1, #0x0
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r0, [sp, #0x0]
 	ldr r3, _020226F8 ; =0x00020221
 	add r2, r0, #0x0
 	ldrb r2, [r2, r3]
 	mov r1, #0x1
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	mov r0, #0x0
 	mov r2, #0x1
 	mvn r0, r0
@@ -247,13 +247,13 @@ _020226B4:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_020235D0
+	bl FlashWriteChunk
 	add r0, r4, #0x0
 	add r0, #0x40
 	lsl r0, r0, #0xc
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_020235D0
+	bl FlashWriteChunk
 	mov r0, #0x1
 	lsl r0, r0, #0xc
 	add r4, r4, #0x1
@@ -323,7 +323,7 @@ _02022746:
 _02022748:
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r0, _0202279C ; =0x00020221
 	ldrb r0, [r4, r0]
 	cmp r0, #0x0
@@ -335,17 +335,17 @@ _0202275C:
 _0202275E:
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r2, _02022798 ; =0x00020220
 	add r0, r4, #0x0
 	ldrb r2, [r4, r2]
 	mov r1, #0x0
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	ldr r2, _0202279C ; =0x00020221
 	add r0, r4, #0x0
 	ldrb r2, [r4, r2]
 	mov r1, #0x1
-	bl FUN_02023074
+	bl FlashClobberChunkFooter
 	mov r0, #0x1
 	bl FUN_02016454
 _02022784:
@@ -526,8 +526,8 @@ FUN_02022898: ; 0x02022898
 	.balign 4
 _020228A0: .word MATH_CalcCRC16CCITT
 
-	thumb_func_start FUN_020228A4
-FUN_020228A4: ; 0x020228A4
+	thumb_func_start GetChunkOffsetFromCurrentSaveSlot
+GetChunkOffsetFromCurrentSaveSlot: ; 0x020228A4
 	cmp r0, #0x0
 	bne _020228AC
 	mov r2, #0x0
@@ -857,7 +857,7 @@ FUN_02022AD8: ; 0x02022AD8
 	mov r0, #0x0
 	add r1, r6, #0x0
 	lsl r2, r2, #0x10
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	cmp r0, #0x0
 	add r0, sp, #0x2c
 	beq _02022B20
@@ -880,7 +880,7 @@ _02022B2A:
 	lsl r0, r0, #0x12
 	add r1, r4, #0x0
 	lsr r2, r0, #0x1
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	cmp r0, #0x0
 	add r0, sp, #0x38
 	beq _02022B54
@@ -1105,30 +1105,31 @@ FUN_02022CF0: ; 0x02022CF0
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_020228A4
+	bl GetChunkOffsetFromCurrentSaveSlot
 	ldr r1, [r5, #0x4]
 	ldr r2, [r5, #0x8]
 	add r1, r4, r1
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	pop {r3-r5, pc}
 	.balign 4
 
 	thumb_func_start FUN_02022D08
 FUN_02022D08: ; 0x02022D08
+	; BOOL FUN_02022D08(struct SaveBlock2 * sav2) {
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	ldr r0, _02022D4C ; =0x00020464
-	mov r7, #0x85
+	ldr r0, _02022D4C ; =0x00020464 ; unk_20464
+	mov r7, #0x85 ; dynamic_region
 	mov r4, #0x0
 	add r6, r5, r0
-	lsl r7, r7, #0x2
-_02022D16:
-	ldr r0, _02022D50 ; =0x00020220
+	lsl r7, r7, #0x2 ; dynamic_region
+_02022D16: ; for (int i = 0; i < 2; i++) {
+	ldr r0, _02022D50 ; =0x00020220 ; unk_20220
 	add r1, r5, r4
 	ldrb r0, [r1, r0]
 	add r1, r6, #0x0
 	add r2, r5, r7
-	bl FUN_02022CF0
+	bl FUN_02022CF0 ; if (!FUN_02022CF0(sav2->unk_20220[i], &sav2->unk_20464[i], sav2->dynamic_region)) return FALSE;
 	cmp r0, #0x0
 	bne _02022D2C
 	mov r0, #0x0
@@ -1137,7 +1138,7 @@ _02022D2C:
 	add r0, r5, #0x0
 	add r1, r5, r7
 	add r2, r4, #0x0
-	bl FUN_020228E0
+	bl FUN_020228E0 ; if (!FUN_020228E0(sav2, sav2->dynamic_region, i)) return FALSE;
 	cmp r0, #0x0
 	bne _02022D3E
 	mov r0, #0x0
@@ -1146,8 +1147,8 @@ _02022D3E:
 	add r4, r4, #0x1
 	add r6, #0xc
 	cmp r4, #0x2
-	blt _02022D16
-	mov r0, #0x1
+	blt _02022D16 ; }
+	mov r0, #0x1 ; return TRUE; }
 	pop {r3-r7, pc}
 	nop
 _02022D4C: .word 0x00020464
@@ -1171,7 +1172,7 @@ FUN_02022D54: ; 0x02022D54
 	bl FUN_02022968
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_020228A4
+	bl GetChunkOffsetFromCurrentSaveSlot
 	mov r1, #0x85
 	lsl r1, r1, #0x2
 	add r2, r5, r1
@@ -1179,7 +1180,7 @@ FUN_02022D54: ; 0x02022D54
 	add r1, r2, r1
 	ldr r2, [r4, #0x8]
 	sub r2, #0x14
-	bl FUN_02023668
+	bl FlashWriteChunkInternal
 	pop {r4-r6, pc}
 	nop
 _02022D90: .word 0x00020464
@@ -1196,7 +1197,7 @@ FUN_02022D94: ; 0x02022D94
 	add r0, r2, #0x0
 	add r1, r4, #0x0
 	ldr r5, [r4, #0x8]
-	bl FUN_020228A4
+	bl GetChunkOffsetFromCurrentSaveSlot
 	mov r1, #0x2
 	lsl r1, r1, #0x8
 	add r2, r6, r1
@@ -1206,7 +1207,7 @@ FUN_02022D94: ; 0x02022D94
 	sub r0, #0x14
 	add r1, r1, r5
 	mov r2, #0x14
-	bl FUN_02023668
+	bl FlashWriteChunkInternal
 	pop {r4-r6, pc}
 	.balign 4
 _02022DC4: .word 0x00020464
@@ -1223,7 +1224,7 @@ FUN_02022DC8: ; 0x02022DC8
 	add r0, r2, #0x0
 	add r1, r4, #0x0
 	ldr r5, [r4, #0x8]
-	bl FUN_020228A4
+	bl GetChunkOffsetFromCurrentSaveSlot
 	mov r1, #0x82
 	lsl r1, r1, #0x2
 	add r2, r6, r1
@@ -1233,7 +1234,7 @@ FUN_02022DC8: ; 0x02022DC8
 	sub r0, #0xc
 	add r1, r1, r5
 	mov r2, #0x8
-	bl FUN_02023668
+	bl FlashWriteChunkInternal
 	pop {r4-r6, pc}
 	.balign 4
 _02022DF8: .word 0x00020464
@@ -1348,7 +1349,7 @@ _02022EAE:
 _02022EC0:
 	ldr r0, [r4, #0x10]
 	add r1, sp, #0x0
-	bl FUN_020236E4
+	bl WaitFlashWrite
 	cmp r0, #0x0
 	beq _02022F78
 	ldr r0, [sp, #0x0]
@@ -1383,7 +1384,7 @@ _02022EEE:
 _02022F00:
 	ldr r0, [r4, #0x10]
 	add r1, sp, #0x0
-	bl FUN_020236E4
+	bl WaitFlashWrite
 	cmp r0, #0x0
 	beq _02022F78
 	ldr r0, [sp, #0x0]
@@ -1425,7 +1426,7 @@ _02022F3C:
 _02022F4E:
 	ldr r0, [r4, #0x10]
 	add r1, sp, #0x0
-	bl FUN_020236E4
+	bl WaitFlashWrite
 	cmp r0, #0x0
 	beq _02022F78
 	ldr r0, [sp, #0x0]
@@ -1581,8 +1582,8 @@ _02023054:
 	add sp, #0x24
 	pop {r3-r6, pc}
 
-	thumb_func_start FUN_02023074
-FUN_02023074: ; 0x02023074
+	thumb_func_start FlashClobberChunkFooter
+FlashClobberChunkFooter: ; 0x02023074
 	push {r4-r5, lr}
 	sub sp, #0x14
 	add r4, r2, #0x0
@@ -1597,13 +1598,13 @@ FUN_02023074: ; 0x02023074
 	bl MI_CpuFill8
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_020228A4
+	bl GetChunkOffsetFromCurrentSaveSlot
 	ldr r1, [r5, #0x8]
 	mov r2, #0x14
 	add r0, r1, r0
 	sub r0, #0x14
 	add r1, sp, #0x0
-	bl FUN_020235D0
+	bl FlashWriteChunk
 	add sp, #0x14
 	pop {r4-r5, pc}
 	.balign 4
@@ -1638,8 +1639,8 @@ _020230BE:
 _020230DC: .word UNK_020EE6DC
 _020230E0: .word UNK_020EE700
 
-	thumb_func_start FUN_020230E4
-FUN_020230E4: ; 0x020230E4
+	thumb_func_start SaveBlock2_InitSubstructs
+SaveBlock2_InitSubstructs: ; 0x020230E4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1829,8 +1830,9 @@ _0202323A:
 _02023240: .word UNK_020EE700
 _02023244: .word UNK_020EE6DC
 
-	thumb_func_start FUN_02023248
-FUN_02023248: ; 0x02023248
+	thumb_func_start CreateChunkFooter
+CreateChunkFooter: ; 0x02023248
+	; void CreateChunkFooter(struct SaveBlock2 * sav2, void * data, u16 id, u32 size)
 	push {r3-r5, lr}
 	ldr r5, _0202326C ; =0x20060623
 	add r4, r1, r3
@@ -1851,8 +1853,8 @@ FUN_02023248: ; 0x02023248
 _0202326C: .word 0x20060623
 _02023270: .word 0x000204A4
 
-	thumb_func_start FUN_02023274
-FUN_02023274: ; 0x02023274
+	thumb_func_start ValidateChunk
+ValidateChunk: ; 0x02023274
 	push {r4-r6, lr}
 	ldr r6, [r1, r3]
 	ldr r5, _020232B0 ; =0x20060623
@@ -1896,8 +1898,8 @@ FUN_020232B4: ; 0x020232B4
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_020232BC
-FUN_020232BC: ; 0x020232BC
+	thumb_func_start WriteSaveFileToFlash
+WriteSaveFileToFlash: ; 0x020232BC
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r7, r0, #0x0
@@ -1934,12 +1936,12 @@ _020232E8:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r5, #0x0
-	bl FUN_02023248
+	bl CreateChunkFooter
 	ldr r0, [r4, #0x4]
 	ldr r2, [sp, #0x4]
 	lsl r0, r0, #0xc
 	add r1, r6, #0x0
-	bl FUN_020235D0
+	bl FlashWriteChunk
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x8]
 	blx r0
@@ -1947,7 +1949,7 @@ _020232E8:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r5, #0x0
-	bl FUN_02023274
+	bl ValidateChunk
 	cmp r0, #0x1
 	beq _02023330
 	bl ErrorHandling
@@ -1958,13 +1960,13 @@ _02023330:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r5, #0x0
-	bl FUN_02023248
+	bl CreateChunkFooter
 	ldr r0, [r4, #0x4]
 	ldr r2, [sp, #0x4]
 	add r0, #0x40
 	lsl r0, r0, #0xc
 	add r1, r6, #0x0
-	bl FUN_020235D0
+	bl FlashWriteChunk
 	ldr r1, [sp, #0x0]
 	orr r0, r1
 	str r0, [sp, #0x0]
@@ -1974,7 +1976,7 @@ _02023330:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r5, #0x0
-	bl FUN_02023274
+	bl ValidateChunk
 	cmp r0, #0x1
 	beq _020233DE
 	bl ErrorHandling
@@ -1985,13 +1987,13 @@ _0202336E:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r5, #0x0
-	bl FUN_02023248
+	bl CreateChunkFooter
 	ldr r0, [r4, #0x4]
 	ldr r2, [sp, #0x4]
 	add r0, #0x40
 	lsl r0, r0, #0xc
 	add r1, r6, #0x0
-	bl FUN_020235D0
+	bl FlashWriteChunk
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x8]
 	blx r0
@@ -1999,7 +2001,7 @@ _0202336E:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r5, #0x0
-	bl FUN_02023274
+	bl ValidateChunk
 	cmp r0, #0x1
 	beq _020233A4
 	bl ErrorHandling
@@ -2010,12 +2012,12 @@ _020233A4:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r5, #0x0
-	bl FUN_02023248
+	bl CreateChunkFooter
 	ldr r0, [r4, #0x4]
 	ldr r2, [sp, #0x4]
 	lsl r0, r0, #0xc
 	add r1, r6, #0x0
-	bl FUN_020235D0
+	bl FlashWriteChunk
 	ldr r1, [sp, #0x0]
 	orr r0, r1
 	str r0, [sp, #0x0]
@@ -2025,7 +2027,7 @@ _020233A4:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r5, #0x0
-	bl FUN_02023274
+	bl ValidateChunk
 	cmp r0, #0x1
 	beq _020233DE
 	bl ErrorHandling
@@ -2049,8 +2051,8 @@ _020233FC: .word UNK_020EE6D8
 _02023400: .word UNK_020EE6E0
 _02023404: .word 0x000204A0
 
-	thumb_func_start FUN_02023408
-FUN_02023408: ; 0x02023408
+	thumb_func_start ReadSaveFileFromFlash
+ReadSaveFileFromFlash: ; 0x02023408
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
@@ -2084,14 +2086,14 @@ _02023430:
 	ldr r2, [sp, #0x10]
 	lsl r0, r0, #0xc
 	add r1, r6, #0x0
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	ldr r0, [r4, #0x8]
 	blx r0
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_02023274
+	bl ValidateChunk
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0x8]
 	blx r0
@@ -2104,14 +2106,14 @@ _02023430:
 	add r0, #0x40
 	lsl r0, r0, #0xc
 	add r1, r6, #0x0
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	ldr r0, [r4, #0x8]
 	blx r0
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_02023274
+	bl ValidateChunk
 	add r7, r0, #0x0
 	ldr r0, [r4, #0x8]
 	blx r0
@@ -2137,7 +2139,7 @@ _02023430:
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
 	lsl r0, r0, #0xc
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	add sp, #0x14
 	add r0, r6, #0x0
 	pop {r4-r7, pc}
@@ -2158,7 +2160,7 @@ _020234CC:
 	add r1, r6, #0x0
 	add r0, #0x40
 	lsl r0, r0, #0xc
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	add sp, #0x14
 	add r0, r6, #0x0
 	pop {r4-r7, pc}
@@ -2185,7 +2187,7 @@ _020234F6:
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
 	lsl r0, r0, #0xc
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	add sp, #0x14
 	add r0, r6, #0x0
 	pop {r4-r7, pc}
@@ -2200,7 +2202,7 @@ _0202352E:
 	add r1, r6, #0x0
 	add r0, #0x40
 	lsl r0, r0, #0xc
-	bl FUN_020235EC
+	bl FlashLoadChunk
 	add sp, #0x14
 	add r0, r6, #0x0
 	pop {r4-r7, pc}
@@ -2221,8 +2223,8 @@ _02023564: .word UNK_020EE6D8
 _02023568: .word UNK_020EE6E0
 _0202356C: .word 0x000204A0
 
-	thumb_func_start FUN_02023570
-FUN_02023570: ; 0x02023570
+	thumb_func_start SaveDetectFlash
+SaveDetectFlash: ; 0x02023570
 	push {r3-r5, lr}
 	bl OS_GetLockID
 	add r4, r0, #0x0
@@ -2268,24 +2270,24 @@ _020235C2:
 _020235C8: .word 0x00001302
 _020235CC: .word 0x00001202
 
-	thumb_func_start FUN_020235D0
-FUN_020235D0: ; 0x020235D0
+	thumb_func_start FlashWriteChunk
+FlashWriteChunk: ; 0x020235D0
 	push {r3-r5, lr}
-	bl FUN_02023668
+	bl FlashWriteChunkInternal
 	add r5, r0, #0x0
 	add r4, sp, #0x0
 _020235DA:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_020236E4
+	bl WaitFlashWrite
 	cmp r0, #0x0
 	beq _020235DA
 	ldr r0, [sp, #0x0]
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020235EC
-FUN_020235EC: ; 0x020235EC
+	thumb_func_start FlashLoadChunk
+FlashLoadChunk: ; 0x020235EC
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
@@ -2306,7 +2308,7 @@ _02023608:
 	str r3, [sp, #0x0]
 	mov r1, #0x1
 	str r1, [sp, #0x4]
-	mov r0, #0x6
+	mov r0, #0x6 ; CARD_REQ_READ_BACKUP
 	str r0, [sp, #0x8]
 	str r1, [sp, #0xc]
 	add r0, r5, #0x0
@@ -2336,8 +2338,8 @@ _02023652:
 	.balign 4
 _02023658: .word UNK_021C59C8
 
-	thumb_func_start FUN_0202365C
-FUN_0202365C: ; 0x0202365C
+	thumb_func_start FlashWriteCommandCallback
+FlashWriteCommandCallback: ; 0x0202365C
 	ldr r0, _02023664 ; =UNK_021C59C8
 	mov r1, #0x1
 	str r1, [r0, #0x4]
@@ -2345,8 +2347,8 @@ FUN_0202365C: ; 0x0202365C
 	.balign 4
 _02023664: .word UNK_021C59C8
 
-	thumb_func_start FUN_02023668
-FUN_02023668: ; 0x02023668
+	thumb_func_start FlashWriteChunkInternal
+FlashWriteChunkInternal: ; 0x02023668
 	push {r3-r7, lr}
 	sub sp, #0x18
 	add r5, r0, #0x0
@@ -2366,7 +2368,7 @@ _02023684:
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
-	mov r1, #0x6
+	mov r1, #0x6 ; CARD_REQ_READ_BACKUP
 	str r1, [sp, #0x8]
 	mov r1, #0x1
 	str r1, [sp, #0xc]
@@ -2379,7 +2381,7 @@ _02023684:
 	bne _020236B2
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02023740
+	bl SaveErrorHandling
 _020236B2:
 	ldr r0, _020236DC ; =UNK_021C59C8
 	mov r1, #0x0
@@ -2387,13 +2389,13 @@ _020236B2:
 	str r1, [sp, #0x0]
 	mov r0, #0x1
 	str r0, [sp, #0x4]
-	mov r0, #0x7
+	mov r0, #0x7 ; CARD_REQ_WRITE_BACKUP
 	str r0, [sp, #0x8]
 	mov r0, #0xa
 	str r0, [sp, #0xc]
 	mov r0, #0x2
 	str r0, [sp, #0x10]
-	ldr r3, _020236E0 ; =FUN_0202365C
+	ldr r3, _020236E0 ; =FlashWriteCommandCallback
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	add r2, r7, #0x0
@@ -2403,10 +2405,10 @@ _020236B2:
 	pop {r3-r7, pc}
 	.balign 4
 _020236DC: .word UNK_021C59C8
-_020236E0: .word FUN_0202365C
+_020236E0: .word FlashWriteCommandCallback
 
-	thumb_func_start FUN_020236E4
-FUN_020236E4: ; 0x020236E4
+	thumb_func_start WaitFlashWrite
+WaitFlashWrite: ; 0x020236E4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, _0202373C ; =UNK_021C59C8
@@ -2438,13 +2440,13 @@ _0202371E:
 	mov r1, #0x0
 	add r0, r5, #0x0
 	str r1, [r4, #0x0]
-	bl FUN_02023740
+	bl SaveErrorHandling
 _02023728:
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_02023740
+	bl SaveErrorHandling
 _02023734:
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -2454,8 +2456,8 @@ _02023738:
 	.balign 4
 _0202373C: .word UNK_021C59C8
 
-	thumb_func_start FUN_02023740
-FUN_02023740: ; 0x02023740
+	thumb_func_start SaveErrorHandling
+SaveErrorHandling: ; 0x02023740
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	lsl r0, r5, #0x10

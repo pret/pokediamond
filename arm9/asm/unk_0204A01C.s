@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0204A01C
-FUN_0204A01C: ; 0x0204A01C
+	thumb_func_start MonNotFaintedOrEgg
+MonNotFaintedOrEgg: ; 0x0204A01C
 	push {r4, lr}
 	mov r1, #0xa2
 	mov r2, #0x0
@@ -28,8 +28,8 @@ _0204A042:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204A048
-FUN_0204A048: ; 0x0204A048
+	thumb_func_start GiveMon
+GiveMon: ; 0x0204A048
 	push {r3-r7, lr}
 	sub sp, #0x20
 	add r6, r1, #0x0
@@ -86,8 +86,8 @@ _0204A0BC:
 	add sp, #0x20
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0204A0C8
-FUN_0204A0C8: ; 0x0204A0C8
+	thumb_func_start GiveEgg
+GiveEgg: ; 0x0204A0C8
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r1, #0x0
@@ -113,7 +113,7 @@ FUN_0204A0C8: ; 0x0204A0C8
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r7, #0x0
-	bl MOD05_021ECF14
+	bl MOD05_SetEggStats
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	bl AddMonToParty
@@ -125,8 +125,8 @@ FUN_0204A0C8: ; 0x0204A0C8
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204A120
-FUN_0204A120: ; 0x0204A120
+	thumb_func_start PartyMonSetMoveInSlot
+PartyMonSetMoveInSlot: ; 0x0204A120
 	push {r3-r5, lr}
 	add r5, r2, #0x0
 	add r4, r3, #0x0
@@ -134,12 +134,12 @@ FUN_0204A120: ; 0x0204A120
 	lsl r2, r5, #0x18
 	add r1, r4, #0x0
 	lsr r2, r2, #0x18
-	bl FUN_020697CC
+	bl MonSetMoveInSlot
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204A138
-FUN_0204A138: ; 0x0204A138
+	thumb_func_start GetIdxOfFirstPartyMonWithMove
+GetIdxOfFirstPartyMonWithMove: ; 0x0204A138
 	push {r3-r7, lr}
 	str r0, [sp, #0x0]
 	add r5, r1, #0x0
@@ -194,8 +194,8 @@ _0204A1A2:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204A1A8
-FUN_0204A1A8: ; 0x0204A1A8
+	thumb_func_start CountAlivePokemon
+CountAlivePokemon: ; 0x0204A1A8
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	bl GetPartyCount
@@ -208,7 +208,7 @@ _0204A1BA:
 	add r0, r7, #0x0
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
-	bl FUN_0204A01C
+	bl MonNotFaintedOrEgg
 	cmp r0, #0x0
 	beq _0204A1CC
 	add r5, r5, #0x1
@@ -221,8 +221,8 @@ _0204A1D2:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204A1D8
-FUN_0204A1D8: ; 0x0204A1D8
+	thumb_func_start GetFirstAliveMonInParty_CrashIfNone
+GetFirstAliveMonInParty_CrashIfNone: ; 0x0204A1D8
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	bl GetPartyCount
@@ -235,7 +235,7 @@ _0204A1E8:
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r7, r0, #0x0
-	bl FUN_0204A01C
+	bl MonNotFaintedOrEgg
 	cmp r0, #0x0
 	beq _0204A1FE
 	add r0, r7, #0x0
@@ -249,8 +249,8 @@ _0204A204:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0204A20C
-FUN_0204A20C: ; 0x0204A20C
+	thumb_func_start GetFirstNonEggInParty
+GetFirstNonEggInParty: ; 0x0204A20C
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	bl GetPartyCount
@@ -282,10 +282,10 @@ _0204A240:
 	.balign 4
 _0204A244: .word 0x00000000
 
-	thumb_func_start FUN_0204A248
-FUN_0204A248: ; 0x0204A248
+	thumb_func_start HasEnoughAlivePokemonForDoubleBattle
+HasEnoughAlivePokemonForDoubleBattle: ; 0x0204A248
 	push {r3, lr}
-	bl FUN_0204A1A8
+	bl CountAlivePokemon
 	cmp r0, #0x2
 	blt _0204A256
 	mov r0, #0x1
@@ -295,8 +295,8 @@ _0204A256:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204A25C
-FUN_0204A25C: ; 0x0204A25C
+	thumb_func_start GiveAllMonsTheSinnohChampRibbon
+GiveAllMonsTheSinnohChampRibbon: ; 0x0204A25C
 	push {r3-r7, lr}
 	mov r2, #0x1
 	add r1, sp, #0x0
@@ -329,8 +329,8 @@ _0204A298:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204A29C
-FUN_0204A29C: ; 0x0204A29C
+	thumb_func_start ApplyPoisonStep
+ApplyPoisonStep: ; 0x0204A29C
 	push {r3-r7, lr}
 	sub sp, #0x10
 	mov r7, #0x0
@@ -347,7 +347,7 @@ _0204A2B4:
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r5, r0, #0x0
-	bl FUN_0204A01C
+	bl MonNotFaintedOrEgg
 	cmp r0, #0x0
 	beq _0204A308
 	add r0, r5, #0x0
@@ -404,8 +404,8 @@ _0204A324:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204A32C
-FUN_0204A32C: ; 0x0204A32C
+	thumb_func_start SurvivePoisoning
+SurvivePoisoning: ; 0x0204A32C
 	push {r3-r4, lr}
 	sub sp, #0x4
 	mov r1, #0x9f

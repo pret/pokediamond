@@ -224,7 +224,7 @@ _0208A9C6:
 	bl FUN_02032DAC
 	mov r4, #0x1
 _0208AB58:
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	bl FUN_0202FB80
 	bl FUN_02033678
 	cmp r0, #0x0
@@ -239,7 +239,7 @@ _0208AB72:
 	ldr r7, _0208AC0C ; =0x00002FFF
 	mov r6, #0x1
 _0208AB7A:
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	ldrh r1, [r5, #0x0]
 	ldrh r0, [r4, #0x0]
 	orr r1, r0

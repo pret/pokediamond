@@ -66,7 +66,7 @@ FUN_02087D00: ; 0x02087D00
 	bl SavArray_PlayerParty_get
 	str r0, [r7, #0x10]
 	add r0, r4, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r7, #0x14]
 	add r0, r4, #0x0
 	bl Sav2_PlayerData_GetOptionsAddr

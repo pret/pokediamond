@@ -106,7 +106,7 @@ _02047774:
 	cmp r6, #0x4
 	blt _02047774
 	add r0, r5, #0x0
-	bl FUN_0206EB88
+	bl Sav2_Bag_new
 	mov r1, #0x42
 	lsl r1, r1, #0x2
 	str r0, [r7, r1]
@@ -248,7 +248,7 @@ FUN_02047814: ; 0x02047814
 	mov r1, #0x4
 	mov r2, #0x14
 	add r3, r6, #0x0
-	bl FUN_0206ED38
+	bl Bag_AddItem
 	add r0, r6, #0x0
 	bl AllocMonZeroed
 	add r6, r0, #0x0
@@ -474,7 +474,7 @@ FUN_02047A78: ; 0x02047A78
 	bl SavArray_PlayerParty_get
 	add r7, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
 	bl FUN_02024DA0
@@ -503,7 +503,7 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x2
 	ldr r0, [sp, #0x0]
 	ldr r1, [r5, r1]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x4]
@@ -620,7 +620,7 @@ FUN_02047BC0: ; 0x02047BC0
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -702,7 +702,7 @@ _02047C98:
 	lsl r1, r1, #0x2
 	ldr r0, [sp, #0x10]
 	ldr r1, [r6, r1]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0xc]
@@ -787,7 +787,7 @@ FUN_02047D48: ; 0x02047D48
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -886,7 +886,7 @@ _02047E2C:
 	lsl r1, r1, #0x2
 	ldr r0, [sp, #0x1c]
 	ldr r1, [r5, r1]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x18]
@@ -1016,7 +1016,7 @@ FUN_02047F38: ; 0x02047F38
 	bl SavArray_PlayerParty_get
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0xc]
 	bl FUN_02024DA0
@@ -1037,7 +1037,7 @@ FUN_02047F38: ; 0x02047F38
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	ldr r1, [sp, #0x0]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
@@ -1060,7 +1060,7 @@ FUN_02047FA4: ; 0x02047FA4
 	ldr r0, [r5, #0xc]
 	bl SavArray_PlayerParty_get
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r0, [r5, #0xc]
 	bl FUN_02024DA0
 	add r1, r0, #0x0

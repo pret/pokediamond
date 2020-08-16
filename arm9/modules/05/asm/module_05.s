@@ -3914,10 +3914,10 @@ _021E497A:
 	mov r6, #0
 _021E4980:
 	ldr r0, [r5, #4]
-	bl FUN_0204A1D8
+	bl GetFirstAliveMonInParty_CrashIfNone
 	add r7, r0, #0
 	ldr r0, [r5, #8]
-	bl FUN_0204A1D8
+	bl GetFirstAliveMonInParty_CrashIfNone
 	str r0, [sp]
 	add r0, r7, #0
 	mov r1, #0xa0
@@ -20875,8 +20875,8 @@ _021ECF08: .word 0x0000013A
 _021ECF0C: .word 0x00000139
 _021ECF10: .word 0x000001EA
 
-	thumb_func_start MOD05_021ECF14
-MOD05_021ECF14: ; 0x021ECF14
+	thumb_func_start MOD05_SetEggStats
+MOD05_SetEggStats: ; 0x021ECF14
 	push {r0, r1, r2, r3}
 	push {r4, r5, r6, lr}
 	sub sp, #0x20
@@ -26807,11 +26807,11 @@ _021EFCB0:
 	pop {r3, r4, r5, r6, pc}
 _021EFCC4:
 	ldr r0, [r6, #0x34]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _021EFD3C ; =0x000001B5
 	mov r2, #1
 	mov r3, #4
-	bl FUN_0206EE50
+	bl Bag_HasItem
 	cmp r0, #1
 	bne _021EFCFE
 	add r0, r6, #0
@@ -27091,7 +27091,7 @@ MOD05_021EFEDC: ; 0x021EFEDC
 	add r7, r0, #0
 	add r0, r7, #1
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5]
 	mov r0, #1
 	str r0, [sp]
@@ -27132,7 +27132,7 @@ _021EFF2E:
 	ldr r0, [r5]
 	ldr r1, [r5, #8]
 	add r2, r4, #0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 _021EFF54:
 	add r4, r4, #1
 	cmp r4, #0x20
@@ -27142,7 +27142,7 @@ _021EFF54:
 	ldr r0, [r5]
 	ldr r1, [r5, #0x3c]
 	sub r3, #0xd
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r4, _021EFFC0 ; =UNK05_021F8B4C
 	add r3, sp, #0x14
 	add r2, r3, #0
@@ -27262,7 +27262,7 @@ _021F0056:
 	add r2, r1, #0
 	bl FUN_02001300
 	ldr r0, [r5]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0

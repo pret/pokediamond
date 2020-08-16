@@ -172,7 +172,7 @@ FUN_02089F24: ; 0x02089F24
 	bl FUN_0200A274
 	mov r4, #0x1
 _0208A078:
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	add r0, r4, #0x0
 	add r1, r4, #0x0
 	bl OS_WaitIrq
@@ -340,8 +340,9 @@ _0208A0C8:
 	mov r2, #0x3
 	bl FUN_0200A274
 	mov r4, #0x1
+	; Battery-saver trap
 _0208A21A:
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	add r0, r4, #0x0
 	add r1, r4, #0x0
 	bl OS_WaitIrq
