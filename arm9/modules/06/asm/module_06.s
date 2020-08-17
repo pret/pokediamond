@@ -30992,7 +30992,7 @@ _0224886C:
 	mov r0, #0x73
 	add r1, r6, #0
 	add r3, r5, #0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4]
 	str r5, [r4, #0x10]
 	str r6, [r4, #0xc]
@@ -44315,7 +44315,7 @@ _0224EFCC:
 	add r1, r4, #4
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r6, r7]
 	add r4, r4, #1
 	add r6, r6, #4

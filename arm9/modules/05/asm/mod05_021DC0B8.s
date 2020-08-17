@@ -520,7 +520,7 @@ MOD05_021DC480: ; 0x021DC480
 	add r1, r5, #0
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r5, r0, #0
 	add r1, r4, #0
 	mov r2, #4

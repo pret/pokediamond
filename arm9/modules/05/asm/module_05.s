@@ -38012,7 +38012,7 @@ MOD05_021F5268: ; 0x021F5268
 	add r1, r2, #0
 	str r5, [sp]
 	add r2, r5, #0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4]
 	bl FUN_020BC13C
 	str r0, [r4, #4]
@@ -38105,7 +38105,7 @@ MOD05_021F531C: ; 0x021F531C
 	ldr r3, [sp, #0x18]
 	add r2, r6, #0
 	str r6, [sp]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r2, r0, #0
 	ldr r3, [sp, #0x1c]
 	add r0, r5, #0

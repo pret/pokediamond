@@ -1010,7 +1010,7 @@ MOD57_021D7CA4: ; 0x021D7CA4
 	mov r1, #0x1b
 	mov r3, #0x19
 	str r2, [sp]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	ldr r1, _021D7ECC ; =0x000030B8
 	str r0, [r4, r1]
 	ldr r0, [r4, r1]
@@ -1064,7 +1064,7 @@ _021D7D9C:
 	mov r0, #0x33
 	mov r3, #0x19
 	str r2, [sp]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	ldr r1, _021D7ECC ; =0x000030B8
 	str r0, [r4, r1]
 	ldr r0, [r4, r1]

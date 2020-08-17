@@ -984,7 +984,7 @@ FUN_02040EB4: ; 0x02040EB4
 	lsr r2, r0, #0x10
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AD94
+	bl GetRibbonNameOrDesc
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4

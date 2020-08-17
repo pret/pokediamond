@@ -3041,7 +3041,7 @@ _020822D6:
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_0200AD94
+	bl GetRibbonNameOrDesc
 	pop {r3-r5, pc}
 	.balign 4
 _020822EC: .word 0x0000011F

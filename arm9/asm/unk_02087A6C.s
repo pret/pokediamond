@@ -249,7 +249,7 @@ FUN_02087C18: ; 0x02087C18
 	mov r0, #0x4b
 	add r2, r1, #0x0
 	str r1, [sp, #0x0]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	pop {r3, pc}
 	.balign 4
 
@@ -261,7 +261,7 @@ FUN_02087C2C: ; 0x02087C2C
 	mov r0, #0x4b
 	mov r1, #0x1
 	str r2, [sp, #0x0]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	pop {r3, pc}
 	.balign 4
 
@@ -277,14 +277,14 @@ FUN_02087C40: ; 0x02087C40
 	mov r0, #0x4b
 	mov r1, #0x9
 	add r3, r6, #0x0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r5, #0x0]
 	mov r2, #0x0
 	mov r0, #0x4b
 	mov r1, #0xa
 	add r3, r6, #0x0
 	str r2, [sp, #0x0]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, #0x0]
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -302,14 +302,14 @@ FUN_02087C70: ; 0x02087C70
 	mov r0, #0x4b
 	mov r1, #0x7
 	add r3, r6, #0x0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r5, #0x0]
 	mov r2, #0x0
 	mov r0, #0x4b
 	mov r1, #0x8
 	add r3, r6, #0x0
 	str r2, [sp, #0x0]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, #0x0]
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -327,14 +327,14 @@ FUN_02087CA0: ; 0x02087CA0
 	mov r0, #0x4b
 	mov r1, #0x5
 	add r3, r6, #0x0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r5, #0x0]
 	mov r2, #0x0
 	mov r0, #0x4b
 	mov r1, #0x6
 	add r3, r6, #0x0
 	str r2, [sp, #0x0]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, #0x0]
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -352,14 +352,14 @@ FUN_02087CD0: ; 0x02087CD0
 	mov r0, #0x4b
 	mov r1, #0x3
 	add r3, r6, #0x0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r5, #0x0]
 	mov r2, #0x0
 	mov r0, #0x4b
 	mov r1, #0x4
 	add r3, r6, #0x0
 	str r2, [sp, #0x0]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, #0x0]
 	add sp, #0x4
 	pop {r3-r6, pc}

@@ -1057,7 +1057,7 @@ MOD64_021D7D7C: ; 0x021D7D7C
 	add r4, r0, #0
 	str r2, [sp]
 	mov r0, #0x52
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, #0x54]
 	bl FUN_020BC13C
 	str r0, [r4, #0x58]
@@ -1091,7 +1091,7 @@ MOD64_021D7DC0: ; 0x021D7DC0
 	str r2, [sp]
 	mov r0, #0x52
 	add r3, r6, #0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, #0x64]
 	mov r1, #0
 	bl FUN_020BC4C8

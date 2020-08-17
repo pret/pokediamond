@@ -2220,7 +2220,7 @@ MOD71_0222E884: ; 0x0222E884
 	str r2, [sp]
 	ldr r2, [sp, #0x20]
 	ldr r3, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r6, r0, #0
 	beq _0222E8D6
 	add r1, sp, #4

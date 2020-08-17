@@ -47817,7 +47817,7 @@ MOD12_0224473C: ; 0x0224473C
 	mov r0, #0x5a
 	add r1, r1, #3
 	str r2, [sp]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	pop {r3, pc}
 	.align 2, 0
 
