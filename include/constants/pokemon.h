@@ -24,6 +24,13 @@
 #define TYPE_DARK             17
 #define NUMBER_OF_MON_TYPES   18
 
+// Contest types
+#define COOL           0
+#define BEAUTY         1
+#define CUTE           2
+#define SMART          3
+#define TOUGH          4
+
 // Pokemon egg groups
 #define EGG_GROUP_NONE          0
 #define EGG_GROUP_MONSTER       1
