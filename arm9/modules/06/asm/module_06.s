@@ -31005,7 +31005,7 @@ _0224886C:
 	bl PlayerProfile_Clear
 	add r0, r5, #0
 	add r1, r6, #4
-	bl MOD06_022489AC
+	bl GetInGameTradeMonOrPartnerName
 	add r5, r0, #0
 	add r1, sp, #4
 	mov r2, #0x80
@@ -31093,7 +31093,7 @@ MOD06_0224891C: ; 0x0224891C
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
 	ldr r3, [r5, #0xc]
-	bl MOD06_022489D4
+	bl CreateInGameTradeMon
 	ldr r1, [sp, #0x20]
 	add r0, r7, #0
 	bl FUN_02069B88
@@ -31135,8 +31135,8 @@ _022489A2:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start MOD06_022489AC
-MOD06_022489AC: ; 0x022489AC
+	thumb_func_start GetInGameTradeMonOrPartnerName
+GetInGameTradeMonOrPartnerName: ; 0x022489AC
 	push {r3, r4, r5, lr}
 	ldr r2, _022489D0 ; =0x00000146
 	add r3, r0, #0
@@ -31155,8 +31155,9 @@ MOD06_022489AC: ; 0x022489AC
 	.align 2, 0
 _022489D0: .word 0x00000146
 
-	thumb_func_start MOD06_022489D4
-MOD06_022489D4: ; 0x022489D4
+	thumb_func_start CreateInGameTradeMon
+CreateInGameTradeMon: ; 0x022489D4
+	; void CreateInGameTradeMon(struct Pokemon * mon, struct InGameTrade * trade, u32 level, u32 name_idx, u32 heap_id)
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r6, r3, #0
@@ -31174,7 +31175,7 @@ MOD06_022489D4: ; 0x022489D4
 	bl CreateMon
 	ldr r0, [sp, #0x28]
 	add r1, r6, #0
-	bl MOD06_022489AC
+	bl GetInGameTradeMonOrPartnerName
 	add r7, r0, #0
 	add r0, r5, #0
 	mov r1, #0x76
@@ -31250,7 +31251,7 @@ MOD06_022489D4: ; 0x022489D4
 	bl SetMonData
 	ldr r0, [sp, #0x28]
 	add r1, r6, #4
-	bl MOD06_022489AC
+	bl GetInGameTradeMonOrPartnerName
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #0x90
