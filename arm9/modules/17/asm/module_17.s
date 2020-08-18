@@ -1752,7 +1752,7 @@ _021D81AC:
 	add r1, r4, #1
 	mov r2, #0
 	mov r3, #0xe
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [sp, #4]
 	cmp r0, #0
 	bne _021D81C6
@@ -1778,7 +1778,7 @@ _021D81C6:
 	mov r0, #0x19
 	add r2, r1, #0
 	mov r3, #0xe
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r4, r0, #0
 	ldr r0, [r6, #0x14]
 	add r1, r4, #0
@@ -1816,7 +1816,7 @@ _021D822A:
 	add r1, #0xce
 	mov r2, #0
 	mov r3, #0xe
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r2, r4, #0
 	add r1, r0, #0
 	add r2, #0x64
@@ -1837,7 +1837,7 @@ _021D822A:
 	str r0, [sp]
 	ldr r1, [sp, #8]
 	mov r0, #0x19
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [sp, #0xc]
 	ldr r0, [r5, #0x14]
 	ldr r1, [sp, #0xc]
@@ -1887,7 +1887,7 @@ MOD17_021D82B8: ; 0x021D82B8
 	mov r0, #0x19
 	mov r1, #0xeb
 	str r2, [sp]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, #0x28]
 	add sp, #4
 	pop {r3, r4, pc}
@@ -8834,7 +8834,7 @@ MOD17_021DB6D8: ; 0x021DB6D8
 	ldrh r0, [r1]
 	ldrh r1, [r1, #2]
 	mov r3, #0xe
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r1, r0, #0
 	add r0, r4, #0
 	mov r2, #0x76
@@ -8913,7 +8913,7 @@ MOD17_021DB700: ; 0x021DB700
 	ldrh r0, [r6]
 	ldrh r1, [r6, #2]
 	ldr r3, [sp, #0x30]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r1, sp, #0x10
 	add r6, r0, #0
 	bl FUN_020B0088
@@ -13716,7 +13716,7 @@ _021DDAC6:
 	mov r0, #0x19
 	add r1, r5, #1
 	mov r2, #0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r7, r0, #0
 	ldr r0, [r4, #0x10]
 	add r1, r7, #0
@@ -13749,7 +13749,7 @@ _021DDB1E:
 	ldr r3, [sp, #0xc]
 	mov r0, #0x19
 	add r2, r1, #0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r5, r0, #0
 	ldr r0, [r4, #0x14]
 	add r1, r5, #0

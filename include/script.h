@@ -24,7 +24,7 @@ struct ScriptContext
 	u32 unk74;
 	struct MsgData * unk78;
 	u8 *unk7C;
-	struct SaveBlock2 * unk80;
+    struct UnkStruct_0204639C * unk80;
 };
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

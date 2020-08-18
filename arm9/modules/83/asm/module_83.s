@@ -9382,7 +9382,7 @@ MOD83_022320D8: ; 0x022320D8
 	add r6, r3, #0
 	ldr r3, [r5]
 	mov r0, #0x74
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r1, sp, #4
 	add r7, r0, #0
 	bl FUN_020B0180
@@ -24220,7 +24220,7 @@ MOD83_022391EC: ; 0x022391EC
 	ldr r3, [r3, #4]
 	mov r0, #0x74
 	mov r1, #0x1f
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r1, sp, #0x14
 	str r0, [sp, #0x10]
 	bl FUN_020B0180

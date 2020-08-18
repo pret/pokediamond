@@ -1657,7 +1657,7 @@ MOD81_02238A84: ; 0x02238A84
 	mov r2, #0
 	mov r3, #0x3a
 	add r5, r4, r6
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, r6]
 	ldr r1, [sp, #4]
 	add r0, r7, #0

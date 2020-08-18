@@ -408,7 +408,7 @@
 .extern FUN_02006C30
 .extern FUN_02006C5C
 .extern FUN_02006C88
-.extern FUN_02006C98
+.extern UncompressFromNarc
 .extern FUN_02006D18
 .extern FUN_02006D98
 .extern FUN_02006ED4
@@ -551,7 +551,7 @@
 .extern FUN_0200AD18
 .extern FUN_0200AD38
 .extern FUN_0200AD5C
-.extern FUN_0200AD94
+.extern GetRibbonNameOrDesc
 .extern FUN_0200ADCC
 .extern FUN_0200AE04
 .extern FUN_0200AE38

@@ -183,7 +183,7 @@ Static arm9
 	Object unk_02048120.o
 	Object unk_020484A8.o
 	Object unk_02048904.o
-	Object unk_0204A01C.o
+	Object script_pokemon_util.o
 	Object unk_0204A368.o
 	Object unk_0204A498.o
 	Object unk_0204AB0C.o

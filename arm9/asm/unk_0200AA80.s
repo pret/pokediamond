@@ -427,8 +427,8 @@ _0200AD90:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0200AD94
-FUN_0200AD94: ; 0x0200AD94
+	thumb_func_start GetRibbonNameOrDesc
+GetRibbonNameOrDesc: ; 0x0200AD94
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r6, r2, #0x0

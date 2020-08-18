@@ -13810,7 +13810,7 @@ MOD14_021DE1D0: ; 0x021DE1D0
 	ldr r1, _021DE26C ; =MOD14_021E65AD
 	ldrb r1, [r1, r3]
 	mov r3, #0xa
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [sp, #0x10]
 	cmp r0, #0
 	beq _021DE268
@@ -13890,7 +13890,7 @@ MOD14_021DE278: ; 0x021DE278
 	ldr r1, _021DE2E0 ; =MOD14_021E65AC
 	ldrb r1, [r1, r3]
 	mov r3, #0xa
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [sp, #4]
 	cmp r0, #0
 	beq _021DE2DC
