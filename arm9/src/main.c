@@ -6,7 +6,7 @@
 #include "PAD_pad.h"
 #include "main.h"
 #include "poke_overlay.h"
-#include "save_block_2.h"
+#include "player_data.h"
 #include "sound.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);

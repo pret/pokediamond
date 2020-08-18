@@ -9,7 +9,7 @@
 #include "seals.h"
 #include "constants/pokemon.h"
 #include "string16.h"
-#include "save_block_2.h"
+#include "player_data.h"
 
 struct BaseStats {
     /* 0x00 */ u8 hp;
