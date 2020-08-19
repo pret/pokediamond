@@ -1015,7 +1015,7 @@ _02046D4E:
 	b _02046D8C
 _02046D5C:
 	ldr r0, [r6, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	str r0, [sp, #0x8]
 	ldr r0, [r6, #0xc]
 	bl SavArray_PlayerParty_get

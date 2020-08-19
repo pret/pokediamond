@@ -96,7 +96,7 @@ _0204817A:
 	add r1, #0xc
 	bl FUN_02019150
 	add r0, r5, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x20]

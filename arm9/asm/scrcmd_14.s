@@ -165,7 +165,7 @@ FUN_02043B84: ; 0x02043B84
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetCoinsAddr
@@ -201,7 +201,7 @@ FUN_02043BD0: ; 0x02043BD0
 	add r0, #0x80
 	ldr r4, [r0, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	ldr r0, [r4, #0xc]
 	bl Sav2_PlayerData_GetCoinsAddr

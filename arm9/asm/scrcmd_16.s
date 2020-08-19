@@ -70,7 +70,7 @@ FUN_02043E68: ; 0x02043E68
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	add r0, r6, #0x0

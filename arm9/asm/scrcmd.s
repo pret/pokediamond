@@ -7344,12 +7344,12 @@ FUN_0203D3DC: ; 0x0203D3DC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r5, #0x80
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02013B5C
 	add r5, r0, #0x0
 	cmp r4, #0x0
@@ -7755,7 +7755,7 @@ FUN_0203D738: ; 0x0203D738
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r4, #0x80
 	add r5, r0, #0x0
@@ -7782,7 +7782,7 @@ FUN_0203D774: ; 0x0203D774
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
@@ -7826,7 +7826,7 @@ FUN_0203D7DC: ; 0x0203D7DC
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
@@ -7864,7 +7864,7 @@ FUN_0203D834: ; 0x0203D834
 	add r5, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -7917,7 +7917,7 @@ FUN_0203D8A0: ; 0x0203D8A0
 	add r5, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -10292,8 +10292,8 @@ FUN_0203EB88: ; 0x0203EB88
 	add sp, #0xc
 	pop {r4-r7, pc}
 
-	thumb_func_start FUN_0203EBC8
-FUN_0203EBC8: ; 0x0203EBC8
+	thumb_func_start ScrCmd_gameversion
+ScrCmd_gameversion: ; 0x0203EBC8
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -10307,15 +10307,15 @@ FUN_0203EBC8: ; 0x0203EBC8
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EBE4
-FUN_0203EBE4: ; 0x0203EBE4
+	thumb_func_start ScrCmd_givewallpaper
+ScrCmd_givewallpaper: ; 0x0203EBE4
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
 	add r0, #0x80
 	ldr r6, [r0, #0x0]
 	add r0, r6, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
@@ -10327,7 +10327,7 @@ FUN_0203EBE4: ; 0x0203EBE4
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -10498,8 +10498,8 @@ FUN_0203ED2C: ; 0x0203ED2C
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203ED70
-FUN_0203ED70: ; 0x0203ED70
+	thumb_func_start ScrCmd_pcfreespace
+ScrCmd_pcfreespace: ; 0x0203ED70
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -10512,7 +10512,7 @@ FUN_0203ED70: ; 0x0203ED70
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	bl PCStorage_CountMonsAndEggsInAllBoxes
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10

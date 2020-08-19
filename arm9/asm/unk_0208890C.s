@@ -56,7 +56,7 @@ FUN_02088960: ; 0x02088960
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r3, r5, #0x0
 	add r3, #0x98
 	add r1, r0, #0x0

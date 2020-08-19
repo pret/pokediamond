@@ -11,8 +11,8 @@ FUN_02022504: ; 0x02022504
 	nop
 _0202250C: .word SavArray_get
 
-	thumb_func_start FUN_02022510
-FUN_02022510: ; 0x02022510
+	thumb_func_start GetStoragePCPointer
+GetStoragePCPointer: ; 0x02022510
 	ldr r3, _02022518 ; =SavArray_get
 	mov r1, #0x23
 	bx r3

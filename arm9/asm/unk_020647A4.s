@@ -47,7 +47,7 @@ FUN_020647A4: ; 0x020647A4
 	push {r3-r7, lr}
 	sub sp, #0x30
 	add r4, r0, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024ED8
 	mov r1, #0x7
 	bl FUN_020254A0
@@ -137,7 +137,7 @@ _02064868: .word UNK_020F7D4C
 FUN_0206486C: ; 0x0206486C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024ED8
 	add r5, r0, #0x0
 	mov r1, #0x7
@@ -325,7 +325,7 @@ _020649AC: .word 0x00000125
 	thumb_func_start FUN_020649B0
 FUN_020649B0: ; 0x020649B0
 	push {r3, lr}
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024ED8
 	mov r1, #0x7
 	bl FUN_020254A0
@@ -346,7 +346,7 @@ _020649CC:
 FUN_020649D4: ; 0x020649D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024ED8
 	mov r1, #0x7
 	bl FUN_020254A0

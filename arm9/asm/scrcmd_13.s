@@ -92,7 +92,7 @@ FUN_02043918: ; 0x02043918
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	str r0, [sp, #0x8]
 	mov r0, #0x20
 	bl AllocMonZeroed

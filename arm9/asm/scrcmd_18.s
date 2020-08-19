@@ -120,7 +120,7 @@ ScrCmd_checkpartymonotid: ; 0x020443A8
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	add r0, r4, #0x0
@@ -1113,7 +1113,7 @@ FUN_02044C0C: ; 0x02044C0C
 	bl GetVarPointer
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	str r0, [sp, #0x4]
 	ldr r0, [r7, #0xc]
 	bl SavArray_PlayerParty_get

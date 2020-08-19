@@ -2315,13 +2315,13 @@ FUN_0204DCB4: ; 0x0204DCB4
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r4, r0, #0x0
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r1, [r0, #0x0]
@@ -4108,7 +4108,7 @@ _0204E9B8:
 	cmp r0, #0x0
 	bne _0204EA7C
 	ldr r0, [r1, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r1, r4, #0x0
 	bl FUN_02026908
@@ -4644,7 +4644,7 @@ _0204EE36:
 	str r2, [r3, r0]
 	ldr r5, [r1, #0x0]
 	ldr r0, [r5, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	mov r1, #0x29
 	add r2, r5, r4
@@ -5229,7 +5229,7 @@ FUN_0204F2D8: ; 0x0204F2D8
 	add r5, r2, #0x0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r4, r0, #0x0
 	ldrb r0, [r5, #0x0]
@@ -5466,7 +5466,7 @@ _0204F4D2:
 	ldr r0, _0204F5E0 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r4, r0, #0x0
 	bl FUN_020269A0

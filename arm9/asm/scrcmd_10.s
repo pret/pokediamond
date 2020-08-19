@@ -49,7 +49,7 @@ FUN_02042364: ; 0x02042364
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl MOD06_022434D0
