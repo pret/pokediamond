@@ -533,6 +533,11 @@ Overlay MODULE_05
 	Object mod05_021DC0B8.o
 	Object mod05_021E1374.o
 	Object mod05_021E1AD8.o
+	Object mod05_021E2B80.o
+	Object mod05_021E2E88.o
+	Object mod05_021E3340.o
+	Object mod05_021E3444.o
+	Object mod05_021E4AE4.o
 	Object module_05.o
 }
 
