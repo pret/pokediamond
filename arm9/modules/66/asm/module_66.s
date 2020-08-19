@@ -7,7 +7,7 @@
 MOD66_021D74E0: ; 0x021D74E0
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r2, #2
 	add r5, r0, #0
 	mov r0, #3
@@ -17,7 +17,7 @@ MOD66_021D74E0: ; 0x021D74E0
 	add r0, r4, #0
 	mov r1, #0xe4
 	mov r2, #0x11
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0
 	mov r2, #0xe4
 	add r4, r0, #0
@@ -51,7 +51,7 @@ _021D7534: .word 0x00000139
 	thumb_func_start MOD66_021D7538
 MOD66_021D7538: ; 0x021D7538
 	push {r4, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r1, [r4, #8]
 	cmp r1, #8
@@ -115,9 +115,9 @@ _021D75AA:
 MOD66_021D75B0: ; 0x021D75B0
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r0, r4, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x11
 	bl FUN_020168D0
 	mov r0, #1

@@ -2,7 +2,6 @@
 #define POKEDIAMOND_SAVE_BLOCK_2_H
 
 #include "MATH_crc.h"
-#include "player_data.h"
 
 struct SavArrayHeader
 {

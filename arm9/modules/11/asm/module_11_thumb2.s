@@ -10,7 +10,7 @@ MOD11_0222F29C: ; 0x0222F29C
 	add r4, r1, #0
 	ldr r1, _0222F4C0 ; =0x00001028
 	mov r2, #5
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r5, r0, #0
 	ldr r0, _0222F4C4 ; =0x00001020
 	str r4, [r5]
@@ -255,7 +255,7 @@ _0222F4E0: .word 0x00001024
 MOD11_0222F4E4: ; 0x0222F4E4
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0xc
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r1, [r4, #4]
 	mov r0, #5
@@ -795,7 +795,7 @@ _0222F938: .word 0x00001024
 	thumb_func_start MOD11_0222F93C
 MOD11_0222F93C: ; 0x0222F93C
 	push {r4, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
@@ -829,10 +829,10 @@ MOD11_0222F988: ; 0x0222F988
 	ldr r1, _0222FAB4 ; =0x00002444
 	add r5, r0, #0
 	mov r2, #5
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r6, r0, #0
 	bl FUN_02031190
 	lsl r0, r0, #0x18
@@ -979,7 +979,7 @@ _0222FAB8: .word SDK_OVERLAY_MODULE_07_ID
 	thumb_func_start MOD11_0222FABC
 MOD11_0222FABC: ; 0x0222FABC
 	push {r3, r4, r5, r6, r7, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0
 	mov r0, #7
 	lsl r0, r0, #6
@@ -1019,10 +1019,10 @@ _0222FAFE:
 MOD11_0222FB04: ; 0x0222FB04
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	bl FUN_02031190
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
@@ -1165,7 +1165,7 @@ _0222FC2A:
 	thumb_func_start MOD11_0222FC38
 MOD11_0222FC38: ; 0x0222FC38
 	push {r3, r4, r5, r6, r7, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0
 	mov r0, #7
 	lsl r0, r0, #6
@@ -1205,7 +1205,7 @@ _0222FC7A:
 MOD11_0222FC80: ; 0x0222FC80
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r7, r0, #0
 	bl FUN_02031190
 	lsl r0, r0, #0x18
@@ -1434,7 +1434,7 @@ _0222FE54: .word SDK_OVERLAY_MODULE_07_ID
 	thumb_func_start MOD11_0222FE58
 MOD11_0222FE58: ; 0x0222FE58
 	push {r4, r5, r6, lr}
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0x66
 	lsl r1, r1, #2
 	ldr r6, [r0, r1]
@@ -22671,7 +22671,7 @@ MOD11_0223A3B4: ; 0x0223A3B4
 	cmp r0, #6
 	bne _0223A3E0
 	ldr r0, [r5, #0x64]
-	bl FUN_0206B334
+	bl PCStorage_FindFirstBoxWithEmptySlot
 	cmp r0, #0x12
 	beq _0223A3F0
 _0223A3E0:
@@ -25682,7 +25682,7 @@ _0223BBEE:
 	ldr r0, _0223BF18 ; =UNK_020FA5FC
 	add r1, r5, #0
 	mov r2, #5
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x50]
 	mov r0, #0x15
 	str r0, [r4, #0x28]
@@ -25697,7 +25697,7 @@ _0223BBEE:
 	pop {r3, r4, r5, r6, r7, pc}
 _0223BC38:
 	ldr r0, [r4, #0x50]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _0223BC88
 	ldr r2, [r4, #4]
@@ -25718,7 +25718,7 @@ _0223BC62:
 	add r0, r5, #0
 	bl FUN_02077AC4
 	ldr r0, [r4, #0x50]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r0, [r4]
 	mov r1, #2
 	bl MOD11_02231338
@@ -25801,14 +25801,14 @@ _0223BD1E:
 	ldr r0, [r4]
 	bl MOD11_02230290
 	str r0, [sp, #0x1c]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x1c]
-	bl FUN_0206B334
+	bl PCStorage_FindFirstBoxWithEmptySlot
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x14]
-	bl FUN_0206B428
+	bl PCStorage_SetActiveBox
 	mov r5, #0
 _0223BD3E:
 	add r1, r5, #0
@@ -25830,7 +25830,7 @@ _0223BD3E:
 	add r2, r0, #0
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x14]
-	bl FUN_0206B244
+	bl PCStorage_PlaceMonInBoxFirstEmptySlot
 	ldr r0, [r4, #0x28]
 	cmp r0, #0x16
 	bne _0223BDD0

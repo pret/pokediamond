@@ -34,7 +34,7 @@ FUN_0200687C: ; 0x0200687C
 	ldr r2, [sp, #0x28]
 	ldr r3, [sp, #0x2c]
 	ldr r4, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r7, r0, #0x0
 	beq _020068C2
 	add r1, sp, #0x4
@@ -74,7 +74,7 @@ FUN_020068C8: ; 0x020068C8
 	ldr r2, [sp, #0x28]
 	ldr r3, [sp, #0x2c]
 	ldr r4, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r7, r0, #0x0
 	beq _0200692C
 	add r1, sp, #0x4
@@ -142,7 +142,7 @@ FUN_02006948: ; 0x02006948
 	mov r2, #0x0
 	ldr r6, [sp, #0x20]
 	ldr r5, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _02006A2A
@@ -258,7 +258,7 @@ FUN_02006A34: ; 0x02006A34
 	ldr r2, [sp, #0x24]
 	ldr r3, [sp, #0x28]
 	ldr r4, [sp, #0x20]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r7, r0, #0x0
 	beq _02006A80
 	add r1, sp, #0x4
@@ -302,7 +302,7 @@ FUN_02006A8C: ; 0x02006A8C
 	str r2, [sp, #0x0]
 	ldr r3, [sp, #0x20]
 	mov r2, #0x0
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r6, r0, #0x0
 	beq _02006AE0
 	add r1, sp, #0x4
@@ -344,7 +344,7 @@ FUN_02006AE4: ; 0x02006AE4
 	mov r3, #0x1
 	str r3, [sp, #0x0]
 	ldr r3, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r6, r0, #0x0
 	ldr r4, _02006B30 ; =0x00000000
 	beq _02006B28
@@ -387,7 +387,7 @@ FUN_02006B38: ; 0x02006B38
 	mov r3, #0x1
 	str r3, [sp, #0x0]
 	ldr r3, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r4, r0, #0x0
 	beq _02006B9E
 	add r1, sp, #0x4
@@ -449,7 +449,7 @@ FUN_02006BB0: ; 0x02006BB0
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	ldr r3, [sp, #0x10]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r5, r0, #0x0
 	beq _02006BD6
 	add r1, r4, #0x0
@@ -472,7 +472,7 @@ FUN_02006BDC: ; 0x02006BDC
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	ldr r3, [sp, #0x10]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r5, r0, #0x0
 	beq _02006C02
 	add r1, r4, #0x0
@@ -494,7 +494,7 @@ FUN_02006C08: ; 0x02006C08
 	add r5, r2, #0x0
 	mov r2, #0x0
 	str r2, [sp, #0x0]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r4, r0, #0x0
 	beq _02006C2C
 	add r1, r5, #0x0
@@ -516,7 +516,7 @@ FUN_02006C30: ; 0x02006C30
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	ldr r3, [sp, #0x10]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r5, r0, #0x0
 	beq _02006C56
 	add r1, r4, #0x0
@@ -539,7 +539,7 @@ FUN_02006C5C: ; 0x02006C5C
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	ldr r3, [sp, #0x10]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r5, r0, #0x0
 	beq _02006C82
 	add r1, r4, #0x0
@@ -562,11 +562,11 @@ FUN_02006C88: ; 0x02006C88
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	mov r2, #0x1
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	pop {r3, pc}
 
-	thumb_func_start FUN_02006C98
-FUN_02006C98: ; 0x02006C98
+	thumb_func_start UncompressFromNarc
+UncompressFromNarc: ; 0x02006C98
 	push {r3-r7, lr}
 	add r5, r2, #0x0
 	add r7, r0, #0x0

@@ -9,7 +9,7 @@ MOD11_0222D5C0: ; 0x0222D5C0
 	sub sp, #0x28
 	add r4, r1, #0
 	add r6, r0, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r1, [r4]
 	add r5, r0, #0
 	cmp r1, #0xf
@@ -655,7 +655,7 @@ _0222DB4C: .word MOD11_0222F01C
 MOD11_0222DB50: ; 0x0222DB50
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x30
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl FUN_020222F0
 	add r5, r0, #0
@@ -1076,7 +1076,7 @@ _0222DF48: .word 0x00002434
 	thumb_func_start MOD11_0222DF4C
 MOD11_0222DF4C: ; 0x0222DF4C
 	push {r4, r5, r6, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, _0222DF9C ; =0x000023F8
 	add r4, r0, #0
 	ldrb r1, [r4, r1]
@@ -1122,10 +1122,10 @@ _0222DFA0: .word 0x000023FA
 MOD11_0222DFA4: ; 0x0222DFA4
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r7, r0, #0
 	mov r0, #0
 	add r1, r0, #0

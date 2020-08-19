@@ -20,7 +20,7 @@ MOD52_021D74E0: ; 0x021D74E0
 	thumb_func_start MOD52_021D74F8
 MOD52_021D74F8: ; 0x021D74F8
 	push {r3, lr}
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r1, [r0, #8]
 	mov r0, #0x4d
 	bl MOD52_021D769C
@@ -37,7 +37,7 @@ MOD52_021D750C: ; 0x021D750C
 	mov r0, #0
 	ldr r1, _021D7524 ; =UNK_020FD144
 	mvn r0, r0
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #1
 	pop {r3, pc}
 	nop
@@ -61,7 +61,7 @@ MOD52_021D7528: ; 0x021D7528
 	thumb_func_start MOD52_021D7540
 MOD52_021D7540: ; 0x021D7540
 	push {r4, lr}
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r4, [r0, #8]
 	mov r0, #0x4d
 	add r1, r4, #0
@@ -82,7 +82,7 @@ MOD52_021D7560: ; 0x021D7560
 	mov r0, #0
 	ldr r1, _021D7578 ; =UNK_020F2B7C
 	mvn r0, r0
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #1
 	pop {r3, pc}
 	nop
@@ -106,7 +106,7 @@ MOD52_021D757C: ; 0x021D757C
 	thumb_func_start MOD52_021D7594
 MOD52_021D7594: ; 0x021D7594
 	push {r3, r4, r5, lr}
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r4, [r0, #8]
 	add r0, r4, #0
 	bl FUN_02023788
@@ -148,7 +148,7 @@ MOD52_021D75E8: ; 0x021D75E8
 	mov r0, #0
 	ldr r1, _021D7600 ; =UNK_020F2B8C
 	mvn r0, r0
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #1
 	pop {r3, pc}
 	nop

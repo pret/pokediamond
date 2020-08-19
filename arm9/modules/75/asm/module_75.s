@@ -36,13 +36,13 @@ MOD75_021E6BA0: ; 0x021E6BA0
 	ldr r1, _021E6D60 ; =0x000004A4
 	add r0, r5, #0
 	mov r2, #6
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _021E6D60 ; =0x000004A4
 	mov r1, #0
 	add r4, r0, #0
 	bl memset
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r1, r4, #0
 	add r1, #0xc4
 	str r0, [r1]
@@ -196,7 +196,7 @@ _021E6D68: .word MOD75_021E700C
 MOD75_021E6D6C: ; 0x021E6D6C
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r4]
 	add r5, r0, #0
 	cmp r1, #0x18
@@ -406,7 +406,7 @@ _021E6EE0:
 MOD75_021E6F00: ; 0x021E6F00
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl MOD75_021EBFE4
 	add r0, r4, #0
@@ -455,7 +455,7 @@ MOD75_021E6F00: ; 0x021E6F00
 	ldr r0, [r4]
 	bl NARC_dtor
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10

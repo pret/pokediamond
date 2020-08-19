@@ -17,10 +17,10 @@ HOF_OverlayInit: ; 0x0222D5C0
 	ldr r1, _0222D70C ; =0x00001B60
 	add r0, r5, #0
 	mov r2, #0x3f
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r2, #0x4e
 	str r0, [r4, #0xc]
 	mov r0, #0
@@ -181,7 +181,7 @@ HOF_OverlayTeardown: ; 0x0222D750
 	beq _0222D7C6
 	b _0222D7D2
 _0222D762:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, _0222D7D8 ; =0x00001B34
 	ldr r0, [r4, r0]
@@ -211,7 +211,7 @@ _0222D762:
 	ldr r0, [r4, r0]
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x3f
 	bl FUN_020168D0
 	ldr r0, [r5]
@@ -240,7 +240,7 @@ _0222D7F0: .word 0x00001B5C
 HOF_OverlayRun: ; 0x0222D7F4
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5]
 	add r4, r0, #0
 	cmp r1, #5

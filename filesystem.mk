@@ -287,6 +287,7 @@ O2NARC_TARGETS := \
 	files/poketool/personal/evo.narc \
 	files/poketool/personal/growtbl.narc \
 	files/poketool/personal/pms.narc \
+	files/poketool/waza/waza_tbl.narc \
 
 files/poketool/personal/pms.narc: O2NARCFLAGS = -f
 

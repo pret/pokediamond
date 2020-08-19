@@ -12,7 +12,7 @@ struct PlayerData
     /* 0x10 */ u32 playerId;
     /* 0x14 */ u32 money;
     /* 0x18 */ u8 gender;
-    /* 0x19 */ u8 language;
+    /* 0x19 */ u8 country;
     /* 0x1A */ u8 badges;
     /* 0x1B */ u8 avatar;
     /* 0x1C */ u8 field_1C;

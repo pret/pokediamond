@@ -395,11 +395,11 @@ FUN_020857D4: ; 0x020857D4
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020857F4
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0x0
 	beq _020857F4
 	ldr r0, [r4, #0x0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x1
@@ -412,7 +412,7 @@ _020857F4:
 FUN_020857F8: ; 0x020857F8
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r2, #0x1
 	add r5, r0, #0x0
 	mov r0, #0x3
@@ -422,7 +422,7 @@ FUN_020857F8: ; 0x020857F8
 	add r0, r4, #0x0
 	mov r1, #0x1c
 	mov r2, #0x28
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
@@ -462,10 +462,10 @@ FUN_0208585C: ; 0x0208585C
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r5, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x4
@@ -491,7 +491,7 @@ _0208588E:
 	ldr r0, _02085994 ; =UNK_020FCAA8
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0x0]
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0xc]
 	mov r0, #0x1
 	str r0, [r5, #0x0]
@@ -582,7 +582,7 @@ _02085942:
 	ldr r0, _0208599C ; =UNK_020FCAB8
 	ldr r1, [r4, #0x8]
 	ldr r2, [r4, #0x0]
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0xc]
 	mov r0, #0x4
 	str r0, [r5, #0x0]
@@ -622,12 +622,12 @@ _0208599C: .word UNK_020FCAB8
 FUN_020859A0: ; 0x020859A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x10]
 	bl FUN_0208578C
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	ldr r0, [r4, #0x0]
 	bl FUN_020168D0
 	mov r0, #0x1

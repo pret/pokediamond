@@ -31,7 +31,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	ldr r1, _0222D738 ; =0x000036B4
 	add r0, r5, #0
 	mov r2, #0x1a
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	ldr r2, _0222D738 ; =0x000036B4
 	mov r0, #0
@@ -444,7 +444,7 @@ MOD71_0222D9C8: ; 0x0222D9C8
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5]
 	add r4, r0, #0
 	mov r6, #0
@@ -555,11 +555,11 @@ _0222DA72:
 	b _0222DB32
 _0222DAAE:
 	ldr r0, [r4, #0x40]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _0222DB32
 	ldr r0, [r4, #0x40]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	add r0, r4, #0
 	bl MOD71_0222D820
 	add r0, r6, #0
@@ -1722,10 +1722,10 @@ _0222E434: .word 0x000007A8
 MOD71_0222E438: ; 0x0222E438
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r1, [r4, #0x5c]
 	str r1, [r0, #0x28]
 	add r0, r4, #0
@@ -1772,7 +1772,7 @@ MOD71_0222E438: ; 0x0222E438
 	ldr r0, [r4, r0]
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -2088,7 +2088,7 @@ MOD71_0222E76C: ; 0x0222E76C
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	add r0, r1, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r4, r0, #0
 	mov r2, #6
 	ldr r0, _0222E830 ; =0x00000668
@@ -2220,7 +2220,7 @@ MOD71_0222E884: ; 0x0222E884
 	str r2, [sp]
 	ldr r2, [sp, #0x20]
 	ldr r3, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r6, r0, #0
 	beq _0222E8D6
 	add r1, sp, #4
@@ -3937,7 +3937,7 @@ _0222F606:
 	ldr r0, _0222F670 ; =UNK_020FA6E8
 	add r1, #0xc
 	mov r2, #0x1a
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r5, #0x40]
 	str r4, [r5, #0x3c]
 	pop {r3, r4, r5, pc}

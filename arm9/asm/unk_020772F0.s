@@ -410,7 +410,7 @@ _020772FE:
 	add r0, r6, #0x0
 	lsl r1, r1, #0x4
 	mov r2, #0x12
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r2, #0x5d
 	mov r1, #0x0
 	lsl r2, r2, #0x4
@@ -459,7 +459,7 @@ _020772FE:
 	ldr r0, [r4, r0]
 	bl FUN_02077B44
 	add r0, r6, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02077B08
@@ -527,7 +527,7 @@ _020772FE:
 	str r0, [r5, #0x0]
 	b _02077490
 _02077456:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x1
@@ -599,7 +599,7 @@ FUN_020774EC: ; 0x020774EC
 	sub sp, #0x10
 	add r5, r1, #0x0
 	add r6, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5, #0x0]
 	add r4, r0, #0x0
 	cmp r1, #0x3
@@ -1065,10 +1065,10 @@ FUN_02077894: ; 0x02077894
 	push {r4-r7, lr}
 	sub sp, #0x14
 	str r0, [sp, #0x10]
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x10]
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r5, r0, #0x0
 	mov r0, #0x56
 	lsl r0, r0, #0x2
@@ -1253,7 +1253,7 @@ _02077A0C:
 	ldr r0, [r4, r0]
 	bl FUN_0200AB18
 	ldr r0, [sp, #0x10]
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F10
@@ -1564,7 +1564,7 @@ FUN_02077CD4: ; 0x02077CD4
 	sub sp, #0x10
 	add r4, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r7, r0, #0x0
 	ldr r0, _02077E7C ; =0x0000045C
 	mov r1, #0x4
@@ -1772,7 +1772,7 @@ FUN_02077E90: ; 0x02077E90
 	sub sp, #0x14
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x44]
 	cmp r0, #0x0
@@ -1786,10 +1786,10 @@ FUN_02077E90: ; 0x02077E90
 	lsl r0, r0, #0x6
 	str r1, [r5, r0]
 	ldr r0, [r4, #0x48]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x48]
-	bl FUN_0206B334
+	bl PCStorage_FindFirstBoxWithEmptySlot
 	str r0, [sp, #0x10]
 	mov r0, #0x5a
 	lsl r0, r0, #0x2
@@ -3265,7 +3265,7 @@ _02078A90:
 	add r0, r5, r0
 	bl FUN_02078894
 	add r0, r6, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0x46
 	lsl r1, r1, #0x2
 	ldrh r2, [r5, r1]

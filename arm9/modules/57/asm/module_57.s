@@ -37,13 +37,13 @@ MOD57_021D74E0: ; 0x021D74E0
 	ldr r1, _021D76F0 ; =0x00003320
 	add r0, r5, #0
 	mov r2, #0x19
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _021D76F0 ; =0x00003320
 	mov r1, #0
 	add r4, r0, #0
 	bl memset
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r1, r4, #0
 	add r1, #0xb4
 	str r0, [r1]
@@ -259,7 +259,7 @@ MOD57_021D7714: ; 0x021D7714
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5]
 	add r4, r0, #0
 	cmp r1, #4
@@ -536,7 +536,7 @@ _021D7940: .word 0x000030E4
 MOD57_021D7944: ; 0x021D7944
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl MOD57_021D8588
 	add r0, r4, #0
@@ -556,7 +556,7 @@ MOD57_021D7944: ; 0x021D7944
 	bl MOD57_021D7EDC
 	bl FUN_0201CD04
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -1010,7 +1010,7 @@ MOD57_021D7CA4: ; 0x021D7CA4
 	mov r1, #0x1b
 	mov r3, #0x19
 	str r2, [sp]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	ldr r1, _021D7ECC ; =0x000030B8
 	str r0, [r4, r1]
 	ldr r0, [r4, r1]
@@ -1064,7 +1064,7 @@ _021D7D9C:
 	mov r0, #0x33
 	mov r3, #0x19
 	str r2, [sp]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	ldr r1, _021D7ECC ; =0x000030B8
 	str r0, [r4, r1]
 	ldr r0, [r4, r1]

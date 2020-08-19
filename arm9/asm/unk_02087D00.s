@@ -183,11 +183,11 @@ FUN_02087E1C: ; 0x02087E1C
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _02087E3C
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0x0
 	beq _02087E3C
 	ldr r0, [r4, #0x0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x1
@@ -200,7 +200,7 @@ _02087E3C:
 FUN_02087E40: ; 0x02087E40
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r2, #0x1
 	add r5, r0, #0x0
 	mov r0, #0x3
@@ -210,7 +210,7 @@ FUN_02087E40: ; 0x02087E40
 	add r0, r4, #0x0
 	mov r1, #0x18
 	mov r2, #0x2c
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x18
 	add r4, r0, #0x0
@@ -225,7 +225,7 @@ FUN_02087E40: ; 0x02087E40
 FUN_02087E74: ; 0x02087E74
 	push {r4, lr}
 	add r4, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x8
 	bhi _02087EE4
@@ -288,11 +288,11 @@ _02087EE4:
 FUN_02087EE8: ; 0x02087EE8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	bl FUN_02087F08
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	ldr r0, [r4, #0x0]
 	bl FUN_020168D0
 	mov r0, #0x1
@@ -347,7 +347,7 @@ FUN_02087F50: ; 0x02087F50
 	ldr r0, _02087F64 ; =UNK_020FD15C
 	ldr r1, [r4, #0xc]
 	ldr r2, [r4, #0x0]
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x14]
 	mov r0, #0x1
 	pop {r4, pc}
@@ -401,7 +401,7 @@ _02087F86:
 	str r0, [r4, #0xc]
 	ldr r0, _02087FD0 ; =UNK_020F96DC
 	ldr r2, [r5, #0x0]
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r5, #0x14]
 	str r4, [r5, #0x10]
 	mov r0, #0x2
@@ -465,7 +465,7 @@ _02087FFE:
 	ldr r0, _02088058 ; =UNK_020FA6E8
 	ldr r2, [r5, #0x0]
 	add r1, r7, #0x0
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r5, #0x14]
 	str r4, [r5, #0x10]
 	mov r0, #0x3
@@ -553,7 +553,7 @@ FUN_020880A0: ; 0x020880A0
 	ldr r0, _02088108 ; =UNK_020FD16C
 	ldr r2, [r5, #0x0]
 	add r1, r4, #0x0
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r5, #0x14]
 	str r4, [r5, #0x10]
 	mov r0, #0x5
@@ -628,7 +628,7 @@ FUN_02088130: ; 0x02088130
 	ldr r0, _020881A8 ; =UNK_020FA6E8
 	ldr r2, [r5, #0x0]
 	add r1, r4, #0x0
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r5, #0x14]
 	str r4, [r5, #0x10]
 	mov r0, #0x7

@@ -1604,7 +1604,7 @@ FUN_02009978: ; 0x02009978
 	add r1, r3, #0x0
 	ldr r2, [sp, #0x10]
 	ldr r3, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r2, [sp, #0x14]

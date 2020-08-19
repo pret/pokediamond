@@ -83,7 +83,7 @@ FUN_02088AFC: ; 0x02088AFC
 	add r0, r2, #0x0
 	ldr r2, [r4, #0x0]
 	add r1, r4, #0x0
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x1c]
 	mov r0, #0x2
 	add sp, #0x10
@@ -153,7 +153,7 @@ _02088B7C:
 	ldr r2, [r5, #0x0]
 	add r0, sp, #0x0
 	add r1, r4, #0x0
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r5, #0x1c]
 	str r4, [r5, #0x18]
 	mov r0, #0x1
@@ -304,7 +304,7 @@ _02088C9A:
 	ldr r1, [r5, #0x18]
 	ldr r2, [r5, #0x0]
 	add r0, sp, #0x8
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r5, #0x1c]
 	mov r0, #0x3
 	add sp, #0x18

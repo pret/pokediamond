@@ -27,13 +27,13 @@ FUN_02086084: ; 0x02086084
 	add r0, r5, #0x0
 	mov r1, #0x80
 	mov r2, #0x47
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x80
 	add r4, r0, #0x0
 	bl memset
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4, #0x0]
 	ldr r0, [r0, #0x10]
 	bl FUN_02024FF4
@@ -105,7 +105,7 @@ _02086164: .word FUN_02086664
 FUN_02086168: ; 0x02086168
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5, #0x0]
 	add r4, r0, #0x0
 	cmp r1, #0x0
@@ -165,7 +165,7 @@ _020861D8: .word 0x000001EA
 FUN_020861DC: ; 0x020861DC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl FUN_020223BC
@@ -217,7 +217,7 @@ FUN_020861DC: ; 0x020861DC
 	add r0, r4, #0x4
 	bl FUN_02086ED4
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x47
 	bl FUN_020168D0
 	mov r0, #0x1

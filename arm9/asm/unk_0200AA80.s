@@ -427,8 +427,8 @@ _0200AD90:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0200AD94
-FUN_0200AD94: ; 0x0200AD94
+	thumb_func_start GetRibbonNameOrDesc
+GetRibbonNameOrDesc: ; 0x0200AD94
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r6, r2, #0x0
@@ -1266,7 +1266,7 @@ FUN_0200B410: ; 0x0200B410
 	add r4, r1, #0x0
 	ldr r2, [r5, #0xc]
 	add r1, r3, #0x0
-	bl FUN_0206B484
+	bl PCStorage_GetBoxName
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0

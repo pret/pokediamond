@@ -97,8 +97,8 @@ void NitroMain(void);
 extern struct Unk21C48B8 gMain;
 
 void FUN_02000DF4(void);
-void FUN_02000E0C(void);
-void FUN_02000E7C(FSOverlayID id, struct Unk21DBE18 * arg1);
+void Main_RunOverlayManager(void);
+void RegisterMainOverlay(FSOverlayID id, struct Unk21DBE18 * arg1);
 void FUN_02000E9C(void);
 void FUN_02000EC8(u32 parameter);
 void FUN_02000EE8(void);

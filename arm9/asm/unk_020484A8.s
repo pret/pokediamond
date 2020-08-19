@@ -160,7 +160,7 @@ _020485C0:
 	ldr r0, [r6, #0xc]
 	bl SavArray_PlayerParty_get
 	bl FUN_02085140
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	ldr r0, [r6, #0xc]
 	bl FUN_02022720
 	add r7, r0, #0x0

@@ -1,0 +1,29 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "constants/moves.h"
+#include "constants/battle.h"
+#include "constants/pokemon.h"
+#include "move_data.h"
+
+u32 __size = sizeof(struct WazaTbl);
+
+const struct WazaTbl __data[] = {
+## for move in waza_tbl
+	// {{ move.name }}
+	{
+		{{ move.effect }},
+		{{ move.class }},
+		{{ move.power }},
+		{{ move.type }},
+		{{ move.accuracy }},
+		{{ move.pp }},
+		{{ move.effectChance }},
+		{{ move.unk8 }},
+		{{ move.priority }},
+		{{ move.unkB }},
+		{{ move.unkC }},
+		{{ move.contestType }}
+	},
+## endfor
+};

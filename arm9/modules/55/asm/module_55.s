@@ -93,13 +93,13 @@ _021D7580:
 	ldr r1, _021D7610 ; =0x0000041C
 	add r0, r6, #0
 	mov r2, #0x34
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _021D7610 ; =0x0000041C
 	mov r1, #0
 	add r4, r0, #0
 	bl MI_CpuFill8
 	add r0, r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4, #8]
 	add r0, r4, #0
 	bl MOD55_021D7994
@@ -127,7 +127,7 @@ _021D7580:
 	str r0, [r5]
 	b _021D760A
 _021D75FC:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	mov r0, #0
 	str r0, [r5]
 	add sp, #0xc
@@ -168,13 +168,13 @@ _021D7628:
 	ldr r1, _021D76B8 ; =0x0000041C
 	add r0, r6, #0
 	mov r2, #0x34
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _021D76B8 ; =0x0000041C
 	mov r1, #0
 	add r4, r0, #0
 	bl MI_CpuFill8
 	add r0, r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4, #8]
 	add r0, r4, #0
 	bl MOD55_021D7994
@@ -204,7 +204,7 @@ _021D7628:
 	str r0, [r5]
 	b _021D76B2
 _021D76A4:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	mov r0, #0
 	str r0, [r5]
 	add sp, #0xc
@@ -222,7 +222,7 @@ _021D76B8: .word 0x0000041C
 MOD55_021D76BC: ; 0x021D76BC
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5]
 	add r4, r0, #0
 	cmp r1, #0
@@ -341,13 +341,13 @@ MOD55_021D778C: ; 0x021D778C
 MOD55_021D77AC: ; 0x021D77AC
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl MOD55_021D778C
 	add r0, r4, #0
 	bl MOD55_021D7A38
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x34
 	bl FUN_020168D0
 	mov r0, #1
@@ -1780,7 +1780,7 @@ MOD55_021D8320: ; 0x021D8320
 	ldr r0, _021D836C ; =UNK_020FA5FC
 	ldr r1, [r5]
 	mov r2, #0x34
-	bl FUN_02006234
+	bl OverlayManager_new
 	mov r1, #0x3d
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -1803,13 +1803,13 @@ MOD55_021D8370: ; 0x021D8370
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	add r4, r1, #0
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _021D83FC
 	mov r0, #0x3d
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r1, [r5]
 	ldr r0, [r1, #0x14]
 	cmp r0, #0
@@ -1880,7 +1880,7 @@ MOD55_021D8404: ; 0x021D8404
 	ldr r0, _021D843C ; =UNK_020FA5FC
 	ldr r1, [r5]
 	mov r2, #0x34
-	bl FUN_02006234
+	bl OverlayManager_new
 	mov r1, #0x3d
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -1902,13 +1902,13 @@ MOD55_021D8440: ; 0x021D8440
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	add r4, r1, #0
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _021D84C2
 	mov r0, #0x3d
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	add r0, r5, #0
 	ldr r1, [r5]
 	add r0, #0xd8
@@ -5068,7 +5068,7 @@ MOD55_021D9E40: ; 0x021D9E40
 	ldr r0, _021D9EC4 ; =UNK_020FA5FC
 	ldr r1, [r4]
 	mov r2, #0x34
-	bl FUN_02006234
+	bl OverlayManager_new
 	mov r1, #0x3d
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -5112,13 +5112,13 @@ MOD55_021D9EC8: ; 0x021D9EC8
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	add r4, r1, #0
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _021D9F68
 	mov r0, #0x3d
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r1, [r5]
 	ldr r0, [r1, #0x14]
 	cmp r0, #0

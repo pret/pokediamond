@@ -10,11 +10,11 @@ FUN_0208898C: ; 0x0208898C
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020889AC
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0x0
 	beq _020889AC
 	ldr r0, [r4, #0x0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x1
@@ -27,7 +27,7 @@ _020889AC:
 FUN_020889B0: ; 0x020889B0
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r2, #0x1
 	add r5, r0, #0x0
 	mov r0, #0x3
@@ -37,7 +37,7 @@ FUN_020889B0: ; 0x020889B0
 	add r0, r4, #0x0
 	mov r1, #0x24
 	mov r2, #0x37
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x24
 	add r4, r0, #0x0
@@ -67,10 +67,10 @@ FUN_02088A00: ; 0x02088A00
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r5, [r4, #0x0]
 	cmp r5, #0x4
 	bhi _02088A6A
@@ -131,10 +131,10 @@ _02088A74:
 FUN_02088A78: ; 0x02088A78
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r0, [r4, #0xc]
 	ldr r6, [r4, #0x0]
 	bl FreeToHeap
@@ -143,7 +143,7 @@ FUN_02088A78: ; 0x02088A78
 	mov r2, #0x24
 	bl MI_CpuFill8
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	add r0, r6, #0x0
 	bl FUN_020168D0
 	mov r0, #0x1

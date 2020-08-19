@@ -1395,7 +1395,7 @@ _0222DFE4:
 	ldr r1, _0222E108 ; =0x00001044
 	add r0, r6, #0
 	mov r2, #0x3e
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _0222E108 ; =0x00001044
 	mov r1, #0
 	add r4, r0, #0
@@ -1511,7 +1511,7 @@ _0222E130: .word 0x00020020
 MOD80_0222E134: ; 0x0222E134
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl MOD04_021DD984
 	bl MOD80_0222D5DC
@@ -1651,7 +1651,7 @@ _0222E258: .word 0x00000B84
 MOD80_0222E25C: ; 0x0222E25C
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4, #0x48]
 	bl FreeToHeap
@@ -1684,7 +1684,7 @@ MOD80_0222E25C: ; 0x0222E25C
 	ldr r0, [r4]
 	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -1751,7 +1751,7 @@ MOD80_0222E338: ; 0x0222E338
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, r1, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r1, #0
 	str r0, [r4]
 	add r0, r4, #0
@@ -2434,7 +2434,7 @@ MOD80_0222E87C: ; 0x0222E87C
 	ldr r0, [r4]
 	sub r1, r1, #1
 	ldr r0, [r0, #0xc]
-	bl FUN_0206B4E4
+	bl PCStorage_CountMonsAndEggsInBox
 	ldr r1, _0222E8B8 ; =0x00001008
 	ldrh r2, [r4, r1]
 	add r0, r2, r0
@@ -10966,7 +10966,7 @@ _02232DB0:
 	ldr r0, [sp, #0x20]
 	ldr r1, [sp, #0x10]
 	add r2, r4, #0
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	ldr r2, [r5, r6]
 	lsl r1, r4, #2
 	add r1, r2, r1
@@ -10987,7 +10987,7 @@ _02232DD0:
 	ldr r1, [sp, #0x10]
 	add r2, r4, #0
 	add r7, r5, r6
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	ldr r1, [sp, #0x1c]
 	str r4, [sp]
 	str r1, [sp, #4]
@@ -11026,7 +11026,7 @@ _02232E22:
 	ldr r0, [sp, #0x20]
 	ldr r1, [sp, #0x10]
 	ldr r2, [r5, r2]
-	bl FUN_0206B484
+	bl PCStorage_GetBoxName
 	b _02232F22
 _02232E3A:
 	ldr r0, [r5]
@@ -11237,7 +11237,7 @@ _02232FEA:
 	add r0, r7, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 	thumb_func_end MOD80_02232FB8
@@ -15852,7 +15852,7 @@ MOD80_02235398: ; 0x02235398
 MOD80_022353B4: ; 0x022353B4
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	ldr r0, [r4]
 	mov r1, #2
 	ldr r0, [r0, #0x20]
@@ -15940,7 +15940,7 @@ _02235450: .word 0x00000FE6
 MOD80_02235454: ; 0x02235454
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	ldr r0, [r4]
 	mov r1, #2
 	ldr r0, [r0, #0x20]
@@ -16074,7 +16074,7 @@ MOD80_02235534: ; 0x02235534
 	ldrh r1, [r1]
 	ldrh r2, [r2]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	add r1, r4, #0
 	bl FUN_02069A64
 	add r2, r5, #0
@@ -16092,7 +16092,7 @@ MOD80_02235534: ; 0x02235534
 	ldrh r1, [r1]
 	ldrh r2, [r2]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206B2FC
+	bl PCStorage_DeleteBoxMonByIndexPair
 	add r0, r4, #0
 	bl FreeToHeap
 	b _022355DC
@@ -16203,14 +16203,14 @@ _02235664:
 	add r1, sp, #0x20
 	ldr r0, [r0, #0xc]
 	add r2, sp, #4
-	bl FUN_0206B384
+	bl PCStorage_FindFirstEmptySlot
 	add r0, r4, #0
 	bl FUN_020690E4
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [sp, #0x20]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206B244
+	bl PCStorage_PlaceMonInBoxFirstEmptySlot
 	add r0, r5, #0
 	ldr r1, [sp, #0x20]
 	add r0, #0xcc
@@ -16282,14 +16282,14 @@ _02235706:
 	add r1, sp, #0x20
 	ldr r0, [r0, #0xc]
 	add r2, sp, #4
-	bl FUN_0206B384
+	bl PCStorage_FindFirstEmptySlot
 	add r0, r4, #0
 	bl FUN_020690E4
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [sp, #0x20]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206B244
+	bl PCStorage_PlaceMonInBoxFirstEmptySlot
 	add r0, r5, #0
 	ldr r1, [sp, #0x20]
 	add r0, #0xcc
@@ -17146,7 +17146,7 @@ MOD80_02235D34: ; 0x02235D34
 	ldr r0, _02235DD0 ; =UNK_020FA6E8
 	add r1, #0x60
 	mov r2, #0x3e
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x5c]
 	mov r0, #1
 	add r4, #0xac
@@ -17164,11 +17164,11 @@ MOD80_02235DD4: ; 0x02235DD4
 	add r5, r0, #0
 	ldr r0, [r5, #0x5c]
 	mov r4, #3
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _02235DF6
 	ldr r0, [r5, #0x5c]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r2, [r5, #0x24]
 	add r0, r5, #0
 	mov r1, #5
@@ -17392,7 +17392,7 @@ _02235F94:
 	add r1, r4, #0
 	ldr r0, _02235FB8 ; =0x022375F0
 	add r1, #0x90
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x5c]
 	mov r0, #1
 	add r4, #0xac
@@ -17419,13 +17419,13 @@ _02235FD0:
 	b _0223617E
 _02235FD2:
 	ldr r0, [r4, #0x5c]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	bne _02235FDE
 	b _0223617E
 _02235FDE:
 	ldr r0, [r4, #0x5c]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r1, [r4, #0x24]
 	cmp r1, #9
 	bne _02236060
@@ -17735,19 +17735,19 @@ _02236248:
 	ldr r0, [r0, #0xc]
 	ldr r1, [r1]
 	ldr r2, [r2]
-	bl FUN_0206B2FC
+	bl PCStorage_DeleteBoxMonByIndexPair
 	ldr r0, [r5]
 	add r1, sp, #4
 	ldr r0, [r0, #0xc]
 	add r2, sp, #0
-	bl FUN_0206B384
+	bl PCStorage_FindFirstEmptySlot
 	add r0, r4, #0
 	bl FUN_020690E4
 	add r2, r0, #0
 	ldr r0, [r5]
 	ldr r1, [sp, #4]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206B244
+	bl PCStorage_PlaceMonInBoxFirstEmptySlot
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD80_02236218

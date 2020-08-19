@@ -17,7 +17,7 @@ MOD73_021D74E0: ; 0x021D74E0
 MOD73_021D74F0: ; 0x021D74F0
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r2, #2
 	add r4, r0, #0
 	mov r0, #3
@@ -27,7 +27,7 @@ MOD73_021D74F0: ; 0x021D74F0
 	ldr r1, _021D757C ; =0x000015E8
 	add r0, r5, #0
 	mov r2, #0x38
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _021D757C ; =0x000015E8
 	add r5, r0, #0
 	mov r1, #0
@@ -87,10 +87,10 @@ MOD73_021D758C: ; 0x021D758C
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r0, #0
 	add r5, r1, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r7, r0, #0
 	add r0, r4, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	ldr r1, _021D763C ; =0x021DBC9C
@@ -180,10 +180,10 @@ _021D763C: .word MOD73_021DBC9C
 MOD73_021D7640: ; 0x021D7640
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r7, r0, #0
 	ldr r4, [r7]
 	bl MOD73_021D8E90
@@ -197,7 +197,7 @@ MOD73_021D7640: ; 0x021D7640
 	mov r1, #0
 	bl MI_CpuFill8
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	str r0, [r6, #0x18]
 	add r0, r4, #0

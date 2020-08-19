@@ -1425,14 +1425,14 @@ _0206D260:
 	pop {r3-r4, pc}
 _0206D2E2:
 	ldr r0, [r4, #0x38]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0x0
 	bne _0206D2EE
 _0206D2EC:
 	b _0206D806
 _0206D2EE:
 	ldr r0, [r4, #0x38]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r1, [r4, #0x0]
 	add r0, r4, #0x0
 	bl FUN_0206D9B4
@@ -2743,7 +2743,7 @@ FUN_0206DE0C: ; 0x0206DE0C
 	ldr r0, _0206DE20 ; =UNK_020FA6E8
 	ldr r1, [r4, #0x3c]
 	ldr r2, [r4, #0x5c]
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x38]
 	pop {r4, pc}
 	nop

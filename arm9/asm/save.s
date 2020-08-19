@@ -53,7 +53,7 @@ UNK_020EE700: ; 0x020EE700
 	.word 0x20, 0x00, FUN_0202BE98, FUN_0202BEA0
 	.word 0x21, 0x00, FUN_0202C0E0, FUN_0202C0E4
 	.word 0x22, 0x00, FUN_02013B28, FUN_02013B2C
-	.word 0x23, 0x01, FUN_0206B178, FUN_0206B16C
+	.word 0x23, 0x01, PCStorage_sizeof, PCStorage_init
 
 	.section .bss
 
@@ -450,13 +450,13 @@ _02022826:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0202282C
-FUN_0202282C: ; 0x0202282C
+	thumb_func_start SaveGetDirtyBit
+SaveGetDirtyBit: ; 0x0202282C
 	ldr r0, [r0, #0xc]
 	bx lr
 
-	thumb_func_start FUN_02022830
-FUN_02022830: ; 0x02022830
+	thumb_func_start SaveSetDirtyBit
+SaveSetDirtyBit: ; 0x02022830
 	ldr r0, _0202283C ; =UNK_021C59C8
 	mov r1, #0x1
 	ldr r0, [r0, #0x0]
