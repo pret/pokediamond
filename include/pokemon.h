@@ -305,6 +305,6 @@ u16 GetLegendaryMon(u32 idx);
 BOOL FUN_0206A998(struct Pokemon * pokemon);
 BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct PlayerData * sb2, u32 heap_id);
 void FUN_0206AA84(struct Pokemon * pokemon);
-void FUN_0206AAB4(struct BoxPokemon * boxmon);
+void RestoreBoxMonPP(struct BoxPokemon * boxmon);
 
 #endif //POKEDIAMOND_POKEMON_H

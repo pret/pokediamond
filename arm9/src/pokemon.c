@@ -3725,7 +3725,7 @@ void FUN_0206AA84(struct Pokemon * pokemon)
     SetMonData(pokemon, MON_DATA_SEAL_COORDS, sp1);
 }
 
-void FUN_0206AAB4(struct BoxPokemon * boxmon)
+void RestoreBoxMonPP(struct BoxPokemon * boxmon)
 {
     int i;
     u8 pp;

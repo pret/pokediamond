@@ -1786,10 +1786,10 @@ FUN_02077E90: ; 0x02077E90
 	lsl r0, r0, #0x6
 	str r1, [r5, r0]
 	ldr r0, [r4, #0x48]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x48]
-	bl FUN_0206B334
+	bl PCStorage_FindFirstBoxWithEmptySlot
 	str r0, [sp, #0x10]
 	mov r0, #0x5a
 	lsl r0, r0, #0x2

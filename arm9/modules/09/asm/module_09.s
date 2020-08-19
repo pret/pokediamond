@@ -13510,7 +13510,7 @@ _02218DF2:
 	cmp r0, #6
 	bne _02218E32
 	add r0, r4, #0
-	bl FUN_0206B334
+	bl PCStorage_FindFirstBoxWithEmptySlot
 	cmp r0, #0x12
 	bne _02218E32
 	ldr r0, [r5, #0x10]

@@ -7082,7 +7082,7 @@ _0203D1EC:
 	b _0203D210
 _0203D1FC:
 	add r0, r5, #0x0
-	bl FUN_0202282C
+	bl SaveGetDirtyBit
 	cmp r0, #0x0
 	beq _0203D20C
 	mov r0, #0x2
@@ -10381,7 +10381,7 @@ _0203EC7E:
 _0203EC88:
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_0206B644
+	bl PCStorage_IsBonusWallpaperUnlocked
 	cmp r0, #0x0
 	beq _0203EC98
 	mov r0, #0x0
@@ -10389,7 +10389,7 @@ _0203EC88:
 _0203EC98:
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_0206B620
+	bl PCStorage_UnlockBonusWallpaper
 	add r0, r5, #0x1
 _0203ECA2:
 	strh r0, [r4, #0x0]
@@ -10513,7 +10513,7 @@ FUN_0203ED70: ; 0x0203ED70
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl FUN_02022510
-	bl FUN_0206B3E4
+	bl PCStorage_CountMonsAndEggsInAllBoxes
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	mov r0, #0x87

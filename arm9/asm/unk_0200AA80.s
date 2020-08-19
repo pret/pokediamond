@@ -1266,7 +1266,7 @@ FUN_0200B410: ; 0x0200B410
 	add r4, r1, #0x0
 	ldr r2, [r5, #0xc]
 	add r1, r3, #0x0
-	bl FUN_0206B484
+	bl PCStorage_GetBoxName
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0

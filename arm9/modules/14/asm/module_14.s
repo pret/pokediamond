@@ -1865,13 +1865,13 @@ _021D8428:
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	add r1, r0, #0
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
 	mov r2, #0
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #0x4b
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -3187,7 +3187,7 @@ _021D8F12:
 	ldr r0, [r5, r1]
 	add r1, #0xa1
 	ldrsb r1, [r5, r1]
-	bl FUN_0206B428
+	bl PCStorage_SetActiveBox
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -3403,7 +3403,7 @@ _021D90B0:
 	mov r1, #0
 	mvn r1, r1
 	sub r2, #0xa
-	bl FUN_0206B458
+	bl PCStorage_SetBoxWallpaper
 	mov r1, #0x12
 	lsl r1, r1, #4
 	ldr r1, [r4, r1]
@@ -3756,7 +3756,7 @@ _021D9396:
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0206B428
+	bl PCStorage_SetActiveBox
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -3772,7 +3772,7 @@ _021D93BC:
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0206B428
+	bl PCStorage_SetActiveBox
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -3865,7 +3865,7 @@ _021D9488:
 	ldr r0, [r0]
 	mvn r1, r1
 	add r2, r7, r2
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #0xab
 	mov r2, #0
 	bl GetBoxMonData
@@ -5297,7 +5297,7 @@ _021DA042:
 	ldrb r1, [r1, #2]
 	ldr r0, [r0, #0x14]
 	ldr r2, [sp, #0xc]
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #0xab
 	mov r2, #0
 	add r7, r0, #0
@@ -5550,7 +5550,7 @@ _021DA1FE:
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	mov r2, #0x12
 	lsl r2, r2, #4
 	add r1, r0, #0
@@ -5558,7 +5558,7 @@ _021DA1FE:
 	add r2, #8
 	ldr r2, [r4, r2]
 	ldr r2, [r2, #0x18]
-	bl FUN_0206B484
+	bl PCStorage_GetBoxName
 	mov r1, #0x4a
 	lsl r1, r1, #2
 	ldr r0, _021DA2C0 ; =MOD14_020FA5FC
@@ -5582,7 +5582,7 @@ _021DA256:
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	add r5, r0, #0
 	mov r0, #0x21
 	lsl r0, r0, #4
@@ -5600,7 +5600,7 @@ _021DA256:
 	ldr r2, [r4, r2]
 	add r1, r5, #0
 	ldr r2, [r2, #0x18]
-	bl FUN_0206B4B4
+	bl PCStorage_SetBoxName
 	mov r0, #0x12
 	lsl r0, r0, #4
 	add r1, r4, #0
@@ -5684,7 +5684,7 @@ _021DA334:
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
@@ -6765,7 +6765,7 @@ _021DABFE:
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_0206B428
+	bl PCStorage_SetActiveBox
 	add r0, r5, #0
 	bl MOD14_021DB934
 	mov r0, #0x45
@@ -6958,7 +6958,7 @@ _021DAD6C:
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
 	add r1, r6, #0
-	bl FUN_0206B428
+	bl PCStorage_SetActiveBox
 	add r0, r4, #0
 	bl MOD14_021DB934
 	add r0, r4, #0
@@ -7816,7 +7816,7 @@ MOD14_021DB49C: ; 0x021DB49C
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
 	add r5, r0, #0
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	strb r0, [r4]
 	mov r0, #0x14
 	mov r1, #9
@@ -7936,12 +7936,12 @@ MOD14_021DB580: ; 0x021DB580
 	add r4, r1, #0
 	ldrb r1, [r4]
 	add r5, r0, #0
-	bl FUN_0206B43C
+	bl PCStorage_GetBoxWallpaper
 	strb r0, [r4, #1]
 	ldrb r1, [r4]
 	ldr r2, [r4, #4]
 	add r0, r5, #0
-	bl FUN_0206B484
+	bl PCStorage_GetBoxName
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -7954,7 +7954,7 @@ MOD14_021DB59C: ; 0x021DB59C
 	add r0, r1, #0
 	ldrb r1, [r2]
 	add r4, #0x40
-	bl FUN_0206B43C
+	bl PCStorage_GetBoxWallpaper
 	strb r0, [r4, #1]
 	pop {r4, pc}
 	.align 2, 0
@@ -8486,7 +8486,7 @@ _021DB95C:
 	ldrsb r2, [r4, r2]
 	ldr r0, [r5]
 	sub r1, r1, #1
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	str r0, [r4]
 	b _021DB998
 _021DB96C:
@@ -8647,7 +8647,7 @@ MOD14_021DBA5C: ; 0x021DBA5C
 	ldrsb r2, [r5, r2]
 	ldr r0, [r7, r0]
 	mvn r1, r1
-	bl FUN_0206B2FC
+	bl PCStorage_DeleteBoxMonByIndexPair
 	mov r0, #0
 	b _021DBAB6
 _021DBA98:
@@ -8735,7 +8735,7 @@ _021DBB36:
 	ldr r0, [r7, r0]
 	mvn r1, r1
 	add r2, r4, #0
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #0xab
 	mov r2, #0
 	str r0, [sp, #0x20]
@@ -8752,7 +8752,7 @@ _021DBB36:
 	ldr r0, [r7, r0]
 	mvn r1, r1
 	add r2, r4, #0
-	bl FUN_0206B2FC
+	bl PCStorage_DeleteBoxMonByIndexPair
 	ldr r0, [sp, #0x10]
 	add r5, r5, r0
 	ldr r0, [sp, #0xc]
@@ -8859,7 +8859,7 @@ MOD14_021DBC00: ; 0x021DBC00
 	ldr r0, [r5, r0]
 	ldr r3, [r4]
 	mvn r1, r1
-	bl FUN_0206B2B0
+	bl PCStorage_PlaceMonInBoxByIndexPair
 	mov r0, #0x12
 	mov r2, #7
 	lsl r0, r0, #4
@@ -8867,7 +8867,7 @@ MOD14_021DBC00: ; 0x021DBC00
 	ldrsb r2, [r6, r2]
 	ldr r0, [r5, r0]
 	mvn r1, r1
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	add r1, r0, #0
 	b _021DBC8A
 _021DBC42:
@@ -8950,7 +8950,7 @@ _021DBCCA:
 	ldr r0, [r7, r0]
 	mvn r1, r1
 	add r3, r4, #0
-	bl FUN_0206B2B0
+	bl PCStorage_PlaceMonInBoxByIndexPair
 	ldr r0, [sp, #4]
 	add r5, r5, #1
 	add r4, r4, r0
@@ -8966,7 +8966,7 @@ _021DBCF4:
 	mov r1, #0
 	ldr r0, [r7, r0]
 	mvn r1, r1
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	add r1, r0, #0
 	ldr r0, [sp]
 	bl MOD14_021DC1A8
@@ -9026,7 +9026,7 @@ MOD14_021DBD34: ; 0x021DBD34
 	ldr r0, [r5, r0]
 	mvn r1, r1
 	add r3, r7, r6
-	bl FUN_0206B2B0
+	bl PCStorage_PlaceMonInBoxByIndexPair
 	mov r0, #0
 	strb r0, [r4, #0xb]
 	b _021DBDC8
@@ -9076,7 +9076,7 @@ MOD14_021DBDD8: ; 0x021DBDD8
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
 	ldr r2, [r4, #0x14]
-	bl FUN_0206B244
+	bl PCStorage_PlaceMonInBoxFirstEmptySlot
 	cmp r0, #0
 	beq _021DBDFA
 	mov r0, #1
@@ -9100,7 +9100,7 @@ MOD14_021DBE00: ; 0x021DBE00
 	ldr r0, [r5, r0]
 	ldr r2, [r5, #8]
 	add r4, #8
-	bl FUN_0206B244
+	bl PCStorage_PlaceMonInBoxFirstEmptySlot
 	cmp r0, #0
 	beq _021DBE30
 	mov r0, #0x49
@@ -9146,7 +9146,7 @@ MOD14_021DBE4C: ; 0x021DBE4C
 	ldrsb r2, [r4, r2]
 	ldr r0, [r5, r0]
 	mvn r1, r1
-	bl FUN_0206B2FC
+	bl PCStorage_DeleteBoxMonByIndexPair
 	b _021DBE7E
 _021DBE70:
 	mov r0, #0x49
@@ -9566,7 +9566,7 @@ MOD14_021DC1AC: ; 0x021DC1AC
 	bl MOD14_021DC3F4
 	cmp r0, #1
 	bne _021DC1E2
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 _021DC1E2:
 	add sp, #4
 	pop {r3, r4, pc}
@@ -9617,7 +9617,7 @@ _021DC218:
 	ldr r0, [r6, r0]
 	mvn r1, r1
 	mov r3, #6
-	bl FUN_0206B598
+	bl PCStorage_SetBoxMonDataByIndexPair
 	b _021DC254
 _021DC24A:
 	ldr r0, [r4]
@@ -14329,7 +14329,7 @@ _021DE5FE:
 	ldr r0, [sp, #0x30]
 	ldr r1, [r1, #0x30]
 	add r2, r4, #0
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #0xab
 	mov r2, #0
 	str r0, [sp, #0x34]
@@ -14430,7 +14430,7 @@ _021DE6D0:
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #4]
 	add r2, r6, #0
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #5
 	mov r2, #0
 	add r7, r0, #0
@@ -14889,7 +14889,7 @@ MOD14_021DEA50: ; 0x021DEA50
 	ldr r0, _021DEB14 ; =0x00005988
 	ldr r0, [r5, r0]
 	ldr r0, [r0]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	mov r4, #0
 	str r0, [sp, #0x1c]
 	add r0, r5, #0
@@ -14904,7 +14904,7 @@ _021DEA70:
 	ldr r0, [r5, r0]
 	add r2, r4, #0
 	ldr r0, [r0]
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #0xab
 	mov r2, #0
 	str r0, [sp, #0x20]
@@ -15021,7 +15021,7 @@ _021DEB5C:
 	ldr r0, [r0, #0x40]
 	add r2, r4, #0
 	ldr r0, [r0]
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #5
 	mov r2, #0
 	str r0, [sp, #0x2c]
@@ -21783,7 +21783,7 @@ MOD14_021E1FF8: ; 0x021E1FF8
 	bl MOD14_021DC44C
 	ldr r1, [sp, #0xc]
 	str r0, [sp, #0x28]
-	bl FUN_0206B43C
+	bl PCStorage_GetBoxWallpaper
 	add r0, #0xd0
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
@@ -21816,7 +21816,7 @@ _021E204A:
 	ldr r0, [sp, #0x28]
 	ldr r1, [sp, #0xc]
 	add r2, r4, #0
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	add r4, r4, #1
 	add r5, r0, #0
 	bl AcquireBoxMonLock
@@ -22178,7 +22178,7 @@ _021E2322:
 	ldr r0, [r6, #0xc]
 	bl MOD14_021DC44C
 	add r1, r4, #0
-	bl FUN_0206B4E4
+	bl PCStorage_CountMonsAndEggsInBox
 	add r1, r5, #0
 	add r1, #0x94
 	add r4, r4, #1
@@ -22250,7 +22250,7 @@ MOD14_021E2394: ; 0x021E2394
 	ldr r1, [r1]
 	ldr r2, [r5, r2]
 	ldr r4, [r5, #0x10]
-	bl FUN_0206B484
+	bl PCStorage_GetBoxName
 	ldr r1, _021E23F0 ; =0x00004BFC
 	mov r0, #0
 	ldr r1, [r5, r1]
@@ -27049,7 +27049,7 @@ _021E47AE:
 	ldr r0, [r0]
 	ldr r2, [r2]
 	add r1, r4, #0
-	bl FUN_0206B484
+	bl PCStorage_GetBoxName
 	mov r0, #0x68
 	str r0, [sp]
 	mov r0, #0x10
@@ -30100,7 +30100,7 @@ MOD14_021E5FC8: ; 0x021E5FC8
 	mov r1, #7
 	bl MOD14_021E613C
 	add r0, r6, #0
-	bl FUN_0206B668
+	bl PCStorage_CountUnlockedBonusWallpapers
 	add r6, r0, #0
 	beq _021E600E
 	add r0, r4, #0
@@ -30168,7 +30168,7 @@ _021E607A:
 _021E607C:
 	ldr r0, [sp]
 	add r1, r5, #0
-	bl FUN_0206B644
+	bl PCStorage_IsBonusWallpaperUnlocked
 	cmp r0, #0
 	beq _021E60A0
 	cmp r4, #0

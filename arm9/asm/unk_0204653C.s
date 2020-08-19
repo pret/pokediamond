@@ -1021,7 +1021,7 @@ _02046D5C:
 	bl SavArray_PlayerParty_get
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x8]
-	bl FUN_0206B334
+	bl PCStorage_FindFirstBoxWithEmptySlot
 	cmp r0, #0x12
 	bne _02046D8C
 	add r0, r5, #0x0

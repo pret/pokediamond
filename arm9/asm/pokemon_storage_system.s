@@ -3,22 +3,22 @@
 
 	.text
 
-	thumb_func_start FUN_0206B16C
-FUN_0206B16C: ; 0x0206B16C
+	thumb_func_start PCStorage_init
+PCStorage_init: ; 0x0206B16C
 	push {r3, lr}
-	bl FUN_0206B180
-	bl FUN_02022830
+	bl PCStorage_InitializeBoxes
+	bl SaveSetDirtyBit
 	pop {r3, pc}
 
-	thumb_func_start FUN_0206B178
-FUN_0206B178: ; 0x0206B178
+	thumb_func_start PCStorage_sizeof
+PCStorage_sizeof: ; 0x0206B178
 	ldr r0, _0206B17C ; =0x000121C8
 	bx lr
 	.balign 4
 _0206B17C: .word 0x000121C8
 
-	thumb_func_start FUN_0206B180
-FUN_0206B180: ; 0x0206B180
+	thumb_func_start PCStorage_InitializeBoxes
+PCStorage_InitializeBoxes: ; 0x0206B180
 	push {r3-r7, lr}
 	str r0, [sp, #0x0]
 	mov r7, #0x0
@@ -90,8 +90,8 @@ _0206B200: .word 0x000121B4
 _0206B204: .word 0x000121C6
 _0206B208: .word 0x00011EE4
 
-	thumb_func_start FUN_0206B20C
-FUN_0206B20C: ; 0x0206B20C
+	thumb_func_start PCStorage_PlaceMonInFirstEmptySlotInAnyBox
+PCStorage_PlaceMonInFirstEmptySlotInAnyBox: ; 0x0206B20C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	ldr r4, [r5, #0x0]
@@ -99,14 +99,14 @@ FUN_0206B20C: ; 0x0206B20C
 	mov r7, #0x0
 _0206B216:
 	add r0, r6, #0x0
-	bl FUN_0206AAB4
+	bl RestoreBoxMonPP
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_0206B244
+	bl PCStorage_PlaceMonInBoxFirstEmptySlot
 	cmp r0, #0x0
 	beq _0206B232
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0206B232:
@@ -121,15 +121,15 @@ _0206B23A:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0206B244
-FUN_0206B244: ; 0x0206B244
+	thumb_func_start PCStorage_PlaceMonInBoxFirstEmptySlot
+PCStorage_PlaceMonInBoxFirstEmptySlot: ; 0x0206B244
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r6, r0, #0x0
 	add r0, r2, #0x0
 	add r5, r1, #0x0
 	str r2, [sp, #0x0]
-	bl FUN_0206AAB4
+	bl RestoreBoxMonPP
 	mov r0, #0x0
 	mvn r0, r0
 	cmp r5, r0
@@ -165,7 +165,7 @@ _0206B28A:
 	str r2, [sp, #0x0]
 	stmia r4!, {r0-r1}
 	bne _0206B28A
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -179,15 +179,15 @@ _0206B2A0:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206B2B0
-FUN_0206B2B0: ; 0x0206B2B0
+	thumb_func_start PCStorage_PlaceMonInBoxByIndexPair
+PCStorage_PlaceMonInBoxByIndexPair: ; 0x0206B2B0
 	push {r3-r7, lr}
 	add r7, r3, #0x0
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_0206AAB4
+	bl RestoreBoxMonPP
 	mov r0, #0x0
 	mvn r0, r0
 	cmp r4, r0
@@ -212,7 +212,7 @@ _0206B2E4:
 	stmia r3!, {r0-r1}
 	sub r2, r2, #0x1
 	bne _0206B2E4
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0206B2F4:
@@ -220,8 +220,8 @@ _0206B2F4:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0206B2FC
-FUN_0206B2FC: ; 0x0206B2FC
+	thumb_func_start PCStorage_DeleteBoxMonByIndexPair
+PCStorage_DeleteBoxMonByIndexPair: ; 0x0206B2FC
 	push {r3, lr}
 	mov r3, #0x0
 	mvn r3, r3
@@ -242,19 +242,19 @@ _0206B308:
 	mul r0, r2
 	add r0, r1, r0
 	bl ZeroBoxMonData
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	pop {r3, pc}
 _0206B32A:
 	bl ErrorHandling
 	pop {r3, pc}
 
-	thumb_func_start FUN_0206B330
-FUN_0206B330: ; 0x0206B330
+	thumb_func_start PCStorage_GetActiveBox
+PCStorage_GetActiveBox: ; 0x0206B330
 	ldr r0, [r0, #0x0]
 	bx lr
 
-	thumb_func_start FUN_0206B334
-FUN_0206B334: ; 0x0206B334
+	thumb_func_start PCStorage_FindFirstBoxWithEmptySlot
+PCStorage_FindFirstBoxWithEmptySlot: ; 0x0206B334
 	push {r3-r7, lr}
 	sub sp, #0x8
 	str r0, [sp, #0x0]
@@ -299,8 +299,8 @@ _0206B374:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206B384
-FUN_0206B384: ; 0x0206B384
+	thumb_func_start PCStorage_FindFirstEmptySlot
+PCStorage_FindFirstEmptySlot: ; 0x0206B384
 	push {r3-r7, lr}
 	add r6, r1, #0x0
 	str r2, [sp, #0x0]
@@ -355,8 +355,8 @@ _0206B3DE:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206B3E4
-FUN_0206B3E4: ; 0x0206B3E4
+	thumb_func_start PCStorage_CountMonsAndEggsInAllBoxes
+PCStorage_CountMonsAndEggsInAllBoxes: ; 0x0206B3E4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	mov r6, #0x0
@@ -394,20 +394,20 @@ _0206B406:
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0206B428
-FUN_0206B428: ; 0x0206B428
+	thumb_func_start PCStorage_SetActiveBox
+PCStorage_SetActiveBox: ; 0x0206B428
 	push {r3, lr}
 	cmp r1, #0x12
 	bhs _0206B436
 	str r1, [r0, #0x0]
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	pop {r3, pc}
 _0206B436:
 	bl ErrorHandling
 	pop {r3, pc}
 
-	thumb_func_start FUN_0206B43C
-FUN_0206B43C: ; 0x0206B43C
+	thumb_func_start PCStorage_GetBoxWallpaper
+PCStorage_GetBoxWallpaper: ; 0x0206B43C
 	push {r3, lr}
 	cmp r1, #0x12
 	bhs _0206B44A
@@ -422,8 +422,8 @@ _0206B44A:
 	nop
 _0206B454: .word 0x000121B4
 
-	thumb_func_start FUN_0206B458
-FUN_0206B458: ; 0x0206B458
+	thumb_func_start PCStorage_SetBoxWallpaper
+PCStorage_SetBoxWallpaper: ; 0x0206B458
 	push {r3, lr}
 	mov r3, #0x0
 	mvn r3, r3
@@ -438,7 +438,7 @@ _0206B464:
 	add r1, r0, r1
 	ldr r0, _0206B480 ; =0x000121B4
 	strb r2, [r1, r0]
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	pop {r3, pc}
 _0206B478:
 	bl ErrorHandling
@@ -446,8 +446,8 @@ _0206B478:
 	nop
 _0206B480: .word 0x000121B4
 
-	thumb_func_start FUN_0206B484
-FUN_0206B484: ; 0x0206B484
+	thumb_func_start PCStorage_GetBoxName
+PCStorage_GetBoxName: ; 0x0206B484
 	push {r3, lr}
 	add r3, r0, #0x0
 	mov r0, #0x0
@@ -472,8 +472,8 @@ _0206B4A8:
 	nop
 _0206B4B0: .word 0x00011EE4
 
-	thumb_func_start FUN_0206B4B4
-FUN_0206B4B4: ; 0x0206B4B4
+	thumb_func_start PCStorage_SetBoxName
+PCStorage_SetBoxName: ; 0x0206B4B4
 	push {r3, lr}
 	add r3, r0, #0x0
 	mov r0, #0x0
@@ -492,14 +492,14 @@ _0206B4C2:
 	add r1, r3, r2
 	mov r2, #0x14
 	bl CopyStringToU16Array
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 _0206B4DC:
 	pop {r3, pc}
 	nop
 _0206B4E0: .word 0x00011EE4
 
-	thumb_func_start FUN_0206B4E4
-FUN_0206B4E4: ; 0x0206B4E4
+	thumb_func_start PCStorage_CountMonsAndEggsInBox
+PCStorage_CountMonsAndEggsInBox: ; 0x0206B4E4
 	push {r3-r7, lr}
 	mov r2, #0x0
 	mvn r2, r2
@@ -537,8 +537,8 @@ _0206B520:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0206B528
-FUN_0206B528: ; 0x0206B528
+	thumb_func_start PCStorage_CountMonsInBox
+PCStorage_CountMonsInBox: ; 0x0206B528
 	push {r3-r7, lr}
 	mov r2, #0x0
 	mvn r2, r2
@@ -583,8 +583,8 @@ _0206B572:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206B57C
-FUN_0206B57C: ; 0x0206B57C
+	thumb_func_start PCStorage_CountMonsInAllBoxes
+PCStorage_CountMonsInAllBoxes: ; 0x0206B57C
 	push {r4-r6, lr}
 	mov r5, #0x0
 	add r6, r0, #0x0
@@ -592,7 +592,7 @@ FUN_0206B57C: ; 0x0206B57C
 _0206B584:
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_0206B528
+	bl PCStorage_CountMonsInBox
 	add r5, r5, #0x1
 	add r4, r4, r0
 	cmp r5, #0x12
@@ -600,8 +600,8 @@ _0206B584:
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0206B598
-FUN_0206B598: ; 0x0206B598
+	thumb_func_start PCStorage_SetBoxMonDataByIndexPair
+PCStorage_SetBoxMonDataByIndexPair: ; 0x0206B598
 	push {r3-r7, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -636,12 +636,12 @@ _0206B5C4:
 	ldr r2, [sp, #0x18]
 	add r1, r7, #0x0
 	bl SetBoxMonData
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206B5E4
-FUN_0206B5E4: ; 0x0206B5E4
+	thumb_func_start PCStorage_GetMonByIndexPair
+PCStorage_GetMonByIndexPair: ; 0x0206B5E4
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -674,8 +674,8 @@ _0206B60E:
 	add r0, r1, r0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0206B620
-FUN_0206B620: ; 0x0206B620
+	thumb_func_start PCStorage_UnlockBonusWallpaper
+PCStorage_UnlockBonusWallpaper: ; 0x0206B620
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -689,13 +689,13 @@ _0206B62E:
 	lsl r1, r4
 	orr r1, r2
 	strb r1, [r5, r0]
-	bl FUN_02022830
+	bl SaveSetDirtyBit
 	pop {r3-r5, pc}
 	.balign 4
 _0206B640: .word 0x000121C6
 
-	thumb_func_start FUN_0206B644
-FUN_0206B644: ; 0x0206B644
+	thumb_func_start PCStorage_IsBonusWallpaperUnlocked
+PCStorage_IsBonusWallpaperUnlocked: ; 0x0206B644
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -716,8 +716,8 @@ _0206B662:
 	.balign 4
 _0206B664: .word 0x000121C6
 
-	thumb_func_start FUN_0206B668
-FUN_0206B668: ; 0x0206B668
+	thumb_func_start PCStorage_CountUnlockedBonusWallpapers
+PCStorage_CountUnlockedBonusWallpapers: ; 0x0206B668
 	push {r4-r6, lr}
 	mov r4, #0x0
 	add r6, r0, #0x0
@@ -725,7 +725,7 @@ FUN_0206B668: ; 0x0206B668
 _0206B670:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_0206B644
+	bl PCStorage_IsBonusWallpaperUnlocked
 	cmp r0, #0x0
 	beq _0206B67E
 	add r5, r5, #0x1

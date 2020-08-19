@@ -128,7 +128,7 @@ _02041290:
 	ldr r0, [sp, #0x20]
 	ldr r1, [sp, #0x10]
 	add r2, r5, #0x0
-	bl FUN_0206B5E4
+	bl PCStorage_GetMonByIndexPair
 	mov r1, #0x5
 	mov r2, #0x0
 	add r4, r0, #0x0

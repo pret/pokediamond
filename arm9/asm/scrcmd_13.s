@@ -125,7 +125,7 @@ _0204395C:
 	bl FUN_020690E4
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x8]
-	bl FUN_0206B20C
+	bl PCStorage_PlaceMonInFirstEmptySlotInAnyBox
 	cmp r0, #0x0
 	bne _0204398C
 	bl ErrorHandling

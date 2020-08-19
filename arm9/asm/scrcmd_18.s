@@ -1148,7 +1148,7 @@ _02044C6E:
 	blt _02044C44
 _02044C76:
 	ldr r0, [sp, #0x4]
-	bl FUN_0206B57C
+	bl PCStorage_CountMonsInAllBoxes
 	add r1, r4, r0
 	ldr r0, [sp, #0x0]
 	strh r1, [r0, #0x0]

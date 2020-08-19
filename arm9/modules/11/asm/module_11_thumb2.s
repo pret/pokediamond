@@ -22671,7 +22671,7 @@ MOD11_0223A3B4: ; 0x0223A3B4
 	cmp r0, #6
 	bne _0223A3E0
 	ldr r0, [r5, #0x64]
-	bl FUN_0206B334
+	bl PCStorage_FindFirstBoxWithEmptySlot
 	cmp r0, #0x12
 	beq _0223A3F0
 _0223A3E0:
@@ -25801,14 +25801,14 @@ _0223BD1E:
 	ldr r0, [r4]
 	bl MOD11_02230290
 	str r0, [sp, #0x1c]
-	bl FUN_0206B330
+	bl PCStorage_GetActiveBox
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x1c]
-	bl FUN_0206B334
+	bl PCStorage_FindFirstBoxWithEmptySlot
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x14]
-	bl FUN_0206B428
+	bl PCStorage_SetActiveBox
 	mov r5, #0
 _0223BD3E:
 	add r1, r5, #0
@@ -25830,7 +25830,7 @@ _0223BD3E:
 	add r2, r0, #0
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x14]
-	bl FUN_0206B244
+	bl PCStorage_PlaceMonInBoxFirstEmptySlot
 	ldr r0, [r4, #0x28]
 	cmp r0, #0x16
 	bne _0223BDD0
