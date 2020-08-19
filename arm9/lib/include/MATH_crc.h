@@ -7,6 +7,8 @@ typedef u8 MATHCRC8Context;
 typedef u16 MATHCRC16Context;
 typedef u32 MATHCRC32Context;
 
+#define MATH_CRC16_CCITT_POLY 0x1021
+
 struct MATHCRC8Table {
     u8 table[256];
 };
@@ -34,5 +36,10 @@ void MATHi_CRC16InitTableRev(struct MATHCRC16Table *table, u16 poly);
 void MATHi_CRC16InitTable(struct MATHCRC16Table *table, u16 poly);
 void MATHi_CRC8Update(const struct MATHCRC8Table *table, MATHCRC8Context *context, const void *input, u32 length);
 void MATHi_CRC8InitTable(struct MATHCRC8Table *table, u8 poly);
+
+static inline void MATH_CRC16InitTable(struct MATHCRC16Table * table)
+{
+    MATHi_CRC16InitTable(table, MATH_CRC16_CCITT_POLY);
+}
 
 #endif

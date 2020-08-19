@@ -36,5 +36,7 @@ struct Options * Sav2_PlayerData_GetOptionsAddr(struct SaveBlock2 *);
 struct String * PlayerProfile_GetPlayerName_NewString(struct PlayerData *, u32 heap_id);
 u32 PlayerProfile_GetTrainerID(struct PlayerData *);
 u32 PlayerProfile_GetTrainerGender(struct PlayerData *);
+u32 Sav2_PlayerData_sizeof(void);
+void Sav2_PlayerData_init(struct PlayerDataSav *);
 
 #endif //POKEDIAMOND_PLAYER_DATA_H

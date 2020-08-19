@@ -219,8 +219,6 @@ THUMB_FUNC void FUN_02000EE8(void)
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
 extern BOOL FUN_02032DAC(void);
-extern void FUN_020225F8(void);
-extern void FUN_0202287C(void);
 
 // No Return
 THUMB_FUNC void DoSoftReset(u32 parameter)
@@ -229,8 +227,7 @@ THUMB_FUNC void DoSoftReset(u32 parameter)
     FUN_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
     if (FUN_02032DAC())
     {
-        FUN_020225F8();
-        FUN_0202287C();
+        FUN_0202287C(FUN_020225F8());
     }
     do
     {
