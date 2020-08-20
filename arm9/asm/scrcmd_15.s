@@ -9,7 +9,7 @@ FUN_02043C6C: ; 0x02043C6C
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
@@ -26,7 +26,7 @@ FUN_02043C90: ; 0x02043C90
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
@@ -43,7 +43,7 @@ FUN_02043CB4: ; 0x02043CB4
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
@@ -65,7 +65,7 @@ FUN_02043CE4: ; 0x02043CE4
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
@@ -98,7 +98,7 @@ FUN_02043D28: ; 0x02043D28
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0

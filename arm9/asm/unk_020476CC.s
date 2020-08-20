@@ -285,7 +285,7 @@ FUN_02047814: ; 0x02047814
 	add r0, r6, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -519,7 +519,7 @@ FUN_02047A78: ; 0x02047A78
 	mov r2, #0x0
 	bl FUN_02047A64
 	ldr r0, [r4, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -719,7 +719,7 @@ _02047C98:
 	bl FUN_02047A64
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
@@ -903,7 +903,7 @@ _02047E2C:
 	bl FUN_02047A64
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]

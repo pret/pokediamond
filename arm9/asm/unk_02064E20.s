@@ -6,7 +6,7 @@
 	thumb_func_start FUN_02064E20
 FUN_02064E20: ; 0x02064E20
 	push {r4, lr}
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024ED8
 	add r4, r0, #0x0
 	bl FUN_020254B4

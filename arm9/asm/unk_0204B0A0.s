@@ -125,7 +125,7 @@ FUN_0204B1DC: ; 0x0204B1DC
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r1, r4, #0x0
 	bl FUN_02025A60
 	add r0, r5, #0x0

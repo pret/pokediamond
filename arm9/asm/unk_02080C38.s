@@ -111,7 +111,7 @@ _02080CB4:
 	bl GetPartyMonByIndex
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r0, [sp, #0x0]

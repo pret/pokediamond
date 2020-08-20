@@ -14,7 +14,7 @@ FUN_02064E90: ; 0x02064E90
 	add r0, r6, #0x0
 	str r3, [sp, #0x1c]
 	ldr r5, [sp, #0xbc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	str r0, [sp, #0x20]
 	bl Sav2_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
@@ -218,7 +218,7 @@ _02065074: .word FreeToHeap
 	thumb_func_start FUN_02065078
 FUN_02065078: ; 0x02065078
 	push {r3-r7, lr}
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r7, r0, #0x0
 	bl FUN_02029FC8
 	add r6, r0, #0x0

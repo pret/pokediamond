@@ -731,10 +731,10 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203C5BC
     .word FUN_0203C614
     .word FUN_0203C680
-    .word FUN_0203EBC8
+    .word ScrCmd_gameversion
     .word FUN_02044A6C
     .word FUN_02044A94
-    .word FUN_0203EBE4
+    .word ScrCmd_givewallpaper
     .word FUN_0203ECAC
     .word FUN_0203ECD8
     .word FUN_0203ECF4
@@ -743,7 +743,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_020411C4
     .word FUN_02041340
     .word FUN_02040964
-    .word FUN_0203ED70
+    .word ScrCmd_pcfreespace
     .word FUN_0204387C
     .word FUN_020438D0
     .word FUN_02043918

@@ -1428,7 +1428,7 @@
 .extern FUN_02022450
 .extern FUN_020224D8
 .extern FUN_02022504
-.extern FUN_02022510
+.extern GetStoragePCPointer
 .extern FUN_0202251C
 .extern FUN_02022528
 .extern LoadSaveFile
@@ -2614,7 +2614,7 @@
 .extern FUN_02037778
 .extern FUN_02037790
 .extern FUN_020377A8
-.extern FUN_020377AC
+.extern ScriptEnvironment_GetSav2Ptr
 .extern FUN_020377B0
 .extern FUN_020377C8
 .extern FUN_020377E0
@@ -3048,13 +3048,13 @@
 .extern FUN_0203EB20
 .extern FUN_0203EB48
 .extern FUN_0203EB88
-.extern FUN_0203EBC8
-.extern FUN_0203EBE4
+.extern ScrCmd_gameversion
+.extern ScrCmd_givewallpaper
 .extern FUN_0203ECAC
 .extern FUN_0203ECD8
 .extern FUN_0203ECF4
 .extern FUN_0203ED10
-.extern FUN_0203ED70
+.extern ScrCmd_pcfreespace
 .extern FUN_0203EDA4
 .extern FUN_0203EDC8
 .extern FUN_0203EDE0

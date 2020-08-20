@@ -20,7 +20,7 @@ FUN_020406CC: ; 0x020406CC
 	str r0, [r5, #0x8]
 	ldrb r5, [r1, #0x0]
 	add r0, r6, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -331,7 +331,7 @@ FUN_02040964: ; 0x02040964
 	add r0, #0x80
 	ldr r4, [r0, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0xf
@@ -426,7 +426,7 @@ FUN_02040A30: ; 0x02040A30
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0

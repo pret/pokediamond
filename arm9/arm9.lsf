@@ -83,6 +83,7 @@ Static arm9
 	Object unk_02022450.o
 	Object unk_02022504.o
 	Object save.o
+	Object save_arrays.o
 	Object unk_0202376C.o
 	Object player_data.o
 	Object unk_02023AC4.o

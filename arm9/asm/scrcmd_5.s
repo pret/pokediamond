@@ -40,7 +40,7 @@ FUN_020411C4: ; 0x020411C4
 	add r0, #0x80
 	ldr r7, [r0, #0x0]
 	ldr r0, [r7, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	str r0, [sp, #0x20]
 	add r0, r4, #0x0
 	bl ScriptReadHalfword

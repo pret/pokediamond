@@ -55,7 +55,7 @@ FUN_020653EC: ; 0x020653EC
 	bl MI_CpuFill8
 	add r0, r5, #0x0
 	str r6, [r4, #0x4]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	mov r1, #0x5b
 	lsl r1, r1, #0x2
 	str r5, [r4, r1]
@@ -1807,7 +1807,7 @@ FUN_020661F8: ; 0x020661F8
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
@@ -2376,19 +2376,19 @@ _02066676:
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	mov r0, #0x5b

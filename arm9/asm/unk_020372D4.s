@@ -632,7 +632,7 @@ FUN_020377A8: ; 0x020377A8
 	ldr r0, [r0, #0x8]
 	bx lr
 
-	thumb_func_start FUN_020377AC
-FUN_020377AC: ; 0x020377AC
+	thumb_func_start ScriptEnvironment_GetSav2Ptr
+ScriptEnvironment_GetSav2Ptr: ; 0x020377AC
 	ldr r0, [r0, #0xc]
 	bx lr
