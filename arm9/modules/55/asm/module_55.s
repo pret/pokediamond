@@ -27,7 +27,7 @@ MOD55_021D7504: ; 0x021D7504
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -54,7 +54,7 @@ MOD55_021D7504: ; 0x021D7504
 	bl MOD55_021D7AE0
 	ldr r0, _021D7568 ; =MOD55_021D77D0
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD55_021D74E0
 	pop {r4, pc}
@@ -327,7 +327,7 @@ MOD55_021D778C: ; 0x021D778C
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD55_021D7720
 	add r0, r4, #0

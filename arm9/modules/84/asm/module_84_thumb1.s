@@ -36,7 +36,7 @@ _021D74FC:
 _021D7516:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -142,7 +142,7 @@ _021D7516:
 	str r0, [r4, r1]
 	ldr r0, _021D769C ; =MOD84_021D7950
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 _021D7618:
 	ldr r0, [r5]
 	add r0, r0, #1
@@ -234,7 +234,7 @@ _021D76CA:
 	bl OS_RestoreInterrupts
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]

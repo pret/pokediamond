@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnk021C4918
+	.extern gMain
 	.extern UNK_020FF3E4
 	.extern UNK_020FF3EC
 	.extern UNK_020FF3FC
@@ -43,7 +43,7 @@ FUN_02089F24: ; 0x02089F24
 	bl FUN_0200E3A0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -62,7 +62,7 @@ FUN_02089F24: ; 0x02089F24
 	mov r0, #0x4
 	mov r1, #0x8
 	bl FUN_0201669C
-	ldr r0, _0208A090 ; =gUnk021C4918
+	ldr r0, _0208A090 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
 	bl FUN_0201E7A0
@@ -180,7 +180,7 @@ _0208A078:
 	nop
 _0208A088: .word 0xFFFFE0FF
 _0208A08C: .word 0x04001000
-_0208A090: .word gUnk021C4918
+_0208A090: .word gMain + 0x60
 _0208A094: .word 0x04000050
 _0208A098: .word 0x04001050
 _0208A09C: .word 0xFFFF1FFF
@@ -212,7 +212,7 @@ _0208A0C8:
 	bl FUN_02015EF4
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -231,7 +231,7 @@ _0208A0C8:
 	mov r0, #0x4
 	mov r1, #0x8
 	bl FUN_0201669C
-	ldr r0, _0208A230 ; =gUnk021C4918
+	ldr r0, _0208A230 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
 	bl FUN_0201E7A0
@@ -350,7 +350,7 @@ _0208A21A:
 	.balign 4
 _0208A228: .word 0xFFFFE0FF
 _0208A22C: .word 0x04001000
-_0208A230: .word gUnk021C4918
+_0208A230: .word gMain + 0x60
 _0208A234: .word 0x04000050
 _0208A238: .word 0x04001050
 _0208A23C: .word 0xFFFF1FFF

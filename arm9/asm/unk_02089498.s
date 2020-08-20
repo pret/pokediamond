@@ -101,7 +101,7 @@ _020894FC:
 	bl FUN_0200E3A0
 	add r0, r6, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r6, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -126,7 +126,7 @@ _020894FC:
 	bl FUN_02089734
 	ldr r0, _020895EC ; =FUN_02089610
 	add r1, r4, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E788
 	mov r0, #0x6
 	mov r1, #0x1
@@ -176,7 +176,7 @@ _020895BC:
 	bl FUN_020896E0
 	add r0, r6, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r6, #0x1
 _020895DA:
 	add r0, r6, #0x0

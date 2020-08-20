@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnk021C4918
+	.extern gMain
 
 	.section .rodata
 
@@ -92,7 +92,7 @@ _02033FA4:
 	bl OS_EnableIrqMask
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -111,7 +111,7 @@ _02033FA4:
 	mov r0, #0x4
 	mov r1, #0x8
 	bl FUN_0201669C
-	ldr r0, _02034160 ; =gUnk021C4918
+	ldr r0, _02034160 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
 	bl FUN_0201E7A0
@@ -254,7 +254,7 @@ _02033FA4:
 _02034154: .word FUN_02033F50
 _02034158: .word 0xFFFFE0FF
 _0203415C: .word 0x04001000
-_02034160: .word gUnk021C4918
+_02034160: .word gMain + 0x60
 _02034164: .word 0x04000050
 _02034168: .word 0x04001050
 _0203416C: .word 0xFFFF1FFF

@@ -10493,7 +10493,7 @@ _021DC79C:
 	mov r0, #0
 	add r1, r0, #0
 	mov r5, #1
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -10783,7 +10783,7 @@ MOD14_021DCA38: ; 0x021DCA38
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, [r4]
 	bl FUN_0200CAB4
 	ldr r0, [r4, #4]

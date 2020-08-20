@@ -251,7 +251,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -304,7 +304,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	bl MOD56_0221257C
 	ldr r0, _02212080 ; =MOD56_0221228C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl MOD56_0221269C
 	add r0, r4, #0
 	bl MOD56_022126E0
@@ -485,7 +485,7 @@ MOD56_022121C4: ; 0x022121C4
 	add r6, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0xb
 	lsl r0, r0, #6
 	ldr r0, [r6, r0]

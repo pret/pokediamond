@@ -20,7 +20,7 @@ _021D74F4:
 _021D74F6:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -90,7 +90,7 @@ _021D74F6:
 	bl MOD54_021D7AA0
 	ldr r0, _021D7644 ; =MOD54_021D784C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD54_021D799C
 	bl MOD54_021D7B8C
@@ -331,7 +331,7 @@ _021D776C:
 	bl FUN_02052B74
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x33
 	bl FUN_020168D0
 	mov r0, #1
@@ -1968,7 +1968,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	ldr r0, _021D8514 ; =gUnk021C4918
+	ldr r0, _021D8514 ; =gMain + 0x60
 	mov r1, #1
 	strb r1, [r0, #8]
 	mov r0, #0x33
@@ -1993,7 +1993,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D8514: .word gUnk021C4918
+_021D8514: .word gMain + 0x60
 	thumb_func_end MOD54_021D84D4
 
 	thumb_func_start MOD54_021D8518
@@ -2035,7 +2035,7 @@ _021D852A:
 	str r1, [r5, #0xc]
 	lsl r0, r0, #4
 	str r1, [r5, r0]
-	ldr r0, _021D8580 ; =gUnk021C4918
+	ldr r0, _021D8580 ; =gMain + 0x60
 	strb r1, [r0, #8]
 	ldr r0, _021D8584 ; =0x00004A40
 	strb r1, [r5, r0]
@@ -2044,7 +2044,7 @@ _021D8576:
 	pop {r3, r4, r5, pc}
 	nop
 _021D857C: .word 0x00000658
-_021D8580: .word gUnk021C4918
+_021D8580: .word gMain + 0x60
 _021D8584: .word 0x00004A40
 	thumb_func_end MOD54_021D8518
 

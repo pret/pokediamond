@@ -10,7 +10,7 @@ MOD85_021D74E0: ; 0x021D74E0
 	add r5, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -172,7 +172,7 @@ MOD85_021D7644: ; 0x021D7644
 	mov r0, #0
 	ldr r4, [r6, #4]
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r6, #0
 	add r1, r4, #0
 	bl MOD85_021D769C
@@ -346,7 +346,7 @@ MOD85_021D76FC: ; 0x021D76FC
 	bl G2x_SetBlendAlpha_
 	ldr r0, _021D77D8 ; =MOD85_021D80DC
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _021D77CC: .word 0x0000043C

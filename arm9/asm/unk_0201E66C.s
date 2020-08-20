@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnk021C4918
+	.extern gMain
 
 	.section .bss
 
@@ -167,7 +167,7 @@ _0201E79C: .word 0x04001000
 
 	thumb_func_start FUN_0201E7A0
 FUN_0201E7A0: ; 0x0201E7A0
-	ldr r0, _0201E7C0 ; =gUnk021C4918
+	ldr r0, _0201E7C0 ; =gMain + 0x60
 	ldr r2, _0201E7C4 ; =0x04000304
 	ldrb r0, [r0, #0x5]
 	cmp r0, #0x0
@@ -184,7 +184,7 @@ _0201E7B4:
 	strh r0, [r2, #0x0]
 	bx lr
 	nop
-_0201E7C0: .word gUnk021C4918
+_0201E7C0: .word gMain + 0x60
 _0201E7C4: .word 0x04000304
 _0201E7C8: .word 0xFFFF7FFF
 

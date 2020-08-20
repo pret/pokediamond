@@ -555,7 +555,7 @@ _021D78EE: ; jump table
 _021D78FA:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -590,7 +590,7 @@ _021D7940:
 _021D794E:
 	ldr r0, _021D7A5C ; =MOD61_021D7A6C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x10
 	mov r1, #1
 	bl FUN_0201E6E4
@@ -680,7 +680,7 @@ _021D79FC:
 	bl FUN_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E6D8
 	bl FUN_0201E740
 	mov r2, #1

@@ -10,7 +10,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	add r5, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -94,7 +94,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	bl MOD71_0222E900
 	ldr r0, _0222D73C ; =MOD71_0222E4DC
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl MOD71_0222EA38
 	add r0, r4, #0
 	bl MOD71_0222EA68
@@ -366,7 +366,7 @@ MOD71_0222D820: ; 0x0222D820
 	bl FUN_020200A0
 	ldr r0, _0222D938 ; =MOD71_0222E4DC
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add sp, #8
 	pop {r4, pc}
 	nop
@@ -1775,7 +1775,7 @@ MOD71_0222E438: ; 0x0222E438
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x1a
 	bl FUN_020168D0
 	mov r0, #1

@@ -47,7 +47,7 @@ _021D7504:
 	bl FUN_0201C24C
 	ldr r0, _021D763C ; =MOD64_021D77A4
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201CC08
 	mov r0, #4
@@ -245,7 +245,7 @@ MOD64_021D76F4: ; 0x021D76F4
 	add r6, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, [r4, #0x54]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10

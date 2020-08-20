@@ -436,7 +436,7 @@ MOD60_021D7834: ; 0x021D7834
 _021D7848:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -482,7 +482,7 @@ _021D78A2:
 	bl FUN_02033F20
 	ldr r0, _021D78E4 ; =MOD60_021D77D4
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -549,7 +549,7 @@ _021D7928:
 _021D7946:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740

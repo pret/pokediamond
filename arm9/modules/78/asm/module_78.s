@@ -269,7 +269,7 @@ MOD78_021D7708: ; 0x021D7708
 	push {r3, lr}
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740

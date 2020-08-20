@@ -55,7 +55,7 @@ MOD76_021D74E0: ; 0x021D74E0
 	bl MOD76_021D8CD4
 	ldr r0, _021D7564 ; =MOD76_021D76E8
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -177,7 +177,7 @@ MOD76_021D7638: ; 0x021D7638
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -214,7 +214,7 @@ MOD76_021D7638: ; 0x021D7638
 	bl MOD76_021D7BE0
 	ldr r0, _021D76B4 ; =MOD76_021D76E8
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r4, pc}
 	.align 2, 0
 _021D76AC: .word 0xFFFFE0FF
@@ -238,7 +238,7 @@ MOD76_021D76B8: ; 0x021D76B8
 	bl FUN_0201C29C
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D76B8

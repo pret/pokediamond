@@ -475,7 +475,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	str r0, [r4, r1]
 	ldr r0, _021D789C ; =MOD70_021D790C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 _021D788C:
 	add r0, r4, #0
 	add sp, #0x14
@@ -493,7 +493,7 @@ MOD70_021D78A0: ; 0x021D78A0
 	beq _021D790A
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x66
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

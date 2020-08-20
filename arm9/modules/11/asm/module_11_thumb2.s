@@ -222,7 +222,7 @@ _0222F30E:
 	bl DestroyMsgData
 	ldr r0, _0222F4D8 ; =MOD11_0222F0D4
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x10
 	str r0, [sp]
 	mov r3, #0
@@ -799,7 +799,7 @@ MOD11_0222F93C: ; 0x0222F93C
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_0200E3A0
@@ -90807,7 +90807,7 @@ MOD11_0225B824: ; 0x0225B824
 	mov r1, #1
 	bl FUN_02003204
 	add r4, r0, #0
-	ldr r0, _0225B8AC ; =UNK_021C48F8
+	ldr r0, _0225B8AC ; =gMain + 0x40
 	ldrh r0, [r0, #0x22]
 	cmp r0, #0
 	beq _0225B888
@@ -90849,7 +90849,7 @@ _0225B888:
 _0225B8A8:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_0225B8AC: .word UNK_021C48F8
+_0225B8AC: .word gMain + 0x40
 
 	thumb_func_start MOD11_0225B8B0
 MOD11_0225B8B0: ; 0x0225B8B0

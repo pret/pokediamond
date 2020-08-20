@@ -59,7 +59,7 @@ FUN_02079C7C: ; 0x02079C7C
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -156,7 +156,7 @@ FUN_02079C7C: ; 0x02079C7C
 	bl FUN_0207F098
 	ldr r0, _02079DB0 ; =FUN_02079F24
 	add r1, r5, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E788
 	mov r1, #0x0
 	mov r0, #0x3d
@@ -318,7 +318,7 @@ FUN_02079ECC: ; 0x02079ECC
 	add r5, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r5, #0x0
 	bl FUN_0207F068
 	add r0, r5, #0x0

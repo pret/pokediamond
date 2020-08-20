@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021C48F8
+	.extern gMain
 	.extern gMain
 
 	.section .rodata
@@ -119,7 +119,7 @@ FUN_0206F3FC: ; 0x0206F3FC
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -290,7 +290,7 @@ _0206F564:
 _0206F582:
 	ldr r0, _0206F5A8 ; =FUN_0206FB58
 	add r1, r4, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02033F20
 	mov r0, #0x1
 	add sp, #0xc
@@ -964,7 +964,7 @@ FUN_0206FAA4: ; 0x0206FAA4
 	add r6, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r6, #0x0
 	bl FUN_02073A2C
 	add r0, r6, #0x0
@@ -4688,7 +4688,7 @@ _02071886:
 	strh r1, [r0, #0x0]
 	add r0, sp, #0x4
 	str r0, [sp, #0x0]
-	ldr r3, _020718C8 ; =UNK_021C48F8
+	ldr r3, _020718C8 ; =gMain + 0x40
 	ldr r0, [r5, #0x0]
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
@@ -4707,7 +4707,7 @@ _020718BA:
 	.balign 4
 _020718C0: .word UNK_020F94B8
 _020718C4: .word 0x0000FFFE
-_020718C8: .word UNK_021C48F8
+_020718C8: .word gMain + 0x40
 
 	thumb_func_start FUN_020718CC
 FUN_020718CC: ; 0x020718CC

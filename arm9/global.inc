@@ -1007,7 +1007,7 @@
 .extern FUN_02015E3C
 .extern FUN_02015E60
 .extern FUN_02015EF4
-.extern FUN_02015F10
+.extern Main_SetVBlankIntrCB
 .extern FUN_02015F1C
 .extern FUN_02015F34
 .extern FUN_020161A4
@@ -8162,7 +8162,7 @@
 .extern UNK_020FD6D4
 .extern UNK_021064B8
 .extern UNK_021064C0
-.extern UNK_021C48F8
+.extern gMain
 .extern UNK_021C8ECC
 .extern UNK_021C8ED0
 .extern UNK_021C8ED4
@@ -8209,8 +8209,6 @@
 .extern UNK_02105BB8
 .extern UNK_021064BC
 .extern UNK_021064C4
-.extern gMain
-.extern gUnk021C4918
 .extern UNK_021CED20
 .extern UNK_021CED98
 .extern UNK_021CEDD4

@@ -1,8 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021C48F8
-	.extern gUnk021C4918
+	.extern gMain
+	.extern gMain
 	.extern gMain
 
 	.section .rodata
@@ -387,7 +387,7 @@ _020772FC:
 _020772FE:
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -470,7 +470,7 @@ _020772FE:
 	bl FUN_02002C50
 	ldr r0, _020774A0 ; =FUN_02077AE8
 	mov r1, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	bl FUN_02077CD4
@@ -518,7 +518,7 @@ _020772FE:
 	bl FUN_0200E1D0
 	mov r0, #0x1
 	bl FUN_02077C84
-	ldr r0, _020774A8 ; =gUnk021C4918
+	ldr r0, _020774A8 ; =gMain + 0x60
 	mov r1, #0x1
 	strb r1, [r0, #0x5]
 	bl FUN_0201E7A0
@@ -563,7 +563,7 @@ _02077498: .word 0xFFFFE0FF
 _0207749C: .word 0x04001000
 _020774A0: .word FUN_02077AE8
 _020774A4: .word 0x000004C4
-_020774A8: .word gUnk021C4918
+_020774A8: .word gMain + 0x60
 _020774AC: .word 0x000004B8
 _020774B0: .word UNK_021C5C54
 _020774B4: .word 0x000005C4
@@ -1256,10 +1256,10 @@ _02077A0C:
 	bl OverlayManager_FreeData
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x12
 	bl FUN_020168D0
-	ldr r0, _02077A80 ; =gUnk021C4918
+	ldr r0, _02077A80 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
 	bl FUN_0201E7A0
@@ -1272,7 +1272,7 @@ _02077A70: .word 0x000004AC
 _02077A74: .word 0x000004B4
 _02077A78: .word 0x000004BC
 _02077A7C: .word 0xFFFF1FFF
-_02077A80: .word gUnk021C4918
+_02077A80: .word gMain + 0x60
 
 	thumb_func_start FUN_02077A84
 FUN_02077A84: ; 0x02077A84
@@ -5126,7 +5126,7 @@ FUN_02079930: ; 0x02079930
 	mov r0, #0x4
 	mov r12, r0
 _02079944:
-	ldr r2, _020799E0 ; =UNK_021C48F8
+	ldr r2, _020799E0 ; =gMain + 0x40
 	ldrh r0, [r2, #0x20]
 	cmp r0, #0x0
 	beq _020799DA
@@ -5211,5 +5211,5 @@ _020799DA:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	nop
-_020799E0: .word UNK_021C48F8
+_020799E0: .word gMain + 0x40
 _020799E4: .word UNK_020FA264

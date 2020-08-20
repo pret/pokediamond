@@ -285,7 +285,7 @@ _02085A9A:
 	bl MOD62_022300E4
 	ldr r0, _02085BAC ; =MOD62_022310CC
 	add r1, r4, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0x0
 	bl MOD62_0222DD1C
 	mov r1, #0x0

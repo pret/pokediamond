@@ -39953,7 +39953,7 @@ MOD06_0224CDA0: ; 0x0224CDA0
 MOD06_0224CDB8: ; 0x0224CDB8
 	cmp r1, #0
 	beq _0224CE2A
-	ldr r1, _0224CE2C ; =gUnk021C4918
+	ldr r1, _0224CE2C ; =gMain + 0x60
 	ldrb r1, [r1, #6]
 	cmp r1, #5
 	bhi _0224CE2A
@@ -40017,7 +40017,7 @@ _0224CE1C:
 _0224CE2A:
 	bx lr
 	.align 2, 0
-_0224CE2C: .word gUnk021C4918
+_0224CE2C: .word gMain + 0x60
 
 	thumb_func_start MOD06_0224CE30
 MOD06_0224CE30: ; 0x0224CE30

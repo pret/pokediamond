@@ -623,7 +623,7 @@ MOD82_0222DA34: ; 0x0222DA34
 _0222DA48:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -885,7 +885,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x44
 	bl FUN_020168D0
 	mov r0, #1
@@ -1314,7 +1314,7 @@ MOD82_0222DFD4: ; 0x0222DFD4
 	bl MOD82_0222DE80
 	ldr r0, _0222DFF8 ; =MOD82_0222DCC4
 	mov r1, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r4, pc}
 	nop
 _0222DFF8: .word MOD82_0222DCC4

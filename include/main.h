@@ -54,29 +54,6 @@ struct Unk21C4828
     u32 unk8;
 };
 
-struct Unk21C48B8
-{
-    void (*unk0)(s32);
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
-    s32 unk10;
-    s32 unk14;
-    s32 unk18;
-    s32 unk1C;
-    s32 unk20;
-    s32 unk24;
-    s32 unk28;
-    u32 unk2C;
-    s32 unk30;
-    s32 unk34;
-    s32 unk38;
-    u8 filler3C[0xC];
-    s32 unk48;
-    u8 filler4C[0x20];
-    s32 unk6C;
-};
-
 struct UnkStruct_021C4918 {
     s32 unk0;
     u8 unk4;
@@ -87,14 +64,52 @@ struct UnkStruct_021C4918 {
     u8 padding[3];
 };
 
-extern struct UnkStruct_021C4918 gUnk021C4918;
+struct Main
+{
+    void (*vBlankIntr)(void *);
+    void * vBlankIntrArg;
+    void (*hBlankIntr)(void *);
+    void * hBlankIntrArg;
+    s32 unk10;
+    s32 unk14;
+    void * unk18;
+    void * unk1C;
+    void * unk20;
+    void * unk24;
+    s32 unk28;
+    u32 unk2C;
+    s32 unk30;
+    u32 unk34;
+    u32 unk38;
+    u32 unk3C;
+    u32 unk40;
+    u32 unk44;
+    u32 unk48;
+    u32 unk4C;
+    s32 unk50;
+    s32 unk54;
+    s32 unk58;
+    u16 unk5C;
+    u16 unk5E;
+    u16 unk60;
+    u16 unk62;
+    u8 unk64;
+    u8 unk65;
+    u8 unk66;
+    u8 unk67;
+    u8 unk68;
+    u8 padding_69[3];
+    s32 unk6C;
+};
+
+//extern struct UnkStruct_021C4918 gMain + 0x60;
 
 extern struct Unk2106FA0 gBacklightTop;
 extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
 
 void NitroMain(void);
 
-extern struct Unk21C48B8 gMain;
+extern struct Main gMain;
 
 void FUN_02000DF4(void);
 void Main_RunOverlayManager(void);

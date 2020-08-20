@@ -294,7 +294,7 @@ FUN_0206C92C: ; 0x0206C92C
 	bl FUN_0200E3A0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, [r4, #0x4]
 	mov r1, #0x1
 	bl FUN_020191A4
@@ -2513,7 +2513,7 @@ _0206DA26:
 	bl FUN_0201E6E4
 	ldr r0, _0206DC44 ; =FUN_0206DD08
 	add r1, r5, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add sp, #0xb8
 	pop {r4-r6, pc}
 	.balign 4

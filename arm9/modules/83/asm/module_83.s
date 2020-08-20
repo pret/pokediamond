@@ -1855,7 +1855,7 @@ _0222E3FE:
 	bl FreeToHeap
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD83_0222E3B8
 
@@ -2099,7 +2099,7 @@ _0222E616:
 	bl MOD83_0222DBD0
 	ldr r0, _0222E7A0 ; =MOD83_0222E464
 	ldr r1, [r4]
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD83_0222E0DC
 	ldr r1, [r4, #0x54]
@@ -16268,7 +16268,7 @@ _02235512:
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x1c]
 	bl MOD83_TranslateAgbSpecies
-	ldr r2, _0223563C ; =gUnk021C4918
+	ldr r2, _0223563C ; =gMain + 0x60
 	ldr r1, [sp, #0x20]
 	ldrb r2, [r2, #6]
 	bl MOD83_02235350
@@ -16365,7 +16365,7 @@ _02235602:
 	nop
 _02235634: .word 0x0000E880
 _02235638: .word 0x0000E884
-_0223563C: .word gUnk021C4918
+_0223563C: .word gMain + 0x60
 _02235640: .word MOD83_022354AC
 _02235644: .word 0x00012604
 	thumb_func_end MOD83_022354F0
@@ -17527,7 +17527,7 @@ _02235F48:
 	bl FUN_0201E66C
 	ldr r0, [r4, #0x20]
 	bl MOD83_02235E68
-	ldr r0, _02235FB8 ; =gUnk021C4918
+	ldr r0, _02235FB8 ; =gMain + 0x60
 	mov r1, #1
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -17567,7 +17567,7 @@ _02235F48:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02235FB4: .word MOD83_0223A59C
-_02235FB8: .word gUnk021C4918
+_02235FB8: .word gMain + 0x60
 	thumb_func_end MOD83_02235F3C
 
 	thumb_func_start MOD83_02235FBC
@@ -17819,7 +17819,7 @@ _02236148:
 	ldr r0, _02236288 ; =0x00000414
 	str r7, [sp]
 	ldr r0, [r4, r0]
-	ldr r3, _0223628C ; =gUnk021C4918
+	ldr r3, _0223628C ; =gMain + 0x60
 	str r0, [sp, #4]
 	ldrb r3, [r3, #6]
 	ldr r0, [sp, #0x14]
@@ -17906,7 +17906,7 @@ _02236148:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _02236288: .word 0x00000414
-_0223628C: .word gUnk021C4918
+_0223628C: .word gMain + 0x60
 _02236290: .word MOD83_0223B280
 _02236294: .word 0x000003D2
 	thumb_func_end MOD83_022360C8
@@ -17994,7 +17994,7 @@ MOD83_02236330: ; 0x02236330
 	add r6, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r7, #0x6a
 	mov r4, #0
 	add r5, r6, #0
@@ -18091,7 +18091,7 @@ _022363E2:
 	ldr r0, _02236448 ; =0x0000E88C
 	ldr r0, [r6, r0]
 	bl FUN_020145A8
-	ldr r0, _0223644C ; =gUnk021C4918
+	ldr r0, _0223644C ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -18113,7 +18113,7 @@ _0223643C: .word 0x00000478
 _02236440: .word 0x00000488
 _02236444: .word 0x00000498
 _02236448: .word 0x0000E88C
-_0223644C: .word gUnk021C4918
+_0223644C: .word gMain + 0x60
 	thumb_func_end MOD83_02236330
 
 	thumb_func_start MOD83_02236450
@@ -18476,7 +18476,7 @@ _02236712:
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _02236730:
-	ldr r0, _0223675C ; =UNK_021C48F8
+	ldr r0, _0223675C ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _02236740
@@ -18497,7 +18497,7 @@ _02236750:
 	.align 2, 0
 _02236754: .word 0x000005DC
 _02236758: .word 0x00000474
-_0223675C: .word UNK_021C48F8
+_0223675C: .word gMain + 0x40
 _02236760: .word gMain
 	thumb_func_end MOD83_022366D0
 
@@ -18668,7 +18668,7 @@ _022368BA:
 	bl MOD83_022357CC
 	ldr r0, _02236B4C ; =MOD83_0223650C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x10
 	mov r1, #0
 	bl FUN_0201E6E4
@@ -18792,7 +18792,7 @@ _022369BC:
 	str r0, [r5]
 	b _02236D90
 _022369CE:
-	ldr r0, _02236B54 ; =UNK_021C48F8
+	ldr r0, _02236B54 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _022369DE
@@ -18895,7 +18895,7 @@ _02236A88:
 	bl MOD83_022354F0
 	ldr r0, _02236B4C ; =MOD83_0223650C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x10
 	mov r1, #1
 	bl FUN_0201E6E4
@@ -18972,7 +18972,7 @@ _02236B44: .word 0x000004AC
 _02236B48: .word 0x0000E880
 _02236B4C: .word MOD83_0223650C
 _02236B50: .word 0x0000E88C
-_02236B54: .word UNK_021C48F8
+_02236B54: .word gMain + 0x40
 _02236B58: .word gMain
 _02236B5C: .word 0x00000498
 _02236B60: .word 0x0000E898
@@ -19222,7 +19222,7 @@ _02236D36:
 	bl FUN_020166B8
 	b _02236D90
 _02236D54:
-	ldr r0, _02236DC8 ; =UNK_021C48F8
+	ldr r0, _02236DC8 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _02236D64
@@ -19270,7 +19270,7 @@ _02236DB8: .word 0x0000E890
 _02236DBC: .word 0x0000E898
 _02236DC0: .word 0x0000061B
 _02236DC4: .word 0x0000042C
-_02236DC8: .word UNK_021C48F8
+_02236DC8: .word gMain + 0x40
 _02236DCC: .word gMain
 	thumb_func_end MOD83_02236804
 
@@ -22458,7 +22458,7 @@ _022384AE:
 	ldr r1, _022385F0 ; =0x00000182
 	cmp r0, r1
 	bne _022384FE
-	ldr r0, _022385F4 ; =gUnk021C4918
+	ldr r0, _022385F4 ; =gMain + 0x60
 	ldrb r0, [r0, #6]
 	cmp r0, #5
 	bhi _022384DE
@@ -22598,7 +22598,7 @@ _0223853E:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _022385F0: .word 0x00000182
-_022385F4: .word gUnk021C4918
+_022385F4: .word gMain + 0x60
 _022385F8: .word gGameLanguage
 	thumb_func_end MigrateBoxMon
 
@@ -23564,7 +23564,7 @@ _02238D1A:
 _02238D22:
 	ldr r0, _02238D34 ; =MOD83_02238F00
 	mov r1, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add sp, #0x38
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -23789,7 +23789,7 @@ _02238EB0:
 	bl FUN_0201E08C
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _02238EE8: .word MOD83_0223BE30

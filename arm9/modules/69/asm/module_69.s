@@ -9,7 +9,7 @@ HOF_OverlayInit: ; 0x0222D5C0
 	add r5, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #3
 	mov r1, #0x3f
 	lsl r2, r0, #0x10

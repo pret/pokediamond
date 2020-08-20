@@ -2,7 +2,7 @@
 #include "main.h"
 #include "unk_0200CA44.h"
 
-extern void FUN_0201B60C(s32, void (*)(void *, void *), void *, void *);
+extern void FUN_0201B60C(void *, void (*)(void *, void *), void *, void *);
 extern void FUN_0201B6A0(s32);
 
 THUMB_FUNC void FUN_0200CA44(void (*r0)(void *, void *), void * r1, void * r2)

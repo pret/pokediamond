@@ -17,7 +17,7 @@ FUN_02086084: ; 0x02086084
 	add r5, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r2, #0x1
 	mov r0, #0x3
@@ -95,7 +95,7 @@ FUN_02086084: ; 0x02086084
 	bl FUN_0200541C
 	ldr r0, _02086164 ; =FUN_02086664
 	add r1, r4, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	nop

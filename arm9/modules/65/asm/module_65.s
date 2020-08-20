@@ -112,7 +112,7 @@ _021D7596: ; jump table
 _021D75A4:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -220,7 +220,7 @@ _021D7684:
 	bl FUN_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E6D8
 	bl FUN_0201E740
 	mov r2, #1
@@ -653,7 +653,7 @@ _021D79D2:
 	bl MOD65_021D8280
 	ldr r0, _021D79FC ; =MOD65_021D76DC
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -2769,7 +2769,7 @@ _021D8A78: ; jump table
 _021D8A88:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -2805,7 +2805,7 @@ _021D8ACE:
 _021D8ADE:
 	ldr r0, _021D8BB8 ; =MOD65_021D8C88
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	b _021D8BA4
 _021D8AE8:
 	ldr r1, [r4, #4]
@@ -2881,7 +2881,7 @@ _021D8B68:
 	bl FUN_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E6D8
 	bl FUN_0201E740
 	mov r2, #1

@@ -6,7 +6,6 @@
 	.extern UNK_020F34FC
 	.extern UNK_020F3538
 	.extern gMain
-	.extern gUnk021C4918
 
 	.section .bss
 
@@ -11112,13 +11111,13 @@ FUN_0203F234: ; 0x0203F234
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl GetVarPointer
-	ldr r1, _0203F250 ; =gUnk021C4918
+	ldr r1, _0203F250 ; =gMain + 0x60
 	ldrb r1, [r1, #0x6]
 	strh r1, [r0, #0x0]
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
-_0203F250: .word gUnk021C4918
+_0203F250: .word gMain + 0x60
 
 	thumb_func_start FUN_0203F254
 FUN_0203F254: ; 0x0203F254

@@ -9,7 +9,7 @@ MOD67_021D74E0: ; 0x021D74E0
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -79,7 +79,7 @@ MOD67_021D74E0: ; 0x021D74E0
 	bl MOD67_021D7B84
 	ldr r0, _021D75CC ; =MOD67_021D7660
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E788
 	bl FUN_02033E74
 	mov r0, #0x10
@@ -153,7 +153,7 @@ MOD67_021D7624: ; 0x021D7624
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD67_021D7D84
 	ldr r0, [r4]

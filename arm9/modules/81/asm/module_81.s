@@ -151,7 +151,7 @@ _02237F22:
 	add r1, r1, #2
 	str r0, [r4, r1]
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -5496,7 +5496,7 @@ MOD81_0223A8C8: ; 0x0223A8C8
 	beq _0223A8F6
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD81_0223ABC0
 	add r0, r4, #0
@@ -7029,7 +7029,7 @@ MOD81_0223B4E8: ; 0x0223B4E8
 	bl MOD81_0223B9A0
 	ldr r0, _0223B520 ; =MOD81_0223BCA8
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 _0223B51C:
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
@@ -7044,7 +7044,7 @@ MOD81_0223B524: ; 0x0223B524
 	beq _0223B552
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD81_0223B7D0
 	add r0, r4, #0

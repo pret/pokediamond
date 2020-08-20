@@ -9,7 +9,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -89,7 +89,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	bl MOD68_021D8294
 	ldr r0, _021D75D4 ; =MOD68_021D7680
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02033F20
 	mov r0, #0x10
 	mov r1, #1
@@ -171,7 +171,7 @@ MOD68_021D762C: ; 0x021D762C
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x24
 	bl FUN_020168D0
 	ldr r0, _021D767C ; =0x04000050
@@ -1183,7 +1183,7 @@ _021D7E50:
 	mov r0, #2
 	tst r0, r1
 	bne _021D7E60
-	ldr r0, _021D7E74 ; =UNK_021C48F8
+	ldr r0, _021D7E74 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _021D7E6C
@@ -1198,7 +1198,7 @@ _021D7E6C:
 	pop {r4, pc}
 	.align 2, 0
 _021D7E70: .word gMain
-_021D7E74: .word UNK_021C48F8
+_021D7E74: .word gMain + 0x40
 	thumb_func_end MOD68_021D7D9C
 
 	thumb_func_start MOD68_021D7E78

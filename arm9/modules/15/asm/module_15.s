@@ -2588,7 +2588,7 @@ MOD15_021D87F8: ; 0x021D87F8
 	beq _021D8878
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	str r5, [r4, #0x18]
 	str r6, [r4, #0x1c]
@@ -2647,7 +2647,7 @@ MOD15_021D8888: ; 0x021D8888
 	beq _021D88CE
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r4, #0
 	add r5, r6, #0
 _021D889A:

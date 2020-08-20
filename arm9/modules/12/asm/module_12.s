@@ -10,7 +10,7 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	add r5, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -272,7 +272,7 @@ _0222D7BC:
 	bl FUN_020833D4
 	ldr r0, _0222D898 ; =MOD12_0222DAE4
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #1
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -518,7 +518,7 @@ MOD12_0222D9B0: ; 0x0222D9B0
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r0, #0x15
 	bl FUN_020168D0
@@ -3145,7 +3145,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -3376,7 +3376,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	bl FUN_020833D4
 	ldr r0, _0222F194 ; =MOD12_0222F458
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, _0222F198 ; =0x00000605
 	bl FUN_020054C8
 	mov r0, #1
@@ -3683,7 +3683,7 @@ _0222F3AE:
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r0, #0x16
 	bl FUN_020168D0
@@ -4985,7 +4985,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -5243,7 +5243,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	bl FUN_020054C8
 	ldr r0, _02230124 ; =MOD12_022303C0
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #1
 	add sp, #0xc
 	pop {r4, r5, pc}
@@ -5527,7 +5527,7 @@ _02230296:
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r0, #0x17
 	bl FUN_020168D0
@@ -28412,7 +28412,7 @@ _0223B14C:
 	mov r0, #1
 	tst r0, r1
 	bne _0223B174
-	ldr r0, _0223B34C ; =UNK_021C48F8
+	ldr r0, _0223B34C ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _0223B186
@@ -28665,7 +28665,7 @@ _0223B340:
 	.align 2, 0
 _0223B344: .word 0x00000171
 _0223B348: .word gMain
-_0223B34C: .word UNK_021C48F8
+_0223B34C: .word gMain + 0x40
 _0223B350: .word 0x000006ED
 _0223B354: .word MOD12_02245F84
 _0223B358: .word MOD12_02245F8C
@@ -41072,7 +41072,7 @@ MOD12_02241210: ; 0x02241210
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -41293,7 +41293,7 @@ MOD12_02241210: ; 0x02241210
 	bl FUN_020833D4
 	ldr r0, _02241484 ; =MOD12_02241754
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, _02241488 ; =MOD12_02241814
 	add r1, r5, #0
 	mov r2, #0xa
@@ -41574,7 +41574,7 @@ _022415D4:
 	str r0, [r2]
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r0, #0x18
 	bl FUN_020168D0
