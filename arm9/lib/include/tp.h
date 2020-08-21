@@ -1,7 +1,3 @@
-//
-// Created by Scott Norton on 8/20/20.
-//
-
 #ifndef NITRO_TP_H_
 #define NITRO_TP_H_
 

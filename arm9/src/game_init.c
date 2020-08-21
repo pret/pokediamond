@@ -9,7 +9,7 @@
 #include "tp.h"
 #include "unk_0201B4E8.h"
 #include "game_init.h"
-#include "ioreg_GX.h"
+#include "registers.h"
 
 #pragma thumb on
 
@@ -462,19 +462,19 @@ void FUN_02016568(void)
             gMain.unk4C |= PAD_BUTTON_X;
         break;
     case 2: // Swap X and Y; unused in the retail game
-    {
-        u32 r1 = 0;
-        if (gMain.unk48 & PAD_BUTTON_X)
         {
-            r1 |= PAD_BUTTON_Y;
+            u32 r1 = 0;
+            if (gMain.unk48 & PAD_BUTTON_X)
+            {
+                r1 |= PAD_BUTTON_Y;
+            }
+            if (gMain.unk48 & PAD_BUTTON_Y)
+            {
+                r1 |= PAD_BUTTON_X;
+            }
+            gMain.unk48 &= 0xF3FF;
+            gMain.unk48 |= r1;
         }
-        if (gMain.unk48 & PAD_BUTTON_Y)
-        {
-            r1 |= PAD_BUTTON_X;
-        }
-        gMain.unk48 &= 0xF3FF;
-        gMain.unk48 |= r1;
-    }
         {
             u32 r1 = 0;
             if (gMain.unk44 & PAD_BUTTON_X)
