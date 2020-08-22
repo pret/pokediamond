@@ -262,7 +262,7 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
     DoSoftReset(arg0);
 }
 
-extern void FUN_0201265C(struct Unk21C4818 *, struct Unk21C4828 *);
+extern void CopyRtcBuffersTo(struct Unk21C4818 *, struct Unk21C4828 *);
 extern void SetMTRNGSeed(u32);
 extern void SetLCRNGSeed(u32);
 
@@ -270,7 +270,7 @@ THUMB_FUNC void InitializeMainRNG(void)
 {
     struct Unk21C4818 spC;
     struct Unk21C4828 sp0;
-    FUN_0201265C(&spC, &sp0);
+    CopyRtcBuffersTo(&spC, &sp0);
     {
         u32 r4 = gMain.unk2C;
         u32 r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));

@@ -16,7 +16,7 @@ FUN_0204B0F8: ; 0x0204B0F8
 	beq _0204B12A
 	add r0, sp, #0xc
 	add r1, sp, #0x0
-	bl FUN_0201265C
+	bl CopyRtcBuffersTo
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, sp, #0xc

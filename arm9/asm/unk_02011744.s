@@ -2131,8 +2131,8 @@ _02012656:
 	.balign 4
 _02012658: .word FUN_020125FC
 
-	thumb_func_start FUN_0201265C
-FUN_0201265C: ; 0x0201265C
+	thumb_func_start CopyRtcBuffersTo
+CopyRtcBuffersTo: ; 0x0201265C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, _02012684 ; =UNK_021C4808

@@ -800,7 +800,7 @@
 .extern FUN_02012560
 .extern FUN_0201259C
 .extern FUN_020125D4
-.extern FUN_0201265C
+.extern CopyRtcBuffersTo
 .extern FUN_02012690
 .extern FUN_020126B4
 .extern FUN_020126D8
