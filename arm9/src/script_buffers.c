@@ -117,9 +117,7 @@ void SetStringAsPlaceholder(struct ScrStrBufs * mgr, u32 idx, struct String * st
 
 void BufferString(struct ScrStrBufs * mgr, u32 idx, struct String * str, u32 a3, u32 a4, u32 a5)
 {
-#pragma unused(a3)
-#pragma unused(a4)
-#pragma unused(a5)
+#pragma unused(a3,a4,a5)
     SetStringAsPlaceholder(mgr, idx, str, NULL);
 }
 
