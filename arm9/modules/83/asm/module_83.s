@@ -952,7 +952,7 @@ _0222DD12:
 	mov r1, #1
 	str r1, [sp, #4]
 	mov r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #8
 	pop {r3, pc}
 	.align 2, 0
@@ -973,7 +973,7 @@ MOD83_0222DD24: ; 0x0222DD24
 	bl NewMsgDataFromNarc
 	str r0, [sp, #0x24]
 	mov r0, #0x51
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [sp, #0x28]
 	ldr r0, [sp, #0x10]
 	ldr r0, [r0, #0xc]
@@ -1041,7 +1041,7 @@ _0222DDB8:
 	ldr r0, [sp, #0x28]
 	ldr r2, [r2, #0xc]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	mov r0, #0x10
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1066,7 +1066,7 @@ _0222DDB8:
 	str r3, [sp]
 	mov r1, #1
 	str r1, [sp, #4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x11
 	str r0, [sp]
 	mov r0, #0x20
@@ -1084,7 +1084,7 @@ _0222DDB8:
 	str r3, [sp, #4]
 	ldr r0, [sp, #0x28]
 	ldr r2, [r2, #0x50]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x30
@@ -1138,7 +1138,7 @@ _0222DE76:
 	add r0, #0xcc
 	str r2, [r0]
 	ldr r0, [sp, #0x28]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [sp, #0x24]
 	bl DestroyMsgData
 	mov r0, #1
@@ -2871,7 +2871,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	sub sp, #0x20
 	add r5, r0, #0
 	ldr r0, [r5]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -2902,7 +2902,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	ldr r2, [r5, #0x10]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x10]
 	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
@@ -2912,7 +2912,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	add r0, r4, #0
 	mov r3, #5
 	str r1, [sp, #4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x42
 	str r0, [sp]
 	add r1, r5, #0
@@ -2957,7 +2957,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	add r0, r4, #0
 	mov r1, #0
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #2
 	str r0, [sp]
 	mov r1, #1
@@ -2965,7 +2965,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	ldr r2, [sp, #0x18]
 	add r0, r4, #0
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0
 	mov r1, #1
 	add r0, #0xfc
@@ -2979,7 +2979,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	add r3, r2, #0
 	bl MOD83_02238A38
 	add r0, r4, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x20
 	pop {r3, r4, r5, pc}
 	nop
@@ -3347,7 +3347,7 @@ MOD83_0222F074: ; 0x0222F074
 	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	ldr r0, [r5]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r1, #0xc6
 	mov r2, #7
 	lsl r1, r1, #6
@@ -3443,7 +3443,7 @@ MOD83_0222F074: ; 0x0222F074
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	ldr r0, [sp]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r0, _0222F1A8 ; =0x00003174
@@ -5986,7 +5986,7 @@ MOD83_0223050C: ; 0x0223050C
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x56
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0xc]
 	mov r0, #1
 	mov r1, #6
@@ -6030,7 +6030,7 @@ _0223057A:
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0xff
 	str r0, [r4, #0x68]
 	add sp, #0x10
@@ -6311,7 +6311,7 @@ _022307C8:
 	mov r1, #0
 	bl FUN_02018744
 	mov r0, #0x56
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r1, #2
 	str r1, [sp]
 	mov r1, #1
@@ -6321,7 +6321,7 @@ _022307C8:
 	ldr r2, [r5, r2]
 	mov r3, #5
 	add r6, r0, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x1f
 	ldr r1, _02230844 ; =0x00002624
 	str r0, [sp]
@@ -6349,7 +6349,7 @@ _022307C8:
 	add r3, r2, #0
 	bl MOD83_02238A38
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x5c
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -6426,7 +6426,7 @@ MOD83_0223089C: ; 0x0223089C
 	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	mov r0, #0x56
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r1, r7, #0
 	add r2, r5, #0
 	mov r3, #0x56
@@ -6442,7 +6442,7 @@ MOD83_0223089C: ; 0x0223089C
 	ldr r0, [sp, #4]
 	str r0, [r4, #0x74]
 	ldr r0, [sp, #8]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	b _02230918
@@ -8231,7 +8231,7 @@ MOD83_022317A8: ; 0x022317A8
 	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	mov r0, #0x57
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0
 	mov r0, #1
 	mov r1, #6
@@ -8263,7 +8263,7 @@ MOD83_022317A8: ; 0x022317A8
 	add r0, r4, #0
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -8670,12 +8670,12 @@ MOD83_02231B1C: ; 0x02231B1C
 	ldr r0, [r4, r0]
 	mov r1, #0
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02231B80 ; =0x000029A0
 	ldr r2, [sp, #0xc]
 	ldr r0, [r4, r0]
 	mov r1, #1
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	mov r1, #2
 	str r1, [sp]
 	mov r0, #1
@@ -8684,7 +8684,7 @@ MOD83_02231B1C: ; 0x02231B1C
 	ldr r2, [sp, #0x10]
 	ldr r0, [r4, r0]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #1
 	add sp, #0x18
 	pop {r4, pc}
@@ -8785,7 +8785,7 @@ _02231C2C:
 	ldr r0, _02231C54 ; =0x000029A0
 	ldr r0, [r3, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #0x10
 	mov r0, #1
 	pop {r4, r5, r6, pc}
@@ -8975,7 +8975,7 @@ MOD83_02231D9C: ; 0x02231D9C
 	ldr r0, [r0, r1]
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #1
 	add sp, #8
 	pop {r3, pc}
@@ -9028,7 +9028,7 @@ MOD83_02231DF0: ; 0x02231DF0
 	ldr r1, _02231F70 ; =0x000029A4
 	str r0, [r5, r1]
 	ldr r0, [r5]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _02231F74 ; =0x000029A0
 	str r0, [r5, r1]
 	ldr r1, _02231F78 ; =0x00002B64
@@ -9186,7 +9186,7 @@ _02231F2E:
 	bl DestroyMsgData
 	ldr r0, _02231F74 ; =0x000029A0
 	ldr r0, [r5, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [sp, #0x14]
 	cmp r0, #0
 	bne _02231F64
@@ -9261,7 +9261,7 @@ _02231FD2:
 	ldr r1, _02232090 ; =0x000029A4
 	str r0, [r5, r1]
 	mov r0, #0x57
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _02232094 ; =0x000029A0
 	str r0, [r5, r1]
 _02231FFE:
@@ -9302,7 +9302,7 @@ _02231FFE:
 	bl DestroyMsgData
 	ldr r0, _02232094 ; =0x000029A0
 	ldr r0, [r5, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _02232054:
 	ldr r0, _022320A0 ; =0x00002B70
 	add r0, r5, r0
@@ -11077,7 +11077,7 @@ _02232E7E:
 	bl MOD83_02232DB4
 	str r0, [sp, #0x34]
 	mov r0, #0x57
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0
 	ldr r2, _02232FD8 ; =0x00000172
 	mov r0, #1
@@ -11104,7 +11104,7 @@ _02232EE6:
 	add r0, r4, #0
 	mov r1, #0
 	add r2, r7, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r1, [sp, #0x1c]
 	add r0, r4, #0
 	mov r2, #0x35
@@ -11156,7 +11156,7 @@ _02232F4A:
 	mov r1, #0
 	lsr r2, r2, #0x10
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [sp, #0x1c]
 	add r0, r4, #0
 	mov r2, #0x36
@@ -11196,7 +11196,7 @@ _02232FB8:
 	ldr r0, [sp, #0x1c]
 	bl DestroyMsgData
 	add r0, r4, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0
 	add sp, #0x48
 	pop {r3, r4, r5, r6, r7, pc}
@@ -11225,7 +11225,7 @@ MOD83_02232FE4: ; 0x02232FE4
 	ldr r1, _02233078 ; =0x000029A4
 	str r0, [r5, r1]
 	mov r0, #0x57
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _0223307C ; =0x000029A0
 	str r0, [r5, r1]
 	add r0, r4, #0
@@ -11239,7 +11239,7 @@ MOD83_02232FE4: ; 0x02232FE4
 	ldr r0, [r5, r0]
 	ldr r2, [r5, r2]
 	mov r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, _0223307C ; =0x000029A0
 	mov r2, #0x38
 	ldr r0, [r5, r1]
@@ -11268,7 +11268,7 @@ MOD83_02232FE4: ; 0x02232FE4
 	bl DestroyMsgData
 	ldr r0, _0223307C ; =0x000029A0
 	ldr r0, [r5, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -15528,7 +15528,7 @@ _02234F8C:
 	cmp r7, #0
 	bne _02234FB2
 	mov r0, #0x4e
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r7, r0, #0
 _02234FB2:
 	ldr r1, [sp, #0x14]
@@ -15560,7 +15560,7 @@ _02234FB2:
 	cmp r0, #0
 	bne _02234FF8
 	add r0, r7, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _02234FF8:
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
@@ -18158,7 +18158,7 @@ MOD83_02236484: ; 0x02236484
 	mov r2, #8
 	bl FUN_02015D88
 	mov r0, #0x4e
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0
 	mov r0, #8
 	mov r1, #0x4e
@@ -18173,7 +18173,7 @@ MOD83_02236484: ; 0x02236484
 	add r0, r4, #0
 	add r2, r6, #0
 	mov r3, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r5, #0
 	bl MOD83_0223600C
 	ldr r0, [r5]
@@ -18194,7 +18194,7 @@ MOD83_02236484: ; 0x02236484
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r5, #0
 	bl MOD83_02236450
 	add sp, #0x18
@@ -23101,7 +23101,7 @@ _02238976:
 	cmp r6, #0
 	bne _0223899C
 	ldr r0, [r4, #4]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0
 _0223899C:
 	ldr r1, [sp, #0x10]
@@ -23165,7 +23165,7 @@ _02238A12:
 	cmp r0, #0
 	bne _02238A24
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _02238A24:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData

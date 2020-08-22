@@ -55,7 +55,7 @@ _02237E84:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x39
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0xc]
 	ldr r2, [r4]
 	ldr r0, [r2, #0x10]
@@ -70,17 +70,17 @@ _02237ECC:
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r2, [r4]
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2, #4]
 	mov r1, #1
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r2, [r4]
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2, #8]
 	mov r1, #2
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4]
 	ldr r0, [r0, #4]
 	bl MOD81_02237FE8
@@ -92,13 +92,13 @@ _02237EFE:
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	b _02237F22
 _02237F0A:
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2, #4]
 	mov r1, #1
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [r4]
 	ldr r0, [r0, #4]
 	bl MOD81_02237FE8
@@ -224,7 +224,7 @@ MOD81_02238004: ; 0x02238004
 	bl FUN_0200CAB4
 	bl FUN_02033ED0
 	ldr r0, [r4, #0xc]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]

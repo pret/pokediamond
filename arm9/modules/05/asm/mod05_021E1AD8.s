@@ -1816,7 +1816,7 @@ MOD05_021E28A0: ; 0x021E28A0
 	bl NewMsgDataFromNarc
 	str r0, [sp, #0xc]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0
 	mov r0, #0x10
 	mov r1, #4
@@ -1836,7 +1836,7 @@ MOD05_021E28A0: ; 0x021E28A0
 	add r0, r6, #0
 	mov r1, #0
 	mov r3, #6
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [sp, #0x10]
 	add r0, r6, #0
 	add r1, r4, #0
@@ -1861,7 +1861,7 @@ MOD05_021E28A0: ; 0x021E28A0
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [sp, #0xc]
 	bl DestroyMsgData
 	add r0, r5, #0
@@ -1944,7 +1944,7 @@ MOD05_021E29C8: ; 0x021E29C8
 	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r5, r0, #0
 	mov r0, #0x10
 	mov r1, #4
@@ -1964,7 +1964,7 @@ MOD05_021E29C8: ; 0x021E29C8
 	add r0, r5, #0
 	mov r1, #0
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [sp, #0x10]
 	add r0, r5, #0
 	add r1, r4, #0
@@ -1988,7 +1988,7 @@ MOD05_021E29C8: ; 0x021E29C8
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
@@ -2062,7 +2062,7 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r5, r0, #0
 	mov r0, #0x10
 	mov r1, #4
@@ -2084,7 +2084,7 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	add r0, r5, #0
 	mov r1, #0
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [sp, #0x10]
 	add r0, r5, #0
 	add r1, r4, #0
@@ -2108,7 +2108,7 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]

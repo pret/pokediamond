@@ -484,7 +484,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x34]
 	ldr r0, [r4]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x38]
 	mov r1, #0
 	add r0, sp, #8
@@ -540,7 +540,7 @@ MOD86_021D7964: ; 0x021D7964
 	add r0, #0x14
 	bl FUN_02019178
 	ldr r0, [r4, #0x38]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x34]
 	bl DestroyMsgData
 	pop {r4, pc}
@@ -812,7 +812,7 @@ MOD86_021D7B80: ; 0x021D7B80
 	ldr r0, [r5, #0x38]
 	ldr r2, [r5, #0xc]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x38]
 	add r1, r4, #0
 	add r2, r6, #0

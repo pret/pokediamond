@@ -610,7 +610,7 @@ MOD59_021D79F8: ; 0x021D79F8
 	bl FUN_020142EC
 	str r0, [r4, #0x60]
 	ldr r0, [r4]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x64]
 	mov r0, #0
 	str r0, [r4, #0x50]
@@ -626,7 +626,7 @@ MOD59_021D7A34: ; 0x021D7A34
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x64]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x60]
 	bl FUN_020143D0
 	ldr r0, [r4, #0x4c]
@@ -982,7 +982,7 @@ _021D7C5E:
 	ldr r2, [r2, #0x18]
 	ldr r3, [r3]
 	add r1, r4, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	mov r1, #1
 	str r1, [sp]
 	mov r0, #2
@@ -991,7 +991,7 @@ _021D7C5E:
 	ldr r0, [r5, #0x64]
 	ldr r2, [r2, #0x18]
 	add r3, r4, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	ldr r0, [r5, #0x64]
 	ldr r1, [r5, #0x5c]
 	add r2, r6, #0

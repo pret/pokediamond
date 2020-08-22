@@ -567,6 +567,7 @@ FUN_02006C88: ; 0x02006C88
 
 	thumb_func_start UncompressFromNarc
 UncompressFromNarc: ; 0x02006C98
+	; BOOL UncompressFromNarc(NarcId narcId, s32 memberNo, BOOL a2, u32 heap_id, BOOL a4)
 	push {r3-r7, lr}
 	add r5, r2, #0x0
 	add r7, r0, #0x0

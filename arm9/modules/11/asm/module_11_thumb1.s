@@ -902,7 +902,7 @@ _0222DC42:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #5
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x14]
 	mov r0, #5
 	lsl r0, r0, #6
@@ -1307,7 +1307,7 @@ _0222E10A:
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x71
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

@@ -326,7 +326,7 @@ FUN_02042F48: ; 0x02042F48
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	pop {r4, pc}
 	.balign 4
 
@@ -694,13 +694,13 @@ FUN_02043274: ; 0x02043274
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r7, #0x4
 	bl FUN_020690E4
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
-	bl FUN_0200ACA4
+	bl BufferBoxMonSpeciesNameWithArticle
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -740,13 +740,13 @@ FUN_020432C8: ; 0x020432C8
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r7, #0x4
 	bl FUN_020690E4
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -812,11 +812,11 @@ FUN_02043358: ; 0x02043358
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
 	add r2, r7, #0x0
-	bl FUN_0200AE38
+	bl BufferItemName
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_02043394
@@ -840,7 +840,7 @@ FUN_02043394: ; 0x02043394
 	mov r0, #0x5
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x4]
-	bl FUN_0200AE38
+	bl BufferItemName
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_020433C4
@@ -880,7 +880,7 @@ FUN_020433DC: ; 0x020433DC
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r7, #0x0
 	mov r1, #0x20
 	bl FUN_02023AF4
@@ -892,7 +892,7 @@ FUN_020433DC: ; 0x020433DC
 	ldr r0, [r5, #0x4]
 	add r2, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	add sp, #0x8
@@ -953,11 +953,11 @@ FUN_0204346C: ; 0x0204346C
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
 	add r2, r7, #0x0
-	bl FUN_0200B350
+	bl BufferDecorationName
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_020434A4
@@ -1058,17 +1058,17 @@ FUN_02043538: ; 0x02043538
 _02043558:
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
-	bl FUN_0200B534
+	bl BufferSealName
 	b _02043574
 _02043562:
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
-	bl FUN_0200B660
+	bl BufferFashionName
 	b _02043574
 _0204356C:
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
-	bl FUN_0200B6D0
+	bl BufferContestBackgroundName
 _02043574:
 	mov r0, #0x53
 	lsl r0, r0, #0x2
@@ -1081,7 +1081,7 @@ _02043574:
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -1155,11 +1155,11 @@ FUN_020435F8: ; 0x020435F8
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x4]
 	ldr r2, _02043630 ; =0x000001C6
 	mov r1, #0x1
-	bl FUN_0200AE38
+	bl BufferItemName
 	pop {r4-r6, pc}
 	nop
 _02043630: .word 0x000001C6
@@ -1183,7 +1183,7 @@ FUN_02043634: ; 0x02043634
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
 	add r2, #0x7a
-	bl FUN_0200AE38
+	bl BufferItemName
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_02043660
@@ -1247,12 +1247,12 @@ FUN_020436B8: ; 0x020436B8
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	mov r2, #0x71
 	ldr r0, [r5, #0x4]
 	mov r1, #0x1
 	lsl r2, r2, #0x2
-	bl FUN_0200AE38
+	bl BufferItemName
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_020436F0
@@ -1274,7 +1274,7 @@ FUN_020436F0: ; 0x020436F0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
 	add r2, #0x78
-	bl FUN_0200AE38
+	bl BufferItemName
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_0204371C
@@ -1338,11 +1338,11 @@ FUN_02043774: ; 0x02043774
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x4]
 	ldr r2, _020437AC ; =0x000001C7
 	mov r1, #0x1
-	bl FUN_0200AE38
+	bl BufferItemName
 	pop {r4-r6, pc}
 	nop
 _020437AC: .word 0x000001C7
@@ -1366,7 +1366,7 @@ FUN_020437B0: ; 0x020437B0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
 	add r2, #0x7b
-	bl FUN_0200AE38
+	bl BufferItemName
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_020437DC
@@ -1419,11 +1419,11 @@ FUN_02043818: ; 0x02043818
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x4]
 	ldr r2, [r7, #0x0]
 	mov r1, #0x1
-	bl FUN_0200B02C
+	bl BufferPoketchAppName
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_02043850
@@ -1445,5 +1445,5 @@ FUN_02043850: ; 0x02043850
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	pop {r4-r6, pc}

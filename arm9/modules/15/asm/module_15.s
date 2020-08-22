@@ -5212,7 +5212,7 @@ _021D9CDC:
 	mov r0, #2
 	mov r1, #0x3c
 	mov r2, #0
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	add r5, r0, #0
 	mov r0, #0x4b
 	lsl r0, r0, #2
@@ -5222,7 +5222,7 @@ _021D9CDC:
 	add r6, r0, #0
 	add r0, r5, #0
 	add r2, r1, #0
-	bl FUN_0200AEE0
+	bl BufferPocketName
 	ldr r0, [r4, #4]
 	bl MOD15_021D86E8
 	add r1, r0, #0
@@ -5248,7 +5248,7 @@ _021D9CDC:
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	b _021D9DB0
 _021D9D40:
 	ldr r0, [r4, #0x48]

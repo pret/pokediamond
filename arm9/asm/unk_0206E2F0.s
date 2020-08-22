@@ -188,7 +188,7 @@ FUN_0206E3F8: ; 0x0206E3F8
 	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0x0
 	cmp r5, #0x0
 	bne _0206E428
@@ -215,7 +215,7 @@ _0206E428:
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r3, #0x4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0206E4FA
 _0206E454:
 	add r2, r1, #0x2 ; ITEM_SEAL_CASE
@@ -234,7 +234,7 @@ _0206E454:
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r3, #0x4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0206E4FA
 _0206E47E:
 	add r2, r1, #0x3 ; ITEM_FASHION_CASE
@@ -253,7 +253,7 @@ _0206E47E:
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r7, #0x0
 	bl FUN_0206E3D8
 	add r2, r0, #0x0
@@ -263,7 +263,7 @@ _0206E47E:
 	add r0, r4, #0x0
 	mov r3, #0x2
 	str r1, [sp, #0x4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0206E4FA
 _0206E4C0:
 	add r1, #0xc ; ITEM_COIN_CASE
@@ -282,10 +282,10 @@ _0206E4C0:
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r3, #0x5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0206E4FA
 _0206E4EA:
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	add sp, #0xc
@@ -299,7 +299,7 @@ _0206E4FA:
 	add r0, r5, #0x0
 	bl String_dtor
 	add r0, r4, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	mov r0, #0x1
@@ -351,7 +351,7 @@ _0206E56A:
 	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x24
@@ -360,7 +360,7 @@ _0206E56A:
 	ldr r2, [sp, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
@@ -368,7 +368,7 @@ _0206E56A:
 	add r0, r6, #0x0
 	bl String_dtor
 	add r0, r4, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r7, #0x0
 	bl DestroyMsgData
 	pop {r3-r7, pc}

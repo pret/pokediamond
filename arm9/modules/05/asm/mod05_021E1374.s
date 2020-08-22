@@ -187,7 +187,7 @@ _021E14DC:
 	ldr r0, [r4, r0]
 	mov r1, #0
 	add r2, r5, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r4, #0
 	mov r1, #8
 	bl MOD05_021E1514

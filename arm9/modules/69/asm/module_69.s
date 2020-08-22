@@ -43,7 +43,7 @@ HOF_OverlayInit: ; 0x0222D5C0
 	ldr r1, _0222D718 ; =0x00001B58
 	str r0, [r4, r1]
 	mov r0, #0x3f
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _0222D71C ; =0x00001B50
 	str r0, [r4, r1]
 	mov r0, #0
@@ -200,7 +200,7 @@ _0222D762:
 	bl MOD69_0222DD18
 	ldr r0, _0222D7E4 ; =0x00001B50
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, _0222D7E8 ; =0x00001B54
 	ldr r0, [r4, r0]
 	bl String_dtor
@@ -2358,7 +2358,7 @@ HOF_MonGetUIStrings: ; 0x0222E8FC
 	add r2, r0, #0
 	ldr r0, [r4, #0x14]
 	mov r1, #0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	ldr r0, [r4, #0x24]
 	bl CalcMonLevel
 	add r2, r0, #0
@@ -2368,7 +2368,7 @@ HOF_MonGetUIStrings: ; 0x0222E8FC
 	str r1, [sp, #4]
 	ldr r0, [r4, #0x14]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0x24]
 	bl GetMonGender
 	cmp r0, #0
@@ -2422,7 +2422,7 @@ _0222E982:
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 _0222E996:
 	ldr r0, [r5, #0x20]
 	ldr r2, [r5, #0x18]
@@ -2503,7 +2503,7 @@ _0222EA2E:
 	add r2, r0, #0
 	ldr r0, [r4, #0x14]
 	mov r1, #0
-	bl FUN_0200AD18
+	bl BufferBoxMonOTName
 	ldr r0, [r4, #0x20]
 	ldr r2, [r4, #0x18]
 	mov r1, #4
@@ -2669,7 +2669,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	ldr r0, [r4, r0]
 	ldr r2, [r2]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0]
 	bl PlayerProfile_GetTrainerID_VisibleHalf
@@ -2681,7 +2681,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	str r1, [sp, #4]
 	ldr r0, [r4, r0]
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #8]
 	bl GetIGTHours
@@ -2694,7 +2694,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	mov r1, #2
 	ldr r0, [r4, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #8]
 	bl GetIGTMinutes
@@ -2706,7 +2706,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	ldr r0, _0222EC5C ; =0x00001B50
 	mov r1, #3
 	ldr r0, [r4, r0]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, _0222EC50 ; =0x00001B5C
 	mov r1, #0xd
 	ldr r0, [r4, r2]

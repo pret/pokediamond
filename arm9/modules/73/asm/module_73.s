@@ -2831,7 +2831,7 @@ MOD73_021D8BDC: ; 0x021D8BDC
 	ldr r2, [r5]
 	mov r0, #4
 	mov r1, #0x40
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	ldr r1, _021D8CE8 ; =0x00001578
 	str r0, [r5, r1]
 	ldr r1, [r5]
@@ -3016,7 +3016,7 @@ _021D8D92:
 	bl String_dtor
 	ldr r0, _021D8DEC ; =0x00001578
 	ldr r0, [r6, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, _021D8DF0 ; =0x00001574
 	ldr r0, [r6, r0]
 	bl DestroyMsgData
@@ -4904,7 +4904,7 @@ _021D9B02:
 	mov r2, #0x4d
 	lsl r2, r2, #2
 	ldr r2, [r3, r2]
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r2, [r5, #0x18]
 	ldr r0, [r2, #4]
 	ldr r1, [r2, #8]
@@ -6246,7 +6246,7 @@ MOD73_021DA550: ; 0x021DA550
 	ldrb r2, [r2]
 	ldr r0, [r0, #4]
 	mov r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r3, #2
 	str r3, [sp]
 	mov r1, #1
@@ -6256,7 +6256,7 @@ MOD73_021DA550: ; 0x021DA550
 	add r2, #0x67
 	ldrb r2, [r2]
 	ldr r0, [r0, #4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r1, #2
 	str r1, [sp]
 	mov r0, #1
@@ -6267,7 +6267,7 @@ MOD73_021DA550: ; 0x021DA550
 	ldrb r2, [r2]
 	ldr r0, [r0, #4]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [r4, #0x1c]
 	ldr r0, [r2, #4]
 	ldr r1, [r2, #8]
@@ -6306,7 +6306,7 @@ MOD73_021DA550: ; 0x021DA550
 	ldr r0, [r0, #4]
 	ldr r2, [r2, #0x58]
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0x58]
 	cmp r0, #1
@@ -6356,7 +6356,7 @@ _021DA61A:
 	ldr r0, [r0, #4]
 	ldr r2, [r2, #0x5c]
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0x5c]
 	cmp r0, #1
@@ -6404,7 +6404,7 @@ MOD73_021DA6BC: ; 0x021DA6BC
 	ldrb r2, [r2]
 	ldr r0, [r0, #4]
 	mov r1, #3
-	bl FUN_0200B628
+	bl BufferPoffinName
 	mov r3, #2
 	str r3, [sp]
 	mov r1, #1
@@ -6414,7 +6414,7 @@ MOD73_021DA6BC: ; 0x021DA6BC
 	add r2, #0x65
 	ldrb r2, [r2]
 	ldr r0, [r0, #4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r1, #2
 	str r1, [sp]
 	mov r0, #1
@@ -6423,7 +6423,7 @@ MOD73_021DA6BC: ; 0x021DA6BC
 	ldr r2, [r4, #0x20]
 	ldr r0, [r0, #4]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [r4, #0x1c]
 	ldr r0, [r2, #4]
 	ldr r1, [r2, #8]
@@ -6523,7 +6523,7 @@ _021DA79E:
 	ldr r0, [r0, #4]
 	ldr r2, [r2, r3]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r2, [r4, #0x1c]
 	ldr r0, [r2, #4]
 	ldr r1, [r2, #8]

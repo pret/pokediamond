@@ -2643,7 +2643,7 @@ FUN_0208201C: ; 0x0208201C
 	add r2, #0xd0
 	ldrh r2, [r2, #0x0]
 	add r1, r3, #0x0
-	bl FUN_0200B244
+	bl BufferContestJudgeName
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02082034
@@ -2670,7 +2670,7 @@ FUN_02082034: ; 0x02082034
 	ldrb r3, [r4, r3]
 	ldr r2, [r2, #0x0]
 	add r1, r6, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add sp, #0x8
 	pop {r4-r6, pc}
 	.balign 4
@@ -2689,7 +2689,7 @@ FUN_0208206C: ; 0x0208206C
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -2710,7 +2710,7 @@ FUN_02082090: ; 0x02082090
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200B278
+	bl BufferContestMessage
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -2728,7 +2728,7 @@ FUN_020820B8: ; 0x020820B8
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200B2AC
+	bl BufferContestMessage2
 	pop {r3-r5, pc}
 	.balign 4
 _020820D8: .word 0x0000011F
@@ -3041,7 +3041,7 @@ _020822D6:
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl GetRibbonNameOrDesc
+	bl BufferRibbonNameOrDesc
 	pop {r3-r5, pc}
 	.balign 4
 _020822EC: .word 0x0000011F

@@ -88,7 +88,7 @@ _0204817A:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x1c]
 	mov r0, #0xb
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x20]
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x8]
@@ -101,7 +101,7 @@ _0204817A:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x20]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x1c]
 	ldr r1, [r0, #0x0]
 	ldr r0, _0204820C ; =0x0000019E
@@ -223,7 +223,7 @@ _020482B2:
 	add r0, #0xc
 	bl FUN_02019178
 	ldr r0, [r4, #0x20]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x8]

@@ -84,7 +84,7 @@ _021D7540:
 	ldr r2, [r5]
 	mov r0, #8
 	mov r1, #0x40
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	ldr r1, _021D75F8 ; =0x0000C070
 	str r0, [r5, r1]
 	ldr r0, [r5]
@@ -820,7 +820,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	bl FUN_0201EB70
 	ldr r0, _021D7C18 ; =0x0000C070
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	bl FUN_0201B398
 	ldr r0, _021D7C1C ; =0x0000C010
 	ldr r0, [r4, r0]
@@ -1990,7 +1990,7 @@ MOD77_021D8510: ; 0x021D8510
 	ldr r0, [r5, r0]
 	ldr r2, [r5, r2]
 	mov r1, #0
-	bl FUN_0200B4A0
+	bl BufferCountryName
 	ldr r3, _021D85D8 ; =0x0000C314
 	ldr r0, _021D85D4 ; =0x0000C070
 	ldr r2, [r5, r3]
@@ -1998,7 +1998,7 @@ MOD77_021D8510: ; 0x021D8510
 	ldr r0, [r5, r0]
 	ldr r3, [r5, r3]
 	mov r1, #1
-	bl FUN_0200B4D8
+	bl BufferCityName
 	ldr r0, _021D85DC ; =0x0000C060
 	mov r1, #0xd
 	ldr r0, [r5, r0]

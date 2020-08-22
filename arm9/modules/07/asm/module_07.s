@@ -4507,7 +4507,7 @@ _022142BE:
 	add r2, r0, #0
 	ldr r0, [sp, #0x14]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [sp, #0x14]
 	ldr r2, [sp, #0x20]
 	add r1, r6, #0
@@ -4621,7 +4621,7 @@ MOD07_0221437C: ; 0x0221437C
 	ldrb r2, [r3, r2]
 	ldr r0, [sp, #0x10]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0x28]
 	add r2, r7, #0
@@ -4678,7 +4678,7 @@ MOD07_022143FC: ; 0x022143FC
 	ldr r0, [sp, #0x18]
 	ldrh r2, [r3, r2]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0x20]
 	add r1, r4, #0
@@ -4742,7 +4742,7 @@ MOD07_022143FC: ; 0x022143FC
 	ldrh r2, [r3, r2]
 	ldr r0, [sp, #0x18]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x18]
 	add r1, r4, #0
 	add r2, r5, #0
@@ -4976,7 +4976,7 @@ MOD07_0221469C: ; 0x0221469C
 	str r0, [sp, #0xc]
 	ldr r0, [r6]
 	ldr r0, [r0, #0x24]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, [r6]
 	str r0, [sp, #8]
 	ldr r1, [r1, #0x24]
@@ -5010,7 +5010,7 @@ _022146F6:
 	ldr r0, [sp, #0xc]
 	bl FUN_0200B990
 	ldr r0, [sp, #8]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

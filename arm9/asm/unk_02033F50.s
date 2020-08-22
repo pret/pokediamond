@@ -184,7 +184,7 @@ _02033FA4:
 	str r0, [sp, #0x14]
 	bl FUN_0201BD5C
 	add r0, r4, #0x0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0x0
 	ldr r2, _02034184 ; =UNK_020EEC9C
 	add r0, r6, #0x0
@@ -212,7 +212,7 @@ _02033FA4:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r3, #0x5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x10]
 	ldr r2, [sp, #0x14]
 	add r1, r5, #0x0
@@ -245,7 +245,7 @@ _02033FA4:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r4, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0x0
 	bl FreeToHeap
 	add sp, #0x28

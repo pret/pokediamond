@@ -669,7 +669,7 @@ FUN_0207A1A0: ; 0x0207A1A0
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	mov r0, #0x13
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _0207A258 ; =0x0000067C
 	str r0, [r4, r1]
 	mov r0, #0xc
@@ -745,7 +745,7 @@ FUN_0207A264: ; 0x0207A264
 	bl FUN_0200B990
 	ldr r0, _0207A2D0 ; =0x0000067C
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x25
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
@@ -1863,7 +1863,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	mov r1, #0x0
 	ldr r0, [r7, r0]
 	add r2, r4, #0x0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	ldr r2, _0207AEB0 ; =0x0000067C
 	mov r1, #0x25
 	ldr r0, [r7, r2]
@@ -1882,7 +1882,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	mov r1, #0x0
 	ldr r0, [r7, r0]
 	add r2, r4, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r2, _0207AEB0 ; =0x0000067C
 	mov r1, #0x95
 	ldr r0, [r7, r2]
@@ -1901,7 +1901,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	mov r1, #0x0
 	ldr r0, [r7, r0]
 	add r2, r4, #0x0
-	bl FUN_0200AD18
+	bl BufferBoxMonOTName
 	ldr r2, _0207AEB0 ; =0x0000067C
 	mov r1, #0x96
 	ldr r0, [r7, r2]

@@ -27,7 +27,7 @@ Static arm9
 	Object unk_02008DEC.o
 	Object unk_02009EAC.o
 	Object msgdata.o
-	Object unk_0200AA80.o
+	Object script_buffers.o
 	Object unk_0200BA78.o
 	Object unk_0200BB14.o
 	Object unk_0200CA44.o

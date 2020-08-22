@@ -4956,7 +4956,7 @@ MOD17_021D9B74: ; 0x021D9B74
 	add r4, r0, #0
 	bl MOD17_021D9918
 	mov r0, #0xd
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _021D9B98 ; =0x000006D4
 	str r0, [r4, r1]
 	add sp, #8
@@ -4984,7 +4984,7 @@ MOD17_021D9BA4: ; 0x021D9BA4
 	ldr r3, _021D9BC0 ; =0x000006D4
 	ldr r0, [r0, r3]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #8
 	pop {r3, pc}
 	nop
@@ -5006,7 +5006,7 @@ MOD17_021D9BCC: ; 0x021D9BCC
 	bl MOD17_021D9B30
 	ldr r0, _021D9BE4 ; =0x000006D4
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, _021D9BE4 ; =0x000006D4
 	mov r1, #0
 	str r1, [r4, r0]
@@ -14347,7 +14347,7 @@ MOD17_021DDFDC: ; 0x021DDFDC
 	bl ErrorHandling
 _021DDFF8:
 	mov r0, #0xd
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0
 	mov r0, #0x63
 	lsl r0, r0, #2
@@ -14445,7 +14445,7 @@ _021DDFF8:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -14467,7 +14467,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	bl FUN_02027C58
 	add r6, r0, #0
 	mov r0, #0xd
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r7, r0, #0
 	mov r0, #0xc8
 	mov r1, #0xd
@@ -14478,13 +14478,13 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	add r2, r0, #0
 	add r0, r7, #0
 	mov r1, #0
-	bl FUN_0200B2AC
+	bl BufferContestMessage2
 	add r0, r6, #0
 	bl FUN_02083268
 	add r2, r0, #0
 	add r0, r7, #0
 	mov r1, #1
-	bl FUN_0200B278
+	bl BufferContestMessage
 	ldr r0, [r5, #4]
 	bl FUN_02027B44
 	add r6, r0, #0
@@ -14499,7 +14499,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	mov r1, #3
 	add r2, r4, #0
 	add r3, r6, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	mov r0, #0xd
 	bl AllocMonZeroed
 	add r6, r0, #0
@@ -14511,7 +14511,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	add r2, r0, #0
 	add r0, r7, #0
 	mov r1, #4
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r6, #0
 	bl FreeToHeap
 	ldr r2, _021DE24C ; =0x00000151
@@ -14593,7 +14593,7 @@ _021DE1A0:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r7, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

@@ -1169,7 +1169,7 @@ FUN_0203A210: ; 0x0203A210
 	mov r3, #0x1
 	bl MOD05_021E2CBC
 	add r0, r6, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r1, _0203A284 ; =FUN_0203A2F0
 	add r0, r5, #0x0
 	bl SetupNativeScript
@@ -5170,8 +5170,8 @@ FUN_0203C200: ; 0x0203C200
 	.balign 4
 _0203C274: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203C278
-FUN_0203C278: ; 0x0203C278
+	thumb_func_start ScrCmd_monstoragepc
+ScrCmd_monstoragepc: ; 0x0203C278
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5197,7 +5197,7 @@ FUN_0203C278: ; 0x0203C278
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r1, [r4, #0x0]
-	bl FUN_02037D60
+	bl LaunchStoragePCInterface
 	ldr r1, _0203C2C0 ; =FUN_0203BBBC
 	add r0, r5, #0x0
 	bl SetupNativeScript
@@ -11186,7 +11186,7 @@ FUN_0203F2AC: ; 0x0203F2AC
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B6D0
+	bl BufferContestBackgroundName
 	mov r0, #0x1
 	pop {r4-r6, pc}
 	.balign 4
@@ -12174,7 +12174,7 @@ FUN_0203FA58: ; 0x0203FA58
 	bl VarGet
 	add r7, r0, #0x0
 	mov r0, #0x20
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0x0
 	ldr r2, _0203FB48 ; =0x00000147
 	mov r0, #0x0
@@ -12226,7 +12226,7 @@ _0203FB26:
 	add r0, r5, #0x0
 	bl DestroyMsgData
 	add r0, r4, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x0
 	add sp, #0x10
 	pop {r3-r7, pc}

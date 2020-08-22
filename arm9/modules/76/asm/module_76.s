@@ -519,7 +519,7 @@ MOD76_021D7900: ; 0x021D7900
 	add r1, #0xf8
 	str r0, [r1]
 	mov r0, #0x43
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r1, r4, #0
 	add r1, #0xfc
 	str r0, [r1]
@@ -545,7 +545,7 @@ MOD76_021D7938: ; 0x021D7938
 	add r0, r4, #0
 	add r0, #0xfc
 	ldr r0, [r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #1
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
@@ -1090,7 +1090,7 @@ MOD76_021D7D60: ; 0x021D7D60
 	add r0, #0xfc
 	ldr r0, [r0]
 	add r3, r7, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0
 	mov r1, #1
 	add r0, #0xfc
@@ -1836,7 +1836,7 @@ _021D8382:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	b _021D84D8
 _021D839A:
 	bl MOD76_021D8514
@@ -1845,7 +1845,7 @@ _021D839A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D83AE:
 	ldr r0, [r4]
@@ -1856,7 +1856,7 @@ _021D83AE:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	b _021D84D8
 _021D83C6:
 	ldr r0, [r4]
@@ -1867,7 +1867,7 @@ _021D83C6:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8514
 	add r2, r0, #0
@@ -1875,7 +1875,7 @@ _021D83C6:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D83F2:
 	ldr r0, [r4]
@@ -1886,7 +1886,7 @@ _021D83F2:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8514
 	add r2, r0, #0
@@ -1894,7 +1894,7 @@ _021D83F2:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D841E:
 	ldr r0, [r4]
@@ -1905,7 +1905,7 @@ _021D841E:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8524
 	add r2, r0, #0
@@ -1913,7 +1913,7 @@ _021D841E:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D844A:
 	ldr r0, [r4]
@@ -1924,7 +1924,7 @@ _021D844A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8514
 	add r2, r0, #0
@@ -1932,7 +1932,7 @@ _021D844A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D8476:
 	bl MOD76_021D8514
@@ -1941,7 +1941,7 @@ _021D8476:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D848A:
 	ldr r0, [r4]
@@ -1952,7 +1952,7 @@ _021D848A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8514
 	add r2, r0, #0
@@ -1960,7 +1960,7 @@ _021D848A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D84B6:
 	ldr r2, [r4]
@@ -1968,7 +1968,7 @@ _021D84B6:
 	ldr r0, [r0]
 	ldr r2, [r2, #4]
 	mov r1, #2
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	b _021D84D8
 _021D84C6:
 	bl MOD76_021D8524
@@ -1977,7 +1977,7 @@ _021D84C6:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 _021D84D8:
 	ldr r1, [r4]
 	add r0, r4, #0

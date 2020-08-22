@@ -575,7 +575,7 @@ FUN_020867EC: ; 0x020867EC
 	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	mov r0, #0x47
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0
@@ -590,7 +590,7 @@ FUN_020867EC: ; 0x020867EC
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	ldr r2, [sp, #0x14]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -611,7 +611,7 @@ FUN_020867EC: ; 0x020867EC
 	ldr r0, [sp, #0x14]
 	bl String_dtor
 	add r0, r5, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0x0
 	add sp, #0x18
 	pop {r3-r7, pc}

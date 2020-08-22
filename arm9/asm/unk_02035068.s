@@ -653,7 +653,7 @@ _02035526:
 	cmp r3, #0x3
 	bne _02035594
 	mov r0, #0xb
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0x0
 	mov r0, #0x8
 	mov r1, #0xb
@@ -674,7 +674,7 @@ _02035526:
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r2, [sp, #0x20]
 	add r0, r6, #0x0
 	add r1, r7, #0x0
@@ -690,7 +690,7 @@ _02035526:
 	add r0, r7, #0x0
 	bl String_dtor
 	add r0, r6, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	b _020355A2
 _02035594:
 	ldr r2, _02035664 ; =UNK_020F2ACC
@@ -996,7 +996,7 @@ _020357D6:
 	add r0, r7, #0x0
 	bl String_dtor
 	mov r0, #0xb
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r7, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0xb
@@ -1019,7 +1019,7 @@ _020357D6:
 	ldrh r2, [r2, #0x0]
 	add r0, r7, #0x0
 	mov r3, #0x2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0203584C
 _02035834:
 	add r0, r4, #0x0
@@ -1031,7 +1031,7 @@ _02035834:
 	str r0, [sp, #0x4]
 	add r0, r7, #0x0
 	mov r3, #0x2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 _0203584C:
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x14]
@@ -1053,7 +1053,7 @@ _0203584C:
 	ldr r0, [sp, #0x14]
 	bl String_dtor
 	add r0, r7, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [sp, #0x1c]
 	bl DestroyMsgData
 	add r5, #0x10

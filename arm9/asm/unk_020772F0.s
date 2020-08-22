@@ -422,7 +422,7 @@ _020772FE:
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	mov r0, #0x12
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r2, #0x5a
 	lsl r2, r2, #0x2
 	str r0, [r4, r2]
@@ -1251,7 +1251,7 @@ _02077A0C:
 	mov r0, #0x5a
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [sp, #0x10]
 	bl OverlayManager_FreeData
 	mov r0, #0x0
@@ -1670,7 +1670,7 @@ _02077D88:
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	add r0, r5, #0x0
 	bl FreeToHeap
 _02077DCE:
@@ -1797,7 +1797,7 @@ FUN_02077E90: ; 0x02077E90
 	ldr r2, [r4, #0x48]
 	mov r1, #0x1
 	add r3, r6, #0x0
-	bl FUN_0200B410
+	bl BufferBoxName
 	ldr r0, [sp, #0x10]
 	cmp r6, r0
 	beq _02077EF4
@@ -1807,7 +1807,7 @@ FUN_02077E90: ; 0x02077E90
 	ldr r2, [r4, #0x48]
 	ldr r3, [sp, #0x10]
 	mov r1, #0x2
-	bl FUN_0200B410
+	bl BufferBoxName
 	ldr r0, [r4, #0x44]
 	add r0, r0, #0x2
 	str r0, [r4, #0x44]
@@ -1819,7 +1819,7 @@ _02077EF4:
 	ldr r2, [r4, #0x48]
 	mov r1, #0x2
 	add r3, r6, #0x0
-	bl FUN_0200B410
+	bl BufferBoxName
 _02077F04:
 	mov r0, #0x56
 	lsl r0, r0, #0x2
@@ -1850,7 +1850,7 @@ _02077F1A:
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	add r0, r6, #0x0
 	bl FreeToHeap
 	b _02077F7E
@@ -1875,7 +1875,7 @@ _02077F50:
 	ldr r0, [r5, r0]
 	add r2, r7, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 _02077F7E:
 	mov r1, #0x5a
 	lsl r1, r1, #0x2

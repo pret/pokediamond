@@ -441,7 +441,7 @@ MOD67_021D7880: ; 0x021D7880
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x50]
 	mov r0, #0x2a
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x54]
 	mov r0, #0x80
 	mov r1, #0x2a
@@ -459,7 +459,7 @@ MOD67_021D78AC: ; 0x021D78AC
 	ldr r0, [r4, #0x50]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x54]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x58]
 	bl String_dtor
 	pop {r4, pc}
@@ -1188,7 +1188,7 @@ _021D7E32:
 	ldr r0, [r5, #0x54]
 	mov r1, #0
 	lsr r2, r2, #0x1c
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #1
@@ -1198,7 +1198,7 @@ _021D7E32:
 	lsl r2, r2, #0xd
 	lsr r2, r2, #0x1b
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r4, #0
@@ -1252,7 +1252,7 @@ _021D7E32:
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r4, #0
@@ -1711,7 +1711,7 @@ _021D822A:
 	ldr r0, [r4, #0x54]
 	ldr r2, [r4, #0x4c]
 	mov r1, #1
-	bl FUN_0200ABE4
+	bl BufferRivalsName
 	ldr r0, [r4, #0x54]
 	ldr r1, [r4, #0x58]
 	add r2, r6, #0
@@ -1778,7 +1778,7 @@ _021D82F2:
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r4, #0x54]
 	ldr r1, [r4, #0x58]
 	add r2, r5, #0
@@ -2257,7 +2257,7 @@ MOD67_021D8688: ; 0x021D8688
 	ldrh r2, [r4, #2]
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200B430
+	bl BufferGymName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2298,7 +2298,7 @@ MOD67_021D86DC: ; 0x021D86DC
 	ldrh r2, [r4, #2]
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200B430
+	bl BufferGymName
 	ldrh r2, [r4, #4]
 	ldr r0, [r5, #0x54]
 	mov r1, #1
@@ -2427,7 +2427,7 @@ MOD67_021D87E4: ; 0x021D87E4
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2482,7 +2482,7 @@ _021D886E:
 	ldr r0, [r5, #0x54]
 	mov r1, #0
 	add r2, r4, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2532,7 +2532,7 @@ _021D88D2:
 	ldr r0, [r5, #0x54]
 	ldr r2, [sp, #0x10]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r6, #0
@@ -2635,7 +2635,7 @@ MOD67_021D898C: ; 0x021D898C
 	ldrh r2, [r4, #6]
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2678,7 +2678,7 @@ MOD67_021D89E0: ; 0x021D89E0
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2721,7 +2721,7 @@ MOD67_021D8A3C: ; 0x021D8A3C
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2764,7 +2764,7 @@ MOD67_021D8A98: ; 0x021D8A98
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2807,7 +2807,7 @@ MOD67_021D8AF4: ; 0x021D8AF4
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2850,7 +2850,7 @@ MOD67_021D8B50: ; 0x021D8B50
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2893,7 +2893,7 @@ MOD67_021D8BAC: ; 0x021D8BAC
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2936,7 +2936,7 @@ MOD67_021D8C08: ; 0x021D8C08
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2979,7 +2979,7 @@ MOD67_021D8C64: ; 0x021D8C64
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -3022,7 +3022,7 @@ MOD67_021D8CC0: ; 0x021D8CC0
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -3065,7 +3065,7 @@ MOD67_021D8D1C: ; 0x021D8D1C
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -3108,7 +3108,7 @@ MOD67_021D8D78: ; 0x021D8D78
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -3313,7 +3313,7 @@ MOD67_021D8F00: ; 0x021D8F00
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	ldr r1, [sp, #0xc]
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	add r0, r6, #0
 	bl FreeToHeap
 	add sp, #0x10
@@ -3380,7 +3380,7 @@ _021D8F9A:
 	mov r1, #1
 	lsl r2, r2, #0x1a
 	lsr r2, r2, #0x1c
-	bl FUN_0200B468
+	bl BufferTimeOfDayName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r6, #0
@@ -3465,7 +3465,7 @@ _021D9046:
 	mov r1, #1
 	lsl r2, r2, #0x1a
 	lsr r2, r2, #0x1c
-	bl FUN_0200B468
+	bl BufferTimeOfDayName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r6, #0
@@ -3512,7 +3512,7 @@ MOD67_021D9098: ; 0x021D9098
 	ldr r1, [sp, #8]
 	add r2, r4, #0
 	add r3, r7, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0
 	bl String_dtor
 	add sp, #0xc
@@ -4192,7 +4192,7 @@ MOD67_021D95EC: ; 0x021D95EC
 	ldr r0, [r5, #0x54]
 	lsl r2, r2, #0x1c
 	lsr r2, r2, #0x1c
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0

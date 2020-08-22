@@ -135,7 +135,7 @@ FUN_020137D4: ; 0x020137D4
 	str r0, [sp, #0x0]
 	add r0, r1, #0x0
 	str r1, [sp, #0x4]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r5, [sp, #0x0]
 	ldr r7, _02013838 ; =0x0000FFFF
 	add r6, r0, #0x0
@@ -172,7 +172,7 @@ _02013800:
 	add r0, r5, #0x0
 	bl DestroyMsgData
 	add r0, r6, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r4, #0x0
 	add sp, #0x8
 	pop {r3-r7, pc}

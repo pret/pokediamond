@@ -446,7 +446,7 @@ MOD68_021D7870: ; 0x021D7870
 	add r1, #0xcc
 	str r0, [r1]
 	mov r0, #0x24
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, #0xc8
 	str r0, [r4]
 	pop {r4, pc}
@@ -467,7 +467,7 @@ MOD68_021D78A8: ; 0x021D78A8
 	bl FUN_0200B990
 	add r4, #0xc8
 	ldr r0, [r4]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	pop {r4, pc}
 	thumb_func_end MOD68_021D78A8
 
@@ -693,7 +693,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	ldr r0, [r0]
 	mov r1, #0
 	add r2, r2, #1
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0
 	add r0, #0xc8
 	ldr r0, [r0]
@@ -945,7 +945,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	add r0, #0xc8
 	ldr r0, [r0]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r7, #0
 	mov r1, #0xa
 	bl _u32_div_f
@@ -958,7 +958,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	add r0, #0xc8
 	ldr r0, [r0]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r5, #0xc8
 	ldr r0, [r5]
 	ldr r2, [sp, #0x10]

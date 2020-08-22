@@ -276,7 +276,7 @@ FUN_02060D90: ; 0x02060D90
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	add sp, #0xc
@@ -736,7 +736,7 @@ FUN_020610F8: ; 0x020610F8
 	ldrh r2, [r4, #0x22]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -745,7 +745,7 @@ FUN_020610F8: ; 0x020610F8
 	ldrh r2, [r4, #0x4]
 	add r0, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldrb r0, [r4, #0x9]
 	add r2, r4, #0x0
 	mov r1, #0x4
@@ -776,7 +776,7 @@ _02061166:
 	ldrh r2, [r4, #0x22]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -785,7 +785,7 @@ _02061166:
 	ldrh r2, [r4, #0x4]
 	add r0, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x1
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -810,7 +810,7 @@ FUN_020611A8: ; 0x020611A8
 	ldrh r2, [r4, #0x4]
 	add r0, r5, #0x0
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x1
 	bne _020611E0
@@ -886,7 +886,7 @@ FUN_0206123C: ; 0x0206123C
 	ldrh r2, [r4, #0x6]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200AE38
+	bl BufferItemName
 	ldrb r0, [r4, #0x3]
 	mov r1, #0x2
 	str r0, [sp, #0x0]
@@ -1056,7 +1056,7 @@ FUN_0206139C: ; 0x0206139C
 	ldrh r2, [r4, #0x2]
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	add r0, r5, #0x0
 	mov r1, #0x1
 	add r2, r6, #0x0
@@ -1064,7 +1064,7 @@ FUN_0206139C: ; 0x0206139C
 	ldrh r2, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r0, #0xa
 	pop {r4-r6, pc}
 
@@ -1108,7 +1108,7 @@ FUN_02061404: ; 0x02061404
 	ldrh r2, [r4, #0x6]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	add r0, r5, #0x0
 	mov r1, #0x0
 	add r2, r6, #0x0
@@ -1262,7 +1262,7 @@ FUN_02061534: ; 0x02061534
 	ldrh r2, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -1271,7 +1271,7 @@ FUN_02061534: ; 0x02061534
 	add r0, r5, #0x0
 	mov r1, #0x2
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x18
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -1338,7 +1338,7 @@ FUN_020615B0: ; 0x020615B0
 	ldrb r2, [r4, #0x5]
 	add r0, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x1a
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -1409,7 +1409,7 @@ FUN_02061648: ; 0x02061648
 	ldrh r2, [r4, #0x6]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r0, #0x1d
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -1482,7 +1482,7 @@ FUN_020616E8: ; 0x020616E8
 	ldrh r2, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -1491,7 +1491,7 @@ FUN_020616E8: ; 0x020616E8
 	ldrh r2, [r4, #0x4]
 	add r0, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x1e
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -1512,7 +1512,7 @@ FUN_02061728: ; 0x02061728
 	ldrh r2, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r0, #0x1f
 	pop {r4-r6, pc}
 	.balign 4
@@ -1544,7 +1544,7 @@ FUN_02061750: ; 0x02061750
 	add r0, r5, #0x0
 	add r2, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	mov r0, #0x5
@@ -1598,7 +1598,7 @@ FUN_020617D8: ; 0x020617D8
 	ldrb r2, [r4, #0x6]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200B534
+	bl BufferSealName
 	ldrb r0, [r4, #0x3]
 	mov r1, #0x2
 	str r0, [sp, #0x0]
@@ -1672,7 +1672,7 @@ _02061884:
 	add r0, r5, #0x0
 	mov r1, #0x1
 	add r2, r4, #0x4
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -1794,7 +1794,7 @@ FUN_0206193C: ; 0x0206193C
 	add r0, r5, #0x0
 	mov r1, #0x2
 	mov r3, #0x4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldrb r0, [r4, #0x7]
 	cmp r0, #0x0
 	bne _0206198A
@@ -1896,7 +1896,7 @@ FUN_020619F0: ; 0x020619F0
 	add r0, r5, #0x0
 	mov r1, #0x2
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r4, #0x0
 	mov r1, #0xa
 	bl _u32_div_f
@@ -1907,7 +1907,7 @@ FUN_020619F0: ; 0x020619F0
 	add r0, r5, #0x0
 	mov r1, #0x3
 	str r3, [sp, #0x4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x2
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -1967,7 +1967,7 @@ FUN_02061AB0: ; 0x02061AB0
 	ldr r2, [r4, #0x8]
 	add r0, r5, #0x0
 	mov r3, #0xa
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -1976,7 +1976,7 @@ FUN_02061AB0: ; 0x02061AB0
 	add r0, r5, #0x0
 	mov r1, #0x2
 	mov r3, #0x6
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -1985,7 +1985,7 @@ FUN_02061AB0: ; 0x02061AB0
 	add r0, r5, #0x0
 	mov r1, #0x3
 	mov r3, #0x6
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x3
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -2021,7 +2021,7 @@ FUN_02061B24: ; 0x02061B24
 	ldrh r2, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200B1D4
+	bl BufferUndergroundTrapName
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -2030,7 +2030,7 @@ FUN_02061B24: ; 0x02061B24
 	add r0, r5, #0x0
 	mov r1, #0x2
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x7
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -2073,7 +2073,7 @@ FUN_02061B80: ; 0x02061B80
 	ldrh r2, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x8
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -2134,7 +2134,7 @@ FUN_02061C00: ; 0x02061C00
 	ldrh r2, [r4, #0x2]
 	add r0, r5, #0x0
 	mov r3, #0x4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0x0
 	mov r1, #0x1
 	add r2, r6, #0x0
@@ -2315,7 +2315,7 @@ FUN_02061D74: ; 0x02061D74
 	ldr r2, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200B02C
+	bl BufferPoketchAppName
 	ldrh r2, [r4, #0x4]
 	add r0, r5, #0x0
 	mov r1, #0x2
@@ -2378,13 +2378,13 @@ FUN_02061DE4: ; 0x02061DE4
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200B2AC
+	bl BufferContestMessage2
 	ldrb r0, [r4, #0x7]
 	bl FUN_02083268
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200B278
+	bl BufferContestMessage
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r3, #0x1
@@ -2392,7 +2392,7 @@ FUN_02061DE4: ; 0x02061DE4
 	ldrb r2, [r4, #0x9]
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0x0
 	mov r1, #0x4
 	add r2, r6, #0x0
@@ -2557,7 +2557,7 @@ FUN_02061F60: ; 0x02061F60
 	add r0, r5, #0x0
 	mov r1, #0x1
 	add r2, r4, #0x0
-	bl FUN_0200B628
+	bl BufferPoffinName
 	ldrh r2, [r6, #0x2]
 	add r0, r5, #0x0
 	mov r1, #0x2
@@ -2648,7 +2648,7 @@ FUN_02061FF8: ; 0x02061FF8
 	ldrb r2, [r4, #0x1e]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200AE04
+	bl BufferNatureName
 	ldrh r2, [r4, #0x24]
 	add r0, r5, #0x0
 	mov r1, #0x5
@@ -2670,7 +2670,7 @@ _02062050:
 	ldrb r2, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl FUN_0200B660
+	bl BufferFashionName
 	add sp, #0x8
 	mov r0, #0x2c
 	pop {r4-r6, pc}
@@ -2678,7 +2678,7 @@ _02062062:
 	ldrh r2, [r4, #0x22]
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl FUN_0200AE38
+	bl BufferItemName
 	add sp, #0x8
 	mov r0, #0x2e
 	pop {r4-r6, pc}
@@ -2795,7 +2795,7 @@ _0206211E:
 	ldr r0, [sp, #0x8]
 	mov r1, #0x2
 	add r2, r4, #0x0
-	bl FUN_0200AF18
+	bl BufferTypeName
 	mov r0, #0x0
 	add sp, #0x10
 	pop {r3-r7, pc}
@@ -2842,7 +2842,7 @@ _0206218C:
 	add r2, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	cmp r4, #0xb
 	bhi _0206222C
 	add r0, r4, r4
@@ -2953,7 +2953,7 @@ FUN_02062240: ; 0x02062240
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	add r2, sp, #0x0
 	ldrh r2, [r2, #0x0]
 	add r0, r4, #0x0
@@ -3037,11 +3037,11 @@ _02062304:
 	add r0, r6, #0x0
 	mov r1, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200AF18
+	bl BufferTypeName
 	add r0, r6, #0x0
 	mov r1, #0x1
 	add r2, r4, #0x0
-	bl FUN_0200AF18
+	bl BufferTypeName
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl FUN_02062290
@@ -3180,7 +3180,7 @@ FUN_020623F4: ; 0x020623F4
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	bl FUN_02025238
@@ -3291,7 +3291,7 @@ _020624C6:
 	ldrh r2, [r2, #0x0]
 	add r0, r6, #0x0
 	mov r1, #0x1
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r0, #0x2a
 	add sp, #0xc
 	pop {r3-r6, pc}
@@ -3388,7 +3388,7 @@ _0206257A:
 	mov r1, #0x0
 	add r2, r4, #0x0
 	add r3, r6, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	add r0, r5, #0x0

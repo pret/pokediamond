@@ -214,7 +214,7 @@ FUN_02073EEC: ; 0x02073EEC
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r2, #0x6a
 	lsl r2, r2, #0x4
 	add r1, r2, #0x4
@@ -260,7 +260,7 @@ _02073F66:
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r2, _0207404C ; =0x00000B25
 	mov r3, #0x6a
 	ldrb r6, [r5, r2]
@@ -272,7 +272,7 @@ _02073F66:
 	add r3, #0x6c
 	ldrh r2, [r2, r3]
 	mov r1, #0x1
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r2, #0x6a
 	lsl r2, r2, #0x4
 	add r1, r2, #0x4
