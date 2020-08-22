@@ -6353,11 +6353,11 @@ MOD05_021E835C: ; 0x021E835C
 	ldr r2, [r4, #4]
 	mov r1, #0
 	add r5, r0, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 	ldr r2, [r4, #8]
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4, #8]
 	bl PlayerProfile_CountBadges
 	add r2, r0, #0
@@ -6367,7 +6367,7 @@ MOD05_021E835C: ; 0x021E835C
 	str r3, [sp, #4]
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [r4]
 	cmp r2, #0x64
 	blt _021E839A
@@ -6389,7 +6389,7 @@ _021E83A8:
 	str r0, [sp, #4]
 	add r0, r5, #0
 	mov r1, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	bl GetIGTHours
 	add r2, r0, #0
@@ -6413,7 +6413,7 @@ _021E83D6:
 	str r0, [sp, #4]
 	add r0, r5, #0
 	mov r1, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	bl GetIGTMinutes
 	mov r3, #2
@@ -6423,7 +6423,7 @@ _021E83D6:
 	str r0, [sp, #4]
 	add r0, r5, #0
 	mov r1, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -6630,7 +6630,7 @@ MOD05_021E8588: ; 0x021E8588
 	ldr r0, [r6, #8]
 	str r0, [r4, #0xc]
 	add r0, r5, #0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x14]
 	ldr r2, _021E85E0 ; =0x000001E3
 	mov r0, #1
@@ -6664,7 +6664,7 @@ MOD05_021E85E4: ; 0x021E85E4
 	ldr r0, [r4, #0x18]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -14590,7 +14590,7 @@ MOD05_021EC668: ; 0x021EC668
 	add r0, r7, #0
 	mov r1, #0
 	add r2, r5, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
@@ -14753,11 +14753,11 @@ MOD05_021EC7D4: ; 0x021EC7D4
 	add r2, r4, #0
 	mov r3, #3
 	str r1, [sp, #4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0
 	mov r1, #0
 	add r2, r6, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	add sp, #8
@@ -14779,7 +14779,7 @@ MOD05_021EC810: ; 0x021EC810
 	add r0, r5, #0
 	mov r1, #0
 	add r2, r6, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r1, r4, #1
 	mov r0, #0x64
 	mul r0, r1
@@ -14792,7 +14792,7 @@ MOD05_021EC810: ; 0x021EC810
 	add r2, r4, #0
 	mov r3, #5
 	str r1, [sp, #4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r4, #0
 	add sp, #8
 	pop {r4, r5, r6, pc}
@@ -16416,11 +16416,11 @@ MOD05_021ED4E0: ; 0x021ED4E0
 	ldr r2, [sp]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r2, [sp]
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_0200AD18
+	bl BufferBoxMonOTName
 _021ED50E:
 	ldr r0, [sp, #4]
 	mov r1, #5
@@ -16431,7 +16431,7 @@ _021ED50E:
 	ldr r2, [sp, #4]
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 _021ED526:
 	add sp, #8
 	pop {r4, pc}
@@ -16457,7 +16457,7 @@ MOD05_021ED52C: ; 0x021ED52C
 	ldr r0, [sp, #0x2c]
 	add r1, r4, #0
 	add r2, r5, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [sp, #0xc]
 	bl FUN_02023C84
 	add r1, r0, #0
@@ -16472,7 +16472,7 @@ MOD05_021ED52C: ; 0x021ED52C
 	ldr r0, [sp, #0x2c]
 	add r1, r7, #0
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0
 	mov r1, #0x6f
 	mov r2, #0
@@ -16503,7 +16503,7 @@ _021ED5B4:
 	ldr r0, [sp, #0x2c]
 	ldr r1, [sp, #8]
 	add r2, r4, #0
-	bl FUN_0200B3C0
+	bl BufferGenderSymbol
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -16518,7 +16518,7 @@ MOD05_021ED5C4: ; 0x021ED5C4
 	add r2, r0, #0
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
@@ -21629,7 +21629,7 @@ _021EFCC4:
 	add r2, r0, #0
 	ldr r0, [r6, #0x38]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r6, #0
 	mov r1, #0x21
 	bl MOD05_021F01EC
@@ -21819,7 +21819,7 @@ _021EFE4C:
 	add r2, r0, #0
 	ldr r0, [r4, #0x38]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0
 	mov r1, #0x23
 	bl MOD05_021F01EC
@@ -22021,7 +22021,7 @@ _021EFFE6:
 	add r2, r0, #0
 	ldr r0, [r5, #0x38]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r5, #0
 	mov r1, #0x23
 	bl MOD05_021F01EC
@@ -22049,7 +22049,7 @@ _021F000E:
 	ldr r0, [r5, #0x38]
 	mov r1, #0
 	add r2, r6, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r6, #0
 	bl FreeToHeap
 	add r0, r5, #0
@@ -22149,7 +22149,7 @@ _021F0104:
 	add r2, r0, #0
 	ldr r0, [r5, #0x38]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r5, #0
 	mov r1, #0x23
 	bl MOD05_021F01EC
@@ -22316,7 +22316,7 @@ MOD05_021F0254: ; 0x021F0254
 	add r4, r0, #0
 	bl MI_CpuFill8
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x38]
 	ldr r2, _021F028C ; =0x00000251
 	mov r0, #0
@@ -22343,7 +22343,7 @@ MOD05_021F0290: ; 0x021F0290
 	ldr r0, [r4, #0x3c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x38]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0xc]
 	bl String_dtor
 	ldr r0, [r4, #8]
@@ -29680,7 +29680,7 @@ MOD05_021F3AE0: ; 0x021F3AE0
 	ldr r0, [r5]
 	add r1, r6, #0
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r4, #0
 	mov r1, #0xa
 	bl _u32_div_f
@@ -29691,7 +29691,7 @@ MOD05_021F3AE0: ; 0x021F3AE0
 	str r3, [sp, #4]
 	ldr r0, [r5]
 	add r1, r7, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -34800,7 +34800,7 @@ MOD05_021F60C4: ; 0x021F60C4
 	mov r0, #8
 	mov r1, #0x40
 	mov r2, #4
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	str r0, [r4, #0x34]
 	pop {r4, pc}
 
@@ -34809,7 +34809,7 @@ MOD05_021F60FC: ; 0x021F60FC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x34]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x2c]
 	bl String_dtor
 	ldr r0, [r4, #0x30]

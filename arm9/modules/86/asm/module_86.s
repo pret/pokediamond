@@ -39,7 +39,7 @@ MOD86_021D74E0: ; 0x021D74E0
 	bl FUN_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F34
@@ -64,7 +64,7 @@ MOD86_021D74E0: ; 0x021D74E0
 	bl MOD86_021D78D4
 	ldr r0, _021D7588 ; =MOD86_021D76E0
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E788
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -184,7 +184,7 @@ _021D765C:
 	and r0, r1
 	cmp r0, #2
 	beq _021D7678
-	ldr r0, _021D76AC ; =UNK_021C48F8
+	ldr r0, _021D76AC ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _021D76A0
@@ -214,7 +214,7 @@ _021D76A0:
 	pop {r3, r4, r5, r6, pc}
 	nop
 _021D76A8: .word gMain
-_021D76AC: .word UNK_021C48F8
+_021D76AC: .word gMain + 0x40
 	thumb_func_end MOD86_021D758C
 
 	thumb_func_start MOD86_021D76B0
@@ -229,7 +229,7 @@ MOD86_021D76B0: ; 0x021D76B0
 	bl MOD86_021D7858
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	add r0, r4, #0
@@ -484,7 +484,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x34]
 	ldr r0, [r4]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x38]
 	mov r1, #0
 	add r0, sp, #8
@@ -540,7 +540,7 @@ MOD86_021D7964: ; 0x021D7964
 	add r0, #0x14
 	bl FUN_02019178
 	ldr r0, [r4, #0x38]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x34]
 	bl DestroyMsgData
 	pop {r4, pc}
@@ -812,7 +812,7 @@ MOD86_021D7B80: ; 0x021D7B80
 	ldr r0, [r5, #0x38]
 	ldr r2, [r5, #0xc]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x38]
 	add r1, r4, #0
 	add r2, r6, #0

@@ -1756,7 +1756,7 @@ MOD18_0223A3D4: ; 0x0223A3D4
 	ldr r0, [r0]
 	str r4, [r0, #4]
 	ldr r0, _0223A4D0 ; =MOD18_0223C6CC
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl MOD18_0223D638
 	add r1, r4, #0
 	bl MOD18_0224DBB0
@@ -1974,7 +1974,7 @@ _0223A5F8:
 	bl FUN_0201E08C
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, _0223A648 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0, #4]
@@ -2247,7 +2247,7 @@ _0223A844:
 	bl FUN_0201BD70
 	cmp r0, #0
 	bne _0223A922
-	ldr r0, _0223AB08 ; =UNK_021C48F8
+	ldr r0, _0223AB08 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _0223A86C
@@ -2326,7 +2326,7 @@ _0223A8E4:
 	ldr r0, [r4, #0x4c]
 	sub r0, r0, #1
 	str r0, [r4, #0x4c]
-	ldr r0, _0223AB08 ; =UNK_021C48F8
+	ldr r0, _0223AB08 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _0223A924
@@ -2380,7 +2380,7 @@ _0223A958:
 	bl FUN_0201BD70
 	cmp r0, #0
 	bne _0223AA5A
-	ldr r0, _0223AB08 ; =UNK_021C48F8
+	ldr r0, _0223AB08 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _0223A98A
@@ -2558,7 +2558,7 @@ _0223AAF2:
 	.align 2, 0
 _0223AB00: .word 0x00000621
 _0223AB04: .word MOD18_02251380
-_0223AB08: .word UNK_021C48F8
+_0223AB08: .word gMain + 0x40
 _0223AB0C: .word gMain
 _0223AB10: .word 0x000005E3
 _0223AB14: .word 0x000003D9
@@ -2665,7 +2665,7 @@ _0223ABDC:
 	bl FUN_0201BD70
 	cmp r0, #0
 	bne _0223AC10
-	ldr r0, _0223AC1C ; =UNK_021C48F8
+	ldr r0, _0223AC1C ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _0223AC04
@@ -2685,7 +2685,7 @@ _0223AC10:
 	.align 2, 0
 _0223AC14: .word MOD18_02251380
 _0223AC18: .word 0x000006A1
-_0223AC1C: .word UNK_021C48F8
+_0223AC1C: .word gMain + 0x40
 _0223AC20: .word gMain
 	thumb_func_end MOD18_0223A64C
 
@@ -5595,7 +5595,7 @@ MOD18_0223C1F0: ; 0x0223C1F0
 	mov r1, #0
 	strb r1, [r2, r0]
 _0223C216:
-	ldr r1, _0223C340 ; =UNK_021C48F8
+	ldr r1, _0223C340 ; =gMain + 0x40
 	ldrh r0, [r1, #0x20]
 	cmp r0, #0
 	beq _0223C29A
@@ -5673,7 +5673,7 @@ _0223C29A:
 	bl FUN_020054C8
 _0223C2AC:
 	ldr r0, _0223C338 ; =0x02251380
-	ldr r2, _0223C340 ; =UNK_021C48F8
+	ldr r2, _0223C340 ; =gMain + 0x40
 	ldr r3, [r0]
 	ldr r4, _0223C33C ; =0x000009E5
 	ldr r0, [r3, #4]
@@ -5741,7 +5741,7 @@ _0223C332:
 	.align 2, 0
 _0223C338: .word MOD18_02251380
 _0223C33C: .word 0x000009E5
-_0223C340: .word UNK_021C48F8
+_0223C340: .word gMain + 0x40
 _0223C344: .word 0x000009E4
 _0223C348: .word 0x000009E7
 _0223C34C: .word 0x000009E8
@@ -7704,7 +7704,7 @@ _0223D212:
 	cmp r1, #0
 	beq _0223D26E
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r5, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -7717,7 +7717,7 @@ _0223D212:
 	ldr r2, _0223D294 ; =0x000004CC
 	mov r1, #2
 	ldrb r2, [r3, r2]
-	bl FUN_0200B19C
+	bl BufferUndergroundItemNameWithArticle
 	add r0, r5, #0
 	mov r1, #2
 	bl FUN_0200B7A8
@@ -7752,7 +7752,7 @@ _0223D280:
 	cmp r5, #0
 	beq _0223D28A
 	add r0, r5, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _0223D28A:
 	add r0, r7, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8319,7 +8319,7 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	cmp r6, #0
 	beq _0223D73E
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -8328,11 +8328,11 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	add r0, r4, #0
 	mov r1, #0
 	add r2, r5, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0
 	mov r1, #1
 	add r2, r6, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	ldr r1, [sp]
@@ -8345,7 +8345,7 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8366,7 +8366,7 @@ MOD18_0223D744: ; 0x0223D744
 	cmp r5, #0
 	beq _0223D79C
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -8375,7 +8375,7 @@ MOD18_0223D744: ; 0x0223D744
 	add r0, r4, #0
 	add r1, r7, #0
 	add r2, r5, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	ldr r1, [sp]
@@ -8388,7 +8388,7 @@ MOD18_0223D744: ; 0x0223D744
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8588,7 +8588,7 @@ MOD18_0223D8F4: ; 0x0223D8F4
 	mov r0, #0
 	pop {r3, pc}
 _0223D912:
-	ldr r1, _0223D9DC ; =UNK_021C48F8
+	ldr r1, _0223D9DC ; =gMain + 0x40
 	ldrh r1, [r1, #0x20]
 	cmp r1, #0
 	beq _0223D9BA
@@ -8625,7 +8625,7 @@ _0223D950:
 	pop {r3, pc}
 _0223D962:
 	ldr r3, _0223D9D4 ; =0x02251388
-	ldr r2, _0223D9DC ; =UNK_021C48F8
+	ldr r2, _0223D9DC ; =gMain + 0x40
 	ldr r3, [r3]
 	ldrh r1, [r2, #0x1c]
 	ldr r3, [r3, #0xc]
@@ -8644,7 +8644,7 @@ _0223D962:
 	strh r1, [r0]
 	ldr r1, [sp, #4]
 	strh r1, [r0, #2]
-	ldr r1, _0223D9DC ; =UNK_021C48F8
+	ldr r1, _0223D9DC ; =gMain + 0x40
 	ldr r0, _0223D9D4 ; =0x02251388
 	ldrh r3, [r1, #0x1c]
 	ldr r2, [r0]
@@ -8682,7 +8682,7 @@ _0223D9CC:
 	nop
 _0223D9D4: .word MOD18_02251388
 _0223D9D8: .word 0x00000146
-_0223D9DC: .word UNK_021C48F8
+_0223D9DC: .word gMain + 0x40
 	thumb_func_end MOD18_0223D8F4
 
 	thumb_func_start MOD18_0223D9E0
@@ -10136,7 +10136,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r1, #0xdc
 	str r0, [r1]
 	mov r0, #0xb
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0
 	mov r0, #0x64
 	mov r1, #0xb
@@ -10147,7 +10147,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r2, r0, #0
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	mov r1, #0x73
@@ -10164,7 +10164,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _0223E54E:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -14808,7 +14808,7 @@ _0224079E:
 	add sp, #0x1c
 	pop {r3, r4, pc}
 _022407DE:
-	ldr r1, _02240894 ; =UNK_021C48F8
+	ldr r1, _02240894 ; =gMain + 0x40
 	ldrh r0, [r1, #0x22]
 	cmp r0, #0
 	beq _02240816
@@ -14892,7 +14892,7 @@ _02240884: .word MOD18_022513A0
 _02240888: .word 0x00000B3B
 _0224088C: .word MOD18_022500A8
 _02240890: .word 0x00000661
-_02240894: .word UNK_021C48F8
+_02240894: .word gMain + 0x40
 	thumb_func_end MOD18_02240658
 
 	thumb_func_start MOD18_02240898
@@ -18413,7 +18413,7 @@ _022423E6:
 	mov r0, #1
 	pop {r4, r5, r6, r7, pc}
 _022423F4:
-	ldr r0, _02242580 ; =UNK_021C48F8
+	ldr r0, _02242580 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _022424C4
@@ -18429,14 +18429,14 @@ _0224240A:
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _022424B6
-	ldr r0, _02242580 ; =UNK_021C48F8
+	ldr r0, _02242580 ; =gMain + 0x40
 	ldrh r0, [r0, #0x1e]
 	lsl r1, r0, #0xc
 	ldr r0, [r4, #0x48]
 	sub r0, r1, r0
 	str r0, [sp, #0xc]
 	asr r7, r0, #0x1f
-	ldr r0, _02242580 ; =UNK_021C48F8
+	ldr r0, _02242580 ; =gMain + 0x40
 	ldrh r0, [r0, #0x1c]
 	lsl r1, r0, #0xc
 	ldr r0, [r4, #0x44]
@@ -18611,7 +18611,7 @@ _02242570:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02242580: .word UNK_021C48F8
+_02242580: .word gMain + 0x40
 _02242584: .word 0x00000000
 _02242588: .word MOD18_022500C0
 _0224258C: .word 0x00000626
@@ -19324,7 +19324,7 @@ _02242B0E:
 	str r2, [r4, r0]
 	b _02242E6C
 _02242B22:
-	ldr r1, _02242D78 ; =UNK_021C48F8
+	ldr r1, _02242D78 ; =gMain + 0x40
 	ldrh r2, [r1, #0x20]
 	cmp r2, #0
 	beq _02242BD2
@@ -19612,7 +19612,7 @@ _02242D68: .word MOD18_022513A0
 _02242D6C: .word 0x0000065E
 _02242D70: .word 0x0000065D
 _02242D74: .word 0x00000B3B
-_02242D78: .word UNK_021C48F8
+_02242D78: .word gMain + 0x40
 _02242D7C: .word 0x00000627
 _02242D80: .word 0x0000062A
 _02242D84:
@@ -32895,7 +32895,7 @@ MOD18_022494C8: ; 0x022494C8
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x70]
 	ldr r0, _02249538 ; =MOD18_02249684
 	ldr r2, _0224953C ; =0x00002710
@@ -34234,7 +34234,7 @@ _0224A002:
 	add r2, r0, #0
 	ldr r0, [r5, #0x70]
 	mov r1, #2
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	add r0, r4, #0
 	add r1, r5, #0
 	blx r7
@@ -34246,7 +34246,7 @@ _0224A002:
 	ldr r0, [r5, #0x70]
 	mov r1, #6
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	ldr r2, [r5, #0x6c]
@@ -35184,7 +35184,7 @@ MOD18_0224A7C8: ; 0x0224A7C8
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x70]
 	bl FUN_0204F7E4
 	bl MOD18_0223D648
@@ -35283,7 +35283,7 @@ _0224A8C0:
 	ldr r0, [r5, #0x6c]
 	bl String_dtor
 	ldr r0, [r5, #0x70]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	bl MOD18_0223D648
 	bl MOD18_0224DD94
 	bl MOD18_0223D638
@@ -35947,7 +35947,7 @@ _0224AE48:
 	ldr r0, [r5, #0x70]
 	cmp r0, #0
 	beq _0224AE52
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _0224AE52:
 	ldr r0, [r5, #4]
 	cmp r0, #0
@@ -36091,7 +36091,7 @@ MOD18_0224AF28: ; 0x0224AF28
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x70]
 	add r0, r4, #0
 	bl MOD18_0224AA4C
@@ -37370,7 +37370,7 @@ MOD18_0224B980: ; 0x0224B980
 	ldr r0, [r4, #0x6c]
 	bl String_dtor
 	ldr r0, [r4, #0x70]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -37836,7 +37836,7 @@ MOD18_0224BD54: ; 0x0224BD54
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x70]
 	mov r0, #4
 	bl FUN_0205EB38
@@ -38668,7 +38668,7 @@ _0224C434:
 	ldrb r2, [r3, r2]
 	ldr r0, [r4, #0x70]
 	mov r1, #2
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	mov r0, #1
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -38678,7 +38678,7 @@ _0224C434:
 	ldr r0, [r4, #0x70]
 	mov r1, #6
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	ldr r2, [r4, #0x68]
@@ -38977,7 +38977,7 @@ _0224C6C4:
 	ldr r0, [r4, #0x70]
 	mov r1, #2
 	add r2, r5, #0
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	mov r0, #1
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -38985,7 +38985,7 @@ _0224C6C4:
 	mov r1, #6
 	add r2, r7, #0
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	ldr r2, [r4, #0x68]
@@ -39374,7 +39374,7 @@ MOD18_0224CA34: ; 0x0224CA34
 	ldr r0, [r4, #0x6c]
 	bl String_dtor
 	ldr r0, [r4, #0x70]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -40368,7 +40368,7 @@ MOD18_0224D1F8: ; 0x0224D1F8
 	bl String_ctor
 	str r0, [r6, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r6, #0x70]
 	ldr r0, _0224D2DC ; =0x00000246
 	mov r1, #0
@@ -40506,7 +40506,7 @@ MOD18_0224D364: ; 0x0224D364
 	str r1, [sp, #0xc]
 	add r5, r2, #0
 	str r3, [sp, #0x10]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [sp, #0x1c]
 	mov r0, #0x1e
 	mov r1, #4
@@ -40596,7 +40596,7 @@ MOD18_0224D364: ; 0x0224D364
 	ldr r0, [sp, #0x1c]
 	mov r1, #6
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0xc]
 	mov r1, #5
 	add r2, r4, #0
@@ -40618,7 +40618,7 @@ MOD18_0224D364: ; 0x0224D364
 	ldr r0, [sp, #0x1c]
 	mov r1, #0
 	add r2, r5, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [sp, #0xc]
 	mov r1, #4
 	add r2, r4, #0
@@ -40690,7 +40690,7 @@ _0224D500:
 	mov r1, #6
 	ldr r0, [sp, #0x1c]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0xc]
 	mov r1, #0xd
 	add r2, r4, #0
@@ -40721,7 +40721,7 @@ _0224D500:
 	ldr r0, [sp, #0x18]
 	bl String_dtor
 	ldr r0, [sp, #0x1c]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -41074,7 +41074,7 @@ MOD18_0224D814: ; 0x0224D814
 	mov r0, #4
 	add r5, r2, #0
 	str r3, [sp, #0x14]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r7, r0, #0
 	mov r0, #0x28
 	mov r1, #4
@@ -41087,7 +41087,7 @@ MOD18_0224D814: ; 0x0224D814
 	add r0, r7, #0
 	mov r1, #1
 	add r2, r5, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [sp, #0x10]
 	mov r1, #0xc
 	add r2, r4, #0
@@ -41129,7 +41129,7 @@ MOD18_0224D814: ; 0x0224D814
 	str r0, [sp, #4]
 	add r0, r7, #0
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x10]
 	mov r1, #0xe
 	add r2, r4, #0
@@ -41175,7 +41175,7 @@ _0224D8FA:
 	ldr r2, [sp, #0x24]
 	add r0, r7, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [sp, #0x10]
 	mov r1, #0x10
 	add r2, r4, #0
@@ -41208,7 +41208,7 @@ _0224D8FA:
 	str r0, [sp, #4]
 	add r0, r7, #0
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x10]
 	mov r1, #0x11
 	add r2, r4, #0
@@ -41277,7 +41277,7 @@ _0224D9DE:
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r7, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD18_0224D814
@@ -41421,7 +41421,7 @@ _0224DB08:
 	bl String_ctor
 	str r0, [r4, #4]
 	add r0, r5, #0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x28]
 	ldr r0, [sp]
 	ldr r2, [sp]
@@ -41460,7 +41460,7 @@ MOD18_0224DB5C: ; 0x0224DB5C
 	ldr r0, [r4, #4]
 	bl String_dtor
 	ldr r0, [r4, #0x28]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x24]
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -41776,7 +41776,7 @@ MOD18_0224DDA0: ; 0x0224DDA0
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #1
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41791,7 +41791,7 @@ MOD18_0224DDB8: ; 0x0224DDB8
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41806,7 +41806,7 @@ MOD18_0224DDD0: ; 0x0224DDD0
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #2
-	bl FUN_0200B19C
+	bl BufferUndergroundItemNameWithArticle
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41821,7 +41821,7 @@ MOD18_0224DDE8: ; 0x0224DDE8
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #3
-	bl FUN_0200B1D4
+	bl BufferUndergroundTrapName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41836,7 +41836,7 @@ MOD18_0224DE00: ; 0x0224DE00
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #5
-	bl FUN_0200B2E0
+	bl BufferInterviewQuestion
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41851,7 +41851,7 @@ MOD18_0224DE18: ; 0x0224DE18
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #5
-	bl FUN_0200B318
+	bl BufferInterviewAnswer
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41864,7 +41864,7 @@ MOD18_0224DE30: ; 0x0224DE30
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B318
+	bl BufferInterviewAnswer
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41879,7 +41879,7 @@ MOD18_0224DE44: ; 0x0224DE44
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #2
-	bl FUN_0200B350
+	bl BufferDecorationName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41897,7 +41897,7 @@ MOD18_0224DE5C: ; 0x0224DE5C
 	mov r3, #1
 	str r3, [sp, #4]
 	ldr r0, [r4, #0x28]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41919,7 +41919,7 @@ MOD18_0224DE7C: ; 0x0224DE7C
 	ldr r0, [r4, #0x28]
 	mov r1, #6
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41940,7 +41940,7 @@ MOD18_0224DEA4: ; 0x0224DEA4
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x28]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41963,7 +41963,7 @@ MOD18_0224DEC8: ; 0x0224DEC8
 	mov r1, #6
 	ldr r0, [r4, #0x28]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41978,7 +41978,7 @@ MOD18_0224DEF0: ; 0x0224DEF0
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41991,7 +41991,7 @@ MOD18_0224DF04: ; 0x0224DF04
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B1D4
+	bl BufferUndergroundTrapName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -42004,7 +42004,7 @@ MOD18_0224DF18: ; 0x0224DF18
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B350
+	bl BufferDecorationName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -42017,7 +42017,7 @@ MOD18_0224DF2C: ; 0x0224DF2C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B19C
+	bl BufferUndergroundItemNameWithArticle
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -42030,7 +42030,7 @@ MOD18_0224DF40: ; 0x0224DF40
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B20C
+	bl BufferUndergroundTrapNameWithArticle
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -42828,7 +42828,7 @@ _0224E454:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r1, #1
 	str r1, [sp]
 	add r2, r5, #0
@@ -42838,7 +42838,7 @@ _0224E454:
 	mov r1, #0
 	mov r3, #2
 	add r6, r0, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r1, #1
 	str r1, [sp]
 	add r2, r5, #0
@@ -42847,7 +42847,7 @@ _0224E454:
 	ldrb r2, [r2]
 	add r0, r6, #0
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [sp, #0x2c]
 	add r0, r6, #0
 	add r1, r4, #0
@@ -42864,7 +42864,7 @@ _0224E454:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [sp, #0x28]
 	bl String_dtor
 	ldr r0, [sp, #0x2c]
@@ -45740,7 +45740,7 @@ MOD18_0224FC18: ; 0x0224FC18
 	add r5, r1, #0
 	str r0, [sp]
 	add r0, #0x88
-	ldr r1, _0224FCD4 ; =UNK_021C48F8
+	ldr r1, _0224FCD4 ; =gMain + 0x40
 	ldr r6, [r0]
 	ldrh r0, [r1, #0x1c]
 	ldrh r1, [r1, #0x1e]
@@ -45825,7 +45825,7 @@ _0224FCCE:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	nop
-_0224FCD4: .word UNK_021C48F8
+_0224FCD4: .word gMain + 0x40
 	thumb_func_end MOD18_0224FC18
 
 	thumb_func_start MOD18_0224FCD8
@@ -45834,7 +45834,7 @@ MOD18_0224FCD8: ; 0x0224FCD8
 	sub sp, #0x1c
 	add r4, r1, #0
 	add r0, #0x88
-	ldr r1, _0224FD6C ; =UNK_021C48F8
+	ldr r1, _0224FD6C ; =gMain + 0x40
 	ldr r5, [r0]
 	ldrh r0, [r1, #0x1c]
 	add r6, r2, #0
@@ -45902,7 +45902,7 @@ _0224FD66:
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	nop
-_0224FD6C: .word UNK_021C48F8
+_0224FD6C: .word gMain + 0x40
 	thumb_func_end MOD18_0224FCD8
 
 	thumb_func_start MOD18_0224FD70
@@ -45910,7 +45910,7 @@ MOD18_0224FD70: ; 0x0224FD70
 	push {r3, r4, r5, lr}
 	add r3, r0, #0
 	mov r0, #0
-	ldr r4, _0224FDD0 ; =UNK_021C48F8
+	ldr r4, _0224FDD0 ; =gMain + 0x40
 	str r0, [r2]
 	ldrh r5, [r4, #0x20]
 	cmp r5, #0
@@ -45959,7 +45959,7 @@ _0224FDC0:
 _0224FDCE:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_0224FDD0: .word UNK_021C48F8
+_0224FDD0: .word gMain + 0x40
 _0224FDD4: .word gMain
 _0224FDD8: .word 0x000004F8
 	thumb_func_end MOD18_0224FD70
@@ -45969,7 +45969,7 @@ MOD18_0224FDDC: ; 0x0224FDDC
 	push {r3, r4, r5, lr}
 	add r3, r0, #0
 	mov r0, #0
-	ldr r4, _0224FE40 ; =UNK_021C48F8
+	ldr r4, _0224FE40 ; =gMain + 0x40
 	str r0, [r2]
 	ldrh r5, [r4, #0x20]
 	cmp r5, #0
@@ -46020,7 +46020,7 @@ _0224FE30:
 _0224FE3E:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_0224FE40: .word UNK_021C48F8
+_0224FE40: .word gMain + 0x40
 _0224FE44: .word gMain
 _0224FE48: .word 0x000004F8
 	thumb_func_end MOD18_0224FDDC
@@ -46030,7 +46030,7 @@ MOD18_0224FE4C: ; 0x0224FE4C
 	push {r4, lr}
 	add r3, r0, #0
 	mov r0, #0
-	ldr r4, _0224FE88 ; =UNK_021C48F8
+	ldr r4, _0224FE88 ; =gMain + 0x40
 	str r0, [r2]
 	ldrh r4, [r4, #0x20]
 	cmp r4, #0
@@ -46058,7 +46058,7 @@ _0224FE80:
 	str r0, [r3, r1]
 	pop {r4, pc}
 	nop
-_0224FE88: .word UNK_021C48F8
+_0224FE88: .word gMain + 0x40
 _0224FE8C: .word gMain
 _0224FE90: .word 0x000004F8
 	thumb_func_end MOD18_0224FE4C
@@ -46068,7 +46068,7 @@ MOD18_0224FE94: ; 0x0224FE94
 	push {r3, r4, r5, lr}
 	add r3, r0, #0
 	mov r0, #0
-	ldr r4, _0224FEF4 ; =UNK_021C48F8
+	ldr r4, _0224FEF4 ; =gMain + 0x40
 	str r0, [r2]
 	ldrh r5, [r4, #0x20]
 	cmp r5, #0
@@ -46117,7 +46117,7 @@ _0224FEE4:
 _0224FEF2:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_0224FEF4: .word UNK_021C48F8
+_0224FEF4: .word gMain + 0x40
 _0224FEF8: .word gMain
 _0224FEFC: .word 0x000004F8
 	thumb_func_end MOD18_0224FE94

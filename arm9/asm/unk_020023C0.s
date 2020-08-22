@@ -3,7 +3,7 @@
 
 	.section .bss
 
-	.extern UNK_021C48F8
+	.extern gMain
 	.extern gMain
 
 	.global gTextFlags
@@ -57,7 +57,7 @@ _020023F0:
 	lsr r0, r0, #0x1f
 	bne _02002414
 _02002402:
-	ldr r0, _0200265C ; =UNK_021C48F8
+	ldr r0, _0200265C ; =gMain + 0x40
 	ldrh r0, [r0, #0x22]
 	cmp r0, #0x0
 	beq _02002432
@@ -111,7 +111,7 @@ _02002432:
 	mov r1, #0x3
 	tst r1, r2
 	bne _02002478
-	ldr r1, _0200265C ; =UNK_021C48F8
+	ldr r1, _0200265C ; =gMain + 0x40
 	ldrh r1, [r1, #0x20]
 	cmp r1, #0x0
 	beq _02002486
@@ -375,7 +375,7 @@ _0200264E:
 	b _020026CA
 	.balign 4
 _02002658: .word gMain
-_0200265C: .word UNK_021C48F8
+_0200265C: .word gMain + 0x40
 _02002660: .word gTextFlags
 _02002664: .word 0x0000F0FD
 _02002668: .word 0x000025BD
@@ -915,7 +915,7 @@ FUN_02002A94: ; 0x02002A94
 	mov r0, #0x3
 	tst r0, r1
 	bne _02002AB2
-	ldr r0, _02002AD0 ; =UNK_021C48F8
+	ldr r0, _02002AD0 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0x0
 	beq _02002AC6
@@ -939,7 +939,7 @@ _02002AC6:
 	pop {r3, pc}
 	nop
 _02002ACC: .word gMain
-_02002AD0: .word UNK_021C48F8
+_02002AD0: .word gMain + 0x40
 _02002AD4: .word gTextFlags
 _02002AD8: .word 0x000005DC
 

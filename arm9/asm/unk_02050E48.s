@@ -783,7 +783,7 @@ _0205142C:
 	ldr r0, [r4, #0x28]
 	ldr r2, [r4, #0x74]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4, #0x2c]
 	ldr r2, [r4, #0xc]
 	mov r1, #0xe
@@ -962,7 +962,7 @@ _020515BA:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x28]
 	mov r1, #0x1
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	ldr r0, [r4, #0x2c]
 	ldr r2, [r4, #0xc]
 	mov r1, #0x12
@@ -1307,7 +1307,7 @@ _0205188E:
 	str r5, [r4, #0x24]
 	str r6, [r4, #0x8]
 	mov r0, #0xb
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x28]
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -1436,7 +1436,7 @@ _020519BA:
 	ldr r0, [r4, #0x2c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x28]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0xc]
 	bl String_dtor
 	ldr r0, [r4, #0x10]
@@ -2124,7 +2124,7 @@ _02051EE2: ; jump table (using 16-bit offset)
 	.short _02052028 - _02051EE2 - 2; case 7
 _02051EF2:
 	mov r0, #0x4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x18]
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -2150,7 +2150,7 @@ _02051EF2:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x18]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0x4]
 	ldr r2, [r4, #0x0]
@@ -2194,7 +2194,7 @@ _02051F7C:
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x18]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x0]
 	bl String_dtor
 	ldr r0, [r4, #0x4]

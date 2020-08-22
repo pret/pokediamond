@@ -2373,7 +2373,7 @@ MOD09_02213138: ; 0x02213138
 	str r0, [r4, r1]
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _02213188 ; =0x00001FAC
 	str r0, [r4, r1]
 	ldr r1, [r4]
@@ -2402,7 +2402,7 @@ MOD09_02213190: ; 0x02213190
 	bl FUN_0200B990
 	ldr r0, _022131C0 ; =0x00001FAC
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, _022131C4 ; =0x00001FB0
 	ldr r0, [r4, r0]
 	bl String_dtor
@@ -3500,7 +3500,7 @@ _02213A30:
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _02213B74 ; =0x00001FAC
 	add r2, r6, #0
 	ldr r0, [r5, r1]
@@ -3535,7 +3535,7 @@ _02213A82:
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _02213B74 ; =0x00001FAC
 	add r2, r6, #0
 	ldr r0, [r5, r1]
@@ -3584,7 +3584,7 @@ _02213AD4:
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _02213B74 ; =0x00001FAC
 	add r2, r6, #0
 	ldr r0, [r5, r1]
@@ -3616,7 +3616,7 @@ _02213B24:
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _02213B74 ; =0x00001FAC
 	add r2, r7, #0
 	ldr r0, [r5, r1]
@@ -4088,7 +4088,7 @@ MOD09_02213E84: ; 0x02213E84
 	ldr r0, _02214020 ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r6, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, _02214020 ; =0x00001FAC
 	ldr r1, [sp, #0x1c]
 	ldr r0, [r6, r0]
@@ -4481,7 +4481,7 @@ MOD09_022141D8: ; 0x022141D8
 	ldrh r2, [r2, #0x1c]
 	ldr r0, [r5, r0]
 	mov r1, #0
-	bl FUN_0200ADCC
+	bl BufferAbilityName
 	ldr r0, _02214254 ; =0x00001FAC
 	ldr r2, [sp, #0x10]
 	ldr r0, [r5, r0]
@@ -4551,7 +4551,7 @@ _02214284:
 	ldrh r2, [r5, #0x1a]
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	ldr r0, _022142F0 ; =0x00001FAC
 	ldr r2, [sp, #0x10]
 	ldr r0, [r4, r0]
@@ -4612,7 +4612,7 @@ MOD09_022142FC: ; 0x022142FC
 	ldr r2, [sp, #0x10]
 	ldr r0, [r5, r0]
 	mov r1, #0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r0, _0221439C ; =0x00001FAC
 	ldr r2, [sp, #0x18]
 	ldr r0, [r5, r0]
@@ -4849,7 +4849,7 @@ MOD09_022144C0: ; 0x022144C0
 	lsl r2, r2, #0x19
 	ldr r0, [r5, r0]
 	lsr r2, r2, #0x19
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _0221468C ; =0x00001FAC
 	ldr r1, [sp, #0x1c]
 	ldr r0, [r5, r0]
@@ -4921,7 +4921,7 @@ MOD09_022144C0: ; 0x022144C0
 	sub r2, r2, r3
 	mov r1, #0
 	mov r3, #6
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _022145F4
 _022145E0:
 	mov r0, #1
@@ -4932,7 +4932,7 @@ _022145E0:
 	ldr r0, [r5, r0]
 	add r2, r1, #0
 	mov r3, #6
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 _022145F4:
 	ldr r0, _0221468C ; =0x00001FAC
 	ldr r1, [sp, #0x10]
@@ -5053,7 +5053,7 @@ MOD09_02214694: ; 0x02214694
 	ldrh r2, [r2, #0xa]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214788 ; =0x00001FAC
 	ldr r2, [sp, #0x10]
 	ldr r0, [r5, r0]
@@ -5162,7 +5162,7 @@ MOD09_02214790: ; 0x02214790
 	ldrh r2, [r2, #0xc]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214884 ; =0x00001FAC
 	ldr r2, [sp, #0x10]
 	ldr r0, [r5, r0]
@@ -5272,7 +5272,7 @@ MOD09_0221488C: ; 0x0221488C
 	ldrh r2, [r2, #0xe]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214984 ; =0x00001FAC
 	ldr r2, [sp, #0x10]
 	ldr r0, [r5, r0]
@@ -5384,7 +5384,7 @@ MOD09_0221498C: ; 0x0221498C
 	ldrh r2, [r2, #0x10]
 	ldr r0, [r4, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214A84 ; =0x00001FAC
 	ldr r2, [sp, #0x10]
 	ldr r0, [r4, r0]
@@ -5496,7 +5496,7 @@ MOD09_02214A8C: ; 0x02214A8C
 	ldrh r2, [r2, #0x12]
 	ldr r0, [r4, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214B84 ; =0x00001FAC
 	ldr r2, [sp, #0x10]
 	ldr r0, [r4, r0]
@@ -5643,7 +5643,7 @@ MOD09_02214B8C: ; 0x02214B8C
 	ldrh r2, [r7, #0x10]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214D20 ; =0x00001FAC
 	ldr r1, [sp, #0x1c]
 	ldr r0, [r5, r0]
@@ -5689,7 +5689,7 @@ MOD09_02214B8C: ; 0x02214B8C
 	ldrh r2, [r7, #0x12]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214D20 ; =0x00001FAC
 	ldr r1, [sp, #0x24]
 	ldr r0, [r5, r0]
@@ -5880,7 +5880,7 @@ _02214E42:
 	ldr r2, [sp, #0x10]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214ECC ; =0x00001FAC
 	ldr r2, [sp, #0x14]
 	ldr r0, [r5, r0]
@@ -6016,7 +6016,7 @@ _02214F72:
 	ldr r2, [sp, #0x10]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _02214FFC ; =0x00001FAC
 	ldr r2, [sp, #0x14]
 	ldr r0, [r5, r0]
@@ -6311,7 +6311,7 @@ MOD09_022151A8: ; 0x022151A8
 	ldr r2, [sp, #0x10]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _022152D8 ; =0x00001FAC
 	ldr r1, [sp, #0x24]
 	ldr r0, [r5, r0]
@@ -6355,7 +6355,7 @@ MOD09_022151A8: ; 0x022151A8
 	ldr r2, [sp, #0x14]
 	ldr r0, [r5, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _022152D8 ; =0x00001FAC
 	ldr r1, [sp, #0x2c]
 	ldr r0, [r5, r0]
@@ -6560,7 +6560,7 @@ MOD09_022153B0: ; 0x022153B0
 	ldrb r2, [r2, #3]
 	ldr r0, [r5, r0]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _022154F8 ; =0x00001FAC
 	ldr r2, [sp, #0x20]
 	ldr r0, [r5, r0]
@@ -6596,7 +6596,7 @@ MOD09_022153B0: ; 0x022153B0
 	ldrb r2, [r2, #2]
 	ldr r0, [r5, r0]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _022154F8 ; =0x00001FAC
 	ldr r2, [sp, #0x24]
 	ldr r0, [r5, r0]
@@ -6688,7 +6688,7 @@ MOD09_022154FC: ; 0x022154FC
 	ldrb r2, [r2, #2]
 	ldr r0, [r5, r0]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _022155C8 ; =0x00001FAC
 	ldr r1, [sp, #0x14]
 	ldr r0, [r5, r0]
@@ -6972,7 +6972,7 @@ MOD09_02215784: ; 0x02215784
 	ldr r0, _022158DC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r4, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, _022158DC ; =0x00001FAC
 	ldr r1, [sp, #0x10]
 	ldr r0, [r4, r0]
@@ -8433,7 +8433,7 @@ _02216444:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8458,7 +8458,7 @@ _0221648E:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #1
@@ -8474,7 +8474,7 @@ _0221648E:
 	ldr r0, [r5, r0]
 	sub r2, r2, r3
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8517,7 +8517,7 @@ _02216512:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8540,7 +8540,7 @@ _0221654A:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8563,7 +8563,7 @@ _02216580:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8586,7 +8586,7 @@ _022165B6:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8609,7 +8609,7 @@ _022165EC:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8632,7 +8632,7 @@ _02216622:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8655,7 +8655,7 @@ _02216658:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8676,7 +8676,7 @@ _0221668E:
 	ldr r0, _022166CC ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _022166CC ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -8718,12 +8718,12 @@ MOD09_022166D0: ; 0x022166D0
 	ldr r0, _0221672C ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, _0221672C ; =0x00001FAC
 	ldr r2, _02216730 ; =0x00000175
 	ldr r0, [r5, r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r1, _0221672C ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -13351,11 +13351,11 @@ _02218C68:
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [r5, #0x14]
 	ldr r2, _02218E3C ; =0x00000175
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	add r2, r4, #0
@@ -13416,7 +13416,7 @@ _02218D22:
 	ldr r0, [r5, #0x14]
 	ldr r2, [r4, #4]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	add r2, r6, #0
@@ -14099,7 +14099,7 @@ MOD09_022192A4: ; 0x022192A4
 	str r0, [r4, #0xc]
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x14]
 	ldr r1, [r4]
 	mov r0, #2
@@ -14119,7 +14119,7 @@ MOD09_022192E4: ; 0x022192E4
 	ldr r0, [r4, #0xc]
 	bl FUN_0200B990
 	ldr r0, [r4, #0x14]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x18]
 	bl String_dtor
 	pop {r4, pc}
@@ -14615,7 +14615,7 @@ MOD09_02219694: ; 0x02219694
 	add r2, r2, r7
 	ldrh r2, [r2, #0x3c]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	ldr r2, [sp, #0x14]
@@ -14695,7 +14695,7 @@ MOD09_02219738: ; 0x02219738
 	add r2, r2, r6
 	ldrh r2, [r2, #0x3e]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	ldr r2, [sp, #0x14]
@@ -14878,7 +14878,7 @@ MOD09_02219884: ; 0x02219884
 	ldrb r2, [r2, r3]
 	mov r3, #2
 	add r2, r2, #1
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	ldr r2, [sp, #0x14]
@@ -14916,7 +14916,7 @@ MOD09_02219884: ; 0x02219884
 	ldrb r2, [r2]
 	mov r3, #2
 	add r2, r2, #1
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	add r2, r7, #0
@@ -15082,7 +15082,7 @@ MOD09_02219A8C: ; 0x02219A8C
 	add r2, r2, r3
 	ldrh r2, [r2, #0x3c]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	add r2, r7, #0

@@ -370,7 +370,7 @@ FUN_02040170: ; 0x02040170
 	str r3, [sp, #0x4]
 	ldr r0, [r4, #0x0]
 	add r2, r6, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r4-r6, pc}

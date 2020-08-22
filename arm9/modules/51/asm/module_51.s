@@ -104,7 +104,7 @@ MOD51_022548F0: ; 0x022548F0
 	sub r1, #0xa
 	mov r0, #4
 	strh r2, [r4, r1]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r2, #9
 	str r0, [r4, #0x18]
 	mov r0, #0
@@ -347,7 +347,7 @@ _02254AEC:
 	ldr r0, [r6, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x18]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x72
 	lsl r0, r0, #2
 	add r0, r6, r0
@@ -1554,7 +1554,7 @@ _02255478:
 	ldr r2, [sp, #0x28]
 	add r0, r7, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	b _022554CA
 _0225548C:
 	cmp r4, #2
@@ -1579,7 +1579,7 @@ _0225548C:
 	add r0, r7, #0
 	add r2, r4, #0
 	add r3, r1, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0
 	bl String_dtor
 _022554CA:

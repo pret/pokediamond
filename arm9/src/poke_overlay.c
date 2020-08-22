@@ -40,7 +40,7 @@ THUMB_FUNC s32 GetOverlayLoadDestination(FSOverlayID id)
     end = (u8 *)HW_ITCM_END;
     if (info.header.ram_address <= end && info.header.ram_address >= start)
         return OVERLAY_LOAD_ITCM;
-    start = (u8 *)SDK_AUTOLOAD_DTCM_START;
+    start = (u8 *)HW_DTCM;
     end = start + HW_DTCM_SIZE;
     if (info.header.ram_address <= end && info.header.ram_address >= start)
         return OVERLAY_LOAD_DTCM;

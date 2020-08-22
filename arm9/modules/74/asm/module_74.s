@@ -188,7 +188,7 @@ _021D763A: ; jump table
 _021D7644:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -240,7 +240,7 @@ _021D76B6:
 _021D76C2:
 	ldr r0, _021D76E4 ; =MOD74_021D7784
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	str r0, [r4, #4]
 	mov r0, #1
@@ -287,7 +287,7 @@ _021D770E:
 _021D7722:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -850,7 +850,7 @@ MOD74_021D7B20: ; 0x021D7B20
 	ldr r2, [r5]
 	mov r0, #2
 	mov r1, #0x4c
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	str r0, [r5, #0x2c]
 	ldr r1, [r5]
 	mov r0, #0x4c
@@ -936,7 +936,7 @@ _021D7BEC:
 	ldr r0, [r6, #0x30]
 	bl String_dtor
 	ldr r0, [r6, #0x2c]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r6, #0x28]
 	bl DestroyMsgData
 	pop {r4, r5, r6, pc}
@@ -992,7 +992,7 @@ MOD74_021D7C10: ; 0x021D7C10
 	mov r1, #0
 	add r2, r7, #0
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0x2c]
 	ldr r1, [r5, #0x30]
 	ldr r2, [r5, #0x5c]
@@ -1037,7 +1037,7 @@ MOD74_021D7C10: ; 0x021D7C10
 	ldr r2, [sp, #0x10]
 	mov r1, #0
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0x2c]
 	ldr r1, [r5, #0x30]
 	ldr r2, [r5, #0x5c]
@@ -1203,7 +1203,7 @@ _021D7E04:
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x2c]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x60]
@@ -1452,7 +1452,7 @@ MOD74_021D8008: ; 0x021D8008
 	ldrb r2, [r2]
 	ldr r0, [r4, #0x2c]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #2
 	str r0, [sp]
 	mov r1, #1
@@ -1461,7 +1461,7 @@ MOD74_021D8008: ; 0x021D8008
 	ldrb r2, [r2, #1]
 	ldr r0, [r4, #0x2c]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x38]
@@ -1562,7 +1562,7 @@ _021D8108:
 	ldr r0, [r4, #0x2c]
 	bne _021D813C
 	mov r1, #0
-	bl FUN_0200B4A0
+	bl BufferCountryName
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x44]
@@ -1582,12 +1582,12 @@ _021D8108:
 	b _021D8172
 _021D813C:
 	mov r1, #0
-	bl FUN_0200B4A0
+	bl BufferCountryName
 	ldrb r2, [r5, #5]
 	ldrb r3, [r5, #6]
 	ldr r0, [r4, #0x2c]
 	mov r1, #1
-	bl FUN_0200B4D8
+	bl BufferCityName
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x40]

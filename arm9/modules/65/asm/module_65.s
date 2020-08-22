@@ -112,7 +112,7 @@ _021D7596: ; jump table
 _021D75A4:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -220,7 +220,7 @@ _021D7684:
 	bl FUN_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E6D8
 	bl FUN_0201E740
 	mov r2, #1
@@ -653,7 +653,7 @@ _021D79D2:
 	bl MOD65_021D8280
 	ldr r0, _021D79FC ; =MOD65_021D76DC
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -1051,7 +1051,7 @@ MOD65_021D7CC8: ; 0x021D7CC8
 	ldr r2, [r5]
 	mov r0, #2
 	mov r1, #0x40
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	str r0, [r5, #0x30]
 	ldr r1, [r5]
 	mov r0, #0x40
@@ -1142,7 +1142,7 @@ _021D7D94:
 	ldr r0, [r6, #0x34]
 	bl String_dtor
 	ldr r0, [r6, #0x30]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r6, #0x28]
 	bl FUN_02014564
 	ldr r0, [r6, #0x2c]
@@ -1566,7 +1566,7 @@ _021D80EE:
 	ldr r0, [r5, #0x30]
 	add r1, r7, #0
 	add r3, r7, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #1
@@ -1575,7 +1575,7 @@ _021D80EE:
 	ldr r0, [r5, #0x30]
 	mov r1, #1
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0x30]
 	ldr r1, [r5, #0x34]
 	ldr r2, [r5, #0x3c]
@@ -2179,7 +2179,7 @@ _021D85D4:
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x30]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0x30]
 	ldr r1, [r4, #0x34]
 	ldr r2, [r4, #0x40]
@@ -2354,7 +2354,7 @@ MOD65_021D8718: ; 0x021D8718
 	str r3, [sp, #4]
 	ldr r0, [r4, #0x30]
 	mov r1, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	ldr r0, [r4, #0x30]
 	ldr r1, [r4, #0x34]
 	ldr r2, [r4, #0x44]
@@ -2391,7 +2391,7 @@ MOD65_021D8764: ; 0x021D8764
 	str r3, [sp, #4]
 	ldr r0, [r4, #0x30]
 	mov r1, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	ldr r0, [r4, #0x30]
 	ldr r1, [r4, #0x34]
 	ldr r2, [r4, #0x48]
@@ -2769,7 +2769,7 @@ _021D8A78: ; jump table
 _021D8A88:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -2805,7 +2805,7 @@ _021D8ACE:
 _021D8ADE:
 	ldr r0, _021D8BB8 ; =MOD65_021D8C88
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	b _021D8BA4
 _021D8AE8:
 	ldr r1, [r4, #4]
@@ -2881,7 +2881,7 @@ _021D8B68:
 	bl FUN_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E6D8
 	bl FUN_0201E740
 	mov r2, #1
@@ -3316,7 +3316,7 @@ MOD65_021D8EC4: ; 0x021D8EC4
 	ldr r2, [r6]
 	mov r0, #1
 	mov r1, #0x40
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	str r0, [r6, #0x1c]
 	ldr r1, [r6]
 	mov r0, #0x40
@@ -3354,7 +3354,7 @@ _021D8F10:
 	ldr r0, [r6, #0x20]
 	bl String_dtor
 	ldr r0, [r6, #0x1c]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r6, #0x18]
 	bl DestroyMsgData
 	pop {r4, r5, r6, pc}
@@ -3852,7 +3852,7 @@ MOD65_021D92C4: ; 0x021D92C4
 	ldr r0, [r4, #0x1c]
 	ldr r2, [r4, #0x3c]
 	mov r1, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r2, r4, #0
 	add r2, #0x39
 	ldrb r2, [r2]

@@ -56,4 +56,32 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define OSi_WRAM_MAIN_ARENA_HI_DEFAULT  (HW_WRAM)
 #define OSi_WRAM_MAIN_ARENA_LO_DEFAULT  (HW_WRAM)
 
+#define HW_BG_PLTT              0x05000000
+#define HW_BG_PLTT_END          0x05000200
+#define HW_BG_PLTT_SIZE         (HW_BG_PLTT_END-HW_BG_PLTT)
+#define HW_OBJ_PLTT             0x05000200
+#define HW_OBJ_PLTT_END         0x05000400
+#define HW_OBJ_PLTT_SIZE        (HW_OBJ_PLTT_END-HW_OBJ_PLTT)
+#define HW_PLTT                 HW_BG_PLTT
+#define HW_PLTT_END             HW_OBJ_PLTT_END
+#define HW_PLTT_SIZE            (HW_PLTT_END-HW_PLTT)
+#define HW_DB_BG_PLTT           0x05000400
+#define HW_DB_BG_PLTT_END       0x05000600
+#define HW_DB_BG_PLTT_SIZE      (HW_DB_BG_PLTT_END-HW_DB_BG_PLTT)
+#define HW_DB_OBJ_PLTT          0x05000600
+#define HW_DB_OBJ_PLTT_END      0x05000800
+#define HW_DB_OBJ_PLTT_SIZE     (HW_DB_OBJ_PLTT_END-HW_DB_OBJ_PLTT)
+#define HW_DB_PLTT              HW_DB_BG_PLTT
+#define HW_DB_PLTT_END          HW_DB_OBJ_PLTT_END
+#define HW_DB_PLTT_SIZE         (HW_DB_PLTT_END-HW_DB_PLTT)
+#define HW_LCDC_VRAM            0x6800000
+#define HW_LCDC_VRAM_END        0x68a4000
+#define HW_LCDC_VRAM_SIZE       (HW_LCDC_VRAM_END - HW_LCDC_VRAM)
+#define HW_OAM                  0x07000000
+#define HW_OAM_END              0x07000400
+#define HW_OAM_SIZE             (HW_OAM_END-HW_OAM)
+#define HW_DB_OAM               0x07000400
+#define HW_DB_OAM_END           0x07000800
+#define HW_DB_OAM_SIZE          (HW_DB_OAM_END-HW_DB_OAM)
+
 #endif //POKEDIAMOND_ARM9_MMAP_H

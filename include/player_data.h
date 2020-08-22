@@ -38,5 +38,7 @@ u32 PlayerProfile_GetTrainerID(struct PlayerData *);
 u32 PlayerProfile_GetTrainerGender(struct PlayerData *);
 u32 Sav2_PlayerData_sizeof(void);
 void Sav2_PlayerData_init(struct PlayerDataSav *);
+u16 * PlayerProfile_GetNamePtr(struct PlayerData * data);
+struct PlayerData * Sav2_PlayerData_GetProfileAddr(struct SaveBlock2 * sav2);
 
 #endif //POKEDIAMOND_PLAYER_DATA_H

@@ -83,7 +83,7 @@ _020899B8:
 	bl FUN_0200E3A0
 	add r0, r4, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -123,7 +123,7 @@ _02089A20:
 	bl FUN_02089B2C
 	add r0, r4, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r4, #0x1
 _02089A34:
 	add r0, r4, #0x0

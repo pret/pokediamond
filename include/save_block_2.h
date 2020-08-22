@@ -78,7 +78,6 @@ struct SaveBlock2
     /* 0x2047C */ struct UnkSavSub_2047C unk_2047C;
     /* 0x204A0 */ u32 unk_204A0;
     /* 0x204A4 */ u32 unk_204A4;
-    // TODO: finish this struct
 }; // size: 0x204A8
 
 typedef u32 (*SAVSIZEFN)(void);

@@ -25,7 +25,7 @@ FUN_020406CC: ; 0x020406CC
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
 	add r1, r5, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -45,7 +45,7 @@ FUN_02040700: ; 0x02040700
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, [r4, #0xc]
-	bl FUN_0200ABE4
+	bl BufferRivalsName
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -64,7 +64,7 @@ FUN_02040724: ; 0x02040724
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, [r4, #0xc]
-	bl FUN_0200AC0C
+	bl BufferFriendsName
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -96,7 +96,7 @@ FUN_02040748: ; 0x02040748
 	add r2, r0, #0x0
 	ldr r0, [r7, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -123,7 +123,7 @@ FUN_02040790: ; 0x02040790
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -150,7 +150,7 @@ FUN_020407C8: ; 0x020407C8
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AEE0
+	bl BufferPocketName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -178,7 +178,7 @@ FUN_02040800: ; 0x02040800
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -205,7 +205,7 @@ FUN_0204083C: ; 0x0204083C
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -239,7 +239,7 @@ FUN_02040874: ; 0x02040874
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -285,7 +285,7 @@ _02040904:
 	ldr r0, [r7, #0x0]
 	ldr r2, [sp, #0x8]
 	add r1, r6, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x0
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -319,7 +319,7 @@ FUN_0204091C: ; 0x0204091C
 	add r2, r0, #0x0
 	ldr r0, [r7, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -361,7 +361,7 @@ FUN_02040964: ; 0x02040964
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
@@ -387,7 +387,7 @@ FUN_020409C0: ; 0x020409C0
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B02C
+	bl BufferPoketchAppName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -414,7 +414,7 @@ FUN_020409F8: ; 0x020409F8
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B064
+	bl BufferTrainerClassName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -449,7 +449,7 @@ FUN_02040A30: ; 0x02040A30
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r5, #0x0
-	bl FUN_0200B09C
+	bl BufferTrainerClassNameWithArticle
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
@@ -493,7 +493,7 @@ FUN_02040A7C: ; 0x02040A7C
 	ldr r3, [sp, #0x8]
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r6, #0x0
 	bl String_dtor
 	mov r0, #0x0
@@ -551,7 +551,7 @@ FUN_02040B0C: ; 0x02040B0C
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	mov r0, #0x0
@@ -588,7 +588,7 @@ FUN_02040B5C: ; 0x02040B5C
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	mov r0, #0x0
@@ -625,7 +625,7 @@ FUN_02040BAC: ; 0x02040BAC
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	mov r0, #0x0
@@ -654,7 +654,7 @@ FUN_02040BFC: ; 0x02040BFC
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B350
+	bl BufferDecorationName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -681,7 +681,7 @@ FUN_02040C34: ; 0x02040C34
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B1D4
+	bl BufferUndergroundTrapName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -708,7 +708,7 @@ FUN_02040C6C: ; 0x02040C6C
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -749,7 +749,7 @@ FUN_02040CA4: ; 0x02040CA4
 	add r1, r6, #0x0
 	add r2, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	mov r0, #0x0
@@ -806,7 +806,7 @@ _02040D5C:
 	add r1, r6, #0x0
 	add r2, r5, #0x0
 	mov r3, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r5, #0x0
 	bl String_dtor
 	mov r0, #0x0
@@ -836,7 +836,7 @@ FUN_02040D7C: ; 0x02040D7C
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AE04
+	bl BufferNatureName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -863,7 +863,7 @@ FUN_02040DB4: ; 0x02040DB4
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B660
+	bl BufferFashionName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -902,7 +902,7 @@ FUN_02040DEC: ; 0x02040DEC
 	str r0, [sp, #0x4]
 	ldr r0, [r7, #0x0]
 	add r2, r4, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	mov r0, #0x0
@@ -952,7 +952,7 @@ FUN_02040E4C: ; 0x02040E4C
 	lsr r2, r0, #0x10
 	ldr r0, [r7, #0x0]
 	add r1, r5, #0x0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -984,7 +984,7 @@ FUN_02040EB4: ; 0x02040EB4
 	lsr r2, r0, #0x10
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl GetRibbonNameOrDesc
+	bl BufferRibbonNameOrDesc
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1014,7 +1014,7 @@ FUN_02040EF8: ; 0x02040EF8
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
-	bl FUN_0200B534
+	bl BufferSealName
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
@@ -1040,7 +1040,7 @@ FUN_02040F34: ; 0x02040F34
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AE70
+	bl BufferItemNameWithIndefArticle
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1067,7 +1067,7 @@ FUN_02040F6C: ; 0x02040F6C
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200AEA8
+	bl BufferItemNamePlural
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1094,7 +1094,7 @@ FUN_02040FA4: ; 0x02040FA4
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B388
+	bl BufferDecorationNameWithArticle
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1121,7 +1121,7 @@ FUN_02040FDC: ; 0x02040FDC
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B20C
+	bl BufferUndergroundTrapNameWithArticle
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1148,7 +1148,7 @@ FUN_02041014: ; 0x02041014
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B19C
+	bl BufferUndergroundItemNameWithArticle
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1182,7 +1182,7 @@ FUN_0204104C: ; 0x0204104C
 	str r0, [r5, #0x8]
 	ldr r0, [r6, #0x0]
 	add r2, r7, #0x0
-	bl FUN_0200ACC0
+	bl BufferSpeciesNameWithArticle
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -1208,7 +1208,7 @@ FUN_02041094: ; 0x02041094
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200ACC0
+	bl BufferSpeciesNameWithArticle
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
@@ -1234,7 +1234,7 @@ FUN_020410C8: ; 0x020410C8
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B698
+	bl BufferFashionNameWithArticle
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1261,7 +1261,7 @@ FUN_02041100: ; 0x02041100
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0200B09C
+	bl BufferTrainerClassNameWithArticle
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1291,7 +1291,7 @@ FUN_02041138: ; 0x02041138
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
-	bl FUN_0200B568
+	bl BufferSealNamePlural
 	mov r0, #0x0
 	pop {r4-r6, pc}
 

@@ -1862,7 +1862,7 @@ FUN_02066270: ; 0x02066270
 	ldr r2, [r6, #0x0]
 	mov r0, #0x1
 	mov r1, #0x80
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
@@ -1932,7 +1932,7 @@ _020662F0:
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x43
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
@@ -2091,7 +2091,7 @@ _02066426:
 	ldr r2, [r2, #0x24]
 	mov r1, #0x0
 	mov r3, #0x2
-	bl FUN_0200ABB4
+	bl BufferString
 	mov r2, #0x11
 	lsl r2, r2, #0x4
 	lsl r3, r4, #0x2

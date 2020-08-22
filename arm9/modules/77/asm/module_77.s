@@ -9,7 +9,7 @@ MOD77_021D74E0: ; 0x021D74E0
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F34
@@ -84,7 +84,7 @@ _021D7540:
 	ldr r2, [r5]
 	mov r0, #8
 	mov r1, #0x40
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	ldr r1, _021D75F8 ; =0x0000C070
 	str r0, [r5, r1]
 	ldr r0, [r5]
@@ -94,7 +94,7 @@ _021D7540:
 	mov r0, #0
 	add r1, #0x1c
 	str r0, [r5, r1]
-	ldr r0, _021D7600 ; =gUnk021C4918
+	ldr r0, _021D7600 ; =gMain + 0x60
 	mov r1, #1
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -117,7 +117,7 @@ _021D75F0: .word 0x0000C324
 _021D75F4: .word 0x0000C010
 _021D75F8: .word 0x0000C070
 _021D75FC: .word 0x0000C2CC
-_021D7600: .word gUnk021C4918
+_021D7600: .word gMain + 0x60
 	thumb_func_end MOD77_021D74E0
 
 	thumb_func_start MOD77_021D7604
@@ -820,19 +820,19 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	bl FUN_0201EB70
 	ldr r0, _021D7C18 ; =0x0000C070
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	bl FUN_0201B398
 	ldr r0, _021D7C1C ; =0x0000C010
 	ldr r0, [r4, r0]
 	bl FreeToHeap
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	add r0, r5, #0
 	bl FUN_020168D0
-	ldr r0, _021D7C20 ; =gUnk021C4918
+	ldr r0, _021D7C20 ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
 	mov r0, #1
@@ -841,7 +841,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 _021D7C14: .word 0x0000C2CC
 _021D7C18: .word 0x0000C070
 _021D7C1C: .word 0x0000C010
-_021D7C20: .word gUnk021C4918
+_021D7C20: .word gMain + 0x60
 	thumb_func_end MOD77_021D7BAC
 
 	thumb_func_start MOD77_021D7C24
@@ -1127,7 +1127,7 @@ MOD77_021D7E24: ; 0x021D7E24
 	ldr r0, _021D7F2C ; =0x0000C2F8
 	mov r1, #0
 	str r1, [r4, r0]
-	ldr r1, _021D7F30 ; =UNK_021C48F8
+	ldr r1, _021D7F30 ; =gMain + 0x40
 	ldrh r2, [r1, #0x20]
 	cmp r2, #0
 	beq _021D7E86
@@ -1160,7 +1160,7 @@ _021D7E54:
 	str r2, [r4, r1]
 	sub r1, r0, #4
 	str r2, [r4, r1]
-	ldr r2, _021D7F30 ; =UNK_021C48F8
+	ldr r2, _021D7F30 ; =gMain + 0x40
 	add r1, r0, #4
 	ldrh r3, [r2, #0x1c]
 	str r3, [r4, r1]
@@ -1172,7 +1172,7 @@ _021D7E54:
 	mov r1, #4
 	str r1, [r4, r0]
 _021D7E86:
-	ldr r0, _021D7F30 ; =UNK_021C48F8
+	ldr r0, _021D7F30 ; =gMain + 0x40
 	ldrh r0, [r0, #0x22]
 	cmp r0, #0
 	beq _021D7F02
@@ -1227,7 +1227,7 @@ _021D7EBA:
 	add r0, #0x14
 	str r2, [r4, r0]
 	add r0, r1, #0
-	ldr r2, _021D7F30 ; =UNK_021C48F8
+	ldr r2, _021D7F30 ; =gMain + 0x40
 	add r0, #8
 	ldrh r3, [r2, #0x1c]
 	add r1, #0xc
@@ -1260,7 +1260,7 @@ _021D7F10:
 	pop {r4, pc}
 	nop
 _021D7F2C: .word 0x0000C2F8
-_021D7F30: .word UNK_021C48F8
+_021D7F30: .word gMain + 0x40
 _021D7F34: .word 0x0000C2FC
 _021D7F38: .word 0x0000C310
 	thumb_func_end MOD77_021D7E24
@@ -1269,7 +1269,7 @@ _021D7F38: .word 0x0000C310
 MOD77_021D7F3C: ; 0x021D7F3C
 	push {r3, r4, r5, r6, r7, lr}
 	mov lr, r0
-	ldr r0, _021D7FA4 ; =UNK_021C48F8
+	ldr r0, _021D7FA4 ; =gMain + 0x40
 	mov ip, r1
 	ldrh r5, [r0, #0x1c]
 	mov r1, #0
@@ -1298,7 +1298,7 @@ _021D7F6C:
 	add r0, r3, #0
 	and r0, r1
 	str r0, [r6]
-	ldr r0, _021D7FA4 ; =UNK_021C48F8
+	ldr r0, _021D7FA4 ; =gMain + 0x40
 	ldrh r3, [r0, #0x1e]
 	ldr r0, _021D7FA8 ; =0x0000FFFF
 	cmp r3, r0
@@ -1324,7 +1324,7 @@ _021D7F94:
 	str r1, [r0]
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_021D7FA4: .word UNK_021C48F8
+_021D7FA4: .word gMain + 0x40
 _021D7FA8: .word 0x0000FFFF
 	thumb_func_end MOD77_021D7F3C
 
@@ -1990,7 +1990,7 @@ MOD77_021D8510: ; 0x021D8510
 	ldr r0, [r5, r0]
 	ldr r2, [r5, r2]
 	mov r1, #0
-	bl FUN_0200B4A0
+	bl BufferCountryName
 	ldr r3, _021D85D8 ; =0x0000C314
 	ldr r0, _021D85D4 ; =0x0000C070
 	ldr r2, [r5, r3]
@@ -1998,7 +1998,7 @@ MOD77_021D8510: ; 0x021D8510
 	ldr r0, [r5, r0]
 	ldr r3, [r5, r3]
 	mov r1, #1
-	bl FUN_0200B4D8
+	bl BufferCityName
 	ldr r0, _021D85DC ; =0x0000C060
 	mov r1, #0xd
 	ldr r0, [r5, r0]

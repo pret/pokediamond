@@ -466,14 +466,14 @@ FUN_02048864: ; 0x02048864
 	cmp r6, #0x2
 	bne _020488AC
 	mov r0, #0x4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r6, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x10
@@ -481,7 +481,7 @@ FUN_02048864: ; 0x02048864
 	bl ReadMsgData_ExpandPlaceholders
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	b _020488B4
 _020488AC:
 	mov r1, #0x12

@@ -450,7 +450,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x3d
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r1, #0x63
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -475,7 +475,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	str r0, [r4, r1]
 	ldr r0, _021D789C ; =MOD70_021D790C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 _021D788C:
 	add r0, r4, #0
 	add sp, #0x14
@@ -493,7 +493,7 @@ MOD70_021D78A0: ; 0x021D78A0
 	beq _021D790A
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x66
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -509,7 +509,7 @@ MOD70_021D78A0: ; 0x021D78A0
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x62
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1053,7 +1053,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	ldr r2, [r4]
 	mov r3, #4
 	add r6, #0x14
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #1
@@ -1066,13 +1066,13 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	add r2, r3, r2
 	ldr r0, [r5, r0]
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	ldr r2, [r4, #8]
 	mov r1, #2
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #1
@@ -1083,7 +1083,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	ldr r2, [r4, #0xc]
 	mov r1, #3
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r2, #6
 	lsl r2, r2, #6
 	ldr r0, [r5, r2]
@@ -1247,7 +1247,7 @@ _021D7E68:
 	ldr r0, [r5, r0]
 	mov r1, #0
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r2, #0x63
 	lsl r2, r2, #2
 	add r1, r2, #0

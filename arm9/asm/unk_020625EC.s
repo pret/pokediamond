@@ -926,7 +926,7 @@ FUN_02062C80: ; 0x02062C80
 	ldr r2, [r5, #0x0]
 	mov r0, #0x2
 	mov r1, #0x4c
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	str r0, [r5, #0x30]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4c
@@ -1052,7 +1052,7 @@ _02062D84:
 	ldr r0, [r6, #0x34]
 	bl String_dtor
 	ldr r0, [r6, #0x30]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r6, #0x2c]
 	bl DestroyMsgData
 	pop {r4-r6, pc}
@@ -1720,7 +1720,7 @@ _02063318:
 	ldr r2, [sp, #0x1c]
 	mov r1, #0x0
 	mov r3, #0x1
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r0, #0x2
@@ -1730,7 +1730,7 @@ _02063318:
 	ldr r2, [r2, #0x8]
 	mov r1, #0x1
 	mov r3, #0x2
-	bl FUN_0200ABB4
+	bl BufferString
 	ldr r0, [r4, #0x30]
 	ldr r1, [r4, #0x34]
 	ldr r2, [r4, #0x44]
@@ -1756,7 +1756,7 @@ _02063318:
 	ldrh r3, [r3, #0x4]
 	mov r1, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [sp, #0x14]
 	ldr r0, [r4, #0x30]
 	ldrh r2, [r2, #0x6]

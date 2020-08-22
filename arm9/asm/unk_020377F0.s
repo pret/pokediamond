@@ -123,7 +123,7 @@ UNK_020F2CE4: ; 0x020F2CE4
 	.balign 4
 	.global UNK_020F2CF4
 UNK_020F2CF4: ; 0x020F2CF4
-	.word MOD14_021D74E0, MOD14_021D754C, MOD14_021D75B8, SDK_OVERLAY_MODULE_14_ID
+	.word StoragePC_Overlay_Init, StoragePC_Overlay_Run, StoragePC_Overlay_Teardown, SDK_OVERLAY_MODULE_14_ID
 
 	.balign 4
 	.global UNK_020F2D04
@@ -900,8 +900,8 @@ FUN_02037D5C: ; 0x02037D5C
 	ldrb r0, [r0, #0x16]
 	bx lr
 
-	thumb_func_start FUN_02037D60
-FUN_02037D60: ; 0x02037D60
+	thumb_func_start LaunchStoragePCInterface
+LaunchStoragePCInterface: ; 0x02037D60
 	ldr r3, _02037D68 ; =FUN_020373D4
 	add r2, r1, #0x0
 	ldr r1, _02037D6C ; =UNK_020F2CF4

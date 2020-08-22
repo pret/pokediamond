@@ -3,8 +3,8 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD14_021D74E0
-MOD14_021D74E0: ; 0x021D74E0
+	thumb_func_start StoragePC_Overlay_Init
+StoragePC_Overlay_Init: ; 0x021D74E0
 	push {r3, r4, r5, lr}
 	mov r2, #1
 	add r5, r0, #0
@@ -53,8 +53,8 @@ _021D7544:
 	.align 2, 0
 _021D7548: .word MOD14_021D7680
 
-	thumb_func_start MOD14_021D754C
-MOD14_021D754C: ; 0x021D754C
+	thumb_func_start StoragePC_Overlay_Run
+StoragePC_Overlay_Run: ; 0x021D754C
 	push {r4, lr}
 	bl OverlayManager_GetData
 	mov r1, #0x6b
@@ -107,8 +107,8 @@ _021D75AA:
 	nop
 _021D75B4: .word gMain
 
-	thumb_func_start MOD14_021D75B8
-MOD14_021D75B8: ; 0x021D75B8
+	thumb_func_start StoragePC_Overlay_Teardown
+StoragePC_Overlay_Teardown: ; 0x021D75B8
 	push {r4, lr}
 	bl OverlayManager_GetData
 	mov r1, #0x49
@@ -2355,7 +2355,7 @@ _021D8828:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	mov r1, #0
 	bl MOD14_021DBA44
@@ -2645,7 +2645,7 @@ _021D8A92:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	add r0, r4, #0
 	mov r1, #0x19
 	bl MOD14_021DBA44
@@ -2659,7 +2659,7 @@ _021D8AB0:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	add r0, r4, #0
 	mov r1, #0x19
 	bl MOD14_021DBA44
@@ -4962,7 +4962,7 @@ _021D9D86:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD14_021D9F80
 	add r0, r4, #0
@@ -5942,7 +5942,7 @@ _021DA566:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	add r0, r4, #0
 	mov r1, #0x10
 	bl MOD14_021DBA44
@@ -6048,7 +6048,7 @@ _021DA648:
 	ldr r0, [r4, r0]
 	ldr r2, [r2, #4]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	add r0, r4, #0
 	mov r1, #0
 	bl MOD14_021E5D98
@@ -6270,7 +6270,7 @@ _021DA81E:
 	ldr r0, [r4, r0]
 	ldr r2, [r2]
 	mov r1, #0
-	bl FUN_0200AE38
+	bl BufferItemName
 	add r0, r4, #0
 	mov r1, #0x1a
 	bl MOD14_021DBA44
@@ -7572,7 +7572,7 @@ MOD14_021DB220: ; 0x021DB220
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	mov r0, #9
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r1, #0x67
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -7702,7 +7702,7 @@ _021DB3BE:
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -10493,7 +10493,7 @@ _021DC79C:
 	mov r0, #0
 	add r1, r0, #0
 	mov r5, #1
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -10783,7 +10783,7 @@ MOD14_021DCA38: ; 0x021DCA38
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, [r4]
 	bl FUN_0200CAB4
 	ldr r0, [r4, #4]

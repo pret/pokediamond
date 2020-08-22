@@ -5,6 +5,7 @@
 #include "CTRDG_common.h"
 #include "PAD_pad.h"
 #include "main.h"
+#include "game_init.h"
 #include "poke_overlay.h"
 #include "player_data.h"
 #include "sound.h"
@@ -22,12 +23,9 @@ extern void OverlayManager_delete(int);
 extern BOOL FUN_02033678(void);
 extern u32 FUN_020335B8(void);
 extern BOOL FUN_0202FB80(void);
-extern void FUN_02016464(void);
 
-extern void FUN_02016438(s32);
 extern void InitSystemForTheGame(void);
 extern void InitGraphicMemory(void);
-extern void FUN_020163BC(void);
 extern void FUN_02022294(void);
 extern void FUN_0201259C(void);
 extern void FUN_02002C14(void);
@@ -41,7 +39,7 @@ extern int FUN_020227FC(struct SaveBlock2 *);
 extern void FUN_02089D90(int);
 extern void FUN_0200A2AC(void);
 extern void FUN_02015E30(void);
-extern void FUN_0201B5CC(int);
+extern void FUN_0201B5CC(void *);
 extern void FUN_020125D4(void);
 extern void FUN_02015E60(void);
 extern void FUN_020222C4(void);
@@ -112,7 +110,7 @@ THUMB_FUNC void NitroMain(void)
         FUN_02000EE8();
         HandleDSLidAction();
         FUN_02016464();
-        if ((gMain.unk38 & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gUnk021C4918.unk8) // soft reset?
+        if ((gMain.unk38 & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gMain.unk68) // soft reset?
         {
             DoSoftReset(0); // soft reset?
         }
@@ -136,8 +134,8 @@ THUMB_FUNC void NitroMain(void)
         gMain.unk30 = 0;
         FUN_0200A318();
         FUN_0200E2D8();
-        if (gMain.unk0)
-            gMain.unk0(gMain.unk4);
+        if (gMain.vBlankIntr)
+            gMain.vBlankIntr(gMain.vBlankIntrArg);
         DoSoundUpdateFrame();
         FUN_0201B5CC(gMain.unk20);
     }
@@ -187,8 +185,8 @@ THUMB_FUNC void FUN_02000E9C(void)
     OS_WaitIrq(TRUE, OS_IE_V_BLANK);
     gMain.unk2C++;
     gMain.unk30 = 0;
-    if (gMain.unk0 != NULL)
-        gMain.unk0(gMain.unk4);
+    if (gMain.vBlankIntr != NULL)
+        gMain.vBlankIntr(gMain.vBlankIntrArg);
 }
 
 THUMB_FUNC void FUN_02000EC8(u32 parameter)
@@ -289,7 +287,7 @@ THUMB_FUNC void HandleDSLidAction(void)
     PMBackLightSwitch top, bottom;
     if (PAD_DetectFold())
     {
-        if (!gUnk021C4918.unk7)
+        if (!gMain.unk67)
         {
             FUN_0201CE04();
             if (CTRDG_IsPulledOut() == TRUE)
@@ -301,7 +299,7 @@ THUMB_FUNC void HandleDSLidAction(void)
                 while (1)
                 {
                     PMWakeUpTrigger trigger = PM_TRIGGER_COVER_OPEN | PM_TRIGGER_CARD;
-                    if (gUnk021C4918.unk6 && !r1)
+                    if (gMain.unk66 && !r1)
                         trigger |= PM_TRIGGER_CARTRIDGE;
                     PM_GoSleepMode(trigger, PM_PAD_LOGIC_OR, 0);
                     if (CARD_IsPulledOut())

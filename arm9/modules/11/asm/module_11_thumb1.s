@@ -319,7 +319,7 @@ MOD11_0222D840: ; 0x0222D840
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -611,7 +611,7 @@ _0222D99A:
 	bl FUN_0201E74C
 	ldr r0, _0222DB4C ; =MOD11_0222F01C
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, _0222DB38 ; =0x000023FB
 	mov r3, #2
 	ldrb r1, [r5, r0]
@@ -902,7 +902,7 @@ _0222DC42:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #5
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x14]
 	mov r0, #5
 	lsl r0, r0, #6
@@ -1307,7 +1307,7 @@ _0222E10A:
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x71
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1631,7 +1631,7 @@ _0222E2F0:
 	bl FUN_0201E74C
 	ldr r0, _0222E46C ; =MOD11_0222F01C
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add sp, #0x9c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

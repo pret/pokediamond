@@ -320,7 +320,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203BFEC
     .word FUN_0203C118
     .word FUN_0203C12C
-    .word FUN_0203C278
+    .word ScrCmd_monstoragepc
     .word FUN_0203C2C4
     .word FUN_0203C2E0
     .word FUN_0203C2F0
@@ -1001,7 +1001,7 @@ _02038D68:
 	mov r0, #0x8
 	mov r1, #0x40
 	mov r2, #0xb
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	str r0, [r4, #0x40]
 	mov r0, #0x1
 	lsl r0, r0, #0xa
@@ -1056,7 +1056,7 @@ _02038DD2:
 	add r0, #0xa4
 	ldr r5, [r0, #0x0]
 	ldr r0, [r4, #0x40]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x44]
 	bl String_dtor
 	ldr r0, [r4, #0x48]

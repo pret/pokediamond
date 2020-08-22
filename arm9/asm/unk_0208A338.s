@@ -27,7 +27,7 @@ FUN_0208A338: ; 0x0208A338
 	bl String_ctor
 	str r0, [r4, #0x8]
 	mov r0, #0x20
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0xc]
 	ldr r2, _0208A3C0 ; =0x00000171
 	mov r0, #0x1
@@ -79,7 +79,7 @@ FUN_0208A3C8: ; 0x0208A3C8
 	ldr r0, [r4, #0x8]
 	bl String_dtor
 	ldr r0, [r4, #0xc]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	add r0, r4, #0x0

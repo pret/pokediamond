@@ -222,7 +222,7 @@ _0222F30E:
 	bl DestroyMsgData
 	ldr r0, _0222F4D8 ; =MOD11_0222F0D4
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x10
 	str r0, [sp]
 	mov r3, #0
@@ -799,7 +799,7 @@ MOD11_0222F93C: ; 0x0222F93C
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_0200E3A0
@@ -6055,25 +6055,25 @@ MOD11_022320C8: ; 0x022320C8
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
 	thumb_func_start MOD11_022320EC
 MOD11_022320EC: ; 0x022320EC
-	ldr r3, _022320F4 ; =FUN_0200AD5C
+	ldr r3, _022320F4 ; =BufferMoveName
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_022320F4: .word FUN_0200AD5C
+_022320F4: .word BufferMoveName
 
 	thumb_func_start MOD11_022320F8
 MOD11_022320F8: ; 0x022320F8
-	ldr r3, _02232100 ; =FUN_0200AE38
+	ldr r3, _02232100 ; =BufferItemName
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_02232100: .word FUN_0200AE38
+_02232100: .word BufferItemName
 
 	thumb_func_start MOD11_02232104
 MOD11_02232104: ; 0x02232104
@@ -6085,7 +6085,7 @@ MOD11_02232104: ; 0x02232104
 	str r3, [sp, #4]
 	ldr r0, [r0, #0x14]
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #8
 	pop {r3, pc}
 
@@ -6099,7 +6099,7 @@ MOD11_0223211C: ; 0x0223211C
 	str r4, [sp]
 	str r4, [sp, #4]
 	ldr r0, [r0, #0x14]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #8
 	pop {r4, pc}
 _02232134:
@@ -6108,42 +6108,42 @@ _02232134:
 	str r3, [sp, #4]
 	ldr r0, [r0, #0x14]
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #8
 	pop {r4, pc}
 	.align 2, 0
 
 	thumb_func_start MOD11_02232148
 MOD11_02232148: ; 0x02232148
-	ldr r3, _02232150 ; =FUN_0200AF18
+	ldr r3, _02232150 ; =BufferTypeName
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_02232150: .word FUN_0200AF18
+_02232150: .word BufferTypeName
 
 	thumb_func_start MOD11_02232154
 MOD11_02232154: ; 0x02232154
-	ldr r3, _0223215C ; =FUN_0200ADCC
+	ldr r3, _0223215C ; =BufferAbilityName
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_0223215C: .word FUN_0200ADCC
+_0223215C: .word BufferAbilityName
 
 	thumb_func_start MOD11_02232160
 MOD11_02232160: ; 0x02232160
-	ldr r3, _02232168 ; =FUN_0200AF50
+	ldr r3, _02232168 ; =BufferStatName
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_02232168: .word FUN_0200AF50
+_02232168: .word BufferStatName
 
 	thumb_func_start MOD11_0223216C
 MOD11_0223216C: ; 0x0223216C
-	ldr r3, _02232174 ; =FUN_0200AF88
+	ldr r3, _02232174 ; =BufferStatusName
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_02232174: .word FUN_0200AF88
+_02232174: .word BufferStatusName
 
 	thumb_func_start MOD11_02232178
 MOD11_02232178: ; 0x02232178
@@ -6160,7 +6160,7 @@ MOD11_02232178: ; 0x02232178
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -6171,11 +6171,11 @@ MOD11_0223219C: ; 0x0223219C
 
 	thumb_func_start MOD11_022321A0
 MOD11_022321A0: ; 0x022321A0
-	ldr r3, _022321A8 ; =FUN_0200AFBC
+	ldr r3, _022321A8 ; =BufferFlavorDislikeText
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_022321A8: .word FUN_0200AFBC
+_022321A8: .word BufferFlavorDislikeText
 
 	thumb_func_start MOD11_022321AC
 MOD11_022321AC: ; 0x022321AC
@@ -6187,7 +6187,7 @@ MOD11_022321AC: ; 0x022321AC
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0
-	bl FUN_0200B0D4
+	bl BufferTrainerClassName2
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD11_022321C4
@@ -6210,7 +6210,7 @@ MOD11_022321DC: ; 0x022321DC
 	add r3, r2, #0
 	ldr r0, [r4, #0x14]
 	ldr r2, [r4, #0x64]
-	bl FUN_0200B410
+	bl BufferBoxName
 	pop {r4, pc}
 
 	thumb_func_start MOD11_022321EC
@@ -28079,7 +28079,7 @@ _0223CF5C:
 	add r2, r0, #0
 	ldr r0, [sp, #0x24]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [sp, #0x18]
 	mov r1, #0xa0
 	mov r2, #0
@@ -28091,7 +28091,7 @@ _0223CF5C:
 	ldr r0, [sp, #0x24]
 	mov r3, #3
 	str r1, [sp, #4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x20]
 	add r2, r6, #0
@@ -82469,7 +82469,7 @@ MOD11_022574F0: ; 0x022574F0
 	add r2, r0, #0
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
@@ -83168,7 +83168,7 @@ _02257B1E:
 	add r0, r7, #0
 	mov r1, #0
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [sp, #0x18]
 	add r0, r7, #0
 	add r1, r6, #0
@@ -86990,7 +86990,7 @@ MOD11_022599CC: ; 0x022599CC
 	ldrh r2, [r5, #0x18]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
@@ -87086,7 +87086,7 @@ MOD11_02259AB0: ; 0x02259AB0
 	ldrh r2, [r5, #0x18]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
@@ -87183,7 +87183,7 @@ MOD11_02259B94: ; 0x02259B94
 	ldrh r2, [r5, #0x18]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
@@ -87344,7 +87344,7 @@ _02259D2A:
 	add r2, r0, #0
 	ldr r0, [sp, #0x1c]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x28]
 	ldr r2, [sp, #0x24]
@@ -88781,7 +88781,7 @@ _0225A876:
 	ldr r0, [sp, #0x24]
 	mov r1, #0
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0
@@ -88790,7 +88790,7 @@ _0225A876:
 	ldr r0, [sp, #0x24]
 	mov r1, #1
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x30]
 	ldr r2, [sp, #0x2c]
@@ -90807,7 +90807,7 @@ MOD11_0225B824: ; 0x0225B824
 	mov r1, #1
 	bl FUN_02003204
 	add r4, r0, #0
-	ldr r0, _0225B8AC ; =UNK_021C48F8
+	ldr r0, _0225B8AC ; =gMain + 0x40
 	ldrh r0, [r0, #0x22]
 	cmp r0, #0
 	beq _0225B888
@@ -90849,7 +90849,7 @@ _0225B888:
 _0225B8A8:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_0225B8AC: .word UNK_021C48F8
+_0225B8AC: .word gMain + 0x40
 
 	thumb_func_start MOD11_0225B8B0
 MOD11_0225B8B0: ; 0x0225B8B0

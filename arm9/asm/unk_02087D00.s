@@ -77,7 +77,7 @@ FUN_02087D00: ; 0x02087D00
 	mov r0, #0x1
 	mov r1, #0x20
 	add r2, r5, #0x0
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	str r0, [sp, #0x4]
 	mov r6, #0x0
 _02087D60:
@@ -157,7 +157,7 @@ _02087DEE:
 	cmp r6, #0x64
 	blo _02087D60
 	ldr r0, [sp, #0x4]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r4, #0x0
 	bl FreeToHeap
 	ldr r0, [sp, #0x0]

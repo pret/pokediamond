@@ -87,7 +87,7 @@ _021D756E:
 	add r1, sp, #8
 	add r2, sp, #4
 	bl MOD17_021D7600
-	ldr r0, _021D75D8 ; =UNK_021C48F8
+	ldr r0, _021D75D8 ; =gMain + 0x40
 	ldr r1, [sp, #8]
 	ldrh r2, [r0, #0x1c]
 	sub r1, r2, r1
@@ -140,7 +140,7 @@ _021D75D2:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021D75D8: .word UNK_021C48F8
+_021D75D8: .word gMain + 0x40
 	thumb_func_end MOD17_021D7554
 
 	thumb_func_start MOD17_021D75DC
@@ -411,19 +411,19 @@ MOD17_021D7794: ; 0x021D7794
 	bl MOD17_021D7D08
 	bl MOD17_021D7D28
 	bl MOD17_021D7DB0
-	ldr r0, _021D77B0 ; =gUnk021C4918
+	ldr r0, _021D77B0 ; =gMain + 0x60
 	mov r1, #1
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
 	pop {r3, pc}
 	nop
-_021D77B0: .word gUnk021C4918
+_021D77B0: .word gMain + 0x60
 	thumb_func_end MOD17_021D7794
 
 	thumb_func_start MOD17_021D77B4
 MOD17_021D77B4: ; 0x021D77B4
 	push {r3, lr}
-	ldr r0, _021D77D0 ; =gUnk021C4918
+	ldr r0, _021D77D0 ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -432,7 +432,7 @@ MOD17_021D77B4: ; 0x021D77B4
 	bl GX_ResetBankForTex
 	pop {r3, pc}
 	nop
-_021D77D0: .word gUnk021C4918
+_021D77D0: .word gMain + 0x60
 	thumb_func_end MOD17_021D77B4
 
 	thumb_func_start MOD17_021D77D4
@@ -2058,7 +2058,7 @@ MOD17_021D83E4: ; 0x021D83E4
 	bl memset
 	ldr r0, _021D84DC ; =MOD17_021D8FC8
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	add r0, r4, #0
 	bl OverlayManager_GetField18
@@ -2242,7 +2242,7 @@ _021D85AA:
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	and r1, r0
-	ldr r0, _021D872C ; =UNK_021C48F8
+	ldr r0, _021D872C ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	orr r0, r1
 	bne _021D85BC
@@ -2424,7 +2424,7 @@ _021D871C: .word 0x00000554
 _021D8720: .word 0x00000151
 _021D8724: .word 0x000006CC
 _021D8728: .word gMain
-_021D872C: .word UNK_021C48F8
+_021D872C: .word gMain + 0x40
 _021D8730: .word 0x0000069C
 _021D8734: .word 0x0000048C
 	thumb_func_end MOD17_021D84F0
@@ -2501,7 +2501,7 @@ _021D8780:
 	bl MOD17_021D8D94
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201CD04
 	cmp r0, #1
@@ -2548,7 +2548,7 @@ MOD17_021D8818: ; 0x021D8818
 	bl memset
 	ldr r0, _021D8980 ; =MOD17_021D8FC8
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	add r0, r5, #0
 	bl OverlayManager_GetField18
@@ -3109,7 +3109,7 @@ MOD17_021D8C9C: ; 0x021D8C9C
 	bl MOD17_021D8D94
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201CD04
 	cmp r0, #1
@@ -4956,7 +4956,7 @@ MOD17_021D9B74: ; 0x021D9B74
 	add r4, r0, #0
 	bl MOD17_021D9918
 	mov r0, #0xd
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _021D9B98 ; =0x000006D4
 	str r0, [r4, r1]
 	add sp, #8
@@ -4984,7 +4984,7 @@ MOD17_021D9BA4: ; 0x021D9BA4
 	ldr r3, _021D9BC0 ; =0x000006D4
 	ldr r0, [r0, r3]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add sp, #8
 	pop {r3, pc}
 	nop
@@ -5006,7 +5006,7 @@ MOD17_021D9BCC: ; 0x021D9BCC
 	bl MOD17_021D9B30
 	ldr r0, _021D9BE4 ; =0x000006D4
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, _021D9BE4 ; =0x000006D4
 	mov r1, #0
 	str r1, [r4, r0]
@@ -7839,7 +7839,7 @@ _021DAF60: .word MOD17_021DAFA0
 	thumb_func_start MOD17_021DAF64
 MOD17_021DAF64: ; 0x021DAF64
 	push {r4, lr}
-	ldr r1, _021DAF9C ; =UNK_021C48F8
+	ldr r1, _021DAF9C ; =gMain + 0x40
 	add r4, r0, #0
 	ldrh r2, [r1, #0x20]
 	cmp r2, #0
@@ -7861,7 +7861,7 @@ _021DAF82:
 	ldr r1, [r4, #8]
 	blx r1
 _021DAF8C:
-	ldr r0, _021DAF9C ; =UNK_021C48F8
+	ldr r0, _021DAF9C ; =gMain + 0x40
 	ldrh r1, [r0, #0x1c]
 	strh r1, [r4, #0x14]
 	ldrh r1, [r0, #0x1e]
@@ -7870,7 +7870,7 @@ _021DAF8C:
 	strb r0, [r4, #0x18]
 	pop {r4, pc}
 	.align 2, 0
-_021DAF9C: .word UNK_021C48F8
+_021DAF9C: .word gMain + 0x40
 	thumb_func_end MOD17_021DAF64
 
 	thumb_func_start MOD17_021DAFA0
@@ -8397,7 +8397,7 @@ MOD17_021DB3A4: ; 0x021DB3A4
 	ldr r0, [r2, #0x10]
 	cmp r0, #0
 	beq _021DB3C8
-	ldr r3, _021DB3CC ; =UNK_021C48F8
+	ldr r3, _021DB3CC ; =gMain + 0x40
 	ldr r1, _021DB3D0 ; =0x0000FFFF
 	ldrh r4, [r3, #0x1c]
 	cmp r4, r1
@@ -8412,7 +8412,7 @@ MOD17_021DB3A4: ; 0x021DB3A4
 _021DB3C8:
 	pop {r4, pc}
 	nop
-_021DB3CC: .word UNK_021C48F8
+_021DB3CC: .word gMain + 0x40
 _021DB3D0: .word 0x0000FFFF
 	thumb_func_end MOD17_021DB3A4
 
@@ -8449,7 +8449,7 @@ MOD17_021DB404: ; 0x021DB404
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
 	beq _021DB49E
-	ldr r1, _021DB4A4 ; =UNK_021C48F8
+	ldr r1, _021DB4A4 ; =gMain + 0x40
 	ldrh r2, [r1, #0x1c]
 	ldr r1, _021DB4A8 ; =0x0000FFFF
 	cmp r2, r1
@@ -8462,7 +8462,7 @@ MOD17_021DB404: ; 0x021DB404
 	add r1, sp, #0x10
 	add r2, sp, #0xc
 	bl MOD17_021DBC08
-	ldr r0, _021DB4A4 ; =UNK_021C48F8
+	ldr r0, _021DB4A4 ; =gMain + 0x40
 	ldr r1, [r4, #0x14]
 	ldrh r2, [r0, #0x1c]
 	ldr r3, [sp, #0xc]
@@ -8522,7 +8522,7 @@ _021DB49E:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
-_021DB4A4: .word UNK_021C48F8
+_021DB4A4: .word gMain + 0x40
 _021DB4A8: .word 0x0000FFFF
 	thumb_func_end MOD17_021DB404
 
@@ -9089,7 +9089,7 @@ _021DB89A:
 	asr r2, r2, #1
 	sub r0, r0, r2
 	str r0, [sp]
-	ldr r0, _021DB8F4 ; =UNK_021C48F8
+	ldr r0, _021DB8F4 ; =gMain + 0x40
 	str r1, [sp, #4]
 	ldrh r2, [r0, #0x1c]
 	mov r3, #0
@@ -9112,7 +9112,7 @@ _021DB8EE:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DB8F4: .word UNK_021C48F8
+_021DB8F4: .word gMain + 0x40
 	thumb_func_end MOD17_021DB880
 
 	thumb_func_start MOD17_021DB8F8
@@ -13798,7 +13798,7 @@ MOD17_021DDB58: ; 0x021DDB58
 	bl memset
 	ldr r0, _021DDC28 ; =MOD17_021DDD40
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	add r0, r5, #0
 	bl OverlayManager_GetField18
@@ -13821,7 +13821,7 @@ _021DDBBC:
 	ldr r0, [r5, #8]
 	str r0, [r4, #0xc]
 	bl MOD17_021D7794
-	ldr r0, _021DDC2C ; =gUnk021C4918
+	ldr r0, _021DDC2C ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -13864,7 +13864,7 @@ _021DDC02:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021DDC28: .word MOD17_021DDD40
-_021DDC2C: .word gUnk021C4918
+_021DDC2C: .word gMain + 0x60
 	thumb_func_end MOD17_021DDB58
 
 	thumb_func_start MOD17_021DDC30
@@ -13985,7 +13985,7 @@ MOD17_021DDCF4: ; 0x021DDCF4
 	bl MOD17_021D77B4
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	add r0, r5, #0
 	bl OverlayManager_FreeData
@@ -14347,7 +14347,7 @@ MOD17_021DDFDC: ; 0x021DDFDC
 	bl ErrorHandling
 _021DDFF8:
 	mov r0, #0xd
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0
 	mov r0, #0x63
 	lsl r0, r0, #2
@@ -14445,7 +14445,7 @@ _021DDFF8:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -14467,7 +14467,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	bl FUN_02027C58
 	add r6, r0, #0
 	mov r0, #0xd
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r7, r0, #0
 	mov r0, #0xc8
 	mov r1, #0xd
@@ -14478,13 +14478,13 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	add r2, r0, #0
 	add r0, r7, #0
 	mov r1, #0
-	bl FUN_0200B2AC
+	bl BufferContestMessage2
 	add r0, r6, #0
 	bl FUN_02083268
 	add r2, r0, #0
 	add r0, r7, #0
 	mov r1, #1
-	bl FUN_0200B278
+	bl BufferContestMessage
 	ldr r0, [r5, #4]
 	bl FUN_02027B44
 	add r6, r0, #0
@@ -14499,7 +14499,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	mov r1, #3
 	add r2, r4, #0
 	add r3, r6, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	mov r0, #0xd
 	bl AllocMonZeroed
 	add r6, r0, #0
@@ -14511,7 +14511,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	add r2, r0, #0
 	add r0, r7, #0
 	mov r1, #4
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r6, #0
 	bl FreeToHeap
 	ldr r2, _021DE24C ; =0x00000151
@@ -14593,7 +14593,7 @@ _021DE1A0:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r7, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

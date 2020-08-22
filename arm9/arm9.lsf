@@ -27,7 +27,7 @@ Static arm9
 	Object unk_02008DEC.o
 	Object unk_02009EAC.o
 	Object msgdata.o
-	Object unk_0200AA80.o
+	Object script_buffers.o
 	Object unk_0200BA78.o
 	Object unk_0200BB14.o
 	Object unk_0200CA44.o
@@ -47,7 +47,7 @@ Static arm9
 	Object unk_02015CC0.o
 	Object unk_02015D14.o
 	Object unk_02015E30.o
-	Object unk_02015EA0.o
+	Object game_init.o
 	Object unk_020166C8.o
 	Object unk_02016B94.o
 	Object unk_0201B1A8.o

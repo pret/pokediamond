@@ -1336,14 +1336,14 @@ _020529B0:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x3
 	add r2, r4, #0x0
-	bl FUN_0200B4A0
+	bl BufferCountryName
 	cmp r5, #0x0
 	beq _020529CC
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4
 	add r2, r4, #0x0
 	add r3, r5, #0x0
-	bl FUN_0200B4D8
+	bl BufferCityName
 _020529CC:
 	cmp r7, r4
 	beq _020529E4
@@ -1698,7 +1698,7 @@ _02052C46:
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_0200B064
+	bl BufferTrainerClassName
 	mov r0, #0xa6
 	pop {r4-r6, pc}
 _02052C78:
@@ -1814,11 +1814,11 @@ _02052D3C:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	add r2, r4, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r2, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0x0
 	bl FUN_02023A70
 	add r4, r0, #0x0
@@ -1887,7 +1887,7 @@ _02052DBA:
 	add r2, r6, #0x0
 	mov r3, #0x0
 	str r4, [sp, #0x4]
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r6, #0x0
 	bl FreeToHeap
 	add r0, r7, #0x0

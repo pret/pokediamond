@@ -9,7 +9,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -89,7 +89,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	bl MOD68_021D8294
 	ldr r0, _021D75D4 ; =MOD68_021D7680
 	add r1, r5, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02033F20
 	mov r0, #0x10
 	mov r1, #1
@@ -171,7 +171,7 @@ MOD68_021D762C: ; 0x021D762C
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x24
 	bl FUN_020168D0
 	ldr r0, _021D767C ; =0x04000050
@@ -446,7 +446,7 @@ MOD68_021D7870: ; 0x021D7870
 	add r1, #0xcc
 	str r0, [r1]
 	mov r0, #0x24
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, #0xc8
 	str r0, [r4]
 	pop {r4, pc}
@@ -467,7 +467,7 @@ MOD68_021D78A8: ; 0x021D78A8
 	bl FUN_0200B990
 	add r4, #0xc8
 	ldr r0, [r4]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	pop {r4, pc}
 	thumb_func_end MOD68_021D78A8
 
@@ -693,7 +693,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	ldr r0, [r0]
 	mov r1, #0
 	add r2, r2, #1
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0
 	add r0, #0xc8
 	ldr r0, [r0]
@@ -945,7 +945,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	add r0, #0xc8
 	ldr r0, [r0]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r7, #0
 	mov r1, #0xa
 	bl _u32_div_f
@@ -958,7 +958,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	add r0, #0xc8
 	ldr r0, [r0]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r5, #0xc8
 	ldr r0, [r5]
 	ldr r2, [sp, #0x10]
@@ -1183,7 +1183,7 @@ _021D7E50:
 	mov r0, #2
 	tst r0, r1
 	bne _021D7E60
-	ldr r0, _021D7E74 ; =UNK_021C48F8
+	ldr r0, _021D7E74 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _021D7E6C
@@ -1198,7 +1198,7 @@ _021D7E6C:
 	pop {r4, pc}
 	.align 2, 0
 _021D7E70: .word gMain
-_021D7E74: .word UNK_021C48F8
+_021D7E74: .word gMain + 0x40
 	thumb_func_end MOD68_021D7D9C
 
 	thumb_func_start MOD68_021D7E78

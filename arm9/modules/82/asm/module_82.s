@@ -623,7 +623,7 @@ MOD82_0222DA34: ; 0x0222DA34
 _0222DA48:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -667,7 +667,7 @@ _0222DA48:
 	mov r0, #0xb
 	mov r1, #0x20
 	mov r2, #0x44
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	ldr r1, _0222DB64 ; =0x00000B78
 	ldr r2, _0222DB68 ; =0x0000024E
 	str r0, [r4, r1]
@@ -875,7 +875,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	bl DestroyMsgData
 	ldr r0, _0222DCC0 ; =0x00000B78
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r4, #0
 	bl MOD82_0222DD20
 	bl FUN_0202E4F0
@@ -885,7 +885,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x44
 	bl FUN_020168D0
 	mov r0, #1
@@ -1314,7 +1314,7 @@ MOD82_0222DFD4: ; 0x0222DFD4
 	bl MOD82_0222DE80
 	ldr r0, _0222DFF8 ; =MOD82_0222DCC4
 	mov r1, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r4, pc}
 	nop
 _0222DFF8: .word MOD82_0222DCC4
@@ -2679,7 +2679,7 @@ MOD82_0222EAA4: ; 0x0222EAA4
 	ldr r0, [r4, r0]
 	mov r1, #0
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r3, #2
 	str r3, [sp]
 	mov r1, #1
@@ -2687,7 +2687,7 @@ MOD82_0222EAA4: ; 0x0222EAA4
 	ldr r0, _0222EB00 ; =0x00000B78
 	ldr r2, [r4, #0x3c]
 	ldr r0, [r4, r0]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _0222EB04 ; =0x00000F0F
 	mov r2, #1
 	str r0, [sp]
@@ -3397,7 +3397,7 @@ MOD82_0222F048: ; 0x0222F048
 	ldr r0, [r4, r0]
 	mov r1, #0
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r3, #2
 	str r3, [sp]
 	mov r1, #1
@@ -3405,7 +3405,7 @@ MOD82_0222F048: ; 0x0222F048
 	ldr r0, _0222F09C ; =0x00000B78
 	ldr r2, [r4, #0x3c]
 	ldr r0, [r4, r0]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, _0222F0A0 ; =0x00000F0F
 	mov r2, #1
 	str r0, [sp]
@@ -4427,7 +4427,7 @@ _0222F7D2:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x36
 	lsl r0, r0, #6
 	add r0, r5, r0

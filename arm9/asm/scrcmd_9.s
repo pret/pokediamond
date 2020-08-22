@@ -536,7 +536,7 @@ FUN_0204224C: ; 0x0204224C
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0x0
 	bl String_dtor
 	add sp, #0xc
@@ -554,7 +554,7 @@ FUN_02042288: ; 0x02042288
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	pop {r4, pc}
 	.balign 4
 
@@ -568,7 +568,7 @@ FUN_020422A8: ; 0x020422A8
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0200B02C
+	bl BufferPoketchAppName
 	pop {r4, pc}
 
 	thumb_func_start FUN_020422C0

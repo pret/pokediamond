@@ -39,7 +39,7 @@ MOD62_0222D5F8: ; 0x0222D5F8
 	beq _0222D64C
 	cmp r2, #1
 	bne _0222D628
-	ldr r3, _0222D650 ; =UNK_021C48F8
+	ldr r3, _0222D650 ; =gMain + 0x40
 	mov r1, #0x1c
 	mov r2, #0x1e
 	ldrsh r1, [r3, r1]
@@ -74,7 +74,7 @@ _0222D628:
 _0222D64C:
 	pop {r3, r4, r5, pc}
 	nop
-_0222D650: .word UNK_021C48F8
+_0222D650: .word gMain + 0x40
 	thumb_func_end MOD62_0222D5F8
 
 	thumb_func_start MOD62_0222D654
@@ -7320,7 +7320,7 @@ MOD62_02230F3C: ; 0x02230F3C
 	push {r3, lr}
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -7345,7 +7345,7 @@ MOD62_02230F70: ; 0x02230F70
 	push {r3, lr}
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	pop {r3, pc}
 	thumb_func_end MOD62_02230F70
