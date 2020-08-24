@@ -239,7 +239,7 @@ FUN_02047814: ; 0x02047814
 	ldr r1, [r4, r1]
 	bl FUN_02024F44
 	add r0, r5, #0x0
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
@@ -530,7 +530,7 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
 	add r0, r4, #0x0
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]
@@ -724,7 +724,7 @@ _02047C98:
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
 	ldr r0, [sp, #0x0]
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
@@ -908,7 +908,7 @@ _02047E2C:
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
 	ldr r0, [sp, #0x0]
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]

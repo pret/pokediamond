@@ -22,7 +22,7 @@ FUN_0204B9EC: ; 0x0204B9EC
 	bl FUN_0204BB20
 	ldr r0, _0204BA14 ; =UNK_021C5A1C
 	bl FUN_0204BBC4
-	bl FUN_020126FC
+	bl GF_RTC_DateTimeToSec
 	ldr r2, _0204BA18 ; =UNK_021C5A1C
 	str r0, [r2, #0x40]
 	str r1, [r2, #0x44]
@@ -38,7 +38,7 @@ FUN_0204BA1C: ; 0x0204BA1C
 	ldr r4, _0204BA60 ; =UNK_021C5A1C
 	bl FUN_02029FC8
 	add r5, r0, #0x0
-	bl FUN_020126FC
+	bl GF_RTC_DateTimeToSec
 	add r3, r1, #0x0
 	ldr r1, _0204BA64 ; =UNK_021C5A1C
 	add r2, r0, #0x0

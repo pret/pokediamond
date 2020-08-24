@@ -560,7 +560,7 @@ FUN_020285D0: ; 0x020285D0
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r0, sp, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	mov r0, #0x30
 	add r2, r4, #0x0
 	mul r2, r0

@@ -3764,7 +3764,7 @@ _02082858: .word 0x00000127
 	thumb_func_start FUN_0208285C
 FUN_0208285C: ; 0x0208285C
 	push {r4, lr}
-	bl FUN_020126D8
+	bl GF_RTC_TimeToSec
 	add r4, r0, #0x0
 	bl GetLCRNGSeed
 	add r0, #0xa

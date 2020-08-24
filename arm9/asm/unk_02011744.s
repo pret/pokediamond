@@ -7,16 +7,23 @@
 
 	.global UNK_020ED398
 UNK_020ED398: ; 0x020ED398
-	.byte 0x08
-
-	.global UNK_020ED399
-UNK_020ED399: ; 0x020ED399
-	.byte 0x08, 0x08, 0x04, 0x04, 0x08, 0x04, 0x04, 0x04, 0x02, 0x04, 0x01, 0x02, 0x04, 0x02, 0x02, 0x02
-	.byte 0x01, 0x01, 0x04, 0x01, 0x02, 0x01, 0x01
+	.byte 0x08, 0x08
+	.byte 0x08, 0x04
+	.byte 0x04, 0x08
+	.byte 0x04, 0x04
+	.byte 0x04, 0x02
+	.byte 0x04, 0x01
+	.byte 0x02, 0x04
+	.byte 0x02, 0x02
+	.byte 0x02, 0x01
+	.byte 0x01, 0x04
+	.byte 0x01, 0x02
+	.byte 0x01, 0x01
 
 	.global UNK_020ED3B0
 UNK_020ED3B0: ; 0x020ED3B0
-	.byte 0x47, 0x01, 0x00, 0x00, 0xEF, 0x01, 0x00, 0x00
+	.word 0x00000147
+	.word 0x000001EF
 
 	.global UNK_020ED3B8
 UNK_020ED3B8: ; 0x020ED3B8
@@ -44,37 +51,49 @@ UNK_020ED438: ; 0x020ED438
 	.byte 0x04, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
 	.byte 0x08, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
 
-	.global UNK_020ED498
-UNK_020ED498: ; 0x020ED498
-	.byte 0x17, 0x00, 0x00, 0x00, 0x3B, 0x00, 0x00, 0x00, 0x3B, 0x00, 0x00, 0x00
+	.global sMaxTime
+sMaxTime: ; 0x020ED498
+	; 23:59:59
+	.word 23, 59, 59
 
-	.global UNK_020ED4A4
-UNK_020ED4A4: ; 0x020ED4A4
-	.byte 0x63, 0x00, 0x00, 0x00, 0x0C, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global sMaxDate
+sMaxDate: ; 0x020ED4A4
+	; 31 December, 2099
+	.word 99, 12, 31, 0
 
-	.global UNK_020ED4B2
-UNK_020ED4B2: ; 0x020ED4B2
-	.byte 0x00, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x3B, 0x00, 0x5A, 0x00, 0x78, 0x00, 0x97, 0x00, 0xB5, 0x00
-	.byte 0xD4, 0x00, 0xF3, 0x00, 0x11, 0x01, 0x30, 0x01, 0x4E, 0x01
+	.global sGF_DaysPerMonth
+sGF_DaysPerMonth: ; 0x020ED4B2
+	.short   0
+	.short  31
+	.short  59
+	.short  90
+	.short 120
+	.short 151
+	.short 181
+	.short 212
+	.short 243
+	.short 273
+	.short 304
+	.short 334
 
-	.global UNK_020ED4CC
-UNK_020ED4CC: ; 0x020ED4CC
-	.byte 0x04, 0x04, 0x04, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
-	.byte 0x01, 0x02, 0x02, 0x02, 0x03, 0x03, 0x03, 0x03
+	.global sTimeOfDayByHour
+sTimeOfDayByHour: ; 0x020ED4CC
+	; 00:00 - 03:59
+	.byte 0x04, 0x04, 0x04, 0x04
+	; 04:00 - 09:59
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	; 10:00 - 16:59
+	.byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
+	; 17:00 - 19:59
+	.byte 0x02, 0x02, 0x02
+	; 20:00 - 23:59
+	.byte 0x03, 0x03, 0x03, 0x03
 
 	.section .bss
 
-	.global UNK_021C4808
-UNK_021C4808: ; 0x021C4808
-	.space 0x10
-
-	.global UNK_021C4818
-UNK_021C4818: ; 0x021C4818
-	.space 0x10
-
-	.global UNK_021C4828
-UNK_021C4828: ; 0x021C4828
-	.space 0x28
+	.global sGFRTCWork
+sGFRTCWork: ; 0x021C4808
+	.space 0x48
 
 	.text
 
@@ -748,7 +767,7 @@ FUN_02011BF4: ; 0x02011BF4
 	ldr r1, _02011C9C ; =UNK_020ED398
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x0]
-	ldr r6, _02011CA0 ; =UNK_020ED399
+	ldr r6, _02011CA0 ; =UNK_020ED398 + 1
 	str r0, [r4, #0x4]
 	ldr r0, [r4, #0x8]
 	ldr r2, [r5, #0x8]
@@ -787,7 +806,7 @@ _02011C5C:
 	ldr r0, [r4, #0x8]
 	ldr r2, [r5, #0x0]
 	lsl r1, r0, #0x1
-	ldr r0, _02011CA0 ; =UNK_020ED399
+	ldr r0, _02011CA0 ; =UNK_020ED398 + 1
 	ldrb r0, [r0, r1]
 	add r0, r2, r0
 	str r0, [r5, #0x0]
@@ -818,7 +837,7 @@ _02011C96:
 	pop {r4-r6, pc}
 	nop
 _02011C9C: .word UNK_020ED398
-_02011CA0: .word UNK_020ED399
+_02011CA0: .word UNK_020ED398 + 1
 
 	thumb_func_start FUN_02011CA4
 FUN_02011CA4: ; 0x02011CA4
@@ -963,7 +982,7 @@ FUN_02011DA0: ; 0x02011DA0
 	ldr r0, _02011E44 ; =UNK_020ED398
 	ldrb r0, [r0, r1]
 	str r0, [sp, #0x10]
-	ldr r0, _02011E48 ; =UNK_020ED399
+	ldr r0, _02011E48 ; =UNK_020ED398 + 1
 	ldrb r0, [r0, r1]
 	ldr r1, [sp, #0x10]
 	add r4, r1, #0x0
@@ -1034,7 +1053,7 @@ _02011E1A:
 	pop {r4-r7, pc}
 	.balign 4
 _02011E44: .word UNK_020ED398
-_02011E48: .word UNK_020ED399
+_02011E48: .word UNK_020ED398 + 1
 _02011E4C: .word 0x04001000
 _02011E50: .word 0x00300010
 _02011E54: .word 0x0000FFFF
@@ -2028,11 +2047,11 @@ FUN_02012560: ; 0x02012560
 	.balign 4
 _02012598: .word UNK_020ED3C8
 
-	thumb_func_start FUN_0201259C
-FUN_0201259C: ; 0x0201259C
+	thumb_func_start GF_InitRTCWork
+GF_InitRTCWork: ; 0x0201259C
 	push {r3, lr}
 	bl RTC_Init
-	ldr r3, _020125CC ; =UNK_021C4808
+	ldr r3, _020125CC ; =sGFRTCWork
 	mov r0, #0x0
 	add r2, r3, #0x0
 	add r1, r0, #0x0
@@ -2045,21 +2064,21 @@ FUN_0201259C: ; 0x0201259C
 	stmia r2!, {r0-r1}
 	stmia r2!, {r0-r1}
 	stmia r2!, {r0-r1}
-	ldr r1, _020125D0 ; =UNK_021C4808
+	ldr r1, _020125D0 ; =sGFRTCWork
 	str r0, [r1, #0x0]
 	str r0, [r1, #0x4]
 	str r0, [r1, #0x8]
 	add r0, r3, #0x0
-	bl FUN_02012634
+	bl GF_RTC_GetDateTime
 	pop {r3, pc}
 	.balign 4
-_020125CC: .word UNK_021C4808
-_020125D0: .word UNK_021C4808
+_020125CC: .word sGFRTCWork
+_020125D0: .word sGFRTCWork
 
-	thumb_func_start FUN_020125D4
-FUN_020125D4: ; 0x020125D4
+	thumb_func_start GF_RTC_UpdateOnFrame
+GF_RTC_UpdateOnFrame: ; 0x020125D4
 	push {r3, lr}
-	ldr r0, _020125F4 ; =UNK_021C4808
+	ldr r0, _020125F4 ; =sGFRTCWork
 	ldr r1, [r0, #0x4]
 	cmp r1, #0x0
 	bne _020125F2
@@ -2070,16 +2089,16 @@ FUN_020125D4: ; 0x020125D4
 	ble _020125F2
 	mov r1, #0x0
 	str r1, [r0, #0x8]
-	ldr r0, _020125F8 ; =UNK_021C4808
-	bl FUN_02012634
+	ldr r0, _020125F8 ; =sGFRTCWork
+	bl GF_RTC_GetDateTime
 _020125F2:
 	pop {r3, pc}
 	.balign 4
-_020125F4: .word UNK_021C4808
-_020125F8: .word UNK_021C4808
+_020125F4: .word sGFRTCWork
+_020125F8: .word sGFRTCWork
 
-	thumb_func_start FUN_020125FC
-FUN_020125FC: ; 0x020125FC
+	thumb_func_start GF_RTC_GetDateTime_Callback
+GF_RTC_GetDateTime_Callback: ; 0x020125FC
 	push {r4, lr}
 	add r4, r1, #0x0
 	str r0, [r4, #0xc]
@@ -2109,15 +2128,15 @@ _0201260A:
 	str r0, [r4, #0x4]
 	pop {r4, pc}
 
-	thumb_func_start FUN_02012634
-FUN_02012634: ; 0x02012634
+	thumb_func_start GF_RTC_GetDateTime
+GF_RTC_GetDateTime: ; 0x02012634
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x1
 	str r0, [r4, #0x4]
 	add r0, r4, #0x0
 	add r1, r4, #0x0
-	ldr r2, _02012658 ; =FUN_020125FC
+	ldr r2, _02012658 ; =GF_RTC_GetDateTime_Callback
 	add r0, #0x2c
 	add r1, #0x3c
 	add r3, r4, #0x0
@@ -2129,24 +2148,24 @@ FUN_02012634: ; 0x02012634
 _02012656:
 	pop {r4, pc}
 	.balign 4
-_02012658: .word FUN_020125FC
+_02012658: .word GF_RTC_GetDateTime_Callback
 
-	thumb_func_start CopyRtcBuffersTo
-CopyRtcBuffersTo: ; 0x0201265C
+	thumb_func_start GF_RTC_CopyDateTime
+GF_RTC_CopyDateTime: ; 0x0201265C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	ldr r0, _02012684 ; =UNK_021C4808
+	ldr r0, _02012684 ; =sGFRTCWork
 	add r4, r1, #0x0
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x1
 	beq _0201266E
 	bl ErrorHandling
 _0201266E:
-	ldr r2, _02012688 ; =UNK_021C4818
+	ldr r2, _02012688 ; =sGFRTCWork + 16
 	ldmia r2!, {r0-r1}
 	stmia r5!, {r0-r1}
 	ldmia r2!, {r0-r1}
-	ldr r2, _0201268C ; =UNK_021C4828
+	ldr r2, _0201268C ; =sGFRTCWork + 32
 	stmia r5!, {r0-r1}
 	ldmia r2!, {r0-r1}
 	stmia r4!, {r0-r1}
@@ -2154,54 +2173,54 @@ _0201266E:
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
 	.balign 4
-_02012684: .word UNK_021C4808
-_02012688: .word UNK_021C4818
-_0201268C: .word UNK_021C4828
+_02012684: .word sGFRTCWork
+_02012688: .word sGFRTCWork + 16
+_0201268C: .word sGFRTCWork + 32
 
-	thumb_func_start FUN_02012690
-FUN_02012690: ; 0x02012690
+	thumb_func_start GF_RTC_CopyTime
+GF_RTC_CopyTime: ; 0x02012690
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _020126AC ; =UNK_021C4808
+	ldr r0, _020126AC ; =sGFRTCWork
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x1
 	beq _020126A0
 	bl ErrorHandling
 _020126A0:
-	ldr r2, _020126B0 ; =UNK_021C4828
+	ldr r2, _020126B0 ; =sGFRTCWork + 32
 	ldmia r2!, {r0-r1}
 	stmia r4!, {r0-r1}
 	ldr r0, [r2, #0x0]
 	str r0, [r4, #0x0]
 	pop {r4, pc}
 	.balign 4
-_020126AC: .word UNK_021C4808
-_020126B0: .word UNK_021C4828
+_020126AC: .word sGFRTCWork
+_020126B0: .word sGFRTCWork + 32
 
-	thumb_func_start FUN_020126B4
-FUN_020126B4: ; 0x020126B4
+	thumb_func_start GF_RTC_CopyDate
+GF_RTC_CopyDate: ; 0x020126B4
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _020126D0 ; =UNK_021C4808
+	ldr r0, _020126D0 ; =sGFRTCWork
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x1
 	beq _020126C4
 	bl ErrorHandling
 _020126C4:
-	ldr r2, _020126D4 ; =UNK_021C4818
+	ldr r2, _020126D4 ; =sGFRTCWork + 16
 	ldmia r2!, {r0-r1}
 	stmia r4!, {r0-r1}
 	ldmia r2!, {r0-r1}
 	stmia r4!, {r0-r1}
 	pop {r4, pc}
 	.balign 4
-_020126D0: .word UNK_021C4808
-_020126D4: .word UNK_021C4818
+_020126D0: .word sGFRTCWork
+_020126D4: .word sGFRTCWork + 16
 
-	thumb_func_start FUN_020126D8
-FUN_020126D8: ; 0x020126D8
+	thumb_func_start GF_RTC_TimeToSec
+GF_RTC_TimeToSec: ; 0x020126D8
 	push {r3-r4}
-	ldr r4, _020126F8 ; =UNK_021C4828
+	ldr r4, _020126F8 ; =sGFRTCWork + 32
 	mov r0, #0x3c
 	ldr r1, [r4, #0x4]
 	ldr r3, [r4, #0x8]
@@ -2216,18 +2235,18 @@ FUN_020126D8: ; 0x020126D8
 	pop {r3-r4}
 	bx lr
 	nop
-_020126F8: .word UNK_021C4828
+_020126F8: .word sGFRTCWork + 32
 
-	thumb_func_start FUN_020126FC
-FUN_020126FC: ; 0x020126FC
+	thumb_func_start GF_RTC_DateTimeToSec
+GF_RTC_DateTimeToSec: ; 0x020126FC
 	ldr r3, _02012704 ; =RTC_ConvertDateTimeToSecond
-	ldr r0, _02012708 ; =UNK_021C4818
-	ldr r1, _0201270C ; =UNK_021C4828
+	ldr r0, _02012708 ; =sGFRTCWork + 16
+	ldr r1, _0201270C ; =sGFRTCWork + 32
 	bx r3
 	.balign 4
 _02012704: .word RTC_ConvertDateTimeToSecond
-_02012708: .word UNK_021C4818
-_0201270C: .word UNK_021C4828
+_02012708: .word sGFRTCWork + 16
+_0201270C: .word sGFRTCWork + 32
 
 	thumb_func_start FUN_02012710
 FUN_02012710: ; 0x02012710
@@ -2235,7 +2254,7 @@ FUN_02012710: ; 0x02012710
 	sub sp, #0x10
 	add r5, r0, #0x0
 	ldr r2, [r5, #0x4]
-	ldr r0, _02012778 ; =UNK_020ED4B2
+	ldr r0, _02012778 ; =sGF_DaysPerMonth - 2
 	lsl r1, r2, #0x1
 	ldrh r0, [r0, r1]
 	ldr r3, [r5, #0x8]
@@ -2283,12 +2302,12 @@ _02012752:
 	add sp, #0x10
 	pop {r4-r6, pc}
 	.balign 4
-_02012778: .word UNK_020ED4B2
+_02012778: .word sGF_DaysPerMonth - 2
 
 	thumb_func_start IsNighttime
 IsNighttime: ; 0x0201277C
 	push {r3, lr}
-	bl FUN_02012794
+	bl GF_RTC_GetTimeOfDay
 	cmp r0, #0x3
 	beq _0201278A
 	cmp r0, #0x4
@@ -2301,19 +2320,19 @@ _0201278E:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02012794
-FUN_02012794: ; 0x02012794
+	thumb_func_start GF_RTC_GetTimeOfDay
+GF_RTC_GetTimeOfDay: ; 0x02012794
 	push {lr}
 	sub sp, #0xc
 	add r0, sp, #0x0
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	ldr r0, [sp, #0x0]
-	bl FUN_020127A8
+	bl GF_RTC_GetTimeOfDayByHour
 	add sp, #0xc
 	pop {pc}
 
-	thumb_func_start FUN_020127A8
-FUN_020127A8: ; 0x020127A8
+	thumb_func_start GF_RTC_GetTimeOfDayByHour
+GF_RTC_GetTimeOfDayByHour: ; 0x020127A8
 	push {r4, lr}
 	add r4, r0, #0x0
 	bmi _020127B2
@@ -2322,18 +2341,18 @@ FUN_020127A8: ; 0x020127A8
 _020127B2:
 	bl ErrorHandling
 _020127B6:
-	ldr r0, _020127BC ; =UNK_020ED4CC
+	ldr r0, _020127BC ; =sTimeOfDayByHour
 	ldrb r0, [r0, r4]
 	pop {r4, pc}
 	.balign 4
-_020127BC: .word UNK_020ED4CC
+_020127BC: .word sTimeOfDayByHour
 
 	thumb_func_start FUN_020127C0
 FUN_020127C0: ; 0x020127C0
 	push {r4-r7, lr}
 	sub sp, #0x24
 	add r6, r3, #0x0
-	ldr r3, _0201282C ; =UNK_020ED4A4
+	ldr r3, _0201282C ; =sMaxDate
 	add r4, r0, #0x0
 	add r7, r1, #0x0
 	add r5, r2, #0x0
@@ -2343,7 +2362,7 @@ FUN_020127C0: ; 0x020127C0
 	stmia r2!, {r0-r1}
 	ldmia r3!, {r0-r1}
 	stmia r2!, {r0-r1}
-	ldr r3, _02012830 ; =UNK_020ED498
+	ldr r3, _02012830 ; =sMaxTime
 	add r2, sp, #0x8
 	ldmia r3!, {r0-r1}
 	str r2, [sp, #0x4]
@@ -2384,8 +2403,8 @@ _02012818:
 	add sp, #0x24
 	pop {r4-r7, pc}
 	nop
-_0201282C: .word UNK_020ED4A4
-_02012830: .word UNK_020ED498
+_0201282C: .word sMaxDate
+_02012830: .word sMaxTime
 _02012834: .word 0xBC19137F
 
 	thumb_func_start ListMenu_ctor

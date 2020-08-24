@@ -16198,10 +16198,10 @@ MOD05_021ED320: ; 0x021ED320
 MOD05_021ED334: ; 0x021ED334
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl FUN_0204B2C0
+	bl Script_GetDay
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FUN_0204B2B4
+	bl Script_GetMonth
 	mov r1, #0x64
 	mul r1, r0
 	add r0, r4, #0

@@ -1677,7 +1677,7 @@ FUN_02035D34: ; 0x02035D34
 	ldr r0, [sp, #0x4]
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	str r0, [r4, #0x8]
 	add r0, r7, #0x0
 	mov r1, #0x0

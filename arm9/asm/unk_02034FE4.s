@@ -133,7 +133,7 @@ FUN_02034FE4: ; 0x02034FE4
 	cmp r4, #0x18
 	blt _0203505C
 	ldr r0, [r7, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	add r6, r0, #0x0
 	add r0, r6, #0x4
 	bl FUN_02012710

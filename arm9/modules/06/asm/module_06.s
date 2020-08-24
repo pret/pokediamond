@@ -4718,7 +4718,7 @@ MOD06_0223B944: ; 0x0223B944
 	add r5, r0, #0
 	add r4, r1, #0
 	add r6, r2, #0
-	bl FUN_02012794
+	bl GF_RTC_GetTimeOfDay
 	sub r1, r0, #1
 	cmp r1, #1
 	bhi _0223B960
@@ -31114,7 +31114,7 @@ MOD06_0224891C: ; 0x0224891C
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x14]
 	add r0, r6, #0
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	cmp r0, #1
 	bhi _02248996
 	mov r0, #0
@@ -31562,16 +31562,16 @@ MOD06_02248D00: ; 0x02248D00
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r4, r0, #0
-	bl FUN_0204B2CC
+	bl Script_GetWeekday
 	add r0, r0, #6
 	mov r1, #7
 	bl _s32_div_f
 	add r0, r4, #0
 	add r5, r1, #0
-	bl FUN_0204B2D8
+	bl Script_GetHour
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_0204B2E4
+	bl Script_GetMinute
 	mov r1, #0xf
 	bl _s32_div_f
 	add r6, #0x13
@@ -32021,7 +32021,7 @@ _0224905E: ; jump table
 _02249066:
 	bl ErrorHandling
 _0224906A:
-	bl FUN_02012794
+	bl GF_RTC_GetTimeOfDay
 	cmp r0, #0
 	beq _02249078
 	cmp r0, #1
@@ -32282,7 +32282,7 @@ MOD06_02249230: ; 0x02249230
 	pop {r3, r4, r5, r6, r7, pc}
 _02249244:
 	add r0, sp, #0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	bne _02249254
@@ -32465,7 +32465,7 @@ MOD06_02249388: ; 0x02249388
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r5, r1, #0
-	bl FUN_02012794
+	bl GF_RTC_GetTimeOfDay
 	ldr r1, [r5]
 	add r4, r0, #0
 	cmp r1, #0

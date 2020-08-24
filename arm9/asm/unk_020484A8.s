@@ -44,7 +44,7 @@ _020484CC:
 	bl SavArray_PlayerParty_get
 	add r6, r0, #0x0
 	add r0, sp, #0x4
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	add r2, sp, #0x4
@@ -305,7 +305,7 @@ FUN_02048694: ; 0x02048694
 	cmp r0, #0x0
 	bne _0204871E
 	add r0, r4, #0x0
-	bl FUN_0204B328
+	bl Script_SavRTC_DateTimeTox2C
 _0204871E:
 	ldr r0, [r4, #0xc]
 	bl SavArray_PlayerParty_get

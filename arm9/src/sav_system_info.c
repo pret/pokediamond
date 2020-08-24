@@ -8,30 +8,30 @@
 
 #pragma thumb on
 
-extern void CopyRtcBuffersTo(RTCDate *, RTCTime *);
+extern void GF_RTC_CopyDateTime(RTCDate *, RTCTime *);
 
-u32 FUN_0202376C(void)
+u32 Sav2_SysInfo_sizeof(void)
 {
-    return sizeof(struct UnkSaveStruct_0202376C);
+    return sizeof(struct SavSysInfo);
 }
 
-void FUN_02023770(struct UnkSaveStruct_0202376C * unk)
+void Sav2_SysInfo_init(struct SavSysInfo * unk)
 {
-    MI_CpuClearFast(unk, sizeof(struct UnkSaveStruct_0202376C));
-    FUN_02023840(&unk->rtcInfo);
+    MI_CpuClearFast(unk, sizeof(struct SavSysInfo));
+    Sav2_SysInfo_RTC_init(&unk->rtcInfo);
 }
 
-struct UnkSaveStruct_0202376C * FUN_02023788(struct SaveBlock2 * sav2)
+struct SavSysInfo * Sav2_SysInfo_get(struct SaveBlock2 * sav2)
 {
-    return (struct UnkSaveStruct_0202376C *)SavArray_get(sav2, 0);
+    return (struct SavSysInfo *)SavArray_get(sav2, 0);
 }
 
-struct UnkSaveStruct_0202376C_sub * FUN_02023794(struct SaveBlock2 * sav2)
+struct UnkSaveStruct_0202376C_sub * Sav2_SysInfo_RTC_get(struct SaveBlock2 * sav2)
 {
-    return &FUN_02023788(sav2)->rtcInfo;
+    return &Sav2_SysInfo_get(sav2)->rtcInfo;
 }
 
-void FUN_020237A0(struct UnkSaveStruct_0202376C * unk)
+void Sav2_SysInfo_InitFromSystem(struct SavSysInfo * unk)
 {
     OSOwnerInfo info;
     unk->rtcOffset = OS_GetOwnerRtcOffset();
@@ -41,7 +41,7 @@ void FUN_020237A0(struct UnkSaveStruct_0202376C * unk)
     unk->birthDay = info.birthday.day;
 }
 
-BOOL FUN_020237CC(struct UnkSaveStruct_0202376C * unk)
+BOOL Sav2_SysInfo_MacAddressIsMine(struct SavSysInfo * unk)
 {
     u8 macAddr[6];
     OS_GetMacAddress(macAddr);
@@ -53,50 +53,49 @@ BOOL FUN_020237CC(struct UnkSaveStruct_0202376C * unk)
     return TRUE;
 }
 
-BOOL FUN_020237FC(struct UnkSaveStruct_0202376C * unk)
+BOOL Sav2_SysInfo_RTCOffsetIsMine(struct SavSysInfo * unk)
 {
     return OS_GetOwnerRtcOffset() == unk->rtcOffset;
 }
 
-u8 FUN_02023818(struct UnkSaveStruct_0202376C * unk)
+u8 Sav2_SysInfo_GetBirthMonth(struct SavSysInfo * unk)
 {
     return unk->birthMonth;
 }
 
-u8 FUN_0202381C(struct UnkSaveStruct_0202376C * unk)
+u8 Sav2_SysInfo_GetBirthDay(struct SavSysInfo * unk)
 {
     return unk->birthDay;
 }
 
-u8 FUN_02023820(struct UnkSaveStruct_0202376C * unk)
+u8 FUN_02023820(struct SavSysInfo * unk)
 {
     return unk->field_48;
 }
 
-void FUN_02023828(struct UnkSaveStruct_0202376C * unk, u8 val)
+void FUN_02023828(struct SavSysInfo * unk, u8 val)
 {
     unk->field_48 = val;
 }
 
-u32 FUN_02023830(struct UnkSaveStruct_0202376C * unk)
+u32 FUN_02023830(struct SavSysInfo * unk)
 {
     return unk->field_4C;
 }
 
-void FUN_02023834(struct UnkSaveStruct_0202376C * unk, u32 val)
+void FUN_02023834(struct SavSysInfo * unk, u32 val)
 {
     if (unk->field_4C == 0)
         unk->field_4C = val;
 }
 
-void FUN_02023840(struct UnkSaveStruct_0202376C_sub * sub)
+void Sav2_SysInfo_RTC_init(struct UnkSaveStruct_0202376C_sub * sub)
 {
     sub->field_00 = 1;
-    CopyRtcBuffersTo(&sub->date, &sub->time);
+    GF_RTC_CopyDateTime(&sub->date, &sub->time);
     sub->daysSinceNitroEpoch = RTC_ConvertDateToDay(&sub->date);
     sub->secondsSinceNitroEpoch = RTC_ConvertDateTimeToSecond(&sub->date, &sub->time);
     sub->field_2C = 0;
-    sub->field_30 = 0;
     sub->field_34 = 0;
 }
 
@@ -118,6 +117,6 @@ void FUN_02023884(struct UnkSaveStruct_0202376C_sub * sub, u32 a1)
 void FUN_020238A4(struct UnkSaveStruct_0202376C_sub * sub)
 {
     sub->field_34 = 1440;
-    CopyRtcBuffersTo(&sub->date, &sub->time);
+    GF_RTC_CopyDateTime(&sub->date, &sub->time);
     sub->daysSinceNitroEpoch = RTC_ConvertDateToDay(&sub->date);
 }

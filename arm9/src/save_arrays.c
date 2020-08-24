@@ -7,7 +7,7 @@
 
 extern u32 FUN_0202B034(void);
 extern u32 FUN_0202AC20(void);
-extern u32 FUN_0202376C(void);
+extern u32 Sav2_SysInfo_sizeof(void);
 extern u32 FUN_0204BE14(void);
 extern u32 FUN_02034D7C(void);
 extern u32 FUN_02023D64(void);
@@ -40,7 +40,7 @@ extern u32 FUN_02013B28(void);
 extern u32 PCStorage_sizeof(void);
 extern void FUN_0202B03C(void *);
 extern void FUN_0202AC28(void *);
-extern void FUN_02023770(void *);
+extern void Sav2_SysInfo_init(void *);
 extern void FUN_0204BE18(void *);
 extern void FUN_02034D98(void *);
 extern void FUN_02024378(void *);
@@ -78,7 +78,7 @@ const struct SaveChunkHeader UNK_020EE6E0[] = {
 };
 
 const struct SaveChunkHeader UNK_020EE700[] = {
-    {  0, 0, (SAVSIZEFN)FUN_0202376C, (SAVINITFN)FUN_02023770 },
+    {  0, 0, (SAVSIZEFN)Sav2_SysInfo_sizeof, (SAVINITFN)Sav2_SysInfo_init },
     {  1, 0, (SAVSIZEFN)Sav2_PlayerData_sizeof, (SAVINITFN)Sav2_PlayerData_init },
     {  2, 0, (SAVSIZEFN)SavArray_Party_sizeof, (SAVINITFN)SavArray_Party_init },
     {  3, 0, (SAVSIZEFN)Sav2_Bag_sizeof, (SAVINITFN)Sav2_Bag_init },

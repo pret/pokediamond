@@ -121,7 +121,7 @@ MOD40_02254940: ; 0x02254940
 	sub sp, #0xc
 	add r4, r0, #0
 	add r0, sp, #0
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	ldr r0, [sp]
 	cmp r0, #0x18
 	blo _0225495A
@@ -625,7 +625,7 @@ MOD40_02254CE8: ; 0x02254CE8
 	bne _02254CFE
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	mov r0, #1
 	str r0, [r4, #0x30]
 _02254CFE:
