@@ -2,6 +2,7 @@
 #define IN_POKEMON_C
 #include "proto.h"
 #include "party.h"
+#include "player_data.h"
 #include "pokemon.h"
 #include "filesystem.h"
 #include "heap.h"
@@ -41,7 +42,7 @@ BOOL FUN_02069E7C(struct BoxPokemon * boxmon);
 BOOL FUN_02069E9C(struct BoxPokemon * boxmon);
 void FUN_02069ECC(struct BoxPokemon * boxmon);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
-void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5);
+void FUN_0206A054(struct BoxPokemon *  boxmon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
 BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
 BOOL FUN_0206A144(struct BoxPokemon * boxmon, u32 a1);
 BOOL FUN_0206A16C(u16 species, int forme, u32 a2);
@@ -3321,10 +3322,10 @@ void FUN_02069FB0(u32 r7, u32 r5, u32 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20)
     }
 }
 
-void FUN_0206A014(struct Pokemon * pokemon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5)
+void FUN_0206A014(struct Pokemon * pokemon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
 {
     u32 hp;
-    FUN_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, a5);
+    FUN_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heap_id);
     if (pokeball == ITEM_HEAL_BALL)
     {
         hp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
@@ -3334,9 +3335,9 @@ void FUN_0206A014(struct Pokemon * pokemon, u32 a1, u32 pokeball, u32 a3, u32 en
     }
 }
 
-void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5)
+void FUN_0206A054(struct BoxPokemon * boxmon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
 {
-    FUN_020808AC(boxmon, (int)a1, 0, (int)a3, (int)a5);
+    FUN_020808AC(boxmon, a1, 0, a3, heap_id);
     SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (void *)&gGameVersion);
     SetBoxMonData(boxmon, MON_DATA_POKEBALL, &pokeball);
     SetBoxMonData(boxmon, MON_DATA_ENCOUNTER_TYPE, &encounterType);
