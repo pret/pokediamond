@@ -66,7 +66,7 @@ _022548BE:
 	ldr r3, [sp, #8]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl FUN_0204C0A4
+	bl Sav2_Poketch_MarkingMapGetPos
 	ldrb r0, [r4, #0x10]
 	add r7, r7, #4
 	add r0, #0x10
@@ -205,7 +205,7 @@ _022549D4:
 	add r1, r4, #0
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_0204C080
+	bl Sav2_Poketch_MarkingMapSetPos
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6

@@ -57,7 +57,7 @@ _021E33A0:
 	cmp r0, #0
 	beq _021E3414
 	ldr r0, [r5, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	add r6, r0, #0
 	ldr r0, _021E341C ; =SDK_OVERLAY_MODULE_19_ID
 	bl UnloadOverlayByID
@@ -65,7 +65,7 @@ _021E33A0:
 	mov r1, #2
 	bl HandleLoadOverlay
 	add r0, r6, #0
-	bl FUN_0204BEB8
+	bl Sav2_Poketch_Give
 	mov r0, #1
 	bl FUN_0200A03C
 	str r0, [sp]

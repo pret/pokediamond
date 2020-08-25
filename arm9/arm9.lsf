@@ -194,7 +194,7 @@ Static arm9
 	Object unk_0204B0A0.o
 	Object unk_0204B34C.o
 	Object unk_0204B9EC.o
-	Object unk_0204BE14.o
+	Object poketch.o
 	Object unk_0204C1B4.o
 	Object unk_0204CA80.o
 	Object unk_0204CB20.o
@@ -682,6 +682,7 @@ Overlay MODULE_25
 
 Overlay MODULE_26
 {
+	##Dot Artist##
 	After MODULE_20
 	Object module_26_sinit.o
 	Object module_26.o

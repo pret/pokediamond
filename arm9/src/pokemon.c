@@ -58,7 +58,7 @@ u16 MonEncryptionLCRNG(u32 * seed);
 u16 CalcMonChecksum(u16 * datap, u32 size);
 PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u8 which_struct);
 void LoadMonBaseStats_HandleAlternateForme(int species, int forme, struct BaseStats * baseStats);
-u8 FUN_020690D4(struct BoxPokemon * boxmon);
+u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon);
 
 #define ENCRY_ARGS_PTY(mon) (u16 *)&(mon)->party, sizeof((mon)->party), (mon)->box.pid
 #define ENCRY_ARGS_BOX(boxmon) (u16 *)&(boxmon)->substructs, sizeof((boxmon)->substructs), (boxmon)->checksum
@@ -2458,12 +2458,12 @@ u32 FUN_020690C8(void)
     return sizeof(struct BoxPokemon);
 }
 
-u8 FUN_020690CC(struct Pokemon * pokemon)
+u8 GetMonUnownLetter(struct Pokemon * pokemon)
 {
-    return FUN_020690D4(&pokemon->box);
+    return GetBoxMonUnownLetter(&pokemon->box);
 }
 
-u8 FUN_020690D4(struct BoxPokemon * boxmon)
+u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon)
 {
     return (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
 }

@@ -34,9 +34,9 @@ FUN_0202C144: ; 0x0202C144
 	add r1, r4, #0x0
 	bl FUN_02024AF0
 	add r0, r5, #0x0
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	add r1, r4, #0x0
-	bl FUN_0204C104
+	bl Sav2_Poketch_PokemonHistoryAddMon
 _0202C194:
 	pop {r3-r7, pc}
 	.balign 4

@@ -3805,7 +3805,7 @@ MOD11_02230F88: ; 0x02230F88
 	add r4, #0x98
 	add r1, r0, #0
 	ldr r0, [r4]
-	bl FUN_0204C104
+	bl Sav2_Poketch_PokemonHistoryAddMon
 _02230FA4:
 	pop {r4, pc}
 	.align 2, 0

@@ -834,7 +834,7 @@ FUN_020241B8: ; 0x020241B8
 	cmp r4, #0xc9
 	bne _02024210
 	add r0, r2, #0x0
-	bl FUN_020690CC
+	bl GetMonUnownLetter
 	lsl r1, r0, #0x18
 	lsr r3, r1, #0x18
 	mov r1, #0x43

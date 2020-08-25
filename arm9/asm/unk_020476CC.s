@@ -562,7 +562,7 @@ FUN_02047A78: ; 0x02047A78
 	sub r1, #0x68
 	str r0, [r5, r1]
 	ldr r0, [r4, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	mov r1, #0x4a
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -735,7 +735,7 @@ _02047C98:
 	str r0, [r6, r1]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	mov r1, #0x4a
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]

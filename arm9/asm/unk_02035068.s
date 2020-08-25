@@ -3675,7 +3675,7 @@ FUN_02036E08: ; 0x02036E08
 	bl FUN_02029FC8
 	str r0, [sp, #0x34]
 	ldr r0, [r4, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	ldr r1, [sp, #0x2c]
 	str r7, [sp, #0x0]
 	str r1, [sp, #0x4]
@@ -3712,7 +3712,7 @@ _02036E9E:
 	bl FUN_02029FC8
 	str r0, [sp, #0x44]
 	ldr r0, [r4, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	ldr r1, [sp, #0x3c]
 	str r7, [sp, #0x0]
 	str r1, [sp, #0x4]

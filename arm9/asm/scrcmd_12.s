@@ -1374,12 +1374,12 @@ FUN_020437DC: ; 0x020437DC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
 	add r0, r4, #0x0
-	bl FUN_0204BEC8
+	bl Sav2_Poketch_IsGiven
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1388,14 +1388,14 @@ FUN_020437F8: ; 0x020437F8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_0204BED8
+	bl Sav2_Poketch_UnlockApp
 	pop {r3-r5, pc}
 	.balign 4
 
