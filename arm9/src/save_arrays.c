@@ -4,11 +4,12 @@
 #include "save_block_2.h"
 #include "party.h"
 #include "event_data.h"
+#include "pokemon_storage_system.h"
+#include "sav_system_info.h"
+#include "poketch.h"
 
 extern u32 FUN_0202B034(void);
 extern u32 FUN_0202AC20(void);
-extern u32 Sav2_SysInfo_sizeof(void);
-extern u32 Sav2_Poketch_sizeof(void);
 extern u32 FUN_02034D7C(void);
 extern u32 FUN_02023D64(void);
 extern u32 FUN_02023C40(void);
@@ -37,11 +38,8 @@ extern u32 FUN_02029AE0(void);
 extern u32 FUN_0202BE98(void);
 extern u32 FUN_0202C0E0(void);
 extern u32 FUN_02013B28(void);
-extern u32 PCStorage_sizeof(void);
 extern void FUN_0202B03C(void *);
 extern void FUN_0202AC28(void *);
-extern void Sav2_SysInfo_init(void *);
-extern void Sav2_Poketch_init(void *);
 extern void FUN_02034D98(void *);
 extern void FUN_02024378(void *);
 extern void FUN_02023C48(void *);
@@ -70,7 +68,6 @@ extern void FUN_02029AE8(void *);
 extern void FUN_0202BEA0(void *);
 extern void FUN_0202C0E4(void *);
 extern void FUN_02013B2C(void *);
-extern void PCStorage_init(void *);
 
 const struct SaveChunkHeader UNK_020EE6E0[] = {
     { 0, 32, (SAVSIZEFN)FUN_0202B034, (SAVINITFN)FUN_0202B03C },
