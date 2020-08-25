@@ -52,7 +52,7 @@ MOD31_0225489C: ; 0x0225489C
 	mov r0, #1
 	str r0, [r5, #8]
 	ldr r0, [r5, #0x1c]
-	bl FUN_0204BF84
+	bl Sav2_Poketch_GetStepCounter
 	str r0, [r5, #4]
 	add r0, r5, #0
 	add r0, #0xc
@@ -236,7 +236,7 @@ _022549EE:
 	cmp r0, #0
 	beq _02254A4C
 	ldr r0, [r4, #0x1c]
-	bl FUN_0204BF84
+	bl Sav2_Poketch_GetStepCounter
 	str r0, [r4, #4]
 	ldr r0, [r4, #0xc]
 	mov r1, #3
@@ -263,7 +263,7 @@ _02254A24:
 	mov r1, #0
 	str r1, [r4, #4]
 	ldr r0, [r4, #0x1c]
-	bl FUN_0204BF88
+	bl Sav2_Poketch_SetStepCounter
 	ldr r0, [r4, #0xc]
 	mov r1, #2
 	bl MOD31_02254BBC

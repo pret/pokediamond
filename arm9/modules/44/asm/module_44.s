@@ -49,7 +49,7 @@ MOD44_0225489C: ; 0x0225489C
 	add r6, r2, #0
 	bl MOD20_02252C3C
 	str r0, [r5, #0x10]
-	bl FUN_0204BF44
+	bl Sav2_Poketch_GetScreenTint
 	str r0, [r5, #4]
 	strb r0, [r5, #3]
 	add r0, r5, #0
@@ -248,7 +248,7 @@ _02254A02:
 	str r1, [r4, #4]
 	strb r1, [r4, #3]
 	ldr r0, [r4, #0x10]
-	bl FUN_0204BF58
+	bl Sav2_Poketch_SetScreenTint
 	add sp, #8
 	mov r0, #1
 	pop {r4, pc}

@@ -1107,7 +1107,7 @@ _0206CFFA:
 	bl FUN_020690E4
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x54]
-	bl FUN_0204C104
+	bl Sav2_Poketch_PokemonHistoryAddMon
 	ldr r0, [r4, #0x28]
 	mov r1, #0x4d
 	mov r2, #0x0
@@ -2209,7 +2209,7 @@ _0206D8EA:
 	bl FUN_020690E4
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x54]
-	bl FUN_0204C104
+	bl Sav2_Poketch_PokemonHistoryAddMon
 	add r0, r5, #0x0
 	bl FreeToHeap
 	ldr r0, [r4, #0x4c]

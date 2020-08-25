@@ -17449,7 +17449,7 @@ _02235FDE:
 	beq _02236052
 	ldr r5, [r4]
 	ldr r0, [r5, #0x20]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	ldr r1, [r5, #0x3c]
 	ldr r2, [sp, #0x24]
 	str r1, [sp]
@@ -17540,7 +17540,7 @@ _022360B6:
 	beq _02236118
 	ldr r5, [r4]
 	ldr r0, [r5, #0x20]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	ldr r1, [r5, #0x3c]
 	ldr r2, [sp, #0x28]
 	str r1, [sp]

@@ -3955,7 +3955,7 @@ FUN_0203B8A0: ; 0x0203B8A0
 	bl SavArray_PlayerParty_get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
-	bl FUN_020690CC
+	bl GetMonUnownLetter
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -7129,7 +7129,7 @@ FUN_0203D248: ; 0x0203D248
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -7139,7 +7139,7 @@ FUN_0203D248: ; 0x0203D248
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0204BEC8
+	bl Sav2_Poketch_IsGiven
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -7159,9 +7159,9 @@ FUN_0203D278: ; 0x0203D278
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	add r1, r5, #0x0
-	bl FUN_0204BED8
+	bl Sav2_Poketch_UnlockApp
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -7188,9 +7188,9 @@ FUN_0203D2A4: ; 0x0203D2A4
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	add r1, r6, #0x0
-	bl FUN_0204BED0
+	bl Sav2_Poketch_AppIsUnlocked
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}

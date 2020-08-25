@@ -609,8 +609,8 @@ FUN_020422F4: ; 0x020422F4
 FUN_02042304: ; 0x02042304
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_0204C1A8
-	bl FUN_0204BEC8
+	bl Sav2_Poketch_get
+	bl Sav2_Poketch_IsGiven
 	pop {r3, pc}
 	.balign 4
 

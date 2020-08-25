@@ -59,7 +59,7 @@ FUN_0206B688: ; 0x0206B688
 	bl GetBoxMonData
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0206B754
+	bl BoxMon_GetAlternateForme
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -152,8 +152,8 @@ _0206B748: .word 0x000001EA
 _0206B74C: .word 0x00000182
 _0206B750: .word 0x000001ED
 
-	thumb_func_start FUN_0206B754
-FUN_0206B754: ; 0x0206B754
+	thumb_func_start BoxMon_GetAlternateForme
+BoxMon_GetAlternateForme: ; 0x0206B754
 	push {r4, lr}
 	mov r1, #0xad
 	mov r2, #0x0
@@ -195,7 +195,7 @@ _0206B794:
 	b _0206B7B4
 _0206B79C:
 	add r0, r4, #0x0
-	bl FUN_020690D4
+	bl GetBoxMonUnownLetter
 	pop {r4, pc}
 _0206B7A4:
 	add r0, r4, #0x0
@@ -292,7 +292,7 @@ FUN_0206B83C: ; 0x0206B83C
 	bl AcquireBoxMonLock
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0206B754
+	bl BoxMon_GetAlternateForme
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5

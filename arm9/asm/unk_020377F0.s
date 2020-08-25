@@ -1650,7 +1650,7 @@ _020382F6:
 	bl FUN_02029FC8
 	str r0, [sp, #0x2c]
 	ldr r0, [r5, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	str r6, [sp, #0x0]
 	ldr r1, [sp, #0x28]
 	str r7, [sp, #0x4]
