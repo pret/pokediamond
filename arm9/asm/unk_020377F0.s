@@ -1572,7 +1572,7 @@ _02038288:
 	mov r0, #0x1
 	str r0, [r4, #0x58]
 	add r0, r5, #0x0
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	cmp r0, #0x4
 	bhi _020382C8
 	add r0, r0, r0
@@ -2120,7 +2120,7 @@ FUN_020386E0: ; 0x020386E0
 	bl FUN_0202ABBC
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_02023788
+	bl Sav2_SysInfo_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
 	mov r1, #0x2
@@ -2199,7 +2199,7 @@ FUN_02038790: ; 0x02038790
 	bl FUN_0202A8E4
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02023788
+	bl Sav2_SysInfo_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -2407,7 +2407,7 @@ _02038956:
 	ldr r0, [r4, #0xc]
 	bl Sav2_PlayerData_GetCoinsAddr
 	str r0, [sp, #0x0]
-	bl FUN_020126FC
+	bl GF_RTC_DateTimeToSec
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	add r6, r1, #0x0
@@ -2469,7 +2469,7 @@ FUN_020389CC: ; 0x020389CC
 	bl Sav2_PlayerData_GetCoinsAddr
 	bl CheckCoins
 	str r0, [r4, #0x0]
-	bl FUN_020126FC
+	bl GF_RTC_DateTimeToSec
 	str r0, [r4, #0x4]
 	str r1, [r4, #0x8]
 	ldr r0, [r5, #0xc]

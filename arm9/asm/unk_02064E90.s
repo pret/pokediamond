@@ -76,11 +76,11 @@ FUN_02064E90: ; 0x02064E90
 	add r0, r6, #0x0
 	add r1, sp, #0x90
 	add r2, sp, #0x74
-	bl FUN_0204B2F0
+	bl Script_SavRTC_x24toDateTime
 	add r0, r6, #0x0
 	add r1, sp, #0x80
 	add r2, sp, #0x74
-	bl FUN_0204B30C
+	bl Script_SavRTC_x2CtoDateTime
 	ldr r0, [r6, #0xc]
 	bl SavArray_Flags_get
 	bl FUN_0205ED0C

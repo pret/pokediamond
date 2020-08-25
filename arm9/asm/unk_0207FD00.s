@@ -1745,7 +1745,7 @@ FUN_02080B30: ; 0x02080B30
 	add r5, r0, #0x0
 	add r0, sp, #0x0
 	add r4, r2, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	cmp r4, #0x0
 	add r2, sp, #0x24
 	bne _02080B76

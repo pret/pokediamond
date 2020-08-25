@@ -9,14 +9,14 @@ FUN_0204B0F8: ; 0x0204B0F8
 	sub sp, #0x1c
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _0204B12A
 	add r0, sp, #0xc
 	add r1, sp, #0x0
-	bl FUN_0201265C
+	bl GF_RTC_CopyDateTime
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, sp, #0xc
@@ -202,62 +202,62 @@ FUN_0204B270: ; 0x0204B270
 	bl FUN_0202B3C4
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0204B2A4
-FUN_0204B2A4: ; 0x0204B2A4
+	thumb_func_start Script_GetTimeOfDay
+Script_GetTimeOfDay: ; 0x0204B2A4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	ldr r0, [r0, #0x14]
-	bl FUN_020127A8
+	bl GF_RTC_GetTimeOfDayByHour
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204B2B4
-FUN_0204B2B4: ; 0x0204B2B4
+	thumb_func_start Script_GetMonth
+Script_GetMonth: ; 0x0204B2B4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	ldr r0, [r0, #0x8]
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204B2C0
-FUN_0204B2C0: ; 0x0204B2C0
+	thumb_func_start Script_GetDay
+Script_GetDay: ; 0x0204B2C0
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	ldr r0, [r0, #0xc]
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204B2CC
-FUN_0204B2CC: ; 0x0204B2CC
+	thumb_func_start Script_GetWeekday
+Script_GetWeekday: ; 0x0204B2CC
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	ldr r0, [r0, #0x10]
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204B2D8
-FUN_0204B2D8: ; 0x0204B2D8
+	thumb_func_start Script_GetHour
+Script_GetHour: ; 0x0204B2D8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	ldr r0, [r0, #0x14]
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204B2E4
-FUN_0204B2E4: ; 0x0204B2E4
+	thumb_func_start Script_GetMinute
+Script_GetMinute: ; 0x0204B2E4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	ldr r0, [r0, #0x18]
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204B2F0
-FUN_0204B2F0: ; 0x0204B2F0
+	thumb_func_start Script_SavRTC_x24toDateTime
+Script_SavRTC_x24toDateTime: ; 0x0204B2F0
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	add r3, r0, #0x0
 	ldr r2, [r3, #0x24]
 	ldr r3, [r3, #0x28]
@@ -266,13 +266,13 @@ FUN_0204B2F0: ; 0x0204B2F0
 	bl RTC_ConvertSecondToDateTime
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0204B30C
-FUN_0204B30C: ; 0x0204B30C
+	thumb_func_start Script_SavRTC_x2CtoDateTime
+Script_SavRTC_x2CtoDateTime: ; 0x0204B30C
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	add r3, r0, #0x0
 	ldr r2, [r3, #0x2c]
 	ldr r3, [r3, #0x30]
@@ -281,13 +281,13 @@ FUN_0204B30C: ; 0x0204B30C
 	bl RTC_ConvertSecondToDateTime
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0204B328
-FUN_0204B328: ; 0x0204B328
+	thumb_func_start Script_SavRTC_DateTimeTox2C
+Script_SavRTC_DateTimeTox2C: ; 0x0204B328
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	add r4, r0, #0x0
-	bl FUN_020126FC
+	bl GF_RTC_DateTimeToSec
 	str r0, [r4, #0x2c]
 	str r1, [r4, #0x30]
 	pop {r4, pc}
@@ -296,7 +296,7 @@ FUN_0204B328: ; 0x0204B328
 FUN_0204B33C: ; 0x0204B33C
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	bl FUN_02023874
 	pop {r3, pc}
 	.balign 4

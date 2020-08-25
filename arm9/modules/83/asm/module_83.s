@@ -1240,7 +1240,7 @@ MOD83_0222DF40: ; 0x0222DF40
 	str r0, [r5, #0x34]
 _0222DF60:
 	ldr r0, [r5, #4]
-	bl FUN_02023788
+	bl Sav2_SysInfo_get
 	bl FUN_02023820
 	cmp r0, #1
 	bne _0222DF72
@@ -3436,7 +3436,7 @@ MOD83_0222F074: ; 0x0222F074
 	add r0, #8
 	strb r1, [r4, r0]
 	add r0, sp, #8
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	add r0, sp, #8
 	bl RTC_ConvertDateToDay
 	mov r1, #0xd5
@@ -4970,7 +4970,7 @@ _0222FD12:
 	strb r0, [r5, r1]
 _0222FD2C:
 	add r0, sp, #8
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	add r0, sp, #8
 	bl RTC_ConvertDateToDay
 	mov r1, #0xd5

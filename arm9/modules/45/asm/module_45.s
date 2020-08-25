@@ -48,7 +48,7 @@ MOD45_0225489C: ; 0x0225489C
 	add r4, r1, #0
 	add r0, sp, #4
 	add r6, r2, #0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	add r0, r4, #0
 	bl MOD20_02252C3C
 	add r1, r5, #0

@@ -4278,7 +4278,7 @@ FUN_020312BC: ; 0x020312BC
 	add r4, r0, #0x0
 	add r0, sp, #0x10
 	add r1, sp, #0x4
-	bl FUN_0201265C
+	bl GF_RTC_CopyDateTime
 	ldr r0, _02031340 ; =gMain
 	ldr r6, [sp, #0x10]
 	mov r5, #0x0

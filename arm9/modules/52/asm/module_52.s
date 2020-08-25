@@ -109,7 +109,7 @@ MOD52_021D7594: ; 0x021D7594
 	bl OverlayManager_GetField18
 	ldr r4, [r0, #8]
 	add r0, r4, #0
-	bl FUN_02023788
+	bl Sav2_SysInfo_get
 	add r5, r0, #0
 	mov r0, #0x4d
 	add r1, r4, #0
@@ -118,19 +118,19 @@ MOD52_021D7594: ; 0x021D7594
 	mov r1, #0
 	bl FUN_02024F9C
 	add r0, r5, #0
-	bl FUN_020237CC
+	bl Sav2_SysInfo_MacAddressIsMine
 	cmp r0, #0
 	beq _021D75C8
 	add r0, r5, #0
-	bl FUN_020237FC
+	bl Sav2_SysInfo_RTCOffsetIsMine
 	cmp r0, #0
 	bne _021D75D8
 _021D75C8:
 	add r0, r4, #0
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	bl FUN_020238A4
 	add r0, r5, #0
-	bl FUN_020237A0
+	bl Sav2_SysInfo_InitFromSystem
 _021D75D8:
 	add r0, r4, #0
 	bl Sav2_PlayerData_GetIGTAddr
@@ -162,11 +162,11 @@ MOD52_021D7604: ; 0x021D7604
 	str r0, [sp]
 	add r0, r5, #0
 	add r6, r2, #0
-	bl FUN_02023788
-	bl FUN_020237A0
+	bl Sav2_SysInfo_get
+	bl Sav2_SysInfo_InitFromSystem
 	add r0, r5, #0
-	bl FUN_02023794
-	bl FUN_02023840
+	bl Sav2_SysInfo_RTC_get
+	bl Sav2_SysInfo_RTC_init
 	add r0, r5, #0
 	bl FUN_0202881C
 	add r4, r0, #0

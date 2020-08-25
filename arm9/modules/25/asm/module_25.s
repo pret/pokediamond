@@ -61,7 +61,7 @@ MOD25_0225489C: ; 0x0225489C
 	add r0, r5, #0
 	str r1, [r5, #0x20]
 	add r0, #0x14
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	ldr r0, [r5, #0x14]
 	cmp r0, #0x18
 	blo _022548D6
@@ -256,7 +256,7 @@ _02254A0A:
 	strb r0, [r4, #5]
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	ldrb r1, [r4, #5]
 	ldr r0, [r4, #0x18]
 	cmp r1, r0

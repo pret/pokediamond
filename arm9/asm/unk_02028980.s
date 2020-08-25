@@ -83,7 +83,7 @@ FUN_020289B0: ; 0x020289B0
 	pop {r3-r7, pc}
 _020289C0:
 	add r0, sp, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	ldr r0, [r7, #0x0]
 	lsl r1, r0, #0x15
 	lsr r3, r1, #0x1c
@@ -145,7 +145,7 @@ FUN_02028A20: ; 0x02028A20
 	pop {r4, pc}
 _02028A30:
 	add r0, sp, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	ldr r0, [r4, #0x0]
 	lsl r0, r0, #0x19
 	lsr r0, r0, #0x19
@@ -942,7 +942,7 @@ FUN_02028FA4: ; 0x02028FA4
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, sp, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	ldr r2, [r4, #0x0]
 	mov r0, #0x7f
 	bic r2, r0

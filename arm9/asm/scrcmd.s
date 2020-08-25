@@ -8801,7 +8801,7 @@ FUN_0203DF84: ; 0x0203DF84
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -10138,7 +10138,7 @@ FUN_0203EA68: ; 0x0203EA68
 	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, sp, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	ldr r0, [sp, #0xc]
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
@@ -10890,7 +10890,7 @@ FUN_0203F058: ; 0x0203F058
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_0204B2D8
+	bl Script_GetHour
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -11409,19 +11409,19 @@ FUN_0203F484: ; 0x0203F484
 	ldr r5, [r5, #0x0]
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02023788
+	bl Sav2_SysInfo_get
 	add r7, r0, #0x0
-	bl FUN_02023818
+	bl Sav2_SysInfo_GetBirthMonth
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0204B2B4
+	bl Script_GetMonth
 	cmp r6, r0
 	bne _0203F4CE
 	add r0, r7, #0x0
-	bl FUN_0202381C
+	bl Sav2_SysInfo_GetBirthDay
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0204B2C0
+	bl Script_GetDay
 	cmp r6, r0
 	bne _0203F4CE
 	mov r0, #0x1
@@ -12239,7 +12239,7 @@ FUN_0203FB4C: ; 0x0203FB4C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02023788
+	bl Sav2_SysInfo_get
 	mov r1, #0x1
 	bl FUN_02023828
 	mov r0, #0x0

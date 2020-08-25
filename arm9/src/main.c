@@ -27,7 +27,7 @@ extern BOOL FUN_0202FB80(void);
 extern void InitSystemForTheGame(void);
 extern void InitGraphicMemory(void);
 extern void FUN_02022294(void);
-extern void FUN_0201259C(void);
+extern void GF_InitRTCWork(void);
 extern void FUN_02002C14(void);
 extern void FUN_02002C50(int, int);
 extern struct SaveBlock2 * SaveBlock2_new(void);
@@ -40,7 +40,7 @@ extern void FUN_02089D90(int);
 extern void FUN_0200A2AC(void);
 extern void FUN_02015E30(void);
 extern void FUN_0201B5CC(void *);
-extern void FUN_020125D4(void);
+extern void GF_RTC_UpdateOnFrame(void);
 extern void FUN_02015E60(void);
 extern void FUN_020222C4(void);
 extern void FUN_0200A318(void);
@@ -64,7 +64,7 @@ THUMB_FUNC void NitroMain(void)
     PM_GetBackLight((PMBackLightSwitch *)SDK_STATIC_BSS_START, NULL);
 
     FUN_02022294();
-    FUN_0201259C();
+    GF_InitRTCWork();
     FUN_02000DF4();
     FUN_02002C14();
     FUN_02002C50(0, 3);
@@ -125,7 +125,7 @@ THUMB_FUNC void NitroMain(void)
                 gMain.unk2C++;
             }
         }
-        FUN_020125D4();
+        GF_RTC_UpdateOnFrame();
         FUN_02015E60();
         FUN_020222C4();
         FUN_0201B5CC(gMain.unk24);
@@ -262,7 +262,7 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
     DoSoftReset(arg0);
 }
 
-extern void FUN_0201265C(struct Unk21C4818 *, struct Unk21C4828 *);
+extern void GF_RTC_CopyDateTime(struct Unk21C4818 *, struct Unk21C4828 *);
 extern void SetMTRNGSeed(u32);
 extern void SetLCRNGSeed(u32);
 
@@ -270,7 +270,7 @@ THUMB_FUNC void InitializeMainRNG(void)
 {
     struct Unk21C4818 spC;
     struct Unk21C4828 sp0;
-    FUN_0201265C(&spC, &sp0);
+    GF_RTC_CopyDateTime(&spC, &sp0);
     {
         u32 r4 = gMain.unk2C;
         u32 r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));

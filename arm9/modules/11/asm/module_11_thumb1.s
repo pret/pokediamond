@@ -676,7 +676,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	str r0, [r4, r1]
 	add r0, sp, #0x20
 	add r1, sp, #0x14
-	bl FUN_0201265C
+	bl GF_RTC_CopyDateTime
 	ldr r0, _0222DF10 ; =gMain
 	ldr r6, [sp, #0x24]
 	ldr r5, [r0, #0x2c]
