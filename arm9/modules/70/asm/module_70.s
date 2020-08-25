@@ -35,7 +35,7 @@ MOD70_021D74E0: ; 0x021D74E0
 	add r0, r4, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl FUN_0202B1F0
+	bl Sav2_HOF_GetNumRecords
 	add r1, r4, #0
 	add r1, #0xd0
 	str r0, [r1]
@@ -357,16 +357,16 @@ MOD70_021D777C: ; 0x021D777C
 	str r2, [sp]
 	add r0, r7, #0
 	add r1, r2, #0
-	bl FUN_0202B21C
+	bl Sav2_HOF_TranslateRecordIdx
 	str r0, [r6]
 	ldr r1, [sp]
 	add r0, r7, #0
-	bl FUN_0202B250
+	bl Sav2_HOF_RecordCountMons
 	str r0, [r6, #0x14]
 	ldr r1, [sp]
 	add r0, r7, #0
 	add r2, r6, #4
-	bl FUN_0202B31C
+	bl Sav2_HOF_GetClearDate
 	ldr r0, [r6, #0x14]
 	mov r4, #0
 	cmp r0, #0
@@ -378,7 +378,7 @@ _021D77AE:
 	add r0, r7, #0
 	add r2, r4, #0
 	add r3, r5, #0
-	bl FUN_0202B29C
+	bl Sav2_HOF_GetMonStatsByIndexPair
 	ldr r0, [r6, #0x14]
 	add r4, r4, #1
 	add r5, #0x1c

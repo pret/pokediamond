@@ -2253,7 +2253,7 @@ FUN_02038824: ; 0x02038824
 	ldr r0, [r5, #0xc]
 	mov r1, #0xb
 	add r2, sp, #0x0
-	bl LoadSaveFile
+	bl LoadHallOfFame
 	ldr r1, [sp, #0x0]
 	add r4, r0, #0x0
 	cmp r1, #0x2

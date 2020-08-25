@@ -11771,7 +11771,7 @@ FUN_0203F760: ; 0x0203F760
 	mov r1, #0x20
 	ldr r0, [r0, #0xc]
 	add r2, sp, #0x0
-	bl LoadSaveFile
+	bl LoadHallOfFame
 	ldr r1, [sp, #0x0]
 	add r4, r0, #0x0
 	cmp r1, #0x0
@@ -11785,7 +11785,7 @@ _0203F798:
 	cmp r1, #0x1
 	bne _0203F7AE
 	mov r1, #0x0
-	bl FUN_0202B21C
+	bl Sav2_HOF_TranslateRecordIdx
 	strh r0, [r5, #0x0]
 	add r0, r4, #0x0
 	bl FreeToHeap

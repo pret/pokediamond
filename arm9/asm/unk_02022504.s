@@ -35,16 +35,16 @@ FUN_02022528: ; 0x02022528
 	nop
 _02022530: .word SavArray_get
 
-	thumb_func_start LoadSaveFile
-LoadSaveFile: ; 0x02022534
+	thumb_func_start LoadHallOfFame
+LoadHallOfFame: ; 0x02022534
 	push {r3, lr}
 	add r3, r2, #0x0
 	mov r2, #0x0
 	bl ReadSaveFileFromFlash
 	pop {r3, pc}
 
-	thumb_func_start SaveGame
-SaveGame: ; 0x02022540
+	thumb_func_start SaveHallOfFame
+SaveHallOfFame: ; 0x02022540
 	ldr r3, _02022548 ; =WriteSaveFileToFlash
 	add r2, r1, #0x0
 	mov r1, #0x0

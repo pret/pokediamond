@@ -29,7 +29,7 @@ FUN_020484A8: ; 0x020484A8
 	add r6, r1, #0x0
 	mov r1, #0xb
 	add r2, sp, #0x0
-	bl LoadSaveFile
+	bl LoadHallOfFame
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x1
@@ -38,7 +38,7 @@ FUN_020484A8: ; 0x020484A8
 	bne _020484CC
 _020484C6:
 	add r0, r4, #0x0
-	bl FUN_0202B03C
+	bl Sav2_HOF_init
 _020484CC:
 	ldr r0, [r5, #0xc]
 	bl SavArray_PlayerParty_get
@@ -48,10 +48,10 @@ _020484CC:
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	add r2, sp, #0x4
-	bl FUN_0202B050
+	bl Sav2_HOF_RecordParty
 	ldr r0, [r5, #0xc]
 	add r1, r4, #0x0
-	bl SaveGame
+	bl SaveHallOfFame
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add sp, #0x14
