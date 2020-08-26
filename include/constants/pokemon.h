@@ -275,6 +275,10 @@
 #define MON_DATA_TYPE_2                         177
 #define MON_DATA_SPECIES_NAME                   178
 
+#define OT_ID_PLAYER_ID       0
+#define OT_ID_PRESET          1
+#define OT_ID_RANDOM_NO_SHINY 2
+
 #define MON_RATIO_MALE           0
 #define MON_RATIO_EIGHTH        31
 #define MON_RATIO_QUARTER       63

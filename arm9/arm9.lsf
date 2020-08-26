@@ -167,6 +167,7 @@ Static arm9
 	Object scrcmd_15.o
 	Object scrcmd_16.o
 	Object scrcmd_17.o
+	Object scrcmd_18_c.o
 	Object scrcmd_18.o
 	Object scrcmd_19.o
 	Object scrcmd_20.o
@@ -184,6 +185,7 @@ Static arm9
 	Object unk_02048120.o
 	Object unk_020484A8.o
 	Object unk_02048904.o
+	Object script_pokemon_util_c.o
 	Object script_pokemon_util.o
 	Object unk_0204A368.o
 	Object unk_0204A498.o
