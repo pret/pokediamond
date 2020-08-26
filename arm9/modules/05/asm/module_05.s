@@ -22038,7 +22038,7 @@ _021F000E:
 	bl FUN_020286EC
 	add r7, r0, #0
 	mov r0, #4
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r6, r0, #0
 	add r0, r7, #0
 	add r1, r4, #0

@@ -17647,9 +17647,9 @@ MOD80_022361AC: ; 0x022361AC
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	mov r0, #0x3e
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r4, r0, #0
-	bl PlayerProfile_Clear
+	bl PlayerProfile_init
 	mov r1, #0x43
 	lsl r1, r1, #2
 	add r0, r4, #0

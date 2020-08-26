@@ -4714,7 +4714,7 @@ FUN_0204EEBC: ; 0x0204EEBC
 	beq _0204EF44
 	mov r0, #0xf
 	lsl r4, r5, #0x2
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	mov r3, #0x29
 	ldr r1, _0204EF48 ; =UNK_021C5A68
 	add r2, r0, #0x0
@@ -6044,7 +6044,7 @@ FUN_0204F930: ; 0x0204F930
 	pop {r3-r5, pc}
 _0204F96E:
 	mov r0, #0xf
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r4, r0, #0x0
 	mov r0, #0x14
 	mov r1, #0xf
@@ -6190,7 +6190,7 @@ FUN_0204FA78: ; 0x0204FA78
 _0204FA98:
 	mov r0, #0xf
 	lsl r4, r5, #0x2
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	ldr r2, _0204FAC8 ; =UNK_021C5A68
 	ldr r1, [r2, #0x0]
 	add r3, r1, r4

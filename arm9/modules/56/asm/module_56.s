@@ -7098,7 +7098,7 @@ _02215532:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	mov r0, #0x36
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r6, r0, #0
 	ldr r0, [r5]
 	add r1, r4, #0
@@ -8431,7 +8431,7 @@ MOD56_022160E4: ; 0x022160E4
 	cmp r6, r0
 	beq _0221611C
 	mov r0, #0x36
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r4, r0, #0
 	ldr r0, [r5]
 	add r1, r6, #0

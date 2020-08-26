@@ -4348,7 +4348,7 @@ _0222F9A0:
 	ldr r0, _0222FA24 ; =0x00003670
 	str r4, [r5, r0]
 	mov r0, #0x1a
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r6, r0, #0
 	ldr r0, _0222FA28 ; =0x00003694
 	add r1, r4, #0

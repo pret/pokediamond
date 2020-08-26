@@ -85,7 +85,7 @@ _02047748:
 	add r4, r7, #0x0
 _0204775C:
 	add r0, r5, #0x0
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r1, r4, #0x0
 	add r1, #0xf8
 	add r6, r6, #0x1

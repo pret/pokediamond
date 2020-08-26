@@ -1476,9 +1476,9 @@
 .extern Sav2_PlayerData_GetCoinsAddr
 .extern Sav2_PlayerData_GetIGTAddr
 .extern PlayerProfile_sizeof
-.extern PlayerProfile_init
+.extern PlayerProfile_new
 .extern PlayerProfile_Copy
-.extern PlayerProfile_Clear
+.extern PlayerProfile_init
 .extern CopyPlayerName
 .extern PlayerName_StringToFlat
 .extern PlayerProfile_GetNamePtr

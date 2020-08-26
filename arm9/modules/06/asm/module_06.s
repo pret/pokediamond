@@ -11448,7 +11448,7 @@ _0223EF28:
 	ldr r1, [r1]
 	str r0, [r1, #0x78]
 	mov r0, #4
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	ldr r1, _0223EFF4 ; =0x02252420
 	ldr r2, [r1]
 	str r0, [r2, #0x7c]
@@ -31000,9 +31000,9 @@ _0224886C:
 	bl AllocMonZeroed
 	str r0, [r4, #4]
 	add r0, r5, #0
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	str r0, [r4, #8]
-	bl PlayerProfile_Clear
+	bl PlayerProfile_init
 	add r0, r5, #0
 	add r1, r6, #4
 	bl GetInGameTradeMonOrPartnerName

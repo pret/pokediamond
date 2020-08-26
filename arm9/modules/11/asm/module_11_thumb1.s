@@ -1741,7 +1741,7 @@ MOD11_0222E520: ; 0x0222E520
 	add r5, r1, #0
 _0222E532:
 	mov r0, #5
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r1, r0, #0
 	add r0, r5, #0
 	str r1, [r6, #0x48]
