@@ -7,6 +7,7 @@
 #include "unk_02015CC0.h"
 #include "unk_0202C144.h"
 #include "module_05.h"
+#include "script_pokemon_util.h"
 #include "constants/items.h"
 #include "constants/script_pokemon_util.h"
 
@@ -44,6 +45,7 @@ BOOL GiveMon(u32 heap_id, struct SaveBlock2 * sav2, u16 species, u8 level, u16 i
 /* Seems to have something to do with Manaphy Egg*/
 BOOL GiveEgg(u32 heapId, struct SaveBlock2 * sav2, u16 species, int level, int metLocIndex, int a3)
 {
+#pragma unused(heapId)
     struct PlayerData * data = Sav2_PlayerData_GetProfileAddr(sav2);
     struct PlayerParty * party = SavArray_PlayerParty_get(sav2);
     struct Pokemon * mon = AllocMonZeroed(32);
@@ -57,7 +59,7 @@ BOOL GiveEgg(u32 heapId, struct SaveBlock2 * sav2, u16 species, int level, int m
 void PartyMonSetMoveInSlot(struct PlayerParty * party, int partySlot, int moveSlot, u16 move)
 {
     struct Pokemon * mon = GetPartyMonByIndex(party, partySlot);
-    MonSetMoveInSlot(mon, move, moveSlot);
+    MonSetMoveInSlot(mon, move, (u8)moveSlot);
 }
 
 int GetIdxOfFirstPartyMonWithMove(struct PlayerParty * party, int move)
@@ -114,7 +116,7 @@ struct Pokemon * GetFirstAliveMonInParty_CrashIfNone(struct PlayerParty * party)
 struct Pokemon * GetFirstNonEggInParty(struct PlayerParty * party)
 {
     u16 i;
-    u16 partyCount = GetPartyCount(party);
+    u16 partyCount = (u16)GetPartyCount(party);
 
     for (i = 0; i < partyCount; i++)
     {
@@ -172,7 +174,7 @@ int ApplyPoisonStep(struct PlayerParty * party, int location)
         if (hp == 1)
         {
             numHealed++;
-            MonApplyFriendshipMod(mon, FRIENDSHIP_EVENT_HEAL_FIELD_PSN, location);
+            MonApplyFriendshipMod(mon, FRIENDSHIP_EVENT_HEAL_FIELD_PSN, (u32)location);
         }
         numPoisoned++;
     }
