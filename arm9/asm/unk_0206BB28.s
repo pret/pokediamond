@@ -13,7 +13,7 @@ FUN_0206BB28: ; 0x0206BB28
 	thumb_func_start FUN_0206BB34
 FUN_0206BB34: ; 0x0206BB34
 	push {r3, lr}
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	cmp r0, #0x1
 	bne _0206BB42
 	mov r0, #0x1

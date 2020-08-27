@@ -48,7 +48,7 @@ MOD35_0225489C: ; 0x0225489C
 	add r0, r4, #0
 	add r6, r2, #0
 	bl MOD20_02252C40
-	bl FUN_02023D58
+	bl Sav2_Daycare_get
 	str r0, [r5, #0x30]
 	ldr r1, [r5, #0x30]
 	add r0, r5, #4

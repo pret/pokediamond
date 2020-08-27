@@ -145,7 +145,7 @@ FUN_0203FF10: ; 0x0203FF10
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
 	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	add r1, sp, #0x14
 	strb r0, [r1, #0x4]
 	strb r6, [r1, #0x5]

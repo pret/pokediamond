@@ -5044,7 +5044,7 @@ _0223BBDA:
 	add r0, r5, #0
 	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, sp, #0x64
@@ -5481,7 +5481,7 @@ _0223BF7E:
 	add r0, r5, #0
 	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, sp, #0x5c
@@ -5791,7 +5791,7 @@ _0223C222:
 	add r0, r5, #0
 	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	ldr r0, [sp, #0x14]
 	add r1, sp, #0x5c
@@ -23654,7 +23654,7 @@ _02245098:
 	add r0, r5, #0
 	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
 	bl FUN_0202A9B0

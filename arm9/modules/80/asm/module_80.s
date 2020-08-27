@@ -13746,7 +13746,7 @@ MOD80_022343DC: ; 0x022343DC
 	mov r6, #0
 	sub r7, r1, r0
 	add r0, r4, #0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	str r0, [sp, #0x14]
 	ldr r0, _022344D8 ; =0x02237B50
 	ldrh r0, [r0, r5]

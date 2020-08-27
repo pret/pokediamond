@@ -4573,7 +4573,7 @@ MOD16_021D9798: ; 0x021D9798
 	ldr r0, _021D9890 ; =0x00001744
 	str r1, [r5, r0]
 	ldr r0, [r5]
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	cmp r0, #0
 	beq _021D97C2
 	mov r1, #1
@@ -4955,11 +4955,11 @@ _021D9A50: .word FUN_02024970
 
 	thumb_func_start MOD16_021D9A54
 MOD16_021D9A54: ; 0x021D9A54
-	ldr r3, _021D9A5C ; =FUN_02024CA4
+	ldr r3, _021D9A5C ; =Pokedex_GetNatDexFlag
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9A5C: .word FUN_02024CA4
+_021D9A5C: .word Pokedex_GetNatDexFlag
 	thumb_func_end MOD16_021D9A54
 
 	thumb_func_start MOD16_021D9A60

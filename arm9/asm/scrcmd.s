@@ -10034,7 +10034,7 @@ FUN_0203E968: ; 0x0203E968
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
 	bl FUN_02024DA0
-	bl FUN_02024C84
+	bl Pokedex_SetNatDexFlag
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
@@ -10048,7 +10048,7 @@ _0203E9AE:
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	strh r0, [r6, #0x0]
 	b _0203E9C8
 _0203E9C4:

@@ -144,7 +144,7 @@ _0222D6BE:
 	add r0, r4, #0
 	bl FUN_02016438
 	ldr r0, [r5, #8]
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	cmp r0, #0
 	beq _0222D6E6
 	bl MOD83_02236EA8

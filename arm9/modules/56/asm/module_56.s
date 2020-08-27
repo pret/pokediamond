@@ -2030,7 +2030,7 @@ _02212E82:
 	ldr r1, [r5, #4]
 	strb r0, [r1, #0x19]
 	ldr r0, [sp, #0x10]
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	ldr r1, [r5, #4]
 	strb r0, [r1, #0x1a]
 	ldr r1, [r5, #4]

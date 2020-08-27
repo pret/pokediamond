@@ -12,8 +12,8 @@
 
 extern u32 FUN_0202AC20(void);
 extern u32 FUN_02034D7C(void);
-extern u32 FUN_02023D64(void);
-extern u32 FUN_02023C40(void);
+extern u32 Sav2_Pokedex_sizeof(void);
+extern u32 Sav2_Daycare_sizeof(void);
 extern u32 FUN_020254B8(void);
 extern u32 FUN_02024E64(void);
 extern u32 FUN_02034D80(void);
@@ -40,8 +40,8 @@ extern u32 FUN_0202C0E0(void);
 extern u32 FUN_02013B28(void);
 extern void FUN_0202AC28(void *);
 extern void FUN_02034D98(void *);
-extern void FUN_02024378(void *);
-extern void FUN_02023C48(void *);
+extern void Sav2_Pokedex_init(void *);
+extern void Sav2_Daycare_init(void *);
 extern void FUN_020254CC(void *);
 extern void FUN_02024E6C(void *);
 extern void FUN_02034D88(void *);
@@ -80,8 +80,8 @@ const struct SaveChunkHeader UNK_020EE700[] = {
     {  4, 0, (SAVSIZEFN)SavArray_Flags_sizeof, (SAVINITFN)SavArray_Flags_init },
     {  5, 0, (SAVSIZEFN)Sav2_Poketch_sizeof, (SAVINITFN)Sav2_Poketch_init },
     {  6, 0, (SAVSIZEFN)FUN_02034D7C, (SAVINITFN)FUN_02034D98 },
-    {  7, 0, (SAVSIZEFN)FUN_02023D64, (SAVINITFN)FUN_02024378 },
-    {  8, 0, (SAVSIZEFN)FUN_02023C40, (SAVINITFN)FUN_02023C48 },
+    {  7, 0, (SAVSIZEFN)Sav2_Pokedex_sizeof, (SAVINITFN)Sav2_Pokedex_init },
+    {  8, 0, (SAVSIZEFN)Sav2_Daycare_sizeof, (SAVINITFN)Sav2_Daycare_init },
     {  9, 0, (SAVSIZEFN)FUN_020254B8, (SAVINITFN)FUN_020254CC },
     { 10, 0, (SAVSIZEFN)FUN_02024E64, (SAVINITFN)FUN_02024E6C },
     { 11, 0, (SAVSIZEFN)FUN_02034D80, (SAVINITFN)FUN_02034D88 },

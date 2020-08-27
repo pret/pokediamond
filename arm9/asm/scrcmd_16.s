@@ -13,7 +13,7 @@ FUN_02043E00: ; 0x02043E00
 	bl FUN_02039438
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02023D58
+	bl Sav2_Daycare_get
 	ldr r1, [r4, #0x0]
 	bl MOD05_021ED4E0
 	mov r0, #0x0
@@ -306,7 +306,7 @@ FUN_02044034: ; 0x02044034
 	bl VarGet
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02023D58
+	bl Sav2_Daycare_get
 	lsl r1, r4, #0x18
 	lsr r1, r1, #0x18
 	str r1, [sp, #0x0]
