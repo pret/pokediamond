@@ -275,6 +275,10 @@
 #define MON_DATA_TYPE_2                         177
 #define MON_DATA_SPECIES_NAME                   178
 
+#define OT_ID_PLAYER_ID       0
+#define OT_ID_PRESET          1
+#define OT_ID_RANDOM_NO_SHINY 2
+
 #define MON_RATIO_MALE           0
 #define MON_RATIO_EIGHTH        31
 #define MON_RATIO_QUARTER       63
@@ -291,6 +295,17 @@ enum MonGender
     MON_FEMALE = 1,
     MON_GENDERLESS = 2
 };
+
+// Constants for AdjustFriendship
+#define FRIENDSHIP_EVENT_GROW_LEVEL       0
+#define FRIENDSHIP_EVENT_VITAMIN          1 // unused, handled by PokemonUseItemEffects
+#define FRIENDSHIP_EVENT_BATTLE_ITEM      2 // unused, handled by PokemonUseItemEffects
+#define FRIENDSHIP_EVENT_LEAGUE_BATTLE    3
+#define FRIENDSHIP_EVENT_LEARN_TMHM       4
+#define FRIENDSHIP_EVENT_WALKING          5
+#define FRIENDSHIP_EVENT_FAINT_SMALL      6
+#define FRIENDSHIP_EVENT_HEAL_FIELD_PSN   7
+#define FRIENDSHIP_EVENT_FAINT_LARGE      8 // If opponent was >= 30 levels higher. See AdjustFriendshipOnBattleFaint
 
 // TODO: Identify the rest of these
 enum BaseStat {
