@@ -8483,3 +8483,4 @@
 .extern CARDi_IdentifyBackupCore
 .extern CARDi_InitCommon
 .extern MonNotFaintedOrEgg
+.extern CountAlivePokemon
