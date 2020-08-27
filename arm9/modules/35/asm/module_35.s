@@ -48,7 +48,7 @@ MOD35_0225489C: ; 0x0225489C
 	add r0, r4, #0
 	add r6, r2, #0
 	bl MOD20_02252C40
-	bl Sav2_Daycare_get
+	bl Sav2_DayCare_get
 	str r0, [r5, #0x30]
 	ldr r1, [r5, #0x30]
 	add r0, r5, #4
@@ -301,7 +301,7 @@ MOD35_02254A50: ; 0x02254A50
 	ldr r1, [sp]
 	strb r0, [r1]
 	ldr r0, [sp, #4]
-	bl FUN_02023C90
+	bl Sav2_DayCare_GetEggPID
 	ldr r1, [sp]
 	mov r7, #0
 	strb r0, [r1, #1]
@@ -314,9 +314,9 @@ MOD35_02254A50: ; 0x02254A50
 _02254A7A:
 	ldr r0, [sp, #4]
 	add r1, r7, #0
-	bl FUN_02023C74
+	bl Sav2_DayCare_GetMonX
 	str r0, [sp, #8]
-	bl FUN_02023C7C
+	bl DayCareMon_GetBoxMon
 	add r4, r0, #0
 	bl AcquireBoxMonLock
 	str r0, [sp, #0xc]

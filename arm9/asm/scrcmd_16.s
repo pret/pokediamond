@@ -13,7 +13,7 @@ FUN_02043E00: ; 0x02043E00
 	bl FUN_02039438
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl Sav2_Daycare_get
+	bl Sav2_DayCare_get
 	ldr r1, [r4, #0x0]
 	bl MOD05_021ED4E0
 	mov r0, #0x0
@@ -75,7 +75,7 @@ FUN_02043E68: ; 0x02043E68
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl MOD05_021ED0CC
+	bl MOD05_DayCare_GiveEggToPlayer
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
@@ -306,7 +306,7 @@ FUN_02044034: ; 0x02044034
 	bl VarGet
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl Sav2_Daycare_get
+	bl Sav2_DayCare_get
 	lsl r1, r4, #0x18
 	lsr r1, r1, #0x18
 	str r1, [sp, #0x0]
@@ -365,7 +365,7 @@ FUN_020440F0: ; 0x020440F0
 	add r0, r4, #0x0
 	mov r1, #0x8
 	bl SavArray_get
-	bl FUN_02023C90
+	bl Sav2_DayCare_GetEggPID
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}

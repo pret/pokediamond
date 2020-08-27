@@ -1765,7 +1765,7 @@ MOD05_021D8F38: ; 0x021D8F38
 	bl SavArray_PlayerParty_get
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
-	bl Sav2_Daycare_get
+	bl Sav2_DayCare_get
 	add r1, r5, #0
 	add r2, r4, #0
 	bl MOD05_021ED378
