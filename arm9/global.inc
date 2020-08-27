@@ -2858,7 +2858,7 @@
 .extern FUN_0203C2E0
 .extern FUN_0203C2F0
 .extern FUN_0203C300
-.extern FUN_0203C32C
+.extern ScrCmd_halloffame
 .extern FUN_0203C33C
 .extern FUN_0203C368
 .extern FUN_0203C3C8
@@ -2953,8 +2953,8 @@
 .extern FUN_0203D834
 .extern FUN_0203D868
 .extern FUN_0203D874
-.extern FUN_0203D8A0
-.extern FUN_0203D8D0
+.extern ScrCmd_getplayergender
+.extern ScrCmd_healparty
 .extern FUN_0203D8E8
 .extern FUN_0203D8EC
 .extern FUN_0203D920
@@ -3478,7 +3478,7 @@
 .extern FUN_020480E4
 .extern FUN_0204837C
 .extern FUN_02048498
-.extern FUN_02048694
+.extern Special_EnterHallOfFame
 .extern FUN_020489DC
 .extern FUN_020489FC
 .extern FUN_02048C58
@@ -5296,10 +5296,10 @@
 .extern FUN_02084098
 .extern FUN_020842D0
 .extern FUN_020842D8
-.extern FUN_020847F8
-.extern FUN_02084810
-.extern FUN_02084DD0
-.extern FUN_02085140
+.extern CanUseItemOnMonInParty
+.extern UseItemOnPokemon
+.extern UseItemOnMonInParty
+.extern HealParty
 .extern FUN_020851B8
 .extern FUN_020851DC
 .extern FUN_020851F8

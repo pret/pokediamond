@@ -173,7 +173,7 @@ int main(int argc, char ** argv) {
         if (c == 'f') {
             flatten = 1;
         } else if (c == 'p') {
-            padding = *optarg;
+            padding = strtol(optarg, NULL, 0);
         }
     }
     argv += optind;
@@ -273,7 +273,7 @@ int main(int argc, char ** argv) {
             // Padding
             for (int j = size; j < size_aln; j++)
             {
-                _rodata[fat_entries[i].End + j] = padding;
+                _rodata[fat_entries[i].Start + j] = padding;
             }
         }
         // These NARCs have empty FNTs

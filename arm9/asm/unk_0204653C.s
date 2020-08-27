@@ -203,7 +203,7 @@ _020466A4:
 	beq _020466BC
 	ldr r0, [r6, #0xc]
 	bl SavArray_PlayerParty_get
-	bl FUN_02085140
+	bl HealParty
 _020466BC:
 	ldr r1, [r5, #0x10]
 	add r0, r6, #0x0
@@ -771,7 +771,7 @@ _02046B3E:
 	beq _02046B56
 	ldr r0, [r5, #0xc]
 	bl SavArray_PlayerParty_get
-	bl FUN_02085140
+	bl HealParty
 _02046B56:
 	ldr r1, [r4, #0x10]
 	add r0, r5, #0x0

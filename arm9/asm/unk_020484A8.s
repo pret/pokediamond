@@ -159,7 +159,7 @@ _020485AE:
 _020485C0:
 	ldr r0, [r6, #0xc]
 	bl SavArray_PlayerParty_get
-	bl FUN_02085140
+	bl HealParty
 	bl SaveSetDirtyBit
 	ldr r0, [r6, #0xc]
 	bl FUN_02022720
@@ -253,8 +253,8 @@ _02048688:
 	nop
 _02048690: .word 0x0000061B
 
-	thumb_func_start FUN_02048694
-FUN_02048694: ; 0x02048694
+	thumb_func_start Special_EnterHallOfFame
+Special_EnterHallOfFame: ; 0x02048694
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r7, r0, #0x0

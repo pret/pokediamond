@@ -1,7 +1,8 @@
 #include "global.h"
 #include "filesystem.h"
-#include "itemtool.h"
+#include "nutdata.h"
 #include "msgdata.h"
+#include "constants/items.h"
 
 #pragma thumb on
 

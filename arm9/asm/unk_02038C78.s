@@ -325,7 +325,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203C2E0
     .word FUN_0203C2F0
     .word FUN_0203C300
-    .word FUN_0203C32C
+    .word ScrCmd_halloffame
     .word FUN_0203C33C
     .word FUN_0203C368
     .word FUN_0203C3C8
@@ -482,8 +482,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203FE48
     .word FUN_0203D868
     .word FUN_0203D874
-    .word FUN_0203D8A0
-    .word FUN_0203D8D0
+    .word ScrCmd_getplayergender
+    .word ScrCmd_healparty
     .word FUN_0203D8E8
     .word FUN_0203D8EC
     .word FUN_0203D938

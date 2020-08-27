@@ -282,7 +282,7 @@ Static arm9
 	Object unk_02083D48.o
 	Object unk_02084098.o
 	Object unk_020842D0.o
-	Object unk_020842DC.o
+	Object use_item_on_mon.o
 	Object unk_020851B8.o
 	Object nutdata.o
 	Object unk_02085338.o
