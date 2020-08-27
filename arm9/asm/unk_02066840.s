@@ -72,7 +72,7 @@ FUN_02066840: ; 0x02066840
 	add r0, #0xc8
 	strb r1, [r0, #0x0]
 	add r0, r4, #0x0
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	add r0, #0xc8

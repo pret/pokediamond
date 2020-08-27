@@ -341,7 +341,7 @@ _02033B22:
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r6, #0x0
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r3, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0

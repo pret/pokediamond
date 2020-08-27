@@ -27,7 +27,7 @@ FUN_02064E90: ; 0x02064E90
 	bl FUN_02065078
 	str r0, [sp, #0x24]
 	add r0, r7, #0x0
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	str r0, [sp, #0x0]
 	str r5, [sp, #0x4]
 	ldr r0, [sp, #0x10]

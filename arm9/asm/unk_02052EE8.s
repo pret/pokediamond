@@ -342,7 +342,7 @@ _02053166:
 	cmp r6, #0x0
 	beq _020531D8
 	ldr r0, [sp, #0xc]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	strb r0, [r5, #0x14]
 	ldr r0, [sp, #0xc]
 	bl PlayerProfile_GetTrainerID

@@ -7876,7 +7876,7 @@ FUN_0203D834: ; 0x0203D834
 	lsl r1, r1, #0x18
 	add r0, r4, #0x0
 	lsr r1, r1, #0x18
-	bl FUN_02023A2C
+	bl PlayerProfile_SetAvatar
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -10039,7 +10039,7 @@ FUN_0203E968: ; 0x0203E968
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Sav2_PlayerData_GetProfileAddr
-	bl FUN_02023A90
+	bl PlayerProfile_SetNatDexFlag
 	b _0203E9C8
 _0203E9AE:
 	cmp r4, #0x2

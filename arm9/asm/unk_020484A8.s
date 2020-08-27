@@ -319,7 +319,7 @@ _0204871E:
 	add r0, r6, #0x0
 	bl FUN_0205ECFC
 	ldr r0, [sp, #0x0]
-	bl FUN_02023A78
+	bl PlayerProfile_SetGameClearFlag
 	ldr r0, [r4, #0xc]
 	bl FUN_02029FC8
 	mov r1, #0x2e

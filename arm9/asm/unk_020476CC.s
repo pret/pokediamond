@@ -950,7 +950,7 @@ _02047E2C:
 	cmp r0, #0x0
 	beq _02047F10
 	ldr r0, [sp, #0x20]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x20]
 	bl PlayerProfile_GetTrainerGender

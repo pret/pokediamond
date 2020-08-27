@@ -13612,7 +13612,7 @@ _022342BC:
 	strb r0, [r5, r1]
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	mov r1, #0x12
 	lsl r1, r1, #4
 	strb r0, [r5, r1]
@@ -17658,11 +17658,11 @@ MOD80_022361AC: ; 0x022361AC
 	ldr r1, _022361E0 ; =0x00000122
 	add r0, r4, #0
 	ldrb r1, [r5, r1]
-	bl FUN_02023A6C
+	bl PlayerProfile_SetVersion
 	ldr r1, _022361E4 ; =0x00000123
 	add r0, r4, #0
 	ldrb r1, [r5, r1]
-	bl FUN_02023A74
+	bl PlayerProfile_SetLanguage
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0

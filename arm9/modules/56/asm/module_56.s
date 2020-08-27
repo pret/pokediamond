@@ -2022,11 +2022,11 @@ _02212E52:
 	blt _02212E52
 _02212E82:
 	ldr r0, [sp, #0x14]
-	bl FUN_02023A68
+	bl PlayerProfile_GetVersion
 	ldr r1, [r5, #4]
 	strb r0, [r1, #0x18]
 	ldr r0, [sp, #0x14]
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	ldr r1, [r5, #4]
 	strb r0, [r1, #0x19]
 	ldr r0, [sp, #0x10]
@@ -2040,7 +2040,7 @@ _02212E82:
 	mov r1, #0
 	strb r1, [r0, #0x1c]
 	ldr r0, [sp, #0x14]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	ldr r1, [r5, #4]
 	strb r0, [r1, #0x1d]
 	ldr r0, [sp, #0x14]

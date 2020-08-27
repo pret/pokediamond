@@ -156,12 +156,12 @@ u32 PlayerProfile_SetMoney(struct PlayerData * data, u32 amount)
     return amount;
 }
 
-u8 FUN_02023A28(struct PlayerData * data)
+u8 PlayerProfile_GetAvatar(struct PlayerData * data)
 {
     return data->avatar;
 }
 
-void FUN_02023A2C(struct PlayerData * data, u8 avatar)
+void PlayerProfile_SetAvatar(struct PlayerData * data, u8 avatar)
 {
     data->avatar = avatar;
 }
@@ -186,44 +186,44 @@ u32 PlayerProfile_SubMoney(struct PlayerData * data, u32 amount)
     return data->money;
 }
 
-u8 FUN_02023A68(struct PlayerData * data)
+u8 PlayerProfile_GetVersion(struct PlayerData * data)
 {
-    return data->field_1C;
+    return data->version;
 }
 
-void FUN_02023A6C(struct PlayerData * data, u8 a1)
+void PlayerProfile_SetVersion(struct PlayerData * data, u8 a1)
 {
-    data->field_1C = a1;
+    data->version = a1;
 }
 
-u8 FUN_02023A70(struct PlayerData * data)
+u8 PlayerProfile_GetLanguage(struct PlayerData * data)
 {
     return data->language;
 }
 
-void FUN_02023A74(struct PlayerData * data, u8 language)
+void PlayerProfile_SetLanguage(struct PlayerData * data, u8 language)
 {
     data->language = language;
 }
 
-void FUN_02023A78(struct PlayerData * data)
+void PlayerProfile_SetGameClearFlag(struct PlayerData * data)
 {
-    data->field_1D_0 = 1;
+    data->gameCleared = 1;
 }
 
-BOOL FUN_02023A88(struct PlayerData * data)
+BOOL PlayerProfile_GetGameClearFlag(struct PlayerData * data)
 {
-    return data->field_1D_0;
+    return data->gameCleared;
 }
 
-void FUN_02023A90(struct PlayerData * data)
+void PlayerProfile_SetNatDexFlag(struct PlayerData * data)
 {
-    data->field_1D_1 = 1;
+    data->nationalDex = 1;
 }
 
-BOOL FUN_02023A9C(struct PlayerData * data)
+BOOL PlayerProfile_GetNatDexFlag(struct PlayerData * data)
 {
-    return data->field_1D_1;
+    return data->nationalDex;
 }
 
 BOOL PlayerProfile_NameAndOTIDMatchPlayer(struct PlayerData * a, struct PlayerData * b)

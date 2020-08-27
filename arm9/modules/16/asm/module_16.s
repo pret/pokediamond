@@ -4630,7 +4630,7 @@ _021D980C:
 	add r0, r5, #0
 	bl MOD16_021D9A78
 	ldr r0, [r4, #4]
-	bl FUN_02023A68
+	bl PlayerProfile_GetVersion
 	ldr r1, _021D989C ; =0x0000174C
 	str r0, [r5, r1]
 	ldr r0, [r4, #4]

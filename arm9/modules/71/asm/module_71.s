@@ -3751,10 +3751,10 @@ MOD71_0222F4BC: ; 0x0222F4BC
 	bl PlayerProfile_GetTrainerID
 	str r0, [r4, #0x10]
 	add r0, r6, #0
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	strb r0, [r4, #0x14]
 	add r0, r6, #0
-	bl FUN_02023A68
+	bl PlayerProfile_GetVersion
 	strb r0, [r4, #0x15]
 	add r0, r6, #0
 	bl PlayerProfile_GetTrainerGender

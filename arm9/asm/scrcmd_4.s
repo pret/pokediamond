@@ -441,7 +441,7 @@ FUN_02040A30: ; 0x02040A30
 	bl PlayerProfile_GetTrainerGender
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	mov r2, #0x2
