@@ -1,12 +1,13 @@
 #include "global.h"
 #include "unk_02015CC0.h"
+#include "constants/map_sections.h"
 
 #pragma thumb on
 
 const u16 UNK_020ED72C[] = {
-       0,
-    2000,
-    3000
+    0,
+    METLOC_DAY_CARE_COUPLE,
+    METLOC_LOVELY_PLACE
 };
 
 int FUN_02015CC0(u16 a0)
