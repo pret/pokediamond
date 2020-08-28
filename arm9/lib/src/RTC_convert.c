@@ -45,7 +45,7 @@ s32 RTC_ConvertDateToDay(const RTCDate * date)
 
 s32 RTCi_ConvertTimeToSecond(const RTCTime * time)
 {
-    return (time->hour * 60 + time->minute) * 60 + time->second;
+    return (s32)((time->hour * 60 + time->minute) * 60 + time->second);
 }
 
 s64 RTC_ConvertDateTimeToSecond(const RTCDate * date, const RTCTime * time)
