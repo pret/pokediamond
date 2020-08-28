@@ -5263,13 +5263,13 @@ FUN_0203C300: ; 0x0203C300
 	.balign 4
 _0203C328: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203C32C
-FUN_0203C32C: ; 0x0203C32C
+	thumb_func_start ScrCmd_halloffame
+ScrCmd_halloffame: ; 0x0203C32C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x10]
-	bl FUN_02048694
+	bl Special_EnterHallOfFame
 	mov r0, #0x1
 	pop {r3, pc}
 
@@ -7876,7 +7876,7 @@ FUN_0203D834: ; 0x0203D834
 	lsl r1, r1, #0x18
 	add r0, r4, #0x0
 	lsr r1, r1, #0x18
-	bl FUN_02023A2C
+	bl PlayerProfile_SetAvatar
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -7910,8 +7910,8 @@ FUN_0203D874: ; 0x0203D874
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D8A0
-FUN_0203D8A0: ; 0x0203D8A0
+	thumb_func_start ScrCmd_getplayergender
+ScrCmd_getplayergender: ; 0x0203D8A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -7932,14 +7932,14 @@ FUN_0203D8A0: ; 0x0203D8A0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203D8D0
-FUN_0203D8D0: ; 0x0203D8D0
+	thumb_func_start ScrCmd_healparty
+ScrCmd_healparty: ; 0x0203D8D0
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_02046528
 	ldr r0, [r0, #0xc]
 	bl SavArray_PlayerParty_get
-	bl FUN_02085140
+	bl HealParty
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -10034,12 +10034,12 @@ FUN_0203E968: ; 0x0203E968
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
 	bl FUN_02024DA0
-	bl FUN_02024C84
+	bl Pokedex_SetNatDexFlag
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl Sav2_PlayerData_GetProfileAddr
-	bl FUN_02023A90
+	bl PlayerProfile_SetNatDexFlag
 	b _0203E9C8
 _0203E9AE:
 	cmp r4, #0x2
@@ -10048,7 +10048,7 @@ _0203E9AE:
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
 	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	strh r0, [r6, #0x0]
 	b _0203E9C8
 _0203E9C4:

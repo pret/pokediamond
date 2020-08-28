@@ -85,7 +85,7 @@ _02047748:
 	add r4, r7, #0x0
 _0204775C:
 	add r0, r5, #0x0
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r1, r4, #0x0
 	add r1, #0xf8
 	add r6, r6, #0x1
@@ -111,7 +111,7 @@ _02047774:
 	lsl r1, r1, #0x2
 	str r0, [r7, r1]
 	add r0, r5, #0x0
-	bl FUN_02023D6C
+	bl Sav2_Pokedex_new
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	str r0, [r7, r1]
@@ -508,7 +508,7 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x4]
 	ldr r1, [r5, r1]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	mov r1, #0x13
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0xc]
@@ -707,7 +707,7 @@ _02047C98:
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0xc]
 	ldr r1, [r6, r1]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	mov r1, #0x13
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x4]
@@ -891,7 +891,7 @@ _02047E2C:
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x18]
 	ldr r1, [r5, r1]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	mov r1, #0x13
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x10]
@@ -950,7 +950,7 @@ _02047E2C:
 	cmp r0, #0x0
 	beq _02047F10
 	ldr r0, [sp, #0x20]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x20]
 	bl PlayerProfile_GetTrainerGender
@@ -1042,7 +1042,7 @@ FUN_02047F38: ; 0x02047F38
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	ldr r1, [sp, #0x4]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	mov r0, #0x19
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
@@ -1067,7 +1067,7 @@ FUN_02047FA4: ; 0x02047FA4
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02047FD0

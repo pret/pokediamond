@@ -1834,7 +1834,7 @@ MOD51_02255690: ; 0x02255690
 	cmp r0, #0
 	bne _02255714
 	mov r0, #4
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	str r0, [sp, #4]
 	mov r6, #0
 _022556AA:

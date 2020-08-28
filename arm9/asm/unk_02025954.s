@@ -501,14 +501,14 @@ _02025C72:
 	add r1, #0xa0
 	str r0, [r1, #0x0]
 	add r0, r6, #0x0
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	ldr r1, [sp, #0x0]
 	add r2, r7, r1
 	mov r1, #0x41
 	lsl r1, r1, #0x2
 	strb r0, [r2, r1]
 	add r0, r6, #0x0
-	bl FUN_02023A68
+	bl PlayerProfile_GetVersion
 	ldr r1, [sp, #0x0]
 	add r2, r7, r1
 	ldr r1, _02025CD4 ; =0x00000109
@@ -549,7 +549,7 @@ _02025CE8:
 	cmp r0, #0x0
 	beq _02025D32
 	add r0, r1, #0x0
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	ldr r1, [sp, #0x0]
 	add r6, r0, #0x0
 	add r1, r7, r1
@@ -558,13 +558,13 @@ _02025CE8:
 	add r2, r5, r4
 	ldrb r1, [r2, r1]
 	add r0, r6, #0x0
-	bl FUN_02023A6C
+	bl PlayerProfile_SetVersion
 	mov r1, #0x41
 	add r2, r5, r4
 	lsl r1, r1, #0x2
 	ldrb r1, [r2, r1]
 	add r0, r6, #0x0
-	bl FUN_02023A74
+	bl PlayerProfile_SetLanguage
 	lsl r1, r4, #0x2
 	add r1, r5, r1
 	add r1, #0xa0

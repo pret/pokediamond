@@ -1546,7 +1546,7 @@ _02052B32:
 	lsl r1, r4, #0x2
 	str r0, [r5, r1]
 	add r0, r7, #0x0
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
 	bl PlayerProfile_GetTrainerGender
@@ -1688,7 +1688,7 @@ _02052C46:
 	cmp r0, #0x4
 	beq _02052C78
 	ldr r0, [r5, #0x8]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x8]
 	bl PlayerProfile_GetTrainerGender
@@ -1820,7 +1820,7 @@ _02052D3C:
 	mov r1, #0x1
 	bl BufferPlayersName
 	add r0, r4, #0x0
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	add r4, r0, #0x0
 	cmp r4, #0x1
 	blt _02052D80
@@ -1967,7 +1967,7 @@ FUN_02052E38: ; 0x02052E38
 	bl PlayerProfile_GetTrainerGender
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x8]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	mov r2, #0x0

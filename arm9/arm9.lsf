@@ -87,7 +87,8 @@ Static arm9
 	Object sav_system_info.o
 	Object player_data.o
 	Object unk_02023AC4.o
-	Object unk_02023C40.o
+	Object daycare.o
+	Object pokedex.o
 	Object unk_02024E64.o
 	Object options.o
 	Object unk_020250A4.o
@@ -282,7 +283,7 @@ Static arm9
 	Object unk_02083D48.o
 	Object unk_02084098.o
 	Object unk_020842D0.o
-	Object unk_020842DC.o
+	Object use_item_on_mon.o
 	Object unk_020851B8.o
 	Object nutdata.o
 	Object unk_02085338.o

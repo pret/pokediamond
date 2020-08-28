@@ -3141,7 +3141,7 @@ _021D8D9E:
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	str r0, [sp, #0x10]
 	bl FUN_02031190
 	cmp r4, r0

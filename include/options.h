@@ -10,4 +10,6 @@ struct Options {
     u16 unk0_A:5;
 };
 
+void Options_init(struct Options * options);
+
 #endif //POKEDIAMOND_OPTIONS_H

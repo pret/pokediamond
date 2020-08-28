@@ -28,7 +28,7 @@ _02033792:
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0202DFA4
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	add r3, r0, #0x0
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0

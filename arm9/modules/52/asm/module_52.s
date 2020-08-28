@@ -198,7 +198,7 @@ _021D7656:
 	lsl r1, r1, #0x18
 	add r0, r4, #0
 	lsr r1, r1, #0x18
-	bl FUN_02023A2C
+	bl PlayerProfile_SetAvatar
 	add r0, r5, #0
 	bl FUN_02024ECC
 	ldr r1, [sp]

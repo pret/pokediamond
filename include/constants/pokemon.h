@@ -1,6 +1,11 @@
 #ifndef POKEDIAMOND_CONSTANTS_POKEMON_H
 #define POKEDIAMOND_CONSTANTS_POKEMON_H
 
+// Value and data limits
+#define MAX_LEVEL     100
+#define MON_MOVES       4
+#define MAX_EV        100
+#define MAX_EV_SUM    510
 
 // Pokemon types
 #define TYPE_NONE             255
@@ -50,6 +55,19 @@
 #define EGG_GROUP_UNDISCOVERED  15
 
 #define EGG_GROUPS_PER_MON      2
+
+#define MON_STATUS_SLP_MASK    0x7
+#define MON_STATUS_SLP_SHIFT     0
+#define MON_STATUS_PSN_MASK    0x8
+#define MON_STATUS_PSN_SHIFT     3
+#define MON_STATUS_TOX_MASK   0x80
+#define MON_STATUS_TOX_SHIFT     7
+#define MON_STATUS_BRN_MASK   0x10
+#define MON_STATUS_BRN_SHIFT     4
+#define MON_STATUS_FRZ_MASK   0x20
+#define MON_STATUS_FRZ_SHIFT     5
+#define MON_STATUS_PRZ_MASK   0x40
+#define MON_STATUS_PRZ_SHIFT     6
 
 // Pokemon natures
 #define NATURE_HARDY    0

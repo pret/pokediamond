@@ -2350,7 +2350,7 @@ _02081DEC:
 	bl ErrorHandling
 _02081DFA:
 	add r0, r7, #0x0
-	bl FUN_02023A88
+	bl PlayerProfile_GetGameClearFlag
 	cmp r0, #0x0
 	beq _02081E0A
 	add r5, r5, #0x1
@@ -2377,7 +2377,7 @@ _02081E1E:
 	bl ErrorHandling
 _02081E2C:
 	add r0, r7, #0x0
-	bl FUN_02023A9C
+	bl PlayerProfile_GetNatDexFlag
 	cmp r0, #0x0
 	beq _02081E3C
 	add r5, r5, #0x1

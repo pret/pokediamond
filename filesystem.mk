@@ -288,8 +288,10 @@ O2NARC_TARGETS := \
 	files/poketool/personal/growtbl.narc \
 	files/poketool/personal/pms.narc \
 	files/poketool/waza/waza_tbl.narc \
+	files/itemtool/itemdata/item_data.narc \
 
 files/poketool/personal/pms.narc: O2NARCFLAGS = -f
+files/itemtool/itemdata/item_data.narc: O2NARCFLAGS = -p 0xFF
 
 ifeq (,$(NODEP))
 $(O2NARC_TARGETS): dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(patsubst %.narc,%.json.txt,$@))

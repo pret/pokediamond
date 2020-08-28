@@ -452,7 +452,7 @@ FUN_0202DE78: ; 0x0202DE78
 	mov r0, #0xd2
 	lsl r0, r0, #0x2
 	ldr r0, [r1, r0]
-	bl PlayerProfile_Clear
+	bl PlayerProfile_init
 	ldr r0, _0202DEA0 ; =UNK_021C59E4
 	mov r2, #0x0
 	ldr r0, [r0, #0x0]

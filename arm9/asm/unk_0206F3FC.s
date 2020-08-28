@@ -5406,7 +5406,7 @@ _02071E5A:
 	ldrh r1, [r1, #0x24]
 	ldrb r2, [r5, r2]
 	mov r3, #0x0
-	bl FUN_020847F8
+	bl CanUseItemOnMonInParty
 	cmp r0, #0x1
 	bne _02071F02
 	ldr r0, _02071F1C ; =0x000005A4

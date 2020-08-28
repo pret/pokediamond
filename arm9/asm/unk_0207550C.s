@@ -982,7 +982,7 @@ FUN_02075D20: ; 0x02075D20
 	ldrb r2, [r5, r2]
 	ldr r0, [r4, #0x0]
 	mov r3, #0x0
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	ldr r1, _02075DAC ; =0x00000B25
 	add r0, r5, #0x0
 	ldrb r1, [r5, r1]
@@ -1106,7 +1106,7 @@ FUN_02075DC0: ; 0x02075DC0
 	ldrb r2, [r5, r2]
 	ldr r0, [r6, #0x0]
 	mov r3, #0x0
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	ldr r1, _02075F50 ; =0x00000B25
 	add r0, r5, #0x0
 	ldrb r1, [r5, r1]
@@ -1237,7 +1237,7 @@ FUN_02075F60: ; 0x02075F60
 	ldrb r2, [r5, r2]
 	ldr r0, [r4, #0x0]
 	mov r3, #0x0
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	ldr r0, _02076080 ; =0x000005A4
 	ldr r1, _02076084 ; =0x00000B25
 	ldr r0, [r5, r0]
@@ -1570,7 +1570,7 @@ _02076212:
 	ldr r1, [r4, r1]
 	mov r2, #0x0
 	ldrh r1, [r1, #0x24]
-	bl FUN_02084810
+	bl UseItemOnPokemon
 	add r0, r5, #0x0
 	mov r1, #0xa2
 	mov r2, #0x0
@@ -1832,7 +1832,7 @@ FUN_0207640C: ; 0x0207640C
 	ldrb r2, [r5, r2]
 	ldr r0, [r6, #0x0]
 	mov r3, #0x0
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	add r0, r4, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
@@ -3367,7 +3367,7 @@ _0207716A:
 	ldrb r2, [r5, r2]
 	ldr r0, [r6, #0x0]
 	lsr r3, r3, #0x18
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	cmp r0, #0x1
 	bne _020771F6
 	ldr r0, _02077234 ; =0x000005A4

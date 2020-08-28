@@ -1667,7 +1667,7 @@ _0205DB1A:
 	ldr r0, [r4, #0x18]
 	ldr r0, [r0, #0xc]
 	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	cmp r0, #0x0
 	bne _0205DB30
 	mov r0, #0x0

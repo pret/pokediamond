@@ -1023,7 +1023,7 @@ MOD23_02254F94: ; 0x02254F94
 	bl MOD20_02252C40
 	bl FUN_02024DA0
 	add r5, r0, #0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	cmp r0, #0
 	beq _02254FCE
 	lsl r0, r4, #0x10

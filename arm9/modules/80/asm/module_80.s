@@ -13612,7 +13612,7 @@ _022342BC:
 	strb r0, [r5, r1]
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	mov r1, #0x12
 	lsl r1, r1, #4
 	strb r0, [r5, r1]
@@ -13746,7 +13746,7 @@ MOD80_022343DC: ; 0x022343DC
 	mov r6, #0
 	sub r7, r1, r0
 	add r0, r4, #0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	str r0, [sp, #0x14]
 	ldr r0, _022344D8 ; =0x02237B50
 	ldrh r0, [r0, r5]
@@ -17647,9 +17647,9 @@ MOD80_022361AC: ; 0x022361AC
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	mov r0, #0x3e
-	bl PlayerProfile_init
+	bl PlayerProfile_new
 	add r4, r0, #0
-	bl PlayerProfile_Clear
+	bl PlayerProfile_init
 	mov r1, #0x43
 	lsl r1, r1, #2
 	add r0, r4, #0
@@ -17658,11 +17658,11 @@ MOD80_022361AC: ; 0x022361AC
 	ldr r1, _022361E0 ; =0x00000122
 	add r0, r4, #0
 	ldrb r1, [r5, r1]
-	bl FUN_02023A6C
+	bl PlayerProfile_SetVersion
 	ldr r1, _022361E4 ; =0x00000123
 	add r0, r4, #0
 	ldrb r1, [r5, r1]
-	bl FUN_02023A74
+	bl PlayerProfile_SetLanguage
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
