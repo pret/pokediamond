@@ -31,7 +31,7 @@
 #define ITEMATTR_UNK5                              9
 #define ITEMATTR_UNK6                             10
 #define ITEMATTR_NATURAL_GIFT_POWER               11
-#define ITEMATTR_UNK8_0                           12
+#define ITEMATTR_NATURAL_GIFT_TYPE                12
 #define ITEMATTR_UNK8_B                           13
 #define ITEMATTR_PARTY_USE                        14
 #define ITEMATTR_SLP_HEAL                         15

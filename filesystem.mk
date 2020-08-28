@@ -289,6 +289,7 @@ O2NARC_TARGETS := \
 	files/poketool/personal/pms.narc \
 	files/poketool/waza/waza_tbl.narc \
 	files/itemtool/itemdata/item_data.narc \
+	files/itemtool/itemdata/nuts_data.narc \
 
 files/poketool/personal/pms.narc: O2NARCFLAGS = -f
 files/itemtool/itemdata/item_data.narc: O2NARCFLAGS = -p 0xFF

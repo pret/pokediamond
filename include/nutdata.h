@@ -3,19 +3,25 @@
 
 #include "filesystem.h"
 
+#define FIRMNESS_VERY_SOFT     1
+#define FIRMNESS_SOFT          2
+#define FIRMNESS_HARD          3
+#define FIRMNESS_VERY_HARD     4
+#define FIRMNESS_SUPER_HARD    5
+
 struct NutData
 {
-    u16 unk0;
-    u8 unk2;
-    u8 unk3;
-    u8 unk4;
+    u16 size;
+    u8 firmness;
+    u8 yieldCategory;
+    u8 stageDuration;
     u8 unk5;
-    u8 unk6;
-    u8 unk7;
-    u8 unk8;
-    u8 unk9;
-    u8 unkA;
-    u8 unkB;
+    u8 spicy;
+    u8 dry;
+    u8 sweet;
+    u8 bitter;
+    u8 sour;
+    u8 smoothness;
 };
 
 NARC * OpenNutsDataNarc(u32 heap_id);
