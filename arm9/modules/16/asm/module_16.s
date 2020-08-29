@@ -4732,7 +4732,7 @@ MOD16_021D98EC: ; 0x021D98EC
 _021D98FA:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl FUN_020246DC
+	bl Pokedex_GetSeenUnownI
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD16_021D98EC
 
@@ -4882,11 +4882,11 @@ _021D99F0:
 
 	thumb_func_start MOD16_021D99F4
 MOD16_021D99F4: ; 0x021D99F4
-	ldr r3, _021D99FC ; =FUN_0202471C
+	ldr r3, _021D99FC ; =Pokedex_CountSeenUnown
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D99FC: .word FUN_0202471C
+_021D99FC: .word Pokedex_CountSeenUnown
 	thumb_func_end MOD16_021D99F4
 
 	thumb_func_start MOD16_021D9A00
@@ -4927,12 +4927,12 @@ _021D9A2C: .word FUN_0202490C
 
 	thumb_func_start MOD16_021D9A30
 MOD16_021D9A30: ; 0x021D9A30
-	ldr r3, _021D9A38 ; =FUN_02024648
+	ldr r3, _021D9A38 ; =Pokedex_GetSeenSpindaPersonality
 	ldr r0, [r0]
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021D9A38: .word FUN_02024648
+_021D9A38: .word Pokedex_GetSeenSpindaPersonality
 	thumb_func_end MOD16_021D9A30
 
 	thumb_func_start MOD16_021D9A3C
@@ -5703,7 +5703,7 @@ _021D9F72:
 	ldr r0, [r5]
 	lsr r1, r1, #0x10
 	add r2, r6, #0
-	bl FUN_02024D00
+	bl Pokedex_GetMeisterFlagBySpeciesAndLanguage
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD16_021D9F58
 
@@ -5767,7 +5767,7 @@ MOD16_021D9FC4: ; 0x021D9FC4
 _021D9FDA:
 	ldrh r1, [r4]
 	ldr r0, [sp, #4]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _021D9FF6
 	ldr r1, [r5]
@@ -5825,7 +5825,7 @@ _021DA034:
 	cmp r0, #1
 	beq _021DA054
 	ldr r0, [sp, #0x34]
-	bl FUN_02024594
+	bl Pokedex_CheckMonCaughtFlag
 	cmp r0, #0
 	bne _021DA054
 _021DA04C:
@@ -5875,7 +5875,7 @@ MOD16_021DA080: ; 0x021DA080
 _021DA094:
 	ldrh r1, [r4]
 	ldr r0, [sp]
-	bl FUN_02024594
+	bl Pokedex_CheckMonCaughtFlag
 	cmp r0, #0
 	ldr r0, _021DA0D4 ; =0x00000F6C
 	beq _021DA0AC
@@ -9673,12 +9673,12 @@ _021DBBB0: .word String_dtor
 MOD16_021DBBB4: ; 0x021DBBB4
 	add r1, r0, #1
 	ldr r0, _021DBBC0 ; =0x021FF568
-	ldr r3, _021DBBC4 ; =FUN_02087A38
+	ldr r3, _021DBBC4 ; =GetMeisterLanguage
 	ldrb r0, [r0, r1]
 	bx r3
 	nop
 _021DBBC0: .word MOD16_021FF568
-_021DBBC4: .word FUN_02087A38
+_021DBBC4: .word GetMeisterLanguage
 	thumb_func_end MOD16_021DBBB4
 
 	thumb_func_start MOD16_021DBBC8
@@ -9847,14 +9847,14 @@ MOD16_021DBCE0: ; 0x021DBCE0
 	add r4, r2, #0
 	add r5, r3, #0
 	ldr r6, [sp, #0x18]
-	bl FUN_02087A1C
+	bl GetMeisterLanguageIdx
 	str r0, [r5]
 	cmp r0, #6
 	blt _021DBCFA
 	bl ErrorHandling
 _021DBCFA:
 	add r0, r7, #0
-	bl FUN_02087A50
+	bl GetMeisterSpeciesIdx
 	str r0, [r4]
 	ldr r5, [r5]
 	cmp r5, #6

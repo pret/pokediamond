@@ -6326,11 +6326,11 @@ MOD05_021E8310: ; 0x021E8310
 	bl FUN_02034824
 	str r0, [r5, #4]
 	add r0, r7, #0
-	bl FUN_02024D64
+	bl Pokedex_GetSinnohDexFlag
 	cmp r0, #0
 	beq _021E8344
 	add r0, r7, #0
-	bl FUN_02024440
+	bl Pokedex_CountSeenMons
 	b _021E8346
 _021E8344:
 	mov r0, #0

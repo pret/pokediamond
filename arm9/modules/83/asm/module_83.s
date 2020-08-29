@@ -1101,7 +1101,7 @@ _0222DDB8:
 	beq _0222DE76
 	ldr r0, [sp, #0x10]
 	ldr r0, [r0, #8]
-	bl FUN_02024440
+	bl Pokedex_CountSeenMons
 	add r1, r0, #0
 	ldr r0, [sp, #0x28]
 	bl MOD83_0222DCF4
@@ -1958,7 +1958,7 @@ MOD83_0222E48C: ; 0x0222E48C
 	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #8]
-	bl FUN_02024D64
+	bl Pokedex_GetSinnohDexFlag
 	str r0, [r4, #0x4c]
 	ldr r0, [r4, #0xc]
 	bl PlayerProfile_CountBadges
@@ -3133,7 +3133,7 @@ _0222EEAC: ; jump table
 _0222EEC8:
 	bl MOD83_0222E954
 	ldr r0, [r4, #0xc]
-	bl FUN_02024D64
+	bl Pokedex_GetSinnohDexFlag
 	cmp r0, #0
 	bne _0222EEE4
 	mov r0, #1

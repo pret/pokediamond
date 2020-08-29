@@ -1042,7 +1042,7 @@ _02254FD8:
 	bhi _02254FF4
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _02254FF4
 	add r0, r4, #0

@@ -317,7 +317,7 @@ FUN_02035270: ; 0x02035270
 	ldr r0, [r5, #0xc]
 	mov r4, #0x0
 	bl FUN_02024DA0
-	bl FUN_02024D64
+	bl Pokedex_GetSinnohDexFlag
 	cmp r0, #0x0
 	bne _02035288
 	mov r0, #0x1

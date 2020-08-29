@@ -1096,7 +1096,7 @@ _0206CFFA:
 	bne _0206D084
 	ldr r0, [r4, #0x48]
 	ldr r1, [r4, #0x28]
-	bl FUN_02024AF0
+	bl Pokedex_SetMonCaughtFlag
 	ldr r0, [r4, #0x50]
 	mov r1, #0xc
 	bl FUN_0202A0E8
@@ -2198,7 +2198,7 @@ _0206D8EA:
 	bl AddMonToParty
 	ldr r0, [r4, #0x48]
 	add r1, r5, #0x0
-	bl FUN_02024AF0
+	bl Pokedex_SetMonCaughtFlag
 	ldr r0, [r4, #0x50]
 	mov r1, #0xc
 	bl FUN_0202A0E8

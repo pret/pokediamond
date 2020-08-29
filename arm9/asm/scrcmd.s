@@ -6724,7 +6724,7 @@ FUN_0203CF04: ; 0x0203CF04
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_020244A4
+	bl Pokedex_CountSinnohDexSeenMons
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -6747,7 +6747,7 @@ FUN_0203CF34: ; 0x0203CF34
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0202445C
+	bl Pokedex_CountSinnohDexCaughtMons
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -6770,7 +6770,7 @@ FUN_0203CF64: ; 0x0203CF64
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02024404
+	bl Pokedex_CountNationalDexSeenMons
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -6793,7 +6793,7 @@ FUN_0203CF94: ; 0x0203CF94
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_020243C8
+	bl Pokedex_CountNationalDexCaughtMons
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -6834,7 +6834,7 @@ FUN_0203CFC8: ; 0x0203CFC8
 	cmp r6, #0x0
 	bne _0203D02E
 	add r0, r7, #0x0
-	bl FUN_02024550
+	bl Pokedex_CountSinnohDexSeenMons_OmitMythicals
 	add r5, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -6851,7 +6851,7 @@ FUN_0203CFC8: ; 0x0203CFC8
 	b _0203D048
 _0203D02E:
 	add r0, r7, #0x0
-	bl FUN_02024518
+	bl Pokedex_CountNationalDexCaughtMons_OmitMythicals
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x0]
 	bl PlayerProfile_GetTrainerGender
@@ -9317,7 +9317,7 @@ FUN_0203E3D0: ; 0x0203E3D0
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02024504
+	bl Pokedex_HasCompletedSinnohDex
 	cmp r0, #0x1
 	bne _0203E404
 	mov r0, #0x1
@@ -9345,7 +9345,7 @@ FUN_0203E408: ; 0x0203E408
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl FUN_020244EC
+	bl Pokedex_HasCompletedNationalDex
 	cmp r0, #0x1
 	bne _0203E43C
 	mov r0, #0x1
@@ -9775,7 +9775,7 @@ FUN_0203E774: ; 0x0203E774
 	bl GetVarPointer
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
-	bl FUN_020244A4
+	bl Pokedex_CountSinnohDexSeenMons
 	add r4, r0, #0x0
 	bl LCRandom
 	add r1, r4, #0x0
@@ -9790,7 +9790,7 @@ FUN_0203E774: ; 0x0203E774
 _0203E7B6:
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0x1
 	bne _0203E7DC
 	add r0, r4, #0x0
@@ -10490,7 +10490,7 @@ FUN_0203ED2C: ; 0x0203ED2C
 	bl CreateMon
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_0202498C
+	bl Pokedex_SetMonSeenFlag
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add sp, #0x10
@@ -10733,7 +10733,7 @@ _0203EF18:
 	bl CalcMonLevelAndStats
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl FUN_02024AF0
+	bl Pokedex_SetMonCaughtFlag
 _0203EF48:
 	add r5, r5, #0x1
 	cmp r5, r6
@@ -11452,7 +11452,7 @@ FUN_0203F4D8: ; 0x0203F4D8
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0202471C
+	bl Pokedex_CountSeenUnown
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}

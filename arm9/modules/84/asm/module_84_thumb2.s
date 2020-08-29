@@ -241,7 +241,7 @@ _021D82CC:
 	lsl r1, r5, #0x10
 	add r0, r6, #0
 	lsr r1, r1, #0x10
-	bl FUN_02024594
+	bl Pokedex_CheckMonCaughtFlag
 	cmp r0, #0
 	beq _021D8340
 	lsl r0, r5, #0x10

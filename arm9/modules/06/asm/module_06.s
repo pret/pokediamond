@@ -21819,7 +21819,7 @@ _02244264:
 	add r7, r0, #0
 	ldr r0, [sp, #0x18]
 	add r1, r7, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _0224429E
 	ldr r0, [sp, #0x10]
@@ -32179,7 +32179,7 @@ MOD06_02249184: ; 0x02249184
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl FUN_02024DA0
-	bl FUN_02024504
+	bl Pokedex_HasCompletedSinnohDex
 	pop {r3, pc}
 	.align 2, 0
 
@@ -32188,7 +32188,7 @@ MOD06_02249194: ; 0x02249194
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl FUN_02024DA0
-	bl FUN_02024D64
+	bl Pokedex_GetSinnohDexFlag
 	pop {r3, pc}
 	.align 2, 0
 
