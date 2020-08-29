@@ -30,7 +30,7 @@ FUN_0206BB48: ; 0x0206BB48
 	bne _0206BB58
 	lsl r0, r1, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_02069B40
+	bl SpeciesToSinnohDexNo
 	add r1, r0, #0x0
 _0206BB58:
 	add r0, r1, #0x0

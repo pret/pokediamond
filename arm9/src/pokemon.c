@@ -3026,7 +3026,7 @@ u8 FUN_02069AEC(struct PlayerParty * party)
     return ret;
 }
 
-u16 FUN_02069B40(u16 species)
+u16 SpeciesToSinnohDexNo(u16 species)
 {
     u16 ret;
     ReadFromNarcMemberByIdPair(&ret, NARC_POKETOOL_POKEZUKAN, 0, species * sizeof(u16), sizeof(u16));

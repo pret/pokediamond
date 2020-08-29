@@ -77,7 +77,7 @@ struct ItemData
     u8 unk5;
     u8 unk6;
     u8 naturalGiftPower;
-    u16 unk8_0:5;
+    u16 naturalGiftType:5;
     u16 prevent_toss:1;
     u16 selectable:1;
     u16 pocket:4;

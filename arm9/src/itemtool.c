@@ -810,8 +810,8 @@ u32 GetItemAttr_PreloadedItemData(struct ItemData * itemData, u32 attr)
         return itemData->unk6;
     case ITEMATTR_NATURAL_GIFT_POWER:
         return itemData->naturalGiftPower;
-    case ITEMATTR_UNK8_0:
-        return itemData->unk8_0;
+    case ITEMATTR_NATURAL_GIFT_TYPE:
+        return itemData->naturalGiftType;
     case ITEMATTR_UNK8_B:
         return itemData->unk8_B;
     case ITEMATTR_PARTY_USE:

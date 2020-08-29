@@ -3,10 +3,12 @@
 #include "global.h"
 #include "itemtool.h"
 #include "constants/items.h"
+#include "constants/pokemon.h"
 
 u32 __size = sizeof(struct ItemData) - 2;
 
 const struct ItemData __data[] = {
+	{ 0 }, // default fallback
 ## for item in item_data
 	{ // {{ item.name }}
 		{{ item.price }},
@@ -16,7 +18,7 @@ const struct ItemData __data[] = {
 		{{ item.unk5 }},
 		{{ item.unk6 }},
 		{{ item.naturalGiftPower }},
-		{{ item.unk8_0 }},
+		{{ item.naturalGiftType }},
 		{{ item.prevent_toss }},
 		{{ item.selectable }},
 		{{ item.pocket }},

@@ -1261,7 +1261,7 @@ MOD16_021D7E68: ; 0x021D7E68
 	lsl r0, r6, #0x10
 	lsr r0, r0, #0x10
 	add r5, r1, #0
-	bl FUN_02069B40
+	bl SpeciesToSinnohDexNo
 	add r7, r0, #0
 	cmp r7, #0
 	bgt _021D7E82
