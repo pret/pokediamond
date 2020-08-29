@@ -36,27 +36,27 @@ u32 GetNutAttr(struct NutData * nut, u32 attr)
     switch (attr)
     {
     case 0:
-        return nut->unk0;
+        return nut->size;
     case 1:
-        return nut->unk2;
+        return nut->firmness;
     case 2:
-        return nut->unk3;
+        return nut->yieldCategory;
     case 3:
-        return nut->unk4;
+        return nut->stageDuration;
     case 4:
         return nut->unk5;
     case 5:
-        return nut->unk6;
+        return nut->spicy;
     case 6:
-        return nut->unk7;
+        return nut->dry;
     case 7:
-        return nut->unk8;
+        return nut->sweet;
     case 8:
-        return nut->unk9;
+        return nut->bitter;
     case 9:
-        return nut->unkA;
+        return nut->sour;
     case 10:
-        return nut->unkB;
+        return nut->smoothness;
     default:
         return 0;
     }
