@@ -9794,7 +9794,7 @@ _0203E7B6:
 	cmp r0, #0x1
 	bne _0203E7DC
 	add r0, r4, #0x0
-	bl FUN_02069B40
+	bl SpeciesToSinnohDexNo
 	cmp r0, #0x0
 	beq _0203E7DC
 	cmp r5, r6

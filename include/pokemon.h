@@ -280,7 +280,7 @@ void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
 void FUN_020699A4(struct Pokemon * pokemon, u32 slot);
 void FUN_02069A64(struct BoxPokemon * src, struct Pokemon * dest);
 u8 FUN_02069AEC(struct PlayerParty * party);
-u16 FUN_02069B40(u16 species);
+u16 SpeciesToSinnohDexNo(u16 species);
 u16 FUN_02069B60(u16 sinnoh_dex);
 void FUN_02069B88(struct Pokemon * src, struct Pokemon * dest);
 void FUN_02069BA0(struct Pokemon * src, struct BoxPokemon * dest);

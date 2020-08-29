@@ -4799,7 +4799,7 @@
 .extern FUN_020699A4
 .extern FUN_02069A64
 .extern FUN_02069AEC
-.extern FUN_02069B40
+.extern SpeciesToSinnohDexNo
 .extern FUN_02069B60
 .extern FUN_02069B88
 .extern FUN_02069BA0
