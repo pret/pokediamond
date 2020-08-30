@@ -1952,7 +1952,7 @@ MOD83_0222E48C: ; 0x0222E48C
 	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #4]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [r4, #8]
 	ldr r0, [r4, #4]
 	bl Sav2_PlayerData_GetIGTAddr
@@ -3054,7 +3054,7 @@ MOD83_0222EDF8: ; 0x0222EDF8
 	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #8]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #8]
 	bl Sav2_PlayerData_GetOptionsAddr

@@ -1979,7 +1979,7 @@ MOD56_02212E0C: ; 0x02212E0C
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	add r0, #0xc4

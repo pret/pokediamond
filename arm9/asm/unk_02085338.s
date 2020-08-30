@@ -16,7 +16,7 @@ FUN_02085338: ; 0x02085338
 	strb r5, [r4, #0x0]
 	strb r7, [r4, #0x1]
 	add r0, r6, #0x0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [r4, #0xc]
 	add r0, r6, #0x0
 	bl FUN_02013B5C

@@ -3646,7 +3646,7 @@ _02082740:
 _0208274C:
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r7, r0, #0x0
 	ldr r0, _02082858 ; =0x00000127
 	ldrb r6, [r4, r0]

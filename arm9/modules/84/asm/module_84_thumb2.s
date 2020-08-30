@@ -273,7 +273,7 @@ _021D82CC:
 	add r0, r6, #0
 	add r1, r5, #0
 	mov r2, #0
-	bl FUN_02024DAC
+	bl Pokedex_GetSeenMonForme
 	ldr r1, _021D8428 ; =0x00001220
 	ldr r1, [r4, r1]
 	lsl r1, r1, #3
@@ -387,7 +387,7 @@ _021D83E8:
 	ldrh r1, [r4, r1]
 	add r0, r6, #0
 	mov r2, #0
-	bl FUN_02024DAC
+	bl Pokedex_GetSeenMonForme
 	ldr r1, _021D8438 ; =0x000002BB
 	add r5, r5, #1
 	strb r0, [r4, r1]

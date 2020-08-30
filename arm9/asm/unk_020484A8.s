@@ -298,7 +298,7 @@ Special_EnterHallOfFame: ; 0x02048694
 	bl FUN_0205ED0C
 	str r0, [r5, #0x14]
 	ldr r0, [r4, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [r5, #0x18]
 	add r0, r6, #0x0
 	bl FUN_0205ED0C

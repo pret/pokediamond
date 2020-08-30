@@ -4747,7 +4747,7 @@ MOD16_021D9904: ; 0x021D9904
 _021D9912:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl FUN_02024748
+	bl Pokedex_GetSeenShellosForme
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD16_021D9904
 
@@ -4762,7 +4762,7 @@ MOD16_021D991C: ; 0x021D991C
 _021D992A:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl FUN_020247C8
+	bl Pokedex_GetSeenGastrodonForme
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD16_021D991C
 
@@ -4777,7 +4777,7 @@ MOD16_021D9934: ; 0x021D9934
 _021D9942:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl FUN_0202484C
+	bl Pokedex_GetSeenBurmyForme
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD16_021D9934
 
@@ -4792,7 +4792,7 @@ MOD16_021D994C: ; 0x021D994C
 _021D995A:
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl FUN_020248BC
+	bl Pokedex_GetSeenWormadamForme
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD16_021D994C
 
@@ -4891,38 +4891,38 @@ _021D99FC: .word Pokedex_CountSeenUnown
 
 	thumb_func_start MOD16_021D9A00
 MOD16_021D9A00: ; 0x021D9A00
-	ldr r3, _021D9A08 ; =FUN_020247A4
+	ldr r3, _021D9A08 ; =Pokedex_CountSeenShellos
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9A08: .word FUN_020247A4
+_021D9A08: .word Pokedex_CountSeenShellos
 	thumb_func_end MOD16_021D9A00
 
 	thumb_func_start MOD16_021D9A0C
 MOD16_021D9A0C: ; 0x021D9A0C
-	ldr r3, _021D9A14 ; =FUN_02024828
+	ldr r3, _021D9A14 ; =Pokedex_CountSeenGastrodon
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9A14: .word FUN_02024828
+_021D9A14: .word Pokedex_CountSeenGastrodon
 	thumb_func_end MOD16_021D9A0C
 
 	thumb_func_start MOD16_021D9A18
 MOD16_021D9A18: ; 0x021D9A18
-	ldr r3, _021D9A20 ; =FUN_0202489C
+	ldr r3, _021D9A20 ; =Pokedex_CountSeenBurmy
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9A20: .word FUN_0202489C
+_021D9A20: .word Pokedex_CountSeenBurmy
 	thumb_func_end MOD16_021D9A18
 
 	thumb_func_start MOD16_021D9A24
 MOD16_021D9A24: ; 0x021D9A24
-	ldr r3, _021D9A2C ; =FUN_0202490C
+	ldr r3, _021D9A2C ; =Pokedex_CountSeenWormadam
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9A2C: .word FUN_0202490C
+_021D9A2C: .word Pokedex_CountSeenWormadam
 	thumb_func_end MOD16_021D9A24
 
 	thumb_func_start MOD16_021D9A30
@@ -4937,20 +4937,20 @@ _021D9A38: .word Pokedex_GetSeenSpindaPersonality
 
 	thumb_func_start MOD16_021D9A3C
 MOD16_021D9A3C: ; 0x021D9A3C
-	ldr r3, _021D9A44 ; =FUN_02024930
+	ldr r3, _021D9A44 ; =Pokedex_GetSeenDeoxysForme
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9A44: .word FUN_02024930
+_021D9A44: .word Pokedex_GetSeenDeoxysForme
 	thumb_func_end MOD16_021D9A3C
 
 	thumb_func_start MOD16_021D9A48
 MOD16_021D9A48: ; 0x021D9A48
-	ldr r3, _021D9A50 ; =FUN_02024970
+	ldr r3, _021D9A50 ; =Pokedex_CountSeenDeoxys
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9A50: .word FUN_02024970
+_021D9A50: .word Pokedex_CountSeenDeoxys
 	thumb_func_end MOD16_021D9A48
 
 	thumb_func_start MOD16_021D9A54

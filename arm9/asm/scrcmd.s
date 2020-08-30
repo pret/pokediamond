@@ -6714,7 +6714,7 @@ FUN_0203CF04: ; 0x0203CF04
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -6737,7 +6737,7 @@ FUN_0203CF34: ; 0x0203CF34
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -6760,7 +6760,7 @@ FUN_0203CF64: ; 0x0203CF64
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -6783,7 +6783,7 @@ FUN_0203CF94: ; 0x0203CF94
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -6811,7 +6811,7 @@ FUN_0203CFC8: ; 0x0203CFC8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -9305,7 +9305,7 @@ FUN_0203E3D0: ; 0x0203E3D0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -9333,7 +9333,7 @@ FUN_0203E408: ; 0x0203E408
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -9765,7 +9765,7 @@ FUN_0203E774: ; 0x0203E774
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -9994,7 +9994,7 @@ FUN_0203E940: ; 0x0203E940
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl FUN_02024D4C
 	mov r0, #0x0
 	pop {r3, pc}
@@ -10005,7 +10005,7 @@ FUN_0203E954: ; 0x0203E954
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl FUN_02024CE0
 	mov r0, #0x0
 	pop {r3, pc}
@@ -10033,7 +10033,7 @@ FUN_0203E968: ; 0x0203E968
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_SetNatDexFlag
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
@@ -10047,7 +10047,7 @@ _0203E9AE:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_GetNatDexFlag
 	strh r0, [r6, #0x0]
 	b _0203E9C8
@@ -10472,7 +10472,7 @@ FUN_0203ED2C: ; 0x0203ED2C
 	sub sp, #0x10
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r6, r0, #0x0
 	mov r0, #0x20
 	bl AllocMonZeroed
@@ -10709,7 +10709,7 @@ FUN_0203EED8: ; 0x0203EED8
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r7, r0, #0x0
 	mov r5, #0x0
 	cmp r6, #0x0
@@ -11442,7 +11442,7 @@ FUN_0203F4D8: ; 0x0203F4D8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword

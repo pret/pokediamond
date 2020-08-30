@@ -6320,7 +6320,7 @@ MOD05_021E8310: ; 0x021E8310
 	bl FUN_02034DC0
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r7, r0, #0
 	ldr r0, [r6]
 	bl FUN_02034824

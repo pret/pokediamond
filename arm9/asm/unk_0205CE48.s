@@ -1666,7 +1666,7 @@ _0205DB08:
 _0205DB1A:
 	ldr r0, [r4, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_GetNatDexFlag
 	cmp r0, #0x0
 	bne _0205DB30
