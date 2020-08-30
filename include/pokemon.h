@@ -6,7 +6,7 @@
 // Enums
 
 #include "constants/species.h"
-#include "seals.h"
+#include "mail.h"
 #include "constants/pokemon.h"
 #include "string16.h"
 #include "player_data.h"
@@ -142,7 +142,7 @@ struct PartyPokemon
     /* 0x096 */ u16 speed;
     /* 0x098 */ u16 spatk;
     /* 0x09A */ u16 spdef;
-    /* 0x09C */ struct SealStruct seal_something; // a struct?
+    /* 0x09C */ struct Mail seal_something; // a struct?
     /* 0x0D4 */ u8 sealCoords[0x18];     // u8 pairs?
 };
 

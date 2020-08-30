@@ -282,7 +282,7 @@
 #define MON_DATA_SPEED                          166
 #define MON_DATA_SPATK                          167
 #define MON_DATA_SPDEF                          168
-#define MON_DATA_SEAL_STRUCT                    169
+#define MON_DATA_MAIL_STRUCT                    169
 #define MON_DATA_SEAL_COORDS                    170
 #define MON_DATA_SPECIES_EXISTS                 171
 #define MON_DATA_SANITY_IS_EGG                  172

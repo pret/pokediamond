@@ -323,7 +323,7 @@ FUN_0202A1C4: ; 0x0202A1C4
 	add r4, r0, #0x0
 	add r0, r1, #0x0
 	add r1, r2, #0x0
-	bl FUN_02024594
+	bl Pokedex_CheckMonCaughtFlag
 	cmp r0, #0x0
 	bne _0202A1DC
 	add r0, r4, #0x0

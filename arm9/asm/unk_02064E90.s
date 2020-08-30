@@ -48,12 +48,12 @@ FUN_02064E90: ; 0x02064E90
 	bl PlayerProfile_GetMoney
 	str r0, [sp, #0x34]
 	ldr r0, [r6, #0xc]
-	bl FUN_02024DA0
-	bl FUN_02024440
+	bl Sav2_Pokedex_get
+	bl Pokedex_CountSeenMons
 	str r0, [sp, #0x38]
 	ldr r0, [r6, #0xc]
-	bl FUN_02024DA0
-	bl FUN_02024D64
+	bl Sav2_Pokedex_get
+	bl Pokedex_GetSinnohDexFlag
 	str r0, [sp, #0x3c]
 	add r0, r4, #0x0
 	bl FUN_0202A1B8
@@ -238,8 +238,8 @@ FUN_02065078: ; 0x02065078
 	lsr r4, r0, #0x18
 _020650A8:
 	add r0, r7, #0x0
-	bl FUN_02024DA0
-	bl FUN_020244EC
+	bl Sav2_Pokedex_get
+	bl Pokedex_HasCompletedNationalDex
 	cmp r0, #0x0
 	beq _020650BC
 	add r0, r4, #0x1

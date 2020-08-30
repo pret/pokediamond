@@ -94,7 +94,7 @@ Static arm9
 	Object unk_020250A4.o
 	Object unk_02025484.o
 	Object unk_020254B8.o
-	Object unk_02025658.o
+	Object mail.o
 	Object unk_02025954.o
 	Object unk_02026CD0.o
 	Object unk_02027E30.o

@@ -4744,7 +4744,7 @@ MOD11_022315C0: ; 0x022315C0
 _022315FE:
 	ldr r0, [r5, #0x60]
 	add r1, r6, #0
-	bl FUN_0202498C
+	bl Pokedex_SetMonSeenFlag
 _02231606:
 	mov r0, #1
 	tst r0, r4
@@ -4759,7 +4759,7 @@ _02231606:
 	bne _02231626
 	ldr r0, [r5, #0x60]
 	add r1, r6, #0
-	bl FUN_02024AF0
+	bl Pokedex_SetMonCaughtFlag
 _02231626:
 	pop {r4, r5, r6, pc}
 
@@ -4790,20 +4790,20 @@ MOD11_02231628: ; 0x02231628
 	bl MOD11_02230014
 	add r1, r0, #0
 	ldr r0, [r5, #0x60]
-	bl FUN_02024AF0
+	bl Pokedex_SetMonCaughtFlag
 _02231664:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
 	thumb_func_start MOD11_02231668
 MOD11_02231668: ; 0x02231668
-	ldr r3, _02231674 ; =FUN_02024594
+	ldr r3, _02231674 ; =Pokedex_CheckMonCaughtFlag
 	lsl r1, r1, #0x10
 	ldr r0, [r0, #0x60]
 	lsr r1, r1, #0x10
 	bx r3
 	nop
-_02231674: .word FUN_02024594
+_02231674: .word Pokedex_CheckMonCaughtFlag
 
 	thumb_func_start MOD11_02231678
 MOD11_02231678: ; 0x02231678

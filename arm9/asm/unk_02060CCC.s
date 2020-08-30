@@ -828,14 +828,14 @@ FUN_020611E8: ; 0x020611E8
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl MOD06_02248B60
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x6]
 	add r0, r4, #0x0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -919,9 +919,9 @@ FUN_02061288: ; 0x02061288
 	pop {r3-r5, pc}
 _0206129E:
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x0]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_020612AC
@@ -1135,9 +1135,9 @@ FUN_02061444: ; 0x02061444
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x0]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1221,14 +1221,14 @@ FUN_020614FC: ; 0x020614FC
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl MOD06_02248B60
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1348,14 +1348,14 @@ FUN_020615F8: ; 0x020615F8
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl MOD06_02248B60
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1423,9 +1423,9 @@ FUN_02061688: ; 0x02061688
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x0]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1632,9 +1632,9 @@ FUN_02061834: ; 0x02061834
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x0]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1814,9 +1814,9 @@ FUN_02061990: ; 0x02061990
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x2]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0x0
 	bne _020619B0
 	mov r0, #0x0
@@ -1920,9 +1920,9 @@ FUN_02061A70: ; 0x02061A70
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x0]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -2273,9 +2273,9 @@ FUN_02061D30: ; 0x02061D30
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x0]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -2420,9 +2420,9 @@ FUN_02061E60: ; 0x02061E60
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x2]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -2480,9 +2480,9 @@ FUN_02061EDC: ; 0x02061EDC
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	ldrh r1, [r4, #0x0]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
 	.balign 4
 

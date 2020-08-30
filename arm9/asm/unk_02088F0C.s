@@ -640,7 +640,7 @@ FUN_02088FA0: ; 0x02088FA0
 _02088FBE:
 	ldrh r1, [r5, #0x0]
 	ldr r0, [sp, #0x8]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0x0
 	beq _02088FEC
 	ldrh r3, [r5, #0x0]

@@ -638,7 +638,7 @@ _02085E66:
 	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r6, #0x10]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x0

@@ -5043,7 +5043,7 @@ _0223BBDA:
 	blt _0223BBDA
 	add r0, r5, #0
 	bl ScriptEnvironment_GetSav2Ptr
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	add r0, r4, #0
@@ -5480,7 +5480,7 @@ _0223BF7E:
 	blt _0223BF7E
 	add r0, r5, #0
 	bl ScriptEnvironment_GetSav2Ptr
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	add r0, r4, #0
@@ -5790,7 +5790,7 @@ _0223C222:
 	blt _0223C222
 	add r0, r5, #0
 	bl ScriptEnvironment_GetSav2Ptr
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	ldr r0, [sp, #0x14]
@@ -21793,7 +21793,7 @@ MOD06_02244210: ; 0x02244210
 	bl String_ctor
 	str r0, [sp, #0x1c]
 	add r0, r4, #0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x18]
 	ldr r2, _022442C0 ; =0x0000016A
 	mov r0, #1
@@ -21819,7 +21819,7 @@ _02244264:
 	add r7, r0, #0
 	ldr r0, [sp, #0x18]
 	add r1, r7, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _0224429E
 	ldr r0, [sp, #0x10]
@@ -23653,7 +23653,7 @@ _02245098:
 	blo _02245098
 	add r0, r5, #0
 	bl ScriptEnvironment_GetSav2Ptr
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
@@ -32178,8 +32178,8 @@ _02249180:
 MOD06_02249184: ; 0x02249184
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
-	bl FUN_02024504
+	bl Sav2_Pokedex_get
+	bl Pokedex_HasCompletedSinnohDex
 	pop {r3, pc}
 	.align 2, 0
 
@@ -32187,8 +32187,8 @@ MOD06_02249184: ; 0x02249184
 MOD06_02249194: ; 0x02249194
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
-	bl FUN_02024D64
+	bl Sav2_Pokedex_get
+	bl Pokedex_GetSinnohDexFlag
 	pop {r3, pc}
 	.align 2, 0
 

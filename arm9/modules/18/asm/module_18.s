@@ -3027,7 +3027,7 @@ MOD18_0223AE88: ; 0x0223AE88
 	bl FUN_02025C38
 	add r4, r0, #0
 	add r0, r6, #0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_GetNatDexFlag
 	mov r1, #0
 	cmp r0, #0
@@ -38228,7 +38228,7 @@ MOD18_0224C0AC: ; 0x0224C0AC
 	bl FUN_02026CC4
 	add r7, r0, #0
 	add r0, r5, #0
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl Pokedex_GetNatDexFlag
 	str r0, [sp, #4]
 	add r0, r7, #0

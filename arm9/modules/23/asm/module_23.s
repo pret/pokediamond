@@ -1021,7 +1021,7 @@ MOD23_02254F94: ; 0x02254F94
 	blt _02254FF4
 	ldr r0, [r5, #0x10]
 	bl MOD20_02252C40
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r5, r0, #0
 	bl Pokedex_GetNatDexFlag
 	cmp r0, #0
@@ -1042,7 +1042,7 @@ _02254FD8:
 	bhi _02254FF4
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _02254FF4
 	add r0, r4, #0

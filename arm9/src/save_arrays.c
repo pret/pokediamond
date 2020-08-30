@@ -20,7 +20,6 @@ extern u32 FUN_02034D80(void);
 extern u32 FUN_02025954(void);
 extern u32 FUN_02023AC8(void);
 extern u32 FUN_02026FD8(void);
-extern u32 FUN_02025844(void);
 extern u32 FUN_02028054(void);
 extern u32 FUN_02028980(void);
 extern u32 FUN_02029A84(void);
@@ -45,7 +44,6 @@ extern void FUN_02034D88(void *);
 extern void FUN_0202597C(void *);
 extern void FUN_02023AD8(void *);
 extern void FUN_02026F60(void *);
-extern void FUN_0202584C(void *);
 extern void FUN_0202805C(void *);
 extern void FUN_02028994(void *);
 extern void FUN_02029A8C(void *);
@@ -85,7 +83,7 @@ const struct SaveChunkHeader UNK_020EE700[] = {
     { 12, 0, (SAVSIZEFN)FUN_02025954, (SAVINITFN)FUN_0202597C },
     { 13, 0, (SAVSIZEFN)FUN_02023AC8, (SAVINITFN)FUN_02023AD8 },
     { 14, 0, (SAVSIZEFN)FUN_02026FD8, (SAVINITFN)FUN_02026F60 },
-    { 15, 0, (SAVSIZEFN)FUN_02025844, (SAVINITFN)FUN_0202584C },
+    { 15, 0, (SAVSIZEFN)Sav2_Mailbox_sizeof, (SAVINITFN)Sav2_Mailbox_init },
     { 16, 0, (SAVSIZEFN)FUN_02028054, (SAVINITFN)FUN_0202805C },
     { 17, 0, (SAVSIZEFN)FUN_020286F8, (SAVINITFN)FUN_02028724 },
     { 18, 0, (SAVSIZEFN)FUN_02028980, (SAVINITFN)FUN_02028994 },

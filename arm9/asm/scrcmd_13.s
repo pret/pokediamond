@@ -107,7 +107,7 @@ FUN_02043918: ; 0x02043918
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	mov r5, #0x0
 _0204395C:
 	add r0, r7, #0x0

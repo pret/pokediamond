@@ -13765,7 +13765,7 @@ _0223441E:
 	beq _02234434
 	ldrh r1, [r5]
 	add r0, r4, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _0223444A
 	add r6, r6, #1
@@ -13777,7 +13777,7 @@ _02234434:
 	cmp r0, #0
 	beq _0223444A
 	add r0, r4, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _0223444A
 	add r6, r6, #1
@@ -13808,7 +13808,7 @@ _02234472:
 	beq _02234494
 	ldrh r1, [r5]
 	add r0, r4, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _022344B6
 	ldrh r2, [r5]
@@ -13825,7 +13825,7 @@ _02234494:
 	cmp r0, #0
 	beq _022344B6
 	add r0, r4, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _022344B6
 	ldrh r2, [r5]

@@ -19,6 +19,8 @@
 
 #pragma thumb on
 
+extern void FUN_02029C74(const u8 *, u8 *);
+
 u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
 u32 GetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
 void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
@@ -255,7 +257,7 @@ BOOL ReleaseBoxMonLock(struct BoxPokemon * mon, BOOL decrypt_result)
 
 void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId)
 {
-    struct SealStruct * seal;
+    struct Mail * mail;
     u32 capsule;
     u8 seal_coords[0x18];
     ZeroMonData(pokemon);
@@ -264,9 +266,9 @@ void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, in
     MonEncryptSegment((u16 *)&pokemon->party, sizeof(pokemon->party), 0);
     ENCRYPT_PTY(pokemon);
     SetMonData(pokemon, MON_DATA_LEVEL, &level);
-    seal = CreateNewSealsObject(0);
-    SetMonData(pokemon, MON_DATA_SEAL_STRUCT, seal);
-    FreeToHeap(seal);
+    mail = Mail_new(0);
+    SetMonData(pokemon, MON_DATA_MAIL_STRUCT, mail);
+    FreeToHeap(mail);
     capsule = 0;
     SetMonData(pokemon, MON_DATA_CAPSULE, &capsule);
     MIi_CpuClearFast(0, seal_coords, sizeof(seal_coords));
@@ -558,8 +560,8 @@ u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * dest)
         return pokemon->party.spatk;
     case MON_DATA_SPDEF:
         return pokemon->party.spdef;
-    case MON_DATA_SEAL_STRUCT:
-        CopySealsObject(&pokemon->party.seal_something, dest);
+    case MON_DATA_MAIL_STRUCT:
+        Mail_copy(&pokemon->party.seal_something, dest);
         return 1;
     case MON_DATA_SEAL_COORDS:
         FUN_02029C74(pokemon->party.sealCoords, dest);
@@ -1046,8 +1048,8 @@ void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * value)
     case MON_DATA_SPDEF:
         pokemon->party.spdef = VALUE(u16);
         break;
-    case MON_DATA_SEAL_STRUCT:
-        CopySealsObject((const struct SealStruct *)value, &pokemon->party.seal_something);
+    case MON_DATA_MAIL_STRUCT:
+        Mail_copy((const struct Mail *)value, &pokemon->party.seal_something);
         break;
     case MON_DATA_SEAL_COORDS:
         FUN_02029C74((const u8 *)value, pokemon->party.sealCoords);
@@ -1475,7 +1477,7 @@ void AddMonDataInternal(struct Pokemon * pokemon, int attr, int value)
     case MON_DATA_SPEED:
     case MON_DATA_SPATK:
     case MON_DATA_SPDEF:
-    case MON_DATA_SEAL_STRUCT:
+    case MON_DATA_MAIL_STRUCT:
     // case MON_DATA_SEAL_COORDS:
         GF_ASSERT(0);
         break;
@@ -1756,7 +1758,7 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     case MON_DATA_SPEED:
     case MON_DATA_SPATK:
     case MON_DATA_SPDEF:
-    case MON_DATA_SEAL_STRUCT:
+    case MON_DATA_MAIL_STRUCT:
     case MON_DATA_SEAL_COORDS:
     case MON_DATA_SPECIES_EXISTS:
     case MON_DATA_SANITY_IS_EGG:
@@ -2990,16 +2992,16 @@ void FUN_02069A64(struct BoxPokemon * src, struct Pokemon * dest)
 {
     u32 sp0 = 0;
     u8 sp4[12][2];
-    struct SealStruct * seals;
+    struct Mail * mail;
     dest->box = *src;
     if (dest->box.box_lock)
         dest->box.party_lock = TRUE;
     SetMonData(dest, MON_DATA_STATUS, &sp0);
     SetMonData(dest, MON_DATA_HP, &sp0);
     SetMonData(dest, MON_DATA_MAXHP, &sp0);
-    seals = CreateNewSealsObject(0);
-    SetMonData(dest, MON_DATA_SEAL_STRUCT, seals);
-    FreeToHeap(seals);
+    mail = Mail_new(0);
+    SetMonData(dest, MON_DATA_MAIL_STRUCT, mail);
+    FreeToHeap(mail);
     SetMonData(dest, MON_DATA_CAPSULE, &sp0);
     MIi_CpuClearFast(0, sp4, sizeof(sp4));
     SetMonData(dest, MON_DATA_SEAL_COORDS, sp4);

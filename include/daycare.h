@@ -3,7 +3,7 @@
 
 struct DayCareMail
 {
-    struct SealStruct seal;
+    struct Mail seal;
     u16 ot_name[OT_NAME_LENGTH + 1];
     u16 nickname[POKEMON_NAME_LENGTH + 1];
     u8 padding_5E[2];
@@ -30,7 +30,7 @@ struct DayCareMon * Sav2_DayCare_GetMonX(struct DayCare * daycare, s32 i);
 struct BoxPokemon * DayCareMon_GetBoxMon(struct DayCareMon * dcmon);
 struct DayCareMail * DayCareMon_GetExtras(struct DayCareMon * dcmon);
 u32 DayCareMon_GetSteps(struct DayCareMon * dcmon);
-struct SealStruct * DayCareMail_GetCapsule(struct DayCareMail * dcmail);
+struct Mail * DayCareMail_GetCapsule(struct DayCareMail * dcmail);
 u32 Sav2_DayCare_GetEggPID(struct DayCare * daycare);
 u8 Sav2_DayCare_GetEggCycleCounter(struct DayCare * daycare);
 void DayCareMon_SetSteps(struct DayCareMon * dcmon, u32 steps);

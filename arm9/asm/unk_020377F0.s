@@ -435,7 +435,7 @@ FUN_0203797C: ; 0x0203797C
 	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -1423,7 +1423,7 @@ FUN_02038144: ; 0x02038144
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r5, #0x18]
 	ldr r0, [r4, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [r5, #0x24]
 	ldr r0, [r4, #0xc]
 	bl FUN_0206BB28
@@ -1641,7 +1641,7 @@ _020382F6:
 	bl FUN_02079C70
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Sav2_Bag_get
@@ -2130,7 +2130,7 @@ FUN_020386E0: ; 0x020386E0
 	bl GetStoragePCPointer
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0xc]
 	bl FUN_020286EC

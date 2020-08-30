@@ -316,8 +316,8 @@ FUN_02035270: ; 0x02035270
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	mov r4, #0x0
-	bl FUN_02024DA0
-	bl FUN_02024D64
+	bl Sav2_Pokedex_get
+	bl Pokedex_GetSinnohDexFlag
 	cmp r0, #0x0
 	bne _02035288
 	mov r0, #0x1
@@ -1664,7 +1664,7 @@ FUN_02035D34: ; 0x02035D34
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetProfileAddr
@@ -2406,7 +2406,7 @@ _0203638A:
 	bl Sav2_Bag_get
 	str r0, [r5, #0x4]
 	ldr r0, [r6, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r5, #0x8]
 	ldr r0, [r6, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -2505,7 +2505,7 @@ _02036474:
 	bl Sav2_Bag_get
 	str r0, [r5, #0x4]
 	ldr r0, [r6, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r5, #0x8]
 	ldr r0, [r6, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -2998,7 +2998,7 @@ FUN_0203684C: ; 0x0203684C
 	bl Sav2_Bag_get
 	str r0, [r5, #0x4]
 	ldr r0, [r6, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r5, #0x8]
 	ldr r0, [r6, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -3527,7 +3527,7 @@ FUN_02036CEC: ; 0x02036CEC
 	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -3666,7 +3666,7 @@ FUN_02036E08: ; 0x02036E08
 	bl FUN_02079C70
 	add r7, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x2c]
 	ldr r0, [r4, #0xc]
 	bl Sav2_Bag_get
@@ -3703,7 +3703,7 @@ _02036E9E:
 	bl FUN_02079C70
 	add r7, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x3c]
 	ldr r0, [r4, #0xc]
 	bl Sav2_Bag_get

@@ -6,7 +6,7 @@
 	thumb_func_start FUN_0206BB28
 FUN_0206BB28: ; 0x0206BB28
 	push {r3, lr}
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	bl FUN_0206BB34
 	pop {r3, pc}
 

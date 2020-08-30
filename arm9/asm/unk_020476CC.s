@@ -477,7 +477,7 @@ FUN_02047A78: ; 0x02047A78
 	bl Sav2_Bag_get
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0xc]
 	bl FUN_02029EF8
@@ -624,7 +624,7 @@ FUN_02047BC0: ; 0x02047BC0
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -791,7 +791,7 @@ FUN_02047D48: ; 0x02047D48
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -1019,7 +1019,7 @@ FUN_02047F38: ; 0x02047F38
 	bl Sav2_Bag_get
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0xc]
 	bl FUN_02034E30
@@ -1062,7 +1062,7 @@ FUN_02047FA4: ; 0x02047FA4
 	ldr r0, [r5, #0xc]
 	bl Sav2_Bag_get
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r1, r0, #0x0
 	mov r0, #0x11
 	lsl r0, r0, #0x4

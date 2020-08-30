@@ -16,7 +16,7 @@ FUN_020453F4: ; 0x020453F4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -26,7 +26,7 @@ FUN_020453F4: ; 0x020453F4
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02024D64
+	bl Pokedex_GetSinnohDexFlag
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -38,8 +38,8 @@ FUN_02045424: ; 0x02045424
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
-	bl FUN_02024D80
+	bl Sav2_Pokedex_get
+	bl Pokedex_SetSinnohDexFlag
 	mov r0, #0x0
 	pop {r3, pc}
 
