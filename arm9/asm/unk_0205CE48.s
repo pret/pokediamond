@@ -294,7 +294,7 @@ FUN_0205D024: ; 0x0205D024
 	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -777,7 +777,7 @@ FUN_0205D400: ; 0x0205D400
 	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -1508,7 +1508,7 @@ FUN_0205D9A8: ; 0x0205D9A8
 	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr

@@ -1,3 +1,5 @@
+#define IN_MAIN_C
+
 #include "global.h"
 #include "SPI_pm.h"
 #include "CARD_backup.h"
@@ -51,7 +53,7 @@ extern struct Unk21DBE18 MOD52_021D76C8;
 
 extern u8 SDK_STATIC_BSS_START[];
 
-const u8 gGameVersion = GAME_VERSION;
+const int gGameVersion = GAME_VERSION;
 const int gGameLanguage = GAME_LANGUAGE;
 
 THUMB_FUNC void NitroMain(void)

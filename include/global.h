@@ -15,7 +15,9 @@ extern void ErrorHandling(void);
 
 #define GF_ASSERT(expr) do {if (!(expr)) ErrorHandling();} while (0)
 
-extern const int gGameLanguage;
+#ifndef IN_MAIN_C
+extern const u8 gGameLanguage;
 extern const u8 gGameVersion;
+#endif //IN_MAIN_C
 
 #endif //GUARD_GLOBAL_H

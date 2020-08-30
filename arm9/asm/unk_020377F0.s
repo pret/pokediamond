@@ -435,7 +435,7 @@ FUN_0203797C: ; 0x0203797C
 	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr

@@ -1606,7 +1606,7 @@ FUN_02066070: ; 0x02066070
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r5, r2, #0x0
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	mov r1, #0x6b
 	lsl r1, r1, #0x2
 	str r0, [sp, #0x4]
@@ -1617,7 +1617,7 @@ FUN_02066070: ; 0x02066070
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
 	add r0, r5, #0x0
-	bl CreateNewSealsObject
+	bl Mail_new
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	str r0, [sp, #0x10]
@@ -1633,7 +1633,7 @@ _020660AE:
 	mov r1, #0x0
 	add r2, r4, #0x0
 	add r3, r7, #0x0
-	bl FUN_020258D4
+	bl Mailbox_FetchMailIToBuffer
 	mov r0, #0xc
 	mul r0, r4
 	ldr r1, [sp, #0x8]
@@ -1653,22 +1653,22 @@ _020660AE:
 	ldr r0, [sp, #0xc]
 	strb r4, [r1, r0]
 	add r0, r7, #0x0
-	bl FUN_020256AC
+	bl Mail_TypeIsValid
 	cmp r0, #0x0
 	beq _02066134
 	mov r0, #0x1
 	strb r0, [r5, #0x1]
 	add r0, r7, #0x0
-	bl FUN_020257C8
+	bl Mail_GetAuthorGender
 	strb r0, [r5, #0x4]
 	add r0, r7, #0x0
-	bl FUN_020257CC
+	bl Mail_GetType
 	strb r0, [r5, #0x5]
 	ldrb r0, [r5, #0x5]
 	bl MailToItemId
 	strh r0, [r5, #0x6]
 	add r0, r7, #0x0
-	bl FUN_020257C4
+	bl Mail_GetAuthorNamePtr
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x8]
 	bl CopyU16ArrayToString
@@ -1778,7 +1778,7 @@ _020661D4:
 	ldrb r2, [r5, #0x18]
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_02025878
+	bl Mailbox_DeleteSlotI
 	ldrb r1, [r5, #0x18]
 	add r0, r5, #0x0
 	bl FUN_02066160
@@ -2395,7 +2395,7 @@ _02066676:
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x0

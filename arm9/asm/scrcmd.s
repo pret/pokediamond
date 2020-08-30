@@ -8765,9 +8765,9 @@ FUN_0203DF38: ; 0x0203DF38
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	mov r1, #0x0
-	bl FUN_0202589C
+	bl Mailbox_CountMessages
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}

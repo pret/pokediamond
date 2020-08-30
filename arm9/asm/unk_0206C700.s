@@ -2169,7 +2169,7 @@ _0206D8EA:
 	add r2, sp, #0x0
 	bl SetMonData
 	ldr r0, [r4, #0x5c]
-	bl CreateNewSealsObject
+	bl Mail_new
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa9

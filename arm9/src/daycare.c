@@ -1,6 +1,6 @@
 #include "global.h"
 #include "pokemon.h"
-#include "seals.h"
+#include "mail.h"
 #include "save_block_2.h"
 #include "daycare.h"
 
@@ -40,7 +40,7 @@ u32 DayCareMon_GetSteps(struct DayCareMon * dcmon)
     return dcmon->steps;
 }
 
-struct SealStruct * DayCareMail_GetCapsule(struct DayCareMail * dcmail)
+struct Mail * DayCareMail_GetCapsule(struct DayCareMail * dcmail)
 {
     return &dcmail->seal;
 }
