@@ -1,6 +1,7 @@
-#ifndef NITRO_MI_UNCOMPRESS_H_
-#define NITRO_MI_UNCOMPRESS_H_
+#ifndef POKEDIAMOND_MI_UNCOMPRESS_H
+#define POKEDIAMOND_MI_UNCOMPRESS_H
 
 void MIi_UncompressBackward(void * bottom);
+void MI_UncompressLZ8(register const void *srcp, register void *destp);
 
-#endif //NITRO_MI_UNCOMPRESS_H_
+#endif //POKEDIAMOND_MI_UNCOMPRESS_H

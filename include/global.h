@@ -8,10 +8,9 @@
 #include "nitro.h"
 #include "global.fieldmap.h"
 #include "constants/global.h"
+#include "error_handling.h"
 
 #define NELEMS(a) (sizeof(a) / sizeof(*(a)))
-
-extern void ErrorHandling(void);
 
 #define GF_ASSERT(expr) do {if (!(expr)) ErrorHandling();} while (0)
 
