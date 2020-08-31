@@ -1105,12 +1105,12 @@ _02027492:
 _0202749A:
 	add r0, r5, #0x0
 	add r0, #0x40
-	bl FUN_02013724
+	bl MailMsg_init
 	add r5, #0x40
 	add r0, r5, #0x0
 	mov r1, #0x0
 	add r2, r4, #0x0
-	bl FUN_02013998
+	bl MailMsg_SetFieldI
 	pop {r3-r5, pc}
 	.balign 4
 _020274B0: .word 0x00001234
@@ -1398,12 +1398,12 @@ _02027698: .word 0x00002345
 
 	thumb_func_start FUN_0202769C
 FUN_0202769C: ; 0x0202769C
-	ldr r3, _020276A4 ; =FUN_02013918
+	ldr r3, _020276A4 ; =MailMsg_GetFieldI
 	add r0, #0x40
 	mov r1, #0x0
 	bx r3
 	.balign 4
-_020276A4: .word FUN_02013918
+_020276A4: .word MailMsg_GetFieldI
 
 	thumb_func_start FUN_020276A8
 FUN_020276A8: ; 0x020276A8

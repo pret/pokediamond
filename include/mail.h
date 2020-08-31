@@ -2,8 +2,9 @@
 #define POKEDIAMOND_SEALS_H
 
 #include "save_block_2.h"
+#include "mail_message.h"
 
-union MailMessage
+union MailPatternData
 {
     u16 raw;
     struct {
@@ -20,9 +21,9 @@ struct Mail
     u8 author_version; // version
     u8 mail_type; // mail type
     u16 author_name[OT_NAME_LENGTH + 1]; // author name
-    union MailMessage unk_18[3];
+    union MailPatternData unk_18[3];
     u8 padding_1E[2];
-    u16 unk_20[3][4];
+    struct MailMessage unk_20[3];
 };
 
 struct Mail * Mail_new(u32 heap_id);
@@ -40,8 +41,8 @@ void Mail_SetType(struct Mail * mail, u8 type);
 u8 Mail_GetLanguage(struct Mail * mail);
 u8 Mail_GetVersion(struct Mail * mail);
 u16 Mail_GetAttrFromUnk18Array(struct Mail * mail, u32 idx, u32 attr);
-u16 * Mail_GetUnk20Array(struct Mail * mail, u32 idx);
-void Mail_CopyToUnk20Array(struct Mail * mail, const u16 * src, u32 idx);
+struct MailMessage * Mail_GetUnk20Array(struct Mail * mail, u32 idx);
+void Mail_CopyToUnk20Array(struct Mail * mail, const struct MailMessage * src, u32 idx);
 struct Mail * Sav2_Mailbox_get(struct SaveBlock2 * sav2);
 u32 Sav2_Mailbox_sizeof(void);
 void Sav2_Mailbox_init(struct Mail * mail);

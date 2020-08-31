@@ -78,7 +78,7 @@ FUN_0202E29C: ; 0x0202E29C
 	ldr r0, [r2, #0x8]
 	sub r1, #0x18
 	add r0, r0, r1
-	bl FUN_02013724
+	bl MailMsg_init
 	bl FUN_0202E500
 _0202E332:
 	pop {r4, pc}

@@ -1675,7 +1675,7 @@ _02255530:
 	str r0, [r1, #0x10]
 	add r0, r6, #0
 	mov r1, #0x59
-	bl FUN_020137D4
+	bl MailMsg_GetExpandedString
 	ldr r2, [r5]
 	mov r1, #0x1c
 	mul r1, r2
@@ -1717,7 +1717,7 @@ MOD51_022555C0: ; 0x022555C0
 	add r0, r1, #0
 	str r1, [sp]
 	add r7, r2, #0
-	bl FUN_0201385C
+	bl MailMsg_IsInit
 	cmp r0, #0
 	bne _022555D6
 	mov r0, #0
@@ -1739,7 +1739,7 @@ _022555E8:
 	bne _022555FC
 	ldr r0, [sp]
 	add r1, #0x14
-	bl FUN_02013928
+	bl MailMsg_compare
 	cmp r0, #0
 	bne _02255610
 _022555FC:
@@ -1774,7 +1774,7 @@ _02255626:
 	beq _0225563A
 	ldr r0, [sp]
 	add r1, #0x14
-	bl FUN_02013928
+	bl MailMsg_compare
 _0225563A:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}

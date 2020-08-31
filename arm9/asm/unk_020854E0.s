@@ -339,7 +339,7 @@ _0208576A:
 	add r1, r0, #0x0
 	lsl r0, r5, #0x3
 	add r0, r7, r0
-	bl FUN_02013960
+	bl MailMsg_copy
 	add r0, r5, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -556,7 +556,7 @@ _02085900:
 	add r1, #0x1a
 	lsl r0, r0, #0x3
 	add r0, r1, r0
-	bl FUN_0201385C
+	bl MailMsg_IsInit
 	cmp r0, #0x0
 	beq _02085938
 	ldr r1, [r4, #0x10]
@@ -567,13 +567,13 @@ _02085900:
 	add r0, #0x14
 	lsl r1, r1, #0x3
 	add r1, r2, r1
-	bl FUN_02013960
+	bl MailMsg_copy
 	b _02085942
 _02085938:
 	add r0, r4, #0x0
 	add r0, #0x14
 	mov r1, #0x3
-	bl FUN_0201373C
+	bl MailMsg_init_withBank
 _02085942:
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x8]

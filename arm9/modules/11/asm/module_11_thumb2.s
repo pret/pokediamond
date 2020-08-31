@@ -4840,7 +4840,7 @@ MOD11_02231684: ; 0x02231684
 	mul r1, r0
 	add r0, r5, r1
 	mov r1, #5
-	bl FUN_020137D4
+	bl MailMsg_GetExpandedString
 	b _022316CC
 _022316BC:
 	ldr r0, [sp, #0xc]
@@ -4849,7 +4849,7 @@ _022316BC:
 	mul r1, r0
 	add r0, r5, r1
 	mov r1, #5
-	bl FUN_020137D4
+	bl MailMsg_GetExpandedString
 _022316CC:
 	add r4, r0, #0
 	add r0, r6, #0

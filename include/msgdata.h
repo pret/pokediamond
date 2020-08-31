@@ -3,6 +3,7 @@
 
 #include "filesystem.h"
 #include "string16.h"
+#include "script_buffers.h"
 
 struct MsgDataAlloc
 {
@@ -38,7 +39,7 @@ struct String * NewString_ReadMsgData(struct MsgData *, u32);
 u16 MsgDataGetCount(struct MsgData * msgData);
 void ReadMsgDataIntoU16Array(struct MsgData * msgData, u32 msg_no, u16 * dest);
 void GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 * dest);
-struct String * ReadMsgData_ExpandPlaceholders(u32 * a0, struct MsgData * msgData, u32 msgno, u32 heap_id);
+struct String * ReadMsgData_ExpandPlaceholders(struct ScrStrBufs * a0, struct MsgData * msgData, u32 msgno, u32 heap_id);
 struct String * GetMoveName(u32 move, u32 heapno);
 struct String * GetSpeciesName(u16 species, u32 heap_id);
 

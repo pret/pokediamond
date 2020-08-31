@@ -4,7 +4,6 @@
 #include "heap.h"
 #include "MI_memory.h"
 #include "string16.h"
-#include "proto.h"
 
 #pragma thumb on
 
@@ -350,7 +349,7 @@ void GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 * dest)
     DestroyMsgData(msgData);
 }
 
-struct String * ReadMsgData_ExpandPlaceholders(u32 * a0, struct MsgData * msgData, u32 msgno, u32 a3)
+struct String * ReadMsgData_ExpandPlaceholders(struct ScrStrBufs * a0, struct MsgData * msgData, u32 msgno, u32 a3)
 {
     struct String * ret = NULL;
     struct String * r4 = String_ctor(1024, 0);

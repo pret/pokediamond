@@ -212,7 +212,7 @@ _0208A4E8:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -224,7 +224,7 @@ _0208A502:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -236,7 +236,7 @@ _0208A51C:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -248,7 +248,7 @@ _0208A536:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -377,7 +377,7 @@ _0208A656:
 	add r0, r4, #0x0
 	add r0, #0x48
 	mov r1, #0x0
-	bl FUN_02013918
+	bl MailMsg_GetFieldI
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0208A8D0

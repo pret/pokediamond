@@ -1632,7 +1632,7 @@ MOD74_021D818C: ; 0x021D818C
 	add r0, r0, r1
 	ldr r1, [r4]
 	add r0, #8
-	bl FUN_020137D4
+	bl MailMsg_GetExpandedString
 	add r5, r0, #0
 	add r0, r4, #0
 	add r0, #0x8c

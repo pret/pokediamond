@@ -881,7 +881,7 @@ FUN_02053598: ; 0x02053598
 	str r1, [r4, #0x4]
 	add r0, #0x14
 	str r1, [r4, #0x8]
-	bl FUN_0201373C
+	bl MailMsg_init_withBank
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	str r0, [r4, #0xc]
