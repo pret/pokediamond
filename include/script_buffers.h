@@ -1,6 +1,9 @@
 #ifndef POKEDIAMOND_SCRIPT_BUFFERS_H
 #define POKEDIAMOND_SCRIPT_BUFFERS_H
 
+#include "pokemon.h"
+#include "pokemon_storage_system.h"
+
 struct UnkStruct_0200AA80_sub_sub
 {
     u8 data[4];

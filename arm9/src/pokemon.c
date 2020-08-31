@@ -12,6 +12,7 @@
 #include "string_util.h"
 #include "text.h"
 #include "msgdata.h"
+#include "itemtool.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"

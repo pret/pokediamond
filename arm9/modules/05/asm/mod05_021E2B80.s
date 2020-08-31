@@ -324,23 +324,23 @@ MOD05_021E2DF0: ; 0x021E2DF0
 	add r6, r2, #0
 	add r0, sp, #0
 	add r7, r3, #0
-	bl FUN_02013724
+	bl MailMsg_init
 	add r0, sp, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_02013980
+	bl MailMsg_SetMsgBankAndNum
 	add r0, sp, #0
 	mov r1, #0
 	add r2, r7, #0
-	bl FUN_02013998
+	bl MailMsg_SetFieldI
 	add r2, sp, #0x10
 	ldrh r2, [r2, #0x10]
 	add r0, sp, #0
 	mov r1, #1
-	bl FUN_02013998
+	bl MailMsg_SetFieldI
 	add r0, sp, #0
 	mov r1, #0x20
-	bl FUN_020137D4
+	bl MailMsg_GetExpandedString
 	add r4, r0, #0
 	ldr r0, [r5]
 	add r1, r4, #0

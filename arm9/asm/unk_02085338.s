@@ -39,7 +39,7 @@ FUN_02085338: ; 0x02085338
 	add r0, r4, #0x0
 	add r0, #0x14
 	mov r1, #0x3
-	bl FUN_0201373C
+	bl MailMsg_init_withBank
 	b _020853A0
 _02085390:
 	ldr r0, _020853A4 ; =0x0000FFFF
@@ -132,13 +132,13 @@ FUN_020853F0: ; 0x020853F0
 	thumb_func_start FUN_020853FC
 FUN_020853FC: ; 0x020853FC
 	add r2, r0, #0x0
-	ldr r3, _02085408 ; =FUN_02013960
+	ldr r3, _02085408 ; =MailMsg_copy
 	add r2, #0x14
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	bx r3
 	.balign 4
-_02085408: .word FUN_02013960
+_02085408: .word MailMsg_copy
 
 	thumb_func_start FUN_0208540C
 FUN_0208540C: ; 0x0208540C
@@ -244,7 +244,7 @@ _02085490:
 _02085494:
 	add r0, #0x14
 	add r1, r2, #0x0
-	bl FUN_02013928
+	bl MailMsg_compare
 	pop {r3, pc}
 	.balign 4
 

@@ -96,7 +96,7 @@ _021D758C:
 	ldr r0, [r6, #0x1c]
 	add r0, #0x1a
 	add r0, r0, r5
-	bl FUN_0201385C
+	bl MailMsg_IsInit
 	cmp r0, #0
 	beq _021D759E
 	mov r0, #0
@@ -1537,14 +1537,14 @@ _021D8122:
 	ldr r0, [r4, #0x1c]
 	add r0, #0x1a
 	add r0, r0, r5
-	bl FUN_0201385C
+	bl MailMsg_IsInit
 	cmp r0, #0
 	beq _021D8164
 	ldr r0, [r4, #0x1c]
 	ldr r1, [r4]
 	add r0, #0x1a
 	add r0, r0, r5
-	bl FUN_020137D4
+	bl MailMsg_GetExpandedString
 	str r0, [sp, #0x10]
 	mov r0, #0
 	str r0, [sp]

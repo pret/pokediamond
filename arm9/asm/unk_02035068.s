@@ -2841,7 +2841,7 @@ FUN_02036724: ; 0x02036724
 	str r0, [r4, r1]
 	add r0, sp, #0x0
 	mov r1, #0x4
-	bl FUN_0201373C
+	bl MailMsg_init_withBank
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]

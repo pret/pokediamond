@@ -8,7 +8,6 @@
 #include "player_data.h" // for struct definitions
 
 int FUN_0206AE00(int x);
-u32 GetItemAttr(u16 item, u32 a1, u32 a2);
 int FUN_02014C3C(u8);
 void FUN_02014C54(int, int, struct UnkStruct_02069038 *, u8);
 u32 IsNighttime(void); // is day or night
@@ -17,6 +16,5 @@ void FUN_02005E80(int);
 void FUN_02005E90(int, int, int, int);
 void FUN_020056AC(int, int, int, int, int);
 void FUN_020808AC(struct BoxPokemon *, struct PlayerData *, int, u32, u32);
-void StringExpandPlaceholders(u32 *, struct String *, struct String *);
 
 #endif //POKEDIAMOND_PROTO_H

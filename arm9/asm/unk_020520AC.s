@@ -227,7 +227,7 @@ FUN_02052178: ; 0x02052178
 	cmp r0, #0x0
 	beq _020521A4
 	add r0, sp, #0x0
-	bl FUN_02013754
+	bl MailMsg_init_default
 	add r0, sp, #0x0
 	bl FUN_02052DE8
 	add r0, r4, #0x0
@@ -1675,7 +1675,7 @@ _02052C34:
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_0201385C
+	bl MailMsg_IsInit
 	cmp r0, #0x0
 	bne _02052C46
 	mov r0, #0xa5
@@ -1684,7 +1684,7 @@ _02052C46:
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_02013920
+	bl MailMsg_GetMsgBank
 	cmp r0, #0x4
 	beq _02052C78
 	ldr r0, [r5, #0x8]
@@ -1705,7 +1705,7 @@ _02052C78:
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_02013924
+	bl MailMsg_GetMsgNo
 	add r4, r0, #0x0
 	cmp r4, #0x14
 	blt _02052C8A
@@ -1715,7 +1715,7 @@ _02052C8A:
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0x0
-	bl FUN_02013918
+	bl MailMsg_GetFieldI
 	add r2, r0, #0x0
 	ldr r0, _02052CB0 ; =0x0000FFFF
 	cmp r2, r0
@@ -1759,7 +1759,7 @@ FUN_02052CD8: ; 0x02052CD8
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x6
 	mov r1, #0x1
 	lsl r0, r0, #0x6

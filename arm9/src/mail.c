@@ -9,10 +9,8 @@
 
 #pragma thumb on
 
-extern void FUN_02013724(u16 * ptr);
 extern u32 FUN_0206B6C8(struct Pokemon * pokemon);
 extern u16 FUN_0206B7BC(u16 species, u32 forme, BOOL is_egg);
-extern void FUN_02013960(u16 * dest, const u16 * src);
 
 void Mail_init(struct Mail * mail)
 {
@@ -29,7 +27,7 @@ void Mail_init(struct Mail * mail)
     }
     for (i = 0; i < 3; i++)
     {
-        FUN_02013724(mail->unk_20[i]);
+        MailMsg_init(&mail->unk_20[i]);
     }
 }
 
@@ -72,7 +70,7 @@ void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct Sa
     mail->author_otId = PlayerProfile_GetTrainerID(profile);
     for (i = 0; monIdx < GetPartyCount(party); monIdx++)
     {
-        union MailMessage * ptr;
+        union MailPatternData * ptr;
         pokemon = GetPartyMonByIndex(party, monIdx);
         species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
         is_egg = (BOOL)GetMonData(pokemon, MON_DATA_IS_EGG, NULL);
@@ -142,18 +140,18 @@ u16 Mail_GetAttrFromUnk18Array(struct Mail * mail, u32 idx, u32 attr)
     return 0;
 }
 
-u16 * Mail_GetUnk20Array(struct Mail * mail, u32 idx)
+struct MailMessage * Mail_GetUnk20Array(struct Mail * mail, u32 idx)
 {
     if (idx < 3)
-        return mail->unk_20[idx];
+        return &mail->unk_20[idx];
     else
-        return mail->unk_20[0];
+        return &mail->unk_20[0];
 }
 
-void Mail_CopyToUnk20Array(struct Mail * mail, const u16 * src, u32 idx)
+void Mail_CopyToUnk20Array(struct Mail * mail, const struct MailMessage * src, u32 idx)
 {
     if (idx < 3)
-        FUN_02013960(mail->unk_20[idx], src);
+        MailMsg_copy(&mail->unk_20[idx], src);
 }
 
 struct Mail * Sav2_Mailbox_get(struct SaveBlock2 * sav2)

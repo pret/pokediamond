@@ -34,19 +34,19 @@ FUN_0202A204: ; 0x0202A204
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r1, #0x0
-	bl FUN_02013764
+	bl MailMsg_init_fromTemplate
 	add r0, r4, #0x0
 	add r0, #0x8
 	mov r1, #0x1
-	bl FUN_02013764
+	bl MailMsg_init_fromTemplate
 	add r0, r4, #0x0
 	add r0, #0x10
 	mov r1, #0x2
-	bl FUN_02013764
+	bl MailMsg_init_fromTemplate
 	add r4, #0x18
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_02013764
+	bl MailMsg_init_fromTemplate
 	pop {r4, pc}
 	.balign 4
 
@@ -629,7 +629,7 @@ FUN_0202A5D4: ; 0x0202A5D4
 	lsl r0, r5, #0x3
 	add r0, r1, r0
 	add r1, r4, #0x0
-	bl FUN_02013960
+	bl MailMsg_copy
 	pop {r3-r5, pc}
 	.balign 4
 
