@@ -3,7 +3,7 @@
     {
       "index": 1,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19,7 +19,7 @@
     {
       "index": 2,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -35,7 +35,7 @@
     {
       "index": 3,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -56,7 +56,7 @@
     {
       "index": 4,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -77,7 +77,7 @@
     {
       "index": 5,
       "type": 0,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -93,7 +93,7 @@
     {
       "index": 6,
       "type": 0,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -109,7 +109,7 @@
     {
       "index": 7,
       "type": 0,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -125,7 +125,7 @@
     {
       "index": 8,
       "type": 0,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -141,7 +141,7 @@
     {
       "index": 9,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -157,7 +157,7 @@
     {
       "index": 10,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -178,7 +178,7 @@
     {
       "index": 11,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -194,7 +194,7 @@
     {
       "index": 12,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -210,7 +210,7 @@
     {
       "index": 13,
       "type": 0,
-      "class": 6,
+      "class": "TRAINER_CLASS_BUG_CATCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -231,7 +231,7 @@
     {
       "index": 14,
       "type": 0,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -252,7 +252,7 @@
     {
       "index": 15,
       "type": 0,
-      "class": 8,
+      "class": "TRAINER_CLASS_TWINS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -273,7 +273,7 @@
     {
       "index": 16,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -293,7 +293,7 @@
     {
       "index": 17,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -323,7 +323,7 @@
     {
       "index": 18,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -354,7 +354,7 @@
     {
       "index": 19,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -370,7 +370,7 @@
     {
       "index": 20,
       "type": 0,
-      "class": 10,
+      "class": "TRAINER_CLASS_BATTLE_GIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -386,7 +386,7 @@
     {
       "index": 21,
       "type": 0,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -402,7 +402,7 @@
     {
       "index": 22,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -443,7 +443,7 @@
     {
       "index": 23,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -459,7 +459,7 @@
     {
       "index": 24,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -485,7 +485,7 @@
     {
       "index": 25,
       "type": 0,
-      "class": 12,
+      "class": "TRAINER_CLASS_CYCLIST_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -501,7 +501,7 @@
     {
       "index": 26,
       "type": 0,
-      "class": 12,
+      "class": "TRAINER_CLASS_CYCLIST_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -517,7 +517,7 @@
     {
       "index": 27,
       "type": 0,
-      "class": 12,
+      "class": "TRAINER_CLASS_CYCLIST_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -538,7 +538,7 @@
     {
       "index": 28,
       "type": 0,
-      "class": 12,
+      "class": "TRAINER_CLASS_CYCLIST_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -554,7 +554,7 @@
     {
       "index": 29,
       "type": 0,
-      "class": 13,
+      "class": "TRAINER_CLASS_CYCLIST_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -570,7 +570,7 @@
     {
       "index": 30,
       "type": 0,
-      "class": 13,
+      "class": "TRAINER_CLASS_CYCLIST_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -591,7 +591,7 @@
     {
       "index": 31,
       "type": 0,
-      "class": 13,
+      "class": "TRAINER_CLASS_CYCLIST_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -607,7 +607,7 @@
     {
       "index": 32,
       "type": 0,
-      "class": 13,
+      "class": "TRAINER_CLASS_CYCLIST_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -628,7 +628,7 @@
     {
       "index": 33,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -654,7 +654,7 @@
     {
       "index": 34,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -675,7 +675,7 @@
     {
       "index": 35,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -696,7 +696,7 @@
     {
       "index": 36,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -727,7 +727,7 @@
     {
       "index": 37,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -748,7 +748,7 @@
     {
       "index": 38,
       "type": 0,
-      "class": 10,
+      "class": "TRAINER_CLASS_BATTLE_GIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -769,7 +769,7 @@
     {
       "index": 39,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -790,7 +790,7 @@
     {
       "index": 40,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -816,7 +816,7 @@
     {
       "index": 41,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -832,7 +832,7 @@
     {
       "index": 42,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -848,7 +848,7 @@
     {
       "index": 43,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -869,7 +869,7 @@
     {
       "index": 44,
       "type": 0,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -890,7 +890,7 @@
     {
       "index": 45,
       "type": 0,
-      "class": 15,
+      "class": "TRAINER_CLASS_ARTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -911,7 +911,7 @@
     {
       "index": 46,
       "type": 0,
-      "class": 16,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -937,7 +937,7 @@
     {
       "index": 47,
       "type": 0,
-      "class": 17,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -963,7 +963,7 @@
     {
       "index": 48,
       "type": 0,
-      "class": 18,
+      "class": "TRAINER_CLASS_COWGIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -999,7 +999,7 @@
     {
       "index": 49,
       "type": 0,
-      "class": 19,
+      "class": "TRAINER_CLASS_JOGGER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1015,7 +1015,7 @@
     {
       "index": 50,
       "type": 0,
-      "class": 20,
+      "class": "TRAINER_CLASS_POKEFAN_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1031,7 +1031,7 @@
     {
       "index": 51,
       "type": 0,
-      "class": 21,
+      "class": "TRAINER_CLASS_POKEFAN_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1047,7 +1047,7 @@
     {
       "index": 52,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1063,7 +1063,7 @@
     {
       "index": 53,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1079,7 +1079,7 @@
     {
       "index": 54,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1095,7 +1095,7 @@
     {
       "index": 55,
       "type": 0,
-      "class": 23,
+      "class": "TRAINER_CLASS_YOUNG_COUPLE",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1116,7 +1116,7 @@
     {
       "index": 56,
       "type": 0,
-      "class": 16,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1142,7 +1142,7 @@
     {
       "index": 57,
       "type": 0,
-      "class": 17,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1168,7 +1168,7 @@
     {
       "index": 58,
       "type": 0,
-      "class": 18,
+      "class": "TRAINER_CLASS_COWGIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1184,7 +1184,7 @@
     {
       "index": 59,
       "type": 0,
-      "class": 19,
+      "class": "TRAINER_CLASS_JOGGER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1200,7 +1200,7 @@
     {
       "index": 60,
       "type": 0,
-      "class": 20,
+      "class": "TRAINER_CLASS_POKEFAN_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1216,7 +1216,7 @@
     {
       "index": 61,
       "type": 0,
-      "class": 21,
+      "class": "TRAINER_CLASS_POKEFAN_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1232,7 +1232,7 @@
     {
       "index": 62,
       "type": 0,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1248,7 +1248,7 @@
     {
       "index": 63,
       "type": 0,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1264,7 +1264,7 @@
     {
       "index": 64,
       "type": 0,
-      "class": 26,
+      "class": "TRAINER_CLASS_WAITRESS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1280,7 +1280,7 @@
     {
       "index": 65,
       "type": 0,
-      "class": 8,
+      "class": "TRAINER_CLASS_TWINS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1301,7 +1301,7 @@
     {
       "index": 66,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1343,7 +1343,7 @@
     {
       "index": 67,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1374,7 +1374,7 @@
     {
       "index": 68,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1417,7 +1417,7 @@
     {
       "index": 69,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1433,7 +1433,7 @@
     {
       "index": 70,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1464,7 +1464,7 @@
     {
       "index": 71,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1485,7 +1485,7 @@
     {
       "index": 72,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1501,7 +1501,7 @@
     {
       "index": 73,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1517,7 +1517,7 @@
     {
       "index": 74,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1538,7 +1538,7 @@
     {
       "index": 75,
       "type": 0,
-      "class": 31,
+      "class": "TRAINER_CLASS_DOUBLE_TEAM",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1559,7 +1559,7 @@
     {
       "index": 76,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1575,7 +1575,7 @@
     {
       "index": 77,
       "type": 0,
-      "class": 10,
+      "class": "TRAINER_CLASS_BATTLE_GIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1591,7 +1591,7 @@
     {
       "index": 78,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1617,7 +1617,7 @@
     {
       "index": 79,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1643,7 +1643,7 @@
     {
       "index": 80,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1664,7 +1664,7 @@
     {
       "index": 81,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1680,7 +1680,7 @@
     {
       "index": 82,
       "type": 0,
-      "class": 32,
+      "class": "TRAINER_CLASS_RICH_BOY",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -1698,7 +1698,7 @@
     {
       "index": 83,
       "type": 0,
-      "class": 33,
+      "class": "TRAINER_CLASS_LADY",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -1716,7 +1716,7 @@
     {
       "index": 84,
       "type": 0,
-      "class": 34,
+      "class": "TRAINER_CLASS_GENTLEMAN",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -1734,7 +1734,7 @@
     {
       "index": 85,
       "type": 0,
-      "class": 35,
+      "class": "TRAINER_CLASS_SOCIALITE",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -1752,7 +1752,7 @@
     {
       "index": 86,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1768,7 +1768,7 @@
     {
       "index": 87,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1784,7 +1784,7 @@
     {
       "index": 88,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1805,7 +1805,7 @@
     {
       "index": 89,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1826,7 +1826,7 @@
     {
       "index": 90,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1847,7 +1847,7 @@
     {
       "index": 91,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1863,7 +1863,7 @@
     {
       "index": 92,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1884,7 +1884,7 @@
     {
       "index": 93,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1915,7 +1915,7 @@
     {
       "index": 94,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1936,7 +1936,7 @@
     {
       "index": 95,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1957,7 +1957,7 @@
     {
       "index": 96,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 0,
@@ -1978,7 +1978,7 @@
     {
       "index": 97,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -1994,7 +1994,7 @@
     {
       "index": 98,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2010,7 +2010,7 @@
     {
       "index": 99,
       "type": 1,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2032,7 +2032,7 @@
     {
       "index": 100,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2048,7 +2048,7 @@
     {
       "index": 101,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2064,7 +2064,7 @@
     {
       "index": 102,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2085,7 +2085,7 @@
     {
       "index": 103,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2111,7 +2111,7 @@
     {
       "index": 104,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2132,7 +2132,7 @@
     {
       "index": 105,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2153,7 +2153,7 @@
     {
       "index": 106,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2174,7 +2174,7 @@
     {
       "index": 107,
       "type": 0,
-      "class": 44,
+      "class": "TRAINER_CLASS_TUBER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2200,7 +2200,7 @@
     {
       "index": 108,
       "type": 1,
-      "class": 45,
+      "class": "TRAINER_CLASS_TUBER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2222,7 +2222,7 @@
     {
       "index": 109,
       "type": 0,
-      "class": 10,
+      "class": "TRAINER_CLASS_BATTLE_GIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2238,7 +2238,7 @@
     {
       "index": 110,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2259,7 +2259,7 @@
     {
       "index": 111,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2285,7 +2285,7 @@
     {
       "index": 112,
       "type": 0,
-      "class": 47,
+      "class": "TRAINER_CLASS_SIS_AND_BRO",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2306,7 +2306,7 @@
     {
       "index": 113,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2332,7 +2332,7 @@
     {
       "index": 114,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2348,7 +2348,7 @@
     {
       "index": 115,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2364,7 +2364,7 @@
     {
       "index": 116,
       "type": 0,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2380,7 +2380,7 @@
     {
       "index": 117,
       "type": 0,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2396,7 +2396,7 @@
     {
       "index": 118,
       "type": 0,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2412,7 +2412,7 @@
     {
       "index": 119,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2433,7 +2433,7 @@
     {
       "index": 120,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2459,7 +2459,7 @@
     {
       "index": 121,
       "type": 1,
-      "class": 51,
+      "class": "TRAINER_CLASS_PI",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2497,7 +2497,7 @@
     {
       "index": 122,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2513,7 +2513,7 @@
     {
       "index": 123,
       "type": 0,
-      "class": 51,
+      "class": "TRAINER_CLASS_PI",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2529,7 +2529,7 @@
     {
       "index": 124,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2545,7 +2545,7 @@
     {
       "index": 125,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2561,7 +2561,7 @@
     {
       "index": 126,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2577,7 +2577,7 @@
     {
       "index": 127,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2603,7 +2603,7 @@
     {
       "index": 128,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2619,7 +2619,7 @@
     {
       "index": 129,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2645,7 +2645,7 @@
     {
       "index": 130,
       "type": 0,
-      "class": 19,
+      "class": "TRAINER_CLASS_JOGGER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2661,7 +2661,7 @@
     {
       "index": 131,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2677,7 +2677,7 @@
     {
       "index": 132,
       "type": 1,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2710,7 +2710,7 @@
     {
       "index": 133,
       "type": 1,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2754,7 +2754,7 @@
     {
       "index": 134,
       "type": 1,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2776,7 +2776,7 @@
     {
       "index": 135,
       "type": 1,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2820,7 +2820,7 @@
     {
       "index": 136,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2846,7 +2846,7 @@
     {
       "index": 137,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2862,7 +2862,7 @@
     {
       "index": 138,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2883,7 +2883,7 @@
     {
       "index": 139,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2899,7 +2899,7 @@
     {
       "index": 140,
       "type": 1,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2943,7 +2943,7 @@
     {
       "index": 141,
       "type": 1,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -2976,7 +2976,7 @@
     {
       "index": 142,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3007,7 +3007,7 @@
     {
       "index": 143,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3028,7 +3028,7 @@
     {
       "index": 144,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3049,7 +3049,7 @@
     {
       "index": 145,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3065,7 +3065,7 @@
     {
       "index": 146,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3096,7 +3096,7 @@
     {
       "index": 147,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3117,7 +3117,7 @@
     {
       "index": 148,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3143,7 +3143,7 @@
     {
       "index": 149,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3159,7 +3159,7 @@
     {
       "index": 150,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3175,7 +3175,7 @@
     {
       "index": 151,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3191,7 +3191,7 @@
     {
       "index": 152,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3207,7 +3207,7 @@
     {
       "index": 153,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3228,7 +3228,7 @@
     {
       "index": 154,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3264,7 +3264,7 @@
     {
       "index": 155,
       "type": 0,
-      "class": 47,
+      "class": "TRAINER_CLASS_SIS_AND_BRO",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3285,7 +3285,7 @@
     {
       "index": 156,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3301,7 +3301,7 @@
     {
       "index": 157,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3317,7 +3317,7 @@
     {
       "index": 158,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3333,7 +3333,7 @@
     {
       "index": 159,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3359,7 +3359,7 @@
     {
       "index": 160,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3375,7 +3375,7 @@
     {
       "index": 161,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3396,7 +3396,7 @@
     {
       "index": 162,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3427,7 +3427,7 @@
     {
       "index": 163,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3448,7 +3448,7 @@
     {
       "index": 164,
       "type": 1,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3492,7 +3492,7 @@
     {
       "index": 165,
       "type": 0,
-      "class": 47,
+      "class": "TRAINER_CLASS_SIS_AND_BRO",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3513,7 +3513,7 @@
     {
       "index": 166,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3534,7 +3534,7 @@
     {
       "index": 167,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3550,7 +3550,7 @@
     {
       "index": 168,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3576,7 +3576,7 @@
     {
       "index": 169,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3592,7 +3592,7 @@
     {
       "index": 170,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3624,7 +3624,7 @@
     {
       "index": 171,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3665,7 +3665,7 @@
     {
       "index": 172,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3691,7 +3691,7 @@
     {
       "index": 173,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3712,7 +3712,7 @@
     {
       "index": 174,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3743,7 +3743,7 @@
     {
       "index": 175,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3769,7 +3769,7 @@
     {
       "index": 176,
       "type": 0,
-      "class": 57,
+      "class": "TRAINER_CLASS_ROUGHNECK",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3785,7 +3785,7 @@
     {
       "index": 177,
       "type": 0,
-      "class": 57,
+      "class": "TRAINER_CLASS_ROUGHNECK",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3801,7 +3801,7 @@
     {
       "index": 178,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3817,7 +3817,7 @@
     {
       "index": 179,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3833,7 +3833,7 @@
     {
       "index": 180,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3859,7 +3859,7 @@
     {
       "index": 181,
       "type": 0,
-      "class": 15,
+      "class": "TRAINER_CLASS_ARTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3875,7 +3875,7 @@
     {
       "index": 182,
       "type": 0,
-      "class": 23,
+      "class": "TRAINER_CLASS_YOUNG_COUPLE",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3896,7 +3896,7 @@
     {
       "index": 183,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3917,7 +3917,7 @@
     {
       "index": 184,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3933,7 +3933,7 @@
     {
       "index": 185,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3954,7 +3954,7 @@
     {
       "index": 186,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3980,7 +3980,7 @@
     {
       "index": 187,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -3996,7 +3996,7 @@
     {
       "index": 188,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4022,7 +4022,7 @@
     {
       "index": 189,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4038,7 +4038,7 @@
     {
       "index": 190,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4059,7 +4059,7 @@
     {
       "index": 191,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4085,7 +4085,7 @@
     {
       "index": 192,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4106,7 +4106,7 @@
     {
       "index": 193,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4127,7 +4127,7 @@
     {
       "index": 194,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4143,7 +4143,7 @@
     {
       "index": 195,
       "type": 1,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4174,7 +4174,7 @@
     {
       "index": 196,
       "type": 1,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4194,7 +4194,7 @@
     {
       "index": 197,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4210,7 +4210,7 @@
     {
       "index": 198,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4226,7 +4226,7 @@
     {
       "index": 199,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4242,7 +4242,7 @@
     {
       "index": 200,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4258,7 +4258,7 @@
     {
       "index": 201,
       "type": 0,
-      "class": 6,
+      "class": "TRAINER_CLASS_BUG_CATCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4284,7 +4284,7 @@
     {
       "index": 202,
       "type": 0,
-      "class": 6,
+      "class": "TRAINER_CLASS_BUG_CATCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4310,7 +4310,7 @@
     {
       "index": 203,
       "type": 0,
-      "class": 6,
+      "class": "TRAINER_CLASS_BUG_CATCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4331,7 +4331,7 @@
     {
       "index": 204,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4347,7 +4347,7 @@
     {
       "index": 205,
       "type": 1,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4366,7 +4366,7 @@
     {
       "index": 206,
       "type": 1,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4385,7 +4385,7 @@
     {
       "index": 207,
       "type": 0,
-      "class": 23,
+      "class": "TRAINER_CLASS_YOUNG_COUPLE",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4406,7 +4406,7 @@
     {
       "index": 208,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4422,7 +4422,7 @@
     {
       "index": 209,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4438,7 +4438,7 @@
     {
       "index": 210,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4454,7 +4454,7 @@
     {
       "index": 211,
       "type": 0,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4470,7 +4470,7 @@
     {
       "index": 212,
       "type": 0,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4486,7 +4486,7 @@
     {
       "index": 213,
       "type": 0,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4502,7 +4502,7 @@
     {
       "index": 214,
       "type": 0,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4518,7 +4518,7 @@
     {
       "index": 215,
       "type": 0,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4534,7 +4534,7 @@
     {
       "index": 216,
       "type": 0,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4550,7 +4550,7 @@
     {
       "index": 217,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4566,7 +4566,7 @@
     {
       "index": 218,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4582,7 +4582,7 @@
     {
       "index": 219,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4598,7 +4598,7 @@
     {
       "index": 220,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4614,7 +4614,7 @@
     {
       "index": 221,
       "type": 0,
-      "class": 60,
+      "class": "TRAINER_CLASS_SCHOOL_KID_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4630,7 +4630,7 @@
     {
       "index": 222,
       "type": 0,
-      "class": 61,
+      "class": "TRAINER_CLASS_SCHOOL_KID_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4646,7 +4646,7 @@
     {
       "index": 223,
       "type": 0,
-      "class": 23,
+      "class": "TRAINER_CLASS_YOUNG_COUPLE",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4667,7 +4667,7 @@
     {
       "index": 224,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4711,7 +4711,7 @@
     {
       "index": 225,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4733,7 +4733,7 @@
     {
       "index": 226,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4766,7 +4766,7 @@
     {
       "index": 227,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4799,7 +4799,7 @@
     {
       "index": 228,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4843,7 +4843,7 @@
     {
       "index": 229,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4876,7 +4876,7 @@
     {
       "index": 230,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4892,7 +4892,7 @@
     {
       "index": 231,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4918,7 +4918,7 @@
     {
       "index": 232,
       "type": 1,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4951,7 +4951,7 @@
     {
       "index": 233,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4972,7 +4972,7 @@
     {
       "index": 234,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -4998,7 +4998,7 @@
     {
       "index": 235,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5019,7 +5019,7 @@
     {
       "index": 236,
       "type": 0,
-      "class": 31,
+      "class": "TRAINER_CLASS_DOUBLE_TEAM",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5040,7 +5040,7 @@
     {
       "index": 237,
       "type": 0,
-      "class": 31,
+      "class": "TRAINER_CLASS_DOUBLE_TEAM",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5061,7 +5061,7 @@
     {
       "index": 238,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5077,7 +5077,7 @@
     {
       "index": 239,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5093,7 +5093,7 @@
     {
       "index": 240,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5137,7 +5137,7 @@
     {
       "index": 241,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5153,7 +5153,7 @@
     {
       "index": 242,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5169,7 +5169,7 @@
     {
       "index": 243,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5185,7 +5185,7 @@
     {
       "index": 244,
       "type": 1,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5205,7 +5205,7 @@
     {
       "index": 245,
       "type": 1,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5235,7 +5235,7 @@
     {
       "index": 246,
       "type": 1,
-      "class": 62,
+      "class": "TRAINER_CLASS_LEADER_ROARK",
       "unk2": 0,
       "items": [
         "ITEM_POTION",
@@ -5278,7 +5278,7 @@
     {
       "index": 247,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5307,7 +5307,7 @@
     {
       "index": 248,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5336,7 +5336,7 @@
     {
       "index": 249,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5365,7 +5365,7 @@
     {
       "index": 250,
       "type": 3,
-      "class": 64,
+      "class": "TRAINER_CLASS_LEADER_BYRON",
       "unk2": 0,
       "items": [
         "ITEM_HYPER_POTION",
@@ -5415,7 +5415,7 @@
     {
       "index": 251,
       "type": 0,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5431,7 +5431,7 @@
     {
       "index": 252,
       "type": 0,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5447,7 +5447,7 @@
     {
       "index": 253,
       "type": 0,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5463,7 +5463,7 @@
     {
       "index": 254,
       "type": 0,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5479,7 +5479,7 @@
     {
       "index": 255,
       "type": 0,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5495,7 +5495,7 @@
     {
       "index": 256,
       "type": 1,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5536,7 +5536,7 @@
     {
       "index": 257,
       "type": 1,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5557,7 +5557,7 @@
     {
       "index": 258,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5573,7 +5573,7 @@
     {
       "index": 259,
       "type": 1,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5614,7 +5614,7 @@
     {
       "index": 260,
       "type": 1,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5634,7 +5634,7 @@
     {
       "index": 261,
       "type": 3,
-      "class": 65,
+      "class": "TRAINER_CLASS_ELITE_FOUR_AARON",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE",
@@ -5708,7 +5708,7 @@
     {
       "index": 262,
       "type": 3,
-      "class": 66,
+      "class": "TRAINER_CLASS_ELITE_FOUR_BERTHA",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE",
@@ -5782,7 +5782,7 @@
     {
       "index": 263,
       "type": 3,
-      "class": 67,
+      "class": "TRAINER_CLASS_ELITE_FOUR_FLINT",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE",
@@ -5856,7 +5856,7 @@
     {
       "index": 264,
       "type": 3,
-      "class": 68,
+      "class": "TRAINER_CLASS_ELITE_FOUR_LUCIEN",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE",
@@ -5930,7 +5930,7 @@
     {
       "index": 265,
       "type": 0,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5946,7 +5946,7 @@
     {
       "index": 266,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -5987,7 +5987,7 @@
     {
       "index": 267,
       "type": 3,
-      "class": 69,
+      "class": "TRAINER_CLASS_CHAMPION",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE",
@@ -6075,7 +6075,7 @@
     {
       "index": 268,
       "type": 1,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6108,7 +6108,7 @@
     {
       "index": 269,
       "type": 1,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6130,7 +6130,7 @@
     {
       "index": 270,
       "type": 1,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6174,7 +6174,7 @@
     {
       "index": 271,
       "type": 1,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6206,7 +6206,7 @@
     {
       "index": 272,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6232,7 +6232,7 @@
     {
       "index": 273,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6258,7 +6258,7 @@
     {
       "index": 274,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6284,7 +6284,7 @@
     {
       "index": 275,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6310,7 +6310,7 @@
     {
       "index": 276,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6336,7 +6336,7 @@
     {
       "index": 277,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6357,7 +6357,7 @@
     {
       "index": 278,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6388,7 +6388,7 @@
     {
       "index": 279,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6421,7 +6421,7 @@
     {
       "index": 280,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6465,7 +6465,7 @@
     {
       "index": 281,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6497,7 +6497,7 @@
     {
       "index": 282,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6529,7 +6529,7 @@
     {
       "index": 283,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6551,7 +6551,7 @@
     {
       "index": 284,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6584,7 +6584,7 @@
     {
       "index": 285,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6617,7 +6617,7 @@
     {
       "index": 286,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6639,7 +6639,7 @@
     {
       "index": 287,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6671,7 +6671,7 @@
     {
       "index": 288,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6692,7 +6692,7 @@
     {
       "index": 289,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6713,7 +6713,7 @@
     {
       "index": 290,
       "type": 0,
-      "class": 70,
+      "class": "TRAINER_CLASS_BELLE__PA",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6734,7 +6734,7 @@
     {
       "index": 291,
       "type": 0,
-      "class": 71,
+      "class": "TRAINER_CLASS_RANCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6750,7 +6750,7 @@
     {
       "index": 292,
       "type": 0,
-      "class": 71,
+      "class": "TRAINER_CLASS_RANCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6776,7 +6776,7 @@
     {
       "index": 293,
       "type": 1,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6817,7 +6817,7 @@
     {
       "index": 294,
       "type": 0,
-      "class": 8,
+      "class": "TRAINER_CLASS_TWINS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6838,7 +6838,7 @@
     {
       "index": 295,
       "type": 3,
-      "class": 72,
+      "class": "TRAINER_CLASS_COMMANDER_MARS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6871,7 +6871,7 @@
     {
       "index": 296,
       "type": 1,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6900,7 +6900,7 @@
     {
       "index": 297,
       "type": 1,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6920,7 +6920,7 @@
     {
       "index": 298,
       "type": 1,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6941,7 +6941,7 @@
     {
       "index": 299,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6962,7 +6962,7 @@
     {
       "index": 300,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6978,7 +6978,7 @@
     {
       "index": 301,
       "type": 1,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -6999,7 +6999,7 @@
     {
       "index": 302,
       "type": 1,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7031,7 +7031,7 @@
     {
       "index": 303,
       "type": 1,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7053,7 +7053,7 @@
     {
       "index": 304,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7074,7 +7074,7 @@
     {
       "index": 305,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7090,7 +7090,7 @@
     {
       "index": 306,
       "type": 0,
-      "class": 19,
+      "class": "TRAINER_CLASS_JOGGER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7106,7 +7106,7 @@
     {
       "index": 307,
       "type": 0,
-      "class": 19,
+      "class": "TRAINER_CLASS_JOGGER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7132,7 +7132,7 @@
     {
       "index": 308,
       "type": 0,
-      "class": 19,
+      "class": "TRAINER_CLASS_JOGGER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7148,7 +7148,7 @@
     {
       "index": 309,
       "type": 1,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7186,7 +7186,7 @@
     {
       "index": 310,
       "type": 1,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7224,7 +7224,7 @@
     {
       "index": 311,
       "type": 1,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7246,7 +7246,7 @@
     {
       "index": 312,
       "type": 1,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7277,7 +7277,7 @@
     {
       "index": 313,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7298,7 +7298,7 @@
     {
       "index": 314,
       "type": 1,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7320,7 +7320,7 @@
     {
       "index": 315,
       "type": 3,
-      "class": 74,
+      "class": "TRAINER_CLASS_LEADER_GARDENIA",
       "unk2": 0,
       "items": [
         "ITEM_SUPER_POTION",
@@ -7370,7 +7370,7 @@
     {
       "index": 316,
       "type": 3,
-      "class": 75,
+      "class": "TRAINER_CLASS_LEADER_WAKE",
       "unk2": 0,
       "items": [
         "ITEM_SUPER_POTION",
@@ -7420,7 +7420,7 @@
     {
       "index": 317,
       "type": 3,
-      "class": 76,
+      "class": "TRAINER_CLASS_LEADER_MAYLENE",
       "unk2": 0,
       "items": [
         "ITEM_HYPER_POTION",
@@ -7470,7 +7470,7 @@
     {
       "index": 318,
       "type": 3,
-      "class": 77,
+      "class": "TRAINER_CLASS_LEADER_FANTINA",
       "unk2": 0,
       "items": [
         "ITEM_HYPER_POTION",
@@ -7520,7 +7520,7 @@
     {
       "index": 319,
       "type": 3,
-      "class": 78,
+      "class": "TRAINER_CLASS_LEADER_CANDICE",
       "unk2": 0,
       "items": [
         "ITEM_HYPER_POTION",
@@ -7582,7 +7582,7 @@
     {
       "index": 320,
       "type": 3,
-      "class": 79,
+      "class": "TRAINER_CLASS_LEADER_VOLKNER",
       "unk2": 0,
       "items": [
         "ITEM_HYPER_POTION",
@@ -7644,7 +7644,7 @@
     {
       "index": 321,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7660,7 +7660,7 @@
     {
       "index": 322,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7681,7 +7681,7 @@
     {
       "index": 323,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7707,7 +7707,7 @@
     {
       "index": 324,
       "type": 1,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7737,7 +7737,7 @@
     {
       "index": 325,
       "type": 1,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7758,7 +7758,7 @@
     {
       "index": 326,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7779,7 +7779,7 @@
     {
       "index": 327,
       "type": 0,
-      "class": 80,
+      "class": "TRAINER_CLASS_PARASOL_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7800,7 +7800,7 @@
     {
       "index": 328,
       "type": 0,
-      "class": 80,
+      "class": "TRAINER_CLASS_PARASOL_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7816,7 +7816,7 @@
     {
       "index": 329,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7846,7 +7846,7 @@
     {
       "index": 330,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7877,7 +7877,7 @@
     {
       "index": 331,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7908,7 +7908,7 @@
     {
       "index": 332,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7929,7 +7929,7 @@
     {
       "index": 333,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7950,7 +7950,7 @@
     {
       "index": 334,
       "type": 0,
-      "class": 32,
+      "class": "TRAINER_CLASS_RICH_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7966,7 +7966,7 @@
     {
       "index": 335,
       "type": 0,
-      "class": 32,
+      "class": "TRAINER_CLASS_RICH_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7982,7 +7982,7 @@
     {
       "index": 336,
       "type": 0,
-      "class": 33,
+      "class": "TRAINER_CLASS_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -7998,7 +7998,7 @@
     {
       "index": 337,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8014,7 +8014,7 @@
     {
       "index": 338,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8035,7 +8035,7 @@
     {
       "index": 339,
       "type": 1,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8066,7 +8066,7 @@
     {
       "index": 340,
       "type": 1,
-      "class": 60,
+      "class": "TRAINER_CLASS_SCHOOL_KID_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8088,7 +8088,7 @@
     {
       "index": 341,
       "type": 1,
-      "class": 60,
+      "class": "TRAINER_CLASS_SCHOOL_KID_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8110,7 +8110,7 @@
     {
       "index": 342,
       "type": 1,
-      "class": 60,
+      "class": "TRAINER_CLASS_SCHOOL_KID_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8129,7 +8129,7 @@
     {
       "index": 343,
       "type": 1,
-      "class": 61,
+      "class": "TRAINER_CLASS_SCHOOL_KID_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8161,7 +8161,7 @@
     {
       "index": 344,
       "type": 1,
-      "class": 61,
+      "class": "TRAINER_CLASS_SCHOOL_KID_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8183,7 +8183,7 @@
     {
       "index": 345,
       "type": 1,
-      "class": 61,
+      "class": "TRAINER_CLASS_SCHOOL_KID_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8202,7 +8202,7 @@
     {
       "index": 346,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8218,7 +8218,7 @@
     {
       "index": 347,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8234,7 +8234,7 @@
     {
       "index": 348,
       "type": 1,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8255,7 +8255,7 @@
     {
       "index": 349,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8271,7 +8271,7 @@
     {
       "index": 350,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8287,7 +8287,7 @@
     {
       "index": 351,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8303,7 +8303,7 @@
     {
       "index": 352,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8319,7 +8319,7 @@
     {
       "index": 353,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8335,7 +8335,7 @@
     {
       "index": 354,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8351,7 +8351,7 @@
     {
       "index": 355,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8367,7 +8367,7 @@
     {
       "index": 356,
       "type": 1,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8387,7 +8387,7 @@
     {
       "index": 357,
       "type": 1,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8420,7 +8420,7 @@
     {
       "index": 358,
       "type": 0,
-      "class": 44,
+      "class": "TRAINER_CLASS_TUBER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8441,7 +8441,7 @@
     {
       "index": 359,
       "type": 0,
-      "class": 44,
+      "class": "TRAINER_CLASS_TUBER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8457,7 +8457,7 @@
     {
       "index": 360,
       "type": 0,
-      "class": 45,
+      "class": "TRAINER_CLASS_TUBER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8478,7 +8478,7 @@
     {
       "index": 361,
       "type": 0,
-      "class": 45,
+      "class": "TRAINER_CLASS_TUBER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8494,7 +8494,7 @@
     {
       "index": 362,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8538,7 +8538,7 @@
     {
       "index": 363,
       "type": 0,
-      "class": 81,
+      "class": "TRAINER_CLASS_WAITER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8554,7 +8554,7 @@
     {
       "index": 364,
       "type": 0,
-      "class": 81,
+      "class": "TRAINER_CLASS_WAITER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8570,7 +8570,7 @@
     {
       "index": 365,
       "type": 0,
-      "class": 81,
+      "class": "TRAINER_CLASS_WAITER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8586,7 +8586,7 @@
     {
       "index": 366,
       "type": 0,
-      "class": 26,
+      "class": "TRAINER_CLASS_WAITRESS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8602,7 +8602,7 @@
     {
       "index": 367,
       "type": 1,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8633,7 +8633,7 @@
     {
       "index": 368,
       "type": 0,
-      "class": 82,
+      "class": "TRAINER_CLASS_INTERVIEWERS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8654,7 +8654,7 @@
     {
       "index": 369,
       "type": 0,
-      "class": 83,
+      "class": "TRAINER_CLASS_CAMERAMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8670,7 +8670,7 @@
     {
       "index": 370,
       "type": 0,
-      "class": 84,
+      "class": "TRAINER_CLASS_REPORTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8686,7 +8686,7 @@
     {
       "index": 371,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8707,7 +8707,7 @@
     {
       "index": 372,
       "type": 0,
-      "class": 10,
+      "class": "TRAINER_CLASS_BATTLE_GIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8723,7 +8723,7 @@
     {
       "index": 373,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8744,7 +8744,7 @@
     {
       "index": 374,
       "type": 0,
-      "class": 16,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8760,7 +8760,7 @@
     {
       "index": 375,
       "type": 0,
-      "class": 17,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8776,7 +8776,7 @@
     {
       "index": 376,
       "type": 0,
-      "class": 83,
+      "class": "TRAINER_CLASS_CAMERAMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8792,7 +8792,7 @@
     {
       "index": 377,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8812,7 +8812,7 @@
     {
       "index": 378,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8844,7 +8844,7 @@
     {
       "index": 379,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8874,7 +8874,7 @@
     {
       "index": 380,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8904,7 +8904,7 @@
     {
       "index": 381,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8930,7 +8930,7 @@
     {
       "index": 382,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8956,7 +8956,7 @@
     {
       "index": 383,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8982,7 +8982,7 @@
     {
       "index": 384,
       "type": 0,
-      "class": 20,
+      "class": "TRAINER_CLASS_POKEFAN_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -8998,7 +8998,7 @@
     {
       "index": 385,
       "type": 0,
-      "class": 21,
+      "class": "TRAINER_CLASS_POKEFAN_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9014,7 +9014,7 @@
     {
       "index": 386,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9035,7 +9035,7 @@
     {
       "index": 387,
       "type": 0,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9051,7 +9051,7 @@
     {
       "index": 388,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9095,7 +9095,7 @@
     {
       "index": 389,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9139,7 +9139,7 @@
     {
       "index": 390,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9172,7 +9172,7 @@
     {
       "index": 391,
       "type": 0,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9188,7 +9188,7 @@
     {
       "index": 392,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9221,7 +9221,7 @@
     {
       "index": 393,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9265,7 +9265,7 @@
     {
       "index": 394,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9309,7 +9309,7 @@
     {
       "index": 395,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9325,7 +9325,7 @@
     {
       "index": 396,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9341,7 +9341,7 @@
     {
       "index": 397,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9357,7 +9357,7 @@
     {
       "index": 398,
       "type": 1,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9378,7 +9378,7 @@
     {
       "index": 399,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9399,7 +9399,7 @@
     {
       "index": 400,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9420,7 +9420,7 @@
     {
       "index": 401,
       "type": 1,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9441,7 +9441,7 @@
     {
       "index": 402,
       "type": 0,
-      "class": 34,
+      "class": "TRAINER_CLASS_GENTLEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9457,7 +9457,7 @@
     {
       "index": 403,
       "type": 3,
-      "class": 86,
+      "class": "TRAINER_CLASS_GALACTIC_BOSS",
       "unk2": 0,
       "items": [
         "ITEM_SUPER_POTION",
@@ -9507,7 +9507,7 @@
     {
       "index": 404,
       "type": 3,
-      "class": 86,
+      "class": "TRAINER_CLASS_GALACTIC_BOSS",
       "unk2": 0,
       "items": [
         "ITEM_SUPER_POTION",
@@ -9569,7 +9569,7 @@
     {
       "index": 405,
       "type": 3,
-      "class": 72,
+      "class": "TRAINER_CLASS_COMMANDER_MARS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9616,7 +9616,7 @@
     {
       "index": 406,
       "type": 3,
-      "class": 87,
+      "class": "TRAINER_CLASS_COMMANDER_JUPITER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9650,7 +9650,7 @@
     {
       "index": 407,
       "type": 3,
-      "class": 87,
+      "class": "TRAINER_CLASS_COMMANDER_JUPITER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9697,7 +9697,7 @@
     {
       "index": 408,
       "type": 3,
-      "class": 88,
+      "class": "TRAINER_CLASS_COMMANDER_SATURN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9744,7 +9744,7 @@
     {
       "index": 409,
       "type": 3,
-      "class": 88,
+      "class": "TRAINER_CLASS_COMMANDER_SATURN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9791,7 +9791,7 @@
     {
       "index": 410,
       "type": 1,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9822,7 +9822,7 @@
     {
       "index": 411,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9838,7 +9838,7 @@
     {
       "index": 412,
       "type": 1,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9868,7 +9868,7 @@
     {
       "index": 413,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9884,7 +9884,7 @@
     {
       "index": 414,
       "type": 1,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9904,7 +9904,7 @@
     {
       "index": 415,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9920,7 +9920,7 @@
     {
       "index": 416,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9941,7 +9941,7 @@
     {
       "index": 417,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9962,7 +9962,7 @@
     {
       "index": 418,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -9988,7 +9988,7 @@
     {
       "index": 419,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10004,7 +10004,7 @@
     {
       "index": 420,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10025,7 +10025,7 @@
     {
       "index": 421,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10046,7 +10046,7 @@
     {
       "index": 422,
       "type": 1,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10067,7 +10067,7 @@
     {
       "index": 423,
       "type": 1,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10107,7 +10107,7 @@
     {
       "index": 424,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10123,7 +10123,7 @@
     {
       "index": 425,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10144,7 +10144,7 @@
     {
       "index": 426,
       "type": 1,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10187,7 +10187,7 @@
     {
       "index": 427,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10208,7 +10208,7 @@
     {
       "index": 428,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10224,7 +10224,7 @@
     {
       "index": 429,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10240,7 +10240,7 @@
     {
       "index": 430,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10261,7 +10261,7 @@
     {
       "index": 431,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10282,7 +10282,7 @@
     {
       "index": 432,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10298,7 +10298,7 @@
     {
       "index": 433,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10314,7 +10314,7 @@
     {
       "index": 434,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10330,7 +10330,7 @@
     {
       "index": 435,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10346,7 +10346,7 @@
     {
       "index": 436,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10362,7 +10362,7 @@
     {
       "index": 437,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10378,7 +10378,7 @@
     {
       "index": 438,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10394,7 +10394,7 @@
     {
       "index": 439,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10410,7 +10410,7 @@
     {
       "index": 440,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10426,7 +10426,7 @@
     {
       "index": 441,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10442,7 +10442,7 @@
     {
       "index": 442,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10458,7 +10458,7 @@
     {
       "index": 443,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10479,7 +10479,7 @@
     {
       "index": 444,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10495,7 +10495,7 @@
     {
       "index": 445,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10511,7 +10511,7 @@
     {
       "index": 446,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10532,7 +10532,7 @@
     {
       "index": 447,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10553,7 +10553,7 @@
     {
       "index": 448,
       "type": 0,
-      "class": 35,
+      "class": "TRAINER_CLASS_SOCIALITE",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10569,7 +10569,7 @@
     {
       "index": 449,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10585,7 +10585,7 @@
     {
       "index": 450,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10601,7 +10601,7 @@
     {
       "index": 451,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10622,7 +10622,7 @@
     {
       "index": 452,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10648,7 +10648,7 @@
     {
       "index": 453,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10669,7 +10669,7 @@
     {
       "index": 454,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10690,7 +10690,7 @@
     {
       "index": 455,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10706,7 +10706,7 @@
     {
       "index": 456,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10726,7 +10726,7 @@
     {
       "index": 457,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10758,7 +10758,7 @@
     {
       "index": 458,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10788,7 +10788,7 @@
     {
       "index": 459,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10808,7 +10808,7 @@
     {
       "index": 460,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10824,7 +10824,7 @@
     {
       "index": 461,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10840,7 +10840,7 @@
     {
       "index": 462,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10856,7 +10856,7 @@
     {
       "index": 463,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10872,7 +10872,7 @@
     {
       "index": 464,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10888,7 +10888,7 @@
     {
       "index": 465,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10909,7 +10909,7 @@
     {
       "index": 466,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10925,7 +10925,7 @@
     {
       "index": 467,
       "type": 0,
-      "class": 32,
+      "class": "TRAINER_CLASS_RICH_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10941,7 +10941,7 @@
     {
       "index": 468,
       "type": 0,
-      "class": 32,
+      "class": "TRAINER_CLASS_RICH_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10957,7 +10957,7 @@
     {
       "index": 469,
       "type": 0,
-      "class": 33,
+      "class": "TRAINER_CLASS_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -10973,7 +10973,7 @@
     {
       "index": 470,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11028,7 +11028,7 @@
     {
       "index": 471,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11083,7 +11083,7 @@
     {
       "index": 472,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11138,7 +11138,7 @@
     {
       "index": 473,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11193,7 +11193,7 @@
     {
       "index": 474,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11248,7 +11248,7 @@
     {
       "index": 475,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11303,7 +11303,7 @@
     {
       "index": 476,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11369,7 +11369,7 @@
     {
       "index": 477,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11435,7 +11435,7 @@
     {
       "index": 478,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11501,7 +11501,7 @@
     {
       "index": 479,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11578,7 +11578,7 @@
     {
       "index": 480,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11655,7 +11655,7 @@
     {
       "index": 481,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11732,7 +11732,7 @@
     {
       "index": 482,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11758,7 +11758,7 @@
     {
       "index": 483,
       "type": 1,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11799,7 +11799,7 @@
     {
       "index": 484,
       "type": 0,
-      "class": 60,
+      "class": "TRAINER_CLASS_SCHOOL_KID_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11815,7 +11815,7 @@
     {
       "index": 485,
       "type": 0,
-      "class": 61,
+      "class": "TRAINER_CLASS_SCHOOL_KID_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11831,7 +11831,7 @@
     {
       "index": 486,
       "type": 1,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11861,7 +11861,7 @@
     {
       "index": 487,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11877,7 +11877,7 @@
     {
       "index": 488,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11903,7 +11903,7 @@
     {
       "index": 489,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11924,7 +11924,7 @@
     {
       "index": 490,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11940,7 +11940,7 @@
     {
       "index": 491,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11956,7 +11956,7 @@
     {
       "index": 492,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11972,7 +11972,7 @@
     {
       "index": 493,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -11988,7 +11988,7 @@
     {
       "index": 494,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12004,7 +12004,7 @@
     {
       "index": 495,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12020,7 +12020,7 @@
     {
       "index": 496,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12046,7 +12046,7 @@
     {
       "index": 497,
       "type": 1,
-      "class": 44,
+      "class": "TRAINER_CLASS_TUBER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12068,7 +12068,7 @@
     {
       "index": 498,
       "type": 1,
-      "class": 45,
+      "class": "TRAINER_CLASS_TUBER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12100,7 +12100,7 @@
     {
       "index": 499,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12144,7 +12144,7 @@
     {
       "index": 500,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12188,7 +12188,7 @@
     {
       "index": 501,
       "type": 0,
-      "class": 81,
+      "class": "TRAINER_CLASS_WAITER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12204,7 +12204,7 @@
     {
       "index": 502,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12220,7 +12220,7 @@
     {
       "index": 503,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12241,7 +12241,7 @@
     {
       "index": 504,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12257,7 +12257,7 @@
     {
       "index": 505,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12278,7 +12278,7 @@
     {
       "index": 506,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12304,7 +12304,7 @@
     {
       "index": 507,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12320,7 +12320,7 @@
     {
       "index": 508,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12341,7 +12341,7 @@
     {
       "index": 509,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12357,7 +12357,7 @@
     {
       "index": 510,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12383,7 +12383,7 @@
     {
       "index": 511,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12399,7 +12399,7 @@
     {
       "index": 512,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12420,7 +12420,7 @@
     {
       "index": 513,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12441,7 +12441,7 @@
     {
       "index": 514,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12462,7 +12462,7 @@
     {
       "index": 515,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12478,7 +12478,7 @@
     {
       "index": 516,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12504,7 +12504,7 @@
     {
       "index": 517,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12525,7 +12525,7 @@
     {
       "index": 518,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12551,7 +12551,7 @@
     {
       "index": 519,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12567,7 +12567,7 @@
     {
       "index": 520,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12588,7 +12588,7 @@
     {
       "index": 521,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12609,7 +12609,7 @@
     {
       "index": 522,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12635,7 +12635,7 @@
     {
       "index": 523,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12651,7 +12651,7 @@
     {
       "index": 524,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12677,7 +12677,7 @@
     {
       "index": 525,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12698,7 +12698,7 @@
     {
       "index": 526,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12724,7 +12724,7 @@
     {
       "index": 527,
       "type": 0,
-      "class": 89,
+      "class": "TRAINER_CLASS_GALACTIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12745,7 +12745,7 @@
     {
       "index": 528,
       "type": 3,
-      "class": 72,
+      "class": "TRAINER_CLASS_COMMANDER_MARS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12792,7 +12792,7 @@
     {
       "index": 529,
       "type": 0,
-      "class": 57,
+      "class": "TRAINER_CLASS_ROUGHNECK",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12808,7 +12808,7 @@
     {
       "index": 530,
       "type": 0,
-      "class": 20,
+      "class": "TRAINER_CLASS_POKEFAN_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12834,7 +12834,7 @@
     {
       "index": 531,
       "type": 0,
-      "class": 21,
+      "class": "TRAINER_CLASS_POKEFAN_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12850,7 +12850,7 @@
     {
       "index": 532,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12876,7 +12876,7 @@
     {
       "index": 533,
       "type": 0,
-      "class": 70,
+      "class": "TRAINER_CLASS_BELLE__PA",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12897,7 +12897,7 @@
     {
       "index": 534,
       "type": 0,
-      "class": 23,
+      "class": "TRAINER_CLASS_YOUNG_COUPLE",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12918,7 +12918,7 @@
     {
       "index": 535,
       "type": 0,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12934,7 +12934,7 @@
     {
       "index": 536,
       "type": 0,
-      "class": 15,
+      "class": "TRAINER_CLASS_ARTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12950,7 +12950,7 @@
     {
       "index": 537,
       "type": 0,
-      "class": 17,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12971,7 +12971,7 @@
     {
       "index": 538,
       "type": 0,
-      "class": 83,
+      "class": "TRAINER_CLASS_CAMERAMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -12992,7 +12992,7 @@
     {
       "index": 539,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13018,7 +13018,7 @@
     {
       "index": 540,
       "type": 0,
-      "class": 21,
+      "class": "TRAINER_CLASS_POKEFAN_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13039,7 +13039,7 @@
     {
       "index": 541,
       "type": 1,
-      "class": 51,
+      "class": "TRAINER_CLASS_PI",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13068,7 +13068,7 @@
     {
       "index": 542,
       "type": 0,
-      "class": 34,
+      "class": "TRAINER_CLASS_GENTLEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13089,7 +13089,7 @@
     {
       "index": 543,
       "type": 0,
-      "class": 35,
+      "class": "TRAINER_CLASS_SOCIALITE",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -13112,7 +13112,7 @@
     {
       "index": 544,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13133,7 +13133,7 @@
     {
       "index": 545,
       "type": 0,
-      "class": 32,
+      "class": "TRAINER_CLASS_RICH_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13149,7 +13149,7 @@
     {
       "index": 546,
       "type": 0,
-      "class": 33,
+      "class": "TRAINER_CLASS_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13170,7 +13170,7 @@
     {
       "index": 547,
       "type": 0,
-      "class": 84,
+      "class": "TRAINER_CLASS_REPORTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13186,7 +13186,7 @@
     {
       "index": 548,
       "type": 1,
-      "class": 60,
+      "class": "TRAINER_CLASS_SCHOOL_KID_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13208,7 +13208,7 @@
     {
       "index": 549,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13224,7 +13224,7 @@
     {
       "index": 550,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13240,7 +13240,7 @@
     {
       "index": 551,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13256,7 +13256,7 @@
     {
       "index": 552,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13287,7 +13287,7 @@
     {
       "index": 553,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13313,7 +13313,7 @@
     {
       "index": 554,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13334,7 +13334,7 @@
     {
       "index": 555,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13355,7 +13355,7 @@
     {
       "index": 556,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13381,7 +13381,7 @@
     {
       "index": 557,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13402,7 +13402,7 @@
     {
       "index": 558,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13418,7 +13418,7 @@
     {
       "index": 559,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13434,7 +13434,7 @@
     {
       "index": 560,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13455,7 +13455,7 @@
     {
       "index": 561,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13481,7 +13481,7 @@
     {
       "index": 562,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13502,7 +13502,7 @@
     {
       "index": 563,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13535,7 +13535,7 @@
     {
       "index": 564,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13557,7 +13557,7 @@
     {
       "index": 565,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13590,7 +13590,7 @@
     {
       "index": 566,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13623,7 +13623,7 @@
     {
       "index": 567,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13656,7 +13656,7 @@
     {
       "index": 568,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13678,7 +13678,7 @@
     {
       "index": 569,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13711,7 +13711,7 @@
     {
       "index": 570,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13744,7 +13744,7 @@
     {
       "index": 571,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13777,7 +13777,7 @@
     {
       "index": 572,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13799,7 +13799,7 @@
     {
       "index": 573,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13832,7 +13832,7 @@
     {
       "index": 574,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13876,7 +13876,7 @@
     {
       "index": 575,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13909,7 +13909,7 @@
     {
       "index": 576,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13953,7 +13953,7 @@
     {
       "index": 577,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -13986,7 +13986,7 @@
     {
       "index": 578,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14008,7 +14008,7 @@
     {
       "index": 579,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14041,7 +14041,7 @@
     {
       "index": 580,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14063,7 +14063,7 @@
     {
       "index": 581,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14107,7 +14107,7 @@
     {
       "index": 582,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14140,7 +14140,7 @@
     {
       "index": 583,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14161,7 +14161,7 @@
     {
       "index": 584,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14182,7 +14182,7 @@
     {
       "index": 585,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14203,7 +14203,7 @@
     {
       "index": 586,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14224,7 +14224,7 @@
     {
       "index": 587,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14250,7 +14250,7 @@
     {
       "index": 588,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14271,7 +14271,7 @@
     {
       "index": 589,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14297,7 +14297,7 @@
     {
       "index": 590,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14313,7 +14313,7 @@
     {
       "index": 591,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14334,7 +14334,7 @@
     {
       "index": 592,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14355,7 +14355,7 @@
     {
       "index": 593,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14371,7 +14371,7 @@
     {
       "index": 594,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14392,7 +14392,7 @@
     {
       "index": 595,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14413,7 +14413,7 @@
     {
       "index": 596,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14434,7 +14434,7 @@
     {
       "index": 597,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14455,7 +14455,7 @@
     {
       "index": 598,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14471,7 +14471,7 @@
     {
       "index": 599,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14492,7 +14492,7 @@
     {
       "index": 600,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14518,7 +14518,7 @@
     {
       "index": 601,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14539,7 +14539,7 @@
     {
       "index": 602,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14560,7 +14560,7 @@
     {
       "index": 603,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14581,7 +14581,7 @@
     {
       "index": 604,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14607,7 +14607,7 @@
     {
       "index": 605,
       "type": 0,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14623,7 +14623,7 @@
     {
       "index": 606,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14667,7 +14667,7 @@
     {
       "index": 607,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14744,7 +14744,7 @@
     {
       "index": 608,
       "type": 1,
-      "class": 90,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14765,7 +14765,7 @@
     {
       "index": 609,
       "type": 1,
-      "class": 91,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_RICH_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14787,7 +14787,7 @@
     {
       "index": 610,
       "type": 1,
-      "class": 92,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14809,7 +14809,7 @@
     {
       "index": 611,
       "type": 1,
-      "class": 93,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14831,7 +14831,7 @@
     {
       "index": 612,
       "type": 1,
-      "class": 94,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_POKEKID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14853,7 +14853,7 @@
     {
       "index": 613,
       "type": 1,
-      "class": 95,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_LUCAS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14873,7 +14873,7 @@
     {
       "index": 614,
       "type": 1,
-      "class": 95,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_LUCAS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14893,7 +14893,7 @@
     {
       "index": 615,
       "type": 1,
-      "class": 95,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_LUCAS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14913,7 +14913,7 @@
     {
       "index": 616,
       "type": 1,
-      "class": 96,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_DAWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14933,7 +14933,7 @@
     {
       "index": 617,
       "type": 1,
-      "class": 96,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_DAWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14953,7 +14953,7 @@
     {
       "index": 618,
       "type": 1,
-      "class": 96,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_DAWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -14973,7 +14973,7 @@
     {
       "index": 619,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15050,7 +15050,7 @@
     {
       "index": 620,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15127,7 +15127,7 @@
     {
       "index": 621,
       "type": 1,
-      "class": 95,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_LUCAS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15171,7 +15171,7 @@
     {
       "index": 622,
       "type": 1,
-      "class": 95,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_LUCAS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15215,7 +15215,7 @@
     {
       "index": 623,
       "type": 1,
-      "class": 95,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_LUCAS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15259,7 +15259,7 @@
     {
       "index": 624,
       "type": 1,
-      "class": 96,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_DAWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15303,7 +15303,7 @@
     {
       "index": 625,
       "type": 1,
-      "class": 96,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_DAWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15347,7 +15347,7 @@
     {
       "index": 626,
       "type": 1,
-      "class": 96,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_DAWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15391,7 +15391,7 @@
     {
       "index": 627,
       "type": 0,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15407,7 +15407,7 @@
     {
       "index": 628,
       "type": 0,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15423,7 +15423,7 @@
     {
       "index": 629,
       "type": 0,
-      "class": 7,
+      "class": "TRAINER_CLASS_AROMA_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15439,7 +15439,7 @@
     {
       "index": 630,
       "type": 0,
-      "class": 15,
+      "class": "TRAINER_CLASS_ARTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15460,7 +15460,7 @@
     {
       "index": 631,
       "type": 0,
-      "class": 15,
+      "class": "TRAINER_CLASS_ARTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15481,7 +15481,7 @@
     {
       "index": 632,
       "type": 0,
-      "class": 15,
+      "class": "TRAINER_CLASS_ARTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15502,7 +15502,7 @@
     {
       "index": 633,
       "type": 0,
-      "class": 10,
+      "class": "TRAINER_CLASS_BATTLE_GIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15523,7 +15523,7 @@
     {
       "index": 634,
       "type": 0,
-      "class": 10,
+      "class": "TRAINER_CLASS_BATTLE_GIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15544,7 +15544,7 @@
     {
       "index": 635,
       "type": 0,
-      "class": 10,
+      "class": "TRAINER_CLASS_BATTLE_GIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15565,7 +15565,7 @@
     {
       "index": 636,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15586,7 +15586,7 @@
     {
       "index": 637,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15607,7 +15607,7 @@
     {
       "index": 638,
       "type": 0,
-      "class": 30,
+      "class": "TRAINER_CLASS_BIRD_KEEPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15628,7 +15628,7 @@
     {
       "index": 639,
       "type": 0,
-      "class": 16,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15654,7 +15654,7 @@
     {
       "index": 640,
       "type": 0,
-      "class": 16,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15680,7 +15680,7 @@
     {
       "index": 641,
       "type": 0,
-      "class": 16,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15706,7 +15706,7 @@
     {
       "index": 642,
       "type": 0,
-      "class": 17,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15732,7 +15732,7 @@
     {
       "index": 643,
       "type": 0,
-      "class": 17,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15758,7 +15758,7 @@
     {
       "index": 644,
       "type": 0,
-      "class": 17,
+      "class": "TRAINER_CLASS_PKMN_BREEDER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15784,7 +15784,7 @@
     {
       "index": 645,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15806,7 +15806,7 @@
     {
       "index": 646,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15828,7 +15828,7 @@
     {
       "index": 647,
       "type": 1,
-      "class": 4,
+      "class": "TRAINER_CLASS_CAMPER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15850,7 +15850,7 @@
     {
       "index": 648,
       "type": 1,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15894,7 +15894,7 @@
     {
       "index": 649,
       "type": 1,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15927,7 +15927,7 @@
     {
       "index": 650,
       "type": 0,
-      "class": 37,
+      "class": "TRAINER_CLASS_COLLECTOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15953,7 +15953,7 @@
     {
       "index": 651,
       "type": 0,
-      "class": 18,
+      "class": "TRAINER_CLASS_COWGIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15969,7 +15969,7 @@
     {
       "index": 652,
       "type": 0,
-      "class": 18,
+      "class": "TRAINER_CLASS_COWGIRL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -15985,7 +15985,7 @@
     {
       "index": 653,
       "type": 0,
-      "class": 12,
+      "class": "TRAINER_CLASS_CYCLIST_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16006,7 +16006,7 @@
     {
       "index": 654,
       "type": 0,
-      "class": 12,
+      "class": "TRAINER_CLASS_CYCLIST_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16027,7 +16027,7 @@
     {
       "index": 655,
       "type": 0,
-      "class": 12,
+      "class": "TRAINER_CLASS_CYCLIST_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16048,7 +16048,7 @@
     {
       "index": 656,
       "type": 0,
-      "class": 13,
+      "class": "TRAINER_CLASS_CYCLIST_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16064,7 +16064,7 @@
     {
       "index": 657,
       "type": 0,
-      "class": 13,
+      "class": "TRAINER_CLASS_CYCLIST_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16080,7 +16080,7 @@
     {
       "index": 658,
       "type": 0,
-      "class": 13,
+      "class": "TRAINER_CLASS_CYCLIST_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16096,7 +16096,7 @@
     {
       "index": 659,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16112,7 +16112,7 @@
     {
       "index": 660,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16128,7 +16128,7 @@
     {
       "index": 661,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16149,7 +16149,7 @@
     {
       "index": 662,
       "type": 0,
-      "class": 29,
+      "class": "TRAINER_CLASS_DRAGON_TAMER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16170,7 +16170,7 @@
     {
       "index": 663,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 0,
@@ -16203,7 +16203,7 @@
     {
       "index": 664,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16247,7 +16247,7 @@
     {
       "index": 665,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16291,7 +16291,7 @@
     {
       "index": 666,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16324,7 +16324,7 @@
     {
       "index": 667,
       "type": 1,
-      "class": 24,
+      "class": "TRAINER_CLASS_ACE_TRAINER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16346,7 +16346,7 @@
     {
       "index": 668,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16390,7 +16390,7 @@
     {
       "index": 669,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16423,7 +16423,7 @@
     {
       "index": 670,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16456,7 +16456,7 @@
     {
       "index": 671,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16489,7 +16489,7 @@
     {
       "index": 672,
       "type": 1,
-      "class": 25,
+      "class": "TRAINER_CLASS_ACE_TRAINER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16533,7 +16533,7 @@
     {
       "index": 673,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16554,7 +16554,7 @@
     {
       "index": 674,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16575,7 +16575,7 @@
     {
       "index": 675,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16596,7 +16596,7 @@
     {
       "index": 676,
       "type": 0,
-      "class": 49,
+      "class": "TRAINER_CLASS_PSYCHIC_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16617,7 +16617,7 @@
     {
       "index": 677,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16643,7 +16643,7 @@
     {
       "index": 678,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16669,7 +16669,7 @@
     {
       "index": 679,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16690,7 +16690,7 @@
     {
       "index": 680,
       "type": 0,
-      "class": 50,
+      "class": "TRAINER_CLASS_PSYCHIC_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16711,7 +16711,7 @@
     {
       "index": 681,
       "type": 0,
-      "class": 71,
+      "class": "TRAINER_CLASS_RANCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16737,7 +16737,7 @@
     {
       "index": 682,
       "type": 0,
-      "class": 71,
+      "class": "TRAINER_CLASS_RANCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16763,7 +16763,7 @@
     {
       "index": 683,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16779,7 +16779,7 @@
     {
       "index": 684,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16795,7 +16795,7 @@
     {
       "index": 685,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16816,7 +16816,7 @@
     {
       "index": 686,
       "type": 0,
-      "class": 11,
+      "class": "TRAINER_CLASS_FISHERMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16837,7 +16837,7 @@
     {
       "index": 687,
       "type": 0,
-      "class": 8,
+      "class": "TRAINER_CLASS_TWINS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16858,7 +16858,7 @@
     {
       "index": 688,
       "type": 0,
-      "class": 8,
+      "class": "TRAINER_CLASS_TWINS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16879,7 +16879,7 @@
     {
       "index": 689,
       "type": 1,
-      "class": 51,
+      "class": "TRAINER_CLASS_PI",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16917,7 +16917,7 @@
     {
       "index": 690,
       "type": 1,
-      "class": 51,
+      "class": "TRAINER_CLASS_PI",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -16955,7 +16955,7 @@
     {
       "index": 691,
       "type": 0,
-      "class": 34,
+      "class": "TRAINER_CLASS_GENTLEMAN",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -16973,7 +16973,7 @@
     {
       "index": 692,
       "type": 0,
-      "class": 34,
+      "class": "TRAINER_CLASS_GENTLEMAN",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -16991,7 +16991,7 @@
     {
       "index": 693,
       "type": 0,
-      "class": 34,
+      "class": "TRAINER_CLASS_GENTLEMAN",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -17009,7 +17009,7 @@
     {
       "index": 694,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17025,7 +17025,7 @@
     {
       "index": 695,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17041,7 +17041,7 @@
     {
       "index": 696,
       "type": 0,
-      "class": 48,
+      "class": "TRAINER_CLASS_RUIN_MANIAC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17057,7 +17057,7 @@
     {
       "index": 697,
       "type": 0,
-      "class": 19,
+      "class": "TRAINER_CLASS_JOGGER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17083,7 +17083,7 @@
     {
       "index": 698,
       "type": 0,
-      "class": 19,
+      "class": "TRAINER_CLASS_JOGGER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17109,7 +17109,7 @@
     {
       "index": 699,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17125,7 +17125,7 @@
     {
       "index": 700,
       "type": 0,
-      "class": 14,
+      "class": "TRAINER_CLASS_BLACK_BELT",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17151,7 +17151,7 @@
     {
       "index": 701,
       "type": 0,
-      "class": 35,
+      "class": "TRAINER_CLASS_SOCIALITE",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -17169,7 +17169,7 @@
     {
       "index": 702,
       "type": 0,
-      "class": 35,
+      "class": "TRAINER_CLASS_SOCIALITE",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -17187,7 +17187,7 @@
     {
       "index": 703,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17203,7 +17203,7 @@
     {
       "index": 704,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17219,7 +17219,7 @@
     {
       "index": 705,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17235,7 +17235,7 @@
     {
       "index": 706,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17256,7 +17256,7 @@
     {
       "index": 707,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17277,7 +17277,7 @@
     {
       "index": 708,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17298,7 +17298,7 @@
     {
       "index": 709,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17319,7 +17319,7 @@
     {
       "index": 710,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17340,7 +17340,7 @@
     {
       "index": 711,
       "type": 0,
-      "class": 9,
+      "class": "TRAINER_CLASS_HIKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17361,7 +17361,7 @@
     {
       "index": 712,
       "type": 0,
-      "class": 6,
+      "class": "TRAINER_CLASS_BUG_CATCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17382,7 +17382,7 @@
     {
       "index": 713,
       "type": 0,
-      "class": 6,
+      "class": "TRAINER_CLASS_BUG_CATCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17403,7 +17403,7 @@
     {
       "index": 714,
       "type": 0,
-      "class": 6,
+      "class": "TRAINER_CLASS_BUG_CATCHER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17424,7 +17424,7 @@
     {
       "index": 715,
       "type": 0,
-      "class": 80,
+      "class": "TRAINER_CLASS_PARASOL_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17445,7 +17445,7 @@
     {
       "index": 716,
       "type": 0,
-      "class": 80,
+      "class": "TRAINER_CLASS_PARASOL_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17466,7 +17466,7 @@
     {
       "index": 717,
       "type": 0,
-      "class": 80,
+      "class": "TRAINER_CLASS_PARASOL_LADY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17487,7 +17487,7 @@
     {
       "index": 718,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17509,7 +17509,7 @@
     {
       "index": 719,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17531,7 +17531,7 @@
     {
       "index": 720,
       "type": 1,
-      "class": 5,
+      "class": "TRAINER_CLASS_PICNICKER",
       "unk2": 0,
       "items": [],
       "unkC": 0,
@@ -17553,7 +17553,7 @@
     {
       "index": 721,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17569,7 +17569,7 @@
     {
       "index": 722,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17585,7 +17585,7 @@
     {
       "index": 723,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17601,7 +17601,7 @@
     {
       "index": 724,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17622,7 +17622,7 @@
     {
       "index": 725,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17643,7 +17643,7 @@
     {
       "index": 726,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17664,7 +17664,7 @@
     {
       "index": 727,
       "type": 0,
-      "class": 32,
+      "class": "TRAINER_CLASS_RICH_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17680,7 +17680,7 @@
     {
       "index": 728,
       "type": 0,
-      "class": 32,
+      "class": "TRAINER_CLASS_RICH_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17696,7 +17696,7 @@
     {
       "index": 729,
       "type": 0,
-      "class": 33,
+      "class": "TRAINER_CLASS_LADY",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -17714,7 +17714,7 @@
     {
       "index": 730,
       "type": 0,
-      "class": 33,
+      "class": "TRAINER_CLASS_LADY",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -17732,7 +17732,7 @@
     {
       "index": 731,
       "type": 0,
-      "class": 33,
+      "class": "TRAINER_CLASS_LADY",
       "unk2": 0,
       "items": [
         "ITEM_FULL_RESTORE"
@@ -17750,7 +17750,7 @@
     {
       "index": 732,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17771,7 +17771,7 @@
     {
       "index": 733,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17792,7 +17792,7 @@
     {
       "index": 734,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17813,7 +17813,7 @@
     {
       "index": 735,
       "type": 0,
-      "class": 39,
+      "class": "TRAINER_CLASS_PKMN_RANGER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17834,7 +17834,7 @@
     {
       "index": 736,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17855,7 +17855,7 @@
     {
       "index": 737,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17876,7 +17876,7 @@
     {
       "index": 738,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17897,7 +17897,7 @@
     {
       "index": 739,
       "type": 0,
-      "class": 40,
+      "class": "TRAINER_CLASS_PKMN_RANGER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17918,7 +17918,7 @@
     {
       "index": 740,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17939,7 +17939,7 @@
     {
       "index": 741,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17960,7 +17960,7 @@
     {
       "index": 742,
       "type": 0,
-      "class": 46,
+      "class": "TRAINER_CLASS_SAILOR",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -17986,7 +17986,7 @@
     {
       "index": 743,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18007,7 +18007,7 @@
     {
       "index": 744,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18028,7 +18028,7 @@
     {
       "index": 745,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18049,7 +18049,7 @@
     {
       "index": 746,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18075,7 +18075,7 @@
     {
       "index": 747,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18101,7 +18101,7 @@
     {
       "index": 748,
       "type": 0,
-      "class": 28,
+      "class": "TRAINER_CLASS_NINJA_BOY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18127,7 +18127,7 @@
     {
       "index": 749,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18143,7 +18143,7 @@
     {
       "index": 750,
       "type": 0,
-      "class": 36,
+      "class": "TRAINER_CLASS_BEAUTY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18159,7 +18159,7 @@
     {
       "index": 751,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18175,7 +18175,7 @@
     {
       "index": 752,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18191,7 +18191,7 @@
     {
       "index": 753,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18212,7 +18212,7 @@
     {
       "index": 754,
       "type": 0,
-      "class": 55,
+      "class": "TRAINER_CLASS_SKIER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18233,7 +18233,7 @@
     {
       "index": 755,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18249,7 +18249,7 @@
     {
       "index": 756,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18265,7 +18265,7 @@
     {
       "index": 757,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18281,7 +18281,7 @@
     {
       "index": 758,
       "type": 0,
-      "class": 56,
+      "class": "TRAINER_CLASS_SKIER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18297,7 +18297,7 @@
     {
       "index": 759,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18318,7 +18318,7 @@
     {
       "index": 760,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18339,7 +18339,7 @@
     {
       "index": 761,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18360,7 +18360,7 @@
     {
       "index": 762,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18376,7 +18376,7 @@
     {
       "index": 763,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18397,7 +18397,7 @@
     {
       "index": 764,
       "type": 0,
-      "class": 43,
+      "class": "TRAINER_CLASS_SWIMMER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18418,7 +18418,7 @@
     {
       "index": 765,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18434,7 +18434,7 @@
     {
       "index": 766,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18450,7 +18450,7 @@
     {
       "index": 767,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18466,7 +18466,7 @@
     {
       "index": 768,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18482,7 +18482,7 @@
     {
       "index": 769,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18498,7 +18498,7 @@
     {
       "index": 770,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18514,7 +18514,7 @@
     {
       "index": 771,
       "type": 0,
-      "class": 44,
+      "class": "TRAINER_CLASS_TUBER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18540,7 +18540,7 @@
     {
       "index": 772,
       "type": 0,
-      "class": 44,
+      "class": "TRAINER_CLASS_TUBER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18566,7 +18566,7 @@
     {
       "index": 773,
       "type": 1,
-      "class": 45,
+      "class": "TRAINER_CLASS_TUBER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18588,7 +18588,7 @@
     {
       "index": 774,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18632,7 +18632,7 @@
     {
       "index": 775,
       "type": 1,
-      "class": 45,
+      "class": "TRAINER_CLASS_TUBER_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18654,7 +18654,7 @@
     {
       "index": 776,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18698,7 +18698,7 @@
     {
       "index": 777,
       "type": 1,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18742,7 +18742,7 @@
     {
       "index": 778,
       "type": 0,
-      "class": 27,
+      "class": "TRAINER_CLASS_VETERAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18758,7 +18758,7 @@
     {
       "index": 779,
       "type": 0,
-      "class": 83,
+      "class": "TRAINER_CLASS_CAMERAMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18774,7 +18774,7 @@
     {
       "index": 780,
       "type": 0,
-      "class": 83,
+      "class": "TRAINER_CLASS_CAMERAMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18790,7 +18790,7 @@
     {
       "index": 781,
       "type": 0,
-      "class": 83,
+      "class": "TRAINER_CLASS_CAMERAMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18806,7 +18806,7 @@
     {
       "index": 782,
       "type": 0,
-      "class": 83,
+      "class": "TRAINER_CLASS_CAMERAMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18822,7 +18822,7 @@
     {
       "index": 783,
       "type": 0,
-      "class": 83,
+      "class": "TRAINER_CLASS_CAMERAMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18838,7 +18838,7 @@
     {
       "index": 784,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18854,7 +18854,7 @@
     {
       "index": 785,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18870,7 +18870,7 @@
     {
       "index": 786,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18886,7 +18886,7 @@
     {
       "index": 787,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18902,7 +18902,7 @@
     {
       "index": 788,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18918,7 +18918,7 @@
     {
       "index": 789,
       "type": 0,
-      "class": 52,
+      "class": "TRAINER_CLASS_GUITARIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18934,7 +18934,7 @@
     {
       "index": 790,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18950,7 +18950,7 @@
     {
       "index": 791,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18966,7 +18966,7 @@
     {
       "index": 792,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18982,7 +18982,7 @@
     {
       "index": 793,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -18998,7 +18998,7 @@
     {
       "index": 794,
       "type": 0,
-      "class": 85,
+      "class": "TRAINER_CLASS_IDOL",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19014,7 +19014,7 @@
     {
       "index": 795,
       "type": 0,
-      "class": 82,
+      "class": "TRAINER_CLASS_INTERVIEWERS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19035,7 +19035,7 @@
     {
       "index": 796,
       "type": 0,
-      "class": 82,
+      "class": "TRAINER_CLASS_INTERVIEWERS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19056,7 +19056,7 @@
     {
       "index": 797,
       "type": 0,
-      "class": 82,
+      "class": "TRAINER_CLASS_INTERVIEWERS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19077,7 +19077,7 @@
     {
       "index": 798,
       "type": 0,
-      "class": 82,
+      "class": "TRAINER_CLASS_INTERVIEWERS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19098,7 +19098,7 @@
     {
       "index": 799,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19114,7 +19114,7 @@
     {
       "index": 800,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19130,7 +19130,7 @@
     {
       "index": 801,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19146,7 +19146,7 @@
     {
       "index": 802,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19162,7 +19162,7 @@
     {
       "index": 803,
       "type": 0,
-      "class": 58,
+      "class": "TRAINER_CLASS_CLOWN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19178,7 +19178,7 @@
     {
       "index": 804,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19194,7 +19194,7 @@
     {
       "index": 805,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19210,7 +19210,7 @@
     {
       "index": 806,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19226,7 +19226,7 @@
     {
       "index": 807,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19242,7 +19242,7 @@
     {
       "index": 808,
       "type": 0,
-      "class": 38,
+      "class": "TRAINER_CLASS_POLICEMAN",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19258,7 +19258,7 @@
     {
       "index": 809,
       "type": 0,
-      "class": 84,
+      "class": "TRAINER_CLASS_REPORTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19274,7 +19274,7 @@
     {
       "index": 810,
       "type": 0,
-      "class": 84,
+      "class": "TRAINER_CLASS_REPORTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19290,7 +19290,7 @@
     {
       "index": 811,
       "type": 0,
-      "class": 84,
+      "class": "TRAINER_CLASS_REPORTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19306,7 +19306,7 @@
     {
       "index": 812,
       "type": 0,
-      "class": 84,
+      "class": "TRAINER_CLASS_REPORTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19322,7 +19322,7 @@
     {
       "index": 813,
       "type": 0,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19338,7 +19338,7 @@
     {
       "index": 814,
       "type": 0,
-      "class": 42,
+      "class": "TRAINER_CLASS_SWIMMER_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19354,7 +19354,7 @@
     {
       "index": 815,
       "type": 0,
-      "class": 81,
+      "class": "TRAINER_CLASS_WAITER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19370,7 +19370,7 @@
     {
       "index": 816,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19386,7 +19386,7 @@
     {
       "index": 817,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19407,7 +19407,7 @@
     {
       "index": 818,
       "type": 1,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19437,7 +19437,7 @@
     {
       "index": 819,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19458,7 +19458,7 @@
     {
       "index": 820,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19479,7 +19479,7 @@
     {
       "index": 821,
       "type": 1,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19512,7 +19512,7 @@
     {
       "index": 822,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19533,7 +19533,7 @@
     {
       "index": 823,
       "type": 0,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19554,7 +19554,7 @@
     {
       "index": 824,
       "type": 0,
-      "class": 3,
+      "class": "TRAINER_CLASS_LASS",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19575,7 +19575,7 @@
     {
       "index": 825,
       "type": 1,
-      "class": 2,
+      "class": "TRAINER_CLASS_YOUNGSTER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19608,7 +19608,7 @@
     {
       "index": 826,
       "type": 0,
-      "class": 97,
+      "class": "TRAINER_CLASS_TOWER_TYCOON",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19624,7 +19624,7 @@
     {
       "index": 827,
       "type": 1,
-      "class": 53,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_M",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19645,7 +19645,7 @@
     {
       "index": 828,
       "type": 1,
-      "class": 54,
+      "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_F",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19666,7 +19666,7 @@
     {
       "index": 829,
       "type": 1,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19687,7 +19687,7 @@
     {
       "index": 830,
       "type": 1,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19720,7 +19720,7 @@
     {
       "index": 831,
       "type": 1,
-      "class": 41,
+      "class": "TRAINER_CLASS_SCIENTIST",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19740,7 +19740,7 @@
     {
       "index": 832,
       "type": 0,
-      "class": 22,
+      "class": "TRAINER_CLASS_POKE_KID",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19761,7 +19761,7 @@
     {
       "index": 833,
       "type": 1,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19804,7 +19804,7 @@
     {
       "index": 834,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19830,7 +19830,7 @@
     {
       "index": 835,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19856,7 +19856,7 @@
     {
       "index": 836,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19882,7 +19882,7 @@
     {
       "index": 837,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -19959,7 +19959,7 @@
     {
       "index": 838,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20036,7 +20036,7 @@
     {
       "index": 839,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20113,7 +20113,7 @@
     {
       "index": 840,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20190,7 +20190,7 @@
     {
       "index": 841,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20267,7 +20267,7 @@
     {
       "index": 842,
       "type": 1,
-      "class": 63,
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BARRY",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20344,7 +20344,7 @@
     {
       "index": 843,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20360,7 +20360,7 @@
     {
       "index": 844,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20381,7 +20381,7 @@
     {
       "index": 845,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20397,7 +20397,7 @@
     {
       "index": 846,
       "type": 0,
-      "class": 59,
+      "class": "TRAINER_CLASS_WORKER",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20413,7 +20413,7 @@
     {
       "index": 847,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20429,7 +20429,7 @@
     {
       "index": 848,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,
@@ -20450,7 +20450,7 @@
     {
       "index": 849,
       "type": 0,
-      "class": 73,
+      "class": "TRAINER_CLASS_GALACTIC",
       "unk2": 0,
       "items": [],
       "unkC": 1,

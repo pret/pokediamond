@@ -3,6 +3,7 @@
 #include "global.h"
 #include "trainer_data.h"
 #include "constants/items.h"
+#include "constants/trainer_classes.h"
 
 u32 __size = sizeof(struct TrainerData);
 

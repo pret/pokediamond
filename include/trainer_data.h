@@ -15,6 +15,7 @@ struct TrainerMonSpeciesMoves
 {
     u16 difficulty;
     u16 level;
+    u16 species;
     u16 moves[MON_MOVES];
 };
 
@@ -30,6 +31,7 @@ struct TrainerMonSpeciesItemMoves
 {
     u16 difficulty;
     u16 level;
+    u16 species;
     u16 item;
     u16 moves[MON_MOVES];
 };
@@ -58,13 +60,20 @@ struct TrainerData
     u32 unk_10;
 };
 
+struct TrainerDataLoaded
+{
+    struct TrainerData data;
+    u16 name[OT_NAME_LENGTH + 1];
+    u8 padding[16];
+};
+
 struct EnemyTrainerSet
 {
     u32 flags;
     struct PlayerParty * parties[4];
-    u16 field_14[4];
+    u16 field_14[2];
     u32 trainer_idxs[4];
-    struct TrainerData datas[4];
+    struct TrainerDataLoaded datas[4];
 };
 
 #endif //POKEDIAMOND_TRAINER_DATA_H
