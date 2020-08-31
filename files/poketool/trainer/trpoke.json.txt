@@ -1,0 +1,52 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "trainer_data.h"
+#include "constants/species.h"
+#include "constants/moves.h"
+#include "constants/items.h"
+
+#define max(a, b) ((a) >= (b) ? (a) : (b))
+
+u32 __size[] = { 8,
+## for trainer in trdata
+    (max({{ length(trainer.party) }} * {% if trainer.type == 0 %}6{% else if trainer.type == 1 %}14{% else if trainer.type == 2 %}8{% else %}16{% endif %}, 8) + 3) & ~3,
+## endfor
+};
+
+const u16 __data[] = { 0, 0, 0, 0,
+## for trainer in trdata
+    // Trainer #{{ trainer.index }}
+##   if trainer.type == 0
+##     set mon_length = 3
+##   else if trainer.type == 1
+##     set mon_length = 7
+##   else if trainer.type == 2
+##     set mon_length = 4
+##   else if trainer.type == 3
+##     set mon_length = 8
+##   endif
+##   set total_length = mon_length * length(trainer.party)
+##   for mon in trainer.party
+    {{ mon.difficulty }}, // Difficulty 0-255
+    {{ mon.level }}, // Level
+    {{ mon.species }}, // Species
+##     if trainer.type == 2 or trainer.type == 3
+    {{ mon.item }}, // Held item
+##     endif
+##     if trainer.type == 1 or trainer.type == 3
+    // Moveset
+##       for i in range(4)
+##         if i < length(mon.moves)
+    {{ at(mon.moves, i) }},
+##         else
+    MOVE_NONE,
+##         endif
+##       endfor
+##     endif
+##   endfor
+##   if total_length < 4 or total_length % 2 != 0
+    0, // Padding
+##   endif
+## endfor
+};

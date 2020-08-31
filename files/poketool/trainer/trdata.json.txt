@@ -1,0 +1,22 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "trainer_data.h"
+#include "constants/items.h"
+
+u32 __size = sizeof(struct TrainerData);
+
+const struct TrainerData __data[] = {
+    {},
+## for trainer in trdata
+    {
+        {{ trainer.type }},
+        {{ trainer.class }},
+        {{ trainer.unk2 }},
+        {{ length(trainer.party) }},
+        { {% for item in trainer.items %}{{ item }},{% endfor %} },
+        {{ trainer.unkC }},
+        {{ trainer.unk10 }}
+    },
+## endfor
+};

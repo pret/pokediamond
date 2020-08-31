@@ -11742,11 +11742,11 @@ MOD11_02234CFC: ; 0x02234CFC
 	str r0, [sp, #4]
 	ldrh r0, [r6, r0]
 	add r1, sp, #8
-	bl FUN_0206ADE0
+	bl TrainerData_ReadTrData
 	ldr r0, [sp, #4]
 	add r1, r4, #0
 	ldrh r0, [r6, r0]
-	bl FUN_0206ADF0
+	bl TrainerData_ReadTrPoke
 	add r0, sp, #8
 	ldrb r1, [r0]
 	cmp r1, #3

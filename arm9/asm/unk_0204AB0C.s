@@ -304,7 +304,7 @@ _0204AD0A:
 FUN_0204AD0C: ; 0x0204AD0C
 	push {r3-r5, lr}
 	mov r1, #0x1
-	bl FUN_0206AC74
+	bl TrainerData_GetAttr
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
 	ldr r0, _0204AD38 ; =0x0000044D

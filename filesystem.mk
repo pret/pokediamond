@@ -290,15 +290,26 @@ O2NARC_TARGETS := \
 	files/poketool/waza/waza_tbl.narc \
 	files/itemtool/itemdata/item_data.narc \
 	files/itemtool/itemdata/nuts_data.narc \
+	files/poketool/trainer/trdata.narc \
+
+ALL_O2NARC_TARGETS := $(O2NARC_TARGETS) \
+	files/poketool/trainer/trpoke.narc
 
 files/poketool/personal/pms.narc: O2NARCFLAGS = -f
 files/itemtool/itemdata/item_data.narc: O2NARCFLAGS = -p 0xFF
 
 ifeq (,$(NODEP))
-$(O2NARC_TARGETS): dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(patsubst %.narc,%.json.txt,$@))
+$(ALL_O2NARC_TARGETS): dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(patsubst %.narc,%.json.txt,$@))
 else
-$(O2NARC_TARGETS): dep :=
+$(ALL_O2NARC_TARGETS): dep :=
 endif
+
+## This specific target shares its source JSON with trdata.narc
+files/poketool/trainer/trpoke.narc: %/trpoke.narc: %/trdata.json %/trpoke.json.txt $$(dep)
+	$(JSONPROC) $< $(word 2,$^) $*/trpoke.c
+	$(CC) $(CFLAGS) -c -o $*/trpoke.o $*/trpoke.c
+	$(O2NARC) $(O2NARCFLAGS) $*/trpoke.o $@
+	@$(RM) $*/trpoke.o $*/trpoke.c
 
 $(O2NARC_TARGETS): %.narc: %.json %.json.txt $$(dep)
 	$(JSONPROC) $*.json $*.json.txt $*.c

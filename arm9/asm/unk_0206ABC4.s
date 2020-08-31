@@ -43,7 +43,7 @@ _0206ABF4:
 	cmp r0, #0x0
 	beq _0206AC48
 	add r1, sp, #0x14
-	bl FUN_0206ADE0
+	bl TrainerData_ReadTrData
 	ldr r3, [sp, #0x8]
 	add r6, sp, #0x14
 	add r3, #0x28
@@ -77,7 +77,7 @@ _0206AC3E:
 	ldr r0, [sp, #0x0]
 	ldr r2, [sp, #0x4]
 	add r1, r7, #0x0
-	bl FUN_0206AE0C
+	bl LoadTrainerParty
 _0206AC48:
 	ldr r0, [sp, #0x8]
 	add r7, r7, #0x1
@@ -100,13 +100,13 @@ _0206AC48:
 	nop
 _0206AC70: .word 0x0000022F
 
-	thumb_func_start FUN_0206AC74
-FUN_0206AC74: ; 0x0206AC74
+	thumb_func_start TrainerData_GetAttr
+TrainerData_GetAttr: ; 0x0206AC74
 	push {r4-r5, lr}
 	sub sp, #0x34
 	add r5, r1, #0x0
 	add r1, sp, #0x0
-	bl FUN_0206ADE0
+	bl TrainerData_ReadTrData
 	cmp r5, #0x9
 	bhi _0206ACCC
 	add r0, r5, r5
@@ -293,8 +293,8 @@ _0206ADD6:
 	nop
 _0206ADDC: .word 0x0000022E
 
-	thumb_func_start FUN_0206ADE0
-FUN_0206ADE0: ; 0x0206ADE0
+	thumb_func_start TrainerData_ReadTrData
+TrainerData_ReadTrData: ; 0x0206ADE0
 	ldr r3, _0206ADEC ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0
@@ -303,8 +303,8 @@ FUN_0206ADE0: ; 0x0206ADE0
 	nop
 _0206ADEC: .word ReadWholeNarcMemberByIdPair
 
-	thumb_func_start FUN_0206ADF0
-FUN_0206ADF0: ; 0x0206ADF0
+	thumb_func_start TrainerData_ReadTrPoke
+TrainerData_ReadTrPoke: ; 0x0206ADF0
 	ldr r3, _0206ADFC ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0
@@ -321,8 +321,8 @@ FUN_0206AE00: ; 0x0206AE00
 	nop
 _0206AE08: .word UNK_020F8010
 
-	thumb_func_start FUN_0206AE0C
-FUN_0206AE0C: ; 0x0206AE0C
+	thumb_func_start LoadTrainerParty
+LoadTrainerParty: ; 0x0206AE0C
 	push {r3-r7, lr}
 	sub sp, #0x50
 	add r7, r1, #0x0
@@ -345,7 +345,7 @@ FUN_0206AE0C: ; 0x0206AE0C
 	add r0, r4, r6
 	ldr r0, [r0, #0x18]
 	ldr r1, [sp, #0x4c]
-	bl FUN_0206ADF0
+	bl TrainerData_ReadTrPoke
 	mov r0, #0x34
 	add r5, r7, #0x0
 	mul r5, r0
