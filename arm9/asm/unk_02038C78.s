@@ -2143,7 +2143,7 @@ _02039628: .word 0x00001388
 FUN_0203962C: ; 0x0203962C
 	push {r3, lr}
 	mov r1, #0x9
-	bl FUN_0206AC74
+	bl TrainerData_GetAttr
 	cmp r0, #0x0
 	beq _0203963C
 	mov r0, #0x1

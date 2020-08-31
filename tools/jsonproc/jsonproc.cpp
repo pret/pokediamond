@@ -128,6 +128,10 @@ int main(int argc, char *argv[])
         return args.at(0)->empty();
     });
 
+    env.add_void_callback("log", 1, [](Arguments& args) {
+        std::cout << args.at(0)->get<int>() << std::endl;
+    });
+
     try
     {
         env.write_with_json_file(templateFilepath, jsonfilepath, outputFilepath);
