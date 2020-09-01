@@ -263,6 +263,7 @@ void FUN_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6);
 void FUN_020690AC(struct SomeDrawPokemonStruct * a0, u32 a1);
 u32 FUN_020690C4(void);
 u32 FUN_020690C8(void);
+u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon);
 u8 GetMonUnownLetter(struct Pokemon * pokemon);
 struct BoxPokemon * FUN_020690E4(struct Pokemon * pokemon);
 
