@@ -46,6 +46,8 @@ You will still require the following packages:
 
 Install them using either the Cygwin package manager or using pacman on Msys2.
 
+**NOTE FOR MSYS2:** You will need to compile and install [libpng](https://www.libpng.org/pub/png/libpng.html) from source.
+
 ### 4. Build ROM
 
 Run `make` to build the ROM. The ROM will be output as `build/diamond.us/pokediamond.us.nds`
