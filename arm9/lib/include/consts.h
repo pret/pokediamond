@@ -28,6 +28,13 @@
 #define HW_C6_PR_2GB               0x3c
 #define HW_C6_PR_4GB               0x3e
 
+#define HW_C6_PR_ENABLE            1
+
+#define HW_C9_TCMR_16KB            0x0a
+#define HW_C9_TCMR_32MB            0x20
+
+#define HW_CACHE_LINE_SIZE         32
+
 #define PXI_PROC_ARM7              0x01
 
 #define OSi_CONSOLE_NOT_DETECT     0xffffffff
@@ -39,6 +46,6 @@
 
 #define OSi_TCM_REGION_BASE_MASK   0xfffff000
 
-#define OS_IE_V_BLANK       (1UL << 0)
+#define OS_IE_V_BLANK              (1UL << 0)
 
 #endif //POKEDIAMOND_ARM9_CONSTS_H
