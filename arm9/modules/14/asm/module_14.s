@@ -8885,7 +8885,7 @@ _021DBC56:
 	lsl r1, r1, #4
 	ldr r0, [r4]
 	ldr r1, [r5, r1]
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	mov r1, #0x49
 	lsl r1, r1, #2
 	ldr r0, [r5, r1]
@@ -9038,7 +9038,7 @@ _021DBD8E:
 	lsl r1, r1, #4
 	ldr r1, [r5, r1]
 	add r0, r7, r6
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	b _021DBDB0
 _021DBDA2:
 	mov r1, #0x1a
@@ -9367,7 +9367,7 @@ _021DC034:
 	lsl r1, r1, #4
 	ldr r0, [sp]
 	ldr r1, [r5, r1]
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	mov r0, #0x1a
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
@@ -9633,7 +9633,7 @@ _021DC254:
 	cmp r0, r1
 	bne _021DC26A
 	ldr r0, [r4]
-	bl FUN_02069ECC
+	bl BoxMon_UpdateArceusForme
 _021DC26A:
 	add sp, #4
 	pop {r3, r4, r5, r6}

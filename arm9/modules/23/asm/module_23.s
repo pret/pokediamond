@@ -1032,7 +1032,7 @@ MOD23_02254F94: ; 0x02254F94
 _02254FCE:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_02069B60
+	bl SinnohDexNoToSpecies
 	add r4, r0, #0
 _02254FD8:
 	cmp r4, #0

@@ -4466,7 +4466,7 @@ MOD62_0222F80C: ; 0x0222F80C
 	add r1, #0x64
 	ldr r0, [r0, #4]
 	ldr r1, [r5, r1]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	pop {r3, r4, r5, r6, r7, pc}
 _0222F832:
 	ldr r1, [r5]
@@ -4487,7 +4487,7 @@ _0222F83E:
 	ldr r1, _0222F86C ; =0x00000428
 	add r0, r7, #0
 	ldr r1, [r5, r1]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	pop {r3, r4, r5, r6, r7, pc}
 _0222F85C:
 	ldr r1, [r5]

@@ -1687,7 +1687,7 @@ _02038386:
 	bl GetPartyMonByIndex
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x44]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [r4, #0x60]
 	bl FUN_0206C92C
 	mov r0, #0x1a

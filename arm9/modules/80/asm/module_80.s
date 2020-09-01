@@ -13583,7 +13583,7 @@ _022342B0:
 	add r0, #0xbc
 	ldr r0, [r0]
 	add r1, r5, #0
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 _022342BC:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x1c]
@@ -14618,7 +14618,7 @@ MOD80_02234AC0: ; 0x02234AC0
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, #0xd4
-	bl FUN_0206AA84
+	bl Pokemon_RemoveCapsule
 	add r0, r4, #0
 	add r0, #0xd4
 	bl MOD80_0222DBC4
@@ -14939,7 +14939,7 @@ MOD80_02234CFC: ; 0x02234CFC
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, #0xd4
-	bl FUN_0206AA84
+	bl Pokemon_RemoveCapsule
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r1, [r0]
@@ -16076,7 +16076,7 @@ MOD80_02235534: ; 0x02235534
 	ldr r0, [r0, #0xc]
 	bl PCStorage_GetMonByIndexPair
 	add r1, r4, #0
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	add r2, r5, #0
 	ldr r0, [r5]
 	add r2, #0xb8
@@ -16104,7 +16104,7 @@ _02235590:
 	ldr r0, [r0, #8]
 	bl GetPartyMonByIndex
 	add r4, r0, #0
-	bl FUN_0206AA84
+	bl Pokemon_RemoveCapsule
 	add r2, r5, #0
 	ldr r0, [r5]
 	add r2, #0xb8
@@ -17720,7 +17720,7 @@ MOD80_02236218: ; 0x02236218
 	bl GetPartyMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add sp, #8
 	pop {r3, r4, r5, pc}
 _02236248:

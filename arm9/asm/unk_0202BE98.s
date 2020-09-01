@@ -133,10 +133,10 @@ FUN_0202BF7C: ; 0x0202BF7C
 	mov r1, #0xec
 	mul r1, r2
 	add r1, r3, r1
-	ldr r3, _0202BF8C ; =FUN_02069A64
+	ldr r3, _0202BF8C ; =CopyBoxPokemonToPokemon
 	bx r3
 	nop
-_0202BF8C: .word FUN_02069A64
+_0202BF8C: .word CopyBoxPokemonToPokemon
 
 	thumb_func_start FUN_0202BF90
 FUN_0202BF90: ; 0x0202BF90

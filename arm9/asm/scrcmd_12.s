@@ -625,7 +625,7 @@ _020431D4:
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r0, r7, #0x0
 	mov r1, #0x90
 	add r2, r5, #0x0

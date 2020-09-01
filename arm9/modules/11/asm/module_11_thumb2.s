@@ -4694,7 +4694,7 @@ MOD11_0223158C: ; 0x0223158C
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	add r0, r5, #0
-	bl FUN_02069AEC
+	bl Party_GetMaxLevel
 	ldr r1, _022315BC ; =MOD11_0225DC1C
 	lsl r0, r0, #2
 	ldrb r1, [r1, r4]
@@ -24749,7 +24749,7 @@ _0223B414:
 	lsl r1, r1, #0x18
 	ldr r0, [sp]
 	lsr r1, r1, #0x18
-	bl FUN_02069CF4
+	bl Party_MaskMonsWithPokerus
 	cmp r0, #0
 	beq _0223B42E
 	lsl r0, r4, #0x11
@@ -38100,9 +38100,9 @@ MOD11_02241CF0: ; 0x02241CF0
 	mov r1, #0
 	bl MOD11_0222FF88
 	add r6, r0, #0
-	bl FUN_02069C4C
+	bl Party_GivePokerusAtRandom
 	add r0, r6, #0
-	bl FUN_02069DC8
+	bl Party_SpreadPokerus
 _02241D16:
 	cmp r4, #0
 	beq _02241D20
@@ -52971,7 +52971,7 @@ _02248E3A:
 	str r1, [r4, r0]
 	ldr r0, _02248F68 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -53002,7 +53002,7 @@ _02248E76:
 	str r1, [r4, r0]
 	ldr r0, _02248F68 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -53033,7 +53033,7 @@ _02248EB2:
 	str r1, [r4, r0]
 	ldr r0, _02248F68 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -53067,7 +53067,7 @@ _02248EFC:
 	str r1, [r4, r0]
 	ldr r0, _02248F68 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -53108,7 +53108,7 @@ _02248F64: .word 0x00002DB0
 _02248F68: .word 0x00002DA8
 _02248F6C:
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -54103,7 +54103,7 @@ _02249708: .word 0x00002DCC
 _0224970C: .word 0x00002DA8
 _02249710:
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -54135,7 +54135,7 @@ _0224972C:
 	str r1, [r4, r0]
 	ldr r0, _02249A5C ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -54167,7 +54167,7 @@ _0224976A:
 	str r1, [r4, r0]
 	ldr r0, _02249A5C ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -54199,7 +54199,7 @@ _022497A8:
 	str r1, [r4, r0]
 	ldr r0, _02249A5C ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -54234,7 +54234,7 @@ _022497F4:
 	str r1, [r4, r0]
 	ldr r0, _02249A5C ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -55536,7 +55536,7 @@ _0224A1B6:
 	add r2, r4, r0
 	ldr r0, _0224A344 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r6, #1
 	cmp r0, r1
 	bne _0224A1F6
@@ -55572,7 +55572,7 @@ _0224A1FC:
 	add r2, r4, r0
 	ldr r0, _0224A344 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r6, #1
 	cmp r0, r1
 	bne _0224A23C
@@ -55608,7 +55608,7 @@ _0224A242:
 	add r2, r4, r0
 	ldr r0, _0224A344 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r6, #1
 	cmp r0, r1
 	bne _0224A282
@@ -55644,7 +55644,7 @@ _0224A288:
 	add r2, r4, r0
 	ldr r0, _0224A344 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r6, #1
 	cmp r0, r1
 	bne _0224A2C8
@@ -55680,7 +55680,7 @@ _0224A2CE:
 	add r2, r4, r0
 	ldr r0, _0224A344 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r6, #1
 	cmp r0, r1
 	bne _0224A30E
@@ -56300,7 +56300,7 @@ _0224A77A:
 	add r2, r4, r0
 	ldr r0, _0224A874 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r5, #1
 	cmp r0, r1
 	ldr r0, _0224A850 ; =0x00003118
@@ -56333,7 +56333,7 @@ _0224A7BC:
 	add r2, r4, r0
 	ldr r0, _0224A874 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r5, #1
 	cmp r0, r1
 	ldr r0, _0224A850 ; =0x00003118
@@ -56366,7 +56366,7 @@ _0224A7FE:
 	add r2, r4, r0
 	ldr r0, _0224A874 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r5, #1
 	cmp r0, r1
 	ldr r0, _0224A850 ; =0x00003118
@@ -56413,7 +56413,7 @@ _0224A878:
 	add r2, r4, r0
 	ldr r0, _0224AB18 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r5, #1
 	cmp r0, r1
 	ldr r0, _0224AB1C ; =0x00003118
@@ -56446,7 +56446,7 @@ _0224A8B0:
 	add r2, r4, r0
 	ldr r0, _0224AB18 ; =0x00002DA8
 	ldr r0, [r2, r0]
-	bl FUN_02069BE4
+	bl GetFlavorPreferenceFromPID
 	sub r1, r5, #1
 	cmp r0, r1
 	ldr r0, _0224AB1C ; =0x00003118
@@ -71782,7 +71782,7 @@ _022521DC:
 	bl GetPartyMonByIndex
 	add r1, r0, #0
 	ldr r0, [sp, #0x1c]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [r4, #4]
 	ldrb r1, [r5, #0x1c]
 	add r0, r0, r6
@@ -71822,7 +71822,7 @@ _02252232:
 	bl GetPartyMonByIndex
 	add r1, r0, #0
 	ldr r0, [sp, #0x20]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [r4, #4]
 	ldrb r1, [r5, #0x1c]
 	add r0, r0, r7
