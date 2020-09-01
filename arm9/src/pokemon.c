@@ -3711,7 +3711,7 @@ int FUN_0206AA30(int x)
     case TRAINER_CLASS_PKMN_TRAINER_POKEKID:
         return x - TRAINER_CLASS_COMMANDER_JUPITER;
     default:
-        if (FUN_0206AE00(x) == 1)
+        if (TrainerClass_GetGenderOrTrainerCount(x) == 1)
             return 1;
         else
             return 0;

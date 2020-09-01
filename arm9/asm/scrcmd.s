@@ -6376,7 +6376,7 @@ FUN_0203CBE8: ; 0x0203CBE8
 	ldr r0, [sp, #0x0]
 	ldr r2, [r6, #0x0]
 	mov r3, #0xb
-	bl FUN_0206AD4C
+	bl GetTrainerMessageByIdPair
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl FUN_02039438

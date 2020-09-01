@@ -5094,7 +5094,7 @@ _0223BC5A:
 	str r0, [r1, #0x20]
 	ldr r0, [sp, #0x2c]
 	ldr r1, [r5, #0xc]
-	bl FUN_0206ABC4
+	bl EnemyTrainerSet_Init
 	add r0, sp, #0x30
 	str r0, [sp]
 	ldr r1, [sp, #0x20]
@@ -5531,7 +5531,7 @@ _0223BFFE:
 	str r0, [r1, #0x20]
 	ldr r0, [sp, #0x24]
 	ldr r1, [r5, #0xc]
-	bl FUN_0206ABC4
+	bl EnemyTrainerSet_Init
 	add r0, sp, #0x28
 	str r0, [sp]
 	ldr r1, [sp, #0x18]
@@ -5841,7 +5841,7 @@ _0223C2A2:
 	str r0, [r1, #0x20]
 	ldr r0, [r4]
 	ldr r1, [r5, #0xc]
-	bl FUN_0206ABC4
+	bl EnemyTrainerSet_Init
 	add r0, sp, #0x28
 	str r0, [sp]
 	ldr r1, [sp, #0x1c]

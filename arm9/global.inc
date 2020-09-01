@@ -4837,13 +4837,13 @@
 .extern GetWazaAttr
 .extern WazaGetMaxPp
 .extern GetAttrFromWazaTbl
-.extern FUN_0206ABC4
+.extern EnemyTrainerSet_Init
 .extern TrainerData_GetAttr
-.extern FUN_0206ACD4
-.extern FUN_0206AD4C
+.extern TrainerMessageWithIdPairExists
+.extern GetTrainerMessageByIdPair
 .extern TrainerData_ReadTrData
 .extern TrainerData_ReadTrPoke
-.extern FUN_0206AE00
+.extern TrainerClass_GetGenderOrTrainerCount
 .extern PCStorage_init
 .extern PCStorage_sizeof
 .extern PCStorage_PlaceMonInFirstEmptySlotInAnyBox

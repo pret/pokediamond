@@ -17,7 +17,7 @@ const struct TrainerData __data[] = {
         {{ length(trainer.party) }},
         { {% for item in trainer.items %}{{ item }},{% endfor %} },
         {{ trainer.unkC }},
-        {{ trainer.unk10 }}
+        {{ trainer.doubleBattle }}
     },
 ## endfor
 };

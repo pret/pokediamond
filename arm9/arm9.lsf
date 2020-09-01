@@ -246,9 +246,11 @@ Static arm9
 	Object unk_02064E90.o
 	Object unk_020653EC.o
 	Object unk_02066840.o
+
+	##poketool##
 	Object pokemon.o
 	Object waza.o
-	Object unk_0206ABC4.o
+	Object trainer_data.o
 	Object pokemon_storage_system.o
 	Object unk_0206B688.o
 	Object party.o
@@ -259,6 +261,8 @@ Static arm9
 	Object unk_0206DE24.o
 	Object unk_0206E0F0.o
 	Object unk_0206E2F0.o
+
+	##itemtool##
 	Object itemtool.o
 	Object bag.o
 	Object unk_0206F1F0.o
