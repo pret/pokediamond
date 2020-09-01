@@ -17,6 +17,7 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/sinnoh_dex.h"
+#include "constants/trainer_classes.h"
 
 #pragma thumb on
 
@@ -3701,21 +3702,21 @@ int FUN_0206AA30(int x)
 {
     switch (x)
     {
-    case 63:
+    case TRAINER_CLASS_PKMN_TRAINER_BARRY:
         return 2;
-    case 90:
-    case 91:
-    case 92:
-    case 93:
-    case 94:
-        return x - 87;
+    case TRAINER_CLASS_PKMN_TRAINER_AROMA_LADY:
+    case TRAINER_CLASS_PKMN_TRAINER_RICH_BOY:
+    case TRAINER_CLASS_PKMN_TRAINER_PICNICKER:
+    case TRAINER_CLASS_PKMN_TRAINER_CAMPER:
+    case TRAINER_CLASS_PKMN_TRAINER_POKEKID:
+        return x - TRAINER_CLASS_COMMANDER_JUPITER;
     default:
         if (FUN_0206AE00(x) == 1)
             return 1;
         else
             return 0;
-    case 0:
-    case 1:
+    case TRAINER_CLASS_PKMN_TRAINER_M:
+    case TRAINER_CLASS_PKMN_TRAINER_F:
         return x;
     }
 }

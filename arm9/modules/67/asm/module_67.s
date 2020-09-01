@@ -1701,7 +1701,7 @@ _021D822A:
 	mov r1, #1
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x11
-	bl FUN_0206AC74
+	bl TrainerData_GetAttr
 	cmp r0, #0x3f
 	bne _021D828A
 	ldr r0, [r4, #0x50]

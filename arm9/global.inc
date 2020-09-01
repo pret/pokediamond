@@ -4838,11 +4838,11 @@
 .extern WazaGetMaxPp
 .extern GetAttrFromWazaTbl
 .extern FUN_0206ABC4
-.extern FUN_0206AC74
+.extern TrainerData_GetAttr
 .extern FUN_0206ACD4
 .extern FUN_0206AD4C
-.extern FUN_0206ADE0
-.extern FUN_0206ADF0
+.extern TrainerData_ReadTrData
+.extern TrainerData_ReadTrPoke
 .extern FUN_0206AE00
 .extern PCStorage_init
 .extern PCStorage_sizeof
