@@ -14,6 +14,10 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_ITCM_SIZE            0x00008000
 #define HW_ITCM_END (HW_ITCM + HW_ITCM_SIZE)
 
+#define HW_IOREG                0x04000000
+#define HW_CTRDG_ROM            0x08000000
+#define HW_BIOS                 0xffff0000
+
 #define HW_DTCM                 ((u32)SDK_AUTOLOAD_DTCM_START)
 #define HW_DTCM_SIZE            0x00004000
 
@@ -34,6 +38,8 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_DTCM_SVC_STACK_END   (HW_DTCM + 0x00003fc0)
 #define HW_DTCM_SVC_STACK       (HW_DTCM_SVC_STACK_END - HW_SVC_STACK_SIZE)
 #define HW_DTCM_IRQ_STACK_END   (HW_DTCM_SVC_STACK)
+
+#define HW_MAIN_MEM_SUB         (HW_MAIN_MEM_MAIN_END + 0x400000)
 
 #define HW_BIOS_EXCP_STACK_MAIN (HW_MAIN_MEM + 0x007ffd80)
 #define HW_EXCP_VECTOR_MAIN     (HW_MAIN_MEM + 0x007ffd9c)
@@ -83,5 +89,8 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_DB_OAM               0x07000400
 #define HW_DB_OAM_END           0x07000800
 #define HW_DB_OAM_SIZE          (HW_DB_OAM_END-HW_DB_OAM)
+
+#define HW_DTCM_SYSRV_OFS_INTR_VECTOR   0x3c
+#define HW_RESET_VECTOR         0xffff0000
 
 #endif //POKEDIAMOND_ARM9_MMAP_H
