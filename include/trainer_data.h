@@ -69,7 +69,7 @@ struct TrainerDataLoaded
     u8 padding[16];
 };
 
-struct EnemyTrainerSet
+struct BattleSetupStruct
 {
     u32 flags;
     struct PlayerParty * parties[4];
@@ -78,13 +78,13 @@ struct EnemyTrainerSet
     struct TrainerDataLoaded datas[4];
 };
 
-void EnemyTrainerSet_Init(struct EnemyTrainerSet * sp0, struct SaveBlock2 * r4, u32 sp4);
+void EnemyTrainerSet_Init(struct BattleSetupStruct * sp0, struct SaveBlock2 * r4, u32 sp4);
 s32 TrainerData_GetAttr(u32 tr_idx, u32 attr_no);
 BOOL TrainerMessageWithIdPairExists(u32 pos, u32 idx, u32 heap_id);
 void GetTrainerMessageByIdPair(u32 pos, u32 idx, struct String * str, u32 heap_id);
 void TrainerData_ReadTrData(u32 idx, struct TrainerData * dest);
 void TrainerData_ReadTrPoke(u32 idx, union TrainerMon * dest);
 int TrainerClass_GetGenderOrTrainerCount(int a0);
-void CreateNPCTrainerParty(struct EnemyTrainerSet * enemies, s32 party_id, u32 heap_id);
+void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, u32 heap_id);
 
 #endif //POKEDIAMOND_TRAINER_DATA_H
