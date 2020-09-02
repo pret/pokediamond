@@ -566,7 +566,7 @@
 .extern BufferPoketchAppName
 .extern BufferTrainerClassName
 .extern BufferTrainerClassNameWithArticle
-.extern BufferTrainerClassName2
+.extern BufferTrainerClassNameFromDataStruct
 .extern BufferTrainerName
 .extern BufferTrainerNameFromDataStruct
 .extern BufferUndergroundItemName

@@ -364,12 +364,12 @@ void BufferTrainerClassNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 trc
     }
 }
 
-void BufferTrainerClassName2(struct ScrStrBufs * mgr, u32 idx, struct Trainer * tr)
+void BufferTrainerClassNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct TrainerDataLoaded * tr)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 560, mgr->heap_id);
     if (msgData != NULL)
     {
-        ReadMsgDataIntoString(msgData, tr->unk1, mgr->tmpbuf);
+        ReadMsgDataIntoString(msgData, tr->data.trainerClass, mgr->tmpbuf);
         SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
         DestroyMsgData(msgData);
     }

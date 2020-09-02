@@ -24,12 +24,6 @@ struct ScrStrBufs
     struct String * tmpbuf;
 };
 
-struct Trainer
-{
-    u8 unk0;
-    u8 unk1;
-};
-
 struct UnkStruct_0200B870_sub
 {
     u8 filler_00[16];
@@ -76,7 +70,7 @@ void BufferLandmarkName(struct ScrStrBufs * mgr, u32 idx, u32 landmark);
 void BufferPoketchAppName(struct ScrStrBufs * mgr, u32 idx, u32 app);
 void BufferTrainerClassName(struct ScrStrBufs * mgr, u32 idx, u32 trclass);
 void BufferTrainerClassNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 trclass);
-void BufferTrainerClassName2(struct ScrStrBufs * mgr, u32 idx, struct Trainer * tr);
+void BufferTrainerClassNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct TrainerDataLoaded * tr);
 void BufferTrainerName(struct ScrStrBufs * mgr, u32 idx, u32 msgno);
 void BufferTrainerNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct TrainerDataLoaded * trdata);
 void BufferUndergroundItemName(struct ScrStrBufs * mgr, u32 idx, u32 item);

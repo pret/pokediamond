@@ -6187,7 +6187,7 @@ MOD11_022321AC: ; 0x022321AC
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0
-	bl BufferTrainerClassName2
+	bl BufferTrainerClassNameFromDataStruct
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD11_022321C4
