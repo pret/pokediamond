@@ -13,7 +13,7 @@ extern void * FUN_02024EC0(struct SaveBlock2 *);
 extern u16 * FUN_02024EE8(void *);
 
 // Loads all battle opponents, including multi-battle partner if exists.
-void EnemyTrainerSet_Init(struct EnemyTrainerSet * enemies, struct SaveBlock2 * sav2, u32 heap_id)
+void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 * sav2, u32 heap_id)
 {
     struct TrainerDataLoaded trdata;
     struct MsgData * msgData;
@@ -261,7 +261,7 @@ int TrainerClass_GetGenderOrTrainerCount(int a0)
     return sTrainerClassGenderCountTbl[a0];
 }
 
-void CreateNPCTrainerParty(struct EnemyTrainerSet * enemies, s32 party_id, u32 heap_id)
+void CreateNPCTrainerParty(struct BattleSetupStruct * enemies, s32 party_id, u32 heap_id)
 {
     union TrainerMon * data;
     s32 i;

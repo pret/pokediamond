@@ -115,6 +115,9 @@ void encode_messages() {
     for (auto message : files) {
         u16string encoded;
         uint16_t seed = i * 596947;
+        bool is_trname = false;
+        uint32_t trnamebuf = 0;
+        int bit = 0;
         for (size_t j = 0; j < message.size(); j++) {
             if (message[j] == '{') {
                 size_t k = message.find('}', j);
@@ -144,6 +147,9 @@ void encode_messages() {
                     for (auto num_i : args) {
                         encoded += enc_short(num_i, seed);
                     }
+                } else if (command == "TRNAME") {
+                    is_trname = true;
+                    encoded += enc_short(0xF100, seed);
                 } else {
                     encoded += enc_short(stoi(enclosed, nullptr, 16), seed);
                 }
@@ -162,9 +168,28 @@ void encode_messages() {
                     ss << "unrecognized character: file " << i << " pos " << (j + 1);
                     throw runtime_error(ss.str());
                 }
-                encoded += enc_short(code, seed);
+                if (is_trname) {
+                    if (code & ~0x1FF) {
+                        stringstream ss;
+                        ss << "invalid character for bitpacked string: " << substr;
+                        throw runtime_error(ss.str());
+                    }
+                    trnamebuf |= code << bit;
+                    bit += 9;
+                    if (bit >= 15) {
+                        bit -= 15;
+                        encoded += enc_short(trnamebuf & 0x7FFF, seed);
+                        trnamebuf >>= 15;
+                    }
+                } else {
+                    encoded += enc_short(code, seed);
+                }
                 j += k;
             }
+        }
+        if (is_trname && bit > 1) {
+            trnamebuf |= 0xFFFF << bit;
+            encoded += enc_short(trnamebuf & 0x7FFF, seed);
         }
         encoded += enc_short(0xFFFF, seed);
         MsgAlloc alloc {0, 0};
