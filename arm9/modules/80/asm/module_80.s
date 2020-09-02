@@ -5624,7 +5624,7 @@ MOD80_0223022C: ; 0x0223022C
 	str r0, [r5, r1]
 	sub r1, #0x1c
 	ldr r0, [r5, r1]
-	bl FUN_0200B84C
+	bl ScrStrBufs_ResetBuffers
 	ldr r0, _022302B4 ; =0x0000011E
 	ldrb r2, [r4, r0]
 	cmp r2, #0

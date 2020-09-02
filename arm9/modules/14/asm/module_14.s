@@ -19435,13 +19435,13 @@ _021E0DAC:
 	mov r1, #6
 	mov r2, #0xf
 	mov r3, #0xa
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [r5, #0x18]
 	mov r0, #1
 	mov r1, #2
 	mov r2, #0xf
 	mov r3, #0xa
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [r5, #0x1c]
 	mov r0, #0xa
 	add r3, r5, #0
@@ -19516,12 +19516,12 @@ _021E0E72:
 	ldr r0, [r5, #0x18]
 	cmp r0, #0
 	beq _021E0E7C
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 _021E0E7C:
 	ldr r0, [r5, #0x1c]
 	cmp r0, #0
 	beq _021E0E86
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 _021E0E86:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
@@ -21555,7 +21555,7 @@ _021E1DBC:
 	mov r1, #0xd
 	mov r2, #4
 	mov r3, #0xa
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [r5, #0x44]
 	mov r0, #0x7d
 	lsl r0, r0, #2
@@ -21687,7 +21687,7 @@ _021E1F58:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
 	beq _021E1F62
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 _021E1F62:
 	ldr r0, _021E1F94 ; =0x00004BFC
 	ldr r0, [r5, r0]

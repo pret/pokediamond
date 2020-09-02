@@ -13,12 +13,12 @@ struct UnkStruct_02013B28
     u32 unk_4;
 };
 
-struct UnkStruct_020139D8 * FUN_020139D8(u32 heap_id);
-void FUN_02013A10(struct UnkStruct_020139D8 * unk);
-void FUN_02013A30(struct UnkStruct_020139D8 * unk, u16 a1, struct String * str);
-void FUN_02013A58(u16 a0, struct String * a1);
-u16 FUN_02013A9C(u16 a0, u16 a1);
-void FUN_02013AEC(u32 a0, s32 * a1, s32 * a2);
+struct UnkStruct_020139D8 * EasyChatManager_new(u32 heap_id);
+void EasyChatManager_delete(struct UnkStruct_020139D8 * unk);
+void EasyChatManager_ReadWordIntoString(struct UnkStruct_020139D8 * unk, u16 a1, struct String * str);
+void GetECWordIntoStringByIndex(u16 a0, struct String * a1);
+u16 GetECWordIndexByPair(u16 a0, u16 a1);
+void GetCategoryAndMsgNoByECWordIdx(u32 a0, s32 * a1, s32 * a2);
 u32 FUN_02013B28(void);
 void FUN_02013B2C(struct UnkStruct_02013B28 * unk);
 struct UnkStruct_02013B28 * FUN_02013B5C(struct SaveBlock2 * sav2);

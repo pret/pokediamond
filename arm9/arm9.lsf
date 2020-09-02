@@ -104,7 +104,7 @@ Static arm9
 	Object unk_02028980.o
 	Object unk_02029A84.o
 	Object unk_02029AE0.o
-	Object unk_02029C58.o
+	Object seal_case.o
 	Object unk_02029CEC.o
 	Object igt.o
 	Object unk_02029EC4.o

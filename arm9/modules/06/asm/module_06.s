@@ -8177,7 +8177,7 @@ _0223D456:
 	str r0, [r4, r1]
 	b _0223D472
 _0223D468:
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	mov r1, #0x21
 	lsl r1, r1, #4
 	str r0, [r4, r1]

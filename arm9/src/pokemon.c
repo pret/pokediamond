@@ -565,7 +565,7 @@ u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * dest)
         Mail_copy(&pokemon->party.mail, dest);
         return 1;
     case MON_DATA_SEAL_COORDS:
-        FUN_02029C74(&pokemon->party.sealCoords, dest);
+        CapsuleArray_copy(&pokemon->party.sealCoords, dest);
         return 1;
     default:
         return GetBoxMonDataInternal(&pokemon->box, attr, dest);
@@ -1053,7 +1053,7 @@ void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * value)
         Mail_copy((const struct Mail *)value, &pokemon->party.mail);
         break;
     case MON_DATA_SEAL_COORDS:
-        FUN_02029C74((CapsuleArray *)value, &pokemon->party.sealCoords);
+        CapsuleArray_copy((CapsuleArray *)value, &pokemon->party.sealCoords);
         break;
     default:
         SetBoxMonDataInternal(&pokemon->box, attr, value);

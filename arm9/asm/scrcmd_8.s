@@ -110,7 +110,7 @@ _02041CF2:
 	ldr r0, [r6, #0x0]
 	add r1, r7, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200B708
+	bl BufferEasyChatWord
 	b _02041E38
 _02041D28:
 	add r0, r4, #0x0
@@ -133,7 +133,7 @@ _02041D28:
 	ldr r0, [r6, #0x0]
 	add r1, r7, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200B708
+	bl BufferEasyChatWord
 	b _02041E38
 _02041D5E:
 	mov r1, #0x0

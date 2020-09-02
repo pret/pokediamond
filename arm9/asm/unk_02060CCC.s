@@ -2783,7 +2783,7 @@ _0206211E:
 	ldr r1, [r1, #0xc]
 	ldr r2, [sp, #0xc]
 	mov r3, #0x0
-	bl FUN_0200B708
+	bl BufferEasyChatWord
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x4]
@@ -2791,7 +2791,7 @@ _0206211E:
 	ldr r1, [r1, #0xc]
 	ldr r2, [sp, #0xc]
 	mov r3, #0x1
-	bl FUN_0200B708
+	bl BufferEasyChatWord
 	ldr r0, [sp, #0x8]
 	mov r1, #0x2
 	add r2, r4, #0x0

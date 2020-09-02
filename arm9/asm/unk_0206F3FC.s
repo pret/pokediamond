@@ -1005,7 +1005,7 @@ _0206FAFC:
 	bl DestroyMsgData
 	ldr r0, _0206FB50 ; =0x00000698
 	ldr r0, [r6, r0]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
@@ -1438,7 +1438,7 @@ _0206FEC2:
 	mov r0, #0xf
 	mov r1, #0xe
 	mov r3, #0xc
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	ldr r1, _0206FF64 ; =0x00000698
 	str r0, [r6, r1]
 	mov r0, #0xc

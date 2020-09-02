@@ -12,6 +12,8 @@
 #include "unk_020254B8.h"
 #include "daycare.h"
 #include "pokedex.h"
+#include "seal.h"
+#include "unk_020139D8.h"
 
 extern u32 FUN_0202AC20(void);
 extern u32 FUN_02034D7C(void);
@@ -24,7 +26,6 @@ extern u32 FUN_02028054(void);
 extern u32 FUN_02028980(void);
 extern u32 FUN_02029A84(void);
 extern u32 FUN_02029FB0(void);
-extern u32 FUN_02029C58(void);
 extern u32 FUN_02029EC4(void);
 extern u32 FUN_0202A89C(void);
 extern u32 FUN_0202A8F4(void);
@@ -36,7 +37,6 @@ extern u32 FUN_020281E0(void);
 extern u32 FUN_02029AE0(void);
 extern u32 FUN_0202BE98(void);
 extern u32 FUN_0202C0E0(void);
-extern u32 FUN_02013B28(void);
 extern void FUN_0202AC28(void *);
 extern void FUN_02034D98(void *);
 extern void FUN_02024E6C(void *);
@@ -48,7 +48,6 @@ extern void FUN_0202805C(void *);
 extern void FUN_02028994(void *);
 extern void FUN_02029A8C(void *);
 extern void FUN_02029FB8(void *);
-extern void FUN_02029C60(void *);
 extern void FUN_02029ECC(void *);
 extern void FUN_0202A8A4(void *);
 extern void FUN_0202A8F8(void *);
@@ -60,7 +59,6 @@ extern void FUN_020281E8(void *);
 extern void FUN_02029AE8(void *);
 extern void FUN_0202BEA0(void *);
 extern void FUN_0202C0E4(void *);
-extern void FUN_02013B2C(void *);
 
 const struct SaveChunkHeader UNK_020EE6E0[] = {
     { 0, 32, (SAVSIZEFN)Sav2_HOF_sizeof, (SAVINITFN)Sav2_HOF_init },
@@ -89,7 +87,7 @@ const struct SaveChunkHeader UNK_020EE700[] = {
     { 18, 0, (SAVSIZEFN)FUN_02028980, (SAVINITFN)FUN_02028994 },
     { 19, 0, (SAVSIZEFN)FUN_02029A84, (SAVINITFN)FUN_02029A8C },
     { 20, 0, (SAVSIZEFN)FUN_02029FB0, (SAVINITFN)FUN_02029FB8 },
-    { 21, 0, (SAVSIZEFN)FUN_02029C58, (SAVINITFN)FUN_02029C60 },
+    { 21, 0, (SAVSIZEFN)Sav2_SealCase_sizeof, (SAVINITFN)Sav2_SealCase_init },
     { 22, 0, (SAVSIZEFN)FUN_02029EC4, (SAVINITFN)FUN_02029ECC },
     { 23, 0, (SAVSIZEFN)FUN_0202A89C, (SAVINITFN)FUN_0202A8A4 },
     { 24, 0, (SAVSIZEFN)FUN_0202A8F4, (SAVINITFN)FUN_0202A8F8 },

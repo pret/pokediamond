@@ -4972,7 +4972,7 @@ MOD07_0221469C: ; 0x0221469C
 	mov r0, #0xf
 	mov r1, #0xe
 	mov r2, #0
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [sp, #0xc]
 	ldr r0, [r6]
 	ldr r0, [r0, #0x24]
@@ -5008,7 +5008,7 @@ _022146F6:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	ldr r0, [sp, #8]
 	bl ScrStrBufs_delete
 	add sp, #0x14

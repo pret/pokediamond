@@ -706,7 +706,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	mov r1, #1
 	mov r2, #0xf
 	mov r3, #5
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	mov r1, #0x6a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1369,7 +1369,7 @@ _0222E1AC:
 	mov r0, #0x6a
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	mov r0, #2
 	bl FUN_02002CF8
 	ldr r0, [r4, #0x1c]

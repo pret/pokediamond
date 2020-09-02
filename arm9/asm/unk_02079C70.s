@@ -664,7 +664,7 @@ FUN_0207A1A0: ; 0x0207A1A0
 	mov r0, #0x1
 	mov r1, #0x2
 	mov r3, #0x13
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	mov r1, #0x67
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
@@ -742,7 +742,7 @@ FUN_0207A264: ; 0x0207A264
 	mov r0, #0x67
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	ldr r0, _0207A2D0 ; =0x0000067C
 	ldr r0, [r4, r0]
 	bl ScrStrBufs_delete

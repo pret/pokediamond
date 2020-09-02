@@ -2368,7 +2368,7 @@ MOD09_02213138: ; 0x02213138
 	mov r0, #0xf
 	ldr r3, [r3, #0xc]
 	mov r1, #0xe
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	ldr r1, _02213184 ; =0x00001FA4
 	str r0, [r4, r1]
 	ldr r0, [r4]
@@ -2399,7 +2399,7 @@ MOD09_02213190: ; 0x02213190
 	bl DestroyMsgData
 	ldr r0, _022131BC ; =0x00001FA4
 	ldr r0, [r4, r0]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	ldr r0, _022131C0 ; =0x00001FAC
 	ldr r0, [r4, r0]
 	bl ScrStrBufs_delete
@@ -3474,7 +3474,7 @@ MOD09_022139D4: ; 0x022139D4
 	ldr r0, _02213B74 ; =0x00001FAC
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200B144
+	bl BufferTrainerNameFromDataStruct
 	ldr r1, _02213B74 ; =0x00001FAC
 	add r2, r4, #0
 	ldr r0, [r5, r1]
@@ -14095,7 +14095,7 @@ MOD09_022192A4: ; 0x022192A4
 	ldr r3, [r3, #0xc]
 	mov r1, #0xe
 	mov r2, #0
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [r4, #0xc]
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
@@ -14117,7 +14117,7 @@ MOD09_022192E4: ; 0x022192E4
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	ldr r0, [r4, #0x14]
 	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x18]

@@ -5154,7 +5154,7 @@ MOD15_021D9C58: ; 0x021D9C58
 	bl MOD15_021D9C08
 	ldr r1, [r5, #0x4c]
 	add r0, r6, #0
-	bl FUN_02013A58
+	bl GetECWordIntoStringByIndex
 	ldr r1, [r5, #0x4c]
 	mov r0, #1
 	mov r2, #0

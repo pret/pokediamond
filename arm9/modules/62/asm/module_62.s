@@ -952,7 +952,7 @@ _0222DC90:
 	ldr r0, [r0, #0x20]
 	ldr r2, [r7, r2]
 	add r1, sp, #0
-	bl FUN_02029CA4
+	bl SealCase_SetCapsuleI
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3017,18 +3017,18 @@ _0222EC9A:
 	add r7, #8
 	ldr r0, [r7, r6]
 	add r1, sp, #0x10
-	bl FUN_02029C74
+	bl CapsuleArray_copy
 	add r0, r5, #0
 	str r0, [sp, #4]
 	add r0, #8
 	str r0, [sp, #4]
 	ldr r0, [r0, r4]
 	ldr r1, [r7, r6]
-	bl FUN_02029C74
+	bl CapsuleArray_copy
 	ldr r1, [sp, #4]
 	add r0, sp, #0x10
 	ldr r1, [r1, r4]
-	bl FUN_02029C74
+	bl CapsuleArray_copy
 	add r0, r5, #0
 	bl MOD62_0222EC28
 	add sp, #0x28
@@ -4363,14 +4363,14 @@ MOD62_0222F778: ; 0x0222F778
 	mov r0, #0xf1
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	ldr r3, _0222F78C ; =FUN_02029C74
+	ldr r3, _0222F78C ; =CapsuleArray_copy
 	lsl r0, r0, #3
 	add r0, r1, r0
 	ldr r0, [r0, #8]
 	add r1, #0x68
 	bx r3
 	.align 2, 0
-_0222F78C: .word FUN_02029C74
+_0222F78C: .word CapsuleArray_copy
 	thumb_func_end MOD62_0222F778
 
 	thumb_func_start MOD62_0222F790
@@ -4379,14 +4379,14 @@ MOD62_0222F790: ; 0x0222F790
 	add r2, r0, #0
 	lsl r1, r1, #2
 	ldr r1, [r2, r1]
-	ldr r3, _0222F7A4 ; =FUN_02029C74
+	ldr r3, _0222F7A4 ; =CapsuleArray_copy
 	lsl r1, r1, #3
 	add r1, r2, r1
 	add r0, #0x68
 	ldr r1, [r1, #8]
 	bx r3
 	.align 2, 0
-_0222F7A4: .word FUN_02029C74
+_0222F7A4: .word CapsuleArray_copy
 	thumb_func_end MOD62_0222F790
 
 	thumb_func_start MOD62_0222F7A8
@@ -4512,8 +4512,8 @@ MOD62_0222F870: ; 0x0222F870
 _0222F87A:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_02029CC8
-	bl FUN_02029CE0
+	bl Capsule_GetSealI
+	bl Seal_GetId
 	cmp r0, #0
 	beq _0222F88C
 	add r5, r5, #1
@@ -6516,7 +6516,7 @@ _02230860:
 	add r0, r2, r0
 	ldr r5, [r0, #4]
 	ldr r0, [r2, #0x20]
-	bl FUN_02029C8C
+	bl SealCase_GetCapsuleI
 	add r2, r0, #0
 	add r0, r5, #0
 	mov r1, #0xaa
