@@ -3171,6 +3171,10 @@ files/msgdata/msg.narc: \
         files/msgdata/msg/narc_0622.bin \
         files/msgdata/msg/narc_0623.bin
 
+## Trainer names
+files/msgdata/msg/narc_0559.txt: files/poketool/trainer/trdata.json
+	(echo " -"; $(GREP) -w '"name":' $< | cut -d'"' -f4) | $(SED) 's/^(.+)$$/{TRNAME}\1\r/g' > $@
+
 CHARMAP = charmap.txt
 
 files/msgdata/msg/%.bin: files/msgdata/msg/%.txt files/msgdata/msg/%.key $(CHARMAP)

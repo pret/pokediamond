@@ -11,6 +11,7 @@ const struct TrainerData __data[] = {
     {},
 ## for trainer in trdata
     {
+        // Trainer #{{trainer.index}}, {{ trainer.class }} {{ trainer.name }}
         {{ trainer.type }},
         {{ trainer.class }},
         {{ trainer.unk2 }},
