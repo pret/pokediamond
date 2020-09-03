@@ -101,11 +101,11 @@ FUN_020625EC: ; 0x020625EC
 	str r0, [r4, r1]
 	add r0, r6, #0x0
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	strh r0, [r4, #0x1a]
 	add r0, r6, #0x0
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02025084
+	bl Options_GetFrame
 	strh r0, [r4, #0x1c]
 	str r4, [r7, #0x8]
 	mov r0, #0x1

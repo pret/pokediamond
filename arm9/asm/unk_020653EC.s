@@ -67,11 +67,11 @@ FUN_020653EC: ; 0x020653EC
 	add r6, r0, #0x0
 	strb r1, [r4, #0x1a]
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	strb r0, [r4, #0x16]
 	add r0, r6, #0x0
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02025084
+	bl Options_GetFrame
 	strh r0, [r4, #0x14]
 	add r0, r4, #0x0
 	ldr r2, [r4, #0x0]

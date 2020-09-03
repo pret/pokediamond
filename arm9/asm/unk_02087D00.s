@@ -544,11 +544,11 @@ FUN_020880A0: ; 0x020880A0
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x18]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	strb r0, [r4, #0xa]
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x18]
-	bl FUN_02025084
+	bl Options_GetFrame
 	strb r0, [r4, #0xb]
 	ldr r0, _02088108 ; =UNK_020FD16C
 	ldr r2, [r5, #0x0]

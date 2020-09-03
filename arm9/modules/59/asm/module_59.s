@@ -999,7 +999,7 @@ _021D7C5E:
 	add r0, r6, #0
 	bl String_dtor
 	ldr r0, [r5, #8]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r3, r4, #0
 	str r3, [sp]
 	str r0, [sp, #4]

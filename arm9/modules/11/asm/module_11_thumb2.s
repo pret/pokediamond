@@ -120,7 +120,7 @@ _0222F30E:
 	mov r0, #0x13
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02025084
+	bl Options_GetFrame
 	add r4, r0, #0
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
@@ -3600,7 +3600,7 @@ _02230E2E:
 	mov r1, #0x6d
 	lsl r1, r1, #2
 	ldr r0, [r0, r1]
-	bl FUN_0202502C
+	bl Options_GetBattleStyle
 	cmp r0, #0
 	bne _02230E40
 	mov r0, #1
@@ -3613,11 +3613,11 @@ _02230E40:
 MOD11_02230E44: ; 0x02230E44
 	mov r1, #0x6d
 	lsl r1, r1, #2
-	ldr r3, _02230E50 ; =FUN_02025084
+	ldr r3, _02230E50 ; =Options_GetFrame
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_02230E50: .word FUN_02025084
+_02230E50: .word Options_GetFrame
 
 	thumb_func_start MOD11_02230E54
 MOD11_02230E54: ; 0x02230E54
@@ -3632,7 +3632,7 @@ _02230E62:
 	mov r1, #0x6d
 	lsl r1, r1, #2
 	ldr r0, [r0, r1]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	pop {r3, pc}
 	.align 2, 0
 
@@ -3640,11 +3640,11 @@ _02230E62:
 MOD11_02230E70: ; 0x02230E70
 	mov r1, #0x6d
 	lsl r1, r1, #2
-	ldr r3, _02230E7C ; =FUN_02025048
+	ldr r3, _02230E7C ; =Options_GetBattleScene
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_02230E7C: .word FUN_02025048
+_02230E7C: .word Options_GetBattleScene
 
 	thumb_func_start MOD11_02230E80
 MOD11_02230E80: ; 0x02230E80

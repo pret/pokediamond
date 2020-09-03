@@ -950,7 +950,7 @@ MOD65_021D7C04: ; 0x021D7C04
 	bl FUN_0200CB00
 	ldr r0, [r6, #0x20]
 	ldr r0, [r0, #0x18]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -1103,7 +1103,7 @@ _021D7D42:
 _021D7D66:
 	ldr r0, [r5, #0x20]
 	ldr r0, [r0, #0x18]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r5, #0x7c
 	strb r0, [r5]
 	pop {r4, r5, r6, pc}

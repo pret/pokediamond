@@ -437,7 +437,7 @@ MOD76_021D7814: ; 0x021D7814
 	bl FUN_0200CB00
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -2053,7 +2053,7 @@ MOD76_021D853C: ; 0x021D853C
 	bl FUN_02002B7C
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	mov r3, #0
 	str r3, [sp]
 	str r0, [sp, #4]

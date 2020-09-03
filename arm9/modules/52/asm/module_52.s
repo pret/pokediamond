@@ -116,7 +116,7 @@ MOD52_021D7594: ; 0x021D7594
 	bl MOD52_021D7688
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02024F9C
+	bl SetButtonModeOnMain
 	add r0, r5, #0
 	bl Sav2_SysInfo_MacAddressIsMine
 	cmp r0, #0

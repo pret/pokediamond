@@ -1664,7 +1664,7 @@ FUN_0207322C: ; 0x0207322C
 	ldr r0, _0207326C ; =0x000005A4
 	ldr r0, [r4, r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	str r0, [sp, #0x4]

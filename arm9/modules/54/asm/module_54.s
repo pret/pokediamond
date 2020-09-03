@@ -766,7 +766,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	bl FUN_020068C8
 	ldr r0, [r5, #8]
 	ldr r0, [r0, #8]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]

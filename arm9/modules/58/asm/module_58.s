@@ -662,7 +662,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r3, #5
 	bl FUN_020068C8
 	ldr r0, [r5, #0xc]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -2226,7 +2226,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	mov r3, #0xa
 	bl FUN_0200D0BC
 	ldr r0, [r5, #0xc]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	mov r3, #0
 	str r3, [sp]
 	str r0, [sp, #4]

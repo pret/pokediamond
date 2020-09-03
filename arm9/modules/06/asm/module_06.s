@@ -8929,7 +8929,7 @@ _0223DA3E:
 	mov r0, #0x85
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -41696,12 +41696,12 @@ MOD06_0224DBA8: ; 0x0224DBA8
 	ldr r0, [r5, #8]
 	bl Sav2_PlayerData_GetOptionsAddr
 	add r4, r0, #0
-	bl FUN_02025084
+	bl Options_GetFrame
 	mov r1, #0x53
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	add r0, r4, #0
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	mov r1, #0x15
 	lsl r1, r1, #4
 	str r0, [r5, r1]
