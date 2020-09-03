@@ -70,33 +70,6 @@ ARM_FUNC BOOL OS_ReceiveMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags)
     return TRUE;
 }
 
-ARM_FUNC BOOL OS_JamMessage(OSMessageQueue *mq, OSMessage msg, s32 flags)
-{
-    OSIntrMode enabled = OS_DisableInterrupts();
-
-    while (mq->msgCount <= mq->usedCount)
-    {
-        if (!(flags & OS_MESSAGE_BLOCK))
-        {
-            (void)OS_RestoreInterrupts(enabled);
-            return FALSE;
-        }
-        else
-        {
-            OS_SleepThread(&mq->queueSend);
-        }
-    }
-
-    mq->firstIndex = (mq->firstIndex + mq->msgCount - 1) % mq->msgCount;
-    mq->msgArray[mq->firstIndex] = msg;
-    mq->usedCount++;
-
-    OS_WakeupThread(&mq->queueReceive);
-
-    (void)OS_RestoreInterrupts(enabled);
-    return TRUE;
-}
-
 ARM_FUNC BOOL OS_ReadMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags)
 {
     OSIntrMode enabled = OS_DisableInterrupts();

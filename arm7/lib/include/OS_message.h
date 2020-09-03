@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_ARM9_OS_MESSAGE_H
-#define POKEDIAMOND_ARM9_OS_MESSAGE_H
+#ifndef POKEDIAMOND_ARM7_OS_MESSAGE_H
+#define POKEDIAMOND_ARM7_OS_MESSAGE_H
 
 #include "OS_thread.h"
 #include "OS_context.h"
@@ -9,7 +9,6 @@
 void OS_InitMessageQueue(OSMessageQueue *mq, OSMessage *msgArray, s32 msgCount);
 BOOL OS_SendMessage(OSMessageQueue *mq, OSMessage msg, s32 flags);
 BOOL OS_ReceiveMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags);
-BOOL OS_JamMessage(OSMessageQueue *mq, OSMessage msg, s32 flags);
 BOOL OS_ReadMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags);
 
-#endif //POKEDIAMOND_ARM9_OS_MESSAGE_H
+#endif //POKEDIAMOND_ARM7_OS_MESSAGE_H
