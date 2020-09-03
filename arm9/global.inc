@@ -1407,7 +1407,7 @@
 .extern StringCat
 .extern StrAddChar
 .extern StrUpperFirstChar
-.extern FUN_02022048
+.extern StringCat_HandleTrainerName
 .extern FUN_020220C4
 .extern FUN_0202212C
 .extern FUN_02022144

@@ -18,7 +18,7 @@ extern void * FUN_02024EC0(struct SaveBlock2 * sav2);
 extern u16 * FUN_02024EE8(void *);
 extern u32 GetCityNamesMsgdataIdByCountry(u32);
 extern void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
-extern void FUN_02022048(struct String * dest, const struct String * src);
+extern void StringCat_HandleTrainerName(struct String * dest, const struct String * src);
 extern void StrAddChar(struct String * str, u16 val);
 extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 extern BOOL UncompressFromNarc(NarcId narcId, s32 memberNo, BOOL a2, u32 heap_id, BOOL a4);
@@ -726,7 +726,7 @@ void StringExpandPlaceholders(struct ScrStrBufs * mgr, struct String * dest, str
             {
                 u32 idx = MsgArray_ControlCodeGetField(cstr, 0);
                 GF_ASSERT(idx < mgr->count);
-                FUN_02022048(dest, mgr->array[idx].msg);
+                StringCat_HandleTrainerName(dest, mgr->array[idx].msg);
                 cstr = MsgArray_SkipControlCode(cstr);
             }
             else
