@@ -7720,7 +7720,7 @@ _0223D212:
 	bl BufferUndergroundItemNameWithArticle
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_0200B7A8
+	bl ScrStrBufs_UpperFirstChar
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	mov r1, #0x5f
@@ -42040,11 +42040,11 @@ MOD18_0224DF40: ; 0x0224DF40
 
 	thumb_func_start MOD18_0224DF54
 MOD18_0224DF54: ; 0x0224DF54
-	ldr r3, _0224DF5C ; =FUN_0200B7A8
+	ldr r3, _0224DF5C ; =ScrStrBufs_UpperFirstChar
 	ldr r0, [r0, #0x28]
 	bx r3
 	nop
-_0224DF5C: .word FUN_0200B7A8
+_0224DF5C: .word ScrStrBufs_UpperFirstChar
 	thumb_func_end MOD18_0224DF54
 
 	thumb_func_start MOD18_0224DF60

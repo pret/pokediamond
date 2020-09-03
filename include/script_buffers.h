@@ -3,6 +3,7 @@
 
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
+#include "trainer_data.h"
 
 struct UnkStruct_0200AA80_sub_sub
 {
@@ -21,12 +22,6 @@ struct ScrStrBufs
     u32 heap_id;
     struct UnkStruct_0200AA80_sub * array;
     struct String * tmpbuf;
-};
-
-struct Trainer
-{
-    u8 unk0;
-    u8 unk1;
 };
 
 struct UnkStruct_0200B870_sub
@@ -75,9 +70,9 @@ void BufferLandmarkName(struct ScrStrBufs * mgr, u32 idx, u32 landmark);
 void BufferPoketchAppName(struct ScrStrBufs * mgr, u32 idx, u32 app);
 void BufferTrainerClassName(struct ScrStrBufs * mgr, u32 idx, u32 trclass);
 void BufferTrainerClassNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 trclass);
-void BufferTrainerClassName2(struct ScrStrBufs * mgr, u32 idx, struct Trainer * tr);
-void FUN_0200B10C(struct ScrStrBufs * mgr, u32 idx, u32 msgno);
-void FUN_0200B144(struct ScrStrBufs * mgr, u32 idx, void * unk_struct);
+void BufferTrainerClassNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct TrainerDataLoaded * tr);
+void BufferTrainerName(struct ScrStrBufs * mgr, u32 idx, u32 msgno);
+void BufferTrainerNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct TrainerDataLoaded * trdata);
 void BufferUndergroundItemName(struct ScrStrBufs * mgr, u32 idx, u32 item);
 void BufferUndergroundItemNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 item);
 void BufferUndergroundTrapName(struct ScrStrBufs * mgr, u32 idx, u32 trap);
@@ -103,13 +98,13 @@ void BufferPoffinName(struct ScrStrBufs * mgr, u32 idx, u32 poffin);
 void BufferFashionName(struct ScrStrBufs * mgr, u32 idx, u32 fashion);
 void BufferFashionNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 fashion);
 void BufferContestBackgroundName(struct ScrStrBufs * mgr, u32 idx, u32 bg);
-void FUN_0200B708(struct ScrStrBufs * mgr, struct SaveBlock2 * sav2, u32 r5, u32 idx, u32 sp28);
+void BufferEasyChatWord(struct ScrStrBufs * mgr, struct SaveBlock2 * sav2, u32 r5, u32 idx, u32 sp28);
 void BufferMonthNameAbbr(struct ScrStrBufs * mgr, u32 idx, u32 month);
-void FUN_0200B7A8(struct ScrStrBufs * mgr, u32 idx);
+void ScrStrBufs_UpperFirstChar(struct ScrStrBufs * mgr, u32 idx);
 void StringExpandPlaceholders(struct ScrStrBufs * mgr, struct String * dest, struct String * src);
-void FUN_0200B84C(struct ScrStrBufs * mgr);
-struct UnkStruct_0200B870 * FUN_0200B870(u32 r5, u32 r6, u32 sp4, u32 r4);
-void FUN_0200B990(struct UnkStruct_0200B870 * a0);
+void ScrStrBufs_ResetBuffers(struct ScrStrBufs * mgr);
+struct UnkStruct_0200B870 * MessagePrinter_new(u32 r5, u32 r6, u32 sp4, u32 r4);
+void MessagePrinter_delete(struct UnkStruct_0200B870 * a0);
 void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, int a2, int a3, int a4);
 void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, int sp30, int r5, int r7);
 

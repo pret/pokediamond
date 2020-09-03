@@ -246,7 +246,7 @@ _02073F66:
 	add r2, sp, #0x0
 	bl SetMonData
 	add r0, r6, #0x0
-	bl FUN_02069EC4
+	bl Pokemon_UpdateArceusForme
 	ldr r2, _02074058 ; =0x0000069C
 	mov r1, #0x52
 	ldr r0, [r5, r2]
@@ -633,7 +633,7 @@ FUN_020742A8: ; 0x020742A8
 	add r2, sp, #0x0
 	bl SetMonData
 	add r0, r5, #0x0
-	bl FUN_02069EC4
+	bl Pokemon_UpdateArceusForme
 	ldr r1, _02074330 ; =0x00000B25
 	mov r2, #0x2c
 	ldrb r3, [r4, r1]
@@ -790,7 +790,7 @@ FUN_02074428: ; 0x02074428
 	ldrb r1, [r4, r1]
 	ldr r0, [r0, #0x0]
 	bl GetPartyMonByIndex
-	bl FUN_0206AA84
+	bl Pokemon_RemoveCapsule
 	ldr r0, _0207444C ; =0x000005A4
 	mov r1, #0x0
 	ldr r0, [r4, r0]

@@ -664,7 +664,7 @@ FUN_0207A1A0: ; 0x0207A1A0
 	mov r0, #0x1
 	mov r1, #0x2
 	mov r3, #0x13
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	mov r1, #0x67
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
@@ -742,7 +742,7 @@ FUN_0207A264: ; 0x0207A264
 	mov r0, #0x67
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	ldr r0, _0207A2D0 ; =0x0000067C
 	ldr r0, [r4, r0]
 	bl ScrStrBufs_delete
@@ -1536,7 +1536,7 @@ _0207A896:
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	b _0207A8C0
 _0207A8BA:
 	bl FUN_0207B628
@@ -1825,7 +1825,7 @@ FUN_0207AAE0: ; 0x0207AAE0
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r7, #0x0
@@ -2163,7 +2163,7 @@ _0207AD26:
 _0207ADE0:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_02069BC8
+	bl MonGetFlavorPreference
 	cmp r0, #0x1
 	bne _0207ADF4
 	add r0, r5, #0x0
@@ -2202,7 +2202,7 @@ _0207ADFE:
 	orr r0, r2
 	str r0, [r5, #0x50]
 	add r0, r6, #0x0
-	bl FUN_02069E94
+	bl Pokemon_IsImmuneToPokerus
 	cmp r0, #0x1
 	bne _0207AE4E
 	ldr r1, [r5, #0x50]
@@ -2215,7 +2215,7 @@ _0207ADFE:
 	b _0207AE84
 _0207AE4E:
 	add r0, r6, #0x0
-	bl FUN_02069E74
+	bl Pokemon_HasPokerus
 	cmp r0, #0x1
 	bne _0207AE7C
 	ldr r2, [r5, #0x50]

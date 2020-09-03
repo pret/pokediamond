@@ -2096,7 +2096,7 @@ _0206D86E:
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x28]
 	add r1, r5, #0x0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	mov r0, #0x49
 	lsl r0, r0, #0x2
 	str r0, [sp, #0x0]
@@ -2576,7 +2576,7 @@ FUN_0206DC80: ; 0x0206DC80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x28]
 	add r1, r5, #0x0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r2, r4, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5

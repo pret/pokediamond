@@ -1482,7 +1482,7 @@ _0204711A:
 	ldr r1, [r7, #0xc]
 	ldr r2, [sp, #0x20]
 	add r0, r4, #0x0
-	bl FUN_0206ABC4
+	bl EnemyTrainerSet_Init
 	ldr r0, [r7, #0xc]
 	bl FUN_02029FC8
 	mov r1, #0x8

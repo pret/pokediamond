@@ -7,7 +7,7 @@
 
 #pragma thumb on
 
-const u8 UNK_020ED5B4[][2] = {
+const u8 sNarcLanguages[][2] = {
     { LANGUAGE_JAPANESE, 0 },
     { LANGUAGE_ENGLISH,  1 },
     { LANGUAGE_FRENCH,   2 },
@@ -16,32 +16,32 @@ const u8 UNK_020ED5B4[][2] = {
     { LANGUAGE_SPANISH,  5 },
 };
 
-const u16 UNK_020ED5C0[] = {
-    362,
-    589,
-    565,
-    553,
-    388,
-    389,
-    390,
-    391,
-    392,
-    393,
-    394
+const u16 sNarcMsgBanks[] = {
+    362, // Species names
+    589, // Move names
+    565, // Type names
+    553, // Ability names
+    388, // Trainer
+    389, // People
+    390, // Greetings
+    391, // Lifestyle
+    392, // Feelings
+    393, // Tough words
+    394  // Union
 };
 
-const u16 UNK_020ED5D6[] = {
-    496,
-    468,
-    18,
-    124,
-    38,
-    38,
-    107,
-    104,
-    47,
-    32,
-    23
+const u16 sNarcMsgCounts[] = {
+    496, // Species names
+    468, // Move names
+    18,  // Type names
+    124, // Ability names
+    38,  // Trainer
+    38,  // People
+    107, // Greetings
+    104, // Lifestyle
+    47,  // Feelings
+    32,  // Tough words
+    23   // Union
 };
 
 const u16 UNK_020ED580[] = { 0x04C0, 0x04F0 };
@@ -76,19 +76,19 @@ const struct UnkStruct_020ED5EC
     { UNK_020ED594, NELEMS(UNK_020ED594) },
 };
 
-struct UnkStruct_020139D8 * FUN_020139D8(u32 heap_id)
+struct UnkStruct_020139D8 * EasyChatManager_new(u32 heap_id)
 {
     struct UnkStruct_020139D8 * ret = (struct UnkStruct_020139D8 *)AllocFromHeap(heap_id, sizeof(struct UnkStruct_020139D8));
     s32 i;
     for (i = 0; i < 11; i++)
     {
         ret->heap_id = heap_id; // inadvertently inside the loop
-        ret->msgDatas[i] = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, UNK_020ED5C0[i], heap_id);
+        ret->msgDatas[i] = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, sNarcMsgBanks[i], heap_id);
     }
     return ret;
 }
 
-void FUN_02013A10(struct UnkStruct_020139D8 * unk)
+void EasyChatManager_delete(struct UnkStruct_020139D8 * unk)
 {
     s32 i;
     for (i = 0; i < 11; i++)
@@ -98,61 +98,61 @@ void FUN_02013A10(struct UnkStruct_020139D8 * unk)
     FreeToHeap(unk);
 }
 
-void FUN_02013A30(struct UnkStruct_020139D8 * unk, u16 a1, struct String * str)
+void EasyChatManager_ReadWordIntoString(struct UnkStruct_020139D8 * unk, u16 wordIdx, struct String * str)
 {
-    s32 sp4;
-    s32 sp0;
-    FUN_02013AEC(a1, &sp4, &sp0);
-    ReadMsgDataIntoString(unk->msgDatas[sp4], (u32)sp0, str);
+    s32 msgBank;
+    s32 msgNo;
+    GetCategoryAndMsgNoByECWordIdx(wordIdx, &msgBank, &msgNo);
+    ReadMsgDataIntoString(unk->msgDatas[msgBank], (u32)msgNo, str);
 }
 
-void FUN_02013A58(u16 a0, struct String * a1)
+void GetECWordIntoStringByIndex(u16 wordIdx, struct String * a1)
 {
-    s32 sp8;
-    s32 sp4;
-    if (a0 != 0xFFFF)
+    s32 msgBank;
+    s32 msgNo;
+    if (wordIdx != 0xFFFF)
     {
-        FUN_02013AEC(a0, &sp8, &sp4);
-        sp8 = UNK_020ED5C0[sp8];
-        ReadMsgData_NewNarc_ExistingString(NARC_MSGDATA_MSG, (u32)sp8, (u32)sp4, 0, a1);
+        GetCategoryAndMsgNoByECWordIdx(wordIdx, &msgBank, &msgNo);
+        msgBank = sNarcMsgBanks[msgBank];
+        ReadMsgData_NewNarc_ExistingString(NARC_MSGDATA_MSG, (u32)msgBank, (u32)msgNo, 0, a1);
     }
     else
         StringSetEmpty(a1);
 }
 
-u16 FUN_02013A9C(u16 a0, u16 a1)
+u16 GetECWordIndexByPair(u16 msgBank, u16 msgNo)
 {
     u32 i;
     u16 k;
     u16 j;
     for (i = 0; i < 11; i++)
     {
-        if (a0 == UNK_020ED5C0[i])
+        if (msgBank == sNarcMsgBanks[i])
         {
             for (j = 0, k = 0; j < i; j++)
-                k += UNK_020ED5D6[j];
-            return (u16)(k + a1);
+                k += sNarcMsgCounts[j];
+            return (u16)(k + msgNo);
         }
     }
     return 0xFFFF;
 }
 
-void FUN_02013AEC(u32 a0, s32 * a1, s32 * a2)
+void GetCategoryAndMsgNoByECWordIdx(u32 wordIdx, s32 * msgBank_p, s32 * msgNo_p)
 {
     s32 i;
     s32 j;
     u32 r3;
 
-    r3 = a0 & 0xFFF;
+    r3 = wordIdx & 0xFFF;
     j = 0;
 
-    for (i = 0; i < NELEMS(UNK_020ED5D6); i++)
+    for (i = 0; i < NELEMS(sNarcMsgCounts); i++)
     {
-        j += UNK_020ED5D6[i];
+        j += sNarcMsgCounts[i];
         if (r3 < j)
         {
-            *a1 = i;
-            *a2 = (s32)(r3 - (j - UNK_020ED5D6[i]));
+            *msgBank_p = i;
+            *msgNo_p = (s32)(r3 - (j - sNarcMsgCounts[i]));
             return;
         }
     }
@@ -170,9 +170,9 @@ void FUN_02013B2C(struct UnkStruct_02013B28 * unk)
     unk->unk_4 = 0;
     for (i = 0; i < 6; i++)
     {
-        if (UNK_020ED5B4[i][0] == GAME_LANGUAGE)
+        if (sNarcLanguages[i][0] == GAME_LANGUAGE)
         {
-            FUN_02013C18(unk, UNK_020ED5B4[i][1]);
+            FUN_02013C18(unk, sNarcLanguages[i][1]);
             break;
         }
     }
@@ -233,7 +233,7 @@ u16 FUN_02013BE4(u16 a0)
     s32 i;
     u16 skip = 0;
     for (i = 0; i < 9; i++)
-        skip += UNK_020ED5D6[i];
+        skip += sNarcMsgCounts[i];
     return (u16)(skip + a0);
 }
 

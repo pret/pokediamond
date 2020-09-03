@@ -11,13 +11,14 @@ const struct TrainerData __data[] = {
     {},
 ## for trainer in trdata
     {
+        // Trainer #{{trainer.index}}, {{ trainer.class }} {{ trainer.name }}
         {{ trainer.type }},
         {{ trainer.class }},
         {{ trainer.unk2 }},
         {{ length(trainer.party) }},
         { {% for item in trainer.items %}{{ item }},{% endfor %} },
         {{ trainer.unkC }},
-        {{ trainer.unk10 }}
+        {{ trainer.doubleBattle }}
     },
 ## endfor
 };

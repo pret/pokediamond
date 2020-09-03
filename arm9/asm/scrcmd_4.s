@@ -1308,6 +1308,6 @@ FUN_02041174: ; 0x02041174
 	str r1, [r4, #0x8]
 	ldrb r1, [r2, #0x0]
 	ldr r0, [r0, #0x0]
-	bl FUN_0200B7A8
+	bl ScrStrBufs_UpperFirstChar
 	mov r0, #0x0
 	pop {r4, pc}

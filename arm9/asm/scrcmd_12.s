@@ -625,7 +625,7 @@ _020431D4:
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r0, r7, #0x0
 	mov r1, #0x90
 	add r2, r5, #0x0
@@ -985,7 +985,7 @@ FUN_020434B0: ; 0x020434B0
 	b _020434E2
 _020434CA:
 	ldr r0, [r5, #0xc]
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	add r1, r4, #0x0
 	mov r2, #0x1
 	bl FUN_02029DD4
@@ -1017,7 +1017,7 @@ FUN_020434E8: ; 0x020434E8
 	pop {r3-r5, pc}
 _02043502:
 	ldr r0, [r5, #0xc]
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	add r1, r4, #0x0
 	mov r2, #0x1
 	bl FUN_02029D44

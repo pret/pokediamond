@@ -663,7 +663,7 @@ _02047C40:
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r1, r5, #0x0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r0, r5, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
@@ -858,7 +858,7 @@ _02047DEE:
 	sub r1, r1, #0x1
 	bl GetPartyMonByIndex
 	ldr r1, [sp, #0x8]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r1, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r2, #0x0

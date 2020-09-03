@@ -149,7 +149,7 @@ FUN_0204B1DC: ; 0x0204B1DC
 	ldr r0, [r5, #0xc]
 	bl SavArray_PlayerParty_get
 	add r1, r4, #0x0
-	bl FUN_02069D50
+	bl Party_UpdatePokerus
 	ldr r0, [r5, #0xc]
 	bl SavArray_Flags_get
 	add r6, r0, #0x0

@@ -134,7 +134,7 @@ FUN_0206E39C: ; 0x0206E39C
 	thumb_func_start FUN_0206E3A8
 FUN_0206E3A8: ; 0x0206E3A8
 	push {r4-r6, lr}
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	add r6, r0, #0x0
 	mov r5, #0x0
 	mov r4, #0x1

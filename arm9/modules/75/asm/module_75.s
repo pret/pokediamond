@@ -446,7 +446,7 @@ MOD75_021E6F00: ; 0x021E6F00
 	mov r0, #0x11
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	mov r0, #0x46
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -946,7 +946,7 @@ MOD75_021E737C: ; 0x021E737C
 	mov r1, #2
 	mov r2, #0
 	mov r3, #6
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	mov r1, #0x11
 	lsl r1, r1, #4
 	str r0, [r4, r1]

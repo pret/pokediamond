@@ -2,6 +2,8 @@
 #define POKEDIAMOND_POKEDEX_H
 
 #include "global.h"
+#include "pokemon.h"
+#include "save_block_2.h"
 
 struct Pokedex
 {

@@ -6329,12 +6329,12 @@ MOD71_022309E8: ; 0x022309E8
 	add r1, r6, #0
 	bl GetPartyMonByIndex
 	add r1, r7, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
 	bl GetPartyMonByIndex
 	add r1, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r0, r4, #0
 	mov r1, #0x4c
 	mov r2, #0
@@ -6359,13 +6359,13 @@ _02230A40:
 	mov r3, #0
 	bl FUN_0208089C
 	add r0, r4, #0
-	bl FUN_0206AA84
+	bl Pokemon_RemoveCapsule
 	ldr r1, [r5, #0x3c]
 	add r0, r7, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r1, [r5, #0x40]
 	add r0, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	bl FUN_02031190
 	mov r1, #1
 	eor r0, r1
@@ -6390,13 +6390,13 @@ _02230A98:
 	bl GetPartyMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
 	bl GetPartyMonByIndex
 	add r1, r0, #0
 	add r0, r7, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [r5, #0x1c]
 	add r1, r4, #0
 	bl MOD71_02230AE4

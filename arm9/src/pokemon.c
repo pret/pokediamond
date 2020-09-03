@@ -10,7 +10,7 @@
 #include "math_util.h"
 #include "move_data.h"
 #include "string_util.h"
-#include "text.h"
+#include "seal.h"
 #include "msgdata.h"
 #include "itemtool.h"
 #include "constants/abilities.h"
@@ -20,8 +20,6 @@
 #include "constants/trainer_classes.h"
 
 #pragma thumb on
-
-extern void FUN_02029C74(const u8 *, u8 *);
 
 u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
 u32 GetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
@@ -39,12 +37,12 @@ u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move);
 void FUN_02069718(struct BoxPokemon * boxmon, u16 move);
 void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot);
 void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
-s8 FUN_02069BD0(struct BoxPokemon * boxmon, int flavor);
-s8 FUN_02069BE4(u32 personality, int flavor);
-u8 FUN_02069CF4(struct PlayerParty * party_p, u8 mask);
-BOOL FUN_02069E7C(struct BoxPokemon * boxmon);
-BOOL FUN_02069E9C(struct BoxPokemon * boxmon);
-void FUN_02069ECC(struct BoxPokemon * boxmon);
+s8 BoxMonGetFlavorPreference(struct BoxPokemon * boxmon, int flavor);
+s8 GetFlavorPreferenceFromPID(u32 personality, int flavor);
+u8 Party_MaskMonsWithPokerus(struct PlayerParty * party_p, u8 mask);
+BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
+BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
+void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
 void FUN_0206A054(struct BoxPokemon *  boxmon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
 BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
@@ -118,61 +116,62 @@ const u16 sLegendaryMonsList[] = {
     SPECIES_ARCEUS,
 };
 
-const s8 UNK_020F7F16[][5] = {
-    // Atk, Def, Spd, SpA, SpD
-    {    0,   0,   0,   0,   0},
-    {    1,   0,   0,   0,  -1},
-    {    1,   0,  -1,   0,   0},
-    {    1,  -1,   0,   0,   0},
-    {    1,   0,   0,  -1,   0},
-    {   -1,   0,   0,   0,   1},
-    {    0,   0,   0,   0,   0},
-    {    0,   0,  -1,   0,   1},
-    {    0,  -1,   0,   0,   1},
-    {    0,   0,   0,  -1,   1},
-    {   -1,   0,   1,   0,   0},
-    {    0,   0,   1,   0,  -1},
-    {    0,   0,   0,   0,   0},
-    {    0,  -1,   1,   0,   0},
-    {    0,   0,   1,  -1,   0},
-    {   -1,   1,   0,   0,   0},
-    {    0,   1,   0,   0,  -1},
-    {    0,   1,  -1,   0,   0},
-    {    0,   0,   0,   0,   0},
-    {    0,   1,   0,  -1,   0},
-    {   -1,   0,   0,   1,   0},
-    {    0,   0,   0,   1,  -1},
-    {    0,   0,  -1,   1,   0},
-    {    0,  -1,   0,   1,   0},
-    {    0,   0,   0,   0,   0},
+const s8 sFlavorPreferencesByNature[][5] = {
+    // Spicy, Dry, Sweet, Bitter, Sour
+    {      0,   0,     0,      0,    0 }, // NATURE_HARDY
+    {      1,   0,     0,      0,   -1 }, // NATURE_LONELY
+    {      1,   0,    -1,      0,    0 }, // NATURE_BRAVE
+    {      1,  -1,     0,      0,    0 }, // NATURE_ADAMANT
+    {      1,   0,     0,     -1,    0 }, // NATURE_NAUGHTY
+    {     -1,   0,     0,      0,    1 }, // NATURE_BOLD
+    {      0,   0,     0,      0,    0 }, // NATURE_DOCILE
+    {      0,   0,    -1,      0,    1 }, // NATURE_RELAXED
+    {      0,  -1,     0,      0,    1 }, // NATURE_IMPISH
+    {      0,   0,     0,     -1,    1 }, // NATURE_LAX
+    {     -1,   0,     1,      0,    0 }, // NATURE_TIMID
+    {      0,   0,     1,      0,   -1 }, // NATURE_HASTY
+    {      0,   0,     0,      0,    0 }, // NATURE_SERIOUS
+    {      0,  -1,     1,      0,    0 }, // NATURE_JOLLY
+    {      0,   0,     1,     -1,    0 }, // NATURE_NAIVE
+    {     -1,   1,     0,      0,    0 }, // NATURE_MODEST
+    {      0,   1,     0,      0,   -1 }, // NATURE_MILD
+    {      0,   1,    -1,      0,    0 }, // NATURE_QUIET
+    {      0,   0,     0,      0,    0 }, // NATURE_BASHFUL
+    {      0,   1,     0,     -1,    0 }, // NATURE_RASH
+    {     -1,   0,     0,      1,    0 }, // NATURE_CALM
+    {      0,   0,     0,      1,   -1 }, // NATURE_GENTLE
+    {      0,   0,    -1,      1,    0 }, // NATURE_SASSY
+    {      0,  -1,     0,      1,    0 }, // NATURE_CAREFUL
+    {      0,   0,     0,      0,    0 }, // NATURE_QUIRKY
 };
 
 const s8 sNatureStatMods[][5] = {
-    {  0,  0,  0,  0,  0 },
-    {  1, -1,  0,  0,  0 },
-    {  1,  0, -1,  0,  0 },
-    {  1,  0,  0, -1,  0 },
-    {  1,  0,  0,  0, -1 },
-    { -1,  1,  0,  0,  0 },
-    {  0,  0,  0,  0,  0 },
-    {  0,  1, -1,  0,  0 },
-    {  0,  1,  0, -1,  0 },
-    {  0,  1,  0,  0, -1 },
-    { -1,  0,  1,  0,  0 },
-    {  0, -1,  1,  0,  0 },
-    {  0,  0,  0,  0,  0 },
-    {  0,  0,  1, -1,  0 },
-    {  0,  0,  1,  0, -1 },
-    { -1,  0,  0,  1,  0 },
-    {  0, -1,  0,  1,  0 },
-    {  0,  0, -1,  1,  0 },
-    {  0,  0,  0,  0,  0 },
-    {  0,  0,  0,  1, -1 },
-    { -1,  0,  0,  0,  1 },
-    {  0, -1,  0,  0,  1 },
-    {  0,  0, -1,  0,  1 },
-    {  0,  0,  0, -1,  1 },
-    {  0,  0,  0,  0,  0 },
+    // Atk, Def, Speed, SpAtk, SpDef
+    {    0,   0,     0,     0,     0 }, // NATURE_HARDY
+    {    1,  -1,     0,     0,     0 }, // NATURE_LONELY
+    {    1,   0,    -1,     0,     0 }, // NATURE_BRAVE
+    {    1,   0,     0,    -1,     0 }, // NATURE_ADAMANT
+    {    1,   0,     0,     0,    -1 }, // NATURE_NAUGHTY
+    {   -1,   1,     0,     0,     0 }, // NATURE_BOLD
+    {    0,   0,     0,     0,     0 }, // NATURE_DOCILE
+    {    0,   1,    -1,     0,     0 }, // NATURE_RELAXED
+    {    0,   1,     0,    -1,     0 }, // NATURE_IMPISH
+    {    0,   1,     0,     0,    -1 }, // NATURE_LAX
+    {   -1,   0,     1,     0,     0 }, // NATURE_TIMID
+    {    0,  -1,     1,     0,     0 }, // NATURE_HASTY
+    {    0,   0,     0,     0,     0 }, // NATURE_SERIOUS
+    {    0,   0,     1,    -1,     0 }, // NATURE_JOLLY
+    {    0,   0,     1,     0,    -1 }, // NATURE_NAIVE
+    {   -1,   0,     0,     1,     0 }, // NATURE_MODEST
+    {    0,  -1,     0,     1,     0 }, // NATURE_MILD
+    {    0,   0,    -1,     1,     0 }, // NATURE_QUIET
+    {    0,   0,     0,     0,     0 }, // NATURE_BASHFUL
+    {    0,   0,     0,     1,    -1 }, // NATURE_RASH
+    {   -1,   0,     0,     0,     1 }, // NATURE_CALM
+    {    0,  -1,     0,     0,     1 }, // NATURE_GENTLE
+    {    0,   0,    -1,     0,     1 }, // NATURE_SASSY
+    {    0,   0,     0,    -1,     1 }, // NATURE_CAREFUL
+    {    0,   0,     0,     0,     0 }, // NATURE_QUIRKY
 };
 
 void ZeroMonData(struct Pokemon * pokemon)
@@ -563,10 +562,10 @@ u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * dest)
     case MON_DATA_SPDEF:
         return pokemon->party.spdef;
     case MON_DATA_MAIL_STRUCT:
-        Mail_copy(&pokemon->party.seal_something, dest);
+        Mail_copy(&pokemon->party.mail, dest);
         return 1;
     case MON_DATA_SEAL_COORDS:
-        FUN_02029C74(pokemon->party.sealCoords, dest);
+        CapsuleArray_copy(&pokemon->party.sealCoords, dest);
         return 1;
     default:
         return GetBoxMonDataInternal(&pokemon->box, attr, dest);
@@ -1051,10 +1050,10 @@ void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * value)
         pokemon->party.spdef = VALUE(u16);
         break;
     case MON_DATA_MAIL_STRUCT:
-        Mail_copy((const struct Mail *)value, &pokemon->party.seal_something);
+        Mail_copy((const struct Mail *)value, &pokemon->party.mail);
         break;
     case MON_DATA_SEAL_COORDS:
-        FUN_02029C74((const u8 *)value, pokemon->party.sealCoords);
+        CapsuleArray_copy((CapsuleArray *)value, &pokemon->party.sealCoords);
         break;
     default:
         SetBoxMonDataInternal(&pokemon->box, attr, value);
@@ -2990,10 +2989,10 @@ BOOL MonHasMove(struct Pokemon * pokemon, u16 move)
         return FALSE;
 }
 
-void FUN_02069A64(struct BoxPokemon * src, struct Pokemon * dest)
+void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest)
 {
     u32 sp0 = 0;
-    u8 sp4[12][2];
+    CapsuleArray sp4;
     struct Mail * mail;
     dest->box = *src;
     if (dest->box.box_lock)
@@ -3005,12 +3004,12 @@ void FUN_02069A64(struct BoxPokemon * src, struct Pokemon * dest)
     SetMonData(dest, MON_DATA_MAIL_STRUCT, mail);
     FreeToHeap(mail);
     SetMonData(dest, MON_DATA_CAPSULE, &sp0);
-    MIi_CpuClearFast(0, sp4, sizeof(sp4));
-    SetMonData(dest, MON_DATA_SEAL_COORDS, sp4);
+    MIi_CpuClearFast(0, &sp4, sizeof(sp4));
+    SetMonData(dest, MON_DATA_SEAL_COORDS, &sp4);
     CalcMonLevelAndStats(dest);
 }
 
-u8 FUN_02069AEC(struct PlayerParty * party)
+u8 Party_GetMaxLevel(struct PlayerParty * party)
 {
     int i;
     int r7 = GetPartyCount(party);
@@ -3037,7 +3036,7 @@ u16 SpeciesToSinnohDexNo(u16 species)
     return ret;
 }
 
-u16 FUN_02069B60(u16 sinnoh_dex)
+u16 SinnohDexNoToSpecies(u16 sinnoh_dex)
 {
     u16 ret = SPECIES_NONE;
     if (sinnoh_dex <= SINNOH_DEX_COUNT)
@@ -3045,38 +3044,38 @@ u16 FUN_02069B60(u16 sinnoh_dex)
     return ret;
 }
 
-void FUN_02069B88(struct Pokemon * src, struct Pokemon * dest)
+void CopyPokemonToPokemon(struct Pokemon * src, struct Pokemon * dest)
 {
     *dest = *src;
 }
 
-void FUN_02069BA0(struct Pokemon * src, struct BoxPokemon * dest)
+void CopyPokemonToBoxPokemon(struct Pokemon * src, struct BoxPokemon * dest)
 {
     *dest = src->box;
 }
 
-void FUN_02069BB4(struct BoxPokemon * src, struct BoxPokemon * dest)
+void CopyBoxPokemonToBoxPokemon(struct BoxPokemon * src, struct BoxPokemon * dest)
 {
     *dest = *src;
 }
 
-s8 FUN_02069BC8(struct Pokemon * pokemon, int flavor)
+s8 MonGetFlavorPreference(struct Pokemon * pokemon, int flavor)
 {
-    return FUN_02069BD0(&pokemon->box, flavor);
+    return BoxMonGetFlavorPreference(&pokemon->box, flavor);
 }
 
-s8 FUN_02069BD0(struct BoxPokemon * boxmon, int flavor)
+s8 BoxMonGetFlavorPreference(struct BoxPokemon * boxmon, int flavor)
 {
     u32 personality = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
-    return FUN_02069BE4(personality, flavor);
+    return GetFlavorPreferenceFromPID(personality, flavor);
 }
 
-s8 FUN_02069BE4(u32 personality, int flavor)
+s8 GetFlavorPreferenceFromPID(u32 personality, int flavor)
 {
-    return UNK_020F7F16[GetNatureFromPersonality(personality)][flavor];
+    return sFlavorPreferencesByNature[GetNatureFromPersonality(personality)][flavor];
 }
 
-int FUN_02069BFC(u16 species, u32 forme, u16 * dest)
+int Species_LoadLearnsetTable(u16 species, u32 forme, u16 * dest)
 {
     int i;
     u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
@@ -3089,7 +3088,7 @@ int FUN_02069BFC(u16 species, u32 forme, u16 * dest)
     return i;
 }
 
-void FUN_02069C4C(struct PlayerParty * party)
+void Party_GivePokerusAtRandom(struct PlayerParty * party)
 {
     int count = GetPartyCount(party);
     int idx;
@@ -3105,7 +3104,7 @@ void FUN_02069C4C(struct PlayerParty * party)
             idx = LCRandom() % count;
             pokemon = GetPartyMonByIndex(party, idx);
         } while (GetMonData(pokemon, MON_DATA_SPECIES, NULL) == SPECIES_NONE || GetMonData(pokemon, MON_DATA_IS_EGG, NULL));
-        if (!FUN_02069CF4(party, (u8)MaskOfFlagNo(idx)))
+        if (!Party_MaskMonsWithPokerus(party, (u8)MaskOfFlagNo(idx)))
         {
             do
             {
@@ -3121,7 +3120,7 @@ void FUN_02069C4C(struct PlayerParty * party)
     }
 }
 
-u8 FUN_02069CF4(struct PlayerParty * party, u8 mask)
+u8 Party_MaskMonsWithPokerus(struct PlayerParty * party, u8 mask)
 {
     int i = 0;
     u32 flag = 1;
@@ -3152,7 +3151,7 @@ u8 FUN_02069CF4(struct PlayerParty * party, u8 mask)
     return ret;
 }
 
-void FUN_02069D50(struct PlayerParty * party, int r5)
+void Party_UpdatePokerus(struct PlayerParty * party, int r5)
 {
     int i;
     u8 pokerus;
@@ -3178,7 +3177,7 @@ void FUN_02069D50(struct PlayerParty * party, int r5)
     }
 }
 
-void FUN_02069DC8(struct PlayerParty * party)
+void Party_SpreadPokerus(struct PlayerParty * party)
 {
     int count = GetPartyCount(party);
     int i;
@@ -3215,22 +3214,22 @@ void FUN_02069DC8(struct PlayerParty * party)
     }
 }
 
-BOOL FUN_02069E74(struct Pokemon * pokemon)
+BOOL Pokemon_HasPokerus(struct Pokemon * pokemon)
 {
-    return FUN_02069E7C(&pokemon->box);
+    return BoxMon_HasPokerus(&pokemon->box);
 }
 
-BOOL FUN_02069E7C(struct BoxPokemon * boxmon)
+BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon)
 {
     return !!(GetBoxMonData(boxmon, MON_DATA_POKERUS, NULL) & 0xF);
 }
 
-BOOL FUN_02069E94(struct Pokemon * pokemon)
+BOOL Pokemon_IsImmuneToPokerus(struct Pokemon * pokemon)
 {
-    return FUN_02069E9C(&pokemon->box);
+    return BoxMon_IsImmuneToPokerus(&pokemon->box);
 }
 
-BOOL FUN_02069E9C(struct BoxPokemon * boxmon)
+BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon)
 {
     u8 pokerus = (u8)GetBoxMonData(boxmon, MON_DATA_POKERUS, NULL);
     if (pokerus & 0xF)
@@ -3240,12 +3239,12 @@ BOOL FUN_02069E9C(struct BoxPokemon * boxmon)
     return FALSE;
 }
 
-void FUN_02069EC4(struct Pokemon * pokemon)
+void Pokemon_UpdateArceusForme(struct Pokemon * pokemon)
 {
-    FUN_02069ECC(&pokemon->box);
+    BoxMon_UpdateArceusForme(&pokemon->box);
 }
 
-void FUN_02069ECC(struct BoxPokemon * boxmon)
+void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon)
 {
     u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
     u32 ability = GetBoxMonData(boxmon, MON_DATA_ABILITY, NULL);
@@ -3460,7 +3459,7 @@ void FUN_0206A23C(struct Pokemon * r5, u32 personality)
     struct Pokemon * sp4;
 
     sp4 = AllocMonZeroed(0);
-    FUN_02069B88(r5, sp4);
+    CopyPokemonToPokemon(r5, sp4);
     r4 = &GetSubstruct(&sp4->box, r5->box.pid, 0)->blockA;
     r6 = &GetSubstruct(&sp4->box, r5->box.pid, 1)->blockB;
     r7 = &GetSubstruct(&sp4->box, r5->box.pid, 2)->blockC;
@@ -3711,7 +3710,7 @@ int FUN_0206AA30(int x)
     case TRAINER_CLASS_PKMN_TRAINER_POKEKID:
         return x - TRAINER_CLASS_COMMANDER_JUPITER;
     default:
-        if (FUN_0206AE00(x) == 1)
+        if (TrainerClass_GetGenderOrTrainerCount(x) == 1)
             return 1;
         else
             return 0;
@@ -3721,13 +3720,13 @@ int FUN_0206AA30(int x)
     }
 }
 
-void FUN_0206AA84(struct Pokemon * pokemon)
+void Pokemon_RemoveCapsule(struct Pokemon * pokemon)
 {
     u8 sp0 = 0;
-    u8 sp1[12][2];
-    MIi_CpuClearFast(0, sp1, sizeof(sp1));
+    CapsuleArray sp1;
+    MIi_CpuClearFast(0, &sp1, sizeof(sp1));
     SetMonData(pokemon, MON_DATA_CAPSULE, &sp0);
-    SetMonData(pokemon, MON_DATA_SEAL_COORDS, sp1);
+    SetMonData(pokemon, MON_DATA_SEAL_COORDS, &sp1);
 }
 
 void RestoreBoxMonPP(struct BoxPokemon * boxmon)

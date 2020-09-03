@@ -16,7 +16,7 @@ struct UnkStruct_020ED556
     u16 unk_8;
 };
 
-extern u16 FUN_02013A9C(s16 bank, u16 num);
+extern u16 GetECWordIndexByPair(s16 bank, u16 num);
 
 const u16 UNK_020ED54C[] = {
     397,
@@ -68,9 +68,9 @@ void MailMsg_init_fromTemplate(struct MailMessage * mailMsg, u32 a1)
         MailMsg_init_withBank(mailMsg, UNK_020ED556[a1].unk_0);
         mailMsg->msg_no = UNK_020ED556[a1].unk_1;
         if (UNK_020ED556[a1].unk_2 != -1)
-            mailMsg->fields[0] = FUN_02013A9C(UNK_020ED556[a1].unk_2, UNK_020ED556[a1].unk_4);
+            mailMsg->fields[0] = GetECWordIndexByPair(UNK_020ED556[a1].unk_2, UNK_020ED556[a1].unk_4);
         if (UNK_020ED556[a1].unk_6 != -1)
-            mailMsg->fields[1] = FUN_02013A9C(UNK_020ED556[a1].unk_6, UNK_020ED556[a1].unk_8);
+            mailMsg->fields[1] = GetECWordIndexByPair(UNK_020ED556[a1].unk_6, UNK_020ED556[a1].unk_8);
     }
 }
 

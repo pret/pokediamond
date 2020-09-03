@@ -1078,7 +1078,7 @@ FUN_0200D300: ; 0x0200D300
 	add r3, r6, #0x0
 	str r4, [sp, #0xc]
 	bl FUN_0200687C
-	mov r0, #0x24
+	mov r0, #0x24 ; NARC_GRAPHIC_FIELD_BOARD
 	mov r1, #0x1
 	add r2, r4, #0x0
 	bl AllocAndReadWholeNarcMemberByIdPair

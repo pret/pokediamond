@@ -150,7 +150,7 @@ _02006E12:
 	strb r0, [r4, r2]
 	sub r2, #0x4b
 	ldr r2, [r4, r2]
-	mov r0, #0x75
+	mov r0, #0x75 ; NARC_POKETOOL_POKEGRA_OTHERPOKE
 	mov r1, #0xd3
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
@@ -3641,7 +3641,7 @@ _0200874A:
 	mov r2, #0xa6
 	lsl r2, r2, #0x2
 	ldr r2, [r5, r2]
-	mov r0, #0x75
+	mov r0, #0x75 ; NARC_POKETOOL_POKEGRA_OTHERPOKE
 	mov r1, #0xd4
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18

@@ -5094,7 +5094,7 @@ _0223BC5A:
 	str r0, [r1, #0x20]
 	ldr r0, [sp, #0x2c]
 	ldr r1, [r5, #0xc]
-	bl FUN_0206ABC4
+	bl EnemyTrainerSet_Init
 	add r0, sp, #0x30
 	str r0, [sp]
 	ldr r1, [sp, #0x20]
@@ -5531,7 +5531,7 @@ _0223BFFE:
 	str r0, [r1, #0x20]
 	ldr r0, [sp, #0x24]
 	ldr r1, [r5, #0xc]
-	bl FUN_0206ABC4
+	bl EnemyTrainerSet_Init
 	add r0, sp, #0x28
 	str r0, [sp]
 	ldr r1, [sp, #0x18]
@@ -5841,7 +5841,7 @@ _0223C2A2:
 	str r0, [r1, #0x20]
 	ldr r0, [r4]
 	ldr r1, [r5, #0xc]
-	bl FUN_0206ABC4
+	bl EnemyTrainerSet_Init
 	add r0, sp, #0x28
 	str r0, [sp]
 	ldr r1, [sp, #0x1c]
@@ -8177,7 +8177,7 @@ _0223D456:
 	str r0, [r4, r1]
 	b _0223D472
 _0223D468:
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	mov r1, #0x21
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -22218,7 +22218,7 @@ _022445A6:
 	ldr r0, [sp, #4]
 	bl GetPartyMonByIndex
 	add r1, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r0, r4, #0
 	mov r1, #0xa0
 	mov r2, #0
@@ -31096,10 +31096,10 @@ MOD06_0224891C: ; 0x0224891C
 	bl CreateInGameTradeMon
 	ldr r1, [sp, #0x20]
 	add r0, r7, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [r5, #4]
 	ldr r1, [sp, #0x24]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [sp, #0x20]
 	bl FUN_020690E4
 	str r0, [r4]

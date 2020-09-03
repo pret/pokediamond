@@ -45124,10 +45124,10 @@ _022282DC:
 _022282F8:
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl FUN_02029CC8
+	bl Capsule_GetSealI
 	add r7, r0, #0
 	beq _02228360
-	bl FUN_02029CE0
+	bl Seal_GetId
 	cmp r0, #0
 	beq _02228360
 	cmp r0, #0x51
@@ -45193,10 +45193,10 @@ _02228376:
 _02228384:
 	ldr r0, [sp, #0x18]
 	add r1, r5, #0
-	bl FUN_02029CC8
+	bl Capsule_GetSealI
 	add r7, r0, #0
 	beq _022283EC
-	bl FUN_02029CE0
+	bl Seal_GetId
 	cmp r0, #0
 	beq _022283EC
 	cmp r0, #0x51
@@ -45262,10 +45262,10 @@ _02228402:
 _02228410:
 	ldr r0, [sp, #0x1c]
 	add r1, r5, #0
-	bl FUN_02029CC8
+	bl Capsule_GetSealI
 	add r7, r0, #0
 	beq _02228478
-	bl FUN_02029CE0
+	bl Seal_GetId
 	cmp r0, #0
 	beq _02228478
 	cmp r0, #0x51
@@ -45331,10 +45331,10 @@ _0222848E:
 _0222849C:
 	ldr r0, [sp, #0x20]
 	add r1, r5, #0
-	bl FUN_02029CC8
+	bl Capsule_GetSealI
 	add r7, r0, #0
 	beq _02228504
-	bl FUN_02029CE0
+	bl Seal_GetId
 	cmp r0, #0
 	beq _02228504
 	cmp r0, #0x51
@@ -45765,13 +45765,13 @@ MOD08_022287C4: ; 0x022287C4
 	add r1, sp, #0
 	bl MOD08_02228710
 	ldr r0, [r4, #0x14]
-	bl FUN_02029CE0
+	bl Seal_GetId
 	bl FUN_02086018
 	ldr r0, [r4, #0x14]
-	bl FUN_02029CE4
+	bl Seal_GetXCoord
 	add r6, r0, #0
 	ldr r0, [r4, #0x14]
-	bl FUN_02029CE8
+	bl Seal_GetYCoord
 	sub r6, #0xbe
 	lsl r1, r6, #0x10
 	asr r3, r1, #0x10
@@ -49049,10 +49049,10 @@ MOD08_0222A02C: ; 0x0222A02C
 MOD08_0222A058: ; 0x0222A058
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02029CE4
+	bl Seal_GetXCoord
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_02029CE8
+	bl Seal_GetYCoord
 	add r1, r0, #0
 	add r0, r4, #0
 	mov r2, #0xbe
@@ -49077,7 +49077,7 @@ _0222A084:
 	sub r1, r1, #1
 	bne _0222A084
 	add r0, r4, #0
-	bl FUN_02029CE0
+	bl Seal_GetId
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	bl FUN_02086018

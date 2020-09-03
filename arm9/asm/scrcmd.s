@@ -3863,7 +3863,7 @@ FUN_0203B7F0: ; 0x0203B7F0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	bl FUN_02029E0C
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
@@ -3892,7 +3892,7 @@ FUN_0203B81C: ; 0x0203B81C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	add r1, r6, #0x0
 	bl FUN_02029E2C
 	strh r0, [r4, #0x0]
@@ -3921,7 +3921,7 @@ FUN_0203B85C: ; 0x0203B85C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	lsl r2, r4, #0x10
 	add r1, r6, #0x0
 	asr r2, r2, #0x10
@@ -6376,7 +6376,7 @@ FUN_0203CBE8: ; 0x0203CBE8
 	ldr r0, [sp, #0x0]
 	ldr r2, [r6, #0x0]
 	mov r3, #0xb
-	bl FUN_0206AD4C
+	bl GetTrainerMessageByIdPair
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl FUN_02039438

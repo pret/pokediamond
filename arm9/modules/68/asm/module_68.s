@@ -441,7 +441,7 @@ MOD68_021D7870: ; 0x021D7870
 	mov r1, #2
 	mov r2, #0
 	mov r3, #0x24
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -464,7 +464,7 @@ MOD68_021D78A8: ; 0x021D78A8
 	add r0, r4, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	add r4, #0xc8
 	ldr r0, [r4]
 	bl ScrStrBufs_delete

@@ -4972,7 +4972,7 @@ MOD07_0221469C: ; 0x0221469C
 	mov r0, #0xf
 	mov r1, #0xe
 	mov r2, #0
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [sp, #0xc]
 	ldr r0, [r6]
 	ldr r0, [r0, #0x24]
@@ -5008,7 +5008,7 @@ _022146F6:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	ldr r0, [sp, #8]
 	bl ScrStrBufs_delete
 	add sp, #0x14
@@ -5049,7 +5049,7 @@ MOD07_02214720: ; 0x02214720
 	add r0, r1, r0
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0x10]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
@@ -5101,7 +5101,7 @@ _022147BC:
 	add r0, r1, r0
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0x14]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
@@ -5134,7 +5134,7 @@ _02214808:
 	add r0, r1, r0
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
@@ -5167,7 +5167,7 @@ _02214854:
 	add r0, r1, r0
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0x1c]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
@@ -5205,12 +5205,12 @@ _022148A0:
 	bne _022148EA
 	add r0, #0x5d
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	add r0, #0xc5
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
@@ -5224,12 +5224,12 @@ _022148A0:
 _022148EA:
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	add r0, #0x91
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0x14]
 	add r1, r5, #0

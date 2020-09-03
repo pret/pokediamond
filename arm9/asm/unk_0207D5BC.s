@@ -1540,7 +1540,7 @@ FUN_0207E190: ; 0x0207E190
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]

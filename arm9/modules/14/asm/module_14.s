@@ -8885,7 +8885,7 @@ _021DBC56:
 	lsl r1, r1, #4
 	ldr r0, [r4]
 	ldr r1, [r5, r1]
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	mov r1, #0x49
 	lsl r1, r1, #2
 	ldr r0, [r5, r1]
@@ -9038,7 +9038,7 @@ _021DBD8E:
 	lsl r1, r1, #4
 	ldr r1, [r5, r1]
 	add r0, r7, r6
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	b _021DBDB0
 _021DBDA2:
 	mov r1, #0x1a
@@ -9367,7 +9367,7 @@ _021DC034:
 	lsl r1, r1, #4
 	ldr r0, [sp]
 	ldr r1, [r5, r1]
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	mov r0, #0x1a
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
@@ -9633,7 +9633,7 @@ _021DC254:
 	cmp r0, r1
 	bne _021DC26A
 	ldr r0, [r4]
-	bl FUN_02069ECC
+	bl BoxMon_UpdateArceusForme
 _021DC26A:
 	add sp, #4
 	pop {r3, r4, r5, r6}
@@ -19435,13 +19435,13 @@ _021E0DAC:
 	mov r1, #6
 	mov r2, #0xf
 	mov r3, #0xa
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [r5, #0x18]
 	mov r0, #1
 	mov r1, #2
 	mov r2, #0xf
 	mov r3, #0xa
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [r5, #0x1c]
 	mov r0, #0xa
 	add r3, r5, #0
@@ -19516,12 +19516,12 @@ _021E0E72:
 	ldr r0, [r5, #0x18]
 	cmp r0, #0
 	beq _021E0E7C
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 _021E0E7C:
 	ldr r0, [r5, #0x1c]
 	cmp r0, #0
 	beq _021E0E86
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 _021E0E86:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
@@ -21555,7 +21555,7 @@ _021E1DBC:
 	mov r1, #0xd
 	mov r2, #4
 	mov r3, #0xa
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [r5, #0x44]
 	mov r0, #0x7d
 	lsl r0, r0, #2
@@ -21687,7 +21687,7 @@ _021E1F58:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
 	beq _021E1F62
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 _021E1F62:
 	ldr r0, _021E1F94 ; =0x00004BFC
 	ldr r0, [r5, r0]

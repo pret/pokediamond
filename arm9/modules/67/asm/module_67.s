@@ -1742,7 +1742,7 @@ _021D828A:
 	mov r1, #1
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x11
-	bl FUN_0200B10C
+	bl BufferTrainerName
 _021D82BA:
 	cmp r5, #0xe
 	bhi _021D82CA
@@ -2302,7 +2302,7 @@ MOD67_021D86DC: ; 0x021D86DC
 	ldrh r2, [r4, #4]
 	ldr r0, [r5, #0x54]
 	mov r1, #1
-	bl FUN_0200B10C
+	bl BufferTrainerName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2343,7 +2343,7 @@ MOD67_021D873C: ; 0x021D873C
 	ldrh r2, [r4, #4]
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200B10C
+	bl BufferTrainerName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2384,7 +2384,7 @@ MOD67_021D8790: ; 0x021D8790
 	ldrh r2, [r4, #4]
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200B10C
+	bl BufferTrainerName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0

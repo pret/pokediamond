@@ -9,6 +9,7 @@
 #include "unk_020286F8.h"
 #include "filesystem.h"
 #include "unk_0201B8B8.h"
+#include "trainer_data.h"
 #include "script_buffers.h"
 
 #pragma thumb on
@@ -16,8 +17,8 @@
 extern void * FUN_02024EC0(struct SaveBlock2 * sav2);
 extern u16 * FUN_02024EE8(void *);
 extern u32 GetCityNamesMsgdataIdByCountry(u32);
-extern void FUN_02013A58(u32 a0, struct String * a1);
-extern void FUN_02022048(struct String * dest, const struct String * src);
+extern void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
+extern void StringCat_HandleTrainerName(struct String * dest, const struct String * src);
 extern void StrAddChar(struct String * str, u16 val);
 extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 extern BOOL UncompressFromNarc(NarcId narcId, s32 memberNo, BOOL a2, u32 heap_id, BOOL a4);
@@ -363,18 +364,18 @@ void BufferTrainerClassNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 trc
     }
 }
 
-void BufferTrainerClassName2(struct ScrStrBufs * mgr, u32 idx, struct Trainer * tr)
+void BufferTrainerClassNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct TrainerDataLoaded * tr)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 560, mgr->heap_id);
     if (msgData != NULL)
     {
-        ReadMsgDataIntoString(msgData, tr->unk1, mgr->tmpbuf);
+        ReadMsgDataIntoString(msgData, tr->data.trainerClass, mgr->tmpbuf);
         SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
         DestroyMsgData(msgData);
     }
 }
 
-void FUN_0200B10C(struct ScrStrBufs * mgr, u32 idx, u32 msgno)
+void BufferTrainerName(struct ScrStrBufs * mgr, u32 idx, u32 msgno)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 559, mgr->heap_id);
     if (msgData != NULL)
@@ -385,9 +386,9 @@ void FUN_0200B10C(struct ScrStrBufs * mgr, u32 idx, u32 msgno)
     }
 }
 
-void FUN_0200B144(struct ScrStrBufs * mgr, u32 idx, void * unk_struct)
+void BufferTrainerNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct TrainerDataLoaded * trdata)
 {
-    CopyU16ArrayToString(mgr->tmpbuf, (u16 *)((char *)unk_struct + 20));
+    CopyU16ArrayToString(mgr->tmpbuf, trdata->name);
     SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
 }
 
@@ -587,7 +588,7 @@ void BufferCityName(struct ScrStrBufs * mgr, u32 idx, u32 a2, u32 a3)
 
 void FUN_0200B518(struct ScrStrBufs * mgr, u32 idx, u32 a2)
 {
-    FUN_02013A58(a2, mgr->tmpbuf);
+    GetECWordIntoStringByIndex(a2, mgr->tmpbuf);
     SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
 }
 
@@ -684,7 +685,7 @@ void BufferContestBackgroundName(struct ScrStrBufs * mgr, u32 idx, u32 bg)
     }
 }
 
-void FUN_0200B708(struct ScrStrBufs * mgr, struct SaveBlock2 * sav2, u32 r5, u32 idx, u32 sp28)
+void BufferEasyChatWord(struct ScrStrBufs * mgr, struct SaveBlock2 * sav2, u32 r5, u32 idx, u32 sp28)
 {
     void * r6 = FUN_0202881C(sav2);
     u8 sp10 = FUN_020287F8(r6, r5);
@@ -708,7 +709,7 @@ void BufferMonthNameAbbr(struct ScrStrBufs * mgr, u32 idx, u32 month)
     }
 }
 
-void FUN_0200B7A8(struct ScrStrBufs * mgr, u32 idx)
+void ScrStrBufs_UpperFirstChar(struct ScrStrBufs * mgr, u32 idx)
 {
     StrUpperFirstChar(mgr->array[idx].msg);
 }
@@ -725,7 +726,7 @@ void StringExpandPlaceholders(struct ScrStrBufs * mgr, struct String * dest, str
             {
                 u32 idx = MsgArray_ControlCodeGetField(cstr, 0);
                 GF_ASSERT(idx < mgr->count);
-                FUN_02022048(dest, mgr->array[idx].msg);
+                StringCat_HandleTrainerName(dest, mgr->array[idx].msg);
                 cstr = MsgArray_SkipControlCode(cstr);
             }
             else
@@ -741,13 +742,13 @@ void StringExpandPlaceholders(struct ScrStrBufs * mgr, struct String * dest, str
     }
 }
 
-void FUN_0200B84C(struct ScrStrBufs * mgr)
+void ScrStrBufs_ResetBuffers(struct ScrStrBufs * mgr)
 {
     for (int i = 0; i < mgr->count; i++)
         StringSetEmpty(mgr->array[i].msg);
 }
 
-struct UnkStruct_0200B870 * FUN_0200B870(u32 r5, u32 r6, u32 sp4, u32 r4)
+struct UnkStruct_0200B870 * MessagePrinter_new(u32 r5, u32 r6, u32 sp4, u32 r4)
 {
     struct UnkStruct_0200B870 * sp8 = AllocFromHeap(r4, sizeof(struct UnkStruct_0200B870));
     if (sp8 != NULL)
@@ -793,7 +794,7 @@ struct UnkStruct_0200B870 * FUN_0200B870(u32 r5, u32 r6, u32 sp4, u32 r4)
     return sp8;
 }
 
-void FUN_0200B990(struct UnkStruct_0200B870 * a0)
+void MessagePrinter_delete(struct UnkStruct_0200B870 * a0)
 {
     if (a0 != NULL)
     {

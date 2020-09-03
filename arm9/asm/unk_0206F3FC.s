@@ -8,11 +8,12 @@
 
 	.global UNK_020F944C
 UNK_020F944C: ; 0x020F944C
-	.byte 0x01
-
-	.global UNK_020F944D
-UNK_020F944D: ; 0x020F944D
-	.byte 0x03, 0x1A, 0x03, 0x01, 0x0A, 0x1A, 0x0A, 0x01, 0x11, 0x1A, 0x11
+	.byte 0x01, 0x03
+	.byte 0x1A, 0x03
+	.byte 0x01, 0x0A
+	.byte 0x1A, 0x0A
+	.byte 0x01, 0x11
+	.byte 0x1A, 0x11
 
 	.global UNK_020F9458
 UNK_020F9458: ; 0x020F9458
@@ -20,8 +21,10 @@ UNK_020F9458: ; 0x020F9458
 
 	.global UNK_020F9468
 UNK_020F9468: ; 0x020F9468
-	.byte 0x00, 0x02, 0x04, 0x01, 0x03, 0x05, 0x01, 0x03, 0x05, 0x00, 0x02, 0x04, 0x04, 0x02, 0x00, 0x05
-	.byte 0x03, 0x01, 0x05, 0x03, 0x01, 0x04, 0x02, 0x00
+	.byte 0x00, 0x02, 0x04, 0x01, 0x03, 0x05
+	.byte 0x01, 0x03, 0x05, 0x00, 0x02, 0x04
+	.byte 0x04, 0x02, 0x00, 0x05, 0x03, 0x01
+	.byte 0x05, 0x03, 0x01, 0x04, 0x02, 0x00
 
 	.global UNK_020F9480
 UNK_020F9480: ; 0x020F9480
@@ -1005,7 +1008,7 @@ _0206FAFC:
 	bl DestroyMsgData
 	ldr r0, _0206FB50 ; =0x00000698
 	ldr r0, [r6, r0]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
@@ -1265,7 +1268,7 @@ FUN_0206FD24: ; 0x0206FD24
 	mov r1, #0x11
 	mov r3, #0x3
 	bl FUN_020068C8
-	mov r0, #0x14
+	mov r0, #0x14 ; NARC_GRAPHIC_PLIST_GRA
 	mov r1, #0x10
 	mov r2, #0xc
 	bl AllocAndReadWholeNarcMemberByIdPair
@@ -1438,7 +1441,7 @@ _0206FEC2:
 	mov r0, #0xf
 	mov r1, #0xe
 	mov r3, #0xc
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	ldr r1, _0206FF64 ; =0x00000698
 	str r0, [r6, r1]
 	mov r0, #0xc
@@ -4614,7 +4617,7 @@ FUN_020717E8: ; 0x020717E8
 	lsl r3, r3, #0x1
 	add r0, r0, r3
 	mov r12, r0
-	ldr r0, _0207184C ; =UNK_020F944D
+	ldr r0, _0207184C ; =UNK_020F944C + 1
 	ldrb r7, [r0, r1]
 _02071816:
 	lsl r0, r2, #0x2
@@ -4643,7 +4646,7 @@ _02071824:
 	nop
 _02071844: .word 0x00001005
 _02071848: .word UNK_020F944C
-_0207184C: .word UNK_020F944D
+_0207184C: .word UNK_020F944C + 1
 
 	thumb_func_start FUN_02071850
 FUN_02071850: ; 0x02071850
@@ -4653,7 +4656,7 @@ FUN_02071850: ; 0x02071850
 	lsl r0, r0, #0x3
 	add r0, #0x14
 	strh r0, [r1, #0x0]
-	ldr r0, _0207186C ; =UNK_020F944D
+	ldr r0, _0207186C ; =UNK_020F944C + 1
 	ldrb r0, [r0, r3]
 	lsl r0, r0, #0x3
 	add r0, #0x14
@@ -4661,7 +4664,7 @@ FUN_02071850: ; 0x02071850
 	bx lr
 	.balign 4
 _02071868: .word UNK_020F944C
-_0207186C: .word UNK_020F944D
+_0207186C: .word UNK_020F944C + 1
 
 	thumb_func_start FUN_02071870
 FUN_02071870: ; 0x02071870
@@ -5672,7 +5675,7 @@ FUN_02072080: ; 0x02072080
 	add r2, sp, #0x0
 	bl SetMonData
 	add r0, r5, #0x0
-	bl FUN_02069EC4
+	bl Pokemon_UpdateArceusForme
 	ldr r1, _020720D8 ; =0x00000B25
 	ldr r0, _020720D4 ; =0x000005A4
 	ldrb r3, [r4, r1]
@@ -5715,7 +5718,7 @@ FUN_020720E0: ; 0x020720E0
 	add r2, sp, #0x1c
 	bl SetMonData
 	add r0, r5, #0x0
-	bl FUN_02069EC4
+	bl Pokemon_UpdateArceusForme
 	ldr r1, _02072138 ; =0x00000B25
 	mov r2, #0x2c
 	ldrb r3, [r4, r1]
@@ -6194,7 +6197,7 @@ FUN_020724D4: ; 0x020724D4
 	add r4, r0, #0x0
 	add r5, r1, #0x0
 	add r6, r2, #0x0
-	mov r0, #0x14
+	mov r0, #0x14 ; NARC_GRAPHIC_PLIST_GRA
 	mov r1, #0x16
 	add r2, r4, #0x0
 	add r7, r3, #0x0

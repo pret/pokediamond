@@ -930,7 +930,7 @@ _02081304:
 	bl FUN_02029F9C
 	ldr r0, [r6, #0x8]
 	ldr r1, [r4, #0x0]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	mov r0, #0x8
 	mov r1, #0x14
 	bl String_ctor

@@ -10,20 +10,20 @@
 
 u32 __size[] = { 8,
 ## for trainer in trdata
-    (max({{ length(trainer.party) }} * {% if trainer.type == 0 %}6{% else if trainer.type == 1 %}14{% else if trainer.type == 2 %}8{% else %}16{% endif %}, 8) + 3) & ~3,
+    (max({{ length(trainer.party) }} * {% if trainer.type == "TRTYPE_MON" %}6{% else if trainer.type == "TRTYPE_MON_MOVES" %}14{% else if trainer.type == "TRTYPE_MONE_ITEM" %}8{% else %}16{% endif %}, 8) + 3) & ~3,
 ## endfor
 };
 
 const u16 __data[] = { 0, 0, 0, 0,
 ## for trainer in trdata
-    // Trainer #{{ trainer.index }}
-##   if trainer.type == 0
+    // Trainer #{{ trainer.index }}, {{ trainer.class }} {{ trainer.name }}
+##   if trainer.type == "TRTYPE_MON"
 ##     set mon_length = 3
-##   else if trainer.type == 1
+##   else if trainer.type == "TRTYPE_MON_MOVES"
 ##     set mon_length = 7
-##   else if trainer.type == 2
+##   else if trainer.type == "TRTYPE_MON_ITEM"
 ##     set mon_length = 4
-##   else if trainer.type == 3
+##   else if trainer.type == "TRTYPE_MON_ITEM_MOVES"
 ##     set mon_length = 8
 ##   endif
 ##   set total_length = mon_length * length(trainer.party)
@@ -31,10 +31,10 @@ const u16 __data[] = { 0, 0, 0, 0,
     {{ mon.difficulty }}, // Difficulty 0-255
     {{ mon.level }}, // Level
     {{ mon.species }}, // Species
-##     if trainer.type == 2 or trainer.type == 3
+##     if trainer.type == "TRTYPE_MON_ITEM" or trainer.type == "TRTYPE_MON_ITEM_MOVES"
     {{ mon.item }}, // Held item
 ##     endif
-##     if trainer.type == 1 or trainer.type == 3
+##     if trainer.type == "TRTYPE_MON_MOVES" or trainer.type == "TRTYPE_MON_ITEM_MOVES"
     // Moveset
 ##       for i in range(4)
 ##         if i < length(mon.moves)

@@ -14436,7 +14436,7 @@ MOD05_021EC4F0: ; 0x021EC4F0
 _021EC544:
 	ldr r1, [sp, #4]
 	add r0, r4, #0
-	bl FUN_02069BB4
+	bl CopyBoxPokemonToBoxPokemon
 	add r0, r5, #0
 	mov r1, #0
 	bl DayCareMon_SetSteps
@@ -14599,7 +14599,7 @@ MOD05_021EC668: ; 0x021EC668
 	lsr r7, r0, #0x10
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_02069A64
+	bl CopyBoxPokemonToPokemon
 	add r0, r4, #0
 	mov r1, #0xa0
 	mov r2, #0
@@ -14680,7 +14680,7 @@ MOD05_021EC744: ; 0x021EC744
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_02069BA0
+	bl CopyPokemonToBoxPokemon
 	add r0, r4, #0
 	mov r1, #8
 	mov r2, #0
@@ -15240,7 +15240,7 @@ MOD05_021ECB6C: ; 0x021ECB6C
 	ldr r0, [sp, #0x18]
 	ldr r1, [sp, #0xc]
 	add r2, #0x30
-	bl FUN_02069BFC
+	bl Species_LoadLearnsetTable
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x14]
@@ -16911,7 +16911,7 @@ _021ED7CE:
 	bl SetMonData
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r6, #0
