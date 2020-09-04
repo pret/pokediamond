@@ -17,8 +17,8 @@ UNK_020F452A: ; 0x020F452A
 
 	.text
 
-	thumb_func_start FUN_020453A0
-FUN_020453A0: ; 0x020453A0
+	thumb_func_start ScrCmd_unk_678
+ScrCmd_unk_678: ; 0x020453A0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword

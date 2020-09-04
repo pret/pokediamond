@@ -10,6 +10,14 @@ struct ScriptContext;
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
 typedef u8 Script[];
 
+struct ScriptContext80
+{
+    u8 filler_00[12];
+    struct SaveBlock2 * unkC;
+    u8 filler_10[0xC];
+    u32 * unk1C;
+};
+
 struct ScriptContext
 {
     u8 stackDepth;
@@ -21,10 +29,10 @@ struct ScriptContext
     ScrCmdFunc *cmdTable;
     u32 cmdCount;
     u32 data[4];
-	u32 unk74;
+    struct UnkStruct_0204639C * unk74;
 	struct MsgData * unk78;
 	u8 *unk7C;
-    struct UnkStruct_0204639C * unk80;
+    struct ScriptContext80 * unk80;
 };
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
@@ -33,7 +41,7 @@ void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount);
 u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr);
 void SetupNativeScript(struct ScriptContext *ctx, u8 (*ptr)(struct ScriptContext *));
 void StopScript(struct ScriptContext *ctx);
-void FUN_02038B6C(struct ScriptContext *ctx, s32 r1);
+void FUN_02038B6C(struct ScriptContext *ctx, struct UnkStruct_0204639C * r1);
 u8 RunScriptCommand(struct ScriptContext *ctx);
 u8 ScriptPush(struct ScriptContext *ctx, const u8 *ptr);
 const u8 *ScriptPop(struct ScriptContext *ctx);

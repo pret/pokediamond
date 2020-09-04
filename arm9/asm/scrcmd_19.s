@@ -14,8 +14,8 @@ UNK_020F450E: ; 0x020F450E
 
 	.text
 
-	thumb_func_start FUN_02045268
-FUN_02045268: ; 0x02045268
+	thumb_func_start ScrCmd_unk_497
+ScrCmd_unk_497: ; 0x02045268
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -52,8 +52,8 @@ _02045288:
 	.balign 4
 _020452B0: .word UNK_020F450C
 
-	thumb_func_start FUN_020452B4
-FUN_020452B4: ; 0x020452B4
+	thumb_func_start ScrCmd_unk_500
+ScrCmd_unk_500: ; 0x020452B4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -94,8 +94,8 @@ _020452FA:
 _02045300: .word UNK_020F450C
 _02045304: .word UNK_020F450E
 
-	thumb_func_start FUN_02045308
-FUN_02045308: ; 0x02045308
+	thumb_func_start ScrCmd_unk_501
+ScrCmd_unk_501: ; 0x02045308
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -164,12 +164,12 @@ _0204538E:
 	.balign 4
 _02045394: .word UNK_020F450C
 
-	thumb_func_start FUN_02045398
-FUN_02045398: ; 0x02045398
+	thumb_func_start ScrCmd_unk_498
+ScrCmd_unk_498: ; 0x02045398
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_0204539C
-FUN_0204539C: ; 0x0204539C
+	thumb_func_start ScrCmd_unk_499
+ScrCmd_unk_499: ; 0x0204539C
 	mov r0, #0x0
 	bx lr

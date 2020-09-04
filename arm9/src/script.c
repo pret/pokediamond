@@ -39,9 +39,9 @@ THUMB_FUNC void StopScript(struct ScriptContext *ctx)
     ctx->scriptPtr = 0;
 }
 
-THUMB_FUNC void FUN_02038B6C(struct ScriptContext *ctx, s32 r1)
+THUMB_FUNC void FUN_02038B6C(struct ScriptContext *ctx, struct UnkStruct_0204639C * r1)
 {
-    ctx->unk74 = (u32)r1;
+    ctx->unk74 = r1;
 }
 
 THUMB_FUNC u8 RunScriptCommand(struct ScriptContext *ctx)

@@ -149,727 +149,727 @@ UNK_020F3538: ; 0x020F3538
 
     .global gScriptCmdTable
 gScriptCmdTable: ; 0x020F355C
-    .word ScrCmd_nop
-    .word ScrCmd_nop2
-    .word ScrCmd_end
-    .word ScrCmd_delay
-    .word ScrCmd_loadbyte
-    .word ScrCmd_loadword
-    .word ScrCmd_loadbytefromaddr
-    .word ScrCmd_writebytetoaddr
-    .word ScrCmd_setptrbyte
-    .word ScrCmd_copylocal
-    .word ScrCmd_copybyte
-    .word ScrCmd_compare_local_to_local
-    .word ScrCmd_compare_local_to_value
-    .word ScrCmd_compare_local_to_addr
-    .word ScrCmd_compare_addr_to_local
-    .word ScrCmd_compare_addr_to_value
-    .word ScrCmd_compare_addr_to_addr
-    .word ScrCmd_compare_var_to_value
-    .word ScrCmd_compare_var_to_var
-    .word FUN_02039C40
-    .word FUN_02039C78
-    .word FUN_02039CE4
-    .word ScrCmd_goto
-    .word FUN_02039D10
-    .word FUN_02039D48
-    .word FUN_02039D78
-    .word ScrCmd_call
-    .word ScrCmd_return
-    .word ScrCmd_goto_if
-    .word ScrCmd_call_if
-    .word ScrCmd_setflag
-    .word ScrCmd_clearflag
-    .word ScrCmd_checkflag
-    .word FUN_02039E84
-    .word FUN_02039EC0
-    .word ScrCmd_settrainerflag
-    .word ScrCmd_cleartrainerflag
-    .word ScrCmd_checktrainerflag
-    .word ScrCmd_addvar
-    .word ScrCmd_subvar
-    .word ScrCmd_setvar
-    .word ScrCmd_copyvar
-    .word ScrCmd_setorcopyvar
-    .word ScrCmd_message
-    .word FUN_0203A2C4
-    .word FUN_0203A304
-    .word FUN_0203A388
-    .word FUN_0203A400
-    .word FUN_0203A45C
-    .word FUN_0203A4D0
-    .word FUN_0203A560
-    .word FUN_0203A590
-    .word FUN_0203A5D8
-    .word FUN_0203A608
-    .word FUN_0203A780
-    .word FUN_0203A830
-    .word FUN_0203A85C
-    .word FUN_0203A878
-    .word FUN_0203A8B8
-    .word FUN_0203A9F0
-    .word FUN_0203AA90
-    .word FUN_0203A630
-    .word FUN_0203AAA0
-    .word FUN_0203DEA8
-    .word FUN_0203AB8C
-    .word FUN_0203AC14
-    .word FUN_0203AC9C
-    .word FUN_0203AD08
-    .word FUN_0203ADC4
-    .word FUN_0203AE4C
-    .word FUN_0203AED4
-    .word FUN_0203AF34
-    .word FUN_0203AF58
-    .word FUN_020414E0
-    .word FUN_020414FC
-    .word FUN_02041518
-    .word FUN_02041558
-    .word ScrCmd_waitcry
-    .word ScrCmd_playbgm
-    .word FUN_020415BC
-    .word FUN_020413E8
-    .word FUN_020413F8
-    .word FUN_0204140C
-    .word FUN_02041424
-    .word FUN_0204143C
-    .word FUN_02041478
-    .word FUN_0204149C
-    .word FUN_020414B8
-    .word FUN_020414CC
-    .word FUN_020415E0
-    .word FUN_02041618
-    .word FUN_02041644
-    .word FUN_02041650
-    .word FUN_02041664
-    .word FUN_0203AFC4
-    .word FUN_0203B148
-    .word FUN_0203B1F0
-    .word FUN_0203B3B0
-    .word FUN_0203B3C0
-    .word FUN_0203B3DC
-    .word FUN_0203B3F8
-    .word FUN_0203B440
-    .word FUN_0203B468
-    .word FUN_0203B500
-    .word FUN_0203B544
-    .word FUN_0203B574
-    .word FUN_0203B5B8
-    .word FUN_0203B640
-    .word FUN_0203B724
-    .word FUN_0203B758
-    .word FUN_0203B7D8
-    .word FUN_02043C6C
-    .word FUN_02043C90
-    .word FUN_02043CE4
-    .word FUN_02043D78
-    .word FUN_02043DC8
-    .word FUN_02043DE0
-    .word FUN_02043A44
-    .word FUN_02043A94
-    .word FUN_02043AAC
-    .word FUN_02043ACC
-    .word FUN_02043AFC
-    .word FUN_02043B28
-    .word FUN_02045784
-    .word FUN_020457DC
-    .word FUN_02045834
-    .word FUN_0204588C
-    .word FUN_020458E4
-    .word FUN_02045918
-    .word FUN_02045950
-    .word FUN_02045954
-    .word FUN_02045958
-    .word FUN_020459AC
-    .word FUN_020459E8
-    .word FUN_02045A3C
-    .word FUN_02045A78
-    .word FUN_02045ACC
-    .word FUN_02045B08
-    .word FUN_02045B44
-    .word FUN_02045B80
-    .word FUN_02045BC8
-    .word FUN_02045C04
-    .word FUN_02045C40
-    .word FUN_02045C7C
-    .word FUN_02045CD4
-    .word FUN_02045D10
-    .word FUN_02045D4C
-    .word FUN_0203B81C
-    .word FUN_0203B85C
-    .word FUN_0203B8A0
-    .word ScrCmd_givemon
-    .word ScrCmd_giveegg
-    .word ScrCmd_setpartymonmove
-    .word ScrCmd_partymonhasmove
-    .word ScrCmd_findpartymonwithmove
-    .word FUN_0203BB34
-    .word FUN_0203BB80
-    .word FUN_0203BB84
-    .word FUN_0203BB88
-    .word FUN_0203BB8C
-    .word FUN_02045264
-    .word FUN_0203BC1C
-    .word FUN_0203BCBC
-    .word FUN_0203BCCC
-    .word FUN_0203BCD8
-    .word FUN_0203BF20
-    .word FUN_0203BF2C
-    .word FUN_0203BF84
-    .word FUN_0203BFEC
-    .word FUN_0203C118
-    .word FUN_0203C12C
-    .word ScrCmd_monstoragepc
-    .word FUN_0203C2C4
-    .word FUN_0203C2E0
-    .word FUN_0203C2F0
-    .word FUN_0203C300
-    .word ScrCmd_halloffame
-    .word FUN_0203C33C
-    .word FUN_0203C368
-    .word FUN_0203C3C8
-    .word FUN_0203C3E8
-    .word FUN_0203C430
-    .word FUN_020416A8
-    .word FUN_02041770
-    .word FUN_020417E0
-    .word FUN_02041808
-    .word FUN_0203C4F0
-    .word FUN_0203C520
-    .word FUN_0203C6C4
-    .word FUN_0203C70C
-    .word FUN_0203C730
-    .word FUN_0203C844
-    .word FUN_0203C874
-    .word FUN_0203C8B4
-    .word FUN_0203C8E4
-    .word FUN_0203C930
-    .word FUN_0203C960
-    .word FUN_0203C990
-    .word FUN_0203CA20
-    .word FUN_0203CA2C
-    .word FUN_0203CA5C
-    .word FUN_0203CB08
-    .word FUN_0203CB20
-    .word FUN_0203CB48
-    .word FUN_0203CB60
-    .word FUN_020406CC
-    .word FUN_02040700
-    .word FUN_02040724
-    .word FUN_02040748
-    .word FUN_02040790
-    .word FUN_020407C8
-    .word FUN_02040800
-    .word FUN_0204083C
-    .word FUN_02040874
-    .word FUN_0204091C
-    .word FUN_020409C0
-    .word FUN_020409F8
-    .word FUN_02040A30
-    .word FUN_02040A7C
-    .word FUN_02040B0C
-    .word FUN_02040B5C
-    .word FUN_02040BAC
-    .word FUN_0203CBBC
-    .word FUN_02040BFC
-    .word FUN_02040C34
-    .word FUN_02040C6C
-    .word FUN_02040CA4
-    .word FUN_0203CB70
-    .word FUN_0204185C
-    .word FUN_0204188C
-    .word FUN_0203CBE8
-    .word FUN_02041970
-    .word FUN_020419F8
-    .word FUN_02041A80
-    .word FUN_02041AB4
-    .word FUN_02041AD4
-    .word FUN_02041AE0
-    .word FUN_02041B10
-    .word FUN_02041B70
-    .word FUN_02041B9C
-    .word FUN_02041BC4
-    .word FUN_02041BF0
-    .word FUN_0203CC88
-    .word FUN_0203CD20
-    .word FUN_0203CDB8
-    .word FUN_0203CDC4
-    .word FUN_0203CDD0
-    .word FUN_0203CE00
-    .word FUN_0203FE90
-    .word FUN_0203FEC0
-    .word FUN_0203FF10
-    .word FUN_02040028
-    .word FUN_02040074
-    .word FUN_020400C8
-    .word FUN_0204011C
-    .word FUN_02040170
-    .word FUN_020401CC
-    .word FUN_02040204
-    .word FUN_02040220
-    .word FUN_0204025C
-    .word FUN_02040298
-    .word FUN_020402D4
-    .word FUN_02040304
-    .word FUN_02040340
-    .word FUN_02040370
-    .word FUN_020403A0
-    .word FUN_020403D0
-    .word FUN_02040414
-    .word FUN_02040458
-    .word FUN_020404FC
-    .word FUN_0204052C
-    .word FUN_0204056C
-    .word FUN_02040488
-    .word FUN_020405CC
-    .word FUN_020405F8
-    .word FUN_02040638
-    .word FUN_0204064C
-    .word FUN_02040660
-    .word FUN_020406C0
-    .word FUN_0204059C
-    .word FUN_020405B4
-    .word FUN_02044CE0
-    .word FUN_02044D44
-    .word FUN_0203CE0C
-    .word FUN_0203CE8C
-    .word FUN_0203CEBC
-    .word FUN_0203CF04
-    .word FUN_0203CF34
-    .word FUN_0203CF64
-    .word FUN_0203CF94
-    .word FUN_0203CFC4
-    .word FUN_0203CFC8
-    .word FUN_0203D050
-    .word FUN_0203D0F8
-    .word FUN_0203D134
-    .word FUN_0203D140
-    .word FUN_0203D150
-    .word FUN_0203D178
-    .word FUN_0203D194
-    .word FUN_0203D1A4
-    .word FUN_0203D1C0
-    .word FUN_0203D214
-    .word FUN_0203C054
-    .word FUN_0203C090
-    .word FUN_0203C0CC
-    .word FUN_0203D23C
-    .word FUN_0203D248
-    .word FUN_0203D278
-    .word FUN_0203D2A4
-    .word FUN_0203D2E4
-    .word FUN_0203D330
-    .word FUN_0203D33C
-    .word FUN_0203D36C
-    .word FUN_0203D3A4
-    .word FUN_0203D60C
-    .word FUN_0203D61C
-    .word FUN_0203D3DC
-    .word FUN_0203D448
-    .word FUN_0203D458
-    .word FUN_0203D490
-    .word FUN_0203D528
-    .word FUN_0203D5B0
-    .word FUN_0203D5F8
-    .word FUN_0203D630
-    .word FUN_0203D66C
-    .word FUN_0203D6C4
-    .word FUN_0203D560
-    .word FUN_0203FCF4
-    .word FUN_0203FDBC
-    .word FUN_0203FE08
-    .word FUN_0203FE48
-    .word FUN_0203D868
-    .word FUN_0203D874
-    .word ScrCmd_getplayergender
-    .word ScrCmd_healparty
-    .word FUN_0203D8E8
-    .word FUN_0203D8EC
-    .word FUN_0203D938
-    .word FUN_0203D948
-    .word FUN_0203D728
-    .word FUN_0203D738
-    .word FUN_0203D774
-    .word FUN_0203D834
-    .word FUN_020453F4
-    .word FUN_02045424
-    .word FUN_02045438
-    .word FUN_02045468
-    .word FUN_02045484
-    .word FUN_020454CC
-    .word FUN_0204552C
-    .word FUN_02045500
-    .word FUN_0204557C
-    .word FUN_02045590
-    .word FUN_020455BC
-    .word FUN_020455D0
-    .word FUN_020455E4
-    .word FUN_02045610
-    .word FUN_02045624
-    .word FUN_02045638
-    .word FUN_02045664
-    .word FUN_0203DC00
-    .word FUN_0203DC58
-    .word FUN_0203DC70
-    .word FUN_0203DC88
-    .word FUN_0203DCA0
-    .word FUN_02043E00
-    .word FUN_02043E20
-    .word FUN_0203DCB8
-    .word FUN_0203DCC8
-    .word FUN_0203DCD8
-    .word FUN_0203DCE8
-    .word FUN_0203DCF8
-    .word FUN_0203DD08
-    .word FUN_0203DD18
-    .word FUN_0203DD34
-    .word FUN_02044B00
-    .word FUN_0203C460
-    .word FUN_0203C4B0
-    .word FUN_0203D958
-    .word FUN_02040D04
-    .word FUN_02040D7C
-    .word FUN_02042B0C
-    .word FUN_02042B40
-    .word FUN_02042B74
-    .word FUN_02042BA8
-    .word FUN_02042BDC
-    .word FUN_02042C10
-    .word FUN_02042C44
-    .word FUN_02042C8C
-    .word FUN_02042CBC
-    .word FUN_0203D998
-    .word FUN_0203D9E8
-    .word FUN_0203DA78
-    .word FUN_0203DAB0
-    .word FUN_0203DAE8
-    .word FUN_0203DB38
-    .word FUN_0203DB88
-    .word FUN_0203AB44
-    .word FUN_0203AB74
-    .word FUN_0203DBD4
-    .word FUN_0203A484
-    .word FUN_0203B8E4
-    .word FUN_0203B944
-    .word FUN_0203B968
-    .word FUN_0203B9B4
-    .word FUN_0203BA3C
-    .word FUN_0203BAB0
-    .word FUN_0203BAF4
-    .word ScrCmd_getpartyspecies
-    .word ScrCmd_checkpartymonotid
-    .word FUN_02044B2C
-    .word FUN_02044B84
-    .word FUN_02044C0C
-    .word FUN_02044C88
-    .word FUN_0203DD60
-    .word FUN_0203DE00
-    .word FUN_0203DE4C
-    .word FUN_0203DE58
-    .word FUN_0203DE80
-    .word FUN_02043CB4
-    .word FUN_02043E9C
-    .word FUN_02044120
-    .word FUN_02044138
-    .word FUN_0204413C
-    .word FUN_02043E50
-    .word FUN_02043E68
-    .word FUN_02043EFC
-    .word FUN_02043D28
-    .word FUN_0203DD50
-    .word FUN_02044140
-    .word FUN_02043F50
-    .word FUN_02043FA0
-    .word FUN_02043FF4
-    .word FUN_0203DEC4
-    .word FUN_0203DEF8
-    .word FUN_0203DF2C
-    .word FUN_0203DF38
-    .word FUN_0203DF64
-    .word FUN_0203DF84
-    .word FUN_0203DFA8
-    .word FUN_0203DFE0
-    .word ScrCmd_getpartymonfriendship
-    .word FUN_020448D4
-    .word FUN_020449A4
-    .word FUN_02044034
-    .word FUN_0203B618
-    .word FUN_020440C0
-    .word FUN_020440F0
-    .word FUN_02044F58
-    .word FUN_0203E018
-    .word FUN_0203E054
-    .word FUN_0203E078
-    .word FUN_0203E0CC
-    .word FUN_0203E120
-    .word FUN_02045D88
-    .word FUN_02045DD0
-    .word FUN_02044D8C
-    .word FUN_02044E34
-    .word FUN_02044E78
-    .word FUN_02040E4C
-    .word FUN_0203E138
-    .word FUN_0203E168
-    .word FUN_0203E254
-    .word FUN_02045678
-    .word FUN_020456D4
-    .word FUN_0204572C
-    .word FUN_0203E258
-    .word FUN_0203E29C
-    .word FUN_0203E2F8
-    .word FUN_0203E35C
-    .word FUN_0203E38C
-    .word FUN_0203C174
-    .word FUN_0203C1AC
-    .word FUN_0203C200
-    .word FUN_02042354
-    .word FUN_02042364
-    .word FUN_02042394
-    .word FUN_020423B0
-    .word FUN_02042700
-    .word FUN_02042780
-    .word FUN_020427A8
-    .word FUN_020427D0
-    .word FUN_02042864
-    .word FUN_02042894
-    .word FUN_020428E0
-    .word FUN_0203E4F0
-    .word FUN_0203E510
-    .word FUN_0203E568
-    .word FUN_0203E3D0
-    .word FUN_0203E408
-    .word FUN_0203E440
-    .word FUN_0203E470
-    .word FUN_0203E4A0
-    .word FUN_0203E4B0
-    .word FUN_02044ED8
-    .word FUN_0203E4D8
-    .word FUN_02044F20
-    .word FUN_02045268
-    .word FUN_02045398
-    .word FUN_0204539C
-    .word FUN_020452B4
-    .word FUN_02045308
-    .word ScrCmd_countpartymonsatorbelowlevel
-    .word ScrCmd_survivepsn
-    .word FUN_0203BC2C
-    .word FUN_02039A10
-    .word ScrCmd_message_from
-    .word FUN_0203A098
-    .word FUN_0203A0FC
-    .word FUN_0203A13C
-    .word FUN_0203A188
-    .word FUN_0203A210
-    .word FUN_0203C7F4
-    .word FUN_0203C820
-    .word FUN_0203E5DC
-    .word FUN_0203C788
-    .word FUN_0203C7E4
-    .word FUN_0203C0FC
-    .word FUN_0203E674
-    .word FUN_0203BD08
-    .word FUN_0203BD28
-    .word FUN_0203BE50
-    .word FUN_0203BECC
-    .word FUN_0203BF00
-    .word FUN_0203A3C4
-    .word FUN_0203E684
-    .word FUN_0203E6B4
-    .word FUN_0203E6C4
-    .word FUN_0203E6FC
-    .word FUN_0203E72C
-    .word ScrCmd_getpartymonnature
-    .word ScrCmd_findpartymonwithnature
-    .word FUN_0203E744
-    .word FUN_02044158
-    .word FUN_0204416C
-    .word FUN_02044198
-    .word FUN_0203E774
-    .word FUN_0203E7F0
-    .word FUN_0203E81C
-    .word FUN_0203E848
-    .word FUN_0203E858
-    .word FUN_02041C38
-    .word FUN_02045E1C
-    .word FUN_02045E20
-    .word FUN_02045EE0
-    .word FUN_02045EE4
-    .word FUN_02045F84
-    .word FUN_02045F88
-    .word FUN_02045F24
-    .word FUN_02045FCC
-    .word FUN_0203E870
-    .word FUN_0203E894
-    .word FUN_0203E8C4
-    .word FUN_0203E8F4
-    .word FUN_0203E928
-    .word FUN_0203E940
-    .word FUN_0203E954
-    .word FUN_0203E968
-    .word FUN_02044FE8
-    .word FUN_0204505C
-    .word FUN_02045104
-    .word FUN_02045170
-    .word FUN_02040EB4
-    .word FUN_0203E9CC
-    .word FUN_0203EA68
-    .word FUN_02041E40
-    .word FUN_02041FDC
-    .word FUN_02042038
-    .word FUN_02042110
-    .word FUN_0203EA90
-    .word FUN_0203EAB0
-    .word FUN_0203EB20
-    .word FUN_0203EB48
-    .word FUN_0203EB88
-    .word FUN_02042D1C
-    .word FUN_02046010
-    .word FUN_0204601C
-    .word FUN_02046028
-    .word FUN_0204602C
-    .word FUN_0203C5BC
-    .word FUN_0203C614
-    .word FUN_0203C680
-    .word ScrCmd_gameversion
-    .word FUN_02044A6C
-    .word FUN_02044A94
-    .word ScrCmd_givewallpaper
-    .word FUN_0203ECAC
-    .word FUN_0203ECD8
-    .word FUN_0203ECF4
-    .word FUN_0203ED10
-    .word FUN_02041194
-    .word FUN_020411C4
-    .word FUN_02041340
-    .word FUN_02040964
-    .word ScrCmd_pcfreespace
-    .word FUN_0204387C
-    .word FUN_020438D0
-    .word FUN_02043918
-    .word FUN_020439B4
-    .word FUN_0203FE80
-    .word FUN_0203EDA4
-    .word FUN_0203EDC8
-    .word FUN_0203EDE0
-    .word FUN_0203EE08
-    .word FUN_0203EE18
-    .word FUN_0203EE28
-    .word FUN_0203EE58
-    .word FUN_0203EE68
-    .word FUN_0203EE78
-    .word FUN_02040DB4
-    .word FUN_0203EE98
-    .word FUN_0203EED8
-    .word FUN_0203EF58
-    .word FUN_0203F00C
-    .word FUN_0203F020
-    .word FUN_0203F034
-    .word FUN_0203F058
-    .word FUN_0203F07C
-    .word FUN_0203F110
-    .word FUN_0203F174
-    .word FUN_0203F19C
-    .word FUN_0203A288
-    .word FUN_0203F234
-    .word FUN_0203F254
-    .word FUN_0203F26C
-    .word FUN_0203C58C
-    .word FUN_02040DEC
-    .word FUN_0203F2AC
-    .word FUN_02043B84
-    .word FUN_0203F2E4
-    .word FUN_02043C28
-    .word FUN_0203F31C
-    .word ScrCmd_getpartymonlevel
-    .word FUN_0203F348
-    .word FUN_0203F38C
-    .word FUN_0203F39C
-    .word FUN_0204214C
-    .word FUN_0203F3AC
-    .word FUN_0203F44C
-    .word FUN_0203F418
-    .word FUN_020408BC
-    .word FUN_02044A0C
-    .word FUN_0203F484
-    .word FUN_02041674
-    .word FUN_0203F4D8
-    .word FUN_0203F508
-    .word FUN_0203F5D4
-    .word FUN_0203F604
-    .word FUN_0203F634
-    .word FUN_0203F664
-    .word FUN_0203F6E4
-    .word FUN_0203F720
-    .word FUN_0203BDB8
-    .word FUN_0203BE68
-    .word FUN_0203BE80
-    .word FUN_0203F760
-    .word FUN_0203F7C8
-    .word FUN_0203F80C
-    .word FUN_0203F880
-    .word FUN_0203F924
-    .word FUN_02042950
-    .word FUN_02042980
-    .word FUN_02042998
-    .word FUN_020429B8
-    .word FUN_020429E8
-    .word FUN_02042A18
-    .word FUN_02042A48
-    .word FUN_02042A98
-    .word FUN_0203D7DC
-    .word FUN_0203ACC4
-    .word FUN_0203F8C0
-    .word FUN_0203F954
-    .word FUN_0204190C
-    .word FUN_0203B024
-    .word FUN_0203F9DC
-    .word FUN_0203F988
-    .word FUN_0203F9B0
-    .word FUN_0203B914
-    .word FUN_020453A0
-    .word FUN_0203FA14
-    .word FUN_02043B54
-    .word FUN_02043BD0
-    .word FUN_0203FA58
-    .word FUN_0203B7F0
-    .word FUN_0203FB4C
-    .word FUN_0203B790
-    .word FUN_020413C0
-    .word FUN_0203FB64
-    .word FUN_0203FB94
-    .word FUN_0203FBA0
-    .word FUN_0203FBAC
-    .word FUN_02040EF8
-    .word FUN_0203B2E0
-    .word FUN_0203FBBC
-    .word FUN_0203FC1C
-    .word FUN_020451D0
-    .word FUN_02042000
-    .word FUN_0203AD54
-    .word FUN_0203D4E8
-    .word FUN_0203D920
-    .word FUN_02041B40
-    .word FUN_0203D0A4
-    .word FUN_0203FC58
-    .word FUN_0203CAE8
-    .word FUN_0203A340
-    .word FUN_0203FC80
-    .word FUN_0203FCB0
-    .word FUN_0203FCDC
-    .word FUN_02040F34
-    .word FUN_02040F6C
-    .word FUN_02040FA4
-    .word FUN_02040FDC
-    .word FUN_02041014
-    .word FUN_0204104C
-    .word FUN_02041094
-    .word FUN_020410C8
-    .word FUN_02041100
-    .word FUN_02041138
-    .word FUN_02041174
-    .word FUN_0203AF84
-    .word FUN_0203AFA4
+    .word ScrCmd_nop                               ;   0
+    .word ScrCmd_nop2                              ;   1
+    .word ScrCmd_end                               ;   2
+    .word ScrCmd_delay                             ;   3
+    .word ScrCmd_loadbyte                          ;   4
+    .word ScrCmd_loadword                          ;   5
+    .word ScrCmd_loadbytefromaddr                  ;   6
+    .word ScrCmd_writebytetoaddr                   ;   7
+    .word ScrCmd_setptrbyte                        ;   8
+    .word ScrCmd_copylocal                         ;   9
+    .word ScrCmd_copybyte                          ;  10
+    .word ScrCmd_compare_local_to_local            ;  11
+    .word ScrCmd_compare_local_to_value            ;  12
+    .word ScrCmd_compare_local_to_addr             ;  13
+    .word ScrCmd_compare_addr_to_local             ;  14
+    .word ScrCmd_compare_addr_to_value             ;  15
+    .word ScrCmd_compare_addr_to_addr              ;  16
+    .word ScrCmd_compare_var_to_value              ;  17
+    .word ScrCmd_compare_var_to_var                ;  18
+    .word ScrCmd_unk_19                            ;  19
+    .word ScrCmd_unk_20                            ;  20
+    .word ScrCmd_unk_21                            ;  21
+    .word ScrCmd_goto                              ;  22
+    .word ScrCmd_unk_23                            ;  23
+    .word ScrCmd_unk_24                            ;  24
+    .word ScrCmd_unk_25                            ;  25
+    .word ScrCmd_call                              ;  26
+    .word ScrCmd_return                            ;  27
+    .word ScrCmd_goto_if                           ;  28
+    .word ScrCmd_call_if                           ;  29
+    .word ScrCmd_setflag                           ;  30
+    .word ScrCmd_clearflag                         ;  31
+    .word ScrCmd_checkflag                         ;  32
+    .word ScrCmd_unk_33                            ;  33
+    .word ScrCmd_unk_34                            ;  34
+    .word ScrCmd_settrainerflag                    ;  35
+    .word ScrCmd_cleartrainerflag                  ;  36
+    .word ScrCmd_checktrainerflag                  ;  37
+    .word ScrCmd_addvar                            ;  38
+    .word ScrCmd_subvar                            ;  39
+    .word ScrCmd_setvar                            ;  40
+    .word ScrCmd_copyvar                           ;  41
+    .word ScrCmd_setorcopyvar                      ;  42
+    .word ScrCmd_message                           ;  43
+    .word ScrCmd_unk_44                            ;  44
+    .word ScrCmd_unk_45                            ;  45
+    .word ScrCmd_unk_46                            ;  46
+    .word ScrCmd_unk_47                            ;  47
+    .word ScrCmd_unk_48                            ;  48
+    .word ScrCmd_unk_49                            ;  49
+    .word ScrCmd_unk_50                            ;  50
+    .word ScrCmd_unk_51                            ;  51
+    .word ScrCmd_unk_52                            ;  52
+    .word ScrCmd_unk_53                            ;  53
+    .word ScrCmd_unk_54                            ;  54
+    .word ScrCmd_unk_55                            ;  55
+    .word ScrCmd_unk_56                            ;  56
+    .word ScrCmd_unk_57                            ;  57
+    .word ScrCmd_unk_58                            ;  58
+    .word ScrCmd_unk_59                            ;  59
+    .word ScrCmd_unk_60                            ;  60
+    .word ScrCmd_unk_61                            ;  61
+    .word ScrCmd_unk_62                            ;  62
+    .word ScrCmd_unk_63                            ;  63
+    .word ScrCmd_unk_64                            ;  64
+    .word ScrCmd_unk_65                            ;  65
+    .word ScrCmd_unk_66                            ;  66
+    .word ScrCmd_unk_67                            ;  67
+    .word ScrCmd_unk_68                            ;  68
+    .word ScrCmd_unk_69                            ;  69
+    .word ScrCmd_unk_70                            ;  70
+    .word ScrCmd_unk_71                            ;  71
+    .word ScrCmd_unk_72                            ;  72
+    .word ScrCmd_unk_73                            ;  73
+    .word ScrCmd_unk_74                            ;  74
+    .word ScrCmd_unk_75                            ;  75
+    .word ScrCmd_unk_76                            ;  76
+    .word ScrCmd_waitcry                           ;  77
+    .word ScrCmd_playbgm                           ;  78
+    .word ScrCmd_unk_79                            ;  79
+    .word ScrCmd_unk_80                            ;  80
+    .word ScrCmd_unk_81                            ;  81
+    .word ScrCmd_unk_82                            ;  82
+    .word ScrCmd_unk_83                            ;  83
+    .word ScrCmd_unk_84                            ;  84
+    .word ScrCmd_unk_85                            ;  85
+    .word ScrCmd_unk_86                            ;  86
+    .word ScrCmd_unk_87                            ;  87
+    .word ScrCmd_unk_88                            ;  88
+    .word ScrCmd_unk_89                            ;  89
+    .word ScrCmd_unk_90                            ;  90
+    .word ScrCmd_unk_91                            ;  91
+    .word ScrCmd_unk_92                            ;  92
+    .word ScrCmd_unk_93                            ;  93
+    .word ScrCmd_unk_94                            ;  94
+    .word ScrCmd_unk_95                            ;  95
+    .word ScrCmd_unk_96                            ;  96
+    .word ScrCmd_unk_97                            ;  97
+    .word ScrCmd_unk_98                            ;  98
+    .word ScrCmd_unk_99                            ;  99
+    .word ScrCmd_unk_100                           ; 100
+    .word ScrCmd_unk_101                           ; 101
+    .word ScrCmd_unk_102                           ; 102
+    .word ScrCmd_unk_103                           ; 103
+    .word ScrCmd_unk_104                           ; 104
+    .word ScrCmd_unk_105                           ; 105
+    .word ScrCmd_unk_106                           ; 106
+    .word ScrCmd_unk_107                           ; 107
+    .word ScrCmd_unk_108                           ; 108
+    .word ScrCmd_unk_109                           ; 109
+    .word ScrCmd_unk_110                           ; 110
+    .word ScrCmd_unk_111                           ; 111
+    .word ScrCmd_unk_112                           ; 112
+    .word ScrCmd_unk_113                           ; 113
+    .word ScrCmd_unk_114                           ; 114
+    .word ScrCmd_unk_115                           ; 115
+    .word ScrCmd_unk_116                           ; 116
+    .word ScrCmd_unk_117                           ; 117
+    .word ScrCmd_unk_118                           ; 118
+    .word ScrCmd_unk_119                           ; 119
+    .word ScrCmd_unk_120                           ; 120
+    .word ScrCmd_unk_121                           ; 121
+    .word ScrCmd_unk_122                           ; 122
+    .word ScrCmd_unk_123                           ; 123
+    .word ScrCmd_unk_124                           ; 124
+    .word ScrCmd_unk_125                           ; 125
+    .word ScrCmd_unk_126                           ; 126
+    .word ScrCmd_unk_127                           ; 127
+    .word ScrCmd_unk_128                           ; 128
+    .word ScrCmd_unk_129                           ; 129
+    .word ScrCmd_unk_130                           ; 130
+    .word ScrCmd_unk_131                           ; 131
+    .word ScrCmd_unk_132                           ; 132
+    .word ScrCmd_unk_133                           ; 133
+    .word ScrCmd_unk_134                           ; 134
+    .word ScrCmd_unk_135                           ; 135
+    .word ScrCmd_unk_136                           ; 136
+    .word ScrCmd_unk_137                           ; 137
+    .word ScrCmd_unk_138                           ; 138
+    .word ScrCmd_unk_139                           ; 139
+    .word ScrCmd_unk_140                           ; 140
+    .word ScrCmd_unk_141                           ; 141
+    .word ScrCmd_unk_142                           ; 142
+    .word ScrCmd_unk_143                           ; 143
+    .word ScrCmd_unk_144                           ; 144
+    .word ScrCmd_unk_145                           ; 145
+    .word ScrCmd_unk_146                           ; 146
+    .word ScrCmd_unk_147                           ; 147
+    .word ScrCmd_unk_148                           ; 148
+    .word ScrCmd_unk_149                           ; 149
+    .word ScrCmd_givemon                           ; 150
+    .word ScrCmd_giveegg                           ; 151
+    .word ScrCmd_setpartymonmove                   ; 152
+    .word ScrCmd_partymonhasmove                   ; 153
+    .word ScrCmd_findpartymonwithmove              ; 154
+    .word ScrCmd_unk_155                           ; 155
+    .word ScrCmd_unk_156                           ; 156
+    .word ScrCmd_unk_157                           ; 157
+    .word ScrCmd_unk_158                           ; 158
+    .word ScrCmd_unk_159                           ; 159
+    .word ScrCmd_unk_160                           ; 160
+    .word ScrCmd_unk_161                           ; 161
+    .word ScrCmd_unk_162                           ; 162
+    .word ScrCmd_unk_163                           ; 163
+    .word ScrCmd_unk_164                           ; 164
+    .word ScrCmd_unk_165                           ; 165
+    .word ScrCmd_unk_166                           ; 166
+    .word ScrCmd_unk_167                           ; 167
+    .word ScrCmd_unk_168                           ; 168
+    .word ScrCmd_unk_169                           ; 169
+    .word ScrCmd_unk_170                           ; 170
+    .word ScrCmd_monstoragepc                      ; 171
+    .word ScrCmd_unk_172                           ; 172
+    .word ScrCmd_unk_173                           ; 173
+    .word ScrCmd_unk_174                           ; 174
+    .word ScrCmd_unk_175                           ; 175
+    .word ScrCmd_halloffame                        ; 176
+    .word ScrCmd_unk_177                           ; 177
+    .word ScrCmd_unk_178                           ; 178
+    .word ScrCmd_unk_179                           ; 179
+    .word ScrCmd_unk_180                           ; 180
+    .word ScrCmd_unk_181                           ; 181
+    .word ScrCmd_unk_182                           ; 182
+    .word ScrCmd_unk_183                           ; 183
+    .word ScrCmd_unk_184                           ; 184
+    .word ScrCmd_unk_185                           ; 185
+    .word ScrCmd_unk_186                           ; 186
+    .word ScrCmd_unk_187                           ; 187
+    .word ScrCmd_unk_188                           ; 188
+    .word ScrCmd_unk_189                           ; 189
+    .word ScrCmd_unk_190                           ; 190
+    .word ScrCmd_unk_191                           ; 191
+    .word ScrCmd_unk_192                           ; 192
+    .word ScrCmd_unk_193                           ; 193
+    .word ScrCmd_unk_194                           ; 194
+    .word ScrCmd_unk_195                           ; 195
+    .word ScrCmd_unk_196                           ; 196
+    .word ScrCmd_unk_197                           ; 197
+    .word ScrCmd_unk_198                           ; 198
+    .word ScrCmd_unk_199                           ; 199
+    .word ScrCmd_unk_200                           ; 200
+    .word ScrCmd_unk_201                           ; 201
+    .word ScrCmd_unk_202                           ; 202
+    .word ScrCmd_unk_203                           ; 203
+    .word ScrCmd_unk_204                           ; 204
+    .word ScrCmd_unk_205                           ; 205
+    .word ScrCmd_unk_206                           ; 206
+    .word ScrCmd_unk_207                           ; 207
+    .word ScrCmd_unk_208                           ; 208
+    .word ScrCmd_unk_209                           ; 209
+    .word ScrCmd_unk_210                           ; 210
+    .word ScrCmd_unk_211                           ; 211
+    .word ScrCmd_unk_212                           ; 212
+    .word ScrCmd_unk_213                           ; 213
+    .word ScrCmd_unk_214                           ; 214
+    .word ScrCmd_unk_215                           ; 215
+    .word ScrCmd_unk_216                           ; 216
+    .word ScrCmd_unk_217                           ; 217
+    .word ScrCmd_unk_218                           ; 218
+    .word ScrCmd_unk_219                           ; 219
+    .word ScrCmd_unk_220                           ; 220
+    .word ScrCmd_unk_221                           ; 221
+    .word ScrCmd_unk_222                           ; 222
+    .word ScrCmd_unk_223                           ; 223
+    .word ScrCmd_unk_224                           ; 224
+    .word ScrCmd_unk_225                           ; 225
+    .word ScrCmd_unk_226                           ; 226
+    .word ScrCmd_unk_227                           ; 227
+    .word ScrCmd_unk_228                           ; 228
+    .word ScrCmd_unk_229                           ; 229
+    .word ScrCmd_unk_230                           ; 230
+    .word ScrCmd_unk_231                           ; 231
+    .word ScrCmd_unk_232                           ; 232
+    .word ScrCmd_unk_233                           ; 233
+    .word ScrCmd_unk_234                           ; 234
+    .word ScrCmd_unk_235                           ; 235
+    .word ScrCmd_unk_236                           ; 236
+    .word ScrCmd_unk_237                           ; 237
+    .word ScrCmd_unk_238                           ; 238
+    .word ScrCmd_unk_239                           ; 239
+    .word ScrCmd_unk_240                           ; 240
+    .word ScrCmd_unk_241                           ; 241
+    .word ScrCmd_unk_242                           ; 242
+    .word ScrCmd_unk_243                           ; 243
+    .word ScrCmd_unk_244                           ; 244
+    .word ScrCmd_unk_245                           ; 245
+    .word ScrCmd_unk_246                           ; 246
+    .word ScrCmd_unk_247                           ; 247
+    .word ScrCmd_unk_248                           ; 248
+    .word ScrCmd_unk_249                           ; 249
+    .word ScrCmd_unk_250                           ; 250
+    .word ScrCmd_unk_251                           ; 251
+    .word ScrCmd_unk_252                           ; 252
+    .word ScrCmd_unk_253                           ; 253
+    .word ScrCmd_unk_254                           ; 254
+    .word ScrCmd_unk_255                           ; 255
+    .word ScrCmd_unk_256                           ; 256
+    .word ScrCmd_unk_257                           ; 257
+    .word ScrCmd_unk_258                           ; 258
+    .word ScrCmd_unk_259                           ; 259
+    .word ScrCmd_unk_260                           ; 260
+    .word ScrCmd_unk_261                           ; 261
+    .word ScrCmd_unk_262                           ; 262
+    .word ScrCmd_unk_263                           ; 263
+    .word ScrCmd_unk_264                           ; 264
+    .word ScrCmd_unk_265                           ; 265
+    .word ScrCmd_unk_266                           ; 266
+    .word ScrCmd_unk_267                           ; 267
+    .word ScrCmd_unk_268                           ; 268
+    .word ScrCmd_unk_269                           ; 269
+    .word ScrCmd_unk_270                           ; 270
+    .word ScrCmd_unk_271                           ; 271
+    .word ScrCmd_unk_272                           ; 272
+    .word ScrCmd_unk_273                           ; 273
+    .word ScrCmd_unk_274                           ; 274
+    .word ScrCmd_unk_275                           ; 275
+    .word ScrCmd_unk_276                           ; 276
+    .word ScrCmd_unk_277                           ; 277
+    .word ScrCmd_unk_278                           ; 278
+    .word ScrCmd_unk_279                           ; 279
+    .word ScrCmd_unk_280                           ; 280
+    .word ScrCmd_unk_281                           ; 281
+    .word ScrCmd_unk_282                           ; 282
+    .word ScrCmd_unk_283                           ; 283
+    .word ScrCmd_unk_284                           ; 284
+    .word ScrCmd_unk_285                           ; 285
+    .word ScrCmd_unk_286                           ; 286
+    .word ScrCmd_unk_287                           ; 287
+    .word ScrCmd_unk_288                           ; 288
+    .word ScrCmd_unk_289                           ; 289
+    .word ScrCmd_unk_290                           ; 290
+    .word ScrCmd_unk_291                           ; 291
+    .word ScrCmd_unk_292                           ; 292
+    .word ScrCmd_unk_293                           ; 293
+    .word ScrCmd_unk_294                           ; 294
+    .word ScrCmd_unk_295                           ; 295
+    .word ScrCmd_unk_296                           ; 296
+    .word ScrCmd_unk_297                           ; 297
+    .word ScrCmd_unk_298                           ; 298
+    .word ScrCmd_unk_299                           ; 299
+    .word ScrCmd_unk_300                           ; 300
+    .word ScrCmd_unk_301                           ; 301
+    .word ScrCmd_unk_302                           ; 302
+    .word ScrCmd_unk_303                           ; 303
+    .word ScrCmd_unk_304                           ; 304
+    .word ScrCmd_unk_305                           ; 305
+    .word ScrCmd_unk_306                           ; 306
+    .word ScrCmd_unk_307                           ; 307
+    .word ScrCmd_unk_308                           ; 308
+    .word ScrCmd_unk_309                           ; 309
+    .word ScrCmd_unk_310                           ; 310
+    .word ScrCmd_unk_311                           ; 311
+    .word ScrCmd_unk_312                           ; 312
+    .word ScrCmd_unk_313                           ; 313
+    .word ScrCmd_unk_314                           ; 314
+    .word ScrCmd_unk_315                           ; 315
+    .word ScrCmd_unk_316                           ; 316
+    .word ScrCmd_unk_317                           ; 317
+    .word ScrCmd_unk_318                           ; 318
+    .word ScrCmd_unk_319                           ; 319
+    .word ScrCmd_unk_320                           ; 320
+    .word ScrCmd_unk_321                           ; 321
+    .word ScrCmd_unk_322                           ; 322
+    .word ScrCmd_unk_323                           ; 323
+    .word ScrCmd_unk_324                           ; 324
+    .word ScrCmd_unk_325                           ; 325
+    .word ScrCmd_unk_326                           ; 326
+    .word ScrCmd_unk_327                           ; 327
+    .word ScrCmd_unk_328                           ; 328
+    .word ScrCmd_unk_329                           ; 329
+    .word ScrCmd_unk_330                           ; 330
+    .word ScrCmd_unk_331                           ; 331
+    .word ScrCmd_unk_332                           ; 332
+    .word ScrCmd_getplayergender                   ; 333
+    .word ScrCmd_healparty                         ; 334
+    .word ScrCmd_unk_335                           ; 335
+    .word ScrCmd_unk_336                           ; 336
+    .word ScrCmd_unk_337                           ; 337
+    .word ScrCmd_unk_338                           ; 338
+    .word ScrCmd_unk_339                           ; 339
+    .word ScrCmd_unk_340                           ; 340
+    .word ScrCmd_unk_341                           ; 341
+    .word ScrCmd_unk_342                           ; 342
+    .word ScrCmd_unk_343                           ; 343
+    .word ScrCmd_unk_344                           ; 344
+    .word ScrCmd_unk_345                           ; 345
+    .word ScrCmd_unk_346                           ; 346
+    .word ScrCmd_unk_347                           ; 347
+    .word ScrCmd_unk_348                           ; 348
+    .word ScrCmd_unk_349                           ; 349
+    .word ScrCmd_unk_350                           ; 350
+    .word ScrCmd_unk_351                           ; 351
+    .word ScrCmd_unk_352                           ; 352
+    .word ScrCmd_unk_353                           ; 353
+    .word ScrCmd_unk_354                           ; 354
+    .word ScrCmd_unk_355                           ; 355
+    .word ScrCmd_unk_356                           ; 356
+    .word ScrCmd_unk_357                           ; 357
+    .word ScrCmd_unk_358                           ; 358
+    .word ScrCmd_unk_359                           ; 359
+    .word ScrCmd_unk_360                           ; 360
+    .word ScrCmd_unk_361                           ; 361
+    .word ScrCmd_unk_362                           ; 362
+    .word ScrCmd_unk_363                           ; 363
+    .word ScrCmd_unk_364                           ; 364
+    .word ScrCmd_unk_365                           ; 365
+    .word ScrCmd_unk_366                           ; 366
+    .word ScrCmd_unk_367                           ; 367
+    .word ScrCmd_unk_368                           ; 368
+    .word ScrCmd_unk_369                           ; 369
+    .word ScrCmd_unk_370                           ; 370
+    .word ScrCmd_unk_371                           ; 371
+    .word ScrCmd_unk_372                           ; 372
+    .word ScrCmd_unk_373                           ; 373
+    .word ScrCmd_unk_374                           ; 374
+    .word ScrCmd_unk_375                           ; 375
+    .word ScrCmd_unk_376                           ; 376
+    .word ScrCmd_unk_377                           ; 377
+    .word ScrCmd_unk_378                           ; 378
+    .word ScrCmd_unk_379                           ; 379
+    .word ScrCmd_unk_380                           ; 380
+    .word ScrCmd_unk_381                           ; 381
+    .word ScrCmd_unk_382                           ; 382
+    .word ScrCmd_unk_383                           ; 383
+    .word ScrCmd_unk_384                           ; 384
+    .word ScrCmd_unk_385                           ; 385
+    .word ScrCmd_unk_386                           ; 386
+    .word ScrCmd_unk_387                           ; 387
+    .word ScrCmd_unk_388                           ; 388
+    .word ScrCmd_unk_389                           ; 389
+    .word ScrCmd_unk_390                           ; 390
+    .word ScrCmd_unk_391                           ; 391
+    .word ScrCmd_unk_392                           ; 392
+    .word ScrCmd_unk_393                           ; 393
+    .word ScrCmd_unk_394                           ; 394
+    .word ScrCmd_unk_395                           ; 395
+    .word ScrCmd_unk_396                           ; 396
+    .word ScrCmd_unk_397                           ; 397
+    .word ScrCmd_unk_398                           ; 398
+    .word ScrCmd_unk_399                           ; 399
+    .word ScrCmd_unk_400                           ; 400
+    .word ScrCmd_unk_401                           ; 401
+    .word ScrCmd_unk_402                           ; 402
+    .word ScrCmd_unk_403                           ; 403
+    .word ScrCmd_unk_404                           ; 404
+    .word ScrCmd_unk_405                           ; 405
+    .word ScrCmd_unk_406                           ; 406
+    .word ScrCmd_unk_407                           ; 407
+    .word ScrCmd_getpartyspecies                   ; 408
+    .word ScrCmd_checkpartymonotid                 ; 409
+    .word ScrCmd_unk_410                           ; 410
+    .word ScrCmd_unk_411                           ; 411
+    .word ScrCmd_unk_412                           ; 412
+    .word ScrCmd_unk_413                           ; 413
+    .word ScrCmd_unk_414                           ; 414
+    .word ScrCmd_unk_415                           ; 415
+    .word ScrCmd_unk_416                           ; 416
+    .word ScrCmd_unk_417                           ; 417
+    .word ScrCmd_unk_418                           ; 418
+    .word ScrCmd_unk_419                           ; 419
+    .word ScrCmd_unk_420                           ; 420
+    .word ScrCmd_unk_421                           ; 421
+    .word ScrCmd_unk_422                           ; 422
+    .word ScrCmd_unk_423                           ; 423
+    .word ScrCmd_unk_424                           ; 424
+    .word ScrCmd_unk_425                           ; 425
+    .word ScrCmd_unk_426                           ; 426
+    .word ScrCmd_unk_427                           ; 427
+    .word ScrCmd_unk_428                           ; 428
+    .word ScrCmd_unk_429                           ; 429
+    .word ScrCmd_unk_430                           ; 430
+    .word ScrCmd_unk_431                           ; 431
+    .word ScrCmd_unk_432                           ; 432
+    .word ScrCmd_unk_433                           ; 433
+    .word ScrCmd_unk_434                           ; 434
+    .word ScrCmd_unk_435                           ; 435
+    .word ScrCmd_unk_436                           ; 436
+    .word ScrCmd_unk_437                           ; 437
+    .word ScrCmd_unk_438                           ; 438
+    .word ScrCmd_unk_439                           ; 439
+    .word ScrCmd_unk_440                           ; 440
+    .word ScrCmd_getpartymonfriendship             ; 441
+    .word ScrCmd_unk_442                           ; 442
+    .word ScrCmd_unk_443                           ; 443
+    .word ScrCmd_unk_444                           ; 444
+    .word ScrCmd_unk_445                           ; 445
+    .word ScrCmd_unk_446                           ; 446
+    .word ScrCmd_unk_447                           ; 447
+    .word ScrCmd_unk_448                           ; 448
+    .word ScrCmd_unk_449                           ; 449
+    .word ScrCmd_unk_450                           ; 450
+    .word ScrCmd_unk_451                           ; 451
+    .word ScrCmd_unk_452                           ; 452
+    .word ScrCmd_unk_453                           ; 453
+    .word ScrCmd_unk_454                           ; 454
+    .word ScrCmd_unk_455                           ; 455
+    .word ScrCmd_unk_456                           ; 456
+    .word ScrCmd_unk_457                           ; 457
+    .word ScrCmd_unk_458                           ; 458
+    .word ScrCmd_unk_459                           ; 459
+    .word ScrCmd_unk_460                           ; 460
+    .word ScrCmd_unk_461                           ; 461
+    .word ScrCmd_unk_462                           ; 462
+    .word ScrCmd_unk_463                           ; 463
+    .word ScrCmd_unk_464                           ; 464
+    .word ScrCmd_unk_465                           ; 465
+    .word ScrCmd_unk_466                           ; 466
+    .word ScrCmd_unk_467                           ; 467
+    .word ScrCmd_unk_468                           ; 468
+    .word ScrCmd_unk_469                           ; 469
+    .word ScrCmd_unk_470                           ; 470
+    .word ScrCmd_unk_471                           ; 471
+    .word ScrCmd_unk_472                           ; 472
+    .word ScrCmd_unk_473                           ; 473
+    .word ScrCmd_unk_474                           ; 474
+    .word ScrCmd_unk_475                           ; 475
+    .word ScrCmd_unk_476                           ; 476
+    .word ScrCmd_unk_477                           ; 477
+    .word ScrCmd_unk_478                           ; 478
+    .word ScrCmd_unk_479                           ; 479
+    .word ScrCmd_unk_480                           ; 480
+    .word ScrCmd_unk_481                           ; 481
+    .word ScrCmd_unk_482                           ; 482
+    .word ScrCmd_unk_483                           ; 483
+    .word ScrCmd_unk_484                           ; 484
+    .word ScrCmd_unk_485                           ; 485
+    .word ScrCmd_unk_486                           ; 486
+    .word ScrCmd_unk_487                           ; 487
+    .word ScrCmd_unk_488                           ; 488
+    .word ScrCmd_unk_489                           ; 489
+    .word ScrCmd_unk_490                           ; 490
+    .word ScrCmd_unk_491                           ; 491
+    .word ScrCmd_unk_492                           ; 492
+    .word ScrCmd_unk_493                           ; 493
+    .word ScrCmd_unk_494                           ; 494
+    .word ScrCmd_unk_495                           ; 495
+    .word ScrCmd_unk_496                           ; 496
+    .word ScrCmd_unk_497                           ; 497
+    .word ScrCmd_unk_498                           ; 498
+    .word ScrCmd_unk_499                           ; 499
+    .word ScrCmd_unk_500                           ; 500
+    .word ScrCmd_unk_501                           ; 501
+    .word ScrCmd_countpartymonsatorbelowlevel      ; 502
+    .word ScrCmd_survivepsn                        ; 503
+    .word ScrCmd_unk_504                           ; 504
+    .word ScrCmd_unk_505                           ; 505
+    .word ScrCmd_message_from                      ; 506
+    .word ScrCmd_unk_507                           ; 507
+    .word ScrCmd_unk_508                           ; 508
+    .word ScrCmd_unk_509                           ; 509
+    .word ScrCmd_unk_510                           ; 510
+    .word ScrCmd_unk_511                           ; 511
+    .word ScrCmd_unk_512                           ; 512
+    .word ScrCmd_unk_513                           ; 513
+    .word ScrCmd_unk_514                           ; 514
+    .word ScrCmd_unk_515                           ; 515
+    .word ScrCmd_unk_516                           ; 516
+    .word ScrCmd_unk_517                           ; 517
+    .word ScrCmd_unk_518                           ; 518
+    .word ScrCmd_unk_519                           ; 519
+    .word ScrCmd_unk_520                           ; 520
+    .word ScrCmd_unk_521                           ; 521
+    .word ScrCmd_unk_522                           ; 522
+    .word ScrCmd_unk_523                           ; 523
+    .word ScrCmd_unk_524                           ; 524
+    .word ScrCmd_unk_525                           ; 525
+    .word ScrCmd_unk_526                           ; 526
+    .word ScrCmd_unk_527                           ; 527
+    .word ScrCmd_unk_528                           ; 528
+    .word ScrCmd_unk_529                           ; 529
+    .word ScrCmd_getpartymonnature                 ; 530
+    .word ScrCmd_findpartymonwithnature            ; 531
+    .word ScrCmd_unk_532                           ; 532
+    .word ScrCmd_unk_533                           ; 533
+    .word ScrCmd_unk_534                           ; 534
+    .word ScrCmd_unk_535                           ; 535
+    .word ScrCmd_unk_536                           ; 536
+    .word ScrCmd_unk_537                           ; 537
+    .word ScrCmd_unk_538                           ; 538
+    .word ScrCmd_unk_539                           ; 539
+    .word ScrCmd_unk_540                           ; 540
+    .word ScrCmd_unk_541                           ; 541
+    .word ScrCmd_unk_542                           ; 542
+    .word ScrCmd_unk_543                           ; 543
+    .word ScrCmd_unk_544                           ; 544
+    .word ScrCmd_unk_545                           ; 545
+    .word ScrCmd_unk_546                           ; 546
+    .word ScrCmd_unk_547                           ; 547
+    .word ScrCmd_unk_548                           ; 548
+    .word ScrCmd_unk_549                           ; 549
+    .word ScrCmd_unk_550                           ; 550
+    .word ScrCmd_unk_551                           ; 551
+    .word ScrCmd_unk_552                           ; 552
+    .word ScrCmd_unk_553                           ; 553
+    .word ScrCmd_unk_554                           ; 554
+    .word ScrCmd_unk_555                           ; 555
+    .word ScrCmd_unk_556                           ; 556
+    .word ScrCmd_unk_557                           ; 557
+    .word ScrCmd_unk_558                           ; 558
+    .word ScrCmd_unk_559                           ; 559
+    .word ScrCmd_unk_560                           ; 560
+    .word ScrCmd_unk_561                           ; 561
+    .word ScrCmd_unk_562                           ; 562
+    .word ScrCmd_unk_563                           ; 563
+    .word ScrCmd_unk_564                           ; 564
+    .word ScrCmd_unk_565                           ; 565
+    .word ScrCmd_unk_566                           ; 566
+    .word ScrCmd_unk_567                           ; 567
+    .word ScrCmd_unk_568                           ; 568
+    .word ScrCmd_unk_569                           ; 569
+    .word ScrCmd_unk_570                           ; 570
+    .word ScrCmd_unk_571                           ; 571
+    .word ScrCmd_unk_572                           ; 572
+    .word ScrCmd_unk_573                           ; 573
+    .word ScrCmd_unk_574                           ; 574
+    .word ScrCmd_unk_575                           ; 575
+    .word ScrCmd_unk_576                           ; 576
+    .word ScrCmd_unk_577                           ; 577
+    .word ScrCmd_unk_578                           ; 578
+    .word ScrCmd_unk_579                           ; 579
+    .word ScrCmd_unk_580                           ; 580
+    .word ScrCmd_unk_581                           ; 581
+    .word ScrCmd_gameversion                       ; 582
+    .word ScrCmd_unk_583                           ; 583
+    .word ScrCmd_unk_584                           ; 584
+    .word ScrCmd_givewallpaper                     ; 585
+    .word ScrCmd_unk_586                           ; 586
+    .word ScrCmd_unk_587                           ; 587
+    .word ScrCmd_unk_588                           ; 588
+    .word ScrCmd_unk_589                           ; 589
+    .word ScrCmd_unk_590                           ; 590
+    .word ScrCmd_unk_591                           ; 591
+    .word ScrCmd_unk_592                           ; 592
+    .word ScrCmd_unk_593                           ; 593
+    .word ScrCmd_pcfreespace                       ; 594
+    .word ScrCmd_unk_595                           ; 595
+    .word ScrCmd_unk_596                           ; 596
+    .word ScrCmd_unk_597                           ; 597
+    .word ScrCmd_unk_598                           ; 598
+    .word ScrCmd_unk_599                           ; 599
+    .word ScrCmd_unk_600                           ; 600
+    .word ScrCmd_unk_601                           ; 601
+    .word ScrCmd_unk_602                           ; 602
+    .word ScrCmd_unk_603                           ; 603
+    .word ScrCmd_unk_604                           ; 604
+    .word ScrCmd_unk_605                           ; 605
+    .word ScrCmd_unk_606                           ; 606
+    .word ScrCmd_unk_607                           ; 607
+    .word ScrCmd_unk_608                           ; 608
+    .word ScrCmd_unk_609                           ; 609
+    .word ScrCmd_unk_610                           ; 610
+    .word ScrCmd_unk_611                           ; 611
+    .word ScrCmd_unk_612                           ; 612
+    .word ScrCmd_unk_613                           ; 613
+    .word ScrCmd_unk_614                           ; 614
+    .word ScrCmd_unk_615                           ; 615
+    .word ScrCmd_unk_616                           ; 616
+    .word ScrCmd_unk_617                           ; 617
+    .word ScrCmd_unk_618                           ; 618
+    .word ScrCmd_unk_619                           ; 619
+    .word ScrCmd_unk_620                           ; 620
+    .word ScrCmd_unk_621                           ; 621
+    .word ScrCmd_unk_622                           ; 622
+    .word ScrCmd_unk_623                           ; 623
+    .word ScrCmd_unk_624                           ; 624
+    .word ScrCmd_unk_625                           ; 625
+    .word ScrCmd_unk_626                           ; 626
+    .word ScrCmd_unk_627                           ; 627
+    .word ScrCmd_unk_628                           ; 628
+    .word ScrCmd_unk_629                           ; 629
+    .word ScrCmd_unk_630                           ; 630
+    .word ScrCmd_unk_631                           ; 631
+    .word ScrCmd_getpartymonlevel                  ; 632
+    .word ScrCmd_unk_633                           ; 633
+    .word ScrCmd_unk_634                           ; 634
+    .word ScrCmd_unk_635                           ; 635
+    .word ScrCmd_unk_636                           ; 636
+    .word ScrCmd_unk_637                           ; 637
+    .word ScrCmd_unk_638                           ; 638
+    .word ScrCmd_unk_639                           ; 639
+    .word ScrCmd_unk_640                           ; 640
+    .word ScrCmd_unk_641                           ; 641
+    .word ScrCmd_unk_642                           ; 642
+    .word ScrCmd_unk_643                           ; 643
+    .word ScrCmd_unk_644                           ; 644
+    .word ScrCmd_unk_645                           ; 645
+    .word ScrCmd_unk_646                           ; 646
+    .word ScrCmd_unk_647                           ; 647
+    .word ScrCmd_unk_648                           ; 648
+    .word ScrCmd_unk_649                           ; 649
+    .word ScrCmd_unk_650                           ; 650
+    .word ScrCmd_unk_651                           ; 651
+    .word ScrCmd_unk_652                           ; 652
+    .word ScrCmd_unk_653                           ; 653
+    .word ScrCmd_unk_654                           ; 654
+    .word ScrCmd_unk_655                           ; 655
+    .word ScrCmd_unk_656                           ; 656
+    .word ScrCmd_unk_657                           ; 657
+    .word ScrCmd_unk_658                           ; 658
+    .word ScrCmd_unk_659                           ; 659
+    .word ScrCmd_unk_660                           ; 660
+    .word ScrCmd_unk_661                           ; 661
+    .word ScrCmd_unk_662                           ; 662
+    .word ScrCmd_unk_663                           ; 663
+    .word ScrCmd_unk_664                           ; 664
+    .word ScrCmd_unk_665                           ; 665
+    .word ScrCmd_unk_666                           ; 666
+    .word ScrCmd_unk_667                           ; 667
+    .word ScrCmd_unk_668                           ; 668
+    .word ScrCmd_unk_669                           ; 669
+    .word ScrCmd_unk_670                           ; 670
+    .word ScrCmd_unk_671                           ; 671
+    .word ScrCmd_unk_672                           ; 672
+    .word ScrCmd_unk_673                           ; 673
+    .word ScrCmd_unk_674                           ; 674
+    .word ScrCmd_unk_675                           ; 675
+    .word ScrCmd_unk_676                           ; 676
+    .word ScrCmd_unk_677                           ; 677
+    .word ScrCmd_unk_678                           ; 678
+    .word ScrCmd_unk_679                           ; 679
+    .word ScrCmd_unk_680                           ; 680
+    .word ScrCmd_unk_681                           ; 681
+    .word ScrCmd_unk_682                           ; 682
+    .word ScrCmd_unk_683                           ; 683
+    .word ScrCmd_unk_684                           ; 684
+    .word ScrCmd_unk_685                           ; 685
+    .word ScrCmd_unk_686                           ; 686
+    .word ScrCmd_unk_687                           ; 687
+    .word ScrCmd_unk_688                           ; 688
+    .word ScrCmd_unk_689                           ; 689
+    .word ScrCmd_unk_690                           ; 690
+    .word ScrCmd_unk_691                           ; 691
+    .word ScrCmd_unk_692                           ; 692
+    .word ScrCmd_unk_693                           ; 693
+    .word ScrCmd_unk_694                           ; 694
+    .word ScrCmd_unk_695                           ; 695
+    .word ScrCmd_unk_696                           ; 696
+    .word ScrCmd_unk_697                           ; 697
+    .word ScrCmd_unk_698                           ; 698
+    .word ScrCmd_unk_699                           ; 699
+    .word ScrCmd_unk_700                           ; 700
+    .word ScrCmd_unk_701                           ; 701
+    .word ScrCmd_unk_702                           ; 702
+    .word ScrCmd_unk_703                           ; 703
+    .word ScrCmd_unk_704                           ; 704
+    .word ScrCmd_unk_705                           ; 705
+    .word ScrCmd_unk_706                           ; 706
+    .word ScrCmd_unk_707                           ; 707
+    .word ScrCmd_unk_708                           ; 708
+    .word ScrCmd_unk_709                           ; 709
+    .word ScrCmd_unk_710                           ; 710
+    .word ScrCmd_unk_711                           ; 711
+    .word ScrCmd_unk_712                           ; 712
+    .word ScrCmd_unk_713                           ; 713
+    .word ScrCmd_unk_714                           ; 714
+    .word ScrCmd_unk_715                           ; 715
+    .word ScrCmd_unk_716                           ; 716
+    .word ScrCmd_unk_717                           ; 717
+    .word ScrCmd_unk_718                           ; 718
+    .word ScrCmd_unk_719                           ; 719
+    .word ScrCmd_unk_720                           ; 720
 
 	.text
 

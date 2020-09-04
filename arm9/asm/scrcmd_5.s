@@ -9,8 +9,8 @@ UNK_021C5A10: ; 0x021C5A10
 
 	.text
 
-	thumb_func_start FUN_02041194
-FUN_02041194: ; 0x02041194
+	thumb_func_start ScrCmd_unk_590
+ScrCmd_unk_590: ; 0x02041194
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -32,8 +32,8 @@ FUN_02041194: ; 0x02041194
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020411C4
-FUN_020411C4: ; 0x020411C4
+	thumb_func_start ScrCmd_unk_591
+ScrCmd_unk_591: ; 0x020411C4
 	push {r4-r7, lr}
 	sub sp, #0x24
 	add r4, r0, #0x0
@@ -213,8 +213,8 @@ _02041336:
 	.balign 4
 _0204133C: .word 0x00000000
 
-	thumb_func_start FUN_02041340
-FUN_02041340: ; 0x02041340
+	thumb_func_start ScrCmd_unk_592
+ScrCmd_unk_592: ; 0x02041340
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]

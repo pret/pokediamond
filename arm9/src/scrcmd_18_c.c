@@ -6,14 +6,14 @@
 #include "map_header.h"
 #include "scrcmd.h"
 
-extern u16 VarGet(struct UnkStruct_0204639C* arg, u16 wk);
-extern u16 *GetVarPointer(struct UnkStruct_0204639C* arg, u16);
+extern u16 VarGet(struct ScriptContext80* arg, u16 wk);
+extern u16 *GetVarPointer(struct ScriptContext80* arg, u16);
 extern BOOL GiveMon(u32 heap_id, struct SaveBlock2 * sav2, u16 species, u8 level, u16 item, u32 mapSec, u8 encounterType);
 
 THUMB_FUNC BOOL ScrCmd_givemon(struct ScriptContext* ctx)
 {
     u32 mapSec = FUN_02034824(*(ctx->unk80->unk1C));
-    struct UnkStruct_0204639C *savePtr = ctx->unk80;
+    struct ScriptContext80 *savePtr = ctx->unk80;
     u16 species = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 level = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 item = VarGet(ctx->unk80, ScriptReadHalfword(ctx));

@@ -131,8 +131,8 @@ FUN_02054658: ; 0x02054658
 	add sp, #0xc
 	pop {r3-r6, pc}
 
-	thumb_func_start FUN_02054690
-FUN_02054690: ; 0x02054690
+	thumb_func_start DrawFieldMessage
+DrawFieldMessage: ; 0x02054690
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0

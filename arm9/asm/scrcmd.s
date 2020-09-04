@@ -81,8 +81,8 @@ _02039A0A:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039A10
-FUN_02039A10: ; 0x02039A10
+	thumb_func_start ScrCmd_unk_505
+ScrCmd_unk_505: ; 0x02039A10
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -386,8 +386,8 @@ ScrCmd_compare_var_to_var: ; 0x02039C08
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02039C40
-FUN_02039C40: ; 0x02039C40
+	thumb_func_start ScrCmd_unk_19
+ScrCmd_unk_19: ; 0x02039C40
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r0, #0x80
@@ -413,8 +413,8 @@ FUN_02039C40: ; 0x02039C40
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039C78
-FUN_02039C78: ; 0x02039C78
+	thumb_func_start ScrCmd_unk_20
+ScrCmd_unk_20: ; 0x02039C78
 	push {r3-r7, lr}
 	str r0, [sp, #0x0]
 	add r0, #0x80
@@ -467,8 +467,8 @@ _02039CDE:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039CE4
-FUN_02039CE4: ; 0x02039CE4
+	thumb_func_start ScrCmd_unk_21
+ScrCmd_unk_21: ; 0x02039CE4
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -493,8 +493,8 @@ ScrCmd_goto: ; 0x02039CF8
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_02039D10
-FUN_02039D10: ; 0x02039D10
+	thumb_func_start ScrCmd_unk_23
+ScrCmd_unk_23: ; 0x02039D10
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -521,8 +521,8 @@ _02039D44:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02039D48
-FUN_02039D48: ; 0x02039D48
+	thumb_func_start ScrCmd_unk_24
+ScrCmd_unk_24: ; 0x02039D48
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x74]
@@ -546,8 +546,8 @@ _02039D72:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02039D78
-FUN_02039D78: ; 0x02039D78
+	thumb_func_start ScrCmd_unk_25
+ScrCmd_unk_25: ; 0x02039D78
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -691,8 +691,8 @@ ScrCmd_checkflag: ; 0x02039E68
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02039E84
-FUN_02039E84: ; 0x02039E84
+	thumb_func_start ScrCmd_unk_33
+ScrCmd_unk_33: ; 0x02039E84
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -719,8 +719,8 @@ FUN_02039E84: ; 0x02039E84
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02039EC0
-FUN_02039EC0: ; 0x02039EC0
+	thumb_func_start ScrCmd_unk_34
+ScrCmd_unk_34: ; 0x02039EC0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -950,8 +950,8 @@ ScrCmd_message_from: ; 0x0203A04C
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203A098
-FUN_0203A098: ; 0x0203A098
+	thumb_func_start ScrCmd_unk_507
+ScrCmd_unk_507: ; 0x0203A098
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -994,8 +994,8 @@ FUN_0203A098: ; 0x0203A098
 	nop
 _0203A0F8: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A0FC
-FUN_0203A0FC: ; 0x0203A0FC
+	thumb_func_start ScrCmd_unk_508
+ScrCmd_unk_508: ; 0x0203A0FC
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1024,8 +1024,8 @@ FUN_0203A0FC: ; 0x0203A0FC
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203A13C
-FUN_0203A13C: ; 0x0203A13C
+	thumb_func_start ScrCmd_unk_509
+ScrCmd_unk_509: ; 0x0203A13C
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1058,8 +1058,8 @@ FUN_0203A13C: ; 0x0203A13C
 	nop
 _0203A184: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A188
-FUN_0203A188: ; 0x0203A188
+	thumb_func_start ScrCmd_unk_510
+ScrCmd_unk_510: ; 0x0203A188
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1124,8 +1124,8 @@ _0203A204: .word 0x0000FFFF
 _0203A208: .word 0x0000022B
 _0203A20C: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A210
-FUN_0203A210: ; 0x0203A210
+	thumb_func_start ScrCmd_unk_511
+ScrCmd_unk_511: ; 0x0203A210
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1179,8 +1179,8 @@ FUN_0203A210: ; 0x0203A210
 	nop
 _0203A284: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A288
-FUN_0203A288: ; 0x0203A288
+	thumb_func_start ScrCmd_unk_621
+ScrCmd_unk_621: ; 0x0203A288
 	push {r3-r5, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1208,8 +1208,8 @@ FUN_0203A288: ; 0x0203A288
 	.balign 4
 _0203A2C0: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A2C4
-FUN_0203A2C4: ; 0x0203A2C4
+	thumb_func_start ScrCmd_unk_44
+ScrCmd_unk_44: ; 0x0203A2C4
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -1242,8 +1242,8 @@ FUN_0203A2F0: ; 0x0203A2F0
 	bl FUN_020546C8
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203A304
-FUN_0203A304: ; 0x0203A304
+	thumb_func_start ScrCmd_unk_45
+ScrCmd_unk_45: ; 0x0203A304
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -1271,8 +1271,8 @@ FUN_0203A304: ; 0x0203A304
 	.balign 4
 _0203A33C: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A340
-FUN_0203A340: ; 0x0203A340
+	thumb_func_start ScrCmd_unk_704
+ScrCmd_unk_704: ; 0x0203A340
 	push {r3-r5, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1305,8 +1305,8 @@ FUN_0203A340: ; 0x0203A340
 	.balign 4
 _0203A384: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A388
-FUN_0203A388: ; 0x0203A388
+	thumb_func_start ScrCmd_unk_46
+ScrCmd_unk_46: ; 0x0203A388
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -1333,8 +1333,8 @@ FUN_0203A388: ; 0x0203A388
 	nop
 _0203A3C0: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A3C4
-FUN_0203A3C4: ; 0x0203A3C4
+	thumb_func_start ScrCmd_unk_524
+ScrCmd_unk_524: ; 0x0203A3C4
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -1361,8 +1361,8 @@ FUN_0203A3C4: ; 0x0203A3C4
 	nop
 _0203A3FC: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A400
-FUN_0203A400: ; 0x0203A400
+	thumb_func_start ScrCmd_unk_47
+ScrCmd_unk_47: ; 0x0203A400
 	push {r3-r5, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -1406,8 +1406,8 @@ _0203A448:
 	nop
 _0203A458: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203A45C
-FUN_0203A45C: ; 0x0203A45C
+	thumb_func_start ScrCmd_unk_48
+ScrCmd_unk_48: ; 0x0203A45C
 	push {r3, lr}
 	ldr r1, _0203A468 ; =FUN_0203A46C
 	bl SetupNativeScript
@@ -1431,8 +1431,8 @@ _0203A47A:
 	nop
 _0203A480: .word gMain
 
-	thumb_func_start FUN_0203A484
-FUN_0203A484: ; 0x0203A484
+	thumb_func_start ScrCmd_unk_400
+ScrCmd_unk_400: ; 0x0203A484
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -1472,8 +1472,8 @@ _0203A4C6:
 	nop
 _0203A4CC: .word gMain
 
-	thumb_func_start FUN_0203A4D0
-FUN_0203A4D0: ; 0x0203A4D0
+	thumb_func_start ScrCmd_unk_49
+ScrCmd_unk_49: ; 0x0203A4D0
 	push {r3, lr}
 	ldr r1, _0203A4DC ; =FUN_0203A4E0
 	bl SetupNativeScript
@@ -1550,8 +1550,8 @@ _0203A556:
 	nop
 _0203A55C: .word gMain
 
-	thumb_func_start FUN_0203A560
-FUN_0203A560: ; 0x0203A560
+	thumb_func_start ScrCmd_unk_50
+ScrCmd_unk_50: ; 0x0203A560
 	push {r3, lr}
 	ldr r1, _0203A56C ; =FUN_0203A570
 	bl SetupNativeScript
@@ -1581,8 +1581,8 @@ _0203A588:
 	.balign 4
 _0203A58C: .word gMain
 
-	thumb_func_start FUN_0203A590
-FUN_0203A590: ; 0x0203A590
+	thumb_func_start ScrCmd_unk_51
+ScrCmd_unk_51: ; 0x0203A590
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -1614,8 +1614,8 @@ FUN_0203A590: ; 0x0203A590
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203A5D8
-FUN_0203A5D8: ; 0x0203A5D8
+	thumb_func_start ScrCmd_unk_52
+ScrCmd_unk_52: ; 0x0203A5D8
 	push {r3-r5, lr}
 	add r0, #0x80
 	ldr r4, [r0, #0x0]
@@ -1637,8 +1637,8 @@ FUN_0203A5D8: ; 0x0203A5D8
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203A608
-FUN_0203A608: ; 0x0203A608
+	thumb_func_start ScrCmd_unk_53
+ScrCmd_unk_53: ; 0x0203A608
 	push {r3-r5, lr}
 	add r0, #0x80
 	ldr r4, [r0, #0x0]
@@ -1657,8 +1657,8 @@ FUN_0203A608: ; 0x0203A608
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203A630
-FUN_0203A630: ; 0x0203A630
+	thumb_func_start ScrCmd_unk_61
+ScrCmd_unk_61: ; 0x0203A630
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -1821,8 +1821,8 @@ _0203A778:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203A780
-FUN_0203A780: ; 0x0203A780
+	thumb_func_start ScrCmd_unk_54
+ScrCmd_unk_54: ; 0x0203A780
 	push {r4-r7, lr}
 	sub sp, #0x1c
 	add r5, r0, #0x0
@@ -1899,8 +1899,8 @@ _0203A7E0:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203A830
-FUN_0203A830: ; 0x0203A830
+	thumb_func_start ScrCmd_unk_55
+ScrCmd_unk_55: ; 0x0203A830
 	push {r3-r5, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -1921,8 +1921,8 @@ FUN_0203A830: ; 0x0203A830
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203A85C
-FUN_0203A85C: ; 0x0203A85C
+	thumb_func_start ScrCmd_unk_56
+ScrCmd_unk_56: ; 0x0203A85C
 	push {r3, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -1937,8 +1937,8 @@ FUN_0203A85C: ; 0x0203A85C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203A878
-FUN_0203A878: ; 0x0203A878
+	thumb_func_start ScrCmd_unk_57
+ScrCmd_unk_57: ; 0x0203A878
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -1973,8 +1973,8 @@ _0203A8B4:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203A8B8
-FUN_0203A8B8: ; 0x0203A8B8
+	thumb_func_start ScrCmd_unk_58
+ScrCmd_unk_58: ; 0x0203A8B8
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
@@ -2123,8 +2123,8 @@ _0203A9E4:
 _0203A9E8: .word 0x0000FFFF
 _0203A9EC: .word gMain
 
-	thumb_func_start FUN_0203A9F0
-FUN_0203A9F0: ; 0x0203A9F0
+	thumb_func_start ScrCmd_unk_59
+ScrCmd_unk_59: ; 0x0203A9F0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -2209,8 +2209,8 @@ _0203AA82:
 _0203AA88: .word gMain
 _0203AA8C: .word 0x0000FFFF
 
-	thumb_func_start FUN_0203AA90
-FUN_0203AA90: ; 0x0203AA90
+	thumb_func_start ScrCmd_unk_60
+ScrCmd_unk_60: ; 0x0203AA90
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -2219,8 +2219,8 @@ FUN_0203AA90: ; 0x0203AA90
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203AAA0
-FUN_0203AAA0: ; 0x0203AAA0
+	thumb_func_start ScrCmd_unk_62
+ScrCmd_unk_62: ; 0x0203AAA0
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -2299,8 +2299,8 @@ _0203AB3E:
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203AB44
-FUN_0203AB44: ; 0x0203AB44
+	thumb_func_start ScrCmd_unk_397
+ScrCmd_unk_397: ; 0x0203AB44
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -2322,8 +2322,8 @@ FUN_0203AB44: ; 0x0203AB44
 	nop
 _0203AB70: .word 0x000003E2
 
-	thumb_func_start FUN_0203AB74
-FUN_0203AB74: ; 0x0203AB74
+	thumb_func_start ScrCmd_unk_398
+ScrCmd_unk_398: ; 0x0203AB74
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -2335,8 +2335,8 @@ FUN_0203AB74: ; 0x0203AB74
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203AB8C
-FUN_0203AB8C: ; 0x0203AB8C
+	thumb_func_start ScrCmd_unk_64
+ScrCmd_unk_64: ; 0x0203AB8C
 	push {r4-r7, lr}
 	sub sp, #0x2c
 	add r5, r0, #0x0
@@ -2400,8 +2400,8 @@ FUN_0203AB8C: ; 0x0203AB8C
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203AC14
-FUN_0203AC14: ; 0x0203AC14
+	thumb_func_start ScrCmd_unk_65
+ScrCmd_unk_65: ; 0x0203AC14
 	push {r4-r7, lr}
 	sub sp, #0x2c
 	add r5, r0, #0x0
@@ -2465,8 +2465,8 @@ FUN_0203AC14: ; 0x0203AC14
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203AC9C
-FUN_0203AC9C: ; 0x0203AC9C
+	thumb_func_start ScrCmd_unk_66
+ScrCmd_unk_66: ; 0x0203AC9C
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -2486,8 +2486,8 @@ FUN_0203AC9C: ; 0x0203AC9C
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203ACC4
-FUN_0203ACC4: ; 0x0203ACC4
+	thumb_func_start ScrCmd_unk_669
+ScrCmd_unk_669: ; 0x0203ACC4
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -2517,8 +2517,8 @@ FUN_0203ACC4: ; 0x0203ACC4
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203AD08
-FUN_0203AD08: ; 0x0203AD08
+	thumb_func_start ScrCmd_unk_67
+ScrCmd_unk_67: ; 0x0203AD08
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -2557,8 +2557,8 @@ _0203AD4A:
 	nop
 _0203AD50: .word 0x0000EEEE
 
-	thumb_func_start FUN_0203AD54
-FUN_0203AD54: ; 0x0203AD54
+	thumb_func_start ScrCmd_unk_697
+ScrCmd_unk_697: ; 0x0203AD54
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -2614,8 +2614,8 @@ _0203ADBC:
 	.balign 4
 _0203ADC0: .word 0x0000EEEE
 
-	thumb_func_start FUN_0203ADC4
-FUN_0203ADC4: ; 0x0203ADC4
+	thumb_func_start ScrCmd_unk_68
+ScrCmd_unk_68: ; 0x0203ADC4
 	push {r4-r7, lr}
 	sub sp, #0x2c
 	add r5, r0, #0x0
@@ -2679,8 +2679,8 @@ FUN_0203ADC4: ; 0x0203ADC4
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203AE4C
-FUN_0203AE4C: ; 0x0203AE4C
+	thumb_func_start ScrCmd_unk_69
+ScrCmd_unk_69: ; 0x0203AE4C
 	push {r4-r7, lr}
 	sub sp, #0x2c
 	add r5, r0, #0x0
@@ -2744,8 +2744,8 @@ FUN_0203AE4C: ; 0x0203AE4C
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203AED4
-FUN_0203AED4: ; 0x0203AED4
+	thumb_func_start ScrCmd_unk_70
+ScrCmd_unk_70: ; 0x0203AED4
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -2787,8 +2787,8 @@ FUN_0203AED4: ; 0x0203AED4
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203AF34
-FUN_0203AF34: ; 0x0203AF34
+	thumb_func_start ScrCmd_unk_71
+ScrCmd_unk_71: ; 0x0203AF34
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -2805,8 +2805,8 @@ FUN_0203AF34: ; 0x0203AF34
 	.balign 4
 _0203AF54: .word FUN_0203AD2C 
 
-	thumb_func_start FUN_0203AF58
-FUN_0203AF58: ; 0x0203AF58
+	thumb_func_start ScrCmd_unk_72
+ScrCmd_unk_72: ; 0x0203AF58
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -2827,8 +2827,8 @@ FUN_0203AF58: ; 0x0203AF58
 	.balign 4
 _0203AF80: .word FUN_0203AD2C 
 
-	thumb_func_start FUN_0203AF84
-FUN_0203AF84: ; 0x0203AF84
+	thumb_func_start ScrCmd_unk_719
+ScrCmd_unk_719: ; 0x0203AF84
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -2844,8 +2844,8 @@ FUN_0203AF84: ; 0x0203AF84
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203AFA4
-FUN_0203AFA4: ; 0x0203AFA4
+	thumb_func_start ScrCmd_unk_720
+ScrCmd_unk_720: ; 0x0203AFA4
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -2861,8 +2861,8 @@ FUN_0203AFA4: ; 0x0203AFA4
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203AFC4
-FUN_0203AFC4: ; 0x0203AFC4
+	thumb_func_start ScrCmd_unk_94
+ScrCmd_unk_94: ; 0x0203AFC4
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -2905,8 +2905,8 @@ _0203AFF6:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203B024
-FUN_0203B024: ; 0x0203B024
+	thumb_func_start ScrCmd_unk_673
+ScrCmd_unk_673: ; 0x0203B024
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -3047,8 +3047,8 @@ _0203B13E:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B148
-FUN_0203B148: ; 0x0203B148
+	thumb_func_start ScrCmd_unk_95
+ScrCmd_unk_95: ; 0x0203B148
 	push {r3, lr}
 	ldr r1, _0203B154 ; =FUN_0203B158
 	bl SetupNativeScript
@@ -3135,8 +3135,8 @@ _0203B1EC:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B1F0
-FUN_0203B1F0: ; 0x0203B1F0
+	thumb_func_start ScrCmd_unk_96
+ScrCmd_unk_96: ; 0x0203B1F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -3152,7 +3152,7 @@ FUN_0203B1F0: ; 0x0203B1F0
 	b _0203B214
 _0203B20E:
 	add r0, r5, #0x0
-	bl FUN_0203B2E0
+	bl ScrCmd_unk_692
 _0203B214:
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -3253,8 +3253,8 @@ _0203B2D8:
 	.balign 4
 _0203B2DC: .word UNK_021C5A0C
 
-	thumb_func_start FUN_0203B2E0
-FUN_0203B2E0: ; 0x0203B2E0
+	thumb_func_start ScrCmd_unk_692
+ScrCmd_unk_692: ; 0x0203B2E0
 	push {r3-r7, lr}
 	sub sp, #0x8
 	str r0, [sp, #0x0]
@@ -3346,8 +3346,8 @@ _0203B398:
 _0203B3A8: .word UNK_021C5A0C
 _0203B3AC: .word FUN_0203B218 
 
-	thumb_func_start FUN_0203B3B0
-FUN_0203B3B0: ; 0x0203B3B0
+	thumb_func_start ScrCmd_unk_97
+ScrCmd_unk_97: ; 0x0203B3B0
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -3356,8 +3356,8 @@ FUN_0203B3B0: ; 0x0203B3B0
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203B3C0
-FUN_0203B3C0: ; 0x0203B3C0
+	thumb_func_start ScrCmd_unk_98
+ScrCmd_unk_98: ; 0x0203B3C0
 	push {r4, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -3370,8 +3370,8 @@ FUN_0203B3C0: ; 0x0203B3C0
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203B3DC
-FUN_0203B3DC: ; 0x0203B3DC
+	thumb_func_start ScrCmd_unk_99
+ScrCmd_unk_99: ; 0x0203B3DC
 	push {r4, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -3384,8 +3384,8 @@ FUN_0203B3DC: ; 0x0203B3DC
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203B3F8
-FUN_0203B3F8: ; 0x0203B3F8
+	thumb_func_start ScrCmd_unk_100
+ScrCmd_unk_100: ; 0x0203B3F8
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -3418,8 +3418,8 @@ _0203B43A:
 	add sp, #0x4
 	pop {r3-r6, pc}
 
-	thumb_func_start FUN_0203B440
-FUN_0203B440: ; 0x0203B440
+	thumb_func_start ScrCmd_unk_101
+ScrCmd_unk_101: ; 0x0203B440
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -3437,8 +3437,8 @@ FUN_0203B440: ; 0x0203B440
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203B468
-FUN_0203B468: ; 0x0203B468
+	thumb_func_start ScrCmd_unk_102
+ScrCmd_unk_102: ; 0x0203B468
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -3504,8 +3504,8 @@ FUN_0203B468: ; 0x0203B468
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B500
-FUN_0203B500: ; 0x0203B500
+	thumb_func_start ScrCmd_unk_103
+ScrCmd_unk_103: ; 0x0203B500
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -3535,8 +3535,8 @@ FUN_0203B500: ; 0x0203B500
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203B544
-FUN_0203B544: ; 0x0203B544
+	thumb_func_start ScrCmd_unk_104
+ScrCmd_unk_104: ; 0x0203B544
 	push {r3-r5, lr}
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
@@ -3559,8 +3559,8 @@ _0203B568:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B574
-FUN_0203B574: ; 0x0203B574
+	thumb_func_start ScrCmd_unk_105
+ScrCmd_unk_105: ; 0x0203B574
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -3590,8 +3590,8 @@ FUN_0203B574: ; 0x0203B574
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B5B8
-FUN_0203B5B8: ; 0x0203B5B8
+	thumb_func_start ScrCmd_unk_106
+ScrCmd_unk_106: ; 0x0203B5B8
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -3632,8 +3632,8 @@ FUN_0203B5B8: ; 0x0203B5B8
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B618
-FUN_0203B618: ; 0x0203B618
+	thumb_func_start ScrCmd_unk_445
+ScrCmd_unk_445: ; 0x0203B618
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -3652,8 +3652,8 @@ FUN_0203B618: ; 0x0203B618
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B640
-FUN_0203B640: ; 0x0203B640
+	thumb_func_start ScrCmd_unk_107
+ScrCmd_unk_107: ; 0x0203B640
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -3751,8 +3751,8 @@ _0203B6F8:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B724
-FUN_0203B724: ; 0x0203B724
+	thumb_func_start ScrCmd_unk_108
+ScrCmd_unk_108: ; 0x0203B724
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -3776,8 +3776,8 @@ FUN_0203B724: ; 0x0203B724
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B758
-FUN_0203B758: ; 0x0203B758
+	thumb_func_start ScrCmd_unk_109
+ScrCmd_unk_109: ; 0x0203B758
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -3802,8 +3802,8 @@ FUN_0203B758: ; 0x0203B758
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B790
-FUN_0203B790: ; 0x0203B790
+	thumb_func_start ScrCmd_unk_685
+ScrCmd_unk_685: ; 0x0203B790
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -3836,8 +3836,8 @@ _0203B7D2:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B7D8
-FUN_0203B7D8: ; 0x0203B7D8
+	thumb_func_start ScrCmd_unk_110
+ScrCmd_unk_110: ; 0x0203B7D8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -3849,8 +3849,8 @@ FUN_0203B7D8: ; 0x0203B7D8
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203B7F0
-FUN_0203B7F0: ; 0x0203B7F0
+	thumb_func_start ScrCmd_unk_683
+ScrCmd_unk_683: ; 0x0203B7F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -3870,8 +3870,8 @@ FUN_0203B7F0: ; 0x0203B7F0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B81C
-FUN_0203B81C: ; 0x0203B81C
+	thumb_func_start ScrCmd_unk_147
+ScrCmd_unk_147: ; 0x0203B81C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -3899,8 +3899,8 @@ FUN_0203B81C: ; 0x0203B81C
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203B85C
-FUN_0203B85C: ; 0x0203B85C
+	thumb_func_start ScrCmd_unk_148
+ScrCmd_unk_148: ; 0x0203B85C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -3930,8 +3930,8 @@ FUN_0203B85C: ; 0x0203B85C
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B8A0
-FUN_0203B8A0: ; 0x0203B8A0
+	thumb_func_start ScrCmd_unk_149
+ScrCmd_unk_149: ; 0x0203B8A0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -3960,8 +3960,8 @@ FUN_0203B8A0: ; 0x0203B8A0
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203B8E4
-FUN_0203B8E4: ; 0x0203B8E4
+	thumb_func_start ScrCmd_unk_401
+ScrCmd_unk_401: ; 0x0203B8E4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -3983,8 +3983,8 @@ FUN_0203B8E4: ; 0x0203B8E4
 	nop
 _0203B910: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203B914
-FUN_0203B914: ; 0x0203B914
+	thumb_func_start ScrCmd_unk_677
+ScrCmd_unk_677: ; 0x0203B914
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -4006,8 +4006,8 @@ FUN_0203B914: ; 0x0203B914
 	nop
 _0203B940: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203B944
-FUN_0203B944: ; 0x0203B944
+	thumb_func_start ScrCmd_unk_402
+ScrCmd_unk_402: ; 0x0203B944
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -4025,8 +4025,8 @@ FUN_0203B944: ; 0x0203B944
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B968
-FUN_0203B968: ; 0x0203B968
+	thumb_func_start ScrCmd_unk_403
+ScrCmd_unk_403: ; 0x0203B968
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -4062,8 +4062,8 @@ _0203B9A6:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203B9B4
-FUN_0203B9B4: ; 0x0203B9B4
+	thumb_func_start ScrCmd_unk_404
+ScrCmd_unk_404: ; 0x0203B9B4
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -4122,8 +4122,8 @@ FUN_0203B9B4: ; 0x0203B9B4
 	.balign 4
 _0203BA38: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203BA3C
-FUN_0203BA3C: ; 0x0203BA3C
+	thumb_func_start ScrCmd_unk_405
+ScrCmd_unk_405: ; 0x0203BA3C
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -4178,8 +4178,8 @@ _0203BAA2:
 	str r0, [r4, #0x0]
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203BAB0
-FUN_0203BAB0: ; 0x0203BAB0
+	thumb_func_start ScrCmd_unk_406
+ScrCmd_unk_406: ; 0x0203BAB0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -4209,8 +4209,8 @@ FUN_0203BAB0: ; 0x0203BAB0
 	nop
 _0203BAF0: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203BAF4
-FUN_0203BAF4: ; 0x0203BAF4
+	thumb_func_start ScrCmd_unk_407
+ScrCmd_unk_407: ; 0x0203BAF4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -4239,8 +4239,8 @@ _0203BB20:
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203BB34
-FUN_0203BB34: ; 0x0203BB34
+	thumb_func_start ScrCmd_unk_155
+ScrCmd_unk_155: ; 0x0203BB34
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -4274,23 +4274,23 @@ FUN_0203BB34: ; 0x0203BB34
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BB80
-FUN_0203BB80: ; 0x0203BB80
+	thumb_func_start ScrCmd_unk_156
+ScrCmd_unk_156: ; 0x0203BB80
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_0203BB84
-FUN_0203BB84: ; 0x0203BB84
+	thumb_func_start ScrCmd_unk_157
+ScrCmd_unk_157: ; 0x0203BB84
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_0203BB88
-FUN_0203BB88: ; 0x0203BB88
+	thumb_func_start ScrCmd_unk_158
+ScrCmd_unk_158: ; 0x0203BB88
 	mov r0, #0x1
 	bx lr
 
-	thumb_func_start FUN_0203BB8C
-FUN_0203BB8C: ; 0x0203BB8C
+	thumb_func_start ScrCmd_unk_159
+ScrCmd_unk_159: ; 0x0203BB8C
 	mov r0, #0x0
 	bx lr
 
@@ -4368,8 +4368,8 @@ _0203BC16:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BC1C
-FUN_0203BC1C: ; 0x0203BC1C
+	thumb_func_start ScrCmd_unk_161
+ScrCmd_unk_161: ; 0x0203BC1C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -4378,8 +4378,8 @@ FUN_0203BC1C: ; 0x0203BC1C
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203BC2C
-FUN_0203BC2C: ; 0x0203BC2C
+	thumb_func_start ScrCmd_unk_504
+ScrCmd_unk_504: ; 0x0203BC2C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -4455,8 +4455,8 @@ _0203BC90:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BCBC
-FUN_0203BCBC: ; 0x0203BCBC
+	thumb_func_start ScrCmd_unk_162
+ScrCmd_unk_162: ; 0x0203BCBC
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -4465,16 +4465,16 @@ FUN_0203BCBC: ; 0x0203BCBC
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BCCC
-FUN_0203BCCC: ; 0x0203BCCC
+	thumb_func_start ScrCmd_unk_163
+ScrCmd_unk_163: ; 0x0203BCCC
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_0206F3B8
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203BCD8
-FUN_0203BCD8: ; 0x0203BCD8
+	thumb_func_start ScrCmd_unk_164
+ScrCmd_unk_164: ; 0x0203BCD8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -4496,8 +4496,8 @@ FUN_0203BCD8: ; 0x0203BCD8
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203BD08
-FUN_0203BD08: ; 0x0203BD08
+	thumb_func_start ScrCmd_unk_519
+ScrCmd_unk_519: ; 0x0203BD08
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -4512,8 +4512,8 @@ FUN_0203BD08: ; 0x0203BD08
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BD28
-FUN_0203BD28: ; 0x0203BD28
+	thumb_func_start ScrCmd_unk_520
+ScrCmd_unk_520: ; 0x0203BD28
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
@@ -4579,8 +4579,8 @@ FUN_0203BD28: ; 0x0203BD28
 	.balign 4
 _0203BDB4: .word 0x000003D9
 
-	thumb_func_start FUN_0203BDB8
-FUN_0203BDB8: ; 0x0203BDB8
+	thumb_func_start ScrCmd_unk_652
+ScrCmd_unk_652: ; 0x0203BDB8
 	push {r4-r6, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
@@ -4649,8 +4649,8 @@ FUN_0203BDB8: ; 0x0203BDB8
 	.balign 4
 _0203BE4C: .word 0x000003D9
 
-	thumb_func_start FUN_0203BE50
-FUN_0203BE50: ; 0x0203BE50
+	thumb_func_start ScrCmd_unk_521
+ScrCmd_unk_521: ; 0x0203BE50
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -4663,8 +4663,8 @@ FUN_0203BE50: ; 0x0203BE50
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BE68
-FUN_0203BE68: ; 0x0203BE68
+	thumb_func_start ScrCmd_unk_653
+ScrCmd_unk_653: ; 0x0203BE68
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -4677,8 +4677,8 @@ FUN_0203BE68: ; 0x0203BE68
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BE80
-FUN_0203BE80: ; 0x0203BE80
+	thumb_func_start ScrCmd_unk_654
+ScrCmd_unk_654: ; 0x0203BE80
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -4717,8 +4717,8 @@ _0203BEC8:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203BECC
-FUN_0203BECC: ; 0x0203BECC
+	thumb_func_start ScrCmd_unk_522
+ScrCmd_unk_522: ; 0x0203BECC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -4742,8 +4742,8 @@ FUN_0203BECC: ; 0x0203BECC
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BF00
-FUN_0203BF00: ; 0x0203BF00
+	thumb_func_start ScrCmd_unk_523
+ScrCmd_unk_523: ; 0x0203BF00
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -4760,16 +4760,16 @@ _0203BF1C:
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203BF20
-FUN_0203BF20: ; 0x0203BF20
+	thumb_func_start ScrCmd_unk_165
+ScrCmd_unk_165: ; 0x0203BF20
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_0208A338
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203BF2C
-FUN_0203BF2C: ; 0x0203BF2C
+	thumb_func_start ScrCmd_unk_166
+ScrCmd_unk_166: ; 0x0203BF2C
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
@@ -4808,8 +4808,8 @@ FUN_0203BF2C: ; 0x0203BF2C
 	pop {r3-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203BF84
-FUN_0203BF84: ; 0x0203BF84
+	thumb_func_start ScrCmd_unk_167
+ScrCmd_unk_167: ; 0x0203BF84
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -4857,8 +4857,8 @@ _0203BFCC:
 	.balign 4
 _0203BFE8: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203BFEC
-FUN_0203BFEC: ; 0x0203BFEC
+	thumb_func_start ScrCmd_unk_168
+ScrCmd_unk_168: ; 0x0203BFEC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -4906,8 +4906,8 @@ _0203C034:
 	.balign 4
 _0203C050: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203C054
-FUN_0203C054: ; 0x0203C054
+	thumb_func_start ScrCmd_unk_302
+ScrCmd_unk_302: ; 0x0203C054
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -4936,8 +4936,8 @@ _0203C088:
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203C090
-FUN_0203C090: ; 0x0203C090
+	thumb_func_start ScrCmd_unk_303
+ScrCmd_unk_303: ; 0x0203C090
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -4966,8 +4966,8 @@ _0203C0C4:
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203C0CC
-FUN_0203C0CC: ; 0x0203C0CC
+	thumb_func_start ScrCmd_unk_304
+ScrCmd_unk_304: ; 0x0203C0CC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -4988,8 +4988,8 @@ FUN_0203C0CC: ; 0x0203C0CC
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203C0FC
-FUN_0203C0FC: ; 0x0203C0FC
+	thumb_func_start ScrCmd_unk_517
+ScrCmd_unk_517: ; 0x0203C0FC
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -5003,8 +5003,8 @@ FUN_0203C0FC: ; 0x0203C0FC
 	.balign 4
 _0203C114: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203C118
-FUN_0203C118: ; 0x0203C118
+	thumb_func_start ScrCmd_unk_169
+ScrCmd_unk_169: ; 0x0203C118
 	push {r3, lr}
 	add r1, r0, #0x0
 	ldr r0, [r1, #0x74]
@@ -5015,8 +5015,8 @@ FUN_0203C118: ; 0x0203C118
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203C12C
-FUN_0203C12C: ; 0x0203C12C
+	thumb_func_start ScrCmd_unk_170
+ScrCmd_unk_170: ; 0x0203C12C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5048,8 +5048,8 @@ FUN_0203C12C: ; 0x0203C12C
 	nop
 _0203C170: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203C174
-FUN_0203C174: ; 0x0203C174
+	thumb_func_start ScrCmd_unk_471
+ScrCmd_unk_471: ; 0x0203C174
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5075,8 +5075,8 @@ FUN_0203C174: ; 0x0203C174
 	.balign 4
 _0203C1A8: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203C1AC
-FUN_0203C1AC: ; 0x0203C1AC
+	thumb_func_start ScrCmd_unk_472
+ScrCmd_unk_472: ; 0x0203C1AC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -5116,8 +5116,8 @@ _0203C1FA:
 	strh r0, [r4, #0x0]
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203C200
-FUN_0203C200: ; 0x0203C200
+	thumb_func_start ScrCmd_unk_473
+ScrCmd_unk_473: ; 0x0203C200
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -5206,8 +5206,8 @@ ScrCmd_monstoragepc: ; 0x0203C278
 	nop
 _0203C2C0: .word FUN_0203BBBC 
 
-	thumb_func_start FUN_0203C2C4
-FUN_0203C2C4: ; 0x0203C2C4
+	thumb_func_start ScrCmd_unk_172
+ScrCmd_unk_172: ; 0x0203C2C4
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -5221,8 +5221,8 @@ FUN_0203C2C4: ; 0x0203C2C4
 	.balign 4
 _0203C2DC: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203C2E0
-FUN_0203C2E0: ; 0x0203C2E0
+	thumb_func_start ScrCmd_unk_173
+ScrCmd_unk_173: ; 0x0203C2E0
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -5231,8 +5231,8 @@ FUN_0203C2E0: ; 0x0203C2E0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C2F0
-FUN_0203C2F0: ; 0x0203C2F0
+	thumb_func_start ScrCmd_unk_174
+ScrCmd_unk_174: ; 0x0203C2F0
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -5241,8 +5241,8 @@ FUN_0203C2F0: ; 0x0203C2F0
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203C300
-FUN_0203C300: ; 0x0203C300
+	thumb_func_start ScrCmd_unk_175
+ScrCmd_unk_175: ; 0x0203C300
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5273,8 +5273,8 @@ ScrCmd_halloffame: ; 0x0203C32C
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203C33C
-FUN_0203C33C: ; 0x0203C33C
+	thumb_func_start ScrCmd_unk_177
+ScrCmd_unk_177: ; 0x0203C33C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5295,8 +5295,8 @@ FUN_0203C33C: ; 0x0203C33C
 	.balign 4
 _0203C364: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203C368
-FUN_0203C368: ; 0x0203C368
+	thumb_func_start ScrCmd_unk_178
+ScrCmd_unk_178: ; 0x0203C368
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -5341,8 +5341,8 @@ _0203C3C0:
 	.balign 4
 _0203C3C4: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203C3C8
-FUN_0203C3C8: ; 0x0203C3C8
+	thumb_func_start ScrCmd_unk_179
+ScrCmd_unk_179: ; 0x0203C3C8
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -5357,8 +5357,8 @@ FUN_0203C3C8: ; 0x0203C3C8
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203C3E8
-FUN_0203C3E8: ; 0x0203C3E8
+	thumb_func_start ScrCmd_unk_180
+ScrCmd_unk_180: ; 0x0203C3E8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5390,8 +5390,8 @@ FUN_0203C3E8: ; 0x0203C3E8
 	nop
 _0203C42C: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203C430
-FUN_0203C430: ; 0x0203C430
+	thumb_func_start ScrCmd_unk_181
+ScrCmd_unk_181: ; 0x0203C430
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5413,8 +5413,8 @@ FUN_0203C430: ; 0x0203C430
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203C460
-FUN_0203C460: ; 0x0203C460
+	thumb_func_start ScrCmd_unk_376
+ScrCmd_unk_376: ; 0x0203C460
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r1, [r5, #0x8]
@@ -5455,8 +5455,8 @@ _0203C492:
 	.balign 4
 _0203C4AC: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203C4B0
-FUN_0203C4B0: ; 0x0203C4B0
+	thumb_func_start ScrCmd_unk_377
+ScrCmd_unk_377: ; 0x0203C4B0
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -5485,8 +5485,8 @@ _0203C4DC:
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203C4F0
-FUN_0203C4F0: ; 0x0203C4F0
+	thumb_func_start ScrCmd_unk_186
+ScrCmd_unk_186: ; 0x0203C4F0
 	push {r3-r4, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -5509,8 +5509,8 @@ FUN_0203C4F0: ; 0x0203C4F0
 	pop {r3-r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C520
-FUN_0203C520: ; 0x0203C520
+	thumb_func_start ScrCmd_unk_187
+ScrCmd_unk_187: ; 0x0203C520
 	push {r4-r7, lr}
 	sub sp, #0x34
 	add r5, r0, #0x0
@@ -5557,8 +5557,8 @@ FUN_0203C520: ; 0x0203C520
 	add sp, #0x34
 	pop {r4-r7, pc}
 
-	thumb_func_start FUN_0203C58C
-FUN_0203C58C: ; 0x0203C58C
+	thumb_func_start ScrCmd_unk_625
+ScrCmd_unk_625: ; 0x0203C58C
 	push {r3-r4, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -5581,8 +5581,8 @@ FUN_0203C58C: ; 0x0203C58C
 	pop {r3-r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C5BC
-FUN_0203C5BC: ; 0x0203C5BC
+	thumb_func_start ScrCmd_unk_579
+ScrCmd_unk_579: ; 0x0203C5BC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -5620,8 +5620,8 @@ FUN_0203C5BC: ; 0x0203C5BC
 	nop
 _0203C610: .word 0x0000FFFF
 
-	thumb_func_start FUN_0203C614
-FUN_0203C614: ; 0x0203C614
+	thumb_func_start ScrCmd_unk_580
+ScrCmd_unk_580: ; 0x0203C614
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -5668,8 +5668,8 @@ FUN_0203C614: ; 0x0203C614
 	.balign 4
 _0203C67C: .word 0x0000FFFF
 
-	thumb_func_start FUN_0203C680
-FUN_0203C680: ; 0x0203C680
+	thumb_func_start ScrCmd_unk_581
+ScrCmd_unk_581: ; 0x0203C680
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5699,8 +5699,8 @@ FUN_0203C680: ; 0x0203C680
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C6C4
-FUN_0203C6C4: ; 0x0203C6C4
+	thumb_func_start ScrCmd_unk_188
+ScrCmd_unk_188: ; 0x0203C6C4
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -5731,8 +5731,8 @@ FUN_0203C6C4: ; 0x0203C6C4
 	add sp, #0xc
 	pop {r4-r7, pc}
 
-	thumb_func_start FUN_0203C70C
-FUN_0203C70C: ; 0x0203C70C
+	thumb_func_start ScrCmd_unk_189
+ScrCmd_unk_189: ; 0x0203C70C
 	push {r3, lr}
 	ldr r1, _0203C718 ; =FUN_0203C71C
 	bl SetupNativeScript
@@ -5754,8 +5754,8 @@ _0203C72A:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C730
-FUN_0203C730: ; 0x0203C730
+	thumb_func_start ScrCmd_unk_190
+ScrCmd_unk_190: ; 0x0203C730
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -5793,8 +5793,8 @@ FUN_0203C730: ; 0x0203C730
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203C788
-FUN_0203C788: ; 0x0203C788
+	thumb_func_start ScrCmd_unk_515
+ScrCmd_unk_515: ; 0x0203C788
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -5834,8 +5834,8 @@ FUN_0203C788: ; 0x0203C788
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203C7E4
-FUN_0203C7E4: ; 0x0203C7E4
+	thumb_func_start ScrCmd_unk_516
+ScrCmd_unk_516: ; 0x0203C7E4
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -5844,8 +5844,8 @@ FUN_0203C7E4: ; 0x0203C7E4
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203C7F4
-FUN_0203C7F4: ; 0x0203C7F4
+	thumb_func_start ScrCmd_unk_512
+ScrCmd_unk_512: ; 0x0203C7F4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -5865,8 +5865,8 @@ FUN_0203C7F4: ; 0x0203C7F4
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203C820
-FUN_0203C820: ; 0x0203C820
+	thumb_func_start ScrCmd_unk_513
+ScrCmd_unk_513: ; 0x0203C820
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -5884,8 +5884,8 @@ FUN_0203C820: ; 0x0203C820
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C844
-FUN_0203C844: ; 0x0203C844
+	thumb_func_start ScrCmd_unk_191
+ScrCmd_unk_191: ; 0x0203C844
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -5907,8 +5907,8 @@ FUN_0203C844: ; 0x0203C844
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203C874
-FUN_0203C874: ; 0x0203C874
+	thumb_func_start ScrCmd_unk_192
+ScrCmd_unk_192: ; 0x0203C874
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -5937,8 +5937,8 @@ FUN_0203C874: ; 0x0203C874
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C8B4
-FUN_0203C8B4: ; 0x0203C8B4
+	thumb_func_start ScrCmd_unk_193
+ScrCmd_unk_193: ; 0x0203C8B4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -5960,8 +5960,8 @@ FUN_0203C8B4: ; 0x0203C8B4
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203C8E4
-FUN_0203C8E4: ; 0x0203C8E4
+	thumb_func_start ScrCmd_unk_194
+ScrCmd_unk_194: ; 0x0203C8E4
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -5995,8 +5995,8 @@ FUN_0203C8E4: ; 0x0203C8E4
 	add sp, #0x8
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203C930
-FUN_0203C930: ; 0x0203C930
+	thumb_func_start ScrCmd_unk_195
+ScrCmd_unk_195: ; 0x0203C930
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -6018,8 +6018,8 @@ FUN_0203C930: ; 0x0203C930
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C960
-FUN_0203C960: ; 0x0203C960
+	thumb_func_start ScrCmd_unk_196
+ScrCmd_unk_196: ; 0x0203C960
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -6041,8 +6041,8 @@ FUN_0203C960: ; 0x0203C960
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203C990
-FUN_0203C990: ; 0x0203C990
+	thumb_func_start ScrCmd_unk_197
+ScrCmd_unk_197: ; 0x0203C990
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6108,16 +6108,16 @@ _0203CA1A:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CA20
-FUN_0203CA20: ; 0x0203CA20
+	thumb_func_start ScrCmd_unk_198
+ScrCmd_unk_198: ; 0x0203CA20
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl MOD05_021E7030
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203CA2C
-FUN_0203CA2C: ; 0x0203CA2C
+	thumb_func_start ScrCmd_unk_199
+ScrCmd_unk_199: ; 0x0203CA2C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -6142,8 +6142,8 @@ _0203CA56:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203CA5C
-FUN_0203CA5C: ; 0x0203CA5C
+	thumb_func_start ScrCmd_unk_200
+ScrCmd_unk_200: ; 0x0203CA5C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x8]
@@ -6208,8 +6208,8 @@ _0203CAE4:
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203CAE8
-FUN_0203CAE8: ; 0x0203CAE8
+	thumb_func_start ScrCmd_unk_703
+ScrCmd_unk_703: ; 0x0203CAE8
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -6225,8 +6225,8 @@ FUN_0203CAE8: ; 0x0203CAE8
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203CB08
-FUN_0203CB08: ; 0x0203CB08
+	thumb_func_start ScrCmd_unk_201
+ScrCmd_unk_201: ; 0x0203CB08
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -6239,8 +6239,8 @@ FUN_0203CB08: ; 0x0203CB08
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203CB20
-FUN_0203CB20: ; 0x0203CB20
+	thumb_func_start ScrCmd_unk_202
+ScrCmd_unk_202: ; 0x0203CB20
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -6259,8 +6259,8 @@ FUN_0203CB20: ; 0x0203CB20
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CB48
-FUN_0203CB48: ; 0x0203CB48
+	thumb_func_start ScrCmd_unk_203
+ScrCmd_unk_203: ; 0x0203CB48
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -6272,8 +6272,8 @@ FUN_0203CB48: ; 0x0203CB48
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203CB60
-FUN_0203CB60: ; 0x0203CB60
+	thumb_func_start ScrCmd_unk_204
+ScrCmd_unk_204: ; 0x0203CB60
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -6282,8 +6282,8 @@ FUN_0203CB60: ; 0x0203CB60
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203CB70
-FUN_0203CB70: ; 0x0203CB70
+	thumb_func_start ScrCmd_unk_227
+ScrCmd_unk_227: ; 0x0203CB70
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -6316,8 +6316,8 @@ FUN_0203CB70: ; 0x0203CB70
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CBBC
-FUN_0203CBBC: ; 0x0203CBBC
+	thumb_func_start ScrCmd_unk_222
+ScrCmd_unk_222: ; 0x0203CBBC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -6337,8 +6337,8 @@ FUN_0203CBBC: ; 0x0203CBBC
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CBE8
-FUN_0203CBE8: ; 0x0203CBE8
+	thumb_func_start ScrCmd_unk_230
+ScrCmd_unk_230: ; 0x0203CBE8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6405,8 +6405,8 @@ FUN_0203CBE8: ; 0x0203CBE8
 	.balign 4
 _0203CC84: .word FUN_0203A2F0 
 
-	thumb_func_start FUN_0203CC88
-FUN_0203CC88: ; 0x0203CC88
+	thumb_func_start ScrCmd_unk_242
+ScrCmd_unk_242: ; 0x0203CC88
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -6476,8 +6476,8 @@ _0203CD18:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CD20
-FUN_0203CD20: ; 0x0203CD20
+	thumb_func_start ScrCmd_unk_243
+ScrCmd_unk_243: ; 0x0203CD20
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -6547,24 +6547,24 @@ _0203CDB0:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CDB8
-FUN_0203CDB8: ; 0x0203CDB8
+	thumb_func_start ScrCmd_unk_244
+ScrCmd_unk_244: ; 0x0203CDB8
 	push {r3, lr}
 	bl ScriptReadHalfword
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CDC4
-FUN_0203CDC4: ; 0x0203CDC4
+	thumb_func_start ScrCmd_unk_245
+ScrCmd_unk_245: ; 0x0203CDC4
 	push {r3, lr}
 	bl ScriptReadHalfword
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CDD0
-FUN_0203CDD0: ; 0x0203CDD0
+	thumb_func_start ScrCmd_unk_246
+ScrCmd_unk_246: ; 0x0203CDD0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6587,16 +6587,16 @@ FUN_0203CDD0: ; 0x0203CDD0
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203CE00
-FUN_0203CE00: ; 0x0203CE00
+	thumb_func_start ScrCmd_unk_247
+ScrCmd_unk_247: ; 0x0203CE00
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_02080C38
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203CE0C
-FUN_0203CE0C: ; 0x0203CE0C
+	thumb_func_start ScrCmd_unk_283
+ScrCmd_unk_283: ; 0x0203CE0C
 	push {r3-r4, lr}
 	sub sp, #0x14
 	add r4, r0, #0x0
@@ -6650,8 +6650,8 @@ FUN_0203CE0C: ; 0x0203CE0C
 	pop {r3-r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CE8C
-FUN_0203CE8C: ; 0x0203CE8C
+	thumb_func_start ScrCmd_unk_284
+ScrCmd_unk_284: ; 0x0203CE8C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -6672,8 +6672,8 @@ FUN_0203CE8C: ; 0x0203CE8C
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203CEBC
-FUN_0203CEBC: ; 0x0203CEBC
+	thumb_func_start ScrCmd_unk_285
+ScrCmd_unk_285: ; 0x0203CEBC
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -6707,8 +6707,8 @@ FUN_0203CEBC: ; 0x0203CEBC
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203CF04
-FUN_0203CF04: ; 0x0203CF04
+	thumb_func_start ScrCmd_unk_286
+ScrCmd_unk_286: ; 0x0203CF04
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6730,8 +6730,8 @@ FUN_0203CF04: ; 0x0203CF04
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CF34
-FUN_0203CF34: ; 0x0203CF34
+	thumb_func_start ScrCmd_unk_287
+ScrCmd_unk_287: ; 0x0203CF34
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6753,8 +6753,8 @@ FUN_0203CF34: ; 0x0203CF34
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CF64
-FUN_0203CF64: ; 0x0203CF64
+	thumb_func_start ScrCmd_unk_288
+ScrCmd_unk_288: ; 0x0203CF64
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6776,8 +6776,8 @@ FUN_0203CF64: ; 0x0203CF64
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CF94
-FUN_0203CF94: ; 0x0203CF94
+	thumb_func_start ScrCmd_unk_289
+ScrCmd_unk_289: ; 0x0203CF94
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6799,13 +6799,13 @@ FUN_0203CF94: ; 0x0203CF94
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203CFC4
-FUN_0203CFC4: ; 0x0203CFC4
+	thumb_func_start ScrCmd_unk_290
+ScrCmd_unk_290: ; 0x0203CFC4
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_0203CFC8
-FUN_0203CFC8: ; 0x0203CFC8
+	thumb_func_start ScrCmd_unk_291
+ScrCmd_unk_291: ; 0x0203CFC8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6866,8 +6866,8 @@ _0203D048:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D050
-FUN_0203D050: ; 0x0203D050
+	thumb_func_start ScrCmd_unk_292
+ScrCmd_unk_292: ; 0x0203D050
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
@@ -6905,8 +6905,8 @@ FUN_0203D050: ; 0x0203D050
 	pop {r3-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D0A4
-FUN_0203D0A4: ; 0x0203D0A4
+	thumb_func_start ScrCmd_unk_701
+ScrCmd_unk_701: ; 0x0203D0A4
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
@@ -6944,8 +6944,8 @@ FUN_0203D0A4: ; 0x0203D0A4
 	pop {r3-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D0F8
-FUN_0203D0F8: ; 0x0203D0F8
+	thumb_func_start ScrCmd_unk_293
+ScrCmd_unk_293: ; 0x0203D0F8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -6972,16 +6972,16 @@ FUN_0203D0F8: ; 0x0203D0F8
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D134
-FUN_0203D134: ; 0x0203D134
+	thumb_func_start ScrCmd_unk_294
+ScrCmd_unk_294: ; 0x0203D134
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_020470AC
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203D140
-FUN_0203D140: ; 0x0203D140
+	thumb_func_start ScrCmd_unk_295
+ScrCmd_unk_295: ; 0x0203D140
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -6990,8 +6990,8 @@ FUN_0203D140: ; 0x0203D140
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D150
-FUN_0203D150: ; 0x0203D150
+	thumb_func_start ScrCmd_unk_296
+ScrCmd_unk_296: ; 0x0203D150
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -7010,8 +7010,8 @@ FUN_0203D150: ; 0x0203D150
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D178
-FUN_0203D178: ; 0x0203D178
+	thumb_func_start ScrCmd_unk_297
+ScrCmd_unk_297: ; 0x0203D178
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -7025,8 +7025,8 @@ FUN_0203D178: ; 0x0203D178
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D194
-FUN_0203D194: ; 0x0203D194
+	thumb_func_start ScrCmd_unk_298
+ScrCmd_unk_298: ; 0x0203D194
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -7035,8 +7035,8 @@ FUN_0203D194: ; 0x0203D194
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D1A4
-FUN_0203D1A4: ; 0x0203D1A4
+	thumb_func_start ScrCmd_unk_299
+ScrCmd_unk_299: ; 0x0203D1A4
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -7050,8 +7050,8 @@ FUN_0203D1A4: ; 0x0203D1A4
 	.balign 4
 _0203D1BC: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203D1C0
-FUN_0203D1C0: ; 0x0203D1C0
+	thumb_func_start ScrCmd_unk_300
+ScrCmd_unk_300: ; 0x0203D1C0
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -7094,8 +7094,8 @@ _0203D210:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203D214
-FUN_0203D214: ; 0x0203D214
+	thumb_func_start ScrCmd_unk_301
+ScrCmd_unk_301: ; 0x0203D214
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -7114,16 +7114,16 @@ FUN_0203D214: ; 0x0203D214
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D23C
-FUN_0203D23C: ; 0x0203D23C
+	thumb_func_start ScrCmd_unk_305
+ScrCmd_unk_305: ; 0x0203D23C
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl MOD05_021E3424
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203D248
-FUN_0203D248: ; 0x0203D248
+	thumb_func_start ScrCmd_unk_306
+ScrCmd_unk_306: ; 0x0203D248
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -7145,8 +7145,8 @@ FUN_0203D248: ; 0x0203D248
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D278
-FUN_0203D278: ; 0x0203D278
+	thumb_func_start ScrCmd_unk_307
+ScrCmd_unk_307: ; 0x0203D278
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -7166,8 +7166,8 @@ FUN_0203D278: ; 0x0203D278
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D2A4
-FUN_0203D2A4: ; 0x0203D2A4
+	thumb_func_start ScrCmd_unk_308
+ScrCmd_unk_308: ; 0x0203D2A4
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -7195,8 +7195,8 @@ FUN_0203D2A4: ; 0x0203D2A4
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203D2E4
-FUN_0203D2E4: ; 0x0203D2E4
+	thumb_func_start ScrCmd_unk_309
+ScrCmd_unk_309: ; 0x0203D2E4
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -7233,16 +7233,16 @@ _0203D324:
 	bl FUN_020315D8
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203D330
-FUN_0203D330: ; 0x0203D330
+	thumb_func_start ScrCmd_unk_310
+ScrCmd_unk_310: ; 0x0203D330
 	push {r3, lr}
 	bl FUN_0203168C
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D33C
-FUN_0203D33C: ; 0x0203D33C
+	thumb_func_start ScrCmd_unk_311
+ScrCmd_unk_311: ; 0x0203D33C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -7264,8 +7264,8 @@ FUN_0203D33C: ; 0x0203D33C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D36C
-FUN_0203D36C: ; 0x0203D36C
+	thumb_func_start ScrCmd_unk_312
+ScrCmd_unk_312: ; 0x0203D36C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -7291,8 +7291,8 @@ FUN_0203D36C: ; 0x0203D36C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D3A4
-FUN_0203D3A4: ; 0x0203D3A4
+	thumb_func_start ScrCmd_unk_313
+ScrCmd_unk_313: ; 0x0203D3A4
 	push {r4, lr}
 	bl ScriptReadHalfword
 	add r4, r0, #0x0
@@ -7321,8 +7321,8 @@ _0203D3D8:
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203D3DC
-FUN_0203D3DC: ; 0x0203D3DC
+	thumb_func_start ScrCmd_unk_316
+ScrCmd_unk_316: ; 0x0203D3DC
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -7371,8 +7371,8 @@ _0203D434:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D448
-FUN_0203D448: ; 0x0203D448
+	thumb_func_start ScrCmd_unk_317
+ScrCmd_unk_317: ; 0x0203D448
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -7381,8 +7381,8 @@ FUN_0203D448: ; 0x0203D448
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D458
-FUN_0203D458: ; 0x0203D458
+	thumb_func_start ScrCmd_unk_318
+ScrCmd_unk_318: ; 0x0203D458
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -7411,8 +7411,8 @@ _0203D48A:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D490
-FUN_0203D490: ; 0x0203D490
+	thumb_func_start ScrCmd_unk_319
+ScrCmd_unk_319: ; 0x0203D490
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -7451,8 +7451,8 @@ FUN_0203D490: ; 0x0203D490
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D4E8
-FUN_0203D4E8: ; 0x0203D4E8
+	thumb_func_start ScrCmd_unk_698
+ScrCmd_unk_698: ; 0x0203D4E8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -7482,8 +7482,8 @@ _0203D522:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D528
-FUN_0203D528: ; 0x0203D528
+	thumb_func_start ScrCmd_unk_320
+ScrCmd_unk_320: ; 0x0203D528
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -7508,8 +7508,8 @@ FUN_0203D528: ; 0x0203D528
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203D560
-FUN_0203D560: ; 0x0203D560
+	thumb_func_start ScrCmd_unk_326
+ScrCmd_unk_326: ; 0x0203D560
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -7544,8 +7544,8 @@ FUN_0203D560: ; 0x0203D560
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D5B0
-FUN_0203D5B0: ; 0x0203D5B0
+	thumb_func_start ScrCmd_unk_321
+ScrCmd_unk_321: ; 0x0203D5B0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -7582,8 +7582,8 @@ _0203D5F0:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D5F8
-FUN_0203D5F8: ; 0x0203D5F8
+	thumb_func_start ScrCmd_unk_322
+ScrCmd_unk_322: ; 0x0203D5F8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r1, [r0, #0x0]
@@ -7594,8 +7594,8 @@ FUN_0203D5F8: ; 0x0203D5F8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D60C
-FUN_0203D60C: ; 0x0203D60C
+	thumb_func_start ScrCmd_unk_314
+ScrCmd_unk_314: ; 0x0203D60C
 	push {r3, lr}
 	mov r0, #0x4
 	bl FUN_02052B74
@@ -7603,8 +7603,8 @@ FUN_0203D60C: ; 0x0203D60C
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203D61C
-FUN_0203D61C: ; 0x0203D61C
+	thumb_func_start ScrCmd_unk_315
+ScrCmd_unk_315: ; 0x0203D61C
 	push {r3, lr}
 	bl FUN_02031C64
 	bl FUN_02031B50
@@ -7613,8 +7613,8 @@ FUN_0203D61C: ; 0x0203D61C
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203D630
-FUN_0203D630: ; 0x0203D630
+	thumb_func_start ScrCmd_unk_323
+ScrCmd_unk_323: ; 0x0203D630
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -7641,8 +7641,8 @@ FUN_0203D630: ; 0x0203D630
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D66C
-FUN_0203D66C: ; 0x0203D66C
+	thumb_func_start ScrCmd_unk_324
+ScrCmd_unk_324: ; 0x0203D66C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -7686,8 +7686,8 @@ _0203D6BC:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D6C4
-FUN_0203D6C4: ; 0x0203D6C4
+	thumb_func_start ScrCmd_unk_325
+ScrCmd_unk_325: ; 0x0203D6C4
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -7738,8 +7738,8 @@ _0203D720:
 	.balign 4
 _0203D724: .word gMain
 
-	thumb_func_start FUN_0203D728
-FUN_0203D728: ; 0x0203D728
+	thumb_func_start ScrCmd_unk_339
+ScrCmd_unk_339: ; 0x0203D728
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -7748,8 +7748,8 @@ FUN_0203D728: ; 0x0203D728
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203D738
-FUN_0203D738: ; 0x0203D738
+	thumb_func_start ScrCmd_unk_340
+ScrCmd_unk_340: ; 0x0203D738
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -7775,8 +7775,8 @@ FUN_0203D738: ; 0x0203D738
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D774
-FUN_0203D774: ; 0x0203D774
+	thumb_func_start ScrCmd_unk_341
+ScrCmd_unk_341: ; 0x0203D774
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -7819,8 +7819,8 @@ FUN_0203D774: ; 0x0203D774
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D7DC
-FUN_0203D7DC: ; 0x0203D7DC
+	thumb_func_start ScrCmd_unk_668
+ScrCmd_unk_668: ; 0x0203D7DC
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -7857,8 +7857,8 @@ FUN_0203D7DC: ; 0x0203D7DC
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D834
-FUN_0203D834: ; 0x0203D834
+	thumb_func_start ScrCmd_unk_342
+ScrCmd_unk_342: ; 0x0203D834
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -7881,16 +7881,16 @@ FUN_0203D834: ; 0x0203D834
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D868
-FUN_0203D868: ; 0x0203D868
+	thumb_func_start ScrCmd_unk_331
+ScrCmd_unk_331: ; 0x0203D868
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_02048498
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203D874
-FUN_0203D874: ; 0x0203D874
+	thumb_func_start ScrCmd_unk_332
+ScrCmd_unk_332: ; 0x0203D874
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -7944,13 +7944,13 @@ ScrCmd_healparty: ; 0x0203D8D0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D8E8
-FUN_0203D8E8: ; 0x0203D8E8
+	thumb_func_start ScrCmd_unk_335
+ScrCmd_unk_335: ; 0x0203D8E8
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_0203D8EC
-FUN_0203D8EC: ; 0x0203D8EC
+	thumb_func_start ScrCmd_unk_336
+ScrCmd_unk_336: ; 0x0203D8EC
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl FUN_02050024
@@ -7978,8 +7978,8 @@ _0203D91A:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D920
-FUN_0203D920: ; 0x0203D920
+	thumb_func_start ScrCmd_unk_699
+ScrCmd_unk_699: ; 0x0203D920
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl FUN_02050048
@@ -7991,8 +7991,8 @@ FUN_0203D920: ; 0x0203D920
 	.balign 4
 _0203D934: .word FUN_0203D904 
 
-	thumb_func_start FUN_0203D938
-FUN_0203D938: ; 0x0203D938
+	thumb_func_start ScrCmd_unk_337
+ScrCmd_unk_337: ; 0x0203D938
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8001,8 +8001,8 @@ FUN_0203D938: ; 0x0203D938
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D948
-FUN_0203D948: ; 0x0203D948
+	thumb_func_start ScrCmd_unk_338
+ScrCmd_unk_338: ; 0x0203D948
 	push {r3, lr}
 	bl ScriptReadHalfword
 	bl FUN_0204F6DC
@@ -8010,8 +8010,8 @@ FUN_0203D948: ; 0x0203D948
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D958
-FUN_0203D958: ; 0x0203D958
+	thumb_func_start ScrCmd_unk_378
+ScrCmd_unk_378: ; 0x0203D958
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8039,8 +8039,8 @@ FUN_0203D958: ; 0x0203D958
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203D998
-FUN_0203D998: ; 0x0203D998
+	thumb_func_start ScrCmd_unk_390
+ScrCmd_unk_390: ; 0x0203D998
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8075,8 +8075,8 @@ FUN_0203D998: ; 0x0203D998
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203D9E8
-FUN_0203D9E8: ; 0x0203D9E8
+	thumb_func_start ScrCmd_unk_391
+ScrCmd_unk_391: ; 0x0203D9E8
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -8137,8 +8137,8 @@ FUN_0203D9E8: ; 0x0203D9E8
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DA78
-FUN_0203DA78: ; 0x0203DA78
+	thumb_func_start ScrCmd_unk_392
+ScrCmd_unk_392: ; 0x0203DA78
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8163,8 +8163,8 @@ FUN_0203DA78: ; 0x0203DA78
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203DAB0
-FUN_0203DAB0: ; 0x0203DAB0
+	thumb_func_start ScrCmd_unk_393
+ScrCmd_unk_393: ; 0x0203DAB0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8189,8 +8189,8 @@ FUN_0203DAB0: ; 0x0203DAB0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203DAE8
-FUN_0203DAE8: ; 0x0203DAE8
+	thumb_func_start ScrCmd_unk_394
+ScrCmd_unk_394: ; 0x0203DAE8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8225,8 +8225,8 @@ FUN_0203DAE8: ; 0x0203DAE8
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DB38
-FUN_0203DB38: ; 0x0203DB38
+	thumb_func_start ScrCmd_unk_395
+ScrCmd_unk_395: ; 0x0203DB38
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8261,8 +8261,8 @@ FUN_0203DB38: ; 0x0203DB38
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DB88
-FUN_0203DB88: ; 0x0203DB88
+	thumb_func_start ScrCmd_unk_396
+ScrCmd_unk_396: ; 0x0203DB88
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8296,8 +8296,8 @@ _0203DBC6:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DBD4
-FUN_0203DBD4: ; 0x0203DBD4
+	thumb_func_start ScrCmd_unk_399
+ScrCmd_unk_399: ; 0x0203DBD4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -8319,8 +8319,8 @@ _0203DBFC:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203DC00
-FUN_0203DC00: ; 0x0203DC00
+	thumb_func_start ScrCmd_unk_360
+ScrCmd_unk_360: ; 0x0203DC00
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8359,8 +8359,8 @@ FUN_0203DC00: ; 0x0203DC00
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DC58
-FUN_0203DC58: ; 0x0203DC58
+	thumb_func_start ScrCmd_unk_361
+ScrCmd_unk_361: ; 0x0203DC58
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -8373,8 +8373,8 @@ FUN_0203DC58: ; 0x0203DC58
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DC70
-FUN_0203DC70: ; 0x0203DC70
+	thumb_func_start ScrCmd_unk_362
+ScrCmd_unk_362: ; 0x0203DC70
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -8387,8 +8387,8 @@ FUN_0203DC70: ; 0x0203DC70
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DC88
-FUN_0203DC88: ; 0x0203DC88
+	thumb_func_start ScrCmd_unk_363
+ScrCmd_unk_363: ; 0x0203DC88
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -8401,8 +8401,8 @@ FUN_0203DC88: ; 0x0203DC88
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DCA0
-FUN_0203DCA0: ; 0x0203DCA0
+	thumb_func_start ScrCmd_unk_364
+ScrCmd_unk_364: ; 0x0203DCA0
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -8415,8 +8415,8 @@ FUN_0203DCA0: ; 0x0203DCA0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DCB8
-FUN_0203DCB8: ; 0x0203DCB8
+	thumb_func_start ScrCmd_unk_367
+ScrCmd_unk_367: ; 0x0203DCB8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8425,8 +8425,8 @@ FUN_0203DCB8: ; 0x0203DCB8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DCC8
-FUN_0203DCC8: ; 0x0203DCC8
+	thumb_func_start ScrCmd_unk_368
+ScrCmd_unk_368: ; 0x0203DCC8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8435,8 +8435,8 @@ FUN_0203DCC8: ; 0x0203DCC8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DCD8
-FUN_0203DCD8: ; 0x0203DCD8
+	thumb_func_start ScrCmd_unk_369
+ScrCmd_unk_369: ; 0x0203DCD8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8445,8 +8445,8 @@ FUN_0203DCD8: ; 0x0203DCD8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DCE8
-FUN_0203DCE8: ; 0x0203DCE8
+	thumb_func_start ScrCmd_unk_370
+ScrCmd_unk_370: ; 0x0203DCE8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8455,8 +8455,8 @@ FUN_0203DCE8: ; 0x0203DCE8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DCF8
-FUN_0203DCF8: ; 0x0203DCF8
+	thumb_func_start ScrCmd_unk_371
+ScrCmd_unk_371: ; 0x0203DCF8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8465,8 +8465,8 @@ FUN_0203DCF8: ; 0x0203DCF8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DD08
-FUN_0203DD08: ; 0x0203DD08
+	thumb_func_start ScrCmd_unk_372
+ScrCmd_unk_372: ; 0x0203DD08
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8475,8 +8475,8 @@ FUN_0203DD08: ; 0x0203DD08
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DD18
-FUN_0203DD18: ; 0x0203DD18
+	thumb_func_start ScrCmd_unk_373
+ScrCmd_unk_373: ; 0x0203DD18
 	push {r3, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -8491,8 +8491,8 @@ FUN_0203DD18: ; 0x0203DD18
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DD34
-FUN_0203DD34: ; 0x0203DD34
+	thumb_func_start ScrCmd_unk_374
+ScrCmd_unk_374: ; 0x0203DD34
 	push {r3, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -8507,8 +8507,8 @@ FUN_0203DD34: ; 0x0203DD34
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DD50
-FUN_0203DD50: ; 0x0203DD50
+	thumb_func_start ScrCmd_unk_428
+ScrCmd_unk_428: ; 0x0203DD50
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8517,8 +8517,8 @@ FUN_0203DD50: ; 0x0203DD50
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DD60
-FUN_0203DD60: ; 0x0203DD60
+	thumb_func_start ScrCmd_unk_414
+ScrCmd_unk_414: ; 0x0203DD60
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -8592,8 +8592,8 @@ _0203DDF6:
 	nop
 _0203DDFC: .word 0x0000FFFE
 
-	thumb_func_start FUN_0203DE00
-FUN_0203DE00: ; 0x0203DE00
+	thumb_func_start ScrCmd_unk_415
+ScrCmd_unk_415: ; 0x0203DE00
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -8629,16 +8629,16 @@ FUN_0203DE38: ; 0x0203DE38
 	bl FUN_020546C8
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203DE4C
-FUN_0203DE4C: ; 0x0203DE4C
+	thumb_func_start ScrCmd_unk_416
+ScrCmd_unk_416: ; 0x0203DE4C
 	push {r3, lr}
 	bl MOD11_0224CA94
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DE58
-FUN_0203DE58: ; 0x0203DE58
+	thumb_func_start ScrCmd_unk_417
+ScrCmd_unk_417: ; 0x0203DE58
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r2, [r4, #0x8]
@@ -8657,8 +8657,8 @@ FUN_0203DE58: ; 0x0203DE58
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DE80
-FUN_0203DE80: ; 0x0203DE80
+	thumb_func_start ScrCmd_unk_418
+ScrCmd_unk_418: ; 0x0203DE80
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r2, [r4, #0x8]
@@ -8677,8 +8677,8 @@ FUN_0203DE80: ; 0x0203DE80
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DEA8
-FUN_0203DEA8: ; 0x0203DEA8
+	thumb_func_start ScrCmd_unk_63
+ScrCmd_unk_63: ; 0x0203DEA8
 	push {r3, lr}
 	sub sp, #0x8
 	mov r3, #0x0
@@ -8693,8 +8693,8 @@ FUN_0203DEA8: ; 0x0203DEA8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203DEC4
-FUN_0203DEC4: ; 0x0203DEC4
+	thumb_func_start ScrCmd_unk_433
+ScrCmd_unk_433: ; 0x0203DEC4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -8718,8 +8718,8 @@ _0203DEEC:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203DEF8
-FUN_0203DEF8: ; 0x0203DEF8
+	thumb_func_start ScrCmd_unk_434
+ScrCmd_unk_434: ; 0x0203DEF8
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -8743,16 +8743,16 @@ _0203DF20:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203DF2C
-FUN_0203DF2C: ; 0x0203DF2C
+	thumb_func_start ScrCmd_unk_435
+ScrCmd_unk_435: ; 0x0203DF2C
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_02066818
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203DF38
-FUN_0203DF38: ; 0x0203DF38
+	thumb_func_start ScrCmd_unk_436
+ScrCmd_unk_436: ; 0x0203DF38
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -8772,8 +8772,8 @@ FUN_0203DF38: ; 0x0203DF38
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203DF64
-FUN_0203DF64: ; 0x0203DF64
+	thumb_func_start ScrCmd_unk_437
+ScrCmd_unk_437: ; 0x0203DF64
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -8788,8 +8788,8 @@ FUN_0203DF64: ; 0x0203DF64
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203DF84
-FUN_0203DF84: ; 0x0203DF84
+	thumb_func_start ScrCmd_unk_438
+ScrCmd_unk_438: ; 0x0203DF84
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -8806,8 +8806,8 @@ FUN_0203DF84: ; 0x0203DF84
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203DFA8
-FUN_0203DFA8: ; 0x0203DFA8
+	thumb_func_start ScrCmd_unk_439
+ScrCmd_unk_439: ; 0x0203DFA8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8831,8 +8831,8 @@ FUN_0203DFA8: ; 0x0203DFA8
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203DFE0
-FUN_0203DFE0: ; 0x0203DFE0
+	thumb_func_start ScrCmd_unk_440
+ScrCmd_unk_440: ; 0x0203DFE0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -8856,8 +8856,8 @@ FUN_0203DFE0: ; 0x0203DFE0
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203E018
-FUN_0203E018: ; 0x0203E018
+	thumb_func_start ScrCmd_unk_449
+ScrCmd_unk_449: ; 0x0203E018
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -8884,8 +8884,8 @@ FUN_0203E018: ; 0x0203E018
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E054
-FUN_0203E054: ; 0x0203E054
+	thumb_func_start ScrCmd_unk_450
+ScrCmd_unk_450: ; 0x0203E054
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -8902,8 +8902,8 @@ FUN_0203E054: ; 0x0203E054
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203E078
-FUN_0203E078: ; 0x0203E078
+	thumb_func_start ScrCmd_unk_451
+ScrCmd_unk_451: ; 0x0203E078
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -8940,8 +8940,8 @@ FUN_0203E078: ; 0x0203E078
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203E0CC
-FUN_0203E0CC: ; 0x0203E0CC
+	thumb_func_start ScrCmd_unk_452
+ScrCmd_unk_452: ; 0x0203E0CC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -8978,8 +8978,8 @@ FUN_0203E0CC: ; 0x0203E0CC
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203E120
-FUN_0203E120: ; 0x0203E120
+	thumb_func_start ScrCmd_unk_453
+ScrCmd_unk_453: ; 0x0203E120
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -8991,8 +8991,8 @@ FUN_0203E120: ; 0x0203E120
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203E138
-FUN_0203E138: ; 0x0203E138
+	thumb_func_start ScrCmd_unk_460
+ScrCmd_unk_460: ; 0x0203E138
 	push {r4, lr}
 	add r0, #0x80
 	ldr r4, [r0, #0x0]
@@ -9013,8 +9013,8 @@ FUN_0203E138: ; 0x0203E138
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E168
-FUN_0203E168: ; 0x0203E168
+	thumb_func_start ScrCmd_unk_461
+ScrCmd_unk_461: ; 0x0203E168
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -9125,13 +9125,13 @@ _0203E23E:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E254
-FUN_0203E254: ; 0x0203E254
+	thumb_func_start ScrCmd_unk_462
+ScrCmd_unk_462: ; 0x0203E254
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_0203E258
-FUN_0203E258: ; 0x0203E258
+	thumb_func_start ScrCmd_unk_466
+ScrCmd_unk_466: ; 0x0203E258
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9160,8 +9160,8 @@ FUN_0203E258: ; 0x0203E258
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203E29C
-FUN_0203E29C: ; 0x0203E29C
+	thumb_func_start ScrCmd_unk_467
+ScrCmd_unk_467: ; 0x0203E29C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9200,8 +9200,8 @@ FUN_0203E29C: ; 0x0203E29C
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E2F8
-FUN_0203E2F8: ; 0x0203E2F8
+	thumb_func_start ScrCmd_unk_468
+ScrCmd_unk_468: ; 0x0203E2F8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9246,8 +9246,8 @@ _0203E354:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E35C
-FUN_0203E35C: ; 0x0203E35C
+	thumb_func_start ScrCmd_unk_469
+ScrCmd_unk_469: ; 0x0203E35C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9268,8 +9268,8 @@ FUN_0203E35C: ; 0x0203E35C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E38C
-FUN_0203E38C: ; 0x0203E38C
+	thumb_func_start ScrCmd_unk_470
+ScrCmd_unk_470: ; 0x0203E38C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9298,8 +9298,8 @@ FUN_0203E38C: ; 0x0203E38C
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203E3D0
-FUN_0203E3D0: ; 0x0203E3D0
+	thumb_func_start ScrCmd_unk_488
+ScrCmd_unk_488: ; 0x0203E3D0
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -9326,8 +9326,8 @@ _0203E404:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203E408
-FUN_0203E408: ; 0x0203E408
+	thumb_func_start ScrCmd_unk_489
+ScrCmd_unk_489: ; 0x0203E408
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -9354,8 +9354,8 @@ _0203E43C:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203E440
-FUN_0203E440: ; 0x0203E440
+	thumb_func_start ScrCmd_unk_490
+ScrCmd_unk_490: ; 0x0203E440
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -9378,8 +9378,8 @@ FUN_0203E440: ; 0x0203E440
 	.balign 4
 _0203E46C: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203E470
-FUN_0203E470: ; 0x0203E470
+	thumb_func_start ScrCmd_unk_491
+ScrCmd_unk_491: ; 0x0203E470
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -9402,8 +9402,8 @@ FUN_0203E470: ; 0x0203E470
 	.balign 4
 _0203E49C: .word FUN_0203BB90 
 
-	thumb_func_start FUN_0203E4A0
-FUN_0203E4A0: ; 0x0203E4A0
+	thumb_func_start ScrCmd_unk_492
+ScrCmd_unk_492: ; 0x0203E4A0
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -9412,8 +9412,8 @@ FUN_0203E4A0: ; 0x0203E4A0
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203E4B0
-FUN_0203E4B0: ; 0x0203E4B0
+	thumb_func_start ScrCmd_unk_493
+ScrCmd_unk_493: ; 0x0203E4B0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9432,8 +9432,8 @@ FUN_0203E4B0: ; 0x0203E4B0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E4D8
-FUN_0203E4D8: ; 0x0203E4D8
+	thumb_func_start ScrCmd_unk_495
+ScrCmd_unk_495: ; 0x0203E4D8
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -9445,8 +9445,8 @@ FUN_0203E4D8: ; 0x0203E4D8
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E4F0
-FUN_0203E4F0: ; 0x0203E4F0
+	thumb_func_start ScrCmd_unk_485
+ScrCmd_unk_485: ; 0x0203E4F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9461,8 +9461,8 @@ FUN_0203E4F0: ; 0x0203E4F0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E510
-FUN_0203E510: ; 0x0203E510
+	thumb_func_start ScrCmd_unk_486
+ScrCmd_unk_486: ; 0x0203E510
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9501,8 +9501,8 @@ FUN_0203E510: ; 0x0203E510
 	.balign 4
 _0203E564: .word 0xFFFF0000
 
-	thumb_func_start FUN_0203E568
-FUN_0203E568: ; 0x0203E568
+	thumb_func_start ScrCmd_unk_487
+ScrCmd_unk_487: ; 0x0203E568
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9557,8 +9557,8 @@ _0203E5D6:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E5DC
-FUN_0203E5DC: ; 0x0203E5DC
+	thumb_func_start ScrCmd_unk_514
+ScrCmd_unk_514: ; 0x0203E5DC
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -9628,8 +9628,8 @@ _0203E66E:
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203E674
-FUN_0203E674: ; 0x0203E674
+	thumb_func_start ScrCmd_unk_518
+ScrCmd_unk_518: ; 0x0203E674
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -9638,8 +9638,8 @@ FUN_0203E674: ; 0x0203E674
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E684
-FUN_0203E684: ; 0x0203E684
+	thumb_func_start ScrCmd_unk_525
+ScrCmd_unk_525: ; 0x0203E684
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r2, [r5, #0x8]
@@ -9662,8 +9662,8 @@ FUN_0203E684: ; 0x0203E684
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E6B4
-FUN_0203E6B4: ; 0x0203E6B4
+	thumb_func_start ScrCmd_unk_526
+ScrCmd_unk_526: ; 0x0203E6B4
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -9672,8 +9672,8 @@ FUN_0203E6B4: ; 0x0203E6B4
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E6C4
-FUN_0203E6C4: ; 0x0203E6C4
+	thumb_func_start ScrCmd_unk_527
+ScrCmd_unk_527: ; 0x0203E6C4
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9698,8 +9698,8 @@ FUN_0203E6C4: ; 0x0203E6C4
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203E6FC
-FUN_0203E6FC: ; 0x0203E6FC
+	thumb_func_start ScrCmd_unk_528
+ScrCmd_unk_528: ; 0x0203E6FC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9721,8 +9721,8 @@ FUN_0203E6FC: ; 0x0203E6FC
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E72C
-FUN_0203E72C: ; 0x0203E72C
+	thumb_func_start ScrCmd_unk_529
+ScrCmd_unk_529: ; 0x0203E72C
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -9735,8 +9735,8 @@ FUN_0203E72C: ; 0x0203E72C
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203E744
-FUN_0203E744: ; 0x0203E744
+	thumb_func_start ScrCmd_unk_532
+ScrCmd_unk_532: ; 0x0203E744
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -9758,8 +9758,8 @@ FUN_0203E744: ; 0x0203E744
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E774
-FUN_0203E774: ; 0x0203E774
+	thumb_func_start ScrCmd_unk_536
+ScrCmd_unk_536: ; 0x0203E774
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -9819,8 +9819,8 @@ _0203E7E8:
 	.balign 4
 _0203E7EC: .word 0x000001ED
 
-	thumb_func_start FUN_0203E7F0
-FUN_0203E7F0: ; 0x0203E7F0
+	thumb_func_start ScrCmd_unk_537
+ScrCmd_unk_537: ; 0x0203E7F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9840,8 +9840,8 @@ FUN_0203E7F0: ; 0x0203E7F0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E81C
-FUN_0203E81C: ; 0x0203E81C
+	thumb_func_start ScrCmd_unk_538
+ScrCmd_unk_538: ; 0x0203E81C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9861,8 +9861,8 @@ FUN_0203E81C: ; 0x0203E81C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E848
-FUN_0203E848: ; 0x0203E848
+	thumb_func_start ScrCmd_unk_539
+ScrCmd_unk_539: ; 0x0203E848
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -9871,8 +9871,8 @@ FUN_0203E848: ; 0x0203E848
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203E858
-FUN_0203E858: ; 0x0203E858
+	thumb_func_start ScrCmd_unk_540
+ScrCmd_unk_540: ; 0x0203E858
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -9885,8 +9885,8 @@ FUN_0203E858: ; 0x0203E858
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203E870
-FUN_0203E870: ; 0x0203E870
+	thumb_func_start ScrCmd_unk_550
+ScrCmd_unk_550: ; 0x0203E870
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -9904,8 +9904,8 @@ FUN_0203E870: ; 0x0203E870
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203E894
-FUN_0203E894: ; 0x0203E894
+	thumb_func_start ScrCmd_unk_551
+ScrCmd_unk_551: ; 0x0203E894
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -9927,8 +9927,8 @@ FUN_0203E894: ; 0x0203E894
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E8C4
-FUN_0203E8C4: ; 0x0203E8C4
+	thumb_func_start ScrCmd_unk_552
+ScrCmd_unk_552: ; 0x0203E8C4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -9950,8 +9950,8 @@ FUN_0203E8C4: ; 0x0203E8C4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E8F4
-FUN_0203E8F4: ; 0x0203E8F4
+	thumb_func_start ScrCmd_unk_553
+ScrCmd_unk_553: ; 0x0203E8F4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -9975,8 +9975,8 @@ FUN_0203E8F4: ; 0x0203E8F4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E928
-FUN_0203E928: ; 0x0203E928
+	thumb_func_start ScrCmd_unk_554
+ScrCmd_unk_554: ; 0x0203E928
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -9988,8 +9988,8 @@ FUN_0203E928: ; 0x0203E928
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203E940
-FUN_0203E940: ; 0x0203E940
+	thumb_func_start ScrCmd_unk_555
+ScrCmd_unk_555: ; 0x0203E940
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -9999,8 +9999,8 @@ FUN_0203E940: ; 0x0203E940
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203E954
-FUN_0203E954: ; 0x0203E954
+	thumb_func_start ScrCmd_unk_556
+ScrCmd_unk_556: ; 0x0203E954
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10010,8 +10010,8 @@ FUN_0203E954: ; 0x0203E954
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203E968
-FUN_0203E968: ; 0x0203E968
+	thumb_func_start ScrCmd_unk_557
+ScrCmd_unk_557: ; 0x0203E968
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r2, [r5, #0x8]
@@ -10057,8 +10057,8 @@ _0203E9C8:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203E9CC
-FUN_0203E9CC: ; 0x0203E9CC
+	thumb_func_start ScrCmd_unk_563
+ScrCmd_unk_563: ; 0x0203E9CC
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -10126,8 +10126,8 @@ FUN_0203E9CC: ; 0x0203E9CC
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EA68
-FUN_0203EA68: ; 0x0203EA68
+	thumb_func_start ScrCmd_unk_564
+ScrCmd_unk_564: ; 0x0203EA68
 	push {r4, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -10146,8 +10146,8 @@ FUN_0203EA68: ; 0x0203EA68
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EA90
-FUN_0203EA90: ; 0x0203EA90
+	thumb_func_start ScrCmd_unk_569
+ScrCmd_unk_569: ; 0x0203EA90
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -10162,8 +10162,8 @@ FUN_0203EA90: ; 0x0203EA90
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203EAB0
-FUN_0203EAB0: ; 0x0203EAB0
+	thumb_func_start ScrCmd_unk_570
+ScrCmd_unk_570: ; 0x0203EAB0
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -10210,8 +10210,8 @@ FUN_0203EAB0: ; 0x0203EAB0
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EB20
-FUN_0203EB20: ; 0x0203EB20
+	thumb_func_start ScrCmd_unk_571
+ScrCmd_unk_571: ; 0x0203EB20
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -10230,8 +10230,8 @@ FUN_0203EB20: ; 0x0203EB20
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EB48
-FUN_0203EB48: ; 0x0203EB48
+	thumb_func_start ScrCmd_unk_572
+ScrCmd_unk_572: ; 0x0203EB48
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -10260,8 +10260,8 @@ FUN_0203EB48: ; 0x0203EB48
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EB88
-FUN_0203EB88: ; 0x0203EB88
+	thumb_func_start ScrCmd_unk_573
+ScrCmd_unk_573: ; 0x0203EB88
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -10397,8 +10397,8 @@ _0203ECA2:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203ECAC
-FUN_0203ECAC: ; 0x0203ECAC
+	thumb_func_start ScrCmd_unk_586
+ScrCmd_unk_586: ; 0x0203ECAC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -10418,8 +10418,8 @@ FUN_0203ECAC: ; 0x0203ECAC
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203ECD8
-FUN_0203ECD8: ; 0x0203ECD8
+	thumb_func_start ScrCmd_unk_587
+ScrCmd_unk_587: ; 0x0203ECD8
 	push {r3, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -10434,8 +10434,8 @@ FUN_0203ECD8: ; 0x0203ECD8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203ECF4
-FUN_0203ECF4: ; 0x0203ECF4
+	thumb_func_start ScrCmd_unk_588
+ScrCmd_unk_588: ; 0x0203ECF4
 	push {r3, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -10450,8 +10450,8 @@ FUN_0203ECF4: ; 0x0203ECF4
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203ED10
-FUN_0203ED10: ; 0x0203ED10
+	thumb_func_start ScrCmd_unk_589
+ScrCmd_unk_589: ; 0x0203ED10
 	push {r3, lr}
 	add r1, r0, #0x0
 	add r1, #0x80
@@ -10522,8 +10522,8 @@ ScrCmd_pcfreespace: ; 0x0203ED70
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203EDA4
-FUN_0203EDA4: ; 0x0203EDA4
+	thumb_func_start ScrCmd_unk_600
+ScrCmd_unk_600: ; 0x0203EDA4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -10541,8 +10541,8 @@ FUN_0203EDA4: ; 0x0203EDA4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EDC8
-FUN_0203EDC8: ; 0x0203EDC8
+	thumb_func_start ScrCmd_unk_601
+ScrCmd_unk_601: ; 0x0203EDC8
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10554,8 +10554,8 @@ FUN_0203EDC8: ; 0x0203EDC8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EDE0
-FUN_0203EDE0: ; 0x0203EDE0
+	thumb_func_start ScrCmd_unk_602
+ScrCmd_unk_602: ; 0x0203EDE0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -10574,8 +10574,8 @@ FUN_0203EDE0: ; 0x0203EDE0
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EE08
-FUN_0203EE08: ; 0x0203EE08
+	thumb_func_start ScrCmd_unk_603
+ScrCmd_unk_603: ; 0x0203EE08
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10584,8 +10584,8 @@ FUN_0203EE08: ; 0x0203EE08
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EE18
-FUN_0203EE18: ; 0x0203EE18
+	thumb_func_start ScrCmd_unk_604
+ScrCmd_unk_604: ; 0x0203EE18
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10594,8 +10594,8 @@ FUN_0203EE18: ; 0x0203EE18
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EE28
-FUN_0203EE28: ; 0x0203EE28
+	thumb_func_start ScrCmd_unk_605
+ScrCmd_unk_605: ; 0x0203EE28
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -10620,8 +10620,8 @@ _0203EE50:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EE58
-FUN_0203EE58: ; 0x0203EE58
+	thumb_func_start ScrCmd_unk_606
+ScrCmd_unk_606: ; 0x0203EE58
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10630,8 +10630,8 @@ FUN_0203EE58: ; 0x0203EE58
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EE68
-FUN_0203EE68: ; 0x0203EE68
+	thumb_func_start ScrCmd_unk_607
+ScrCmd_unk_607: ; 0x0203EE68
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10640,8 +10640,8 @@ FUN_0203EE68: ; 0x0203EE68
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EE78
-FUN_0203EE78: ; 0x0203EE78
+	thumb_func_start ScrCmd_unk_608
+ScrCmd_unk_608: ; 0x0203EE78
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -10656,8 +10656,8 @@ FUN_0203EE78: ; 0x0203EE78
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203EE98
-FUN_0203EE98: ; 0x0203EE98
+	thumb_func_start ScrCmd_unk_610
+ScrCmd_unk_610: ; 0x0203EE98
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -10685,8 +10685,8 @@ FUN_0203EE98: ; 0x0203EE98
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203EED8
-FUN_0203EED8: ; 0x0203EED8
+	thumb_func_start ScrCmd_unk_611
+ScrCmd_unk_611: ; 0x0203EED8
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -10745,8 +10745,8 @@ _0203EF4E:
 	.balign 4
 _0203EF54: .word 0x00000182
 
-	thumb_func_start FUN_0203EF58
-FUN_0203EF58: ; 0x0203EF58
+	thumb_func_start ScrCmd_unk_612
+ScrCmd_unk_612: ; 0x0203EF58
 	push {r3-r7, lr}
 	sub sp, #0x30
 	add r4, r0, #0x0
@@ -10837,8 +10837,8 @@ _0203EFFC:
 	.balign 4
 _0203F008: .word UNK_020F34FC
 
-	thumb_func_start FUN_0203F00C
-FUN_0203F00C: ; 0x0203F00C
+	thumb_func_start ScrCmd_unk_613
+ScrCmd_unk_613: ; 0x0203F00C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10848,8 +10848,8 @@ FUN_0203F00C: ; 0x0203F00C
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203F020
-FUN_0203F020: ; 0x0203F020
+	thumb_func_start ScrCmd_unk_614
+ScrCmd_unk_614: ; 0x0203F020
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10859,8 +10859,8 @@ FUN_0203F020: ; 0x0203F020
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203F034
-FUN_0203F034: ; 0x0203F034
+	thumb_func_start ScrCmd_unk_615
+ScrCmd_unk_615: ; 0x0203F034
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -10877,8 +10877,8 @@ FUN_0203F034: ; 0x0203F034
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203F058
-FUN_0203F058: ; 0x0203F058
+	thumb_func_start ScrCmd_unk_616
+ScrCmd_unk_616: ; 0x0203F058
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -10895,8 +10895,8 @@ FUN_0203F058: ; 0x0203F058
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203F07C
-FUN_0203F07C: ; 0x0203F07C
+	thumb_func_start ScrCmd_unk_617
+ScrCmd_unk_617: ; 0x0203F07C
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
@@ -10960,8 +10960,8 @@ _0203F0FA:
 	add sp, #0x10
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203F110
-FUN_0203F110: ; 0x0203F110
+	thumb_func_start ScrCmd_unk_618
+ScrCmd_unk_618: ; 0x0203F110
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -11005,8 +11005,8 @@ _0203F164:
 	mov r0, #0x1
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203F174
-FUN_0203F174: ; 0x0203F174
+	thumb_func_start ScrCmd_unk_619
+ScrCmd_unk_619: ; 0x0203F174
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11025,8 +11025,8 @@ FUN_0203F174: ; 0x0203F174
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F19C
-FUN_0203F19C: ; 0x0203F19C
+	thumb_func_start ScrCmd_unk_620
+ScrCmd_unk_620: ; 0x0203F19C
 	push {r4-r7, lr}
 	sub sp, #0x24
 	add r4, r0, #0x0
@@ -11102,8 +11102,8 @@ _0203F222:
 	nop
 _0203F230: .word 0x0000FFFF
 
-	thumb_func_start FUN_0203F234
-FUN_0203F234: ; 0x0203F234
+	thumb_func_start ScrCmd_unk_622
+ScrCmd_unk_622: ; 0x0203F234
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -11119,8 +11119,8 @@ FUN_0203F234: ; 0x0203F234
 	.balign 4
 _0203F250: .word gMain + 0x60
 
-	thumb_func_start FUN_0203F254
-FUN_0203F254: ; 0x0203F254
+	thumb_func_start ScrCmd_unk_623
+ScrCmd_unk_623: ; 0x0203F254
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -11132,8 +11132,8 @@ FUN_0203F254: ; 0x0203F254
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F26C
-FUN_0203F26C: ; 0x0203F26C
+	thumb_func_start ScrCmd_unk_624
+ScrCmd_unk_624: ; 0x0203F26C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11164,8 +11164,8 @@ _0203F2A6:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F2AC
-FUN_0203F2AC: ; 0x0203F2AC
+	thumb_func_start ScrCmd_unk_627
+ScrCmd_unk_627: ; 0x0203F2AC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -11191,8 +11191,8 @@ FUN_0203F2AC: ; 0x0203F2AC
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F2E4
-FUN_0203F2E4: ; 0x0203F2E4
+	thumb_func_start ScrCmd_unk_629
+ScrCmd_unk_629: ; 0x0203F2E4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -11220,8 +11220,8 @@ _0203F316:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203F31C
-FUN_0203F31C: ; 0x0203F31C
+	thumb_func_start ScrCmd_unk_631
+ScrCmd_unk_631: ; 0x0203F31C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11241,8 +11241,8 @@ FUN_0203F31C: ; 0x0203F31C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F348
-FUN_0203F348: ; 0x0203F348
+	thumb_func_start ScrCmd_unk_633
+ScrCmd_unk_633: ; 0x0203F348
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11271,8 +11271,8 @@ FUN_0203F348: ; 0x0203F348
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203F38C
-FUN_0203F38C: ; 0x0203F38C
+	thumb_func_start ScrCmd_unk_634
+ScrCmd_unk_634: ; 0x0203F38C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -11281,8 +11281,8 @@ FUN_0203F38C: ; 0x0203F38C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F39C
-FUN_0203F39C: ; 0x0203F39C
+	thumb_func_start ScrCmd_unk_635
+ScrCmd_unk_635: ; 0x0203F39C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -11291,8 +11291,8 @@ FUN_0203F39C: ; 0x0203F39C
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0203F3AC
-FUN_0203F3AC: ; 0x0203F3AC
+	thumb_func_start ScrCmd_unk_637
+ScrCmd_unk_637: ; 0x0203F3AC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11339,8 +11339,8 @@ _0203F3FE:
 	nop
 _0203F414: .word 0x0000FFFF
 
-	thumb_func_start FUN_0203F418
-FUN_0203F418: ; 0x0203F418
+	thumb_func_start ScrCmd_unk_639
+ScrCmd_unk_639: ; 0x0203F418
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11366,8 +11366,8 @@ _0203F446:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203F44C
-FUN_0203F44C: ; 0x0203F44C
+	thumb_func_start ScrCmd_unk_638
+ScrCmd_unk_638: ; 0x0203F44C
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -11395,8 +11395,8 @@ _0203F47E:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203F484
-FUN_0203F484: ; 0x0203F484
+	thumb_func_start ScrCmd_unk_642
+ScrCmd_unk_642: ; 0x0203F484
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11435,8 +11435,8 @@ _0203F4D2:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F4D8
-FUN_0203F4D8: ; 0x0203F4D8
+	thumb_func_start ScrCmd_unk_644
+ScrCmd_unk_644: ; 0x0203F4D8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -11458,8 +11458,8 @@ FUN_0203F4D8: ; 0x0203F4D8
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F508
-FUN_0203F508: ; 0x0203F508
+	thumb_func_start ScrCmd_unk_645
+ScrCmd_unk_645: ; 0x0203F508
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	bl ScriptReadHalfword
@@ -11562,8 +11562,8 @@ _0203F5C8: .word 0x0000010E
 _0203F5CC: .word 0x0000010D
 _0203F5D0: .word UNK_020F3538
 
-	thumb_func_start FUN_0203F5D4
-FUN_0203F5D4: ; 0x0203F5D4
+	thumb_func_start ScrCmd_unk_646
+ScrCmd_unk_646: ; 0x0203F5D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -11585,8 +11585,8 @@ FUN_0203F5D4: ; 0x0203F5D4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F604
-FUN_0203F604: ; 0x0203F604
+	thumb_func_start ScrCmd_unk_647
+ScrCmd_unk_647: ; 0x0203F604
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -11608,8 +11608,8 @@ FUN_0203F604: ; 0x0203F604
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F634
-FUN_0203F634: ; 0x0203F634
+	thumb_func_start ScrCmd_unk_648
+ScrCmd_unk_648: ; 0x0203F634
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -11631,8 +11631,8 @@ FUN_0203F634: ; 0x0203F634
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F664
-FUN_0203F664: ; 0x0203F664
+	thumb_func_start ScrCmd_unk_649
+ScrCmd_unk_649: ; 0x0203F664
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -11694,8 +11694,8 @@ _0203F6DA:
 	.balign 4
 _0203F6E0: .word 0x0000FFFF
 
-	thumb_func_start FUN_0203F6E4
-FUN_0203F6E4: ; 0x0203F6E4
+	thumb_func_start ScrCmd_unk_650
+ScrCmd_unk_650: ; 0x0203F6E4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11724,8 +11724,8 @@ _0203F714:
 	nop
 _0203F71C: .word 0x0000FFFF
 
-	thumb_func_start FUN_0203F720
-FUN_0203F720: ; 0x0203F720
+	thumb_func_start ScrCmd_unk_651
+ScrCmd_unk_651: ; 0x0203F720
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r2, [r5, #0x8]
@@ -11755,8 +11755,8 @@ _0203F752:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203F760
-FUN_0203F760: ; 0x0203F760
+	thumb_func_start ScrCmd_unk_655
+ScrCmd_unk_655: ; 0x0203F760
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -11806,8 +11806,8 @@ _0203F7BE:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F7C8
-FUN_0203F7C8: ; 0x0203F7C8
+	thumb_func_start ScrCmd_unk_656
+ScrCmd_unk_656: ; 0x0203F7C8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11838,8 +11838,8 @@ FUN_0203F7C8: ; 0x0203F7C8
 	.balign 4
 _0203F808: .word FUN_0203BC04 
 
-	thumb_func_start FUN_0203F80C
-FUN_0203F80C: ; 0x0203F80C
+	thumb_func_start ScrCmd_unk_657
+ScrCmd_unk_657: ; 0x0203F80C
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -11894,8 +11894,8 @@ _0203F872:
 	str r0, [r4, #0x0]
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0203F880
-FUN_0203F880: ; 0x0203F880
+	thumb_func_start ScrCmd_unk_658
+ScrCmd_unk_658: ; 0x0203F880
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r2, [r5, #0x8]
@@ -11928,8 +11928,8 @@ _0203F8BA:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203F8C0
-FUN_0203F8C0: ; 0x0203F8C0
+	thumb_func_start ScrCmd_unk_670
+ScrCmd_unk_670: ; 0x0203F8C0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -11978,8 +11978,8 @@ _0203F91E:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F924
-FUN_0203F924: ; 0x0203F924
+	thumb_func_start ScrCmd_unk_659
+ScrCmd_unk_659: ; 0x0203F924
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -12001,8 +12001,8 @@ FUN_0203F924: ; 0x0203F924
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F954
-FUN_0203F954: ; 0x0203F954
+	thumb_func_start ScrCmd_unk_671
+ScrCmd_unk_671: ; 0x0203F954
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -12028,8 +12028,8 @@ _0203F982:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F988
-FUN_0203F988: ; 0x0203F988
+	thumb_func_start ScrCmd_unk_675
+ScrCmd_unk_675: ; 0x0203F988
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -12048,8 +12048,8 @@ FUN_0203F988: ; 0x0203F988
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F9B0
-FUN_0203F9B0: ; 0x0203F9B0
+	thumb_func_start ScrCmd_unk_676
+ScrCmd_unk_676: ; 0x0203F9B0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -12069,8 +12069,8 @@ FUN_0203F9B0: ; 0x0203F9B0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203F9DC
-FUN_0203F9DC: ; 0x0203F9DC
+	thumb_func_start ScrCmd_unk_674
+ScrCmd_unk_674: ; 0x0203F9DC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -12097,8 +12097,8 @@ _0203FA0C:
 	.balign 4
 _0203FA10: .word 0x0000FF79
 
-	thumb_func_start FUN_0203FA14
-FUN_0203FA14: ; 0x0203FA14
+	thumb_func_start ScrCmd_unk_679
+ScrCmd_unk_679: ; 0x0203FA14
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -12130,8 +12130,8 @@ _0203FA4E:
 	nop
 _0203FA54: .word 0x0000012A
 
-	thumb_func_start FUN_0203FA58
-FUN_0203FA58: ; 0x0203FA58
+	thumb_func_start ScrCmd_unk_682
+ScrCmd_unk_682: ; 0x0203FA58
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -12233,8 +12233,8 @@ _0203FB26:
 	nop
 _0203FB48: .word 0x00000147
 
-	thumb_func_start FUN_0203FB4C
-FUN_0203FB4C: ; 0x0203FB4C
+	thumb_func_start ScrCmd_unk_684
+ScrCmd_unk_684: ; 0x0203FB4C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -12246,8 +12246,8 @@ FUN_0203FB4C: ; 0x0203FB4C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203FB64
-FUN_0203FB64: ; 0x0203FB64
+	thumb_func_start ScrCmd_unk_687
+ScrCmd_unk_687: ; 0x0203FB64
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -12269,24 +12269,24 @@ FUN_0203FB64: ; 0x0203FB64
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203FB94
-FUN_0203FB94: ; 0x0203FB94
+	thumb_func_start ScrCmd_unk_688
+ScrCmd_unk_688: ; 0x0203FB94
 	push {r3, lr}
 	bl FUN_02033E74
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203FBA0
-FUN_0203FBA0: ; 0x0203FBA0
+	thumb_func_start ScrCmd_unk_689
+ScrCmd_unk_689: ; 0x0203FBA0
 	push {r3, lr}
 	bl FUN_02033ED0
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203FBAC
-FUN_0203FBAC: ; 0x0203FBAC
+	thumb_func_start ScrCmd_unk_690
+ScrCmd_unk_690: ; 0x0203FBAC
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -12295,8 +12295,8 @@ FUN_0203FBAC: ; 0x0203FBAC
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203FBBC
-FUN_0203FBBC: ; 0x0203FBBC
+	thumb_func_start ScrCmd_unk_693
+ScrCmd_unk_693: ; 0x0203FBBC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -12338,8 +12338,8 @@ FUN_0203FBBC: ; 0x0203FBBC
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0203FC1C
-FUN_0203FC1C: ; 0x0203FC1C
+	thumb_func_start ScrCmd_unk_694
+ScrCmd_unk_694: ; 0x0203FC1C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -12367,8 +12367,8 @@ _0203FC4C:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203FC58
-FUN_0203FC58: ; 0x0203FC58
+	thumb_func_start ScrCmd_unk_702
+ScrCmd_unk_702: ; 0x0203FC58
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -12387,8 +12387,8 @@ FUN_0203FC58: ; 0x0203FC58
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203FC80
-FUN_0203FC80: ; 0x0203FC80
+	thumb_func_start ScrCmd_unk_705
+ScrCmd_unk_705: ; 0x0203FC80
 	push {r3-r5, lr}
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
@@ -12411,8 +12411,8 @@ _0203FCAA:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203FCB0
-FUN_0203FCB0: ; 0x0203FCB0
+	thumb_func_start ScrCmd_unk_706
+ScrCmd_unk_706: ; 0x0203FCB0
 	push {r3-r5, lr}
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
@@ -12433,8 +12433,8 @@ _0203FCD6:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203FCDC
-FUN_0203FCDC: ; 0x0203FCDC
+	thumb_func_start ScrCmd_unk_707
+ScrCmd_unk_707: ; 0x0203FCDC
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1

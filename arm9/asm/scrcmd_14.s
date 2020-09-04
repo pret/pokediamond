@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02043A44
-FUN_02043A44: ; 0x02043A44
+	thumb_func_start ScrCmd_unk_117
+ScrCmd_unk_117: ; 0x02043A44
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -40,8 +40,8 @@ FUN_02043A44: ; 0x02043A44
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02043A94
-FUN_02043A94: ; 0x02043A94
+	thumb_func_start ScrCmd_unk_118
+ScrCmd_unk_118: ; 0x02043A94
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -53,8 +53,8 @@ FUN_02043A94: ; 0x02043A94
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043AAC
-FUN_02043AAC: ; 0x02043AAC
+	thumb_func_start ScrCmd_unk_119
+ScrCmd_unk_119: ; 0x02043AAC
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -70,8 +70,8 @@ FUN_02043AAC: ; 0x02043AAC
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043ACC
-FUN_02043ACC: ; 0x02043ACC
+	thumb_func_start ScrCmd_unk_120
+ScrCmd_unk_120: ; 0x02043ACC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -93,8 +93,8 @@ FUN_02043ACC: ; 0x02043ACC
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043AFC
-FUN_02043AFC: ; 0x02043AFC
+	thumb_func_start ScrCmd_unk_121
+ScrCmd_unk_121: ; 0x02043AFC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -114,8 +114,8 @@ FUN_02043AFC: ; 0x02043AFC
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02043B28
-FUN_02043B28: ; 0x02043B28
+	thumb_func_start ScrCmd_unk_122
+ScrCmd_unk_122: ; 0x02043B28
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -135,8 +135,8 @@ FUN_02043B28: ; 0x02043B28
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02043B54
-FUN_02043B54: ; 0x02043B54
+	thumb_func_start ScrCmd_unk_680
+ScrCmd_unk_680: ; 0x02043B54
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -158,8 +158,8 @@ FUN_02043B54: ; 0x02043B54
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043B84
-FUN_02043B84: ; 0x02043B84
+	thumb_func_start ScrCmd_unk_628
+ScrCmd_unk_628: ; 0x02043B84
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -194,8 +194,8 @@ _02043BCA:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02043BD0
-FUN_02043BD0: ; 0x02043BD0
+	thumb_func_start ScrCmd_unk_681
+ScrCmd_unk_681: ; 0x02043BD0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -235,8 +235,8 @@ _02043C20:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043C28
-FUN_02043C28: ; 0x02043C28
+	thumb_func_start ScrCmd_unk_630
+ScrCmd_unk_630: ; 0x02043C28
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80

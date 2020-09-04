@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02042B0C
-FUN_02042B0C: ; 0x02042B0C
+	thumb_func_start ScrCmd_unk_381
+ScrCmd_unk_381: ; 0x02042B0C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -28,8 +28,8 @@ FUN_02042B0C: ; 0x02042B0C
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02042B40
-FUN_02042B40: ; 0x02042B40
+	thumb_func_start ScrCmd_unk_382
+ScrCmd_unk_382: ; 0x02042B40
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -53,8 +53,8 @@ FUN_02042B40: ; 0x02042B40
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02042B74
-FUN_02042B74: ; 0x02042B74
+	thumb_func_start ScrCmd_unk_383
+ScrCmd_unk_383: ; 0x02042B74
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -78,8 +78,8 @@ FUN_02042B74: ; 0x02042B74
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02042BA8
-FUN_02042BA8: ; 0x02042BA8
+	thumb_func_start ScrCmd_unk_384
+ScrCmd_unk_384: ; 0x02042BA8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -103,8 +103,8 @@ FUN_02042BA8: ; 0x02042BA8
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02042BDC
-FUN_02042BDC: ; 0x02042BDC
+	thumb_func_start ScrCmd_unk_385
+ScrCmd_unk_385: ; 0x02042BDC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -128,8 +128,8 @@ FUN_02042BDC: ; 0x02042BDC
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02042C10
-FUN_02042C10: ; 0x02042C10
+	thumb_func_start ScrCmd_unk_386
+ScrCmd_unk_386: ; 0x02042C10
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -153,8 +153,8 @@ FUN_02042C10: ; 0x02042C10
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02042C44
-FUN_02042C44: ; 0x02042C44
+	thumb_func_start ScrCmd_unk_387
+ScrCmd_unk_387: ; 0x02042C44
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -186,8 +186,8 @@ FUN_02042C44: ; 0x02042C44
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02042C8C
-FUN_02042C8C: ; 0x02042C8C
+	thumb_func_start ScrCmd_unk_388
+ScrCmd_unk_388: ; 0x02042C8C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -213,8 +213,8 @@ _02042CB6:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02042CBC
-FUN_02042CBC: ; 0x02042CBC
+	thumb_func_start ScrCmd_unk_389
+ScrCmd_unk_389: ; 0x02042CBC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
