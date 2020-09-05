@@ -4,8 +4,6 @@
 
 extern u32 GXi_DmaId;
 
-void MI_Copy36B(void *src, void *dst);
-
 ARM_FUNC asm void GXi_NopClearFifo128_(void *reg){
     mov r1, #0x0
     mov r2, #0x0
@@ -168,7 +166,7 @@ ARM_FUNC void G3X_SetEdgeColorTable(void *tbl_ptr){
 }
 
 ARM_FUNC void G3X_SetFogTable(void *tbl_ptr){
-    MI_Copy16B(tbl_ptr, (void *)&reg_G3X_FOG_TABLE_0);
+    MI_Copy32B(tbl_ptr, (void *)&reg_G3X_FOG_TABLE_0);
 }
 
 ARM_FUNC void G3X_SetClearColor(u32 col, u32 alpha, u32 depth, u32 polygon_id, u32 enable_fog){
