@@ -241,7 +241,7 @@ FUN_0205C73C: ; 0x0205C73C
 	str r0, [r5, #0xc]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0203962C
+	bl Field_TrainerIsDoubleBattle
 	str r0, [r5, #0x10]
 	str r4, [r5, #0x14]
 	pop {r3-r5, pc}

@@ -735,7 +735,7 @@ MOD76_021D7AB4: ; 0x021D7AB4
 	ldr r1, _021D7AD8 ; =0x021D9034
 	mov r2, #1
 	mov r3, #0xc
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	mov r1, #0x43
 	lsl r1, r1, #2
 	str r0, [r4, r1]

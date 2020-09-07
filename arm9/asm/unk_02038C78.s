@@ -936,16 +936,19 @@ sScriptConditionTable: ; 0x020F34E8
 
 	.global UNK_020F34FC
 UNK_020F34FC: ; 0x020F34FC
-	.byte 0xFF, 0xFF, 0xFF, 0x07, 0xFF, 0xFF, 0xFF, 0x07, 0xFF, 0xFF, 0xFF, 0x07, 0xFF, 0xFF, 0xFF, 0x07
-	.byte 0xFF, 0xFF, 0xFF, 0x07, 0xFF, 0xFF, 0xFF, 0x07, 0x0F, 0x01, 0x10, 0x01, 0x11, 0x01, 0x06, 0x02
-	.byte 0x07, 0x02, 0x08, 0x02, 0x09, 0x02, 0x0A, 0x02, 0x0B, 0x02, 0x0C, 0x02, 0x0D, 0x02, 0x0E, 0x02
-	.byte 0x0F, 0x02, 0x10, 0x02, 0x11, 0x02, 0x12, 0x02, 0x13, 0x02, 0x14, 0x02
+	.word 0x07FFFFFF, 0x07FFFFFF, 0x07FFFFFF, 0x07FFFFFF, 0x07FFFFFF, 0x07FFFFFF
+
+	; 0x020F3514
+	; Unreferenced duplicate?
+	.short 0x010F, 0x0110, 0x0111, 0x0206, 0x0207, 0x0208
+	.short 0x0209, 0x020A, 0x020B, 0x020C, 0x020D, 0x020E
+	.short 0x020F, 0x0210, 0x0211, 0x0212, 0x0213, 0x0214
 
 	.global UNK_020F3538
 UNK_020F3538: ; 0x020F3538
-	.byte 0x0F, 0x01, 0x10, 0x01, 0x11, 0x01, 0x06, 0x02, 0x07, 0x02, 0x08, 0x02, 0x09, 0x02, 0x0A, 0x02
-	.byte 0x0B, 0x02, 0x0C, 0x02, 0x0D, 0x02, 0x0E, 0x02, 0x0F, 0x02, 0x10, 0x02, 0x11, 0x02, 0x12, 0x02
-	.byte 0x13, 0x02, 0x14, 0x02
+	.short 0x010F, 0x0110, 0x0111, 0x0206, 0x0207, 0x0208
+	.short 0x0209, 0x020A, 0x020B, 0x020C, 0x020D, 0x020E
+	.short 0x020F, 0x0210, 0x0211, 0x0212, 0x0213, 0x0214
 
     .global gScriptCmdTable
 gScriptCmdTable: ; 0x020F355C
@@ -1679,7 +1682,7 @@ FUN_02038C78: ; 0x02038C78
 	add r5, r0, #0x0
 	add r6, r1, #0x0
 	add r7, r2, #0x0
-	bl FUN_02038E20
+	bl FieldContext_new
 	add r4, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -1732,7 +1735,7 @@ FUN_02038CD8: ; 0x02038CD8
 	add r5, r3, #0x0
 	bl FUN_02046528
 	str r0, [sp, #0x8]
-	bl FUN_02038E20
+	bl FieldContext_new
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x8]
 	ldr r3, [sp, #0x4]
@@ -1758,7 +1761,7 @@ FUN_02038D10: ; 0x02038D10
 	add r7, r2, #0x0
 	bl FUN_02046528
 	str r0, [sp, #0x4]
-	bl FUN_02038E20
+	bl FieldContext_new
 	add r4, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -1831,7 +1834,7 @@ _02038DA8:
 	cmp r0, #0x0
 	bne _02038DD2
 	add r0, r6, #0x0
-	bl FUN_02038E48
+	bl ScriptContext_delete
 	ldrb r0, [r4, #0x9]
 	cmp r0, #0x0
 	bne _02038DC8
@@ -1881,8 +1884,8 @@ _02038E1A:
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02038E20
-FUN_02038E20: ; 0x02038E20
+	thumb_func_start FieldContext_new
+FieldContext_new: ; 0x02038E20
 	push {r4, lr}
 	mov r0, #0xb
 	mov r1, #0xdc
@@ -1902,8 +1905,8 @@ _02038E32:
 	.balign 4
 _02038E44: .word 0x0003643F
 
-	thumb_func_start FUN_02038E48
-FUN_02038E48: ; 0x02038E48
+	thumb_func_start ScriptContext_delete
+ScriptContext_delete: ; 0x02038E48
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x78]
@@ -2000,7 +2003,7 @@ SetUpScriptContextForMap: ; 0x02038EEC
 	bl ScriptRunByIndex
 	ldr r1, [r5, #0x10]
 	add r0, r4, #0x0
-	bl FUN_02038B6C
+	bl ScriptContext_SetField74
 	pop {r4-r6, pc}
 
 	thumb_func_start LoadScriptsAndMessagesByMapId
@@ -2908,10 +2911,10 @@ FUN_020395BC: ; 0x020395BC
 
 	thumb_func_start FUN_020395F4
 FUN_020395F4: ; 0x020395F4
-	ldr r1, _02039610 ; =0x00001388
+	ldr r1, _02039610 ; =0x00001388 5000
 	cmp r0, r1
 	bhs _02039604
-	ldr r1, _02039614 ; =0x00000BB7
+	ldr r1, _02039614 ; =0x00000BB7 2999
 	sub r0, r0, r1
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -2939,8 +2942,8 @@ _02039622:
 	nop
 _02039628: .word 0x00001388
 
-	thumb_func_start FUN_0203962C
-FUN_0203962C: ; 0x0203962C
+	thumb_func_start Field_TrainerIsDoubleBattle
+Field_TrainerIsDoubleBattle: ; 0x0203962C
 	push {r3, lr}
 	mov r1, #0x9
 	bl TrainerData_GetAttr
@@ -3010,7 +3013,7 @@ _020396A0: .word 0x00001C66
 	thumb_func_start FUN_020396A4
 FUN_020396A4: ; 0x020396A4
 	mov r1, #0x7d
-	lsl r1, r1, #0x6
+	lsl r1, r1, #0x6 ; 0x1F40 8000
 	sub r0, r0, r1
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -3243,17 +3246,17 @@ _02039856:
 	nop
 _02039870: .word 0x0000FFFF
 
-	thumb_func_start FUN_02039874
-FUN_02039874: ; 0x02039874
-	ldr r3, _0203987C ; =FUN_02039880
+	thumb_func_start RunPokemonCenterScriptsInNewContext
+RunPokemonCenterScriptsInNewContext: ; 0x02039874
+	ldr r3, _0203987C ; =RunScriptInNewContext
 	mov r1, #0x96
 	lsl r1, r1, #0x6
 	bx r3
 	.balign 4
-_0203987C: .word FUN_02039880 
+_0203987C: .word RunScriptInNewContext 
 
-	thumb_func_start FUN_02039880
-FUN_02039880: ; 0x02039880
+	thumb_func_start RunScriptInNewContext
+RunScriptInNewContext: ; 0x02039880
 	push {r4, lr}
 	bl CreateScriptContext
 	add r4, r0, #0x0
@@ -3263,7 +3266,7 @@ _02039888:
 	cmp r0, #0x1
 	beq _02039888
 	add r0, r4, #0x0
-	bl FUN_02038E48
+	bl ScriptContext_delete
 	pop {r4, pc}
 	.balign 4
 
@@ -3303,7 +3306,7 @@ _020398CE:
 	b _020398E2
 _020398DC:
 	add r0, r5, #0x0
-	bl FUN_02039880
+	bl RunScriptInNewContext
 _020398E2:
 	mov r0, #0x1
 	pop {r3-r5, pc}

@@ -291,7 +291,7 @@ _021D7744:
 	ldr r2, _021D7998 ; =0x000001D9
 	ldr r0, [r4, r0]
 	mov r3, #7
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	ldr r1, _021D799C ; =0x0000C05C
 	str r0, [r4, r1]
 	mov r0, #6
@@ -499,7 +499,7 @@ _021D78EE:
 	ldr r2, _021D7998 ; =0x000001D9
 	ldr r0, [r4, r0]
 	mov r3, #7
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	ldr r1, _021D799C ; =0x0000C05C
 	str r0, [r4, r1]
 	mov r0, #0xd

@@ -9515,7 +9515,7 @@ MOD75_021EB6E0: ; 0x021EB6E0
 	ldr r1, _021EB700 ; =0x021EC6AC
 	ldr r2, _021EB704 ; =0x000003F7
 	mov r3, #0xe
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	mov r1, #0x56
 	lsl r1, r1, #2
 	str r0, [r4, r1]

@@ -2418,7 +2418,7 @@ MOD65_021D87B0: ; 0x021D87B0
 	ldr r0, [r4, #0x24]
 	mov r2, #0x1f
 	mov r3, #0xf
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add r4, #0xd4
 	str r0, [r4]
 	add sp, #4

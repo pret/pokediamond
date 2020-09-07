@@ -39,7 +39,7 @@ THUMB_FUNC void StopScript(struct ScriptContext *ctx)
     ctx->scriptPtr = 0;
 }
 
-THUMB_FUNC void FUN_02038B6C(struct ScriptContext *ctx, struct UnkStruct_0204639C * r1)
+THUMB_FUNC void ScriptContext_SetField74(struct ScriptContext *ctx, struct UnkStruct_0204639C * r1)
 {
     ctx->unk74 = r1;
 }

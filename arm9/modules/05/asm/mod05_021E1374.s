@@ -915,7 +915,7 @@ MOD05_021E1A30: ; 0x021E1A30
 	str r0, [sp, #0xc]
 	bl FUN_020395F4
 	str r0, [sp, #8]
-	bl FUN_0203962C
+	bl Field_TrainerIsDoubleBattle
 	cmp r0, #0
 	bne _021E1A60
 	add sp, #0x10

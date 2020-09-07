@@ -366,7 +366,7 @@ ScrCmd_unk_231: ; 0x02041970
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
 	bl FUN_020395F4
-	bl FUN_0203962C
+	bl Field_TrainerIsDoubleBattle
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bne _020419D2
@@ -430,7 +430,7 @@ ScrCmd_unk_232: ; 0x020419F8
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
 	bl FUN_020395F4
-	bl FUN_0203962C
+	bl Field_TrainerIsDoubleBattle
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bne _02041A5A
@@ -478,7 +478,7 @@ ScrCmd_unk_233: ; 0x02041A80
 	add r5, r0, #0x0
 	ldrh r0, [r4, #0x0]
 	bl FUN_020395F4
-	bl FUN_0203962C
+	bl Field_TrainerIsDoubleBattle
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}

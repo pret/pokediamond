@@ -2031,7 +2031,7 @@ MOD55_021D8544: ; 0x021D8544
 	ldr r1, _021D857C ; =0x021DA2AC
 	ldr r2, _021D8580 ; =0x000001D9
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add r1, r5, #0
 	add r1, #0xe8
 	str r0, [r1]
@@ -5253,7 +5253,7 @@ MOD55_021D9FDC: ; 0x021D9FDC
 	ldr r1, _021DA014 ; =0x021DA2AC
 	ldr r2, _021DA018 ; =0x000001D9
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add r1, r5, #0
 	add r1, #0xe8
 	str r0, [r1]

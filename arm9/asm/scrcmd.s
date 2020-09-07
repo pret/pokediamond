@@ -2248,7 +2248,7 @@ ScrCmd_unk_62: ; 0x0203AAA0
 	ldr r1, _0203AAF8 ; =UNK_020F34E0
 	ldr r2, _0203AAF4 ; =0x000003D9
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	str r0, [r6, #0x0]
 	ldr r1, _0203AAFC ; =FUN_0203AB00
 	add r0, r5, #0x0
