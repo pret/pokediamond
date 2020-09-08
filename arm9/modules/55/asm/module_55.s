@@ -5033,11 +5033,11 @@ MOD55_021D9E04: ; 0x021D9E04
 
 	thumb_func_start MOD55_021D9E34
 MOD55_021D9E34: ; 0x021D9E34
-	ldr r3, _021D9E3C ; =FUN_0201C78C
+	ldr r3, _021D9E3C ; =Unknown_IsLessThan289
 	ldrh r0, [r0]
 	bx r3
 	nop
-_021D9E3C: .word FUN_0201C78C
+_021D9E3C: .word Unknown_IsLessThan289
 	thumb_func_end MOD55_021D9E34
 
 	thumb_func_start MOD55_021D9E40

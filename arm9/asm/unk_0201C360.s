@@ -317,7 +317,7 @@ FUN_0201C578: ; 0x0201C578
 	sub sp, #0x10
 	add r4, r0, #0x0
 	add r0, sp, #0x0
-	bl FUN_0201C750
+	bl Copy16ByteCString
 	add r0, r4, #0x0
 	add r0, #0x3c
 	add r1, sp, #0x0
@@ -393,7 +393,7 @@ FUN_0201C5FC: ; 0x0201C5FC
 	sub sp, #0x10
 	add r4, r0, #0x0
 	add r0, sp, #0x0
-	bl FUN_0201C750
+	bl Copy16ByteCString
 	add r0, r4, #0x0
 	add r0, #0x3c
 	add r1, sp, #0x0

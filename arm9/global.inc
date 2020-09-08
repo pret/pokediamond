@@ -1181,10 +1181,10 @@
 .extern FUN_0201C620
 .extern FUN_0201C62C
 .extern FUN_0201C638
-.extern FUN_0201C6C8
-.extern FUN_0201C70C
-.extern FUN_0201C750
-.extern FUN_0201C78C
+.extern TokenizeCString
+.extern CStringToInt
+.extern Copy16ByteCString
+.extern Unknown_IsLessThan289
 .extern FUN_0201C7A0
 .extern FUN_0201C7A8
 .extern FUN_0201C7B0
