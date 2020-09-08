@@ -14,6 +14,7 @@
 #include "OS_irqTable.h"
 #include "OS_timer.h"
 #include "OS_tick.h"
+#include "OS_message.h"
 
 void OS_Init(void);
 

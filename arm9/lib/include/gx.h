@@ -9,9 +9,6 @@
 //temporary while other files aren't decompiled
 
 void GXi_NopClearFifo128_(void *);
-void MI_Copy16B(const void *, void *);
-void MI_Copy64B(void *src, void *dst);
-void MIi_CpuCopy32(const void *src, void *dst, u32 size);
 
 #include "GXcommon.h"
 #include "GX_struct_2d.h"
