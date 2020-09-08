@@ -1,5 +1,5 @@
-#ifndef GUARD_MI_MEMORY_H
-#define GUARD_MI_MEMORY_H
+#ifndef POKEDIAMOND_ARM7_MI_MEMORY_H
+#define POKEDIAMOND_ARM7_MI_MEMORY_H
 
 #include "nitro/types.h"
 
@@ -22,4 +22,4 @@ static inline void MI_CpuClear32(void *dest, u32 size)
     MI_CpuFill32(dest, 0, size);
 }
 
-#endif
+#endif //POKEDIAMOND_ARM7_MI_MEMORY_H
