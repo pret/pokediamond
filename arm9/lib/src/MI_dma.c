@@ -258,8 +258,8 @@ ARM_FUNC void MIi_CheckAnotherAutoDMA(u32 dmaNo, u32 dmaType)
         timing = dmaCnt & 0x38000000;
 
         if (timing == dmaType
-            || (timing == 0x8000000 && dmaType == 0x10000000)
-            || (timing == 0x10000000 && dmaType == 0x8000000))
+            || (timing == 0x8000000 && dmaType == MI_DMA_TIMING_H_BLANK)
+            || (timing == MI_DMA_TIMING_H_BLANK && dmaType == 0x8000000))
         {
             continue;
         }
