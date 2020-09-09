@@ -1,3 +1,4 @@
+#include "MI_init.h"
 #include "nitro/types.h"
 #include "function_target.h"
 #include "MI_dma.h"
