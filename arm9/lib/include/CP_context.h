@@ -1,7 +1,3 @@
-//
-// Created by red031000 on 2020-05-17.
-//
-
 #ifndef POKEDIAMOND_CP_CONTEXT_H
 #define POKEDIAMOND_CP_CONTEXT_H
 
@@ -15,7 +11,7 @@ typedef struct CPContext {
     u16 sqrt_mode;
 } CPContext;
 
-void CP_SaveContext(CPContext *context);
+void CP_SaveContext(register CPContext *context);
 void CPi_RestoreContext(const CPContext* context);
 
 #endif //POKEDIAMOND_CP_CONTEXT_H
