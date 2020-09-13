@@ -112,8 +112,10 @@
 #define reg_GX_VRAMCNT_I           (*(REGType8v  *)0x4000249)
 
 #define reg_CP_DIVCNT              (*(REGType16v *)0x4000280)
-#define reg_CP_DIV_NUMER           (*(REGType64v *)0x4000290)
-#define reg_CP_DIV_NUMER_L         (*(REGType32v *)0x4000290)
+
+#define REG_DIV_NUMER_ADDR         0x4000290
+#define reg_CP_DIV_NUMER           (*(REGType64v *)REG_DIV_NUMER_ADDR)
+#define reg_CP_DIV_NUMER_L         (*(REGType32v *)REG_DIV_NUMER_ADDR)
 #define reg_CP_DIV_NUMER_H         (*(REGType32v *)0x4000294)
 #define reg_CP_DIV_DENOM           (*(REGType64v *)0x4000298)
 #define reg_CP_DIV_DENOM_L         (*(REGType32v *)0x4000298)
