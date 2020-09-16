@@ -2,7 +2,6 @@
 	.include "global.inc"
 
 	.extern OSi_ThreadInfo
-	.extern UNK_021D5BE0
 	.extern cardi_common
 
 	.section .data
@@ -12,6 +11,10 @@ UNK_02106A50: ; 0x02106A50
 	.word 0x027FFE00
 
 	.section .bss
+
+	.global UNK_021D5BE0
+UNK_021D5BE0: ; 0x021D5BE0
+	.space 0x20
 
 	.global UNK_021D5C00
 UNK_021D5C00: ; 0x021D5C00

@@ -5,6 +5,8 @@
 #include "nitro/OS_spinLock_shared.h"
 #include "syscall.h"
 
+#define OS_LOCK_ID_ERROR        (-3)
+
 static inline void OSi_WaitByLoop(void)
 {
     SVC_WaitByLoop(0x1000 / 4);
