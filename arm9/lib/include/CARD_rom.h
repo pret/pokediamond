@@ -26,9 +26,6 @@ static inline void CARD_ReadRomAsync(u32 dma, const void * src, void * dst, u32 
     CARDi_ReadRom(dma, src, dst, len, callback, arg, TRUE);
 }
 
-void CARD_LockRom(u16 lock_id);
-void CARD_UnlockRom(u16 lock_id);
-
 static inline const CARDRomRegion * CARD_GetRomRegionFNT() {
     return (const CARDRomRegion *)((const u8 *)HW_ROM_HEADER_BUF + 0x40);
 }

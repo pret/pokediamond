@@ -45,4 +45,9 @@ static inline void MI_CpuCopy16(const void *src, void *dest, u32 size)
     MIi_CpuCopy16(src, dest, size);
 }
 
+static inline void MI_CpuFillFast(void *dest, u32 data, u32 size)
+{
+    MIi_CpuClearFast(data, dest, size);
+}
+
 #endif //POKEDIAMOND_ARM9_MI_MEMORY_H
