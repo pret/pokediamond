@@ -9,11 +9,11 @@
 #include "sections.h"
 #include "MI_dma.h"
 #include "CARD_common.h"
+#include "PXI_init.h"
 
 static u16 OSi_IsInitReset = 0;
 vu16 OSi_IsResetOccurred = 0;
 
-extern void PXI_Init(void);
 extern u32 PXI_IsCallbackReady(u32 param1, u32 param2);
 extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
 extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);

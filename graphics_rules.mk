@@ -67,6 +67,15 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0142.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0144.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0146.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0148.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0150.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0152.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0154.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0156.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0158.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0160.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0162.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0164.NCGR \
                                       files/poketool/icongra/poke_icon/narc_0007.NCGR \
                                       files/poketool/icongra/poke_icon/narc_0008.NCGR \
                                       files/poketool/icongra/poke_icon/narc_0009.NCGR \
@@ -437,6 +446,15 @@ NCGR_CLEAN_LIST := files/data/cell0.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0142.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0144.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0146.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0148.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0150.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0152.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0154.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0156.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0158.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0160.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0162.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0164.NCGR \
                    files/poketool/icongra/poke_icon/narc_0007.NCGR \
                    files/poketool/icongra/poke_icon/narc_0008.NCGR \
                    files/poketool/icongra/poke_icon/narc_0009.NCGR \
@@ -671,6 +689,15 @@ NCLR_CLEAN_LIST := files/data/cell0.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0142.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0144.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0146.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0148.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0150.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0152.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0154.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0156.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0158.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0160.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0162.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0164.NCLR \
                    files/poketool/icongra/poke_icon/narc_0000.NCLR \
                    files/poketool/pokegra/pokegra/narc_0010.NCLR \
                    files/poketool/pokegra/pokegra/narc_0011.NCLR \
