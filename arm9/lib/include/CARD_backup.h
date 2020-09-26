@@ -1,28 +1,17 @@
-#ifndef NITRO_CARD_BACKUP_H_
-#define NITRO_CARD_BACKUP_H_
+#ifndef POKEDIAMOND_CARD_BACKUP_H
+#define POKEDIAMOND_CARD_BACKUP_H
 
 #include "nitro/types.h"
 #include "MI_dma.h"
 #include "CARD_common.h"
 
-BOOL CARD_TryWaitBackupAsync(void);
+BOOL CARDi_RequestStreamCommand(u32 src, u32 dst, u32 len, MIDmaCallback callback, void *arg, BOOL is_async,
+                                CARDRequest req_type, int req_retry, CARDRequestMode req_mode);
+u32 CARD_GetBackupSectorSize(void);;
+BOOL CARD_IdentifyBackup(CARDBackupType type);
 BOOL CARD_WaitBackupAsync(void);
+BOOL CARD_TryWaitBackupAsync(void);
 void CARD_CancelBackupAsync(void);
-void CARD_UnlockBackup(u16 lock_id);
-void CARD_LockBackup(u16 lock_id);
-BOOL CARD_IdentifyBackup(u16 lock_id);
-
-BOOL CARDi_RequestStreamCommand(
-    u32 src,
-    u32 dst,
-    u32 len,
-    MIDmaCallback callback,
-    void * arg,
-    BOOL is_async,
-    CARDRequest req_type,
-    int req_retry,
-    CARDRequestMode req_mode
-);
 
 static inline BOOL CARDi_ReadBackup(u32 src, void * dst, u32 len, MIDmaCallback callback, void * arg, BOOL is_async)
 {
@@ -39,4 +28,4 @@ static inline BOOL CARDi_WriteAndVerifyBackup(u32 dst, void * src, u32 len, MIDm
     return CARDi_RequestStreamCommand((u32)src, (u32)dst, len, callback, arg, is_async, CARD_REQ_WRITE_BACKUP, CARD_RETRY_COUNT_MAX, CARD_REQUEST_MODE_SEND_VERIFY);
 }
 
-#endif //NITRO_CARD_BACKUP_H_
+#endif //POKEDIAMOND_CARD_BACKUP_H
