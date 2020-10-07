@@ -99,31 +99,3 @@ _0202A35A:
 	strb r0, [r3, #0x0]
 _0202A36A:
 	pop {r4, pc}
-
-	thumb_func_start FUN_0202A36C
-FUN_0202A36C: ; 0x0202A36C
-	push {r3-r4}
-	ldrb r4, [r0, #0x3]
-	add r1, r4, r1
-	cmp r1, #0xff
-	bge _0202A378
-	strb r1, [r0, #0x3]
-_0202A378:
-	ldrh r1, [r0, #0x4]
-	add r2, r1, r2
-	ldr r1, _0202A394 ; =0x0000FFFF
-	cmp r2, r1
-	bge _0202A384
-	strh r2, [r0, #0x4]
-_0202A384:
-	ldrh r1, [r0, #0x6]
-	add r2, r1, r3
-	ldr r1, _0202A394 ; =0x0000FFFF
-	cmp r2, r1
-	bge _0202A390
-	strh r2, [r0, #0x6]
-_0202A390:
-	pop {r3-r4}
-	bx lr
-	.balign 4
-_0202A394: .word 0x0000FFFF

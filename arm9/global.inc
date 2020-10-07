@@ -2029,6 +2029,8 @@
 .extern FUN_0202A5D4
 .extern FUN_0202A5F4
 .extern FUN_0202A60C
+.extern FUN_0202A670
+.extern FUN_0202A68C
 .extern FUN_0202A6B4
 .extern FUN_0202A744
 .extern FUN_0202A74C

@@ -3,6 +3,14 @@
 
 #pragma thumb on
 
+struct Unk0202A36C
+{
+    u8 filler[3];
+    u8 b3; // used
+    u16 b4; // used
+    u16 b6; // used
+};
+
 struct Unk0202A398
 {
     u8 b0_0 : 1;
@@ -19,9 +27,9 @@ struct Unk0202A40C
     u16 b0;
     u8 b2; // used
     u16 b3;
-    u8 b7;
-    u16 b8_0 : 4;
-    u16 b8_4 : 1; // used
+    u8 b5;
+    u16 b6_0 : 4;
+    u16 b6_4 : 1; // used
 };
 
 struct Unk0202A444
@@ -31,13 +39,32 @@ struct Unk0202A444
     u8 b3; // used
 };
 
+void FUN_0202A36C(struct Unk0202A36C *unk, int arg1, int arg2, int arg3);
 u8 FUN_0202A398(struct Unk0202A398 *unk);
 void FUN_0202A3A0(struct Unk0202A398 *unk, u16 arg1);
 u16 FUN_0202A3B4(struct Unk0202A3B4 *unk, u16 arg1, int arg2);
 u8 FUN_0202A40C(struct Unk0202A40C *unk, int arg1);
 u8 FUN_0202A444(struct Unk0202A444 *unk, int arg1);
-void FUN_0202A474(void * dest, int arg1, const void * src);
-void FUN_0202A498(const void * src, int arg1, void * dest);
+void FUN_0202A474(void *dest, int arg1, const void *src);
+void FUN_0202A498(const void *src, int arg1, void *dest);
+
+void FUN_0202A36C(struct Unk0202A36C *unk, int arg1, int arg2, int arg3)
+{
+    if (unk->b3 + arg1 < 0xff)
+    {
+        unk->b3 += arg1;
+    }
+
+    if (unk->b4 + arg2 < 0xffff)
+    {
+        unk->b4 += arg2;
+    }
+
+    if (unk->b6 + arg3 < 0xffff)
+    {
+        unk->b6 += arg3;
+    }
+}
 
 u8 FUN_0202A398(struct Unk0202A398 *unk)
 {
@@ -99,17 +126,17 @@ u8 FUN_0202A40C(struct Unk0202A40C *unk, int arg1)
     {
     case 2:
         unk->b2 = 0;
-        unk->b8_4 = 0;
+        unk->b6_4 = 0;
         break;
     case 3:
-        if (unk->b8_4 != 0)
+        if (unk->b6_4 != 0)
         {
             unk->b2 += 1;
         }
         else
         {
             unk->b2 = 1;
-            unk->b8_4 = 1;
+            unk->b6_4 = 1;
         }
         break;
     }
@@ -139,19 +166,26 @@ u8 FUN_0202A444(struct Unk0202A444 *unk, int arg1)
     return unk->b3;
 }
 
-void FUN_0202A474(void * dest, int arg1, const void * src) {
-    if (arg1 == 0) {
+void FUN_0202A474(void *dest, int arg1, const void *src)
+{
+    if (arg1 == 0)
+    {
         MI_CpuCopy8(src, dest + 0xc0, 0xa8);
-    } else {
+    }
+    else
+    {
         MI_CpuCopy8(src, dest + 0x18, 0xa8);
     }
 }
 
-void FUN_0202A498(const void * src, int arg1, void * dest) {
-    if (arg1 == 0) {
+void FUN_0202A498(const void *src, int arg1, void *dest)
+{
+    if (arg1 == 0)
+    {
         MI_CpuCopy8(src + 0xc0, dest, 0xa8);
-    } else {
+    }
+    else
+    {
         MI_CpuCopy8(src + 0x18, dest, 0xa8);
     }
 }
-
