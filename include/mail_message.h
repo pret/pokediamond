@@ -8,6 +8,15 @@ struct MailMessage
     u16 fields[2];
 };
 
+struct UnkSaveStruct_0202A5D4
+{
+    u32 filler[15];
+    u32 u_3C;
+    u32 filler1[89];
+    struct MailMessage messages[4];
+    u32 u_1C4;
+};
+
 void MailMsg_init(struct MailMessage * mailMsg);
 void MailMsg_init_withBank(struct MailMessage * mailMsg, u16 bank);
 void MailMsg_init_default(struct MailMessage * mailMsg);

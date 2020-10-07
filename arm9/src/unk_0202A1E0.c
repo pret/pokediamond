@@ -1,5 +1,6 @@
 #include "global.h"
 #include "MI_memory.h"
+#include "mail_message.h"
 
 #pragma thumb on
 
@@ -9,6 +10,14 @@ struct Unk0202A1F0
     u8 b1;
     u8 b2;
     u8 b3;
+};
+
+struct Unk0202A204
+{
+    struct MailMessage msg0;
+    struct MailMessage msg1;
+    struct MailMessage msg2;
+    struct MailMessage msg3;
 };
 
 struct Unk0202A240
@@ -36,7 +45,7 @@ void FUN_02013764(void *arg0, int arg1);
 int FUN_0202A1E0();
 void FUN_0202A1E4(void *dest);
 void FUN_0202A1F0(struct Unk0202A1F0 *unk);
-void FUN_0202A204(void *arg0);
+void FUN_0202A204(struct Unk0202A204 *unk);
 void FUN_0202A230(void *dest);
 int FUN_0202A240(struct Unk0202A240 *unk, u32 arg1, void *dest);
 
@@ -56,12 +65,12 @@ void FUN_0202A1F0(struct Unk0202A1F0 *unk)
     unk->b3 = 1;
 }
 
-void FUN_0202A204(void *arg0)
+void FUN_0202A204(struct Unk0202A204 *unk)
 {
-    FUN_02013764(arg0, 0);
-    FUN_02013764(arg0 + 8, 1);
-    FUN_02013764(arg0 + 16, 2);
-    FUN_02013764(arg0 + 24, 3);
+    MailMsg_init_fromTemplate(&unk->msg0, 0);
+    MailMsg_init_fromTemplate(&unk->msg1, 1);
+    MailMsg_init_fromTemplate(&unk->msg2, 2);
+    MailMsg_init_fromTemplate(&unk->msg3, 3);
 }
 
 void FUN_0202A230(void *dest)
