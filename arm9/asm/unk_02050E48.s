@@ -2,7 +2,7 @@
     .include "global.inc"
 
 	.extern UNK_020F96DC
-	.extern gUnknown21C48B8
+	.extern gMain
 	.extern UNK_020FA6E8
 
 	.section .rodata
@@ -30,7 +30,7 @@ FUN_02050E48: ; 0x02050E48
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4
@@ -41,7 +41,7 @@ FUN_02050E48: ; 0x02050E48
 	bl FUN_02079C70
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x4]
 	ldr r0, [sp, #0x0]
 	str r0, [r4, #0x0]
@@ -86,7 +86,7 @@ FUN_02050ED4: ; 0x02050ED4
 	bl MI_CpuFill8
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0x24]
 	add r0, #0xac
@@ -94,11 +94,11 @@ FUN_02050ED4: ; 0x02050ED4
 	str r0, [r4, #0x14]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -429,7 +429,7 @@ _0205116A:
 	blx r2
 	b _020517B8
 _0205118A:
-	ldr r0, _020514A4 ; =gUnknown21C48B8
+	ldr r0, _020514A4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x2
 	tst r0, r1
@@ -627,7 +627,7 @@ _02051308:
 _0205130E:
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -783,7 +783,7 @@ _0205142C:
 	ldr r0, [r4, #0x28]
 	ldr r2, [r4, #0x74]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4, #0x2c]
 	ldr r2, [r4, #0xc]
 	mov r1, #0xe
@@ -823,7 +823,7 @@ _0205148E:
 	str r0, [r4, #0x34]
 	b _020517B8
 	.balign 4
-_020514A4: .word gUnknown21C48B8
+_020514A4: .word gMain
 _020514A8:
 	add r0, r4, #0x0
 	bl FUN_02051A80
@@ -962,7 +962,7 @@ _020515BA:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x28]
 	mov r1, #0x1
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	ldr r0, [r4, #0x2c]
 	ldr r2, [r4, #0xc]
 	mov r1, #0x12
@@ -1211,7 +1211,7 @@ FUN_020517C0: ; 0x020517C0
 	bl FUN_020545B8
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02054608
@@ -1222,7 +1222,7 @@ _020517F2:
 _020517F8:
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -1307,7 +1307,7 @@ _0205188E:
 	str r5, [r4, #0x24]
 	str r6, [r4, #0x8]
 	mov r0, #0xb
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x28]
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -1377,10 +1377,10 @@ _02051938:
 	bl AllocFromHeapAtEnd
 	str r0, [r4, #0x48]
 	mov r0, #0xb
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	mov r1, #0x3
 	str r0, [r4, #0x50]
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	add r0, r4, #0x0
 	mov r1, #0x5
 	add r0, #0x44
@@ -1436,7 +1436,7 @@ _020519BA:
 	ldr r0, [r4, #0x2c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x28]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0xc]
 	bl String_dtor
 	ldr r0, [r4, #0x10]
@@ -1464,7 +1464,7 @@ FUN_020519F0: ; 0x020519F0
 	ldr r0, [r7, #0x24]
 	add r5, r1, #0x0
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x0]
 	ldr r4, [r7, #0x4c]
 	bl FUN_020690C4
@@ -1611,7 +1611,7 @@ FUN_02051AF0: ; 0x02051AF0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	mov r4, #0x0
 _02051B04:
 	add r1, r4, #0x0
@@ -1619,7 +1619,7 @@ _02051B04:
 	mul r1, r6
 	ldr r0, [r5, #0x50]
 	add r1, r2, r1
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r4, r4, #0x1
 	cmp r4, #0x3
 	blt _02051B04
@@ -1650,7 +1650,7 @@ FUN_02051B1C: ; 0x02051B1C
 	bl MI_CpuCopy8
 	ldr r0, [r6, #0x50]
 	mov r1, #0x3
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	mov r5, #0x0
 _02051B52:
 	add r1, r5, #0x0
@@ -1658,7 +1658,7 @@ _02051B52:
 	mul r1, r4
 	ldr r0, [r6, #0x50]
 	add r1, r2, r1
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r5, r5, #0x1
 	cmp r5, #0x3
 	blt _02051B52
@@ -1734,7 +1734,7 @@ _02051BD6:
 	ldr r2, [r5, #0xc]
 	mov r1, #0x0
 	mov r3, #0x10
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x1c]
 	add r7, r7, #0x1
 	add r6, r6, r0
@@ -1754,7 +1754,7 @@ _02051BD6:
 	ldr r0, [sp, #0x20]
 	ldr r2, [r5, #0xc]
 	mov r3, #0x10
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 _02051C34:
@@ -1855,7 +1855,7 @@ _02051CE0:
 	add r0, r7, #0x0
 	mov r1, #0x0
 	mov r3, #0x10
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r6, r6, #0x1
 	add r4, #0x10
 	cmp r6, #0x3
@@ -1901,7 +1901,7 @@ FUN_02051D54: ; 0x02051D54
 	push {r4, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
-	ldr r0, _02051E1C ; =gUnknown21C48B8
+	ldr r0, _02051E1C ; =gMain
 	mov r1, #0x40
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -2001,7 +2001,7 @@ _02051DE0:
 	add sp, #0x8
 	pop {r4, pc}
 	nop
-_02051E1C: .word gUnknown21C48B8
+_02051E1C: .word gMain
 _02051E20: .word 0x000005DC
 
 	thumb_func_start FUN_02051E24
@@ -2124,7 +2124,7 @@ _02051EE2: ; jump table (using 16-bit offset)
 	.short _02052028 - _02051EE2 - 2; case 7
 _02051EF2:
 	mov r0, #0x4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x18]
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -2150,7 +2150,7 @@ _02051EF2:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x18]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0x4]
 	ldr r2, [r4, #0x0]
@@ -2161,13 +2161,13 @@ _02051EF2:
 	mov r2, #0x3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x8
 	bl FUN_02054608
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x4]
@@ -2186,7 +2186,7 @@ _02051F7C:
 	bl FUN_020546C8
 	cmp r0, #0x0
 	beq _0205203A
-	ldr r0, _02052040 ; =gUnknown21C48B8
+	ldr r0, _02052040 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -2194,7 +2194,7 @@ _02051F7C:
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x18]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x0]
 	bl String_dtor
 	ldr r0, [r4, #0x4]
@@ -2269,7 +2269,7 @@ _0205203A:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_02052040: .word gUnknown21C48B8
+_02052040: .word gMain
 
 	thumb_func_start FUN_02052044
 FUN_02052044: ; 0x02052044

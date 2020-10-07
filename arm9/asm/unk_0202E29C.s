@@ -78,7 +78,7 @@ FUN_0202E29C: ; 0x0202E29C
 	ldr r0, [r2, #0x8]
 	sub r1, #0x18
 	add r0, r0, r1
-	bl FUN_02013724
+	bl MailMsg_init
 	bl FUN_0202E500
 _0202E332:
 	pop {r4, pc}
@@ -968,7 +968,7 @@ _0202E9BA:
 	add r0, r3, #0x0
 	bl FUN_0202EF84
 	add r1, r4, #0x0
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	pop {r4-r6, pc}
 _0202E9D2:
 	add r5, r5, #0x1
@@ -1092,12 +1092,12 @@ FUN_0202EA9C: ; 0x0202EA9C
 	ble _0202EAC2
 	bl ErrorHandling
 _0202EAC2:
-	bl FUN_02023924
+	bl PlayerProfile_sizeof
 	cmp r0, #0x20
 	beq _0202EACE
 	bl ErrorHandling
 _0202EACE:
-	bl FUN_02023924
+	bl PlayerProfile_sizeof
 	add r1, r5, #0x0
 	add r2, r0, #0x0
 	add r0, r4, #0x0
@@ -1113,7 +1113,7 @@ _0202EACE:
 	add r1, #0x30
 	bl MI_CpuCopy8
 	add r0, r4, #0x0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	str r0, [r5, #0x0]
 	bl FUN_02033534
 	strb r0, [r5, #0x4]
@@ -1136,7 +1136,7 @@ _0202EB24:
 	ldr r4, [r1, #0x8]
 	ldr r1, _0202EB70 ; =0x00000CC4
 	add r5, r4, r1
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	ldr r1, _0202EB70 ; =0x00000CC4
 	str r0, [r4, r1]
 	bl FUN_02033534

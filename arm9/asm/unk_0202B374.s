@@ -170,7 +170,7 @@ FUN_0202B470: ; 0x0202B470
 	add r0, sp, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	ldr r0, [sp, #0x8]
 	ldr r3, [sp, #0x4]
 	lsl r0, r0, #0x18

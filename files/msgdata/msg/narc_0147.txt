@@ -1,0 +1,10 @@
+Welcome!\rYou may exchange your Coins for\nfabulous prizes here!\r
+Which prize would you like?
+So your choice is\nthe {STRVAR 8, 0}?
+So your choice is {STRVAR 8, 0}:\n{STRVAR 6, 1}?
+Here you go!
+You don’t have enough Coins.\r
+There isn’t any room available for\nthat {STRVAR 8, 0}.\r
+Oh, is that so? \nPlease come back with some Coins!
+I love words like “walk-off,\ngrand-slam home run.”
+They have prizes I really want, but\nit’d be tough saving up the Coins.

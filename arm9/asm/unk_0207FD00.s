@@ -5,14 +5,14 @@
 
 	.global UNK_020FBB48
 UNK_020FBB48: ; 0x020FBB48
-	.byte 0x46, 0x00, 0x41, 0x00, 0x42, 0x00, 0x43, 0x00, 0x44, 0x00, 0x45, 0x00
+	.short 0x0046, 0x0041, 0x0042, 0x0043, 0x0044, 0x0045
 
 	.global UNK_020FBB54
 UNK_020FBB54: ; 0x020FBB54
-	.byte 0x47, 0x00, 0x48, 0x00, 0x49, 0x00, 0x4A, 0x00, 0x4B, 0x00, 0x4C, 0x00, 0x4D, 0x00, 0x4E, 0x00
-	.byte 0x4F, 0x00, 0x50, 0x00, 0x51, 0x00, 0x52, 0x00, 0x53, 0x00, 0x54, 0x00, 0x55, 0x00, 0x56, 0x00
-	.byte 0x57, 0x00, 0x58, 0x00, 0x59, 0x00, 0x5A, 0x00, 0x5B, 0x00, 0x5C, 0x00, 0x5D, 0x00, 0x5E, 0x00
-	.byte 0x5F, 0x00, 0x60, 0x00, 0x61, 0x00, 0x62, 0x00, 0x63, 0x00, 0x64, 0x00
+	.short 0x0047, 0x0048, 0x0049, 0x004A, 0x004B, 0x004C, 0x004D, 0x004E
+	.short 0x004F, 0x0050, 0x0051, 0x0052, 0x0053, 0x0054, 0x0055, 0x0056
+	.short 0x0057, 0x0058, 0x0059, 0x005A, 0x005B, 0x005C, 0x005D, 0x005E
+	.short 0x005F, 0x0060, 0x0061, 0x0062, 0x0063, 0x0064
 
 	.text
 
@@ -37,7 +37,7 @@ FUN_0207FD00: ; 0x0207FD00
 	ldr r2, [r4, #0x0]
 	mov r0, #0x9
 	mov r1, #0x20
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	str r0, [r4, #0x8]
 	str r5, [r4, #0xc]
 	str r6, [r4, #0x10]
@@ -459,7 +459,7 @@ _020800C0:
 	bl FreeToHeap
 _020800CA:
 	ldr r0, [r4, #0x8]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x4]
 	bl DestroyMsgData
 	add r0, r4, #0x0
@@ -519,7 +519,7 @@ FUN_02080108: ; 0x02080108
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x8]
 	mov r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x95
 	mov r2, #0x0
@@ -527,7 +527,7 @@ FUN_02080108: ; 0x02080108
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x1
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	ldr r0, [r5, #0xc]
 	mov r1, #0x96
 	mov r2, #0x0
@@ -540,7 +540,7 @@ FUN_02080108: ; 0x02080108
 	mov r1, #0x2
 	ldr r0, [r5, #0x8]
 	add r3, r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x9b
 	mov r2, #0x0
@@ -553,7 +553,7 @@ FUN_02080108: ; 0x02080108
 	mov r1, #0x3
 	ldr r0, [r5, #0x8]
 	add r3, r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x98
 	mov r2, #0x0
@@ -561,7 +561,7 @@ FUN_02080108: ; 0x02080108
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x4
-	bl FUN_0200B59C
+	bl BufferLocationName
 	ldr r0, [r5, #0xc]
 	mov r1, #0x91
 	mov r2, #0x0
@@ -573,7 +573,7 @@ FUN_02080108: ; 0x02080108
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x8]
 	mov r1, #0x5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x92
 	mov r2, #0x0
@@ -581,7 +581,7 @@ FUN_02080108: ; 0x02080108
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x6
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	ldr r0, [r5, #0xc]
 	mov r1, #0x93
 	mov r2, #0x0
@@ -594,7 +594,7 @@ FUN_02080108: ; 0x02080108
 	ldr r0, [r5, #0x8]
 	mov r1, #0x7
 	mov r3, #0x2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x97
 	mov r2, #0x0
@@ -602,7 +602,7 @@ FUN_02080108: ; 0x02080108
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x8
-	bl FUN_0200B59C
+	bl BufferLocationName
 	ldr r0, [r5, #0x8]
 	ldr r1, [r5, #0x20]
 	add r2, r4, #0x0
@@ -643,7 +643,7 @@ FUN_02080228: ; 0x02080228
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0x8]
 	mov r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	mov r1, #0x95
 	mov r2, #0x0
@@ -651,7 +651,7 @@ FUN_02080228: ; 0x02080228
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x8]
 	mov r1, #0x1
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	ldr r0, [r4, #0xc]
 	mov r1, #0x96
 	mov r2, #0x0
@@ -664,7 +664,7 @@ FUN_02080228: ; 0x02080228
 	mov r1, #0x2
 	ldr r0, [r4, #0x8]
 	add r3, r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	mov r1, #0x9b
 	mov r2, #0x0
@@ -677,7 +677,7 @@ FUN_02080228: ; 0x02080228
 	mov r1, #0x3
 	ldr r0, [r4, #0x8]
 	add r3, r1, #0x0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	mov r1, #0x79
 	mov r2, #0x0
@@ -714,7 +714,7 @@ _020802F8:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x8]
 	mov r1, #0x4
-	bl FUN_0200B59C
+	bl BufferLocationName
 	b _0208036E
 _0208030C:
 	mov r0, #0x1
@@ -723,7 +723,7 @@ _0208030C:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x8]
 	mov r1, #0x4
-	bl FUN_0200B59C
+	bl BufferLocationName
 	b _0208036E
 _02080320:
 	mov r0, #0x1
@@ -732,7 +732,7 @@ _02080320:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x8]
 	mov r1, #0x4
-	bl FUN_0200B59C
+	bl BufferLocationName
 	b _0208036E
 _02080334:
 	mov r0, #0x1
@@ -741,7 +741,7 @@ _02080334:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x8]
 	mov r1, #0x4
-	bl FUN_0200B59C
+	bl BufferLocationName
 	b _0208036E
 _02080348:
 	mov r0, #0x1
@@ -750,7 +750,7 @@ _02080348:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x8]
 	mov r1, #0x4
-	bl FUN_0200B59C
+	bl BufferLocationName
 	b _0208036E
 _0208035C:
 	mov r0, #0x1
@@ -759,7 +759,7 @@ _0208035C:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x8]
 	mov r1, #0x4
-	bl FUN_0200B59C
+	bl BufferLocationName
 _0208036E:
 	ldr r0, [r4, #0x8]
 	ldr r1, [r4, #0x20]
@@ -805,7 +805,7 @@ FUN_02080384: ; 0x02080384
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x8]
 	mov r1, #0x5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x92
 	mov r2, #0x0
@@ -813,7 +813,7 @@ FUN_02080384: ; 0x02080384
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x6
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	ldr r0, [r5, #0xc]
 	mov r1, #0x93
 	mov r2, #0x0
@@ -826,7 +826,7 @@ FUN_02080384: ; 0x02080384
 	ldr r0, [r5, #0x8]
 	mov r1, #0x7
 	mov r3, #0x2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x97
 	mov r2, #0x0
@@ -834,7 +834,7 @@ FUN_02080384: ; 0x02080384
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x8
-	bl FUN_0200B59C
+	bl BufferLocationName
 	b _02080478
 _02080418:
 	mov r1, #0x94
@@ -847,7 +847,7 @@ _02080418:
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x8]
 	mov r1, #0x5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x95
 	mov r2, #0x0
@@ -855,7 +855,7 @@ _02080418:
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x6
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	ldr r0, [r5, #0xc]
 	mov r1, #0x96
 	mov r2, #0x0
@@ -868,7 +868,7 @@ _02080418:
 	ldr r0, [r5, #0x8]
 	mov r1, #0x7
 	mov r3, #0x2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r5, #0xc]
 	mov r1, #0x98
 	mov r2, #0x0
@@ -876,7 +876,7 @@ _02080418:
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x8
-	bl FUN_0200B59C
+	bl BufferLocationName
 _02080478:
 	ldr r0, [r5, #0x8]
 	ldr r1, [r5, #0x20]
@@ -1171,7 +1171,7 @@ FUN_02080678: ; 0x02080678
 _0208068A:
 	ldr r0, [r5, #0xc]
 	add r1, r4, #0x0
-	bl FUN_02069BC8
+	bl MonGetFlavorPreference
 	cmp r0, #0x1
 	bne _02080698
 	add r6, r4, #0x1
@@ -1711,14 +1711,14 @@ FUN_02080AE4: ; 0x02080AE4
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r6, r2, #0x0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x7
@@ -1745,7 +1745,7 @@ FUN_02080B30: ; 0x02080B30
 	add r5, r0, #0x0
 	add r0, sp, #0x0
 	add r4, r2, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	cmp r4, #0x0
 	add r2, sp, #0x24
 	bne _02080B76

@@ -4,7 +4,7 @@
 struct WazaTbl
 {
     u16 effect;
-    u8 unk2;
+    u8 class;
     u8 power;
     u8 type;
     u8 accuracy;
@@ -20,7 +20,7 @@ struct WazaTbl
 
 typedef enum MoveAttr {
     MOVEATTR_EFFECT = 0,
-    MOVEATTR_UNK1,
+    MOVEATTR_CLASS,
     MOVEATTR_POWER,
     MOVEATTR_TYPE,
     MOVEATTR_ACCURACY,

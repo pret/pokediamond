@@ -406,7 +406,7 @@ FUN_020727FC: ; 0x020727FC
 	ldr r0, [r5, r0]
 	mov r1, #0x0
 	add r2, r7, #0x0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r1, #0x6a
 	add r4, #0xf
 	lsl r1, r1, #0x4
@@ -453,7 +453,7 @@ FUN_02072844: ; 0x02072844
 	bl FUN_02019064
 	ldr r0, [sp, #0x14]
 	mov r1, #0xc
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _0207294C ; =0x000006F8
 	mov r6, #0x0
 	str r0, [r5, r1]
@@ -473,7 +473,7 @@ _02072890:
 	ldr r1, _02072950 ; =0x000006E8
 	ldr r0, [r5, r0]
 	ldr r1, [r3, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
@@ -488,7 +488,7 @@ _020728B4:
 	ldr r1, _02072954 ; =0x000006AC
 	ldr r0, [r5, r0]
 	ldr r1, [r3, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 _020728CC:
 	add r0, r4, #0x1
 	lsl r0, r0, #0x10
@@ -596,7 +596,7 @@ _0207297E:
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r5, r1]
@@ -657,7 +657,7 @@ FUN_02072A00: ; 0x02072A00
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r2, #0x6a
 	mov r1, #0x2c
 	lsl r2, r2, #0x4
@@ -700,7 +700,7 @@ FUN_02072A54: ; 0x02072A54
 	ldr r2, [r3, r2]
 	add r0, r4, r6
 	add r3, r1, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r2, #0x71
 	add r0, r5, r7
 	lsl r2, r2, #0x4
@@ -740,7 +740,7 @@ _02072A9C:
 	ldr r2, [r5, r2]
 	add r0, r4, r6
 	mov r3, #0x40
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	b _02072B0A
 _02072ADC:
 	cmp r0, #0x1
@@ -763,7 +763,7 @@ _02072ADC:
 	ldr r2, [r5, r2]
 	add r0, r4, r6
 	mov r3, #0x40
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _02072B0A:
 	add r0, r4, r6
 	bl FUN_02019220
@@ -1497,7 +1497,7 @@ FUN_02073094: ; 0x02073094
 	ldr r2, _02073154 ; =0x000006A8
 	str r1, [sp, #0xc]
 	ldr r2, [r5, r2]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x79
 	lsl r0, r0, #0x2
 	add r0, r5, r0
@@ -1531,7 +1531,7 @@ _020730FE:
 	ldr r2, _02073154 ; =0x000006A8
 	str r1, [sp, #0xc]
 	ldr r2, [r5, r2]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x7d
 	lsl r0, r0, #0x2
 	add r0, r5, r0
@@ -1584,7 +1584,7 @@ _02073198:
 	ldr r2, [r5, r2]
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0x0
 	bl FUN_02019220
 	add sp, #0xc
@@ -1676,7 +1676,7 @@ FUN_0207322C: ; 0x0207322C
 	ldr r2, [r4, r2]
 	add r0, r4, r0
 	mov r1, #0x1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r1, _02073278 ; =0x00000B24
 	strb r0, [r4, r1]
 	add sp, #0xc
@@ -1717,7 +1717,7 @@ _020732A6:
 	b _020732BE
 _020732AE:
 	ldr r0, _020732C8 ; =0x00000483
-	bl FUN_02005C28
+	bl PlayBGM
 	b _020732BE
 _020732B6:
 	ldr r0, _020732C4 ; =0x000005E6
@@ -1793,7 +1793,7 @@ _02073332:
 	add r0, r4, r6
 	add r3, r1, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, r6
@@ -1856,7 +1856,7 @@ _020733B4:
 	add r0, r4, r7
 	add r3, r1, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, r7
@@ -1904,7 +1904,7 @@ _02073416:
 	add r0, r4, r6
 	add r3, r1, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0x0
 	bl String_dtor
 	add r0, r4, r6
@@ -1962,7 +1962,7 @@ _02073490:
 	add r0, r4, r7
 	add r3, r1, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0x0
 	bl String_dtor
 	add r0, r4, r7
@@ -2069,7 +2069,7 @@ _0207356C:
 	ldr r2, [sp, #0x18]
 	add r0, r5, r0
 	add r3, r1, #0x0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x18]
 	bl String_dtor
 	ldr r0, _02073630 ; =0x0000069C
@@ -2090,7 +2090,7 @@ _0207356C:
 	mov r1, #0x0
 	sub r2, r3, r2
 	mov r3, #0x2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x6a
 	ldr r1, _02073638 ; =0x000006A4
 	lsl r0, r0, #0x4
@@ -2118,7 +2118,7 @@ _0207356C:
 	ldr r2, [r5, r2]
 	add r0, r5, r0
 	mov r1, #0x0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldrh r1, [r6, #0x0]
 	ldr r0, _02073634 ; =0x00000B28
 	add r4, #0x10
@@ -2180,7 +2180,7 @@ _0207366E:
 	ldr r0, [r5, r0]
 	mov r1, #0x0
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x6a
 	ldr r1, _020736F0 ; =0x000006A4
 	lsl r0, r0, #0x4
@@ -2207,7 +2207,7 @@ _0207366E:
 	add r0, r5, r0
 	mov r1, #0x0
 	sub r3, r3, r7
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
 	add r6, r6, #0x2
 	add r0, r0, #0x1

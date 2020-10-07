@@ -1,0 +1,8 @@
+You need a Bicycle to go out on\nCycling Road!
+You need a Bicycle to go out on\nCycling Road!\r
+Learn how to shift gears, and you’ll\nbe able to ride anywhere.
+{STRVAR 3, 0}, long time, no see!\rOh? You look puzzled.\nYou’re wondering who I am.\rI’m Professor Rowan’s assistant and\n{STRVAR 3, 1}’s father.\rI’ve come a long way to help you on\nyour adventure at the professor’s\fbehest.\r{STRVAR 3, 0}, let me ask you,\nhow many Pokémon have you met?\r
+{STRVAR 3, 0}, long time, no see!\rOh? You look puzzled.\nYou’re wondering who I am.\rI’m Professor Rowan’s assistant and\n{STRVAR 3, 1}’s father.\rI’ve come a long way to help you on\nyour adventure at the professor’s\fbehest.\r{STRVAR 3, 0}, let me ask you,\nhow many Pokémon have you met?\r
+Oh, my!\nYou’ve met {STRVAR 52, 1} Pokémon!\rWonderful! Yes, bravo!\nProfessor Rowan should be delighted!\rHere is something for you!\r
+A Pokémon holding an Exp. Share\nwill be given some of the Exp. Points\ffrom battle.\rIt will get Exp. Points even if it\ndidn’t actually battle.\rI would say an Exp. Share is quite\nuseful for raising weak Pokémon.\rAlso, a Pokémon you get in a trade\nmay disobey you if it is too high\fin level.\rDon’t worry, though. It will obey if\nyou have enough Gym Badges.
+You’ve met only {STRVAR 52, 1} Pokémon?\rHmm...\nYou’ve got to find at least 35.\rIf you can’t, it will be tough to\ncomplete the Sinnoh Pokédex.

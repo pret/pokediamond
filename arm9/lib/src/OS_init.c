@@ -1,10 +1,8 @@
 #include "function_target.h"
 #include "OS_init.h"
+#include "MI_init.h"
+#include "PXI_init.h"
 
-extern void PXI_Init(void);
-extern void MI_Init(void);
-extern void OS_InitVAlarm(void);
-extern void OSi_InitVramExclusive(void);
 extern void CTRDG_Init(void);
 extern void CARD_Init(void);
 extern void PM_Init(void);

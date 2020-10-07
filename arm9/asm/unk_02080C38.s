@@ -106,16 +106,16 @@ _02080CA6:
 	b _02080DF2
 _02080CB4:
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	mov r1, #0x0
 	bl GetPartyMonByIndex
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r0, [sp, #0x0]
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r5, r0, #0x0
 	mov r1, #0x0
 	add r0, sp, #0x4
@@ -131,7 +131,7 @@ _02080CB4:
 	bl FUN_02027E24
 	str r0, [sp, #0x18]
 	ldr r0, [r6, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x1c]
 	add r0, sp, #0x4
 	bl FUN_02081214
@@ -899,7 +899,7 @@ _020812B6:
 	mov r1, #0xb
 	bl FUN_02082ED0
 	mov r0, #0x14
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	mov r1, #0x56
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -930,7 +930,7 @@ _02081304:
 	bl FUN_02029F9C
 	ldr r0, [r6, #0x8]
 	ldr r1, [r4, #0x0]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	mov r0, #0x8
 	mov r1, #0x14
 	bl String_ctor
@@ -943,7 +943,7 @@ _02081304:
 	ldr r1, [r6, #0xc]
 	bl StringCopy
 	ldr r0, [r6, #0x10]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	mov r1, #0x42
 	lsl r1, r1, #0x2
 	strb r0, [r4, r1]
@@ -962,7 +962,7 @@ _02081304:
 	cmp r0, #0x0
 	ldr r0, [r6, #0x10]
 	bne _0208138E
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #0x0
 	bne _02081384
 	mov r1, #0xba
@@ -977,7 +977,7 @@ _02081384:
 	strh r1, [r4, r0]
 	b _020813A8
 _0208138E:
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #0x0
 	bne _020813A0
 	mov r0, #0x45
@@ -1792,7 +1792,7 @@ _020819A2:
 	add r1, #0xe8
 	ldr r1, [r1, #0x0]
 	add r0, r7, #0x0
-	bl FUN_02023990
+	bl PlayerName_FlatToString
 	ldr r0, _020819F0 ; =0x00000127
 	add r5, r5, #0x1
 	ldrb r0, [r4, r0]
@@ -2262,7 +2262,7 @@ _02081D3C:
 _02081D4C:
 	add r0, r5, #0x0
 	bl FUN_0202DFA4
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r4, r5
 	strb r0, [r1, r7]
 	ldrb r0, [r4, r6]
@@ -2350,7 +2350,7 @@ _02081DEC:
 	bl ErrorHandling
 _02081DFA:
 	add r0, r7, #0x0
-	bl FUN_02023A88
+	bl PlayerProfile_GetGameClearFlag
 	cmp r0, #0x0
 	beq _02081E0A
 	add r5, r5, #0x1
@@ -2377,7 +2377,7 @@ _02081E1E:
 	bl ErrorHandling
 _02081E2C:
 	add r0, r7, #0x0
-	bl FUN_02023A9C
+	bl PlayerProfile_GetNatDexFlag
 	cmp r0, #0x0
 	beq _02081E3C
 	add r5, r5, #0x1
@@ -2643,7 +2643,7 @@ FUN_0208201C: ; 0x0208201C
 	add r2, #0xd0
 	ldrh r2, [r2, #0x0]
 	add r1, r3, #0x0
-	bl FUN_0200B244
+	bl BufferContestJudgeName
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02082034
@@ -2670,7 +2670,7 @@ FUN_02082034: ; 0x02082034
 	ldrb r3, [r4, r3]
 	ldr r2, [r2, #0x0]
 	add r1, r6, #0x0
-	bl FUN_0200ABB4
+	bl BufferString
 	add sp, #0x8
 	pop {r4-r6, pc}
 	.balign 4
@@ -2689,7 +2689,7 @@ FUN_0208206C: ; 0x0208206C
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -2710,7 +2710,7 @@ FUN_02082090: ; 0x02082090
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200B278
+	bl BufferContestMessage
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -2728,7 +2728,7 @@ FUN_020820B8: ; 0x020820B8
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200B2AC
+	bl BufferContestMessage2
 	pop {r3-r5, pc}
 	.balign 4
 _020820D8: .word 0x0000011F
@@ -3041,7 +3041,7 @@ _020822D6:
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_0200AD94
+	bl BufferRibbonNameOrDesc
 	pop {r3-r5, pc}
 	.balign 4
 _020822EC: .word 0x0000011F
@@ -3547,7 +3547,7 @@ _02082666:
 	b _02082774
 _02082672:
 	ldr r0, [r4, r0]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0x0
 	ldr r0, _02082840 ; =0x00000121
 	ldrb r1, [r4, r0]
@@ -3646,7 +3646,7 @@ _02082740:
 _0208274C:
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r7, r0, #0x0
 	ldr r0, _02082858 ; =0x00000127
 	ldrb r6, [r4, r0]
@@ -3657,7 +3657,7 @@ _0208274C:
 _02082762:
 	ldr r1, [r5, #0x0]
 	add r0, r7, #0x0
-	bl FUN_0202498C
+	bl Pokedex_SetMonSeenFlag
 	add r6, r6, #0x1
 	add r5, r5, #0x4
 	cmp r6, #0x4
@@ -3764,7 +3764,7 @@ _02082858: .word 0x00000127
 	thumb_func_start FUN_0208285C
 FUN_0208285C: ; 0x0208285C
 	push {r4, lr}
-	bl FUN_020126D8
+	bl GF_RTC_TimeToSec
 	add r4, r0, #0x0
 	bl GetLCRNGSeed
 	add r0, #0xa

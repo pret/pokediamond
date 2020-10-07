@@ -20,7 +20,7 @@ MOD52_021D74E0: ; 0x021D74E0
 	thumb_func_start MOD52_021D74F8
 MOD52_021D74F8: ; 0x021D74F8
 	push {r3, lr}
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r1, [r0, #8]
 	mov r0, #0x4d
 	bl MOD52_021D769C
@@ -37,7 +37,7 @@ MOD52_021D750C: ; 0x021D750C
 	mov r0, #0
 	ldr r1, _021D7524 ; =UNK_020FD144
 	mvn r0, r0
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #1
 	pop {r3, pc}
 	nop
@@ -61,14 +61,14 @@ MOD52_021D7528: ; 0x021D7528
 	thumb_func_start MOD52_021D7540
 MOD52_021D7540: ; 0x021D7540
 	push {r4, lr}
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r4, [r0, #8]
 	mov r0, #0x4d
 	add r1, r4, #0
 	mov r2, #1
 	bl MOD52_021D7604
 	add r0, r4, #0
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	bl FUN_02015E3C
 	mov r0, #1
 	pop {r4, pc}
@@ -82,7 +82,7 @@ MOD52_021D7560: ; 0x021D7560
 	mov r0, #0
 	ldr r1, _021D7578 ; =UNK_020F2B7C
 	mvn r0, r0
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #1
 	pop {r3, pc}
 	nop
@@ -106,10 +106,10 @@ MOD52_021D757C: ; 0x021D757C
 	thumb_func_start MOD52_021D7594
 MOD52_021D7594: ; 0x021D7594
 	push {r3, r4, r5, lr}
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r4, [r0, #8]
 	add r0, r4, #0
-	bl FUN_02023788
+	bl Sav2_SysInfo_get
 	add r5, r0, #0
 	mov r0, #0x4d
 	add r1, r4, #0
@@ -118,22 +118,22 @@ MOD52_021D7594: ; 0x021D7594
 	mov r1, #0
 	bl FUN_02024F9C
 	add r0, r5, #0
-	bl FUN_020237CC
+	bl Sav2_SysInfo_MacAddressIsMine
 	cmp r0, #0
 	beq _021D75C8
 	add r0, r5, #0
-	bl FUN_020237FC
+	bl Sav2_SysInfo_RTCOffsetIsMine
 	cmp r0, #0
 	bne _021D75D8
 _021D75C8:
 	add r0, r4, #0
-	bl FUN_02023794
+	bl Sav2_SysInfo_RTC_get
 	bl FUN_020238A4
 	add r0, r5, #0
-	bl FUN_020237A0
+	bl Sav2_SysInfo_InitFromSystem
 _021D75D8:
 	add r0, r4, #0
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	bl FUN_02015E3C
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -148,7 +148,7 @@ MOD52_021D75E8: ; 0x021D75E8
 	mov r0, #0
 	ldr r1, _021D7600 ; =UNK_020F2B8C
 	mvn r0, r0
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #1
 	pop {r3, pc}
 	nop
@@ -162,11 +162,11 @@ MOD52_021D7604: ; 0x021D7604
 	str r0, [sp]
 	add r0, r5, #0
 	add r6, r2, #0
-	bl FUN_02023788
-	bl FUN_020237A0
+	bl Sav2_SysInfo_get
+	bl Sav2_SysInfo_InitFromSystem
 	add r0, r5, #0
-	bl FUN_02023794
-	bl FUN_02023840
+	bl Sav2_SysInfo_RTC_get
+	bl Sav2_SysInfo_RTC_init
 	add r0, r5, #0
 	bl FUN_0202881C
 	add r4, r0, #0
@@ -178,7 +178,7 @@ MOD52_021D7604: ; 0x021D7604
 	add r0, r5, #0
 	bl FUN_0206007C
 	add r0, r5, #0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0
 	bl MTRandom
 	add r7, r0, #0
@@ -186,10 +186,10 @@ MOD52_021D7604: ; 0x021D7604
 	beq _021D7656
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_020239B8
+	bl PlayerProfile_SetTrainerID
 _021D7656:
 	add r0, r4, #0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	add r0, r7, #0
 	mov r2, #0
@@ -198,7 +198,7 @@ _021D7656:
 	lsl r1, r1, #0x18
 	add r0, r4, #0
 	lsr r1, r1, #0x18
-	bl FUN_02023A2C
+	bl PlayerProfile_SetAvatar
 	add r0, r5, #0
 	bl FUN_02024ECC
 	ldr r1, [sp]
@@ -228,15 +228,15 @@ MOD52_021D769C: ; 0x021D769C
 	push {r4, lr}
 	add r4, r1, #0
 	add r0, r4, #0
-	bl FUN_020227DC
+	bl Sav2_InitDynamicRegion
 	add r0, r4, #0
 	bl FUN_020377E0
 	add r0, r4, #0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r1, _021D76C4 ; =0x00000BB8
-	bl FUN_02023A14
+	bl PlayerProfile_SetMoney
 	add r0, r4, #0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ECD4
 	pop {r4, pc}
 	.align 2, 0

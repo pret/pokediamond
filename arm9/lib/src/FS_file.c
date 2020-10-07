@@ -7,6 +7,8 @@
 extern FSDirPos current_dir_pos;
 BOOL is_init = FALSE;
 
+static BOOL FSi_FindPath(FSFile * p_dir, const char * path, FSFileID * p_file_id, FSDirPos * p_dir_pos);
+
 ARM_FUNC void FS_Init(u32 default_dma_no)
 {
     if (!is_init)

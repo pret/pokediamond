@@ -6,6 +6,10 @@
 
 static MIiGXDmaParams MIi_GXDmaParams = { FALSE };
 
+static void MIi_FIFOCallback(void);
+static void MIi_DMACallback(void *arg);
+static void MIi_DMAFastCallback(void *arg);
+
 #pragma section ITCM begin
 ARM_FUNC void MI_SendGXCommand(u32 dmaNo, const void *src, u32 commandLength)
 {
@@ -104,8 +108,9 @@ ARM_FUNC static void MIi_FIFOCallback(void)
     }
 }
 
-ARM_FUNC static void MIi_DMACallback(void *)
+ARM_FUNC static void MIi_DMACallback(void *arg)
 {
+#pragma unused(arg)
     (void)OS_DisableIrqMask(OS_IE_GXFIFO);
 
     G3X_SetFifoIntrCond(MIi_GXDmaParams.fifoCond);
@@ -141,8 +146,9 @@ ARM_FUNC void MI_SendGXCommandAsyncFast(u32 dmaNo, const void *src, u32 commandL
     MIi_DmaSetParams(dmaNo, (u32)src, (u32)REG_GXFIFO_ADDR, MI_CNT_GXCOPY_IF(commandLength));
 }
 
-ARM_FUNC static void MIi_DMAFastCallback(void *)
+ARM_FUNC static void MIi_DMAFastCallback(void *arg)
 {
+#pragma unused(arg)
     MIi_GXDmaParams.isBusy = FALSE;
 
     MIi_CallCallback(MIi_GXDmaParams.callback, MIi_GXDmaParams.arg);

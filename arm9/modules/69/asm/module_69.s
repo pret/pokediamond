@@ -9,7 +9,7 @@ HOF_OverlayInit: ; 0x0222D5C0
 	add r5, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #3
 	mov r1, #0x3f
 	lsl r2, r0, #0x10
@@ -17,10 +17,10 @@ HOF_OverlayInit: ; 0x0222D5C0
 	ldr r1, _0222D70C ; =0x00001B60
 	add r0, r5, #0
 	mov r2, #0x3f
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r2, #0x4e
 	str r0, [r4, #0xc]
 	mov r0, #0
@@ -43,7 +43,7 @@ HOF_OverlayInit: ; 0x0222D5C0
 	ldr r1, _0222D718 ; =0x00001B58
 	str r0, [r4, r1]
 	mov r0, #0x3f
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _0222D71C ; =0x00001B50
 	str r0, [r4, r1]
 	mov r0, #0
@@ -181,7 +181,7 @@ HOF_OverlayTeardown: ; 0x0222D750
 	beq _0222D7C6
 	b _0222D7D2
 _0222D762:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, _0222D7D8 ; =0x00001B34
 	ldr r0, [r4, r0]
@@ -200,7 +200,7 @@ _0222D762:
 	bl MOD69_0222DD18
 	ldr r0, _0222D7E4 ; =0x00001B50
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, _0222D7E8 ; =0x00001B54
 	ldr r0, [r4, r0]
 	bl String_dtor
@@ -211,7 +211,7 @@ _0222D762:
 	ldr r0, [r4, r0]
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x3f
 	bl FUN_020168D0
 	ldr r0, [r5]
@@ -240,7 +240,7 @@ _0222D7F0: .word 0x00001B5C
 HOF_OverlayRun: ; 0x0222D7F4
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5]
 	add r4, r0, #0
 	cmp r1, #5
@@ -611,7 +611,7 @@ _0222DAB4:
 	str r0, [r4]
 	b _0222DAD4
 _0222DAC4:
-	ldr r0, _0222DAE0 ; =gUnknown21C48B8
+	ldr r0, _0222DAE0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -625,7 +625,7 @@ _0222DAD4:
 	pop {r4, pc}
 	nop
 _0222DADC: .word 0x00001B3C
-_0222DAE0: .word gUnknown21C48B8
+_0222DAE0: .word gMain
 
 	thumb_func_start MOD69_0222DAE4
 MOD69_0222DAE4: ; 0x0222DAE4
@@ -1350,7 +1350,7 @@ _0222E0D4:
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _0222E10C
 	mov r1, #1
@@ -2307,7 +2307,7 @@ MOD69_0222E89C: ; 0x0222E89C
 	add r5, r0, #0
 	ldr r0, [r5, #0x1c]
 	add r4, r1, #0
-	bl FUN_02021D5C
+	bl StringCountLines
 	mov r6, #0
 	str r0, [sp, #0x10]
 	cmp r0, #0
@@ -2316,7 +2316,7 @@ _0222E8B2:
 	ldr r0, [r5, #0x18]
 	ldr r1, [r5, #0x1c]
 	add r2, r6, #0
-	bl FUN_02021D9C
+	bl StringGetLineN
 	mov r0, #0
 	ldr r1, [r5, #0x18]
 	add r2, r0, #0
@@ -2336,7 +2336,7 @@ _0222E8B2:
 	ldr r0, [r5, #0x10]
 	ldr r2, [r5, #0x18]
 	add r3, r3, r7
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	add r6, r6, #1
 	add r4, #0x10
@@ -2358,7 +2358,7 @@ HOF_MonGetUIStrings: ; 0x0222E8FC
 	add r2, r0, #0
 	ldr r0, [r4, #0x14]
 	mov r1, #0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	ldr r0, [r4, #0x24]
 	bl CalcMonLevel
 	add r2, r0, #0
@@ -2368,7 +2368,7 @@ HOF_MonGetUIStrings: ; 0x0222E8FC
 	str r1, [sp, #4]
 	ldr r0, [r4, #0x14]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0x24]
 	bl GetMonGender
 	cmp r0, #0
@@ -2422,7 +2422,7 @@ _0222E982:
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	mov r1, #0
-	bl GetLandmarkName
+	bl BufferLandmarkName
 _0222E996:
 	ldr r0, [r5, #0x20]
 	ldr r2, [r5, #0x18]
@@ -2503,7 +2503,7 @@ _0222EA2E:
 	add r2, r0, #0
 	ldr r0, [r4, #0x14]
 	mov r1, #0
-	bl FUN_0200AD18
+	bl BufferBoxMonOTName
 	ldr r0, [r4, #0x20]
 	ldr r2, [r4, #0x18]
 	mov r1, #4
@@ -2663,16 +2663,16 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	str r1, [sp, #0xc]
 	ldr r2, [r4, r2]
 	add r0, #0x14
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, _0222EC5C ; =0x00001B50
 	ldr r2, [r4, #0xc]
 	ldr r0, [r4, r0]
 	ldr r2, [r2]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0]
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -2681,10 +2681,10 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	str r1, [sp, #4]
 	ldr r0, [r4, r0]
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #8]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -2694,10 +2694,10 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	mov r1, #2
 	ldr r0, [r4, r0]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #8]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	mov r3, #2
 	add r2, r0, #0
 	str r3, [sp]
@@ -2706,7 +2706,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	ldr r0, _0222EC5C ; =0x00001B50
 	mov r1, #3
 	ldr r0, [r4, r0]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, _0222EC50 ; =0x00001B5C
 	mov r1, #0xd
 	ldr r0, [r4, r2]
@@ -2741,7 +2741,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	str r1, [sp, #0xc]
 	ldr r2, [r4, r2]
 	add r0, #0x14
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r4, #0x14
 	add r0, r4, #0
 	bl FUN_02019548
@@ -4070,7 +4070,7 @@ _0222F6FA:
 	b _0222F77A
 _0222F70C:
 	add r0, r6, #0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	add r7, r0, #0
 	add r0, r4, #0
 	mov r1, #7
@@ -4084,7 +4084,7 @@ _0222F726:
 	ldr r1, _0222F788 ; =0x00001B54
 	add r0, r6, #0
 	ldr r1, [r5, r1]
-	bl FUN_02023990
+	bl PlayerName_FlatToString
 	ldr r2, _0222F78C ; =0x00001B58
 	add r0, r4, #0
 	ldr r2, [r5, r2]
@@ -4094,7 +4094,7 @@ _0222F726:
 	ldr r0, [r5, r1]
 	add r1, r1, #4
 	ldr r1, [r5, r1]
-	bl FUN_02021CE0
+	bl StringCompare
 	cmp r0, #0
 	beq _0222F750
 	mov r5, #2

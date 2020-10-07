@@ -10,7 +10,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	add r5, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -31,7 +31,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	ldr r1, _0222D738 ; =0x000036B4
 	add r0, r5, #0
 	mov r2, #0x1a
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	ldr r2, _0222D738 ; =0x000036B4
 	mov r0, #0
@@ -45,17 +45,17 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	mov r0, #0xc
 	mov r1, #0x16
 	mov r2, #0x1a
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	mov r1, #0x5e
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x1a
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r1, #0x5f
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x1a
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r2, #6
 	lsl r2, r2, #6
 	str r0, [r4, r2]
@@ -94,7 +94,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	bl MOD71_0222E900
 	ldr r0, _0222D73C ; =MOD71_0222E4DC
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl MOD71_0222EA38
 	add r0, r4, #0
 	bl MOD71_0222EA68
@@ -207,11 +207,11 @@ MOD71_0222D780: ; 0x0222D780
 	add r6, r0, #0
 	add r0, r4, #0
 	mov r1, #0x1a
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r4, r0, #0
 	add r0, r6, #0
 	mov r1, #0x1a
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r6, r0, #0
 	mov r0, #0x61
 	lsl r0, r0, #2
@@ -366,7 +366,7 @@ MOD71_0222D820: ; 0x0222D820
 	bl FUN_020200A0
 	ldr r0, _0222D938 ; =MOD71_0222E4DC
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add sp, #8
 	pop {r4, pc}
 	nop
@@ -444,7 +444,7 @@ MOD71_0222D9C8: ; 0x0222D9C8
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5]
 	add r4, r0, #0
 	mov r6, #0
@@ -555,11 +555,11 @@ _0222DA72:
 	b _0222DB32
 _0222DAAE:
 	ldr r0, [r4, #0x40]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _0222DB32
 	ldr r0, [r4, #0x40]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	add r0, r4, #0
 	bl MOD71_0222D820
 	add r0, r6, #0
@@ -655,7 +655,7 @@ _0222DB70:
 	add r2, r0, #0
 	add r0, r7, #0
 	add r1, r4, r6
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r5, #0
 	add r4, r4, #1
 	bl GetPartyCount
@@ -1722,10 +1722,10 @@ _0222E434: .word 0x000007A8
 MOD71_0222E438: ; 0x0222E438
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r1, [r4, #0x5c]
 	str r1, [r0, #0x28]
 	add r0, r4, #0
@@ -1758,24 +1758,24 @@ MOD71_0222E438: ; 0x0222E438
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x5e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x1a
 	bl FUN_020168D0
 	mov r0, #1
@@ -2088,7 +2088,7 @@ MOD71_0222E76C: ; 0x0222E76C
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	add r0, r1, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r4, r0, #0
 	mov r2, #6
 	ldr r0, _0222E830 ; =0x00000668
@@ -2143,7 +2143,7 @@ MOD71_0222E76C: ; 0x0222E76C
 	str r0, [r5, r1]
 	ldr r0, [r4, #0x10]
 	str r0, [r5, #4]
-	bl FUN_0206B8A4
+	bl SavArray_Party_sizeof
 	add r1, r0, #0
 	mov r0, #0x1a
 	bl AllocFromHeap
@@ -2151,8 +2151,8 @@ MOD71_0222E76C: ; 0x0222E76C
 	str r0, [r5, r1]
 	ldr r0, [r5, r1]
 	mov r1, #6
-	bl FUN_0206B8CC
-	bl FUN_0206B8A4
+	bl InitPartyWithMaxSize
+	bl SavArray_Party_sizeof
 	add r2, r0, #0
 	ldr r0, _0222E844 ; =0x0000221C
 	mov r1, #0xff
@@ -2160,7 +2160,7 @@ MOD71_0222E76C: ; 0x0222E76C
 	bl memset
 	ldr r0, [r4, #4]
 	mov r1, #0x1a
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	mov r1, #0x63
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -2220,7 +2220,7 @@ MOD71_0222E884: ; 0x0222E884
 	str r2, [sp]
 	ldr r2, [sp, #0x20]
 	ldr r3, [sp, #0x24]
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	add r6, r0, #0
 	beq _0222E8D6
 	add r1, sp, #4
@@ -3378,7 +3378,7 @@ _0222F220: .word MOD71_022311D8
 	thumb_func_start MOD71_0222F224
 MOD71_0222F224: ; 0x0222F224
 	push {r3, r4}
-	ldr r3, _0222F260 ; =gUnknown21C48B8
+	ldr r3, _0222F260 ; =gMain
 	mov r1, #0
 	ldr r3, [r3, #0x4c]
 	mov r4, #0x40
@@ -3413,7 +3413,7 @@ _0222F25C:
 	pop {r3, r4}
 	bx lr
 	.align 2, 0
-_0222F260: .word gUnknown21C48B8
+_0222F260: .word gMain
 	thumb_func_end MOD71_0222F224
 
 	thumb_func_start MOD71_0222F264
@@ -3743,21 +3743,21 @@ MOD71_0222F4BC: ; 0x0222F4BC
 	add r4, r2, #0
 	add r6, r0, #0
 	add r5, r1, #0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0
 	add r0, r4, #0
 	bl CopyU16StringArray
 	add r0, r6, #0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	str r0, [r4, #0x10]
 	add r0, r6, #0
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	strb r0, [r4, #0x14]
 	add r0, r6, #0
-	bl FUN_02023A68
+	bl PlayerProfile_GetVersion
 	strb r0, [r4, #0x15]
 	add r0, r6, #0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	strb r0, [r4, #0x16]
 	mov r0, #0
 	add r1, r4, #0
@@ -3809,7 +3809,7 @@ MOD71_0222F538: ; 0x0222F538
 	lsl r0, r0, #2
 	add r0, r4, r0
 	bl MOD71_0222F224
-	ldr r0, _0222F588 ; =gUnknown21C48B8
+	ldr r0, _0222F588 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -3846,7 +3846,7 @@ _0222F584:
 	mov r0, #0
 	pop {r4, pc}
 	.align 2, 0
-_0222F588: .word gUnknown21C48B8
+_0222F588: .word gMain
 _0222F58C: .word MOD71_0222F674
 _0222F590: .word 0x00002214
 _0222F594: .word MOD71_0222FDD8
@@ -3937,7 +3937,7 @@ _0222F606:
 	ldr r0, _0222F670 ; =UNK_020FA6E8
 	add r1, #0xc
 	mov r2, #0x1a
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r5, #0x40]
 	str r4, [r5, #0x3c]
 	pop {r3, r4, r5, pc}
@@ -4132,7 +4132,7 @@ MOD71_0222F7E4: ; 0x0222F7E4
 	push {r4, lr}
 	sub sp, #0x10
 	add r4, r0, #0
-	ldr r0, _0222F83C ; =gUnknown21C48B8
+	ldr r0, _0222F83C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -4171,7 +4171,7 @@ _0222F834:
 	add sp, #0x10
 	pop {r4, pc}
 	nop
-_0222F83C: .word gUnknown21C48B8
+_0222F83C: .word gMain
 _0222F840: .word 0x00000588
 _0222F844: .word MOD71_0222F538
 _0222F848: .word 0x00002214
@@ -4285,7 +4285,7 @@ _0222F910:
 	ldr r0, _0222F94C ; =0x00003674
 	mov r1, #0
 	ldr r0, [r4, r0]
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0
 	mov r1, #0x23
 	bl MOD71_0222F84C
@@ -4334,7 +4334,7 @@ _0222F976:
 	ldr r0, _0222FA18 ; =0x00003674
 	mov r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r5, #0
 	mov r1, #0x23
 	bl MOD71_0222F84C
@@ -4348,7 +4348,7 @@ _0222F9A0:
 	ldr r0, _0222FA24 ; =0x00003670
 	str r4, [r5, r0]
 	mov r0, #0x1a
-	bl FUN_02023928
+	bl PlayerProfile_new
 	add r6, r0, #0
 	ldr r0, _0222FA28 ; =0x00003694
 	add r1, r4, #0
@@ -4356,12 +4356,12 @@ _0222F9A0:
 	bl FUN_020283A4
 	add r1, r0, #0
 	add r0, r6, #0
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r0, _0222FA18 ; =0x00003674
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r6, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r6, #0
 	bl FreeToHeap
 	add r0, r5, #0
@@ -4386,7 +4386,7 @@ _0222F9E4:
 	bl FUN_02001300
 	ldr r0, _0222FA34 ; =0x0000367C
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4412,7 +4412,7 @@ MOD71_0222FA38: ; 0x0222FA38
 	str r0, [sp]
 	add r0, r0, #1
 	mov r1, #0x1a
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _0222FAD0 ; =0x0000367C
 	str r0, [r5, r1]
 	mov r0, #0x64
@@ -4433,12 +4433,12 @@ _0222FA60:
 	bl FUN_020283A4
 	add r1, r0, #0
 	add r0, r6, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, _0222FAD0 ; =0x0000367C
 	add r1, r6, #0
 	ldr r0, [r5, r0]
 	add r2, r4, #0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 _0222FA8A:
 	add r4, r4, #1
 	cmp r4, #0x20
@@ -4450,7 +4450,7 @@ _0222FA8A:
 	add r3, r2, #0
 	ldr r1, [r5, r1]
 	sub r3, #0xd
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r6, #0
 	bl String_dtor
 	ldr r2, _0222FAD0 ; =0x0000367C
@@ -4509,7 +4509,7 @@ _0222FB08:
 	ldr r0, _0222FB40 ; =0x00003674
 	mov r1, #0
 	ldr r0, [r4, r0]
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0
 	mov r1, #0x23
 	bl MOD71_0222F84C
@@ -4660,7 +4660,7 @@ _0222FC2C:
 	bl DestroyMsgData
 	ldr r0, _0222FCEC ; =0x00003674
 	ldr r0, [r6, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x13
 	bl FUN_02031588
 	mov r3, #0x5e
@@ -4681,11 +4681,11 @@ _0222FC2C:
 	pop {r3, r4, r5, r6, r7, pc}
 _0222FC70:
 	ldr r0, [r6, #4]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r1, _0222FCFC ; =0x000001B5
 	mov r2, #1
 	mov r3, #0x1a
-	bl FUN_0206EE50
+	bl Bag_HasItem
 	cmp r0, #1
 	bne _0222FCAA
 	ldr r0, _0222FCE4 ; =0x0000366C
@@ -4695,7 +4695,7 @@ _0222FC70:
 	ldr r0, _0222FCEC ; =0x00003674
 	mov r1, #0
 	ldr r0, [r6, r0]
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r6, #0
 	mov r1, #0x21
 	bl MOD71_0222F84C
@@ -4779,7 +4779,7 @@ MOD71_0222FD08: ; 0x0222FD08
 	pop {r3, r4, pc}
 _0222FD48:
 	mov r0, #0x1a
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, _0222FD88 ; =0x00003674
 	ldr r2, _0222FD8C ; =0x00000251
 	str r0, [r4, r1]
@@ -4882,7 +4882,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0x20
@@ -4909,7 +4909,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	bl MOD71_02230F40
 	mov r0, #3
 	mov r1, #0x1a
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _0222FED8 ; =0x0000065C
 	mov r2, #0x11
 	str r0, [r4, r1]
@@ -4918,7 +4918,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r3, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -4926,7 +4926,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	ldr r1, [r4, r1]
 	mov r2, #0x12
 	mov r3, #1
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -4934,7 +4934,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	ldr r1, [r4, r1]
 	mov r2, #0x13
 	mov r3, #2
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	ldr r1, [r4, r0]
 	str r1, [sp, #0x10]
@@ -5024,7 +5024,7 @@ _0222FF10:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r1, _02230010 ; =MOD71_0222F538
 	ldr r0, _02230014 ; =0x00002214
 	add sp, #0x10
@@ -5063,7 +5063,7 @@ _0222FF64:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r1, _0223001C ; =MOD71_02230020
 	ldr r0, _02230014 ; =0x00002214
 	str r1, [r4, r0]
@@ -5100,7 +5100,7 @@ _0222FFB4:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r1, _02230010 ; =MOD71_0222F538
 	ldr r0, _02230014 ; =0x00002214
 	str r1, [r4, r0]
@@ -5701,7 +5701,7 @@ MOD71_022304AC: ; 0x022304AC
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r1, r4, #0
 	ldr r0, _02230538 ; =0x0000221C
 	add r1, #0x8c
@@ -5715,7 +5715,7 @@ MOD71_022304AC: ; 0x022304AC
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #1
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r3, #0x5f
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -6128,7 +6128,7 @@ MOD71_02230810: ; 0x02230810
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0x20
@@ -6155,7 +6155,7 @@ MOD71_02230810: ; 0x02230810
 	bl MOD71_02230F40
 	mov r0, #2
 	mov r1, #0x1a
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _02230900 ; =0x0000065C
 	mov r2, #0x11
 	str r0, [r4, r1]
@@ -6164,7 +6164,7 @@ MOD71_02230810: ; 0x02230810
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r3, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _02230900 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -6172,7 +6172,7 @@ MOD71_02230810: ; 0x02230810
 	ldr r1, [r4, r1]
 	mov r2, #0x13
 	mov r3, #1
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, _02230900 ; =0x0000065C
 	ldr r1, [r4, r0]
 	sub r0, #0x94
@@ -6259,7 +6259,7 @@ _0223092E:
 	bl FUN_02001C5C
 	ldr r0, _022309E4 ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add sp, #0x10
 	mov r0, #3
 	pop {r4, pc}
@@ -6295,7 +6295,7 @@ _02230982:
 	bl FUN_02001C5C
 	ldr r0, _022309E4 ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r1, _022309DC ; =MOD71_0222F538
 	ldr r0, _022309E0 ; =0x00002214
 	str r1, [r4, r0]
@@ -6329,12 +6329,12 @@ MOD71_022309E8: ; 0x022309E8
 	add r1, r6, #0
 	bl GetPartyMonByIndex
 	add r1, r7, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
 	bl GetPartyMonByIndex
 	add r1, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r0, r4, #0
 	mov r1, #0x4c
 	mov r2, #0
@@ -6359,19 +6359,19 @@ _02230A40:
 	mov r3, #0
 	bl FUN_0208089C
 	add r0, r4, #0
-	bl FUN_0206AA84
+	bl Pokemon_RemoveCapsule
 	ldr r1, [r5, #0x3c]
 	add r0, r7, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r1, [r5, #0x40]
 	add r0, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	bl FUN_02031190
 	mov r1, #1
 	eor r0, r1
 	bl FUN_0202DFA4
 	ldr r1, [r5, #0x38]
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, [sp, #4]
 	ldr r1, _02230AE0 ; =0x000001B9
 	str r6, [r5, #0x2c]
@@ -6390,13 +6390,13 @@ _02230A98:
 	bl GetPartyMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
 	bl GetPartyMonByIndex
 	add r1, r0, #0
 	add r0, r7, #0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r0, [r5, #0x1c]
 	add r1, r4, #0
 	bl MOD71_02230AE4
@@ -6429,10 +6429,10 @@ MOD71_02230AE4: ; 0x02230AE4
 	add r2, sp, #4
 	bl GetMonData
 	add r0, r5, #0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r7, r0, #0
 	add r0, r5, #0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r5, r0, #0
 	add r0, r4, #0
 	bl GetMonGender
@@ -6958,7 +6958,7 @@ _02230F20:
 	add r0, r5, #0
 	add r2, r6, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	nop
@@ -7005,7 +7005,7 @@ _02230F76:
 	add r1, r4, #0
 	add r2, r6, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r4, r0, #0
 	add r0, r6, #0
 	bl String_dtor

@@ -2,6 +2,7 @@
 #define IN_POKEMON_C
 #include "proto.h"
 #include "party.h"
+#include "player_data.h"
 #include "pokemon.h"
 #include "filesystem.h"
 #include "heap.h"
@@ -9,12 +10,14 @@
 #include "math_util.h"
 #include "move_data.h"
 #include "string_util.h"
-#include "text.h"
+#include "seal.h"
 #include "msgdata.h"
+#include "itemtool.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/sinnoh_dex.h"
+#include "constants/trainer_classes.h"
 
 #pragma thumb on
 
@@ -32,16 +35,16 @@ u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid);
 void InitBoxMonMoveset(struct BoxPokemon * boxmon);
 u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move);
 void FUN_02069718(struct BoxPokemon * boxmon, u16 move);
-void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot);
+void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot);
 void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
-s8 FUN_02069BD0(struct BoxPokemon * boxmon, int flavor);
-s8 FUN_02069BE4(u32 personality, int flavor);
-u8 FUN_02069CF4(struct PlayerParty * party_p, u8 mask);
-BOOL FUN_02069E7C(struct BoxPokemon * boxmon);
-BOOL FUN_02069E9C(struct BoxPokemon * boxmon);
-void FUN_02069ECC(struct BoxPokemon * boxmon);
+s8 BoxMonGetFlavorPreference(struct BoxPokemon * boxmon, int flavor);
+s8 GetFlavorPreferenceFromPID(u32 personality, int flavor);
+u8 Party_MaskMonsWithPokerus(struct PlayerParty * party_p, u8 mask);
+BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
+BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
+void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
-void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5);
+void FUN_0206A054(struct BoxPokemon *  boxmon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
 BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
 BOOL FUN_0206A144(struct BoxPokemon * boxmon, u32 a1);
 BOOL FUN_0206A16C(u16 species, int forme, u32 a2);
@@ -57,7 +60,7 @@ u16 MonEncryptionLCRNG(u32 * seed);
 u16 CalcMonChecksum(u16 * datap, u32 size);
 PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u8 which_struct);
 void LoadMonBaseStats_HandleAlternateForme(int species, int forme, struct BaseStats * baseStats);
-u8 FUN_020690D4(struct BoxPokemon * boxmon);
+u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon);
 
 #define ENCRY_ARGS_PTY(mon) (u16 *)&(mon)->party, sizeof((mon)->party), (mon)->box.pid
 #define ENCRY_ARGS_BOX(boxmon) (u16 *)&(boxmon)->substructs, sizeof((boxmon)->substructs), (boxmon)->checksum
@@ -113,61 +116,62 @@ const u16 sLegendaryMonsList[] = {
     SPECIES_ARCEUS,
 };
 
-const s8 UNK_020F7F16[][5] = {
-    // Atk, Def, Spd, SpA, SpD
-    {    0,   0,   0,   0,   0},
-    {    1,   0,   0,   0,  -1},
-    {    1,   0,  -1,   0,   0},
-    {    1,  -1,   0,   0,   0},
-    {    1,   0,   0,  -1,   0},
-    {   -1,   0,   0,   0,   1},
-    {    0,   0,   0,   0,   0},
-    {    0,   0,  -1,   0,   1},
-    {    0,  -1,   0,   0,   1},
-    {    0,   0,   0,  -1,   1},
-    {   -1,   0,   1,   0,   0},
-    {    0,   0,   1,   0,  -1},
-    {    0,   0,   0,   0,   0},
-    {    0,  -1,   1,   0,   0},
-    {    0,   0,   1,  -1,   0},
-    {   -1,   1,   0,   0,   0},
-    {    0,   1,   0,   0,  -1},
-    {    0,   1,  -1,   0,   0},
-    {    0,   0,   0,   0,   0},
-    {    0,   1,   0,  -1,   0},
-    {   -1,   0,   0,   1,   0},
-    {    0,   0,   0,   1,  -1},
-    {    0,   0,  -1,   1,   0},
-    {    0,  -1,   0,   1,   0},
-    {    0,   0,   0,   0,   0},
+const s8 sFlavorPreferencesByNature[][5] = {
+    // Spicy, Dry, Sweet, Bitter, Sour
+    {      0,   0,     0,      0,    0 }, // NATURE_HARDY
+    {      1,   0,     0,      0,   -1 }, // NATURE_LONELY
+    {      1,   0,    -1,      0,    0 }, // NATURE_BRAVE
+    {      1,  -1,     0,      0,    0 }, // NATURE_ADAMANT
+    {      1,   0,     0,     -1,    0 }, // NATURE_NAUGHTY
+    {     -1,   0,     0,      0,    1 }, // NATURE_BOLD
+    {      0,   0,     0,      0,    0 }, // NATURE_DOCILE
+    {      0,   0,    -1,      0,    1 }, // NATURE_RELAXED
+    {      0,  -1,     0,      0,    1 }, // NATURE_IMPISH
+    {      0,   0,     0,     -1,    1 }, // NATURE_LAX
+    {     -1,   0,     1,      0,    0 }, // NATURE_TIMID
+    {      0,   0,     1,      0,   -1 }, // NATURE_HASTY
+    {      0,   0,     0,      0,    0 }, // NATURE_SERIOUS
+    {      0,  -1,     1,      0,    0 }, // NATURE_JOLLY
+    {      0,   0,     1,     -1,    0 }, // NATURE_NAIVE
+    {     -1,   1,     0,      0,    0 }, // NATURE_MODEST
+    {      0,   1,     0,      0,   -1 }, // NATURE_MILD
+    {      0,   1,    -1,      0,    0 }, // NATURE_QUIET
+    {      0,   0,     0,      0,    0 }, // NATURE_BASHFUL
+    {      0,   1,     0,     -1,    0 }, // NATURE_RASH
+    {     -1,   0,     0,      1,    0 }, // NATURE_CALM
+    {      0,   0,     0,      1,   -1 }, // NATURE_GENTLE
+    {      0,   0,    -1,      1,    0 }, // NATURE_SASSY
+    {      0,  -1,     0,      1,    0 }, // NATURE_CAREFUL
+    {      0,   0,     0,      0,    0 }, // NATURE_QUIRKY
 };
 
 const s8 sNatureStatMods[][5] = {
-    {  0,  0,  0,  0,  0 },
-    {  1, -1,  0,  0,  0 },
-    {  1,  0, -1,  0,  0 },
-    {  1,  0,  0, -1,  0 },
-    {  1,  0,  0,  0, -1 },
-    { -1,  1,  0,  0,  0 },
-    {  0,  0,  0,  0,  0 },
-    {  0,  1, -1,  0,  0 },
-    {  0,  1,  0, -1,  0 },
-    {  0,  1,  0,  0, -1 },
-    { -1,  0,  1,  0,  0 },
-    {  0, -1,  1,  0,  0 },
-    {  0,  0,  0,  0,  0 },
-    {  0,  0,  1, -1,  0 },
-    {  0,  0,  1,  0, -1 },
-    { -1,  0,  0,  1,  0 },
-    {  0, -1,  0,  1,  0 },
-    {  0,  0, -1,  1,  0 },
-    {  0,  0,  0,  0,  0 },
-    {  0,  0,  0,  1, -1 },
-    { -1,  0,  0,  0,  1 },
-    {  0, -1,  0,  0,  1 },
-    {  0,  0, -1,  0,  1 },
-    {  0,  0,  0, -1,  1 },
-    {  0,  0,  0,  0,  0 },
+    // Atk, Def, Speed, SpAtk, SpDef
+    {    0,   0,     0,     0,     0 }, // NATURE_HARDY
+    {    1,  -1,     0,     0,     0 }, // NATURE_LONELY
+    {    1,   0,    -1,     0,     0 }, // NATURE_BRAVE
+    {    1,   0,     0,    -1,     0 }, // NATURE_ADAMANT
+    {    1,   0,     0,     0,    -1 }, // NATURE_NAUGHTY
+    {   -1,   1,     0,     0,     0 }, // NATURE_BOLD
+    {    0,   0,     0,     0,     0 }, // NATURE_DOCILE
+    {    0,   1,    -1,     0,     0 }, // NATURE_RELAXED
+    {    0,   1,     0,    -1,     0 }, // NATURE_IMPISH
+    {    0,   1,     0,     0,    -1 }, // NATURE_LAX
+    {   -1,   0,     1,     0,     0 }, // NATURE_TIMID
+    {    0,  -1,     1,     0,     0 }, // NATURE_HASTY
+    {    0,   0,     0,     0,     0 }, // NATURE_SERIOUS
+    {    0,   0,     1,    -1,     0 }, // NATURE_JOLLY
+    {    0,   0,     1,     0,    -1 }, // NATURE_NAIVE
+    {   -1,   0,     0,     1,     0 }, // NATURE_MODEST
+    {    0,  -1,     0,     1,     0 }, // NATURE_MILD
+    {    0,   0,    -1,     1,     0 }, // NATURE_QUIET
+    {    0,   0,     0,     0,     0 }, // NATURE_BASHFUL
+    {    0,   0,     0,     1,    -1 }, // NATURE_RASH
+    {   -1,   0,     0,     0,     1 }, // NATURE_CALM
+    {    0,  -1,     0,     0,     1 }, // NATURE_GENTLE
+    {    0,   0,    -1,     0,     1 }, // NATURE_SASSY
+    {    0,   0,     0,    -1,     1 }, // NATURE_CAREFUL
+    {    0,   0,     0,     0,     0 }, // NATURE_QUIRKY
 };
 
 void ZeroMonData(struct Pokemon * pokemon)
@@ -254,7 +258,7 @@ BOOL ReleaseBoxMonLock(struct BoxPokemon * mon, BOOL decrypt_result)
 
 void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId)
 {
-    struct SealStruct * seal;
+    struct Mail * mail;
     u32 capsule;
     u8 seal_coords[0x18];
     ZeroMonData(pokemon);
@@ -263,9 +267,9 @@ void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, in
     MonEncryptSegment((u16 *)&pokemon->party, sizeof(pokemon->party), 0);
     ENCRYPT_PTY(pokemon);
     SetMonData(pokemon, MON_DATA_LEVEL, &level);
-    seal = CreateNewSealsObject(0);
-    SetMonData(pokemon, MON_DATA_SEAL_STRUCT, seal);
-    FreeToHeap(seal);
+    mail = Mail_new(0);
+    SetMonData(pokemon, MON_DATA_MAIL_STRUCT, mail);
+    FreeToHeap(mail);
     capsule = 0;
     SetMonData(pokemon, MON_DATA_CAPSULE, &capsule);
     MIi_CpuClearFast(0, seal_coords, sizeof(seal_coords));
@@ -557,11 +561,11 @@ u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * dest)
         return pokemon->party.spatk;
     case MON_DATA_SPDEF:
         return pokemon->party.spdef;
-    case MON_DATA_SEAL_STRUCT:
-        CopySealsObject(&pokemon->party.seal_something, dest);
+    case MON_DATA_MAIL_STRUCT:
+        Mail_copy(&pokemon->party.mail, dest);
         return 1;
     case MON_DATA_SEAL_COORDS:
-        FUN_02029C74(pokemon->party.sealCoords, dest);
+        CapsuleArray_copy(&pokemon->party.sealCoords, dest);
         return 1;
     default:
         return GetBoxMonDataInternal(&pokemon->box, attr, dest);
@@ -701,33 +705,33 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         ret = blockA->sheen;
         break;
     case MON_DATA_SINNOH_CHAMP_RIBBON:
-    case MON_DATA_SINNOH_RIBBON_26:
-    case MON_DATA_SINNOH_RIBBON_27:
-    case MON_DATA_SINNOH_RIBBON_28:
-    case MON_DATA_SINNOH_RIBBON_29:
-    case MON_DATA_SINNOH_RIBBON_30:
-    case MON_DATA_SINNOH_RIBBON_31:
-    case MON_DATA_SINNOH_RIBBON_32:
-    case MON_DATA_SINNOH_RIBBON_33:
-    case MON_DATA_SINNOH_RIBBON_34:
-    case MON_DATA_SINNOH_RIBBON_35:
-    case MON_DATA_SINNOH_RIBBON_36:
-    case MON_DATA_SINNOH_RIBBON_37:
-    case MON_DATA_SINNOH_RIBBON_38:
-    case MON_DATA_SINNOH_RIBBON_39:
-    case MON_DATA_SINNOH_RIBBON_40:
-    case MON_DATA_SINNOH_RIBBON_41:
-    case MON_DATA_SINNOH_RIBBON_42:
-    case MON_DATA_SINNOH_RIBBON_43:
-    case MON_DATA_SINNOH_RIBBON_44:
-    case MON_DATA_SINNOH_RIBBON_45:
-    case MON_DATA_SINNOH_RIBBON_46:
-    case MON_DATA_SINNOH_RIBBON_47:
-    case MON_DATA_SINNOH_RIBBON_48:
-    case MON_DATA_SINNOH_RIBBON_49:
-    case MON_DATA_SINNOH_RIBBON_50:
-    case MON_DATA_SINNOH_RIBBON_51:
-    case MON_DATA_SINNOH_RIBBON_52:
+    case MON_DATA_ABILITY_RIBBON:
+    case MON_DATA_GREAT_ABILITY_RIBBON:
+    case MON_DATA_DOUBLE_ABILITY_RIBBON:
+    case MON_DATA_MULTI_ABILITY_RIBBON:
+    case MON_DATA_PAIR_ABILITY_RIBBON:
+    case MON_DATA_WORLD_ABILITY_RIBBON:
+    case MON_DATA_ALERT_RIBBON:
+    case MON_DATA_SHOCK_RIBBON:
+    case MON_DATA_DOWNCAST_RIBBON:
+    case MON_DATA_CARELESS_RIBBON:
+    case MON_DATA_RELAX_RIBBON:
+    case MON_DATA_SNOOZE_RIBBON:
+    case MON_DATA_SMILE_RIBBON:
+    case MON_DATA_GORGEOUS_RIBBON:
+    case MON_DATA_ROYAL_RIBBON:
+    case MON_DATA_GORGEOUS_ROYAL_RIBBON:
+    case MON_DATA_FOOTPRINT_RIBBON:
+    case MON_DATA_RECORD_RIBBON:
+    case MON_DATA_HISTORY_RIBBON:
+    case MON_DATA_LEGEND_RIBBON:
+    case MON_DATA_RED_RIBBON:
+    case MON_DATA_GREEN_RIBBON:
+    case MON_DATA_BLUE_RIBBON:
+    case MON_DATA_FESTIVAL_RIBBON:
+    case MON_DATA_CARNIVAL_RIBBON:
+    case MON_DATA_CLASSIC_RIBBON:
+    case MON_DATA_PREMIER_RIBBON:
     case MON_DATA_SINNOH_RIBBON_53:
     {
         if (blockA->sinnohRibbons & (1ll << (attr - MON_DATA_SINNOH_CHAMP_RIBBON)))
@@ -790,39 +794,39 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_HAS_NICKNAME:
         ret = blockB->isNicknamed;
         break;
-    case MON_DATA_COOL_RIBBON:
-    case MON_DATA_HOENN_RIBBON_79:
-    case MON_DATA_HOENN_RIBBON_80:
-    case MON_DATA_HOENN_RIBBON_81:
-    case MON_DATA_HOENN_RIBBON_82:
-    case MON_DATA_HOENN_RIBBON_83:
-    case MON_DATA_HOENN_RIBBON_84:
-    case MON_DATA_HOENN_RIBBON_85:
-    case MON_DATA_HOENN_RIBBON_86:
-    case MON_DATA_HOENN_RIBBON_87:
-    case MON_DATA_HOENN_RIBBON_88:
-    case MON_DATA_HOENN_RIBBON_89:
-    case MON_DATA_HOENN_RIBBON_90:
-    case MON_DATA_HOENN_RIBBON_91:
-    case MON_DATA_HOENN_RIBBON_92:
-    case MON_DATA_HOENN_RIBBON_93:
-    case MON_DATA_HOENN_RIBBON_94:
-    case MON_DATA_HOENN_RIBBON_95:
-    case MON_DATA_HOENN_RIBBON_96:
-    case MON_DATA_HOENN_RIBBON_97:
-    case MON_DATA_HOENN_RIBBON_98:
-    case MON_DATA_HOENN_RIBBON_99:
-    case MON_DATA_HOENN_RIBBON_100:
-    case MON_DATA_HOENN_RIBBON_101:
-    case MON_DATA_HOENN_RIBBON_102:
-    case MON_DATA_HOENN_RIBBON_103:
-    case MON_DATA_HOENN_RIBBON_104:
-    case MON_DATA_HOENN_RIBBON_105:
-    case MON_DATA_HOENN_RIBBON_106:
-    case MON_DATA_HOENN_RIBBON_107:
-    case MON_DATA_HOENN_RIBBON_108:
-    case MON_DATA_HOENN_RIBBON_109:
-        if (blockB->ribbonFlags & (1ll << (attr - MON_DATA_COOL_RIBBON)))
+    case MON_DATA_HOENN_COOL_RIBBON:
+    case MON_DATA_HOENN_COOL_RIBBON_SUPER:
+    case MON_DATA_HOENN_COOL_RIBBON_HYPER:
+    case MON_DATA_HOENN_COOL_RIBBON_MASTER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_SUPER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_HYPER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_MASTER:
+    case MON_DATA_HOENN_CUTE_RIBBON:
+    case MON_DATA_HOENN_CUTE_RIBBON_SUPER:
+    case MON_DATA_HOENN_CUTE_RIBBON_HYPER:
+    case MON_DATA_HOENN_CUTE_RIBBON_MASTER:
+    case MON_DATA_HOENN_SMART_RIBBON:
+    case MON_DATA_HOENN_SMART_RIBBON_SUPER:
+    case MON_DATA_HOENN_SMART_RIBBON_HYPER:
+    case MON_DATA_HOENN_SMART_RIBBON_MASTER:
+    case MON_DATA_HOENN_TOUGH_RIBBON:
+    case MON_DATA_HOENN_TOUGH_RIBBON_SUPER:
+    case MON_DATA_HOENN_TOUGH_RIBBON_HYPER:
+    case MON_DATA_HOENN_TOUGH_RIBBON_MASTER:
+    case MON_DATA_HOENN_CHAMPION_RIBBON:
+    case MON_DATA_HOENN_WINNING_RIBBON:
+    case MON_DATA_HOENN_VICTORY_RIBBON:
+    case MON_DATA_HOENN_ARTIST_RIBBON:
+    case MON_DATA_HOENN_EFFORT_RIBBON:
+    case MON_DATA_HOENN_MARINE_RIBBON:
+    case MON_DATA_HOENN_LAND_RIBBON:
+    case MON_DATA_HOENN_SKY_RIBBON:
+    case MON_DATA_HOENN_COUNTRY_RIBBON:
+    case MON_DATA_HOENN_NATIONAL_RIBBON:
+    case MON_DATA_HOENN_EARTH_RIBBON:
+    case MON_DATA_HOENN_WORLD_RIBBON:
+        if (blockB->ribbonFlags & (1ll << (attr - MON_DATA_HOENN_COOL_RIBBON)))
             ret = TRUE;
         else
             ret = FALSE;
@@ -867,7 +871,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         }
         else
         {
-            FUN_02021E28(dest, blockC->nickname);
+            CopyU16ArrayToString(dest, blockC->nickname);
         }
         break;
     case MON_DATA_UNK_120:
@@ -876,28 +880,28 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_GAME_VERSION:
         ret = blockC->originGame;
         break;
-    case MON_DATA_SINNOH_RIBBON_122:
-    case MON_DATA_SINNOH_RIBBON_123:
-    case MON_DATA_SINNOH_RIBBON_124:
-    case MON_DATA_SINNOH_RIBBON_125:
-    case MON_DATA_SINNOH_RIBBON_126:
-    case MON_DATA_SINNOH_RIBBON_127:
-    case MON_DATA_SINNOH_RIBBON_128:
-    case MON_DATA_SINNOH_RIBBON_129:
-    case MON_DATA_SINNOH_RIBBON_130:
-    case MON_DATA_SINNOH_RIBBON_131:
-    case MON_DATA_SINNOH_RIBBON_132:
-    case MON_DATA_SINNOH_RIBBON_133:
-    case MON_DATA_SINNOH_RIBBON_134:
-    case MON_DATA_SINNOH_RIBBON_135:
-    case MON_DATA_SINNOH_RIBBON_136:
-    case MON_DATA_SINNOH_RIBBON_137:
-    case MON_DATA_SINNOH_RIBBON_138:
-    case MON_DATA_SINNOH_RIBBON_139:
-    case MON_DATA_SINNOH_RIBBON_140:
-    case MON_DATA_SINNOH_RIBBON_141:
+    case MON_DATA_COOL_RIBBON:
+    case MON_DATA_COOL_RIBBON_GREAT:
+    case MON_DATA_COOL_RIBBON_ULTRA:
+    case MON_DATA_COOL_RIBBON_MASTER:
+    case MON_DATA_BEAUTY_RIBBON:
+    case MON_DATA_BEAUTY_RIBBON_GREAT:
+    case MON_DATA_BEAUTY_RIBBON_ULTRA:
+    case MON_DATA_BEAUTY_RIBBON_MASTER:
+    case MON_DATA_CUTE_RIBBON:
+    case MON_DATA_CUTE_RIBBON_GREAT:
+    case MON_DATA_CUTE_RIBBON_ULTRA:
+    case MON_DATA_CUTE_RIBBON_MASTER:
+    case MON_DATA_SMART_RIBBON:
+    case MON_DATA_SMART_RIBBON_GREAT:
+    case MON_DATA_SMART_RIBBON_ULTRA:
+    case MON_DATA_SMART_RIBBON_MASTER:
+    case MON_DATA_TOUGH_RIBBON:
+    case MON_DATA_TOUGH_RIBBON_GREAT:
+    case MON_DATA_TOUGH_RIBBON_ULTRA:
+    case MON_DATA_TOUGH_RIBBON_MASTER:
     case MON_DATA_SINNOH_RIBBON_142:
-        if (blockC->sinnohRibbons2 & (1ll << (attr - MON_DATA_SINNOH_RIBBON_122)))
+        if (blockC->sinnohRibbons2 & (1ll << (attr - MON_DATA_COOL_RIBBON)))
             ret = TRUE;
         else
             ret = FALSE;
@@ -911,7 +915,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     }
         break;
     case MON_DATA_OT_NAME_2:
-        FUN_02021E28(dest, blockD->otTrainerName);
+        CopyU16ArrayToString(dest, blockD->otTrainerName);
         break;
     case MON_DATA_EGG_MET_YEAR:
         ret = blockD->dateEggReceived[0];
@@ -1045,11 +1049,11 @@ void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * value)
     case MON_DATA_SPDEF:
         pokemon->party.spdef = VALUE(u16);
         break;
-    case MON_DATA_SEAL_STRUCT:
-        CopySealsObject((const struct SealStruct *)value, &pokemon->party.seal_something);
+    case MON_DATA_MAIL_STRUCT:
+        Mail_copy((const struct Mail *)value, &pokemon->party.mail);
         break;
     case MON_DATA_SEAL_COORDS:
-        FUN_02029C74((const u8 *)value, pokemon->party.sealCoords);
+        CapsuleArray_copy((CapsuleArray *)value, &pokemon->party.sealCoords);
         break;
     default:
         SetBoxMonDataInternal(&pokemon->box, attr, value);
@@ -1178,33 +1182,33 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         blockA->sheen = VALUE(u8);
         break;
     case MON_DATA_SINNOH_CHAMP_RIBBON:
-    case MON_DATA_SINNOH_RIBBON_26:
-    case MON_DATA_SINNOH_RIBBON_27:
-    case MON_DATA_SINNOH_RIBBON_28:
-    case MON_DATA_SINNOH_RIBBON_29:
-    case MON_DATA_SINNOH_RIBBON_30:
-    case MON_DATA_SINNOH_RIBBON_31:
-    case MON_DATA_SINNOH_RIBBON_32:
-    case MON_DATA_SINNOH_RIBBON_33:
-    case MON_DATA_SINNOH_RIBBON_34:
-    case MON_DATA_SINNOH_RIBBON_35:
-    case MON_DATA_SINNOH_RIBBON_36:
-    case MON_DATA_SINNOH_RIBBON_37:
-    case MON_DATA_SINNOH_RIBBON_38:
-    case MON_DATA_SINNOH_RIBBON_39:
-    case MON_DATA_SINNOH_RIBBON_40:
-    case MON_DATA_SINNOH_RIBBON_41:
-    case MON_DATA_SINNOH_RIBBON_42:
-    case MON_DATA_SINNOH_RIBBON_43:
-    case MON_DATA_SINNOH_RIBBON_44:
-    case MON_DATA_SINNOH_RIBBON_45:
-    case MON_DATA_SINNOH_RIBBON_46:
-    case MON_DATA_SINNOH_RIBBON_47:
-    case MON_DATA_SINNOH_RIBBON_48:
-    case MON_DATA_SINNOH_RIBBON_49:
-    case MON_DATA_SINNOH_RIBBON_50:
-    case MON_DATA_SINNOH_RIBBON_51:
-    case MON_DATA_SINNOH_RIBBON_52:
+    case MON_DATA_ABILITY_RIBBON:
+    case MON_DATA_GREAT_ABILITY_RIBBON:
+    case MON_DATA_DOUBLE_ABILITY_RIBBON:
+    case MON_DATA_MULTI_ABILITY_RIBBON:
+    case MON_DATA_PAIR_ABILITY_RIBBON:
+    case MON_DATA_WORLD_ABILITY_RIBBON:
+    case MON_DATA_ALERT_RIBBON:
+    case MON_DATA_SHOCK_RIBBON:
+    case MON_DATA_DOWNCAST_RIBBON:
+    case MON_DATA_CARELESS_RIBBON:
+    case MON_DATA_RELAX_RIBBON:
+    case MON_DATA_SNOOZE_RIBBON:
+    case MON_DATA_SMILE_RIBBON:
+    case MON_DATA_GORGEOUS_RIBBON:
+    case MON_DATA_ROYAL_RIBBON:
+    case MON_DATA_GORGEOUS_ROYAL_RIBBON:
+    case MON_DATA_FOOTPRINT_RIBBON:
+    case MON_DATA_RECORD_RIBBON:
+    case MON_DATA_HISTORY_RIBBON:
+    case MON_DATA_LEGEND_RIBBON:
+    case MON_DATA_RED_RIBBON:
+    case MON_DATA_GREEN_RIBBON:
+    case MON_DATA_BLUE_RIBBON:
+    case MON_DATA_FESTIVAL_RIBBON:
+    case MON_DATA_CARNIVAL_RIBBON:
+    case MON_DATA_CLASSIC_RIBBON:
+    case MON_DATA_PREMIER_RIBBON:
     case MON_DATA_SINNOH_RIBBON_53:
         flag = VALUE(u8);
         mask = (u64)flag << (attr - MON_DATA_SINNOH_CHAMP_RIBBON);
@@ -1255,40 +1259,40 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
     case MON_DATA_HAS_NICKNAME:
         blockB->isNicknamed = VALUE(u8);
         break;
-    case MON_DATA_COOL_RIBBON:
-    case MON_DATA_HOENN_RIBBON_79:
-    case MON_DATA_HOENN_RIBBON_80:
-    case MON_DATA_HOENN_RIBBON_81:
-    case MON_DATA_HOENN_RIBBON_82:
-    case MON_DATA_HOENN_RIBBON_83:
-    case MON_DATA_HOENN_RIBBON_84:
-    case MON_DATA_HOENN_RIBBON_85:
-    case MON_DATA_HOENN_RIBBON_86:
-    case MON_DATA_HOENN_RIBBON_87:
-    case MON_DATA_HOENN_RIBBON_88:
-    case MON_DATA_HOENN_RIBBON_89:
-    case MON_DATA_HOENN_RIBBON_90:
-    case MON_DATA_HOENN_RIBBON_91:
-    case MON_DATA_HOENN_RIBBON_92:
-    case MON_DATA_HOENN_RIBBON_93:
-    case MON_DATA_HOENN_RIBBON_94:
-    case MON_DATA_HOENN_RIBBON_95:
-    case MON_DATA_HOENN_RIBBON_96:
-    case MON_DATA_HOENN_RIBBON_97:
-    case MON_DATA_HOENN_RIBBON_98:
-    case MON_DATA_HOENN_RIBBON_99:
-    case MON_DATA_HOENN_RIBBON_100:
-    case MON_DATA_HOENN_RIBBON_101:
-    case MON_DATA_HOENN_RIBBON_102:
-    case MON_DATA_HOENN_RIBBON_103:
-    case MON_DATA_HOENN_RIBBON_104:
-    case MON_DATA_HOENN_RIBBON_105:
-    case MON_DATA_HOENN_RIBBON_106:
-    case MON_DATA_HOENN_RIBBON_107:
-    case MON_DATA_HOENN_RIBBON_108:
-    case MON_DATA_HOENN_RIBBON_109:
+    case MON_DATA_HOENN_COOL_RIBBON:
+    case MON_DATA_HOENN_COOL_RIBBON_SUPER:
+    case MON_DATA_HOENN_COOL_RIBBON_HYPER:
+    case MON_DATA_HOENN_COOL_RIBBON_MASTER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_SUPER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_HYPER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_MASTER:
+    case MON_DATA_HOENN_CUTE_RIBBON:
+    case MON_DATA_HOENN_CUTE_RIBBON_SUPER:
+    case MON_DATA_HOENN_CUTE_RIBBON_HYPER:
+    case MON_DATA_HOENN_CUTE_RIBBON_MASTER:
+    case MON_DATA_HOENN_SMART_RIBBON:
+    case MON_DATA_HOENN_SMART_RIBBON_SUPER:
+    case MON_DATA_HOENN_SMART_RIBBON_HYPER:
+    case MON_DATA_HOENN_SMART_RIBBON_MASTER:
+    case MON_DATA_HOENN_TOUGH_RIBBON:
+    case MON_DATA_HOENN_TOUGH_RIBBON_SUPER:
+    case MON_DATA_HOENN_TOUGH_RIBBON_HYPER:
+    case MON_DATA_HOENN_TOUGH_RIBBON_MASTER:
+    case MON_DATA_HOENN_CHAMPION_RIBBON:
+    case MON_DATA_HOENN_WINNING_RIBBON:
+    case MON_DATA_HOENN_VICTORY_RIBBON:
+    case MON_DATA_HOENN_ARTIST_RIBBON:
+    case MON_DATA_HOENN_EFFORT_RIBBON:
+    case MON_DATA_HOENN_MARINE_RIBBON:
+    case MON_DATA_HOENN_LAND_RIBBON:
+    case MON_DATA_HOENN_SKY_RIBBON:
+    case MON_DATA_HOENN_COUNTRY_RIBBON:
+    case MON_DATA_HOENN_NATIONAL_RIBBON:
+    case MON_DATA_HOENN_EARTH_RIBBON:
+    case MON_DATA_HOENN_WORLD_RIBBON:
         flag = VALUE(u8);
-        mask = (u64)flag << (attr - MON_DATA_COOL_RIBBON);
+        mask = (u64)flag << (attr - MON_DATA_HOENN_COOL_RIBBON);
         if (flag)
             blockB->ribbonFlags |= mask;
         else
@@ -1321,11 +1325,11 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         break;
     case MON_DATA_NICKNAME_4:
         GetSpeciesNameIntoArray(blockA->species, 0, namebuf2);
-        FUN_02021EF0(value, namebuf3, POKEMON_NAME_LENGTH + 1);
+        CopyStringToU16Array(value, namebuf3, POKEMON_NAME_LENGTH + 1);
         blockB->isNicknamed = StringNotEqual(namebuf2, namebuf3);
         // fallthrough
     case MON_DATA_NICKNAME_3:
-        FUN_02021EF0(value, blockC->nickname, POKEMON_NAME_LENGTH + 1);
+        CopyStringToU16Array(value, blockC->nickname, POKEMON_NAME_LENGTH + 1);
         break;
     case MON_DATA_UNK_120:
         blockC->Unused = VALUE(u8);
@@ -1333,29 +1337,29 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
     case MON_DATA_GAME_VERSION:
         blockC->originGame = VALUE(u8);
         break;
-    case MON_DATA_SINNOH_RIBBON_122:
-    case MON_DATA_SINNOH_RIBBON_123:
-    case MON_DATA_SINNOH_RIBBON_124:
-    case MON_DATA_SINNOH_RIBBON_125:
-    case MON_DATA_SINNOH_RIBBON_126:
-    case MON_DATA_SINNOH_RIBBON_127:
-    case MON_DATA_SINNOH_RIBBON_128:
-    case MON_DATA_SINNOH_RIBBON_129:
-    case MON_DATA_SINNOH_RIBBON_130:
-    case MON_DATA_SINNOH_RIBBON_131:
-    case MON_DATA_SINNOH_RIBBON_132:
-    case MON_DATA_SINNOH_RIBBON_133:
-    case MON_DATA_SINNOH_RIBBON_134:
-    case MON_DATA_SINNOH_RIBBON_135:
-    case MON_DATA_SINNOH_RIBBON_136:
-    case MON_DATA_SINNOH_RIBBON_137:
-    case MON_DATA_SINNOH_RIBBON_138:
-    case MON_DATA_SINNOH_RIBBON_139:
-    case MON_DATA_SINNOH_RIBBON_140:
-    case MON_DATA_SINNOH_RIBBON_141:
+    case MON_DATA_COOL_RIBBON:
+    case MON_DATA_COOL_RIBBON_GREAT:
+    case MON_DATA_COOL_RIBBON_ULTRA:
+    case MON_DATA_COOL_RIBBON_MASTER:
+    case MON_DATA_BEAUTY_RIBBON:
+    case MON_DATA_BEAUTY_RIBBON_GREAT:
+    case MON_DATA_BEAUTY_RIBBON_ULTRA:
+    case MON_DATA_BEAUTY_RIBBON_MASTER:
+    case MON_DATA_CUTE_RIBBON:
+    case MON_DATA_CUTE_RIBBON_GREAT:
+    case MON_DATA_CUTE_RIBBON_ULTRA:
+    case MON_DATA_CUTE_RIBBON_MASTER:
+    case MON_DATA_SMART_RIBBON:
+    case MON_DATA_SMART_RIBBON_GREAT:
+    case MON_DATA_SMART_RIBBON_ULTRA:
+    case MON_DATA_SMART_RIBBON_MASTER:
+    case MON_DATA_TOUGH_RIBBON:
+    case MON_DATA_TOUGH_RIBBON_GREAT:
+    case MON_DATA_TOUGH_RIBBON_ULTRA:
+    case MON_DATA_TOUGH_RIBBON_MASTER:
     case MON_DATA_SINNOH_RIBBON_142:
         flag = VALUE(u8);
-        mask = (u64)flag << (attr - MON_DATA_SINNOH_RIBBON_122);
+        mask = (u64)flag << (attr - MON_DATA_COOL_RIBBON);
         if (flag)
             blockC->sinnohRibbons2 |= mask;
         else
@@ -1368,7 +1372,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         }
         break;
     case MON_DATA_OT_NAME_2:
-        FUN_02021EF0(value, blockD->otTrainerName, OT_NAME_LENGTH + 1);
+        CopyStringToU16Array(value, blockD->otTrainerName, OT_NAME_LENGTH + 1);
         break;
     case MON_DATA_EGG_MET_YEAR:
         blockD->dateEggReceived[0] = VALUE(u8);
@@ -1422,7 +1426,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         break;
     case MON_DATA_SPECIES_NAME:
         speciesName = GetSpeciesName(blockA->species, 0);
-        FUN_02021EF0(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
+        CopyStringToU16Array(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
         String_dtor(speciesName);
         break;
     }
@@ -1474,7 +1478,7 @@ void AddMonDataInternal(struct Pokemon * pokemon, int attr, int value)
     case MON_DATA_SPEED:
     case MON_DATA_SPATK:
     case MON_DATA_SPDEF:
-    case MON_DATA_SEAL_STRUCT:
+    case MON_DATA_MAIL_STRUCT:
     // case MON_DATA_SEAL_COORDS:
         GF_ASSERT(0);
         break;
@@ -1630,33 +1634,33 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     case MON_DATA_MARKINGS:
     case MON_DATA_GAME_LANGUAGE:
     case MON_DATA_SINNOH_CHAMP_RIBBON:
-    case MON_DATA_SINNOH_RIBBON_26:
-    case MON_DATA_SINNOH_RIBBON_27:
-    case MON_DATA_SINNOH_RIBBON_28:
-    case MON_DATA_SINNOH_RIBBON_29:
-    case MON_DATA_SINNOH_RIBBON_30:
-    case MON_DATA_SINNOH_RIBBON_31:
-    case MON_DATA_SINNOH_RIBBON_32:
-    case MON_DATA_SINNOH_RIBBON_33:
-    case MON_DATA_SINNOH_RIBBON_34:
-    case MON_DATA_SINNOH_RIBBON_35:
-    case MON_DATA_SINNOH_RIBBON_36:
-    case MON_DATA_SINNOH_RIBBON_37:
-    case MON_DATA_SINNOH_RIBBON_38:
-    case MON_DATA_SINNOH_RIBBON_39:
-    case MON_DATA_SINNOH_RIBBON_40:
-    case MON_DATA_SINNOH_RIBBON_41:
-    case MON_DATA_SINNOH_RIBBON_42:
-    case MON_DATA_SINNOH_RIBBON_43:
-    case MON_DATA_SINNOH_RIBBON_44:
-    case MON_DATA_SINNOH_RIBBON_45:
-    case MON_DATA_SINNOH_RIBBON_46:
-    case MON_DATA_SINNOH_RIBBON_47:
-    case MON_DATA_SINNOH_RIBBON_48:
-    case MON_DATA_SINNOH_RIBBON_49:
-    case MON_DATA_SINNOH_RIBBON_50:
-    case MON_DATA_SINNOH_RIBBON_51:
-    case MON_DATA_SINNOH_RIBBON_52:
+    case MON_DATA_ABILITY_RIBBON:
+    case MON_DATA_GREAT_ABILITY_RIBBON:
+    case MON_DATA_DOUBLE_ABILITY_RIBBON:
+    case MON_DATA_MULTI_ABILITY_RIBBON:
+    case MON_DATA_PAIR_ABILITY_RIBBON:
+    case MON_DATA_WORLD_ABILITY_RIBBON:
+    case MON_DATA_ALERT_RIBBON:
+    case MON_DATA_SHOCK_RIBBON:
+    case MON_DATA_DOWNCAST_RIBBON:
+    case MON_DATA_CARELESS_RIBBON:
+    case MON_DATA_RELAX_RIBBON:
+    case MON_DATA_SNOOZE_RIBBON:
+    case MON_DATA_SMILE_RIBBON:
+    case MON_DATA_GORGEOUS_RIBBON:
+    case MON_DATA_ROYAL_RIBBON:
+    case MON_DATA_GORGEOUS_ROYAL_RIBBON:
+    case MON_DATA_FOOTPRINT_RIBBON:
+    case MON_DATA_RECORD_RIBBON:
+    case MON_DATA_HISTORY_RIBBON:
+    case MON_DATA_LEGEND_RIBBON:
+    case MON_DATA_RED_RIBBON:
+    case MON_DATA_GREEN_RIBBON:
+    case MON_DATA_BLUE_RIBBON:
+    case MON_DATA_FESTIVAL_RIBBON:
+    case MON_DATA_CARNIVAL_RIBBON:
+    case MON_DATA_CLASSIC_RIBBON:
+    case MON_DATA_PREMIER_RIBBON:
     case MON_DATA_SINNOH_RIBBON_53:
     case MON_DATA_MOVE1:
     case MON_DATA_MOVE2:
@@ -1664,38 +1668,38 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     case MON_DATA_MOVE4:
     case MON_DATA_IS_EGG:
     case MON_DATA_HAS_NICKNAME:
-    case MON_DATA_COOL_RIBBON:
-    case MON_DATA_HOENN_RIBBON_79:
-    case MON_DATA_HOENN_RIBBON_80:
-    case MON_DATA_HOENN_RIBBON_81:
-    case MON_DATA_HOENN_RIBBON_82:
-    case MON_DATA_HOENN_RIBBON_83:
-    case MON_DATA_HOENN_RIBBON_84:
-    case MON_DATA_HOENN_RIBBON_85:
-    case MON_DATA_HOENN_RIBBON_86:
-    case MON_DATA_HOENN_RIBBON_87:
-    case MON_DATA_HOENN_RIBBON_88:
-    case MON_DATA_HOENN_RIBBON_89:
-    case MON_DATA_HOENN_RIBBON_90:
-    case MON_DATA_HOENN_RIBBON_91:
-    case MON_DATA_HOENN_RIBBON_92:
-    case MON_DATA_HOENN_RIBBON_93:
-    case MON_DATA_HOENN_RIBBON_94:
-    case MON_DATA_HOENN_RIBBON_95:
-    case MON_DATA_HOENN_RIBBON_96:
-    case MON_DATA_HOENN_RIBBON_97:
-    case MON_DATA_HOENN_RIBBON_98:
-    case MON_DATA_HOENN_RIBBON_99:
-    case MON_DATA_HOENN_RIBBON_100:
-    case MON_DATA_HOENN_RIBBON_101:
-    case MON_DATA_HOENN_RIBBON_102:
-    case MON_DATA_HOENN_RIBBON_103:
-    case MON_DATA_HOENN_RIBBON_104:
-    case MON_DATA_HOENN_RIBBON_105:
-    case MON_DATA_HOENN_RIBBON_106:
-    case MON_DATA_HOENN_RIBBON_107:
-    case MON_DATA_HOENN_RIBBON_108:
-    case MON_DATA_HOENN_RIBBON_109:
+    case MON_DATA_HOENN_COOL_RIBBON:
+    case MON_DATA_HOENN_COOL_RIBBON_SUPER:
+    case MON_DATA_HOENN_COOL_RIBBON_HYPER:
+    case MON_DATA_HOENN_COOL_RIBBON_MASTER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_SUPER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_HYPER:
+    case MON_DATA_HOENN_BEAUTY_RIBBON_MASTER:
+    case MON_DATA_HOENN_CUTE_RIBBON:
+    case MON_DATA_HOENN_CUTE_RIBBON_SUPER:
+    case MON_DATA_HOENN_CUTE_RIBBON_HYPER:
+    case MON_DATA_HOENN_CUTE_RIBBON_MASTER:
+    case MON_DATA_HOENN_SMART_RIBBON:
+    case MON_DATA_HOENN_SMART_RIBBON_SUPER:
+    case MON_DATA_HOENN_SMART_RIBBON_HYPER:
+    case MON_DATA_HOENN_SMART_RIBBON_MASTER:
+    case MON_DATA_HOENN_TOUGH_RIBBON:
+    case MON_DATA_HOENN_TOUGH_RIBBON_SUPER:
+    case MON_DATA_HOENN_TOUGH_RIBBON_HYPER:
+    case MON_DATA_HOENN_TOUGH_RIBBON_MASTER:
+    case MON_DATA_HOENN_CHAMPION_RIBBON:
+    case MON_DATA_HOENN_WINNING_RIBBON:
+    case MON_DATA_HOENN_VICTORY_RIBBON:
+    case MON_DATA_HOENN_ARTIST_RIBBON:
+    case MON_DATA_HOENN_EFFORT_RIBBON:
+    case MON_DATA_HOENN_MARINE_RIBBON:
+    case MON_DATA_HOENN_LAND_RIBBON:
+    case MON_DATA_HOENN_SKY_RIBBON:
+    case MON_DATA_HOENN_COUNTRY_RIBBON:
+    case MON_DATA_HOENN_NATIONAL_RIBBON:
+    case MON_DATA_HOENN_EARTH_RIBBON:
+    case MON_DATA_HOENN_WORLD_RIBBON:
     case MON_DATA_FATEFUL_ENCOUNTER:
     case MON_DATA_GENDER:
     case MON_DATA_FORME:
@@ -1708,26 +1712,26 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     case MON_DATA_NICKNAME_4:
     case MON_DATA_UNK_120:
     case MON_DATA_GAME_VERSION:
-    case MON_DATA_SINNOH_RIBBON_122:
-    case MON_DATA_SINNOH_RIBBON_123:
-    case MON_DATA_SINNOH_RIBBON_124:
-    case MON_DATA_SINNOH_RIBBON_125:
-    case MON_DATA_SINNOH_RIBBON_126:
-    case MON_DATA_SINNOH_RIBBON_127:
-    case MON_DATA_SINNOH_RIBBON_128:
-    case MON_DATA_SINNOH_RIBBON_129:
-    case MON_DATA_SINNOH_RIBBON_130:
-    case MON_DATA_SINNOH_RIBBON_131:
-    case MON_DATA_SINNOH_RIBBON_132:
-    case MON_DATA_SINNOH_RIBBON_133:
-    case MON_DATA_SINNOH_RIBBON_134:
-    case MON_DATA_SINNOH_RIBBON_135:
-    case MON_DATA_SINNOH_RIBBON_136:
-    case MON_DATA_SINNOH_RIBBON_137:
-    case MON_DATA_SINNOH_RIBBON_138:
-    case MON_DATA_SINNOH_RIBBON_139:
-    case MON_DATA_SINNOH_RIBBON_140:
-    case MON_DATA_SINNOH_RIBBON_141:
+    case MON_DATA_COOL_RIBBON:
+    case MON_DATA_COOL_RIBBON_GREAT:
+    case MON_DATA_COOL_RIBBON_ULTRA:
+    case MON_DATA_COOL_RIBBON_MASTER:
+    case MON_DATA_BEAUTY_RIBBON:
+    case MON_DATA_BEAUTY_RIBBON_GREAT:
+    case MON_DATA_BEAUTY_RIBBON_ULTRA:
+    case MON_DATA_BEAUTY_RIBBON_MASTER:
+    case MON_DATA_CUTE_RIBBON:
+    case MON_DATA_CUTE_RIBBON_GREAT:
+    case MON_DATA_CUTE_RIBBON_ULTRA:
+    case MON_DATA_CUTE_RIBBON_MASTER:
+    case MON_DATA_SMART_RIBBON:
+    case MON_DATA_SMART_RIBBON_GREAT:
+    case MON_DATA_SMART_RIBBON_ULTRA:
+    case MON_DATA_SMART_RIBBON_MASTER:
+    case MON_DATA_TOUGH_RIBBON:
+    case MON_DATA_TOUGH_RIBBON_GREAT:
+    case MON_DATA_TOUGH_RIBBON_ULTRA:
+    case MON_DATA_TOUGH_RIBBON_MASTER:
     case MON_DATA_SINNOH_RIBBON_142:
     case MON_DATA_OT_NAME:
     case MON_DATA_OT_NAME_2:
@@ -1755,7 +1759,7 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     case MON_DATA_SPEED:
     case MON_DATA_SPATK:
     case MON_DATA_SPDEF:
-    case MON_DATA_SEAL_STRUCT:
+    case MON_DATA_MAIL_STRUCT:
     case MON_DATA_SEAL_COORDS:
     case MON_DATA_SPECIES_EXISTS:
     case MON_DATA_SANITY_IS_EGG:
@@ -2457,12 +2461,12 @@ u32 FUN_020690C8(void)
     return sizeof(struct BoxPokemon);
 }
 
-u8 FUN_020690CC(struct Pokemon * pokemon)
+u8 GetMonUnownLetter(struct Pokemon * pokemon)
 {
-    return FUN_020690D4(&pokemon->box);
+    return GetBoxMonUnownLetter(&pokemon->box);
 }
 
-u8 FUN_020690D4(struct BoxPokemon * boxmon)
+u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon)
 {
     return (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
 }
@@ -2825,7 +2829,7 @@ u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move)
         cur_move = (u16)GetBoxMonData(boxmon, MON_DATA_MOVE1 + i, NULL);
         if (cur_move == MOVE_NONE)
         {
-            FUN_020697D4(boxmon, move, (u8)i);
+            BoxMonSetMoveInSlot(boxmon, move, (u8)i);
             ret = move;
             break;
         }
@@ -2873,12 +2877,12 @@ void FUN_02069718(struct BoxPokemon * boxmon, u16 move)
     ReleaseBoxMonLock(boxmon, decry);
 }
 
-void FUN_020697CC(struct Pokemon * pokemon, u16 move, u8 slot)
+void MonSetMoveInSlot(struct Pokemon * pokemon, u16 move, u8 slot)
 {
-    FUN_020697D4(&pokemon->box, move, slot);
+    BoxMonSetMoveInSlot(&pokemon->box, move, slot);
 }
 
-void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot)
+void BoxMonSetMoveInSlot(struct BoxPokemon * boxmon, u16 move, u8 slot)
 {
     u8 ppUp;
     u8 pp;
@@ -2985,27 +2989,27 @@ BOOL MonHasMove(struct Pokemon * pokemon, u16 move)
         return FALSE;
 }
 
-void FUN_02069A64(struct BoxPokemon * src, struct Pokemon * dest)
+void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest)
 {
     u32 sp0 = 0;
-    u8 sp4[12][2];
-    struct SealStruct * seals;
+    CapsuleArray sp4;
+    struct Mail * mail;
     dest->box = *src;
     if (dest->box.box_lock)
         dest->box.party_lock = TRUE;
     SetMonData(dest, MON_DATA_STATUS, &sp0);
     SetMonData(dest, MON_DATA_HP, &sp0);
     SetMonData(dest, MON_DATA_MAXHP, &sp0);
-    seals = CreateNewSealsObject(0);
-    SetMonData(dest, MON_DATA_SEAL_STRUCT, seals);
-    FreeToHeap(seals);
+    mail = Mail_new(0);
+    SetMonData(dest, MON_DATA_MAIL_STRUCT, mail);
+    FreeToHeap(mail);
     SetMonData(dest, MON_DATA_CAPSULE, &sp0);
-    MIi_CpuClearFast(0, sp4, sizeof(sp4));
-    SetMonData(dest, MON_DATA_SEAL_COORDS, sp4);
+    MIi_CpuClearFast(0, &sp4, sizeof(sp4));
+    SetMonData(dest, MON_DATA_SEAL_COORDS, &sp4);
     CalcMonLevelAndStats(dest);
 }
 
-u8 FUN_02069AEC(struct PlayerParty * party)
+u8 Party_GetMaxLevel(struct PlayerParty * party)
 {
     int i;
     int r7 = GetPartyCount(party);
@@ -3025,14 +3029,14 @@ u8 FUN_02069AEC(struct PlayerParty * party)
     return ret;
 }
 
-u16 FUN_02069B40(u16 species)
+u16 SpeciesToSinnohDexNo(u16 species)
 {
     u16 ret;
     ReadFromNarcMemberByIdPair(&ret, NARC_POKETOOL_POKEZUKAN, 0, species * sizeof(u16), sizeof(u16));
     return ret;
 }
 
-u16 FUN_02069B60(u16 sinnoh_dex)
+u16 SinnohDexNoToSpecies(u16 sinnoh_dex)
 {
     u16 ret = SPECIES_NONE;
     if (sinnoh_dex <= SINNOH_DEX_COUNT)
@@ -3040,38 +3044,38 @@ u16 FUN_02069B60(u16 sinnoh_dex)
     return ret;
 }
 
-void FUN_02069B88(struct Pokemon * src, struct Pokemon * dest)
+void CopyPokemonToPokemon(struct Pokemon * src, struct Pokemon * dest)
 {
     *dest = *src;
 }
 
-void FUN_02069BA0(struct Pokemon * src, struct BoxPokemon * dest)
+void CopyPokemonToBoxPokemon(struct Pokemon * src, struct BoxPokemon * dest)
 {
     *dest = src->box;
 }
 
-void FUN_02069BB4(struct BoxPokemon * src, struct BoxPokemon * dest)
+void CopyBoxPokemonToBoxPokemon(struct BoxPokemon * src, struct BoxPokemon * dest)
 {
     *dest = *src;
 }
 
-s8 FUN_02069BC8(struct Pokemon * pokemon, int flavor)
+s8 MonGetFlavorPreference(struct Pokemon * pokemon, int flavor)
 {
-    return FUN_02069BD0(&pokemon->box, flavor);
+    return BoxMonGetFlavorPreference(&pokemon->box, flavor);
 }
 
-s8 FUN_02069BD0(struct BoxPokemon * boxmon, int flavor)
+s8 BoxMonGetFlavorPreference(struct BoxPokemon * boxmon, int flavor)
 {
     u32 personality = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
-    return FUN_02069BE4(personality, flavor);
+    return GetFlavorPreferenceFromPID(personality, flavor);
 }
 
-s8 FUN_02069BE4(u32 personality, int flavor)
+s8 GetFlavorPreferenceFromPID(u32 personality, int flavor)
 {
-    return UNK_020F7F16[GetNatureFromPersonality(personality)][flavor];
+    return sFlavorPreferencesByNature[GetNatureFromPersonality(personality)][flavor];
 }
 
-int FUN_02069BFC(u16 species, u32 forme, u16 * dest)
+int Species_LoadLearnsetTable(u16 species, u32 forme, u16 * dest)
 {
     int i;
     u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
@@ -3084,7 +3088,7 @@ int FUN_02069BFC(u16 species, u32 forme, u16 * dest)
     return i;
 }
 
-void FUN_02069C4C(struct PlayerParty * party)
+void Party_GivePokerusAtRandom(struct PlayerParty * party)
 {
     int count = GetPartyCount(party);
     int idx;
@@ -3100,7 +3104,7 @@ void FUN_02069C4C(struct PlayerParty * party)
             idx = LCRandom() % count;
             pokemon = GetPartyMonByIndex(party, idx);
         } while (GetMonData(pokemon, MON_DATA_SPECIES, NULL) == SPECIES_NONE || GetMonData(pokemon, MON_DATA_IS_EGG, NULL));
-        if (!FUN_02069CF4(party, (u8)MaskOfFlagNo(idx)))
+        if (!Party_MaskMonsWithPokerus(party, (u8)MaskOfFlagNo(idx)))
         {
             do
             {
@@ -3116,7 +3120,7 @@ void FUN_02069C4C(struct PlayerParty * party)
     }
 }
 
-u8 FUN_02069CF4(struct PlayerParty * party, u8 mask)
+u8 Party_MaskMonsWithPokerus(struct PlayerParty * party, u8 mask)
 {
     int i = 0;
     u32 flag = 1;
@@ -3147,7 +3151,7 @@ u8 FUN_02069CF4(struct PlayerParty * party, u8 mask)
     return ret;
 }
 
-void FUN_02069D50(struct PlayerParty * party, int r5)
+void Party_UpdatePokerus(struct PlayerParty * party, int r5)
 {
     int i;
     u8 pokerus;
@@ -3173,7 +3177,7 @@ void FUN_02069D50(struct PlayerParty * party, int r5)
     }
 }
 
-void FUN_02069DC8(struct PlayerParty * party)
+void Party_SpreadPokerus(struct PlayerParty * party)
 {
     int count = GetPartyCount(party);
     int i;
@@ -3210,22 +3214,22 @@ void FUN_02069DC8(struct PlayerParty * party)
     }
 }
 
-BOOL FUN_02069E74(struct Pokemon * pokemon)
+BOOL Pokemon_HasPokerus(struct Pokemon * pokemon)
 {
-    return FUN_02069E7C(&pokemon->box);
+    return BoxMon_HasPokerus(&pokemon->box);
 }
 
-BOOL FUN_02069E7C(struct BoxPokemon * boxmon)
+BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon)
 {
     return !!(GetBoxMonData(boxmon, MON_DATA_POKERUS, NULL) & 0xF);
 }
 
-BOOL FUN_02069E94(struct Pokemon * pokemon)
+BOOL Pokemon_IsImmuneToPokerus(struct Pokemon * pokemon)
 {
-    return FUN_02069E9C(&pokemon->box);
+    return BoxMon_IsImmuneToPokerus(&pokemon->box);
 }
 
-BOOL FUN_02069E9C(struct BoxPokemon * boxmon)
+BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon)
 {
     u8 pokerus = (u8)GetBoxMonData(boxmon, MON_DATA_POKERUS, NULL);
     if (pokerus & 0xF)
@@ -3235,12 +3239,12 @@ BOOL FUN_02069E9C(struct BoxPokemon * boxmon)
     return FALSE;
 }
 
-void FUN_02069EC4(struct Pokemon * pokemon)
+void Pokemon_UpdateArceusForme(struct Pokemon * pokemon)
 {
-    FUN_02069ECC(&pokemon->box);
+    BoxMon_UpdateArceusForme(&pokemon->box);
 }
 
-void FUN_02069ECC(struct BoxPokemon * boxmon)
+void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon)
 {
     u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
     u32 ability = GetBoxMonData(boxmon, MON_DATA_ABILITY, NULL);
@@ -3321,10 +3325,10 @@ void FUN_02069FB0(u32 r7, u32 r5, u32 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20)
     }
 }
 
-void FUN_0206A014(struct Pokemon * pokemon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5)
+void FUN_0206A014(struct Pokemon * pokemon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
 {
     u32 hp;
-    FUN_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, a5);
+    FUN_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heap_id);
     if (pokeball == ITEM_HEAL_BALL)
     {
         hp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
@@ -3334,9 +3338,9 @@ void FUN_0206A014(struct Pokemon * pokemon, u32 a1, u32 pokeball, u32 a3, u32 en
     }
 }
 
-void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5)
+void FUN_0206A054(struct BoxPokemon * boxmon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
 {
-    FUN_020808AC(boxmon, (int)a1, 0, (int)a3, (int)a5);
+    FUN_020808AC(boxmon, a1, 0, a3, heap_id);
     SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (void *)&gGameVersion);
     SetBoxMonData(boxmon, MON_DATA_POKEBALL, &pokeball);
     SetBoxMonData(boxmon, MON_DATA_ENCOUNTER_TYPE, &encounterType);
@@ -3455,7 +3459,7 @@ void FUN_0206A23C(struct Pokemon * r5, u32 personality)
     struct Pokemon * sp4;
 
     sp4 = AllocMonZeroed(0);
-    FUN_02069B88(r5, sp4);
+    CopyPokemonToPokemon(r5, sp4);
     r4 = &GetSubstruct(&sp4->box, r5->box.pid, 0)->blockA;
     r6 = &GetSubstruct(&sp4->box, r5->box.pid, 1)->blockB;
     r7 = &GetSubstruct(&sp4->box, r5->box.pid, 2)->blockC;
@@ -3676,17 +3680,17 @@ BOOL FUN_0206A998(struct Pokemon * pokemon)
     return IsPokemonLegendaryOrMythical(species);
 }
 
-BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct SaveBlock2 * sb2, u32 heap_id)
+BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct PlayerData * sb2, u32 heap_id)
 {
-    u32 myId = FUN_020239BC(sb2);
+    u32 myId = PlayerProfile_GetTrainerID(sb2);
     u32 otId = GetBoxMonData(boxmon, MON_DATA_OTID, NULL);
-    u32 myGender = FUN_020239CC(sb2);
+    u32 myGender = PlayerProfile_GetTrainerGender(sb2);
     u32 otGender = GetBoxMonData(boxmon, MON_DATA_MET_GENDER, NULL);
-    struct String * r7 = FUN_020239A0(sb2, heap_id);
+    struct String * r7 = PlayerProfile_GetPlayerName_NewString(sb2, heap_id);
     struct String * r6 = String_ctor(OT_NAME_LENGTH + 1, heap_id);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
-    if (myId == otId && myGender == otGender && FUN_02021CE0(r7, r6) == 0)
+    if (myId == otId && myGender == otGender && StringCompare(r7, r6) == 0)
         ret = TRUE;
     String_dtor(r6);
     String_dtor(r7);
@@ -3697,35 +3701,35 @@ int FUN_0206AA30(int x)
 {
     switch (x)
     {
-    case 63:
+    case TRAINER_CLASS_PKMN_TRAINER_BARRY:
         return 2;
-    case 90:
-    case 91:
-    case 92:
-    case 93:
-    case 94:
-        return x - 87;
+    case TRAINER_CLASS_PKMN_TRAINER_AROMA_LADY:
+    case TRAINER_CLASS_PKMN_TRAINER_RICH_BOY:
+    case TRAINER_CLASS_PKMN_TRAINER_PICNICKER:
+    case TRAINER_CLASS_PKMN_TRAINER_CAMPER:
+    case TRAINER_CLASS_PKMN_TRAINER_POKEKID:
+        return x - TRAINER_CLASS_COMMANDER_JUPITER;
     default:
-        if (FUN_0206AE00(x) == 1)
+        if (TrainerClass_GetGenderOrTrainerCount(x) == 1)
             return 1;
         else
             return 0;
-    case 0:
-    case 1:
+    case TRAINER_CLASS_PKMN_TRAINER_M:
+    case TRAINER_CLASS_PKMN_TRAINER_F:
         return x;
     }
 }
 
-void FUN_0206AA84(struct Pokemon * pokemon)
+void Pokemon_RemoveCapsule(struct Pokemon * pokemon)
 {
     u8 sp0 = 0;
-    u8 sp1[12][2];
-    MIi_CpuClearFast(0, sp1, sizeof(sp1));
+    CapsuleArray sp1;
+    MIi_CpuClearFast(0, &sp1, sizeof(sp1));
     SetMonData(pokemon, MON_DATA_CAPSULE, &sp0);
-    SetMonData(pokemon, MON_DATA_SEAL_COORDS, sp1);
+    SetMonData(pokemon, MON_DATA_SEAL_COORDS, &sp1);
 }
 
-void FUN_0206AAB4(struct BoxPokemon * boxmon)
+void RestoreBoxMonPP(struct BoxPokemon * boxmon)
 {
     int i;
     u8 pp;

@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.text
 
@@ -372,7 +372,7 @@ FUN_020757F4: ; 0x020757F4
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r6, #0x0
 	bl FUN_0207550C
 	cmp r0, #0x1b
@@ -553,7 +553,7 @@ _0207598C:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x0
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -575,7 +575,7 @@ _020759BE:
 	mov r1, #0x1
 	ldr r0, [r4, r0]
 	add r2, r1, #0x0
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -597,7 +597,7 @@ _020759F0:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x2
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -619,7 +619,7 @@ _02075A22:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x3
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -641,7 +641,7 @@ _02075A54:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x4
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -663,7 +663,7 @@ _02075A86:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x5
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -686,7 +686,7 @@ _02075AB8:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x0
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -709,7 +709,7 @@ _02075AEC:
 	mov r1, #0x1
 	ldr r0, [r4, r0]
 	add r2, r1, #0x0
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -732,7 +732,7 @@ _02075B20:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x2
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -755,7 +755,7 @@ _02075B54:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x3
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -784,7 +784,7 @@ _02075B98:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x4
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -807,7 +807,7 @@ _02075BCA:
 	ldr r0, [r4, r0]
 	mov r1, #0x1
 	mov r2, #0x5
-	bl FUN_0200AF50
+	bl BufferStatName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -829,7 +829,7 @@ _02075BFE:
 	ldr r0, [r4, r0]
 	mov r1, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -946,7 +946,7 @@ FUN_02075CE4: ; 0x02075CE4
 	mov r0, #0x5
 	pop {r4, pc}
 _02075CF8:
-	ldr r0, _02075D18 ; =gUnknown21C48B8
+	ldr r0, _02075D18 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -963,7 +963,7 @@ _02075D10:
 	pop {r4, pc}
 	.balign 4
 _02075D14: .word 0x00000B24
-_02075D18: .word gUnknown21C48B8
+_02075D18: .word gMain
 _02075D1C: .word 0x000005A4
 
 	thumb_func_start FUN_02075D20
@@ -982,7 +982,7 @@ FUN_02075D20: ; 0x02075D20
 	ldrb r2, [r5, r2]
 	ldr r0, [r4, #0x0]
 	mov r3, #0x0
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	ldr r1, _02075DAC ; =0x00000B25
 	add r0, r5, #0x0
 	ldrb r1, [r5, r1]
@@ -1106,7 +1106,7 @@ FUN_02075DC0: ; 0x02075DC0
 	ldrb r2, [r5, r2]
 	ldr r0, [r6, #0x0]
 	mov r3, #0x0
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	ldr r1, _02075F50 ; =0x00000B25
 	add r0, r5, #0x0
 	ldrb r1, [r5, r1]
@@ -1237,7 +1237,7 @@ FUN_02075F60: ; 0x02075F60
 	ldrb r2, [r5, r2]
 	ldr r0, [r4, #0x0]
 	mov r3, #0x0
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	ldr r0, _02076080 ; =0x000005A4
 	ldr r1, _02076084 ; =0x00000B25
 	ldr r0, [r5, r0]
@@ -1287,7 +1287,7 @@ _02075FDA:
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r0, #0x0
 	mov r3, #0x6a
 	str r0, [sp, #0x0]
@@ -1304,7 +1304,7 @@ _02075FDA:
 	ldrh r2, [r2, r3]
 	mov r3, #0x3
 	sub r2, r4, r2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r5, r1]
@@ -1570,7 +1570,7 @@ _02076212:
 	ldr r1, [r4, r1]
 	mov r2, #0x0
 	ldrh r1, [r1, #0x24]
-	bl FUN_02084810
+	bl UseItemOnPokemon
 	add r0, r5, #0x0
 	mov r1, #0xa2
 	mov r2, #0x0
@@ -1587,7 +1587,7 @@ _02076212:
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -1706,7 +1706,7 @@ _02076360:
 	bl FUN_0201BD70
 	cmp r0, #0x0
 	bne _020763D6
-	ldr r0, _02076404 ; =gUnknown21C48B8
+	ldr r0, _02076404 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -1744,7 +1744,7 @@ _020763B2:
 	mov r3, #0xc
 	ldr r0, [r1, #0x4]
 	ldrh r1, [r1, #0x24]
-	bl FUN_0206EDD4
+	bl Bag_TakeItem
 	ldr r0, _020763F0 ; =0x000005A4
 	mov r1, #0x0
 	ldr r0, [r4, r0]
@@ -1769,7 +1769,7 @@ _020763F4: .word 0x0000070E
 _020763F8: .word 0xFFFFF000
 _020763FC: .word 0x000005EC
 _02076400: .word 0x00000706
-_02076404: .word gUnknown21C48B8
+_02076404: .word gMain
 _02076408: .word 0x000005DC
 
 	thumb_func_start FUN_0207640C
@@ -1832,7 +1832,7 @@ FUN_0207640C: ; 0x0207640C
 	ldrb r2, [r5, r2]
 	ldr r0, [r6, #0x0]
 	mov r3, #0x0
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	add r0, r4, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
@@ -1878,7 +1878,7 @@ FUN_0207640C: ; 0x0207640C
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r0, #0x0
 	mov r3, #0x6a
 	str r0, [sp, #0x0]
@@ -1894,7 +1894,7 @@ FUN_0207640C: ; 0x0207640C
 	add r3, #0x6a
 	ldrh r2, [r2, r3]
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r5, r1]
@@ -2005,7 +2005,7 @@ _02076612:
 	bl FUN_0201BD70
 	cmp r0, #0x0
 	bne _020766A8
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2019,7 +2019,7 @@ _02076612:
 	strb r1, [r4, r0]
 	b _02076868
 _0207663C:
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2033,7 +2033,7 @@ _0207663C:
 	strb r1, [r4, r0]
 	b _02076868
 _0207665A:
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2089,7 +2089,7 @@ _020766BA:
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r2, #0x6a
 	lsl r2, r2, #0x4
 	ldr r0, [r4, r2]
@@ -2097,7 +2097,7 @@ _020766BA:
 	ldr r2, [r4, r2]
 	mov r1, #0x1
 	ldrh r2, [r2, #0x26]
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r0, _02076880 ; =0x0000069C
 	mov r1, #0x34
 	ldr r0, [r4, r0]
@@ -2136,7 +2136,7 @@ _02076724:
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r2, #0x6a
 	lsl r2, r2, #0x4
 	ldr r0, [r4, r2]
@@ -2144,7 +2144,7 @@ _02076724:
 	ldr r2, [r4, r2]
 	mov r1, #0x1
 	ldrh r2, [r2, #0x26]
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r0, _02076880 ; =0x0000069C
 	mov r1, #0xc2
 	ldr r0, [r4, r0]
@@ -2174,7 +2174,7 @@ _02076780:
 	bl FUN_0201BD70
 	cmp r0, #0x0
 	bne _02076868
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2186,7 +2186,7 @@ _02076780:
 	strb r1, [r4, r0]
 	b _02076868
 _020767A4:
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r2, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r2
@@ -2216,7 +2216,7 @@ _020767A4:
 	ldr r2, [r4, r2]
 	mov r1, #0x1
 	ldrh r2, [r2, #0x26]
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r4, r1]
@@ -2282,7 +2282,7 @@ _02076868:
 	pop {r3-r5, pc}
 	.balign 4
 _0207686C: .word 0x00000B27
-_02076870: .word gUnknown21C48B8
+_02076870: .word gMain
 _02076874: .word 0x000005DC
 _02076878: .word 0x000005A4
 _0207687C: .word 0x0000FFFE
@@ -2315,7 +2315,7 @@ FUN_02076890: ; 0x02076890
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, _02076944 ; =0x000005A4
 	ldr r2, [r4, r0]
 	add r1, r2, #0x0
@@ -2327,7 +2327,7 @@ FUN_02076890: ; 0x02076890
 	ldrh r2, [r2, #0x26]
 	ldr r0, [r4, r0]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	add r0, r4, #0x0
 	bl FUN_020769A4
 	pop {r3-r5, pc}
@@ -2341,7 +2341,7 @@ _020768E6:
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r0, _02076948 ; =0x0000069C
 	mov r1, #0x3c
 	ldr r0, [r4, r0]
@@ -2599,7 +2599,7 @@ FUN_02076AF8: ; 0x02076AF8
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r2, #0x6a
 	lsl r2, r2, #0x4
 	ldr r0, [r4, r2]
@@ -2607,7 +2607,7 @@ FUN_02076AF8: ; 0x02076AF8
 	ldr r2, [r4, r2]
 	mov r1, #0x1
 	ldrh r2, [r2, #0x26]
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	cmp r5, #0xfd
 	bhi _02076B5A
 	bhs _02076BB2
@@ -2783,7 +2783,7 @@ FUN_02076C94: ; 0x02076C94
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, _02076D2C ; =0x000005A4
 	ldr r2, [r4, r0]
 	add r1, r2, #0x0
@@ -2795,7 +2795,7 @@ FUN_02076C94: ; 0x02076C94
 	ldrh r2, [r2, #0x26]
 	ldr r0, [r4, r0]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	add r0, r4, #0x0
 	bl FUN_02076E28
 	pop {r3-r5, pc}
@@ -2809,7 +2809,7 @@ _02076CDC:
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r0, _02076D34 ; =0x0000069C
 	mov r1, #0x3c
 	ldr r0, [r4, r0]
@@ -2844,7 +2844,7 @@ _02076D38: .word 0x00000B22
 FUN_02076D3C: ; 0x02076D3C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	ldr r0, _02076DC0 ; =gUnknown21C48B8
+	ldr r0, _02076DC0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2874,7 +2874,7 @@ FUN_02076D3C: ; 0x02076D3C
 	ldr r2, [r5, r2]
 	mov r1, #0x1
 	ldrh r2, [r2, #0x26]
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r5, r1]
@@ -2903,7 +2903,7 @@ _02076DBC:
 	mov r0, #0x12
 	pop {r3-r5, pc}
 	.balign 4
-_02076DC0: .word gUnknown21C48B8
+_02076DC0: .word gMain
 _02076DC4: .word 0x000005A4
 _02076DC8: .word 0x00000B25
 _02076DCC: .word 0x0000069C
@@ -3114,7 +3114,7 @@ FUN_02076F2C: ; 0x02076F2C
 	mov r3, #0xc
 	ldr r0, [r1, #0x4]
 	ldrh r1, [r1, #0x24]
-	bl FUN_0206EDD4
+	bl Bag_TakeItem
 _02076F98:
 	add r0, r5, #0x0
 	bl FUN_020772CC
@@ -3156,7 +3156,7 @@ FUN_02076FB0: ; 0x02076FB0
 	ldr r0, [r5, r0]
 	mov r1, #0x0
 	add r2, r4, #0x0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	ldr r0, [r5, r1]
@@ -3174,7 +3174,7 @@ FUN_02076FB0: ; 0x02076FB0
 	mov r2, #0x2
 	ldr r1, [r5, r1]
 	mvn r2, r2
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x0
 	pop {r3-r7, pc}
 _0207701C:
@@ -3182,7 +3182,7 @@ _0207701C:
 	sub r1, #0x50
 	ldr r1, [r5, r1]
 	add r2, r6, #0x0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x1
 	pop {r3-r7, pc}
 	.balign 4
@@ -3209,7 +3209,7 @@ _02077050:
 _02077058:
 	mov r0, #0x4
 	mov r1, #0xc
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _02077108 ; =0x000006F8
 	str r0, [r4, r1]
 	add r0, r4, #0x0
@@ -3328,7 +3328,7 @@ _02077130:
 	bl FUN_02001C5C
 	ldr r0, _02077230 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r5, #0x0
 	mov r1, #0x20
 	mov r2, #0x1
@@ -3353,7 +3353,7 @@ _0207716A:
 	bl FUN_02001C5C
 	ldr r0, _02077230 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _02077234 ; =0x000005A4
 	ldr r6, [r5, r0]
 	add r0, r5, #0x0
@@ -3367,7 +3367,7 @@ _0207716A:
 	ldrb r2, [r5, r2]
 	ldr r0, [r6, #0x0]
 	lsr r3, r3, #0x18
-	bl FUN_02084DD0
+	bl UseItemOnMonInParty
 	cmp r0, #0x1
 	bne _020771F6
 	ldr r0, _02077234 ; =0x000005A4
@@ -3392,7 +3392,7 @@ _0207716A:
 	mov r3, #0xc
 	ldr r0, [r1, #0x4]
 	ldrh r1, [r1, #0x24]
-	bl FUN_0206EDD4
+	bl Bag_TakeItem
 	ldr r0, _0207723C ; =0x000005EC
 	bl FUN_020054C8
 	b _02077204

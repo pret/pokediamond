@@ -1,0 +1,24 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "nutdata.h"
+
+u32 __size = sizeof(struct NutData);
+
+const struct NutData __data[] = {
+## for nut in nuts_data
+	{ // {{ nut.name }}
+		{{ nut.size }},
+		{{ nut.firmness }},
+		{{ nut.yieldCategory }},
+		{{ nut.stageDuration }},
+		{{ nut.unk5 }},
+		{{ nut.spicy }},
+		{{ nut.dry }},
+		{{ nut.sweet }},
+		{{ nut.bitter }},
+		{{ nut.sour }},
+		{{ nut.smoothness }}
+	},
+## endfor
+};

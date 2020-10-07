@@ -10,7 +10,7 @@ MOD85_021D74E0: ; 0x021D74E0
 	add r5, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -22,7 +22,7 @@ MOD85_021D74E0: ; 0x021D74E0
 	add r0, r5, #0
 	mov r1, #8
 	mov r2, #0x4f
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	mov r0, #0
 	strb r0, [r4]
@@ -34,7 +34,7 @@ MOD85_021D74E0: ; 0x021D74E0
 	strb r0, [r4, #6]
 	strb r0, [r4, #7]
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4]
 	bl MOD85_021D76CC
 	add r5, r0, #0
@@ -86,7 +86,7 @@ MOD85_021D75A0: ; 0x021D75A0
 	push {r4, r5, lr}
 	sub sp, #0xc
 	add r4, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r5, [r0, #4]
 	ldr r0, [r4]
 	cmp r0, #3
@@ -167,12 +167,12 @@ _021D7640: .word 0x0000044C
 MOD85_021D7644: ; 0x021D7644
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0
 	mov r0, #0
 	ldr r4, [r6, #4]
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r6, #0
 	add r1, r4, #0
 	bl MOD85_021D769C
@@ -191,7 +191,7 @@ MOD85_021D7644: ; 0x021D7644
 	add r0, r4, #0
 	bl MOD85_021D76F4
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x4f
 	bl FUN_020168D0
 	mov r0, #1
@@ -346,7 +346,7 @@ MOD85_021D76FC: ; 0x021D76FC
 	bl G2x_SetBlendAlpha_
 	ldr r0, _021D77D8 ; =MOD85_021D80DC
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _021D77CC: .word 0x0000043C
@@ -783,7 +783,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	ldr r1, _021D7BA4 ; =0x00000408
 	str r0, [r5, r1]
 	mov r0, #0x4f
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #4]
 	ldr r0, _021D7BB0 ; =0x0000043C
 	add r1, r4, #0
@@ -822,7 +822,7 @@ MOD85_021D7BB8: ; 0x021D7BB8
 	ldr r0, [r5, r0]
 	bl DestroyMsgData
 	ldr r0, [r4, #4]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x18]
 	bl String_dtor
 	pop {r4, r5, r6, pc}
@@ -862,7 +862,7 @@ MOD85_021D7BEC: ; 0x021D7BEC
 	ldr r2, [r4, #0x18]
 	add r0, #8
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r4, #8
 	add r0, r4, #0
 	bl FUN_02019220
@@ -1892,7 +1892,7 @@ _021D8418:
 	thumb_func_start MOD85_021D841C
 MOD85_021D841C: ; 0x021D841C
 	push {r4, lr}
-	ldr r1, _021D850C ; =gUnknown21C48B8
+	ldr r1, _021D850C ; =gMain
 	add r4, r0, #0
 	ldr r2, [r1, #0x48]
 	ldr r1, [r4, #0x7c]
@@ -2004,7 +2004,7 @@ _021D8508:
 	mov r0, #0
 	pop {r4, pc}
 	.align 2, 0
-_021D850C: .word gUnknown21C48B8
+_021D850C: .word gMain
 _021D8510: .word 0x00000626
 	thumb_func_end MOD85_021D841C
 
@@ -2734,7 +2734,7 @@ _021D8A4C:
 	thumb_func_start MOD85_021D8A50
 MOD85_021D8A50: ; 0x021D8A50
 	push {r4, lr}
-	ldr r1, _021D8B40 ; =gUnknown21C48B8
+	ldr r1, _021D8B40 ; =gMain
 	add r4, r0, #0
 	ldr r2, [r1, #0x48]
 	ldr r1, [r4, #0x7c]
@@ -2846,7 +2846,7 @@ _021D8B3C:
 	mov r0, #0
 	pop {r4, pc}
 	.align 2, 0
-_021D8B40: .word gUnknown21C48B8
+_021D8B40: .word gMain
 _021D8B44: .word 0x00000626
 	thumb_func_end MOD85_021D8A50
 
@@ -3448,7 +3448,7 @@ _021D8FAC:
 	thumb_func_start MOD85_021D8FB0
 MOD85_021D8FB0: ; 0x021D8FB0
 	push {r4, lr}
-	ldr r1, _021D90A8 ; =gUnknown21C48B8
+	ldr r1, _021D90A8 ; =gMain
 	add r4, r0, #0
 	ldr r2, [r1, #0x48]
 	ldr r1, [r4, #0x7c]
@@ -3563,7 +3563,7 @@ _021D90A2:
 	mov r0, #0
 	pop {r4, pc}
 	nop
-_021D90A8: .word gUnknown21C48B8
+_021D90A8: .word gMain
 _021D90AC: .word 0x000005F5
 	thumb_func_end MOD85_021D8FB0
 
@@ -7637,7 +7637,7 @@ _021DAE16:
 	str r0, [r5]
 	pop {r3, r4, r5, pc}
 _021DAE20:
-	ldr r1, _021DAE68 ; =gUnknown21C48B8
+	ldr r1, _021DAE68 ; =gMain
 	mov r0, #3
 	ldr r2, [r1, #0x44]
 	ldr r1, _021DAE6C ; =0x00000C03
@@ -7674,7 +7674,7 @@ _021DAE5E:
 	.align 2, 0
 _021DAE60: .word 0x0000062D
 _021DAE64: .word 0x0000C350
-_021DAE68: .word gUnknown21C48B8
+_021DAE68: .word gMain
 _021DAE6C: .word 0x00000C03
 	thumb_func_end MOD85_021DAD70
 
@@ -9772,7 +9772,7 @@ _021DBD4C:
 
 	thumb_func_start MOD85_021DBD54
 MOD85_021DBD54: ; 0x021DBD54
-	ldr r1, _021DBD70 ; =gUnknown21C48B8
+	ldr r1, _021DBD70 ; =gMain
 	ldr r1, [r1, #0x48]
 	and r1, r0
 	cmp r1, r0
@@ -9788,7 +9788,7 @@ _021DBD6A:
 	mov r0, #0
 	bx lr
 	nop
-_021DBD70: .word gUnknown21C48B8
+_021DBD70: .word gMain
 	thumb_func_end MOD85_021DBD54
 
 	thumb_func_start MOD85_021DBD74

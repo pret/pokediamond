@@ -786,141 +786,141 @@ u32 GetItemAttr_PreloadedItemData(struct ItemData * itemData, u32 attr)
 {
     switch (attr)
     {
-    case 0:
+    case ITEMATTR_PRICE:
         return itemData->price;
-    case 1:
+    case ITEMATTR_HOLD_EFFECT:
         return itemData->holdEffect;
-    case 2:
+    case ITEMATTR_HOLD_EFFECT_PARAM:
         return itemData->holdEffectParam;
-    case 3:
-        return itemData->unk8_5;
-    case 4:
-        return itemData->unk8_6;
-    case 5:
+    case ITEMATTR_PREVENT_TOSS:
+        return itemData->prevent_toss;
+    case ITEMATTR_SELECTABLE:
+        return itemData->selectable;
+    case ITEMATTR_POCKET:
         return itemData->pocket;
-    case 6:
+    case ITEMATTR_UNKA:
         return itemData->unkA;
-    case 7:
+    case ITEMATTR_UNKB:
         return itemData->unkB;
-    case 8:
+    case ITEMATTR_UNK4:
         return itemData->unk4;
-    case 9:
+    case ITEMATTR_UNK5:
         return itemData->unk5;
-    case 10:
+    case ITEMATTR_UNK6:
         return itemData->unk6;
-    case 11:
+    case ITEMATTR_NATURAL_GIFT_POWER:
         return itemData->naturalGiftPower;
-    case 12:
-        return itemData->unk8_0;
-    case 13:
+    case ITEMATTR_NATURAL_GIFT_TYPE:
+        return itemData->naturalGiftType;
+    case ITEMATTR_UNK8_B:
         return itemData->unk8_B;
-    case 14:
-        return itemData->unkC;
+    case ITEMATTR_PARTY_USE:
+        return itemData->partyUse;
     default:
-        switch (itemData->unkC)
+        switch (itemData->partyUse)
         {
         case 0:
-            return itemData->unkE.flat;
+            return itemData->partyUseParam.flat;
         case 1:
-            return GetItemAttrSub(&itemData->unkE.sub, attr);
+            return GetItemAttrSub(&itemData->partyUseParam.sub, attr);
         default:
             return 0;
         }
     }
 }
 
-u32 GetItemAttrSub(struct ItemDataSub * sub, u32 attr)
+u32 GetItemAttrSub(struct ItemPartyUseParam * sub, u32 attr)
 {
     switch (attr)
     {
-    case 15:
-        return sub->unk0_0;
-    case 16:
-        return sub->unk0_1;
-    case 17:
-        return sub->unk0_2;
-    case 18:
-        return sub->unk0_3;
-    case 19:
-        return sub->unk0_4;
-    case 20:
-        return sub->unk0_5;
-    case 21:
-        return sub->unk0_6;
-    case 22:
-        return sub->unk0_7;
-    case 23:
-        return sub->unk1_0;
-    case 24:
-        return sub->unk1_1;
-    case 25:
-        return sub->unk1_2;
-    case 26:
-        return sub->unk1_3;
-    case 27:
-        return sub->unk1_4;
-    case 28:
-        return sub->unk2_0;
-    case 29:
-        return sub->unk2_4;
-    case 30:
-        return sub->unk3_0;
-    case 31:
-        return sub->unk3_4;
-    case 32:
-        return sub->unk4_0;
-    case 33:
-        return sub->unk4_4;
-    case 34:
-        return sub->unk4_6;
-    case 35:
-        return sub->unk4_7;
-    case 36:
-        return sub->unk5_0;
-    case 37:
-        return sub->unk5_1;
-    case 38:
-        return sub->unk5_2;
-    case 39:
-        return sub->unk5_3;
-    case 40:
-        return sub->unk5_4;
-    case 41:
-        return sub->unk5_5;
-    case 42:
-        return sub->unk5_6;
-    case 43:
-        return sub->unk5_7;
-    case 44:
-        return sub->unk6_0;
-    case 45:
-        return sub->unk6_1;
-    case 46:
-        return sub->unk6_2;
-    case 47:
-        return sub->unk6_3;
-    case 48:
-        return sub->unk7;
-    case 49:
-        return sub->unk8;
-    case 50:
-        return sub->unk9;
-    case 51:
-        return sub->unkA;
-    case 52:
-        return sub->unkB;
-    case 53:
-        return sub->unkC;
-    case 54:
-        return sub->unkD;
-    case 55:
-        return sub->unkE;
-    case 56:
-        return sub->unkF;
-    case 57:
-        return sub->unk10;
-    case 58:
-        return sub->unk11;
+    case ITEMATTR_SLP_HEAL:
+        return sub->slp_heal;
+    case ITEMATTR_PSN_HEAL:
+        return sub->psn_heal;
+    case ITEMATTR_BRN_HEAL:
+        return sub->brn_heal;
+    case ITEMATTR_FRZ_HEAL:
+        return sub->frz_heal;
+    case ITEMATTR_PRZ_HEAL:
+        return sub->prz_heal;
+    case ITEMATTR_CFS_HEAL:
+        return sub->cfs_heal;
+    case ITEMATTR_INF_HEAL:
+        return sub->inf_heal;
+    case ITEMATTR_GUARD_SPEC:
+        return sub->guard_spec;
+    case ITEMATTR_REVIVE:
+        return sub->revive;
+    case ITEMATTR_REVIVE_ALL:
+        return sub->revive_all;
+    case ITEMATTR_LEVEL_UP:
+        return sub->level_up;
+    case ITEMATTR_EVOLVE:
+        return sub->evolve;
+    case ITEMATTR_ATK_STAGES:
+        return sub->atk_stages;
+    case ITEMATTR_DEF_STAGES:
+        return sub->def_stages;
+    case ITEMATTR_SPATK_STAGES:
+        return sub->spatk_stages;
+    case ITEMATTR_SPDEF_STAGES:
+        return sub->spdef_stages;
+    case ITEMATTR_SPEED_STAGES:
+        return sub->speed_stages;
+    case ITEMATTR_ACCURACY_STAGES:
+        return sub->accuracy_stages;
+    case ITEMATTR_CRITRATE_STAGES:
+        return sub->critrate_stages;
+    case ITEMATTR_PP_UP:
+        return sub->pp_up;
+    case ITEMATTR_PP_MAX:
+        return sub->pp_max;
+    case ITEMATTR_PP_RESTORE:
+        return sub->pp_restore;
+    case ITEMATTR_PP_RESTORE_ALL:
+        return sub->pp_restore_all;
+    case ITEMATTR_HP_RESTORE:
+        return sub->hp_restore;
+    case ITEMATTR_HP_EV_UP:
+        return sub->hp_ev_up;
+    case ITEMATTR_ATK_EV_UP:
+        return sub->atk_ev_up;
+    case ITEMATTR_DEF_EV_UP:
+        return sub->def_ev_up;
+    case ITEMATTR_SPEED_EV_UP:
+        return sub->speed_ev_up;
+    case ITEMATTR_SPATK_EV_UP:
+        return sub->spatk_ev_up;
+    case ITEMATTR_SPDEF_EV_UP:
+        return sub->spdef_ev_up;
+    case ITEMATTR_FRIENDSHIP_MOD_LO:
+        return sub->friendship_mod_lo;
+    case ITEMATTR_FRIENDSHIP_MOD_MED:
+        return sub->friendship_mod_med;
+    case ITEMATTR_FRIENDSHIP_MOD_HI:
+        return sub->friendship_mod_hi;
+    case ITEMATTR_HP_EV_UP_PARAM:
+        return sub->hp_ev_up_param;
+    case ITEMATTR_ATK_EV_UP_PARAM:
+        return sub->atk_ev_up_param;
+    case ITEMATTR_DEF_EV_UP_PARAM:
+        return sub->def_ev_up_param;
+    case ITEMATTR_SPEED_EV_UP_PARAM:
+        return sub->speed_ev_up_param;
+    case ITEMATTR_SPATK_EV_UP_PARAM:
+        return sub->spatk_ev_up_param;
+    case ITEMATTR_SPDEF_EV_UP_PARAM:
+        return sub->spdef_ev_up_param;
+    case ITEMATTR_HP_RESTORE_PARAM:
+        return sub->hp_restore_param;
+    case ITEMATTR_PP_RESTORE_PARAM:
+        return sub->pp_restore_param;
+    case ITEMATTR_FRIENDSHIP_MOD_LO_PARAM:
+        return sub->friendship_mod_lo_param;
+    case ITEMATTR_FRIENDSHIP_MOD_MED_PARAM:
+        return sub->friendship_mod_med_param;
+    case ITEMATTR_FRIENDSHIP_MOD_HI_PARAM:
+        return sub->friendship_mod_hi_param;
     default:
         return 0;
     }

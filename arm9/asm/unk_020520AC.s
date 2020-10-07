@@ -181,7 +181,7 @@ FUN_02052110: ; 0x02052110
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _0205211E:
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r6, r0, #0x0
 	bl FUN_02031A7C
 	mov r1, #0x19
@@ -205,7 +205,7 @@ _0205211E:
 	str r5, [r4, #0x0]
 	str r6, [r4, #0x4]
 	add r0, r6, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	bl FUN_02052E1C
@@ -227,7 +227,7 @@ FUN_02052178: ; 0x02052178
 	cmp r0, #0x0
 	beq _020521A4
 	add r0, sp, #0x0
-	bl FUN_02013754
+	bl MailMsg_init_default
 	add r0, sp, #0x0
 	bl FUN_02052DE8
 	add r0, r4, #0x0
@@ -1025,10 +1025,10 @@ FUN_02052734: ; 0x02052734
 	cmp r5, r0
 	beq _02052780
 	add r0, r7, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r5, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	lsl r1, r1, #0x18
 	add r0, r5, #0x0
@@ -1177,7 +1177,7 @@ _02052852:
 	asr r4, r0, #0x7
 	b _02052872
 _0205286C:
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r4, r0, #0x0
 _02052872:
 	ldrb r0, [r5, #0x1c]
@@ -1336,14 +1336,14 @@ _020529B0:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x3
 	add r2, r4, #0x0
-	bl FUN_0200B4A0
+	bl BufferCountryName
 	cmp r5, #0x0
 	beq _020529CC
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4
 	add r2, r4, #0x0
 	add r3, r5, #0x0
-	bl FUN_0200B4D8
+	bl BufferCityName
 _020529CC:
 	cmp r7, r4
 	beq _020529E4
@@ -1400,7 +1400,7 @@ FUN_02052A10: ; 0x02052A10
 _02052A24:
 	sub r0, r1, #0x1
 	bl FUN_0202EF84
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0x0
 	cmp r4, #0x18
 	bhi _02052AFA
@@ -1542,14 +1542,14 @@ _02052B32:
 	bl FUN_0202DFA4
 	add r7, r0, #0x0
 	beq _02052B60
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	lsl r1, r4, #0x2
 	str r0, [r5, r1]
 	add r0, r7, #0x0
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	lsl r1, r0, #0x7
 	ldr r0, [sp, #0x0]
 	orr r1, r0
@@ -1675,7 +1675,7 @@ _02052C34:
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_0201385C
+	bl MailMsg_IsInit
 	cmp r0, #0x0
 	bne _02052C46
 	mov r0, #0xa5
@@ -1684,28 +1684,28 @@ _02052C46:
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_02013920
+	bl MailMsg_GetMsgBank
 	cmp r0, #0x4
 	beq _02052C78
 	ldr r0, [r5, #0x8]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x8]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r4, #0x0
 	mov r2, #0x2
 	bl FUN_020536D0
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_0200B064
+	bl BufferTrainerClassName
 	mov r0, #0xa6
 	pop {r4-r6, pc}
 _02052C78:
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_02013924
+	bl MailMsg_GetMsgNo
 	add r4, r0, #0x0
 	cmp r4, #0x14
 	blt _02052C8A
@@ -1715,7 +1715,7 @@ _02052C8A:
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0x0
-	bl FUN_02013918
+	bl MailMsg_GetFieldI
 	add r2, r0, #0x0
 	ldr r0, _02052CB0 ; =0x0000FFFF
 	cmp r2, r0
@@ -1759,7 +1759,7 @@ FUN_02052CD8: ; 0x02052CD8
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x6
 	mov r1, #0x1
 	lsl r0, r0, #0x6
@@ -1814,13 +1814,13 @@ _02052D3C:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	add r2, r4, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r2, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0x0
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	add r4, r0, #0x0
 	cmp r4, #0x1
 	blt _02052D80
@@ -1887,7 +1887,7 @@ _02052DBA:
 	add r2, r6, #0x0
 	mov r3, #0x0
 	str r4, [sp, #0x4]
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r6, #0x0
 	bl FreeToHeap
 	add r0, r7, #0x0
@@ -1964,10 +1964,10 @@ FUN_02052E38: ; 0x02052E38
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
 	ldr r0, [r4, #0x8]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x8]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	mov r2, #0x0

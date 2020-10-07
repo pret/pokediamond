@@ -3,17 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD62_0222D5C0
-MOD62_0222D5C0: ; 0x0222D5C0
-	ldr r3, _0222D5C8 ; =HandleLoadOverlay
-	ldr r0, _0222D5CC ; =SDK_OVERLAY_MODULE_08_ID
-	mov r1, #2
-	bx r3
-	.align 2, 0
-_0222D5C8: .word HandleLoadOverlay
-_0222D5CC: .word SDK_OVERLAY_MODULE_08_ID
-	thumb_func_end MOD62_0222D5C0
-
 	thumb_func_start MOD62_0222D5D0
 MOD62_0222D5D0: ; 0x0222D5D0
 	add r3, r2, #0
@@ -50,7 +39,7 @@ MOD62_0222D5F8: ; 0x0222D5F8
 	beq _0222D64C
 	cmp r2, #1
 	bne _0222D628
-	ldr r3, _0222D650 ; =UNK_021C48F8
+	ldr r3, _0222D650 ; =gMain + 0x40
 	mov r1, #0x1c
 	mov r2, #0x1e
 	ldrsh r1, [r3, r1]
@@ -85,7 +74,7 @@ _0222D628:
 _0222D64C:
 	pop {r3, r4, r5, pc}
 	nop
-_0222D650: .word UNK_021C48F8
+_0222D650: .word gMain + 0x40
 	thumb_func_end MOD62_0222D5F8
 
 	thumb_func_start MOD62_0222D654
@@ -963,7 +952,7 @@ _0222DC90:
 	ldr r0, [r0, #0x20]
 	ldr r2, [r7, r2]
 	add r1, sp, #0
-	bl FUN_02029CA4
+	bl SealCase_SetCapsuleI
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1184,7 +1173,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	add r0, sp, #0x1c
 	mov r1, #2
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, sp, #0x1c
 	mov r1, #2
 	mov r2, #0x35
@@ -1968,7 +1957,7 @@ _0222E442:
 	bl FUN_02019064
 	add r0, r7, #0
 	mov r1, #0x35
-	bl FUN_02012838
+	bl ListMenu_ctor
 	mov r2, #0x67
 	ldr r1, [sp, #0x1c]
 	lsl r2, r2, #2
@@ -2001,7 +1990,7 @@ _0222E49A:
 	ldr r0, [r1, r0]
 	ldr r2, [r2, #4]
 	add r1, r4, #0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r4, #0
 	bl String_dtor
 	add r6, r6, #1
@@ -3028,18 +3017,18 @@ _0222EC9A:
 	add r7, #8
 	ldr r0, [r7, r6]
 	add r1, sp, #0x10
-	bl FUN_02029C74
+	bl CapsuleArray_copy
 	add r0, r5, #0
 	str r0, [sp, #4]
 	add r0, #8
 	str r0, [sp, #4]
 	ldr r0, [r0, r4]
 	ldr r1, [r7, r6]
-	bl FUN_02029C74
+	bl CapsuleArray_copy
 	ldr r1, [sp, #4]
 	add r0, sp, #0x10
 	ldr r1, [r1, r4]
-	bl FUN_02029C74
+	bl CapsuleArray_copy
 	add r0, r5, #0
 	bl MOD62_0222EC28
 	add sp, #0x28
@@ -3287,7 +3276,7 @@ _0222EE96:
 	add r2, r5, #0
 	add r3, r1, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	bl FUN_020191D0
 	add r0, r5, #0
@@ -3598,7 +3587,7 @@ _0222F0FE:
 	add r0, r5, #0
 	add r2, r4, #0
 	mov r3, #7
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0
 	bl FUN_020191D0
 	add r0, r4, #0
@@ -3664,7 +3653,7 @@ _0222F194:
 	add r0, r5, r4
 	mov r3, #7
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, r4
 	bl FUN_020191D0
 	ldr r0, [sp, #0x10]
@@ -3729,7 +3718,7 @@ _0222F226:
 	add r2, r5, #0
 	add r3, r1, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	bl FUN_020191D0
 	add r0, r5, #0
@@ -4374,14 +4363,14 @@ MOD62_0222F778: ; 0x0222F778
 	mov r0, #0xf1
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	ldr r3, _0222F78C ; =FUN_02029C74
+	ldr r3, _0222F78C ; =CapsuleArray_copy
 	lsl r0, r0, #3
 	add r0, r1, r0
 	ldr r0, [r0, #8]
 	add r1, #0x68
 	bx r3
 	.align 2, 0
-_0222F78C: .word FUN_02029C74
+_0222F78C: .word CapsuleArray_copy
 	thumb_func_end MOD62_0222F778
 
 	thumb_func_start MOD62_0222F790
@@ -4390,14 +4379,14 @@ MOD62_0222F790: ; 0x0222F790
 	add r2, r0, #0
 	lsl r1, r1, #2
 	ldr r1, [r2, r1]
-	ldr r3, _0222F7A4 ; =FUN_02029C74
+	ldr r3, _0222F7A4 ; =CapsuleArray_copy
 	lsl r1, r1, #3
 	add r1, r2, r1
 	add r0, #0x68
 	ldr r1, [r1, #8]
 	bx r3
 	.align 2, 0
-_0222F7A4: .word FUN_02029C74
+_0222F7A4: .word CapsuleArray_copy
 	thumb_func_end MOD62_0222F790
 
 	thumb_func_start MOD62_0222F7A8
@@ -4477,7 +4466,7 @@ MOD62_0222F80C: ; 0x0222F80C
 	add r1, #0x64
 	ldr r0, [r0, #4]
 	ldr r1, [r5, r1]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	pop {r3, r4, r5, r6, r7, pc}
 _0222F832:
 	ldr r1, [r5]
@@ -4498,7 +4487,7 @@ _0222F83E:
 	ldr r1, _0222F86C ; =0x00000428
 	add r0, r7, #0
 	ldr r1, [r5, r1]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	pop {r3, r4, r5, r6, r7, pc}
 _0222F85C:
 	ldr r1, [r5]
@@ -4523,8 +4512,8 @@ MOD62_0222F870: ; 0x0222F870
 _0222F87A:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_02029CC8
-	bl FUN_02029CE0
+	bl Capsule_GetSealI
+	bl Seal_GetId
 	cmp r0, #0
 	beq _0222F88C
 	add r5, r5, #1
@@ -4623,7 +4612,7 @@ MOD62_0222F904: ; 0x0222F904
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r4, #0xfc
 	add r0, r4, #0
 	bl FUN_02019178
@@ -4708,7 +4697,7 @@ _0222F9B0: .word MOD62_02231220
 MOD62_0222F9B4: ; 0x0222F9B4
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _0222FA3C ; =gUnknown21C48B8
+	ldr r0, _0222FA3C ; =gMain
 	mov r1, #0x10
 	ldr r0, [r0, #0x4c]
 	tst r1, r0
@@ -4780,7 +4769,7 @@ _0222FA38:
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
-_0222FA3C: .word gUnknown21C48B8
+_0222FA3C: .word gMain
 	thumb_func_end MOD62_0222F9B4
 
 	thumb_func_start MOD62_0222FA40
@@ -5016,7 +5005,7 @@ _0222FBF0:
 	bl FUN_020054C8
 	b _0222FD4C
 _0222FC4C:
-	ldr r0, _0222FD68 ; =gUnknown21C48B8
+	ldr r0, _0222FD68 ; =gMain
 	ldr r2, [r0, #0x48]
 	mov r0, #1
 	tst r0, r2
@@ -5144,7 +5133,7 @@ _0222FD4C:
 	nop
 _0222FD60: .word 0x00000418
 _0222FD64: .word 0x000005DC
-_0222FD68: .word gUnknown21C48B8
+_0222FD68: .word gMain
 _0222FD6C: .word 0x000005DD
 	thumb_func_end MOD62_0222FAB4
 
@@ -6527,7 +6516,7 @@ _02230860:
 	add r0, r2, r0
 	ldr r5, [r0, #4]
 	ldr r0, [r2, #0x20]
-	bl FUN_02029C8C
+	bl SealCase_GetCapsuleI
 	add r2, r0, #0
 	add r0, r5, #0
 	mov r1, #0xaa
@@ -7131,7 +7120,7 @@ _02230D84:
 	str r1, [r4, r0]
 	b _02230DC6
 _02230DA2:
-	ldr r0, _02230DD8 ; =gUnknown21C48B8
+	ldr r0, _02230DD8 ; =gMain
 	ldr r3, [r0, #0x48]
 	ldr r0, _02230DDC ; =0x00000CF3
 	tst r0, r3
@@ -7156,7 +7145,7 @@ _02230DC6:
 	mov r0, #1
 	pop {r4, pc}
 	nop
-_02230DD8: .word gUnknown21C48B8
+_02230DD8: .word gMain
 _02230DDC: .word 0x00000CF3
 	thumb_func_end MOD62_02230D6C
 
@@ -7226,7 +7215,7 @@ _02230E46:
 	bl FUN_020054C8
 	b _02230F18
 _02230E66:
-	ldr r0, _02230F2C ; =gUnknown21C48B8
+	ldr r0, _02230F2C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -7274,7 +7263,7 @@ _02230EA4:
 	bl FUN_020054C8
 	b _02230F18
 _02230ED0:
-	ldr r1, _02230F2C ; =gUnknown21C48B8
+	ldr r1, _02230F2C ; =gMain
 	ldr r2, [r1, #0x48]
 	ldr r1, _02230F34 ; =0x00000CF3
 	tst r1, r2
@@ -7315,7 +7304,7 @@ _02230F18:
 	pop {r4, pc}
 	.align 2, 0
 _02230F28: .word 0x000005DC
-_02230F2C: .word gUnknown21C48B8
+_02230F2C: .word gMain
 _02230F30: .word 0x000005DD
 _02230F34: .word 0x00000CF3
 	thumb_func_end MOD62_02230DE0
@@ -7331,7 +7320,7 @@ MOD62_02230F3C: ; 0x02230F3C
 	push {r3, lr}
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -7356,7 +7345,7 @@ MOD62_02230F70: ; 0x02230F70
 	push {r3, lr}
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	pop {r3, pc}
 	thumb_func_end MOD62_02230F70
@@ -7631,6 +7620,3 @@ MOD62_02231358: ; 0x02231358
 	.word 0x02, MOD62_0222F94C
 	.word 0x03, MOD62_0222F970
 	.word 0x04, MOD62_0222F980
-
-	.section .sinit
-	.word MOD62_0222D5C0

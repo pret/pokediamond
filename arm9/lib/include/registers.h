@@ -112,8 +112,10 @@
 #define reg_GX_VRAMCNT_I           (*(REGType8v  *)0x4000249)
 
 #define reg_CP_DIVCNT              (*(REGType16v *)0x4000280)
-#define reg_CP_DIV_NUMER           (*(REGType64v *)0x4000290)
-#define reg_CP_DIV_NUMER_L         (*(REGType32v *)0x4000290)
+
+#define REG_DIV_NUMER_ADDR         0x4000290
+#define reg_CP_DIV_NUMER           (*(REGType64v *)REG_DIV_NUMER_ADDR)
+#define reg_CP_DIV_NUMER_L         (*(REGType32v *)REG_DIV_NUMER_ADDR)
 #define reg_CP_DIV_NUMER_H         (*(REGType32v *)0x4000294)
 #define reg_CP_DIV_DENOM           (*(REGType64v *)0x4000298)
 #define reg_CP_DIV_DENOM_L         (*(REGType32v *)0x4000298)
@@ -345,6 +347,7 @@
 #define reg_MI_MCD1                (*(REGType32v *)0x4100010)
 #define reg_CARD_DATA              (*(REGType32v *)0x4100010) //?
 
+#define REG_OS_IE_VE_SHIFT                                 2
 #define REG_OS_IE_T0_SHIFT                                 3
 #define REG_OS_IE_T1_SHIFT                                 4
 
@@ -454,6 +457,19 @@
 #define REG_PAD_KEYCNT_A_SIZE                              1
 #define REG_PAD_KEYCNT_A_MASK                              0x0001
 
+#define REG_G2_WINOUT_OBJWININ_SHIFT                       8
+#define REG_G2_WINOUT_OBJWININ_SIZE                        6
+#define REG_G2_WINOUT_OBJWININ_MASK                        0x3f00
+
+#define REG_G2_WINOUT_WINOUT_SHIFT                         0
+#define REG_G2_WINOUT_WINOUT_SIZE                          6
+#define REG_G2_WINOUT_WINOUT_MASK                          0x003f
+
+#define REG_G2_WINOUT_FIELD( objwinin, winout ) \
+    (u16)( \
+    ((u32)(objwinin) << REG_G2_WINOUT_OBJWININ_SHIFT) | \
+    ((u32)(winout) << REG_G2_WINOUT_WINOUT_SHIFT))
+
 #ifndef SDK_ASM
 #define REG_PAD_KEYCNT_FIELD( logic, intr, l, r, down, up, left, right, start, sel, b, a ) \
     (u16)( \
@@ -470,5 +486,33 @@
     ((u32)(b) << REG_PAD_KEYCNT_B_SHIFT) | \
     ((u32)(a) << REG_PAD_KEYCNT_A_SHIFT))
 #endif
+
+#define REG_GX_POWCNT_GE_SHIFT                             3
+#define REG_GX_POWCNT_GE_SIZE                              1
+#define REG_GX_POWCNT_GE_MASK                              0x0008
+
+#define REG_GX_POWCNT_RE_SHIFT                             2
+#define REG_GX_POWCNT_RE_SIZE                              1
+#define REG_GX_POWCNT_RE_MASK                              0x0004
+
+#define REG_GX_POWCNT_E2DG_SHIFT                           1
+#define REG_GX_POWCNT_E2DG_SIZE                            1
+#define REG_GX_POWCNT_E2DG_MASK                            0x0002
+
+#define REG_GX_POWCNT_LCD_SHIFT                            0
+#define REG_GX_POWCNT_LCD_SIZE                             1
+#define REG_GX_POWCNT_LCD_MASK                             0x0001
+
+#define REG_GX_POWCNT_LCDB_SHIFT                           8
+#define REG_GX_POWCNT_LCDB_SIZE                            1
+#define REG_GX_POWCNT_LCDB_MASK                            0x0100
+
+#define REG_GX_POWCNT_E2DGB_SHIFT                          9
+#define REG_GX_POWCNT_E2DGB_SIZE                           1
+#define REG_GX_POWCNT_E2DGB_MASK                           0x0200
+
+#define REG_GX_POWCNT_DSEL_SHIFT                           15
+#define REG_GX_POWCNT_DSEL_SIZE                            1
+#define REG_GX_POWCNT_DSEL_MASK                            0x8000
 
 #endif //POKEDIAMOND_ARM9_REGISTERS_H

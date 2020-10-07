@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -773,7 +773,7 @@ FUN_0204D040: ; 0x0204D040
 	mov r2, #0x22
 	mul r2, r1
 	add r1, r3, r2
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 _0204D0F8:
 	ldr r1, _0204D110 ; =UNK_021C5A68
 	mov r0, #0xff
@@ -1110,7 +1110,7 @@ _0204D37C:
 	lsl r4, r5, #0x3
 	ldr r7, [r0, #0x0]
 	ldr r0, [sp, #0xc]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -1279,7 +1279,7 @@ _0204D4D4: .word 0x00000132
 
 	thumb_func_start FUN_0204D4D8
 FUN_0204D4D8: ; 0x0204D4D8
-	ldr r1, _0204D4E8 ; =gUnknown21C48B8
+	ldr r1, _0204D4E8 ; =gMain
 	mov r0, #0x2
 	ldr r1, [r1, #0x44]
 	tst r1, r0
@@ -1289,7 +1289,7 @@ _0204D4E4:
 	ldr r3, _0204D4EC ; =FUN_02030F60
 	bx r3
 	.balign 4
-_0204D4E8: .word gUnknown21C48B8
+_0204D4E8: .word gMain
 _0204D4EC: .word FUN_02030F60
 
 	thumb_func_start FUN_0204D4F0
@@ -2315,13 +2315,13 @@ FUN_0204DCB4: ; 0x0204DCB4
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r4, r0, #0x0
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	ldr r0, _0204DD10 ; =UNK_021C5A68
 	ldr r1, [r0, #0x0]
@@ -4018,7 +4018,7 @@ FUN_0204E96C: ; 0x0204E96C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0x0
 	ldrb r0, [r5, #0x1]
 	cmp r0, #0x8
@@ -4108,7 +4108,7 @@ _0204E9B8:
 	cmp r0, #0x0
 	bne _0204EA7C
 	ldr r0, [r1, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r1, r4, #0x0
 	bl FUN_02026908
@@ -4644,7 +4644,7 @@ _0204EE36:
 	str r2, [r3, r0]
 	ldr r5, [r1, #0x0]
 	ldr r0, [r5, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	mov r1, #0x29
 	add r2, r5, r4
@@ -4714,7 +4714,7 @@ FUN_0204EEBC: ; 0x0204EEBC
 	beq _0204EF44
 	mov r0, #0xf
 	lsl r4, r5, #0x2
-	bl FUN_02023928
+	bl PlayerProfile_new
 	mov r3, #0x29
 	ldr r1, _0204EF48 ; =UNK_021C5A68
 	add r2, r0, #0x0
@@ -4726,7 +4726,7 @@ FUN_0204EEBC: ; 0x0204EEBC
 	add r0, r7, #0x0
 	add r1, r1, r4
 	ldr r1, [r1, r3]
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r1, _0204EF48 ; =UNK_021C5A68
 	mov r2, #0x1
 	ldr r0, [r1, #0x0]
@@ -4745,7 +4745,7 @@ FUN_0204EEBC: ; 0x0204EEBC
 	add r1, r1, r3
 	add r0, r7, #0x0
 	add r1, r1, r2
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	bl FUN_02031190
 	cmp r6, r0
 	bne _0204EF40
@@ -4818,7 +4818,7 @@ FUN_0204EF50: ; 0x0204EF50
 	add r2, r2, r5
 	ldr r0, [r0, r7]
 	add r1, r2, r1
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0204EFBE:
@@ -5229,7 +5229,7 @@ FUN_0204F2D8: ; 0x0204F2D8
 	add r5, r2, #0x0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r4, r0, #0x0
 	ldrb r0, [r5, #0x0]
@@ -5338,7 +5338,7 @@ _0204F3AC:
 	mov r0, #0x29
 	lsl r0, r0, #0x4
 	ldr r0, [r2, r0]
-	bl FUN_02023AA4
+	bl PlayerProfile_NameAndOTIDMatchPlayer
 	cmp r0, #0x1
 	bne _0204F41A
 	ldrb r0, [r5, #0x2]
@@ -5466,7 +5466,7 @@ _0204F4D2:
 	ldr r0, _0204F5E0 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r4, r0, #0x0
 	bl FUN_020269A0
@@ -5478,7 +5478,7 @@ _0204F4D2:
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDF8
 	ldr r0, _0204F5E0 ; =UNK_021C5A68
 	ldrb r1, [r5, #0x1]
@@ -5552,7 +5552,7 @@ _0204F58C:
 	mov r0, #0x29
 	lsl r0, r0, #0x4
 	ldr r0, [r2, r0]
-	bl FUN_02023AA4
+	bl PlayerProfile_NameAndOTIDMatchPlayer
 	cmp r0, #0x1
 	bne _0204F5D4
 	ldrb r0, [r5, #0x1]
@@ -6044,7 +6044,7 @@ FUN_0204F930: ; 0x0204F930
 	pop {r3-r5, pc}
 _0204F96E:
 	mov r0, #0xf
-	bl FUN_02023928
+	bl PlayerProfile_new
 	add r4, r0, #0x0
 	mov r0, #0x14
 	mov r1, #0xf
@@ -6060,7 +6060,7 @@ _0204F988:
 _0204F990:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_0202397C
+	bl PlayerName_StringToFlat
 	mov r0, #0x5b
 	add r1, r4, #0x0
 	bl FUN_020311D0
@@ -6097,12 +6097,12 @@ FUN_0204F9BC: ; 0x0204F9BC
 	add r1, r2, r1
 	add r0, r6, #0x0
 	add r1, r1, r4
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	add r0, r6, #0x0
 	mov r1, #0xf
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	str r0, [sp, #0x0]
-	bl FUN_02021D3C
+	bl StringGetLength
 	cmp r0, #0x0
 	beq _0204F9FE
 	ldr r0, _0204FA54 ; =UNK_021C5A68
@@ -6190,7 +6190,7 @@ FUN_0204FA78: ; 0x0204FA78
 _0204FA98:
 	mov r0, #0xf
 	lsl r4, r5, #0x2
-	bl FUN_02023928
+	bl PlayerProfile_new
 	ldr r2, _0204FAC8 ; =UNK_021C5A68
 	ldr r1, [r2, #0x0]
 	add r3, r1, r4
@@ -6201,7 +6201,7 @@ _0204FA98:
 	add r0, r6, #0x0
 	add r2, r2, r4
 	ldr r1, [r2, r1]
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, _0204FAC8 ; =UNK_021C5A68
 	mov r1, #0x1
 	ldr r0, [r0, #0x0]
@@ -6318,7 +6318,7 @@ _0204FB62:
 	ldr r1, _0204FBA0 ; =0x0000014A
 	add r0, r4, #0x0
 	add r1, r2, r1
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, _0204FB9C ; =UNK_021C5A68
 	mov r2, #0x0
 	ldr r1, [r0, #0x0]

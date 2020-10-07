@@ -13,8 +13,8 @@ typedef struct OSContext
     u32 sp_svc;
 } OSContext;
 
-extern u32 OS_SaveContext(OSContext *context);
-extern void OS_LoadContext(OSContext *context);
-extern void OS_InitContext(OSContext *context, u32 func, u32 stack);
+void OS_InitContext(register OSContext *context, register u32 newpc, register u32 newsp);
+BOOL OS_SaveContext(register OSContext *context);
+void OS_LoadContext(register OSContext *context);
 
 #endif //POKEDIAMOND_ARM7_OS_CONTEXT_H

@@ -30,6 +30,12 @@
 #define PAD_BUTTON_Y            0x0800 // Y
 #define PAD_BUTTON_DEBUG        0x2000 // Debug button
 
+static inline u16 PAD_Read(void)
+{
+    return (u16)(((reg_PAD_KEYINPUT | *(vu16 *)HW_BUTTON_XY_BUF) ^
+                  (PAD_PLUS_KEY_MASK | PAD_BUTTON_MASK)) & (PAD_PLUS_KEY_MASK | PAD_BUTTON_MASK));
+}
+
 static inline BOOL PAD_DetectFold(void)
 {
     return (BOOL)((*(vu16 *)HW_BUTTON_XY_BUF & PAD_DETECT_FOLD_MASK) >> 15);

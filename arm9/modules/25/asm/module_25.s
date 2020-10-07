@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD25_02254840
-MOD25_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD25_02254854
-	ldr r1, _02254850 ; =MOD25_0225496C
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD25_02254854
-_02254850: .word MOD25_0225496C
-	thumb_func_end MOD25_02254840
-
 	thumb_func_start MOD25_02254854
 MOD25_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -73,7 +61,7 @@ MOD25_0225489C: ; 0x0225489C
 	add r0, r5, #0
 	str r1, [r5, #0x20]
 	add r0, #0x14
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	ldr r0, [r5, #0x14]
 	cmp r0, #0x18
 	blo _022548D6
@@ -268,7 +256,7 @@ _02254A0A:
 	strb r0, [r4, #5]
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	ldrb r1, [r4, #5]
 	ldr r0, [r4, #0x18]
 	cmp r1, r0
@@ -686,6 +674,3 @@ MOD25_02254D44: ; 0x02254D44
 	.word 0x02, MOD25_02254BE8, 0x00
 	.word 0x03, MOD25_02254C14, 0x00
 	.word 0x00, 0x00000000, 0x00
-
-	.section .sinit
-	.word MOD25_02254840

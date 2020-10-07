@@ -15,7 +15,7 @@ FUN_02043A44: ; 0x02043A44
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -23,7 +23,7 @@ FUN_02043A44: ; 0x02043A44
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x26
@@ -77,17 +77,17 @@ FUN_02043ACC: ; 0x02043ACC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02028930
+	bl CheckCoins
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -100,17 +100,17 @@ FUN_02043AFC: ; 0x02043AFC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02028934
+	bl GiveCoins
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -121,17 +121,17 @@ FUN_02043B28: ; 0x02043B28
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0202896C
+	bl TakeCoins
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -142,18 +142,18 @@ FUN_02043B54: ; 0x02043B54
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r1, r0, #0x0
 	ldrh r1, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_0202896C
+	bl TakeCoins
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -165,10 +165,10 @@ FUN_02043B84: ; 0x02043B84
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r0, [r5, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -176,13 +176,13 @@ FUN_02043B84: ; 0x02043B84
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadWord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02028930
+	bl CheckCoins
 	cmp r0, r4
 	bhs _02043BC8
 	mov r0, #0x0
@@ -201,10 +201,10 @@ FUN_02043BD0: ; 0x02043BD0
 	add r0, #0x80
 	ldr r4, [r0, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r0, [r4, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -212,17 +212,17 @@ FUN_02043BD0: ; 0x02043BD0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	ldrh r5, [r0, #0x0]
 	add r0, r6, #0x0
-	bl FUN_02028930
+	bl CheckCoins
 	cmp r0, r5
 	bhs _02043C1E
 	mov r0, #0x0
@@ -242,7 +242,7 @@ FUN_02043C28: ; 0x02043C28
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202390C
+	bl Sav2_PlayerData_GetCoinsAddr
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -250,17 +250,17 @@ FUN_02043C28: ; 0x02043C28
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02028954
+	bl CanGiveCoins
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}

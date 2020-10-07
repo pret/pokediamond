@@ -88,11 +88,11 @@ FUN_0202A9AC: ; 0x0202A9AC
 
 	thumb_func_start FUN_0202A9B0
 FUN_0202A9B0: ; 0x0202A9B0
-	ldr r3, _0202A9B8 ; =FUN_02022610
+	ldr r3, _0202A9B8 ; =SavArray_get
 	mov r1, #0x19
 	bx r3
 	nop
-_0202A9B8: .word FUN_02022610
+_0202A9B8: .word SavArray_get
 
 	thumb_func_start FUN_0202A9BC
 FUN_0202A9BC: ; 0x0202A9BC

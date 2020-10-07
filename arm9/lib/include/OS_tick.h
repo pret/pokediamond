@@ -9,7 +9,6 @@
 
 void OS_InitTick(void);
 BOOL OS_IsTickAvailable(void);
-static void OSi_CountUpTick(void);
 OSTick OS_GetTick(void);
 u16 OS_GetTickLo(void);
 

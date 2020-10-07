@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0206E2F0
-FUN_0206E2F0: ; 0x0206E2F0
+	thumb_func_start BagView_new
+BagView_new: ; 0x0206E2F0
 	push {r4, lr}
 	mov r1, #0x78
 	bl AllocFromHeap
@@ -44,8 +44,8 @@ FUN_0206E314: ; 0x0206E314
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206E330
-FUN_0206E330: ; 0x0206E330
+	thumb_func_start BagView_setitem
+BagView_setitem: ; 0x0206E330
 	push {r3-r4}
 	mov r4, #0xc
 	mul r4, r3
@@ -127,14 +127,14 @@ FUN_0206E394: ; 0x0206E394
 	thumb_func_start FUN_0206E39C
 FUN_0206E39C: ; 0x0206E39C
 	push {r3, lr}
-	bl FUN_0202390C
-	bl FUN_02028930
+	bl Sav2_PlayerData_GetCoinsAddr
+	bl CheckCoins
 	pop {r3, pc}
 
 	thumb_func_start FUN_0206E3A8
 FUN_0206E3A8: ; 0x0206E3A8
 	push {r4-r6, lr}
-	bl FUN_02029C80
+	bl Sav2_SealCase_get
 	add r6, r0, #0x0
 	mov r5, #0x0
 	mov r4, #0x1
@@ -188,7 +188,7 @@ FUN_0206E3F8: ; 0x0206E3F8
 	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0x0
 	cmp r5, #0x0
 	bne _0206E428
@@ -199,7 +199,7 @@ FUN_0206E3F8: ; 0x0206E3F8
 	b _0206E4FA
 _0206E428:
 	mov r1, #0x1b
-	lsl r1, r1, #0x4
+	lsl r1, r1, #0x4 ; ITEM_POINT_CARD
 	cmp r5, r1
 	bne _0206E454
 	add r0, r6, #0x0
@@ -215,10 +215,10 @@ _0206E428:
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r3, #0x4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0206E4FA
 _0206E454:
-	add r2, r1, #0x2
+	add r2, r1, #0x2 ; ITEM_SEAL_CASE
 	cmp r5, r2
 	bne _0206E47E
 	add r0, r6, #0x0
@@ -234,10 +234,10 @@ _0206E454:
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r3, #0x4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0206E4FA
 _0206E47E:
-	add r2, r1, #0x3
+	add r2, r1, #0x3 ; ITEM_FASHION_CASE
 	cmp r5, r2
 	bne _0206E4C0
 	add r0, r6, #0x0
@@ -253,7 +253,7 @@ _0206E47E:
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r3, #0x3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r7, #0x0
 	bl FUN_0206E3D8
 	add r2, r0, #0x0
@@ -263,10 +263,10 @@ _0206E47E:
 	add r0, r4, #0x0
 	mov r3, #0x2
 	str r1, [sp, #0x4]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0206E4FA
 _0206E4C0:
-	add r1, #0xc
+	add r1, #0xc ; ITEM_COIN_CASE
 	cmp r5, r1
 	bne _0206E4EA
 	add r0, r6, #0x0
@@ -282,10 +282,10 @@ _0206E4C0:
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r3, #0x5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	b _0206E4FA
 _0206E4EA:
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	add sp, #0xc
@@ -299,7 +299,7 @@ _0206E4FA:
 	add r0, r5, #0x0
 	bl String_dtor
 	add r0, r4, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	mov r0, #0x1
@@ -351,7 +351,7 @@ _0206E56A:
 	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x24
@@ -360,7 +360,7 @@ _0206E56A:
 	ldr r2, [sp, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
@@ -368,7 +368,7 @@ _0206E56A:
 	add r0, r6, #0x0
 	bl String_dtor
 	add r0, r4, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r7, #0x0
 	bl DestroyMsgData
 	pop {r3-r7, pc}

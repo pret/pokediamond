@@ -5,11 +5,11 @@
 
 	thumb_func_start FUN_0202ABBC
 FUN_0202ABBC: ; 0x0202ABBC
-	ldr r3, _0202ABC4 ; =FUN_02022610
+	ldr r3, _0202ABC4 ; =SavArray_get
 	mov r1, #0x1a
 	bx r3
 	nop
-_0202ABC4: .word FUN_02022610
+_0202ABC4: .word SavArray_get
 
 	thumb_func_start FUN_0202ABC8
 FUN_0202ABC8: ; 0x0202ABC8

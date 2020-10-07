@@ -27,13 +27,13 @@ FUN_0208890C: ; 0x0208890C
 	bl FUN_02028048
 	str r0, [r4, #0x8]
 	add r0, r5, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x14]
 	add r0, r5, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x18]
 	str r7, [r4, #0x1c]
 	str r6, [r4, #0x4]
@@ -56,7 +56,7 @@ FUN_02088960: ; 0x02088960
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r3, r5, #0x0
 	add r3, #0x98
 	add r1, r0, #0x0

@@ -292,7 +292,7 @@ FUN_020575D4: ; 0x020575D4
 	bl FUN_020583E8
 	lsl r1, r6, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02039528
+	bl FlagCheck
 	cmp r0, #0x0
 	bne _02057610
 	ldr r1, [sp, #0x0]
@@ -368,7 +368,7 @@ FUN_02057688: ; 0x02057688
 	bl FUN_02058738
 	lsl r1, r5, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_0203953C
+	bl FlagSet
 	add r0, r4, #0x0
 	bl FUN_02057654
 	pop {r3-r5, pc}
@@ -1013,7 +1013,7 @@ _02057C1A:
 	beq _02057C30
 	ldrh r1, [r4, #0x8]
 	add r0, r7, #0x0
-	bl FUN_02039528
+	bl FlagCheck
 	cmp r0, #0x0
 	bne _02057C42
 _02057C30:

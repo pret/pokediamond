@@ -1,0 +1,96 @@
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+Choose a Pokémon.
+Use on which Pokémon?
+{STRVAR 5, 0}
+{STRVAR 8, 0}
+    
+    
+    
+    
+PP
+SHIFT
+♂
+♀
+SUMMARY
+CHECK MOVES
+No item held
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+Lv.
+{STRVAR 52, 0}
+NEXT LV
+{STRVAR 55, 0}
+{STRVAR 5, 0}
+HP
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+/
+ATTACK
+{STRVAR 52, 0}
+DEFENSE
+{STRVAR 52, 0}
+SP. ATK
+{STRVAR 52, 0}
+SP. DEF
+{STRVAR 52, 0}
+SPEED
+{STRVAR 52, 0}
+{STRVAR 6, 0}
+PP
+{STRVAR 51, 0}
+{STRVAR 51, 0}
+/
+  
+POWER
+{STRVAR 52, 0}
+---
+ACCURACY
+{STRVAR 52, 0}
+CATEGORY
+PHYSICAL
+STATUS
+SPECIAL
+APPEAL PTS
+FORGET
+CANCEL
+HM moves can’t be\nforgotten now.
+{STRVAR 6, 0}
+{STRVAR 51, 0}
+{STRVAR 51, 0}
+{STRVAR 6, 0}
+{STRVAR 51, 0}
+{STRVAR 51, 0}
+{STRVAR 6, 0}
+{STRVAR 51, 0}
+{STRVAR 51, 0}
+{STRVAR 6, 0}
+{STRVAR 51, 0}
+{STRVAR 51, 0}
+{STRVAR 6, 0}
+{STRVAR 51, 0}
+{STRVAR 51, 0}
+{STRVAR 1, 0} is already\nin battle!
+{STRVAR 1, 0} has no energy\nleft to battle!
+{STRVAR 1, 0} can’t be switched\nout!
+An Egg can’t battle!
+You can’t switch {STRVAR 3, 0}’s\nPokémon with one of yours!
+It won’t have any effect.
+{STRVAR 1, 0}’s HP was restored\nby {STRVAR 52, 1} point(s).
+{STRVAR 1, 0} was cured of its\npoisoning.
+{STRVAR 1, 0} was cured of\nparalysis.
+{STRVAR 1, 0}’s burn was healed.
+{STRVAR 1, 0} was thawed out.
+PP was restored.
+{STRVAR 1, 0} recovered from\nfainting!
+{STRVAR 1, 0} became healthy.
+{STRVAR 1, 0} snapped out of its\nconfusion.
+{STRVAR 1, 0} got over its\ninfatuation.
+{STRVAR 1, 0} woke up.
+{STRVAR 1, 0} has already been\nselected.
+Restore which move?
+{STRVAR 6, 1}’s effect prevents\nthe item’s use on {STRVAR 1, 0}!

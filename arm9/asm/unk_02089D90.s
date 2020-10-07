@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnk021C4918
+	.extern gMain
 
 	.section .rodata
 
@@ -39,7 +39,7 @@ FUN_02089D90: ; 0x02089D90
 	bl FUN_0200E3A0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -58,7 +58,7 @@ FUN_02089D90: ; 0x02089D90
 	mov r0, #0x4
 	mov r1, #0x8
 	bl FUN_0201669C
-	ldr r0, _02089EFC ; =gUnk021C4918
+	ldr r0, _02089EFC ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
 	bl FUN_0201E7A0
@@ -154,7 +154,7 @@ FUN_02089D90: ; 0x02089D90
 	add r2, r4, #0x0
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0x0
 	bl String_dtor
 	bl FUN_0201E788
@@ -168,7 +168,7 @@ FUN_02089D90: ; 0x02089D90
 	bl FUN_0200A274
 	mov r4, #0x1
 _02089EE4:
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	add r0, r4, #0x0
 	add r1, r4, #0x0
 	bl OS_WaitIrq
@@ -176,7 +176,7 @@ _02089EE4:
 	nop
 _02089EF4: .word 0xFFFFE0FF
 _02089EF8: .word 0x04001000
-_02089EFC: .word gUnk021C4918
+_02089EFC: .word gMain + 0x60
 _02089F00: .word 0x04000050
 _02089F04: .word 0x04001050
 _02089F08: .word 0xFFFF1FFF

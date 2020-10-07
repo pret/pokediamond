@@ -1,0 +1,7 @@
+Route 218 up ahead is a great fishing\nhole that’s almost unknown to people.
+Yes, sir!\nAn Old Rod is a good thing!\rYou think so too, am I right?
+Yes! Good answer!\nWe can be friends!\rHere you go.\nThat’s my {STRVAR 8, 0}!\r
+You should fish wherever there is\na body of water.\rOh, and by the way, did you need\nany tips on using that fishing rod?
+Oh, really?\nYou don’t like to fish?
+First, you face any body of water,\nthen you use your fishing rod.\rNext, you focus!\nIf a Pokémon bites, “!” appears.\fThat’s your cue to reel it in!
+When you’re fishing for Pokémon,\nthe first hurdle is getting a bite.\rWhen you reel the Pokémon in, you’ve\ngot to battle it.\rSo, fishing gives you twice the fun!

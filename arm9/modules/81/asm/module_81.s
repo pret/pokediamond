@@ -30,13 +30,13 @@ _02237E50:
 	add r0, r5, #0
 	lsl r1, r1, #2
 	mov r2, #0x39
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	bne _02237E84
 	b _02237FC2
 _02237E84:
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4]
 	mov r0, #0
 	str r0, [r4, #4]
@@ -55,7 +55,7 @@ _02237E84:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x39
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0xc]
 	ldr r2, [r4]
 	ldr r0, [r2, #0x10]
@@ -70,17 +70,17 @@ _02237ECC:
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r2, [r4]
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2, #4]
 	mov r1, #1
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r2, [r4]
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2, #8]
 	mov r1, #2
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r4]
 	ldr r0, [r0, #4]
 	bl MOD81_02237FE8
@@ -92,13 +92,13 @@ _02237EFE:
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	b _02237F22
 _02237F0A:
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2, #4]
 	mov r1, #1
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [r4]
 	ldr r0, [r0, #4]
 	bl MOD81_02237FE8
@@ -151,7 +151,7 @@ _02237F22:
 	add r1, r1, #2
 	str r0, [r4, r1]
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -216,7 +216,7 @@ MOD81_02238004: ; 0x02238004
 	bl OS_DisableInterrupts
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	mov r0, #0x51
 	lsl r0, r0, #2
@@ -224,7 +224,7 @@ MOD81_02238004: ; 0x02238004
 	bl FUN_0200CAB4
 	bl FUN_02033ED0
 	ldr r0, [r4, #0xc]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
@@ -235,7 +235,7 @@ MOD81_02238004: ; 0x02238004
 	bl FUN_0201FD58
 	bl FUN_02009FA0
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x39
 	bl FUN_020168D0
 	mov r0, #0x3a
@@ -251,7 +251,7 @@ MOD81_02238004: ; 0x02238004
 MOD81_02238064: ; 0x02238064
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r3, [r4, #4]
 	cmp r3, #7
@@ -1657,7 +1657,7 @@ MOD81_02238A84: ; 0x02238A84
 	mov r2, #0
 	mov r3, #0x3a
 	add r5, r4, r6
-	bl FUN_02006C98
+	bl UncompressFromNarc
 	str r0, [r4, r6]
 	ldr r1, [sp, #4]
 	add r0, r7, #0
@@ -2477,7 +2477,7 @@ _022390F4:
 	ldr r2, [r4, #0x58]
 	add r0, #0x44
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	add r0, #0x44
 	mov r1, #0x6d
@@ -2537,7 +2537,7 @@ _0223918A:
 	ldr r2, [r4, #0x58]
 	add r0, #0x44
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	add r0, #0x44
 	bl FUN_02019548
@@ -5496,7 +5496,7 @@ MOD81_0223A8C8: ; 0x0223A8C8
 	beq _0223A8F6
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD81_0223ABC0
 	add r0, r4, #0
@@ -7029,7 +7029,7 @@ MOD81_0223B4E8: ; 0x0223B4E8
 	bl MOD81_0223B9A0
 	ldr r0, _0223B520 ; =MOD81_0223BCA8
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 _0223B51C:
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
@@ -7044,7 +7044,7 @@ MOD81_0223B524: ; 0x0223B524
 	beq _0223B552
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD81_0223B7D0
 	add r0, r4, #0
@@ -9601,7 +9601,7 @@ _0223C982:
 	ldr r2, [r4, #0x5c]
 	add r0, #0x48
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #0x6d
@@ -9611,7 +9611,7 @@ _0223C982:
 	add r0, #0x48
 	bl FUN_020191D0
 	ldr r0, _0223CA90 ; =0x00000484
-	bl FUN_02005C28
+	bl PlayBGM
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1
@@ -9650,7 +9650,7 @@ _0223C9D0:
 	ldr r2, [r4, #0x5c]
 	add r0, #0x48
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	add r0, #0x48
 	bl FUN_02019548

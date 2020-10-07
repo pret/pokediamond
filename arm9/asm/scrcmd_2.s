@@ -179,7 +179,7 @@ FUN_0203FCF4: ; 0x0203FCF4
 	add r0, r7, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	mov r4, #0x0
 	add r6, r4, #0x0
 	add r5, r4, #0x0
@@ -188,9 +188,9 @@ _0203FD10:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r5, #0x0
-	bl FUN_020239D0
+	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x1
 	bne _0203FD2C
 	add r0, r6, #0x1
@@ -289,7 +289,7 @@ FUN_0203FDBC: ; 0x0203FDBC
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	ldr r0, _0203FE00 ; =0x0000FFF8
 	add r0, r2, r0
@@ -328,7 +328,7 @@ FUN_0203FE08: ; 0x0203FE08
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	cmp r2, #0x1
 	bhi _0203FE28
@@ -362,7 +362,7 @@ FUN_0203FE48: ; 0x0203FE48
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r2, r0, #0x0
 	mov r0, #0x0
 	lsl r3, r2, #0x2

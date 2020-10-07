@@ -1,0 +1,197 @@
+CONFIRM
+CANCEL
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 1, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+/
+♂
+♀
+Choose a Pokémon.
+Move to where?
+Give to which Pokémon?
+Use on which Pokémon?
+Teach which Pokémon?
+Choose Pokémon and confirm.
+             
+Use on which Pokémon?
+Do what with\n{STRVAR 1, 0}?
+Do what with\nan item?
+Do what with\nthe Mail?
+Restore\nwhich move?
+Boost the PP\nof which move?
+Set this\ncustomized Ball?
+Send the removed Mail to\nyour PC?
+Yes
+No
+The Mail was sent to your PC.
+If the Mail is removed, its written\nmessage will be lost. Is that OK?
+Yes
+No
+Your PC’s Mailbox is full.
+Mail was taken from the\nPokémon.
+{STRVAR 1, 0} wants to learn the\nmove {STRVAR 6, 1}.\rHowever, {STRVAR 1, 0} already\nknows four moves.\rShould a move be deleted and\nreplaced with {STRVAR 6, 1}?
+Yes
+No
+Stop trying to teach\n{STRVAR 6, 1}?
+Yes
+No
+{STRVAR 1, 0} did not learn the\nmove {STRVAR 6, 1}.
+Which move should be\nforgotten?
+1, {PAUSE 20}2, and{PAUSE 20}... {PAUSE 20}... {PAUSE 20}... Poof!{WAIT 3}{WAIT 5}\r{STRVAR 1, 0} forgot how to\nuse {STRVAR 6, 1}.\rAnd...
+{STRVAR 1, 0} learned\n{STRVAR 6, 1}!{WAIT 4}{WAIT 2}
+{STRVAR 1, 0} and {STRVAR 6, 1}\nare not compatible.\r{STRVAR 6, 1} can’t be learned.
+{STRVAR 1, 0} already knows\n{STRVAR 6, 1}.
+{STRVAR 1, 0}’s HP was restored\nby {STRVAR 52, 1} point(s).
+{STRVAR 1, 0} was cured of its\npoisoning.
+{STRVAR 1, 0} was cured of\nparalysis.
+{STRVAR 1, 0}’s\nburn was healed.
+{STRVAR 1, 0} was\nthawed out.
+PP was restored.
+{STRVAR 1, 0}\nregained health.
+{STRVAR 1, 0}\nbecame healthy.
+{STRVAR 6, 0}’s PP\nincreased.
+{STRVAR 1, 0} snapped out of its\nconfusion.
+{STRVAR 1, 0} got over its\ninfatuation.
+{STRVAR 1, 0}’s base {STRVAR 13, 1}\nrose!
+This can’t be used until a new\nBadge is obtained.
+Must remove Mail before the\nPokémon is allowed to hold an item.
+{STRVAR 1, 0} is already holding\n{STRVAR 8, 1}.\rWould you like to switch the\ntwo items?
+Yes
+No
+{STRVAR 1, 0} isn’t holding\nanything.
+Received the {STRVAR 8, 1}\nfrom {STRVAR 1, 0}.
+The Bag is full.
+The {STRVAR 8, 1} was taken and\nreplaced with the {STRVAR 8, 2}.
+           
+  
+   
+             
+  
+   
+{STRVAR 1, 0}\nwoke up.
+                     
+                       
+  
+   
+                  
+  
+   
+                
+No more than two Pokémon\nmay enter.
+          
+You’re already surfing.
+             
+You can’t use that here.
+It won’t have any effect.
+              
+Two Pokémon are needed.
+              
+               
+{STRVAR 1, 0} became more friendly.\rHowever, its base {STRVAR 13, 1} fell!
+{STRVAR 1, 0} adores you!\rIts base {STRVAR 13, 1} fell!
+{STRVAR 1, 0} became more friendly.\rIts base {STRVAR 13, 1} can’t go lower.
+{STRVAR 1, 0} is already in battle!
+{STRVAR 1, 0} has no energy left\nto battle!
+{STRVAR 1, 0} can’t be switched out!
+An Egg can’t battle!
+You can’t switch {STRVAR 3, 0}’s\nPokémon with one of yours!
+{STRVAR 1, 0} was given the\n{STRVAR 8, 1} to hold.
+Three Pokémon are needed.
+Four Pokémon are needed.
+Five Pokémon are needed.
+Six Pokémon are needed.
+No more than one Pokémon\nmay enter.
+No more than three Pokémon\nmay enter.
+No more than four Pokémon\nmay enter.
+No more than five Pokémon\nmay enter.
+Mail was transferred from\nthe Mailbox.
+This Pokémon is holding an item.\nIt cannot hold Mail.
+The Ball Capsule was set.
+Two capsules can’t be set.
+This can’t be used on\nthat Pokémon.
+                      
+  
+   
+                    
+  
+   
+Not enough HP...
+                   
+                   
+                 
+                  
+                  
+                            
+SWITCH
+SUMMARY
+ITEM
+MAIL
+READ
+TAKE
+STORE
+CANCEL
+     
+ENTER
+NO ENTRY
+{COLOR 1}{STRVAR 6, 0}{COLOR 0}
+{COLOR 1}{STRVAR 6, 0}{COLOR 0}
+{COLOR 1}{STRVAR 6, 0}{COLOR 0}
+{COLOR 1}{STRVAR 6, 0}{COLOR 0}
+GIVE
+TAKE
+{STRVAR 6, 0}
+{STRVAR 6, 0}
+{STRVAR 6, 0}
+{STRVAR 6, 0}
+SET
+NOT ENTERED
+BANNED
+FIRST
+SECOND
+THIRD
+FOURTH
+FIFTH
+SIXTH
+ABLE!
+UNABLE!
+LEARNED
+ABLE!
+UNABLE!
+ABLE!
+UNABLE!
+Identical Pokémon are not permitted.
+Some Pokémon are holding identical\nitems.
+The total of all party members’\nlevels has gone over {STRVAR 52, 0}.
+MAX HP
+ATTACK
+DEFENSE
+SP. ATK
+SP. DEF
+SPEED
++ {STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 1, 0} was elevated to\nLv. {STRVAR 52, 1}.{WAIT 4}{WAIT 2}
+{STRVAR 1, 0} learned\n{STRVAR 6, 1}!{WAIT 4}{WAIT 2}
+The Ball Capsule will be detached.\nWill that be OK?
+It can’t be used when you have\nsomeone with you.

@@ -61,7 +61,7 @@ _02053654:
 	ldr r2, [r2, #0x4]
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200B064
+	bl BufferTrainerClassName
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x4

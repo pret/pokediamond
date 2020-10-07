@@ -1,0 +1,23 @@
+POFFIN CASE
+GIVE
+TRASH
+BACK
+SMOOTH / {STRVAR 51, 0}
+       
+CLOSE
+Discard this\n{STRVAR 9, 0}?
+The {STRVAR 9, 0} was\nthrown out.
+YES
+NO
+SPICY
+DRY
+SWEET
+BITTER
+SOUR
+ALL
+Raises coolness.
+Raises beauty.
+Raises cuteness.
+Raises smartness.
+Raises toughness.
+{STRVAR 9, 0}{CURSOR_X 138}Lv. {STRVAR 51, 1}

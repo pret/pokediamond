@@ -16,6 +16,12 @@ typedef void (*MIDmaCallback)(void *);
 #define MI_CNT_COPY32_IF(size)  (0xc4000000 | ((size)/4))
 #define MI_CNT_COPY16(size)     (0x80000000 | ((size)/2))
 
+#define MI_DMA_SRC_FIX          (2UL << 23)
+#define MI_DMA_SRC_INC          (0UL << 23)
+
+#define MIi_DMA_TIMING_ANY      (u32)(~0)
+#define MI_DMA_TIMING_H_BLANK   (2UL << 27)
+
 typedef union
 {
     u32 b32;

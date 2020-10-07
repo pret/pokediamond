@@ -1,0 +1,58 @@
+Why don’t you try dressing up your\nPokémon now?\rWe have a Fitting Room on\nthe second floor.\rDress up your Pokémon nicely with\nAccessories!
+                                
+                                                                                         
+                                                          
+This is the Pokémon Lottery Corner.\rIf your drawn number matches the\nID No. of any of your Pokémon,\rstarting with the far right digit,\nyou will receive a fabulous gift.\rWould you like to draw a Pokémon\nLoto Ticket?
+You’ve already drawn a Loto Ticket\ntoday. Please come back tomorrow.
+Oh. I see.\nPlease do visit us again.
+Please draw a Loto Ticket.\r...\r
+Your Loto Ticket number is {STRVAR 54, 0}.\rNow, let’s see if it matches the\nID No. of any of your Pokémon.\r
+Congratulations!\rThe ID No. of your team’s\n{STRVAR 1, 0} matches your Loto\fTicket number!\r
+Congratulations!\rThe ID No. of your PC-boxed\n{STRVAR 1, 0} matches your Loto\fTicket number!\r
+I’m sorry.\nYou didn’t get a match...
+The last digit matched, so you\nwin the fourth prize!\r
+You gained a new Backdrop for use\nin Fitting Rooms.
+The last two digits matched, so you\nwin the third prize!\r
+The last three digits matched, so you\nwin the second prize!\r
+The last four digits matched, so you\nwin the first prize!\r
+Oh, my goodness, all five digits\nmatched!\rYou’ve won the jackpot prize!\nThis is just so incredible!\r...Oh, I’m sorry! Your prize!\nI got carried away there.\rHere you go!\r
+...Oh?\nYou seem to have no room for this.\rPlease make room in your Bag and\nthen let me know.
+{STRVAR 3, 0}?\nYes, I’ve been expecting you.\rThis is the prize we’ve been holding\nfor you. Here you go!
+Please do visit again.
+They keep records of things like\nhow many battles you’ve won in a row,\for how many Pokémon you’ve caught.\rYou can check everyone’s records\nup on the third floor.
+I’m going to get commercials shown\non TV.\rThey’ll attract more customers to\nthe department store.
+The Trainers that gather over there\nare looking for battles.\rThat corner used to be for karaoke,\nbut now it’s all battling!
+More than singing!\nMore than dancing!\rI love Pokémon!\nSo, shall we battle?
+I’ll let you join my fan club if you\ncan beat me!\r
+Aww... That’s heartbreaking...\nI’m an Idol, too...
+Well, that’s me and my Pokémon!\nI hope you’ll support us!\rJust so you know, our latest single\nis called “Jigglin’ Pokémon Wub!”
+I’m working on a story.\nCan you battle me?
+Join me for a live report!\r
+Press coverage denied...\nBut you’re so intriguing!
+Interviews are about taking the\ninitiative.
+I’ve spotted a charismatic Trainer!\nIs it OK to go for the scoop?\n
+As a professional cameraman, I always\ngo for the best shot!\r
+That’s a downer...\rI thought I’d found a Trainer and\nPokémon who’d shine on camera.
+The lively expressions on you and\nyour Pokémon’s faces...\rIt makes for some great TV!
+Are we all ready to have some fun?\nI sure am! Aren’t you having fun?!\fLet’s make it fun! OK?!
+OK, how shall we do this?\nShall we do something fantastical?\r
+Oh, how shall I say this...?\nIt makes me all lonely, I say...
+A clown’s makeup is a face that’s\ncrying while laughing.\rIt defines what we do!
+Two Pokémon! If you had two Pokémon,\nwe’d get a great shot here.
+Oh! You’re ready for a battle\nwith us?
+You’re live on camera, but try\nto act natural, OK?\r
+OK, that’s how it is, huh.\nCan’t do anything about that.
+I’d like to take that footage and\nhave it broadcast worldwide.
+Oh, no. What we really want to see\nis you in action with two Pokémon!
+Giggle!\nWill you have a battle with us?
+We’ll check you out thoroughly as\na Trainer!\r
+Oh, too bad!\nI wanted to check out your Pokémon!
+I lost but I’m totally thrilled!\nWe made a wonderful spectacle!
+Po-Po-Pokémon!\rI want to become more like\na PIKACHU! Will you battle me?
+Pi-pikachu!\r
+Pikachu!
+I need to get more into the\ncharacter of a Pokémon...
+Come on, let’s show off our Pokémon!\nLet’s do battle, kiddo!
+Your spirit’s vibes... I can feel\nyou’ve got rock in your veins!\r
+Now, that is so lame.\nYou have to let your passion burn!
+Rock is about your spirit!\nBattling is about spirit, too!\fThat’s why a battle is rock!

@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD45_02254840
-MOD45_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD45_02254854
-	ldr r1, _02254850 ; =MOD45_02254A30
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD45_02254854
-_02254850: .word MOD45_02254A30
-	thumb_func_end MOD45_02254840
-
 	thumb_func_start MOD45_02254854
 MOD45_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -60,7 +48,7 @@ MOD45_0225489C: ; 0x0225489C
 	add r4, r1, #0
 	add r0, sp, #4
 	add r6, r2, #0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	add r0, r4, #0
 	bl MOD20_02252C3C
 	add r1, r5, #0
@@ -185,7 +173,7 @@ _0225499A:
 	add r0, #0x98
 	ldr r0, [r0]
 	ldr r1, [r6]
-	bl FUN_0204C064
+	bl Sav2_Poketch_CalendarDateIsHighlighted
 	strb r0, [r5, #0xf]
 	add r0, r7, r4
 	strb r0, [r5, #0xe]
@@ -374,7 +362,7 @@ _02254AB8:
 	ldr r0, [r0]
 	ldr r1, [r5, #4]
 	add r2, r4, #1
-	bl FUN_0204C064
+	bl Sav2_Poketch_CalendarDateIsHighlighted
 	cmp r0, #0
 	beq _02254B08
 	add r0, r5, #0
@@ -382,7 +370,7 @@ _02254AB8:
 	ldr r0, [r0]
 	ldr r1, [r5, #4]
 	add r2, r4, #1
-	bl FUN_0204C02C
+	bl Sav2_Poketch_CalendarDateUnhighlight
 	b _02254B16
 _02254B08:
 	add r0, r5, #0
@@ -390,7 +378,7 @@ _02254B08:
 	ldr r0, [r0]
 	ldr r1, [r5, #4]
 	add r2, r4, #1
-	bl FUN_0204BFF0
+	bl Sav2_Poketch_CalendarDateHighlight
 _02254B16:
 	add r3, r5, #0
 	add r3, #0x13
@@ -1110,6 +1098,3 @@ MOD45_02255140: ; 0x02255140
 	.word 0x01, MOD45_02254D70, 0x00
 	.word 0x02, MOD45_02254D94, 0x00
 	.word 0x00, 0x00000000, 0x00
-
-	.section .sinit
-	.word MOD45_02254840

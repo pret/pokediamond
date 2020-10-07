@@ -1,0 +1,52 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "trainer_data.h"
+#include "constants/species.h"
+#include "constants/moves.h"
+#include "constants/items.h"
+
+#define max(a, b) ((a) >= (b) ? (a) : (b))
+
+u32 __size[] = { 8,
+## for trainer in trdata
+    (max({{ length(trainer.party) }} * {% if trainer.type == "TRTYPE_MON" %}6{% else if trainer.type == "TRTYPE_MON_MOVES" %}14{% else if trainer.type == "TRTYPE_MONE_ITEM" %}8{% else %}16{% endif %}, 8) + 3) & ~3,
+## endfor
+};
+
+const u16 __data[] = { 0, 0, 0, 0,
+## for trainer in trdata
+    // Trainer #{{ trainer.index }}, {{ trainer.class }} {{ trainer.name }}
+##   if trainer.type == "TRTYPE_MON"
+##     set mon_length = 3
+##   else if trainer.type == "TRTYPE_MON_MOVES"
+##     set mon_length = 7
+##   else if trainer.type == "TRTYPE_MON_ITEM"
+##     set mon_length = 4
+##   else if trainer.type == "TRTYPE_MON_ITEM_MOVES"
+##     set mon_length = 8
+##   endif
+##   set total_length = mon_length * length(trainer.party)
+##   for mon in trainer.party
+    {{ mon.difficulty }}, // Difficulty 0-255
+    {{ mon.level }}, // Level
+    {{ mon.species }}, // Species
+##     if trainer.type == "TRTYPE_MON_ITEM" or trainer.type == "TRTYPE_MON_ITEM_MOVES"
+    {{ mon.item }}, // Held item
+##     endif
+##     if trainer.type == "TRTYPE_MON_MOVES" or trainer.type == "TRTYPE_MON_ITEM_MOVES"
+    // Moveset
+##       for i in range(4)
+##         if i < length(mon.moves)
+    {{ at(mon.moves, i) }},
+##         else
+    MOVE_NONE,
+##         endif
+##       endfor
+##     endif
+##   endfor
+##   if total_length < 4 or total_length % 2 != 0
+    0, // Padding
+##   endif
+## endfor
+};

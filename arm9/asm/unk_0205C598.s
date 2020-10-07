@@ -200,7 +200,7 @@ _0205C6E8:
 	lsl r1, r1, #0x10
 	add r0, r6, #0x0
 	lsr r1, r1, #0x10
-	bl FUN_02039640
+	bl TrainerFlagCheck
 	cmp r0, #0x0
 	bne _0205C724
 	ldr r0, [sp, #0x28]

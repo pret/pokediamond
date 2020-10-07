@@ -1,0 +1,18 @@
+All right, thanks for your patience!\nLet’s begin the Visual Competition!\r
+Dexter: Entry number 1!\n{STRVAR 3, 0}!\r{STRVAR 3, 0} has entered the Contest\nwith {STRVAR 0, 1}!\r
+Dexter: Entry number 2!\n{STRVAR 3, 0}!\r{STRVAR 3, 0} enters our Contest with\n{STRVAR 0, 1}!\r
+Dexter: Entry number 3!\n{STRVAR 3, 0}!\r{STRVAR 3, 0} is in the Contest with\n{STRVAR 0, 1}!\r
+Dexter: Entry number 4!\n{STRVAR 3, 0}!\r{STRVAR 3, 0}’s Contest hopes ride\nwith {STRVAR 0, 1}!\r
+The Dance Competition is next!\nIs everyone up and ready for this?!\r
+    
+    
+    
+    
+    
+    
+             
+                                                   
+    
+                                                                                   
+                     
+OK, let’s watch the reactions of the\naudience toward the Pokémon involved\fin this practice session!\rI’ll pass over the MC duties to\nDexter and call this a rehearsal!\fDexter: Sure thing! I’ve got it!\r

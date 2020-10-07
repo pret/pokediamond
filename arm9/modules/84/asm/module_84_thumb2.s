@@ -241,7 +241,7 @@ _021D82CC:
 	lsl r1, r5, #0x10
 	add r0, r6, #0
 	lsr r1, r1, #0x10
-	bl FUN_02024594
+	bl Pokedex_CheckMonCaughtFlag
 	cmp r0, #0
 	beq _021D8340
 	lsl r0, r5, #0x10
@@ -273,7 +273,7 @@ _021D82CC:
 	add r0, r6, #0
 	add r1, r5, #0
 	mov r2, #0
-	bl FUN_02024DAC
+	bl Pokedex_GetSeenMonForme
 	ldr r1, _021D8428 ; =0x00001220
 	ldr r1, [r4, r1]
 	lsl r1, r1, #3
@@ -387,7 +387,7 @@ _021D83E8:
 	ldrh r1, [r4, r1]
 	add r0, r6, #0
 	mov r2, #0
-	bl FUN_02024DAC
+	bl Pokedex_GetSeenMonForme
 	ldr r1, _021D8438 ; =0x000002BB
 	add r5, r5, #1
 	strb r0, [r4, r1]
@@ -707,7 +707,7 @@ _021D864C:
 	str r1, [sp, #0xc]
 	ldr r0, [r5, #0x24]
 	ldr r2, [r5, #0x30]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	cmp r4, #0xf0
 	ble _021D86D0
 	ldr r0, [r5, #0x28]
@@ -723,7 +723,7 @@ _021D864C:
 	str r1, [sp, #0xc]
 	ldr r0, [r5, #0x28]
 	ldr r2, [r5, #0x30]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r1, [r5, #0x28]
 	sub r4, #0xf0
 	ldrb r2, [r1, #7]
@@ -911,7 +911,7 @@ _021D87D0:
 	str r1, [sp, #0x14]
 	ldr r0, [r5, #0x24]
 	ldr r2, [r5, #0x30]
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 	ldr r0, [r5, #0x24]
 	bl FUN_02019548
 	add sp, #0x18

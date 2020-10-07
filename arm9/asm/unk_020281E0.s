@@ -291,7 +291,7 @@ _020283D0:
 	add r1, r2, r1
 	add r0, r6, #0x0
 	mov r2, #0x10
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -330,7 +330,7 @@ _02028414:
 	add r1, r2, r1
 	add r0, r6, #0x0
 	mov r2, #0x10
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -560,7 +560,7 @@ FUN_020285D0: ; 0x020285D0
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r0, sp, #0x0
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	mov r0, #0x30
 	add r2, r4, #0x0
 	mul r2, r0
@@ -704,8 +704,8 @@ _020286E8: .word 0x0000FFFF
 
 	thumb_func_start FUN_020286EC
 FUN_020286EC: ; 0x020286EC
-	ldr r3, _020286F4 ; =FUN_02022610
+	ldr r3, _020286F4 ; =SavArray_get
 	mov r1, #0x1d
 	bx r3
 	nop
-_020286F4: .word FUN_02022610
+_020286F4: .word SavArray_get

@@ -869,16 +869,12 @@ FUN_0208B71C:
 	cmp r0, #0x4
 	addls pc, pc, r0, lsl #0x2
 	b _0208B7BC
-_0208B784:
-	b _0208B798
-_0208B788:
-	b _0208B7A0
-_0208B78C:
-	b _0208B7A8
-_0208B790:
-	b _0208B7B0
-_0208B794:
-	b _0208B7B8
+	; Jump table
+	b _0208B798 ; case 0
+	b _0208B7A0 ; case 1
+	b _0208B7A8 ; case 2
+	b _0208B7B0 ; case 3
+	b _0208B7B8 ; case 4
 _0208B798:
 	ldr r4, _0208B7F4 ; =FUN_0208E258
 	b _0208B7BC
@@ -934,16 +930,12 @@ FUN_0208B804: ; 0x0208B804
 	cmp r0, #0x4
 	addls pc, pc, r0, lsl #0x2
 	b _0208B880
-_0208B848:
-	b _0208B85C
-_0208B84C:
-	b _0208B864
-_0208B850:
-	b _0208B86C
-_0208B854:
-	b _0208B874
-_0208B858:
-	b _0208B87C
+	; Jump table
+	b _0208B85C ; case 0
+	b _0208B864 ; case 1
+	b _0208B86C ; case 2
+	b _0208B874 ; case 3
+	b _0208B87C ; case 4
 _0208B85C:
 	ldr r4, _0208B8D8 ; =FUN_0208E6AC
 	b _0208B880
@@ -4770,26 +4762,17 @@ _0208F13C:
 	cmp r0, #0x9
 	addls pc, pc, r0, lsl #0x2
 	b _0208F87C
-_0208F178:
-	b _0208F1A0
-_0208F17C:
-	b _0208F1BC
-_0208F180:
-	b _0208F22C
-_0208F184:
-	b _0208F294
-_0208F188:
-	b _0208F328
-_0208F18C:
-	b _0208F428
-_0208F190:
-	b _0208F720
-_0208F194:
-	b _0208F7A4
-_0208F198:
-	b _0208F4E4
-_0208F19C:
-	b _0208F5B4
+	; Jump table
+	b _0208F1A0 ; case 0
+	b _0208F1BC ; case 1
+	b _0208F22C ; case 2
+	b _0208F294 ; case 3
+	b _0208F328 ; case 4
+	b _0208F428 ; case 5
+	b _0208F720 ; case 6
+	b _0208F7A4 ; case 7
+	b _0208F4E4 ; case 8
+	b _0208F5B4 ; case 9
 _0208F1A0:
 	ldr r0, [sp, #0x1c]
 	str r0, [r7, #0x10]

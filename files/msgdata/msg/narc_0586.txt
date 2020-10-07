@@ -1,0 +1,34 @@
+Teach which move to\n{STRVAR 1, 0}?
+Teach the move\n{STRVAR 6, 1}?
+Give up trying to teach a new\nmove to {STRVAR 1, 0}?
+{STRVAR 1, 0} learned\n{STRVAR 6, 1}.\r
+{STRVAR 1, 0} is trying to learn\n{STRVAR 6, 1}.\rBut {STRVAR 1, 0} can’t learn more\nthan four moves.\rDelete an older move to make\nroom for {STRVAR 6, 1}?
+1{PAUSE 20}, 2{PAUSE 20}, and{PAUSE 20}... {PAUSE 20}... Poof!{WAIT 3}{WAIT 5}\r{STRVAR 1, 0} forgot\n{STRVAR 6, 1}.\rAnd...\r
+{STRVAR 1, 0} learned\n{STRVAR 6, 1}.{WAIT 4}{WAIT 2}\r
+Stop trying to teach\n{STRVAR 6, 1}?
+{STRVAR 1, 0} did not learn the\nmove {STRVAR 6, 1}.\r
+                             
+{STRVAR 6, 0} is the move that\nyou want forgotten?
+Which move should {STRVAR 1, 0}\nremember?
+Should the move {STRVAR 6, 1}\nbe remembered?
+Give up trying to make\n{STRVAR 1, 0} remember a move?
+{STRVAR 1, 0} remembered the move\n{STRVAR 6, 1} it had forgotten!\r
+{STRVAR 1, 0} wants to remember\nthe move {STRVAR 6, 1}.\rBut {STRVAR 1, 0} can’t learn more\nthan four moves.\rDelete an existing move to make\nroom for {STRVAR 6, 1}?
+1{PAUSE 20}, 2{PAUSE 20}, and{PAUSE 20}... {PAUSE 20}... Poof!{WAIT 3}{WAIT 5}\r{STRVAR 1, 0} forgot\n{STRVAR 6, 1}.\rAnd...\r
+{STRVAR 1, 0} remembered the move\n{STRVAR 6, 1}.{WAIT 4}{WAIT 2}\r
+Give up making the Pokémon\nremember {STRVAR 6, 1}?
+{STRVAR 1, 0} did not remember the\nmove {STRVAR 6, 1}.\r
+{STRVAR 3, 2} handed over one\nHeart Scale in exchange.\r
+Is it OK to make this Pokémon\nforget the move {STRVAR 6, 0}?
+CATEGORY
+POWER
+ACCURACY
+PP
+BATTLE MOVES
+APPEAL PTS
+C0NTEST MOVES
+{STRVAR 52, 0}
+{STRVAR 52, 0}
+{STRVAR 51, 0}/{STRVAR 51, 0}
+CANCEL
+---

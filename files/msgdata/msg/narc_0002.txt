@@ -1,0 +1,49 @@
+HP/PP
+RESTORE
+STATUS
+HEALERS
+     
+    
+BATTLE ITEMS
+POKé BALLS
+Item used last
+{STRVAR 8, 0}
+x{STRVAR 52, 0}
+{STRVAR 8, 0}
+x{STRVAR 52, 0}
+{STRVAR 8, 0}
+x{STRVAR 52, 0}
+{STRVAR 8, 0}
+x{STRVAR 52, 0}
+{STRVAR 8, 0}
+x{STRVAR 52, 0}
+{STRVAR 8, 0}
+x{STRVAR 52, 0}
+   
+HP/PP
+RESTORE
+STATUS
+HEALERS
+POKé BALLS
+BATTLE ITEMS
+/
+{STRVAR 50, 0}
+{STRVAR 50, 0}
+USE
+{STRVAR 8, 0}
+x{STRVAR 52, 0}
+It won’t do any good to use that!
+              
+{STRVAR 1, 0} is getting\npumped!
+{STRVAR 1, 0}’s Attack\nrose!
+{STRVAR 1, 0}’s Special Attack\nrose!
+{STRVAR 1, 0}’s Speed\nrose!
+{STRVAR 1, 0}’s Special Defense\nrose!
+{STRVAR 1, 0}’s Defense\nrose!
+{STRVAR 1, 0}’s accuracy\nrose!
+The {STRVAR 8, 0} was used!
+It’s no good! It’s impossible to aim\nwhen there are two Pokémon!
+There is no room left in the PC!
+{STRVAR 6, 1}’s effect prevents\nthe item’s use on {STRVAR 1, 0}!
+It’s no good! It’s impossible to aim\nat a Pokémon that’s not in sight!
+It’s no good! It’s impossible to aim\nat a Pokémon that’s not in sight!

@@ -1,0 +1,84 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "itemtool.h"
+#include "constants/items.h"
+#include "constants/pokemon.h"
+
+u32 __size = sizeof(struct ItemData) - 2;
+
+const struct ItemData __data[] = {
+	{ 0 }, // default fallback
+## for item in item_data
+	{ // {{ item.name }}
+		{{ item.price }},
+		{{ item.holdEffect }},
+		{{ item.holdEffectParam }},
+		{{ item.unk4 }},
+		{{ item.unk5 }},
+		{{ item.unk6 }},
+		{{ item.naturalGiftPower }},
+		{{ item.naturalGiftType }},
+		{{ item.prevent_toss }},
+		{{ item.selectable }},
+		{{ item.pocket }},
+		{{ item.unk8_B }},
+		{{ item.unkA }},
+		{{ item.unkB }},
+		{{ item.partyUse }},
+		0,
+## if item.partyUse == 0
+		{ .flat = {{ item.partyUseParam }} },
+## else if item.partyUse == 1
+		{ .sub = {
+			{{ item.partyUseParam.slp_heal }},
+			{{ item.partyUseParam.psn_heal }},
+			{{ item.partyUseParam.brn_heal }},
+			{{ item.partyUseParam.frz_heal }},
+			{{ item.partyUseParam.prz_heal }},
+			{{ item.partyUseParam.cfs_heal }},
+			{{ item.partyUseParam.inf_heal }},
+			{{ item.partyUseParam.guard_spec }},
+			{{ item.partyUseParam.revive }},
+			{{ item.partyUseParam.revive_all }},
+			{{ item.partyUseParam.level_up }},
+			{{ item.partyUseParam.evolve }},
+			{{ item.partyUseParam.atk_stages }},
+			{{ item.partyUseParam.def_stages }},
+			{{ item.partyUseParam.spatk_stages }},
+			{{ item.partyUseParam.spdef_stages }},
+			{{ item.partyUseParam.speed_stages }},
+			{{ item.partyUseParam.accuracy_stages }},
+			{{ item.partyUseParam.critrate_stages }},
+			{{ item.partyUseParam.pp_up }},
+			{{ item.partyUseParam.pp_max }},
+			{{ item.partyUseParam.pp_restore }},
+			{{ item.partyUseParam.pp_restore_all }},
+			{{ item.partyUseParam.hp_restore }},
+			{{ item.partyUseParam.hp_ev_up }},
+			{{ item.partyUseParam.atk_ev_up }},
+			{{ item.partyUseParam.def_ev_up }},
+			{{ item.partyUseParam.speed_ev_up }},
+			{{ item.partyUseParam.spatk_ev_up }},
+			{{ item.partyUseParam.spdef_ev_up }},
+			{{ item.partyUseParam.friendship_mod_lo }},
+			{{ item.partyUseParam.friendship_mod_med }},
+			{{ item.partyUseParam.friendship_mod_hi }},
+			{{ item.partyUseParam.hp_ev_up_param }},
+			{{ item.partyUseParam.atk_ev_up_param }},
+			{{ item.partyUseParam.def_ev_up_param }},
+			{{ item.partyUseParam.speed_ev_up_param }},
+			{{ item.partyUseParam.spatk_ev_up_param }},
+			{{ item.partyUseParam.spdef_ev_up_param }},
+			{{ item.partyUseParam.hp_restore_param }},
+			{{ item.partyUseParam.pp_restore_param }},
+			{{ item.partyUseParam.friendship_mod_lo_param }},
+			{{ item.partyUseParam.friendship_mod_med_param }},
+			{{ item.partyUseParam.friendship_mod_hi_param }}
+		} },
+## else
+		{ .flat = 0 },
+## endif
+	},
+## endfor
+};

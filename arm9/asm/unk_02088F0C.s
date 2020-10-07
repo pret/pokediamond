@@ -552,7 +552,7 @@ FUN_02088F0C: ; 0x02088F0C
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	str r5, [r4, #0x0]
-	bl FUN_020139D8
+	bl EasyChatManager_new
 	str r0, [r4, #0x4]
 	mov r3, #0x0
 	ldr r0, _02088F48 ; =0x0000189E
@@ -579,7 +579,7 @@ FUN_02088F4C: ; 0x02088F4C
 	add r4, r0, #0x0
 	beq _02088F5E
 	ldr r0, [r4, #0x4]
-	bl FUN_02013A10
+	bl EasyChatManager_delete
 	add r0, r4, #0x0
 	bl FreeToHeap
 _02088F5E:
@@ -640,7 +640,7 @@ FUN_02088FA0: ; 0x02088FA0
 _02088FBE:
 	ldrh r1, [r5, #0x0]
 	ldr r0, [sp, #0x8]
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0x0
 	beq _02088FEC
 	ldrh r3, [r5, #0x0]
@@ -730,7 +730,7 @@ FUN_02089050: ; 0x02089050
 	str r0, [sp, #0xc]
 	ldr r0, _020890BC ; =0x00000189
 	mov r1, #0x0
-	bl FUN_02013A9C
+	bl GetECWordIndexByPair
 	str r0, [sp, #0x8]
 	mov r7, #0x0
 	ldr r0, [sp, #0x4]
@@ -789,7 +789,7 @@ FUN_020890C4: ; 0x020890C4
 	str r0, [sp, #0x10]
 	ldr r0, _02089144 ; =0x00000186
 	mov r1, #0x0
-	bl FUN_02013A9C
+	bl GetECWordIndexByPair
 	add r6, r0, #0x0
 	add r0, r6, #0x5
 	lsl r0, r0, #0x10
@@ -1070,7 +1070,7 @@ FUN_020892CC: ; 0x020892CC
 	add r1, #0x68
 	ldrh r1, [r1, #0x0]
 	add r2, r3, #0x0
-	bl FUN_02013A30
+	bl EasyChatManager_ReadWordIntoString
 	pop {r4, pc}
 	.balign 4
 
@@ -1112,7 +1112,7 @@ FUN_02089310: ; 0x02089310
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x4]
 	add r2, r4, #0x0
-	bl FUN_02013A30
+	bl EasyChatManager_ReadWordIntoString
 _02089330:
 	pop {r4-r6, pc}
 	nop

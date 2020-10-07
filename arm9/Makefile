@@ -53,6 +53,8 @@ LD_TEMPLATE := ARM9-TS.lcf.template
 SRC_DIRS := src lib lib/src $(sort $(wildcard modules/*/src))
 ASM_DIRS := asm data files $(sort $(wildcard modules/*/asm))
 LIBASM_DIRS := lib/syscall
+INCLUDE_RECURSIVE_DIRS := ../include-mw lib/include
+INCLUDE_DIRS := ../include $(sort $(wildcard modules/*/include))
 
 C_FILES    := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.c)))
 CXX_FILES  := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.cpp)))
@@ -102,8 +104,8 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
+CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
+CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 LDFLAGS = -nodead -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start
 LIBS := -Llib -lsyscall
 ARFLAGS = rcS

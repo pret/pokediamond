@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnk021C4918
+	.extern gMain
 	.section .rodata
 	.global UNK_020EEC48
 UNK_020EEC48: ; 0x020EEC48
@@ -69,7 +69,7 @@ FUN_02031734: ; 0x02031734
 	ldr r0, [r0, #0x0]
 	str r5, [r0, #0x28]
 	add r0, r5, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r1, _020317BC ; =UNK_021C5A00
 	ldr r2, [r1, #0x0]
 	str r0, [r2, #0x2c]
@@ -3810,7 +3810,7 @@ FUN_0203346C: ; 0x0203346C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	bl FUN_02030F40
 	cmp r0, #0x0
 	beq _02033482
@@ -4062,7 +4062,7 @@ _02033622:
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x28]
 	bl FUN_0202287C
-	ldr r1, _02033674 ; =gUnk021C4918
+	ldr r1, _02033674 ; =gMain + 0x60
 	mov r0, #0x1
 	strb r0, [r1, #0x4]
 	ldr r1, _02033670 ; =UNK_021C5A00
@@ -4092,7 +4092,7 @@ _0203366C:
 	pop {r3, pc}
 	nop
 _02033670: .word UNK_021C5A00
-_02033674: .word gUnk021C4918
+_02033674: .word gMain + 0x60
 
 	thumb_func_start FUN_02033678
 FUN_02033678: ; 0x02033678

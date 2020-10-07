@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -60,8 +60,8 @@ FUN_0202597C: ; 0x0202597C
 	add r4, r0, #0x0
 	add r0, sp, #0xc
 	add r1, sp, #0x0
-	bl FUN_0201265C
-	ldr r0, _020259D8 ; =gUnknown21C48B8
+	bl GF_RTC_CopyDateTime
+	ldr r0, _020259D8 ; =gMain
 	ldr r6, [sp, #0xc]
 	ldr r1, [sp, #0x8]
 	ldr r0, [r0, #0x2c]
@@ -99,7 +99,7 @@ FUN_0202597C: ; 0x0202597C
 	add sp, #0x1c
 	pop {r4-r7, pc}
 	nop
-_020259D8: .word gUnknown21C48B8
+_020259D8: .word gMain
 _020259DC: .word 0x000009B4
 
 	thumb_func_start FUN_020259E0
@@ -469,7 +469,7 @@ FUN_02025C40: ; 0x02025C40
 	str r0, [sp, #0x0]
 _02025C50:
 	add r0, r6, #0x0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	add r1, r5, #0x0
 	add r1, #0xa0
 	ldr r1, [r1, #0x0]
@@ -485,7 +485,7 @@ _02025C50:
 	bl ErrorHandling
 _02025C72:
 	add r0, r6, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	ldr r1, [sp, #0x0]
 	add r2, r7, #0x0
 	add r2, #0xb4
@@ -494,21 +494,21 @@ _02025C72:
 	mov r2, #0x10
 	bl MI_CpuCopy8
 	add r0, r6, #0x0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	ldr r1, [sp, #0x0]
 	lsl r1, r1, #0x2
 	add r1, r7, r1
 	add r1, #0xa0
 	str r0, [r1, #0x0]
 	add r0, r6, #0x0
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	ldr r1, [sp, #0x0]
 	add r2, r7, r1
 	mov r1, #0x41
 	lsl r1, r1, #0x2
 	strb r0, [r2, r1]
 	add r0, r6, #0x0
-	bl FUN_02023A68
+	bl PlayerProfile_GetVersion
 	ldr r1, [sp, #0x0]
 	add r2, r7, r1
 	ldr r1, _02025CD4 ; =0x00000109
@@ -549,28 +549,28 @@ _02025CE8:
 	cmp r0, #0x0
 	beq _02025D32
 	add r0, r1, #0x0
-	bl FUN_02023928
+	bl PlayerProfile_new
 	ldr r1, [sp, #0x0]
 	add r6, r0, #0x0
 	add r1, r7, r1
-	bl FUN_0202395C
+	bl CopyPlayerName
 	ldr r1, _02025D3C ; =0x00000109
 	add r2, r5, r4
 	ldrb r1, [r2, r1]
 	add r0, r6, #0x0
-	bl FUN_02023A6C
+	bl PlayerProfile_SetVersion
 	mov r1, #0x41
 	add r2, r5, r4
 	lsl r1, r1, #0x2
 	ldrb r1, [r2, r1]
 	add r0, r6, #0x0
-	bl FUN_02023A74
+	bl PlayerProfile_SetLanguage
 	lsl r1, r4, #0x2
 	add r1, r5, r1
 	add r1, #0xa0
 	ldr r1, [r1, #0x0]
 	add r0, r6, #0x0
-	bl FUN_020239B8
+	bl PlayerProfile_SetTrainerID
 	add r0, r6, #0x0
 	pop {r3-r7, pc}
 _02025D32:
@@ -2887,17 +2887,17 @@ FUN_02026CA0: ; 0x02026CA0
 
 	thumb_func_start FUN_02026CA8
 FUN_02026CA8: ; 0x02026CA8
-	ldr r3, _02026CB0 ; =FUN_02022610
+	ldr r3, _02026CB0 ; =SavArray_get
 	mov r1, #0xc
 	bx r3
 	nop
-_02026CB0: .word FUN_02022610
+_02026CB0: .word SavArray_get
 
 	thumb_func_start FUN_02026CB4
 FUN_02026CB4: ; 0x02026CB4
 	push {r3, lr}
 	mov r1, #0xc
-	bl FUN_02022610
+	bl SavArray_get
 	add r0, #0x50
 	pop {r3, pc}
 
@@ -2908,8 +2908,8 @@ FUN_02026CC0: ; 0x02026CC0
 
 	thumb_func_start FUN_02026CC4
 FUN_02026CC4: ; 0x02026CC4
-	ldr r3, _02026CCC ; =FUN_02022610
+	ldr r3, _02026CCC ; =SavArray_get
 	mov r1, #0xc
 	bx r3
 	nop
-_02026CCC: .word FUN_02022610
+_02026CCC: .word SavArray_get

@@ -20,11 +20,11 @@ MOD70_021D74E0: ; 0x021D74E0
 	add r0, r5, #0
 	mov r1, #0xdc
 	mov r2, #0x3c
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	beq _021D7558
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -35,7 +35,7 @@ MOD70_021D74E0: ; 0x021D74E0
 	add r0, r4, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl FUN_0202B1F0
+	bl Sav2_HOF_GetNumRecords
 	add r1, r4, #0
 	add r1, #0xd0
 	str r0, [r1]
@@ -66,7 +66,7 @@ _021D7558:
 MOD70_021D755C: ; 0x021D755C
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	add r0, #0xc8
 	ldr r0, [r0]
@@ -74,7 +74,7 @@ MOD70_021D755C: ; 0x021D755C
 	add r0, r4, #0
 	bl MOD70_021D7760
 	add r0, r5, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x3d
 	bl FUN_020168D0
 	mov r0, #0x3c
@@ -88,7 +88,7 @@ MOD70_021D755C: ; 0x021D755C
 MOD70_021D758C: ; 0x021D758C
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	add r0, #0xd8
 	ldr r0, [r0]
@@ -115,7 +115,7 @@ _021D75B8:
 	beq _021D768A
 	b _021D768E
 _021D75C4:
-	ldr r0, _021D7694 ; =gUnknown21C48B8
+	ldr r0, _021D7694 ; =gMain
 	mov r1, #2
 	ldr r0, [r0, #0x48]
 	add r2, r0, #0
@@ -216,7 +216,7 @@ _021D768E:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D7694: .word gUnknown21C48B8
+_021D7694: .word gMain
 	thumb_func_end MOD70_021D758C
 
 	thumb_func_start MOD70_021D7698
@@ -357,16 +357,16 @@ MOD70_021D777C: ; 0x021D777C
 	str r2, [sp]
 	add r0, r7, #0
 	add r1, r2, #0
-	bl FUN_0202B21C
+	bl Sav2_HOF_TranslateRecordIdx
 	str r0, [r6]
 	ldr r1, [sp]
 	add r0, r7, #0
-	bl FUN_0202B250
+	bl Sav2_HOF_RecordCountMons
 	str r0, [r6, #0x14]
 	ldr r1, [sp]
 	add r0, r7, #0
 	add r2, r6, #4
-	bl FUN_0202B31C
+	bl Sav2_HOF_GetClearDate
 	ldr r0, [r6, #0x14]
 	mov r4, #0
 	cmp r0, #0
@@ -378,7 +378,7 @@ _021D77AE:
 	add r0, r7, #0
 	add r2, r4, #0
 	add r3, r5, #0
-	bl FUN_0202B29C
+	bl Sav2_HOF_GetMonStatsByIndexPair
 	ldr r0, [r6, #0x14]
 	add r4, r4, #1
 	add r5, #0x1c
@@ -450,7 +450,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x3d
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r1, #0x63
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -475,7 +475,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	str r0, [r4, r1]
 	ldr r0, _021D789C ; =MOD70_021D790C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 _021D788C:
 	add r0, r4, #0
 	add sp, #0x14
@@ -493,7 +493,7 @@ MOD70_021D78A0: ; 0x021D78A0
 	beq _021D790A
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x66
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -509,7 +509,7 @@ MOD70_021D78A0: ; 0x021D78A0
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x62
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1053,7 +1053,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	ldr r2, [r4]
 	mov r3, #4
 	add r6, #0x14
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #1
@@ -1066,13 +1066,13 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	add r2, r3, r2
 	ldr r0, [r5, r0]
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	ldr r2, [r4, #8]
 	mov r1, #2
-	bl FUN_0200B764
+	bl BufferMonthNameAbbr
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #1
@@ -1083,7 +1083,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	ldr r2, [r4, #0xc]
 	mov r1, #3
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r2, #6
 	lsl r2, r2, #6
 	ldr r0, [r5, r2]
@@ -1112,7 +1112,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	ldr r2, [r5, r2]
 	add r0, r6, #0
 	add r3, r1, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r6, #0
 	bl FUN_02019548
 	add sp, #0xc
@@ -1154,7 +1154,7 @@ _021D7DC8:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r7]
 	add r3, r1, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r2, #6
 	lsl r2, r2, #6
 	ldr r0, [r5, r2]
@@ -1171,7 +1171,7 @@ _021D7DC8:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	mov r3, #0x48
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r2, #0x61
 	lsl r2, r2, #2
 	ldr r0, [r5, r2]
@@ -1188,7 +1188,7 @@ _021D7DC8:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	mov r3, #0x5e
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldrh r0, [r7, #0x10]
 	ldr r1, [r7, #8]
 	bl GetGenderBySpeciesAndPersonality
@@ -1230,7 +1230,7 @@ _021D7E68:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	mov r3, #0xae
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r2, #6
 	lsl r2, r2, #6
 	ldr r0, [r5, r2]
@@ -1247,7 +1247,7 @@ _021D7E68:
 	ldr r0, [r5, r0]
 	mov r1, #0
 	mov r3, #4
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r2, #0x63
 	lsl r2, r2, #2
 	add r1, r2, #0
@@ -1266,7 +1266,7 @@ _021D7E68:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	mov r3, #0xc2
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r2, #6
 	lsl r2, r2, #6
 	ldr r0, [r5, r2]
@@ -1284,7 +1284,7 @@ _021D7E68:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	add r3, r1, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r1, #0x19
 	lsl r1, r1, #4
 	mov r0, #0
@@ -1300,7 +1300,7 @@ _021D7E68:
 	str r1, [sp, #8]
 	ldr r0, [sp, #0xc]
 	ldr r2, [r7, #4]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	b _021D7F66
 _021D7F1C:
 	mov r4, #0
@@ -1334,7 +1334,7 @@ _021D7F1E:
 	ldr r2, [r5, r2]
 	mov r1, #0
 	mul r3, r6
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r4, r4, #1
 	add r7, r7, #2
 	cmp r4, #4

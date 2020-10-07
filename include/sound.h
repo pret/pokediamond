@@ -3,7 +3,7 @@
 
 #include "FS_file.h"
 #include "sdat.h"
-#include "options.h"
+#include "player_data.h"
 
 struct SoundData
 {
@@ -42,7 +42,7 @@ struct SoundData
     u32 unk_BCD3C;
     u64 unk_BCD40;
     u32 unk_BCD48;
-    u32 unk_BCD4C;
+    void * unk_BCD4C;
     u32 unk_BCD50;
     u32 unk_BCD54;
     u32 unk_BCD58;
@@ -50,7 +50,7 @@ struct SoundData
 };
 
 struct SoundData * GetSoundDataPointer(void);
-void InitSoundData(u32 a0, struct Options * a1);
+void InitSoundData(void * a0, struct Options * a1);
 void * FUN_02003D38(u32 a0);
 int FUN_02003F3C(int * a0);
 void FUN_02003F64(int a0);

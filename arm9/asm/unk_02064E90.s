@@ -14,9 +14,9 @@ FUN_02064E90: ; 0x02064E90
 	add r0, r6, #0x0
 	str r3, [sp, #0x1c]
 	ldr r5, [sp, #0xbc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	str r0, [sp, #0x20]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x20]
 	bl FUN_02029FC8
@@ -27,7 +27,7 @@ FUN_02064E90: ; 0x02064E90
 	bl FUN_02065078
 	str r0, [sp, #0x24]
 	add r0, r7, #0x0
-	bl FUN_02023A70
+	bl PlayerProfile_GetLanguage
 	str r0, [sp, #0x0]
 	str r5, [sp, #0x4]
 	ldr r0, [sp, #0x10]
@@ -36,24 +36,24 @@ FUN_02064E90: ; 0x02064E90
 	mov r1, #GAME_VERSION
 	bl FUN_02065154
 	add r0, r7, #0x0
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	str r0, [sp, #0x28]
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	str r0, [sp, #0x2c]
 	add r0, r7, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	str r0, [sp, #0x30]
 	add r0, r7, #0x0
-	bl FUN_02023A10
+	bl PlayerProfile_GetMoney
 	str r0, [sp, #0x34]
 	ldr r0, [r6, #0xc]
-	bl FUN_02024DA0
-	bl FUN_02024440
+	bl Sav2_Pokedex_get
+	bl Pokedex_CountSeenMons
 	str r0, [sp, #0x38]
 	ldr r0, [r6, #0xc]
-	bl FUN_02024DA0
-	bl FUN_02024D64
+	bl Sav2_Pokedex_get
+	bl Pokedex_GetSinnohDexFlag
 	str r0, [sp, #0x3c]
 	add r0, r4, #0x0
 	bl FUN_0202A1B8
@@ -71,18 +71,18 @@ FUN_02064E90: ; 0x02064E90
 	str r5, [sp, #0xc]
 	bl FUN_02065178
 	ldr r0, [sp, #0x20]
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [sp, #0x40]
 	add r0, r6, #0x0
 	add r1, sp, #0x90
 	add r2, sp, #0x74
-	bl FUN_0204B2F0
+	bl Script_SavRTC_x24toDateTime
 	add r0, r6, #0x0
 	add r1, sp, #0x80
 	add r2, sp, #0x74
-	bl FUN_0204B30C
+	bl Script_SavRTC_x2CtoDateTime
 	ldr r0, [r6, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED0C
 	add r1, sp, #0x74
 	str r1, [sp, #0x0]
@@ -218,12 +218,12 @@ _02065074: .word FreeToHeap
 	thumb_func_start FUN_02065078
 FUN_02065078: ; 0x02065078
 	push {r3-r7, lr}
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r7, r0, #0x0
 	bl FUN_02029FC8
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_02026CB4
@@ -238,8 +238,8 @@ FUN_02065078: ; 0x02065078
 	lsr r4, r0, #0x18
 _020650A8:
 	add r0, r7, #0x0
-	bl FUN_02024DA0
-	bl FUN_020244EC
+	bl Sav2_Pokedex_get
+	bl Pokedex_HasCompletedNationalDex
 	cmp r0, #0x0
 	beq _020650BC
 	add r0, r4, #0x1
@@ -385,10 +385,10 @@ FUN_020651BC: ; 0x020651BC
 	add r5, r2, #0x0
 	add r6, r3, #0x0
 	ldr r7, [sp, #0x20]
-	bl FUN_02029EBC
+	bl GetIGTHours
 	strh r0, [r4, #0x2a]
 	ldr r0, [sp, #0x4]
-	bl FUN_02029EC0
+	bl GetIGTMinutes
 	add r1, r4, #0x0
 	add r1, #0x2e
 	strb r0, [r1, #0x0]
@@ -520,7 +520,7 @@ FUN_020652AC: ; 0x020652AC
 _020652CA:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_020239D0
+	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
 	beq _020652E6
 	lsl r0, r4, #0x2

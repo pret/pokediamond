@@ -97,11 +97,11 @@ _0202B8CC:
 
 	thumb_func_start FUN_0202B8E4
 FUN_0202B8E4: ; 0x0202B8E4
-	ldr r3, _0202B8EC ; =FUN_02022610
+	ldr r3, _0202B8EC ; =SavArray_get
 	mov r1, #0x1c
 	bx r3
 	nop
-_0202B8EC: .word FUN_02022610
+_0202B8EC: .word SavArray_get
 
 	thumb_func_start FUN_0202B8F0
 FUN_0202B8F0: ; 0x0202B8F0
@@ -243,7 +243,7 @@ FUN_0202B9EC: ; 0x0202B9EC
 	sub sp, #0xc
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #0x4e
 	add r6, r0, #0x0
 	add r0, r4, #0x0
@@ -261,7 +261,7 @@ FUN_0202B9EC: ; 0x0202B9EC
 	str r0, [sp, #0x8]
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -277,7 +277,7 @@ _0202BA38:
 	add r0, r7, #0x0
 	add r1, #0x8
 	mov r2, #0x8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r0, [r5, #0x0]
 	add r6, r6, #0x1
 	str r0, [r4, #0x4]
@@ -718,7 +718,7 @@ FUN_0202BD6C: ; 0x0202BD6C
 	str r2, [sp, #0x0]
 	add r4, r0, #0x0
 	add r5, r1, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4c
@@ -756,7 +756,7 @@ _0202BDC4:
 	ldr r0, [r5, #0x0]
 	str r0, [r4, #0x8]
 	ldr r0, [sp, #0x4]
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	str r0, [r4, #0xc]
 	ldr r0, [r7, #0x0]
 	add r6, r6, #0x1
@@ -822,7 +822,7 @@ _0202BE14:
 	add r1, r5, #0x0
 	ldr r0, [r0, #0xc]
 	add r1, #0x8
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

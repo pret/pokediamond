@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "msgdata.h"
+#include "save_block_2.h"
 
 struct ScriptContext;
 
@@ -23,7 +24,7 @@ struct ScriptContext
 	u32 unk74;
 	struct MsgData * unk78;
 	u8 *unk7C;
-	void * unk80;
+    struct UnkStruct_0204639C * unk80;
 };
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

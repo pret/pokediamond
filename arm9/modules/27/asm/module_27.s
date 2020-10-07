@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD27_02254840
-MOD27_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD27_02254854
-	ldr r1, _02254850 ; =MOD27_0225492C
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD27_02254854
-_02254850: .word MOD27_0225492C
-	thumb_func_end MOD27_02254840
-
 	thumb_func_start MOD27_02254854
 MOD27_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -68,7 +56,7 @@ MOD27_0225489C: ; 0x0225489C
 	strb r0, [r5, #2]
 	add r0, r4, #0
 	bl MOD20_02252C40
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r0, #0
 	add r0, r5, #4
 	bl MOD27_02254A48
@@ -235,7 +223,7 @@ _0225499C:
 	blo _02254A02
 	ldr r0, [r4, #0x78]
 	bl MOD20_02252C40
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r1, r0, #0
 	add r0, r4, #4
 	bl MOD27_02254A48

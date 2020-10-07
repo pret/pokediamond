@@ -104,7 +104,7 @@ MOD51_022548F0: ; 0x022548F0
 	sub r1, #0xa
 	mov r0, #4
 	strh r2, [r4, r1]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r2, #9
 	str r0, [r4, #0x18]
 	mov r0, #0
@@ -291,7 +291,7 @@ MOD51_02254A68: ; 0x02254A68
 	ldr r0, [r5, #0x78]
 	str r0, [r4, #8]
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r4, #0x10]
 	mov r0, #0
 	mov r1, #0xa2
@@ -347,7 +347,7 @@ _02254AEC:
 	ldr r0, [r6, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x18]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x72
 	lsl r0, r0, #2
 	add r0, r6, r0
@@ -817,7 +817,7 @@ MOD51_02254E48: ; 0x02254E48
 	ldr r2, [r6]
 	add r0, r7, r4
 	mov r1, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #0xff
@@ -830,7 +830,7 @@ MOD51_02254E48: ; 0x02254E48
 	ldr r2, [r6, #4]
 	add r0, r0, r4
 	mov r1, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r7, r4
 	bl FUN_02019220
 	ldr r0, [sp, #0x1c]
@@ -849,7 +849,7 @@ MOD51_02254E48: ; 0x02254E48
 	add r0, r5, r4
 	mov r1, #1
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _02254F22:
 	add r0, r5, r4
 	bl FUN_02019220
@@ -1178,7 +1178,7 @@ _0225519C:
 	blt _02255160
 _022551A4:
 	bl FUN_0202EF70
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	mov r1, #0x27
 	lsl r1, r1, #4
 	ldr r2, [r5, r1]
@@ -1303,7 +1303,7 @@ _02255290: .word MOD51_02255740
 MOD51_02255294: ; 0x02255294
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _022552F4 ; =gUnknown21C48B8
+	ldr r0, _022552F4 ; =gMain
 	mov r1, #2
 	ldr r2, [r0, #0x48]
 	lsl r1, r1, #8
@@ -1347,7 +1347,7 @@ _022552C6:
 _022552F0:
 	pop {r4, pc}
 	nop
-_022552F4: .word gUnknown21C48B8
+_022552F4: .word gMain
 _022552F8: .word 0x000005E5
 	thumb_func_end MOD51_02255294
 
@@ -1539,7 +1539,7 @@ MOD51_02255454: ; 0x02255454
 	add r7, r2, #0
 	str r3, [sp, #8]
 	str r4, [sp, #0xc]
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	cmp r5, r0
 	beq _02255478
 	add r0, r6, #0
@@ -1554,7 +1554,7 @@ _02255478:
 	ldr r2, [sp, #0x28]
 	add r0, r7, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	b _022554CA
 _0225548C:
 	cmp r4, #2
@@ -1569,7 +1569,7 @@ _0225548C:
 	bl FUN_020254F0
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r6, #0
 	add r1, r5, #0
 	bl FUN_020254F8
@@ -1579,7 +1579,7 @@ _0225548C:
 	add r0, r7, #0
 	add r2, r4, #0
 	add r3, r1, #0
-	bl FUN_0200ABB4
+	bl BufferString
 	add r0, r4, #0
 	bl String_dtor
 _022554CA:
@@ -1641,13 +1641,13 @@ _0225551E:
 	bl String_dtor
 _02255530:
 	ldr r0, [sp, #8]
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0
 	ldr r2, [r5]
 	mov r0, #0x1c
 	mul r0, r2
 	ldr r0, [r4, r0]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [r5]
 	mov r1, #0x1c
 	add r2, r0, #0
@@ -1667,7 +1667,7 @@ _02255530:
 	add r1, r4, r1
 	str r0, [r1, #0xc]
 	ldr r0, [sp, #8]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	ldr r2, [r5]
 	mov r1, #0x1c
 	mul r1, r2
@@ -1675,7 +1675,7 @@ _02255530:
 	str r0, [r1, #0x10]
 	add r0, r6, #0
 	mov r1, #0x59
-	bl FUN_020137D4
+	bl MailMsg_GetExpandedString
 	ldr r2, [r5]
 	mov r1, #0x1c
 	mul r1, r2
@@ -1717,7 +1717,7 @@ MOD51_022555C0: ; 0x022555C0
 	add r0, r1, #0
 	str r1, [sp]
 	add r7, r2, #0
-	bl FUN_0201385C
+	bl MailMsg_IsInit
 	cmp r0, #0
 	bne _022555D6
 	mov r0, #0
@@ -1739,7 +1739,7 @@ _022555E8:
 	bne _022555FC
 	ldr r0, [sp]
 	add r1, #0x14
-	bl FUN_02013928
+	bl MailMsg_compare
 	cmp r0, #0
 	bne _02255610
 _022555FC:
@@ -1774,7 +1774,7 @@ _02255626:
 	beq _0225563A
 	ldr r0, [sp]
 	add r1, #0x14
-	bl FUN_02013928
+	bl MailMsg_compare
 _0225563A:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1834,7 +1834,7 @@ MOD51_02255690: ; 0x02255690
 	cmp r0, #0
 	bne _02255714
 	mov r0, #4
-	bl FUN_02023928
+	bl PlayerProfile_new
 	str r0, [sp, #4]
 	mov r6, #0
 _022556AA:
@@ -1852,7 +1852,7 @@ _022556AA:
 	add r0, r4, #0
 	ldr r1, [sp, #4]
 	add r0, #0x10
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, [sp]
 	ldr r2, [r7, #0x50]
 	add r1, r5, #0
@@ -1875,7 +1875,7 @@ _022556E6:
 	beq _0225570E
 	ldr r0, [sp]
 	ldr r0, [r0, #0x10]
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	add r3, r0, #0
 	ldr r0, [sp]
 	add r2, r4, #0

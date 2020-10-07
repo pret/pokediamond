@@ -25,7 +25,7 @@ extern void FUN_0200538C(int, int, int);
 extern BOOL FUN_02005404(void);
 extern void FUN_02005CFC(void);
 
-void InitSoundData(u32 a0, struct Options * a1)
+void InitSoundData(void * a0, struct Options * a1)
 {
     struct SoundData * sdat = GetSoundDataPointer();
     SDAT_Init();

@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 	.extern UNK_020F96DC
 
 	.section .rodata
@@ -55,7 +55,7 @@ FUN_020653EC: ; 0x020653EC
 	bl MI_CpuFill8
 	add r0, r5, #0x0
 	str r6, [r4, #0x4]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	mov r1, #0x5b
 	lsl r1, r1, #0x2
 	str r5, [r4, r1]
@@ -66,11 +66,11 @@ FUN_020653EC: ; 0x020653EC
 	mov r1, #0xff
 	add r6, r0, #0x0
 	strb r1, [r4, #0x1a]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	strb r0, [r4, #0x16]
 	add r0, r6, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02025084
 	strh r0, [r4, #0x14]
 	add r0, r4, #0x0
@@ -155,7 +155,7 @@ FUN_020654D0: ; 0x020654D0
 	beq _020654EE
 	bl FUN_0205EC18
 _020654EE:
-	ldr r0, _02065544 ; =gUnknown21C48B8
+	ldr r0, _02065544 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x2
 	tst r0, r1
@@ -198,7 +198,7 @@ _02065536:
 _02065542:
 	pop {r3-r5, pc}
 	.balign 4
-_02065544: .word gUnknown21C48B8
+_02065544: .word gMain
 _02065548: .word FUN_02065658
 _0206554C: .word FUN_020654A4
 _02065550: .word 0x000005DC
@@ -258,7 +258,7 @@ FUN_020655B0: ; 0x020655B0
 	ldr r0, [r4, r0]
 	bl FUN_02001204
 	add r5, r0, #0x0
-	ldr r0, _02065638 ; =gUnknown21C48B8
+	ldr r0, _02065638 ; =gMain
 	mov r1, #0x2
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -317,7 +317,7 @@ _0206562C:
 _02065634:
 	pop {r4-r6, pc}
 	nop
-_02065638: .word gUnknown21C48B8
+_02065638: .word gMain
 _0206563C: .word FUN_02065674
 _02065640: .word FUN_020654B0
 _02065644: .word 0x000005DC
@@ -586,7 +586,7 @@ _0206584E:
 	add sp, #0x4
 	pop {r3-r4, pc}
 _0206585C:
-	ldr r0, _02065888 ; =gUnknown21C48B8
+	ldr r0, _02065888 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -609,7 +609,7 @@ _02065884:
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4
-_02065888: .word gUnknown21C48B8
+_02065888: .word gMain
 _0206588C: .word FUN_02065674
 _02065890: .word FUN_020654B0
 
@@ -733,7 +733,7 @@ _02065970:
 	add sp, #0x4
 	pop {r3-r4, pc}
 _0206597E:
-	ldr r0, _020659AC ; =gUnknown21C48B8
+	ldr r0, _020659AC ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -756,7 +756,7 @@ _020659A6:
 	add sp, #0x4
 	pop {r3-r4, pc}
 	nop
-_020659AC: .word gUnknown21C48B8
+_020659AC: .word gMain
 _020659B0: .word FUN_02065674
 _020659B4: .word FUN_020654B0
 
@@ -800,7 +800,7 @@ _020659DC:
 	add r1, r4, r1
 	ldrh r1, [r1, #0x22]
 	ldr r2, [r4, #0x0]
-	bl FUN_0206EEF8
+	bl Bag_GetQuantity
 	cmp r0, #0x0
 	ldr r1, _02065AE8 ; =0x0000013B
 	beq _02065A1A
@@ -976,7 +976,7 @@ FUN_02065AF4: ; 0x02065AF4
 	ldrb r0, [r5, #0x1b]
 	ldr r1, [r5, #0x0]
 	add r0, r0, #0x1
-	bl FUN_02012838
+	bl ListMenu_ctor
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	add r7, r5, #0x0
@@ -995,7 +995,7 @@ _02065B7E:
 	ldr r1, [r2, #0x8]
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r5, r0]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
@@ -1011,7 +1011,7 @@ _02065B9E:
 	sub r1, #0x4c
 	ldr r1, [r5, r1]
 	ldr r2, _02065CE0 ; =0x0000FFFF
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
 	mov r1, #0x5
@@ -1132,7 +1132,7 @@ _02065C64:
 	sub r2, #0x78
 	ldr r2, [r5, r2]
 	mov r3, #0x2
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	ldr r2, _02065CF4 ; =0x000003D9
@@ -1280,7 +1280,7 @@ FUN_02065DD8: ; 0x02065DD8
 	str r2, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -1309,7 +1309,7 @@ _02065E14:
 	ldr r1, [r5, r7]
 	ldr r2, [r6, r2]
 	ldr r3, [r3, #0x4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r4, #0x1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -1422,7 +1422,7 @@ FUN_02065EF8: ; 0x02065EF8
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1499,7 +1499,7 @@ FUN_02065F8C: ; 0x02065F8C
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1606,18 +1606,18 @@ FUN_02066070: ; 0x02066070
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r5, r2, #0x0
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	mov r1, #0x6b
 	lsl r1, r1, #0x2
 	str r0, [sp, #0x4]
 	str r0, [r6, r1]
 	add r0, r4, #0x0
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	mov r1, #0x1b
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
 	add r0, r5, #0x0
-	bl CreateNewSealsObject
+	bl Mail_new
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	str r0, [sp, #0x10]
@@ -1633,7 +1633,7 @@ _020660AE:
 	mov r1, #0x0
 	add r2, r4, #0x0
 	add r3, r7, #0x0
-	bl FUN_020258D4
+	bl Mailbox_FetchMailIToBuffer
 	mov r0, #0xc
 	mul r0, r4
 	ldr r1, [sp, #0x8]
@@ -1653,25 +1653,25 @@ _020660AE:
 	ldr r0, [sp, #0xc]
 	strb r4, [r1, r0]
 	add r0, r7, #0x0
-	bl FUN_020256AC
+	bl Mail_TypeIsValid
 	cmp r0, #0x0
 	beq _02066134
 	mov r0, #0x1
 	strb r0, [r5, #0x1]
 	add r0, r7, #0x0
-	bl FUN_020257C8
+	bl Mail_GetAuthorGender
 	strb r0, [r5, #0x4]
 	add r0, r7, #0x0
-	bl FUN_020257CC
+	bl Mail_GetType
 	strb r0, [r5, #0x5]
 	ldrb r0, [r5, #0x5]
 	bl MailToItemId
 	strh r0, [r5, #0x6]
 	add r0, r7, #0x0
-	bl FUN_020257C4
+	bl Mail_GetAuthorNamePtr
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x8]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldrb r0, [r6, #0x19]
 	strb r0, [r5, #0x2]
 	ldrb r1, [r5, #0x0]
@@ -1762,7 +1762,7 @@ FUN_020661A0: ; 0x020661A0
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206ED24
+	bl Bag_HasSpaceForItem
 	add r6, r0, #0x0
 	beq _020661D4
 	mov r0, #0x1b
@@ -1771,14 +1771,14 @@ FUN_020661A0: ; 0x020661A0
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206ED38
+	bl Bag_AddItem
 _020661D4:
 	mov r0, #0x6b
 	lsl r0, r0, #0x2
 	ldrb r2, [r5, #0x18]
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_02025878
+	bl Mailbox_DeleteSlotI
 	ldrb r1, [r5, #0x18]
 	add r0, r5, #0x0
 	bl FUN_02066160
@@ -1807,8 +1807,8 @@ FUN_020661F8: ; 0x020661F8
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020377AC
-	bl FUN_0206BB1C
+	bl ScriptEnvironment_GetSav2Ptr
+	bl SavArray_PlayerParty_get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -1826,7 +1826,7 @@ FUN_020661F8: ; 0x020661F8
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206ED24
+	bl Bag_HasSpaceForItem
 	cmp r0, #0x0
 	beq _0206625E
 	mov r0, #0x1b
@@ -1835,7 +1835,7 @@ FUN_020661F8: ; 0x020661F8
 	ldr r0, [r5, r0]
 	ldr r3, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206ED38
+	bl Bag_AddItem
 _0206625E:
 	ldrb r1, [r5, #0x18]
 	add r0, r5, #0x0
@@ -1862,7 +1862,7 @@ FUN_02066270: ; 0x02066270
 	ldr r2, [r6, #0x0]
 	mov r0, #0x1
 	mov r1, #0x80
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
@@ -1932,7 +1932,7 @@ _020662F0:
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x43
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
@@ -2091,7 +2091,7 @@ _02066426:
 	ldr r2, [r2, #0x24]
 	mov r1, #0x0
 	mov r3, #0x2
-	bl FUN_0200ABB4
+	bl BufferString
 	mov r2, #0x11
 	lsl r2, r2, #0x4
 	lsl r3, r4, #0x2
@@ -2123,7 +2123,7 @@ _0206649E:
 	add r0, r5, r0
 	mov r1, #0x1
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r1, #0x4e
 	lsl r1, r1, #0x2
 	strb r0, [r5, r1]
@@ -2376,26 +2376,26 @@ _02066676:
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020377AC
-	bl FUN_0206BB1C
+	bl ScriptEnvironment_GetSav2Ptr
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020377AC
-	bl FUN_0206F158
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020377AC
-	bl LoadPlayerDataAddress
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x0

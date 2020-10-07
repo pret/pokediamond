@@ -1,0 +1,85 @@
+Started from {STRVAR 4, 0}.
+{STRVAR 74, 0} {STRVAR 51, 1}
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Rested comfortably at home.
+Left the Research Lab.
+Used a PC Box.
+Shopped at a Poké Mart.
+Did lots of shopping at a Poké Mart.
+Sold a little at a Poké Mart.
+Sold a lot at a Poké Mart.
+Did some business at a Poké Mart.
+{STRVAR 32, 0} was too tough...
+Beat {STRVAR 32, 0}’s {STRVAR 67, 1}!
+Beat Elite 4 {STRVAR 67, 0}!
+Defeated the Champion, {STRVAR 67, 0}!
+Arrived in {STRVAR 4, 0}.
+Got through {STRVAR 4, 0}.
+Departed from {STRVAR 4, 0}.
+Exited from {STRVAR 4, 0}.
+Had fun at the Game Corner.
+Went wild on the Safari Game.
+Dug for Treasure underground.
+Built a Secret Base underground.
+{STRVAR 66, 0} was obtained.
+Used Cut at {STRVAR 4, 0}.
+Flew to {STRVAR 4, 0}.
+Used Surf at {STRVAR 4, 0}.
+Used Strength at {STRVAR 4, 0}.
+Used Flash at {STRVAR 4, 0}.
+Used Rock Smash at {STRVAR 4, 0}.
+Used Waterfall at {STRVAR 4, 0}.
+Used Rock Climb at {STRVAR 4, 0}.
+Used Defog at {STRVAR 4, 0}.
+Used Dig at {STRVAR 4, 0}.
+Lured Pokémon with a sweet aroma.
+Warped to {STRVAR 4, 0}.
+Shared HP using Softboiled.
+Shared HP using Milk Drink.
+Caught {STRVAR 69, 0} ({STRVAR 33, 1}).
+{STRVAR 69, 0} was caught ({STRVAR 33, 1}).
+Caught a male {STRVAR 69, 0}.
+Caught a female {STRVAR 69, 0}.
+{STRVAR 69, 0} was defeated ({STRVAR 33, 1}).
+Defeated {STRVAR 69, 0} ({STRVAR 33, 1}).
+Defeated a male {STRVAR 69, 0}.
+Defeated a female {STRVAR 69, 0}.
+Battled {STRVAR 67, 1} at {STRVAR 70, 0}.
+Beat {STRVAR 67, 1} at {STRVAR 71, 0}.
+Beat {STRVAR 67, 1} at {STRVAR 72, 0}.
+Met {STRVAR 73, 0}’s {STRVAR 67, 1}!
+{STRVAR 67, 1}
+Beat {STRVAR 75, 0} (Single).
+Lost to {STRVAR 75, 0} (Single).
+Tied {STRVAR 75, 0} (Single).
+Beat {STRVAR 75, 0} (Double).
+Lost to {STRVAR 75, 0} (Double).
+Tied {STRVAR 75, 0} (Double).
+Beat {STRVAR 75, 0} & {STRVAR 75, 1} (Multi).
+Lost to {STRVAR 75, 0} & {STRVAR 75, 1} (Multi).
+Tied {STRVAR 75, 0} & {STRVAR 75, 1} (Multi).
+Beat {STRVAR 75, 0} (Mix).
+Lost to {STRVAR 75, 0} (Mix).
+Tied {STRVAR 75, 0} (Mix).
+Beat {STRVAR 75, 0} & {STRVAR 75, 1} (Mix).
+Lost to {STRVAR 75, 0} & {STRVAR 75, 1} (Mix).
+Tied {STRVAR 75, 0} & {STRVAR 75, 1} (Mix).
+Greeted {STRVAR 67, 0} in Union Room.
+Got {STRVAR 68, 1} from {STRVAR 67, 0}.
+Drew pictures with others.
+Got {STRVAR 68, 0} in a friend trade.
+Chatted with others.
+Beat {STRVAR 67, 0} (Union).
+Lost to {STRVAR 67, 0} (Union).
+Tied {STRVAR 67, 0} (Union).
+Mixed records with friends.
+Placed no. {STRVAR 50, 0} in a Contest.
+Made Poffins in a group.
+Got {STRVAR 67, 0}’s {STRVAR 68, 1} (GTS).
+Won at the Battle Tower!

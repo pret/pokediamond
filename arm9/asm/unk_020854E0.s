@@ -25,7 +25,7 @@ FUN_020854E0: ; 0x020854E0
 	add r7, r1, #0x0
 	add r6, r2, #0x0
 	str r3, [sp, #0x0]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x20]
 	mov r1, #0x1c
@@ -46,14 +46,14 @@ FUN_020854E0: ; 0x020854E0
 	strh r0, [r4, #0xc]
 	ldr r0, [sp, #0x20]
 	str r5, [r4, #0x10]
-	bl CreateNewSealsObject
+	bl Mail_new
 	str r0, [r4, #0x14]
-	bl InitSealsObject
+	bl Mail_init
 	ldr r0, [r4, #0x14]
 	mov r1, #0xff
 	add r2, r6, #0x0
 	add r3, r5, #0x0
-	bl FUN_020256DC
+	bl Mail_SetNewMessageDetails
 	add r0, r4, #0x0
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -78,12 +78,12 @@ FUN_02085538: ; 0x02085538
 	strh r6, [r4, #0xc]
 	add r0, r7, #0x0
 	str r7, [r4, #0x10]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	ldr r3, [sp, #0x0]
 	add r1, r5, #0x0
 	add r2, r6, #0x0
 	str r0, [r4, #0x18]
-	bl FUN_020258B0
+	bl Mailbox_AllocAndFetchMailI
 	str r0, [r4, #0x14]
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
@@ -106,7 +106,7 @@ FUN_02085578: ; 0x02085578
 	strh r0, [r4, #0x0]
 	str r5, [r4, #0x10]
 	add r0, r7, #0x0
-	bl CreateNewSealsObject
+	bl Mail_new
 	str r0, [r4, #0x14]
 	ldr r2, [r4, #0x14]
 	add r0, r6, #0x0
@@ -133,10 +133,10 @@ FUN_020855B0: ; 0x020855B0
 	strh r0, [r4, #0x0]
 	add r0, r7, #0x0
 	str r5, [r4, #0x10]
-	bl CreateNewSealsObject
+	bl Mail_new
 	add r1, r6, #0x0
 	str r0, [r4, #0x14]
-	bl FUN_020257D0
+	bl Mail_SetType
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -162,7 +162,7 @@ _020855FC:
 	ldr r3, [r5, #0x14]
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_02025888
+	bl Mailbox_CopyMailToSlotI
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
@@ -206,14 +206,14 @@ FUN_02085644: ; 0x02085644
 	add r7, r0, #0x0
 	add r4, r2, #0x0
 	str r1, [sp, #0x0]
-	bl FUN_02025864
+	bl Mailbox_GetFirstEmptySlotIdx
 	add r6, r0, #0x0
 	mov r0, #0x0
 	mvn r0, r0
 	cmp r6, r0
 	beq _0208569E
 	add r0, r4, #0x0
-	bl CreateNewSealsObject
+	bl Mail_new
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa9
@@ -223,9 +223,9 @@ FUN_02085644: ; 0x02085644
 	mov r1, #0x0
 	add r2, r6, #0x0
 	add r3, r4, #0x0
-	bl FUN_02025888
+	bl Mailbox_CopyMailToSlotI
 	add r0, r4, #0x0
-	bl InitSealsObject
+	bl Mail_init
 	add r0, r5, #0x0
 	mov r1, #0xa9
 	add r2, r4, #0x0
@@ -249,14 +249,14 @@ FUN_020856A0: ; 0x020856A0
 	add r2, r5, #0x0
 	add r7, r0, #0x0
 	str r1, [sp, #0x0]
-	bl FUN_020258B0
+	bl Mailbox_AllocAndFetchMailI
 	add r6, r0, #0x0
 	bne _020856BC
 	mov r0, #0x0
 	mvn r0, r0
 	pop {r3-r7, pc}
 _020856BC:
-	bl FUN_020257CC
+	bl Mail_GetType
 	bl MailToItemId
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
@@ -270,7 +270,7 @@ _020856BC:
 	add r0, r7, #0x0
 	mov r1, #0x0
 	add r2, r5, #0x0
-	bl FUN_02025878
+	bl Mailbox_DeleteSlotI
 	add r0, r6, #0x0
 	bl FreeToHeap
 	add r0, r5, #0x0
@@ -292,25 +292,25 @@ FUN_020856F0: ; 0x020856F0
 	mov r0, #0x0
 	strh r0, [r6, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020257C0
+	bl Mail_GetOTID
 	str r0, [r6, #0x8]
 	mov r0, #0x8
 	add r1, r5, #0x0
 	bl String_ctor
 	str r0, [r6, #0x10]
 	add r0, r4, #0x0
-	bl FUN_020257C4
+	bl Mail_GetAuthorNamePtr
 	add r1, r0, #0x0
 	ldr r0, [r6, #0x10]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r4, #0x0
-	bl FUN_020257CC
+	bl Mail_GetType
 	strb r0, [r6, #0xf]
 	add r0, r4, #0x0
-	bl FUN_020257D8
+	bl Mail_GetLanguage
 	strb r0, [r6, #0xd]
 	add r0, r4, #0x0
-	bl FUN_020257DC
+	bl Mail_GetVersion
 	strb r0, [r6, #0xe]
 	mov r5, #0x0
 	mov r7, #0x2
@@ -319,7 +319,7 @@ _02085748:
 	add r0, r4, #0x0
 	lsr r1, r1, #0x18
 	add r2, r7, #0x0
-	bl FUN_020257E0
+	bl Mail_GetAttrFromUnk18Array
 	lsl r1, r5, #0x1
 	add r1, r6, r1
 	strh r0, [r1, #0x14]
@@ -335,11 +335,11 @@ _0208576A:
 	lsl r1, r5, #0x18
 	add r0, r4, #0x0
 	lsr r1, r1, #0x18
-	bl FUN_02025814
+	bl Mail_GetUnk20Array
 	add r1, r0, #0x0
 	lsl r0, r5, #0x3
 	add r0, r7, r0
-	bl FUN_02013960
+	bl MailMsg_copy
 	add r0, r5, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -376,7 +376,7 @@ _020857B0:
 	add r0, r6, #0x0
 	add r1, r4, r1
 	lsr r2, r2, #0x18
-	bl FUN_02025824
+	bl Mail_CopyToUnk20Array
 	add r0, r5, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -384,7 +384,7 @@ _020857B0:
 	blo _020857B0
 	ldrb r1, [r7, #0xf]
 	add r0, r6, #0x0
-	bl FUN_020257D0
+	bl Mail_SetType
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -395,11 +395,11 @@ FUN_020857D4: ; 0x020857D4
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020857F4
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0x0
 	beq _020857F4
 	ldr r0, [r4, #0x0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x1
@@ -412,7 +412,7 @@ _020857F4:
 FUN_020857F8: ; 0x020857F8
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	mov r2, #0x1
 	add r5, r0, #0x0
 	mov r0, #0x3
@@ -422,7 +422,7 @@ FUN_020857F8: ; 0x020857F8
 	add r0, r4, #0x0
 	mov r1, #0x1c
 	mov r2, #0x28
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
@@ -433,7 +433,7 @@ FUN_020857F8: ; 0x020857F8
 	bl FUN_020856F0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x10]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	ldr r1, [r4, #0x10]
 	str r0, [r1, #0x4]
 	ldrh r0, [r5, #0x0]
@@ -462,10 +462,10 @@ FUN_0208585C: ; 0x0208585C
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r5, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x4
@@ -491,7 +491,7 @@ _0208588E:
 	ldr r0, _02085994 ; =UNK_020FCAA8
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0x0]
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0xc]
 	mov r0, #0x1
 	str r0, [r5, #0x0]
@@ -556,7 +556,7 @@ _02085900:
 	add r1, #0x1a
 	lsl r0, r0, #0x3
 	add r0, r1, r0
-	bl FUN_0201385C
+	bl MailMsg_IsInit
 	cmp r0, #0x0
 	beq _02085938
 	ldr r1, [r4, #0x10]
@@ -567,13 +567,13 @@ _02085900:
 	add r0, #0x14
 	lsl r1, r1, #0x3
 	add r1, r2, r1
-	bl FUN_02013960
+	bl MailMsg_copy
 	b _02085942
 _02085938:
 	add r0, r4, #0x0
 	add r0, #0x14
 	mov r1, #0x3
-	bl FUN_0201373C
+	bl MailMsg_init_withBank
 _02085942:
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x8]
@@ -582,7 +582,7 @@ _02085942:
 	ldr r0, _0208599C ; =UNK_020FCAB8
 	ldr r1, [r4, #0x8]
 	ldr r2, [r4, #0x0]
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0xc]
 	mov r0, #0x4
 	str r0, [r5, #0x0]
@@ -622,12 +622,12 @@ _0208599C: .word UNK_020FCAB8
 FUN_020859A0: ; 0x020859A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x10]
 	bl FUN_0208578C
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	ldr r0, [r4, #0x0]
 	bl FUN_020168D0
 	mov r0, #0x1

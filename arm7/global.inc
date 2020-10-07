@@ -14,6 +14,8 @@
 .extern WVR_ShelterExtWram
 
 ; .wram
+.extern OS_IrqHandler
+.extern NitroSpMain
 .extern CARDi_EraseBackupSectorCore
 .extern CARDi_EraseChipCore
 .extern CARDi_InitCommon
@@ -256,6 +258,27 @@
 .extern NVRAM_Init
 .extern NVRAM_ReadDataBytes
 .extern RTC_Init
+.extern RTC_ReadAdjust
+.extern RTC_ReadAlarm1
+.extern RTC_ReadAlarm2
+.extern RTC_ReadDate
+.extern RTC_ReadDateTime
+.extern RTC_ReadFree
+.extern RTC_ReadPulse
+.extern RTC_ReadStatus1
+.extern RTC_ReadStatus2
+.extern RTC_ReadTime
+.extern RTC_Reset
+.extern RTC_SetHourFormat
+.extern RTC_WriteAdjust
+.extern RTC_WriteAlarm1
+.extern RTC_WriteAlarm2
+.extern RTC_WriteDateTime
+.extern RTC_WriteFree
+.extern RTC_WritePulse
+.extern RTC_WriteStatus1
+.extern RTC_WriteStatus2
+.extern RTC_WriteTime
 .extern WVR_Shutdown
 .extern WVR_Init
 .extern FUN_038073EC

@@ -16,14 +16,14 @@ MOD76_021D74E0: ; 0x021D74E0
 	add r0, r5, #0
 	lsl r1, r1, #2
 	mov r2, #0x43
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r2, #0x62
 	mov r1, #0
 	lsl r2, r2, #2
 	add r4, r0, #0
 	bl memset
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4]
 	add r0, r4, #0
 	bl MOD76_021D7638
@@ -55,7 +55,7 @@ MOD76_021D74E0: ; 0x021D74E0
 	bl MOD76_021D8CD4
 	ldr r0, _021D7564 ; =MOD76_021D76E8
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -67,7 +67,7 @@ _021D7564: .word MOD76_021D76E8
 MOD76_021D7568: ; 0x021D7568
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r4]
 	add r5, r0, #0
 	cmp r1, #0xc
@@ -161,10 +161,10 @@ _021D7606:
 MOD76_021D761C: ; 0x021D761C
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	bl MOD76_021D76B8
 	add r0, r4, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x43
 	bl FUN_020168D0
 	mov r0, #1
@@ -177,7 +177,7 @@ MOD76_021D7638: ; 0x021D7638
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -214,7 +214,7 @@ MOD76_021D7638: ; 0x021D7638
 	bl MOD76_021D7BE0
 	ldr r0, _021D76B4 ; =MOD76_021D76E8
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r4, pc}
 	.align 2, 0
 _021D76AC: .word 0xFFFFE0FF
@@ -238,7 +238,7 @@ MOD76_021D76B8: ; 0x021D76B8
 	bl FUN_0201C29C
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D76B8
@@ -519,7 +519,7 @@ MOD76_021D7900: ; 0x021D7900
 	add r1, #0xf8
 	str r0, [r1]
 	mov r0, #0x43
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r1, r4, #0
 	add r1, #0xfc
 	str r0, [r1]
@@ -545,7 +545,7 @@ MOD76_021D7938: ; 0x021D7938
 	add r0, r4, #0
 	add r0, #0xfc
 	ldr r0, [r0]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #1
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
@@ -574,7 +574,7 @@ _021D7970:
 MOD76_021D7974: ; 0x021D7974
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	ldr r0, _021D7A88 ; =gUnknown21C48B8
+	ldr r0, _021D7A88 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x30
 	tst r1, r0
@@ -699,7 +699,7 @@ _021D7A82:
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop
-_021D7A88: .word gUnknown21C48B8
+_021D7A88: .word gMain
 _021D7A8C: .word 0x000005DD
 _021D7A90: .word 0x00000186
 	thumb_func_end MOD76_021D7974
@@ -1063,7 +1063,7 @@ _021D7D3E:
 	add r0, r1, r0
 	ldr r1, [sp, #0x10]
 	ldr r2, [r5, r2]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD76_021D7CC8
@@ -1090,7 +1090,7 @@ MOD76_021D7D60: ; 0x021D7D60
 	add r0, #0xfc
 	ldr r0, [r0]
 	add r3, r7, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	add r0, r5, #0
 	mov r1, #1
 	add r0, #0xfc
@@ -1257,7 +1257,7 @@ MOD76_021D7ECC: ; 0x021D7ECC
 	strb r1, [r5, r0]
 	ldrb r0, [r5, r0]
 	mov r1, #0x43
-	bl FUN_02012838
+	bl ListMenu_ctor
 	mov r1, #0x42
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -1287,7 +1287,7 @@ _021D7F0E:
 	ldr r0, [r5, r0]
 	add r1, r7, #0
 	add r3, r2, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _021D7F42
 _021D7F2A:
 	mov r0, #0x42
@@ -1299,7 +1299,7 @@ _021D7F2A:
 	ldr r0, [r5, r0]
 	ldr r1, [r1]
 	sub r3, #0x22
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _021D7F50
 _021D7F42:
 	mov r0, #0x61
@@ -1369,7 +1369,7 @@ MOD76_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x42
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D7FAC
@@ -1634,7 +1634,7 @@ MOD76_021D81AC: ; 0x021D81AC
 	ldr r2, [r5, r2]
 	add r0, #0xb8
 	add r3, r1, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r7, #0
 	bl DestroyMsgData
 	lsl r1, r4, #0x10
@@ -1836,7 +1836,7 @@ _021D8382:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	b _021D84D8
 _021D839A:
 	bl MOD76_021D8514
@@ -1845,7 +1845,7 @@ _021D839A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D83AE:
 	ldr r0, [r4]
@@ -1856,7 +1856,7 @@ _021D83AE:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	b _021D84D8
 _021D83C6:
 	ldr r0, [r4]
@@ -1867,7 +1867,7 @@ _021D83C6:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8514
 	add r2, r0, #0
@@ -1875,7 +1875,7 @@ _021D83C6:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D83F2:
 	ldr r0, [r4]
@@ -1886,7 +1886,7 @@ _021D83F2:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8514
 	add r2, r0, #0
@@ -1894,7 +1894,7 @@ _021D83F2:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D841E:
 	ldr r0, [r4]
@@ -1905,7 +1905,7 @@ _021D841E:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8524
 	add r2, r0, #0
@@ -1913,7 +1913,7 @@ _021D841E:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D844A:
 	ldr r0, [r4]
@@ -1924,7 +1924,7 @@ _021D844A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8514
 	add r2, r0, #0
@@ -1932,7 +1932,7 @@ _021D844A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D8476:
 	bl MOD76_021D8514
@@ -1941,7 +1941,7 @@ _021D8476:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D848A:
 	ldr r0, [r4]
@@ -1952,7 +1952,7 @@ _021D848A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r0, r4, #0
 	bl MOD76_021D8514
 	add r2, r0, #0
@@ -1960,7 +1960,7 @@ _021D848A:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	b _021D84D8
 _021D84B6:
 	ldr r2, [r4]
@@ -1968,7 +1968,7 @@ _021D84B6:
 	ldr r0, [r0]
 	ldr r2, [r2, #4]
 	mov r1, #2
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	b _021D84D8
 _021D84C6:
 	bl MOD76_021D8524
@@ -1977,7 +1977,7 @@ _021D84C6:
 	add r0, #0xfc
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 _021D84D8:
 	ldr r1, [r4]
 	add r0, r4, #0
@@ -2065,7 +2065,7 @@ MOD76_021D853C: ; 0x021D853C
 	add r0, r4, #0
 	ldr r2, [r4, r2]
 	add r0, #0xc8
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r1, _021D8590 ; =0x00000185
 	strb r0, [r4, r1]
 	add sp, #0xc
@@ -2105,7 +2105,7 @@ _021D85BE:
 	b _021D85D6
 _021D85C6:
 	ldr r0, _021D85E0 ; =0x00000483
-	bl FUN_02005C28
+	bl PlayBGM
 	b _021D85D6
 _021D85CE:
 	ldr r0, _021D85DC ; =0x000005E6
@@ -3165,7 +3165,7 @@ MOD76_021D8D5C: ; 0x021D8D5C
 	ldr r0, _021D8DE8 ; =UNK_020FA6E8
 	add r1, r4, r1
 	mov r2, #0x43
-	bl FUN_02006234
+	bl OverlayManager_new
 	mov r1, #0x5f
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -3184,13 +3184,13 @@ MOD76_021D8DEC: ; 0x021D8DEC
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0
 	beq _021D8E3E
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	add r0, r4, #0
 	bl MOD76_021D7638
 	ldr r1, [r4]

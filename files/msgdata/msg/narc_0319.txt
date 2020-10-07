@@ -1,0 +1,4 @@
+{STRVAR 0, 0} hatched from the Egg!
+Would you like to nickname the newly\nhatched {STRVAR 0, 0}?
+Yes
+No

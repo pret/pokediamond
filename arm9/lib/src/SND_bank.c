@@ -1,8 +1,6 @@
 #include "SND_bank.h"
 #include "OS_mutex.h"
 
-void OS_LockMutex(struct OSMutex *);
-void OS_UnlockMutex(struct OSMutex *);
 void DC_StoreRange(const void *, u32);
 
 /*

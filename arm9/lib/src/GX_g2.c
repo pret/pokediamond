@@ -50,7 +50,7 @@ ARM_FUNC void G2x_ChangeBlendBrightness_(u16 *ptr, fx32 brightness){
     {
         if ((temp & 0xC0) == 0x80)
         {
-            ptr[0] = (u16)(temp & ~0xC0 | 0xC0);
+            ptr[0] = (u16)((temp & ~0xC0) | 0xC0);
         }
         ptr[2] = (u16)(-brightness);
     }
@@ -58,7 +58,7 @@ ARM_FUNC void G2x_ChangeBlendBrightness_(u16 *ptr, fx32 brightness){
     {
         if ((temp & 0xC0) == 0xC0)
         {
-            ptr[0] = (u16)(temp & ~0xC0 | 0x80);
+            ptr[0] = (u16)((temp & ~0xC0) | 0x80);
         }
         ptr[2] = (u16)brightness;
     }

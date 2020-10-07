@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 	.extern UNK_020FA6E8
 
 	.section .rodata
@@ -177,7 +177,7 @@ FUN_0206C700: ; 0x0206C700
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x8]
 	add r0, r5, #0x0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0xc]
 	mov r0, #0x5
 	lsl r0, r0, #0x6
@@ -294,7 +294,7 @@ FUN_0206C92C: ; 0x0206C92C
 	bl FUN_0200E3A0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, [r4, #0x4]
 	mov r1, #0x1
 	bl FUN_020191A4
@@ -323,7 +323,7 @@ FUN_0206C92C: ; 0x0206C92C
 	ldr r0, [r4, #0x8]
 	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x10]
 	bl FreeToHeap
 	ldr r0, [r4, #0x3c]
@@ -451,7 +451,7 @@ _0206CA9C:
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x8
 	bne _0206CAD6
-	ldr r0, _0206CE0C ; =gUnknown21C48B8
+	ldr r0, _0206CE0C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x2
 	tst r0, r1
@@ -643,7 +643,7 @@ _0206CBE4:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, [r4, #0x7c]
 	mov r0, #0x2
 	tst r0, r1
@@ -859,7 +859,7 @@ _0206CDD6:
 	ldr r2, _0206CE14 ; =0x0000F3FF
 	b _0206CE2C
 	.balign 4
-_0206CE0C: .word gUnknown21C48B8
+_0206CE0C: .word gMain
 _0206CE10: .word 0x00007FFF
 _0206CE14: .word 0x0000F3FF
 _0206CE18: .word 0x00000395
@@ -1050,13 +1050,13 @@ _0206CF7E:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [r4, #0x28]
 	bl FUN_020690E4
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x1
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	ldr r1, _0206D1D8 ; =0x00000396
 	add r0, r4, #0x0
 	bl FUN_0206DD6C
@@ -1096,7 +1096,7 @@ _0206CFFA:
 	bne _0206D084
 	ldr r0, [r4, #0x48]
 	ldr r1, [r4, #0x28]
-	bl FUN_02024AF0
+	bl Pokedex_SetMonCaughtFlag
 	ldr r0, [r4, #0x50]
 	mov r1, #0xc
 	bl FUN_0202A0E8
@@ -1107,7 +1107,7 @@ _0206CFFA:
 	bl FUN_020690E4
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x54]
-	bl FUN_0204C104
+	bl Sav2_Poketch_PokemonHistoryAddMon
 	ldr r0, [r4, #0x28]
 	mov r1, #0x4d
 	mov r2, #0x0
@@ -1168,12 +1168,12 @@ _0206D0AC:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r2, sp, #0xc
 	ldrh r2, [r2, #0x0]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	add r0, r4, #0x0
 	mov r1, #0x4
 	bl FUN_0206DD6C
@@ -1195,13 +1195,13 @@ _0206D0E8:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r2, r4, #0x0
 	add r2, #0x6c
 	ldrh r2, [r2, #0x0]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r1, _0206D1E0 ; =0x000004A9
 	add r0, r4, #0x0
 	bl FUN_0206DD6C
@@ -1226,7 +1226,7 @@ _0206D12C:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _0206D1E4 ; =0x000004AA
 	add r0, r4, #0x0
 	bl FUN_0206DD6C
@@ -1425,14 +1425,14 @@ _0206D260:
 	pop {r3-r4, pc}
 _0206D2E2:
 	ldr r0, [r4, #0x38]
-	bl FUN_02006290
+	bl OverlayManager_Run
 	cmp r0, #0x0
 	bne _0206D2EE
 _0206D2EC:
 	b _0206D806
 _0206D2EE:
 	ldr r0, [r4, #0x38]
-	bl FUN_02006260
+	bl OverlayManager_delete
 	ldr r1, [r4, #0x0]
 	add r0, r4, #0x0
 	bl FUN_0206D9B4
@@ -1511,7 +1511,7 @@ _0206D398:
 	ldrh r2, [r2, #0x0]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r1, _0206D548 ; =0x000004AD
 	add r0, r4, #0x0
 	bl FUN_0206DD6C
@@ -1565,13 +1565,13 @@ _0206D406:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r2, r4, #0x0
 	add r2, #0x6c
 	ldrh r2, [r2, #0x0]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r1, _0206D550 ; =0x000004AE
 	add r0, r4, #0x0
 	bl FUN_0206DD6C
@@ -1645,7 +1645,7 @@ _0206D4A6:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r1, r4, #0x0
 	add r1, #0x6e
 	ldrb r1, [r1, #0x0]
@@ -1656,7 +1656,7 @@ _0206D4A6:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	mov r1, #0x4b
 	add r0, r4, #0x0
 	lsl r1, r1, #0x4
@@ -1701,13 +1701,13 @@ _0206D51E:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	add r2, r4, #0x0
 	add r2, #0x6c
 	ldrh r2, [r2, #0x0]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x1
-	bl FUN_0200AD5C
+	bl BufferMoveName
 	ldr r1, _0206D55C ; =0x000004B2
 	b _0206D560
 	.balign 4
@@ -1744,7 +1744,7 @@ _0206D560:
 	ldrh r1, [r1, #0x0]
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r4, #0x28]
-	bl FUN_020697CC
+	bl MonSetMoveInSlot
 	add r0, r4, #0x0
 	mov r1, #0x14
 	add r0, #0x66
@@ -1966,7 +1966,7 @@ _0206D748:
 	add r2, r0, #0x0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r1, _0206D81C ; =0x00000397
 	add r0, r4, #0x0
 	bl FUN_0206DD6C
@@ -2081,7 +2081,7 @@ _0206D854:
 	ldr r0, [r4, #0x4c]
 	ldr r2, [r4, #0x5c]
 	mov r1, #0x4
-	bl FUN_0206EEF8
+	bl Bag_GetQuantity
 	cmp r0, #0x0
 	beq _0206D86C
 	ldr r0, [r4, #0x24]
@@ -2096,7 +2096,7 @@ _0206D86E:
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x28]
 	add r1, r5, #0x0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	mov r0, #0x49
 	lsl r0, r0, #0x2
 	str r0, [sp, #0x0]
@@ -2169,7 +2169,7 @@ _0206D8EA:
 	add r2, sp, #0x0
 	bl SetMonData
 	ldr r0, [r4, #0x5c]
-	bl CreateNewSealsObject
+	bl Mail_new
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa9
@@ -2195,10 +2195,10 @@ _0206D8EA:
 	bl CalcMonLevelAndStats
 	ldr r0, [r4, #0x24]
 	add r1, r5, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	ldr r0, [r4, #0x48]
 	add r1, r5, #0x0
-	bl FUN_02024AF0
+	bl Pokedex_SetMonCaughtFlag
 	ldr r0, [r4, #0x50]
 	mov r1, #0xc
 	bl FUN_0202A0E8
@@ -2209,14 +2209,14 @@ _0206D8EA:
 	bl FUN_020690E4
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x54]
-	bl FUN_0204C104
+	bl Sav2_Poketch_PokemonHistoryAddMon
 	add r0, r5, #0x0
 	bl FreeToHeap
 	ldr r0, [r4, #0x4c]
 	ldr r3, [r4, #0x5c]
 	mov r1, #0x4
 	mov r2, #0x1
-	bl FUN_0206EDD4
+	bl Bag_TakeItem
 	add sp, #0x20
 	pop {r4-r6, pc}
 _0206D9A0:
@@ -2513,7 +2513,7 @@ _0206DA26:
 	bl FUN_0201E6E4
 	ldr r0, _0206DC44 ; =FUN_0206DD08
 	add r1, r5, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add sp, #0xb8
 	pop {r4-r6, pc}
 	.balign 4
@@ -2576,7 +2576,7 @@ FUN_0206DC80: ; 0x0206DC80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x28]
 	add r1, r5, #0x0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r2, r4, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5
@@ -2684,7 +2684,7 @@ FUN_0206DD6C: ; 0x0206DD6C
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x10]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add sp, #0xc
 	pop {r4-r5, pc}
 	.balign 4
@@ -2719,7 +2719,7 @@ _0206DDDC:
 	b _0206DDFA
 _0206DDE4:
 	ldr r0, _0206DE00 ; =0x00000484
-	bl FUN_02005C28
+	bl PlayBGM
 	b _0206DDFA
 _0206DDEC:
 	ldr r0, _0206DE04 ; =0x000005E6
@@ -2727,7 +2727,7 @@ _0206DDEC:
 	b _0206DDFA
 _0206DDF4:
 	ldr r0, _0206DE08 ; =0x00000483
-	bl FUN_02005C28
+	bl PlayBGM
 _0206DDFA:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -2743,7 +2743,7 @@ FUN_0206DE0C: ; 0x0206DE0C
 	ldr r0, _0206DE20 ; =UNK_020FA6E8
 	ldr r1, [r4, #0x3c]
 	ldr r2, [r4, #0x5c]
-	bl FUN_02006234
+	bl OverlayManager_new
 	str r0, [r4, #0x38]
 	pop {r4, pc}
 	nop

@@ -7,16 +7,23 @@
 #include "OS_spinLock.h"
 #include "OS_cache.h"
 #include "sections.h"
+#include "MI_dma.h"
+#include "CARD_common.h"
+#include "PXI_init.h"
 
 static u16 OSi_IsInitReset = 0;
 vu16 OSi_IsResetOccurred = 0;
 
-extern void PXI_Init(void);
 extern u32 PXI_IsCallbackReady(u32 param1, u32 param2);
 extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
 extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
-extern void CARD_LockRom(u16 lockId);
-extern void MI_StopDma(u32 dma);
+
+static void OSi_CommonCallback(PXIFifoTag tag, u32 data, BOOL err);
+static void OSi_SendToPxi(u16 data);
+static void OSi_DoResetSystem(void);
+static void OSi_CpuClear32(register u32 data, register void *destp, register u32 size);
+static void OSi_ReloadRomData(void);
+static void OSi_ReadCardRom32(u32 src, void *dst, s32 len);
 
 ARM_FUNC void OS_InitReset(void) {
     if (OSi_IsInitReset) {

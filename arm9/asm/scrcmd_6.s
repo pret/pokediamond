@@ -14,7 +14,7 @@ FUN_020413C0: ; 0x020413C0
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02005410
@@ -163,7 +163,7 @@ FUN_020414E0: ; 0x020414E0
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	bl FUN_020054C8
 	mov r0, #0x0
 	pop {r4, pc}
@@ -177,7 +177,7 @@ FUN_020414FC: ; 0x020414FC
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	mov r1, #0x0
 	bl FUN_020054F0
 	mov r0, #0x0
@@ -192,7 +192,7 @@ FUN_02041518: ; 0x02041518
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	str r0, [r4, #0x64]
 	ldr r1, _0204153C ; =FUN_02041540
 	add r0, r4, #0x0
@@ -226,21 +226,21 @@ FUN_02041558: ; 0x02041558
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r0, r5, #0x0
 	bl FUN_02005578
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02041588
-FUN_02041588: ; 0x02041588
+	thumb_func_start ScrCmd_waitcry
+ScrCmd_waitcry: ; 0x02041588
 	push {r3, lr}
 	ldr r1, _02041594 ; =FUN_02041598
 	bl SetupNativeScript
@@ -262,11 +262,11 @@ _020415A6:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020415AC
-FUN_020415AC: ; 0x020415AC
+	thumb_func_start ScrCmd_playbgm
+ScrCmd_playbgm: ; 0x020415AC
 	push {r3, lr}
 	bl ScriptReadHalfword
-	bl FUN_02005C28
+	bl PlayBGM
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -303,7 +303,7 @@ FUN_020415E0: ; 0x020415E0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -330,7 +330,7 @@ FUN_02041618: ; 0x02041618
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	bl FUN_02005E28
 	cmp r0, #0x0
@@ -383,14 +383,14 @@ FUN_02041674: ; 0x02041674
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0200488C

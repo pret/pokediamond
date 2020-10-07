@@ -1,0 +1,116 @@
+{COLOR 1}Status{COLOR 0}
+{COLOR 1}VS demo{COLOR 0}
+{COLOR 1}Move Tutor{COLOR 0}
+{COLOR 1}Journal{COLOR 0}
+Sleep
+Touch screen
+msg location
+Test screen
+Script
+Map
+Pokétch
+Shop
+Berry Max
+TM & HM Max
+F Note ADD
+Field
+Move Tutor
+Move Deleter
+Poffin
+Condition
+Multi 1
+Start 1
+End 1
+Multi 2
+Start 2
+End 2
+End 3
+Move Tutor
+Move Remainder
+Set Ribbons
+Pokémon icon
+Item icon
+F Note Clear
+ｘ
+{STRVAR 8, 0}
+{STRVAR 52, 0}
+Class
+Level
+Exp. Points
+ID
+Random value
+Gender
+Nature
+Move 1
+Move 2
+Move 3
+Move 4
+Held item
+Special ability
+HP rnd
+HP exp
+Attack rnd
+Attack exp
+Defense rnd
+Defense exp
+Speed rnd
+Speed exp
+Sp. Atk rnd
+Sp. Atk exp
+Sp. Def rnd
+Sp. Def exp
+Coolness
+Beauty
+Cuteness
+Smartness
+Toughness
+Luster
+Tameness
+POKéRUS
+Egg
+Status
+HP
+Attack
+Defense
+Speed
+Special Attack
+Special Defense
+Event distribution
+Captured place
+Captured level
+Captured cassette
+Captured Ball
+Country code
+Form No.
+Nickname flag
+Normal
+Sleep
+Poison
+Burned
+Frozen
+Paralysed
+Badly poisoned
+None
+㊚
+㊛
+-
+ON
+OFF
+{STRVAR 59, 0}
+{STRVAR 0, 0}
+{STRVAR 6, 0}
+{STRVAR 8, 0}
+{STRVAR 5, 0}
+{STRVAR 7, 0}
+Added a Pokémon to your party.
+Added a Pokémon to the Box.
+Create Pokémon\n  LR: Switch   START: Add
+ＤＢＰｏｋｅ1
+Egg
+(Test message)\nPokémon used a move!
+Diamond
+Pearl
+Emerald
+Sapphire
+{STRVAR 0, 0}
+{STRVAR 8, 0}

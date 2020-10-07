@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnk021C4918
+	.extern gMain
 
 	.section .rodata
 
@@ -30,8 +30,8 @@ UNK_020FF4D8: ; 0x020FF4D8
 
 	.section .bss
 
-	.global UNK_021C8C58
-UNK_021C8C58: ; 0x021C8C58
+	.global sErrorMessagePrinterLock
+sErrorMessagePrinterLock: ; 0x021C8C58
 	.space 0x4
 
 	.text
@@ -52,11 +52,11 @@ _0208A9AC: .word 0x027E0000
 _0208A9B0: .word 0x00003FF8
 _0208A9B4: .word MI_WaitDma
 
-	thumb_func_start FUN_0208A9B8
-FUN_0208A9B8: ; 0x0208A9B8
+	thumb_func_start PrintErrorMessageAndReset
+PrintErrorMessageAndReset: ; 0x0208A9B8
 	push {r4-r7, lr}
 	sub sp, #0x24
-	ldr r0, _0208ABC8 ; =UNK_021C8C58
+	ldr r0, _0208ABC8 ; =sErrorMessagePrinterLock
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x1
 	bne _0208A9C6
@@ -94,7 +94,7 @@ _0208A9C6:
 	bl OS_EnableIrqMask
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -113,7 +113,7 @@ _0208A9C6:
 	mov r0, #0x4
 	mov r1, #0x8
 	bl FUN_0201669C
-	ldr r0, _0208ABDC ; =gUnk021C4918
+	ldr r0, _0208ABDC ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
 	bl FUN_0201E7A0
@@ -209,7 +209,7 @@ _0208A9C6:
 	add r2, r4, #0x0
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0x0
 	bl String_dtor
 	bl FUN_0201E788
@@ -224,7 +224,7 @@ _0208A9C6:
 	bl FUN_02032DAC
 	mov r4, #0x1
 _0208AB58:
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	bl FUN_0202FB80
 	bl FUN_02033678
 	cmp r0, #0x0
@@ -239,7 +239,7 @@ _0208AB72:
 	ldr r7, _0208AC0C ; =0x00002FFF
 	mov r6, #0x1
 _0208AB7A:
-	bl FUN_02000FE8
+	bl HandleDSLidAction
 	ldrh r1, [r5, #0x0]
 	ldrh r0, [r4, #0x0]
 	orr r1, r0
@@ -273,12 +273,12 @@ _0208ABC4:
 	add sp, #0x24
 	pop {r4-r7, pc}
 	.balign 4
-_0208ABC8: .word UNK_021C8C58
+_0208ABC8: .word sErrorMessagePrinterLock
 _0208ABCC: .word UNK_020FF4A4
 _0208ABD0: .word FUN_0208A998
 _0208ABD4: .word 0xFFFFE0FF
 _0208ABD8: .word 0x04001000
-_0208ABDC: .word gUnk021C4918
+_0208ABDC: .word gMain + 0x60
 _0208ABE0: .word 0x04000050
 _0208ABE4: .word 0x04001050
 _0208ABE8: .word 0xFFFF1FFF

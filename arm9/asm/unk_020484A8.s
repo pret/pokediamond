@@ -29,7 +29,7 @@ FUN_020484A8: ; 0x020484A8
 	add r6, r1, #0x0
 	mov r1, #0xb
 	add r2, sp, #0x0
-	bl FUN_02022534
+	bl LoadHallOfFame
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x1
@@ -38,20 +38,20 @@ FUN_020484A8: ; 0x020484A8
 	bne _020484CC
 _020484C6:
 	add r0, r4, #0x0
-	bl FUN_0202B03C
+	bl Sav2_HOF_init
 _020484CC:
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r6, r0, #0x0
 	add r0, sp, #0x4
-	bl FUN_020126B4
+	bl GF_RTC_CopyDate
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	add r2, sp, #0x4
-	bl FUN_0202B050
+	bl Sav2_HOF_RecordParty
 	ldr r0, [r5, #0xc]
 	add r1, r4, #0x0
-	bl FUN_02022540
+	bl SaveHallOfFame
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add sp, #0x14
@@ -158,9 +158,9 @@ _020485AE:
 	b _02048688
 _020485C0:
 	ldr r0, [r6, #0xc]
-	bl FUN_0206BB1C
-	bl FUN_02085140
-	bl FUN_02022830
+	bl SavArray_PlayerParty_get
+	bl HealParty
+	bl SaveSetDirtyBit
 	ldr r0, [r6, #0xc]
 	bl FUN_02022720
 	add r7, r0, #0x0
@@ -253,8 +253,8 @@ _02048688:
 	nop
 _02048690: .word 0x0000061B
 
-	thumb_func_start FUN_02048694
-FUN_02048694: ; 0x02048694
+	thumb_func_start Special_EnterHallOfFame
+Special_EnterHallOfFame: ; 0x02048694
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r7, r0, #0x0
@@ -265,10 +265,10 @@ FUN_02048694: ; 0x02048694
 	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
 	bl FUN_02034E30
@@ -282,34 +282,34 @@ FUN_02048694: ; 0x02048694
 	bl FUN_0205ED0C
 	str r0, [r5, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0xc]
-	bl FUN_02023918
+	bl Sav2_PlayerData_GetIGTAddr
 	str r0, [r5, #0xc]
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
-	bl FUN_020239CC
+	bl Sav2_PlayerData_GetProfileAddr
+	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0x10]
 	add r0, r6, #0x0
 	bl FUN_0205ED0C
 	str r0, [r5, #0x14]
 	ldr r0, [r4, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [r5, #0x18]
 	add r0, r6, #0x0
 	bl FUN_0205ED0C
 	cmp r0, #0x0
 	bne _0204871E
 	add r0, r4, #0x0
-	bl FUN_0204B328
+	bl Script_SavRTC_DateTimeTox2C
 _0204871E:
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
-	bl FUN_0204A25C
+	bl SavArray_PlayerParty_get
+	bl GiveAllMonsTheSinnohChampRibbon
 	ldr r0, [sp, #0x8]
 	bl FUN_020377B0
 	ldr r0, [sp, #0x4]
@@ -319,7 +319,7 @@ _0204871E:
 	add r0, r6, #0x0
 	bl FUN_0205ECFC
 	ldr r0, [sp, #0x0]
-	bl FUN_02023A78
+	bl PlayerProfile_SetGameClearFlag
 	ldr r0, [r4, #0xc]
 	bl FUN_02029FC8
 	mov r1, #0x2e
@@ -394,7 +394,7 @@ FUN_020487E4: ; 0x020487E4
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r6, r0, #0x0
 	mov r0, #0x1a
 	mov r1, #0xc7
@@ -466,14 +466,14 @@ FUN_02048864: ; 0x02048864
 	cmp r6, #0x2
 	bne _020488AC
 	mov r0, #0x4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r6, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x10
@@ -481,7 +481,7 @@ FUN_02048864: ; 0x02048864
 	bl ReadMsgData_ExpandPlaceholders
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	b _020488B4
 _020488AC:
 	mov r1, #0x12
@@ -491,7 +491,7 @@ _020488B4:
 	add r0, r7, #0x0
 	bl DestroyMsgData
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x2c]

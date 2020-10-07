@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -42,7 +42,7 @@ FUN_02089960: ; 0x02089960
 	add r0, r5, #0x0
 	mov r1, #0x3c
 	mov r2, #0x58
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x3c
 	add r4, r0, #0x0
@@ -52,7 +52,7 @@ FUN_02089960: ; 0x02089960
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r0, [r0, #0x8]
 	str r0, [r4, #0x34]
 	mov r0, #0x1
@@ -63,7 +63,7 @@ FUN_02089960: ; 0x02089960
 FUN_0208999C: ; 0x0208999C
 	push {r4-r6, lr}
 	add r5, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5, #0x0]
 	add r6, r0, #0x0
 	mov r4, #0x0
@@ -83,7 +83,7 @@ _020899B8:
 	bl FUN_0200E3A0
 	add r0, r4, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -123,7 +123,7 @@ _02089A20:
 	bl FUN_02089B2C
 	add r0, r4, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r4, #0x1
 _02089A34:
 	add r0, r4, #0x0
@@ -136,15 +136,15 @@ _02089A3C: .word 0x04001000
 FUN_02089A40: ; 0x02089A40
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r4, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	add r0, r4, #0x0
 	bl FUN_020168D0
 	ldr r0, _02089A64 ; =SDK_OVERLAY_MODULE_83_ID
 	ldr r1, _02089A68 ; =MOD83_0223A360
-	bl FUN_02000E7C
+	bl RegisterMainOverlay
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	nop
@@ -490,7 +490,7 @@ _02089CE8:
 	ldr r2, [r5, #0x14]
 	add r0, #0x20
 	mov r1, #0x1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	str r0, [r5, #0x10]
 	cmp r4, #0x0
 	bne _02089D48
@@ -520,7 +520,7 @@ _02089D50:
 _02089D6C:
 	cmp r2, #0x0
 	bne _02089D7A
-	ldr r0, _02089D8C ; =gUnknown21C48B8
+	ldr r0, _02089D8C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -535,4 +535,4 @@ _02089D80:
 	pop {r4-r7, pc}
 	nop
 _02089D88: .word 0x000001E2
-_02089D8C: .word gUnknown21C48B8
+_02089D8C: .word gMain

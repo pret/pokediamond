@@ -9,14 +9,14 @@ FUN_02043C6C: ; 0x02043C6C
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadWord
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02023A30
+	bl PlayerProfile_AddMoney
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -26,14 +26,14 @@ FUN_02043C90: ; 0x02043C90
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadWord
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02023A54
+	bl PlayerProfile_SubMoney
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -43,18 +43,18 @@ FUN_02043CB4: ; 0x02043CB4
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r1, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02023A54
+	bl PlayerProfile_SubMoney
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -65,8 +65,8 @@ FUN_02043CE4: ; 0x02043CE4
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -74,13 +74,13 @@ FUN_02043CE4: ; 0x02043CE4
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadWord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02023A10
+	bl PlayerProfile_GetMoney
 	cmp r0, r4
 	bhs _02043D20
 	mov r0, #0x0
@@ -98,8 +98,8 @@ FUN_02043D28: ; 0x02043D28
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -107,17 +107,17 @@ FUN_02043D28: ; 0x02043D28
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02023A10
+	bl PlayerProfile_GetMoney
 	cmp r0, r4
 	bhs _02043D6E
 	mov r0, #0x0
@@ -142,7 +142,7 @@ FUN_02043D78: ; 0x02043D78
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -150,7 +150,7 @@ FUN_02043D78: ; 0x02043D78
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x27

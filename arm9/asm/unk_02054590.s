@@ -127,7 +127,7 @@ FUN_02054658: ; 0x02054658
 	mov r1, #0x1
 	add r2, r4, #0x0
 	str r3, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add sp, #0xc
 	pop {r3-r6, pc}
 
@@ -153,7 +153,7 @@ FUN_02054690: ; 0x02054690
 	add r1, r7, #0x0
 	add r2, r6, #0x0
 	str r3, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4

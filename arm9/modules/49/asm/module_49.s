@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD49_02254840
-MOD49_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD49_02254854
-	ldr r1, _02254850 ; =MOD49_02254974
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD49_02254854
-_02254850: .word MOD49_02254974
-	thumb_func_end MOD49_02254840
-
 	thumb_func_start MOD49_02254854
 MOD49_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -62,7 +50,7 @@ MOD49_0225489C: ; 0x0225489C
 	str r2, [sp, #8]
 	bl MOD20_02252C3C
 	str r0, [sp, #0xc]
-	bl FUN_0204C158
+	bl Sav2_Poketch_PokemonHistoryGetFirstEmptySlot
 	mov r6, #0
 	str r0, [r7, #0x64]
 	cmp r0, #0
@@ -75,7 +63,7 @@ _022548C0:
 	add r1, r6, #0
 	add r2, r5, #0
 	add r3, r4, #0
-	bl FUN_0204C174
+	bl Sav2_Poketch_PokemonHistoryGetSlotN
 	ldr r0, [r7, #0x64]
 	add r6, r6, #1
 	add r4, #8
@@ -460,7 +448,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	add r0, sp, #0x1c
 	lsr r3, r3, #1
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, sp, #0x1c
 	bl FUN_02019548
 	add r0, r4, #0
@@ -670,6 +658,3 @@ MOD49_02254D60: ; 0x02254D60
 	.byte 0x00, 0x00, 0x09, 0x00, 0x04, 0x00, 0x00, 0x02, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00
 	.byte 0x00, 0x00, 0x09, 0x00, 0x04, 0x00, 0x00, 0x02, 0x02, 0x01, 0x00, 0x00, 0x00, 0x80, 0x0A, 0x00
 	.byte 0x00, 0x00, 0x09, 0x00, 0x04, 0x00, 0x00, 0x02, 0x01, 0x01, 0x00, 0x00
-
-	.section .sinit
-	.word MOD49_02254840

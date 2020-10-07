@@ -39,7 +39,7 @@ _021D74F2:
 	str r0, [r4]
 	b _021D7552
 _021D752A:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	ldr r0, [r4, #0x14]
 	bl MOD15_021D8958
@@ -66,9 +66,9 @@ _021D7552:
 	thumb_func_start MOD15_021D7558
 MOD15_021D7558: ; 0x021D7558
 	push {r4, lr}
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
-	ldr r0, _021D7594 ; =gUnknown21C48B8
+	ldr r0, _021D7594 ; =gMain
 	ldr r1, [r0, #0x48]
 	strh r1, [r4, #0x30]
 	ldr r1, [r0, #0x44]
@@ -94,7 +94,7 @@ _021D7586:
 	blx r2
 	pop {r4, pc}
 	nop
-_021D7594: .word gUnknown21C48B8
+_021D7594: .word gMain
 
 	thumb_func_start MOD15_021D7598
 MOD15_021D7598: ; 0x021D7598
@@ -166,7 +166,7 @@ _021D7604:
 MOD15_021D7608: ; 0x021D7608
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r1, r4, #0
 	bl MOD15_021D7774
 	mov r0, #0x22
@@ -183,10 +183,10 @@ MOD15_021D7628: ; 0x021D7628
 	add r5, r0, #0
 	mov r1, #0x68
 	mov r2, #0x22
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4]
 	bl FUN_0208540C
 	str r0, [r4, #4]
@@ -252,14 +252,14 @@ MOD15_021D76C4: ; 0x021D76C4
 	add r4, r1, #0
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FUN_02013920
+	bl MailMsg_GetMsgBank
 	strh r0, [r5]
 	mov r0, #0
 	ldrsh r0, [r5, r0]
-	bl FUN_02013974
+	bl MailMsg_NumMsgsInBank
 	strb r0, [r5, #3]
 	add r0, r4, #0
-	bl FUN_02013924
+	bl MailMsg_GetMsgNo
 	strb r0, [r5, #2]
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -290,7 +290,7 @@ MOD15_021D76E8: ; 0x021D76E8
 _021D7712:
 	mov r0, #0
 	ldrsh r0, [r5, r0]
-	bl FUN_02013974
+	bl MailMsg_NumMsgsInBank
 	strb r0, [r5, #3]
 _021D771C:
 	mov r1, #0
@@ -298,7 +298,7 @@ _021D771C:
 	ldrsh r1, [r5, r1]
 	ldrsb r2, [r5, r2]
 	add r0, r4, #0
-	bl FUN_02013980
+	bl MailMsg_SetMsgBankAndNum
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD15_021D772C
@@ -325,7 +325,7 @@ MOD15_021D772C: ; 0x021D772C
 _021D7752:
 	mov r0, #0
 	ldrsh r0, [r5, r0]
-	bl FUN_02013974
+	bl MailMsg_NumMsgsInBank
 	strb r0, [r5, #3]
 	mov r0, #3
 	ldrsb r0, [r5, r0]
@@ -337,7 +337,7 @@ _021D7764:
 	ldrsh r1, [r5, r1]
 	ldrsb r2, [r5, r2]
 	add r0, r4, #0
-	bl FUN_02013980
+	bl MailMsg_SetMsgBankAndNum
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD15_021D7774
@@ -352,7 +352,7 @@ MOD15_021D7774: ; 0x021D7774
 	ldr r0, [r5, #0x18]
 	bl FUN_02088F4C
 	add r0, r4, #0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD15_021D7794
@@ -1917,7 +1917,7 @@ _021D8362:
 	ldrh r1, [r1]
 	add r0, r4, #0
 	add r0, #8
-	bl FUN_02013998
+	bl MailMsg_SetFieldI
 _021D8370:
 	add r0, r4, #0
 	bl MOD15_021D85EC
@@ -2102,7 +2102,7 @@ _021D84B6:
 	bne _021D84CA
 	add r0, r4, #0
 	add r0, #8
-	bl FUN_020139B0
+	bl MailMsg_SetTrailingFieldsEmpty
 _021D84CA:
 	add r1, r4, #0
 	add r2, r4, #0
@@ -2282,7 +2282,7 @@ _021D8620:
 	pop {r3, pc}
 _021D8624:
 	add r0, #8
-	bl FUN_02013870
+	bl MailMsg_AllFieldsAreInit
 	pop {r3, pc}
 _021D862C:
 	mov r0, #0
@@ -2417,11 +2417,11 @@ MOD15_021D86F4: ; 0x021D86F4
 
 	thumb_func_start MOD15_021D86FC
 MOD15_021D86FC: ; 0x021D86FC
-	ldr r3, _021D8704 ; =FUN_02013920
+	ldr r3, _021D8704 ; =MailMsg_GetMsgBank
 	add r0, #8
 	bx r3
 	nop
-_021D8704: .word FUN_02013920
+_021D8704: .word MailMsg_GetMsgBank
 
 	thumb_func_start MOD15_021D8708
 MOD15_021D8708: ; 0x021D8708
@@ -2430,7 +2430,7 @@ MOD15_021D8708: ; 0x021D8708
 	cmp r2, #2
 	bne _021D8718
 	add r0, #8
-	bl FUN_02013918
+	bl MailMsg_GetFieldI
 	pop {r3, pc}
 _021D8718:
 	lsl r1, r1, #1
@@ -2440,11 +2440,11 @@ _021D8718:
 
 	thumb_func_start MOD15_021D8720
 MOD15_021D8720: ; 0x021D8720
-	ldr r3, _021D8728 ; =FUN_02013840
+	ldr r3, _021D8728 ; =MailMsg_GetRawString
 	add r0, #8
 	bx r3
 	nop
-_021D8728: .word FUN_02013840
+_021D8728: .word MailMsg_GetRawString
 
 	thumb_func_start MOD15_021D872C
 MOD15_021D872C: ; 0x021D872C
@@ -2588,7 +2588,7 @@ MOD15_021D87F8: ; 0x021D87F8
 	beq _021D8878
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	str r5, [r4, #0x18]
 	str r6, [r4, #0x1c]
@@ -2647,7 +2647,7 @@ MOD15_021D8888: ; 0x021D8888
 	beq _021D88CE
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r4, #0
 	add r5, r6, #0
 _021D889A:
@@ -4876,7 +4876,7 @@ _021D9A66:
 	ldr r0, [sp, #0x24]
 	mov r1, #1
 	add r3, r5, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r1, [sp, #0x1c]
 	mov r0, #1
 	mov r2, #0
@@ -5041,12 +5041,12 @@ _021D9B9C:
 	ldr r0, [sp]
 	mov r1, ip
 	add r2, r2, #1
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _021D9BB6:
 	mov r0, ip
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	str r0, [r4, #4]
 	mov r0, #1
 	b _021D9BD0
@@ -5154,7 +5154,7 @@ MOD15_021D9C58: ; 0x021D9C58
 	bl MOD15_021D9C08
 	ldr r1, [r5, #0x4c]
 	add r0, r6, #0
-	bl FUN_02013A58
+	bl GetECWordIntoStringByIndex
 	ldr r1, [r5, #0x4c]
 	mov r0, #1
 	mov r2, #0
@@ -5173,7 +5173,7 @@ MOD15_021D9C58: ; 0x021D9C58
 	ldrsh r3, [r3, r6]
 	ldr r2, [r5, #0x4c]
 	add r0, r4, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _021D9CA2:
 	add sp, #0x14
 	pop {r3, r4, r5, r6, pc}
@@ -5212,7 +5212,7 @@ _021D9CDC:
 	mov r0, #2
 	mov r1, #0x3c
 	mov r2, #0
-	bl FUN_0200AA90
+	bl ScrStrBufs_new_custom
 	add r5, r0, #0
 	mov r0, #0x4b
 	lsl r0, r0, #2
@@ -5222,7 +5222,7 @@ _021D9CDC:
 	add r6, r0, #0
 	add r0, r5, #0
 	add r2, r1, #0
-	bl FUN_0200AEE0
+	bl BufferPocketName
 	ldr r0, [r4, #4]
 	bl MOD15_021D86E8
 	add r1, r0, #0
@@ -5244,11 +5244,11 @@ _021D9CDC:
 	add r0, #0x1c
 	add r2, r6, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	b _021D9DB0
 _021D9D40:
 	ldr r0, [r4, #0x48]
@@ -5266,7 +5266,7 @@ _021D9D40:
 	add r0, r4, #0
 	ldr r2, [r4, #0x4c]
 	add r0, #0x1c
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	b _021D9DB0
 _021D9D66:
 	ldr r0, [r4, #0x48]
@@ -5284,7 +5284,7 @@ _021D9D66:
 	add r0, r4, #0
 	ldr r2, [r4, #0x4c]
 	add r0, #0x1c
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	b _021D9DB0
 _021D9D8C:
 	ldr r0, [r4, #0x48]
@@ -5302,7 +5302,7 @@ _021D9D8C:
 	add r0, r4, #0
 	ldr r2, [r4, #0x4c]
 	add r0, #0x1c
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _021D9DB0:
 	add r4, #0x1c
 	add r0, r4, #0
@@ -5478,7 +5478,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	add r0, r5, #0
 	ldr r2, [r5, #0x4c]
 	add r0, #0x2c
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [r5, #0x48]
 	ldr r2, [r5, #0x4c]
 	mov r1, #0xa
@@ -5495,7 +5495,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	ldr r2, [r5, #0x4c]
 	add r0, #0x2c
 	mov r3, #0xe
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r2, [r5, #0x60]
 	add r0, r5, #0
 	lsl r2, r2, #0x10
@@ -5674,7 +5674,7 @@ MOD15_021DA044: ; 0x021DA044
 	str r0, [sp, #8]
 	add r0, sp, #0x10
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, sp, #0x10
 	bl FUN_02019548
 	add r0, r4, #0
@@ -6040,7 +6040,7 @@ _021DA31A:
 	str r0, [sp, #0xc]
 	add r0, sp, #0x28
 	add r2, r5, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, sp, #0x28
 	bl FUN_02019270
 	add r0, sp, #0x28
@@ -6137,7 +6137,7 @@ _021DA430:
 	add r0, sp, #0x20
 	mov r1, #0
 	add r3, r3, #3
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r5, r5, #1
 	cmp r5, r7
 	blo _021DA40C
@@ -6228,7 +6228,7 @@ _021DA4C2:
 	ldr r3, [sp, #0x18]
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0
 	bl FUN_02019270
 	add r0, r6, #0
@@ -7368,7 +7368,7 @@ MOD15_021DAD98: ; 0x021DAD98
 	ldr r2, [r5, #0x3c]
 	add r0, #0x10
 	mul r3, r4
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 _021DADD4:
@@ -7390,7 +7390,7 @@ _021DADD4:
 	add r0, r5, #0
 	ldr r2, [r5, #0x3c]
 	add r0, #0x20
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r2, #0
 	mov r0, #1
 	add r1, r7, #0
@@ -7784,7 +7784,7 @@ _021DB120:
 	mov r0, #0
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x10]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r4, r4, #1
 	add r5, r5, #2
 	cmp r4, #4
@@ -8617,7 +8617,7 @@ _021DB782:
 	add r1, r2, r1
 	add r0, r5, #0
 	mov r2, #2
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021DB794: .word MOD15_021DBA4C

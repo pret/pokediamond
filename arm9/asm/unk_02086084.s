@@ -17,7 +17,7 @@ FUN_02086084: ; 0x02086084
 	add r5, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r2, #0x1
 	mov r0, #0x3
@@ -27,13 +27,13 @@ FUN_02086084: ; 0x02086084
 	add r0, r5, #0x0
 	mov r1, #0x80
 	mov r2, #0x47
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x80
 	add r4, r0, #0x0
 	bl memset
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4, #0x0]
 	ldr r0, [r0, #0x10]
 	bl FUN_02024FF4
@@ -95,7 +95,7 @@ FUN_02086084: ; 0x02086084
 	bl FUN_0200541C
 	ldr r0, _02086164 ; =FUN_02086664
 	add r1, r4, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	nop
@@ -105,7 +105,7 @@ _02086164: .word FUN_02086664
 FUN_02086168: ; 0x02086168
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5, #0x0]
 	add r4, r0, #0x0
 	cmp r1, #0x0
@@ -165,7 +165,7 @@ _020861D8: .word 0x000001EA
 FUN_020861DC: ; 0x020861DC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl FUN_020223BC
@@ -217,7 +217,7 @@ FUN_020861DC: ; 0x020861DC
 	add r0, r4, #0x4
 	bl FUN_02086ED4
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	mov r0, #0x47
 	bl FUN_020168D0
 	mov r0, #0x1
@@ -274,8 +274,8 @@ _020862D6:
 	bl FUN_02046528
 	add r6, r0, #0x0
 	ldr r5, [r4, #0xc]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x1c]
 	ldr r0, [r0, #0x0]
@@ -299,7 +299,7 @@ _020862D6:
 	mov r2, #0x0
 	bl SetMonData
 	add r0, r6, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	ldr r1, [r4, #0xc]
 	bl FUN_0202C144
 	ldr r0, [r4, #0x4]
@@ -322,8 +322,8 @@ _0208633A:
 	bl GetMonData
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_020377AC
-	bl LoadPlayerDataAddress
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x0]
 	mov r0, #0xb
 	mov r1, #0x1

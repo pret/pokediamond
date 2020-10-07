@@ -1756,7 +1756,7 @@ MOD18_0223A3D4: ; 0x0223A3D4
 	ldr r0, [r0]
 	str r4, [r0, #4]
 	ldr r0, _0223A4D0 ; =MOD18_0223C6CC
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl MOD18_0223D638
 	add r1, r4, #0
 	bl MOD18_0224DBB0
@@ -1974,7 +1974,7 @@ _0223A5F8:
 	bl FUN_0201E08C
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, _0223A648 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0, #4]
@@ -2199,7 +2199,7 @@ _0223A7EA:
 	ldr r0, _0223AB04 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r5, r0, #0
 	bl MOD18_0223D638
@@ -2247,11 +2247,11 @@ _0223A844:
 	bl FUN_0201BD70
 	cmp r0, #0
 	bne _0223A922
-	ldr r0, _0223AB08 ; =UNK_021C48F8
+	ldr r0, _0223AB08 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _0223A86C
-	ldr r0, _0223AB0C ; =gUnknown21C48B8
+	ldr r0, _0223AB0C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -2326,11 +2326,11 @@ _0223A8E4:
 	ldr r0, [r4, #0x4c]
 	sub r0, r0, #1
 	str r0, [r4, #0x4c]
-	ldr r0, _0223AB08 ; =UNK_021C48F8
+	ldr r0, _0223AB08 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _0223A924
-	ldr r0, _0223AB0C ; =gUnknown21C48B8
+	ldr r0, _0223AB0C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -2380,11 +2380,11 @@ _0223A958:
 	bl FUN_0201BD70
 	cmp r0, #0
 	bne _0223AA5A
-	ldr r0, _0223AB08 ; =UNK_021C48F8
+	ldr r0, _0223AB08 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _0223A98A
-	ldr r0, _0223AB0C ; =gUnknown21C48B8
+	ldr r0, _0223AB0C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -2558,8 +2558,8 @@ _0223AAF2:
 	.align 2, 0
 _0223AB00: .word 0x00000621
 _0223AB04: .word MOD18_02251380
-_0223AB08: .word UNK_021C48F8
-_0223AB0C: .word gUnknown21C48B8
+_0223AB08: .word gMain + 0x40
+_0223AB0C: .word gMain
 _0223AB10: .word 0x000005E3
 _0223AB14: .word 0x000003D9
 _0223AB18: .word 0x000009E8
@@ -2665,11 +2665,11 @@ _0223ABDC:
 	bl FUN_0201BD70
 	cmp r0, #0
 	bne _0223AC10
-	ldr r0, _0223AC1C ; =UNK_021C48F8
+	ldr r0, _0223AC1C ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _0223AC04
-	ldr r0, _0223AC20 ; =gUnknown21C48B8
+	ldr r0, _0223AC20 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -2685,8 +2685,8 @@ _0223AC10:
 	.align 2, 0
 _0223AC14: .word MOD18_02251380
 _0223AC18: .word 0x000006A1
-_0223AC1C: .word UNK_021C48F8
-_0223AC20: .word gUnknown21C48B8
+_0223AC1C: .word gMain + 0x40
+_0223AC20: .word gMain
 	thumb_func_end MOD18_0223A64C
 
 	thumb_func_start MOD18_0223AC24
@@ -2713,7 +2713,7 @@ MOD18_0223AC24: ; 0x0223AC24
 	ldr r0, [r0, #0x1c]
 	bl MOD05_021F4608
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDBC
 	ldr r0, _0223AC78 ; =MOD18_0223A64C
 	add r1, r4, #0
@@ -3021,14 +3021,14 @@ MOD18_0223AE88: ; 0x0223AE88
 	ldr r0, _0223AED0 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r6, r0, #0
 	bl FUN_02026CC4
 	bl FUN_02025C38
 	add r4, r0, #0
 	add r0, r6, #0
-	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Sav2_Pokedex_get
+	bl Pokedex_GetNatDexFlag
 	mov r1, #0
 	cmp r0, #0
 	beq _0223AEB6
@@ -3153,7 +3153,7 @@ MOD18_0223AF48: ; 0x0223AF48
 	ldr r0, [r0]
 	str r2, [sp, #8]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	str r0, [sp, #0x38]
 	bl MOD18_0223AED4
@@ -5023,12 +5023,12 @@ MOD18_0223BD94: ; 0x0223BD94
 	add r4, r1, #0
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	ldr r0, _0223BDDC ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r6, r0, #0
 	add r0, r5, #0
@@ -5057,7 +5057,7 @@ MOD18_0223BDE0: ; 0x0223BDE0
 	ldr r0, _0223BE24 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r5, r0, #0
 	add r0, r4, #0
@@ -5337,7 +5337,7 @@ _0223C000:
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	bl FUN_0205F740
 	add r1, r0, #0
@@ -5583,7 +5583,7 @@ MOD18_0223C1F0: ; 0x0223C1F0
 	ldr r0, _0223C338 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r6, r0, #0
 	ldr r0, _0223C338 ; =0x02251380
@@ -5595,7 +5595,7 @@ MOD18_0223C1F0: ; 0x0223C1F0
 	mov r1, #0
 	strb r1, [r2, r0]
 _0223C216:
-	ldr r1, _0223C340 ; =UNK_021C48F8
+	ldr r1, _0223C340 ; =gMain + 0x40
 	ldrh r0, [r1, #0x20]
 	cmp r0, #0
 	beq _0223C29A
@@ -5673,7 +5673,7 @@ _0223C29A:
 	bl FUN_020054C8
 _0223C2AC:
 	ldr r0, _0223C338 ; =0x02251380
-	ldr r2, _0223C340 ; =UNK_021C48F8
+	ldr r2, _0223C340 ; =gMain + 0x40
 	ldr r3, [r0]
 	ldr r4, _0223C33C ; =0x000009E5
 	ldr r0, [r3, #4]
@@ -5741,7 +5741,7 @@ _0223C332:
 	.align 2, 0
 _0223C338: .word MOD18_02251380
 _0223C33C: .word 0x000009E5
-_0223C340: .word UNK_021C48F8
+_0223C340: .word gMain + 0x40
 _0223C344: .word 0x000009E4
 _0223C348: .word 0x000009E7
 _0223C34C: .word 0x000009E8
@@ -6847,7 +6847,7 @@ MOD18_0223CB94: ; 0x0223CB94
 	ldr r0, _0223CC28 ; =0x000004C8
 	str r4, [r1, r0]
 	add r0, r4, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	mov r4, #0
 	ldr r7, _0223CC20 ; =0x02251384
@@ -6910,7 +6910,7 @@ MOD18_0223CC2C: ; 0x0223CC2C
 	ldr r1, [r0]
 	ldr r0, _0223CC74 ; =0x000004C8
 	ldr r0, [r1, r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	mov r4, #0
 	ldr r7, _0223CC70 ; =0x02251384
@@ -7510,7 +7510,7 @@ _0223D07E:
 	ldr r0, _0223D0E0 ; =0x000004C8
 	ldr r0, [r1, r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDCC
 	ldr r0, _0223D0DC ; =0x02251384
 	add r2, r7, #0
@@ -7704,7 +7704,7 @@ _0223D212:
 	cmp r1, #0
 	beq _0223D26E
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r5, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -7717,10 +7717,10 @@ _0223D212:
 	ldr r2, _0223D294 ; =0x000004CC
 	mov r1, #2
 	ldrb r2, [r3, r2]
-	bl FUN_0200B19C
+	bl BufferUndergroundItemNameWithArticle
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_0200B7A8
+	bl ScrStrBufs_UpperFirstChar
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	mov r1, #0x5f
@@ -7752,7 +7752,7 @@ _0223D280:
 	cmp r5, #0
 	beq _0223D28A
 	add r0, r5, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _0223D28A:
 	add r0, r7, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -7769,7 +7769,7 @@ MOD18_0223D298: ; 0x0223D298
 	ldr r1, [r0]
 	ldr r0, _0223D2E8 ; =0x000004C8
 	ldr r0, [r1, r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r4, r0, #0
 	mov r5, #0
@@ -7962,7 +7962,7 @@ MOD18_0223D414: ; 0x0223D414
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	bl FUN_02024FF4
 	add r4, r0, #0
 	ldr r0, _0223D580 ; =0x02251388
@@ -8112,7 +8112,7 @@ _0223D536:
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDAC
 	mov r1, #0
 	ldr r0, _0223D59C ; =MOD18_0223E7AC
@@ -8319,7 +8319,7 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	cmp r6, #0
 	beq _0223D73E
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -8328,11 +8328,11 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	add r0, r4, #0
 	mov r1, #0
 	add r2, r5, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r4, #0
 	mov r1, #1
 	add r2, r6, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	ldr r1, [sp]
@@ -8345,7 +8345,7 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8366,7 +8366,7 @@ MOD18_0223D744: ; 0x0223D744
 	cmp r5, #0
 	beq _0223D79C
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r4, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -8375,7 +8375,7 @@ MOD18_0223D744: ; 0x0223D744
 	add r0, r4, #0
 	add r1, r7, #0
 	add r2, r5, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	ldr r1, [sp]
@@ -8388,7 +8388,7 @@ MOD18_0223D744: ; 0x0223D744
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8588,7 +8588,7 @@ MOD18_0223D8F4: ; 0x0223D8F4
 	mov r0, #0
 	pop {r3, pc}
 _0223D912:
-	ldr r1, _0223D9DC ; =UNK_021C48F8
+	ldr r1, _0223D9DC ; =gMain + 0x40
 	ldrh r1, [r1, #0x20]
 	cmp r1, #0
 	beq _0223D9BA
@@ -8625,7 +8625,7 @@ _0223D950:
 	pop {r3, pc}
 _0223D962:
 	ldr r3, _0223D9D4 ; =0x02251388
-	ldr r2, _0223D9DC ; =UNK_021C48F8
+	ldr r2, _0223D9DC ; =gMain + 0x40
 	ldr r3, [r3]
 	ldrh r1, [r2, #0x1c]
 	ldr r3, [r3, #0xc]
@@ -8644,7 +8644,7 @@ _0223D962:
 	strh r1, [r0]
 	ldr r1, [sp, #4]
 	strh r1, [r0, #2]
-	ldr r1, _0223D9DC ; =UNK_021C48F8
+	ldr r1, _0223D9DC ; =gMain + 0x40
 	ldr r0, _0223D9D4 ; =0x02251388
 	ldrh r3, [r1, #0x1c]
 	ldr r2, [r0]
@@ -8682,7 +8682,7 @@ _0223D9CC:
 	nop
 _0223D9D4: .word MOD18_02251388
 _0223D9D8: .word 0x00000146
-_0223D9DC: .word UNK_021C48F8
+_0223D9DC: .word gMain + 0x40
 	thumb_func_end MOD18_0223D8F4
 
 	thumb_func_start MOD18_0223D9E0
@@ -9566,17 +9566,17 @@ MOD18_0223E060: ; 0x0223E060
 	bl AllocFromHeap
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
 	bl MOD18_0224D2F0
 	add r0, r5, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	bl MOD18_022492F8
 _0223E110:
@@ -10136,7 +10136,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r1, #0xdc
 	str r0, [r1]
 	mov r0, #0xb
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r6, r0, #0
 	mov r0, #0x64
 	mov r1, #0xb
@@ -10147,7 +10147,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r2, r0, #0
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	mov r1, #0x73
@@ -10164,7 +10164,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _0223E54E:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -10646,7 +10646,7 @@ MOD18_0223E8A8: ; 0x0223E8A8
 	ldr r0, _0223E948 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	mov r4, #0
 	ldr r7, _0223E948 ; =0x022513A0
@@ -10739,7 +10739,7 @@ MOD18_0223E958: ; 0x0223E958
 	ldr r0, [r0, #4]
 	str r4, [r0, #0x40]
 	add r0, r4, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	ldr r2, _0223E9B0 ; =0x022513A0
 	mov r1, #0xa3
@@ -11874,7 +11874,7 @@ MOD18_0223F1DC: ; 0x0223F1DC
 	ldr r0, _0223F228 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	mov r4, #0
 	add r7, r0, #0
@@ -12305,7 +12305,7 @@ MOD18_0223F50C: ; 0x0223F50C
 	add r6, r2, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r7, r0, #0
 	add r0, r5, #0
@@ -12817,7 +12817,7 @@ MOD18_0223F918: ; 0x0223F918
 	b _0223FA5E
 _0223F926:
 	ldr r0, [r0, #0x40]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r6, r0, #0
 	ldr r0, _0223FA64 ; =0x00000622
@@ -12954,7 +12954,7 @@ _0223FA34:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r5, r0, #0
 	bl FUN_0205F760
 	add r1, r0, #0
@@ -14808,7 +14808,7 @@ _0224079E:
 	add sp, #0x1c
 	pop {r3, r4, pc}
 _022407DE:
-	ldr r1, _02240894 ; =UNK_021C48F8
+	ldr r1, _02240894 ; =gMain + 0x40
 	ldrh r0, [r1, #0x22]
 	cmp r0, #0
 	beq _02240816
@@ -14892,7 +14892,7 @@ _02240884: .word MOD18_022513A0
 _02240888: .word 0x00000B3B
 _0224088C: .word MOD18_022500A8
 _02240890: .word 0x00000661
-_02240894: .word UNK_021C48F8
+_02240894: .word gMain + 0x40
 	thumb_func_end MOD18_02240658
 
 	thumb_func_start MOD18_02240898
@@ -15123,7 +15123,7 @@ MOD18_02240A44: ; 0x02240A44
 	add r4, r2, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	add r5, r0, #0
 	ldrb r0, [r4, #1]
@@ -18413,7 +18413,7 @@ _022423E6:
 	mov r0, #1
 	pop {r4, r5, r6, r7, pc}
 _022423F4:
-	ldr r0, _02242580 ; =UNK_021C48F8
+	ldr r0, _02242580 ; =gMain + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _022424C4
@@ -18429,14 +18429,14 @@ _0224240A:
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _022424B6
-	ldr r0, _02242580 ; =UNK_021C48F8
+	ldr r0, _02242580 ; =gMain + 0x40
 	ldrh r0, [r0, #0x1e]
 	lsl r1, r0, #0xc
 	ldr r0, [r4, #0x48]
 	sub r0, r1, r0
 	str r0, [sp, #0xc]
 	asr r7, r0, #0x1f
-	ldr r0, _02242580 ; =UNK_021C48F8
+	ldr r0, _02242580 ; =gMain + 0x40
 	ldrh r0, [r0, #0x1c]
 	lsl r1, r0, #0xc
 	ldr r0, [r4, #0x44]
@@ -18611,7 +18611,7 @@ _02242570:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02242580: .word UNK_021C48F8
+_02242580: .word gMain + 0x40
 _02242584: .word 0x00000000
 _02242588: .word MOD18_022500C0
 _0224258C: .word 0x00000626
@@ -19324,7 +19324,7 @@ _02242B0E:
 	str r2, [r4, r0]
 	b _02242E6C
 _02242B22:
-	ldr r1, _02242D78 ; =UNK_021C48F8
+	ldr r1, _02242D78 ; =gMain + 0x40
 	ldrh r2, [r1, #0x20]
 	cmp r2, #0
 	beq _02242BD2
@@ -19612,7 +19612,7 @@ _02242D68: .word MOD18_022513A0
 _02242D6C: .word 0x0000065E
 _02242D70: .word 0x0000065D
 _02242D74: .word 0x00000B3B
-_02242D78: .word UNK_021C48F8
+_02242D78: .word gMain + 0x40
 _02242D7C: .word 0x00000627
 _02242D80: .word 0x0000062A
 _02242D84:
@@ -22044,7 +22044,7 @@ MOD18_02244028: ; 0x02244028
 	ldr r1, [sp, #0xc]
 	ldrh r0, [r5, #0x10]
 	ldrb r1, [r1, #0x1d]
-	bl FUN_02012838
+	bl ListMenu_ctor
 	add r7, r0, #0
 	ldrh r0, [r5, #0x10]
 	mov r6, #0
@@ -22055,7 +22055,7 @@ _02244084:
 	ldr r1, [r5]
 	add r0, r7, #0
 	add r1, r1, r4
-	bl FUN_020128C4
+	bl ListMenu_CopyItem
 	ldrh r0, [r5, #0x10]
 	add r6, r6, #1
 	add r4, #8
@@ -22176,7 +22176,7 @@ _0224416E:
 	ldrh r1, [r1]
 	add r2, r5, #0
 	bl MOD18_022440C4
-	ldr r0, _02244310 ; =gUnknown21C48B8
+	ldr r0, _02244310 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -22216,7 +22216,7 @@ _022441BA:
 	blx r3
 	ldrb r1, [r5, #0x1d]
 	add r0, r7, #0
-	bl FUN_02012838
+	bl ListMenu_ctor
 	mov r4, #0
 	add r6, r4, #0
 	str r0, [sp]
@@ -22234,7 +22234,7 @@ _022441DE:
 	lsl r1, r4, #3
 	ldr r0, [sp]
 	add r1, r2, r1
-	bl FUN_020128C4
+	bl ListMenu_CopyItem
 _022441EA:
 	add r0, sp, #0xc
 	ldrh r1, [r0, #2]
@@ -22250,7 +22250,7 @@ _022441EA:
 	add r1, r2, r1
 	lsl r1, r1, #3
 	add r1, r3, r1
-	bl FUN_020128C4
+	bl ListMenu_CopyItem
 _0224420A:
 	add r6, r6, #1
 	cmp r6, r7
@@ -22322,7 +22322,7 @@ _02244268:
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _0224428C:
-	ldr r0, _02244310 ; =gUnknown21C48B8
+	ldr r0, _02244310 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #4
 	tst r0, r1
@@ -22388,7 +22388,7 @@ _02244308:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02244310: .word gUnknown21C48B8
+_02244310: .word gMain
 _02244314: .word 0x000005DC
 	thumb_func_end MOD18_02244140
 
@@ -23360,7 +23360,7 @@ _02244AB8:
 	mov r3, #0
 	ldr r0, [sp, #0xc]
 	str r3, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	str r0, [r7]
 	mov r0, #1
 	add sp, #0x10
@@ -23489,7 +23489,7 @@ MOD18_02244BB4: ; 0x02244BB4
 	add r1, r5, #0
 	add r1, #0x94
 	mov r2, #0x50
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r5, #0
 	add r0, #0x94
 	ldrh r2, [r0]
@@ -23542,7 +23542,7 @@ _02244C14:
 	add r1, r5, #0
 	ldr r0, [r0]
 	add r1, #0x94
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r5, #0
 	add r0, #0x88
 	add r1, r6, #1
@@ -23550,7 +23550,7 @@ _02244C14:
 	add r5, #0x94
 	lsl r1, r1, #1
 	add r1, r5, r1
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r0, #2
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -24144,7 +24144,7 @@ _02245050: .word MOD18_02246338
 MOD18_02245054: ; 0x02245054
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CA8
 	add r4, r0, #0
 	bl FUN_02026CC0
@@ -25548,17 +25548,17 @@ MOD18_02245B1C: ; 0x02245B1C
 	add r5, r0, #0
 	ldr r1, [sp, #0x30]
 	mov r0, #2
-	bl FUN_02012838
+	bl ListMenu_ctor
 	add r4, r0, #0
 	add r1, r5, #0
 	mov r2, #0x26
 	mov r3, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r4, #0
 	add r1, r5, #0
 	mov r2, #0x27
 	mov r3, #1
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, [sp, #0x30]
 	mov r1, #1
 	str r4, [sp, #0x10]
@@ -27087,7 +27087,7 @@ _02246762:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _02246848
-	ldr r0, _02246864 ; =gUnknown21C48B8
+	ldr r0, _02246864 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -27158,7 +27158,7 @@ _02246802:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _0224682A
-	ldr r0, _02246864 ; =gUnknown21C48B8
+	ldr r0, _02246864 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -27193,7 +27193,7 @@ _02246854: .word 0x000003D9
 _02246858: .word MOD18_022513EC
 _0224685C: .word 0x000013E6
 _02246860: .word 0x00000604
-_02246864: .word gUnknown21C48B8
+_02246864: .word gMain
 _02246868: .word 0x000012E4
 	thumb_func_end MOD18_02246514
 
@@ -27361,7 +27361,7 @@ _022469C6:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _02246A80
-	ldr r0, _02246AD4 ; =gUnknown21C48B8
+	ldr r0, _02246AD4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r1, r0
@@ -27470,7 +27470,7 @@ _02246ACA:
 	pop {r4, r5, r6, r7, pc}
 	nop
 _02246AD0: .word 0x0000061E
-_02246AD4: .word gUnknown21C48B8
+_02246AD4: .word gMain
 _02246AD8: .word MOD18_022504F8
 _02246ADC: .word 0x000003D9
 _02246AE0: .word MOD18_022453E0
@@ -27700,7 +27700,7 @@ MOD18_02246C94: ; 0x02246C94
 	add r5, r2, #0
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	ldrb r4, [r5]
 	add r7, r0, #0
@@ -28092,13 +28092,13 @@ MOD18_02246FB4: ; 0x02246FB4
 	ldr r0, _02247108 ; =0x022513EC
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CA8
 	str r0, [sp, #0xc]
 	ldr r0, _02247108 ; =0x022513EC
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r4, r0, #0
 	mov r0, #0
@@ -28118,7 +28118,7 @@ MOD18_02246FB4: ; 0x02246FB4
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDD8
 	ldr r0, [sp, #0xc]
 	bl FUN_020266E0
@@ -28585,7 +28585,7 @@ _0224737C:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _02247406
-	ldr r0, _02247410 ; =gUnknown21C48B8
+	ldr r0, _02247410 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -28605,7 +28605,7 @@ _022473AA:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _02247406
-	ldr r0, _02247410 ; =gUnknown21C48B8
+	ldr r0, _02247410 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -28644,7 +28644,7 @@ _02247406:
 	pop {r4, r5, pc}
 	nop
 _0224740C: .word 0x000005E3
-_02247410: .word gUnknown21C48B8
+_02247410: .word gMain
 	thumb_func_end MOD18_02247338
 
 	thumb_func_start MOD18_02247414
@@ -29437,7 +29437,7 @@ MOD18_022479E4: ; 0x022479E4
 	blt _022479FC
 	ldrh r0, [r0, #0x30]
 	bl FUN_0202DFA4
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _022479FC
 	add r4, #0x13
@@ -29458,7 +29458,7 @@ MOD18_02247A0C: ; 0x02247A0C
 	blt _02247A24
 	ldrh r0, [r0, #0x2c]
 	bl FUN_0202DFA4
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	bne _02247A24
 	add r4, #0x13
@@ -29532,7 +29532,7 @@ MOD18_02247AA8: ; 0x02247AA8
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -29569,7 +29569,7 @@ _02247AFA:
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
 	add r1, r7, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, #4
@@ -29658,7 +29658,7 @@ MOD18_02247BB8: ; 0x02247BB8
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -29714,7 +29714,7 @@ _02247C2C:
 	ldr r0, [r5, #0x1c]
 	add r1, r6, #0
 	add r3, r2, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _02247C40
 _02247C3E:
 	sub r4, r4, #1
@@ -29831,7 +29831,7 @@ MOD18_02247D1C: ; 0x02247D1C
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -29871,7 +29871,7 @@ _02247D6C:
 	lsl r2, r2, #2
 	add r2, r4, r2
 	add r3, r4, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r4, r4, #1
 	cmp r4, #4
 	blt _02247D6C
@@ -30029,7 +30029,7 @@ MOD18_02247EA0: ; 0x02247EA0
 	add r3, r2, #0
 	bl MOD18_0224DCB8
 	ldr r0, [r4, #8]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	bl FUN_02026940
 	add r4, #0x2a
@@ -30167,7 +30167,7 @@ MOD18_02247FC0: ; 0x02247FC0
 	add r0, #0xc
 	bl FUN_02019178
 	ldr r0, [r4, #0x1c]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0
 	str r0, [r4, #0x1c]
 _02247FF8:
@@ -30392,7 +30392,7 @@ _02248186:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _02248256
-	ldr r0, _022484C0 ; =gUnknown21C48B8
+	ldr r0, _022484C0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -30476,7 +30476,7 @@ _02248240:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _02248256
-	ldr r0, _022484C0 ; =gUnknown21C48B8
+	ldr r0, _022484C0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -30665,7 +30665,7 @@ _022483BC:
 	bl MOD18_02247EA0
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	bl FUN_0205F720
 	add r1, r0, #0
@@ -30782,7 +30782,7 @@ _0224849A:
 	strb r1, [r0]
 	b _022485F6
 	nop
-_022484C0: .word gUnknown21C48B8
+_022484C0: .word gMain
 _022484C4: .word MOD18_0224804C
 _022484C8: .word MOD18_02248034
 _022484CC: .word MOD18_022513F0
@@ -30859,7 +30859,7 @@ _0224856E:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _022485F6
-	ldr r0, _02248658 ; =gUnknown21C48B8
+	ldr r0, _02248658 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -30967,7 +30967,7 @@ _02248652:
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	nop
-_02248658: .word gUnknown21C48B8
+_02248658: .word gMain
 	thumb_func_end MOD18_02248054
 
 	thumb_func_start MOD18_0224865C
@@ -31041,7 +31041,7 @@ MOD18_022486B8: ; 0x022486B8
 	cmp r0, #0
 	beq _02248704
 	ldr r0, [r4, #4]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CB4
 	bl FUN_02026B90
 	ldr r0, _0224873C ; =0x000005E3
@@ -31143,7 +31143,7 @@ MOD18_02248784: ; 0x02248784
 	add r0, #8
 	bl FUN_02019178
 	ldr r0, [r4, #0x18]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0
 	str r0, [r4, #0x18]
 _022487BC:
@@ -31202,7 +31202,7 @@ MOD18_02248820: ; 0x02248820
 	add r5, r0, #0
 	mov r0, #5
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x18]
 	mov r3, #1
 	add r1, r5, #0
@@ -31242,7 +31242,7 @@ _02248870:
 	lsl r2, r2, #2
 	add r2, r4, r2
 	add r3, r4, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r4, r4, #1
 	cmp r4, #4
 	blt _02248870
@@ -31250,7 +31250,7 @@ _02248870:
 	add r1, r6, #0
 	mov r2, #0x30
 	mov r3, #0x33
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r4, _022488EC ; =0x02250528
@@ -31478,7 +31478,7 @@ _02248A56:
 	mov r1, #0xc
 	add r0, #0x2e
 	strb r1, [r0]
-	ldr r0, _02248D8C ; =gUnknown21C48B8
+	ldr r0, _02248D8C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -31557,7 +31557,7 @@ _02248AF4:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _02248B86
-	ldr r0, _02248D8C ; =gUnknown21C48B8
+	ldr r0, _02248D8C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -31691,7 +31691,7 @@ _02248C10:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _02248C8E
-	ldr r0, _02248D8C ; =gUnknown21C48B8
+	ldr r0, _02248D8C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -31860,7 +31860,7 @@ _02248D74:
 	strb r1, [r0]
 	b _02248DB6
 	nop
-_02248D8C: .word gUnknown21C48B8
+_02248D8C: .word gMain
 _02248D90: .word MOD18_02250520
 _02248D94: .word 0x000003D9
 _02248D98: .word MOD18_022489C4
@@ -32640,7 +32640,7 @@ _02249334: .word FreeToHeap
 MOD18_02249338: ; 0x02249338
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	bl FUN_0202623C
 	pop {r3, pc}
@@ -32651,7 +32651,7 @@ MOD18_02249338: ; 0x02249338
 MOD18_0224934C: ; 0x0224934C
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	bl FUN_02025DB0
 	pop {r3, pc}
@@ -32663,7 +32663,7 @@ MOD18_02249360: ; 0x02249360
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02025DC8
@@ -32675,7 +32675,7 @@ MOD18_02249360: ; 0x02249360
 MOD18_02249378: ; 0x02249378
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	bl FUN_02025F80
 	pop {r3, pc}
@@ -32687,7 +32687,7 @@ MOD18_0224938C: ; 0x0224938C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02025F98
@@ -32719,7 +32719,7 @@ _022493C4: .word MOD18_022513F8
 MOD18_022493C8: ; 0x022493C8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	bl FUN_02026050
 	pop {r3, pc}
@@ -32731,7 +32731,7 @@ MOD18_022493DC: ; 0x022493DC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02026258
@@ -32744,7 +32744,7 @@ MOD18_022493F4: ; 0x022493F4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02026068
@@ -32757,7 +32757,7 @@ MOD18_0224940C: ; 0x0224940C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02026074
@@ -32769,7 +32769,7 @@ MOD18_0224940C: ; 0x0224940C
 MOD18_02249424: ; 0x02249424
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	bl FUN_0202616C
 	pop {r3, pc}
@@ -32781,7 +32781,7 @@ MOD18_02249438: ; 0x02249438
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02026188
@@ -32895,7 +32895,7 @@ MOD18_022494C8: ; 0x022494C8
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x70]
 	ldr r0, _02249538 ; =MOD18_02249684
 	ldr r2, _0224953C ; =0x00002710
@@ -32943,7 +32943,7 @@ MOD18_02249564: ; 0x02249564
 	bl MOD18_02249544
 	mov r0, #7
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r0, #1
 	str r0, [sp]
@@ -32977,15 +32977,15 @@ _022495BA:
 	cmp r6, #4
 	bne _022495E2
 	ldr r0, [r5, #0xc]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #4
-	bl FUN_020239A0
+	bl PlayerProfile_GetPlayerName_NewString
 	add r7, r0, #0
 	ldr r0, [r5, #0x40]
 	ldr r2, [r4, #4]
 	add r1, r7, #0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r7, #0
 	bl String_dtor
 	b _022495EE
@@ -32994,7 +32994,7 @@ _022495E2:
 	ldr r1, [sp, #0x14]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 _022495EE:
 	add r6, r6, #1
 	add r4, #8
@@ -33159,7 +33159,7 @@ _02249734:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _022497BA
-	ldr r0, _022497C0 ; =gUnknown21C48B8
+	ldr r0, _022497C0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -33177,7 +33177,7 @@ _02249762:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _022497BA
-	ldr r0, _022497C0 ; =gUnknown21C48B8
+	ldr r0, _022497C0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -33216,7 +33216,7 @@ _022497BA:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _022497BC: .word 0x00000246
-_022497C0: .word gUnknown21C48B8
+_022497C0: .word gMain
 _022497C4: .word 0x00000245
 	thumb_func_end MOD18_02249684
 
@@ -33413,7 +33413,7 @@ _02249936:
 	add r0, #0x10
 	bl FUN_02019178
 	ldr r0, [r4, #0x40]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r4, #0
 	bl MOD18_0224CBAC
 _02249968:
@@ -33456,7 +33456,7 @@ _02249998:
 _022499A2:
 	add r0, r6, #0
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x44]
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
@@ -33498,7 +33498,7 @@ _022499FA:
 	ldr r1, [sp, #0x14]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r7, r7, #1
 	add r4, #8
 	cmp r7, r6
@@ -33559,7 +33559,7 @@ MOD18_02249A64: ; 0x02249A64
 	ldr r0, [r4, #0x20]
 	bl FUN_0201AC68
 	ldr r0, [r4, #0x44]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0
 	str r0, [r4, #0x50]
 _02249A8C:
@@ -33730,7 +33730,7 @@ MOD18_02249BA8: ; 0x02249BA8
 	bl MOD18_0224DB80
 	add r0, r6, #1
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -33767,7 +33767,7 @@ _02249C18:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	add r3, r4, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r4, r4, #1
 	cmp r4, r6
 	blt _02249C18
@@ -33777,7 +33777,7 @@ _02249C30:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	sub r3, #0x24
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r3, _02249CBC ; =0x02250598
 	add r2, sp, #0x1c
 	ldmia r3!, {r0, r1}
@@ -34197,7 +34197,7 @@ MOD18_02249F8C: ; 0x02249F8C
 	bl MOD18_0224DB80
 	add r0, r6, #1
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -34234,7 +34234,7 @@ _0224A002:
 	add r2, r0, #0
 	ldr r0, [r5, #0x70]
 	mov r1, #2
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	add r0, r4, #0
 	add r1, r5, #0
 	blx r7
@@ -34246,7 +34246,7 @@ _0224A002:
 	ldr r0, [r5, #0x70]
 	mov r1, #6
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	ldr r2, [r5, #0x6c]
@@ -34259,7 +34259,7 @@ _0224A002:
 	ldr r0, [r5, #0x40]
 	ldr r1, [r5, #0x68]
 	add r2, r4, #0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r4, r4, #1
 	cmp r4, r6
 	blt _0224A002
@@ -34269,7 +34269,7 @@ _0224A058:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	sub r3, #0x3e
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r3, _0224A0E0 ; =0x02250598
 	add r2, sp, #0x20
 	ldmia r3!, {r0, r1}
@@ -34646,7 +34646,7 @@ MOD18_0224A360: ; 0x0224A360
 	bl MOD18_0224DB80
 	add r0, r6, #1
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -34683,7 +34683,7 @@ _0224A3D0:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	add r3, r4, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r4, r4, #1
 	cmp r4, r6
 	blt _0224A3D0
@@ -34693,7 +34693,7 @@ _0224A3E8:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	sub r3, #0x3e
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r3, _0224A470 ; =0x02250598
 	add r2, sp, #0x1c
 	ldmia r3!, {r0, r1}
@@ -34906,7 +34906,7 @@ _0224A5A6:
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	add r6, r0, #0
 	ldr r0, _0224A694 ; =0x000005DC
 	bl FUN_020054C8
@@ -34915,7 +34915,7 @@ _0224A5A6:
 	lsr r1, r1, #0x10
 	mov r2, #1
 	mov r3, #4
-	bl FUN_0206ED38
+	bl Bag_AddItem
 	cmp r0, #0
 	beq _0224A62A
 	ldr r0, _0224A69C ; =0x022513F8
@@ -35134,8 +35134,8 @@ MOD18_0224A78C: ; 0x0224A78C
 	bl MOD18_022498EC
 	bl MOD18_0224D704
 	ldr r0, [r4, #0xc]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -35184,7 +35184,7 @@ MOD18_0224A7C8: ; 0x0224A7C8
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x70]
 	bl FUN_0204F7E4
 	bl MOD18_0223D648
@@ -35283,7 +35283,7 @@ _0224A8C0:
 	ldr r0, [r5, #0x6c]
 	bl String_dtor
 	ldr r0, [r5, #0x70]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	bl MOD18_0223D648
 	bl MOD18_0224DD94
 	bl MOD18_0223D638
@@ -35379,7 +35379,7 @@ _0224A98E:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _0224A9AA
-	ldr r0, _0224A9B0 ; =gUnknown21C48B8
+	ldr r0, _0224A9B0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -35391,7 +35391,7 @@ _0224A9AA:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _0224A9AC: .word 0x00000246
-_0224A9B0: .word gUnknown21C48B8
+_0224A9B0: .word gMain
 	thumb_func_end MOD18_0224A914
 
 	thumb_func_start MOD18_0224A9B4
@@ -35433,7 +35433,7 @@ MOD18_0224A9EC: ; 0x0224A9EC
 	add r5, r0, #0
 	bl FUN_02001470
 	ldr r0, [r0, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02025F0C
@@ -35584,7 +35584,7 @@ MOD18_0224AB08: ; 0x0224AB08
 	bl MOD18_0224DB80
 	add r0, r6, #1
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -35621,7 +35621,7 @@ _0224AB78:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	add r3, r4, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r4, r4, #1
 	cmp r4, r6
 	blt _0224AB78
@@ -35630,7 +35630,7 @@ _0224AB90:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	sub r3, r2, #2
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r3, _0224AC18 ; =0x02250598
 	add r2, sp, #0x1c
 	ldmia r3!, {r0, r1}
@@ -35947,7 +35947,7 @@ _0224AE48:
 	ldr r0, [r5, #0x70]
 	cmp r0, #0
 	beq _0224AE52
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 _0224AE52:
 	ldr r0, [r5, #4]
 	cmp r0, #0
@@ -36091,7 +36091,7 @@ MOD18_0224AF28: ; 0x0224AF28
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x70]
 	add r0, r4, #0
 	bl MOD18_0224AA4C
@@ -36386,7 +36386,7 @@ MOD18_0224B190: ; 0x0224B190
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r4, r0, #0
 	add r1, r5, #0
@@ -36412,7 +36412,7 @@ MOD18_0224B1C4: ; 0x0224B1C4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r1, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r1, r5, #0
 	add r4, r0, #0
@@ -36627,7 +36627,7 @@ _0224B374:
 	bl MOD18_022498EC
 	ldr r0, [sp, #0x18]
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	str r2, [sp]
@@ -36675,13 +36675,13 @@ _0224B3D4:
 	add r1, r7, #0
 	add r2, r6, #5
 	mvn r3, r3
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _0224B3F4
 _0224B3EA:
 	add r1, r7, #0
 	add r2, r6, r4
 	add r3, r4, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 _0224B3F4:
 	ldr r0, [sp, #0x18]
 	add r4, r4, #1
@@ -36750,7 +36750,7 @@ MOD18_0224B464: ; 0x0224B464
 	bl MOD18_022498EC
 	ldr r0, [sp, #0x1c]
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -36796,13 +36796,13 @@ _0224B4D0:
 	add r1, r7, #0
 	add r2, r6, r4
 	mvn r3, r3
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _0224B4F0
 _0224B4E6:
 	add r1, r7, #0
 	add r2, r6, r4
 	add r3, r4, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 _0224B4F0:
 	ldr r0, [sp, #0x1c]
 	add r4, r4, #1
@@ -37163,7 +37163,7 @@ MOD18_0224B7D8: ; 0x0224B7D8
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _0224B7FC
-	ldr r0, _0224B800 ; =gUnknown21C48B8
+	ldr r0, _0224B800 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -37176,7 +37176,7 @@ _0224B7FC:
 	mov r0, #0
 	pop {r3, pc}
 	.align 2, 0
-_0224B800: .word gUnknown21C48B8
+_0224B800: .word gMain
 	thumb_func_end MOD18_0224B7D8
 
 	thumb_func_start MOD18_0224B804
@@ -37342,7 +37342,7 @@ _0224B946:
 	add r0, r4, #0
 	bl MOD18_02245054
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205EDE8
 	add r0, r4, #0
 	bl MOD18_0224BD54
@@ -37370,7 +37370,7 @@ MOD18_0224B980: ; 0x0224B980
 	ldr r0, [r4, #0x6c]
 	bl String_dtor
 	ldr r0, [r4, #0x70]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -37482,11 +37482,11 @@ _0224BA70:
 	bl MOD18_0223D658
 	bl MOD18_0224DD94
 	ldr r0, [r4, #0xc]
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	mov r3, #0
 	str r3, [sp]
@@ -37504,7 +37504,7 @@ _0224BA70:
 	strb r0, [r4, r1]
 	pop {r3, r4, r5, r6, pc}
 _0224BAB4:
-	ldr r0, _0224BD48 ; =gUnknown21C48B8
+	ldr r0, _0224BD48 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -37657,7 +37657,7 @@ _0224BC06:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _0224BC1C
-	ldr r0, _0224BD48 ; =gUnknown21C48B8
+	ldr r0, _0224BD48 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -37798,7 +37798,7 @@ _0224BD3A:
 	nop
 _0224BD40: .word 0x00000246
 _0224BD44: .word MOD18_0224B204
-_0224BD48: .word gUnknown21C48B8
+_0224BD48: .word gMain
 _0224BD4C: .word MOD18_0224B228
 _0224BD50: .word MOD18_0224B84C
 	thumb_func_end MOD18_0224B9D0
@@ -37836,7 +37836,7 @@ MOD18_0224BD54: ; 0x0224BD54
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x70]
 	mov r0, #4
 	bl FUN_0205EB38
@@ -38088,7 +38088,7 @@ MOD18_0224BFAC: ; 0x0224BFAC
 	add r6, r0, #0
 	ldr r0, [r6, #0xc]
 	add r4, r1, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	bl FUN_02025D40
 	add r7, r4, r0
@@ -38223,13 +38223,13 @@ MOD18_0224C0AC: ; 0x0224C0AC
 	add r6, r0, #0
 	ldr r0, [r6, #0xc]
 	add r4, r1, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	add r5, r0, #0
 	bl FUN_02026CC4
 	add r7, r0, #0
 	add r0, r5, #0
-	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Sav2_Pokedex_get
+	bl Pokedex_GetNatDexFlag
 	str r0, [sp, #4]
 	add r0, r7, #0
 	bl FUN_02025D40
@@ -38366,7 +38366,7 @@ MOD18_0224C1C0: ; 0x0224C1C0
 	ldr r0, [r5, #0xc]
 	add r7, r2, #0
 	add r4, r1, #0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	add r6, r0, #0
 	add r0, r7, #0
@@ -38462,7 +38462,7 @@ _0224C288:
 	bl MOD18_022498EC
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -38502,14 +38502,14 @@ _0224C288:
 	ldr r0, [r5, #0x40]
 	mov r2, #0xd
 	mov r3, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	add r1, r0, #0
 	ldr r0, [r5, #0x40]
 	mov r2, #0xe
 	mov r3, #1
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	mov r2, #0xf
@@ -38517,7 +38517,7 @@ _0224C288:
 	add r3, r2, #0
 	ldr r0, [r5, #0x40]
 	sub r3, #0x11
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _0224C396
 _0224C31E:
 	cmp r0, #0
@@ -38532,14 +38532,14 @@ _0224C31E:
 	ldr r0, [r5, #0x40]
 	mov r2, #0x10
 	mov r3, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	add r1, r0, #0
 	ldr r0, [r5, #0x40]
 	mov r2, #0x11
 	mov r3, #1
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	mov r2, #0x12
@@ -38547,7 +38547,7 @@ _0224C31E:
 	add r3, r2, #0
 	ldr r0, [r5, #0x40]
 	sub r3, #0x14
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	b _0224C396
 _0224C36C:
 	bl MOD18_0223D658
@@ -38556,7 +38556,7 @@ _0224C36C:
 	ldr r0, [r5, #0x40]
 	mov r2, #0x1c
 	mov r3, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	mov r2, #0x16
@@ -38564,7 +38564,7 @@ _0224C36C:
 	add r3, r2, #0
 	ldr r0, [r5, #0x40]
 	sub r3, #0x18
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 _0224C396:
 	bl MOD18_0224DAD8
 	add r1, sp, #0x14
@@ -38658,7 +38658,7 @@ _0224C434:
 	str r1, [sp, #8]
 	ldr r2, [r4, #0x68]
 	add r0, #0x20
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r0, #1
 	mvn r0, r0
 	cmp r5, r0
@@ -38668,7 +38668,7 @@ _0224C434:
 	ldrb r2, [r3, r2]
 	ldr r0, [r4, #0x70]
 	mov r1, #2
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	mov r0, #1
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -38678,7 +38678,7 @@ _0224C434:
 	ldr r0, [r4, #0x70]
 	mov r1, #6
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	ldr r2, [r4, #0x68]
@@ -38697,7 +38697,7 @@ _0224C434:
 	ldr r2, [r4, #0x6c]
 	add r0, #0x20
 	mov r3, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 _0224C4C2:
 	mov r0, #1
 	mvn r0, r0
@@ -38749,7 +38749,7 @@ MOD18_0224C510: ; 0x0224C510
 	bl FUN_02001470
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	str r0, [sp, #0x2c]
 	add r0, r4, #0
@@ -38967,7 +38967,7 @@ _0224C6C4:
 	str r1, [sp, #8]
 	ldr r2, [r4, #0x68]
 	add r0, #0x20
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r0, #1
 	mvn r0, r0
 	cmp r6, r0
@@ -38977,7 +38977,7 @@ _0224C6C4:
 	ldr r0, [r4, #0x70]
 	mov r1, #2
 	add r2, r5, #0
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	mov r0, #1
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -38985,7 +38985,7 @@ _0224C6C4:
 	mov r1, #6
 	add r2, r7, #0
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	ldr r2, [r4, #0x68]
@@ -39004,7 +39004,7 @@ _0224C6C4:
 	ldr r2, [r4, #0x6c]
 	add r0, #0x20
 	mov r3, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, _0224C7BC ; =0x00000215
 	strb r5, [r4, r0]
 	add r0, r0, #5
@@ -39027,7 +39027,7 @@ _0224C74E:
 	ldr r2, [r4, #0x68]
 	add r0, #0x20
 	mov r3, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 _0224C778:
 	mov r0, #0x92
 	lsl r0, r0, #2
@@ -39086,7 +39086,7 @@ MOD18_0224C7D4: ; 0x0224C7D4
 	bl MOD18_022498EC
 	mov r0, #6
 	mov r1, #4
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -39160,7 +39160,7 @@ _0224C87C:
 	ldr r0, [r5, #0x40]
 	add r1, r6, #0
 	add r3, r4, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r4, r4, #1
 	cmp r4, #5
 	blt _0224C87C
@@ -39168,7 +39168,7 @@ _0224C87C:
 	ldr r0, [r5, #0x40]
 	add r1, r6, #0
 	sub r3, r2, #2
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r0, r6, #0
 	bl DestroyMsgData
 	bl MOD18_0224DAD8
@@ -39310,7 +39310,7 @@ MOD18_0224C9C4: ; 0x0224C9C4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
 	ldr r1, _0224CA24 ; =0x00000215
 	add r4, r0, #0
@@ -39374,7 +39374,7 @@ MOD18_0224CA34: ; 0x0224CA34
 	ldr r0, [r4, #0x6c]
 	bl String_dtor
 	ldr r0, [r4, #0x70]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -39548,7 +39548,7 @@ MOD18_0224CB34: ; 0x0224CB34
 	str r1, [sp, #8]
 	ldr r2, [r5, #0x68]
 	add r0, #0x30
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add sp, #0x14
 	pop {r4, r5, pc}
 	nop
@@ -40014,14 +40014,14 @@ _0224CF40:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _0224CF6C
-	ldr r0, _0224CF60 ; =gUnknown21C48B8
+	ldr r0, _0224CF60 ; =gMain
 	b _0224CF64
 	.align 2, 0
 _0224CF50: .word 0x00000246
 _0224CF54: .word 0x0000024A
 _0224CF58: .word 0x000005DC
 _0224CF5C: .word 0x0000FFFC
-_0224CF60: .word gUnknown21C48B8
+_0224CF60: .word gMain
 _0224CF64:
 	ldr r1, [r0, #0x48]
 	mov r0, #1
@@ -40062,7 +40062,7 @@ _0224CFA8:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _0224D0AA
-	ldr r0, _0224D1DC ; =gUnknown21C48B8
+	ldr r0, _0224D1DC ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -40257,7 +40257,7 @@ _0224D14E:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _0224D1CE
-	ldr r0, _0224D1DC ; =gUnknown21C48B8
+	ldr r0, _0224D1DC ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -40292,7 +40292,7 @@ _0224D1A0:
 	bl MOD18_0224DF88
 	cmp r0, #0
 	bne _0224D1CE
-	ldr r0, _0224D1DC ; =gUnknown21C48B8
+	ldr r0, _0224D1DC ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -40310,7 +40310,7 @@ _0224D1CE:
 	nop
 _0224D1D4: .word 0x000005E3
 _0224D1D8: .word 0x00000246
-_0224D1DC: .word gUnknown21C48B8
+_0224D1DC: .word gMain
 _0224D1E0: .word MOD18_0224C510
 _0224D1E4: .word 0x00000215
 _0224D1E8: .word MOD18_0225066C
@@ -40368,7 +40368,7 @@ MOD18_0224D1F8: ; 0x0224D1F8
 	bl String_ctor
 	str r0, [r6, #0x6c]
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r6, #0x70]
 	ldr r0, _0224D2DC ; =0x00000246
 	mov r1, #0
@@ -40506,7 +40506,7 @@ MOD18_0224D364: ; 0x0224D364
 	str r1, [sp, #0xc]
 	add r5, r2, #0
 	str r3, [sp, #0x10]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [sp, #0x1c]
 	mov r0, #0x1e
 	mov r1, #4
@@ -40529,7 +40529,7 @@ MOD18_0224D364: ; 0x0224D364
 	add r2, r4, #0
 	mov r3, #2
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0xc]
 	mov r1, #1
 	add r2, r4, #0
@@ -40543,7 +40543,7 @@ MOD18_0224D364: ; 0x0224D364
 	add r2, r4, #0
 	mov r3, #2
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0xc]
 	mov r1, #3
 	add r2, r4, #0
@@ -40557,7 +40557,7 @@ MOD18_0224D364: ; 0x0224D364
 	add r2, r4, #0
 	mov r3, #0x39
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0xc]
 	mov r1, #2
 	add r2, r4, #0
@@ -40571,7 +40571,7 @@ MOD18_0224D364: ; 0x0224D364
 	add r2, r4, #0
 	mov r3, #0x84
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0xc]
 	mov r1, #3
 	add r2, r4, #0
@@ -40585,9 +40585,9 @@ MOD18_0224D364: ; 0x0224D364
 	add r2, r4, #0
 	mov r3, #0x39
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r5, #0
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -40596,7 +40596,7 @@ MOD18_0224D364: ; 0x0224D364
 	ldr r0, [sp, #0x1c]
 	mov r1, #6
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0xc]
 	mov r1, #5
 	add r2, r4, #0
@@ -40614,11 +40614,11 @@ MOD18_0224D364: ; 0x0224D364
 	add r0, r7, #0
 	mov r3, #0x94
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x1c]
 	mov r1, #0
 	add r2, r5, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [sp, #0xc]
 	mov r1, #4
 	add r2, r4, #0
@@ -40636,7 +40636,7 @@ MOD18_0224D364: ; 0x0224D364
 	add r0, r7, #0
 	mov r3, #0x39
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
 	bl FUN_020269A0
 	add r1, r0, #0
@@ -40653,7 +40653,7 @@ MOD18_0224D364: ; 0x0224D364
 	add r2, r4, #0
 	mov r3, #0x39
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r5, #0
 	mov r6, #0x27
 _0224D4D0:
@@ -40670,7 +40670,7 @@ _0224D4D0:
 	mov r1, #0
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r5, r5, #1
 	add r6, #0x10
 	cmp r5, #7
@@ -40690,7 +40690,7 @@ _0224D500:
 	mov r1, #6
 	ldr r0, [sp, #0x1c]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0xc]
 	mov r1, #0xd
 	add r2, r4, #0
@@ -40708,7 +40708,7 @@ _0224D500:
 	add r0, r7, #0
 	mov r1, #0
 	mov r3, #0x94
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x14]
 	add r6, r6, #4
 	add r0, r0, #1
@@ -40721,7 +40721,7 @@ _0224D500:
 	ldr r0, [sp, #0x18]
 	bl String_dtor
 	ldr r0, [sp, #0x1c]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -40767,7 +40767,7 @@ _0224D5B0: .word MOD18_022513FC
 	thumb_func_start MOD18_0224D5B4
 MOD18_0224D5B4: ; 0x0224D5B4
 	push {r3, lr}
-	ldr r2, _0224D5C8 ; =gUnknown21C48B8
+	ldr r2, _0224D5C8 ; =gMain
 	ldr r3, [r2, #0x48]
 	mov r2, #3
 	tst r2, r3
@@ -40776,7 +40776,7 @@ MOD18_0224D5B4: ; 0x0224D5B4
 _0224D5C4:
 	pop {r3, pc}
 	nop
-_0224D5C8: .word gUnknown21C48B8
+_0224D5C8: .word gMain
 	thumb_func_end MOD18_0224D5B4
 
 	thumb_func_start MOD18_0224D5CC
@@ -41074,7 +41074,7 @@ MOD18_0224D814: ; 0x0224D814
 	mov r0, #4
 	add r5, r2, #0
 	str r3, [sp, #0x14]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r7, r0, #0
 	mov r0, #0x28
 	mov r1, #4
@@ -41087,7 +41087,7 @@ MOD18_0224D814: ; 0x0224D814
 	add r0, r7, #0
 	mov r1, #1
 	add r2, r5, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [sp, #0x10]
 	mov r1, #0xc
 	add r2, r4, #0
@@ -41105,7 +41105,7 @@ MOD18_0224D814: ; 0x0224D814
 	add r2, r6, #0
 	mov r3, #2
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
 	mov r1, #0xd
 	add r2, r4, #0
@@ -41119,7 +41119,7 @@ MOD18_0224D814: ; 0x0224D814
 	add r2, r4, #0
 	mov r3, #2
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x14]
 	bl FUN_020269CC
 	add r2, r0, #0
@@ -41129,7 +41129,7 @@ MOD18_0224D814: ; 0x0224D814
 	str r0, [sp, #4]
 	add r0, r7, #0
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x10]
 	mov r1, #0xe
 	add r2, r4, #0
@@ -41147,7 +41147,7 @@ MOD18_0224D814: ; 0x0224D814
 	add r2, r6, #0
 	mov r3, #0x66
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
 	mov r1, #0xf
 	add r2, r4, #0
@@ -41161,7 +41161,7 @@ MOD18_0224D814: ; 0x0224D814
 	add r2, r4, #0
 	mov r3, #2
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r5, #0
 	str r5, [sp, #0x20]
 _0224D8FA:
@@ -41175,7 +41175,7 @@ _0224D8FA:
 	ldr r2, [sp, #0x24]
 	add r0, r7, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [sp, #0x10]
 	mov r1, #0x10
 	add r2, r4, #0
@@ -41197,9 +41197,9 @@ _0224D8FA:
 	mov r1, #0
 	add r2, r6, #0
 	mov r3, #2
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x24]
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	add r2, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -41208,7 +41208,7 @@ _0224D8FA:
 	str r0, [sp, #4]
 	add r0, r7, #0
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x10]
 	mov r1, #0x11
 	add r2, r4, #0
@@ -41227,7 +41227,7 @@ _0224D8FA:
 	ldr r0, [sp, #0xc]
 	add r2, r6, #0
 	mov r3, #0x66
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x24]
 	bl FreeToHeap
 	b _0224D9DE
@@ -41249,7 +41249,7 @@ _0224D994:
 	mov r1, #0
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
 	mov r1, #0x34
 	add r2, r4, #0
@@ -41264,7 +41264,7 @@ _0224D994:
 	ldr r0, [sp, #0xc]
 	add r2, r4, #0
 	mov r3, #0x66
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 _0224D9DE:
 	ldr r0, [sp, #0x20]
 	add r5, #0x11
@@ -41277,7 +41277,7 @@ _0224D9DE:
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r7, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD18_0224D814
@@ -41421,7 +41421,7 @@ _0224DB08:
 	bl String_ctor
 	str r0, [r4, #4]
 	add r0, r5, #0
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x28]
 	ldr r0, [sp]
 	ldr r2, [sp]
@@ -41460,7 +41460,7 @@ MOD18_0224DB5C: ; 0x0224DB5C
 	ldr r0, [r4, #4]
 	bl String_dtor
 	ldr r0, [r4, #0x28]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x24]
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -41519,7 +41519,7 @@ MOD18_0224DBB8: ; 0x0224DBB8
 	cmp r0, #0
 	bne _0224DBDE
 _0224DBCE:
-	ldr r0, _0224DBE0 ; =gUnknown21C48B8
+	ldr r0, _0224DBE0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -41529,7 +41529,7 @@ _0224DBCE:
 _0224DBDE:
 	pop {r4, pc}
 	.align 2, 0
-_0224DBE0: .word gUnknown21C48B8
+_0224DBE0: .word gMain
 	thumb_func_end MOD18_0224DBB8
 
 	thumb_func_start MOD18_0224DBE4
@@ -41624,7 +41624,7 @@ _0224DC74:
 	add r0, r5, #0
 	str r3, [sp, #8]
 	add r0, #8
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	str r0, [r5, #0x30]
 	str r6, [r5, #0x1c]
 	str r7, [r5, #0x3c]
@@ -41776,7 +41776,7 @@ MOD18_0224DDA0: ; 0x0224DDA0
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #1
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41791,7 +41791,7 @@ MOD18_0224DDB8: ; 0x0224DDB8
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41806,7 +41806,7 @@ MOD18_0224DDD0: ; 0x0224DDD0
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #2
-	bl FUN_0200B19C
+	bl BufferUndergroundItemNameWithArticle
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41821,7 +41821,7 @@ MOD18_0224DDE8: ; 0x0224DDE8
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #3
-	bl FUN_0200B1D4
+	bl BufferUndergroundTrapName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41836,7 +41836,7 @@ MOD18_0224DE00: ; 0x0224DE00
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #5
-	bl FUN_0200B2E0
+	bl BufferInterviewQuestion
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41851,7 +41851,7 @@ MOD18_0224DE18: ; 0x0224DE18
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #5
-	bl FUN_0200B318
+	bl BufferInterviewAnswer
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41864,7 +41864,7 @@ MOD18_0224DE30: ; 0x0224DE30
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B318
+	bl BufferInterviewAnswer
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41879,7 +41879,7 @@ MOD18_0224DE44: ; 0x0224DE44
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	mov r1, #2
-	bl FUN_0200B350
+	bl BufferDecorationName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41897,7 +41897,7 @@ MOD18_0224DE5C: ; 0x0224DE5C
 	mov r3, #1
 	str r3, [sp, #4]
 	ldr r0, [r4, #0x28]
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41919,7 +41919,7 @@ MOD18_0224DE7C: ; 0x0224DE7C
 	ldr r0, [r4, #0x28]
 	mov r1, #6
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41940,7 +41940,7 @@ MOD18_0224DEA4: ; 0x0224DEA4
 	str r0, [sp, #4]
 	ldr r0, [r4, #0x28]
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41963,7 +41963,7 @@ MOD18_0224DEC8: ; 0x0224DEC8
 	mov r1, #6
 	ldr r0, [r4, #0x28]
 	add r3, r1, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41978,7 +41978,7 @@ MOD18_0224DEF0: ; 0x0224DEF0
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B164
+	bl BufferUndergroundItemName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -41991,7 +41991,7 @@ MOD18_0224DF04: ; 0x0224DF04
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B1D4
+	bl BufferUndergroundTrapName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -42004,7 +42004,7 @@ MOD18_0224DF18: ; 0x0224DF18
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B350
+	bl BufferDecorationName
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -42017,7 +42017,7 @@ MOD18_0224DF2C: ; 0x0224DF2C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B19C
+	bl BufferUndergroundItemNameWithArticle
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -42030,7 +42030,7 @@ MOD18_0224DF40: ; 0x0224DF40
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x28]
-	bl FUN_0200B20C
+	bl BufferUndergroundTrapNameWithArticle
 	ldr r1, [r4, #0x40]
 	mov r0, #2
 	orr r0, r1
@@ -42040,11 +42040,11 @@ MOD18_0224DF40: ; 0x0224DF40
 
 	thumb_func_start MOD18_0224DF54
 MOD18_0224DF54: ; 0x0224DF54
-	ldr r3, _0224DF5C ; =FUN_0200B7A8
+	ldr r3, _0224DF5C ; =ScrStrBufs_UpperFirstChar
 	ldr r0, [r0, #0x28]
 	bx r3
 	nop
-_0224DF5C: .word FUN_0200B7A8
+_0224DF5C: .word ScrStrBufs_UpperFirstChar
 	thumb_func_end MOD18_0224DF54
 
 	thumb_func_start MOD18_0224DF60
@@ -42286,7 +42286,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x24]
 	mov r2, #3
 	str r2, [sp]
@@ -42359,7 +42359,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	add r2, r4, #0
 	add r3, r1, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	bl String_dtor
 	mov r6, #0
@@ -42369,7 +42369,7 @@ _0224E186:
 	ldr r2, [r4]
 	add r1, r7, #0
 	add r3, r6, #0
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	add r6, r6, #1
 	add r4, r4, #4
 	cmp r6, #4
@@ -42496,7 +42496,7 @@ MOD18_0224E26C: ; 0x0224E26C
 	add r0, #0x14
 	bl FUN_02019178
 	ldr r0, [r4, #0x24]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD18_0224E26C
@@ -42741,7 +42741,7 @@ _0224E454:
 	ldr r0, [sp, #0x20]
 	mov r1, #4
 	add r0, r0, #1
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x28]
 	mov r2, #3
 	str r2, [sp]
@@ -42826,9 +42826,9 @@ _0224E454:
 	add r0, #0x18
 	add r3, r1, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r0, #4
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	mov r1, #1
 	str r1, [sp]
 	add r2, r5, #0
@@ -42838,7 +42838,7 @@ _0224E454:
 	mov r1, #0
 	mov r3, #2
 	add r6, r0, #0
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	mov r1, #1
 	str r1, [sp]
 	add r2, r5, #0
@@ -42847,7 +42847,7 @@ _0224E454:
 	ldrb r2, [r2]
 	add r0, r6, #0
 	mov r3, #2
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r2, [sp, #0x2c]
 	add r0, r6, #0
 	add r1, r4, #0
@@ -42862,9 +42862,9 @@ _0224E454:
 	add r2, r4, #0
 	add r3, r1, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [sp, #0x28]
 	bl String_dtor
 	ldr r0, [sp, #0x2c]
@@ -42899,7 +42899,7 @@ _0224E5B4:
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x14]
 	add r3, r6, r3
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, [sp, #0x20]
 	add r4, r4, #1
 	add r6, r6, #2
@@ -42911,7 +42911,7 @@ _0224E5CE:
 	ldr r1, [sp, #0x18]
 	ldr r2, _0224E694 ; =0x00000115
 	add r3, r3, #1
-	bl FUN_02012880
+	bl ListMenu_ItemFromMsgData
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 	bl MOD18_0223D678
@@ -43025,7 +43025,7 @@ MOD18_0224E6A8: ; 0x0224E6A8
 	add r0, #0x18
 	bl FUN_02019178
 	ldr r0, [r4, #0x28]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, [r4, #4]
 	bl FUN_0205EBEC
 	pop {r4, pc}
@@ -43624,7 +43624,7 @@ _0224EBA2:
 	stmia r2!, {r0, r1}
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
-	ldr r0, _0224EDC8 ; =gUnknown21C48B8
+	ldr r0, _0224EDC8 ; =gMain
 	mov r1, #0x20
 	ldr r0, [r0, #0x4c]
 	mov r6, #1
@@ -43722,7 +43722,7 @@ _0224EC3A:
 	add r0, r6, #0
 	bl MOD05_021E7EB0
 _0224EC88:
-	ldr r0, _0224EDC8 ; =gUnknown21C48B8
+	ldr r0, _0224EDC8 ; =gMain
 	ldr r2, [r0, #0x48]
 	mov r0, #1
 	add r1, r2, #0
@@ -43870,7 +43870,7 @@ _0224EDBA:
 	.align 2, 0
 _0224EDC0: .word 0x00000508
 _0224EDC4: .word 0x000004DC
-_0224EDC8: .word gUnknown21C48B8
+_0224EDC8: .word gMain
 _0224EDCC: .word 0xFFFF0000
 _0224EDD0: .word 0x000005FE
 _0224EDD4: .word 0x00000521
@@ -43965,7 +43965,7 @@ _0224EE52:
 	ldr r6, [r2, #0x58]
 	ldr r5, [r2, #0x60]
 	bne _0224EF54
-	ldr r0, _0224F150 ; =gUnknown21C48B8
+	ldr r0, _0224F150 ; =gMain
 	mov r2, #0x20
 	ldr r0, [r0, #0x4c]
 	tst r2, r0
@@ -44038,7 +44038,7 @@ _0224EF1A:
 	mov r0, #0
 	str r0, [sp]
 _0224EF1E:
-	ldr r0, _0224F150 ; =gUnknown21C48B8
+	ldr r0, _0224F150 ; =gMain
 	mov r1, #1
 	ldr r0, [r0, #0x48]
 	add r2, r0, #0
@@ -44306,7 +44306,7 @@ _0224F140:
 	.align 2, 0
 _0224F148: .word 0x000004DC
 _0224F14C: .word 0x000004FC
-_0224F150: .word gUnknown21C48B8
+_0224F150: .word gMain
 _0224F154: .word 0x00000523
 _0224F158: .word 0x00000522
 _0224F15C: .word 0x000005EB
@@ -44512,7 +44512,7 @@ _0224F2BE:
 	ldr r6, [r2, #0x58]
 	ldr r4, [r2, #0x60]
 	bne _0224F3C0
-	ldr r0, _0224F520 ; =gUnknown21C48B8
+	ldr r0, _0224F520 ; =gMain
 	mov r2, #0x20
 	ldr r0, [r0, #0x4c]
 	tst r2, r0
@@ -44585,7 +44585,7 @@ _0224F386:
 	mov r0, #0
 	str r0, [sp]
 _0224F38A:
-	ldr r0, _0224F520 ; =gUnknown21C48B8
+	ldr r0, _0224F520 ; =gMain
 	mov r1, #1
 	ldr r0, [r0, #0x48]
 	add r2, r0, #0
@@ -44773,7 +44773,7 @@ _0224F510:
 	nop
 _0224F518: .word 0x000004DC
 _0224F51C: .word 0x000004FC
-_0224F520: .word gUnknown21C48B8
+_0224F520: .word gMain
 _0224F524: .word 0x000005EB
 	thumb_func_end MOD18_0224F258
 
@@ -44835,7 +44835,7 @@ _0224F58C:
 	stmia r2!, {r0, r1}
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
-	ldr r0, _0224F75C ; =gUnknown21C48B8
+	ldr r0, _0224F75C ; =gMain
 	mov r1, #0x20
 	ldr r0, [r0, #0x4c]
 	mov r6, #1
@@ -44928,7 +44928,7 @@ _0224F604:
 	add r0, r6, #0
 	bl MOD05_021E7EB0
 _0224F650:
-	ldr r0, _0224F75C ; =gUnknown21C48B8
+	ldr r0, _0224F75C ; =gMain
 	ldr r2, [r0, #0x48]
 	mov r0, #1
 	add r1, r2, #0
@@ -45051,7 +45051,7 @@ _0224F750:
 	pop {r4, r5, r6, r7, pc}
 	nop
 _0224F758: .word 0x000004DC
-_0224F75C: .word gUnknown21C48B8
+_0224F75C: .word gMain
 _0224F760: .word 0xFFFF0000
 _0224F764: .word 0x000005FE
 _0224F768: .word 0x000004FC
@@ -45740,7 +45740,7 @@ MOD18_0224FC18: ; 0x0224FC18
 	add r5, r1, #0
 	str r0, [sp]
 	add r0, #0x88
-	ldr r1, _0224FCD4 ; =UNK_021C48F8
+	ldr r1, _0224FCD4 ; =gMain + 0x40
 	ldr r6, [r0]
 	ldrh r0, [r1, #0x1c]
 	ldrh r1, [r1, #0x1e]
@@ -45825,7 +45825,7 @@ _0224FCCE:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	nop
-_0224FCD4: .word UNK_021C48F8
+_0224FCD4: .word gMain + 0x40
 	thumb_func_end MOD18_0224FC18
 
 	thumb_func_start MOD18_0224FCD8
@@ -45834,7 +45834,7 @@ MOD18_0224FCD8: ; 0x0224FCD8
 	sub sp, #0x1c
 	add r4, r1, #0
 	add r0, #0x88
-	ldr r1, _0224FD6C ; =UNK_021C48F8
+	ldr r1, _0224FD6C ; =gMain + 0x40
 	ldr r5, [r0]
 	ldrh r0, [r1, #0x1c]
 	add r6, r2, #0
@@ -45902,7 +45902,7 @@ _0224FD66:
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	nop
-_0224FD6C: .word UNK_021C48F8
+_0224FD6C: .word gMain + 0x40
 	thumb_func_end MOD18_0224FCD8
 
 	thumb_func_start MOD18_0224FD70
@@ -45910,12 +45910,12 @@ MOD18_0224FD70: ; 0x0224FD70
 	push {r3, r4, r5, lr}
 	add r3, r0, #0
 	mov r0, #0
-	ldr r4, _0224FDD0 ; =UNK_021C48F8
+	ldr r4, _0224FDD0 ; =gMain + 0x40
 	str r0, [r2]
 	ldrh r5, [r4, #0x20]
 	cmp r5, #0
 	beq _0224FDA0
-	ldr r0, _0224FDD4 ; =gUnknown21C48B8
+	ldr r0, _0224FDD4 ; =gMain
 	ldr r0, [r0, #0x44]
 	cmp r0, #0
 	bne _0224FD9C
@@ -45959,8 +45959,8 @@ _0224FDC0:
 _0224FDCE:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_0224FDD0: .word UNK_021C48F8
-_0224FDD4: .word gUnknown21C48B8
+_0224FDD0: .word gMain + 0x40
+_0224FDD4: .word gMain
 _0224FDD8: .word 0x000004F8
 	thumb_func_end MOD18_0224FD70
 
@@ -45969,12 +45969,12 @@ MOD18_0224FDDC: ; 0x0224FDDC
 	push {r3, r4, r5, lr}
 	add r3, r0, #0
 	mov r0, #0
-	ldr r4, _0224FE40 ; =UNK_021C48F8
+	ldr r4, _0224FE40 ; =gMain + 0x40
 	str r0, [r2]
 	ldrh r5, [r4, #0x20]
 	cmp r5, #0
 	beq _0224FE0E
-	ldr r0, _0224FE44 ; =gUnknown21C48B8
+	ldr r0, _0224FE44 ; =gMain
 	ldr r0, [r0, #0x44]
 	cmp r0, #0
 	bne _0224FE0A
@@ -46020,8 +46020,8 @@ _0224FE30:
 _0224FE3E:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_0224FE40: .word UNK_021C48F8
-_0224FE44: .word gUnknown21C48B8
+_0224FE40: .word gMain + 0x40
+_0224FE44: .word gMain
 _0224FE48: .word 0x000004F8
 	thumb_func_end MOD18_0224FDDC
 
@@ -46030,12 +46030,12 @@ MOD18_0224FE4C: ; 0x0224FE4C
 	push {r4, lr}
 	add r3, r0, #0
 	mov r0, #0
-	ldr r4, _0224FE88 ; =UNK_021C48F8
+	ldr r4, _0224FE88 ; =gMain + 0x40
 	str r0, [r2]
 	ldrh r4, [r4, #0x20]
 	cmp r4, #0
 	beq _0224FE80
-	ldr r0, _0224FE8C ; =gUnknown21C48B8
+	ldr r0, _0224FE8C ; =gMain
 	ldr r0, [r0, #0x44]
 	cmp r0, #0
 	bne _0224FE7C
@@ -46058,8 +46058,8 @@ _0224FE80:
 	str r0, [r3, r1]
 	pop {r4, pc}
 	nop
-_0224FE88: .word UNK_021C48F8
-_0224FE8C: .word gUnknown21C48B8
+_0224FE88: .word gMain + 0x40
+_0224FE8C: .word gMain
 _0224FE90: .word 0x000004F8
 	thumb_func_end MOD18_0224FE4C
 
@@ -46068,12 +46068,12 @@ MOD18_0224FE94: ; 0x0224FE94
 	push {r3, r4, r5, lr}
 	add r3, r0, #0
 	mov r0, #0
-	ldr r4, _0224FEF4 ; =UNK_021C48F8
+	ldr r4, _0224FEF4 ; =gMain + 0x40
 	str r0, [r2]
 	ldrh r5, [r4, #0x20]
 	cmp r5, #0
 	beq _0224FEC4
-	ldr r0, _0224FEF8 ; =gUnknown21C48B8
+	ldr r0, _0224FEF8 ; =gMain
 	ldr r0, [r0, #0x44]
 	cmp r0, #0
 	bne _0224FEC0
@@ -46117,8 +46117,8 @@ _0224FEE4:
 _0224FEF2:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_0224FEF4: .word UNK_021C48F8
-_0224FEF8: .word gUnknown21C48B8
+_0224FEF4: .word gMain + 0x40
+_0224FEF8: .word gMain
 _0224FEFC: .word 0x000004F8
 	thumb_func_end MOD18_0224FE94
 

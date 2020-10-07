@@ -1,0 +1,2 @@
+Your Pokémon has a \n{STRVAR 7, 0} nature?\rDid you know that a Pokémon’s nature\ndetermines how it will grow?
+This area had many Pokémon from\nthe olden days.\rThey say there were big Pokémon\nranches ’round these parts.

@@ -91,7 +91,7 @@ FUN_020888DC: ; 0x020888DC
 	lsl r2, r2, #0xc
 	bl FUN_0201681C
 	add r0, r4, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r0, [r0, #0x8]
 	mov r1, #0x31
 	bl FUN_02088898

@@ -32,6 +32,19 @@ OSThread OSi_IdleThread;
 
 u32 OSi_IdleThreadStack[50];
 
+static s32 OSi_GetUnusedThreadId(void);
+static void OSi_InsertLinkToQueue(OSThreadQueue *queue, OSThread *thread);
+static OSThread *OSi_RemoveLinkFromQueue(OSThreadQueue *queue);
+static OSThread *OSi_RemoveSpecifiedLinkFromQueue(OSThreadQueue *queue, OSThread *thread);
+static void OSi_InsertThreadToList(OSThread *thread);
+static void OSi_RemoveThreadFromList(OSThread *thread);
+static void OSi_ExitThread_ArgSpecified(OSThread *thread, void *arg);
+static void OSi_ExitThread(void *arg);
+static void OSi_ExitThread_Destroy(void);
+static void OSi_CancelThreadAlarmForSleep(OSThread *thread);
+static void OSi_SleepAlarmCallback(void *arg);
+static void OSi_IdleThreadProc(void *);
+
 ARM_FUNC static s32 OSi_GetUnusedThreadId(void)
 {
     return ++OSi_ThreadIdCount;

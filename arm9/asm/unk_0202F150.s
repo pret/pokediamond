@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .bss
 
@@ -1277,7 +1277,7 @@ FUN_0202FB80: ; 0x0202FB80
 	strb r0, [r1, #0x0]
 	bl FUN_0202F984
 	ldr r0, _0202FC48 ; =UNK_021C59F4
-	ldr r1, _0202FC50 ; =gUnknown21C48B8
+	ldr r1, _0202FC50 ; =gMain
 	ldr r0, [r0, #0x4]
 	ldr r2, _0202FC54 ; =0x00000628
 	ldr r3, [r1, #0x44]
@@ -1355,7 +1355,7 @@ _0202FC3A:
 	.balign 4
 _0202FC48: .word UNK_021C59F4
 _0202FC4C: .word 0x0000068A
-_0202FC50: .word gUnknown21C48B8
+_0202FC50: .word gMain
 _0202FC54: .word 0x00000628
 _0202FC58: .word 0x00007FFF
 _0202FC5C: .word 0x0000065C
@@ -4278,8 +4278,8 @@ FUN_020312BC: ; 0x020312BC
 	add r4, r0, #0x0
 	add r0, sp, #0x10
 	add r1, sp, #0x4
-	bl FUN_0201265C
-	ldr r0, _02031340 ; =gUnknown21C48B8
+	bl GF_RTC_CopyDateTime
+	ldr r0, _02031340 ; =gMain
 	ldr r6, [sp, #0x10]
 	mov r5, #0x0
 	lsr r7, r6, #0x1c
@@ -4339,7 +4339,7 @@ FUN_020312BC: ; 0x020312BC
 	add sp, #0x20
 	pop {r3-r7, pc}
 	.balign 4
-_02031340: .word gUnknown21C48B8
+_02031340: .word gMain
 _02031344: .word 0x00000000
 _02031348: .word 0x6C078965
 _0203134C: .word 0x5D588B65

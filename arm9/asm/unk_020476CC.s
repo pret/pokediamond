@@ -75,7 +75,7 @@ _020476FA:
 	add r4, r7, #0x0
 _02047748:
 	add r0, r5, #0x0
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	str r0, [r4, #0x4]
 	add r6, r6, #0x1
 	add r4, r4, #0x4
@@ -85,7 +85,7 @@ _02047748:
 	add r4, r7, #0x0
 _0204775C:
 	add r0, r5, #0x0
-	bl FUN_02023928
+	bl PlayerProfile_new
 	add r1, r4, #0x0
 	add r1, #0xf8
 	add r6, r6, #0x1
@@ -106,12 +106,12 @@ _02047774:
 	cmp r6, #0x4
 	blt _02047774
 	add r0, r5, #0x0
-	bl FUN_0206EB88
+	bl Sav2_Bag_new
 	mov r1, #0x42
 	lsl r1, r1, #0x2
 	str r0, [r7, r1]
 	add r0, r5, #0x0
-	bl FUN_02023D6C
+	bl Sav2_Pokedex_new
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	str r0, [r7, r1]
@@ -182,10 +182,10 @@ FUN_02047814: ; 0x02047814
 	add r5, r1, #0x0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	mov r1, #0x1
 	str r0, [sp, #0x14]
 	add r0, r6, #0x0
@@ -203,7 +203,7 @@ FUN_02047814: ; 0x02047814
 	bl String_ctor
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x10]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0x0
 	mov r1, #0x1
 	eor r1, r2
@@ -216,20 +216,20 @@ FUN_02047814: ; 0x02047814
 	add r0, r4, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl FUN_0202395C
+	bl CopyPlayerName
 	add r0, r7, #0x0
 	bl String_dtor
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x10]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0xf8
 	mov r1, #0x1
 	ldr r0, [r0, #0x0]
 	eor r1, r2
-	bl FUN_020239C8
+	bl PlayerProfile_SetTrainerGender
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	bl FUN_0204806C
@@ -239,7 +239,7 @@ FUN_02047814: ; 0x02047814
 	ldr r1, [r4, r1]
 	bl FUN_02024F44
 	add r0, r5, #0x0
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
@@ -248,12 +248,12 @@ FUN_02047814: ; 0x02047814
 	mov r1, #0x4
 	mov r2, #0x14
 	add r3, r6, #0x0
-	bl FUN_0206ED38
+	bl Bag_AddItem
 	add r0, r6, #0x0
 	bl AllocMonZeroed
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F3C0
 	mov r2, #0x0
 	str r2, [sp, #0x0]
@@ -268,7 +268,7 @@ FUN_02047814: ; 0x02047814
 	bl CreateMon
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -281,11 +281,11 @@ FUN_02047814: ; 0x02047814
 	bl CreateMon
 	ldr r0, [r4, #0x8]
 	add r1, r6, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	add r0, r6, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -405,7 +405,7 @@ _02047A0C:
 	add r0, r5, r0
 	ldr r0, [r0, #0x4]
 	add r1, r6, #0x0
-	bl FUN_0206B900
+	bl AddMonToParty
 	cmp r0, #0x0
 	bne _02047A20
 	bl ErrorHandling
@@ -427,7 +427,7 @@ _02047A34:
 	add r1, r5, r1
 	ldr r1, [r1, #0x4]
 	add r0, r6, #0x0
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -446,7 +446,7 @@ _02047A54:
 	add r1, #0xf8
 	ldr r1, [r1, #0x0]
 	add r0, r6, #0x0
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_02047A64
@@ -468,22 +468,22 @@ FUN_02047A78: ; 0x02047A78
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r7, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0xc]
 	bl FUN_02029EF8
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0xc]
 	bl FUN_02034E30
@@ -503,12 +503,12 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x2
 	ldr r0, [sp, #0x0]
 	ldr r1, [r5, r1]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x4]
 	ldr r1, [r5, r1]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	mov r1, #0x13
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0xc]
@@ -519,7 +519,7 @@ FUN_02047A78: ; 0x02047A78
 	mov r2, #0x0
 	bl FUN_02047A64
 	ldr r0, [r4, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -530,7 +530,7 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
 	add r0, r4, #0x0
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]
@@ -546,7 +546,7 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F1B4
 	mov r1, #0x5b
 	lsl r1, r1, #0x2
@@ -562,7 +562,7 @@ FUN_02047A78: ; 0x02047A78
 	sub r1, #0x68
 	str r0, [r5, r1]
 	ldr r0, [r4, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	mov r1, #0x4a
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -612,19 +612,19 @@ FUN_02047BC0: ; 0x02047BC0
 	ldr r0, [r0, #0xc]
 	str r1, [sp, #0x0]
 	add r7, r2, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -632,7 +632,7 @@ FUN_02047BC0: ; 0x02047BC0
 	str r0, [sp, #0x8]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x4]
 	mov r0, #0x15
 	mov r1, #0x6
@@ -652,7 +652,7 @@ FUN_02047BC0: ; 0x02047BC0
 	bl GetPartyCount
 	add r1, r0, #0x0
 	ldr r0, [r6, #0x4]
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	ldr r0, [sp, #0x14]
 	mov r4, #0x0
 	bl GetPartyCount
@@ -663,7 +663,7 @@ _02047C40:
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r1, r5, #0x0
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	add r0, r5, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
@@ -702,12 +702,12 @@ _02047C98:
 	lsl r1, r1, #0x2
 	ldr r0, [sp, #0x10]
 	ldr r1, [r6, r1]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0xc]
 	ldr r1, [r6, r1]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	mov r1, #0x13
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x4]
@@ -719,12 +719,12 @@ _02047C98:
 	bl FUN_02047A64
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
 	ldr r0, [sp, #0x0]
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
@@ -735,7 +735,7 @@ _02047C98:
 	str r0, [r6, r1]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0204C1A8
+	bl Sav2_Poketch_get
 	mov r1, #0x4a
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
@@ -783,15 +783,15 @@ FUN_02047D48: ; 0x02047D48
 	str r1, [sp, #0x0]
 	str r2, [sp, #0x4]
 	add r7, r3, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -799,7 +799,7 @@ FUN_02047D48: ; 0x02047D48
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x6
@@ -848,7 +848,7 @@ _02047DD8:
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x4]
 	add r1, r4, #0x0
-	bl FUN_0206B8CC
+	bl InitPartyWithMaxSize
 	mov r6, #0x0
 	cmp r4, #0x0
 	ble _02047E0E
@@ -858,7 +858,7 @@ _02047DEE:
 	sub r1, r1, #0x1
 	bl GetPartyMonByIndex
 	ldr r1, [sp, #0x8]
-	bl FUN_02069B88
+	bl CopyPokemonToPokemon
 	ldr r1, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r2, #0x0
@@ -886,12 +886,12 @@ _02047E2C:
 	lsl r1, r1, #0x2
 	ldr r0, [sp, #0x1c]
 	ldr r1, [r5, r1]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x18]
 	ldr r1, [r5, r1]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	mov r1, #0x13
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x10]
@@ -903,12 +903,12 @@ _02047E2C:
 	bl FUN_02047A64
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02022510
+	bl GetStoragePCPointer
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
 	ldr r0, [sp, #0x0]
-	bl FUN_0204B2A4
+	bl Script_GetTimeOfDay
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]
@@ -950,10 +950,10 @@ _02047E2C:
 	cmp r0, #0x0
 	beq _02047F10
 	ldr r0, [sp, #0x20]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x20]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r4, #0x0
 	mov r2, #0x1
 	bl FUN_020536D0
@@ -963,7 +963,7 @@ _02047E2C:
 	add r0, r5, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x3c
@@ -995,7 +995,7 @@ FUN_02047F1C: ; 0x02047F1C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	add r6, r2, #0x0
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1010,16 +1010,16 @@ FUN_02047F38: ; 0x02047F38
 	add r5, r1, #0x0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	add r7, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0xc]
 	bl FUN_02034E30
@@ -1029,20 +1029,20 @@ FUN_02047F38: ; 0x02047F38
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
 	add r1, r6, #0x0
-	bl FUN_0202393C
+	bl PlayerProfile_Copy
 	ldr r0, [r4, #0x4]
 	add r1, r7, #0x0
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 	mov r0, #0x42
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	ldr r1, [sp, #0x0]
-	bl FUN_0206EBB4
+	bl Sav2_Bag_copy
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	ldr r1, [sp, #0x4]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	mov r0, #0x19
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
@@ -1056,18 +1056,18 @@ FUN_02047FA4: ; 0x02047FA4
 	add r5, r1, #0x0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldr r0, [r5, #0xc]
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r1, r0, #0x0
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl FUN_02023D80
+	bl Sav2_Pokedex_Copy
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02047FD0
@@ -1233,14 +1233,14 @@ FUN_020480E4: ; 0x020480E4
 	add r4, r0, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r4, #0x0
 	add r1, #0x29
 	strb r0, [r1, #0x0]
 	add r0, r4, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x3c

@@ -26,7 +26,7 @@ _021D9A36:
 	bl FUN_0200E3A0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -47,7 +47,7 @@ _021D9A36:
 	ldr r1, _021D9B74 ; =0x00005CB0
 	add r0, r6, #0
 	mov r2, #0x27
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _021D9B74 ; =0x00005CB0
 	mov r1, #0
 	add r4, r0, #0
@@ -56,7 +56,7 @@ _021D9A36:
 	bl FUN_02016B94
 	str r0, [r4]
 	mov r0, #0x27
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x10]
 	ldr r2, _021D9B78 ; =0x00000176
 	mov r0, #0
@@ -81,18 +81,18 @@ _021D9A36:
 	add r3, r0, #0
 	bl FUN_0200E1D0
 	add r0, r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	bl FUN_02029ABC
 	bl FUN_02029AC8
 	ldr r1, _021D9B7C ; =0x00005B98
 	str r0, [r4, r1]
 	add r0, r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	bl FUN_02029FC8
 	str r0, [r4, #8]
 	add r0, r6, #0
-	bl FUN_0200628C
-	bl LoadPlayerDataAddress
+	bl OverlayManager_GetField18
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	add r0, r4, #0
 	bl MOD58_021D9F14
@@ -101,7 +101,7 @@ _021D9A36:
 	bl FUN_0201CC24
 	ldr r0, _021D9B80 ; =MOD58_021D9CB4
 	ldr r1, [r4]
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #2
 	mov r1, #0x27
 	bl FUN_02002C50
@@ -129,7 +129,7 @@ _021D9A36:
 	str r0, [r5]
 	b _021D9B64
 _021D9B56:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	mov r0, #0
 	str r0, [r5]
 	add sp, #0xc
@@ -154,7 +154,7 @@ _021D9B88: .word 0xFFFF7FFF
 MOD58_021D9B8C: ; 0x021D9B8C
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5]
 	add r4, r0, #0
 	cmp r1, #0
@@ -207,7 +207,7 @@ _021D9BEC: .word 0x00004318
 MOD58_021D9BF0: ; 0x021D9BF0
 	push {r3, r4, r5, r6, r7, lr}
 	str r0, [sp]
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0
 	ldr r0, _021D9CAC ; =0x00005B98
 	mov r1, #0x2d
@@ -217,7 +217,7 @@ MOD58_021D9BF0: ; 0x021D9BF0
 	bl MOD58_021DAC18
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x5e
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
@@ -260,11 +260,11 @@ _021D9C40:
 	ldr r0, [r6, #0x14]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x10]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0
 	bl MOD58_021D9EA0
 	ldr r0, [sp]
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	ldr r2, _021D9CB0 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -272,7 +272,7 @@ _021D9C40:
 	strh r0, [r2]
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x27
 	bl FUN_020168D0
 	mov r0, #1
@@ -1045,7 +1045,7 @@ MOD58_021DA2CC: ; 0x021DA2CC
 	lsr r3, r4, #0x1f
 	add r3, r4, r3
 	asr r3, r3, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [r5, #0xc]
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1206,7 +1206,7 @@ _021DA3C2:
 	add r0, r5, r0
 	mov r1, #1
 	asr r3, r3, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0
 	str r0, [sp, #0x14]
 	mov r0, #0x9d
@@ -2236,7 +2236,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	ldr r2, [r5, #0x34]
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	str r0, [r5, #0x38]
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
@@ -2320,7 +2320,7 @@ _021DAC6E:
 	thumb_func_start MOD58_021DAC7C
 MOD58_021DAC7C: ; 0x021DAC7C
 	push {r3, r4, r5, lr}
-	ldr r1, _021DAD28 ; =UNK_021C48F8
+	ldr r1, _021DAD28 ; =gMain + 0x40
 	add r4, r0, #0
 	ldrh r0, [r1, #0x1c]
 	ldr r3, _021DAD2C ; =0x0000FFFF
@@ -2353,7 +2353,7 @@ _021DACB0:
 	blt _021DACE6
 	cmp r3, #0x28
 	bgt _021DACE6
-	ldr r0, _021DAD28 ; =UNK_021C48F8
+	ldr r0, _021DAD28 ; =gMain + 0x40
 	ldrh r2, [r0, #0x1e]
 	ldr r0, _021DAD34 ; =0x00005CAC
 	ldr r1, [r4, r0]
@@ -2378,7 +2378,7 @@ _021DACD4:
 _021DACE6:
 	cmp r3, #0x28
 	bgt _021DAD16
-	ldr r0, _021DAD28 ; =UNK_021C48F8
+	ldr r0, _021DAD28 ; =gMain + 0x40
 	ldrh r2, [r0, #0x1e]
 	ldr r0, _021DAD34 ; =0x00005CAC
 	ldr r1, [r4, r0]
@@ -2402,7 +2402,7 @@ _021DAD02:
 	add r0, r4, r0
 	bl MOD58_021DAD3C
 _021DAD16:
-	ldr r1, _021DAD28 ; =UNK_021C48F8
+	ldr r1, _021DAD28 ; =gMain + 0x40
 	ldr r0, _021DAD30 ; =0x00005CA8
 	ldrh r2, [r1, #0x1c]
 	str r2, [r4, r0]
@@ -2411,7 +2411,7 @@ _021DAD16:
 	str r1, [r4, r0]
 	pop {r3, r4, r5, pc}
 	nop
-_021DAD28: .word UNK_021C48F8
+_021DAD28: .word gMain + 0x40
 _021DAD2C: .word 0x0000FFFF
 _021DAD30: .word 0x00005CA8
 _021DAD34: .word 0x00005CAC

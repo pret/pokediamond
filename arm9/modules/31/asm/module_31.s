@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD31_02254840
-MOD31_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD31_02254854
-	ldr r1, _02254850 ; =MOD31_02254954
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD31_02254854
-_02254850: .word MOD31_02254954
-	thumb_func_end MOD31_02254840
-
 	thumb_func_start MOD31_02254854
 MOD31_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -64,7 +52,7 @@ MOD31_0225489C: ; 0x0225489C
 	mov r0, #1
 	str r0, [r5, #8]
 	ldr r0, [r5, #0x1c]
-	bl FUN_0204BF84
+	bl Sav2_Poketch_GetStepCounter
 	str r0, [r5, #4]
 	add r0, r5, #0
 	add r0, #0xc
@@ -248,7 +236,7 @@ _022549EE:
 	cmp r0, #0
 	beq _02254A4C
 	ldr r0, [r4, #0x1c]
-	bl FUN_0204BF84
+	bl Sav2_Poketch_GetStepCounter
 	str r0, [r4, #4]
 	ldr r0, [r4, #0xc]
 	mov r1, #3
@@ -275,7 +263,7 @@ _02254A24:
 	mov r1, #0
 	str r1, [r4, #4]
 	ldr r0, [r4, #0x1c]
-	bl FUN_0204BF88
+	bl Sav2_Poketch_SetStepCounter
 	ldr r0, [r4, #0xc]
 	mov r1, #2
 	bl MOD31_02254BBC
@@ -749,6 +737,3 @@ MOD31_02254DE4: ; 0x02254DE4
 	.word 0x02, MOD31_02254CB8, 0x00
 	.word 0x03, MOD31_02254CF8, 0x00
 	.word 0x00, 0x00000000, 0x00
-
-	.section .sinit
-	.word MOD31_02254840

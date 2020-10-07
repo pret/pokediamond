@@ -1,0 +1,25 @@
+Welcome!\nHow may I serve you?
+Please come again!
+Is there anything else I may do\nfor you?
+You don’t have enough money.
+{STRVAR 8, 0}? Certainly.\nHow many would you like?
+{STRVAR 8, 0}, and you want {STRVAR 51, 1}.\nThat will be ${STRVAR 55, 2}. OK?
+Here you are!\nThank you!\rYou put away the {STRVAR 8, 0}\nin the {STRVAR 27, 1} Pocket.
+You have no more room for this\nitem.
+CANCEL
+${STRVAR 53, 0}
+You also get a Premier Ball as\nan added bonus.
+Thank you! We’ll send\nthe {STRVAR 10, 0} to your PC.
+Your PC is full.\nYou have no more room for goods.
+You placed the {STRVAR 10, 0}\nin the Seal Case.
+The Seal Case is full.\nYou have no more room for Seals.
+BUY
+SELL
+SEE YA!
+Money
+${STRVAR 55, 0}
+In Bag: {STRVAR 52, 0}
+x{STRVAR 51, 0}
+${STRVAR 55, 0}
+YES
+NO

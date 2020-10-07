@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_OS_IRQTABLE_H
-#define POKEDIAMOND_OS_IRQTABLE_H
+#ifndef POKEDIAMOND_ARM9_OS_IRQTABLE_H
+#define POKEDIAMOND_ARM9_OS_IRQTABLE_H
 
 #include "consts.h"
 #include "OS_interrupt.h"
@@ -20,4 +20,4 @@ static inline void OS_SetIrqCheckFlag(OSIrqMask intr)
     *(vu32 *)HW_INTR_CHECK_BUF |= (u32)intr;
 }
 
-#endif //POKEDIAMOND_OS_IRQTABLE_H
+#endif //POKEDIAMOND_ARM9_OS_IRQTABLE_H

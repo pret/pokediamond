@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -46,7 +46,7 @@ FUN_02089498: ; 0x02089498
 	add r0, r5, #0x0
 	mov r1, #0x38
 	mov r2, #0x58
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	mov r1, #0x0
 	mov r2, #0x38
 	add r4, r0, #0x0
@@ -56,7 +56,7 @@ FUN_02089498: ; 0x02089498
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r0, [r0, #0x8]
 	str r0, [r4, #0x30]
 	mov r0, #0x1
@@ -68,7 +68,7 @@ FUN_020894D4: ; 0x020894D4
 	push {r3-r6, lr}
 	sub sp, #0xc
 	add r5, r1, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r1, [r5, #0x0]
 	add r4, r0, #0x0
 	mov r6, #0x0
@@ -101,7 +101,7 @@ _020894FC:
 	bl FUN_0200E3A0
 	add r0, r6, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r6, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
@@ -126,7 +126,7 @@ _020894FC:
 	bl FUN_02089734
 	ldr r0, _020895EC ; =FUN_02089610
 	add r1, r4, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_0201E788
 	mov r0, #0x6
 	mov r1, #0x1
@@ -176,7 +176,7 @@ _020895BC:
 	bl FUN_020896E0
 	add r0, r6, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r6, #0x1
 _020895DA:
 	add r0, r6, #0x0
@@ -192,10 +192,10 @@ _020895EC: .word FUN_02089610
 FUN_020895F0: ; 0x020895F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	ldr r4, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	add r0, r4, #0x0
 	bl FUN_020168D0
 	mov r0, #0x0
@@ -563,7 +563,7 @@ _020898B8:
 	ldr r2, [r5, #0x10]
 	add r0, #0x1c
 	mov r1, #0x1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	str r0, [r5, #0xc]
 	cmp r4, #0x0
 	bne _02089918
@@ -593,7 +593,7 @@ _02089920:
 _0208993C:
 	cmp r2, #0x0
 	bne _0208994A
-	ldr r0, _0208995C ; =gUnknown21C48B8
+	ldr r0, _0208995C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -608,4 +608,4 @@ _02089950:
 	pop {r4-r7, pc}
 	nop
 _02089958: .word 0x000001E2
-_0208995C: .word gUnknown21C48B8
+_0208995C: .word gMain

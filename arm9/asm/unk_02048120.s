@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -88,7 +88,7 @@ _0204817A:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x1c]
 	mov r0, #0xb
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x20]
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x8]
@@ -96,12 +96,12 @@ _0204817A:
 	add r1, #0xc
 	bl FUN_02019150
 	add r0, r5, #0x0
-	bl FUN_020377AC
-	bl FUN_020238F4
+	bl ScriptEnvironment_GetSav2Ptr
+	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x20]
 	mov r1, #0x0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	ldr r0, [r5, #0x1c]
 	ldr r1, [r0, #0x0]
 	ldr r0, _0204820C ; =0x0000019E
@@ -178,7 +178,7 @@ _02048258:
 	str r0, [r4, #0x0]
 	b _020482EA
 _02048268:
-	ldr r0, _020482F0 ; =gUnknown21C48B8
+	ldr r0, _020482F0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -223,7 +223,7 @@ _020482B2:
 	add r0, #0xc
 	bl FUN_02019178
 	ldr r0, [r4, #0x20]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x8]
@@ -241,7 +241,7 @@ _020482EA:
 	add sp, #0xc
 	pop {r3-r4, pc}
 	.balign 4
-_020482F0: .word gUnknown21C48B8
+_020482F0: .word gMain
 
 	thumb_func_start FUN_020482F4
 FUN_020482F4: ; 0x020482F4
@@ -295,7 +295,7 @@ FUN_020482F4: ; 0x020482F4
 	sub r3, r3, #0x4
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0x0
 	bl String_dtor
 	add r0, r4, #0x0

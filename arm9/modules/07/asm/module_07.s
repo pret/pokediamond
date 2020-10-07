@@ -124,7 +124,7 @@ MOD07_02211F34: ; 0x02211F34
 	mov r0, #0
 	strh r0, [r1]
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -253,7 +253,7 @@ _0221202E:
 	bl FUN_02079A70
 	ldr r0, _02212078 ; =MOD07_02212D68
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #1
 	pop {r4, pc}
 _02212068:
@@ -301,7 +301,7 @@ _022120B8:
 	bl FUN_02079A70
 	ldr r0, _022120F8 ; =MOD07_02212D68
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r1, _022120F4 ; =0x00000B82
 	mov r0, #0
 	strb r0, [r4, r1]
@@ -359,7 +359,7 @@ _02212132:
 	bl FUN_02079A70
 	ldr r0, _02212170 ; =MOD07_02212D68
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r1, _0221216C ; =0x00000B82
 	mov r0, #0
 	strb r0, [r4, r1]
@@ -1617,7 +1617,7 @@ MOD07_02212B64: ; 0x02212B64
 _02212B76:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, [r4]
 	add r0, #0x28
 	ldrb r0, [r0]
@@ -2464,7 +2464,7 @@ MOD07_02213220: ; 0x02213220
 	add r2, r7, #0
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, _022132C0 ; =0x00000B44
 	ldr r0, [r4, r0]
 	str r0, [sp, #0x10]
@@ -4507,7 +4507,7 @@ _022142BE:
 	add r2, r0, #0
 	ldr r0, [sp, #0x14]
 	mov r1, #0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r0, [sp, #0x14]
 	ldr r2, [sp, #0x20]
 	add r1, r6, #0
@@ -4525,7 +4525,7 @@ _022142BE:
 	add r3, r1, #0
 	add r0, r7, r0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x18
 	mul r0, r4
 	add r2, r5, r0
@@ -4553,7 +4553,7 @@ _022142BE:
 	add r0, r7, r0
 	mov r3, #0x40
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 _02214344:
@@ -4574,7 +4574,7 @@ _02214344:
 	mov r3, #0x40
 	add r0, r7, r0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _0221436C:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
@@ -4621,7 +4621,7 @@ MOD07_0221437C: ; 0x0221437C
 	ldrb r2, [r3, r2]
 	ldr r0, [sp, #0x10]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0x28]
 	add r2, r7, #0
@@ -4638,7 +4638,7 @@ MOD07_0221437C: ; 0x0221437C
 	add r0, r5, r4
 	mov r3, #0x10
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4678,7 +4678,7 @@ MOD07_022143FC: ; 0x022143FC
 	ldr r0, [sp, #0x18]
 	ldrh r2, [r3, r2]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0x20]
 	add r1, r4, #0
@@ -4703,7 +4703,7 @@ MOD07_022143FC: ; 0x022143FC
 	add r2, r4, #0
 	sub r3, r3, r6
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x14]
 	mov r1, #0x1a
 	add r2, r4, #0
@@ -4719,7 +4719,7 @@ MOD07_022143FC: ; 0x022143FC
 	mov r3, #0x1c
 	add r0, r7, r0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -4742,7 +4742,7 @@ MOD07_022143FC: ; 0x022143FC
 	ldrh r2, [r3, r2]
 	ldr r0, [sp, #0x18]
 	mov r3, #3
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x18]
 	add r1, r4, #0
 	add r2, r5, #0
@@ -4762,7 +4762,7 @@ MOD07_022143FC: ; 0x022143FC
 	add r0, r7, r0
 	str r1, [sp, #0xc]
 	str r3, [sp, #0x24]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x2c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -4972,11 +4972,11 @@ MOD07_0221469C: ; 0x0221469C
 	mov r0, #0xf
 	mov r1, #0xe
 	mov r2, #0
-	bl FUN_0200B870
+	bl MessagePrinter_new
 	str r0, [sp, #0xc]
 	ldr r0, [r6]
 	ldr r0, [r0, #0x24]
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	ldr r1, [r6]
 	str r0, [sp, #8]
 	ldr r1, [r1, #0x24]
@@ -5008,9 +5008,9 @@ _022146F6:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
-	bl FUN_0200B990
+	bl MessagePrinter_delete
 	ldr r0, [sp, #8]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -5049,7 +5049,7 @@ MOD07_02214720: ; 0x02214720
 	add r0, r1, r0
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0x10]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
@@ -5062,7 +5062,7 @@ MOD07_02214720: ; 0x02214720
 	ldr r0, [r0, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r1, [sp, #0x10]
 	ldr r3, [r4, #0x24]
 	add r0, r5, #0
@@ -5101,7 +5101,7 @@ _022147BC:
 	add r0, r1, r0
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0x14]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
@@ -5114,7 +5114,7 @@ _022147BC:
 	ldr r0, [r0, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r1, [sp, #0x14]
 	ldr r3, [r4, #0x24]
 	add r0, r5, #0
@@ -5134,7 +5134,7 @@ _02214808:
 	add r0, r1, r0
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
@@ -5147,7 +5147,7 @@ _02214808:
 	ldr r0, [r0, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r1, [sp, #0x18]
 	ldr r3, [r4, #0x24]
 	add r0, r5, #0
@@ -5167,7 +5167,7 @@ _02214854:
 	add r0, r1, r0
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0x1c]
 	ldr r0, [r4, #0x24]
 	mov r1, #0x10
@@ -5180,7 +5180,7 @@ _02214854:
 	ldr r0, [r0, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r1, [sp, #0x1c]
 	ldr r3, [r4, #0x24]
 	add r0, r5, #0
@@ -5205,40 +5205,40 @@ _022148A0:
 	bne _022148EA
 	add r0, #0x5d
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	add r0, #0xc5
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r0, [r4, #0x20]
 	add r1, r7, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	b _02214914
 _022148EA:
 	add r0, #0x29
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	add r0, #0x91
 	ldrb r0, [r0]
-	bl FUN_0206AE00
+	bl TrainerClass_GetGenderOrTrainerCount
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r0, [r4, #0x1c]
 	add r1, r7, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 _02214914:
 	str r6, [sp]
 	ldr r0, [r4, #0x24]

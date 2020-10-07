@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD23_02254840
-MOD23_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD23_02254854
-	ldr r1, _02254850 ; =MOD23_022549A4
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD23_02254854
-_02254850: .word MOD23_022549A4
-	thumb_func_end MOD23_02254840
-
 	thumb_func_start MOD23_02254854
 MOD23_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -1033,9 +1021,9 @@ MOD23_02254F94: ; 0x02254F94
 	blt _02254FF4
 	ldr r0, [r5, #0x10]
 	bl MOD20_02252C40
-	bl FUN_02024DA0
+	bl Sav2_Pokedex_get
 	add r5, r0, #0
-	bl FUN_02024CA4
+	bl Pokedex_GetNatDexFlag
 	cmp r0, #0
 	beq _02254FCE
 	lsl r0, r4, #0x10
@@ -1044,7 +1032,7 @@ MOD23_02254F94: ; 0x02254F94
 _02254FCE:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_02069B60
+	bl SinnohDexNoToSpecies
 	add r4, r0, #0
 _02254FD8:
 	cmp r4, #0
@@ -1054,7 +1042,7 @@ _02254FD8:
 	bhi _02254FF4
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_020245F0
+	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0
 	beq _02254FF4
 	add r0, r4, #0

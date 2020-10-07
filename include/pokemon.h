@@ -6,10 +6,10 @@
 // Enums
 
 #include "constants/species.h"
-#include "seals.h"
+#include "mail.h"
 #include "constants/pokemon.h"
 #include "string16.h"
-#include "save_block_2.h"
+#include "player_data.h"
 
 struct BaseStats {
     /* 0x00 */ u8 hp;
@@ -142,8 +142,8 @@ struct PartyPokemon
     /* 0x096 */ u16 speed;
     /* 0x098 */ u16 spatk;
     /* 0x09A */ u16 spdef;
-    /* 0x09C */ struct SealStruct seal_something; // a struct?
-    /* 0x0D4 */ u8 sealCoords[0x18];     // u8 pairs?
+    /* 0x09C */ struct Mail mail;
+    /* 0x0D4 */ u8 sealCoords[8][3]; // seal coords
 };
 
 struct Pokemon {
@@ -263,7 +263,8 @@ void FUN_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6);
 void FUN_020690AC(struct SomeDrawPokemonStruct * a0, u32 a1);
 u32 FUN_020690C4(void);
 u32 FUN_020690C8(void);
-u8 FUN_020690CC(struct Pokemon * pokemon);
+u8 GetBoxMonUnownLetter(struct BoxPokemon * boxmon);
+u8 GetMonUnownLetter(struct Pokemon * pokemon);
 struct BoxPokemon * FUN_020690E4(struct Pokemon * pokemon);
 
 u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret);
@@ -273,28 +274,28 @@ BOOL FUN_020690E8(struct Pokemon * pokemon);
 u32 FUN_02069698(struct Pokemon * pokemon, u16 move);
 void FUN_02069708(struct Pokemon * pokemon, u16 move);
 void FUN_02069718(struct BoxPokemon * boxmon, u16 move);
-void FUN_020697CC(struct Pokemon * pokemon, u16 move, u8 slot);
+void MonSetMoveInSlot(struct Pokemon * pokemon, u16 move, u8 slot);
 u32 FUN_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0);
 void FUN_020698E0(struct Pokemon * pokemon, int slot1, int slot2);
 void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
 void FUN_020699A4(struct Pokemon * pokemon, u32 slot);
-void FUN_02069A64(struct BoxPokemon * src, struct Pokemon * dest);
-u8 FUN_02069AEC(struct PlayerParty * party);
-u16 FUN_02069B40(u16 species);
-u16 FUN_02069B60(u16 sinnoh_dex);
-void FUN_02069B88(struct Pokemon * src, struct Pokemon * dest);
-void FUN_02069BA0(struct Pokemon * src, struct BoxPokemon * dest);
-void FUN_02069BB4(struct BoxPokemon * src, struct BoxPokemon * dest);
-s8 FUN_02069BC8(struct Pokemon * pokemon, int flavor);
-int FUN_02069BFC(u16 species, u32 forme, u16 * dest);
-void FUN_02069C4C(struct PlayerParty * party);
-void FUN_02069D50(struct PlayerParty * party, int r5);
-void FUN_02069DC8(struct PlayerParty * party);
-BOOL FUN_02069E74(struct Pokemon * pokemon);
-BOOL FUN_02069E94(struct Pokemon * pokemon);
-void FUN_02069EC4(struct Pokemon * pokemon);
+void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest);
+u8 Party_GetMaxLevel(struct PlayerParty * party);
+u16 SpeciesToSinnohDexNo(u16 species);
+u16 SinnohDexNoToSpecies(u16 sinnoh_dex);
+void CopyPokemonToPokemon(struct Pokemon * src, struct Pokemon * dest);
+void CopyPokemonToBoxPokemon(struct Pokemon * src, struct BoxPokemon * dest);
+void CopyBoxPokemonToBoxPokemon(struct BoxPokemon * src, struct BoxPokemon * dest);
+s8 MonGetFlavorPreference(struct Pokemon * pokemon, int flavor);
+int Species_LoadLearnsetTable(u16 species, u32 forme, u16 * dest);
+void Party_GivePokerusAtRandom(struct PlayerParty * party);
+void Party_UpdatePokerus(struct PlayerParty * party, int r5);
+void Party_SpreadPokerus(struct PlayerParty * party);
+BOOL Pokemon_HasPokerus(struct Pokemon * pokemon);
+BOOL Pokemon_IsImmuneToPokerus(struct Pokemon * pokemon);
+void Pokemon_UpdateArceusForme(struct Pokemon * pokemon);
 void FUN_02069FB0(u32 r7, u32 r5, u32 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20);
-void FUN_0206A014(struct Pokemon * pokemon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5);
+void FUN_0206A014(struct Pokemon * pokemon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
 void FUN_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2);
 BOOL FUN_0206A13C(struct Pokemon * pokemon, u32 a1);
 void FUN_0206A1C4(struct Pokemon * pokemon);
@@ -303,8 +304,8 @@ int LowestFlagNo(u32 mask);
 BOOL IsPokemonLegendaryOrMythical(u16 species);
 u16 GetLegendaryMon(u32 idx);
 BOOL FUN_0206A998(struct Pokemon * pokemon);
-BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct SaveBlock2 * sb2, u32 heap_id);
-void FUN_0206AA84(struct Pokemon * pokemon);
-void FUN_0206AAB4(struct BoxPokemon * boxmon);
+BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct PlayerData * sb2, u32 heap_id);
+void Pokemon_RemoveCapsule(struct Pokemon * pokemon);
+void RestoreBoxMonPP(struct BoxPokemon * boxmon);
 
 #endif //POKEDIAMOND_POKEMON_H

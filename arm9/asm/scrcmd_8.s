@@ -50,14 +50,14 @@ _02041C86:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -73,14 +73,14 @@ _02041CBC:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -96,21 +96,21 @@ _02041CF2:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r3, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r0, [r6, #0x0]
 	add r1, r7, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200B708
+	bl BufferEasyChatWord
 	b _02041E38
 _02041D28:
 	add r0, r4, #0x0
@@ -119,21 +119,21 @@ _02041D28:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
 	add r4, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r3, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	ldr r0, [r6, #0x0]
 	add r1, r7, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200B708
+	bl BufferEasyChatWord
 	b _02041E38
 _02041D5E:
 	mov r1, #0x0
@@ -147,7 +147,7 @@ _02041D5E:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394B8
+	bl GetVarPointer
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	str r5, [sp, #0x4]
@@ -166,7 +166,7 @@ _02041D94:
 	add r0, r4, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_020394F0
+	bl VarGet
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x1
@@ -194,17 +194,17 @@ _02041DCE:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r1, r6, #0x0
 	add r7, r0, #0x0
-	bl FUN_02023990
+	bl PlayerName_FlatToString
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0x1
 	add r3, r6, #0x0
 	bl FUN_020287C0
 	add r0, r7, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

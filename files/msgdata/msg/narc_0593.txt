@@ -1,0 +1,44 @@
+PAL PAD
+CHECK FRIEND ROSTER
+REGISTER FRIEND CODE
+{STRVAR 3, 0}’s CODE
+EXIT
+FRIEND ROSTER
+{STRVAR 3, 0}
+CANCEL
+DETAILS
+REWRITE NAMES
+DELETE
+CANCEL
+What would you like to do\nwith {STRVAR 3, 0}’s data?
+RECORD WITH {STRVAR 3, 0}
+GROUP
+BATTLE RECORD
+WIN: {STRVAR 53, 0}
+LOSE: {STRVAR 53, 0}
+POKéMON TRADES
+{STRVAR 53, 0} time
+DATE LAST PLAYED
+{STRVAR 74, 1} {STRVAR 51, 2}, {STRVAR 53, 0}
+{STRVAR 3, 0}’s CODE
+By exchanging Friend Codes\nwith other players, you may\ntrade and battle with them\nover Nintendo WFC.
+To obtain your Friend Code,\nplease log on to the\nNintendo WFC.
+{STRVAR 53, 1} {STRVAR 53, 2} {STRVAR 53, 3}\n{STRVAR 3, 0} will be registered.
+The Friend Code is wrong.\n{STRVAR 53, 1} {STRVAR 53, 2} {STRVAR 53, 3}
+{STRVAR 53, 1} {STRVAR 53, 2} {STRVAR 53, 3}
+{STRVAR 3, 0} will be deleted.\nAre you sure about this?
+Your Friend Roster is full!
+That Friend Code has already been\nregistered before.
+{STRVAR 3, 0}’s Friend Code:\n{STRVAR 53, 1} {STRVAR 53, 2} {STRVAR 53, 3}
+CHECK FRIEND CODE
+Register {STRVAR 3, 0} in your\nPal Pad?
+Your Friend Roster is full.\nWill you delete someone?
+Give up on registering\n{STRVAR 3, 0}?
+Delete {STRVAR 3, 0}’s data from\nyour Friend Roster?
+
+
+
+
+
+{STRVAR 3, 0}
+{STRVAR 53, 0} times

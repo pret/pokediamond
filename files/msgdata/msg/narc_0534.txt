@@ -1,0 +1,8 @@
+Buck: Yo, if it isn’t {STRVAR 3, 0}!\rDon’t tell me you’re going to Stark\nMountain, too?\rYou’re pretty wimpy...\nYou’re sure you’re going to be OK?\rHeh, why am I asking you that?\nIt’s not like I care.\rAnyways, if we see each other on\nStark Mountain, the race is on to\fsee who gets the Magma Stone first!\r
+Hey, traveling Trainer.\nIs your Bag full of items?\fOr is it full of dreams?
+Trainers who lose at the Battle\nTower come here to train.
+I’ve been exploring a long time,\nbut I know when I’m beaten.\rIt takes a better Trainer than me\nto explore the volcano thoroughly!
+I’m a Cameraman, obviously.\rHave you seen that TV program,\n“Search for the Red GYARADOS!”?\rYou know, “The mysterious\nappearance of a raging Pokémon in\fa lake”?\rYeah, that outstanding documentary!\nI filmed that!
+Oh man! Oh geez! Oh, this is bad!\nBut I’m a Cameraman, obviously!\rI have to stand firm and get this\non film for the world to see!
+I’m a Cameraman, obviously.\r“The Eruption of Stark Mountain?\nThe mystery of the fiery Pokémon\fasleep deep in the volcano!”\rI’ve had that documentary all mapped\nout in my head for a long time...\rBut I have nothing on film as of yet.\nSo much for that show.\rOh, well. The world’s a huge place.\nThere’re plenty of other mysteries!
+Survival Area\nStaging Point

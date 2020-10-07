@@ -112,7 +112,7 @@ FUN_02026D98: ; 0x02026D98
 	add r4, r2, #0x0
 	add r1, #0x20
 	mov r2, #0x8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r5, #0x34
 	strb r4, [r5, #0x0]
 	pop {r3-r5, pc}
@@ -1105,12 +1105,12 @@ _02027492:
 _0202749A:
 	add r0, r5, #0x0
 	add r0, #0x40
-	bl FUN_02013724
+	bl MailMsg_init
 	add r5, #0x40
 	add r0, r5, #0x0
 	mov r1, #0x0
 	add r2, r4, #0x0
-	bl FUN_02013998
+	bl MailMsg_SetFieldI
 	pop {r3-r5, pc}
 	.balign 4
 _020274B0: .word 0x00001234
@@ -1398,12 +1398,12 @@ _02027698: .word 0x00002345
 
 	thumb_func_start FUN_0202769C
 FUN_0202769C: ; 0x0202769C
-	ldr r3, _020276A4 ; =FUN_02013918
+	ldr r3, _020276A4 ; =MailMsg_GetFieldI
 	add r0, #0x40
 	mov r1, #0x0
 	bx r3
 	.balign 4
-_020276A4: .word FUN_02013918
+_020276A4: .word MailMsg_GetFieldI
 
 	thumb_func_start FUN_020276A8
 FUN_020276A8: ; 0x020276A8
@@ -2242,13 +2242,13 @@ FUN_02027C84: ; 0x02027C84
 	thumb_func_start FUN_02027C88
 FUN_02027C88: ; 0x02027C88
 	add r2, r0, #0x0
-	ldr r3, _02027C94 ; =FUN_02021E28
+	ldr r3, _02027C94 ; =CopyU16ArrayToString
 	add r2, #0x20
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	bx r3
 	.balign 4
-_02027C94: .word FUN_02021E28
+_02027C94: .word CopyU16ArrayToString
 
 	thumb_func_start FUN_02027C98
 FUN_02027C98: ; 0x02027C98
@@ -2479,8 +2479,8 @@ _02027E1E:
 
 	thumb_func_start FUN_02027E24
 FUN_02027E24: ; 0x02027E24
-	ldr r3, _02027E2C ; =FUN_02022610
+	ldr r3, _02027E2C ; =SavArray_get
 	mov r1, #0xe
 	bx r3
 	nop
-_02027E2C: .word FUN_02022610
+_02027E2C: .word SavArray_get

@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.text
 
@@ -27,7 +27,7 @@ FUN_0208A338: ; 0x0208A338
 	bl String_ctor
 	str r0, [r4, #0x8]
 	mov r0, #0x20
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0xc]
 	ldr r2, _0208A3C0 ; =0x00000171
 	mov r0, #0x1
@@ -79,7 +79,7 @@ FUN_0208A3C8: ; 0x0208A3C8
 	ldr r0, [r4, #0x8]
 	bl String_dtor
 	ldr r0, [r4, #0xc]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	add r0, r4, #0x0
@@ -212,7 +212,7 @@ _0208A4E8:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -224,7 +224,7 @@ _0208A502:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -236,7 +236,7 @@ _0208A51C:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -248,7 +248,7 @@ _0208A536:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl FUN_02013960
+	bl MailMsg_copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -377,7 +377,7 @@ _0208A656:
 	add r0, r4, #0x0
 	add r0, #0x48
 	mov r1, #0x0
-	bl FUN_02013918
+	bl MailMsg_GetFieldI
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0208A8D0
@@ -413,7 +413,7 @@ _0208A6A2:
 	bl FUN_0208A750
 	cmp r0, #0x0
 	beq _0208A6C8
-	ldr r0, _0208A6D0 ; =gUnknown21C48B8
+	ldr r0, _0208A6D0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0xf3
 	tst r0, r1
@@ -432,7 +432,7 @@ _0208A6C8:
 	pop {r3-r5, pc}
 	.balign 4
 _0208A6CC: .word 0x0000FFFF
-_0208A6D0: .word gUnknown21C48B8
+_0208A6D0: .word gMain
 
 	thumb_func_start FUN_0208A6D4
 FUN_0208A6D4: ; 0x0208A6D4
@@ -465,7 +465,7 @@ _0208A6FA:
 	bl FUN_020545B8
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02054608
@@ -481,7 +481,7 @@ _0208A722:
 _0208A734:
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	ldr r1, [r5, #0x8]
 	add r0, r4, #0x0
@@ -574,7 +574,7 @@ _0208A7D2:
 	add r0, r7, #0x0
 	mov r1, #0x0
 	mov r3, #0xc
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r6, r6, #0x1
 	add r4, #0x10
 	cmp r6, #0x5
@@ -662,7 +662,7 @@ _0208A882:
 	add r0, r7, #0x0
 	mov r1, #0x0
 	mov r3, #0xc
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r6, r6, #0x1
 	add r4, #0x10
 	cmp r6, #0x2
@@ -699,7 +699,7 @@ FUN_0208A8DC: ; 0x0208A8DC
 	push {r4, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
-	ldr r0, _0208A990 ; =gUnknown21C48B8
+	ldr r0, _0208A990 ; =gMain
 	mov r1, #0x40
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -787,5 +787,5 @@ _0208A954:
 	add sp, #0x8
 	pop {r4, pc}
 	nop
-_0208A990: .word gUnknown21C48B8
+_0208A990: .word gMain
 _0208A994: .word 0x000005DC

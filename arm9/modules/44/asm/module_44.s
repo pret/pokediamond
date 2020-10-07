@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD44_02254840
-MOD44_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD44_02254854
-	ldr r1, _02254850 ; =MOD44_02254920
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD44_02254854
-_02254850: .word MOD44_02254920
-	thumb_func_end MOD44_02254840
-
 	thumb_func_start MOD44_02254854
 MOD44_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -61,7 +49,7 @@ MOD44_0225489C: ; 0x0225489C
 	add r6, r2, #0
 	bl MOD20_02252C3C
 	str r0, [r5, #0x10]
-	bl FUN_0204BF44
+	bl Sav2_Poketch_GetScreenTint
 	str r0, [r5, #4]
 	strb r0, [r5, #3]
 	add r0, r5, #0
@@ -260,7 +248,7 @@ _02254A02:
 	str r1, [r4, #4]
 	strb r1, [r4, #3]
 	ldr r0, [r4, #0x10]
-	bl FUN_0204BF58
+	bl Sav2_Poketch_SetScreenTint
 	add sp, #8
 	mov r0, #1
 	pop {r4, pc}

@@ -1,0 +1,12 @@
+MAILBOX
+READ
+ERASE
+GIVE
+CANCEL
+     
+What would you like to do with\n{STRVAR 3, 0}’s Mail?
+The message will be lost.\nIs that OK?
+The message was erased.\rLet a Pokémon hold this Mail?
+The Mail’s message was erased,\nand it was put in the Bag.
+Your Bag is full...\nThe Mail was discarded.
+Stopped making the Pokémon\nhold Mail.

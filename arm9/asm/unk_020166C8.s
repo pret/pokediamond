@@ -393,7 +393,7 @@ FUN_02016988: ; 0x02016988
 	bl FUN_02031810
 	cmp r0, #0x0
 	beq _02016996
-	bl FUN_0208A9B8
+	bl PrintErrorMessageAndReset
 _02016996:
 	pop {r3, pc}
 

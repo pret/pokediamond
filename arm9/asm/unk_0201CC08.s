@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnk021C4918
+	.extern gMain
 
 	.section .bss
 
@@ -88,7 +88,7 @@ FUN_0201CC78: ; 0x0201CC78
 	push {r4, lr}
 	ldr r4, _0201CC9C ; =UNK_021C5978
 	strh r0, [r4, #0x18]
-	ldr r0, _0201CCA0 ; =gUnk021C4918
+	ldr r0, _0201CCA0 ; =gMain + 0x60
 	strb r1, [r0, #0x4]
 	ldr r0, _0201CCA4 ; =UNK_021C5938
 	ldr r1, [sp, #0xc]
@@ -103,7 +103,7 @@ FUN_0201CC78: ; 0x0201CC78
 	pop {r4, pc}
 	nop
 _0201CC9C: .word UNK_021C5978
-_0201CCA0: .word gUnk021C4918
+_0201CCA0: .word gMain + 0x60
 _0201CCA4: .word UNK_021C5938
 _0201CCA8: .word UNK_021C5944
 

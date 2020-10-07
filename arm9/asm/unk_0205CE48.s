@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 	.extern UNK_020F96DC
 
 	.section .rodata
@@ -75,7 +75,7 @@ FUN_0205CE80: ; 0x0205CE80
 	ldr r0, [r0, #0x0]
 	str r0, [r5, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205ED3C
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0x38]
@@ -288,16 +288,16 @@ FUN_0205D024: ; 0x0205D024
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0xc]
 	bl FUN_02022504
@@ -457,13 +457,13 @@ _0205D194:
 _0205D1A4:
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	beq _0205D1C4
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _0205D1CA
@@ -771,16 +771,16 @@ FUN_0205D400: ; 0x0205D400
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	mov r0, #0x7a
 	lsl r0, r0, #0x2
@@ -1146,11 +1146,11 @@ FUN_0205D6BC: ; 0x0205D6BC
 	mov r0, #0xa
 	strh r0, [r4, #0x2a]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldrh r1, [r5, #0x4]
 	mov r2, #0x1
 	mov r3, #0xb
-	bl FUN_0206EDD4
+	bl Bag_TakeItem
 	pop {r3-r7, pc}
 	.balign 4
 _0205D710: .word MOD05_021F57F0
@@ -1389,8 +1389,8 @@ FUN_0205D8B8: ; 0x0205D8B8
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0206F158
-	bl FUN_0206EBC4
+	bl Sav2_Bag_get
+	bl Bag_GetRegisteredItem
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x0]
 	lsl r2, r2, #0x10
@@ -1433,7 +1433,7 @@ _0205D926:
 	mov r2, #0x3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
@@ -1455,7 +1455,7 @@ _0205D95C:
 	bl FUN_020546C8
 	cmp r0, #0x1
 	bne _0205D9A0
-	ldr r0, _0205D9A4 ; =gUnknown21C48B8
+	ldr r0, _0205D9A4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0xf3
 	tst r0, r1
@@ -1482,7 +1482,7 @@ _0205D9A0:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_0205D9A4: .word gUnknown21C48B8
+_0205D9A4: .word gMain
 
 	thumb_func_start FUN_0205D9A8
 FUN_0205D9A8: ; 0x0205D9A8
@@ -1502,16 +1502,16 @@ FUN_0205D9A8: ; 0x0205D9A8
 	add r4, r0, #0x0
 	bl memset
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB1C
+	bl SavArray_PlayerParty_get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02025838
+	bl Sav2_Mailbox_get
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl LoadPlayerDataAddress
+	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0xc]
 	bl FUN_02022504
@@ -1571,11 +1571,11 @@ FUN_0205DA3C: ; 0x0205DA3C
 	mov r0, #0xa
 	strh r0, [r4, #0x2a]
 	ldr r0, [r6, #0xc]
-	bl FUN_0206F158
+	bl Sav2_Bag_get
 	ldrh r1, [r5, #0x4]
 	mov r2, #0x1
 	mov r3, #0xb
-	bl FUN_0206EDD4
+	bl Bag_TakeItem
 	pop {r4-r6, pc}
 	nop
 _0205DA7C: .word FUN_0205DAAC
@@ -1646,7 +1646,7 @@ FUN_0205DAEC: ; 0x0205DAEC
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r5, r0, #0x0
 	bl FUN_0205ED0C
 	cmp r0, #0x0
@@ -1666,8 +1666,8 @@ _0205DB08:
 _0205DB1A:
 	ldr r0, [r4, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_02024DA0
-	bl FUN_02024CA4
+	bl Sav2_Pokedex_get
+	bl Pokedex_GetNatDexFlag
 	cmp r0, #0x0
 	bne _0205DB30
 	mov r0, #0x0
@@ -1696,7 +1696,7 @@ FUN_0205DB44: ; 0x0205DB44
 	pop {r3-r7, pc}
 _0205DB54:
 	ldr r0, [r5, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _0205DB66
@@ -1704,8 +1704,8 @@ _0205DB54:
 	pop {r3-r7, pc}
 _0205DB66:
 	ldr r0, [r5, #0xc]
-	bl FUN_0206F158
-	bl FUN_0206EBC4
+	bl Sav2_Bag_get
+	bl Bag_GetRegisteredItem
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x6
@@ -1786,7 +1786,7 @@ FUN_0205DBF0: ; 0x0205DBF0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r1, [sp, #0x0]
 	ldrh r2, [r5, #0x28]

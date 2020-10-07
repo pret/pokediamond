@@ -95,8 +95,7 @@ UNK_020FD894: ; 0x020FD894
 UNK_020FD8C8: ; 0x020FD8C8
 	.byte 0x00, 0x12
 	.short 0x0264
-	.word UNK_020FD9AC
-	.word 0x00000082
+	.word UNK_020FD9AC, 0x00000082
 	.byte 0x09, 0x00
 	.short 0x0252
 	.word UNK_020FD7D0, 0x00000018
@@ -197,8 +196,8 @@ _02088D2E:
 	nop
 _02088D3C: .word UNK_020FD8C8
 
-	thumb_func_start FUN_02088D40
-FUN_02088D40: ; 0x02088D40
+	thumb_func_start GetCityNamesMsgdataIdByCountry
+GetCityNamesMsgdataIdByCountry: ; 0x02088D40
 	push {r3, lr}
 	bl FUN_02088D20
 	bl FUN_02088D4C

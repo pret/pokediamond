@@ -13,7 +13,7 @@ FUN_02066840: ; 0x02066840
 	add r6, r0, #0x0
 	str r1, [sp, #0x0]
 	add r7, r2, #0x0
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_02029AFC
@@ -26,13 +26,13 @@ FUN_02066840: ; 0x02066840
 	mov r2, #0xe4
 	bl MI_CpuFill8
 	add r0, r4, #0x0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r7, #0x0
 	add r1, #0xa8
 	mov r2, #0x10
 	bl MI_CpuCopy8
 	add r0, r4, #0x0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	add r1, r7, #0x0
 	add r1, #0xbc
 	str r0, [r1, #0x0]
@@ -57,7 +57,7 @@ FUN_02066840: ; 0x02066840
 	add r1, #0xbb
 	strb r0, [r1, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r7, #0x0
 	add r1, #0xc8
 	lsl r0, r0, #0x18
@@ -72,7 +72,7 @@ FUN_02066840: ; 0x02066840
 	add r0, #0xc8
 	strb r1, [r0, #0x0]
 	add r0, r4, #0x0
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	add r0, #0xc8

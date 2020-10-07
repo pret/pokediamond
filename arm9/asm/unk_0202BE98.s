@@ -133,10 +133,10 @@ FUN_0202BF7C: ; 0x0202BF7C
 	mov r1, #0xec
 	mul r1, r2
 	add r1, r3, r1
-	ldr r3, _0202BF8C ; =FUN_02069A64
+	ldr r3, _0202BF8C ; =CopyBoxPokemonToPokemon
 	bx r3
 	nop
-_0202BF8C: .word FUN_02069A64
+_0202BF8C: .word CopyBoxPokemonToPokemon
 
 	thumb_func_start FUN_0202BF90
 FUN_0202BF90: ; 0x0202BF90
@@ -149,7 +149,7 @@ FUN_0202BF90: ; 0x0202BF90
 	add r1, r5, r0
 	ldr r0, _0202BFCC ; =0x00000588
 	str r4, [r1, r0]
-	bl FUN_020126FC
+	bl GF_RTC_DateTimeToSec
 	lsl r2, r6, #0x3
 	add r3, r5, r2
 	ldr r2, _0202BFD0 ; =0x000005D8
@@ -223,7 +223,7 @@ FUN_0202C028: ; 0x0202C028
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020126FC
+	bl GF_RTC_DateTimeToSec
 	ldr r1, _0202C058 ; =0x00000588
 	mov r3, #0x0
 	add r6, r5, #0x0

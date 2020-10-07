@@ -575,7 +575,7 @@ FUN_020867EC: ; 0x020867EC
 	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	mov r0, #0x47
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0
@@ -590,7 +590,7 @@ FUN_020867EC: ; 0x020867EC
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_0200AC60
+	bl BufferBoxMonSpeciesName
 	ldr r2, [sp, #0x14]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -602,7 +602,7 @@ FUN_020867EC: ; 0x020867EC
 	mov r1, #0x1
 	add r2, r4, #0x0
 	str r3, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl DestroyMsgData
@@ -611,7 +611,7 @@ FUN_020867EC: ; 0x020867EC
 	ldr r0, [sp, #0x14]
 	bl String_dtor
 	add r0, r5, #0x0
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0x0
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -658,7 +658,7 @@ FUN_02086878: ; 0x02086878
 	bl FUN_02019064
 	mov r0, #0x2
 	mov r1, #0x47
-	bl FUN_02012838
+	bl ListMenu_ctor
 	str r0, [r5, #0x44]
 	ldr r2, _0208695C ; =0x0000013F
 	mov r0, #0x0
@@ -675,7 +675,7 @@ _020868DE:
 	ldr r0, [r5, #0x44]
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	add r0, r6, #0x0
 	bl String_dtor
 	add r4, r4, #0x1
@@ -744,7 +744,7 @@ FUN_02086960: ; 0x02086960
 	mov r1, #0x0
 	bl FUN_02001C5C
 	ldr r0, [r4, #0x44]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	pop {r4, pc}
 
 	thumb_func_start FUN_0208698C

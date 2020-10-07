@@ -20,7 +20,7 @@ _021D74F4:
 _021D74F6:
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	bl FUN_0201E6D8
 	bl FUN_0201E740
@@ -42,7 +42,7 @@ _021D74F6:
 	ldr r1, _021D7638 ; =0x00004A60
 	add r0, r6, #0
 	mov r2, #0x33
-	bl FUN_02006268
+	bl OverlayManager_CreateAndGetData
 	ldr r2, _021D7638 ; =0x00004A60
 	mov r1, #0
 	add r4, r0, #0
@@ -51,13 +51,13 @@ _021D74F6:
 	bl FUN_02016B94
 	str r0, [r4]
 	add r0, r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	str r0, [r4, #8]
 	ldr r1, [r0]
 	ldr r0, _021D763C ; =0x00004A38
 	str r1, [r4, r0]
 	mov r0, #0x33
-	bl FUN_0200AA80
+	bl ScrStrBufs_new
 	str r0, [r4, #0x24]
 	ldr r2, _021D7640 ; =0x000001E2
 	mov r0, #0
@@ -90,7 +90,7 @@ _021D74F6:
 	bl MOD54_021D7AA0
 	ldr r0, _021D7644 ; =MOD54_021D784C
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	add r0, r4, #0
 	bl MOD54_021D799C
 	bl MOD54_021D7B8C
@@ -133,7 +133,7 @@ _021D75F4:
 	str r0, [r5]
 	b _021D7628
 _021D761A:
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	mov r0, #0
 	str r0, [r5]
 	add sp, #0xc
@@ -157,7 +157,7 @@ _021D7648: .word MOD54_021D77E8
 MOD54_021D764C: ; 0x021D764C
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r4, r0, #0
 	bl FUN_02031190
 	cmp r0, #0
@@ -276,7 +276,7 @@ _021D773C: .word 0x00010300
 MOD54_021D7740: ; 0x021D7740
 	push {r3, r4, r5, r6, r7, lr}
 	str r0, [sp]
-	bl FUN_02006278
+	bl OverlayManager_GetData
 	add r6, r0, #0
 	ldr r0, [r6, #0x20]
 	bl FUN_0200CAB4
@@ -317,11 +317,11 @@ _021D776C:
 	ldr r0, [r6, #0x28]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x24]
-	bl FUN_0200AB18
+	bl ScrStrBufs_delete
 	add r0, r6, #0
 	bl MOD54_021D7A34
 	ldr r0, [sp]
-	bl FUN_0200627C
+	bl OverlayManager_FreeData
 	ldr r2, _021D77E4 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -331,7 +331,7 @@ _021D776C:
 	bl FUN_02052B74
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	mov r0, #0x33
 	bl FUN_020168D0
 	mov r0, #1
@@ -1192,7 +1192,7 @@ MOD54_021D7E98: ; 0x021D7E98
 	add r0, r5, #0
 	add r2, r7, #0
 	asr r3, r3, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1279,7 +1279,7 @@ MOD54_021D7F70: ; 0x021D7F70
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	ldr r0, _021D808C ; =gUnknown21C48B8
+	ldr r0, _021D808C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -1405,7 +1405,7 @@ _021D8086:
 	add sp, #4
 	pop {r3, r4, pc}
 	nop
-_021D808C: .word gUnknown21C48B8
+_021D808C: .word gMain
 _021D8090: .word 0x00004A48
 _021D8094: .word 0x000005F2
 _021D8098: .word 0x00004A3C
@@ -1530,7 +1530,7 @@ MOD54_021D8150: ; 0x021D8150
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021D81A8
-	ldr r0, _021D8270 ; =gUnknown21C48B8
+	ldr r0, _021D8270 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0xc3
 	tst r0, r1
@@ -1548,7 +1548,7 @@ _021D8184:
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021D81A8
-	ldr r0, _021D8270 ; =gUnknown21C48B8
+	ldr r0, _021D8270 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0xc3
 	tst r0, r1
@@ -1652,7 +1652,7 @@ _021D825E:
 	pop {r4, r5, r6, pc}
 	nop
 _021D826C: .word 0x00004A3C
-_021D8270: .word gUnknown21C48B8
+_021D8270: .word gMain
 _021D8274: .word 0x000005F2
 _021D8278: .word 0x00004A50
 _021D827C: .word 0x00004A54
@@ -1797,7 +1797,7 @@ MOD54_021D8370: ; 0x021D8370
 	cmp r0, #0
 	beq _021D83A4
 _021D838A:
-	ldr r0, _021D8414 ; =gUnknown21C48B8
+	ldr r0, _021D8414 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0xc3
 	tst r0, r1
@@ -1861,7 +1861,7 @@ _021D8404:
 	pop {r3, r4, r5, pc}
 	nop
 _021D8410: .word 0x00004A48
-_021D8414: .word gUnknown21C48B8
+_021D8414: .word gMain
 _021D8418: .word 0x000005F2
 _021D841C: .word 0x00004A56
 	thumb_func_end MOD54_021D8370
@@ -1968,7 +1968,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	ldr r0, _021D8514 ; =gUnk021C4918
+	ldr r0, _021D8514 ; =gMain + 0x60
 	mov r1, #1
 	strb r1, [r0, #8]
 	mov r0, #0x33
@@ -1993,7 +1993,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D8514: .word gUnk021C4918
+_021D8514: .word gMain + 0x60
 	thumb_func_end MOD54_021D84D4
 
 	thumb_func_start MOD54_021D8518
@@ -2035,7 +2035,7 @@ _021D852A:
 	str r1, [r5, #0xc]
 	lsl r0, r0, #4
 	str r1, [r5, r0]
-	ldr r0, _021D8580 ; =gUnk021C4918
+	ldr r0, _021D8580 ; =gMain + 0x60
 	strb r1, [r0, #8]
 	ldr r0, _021D8584 ; =0x00004A40
 	strb r1, [r5, r0]
@@ -2044,7 +2044,7 @@ _021D8576:
 	pop {r3, r4, r5, pc}
 	nop
 _021D857C: .word 0x00000658
-_021D8580: .word gUnk021C4918
+_021D8580: .word gMain + 0x60
 _021D8584: .word 0x00004A40
 	thumb_func_end MOD54_021D8518
 
@@ -2158,7 +2158,7 @@ MOD54_021D8630: ; 0x021D8630
 	cmp r0, #0
 	beq _021D8664
 _021D864A:
-	ldr r0, _021D86D4 ; =gUnknown21C48B8
+	ldr r0, _021D86D4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0xc3
 	tst r0, r1
@@ -2210,7 +2210,7 @@ _021D869C:
 	add r2, r0, #0
 	ldr r0, [r5, #0x24]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 _021D86BE:
 	mov r0, #0x32
 	mov r1, #0
@@ -2223,7 +2223,7 @@ _021D86C6:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021D86D0: .word 0x00004A48
-_021D86D4: .word gUnknown21C48B8
+_021D86D4: .word gMain
 _021D86D8: .word 0x000005F2
 	thumb_func_end MOD54_021D8630
 
@@ -2246,7 +2246,7 @@ _021D86F6:
 	add r2, r0, #0
 	ldr r0, [r5, #0x24]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r5, #0
 	mov r1, #0x10
 	mov r2, #0
@@ -2579,7 +2579,7 @@ _021D896C:
 	add r2, r0, #0
 	ldr r0, [r5, #0x24]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	bl FUN_02031190
 	cmp r6, r0
 	beq _021D89BE
@@ -2639,7 +2639,7 @@ _021D89EA:
 	add r2, r0, #0
 	ldr r0, [r5, #0x24]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	add r0, r5, #0
 	mov r1, #1
 	bl MOD54_021D8F40
@@ -2668,7 +2668,7 @@ _021D8A2E:
 	add r2, r0, #0
 	ldr r0, [r5, #0x24]
 	mov r1, #0
-	bl FUN_0200ABC0
+	bl BufferPlayersName
 	bl FUN_02031190
 	cmp r6, r0
 	beq _021D8A7E
@@ -2799,13 +2799,13 @@ _021D8B2A:
 	ldr r0, [r7, r0]
 	cmp r0, #0
 	beq _021D8BE4
-	bl FUN_020239C0
+	bl PlayerProfile_GetTrainerID_VisibleHalf
 	str r0, [sp, #0x24]
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	ldr r1, [r4, #0x2c]
-	bl FUN_02023990
+	bl PlayerName_FlatToString
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #1
@@ -2815,7 +2815,7 @@ _021D8B2A:
 	ldr r0, [r0, #0x24]
 	mov r1, #0
 	mov r3, #5
-	bl FUN_0200AD38
+	bl BufferIntegerAsString
 	ldr r0, [sp, #0x14]
 	ldr r1, [sp, #0x14]
 	ldr r0, [r0, #0x24]
@@ -2839,7 +2839,7 @@ _021D8B2A:
 	ldr r2, [r4, #0x2c]
 	add r0, r6, #0
 	mov r3, #5
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	str r5, [sp]
 	mov r0, #0xff
 	str r0, [sp, #4]
@@ -2851,7 +2851,7 @@ _021D8B2A:
 	add r0, r6, #0
 	mov r1, #0
 	mov r3, #0x46
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	b _021D8BDE
 _021D8BAC:
 	mov r0, #0xff
@@ -2864,7 +2864,7 @@ _021D8BAC:
 	ldr r2, [r4, #0x2c]
 	add r0, r6, #0
 	mov r3, #5
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	str r5, [sp]
 	mov r0, #0xff
 	str r0, [sp, #4]
@@ -2876,7 +2876,7 @@ _021D8BAC:
 	add r0, r6, #0
 	mov r1, #0
 	mov r3, #0x46
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _021D8BDE:
 	ldr r0, [sp, #0x18]
 	bl String_dtor
@@ -3034,7 +3034,7 @@ MOD54_021D8C90: ; 0x021D8C90
 	ldr r2, [r5, #0x44]
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add sp, #0xc
 	str r0, [r5, #0x4c]
 	pop {r4, r5, r6, r7, pc}
@@ -3048,7 +3048,7 @@ _021D8D00:
 	ldr r2, [r5, #0x44]
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r0, #0xff
 	str r0, [r5, #0x4c]
 	add sp, #0xc
@@ -3136,12 +3136,12 @@ _021D8D9E:
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	str r0, [sp, #0xc]
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	str r0, [sp, #0x10]
 	bl FUN_02031190
 	cmp r4, r0
@@ -3187,7 +3187,7 @@ _021D8E06:
 	mov r0, #0xd9
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	add r1, r0, #0
 	mov r0, #0x8b
 	lsl r0, r0, #2
@@ -3718,7 +3718,7 @@ MOD54_021D91C4: ; 0x021D91C4
 	str r3, [sp, #4]
 	add r5, r1, #0
 	str r2, [sp]
-	bl FUN_020238F4
+	bl Sav2_PlayerData_GetProfileAddr
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	mov r7, #0
@@ -3730,17 +3730,17 @@ _021D91DC:
 	mov r2, #0x48
 	bl MIi_CpuClearFast
 	add r0, r4, #0
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	str r0, [r5]
 	add r0, r4, #0
-	bl FUN_020239CC
+	bl PlayerProfile_GetTrainerGender
 	strb r0, [r5, #4]
 	mov r0, #GAME_VERSION
 	strb r0, [r5, #5]
 	mov r0, #2
 	strb r0, [r5, #6]
 	add r0, r4, #0
-	bl FUN_0202398C
+	bl PlayerProfile_GetNamePtr
 	add r1, r0, #0
 	add r0, r5, #0
 	add r0, #8

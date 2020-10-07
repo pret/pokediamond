@@ -23,7 +23,7 @@ MOD05_021D7504: ; 0x021D7504
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	mov r6, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	ldr r1, [r5]
 	add r4, r0, #0
 	cmp r1, #3
@@ -44,7 +44,7 @@ _021D7524: ; jump table
 _021D752C:
 	add r0, r6, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	ldr r1, _021D7670 ; =0x04000050
 	add r0, r6, #0
@@ -179,7 +179,7 @@ _021D7678: .word SDK_OVERLAY_MODULE_06_ID
 	thumb_func_start MOD05_021D767C
 MOD05_021D767C: ; 0x021D767C
 	push {r4, lr}
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r4, r0, #0
 	bl MOD05_021D7864
 	cmp r0, #0
@@ -212,7 +212,7 @@ _021D76BA:
 MOD05_021D76C0: ; 0x021D76C0
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
-	bl FUN_0200628C
+	bl OverlayManager_GetField18
 	add r4, r0, #0
 	ldr r1, [r4, #0x24]
 	bl MOD05_021EE52C
@@ -353,7 +353,7 @@ _021D7806:
 	bl MOD05_021D7F9C
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	ldr r0, [r4, #8]
 	bl FreeToHeap
 	ldr r0, [r4, #4]
@@ -1146,7 +1146,7 @@ MOD05_021D7E4C: ; 0x021D7E4C
 	bl MOD05_021F38B8
 	ldr r0, _021D7EE4 ; =MOD05_021D74E0
 	add r1, r4, #0
-	bl FUN_02015F10
+	bl Main_SetVBlankIntrCB
 	pop {r3, r4, r5, pc}
 	nop
 _021D7EE4: .word MOD05_021D74E0

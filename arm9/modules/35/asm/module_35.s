@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD35_02254840
-MOD35_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD35_02254854
-	ldr r1, _02254850 ; =MOD35_02254924
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD35_02254854
-_02254850: .word MOD35_02254924
-	thumb_func_end MOD35_02254840
-
 	thumb_func_start MOD35_02254854
 MOD35_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -60,7 +48,7 @@ MOD35_0225489C: ; 0x0225489C
 	add r0, r4, #0
 	add r6, r2, #0
 	bl MOD20_02252C40
-	bl FUN_02023D58
+	bl Sav2_DayCare_get
 	str r0, [r5, #0x30]
 	ldr r1, [r5, #0x30]
 	add r0, r5, #4
@@ -313,7 +301,7 @@ MOD35_02254A50: ; 0x02254A50
 	ldr r1, [sp]
 	strb r0, [r1]
 	ldr r0, [sp, #4]
-	bl FUN_02023C90
+	bl Sav2_DayCare_GetEggPID
 	ldr r1, [sp]
 	mov r7, #0
 	strb r0, [r1, #1]
@@ -326,9 +314,9 @@ MOD35_02254A50: ; 0x02254A50
 _02254A7A:
 	ldr r0, [sp, #4]
 	add r1, r7, #0
-	bl FUN_02023C74
+	bl Sav2_DayCare_GetMonX
 	str r0, [sp, #8]
-	bl FUN_02023C7C
+	bl DayCareMon_GetBoxMon
 	add r4, r0, #0
 	bl AcquireBoxMonLock
 	str r0, [sp, #0xc]
@@ -1167,6 +1155,3 @@ MOD35_02255110: ; 0x02255110
 	.byte 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x80, 0x02, 0x00
 	.byte 0x0A, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x0C, 0x00, 0x00, 0x80, 0x02, 0x00
 	.byte 0x0A, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
-
-	.section .sinit
-	.word MOD35_02254840

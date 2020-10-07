@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD43_02254840
-MOD43_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD43_02254854
-	ldr r1, _02254850 ; =MOD43_02254970
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD43_02254854
-_02254850: .word MOD43_02254970
-	thumb_func_end MOD43_02254840
-
 	thumb_func_start MOD43_02254854
 MOD43_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -447,7 +435,7 @@ MOD43_02254B60: ; 0x02254B60
 	add r5, r0, #0
 	add r0, r1, #0
 	bl MOD20_02252C40
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r6, r0, #0
 	mov r4, #0
 _02254B72:
@@ -677,7 +665,7 @@ MOD43_02254CD0: ; 0x02254CD0
 	add r0, sp, #0x14
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, sp, #0x14
 	bl FUN_02019270
 	add r0, sp, #0x14

@@ -55,6 +55,7 @@ ARM_FUNC FSResult FSi_ReadTable(FSiSyncReadParam * p, void * dst, u32 len)
         (void)OS_RestoreInterrupts(bak_psr);
         ret = p_arc->list.next->error;
     }
+    default:
         break;
     }
     p->pos += len;

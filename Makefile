@@ -87,6 +87,7 @@ MWCCARM  = tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
 KNARC = tools/knarc/knarc$(EXE)
+MSGENC = tools/msgenc/msgenc$(EXE)
 MWLDARM  = tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 SCANINC = tools/scaninc/scaninc$(EXE)
@@ -159,6 +160,7 @@ clean-fs:
 	$(RM) $(filter %.narc %.arc,$(HOSTFS_FILES))
 	$(RM) $(NCGR_CLEAN_LIST) $(NCLR_CLEAN_LIST)
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
+	$(RM) files/msgdata/msg/narc_*.bin
 
 mostlyclean: tidy
 	$(MAKE) -C arm9 mostlyclean
@@ -184,7 +186,7 @@ $(MWASMARM): patch_mwasmarm
 patch_mwasmarm: tools/mwasmarm_patcher
 	$(MWASMARM_PATCHER) $(MWASMARM)
 
-ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
+ALL_DIRS := $(BUILD_DIR)
 
 ifeq (,$(NODEP))
 $(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)))
@@ -245,41 +247,25 @@ PADDED_LZ_FILES := $(addsuffix .lz,$(wildcard \
 $(PADDED_LZ_FILES): %.lz: %
 	$(NTRCOMP) -l2 -s -A4 -o $@ $<
 
+$(CLOBBER_SIZE_NCGR_FILES): GFX_FLAGS = -clobbersize
+$(CLOBBER_SIZE_VERSION101_NCGR_FILES): GFX_FLAGS = -clobbersize -version101
+$(VERSION101_SOPC_8BPP_NCGR_FILES): GFX_FLAGS = -version101 -sopc -bitdepth 8
+$(VERSION101_SOPC_NCGR_FILES): GFX_FLAGS = -version101 -sopc
+$(SCANNED_NCGR_FILES): GFX_FLAGS = -scanned
+
+$(IR_NCLR_FILES): GFX_FLAGS = -ir
+$(4BPP_NCLR_FILES): GFX_FLAGS = -bitdepth 4
+$(8BPP_COMP10_NOPAD_NCLR_PNG_FILES): GFX_FLAGS = -bitdepth 8 -nopad -comp 10
+$(8BPP_COMP10_NOPAD_NCLR_PAL_FILES): GFX_FLAGS = -bitdepth 8 -nopad -comp 10
+
 %.NCGR: %.png
-	$(GFX) $< $@
-
-$(CLOBBER_SIZE_NCGR_FILES): %.NCGR: %.png
-	$(GFX) $< $@ -clobbersize
-
-$(CLOBBER_SIZE_VERSION101_NCGR_FILES): %.NCGR: %.png
-	$(GFX) $< $@ -clobbersize -version101
-
-$(VERSION101_SOPC_8BPP_NCGR_FILES): %.NCGR: %.png
-	$(GFX) $< $@ -version101 -sopc -bitdepth 8
-
-$(VERSION101_SOPC_NCGR_FILES): %.NCGR: %.png
-	$(GFX) $< $@ -version101 -sopc
-
-$(SCANNED_NCGR_FILES): %.NCGR: %.png
-	$(GFX) $< $@ -scanned
+	$(GFX) $< $@ $(GFX_FLAGS)
 
 %.NCLR: %.png
-	$(GFX) $< $@
+	$(GFX) $< $@ $(GFX_FLAGS)
 
 %.NCLR: %.pal
-	$(GFX) $< $@
-
-$(IR_NCLR_FILES): %.NCLR: %.pal
-	$(GFX) $< $@ -ir
-
-$(4BPP_NCLR_FILES): %.NCLR: %.pal
-	$(GFX) $< $@ -bitdepth 4
-
-$(8BPP_COMP10_NOPAD_NCLR_PNG_FILES): %.NCLR: %.png
-	$(GFX) $< $@ -bitdepth 8 -nopad -comp 10
-
-$(8BPP_COMP10_NOPAD_NCLR_PAL_FILES): %.NCLR: %.pal
-	$(GFX) $< $@ -bitdepth 8 -nopad -comp 10
+	$(GFX) $< $@ $(GFX_FLAGS)
 
 %.png: ;
 %.pal: ;

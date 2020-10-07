@@ -37,8 +37,8 @@ u32 GetAttrFromWazaTbl(struct WazaTbl * wazaTbl, MoveAttr attr)
     {
     case MOVEATTR_EFFECT:
         return wazaTbl->effect;
-    case MOVEATTR_UNK1:
-        return wazaTbl->unk2;
+    case MOVEATTR_CLASS:
+        return wazaTbl->class;
     case MOVEATTR_POWER:
         return wazaTbl->power;
     case MOVEATTR_TYPE:

@@ -27,7 +27,7 @@ Static arm9
 	Object unk_02008DEC.o
 	Object unk_02009EAC.o
 	Object msgdata.o
-	Object unk_0200AA80.o
+	Object script_buffers.o
 	Object unk_0200BA78.o
 	Object unk_0200BB14.o
 	Object unk_0200CA44.o
@@ -37,7 +37,7 @@ Static arm9
 	Object unk_0201137C.o
 	Object unk_02011744.o
 	Object unk_02012CC8.o
-	Object unk_02013724.o
+	Object mail_message.o
 	Object unk_020139D8.o
 	Object unk_02013CD4.o
 	Object unk_020142EC.o
@@ -47,7 +47,7 @@ Static arm9
 	Object unk_02015CC0.o
 	Object unk_02015D14.o
 	Object unk_02015E30.o
-	Object unk_02015EA0.o
+	Object game_init.o
 	Object unk_020166C8.o
 	Object unk_02016B94.o
 	Object unk_0201B1A8.o
@@ -83,28 +83,30 @@ Static arm9
 	Object unk_02022450.o
 	Object unk_02022504.o
 	Object save.o
-	Object unk_0202376C.o
-	Object unk_020238C4.o
+	Object save_arrays.o
+	Object sav_system_info.o
+	Object player_data.o
 	Object unk_02023AC4.o
-	Object unk_02023C40.o
+	Object daycare.o
+	Object pokedex.o
 	Object unk_02024E64.o
-	Object unk_02024F30.o
+	Object options.o
 	Object unk_020250A4.o
 	Object unk_02025484.o
 	Object unk_020254B8.o
-	Object unk_02025658.o
+	Object mail.o
 	Object unk_02025954.o
 	Object unk_02026CD0.o
 	Object unk_02027E30.o
 	Object unk_020281E0.o
 	Object unk_020286F8.o
-	Object unk_02028910.o
+	Object coins.o
 	Object unk_02028980.o
 	Object unk_02029A84.o
 	Object unk_02029AE0.o
-	Object unk_02029C58.o
+	Object seal_case.o
 	Object unk_02029CEC.o
-	Object unk_02029E48.o
+	Object igt.o
 	Object unk_02029EC4.o
 	Object unk_02029FB0.o
 	Object unk_0202A1E0.o
@@ -123,7 +125,7 @@ Static arm9
 	Object unk_0202A924.o
 	Object unk_0202ABBC.o
 	Object unk_0202AC20.o
-	Object unk_0202B034.o
+	Object hall_of_fame.o
 	Object unk_0202B374.o
 	Object unk_0202B870.o
 	Object unk_0202BE98.o
@@ -177,6 +179,7 @@ Static arm9
 	Object scrcmd_15.o
 	Object scrcmd_16.o
 	Object scrcmd_17.o
+	Object scrcmd_18_c.o
 	Object scrcmd_18.o
 	Object scrcmd_19.o
 	Object scrcmd_20.o
@@ -186,7 +189,7 @@ Static arm9
 	Object scrcmd_24.o
 	Object scrcmd_25.o
 	Object unk_02046030.o
-	Object unk_02046294.o
+	Object event_data.o
 	Object unk_0204639C.o
 	Object unk_0204653C.o
 	Object unk_02047500.o
@@ -194,7 +197,7 @@ Static arm9
 	Object unk_02048120.o
 	Object unk_020484A8.o
 	Object unk_02048904.o
-	Object unk_0204A01C.o
+	Object script_pokemon_util.o
 	Object unk_0204A368.o
 	Object unk_0204A498.o
 	Object unk_0204AB0C.o
@@ -204,7 +207,7 @@ Static arm9
 	Object unk_0204B0A0.o
 	Object unk_0204B34C.o
 	Object unk_0204B9EC.o
-	Object unk_0204BE14.o
+	Object poketch.o
 	Object unk_0204C1B4.o
 	Object unk_0204CA80.o
 	Object unk_0204CB20.o
@@ -254,10 +257,12 @@ Static arm9
 	Object unk_02064E90.o
 	Object unk_020653EC.o
 	Object unk_02066840.o
+
+	##poketool##
 	Object pokemon.o
 	Object waza.o
-	Object unk_0206ABC4.o
-	Object unk_0206B16C.o
+	Object trainer_data.o
+	Object pokemon_storage_system.o
 	Object unk_0206B688.o
 	Object party.o
 	Object unk_0206BB28.o
@@ -267,8 +272,10 @@ Static arm9
 	Object unk_0206DE24.o
 	Object unk_0206E0F0.o
 	Object unk_0206E2F0.o
+
+	##itemtool##
 	Object itemtool.o
-	Object unk_0206EB80.o
+	Object bag.o
 	Object unk_0206F1F0.o
 	Object unk_0206F3FC.o
 	Object unk_02072548.o
@@ -291,7 +298,7 @@ Static arm9
 	Object unk_02083D48.o
 	Object unk_02084098.o
 	Object unk_020842D0.o
-	Object unk_020842DC.o
+	Object use_item_on_mon.o
 	Object unk_020851B8.o
 	Object nutdata.o
 	Object unk_02085338.o
@@ -543,6 +550,11 @@ Overlay MODULE_05
 	Object mod05_021DC0B8.o
 	Object mod05_021E1374.o
 	Object mod05_021E1AD8.o
+	Object mod05_021E2B80.o
+	Object mod05_021E2E88.o
+	Object mod05_021E3340.o
+	Object mod05_021E3444.o
+	Object mod05_021E4AE4.o
 	Object module_05.o
 }
 
@@ -580,8 +592,9 @@ Overlay MODULE_11
 {
 	##Battles##
 	After MODULE_08
-	Object module_11.o
+	Object module_11_thumb1.o
 	Object module_11_sinit.o
+	Object module_11_thumb2.o
 }
 
 Overlay MODULE_12
@@ -649,13 +662,14 @@ Overlay MODULE_21
 {
 	##Pokétch Clock##
 	After MODULE_20
-	Object module_21.o
 	Object module_21_sinit.o
+	Object module_21.o
 }
 
 Overlay MODULE_22
 {
 	After MODULE_20
+	Object module_22_sinit.o
 	Object module_22.o
 }
 
@@ -663,14 +677,15 @@ Overlay MODULE_23
 {
 	##Pokétch Calculator##
 	After MODULE_20
-	Object module_23.o
 	Object module_23_sinit.o
+	Object module_23.o
 }
 
 Overlay MODULE_24
 {
 	##Memo Pad##
 	After MODULE_20
+	Object module_24_sinit.o
 	Object module_24.o
 }
 
@@ -678,12 +693,15 @@ Overlay MODULE_25
 {
 	##Analogue Watch##
 	After MODULE_20
+	Object module_25_sinit.o
 	Object module_25.o
 }
 
 Overlay MODULE_26
 {
+	##Dot Artist##
 	After MODULE_20
+	Object module_26_sinit.o
 	Object module_26.o
 }
 
@@ -691,78 +709,82 @@ Overlay MODULE_27
 {
 	##Pokétch Party##
 	After MODULE_20
-	Object module_27.o
 	Object module_27_sinit.o
+	Object module_27.o
 }
 
 Overlay MODULE_28
 {
 	##Friendship Checker##
 	After MODULE_20
-	Object module_28.o
 	Object module_28_sinit.o
+	Object module_28.o
 }
 
 Overlay MODULE_29
 {
 	##Dowsing Machine##
 	After MODULE_20
-	Object module_29.o
 	Object module_29_sinit.o
+	Object module_29.o
 }
 
 Overlay MODULE_30
 {
 	After MODULE_20
-	Object module_30.o
 	Object module_30_sinit.o
+	Object module_30.o
 }
 
 Overlay MODULE_31
 {
 	##Pokétch Counter##
 	After MODULE_20
+	Object module_31_sinit.o
 	Object module_31.o
 }
 
 Overlay MODULE_32
 {
 	After MODULE_20
-	Object module_32.o
 	Object module_32_sinit.o
+	Object module_32.o
 }
 
 Overlay MODULE_33
 {
 	After MODULE_20
+	Object module_33_sinit.o
 	Object module_33.o
 }
 
 Overlay MODULE_34
 {
 	After MODULE_20
-	Object module_34.o
 	Object module_34_sinit.o
+	Object module_34.o
 }
 
 Overlay MODULE_35
 {
 	##Daycare Checker##
 	After MODULE_20
+	Object module_35_sinit.o
 	Object module_35.o
 }
 
 Overlay MODULE_36
 {
 	After MODULE_20
-	Object module_36.o
 	Object module_36_sinit.o
+	Object module_36.o
 }
 
 Overlay MODULE_37
 {
 	##Coin Toss##
 	After MODULE_20
+	Object module_37_sinit.o
 	Object module_37.o
 }
 
@@ -770,61 +792,65 @@ Overlay MODULE_38
 {
 	##Move Checker##
 	After MODULE_20
+	Object module_38_sinit.o
 	Object module_38.o
 }
 
 Overlay MODULE_39
 {
 	After MODULE_20
-	Object module_39.o
 	Object module_39_sinit.o
+	Object module_39.o
 }
 
 Overlay MODULE_40
 {
 	After MODULE_20
+	Object module_40_sinit.o
 	Object module_40.o
 }
 
 Overlay MODULE_41
 {
 	After MODULE_20
-	Object module_41.o
 	Object module_41_sinit.o
+	Object module_41.o
 }
 
 Overlay MODULE_42
 {
 	##Marking Map##
 	After MODULE_20
-	Object module_42.o
 	Object module_42_sinit.o
+	Object module_42.o
 }
 
 Overlay MODULE_43
 {
 	##Berry Searcher##
 	After MODULE_20
-	Object module_43.o
 	Object module_43_sinit.o
+	Object module_43.o
 }
 
 Overlay MODULE_44
 {
 	After MODULE_20
-	Object module_44.o
 	Object module_44_sinit.o
+	Object module_44.o
 }
 
 Overlay MODULE_45
 {
 	After MODULE_20
+	Object module_45_sinit.o
 	Object module_45.o
 }
 
 Overlay MODULE_46
 {
 	After MODULE_20
+	Object module_46_sinit.o
 	Object module_46.o
 }
 
@@ -832,13 +858,14 @@ Overlay MODULE_47
 {
 	##Link Searcher##
 	After MODULE_20
-	Object module_47.o
 	Object module_47_sinit.o
+	Object module_47.o
 }
 
 Overlay MODULE_48
 {
 	After MODULE_20
+	Object module_48_sinit.o
 	Object module_48.o
 }
 
@@ -846,12 +873,14 @@ Overlay MODULE_49
 {
 	##Pokemon History##
 	After MODULE_20
+	Object module_49_sinit.o
 	Object module_49.o
 }
 
 Overlay MODULE_50
 {
 	After MODULE_20
+	Object module_50_sinit.o
 	Object module_50.o
 }
 
@@ -928,6 +957,7 @@ Overlay MODULE_61
 Overlay MODULE_62
 {
 	After MODULE_08
+	Object module_62_sinit.o
 	Object module_62.o
 }
 
@@ -935,7 +965,11 @@ Overlay MODULE_63
 {
 	### Title Demo ###
 	After arm9
-	Object module_63.o
+	Object mod63_021D74E0.o
+	Object mod63_021D8890.o
+	Object mod63_021DA640.o
+	Object mod63_021DAE5C.o
+	Object mod63_021DB450.o
 }
 
 Overlay MODULE_64

@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD40_02254840
-MOD40_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD40_02254854
-	ldr r1, _02254850 ; =MOD40_022549D4
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD40_02254854
-_02254850: .word MOD40_022549D4
-	thumb_func_end MOD40_02254840
-
 	thumb_func_start MOD40_02254854
 MOD40_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -62,12 +50,12 @@ MOD40_0225489C: ; 0x0225489C
 	add r6, r2, #0
 	bl MOD20_02252C3C
 	str r0, [r5, #0x10]
-	bl FUN_0204BF94
+	bl Sav2_Poketch_GetAlarmState
 	strb r0, [r5, #3]
 	ldr r0, [r5, #0x10]
 	add r1, sp, #8
 	add r2, sp, #4
-	bl FUN_0204BF9C
+	bl Sav2_Poketch_GetAlarmSetTime
 	ldr r0, [sp, #8]
 	strb r0, [r5, #6]
 	ldr r0, [sp, #4]
@@ -133,7 +121,7 @@ MOD40_02254940: ; 0x02254940
 	sub sp, #0xc
 	add r4, r0, #0
 	add r0, sp, #0
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	ldr r0, [sp]
 	cmp r0, #0x18
 	blo _0225495A
@@ -312,7 +300,7 @@ _02254A60:
 	ldrsb r3, [r4, r3]
 	ldr r0, [r4, #0x10]
 	mov r1, #1
-	bl FUN_0204BFB0
+	bl Sav2_Poketch_SetAlarm
 	ldr r0, [r4, #8]
 	mov r1, #2
 	bl MOD40_02254F98
@@ -637,7 +625,7 @@ MOD40_02254CE8: ; 0x02254CE8
 	bne _02254CFE
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02012690
+	bl GF_RTC_CopyTime
 	mov r0, #1
 	str r0, [r4, #0x30]
 _02254CFE:
@@ -1453,6 +1441,3 @@ MOD40_022553B0: ; 0x022553B0
 	.byte 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00
 	.byte 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00
 	.byte 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
-
-	.section .sinit
-	.word MOD40_02254840

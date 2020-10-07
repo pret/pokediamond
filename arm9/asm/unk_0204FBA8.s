@@ -146,7 +146,7 @@ FUN_0204FC5C: ; 0x0204FC5C
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
 	bne _0204FC9A
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02031824
 	add r0, r4, #0x0
 	bl FUN_0204FBB0
@@ -159,7 +159,7 @@ FUN_0204FC5C: ; 0x0204FC5C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F194
 	cmp r0, #0x0
 	bne _0204FC9A
@@ -444,7 +444,7 @@ FUN_0204FEB0: ; 0x0204FEB0
 	cmp r0, #0x0
 	bne _0204FEE8
 	add r0, r5, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	mov r1, #0x0
 	add r3, r5, #0x0
 	str r1, [sp, #0x0]
@@ -475,7 +475,7 @@ FUN_0204FEF0: ; 0x0204FEF0
 	cmp r0, #0x0
 	bne _0204FF28
 	add r0, r5, #0x0
-	bl FUN_020377AC
+	bl ScriptEnvironment_GetSav2Ptr
 	mov r1, #0x0
 	add r3, r5, #0x0
 	str r1, [sp, #0x0]
@@ -712,7 +712,7 @@ _020500B6:
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F194
 	cmp r0, #0x0
 	bne _020500F8
@@ -739,7 +739,7 @@ FUN_02050114: ; 0x02050114
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	bl FUN_0205F194
 	cmp r0, #0x0
 	beq _0205013A
@@ -1755,14 +1755,14 @@ FUN_02050968: ; 0x02050968
 	add r4, r1, #0x0
 	beq _02050986
 	mov r0, #0xb
-	bl FUN_0206B8AC
+	bl SavArray_Party_alloc
 	ldr r1, _020509AC ; =UNK_021C5A6C
 	ldr r2, [r1, #0x0]
 	str r0, [r2, #0x44]
 	ldr r1, [r1, #0x0]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x44]
-	bl FUN_0206BAD0
+	bl CopyPlayerParty
 _02050986:
 	cmp r5, #0x0
 	beq _02050994

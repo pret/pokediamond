@@ -3,18 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD42_02254840
-MOD42_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =Poketch_InitApp
-	ldr r0, _0225484C ; =MOD42_02254854
-	ldr r1, _02254850 ; =MOD42_02254A38
-	bx r3
-	.align 2, 0
-_02254848: .word Poketch_InitApp
-_0225484C: .word MOD42_02254854
-_02254850: .word MOD42_02254A38
-	thumb_func_end MOD42_02254840
-
 	thumb_func_start MOD42_02254854
 MOD42_02254854: ; 0x02254854
 	push {r3, r4, r5, r6, r7, lr}
@@ -78,7 +66,7 @@ _022548BE:
 	ldr r3, [sp, #8]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl FUN_0204C0A4
+	bl Sav2_Poketch_MarkingMapGetPos
 	ldrb r0, [r4, #0x10]
 	add r7, r7, #4
 	add r0, #0x10
@@ -104,7 +92,7 @@ _022548BE:
 	str r0, [r5, #0xc]
 	ldr r0, [sp]
 	bl MOD20_02252C40
-	bl FUN_020462AC
+	bl SavArray_Flags_get
 	add r7, r0, #0
 	mov r4, #0
 	add r6, r5, #0
@@ -217,7 +205,7 @@ _022549D4:
 	add r1, r4, #0
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_0204C080
+	bl Sav2_Poketch_MarkingMapSetPos
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6

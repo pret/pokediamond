@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -46,7 +46,7 @@ FUN_02073DB4: ; 0x02073DB4
 	bl FUN_02001C5C
 	ldr r0, _02073DF0 ; =0x000006F8
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -69,7 +69,7 @@ FUN_02073DF4: ; 0x02073DF4
 	bl FUN_020731D4
 	mov r0, #0x3
 	mov r1, #0xc
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _02073EB0 ; =0x000006F8
 	str r0, [r5, r1]
 	mov r0, #0x3
@@ -79,7 +79,7 @@ FUN_02073DF4: ; 0x02073DF4
 	ldr r0, [r5, r1]
 	sub r1, #0x40
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x4
 	bl FUN_02073DA8
 	ldr r1, _02073EB0 ; =0x000006F8
@@ -87,7 +87,7 @@ FUN_02073DF4: ; 0x02073DF4
 	ldr r0, [r5, r1]
 	sub r1, #0x3c
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x9
 	bl FUN_02073DA8
 	ldr r1, _02073EB0 ; =0x000006F8
@@ -95,7 +95,7 @@ FUN_02073DF4: ; 0x02073DF4
 	ldr r0, [r5, r1]
 	sub r1, #0x28
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	ldr r0, _02073EB0 ; =0x000006F8
 	mov r1, #0x0
 	ldr r0, [r5, r0]
@@ -155,7 +155,7 @@ FUN_02073EB8: ; 0x02073EB8
 	bl FUN_02001C5C
 	ldr r0, _02073EE4 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _02073EE8 ; =0x000005A4
 	mov r1, #0x3
 	ldr r0, [r5, r0]
@@ -186,7 +186,7 @@ FUN_02073EEC: ; 0x02073EEC
 	bl FUN_02001C5C
 	ldr r0, _02074048 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _0207404C ; =0x00000B25
 	ldrb r1, [r5, r0]
 	mov r0, #0x2c
@@ -214,7 +214,7 @@ FUN_02073EEC: ; 0x02073EEC
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	mov r2, #0x6a
 	lsl r2, r2, #0x4
 	add r1, r2, #0x4
@@ -230,7 +230,7 @@ _02073F66:
 	ldr r0, [r0, #0x4]
 	mov r2, #0x1
 	mov r3, #0xc
-	bl FUN_0206ED38
+	bl Bag_AddItem
 	cmp r0, #0x1
 	bne _0207400A
 	ldr r0, _02074054 ; =0x000005A4
@@ -246,7 +246,7 @@ _02073F66:
 	add r2, sp, #0x0
 	bl SetMonData
 	add r0, r6, #0x0
-	bl FUN_02069EC4
+	bl Pokemon_UpdateArceusForme
 	ldr r2, _02074058 ; =0x0000069C
 	mov r1, #0x52
 	ldr r0, [r5, r2]
@@ -260,7 +260,7 @@ _02073F66:
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x0
-	bl FUN_0200ACF8
+	bl BufferBoxMonNickname
 	ldr r2, _0207404C ; =0x00000B25
 	mov r3, #0x6a
 	ldrb r6, [r5, r2]
@@ -272,7 +272,7 @@ _02073F66:
 	add r3, #0x6c
 	ldrh r2, [r2, r3]
 	mov r1, #0x1
-	bl FUN_0200AE38
+	bl BufferItemName
 	mov r2, #0x6a
 	lsl r2, r2, #0x4
 	add r1, r2, #0x4
@@ -340,7 +340,7 @@ FUN_0207405C: ; 0x0207405C
 	bl FUN_0201BD70
 	cmp r0, #0x0
 	bne _0207409A
-	ldr r0, _020740A4 ; =gUnknown21C48B8
+	ldr r0, _020740A4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -365,7 +365,7 @@ _0207409A:
 	pop {r4, pc}
 	nop
 _020740A0: .word 0x00000B24
-_020740A4: .word gUnknown21C48B8
+_020740A4: .word gMain
 _020740A8: .word 0x000005C8
 
 	thumb_func_start FUN_020740AC
@@ -381,7 +381,7 @@ FUN_020740AC: ; 0x020740AC
 	bl FUN_020731D4
 	mov r0, #0x3
 	mov r1, #0xc
-	bl FUN_02012838
+	bl ListMenu_ctor
 	ldr r1, _02074168 ; =0x000006F8
 	str r0, [r5, r1]
 	mov r0, #0x6
@@ -391,7 +391,7 @@ FUN_020740AC: ; 0x020740AC
 	ldr r0, [r5, r1]
 	sub r1, #0x34
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x7
 	bl FUN_02073DA8
 	ldr r1, _02074168 ; =0x000006F8
@@ -399,7 +399,7 @@ FUN_020740AC: ; 0x020740AC
 	ldr r0, [r5, r1]
 	sub r1, #0x30
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	mov r0, #0x9
 	bl FUN_02073DA8
 	ldr r1, _02074168 ; =0x000006F8
@@ -407,7 +407,7 @@ FUN_020740AC: ; 0x020740AC
 	ldr r0, [r5, r1]
 	sub r1, #0x28
 	ldr r1, [r5, r1]
-	bl FUN_020128A0
+	bl ListMenu_AddItem
 	ldr r0, _02074168 ; =0x000006F8
 	mov r1, #0x0
 	ldr r0, [r5, r0]
@@ -467,7 +467,7 @@ FUN_02074170: ; 0x02074170
 	bl FUN_02001C5C
 	ldr r0, _0207419C ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _020741A0 ; =0x000005A4
 	mov r1, #0x7
 	ldr r0, [r5, r0]
@@ -497,7 +497,7 @@ FUN_020741A4: ; 0x020741A4
 	bl FUN_02001C5C
 	ldr r0, _020741F0 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	add r0, r5, #0x0
 	mov r1, #0x2b
 	mov r2, #0x1
@@ -617,7 +617,7 @@ FUN_020742A8: ; 0x020742A8
 	ldr r0, [r0, #0x4]
 	mov r2, #0x1
 	mov r3, #0xc
-	bl FUN_0206ED38
+	bl Bag_AddItem
 	cmp r0, #0x1
 	bne _0207431A
 	ldr r0, _02074334 ; =0x000005A4
@@ -633,7 +633,7 @@ FUN_020742A8: ; 0x020742A8
 	add r2, sp, #0x0
 	bl SetMonData
 	add r0, r5, #0x0
-	bl FUN_02069EC4
+	bl Pokemon_UpdateArceusForme
 	ldr r1, _02074330 ; =0x00000B25
 	mov r2, #0x2c
 	ldrb r3, [r4, r1]
@@ -697,7 +697,7 @@ _02074368: .word 0x000005C8
 FUN_0207436C: ; 0x0207436C
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _020743A4 ; =gUnknown21C48B8
+	ldr r0, _020743A4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -721,7 +721,7 @@ _0207439E:
 	mov r0, #0x10
 	pop {r4, pc}
 	nop
-_020743A4: .word gUnknown21C48B8
+_020743A4: .word gMain
 _020743A8: .word 0x000005C8
 
 	thumb_func_start FUN_020743AC
@@ -744,7 +744,7 @@ FUN_020743AC: ; 0x020743AC
 	bl FUN_02001C5C
 	ldr r0, _02074414 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	ldr r0, _02074418 ; =0x000005A4
 	mov r1, #0x0
 	ldr r0, [r5, r0]
@@ -790,7 +790,7 @@ FUN_02074428: ; 0x02074428
 	ldrb r1, [r4, r1]
 	ldr r0, [r0, #0x0]
 	bl GetPartyMonByIndex
-	bl FUN_0206AA84
+	bl Pokemon_RemoveCapsule
 	ldr r0, _0207444C ; =0x000005A4
 	mov r1, #0x0
 	ldr r0, [r4, r0]
@@ -1226,7 +1226,7 @@ _020747CE:
 	ldrb r1, [r4, r1]
 	ldrb r2, [r4, r2]
 	ldr r0, [r0, #0x0]
-	bl FUN_0206BA38
+	bl SwapSlotsInParty
 	ldr r0, _02074840 ; =0x000005C8
 	mov r1, #0x1
 	ldr r0, [r5, r0]
@@ -2168,7 +2168,7 @@ _02074F68: .word 0x00000B22
 FUN_02074F6C: ; 0x02074F6C
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _02074FA4 ; =gUnknown21C48B8
+	ldr r0, _02074FA4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2192,7 +2192,7 @@ _02074F9E:
 	mov r0, #0x13
 	pop {r4, pc}
 	nop
-_02074FA4: .word gUnknown21C48B8
+_02074FA4: .word gMain
 _02074FA8: .word 0x000005C8
 
 	thumb_func_start FUN_02074FAC
@@ -2324,7 +2324,7 @@ FUN_02075090: ; 0x02075090
 	bl FUN_02001C5C
 	ldr r0, _020750C0 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x1b
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
@@ -2349,7 +2349,7 @@ FUN_020750C4: ; 0x020750C4
 	bl FUN_02001C5C
 	ldr r0, _020750F4 ; =0x000006F8
 	ldr r0, [r5, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x1b
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
@@ -2482,7 +2482,7 @@ _020751E4:
 	bl FUN_02001C5C
 	ldr r0, _0207523C ; =0x000006F8
 	ldr r0, [r4, r0]
-	bl FUN_02012870
+	bl ListMenu_dtor
 	mov r0, #0x1b
 	str r0, [r6, #0x0]
 	pop {r4-r6, pc}
@@ -2852,7 +2852,7 @@ _020754CC: .word 0x00000B2A
 FUN_020754D0: ; 0x020754D0
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _02075504 ; =gUnknown21C48B8
+	ldr r0, _02075504 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r1, r0
@@ -2874,5 +2874,5 @@ FUN_020754D0: ; 0x020754D0
 _02075500:
 	pop {r4, pc}
 	nop
-_02075504: .word gUnknown21C48B8
+_02075504: .word gMain
 _02075508: .word 0x000005C8

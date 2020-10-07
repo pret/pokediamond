@@ -25,7 +25,7 @@ _021DB45A:
 	str r0, [r4]
 	mov r0, #0
 	str r0, [r4, #8]
-	bl FUN_020126D8
+	bl GF_RTC_TimeToSec
 	lsr r1, r0, #0x1f
 	add r1, r0, r1
 	asr r3, r1, #1
@@ -79,7 +79,7 @@ MOD05_021DB4D0: ; 0x021DB4D0
 	bne _021DB4DA
 	bl ErrorHandling
 _021DB4DA:
-	bl FUN_020126D8
+	bl GF_RTC_TimeToSec
 	lsr r1, r0, #0x1f
 	add r1, r0, r1
 	asr r0, r1, #1

@@ -1503,7 +1503,7 @@ FUN_02013690: ; 0x02013690
 	bl String_ctor
 	ldr r1, _020136BC ; =UNK_020ED548
 	str r0, [r4, #0x4]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 _020136B2:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
@@ -1563,7 +1563,7 @@ FUN_020136F8: ; 0x020136F8
 	ldr r2, [r6, #0x4]
 	add r0, r5, #0x0
 	add r3, r4, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0x0
 	bl FUN_02019548
 	add sp, #0x10

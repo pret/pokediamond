@@ -40,7 +40,7 @@ FUN_02052EE8: ; 0x02052EE8
 	ldr r0, [r4, r1]
 	mov r1, #0x9
 	ldr r0, [r0, #0xc]
-	bl FUN_02022610
+	bl SavArray_get
 	ldr r1, _02052F64 ; =0x000004D8
 	ldr r2, _02052F68 ; =0x00002710
 	str r0, [r4, r1]
@@ -342,10 +342,10 @@ _02053166:
 	cmp r6, #0x0
 	beq _020531D8
 	ldr r0, [sp, #0xc]
-	bl FUN_02023A28
+	bl PlayerProfile_GetAvatar
 	strb r0, [r5, #0x14]
 	ldr r0, [sp, #0xc]
-	bl FUN_020239BC
+	bl PlayerProfile_GetTrainerID
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x8]
 	bl FUN_02025614
@@ -881,7 +881,7 @@ FUN_02053598: ; 0x02053598
 	str r1, [r4, #0x4]
 	add r0, #0x14
 	str r1, [r4, #0x8]
-	bl FUN_0201373C
+	bl MailMsg_init_withBank
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	str r0, [r4, #0xc]

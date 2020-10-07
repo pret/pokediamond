@@ -1,0 +1,16 @@
+BERRY TAG
+SPICY
+DRY
+SWEET
+BITTER
+SOUR
+{STRVAR 51, 0}
+{STRVAR 8, 0}
+SIZE /
+{STRVAR 51, 0}.{STRVAR 50, 1}”
+FIRM /
+Very soft
+Soft
+Hard
+Very hard
+Super hard
