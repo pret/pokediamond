@@ -2,7 +2,6 @@
 #include "consts.h"
 #include "function_target.h"
 #include "MI_memory.h"
-#include "OS_system.h"
 #include "OS_terminate_proc.h"
 #include "OS_spinLock.h"
 #include "OS_cache.h"

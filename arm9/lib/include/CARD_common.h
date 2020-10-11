@@ -3,6 +3,7 @@
 
 #include "nitro/types.h"
 #include "OS_thread.h"
+#include "OS_system.h"
 #include "MI_dma.h"
 
 #define	CARD_THREAD_PRIORITY_DEFAULT	4
@@ -151,6 +152,42 @@ typedef struct CARDiCommon
 
     u8 backup_cache_page_buf[256] ALIGN(32);
 } CARDiCommon;
+
+static inline void CARDi_EndTask(CARDiCommon *p, BOOL is_own_task)
+{
+    const MIDmaCallback func = p->callback;
+    void *const arg = p->callback_arg;
+
+    {
+        OSIntrMode bak_psr = OS_DisableInterrupts();
+
+        p->flag &= ~(CARD_STAT_BUSY | CARD_STAT_TASK | CARD_STAT_CANCEL);
+        OS_WakeupThread(p->busy_q);
+        if ((p->flag & CARD_STAT_RECV) != 0)
+        {
+            OS_WakeupThreadDirect(p->thread);
+        }
+        (void)OS_RestoreInterrupts(bak_psr);
+    }
+
+    if (is_own_task && func)
+    {
+        (*func)(arg);
+    }
+}
+
+static inline void CARDi_WaitTask(CARDiCommon *p, MIDmaCallback callback, void *callback_arg)
+{
+    OSIntrMode bak_psr = OS_DisableInterrupts();
+    while ((p->flag & CARD_STAT_BUSY) != 0)
+    {
+        OS_SleepThread(p->busy_q);
+    }
+    p->flag |= CARD_STAT_BUSY;
+    p->callback = callback;
+    p->callback_arg = callback_arg;
+    (void)OS_RestoreInterrupts(bak_psr);
+}
 
 void CARDi_SetTask(void (*task) (CARDiCommon *));
 void CARDi_InitCommon(void);
