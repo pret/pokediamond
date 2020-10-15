@@ -102,6 +102,6 @@ ARM_FUNC static void CARDi_SendtoPxi(u32 data, u32 wait)
 {
     while (PXI_SendWordByFifo(PXI_FIFO_TAG_CARD, data, FALSE) != PXI_FIFO_SUCCESS)
     {
-        SVC_WaitByLoop((s32)wait);
+        SVC_WaitByLoop((u32)wait);
     }
 }

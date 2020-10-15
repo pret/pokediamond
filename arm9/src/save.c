@@ -828,9 +828,9 @@ BOOL SaveDetectFlash(void)
     GF_ASSERT(lock != -3);
     CARD_LockBackup((u16)lock);
     u16 flash_type;
-    if (CARD_IdentifyBackup(0x1302))
+    if (CARD_IdentifyBackup((CARDBackupType)0x1302))
         flash_type = 0x1302;
-    else if (CARD_IdentifyBackup(0x1202))
+    else if (CARD_IdentifyBackup((CARDBackupType)0x1202))
         flash_type = 0x1202;
     else
         flash_type = 0;
