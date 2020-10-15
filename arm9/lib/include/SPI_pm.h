@@ -31,7 +31,7 @@ PMLCDTarget;
 void PM_GetBackLight(PMBackLightSwitch * top, PMBackLightSwitch * bottom);
 void PM_GoSleepMode(PMWakeUpTrigger trigger, PMLogic logic, u16 keyPattern);
 u32 PM_SetBackLight(PMLCDTarget target, PMBackLightSwitch status);
-void PM_ForceToPowerOff(void);
+u32 PM_ForceToPowerOff(void);
 void PM_SetAmp(int gain);
 void PM_SetAmpGain(int gain);
 

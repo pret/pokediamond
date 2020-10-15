@@ -6,6 +6,10 @@
 #include "OS_system.h"
 #include "MI_dma.h"
 
+#define CARD_PXI_COMMAND_MASK           0x3f
+#define CARD_PXI_COMMAND_PULLED_OUT     0x0011
+#define CARD_PXI_COMMAND_TERMINATE      0x0001
+
 #define	CARD_THREAD_PRIORITY_DEFAULT	4
 
 #define	CARD_BACKUP_TYPE_DEVICE_SHIFT	0
