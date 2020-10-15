@@ -48,4 +48,6 @@
 
 #define OS_IE_V_BLANK              (1UL << 0)
 
+#define HW_CPU_CLOCK_ARM9          67027964
+
 #endif //POKEDIAMOND_ARM9_CONSTS_H
