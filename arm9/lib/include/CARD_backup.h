@@ -7,7 +7,7 @@
 
 BOOL CARDi_RequestStreamCommand(u32 src, u32 dst, u32 len, MIDmaCallback callback, void *arg, BOOL is_async,
                                 CARDRequest req_type, int req_retry, CARDRequestMode req_mode);
-u32 CARD_GetBackupSectorSize(void);;
+u32 CARD_GetBackupSectorSize(void);
 BOOL CARD_IdentifyBackup(CARDBackupType type);
 BOOL CARD_WaitBackupAsync(void);
 BOOL CARD_TryWaitBackupAsync(void);
