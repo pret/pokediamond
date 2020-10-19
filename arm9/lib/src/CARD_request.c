@@ -49,6 +49,7 @@ ARM_FUNC BOOL CARDi_Request(CARDiCommon *p, s32 req_type, s32 retry_count)
 
         (void)CARDi_Request(p, CARD_REQ_INIT, 1);
     }
+    
     DC_FlushRange(p->cmd, sizeof(*p->cmd));
     DC_WaitWriteBufferEmpty();
 
