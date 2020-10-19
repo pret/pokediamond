@@ -1,6 +1,7 @@
 #include "CARD_backup.h"
 #include "function_target.h"
 #include "CARD_common.h"
+#include "CARD_request.h"
 #include "OS_cache.h"
 #include "MI_memory.h"
 #include "OS_terminate_proc.h"
@@ -9,7 +10,6 @@
 extern void OSi_ReferSymbol(void *symbol);
 extern char _SDK_NintendoBackup[];
 
-extern BOOL CARDi_Request(CARDiCommon * p, int req_type, int retry_count);
 extern void CARDi_IdentifyBackupCore(CARDBackupType type);
 
 extern CARDiCommon cardi_common;
