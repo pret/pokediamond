@@ -1,7 +1,7 @@
 #ifndef NITRO_FSI_UTIL_H_
 #define NITRO_FSI_UTIL_H_
 
-#define ALIGN_MASK(a) ((u32)((a) - 1))
+#include "CARD_common.h"
 
 #define ALIGN_BYTE(n, a) (((u32)(n) + ALIGN_MASK(a)) & ~ALIGN_MASK(a))
 

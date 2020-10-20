@@ -24,6 +24,10 @@
 	((size) << CARD_BACKUP_TYPE_SIZEBIT_SHIFT) |	\
 	((vender) << CARD_BACKUP_TYPE_VENDER_SHIFT))
 
+#define	ALIGN_MASK(a)	((a) - 1)
+#define CARD_ALIGN_HI_BIT(n)     (((u32)(n)) & ~ALIGN_MASK(CARD_ROM_PAGE_SIZE))
+#define CARD_ALIGN_LO_BIT(n)     (((u32)(n)) & ALIGN_MASK(CARD_ROM_PAGE_SIZE))
+
 typedef enum
 {
     CARD_BACKUP_TYPE_EEPROM_4KBITS = CARD_BACKUP_TYPE_DEFINE(EEPROM, 9, 0),
@@ -208,8 +212,6 @@ void CARD_LockBackup(u16 lock_id);
 void CARD_UnlockBackup(u16 lock_id);
 
 #define CARD_RETRY_COUNT_MAX 10
-
-void CARD_Init(void);
 
 extern BOOL PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 

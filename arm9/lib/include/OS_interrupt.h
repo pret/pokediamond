@@ -12,6 +12,7 @@
 #define OS_IE_V_COUNT       (1UL << REG_OS_IE_VE_SHIFT)
 #define OS_IE_TIMER0        (1UL << REG_OS_IE_T0_SHIFT)
 #define OS_IE_TIMER1        (1UL << REG_OS_IE_T1_SHIFT)
+#define OS_IE_CARD_DATA     (1UL << REG_OS_IE_MC_SHIFT)
 
 extern OSIrqFunction OS_IRQTable[];
 extern OSIrqCallbackInfo OSi_IrqCallbackInfo[8];

@@ -7,6 +7,8 @@
 
 typedef void (*MIDmaCallback)(void *);
 
+#define MI_DMA_MAX_NUM          3
+
 #define REG_ADDR_DMA0CNT        0x40000b8
 #define REG_ADDR_DMA0_CLR_DATA  0x40000e0
 
