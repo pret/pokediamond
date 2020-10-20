@@ -24,7 +24,7 @@
 	((size) << CARD_BACKUP_TYPE_SIZEBIT_SHIFT) |	\
 	((vender) << CARD_BACKUP_TYPE_VENDER_SHIFT))
 
-#define	ALIGN_MASK(a)	((a) - 1)
+#define ALIGN_MASK(a)            ((a) - 1)
 #define CARD_ALIGN_HI_BIT(n)     (((u32)(n)) & ~ALIGN_MASK(CARD_ROM_PAGE_SIZE))
 #define CARD_ALIGN_LO_BIT(n)     (((u32)(n)) & ALIGN_MASK(CARD_ROM_PAGE_SIZE))
 
