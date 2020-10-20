@@ -350,6 +350,7 @@
 #define REG_OS_IE_VE_SHIFT                                 2
 #define REG_OS_IE_T0_SHIFT                                 3
 #define REG_OS_IE_T1_SHIFT                                 4
+#define REG_OS_IE_MC_SHIFT                                 19
 
 #define REG_OS_TM0CNT_H_I_MASK                             0x0040
 #define REG_OS_TM0CNT_H_E_MASK                             0x0080

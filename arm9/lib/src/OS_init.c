@@ -2,9 +2,9 @@
 #include "OS_init.h"
 #include "MI_init.h"
 #include "PXI_init.h"
+#include "CARD_rom.h"
 
 extern void CTRDG_Init(void);
-extern void CARD_Init(void);
 extern void PM_Init(void);
 
 ARM_FUNC void OS_Init(void) {
