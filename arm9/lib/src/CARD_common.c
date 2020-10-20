@@ -1,4 +1,5 @@
 #include "CARD_common.h"
+#include "CARD_request.h"
 #include "consts.h"
 #include "function_target.h"
 #include "MI_memory.h"
@@ -13,9 +14,7 @@ static CARDiCommandArg cardi_arg ALIGN(32);
 
 u8 cardi_thread_stack[0x400] ALIGN(4);
 
-extern void CARDi_TaskThread(void *arg);
 extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
-extern void CARDi_OnFifoRecv(PXIFifoTag tag, u32 data, BOOL err);
 
 static void CARDi_LockResource(CARDiOwner owner, CARDTargetMode target);
 static void CARDi_UnlockResource(CARDiOwner owner, CARDTargetMode target);

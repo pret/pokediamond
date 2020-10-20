@@ -5,6 +5,7 @@
 #include "OS_thread.h"
 #include "OS_system.h"
 #include "MI_dma.h"
+#include "PXI_fifo.h"
 
 #define CARD_PXI_COMMAND_MASK           0x3f
 #define CARD_PXI_COMMAND_PULLED_OUT     0x0011
@@ -209,5 +210,13 @@ void CARD_UnlockBackup(u16 lock_id);
 #define CARD_RETRY_COUNT_MAX 10
 
 void CARD_Init(void);
+
+extern BOOL PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
+
+static inline void CARDi_SendPxi(u32 data)
+{
+    while (PXI_SendWordByFifo(PXI_FIFO_TAG_FS, data, TRUE) < 0)
+        ;
+}
 
 #endif //POKEDIAMOND_CARD_COMMON_H

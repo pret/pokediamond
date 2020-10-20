@@ -16,7 +16,7 @@ vu16 OSi_IsResetOccurred = 0;
 
 extern u32 PXI_IsCallbackReady(u32 param1, u32 param2);
 extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
-extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
+extern BOOL PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 
 static void OSi_CommonCallback(PXIFifoTag tag, u32 data, BOOL err);
 static void OSi_SendToPxi(u16 data);
