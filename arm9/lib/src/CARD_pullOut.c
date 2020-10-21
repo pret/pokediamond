@@ -12,9 +12,6 @@
 static CARDPulledOutCallback CARD_UserCallback;
 static BOOL CARDi_IsPulledOutFlag = FALSE;
 
-extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
-extern BOOL PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
-
 static void CARDi_PulledOutCallback(PXIFifoTag tag, u32 data, BOOL err);
 static void CARDi_SendtoPxi(u32 data, u32 wait);
 

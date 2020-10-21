@@ -6,8 +6,6 @@
 
 extern CARDiCommon cardi_common;
 
-extern u32 PXI_IsCallbackReady(u32 param1, u32 param2);
-
 ARM_FUNC void CARDi_OnFifoRecv(PXIFifoTag tag, u32 data, BOOL err)
 {
 #pragma unused (data)
