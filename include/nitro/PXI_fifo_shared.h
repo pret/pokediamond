@@ -13,6 +13,12 @@
 #ifndef POKEDIAMOND_PXI_FIFO_SHARED_H
 #define POKEDIAMOND_PXI_FIFO_SHARED_H
 
+typedef enum
+{
+    PXI_PROC_ARM9 = 0,
+    PXI_PROC_ARM7 = 1
+} PXIProc;
+
 typedef enum {
     PXI_FIFO_TAG_EX = 0,               // Extension format
     PXI_FIFO_TAG_USER_0,               // for application programmer, use it in free

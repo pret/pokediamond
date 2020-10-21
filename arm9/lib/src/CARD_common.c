@@ -14,8 +14,6 @@ static CARDiCommandArg cardi_arg ALIGN(32);
 
 u8 cardi_thread_stack[0x400] ALIGN(4);
 
-extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
-
 static void CARDi_LockResource(CARDiOwner owner, CARDTargetMode target);
 static void CARDi_UnlockResource(CARDiOwner owner, CARDTargetMode target);
 

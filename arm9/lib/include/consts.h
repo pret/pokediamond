@@ -35,8 +35,6 @@
 
 #define HW_CACHE_LINE_SIZE         32
 
-#define PXI_PROC_ARM7              0x01
-
 #define OSi_CONSOLE_NOT_DETECT     0xffffffff
 
 #define OS_CONSOLE_NITRO           0x80000000
@@ -49,5 +47,12 @@
 #define OS_IE_V_BLANK              (1UL << 0)
 
 #define HW_CPU_CLOCK_ARM9          67027964
+
+#define REG_PXI_SUBP_FIFO_CNT_E_MASK                       0x8000
+#define REG_PXI_SUBP_FIFO_CNT_ERR_MASK                     0x4000
+#define REG_PXI_SUBP_FIFO_CNT_RECV_RI_MASK                 0x0400
+#define REG_PXI_SUBP_FIFO_CNT_RECV_EMP_MASK                0x0100
+#define REG_PXI_SUBP_FIFO_CNT_SEND_CL_MASK                 0x0008
+#define REG_PXI_SUBP_FIFO_CNT_SEND_FULL_MASK               0x0002
 
 #endif //POKEDIAMOND_ARM9_CONSTS_H
