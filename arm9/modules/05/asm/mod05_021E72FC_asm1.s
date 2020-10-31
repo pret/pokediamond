@@ -53,26 +53,3 @@ _021E734C:
 	bl MOD05_021E7358
 	mov r0, #1
 	pop {r4, r5, r6, pc}
-
-	thumb_func_start MOD05_021E7358
-MOD05_021E7358: ; 0x021E7358
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	mov r0, #0x18
-	add r6, r1, #0
-	add r7, r2, #0
-	bl MOD05_021E74D4
-	add r4, r0, #0
-	str r5, [r4, #0xc]
-	str r6, [r4, #0x10]
-	ldr r0, _021E7380 ; =0x00000658
-	str r7, [r4]
-	bl FUN_020054C8
-	ldr r1, _021E7384 ; =MOD05_021E73B4
-	add r0, r5, #0
-	add r2, r4, #0
-	bl FUN_020463CC
-	pop {r3, r4, r5, r6, r7, pc}
-	.balign 4, 0
-_021E7380: .word 0x00000658
-_021E7384: .word MOD05_021E73B4
