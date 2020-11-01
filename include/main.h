@@ -22,7 +22,7 @@ struct UnkStruct_02006234
     u32 unk14;
     int * unk18;
     void * unk1C;
-    u32 unk20;
+    struct SaveBlock2 * unk20;
     u32 unk24;
 };
 
