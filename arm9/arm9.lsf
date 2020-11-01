@@ -554,10 +554,8 @@ Overlay MODULE_05
 	Object mod05_021E5C8C.o
 	Object mod05_021E5E10.o
 	Object mod05_021E5FD8.o
-	#kinda awkward split, sorry
-	Object mod05_021E72FC_asm1.o
 	Object mod05_021E72FC_src.o
-	Object mod05_021E72FC_asm2.o
+	Object mod05_021E72FC_asm.o
 	Object mod05_021E7504.o
 	Object module_05.o
 }
