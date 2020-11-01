@@ -3,69 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD59_021D74E0
-MOD59_021D74E0: ; 0x021D74E0
-	push {r3, r4, r5, lr}
-	mov r2, #1
-	add r5, r0, #0
-	mov r0, #3
-	mov r1, #0x52
-	lsl r2, r2, #0x12
-	bl FUN_0201681C
-	add r0, r5, #0
-	mov r1, #0xb4
-	mov r2, #0x52
-	bl OverlayManager_CreateAndGetData
-	mov r1, #0
-	mov r2, #0xb4
-	add r4, r0, #0
-	bl memset
-	mov r0, #0x52
-	str r0, [r4]
-	add r0, r5, #0
-	bl OverlayManager_GetField18
-	ldr r0, [r0, #8]
-	str r0, [r4, #4]
-	bl Sav2_PlayerData_GetOptionsAddr
-	mov r1, #0
-	str r0, [r4, #8]
-	str r1, [r4, #0xc]
-	str r1, [r4, #0x10]
-	str r1, [r4, #0x14]
-	ldr r0, [r4, #8]
-	add r2, r1, #0
-	str r0, [sp]
-	mov r0, #0x52
-	mov r3, #7
-	bl FUN_02077A84
-	str r0, [r4, #0x70]
-	ldr r0, [r4, #8]
-	mov r1, #3
-	str r0, [sp]
-	mov r0, #0x52
-	mov r2, #0
-	mov r3, #7
-	bl FUN_02077A84
-	str r0, [r4, #0x74]
-	add r0, r4, #0
-	mov r1, #0
-	add r0, #0x88
-	strb r1, [r0]
-	add r0, r4, #0
-	add r0, #0x89
-	strb r1, [r0]
-	add r0, r4, #0
-	add r0, #0x8a
-	strb r1, [r0]
-	add r0, r4, #0
-	add r0, #0x8b
-	strb r1, [r0]
-	add r4, #0x90
-	str r1, [r4]
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-	thumb_func_end MOD59_021D74E0
-
 	thumb_func_start MOD59_021D7564
 MOD59_021D7564: ; 0x021D7564
 	push {r3, r4, r5, r6, lr}
