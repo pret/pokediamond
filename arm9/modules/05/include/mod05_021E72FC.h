@@ -12,6 +12,7 @@ typedef struct UnkStruct021E7358
 
 } UnkStruct021E7358;
 
+BOOL MOD05_021E72FC(u32 param0, u32 param1);
 void MOD05_021E7358(u32 param0, u32 param1, u32 param2);
 u32 MOD05_021E7388(u32 param0);
 
