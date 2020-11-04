@@ -18,7 +18,6 @@ extern void FUN_02057260(u32 param0, u32 param1);
 extern void FUN_02055304(u32 param0, u32 param1);
 extern BOOL FUN_02056B74(u32 param0, u32 param1, u32 param2);
 extern void FUN_02058418(u32 param0, u32 param1);
-extern void MOD05_021E74F8(UnkStruct021E7358 *param0);
 extern void FUN_020054F0(u32 param0, u32 param1);
 extern void FUN_02016A8C(u32 param0, void *param1);
 
@@ -83,7 +82,7 @@ THUMB_FUNC BOOL MOD05_021E73B4(UnkStruct021E7358 *param0)
     UnkStruct021E7358 *strct = FUN_0204652C(param0);
     u32 res = FUN_020553A0(strct->Unk10);
     u8 res2 = (u8)FUN_02058720(res);
-    switch (strct->Unk08) //Unk08, u32?
+    switch (strct->Unk08)
     {
         case 0:
             FUN_02058410(res, 1 << 8);
