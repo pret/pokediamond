@@ -664,7 +664,8 @@ Overlay MODULE_21
 	##Pokétch Clock##
 	After MODULE_20
 	Object module_21_sinit.o
-	Object mod21_02254854.o
+	Object mod21_02254854_src.o
+	Object mod21_02254854_asm.o
 	Object mod21_02254A6C.o
 }
 

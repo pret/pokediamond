@@ -3,43 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_02254854
-MOD21_02254854: ; 0x02254854
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r0, #0
-	add r6, r1, #0
-	mov r0, #8
-	mov r1, #0x2c
-	add r7, r2, #0
-	str r3, [sp]
-	bl AllocFromHeap
-	add r4, r0, #0
-	beq _02254892
-	ldr r3, [sp]
-	add r1, r6, #0
-	add r2, r7, #0
-	bl MOD21_0225489C
-	cmp r0, #0
-	beq _0225488C
-	ldr r0, _02254898 ; =MOD21_02254930
-	add r1, r4, #0
-	mov r2, #1
-	bl FUN_0200CA44
-	cmp r0, #0
-	beq _0225488C
-	str r4, [r5]
-	mov r0, #1
-	pop {r3, r4, r5, r6, r7, pc}
-_0225488C:
-	add r0, r4, #0
-	bl FreeToHeap
-_02254892:
-	mov r0, #0
-	pop {r3, r4, r5, r6, r7, pc}
-	nop
-_02254898: .word MOD21_02254930
-	thumb_func_end MOD21_02254854
-
 	thumb_func_start MOD21_0225489C
 MOD21_0225489C: ; 0x0225489C
 	push {r3, r4, r5, lr}
