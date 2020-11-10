@@ -3,69 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_0225489C
-MOD21_0225489C: ; 0x0225489C
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	add r4, r1, #0
-	add r1, r5, #0
-	add r0, #0x24
-	add r1, #0x14
-	bl MOD21_02254A6C
-	cmp r0, #0
-	beq _0225490A
-	mov r1, #0
-	strb r1, [r5]
-	strb r1, [r5, #1]
-	strb r1, [r5, #2]
-	mov r0, #1
-	strb r0, [r5, #3]
-	strb r1, [r5, #6]
-	add r0, r5, #0
-	str r1, [r5, #0x20]
-	add r0, #0x14
-	bl GF_RTC_CopyTime
-	ldr r0, [r5, #0x14]
-	cmp r0, #0x18
-	blo _022548D6
-	mov r1, #0x18
-	bl _u32_div_f
-	str r1, [r5, #0x14]
-_022548D6:
-	ldr r0, [r5, #0x18]
-	cmp r0, #0x3c
-	blo _022548E6
-	ldr r0, [r5, #0x14]
-	mov r1, #0x3c
-	bl _u32_div_f
-	str r1, [r5, #0x14]
-_022548E6:
-	ldr r0, [r5, #0x18]
-	ldr r2, _02254910 ; =MOD21_02254974
-	strb r0, [r5, #5]
-	mov r0, #8
-	str r0, [sp]
-	ldr r0, _02254914 ; =MOD21_02254D80
-	mov r1, #1
-	add r3, r5, #0
-	bl MOD20_02254130
-	str r0, [r5, #0x10]
-	cmp r0, #0
-	bne _02254904
-	mov r0, #0
-	pop {r3, r4, r5, pc}
-_02254904:
-	str r4, [r5, #0x28]
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-_0225490A:
-	mov r0, #0
-	pop {r3, r4, r5, pc}
-	nop
-_02254910: .word MOD21_02254974
-_02254914: .word MOD21_02254D80
-	thumb_func_end MOD21_0225489C
-
 	thumb_func_start MOD21_02254918
 MOD21_02254918: ; 0x02254918
 	push {r4, lr}
