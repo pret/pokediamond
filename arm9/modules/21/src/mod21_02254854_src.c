@@ -1,6 +1,7 @@
 #include "global.h"
 #include "heap.h"
 #include "unk_0200CA44.h"
+#include "mod21_02254854.h"
 
 extern BOOL MOD21_0225489C(void *param0, u32 param1, u32 param2, u32 param3);
 extern void MOD21_02254930(void *, void *);
