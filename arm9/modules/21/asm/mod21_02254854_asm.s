@@ -3,18 +3,7 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_02254918
-MOD21_02254918: ; 0x02254918
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4, #0x24]
-	bl MOD21_02254B04
-	ldr r0, [r4, #0x10]
-	bl MOD20_02254198
-	add r0, r4, #0
-	bl FreeToHeap
-	pop {r4, pc}
-	thumb_func_end MOD21_02254918
+	.extern MOD21_02254918
 
 	thumb_func_start MOD21_02254930
 MOD21_02254930: ; 0x02254930

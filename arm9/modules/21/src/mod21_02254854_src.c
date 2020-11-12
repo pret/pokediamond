@@ -12,6 +12,9 @@ extern void MOD21_02254974();
 extern BOOL MOD21_02254A6C(u32 *param0, u32 *param1);
 extern BOOL MOD20_02254130(void *param0, BOOL param1, void *param2, UnkStruct02254854 *param3, u32 param4);
 
+extern void MOD21_02254B04(u32 param0);
+extern void MOD20_02254198(BOOL param0);
+
 THUMB_FUNC BOOL MOD21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param2, u32 param3)
 {
     UnkStruct02254854 *alloced = (UnkStruct02254854 *)AllocFromHeap(8, sizeof(UnkStruct02254854));
@@ -57,4 +60,11 @@ THUMB_FUNC BOOL MOD21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2
         return TRUE;
     }
     return FALSE;
+}
+
+THUMB_FUNC void MOD21_02254918(UnkStruct02254854 *param0)
+{
+    MOD21_02254B04(param0->Unk24);
+    MOD20_02254198(param0->Unk10);
+    FreeToHeap((void *)param0);
 }
