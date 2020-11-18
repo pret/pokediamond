@@ -10,13 +10,16 @@ extern BOOL MOD21_02254A6C(u32 *param0, u32 *param1);
 extern BOOL MOD20_02254130(void *param0, BOOL param1, void *param2, UnkStruct02254854 *param3, u32 param4);
 extern void MOD20_02252C14(u32 param0, BOOL param1);
 
-extern u32 MOD21_022549A4(UnkStruct02254854 *);
-extern u32 MOD21_022549E4(UnkStruct02254854 *);
-extern u32 MOD21_02254A38(UnkStruct02254854 *);
+extern BOOL MOD21_022549E4(UnkStruct02254854 *);
+extern BOOL MOD21_02254A38(UnkStruct02254854 *);
 
 extern void MOD21_02254B04(u32 param0);
 extern void MOD20_02254198(BOOL param0);
 extern void MOD20_022529A0(u32 param0);
+
+extern void MOD21_02254B10(u32 param0, u32 param1);
+extern BOOL MOD21_02254B34(u32 param0, u32 param1);
+extern void MOD20_0225298C(u32 param0);
 
 extern void Poketch_InitApp(void *func1, void *func2);
 
@@ -75,7 +78,7 @@ THUMB_FUNC BOOL MOD21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2
     return FALSE;
 }
 
-u32 (* const MOD21_02254D84[])(UnkStruct02254854 *) = { MOD21_022549A4, MOD21_022549E4, MOD21_02254A38 };
+BOOL (* const MOD21_02254D84[])(UnkStruct02254854 *) = { MOD21_022549A4, MOD21_022549E4, MOD21_02254A38 };
 
 THUMB_FUNC void MOD21_02254918(UnkStruct02254854 *param0)
 {
@@ -136,3 +139,24 @@ THUMB_FUNC void MOD21_02254990(UnkStruct02254854 * param0, u8 param1)
     param0->bytearray[1] = 0;
 }
 
+THUMB_FUNC BOOL MOD21_022549A4(UnkStruct02254854 * param0)
+{
+    switch (param0->bytearray[1])
+    {
+        case 0:
+            MOD21_02254B10(param0->Unk24, 0);
+            param0->bytearray[1]++;
+            break;
+        case 1:
+            if (MOD21_02254B34(param0->Unk24, 0) == FALSE)
+            {
+                break;
+            }
+            MOD20_0225298C(param0->Unk28);
+            MOD21_02254990(param0, 1);
+            break;
+        default:
+            break;
+    }
+    return FALSE;
+}

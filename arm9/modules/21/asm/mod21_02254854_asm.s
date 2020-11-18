@@ -5,41 +5,6 @@
 
 	.extern MOD21_02254990
 
-	thumb_func_start MOD21_022549A4
-MOD21_022549A4: ; 0x022549A4
-	push {r4, lr}
-	add r4, r0, #0
-	ldrb r0, [r4, #1]
-	cmp r0, #0
-	beq _022549B4
-	cmp r0, #1
-	beq _022549C4
-	b _022549DE
-_022549B4:
-	ldr r0, [r4, #0x24]
-	mov r1, #0
-	bl MOD21_02254B10
-	ldrb r0, [r4, #1]
-	add r0, r0, #1
-	strb r0, [r4, #1]
-	b _022549DE
-_022549C4:
-	ldr r0, [r4, #0x24]
-	mov r1, #0
-	bl MOD21_02254B34
-	cmp r0, #0
-	beq _022549DE
-	ldr r0, [r4, #0x28]
-	bl MOD20_0225298C
-	add r0, r4, #0
-	mov r1, #1
-	bl MOD21_02254990
-_022549DE:
-	mov r0, #0
-	pop {r4, pc}
-	.align 2, 0
-	thumb_func_end MOD21_022549A4
-
 	thumb_func_start MOD21_022549E4
 MOD21_022549E4: ; 0x022549E4
 	push {r4, lr}
