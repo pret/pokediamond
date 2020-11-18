@@ -3,21 +3,7 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_02254990
-MOD21_02254990: ; 0x02254990
-	ldrb r2, [r0, #2]
-	cmp r2, #0
-	bne _02254998
-	b _0225499A
-_02254998:
-	mov r1, #2
-_0225499A:
-	strb r1, [r0]
-	mov r1, #0
-	strb r1, [r0, #1]
-	bx lr
-	.align 2, 0
-	thumb_func_end MOD21_02254990
+	.extern MOD21_02254990
 
 	thumb_func_start MOD21_022549A4
 MOD21_022549A4: ; 0x022549A4

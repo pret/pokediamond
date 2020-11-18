@@ -122,3 +122,17 @@ THUMB_FUNC void MOD21_02254974(u32 param0, u32 param1, u32 param2, UnkStruct0225
             return;
     }
 }
+
+THUMB_FUNC void MOD21_02254990(UnkStruct02254854 * param0, u8 param1)
+{
+    if (param0->bytearray[2] == 0)
+    {
+        param0->bytearray[0] = param1;
+    }
+    else
+    {
+        param0->bytearray[0] = 2;
+    }
+    param0->bytearray[1] = 0;
+}
+

@@ -21,5 +21,6 @@ void MOD21_02254918(UnkStruct02254854 *param0);
 void MOD21_02254930(u32 param0, UnkStruct02254854 *param1);
 void MOD21_0225496C(UnkStruct02254854 *param0);
 void MOD21_02254974(u32 param0, u32 param1, u32 param2, UnkStruct02254854 * param3);
+void MOD21_02254990(UnkStruct02254854 * param0, u8 param1);
 
 #endif //POKEDIAMOND_MOD21_02254854_H
