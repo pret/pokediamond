@@ -42,3 +42,11 @@ THUMB_FUNC void MOD21_02254AD4(void *param0, void *param1)
         param1 = (void *)((u32)param1 + 0x50);
     }
 }
+
+THUMB_FUNC void MOD21_02254B04(void *param0)
+{
+    if (param0 != NULL)
+    {
+        FreeToHeap(param0);
+    }
+}

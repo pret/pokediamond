@@ -6,17 +6,15 @@
 extern void GF_RTC_CopyTime(u32 *param0);
 
 u8 const MOD21_02254D80[] = { 0x10, 0xAF, 0x10, 0xCF };
-extern BOOL MOD21_02254A6C(u32 *param0, u32 *param1);
 extern BOOL MOD20_02254130(void *param0, BOOL param1, void *param2, UnkStruct02254854 *param3, u32 param4);
 extern void MOD20_02252C14(u32 param0, BOOL param1);
 
-extern void MOD21_02254B04(u32 param0);
 extern void MOD20_02254198(BOOL param0);
 extern void MOD20_022529A0(u32 param0);
 
-extern void MOD21_02254B10(u32 param0, u32 param1);
-extern BOOL MOD21_02254B34(u32 param0, u32 param1);
-extern BOOL MOD21_02254B40(u32 param0);
+extern void MOD21_02254B10(void *param0, u32 param1);
+extern BOOL MOD21_02254B34(void *param0, u32 param1);
+extern BOOL MOD21_02254B40(void *param0);
 extern void MOD20_0225298C(u32 param0);
 
 extern void Poketch_InitApp(void *func1, void *func2);
@@ -47,7 +45,7 @@ THUMB_FUNC BOOL MOD21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param
 THUMB_FUNC BOOL MOD21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2, u32 param3)
 {
 #pragma unused (param2, param3) //not sure, please check
-    if (MOD21_02254A6C(&param0->Unk24, param0->Unk14))
+    if (MOD21_02254A6C((UnkStruct02254A6C *)&param0->Unk24, param0->Unk14)) //todo fix
     {
         param0->bytearray[0] = 0;
         param0->bytearray[1] = 0;

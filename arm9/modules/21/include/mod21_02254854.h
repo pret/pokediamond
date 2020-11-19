@@ -2,6 +2,7 @@
 #define POKEDIAMOND_MOD21_02254854_H
 
 #include "nitro/types.h"
+#include "mod21_02254A6C.h"
 
 typedef struct UnkStruct02254854
 {

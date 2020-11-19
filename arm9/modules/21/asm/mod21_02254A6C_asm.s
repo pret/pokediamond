@@ -3,16 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_02254B04
-MOD21_02254B04: ; 0x02254B04
-	push {r3, lr}
-	cmp r0, #0
-	beq _02254B0E
-	bl FreeToHeap
-_02254B0E:
-	pop {r3, pc}
-	thumb_func_end MOD21_02254B04
-
 	thumb_func_start MOD21_02254B10
 MOD21_02254B10: ; 0x02254B10
 	push {lr}
