@@ -3,57 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_02254A6C
-MOD21_02254A6C: ; 0x02254A6C
-	push {r4, r5, r6, lr}
-	sub sp, #8
-	add r6, r1, #0
-	mov r1, #3
-	add r5, r0, #0
-	mov r0, #8
-	lsl r1, r1, #8
-	bl AllocFromHeap
-	add r4, r0, #0
-	beq _02254ACC
-	add r0, #8
-	mov r1, #8
-	bl MOD20_022536F4
-	str r6, [r4]
-	bl MOD20_02252D34
-	str r0, [r4, #4]
-	mov r0, #8
-	str r0, [sp]
-	mov r0, #0xc
-	mov r1, #0x19
-	mov r2, #1
-	add r3, sp, #4
-	bl FUN_02006BDC
-	add r6, r0, #0
-	bne _02254AB2
-	add r0, r4, #0
-	bl FreeToHeap
-	add sp, #8
-	mov r0, #0
-	pop {r4, r5, r6, pc}
-_02254AB2:
-	ldr r0, [sp, #4]
-	add r1, r4, #0
-	add r0, #0xc
-	add r1, #0x30
-	bl MOD21_02254AD4
-	add r0, r6, #0
-	bl FreeToHeap
-	add sp, #8
-	str r4, [r5]
-	mov r0, #1
-	pop {r4, r5, r6, pc}
-_02254ACC:
-	mov r0, #0
-	add sp, #8
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-	thumb_func_end MOD21_02254A6C
-
 	thumb_func_start MOD21_02254AD4
 MOD21_02254AD4: ; 0x02254AD4
 	push {r3, r4, r5, r6, r7, lr}
