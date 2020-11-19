@@ -3,33 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_02254AD4
-MOD21_02254AD4: ; 0x02254AD4
-	push {r3, r4, r5, r6, r7, lr}
-	mov r6, #9
-	add r5, r0, #0
-	add r4, r1, #0
-	mov r7, #0
-	lsl r6, r6, #6
-_02254AE0:
-	add r0, r5, #0
-	add r1, r4, #0
-	mov r2, #0x40
-	bl MIi_CpuCopy16
-	add r1, r4, #0
-	add r0, r5, r6
-	add r1, #0x40
-	mov r2, #0x10
-	bl MIi_CpuCopy16
-	add r7, r7, #1
-	add r5, #0x40
-	add r4, #0x50
-	sub r6, #0x30
-	cmp r7, #9
-	blt _02254AE0
-	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end MOD21_02254AD4
-
 	thumb_func_start MOD21_02254B04
 MOD21_02254B04: ; 0x02254B04
 	push {r3, lr}
