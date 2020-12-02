@@ -6,6 +6,8 @@
 extern void MOD20_022536F4(u32 *param0, u32 param1);
 extern u32 MOD20_02252D34(void);
 extern void *FUN_02006BDC(u32 param0, u32 param1, u32 param2, void *param3, u32 param4);
+extern void MOD20_022537E0(void *param0, u32 param1, void *param2, u32 param3, void *param4, u32 param5, u32 param6);
+extern void MOD21_02254DAC(void);
 
 THUMB_FUNC BOOL MOD21_02254A6C(UnkStruct02254A6C *param0, void *param1)
 {
@@ -49,4 +51,9 @@ THUMB_FUNC void MOD21_02254B04(void *param0)
     {
         FreeToHeap(param0);
     }
+}
+
+THUMB_FUNC void MOD21_02254B10(u32 *param0, u32 param1)
+{
+    MOD20_022537E0(MOD21_02254DAC, param1, param0, *param0, (void *)(param0 + 2), 2, 8);
 }

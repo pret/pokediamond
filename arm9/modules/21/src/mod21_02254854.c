@@ -12,7 +12,6 @@ extern void MOD20_02252C14(u32 param0, BOOL param1);
 extern void MOD20_02254198(BOOL param0);
 extern void MOD20_022529A0(u32 param0);
 
-extern void MOD21_02254B10(void *param0, u32 param1);
 extern BOOL MOD21_02254B34(void *param0, u32 param1);
 extern BOOL MOD21_02254B40(void *param0);
 extern void MOD20_0225298C(u32 param0);

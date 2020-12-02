@@ -12,7 +12,7 @@ typedef struct UnkStruct02254854
     u32 Unk14[2];
     u8 padding1[4];
     u32 Unk20;
-    u32 Unk24;
+    void *Unk24;
     u32 Unk28;
 } UnkStruct02254854;
 

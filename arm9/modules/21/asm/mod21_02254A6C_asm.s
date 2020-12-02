@@ -3,26 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_02254B10
-MOD21_02254B10: ; 0x02254B10
-	push {lr}
-	sub sp, #0xc
-	add r2, r0, #0
-	add r0, #8
-	str r0, [sp]
-	mov r0, #2
-	str r0, [sp, #4]
-	mov r0, #8
-	str r0, [sp, #8]
-	ldr r0, _02254B30 ; =MOD21_02254DAC
-	ldr r3, [r2]
-	bl MOD20_022537E0
-	add sp, #0xc
-	pop {pc}
-	nop
-_02254B30: .word MOD21_02254DAC
-	thumb_func_end MOD21_02254B10
-
 	thumb_func_start MOD21_02254B34
 MOD21_02254B34: ; 0x02254B34
 	ldr r3, _02254B3C ; =MOD20_02253794
