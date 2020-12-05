@@ -26,5 +26,6 @@ BOOL MOD21_02254B34(void *param0, u32 param1);
 BOOL MOD21_02254B40(void *param0);
 BOOL MOD21_02254B4C(void *param0);
 BOOL MOD21_02254B60(u32 param0, void *param1);
+BOOL MOD21_02254BF4(u32 param0, void *param1);
 
 #endif //POKEDIAMOND_MOD21_02254A6C_H

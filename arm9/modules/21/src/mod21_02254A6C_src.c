@@ -100,11 +100,20 @@ THUMB_FUNC BOOL MOD21_02254B60(u32 param0, void *param1)
     u32 r2 = reg_GXS_DB_DISPCNT;
     vu32 tmp = r3; //unused? wtf
     u32 r0 = ~0x1F00 & r2;
-    r2 = r3 << 0x13;
-    r3 = r2 >> 0x1b;
+    r2 = r3 << 19; //cast with shift? can't replicate both though
+    r3 = r2 >> 27;
     r2 = 4 | r3;
     r2 <<= 8;
     r0 |= r2;
     reg_GXS_DB_DISPCNT = r0;
+    return MOD21_02254B4C(param1);
+}
+
+THUMB_FUNC BOOL MOD21_02254BF4(u32 param0, void *param1)
+{
+#pragma unused (param0)
+    UnkStruct02254B60 *strct = MOD20_022538A0(param1);
+    MOD21_02254C5C(strct);
+    FUN_02017CD0(strct->Unk04, 6);
     return MOD21_02254B4C(param1);
 }

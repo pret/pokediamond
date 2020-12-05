@@ -5,22 +5,7 @@
 
 	.extern MOD21_02254B4C
 	.extern MOD21_02254B60
-
-	thumb_func_start MOD21_02254BF4
-MOD21_02254BF4: ; 0x02254BF4
-	push {r3, r4, r5, lr}
-	add r5, r1, #0
-	add r0, r5, #0
-	bl MOD20_022538A0
-	add r4, r0, #0
-	bl MOD21_02254C5C
-	ldr r0, [r4, #4]
-	mov r1, #6
-	bl FUN_02017CD0
-	add r0, r5, #0
-	bl MOD21_02254B4C
-	pop {r3, r4, r5, pc}
-	thumb_func_end MOD21_02254BF4
+	.extern MOD21_02254BF4
 
 	thumb_func_start MOD21_02254C14
 MOD21_02254C14: ; 0x02254C14
