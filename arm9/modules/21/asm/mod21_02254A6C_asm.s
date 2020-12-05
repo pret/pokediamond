@@ -3,85 +3,8 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD21_02254B4C
-MOD21_02254B4C: ; 0x02254B4C
-	push {r4, lr}
-	add r4, r0, #0
-	bl MOD20_022538A0
-	add r0, #8
-	add r1, r4, #0
-	bl MOD20_02253888
-	pop {r4, pc}
-	.align 2, 0
-	thumb_func_end MOD21_02254B4C
-
-	thumb_func_start MOD21_02254B60
-MOD21_02254B60: ; 0x02254B60
-	push {r4, r5, lr}
-	sub sp, #0x14
-	add r4, r1, #0
-	add r0, r4, #0
-	bl MOD20_022538A0
-	add r5, r0, #0
-	ldr r0, [r5, #4]
-	ldr r2, _02254BE8 ; =MOD21_02254D90
-	mov r1, #6
-	mov r3, #0
-	bl FUN_02016C18
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	mov r0, #8
-	str r0, [sp, #0xc]
-	ldr r2, [r5, #4]
-	mov r0, #0xc
-	mov r1, #0x17
-	mov r3, #6
-	bl FUN_0200687C
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	mov r0, #1
-	str r0, [sp, #8]
-	mov r0, #8
-	str r0, [sp, #0xc]
-	ldr r2, [r5, #4]
-	mov r0, #0xc
-	mov r1, #0x18
-	mov r3, #6
-	bl FUN_020068C8
-	mov r0, #0
-	add r1, r0, #0
-	bl MOD20_02252D7C
-	add r0, r5, #0
-	bl MOD21_02254C5C
-	ldr r0, [r5, #4]
-	mov r1, #6
-	bl FUN_02017CD0
-	ldr r1, _02254BEC ; =0x04001000
-	ldr r0, _02254BF0 ; =0xFFFFE0FF
-	ldr r3, [r1]
-	ldr r2, [r1]
-	str r3, [sp, #0x10]
-	and r0, r2
-	lsl r2, r3, #0x13
-	lsr r3, r2, #0x1b
-	mov r2, #4
-	orr r2, r3
-	lsl r2, r2, #8
-	orr r0, r2
-	str r0, [r1]
-	add r0, r4, #0
-	bl MOD21_02254B4C
-	add sp, #0x14
-	pop {r4, r5, pc}
-	.align 2, 0
-_02254BE8: .word MOD21_02254D90
-_02254BEC: .word 0x04001000
-_02254BF0: .word 0xFFFFE0FF
-	thumb_func_end MOD21_02254B60
+	.extern MOD21_02254B4C
+	.extern MOD21_02254B60
 
 	thumb_func_start MOD21_02254BF4
 MOD21_02254BF4: ; 0x02254BF4
