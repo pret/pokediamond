@@ -3,48 +3,10 @@
 	.section .text
 	.balign 4, 0
 
-	.extern MOD21_02254B4C
 	.extern MOD21_02254B60
 	.extern MOD21_02254BF4
-
-	thumb_func_start MOD21_02254C14
-MOD21_02254C14: ; 0x02254C14
-	push {r4, lr}
-	add r4, r1, #0
-	add r0, r4, #0
-	bl MOD20_022538A0
-	ldr r0, [r0]
-	ldr r0, [r0, #0xc]
-	cmp r0, #0
-	beq _02254C30
-	mov r0, #0
-	add r1, r0, #0
-	bl MOD11_02252DB4
-	b _02254C38
-_02254C30:
-	mov r0, #0
-	add r1, r0, #0
-	bl MOD20_02252D7C
-_02254C38:
-	add r0, r4, #0
-	bl MOD21_02254B4C
-	pop {r4, pc}
-	thumb_func_end MOD21_02254C14
-
-	thumb_func_start MOD21_02254C40
-MOD21_02254C40: ; 0x02254C40
-	push {r4, lr}
-	add r4, r1, #0
-	add r0, r4, #0
-	bl MOD20_022538A0
-	ldr r0, [r0, #4]
-	mov r1, #6
-	bl FUN_020178A0
-	add r0, r4, #0
-	bl MOD21_02254B4C
-	pop {r4, pc}
-	.align 2, 0
-	thumb_func_end MOD21_02254C40
+	.extern MOD21_02254C14
+	.extern MOD21_02254C40
 
 	thumb_func_start MOD21_02254C5C
 MOD21_02254C5C: ; 0x02254C5C

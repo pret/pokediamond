@@ -10,7 +10,7 @@ extern void MOD20_022537E0(void *param0, u32 param1, void *param2, u32 param3, v
 extern void MOD21_02254DAC(void);
 extern BOOL MOD20_02253794(void *param0, u32 param1);
 extern BOOL MOD20_022537B8(void *param0);
-extern UnkStruct02254B60 *MOD20_022538A0(void *param0);
+extern UnkStruct02254A6C *MOD20_022538A0(void *param0);
 extern BOOL MOD20_02253888(void *param0, void *param1);
 
 extern void MOD21_02254D90(void);
@@ -19,8 +19,11 @@ extern void FUN_02016C18(u32 param0, u32 param1, void *param2, u32 param3);
 extern void FUN_0200687C(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
 extern void FUN_020068C8(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
 extern void MOD20_02252D7C(u32 param0, u32 param1);
-extern void MOD21_02254C5C(UnkStruct02254B60 *param0);
+extern void MOD21_02254C5C(UnkStruct02254A6C *param0);
 extern void FUN_02017CD0(u32 param0, u32 param1);
+extern void FUN_020178A0(u32 param0, u32 param1);
+
+extern void MOD11_02252DB4(u32 param0, u32 param1);
 
 THUMB_FUNC BOOL MOD21_02254A6C(UnkStruct02254A6C *param0, void *param1)
 {
@@ -89,7 +92,7 @@ THUMB_FUNC BOOL MOD21_02254B4C(void *param0)
 THUMB_FUNC BOOL MOD21_02254B60(u32 param0, void *param1)
 {
 #pragma unused (param0)
-    UnkStruct02254B60 *strct = MOD20_022538A0(param1);
+    UnkStruct02254A6C *strct = MOD20_022538A0(param1);
     FUN_02016C18(strct->Unk04, 6, MOD21_02254D90, 0);
     FUN_0200687C(12, 23, strct->Unk04, 6, 0, 0, 1, 8);
     FUN_020068C8(12, 24, strct->Unk04, 6, 0, 0, 1, 8);
@@ -112,8 +115,31 @@ THUMB_FUNC BOOL MOD21_02254B60(u32 param0, void *param1)
 THUMB_FUNC BOOL MOD21_02254BF4(u32 param0, void *param1)
 {
 #pragma unused (param0)
-    UnkStruct02254B60 *strct = MOD20_022538A0(param1);
+    UnkStruct02254A6C *strct = MOD20_022538A0(param1);
     MOD21_02254C5C(strct);
     FUN_02017CD0(strct->Unk04, 6);
+    return MOD21_02254B4C(param1);
+}
+
+THUMB_FUNC BOOL MOD21_02254C14(u32 param0, void *param1)
+{
+#pragma unused (param0)
+    UnkStruct02254A6C *strct = MOD20_022538A0(param1);
+    if (strct->Unk00->Unk0C)
+    {
+        MOD11_02252DB4(0, 0);
+    }
+    else
+    {
+        MOD20_02252D7C(0, 0);
+    }
+    return MOD21_02254B4C(param1);
+}
+
+THUMB_FUNC BOOL MOD21_02254C40(u32 param0, void *param1)
+{
+#pragma unused (param0)
+    UnkStruct02254A6C *strct = MOD20_022538A0(param1);
+    FUN_020178A0(strct->Unk04, 6);
     return MOD21_02254B4C(param1);
 }
