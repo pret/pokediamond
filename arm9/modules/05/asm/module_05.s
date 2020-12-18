@@ -16817,7 +16817,7 @@ _021EFC20:
 	str r1, [r0]
 	ldr r0, [r4, #0x34]
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]

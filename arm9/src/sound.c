@@ -38,7 +38,7 @@ void InitSoundData(void * a0, struct Options * a1)
     FUN_020040A4(sdat);
     UNK_02107070[1] = 0;
     sdat->unk_BCD4C = a0;
-    FUN_02004D60(a1->unk0_4);
+    FUN_02004D60(a1->soundMethod);
 }
 
 void DoSoundUpdateFrame(void)

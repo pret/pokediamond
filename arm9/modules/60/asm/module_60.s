@@ -25,7 +25,7 @@ MOD60_021D74E0: ; 0x021D74E0
 	add r4, r0, #0
 	bl memset
 	add r0, r5, #0
-	bl FUN_02024FD8
+	bl Options_GetTextSpeed
 	ldrh r1, [r4, #0x18]
 	mov r2, #0xf
 	lsl r0, r0, #0x10
@@ -36,7 +36,7 @@ MOD60_021D74E0: ; 0x021D74E0
 	orr r0, r1
 	strh r0, [r4, #0x18]
 	add r0, r5, #0
-	bl FUN_0202502C
+	bl Options_GetBattleScene
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x1f
@@ -47,7 +47,7 @@ MOD60_021D74E0: ; 0x021D74E0
 	orr r0, r1
 	strh r0, [r4, #0x18]
 	add r0, r5, #0
-	bl FUN_02025048
+	bl Options_GetBattleStyle
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x1f
@@ -58,7 +58,7 @@ MOD60_021D74E0: ; 0x021D74E0
 	orr r0, r1
 	strh r0, [r4, #0x18]
 	add r0, r5, #0
-	bl FUN_02025010
+	bl Options_GetSoundMethod
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x1e
@@ -69,7 +69,7 @@ MOD60_021D74E0: ; 0x021D74E0
 	orr r0, r1
 	strh r0, [r4, #0x18]
 	add r0, r5, #0
-	bl FUN_02025064
+	bl Options_GetButtonMode
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x1e
@@ -80,7 +80,7 @@ MOD60_021D74E0: ; 0x021D74E0
 	orr r0, r1
 	strh r0, [r4, #0x18]
 	add r0, r5, #0
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x1b
@@ -172,32 +172,32 @@ MOD60_021D75B0: ; 0x021D75B0
 	ldr r0, [r4, #0x1c]
 	lsl r1, r1, #0x1c
 	lsr r1, r1, #0x1c
-	bl FUN_02024FE0
+	bl Options_SetTextSpeed
 	ldrh r1, [r4, #0x18]
 	ldr r0, [r4, #0x1c]
 	lsl r1, r1, #0x19
 	lsr r1, r1, #0x1f
-	bl FUN_02025034
+	bl Options_SetBattleScene
 	ldrh r1, [r4, #0x18]
 	ldr r0, [r4, #0x1c]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x1f
-	bl FUN_02025050
+	bl Options_SetBattleStyle
 	ldrh r1, [r4, #0x18]
 	ldr r0, [r4, #0x1c]
 	lsl r1, r1, #0x1a
 	lsr r1, r1, #0x1e
-	bl FUN_02025018
+	bl Options_SetSoundMethod
 	ldrh r1, [r4, #0x18]
 	ldr r0, [r4, #0x1c]
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1e
-	bl FUN_0202506C
+	bl Options_SetButtonMode
 	ldrh r1, [r4, #0x18]
 	ldr r0, [r4, #0x1c]
 	lsl r1, r1, #0x11
 	lsr r1, r1, #0x1b
-	bl FUN_0202508C
+	bl Options_SetFrame
 	b _021D769A
 _021D7680:
 	cmp r0, #2
@@ -210,7 +210,7 @@ _021D7680:
 	mov r0, #0
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1e
-	bl FUN_02024F9C
+	bl Options_SetButtonModeOnMain
 _021D769A:
 	add r0, r5, #0
 	bl OverlayManager_FreeData
@@ -1270,7 +1270,7 @@ _021D7F3C:
 	add r1, r1, r2
 	add r1, #0x5e
 	ldrh r1, [r1]
-	bl FUN_02024F9C
+	bl Options_SetButtonModeOnMain
 _021D7F54:
 	ldr r0, [sp, #0x14]
 	mov r1, #0x54

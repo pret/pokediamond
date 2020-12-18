@@ -205,7 +205,7 @@ MOD05_021E2D00: ; 0x021E2D00
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	pop {r3, pc}
 	.balign 4, 0
 

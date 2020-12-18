@@ -348,7 +348,7 @@ _02085A9A:
 	str r0, [r4, r1]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r4, #0x0

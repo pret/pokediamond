@@ -1014,7 +1014,7 @@ MOD56_0221257C: ; 0x0221257C
 	add r5, #0xc4
 	ldr r0, [r5]
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -8164,7 +8164,7 @@ MOD56_02215EA4: ; 0x02215EA4
 	add r4, r1, #0
 	add r6, r2, #0
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r7, r0, #0
 	mov r0, #0xdb
 	lsl r0, r0, #2

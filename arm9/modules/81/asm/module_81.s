@@ -1325,11 +1325,11 @@ _02238840: .word 0x0000014E
 	thumb_func_start MOD81_02238844
 MOD81_02238844: ; 0x02238844
 	ldr r0, [r0]
-	ldr r3, _0223884C ; =FUN_02025084
+	ldr r3, _0223884C ; =Options_GetFrame
 	ldr r0, [r0, #0x14]
 	bx r3
 	.align 2, 0
-_0223884C: .word FUN_02025084
+_0223884C: .word Options_GetFrame
 	thumb_func_end MOD81_02238844
 
 	thumb_func_start MOD81_02238850

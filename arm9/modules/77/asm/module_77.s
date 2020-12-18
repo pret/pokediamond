@@ -1383,7 +1383,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	add r3, r1, #0
 	bl FUN_020068C8
 	ldr r0, [r5, #8]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -1685,7 +1685,7 @@ _021D82B0:
 	ldr r2, [r5, r2]
 	bl ReadMsgDataIntoString
 	ldr r0, [r5, #8]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r3, r4, #0
 	str r3, [sp]
 	str r0, [sp, #4]

@@ -1660,7 +1660,7 @@ _0207A99E:
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0x4]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -4738,7 +4738,7 @@ FUN_0207C23C: ; 0x0207C23C
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	ldr r0, [r0, #0x4]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]

@@ -35,11 +35,11 @@ _021D7504:
 	bl OverlayManager_GetField18
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl FUN_02025084
+	bl Options_GetFrame
 	ldr r1, _021D7634 ; =0x000006A8
 	str r0, [r5, r1]
 	ldr r0, [r4, #4]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	ldr r1, _021D7638 ; =0x000006AC
 	str r0, [r5, r1]
 	mov r0, #8
