@@ -7963,7 +7963,7 @@ MOD18_0223D414: ; 0x0223D414
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r4, r0, #0
 	ldr r0, _0223D580 ; =0x02251388
 	mov r2, #0x15

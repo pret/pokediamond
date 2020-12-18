@@ -2355,7 +2355,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r2, #0x12
 	bl FUN_02002EEC
 	ldr r0, [r5, #0x18]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]

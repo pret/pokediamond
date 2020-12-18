@@ -2478,7 +2478,7 @@ FUN_020389CC: ; 0x020389CC
 	mov r0, #0x0
 	str r0, [r4, #0x18]
 	ldr r0, [sp, #0x0]
-	bl FUN_02025084
+	bl Options_GetFrame
 	str r0, [r4, #0x1c]
 	lsl r1, r6, #0x18
 	ldr r0, [r5, #0xc]

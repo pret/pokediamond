@@ -2343,7 +2343,7 @@ _0206DA26:
 	mov r1, #0x4
 	bl FUN_02018744
 	ldr r0, [r5, #0x2c]
-	bl FUN_02025084
+	bl Options_GetFrame
 	add r6, r0, #0x0
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
@@ -2675,7 +2675,7 @@ FUN_0206DD6C: ; 0x0206DD6C
 	mov r1, #0xff
 	bl FUN_02019620
 	ldr r0, [r4, #0x2c]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	str r0, [sp, #0x4]

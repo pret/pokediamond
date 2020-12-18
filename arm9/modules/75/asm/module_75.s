@@ -841,7 +841,7 @@ MOD75_021E7214: ; 0x021E7214
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -9447,7 +9447,7 @@ MOD75_021EB660: ; 0x021EB660
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	mov r3, #0
 	str r3, [sp]
 	str r0, [sp, #4]

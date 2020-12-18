@@ -116,7 +116,7 @@ _02047774:
 	lsl r1, r1, #0x4
 	str r0, [r7, r1]
 	add r0, r5, #0x0
-	bl FUN_02024F30
+	bl Options_new
 	mov r1, #0x13
 	lsl r1, r1, #0x4
 	str r0, [r7, r1]
@@ -237,7 +237,7 @@ FUN_02047814: ; 0x02047814
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x14]
 	ldr r1, [r4, r1]
-	bl FUN_02024F44
+	bl Options_copy
 	add r0, r5, #0x0
 	bl Script_GetTimeOfDay
 	mov r1, #0x16
@@ -513,7 +513,7 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0xc]
 	ldr r1, [r5, r1]
-	bl FUN_02024F44
+	bl Options_copy
 	ldr r1, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r2, #0x0
@@ -712,7 +712,7 @@ _02047C98:
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x4]
 	ldr r1, [r6, r1]
-	bl FUN_02024F44
+	bl Options_copy
 	ldr r1, [sp, #0x8]
 	add r0, r6, #0x0
 	mov r2, #0x0
@@ -896,7 +896,7 @@ _02047E2C:
 	lsl r1, r1, #0x4
 	ldr r0, [sp, #0x10]
 	ldr r1, [r5, r1]
-	bl FUN_02024F44
+	bl Options_copy
 	ldr r1, [sp, #0x14]
 	add r0, r5, #0x0
 	mov r2, #0x0

@@ -4224,7 +4224,7 @@ MOD12_0222F834: ; 0x0222F834
 	ldr r1, [r5]
 	ldr r0, _0222F930 ; =0x00001988
 	ldr r0, [r1, r0]
-	bl FUN_02025084
+	bl Options_GetFrame
 	add r4, r0, #0
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
@@ -6224,7 +6224,7 @@ MOD12_022308F0: ; 0x022308F0
 	ldr r1, [r5]
 	ldr r0, _022309C4 ; =0x00001988
 	ldr r0, [r1, r0]
-	bl FUN_02025084
+	bl Options_GetFrame
 	add r4, r0, #0
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
@@ -15253,7 +15253,7 @@ _02234F2A:
 	bne _02234F40
 	ldr r0, _02234FAC ; =0x00001988
 	ldr r0, [r1, r0]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r4, r0, #0
 	b _02234F42
 _02234F40:
@@ -25497,7 +25497,7 @@ MOD12_02239AD0: ; 0x02239AD0
 	bne _02239AF2
 	ldr r0, _02239B44 ; =0x00001988
 	ldr r0, [r1, r0]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r4, r0, #0
 	b _02239AF4
 _02239AF2:
@@ -34742,7 +34742,7 @@ MOD12_0223E1EC: ; 0x0223E1EC
 	bne _0223E20E
 	ldr r0, _0223E26C ; =0x00001988
 	ldr r0, [r1, r0]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r4, r0, #0
 	b _0223E210
 _0223E20E:
@@ -43529,7 +43529,7 @@ MOD12_022425F4: ; 0x022425F4
 	bne _02242616
 	ldr r0, _02242674 ; =0x00001988
 	ldr r0, [r1, r0]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r4, r0, #0
 	b _02242618
 _02242616:
@@ -43673,7 +43673,7 @@ MOD12_022426BC: ; 0x022426BC
 	ldr r1, [r5]
 	ldr r0, _02242784 ; =0x00001988
 	ldr r0, [r1, r0]
-	bl FUN_02025084
+	bl Options_GetFrame
 	add r4, r0, #0
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
@@ -43843,7 +43843,7 @@ MOD12_02242804: ; 0x02242804
 	ldr r1, [r6]
 	ldr r0, _022429D0 ; =0x00001988
 	ldr r0, [r1, r0]
-	bl FUN_02025084
+	bl Options_GetFrame
 	add r4, r0, #0
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18

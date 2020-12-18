@@ -36,11 +36,11 @@ FUN_02086084: ; 0x02086084
 	bl OverlayManager_GetField18
 	str r0, [r4, #0x0]
 	ldr r0, [r0, #0x10]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x10]
-	bl FUN_02025084
+	bl Options_GetFrame
 	str r0, [r4, #0x14]
 	bl FUN_02086468
 	str r0, [r4, #0x38]

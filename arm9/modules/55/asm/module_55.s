@@ -808,7 +808,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	bl FUN_020068C8
 	ldr r0, [r5, #8]
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -5349,7 +5349,7 @@ MOD55_021DA0A4: ; 0x021DA0A4
 	ldr r0, [r5, #8]
 	add r6, r1, #0
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r4, r0, #0
 	mov r0, #0xce
 	lsl r0, r0, #2

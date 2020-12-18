@@ -55,11 +55,11 @@ _021D7536:
 	bl MOD73_021D8DF4
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x18]
-	bl FUN_02025084
+	bl Options_GetFrame
 	str r0, [r5, #0x24]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x18]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	str r0, [r5, #0x28]
 	mov r0, #0xae
 	mov r1, #1
