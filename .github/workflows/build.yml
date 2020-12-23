@@ -48,5 +48,7 @@ jobs:
       - name: Build
         run: make ${{ matrix.version }}
       - name: Webhook
-        run: $GITHUB_WORKSPACE/.github/calcrom/webhook.sh pokediamond "$CALCROM_WEBHOOK_URL"
+        run: |
+          sudo chmod 755 $GITHUB_WORKSPACE/.github/calcrom/webhook.sh
+          $GITHUB_WORKSPACE/.github/calcrom/webhook.sh pokediamond "$CALCROM_WEBHOOK_URL"
         continue-on-error: true
