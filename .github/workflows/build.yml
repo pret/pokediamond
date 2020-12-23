@@ -3,7 +3,7 @@ name: build
 on: [push, pull_request]
 
 env:
-  LM_LICENSE_FILE: "$GITHUB_WORKSPACE/tools/mwccarm/license.dat"
+  LM_LICENSE_FILE: "${{ github.workspace }}/tools/mwccarm/license.dat"
   CC: gcc-8
   CXX: g++-8
   CALCROM_DISCORD_WEBHOOK_AVATAR_URL: "https://i.imgur.com/38BQHdd.png"
@@ -39,11 +39,11 @@ jobs:
           wget http://private.martmists.com/mwccarm.zip
           wget http://private.martmists.com/nitro.tar.gz
           unzip mwccarm.zip
-          mv mwccarm $GITHUB_WORKSPACE/tools
+          mv mwccarm ${{ github.workspace }}/tools
           tar xzf nitro.tar.gz
-          mv tools/bin $GITHUB_WORKSPACE/tools
-          mv include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/arm7
-          mv include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/arm9
+          mv tools/bin ${{ github.workspace }}/tools
+          mv include/nitro/specfiles/ARM7-TS.lcf.template ${{ github.workspace }}/arm7
+          mv include/nitro/specfiles/ARM9-TS.lcf.template ${{ github.workspace }}/arm9
         working-directory: $HOME
       - name: Build
         run: make ${{ matrix.version }}
