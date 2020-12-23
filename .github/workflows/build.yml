@@ -1,0 +1,52 @@
+name: build
+
+on: [push, pull_request]
+
+env:
+  LM_LICENSE_FILE: "$GITHUB_WORKSPACE/tools/mwccarm/license.dat"
+  CC: gcc-8
+  CXX: g++-8
+  CALCROM_DISCORD_WEBHOOK_AVATAR_URL: "https://i.imgur.com/38BQHdd.png"
+  CALCROM_DISCORD_WEBHOOK_USERNAME: OK
+  CALCROM_WEBHOOK_URL: ${{ secrets.WEBHOOKURL }}
+
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Update and Install Software
+        run: |
+          sudo apt update
+          sudo apt -y upgrade
+          sudo apt -y install g++-8-multilib linux-libc-dev binutils-arm-none-eabi
+          sudo dpkg --add-architecture i386
+          wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+          sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
+          sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main"
+          sudo apt install --install-recommends winehq-stable
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Setup Repo
+        run: |
+          mkdir -p ~/download
+          cd ~/download
+          wget http://private.martmists.com/mwccarm.zip
+          wget http://private.martmists.com/nitro.tar.gz
+          unzip mwccarm.zip
+          mv mwccarm $GITHUB_WORKSPACE/tools
+          tar xzf nitro.tar.gz
+          mv tools/bin $GITHUB_WORKSPACE/tools
+          mv include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/arm7
+          mv include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/arm9
+        working-directory: ~
+      - name: Build Diamond
+        run: make diamond
+      - name: Build Pearl
+        run: make pearl        
+      - name: Webhook
+        run: |
+          sudo chmod 755 $GITHUB_WORKSPACE/.github/calcrom/webhook.sh
+          $GITHUB_WORKSPACE/.github/calcrom/webhook.sh pokediamond "$CALCROM_WEBHOOK_URL"
+        continue-on-error: true
