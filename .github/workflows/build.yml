@@ -24,7 +24,12 @@ jobs:
         run: |
           sudo apt update
           sudo apt -y upgrade
-          sudo apt -y install g++-8-multilib linux-libc-dev binutils-arm-none-eabi wine32 wine-stable
+          sudo apt -y install g++-8-multilib linux-libc-dev binutils-arm-none-eabi
+          sudo dpkg --add-architecture i386
+          wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+          sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
+          sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main"
+          sudo apt install --install-recommends winehq-stable
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Setup Repo
