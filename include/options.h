@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_OPTIONS_H
 #define POKEDIAMOND_OPTIONS_H
 
+struct SaveBlock2;
+
 struct Options {
     u16 textSpeed:4;
     u16 soundMethod:2;
