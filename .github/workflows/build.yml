@@ -15,10 +15,6 @@ jobs:
   build:
     runs-on: ubuntu-18.04
 
-    strategy:
-      matrix:
-        version: [diamond, pearl]
-
     steps:
       - name: Update and Install Software
         run: |
@@ -45,8 +41,10 @@ jobs:
           mv include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/arm7
           mv include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/arm9
         working-directory: ~
-      - name: Build
-        run: make ${{ matrix.version }}
+      - name: Build Diamond
+        run: make diamond
+      - name: Build Pearl
+        run: make pearl        
       - name: Webhook
         run: |
           sudo chmod 755 $GITHUB_WORKSPACE/.github/calcrom/webhook.sh
