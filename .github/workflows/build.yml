@@ -1,0 +1,47 @@
+name: build
+
+on: [push, pull_request]
+
+env:
+  LM_LICENSE_FILE: "$GITHUB_WORKSPACE/tools/mwccarm/license.dat"
+  CC: gcc-8
+  CXX: g++-8
+  CALCROM_DISCORD_WEBHOOK_AVATAR_URL: "https://i.imgur.com/38BQHdd.png"
+  CALCROM_DISCORD_WEBHOOK_USERNAME: OK
+  CALCROM_WEBHOOK_URL: ${{ secrets.WebhookUrl }}
+
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        version: [diamond, pearl]
+
+    steps:
+      - name: Update and Install Software
+        run: |
+          sudo apt update
+          sudo apt -y upgrade
+          sudo apt -y install g++-8-multilib linux-libc-dev binutils-arm-none-eabi wine32 wine-stable
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Setup Repo
+        run: |
+          mkdir -p $HOME/download
+          cd $HOME/download
+          wget http://private.martmists.com/mwccarm.zip
+          wget http://private.martmists.com/nitro.tar.gz
+          unzip mwccarm.zip
+          mv mwccarm $GITHUB_WORKSPACE/tools
+          tar xzf nitro.tar.gz
+          mv tools/bin $GITHUB_WORKSPACE/tools
+          mv include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/arm7
+          mv include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/arm9
+        working-directory: $HOME
+      - name: Build
+        run: make ${{ matrix.version }}
+      - name: Webhook
+        run: .github/calcrom/calcrom.sh pokediamond "$CALCROM_WEBHOOK_URL"
+        continue-on-error: true
