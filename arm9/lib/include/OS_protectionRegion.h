@@ -41,4 +41,8 @@ static inline u32 OSi_CalcPRParam(u32 address, u32 size, OSiProtectionRegionBase
   OS_SetProtectionRegion##regionNo(OSi_CalcPRParam(address, HW_C6_PR_##sizeStr, OSi_PR_BASE_MASK_##sizeStr) \
                                    | 1)
 
+#define OS_PR3_ACCESS_MASK   (HW_C5_PERMIT_MASK << HW_C5_PR3_SFT)
+#define OS_PR3_ACCESS_RW     (HW_C5_PERMIT_RW   << HW_C5_PR3_SFT)
+#define OS_PR3_ACCESS_RO     (HW_C5_PERMIT_RO   << HW_C5_PR3_SFT)
+
 #endif //POKEDIAMOND_OS_PROTECTIONREGION_H

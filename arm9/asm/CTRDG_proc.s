@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_021D6944
+	.extern CTRDGi_Work
 
 	.section .bss
 
@@ -104,7 +104,7 @@ CTRDGi_CallbackForInitModuleInfo: ; 0x020DBA2C
 	sub sp, sp, #0x4
 	and r0, r1, #0x3f
 	cmp r0, #0x1
-	ldreq r0, _020DBA64 ; =UNK_021D6944
+	ldreq r0, _020DBA64 ; =CTRDGi_Work
 	moveq r1, #0x1
 	streqh r1, [r0, #0x0]
 	addeq sp, sp, #0x4
@@ -115,7 +115,7 @@ CTRDGi_CallbackForInitModuleInfo: ; 0x020DBA2C
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020DBA64: .word UNK_021D6944
+_020DBA64: .word CTRDGi_Work
 
 	arm_func_start CTRDGi_InitModuleInfo
 CTRDGi_InitModuleInfo: ; 0x020DBA68
@@ -140,7 +140,7 @@ CTRDGi_InitModuleInfo: ; 0x020DBA68
 	ldr r3, _020DBC58 ; =0x04000208
 	mov r2, #0x1
 	ldrh r4, [r3, #0x0]
-	ldr r1, _020DBC5C ; =UNK_021D6944
+	ldr r1, _020DBC5C ; =CTRDGi_Work
 	mov r6, r0
 	strh r2, [r3, #0x0]
 	ldrh r0, [r1, #0x2]
@@ -173,7 +173,7 @@ CTRDGi_InitModuleInfo: ; 0x020DBA68
 	orr r1, r1, r5, lsl #0xf
 	strh r1, [r2, #0x0]
 	bl CTRDGi_RestoreAccessCycle
-	ldr r0, _020DBC5C ; =UNK_021D6944
+	ldr r0, _020DBC5C ; =CTRDGi_Work
 	add r1, sp, #0x0
 	ldrh r0, [r0, #0x2]
 	bl CTRDGi_UnlockByProcessor
@@ -227,7 +227,7 @@ _020DBBDC:
 	mov r0, r0, lsl #0x6
 	orr r0, r0, #0x1
 	bl CTRDGi_SendtoPxi
-	ldr r5, _020DBC5C ; =UNK_021D6944
+	ldr r5, _020DBC5C ; =CTRDGi_Work
 	ldrh r0, [r5, #0x0]
 	cmp r0, #0x1
 	beq _020DBC30
@@ -251,7 +251,7 @@ _020DBC30:
 _020DBC50: .word UNK_021D6948
 _020DBC54: .word 0x04000300
 _020DBC58: .word 0x04000208
-_020DBC5C: .word UNK_021D6944
+_020DBC5C: .word CTRDGi_Work
 _020DBC60: .word 0x04000204
 _020DBC64: .word UNK_021D6960
 _020DBC68: .word 0x08000080

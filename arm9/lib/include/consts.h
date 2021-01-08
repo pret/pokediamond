@@ -6,6 +6,13 @@
 #include "registers.h"
 #include "systemWork.h"
 
+#define HW_C5_PERMIT_MASK          0xf
+
+#define HW_C5_PERMIT_RO            5
+#define HW_C5_PERMIT_RW            1
+
+#define HW_C5_PR3_SFT              12
+
 #define HW_C6_PR_4KB               0x16
 #define HW_C6_PR_8KB               0x18
 #define HW_C6_PR_16KB              0x1a

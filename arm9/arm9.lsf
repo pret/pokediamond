@@ -452,7 +452,7 @@ Static arm9
 	Object WM_ds.o
 	Object WM_ks.o
 	Object WM_etc.o
-	Object CTRDG.o
+	Object CTRDG_common.o
 	Object CTRDG_proc.o
 	Object CTRDG_backup.o
 	Object CTRDG_flash_common.o
