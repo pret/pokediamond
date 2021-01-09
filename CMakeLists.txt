@@ -18,7 +18,7 @@ file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c" "*.cpp")
 add_executable(PokeDiamond ${SOURCES})
 target_include_directories(PokeDiamond PRIVATE include include-mw arm9/lib/include arm7/lib/include arm9/modules/05/include arm9/modules/21/include arm9/modules/59/include arm9/modules/63/include)
 
-add_executable(calcrom .travis/calcrom/calcrom.cpp)
+add_executable(calcrom .github/calcrom/calcrom.cpp)
 target_include_directories(calcrom PRIVATE /usr/local/include)
 
 add_executable(knarc tools/knarc/Source.cpp tools/knarc/Narc.cpp tools/knarc/fnmatch.c)

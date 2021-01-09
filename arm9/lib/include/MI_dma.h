@@ -21,6 +21,9 @@ typedef void (*MIDmaCallback)(void *);
 #define MI_DMA_SRC_FIX          (2UL << 23)
 #define MI_DMA_SRC_INC          (0UL << 23)
 
+#define MI_DMA_16BIT_BUS        (0UL << 26)
+#define MI_DMA_32BIT_BUS        (1UL << 26)
+
 #define MIi_DMA_TIMING_ANY      (u32)(~0)
 #define MI_DMA_TIMING_H_BLANK   (2UL << 27)
 

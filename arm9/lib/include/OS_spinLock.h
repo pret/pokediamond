@@ -5,7 +5,11 @@
 #include "nitro/OS_spinLock_shared.h"
 #include "syscall.h"
 
-#define OS_LOCK_ID_ERROR        (-3)
+#define OS_ReadOwnerOfLockCartridge()  OS_ReadOwnerOfLockWord( (OSLockWord *)HW_CTRDG_LOCK_BUF )
+#define OS_MAINP_LOCKED_FLAG           0x40
+#define OS_LOCK_SUCCESS                0
+
+#define OS_LOCK_ID_ERROR               (-3)
 
 static inline void OSi_WaitByLoop(void)
 {
