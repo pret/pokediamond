@@ -1,9 +1,32 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern CTRDGi_EraseFlashChipAsyncLE
+	.extern CTRDGi_EraseFlashChipLE
+	.extern CTRDGi_EraseFlashSectorAsyncLE
+	.extern CTRDGi_PollingSR512kCOMMON
 	.extern UNK_021D6B08
 	.extern UNK_021D6B20
 	.extern UNK_021D6B0C
+
+	.section .rodata
+
+	.global PaMaxTime
+PaMaxTime: ; 0x021041C8
+	.byte 0x0A, 0x00, 0x0A, 0x00, 0xF4, 0x01, 0xF4, 0x01
+
+	.global MN63F805MNP
+MN63F805MNP: ; 0x021041D0
+	.word CTRDGi_WriteFlashSectorMX5
+	.word CTRDGi_EraseFlashChipLE
+	.word CTRDGi_EraseFlashSectorLE
+	.word CTRDGi_WriteFlashSectorAsyncMX5
+	.word CTRDGi_EraseFlashChipAsyncLE
+	.word CTRDGi_EraseFlashSectorAsyncLE
+	.word CTRDGi_PollingSR512kCOMMON
+	.word PaMaxTime
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x32, 0x00, 0x1B, 0x00
 
     .text
 

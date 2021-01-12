@@ -1,11 +1,44 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern CTRDGi_PollingSR1MCOMMON
 	.extern UNK_021D6B20
 	.extern UNK_021D6B24
 	.extern UNK_021D6B0C
 	.extern UNK_021D6B38
 	.extern UNK_021D6B08
+
+	.section .rodata
+
+	.global MxMaxTime
+MxMaxTime: ; 0x02104148
+	.short 10, 10, 2000, 2000
+
+	.global MX29L010
+MX29L010: ; 0x02104150
+	.word CTRDGi_WriteFlashSectorMX
+	.word CTRDGi_EraseFlashChipMX
+	.word CTRDGi_EraseFlashSectorMX
+	.word CTRDGi_WriteFlashSectorAsyncMX
+	.word CTRDGi_EraseFlashChipAsyncMX
+	.word CTRDGi_EraseFlashSectorAsyncMX
+	.word CTRDGi_PollingSR1MCOMMON
+	.word MxMaxTime
+	.byte 0x00, 0x00, 0x02, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0xC2, 0x00, 0x09, 0x00
+
+	.global defaultFlash1M
+defaultFlash1M: ; 0x0210418C
+	.word CTRDGi_WriteFlashSectorMX
+	.word CTRDGi_EraseFlashChipMX
+	.word CTRDGi_EraseFlashSectorMX
+	.word CTRDGi_WriteFlashSectorAsyncMX
+	.word CTRDGi_EraseFlashChipAsyncMX
+	.word CTRDGi_EraseFlashSectorAsyncMX
+	.word CTRDGi_PollingSR1MCOMMON
+	.word MxMaxTime
+	.byte 0x00, 0x00, 0x02, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
     .text
 
