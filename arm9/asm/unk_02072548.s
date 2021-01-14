@@ -1741,7 +1741,7 @@ FUN_020732CC: ; 0x020732CC
 	ldr r1, _020732EC ; =UNK_020F96EC
 	mov r2, #0x1
 	mov r3, #0xe
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	ldr r1, _020732F0 ; =0x000006FC
 	str r0, [r4, r1]
 	add sp, #0x4

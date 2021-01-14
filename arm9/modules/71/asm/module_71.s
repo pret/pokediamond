@@ -7038,7 +7038,7 @@ _02230FC8:
 	ldr r1, _02230FFC ; =0x022313CC
 	ldr r2, _02231000 ; =0x000001F7
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	str r0, [r5]
 	ldr r0, [r4]
 	add r0, r0, #1

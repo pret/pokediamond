@@ -415,7 +415,7 @@ _020897B8:
 	ldr r0, [r4, #0x14]
 	ldr r2, _02089894 ; =0x000001D9
 	mov r3, #0x3
-	bl FUN_020020EC
+	bl CreateYesNoMenu
 	str r0, [r4, #0x2c]
 	mov r0, #0x1
 	str r0, [r4, #0x4]
@@ -453,7 +453,7 @@ _02089802:
 	ldr r0, [r4, #0x14]
 	ldr r2, _02089894 ; =0x000001D9
 	mov r3, #0x3
-	bl FUN_020020EC
+	bl CreateYesNoMenu
 	str r0, [r4, #0x2c]
 	mov r0, #0x3
 	str r0, [r4, #0x4]

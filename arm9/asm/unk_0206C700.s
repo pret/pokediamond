@@ -1314,7 +1314,7 @@ _0206D1F0:
 	ldr r0, [r4, #0x0]
 	mov r2, #0x1
 	mov r3, #0x8
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	str r0, [r4, #0x40]
 	add r0, r4, #0x0
 	add r0, #0x64
@@ -1537,7 +1537,7 @@ _0206D3CC:
 	ldr r0, [r4, #0x0]
 	mov r2, #0x1
 	mov r3, #0x8
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	str r0, [r4, #0x40]
 	add r0, r4, #0x0
 	add r0, #0x64

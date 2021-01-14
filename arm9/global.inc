@@ -212,8 +212,8 @@
 .extern FUN_02001DDC
 .extern FUN_02001E5C
 .extern FUN_02001E60
-.extern FUN_020020EC
-.extern FUN_02002198
+.extern CreateYesNoMenu
+.extern Std_CreateYesNoMenu
 .extern FUN_020021AC
 .extern FUN_020021CC
 .extern FUN_020021EC
@@ -2691,13 +2691,13 @@
 .extern FUN_020395BC
 .extern FUN_020395F4
 .extern FUN_02039618
-.extern FUN_0203962C
+.extern Field_TrainerIsDoubleBattle
 .extern TrainerFlagCheck
 .extern TrainerFlagSet
 .extern TrainerFlagClear
 .extern FUN_02039694
 .extern FUN_02039754
-.extern FUN_02039874
+.extern RunPokemonCenterScriptsInNewContext
 .extern FUN_0203989C
 .extern ScrCmd_nop
 .extern ScrCmd_nop2
@@ -3804,7 +3804,7 @@
 .extern FUN_02054608
 .extern FUN_0205464C
 .extern FUN_02054658
-.extern FUN_02054690
+.extern DrawFieldMessage
 .extern FUN_020546C8
 .extern FUN_020546E0
 .extern FUN_02054744

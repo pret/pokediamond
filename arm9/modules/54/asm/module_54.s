@@ -1502,7 +1502,7 @@ MOD54_021D8120: ; 0x021D8120
 	ldr r1, _021D814C ; =0x021D9678
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	mov r1, #0x32
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -1767,7 +1767,7 @@ MOD54_021D8340: ; 0x021D8340
 	ldr r1, _021D836C ; =0x021D9678
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	mov r1, #0x32
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -2128,7 +2128,7 @@ MOD54_021D8600: ; 0x021D8600
 	ldr r1, _021D862C ; =0x021D9678
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	mov r1, #0x32
 	lsl r1, r1, #4
 	str r0, [r5, r1]
