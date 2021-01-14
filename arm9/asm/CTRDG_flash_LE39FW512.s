@@ -2,9 +2,9 @@
 	.include "global.inc"
 
 	.extern CTRDGi_PollingSR512kCOMMON
-	.extern UNK_021D6B20
-	.extern UNK_021D6B24
-	.extern UNK_021D6B0C
+	.extern AgbFlash
+	.extern CTRDGi_PollingSR
+	.extern ctrdgi_flash_lock_id
 	.extern UNK_021D6B38
 	.extern UNK_021D6B08
 
@@ -128,13 +128,13 @@ CTRDGi_EraseFlashChipLE: ; 0x020DCD70
 	arm_func_start CTRDGi_VerifyFlashErase
 CTRDGi_VerifyFlashErase: ; 0x020DCD94
 	stmdb sp!, {r4-r6,lr}
-	ldr r2, _020DCE14 ; =UNK_021D6B0C
+	ldr r2, _020DCE14 ; =ctrdgi_flash_lock_id
 	mov r4, r0
 	ldrh r0, [r2, #0x0]
 	mov r5, r1
 	bl OS_LockCartridge
 	ldr ip, _020DCE18 ; =0x04000204
-	ldr r0, _020DCE1C ; =UNK_021D6B20
+	ldr r0, _020DCE1C ; =AgbFlash
 	ldrh r3, [r12, #0x0]
 	ldr r0, [r0, #0x0]
 	ldrh r1, [r12, #0x0]
@@ -148,7 +148,7 @@ CTRDGi_VerifyFlashErase: ; 0x020DCD94
 	blx r5
 	cmp r0, #0x0
 	ldr r2, _020DCE18 ; =0x04000204
-	ldr r0, _020DCE14 ; =UNK_021D6B0C
+	ldr r0, _020DCE14 ; =ctrdgi_flash_lock_id
 	ldrh r1, [r2, #0x0]
 	ldrne r4, _020DCE20 ; =0x00008004
 	bic r1, r1, #0x3
@@ -160,14 +160,14 @@ CTRDGi_VerifyFlashErase: ; 0x020DCD94
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020DCE14: .word UNK_021D6B0C
+_020DCE14: .word ctrdgi_flash_lock_id
 _020DCE18: .word 0x04000204
-_020DCE1C: .word UNK_021D6B20
+_020DCE1C: .word AgbFlash
 _020DCE20: .word 0x00008004
 
 	arm_func_start CTRDGi_VerifyFlashCoreFF
 CTRDGi_VerifyFlashCoreFF: ; 0x020DCE24
-	ldr r1, _020DCE54 ; =UNK_021D6B20
+	ldr r1, _020DCE54 ; =AgbFlash
 	ldr r1, [r1, #0x0]
 	ldr r2, [r1, #0x4]
 	cmp r2, #0x0
@@ -182,7 +182,7 @@ _020DCE4C:
 	mov r0, r2
 	bx lr
 	.balign 4
-_020DCE54: .word UNK_021D6B20
+_020DCE54: .word AgbFlash
 
 	arm_func_start CTRDGi_WriteFlashSectorCoreLE
 CTRDGi_WriteFlashSectorCoreLE: ; 0x020DCE58
@@ -203,7 +203,7 @@ CTRDGi_WriteFlashSectorCoreLE: ; 0x020DCE58
 	ldrhs r0, _020DD018 ; =0x000080FF
 	ldmcsia sp!, {r4-r9,lr}
 	bxcs lr
-	ldr r0, _020DD01C ; =UNK_021D6B20
+	ldr r0, _020DD01C ; =AgbFlash
 	mov r9, #0x0
 	ldr r0, [r0, #0x0]
 	ldrh r0, [r0, #0x8]
@@ -247,11 +247,11 @@ _020DCF1C:
 	cmp r9, r5
 	bls _020DCF1C
 _020DCF38:
-	ldr r0, _020DD024 ; =UNK_021D6B0C
+	ldr r0, _020DD024 ; =ctrdgi_flash_lock_id
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r5, _020DD028 ; =0x04000204
-	ldr r1, _020DD01C ; =UNK_021D6B20
+	ldr r1, _020DD01C ; =AgbFlash
 	ldrh r0, [r5, #0x0]
 	ldr r3, [r1, #0x0]
 	ldrh r2, [r5, #0x0]
@@ -295,7 +295,7 @@ _020DCFD4:
 	ldr r2, _020DD028 ; =0x04000204
 	strh r0, [r3, #0x0]
 	ldrh r1, [r2, #0x0]
-	ldr r0, _020DD024 ; =UNK_021D6B0C
+	ldr r0, _020DD024 ; =ctrdgi_flash_lock_id
 	bic r1, r1, #0x3
 	orr r1, r1, r5
 	strh r1, [r2, #0x0]
@@ -307,9 +307,9 @@ _020DCFD4:
 	bx lr
 	.balign 4
 _020DD018: .word 0x000080FF
-_020DD01C: .word UNK_021D6B20
+_020DD01C: .word AgbFlash
 _020DD020: .word CTRDGi_VerifyFlashCoreFF
-_020DD024: .word UNK_021D6B0C
+_020DD024: .word ctrdgi_flash_lock_id
 _020DD028: .word 0x04000204
 _020DD02C: .word UNK_021D6B08
 _020DD030: .word 0x04000208
@@ -329,7 +329,7 @@ CTRDGi_ProgramFlashByteLE: ; 0x020DD038
 	mov r0, #0xa0
 	strb r0, [r12, #0x0]
 	ldrb r2, [lr, #0x0]
-	ldr r3, _020DD094 ; =UNK_021D6B24
+	ldr r3, _020DD094 ; =CTRDGi_PollingSR
 	mov r0, #0x1
 	strb r2, [r1, #0x0]
 	ldrb r2, [lr, #0x0]
@@ -341,7 +341,7 @@ CTRDGi_ProgramFlashByteLE: ; 0x020DD038
 	.balign 4
 _020DD08C: .word 0x0A005555
 _020DD090: .word 0x0A002AAA
-_020DD094: .word UNK_021D6B24
+_020DD094: .word CTRDGi_PollingSR
 
 	arm_func_start CTRDGi_EraseFlashSectorCoreLE
 CTRDGi_EraseFlashSectorCoreLE: ; 0x020DD098
@@ -361,11 +361,11 @@ CTRDGi_EraseFlashSectorCoreLE: ; 0x020DD098
 	ldrhs r0, _020DD1B8 ; =0x000080FF
 	ldmcsia sp!, {r4-r6,lr}
 	bxcs lr
-	ldr r0, _020DD1BC ; =UNK_021D6B0C
+	ldr r0, _020DD1BC ; =ctrdgi_flash_lock_id
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r6, _020DD1C0 ; =0x04000204
-	ldr r1, _020DD1C4 ; =UNK_021D6B20
+	ldr r1, _020DD1C4 ; =AgbFlash
 	ldrh r3, [r6, #0x0]
 	ldr r0, [r1, #0x0]
 	ldrh r2, [r6, #0x0]
@@ -397,7 +397,7 @@ CTRDGi_EraseFlashSectorCoreLE: ; 0x020DD098
 	strb r4, [r1, #0x0]
 	ldrh r4, [r0, #0x0]
 	ldr r4, [r2, #0x0]
-	ldr r2, _020DD1D8 ; =UNK_021D6B24
+	ldr r2, _020DD1D8 ; =CTRDGi_PollingSR
 	strh r4, [r0, #0x0]
 	ldr r4, [r2, #0x0]
 	mov r0, #0x2
@@ -405,7 +405,7 @@ CTRDGi_EraseFlashSectorCoreLE: ; 0x020DD098
 	and r5, r3, #0x3
 	blx r4
 	ldr r3, _020DD1C0 ; =0x04000204
-	ldr r1, _020DD1BC ; =UNK_021D6B0C
+	ldr r1, _020DD1BC ; =ctrdgi_flash_lock_id
 	ldrh r2, [r3, #0x0]
 	mov r4, r0
 	bic r0, r2, #0x3
@@ -419,24 +419,24 @@ CTRDGi_EraseFlashSectorCoreLE: ; 0x020DD098
 	bx lr
 	.balign 4
 _020DD1B8: .word 0x000080FF
-_020DD1BC: .word UNK_021D6B0C
+_020DD1BC: .word ctrdgi_flash_lock_id
 _020DD1C0: .word 0x04000204
-_020DD1C4: .word UNK_021D6B20
+_020DD1C4: .word AgbFlash
 _020DD1C8: .word 0x04000208
 _020DD1CC: .word UNK_021D6B38
 _020DD1D0: .word 0x0A005555
 _020DD1D4: .word 0x0A002AAA
-_020DD1D8: .word UNK_021D6B24
+_020DD1D8: .word CTRDGi_PollingSR
 
 	arm_func_start CTRDGi_EraseFlashChipCoreLE
 CTRDGi_EraseFlashChipCoreLE: ; 0x020DD1DC
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r0, _020DD2B8 ; =UNK_021D6B0C
+	ldr r0, _020DD2B8 ; =ctrdgi_flash_lock_id
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r4, _020DD2BC ; =0x04000204
-	ldr r0, _020DD2C0 ; =UNK_021D6B20
+	ldr r0, _020DD2C0 ; =AgbFlash
 	ldrh r3, [r4, #0x0]
 	ldr r0, [r0, #0x0]
 	ldrh r1, [r4, #0x0]
@@ -464,7 +464,7 @@ CTRDGi_EraseFlashChipCoreLE: ; 0x020DD1DC
 	strb r2, [lr, #0x0]
 	ldrh r2, [r0, #0x0]
 	ldr r2, [r1, #0x0]
-	ldr r1, _020DD2D4 ; =UNK_021D6B24
+	ldr r1, _020DD2D4 ; =CTRDGi_PollingSR
 	strh r2, [r0, #0x0]
 	ldr r4, [r1, #0x0]
 	mov r0, #0x3
@@ -473,7 +473,7 @@ CTRDGi_EraseFlashChipCoreLE: ; 0x020DD1DC
 	and r5, r3, #0x3
 	blx r4
 	ldr r3, _020DD2BC ; =0x04000204
-	ldr r1, _020DD2B8 ; =UNK_021D6B0C
+	ldr r1, _020DD2B8 ; =ctrdgi_flash_lock_id
 	ldrh r2, [r3, #0x0]
 	mov r4, r0
 	bic r0, r2, #0x3
@@ -486,11 +486,11 @@ CTRDGi_EraseFlashChipCoreLE: ; 0x020DD1DC
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020DD2B8: .word UNK_021D6B0C
+_020DD2B8: .word ctrdgi_flash_lock_id
 _020DD2BC: .word 0x04000204
-_020DD2C0: .word UNK_021D6B20
+_020DD2C0: .word AgbFlash
 _020DD2C4: .word 0x04000208
 _020DD2C8: .word UNK_021D6B38
 _020DD2CC: .word 0x0A005555
 _020DD2D0: .word 0x0A002AAA
-_020DD2D4: .word UNK_021D6B24
+_020DD2D4: .word CTRDGi_PollingSR

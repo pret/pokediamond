@@ -22,6 +22,14 @@ typedef enum
     MI_CTRDG_ROMCYCLE2_4 = 1
 } MICartridgeRomCycle2nd;
 
+typedef enum
+{
+    MI_CTRDG_RAMCYCLE_10 = 0,
+    MI_CTRDG_RAMCYCLE_8 = 1,
+    MI_CTRDG_RAMCYCLE_6 = 2,
+    MI_CTRDG_RAMCYCLE_18 = 3
+} MICartridgeRamCycle;
+
 static inline void MIi_SetCardProcessor(MIProcessor proc)
 {
     reg_MI_EXMEMCNT =
@@ -52,6 +60,16 @@ static inline void MI_SetCartridgeRomCycle1st(MICartridgeRomCycle1st c1)
 static inline void MI_SetCartridgeRomCycle2nd(MICartridgeRomCycle2nd c2)
 {
     reg_MI_EXMEMCNT = (u16)((reg_MI_EXMEMCNT & ~0x10) | (c2 << 4));
+}
+
+static inline void MI_SetCartridgeRamCycle(MICartridgeRamCycle c)
+{
+    reg_MI_EXMEMCNT = (u16)((reg_MI_EXMEMCNT & ~3) | (c << 0));
+}
+
+static inline MICartridgeRamCycle MI_GetCartridgeRamCycle(void)
+{
+    return (MICartridgeRamCycle)((reg_MI_EXMEMCNT & 3) >> 0);
 }
 
 #endif //POKEDIAMOND_MI_EXMEMORY_H
