@@ -42,7 +42,7 @@ MOD05_021E2BB8: ; 0x021E2BB8
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, r1, #0
-	bl MOD05_021E2D00
+	bl MOD05_ScriptContext_GetTextFrameDelay
 	strb r0, [r4]
 	mov r0, #0
 	strb r0, [r4, #1]
@@ -68,15 +68,15 @@ MOD05_021E2BD0: ; 0x021E2BD0
 	add r0, #0x80
 	ldr r0, [r0]
 	add r1, sp, #8
-	bl MOD05_021E2D9C
+	bl MOD05_CreateMessageBox
 	add r0, sp, #8
 	add r1, r6, #0
 	add r2, r7, #0
-	bl MOD05_021E2DD4
+	bl MOD05_ReadAndExpandMsgDataViaBuffer
 	cmp r4, #0
 	bne _021E2C10
 	add r0, r5, #0
-	bl MOD05_021E2D00
+	bl MOD05_ScriptContext_GetTextFrameDelay
 	add r2, r0, #0
 	mov r0, #0
 	mov r1, #1
@@ -89,7 +89,7 @@ _021E2C16:
 	str r0, [sp]
 	ldr r3, [sp, #4]
 	add r0, sp, #8
-	bl MOD05_021E2E40
+	bl MOD05_DrawFieldMessage
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -107,14 +107,14 @@ MOD05_ShowMessageInField: ; 0x021E2C24
 	add r5, #0x80
 	ldr r0, [r5]
 	add r1, sp, #0
-	bl MOD05_021E2D9C
+	bl MOD05_CreateMessageBox
 	add r0, sp, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl MOD05_021E2DD4
+	bl MOD05_ReadAndExpandMsgDataViaBuffer
 	add r0, sp, #0
 	mov r1, #1
-	bl MOD05_021E2E68
+	bl MOD05_AddTextPrinterParameterized
 	add sp, #0x18
 	pop {r4, r5, r6, pc}
 
@@ -134,7 +134,7 @@ MOD05_021E2C58: ; 0x021E2C58
 	add r0, #0x80
 	ldr r0, [r0]
 	add r1, sp, #4
-	bl MOD05_021E2D9C
+	bl MOD05_CreateMessageBox
 	add r0, sp, #0x20
 	ldrh r0, [r0, #0x10]
 	add r1, r4, #0
@@ -142,13 +142,13 @@ MOD05_021E2C58: ; 0x021E2C58
 	str r0, [sp]
 	add r0, sp, #4
 	add r3, r7, #0
-	bl MOD05_021E2DF0
+	bl MOD05_ExpandEasyChatMessage
 	add r0, sp, #0x20
 	ldrb r0, [r0, #0x14]
 	cmp r0, #0xff
 	beq _021E2CB0
 	add r0, r5, #0
-	bl MOD05_021E2D00
+	bl MOD05_ScriptContext_GetTextFrameDelay
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -156,13 +156,13 @@ MOD05_021E2C58: ; 0x021E2C58
 	ldrb r3, [r3, #0x14]
 	add r0, sp, #4
 	mov r1, #1
-	bl MOD05_021E2E40
+	bl MOD05_DrawFieldMessage
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 _021E2CB0:
 	add r0, sp, #4
 	mov r1, #1
-	bl MOD05_021E2E68
+	bl MOD05_AddTextPrinterParameterized
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 
@@ -181,25 +181,25 @@ MOD05_021E2CBC: ; 0x021E2CBC
 	add r0, #0x80
 	ldr r0, [r0]
 	add r1, sp, #4
-	bl MOD05_021E2D9C
+	bl MOD05_CreateMessageBox
 	ldr r1, [r5, #0x78]
 	add r0, sp, #4
 	add r2, r4, #0
-	bl MOD05_021E2DD4
+	bl MOD05_ReadAndExpandMsgDataViaBuffer
 	add r0, r5, #0
-	bl MOD05_021E2D00
+	bl MOD05_ScriptContext_GetTextFrameDelay
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
 	add r0, sp, #4
 	mov r1, #1
 	add r3, r6, #0
-	bl MOD05_021E2E40
+	bl MOD05_DrawFieldMessage
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 
-	thumb_func_start MOD05_021E2D00
-MOD05_021E2D00: ; 0x021E2D00
+	thumb_func_start MOD05_ScriptContext_GetTextFrameDelay
+MOD05_ScriptContext_GetTextFrameDelay: ; 0x021E2D00
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0]
@@ -272,8 +272,8 @@ MOD05_021E2D5C: ; 0x021E2D5C
 	str r0, [r4, #0x14]
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start MOD05_021E2D9C
-MOD05_021E2D9C: ; 0x021E2D9C
+	thumb_func_start MOD05_CreateMessageBox
+MOD05_CreateMessageBox: ; 0x021E2D9C
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
 	add r5, r0, #0
@@ -300,8 +300,8 @@ _021E2DC8:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 
-	thumb_func_start MOD05_021E2DD4
-MOD05_021E2DD4: ; 0x021E2DD4
+	thumb_func_start MOD05_ReadAndExpandMsgDataViaBuffer
+MOD05_ReadAndExpandMsgDataViaBuffer: ; 0x021E2DD4
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, r1, #0
@@ -315,8 +315,8 @@ MOD05_021E2DD4: ; 0x021E2DD4
 	pop {r4, pc}
 	.balign 4, 0
 
-	thumb_func_start MOD05_021E2DF0
-MOD05_021E2DF0: ; 0x021E2DF0
+	thumb_func_start MOD05_ExpandEasyChatMessage
+MOD05_ExpandEasyChatMessage: ; 0x021E2DF0
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r5, r0, #0
@@ -351,8 +351,8 @@ MOD05_021E2DF0: ; 0x021E2DF0
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 
-	thumb_func_start MOD05_021E2E40
-MOD05_021E2E40: ; 0x021E2E40
+	thumb_func_start MOD05_DrawFieldMessage
+MOD05_DrawFieldMessage: ; 0x021E2E40
 	push {r4, r5, r6, lr}
 	sub sp, #8
 	add r4, r0, #0
@@ -367,14 +367,14 @@ MOD05_021E2E40: ; 0x021E2E40
 	ldr r1, [r4]
 	add r2, r6, #0
 	add r3, r5, #0
-	bl FUN_02054690
+	bl DrawFieldMessage
 	ldr r1, [r4, #0x14]
 	strb r0, [r1]
 	add sp, #8
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start MOD05_021E2E68
-MOD05_021E2E68: ; 0x021E2E68
+	thumb_func_start MOD05_AddTextPrinterParameterized
+MOD05_AddTextPrinterParameterized: ; 0x021E2E68
 	push {r3, r4, lr}
 	sub sp, #0xc
 	mov r3, #0

@@ -2192,7 +2192,7 @@ FUN_02066520: ; 0x02066520
 	ldr r0, [r4, r0]
 	ldr r2, _02066548 ; =0x000003D9
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	mov r1, #0x5a
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]

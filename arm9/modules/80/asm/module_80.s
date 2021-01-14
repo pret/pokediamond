@@ -2192,7 +2192,7 @@ MOD80_0222E6A8: ; 0x0222E6A8
 	add r1, r3, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0

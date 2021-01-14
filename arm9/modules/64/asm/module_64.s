@@ -2212,7 +2212,7 @@ _021D8604:
 	ldr r2, _021D86D8 ; =0x0000029E
 	add r1, #0xb0
 	mov r3, #1
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add r1, r4, #0
 	add r1, #0xb8
 	str r0, [r1]

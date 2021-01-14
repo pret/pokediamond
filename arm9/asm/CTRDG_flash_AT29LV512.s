@@ -1,13 +1,44 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_0210400C
+	.extern CTRDGi_PollingSR512kCOMMON
 	.extern UNK_021D6B20
 	.extern UNK_021D6B24
 	.extern UNK_021D6B0C
 	.extern UNK_021D6B38
-	.extern UNK_02104048
 	.extern UNK_021D6B08
+
+	.section .rodata
+
+	.global atMaxTime
+atMaxTime: ; 0x02104004
+	.short 10, 40, 0, 40
+
+	.global AT29LV512_lib
+AT29LV512_lib: ; 0x0210400C
+	.word CTRDGi_WriteFlash4KBAT
+	.word CTRDGi_EraseFlashChipAT
+	.word CTRDGi_EraseFlash4KBAT
+	.word CTRDGi_WriteFlash4KBAsyncAT
+	.word CTRDGi_EraseFlashChipAsyncAT
+	.word CTRDGi_EraseFlash4KBAsyncAT
+	.word CTRDGi_PollingSR512kCOMMON
+	.word atMaxTime
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x3D, 0x00
+
+	.global AT29LV512_org
+AT29LV512_org: ; 0x02104048
+	.word CTRDGi_WriteFlashSectorAT
+	.word CTRDGi_EraseFlashChipAT
+	.word CTRDGi_EraseFlashSectorAT
+	.word CTRDGi_WriteFlashSectorAsyncAT
+	.word CTRDGi_EraseFlashChipAsyncAT
+	.word CTRDGi_EraseFlashSectorAsyncAT
+	.word CTRDGi_PollingSR512kCOMMON
+	.word atMaxTime
+	.byte 0x00, 0x00, 0x01, 0x00, 0x80, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x3D, 0x00
 
     .text
 
@@ -170,7 +201,7 @@ CTRDGi_WriteFlash4KBCoreAT: ; 0x020DC780
 	ldrhs r0, _020DC85C ; =0x000080FF
 	ldmcsia sp!, {r4-r9,lr}
 	bxcs lr
-	ldr r1, _020DC860 ; =UNK_0210400C
+	ldr r1, _020DC860 ; =AT29LV512_lib
 	mov r0, r0, lsl #0x15
 	ldr r1, [r1, #0x24]
 	ldr r4, _020DC864 ; =UNK_021D6B08
@@ -179,7 +210,7 @@ CTRDGi_WriteFlash4KBCoreAT: ; 0x020DC780
 	ldrh r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020DC84C
-	ldr r0, _020DC868 ; =UNK_02104048
+	ldr r0, _020DC868 ; =AT29LV512_org
 	ldr r6, [r0, #0x24]
 	mov r5, #0x2
 _020DC7F4:
@@ -214,9 +245,9 @@ _020DC84C:
 	bx lr
 	.balign 4
 _020DC85C: .word 0x000080FF
-_020DC860: .word UNK_0210400C
+_020DC860: .word AT29LV512_lib
 _020DC864: .word UNK_021D6B08
-_020DC868: .word UNK_02104048
+_020DC868: .word AT29LV512_org
 
 	arm_func_start CTRDGi_WriteFlashSectorCoreAT
 CTRDGi_WriteFlashSectorCoreAT: ; 0x020DC86C
@@ -240,7 +271,7 @@ CTRDGi_WriteFlashSectorCoreAT: ; 0x020DC86C
 	ldr r1, [r1, #0x0]
 	ldrh r2, [r5, #0x0]
 	ldr r3, [r1, #0x10]
-	ldr r1, _020DC990 ; =UNK_02104048
+	ldr r1, _020DC990 ; =AT29LV512_org
 	bic r2, r2, #0x3
 	orr r2, r2, r3
 	strh r2, [r5, #0x0]
@@ -296,7 +327,7 @@ _020DC92C:
 _020DC984: .word UNK_021D6B0C
 _020DC988: .word 0x04000204
 _020DC98C: .word UNK_021D6B20
-_020DC990: .word UNK_02104048
+_020DC990: .word AT29LV512_org
 _020DC994: .word 0x04000208
 _020DC998: .word 0x0A005555
 _020DC99C: .word 0x0A002AAA
@@ -366,7 +397,7 @@ CTRDGi_EraseFlashSectorCoreAT: ; 0x020DCA58
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
 	ldr r0, [r5, #0x0]
-	ldr r1, _020DCB80 ; =UNK_02104048
+	ldr r1, _020DCB80 ; =AT29LV512_org
 	str r0, [r4, #0x0]
 	ldr r0, _020DCB84 ; =UNK_021D6B0C
 	ldrh r2, [sp, #0x20]
@@ -396,7 +427,7 @@ CTRDGi_EraseFlashSectorCoreAT: ; 0x020DCA58
 	strb r3, [r1, #0x0]
 	mov r3, #0xa0
 	strb r3, [r4, #0x0]
-	ldr r1, _020DCB80 ; =UNK_02104048
+	ldr r1, _020DCB80 ; =AT29LV512_org
 	and r4, r0, #0x3
 	ldr r1, [r1, #0x24]
 	cmp r1, #0x0
@@ -434,7 +465,7 @@ _020DCB18:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020DCB80: .word UNK_02104048
+_020DCB80: .word AT29LV512_org
 _020DCB84: .word UNK_021D6B0C
 _020DCB88: .word 0x04000204
 _020DCB8C: .word UNK_021D6B20

@@ -374,7 +374,7 @@ MOD61_021D7790: ; 0x021D7790
 	ldr r0, [r4, #0x18]
 	mov r2, #1
 	mov r3, #5
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add r4, #0xa4
 	str r0, [r4]
 	add sp, #4

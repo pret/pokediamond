@@ -755,8 +755,8 @@ FUN_020020B0: ; 0x020020B0
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020020EC
-FUN_020020EC: ; 0x020020EC
+	thumb_func_start CreateYesNoMenu
+CreateYesNoMenu: ; 0x020020EC
 	push {r3-r7, lr}
 	sub sp, #0x20
 	ldr r5, [sp, #0x3c]
@@ -777,13 +777,13 @@ FUN_020020EC: ; 0x020020EC
 	mov r2, #0x29
 	mov r3, #0x0
 	add r6, r0, #0x0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenu_ItemFromMsgData ; YES
 	mov r3, #0x2a
 	add r2, r3, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	sub r3, #0x2c
-	bl ListMenu_ItemFromMsgData
+	bl ListMenu_ItemFromMsgData ; NO
 	add r0, r4, #0x0
 	bl DestroyMsgData
 	add r0, r5, #0x0
@@ -834,15 +834,15 @@ FUN_020020EC: ; 0x020020EC
 	nop
 _02002194: .word 0x00000141
 
-	thumb_func_start FUN_02002198
-FUN_02002198: ; 0x02002198
+	thumb_func_start Std_CreateYesNoMenu
+Std_CreateYesNoMenu: ; 0x02002198
 	push {r4, lr}
 	sub sp, #0x8
 	mov r4, #0x0
 	str r4, [sp, #0x0]
 	ldr r4, [sp, #0x10]
 	str r4, [sp, #0x4]
-	bl FUN_020020EC
+	bl CreateYesNoMenu
 	add sp, #0x8
 	pop {r4, pc}
 

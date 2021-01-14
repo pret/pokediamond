@@ -1,11 +1,44 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern CTRDGi_PollingSR512kCOMMON
 	.extern UNK_021D6B20
 	.extern UNK_021D6B24
 	.extern UNK_021D6B0C
 	.extern UNK_021D6B38
 	.extern UNK_021D6B08
+
+	.section .rodata
+
+	.global leMaxTime
+leMaxTime: ; 0x021040C8
+	.byte 0x0A, 0x00, 0x0A, 0x00, 0x28, 0x00, 0xC8, 0x00
+
+	.global defaultFlash512
+defaultFlash512: ; 0x021040D0
+	.word CTRDGi_WriteFlashSectorLE
+	.word CTRDGi_EraseFlashChipLE
+	.word CTRDGi_EraseFlashSectorLE
+	.word CTRDGi_WriteFlashSectorAsyncLE
+	.word CTRDGi_EraseFlashChipAsyncLE
+	.word CTRDGi_EraseFlashSectorAsyncLE
+	.word CTRDGi_PollingSR512kCOMMON
+	.word leMaxTime
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global LE39FW512
+LE39FW512: ; 0x0210410C
+	.word CTRDGi_WriteFlashSectorLE
+	.word CTRDGi_EraseFlashChipLE
+	.word CTRDGi_EraseFlashSectorLE
+	.word CTRDGi_WriteFlashSectorAsyncLE
+	.word CTRDGi_EraseFlashChipAsyncLE
+	.word CTRDGi_EraseFlashSectorAsyncLE
+	.word CTRDGi_PollingSR512kCOMMON
+	.word leMaxTime
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xBF, 0x00, 0xD4, 0x00
 
     .text
 
