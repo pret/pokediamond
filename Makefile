@@ -120,7 +120,7 @@ MAKEROM    = $(WINE) $(TOOLS_DIR)/bin/makerom.exe
 FIXROM     = $(TOOLS_DIR)/fixrom/fixrom$(EXE)
 NTRCOMP    = $(WINE) $(TOOLS_DIR)/bin/ntrcomp.exe
 
-TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
+TOOLDIRS = $(filter-out $(TOOLS_DIR)/asm_processor $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
