@@ -70,19 +70,21 @@ $ brew install --cask xquartz
 $ brew install --cask --no-quarantine wine-stable
 ```
 
-To build the project, run the below commands:
-
-```console
-$ export PATH=/usr/local/opt/llvm@8/bin:$PATH SHA1SUM=shasum CC=clang CXX=clang++
-$ gmake
-```
-
 ### 4. Build ROM
 
 Run `make` to build the ROM. The ROM will be output as `build/diamond.us/pokediamond.us.nds`
 
 To build Pokemon Pearl, run `make pearl`. You do not need to clean your working tree in between compiling. Pokemon Pearl will be built as `build/pearl.us/pokepearl.us.nds`.
 
-Windows Users:
+#### Windows
 
 If you get an error in saving configuration settings when specifying the license file, you need to add a system environment variable called LM_LICENSE_FILE and point it to the license.dat file. Alternatively, run mwccarm.exe from an Administrator command prompt, PowerShell, or WSL session.
+
+#### macOS
+
+To avoid issues run the build as shown below. This avoids issues with missing features (i.e. "introduced in macOS 10.15" errors) and Apple's make not following standards.
+
+```console
+$ export PATH=/usr/local/opt/llvm@8/bin:$PATH CC=clang CXX=clang++
+$ gmake
+```
