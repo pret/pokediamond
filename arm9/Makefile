@@ -124,7 +124,7 @@ UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 SHA1SUM = shasum
 else
-ifdef BUSYBOX
+ifndef BUSYBOX
 SHA1SUM = sha1sum --quiet
 else
 SHA1SUM = sha1sum
