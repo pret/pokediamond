@@ -96,7 +96,12 @@ LDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
 ####################### Other Tools #########################
 
 # DS TOOLS
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+SHA1SUM = shasum
+else
 SHA1SUM = sha1sum
+endif
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
 SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)

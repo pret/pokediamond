@@ -8,7 +8,7 @@ else
 C_SRCS   :=
 UNAME_S  := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
-LDFLAGS  += -lstdc++ -lc++ -lc
+LDFLAGS  += -lstdc++ -lc++ -lc /usr/local/opt/llvm@8/lib/libc++fs.a -O2 -Wall -Wno-switch
 else
 LDFLAGS  += -lstdc++fs
 endif
