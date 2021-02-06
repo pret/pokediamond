@@ -60,12 +60,12 @@ If you get an error in saving configuration settings when specifying the license
 
 #### Docker
 
-If you find issues building the ROMs with the above methods, you can try the Docker-specific build script. It will build a Docker image with the system requirements above, and run the `make` scripts (any specified parameter will be passed to the `make` command):
+If you find issues building the ROMs with the above methods, you can try the Docker-specific build script. It will build an Alpine-based Docker image with the system requirements above, and run the `make` scripts (any specified parameter will be passed to the `make` command):
 
 ```console
 $ make clean
-$ ./docker/build.sh # build pokediamond
-$ ./docker/build.sh pearl # build pokepearl
+$ ./contrib/docker/build_docker.sh # build pokediamond
+$ ./contrib/docker/build_docker.sh pearl # build pokepearl
 ```
 
 Note: Docker may not run at a full performance if its underlying Linux kernel is being virtualized (mainly Windows and macOS hosts).
