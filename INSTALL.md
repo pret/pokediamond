@@ -54,6 +54,18 @@ Run `make` to build the ROM. The ROM will be output as `build/diamond.us/pokedia
 
 To build Pokemon Pearl, run `make pearl`. You do not need to clean your working tree in between compiling. Pokemon Pearl will be built as `build/pearl.us/pokepearl.us.nds`.
 
-Windows Users:
+#### Windows
 
 If you get an error in saving configuration settings when specifying the license file, you need to add a system environment variable called LM_LICENSE_FILE and point it to the license.dat file. Alternatively, run mwccarm.exe from an Administrator command prompt, PowerShell, or WSL session.
+
+#### Docker
+
+If you find issues building the ROMs with the above methods, you can try the Docker-specific build script. It will build a Docker image with the system requirements above, and run the `make` scripts (any specified parameter will be passed to the `make` command):
+
+```console
+$ make clean
+$ ./docker/build.sh # build pokediamond
+$ ./docker/build.sh pearl # build pokepearl
+```
+
+Note: Docker may not run at a full performance if its underlying Linux kernel is being virtualized (mainly Windows and macOS hosts).
