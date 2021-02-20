@@ -48,6 +48,28 @@ Install them using either the Cygwin package manager or using pacman on Msys2.
 
 **NOTE FOR MSYS2:** You will need to compile and install [libpng](https://www.libpng.org/pub/png/libpng.html) from source.
 
+#### macOS
+
+**macOS 10.14 Mojave or older is required**. macOS 10.15 Catalina is not supported due to missing support for 32-bit binaries (thus making wine emulation unfeasible). You will also require the following packages:
+
+* GNU make
+* LLVM 8 clang compiler
+* gcc@5 (for mwasmarm_patcher)
+* arm-gcc-bin
+* git
+* libpng
+* wine-stable and xquartz dependency
+
+They can be installed with the following commands:
+
+```console
+$ brew tap osx-cross/homebrew-arm
+$ brew tap homebrew/cask-versions
+$ brew install make llvm@8 gcc@5 arm-gcc-bin libpng git
+$ brew install --cask xquartz
+$ brew install --cask --no-quarantine wine-stable
+```
+
 ### 4. Build ROM
 
 Run `make` to build the ROM. The ROM will be output as `build/diamond.us/pokediamond.us.nds`
@@ -69,3 +91,12 @@ $ ./contrib/docker/build_docker.sh pearl # build pokepearl
 ```
 
 Note: Docker may not run at a full performance if its underlying Linux kernel is being virtualized (mainly Windows and macOS hosts).
+
+#### macOS
+
+To avoid issues run the build as shown below. This avoids issues with missing features (i.e. "introduced in macOS 10.15" errors) and Apple's make not following standards.
+
+```console
+$ export PATH=/usr/local/opt/llvm@8/bin:$PATH CC=clang CXX=clang++
+$ gmake
+```

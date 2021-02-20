@@ -120,10 +120,15 @@ STATIC_LIBS := $(addprefix $(BUILD_DIR)/lib/,libsyscall.a)
 ####################### Other Tools #########################
 
 # DS TOOLS
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+SHA1SUM = shasum
+else
 ifndef BUSYBOX
 SHA1SUM = sha1sum --quiet
 else
 SHA1SUM = sha1sum
+endif
 endif
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)

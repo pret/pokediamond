@@ -1,6 +1,11 @@
 .PHONY: all clean
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+CC := gcc-5
+else
 CC := gcc
+endif
 CFLAGS := -O3
 
 .PHONY: all clean
