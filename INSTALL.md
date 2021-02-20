@@ -80,6 +80,18 @@ To build Pokemon Pearl, run `make pearl`. You do not need to clean your working 
 
 If you get an error in saving configuration settings when specifying the license file, you need to add a system environment variable called LM_LICENSE_FILE and point it to the license.dat file. Alternatively, run mwccarm.exe from an Administrator command prompt, PowerShell, or WSL session.
 
+#### Docker
+
+If you find issues building the ROMs with the above methods, you can try the Docker-specific build script. It will build an Alpine-based Docker image with the system requirements above, and run the `make` scripts (any specified parameter will be passed to the `make` command):
+
+```console
+$ make clean
+$ ./contrib/docker/build_docker.sh # build pokediamond
+$ ./contrib/docker/build_docker.sh pearl # build pokepearl
+```
+
+Note: Docker may not run at a full performance if its underlying Linux kernel is being virtualized (mainly Windows and macOS hosts).
+
 #### macOS
 
 To avoid issues run the build as shown below. This avoids issues with missing features (i.e. "introduced in macOS 10.15" errors) and Apple's make not following standards.
