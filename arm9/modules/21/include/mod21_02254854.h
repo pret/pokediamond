@@ -4,12 +4,18 @@
 #include "nitro/types.h"
 #include "mod21_02254A6C.h"
 
+typedef struct Time
+{
+    u32 hour;
+    u32 minute;
+} Time;
+
 typedef struct UnkStruct02254854
 {
     u8 bytearray[8];
     u8 padding0[8];
     BOOL Unk10;
-    u32 Unk14[2];
+    Time time;
     u8 padding1[4];
     u32 Unk20;
     void *Unk24;

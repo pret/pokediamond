@@ -3,7 +3,7 @@
 #include "unk_0200CA44.h"
 #include "mod21_02254854.h"
 
-extern void GF_RTC_CopyTime(u32 *param0);
+extern void GF_RTC_CopyTime(Time *param0);
 
 u8 const MOD21_02254D80[] = { 0x10, 0xAF, 0x10, 0xCF };
 extern BOOL MOD20_02254130(void *param0, BOOL param1, void *param2, UnkStruct02254854 *param3, u32 param4);
@@ -42,7 +42,7 @@ THUMB_FUNC BOOL MOD21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param
 THUMB_FUNC BOOL MOD21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2, u32 param3)
 {
 #pragma unused (param2, param3) //not sure, please check
-    if (MOD21_02254A6C((UnkStruct02254A6C *)&param0->Unk24, param0->Unk14)) //todo fix
+    if (MOD21_02254A6C((UnkStruct02254A6C *)&param0->Unk24, &param0->time)) //todo fix
     {
         param0->bytearray[0] = 0;
         param0->bytearray[1] = 0;
@@ -50,16 +50,16 @@ THUMB_FUNC BOOL MOD21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2
         param0->bytearray[3] = 1;
         param0->bytearray[6] = 0;
         param0->Unk20 = 0;
-        GF_RTC_CopyTime(param0->Unk14);
-        if (param0->Unk14[0] >= 0x18)
+        GF_RTC_CopyTime(&param0->time);
+        if (param0->time.hour >= 0x18)
         {
-            param0->Unk14[0] = param0->Unk14[0] % 0x18;
+            param0->time.hour = param0->time.hour % 0x18;
         }
-        if (param0->Unk14[1] >= 0x3c)
+        if (param0->time.minute >= 0x3c)
         {
-            param0->Unk14[0] = param0->Unk14[0] % 0x3c;
+            param0->time.hour = param0->time.hour % 0x3c;
         }
-        param0->bytearray[5] = (u8)param0->Unk14[1];
+        param0->bytearray[5] = (u8)param0->time.minute;
         param0->Unk10 = MOD20_02254130((void *)MOD21_02254D80, TRUE, MOD21_02254974, param0, 8);
         if (param0->Unk10 == FALSE)
         {
@@ -168,9 +168,9 @@ THUMB_FUNC BOOL MOD21_022549E4(UnkStruct02254854 * param0)
     }
     if (MOD21_02254B34(param0->Unk24, 1))
     {
-        param0->bytearray[5] = (u8)param0->Unk14[1];
-        GF_RTC_CopyTime(param0->Unk14);
-        if (param0->bytearray[5] != param0->Unk14[1])
+        param0->bytearray[5] = (u8)param0->time.minute;
+        GF_RTC_CopyTime(&param0->time);
+        if (param0->bytearray[5] != param0->time.minute)
         {
             MOD21_02254B10(param0->Unk24, 1);
         }

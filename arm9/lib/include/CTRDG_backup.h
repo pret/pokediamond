@@ -5,6 +5,10 @@
 #include "CTRDG_flash.h"
 #include "CTRDG_task.h"
 
+#define CTRDG_BACKUP_PHASE_PROGRAM          0x0001
+#define CTRDG_BACKUP_PHASE_SECTOR_ERASE     0x0002
+#define CTRDG_BACKUP_PHASE_CHIP_ERASE       0x0003
+
 typedef struct CTRDGiFlashTypePlusTag
 {
     u16 (*CTRDGi_WriteAgbFlashSector)(u16 secNo, u8 *src);
