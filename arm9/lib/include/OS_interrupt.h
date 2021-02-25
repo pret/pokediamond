@@ -43,6 +43,13 @@ static inline BOOL OS_EnableIrq(void)
     return (BOOL)prep;
 }
 
+static inline BOOL OS_RestoreIrq(BOOL enable)
+{
+    u16     prep = reg_OS_IME;
+    reg_OS_IME = (u16)enable;
+    return (BOOL)prep;
+}
+
 static inline OSIrqMask OS_GetIrqMask(void)
 {
     return reg_OS_IE;

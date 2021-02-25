@@ -51,8 +51,8 @@ CTRDGi_EraseAgbFlashSectorAsync: ; 0x021D6B30
 CTRDGi_EraseAgbFlashChip: ; 0x021D6B34
 	.space 0x4
 
-	.global UNK_021D6B38
-UNK_021D6B38: ; 0x021D6B38
+	.global ctrdgi_backup_irq
+ctrdgi_backup_irq: ; 0x021D6B38
 	.space 0x4
 
 	.global UNK_021D6B3C
@@ -493,7 +493,7 @@ CTRDGi_ReadFlashID: ; 0x020DC48C
 	ldr r5, _020DC590 ; =0x04000208
 	mov r0, #0x0
 	ldrh r2, [r5, #0x0]
-	ldr r1, _020DC594 ; =UNK_021D6B38
+	ldr r1, _020DC594 ; =ctrdgi_backup_irq
 	ldr r4, _020DC598 ; =0x0A005555
 	strh r0, [r5, #0x0]
 	str r2, [r1, #0x0]
@@ -527,7 +527,7 @@ _020DC4FC:
 	orr r4, r0, r4, lsr #0x10
 	ldrh r2, [r12, #0x0]
 	mov r0, #0x0
-	ldr r1, _020DC594 ; =UNK_021D6B38
+	ldr r1, _020DC594 ; =ctrdgi_backup_irq
 	strh r0, [r12, #0x0]
 	ldr r5, _020DC598 ; =0x0A005555
 	str r2, [r1, #0x0]
@@ -559,7 +559,7 @@ _020DC580:
 	bx lr
 	.balign 4
 _020DC590: .word 0x04000208
-_020DC594: .word UNK_021D6B38
+_020DC594: .word ctrdgi_backup_irq
 _020DC598: .word 0x0A005555
 _020DC59C: .word 0x0A002AAA
 _020DC5A0: .word UNK_021D6B10

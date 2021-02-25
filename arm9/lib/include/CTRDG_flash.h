@@ -4,6 +4,8 @@
 #include "nitro/types.h"
 #include "MI_exMemory.h"
 
+#define CTRDG_AGB_FLASH_ADR  0x0A000000
+
 typedef struct CTRDGiFlashSectorTag
 {
     u32 size;

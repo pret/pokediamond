@@ -5,7 +5,7 @@
 	.extern AgbFlash
 	.extern CTRDGi_PollingSR
 	.extern ctrdgi_flash_lock_id
-	.extern UNK_021D6B38
+	.extern ctrdgi_backup_irq
 	.extern UNK_021D6B08
 
 	.section .rodata
@@ -266,7 +266,7 @@ _020DCF38:
 	mov r2, #0x0
 	strh r1, [r7, #0x0]
 	ldrh r3, [r9, #0x0]
-	ldr r1, _020DD034 ; =UNK_021D6B38
+	ldr r1, _020DD034 ; =ctrdgi_backup_irq
 	and r5, r0, #0x3
 	strh r2, [r9, #0x0]
 	ldrh r0, [r7, #0x0]
@@ -289,7 +289,7 @@ _020DCFA0:
 	bne _020DCFA0
 _020DCFD4:
 	ldr r3, _020DD030 ; =0x04000208
-	ldr r0, _020DD034 ; =UNK_021D6B38
+	ldr r0, _020DD034 ; =ctrdgi_backup_irq
 	ldrh r1, [r3, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, _020DD028 ; =0x04000204
@@ -313,7 +313,7 @@ _020DD024: .word ctrdgi_flash_lock_id
 _020DD028: .word 0x04000204
 _020DD02C: .word UNK_021D6B08
 _020DD030: .word 0x04000208
-_020DD034: .word UNK_021D6B38
+_020DD034: .word ctrdgi_backup_irq
 
 	arm_func_start CTRDGi_ProgramFlashByteLE
 CTRDGi_ProgramFlashByteLE: ; 0x020DD038
@@ -378,7 +378,7 @@ CTRDGi_EraseFlashSectorCoreLE: ; 0x020DD098
 	ldrh r5, [r0, #0x0]
 	ldrh r12, [r1, #0x8]
 	mov r1, #0x0
-	ldr r2, _020DD1CC ; =UNK_021D6B38
+	ldr r2, _020DD1CC ; =ctrdgi_backup_irq
 	strh r1, [r0, #0x0]
 	mov r6, r4, lsl r12
 	ldr lr, _020DD1D0 ; =0x0A005555
@@ -423,7 +423,7 @@ _020DD1BC: .word ctrdgi_flash_lock_id
 _020DD1C0: .word 0x04000204
 _020DD1C4: .word AgbFlash
 _020DD1C8: .word 0x04000208
-_020DD1CC: .word UNK_021D6B38
+_020DD1CC: .word ctrdgi_backup_irq
 _020DD1D0: .word 0x0A005555
 _020DD1D4: .word 0x0A002AAA
 _020DD1D8: .word CTRDGi_PollingSR
@@ -447,7 +447,7 @@ CTRDGi_EraseFlashChipCoreLE: ; 0x020DD1DC
 	strh r1, [r4, #0x0]
 	ldrh r4, [r0, #0x0]
 	mov r2, #0x0
-	ldr r1, _020DD2C8 ; =UNK_021D6B38
+	ldr r1, _020DD2C8 ; =ctrdgi_backup_irq
 	strh r2, [r0, #0x0]
 	ldr lr, _020DD2CC ; =0x0A005555
 	str r4, [r1, #0x0]
@@ -490,7 +490,7 @@ _020DD2B8: .word ctrdgi_flash_lock_id
 _020DD2BC: .word 0x04000204
 _020DD2C0: .word AgbFlash
 _020DD2C4: .word 0x04000208
-_020DD2C8: .word UNK_021D6B38
+_020DD2C8: .word ctrdgi_backup_irq
 _020DD2CC: .word 0x0A005555
 _020DD2D0: .word 0x0A002AAA
 _020DD2D4: .word CTRDGi_PollingSR

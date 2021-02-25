@@ -5,7 +5,7 @@
 	.extern AgbFlash
 	.extern CTRDGi_PollingSR
 	.extern ctrdgi_flash_lock_id
-	.extern UNK_021D6B38
+	.extern ctrdgi_backup_irq
 	.extern UNK_021D6B08
 
 	.section .rodata
@@ -184,7 +184,7 @@ CTRDGi_WriteFlashSectorCoreMX: ; 0x020DD3D0
 	mov r3, r5, lsl r3
 	strh r0, [r1, #0x0]
 	ldrh r1, [r8, #0x0]
-	ldr r0, _020DD558 ; =UNK_021D6B38
+	ldr r0, _020DD558 ; =ctrdgi_backup_irq
 	add r5, r3, #0xa000000
 	str r2, [r0, #0x0]
 	cmp r1, #0x0
@@ -205,7 +205,7 @@ _020DD4C8:
 	bne _020DD4C8
 _020DD4FC:
 	ldr r3, _020DD554 ; =0x04000208
-	ldr r0, _020DD558 ; =UNK_021D6B38
+	ldr r0, _020DD558 ; =ctrdgi_backup_irq
 	ldrh r1, [r3, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, _020DD54C ; =0x04000204
@@ -228,7 +228,7 @@ _020DD548: .word ctrdgi_flash_lock_id
 _020DD54C: .word 0x04000204
 _020DD550: .word UNK_021D6B08
 _020DD554: .word 0x04000208
-_020DD558: .word UNK_021D6B38
+_020DD558: .word ctrdgi_backup_irq
 
 	arm_func_start CTRDGi_ProgramFlashByteMX
 CTRDGi_ProgramFlashByteMX: ; 0x020DD55C
@@ -314,7 +314,7 @@ _020DD684:
 	ldr r0, _020DD748 ; =AgbFlash
 	ldrh r12, [r8, #0x0]
 	ldr r0, [r0, #0x0]
-	ldr r3, _020DD75C ; =UNK_021D6B38
+	ldr r3, _020DD75C ; =ctrdgi_backup_irq
 	ldrh r1, [r0, #0x8]
 	ldr r0, [sp, #0x8]
 	ldr r2, [sp, #0xc]
@@ -333,7 +333,7 @@ _020DD684:
 	strb r6, [r3, #0x0]
 	strb r4, [r1, #0x0]
 	ldrh r3, [r8, #0x0]
-	ldr r3, _020DD75C ; =UNK_021D6B38
+	ldr r3, _020DD75C ; =ctrdgi_backup_irq
 	ldr r3, [r3, #0x0]
 	strh r3, [r8, #0x0]
 	ldr r3, _020DD768 ; =CTRDGi_PollingSR
@@ -367,7 +367,7 @@ _020DD74C: .word 0x000080FF
 _020DD750: .word ctrdgi_flash_lock_id
 _020DD754: .word 0x04000204
 _020DD758: .word 0x04000208
-_020DD75C: .word UNK_021D6B38
+_020DD75C: .word ctrdgi_backup_irq
 _020DD760: .word 0x0A005555
 _020DD764: .word 0x0A002AAA
 _020DD768: .word CTRDGi_PollingSR
@@ -391,7 +391,7 @@ CTRDGi_EraseFlashChipCoreMX: ; 0x020DD76C
 	strh r1, [r4, #0x0]
 	ldrh r4, [r0, #0x0]
 	mov r2, #0x0
-	ldr r1, _020DD858 ; =UNK_021D6B38
+	ldr r1, _020DD858 ; =ctrdgi_backup_irq
 	strh r2, [r0, #0x0]
 	ldr lr, _020DD85C ; =0x0A005555
 	str r4, [r1, #0x0]
@@ -434,7 +434,7 @@ _020DD848: .word ctrdgi_flash_lock_id
 _020DD84C: .word 0x04000204
 _020DD850: .word AgbFlash
 _020DD854: .word 0x04000208
-_020DD858: .word UNK_021D6B38
+_020DD858: .word ctrdgi_backup_irq
 _020DD85C: .word 0x0A005555
 _020DD860: .word 0x0A002AAA
 _020DD864: .word CTRDGi_PollingSR
