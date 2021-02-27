@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "ratio": "c",
+        "array": "c",
+        "*.tcc": "c",
+        "bitset": "c",
+        "string": "c",
+        "vector": "c",
+        "string_view": "c",
+        "functional": "c",
+        "iomanip": "c",
+        "istream": "c",
+        "limits": "c",
+        "ostream": "c",
+        "sstream": "c",
+        "streambuf": "c",
+        "regex": "c"
+    }
+}
