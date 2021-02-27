@@ -599,7 +599,7 @@ FUN_02048D90: ; 0x02048D90
 	add r4, r0, #0x0
 	mov r1, #0x0
 	str r1, [r4, #0x6c]
-	bl FUN_02039874
+	bl RunPokemonCenterScriptsInNewContext
 	ldr r1, _02048DA8 ; =FUN_02048D34
 	add r0, r4, #0x0
 	mov r2, #0x0
@@ -2040,7 +2040,7 @@ _020498DC:
 	ldr r0, [r5, #0x8]
 	ldr r1, _02049ABC ; =UNK_020F46D8
 	ldr r2, _02049AB8 ; =0x000003D9
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	str r0, [r4, #0x3c]
 	mov r0, #0x2
 	str r0, [r4, #0x0]

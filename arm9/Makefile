@@ -69,6 +69,9 @@ LIBS_OBJS = $(LIBS_FILES:%.s=$(BUILD_DIR)/%.o)
 # Object files
 O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
 
+GLOBAL_ASM_C_FILES != grep -rl 'GLOBAL_ASM(' $(C_FILES)
+GLOBAL_ASM_O_FILES = $(addprefix $(BUILD_DIR)/,$(GLOBAL_ASM_C_FILES:.c=.o))
+
 # Overlay modules
 OVERLAYS := $(shell grep -oE "Overlay \w+" $(LD_SPEC) | cut -d' ' -f2)
 
@@ -102,6 +105,9 @@ AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
+ASM_PROCESSOR_DIR := ../tools/asm_processor
+ASM_PROCESSOR := $(ASM_PROCESSOR_DIR)/compile.sh
+
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
@@ -114,17 +120,22 @@ STATIC_LIBS := $(addprefix $(BUILD_DIR)/lib/,libsyscall.a)
 ####################### Other Tools #########################
 
 # DS TOOLS
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+SHA1SUM = shasum
+else
 ifndef BUSYBOX
 SHA1SUM = sha1sum --quiet
 else
 SHA1SUM = sha1sum
+endif
 endif
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)
 SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
-TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
+TOOLDIRS = $(filter-out $(TOOLS_DIR)/asm_processor $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
@@ -190,8 +201,12 @@ else
 $(BUILD_DIR)/%.o: dep :=
 endif
 
+# Cpp asm processor is not supported at this time.
+$(GLOBAL_ASM_O_FILES): BUILD_C := $(ASM_PROCESSOR) "$(CC) $(CFLAGS)" "$(AS) $(ASFLAGS)"
+BUILD_C ?= $(CC) -c $(CFLAGS) -o
+
 $(C_OBJS): $(BUILD_DIR)/%.o: %.c $$(dep)
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(BUILD_C) $@ $<
 
 $(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
 	$(CXX) -c $(CXXFLAGS) -o $@ $<

@@ -291,7 +291,7 @@ _021D7744:
 	ldr r2, _021D7998 ; =0x000001D9
 	ldr r0, [r4, r0]
 	mov r3, #7
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	ldr r1, _021D799C ; =0x0000C05C
 	str r0, [r4, r1]
 	mov r0, #6
@@ -499,7 +499,7 @@ _021D78EE:
 	ldr r2, _021D7998 ; =0x000001D9
 	ldr r0, [r4, r0]
 	mov r3, #7
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	ldr r1, _021D799C ; =0x0000C05C
 	str r0, [r4, r1]
 	mov r0, #0xd
@@ -1383,7 +1383,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	add r3, r1, #0
 	bl FUN_020068C8
 	ldr r0, [r5, #8]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -1685,7 +1685,7 @@ _021D82B0:
 	ldr r2, [r5, r2]
 	bl ReadMsgDataIntoString
 	ldr r0, [r5, #8]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	add r3, r4, #0
 	str r3, [sp]
 	str r0, [sp, #4]

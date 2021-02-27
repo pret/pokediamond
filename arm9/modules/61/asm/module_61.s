@@ -44,11 +44,11 @@ MOD61_021D74E0: ; 0x021D74E0
 	strh r1, [r0]
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0, #4]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	strb r0, [r4, #0x10]
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0, #4]
-	bl FUN_02025084
+	bl Options_GetFrame
 	strh r0, [r4, #0xa]
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -374,7 +374,7 @@ MOD61_021D7790: ; 0x021D7790
 	ldr r0, [r4, #0x18]
 	mov r2, #1
 	mov r3, #5
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add r4, #0xa4
 	str r0, [r4]
 	add sp, #4

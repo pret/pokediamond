@@ -9849,11 +9849,11 @@ MOD14_021DC3AC: ; 0x021DC3AC
 MOD14_021DC3B4: ; 0x021DC3B4
 	mov r1, #0x69
 	lsl r1, r1, #2
-	ldr r3, _021DC3C0 ; =FUN_02025084
+	ldr r3, _021DC3C0 ; =Options_GetFrame
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_021DC3C0: .word FUN_02025084
+_021DC3C0: .word Options_GetFrame
 
 	thumb_func_start MOD14_021DC3C4
 MOD14_021DC3C4: ; 0x021DC3C4

@@ -1,0 +1,13 @@
+FROM ubuntu:20.04
+
+RUN dpkg --add-architecture i386 && \
+apt update && \
+DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends binutils-arm-none-eabi build-essential git libpng-dev wine wine32 && \
+rm -r /var/cache/apt/archives /var/lib/apt/lists
+
+WORKDIR /app
+
+# Run a persistent wineserver to avoid errors like
+#     wine: a wine server seems to be running, but I cannot connect to it.
+RUN mkdir -p /root/.wine
+CMD /usr/lib/wine/wineserver32 -f -p

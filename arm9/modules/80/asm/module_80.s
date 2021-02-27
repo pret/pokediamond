@@ -2192,7 +2192,7 @@ MOD80_0222E6A8: ; 0x0222E6A8
 	add r1, r3, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -2328,11 +2328,11 @@ MOD80_0222E7B0: ; 0x0222E7B0
 	thumb_func_start MOD80_0222E7BC
 MOD80_0222E7BC: ; 0x0222E7BC
 	ldr r0, [r0]
-	ldr r3, _0222E7C4 ; =FUN_02024FF4
+	ldr r3, _0222E7C4 ; =Options_GetTextFrameDelay
 	ldr r0, [r0, #0x24]
 	bx r3
 	.align 2, 0
-_0222E7C4: .word FUN_02024FF4
+_0222E7C4: .word Options_GetTextFrameDelay
 	thumb_func_end MOD80_0222E7BC
 
 	thumb_func_start MOD80_0222E7C8
@@ -2805,7 +2805,7 @@ MOD80_0222EB6C: ; 0x0222EB6C
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -4099,7 +4099,7 @@ MOD80_0222F5A8: ; 0x0222F5A8
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -5388,7 +5388,7 @@ MOD80_02230054: ; 0x02230054
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -6395,7 +6395,7 @@ MOD80_02230840: ; 0x02230840
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -8807,7 +8807,7 @@ MOD80_02231BF4: ; 0x02231BF4
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -11836,7 +11836,7 @@ MOD80_0223346C: ; 0x0223346C
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -14380,7 +14380,7 @@ MOD80_022348CC: ; 0x022348CC
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -18024,7 +18024,7 @@ MOD80_02236488: ; 0x02236488
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]

@@ -67,11 +67,11 @@ FUN_020653EC: ; 0x020653EC
 	add r6, r0, #0x0
 	strb r1, [r4, #0x1a]
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	strb r0, [r4, #0x16]
 	add r0, r6, #0x0
 	bl Sav2_PlayerData_GetOptionsAddr
-	bl FUN_02025084
+	bl Options_GetFrame
 	strh r0, [r4, #0x14]
 	add r0, r4, #0x0
 	ldr r2, [r4, #0x0]
@@ -2192,7 +2192,7 @@ FUN_02066520: ; 0x02066520
 	ldr r0, [r4, r0]
 	ldr r2, _02066548 ; =0x000003D9
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	mov r1, #0x5a
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]

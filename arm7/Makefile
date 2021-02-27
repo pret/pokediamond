@@ -96,13 +96,18 @@ LDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
 ####################### Other Tools #########################
 
 # DS TOOLS
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+SHA1SUM = shasum
+else
 SHA1SUM = sha1sum
+endif
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
 SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
-TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
+TOOLDIRS = $(filter-out $(TOOLS_DIR)/asm_processor $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 

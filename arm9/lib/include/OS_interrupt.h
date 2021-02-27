@@ -12,6 +12,7 @@
 #define OS_IE_V_COUNT       (1UL << REG_OS_IE_VE_SHIFT)
 #define OS_IE_TIMER0        (1UL << REG_OS_IE_T0_SHIFT)
 #define OS_IE_TIMER1        (1UL << REG_OS_IE_T1_SHIFT)
+#define OS_IE_SPFIFO_RECV   (1UL << REG_OS_IE_IFN_SHIFT)
 #define OS_IE_CARD_DATA     (1UL << REG_OS_IE_MC_SHIFT)
 
 extern OSIrqFunction OS_IRQTable[];
@@ -39,6 +40,13 @@ static inline BOOL OS_EnableIrq(void)
 {
     u16     prep = reg_OS_IME;
     reg_OS_IME = OS_IME_ENABLE;
+    return (BOOL)prep;
+}
+
+static inline BOOL OS_RestoreIrq(BOOL enable)
+{
+    u16     prep = reg_OS_IME;
+    reg_OS_IME = (u16)enable;
     return (BOOL)prep;
 }
 

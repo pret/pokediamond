@@ -74,7 +74,7 @@ FUN_02054608: ; 0x02054608
 	bl FUN_0201AB08
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -119,7 +119,7 @@ FUN_02054658: ; 0x02054658
 	mov r0, #0x0
 	bl FUN_02002BB8
 	add r0, r6, #0x0
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -131,8 +131,8 @@ FUN_02054658: ; 0x02054658
 	add sp, #0xc
 	pop {r3-r6, pc}
 
-	thumb_func_start FUN_02054690
-FUN_02054690: ; 0x02054690
+	thumb_func_start DrawFieldMessage
+DrawFieldMessage: ; 0x02054690
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0

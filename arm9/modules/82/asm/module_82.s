@@ -1230,7 +1230,7 @@ MOD82_0222DF38: ; 0x0222DF38
 	add r1, r3, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -1638,7 +1638,7 @@ MOD82_0222E264: ; 0x0222E264
 	bl FUN_02002EEC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x10]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]

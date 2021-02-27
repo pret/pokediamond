@@ -278,7 +278,7 @@ MOD71_0222D820: ; 0x0222D820
 	bl MOD71_0222D780
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0x18]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	mov r2, #0x5d
@@ -6668,7 +6668,7 @@ MOD71_02230C48: ; 0x02230C48
 	mov r1, #0
 	bl FUN_02019620
 	add r0, r4, #0
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -7038,7 +7038,7 @@ _02230FC8:
 	ldr r1, _02230FFC ; =0x022313CC
 	ldr r2, _02231000 ; =0x000001F7
 	mov r3, #0xb
-	bl FUN_02002198
+	bl Std_CreateYesNoMenu
 	str r0, [r5]
 	ldr r0, [r4]
 	add r0, r0, #1

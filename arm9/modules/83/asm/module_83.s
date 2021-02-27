@@ -2561,7 +2561,7 @@ _0222E960:
 	add r3, r2, #0
 	bl FUN_0200CB00
 	ldr r0, [r4, #0x14]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -6152,7 +6152,7 @@ MOD83_02230668: ; 0x02230668
 	mov r2, #0x56
 	bl FUN_02002ED0
 	ldr r0, [r4, #8]
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -10287,7 +10287,7 @@ _022327E6:
 	ldr r1, _02232B58 ; =0x00002B48
 	str r0, [r4, r1]
 	ldr r0, [r4, r1]
-	bl FUN_02025084
+	bl Options_GetFrame
 	ldr r1, _02232B5C ; =0x00002B4C
 	str r0, [r4, r1]
 	sub r1, #0xc
@@ -18540,7 +18540,7 @@ MOD83_02236764: ; 0x02236764
 	ldr r0, [r4, #0x10]
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x18]
-	bl FUN_02025084
+	bl Options_GetFrame
 	str r0, [r4, #0x1c]
 	ldr r1, _022367F8 ; =0x00000496
 	mov r0, #9

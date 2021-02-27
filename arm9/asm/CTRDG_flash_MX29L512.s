@@ -1,9 +1,32 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern CTRDGi_EraseFlashChipAsyncLE
+	.extern CTRDGi_EraseFlashChipLE
+	.extern CTRDGi_EraseFlashSectorAsyncLE
+	.extern CTRDGi_PollingSR512kCOMMON
 	.extern UNK_021D6B08
-	.extern UNK_021D6B20
-	.extern UNK_021D6B0C
+	.extern AgbFlash
+	.extern ctrdgi_flash_lock_id
+
+	.section .rodata
+
+	.global PaMaxTime
+PaMaxTime: ; 0x021041C8
+	.byte 0x0A, 0x00, 0x0A, 0x00, 0xF4, 0x01, 0xF4, 0x01
+
+	.global MN63F805MNP
+MN63F805MNP: ; 0x021041D0
+	.word CTRDGi_WriteFlashSectorMX5
+	.word CTRDGi_EraseFlashChipLE
+	.word CTRDGi_EraseFlashSectorLE
+	.word CTRDGi_WriteFlashSectorAsyncMX5
+	.word CTRDGi_EraseFlashChipAsyncLE
+	.word CTRDGi_EraseFlashSectorAsyncLE
+	.word CTRDGi_PollingSR512kCOMMON
+	.word PaMaxTime
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x32, 0x00, 0x1B, 0x00
 
     .text
 
@@ -46,7 +69,7 @@ CTRDGi_WriteFlashSectorCoreMX5: ; 0x020DD8C0
 	stmia r4!, {r0-r3}
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
-	ldr r0, _020DD9E8 ; =UNK_021D6B20
+	ldr r0, _020DD9E8 ; =AgbFlash
 	ldr r1, [r5, #0x0]
 	ldr r0, [r0, #0x0]
 	str r1, [r4, #0x0]
@@ -64,11 +87,11 @@ CTRDGi_WriteFlashSectorCoreMX5: ; 0x020DD8C0
 	addne sp, sp, #0x28
 	ldmneia sp!, {r4-r8,lr}
 	bxne lr
-	ldr r0, _020DD9F0 ; =UNK_021D6B0C
+	ldr r0, _020DD9F0 ; =ctrdgi_flash_lock_id
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r7, _020DD9F4 ; =0x04000204
-	ldr r0, _020DD9E8 ; =UNK_021D6B20
+	ldr r0, _020DD9E8 ; =AgbFlash
 	ldrh r3, [r7, #0x0]
 	ldr r2, [r0, #0x0]
 	ldrh r1, [r7, #0x0]
@@ -103,7 +126,7 @@ _020DD984:
 	bne _020DD984
 _020DD9B8:
 	ldr r2, _020DD9F4 ; =0x04000204
-	ldr r0, _020DD9F0 ; =UNK_021D6B0C
+	ldr r0, _020DD9F0 ; =ctrdgi_flash_lock_id
 	ldrh r1, [r2, #0x0]
 	bic r1, r1, #0x3
 	orr r1, r1, r7
@@ -115,8 +138,8 @@ _020DD9B8:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020DD9E8: .word UNK_021D6B20
+_020DD9E8: .word AgbFlash
 _020DD9EC: .word 0x000080FF
-_020DD9F0: .word UNK_021D6B0C
+_020DD9F0: .word ctrdgi_flash_lock_id
 _020DD9F4: .word 0x04000204
 _020DD9F8: .word UNK_021D6B08

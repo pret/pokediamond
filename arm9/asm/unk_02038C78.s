@@ -879,7 +879,7 @@ FUN_02038C78: ; 0x02038C78
 	add r5, r0, #0x0
 	add r6, r1, #0x0
 	add r7, r2, #0x0
-	bl FUN_02038E20
+	bl CreateFieldContext
 	add r4, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -932,7 +932,7 @@ FUN_02038CD8: ; 0x02038CD8
 	add r5, r3, #0x0
 	bl FUN_02046528
 	str r0, [sp, #0x8]
-	bl FUN_02038E20
+	bl CreateFieldContext
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x8]
 	ldr r3, [sp, #0x4]
@@ -958,7 +958,7 @@ FUN_02038D10: ; 0x02038D10
 	add r7, r2, #0x0
 	bl FUN_02046528
 	str r0, [sp, #0x4]
-	bl FUN_02038E20
+	bl CreateFieldContext
 	add r4, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -1031,7 +1031,7 @@ _02038DA8:
 	cmp r0, #0x0
 	bne _02038DD2
 	add r0, r6, #0x0
-	bl FUN_02038E48
+	bl DeleteScriptContext
 	ldrb r0, [r4, #0x9]
 	cmp r0, #0x0
 	bne _02038DC8
@@ -1081,8 +1081,8 @@ _02038E1A:
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02038E20
-FUN_02038E20: ; 0x02038E20
+	thumb_func_start CreateFieldContext
+CreateFieldContext: ; 0x02038E20
 	push {r4, lr}
 	mov r0, #0xb
 	mov r1, #0xdc
@@ -1102,8 +1102,8 @@ _02038E32:
 	.balign 4
 _02038E44: .word 0x0003643F
 
-	thumb_func_start FUN_02038E48
-FUN_02038E48: ; 0x02038E48
+	thumb_func_start DeleteScriptContext
+DeleteScriptContext: ; 0x02038E48
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x78]
@@ -2139,8 +2139,8 @@ _02039622:
 	nop
 _02039628: .word 0x00001388
 
-	thumb_func_start FUN_0203962C
-FUN_0203962C: ; 0x0203962C
+	thumb_func_start Field_TrainerIsDoubleBattle
+Field_TrainerIsDoubleBattle: ; 0x0203962C
 	push {r3, lr}
 	mov r1, #0x9
 	bl TrainerData_GetAttr
@@ -2443,17 +2443,17 @@ _02039856:
 	nop
 _02039870: .word 0x0000FFFF
 
-	thumb_func_start FUN_02039874
-FUN_02039874: ; 0x02039874
-	ldr r3, _0203987C ; =FUN_02039880
+	thumb_func_start RunPokemonCenterScriptsInNewContext
+RunPokemonCenterScriptsInNewContext: ; 0x02039874
+	ldr r3, _0203987C ; =RunScriptInNewContext
 	mov r1, #0x96
 	lsl r1, r1, #0x6
 	bx r3
 	.balign 4
-_0203987C: .word FUN_02039880 
+_0203987C: .word RunScriptInNewContext
 
-	thumb_func_start FUN_02039880
-FUN_02039880: ; 0x02039880
+	thumb_func_start RunScriptInNewContext
+RunScriptInNewContext: ; 0x02039880
 	push {r4, lr}
 	bl CreateScriptContext
 	add r4, r0, #0x0
@@ -2463,7 +2463,7 @@ _02039888:
 	cmp r0, #0x1
 	beq _02039888
 	add r0, r4, #0x0
-	bl FUN_02038E48
+	bl DeleteScriptContext
 	pop {r4, pc}
 	.balign 4
 
@@ -2503,7 +2503,7 @@ _020398CE:
 	b _020398E2
 _020398DC:
 	add r0, r5, #0x0
-	bl FUN_02039880
+	bl RunScriptInNewContext
 _020398E2:
 	mov r0, #0x1
 	pop {r3-r5, pc}

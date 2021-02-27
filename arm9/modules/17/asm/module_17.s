@@ -4666,7 +4666,7 @@ MOD17_021D9918: ; 0x021D9918
 	ldr r0, [r5, r0]
 	add r7, r2, #0
 	add r4, r3, #0
-	bl FUN_02025084
+	bl Options_GetFrame
 	add r6, r0, #0
 	mov r0, #0
 	mov r1, #0xe0
@@ -4847,7 +4847,7 @@ _021D9A7E:
 	bne _021D9ACE
 	add r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	b _021D9AD0
 _021D9ACE:
 	mov r0, #1
@@ -11480,12 +11480,12 @@ _021DCA42:
 	ldr r1, [r4, #0xc]
 	bl MOD17_021DCC38
 	ldr r0, [r4, #0xc]
-	bl FUN_02025084
+	bl Options_GetFrame
 	mov r1, #0x4f
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	ldr r0, [r4, #0xc]
-	bl FUN_02024FF4
+	bl Options_GetTextFrameDelay
 	mov r1, #5
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -11760,7 +11760,7 @@ MOD17_021DCC38: ; 0x021DCC38
 	sub sp, #8
 	add r4, r0, #0
 	add r0, r1, #0
-	bl FUN_02025084
+	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]

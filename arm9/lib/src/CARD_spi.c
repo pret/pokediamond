@@ -1,6 +1,7 @@
 #include "function_target.h"
 #include "nitro/types.h"
 #include "CARD_common.h"
+#include "CARD_spi.h"
 #include "MI_memory.h"
 
 extern CARDiCommon cardi_common;

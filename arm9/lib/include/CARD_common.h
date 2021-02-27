@@ -224,8 +224,6 @@ void CARD_UnlockBackup(u16 lock_id);
 
 #define CARD_RETRY_COUNT_MAX 10
 
-extern BOOL PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
-
 static inline void CARDi_SendPxi(u32 data)
 {
     while (PXI_SendWordByFifo(PXI_FIFO_TAG_FS, data, TRUE) < 0)

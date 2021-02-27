@@ -18,11 +18,6 @@ static u32 sCurrentTag;
 static u32 sFinishedTag;
 static struct SNDCommand *sFreeList;
 
-// TODO remove these function declarations once they are in the headers
-extern s32 PXI_SendWordByFifo(u32, u32, u32);
-extern void PXI_SetFifoRecvCallback(u32, void (*)(s32, s32));
-extern BOOL PXI_IsCallbackReady(u32, u32);
-
 static void InitPXI(void);
 static void RequestCommandProc(void);
 static struct SNDCommand *AllocCommand(void);
@@ -280,25 +275,25 @@ ARM_FUNC s32 SND_CountWaitingCommand(void) {
     return SND_CMD_COUNT - SND_CountFreeCommand() - SND_CountReservedCommand();
 }
 
-ARM_FUNC static void PxiFifoCallback(s32 a, s32 b) {
-#pragma unused (a)
+ARM_FUNC static void PxiFifoCallback(PXIFifoTag tag, u32 data, BOOL) {
+#pragma unused (tag)
     OSIntrMode oldirq = OS_DisableInterrupts();
-    SNDi_CallAlarmHandler(b);
+    SNDi_CallAlarmHandler((s32)data);
     (void)OS_RestoreInterrupts(oldirq);
 }
 
 ARM_FUNC static void InitPXI(void) {
-    PXI_SetFifoRecvCallback(7, PxiFifoCallback);
+    PXI_SetFifoRecvCallback(PXI_FIFO_TAG_SOUND, PxiFifoCallback);
 
     if (!IsCommandAvailable())
         return;
 
-    if (PXI_IsCallbackReady(7, 1))
+    if (PXI_IsCallbackReady(PXI_FIFO_TAG_SOUND, PXI_PROC_ARM7))
         return;
 
     do {
         OS_SpinWait(100);
-    } while (!PXI_IsCallbackReady(7, 1));
+    } while (!PXI_IsCallbackReady(PXI_FIFO_TAG_SOUND, PXI_PROC_ARM7));
 }
 
 ARM_FUNC static void RequestCommandProc(void) {
