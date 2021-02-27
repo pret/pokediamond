@@ -1,8 +1,6 @@
 #ifndef POKEDIAMOND_UNK_02029FB0_H
 #define POKEDIAMOND_UNK_02029FB0_H
 
-#include "save_block_2.h"
-#include "pokedex.h"
 struct UnkStruct_02029FB0
 {
     u8 unk[0x14C];

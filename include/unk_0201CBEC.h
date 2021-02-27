@@ -1,0 +1,6 @@
+#ifndef POKEDIAMOND_UNK_0201CBEC_H
+#define POKEDIAMOND_UNK_0201CBEC_H
+
+int FUN_0201CBEC(int a0, int a1, int a2, int a3);
+
+#endif //POKEDIAMOND_UNK_0201CBEC_H

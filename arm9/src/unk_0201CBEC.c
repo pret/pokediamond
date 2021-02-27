@@ -1,7 +1,6 @@
 #include "global.h"
 #include "fx.h"
-
-int FUN_0201CBEC(int a0, int a1, int a2, int a3);
+#include "unk_0201CBEC.h"
 
 THUMB_FUNC int FUN_0201CBEC(int a0, int a1, int a2, int a3) {
 
