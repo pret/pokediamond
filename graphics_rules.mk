@@ -88,7 +88,8 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                                       files/poketool/icongra/poke_icon/narc_0016.NCGR \
                                       files/poketool/icongra/poke_icon/narc_0402.NCGR
 
-4BPP_NCLR_FILES := files/demo/title/titledemo/narc_0016.NCLR \
+4BPP_NCLR_FILES := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
+                   files/demo/title/titledemo/narc_0016.NCLR \
                    files/poketool/icongra/poke_icon/narc_0000.NCLR
 
 IR_NCLR_FILES := files/itemtool/itemdata/item_icon/narc_0028.NCLR \
@@ -125,7 +126,8 @@ IR_NCLR_FILES := files/itemtool/itemdata/item_icon/narc_0028.NCLR \
 VERSION101_SOPC_8BPP_NCGR_FILES := files/demo/title/titledemo/narc_0001.NCGR \
                                    files/demo/title/titledemo/narc_0003.NCGR
 
-VERSION101_SOPC_NCGR_FILES := files/demo/title/titledemo/narc_0007.NCGR \
+VERSION101_SOPC_NCGR_FILES := files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
+                              files/demo/title/titledemo/narc_0007.NCGR \
                               files/demo/title/titledemo/narc_0011.NCGR \
                               files/demo/title/titledemo/narc_0015.NCGR
 
@@ -404,7 +406,8 @@ SCANNED_NCGR_FILES := files/poketool/pokegra/pokegra/narc_0006.NCGR \
                       files/poketool/trgra/trfgra/narc_0192.NCGR \
                       files/poketool/trgra/trfgra/narc_0194.NCGR \
 
-NCGR_CLEAN_LIST := files/data/cell0.NCGR \
+NCGR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
+                   files/data/cell0.NCGR \
                    files/demo/title/titledemo/narc_0001.NCGR \
                    files/demo/title/titledemo/narc_0003.NCGR \
                    files/demo/title/titledemo/narc_0007.NCGR \
@@ -642,7 +645,8 @@ NCGR_CLEAN_LIST := files/data/cell0.NCGR \
                    files/poketool/trgra/trfgra/narc_0194.NCGR \
 
 
-NCLR_CLEAN_LIST := files/data/cell0.NCLR \
+NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
+                   files/data/cell0.NCLR \
                    files/demo/title/titledemo/narc_0001.NCLR \
                    files/demo/title/titledemo/narc_0003.NCLR \
                    files/demo/title/titledemo/narc_0009.NCLR \
