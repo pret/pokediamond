@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "options.h"
 
 struct Color {
 	unsigned char red;
@@ -37,5 +38,6 @@ void ReadGbaPalette(char *path, struct Palette *palette);
 void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIndex);
 void WriteGbaPalette(char *path, struct Palette *palette);
 void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth, bool pad, int compNum);
+void WriteNtrCell(char *path, struct JsonToCellOptions *options);
 
 #endif // GFX_H

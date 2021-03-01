@@ -13,6 +13,7 @@
 #include "rl.h"
 #include "font.h"
 #include "huff.h"
+#include "json.h"
 
 struct CommandHandler
 {
@@ -674,6 +675,17 @@ void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, 
     WriteNtrPalette(outputPath, &palette, ncpr, ir, bitdepth, !nopad, compNum);
 }
 
+void HandleJsonToNtrCellCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
+{
+    struct JsonToCellOptions *options;
+
+    options = ParseNCERJson(inputPath);
+
+    WriteNtrCell(outputPath, options);
+
+    FreeNCERCell(options);
+}
+
 void HandleLatinFontToPngCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
 {
     struct Image image;
@@ -932,6 +944,7 @@ int main(int argc, char **argv)
         { "png", "hwjpnfont", HandlePngToHalfwidthJapaneseFontCommand },
         { "fwjpnfont", "png", HandleFullwidthJapaneseFontToPngCommand },
         { "png", "fwjpnfont", HandlePngToFullwidthJapaneseFontCommand },
+        { "json", "NCER", HandleJsonToNtrCellCommand },
         { NULL, "huff", HandleHuffCompressCommand },
         { NULL, "lz", HandleLZCompressCommand },
         { "huff", NULL, HandleHuffDecompressCommand },

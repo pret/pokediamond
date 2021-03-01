@@ -162,7 +162,7 @@ clean: mostlyclean clean-fs clean-tools
 
 clean-fs:
 	$(RM) $(filter %.narc %.arc,$(HOSTFS_FILES))
-	$(RM) $(NCGR_CLEAN_LIST) $(NCLR_CLEAN_LIST)
+	$(RM) $(NCGR_CLEAN_LIST) $(NCLR_CLEAN_LIST) $(NCER_CLEAN_LIST)
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 	$(RM) files/msgdata/msg/narc_*.bin
 
@@ -271,8 +271,12 @@ $(8BPP_COMP10_NOPAD_NCLR_PAL_FILES): GFX_FLAGS = -bitdepth 8 -nopad -comp 10
 %.NCLR: %.pal
 	$(GFX) $< $@ $(GFX_FLAGS)
 
+%.NCER: %.json
+	$(GFX) $< $@
+
 %.png: ;
 %.pal: ;
+%.json: ;
 
 ######################## Misc #######################
 

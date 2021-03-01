@@ -736,3 +736,165 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
 
     fclose(fp);
 }
+
+void WriteNtrCell(char *path, struct JsonToCellOptions *options)
+{
+	FILE *fp = fopen(path, "wb");
+
+	if (fp == NULL)
+		FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
+
+    unsigned int totalSize = (options->label > 0 ? 0x34 : 0x20) + options->cellCount * (options->extended ? 0x16 : 0xe);
+
+    if (options->label)
+    {
+        for (int i = 0; i < options->cellCount; i++) {
+            totalSize += strlen(options->cells[i]->label) + 5; //strlen + terminator + pointer
+        }
+    }
+
+	WriteGenericNtrHeader(fp, "RECN", totalSize, true, false, options->label ? 3 : 1);
+
+	unsigned char KBECHeader[0x20] =
+            {
+	            0x4B, 0x42, 0x45, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00,
+	            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+            };
+
+	KBECHeader[8] = options->cellCount; //cell count
+
+	if (options->extended)
+    {
+	    KBECHeader[10] = 1; //extended
+    }
+
+	unsigned int size = options->cellCount * (options->extended ? 0x16 : 0xe);
+
+	KBECHeader[4] = (size + 0x20) & 0xFF; //size
+	KBECHeader[5] = (size + 0x20) >> 8; //unlikely to be more than 16 bits, but there are 32 allocated, change if necessary
+
+	fwrite(KBECHeader, 1, 0x20, fp);
+
+
+	unsigned char *KBECContents = malloc(size);
+
+	memset(KBECContents, 0, size);
+
+	if (!options->extended)
+    {
+	    FATAL_ERROR("Don't know how to deal with not extended yet, bug red031000.\n");
+    }
+
+	int i;
+	for (i = 0; i < options->cellCount * 0x10; i += 0x10)
+    {
+	    KBECContents[i] = 0x01; //number of images
+	    KBECContents[i + 2] = options->cells[i / 0x10]->readOnly & 0xff; //unknown
+        KBECContents[i + 3] = options->cells[i / 0x10]->readOnly >> 8;
+        KBECContents[i + 4] = (i / 0x10 * 6) & 0xff; //pointer to OAM data
+        KBECContents[i + 5] = (i / 0x10 * 6) >> 8; //unlikely to be more than 16 bits, but there are 32 allocated, change if necessary
+        KBECContents[i + 8] = options->cells[i / 0x10]->maxX & 0xff; //maxX
+        KBECContents[i + 9] = options->cells[i / 0x10]->maxX >> 8;
+        KBECContents[i + 10] = options->cells[i / 0x10]->maxY & 0xff; //maxY
+        KBECContents[i + 11] = options->cells[i / 0x10]->maxY >> 8;
+        KBECContents[i + 12] = options->cells[i / 0x10]->minX & 0xff; //minX
+        KBECContents[i + 13] = options->cells[i / 0x10]->minX >> 8;
+        KBECContents[i + 14] = options->cells[i / 0x10]->minY & 0xff; //minY
+        KBECContents[i + 15] = options->cells[i / 0x10]->minY >> 8;
+    }
+
+	//OAM data
+	for (int j = i; j < options->cellCount * 6 + i; j += 6)
+    {
+	    //Attr0
+
+	    //bits 0-7 Y coordinate
+	    KBECContents[j] = options->cells[(j - i) / 6]->oam.attr0.YCoordinate & 0xff;
+
+	    //bit 8 rotation
+	    KBECContents[j + 1] = options->cells[(j - i) / 6]->oam.attr0.Rotation;
+
+	    //bit 9 Obj Size (if rotation) or Obj Disable (if not rotation)
+	    KBECContents[j + 1] |= options->cells[(j - i) / 6]->oam.attr0.SizeDisable << 1;
+
+	    //bits 10-11 Obj Mode
+        KBECContents[j + 1] |= options->cells[(j - i) / 6]->oam.attr0.Mode << 2;
+
+        //bit 12 Obj Mosaic
+        KBECContents[j + 1] |= options->cells[(j - i) / 6]->oam.attr0.Mosaic << 4;
+
+        //bit 13 Colours
+        KBECContents[j + 1] |= (options->cells[(j - i) / 6]->oam.attr0.Colours == 16 ? 0 : 1) << 5;
+
+        //bits 14-15 Obj Shape
+        KBECContents[j + 1] |= options->cells[(j - i) / 6]->oam.attr0.Shape << 6;
+
+        //Attr1
+
+        //bits 0-8 X coordinate
+        KBECContents[j + 2] = options->cells[(j - i) / 6]->oam.attr1.XCoordinate & 0xff;
+        KBECContents[j + 3] = options->cells[(j - i) / 6]->oam.attr1.XCoordinate >> 8;
+
+        //bits 9-13 Rotation and scaling (if rotation) bit 12 Horizontal flip, bit 13 Vertical flip (if not rotation)
+        KBECContents[j + 3] |= options->cells[(j - i) / 6]->oam.attr1.RotationScaling << 1;
+
+        //bits 14-15 Obj Size
+        KBECContents[j + 3] |= options->cells[(j - i) / 6]->oam.attr1.Size << 6;
+
+        //Attr2
+
+        //bits 0-9 Character Name?
+        KBECContents[j + 4] = options->cells[(j - i) / 6]->oam.attr2.CharName & 0xff;
+        KBECContents[j + 5] = options->cells[(j - i) / 6]->oam.attr2.CharName >> 8;
+
+        //bits 10-11 Priority
+        KBECContents[j + 5] |= options->cells[(j - i) / 6]->oam.attr2.Priority << 2;
+
+        //bits 12-15 Palette Number
+        KBECContents[j + 5] |= options->cells[(j - i) / 6]->oam.attr2.Palette << 4;
+    }
+
+	fwrite(KBECContents, 1, size, fp);
+
+	free(KBECContents);
+
+	unsigned int lablSize = 8 + options->cellCount * 4;
+	for (i = 0; i < options->cellCount; i++)
+    {
+	    lablSize += strlen(options->cells[i]->label) + 1;
+    }
+
+    unsigned char *labl = malloc(lablSize);
+
+    memset(labl, 0, lablSize);
+
+	strcpy((char *)labl, "LBAL");
+	labl[4] = lablSize & 0xff;
+	labl[5] = lablSize >> 8;
+
+	unsigned int position = 0;
+
+	for (i = 0; i < options->cellCount * 4; i += 4)
+    {
+	    labl[i + 8] = position & 0xff;
+	    labl[i + 9] = position >> 8;
+
+	    position += strlen(options->cells[i / 4]->label) + 1;
+    }
+
+	for (int j = 0; j < options->cellCount; j++)
+    {
+	    strcpy((char *)(labl + (i + 8)), options->cells[j]->label);
+	    i += strlen(options->cells[j]->label) + 1;
+    }
+
+	fwrite(labl, 1, lablSize, fp);
+
+	free(labl);
+
+	unsigned char texu[0xc] = { 0x54, 0x58, 0x45, 0x55, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+
+	fwrite(texu, 1, 0xc, fp);
+
+	fclose(fp);
+}

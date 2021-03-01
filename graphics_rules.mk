@@ -873,3 +873,5 @@ NCLR_CLEAN_LIST := files/data/cell0.NCLR \
                    files/poketool/trgra/trfgra/narc_0190.NCLR \
                    files/poketool/trgra/trfgra/narc_0192.NCLR \
                    files/poketool/trgra/trfgra/narc_0194.NCLR \
+
+NCER_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0002.NCER
