@@ -317,6 +317,10 @@ $(O2NARC_TARGETS): %.narc: %.json %.json.txt $$(dep)
 	$(O2NARC) $(O2NARCFLAGS) $*.o $@
 	@$(RM) $*.o $*.c
 
+files/application/wifi_earth/wifi_earth.narc: \
+		files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
+		files/application/wifi_earth/wifi_earth/narc_0006.NCLR
+
 files/battle/graphic/batt_bg.narc: \
         files/battle/graphic/batt_bg/narc_0156.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0142.NSCR.lz \
@@ -2286,6 +2290,7 @@ files/data/namein.narc: \
         files/data/namein/narc_0007.NSCR.lz
 
 files/demo/title/titledemo.narc: \
+        files/demo/title/titledemo/narc_0000.NSCR \
         files/demo/title/titledemo/narc_0001.NCGR \
         files/demo/title/titledemo/narc_0001.NCLR \
         files/demo/title/titledemo/narc_0003.NCGR \
@@ -2579,6 +2584,7 @@ files/poketool/pokegra/pokegra.narc: \
 
 files/poketool/icongra/poke_icon.narc: \
         files/poketool/icongra/poke_icon/narc_0000.NCLR \
+        files/poketool/icongra/poke_icon/narc_0002.NCER \
         files/poketool/icongra/poke_icon/narc_0007.NCGR \
         files/poketool/icongra/poke_icon/narc_0008.NCGR \
         files/poketool/icongra/poke_icon/narc_0009.NCGR \

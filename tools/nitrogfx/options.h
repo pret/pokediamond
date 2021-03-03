@@ -34,5 +34,58 @@ struct PngToNtrOptions {
     bool scanned;
 };
 
+struct Attr0 {
+    int YCoordinate;
+    bool Rotation;
+    bool SizeDisable;
+    int Mode;
+    bool Mosaic;
+    int Colours;
+    int Shape;
+};
+
+struct Attr1 {
+    int XCoordinate;
+    int RotationScaling;
+    int Size;
+};
+
+struct Attr2 {
+    int CharName;
+    int Priority;
+    int Palette;
+};
+
+struct OAM {
+    struct Attr0 attr0;
+    struct Attr1 attr1;
+    struct Attr2 attr2;
+};
+
+struct Cell {
+    short readOnly;
+    short maxX;
+    short maxY;
+    short minX;
+    short minY;
+    struct OAM oam;
+    char *label;
+};
+
+struct JsonToCellOptions {
+    bool label;
+    bool extended;
+    int imageHeight;
+    int imageWidth;
+    int cellCount;
+    struct Cell **cells;
+};
+
+struct JsonToScreenOptions {
+    int height;
+    int width;
+    unsigned short *data;
+    int bitdepth;
+};
 
 #endif // OPTIONS_H
