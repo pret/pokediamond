@@ -149,6 +149,48 @@ struct JsonToCellOptions *ParseNCERJson(char *path)
     return options;
 }
 
+struct JsonToScreenOptions *ParseNSCRJson(char *path)
+{
+    int fileLength;
+    unsigned char *jsonString = ReadWholeFile(path, &fileLength);
+
+    cJSON *json = cJSON_Parse((const char *)jsonString);
+
+    struct JsonToScreenOptions *options = malloc(sizeof(struct JsonToScreenOptions));
+
+    if (json == NULL)
+    {
+        const char *errorPtr = cJSON_GetErrorPtr();
+        FATAL_ERROR("Error in line \"%s\"\n", errorPtr);
+    }
+
+    cJSON *Height = cJSON_GetObjectItemCaseSensitive(json, "height");
+    cJSON *Width = cJSON_GetObjectItemCaseSensitive(json, "width");
+
+    options->height = GetInt(Height);
+    options->width = GetInt(Width);
+
+    options->data = malloc(sizeof(unsigned short) * options->height * options->width);
+
+    cJSON *layer = NULL;
+    cJSON *layers = cJSON_GetObjectItemCaseSensitive(json, "layers");
+    cJSON_ArrayForEach(layer, layers)
+    {
+        cJSON *tile = NULL;
+        cJSON *data = cJSON_GetObjectItemCaseSensitive(layer, "data");
+        int i = 0;
+        cJSON_ArrayForEach(tile, data)
+        {
+            options->data[i] = (short)(GetInt(tile) - 1); //TODO horizontal and vertical flips
+            i++;
+        }
+    }
+
+    cJSON_Delete(json);
+    free(jsonString);
+    return options;
+}
+
 void FreeNCERCell(struct JsonToCellOptions *options)
 {
     for (int i = 0; i < options->cellCount; i++)
@@ -161,3 +203,10 @@ void FreeNCERCell(struct JsonToCellOptions *options)
     }
     free(options);
 }
+
+void FreeNSCRScreen(struct JsonToScreenOptions *options)
+{
+    free(options->data);
+    free(options);
+}
+

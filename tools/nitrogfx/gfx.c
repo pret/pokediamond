@@ -858,43 +858,85 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
 
 	free(KBECContents);
 
-	unsigned int lablSize = 8 + options->cellCount * 4;
-	for (i = 0; i < options->cellCount; i++)
-    {
-	    lablSize += strlen(options->cells[i]->label) + 1;
+	if (options->label)
+	{
+        unsigned int lablSize = 8 + options->cellCount * 4;
+        for (i = 0; i < options->cellCount; i++)
+        {
+            lablSize += strlen(options->cells[i]->label) + 1;
+        }
+
+        unsigned char *labl = malloc(lablSize);
+
+        memset(labl, 0, lablSize);
+
+        strcpy((char *) labl, "LBAL");
+        labl[4] = lablSize & 0xff;
+        labl[5] = lablSize >> 8;
+
+        unsigned int position = 0;
+
+        for (i = 0; i < options->cellCount * 4; i += 4)
+        {
+            labl[i + 8] = position & 0xff;
+            labl[i + 9] = position >> 8;
+
+            position += strlen(options->cells[i / 4]->label) + 1;
+        }
+
+        for (int j = 0; j < options->cellCount; j++)
+        {
+            strcpy((char *) (labl + (i + 8)), options->cells[j]->label);
+            i += strlen(options->cells[j]->label) + 1;
+        }
+
+        fwrite(labl, 1, lablSize, fp);
+
+        free(labl);
+
+        unsigned char texu[0xc] = {0x54, 0x58, 0x45, 0x55, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+        fwrite(texu, 1, 0xc, fp);
     }
-
-    unsigned char *labl = malloc(lablSize);
-
-    memset(labl, 0, lablSize);
-
-	strcpy((char *)labl, "LBAL");
-	labl[4] = lablSize & 0xff;
-	labl[5] = lablSize >> 8;
-
-	unsigned int position = 0;
-
-	for (i = 0; i < options->cellCount * 4; i += 4)
-    {
-	    labl[i + 8] = position & 0xff;
-	    labl[i + 9] = position >> 8;
-
-	    position += strlen(options->cells[i / 4]->label) + 1;
-    }
-
-	for (int j = 0; j < options->cellCount; j++)
-    {
-	    strcpy((char *)(labl + (i + 8)), options->cells[j]->label);
-	    i += strlen(options->cells[j]->label) + 1;
-    }
-
-	fwrite(labl, 1, lablSize, fp);
-
-	free(labl);
-
-	unsigned char texu[0xc] = { 0x54, 0x58, 0x45, 0x55, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-
-	fwrite(texu, 1, 0xc, fp);
 
 	fclose(fp);
+}
+
+void WriteNtrScreen(char *outputPath, struct JsonToScreenOptions *options)
+{
+    FILE *fp = fopen(outputPath, "wb");
+
+    if (fp == NULL)
+        FATAL_ERROR("Failed to open \"%s\" for writing.\n", outputPath);
+
+    int totalSize = options->width * options->height * 2 + 0x14;
+
+    WriteGenericNtrHeader(fp, "RCSN", totalSize, true, false, 1);
+
+    unsigned char NSCRHeader[0x14] = { 0x4E, 0x52, 0x43, 0x53, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                       0x00, 0x00, 0x00, 0x00 };
+
+    NSCRHeader[0x4] = totalSize & 0xff;
+    NSCRHeader[0x5] = (totalSize >> 8) & 0xff;
+    NSCRHeader[0x6] = (totalSize >> 16) & 0xff;
+    NSCRHeader[0x7] = totalSize >> 24;
+
+    NSCRHeader[0x8] = (options->width * 8) & 0xff;
+    NSCRHeader[0x9] = (options->width * 8) >> 8;
+
+    NSCRHeader[0xA] = (options->height * 8) & 0xff;
+    NSCRHeader[0xB] = (options->height * 8) >> 8;
+
+    NSCRHeader[0xC] = options->bitdepth == 4 ? 0 : 1;
+
+    NSCRHeader[0x10] = (totalSize - 0x14) & 0xff;
+    NSCRHeader[0x11] = ((totalSize - 0x14) >> 8) & 0xff;
+    NSCRHeader[0x12] = ((totalSize - 0x14) >> 16) & 0xff;
+    NSCRHeader[0x13] = (totalSize - 0x14) >> 24;
+
+    fwrite(NSCRHeader, 1, 0x14, fp);
+
+    fwrite(options->data, 1, totalSize - 0x14, fp);
+
+    fclose(fp);
 }

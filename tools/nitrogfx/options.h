@@ -81,4 +81,11 @@ struct JsonToCellOptions {
     struct Cell **cells;
 };
 
+struct JsonToScreenOptions {
+    int height;
+    int width;
+    unsigned short *data;
+    int bitdepth;
+};
+
 #endif // OPTIONS_H

@@ -39,5 +39,6 @@ void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIn
 void WriteGbaPalette(char *path, struct Palette *palette);
 void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth, bool pad, int compNum);
 void WriteNtrCell(char *path, struct JsonToCellOptions *options);
+void WriteNtrScreen(char *outputPath, struct JsonToScreenOptions *options);
 
 #endif // GFX_H

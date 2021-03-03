@@ -686,6 +686,44 @@ void HandleJsonToNtrCellCommand(char *inputPath, char *outputPath, int argc UNUS
     FreeNCERCell(options);
 }
 
+void HandleJsonToNtrScreenCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
+{
+    struct JsonToScreenOptions *options;
+
+    options = ParseNSCRJson(inputPath);
+
+    int bitdepth = 4;
+
+    for (int i = 3; i < argc; i++)
+    {
+        char *option = argv[i];
+
+        if (strcmp(option, "-bitdepth") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No bitdepth following \"-bitdepth\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &bitdepth))
+                FATAL_ERROR("Failed to parse bitdepth.\n");
+
+            if (bitdepth != 4 && bitdepth != 8)
+                FATAL_ERROR("Bitdepth must be 4 or 8.\n");
+        }
+        else
+        {
+            FATAL_ERROR("Unrecognized option \"%s\".\n", option);
+        }
+    }
+
+    options->bitdepth = bitdepth;
+
+    WriteNtrScreen(outputPath, options);
+
+    FreeNSCRScreen(options);
+}
+
 void HandleLatinFontToPngCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
 {
     struct Image image;
@@ -945,6 +983,7 @@ int main(int argc, char **argv)
         { "fwjpnfont", "png", HandleFullwidthJapaneseFontToPngCommand },
         { "png", "fwjpnfont", HandlePngToFullwidthJapaneseFontCommand },
         { "json", "NCER", HandleJsonToNtrCellCommand },
+        { "json", "NSCR", HandleJsonToNtrScreenCommand },
         { NULL, "huff", HandleHuffCompressCommand },
         { NULL, "lz", HandleLZCompressCommand },
         { "huff", NULL, HandleHuffDecompressCommand },

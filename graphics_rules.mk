@@ -92,6 +92,8 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                    files/demo/title/titledemo/narc_0016.NCLR \
                    files/poketool/icongra/poke_icon/narc_0000.NCLR
 
+8BPP_NSCR_FILES := files/demo/title/titledemo/narc_0000.NSCR
+
 IR_NCLR_FILES := files/itemtool/itemdata/item_icon/narc_0028.NCLR \
                  files/itemtool/itemdata/item_icon/narc_0029.NCLR \
                  files/itemtool/itemdata/item_icon/narc_0032.NCLR \
@@ -879,3 +881,5 @@ NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
                    files/poketool/trgra/trfgra/narc_0194.NCLR \
 
 NCER_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0002.NCER
+
+NSCR_CLEAN_LIST := files/demo/title/titledemo/narc_0000.NSCR
