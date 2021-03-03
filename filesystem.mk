@@ -2296,13 +2296,16 @@ files/demo/title/titledemo.narc: \
         files/demo/title/titledemo/narc_0003.NCGR \
         files/demo/title/titledemo/narc_0003.NCLR \
         files/demo/title/titledemo/narc_0007.NCGR \
+        files/demo/title/titledemo/narc_0008.NSCR \
         files/demo/title/titledemo/narc_0009.NCLR \
         files/demo/title/titledemo/narc_0010.NCLR \
         files/demo/title/titledemo/narc_0011.NCGR \
+        files/demo/title/titledemo/narc_0012.NSCR \
         files/demo/title/titledemo/narc_0013.NCLR \
         files/demo/title/titledemo/narc_0014.NCLR \
         files/demo/title/titledemo/narc_0015.NCGR \
-        files/demo/title/titledemo/narc_0016.NCLR
+        files/demo/title/titledemo/narc_0016.NCLR \
+        files/demo/title/titledemo/narc_0017.NSCR
 
 files/poketool/trgra/trbgra.narc: \
         files/poketool/trgra/trbgra/narc_0000.NCGR \
