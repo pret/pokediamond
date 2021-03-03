@@ -174,6 +174,7 @@ struct JsonToScreenOptions *ParseNSCRJson(char *path)
 
     cJSON *layer = NULL;
     cJSON *layers = cJSON_GetObjectItemCaseSensitive(json, "layers");
+    int palette = 0;
     cJSON_ArrayForEach(layer, layers)
     {
         cJSON *tile = NULL;
@@ -181,9 +182,19 @@ struct JsonToScreenOptions *ParseNSCRJson(char *path)
         int i = 0;
         cJSON_ArrayForEach(tile, data)
         {
-            options->data[i] = (short)(GetInt(tile) - 1); //TODO horizontal and vertical flips
+            int tileInt = GetInt(tile) - 1;
+            if (tileInt != -1)
+            {
+                bool vFlip = tileInt >> 30;
+                bool hFlip = tileInt >> 31;
+                tileInt |= vFlip << 11;
+                tileInt |= hFlip << 10;
+                tileInt |= palette << 12;
+                options->data[i] = (short) (tileInt & 0xFFFF);
+            }
             i++;
         }
+        palette++;
     }
 
     cJSON_Delete(json);
