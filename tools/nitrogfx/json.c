@@ -175,6 +175,17 @@ struct JsonToScreenOptions *ParseNSCRJson(char *path)
     cJSON *layer = NULL;
     cJSON *layers = cJSON_GetObjectItemCaseSensitive(json, "layers");
     int palette = 0;
+    cJSON *tilesets = cJSON_GetObjectItemCaseSensitive(json, "tilesets");
+    int tilesetSize = 0;
+    if (cJSON_GetArraySize(tilesets) != 1)
+    {
+        cJSON *tileset = cJSON_GetArrayItem(tilesets, 1);
+        cJSON *firstGid = cJSON_GetObjectItemCaseSensitive(tileset, "firstgid");
+        tilesetSize = GetInt(firstGid) - 1;
+        if (tilesetSize <= 1)
+            FATAL_ERROR("Wrong tileset index (tileset 0 should be added first)\n");
+    }
+
     cJSON_ArrayForEach(layer, layers)
     {
         cJSON *tile = NULL;
@@ -185,6 +196,11 @@ struct JsonToScreenOptions *ParseNSCRJson(char *path)
             int tileInt = GetInt(tile) - 1;
             if (tileInt != -1)
             {
+                if (tilesetSize != 0)
+                {
+                    palette = tileInt / tilesetSize;
+                    tileInt %= tilesetSize;
+                }
                 bool vFlip = tileInt >> 30;
                 bool hFlip = tileInt >> 31;
                 tileInt |= vFlip << 11;
@@ -194,7 +210,6 @@ struct JsonToScreenOptions *ParseNSCRJson(char *path)
             }
             i++;
         }
-        palette++;
     }
 
     cJSON_Delete(json);
