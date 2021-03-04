@@ -194,13 +194,13 @@ struct JsonToScreenOptions *ParseNSCRJson(char *path)
         cJSON_ArrayForEach(tile, data)
         {
             int tileInt = GetInt(tile) - 1;
-            if (tilesetSize != 0)
-            {
-                palette = tileInt / tilesetSize;
-                tileInt %= tilesetSize;
-            }
             if (tileInt != -1)
             {
+                if (tilesetSize != 0)
+                {
+                    palette = tileInt / tilesetSize;
+                    tileInt %= tilesetSize;
+                }
                 bool vFlip = tileInt >> 30;
                 bool hFlip = tileInt >> 31;
                 tileInt |= vFlip << 11;
