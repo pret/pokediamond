@@ -6,9 +6,6 @@
 
 #pragma thumb on
 
-extern struct UnkStruct_02029FB0 * FUN_02029FC8(struct SaveBlock2 * sav2);
-extern void FUN_0202A1C4(struct UnkStruct_02029FB0 * unk, struct Pokedex * pokedex, u16 species);
-
 void FUN_0202C144(struct SaveBlock2 * sav2, struct Pokemon * mon)
 {
     u32 is_egg = GetMonData(mon, MON_DATA_IS_EGG, NULL);
