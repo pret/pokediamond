@@ -5,7 +5,7 @@
 	.extern CTRDGi_EraseFlashChipLE
 	.extern CTRDGi_EraseFlashSectorAsyncLE
 	.extern CTRDGi_PollingSR512kCOMMON
-	.extern UNK_021D6B08
+	.extern ctrdg_flash_remainder
 	.extern AgbFlash
 	.extern ctrdgi_flash_lock_id
 
@@ -96,7 +96,7 @@ CTRDGi_WriteFlashSectorCoreMX5: ; 0x020DD8C0
 	ldr r2, [r0, #0x0]
 	ldrh r1, [r7, #0x0]
 	ldr r2, [r2, #0x10]
-	ldr r8, _020DD9F8 ; =UNK_021D6B08
+	ldr r8, _020DD9F8 ; =ctrdg_flash_remainder
 	bic r1, r1, #0x3
 	orr r1, r1, r2
 	strh r1, [r7, #0x0]
@@ -142,4 +142,4 @@ _020DD9E8: .word AgbFlash
 _020DD9EC: .word 0x000080FF
 _020DD9F0: .word ctrdgi_flash_lock_id
 _020DD9F4: .word 0x04000204
-_020DD9F8: .word UNK_021D6B08
+_020DD9F8: .word ctrdg_flash_remainder

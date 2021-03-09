@@ -456,7 +456,6 @@ Static arm9
 	Object CTRDG_proc.o
 	Object CTRDG_backup.o
 	Object CTRDG_flash_common.o
-	Object CTRDG_flash_AT29LV512_asm.o
 	Object CTRDG_flash_AT29LV512.o
 	Object CTRDG_flash_LE26FV10N1TS-10.o
 	Object CTRDG_flash_LE39FW512.o

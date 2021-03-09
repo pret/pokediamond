@@ -6,7 +6,7 @@
 	.extern CTRDGi_PollingSR
 	.extern ctrdgi_flash_lock_id
 	.extern ctrdgi_backup_irq
-	.extern UNK_021D6B08
+	.extern ctrdg_flash_remainder
 
 	.section .rodata
 
@@ -256,7 +256,7 @@ _020DCF38:
 	ldr r3, [r1, #0x0]
 	ldrh r2, [r5, #0x0]
 	ldr r3, [r3, #0x10]
-	ldr r7, _020DD02C ; =UNK_021D6B08
+	ldr r7, _020DD02C ; =ctrdg_flash_remainder
 	bic r2, r2, #0x3
 	orr r2, r2, r3
 	strh r2, [r5, #0x0]
@@ -311,7 +311,7 @@ _020DD01C: .word AgbFlash
 _020DD020: .word CTRDGi_VerifyFlashCoreFF
 _020DD024: .word ctrdgi_flash_lock_id
 _020DD028: .word 0x04000204
-_020DD02C: .word UNK_021D6B08
+_020DD02C: .word ctrdg_flash_remainder
 _020DD030: .word 0x04000208
 _020DD034: .word ctrdgi_backup_irq
 
