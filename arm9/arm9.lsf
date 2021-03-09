@@ -335,7 +335,6 @@ Static arm9
 	Object SOC_socl_close.o
 	Object SOC_socl_cleanup.o
 	Object SOC_socl_poll.o
-	Object SOC_socl_const.o
 	Object SOC_socl_misc.o
 	Object SOC_socl_list.o
 	Object SOC_soc.o
