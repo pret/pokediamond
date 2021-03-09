@@ -3,8 +3,8 @@
 
 	.section .bss
 
-	.global UNK_021D6B08
-UNK_021D6B08: ; 0x021D6B08
+	.global ctrdg_flash_remainder
+ctrdg_flash_remainder: ; 0x021D6B08
 	.space 0x4
 
 	.global ctrdgi_flash_lock_id

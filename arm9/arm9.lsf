@@ -335,7 +335,6 @@ Static arm9
 	Object SOC_socl_close.o
 	Object SOC_socl_cleanup.o
 	Object SOC_socl_poll.o
-	Object SOC_socl_const.o
 	Object SOC_socl_misc.o
 	Object SOC_socl_list.o
 	Object SOC_soc.o
@@ -456,7 +455,6 @@ Static arm9
 	Object CTRDG_proc.o
 	Object CTRDG_backup.o
 	Object CTRDG_flash_common.o
-	Object CTRDG_flash_AT29LV512_asm.o
 	Object CTRDG_flash_AT29LV512.o
 	Object CTRDG_flash_LE26FV10N1TS-10.o
 	Object CTRDG_flash_LE39FW512.o

@@ -8,6 +8,11 @@
 #define CTRDG_BACKUP_PHASE_PROGRAM          0x0001
 #define CTRDG_BACKUP_PHASE_SECTOR_ERASE     0x0002
 #define CTRDG_BACKUP_PHASE_CHIP_ERASE       0x0003
+#define CTRDG_BACKUP_PHASE_PARAMETER_CHECK  0x00ff
+
+#define CTRDG_BACKUP_RESULT_ERROR           0x8000
+
+extern u16 ctrdg_flash_remainder;
 
 typedef struct CTRDGiFlashTypePlusTag
 {

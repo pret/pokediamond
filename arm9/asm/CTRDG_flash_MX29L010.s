@@ -6,7 +6,7 @@
 	.extern CTRDGi_PollingSR
 	.extern ctrdgi_flash_lock_id
 	.extern ctrdgi_backup_irq
-	.extern UNK_021D6B08
+	.extern ctrdg_flash_remainder
 
 	.section .rodata
 
@@ -174,7 +174,7 @@ CTRDGi_WriteFlashSectorCoreMX: ; 0x020DD3D0
 	ldr r3, [r0, #0x0]
 	mov r0, r1, lsl #0x10
 	ldr r2, [r3, #0x4]
-	ldr r8, _020DD550 ; =UNK_021D6B08
+	ldr r8, _020DD550 ; =ctrdg_flash_remainder
 	ldr r1, _020DD554 ; =0x04000208
 	strh r2, [r8, #0x0]
 	ldrh r3, [r3, #0x8]
@@ -226,7 +226,7 @@ _020DD540: .word AgbFlash
 _020DD544: .word 0x000080FF
 _020DD548: .word ctrdgi_flash_lock_id
 _020DD54C: .word 0x04000204
-_020DD550: .word UNK_021D6B08
+_020DD550: .word ctrdg_flash_remainder
 _020DD554: .word 0x04000208
 _020DD558: .word ctrdgi_backup_irq
 
