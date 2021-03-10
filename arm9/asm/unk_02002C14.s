@@ -53,7 +53,7 @@ _02002C22:
 	cmp r1, #0x4
 	blo _02002C22
 	ldr r0, _02002C4C ; =UNK_020ECB64
-	bl FUN_0201BCBC
+	bl SetFontsPointer
 	pop {r4, pc}
 	nop
 _02002C44: .word UNK_02106FCC

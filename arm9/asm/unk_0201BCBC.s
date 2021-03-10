@@ -1,145 +1,15 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.section .data
-
-	.global gFonts
-gFonts: ; 0x02105BB4
-	.word 0
-
-	.section .bss
-
-	.global UNK_021C570C
-UNK_021C570C: ; 0x021C570C
-	.space 0x8
-
-	.global UNK_021C5714
-UNK_021C5714: ; 0x021C5714
-	.space 0x20
-
-	.global UNK_021C5734
-UNK_021C5734: ; 0x021C5734
-	.space 0x200
+    .extern gFonts
+    .extern UNK_021C570C
+    .extern UNK_021C5714
+    .extern UNK_021C5734
+    .extern FUN_0201BCC8
+    .extern FUN_0201BCFC
+    .extern FUN_0201BD44
 
 	.text
-
-	thumb_func_start FUN_0201BCBC
-FUN_0201BCBC: ; 0x0201BCBC
-	ldr r1, _0201BCC4 ; =gFonts
-	str r0, [r1, #0x0]
-	bx lr
-	nop
-_0201BCC4: .word gFonts
-
-	thumb_func_start FUN_0201BCC8
-FUN_0201BCC8: ; 0x0201BCC8
-	push {r4-r6, lr}
-	ldr r4, _0201BCF8 ; =UNK_021C5714
-	mov r5, #0x0
-_0201BCCE:
-	ldr r3, [r4, #0x0]
-	cmp r3, #0x0
-	bne _0201BCE8
-	ldr r6, _0201BCF8 ; =UNK_021C5714
-	lsl r4, r5, #0x2
-	bl FUN_0200CA7C
-	str r0, [r6, r4]
-	ldr r0, [r6, r4]
-	cmp r0, #0x0
-	bne _0201BCF0
-	mov r5, #0x8
-	b _0201BCF0
-_0201BCE8:
-	add r5, r5, #0x1
-	add r4, r4, #0x4
-	cmp r5, #0x8
-	blt _0201BCCE
-_0201BCF0:
-	lsl r0, r5, #0x18
-	lsr r0, r0, #0x18
-	pop {r4-r6, pc}
-	nop
-_0201BCF8: .word UNK_021C5714
-
-	thumb_func_start FUN_0201BCFC
-FUN_0201BCFC: ; 0x0201BCFC
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	cmp r5, #0x8
-	blo _0201BD08
-	bl ErrorHandling
-_0201BD08:
-	ldr r6, _0201BD40 ; =UNK_021C5714
-	lsl r4, r5, #0x2
-	ldr r0, [r6, r4]
-	cmp r0, #0x0
-	bne _0201BD16
-	bl ErrorHandling
-_0201BD16:
-	cmp r5, #0x8
-	bhs _0201BD3C
-	ldr r0, [r6, r4]
-	cmp r0, #0x0
-	beq _0201BD3C
-	bl FUN_0201B6C8
-	add r5, r0, #0x0
-	beq _0201BD32
-	bl FUN_0201C238
-	add r0, r5, #0x0
-	bl FreeToHeap
-_0201BD32:
-	ldr r0, [r6, r4]
-	bl FUN_0200CAB4
-	mov r0, #0x0
-	str r0, [r6, r4]
-_0201BD3C:
-	pop {r4-r6, pc}
-	nop
-_0201BD40: .word UNK_021C5714
-
-	thumb_func_start FUN_0201BD44
-FUN_0201BD44: ; 0x0201BD44
-	lsl r1, r0, #0x2
-	ldr r0, _0201BD58 ; =UNK_021C5714
-	ldr r0, [r0, r1]
-	cmp r0, #0x0
-	beq _0201BD52
-	mov r0, #0x1
-	bx lr
-_0201BD52:
-	mov r0, #0x0
-	bx lr
-	nop
-_0201BD58: .word UNK_021C5714
-
-	thumb_func_start FUN_0201BD5C
-FUN_0201BD5C: ; 0x0201BD5C
-	mov r1, #0x0
-	ldr r2, _0201BD6C ; =UNK_021C5714
-	add r0, r1, #0x0
-_0201BD62:
-	add r1, r1, #0x1
-	stmia r2!, {r0}
-	cmp r1, #0x8
-	blt _0201BD62
-	bx lr
-	.balign 4
-_0201BD6C: .word UNK_021C5714
-
-	thumb_func_start FUN_0201BD70
-FUN_0201BD70: ; 0x0201BD70
-	push {r3, lr}
-	bl FUN_0201BD44
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	pop {r3, pc}
-
-	thumb_func_start FUN_0201BD7C
-FUN_0201BD7C: ; 0x0201BD7C
-	ldr r3, _0201BD80 ; =FUN_0201BCFC
-	bx r3
-	.balign 4
-_0201BD80: .word FUN_0201BCFC
 
 	thumb_func_start AddTextPrinterParameterized
 AddTextPrinterParameterized: ; 0x0201BD84

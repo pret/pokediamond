@@ -1153,7 +1153,7 @@
 .extern MTX22_2DAffine
 .extern CircularDistance
 .extern MathUtil_0201BC84
-.extern FUN_0201BCBC
+.extern SetFontsPointer
 .extern FUN_0201BD5C
 .extern FUN_0201BD70
 .extern FUN_0201BD7C
