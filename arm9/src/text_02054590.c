@@ -1,0 +1,110 @@
+#include "text_02054590.h"
+
+extern void FUN_0201BD5C(void);
+extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);
+extern void FUN_02002EEC(u32 param0, u32 param1, u32 param2);
+
+extern void FUN_02019064(u32 param0, u32 param1, u32 param2, u8 param3, u32 param4, u8 param5, u32 param6, u32 param7, u32 param8);
+
+extern void FUN_0200CD68(u32 param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
+extern u32 FUN_0201AB08(u32 *param0);
+extern void FUN_0200D0BC(u32 *param0, u32 param1, u32 param2, u32 param3);
+
+extern void FUN_02019620(u32 *param0, u32 param1);
+
+extern void FUN_02002B60(u8 param0);
+extern void FUN_02002B7C(u32 param0);
+extern void FUN_02002BB8(u32 param0);
+extern void AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u32 speed, void (*callback)(void *, u16));
+
+extern u32 FUN_0201BD70(void);
+
+extern void FUN_0200D300(u32 param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5, u32 param6);
+extern void FUN_0200D6F8(u32 *param0, u32 param1, u32 param2, u32 param3, u8 param4);
+
+
+THUMB_FUNC void FUN_02054590(u32 param0, u32 param1)
+{
+    if (param1 == 1)
+    {
+        FUN_0201BD5C();
+    }
+    FUN_02002ED0(param0, 416, 4);
+    FUN_02002EEC(param0, 384, 4);
+}
+
+THUMB_FUNC void FUN_020545B8(u32 param0, u32 param1, u32 param2)
+{
+    if (param2 == 3)
+    {
+        FUN_02019064(param0, param1, 3, 2, 19, 27, 4, 12, 813);
+    }
+    else
+    {
+        FUN_02019064(param0, param1, 7, 2, 19, 27, 4, 12, 404);
+    }
+}
+
+THUMB_FUNC void FUN_02054608(u32 *param0, struct Options *options)
+{
+    FUN_0200CD68(*param0, FUN_0201AB08(param0), 994, 10, (u8)Options_GetFrame(options), 4);
+    FUN_0205464C(param0);
+    FUN_0200D0BC(param0, 0, 994, 10);
+}
+
+THUMB_FUNC void FUN_0205464C(u32 *param0)
+{
+    FUN_02019620(param0, 15);
+}
+
+THUMB_FUNC void FUN_02054658(u8 windowId, const u8 *str, struct Options *options, u8 param3)
+{
+    FUN_02002B60(param3);
+    FUN_02002B7C(0);
+    FUN_02002BB8(0);
+    AddTextPrinterParameterized(windowId, 1, str, 0, 0, (u32)Options_GetTextFrameDelay(options), NULL);
+}
+
+THUMB_FUNC void DrawFieldMessage(u8 windowId, const u8 *str, u8 fontId, u32 speed, u8 a4, u32 a5)
+{
+    FUN_02002B60(a4);
+    FUN_02002B7C(a5);
+    FUN_02002BB8(0);
+    AddTextPrinterParameterized(windowId, fontId, str, 0, 0, speed, NULL);
+}
+
+THUMB_FUNC u8 FUN_020546C8(void) //bool8?
+{
+    return !FUN_0201BD70();
+}
+
+THUMB_FUNC void FUN_020546E0(u32 param0, u32 param1, u32 param2, u32 param3)
+{
+    u32 r4 = 0;
+    u32 r5 = 0;
+    if (param2 <= 1)
+    {
+        r4 = 9;
+        r5 = 20;
+    }
+    else
+    {
+        r4 = 2;
+        r5 = 27;
+    }
+    if (param3 == 3)
+    {
+        FUN_02019064(param0, param1, 3, (u8)r4, 19, (u8)r5, 4, 9, 813);
+    }
+    else
+    {
+        FUN_02019064(param0, param1, 7, (u8)r4, 19, (u8)r5, 4, 9, 404);
+    }
+}
+
+THUMB_FUNC void FUN_02054744(u32 *param0, u32 param1, u32 param2)
+{
+    FUN_0200D300(*param0, FUN_0201AB08(param0), 0x399, 9, (u8)param1, param2, 4);
+    FUN_02019620(param0, 15);
+    FUN_0200D6F8(param0, 0, 0x399, 9, (u8)param1);
+}
