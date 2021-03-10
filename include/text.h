@@ -60,5 +60,7 @@ void FUN_0201BD5C(void);
 u8 FUN_0201BD70(u32 param0);
 void FUN_0201BCFC(u32 param0);
 u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u8 *str, u32 x, u32 y, u32 speed, void (*callback)(void *, u16));
+u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u8 *str, u32 x, u32 y, u32 speed, u32 colors, void (*callback)(void *, u16));
+u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u8 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, void (*callback)(void *, u16));
 
 #endif //POKEDIAMOND_TEXT_H

@@ -107,3 +107,49 @@ THUMB_FUNC u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u8 *st
     printerTemplate.unk4 = 255;
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
+
+THUMB_FUNC u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u8 *str, u32 x, u32 y, u32 speed, u32 colors, void (*callback)(void *, u16))
+{
+    struct TextPrinterTemplate printerTemplate;
+
+    printerTemplate.windowId = windowId;
+    printerTemplate.currentChar = str;
+    printerTemplate.fontId = fontId;
+    printerTemplate.x = (u8)x;
+    printerTemplate.y = (u8)y;
+    printerTemplate.currentX = (u8)x;
+    printerTemplate.currentY = (u8)y;
+    printerTemplate.letterSpacing = gFonts[fontId].letterSpacing;
+    printerTemplate.lineSpacing = gFonts[fontId].lineSpacing;
+    printerTemplate.unk = gFonts[fontId].unk;
+    printerTemplate.fgColor = colors >> 16;
+    printerTemplate.shadowColor = colors >> 8;
+    printerTemplate.bgColor = colors;
+    printerTemplate.unk2 = 0;
+    printerTemplate.unk3 = 0;
+    printerTemplate.unk4 = 255;
+    return AddTextPrinter(&printerTemplate, speed, callback);
+}
+
+THUMB_FUNC u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u8 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, void (*callback)(void *, u16))
+{
+    struct TextPrinterTemplate printerTemplate;
+
+    printerTemplate.windowId = windowId;
+    printerTemplate.currentChar = str;
+    printerTemplate.fontId = fontId;
+    printerTemplate.x = (u8)x;
+    printerTemplate.y = (u8)y;
+    printerTemplate.currentX = (u8)x;
+    printerTemplate.currentY = (u8)y;
+    printerTemplate.letterSpacing = letterSpacing;
+    printerTemplate.lineSpacing = lineSpacing;
+    printerTemplate.unk = gFonts[fontId].unk;
+    printerTemplate.fgColor = colors >> 16;
+    printerTemplate.shadowColor = colors >> 8;
+    printerTemplate.bgColor = colors;
+    printerTemplate.unk2 = 0;
+    printerTemplate.unk3 = 0;
+    printerTemplate.unk4 = 255;
+    return AddTextPrinter(&printerTemplate, speed, callback);
+}
