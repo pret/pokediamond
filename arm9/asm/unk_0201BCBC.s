@@ -11,53 +11,6 @@
 
 	.text
 
-	thumb_func_start AddTextPrinterParameterized
-AddTextPrinterParameterized: ; 0x0201BD84
-	push {r3, lr}
-	sub sp, #0x18
-	str r0, [sp, #0x4]
-	lsl r0, r3, #0x18
-	lsr r3, r0, #0x18
-	ldr r0, [sp, #0x20]
-	str r2, [sp, #0x0]
-	add r2, sp, #0x0
-	strb r1, [r2, #0x9]
-	lsl r0, r0, #0x18
-	strb r3, [r2, #0xa]
-	lsr r0, r0, #0x18
-	strb r0, [r2, #0xb]
-	strb r3, [r2, #0xc]
-	strb r0, [r2, #0xd]
-	ldr r0, _0201BDDC ; =gFonts
-	lsl r1, r1, #0x3
-	ldr r0, [r0, #0x0]
-	add r1, r0, r1
-	ldrb r0, [r1, #0x2]
-	strb r0, [r2, #0xe]
-	ldrb r0, [r1, #0x3]
-	strb r0, [r2, #0xf]
-	ldrb r0, [r1, #0x4]
-	strb r0, [r2, #0x10]
-	ldrb r0, [r1, #0x5]
-	strb r0, [r2, #0x11]
-	ldrb r0, [r1, #0x6]
-	strb r0, [r2, #0x12]
-	ldrb r0, [r1, #0x7]
-	ldr r1, [sp, #0x24]
-	strb r0, [r2, #0x13]
-	mov r0, #0x0
-	strh r0, [r2, #0x14]
-	strb r0, [r2, #0x16]
-	mov r0, #0xff
-	strb r0, [r2, #0x17]
-	ldr r2, [sp, #0x28]
-	add r0, sp, #0x0
-	bl AddTextPrinter
-	add sp, #0x18
-	pop {r3, pc}
-	nop
-_0201BDDC: .word gFonts
-
 	thumb_func_start AddTextPrinterParameterized2
 AddTextPrinterParameterized2: ; 0x0201BDE0
 	push {r3, lr}

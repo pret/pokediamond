@@ -1,4 +1,5 @@
 #include "text_02054590.h"
+#include "text.h"
 
 extern void FUN_0201BD5C(void);
 extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);
@@ -15,9 +16,6 @@ extern void FUN_02019620(u32 *param0, u32 param1);
 extern void FUN_02002B60(u8 param0);
 extern void FUN_02002B7C(u32 param0);
 extern void FUN_02002BB8(u32 param0);
-extern void AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u32 speed, void (*callback)(void *, u16));
-
-extern u32 FUN_0201BD70(void);
 
 extern void FUN_0200D300(u32 param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5, u32 param6);
 extern void FUN_0200D6F8(u32 *param0, u32 param1, u32 param2, u32 param3, u8 param4);
@@ -57,25 +55,25 @@ THUMB_FUNC void FUN_0205464C(u32 *param0)
     FUN_02019620(param0, 15);
 }
 
-THUMB_FUNC void FUN_02054658(u8 windowId, const u8 *str, struct Options *options, u8 param3)
+THUMB_FUNC u16 FUN_02054658(u8 windowId, const u8 *str, struct Options *options, u8 param3)
 {
     FUN_02002B60(param3);
     FUN_02002B7C(0);
     FUN_02002BB8(0);
-    AddTextPrinterParameterized(windowId, 1, str, 0, 0, (u32)Options_GetTextFrameDelay(options), NULL);
+    return AddTextPrinterParameterized(windowId, 1, str, 0, 0, (u32)Options_GetTextFrameDelay(options), NULL);
 }
 
-THUMB_FUNC void DrawFieldMessage(u8 windowId, const u8 *str, u8 fontId, u32 speed, u8 a4, u32 a5)
+THUMB_FUNC u16 DrawFieldMessage(u8 windowId, const u8 *str, u8 fontId, u32 speed, u8 a4, u32 a5)
 {
     FUN_02002B60(a4);
     FUN_02002B7C(a5);
     FUN_02002BB8(0);
-    AddTextPrinterParameterized(windowId, fontId, str, 0, 0, speed, NULL);
+    return AddTextPrinterParameterized(windowId, fontId, str, 0, 0, speed, NULL);
 }
 
-THUMB_FUNC u8 FUN_020546C8(void) //bool8?
+THUMB_FUNC u8 FUN_020546C8(u32 param0) //bool8?
 {
-    return !FUN_0201BD70();
+    return !FUN_0201BD70(param0);
 }
 
 THUMB_FUNC void FUN_020546E0(u32 param0, u32 param1, u32 param2, u32 param3)
