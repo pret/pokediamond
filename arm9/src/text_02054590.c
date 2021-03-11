@@ -55,7 +55,7 @@ THUMB_FUNC void FUN_0205464C(u32 *param0)
     FUN_02019620(param0, 15);
 }
 
-THUMB_FUNC u16 FUN_02054658(u8 windowId, const u8 *str, struct Options *options, u8 param3)
+THUMB_FUNC u16 FUN_02054658(u8 windowId, const u16 *str, struct Options *options, u8 param3)
 {
     FUN_02002B60(param3);
     FUN_02002B7C(0);
@@ -63,7 +63,7 @@ THUMB_FUNC u16 FUN_02054658(u8 windowId, const u8 *str, struct Options *options,
     return AddTextPrinterParameterized(windowId, 1, str, 0, 0, (u32)Options_GetTextFrameDelay(options), NULL);
 }
 
-THUMB_FUNC u16 DrawFieldMessage(u8 windowId, const u8 *str, u8 fontId, u32 speed, u8 a4, u32 a5)
+THUMB_FUNC u16 DrawFieldMessage(u8 windowId, const u16 *str, u8 fontId, u32 speed, u8 a4, u32 a5)
 {
     FUN_02002B60(a4);
     FUN_02002B7C(a5);

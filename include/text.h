@@ -5,7 +5,7 @@
 
 struct TextPrinterTemplate
 {
-    const u8* currentChar;
+    const u16* currentChar;
     u32 windowId;
     u8 padding[1];
     u8 fontId;
@@ -33,11 +33,13 @@ struct TextPrinter
     u8 subStructFields[7]; // always cast to struct TextPrinterSubStruct... so why bother
     u8 active;
     u8 state;       // 0x1C
-    u8 textSpeed;
+    u8 textSpeedBottom:7;
+    u8 textSpeedTop:1;
     u8 delayCounter;
     u8 scrollDistance;
     u8 minLetterSpacing;  // 0x20
     u8 japanese;
+    u8 padding[6];
 };
 
 struct FontInfo
@@ -53,14 +55,15 @@ struct FontInfo
 };
 
 void SetFontsPointer(const struct FontInfo *fonts);
-u8 FUN_0201BCC8(void *param0, u32 param1, u32 param2);
+u8 FUN_0201BCC8(void *func, struct TextPrinter *printer, u32 param2);
 void FUN_0201BCFC(u32 param0);
 BOOL FUN_0201BD44(u32 param0);
 void FUN_0201BD5C(void);
 u8 FUN_0201BD70(u32 param0);
-void FUN_0201BCFC(u32 param0);
-u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u8 *str, u32 x, u32 y, u32 speed, void (*callback)(void *, u16));
-u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u8 *str, u32 x, u32 y, u32 speed, u32 colors, void (*callback)(void *, u16));
-u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u8 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, void (*callback)(void *, u16));
+void FUN_0201BD7C(u32 param0);
+u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, void (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, void (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, void (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, void (*callback)(struct TextPrinterTemplate *, u16));
 
 #endif //POKEDIAMOND_TEXT_H
