@@ -309,7 +309,7 @@ _021E3078:
 _021E30F2:
 	add r5, #0x20
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0

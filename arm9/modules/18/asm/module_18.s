@@ -23390,7 +23390,7 @@ _02244AF8:
 	add r3, r1, #0
 	bl FUN_0201A8C8
 	ldr r0, [sp, #0xc]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -29597,7 +29597,7 @@ _02247AFA:
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	bl FUN_0204F7E4
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
@@ -29749,7 +29749,7 @@ _02247C40:
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x38
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -29902,7 +29902,7 @@ _02247D6C:
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x34
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -31282,7 +31282,7 @@ _02248870:
 	str r0, [r5, #0x1c]
 	add r5, #8
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x34
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -38615,7 +38615,7 @@ _0224C396:
 	strh r1, [r5, r0]
 	add r0, r5, #0
 	add r0, #0x10
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r5, #0
 	add sp, #0x34
 	pop {r4, r5, pc}
@@ -39232,7 +39232,7 @@ _0224C87C:
 	str r0, [r5, #0x48]
 	add r5, #0x10
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -39493,7 +39493,7 @@ _0224CB1A:
 	bl FUN_02019620
 	add r4, #0x20
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r3, r4, pc}
 	.align 2, 0
@@ -39534,7 +39534,7 @@ MOD18_0224CB34: ; 0x0224CB34
 	bl FUN_02019620
 	add r0, r5, #0
 	add r0, #0x30
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	ldr r2, [r5, #0x68]
@@ -42405,10 +42405,10 @@ _0224E186:
 	bl FUN_020010A8
 	str r0, [r5, #0x28]
 	add r0, r5, #4
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r5, #0
 	add r0, #0x14
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #1
 	add r5, #0x38
 	strb r0, [r5]
@@ -42960,10 +42960,10 @@ _0224E5CE:
 	str r0, [r5, #0x2c]
 	add r0, r5, #0
 	add r0, #8
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r5, #0
 	add r0, #0x18
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #4
 	bl FUN_0205EB38
 	str r0, [r5, #4]

@@ -1821,7 +1821,7 @@ _021D83B2:
 	mov r3, #7
 	bl FUN_0200CCA4
 	ldr r0, [sp]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -1911,7 +1911,7 @@ _021D8462:
 	mov r3, #7
 	bl FUN_0200CCA4
 	ldr r0, [sp]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x2c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2024,7 +2024,7 @@ MOD77_021D8510: ; 0x021D8510
 	bl String_dtor
 	ldr r0, _021D85CC ; =0x0000C044
 	add r0, r5, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -2110,7 +2110,7 @@ _021D865C:
 	bl String_dtor
 	ldr r0, _021D8690 ; =0x0000C044
 	add r0, r5, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0

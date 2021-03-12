@@ -3650,7 +3650,7 @@ _0222F220:
 	add r0, r5, #0
 	bl MOD80_0222F300
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r6, r6, #1
 	add r4, r4, #4
 	add r5, #0x10
@@ -9153,7 +9153,7 @@ MOD80_02231EA8: ; 0x02231EA8
 	bl FUN_02019620
 	ldr r0, _02231FE4 ; =0x00000EC8
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #0x15
 	str r0, [sp]
 	mov r0, #0x1b
@@ -11970,7 +11970,7 @@ _0223357E:
 	mov r1, #0
 	bl FUN_02019620
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, [sp, #0x14]
 	add r6, #0x16
 	add r0, r0, #1

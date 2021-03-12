@@ -559,7 +559,7 @@ _021D9C9A:
 	bl String_dtor
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #2
 	mov r1, #1
 	bl FUN_0201797C

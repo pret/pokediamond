@@ -1814,7 +1814,7 @@ _020633D6:
 _020633EA:
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r1, r4, #0x0
 	ldr r0, [sp, #0x18]
 	add r1, #0x21

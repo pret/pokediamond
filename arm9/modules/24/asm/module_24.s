@@ -843,7 +843,7 @@ _02254E68:
 	add r0, r5, #0
 	bl MOD24_02254D00
 	ldr r0, [r5, #0x70]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #8
 	bl FUN_02016B90
 	cmp r0, #0

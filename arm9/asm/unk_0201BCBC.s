@@ -29,7 +29,7 @@ FUN_0201BFDC: ; 0x0201BFDC
 	ldrb r0, [r4, #0x11]
 	ldrb r1, [r4, #0x12]
 	ldrb r2, [r4, #0x13]
-	bl FUN_0201C05C
+	bl GenerateFontHalfRowLookupTable
 	add r0, r4, #0x0
 	bl RenderFont
 	cmp r0, #0x0
@@ -41,7 +41,7 @@ FUN_0201BFDC: ; 0x0201BFDC
 	pop {r4, pc}
 _0201C014:
 	ldr r0, [r4, #0x4]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _0201C01A:
 	ldr r2, [r4, #0x18]
 	cmp r2, #0x0
@@ -82,8 +82,8 @@ _0201C04C:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0201C05C
-FUN_0201C05C: ; 0x0201C05C
+	thumb_func_start GenerateFontHalfRowLookupTable
+GenerateFontHalfRowLookupTable: ; 0x0201C05C
 	push {r3-r7, lr}
 	sub sp, #0x30
 	ldr r3, _0201C0F8 ; =UNK_021C570C

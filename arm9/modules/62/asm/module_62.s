@@ -3253,7 +3253,7 @@ MOD62_0222EE78: ; 0x0222EE78
 	mov r1, #0xf
 	bl FUN_02019620
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 _0222EE96:
@@ -3278,7 +3278,7 @@ _0222EE96:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r5, #0
 	bl String_dtor
 	add r0, r6, #0
@@ -3333,7 +3333,7 @@ MOD62_0222EEE0: ; 0x0222EEE0
 	mov r1, #0xf
 	bl FUN_02019620
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD62_0222EEE0
@@ -3379,7 +3379,7 @@ MOD62_0222EF44: ; 0x0222EF44
 	mov r1, #0xf
 	bl FUN_02019620
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD62_0222EF44
@@ -3554,7 +3554,7 @@ _0222F0E2:
 	mov r1, #0xee
 	bl FUN_02019620
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	b _0222F152
 _0222F0FE:
 	add r0, r5, #0
@@ -3589,7 +3589,7 @@ _0222F0FE:
 	mov r3, #7
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r4, #0
 	bl String_dtor
 _0222F152:
@@ -3623,7 +3623,7 @@ MOD62_0222F168: ; 0x0222F168
 	mov r1, #0xee
 	bl FUN_02019620
 	add r0, r5, r4
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 _0222F194:
@@ -3655,7 +3655,7 @@ _0222F194:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, r4
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add sp, #0x14
@@ -3695,7 +3695,7 @@ MOD62_0222F208: ; 0x0222F208
 	mov r1, #0xf
 	bl FUN_02019620
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 _0222F226:
@@ -3720,7 +3720,7 @@ _0222F226:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r5, #0
 	bl String_dtor
 	add r0, r6, #0

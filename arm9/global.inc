@@ -1078,7 +1078,7 @@
 .extern FUN_02019150
 .extern FUN_02019178
 .extern FUN_020191A4
-.extern FUN_020191D0
+.extern CopyWindowToVram
 .extern FUN_02019220
 .extern FUN_02019270
 .extern FUN_0201928C
@@ -1160,7 +1160,7 @@
 .extern AddTextPrinterParameterized
 .extern AddTextPrinterParameterized2
 .extern AddTextPrinterParameterized3
-.extern FUN_0201C05C
+.extern GenerateFontHalfRowLookupTable
 .extern FUN_0201C100
 .extern FUN_0201C1EC
 .extern FUN_0201C24C

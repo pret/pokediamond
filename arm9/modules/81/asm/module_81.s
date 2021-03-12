@@ -2485,7 +2485,7 @@ _022390F4:
 	bl FUN_0200D06C
 	add r0, r4, #0
 	add r0, #0x44
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #0
 	str r0, [r4, #8]
 	str r6, [r5]
@@ -9609,7 +9609,7 @@ _0223C982:
 	bl FUN_0200D06C
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, _0223CA90 ; =0x00000484
 	bl PlayBGM
 	mov r0, #0

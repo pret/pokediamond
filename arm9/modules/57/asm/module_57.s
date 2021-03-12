@@ -3560,7 +3560,7 @@ _021D9164:
 	add r3, r1, #0
 	bl FUN_020196F4
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0

@@ -1650,7 +1650,7 @@ _021DA7A4:
 	mov r0, #0xb1
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	b _021DA7EC
 _021DA7D4:
 	mov r0, #0xc3
@@ -2104,7 +2104,7 @@ _021DAAEA:
 	cmp r0, #0
 	beq _021DAB0A
 	add r0, r7, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _021DAB0A:
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0x14]

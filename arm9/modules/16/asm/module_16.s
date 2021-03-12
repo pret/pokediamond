@@ -3520,7 +3520,7 @@ MOD16_021D8F60: ; 0x021D8F60
 	mov r1, #0
 	bl FUN_02019620
 	add r0, r4, #4
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r3, r4, pc}
 	thumb_func_end MOD16_021D8F60
@@ -27385,7 +27385,7 @@ MOD16_021E3E6C: ; 0x021E3E6C
 	bl MOD16_021DB728
 	ldr r0, [r4]
 	add r0, r0, #4
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x18
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -42170,7 +42170,7 @@ MOD16_021EACB0: ; 0x021EACB0
 	bl MOD16_021EABC4
 	ldr r0, [r4]
 	add r0, r0, #4
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -51475,7 +51475,7 @@ MOD16_021EF318: ; 0x021EF318
 	mov r1, #0
 	bl FUN_02019620
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r4, #0
 	add sp, #0x14
 	pop {r4, r5, pc}

@@ -1105,7 +1105,7 @@ _021D7DF2:
 	bl FUN_0200CCA4
 	add r0, r5, #0
 	add r0, #0x30
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #1
 	str r0, [r5, #0x2c]
 	b _021D7E96
@@ -1293,7 +1293,7 @@ _021D7FCC:
 	b _021D803C
 _021D7FD8:
 	add r0, #0x1c
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #2
 	str r0, [r4, #0x54]
 	b _021D803C

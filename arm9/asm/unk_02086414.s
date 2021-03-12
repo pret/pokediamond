@@ -554,7 +554,7 @@ FUN_02086784: ; 0x02086784
 	mov r1, #0xf
 	bl FUN_02019620
 	add r0, r5, #0x0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r4-r7, pc}
 

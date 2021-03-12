@@ -2550,7 +2550,7 @@ MOD82_0222E988: ; 0x0222E988
 	mov r0, #0xda
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #0xd
 	str r0, [r4, #0x1c]
 	mov r0, #3
@@ -3141,7 +3141,7 @@ MOD82_0222EE28: ; 0x0222EE28
 	mov r0, #0xd9
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #0x1d
 	str r0, [r4, #0x1c]
 	mov r0, #3
@@ -3289,7 +3289,7 @@ MOD82_0222EF54: ; 0x0222EF54
 	mov r0, #0xda
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #0x20
 	str r0, [r4, #0x1c]
 	mov r0, #3

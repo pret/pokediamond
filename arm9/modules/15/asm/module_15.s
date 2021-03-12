@@ -5512,7 +5512,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	bl FUN_020136F8
 	add r5, #0x2c
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop

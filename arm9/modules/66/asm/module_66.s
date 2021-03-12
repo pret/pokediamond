@@ -1362,10 +1362,10 @@ _021D7F44:
 	mov r1, #1
 	bl AddTextPrinterParameterized
 	add r0, r7, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r4, #0x58
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #0
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -1784,7 +1784,7 @@ _021D8278:
 	bl String_dtor
 _021D82AA:
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1803,7 +1803,7 @@ MOD66_021D82B8: ; 0x021D82B8
 	mov r1, #0
 	bl FUN_02019620
 	add r0, r6, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r6, #0
 	bl FUN_02019570
 	add sp, #0x10
@@ -2117,7 +2117,7 @@ MOD66_021D84C8: ; 0x021D84C8
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r6, #0
 	bl String_dtor
 	add sp, #0x1c
@@ -2231,7 +2231,7 @@ MOD66_021D8554: ; 0x021D8554
 	bl FUN_02019620
 	add r0, r4, #0
 	add r0, #0x28
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r4, #0
 	add r0, #0x38
 	bl FUN_02019570

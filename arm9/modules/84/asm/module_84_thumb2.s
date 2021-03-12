@@ -581,7 +581,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	ldr r0, [r4, #0x24]
 	bl FUN_02019270
 	ldr r0, [r4, #0x24]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #0x4b
 	mov r1, #1
 	bl FUN_02018FF4

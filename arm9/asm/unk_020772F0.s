@@ -1036,7 +1036,7 @@ _02077594:
 	str r0, [r4, r1]
 	sub r1, #0x10
 	add r0, r4, r1
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, _020776AC ; =0x0000045C
 	mov r1, #0x6
 	str r1, [r4, r0]
@@ -3338,7 +3338,7 @@ FUN_02078894: ; 0x02078894
 	str r3, [sp, #0x8]
 	bl AddTextPrinterParameterized
 	add r0, r5, #0x0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0xc
 	pop {r4-r5, pc}
 
@@ -3371,7 +3371,7 @@ _020788DE:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0x0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x10
 	pop {r4-r6, pc}
 	nop
@@ -3560,7 +3560,7 @@ _020789D8:
 	bl FUN_020788C4
 	ldr r0, _02078B74 ; =0x00000438
 	add r0, r5, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _02078A90:
 	mov r0, #0x13
 	str r0, [sp, #0x0]
@@ -4717,7 +4717,7 @@ _0207936A:
 	mov r0, #0xfa
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	b _020793BC
 _0207939E:
 	mov r0, #0xc
@@ -5298,7 +5298,7 @@ _020797FC:
 	cmp r7, #0x5
 	blt _020797FC
 	add r0, r5, #0x0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x18
 	pop {r3-r7, pc}
 	.balign 4

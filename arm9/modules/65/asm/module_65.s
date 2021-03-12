@@ -1889,7 +1889,7 @@ _021D8392:
 	add r4, #0xe8
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD65_021D8280
 
@@ -1960,7 +1960,7 @@ _021D83D2:
 	mov r0, #0x52
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 _021D8434:
@@ -2148,7 +2148,7 @@ _021D8578:
 	bl MOD65_021D847C
 	add r0, r4, #0
 	add r0, #0xf8
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

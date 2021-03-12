@@ -17,8 +17,8 @@ extern void FUN_0201C238(struct TextPrinter *printer);
 extern u32 RenderFont(struct TextPrinter *printer);
 extern void FUN_0201C1A8(struct TextPrinter *printer);
 extern FUN_0201BFDC(); //no idea what this is
-extern void FUN_0201C05C(u8 fgColor, u8 bgColor, u8 shadowColor);
-extern void FUN_020191D0(u32 windowId);
+extern void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor);
+extern void CopyWindowToVram(u32 windowId);
 
 THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
 {
@@ -196,7 +196,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
         u32 j = 0;
         printer->textSpeedBottom = 0;
         printer->textSpeedTop = 0;
-        FUN_0201C05C(printerTemplate->fgColor, printerTemplate->bgColor, printerTemplate->shadowColor); //GenerateFontHalfRowLookupTable ?
+        GenerateFontHalfRowLookupTable(printerTemplate->fgColor, printerTemplate->bgColor, printerTemplate->shadowColor);
         for (; j < 0x400; ++j)
         {
             if (RenderFont(printer) == 1)
@@ -206,7 +206,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
         }
         if (speed != 0xff)
         {
-            FUN_020191D0(printer->printerTemplate.windowId); // CopyWindowToVram?
+            CopyWindowToVram(printer->printerTemplate.windowId); // CopyWindowToVram?
         }
         FUN_0201C238(printer);
         FreeToHeap((void *)printer);

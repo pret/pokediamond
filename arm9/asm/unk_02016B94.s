@@ -5283,8 +5283,8 @@ _020191C8:
 	bl FreeToHeap
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020191D0
-FUN_020191D0: ; 0x020191D0
+	thumb_func_start CopyWindowToVram
+CopyWindowToVram: ; 0x020191D0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020191DA
