@@ -10,7 +10,6 @@ env:
   CALCROM_DISCORD_WEBHOOK_USERNAME: OK
   CALCROM_WEBHOOK_URL: ${{ secrets.WEBHOOKURL }}
 
-
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -19,7 +18,7 @@ jobs:
       - name: Update and Install Software
         run: |
           sudo apt update
-          sudo apt -y --fix-missing upgrade
+          sudo ACCEPT_EULA=Y apt -y --fix-missing upgrade
           sudo apt -y install g++-8-multilib linux-libc-dev binutils-arm-none-eabi
           sudo dpkg --add-architecture i386
           wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -

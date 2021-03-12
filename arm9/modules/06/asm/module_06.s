@@ -11394,7 +11394,7 @@ _0223EEB8:
 	str r0, [r2, #0x5c]
 	ldr r0, [r1]
 	add r0, #0x20
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x34
 	pop {r3, r4}
 	pop {r3}
@@ -11857,7 +11857,7 @@ _0223F2AA:
 	ldr r0, _0223F330 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r4, #0
 	mov r1, #1
 	add r0, #0x97
@@ -12170,7 +12170,7 @@ _0223F53C:
 	ldr r0, _0223F580 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x20
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _0223F57A:
 	add sp, #8
 	pop {r3, pc}
@@ -12615,7 +12615,7 @@ _0223F910:
 	ldr r0, _0223F950 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #1
 	add r4, #0x97
 	strb r0, [r4]
@@ -14670,7 +14670,7 @@ _022409D2:
 	str r0, [r5]
 	add r5, #0x34
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -14859,7 +14859,7 @@ _02240B4A:
 	str r0, [r5, #4]
 	add r5, #0x44
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x34
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -15262,7 +15262,7 @@ _02240EE0:
 	ldr r0, [sp, #0x30]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x24]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -41077,7 +41077,7 @@ _0224D60C:
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r4, #0
 	add sp, #0x30
 	pop {r3, r4, r5, r6, r7, pc}
@@ -41877,7 +41877,7 @@ _0224DCEC:
 	bl AddTextPrinterParameterized2
 	str r0, [r5, #0xc]
 	ldr r0, [r5, #4]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	nop

@@ -290,7 +290,7 @@ _0200259E:
 	ldrb r0, [r4, #0x11]
 	ldrb r1, [r4, #0x12]
 	ldrb r2, [r4, #0x13]
-	bl FUN_0201C05C
+	bl GenerateFontHalfRowLookupTable
 	b _020026CA
 _020025B4:
 	ldr r0, [r4, #0x0]
@@ -309,7 +309,7 @@ _020025B4:
 	lsr r0, r0, #0x1f
 	beq _020026CA
 	ldr r0, [r4, #0x4]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	b _020026CA
 _020025DE:
 	ldr r0, [r4, #0x0]
@@ -570,7 +570,7 @@ _020027F2:
 	add r0, #0x27
 	strb r1, [r0, #0x0]
 	ldr r0, [r4, #0x4]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	b _02002806
 _02002800:
 	mov r0, #0x0

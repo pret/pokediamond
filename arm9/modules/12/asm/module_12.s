@@ -15228,7 +15228,7 @@ MOD12_02234EFC: ; 0x02234EFC
 	bl FUN_02019620
 	add r4, #0x34
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	pop {r4, pc}
 	.align 2, 0
 
@@ -15294,7 +15294,7 @@ _02234F42:
 	strb r0, [r5, r1]
 	add r0, r5, #0
 	add r0, #0x34
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _02234F96:
 	ldr r0, [r5, #0x30]
 	mov r1, #1
@@ -47017,7 +47017,7 @@ _022440EE:
 	bl FUN_02019620
 	ldr r0, [r4]
 	add r0, #0x34
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r6, #0
 	add r5, r6, #0
 	mov r7, #6

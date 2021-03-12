@@ -8257,7 +8257,7 @@ MOD83_022317A8: ; 0x022317A8
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -9162,7 +9162,7 @@ _02231EBE:
 	bl String_dtor
 _02231F20:
 	add r0, r6, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r1, [r4, #0xc]
 	ldr r0, [r4, #0x10]
 	mul r0, r1
@@ -10697,7 +10697,7 @@ _02232B94:
 	bl FUN_02019620
 	ldr r0, _02232D1C ; =0x00002AA8
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, _02232D18 ; =0x00002BD0
 	mov r1, #0
 	str r1, [r4, r0]
@@ -11191,7 +11191,7 @@ _02232FAE:
 	cmp r6, #0
 	beq _02232FB8
 	ldr r0, [sp, #0x10]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _02232FB8:
 	ldr r0, [sp, #0x1c]
 	bl DestroyMsgData
@@ -11260,7 +11260,7 @@ MOD83_02232FE4: ; 0x02232FE4
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r6, #0
 	bl String_dtor
 	ldr r0, _02233078 ; =0x000029A4
@@ -15626,7 +15626,7 @@ _0223507A:
 	tst r0, r4
 	bne _02235086
 	ldr r0, [r5]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _02235086:
 	mov r0, #8
 	tst r0, r4
@@ -17219,7 +17219,7 @@ _02235C5C:
 	cmp r4, #0
 	bne _02235CCA
 	ldr r0, [sp, #0x2c]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x78
 	pop {r3, r4, r5, r6, r7, pc}
 _02235CCA:

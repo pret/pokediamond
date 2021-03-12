@@ -309,47 +309,47 @@ _02021798: ; jump table (using 16-bit offset)
 _020217A0:
 	add r0, r4, r5
 	add r1, r6, #0x0
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	b _02021802
 _020217AA:
 	add r0, r4, r5
 	add r1, r6, #0x0
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, r5
 	add r1, r6, #0x0
 	add r0, #0x10
 	add r1, #0x40
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	b _02021802
 _020217C0:
 	add r0, r4, r5
 	add r1, r6, #0x0
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, r5
 	add r1, r6, #0x0
 	add r0, #0x10
 	add r1, #0x20
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	b _02021802
 _020217D6:
 	add r0, r4, r5
 	add r1, r6, #0x0
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, r5
 	add r1, r6, #0x0
 	add r0, #0x10
 	add r1, #0x20
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, r5
 	add r1, r6, #0x0
 	add r0, #0x20
 	add r1, #0x40
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, r5
 	add r1, r6, #0x0
 	add r0, #0x30
 	add r1, #0x60
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 _02021802:
 	ldr r1, [sp, #0x0]
 	ldr r2, [r7, #0x70]
@@ -400,50 +400,50 @@ _02021856:
 	add r0, r4, #0x0
 	add r0, #0x14
 	add r1, r5, #0x0
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	b _020218C0
 _02021862:
 	add r0, r4, #0x0
 	add r0, #0x14
 	add r1, r5, #0x0
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r0, #0x24
 	add r1, #0x40
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	b _020218C0
 _0202187A:
 	add r0, r4, #0x0
 	add r0, #0x14
 	add r1, r5, #0x0
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r0, #0x24
 	add r1, #0x20
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	b _020218C0
 _02021892:
 	add r0, r4, #0x0
 	add r0, #0x14
 	add r1, r5, #0x0
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r0, #0x24
 	add r1, #0x20
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r0, #0x34
 	add r1, #0x40
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r0, #0x44
 	add r1, #0x60
-	bl FUN_0201C100
+	bl DecompressGlyphTile
 _020218C0:
 	ldr r2, [r4, #0x70]
 	add r0, r4, #0x0

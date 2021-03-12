@@ -2104,7 +2104,7 @@ _021D8660:
 	mov r0, #0xb2
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	b _021D86BA
 _021D8672:
 	add r0, r5, #0
@@ -2125,7 +2125,7 @@ _021D8672:
 	mov r0, #0xb2
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	bl FUN_02031190
 	cmp r0, #0
 	bne _021D86BA
@@ -2827,7 +2827,7 @@ _021D8C22:
 	mov r0, #0xb2
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _021D8C32:
 	mov r0, #0x92
 	lsl r0, r0, #2
@@ -3245,7 +3245,7 @@ _021D8F0A:
 	cmp r0, #0
 	beq _021D8F2A
 	ldr r0, [sp, #0x10]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _021D8F2A:
 	ldr r0, [sp, #0x14]
 	ldr r1, [sp, #0x18]
@@ -3477,7 +3477,7 @@ _021D90C0:
 	bl AddTextPrinterParameterized2
 _021D90DC:
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r6, r6, #1
 	add r7, #8
 	add r4, r4, #4

@@ -122,7 +122,7 @@ _020481E6:
 _020481F2:
 	add r0, r4, #0x0
 	add r0, #0xc
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r1, _02048210 ; =FUN_02048214
 	add r0, r6, #0x0
 	add r2, r4, #0x0

@@ -170,7 +170,7 @@ _020011AC:
 	mov r1, #0x1
 	bl FUN_02001B64
 	ldr r0, [r5, #0xc]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -353,7 +353,7 @@ FUN_02001328: ; 0x02001328
 	add r0, r4, #0x0
 	bl FUN_020017AC
 	ldr r0, [r4, #0xc]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	pop {r4, pc}
 	.balign 4
 
@@ -1473,7 +1473,7 @@ _02001B1A:
 	mov r1, #0x0
 	bl FUN_02001B64
 	ldr r0, [r4, #0xc]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	b _02001B5E
 _02001B38:
 	ldr r1, [sp, #0xc]
@@ -1489,7 +1489,7 @@ _02001B38:
 	mov r1, #0x0
 	bl FUN_02001B64
 	ldr r0, [r4, #0xc]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _02001B5E:
 	mov r0, #0x0
 	add sp, #0x10

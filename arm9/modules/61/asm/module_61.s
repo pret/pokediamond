@@ -1488,7 +1488,7 @@ _021D80BE:
 	cmp r4, #5
 	bge _021D80D0
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _021D80D0:
 	add r4, r4, #1
 	add r5, #0x10
@@ -1561,7 +1561,7 @@ _021D8122:
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r6, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _021D8164:
 	add r7, r7, #1
 	add r5, #8
@@ -1622,7 +1622,7 @@ _021D8196:
 	ldr r1, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	add r0, r0, r1
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r6, r6, #1
 	cmp r6, #2
 	blt _021D8196
@@ -1646,7 +1646,7 @@ _021D81F8:
 	bl AddTextPrinterParameterized2
 	add r4, #0x74
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

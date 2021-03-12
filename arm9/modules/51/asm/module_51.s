@@ -167,7 +167,7 @@ _02254960:
 	mov r1, #0
 	bl FUN_02019620
 	add r0, r5, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, [sp, #0x18]
 	add r2, r4, #4
 	lsl r0, r0, #0x18
@@ -196,7 +196,7 @@ _02254960:
 	bl FUN_02019620
 	add r0, r5, #0
 	add r0, #0x10
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -224,7 +224,7 @@ _02254960:
 	bl FUN_02019620
 	add r0, r5, #0
 	add r0, #0x20
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, [sp, #0x20]
 	add r4, r4, #1
 	add r0, #0x10

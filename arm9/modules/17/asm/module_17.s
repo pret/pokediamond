@@ -4734,7 +4734,7 @@ MOD17_021D9918: ; 0x021D9918
 	bl DestroyMsgData
 	ldr r0, _021D99D4 ; =0x000006A8
 	ldr r0, [r5, r0]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -4792,7 +4792,7 @@ MOD17_021D99E0: ; 0x021D99E0
 	bl DestroyMsgData
 	ldr r0, _021D9A58 ; =0x000006A8
 	ldr r0, [r5, r0]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -4871,7 +4871,7 @@ _021D9AD0:
 	bl DestroyMsgData
 	ldr r0, _021D9B08 ; =0x000006A8
 	ldr r0, [r5, r0]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r6, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -11828,7 +11828,7 @@ MOD17_021DCC68: ; 0x021DCC68
 	bl FUN_0200D0BC
 _021DCCCC:
 	ldr r0, [r5]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -12423,7 +12423,7 @@ _021DD0D0:
 	mov r3, #5
 	bl MOD17_021DCD80
 	ldr r0, [r7, #0x18]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x60
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -14327,7 +14327,7 @@ _021DDFD0:
 	mov r0, #0x19
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	pop {r4, pc}
 	thumb_func_end MOD17_021DDFAC
 

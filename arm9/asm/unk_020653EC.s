@@ -2129,7 +2129,7 @@ _0206649E:
 	strb r0, [r5, r1]
 	add r1, #0x4c
 	add r0, r5, r1
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, _020664D4 ; =0x00000139
 	strb r7, [r5, r0]
 	add sp, #0x10

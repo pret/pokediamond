@@ -1078,7 +1078,7 @@
 .extern FUN_02019150
 .extern FUN_02019178
 .extern FUN_020191A4
-.extern FUN_020191D0
+.extern CopyWindowToVram
 .extern FUN_02019220
 .extern FUN_02019270
 .extern FUN_0201928C
@@ -1153,15 +1153,15 @@
 .extern MTX22_2DAffine
 .extern CircularDistance
 .extern MathUtil_0201BC84
-.extern FUN_0201BCBC
+.extern SetFontsPointer
 .extern FUN_0201BD5C
 .extern FUN_0201BD70
 .extern FUN_0201BD7C
 .extern AddTextPrinterParameterized
 .extern AddTextPrinterParameterized2
 .extern AddTextPrinterParameterized3
-.extern FUN_0201C05C
-.extern FUN_0201C100
+.extern GenerateFontHalfRowLookupTable
+.extern DecompressGlyphTile
 .extern FUN_0201C1EC
 .extern FUN_0201C24C
 .extern FUN_0201C29C

@@ -308,7 +308,7 @@ FUN_0200CCA4: ; 0x0200CCA4
 	cmp r4, #0x0
 	bne _0200CCF4
 	add r0, r5, #0x0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _0200CCF4:
 	add sp, #0x20
 	pop {r3-r7, pc}
@@ -791,7 +791,7 @@ FUN_0200D0BC: ; 0x0200D0BC
 	cmp r4, #0x0
 	bne _0200D0D6
 	add r0, r5, #0x0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _0200D0D6:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -1622,7 +1622,7 @@ _0200D788:
 	cmp r0, #0x0
 	bne _0200D794
 	add r0, r5, #0x0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 _0200D794:
 	add r0, r5, #0x0
 	add r1, r4, #0x0

@@ -2890,7 +2890,7 @@ _021D8BE4:
 	cmp r0, #5
 	blt _021D8B2A
 	add r0, r6, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #1
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}

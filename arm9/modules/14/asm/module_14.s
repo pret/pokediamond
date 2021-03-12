@@ -22720,7 +22720,7 @@ MOD14_021E26E4: ; 0x021E26E4
 	bl AddTextPrinterParameterized2
 	ldr r0, [r5, #0x10]
 	add r0, #0x20
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r5, #0
 	add r1, r6, #0
 	bl MOD14_021E2940
@@ -24687,7 +24687,7 @@ MOD14_021E355C: ; 0x021E355C
 	bl FUN_02019620
 	add r0, r4, #0
 	add r0, #0x88
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r4, #0
 	bl MOD14_021E4764
 	mov r0, #0x60

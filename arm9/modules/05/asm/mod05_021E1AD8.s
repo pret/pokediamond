@@ -1334,7 +1334,7 @@ _021E2496:
 	add r0, #8
 	add r1, #0xa8
 	str r0, [r1]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, _021E253C ; =MOD05_021E25A4
 	add r1, r5, #0
 	mov r2, #0

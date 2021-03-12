@@ -171,7 +171,7 @@ _02083D9C:
 	mov r0, #0xb2
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	pop {r3-r5, pc}
 _02083DBA:
 	ldr r1, _02083DEC ; =0x000043CC

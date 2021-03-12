@@ -1059,7 +1059,7 @@ MOD74_021D7C10: ; 0x021D7C10
 	add r0, r4, #0
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -1425,7 +1425,7 @@ _021D7FC0:
 	blt _021D7FA4
 _021D7FF0:
 	ldr r0, [sp, #0x14]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -1607,7 +1607,7 @@ _021D813C:
 _021D8172:
 	add r0, r4, #0
 	add r0, #0x8c
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r4, #0
 	mov r1, #0
 	bl MOD74_021D8388

@@ -1077,13 +1077,13 @@ _021D7DB6:
 	blo _021D7DB6
 	add r0, r6, #0
 	add r0, #0x2c
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r6, #0
 	add r0, #0x3c
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r6, #0x4c
 	add r0, r6, #0
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add r0, r5, #0
 	bl String_dtor
 	add sp, #0x10
@@ -1238,7 +1238,7 @@ MOD60_021D7EA4: ; 0x021D7EA4
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	add r0, #0x3c
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	ldr r0, [sp, #0x10]
 	ldr r1, [r0, #0x10]
 	mov r0, #2
@@ -1365,7 +1365,7 @@ _021D8002:
 	ldr r0, [sp, #0x10]
 	add r0, #0x3c
 	str r0, [sp, #0x10]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

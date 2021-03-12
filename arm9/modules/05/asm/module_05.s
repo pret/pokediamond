@@ -15281,7 +15281,7 @@ _021EFF54:
 	str r0, [r5, #4]
 	add r0, r5, #0
 	add r0, #0x20
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #9
 	str r0, [r5, #0x48]
 	mov r0, #0

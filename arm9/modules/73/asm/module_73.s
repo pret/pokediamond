@@ -6114,7 +6114,7 @@ _021DA446:
 	mov r1, #1
 	bl AddTextPrinterParameterized2
 	ldr r0, [r5, #8]
-	bl FUN_020191D0
+	bl CopyWindowToVram
 	mov r0, #2
 	mov r1, #1
 	bl FUN_0201E6E4
