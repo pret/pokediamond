@@ -56,7 +56,7 @@ struct FontInfo
 };
 
 void SetFontsPointer(const struct FontInfo *fonts);
-u8 FUN_0201BCC8(void *func, struct TextPrinter *printer, u32 param2);
+u8 FUN_0201BCC8(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2);
 void FUN_0201BCFC(u32 param0);
 BOOL FUN_0201BD44(u32 param0);
 void FUN_0201BD5C(void);
@@ -67,5 +67,7 @@ u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *str, u32 x,
 u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16));
 u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));
 void RunTextPrinter(u32 param0, struct TextPrinter *printer);
+u32 RenderFont(struct TextPrinter *printer);
+void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor);
 
 #endif //POKEDIAMOND_TEXT_H

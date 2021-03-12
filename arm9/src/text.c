@@ -8,23 +8,23 @@ u8 UNK_021C5734[0x200];
 u32 UNK_021C5714[8];
 u8 UNK_021C570C[8];
 
-extern u32 FUN_0200CA7C(void *func, struct TextPrinter *printer, u32 param2);
+extern u32 FUN_0200CA7C(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2);
 
 extern struct TextPrinter *FUN_0201B6C8(void);
 extern void FUN_0200CAB4(u32 param0);
 extern void FUN_0201C238(struct TextPrinter *printer);
 
-extern u32 RenderFont(struct TextPrinter *printer);
 extern void FUN_0201C1A8(struct TextPrinter *printer);
-extern void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor);
 extern void CopyWindowToVram(u32 windowId);
+
+extern u32 FontFunc(u8 fontId, struct TextPrinter *printer);
 
 THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
 {
     gFonts = fonts;
 }
 
-THUMB_FUNC u8 FUN_0201BCC8(void *func, struct TextPrinter *printer, u32 param2)
+THUMB_FUNC u8 FUN_0201BCC8(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2)
 {
     u32 *r4 = UNK_021C5714;
     s32 i;
@@ -233,7 +233,7 @@ THUMB_FUNC void RunTextPrinter(u32 param0, struct TextPrinter *printer)
                     {
                         return;
                     }
-                    printer->Unk29 = printer->callback(&printer->printerTemplate, printer->Unk2A); //TODO check
+                    printer->Unk29 = printer->callback(&printer->printerTemplate, printer->Unk2A);
                     return;
                 case 1:
                     FUN_0201BCFC(printer->minLetterSpacing);
@@ -248,3 +248,253 @@ THUMB_FUNC void RunTextPrinter(u32 param0, struct TextPrinter *printer)
         }
     }
 }
+
+THUMB_FUNC u32 RenderFont(struct TextPrinter *printer)
+{
+    u32 ret;
+    while (TRUE)
+    {
+        ret = FontFunc(printer->printerTemplate.fontId, printer);
+        if (ret != 2)
+        {
+            return ret;
+        }
+    }
+}
+
+#ifdef NONMATCHING
+THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor)
+{
+    u32 fg12, bg12, shadow12;
+    u32 temp;
+
+    u16 *current = UNK_021C570C;
+
+    bg12 = bgColor << 12;
+    fg12 = fgColor << 12;
+    shadow12 = shadowColor << 12;
+
+    temp = (bgColor << 8) | (bgColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (bgColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (bgColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (bgColor << 8) | (fgColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (fgColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (fgColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (bgColor << 8) | (shadowColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (shadowColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (shadowColor << 4) | bgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (bgColor << 8) | (bgColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (bgColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (bgColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (bgColor << 8) | (fgColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (fgColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (fgColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (bgColor << 8) | (shadowColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (shadowColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (shadowColor << 4) | fgColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (bgColor << 8) | (bgColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (bgColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (bgColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (bgColor << 8) | (fgColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (fgColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (fgColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (bgColor << 8) | (shadowColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (fgColor << 8) | (shadowColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+
+    temp = (shadowColor << 8) | (shadowColor << 4) | shadowColor;
+    *(current++) = (bg12) | temp;
+    *(current++) = (fg12) | temp;
+    *(current++) = (shadow12) | temp;
+}
+#else
+THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor) //TODO use asm preprocessor
+{
+    asm {
+    // push {r3-r7, lr}
+    sub sp, #0x30
+    ldr r3, =UNK_021C570C
+    mov r5, #0x0
+    str r5, [sp, #0x20]
+    str r0, [sp, #0x24]
+    str r2, [sp, #0x28]
+    str r1, [sp, #0x2c]
+    strh r1, [r3, #0x6]
+    strh r0, [r3, #0x2]
+    add r0, sp, #0x20
+    strh r2, [r3, #0x4]
+    str r5, [sp, #0x14]
+    str r0, [sp, #0x8]
+    mov r12, r0
+    mov lr, r0
+    str r0, [sp, #0x18]
+    _0201C07E:
+    mov r0, #0x0
+    str r0, [sp, #0x10]
+    ldr r0, [sp, #0x18]
+    str r0, [sp, #0x4]
+    ldr r0, [sp, #0x8]
+    ldr r0, [r0, #0x0]
+    str r0, [sp, #0x1c]
+    _0201C08C:
+    mov r0, #0x0
+    str r0, [sp, #0xc]
+    mov r0, lr
+    str r0, [sp, #0x0]
+    ldr r0, [sp, #0x4]
+    ldr r0, [r0, #0x0]
+    lsl r7, r0, #0x4
+    _0201C09A:
+    ldr r0, [sp, #0x0]
+    mov r3, #0x0
+    ldr r0, [r0, #0x0]
+    mov r4, r12
+    lsl r6, r0, #0x8
+    _0201C0A4:
+    ldr r0, [r4, #0x0]
+    add r1, r7, #0x0
+    lsl r0, r0, #0xc
+    orr r0, r6
+    orr r1, r0
+    ldr r0, [sp, #0x1c]
+    add r3, r3, #0x1
+    add r2, r0, #0x0
+    orr r2, r1
+    lsl r1, r5, #0x1
+    ldr r0, =UNK_021C5734
+    add r5, r5, #0x1
+    add r4, r4, #0x4
+    strh r2, [r0, r1]
+    cmp r3, #0x4
+    blt _0201C0A4
+    ldr r0, [sp, #0x0]
+    add r0, r0, #0x4
+    str r0, [sp, #0x0]
+    ldr r0, [sp, #0xc]
+    add r0, r0, #0x1
+    str r0, [sp, #0xc]
+    cmp r0, #0x4
+    blt _0201C09A
+    ldr r0, [sp, #0x4]
+    add r0, r0, #0x4
+    str r0, [sp, #0x4]
+    ldr r0, [sp, #0x10]
+    add r0, r0, #0x1
+    str r0, [sp, #0x10]
+    cmp r0, #0x4
+    blt _0201C08C
+    ldr r0, [sp, #0x8]
+    add r0, r0, #0x4
+    str r0, [sp, #0x8]
+    ldr r0, [sp, #0x14]
+    add r0, r0, #0x1
+    str r0, [sp, #0x14]
+    cmp r0, #0x4
+    blt _0201C07E
+    add sp, #0x30
+    // pop {r3-r7, pc}
+    }
+}
+#endif

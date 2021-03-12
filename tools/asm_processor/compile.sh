@@ -14,6 +14,6 @@ cat ../include/macros.inc >> "$prelude"
 cat global.inc >> "$prelude"
 
 ../tools/asm_processor/asm_processor.py "$2" --post-process "$1" --assembler "$AS" --asm-prelude "$prelude"
-$DEVKITARM/bin/arm-none-eabi-objcopy --remove-section .comment "$1" "$1"
+arm-none-eabi-objcopy --remove-section .comment "$1" "$1"
 rm "$prelude"
 rm "$temp"
