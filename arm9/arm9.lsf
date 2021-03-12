@@ -56,7 +56,6 @@ Static arm9
 	Object unk_0201B8B8.o
 	Object math_util.o
 	Object text.o
-	Object unk_0201BCBC.o
 	Object unk_0201C24C.o
 	Object unk_0201C360.o
 	Object unk_0201C620.o

@@ -1161,7 +1161,7 @@
 .extern AddTextPrinterParameterized2
 .extern AddTextPrinterParameterized3
 .extern GenerateFontHalfRowLookupTable
-.extern FUN_0201C100
+.extern DecompressGlyphTile
 .extern FUN_0201C1EC
 .extern FUN_0201C24C
 .extern FUN_0201C29C

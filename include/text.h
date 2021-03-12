@@ -19,9 +19,16 @@ struct TextPrinterTemplate
     u8 fgColor;
     u8 bgColor;
     u8 shadowColor;
-    u16 unk2;
-    u8 unk3;
-    u8 unk4;
+    union
+    {
+        struct
+        {
+            u16 unk2;
+            u8 unk3;
+            u8 unk4;
+        };
+        u32 Unk20; //todo this can't be right
+    };
 };
 
 struct TextPrinter
@@ -40,7 +47,7 @@ struct TextPrinter
     u8 minLetterSpacing;  // 0x20
     u8 Unk29; // used to be japanese, not sure about that anymore
     u16 Unk2A;
-    u8 padding[4];
+    void *Unk2C;
 };
 
 struct FontInfo
@@ -69,5 +76,10 @@ u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*
 void RunTextPrinter(u32 param0, struct TextPrinter *printer);
 u32 RenderFont(struct TextPrinter *printer);
 void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor);
+void DecompressGlyphTile(const u16 *src, u16 *dst);
+void FUN_0201C1A8(struct TextPrinter *printer);
+void *FUN_0201C1B0(void);
+void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2, u32 param3);
+void FUN_0201C238(struct TextPrinter *printer);
 
 #endif //POKEDIAMOND_TEXT_H
