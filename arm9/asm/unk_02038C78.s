@@ -149,25 +149,25 @@ UNK_020F3538: ; 0x020F3538
 
     .global gScriptCmdTable
 gScriptCmdTable: ; 0x020F355C
-    .word ScrCmd_nop
-    .word ScrCmd_nop2
-    .word ScrCmd_end
-    .word ScrCmd_delay
-    .word ScrCmd_loadbyte
-    .word ScrCmd_loadword
-    .word ScrCmd_loadbytefromaddr
-    .word ScrCmd_writebytetoaddr
-    .word ScrCmd_setptrbyte
-    .word ScrCmd_copylocal
-    .word ScrCmd_copybyte
-    .word ScrCmd_compare_local_to_local
-    .word ScrCmd_compare_local_to_value
-    .word ScrCmd_compare_local_to_addr
-    .word ScrCmd_compare_addr_to_local
-    .word ScrCmd_compare_addr_to_value
-    .word ScrCmd_compare_addr_to_addr
-    .word ScrCmd_compare_var_to_value
-    .word ScrCmd_compare_var_to_var
+    .word ScrCmd_Nop
+    .word ScrCmd_Dummy
+    .word ScrCmd_End
+    .word ScrCmd_Wait
+    .word ScrCmd_LoadByte
+    .word ScrCmd_LoadWord
+    .word ScrCmd_LoadByteFromAddr
+    .word ScrCmd_WriteByteToAddr
+    .word ScrCmd_SetPtrByte
+    .word ScrCmd_CopyLocal
+    .word ScrCmd_CopyByte
+    .word ScrCmd_CompareLocalToLocal
+    .word ScrCmd_CompareLocalToValue
+    .word ScrCmd_CompareLocalToAddr
+    .word ScrCmd_CompareAddrToLocal
+    .word ScrCmd_CompareAddrToValue
+    .word ScrCmd_CompareAddrToAddr
+    .word ScrCmd_CompareVarToValue
+    .word ScrCmd_CompareVarToVar
     .word FUN_02039C40
     .word FUN_02039C78
     .word FUN_02039CE4
@@ -299,7 +299,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203B81C
     .word FUN_0203B85C
     .word FUN_0203B8A0
-    .word ScrCmd_givemon
+    .word ScrCmd_GiveMon
     .word ScrCmd_giveegg
     .word ScrCmd_setpartymonmove
     .word ScrCmd_partymonhasmove
@@ -654,7 +654,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_countpartymonsatorbelowlevel
     .word ScrCmd_survivepsn
     .word FUN_0203BC2C
-    .word FUN_02039A10
+    .word ScrCmd_DebugWatch
     .word ScrCmd_message_from
     .word FUN_0203A098
     .word FUN_0203A0FC

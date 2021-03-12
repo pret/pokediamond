@@ -10,7 +10,7 @@ extern u16 VarGet(struct UnkStruct_0204639C* arg, u16 wk);
 extern u16 *GetVarPointer(struct UnkStruct_0204639C* arg, u16);
 extern BOOL GiveMon(u32 heap_id, struct SaveBlock2 * sav2, u16 species, u8 level, u16 item, u32 mapSec, u8 encounterType);
 
-THUMB_FUNC BOOL ScrCmd_givemon(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GiveMon(struct ScriptContext* ctx)
 {
     u32 mapSec = FUN_02034824(*(ctx->unk80->unk1C));
     struct UnkStruct_0204639C *savePtr = ctx->unk80;

@@ -15,7 +15,7 @@ struct ScriptContext
     u8 stackDepth;
     u8 mode;
     u8 comparisonResult;
-    u8 (*nativePtr)(struct ScriptContext *);
+    BOOL (*nativePtr)(struct ScriptContext *);
     const u8 *scriptPtr;
     const u8 *stack[20];
     ScrCmdFunc *cmdTable;
@@ -31,7 +31,7 @@ struct ScriptContext
 
 void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount);
 u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr);
-void SetupNativeScript(struct ScriptContext *ctx, u8 (*ptr)(struct ScriptContext *));
+void SetupNativeScript(struct ScriptContext *ctx, BOOL (*ptr)(struct ScriptContext *));
 void StopScript(struct ScriptContext *ctx);
 void FUN_02038B6C(struct ScriptContext *ctx, s32 r1);
 u8 RunScriptCommand(struct ScriptContext *ctx);
