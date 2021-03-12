@@ -16,7 +16,6 @@ extern void FUN_0201C238(struct TextPrinter *printer);
 
 extern u32 RenderFont(struct TextPrinter *printer);
 extern void FUN_0201C1A8(struct TextPrinter *printer);
-extern FUN_0201BFDC(); //no idea what this is
 extern void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor);
 extern void CopyWindowToVram(u32 windowId);
 
@@ -91,7 +90,7 @@ THUMB_FUNC void FUN_0201BD7C(u32 param0)
     FUN_0201BCFC(param0);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, void (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
@@ -114,7 +113,7 @@ THUMB_FUNC u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *s
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, void (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
@@ -137,7 +136,7 @@ THUMB_FUNC u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, void (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
@@ -160,7 +159,7 @@ THUMB_FUNC u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, void (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     if (!gFonts)
         return 0xff;
@@ -172,7 +171,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
     printer->textSpeedBottom = (u8)speed;
     printer->delayCounter = 0;
     printer->scrollDistance = 0;
-    printer->japanese = 0;
+    printer->Unk29 = 0;
 
     for (s32 i = 0; i < 7; i++)
     {
@@ -188,7 +187,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
     {
         printer->textSpeedBottom += 0xff;
         printer->textSpeedTop = 1;
-        printer->minLetterSpacing = FUN_0201BCC8(FUN_0201BFDC, printer, 1);
+        printer->minLetterSpacing = FUN_0201BCC8(RunTextPrinter, printer, 1);
         return printer->minLetterSpacing;
     }
     else
@@ -211,5 +210,41 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
         FUN_0201C238(printer);
         FreeToHeap((void *)printer);
         return 8;
+    }
+}
+
+THUMB_FUNC void RunTextPrinter(u32 param0, struct TextPrinter *printer)
+{
+#pragma unused(param0)
+    if (UNK_021C570C[0] == 0)
+    {
+        if (printer->Unk29 == 0)
+        {
+            printer->Unk2A = 0;
+            GenerateFontHalfRowLookupTable(printer->printerTemplate.fgColor, printer->printerTemplate.bgColor, printer->printerTemplate.shadowColor);
+            u32 temp = RenderFont(printer);
+            switch (temp)
+            {
+                case 0:
+                    CopyWindowToVram(printer->printerTemplate.windowId);
+                    //fallthrough
+                case 3:
+                    if (printer->callback == NULL)
+                    {
+                        return;
+                    }
+                    printer->Unk29 = printer->callback(&printer->printerTemplate, printer->Unk2A); //TODO check
+                    return;
+                case 1:
+                    FUN_0201BCFC(printer->minLetterSpacing);
+                    return;
+                default:
+                    return;
+            }
+        }
+        else
+        {
+            printer->Unk29 = printer->callback(&printer->printerTemplate, printer->Unk2A);
+        }
     }
 }

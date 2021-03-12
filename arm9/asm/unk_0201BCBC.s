@@ -11,64 +11,6 @@
 
 	.text
 
-	thumb_func_start FUN_0201BFDC
-FUN_0201BFDC: ; 0x0201BFDC
-	push {r4, lr}
-	ldr r0, _0201C044 ; =UNK_021C570C
-	add r4, r1, #0x0
-	ldrb r0, [r0, #0x0]
-	cmp r0, #0x0
-	bne _0201C042
-	add r0, r4, #0x0
-	add r0, #0x29
-	ldrb r0, [r0, #0x0]
-	cmp r0, #0x0
-	bne _0201C036
-	mov r0, #0x0
-	strh r0, [r4, #0x2a]
-	ldrb r0, [r4, #0x11]
-	ldrb r1, [r4, #0x12]
-	ldrb r2, [r4, #0x13]
-	bl GenerateFontHalfRowLookupTable
-	add r0, r4, #0x0
-	bl RenderFont
-	cmp r0, #0x0
-	beq _0201C014
-	cmp r0, #0x1
-	beq _0201C02C
-	cmp r0, #0x3
-	beq _0201C01A
-	pop {r4, pc}
-_0201C014:
-	ldr r0, [r4, #0x4]
-	bl CopyWindowToVram
-_0201C01A:
-	ldr r2, [r4, #0x18]
-	cmp r2, #0x0
-	beq _0201C042
-	ldrh r1, [r4, #0x2a]
-	add r0, r4, #0x0
-	blx r2
-	add r4, #0x29
-	strb r0, [r4, #0x0]
-	pop {r4, pc}
-_0201C02C:
-	add r4, #0x28
-	ldrb r0, [r4, #0x0]
-	bl FUN_0201BCFC
-	pop {r4, pc}
-_0201C036:
-	ldrh r1, [r4, #0x2a]
-	ldr r2, [r4, #0x18]
-	add r0, r4, #0x0
-	blx r2
-	add r4, #0x29
-	strb r0, [r4, #0x0]
-_0201C042:
-	pop {r4, pc}
-	.balign 4
-_0201C044: .word UNK_021C570C
-
 	thumb_func_start RenderFont
 RenderFont: ; 0x0201C048
 	push {r4, lr}

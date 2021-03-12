@@ -28,7 +28,7 @@ struct TextPrinter
 {
     struct TextPrinterTemplate printerTemplate;
 
-    void (*callback)(struct TextPrinterTemplate *, u16); // 0x10
+    u8 (*callback)(struct TextPrinterTemplate *, u16); // 0x10
 
     u8 subStructFields[7]; // always cast to struct TextPrinterSubStruct... so why bother
     u8 active;
@@ -38,8 +38,9 @@ struct TextPrinter
     u8 delayCounter;
     u8 scrollDistance;
     u8 minLetterSpacing;  // 0x20
-    u8 japanese;
-    u8 padding[6];
+    u8 Unk29; // used to be japanese, not sure about that anymore
+    u16 Unk2A;
+    u8 padding[4];
 };
 
 struct FontInfo
@@ -61,9 +62,10 @@ BOOL FUN_0201BD44(u32 param0);
 void FUN_0201BD5C(void);
 u8 FUN_0201BD70(u32 param0);
 void FUN_0201BD7C(u32 param0);
-u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, void (*callback)(struct TextPrinterTemplate *, u16));
-u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, void (*callback)(struct TextPrinterTemplate *, u16));
-u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, void (*callback)(struct TextPrinterTemplate *, u16));
-u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, void (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));
+void RunTextPrinter(u32 param0, struct TextPrinter *printer);
 
 #endif //POKEDIAMOND_TEXT_H
