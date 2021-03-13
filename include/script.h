@@ -22,7 +22,7 @@ struct ScriptContext
     u32 cmdCount;
     u32 data[4];
 	u32 unk74;
-	struct MsgData * unk78;
+	struct MsgData * msgData;
 	u8 *unk7C;
     struct UnkStruct_0204639C * unk80;
 };

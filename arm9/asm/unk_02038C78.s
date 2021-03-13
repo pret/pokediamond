@@ -168,31 +168,31 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_CompareAddrToAddr
     .word ScrCmd_CompareVarToValue
     .word ScrCmd_CompareVarToVar
-    .word FUN_02039C40
-    .word FUN_02039C78
-    .word FUN_02039CE4
-    .word ScrCmd_goto
-    .word FUN_02039D10
-    .word FUN_02039D48
-    .word FUN_02039D78
-    .word ScrCmd_call
-    .word ScrCmd_return
-    .word ScrCmd_goto_if
-    .word ScrCmd_call_if
-    .word ScrCmd_setflag
-    .word ScrCmd_clearflag
-    .word ScrCmd_checkflag
-    .word FUN_02039E84
-    .word FUN_02039EC0
-    .word ScrCmd_settrainerflag
-    .word ScrCmd_cleartrainerflag
-    .word ScrCmd_checktrainerflag
-    .word ScrCmd_addvar
-    .word ScrCmd_subvar
-    .word ScrCmd_setvar
-    .word ScrCmd_copyvar
-    .word ScrCmd_setorcopyvar
-    .word ScrCmd_message
+    .word ScrCmd_RunScript
+    .word ScrCmd_RunScriptWait
+    .word ScrCmd_RestartCurrentScript
+    .word ScrCmd_GoTo
+    .word ScrCmd_ObjectGoTo
+    .word ScrCmd_BgGoTo
+    .word ScrCmd_DirectionGoTo
+    .word ScrCmd_Call
+    .word ScrCmd_Return
+    .word ScrCmd_GoToIf
+    .word ScrCmd_CallIf
+    .word ScrCmd_SetFlag
+    .word ScrCmd_ClearFlag
+    .word ScrCmd_CheckFlag
+    .word ScrCmd_CheckFlagVar
+    .word ScrCmd_SetFlagVar
+    .word ScrCmd_SetTrainerFlag
+    .word ScrCmd_ClearTrainerFlag
+    .word ScrCmd_CheckTrainerFlag
+    .word ScrCmd_AddVar
+    .word ScrCmd_SubVar
+    .word ScrCmd_SetVar
+    .word ScrCmd_CopyVar
+    .word ScrCmd_SetOrCopyVar
+    .word ScrCmd_Message
     .word FUN_0203A2C4
     .word FUN_0203A304
     .word FUN_0203A388
