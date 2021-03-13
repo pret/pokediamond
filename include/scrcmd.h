@@ -50,6 +50,10 @@ BOOL ScrCmd_SetVar(struct ScriptContext* ctx);
 BOOL ScrCmd_CopyVar(struct ScriptContext* ctx);
 BOOL ScrCmd_SetOrCopyVar(struct ScriptContext* ctx);
 BOOL ScrCmd_Message(struct ScriptContext* ctx);
+BOOL ScrCmd_MessageFrom(struct ScriptContext* ctx);
+BOOL ScrCmd_MessageFrom2(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01FC(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01FD(struct ScriptContext* ctx);
 
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);

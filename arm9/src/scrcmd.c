@@ -12,7 +12,10 @@ extern u8 FlagCheck(struct UnkStruct_0204639C *arg, u16 flag);
 extern void TrainerFlagSet(struct UnkStruct_0204639C *arg, u16 flag);
 extern void TrainerFlagClear(struct UnkStruct_0204639C *arg, u16 flag);
 extern u8 TrainerFlagCheck(struct UnkStruct_0204639C *arg, u16 flag);
-extern void MOD05_ShowMessageInField(struct ScriptContext *ctx, struct MsgData *msgData, u8 id);
+extern void MOD05_ShowMessageInField(struct ScriptContext *ctx, struct MsgData *msgData, u16 id);
+extern void MOD05_021E2BD0(struct ScriptContext *ctx, struct MsgData *msgData, u16 msgId, u32 param4, void *param5);
+extern BOOL FUN_0203A2F0(struct ScriptContext *ctx);
+extern void MOD05_021E2C58(struct ScriptContext *ctx, u16 typ, u16 id, u16 word1, s16 word2, u8 param5);
 
 static BOOL RunPauseTimer(struct ScriptContext* ctx);
 static u32 Compare(u16 a, u16 b);
@@ -434,3 +437,48 @@ THUMB_FUNC BOOL ScrCmd_Message(struct ScriptContext* ctx)
     MOD05_ShowMessageInField(ctx, ctx->msgData, id);
     return FALSE;
 }
+
+THUMB_FUNC BOOL ScrCmd_MessageFrom(struct ScriptContext* ctx)
+{
+    u16 arc = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 msg = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    struct MsgData *msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, arc, 32);
+    MOD05_ShowMessageInField(ctx, msgData, msg);
+    DestroyMsgData(msgData);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_MessageFrom2(struct ScriptContext* ctx)
+{
+    u16 arc = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 msg = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    struct MsgData *msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, arc, 32);
+    MOD05_021E2BD0(ctx, msgData, msg, 1, NULL);
+    DestroyMsgData(msgData);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk01FC(struct ScriptContext* ctx)
+{
+    u16 typ = ScriptReadHalfword(ctx);
+    u16 id = ScriptReadHalfword(ctx);
+    u16 word1 = ScriptReadHalfword(ctx);
+    u16 word2 = ScriptReadHalfword(ctx);
+
+    MOD05_021E2C58(ctx, typ, id, word1, word2, 0xff);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk01FD(struct ScriptContext* ctx)
+{
+    u16 typ = ScriptReadHalfword(ctx);
+    u16 id = ScriptReadHalfword(ctx);
+    u16 word1 = ScriptReadHalfword(ctx);
+    u16 word2 = ScriptReadHalfword(ctx);
+
+    MOD05_021E2C58(ctx, typ, id, word1, word2, 1);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+

@@ -655,10 +655,10 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_survivepsn
     .word FUN_0203BC2C
     .word ScrCmd_DebugWatch
-    .word ScrCmd_message_from
-    .word FUN_0203A098
-    .word FUN_0203A0FC
-    .word FUN_0203A13C
+    .word ScrCmd_MessageFrom
+    .word ScrCmd_MessageFrom2
+    .word ScrCmd_Unk01FC
+    .word ScrCmd_Unk01FD
     .word FUN_0203A188
     .word FUN_0203A210
     .word FUN_0203C7F4

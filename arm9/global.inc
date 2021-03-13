@@ -2744,10 +2744,10 @@
 .extern ScrCmd_CopyVar
 .extern ScrCmd_SetOrCopyVar
 .extern ScrCmd_Message
-.extern ScrCmd_message_from
-.extern FUN_0203A098
-.extern FUN_0203A0FC
-.extern FUN_0203A13C
+.extern ScrCmd_MessageFrom
+.extern ScrCmd_MessageFrom2
+.extern ScrCmd_Unk01FC
+.extern ScrCmd_Unk01FD
 .extern FUN_0203A188
 .extern FUN_0203A210
 .extern FUN_0203A288
