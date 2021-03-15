@@ -8521,3 +8521,4 @@
 .extern CountAlivePokemon
 .extern MOD52_021D74E0
 .extern MOD52_021D74F8
+.extern MOD52_021D750C
