@@ -3,17 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD52_021D74F8
-MOD52_021D74F8: ; 0x021D74F8
-	push {r3, lr}
-	bl OverlayManager_GetField18
-	ldr r1, [r0, #8]
-	mov r0, #0x4d
-	bl MOD52_021D769C
-	mov r0, #1
-	pop {r3, pc}
-	.align 2, 0
-	thumb_func_end MOD52_021D74F8
 
 	thumb_func_start MOD52_021D750C
 MOD52_021D750C: ; 0x021D750C
