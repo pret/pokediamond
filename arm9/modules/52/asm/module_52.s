@@ -4,20 +4,7 @@
 	.balign 4, 0
 
 
-	thumb_func_start MOD52_021D7560
-MOD52_021D7560: ; 0x021D7560
-	push {r3, lr}
-	mov r0, #0x4d
-	bl FUN_020168D0
-	mov r0, #0
-	ldr r1, _021D7578 ; =UNK_020F2B7C
-	mvn r0, r0
-	bl RegisterMainOverlay
-	mov r0, #1
-	pop {r3, pc}
-	nop
-_021D7578: .word UNK_020F2B7C
-	thumb_func_end MOD52_021D7560
+
 
 	thumb_func_start MOD52_021D757C
 MOD52_021D757C: ; 0x021D757C

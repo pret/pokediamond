@@ -3,22 +3,25 @@
 #include "overlay_manager.h"
 #include "player_data.h"
 
-
 extern void FUN_0201681C(u32 param0, u32 heap_id, u32 param2);
 extern int FUN_020168D0(u32 heap_id);
 extern void MOD52_021D769C(u32 heap_id, struct SaveBlock2 *save);
 extern struct Unk21DBE18 UNK_020FD144;
-extern void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *save, u32 param2);
-extern void FUN_02015E3C(struct IGT* igt);
+extern struct Unk21DBE18 UNK_020F2B7C;
 
-THUMB_FUNC int MOD52_021D74E0() {
+extern void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *save, u32 param2);
+extern void FUN_02015E3C(struct IGT *igt);
+
+THUMB_FUNC int MOD52_021D74E0()
+{
     FUN_0201681C(3, 0x4d, 2 << 16);
-	InitializeMainRNG();
+    InitializeMainRNG();
 
     return 1;
 }
 
-THUMB_FUNC int MOD52_021D74F8(struct UnkStruct_02006234 *param0) {
+THUMB_FUNC int MOD52_021D74F8(struct UnkStruct_02006234 *param0)
+{
     struct SaveBlock2 *save = OverlayManager_GetField18(param0)[2];
 
     MOD52_021D769C(0x4d, save);
@@ -26,26 +29,36 @@ THUMB_FUNC int MOD52_021D74F8(struct UnkStruct_02006234 *param0) {
     return 1;
 }
 
-THUMB_FUNC int MOD52_021D750C() {
+THUMB_FUNC int MOD52_021D750C()
+{
     FUN_020168D0(0x4d);
     RegisterMainOverlay(-1, &UNK_020FD144);
 
     return 1;
 }
 
-THUMB_FUNC int MOD52_021D7528() {
+THUMB_FUNC int MOD52_021D7528()
+{
     FUN_0201681C(3, 0x4d, 2 << 16);
-	InitializeMainRNG();
+    InitializeMainRNG();
 
-    return 1; 
+    return 1;
 }
 
-
-THUMB_FUNC int MOD52_021D7540(struct UnkStruct_02006234 *param0) {
+THUMB_FUNC int MOD52_021D7540(struct UnkStruct_02006234 *param0)
+{
     struct SaveBlock2 *save = OverlayManager_GetField18(param0)[2];
     MOD52_021D7604(0x4d, save, 1);
-    struct IGT* igt = Sav2_PlayerData_GetIGTAddr(save);
+    struct IGT *igt = Sav2_PlayerData_GetIGTAddr(save);
     FUN_02015E3C(igt);
+
+    return 1;
+}
+
+THUMB_FUNC int MOD52_021D7560()
+{
+    FUN_020168D0(0x4d);
+    RegisterMainOverlay(-1, &UNK_020F2B7C);
 
     return 1;
 }
