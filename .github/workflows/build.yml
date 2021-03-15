@@ -18,13 +18,13 @@ jobs:
       - name: Update and Install Software
         run: |
           sudo apt update
-          sudo ACCEPT_EULA=Y apt -y --fix-missing upgrade --allow-downgrade
-          sudo apt -y install g++-8-multilib linux-libc-dev binutils-arm-none-eabi
+          sudo ACCEPT_EULA=Y apt -y --fix-missing --allow-downgrades upgrade
+          sudo apt -y --allow-downgrades install g++-8-multilib linux-libc-dev binutils-arm-none-eabi
           sudo dpkg --add-architecture i386
           wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
           sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
           sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main"
-          sudo apt install --install-recommends winehq-stable
+          sudo apt -y --allow-downgrades install --install-recommends winehq-stable
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Setup Repo
