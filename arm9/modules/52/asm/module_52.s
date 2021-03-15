@@ -3,22 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-
-
-	thumb_func_start MOD52_021D7528
-MOD52_021D7528: ; 0x021D7528
-	push {r3, lr}
-	mov r2, #2
-	mov r0, #3
-	mov r1, #0x4d
-	lsl r2, r2, #0x10
-	bl FUN_0201681C
-	bl InitializeMainRNG
-	mov r0, #1
-	pop {r3, pc}
-	.align 2, 0
-	thumb_func_end MOD52_021D7528
-
 	thumb_func_start MOD52_021D7540
 MOD52_021D7540: ; 0x021D7540
 	push {r4, lr}

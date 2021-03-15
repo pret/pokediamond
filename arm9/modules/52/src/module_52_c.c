@@ -29,3 +29,10 @@ THUMB_FUNC int MOD52_021D750C() {
 
     return 1;
 }
+
+THUMB_FUNC int MOD52_021D7528() {
+    FUN_0201681C(3, 0x4d, 2 << 16);
+	InitializeMainRNG();
+
+    return 1; 
+}
