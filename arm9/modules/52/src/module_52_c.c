@@ -62,3 +62,11 @@ THUMB_FUNC int MOD52_021D7560()
 
     return 1;
 }
+
+THUMB_FUNC int MOD52_021D757C()
+{
+    FUN_0201681C(3, 0x4d, 2 << 16);
+    InitializeMainRNG();
+
+    return 1;
+}
