@@ -3,21 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD52_021D7540
-MOD52_021D7540: ; 0x021D7540
-	push {r4, lr}
-	bl OverlayManager_GetField18
-	ldr r4, [r0, #8]
-	mov r0, #0x4d
-	add r1, r4, #0
-	mov r2, #1
-	bl MOD52_021D7604
-	add r0, r4, #0
-	bl Sav2_PlayerData_GetIGTAddr
-	bl FUN_02015E3C
-	mov r0, #1
-	pop {r4, pc}
-	thumb_func_end MOD52_021D7540
 
 	thumb_func_start MOD52_021D7560
 MOD52_021D7560: ; 0x021D7560
