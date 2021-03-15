@@ -5,44 +5,6 @@
 
 
 
-
-	thumb_func_start MOD52_021D7594
-MOD52_021D7594: ; 0x021D7594
-	push {r3, r4, r5, lr}
-	bl OverlayManager_GetField18
-	ldr r4, [r0, #8]
-	add r0, r4, #0
-	bl Sav2_SysInfo_get
-	add r5, r0, #0
-	mov r0, #0x4d
-	add r1, r4, #0
-	bl MOD52_021D7688
-	add r0, r4, #0
-	mov r1, #0
-	bl Options_SetButtonModeOnMain
-	add r0, r5, #0
-	bl Sav2_SysInfo_MacAddressIsMine
-	cmp r0, #0
-	beq _021D75C8
-	add r0, r5, #0
-	bl Sav2_SysInfo_RTCOffsetIsMine
-	cmp r0, #0
-	bne _021D75D8
-_021D75C8:
-	add r0, r4, #0
-	bl Sav2_SysInfo_RTC_get
-	bl FUN_020238A4
-	add r0, r5, #0
-	bl Sav2_SysInfo_InitFromSystem
-_021D75D8:
-	add r0, r4, #0
-	bl Sav2_PlayerData_GetIGTAddr
-	bl FUN_02015E3C
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-	.align 2, 0
-	thumb_func_end MOD52_021D7594
-
 	thumb_func_start MOD52_021D75E8
 MOD52_021D75E8: ; 0x021D75E8
 	push {r3, lr}
