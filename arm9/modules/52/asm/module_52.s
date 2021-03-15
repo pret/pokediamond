@@ -5,21 +5,6 @@
 
 
 
-	thumb_func_start MOD52_021D75E8
-MOD52_021D75E8: ; 0x021D75E8
-	push {r3, lr}
-	mov r0, #0x4d
-	bl FUN_020168D0
-	mov r0, #0
-	ldr r1, _021D7600 ; =UNK_020F2B8C
-	mvn r0, r0
-	bl RegisterMainOverlay
-	mov r0, #1
-	pop {r3, pc}
-	nop
-_021D7600: .word UNK_020F2B8C
-	thumb_func_end MOD52_021D75E8
-
 	thumb_func_start MOD52_021D7604
 MOD52_021D7604: ; 0x021D7604
 	push {r3, r4, r5, r6, r7, lr}

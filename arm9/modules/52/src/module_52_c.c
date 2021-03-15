@@ -10,6 +10,7 @@ extern int FUN_020168D0(u32 heap_id);
 extern void MOD52_021D769C(u32 heap_id, struct SaveBlock2 *save);
 extern struct Unk21DBE18 UNK_020FD144;
 extern struct Unk21DBE18 UNK_020F2B7C;
+extern struct Unk21DBE18 UNK_020F2B8C;
 
 extern void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *save, u32 param2);
 extern void FUN_02015E3C(struct IGT *igt);
@@ -90,6 +91,14 @@ THUMB_FUNC int MOD52_021D7594(struct UnkStruct_02006234 *param0)
     }
 
     FUN_02015E3C(Sav2_PlayerData_GetIGTAddr(save));
+
+    return 1;
+}
+
+THUMB_FUNC int MOD52_021D75E8()
+{
+    FUN_020168D0(0x4d);
+    RegisterMainOverlay(-1, &UNK_020F2B8C);
 
     return 1;
 }
