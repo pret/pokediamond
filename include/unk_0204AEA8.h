@@ -1,0 +1,7 @@
+#ifndef POKEDIAMOND_UNK_0204AEA8_H
+#define POKEDIAMOND_UNK_0204AEA8_H
+
+BOOL FUN_0204AEA8(struct UnkStruct_0204639C *a0);
+void FUN_0204AEF8(struct UnkStruct_0204639C *a0, u32 a1, u32 a2);
+
+#endif
