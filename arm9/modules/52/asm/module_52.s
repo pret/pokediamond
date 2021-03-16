@@ -4,62 +4,6 @@
 	.balign 4, 0
 
 
-
-	thumb_func_start MOD52_021D7604
-MOD52_021D7604: ; 0x021D7604
-	push {r3, r4, r5, r6, r7, lr}
-	add r5, r1, #0
-	str r0, [sp]
-	add r0, r5, #0
-	add r6, r2, #0
-	bl Sav2_SysInfo_get
-	bl Sav2_SysInfo_InitFromSystem
-	add r0, r5, #0
-	bl Sav2_SysInfo_RTC_get
-	bl Sav2_SysInfo_RTC_init
-	add r0, r5, #0
-	bl FUN_0202881C
-	add r4, r0, #0
-	bl MTRandom
-	add r2, r0, #0
-	add r0, r4, #0
-	mov r1, #1
-	bl FUN_02028788
-	add r0, r5, #0
-	bl FUN_0206007C
-	add r0, r5, #0
-	bl Sav2_PlayerData_GetProfileAddr
-	add r4, r0, #0
-	bl MTRandom
-	add r7, r0, #0
-	cmp r6, #0
-	beq _021D7656
-	add r0, r4, #0
-	add r1, r7, #0
-	bl PlayerProfile_SetTrainerID
-_021D7656:
-	add r0, r4, #0
-	bl PlayerProfile_GetTrainerGender
-	add r1, r0, #0
-	add r0, r7, #0
-	mov r2, #0
-	bl FUN_02053678
-	add r1, r0, #0
-	lsl r1, r1, #0x18
-	add r0, r4, #0
-	lsr r1, r1, #0x18
-	bl PlayerProfile_SetAvatar
-	add r0, r5, #0
-	bl FUN_02024ECC
-	ldr r1, [sp]
-	ldr r2, _021D7684 ; =0x021D76F8
-	mov r3, #0x76
-	bl FUN_020250C4
-	pop {r3, r4, r5, r6, r7, pc}
-	.align 2, 0
-_021D7684: .word MOD52_021D76F8
-	thumb_func_end MOD52_021D7604
-
 	thumb_func_start MOD52_021D7688
 MOD52_021D7688: ; 0x021D7688
 	push {r3, lr}
