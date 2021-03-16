@@ -14,10 +14,10 @@
 #include "pokedex.h"
 #include "seal.h"
 #include "unk_020139D8.h"
+#include "unk_02024E64.h"
 
 extern u32 FUN_0202AC20(void);
 extern u32 FUN_02034D7C(void);
-extern u32 FUN_02024E64(void);
 extern u32 FUN_02034D80(void);
 extern u32 FUN_02025954(void);
 extern u32 FUN_02023AC8(void);
@@ -39,7 +39,6 @@ extern u32 FUN_0202BE98(void);
 extern u32 FUN_0202C0E0(void);
 extern void FUN_0202AC28(void *);
 extern void FUN_02034D98(void *);
-extern void FUN_02024E6C(void *);
 extern void FUN_02034D88(void *);
 extern void FUN_0202597C(void *);
 extern void FUN_02023AD8(void *);
