@@ -5,14 +5,6 @@
 
 
 
-	thumb_func_start FUN_02024ECC
-FUN_02024ECC: ; 0x02024ECC
-	ldr r3, _02024ED4 ; =SavArray_get
-	mov r1, #0xa
-	bx r3
-	nop
-_02024ED4: .word SavArray_get
-
 	thumb_func_start FUN_02024ED8
 FUN_02024ED8: ; 0x02024ED8
 	push {r3, lr}
