@@ -1,11 +1,11 @@
-	.include "asm/macros.inc"
-	.include "global.inc"
 
-	.extern UNK_021C570C
-	.extern UNK_021C5734
+.section .text
 
-	thumb_func_start GenerateFontHalfRowLookupTable
-GenerateFontHalfRowLookupTable: ; 0x0201C05C
+glabel GenerateFontHalfRowLookupTable
+
+.extern UNK_021C570C
+.extern UNK_021C5734
+
 	push {r3-r7, lr}
 	sub sp, #0x30
 	ldr r3, _0201C0F8 ; =UNK_021C570C
