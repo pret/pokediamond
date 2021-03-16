@@ -2,7 +2,6 @@
 #define POKEDIAMOND_MODULE_52_H
 
 #include "global.h"
-#include "save_block_2.h"
 #include "event_data.h"
 #include "main.h"
 #include "math_util.h"
@@ -10,6 +9,7 @@
 #include "overlay_manager.h"
 #include "player_data.h"
 #include "sav_system_info.h"
+#include "save_block_2.h"
 #include "unk_02024E64.h"
 #include "unk_020286F8.h"
 
@@ -39,4 +39,4 @@ struct MOD52_Struct
     u32 terminator;
 };
 
-#endif //POKEDIAMOND_MODULE_52_H
+#endif // POKEDIAMOND_MODULE_52_H
