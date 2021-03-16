@@ -8519,15 +8519,3 @@
 .extern CARDi_InitCommon
 .extern MonNotFaintedOrEgg
 .extern CountAlivePokemon
-.extern MOD52_021D74E0
-.extern MOD52_021D74F8
-.extern MOD52_021D750C
-.extern MOD52_021D7528
-.extern MOD52_021D7540
-.extern MOD52_021D7560
-.extern MOD52_021D757C
-.extern MOD52_021D7594
-.extern MOD52_021D75E8
-.extern MOD52_021D7604
-.extern MOD52_021D7688
-.extern MOD52_021D769C
