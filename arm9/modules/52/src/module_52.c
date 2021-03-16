@@ -1,35 +1,17 @@
-#include "global.h"
-#include "save_block_2.h"
-#include "event_data.h"
-#include "main.h"
-#include "math_util.h"
-#include "options.h"
-#include "overlay_manager.h"
-#include "player_data.h"
-#include "sav_system_info.h"
-#include "unk_02024E64.h"
-#include "unk_020286F8.h"
+#include "module_52.h"
 
-extern void FUN_0201681C(u32 param0, u32 heap_id, u32 param2);
-extern int FUN_020168D0(u32 heap_id);
-extern void MOD52_021D769C(u32 heap_id, struct SaveBlock2 *sav2);
 extern struct Unk21DBE18 UNK_020FD144;
 extern struct Unk21DBE18 UNK_020F2B7C;
 extern struct Unk21DBE18 UNK_020F2B8C;
 
-void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *sav2, BOOL set_trainerid);
+extern void FUN_0201681C(u32 param0, u32 heap_id, u32 param2);
+extern int FUN_020168D0(u32 heap_id);
 extern void FUN_02015E3C(struct IGT *igt);
-
-extern void MOD52_021D7688(u32 heap_id, struct SaveBlock2 *sav2);
-
 extern void FUN_0206007C(struct SaveBlock2 *sav2);
 extern int FUN_02053678(u32 random, u32 gender, u32 param2);
-extern void FUN_020250C4(void *sav_ptr, u32 heap_id, u8 *param2, u32 param3);
-
+extern void FUN_020250C4(void *sav_ptr, u32 heap_id, const u8 param2[], u32 param3);
 extern void FUN_020377E0(struct SaveBlock2 *sav2);
 extern void FUN_0205ECD4(struct ScriptState *script_state);
-
-extern const u8 MOD52_021D76F8[];
 
 THUMB_FUNC int MOD52_021D74E0()
 {
@@ -41,7 +23,7 @@ THUMB_FUNC int MOD52_021D74E0()
 
 THUMB_FUNC int MOD52_021D74F8(struct UnkStruct_02006234 *param0)
 {
-    struct SaveBlock2 *sav2 = OverlayManager_GetField18(param0)[2];
+    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(param0)[2]; // weird
 
     MOD52_021D769C(0x4d, sav2);
 
@@ -51,7 +33,7 @@ THUMB_FUNC int MOD52_021D74F8(struct UnkStruct_02006234 *param0)
 THUMB_FUNC int MOD52_021D750C()
 {
     FUN_020168D0(0x4d);
-    RegisterMainOverlay(-1, &UNK_020FD144);
+    RegisterMainOverlay(0XFFFFFFFF, &UNK_020FD144);
 
     return 1;
 }
@@ -66,7 +48,8 @@ THUMB_FUNC int MOD52_021D7528()
 
 THUMB_FUNC int MOD52_021D7540(struct UnkStruct_02006234 *param0)
 {
-    struct SaveBlock2 *sav2 = OverlayManager_GetField18(param0)[2];
+    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(param0)[2]; // weird
+
     MOD52_021D7604(0x4d, sav2, 1);
     struct IGT *igt = Sav2_PlayerData_GetIGTAddr(sav2);
     FUN_02015E3C(igt);
@@ -77,7 +60,7 @@ THUMB_FUNC int MOD52_021D7540(struct UnkStruct_02006234 *param0)
 THUMB_FUNC int MOD52_021D7560()
 {
     FUN_020168D0(0x4d);
-    RegisterMainOverlay(-1, &UNK_020F2B7C);
+    RegisterMainOverlay(0xFFFFFFFF, &UNK_020F2B7C);
 
     return 1;
 }
@@ -92,7 +75,8 @@ THUMB_FUNC int MOD52_021D757C()
 
 THUMB_FUNC int MOD52_021D7594(struct UnkStruct_02006234 *param0)
 {
-    struct SaveBlock2 *sav2 = OverlayManager_GetField18(param0)[2];
+    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(param0)[2]; // weird
+
     struct SavSysInfo *sav2_info = Sav2_SysInfo_get(sav2);
 
     MOD52_021D7688(0x4d, sav2);
@@ -112,7 +96,7 @@ THUMB_FUNC int MOD52_021D7594(struct UnkStruct_02006234 *param0)
 THUMB_FUNC int MOD52_021D75E8()
 {
     FUN_020168D0(0x4d);
-    RegisterMainOverlay(-1, &UNK_020F2B8C);
+    RegisterMainOverlay(0XFFFFFFFF, &UNK_020F2B8C);
 
     return 1;
 }
@@ -138,12 +122,12 @@ THUMB_FUNC void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *sav2, BOOL set_tr
     u32 gender = PlayerProfile_GetTrainerGender(player_data);
     int avatar = FUN_02053678(trainerid, gender, 0);
 
-    PlayerProfile_SetAvatar(player_data, avatar);
+    PlayerProfile_SetAvatar(player_data, (u8)avatar);
 
-    FUN_020250C4(FUN_02024ECC(sav2), heap_id, &MOD52_021D76F8[0], 0x76);
+    FUN_020250C4(FUN_02024ECC(sav2), heap_id, MOD52_021D76F8, 0x76);
 }
 
-THUMB_FUNC void MOD52_021D7688(u32 param0, struct SaveBlock2 *sav2)
+THUMB_FUNC void MOD52_021D7688(u32 unused UNUSED, struct SaveBlock2 *sav2)
 {
     if (FUN_020226FC(sav2))
     {
@@ -153,7 +137,7 @@ THUMB_FUNC void MOD52_021D7688(u32 param0, struct SaveBlock2 *sav2)
     OS_ResetSystem(0);
 }
 
-THUMB_FUNC void MOD52_021D769C(u32 param0, struct SaveBlock2 *sav2)
+THUMB_FUNC void MOD52_021D769C(u32 unused UNUSED, struct SaveBlock2 *sav2)
 {
     Sav2_InitDynamicRegion(sav2);
     FUN_020377E0(sav2);
@@ -162,27 +146,21 @@ THUMB_FUNC void MOD52_021D769C(u32 param0, struct SaveBlock2 *sav2)
     FUN_0205ECD4(SavArray_Flags_get(sav2));
 }
 
-// struct MOD52_Struct {
-//     int (*func1)(void);
-//     int (*func2)(struct UnkStruct_02006234 *param0);
-//     int (*func3)(void);
-// };
-
-const u32 MOD52_021D76C8[4] = {
+const struct MOD52_Struct MOD52_021D76C8 = {
     MOD52_021D757C,
     MOD52_021D7594,
     MOD52_021D75E8,
     0xFFFFFFFF,
 };
 
-const u32 MOD52_021D76D8[4] = {
+const struct MOD52_Struct MOD52_021D76D8 = {
     MOD52_021D7528,
     MOD52_021D7540,
     MOD52_021D7560,
     0xFFFFFFFF,
 };
 
-const u32 MOD52_021D76E8[4] = {
+const struct MOD52_Struct MOD52_021D76E8 = {
     MOD52_021D74E0,
     MOD52_021D74F8,
     MOD52_021D750C,

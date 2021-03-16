@@ -14,6 +14,8 @@
 
 #define GF_ASSERT(expr) do {if (!(expr)) ErrorHandling();} while (0)
 
+#define UNUSED __attribute__((unused))
+
 #ifndef IN_MAIN_C
 extern const u8 gGameLanguage;
 extern const u8 gGameVersion;

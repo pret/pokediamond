@@ -899,7 +899,6 @@ Overlay MODULE_52
 {
 	##Some kind of transition overlay for intro##
 	After arm9
-	Object module_52_c.o
 	Object module_52.o
 }
 
