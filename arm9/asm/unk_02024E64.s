@@ -3,13 +3,6 @@
 
 	.text
 
-	thumb_func_start FUN_02024EB4
-FUN_02024EB4: ; 0x02024EB4
-	ldr r3, _02024EBC ; =SavArray_get
-	mov r1, #0xa
-	bx r3
-	nop
-_02024EBC: .word SavArray_get
 
 	thumb_func_start FUN_02024EC0
 FUN_02024EC0: ; 0x02024EC0
