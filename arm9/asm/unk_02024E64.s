@@ -5,15 +5,6 @@
 
 
 
-	thumb_func_start FUN_02024ED8
-FUN_02024ED8: ; 0x02024ED8
-	push {r3, lr}
-	mov r1, #0xa
-	bl SavArray_get
-	mov r1, #0x7
-	lsl r1, r1, #0x8
-	add r0, r0, r1
-	pop {r3, pc}
 
 	thumb_func_start FUN_02024EE8
 FUN_02024EE8: ; 0x02024EE8
