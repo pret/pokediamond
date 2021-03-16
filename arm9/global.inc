@@ -8519,3 +8519,4 @@
 .extern CARDi_InitCommon
 .extern MonNotFaintedOrEgg
 .extern CountAlivePokemon
+.extern FUN_02024E64

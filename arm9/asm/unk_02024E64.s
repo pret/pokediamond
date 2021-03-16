@@ -3,13 +3,6 @@
 
 	.text
 
-	thumb_func_start FUN_02024E64
-FUN_02024E64: ; 0x02024E64
-	ldr r0, _02024E68 ; =0x0000074C
-	bx lr
-	.balign 4
-_02024E68: .word 0x0000074C
-
 	thumb_func_start FUN_02024E6C
 FUN_02024E6C: ; 0x02024E6C
 	push {r4, lr}
