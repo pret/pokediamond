@@ -53,3 +53,8 @@ THUMB_FUNC void FUN_02024EF4(u16 *buf, struct String *str)
 {
     CopyStringToU16Array(str, buf + 0x392, 8);
 }
+
+THUMB_FUNC u32 FUN_02024F0C(u32 param0)
+{
+    return param0 + 0x734;
+}

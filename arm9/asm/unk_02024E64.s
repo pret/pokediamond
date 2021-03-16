@@ -10,14 +10,6 @@
 
 
 
-	thumb_func_start FUN_02024F0C
-FUN_02024F0C: ; 0x02024F0C
-	ldr r1, _02024F14 ; =0x00000734
-	add r0, r0, r1
-	bx lr
-	nop
-_02024F14: .word 0x00000734
-
 	thumb_func_start FUN_02024F18
 FUN_02024F18: ; 0x02024F18
 	add r2, r0, #0x0
