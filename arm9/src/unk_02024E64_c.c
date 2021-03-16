@@ -1,6 +1,7 @@
 #include "global.h"
 #include "MI_memory.h"
 #include "save_block_2.h"
+#include "string16.h"
 
 extern void FUN_020250A4(void *param0);
 extern void FUN_02025484(void *param0);
@@ -46,4 +47,9 @@ THUMB_FUNC void *FUN_02024ED8(struct SaveBlock2 *sav2)
 THUMB_FUNC u32 FUN_02024EE8(u32 param0)
 {
     return param0 + 0x00000724;
+}
+
+THUMB_FUNC void FUN_02024EF4(u16 *buf, struct String *str)
+{
+    CopyStringToU16Array(str, buf + 0x392, 8);
 }

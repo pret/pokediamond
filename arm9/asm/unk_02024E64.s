@@ -8,18 +8,7 @@
 
 
 
-	thumb_func_start FUN_02024EF4
-FUN_02024EF4: ; 0x02024EF4
-	add r2, r0, #0x0
-	add r0, r1, #0x0
-	ldr r1, _02024F04 ; =0x00000724
-	ldr r3, _02024F08 ; =CopyStringToU16Array
-	add r1, r2, r1
-	mov r2, #0x8
-	bx r3
-	nop
-_02024F04: .word 0x00000724
-_02024F08: .word CopyStringToU16Array
+
 
 	thumb_func_start FUN_02024F0C
 FUN_02024F0C: ; 0x02024F0C
