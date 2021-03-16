@@ -6,11 +6,10 @@
 #include "proto.h"
 #include "msgdata.h"
 #include "constants/trainer_classes.h"
+#include "unk_02024E64.h"
 
 #pragma thumb on
 
-extern void * FUN_02024EC0(struct SaveBlock2 *);
-extern u16 * FUN_02024EE8(void *);
 
 // Loads all battle opponents, including multi-battle partner if exists.
 void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 * sav2, u32 heap_id)
