@@ -127,8 +127,10 @@ THUMB_FUNC void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *sav2, BOOL set_tr
     FUN_020250C4(FUN_02024ECC(sav2), heap_id, MOD52_021D76F8, 0x76);
 }
 
-THUMB_FUNC void MOD52_021D7688(u32 unused UNUSED, struct SaveBlock2 *sav2)
+THUMB_FUNC void MOD52_021D7688(u32 unused, struct SaveBlock2 *sav2)
 {
+#pragma unused(unused)
+
     if (FUN_020226FC(sav2))
     {
         return;
@@ -137,8 +139,10 @@ THUMB_FUNC void MOD52_021D7688(u32 unused UNUSED, struct SaveBlock2 *sav2)
     OS_ResetSystem(0);
 }
 
-THUMB_FUNC void MOD52_021D769C(u32 unused UNUSED, struct SaveBlock2 *sav2)
+THUMB_FUNC void MOD52_021D769C(u32 unused, struct SaveBlock2 *sav2)
 {
+#pragma unused(unused)
+
     Sav2_InitDynamicRegion(sav2);
     FUN_020377E0(sav2);
     struct PlayerData *player_data = Sav2_PlayerData_GetProfileAddr(sav2);
