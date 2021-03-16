@@ -8525,3 +8525,4 @@
 .extern FUN_02024EC0
 .extern FUN_02024ECC
 .extern FUN_02024ED8
+.extern FUN_02024EE8

@@ -37,8 +37,13 @@ THUMB_FUNC void *FUN_02024ECC(struct SaveBlock2 *sav2)
     return SavArray_get(sav2, 0xa);
 }
 
-THUMB_FUNC void* FUN_02024ED8(struct SaveBlock2 *sav2) {
-    void* res = SavArray_get(sav2, 0xa);
+THUMB_FUNC void *FUN_02024ED8(struct SaveBlock2 *sav2)
+{
+    void *res = SavArray_get(sav2, 0xa);
     return res + (7 << 8);
+}
 
+THUMB_FUNC u32 FUN_02024EE8(u32 param0)
+{
+    return param0 + 0x00000724;
 }
