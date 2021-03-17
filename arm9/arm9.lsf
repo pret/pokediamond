@@ -48,6 +48,7 @@ Static arm9
 	Object unk_02015D14.o
 	Object unk_02015E30.o
 	Object game_init.o
+	Object unk_020166C8_c.o
 	Object unk_020166C8.o
 	Object unk_02016B94.o
 	Object unk_0201B1A8.o
