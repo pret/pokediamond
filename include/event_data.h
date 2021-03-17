@@ -1,6 +1,8 @@
 #ifndef GUARD_SCRIPT_STATE_H
 #define GUARD_SCRIPT_STATE_H
 
+#include "save_block_2.h"
+
 struct ScriptState
 {
     u16 vars[288];
