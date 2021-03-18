@@ -149,51 +149,51 @@ UNK_020F3538: ; 0x020F3538
 
     .global gScriptCmdTable
 gScriptCmdTable: ; 0x020F355C
-    .word ScrCmd_nop
-    .word ScrCmd_nop2
-    .word ScrCmd_end
-    .word ScrCmd_delay
-    .word ScrCmd_loadbyte
-    .word ScrCmd_loadword
-    .word ScrCmd_loadbytefromaddr
-    .word ScrCmd_writebytetoaddr
-    .word ScrCmd_setptrbyte
-    .word ScrCmd_copylocal
-    .word ScrCmd_copybyte
-    .word ScrCmd_compare_local_to_local
-    .word ScrCmd_compare_local_to_value
-    .word ScrCmd_compare_local_to_addr
-    .word ScrCmd_compare_addr_to_local
-    .word ScrCmd_compare_addr_to_value
-    .word ScrCmd_compare_addr_to_addr
-    .word ScrCmd_compare_var_to_value
-    .word ScrCmd_compare_var_to_var
-    .word FUN_02039C40
-    .word FUN_02039C78
-    .word FUN_02039CE4
-    .word ScrCmd_goto
-    .word FUN_02039D10
-    .word FUN_02039D48
-    .word FUN_02039D78
-    .word ScrCmd_call
-    .word ScrCmd_return
-    .word ScrCmd_goto_if
-    .word ScrCmd_call_if
-    .word ScrCmd_setflag
-    .word ScrCmd_clearflag
-    .word ScrCmd_checkflag
-    .word FUN_02039E84
-    .word FUN_02039EC0
-    .word ScrCmd_settrainerflag
-    .word ScrCmd_cleartrainerflag
-    .word ScrCmd_checktrainerflag
-    .word ScrCmd_addvar
-    .word ScrCmd_subvar
-    .word ScrCmd_setvar
-    .word ScrCmd_copyvar
-    .word ScrCmd_setorcopyvar
-    .word ScrCmd_message
-    .word FUN_0203A2C4
+    .word ScrCmd_Nop
+    .word ScrCmd_Dummy
+    .word ScrCmd_End
+    .word ScrCmd_Wait
+    .word ScrCmd_LoadByte
+    .word ScrCmd_LoadWord
+    .word ScrCmd_LoadByteFromAddr
+    .word ScrCmd_WriteByteToAddr
+    .word ScrCmd_SetPtrByte
+    .word ScrCmd_CopyLocal
+    .word ScrCmd_CopyByte
+    .word ScrCmd_CompareLocalToLocal
+    .word ScrCmd_CompareLocalToValue
+    .word ScrCmd_CompareLocalToAddr
+    .word ScrCmd_CompareAddrToLocal
+    .word ScrCmd_CompareAddrToValue
+    .word ScrCmd_CompareAddrToAddr
+    .word ScrCmd_CompareVarToValue
+    .word ScrCmd_CompareVarToVar
+    .word ScrCmd_RunScript
+    .word ScrCmd_RunScriptWait
+    .word ScrCmd_RestartCurrentScript
+    .word ScrCmd_GoTo
+    .word ScrCmd_ObjectGoTo
+    .word ScrCmd_BgGoTo
+    .word ScrCmd_DirectionGoTo
+    .word ScrCmd_Call
+    .word ScrCmd_Return
+    .word ScrCmd_GoToIf
+    .word ScrCmd_CallIf
+    .word ScrCmd_SetFlag
+    .word ScrCmd_ClearFlag
+    .word ScrCmd_CheckFlag
+    .word ScrCmd_CheckFlagVar
+    .word ScrCmd_SetFlagVar
+    .word ScrCmd_SetTrainerFlag
+    .word ScrCmd_ClearTrainerFlag
+    .word ScrCmd_CheckTrainerFlag
+    .word ScrCmd_AddVar
+    .word ScrCmd_SubVar
+    .word ScrCmd_SetVar
+    .word ScrCmd_CopyVar
+    .word ScrCmd_SetOrCopyVar
+    .word ScrCmd_Message
+    .word ScrCmd_Unk002C
     .word FUN_0203A304
     .word FUN_0203A388
     .word FUN_0203A400
@@ -299,7 +299,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203B81C
     .word FUN_0203B85C
     .word FUN_0203B8A0
-    .word ScrCmd_givemon
+    .word ScrCmd_GiveMon
     .word ScrCmd_giveegg
     .word ScrCmd_setpartymonmove
     .word ScrCmd_partymonhasmove
@@ -654,13 +654,13 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_countpartymonsatorbelowlevel
     .word ScrCmd_survivepsn
     .word FUN_0203BC2C
-    .word FUN_02039A10
-    .word ScrCmd_message_from
-    .word FUN_0203A098
-    .word FUN_0203A0FC
-    .word FUN_0203A13C
-    .word FUN_0203A188
-    .word FUN_0203A210
+    .word ScrCmd_DebugWatch
+    .word ScrCmd_MessageFrom
+    .word ScrCmd_MessageFrom2
+    .word ScrCmd_Unk01FC
+    .word ScrCmd_Unk01FD
+    .word ScrCmd_Unk01FE
+    .word ScrCmd_Unk01FF
     .word FUN_0203C7F4
     .word FUN_0203C820
     .word FUN_0203E5DC
@@ -770,7 +770,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203F110
     .word FUN_0203F174
     .word FUN_0203F19C
-    .word FUN_0203A288
+    .word ScrCmd_Unk026D
     .word FUN_0203F234
     .word FUN_0203F254
     .word FUN_0203F26C
