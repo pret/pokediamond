@@ -5,47 +5,6 @@
 	.text
 
 
-	thumb_func_start FUN_020167F4
-FUN_020167F4: ; 0x020167F4
-	ldr r1, _02016818 ; =UNK_021C4D28
-	ldrh r0, [r1, #0x16]
-	ldrh r3, [r1, #0x18]
-	cmp r0, r3
-	bge _02016812
-	ldr r2, [r1, #0x0]
-	lsl r1, r0, #0x2
-	add r2, r2, r1
-_02016804:
-	ldr r1, [r2, #0x0]
-	cmp r1, #0x0
-	beq _02016816
-	add r0, r0, #0x1
-	add r2, r2, #0x4
-	cmp r0, r3
-	blt _02016804
-_02016812:
-	mov r0, #0x0
-	mvn r0, r0
-_02016816:
-	bx lr
-	.balign 4
-_02016818: .word UNK_021C4D28
-
-	thumb_func_start FUN_0201681C
-FUN_0201681C: ; 0x0201681C
-	push {r3, lr}
-	mov r3, #0x4
-	bl FUN_02016834
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start FUN_02016828
-FUN_02016828: ; 0x02016828
-	push {r3, lr}
-	mov r3, #0x3
-	mvn r3, r3
-	bl FUN_02016834
-	pop {r3, pc}
 
 	thumb_func_start FUN_02016834
 FUN_02016834: ; 0x02016834

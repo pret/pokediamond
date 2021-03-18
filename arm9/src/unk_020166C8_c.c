@@ -16,18 +16,15 @@ struct UnkStruct_020166C8
 struct UnkStruct_020166C8 UNK_021C4D28;
 
 extern void *tempName_NNS_FndCreateExpHeapEx(void *param0, u32 param1, u32 param2);
-
+extern u32 FUN_02016834(u32 param0, u32 param1, u32 param2, u32 param3);
 
 THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
 {
-    u32 r7;
-    u32 saved_in_stack;
-    
-    saved_in_stack = param1 + 0x18;
-    
-    if (param2 < saved_in_stack)
+    u32 unk_size = param1 + 24;
+
+    if (param2 < unk_size)
     {
-        param2 = saved_in_stack;
+        param2 = unk_size;
     }
     if (pre_size != 0)
     {
@@ -39,14 +36,15 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
         OS_AllocFromArenaLo(0, pre_size, 4);
     }
 
-    r7 = param2 * 2;
-    void *ptr = OS_AllocFromArenaLo(0, (saved_in_stack * 3 + 1) * 4 + r7 + param2, 4);
+    u32 r7 = param2 * 2;
+
+    void *ptr = OS_AllocFromArenaLo(0, (unk_size * 3 + 1) * sizeof(u32) + r7 + param2, 4);
     UNK_021C4D28.unk_ptr1 = ptr;
-    ptr += (saved_in_stack + 1) * 4;
+    ptr += (unk_size + 1) * 4;
     UNK_021C4D28.unk_ptr2 = ptr;
-    ptr += saved_in_stack * 4;
+    ptr += unk_size * 4;
     UNK_021C4D28.unk_ptr3 = ptr;
-    ptr += saved_in_stack * 4;
+    ptr += unk_size * 4;
     UNK_021C4D28.unk_ptr4 = ptr;
     ptr += r7;
     UNK_021C4D28.unk_ptr5 = ptr;
@@ -54,8 +52,8 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
     UNK_021C4D28.unk_half2 = param1;
 
     r7 = 0;
-    UNK_021C4D28.unk_half4 = (u16)saved_in_stack;
-    UNK_021C4D28.unk_half3 = (u16)saved_in_stack;
+    UNK_021C4D28.unk_half4 = (u16)unk_size;
+    UNK_021C4D28.unk_half3 = (u16)unk_size;
 
     while (r7 < param1)
     {
@@ -84,7 +82,7 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
         r7++;
     }
 
-    while (param1 < saved_in_stack + 1)
+    while (param1 < unk_size + 1)
     {
         UNK_021C4D28.unk_ptr1[param1] = 0;
         UNK_021C4D28.unk_ptr5[param1] = (u8)UNK_021C4D28.unk_half4;
@@ -103,4 +101,36 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
     {
         UNK_021C4D28.unk_ptr4[param1] = 0;
     }
+}
+
+THUMB_FUNC s32 FUN_020167F4()
+{
+    s32 i = UNK_021C4D28.unk_half2;
+    s32 j = UNK_021C4D28.unk_half3;
+
+    if (i < j)
+    {
+        u32 *ptr = UNK_021C4D28.unk_ptr1 + i;
+        do
+        {
+            if (*ptr == 0)
+            {
+                return i;
+            }
+            i++;
+            ptr++;
+        } while (i < j);
+    }
+
+    return -1;
+}
+
+
+THUMB_FUNC u32 FUN_0201681C(u32 param0, u32 param1, u32 param2) {
+    return FUN_02016834(param0, param1, param2, 4);
+}
+
+
+THUMB_FUNC u32 FUN_02016828(u32 param0, u32 param1, u32 param2) {
+    return FUN_02016834(param0, param1, param2, -4);
 }
