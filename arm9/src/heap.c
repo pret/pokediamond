@@ -2,15 +2,14 @@
 
 extern void *tempName_NNS_FndCreateExpHeapEx(void *param0, u32 param1, u32 param2);
 extern void *tempName_NNS_FndAllocFromExpHeapEx(void *param0, u32 param1, s32 param2);
-u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3);
 extern void thunk_FUN_020adc8c();
-extern void FUN_020ADDF0(u32 param0, void *param1);
+extern void FUN_020ADDF0(void *ptr1, void *ptr2);
 extern u32 FUN_02031810(void);
 extern void PrintErrorMessageAndReset(void);
-extern u32 FUN_020ADDC8(u32 param0);
-extern void FUN_020AE82C(u32 param0, u32 param1, u32 param2);
-extern u32 FUN_020ADDC0(u32 param0);
-extern void FUN_020ADE2C(u32 param0, void *ptr, u32 param2);
+extern u32 FUN_020ADDC8(void *param0);
+extern void FUN_020AE82C(u32 param0, void *param1, u32 param2);
+extern u32 FUN_020ADDC0(void *param0);
+extern void FUN_020ADE2C(void *ptr1, void *ptr2, u32 param2);
 
 
 struct UnkStruct_020166C8 UNK_021C4D28;
@@ -31,12 +30,12 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
             pre_size++;
         }
 
-        OS_AllocFromArenaLo(0, pre_size, 4);
+        OS_AllocFromArenaLo(OS_ARENA_MAIN, pre_size, 4);
     }
 
     u32 r7 = param2 * 2;
 
-    void *ptr = OS_AllocFromArenaLo(0, (unk_size * 3 + 1) * sizeof(u32) + r7 + param2, 4);
+    void *ptr = OS_AllocFromArenaLo(OS_ARENA_MAIN, (unk_size * 3 + 1) * sizeof(u32) + r7 + param2, 4);
     UNK_021C4D28.unk_ptr1 = ptr;
     ptr += (unk_size + 1) * 4;
     UNK_021C4D28.unk_ptr2 = ptr;
@@ -46,8 +45,8 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
     UNK_021C4D28.unk_ptr4 = ptr;
     ptr += r7;
     UNK_021C4D28.unk_ptr5 = ptr;
-    UNK_021C4D28.unk_half1 = param2;
-    UNK_021C4D28.unk_half2 = param1;
+    UNK_021C4D28.unk_half1 = (u16)param2;
+    UNK_021C4D28.unk_half2 = (u16)param1;
 
     r7 = 0;
     UNK_021C4D28.unk_half4 = (u16)unk_size;
@@ -58,17 +57,17 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
         void *ptr;
         if (param0[1] == 0 || param0[1] != 2)
         {
-            ptr = OS_AllocFromArenaLo(0, param0[0], 4);
+            ptr = OS_AllocFromArenaLo(OS_ARENA_MAIN, param0[0], 4);
         }
         else
         {
-            ptr = OS_AllocFromArenaHi(2, param0[0], 4);
+            ptr = OS_AllocFromArenaHi(OS_ARENA_MAINEX, param0[0], 4);
         }
 
         if (ptr != 0)
         {
-            void *res = tempName_NNS_FndCreateExpHeapEx(ptr, param0[0], 0);
-            UNK_021C4D28.unk_ptr1[r7] = res;
+
+            UNK_021C4D28.unk_ptr1[r7] = tempName_NNS_FndCreateExpHeapEx(ptr, param0[0], 0);
             UNK_021C4D28.unk_ptr5[r7] = (u8)r7;
         }
         else
@@ -108,7 +107,7 @@ THUMB_FUNC s32 FUN_020167F4()
 
     if (i < j)
     {
-        u32 *ptr = UNK_021C4D28.unk_ptr1 + i;
+        void **ptr = UNK_021C4D28.unk_ptr1 + i;
         do
         {
             if (*ptr == 0)
@@ -143,22 +142,23 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
     u8 *ptr = UNK_021C4D28.unk_ptr5;
     if (UNK_021C4D28.unk_half4 == ptr[param1])
     {
-        u32 r6 = UNK_021C4D28.unk_ptr1[ptr[param0]];
-        if (r6 != 0)
+        void *ptr2 = UNK_021C4D28.unk_ptr1[ptr[param0]];
+        if (ptr2 != 0)
         {
-            void *res = tempName_NNS_FndAllocFromExpHeapEx(r6, param2, param3);
-            if (res != 0)
+            void *ptr3 = tempName_NNS_FndAllocFromExpHeapEx(ptr2, param2, param3);
+            if (ptr3 != 0)
             {
                 param3 = FUN_020167F4();
                 if (param3 >= 0)
                 {
-                    UNK_021C4D28.unk_ptr1[param3] = tempName_NNS_FndCreateExpHeapEx(res, param2, 0);
+                    UNK_021C4D28.unk_ptr1[param3] = tempName_NNS_FndCreateExpHeapEx(ptr3, param2, 0);
+
 
                     if (UNK_021C4D28.unk_ptr1[param3] != 0)
                     {
-                        UNK_021C4D28.unk_ptr2[param3] = r6;
-                        UNK_021C4D28.unk_ptr3[param3] = res;
-                        UNK_021C4D28.unk_ptr5[param1] = param3;
+                        UNK_021C4D28.unk_ptr2[param3] = ptr2;
+                        UNK_021C4D28.unk_ptr3[param3] = ptr3;
+                        UNK_021C4D28.unk_ptr5[param1] = (u8)param3;
 
                         return 1;
                     }
@@ -201,11 +201,11 @@ THUMB_FUNC void FUN_020168D0(u32 heap_id)
         thunk_FUN_020adc8c();
 
         u8 index = UNK_021C4D28.unk_ptr5[heap_id];
-        u32 arg1 = UNK_021C4D28.unk_ptr2[index];
-        void *arg2 = UNK_021C4D28.unk_ptr3[index];
-        if (arg1 != 0 && arg2 != 0)
+        void *ptr1 = UNK_021C4D28.unk_ptr2[index];
+        void *ptr2 = UNK_021C4D28.unk_ptr3[index];
+        if (ptr1 != 0 && ptr2 != 0)
         {
-            FUN_020ADDF0(arg1, arg2);
+            FUN_020ADDF0(ptr1, ptr2);
         }
         else
         {
@@ -216,11 +216,11 @@ THUMB_FUNC void FUN_020168D0(u32 heap_id)
         UNK_021C4D28.unk_ptr2[UNK_021C4D28.unk_ptr5[heap_id]] = 0;
         UNK_021C4D28.unk_ptr3[UNK_021C4D28.unk_ptr5[heap_id]] = 0;
 
-        UNK_021C4D28.unk_ptr5[heap_id] = UNK_021C4D28.unk_half4;
+        UNK_021C4D28.unk_ptr5[heap_id] = (u8)UNK_021C4D28.unk_half4;
     }
 }
 
-THUMB_FUNC u32 FUN_02016944(void *param0, u32 param1, u32 param2, u32 param3)
+THUMB_FUNC u32 *FUN_02016944(void *param0, u32 param1, s32 param2, u32 param3)
 {
     if (param0 == 0)
     {
@@ -292,7 +292,7 @@ void *AllocFromHeapAtEnd(u32 heap_id, u32 size)
 
 void FreeToHeap(void *ptr)
 {
-    u8 heap_id = ((u32 *)ptr)[-1];
+    u8 heap_id = (u8)((u32 *)ptr)[-1];
 
     if ((u16)heap_id < UNK_021C4D28.unk_half1)
     {
@@ -337,7 +337,7 @@ void FUN_02016A8C(u32 param0, void *param1)
             ErrorHandling();
         }
 
-        u8 heap_id = ((u32 *)param1)[-1];
+        u8 heap_id = (u8)((u32 *)param1)[-1];
         if (heap_id != param0)
         {
             ErrorHandling();
@@ -391,7 +391,7 @@ THUMB_FUNC void FUN_02016B44(void *ptr, u32 param1)
     param1 += 16;
     if (FUN_020ADDC0(ptr - 16) >= param1)
     {
-        u8 heap_id = ((u32 *)ptr)[-1];
+        u8 heap_id = (u8)((u32 *)ptr)[-1];
 
         u8 index = UNK_021C4D28.unk_ptr5[heap_id];
 
@@ -403,5 +403,6 @@ THUMB_FUNC void FUN_02016B44(void *ptr, u32 param1)
 
 THUMB_FUNC u32 FUN_02016B90(u32 param0)
 {
+#pragma unused(param0)
     return 1;
 }
