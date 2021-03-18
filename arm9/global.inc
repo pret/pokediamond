@@ -2748,7 +2748,7 @@
 .extern ScrCmd_MessageFrom2
 .extern ScrCmd_Unk01FC
 .extern ScrCmd_Unk01FD
-.extern FUN_0203A188
+.extern ScrCmd_Unk01FE
 .extern FUN_0203A210
 .extern FUN_0203A288
 .extern FUN_0203A2C4

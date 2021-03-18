@@ -54,6 +54,7 @@ BOOL ScrCmd_MessageFrom(struct ScriptContext* ctx);
 BOOL ScrCmd_MessageFrom2(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01FC(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01FD(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01FE(struct ScriptContext* ctx);
 
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);

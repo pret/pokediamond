@@ -1,17 +1,17 @@
 #include "scrcmd.h"
+#include "unk_0204639C.h"
 
-extern u16 *GetVarPointer(struct UnkStruct_0204639C* arg, u16);
-extern u16 VarGet(struct UnkStruct_0204639C* arg, u16 wk);
-extern void *FUN_02039438(struct UnkStruct_0204639C* arg, u32 id);
-extern void *CreateScriptContext(struct UnkStruct_0204639C* arg, u16 id);
+extern u16 *GetVarPointer(struct UnkSavStruct80* arg, u16);
+extern u16 VarGet(struct UnkSavStruct80* arg, u16 wk);
+extern void *FUN_02039438(struct UnkSavStruct80* arg, u32 id);
+extern void *CreateScriptContext(struct UnkSavStruct80* arg, u16 id);
 extern u8 FUN_02058448(u32 param0);
-extern u32 FUN_02046534(u32 param0);
-extern void FlagSet(struct UnkStruct_0204639C *arg, u16 flag);
-extern void FlagClear(struct UnkStruct_0204639C *arg, u16 flag);
-extern u8 FlagCheck(struct UnkStruct_0204639C *arg, u16 flag);
-extern void TrainerFlagSet(struct UnkStruct_0204639C *arg, u16 flag);
-extern void TrainerFlagClear(struct UnkStruct_0204639C *arg, u16 flag);
-extern u8 TrainerFlagCheck(struct UnkStruct_0204639C *arg, u16 flag);
+extern void FlagSet(struct UnkSavStruct80 *arg, u16 flag);
+extern void FlagClear(struct UnkSavStruct80 *arg, u16 flag);
+extern u8 FlagCheck(struct UnkSavStruct80 *arg, u16 flag);
+extern void TrainerFlagSet(struct UnkSavStruct80 *arg, u16 flag);
+extern void TrainerFlagClear(struct UnkSavStruct80 *arg, u16 flag);
+extern u8 TrainerFlagCheck(struct UnkSavStruct80 *arg, u16 flag);
 extern void MOD05_ShowMessageInField(struct ScriptContext *ctx, struct MsgData *msgData, u16 id);
 extern void MOD05_021E2BD0(struct ScriptContext *ctx, struct MsgData *msgData, u16 msgId, u32 param4, void *param5);
 extern BOOL FUN_0203A2F0(struct ScriptContext *ctx);
@@ -43,7 +43,7 @@ THUMB_FUNC BOOL ScrCmd_End(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_Wait(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C* arg = ctx->unk80;
+    struct UnkSavStruct80* arg = ctx->unk80;
     u16 num = ScriptReadHalfword(ctx);
     u16 wk = ScriptReadHalfword(ctx);
     u16* VarPointer = GetVarPointer(arg, wk);
@@ -200,7 +200,7 @@ THUMB_FUNC BOOL ScrCmd_CompareVarToVar(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_RunScript(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C* unk80 = ctx->unk80;
+    struct UnkSavStruct80* unk80 = ctx->unk80;
     u8 *unk1 = (u8 *)FUN_02039438(unk80, 0x7);
     u32 **unk2 = (u32 **)FUN_02039438(unk80, 0xe);
     u16 id = ScriptReadHalfword(ctx);
@@ -212,7 +212,7 @@ THUMB_FUNC BOOL ScrCmd_RunScript(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_RunScriptWait(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C* unk80 = ctx->unk80;
+    struct UnkSavStruct80* unk80 = ctx->unk80;
     u8 *unk1 = (u8 *)FUN_02039438(unk80, 0x5);
     u8 *unk2 = (u8 *)FUN_02039438(unk80, 0x7);
     u32 **unk3 = (u32 **)FUN_02039438(unk80, 0xe);
@@ -329,7 +329,7 @@ THUMB_FUNC BOOL ScrCmd_CallIf(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_SetFlag(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C *unk80 = ctx->unk80;
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 flag = ScriptReadHalfword(ctx);
     FlagSet(unk80, flag);
     return FALSE;
@@ -337,7 +337,7 @@ THUMB_FUNC BOOL ScrCmd_SetFlag(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_ClearFlag(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C *unk80 = ctx->unk80;
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 flag = ScriptReadHalfword(ctx);
     FlagClear(unk80, flag);
     return FALSE;
@@ -345,7 +345,7 @@ THUMB_FUNC BOOL ScrCmd_ClearFlag(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_CheckFlag(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C *unk80 = ctx->unk80;
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 flag = ScriptReadHalfword(ctx);
     ctx->comparisonResult = FlagCheck(unk80, flag);
     return FALSE;
@@ -353,7 +353,7 @@ THUMB_FUNC BOOL ScrCmd_CheckFlag(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_CheckFlagVar(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C *unk80 = ctx->unk80;
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 *wk1 = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     u16 *wk2 = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     *wk2 = FlagCheck(unk80, *wk1);
@@ -362,7 +362,7 @@ THUMB_FUNC BOOL ScrCmd_CheckFlagVar(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_SetFlagVar(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C *unk80 = ctx->unk80;
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 *wk = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     FlagSet(unk80, *wk);
     return FALSE;
@@ -370,7 +370,7 @@ THUMB_FUNC BOOL ScrCmd_SetFlagVar(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_SetTrainerFlag(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C *unk80 = ctx->unk80;
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 flag = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     TrainerFlagSet(unk80, flag);
     return FALSE;
@@ -378,7 +378,7 @@ THUMB_FUNC BOOL ScrCmd_SetTrainerFlag(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_ClearTrainerFlag(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C *unk80 = ctx->unk80;
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 flag = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     TrainerFlagClear(unk80, flag);
     return FALSE;
@@ -386,7 +386,7 @@ THUMB_FUNC BOOL ScrCmd_ClearTrainerFlag(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_CheckTrainerFlag(struct ScriptContext* ctx)
 {
-    struct UnkStruct_0204639C *unk80 = ctx->unk80;
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 flag = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     ctx->comparisonResult = TrainerFlagCheck(unk80, flag);
     return FALSE;
@@ -482,3 +482,26 @@ THUMB_FUNC BOOL ScrCmd_Unk01FD(struct ScriptContext* ctx)
     return TRUE;
 }
 
+THUMB_FUNC BOOL ScrCmd_Unk01FE(struct ScriptContext* ctx)
+{
+    u8 id = ScriptReadByte(ctx);
+
+    if (ctx->unk80->unkA8 == NULL)
+    {
+        return FALSE;
+    }
+
+    u16 *unkArr = ctx->unk80->unkA8->unk90[id].unk0;
+    if (unkArr[0] == 0xFFFF)
+    {
+        struct MsgData *msgdata = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 0x22b, 32);
+        MOD05_021E2BD0(ctx, msgdata, unkArr[1], 1, NULL);
+        DestroyMsgData(msgdata);
+    }
+    else
+    {
+        MOD05_021E2C58(ctx, unkArr[0], unkArr[1], unkArr[2], (s16)unkArr[3], 1);
+    }
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
