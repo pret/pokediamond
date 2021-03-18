@@ -2,6 +2,7 @@
 #include "mod05_021E72FC.h"
 #include "heap.h"
 
+
 extern void FUN_020054C8(u32 param0);
 extern void FUN_020463CC(u32 param0, void *func, UnkStruct021E7358 *param2);
 extern u32 FUN_020553A0(u32 param0);
@@ -19,7 +20,6 @@ extern void FUN_02055304(u32 param0, u32 param1);
 extern BOOL FUN_02056B74(u32 param0, u32 param1, u32 param2);
 extern void FUN_02058418(u32 param0, u32 param1);
 extern void FUN_020054F0(u32 param0, u32 param1);
-extern void FUN_02016A8C(u32 param0, void *param1);
 
 THUMB_FUNC BOOL MOD05_021E72FC(u32 param0, u32 param1)
 {

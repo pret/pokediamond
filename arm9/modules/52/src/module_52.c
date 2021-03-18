@@ -1,11 +1,11 @@
 #include "module_52.h"
+#include "heap.h"
+
 
 extern struct Unk21DBE18 UNK_020FD144;
 extern struct Unk21DBE18 UNK_020F2B7C;
 extern struct Unk21DBE18 UNK_020F2B8C;
 
-extern void FUN_0201681C(u32 param0, u32 heap_id, u32 param2);
-extern int FUN_020168D0(u32 heap_id);
 extern void FUN_02015E3C(struct IGT *igt);
 extern void FUN_0206007C(struct SaveBlock2 *sav2);
 extern int FUN_02053678(u32 random, u32 gender, u32 param2);
