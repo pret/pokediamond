@@ -18,6 +18,8 @@ struct UnkStruct_020166C8 UNK_021C4D28;
 extern void *tempName_NNS_FndCreateExpHeapEx(void *param0, u32 param1, u32 param2);
 extern void *tempName_NNS_FndAllocFromExpHeapEx(void *param0, u32 param1, s32 param2);
 u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3);
+extern void thunk_FUN_020adc8c();
+extern void FUN_020ADDF0(u32 param0, void *param1);
 
 THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
 {
@@ -191,4 +193,51 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
         ErrorHandling();
     }
     return 0;
+}
+
+
+THUMB_FUNC void FUN_020168D0(u32 param0) {
+    if (OS_GetProcMode() == OS_PROCMODE_IRQ) {
+        ErrorHandling();
+    }
+
+    if (UNK_021C4D28.unk_ptr1[UNK_021C4D28.unk_ptr5[param0]] != 0) {
+        thunk_FUN_020adc8c();
+
+        u8 index = UNK_021C4D28.unk_ptr5[param0];
+        u32 arg1 = UNK_021C4D28.unk_ptr2[index];
+        void *arg2 = UNK_021C4D28.unk_ptr3[index];
+        if (arg1 != 0 && arg2 != 0) {
+            FUN_020ADDF0(arg1, arg2);
+        } else {
+            ErrorHandling();
+        }
+
+
+
+        UNK_021C4D28.unk_ptr1[UNK_021C4D28.unk_ptr5[param0]] = 0;
+        UNK_021C4D28.unk_ptr2[UNK_021C4D28.unk_ptr5[param0]] = 0;
+        UNK_021C4D28.unk_ptr3[UNK_021C4D28.unk_ptr5[param0]] = 0;
+
+        UNK_021C4D28.unk_ptr5[param0] = UNK_021C4D28.unk_half4;
+    }
+}
+
+
+THUMB_FUNC u32 FUN_02016944(void *param0, u32 param1, u32 param2, u8 param3) {
+    if (param0 == 0) {
+        ErrorHandling();
+    }
+    OSIntrMode os_mode = OS_DisableInterrupts();
+    param1+=16;
+    u32 *ptr = (u32 *) tempName_NNS_FndAllocFromExpHeapEx(param0, param1, param2);
+
+    OS_RestoreInterrupts(os_mode);
+    if (ptr != 0) {
+        ptr[3] = (ptr[3] & ~0xff) | (param3 & 0xff);
+
+        ptr+=4;
+    }
+
+    return ptr;
 }
