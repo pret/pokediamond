@@ -14,12 +14,16 @@ extern void TrainerFlagClear(struct UnkSavStruct80 *arg, u16 flag);
 extern u8 TrainerFlagCheck(struct UnkSavStruct80 *arg, u16 flag);
 extern void MOD05_ShowMessageInField(struct ScriptContext *ctx, struct MsgData *msgData, u16 id);
 extern void MOD05_021E2BD0(struct ScriptContext *ctx, struct MsgData *msgData, u16 msgId, u32 param4, void *param5);
-extern BOOL FUN_0203A2F0(struct ScriptContext *ctx);
 extern void MOD05_021E2C58(struct ScriptContext *ctx, u16 typ, u16 id, u16 word1, s16 word2, u8 param5);
+extern struct ScrStrBufs *MOD06_02244210(struct SaveBlock2 *sav, u16 poke, u16 sex, u8 flag, u8 *unk);
+extern void MOD05_021E2CBC(struct ScriptContext *ctx, struct ScrStrBufs *str, u8 param2, u32 param3);
+extern void MOD05_021E2BB8(void *param0, struct ScriptContext *ctx);
+extern BOOL FUN_020546C8(u8 param0);
 
 static BOOL RunPauseTimer(struct ScriptContext* ctx);
 static u32 Compare(u16 a, u16 b);
 static BOOL FUN_02039CC8(struct ScriptContext* ctx);
+/*static*/ BOOL FUN_0203A2F0(struct ScriptContext* ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -464,7 +468,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01FC(struct ScriptContext* ctx)
     u16 typ = ScriptReadHalfword(ctx);
     u16 id = ScriptReadHalfword(ctx);
     u16 word1 = ScriptReadHalfword(ctx);
-    u16 word2 = ScriptReadHalfword(ctx);
+    s16 word2 = (s16)ScriptReadHalfword(ctx);
 
     MOD05_021E2C58(ctx, typ, id, word1, word2, 0xff);
     return FALSE;
@@ -475,7 +479,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01FD(struct ScriptContext* ctx)
     u16 typ = ScriptReadHalfword(ctx);
     u16 id = ScriptReadHalfword(ctx);
     u16 word1 = ScriptReadHalfword(ctx);
-    u16 word2 = ScriptReadHalfword(ctx);
+    s16 word2 = (s16)ScriptReadHalfword(ctx);
 
     MOD05_021E2C58(ctx, typ, id, word1, word2, 1);
     SetupNativeScript(ctx, FUN_0203A2F0);
@@ -504,4 +508,49 @@ THUMB_FUNC BOOL ScrCmd_Unk01FE(struct ScriptContext* ctx)
     }
     SetupNativeScript(ctx, FUN_0203A2F0);
     return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk01FF(struct ScriptContext* ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u8 msg = ScriptReadByte(ctx);
+    u16 poke = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 sex = ScriptReadHalfword(ctx);
+    u8 flag = ScriptReadByte(ctx);
+    u8 unk = 0;
+
+    struct ScrStrBufs *str = MOD06_02244210(unk80->saveBlock2, poke, sex, flag, &unk);
+    MOD05_021E2CBC(ctx, str, (u8)(msg + unk), 1);
+    ScrStrBufs_delete(str);
+
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk026D(struct ScriptContext* ctx) //message unown font?
+{
+    struct UnkStruct_0203A288 myLocalStruct;
+    u16 msg = ScriptReadHalfword(ctx);
+
+    MOD05_021E2BB8(&myLocalStruct, ctx);
+    myLocalStruct.unk2 = 3;
+
+    MOD05_021E2BD0(ctx, ctx->msgData, msg, 0, &myLocalStruct);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk002C(struct ScriptContext* ctx)
+{
+    u8 msg = ScriptReadByte(ctx);
+    MOD05_021E2BD0(ctx, ctx->msgData, msg, 1, NULL);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC /*static*/ BOOL FUN_0203A2F0(struct ScriptContext* ctx)
+{
+    u8 *unk = (u8 *)FUN_02039438(ctx->unk80, 3);
+    return FUN_020546C8(*unk);
 }

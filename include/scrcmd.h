@@ -4,6 +4,13 @@
 #include "global.h"
 #include "script.h"
 
+struct UnkStruct_0203A288 {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 padding[1];
+};
+
 //scrcmd.c
 BOOL ScrCmd_Nop(struct ScriptContext* ctx);
 BOOL ScrCmd_Dummy(struct ScriptContext* ctx);
@@ -55,6 +62,9 @@ BOOL ScrCmd_MessageFrom2(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01FC(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01FD(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01FE(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01FF(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk026D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk002C(struct ScriptContext* ctx);
 
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);

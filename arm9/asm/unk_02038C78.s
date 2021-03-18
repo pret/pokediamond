@@ -193,7 +193,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_CopyVar
     .word ScrCmd_SetOrCopyVar
     .word ScrCmd_Message
-    .word FUN_0203A2C4
+    .word ScrCmd_Unk002C
     .word FUN_0203A304
     .word FUN_0203A388
     .word FUN_0203A400
@@ -660,7 +660,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk01FC
     .word ScrCmd_Unk01FD
     .word ScrCmd_Unk01FE
-    .word FUN_0203A210
+    .word ScrCmd_Unk01FF
     .word FUN_0203C7F4
     .word FUN_0203C820
     .word FUN_0203E5DC
@@ -770,7 +770,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203F110
     .word FUN_0203F174
     .word FUN_0203F19C
-    .word FUN_0203A288
+    .word ScrCmd_Unk026D
     .word FUN_0203F234
     .word FUN_0203F254
     .word FUN_0203F26C

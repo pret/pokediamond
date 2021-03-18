@@ -2,10 +2,10 @@
     .include "global.inc"
 
 	.extern UNK_020F34E0
-	.extern sScriptConditionTable
 	.extern UNK_020F34FC
 	.extern UNK_020F3538
 	.extern gMain
+	.extern FUN_0203A2F0
 
 	.section .bss
 
@@ -14,124 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 	.space 0x4
 
 	.text
-
-	thumb_func_start FUN_0203A210
-FUN_0203A210: ; 0x0203A210
-	push {r3-r7, lr}
-	sub sp, #0x8
-	add r5, r0, #0x0
-	add r1, r5, #0x0
-	add r1, #0x80
-	ldr r2, [r5, #0x8]
-	ldr r6, [r1, #0x0]
-	add r1, r2, #0x1
-	str r1, [r5, #0x8]
-	ldrb r4, [r2, #0x0]
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r7, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	ldr r1, [r5, #0x8]
-	add r2, r0, #0x0
-	add r0, r1, #0x1
-	str r0, [r5, #0x8]
-	ldrb r3, [r1, #0x0]
-	mov r1, #0x0
-	add r0, sp, #0x4
-	strb r1, [r0, #0x0]
-	add r0, sp, #0x4
-	str r0, [sp, #0x0]
-	ldr r0, [r6, #0xc]
-	add r1, r7, #0x0
-	bl MOD06_02244210
-	add r6, r0, #0x0
-	add r2, sp, #0x4
-	ldrb r2, [r2, #0x0]
-	add r0, r5, #0x0
-	add r1, r6, #0x0
-	add r2, r4, r2
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
-	mov r3, #0x1
-	bl MOD05_021E2CBC
-	add r0, r6, #0x0
-	bl ScrStrBufs_delete
-	ldr r1, _0203A284 ; =FUN_0203A2F0
-	add r0, r5, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	add sp, #0x8
-	pop {r3-r7, pc}
-	nop
-_0203A284: .word FUN_0203A2F0 
-
-	thumb_func_start FUN_0203A288
-FUN_0203A288: ; 0x0203A288
-	push {r3-r5, lr}
-	sub sp, #0x8
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r4, r0, #0x0
-	add r0, sp, #0x4
-	add r1, r5, #0x0
-	bl MOD05_021E2BB8
-	mov r1, #0x3
-	add r0, sp, #0x4
-	strb r1, [r0, #0x2]
-	add r0, sp, #0x4
-	str r0, [sp, #0x0]
-	ldr r1, [r5, #0x78]
-	add r0, r5, #0x0
-	add r2, r4, #0x0
-	mov r3, #0x0
-	bl MOD05_021E2BD0
-	ldr r1, _0203A2C0 ; =FUN_0203A2F0
-	add r0, r5, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	add sp, #0x8
-	pop {r3-r5, pc}
-	.balign 4
-_0203A2C0: .word FUN_0203A2F0 
-
-	thumb_func_start FUN_0203A2C4
-FUN_0203A2C4: ; 0x0203A2C4
-	push {r3-r4, lr}
-	sub sp, #0x4
-	add r4, r0, #0x0
-	ldr r2, [r4, #0x8]
-	mov r3, #0x1
-	add r1, r2, #0x1
-	str r1, [r4, #0x8]
-	mov r1, #0x0
-	str r1, [sp, #0x0]
-	ldrb r2, [r2, #0x0]
-	ldr r1, [r4, #0x78]
-	bl MOD05_021E2BD0
-	ldr r1, _0203A2EC ; =FUN_0203A2F0
-	add r0, r4, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	add sp, #0x4
-	pop {r3-r4, pc}
-	.balign 4
-_0203A2EC: .word FUN_0203A2F0 
-
-	thumb_func_start FUN_0203A2F0
-FUN_0203A2F0: ; 0x0203A2F0
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x3
-	bl FUN_02039438
-	ldrb r0, [r0, #0x0]
-	bl FUN_020546C8
-	pop {r3, pc}
 
 	thumb_func_start FUN_0203A304
 FUN_0203A304: ; 0x0203A304

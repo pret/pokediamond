@@ -2749,9 +2749,9 @@
 .extern ScrCmd_Unk01FC
 .extern ScrCmd_Unk01FD
 .extern ScrCmd_Unk01FE
-.extern FUN_0203A210
-.extern FUN_0203A288
-.extern FUN_0203A2C4
+.extern ScrCmd_Unk01FF
+.extern ScrCmd_Unk026D
+.extern ScrCmd_Unk002C
 .extern FUN_0203A304
 .extern FUN_0203A340
 .extern FUN_0203A388
