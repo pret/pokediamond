@@ -11,11 +11,10 @@
 #include "unk_0201B8B8.h"
 #include "trainer_data.h"
 #include "script_buffers.h"
+#include "unk_02024E64.h"
 
 #pragma thumb on
 
-extern void * FUN_02024EC0(struct SaveBlock2 * sav2);
-extern u16 * FUN_02024EE8(void *);
 extern u32 GetCityNamesMsgdataIdByCountry(u32);
 extern void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
 extern void StringCat_HandleTrainerName(struct String * dest, const struct String * src);
@@ -131,7 +130,7 @@ void BufferPlayersName(struct ScrStrBufs * mgr, u32 idx, struct PlayerData * dat
 
 void BufferRivalsName(struct ScrStrBufs * mgr, u32 idx, struct SaveBlock2 * sav2)
 {
-    u16 * name = FUN_02024EE8(FUN_02024EC0(sav2));
+    u16 * name = GetRivalNamePtr(FUN_02024EC0(sav2));
     CopyU16ArrayToString(mgr->tmpbuf, name);
     SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
 }

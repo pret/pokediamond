@@ -575,7 +575,7 @@ class GlobalAsmBlock:
             self.add_sized(int(line.split()[1], 0), real_line)
         elif line.startswith('.balign') or line.startswith('.align'):
             align = int(line.split()[1])
-            if align != 2:
+            if align != 4: 
                 self.fail("only .balign 4 is supported", real_line)
             self.align4()
         elif line.startswith('.asci'):
@@ -586,9 +586,6 @@ class GlobalAsmBlock:
         # Branches are 4 bytes long
         elif line.startswith('bl'):
             self.add_sized(4, real_line)
-        elif line.startswith('.'):
-            # .macro, ...
-            self.fail("asm directive not supported", real_line)
         else:
             # Unfortunately, macros are hard to support for .rodata --
             # we don't know how how space they will expand to before
@@ -1027,8 +1024,11 @@ def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
                 loc1 = asm_objfile.symtab.find_symbol_in_section(temp_name + '_asm_start', source)
                 loc2 = asm_objfile.symtab.find_symbol_in_section(temp_name + '_asm_end', source)
                 assert loc1 == pos, "assembly and C files don't line up for section " + sectype + ", " + fn_desc
-                if loc2 - loc1 != count:
-                    raise Failure("incorrectly computed size for section " + sectype + ", " + fn_desc + ". If using .double, make sure to provide explicit alignment padding.")
+                # Since we are nonmatching whole functions, we don't need to insert the correct
+                # amount of padding into the src file. We don't actually need to insert padding  
+                # at all. We can just plop the asm's text section into the objfile.   
+                # if loc2 - loc1 != count:
+                #     raise Failure("incorrectly computed size for section " + sectype + ", " + fn_desc + ". If using .double, make sure to provide explicit alignment padding.")
             if sectype == '.bss' or sectype == '.sbss2':
                 continue
             target = objfile.find_section(sectype, n_text if sectype == '.text' else 0)

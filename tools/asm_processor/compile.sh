@@ -1,19 +1,27 @@
 #!/bin/bash
 
 CC="$1"
-shift
-AS="$1"
-shift
+AS="$2"
+OBJ="$3"
+SRC="$4"
 
-temp="$(mktemp)"
-../tools/asm_processor/asm_processor.py "$2" --assembler "$AS" > "$temp.c" &&
-$CC -c "$temp.c" -o "$1"
+PADDED_SRC="$(mktemp --suffix=.c padded-XXXXXX)"
+PADDED_OBJ="$(mktemp --suffix=.o padded-XXXXXX)"
 
-prelude=$(mktemp prelude.XXXXXX)
-cat ../include/macros.inc >> "$prelude"
-cat global.inc >> "$prelude"
+# Create a .c file replacing the nonmatching function with volatile int writes, 
+# and compile. 
+../tools/asm_processor/asm_processor.py "$SRC" --assembler "$AS" > "$PADDED_SRC"
+$CC -c "$PADDED_SRC" -o "$PADDED_OBJ"
 
-../tools/asm_processor/asm_processor.py "$2" --post-process "$1" --assembler "$AS" --asm-prelude "$prelude"
-arm-none-eabi-objcopy --remove-section .comment "$1" "$1"
-rm "$prelude"
-rm "$temp"
+PRELUDE=$(mktemp)
+cat ../include/macros.inc >> "$PRELUDE"
+cat global.inc >> "$PRELUDE"
+
+# Inject the matching assembly into the padded obj file.
+../tools/asm_processor/asm_processor.py "$SRC" --post-process "$PADDED_OBJ" --assembler "$AS" --asm-prelude "$PRELUDE"
+
+$DEVKITARM/bin/arm-none-eabi-objcopy --remove-section .comment "$PADDED_OBJ" "$OBJ"
+
+rm "$PADDED_SRC"
+rm "$PADDED_OBJ"
+rm "$PRELUDE"
