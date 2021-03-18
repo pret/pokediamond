@@ -36,21 +36,21 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
     u32 r7 = param2 * 2;
 
     void *ptr = OS_AllocFromArenaLo(OS_ARENA_MAIN, (unk_size * 3 + 1) * sizeof(u32) + r7 + param2, 4);
-    UNK_021C4D28.unk_ptr1 = ptr;
+    UNK_021C4D28.unk00 = ptr;
     ptr += (unk_size + 1) * 4;
-    UNK_021C4D28.unk_ptr2 = ptr;
+    UNK_021C4D28.unk04 = ptr;
     ptr += unk_size * 4;
-    UNK_021C4D28.unk_ptr3 = ptr;
+    UNK_021C4D28.unk08 = ptr;
     ptr += unk_size * 4;
-    UNK_021C4D28.unk_ptr4 = ptr;
+    UNK_021C4D28.unk0c = ptr;
     ptr += r7;
-    UNK_021C4D28.unk_ptr5 = ptr;
-    UNK_021C4D28.unk_half1 = (u16)param2;
-    UNK_021C4D28.unk_half2 = (u16)param1;
+    UNK_021C4D28.unk10 = ptr;
+    UNK_021C4D28.unk14 = (u16)param2;
+    UNK_021C4D28.unk16 = (u16)param1;
 
     r7 = 0;
-    UNK_021C4D28.unk_half4 = (u16)unk_size;
-    UNK_021C4D28.unk_half3 = (u16)unk_size;
+    UNK_021C4D28.unk1a = (u16)unk_size;
+    UNK_021C4D28.unk18 = (u16)unk_size;
 
     while (r7 < param1)
     {
@@ -67,8 +67,8 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
         if (ptr != 0)
         {
 
-            UNK_021C4D28.unk_ptr1[r7] = tempName_NNS_FndCreateExpHeapEx(ptr, param0[0], 0);
-            UNK_021C4D28.unk_ptr5[r7] = (u8)r7;
+            UNK_021C4D28.unk00[r7] = tempName_NNS_FndCreateExpHeapEx(ptr, param0[0], 0);
+            UNK_021C4D28.unk10[r7] = (u8)r7;
         }
         else
         {
@@ -81,33 +81,33 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
 
     while (param1 < unk_size + 1)
     {
-        UNK_021C4D28.unk_ptr1[param1] = 0;
-        UNK_021C4D28.unk_ptr5[param1] = (u8)UNK_021C4D28.unk_half4;
+        UNK_021C4D28.unk00[param1] = 0;
+        UNK_021C4D28.unk10[param1] = (u8)UNK_021C4D28.unk1a;
 
         param1++;
     }
 
     while (param1 < param2)
     {
-        UNK_021C4D28.unk_ptr5[param1] = (u8)UNK_021C4D28.unk_half4;
+        UNK_021C4D28.unk10[param1] = (u8)UNK_021C4D28.unk1a;
 
         param1++;
     }
 
     for (param1 = 0; param1 < param2; param1++)
     {
-        UNK_021C4D28.unk_ptr4[param1] = 0;
+        UNK_021C4D28.unk0c[param1] = 0;
     }
 }
 
 THUMB_FUNC s32 FUN_020167F4()
 {
-    s32 i = UNK_021C4D28.unk_half2;
-    s32 j = UNK_021C4D28.unk_half3;
+    s32 i = UNK_021C4D28.unk16;
+    s32 j = UNK_021C4D28.unk18;
 
     if (i < j)
     {
-        void **ptr = UNK_021C4D28.unk_ptr1 + i;
+        void **ptr = UNK_021C4D28.unk00 + i;
         do
         {
             if (*ptr == 0)
@@ -139,10 +139,10 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
         ErrorHandling();
     }
 
-    u8 *ptr = UNK_021C4D28.unk_ptr5;
-    if (UNK_021C4D28.unk_half4 == ptr[param1])
+    u8 *ptr = UNK_021C4D28.unk10;
+    if (UNK_021C4D28.unk1a == ptr[param1])
     {
-        void *ptr2 = UNK_021C4D28.unk_ptr1[ptr[param0]];
+        void *ptr2 = UNK_021C4D28.unk00[ptr[param0]];
         if (ptr2 != 0)
         {
             void *ptr3 = tempName_NNS_FndAllocFromExpHeapEx(ptr2, param2, param3);
@@ -151,14 +151,14 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
                 param3 = FUN_020167F4();
                 if (param3 >= 0)
                 {
-                    UNK_021C4D28.unk_ptr1[param3] = tempName_NNS_FndCreateExpHeapEx(ptr3, param2, 0);
+                    UNK_021C4D28.unk00[param3] = tempName_NNS_FndCreateExpHeapEx(ptr3, param2, 0);
 
 
-                    if (UNK_021C4D28.unk_ptr1[param3] != 0)
+                    if (UNK_021C4D28.unk00[param3] != 0)
                     {
-                        UNK_021C4D28.unk_ptr2[param3] = ptr2;
-                        UNK_021C4D28.unk_ptr3[param3] = ptr3;
-                        UNK_021C4D28.unk_ptr5[param1] = (u8)param3;
+                        UNK_021C4D28.unk04[param3] = ptr2;
+                        UNK_021C4D28.unk08[param3] = ptr3;
+                        UNK_021C4D28.unk10[param1] = (u8)param3;
 
                         return 1;
                     }
@@ -196,13 +196,13 @@ THUMB_FUNC void FUN_020168D0(u32 heap_id)
         ErrorHandling();
     }
 
-    if (UNK_021C4D28.unk_ptr1[UNK_021C4D28.unk_ptr5[heap_id]] != 0)
+    if (UNK_021C4D28.unk00[UNK_021C4D28.unk10[heap_id]] != 0)
     {
         thunk_FUN_020adc8c();
 
-        u8 index = UNK_021C4D28.unk_ptr5[heap_id];
-        void *ptr1 = UNK_021C4D28.unk_ptr2[index];
-        void *ptr2 = UNK_021C4D28.unk_ptr3[index];
+        u8 index = UNK_021C4D28.unk10[heap_id];
+        void *ptr1 = UNK_021C4D28.unk04[index];
+        void *ptr2 = UNK_021C4D28.unk08[index];
         if (ptr1 != 0 && ptr2 != 0)
         {
             FUN_020ADDF0(ptr1, ptr2);
@@ -212,11 +212,11 @@ THUMB_FUNC void FUN_020168D0(u32 heap_id)
             ErrorHandling();
         }
 
-        UNK_021C4D28.unk_ptr1[UNK_021C4D28.unk_ptr5[heap_id]] = 0;
-        UNK_021C4D28.unk_ptr2[UNK_021C4D28.unk_ptr5[heap_id]] = 0;
-        UNK_021C4D28.unk_ptr3[UNK_021C4D28.unk_ptr5[heap_id]] = 0;
+        UNK_021C4D28.unk00[UNK_021C4D28.unk10[heap_id]] = 0;
+        UNK_021C4D28.unk04[UNK_021C4D28.unk10[heap_id]] = 0;
+        UNK_021C4D28.unk08[UNK_021C4D28.unk10[heap_id]] = 0;
 
-        UNK_021C4D28.unk_ptr5[heap_id] = (u8)UNK_021C4D28.unk_half4;
+        UNK_021C4D28.unk10[heap_id] = (u8)UNK_021C4D28.unk1a;
     }
 }
 
@@ -252,14 +252,14 @@ THUMB_FUNC void FUN_02016988()
 void *AllocFromHeap(u32 heap_id, u32 size)
 {
     void *ptr = 0;
-    if (heap_id < UNK_021C4D28.unk_half1)
+    if (heap_id < UNK_021C4D28.unk14)
     {
-        u8 index = UNK_021C4D28.unk_ptr5[heap_id];
-        ptr = FUN_02016944(UNK_021C4D28.unk_ptr1[index], size, 4, heap_id);
+        u8 index = UNK_021C4D28.unk10[heap_id];
+        ptr = FUN_02016944(UNK_021C4D28.unk00[index], size, 4, heap_id);
     }
     if (ptr != 0)
     {
-        UNK_021C4D28.unk_ptr4[heap_id]++;
+        UNK_021C4D28.unk0c[heap_id]++;
     }
     else
     {
@@ -272,15 +272,15 @@ void *AllocFromHeap(u32 heap_id, u32 size)
 void *AllocFromHeapAtEnd(u32 heap_id, u32 size)
 {
     void *ptr = 0;
-    if (heap_id < UNK_021C4D28.unk_half1)
+    if (heap_id < UNK_021C4D28.unk14)
     {
-        u8 index = UNK_021C4D28.unk_ptr5[heap_id];
-        ptr = FUN_02016944(UNK_021C4D28.unk_ptr1[index], size, -4, heap_id);
+        u8 index = UNK_021C4D28.unk10[heap_id];
+        ptr = FUN_02016944(UNK_021C4D28.unk00[index], size, -4, heap_id);
     }
 
     if (ptr != 0)
     {
-        UNK_021C4D28.unk_ptr4[heap_id]++;
+        UNK_021C4D28.unk0c[heap_id]++;
     }
     else
     {
@@ -294,24 +294,19 @@ void FreeToHeap(void *ptr)
 {
     u8 heap_id = (u8)((u32 *)ptr)[-1];
 
-    if ((u16)heap_id < UNK_021C4D28.unk_half1)
+    if ((u16)heap_id < UNK_021C4D28.unk14)
     {
-        u8 index = UNK_021C4D28.unk_ptr5[heap_id];
-        void *ptr2 = UNK_021C4D28.unk_ptr1[index];
-        if (ptr2 == 0)
-        {
-            ErrorHandling();
-        }
-        if (UNK_021C4D28.unk_ptr4[heap_id] == 0)
+        u8 index = UNK_021C4D28.unk10[heap_id];
+        void *ptr2 = UNK_021C4D28.unk00[index];
+        GF_ASSERT(ptr2);
+
+        if (UNK_021C4D28.unk0c[heap_id] == 0)
         {
             FUN_02016B90(heap_id);
         }
-        if (UNK_021C4D28.unk_ptr4[heap_id] == 0)
-        {
-            ErrorHandling();
-        }
+        GF_ASSERT(UNK_021C4D28.unk0c[heap_id]);
 
-        UNK_021C4D28.unk_ptr4[heap_id]--;
+        UNK_021C4D28.unk0c[heap_id]--;
         OSIntrMode intr_mode = OS_DisableInterrupts();
         FUN_020ADDF0(ptr2, ptr - 16);
         OS_RestoreInterrupts(intr_mode);
@@ -328,14 +323,11 @@ void FUN_02016A8C(u32 param0, void *param1)
         ErrorHandling();
     }
 
-    if (param0 < UNK_021C4D28.unk_half1)
+    if (param0 < UNK_021C4D28.unk14)
     {
-        u8 index = UNK_021C4D28.unk_ptr5[param0];
-        void *ptr = UNK_021C4D28.unk_ptr1[index];
-        if (ptr == 0)
-        {
-            ErrorHandling();
-        }
+        u8 index = UNK_021C4D28.unk10[param0];
+        void *ptr = UNK_021C4D28.unk00[index];
+        GF_ASSERT (ptr );
 
         u8 heap_id = (u8)((u32 *)param1)[-1];
         if (heap_id != param0)
@@ -344,12 +336,9 @@ void FUN_02016A8C(u32 param0, void *param1)
         }
 
         FUN_020ADDF0(ptr, param1 - 16);
-        if (UNK_021C4D28.unk_ptr4[param0] == 0)
-        {
-            ErrorHandling();
-        }
+        GF_ASSERT (UNK_021C4D28.unk0c[param0]);
 
-        UNK_021C4D28.unk_ptr4[param0]--;
+        UNK_021C4D28.unk0c[param0]--;
         return;
     }
 
@@ -358,10 +347,10 @@ void FUN_02016A8C(u32 param0, void *param1)
 
 THUMB_FUNC u32 FUN_02016AF8(u32 param0)
 {
-    if (param0 < UNK_021C4D28.unk_half1)
+    if (param0 < UNK_021C4D28.unk14)
     {
-        u8 index = UNK_021C4D28.unk_ptr5[param0];
-        return FUN_020ADDC8(UNK_021C4D28.unk_ptr1[index]);
+        u8 index = UNK_021C4D28.unk10[param0];
+        return FUN_020ADDC8(UNK_021C4D28.unk00[index]);
     }
 
     ErrorHandling();
@@ -370,11 +359,11 @@ THUMB_FUNC u32 FUN_02016AF8(u32 param0)
 
 THUMB_FUNC void FUN_02016B20(u32 param0, u32 param1, u32 param2)
 {
-    if (param1 < UNK_021C4D28.unk_half1)
+    if (param1 < UNK_021C4D28.unk14)
     {
 
-        u8 index = UNK_021C4D28.unk_ptr5[param1];
-        FUN_020AE82C(param0, UNK_021C4D28.unk_ptr1[index], param2);
+        u8 index = UNK_021C4D28.unk10[param1];
+        FUN_020AE82C(param0, UNK_021C4D28.unk00[index], param2);
         return;
     }
 
@@ -393,9 +382,9 @@ THUMB_FUNC void FUN_02016B44(void *ptr, u32 param1)
     {
         u8 heap_id = (u8)((u32 *)ptr)[-1];
 
-        u8 index = UNK_021C4D28.unk_ptr5[heap_id];
+        u8 index = UNK_021C4D28.unk10[heap_id];
 
-        FUN_020ADE2C(UNK_021C4D28.unk_ptr1[index], ptr - 16, param1);
+        FUN_020ADE2C(UNK_021C4D28.unk00[index], ptr - 16, param1);
         return;
     }
     ErrorHandling();

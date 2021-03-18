@@ -5,15 +5,15 @@
 
 struct UnkStruct_020166C8
 {
-    void **unk_ptr1;
-    void **unk_ptr2;
-    void **unk_ptr3;
-    u16 *unk_ptr4;
-    u8 *unk_ptr5;
-    u16 unk_half1;
-    u16 unk_half2;
-    u16 unk_half3;
-    u16 unk_half4;
+    void **unk00;
+    void **unk04;
+    void **unk08;
+    u16 *unk0c;
+    u8 *unk10;
+    u16 unk14;
+    u16 unk16;
+    u16 unk18;
+    u16 unk1a;
 };
 
 
