@@ -134,10 +134,7 @@ THUMB_FUNC u32 FUN_02016828(u32 param0, u32 param1, u32 param2)
 
 THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
 {
-    if (OS_GetProcMode() == OS_PROCMODE_IRQ)
-    {
-        ErrorHandling();
-    }
+    GF_ASSERT(OS_GetProcMode() != OS_PROCMODE_IRQ);
 
     u8 *ptr = UNK_021C4D28.unk10;
     if (UNK_021C4D28.unk1a == ptr[param1])
@@ -191,10 +188,7 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
 
 THUMB_FUNC void FUN_020168D0(u32 heap_id)
 {
-    if (OS_GetProcMode() == OS_PROCMODE_IRQ)
-    {
-        ErrorHandling();
-    }
+    GF_ASSERT (OS_GetProcMode() != OS_PROCMODE_IRQ);
 
     if (UNK_021C4D28.unk00[UNK_021C4D28.unk10[heap_id]] != 0)
     {
@@ -222,10 +216,8 @@ THUMB_FUNC void FUN_020168D0(u32 heap_id)
 
 THUMB_FUNC u32 *FUN_02016944(void *param0, u32 param1, s32 param2, u32 param3)
 {
-    if (param0 == 0)
-    {
-        ErrorHandling();
-    }
+    GF_ASSERT(param0);
+
     OSIntrMode intr_mode = OS_DisableInterrupts();
     param1 += 16;
     u32 *ptr = (u32 *)tempName_NNS_FndAllocFromExpHeapEx(param0, param1, param2);
@@ -318,10 +310,7 @@ void FreeToHeap(void *ptr)
 
 void FUN_02016A8C(u32 param0, void *param1)
 {
-    if (OS_GetProcMode() == OS_PROCMODE_IRQ)
-    {
-        ErrorHandling();
-    }
+    GF_ASSERT (OS_GetProcMode() != OS_PROCMODE_IRQ);
 
     if (param0 < UNK_021C4D28.unk14)
     {
@@ -330,10 +319,7 @@ void FUN_02016A8C(u32 param0, void *param1)
         GF_ASSERT (ptr );
 
         u8 heap_id = (u8)((u32 *)param1)[-1];
-        if (heap_id != param0)
-        {
-            ErrorHandling();
-        }
+        GF_ASSERT (heap_id == param0);
 
         FUN_020ADDF0(ptr, param1 - 16);
         GF_ASSERT (UNK_021C4D28.unk0c[param0]);
@@ -372,10 +358,7 @@ THUMB_FUNC void FUN_02016B20(u32 param0, u32 param1, u32 param2)
 
 THUMB_FUNC void FUN_02016B44(void *ptr, u32 param1)
 {
-    if (OS_GetProcMode() == OS_PROCMODE_IRQ)
-    {
-        ErrorHandling();
-    }
+    GF_ASSERT (OS_GetProcMode() != OS_PROCMODE_IRQ);
 
     param1 += 16;
     if (FUN_020ADDC0(ptr - 16) >= param1)
