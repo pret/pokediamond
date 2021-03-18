@@ -3,8 +3,8 @@
 struct UnkStruct_020166C8
 {
     u32 *unk_ptr1;
-    void *unk_ptr2;
-    void *unk_ptr3;
+    u32 *unk_ptr2;
+    void **unk_ptr3;
     u16 *unk_ptr4;
     u8 *unk_ptr5;
     u16 unk_half1;
@@ -16,7 +16,8 @@ struct UnkStruct_020166C8
 struct UnkStruct_020166C8 UNK_021C4D28;
 
 extern void *tempName_NNS_FndCreateExpHeapEx(void *param0, u32 param1, u32 param2);
-extern u32 FUN_02016834(u32 param0, u32 param1, u32 param2, u32 param3);
+extern void *tempName_NNS_FndAllocFromExpHeapEx(void *param0, u32 param1, s32 param2);
+u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3);
 
 THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
 {
@@ -125,12 +126,69 @@ THUMB_FUNC s32 FUN_020167F4()
     return -1;
 }
 
-
-THUMB_FUNC u32 FUN_0201681C(u32 param0, u32 param1, u32 param2) {
+THUMB_FUNC u32 FUN_0201681C(u32 param0, u32 param1, u32 param2)
+{
     return FUN_02016834(param0, param1, param2, 4);
 }
 
-
-THUMB_FUNC u32 FUN_02016828(u32 param0, u32 param1, u32 param2) {
+THUMB_FUNC u32 FUN_02016828(u32 param0, u32 param1, u32 param2)
+{
     return FUN_02016834(param0, param1, param2, -4);
+}
+
+
+THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
+{
+    if (OS_GetProcMode() == OS_PROCMODE_IRQ)
+    {
+        ErrorHandling();
+    }
+
+    u8 *ptr = UNK_021C4D28.unk_ptr5;
+    if (UNK_021C4D28.unk_half4 == ptr[param1])
+    {
+        u32 r6 = UNK_021C4D28.unk_ptr1[ptr[param0]];
+        if (r6 != 0)
+        {
+            void *res = tempName_NNS_FndAllocFromExpHeapEx(r6, param2, param3);
+            if (res != 0)
+            {
+                param3 = FUN_020167F4();
+                if (param3 >= 0)
+                {
+                    UNK_021C4D28.unk_ptr1[param3] = tempName_NNS_FndCreateExpHeapEx(res, param2, 0);
+
+                    if (UNK_021C4D28.unk_ptr1[param3] != 0)
+                    {
+                        UNK_021C4D28.unk_ptr2[param3] = r6;
+                        UNK_021C4D28.unk_ptr3[param3] = res;
+                        UNK_021C4D28.unk_ptr5[param1] = param3;
+
+                        return 1;
+                    }
+                    else
+                    {
+                        ErrorHandling();
+                    }
+                }
+                else
+                {
+                    ErrorHandling();
+                }
+            }
+            else
+            {
+                ErrorHandling();
+            }
+        }
+        else
+        {
+            ErrorHandling();
+        }
+    }
+    else
+    {
+        ErrorHandling();
+    }
+    return 0;
 }
