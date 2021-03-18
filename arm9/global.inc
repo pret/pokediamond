@@ -8519,6 +8519,3 @@
 .extern CARDi_InitCommon
 .extern MonNotFaintedOrEgg
 .extern CountAlivePokemon
-.extern UNK_021C4D28
-.extern FUN_020167F4
-.extern FUN_02016944
