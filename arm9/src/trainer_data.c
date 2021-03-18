@@ -22,7 +22,7 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 
 
     // FIXME: String formatting in files/msgdata/msg/narc_0559.txt is abnormal.
     msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 559, heap_id);
-    rivalName = FUN_02024EE8(FUN_02024EC0(sav2));
+    rivalName = GetRivalNamePtr(FUN_02024EC0(sav2));
     for (i = 0; i < 4; i++)
     {
         if (enemies->trainer_idxs[i] != 0)

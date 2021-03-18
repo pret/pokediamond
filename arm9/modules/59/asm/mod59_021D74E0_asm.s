@@ -181,7 +181,7 @@ MOD59_021D76C0: ; 0x021D76C0
 	bl FUN_02024EB4
 	ldr r1, [r4, #0x74]
 	ldr r1, [r1, #0x18]
-	bl FUN_02024EF4
+	bl RivalsNameToU16Array
 	ldr r0, [r4, #0x70]
 	bl FUN_02077AC4
 	ldr r0, [r4, #0x74]
