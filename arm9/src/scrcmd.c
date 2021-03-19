@@ -53,6 +53,7 @@ static BOOL FUN_0203A570(struct ScriptContext *ctx);
 static BOOL FUN_0203A6C8(struct ScriptContext *ctx);
 static BOOL FUN_0203A8A0(struct ScriptContext *ctx);
 static BOOL FUN_0203A94C(struct ScriptContext *ctx);
+/*static*/ BOOL FUN_0203AA0C(struct ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -936,7 +937,7 @@ THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx)
     return TRUE;
 }
 
-THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext* ctx)
+THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     u8 *unk1 = FUN_02039438(unk80, 3);
@@ -984,4 +985,12 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext* ctx)
         }
         return FALSE;
     }
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk003B(struct ScriptContext *ctx)
+{
+    ctx->data[0] = ScriptReadHalfword(ctx);
+
+    SetupNativeScript(ctx, FUN_0203AA0C);
+    return TRUE;
 }

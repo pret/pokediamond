@@ -2770,7 +2770,7 @@
 .extern ScrCmd_Unk0038
 .extern ScrCmd_Unk0039
 .extern ScrCmd_Unk003A
-.extern FUN_0203A9F0
+.extern ScrCmd_Unk003B
 .extern FUN_0203AA90
 .extern FUN_0203AAA0
 .extern FUN_0203AB44

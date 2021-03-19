@@ -15,20 +15,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start FUN_0203A9F0
-FUN_0203A9F0: ; 0x0203A9F0
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl ScriptReadHalfword
-	str r0, [r4, #0x64]
-	ldr r1, _0203AA08 ; =FUN_0203AA0C
-	add r0, r4, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r4, pc}
-	nop
-_0203AA08: .word FUN_0203AA0C 
-
 	thumb_func_start FUN_0203AA0C
 FUN_0203AA0C: ; 0x0203AA0C
 	push {r3-r5, lr}

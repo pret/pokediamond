@@ -83,6 +83,7 @@ BOOL ScrCmd_Unk0037(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0038(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0039(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk003A(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk003B(struct ScriptContext *ctx);
 
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
