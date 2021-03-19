@@ -65,6 +65,20 @@ BOOL ScrCmd_Unk01FE(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01FF(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk026D(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk002C(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk002D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk02C0(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk002E(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk020C(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk002F(struct ScriptContext* ctx);
+BOOL ScrCmd_WaitButtonAB(struct ScriptContext* ctx);
+BOOL ScrCmd_WaitButtonABTime(struct ScriptContext *ctx);
+BOOL ScrCmd_WaitButton(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0032(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0033(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0034(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0035(struct ScriptContext* ctx);
+BOOL ScrCmd_ScrollBg(struct ScriptContext* ctx);
+BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx);
 
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
