@@ -416,6 +416,7 @@ THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadow
     *(current++) = (shadow12) | temp;
 }
 #else
+//GLOBAL_ASM("asm/nonmatchings/GenerateFontHalfRowLookupTable.s")
 THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor) //TODO use asm preprocessor
 {
     asm {

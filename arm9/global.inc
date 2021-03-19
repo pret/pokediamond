@@ -2766,10 +2766,10 @@
 .extern ScrCmd_Unk0035
 .extern ScrCmd_ScrollBg
 .extern ScrCmd_CreateMessageBox
-.extern FUN_0203A830
-.extern FUN_0203A85C
-.extern FUN_0203A878
-.extern FUN_0203A8B8
+.extern ScrCmd_Unk0037
+.extern ScrCmd_Unk0038
+.extern ScrCmd_Unk0039
+.extern ScrCmd_Unk003A
 .extern FUN_0203A9F0
 .extern FUN_0203AA90
 .extern FUN_0203AAA0

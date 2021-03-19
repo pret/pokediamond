@@ -25,3 +25,6 @@ $DEVKITARM/bin/arm-none-eabi-objcopy --remove-section .comment "$PADDED_OBJ" "$O
 rm "$PADDED_SRC"
 rm "$PADDED_OBJ"
 rm "$PRELUDE"
+rm output.txt
+rm asm_processor_temp.s
+rm asm_processor_temp.o

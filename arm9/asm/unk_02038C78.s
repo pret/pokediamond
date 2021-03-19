@@ -204,10 +204,10 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0034
     .word ScrCmd_Unk0035
     .word ScrCmd_CreateMessageBox
-    .word FUN_0203A830
-    .word FUN_0203A85C
-    .word FUN_0203A878
-    .word FUN_0203A8B8
+    .word ScrCmd_Unk0037
+    .word ScrCmd_Unk0038
+    .word ScrCmd_Unk0039
+    .word ScrCmd_Unk003A
     .word FUN_0203A9F0
     .word FUN_0203AA90
     .word ScrCmd_ScrollBg

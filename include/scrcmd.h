@@ -79,6 +79,10 @@ BOOL ScrCmd_Unk0034(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0035(struct ScriptContext* ctx);
 BOOL ScrCmd_ScrollBg(struct ScriptContext* ctx);
 BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0037(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0038(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0039(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk003A(struct ScriptContext* ctx);
 
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
