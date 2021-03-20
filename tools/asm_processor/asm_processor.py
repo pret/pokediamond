@@ -1153,8 +1153,7 @@ def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
                 for reltab in target.relocated_by:
                     nrels = []
                     for rel in reltab.relocations:
-                        if (sectype == '.text' and rel.r_offset in modified_text_positions or
-                            sectype == '.rodata' and rel.r_offset in jtbl_rodata_positions) or sectype == ".sbss2":
+                        if (sectype == '.rodata' and rel.r_offset in jtbl_rodata_positions) or sectype == ".sbss2":
                             # don't include relocations for late_rodata dummy code
                             continue
                         # hopefully we don't have relocations for local or
