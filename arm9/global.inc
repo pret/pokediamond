@@ -1353,10 +1353,9 @@
 .extern FUN_02020AB0
 .extern FUN_02020ACC
 .extern FUN_02020AE8
-.extern FUN_02020AFC
-.extern FUN_02020BF4
-.extern FUN_02020BFC
-.extern FUN_02020C14
+.extern GetTimer3Count
+.extern Timer3CountToMilliSeconds
+.extern Timer3CountToSeconds
 .extern FUN_02020C44
 .extern FUN_02020C90
 .extern FUN_02020CB0

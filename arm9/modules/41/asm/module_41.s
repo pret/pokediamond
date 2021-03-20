@@ -1046,7 +1046,7 @@ MOD41_0225504C: ; 0x0225504C
 	add r5, r0, #0
 	add r4, r5, #0
 	add r4, #0x48
-	bl FUN_02020BF4
+	bl GetTimer3Count
 	str r0, [r5, #0x68]
 	str r1, [r5, #0x6c]
 	mov r2, #0
@@ -1105,7 +1105,7 @@ MOD41_022550BC: ; 0x022550BC
 	mov r1, #0
 	add r0, #0x88
 	str r1, [r0]
-	bl FUN_02020BF4
+	bl GetTimer3Count
 	str r0, [r4, #0x70]
 	str r1, [r4, #0x74]
 	pop {r4, pc}
@@ -1115,7 +1115,7 @@ MOD41_022550BC: ; 0x022550BC
 MOD41_022550D0: ; 0x022550D0
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r0, #0
-	bl FUN_02020BF4
+	bl GetTimer3Count
 	add r5, r4, #0
 	add r5, #0x68
 	ldr r7, [r4, #0x70]
@@ -1155,12 +1155,12 @@ MOD41_02255108: ; 0x02255108
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0225516A
-	bl FUN_02020BF4
+	bl GetTimer3Count
 	ldr r3, [r4, #0x68]
 	ldr r2, [r4, #0x6c]
 	sub r0, r0, r3
 	sbc r1, r2
-	bl FUN_02020C14
+	bl Timer3CountToSeconds
 	add r5, r0, #0
 	add r0, r4, #0
 	add r0, #0x80

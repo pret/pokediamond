@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "igt.h"
+#include "timer3.h"
 
 struct UnkStruct_02015E30
 {
