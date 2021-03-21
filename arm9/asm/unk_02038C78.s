@@ -194,23 +194,23 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_SetOrCopyVar
     .word ScrCmd_Message
     .word ScrCmd_Unk002C
-    .word FUN_0203A304
-    .word FUN_0203A388
-    .word FUN_0203A400
-    .word FUN_0203A45C
-    .word FUN_0203A4D0
-    .word FUN_0203A560
-    .word FUN_0203A590
-    .word FUN_0203A5D8
-    .word FUN_0203A608
-    .word FUN_0203A780
-    .word FUN_0203A830
-    .word FUN_0203A85C
-    .word FUN_0203A878
-    .word FUN_0203A8B8
-    .word FUN_0203A9F0
+    .word ScrCmd_Unk002D
+    .word ScrCmd_Unk002E
+    .word ScrCmd_Unk002F
+    .word ScrCmd_WaitButtonAB
+    .word ScrCmd_WaitButton
+    .word ScrCmd_Unk0032
+    .word ScrCmd_Unk0033
+    .word ScrCmd_Unk0034
+    .word ScrCmd_Unk0035
+    .word ScrCmd_CreateMessageBox
+    .word ScrCmd_Unk0037
+    .word ScrCmd_Unk0038
+    .word ScrCmd_Unk0039
+    .word ScrCmd_Unk003A
+    .word ScrCmd_Unk003B
     .word FUN_0203AA90
-    .word FUN_0203A630
+    .word ScrCmd_ScrollBg
     .word FUN_0203AAA0
     .word FUN_0203DEA8
     .word FUN_0203AB8C
@@ -549,7 +549,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203AB44
     .word FUN_0203AB74
     .word FUN_0203DBD4
-    .word FUN_0203A484
+    .word ScrCmd_WaitButtonABTime
     .word FUN_0203B8E4
     .word FUN_0203B944
     .word FUN_0203B968
@@ -673,7 +673,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203BE50
     .word FUN_0203BECC
     .word FUN_0203BF00
-    .word FUN_0203A3C4
+    .word ScrCmd_Unk020C
     .word FUN_0203E684
     .word FUN_0203E6B4
     .word FUN_0203E6C4
@@ -853,7 +853,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203D0A4
     .word FUN_0203FC58
     .word FUN_0203CAE8
-    .word FUN_0203A340
+    .word ScrCmd_Unk02C0
     .word FUN_0203FC80
     .word FUN_0203FCB0
     .word FUN_0203FCDC
