@@ -1,4 +1,3 @@
-
 .section .text
 
 glabel GenerateFontHalfRowLookupTable
