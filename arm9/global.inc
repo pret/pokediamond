@@ -8519,3 +8519,10 @@
 .extern CARDi_InitCommon
 .extern MonNotFaintedOrEgg
 .extern CountAlivePokemon
+.extern UNK_020FF49C
+.extern UNK_020FF4A4
+.extern UNK_020FF4AC
+.extern UNK_020FF4BC
+.extern UNK_020FF4D8
+.extern sErrorMessagePrinterLock
+.extern FUN_0208A998
