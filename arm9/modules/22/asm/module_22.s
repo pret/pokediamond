@@ -657,7 +657,7 @@ MOD22_02254D00: ; 0x02254D00
 	eor r0, r3
 	orr r0, r1
 	beq _02254D32
-	bl FUN_02020BF4
+	bl GetTimer3Count
 	add r5, r4, #0
 	add r5, #0xc
 	ldr r7, [r4, #0x14]
@@ -672,7 +672,7 @@ MOD22_02254D00: ; 0x02254D00
 	str r3, [r5, #4]
 	b _02254D3A
 _02254D32:
-	bl FUN_02020BF4
+	bl GetTimer3Count
 	str r0, [r4, #0xc]
 	str r1, [r4, #0x10]
 _02254D3A:
@@ -687,7 +687,7 @@ _02254D3A:
 MOD22_02254D44: ; 0x02254D44
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02020BF4
+	bl GetTimer3Count
 	str r0, [r4, #0x14]
 	str r1, [r4, #0x18]
 	mov r0, #0
@@ -706,12 +706,12 @@ MOD22_02254D58: ; 0x02254D58
 	bne _02254D66
 	b _02254E7C
 _02254D66:
-	bl FUN_02020BF4
+	bl GetTimer3Count
 	ldr r3, [r5, #0xc]
 	ldr r2, [r5, #0x10]
 	sub r0, r0, r3
 	sbc r1, r2
-	bl FUN_02020BFC
+	bl Timer3CountToMilliSeconds
 	ldr r2, _02254E80 ; =0x04000280
 	mov r3, #1
 	strh r3, [r2]
