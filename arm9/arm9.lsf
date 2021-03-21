@@ -69,7 +69,7 @@ Static arm9
 	Object unk_0201E7D8.o
 	Object unk_0201F06C.o
 	Object unk_020208B8.o
-	Object unk_02020AFC.o
+	Object timer3.o
 	Object error_handling.o
 	Object unk_02020C44.o
 	Object unk_0202134C.o
