@@ -903,6 +903,16 @@ def parse_source(f, opt, framepointer, input_enc, output_enc, print_source=None)
     out_file.close()
     return asm_functions
 
+# Return the function name in objfile corresponding to function
+# `asm_func_name` in asm_objfile. `to_copy` is the dictionary of the
+# same name in fix_objfile().
+def convert_func_name(asm_func_name, to_copy):
+    for sec_name, func_data in to_copy.items():
+        print(sec_name, func_data)
+        if func_data and func_data[0][4] == asm_func_name:
+            return func_data[0][2]
+    return ''
+
 def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
     SECTIONS = ['.data']
     SECTIONS.extend(['.text' for i in range(0,len(functions))])
@@ -947,7 +957,7 @@ def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
                         asm.append('nop')
                 else:
                     asm.append('.space {}'.format(loc - prev_loc))
-            to_copy[sectype + (str(n_text) if sectype == '.text' else '')].append((loc, size, temp_name, function.fn_desc))
+            to_copy[sectype + (str(n_text) if sectype == '.text' else '')].append((loc, size, temp_name, function.fn_desc, function.text_glabels[0]))
             prev_locs[sectype + (str(n_text) if sectype == '.text' else '')] = loc + size
         if not ifdefed:
             all_text_glabels.update(function.text_glabels)
@@ -1020,7 +1030,7 @@ def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
             asm_n_text = asm_objfile.text_section_index(func + '_asm_start')
             source = asm_objfile.find_section(sectype, asm_n_text if sectype == '.text' else 0)
             assert source is not None, "didn't find source section: " + sectype
-            for (pos, count, temp_name, fn_desc) in to_copy[sectype + (str(n_text) if sectype == '.text' else '')]:
+            for (pos, count, temp_name, fn_desc, fn_name) in to_copy[sectype + (str(n_text) if sectype == '.text' else '')]:
                 loc1 = asm_objfile.symtab.find_symbol_in_section(temp_name + '_asm_start', source)
                 loc2 = asm_objfile.symtab.find_symbol_in_section(temp_name + '_asm_end', source)
                 assert loc1 == pos, "assembly and C files don't line up for section " + sectype + ", " + fn_desc
@@ -1034,7 +1044,7 @@ def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
             target = objfile.find_section(sectype, n_text if sectype == '.text' else 0)
             assert target is not None, "missing target section of type " + sectype
             data = list(target.data)
-            for (pos, count, _, _) in to_copy[sectype + (str(n_text) if sectype == '.text' else '')]:
+            for (pos, count, _, _, _) in to_copy[sectype + (str(n_text) if sectype == '.text' else '')]:
                 # mwasmarm 4-aligns text sections, so make sure to copy exactly `count` bytes
                 data[pos:pos + count] = source.data[pos:pos + count]
                 if sectype == '.text':
@@ -1122,7 +1132,9 @@ def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
                     raise Failure("generated assembly .o must only have symbols for .text, .data, .rodata, .sdata, .sdata2, .sbss, ABS and UNDEF, but found " + section_name)
                 if section_name == '.sbss2': #! I'm not sure why this isn't working
                     continue
-                s.st_shndx = objfile.find_section(section_name, n_text if section_name == '.text' else 0).index
+                obj_func_name = convert_func_name(s.name, to_copy)
+                obj_n_text = objfile.text_section_index(obj_func_name)                
+                s.st_shndx = objfile.find_section(section_name, obj_n_text if section_name == '.text' else 0).index
                 if section_name == '.text':
                     n_text += 1
                 # glabel's aren't marked as functions, making objdump output confusing. Fix that.
@@ -1153,8 +1165,7 @@ def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
                 for reltab in target.relocated_by:
                     nrels = []
                     for rel in reltab.relocations:
-                        if (sectype == '.text' and rel.r_offset in modified_text_positions or
-                            sectype == '.rodata' and rel.r_offset in jtbl_rodata_positions) or sectype == ".sbss2":
+                        if (sectype == '.rodata' and rel.r_offset in jtbl_rodata_positions) or sectype == ".sbss2":
                             # don't include relocations for late_rodata dummy code
                             continue
                         # hopefully we don't have relocations for local or
