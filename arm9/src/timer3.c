@@ -28,9 +28,8 @@ THUMB_FUNC void CountUpTimer3()
         reg_OS_TM3CNT_H = 0xc1;
         timer3_data.NeedReset = FALSE;
     }
-    u32 *ptr = (u32 *)0x027e0000;
-    u32 offset = 0xffe;
-    ptr[offset] |= 0x40;
+
+    *(vu32 *)HW_INTR_CHECK_BUF |= 0x40;
 
     OS_SetIrqFunction(0x40, &CountUpTimer3);
 }
