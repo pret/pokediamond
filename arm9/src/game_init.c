@@ -4,16 +4,15 @@
 #include "main.h"
 #include "FS_rom.h"
 #include "PAD_pad.h"
-#include "heap.h"
 #include "MWC_string.h"
 #include "tp.h"
 #include "unk_0201B4E8.h"
 #include "game_init.h"
 #include "registers.h"
+#include "heap.h"
 
 #pragma thumb on
 
-extern void FUN_020166C8(const u32 (*)[2], int, int, int);
 extern void FUN_02022450(void);
 
 typedef volatile struct
@@ -142,7 +141,7 @@ void FUN_02015FC8(void)
     {
         csum++;
     }
-    FUN_020166C8(UNK_020EDB10, 4, 92, (int)csum);
+    FUN_020166C8((u32 *)UNK_020EDB10, 4, 92, (int)csum);
 }
 
 void InitSystemForTheGame(void)

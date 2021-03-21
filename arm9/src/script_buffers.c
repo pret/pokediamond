@@ -130,7 +130,7 @@ void BufferPlayersName(struct ScrStrBufs * mgr, u32 idx, struct PlayerData * dat
 
 void BufferRivalsName(struct ScrStrBufs * mgr, u32 idx, struct SaveBlock2 * sav2)
 {
-    u16 * name = FUN_02024EE8(FUN_02024EC0(sav2));
+    u16 * name = GetRivalNamePtr(FUN_02024EC0(sav2));
     CopyU16ArrayToString(mgr->tmpbuf, name);
     SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
 }

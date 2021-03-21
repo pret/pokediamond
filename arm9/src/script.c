@@ -27,7 +27,7 @@ THUMB_FUNC u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr)
     return 1;
 }
 
-THUMB_FUNC void SetupNativeScript(struct ScriptContext *ctx, u8 (*ptr)(struct ScriptContext *))
+THUMB_FUNC void SetupNativeScript(struct ScriptContext *ctx, BOOL (*ptr)(struct ScriptContext *))
 {
     ctx->mode = 2;
     ctx->nativePtr = ptr;
