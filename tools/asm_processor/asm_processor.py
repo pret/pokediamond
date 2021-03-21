@@ -908,7 +908,6 @@ def parse_source(f, opt, framepointer, input_enc, output_enc, print_source=None)
 # same name in fix_objfile().
 def convert_func_name(asm_func_name, to_copy):
     for sec_name, func_data in to_copy.items():
-        print(sec_name, func_data)
         if func_data and func_data[0][4] == asm_func_name:
             return func_data[0][2]
     return ''
@@ -1193,9 +1192,6 @@ def fixup_objfile(objfile_name, functions, asm_prelude, assembler, output_enc):
             for reltab in source.relocated_by:
                 for rel in reltab.relocations:
                     rel.sym_index = asm_objfile.symtab.symbol_entries[rel.sym_index].new_index
-                    # I suspect that this is requried for matching. If the after linking the
-                    # binary doesn't match, retry after commenting out the following line:
-                    rel.r_addend = 0
                     if sectype == '.rodata' and rel.r_offset in moved_late_rodata:
                         rel.r_offset = moved_late_rodata[rel.r_offset]
                 new_data = b''.join(rel.to_bin() for rel in reltab.relocations)
@@ -1266,6 +1262,7 @@ def run(argv, outfile=sys.stdout.buffer):
     try:
         run_wrapped(argv, outfile)
     except Failure as e:
+        print("Error:", e, file=sys.stderr)
         sys.exit(1)
 
 if __name__ == "__main__":
