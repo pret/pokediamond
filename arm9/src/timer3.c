@@ -41,7 +41,7 @@ THUMB_FUNC u64 internal_GetTimer3Count()
     vu16 timer3 = reg_OS_TM3CNT_L;
     vu64 timer3_counter = timer3_data.Timer3Counter & 0x0000ffffffffffff;
 
-    if (reg_OS_IF & 64 && !(timer3 & 0x8000))
+    if (reg_OS_IF & 0x40 && !(timer3 & 0x8000))
     {
         timer3_counter++;
     }
