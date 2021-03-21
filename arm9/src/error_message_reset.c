@@ -1,4 +1,4 @@
-#include "unk_0208A998.h"
+#include "error_message_reset.h"
 
 const u32 UNK_020FF49C[2] = { 0x1a030300, 0x00230112 };
 
@@ -36,7 +36,7 @@ extern BOOL FUN_02033678(void);
 extern void FUN_02019178(u32 *param0);
 extern void FUN_0201E740();
 
-THUMB_FUNC void FUN_0208A998()
+THUMB_FUNC void VBlankHandler()
 {
     *(vu32 *)HW_INTR_CHECK_BUF |= 1;
 
@@ -60,7 +60,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FUN_0200E3A0(PM_LCD_BOTTOM, 0);
 
         OS_DisableIrqMask(1);
-        OS_SetIrqFunction(1, &FUN_0208A998);
+        OS_SetIrqFunction(1, &VBlankHandler);
         OS_EnableIrqMask(1);
 
         Main_SetVBlankIntrCB(NULL, NULL);
