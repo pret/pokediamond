@@ -5478,7 +5478,6 @@
 .extern FUN_0208A330
 .extern FUN_0208A334
 .extern FUN_0208A338
-.extern PrintErrorMessageAndReset
 .extern FUN_0208AC14
 .extern FUN_0208AC58
 .extern FUN_0208ACEC
@@ -8518,3 +8517,4 @@
 .extern CARDi_InitCommon
 .extern MonNotFaintedOrEgg
 .extern CountAlivePokemon
+

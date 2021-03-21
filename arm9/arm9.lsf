@@ -317,7 +317,7 @@ Static arm9
 	Object unk_0208A258.o
 	Object unk_0208A300.o
 	Object unk_0208A338.o
-	Object unk_0208A998.o
+	Object error_message_reset.o
 	### Third-party libraries ###
 	Object unk_0208AC14.o
 	Object custom_allocator.o
