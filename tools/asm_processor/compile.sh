@@ -9,7 +9,7 @@ PADDED_SRC="$(mktemp --suffix=.c padded-XXXXXX)"
 PADDED_OBJ="$(mktemp --suffix=.o padded-XXXXXX)"
 
 # Create a .c file replacing the nonmatching function with volatile int writes, 
-# and compile. 
+# and compile.
 ../tools/asm_processor/asm_processor.py "$SRC" --assembler "$AS" > "$PADDED_SRC"
 $CC -c "$PADDED_SRC" -o "$PADDED_OBJ"
 
