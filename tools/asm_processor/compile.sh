@@ -20,7 +20,7 @@ cat global.inc >> "$PRELUDE"
 # Inject the matching assembly into the padded obj file.
 ../tools/asm_processor/asm_processor.py "$SRC" --post-process "$PADDED_OBJ" --assembler "$AS" --asm-prelude "$PRELUDE"
 
-$DEVKITARM/bin/arm-none-eabi-objcopy --remove-section .comment "$PADDED_OBJ" "$OBJ"
+arm-none-eabi-objcopy --remove-section .comment "$PADDED_OBJ" "$OBJ"
 
 rm "$PADDED_SRC"
 rm "$PADDED_OBJ"
