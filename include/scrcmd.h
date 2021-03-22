@@ -85,7 +85,45 @@ BOOL ScrCmd_Unk0039(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk003A(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk003B(struct ScriptContext *ctx);
 
+//scrcmd_coins.c
+BOOL ScrCmd_Unk0075(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0076(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0077(struct ScriptContext* ctx);
+BOOL ScrCmd_GetCoins(struct ScriptContext* ctx);
+BOOL ScrCmd_GiveCoins(struct ScriptContext* ctx);
+BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext* ctx);
+BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext* ctx);
+BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext* ctx);
+BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext* ctx);
+BOOL ScrCmd_CanGiveCoins(struct ScriptContext* ctx);
+
+//scrcmd_money.c
+BOOL ScrCmd_GiveMoney(struct ScriptContext* ctx);
+BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext* ctx);
+BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext* ctx);
+BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext* ctx);
+BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0072(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0073(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0074(struct ScriptContext* ctx);
+
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
+
+//scrcmd_19.c
+BOOL ScrCmd_Unk01F1(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01F4(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01F5(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01F2(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01F3(struct ScriptContext* ctx);
+
+//scrcmd_20.c
+BOOL ScrCmd_Unk02A6(struct ScriptContext* ctx);
+
+//scrcmd_25.c
+BOOL ScrCmd_Unk02EF(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk02F0(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk02F1(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk02F2(struct ScriptContext* ctx);
 
 #endif //POKEDIAMOND_SCRCMD_H
