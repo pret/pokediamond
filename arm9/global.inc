@@ -3356,11 +3356,11 @@
 .extern FUN_02045170
 .extern FUN_020451D0
 .extern FUN_02045264
-.extern FUN_02045268
-.extern FUN_020452B4
-.extern FUN_02045308
-.extern FUN_02045398
-.extern FUN_0204539C
+.extern ScrCmd_Unk01F1
+.extern ScrCmd_Unk01F4
+.extern ScrCmd_Unk01F5
+.extern ScrCmd_Unk01F2
+.extern ScrCmd_Unk01F3
 .extern FUN_020453A0
 .extern FUN_020453F4
 .extern FUN_02045424

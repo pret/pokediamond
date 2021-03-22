@@ -646,11 +646,11 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02044ED8
     .word FUN_0203E4D8
     .word FUN_02044F20
-    .word FUN_02045268
-    .word FUN_02045398
-    .word FUN_0204539C
-    .word FUN_020452B4
-    .word FUN_02045308
+    .word ScrCmd_Unk01F1
+    .word ScrCmd_Unk01F2
+    .word ScrCmd_Unk01F3
+    .word ScrCmd_Unk01F4
+    .word ScrCmd_Unk01F5
     .word ScrCmd_countpartymonsatorbelowlevel
     .word ScrCmd_survivepsn
     .word FUN_0203BC2C

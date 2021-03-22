@@ -88,4 +88,11 @@ BOOL ScrCmd_Unk003B(struct ScriptContext *ctx);
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
 
+//scrcmd_19.c
+BOOL ScrCmd_Unk01F1(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01F4(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01F5(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01F2(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01F3(struct ScriptContext* ctx);
+
 #endif //POKEDIAMOND_SCRCMD_H
