@@ -266,12 +266,12 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0072
     .word ScrCmd_Unk0073
     .word ScrCmd_Unk0074
-    .word FUN_02043A44
-    .word FUN_02043A94
-    .word FUN_02043AAC
-    .word FUN_02043ACC
-    .word FUN_02043AFC
-    .word FUN_02043B28
+    .word ScrCmd_Unk0075
+    .word ScrCmd_Unk0076
+    .word ScrCmd_Unk0077
+    .word ScrCmd_GetCoins
+    .word ScrCmd_GiveCoins
+    .word ScrCmd_TakeCoinsImmediate
     .word FUN_02045784
     .word FUN_020457DC
     .word FUN_02045834
@@ -777,9 +777,9 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203C58C
     .word FUN_02040DEC
     .word FUN_0203F2AC
-    .word FUN_02043B84
+    .word ScrCmd_HasEnoughCoinsImmediate
     .word FUN_0203F2E4
-    .word FUN_02043C28
+    .word ScrCmd_CanGiveCoins
     .word FUN_0203F31C
     .word ScrCmd_getpartymonlevel
     .word FUN_0203F348
@@ -829,8 +829,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203B914
     .word ScrCmd_Unk02A6
     .word FUN_0203FA14
-    .word FUN_02043B54
-    .word FUN_02043BD0
+    .word ScrCmd_TakeCoinsAddress
+    .word ScrCmd_HasEnoughCoinsAddress
     .word FUN_0203FA58
     .word FUN_0203B7F0
     .word FUN_0203FB4C

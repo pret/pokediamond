@@ -85,6 +85,18 @@ BOOL ScrCmd_Unk0039(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk003A(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk003B(struct ScriptContext *ctx);
 
+//scrcmd_coins.c
+BOOL ScrCmd_Unk0075(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0076(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0077(struct ScriptContext* ctx);
+BOOL ScrCmd_GetCoins(struct ScriptContext* ctx);
+BOOL ScrCmd_GiveCoins(struct ScriptContext* ctx);
+BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext* ctx);
+BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext* ctx);
+BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext* ctx);
+BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext* ctx);
+BOOL ScrCmd_CanGiveCoins(struct ScriptContext* ctx);
+
 //scrcmd_money.c
 BOOL ScrCmd_GiveMoney(struct ScriptContext* ctx);
 BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext* ctx);
