@@ -260,12 +260,12 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203B724
     .word FUN_0203B758
     .word FUN_0203B7D8
-    .word FUN_02043C6C
-    .word FUN_02043C90
-    .word FUN_02043CE4
-    .word FUN_02043D78
-    .word FUN_02043DC8
-    .word FUN_02043DE0
+    .word ScrCmd_GiveMoney
+    .word ScrCmd_TakeMoneyImmediate
+    .word ScrCmd_HasEnoughMoneyImmediate
+    .word ScrCmd_Unk0072
+    .word ScrCmd_Unk0073
+    .word ScrCmd_Unk0074
     .word FUN_02043A44
     .word FUN_02043A94
     .word FUN_02043AAC
@@ -568,7 +568,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203DE4C
     .word FUN_0203DE58
     .word FUN_0203DE80
-    .word FUN_02043CB4
+    .word ScrCmd_TakeMoneyAddress
     .word FUN_02043E9C
     .word FUN_02044120
     .word FUN_02044138
@@ -576,7 +576,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02043E50
     .word FUN_02043E68
     .word FUN_02043EFC
-    .word FUN_02043D28
+    .word ScrCmd_HasEnoughMoneyAddress
     .word FUN_0203DD50
     .word FUN_02044140
     .word FUN_02043F50
