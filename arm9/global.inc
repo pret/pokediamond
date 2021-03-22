@@ -3361,7 +3361,7 @@
 .extern ScrCmd_Unk01F5
 .extern ScrCmd_Unk01F2
 .extern ScrCmd_Unk01F3
-.extern FUN_020453A0
+.extern ScrCmd_Unk02A6
 .extern FUN_020453F4
 .extern FUN_02045424
 .extern FUN_02045438
