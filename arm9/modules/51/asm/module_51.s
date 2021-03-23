@@ -49,19 +49,19 @@ _0225487A:
 	bl MOD51_02254944
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #8
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add r0, r4, #0
 	bl MOD51_0225571C
 	ldr r0, [r4]
@@ -409,7 +409,7 @@ MOD51_02254B54: ; 0x02254B54
 	bl FUN_02018744
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldr r5, _02254C74 ; =0x0225578C
 	add r3, sp, #0x48
 	ldmia r5!, {r0, r1}
@@ -430,7 +430,7 @@ MOD51_02254B54: ; 0x02254B54
 	bl FUN_02018744
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldr r5, _02254C78 ; =0x022557C4
 	add r3, sp, #0x2c
 	ldmia r5!, {r0, r1}
@@ -451,7 +451,7 @@ MOD51_02254B54: ; 0x02254B54
 	bl FUN_02018744
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldr r5, _02254C7C ; =0x02255754
 	add r3, sp, #0x10
 	ldmia r5!, {r0, r1}
@@ -469,7 +469,7 @@ MOD51_02254B54: ; 0x02254B54
 	bl FUN_02016C18
 	mov r0, #8
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #0x60
 	mov r1, #0
 	str r0, [sp]

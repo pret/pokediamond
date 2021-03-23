@@ -65,7 +65,7 @@ Static arm9
 	Object unk_0201CC08.o
 	Object unk_0201D040.o
 	Object unk_0201E00C.o
-	Object unk_0201E66C.o
+	Object GX_layers.o
 	Object unk_0201E7D8.o
 	Object unk_0201F06C.o
 	Object unk_020208B8.o

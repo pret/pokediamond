@@ -12,8 +12,8 @@ MOD75_021E6BA0: ; 0x021E6BA0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r0, #1
 	lsl r0, r0, #0x1a
 	ldr r2, [r0]
@@ -732,10 +732,10 @@ MOD75_021E71BC: ; 0x021E71BC
 	add r4, r0, #0
 	mov r0, #0x1f
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x1b
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add r0, r4, #0
 	mov r1, #7
 	bl FUN_020178A0
@@ -9844,10 +9844,10 @@ MOD75_021EB9B4: ; 0x021EB9B4
 	add r4, r0, #0
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #0x20
 	mov r1, #6
 	bl FUN_0201C24C

@@ -271,8 +271,8 @@ MOD78_021D7708: ; 0x021D7708
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -295,7 +295,7 @@ MOD78_021D7708: ; 0x021D7708
 	strh r0, [r2]
 	ldr r0, _021D7768 ; =0x021D7888
 	bl G3X_SetEdgeColorTable
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	pop {r3, pc}
 	nop
 _021D7758: .word 0xFFFFE0FF

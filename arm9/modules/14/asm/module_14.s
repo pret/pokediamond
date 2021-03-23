@@ -10495,8 +10495,8 @@ _021DC79C:
 	mov r5, #1
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r1, #1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1]
@@ -13061,10 +13061,10 @@ _021DDBF2:
 _021DDC48:
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	bl GX_DispOn
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
@@ -13083,7 +13083,7 @@ MOD14_021DDC78: ; 0x021DDC78
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021DDCDC ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]

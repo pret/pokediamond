@@ -114,8 +114,8 @@ _021D75A4:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -221,8 +221,8 @@ _021D7684:
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -2574,10 +2574,10 @@ MOD65_021D8850: ; 0x021D8850
 _021D8908:
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add sp, #0x54
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2771,8 +2771,8 @@ _021D8A88:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -2882,8 +2882,8 @@ _021D8B68:
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -3491,7 +3491,7 @@ MOD65_021D8FB0: ; 0x021D8FB0
 _021D9040:
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0x44
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -5354,7 +5354,7 @@ MOD65_021D9E98: ; 0x021D9E98
 	bl MOD65_021DA000
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r1, _021D9F4C ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]

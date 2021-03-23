@@ -557,8 +557,8 @@ _021D78FA:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -593,7 +593,7 @@ _021D794E:
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0
 	bl FUN_0200E394
 	mov r1, #4
@@ -681,8 +681,8 @@ _021D79FC:
 	mov r0, #0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]

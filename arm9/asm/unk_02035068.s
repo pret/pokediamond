@@ -1406,7 +1406,7 @@ _02035B2C:
 	str r2, [r0, r1]
 	mov r0, #0x10
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0xb4
 	pop {r4-r7, pc}
 	.balign 4

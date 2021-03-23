@@ -87,8 +87,8 @@ _020899B8:
 	add r0, r4, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #0x1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2, #0x0]
@@ -106,7 +106,7 @@ _020899B8:
 	bl FUN_02089A6C
 	add r0, r6, #0x0
 	bl FUN_02089B80
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r0, #0x1
 	str r0, [r5, #0x0]
 	b _02089A34

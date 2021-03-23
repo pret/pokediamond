@@ -49,7 +49,7 @@ MOD11_0222F29C: ; 0x0222F29C
 	str r0, [r5, #8]
 	add r0, r5, #0
 	bl FUN_0206BFF0
-	bl FUN_0201E6D8
+	bl GX_DisableEngineALayers
 	ldr r6, _0222F4C8 ; =MOD11_0225DA40
 	add r3, sp, #0x40
 	mov r2, #5
@@ -165,10 +165,10 @@ _0222F30E:
 	add r2, r1, #0
 	add r3, r1, #0
 	bl FUN_02003914
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -813,7 +813,7 @@ MOD11_0222F93C: ; 0x0222F93C
 	bl FUN_020191A4
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r4, #4]
 	mov r1, #1
 	bl FUN_020178A0

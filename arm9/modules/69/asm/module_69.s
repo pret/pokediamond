@@ -964,7 +964,7 @@ MOD69_0222DD54: ; 0x0222DD54
 	bl FUN_020AEDF4
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _0222DDF8 ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
@@ -1115,7 +1115,7 @@ MOD69_0222DE98: ; 0x0222DE98
 	bl MOD69_0222DF0C
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0x1c
 	pop {r3, r4, pc}
 	.align 2, 0

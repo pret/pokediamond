@@ -43,8 +43,8 @@ MOD86_021D74E0: ; 0x021D74E0
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F34
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -65,7 +65,7 @@ MOD86_021D74E0: ; 0x021D74E0
 	ldr r0, _021D7588 ; =MOD86_021D76E0
 	add r1, r4, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop

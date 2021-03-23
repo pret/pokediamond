@@ -1231,14 +1231,14 @@
 .extern FUN_0201E258
 .extern FUN_0201E28C
 .extern FUN_0201E66C
-.extern FUN_0201E6D8
-.extern FUN_0201E6E4
-.extern FUN_0201E720
-.extern FUN_0201E740
-.extern FUN_0201E74C
-.extern FUN_0201E788
-.extern FUN_0201E7A0
-.extern FUN_0201E7CC
+.extern GX_DisableEngineALayers
+.extern GX_EngineAToggleLayers
+.extern GX_SetEngineALayers
+.extern GX_DisableEngineBLayers
+.extern GX_EngineBToggleLayers
+.extern GX_BothDispOn
+.extern GX_SwapDisplay
+.extern GX_GetEngineALayers
 .extern FUN_0201EABC
 .extern FUN_0201EB48
 .extern FUN_0201EB64
@@ -8517,4 +8517,3 @@
 .extern CARDi_InitCommon
 .extern MonNotFaintedOrEgg
 .extern CountAlivePokemon
-

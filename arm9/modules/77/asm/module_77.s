@@ -13,8 +13,8 @@ MOD77_021D74E0: ; 0x021D74E0
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F34
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -79,7 +79,7 @@ _021D7540:
 	bl FUN_02016B94
 	ldr r1, _021D75F4 ; =0x0000C010
 	str r0, [r5, r1]
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	bl FUN_0201BD5C
 	ldr r2, [r5]
 	mov r0, #8
@@ -97,7 +97,7 @@ _021D7540:
 	ldr r0, _021D7600 ; =gMain + 0x60
 	mov r1, #1
 	strb r1, [r0, #5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	mov r0, #4
 	mov r1, #8
 	bl FUN_0201669C
@@ -185,16 +185,16 @@ _021D764C:
 	bl FUN_0200E1D0
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #8
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #8
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #1
 	str r0, [r5]
 	b _021D7B66
@@ -805,16 +805,16 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	mov r0, #4
 	mov r1, #0
 	ldr r5, [r4]
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #8
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #8
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldr r0, _021D7C14 ; =0x0000C2CC
 	ldr r0, [r4, r0]
 	bl FUN_0201EB70

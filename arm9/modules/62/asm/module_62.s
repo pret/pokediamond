@@ -1755,7 +1755,7 @@ MOD62_0222E2DC: ; 0x0222E2DC
 	push {r3, lr}
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _0222E348 ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
@@ -3734,13 +3734,13 @@ _0222F26C: .word 0x0000FFFF
 	thumb_func_start MOD62_0222F270
 MOD62_0222F270: ; 0x0222F270
 	push {r3, lr}
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	pop {r3, pc}
 	thumb_func_end MOD62_0222F270
 
@@ -6022,10 +6022,10 @@ _0223042E:
 	bl FUN_02003210
 	mov r0, #0x10
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #7
 	mov r1, #1
 	bl FUN_020178BC
@@ -6111,7 +6111,7 @@ _0223050A: ; jump table
 _0223051A:
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xa
@@ -6296,7 +6296,7 @@ _02230692:
 	bl MOD08_02229A2C
 	mov r0, #0x10
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	bl MOD62_0223021C
 	mov r0, #0x3e
@@ -6395,7 +6395,7 @@ _0223072C:
 	bl MOD62_0222F7E0
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0xf7
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -6462,7 +6462,7 @@ _0223081A:
 _0223081C:
 	mov r0, #0x10
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #1
 	bl MOD62_022300DC
@@ -6582,7 +6582,7 @@ _022308E4:
 	bl MOD62_022300DC
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #0xf7
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -6655,7 +6655,7 @@ _0223093E:
 _022309B4:
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #0xf7
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -6791,7 +6791,7 @@ _02230AC2:
 _02230AD4:
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x10
@@ -6850,7 +6850,7 @@ _02230B40:
 	bl FUN_020178BC
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add r0, r4, #0
 	mov r1, #0
 	bl MOD62_0222F738
@@ -7322,8 +7322,8 @@ MOD62_02230F3C: ; 0x02230F3C
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -7355,7 +7355,7 @@ MOD62_02230F80: ; 0x02230F80
 	push {r4, r5, lr}
 	sub sp, #0xfc
 	add r4, r0, #0
-	bl FUN_0201E6D8
+	bl GX_DisableEngineALayers
 	ldr r5, _022310B8 ; =MOD62_02231238
 	add r3, sp, #0x10
 	mov r2, #5
@@ -7441,7 +7441,7 @@ _02230FF0:
 	orr r2, r0
 	strh r2, [r1]
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r5, _022310C8 ; =MOD62_022312E8
 	add r3, sp, #0x38
 	mov r2, #0xe
@@ -7484,7 +7484,7 @@ _02231052:
 	bl FUN_02018744
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add sp, #0xfc
 	pop {r4, r5, pc}
 	nop

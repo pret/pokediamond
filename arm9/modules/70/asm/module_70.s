@@ -909,7 +909,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	bl G2x_SetBlendAlpha_
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0

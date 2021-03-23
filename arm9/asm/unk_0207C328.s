@@ -274,10 +274,10 @@ FUN_0207C328: ; 0x0207C328
 	add r4, r0, #0x0
 	mov r0, #0x10
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #0x1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #0x20
 	mov r1, #0x13
 	bl FUN_0201C24C

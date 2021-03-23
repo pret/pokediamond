@@ -29,8 +29,8 @@ MOD55_021D7504: ; 0x021D7504
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -1198,7 +1198,7 @@ _021D7EB8:
 	blt _021D7E56
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0x5c
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD55_021D7DA0
@@ -4017,7 +4017,7 @@ MOD55_021D9574: ; 0x021D9574
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021D95D8 ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
@@ -5576,11 +5576,11 @@ MOD55_021DA27C: ; 0x021DA27C
 	lsl r1, r4, #0x18
 	mov r0, #0xf
 	lsr r1, r1, #0x18
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	lsl r1, r4, #0x18
 	mov r0, #1
 	lsr r1, r1, #0x18
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD55_021DA27C

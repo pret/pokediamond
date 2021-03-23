@@ -2463,7 +2463,7 @@ _0200DE40:
 	bl FUN_0201FDEC
 	mov r0, #0x10
 	mov r1, #0x1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add sp, #0x34
 	pop {r4-r7, pc}
 	nop

@@ -325,7 +325,7 @@ _021D76D4:
 	bl FUN_02033E74
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021D7804 ; =0x00001420
 	ldr r0, [r5, r0]
 	cmp r0, #1
@@ -968,13 +968,13 @@ _021D7CD2:
 	bl MOD73_021DA730
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0xae
 	mov r1, #0
 	lsl r0, r0, #2
@@ -2233,7 +2233,7 @@ MOD73_021D8630: ; 0x021D8630
 	ldr r0, _021D8758 ; =gMain + 0x60
 	mov r1, #1
 	strb r1, [r0, #5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	add sp, #8
 	pop {r4, pc}
 	.align 2, 0
@@ -2302,7 +2302,7 @@ MOD73_021D875C: ; 0x021D875C
 	ldr r0, _021D880C ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	pop {r4, pc}
 	.align 2, 0
 _021D87EC: .word 0x0000063C
@@ -2453,7 +2453,7 @@ MOD73_021D88E4: ; 0x021D88E4
 	bl FUN_02016BBC
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0
 	mov r1, #2
 	bl FUN_020178BC
@@ -2537,10 +2537,10 @@ MOD73_021D89AC: ; 0x021D89AC
 	bl MOD73_021D92EC
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	pop {r3, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021D89AC
@@ -5857,10 +5857,10 @@ _021DA266:
 	bl MOD73_021DA374
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #1
 	str r0, [r5, #0x28]
 	pop {r4, r5, r6, pc}
@@ -6067,10 +6067,10 @@ MOD73_021DA408: ; 0x021DA408
 	blt _021DA432
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r5, #0
 	bl FUN_0200CAB4
 	mov r0, #0
@@ -6117,10 +6117,10 @@ _021DA446:
 	bl CopyWindowToVram
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -6150,10 +6150,10 @@ MOD73_021DA4AC: ; 0x021DA4AC
 	beq _021DA4D0
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r4, #0x2c]
 	bl FUN_0200CAB4
 	mov r0, #0

@@ -96,8 +96,8 @@ _02033FA4:
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #0x1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2, #0x0]
@@ -114,7 +114,7 @@ _02033FA4:
 	ldr r0, _02034160 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	ldr r3, _02034164 ; =0x04000050
 	mov r1, #0x0
 	strh r1, [r3, #0x0]
@@ -231,7 +231,7 @@ _02033FA4:
 	bl AddTextPrinterParameterized
 	add r0, r7, #0x0
 	bl String_dtor
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r0, #0x0
 	bl FUN_0200E394
 	mov r0, #0x1

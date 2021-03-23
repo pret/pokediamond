@@ -2817,8 +2817,8 @@ MOD15_021D8998: ; 0x021D8998
 MOD15_021D89C0: ; 0x021D89C0
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r1, #1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1]
@@ -2903,10 +2903,10 @@ MOD15_021D89C0: ; 0x021D89C0
 	bl MOD15_021DAEB4
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	bl GX_DispOn
 	add r0, r4, #0
 	bl MOD15_021D8998

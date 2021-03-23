@@ -11,8 +11,8 @@ MOD67_021D74E0: ; 0x021D74E0
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r0, #1
 	lsl r0, r0, #0x1a
 	ldr r2, [r0]
@@ -80,11 +80,11 @@ MOD67_021D74E0: ; 0x021D74E0
 	ldr r0, _021D75CC ; =MOD67_021D7660
 	add r1, r4, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	bl FUN_02033E74
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r1, #0
 	mov r0, #0x43
 	add r2, r1, #0
@@ -312,7 +312,7 @@ _021D7778: .word MOD67_021D9794
 MOD67_021D777C: ; 0x021D777C
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0201E6D8
+	bl GX_DisableEngineALayers
 	add r0, r4, #0
 	mov r1, #3
 	bl FUN_020178A0

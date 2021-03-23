@@ -21,7 +21,7 @@ struct GraphicsBanks
     s32 subobj;
     s32 subobjextpltt;
     s32 tex;
-    s32 pltt;
+    s32 texpltt;
 };
 
 
