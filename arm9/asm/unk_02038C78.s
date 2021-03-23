@@ -209,14 +209,14 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0039
     .word ScrCmd_Unk003A
     .word ScrCmd_Unk003B
-    .word FUN_0203AA90
+    .word ScrCmd_Menu
     .word ScrCmd_ScrollBg
-    .word FUN_0203AAA0
+    .word ScrCmd_YesNoMenu
     .word FUN_0203DEA8
-    .word FUN_0203AB8C
-    .word FUN_0203AC14
-    .word FUN_0203AC9C
-    .word FUN_0203AD08
+    .word ScrCmd_Unk0040
+    .word ScrCmd_Unk0041
+    .word ScrCmd_Unk0042
+    .word ScrCmd_Unk0043
     .word FUN_0203ADC4
     .word FUN_0203AE4C
     .word FUN_0203AED4
@@ -546,8 +546,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203DAE8
     .word FUN_0203DB38
     .word FUN_0203DB88
-    .word FUN_0203AB44
-    .word FUN_0203AB74
+    .word ScrCmd_ShowSaveClock
+    .word ScrCmd_HideSaveClock
     .word FUN_0203DBD4
     .word ScrCmd_WaitButtonABTime
     .word FUN_0203B8E4
@@ -818,7 +818,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02042A48
     .word FUN_02042A98
     .word FUN_0203D7DC
-    .word FUN_0203ACC4
+    .word ScrCmd_Unk029D
     .word FUN_0203F8C0
     .word FUN_0203F954
     .word FUN_0204190C
@@ -846,7 +846,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203FC1C
     .word FUN_020451D0
     .word FUN_02042000
-    .word FUN_0203AD54
+    .word ScrCmd_Unk02B9
     .word FUN_0203D4E8
     .word FUN_0203D920
     .word FUN_02041B40

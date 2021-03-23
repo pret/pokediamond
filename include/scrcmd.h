@@ -84,6 +84,16 @@ BOOL ScrCmd_Unk0038(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0039(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk003A(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk003B(struct ScriptContext *ctx);
+BOOL ScrCmd_Menu(struct ScriptContext *ctx);
+BOOL ScrCmd_YesNoMenu(struct ScriptContext *ctx);
+BOOL ScrCmd_ShowSaveClock(struct ScriptContext *ctx);
+BOOL ScrCmd_HideSaveClock(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0040(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0041(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0042(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk029D(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0043(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk02B9(struct ScriptContext *ctx);
 
 //scrcmd_coins.c
 BOOL ScrCmd_Unk0075(struct ScriptContext* ctx);
