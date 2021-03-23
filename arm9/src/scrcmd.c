@@ -27,7 +27,6 @@ extern u32 FUN_02058488(u32 param0);
 extern BOOL FUN_02030F40(void);
 extern void FUN_02055304(u32 param0, u32 param1);
 extern void FUN_02039460(struct UnkSavStruct80 *arg);
-extern void FUN_02055304(u32 param0, u32 param1);
 extern void FUN_020545B8(u32 param0, u8 *param1, u32 param2);
 extern void FUN_02054608(u8 *param0, struct Options *options);
 extern void FUN_0200D0E0(u32 *param0, u32 param1);
@@ -41,6 +40,18 @@ extern u32 MOD05_021E8140(u32 param0);
 extern BOOL MOD05_021E8148(u32 param0);
 extern u8 FUN_02054658(u32 param0, struct String *str, struct Options *opt, u32 param3);
 extern void MOD05_021E8144(u32 param0);
+extern void FUN_0200CB00(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5);
+extern u32 Std_CreateYesNoMenu(u32 param0, u8 **param1, u32 param2, u32 param3, u32 param4);
+extern u32 FUN_020021AC(u32 param0, u32 param1);
+extern u32 FUN_0200D858(u32 *param0, u32 param1);
+extern void FUN_0200DBFC(u32 param0);
+extern u32 MOD05_021E1BF8(struct UnkSavStruct80 *arg, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, u32 param6, u32 *param7, struct MsgData *msgData);
+extern void MOD05_021E1C4C(u32 param0, u32 param1, u32 param2);
+extern void MOD05_021E1C54(u32 param0);
+extern u32 FUN_02052714(u32 param0);
+extern void MOD05_021E1ECC(u32 param0);
+
+extern u8 *UNK_020F34E0;
 
 static BOOL RunPauseTimer(struct ScriptContext *ctx);
 static u32 Compare(u16 a, u16 b);
@@ -53,7 +64,10 @@ static BOOL FUN_0203A570(struct ScriptContext *ctx);
 static BOOL FUN_0203A6C8(struct ScriptContext *ctx);
 static BOOL FUN_0203A8A0(struct ScriptContext *ctx);
 static BOOL FUN_0203A94C(struct ScriptContext *ctx);
-/*static*/ BOOL FUN_0203AA0C(struct ScriptContext *ctx);
+static BOOL FUN_0203AA0C(struct ScriptContext *ctx);
+static BOOL FUN_0203AB00(struct ScriptContext *ctx);
+/*static*/ BOOL FUN_0203AD2C(struct ScriptContext *ctx);
+static BOOL FUN_0203AD78(struct ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -993,4 +1007,214 @@ THUMB_FUNC BOOL ScrCmd_Unk003B(struct ScriptContext *ctx)
 
     SetupNativeScript(ctx, FUN_0203AA0C);
     return TRUE;
+}
+
+THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
+{
+    u16 *unk = GetVarPointer(ctx->unk80, (u16)ctx->data[0]);
+
+    u32 tmp = 0xFFFF;
+    if (gMain.unk48 & 0x3)
+    {
+        *unk = 0;
+        return TRUE;
+    }
+    else if (gMain.unk48 & 0x40)
+    {
+        tmp = 0;
+    }
+    else if (gMain.unk48 & 0x80)
+    {
+        tmp = 1;
+    }
+    else if (gMain.unk48 & 0x20)
+    {
+        tmp = 2;
+    }
+    else if (gMain.unk48 & 0x10)
+    {
+        tmp = 3;
+    }
+
+    if (tmp != 0xFFFF)
+    {
+        FUN_02055304(ctx->unk80->unk38, tmp);
+        *unk = 0;
+        return TRUE;
+    }
+    else
+    {
+        if (gMain.unk48 & 0x400)
+        {
+            *unk = 1;
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+}
+
+THUMB_FUNC BOOL ScrCmd_Menu(struct ScriptContext *ctx)
+{
+    FUN_02039460(ctx->unk80);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_YesNoMenu(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u32 *unk = FUN_02039438(unk80, 2);
+    u16 wk = ScriptReadHalfword(ctx);
+    FUN_0200CB00(unk80->unk08, 3, 985, 11, 0, 4);
+    *unk = Std_CreateYesNoMenu(unk80->unk08, &UNK_020F34E0, 985, 11, 4);
+    ctx->data[0] = wk;
+    SetupNativeScript(ctx, FUN_0203AB00);
+    return TRUE;
+}
+
+THUMB_FUNC static BOOL FUN_0203AB00(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u32 *unk = FUN_02039438(unk80, 2);
+    u16 *ptr = GetVarPointer(unk80, (u16)ctx->data[0]);
+    u32 unk2 = FUN_020021AC(*unk, 4);
+
+    if (unk2 == -1)
+    {
+        return FALSE;
+    }
+
+    if (unk2 == 0)
+    {
+        *ptr = 0;
+    }
+    else
+    {
+        *ptr = 1;
+    }
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_ShowSaveClock(struct ScriptContext *ctx)
+{
+    u32 *unk = FUN_02039438(ctx->unk80, 1);
+    u32 *unk2 = FUN_02039438(ctx->unk80, 18);
+    *unk2 = FUN_0200D858(unk, 994);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_HideSaveClock(struct ScriptContext *ctx)
+{
+    u32 *unk = FUN_02039438(ctx->unk80, 18);
+    FUN_0200DBFC(*unk);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0040(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u32 *unk = FUN_02039438(unk80, 0);
+    u32 *unk2 = FUN_02039438(unk80, 15);
+    u8 unk3 = ScriptReadByte(ctx);
+    u8 unk4 = ScriptReadByte(ctx);
+    u8 unk5 = ScriptReadByte(ctx);
+    u8 unk6 = ScriptReadByte(ctx);
+    u16 unk7 = ScriptReadHalfword(ctx);
+    u16 *ptr = GetVarPointer(unk80, unk7);
+    u32 *unk8 = FUN_02039438(ctx->unk80, 1);
+    *unk = MOD05_021E1BF8(unk80, unk3, unk4, unk5, unk6, ptr, *unk2, unk8, NULL);
+    ctx->data[0] = unk7;
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0041(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u32 *unk = FUN_02039438(unk80, 0);
+    u32 *unk2 = FUN_02039438(unk80, 15);
+    u8 unk3 = ScriptReadByte(ctx);
+    u8 unk4 = ScriptReadByte(ctx);
+    u8 unk5 = ScriptReadByte(ctx);
+    u8 unk6 = ScriptReadByte(ctx);
+    u16 unk7 = ScriptReadHalfword(ctx);
+    u16 *ptr = GetVarPointer(unk80, unk7);
+    u32 *unk8 = FUN_02039438(ctx->unk80, 1);
+    *unk = MOD05_021E1BF8(unk80, unk3, unk4, unk5, unk6, ptr, *unk2, unk8, ctx->msgData);
+    ctx->data[0] = unk7;
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0042(struct ScriptContext *ctx)
+{
+    u32 *unk = FUN_02039438(ctx->unk80, 0);
+    u8 unk2 = ScriptReadByte(ctx);
+    u8 unk3 = ScriptReadByte(ctx);
+    MOD05_021E1C4C(*unk, unk2, unk3);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk029D(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u32 *unk = FUN_02039438(unk80, 0);
+    u16 unk2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 unk3 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    MOD05_021E1C4C(*unk, unk2, unk3);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0043(struct ScriptContext *ctx)
+{
+    u32 *unk = FUN_02039438(ctx->unk80, 0);
+    MOD05_021E1C54(*unk);
+    SetupNativeScript(ctx, FUN_0203AD2C);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL FUN_0203AD2C(struct ScriptContext *ctx)
+{
+    u16 *varPtr = GetVarPointer(ctx->unk80, (u16)ctx->data[0]);
+    if (*varPtr == 0xEEEE)
+    {
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk02B9(struct ScriptContext *ctx)
+{
+    u32 *unk = FUN_02039438(ctx->unk80, 0);
+    MOD05_021E1C54(*unk);
+    SetupNativeScript(ctx, FUN_0203AD78);
+    return TRUE;
+}
+
+THUMB_FUNC static BOOL FUN_0203AD78(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u16 *varPtr = GetVarPointer(unk80, (u16)ctx->data[0]);
+    u32 *unk = FUN_02039438(unk80, 0);
+
+    if (*varPtr == 0xEEEE)
+    {
+        if (FUN_02052714(unk80->unk78))
+        {
+            *varPtr = 8;
+            MOD05_021E1ECC(*unk);
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+    else
+    {
+        return TRUE;
+    }
 }

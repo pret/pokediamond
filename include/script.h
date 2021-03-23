@@ -27,14 +27,16 @@ struct UnkSavStruct80
 {
     u8 padding[0x8];
     u32 unk08;
-    struct SaveBlock2 *saveBlock2;  //0xC
+    struct SaveBlock2 *saveBlock2; //0xC
     u8 padding2[0xC];
     u32 *mapId; //0x1C
     u8 padding3[0x18];
     u32 unk38;
     u8 padding4[0x24];
     u32 unk60;
-    u8 padding5[0x44];
+    u8 padding5[0x14];
+    u32 unk78;
+    u8 padding6[0x2C];
     struct UnkStruct_02046444 * unkA8;
 };
 
@@ -50,8 +52,8 @@ struct ScriptContext
     u32 cmdCount;
     u32 data[4];
     struct UnkStruct_0204639C *unk74;
-	struct MsgData *msgData;
-	u8 *unk7C;
+    struct MsgData *msgData;
+    u8 *unk7C;
     struct UnkSavStruct80 *unk80;
 };
 

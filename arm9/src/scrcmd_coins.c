@@ -19,7 +19,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0075(struct ScriptContext * ctx)
     u16 ** unk_ret_ptr = FUN_02039438(sav_ptr, 0x26);
 
     u32 unk3 = MOD05_021E2950(ctx->unk80, (u8)unk1, (u8)unk2);
-    *unk_ret_ptr = unk3;
+    *unk_ret_ptr = (u16 *)unk3;
 
     return FALSE;
 }
@@ -134,7 +134,7 @@ THUMB_FUNC BOOL ScrCmd_CanGiveCoins(struct ScriptContext * ctx)
     u16 * ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     u16 amount = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
 
-    *ret_ptr = CanGiveCoins(coins_ptr, amount);
+    *ret_ptr = (u16)CanGiveCoins(coins_ptr, amount);
 
     return FALSE;
 }
