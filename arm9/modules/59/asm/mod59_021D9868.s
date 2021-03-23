@@ -229,7 +229,7 @@ _021D9A2C:
 	sub r2, r2, #1
 	bne _021D9A2C
 	add r0, sp, #0x90
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, [r4]
 	bl FUN_02016B94
 	add r3, sp, #0x80

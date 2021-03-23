@@ -1856,7 +1856,7 @@ _0222E562:
 	sub r2, r2, #1
 	bne _0222E562
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0

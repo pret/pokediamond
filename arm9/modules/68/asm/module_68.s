@@ -213,7 +213,7 @@ _021D76AA:
 	sub r2, r2, #1
 	bne _021D76AA
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0

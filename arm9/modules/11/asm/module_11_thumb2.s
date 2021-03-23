@@ -59,7 +59,7 @@ _0222F30E:
 	sub r2, r2, #1
 	bne _0222F30E
 	add r0, sp, #0x40
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	mov r1, #6
 	mov r2, #2
 	mov r0, #0

@@ -12835,7 +12835,7 @@ MOD14_021DDA38: ; 0x021DDA38
 	add r5, r0, #0
 	ldr r0, _021DDB20 ; =MOD14_021E63A4
 	add r4, r1, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _021DDB24 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb

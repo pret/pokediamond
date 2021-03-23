@@ -261,7 +261,7 @@ _0208655C:
 	sub r2, r2, #0x1
 	bne _0208655C
 	add r0, sp, #0x2c
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	mov r1, #0x6
 	mov r2, #0x2
 	mov r0, #0x0

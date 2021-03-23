@@ -2151,7 +2151,7 @@ MOD81_02238E44: ; 0x02238E44
 	sub sp, #0x1c
 	add r4, r0, #0
 	ldr r0, _02239040 ; =0x0223D054
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _02239044 ; =0x04000304
 	ldr r0, _02239048 ; =0xFFFF7FFF
 	ldrh r1, [r2]
@@ -3634,7 +3634,7 @@ MOD81_022399FC: ; 0x022399FC
 	sub sp, #0x10
 	add r4, r0, #0
 	ldr r0, _02239C78 ; =0x0223D0EC
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _02239C7C ; =0x04000304
 	ldr r0, _02239C80 ; =0xFFFF7FFF
 	ldrh r1, [r2]
@@ -5703,7 +5703,7 @@ MOD81_0223AA68: ; 0x0223AA68
 	sub sp, #0x14
 	add r4, r0, #0
 	ldr r0, _0223ABAC ; =0x0223D158
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _0223ABB0 ; =0x04000304
 	ldr r0, _0223ABB4 ; =0xFFFF7FFF
 	ldrh r1, [r2]
@@ -6725,7 +6725,7 @@ MOD81_0223B264: ; 0x0223B264
 	sub sp, #0x10
 	add r4, r0, #0
 	ldr r0, _0223B45C ; =0x0223D1EC
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _0223B460 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -7212,7 +7212,7 @@ MOD81_0223B670: ; 0x0223B670
 	sub sp, #0x14
 	add r4, r0, #0
 	ldr r0, _0223B7C0 ; =0x0223D258
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _0223B7C4 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -8374,7 +8374,7 @@ MOD81_0223BF74: ; 0x0223BF74
 	sub sp, #0x10
 	add r4, r0, #0
 	ldr r0, _0223C18C ; =0x0223D2EC
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _0223C190 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -9208,7 +9208,7 @@ MOD81_0223C658: ; 0x0223C658
 	sub sp, #0x1c
 	add r4, r0, #0
 	ldr r0, _0223C808 ; =0x0223D374
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _0223C80C ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb

@@ -20,7 +20,7 @@ typedef enum {
 } GX_LayerToggle;
 
 
-
+THUMB_FUNC void GX_SetBanks(const struct GraphicsBanks *banks);
 THUMB_FUNC void GX_DisableEngineALayers();
 THUMB_FUNC void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle);
 THUMB_FUNC void GX_SetEngineALayers(u32 layer_mask);

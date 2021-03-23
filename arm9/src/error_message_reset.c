@@ -14,7 +14,6 @@ const struct GraphicsBanks UNK_020FF4D8 = { bg : 3 };
 u32 sErrorMessagePrinterLock;
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
-extern void FUN_0201E66C(const struct GraphicsBanks *banks);
 extern u32 *FUN_02016B94(u32 param0);
 extern void FUN_02016BBC(const struct GraphicsModes *modes);
 extern void FUN_02016C18(u32 *param0, u32 param1, void *param2, u32 param3);
@@ -79,7 +78,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         reg_GX_DISPCNT &= 0xFFFF1FFF;
         reg_GXS_DB_DISPCNT &= 0xFFFF1FFF;
 
-        FUN_0201E66C(&UNK_020FF4D8);
+        GX_SetBanks(&UNK_020FF4D8);
         ptr = FUN_02016B94(0);
         FUN_02016BBC(&UNK_020FF4AC);
 

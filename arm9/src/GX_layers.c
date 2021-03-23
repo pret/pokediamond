@@ -3,7 +3,7 @@
 
 struct GX_LayerData layer_data;
 
-THUMB_FUNC void FUN_0201E66C(const struct GraphicsBanks *banks)
+THUMB_FUNC void GX_SetBanks(const struct GraphicsBanks *banks)
 {
     GX_ResetBankForBG();
     GX_ResetBankForBGExtPltt();

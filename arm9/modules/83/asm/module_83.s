@@ -624,7 +624,7 @@ _0222DA5C:
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	add r0, sp, #0x18
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add r0, sp, #8
 	bl FUN_02016BBC
 	mov r1, #0
@@ -2511,7 +2511,7 @@ _0222E960:
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	add r0, sp, #0x20
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add r0, sp, #0x10
 	bl FUN_02016BBC
 	mov r1, #0
@@ -11433,7 +11433,7 @@ _022331CA:
 	sub r2, r2, #1
 	bne _022331CA
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -17524,7 +17524,7 @@ _02235F48:
 	sub r2, r2, #1
 	bne _02235F48
 	add r0, sp, #0x10
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, [r4, #0x20]
 	bl MOD83_02235E68
 	ldr r0, _02235FB8 ; =gMain + 0x60

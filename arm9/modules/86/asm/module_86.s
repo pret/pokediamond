@@ -262,7 +262,7 @@ _021D76F8:
 	sub r2, r2, #1
 	bne _021D76F8
 	add r0, sp, #0x2c
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, [r4]
 	bl FUN_02016B94
 	add r3, sp, #0x1c

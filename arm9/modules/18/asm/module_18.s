@@ -1467,7 +1467,7 @@ _0223A194:
 	sub r2, r2, #1
 	bne _0223A194
 	add r0, sp, #0x80
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r5, _0223A2A8 ; =0x02250000
 	add r3, sp, #0x70
 	add r2, r3, #0

@@ -81,7 +81,7 @@ FUN_02089F24: ; 0x02089F24
 	and r0, r1
 	str r0, [r2, #0x0]
 	ldr r0, _0208A0A0 ; =UNK_020FF418
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add r0, r4, #0x0
 	bl FUN_02016B94
 	add r5, r0, #0x0
@@ -250,7 +250,7 @@ _0208A0C8:
 	and r1, r2
 	str r1, [r0, #0x0]
 	ldr r0, _0208A240 ; =UNK_020FF474
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add r0, r4, #0x0
 	bl FUN_02016B94
 	add r5, r0, #0x0

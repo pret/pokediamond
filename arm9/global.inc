@@ -1230,7 +1230,7 @@
 .extern FUN_0201E230
 .extern FUN_0201E258
 .extern FUN_0201E28C
-.extern FUN_0201E66C
+.extern GX_SetBanks
 .extern GX_DisableEngineALayers
 .extern GX_EngineAToggleLayers
 .extern GX_SetEngineALayers

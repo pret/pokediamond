@@ -1697,7 +1697,7 @@ _02077B2E:
 	sub r2, r2, #0x1
 	bne _02077B2E
 	add r0, sp, #0x0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.balign 4

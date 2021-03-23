@@ -738,7 +738,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	bl FUN_02016B94
 	str r0, [r4, #0x10]
 	ldr r0, _0222DCF4 ; =0x0222F8CC
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _0222DCF8 ; =0x04000304
 	ldr r0, _0222DCFC ; =0xFFFF7FFF
 	ldrh r1, [r2]

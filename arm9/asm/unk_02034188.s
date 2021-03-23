@@ -78,7 +78,7 @@ FUN_02034188: ; 0x02034188
 	and r0, r1
 	str r0, [r2, #0x0]
 	ldr r0, _02034380 ; =UNK_020EED2C
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add r0, r4, #0x0
 	bl FUN_02016B94
 	str r0, [sp, #0x10]

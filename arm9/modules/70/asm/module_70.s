@@ -803,7 +803,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	sub sp, #0x10
 	add r5, r0, #0
 	ldr r0, _021D7BF8 ; =0x021D8284
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _021D7BFC ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb

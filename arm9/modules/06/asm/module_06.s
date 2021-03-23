@@ -126,7 +126,7 @@ _0223977A:
 	sub r2, r2, #1
 	bne _0223977A
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -225,7 +225,7 @@ MOD06_02239840: ; 0x02239840
 	add r4, r1, #0
 	add r5, r0, #0
 	add r0, r4, #4
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
 	bl MOD06_02239864

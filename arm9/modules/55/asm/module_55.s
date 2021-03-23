@@ -385,11 +385,11 @@ _021D7808: .word 0x00003FF8
 
 	thumb_func_start MOD55_021D780C
 MOD55_021D780C: ; 0x021D780C
-	ldr r3, _021D7814 ; =FUN_0201E66C
+	ldr r3, _021D7814 ; =GX_SetBanks
 	ldr r0, _021D7818 ; =0x021DA458
 	bx r3
 	nop
-_021D7814: .word FUN_0201E66C
+_021D7814: .word GX_SetBanks
 _021D7818: .word MOD55_021DA458
 	thumb_func_end MOD55_021D780C
 

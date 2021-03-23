@@ -16,7 +16,7 @@ _021D889A:
 	sub r2, r2, #1
 	bne _021D889A
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -36,7 +36,7 @@ _021D88BA:
 	sub r2, r2, #1
 	bne _021D88BA
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -56,7 +56,7 @@ _021D88DA:
 	sub r2, r2, #1
 	bne _021D88DA
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0

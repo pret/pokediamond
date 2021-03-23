@@ -565,7 +565,7 @@ MOD84_021D7968: ; 0x021D7968
 	bl FUN_02016B94
 	str r0, [r4, #4]
 	ldr r0, _021D7A60 ; =0x021DA68C
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _021D7A64 ; =0x04000304
 	ldr r0, _021D7A68 ; =0xFFFF7FFF
 	ldrh r1, [r2]

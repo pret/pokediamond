@@ -1434,7 +1434,7 @@ _0222E282:
 	sub r2, r2, #1
 	bne _0222E282
 	add r0, sp, #0x20
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	mov r1, #6
 	mov r2, #2
 	mov r0, #0
@@ -3127,7 +3127,7 @@ _0222F056:
 	sub r2, r2, #1
 	bne _0222F056
 	add r0, sp, #0x28
-	bl FUN_0201E66C
+	bl GX_SetBanks
 _0222F064:
 	ldr r1, _0222F0B8 ; =0x000023FB
 	ldrb r2, [r4, r1]
@@ -3146,7 +3146,7 @@ _0222F07A:
 	sub r2, r2, #1
 	bne _0222F07A
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 _0222F088:
 	add r0, r4, #0
 	add r0, #0x88

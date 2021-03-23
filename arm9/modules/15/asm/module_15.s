@@ -3110,7 +3110,7 @@ MOD15_021D8C30: ; 0x021D8C30
 	add r2, r0, #0
 	bl GX_SetGraphicsMode
 	ldr r0, _021D8C98 ; =0x021DB964
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, _021D8C9C ; =0x021DB8C8
 	bl FUN_02016BBC
 	mov r1, #0

@@ -130,7 +130,7 @@ _02033FA4:
 	and r1, r2
 	str r1, [r0, #0x0]
 	ldr r0, _02034170 ; =UNK_020EECD0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add r0, r4, #0x0
 	bl FUN_02016B94
 	add r6, r0, #0x0

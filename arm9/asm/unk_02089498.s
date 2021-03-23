@@ -225,7 +225,7 @@ _02089628:
 	sub r2, r2, #0x1
 	bne _02089628
 	add r0, sp, #0x34
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, [r4, #0x0]
 	bl FUN_02016B94
 	add r3, sp, #0x24
