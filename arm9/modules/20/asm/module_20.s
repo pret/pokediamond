@@ -1560,10 +1560,10 @@ MOD20_02252ED0: ; 0x02252ED0
 	mov r0, #0x10
 	orr r0, r1
 	str r0, [r2]
-	bl FUN_0201E740
+	bl GX_DisableEngineBLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]

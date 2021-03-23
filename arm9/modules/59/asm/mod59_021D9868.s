@@ -67,8 +67,8 @@ _021D98C6:
 	add r0, r6, #0
 	add r1, r0, #0
 	bl FUN_02015F34
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -89,7 +89,7 @@ _021D98C6:
 	ldr r0, _021D99F0 ; =MOD59_021D9A14
 	add r1, r4, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r0, #0x3c
 	str r0, [r4, #0x24]
 	mov r0, #1
@@ -229,7 +229,7 @@ _021D9A2C:
 	sub r2, r2, #1
 	bne _021D9A2C
 	add r0, sp, #0x90
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, [r4]
 	bl FUN_02016B94
 	add r3, sp, #0x80

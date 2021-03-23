@@ -28,8 +28,8 @@ _021D9A36:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -315,7 +315,7 @@ _021D9CE6:
 	sub r2, r2, #1
 	bne _021D9CE6
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -1008,10 +1008,10 @@ MOD58_021DA1C4: ; 0x021DA1C4
 	bl FUN_02020238
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add sp, #0x5c
 	pop {r3, r4, pc}
 	.align 2, 0

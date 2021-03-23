@@ -99,7 +99,7 @@ FUN_020223D4: ; 0x020223D4
 	push {r3, lr}
 	mov r0, #0x1
 	add r1, r0, #0x0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _02022438 ; =0x04000008
 	mov r1, #0x3
 	ldrh r2, [r0, #0x0]

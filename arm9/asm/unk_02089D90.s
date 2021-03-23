@@ -43,8 +43,8 @@ FUN_02089D90: ; 0x02089D90
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F34
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #0x1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2, #0x0]
@@ -61,7 +61,7 @@ FUN_02089D90: ; 0x02089D90
 	ldr r0, _02089EFC ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	ldr r3, _02089F00 ; =0x04000050
 	mov r0, #0x0
 	strh r0, [r3, #0x0]
@@ -77,7 +77,7 @@ FUN_02089D90: ; 0x02089D90
 	and r0, r1
 	str r0, [r2, #0x0]
 	ldr r0, _02089F0C ; =UNK_020FF418
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add r0, r4, #0x0
 	bl FUN_02016B94
 	add r5, r0, #0x0
@@ -157,7 +157,7 @@ FUN_02089D90: ; 0x02089D90
 	bl AddTextPrinterParameterized
 	add r0, r4, #0x0
 	bl String_dtor
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r0, #0x0
 	bl FUN_0200E394
 	mov r0, #0x1

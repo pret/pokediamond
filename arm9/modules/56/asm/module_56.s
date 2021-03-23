@@ -253,8 +253,8 @@ MOD56_02211FD4: ; 0x02211FD4
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -385,10 +385,10 @@ _022120BE:
 	str r2, [r4, r1]
 	mov r0, #0xf
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0xf
 	mov r1, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add r0, r4, #0
 	bl MOD56_0221244C
 	add r0, r4, #0
@@ -603,7 +603,7 @@ _022122BE:
 	sub r2, r2, #1
 	bne _022122BE
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -930,19 +930,19 @@ MOD56_0221257C: ; 0x0221257C
 	ldr r4, [r0]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #8
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x36
@@ -1293,7 +1293,7 @@ _02212848:
 	blt _02212848
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0x5c
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD56_022127D4

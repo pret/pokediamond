@@ -61,8 +61,8 @@ FUN_02079C7C: ; 0x02079C7C
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r1, #0x1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1, #0x0]
@@ -157,7 +157,7 @@ FUN_02079C7C: ; 0x02079C7C
 	ldr r0, _02079DB0 ; =FUN_02079F24
 	add r1, r5, #0x0
 	bl Main_SetVBlankIntrCB
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r1, #0x0
 	mov r0, #0x3d
 	add r2, r1, #0x0
@@ -381,7 +381,7 @@ _02079F62:
 	sub r2, r2, #0x1
 	bne _02079F62
 	add r0, sp, #0x0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.balign 4
@@ -514,8 +514,8 @@ _0207A088: .word UNK_020FA634
 FUN_0207A08C: ; 0x0207A08C
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	add r0, r4, #0x0
 	mov r1, #0x5
 	bl FUN_020178A0

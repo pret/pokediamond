@@ -1,4 +1,5 @@
 #include "error_message_reset.h"
+#include "GX_layers.h"
 
 const u32 UNK_020FF49C[2] = { 0x1a030300, 0x00230112 };
 
@@ -13,9 +14,6 @@ const struct GraphicsBanks UNK_020FF4D8 = { bg : 3 };
 u32 sErrorMessagePrinterLock;
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
-extern void FUN_0201E6D8();
-extern void FUN_0201E7A0();
-extern void FUN_0201E66C(const struct GraphicsBanks *banks);
 extern u32 *FUN_02016B94(u32 param0);
 extern void FUN_02016BBC(const struct GraphicsModes *modes);
 extern void FUN_02016C18(u32 *param0, u32 param1, void *param2, u32 param3);
@@ -27,14 +25,12 @@ extern void FUN_02017FE4(u32 param0, u32 param1);
 extern void FUN_02019150(u32 *param0, u32 *param1, const u32 *param2);
 extern void FUN_020196F4(u32 *, u8, u16, u16, u16, u16);
 extern void FUN_0200CCA4(u32 *param0, u32 param1, u32 param2, u32 param3);
-extern void FUN_0201E788();
 extern void FUN_0200E394(u32 param0);
 extern void FUN_0200A274(u32 param0, u32 param1, u32 param2);
 extern BOOL FUN_02032DAC(void);
 extern BOOL FUN_0202FB80(void);
 extern BOOL FUN_02033678(void);
 extern void FUN_02019178(u32 *param0);
-extern void FUN_0201E740();
 
 THUMB_FUNC void VBlankHandler()
 {
@@ -66,8 +62,8 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         Main_SetVBlankIntrCB(NULL, NULL);
 
         FUN_02015F34(NULL, NULL);
-        FUN_0201E6D8();
-        FUN_0201E740();
+        GX_DisableEngineALayers();
+        GX_DisableEngineBLayers();
 
         reg_GX_DISPCNT &= 0xFFFFE0FF;
         reg_GXS_DB_DISPCNT &= 0xFFFFE0FF;
@@ -75,14 +71,14 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FUN_0201669C(4, 8);
 
         gMain.unk65 = 0;
-        FUN_0201E7A0();
+        GX_SwapDisplay();
 
         reg_G2_BLDCNT = 0;
         reg_G2S_DB_BLDCNT = 0;
         reg_GX_DISPCNT &= 0xFFFF1FFF;
         reg_GXS_DB_DISPCNT &= 0xFFFF1FFF;
 
-        FUN_0201E66C(&UNK_020FF4D8);
+        GX_SetBanks(&UNK_020FF4D8);
         ptr = FUN_02016B94(0);
         FUN_02016BBC(&UNK_020FF4AC);
 
@@ -109,7 +105,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         AddTextPrinterParameterized((u32)buf, 0, (const u16 *)str, 0, 0, 0, NULL); // wtf
 
         String_dtor(str);
-        FUN_0201E788();
+        GX_BothDispOn();
         FUN_0200E394(0);
         FUN_0200E394(1);
         FUN_0200A274(0, 0x3f, 3);

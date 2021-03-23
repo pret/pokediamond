@@ -1058,7 +1058,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	bl FUN_02016BBC
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r3, _021E3D14 ; =UNK05_021F74AC
 	add r2, sp, #0x38
 	ldmia r3!, {r0, r1}
@@ -1087,7 +1087,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	bl FUN_02018744
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r3, _021E3D18 ; =UNK05_021F7490
 	add r2, sp, #0x1c
 	ldmia r3!, {r0, r1}
@@ -1116,7 +1116,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	bl FUN_02018744
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r3, _021E3D1C ; =UNK05_021F7474
 	add r2, sp, #0
 	ldmia r3!, {r0, r1}
@@ -1145,7 +1145,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	bl FUN_02018744
 	mov r0, #8
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r5, #0
 	bl FUN_0200CAB4
 	add sp, #0x64

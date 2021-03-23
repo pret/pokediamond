@@ -714,8 +714,8 @@ _020772FE:
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #0x1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2, #0x0]
@@ -846,7 +846,7 @@ _020772FE:
 	ldr r0, _020774A8 ; =gMain + 0x60
 	mov r1, #0x1
 	strb r1, [r0, #0x5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	ldr r0, [r5, #0x0]
 	add r0, r0, #0x1
 	str r0, [r5, #0x0]
@@ -1587,7 +1587,7 @@ _02077A0C:
 	ldr r0, _02077A80 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	mov r0, #0x1
 	add sp, #0x14
 	pop {r4-r7, pc}
@@ -1697,7 +1697,7 @@ _02077B2E:
 	sub r2, r2, #0x1
 	bne _02077B2E
 	add r0, sp, #0x0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.balign 4
@@ -1855,32 +1855,32 @@ FUN_02077C84: ; 0x02077C84
 	lsl r1, r4, #0x18
 	mov r0, #0x1
 	lsr r1, r1, #0x18
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	lsl r1, r4, #0x18
 	mov r0, #0x2
 	lsr r1, r1, #0x18
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	lsl r1, r4, #0x18
 	mov r0, #0x4
 	lsr r1, r1, #0x18
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x8
 	mov r1, #0x0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	lsl r1, r4, #0x18
 	mov r0, #0x10
 	lsr r1, r1, #0x18
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	lsl r1, r4, #0x18
 	mov r0, #0x1
 	lsr r1, r1, #0x18
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #0x10
 	mov r1, #0x0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	pop {r4, pc}
 
 	thumb_func_start FUN_02077CD4
@@ -2875,10 +2875,10 @@ _020784FA:
 	bl FUN_02078530
 	mov r0, #0x10
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #0x1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add sp, #0x5c
 	pop {r4-r7, pc}
 	nop

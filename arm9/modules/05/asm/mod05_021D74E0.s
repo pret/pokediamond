@@ -99,7 +99,7 @@ _021D757A:
 	bl FUN_0201B2EC
 	bl MOD05_021D7BA0
 	bl MOD05_021D7B38
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	mov r0, #4
 	bl FUN_02016B94
 	str r0, [r4, #8]
@@ -584,7 +584,7 @@ _021D7A0A:
 	sub r2, r2, #1
 	bne _021D7A0A
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.balign 4, 0
@@ -710,7 +710,7 @@ MOD05_021D7B10: ; 0x021D7B10
 	add r4, r0, #0
 	mov r0, #0xf
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #1
 	bl FUN_020178A0
@@ -942,7 +942,7 @@ MOD05_021D7CF0: ; 0x021D7CF0
 	add r5, r0, #0
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021D7D44 ; =UNK_02105BB8
 	ldr r0, [r0]
 	lsl r1, r0, #1
@@ -1097,8 +1097,8 @@ MOD05_021D7E4C: ; 0x021D7E4C
 	add r4, r0, #0
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
-	bl FUN_0201E788
+	bl GX_EngineAToggleLayers
+	bl GX_BothDispOn
 	bl MOD05_021DBABC
 	str r0, [r4, #0x40]
 	bl MOD05_021D7B64

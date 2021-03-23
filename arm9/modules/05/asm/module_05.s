@@ -286,13 +286,13 @@ MOD05_021E8860: ; 0x021E8860
 	add r4, r1, #0
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #8
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	bl GX_ResetBankForBG
 	mov r0, #4
 	add r1, r0, #0
@@ -336,7 +336,7 @@ MOD05_021E88C0: ; 0x021E88C0
 	bl GX_SetBankForBG
 	mov r0, #0xe
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r1, [r4]
 	mov r0, #4
 	bl FUN_02016A8C
@@ -1511,7 +1511,7 @@ _021E91D4:
 	blt _021E91D4
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r7]
 	add r0, r0, #1
 	str r0, [r7]
@@ -1911,7 +1911,7 @@ _021E9536:
 	blt _021E9536
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r6]
 	add r0, r0, #1
 	str r0, [r6]
@@ -2278,7 +2278,7 @@ _021E9844:
 	blt _021E9844
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r7]
 	add r0, r0, #1
 	str r0, [r7]
@@ -2734,7 +2734,7 @@ _021E9C02:
 	blt _021E9C02
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
 	bl FUN_02018FF4
@@ -3369,7 +3369,7 @@ _021EA110:
 	bl FUN_020200A0
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -3706,7 +3706,7 @@ _021EA430:
 	blt _021EA430
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
 	bl FUN_02018FF4
@@ -4287,7 +4287,7 @@ _021EA8B2:
 	bl FUN_02020398
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -4573,7 +4573,7 @@ _021EAB5A:
 	blt _021EAB5A
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r6]
 	add r0, r0, #1
 	str r0, [r6]
@@ -4880,7 +4880,7 @@ _021EADDC:
 	blt _021EADDC
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0]
 	add r1, r0, #1
@@ -5374,7 +5374,7 @@ _021EB18E:
 	bl FUN_02020238
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	bl MOD05_021E4688
 	str r0, [r4, #4]
@@ -5671,13 +5671,13 @@ _021EB484:
 	bne _021EB484
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #8
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -5849,13 +5849,13 @@ _021EB5E4:
 	bl memset
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #8
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -6180,7 +6180,7 @@ _021EB86A:
 	bl MOD05_021E35EC
 	mov r0, #8
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -6276,7 +6276,7 @@ _021EB8E8:
 	bl FUN_02020238
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r2, #0x11
 	ldr r1, [r4]
 	add r0, sp, #0x24
@@ -6930,7 +6930,7 @@ _021EBE60:
 	bl FUN_02020064
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -26509,7 +26509,7 @@ MOD05_021F5518: ; 0x021F5518
 	bl FUN_020178BC
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021F5560 ; =0x00000648
 	bl FUN_020054C8
 	add sp, #4
@@ -26721,7 +26721,7 @@ MOD05_021F56B8: ; 0x021F56B8
 	strh r1, [r0]
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r1, _021F5714 ; =0x0400000C
 	mov r0, #3
 	ldrh r2, [r1]
@@ -26746,7 +26746,7 @@ MOD05_021F56B8: ; 0x021F56B8
 	bl FUN_02018768
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	bl MOD05_021F569C
 	add sp, #8
@@ -26766,7 +26766,7 @@ MOD05_021F571C: ; 0x021F571C
 	strh r1, [r0]
 	mov r0, #8
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r1, _021F5778 ; =0x0400000E
 	mov r0, #3
 	ldrh r2, [r1]
@@ -26790,7 +26790,7 @@ MOD05_021F571C: ; 0x021F571C
 	bl FUN_02018768
 	mov r0, #8
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	bl MOD05_021F569C
 	add sp, #8
@@ -26931,7 +26931,7 @@ _021F5856:
 	bl FUN_020178BC
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	b _021F5980
 _021F5872:
 	ldr r0, [r4]
@@ -27001,7 +27001,7 @@ _021F58EE:
 	beq _021F5980
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021F5984 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
