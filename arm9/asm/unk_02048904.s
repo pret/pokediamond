@@ -223,14 +223,14 @@ _02048A82:
 	bl FUN_02034E10
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_0203484C
+	bl MapHeader_GetCameraType
 	cmp r6, r0
 	beq _02048AB4
 	bl ErrorHandling
 	b _02048AB4
 _02048AA6:
 	add r0, r7, #0x0
-	bl FUN_0203484C
+	bl MapHeader_GetCameraType
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x4]
 	bl FUN_02034E18

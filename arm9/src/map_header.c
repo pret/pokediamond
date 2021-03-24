@@ -605,23 +605,23 @@ u32 MapNumberBoundsCheck(u32 mapno)
     return mapno;
 }
 
-u8 FUN_02034724(u32 mapno)
+u8 MapHeader_GetAreaDataBank(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk0;
+    return sMapHeaders[mapno].area_data_bank;
 }
 
-u8 FUN_02034738(u32 mapno)
+u8 MapHeader_GetField1(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
     return sMapHeaders[mapno].unk1;
 }
 
-u16 FUN_0203474C(u32 mapno)
+u16 MapHeader_GetMatrixId(u32 mapno)
 {
     u16 ret;
     mapno = MapNumberBoundsCheck(mapno);
-    ret = sMapHeaders[mapno].unk2;
+    ret = sMapHeaders[mapno].matrix_id;
     // Spear Pillar
     if (ret == 22 && gGameVersion == VERSION_PEARL)
         ret = 23;
@@ -631,94 +631,94 @@ u16 FUN_0203474C(u32 mapno)
 u16 MapHeader_GetMsgBank(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk8;
+    return sMapHeaders[mapno].msg_bank;
 }
 
-u16 MapHeader_GetScrSeqReleaseNo(u32 mapno)
+u16 MapHeader_GetScriptsBank(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk4;
+    return sMapHeaders[mapno].scripts_bank;
 }
 
-u16 FUN_0203479C(u32 mapno)
+u16 MapHeader_GetLevelScriptsBank(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk6;
+    return sMapHeaders[mapno].level_scripts_bank;
 }
 
-u16 FUN_020347B0(u32 mapno)
+u16 MapHeader_GetDayMusicId(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unkA;
+    return sMapHeaders[mapno].day_music_id;
 }
 
-u16 FUN_020347C4(u32 mapno)
+u16 MapHeader_GetNightMusicId(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unkC;
+    return sMapHeaders[mapno].night_music_id;
 }
 
-BOOL FUN_020347D8(u32 mapno)
+BOOL MapHeader_HasWildEncounters(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unkE != 0xFFFF;
+    return sMapHeaders[mapno].wild_encounter_bank != 0xFFFF;
 }
 
-u16 FUN_020347FC(u32 mapno)
+u16 MapHeader_GetWildEncounterBank(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unkE;
+    return sMapHeaders[mapno].wild_encounter_bank;
 }
 
-u16 FUN_02034810(u32 mapno)
+u16 MapHeader_GetEventsBank(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk10;
+    return sMapHeaders[mapno].events_bank;
 }
 
-u16 FUN_02034824(u32 mapno)
+u16 MapHeader_GetMapSec(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
     return sMapHeaders[mapno].mapsec;
 }
 
-u8 FUN_02034838(u32 mapno)
+u8 MapHeader_GetWeatherType(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk14;
+    return sMapHeaders[mapno].weather_type;
 }
 
-u8 FUN_0203484C(u32 mapno)
+u8 MapHeader_GetCameraType(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk15;
+    return sMapHeaders[mapno].camera_type;
 }
 
-u8 FUN_02034860(u32 mapno)
+u8 MapHeader_GetField17_0(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
     return sMapHeaders[mapno].unk17_0;
 }
 
-u8 FUN_0203487C(u32 mapno)
+u8 MapHeader_GetField17_6(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
     return sMapHeaders[mapno].unk17_6;
 }
 
-u8 FUN_02034898(u32 mapno)
+u8 MapHeader_IsFlyAllowed(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk17_7;
+    return sMapHeaders[mapno].is_fly_allowed;
 }
 
-u8 FUN_020348B4(u32 mapno)
+u8 MapHeader_IsBikeAllowed(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk17_4;
+    return sMapHeaders[mapno].is_bike_allowed;
 }
 
-u8 FUN_020348D0(u32 mapno)
+u8 MapHeader_GetField16(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
     return sMapHeaders[mapno].unk16;
@@ -726,36 +726,36 @@ u8 FUN_020348D0(u32 mapno)
 
 BOOL FUN_020348E4(u32 mapno)
 {
-    if (!FUN_02034898(mapno))
+    if (!MapHeader_IsFlyAllowed(mapno))
         return FALSE;
-    if (FUN_020348D0(mapno) != 1)
+    if (MapHeader_GetField16(mapno) != 1)
         return TRUE;
     return FALSE;
 }
 
-BOOL FUN_02034908(u32 mapno)
+BOOL MapHeader_MapIsOnOverworldMatrix(u32 mapno)
 {
-    return !FUN_0203474C(mapno);
+    return MapHeader_GetMatrixId(mapno) == 0;
 }
 
 BOOL FUN_0203491C(u32 mapno)
 {
-    return FUN_020348D0(mapno) == 5;
+    return MapHeader_GetField16(mapno) == 5;
 }
 
 BOOL FUN_02034930(u32 mapno)
 {
-    return FUN_020348D0(mapno) == 3;
+    return MapHeader_GetField16(mapno) == 3;
 }
 
 BOOL FUN_02034944(u32 mapno)
 {
-    return FUN_020348D0(mapno) == 4 || FUN_020348D0(mapno) == 5;
+    return MapHeader_GetField16(mapno) == 4 || MapHeader_GetField16(mapno) == 5;
 }
 
 BOOL FUN_02034964(u32 mapno)
 {
-    return FUN_020348D0(mapno) == 1 || FUN_020348D0(mapno) == 2;
+    return MapHeader_GetField16(mapno) == 1 || MapHeader_GetField16(mapno) == 2;
 }
 
 BOOL FUN_02034984(u32 mapno)

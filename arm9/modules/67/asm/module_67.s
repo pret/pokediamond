@@ -1248,7 +1248,7 @@ _021D7E32:
 	add r4, r0, #0
 	ldr r0, [sp, #0x14]
 	lsr r0, r0, #0x13
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -1685,7 +1685,7 @@ MOD67_021D8208: ; 0x021D8208
 	b _021D832E
 _021D822A:
 	ldrh r0, [r0, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r1, _021D8338 ; =0x0000017E
 	mov r0, #0x1a
@@ -1774,7 +1774,7 @@ _021D82EA:
 _021D82F2:
 	add r0, sp, #0x10
 	ldrh r0, [r0, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
@@ -2423,7 +2423,7 @@ MOD67_021D87E4: ; 0x021D87E4
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -2674,7 +2674,7 @@ MOD67_021D89E0: ; 0x021D89E0
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -2717,7 +2717,7 @@ MOD67_021D8A3C: ; 0x021D8A3C
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -2760,7 +2760,7 @@ MOD67_021D8A98: ; 0x021D8A98
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -2803,7 +2803,7 @@ MOD67_021D8AF4: ; 0x021D8AF4
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -2846,7 +2846,7 @@ MOD67_021D8B50: ; 0x021D8B50
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -2889,7 +2889,7 @@ MOD67_021D8BAC: ; 0x021D8BAC
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -2932,7 +2932,7 @@ MOD67_021D8C08: ; 0x021D8C08
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -2975,7 +2975,7 @@ MOD67_021D8C64: ; 0x021D8C64
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -3018,7 +3018,7 @@ MOD67_021D8CC0: ; 0x021D8CC0
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -3061,7 +3061,7 @@ MOD67_021D8D1C: ; 0x021D8D1C
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
@@ -3104,7 +3104,7 @@ MOD67_021D8D78: ; 0x021D8D78
 	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0

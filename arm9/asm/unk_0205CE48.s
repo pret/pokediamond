@@ -432,7 +432,7 @@ FUN_0205D170: ; 0x0205D170
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	cmp r0, #0x0
 	bne _0205D184
 	mov r0, #0x0
@@ -440,7 +440,7 @@ FUN_0205D170: ; 0x0205D170
 	pop {r3-r5, pc}
 _0205D184:
 	ldr r0, [r5, #0x0]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0x0
 	bne _0205D194
 	mov r0, #0x0
@@ -697,7 +697,7 @@ _0205D390:
 	pop {r3-r5, pc}
 _0205D396:
 	ldr r0, [r4, #0x0]
-	bl FUN_020348B4
+	bl MapHeader_IsBikeAllowed
 	cmp r0, #0x0
 	bne _0205D3A6
 	mov r0, #0x0
@@ -1178,7 +1178,7 @@ _0205D730: .word 0x000022F6
 FUN_0205D734: ; 0x0205D734
 	push {r3, lr}
 	ldr r0, [r0, #0x0]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0x0
 	beq _0205D744
 	mov r0, #0x0
@@ -1595,7 +1595,7 @@ _0205DA8E:
 	cmp r0, #0x1
 	bne _0205DAA6
 	ldr r0, [r4, #0x0]
-	bl FUN_0203487C
+	bl MapHeader_GetField17_6
 	cmp r0, #0x1
 	bne _0205DAA6
 	mov r0, #0x0

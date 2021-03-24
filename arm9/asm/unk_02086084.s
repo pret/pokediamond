@@ -279,7 +279,7 @@ _020862D6:
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	str r0, [sp, #0x4]
 	mov r0, #0x0
 	str r0, [sp, #0x8]

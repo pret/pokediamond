@@ -1925,7 +1925,7 @@ ScriptRunByIndex: ; 0x02039484
 	thumb_func_start LoadScriptsForCurrentMap
 LoadScriptsForCurrentMap: ; 0x0203949C
 	push {r3, lr}
-	bl MapHeader_GetScrSeqReleaseNo
+	bl MapHeader_GetScriptsBank
 	add r1, r0, #0x0
 	mov r0, #0xa
 	mov r2, #0xb

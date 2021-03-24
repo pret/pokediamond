@@ -606,7 +606,7 @@ MOD05_021E331C: ; 0x021E331C
 	bne _021E333E
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r1, r0, #0
 	ldr r0, [r4, #4]
 	ldr r0, [r0, #8]

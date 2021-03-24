@@ -67,7 +67,7 @@ FUN_02034A98: ; 0x02034A98
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_02034810
+	bl MapHeader_GetEventsBank
 	add r4, r0, #0x0
 	mov r0, #0x20
 	add r1, r4, #0x0
@@ -406,11 +406,11 @@ FUN_02034CB4: ; 0x02034CB4
 	add r5, r0, #0x0
 	bl memset
 	add r0, r4, #0x0
-	bl FUN_020347D8
+	bl MapHeader_HasWildEncounters
 	cmp r0, #0x0
 	beq _02034CDE
 	add r0, r4, #0x0
-	bl FUN_020347FC
+	bl MapHeader_GetWildEncounterBank
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	.ifdef DIAMOND
@@ -436,7 +436,7 @@ FUN_02034CEC: ; 0x02034CEC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_0203479C
+	bl MapHeader_GetLevelScriptsBank
 	mov r1, #0x82
 	lsl r1, r1, #0x4
 	mov r2, #0x1

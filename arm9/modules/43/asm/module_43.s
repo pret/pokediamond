@@ -62,7 +62,7 @@ MOD43_0225489C: ; 0x0225489C
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0
 	beq _022548E0
 	ldr r0, [r4, #0x1c]
@@ -395,7 +395,7 @@ MOD43_02254AF8: ; 0x02254AF8
 	add r7, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0
 	beq _02254B36
 	ldr r1, [r4, #0x1c]

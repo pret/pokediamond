@@ -8668,7 +8668,7 @@ _0223D804:
 	bne _0223D8F4
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	cmp r0, #0x65
 	beq _0223D8F4
 	ldr r0, [r5, #0x1c]
@@ -31270,7 +31270,7 @@ CreateInGameTradeMon: ; 0x022489D4
 	add r2, r4, #0
 	bl SetMonData
 	ldr r0, [sp, #0x2c]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r3, r0, #0
 	ldr r0, [sp, #0x28]
 	mov r1, #0

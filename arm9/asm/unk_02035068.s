@@ -67,7 +67,7 @@ FUN_02035068: ; 0x02035068
 	push {r3, lr}
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	cmp r0, #0x0
 	beq _0203507A
 	mov r0, #0x1

@@ -55,7 +55,7 @@ FUN_0205F7A0: ; 0x0205F7A0
 	asr r1, r1, #0x5
 	asr r2, r2, #0x5
 	bl FUN_0203451C
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0x0
 	beq _0205F806
 	str r4, [r5, #0x0]

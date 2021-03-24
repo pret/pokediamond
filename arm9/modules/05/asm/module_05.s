@@ -26953,7 +26953,7 @@ _021F5888:
 	strh r0, [r4, #0xa]
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl FUN_020347D8
+	bl MapHeader_HasWildEncounters
 	cmp r0, #0
 	beq _021F58D4
 	mov r0, #0xa

@@ -139,7 +139,7 @@ FUN_020344AC: ; 0x020344AC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0203474C
+	bl MapHeader_GetMatrixId
 	add r6, r0, #0x0
 	add r0, r4, #0x4
 	add r1, r6, #0x0
