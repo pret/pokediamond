@@ -16,7 +16,7 @@ void FUN_02064E4C(struct MsgData * msgData, u16 map_sec, struct String * dest)
 void FUN_02064E60(u32 map_no, u32 heap_id, struct String * dest)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 382, heap_id);
-    u16 map_sec = FUN_02034824(map_no);
+    u16 map_sec = MapHeader_GetMapSec(map_no);
 
     FUN_02064E4C(msgData, map_sec, dest);
 

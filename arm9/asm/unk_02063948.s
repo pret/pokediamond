@@ -303,7 +303,7 @@ _02063B52:
 	pop {r4, pc}
 _02063B66:
 	ldr r0, [r4, #0x0]
-	bl FUN_02034898
+	bl MapHeader_IsFlyAllowed
 	cmp r0, #0x0
 	bne _02063B74
 	mov r0, #0x1
@@ -1129,7 +1129,7 @@ _020641BE:
 	cmp r0, #0x1
 	bne _020641D2
 	ldr r0, [r4, #0x0]
-	bl FUN_0203487C
+	bl MapHeader_GetField17_6
 	cmp r0, #0x1
 	beq _020641D6
 _020641D2:

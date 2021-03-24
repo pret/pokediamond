@@ -107,7 +107,7 @@ _02063758:
 	bne _0206377C
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_020348B4
+	bl MapHeader_IsBikeAllowed
 	cmp r0, #0x0
 	bne _0206377C
 	mov r0, #0x0
@@ -122,7 +122,7 @@ _0206377C:
 _02063786:
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0x0
 	beq _020637A6
 	ldr r0, [r5, #0xc]

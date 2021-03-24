@@ -1075,7 +1075,7 @@ _021D8992:
 _021D8998:
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl FUN_020347D8
+	bl MapHeader_HasWildEncounters
 	cmp r0, #0
 	beq _021D89B4
 	add r0, r4, #0
@@ -1846,7 +1846,7 @@ MOD05_021D8FD0: ; 0x021D8FD0
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r6, #0
@@ -1894,7 +1894,7 @@ MOD05_021D9010: ; 0x021D9010
 _021D903E:
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	add r0, r4, #0
@@ -2216,11 +2216,11 @@ MOD05_021D9290: ; 0x021D9290
 	beq _021D92DA
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #1
 	bne _021D931C
 	ldr r0, [sp, #8]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0
 	bne _021D931C
 	ldr r0, [r4, #0x38]
@@ -2246,11 +2246,11 @@ _021D92DA:
 	beq _021D931C
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #1
 	bne _021D931C
 	ldr r0, [sp, #8]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0
 	bne _021D931C
 	ldr r0, [r4, #0x38]

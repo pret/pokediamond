@@ -3503,7 +3503,7 @@ FUN_020772CC: ; 0x020772CC
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	pop {r3, pc}

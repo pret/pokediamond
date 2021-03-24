@@ -121,11 +121,11 @@ FUN_0204ABA8: ; 0x0204ABA8
 	cmp r0, #0x0
 	bne _0204ABBE
 	add r0, r4, #0x0
-	bl FUN_020347B0
+	bl MapHeader_GetDayMusicId
 	b _0204ABC4
 _0204ABBE:
 	add r0, r4, #0x0
-	bl FUN_020347C4
+	bl MapHeader_GetNightMusicId
 _0204ABC4:
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -338,11 +338,11 @@ FUN_0204AD44: ; 0x0204AD44
 	cmp r0, #0x0
 	bne _0204AD58
 	add r0, r4, #0x0
-	bl FUN_020347B0
+	bl MapHeader_GetDayMusicId
 	pop {r4, pc}
 _0204AD58:
 	add r0, r4, #0x0
-	bl FUN_020347C4
+	bl MapHeader_GetNightMusicId
 	pop {r4, pc}
 
 	thumb_func_start FUN_0204AD60

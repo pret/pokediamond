@@ -12,7 +12,7 @@ extern BOOL GiveMon(u32 heap_id, struct SaveBlock2 * sav2, u16 species, u8 level
 
 THUMB_FUNC BOOL ScrCmd_GiveMon(struct ScriptContext* ctx)
 {
-    u32 mapSec = FUN_02034824(*(ctx->unk80->mapId));
+    u32 mapSec = MapHeader_GetMapSec(*(ctx->unk80->mapId));
     struct UnkSavStruct80 *savePtr = ctx->unk80;
     u16 species = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 level = VarGet(ctx->unk80, ScriptReadHalfword(ctx));

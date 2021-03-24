@@ -128,7 +128,7 @@ FUN_02034FE4: ; 0x02034FE4
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_02034838
+	bl MapHeader_GetWeatherType
 	add r4, r0, #0x0
 	cmp r4, #0x18
 	blt _0203505C

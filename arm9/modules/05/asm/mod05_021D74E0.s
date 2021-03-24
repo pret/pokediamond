@@ -477,10 +477,10 @@ _021D78CE:
 	ldr r0, [r0, #0xc]
 	bl MOD05_021DC174
 	add r0, r6, #0
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r1, r0, #0
 	cmp r6, r1
 	beq _021D7956
@@ -542,7 +542,7 @@ MOD05_021D79B4: ; 0x021D79B4
 	add r5, r0, #0
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034908
+	bl MapHeader_MapIsOnOverworldMatrix
 	cmp r0, #0
 	beq _021D79FE
 	ldr r0, [r5, #0xc]
@@ -954,13 +954,13 @@ MOD05_021D7CF0: ; 0x021D7CF0
 	str r0, [r5, #0x50]
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034724
+	bl MapHeader_GetAreaDataBank
 	ldr r1, [r5, #0x4c]
 	bl MOD05_021F4978
 	str r0, [r5, #0x2c]
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034738
+	bl MapHeader_GetField1
 	add r4, r0, #0
 	ldr r0, [r5, #0x30]
 	cmp r0, #0
