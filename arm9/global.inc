@@ -8517,3 +8517,10 @@
 .extern CARDi_InitCommon
 .extern MonNotFaintedOrEgg
 .extern CountAlivePokemon
+.extern UNK_020EDB30
+.extern UNK_020EDB38
+.extern UNK_020EDB44
+.extern UNK_020EDB50
+.extern UNK_020EDB5C
+.extern UNK_020EDB68
+.extern UNK_020EDB74

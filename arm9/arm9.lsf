@@ -49,6 +49,7 @@ Static arm9
 	Object unk_02015E30.o
 	Object game_init.o
 	Object heap.o
+	Object unk_02016B94_c.o
 	Object unk_02016B94.o
 	Object unk_0201B1A8.o
 	Object unk_0201B4E8.o
