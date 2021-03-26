@@ -17,8 +17,7 @@ THUMB_FUNC u32 *FUN_02025490(struct unk_2025484 *r0, u32 r1)
 
 THUMB_FUNC u32 *FUN_020254A0(struct unk_2025484 *r0, u32 r1)
 {
-    if(r0->unk0 != r1)
-        ErrorHandling();
+    GF_ASSERT(r0->unk0 == r1);
     return &r0->unk4;
 }
 
