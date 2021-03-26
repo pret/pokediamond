@@ -1618,10 +1618,6 @@
 .extern FUN_020252E8
 .extern FUN_020252F4
 .extern FUN_020253E0
-.extern FUN_02025484
-.extern FUN_02025490
-.extern FUN_020254A0
-.extern FUN_020254B4
 .extern FUN_020254B8
 .extern FUN_020254C0
 .extern FUN_020254CC
