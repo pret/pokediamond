@@ -824,7 +824,7 @@ def repl_float_hex(m):
 def parse_source(f, opt, framepointer, input_enc, output_enc, print_source=None):
     opt = "O4"
     min_instr_count = 3 # idk
-    skip_instr_count = 2 # idk
+    skip_instr_count = 3 # mandatory instructions: push, pop and mov r0, 0
 
     use_jtbl_for_rodata = False
     if opt in ['O2', 'g3'] and not framepointer:
