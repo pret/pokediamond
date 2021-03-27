@@ -584,8 +584,12 @@ class GlobalAsmBlock:
         elif line.startswith('.byte'):
             self.add_sized(len(line.split(',')), real_line)
         # Branches are 4 bytes long
-        elif line.startswith('bl'):
+        elif line.startswith('bl') and not line.startswith('bls'):
             self.add_sized(4, real_line)
+        elif line.startswith('.word'):
+            self.add_sized(4, real_line)
+        elif line.startswith('.extern'):
+            pass
         else:
             # Unfortunately, macros are hard to support for .rodata --
             # we don't know how how space they will expand to before
