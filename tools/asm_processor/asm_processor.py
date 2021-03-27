@@ -375,14 +375,14 @@ def is_temp_name(name):
 # https://stackoverflow.com/a/241506
 def re_comment_replacer(match):
     s = match.group(0)
-    if s[0] in "/#":
+    if s[0] in "/#;":
         return " "
     else:
         return s
 
 
 re_comment_or_string = re.compile(
-    r'#.*|/\*.*?\*/|"(?:\\.|[^\\"])*"'
+    r';.*|#.*|/\*.*?\*/|"(?:\\.|[^\\"])*"'
 )
 
 
