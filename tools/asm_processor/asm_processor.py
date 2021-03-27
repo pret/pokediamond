@@ -9,7 +9,7 @@ import os
 from collections import namedtuple, defaultdict
 from io import StringIO
 
-MAX_FN_SIZE = 100
+MAX_FN_SIZE = 3000
 SLOW_CHECKS = False
 
 EI_NIDENT     = 16
