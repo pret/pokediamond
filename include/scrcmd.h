@@ -4,6 +4,10 @@
 #include "global.h"
 #include "script.h"
 
+extern u16 VarGet(struct UnkSavStruct80* arg, u16);
+extern u16* GetVarPointer(struct UnkSavStruct80* arg, u16);
+extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct UnkSavStruct80* unk);
+
 struct UnkStruct_0203A288 {
     u8 unk0;
     u8 unk1;

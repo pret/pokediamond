@@ -1,9 +1,6 @@
 #include "scrcmd.h"
 #include "bag.h"
 
-extern u16 VarGet(struct UnkSavStruct80* arg, u16);
-extern u16* GetVarPointer(struct UnkSavStruct80* arg, u16);
-
 const u16 UNK_020F450C[7][2] = {
     { 0x0067, 0x008E },
     { 0x0065, 0x008A },

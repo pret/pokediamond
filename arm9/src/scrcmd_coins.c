@@ -1,10 +1,6 @@
 #include "scrcmd.h"
 #include "coins.h"
 
-extern u16 VarGet(struct UnkSavStruct80* arg, u16);
-extern u16* GetVarPointer(struct UnkSavStruct80* arg, u16);
-extern struct SaveBlock2 * ScriptEnvironment_GetSav2Ptr(struct UnkSavStruct80* unk);
-
 extern void * FUN_02039438(struct UnkSavStruct80* arg, u8 idx);
 
 extern u32 MOD05_021E2950(struct UnkSavStruct80* arg, u8, u8);
