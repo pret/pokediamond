@@ -4,6 +4,10 @@
 #include "global.h"
 #include "script.h"
 
+extern u16 VarGet(struct UnkSavStruct80* arg, u16);
+extern u16* GetVarPointer(struct UnkSavStruct80* arg, u16);
+extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct UnkSavStruct80* unk);
+
 struct UnkStruct_0203A288 {
     u8 unk0;
     u8 unk1;
@@ -94,6 +98,13 @@ BOOL ScrCmd_Unk0042(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk029D(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0043(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02B9(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0044(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0045(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0046(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0047(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0048(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk02CF(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx);
 
 //scrcmd_coins.c
 BOOL ScrCmd_Unk0075(struct ScriptContext* ctx);
@@ -129,6 +140,16 @@ BOOL ScrCmd_Unk01F3(struct ScriptContext* ctx);
 
 //scrcmd_20.c
 BOOL ScrCmd_Unk02A6(struct ScriptContext* ctx);
+
+//scrcmd_items.c
+BOOL ScrCmd_GiveItem(struct ScriptContext* ctx);
+BOOL ScrCmd_TakeItem(struct ScriptContext* ctx);
+BOOL ScrCmd_HasSpaceForItem(struct ScriptContext* ctx);
+BOOL ScrCmd_HasItem(struct ScriptContext* ctx);
+BOOL ScrCmd_ItemIdIsTMOrHM(struct ScriptContext* ctx);
+BOOL ScrCmd_GetItemPocketId(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0081(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0082(struct ScriptContext* ctx);
 
 //scrcmd_25.c
 BOOL ScrCmd_Unk02EF(struct ScriptContext* ctx);
