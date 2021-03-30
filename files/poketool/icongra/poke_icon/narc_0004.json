@@ -62,6 +62,6 @@
 			}
 		}
 	],
-	"labels": ["CellAnime0", "CellAnime1"],
-	"labelCount": 2
+	"labels": ["CellAnime0", "CellAnime1", "CellAnime2", "CellAnime3", "CellAnime4", "CellAnime5"],
+	"labelCount": 6
 }
