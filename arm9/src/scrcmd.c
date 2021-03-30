@@ -5,8 +5,6 @@
 #include "player_data.h"
 #include "text.h"
 
-extern u16 *GetVarPointer(struct UnkSavStruct80* arg, u16);
-extern u16 VarGet(struct UnkSavStruct80* arg, u16 wk);
 extern void *FUN_02039438(struct UnkSavStruct80* arg, u32 id);
 extern void *CreateScriptContext(struct UnkSavStruct80* arg, u16 id);
 extern u8 FUN_02058448(u32 param0);

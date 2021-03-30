@@ -272,14 +272,14 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GetCoins
     .word ScrCmd_GiveCoins
     .word ScrCmd_TakeCoinsImmediate
-    .word FUN_02045784
-    .word FUN_020457DC
-    .word FUN_02045834
-    .word FUN_0204588C
-    .word FUN_020458E4
-    .word FUN_02045918
-    .word FUN_02045950
-    .word FUN_02045954
+    .word ScrCmd_GiveItem
+    .word ScrCmd_TakeItem
+    .word ScrCmd_HasSpaceForItem
+    .word ScrCmd_HasItem
+    .word ScrCmd_ItemIdIsTMOrHM
+    .word ScrCmd_GetItemPocketId
+    .word ScrCmd_Unk0081
+    .word ScrCmd_Unk0082
     .word FUN_02045958
     .word FUN_020459AC
     .word FUN_020459E8
