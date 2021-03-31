@@ -1,6 +1,6 @@
 ### 1. Install MWCC compiler
 
-The build system requires the use of the Metrowerk C Compiler versions 2.0/sp1 and 1.2/sp2p3 to compile matching files. We cannot distribute the correct compiler here so join the PRET discord and download the pinned mwccarm.zip zip in #pokediamond and extract it to tools/. Run each of the executables so they ask for a license.dat and provide the one in the rar (it may also ask for it when compiling). This only needs to be done once.
+The build system requires the use of the Metrowerks C Compiler versions 2.0/sp1 and 1.2/sp2p3 to compile matching files. We cannot distribute the correct compiler here so join the PRET discord and download the pinned mwccarm.zip zip in #pokediamond and extract it to tools/. Run each of the executables so they ask for a license.dat and provide the one in the rar (it may also ask for it when compiling). This only needs to be done once.
 
 In the future, a GCC option will be available so MWCC is not required to build, however it is required for a matching ROM.
 
@@ -19,6 +19,7 @@ Building the ROM requires the following packages:
 * build-essentials (build-essential on Ubuntu)
 * binutils-arm-none-eabi
 * wine (to run the mwcc executables)
+* python3 (for asm preprocessor)
 * libpng-devel (libpng-dev on Ubuntu)
 
 NOTE: If you are using Arch/Manjaro or Void you will only need base-devel instead of build-essentials or make or git. You will still need wine.
@@ -30,12 +31,16 @@ Currently WSL2 has an issue with mwldarm not being able to locate it's executabl
 Before following the respective guides, please install devkitARM and ensure the DEVKITPRO and DEVKITARM variables are added to bashrc such that:
 
 Msys2:
-export DEVKITPRO=C:/devkitPro
+```console
+export DEVKITPRO=C:/devkitPro 
 export DEVKITARM=${DEVKITPRO}/devkitARM
+```
 
 Cygwin:
+```console
 export DEVKITPRO=/cygdrive/c/devkitPro
 export DEVKITARM=${DEVKITPRO}/devkitARM
+```
 
 You will still require the following packages:
 
