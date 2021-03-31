@@ -744,10 +744,10 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02041340
     .word FUN_02040964
     .word ScrCmd_pcfreespace
-    .word FUN_0204387C
-    .word FUN_020438D0
-    .word FUN_02043918
-    .word FUN_020439B4
+    .word ScrCmd_Unk0253
+    .word ScrCmd_Unk0254
+    .word ScrCmd_Unk0255
+    .word ScrCmd_Unk0256
     .word FUN_0203FE80
     .word FUN_0203EDA4
     .word FUN_0203EDC8
