@@ -534,7 +534,7 @@ THUMB_FUNC u32 FUN_020600DC(struct SaveBlock2 *sav2)
 
 THUMB_FUNC BOOL FUN_02060144(u32 **param0)
 {
-    if (param0[7][0] == 0x1ED)
+    if (param0[7][0] == SPECIES_ARCEUS)
     {
         return TRUE;
     }
