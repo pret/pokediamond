@@ -106,6 +106,12 @@ BOOL ScrCmd_Unk0048(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02CF(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx);
 
+//scrcmd_13.c
+BOOL ScrCmd_Unk0253(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0254(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0255(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0256(struct ScriptContext* ctx);
+
 //scrcmd_coins.c
 BOOL ScrCmd_Unk0075(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0076(struct ScriptContext* ctx);

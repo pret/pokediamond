@@ -3274,10 +3274,10 @@
 .extern FUN_02042C8C
 .extern FUN_02042CBC
 .extern FUN_02042D1C
-.extern FUN_0204387C
-.extern FUN_020438D0
-.extern FUN_02043918
-.extern FUN_020439B4
+.extern ScrCmd_Unk0253
+.extern ScrCmd_Unk0254
+.extern ScrCmd_Unk0255
+.extern ScrCmd_Unk0256
 .extern ScrCmd_Unk0075
 .extern ScrCmd_Unk0076
 .extern ScrCmd_Unk0077
