@@ -27,6 +27,23 @@ extern int FUN_0202A538(u32 param0, u16 param1, u32 param2);
 
 
 
+
+const u8 UNK_020F7454[] = {
+    0x00,
+    0x01,
+    0x02,
+    0x04,
+    0x03,
+    0x05,
+    0x06,
+    0x07,
+    0x08,
+    0x00,
+    0x00,
+    0x00,
+};
+
+
 THUMB_FUNC u32 FUN_0205FA2C(struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1, u32 heap_id)
 {
     struct UnkPlayerStruct1_0205FA2C *ptr =

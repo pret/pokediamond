@@ -16,22 +16,6 @@
 #include "unk_020286F8.h"
 
 
-const u8 UNK_020F7454[] = {
-    0x00,
-    0x01,
-    0x02,
-    0x04,
-    0x03,
-    0x05,
-    0x06,
-    0x07,
-    0x08,
-    0x00,
-    0x00,
-    0x00,
-};
-
-
 struct UnkPlayerStruct1_0205FA2C
 {
     /* 0x00 */ struct PlayerParty *player_party;
