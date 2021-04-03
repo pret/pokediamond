@@ -217,11 +217,11 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0041
     .word ScrCmd_Unk0042
     .word ScrCmd_Unk0043
-    .word FUN_0203ADC4
-    .word FUN_0203AE4C
-    .word FUN_0203AED4
-    .word FUN_0203AF34
-    .word FUN_0203AF58
+    .word ScrCmd_Unk0044
+    .word ScrCmd_Unk0045
+    .word ScrCmd_Unk0046
+    .word ScrCmd_Unk0047
+    .word ScrCmd_Unk0048
     .word FUN_020414E0
     .word FUN_020414FC
     .word FUN_02041518
@@ -272,14 +272,14 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GetCoins
     .word ScrCmd_GiveCoins
     .word ScrCmd_TakeCoinsImmediate
-    .word FUN_02045784
-    .word FUN_020457DC
-    .word FUN_02045834
-    .word FUN_0204588C
-    .word FUN_020458E4
-    .word FUN_02045918
-    .word FUN_02045950
-    .word FUN_02045954
+    .word ScrCmd_GiveItem
+    .word ScrCmd_TakeItem
+    .word ScrCmd_HasSpaceForItem
+    .word ScrCmd_HasItem
+    .word ScrCmd_ItemIdIsTMOrHM
+    .word ScrCmd_GetItemPocketId
+    .word ScrCmd_Unk0081
+    .word ScrCmd_Unk0082
     .word FUN_02045958
     .word FUN_020459AC
     .word FUN_020459E8
@@ -744,10 +744,10 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02041340
     .word FUN_02040964
     .word ScrCmd_pcfreespace
-    .word FUN_0204387C
-    .word FUN_020438D0
-    .word FUN_02043918
-    .word FUN_020439B4
+    .word ScrCmd_Unk0253
+    .word ScrCmd_Unk0254
+    .word ScrCmd_Unk0255
+    .word ScrCmd_Unk0256
     .word FUN_0203FE80
     .word FUN_0203EDA4
     .word FUN_0203EDC8
@@ -868,8 +868,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02041100
     .word FUN_02041138
     .word FUN_02041174
-    .word FUN_0203AF84
-    .word FUN_0203AFA4
+    .word ScrCmd_Unk02CF
+    .word ScrCmd_Unk02D0
 
 	.text
 

@@ -46,19 +46,39 @@ struct JsonToCellOptions *ParseNCERJson(char *path)
         FATAL_ERROR("Error in line \"%s\"\n", errorPtr);
     }
 
-    cJSON *labelBool = cJSON_GetObjectItemCaseSensitive(json, "label");
+    cJSON *labelBool = cJSON_GetObjectItemCaseSensitive(json, "labelEnabled");
     cJSON *extended = cJSON_GetObjectItemCaseSensitive(json, "extended");
     cJSON *imageHeight = cJSON_GetObjectItemCaseSensitive(json, "imageHeight");
     cJSON *imageWidth = cJSON_GetObjectItemCaseSensitive(json, "imageWidth");
     cJSON *cellCount = cJSON_GetObjectItemCaseSensitive(json, "cellCount");
 
-    options->label = GetBool(labelBool);
+    options->labelEnabled = GetBool(labelBool);
     options->extended = GetBool(extended);
     options->imageHeight = GetInt(imageHeight);
     options->imageWidth = GetInt(imageWidth);
     options->cellCount = GetInt(cellCount);
 
     options->cells = malloc(sizeof(struct Cell *) * options->cellCount);
+
+
+    if (options->labelEnabled)
+    {
+        cJSON *labelCount = cJSON_GetObjectItemCaseSensitive(json, "labelCount");
+        options->labelCount = GetInt(labelCount);
+        options->labels = malloc(sizeof(char *) * options->labelCount);
+
+        cJSON *labels = cJSON_GetObjectItemCaseSensitive(json, "labels");
+        cJSON *label = NULL;
+
+        int j = 0;
+        cJSON_ArrayForEach(label, labels)
+        {
+            char *labelString = GetString(label);
+            options->labels[j] = malloc(strlen(labelString) + 1);
+            strcpy(options->labels[j], labelString);
+            j++;
+        }
+    }
 
     for (int i = 0; i < options->cellCount; i++)
     {
@@ -88,14 +108,6 @@ struct JsonToCellOptions *ParseNCERJson(char *path)
             options->cells[i]->maxY = (short)GetInt(maxY);
             options->cells[i]->minX = (short)GetInt(minX);
             options->cells[i]->minY = (short)GetInt(minY);
-        }
-
-        if (options->label)
-        {
-            cJSON *label = cJSON_GetObjectItemCaseSensitive(cell, "label");
-            char *labelString = GetString(label);
-            options->cells[i]->label = malloc(strlen(labelString) + 1);
-            strcpy(options->cells[i]->label, labelString);
         }
         //OAM data
         cJSON *OAM = cJSON_GetObjectItemCaseSensitive(cell, "OAM");
@@ -221,11 +233,15 @@ void FreeNCERCell(struct JsonToCellOptions *options)
 {
     for (int i = 0; i < options->cellCount; i++)
     {
-        if (options->label)
-        {
-            free(options->cells[i]->label);
-        }
         free(options->cells[i]);
+    }
+    if (options->labelEnabled)
+    {
+        for (int j = 0; j < options->labelCount; j++)
+        {
+            free(options->labels[j]);
+        }
+        free(options->labels);
     }
     free(options);
 }

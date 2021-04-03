@@ -174,7 +174,7 @@ Static arm9
 	Object scrcmd_19.o
 	Object scrcmd_20.o
 	Object scrcmd_21.o
-	Object scrcmd_22.o
+	Object scrcmd_items.o
 	Object scrcmd_23.o
 	Object scrcmd_24.o
 	Object scrcmd_25.o
