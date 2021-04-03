@@ -1870,7 +1870,7 @@ _02035ECC:
 	bl FUN_0202A918
 	str r0, [r7, #0x20]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r7, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl FUN_02079C70
@@ -1918,7 +1918,7 @@ _02035F4A:
 	mov r0, #0x2
 	strb r0, [r7, #0x12]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r7, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl FUN_02079C70
@@ -1975,7 +1975,7 @@ _02035FD0:
 	mov r0, #0x2
 	strb r0, [r7, #0x12]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r7, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl FUN_02079C70

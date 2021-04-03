@@ -773,7 +773,7 @@ FUN_02037C00: ; 0x02037C00
 	bl FUN_0202A918
 	str r0, [r4, #0x20]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl FUN_02079C70
@@ -827,7 +827,7 @@ FUN_02037C7C: ; 0x02037C7C
 	strh r0, [r4, #0x18]
 	strb r6, [r4, #0x12]
 	add r0, r5, #0x0
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r4, #0x1c]
 	add r0, r5, #0x0
 	bl FUN_02079C70
@@ -874,7 +874,7 @@ FUN_02037CF0: ; 0x02037CF0
 	mov r0, #0x2
 	strb r0, [r4, #0x12]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r4, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl FUN_02079C70
@@ -1426,7 +1426,7 @@ FUN_02038144: ; 0x02038144
 	bl Sav2_Pokedex_get
 	str r0, [r5, #0x24]
 	ldr r0, [r4, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r5, #0x30]
 	ldr r0, [r4, #0xc]
 	str r0, [r5, #0x10]
@@ -2157,7 +2157,7 @@ FUN_020386E0: ; 0x020386E0
 	ldr r0, [r5, #0xc]
 	str r0, [r4, #0x20]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r4, #0x34]
 	ldr r0, [r4, #0x14]
 	bl FUN_02033830
