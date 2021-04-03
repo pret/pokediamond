@@ -35,9 +35,6 @@ const u8 UNK_020F7454[] = {
     0x06,
     0x07,
     0x08,
-    0x00,
-    0x00,
-    0x00,
 };
 
 THUMB_FUNC u32 FUN_0205FA2C(
