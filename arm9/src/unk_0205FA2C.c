@@ -25,9 +25,6 @@ extern void FUN_0202A2C4(u32 param0, u32 param1, u32 *param2);
 extern u32 FUN_0202A240(u32 param0, u32 param1, u32 param2);
 extern int FUN_0202A538(u32 param0, u16 param1, u32 param2);
 
-
-
-
 const u8 UNK_020F7454[] = {
     0x00,
     0x01,
@@ -43,11 +40,11 @@ const u8 UNK_020F7454[] = {
     0x00,
 };
 
-
-THUMB_FUNC u32 FUN_0205FA2C(struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1, u32 heap_id)
+THUMB_FUNC u32 FUN_0205FA2C(
+    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1, u32 heap_id)
 {
-    struct UnkPlayerStruct1_0205FA2C *ptr =
-        (struct UnkPlayerStruct1_0205FA2C *)AllocFromHeapAtEnd(heap_id, sizeof(struct UnkPlayerStruct1_0205FA2C));
+    struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)AllocFromHeapAtEnd(
+        heap_id, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
     struct SaveBlock2 *sav2 = (struct SaveBlock2 *)(param1->unkC);
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct1_0205FA2C));
@@ -68,9 +65,7 @@ THUMB_FUNC u32 FUN_0205FA2C(struct UnkCallbackStruct1_0205FA2C *param0, struct U
     for (u8 i = 0; i < 6; i++)
     {
         ptr->unk2c[i] = param0->unk0e[i];
-
     }
-    
 
     FUN_020373D4(param1, (u32)&UNK_020F96DC, (u32)ptr);
 
@@ -79,7 +74,8 @@ THUMB_FUNC u32 FUN_0205FA2C(struct UnkCallbackStruct1_0205FA2C *param0, struct U
     return 1;
 }
 
-THUMB_FUNC u32 FUN_0205FAD8(struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1)
+THUMB_FUNC u32 FUN_0205FAD8(
+    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1)
 {
     if (FUN_0204647C(param1))
     {
@@ -113,15 +109,13 @@ THUMB_FUNC u32 FUN_0205FAD8(struct UnkCallbackStruct1_0205FA2C *param0, struct U
     return 2;
 }
 
-
-
-
-
-THUMB_FUNC u32 FUN_0205FB34(struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1, u32 heap_id)
+THUMB_FUNC u32 FUN_0205FB34(
+    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1, u32 heap_id)
 {
     struct SaveBlock2 *sav2 = (struct SaveBlock2 *)(param1->unkC);
 
-    struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)AllocFromHeapAtEnd(heap_id, sizeof(struct UnkPlayerStruct2_0205FA2C));
+    struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)AllocFromHeapAtEnd(
+        heap_id, sizeof(struct UnkPlayerStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct2_0205FA2C));
 
     ptr->options = Sav2_PlayerData_GetOptionsAddr(sav2);
@@ -150,7 +144,8 @@ THUMB_FUNC u32 FUN_0205FB34(struct UnkCallbackStruct1_0205FA2C *param0, struct U
     return 3;
 }
 
-THUMB_FUNC u32 FUN_0205FBC0(struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1)
+THUMB_FUNC u32 FUN_0205FBC0(
+    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1)
 {
     if (FUN_0204647C(param1))
     {
@@ -169,7 +164,8 @@ THUMB_FUNC u32 FUN_0205FBC0(struct UnkCallbackStruct1_0205FA2C *param0, struct U
 THUMB_FUNC int FUN_0205FBE8(struct UnkStruct_0204639C *param0)
 {
     struct UnkStruct_0204639C *res = FUN_02046528(param0);
-    struct UnkCallbackStruct1_0205FA2C *res2 = (struct UnkCallbackStruct1_0205FA2C *)FUN_0204652C(param0);
+    struct UnkCallbackStruct1_0205FA2C *res2 =
+        (struct UnkCallbackStruct1_0205FA2C *)FUN_0204652C(param0);
     switch (res2->unk04)
     {
     case 0:
@@ -192,7 +188,6 @@ THUMB_FUNC int FUN_0205FBE8(struct UnkStruct_0204639C *param0)
     return 0;
 }
 
-
 THUMB_FUNC void FUN_0205FC50(struct UnkStruct_0204639C *param0,
     void **param1,
     u8 param2,
@@ -204,7 +199,8 @@ THUMB_FUNC void FUN_0205FC50(struct UnkStruct_0204639C *param0,
 {
     struct UnkStruct_0204639C *res = FUN_02046528(param0);
 
-    struct UnkCallbackStruct1_0205FA2C *ptr = (struct UnkCallbackStruct1_0205FA2C *)AllocFromHeap(0xb, sizeof(struct UnkCallbackStruct1_0205FA2C));
+    struct UnkCallbackStruct1_0205FA2C *ptr = (struct UnkCallbackStruct1_0205FA2C *)AllocFromHeap(
+        0xb, sizeof(struct UnkCallbackStruct1_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct1_0205FA2C));
 
     ptr->unk08 = param2;
@@ -218,8 +214,8 @@ THUMB_FUNC void FUN_0205FC50(struct UnkStruct_0204639C *param0,
     FUN_0204640C(res->unk10, &FUN_0205FBE8, (u32 *)ptr);
 }
 
-
-THUMB_FUNC u32 FUN_0205FC9C(struct UnkCallbackStruct2_0205FA2C *param0, struct UnkStruct_0204639C *param1)
+THUMB_FUNC u32 FUN_0205FC9C(
+    struct UnkCallbackStruct2_0205FA2C *param0, struct UnkStruct_0204639C *param1)
 {
     if (FUN_0203384C(param1->unkC))
     {
@@ -232,7 +228,8 @@ THUMB_FUNC u32 FUN_0205FC9C(struct UnkCallbackStruct2_0205FA2C *param0, struct U
     return 2;
 }
 
-THUMB_FUNC u32 FUN_0205FCC4(struct UnkCallbackStruct2_0205FA2C *param0, struct UnkStruct_0204639C *param1)
+THUMB_FUNC u32 FUN_0205FCC4(
+    struct UnkCallbackStruct2_0205FA2C *param0, struct UnkStruct_0204639C *param1)
 {
     if (FUN_0204647C(param1))
     {
@@ -248,7 +245,8 @@ THUMB_FUNC u32 FUN_0205FCC4(struct UnkCallbackStruct2_0205FA2C *param0, struct U
 THUMB_FUNC int FUN_0205FCE8(struct UnkStruct_0204639C *param0)
 {
     struct UnkStruct_0204639C *res = FUN_02046528(param0);
-    struct UnkCallbackStruct2_0205FA2C *res2 = (struct UnkCallbackStruct2_0205FA2C *)FUN_0204652C(param0);
+    struct UnkCallbackStruct2_0205FA2C *res2 =
+        (struct UnkCallbackStruct2_0205FA2C *)FUN_0204652C(param0);
 
     switch (res2->unk04)
     {
@@ -269,12 +267,11 @@ THUMB_FUNC int FUN_0205FCE8(struct UnkStruct_0204639C *param0)
     return 0;
 }
 
-
-
 THUMB_FUNC void FUN_0205FD38(struct UnkStruct_0204639C *param0, u16 param1, u16 param2, u16 param3)
 {
     struct UnkStruct_0204639C *res = FUN_02046528(param0);
-    struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(0xb, sizeof(struct UnkCallbackStruct2_0205FA2C));
+    struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(
+        0xb, sizeof(struct UnkCallbackStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct2_0205FA2C));
 
     ptr->unk12 = param1;
