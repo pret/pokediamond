@@ -514,8 +514,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203DC70
     .word FUN_0203DC88
     .word FUN_0203DCA0
-    .word FUN_02043E00
-    .word FUN_02043E20
+    .word ScrCmd_Unk016D
+    .word ScrCmd_Unk016E
     .word FUN_0203DCB8
     .word FUN_0203DCC8
     .word FUN_0203DCD8
@@ -569,19 +569,19 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203DE58
     .word FUN_0203DE80
     .word ScrCmd_TakeMoneyAddress
-    .word FUN_02043E9C
-    .word FUN_02044120
-    .word FUN_02044138
-    .word FUN_0204413C
-    .word FUN_02043E50
-    .word FUN_02043E68
-    .word FUN_02043EFC
+    .word ScrCmd_Unk01A4
+    .word ScrCmd_Unk01A5
+    .word ScrCmd_Unk01A6
+    .word ScrCmd_Unk01A7
+    .word ScrCmd_Unk01A8
+    .word ScrCmd_Unk01A9
+    .word ScrCmd_Unk01AA
     .word ScrCmd_HasEnoughMoneyAddress
     .word FUN_0203DD50
-    .word FUN_02044140
-    .word FUN_02043F50
-    .word FUN_02043FA0
-    .word FUN_02043FF4
+    .word ScrCmd_Unk01AD
+    .word ScrCmd_Unk01AE
+    .word ScrCmd_Unk01AF
+    .word ScrCmd_Unk01B0
     .word FUN_0203DEC4
     .word FUN_0203DEF8
     .word FUN_0203DF2C
@@ -593,10 +593,10 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_getpartymonfriendship
     .word FUN_020448D4
     .word FUN_020449A4
-    .word FUN_02044034
+    .word ScrCmd_Unk01BC
     .word FUN_0203B618
-    .word FUN_020440C0
-    .word FUN_020440F0
+    .word ScrCmd_Unk01BE
+    .word ScrCmd_Unk01BF
     .word FUN_02044F58
     .word FUN_0203E018
     .word FUN_0203E054

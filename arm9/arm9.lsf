@@ -167,7 +167,7 @@ Static arm9
 	Object scrcmd_13.o
 	Object scrcmd_coins.o
 	Object scrcmd_money.o
-	Object scrcmd_16.o
+	Object scrcmd_daycare.o
 	Object scrcmd_17.o
 	Object scrcmd_18_c.o
 	Object scrcmd_18.o

@@ -134,6 +134,24 @@ BOOL ScrCmd_Unk0072(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0073(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0074(struct ScriptContext* ctx);
 
+//scrcmd_daycare.c
+BOOL ScrCmd_Unk016D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk016E(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A8(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A9(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01AE(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01AF(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01B0(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01BE(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01BF(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A5(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A6(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A7(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01AD(struct ScriptContext* ctx);
+
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
 
