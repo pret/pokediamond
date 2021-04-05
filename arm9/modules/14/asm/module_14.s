@@ -1925,7 +1925,7 @@ _021D84AA:
 	str r1, [r4, r0]
 	sub r0, #0x38
 	ldr r0, [r4, r0]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	mov r1, #0x52
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -9205,7 +9205,7 @@ MOD14_021DBEAC: ; 0x021DBEAC
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	ldrh r1, [r4, #4]
 	bl FUN_0206BB48
 	strh r0, [r4, #8]

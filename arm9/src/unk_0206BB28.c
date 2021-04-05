@@ -6,12 +6,12 @@
 
 #pragma thumb on
 
-BOOL FUN_0206BB28(struct SaveBlock2 * sav2)
+BOOL SavArray_IsNatDexEnabled(struct SaveBlock2 * sav2)
 {
-    return FUN_0206BB34(Sav2_Pokedex_get(sav2));
+    return Pokedex_IsNatDexEnabled(Sav2_Pokedex_get(sav2));
 }
 
-BOOL FUN_0206BB34(struct Pokedex * pokedex)
+BOOL Pokedex_IsNatDexEnabled(struct Pokedex * pokedex)
 {
     return Pokedex_GetNatDexFlag(pokedex) == TRUE;
 }

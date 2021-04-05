@@ -25381,7 +25381,7 @@ _0223B916:
 	str r0, [sp, #0xe0]
 	ldr r0, [r4]
 	bl MOD11_022300D0
-	bl FUN_0206BB34
+	bl Pokedex_IsNatDexEnabled
 	str r0, [sp, #0xe4]
 	bl FUN_0201D658
 	str r0, [r4, #0x54]

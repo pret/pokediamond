@@ -4887,8 +4887,8 @@
 .extern CopyPlayerParty
 .extern PartyHasMon
 .extern SavArray_PlayerParty_get
-.extern FUN_0206BB28
-.extern FUN_0206BB34
+.extern SavArray_IsNatDexEnabled
+.extern Pokedex_IsNatDexEnabled
 .extern FUN_0206BB48
 .extern FUN_0206BB5C
 .extern FUN_0206BB74

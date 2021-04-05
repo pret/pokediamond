@@ -35,7 +35,7 @@ FUN_02050E48: ; 0x02050E48
 	add r0, r4, #0x0
 	bl FUN_0207C2A4
 	add r0, r6, #0x0
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r4, #0x1c]
 	add r0, r6, #0x0
 	bl FUN_02079C70
