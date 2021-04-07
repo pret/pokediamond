@@ -8517,3 +8517,12 @@
 .extern FUN_02025490
 .extern FUN_020254A0
 .extern FUN_020254B4
+.extern UNK_021C59F4
+.extern UNK_02105D58
+.extern FUN_0202F150
+.extern FUN_0202F2F0
+.extern FUN_0202F5A4
+.extern FUN_0202F820
+.extern FUN_0202F8D4
+.extern FUN_0202F910
+.extern FUN_0202F918
