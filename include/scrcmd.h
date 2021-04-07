@@ -106,6 +106,17 @@ BOOL ScrCmd_Unk0048(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02CF(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx);
 
+//scrcmd_11.c
+BOOL ScrCmd_Unk017D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk017E(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk017F(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0180(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0181(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0182(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0183(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0184(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0185(struct ScriptContext* ctx);
+
 //scrcmd_13.c
 BOOL ScrCmd_Unk0253(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0254(struct ScriptContext* ctx);
