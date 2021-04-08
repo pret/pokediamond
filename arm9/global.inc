@@ -8526,3 +8526,9 @@
 .extern FUN_0202F8D4
 .extern FUN_0202F910
 .extern FUN_0202F918
+.extern FUN_0202F984
+.extern FUN_0202F9E0
+.extern FUN_0202FA28
+.extern FUN_0202FB58
+.extern FUN_0202FB80
+.extern FUN_0202FE2C
