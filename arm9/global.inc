@@ -3412,10 +3412,10 @@
 .extern FUN_02045F84
 .extern FUN_02045F88
 .extern FUN_02045FCC
-.extern ScrCmd_Unk02EF
-.extern ScrCmd_Unk02F0
-.extern ScrCmd_Unk02F1
-.extern ScrCmd_Unk02F2
+.extern ScrCmd_Unk023F
+.extern ScrCmd_Unk0240
+.extern ScrCmd_Unk0241
+.extern ScrCmd_Unk0242
 .extern FUN_02046030
 .extern SavArray_Flags_sizeof
 .extern SavArray_Flags_init

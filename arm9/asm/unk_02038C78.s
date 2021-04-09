@@ -724,10 +724,10 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203EB48
     .word FUN_0203EB88
     .word FUN_02042D1C
-    .word ScrCmd_Unk02EF
-    .word ScrCmd_Unk02F0
-    .word ScrCmd_Unk02F1
-    .word ScrCmd_Unk02F2
+    .word ScrCmd_Unk023F
+    .word ScrCmd_Unk0240
+    .word ScrCmd_Unk0241
+    .word ScrCmd_Unk0242
     .word FUN_0203C5BC
     .word FUN_0203C614
     .word FUN_0203C680
