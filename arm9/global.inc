@@ -8532,3 +8532,8 @@
 .extern FUN_0202FB58
 .extern FUN_0202FB80
 .extern FUN_0202FE2C
+.extern FUN_0202FEEC
+.extern FUN_02030074
+.extern FUN_020303F4
+.extern FUN_020304D4
+.extern FUN_020304F0
