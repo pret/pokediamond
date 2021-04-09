@@ -354,28 +354,28 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203CB20
     .word FUN_0203CB48
     .word FUN_0203CB60
-    .word FUN_020406CC
-    .word FUN_02040700
-    .word FUN_02040724
-    .word FUN_02040748
-    .word FUN_02040790
-    .word FUN_020407C8
-    .word FUN_02040800
-    .word FUN_0204083C
-    .word FUN_02040874
-    .word FUN_0204091C
-    .word FUN_020409C0
-    .word FUN_020409F8
-    .word FUN_02040A30
-    .word FUN_02040A7C
-    .word FUN_02040B0C
-    .word FUN_02040B5C
-    .word FUN_02040BAC
+    .word ScrCmd_GetPlayerName
+    .word ScrCmd_GetRivalName
+    .word ScrCmd_GetFriendName
+    .word ScrCmd_Unk00D0
+    .word ScrCmd_GetItemName
+    .word ScrCmd_GetPocketName
+    .word ScrCmd_GetTMHMMoveName
+    .word ScrCmd_GetMoveName
+    .word ScrCmd_Unk00D5
+    .word ScrCmd_Unk00D6
+    .word ScrCmd_GetPoketchAppName
+    .word ScrCmd_GetTrainerClassName
+    .word ScrCmd_Unk00D9
+    .word ScrCmd_Unk00DA
+    .word ScrCmd_Unk00DB
+    .word ScrCmd_Unk00DC
+    .word ScrCmd_Unk00DD
     .word FUN_0203CBBC
-    .word FUN_02040BFC
-    .word FUN_02040C34
-    .word FUN_02040C6C
-    .word FUN_02040CA4
+    .word ScrCmd_GetDecorationName
+    .word ScrCmd_GetUndergroundTrapName
+    .word ScrCmd_GetUndergroundItemName
+    .word ScrCmd_Unk00E2
     .word FUN_0203CB70
     .word FUN_0204185C
     .word FUN_0204188C
@@ -528,8 +528,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203C460
     .word FUN_0203C4B0
     .word FUN_0203D958
-    .word FUN_02040D04
-    .word FUN_02040D7C
+    .word ScrCmd_Unk017B
+    .word ScrCmd_GetNatureName
     .word ScrCmd_Unk017D
     .word ScrCmd_Unk017E
     .word ScrCmd_Unk017F
@@ -608,7 +608,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02044D8C
     .word FUN_02044E34
     .word FUN_02044E78
-    .word FUN_02040E4C
+    .word ScrCmd_GetPokemonMoveName
     .word FUN_0203E138
     .word FUN_0203E168
     .word FUN_0203E254
@@ -711,7 +711,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0204505C
     .word FUN_02045104
     .word FUN_02045170
-    .word FUN_02040EB4
+    .word ScrCmd_Unk0232
     .word FUN_0203E9CC
     .word FUN_0203EA68
     .word FUN_02041E40
@@ -742,7 +742,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02041194
     .word FUN_020411C4
     .word FUN_02041340
-    .word FUN_02040964
+    .word ScrCmd_Unk0251
     .word ScrCmd_pcfreespace
     .word ScrCmd_Unk0253
     .word ScrCmd_Unk0254
@@ -758,7 +758,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203EE58
     .word FUN_0203EE68
     .word FUN_0203EE78
-    .word FUN_02040DB4
+    .word ScrCmd_GetFashionName
     .word FUN_0203EE98
     .word FUN_0203EED8
     .word FUN_0203EF58
@@ -775,7 +775,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203F254
     .word FUN_0203F26C
     .word FUN_0203C58C
-    .word FUN_02040DEC
+    .word ScrCmd_Unk0272
     .word FUN_0203F2AC
     .word ScrCmd_HasEnoughCoinsImmediate
     .word FUN_0203F2E4
@@ -789,7 +789,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203F3AC
     .word FUN_0203F44C
     .word FUN_0203F418
-    .word FUN_020408BC
+    .word ScrCmd_Unk0280
     .word FUN_02044A0C
     .word FUN_0203F484
     .word FUN_02041674
@@ -840,7 +840,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203FB94
     .word FUN_0203FBA0
     .word FUN_0203FBAC
-    .word FUN_02040EF8
+    .word ScrCmd_GetSealName
     .word FUN_0203B2E0
     .word FUN_0203FBBC
     .word FUN_0203FC1C
@@ -857,17 +857,17 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203FC80
     .word FUN_0203FCB0
     .word FUN_0203FCDC
-    .word FUN_02040F34
-    .word FUN_02040F6C
-    .word FUN_02040FA4
-    .word FUN_02040FDC
-    .word FUN_02041014
-    .word FUN_0204104C
-    .word FUN_02041094
-    .word FUN_020410C8
-    .word FUN_02041100
-    .word FUN_02041138
-    .word FUN_02041174
+    .word ScrCmd_GetItemNameWithIndefArticle
+    .word ScrCmd_GetItemNamePlural
+    .word ScrCmd_GetDecorationNameWithArticle
+    .word ScrCmd_GetUndergroundTrapNameWithArticle
+    .word ScrCmd_GetUndergroundItemNameWithArticle
+    .word ScrCmd_Unk02C9
+    .word ScrCmd_Unk02CA
+    .word ScrCmd_GetFashionNameWithArticle
+    .word ScrCmd_Unk02CC
+    .word ScrCmd_GetSealNamePlural
+    .word ScrCmd_CapitalizeFirstChar
     .word ScrCmd_Unk02CF
     .word ScrCmd_Unk02D0
 
