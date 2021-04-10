@@ -230,6 +230,24 @@ BOOL ScrCmd_GetItemPocketId(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0081(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0082(struct ScriptContext* ctx);
 
+//scrcmd_23.c
+BOOL ScrCmd_Unk0083(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0084(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0085(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0086(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0087(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0088(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0089(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008A(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008B(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008C(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008E(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008F(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0090(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0091(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0092(struct ScriptContext* ctx);
+
 //scrcmd_25.c
 BOOL ScrCmd_Unk023F(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0240(struct ScriptContext* ctx);

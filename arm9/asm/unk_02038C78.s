@@ -280,22 +280,22 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GetItemPocketId
     .word ScrCmd_Unk0081
     .word ScrCmd_Unk0082
-    .word FUN_02045958
-    .word FUN_020459AC
-    .word FUN_020459E8
-    .word FUN_02045A3C
-    .word FUN_02045A78
-    .word FUN_02045ACC
-    .word FUN_02045B08
-    .word FUN_02045B44
-    .word FUN_02045B80
-    .word FUN_02045BC8
-    .word FUN_02045C04
-    .word FUN_02045C40
-    .word FUN_02045C7C
-    .word FUN_02045CD4
-    .word FUN_02045D10
-    .word FUN_02045D4C
+    .word ScrCmd_Unk0083
+    .word ScrCmd_Unk0084
+    .word ScrCmd_Unk0085
+    .word ScrCmd_Unk0086
+    .word ScrCmd_Unk0087
+    .word ScrCmd_Unk0088
+    .word ScrCmd_Unk0089
+    .word ScrCmd_Unk008A
+    .word ScrCmd_Unk008B
+    .word ScrCmd_Unk008C
+    .word ScrCmd_Unk008D
+    .word ScrCmd_Unk008E
+    .word ScrCmd_Unk008F
+    .word ScrCmd_Unk0090
+    .word ScrCmd_Unk0091
+    .word ScrCmd_Unk0092
     .word FUN_0203B81C
     .word FUN_0203B85C
     .word FUN_0203B8A0
