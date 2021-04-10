@@ -763,86 +763,98 @@ THUMB_FUNC u32 FUN_0202FE2C(int param0)
 #else
 THUMB_FUNC asm u32 FUN_0202FE2C(int param0)
 {
-    push{ r3 - r7, lr } sub sp, #0x10 str r0, [ sp, #0x0 ] mov r0, #0x0 str r0,
-        [ sp, #0x4 ] bl FUN_02033534 lsl r0, r0, #0x10 lsr r0, r0, #0x10 bl FUN_02031228 str r0,
-        [ sp, #0xc ] bl FUN_02033534 lsl r0, r0, #0x10 lsr r0, r0, #0x10 bl FUN_0202D858 add r0, r0,
-        #0x1 mov r7, #0x0 str r0, [ sp, #0x8 ] cmp r0, #0x0 ble _0202FED0 ldr r0,
-        [ sp, #0x0 ] mov r1, #0xc0 add r6, r0, #0x0 add r4, r7, #0x0 add r5, r7, #0x0 mul r6,
-        r1 _0202FE66 : ldr r0,
-                       = UNK_021C59F4 ldr r1,
-                       [ r0, #0x4 ] ldr r0,
-                       = 0x0000047C add r0,
-                       r1,
-                       r0 add r0,
-                       r0,
-                       r4 bl FUN_0202D4BC lsl r0,
-                       r7,
-                       #0x10 lsr r0,
-                       r0,
-                       #0x10 bl FUN_02030E7C cmp r0,
-                       #0x0 beq _0202FE90 ldr r0,
-                       = UNK_021C59F4 mov r1,
-                       #0xe ldr r0,
-                       [ r0, #0x4 ] add r0,
-                       r6,
-                       r0 add r2,
-                       r5,
-                       r0 mov r0,
-                       #0x55 lsl r0,
-                       r0,
-                       #0x2 strb r1,
-                       [ r2, r0 ] _0202FE90 : ldr r0,
-                                              = UNK_021C59F4 mov r2,
-                                              #0x55 ldr r1,
-                                              [ r0, #0x4 ] ldr r0,
-                                              = 0x0000047C lsl r2,
-                                              r2,
-                                              #0x2 add r0,
-                                              r1,
-                                              r0 add r1,
-                                              r1,
-                                              r2 add r1,
-                                              r1,
-                                              r6 ldr r2,
-                                              [ sp, #0xc ] add r0,
-                                              r0,
-                                              r4 add r1,
-                                              r1,
-                                              r5 bl FUN_0202D400 ldr r0,
-                                              = UNK_021C59F4 ldr r0,
-                                              [ r0, #0x4 ] add r0,
-                                              r6,
-                                              r0 add r1,
-                                              r5,
-                                              r0 mov r0,
-                                              #0x55 lsl r0,
-                                              r0,
-                                              #0x2 ldrb r0,
-                                              [ r1, r0 ] cmp r0,
-                                              #0xe bne _0202FEC2 ldr r0,
-                                              [ sp, #0x4 ] add r0,
-                                              r0,
-                                              #0x1 str r0,
-                                              [ sp, #0x4 ] _0202FEC2 : ldr r0,
-                                                                       [ sp, #0xc ] add r7,
-                                                                       r7,
-                                                                       #0x1 add r5,
-                                                                       r5,
-                                                                       r0 ldr r0,
-                                                                       [ sp, #0x8 ] add r4,
-                                                                       #0xc cmp r7,
-                                                                       r0 blt _0202FE66 _0202FED0
-        : ldr r1,
-          [ sp, #0x4 ] ldr r0,
-          [ sp, #0x8 ] cmp r1,
-          r0 bne _0202FEDE add sp,
-          #0x10 mov r0,
-          #0x0 pop{ r3 - r7, pc } _0202FEDE : mov r0,
-                                              #0x1 add sp,
-                                              #0x10 pop
-    {
-        r3 - r7, pc
-    }
+    // clang-format off
+	push {r3-r7, lr}
+	sub sp, #0x10
+	str r0, [sp, #0x0]
+	mov r0, #0x0
+	str r0, [sp, #0x4]
+	bl FUN_02033534
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	bl FUN_02031228
+	str r0, [sp, #0xc]
+	bl FUN_02033534
+	lsl r0, r0, #0x10
+	lsr r0, r0, #0x10
+	bl FUN_0202D858
+	add r0, r0, #0x1
+	mov r7, #0x0
+	str r0, [sp, #0x8]
+	cmp r0, #0x0
+	ble _0202FED0
+	ldr r0, [sp, #0x0]
+	mov r1, #0xc0
+	add r6, r0, #0x0
+	add r4, r7, #0x0
+	add r5, r7, #0x0
+	mul r6, r1
+_0202FE66:
+	ldr r0, =UNK_021C59F4
+	ldr r1, [r0, #0x4]
+	ldr r0, =0x0000047C
+	add r0, r1, r0
+	add r0, r0, r4
+	bl FUN_0202D4BC
+	lsl r0, r7, #0x10
+	lsr r0, r0, #0x10
+	bl FUN_02030E7C
+	cmp r0, #0x0
+	beq _0202FE90
+	ldr r0, =UNK_021C59F4
+	mov r1, #0xe
+	ldr r0, [r0, #0x4]
+	add r0, r6, r0
+	add r2, r5, r0
+	mov r0, #0x55
+	lsl r0, r0, #0x2
+	strb r1, [r2, r0]
+_0202FE90:
+	ldr r0, =UNK_021C59F4
+	mov r2, #0x55
+	ldr r1, [r0, #0x4]
+	ldr r0, =0x0000047C
+	lsl r2, r2, #0x2
+	add r0, r1, r0
+	add r1, r1, r2
+	add r1, r1, r6
+	ldr r2, [sp, #0xc]
+	add r0, r0, r4
+	add r1, r1, r5
+	bl FUN_0202D400
+	ldr r0, =UNK_021C59F4
+	ldr r0, [r0, #0x4]
+	add r0, r6, r0
+	add r1, r5, r0
+	mov r0, #0x55
+	lsl r0, r0, #0x2
+	ldrb r0, [r1, r0]
+	cmp r0, #0xe
+	bne _0202FEC2
+	ldr r0, [sp, #0x4]
+	add r0, r0, #0x1
+	str r0, [sp, #0x4]
+_0202FEC2:
+	ldr r0, [sp, #0xc]
+	add r7, r7, #0x1
+	add r5, r5, r0
+	ldr r0, [sp, #0x8]
+	add r4, #0xc
+	cmp r7, r0
+	blt _0202FE66
+_0202FED0:
+	ldr r1, [sp, #0x4]
+	ldr r0, [sp, #0x8]
+	cmp r1, r0
+	bne _0202FEDE
+	add sp, #0x10
+	mov r0, #0x0
+	pop {r3-r7, pc}
+_0202FEDE:
+	mov r0, #0x1
+	add sp, #0x10
+	pop {r3-r7, pc}
+    // clang-format on
 }
 #endif
 
@@ -1125,7 +1137,6 @@ THUMB_FUNC void FUN_0203026C(u32 param0, u8 *param1, u32 param2)
     FUN_0202D3A4(&UNK_021C59F4.unk04->unk470, param1 + 4, param1[3], 0x5FF);
 }
 
-
 THUMB_FUNC void FUN_020303BC(u32 param0, u32 param1, u16 param2)
 {
     if (UNK_021C59F4.unk04->unk66F[param0] != 0)
@@ -1348,173 +1359,173 @@ THUMB_FUNC void FUN_02030674()
 #else
 THUMB_FUNC asm void FUN_02030674()
 {
-    push{ r3 - r7, lr } ldr r7, = UNK_021C59F4 mov r6, #0x0 ldr r5, [ r7, #0x4 ] ldr r2,
-                            = 0x0000062C add r4, r6, #0x0 ldrb r0, [ r5, r2 ] cmp r0,
-                            #0x0 beq _02030690 sub r1, r2, #0x4 ldrh r1, [ r5, r1 ] mov r3,
-                            #0xf0 tst r3,
-                            r1 bne _02030692 _02030690 : b _02030794 _02030692 : cmp r0,
-                            #0x2 bne _020306D0 mov r0,
-                            #0x20 tst r0,
-                            r1 beq _020306A4 mov r0,
-                            #0x10 orr r0,
-                            r6 lsl r0,
-                            r0,
-                            #0x10 lsr r4,
-                            r0,
-                            #0x10 _020306A4 : mov r0,
-                            #0x10 tst r0,
-                            r1 beq _020306B2 mov r0,
-                            #0x20 orr r0,
-                            r4 lsl r0,
-                            r0,
-                            #0x10 lsr r4,
-                            r0,
-                            #0x10 _020306B2 : mov r0,
-                            #0x40 tst r0,
-                            r1 beq _020306C0 mov r0,
-                            #0x80 orr r0,
-                            r4 lsl r0,
-                            r0,
-                            #0x10 lsr r4,
-                            r0,
-                            #0x10 _020306C0 : mov r0,
-                            #0x80 tst r0,
-                            r1 beq _0203077E mov r0,
-                            #0x40 orr r0,
-                            r4 lsl r0,
-                            r0,
-                            #0x10 lsr r4,
-                            r0,
-                            #0x10 b _0203077E _020306D0 : add r0,
-                            r2,
-                            #0x2 ldrh r0,
-                            [ r5, r0 ] cmp r0,
-                            #0x0 beq _020306F2 add r4,
-                            r0,
-                            #0x0 add r0,
-                            r2,
-                            #0x1 ldrsb r0,
-                            [ r5, r0 ] sub r1,
-                            r0,
-                            #0x1 add r0,
-                            r2,
-                            #0x1 strb r1,
-                            [ r5, r0 ] ldr r1,
-                            [ r7, #0x4 ] ldrsb r0,
-                            [ r1, r0 ] cmp r0,
-                            #0x0 bge _0203077E add r0,
-                            r2,
-                            #0x2 strh r6,
-                            [ r1, r0 ] b _0203077E _020306F2 : add r0,
-                            r2,
-                            #0x0 sub r0,
-                            #0x34 add r6,
-                            r5,
-                            r0 sub r2,
-                            #0x34 ldr r0,
-                            [ r6, #0x8 ] ldr r1,
-                            [ r6, #0xc ] ldr r2,
-                            [ r5, r2 ] ldr r3,
-                            [ r6, #0x4 ] bl _ll_mul add r3,
-                            r0,
-                            #0x0 add r2,
-                            r1,
-                            #0x0 ldr r0,
-                            [ r6, #0x10 ] ldr r1,
-                            [ r6, #0x14 ] add r0,
-                            r0,
-                            r3 adc r1,
-                            r2 ldr r2,
-                            = 0x000005F8 str r0,
-                            [ r5, r2 ] mov r2,
-                            #0x0 str r1,
-                            [ r6, #0x4 ] lsr r0,
-                            r1,
-                            #0x1e lsl r1,
-                            r2,
-                            #0x2 orr r1,
-                            r0 cmp r1,
-                            #0x3 bhi _02030746 add r0,
-                            r1,
-                            r1 add r0,
-                            pc ldrh r0,
-                            [ r0, #0x6 ] lsl r0,
-                            r0,
-                            #0x10 asr r0,
-                            r0,
-                            #0x10 add pc,
-                            r0 _02030730
-        : // jump table (using 16-bit offset)
-          // huge hack to get the correct jump offset. Is there a way to write constants?
-          lsl r6,
-                            r0,
-                            #0x0 // case 0
-          lsl r2,
-                            r1,
-                            #0x0 // case 1
-          lsl r6,
-                            r1,
-                            #0x0 // case 2
-          lsl r2,
-                            r2,
-                            #0x0 // case 3
+    // clang-format off
+	push {r3-r7, lr}
+	ldr r7, =UNK_021C59F4
+	mov r6, #0x0
+	ldr r5, [r7, #0x4]
+	ldr r2, =0x0000062C
+	add r4, r6, #0x0
+	ldrb r0, [r5, r2]
+	cmp r0, #0x0
+	beq _02030690
+	sub r1, r2, #0x4
+	ldrh r1, [r5, r1]
+	mov r3, #0xf0
+	tst r3, r1
+	bne _02030692
+_02030690:
+	b _02030794
+_02030692:
+	cmp r0, #0x2
+	bne _020306D0
+	mov r0, #0x20
+	tst r0, r1
+	beq _020306A4
+	mov r0, #0x10
+	orr r0, r6
+	lsl r0, r0, #0x10
+	lsr r4, r0, #0x10
+_020306A4:
+	mov r0, #0x10
+	tst r0, r1
+	beq _020306B2
+	mov r0, #0x20
+	orr r0, r4
+	lsl r0, r0, #0x10
+	lsr r4, r0, #0x10
+_020306B2:
+	mov r0, #0x40
+	tst r0, r1
+	beq _020306C0
+	mov r0, #0x80
+	orr r0, r4
+	lsl r0, r0, #0x10
+	lsr r4, r0, #0x10
+_020306C0:
+	mov r0, #0x80
+	tst r0, r1
+	beq _0203077E
+	mov r0, #0x40
+	orr r0, r4
+	lsl r0, r0, #0x10
+	lsr r4, r0, #0x10
+	b _0203077E
+_020306D0:
+	add r0, r2, #0x2
+	ldrh r0, [r5, r0]
+	cmp r0, #0x0
+	beq _020306F2
+	add r4, r0, #0x0
+	add r0, r2, #0x1
+	ldrsb r0, [r5, r0]
+	sub r1, r0, #0x1
+	add r0, r2, #0x1
+	strb r1, [r5, r0]
+	ldr r1, [r7, #0x4]
+	ldrsb r0, [r1, r0]
+	cmp r0, #0x0
+	bge _0203077E
+	add r0, r2, #0x2
+	strh r6, [r1, r0]
+	b _0203077E
+_020306F2:
+	add r0, r2, #0x0
+	sub r0, #0x34
+	add r6, r5, r0
+	sub r2, #0x34
+	ldr r0, [r6, #0x8]
+	ldr r1, [r6, #0xc]
+	ldr r2, [r5, r2]
+	ldr r3, [r6, #0x4]
+	bl _ll_mul
+	add r3, r0, #0x0
+	add r2, r1, #0x0
+	ldr r0, [r6, #0x10]
+	ldr r1, [r6, #0x14]
+	add r0, r0, r3
+	adc r1, r2
+	ldr r2, =0x000005F8
+	str r0, [r5, r2]
+	mov r2, #0x0
+	str r1, [r6, #0x4]
+	lsr r0, r1, #0x1e
+	lsl r1, r2, #0x2
+	orr r1, r0
+	cmp r1, #0x3
+	bhi _02030746
+	add r0, r1, r1
+	add r0, pc
+	ldrh r0, [r0, #0x6]
+	lsl r0, r0, #0x10
+	asr r0, r0, #0x10
+	add pc, r0
+_02030730: // jump table (using 16-bit offset)
+    // huge hack to get the correct jump offset. Is there a way to write constants?
+    lsl r6, r0, #0x0 // case 0
+    lsl r2, r1, #0x0 // case 1
+    lsl r6, r1, #0x0 // case 2
+    lsl r2, r2, #0x0 // case 3
 
-          // intended jump offset
-          // .short _02030738 - _02030730 - 2; case 0
-          // .short _0203073C - _02030730 - 2; case 1
-          // .short _02030740 - _02030730 - 2; case 2
-          // .short _02030744 - _02030730 - 2; case 3
-          _02030738 : mov r4,
-                            #0x20 b _02030746 _0203073C : mov r4,
-                            #0x10 b _02030746 _02030740 : mov r4,
-                            #0x40 b _02030746 _02030744 : mov r4,
-                            #0x80 _02030746 : ldr r0,
-                            = UNK_021C59F4 ldr r5,
-                            [ r0, #0x4 ] ldr r0,
-                            = 0x000005F8 add r6,
-                            r5,
-                            r0 ldr r0,
-                            [ r6, #0x8 ] ldr r1,
-                            [ r6, #0xc ] ldr r2,
-                            [ r6, #0x0 ] ldr r3,
-                            [ r6, #0x4 ] bl _ll_mul ldr r3,
-                            [ r6, #0x10 ] ldr r2,
-                            [ r6, #0x14 ] add r0,
-                            r3,
-                            r0 adc r2,
-                            r1 ldr r1,
-                            = 0x000005F8 mov r3,
-                            #0x0 str r0,
-                            [ r5, r1 ] str r2,
-                            [ r6, #0x4 ] lsr r0,
-                            r2,
-                            #0x1c lsl r2,
-                            r3,
-                            #0x4 orr r2,
-                            r0 add r0,
-                            r1,
-                            #0x0 add r0,
-                            #0x35 strb r2,
-                            [ r5, r0 ] ldr r0,
-                            = UNK_021C59F4 add r1,
-                            #0x36 ldr r0,
-                            [ r0, #0x4 ] strh r4,
-                            [ r0, r1 ] _0203077E : ldr r2,
-                            = UNK_021C59F4 ldr r1,
-                            = 0x00000628 ldr r5,
-                            [ r2, #0x4 ] mov r0,
-                            #0xf0 ldrh r3,
-                            [ r5, r1 ] bic r3,
-                            r0 strh r3,
-                            [ r5, r1 ] ldr r2,
-                            [ r2, #0x4 ] ldrh r0,
-                            [ r2, r1 ] add r0,
-                            r0,
-                            r4 strh r0,
-                            [ r2, r1 ] _02030794 : pop
-    {
-        r3 - r7, pc
-    }
+    // intended jump offset
+    // .short _02030738 - _02030730 - 2; case 0
+	// .short _0203073C - _02030730 - 2; case 1
+	// .short _02030740 - _02030730 - 2; case 2
+	// .short _02030744 - _02030730 - 2; case 3
+_02030738:
+	mov r4, #0x20
+	b _02030746
+_0203073C:
+	mov r4, #0x10
+	b _02030746
+_02030740:
+	mov r4, #0x40
+	b _02030746
+_02030744:
+	mov r4, #0x80
+_02030746:
+	ldr r0, =UNK_021C59F4
+	ldr r5, [r0, #0x4]
+	ldr r0, =0x000005F8
+	add r6, r5, r0
+	ldr r0, [r6, #0x8]
+	ldr r1, [r6, #0xc]
+	ldr r2, [r6, #0x0]
+	ldr r3, [r6, #0x4]
+	bl _ll_mul
+	ldr r3, [r6, #0x10]
+	ldr r2, [r6, #0x14]
+	add r0, r3, r0
+	adc r2, r1
+	ldr r1, =0x000005F8
+	mov r3, #0x0
+	str r0, [r5, r1]
+	str r2, [r6, #0x4]
+	lsr r0, r2, #0x1c
+	lsl r2, r3, #0x4
+	orr r2, r0
+	add r0, r1, #0x0
+	add r0, #0x35
+	strb r2, [r5, r0]
+	ldr r0, =UNK_021C59F4
+	add r1, #0x36
+	ldr r0, [r0, #0x4]
+	strh r4, [r0, r1]
+_0203077E:
+	ldr r2, =UNK_021C59F4
+	ldr r1, =0x00000628
+	ldr r5, [r2, #0x4]
+	mov r0, #0xf0
+	ldrh r3, [r5, r1]
+	bic r3, r0
+	strh r3, [r5, r1]
+	ldr r2, [r2, #0x4]
+	ldrh r0, [r2, r1]
+	add r0, r0, r4
+	strh r0, [r2, r1]
+_02030794:
+	pop {r3-r7, pc}
+    // clang-format on
 }
 #endif
 
@@ -1568,7 +1579,6 @@ THUMB_FUNC u32 FUN_020307E4(u8 *param0, u32 param1)
 THUMB_FUNC void FUN_0203086C()
 {
 }
-
 
 THUMB_FUNC u32 FUN_02030870(u8 *param0)
 {
@@ -1829,8 +1839,6 @@ extern u32 FUN_0202D41C(s16 *param0);
 extern s16 FUN_0202D9A0(u32 param0);
 extern u32 FUN_0202DA04(u32 param0);
 extern u32 FUN_0202DA40(u32 param0, u32 param1, u16 param2);
-
-
 
 THUMB_FUNC void FUN_02030C8C(
     s16 *param0, u32 param1, u32 param2, u32 param3, struct UnkStruct2 *param4)
@@ -2113,7 +2121,6 @@ THUMB_FUNC void FUN_0203105C(u32 param0, u32 param1, u32 param2)
     FUN_0202D684(UNK_021C59F4.unk04->unk54C, param0, param1, param2, 0, 0);
 }
 
-
 THUMB_FUNC void FUN_02031088()
 {
     if (UNK_021C59F4.unk04 != NULL)
@@ -2324,25 +2331,73 @@ THUMB_FUNC void FUN_020312BC(u32 param0)
 #else
 THUMB_FUNC asm void FUN_020312BC(u32 param0)
 {
-    push{ r3 - r7, lr } sub sp, #0x20 add r4, r0, #0x0 add r0, sp, #0x10 add r1, sp,
-        #0x4 bl GF_RTC_CopyDateTime ldr r0,
-        = gMain ldr r6, [ sp, #0x10 ] mov r5, #0x0 lsr r7, r6, #0x1c lsl r5, r5, #0x4 ldr r1,
-        [ sp, #0xc ] ldr r0, [ r0, #0x2c ] lsl r6, r6, #0x4 add r3, r1, r0 ldr r0,
-        [ sp, #0x18 ] orr r5, r7 str r0, [ sp, #0x0 ] ldr r0, [ sp, #0x14 ] ldr r1,
-        [ sp, #0x4 ] add r6, r0,
-        r6 ldr r0, = 0x00000000 ldr r2, [ sp, #0x8 ] adc r0, r5 lsr r5, r6, #0x1b lsl r0, r0,
-               #0x5 orr r0, r5 ldr r5, [ sp, #0x0 ] lsl r6, r6, #0x5 add r6, r5, r6 ldr r5,
-               = 0x00000000 adc r5, r0 lsr r0, r6, #0x1b lsl r5, r5, #0x5 orr r5, r0 lsl r0, r6,
-               #0x5 add r6, r1, r0 ldr r1, = 0x00000000 adc r1, r5 lsr r0, r6, #0x1a lsl r1, r1,
-               #0x6 orr r1, r0 lsl r0, r6, #0x6 add r5, r2, r0 ldr r2, = 0x00000000 adc r2,
-               r1 lsr r0, r5, #0x1a lsl r1, r2, #0x6 orr r1, r0 lsl r0, r5, #0x6 add r2, r3,
-               r0 ldr r0, = 0x00000000 str r2, [ r4, #0x0 ] adc r0, r1 str r0, [ r4, #0x4 ] ldr r1,
-               = 0x6C078965 ldr r0, = 0x5D588B65 str r1, [ r4, #0x8 ] str r0, [ r4, #0xc ] ldr r0,
-               = 0x00269EC3 str r0, [ r4, #0x10 ] mov r0, #0x0 str r0, [ r4, #0x14 ] add sp,
-               #0x20 pop
-    {
-        r3 - r7, pc
-    }
+    // clang-format off
+	push {r3-r7, lr}
+	sub sp, #0x20
+	add r4, r0, #0x0
+	add r0, sp, #0x10
+	add r1, sp, #0x4
+	bl GF_RTC_CopyDateTime
+	ldr r0, =gMain
+	ldr r6, [sp, #0x10]
+	mov r5, #0x0
+	lsr r7, r6, #0x1c
+	lsl r5, r5, #0x4
+	ldr r1, [sp, #0xc]
+	ldr r0, [r0, #0x2c]
+	lsl r6, r6, #0x4
+	add r3, r1, r0
+	ldr r0, [sp, #0x18]
+	orr r5, r7
+	str r0, [sp, #0x0]
+	ldr r0, [sp, #0x14]
+	ldr r1, [sp, #0x4]
+	add r6, r0, r6
+	ldr r0, =0x00000000
+	ldr r2, [sp, #0x8]
+	adc r0, r5
+	lsr r5, r6, #0x1b
+	lsl r0, r0, #0x5
+	orr r0, r5
+	ldr r5, [sp, #0x0]
+	lsl r6, r6, #0x5
+	add r6, r5, r6
+	ldr r5, =0x00000000
+	adc r5, r0
+	lsr r0, r6, #0x1b
+	lsl r5, r5, #0x5
+	orr r5, r0
+	lsl r0, r6, #0x5
+	add r6, r1, r0
+	ldr r1, =0x00000000
+	adc r1, r5
+	lsr r0, r6, #0x1a
+	lsl r1, r1, #0x6
+	orr r1, r0
+	lsl r0, r6, #0x6
+	add r5, r2, r0
+	ldr r2, =0x00000000
+	adc r2, r1
+	lsr r0, r5, #0x1a
+	lsl r1, r2, #0x6
+	orr r1, r0
+	lsl r0, r5, #0x6
+	add r2, r3, r0
+	ldr r0, =0x00000000
+	str r2, [r4, #0x0]
+	adc r0, r1
+	str r0, [r4, #0x4]
+	ldr r1, =0x6C078965
+	ldr r0, =0x5D588B65
+	str r1, [r4, #0x8]
+	str r0, [r4, #0xc]
+	ldr r0, =0x00269EC3
+	str r0, [r4, #0x10]
+	mov r0, #0x0
+	str r0, [r4, #0x14]
+	add sp, #0x20
+	pop {r3-r7, pc}
+    // clang-format on
 }
 #endif
 
