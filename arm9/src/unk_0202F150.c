@@ -2,7 +2,7 @@
 struct
 {
     u8 unk00;
-    struct UnkStruct1 *unk04;
+    struct UnkStruct0202F150 *unk04;
 } UNK_021C59F4;
 
 vu8 UNK_02105D58 = 4;
@@ -11,9 +11,9 @@ vu8 UNK_02105D59 = 4;
 extern int FUN_02033534();
 extern u32 FUN_0202D858(u16 param0);
 extern void FUN_02031480(u32 param0);
-extern void FUN_0202D7D8(u8 *param0, u32 param1, struct UnkStruct3 *param2);
+extern void FUN_0202D7D8(u8 *param0, u32 param1, struct UnkStruct0202F150_sub1 *param2);
 extern u32 FUN_0200CA60(void (*param0)(), u32 param1, u32 param2);
-extern void FUN_0202D394(struct UnkStruct3 *param0, u8 *param1, u32 param2);
+extern void FUN_0202D394(struct UnkStruct0202F150_sub1 *param0, u8 *param1, u32 param2);
 extern void FUN_0202D804(u8 *param0);
 extern u32 FUN_0202E5F8(u32 param0, u32 param1, u32 param2);
 extern void FUN_0202D330(void (*param0)(int));
@@ -36,10 +36,10 @@ extern void FUN_0202E538();
 extern u32 MOD04_021D78FC(void *param0, u32 param1);
 extern u32 FUN_0202CBD4();
 extern void FUN_0202D4BC(void *param0);
-extern int FUN_0202D400(s16 *param0, void *param1, u32 param2);
+extern int FUN_0202D400(struct UnkStruct0202F150_sub1 *param0, void *param1, u32 param2);
 extern u32 FUN_0202D0D0(u8 *param0, u16 param1, u32 param2, void (*param3)(u32));
 extern u32 MOD04_021D79B4(void *param0, u32 param1);
-extern void FUN_0202D3A4(struct UnkStruct3 *param0, u8 *param1, u32 param2, u32 param3);
+extern void FUN_0202D3A4(struct UnkStruct0202F150_sub1 *param0, u8 *param1, u32 param2, u32 param3);
 extern int FUN_0202D498(void *param0);
 extern u16 FUN_0202CB8C();
 extern s64 _ll_mul(s64, s64);
@@ -47,8 +47,8 @@ extern u32 FUN_0202D4E4(u8 *param0);
 extern u32 FUN_0202D760(u8 *param0, int *param1, u32 param2);
 extern u32 FUN_0202D684(u8 *param0, u32 param1, u8 *param2, u32 param3, u32 param4, u32 param5);
 extern void FUN_0202D934(u32 param0, u32 param1, u32 param2, void *param3);
-extern int FUN_0202D478(s16 *param0);
-extern u32 FUN_0202D41C(s16 *param0);
+extern int FUN_0202D478(struct UnkStruct0202F150_sub1 *param0);
+extern u32 FUN_0202D41C(struct UnkStruct0202F150_sub1 *param0);
 extern s16 FUN_0202D9A0(u32 param0);
 extern u32 FUN_0202DA04(u32 param0);
 extern void *FUN_0202DA40(u32 param0, u32 param1, u16 param2);
@@ -77,7 +77,7 @@ THUMB_FUNC u32 FUN_0202F150(u32 param0, u32 param1)
         }
 
         FUN_02031480(0xf);
-        struct UnkStruct1 *ptr = (struct UnkStruct1 *)AllocFromHeap(0xf, sizeof(struct UnkStruct1));
+        struct UnkStruct0202F150 *ptr = (struct UnkStruct0202F150 *)AllocFromHeap(0xf, sizeof(struct UnkStruct0202F150));
         UNK_021C59F4.unk04 = ptr;
         MI_CpuFill8(ptr, 0, 0x68C);
 
@@ -1822,7 +1822,7 @@ THUMB_FUNC int FUN_02030C58()
     return FUN_0202D498(&UNK_021C59F4.unk04->unk464);
 }
 
-THUMB_FUNC void FUN_02030C70(u32 param0, u32 param1, u32 param2, void *param3, struct UnkStruct2 *param4)
+THUMB_FUNC void FUN_02030C70(u32 param0, u32 param1, u32 param2, void *param3, struct UnkStruct0202F150_sub2 *param4)
 {
     FUN_0202D934(param0, param1, param2, param3);
     param4->unk0a = 0xee;
@@ -1832,7 +1832,7 @@ THUMB_FUNC void FUN_02030C70(u32 param0, u32 param1, u32 param2, void *param3, s
 }
 
 THUMB_FUNC void FUN_02030C8C(
-    s16 *param0, u32 param1, void *param2, u32 param3, struct UnkStruct2 *param4)
+    struct UnkStruct0202F150_sub1 *param0, u32 param1, void *param2, u32 param3, struct UnkStruct0202F150_sub2 *param4)
 {
 #pragma unused(param3)
     while (FUN_0202D478(param0) != 0)
@@ -1848,7 +1848,7 @@ THUMB_FUNC void FUN_02030C8C(
             }
         }
 
-        int st10 = param0[2];
+        int st10 = param0->unk04;
         param4->unk0a = (u8)r7;
         int r4 = param4->unk08;
         if (r4 == 0xffff)
@@ -1864,14 +1864,14 @@ THUMB_FUNC void FUN_02030C8C(
             {
                 if (FUN_0202D478(param0) < 1)
                 {
-                    param0[2] = (s16)st10;
+                    param0->unk04 = (s16)st10;
                     return;
                 }
 
                 r4 = (int)FUN_0202D41C(param0) << 8;
                 r4 += FUN_0202D41C(param0);
 
-                st10 = param0[2];
+                st10 = param0->unk04;
             }
 
             param4->unk08 = (u16)r4;
@@ -1907,7 +1907,7 @@ THUMB_FUNC void FUN_02030C8C(
             }
             else
             {
-                param0[2] = (s16)st10;
+                param0->unk04 = (s16)st10;
                 return;
             }
         }
@@ -1921,13 +1921,13 @@ THUMB_FUNC void FUN_02030DA4()
         if (UNK_021C59F4.unk04->unk68B == 0)
         {
             FUN_0202D4BC(&UNK_021C59F4.unk04->unk470);
-            if (FUN_0202D478((s16 *)&UNK_021C59F4.unk04->unk470) > 0)
+            if (FUN_0202D478(&UNK_021C59F4.unk04->unk470) > 0)
             {
-                FUN_02030C8C((s16 *)&UNK_021C59F4.unk04->unk470,
+                FUN_02030C8C(&UNK_021C59F4.unk04->unk470,
                     0,
                     UNK_021C59F4.unk04->unk460,
                     1,
-                    (struct UnkStruct2 *)&UNK_021C59F4.unk04->unk5EC);
+                    (struct UnkStruct0202F150_sub2 *)&UNK_021C59F4.unk04->unk5EC);
             }
         }
     }
@@ -1944,10 +1944,10 @@ THUMB_FUNC void FUN_02030DFC()
             for (r4 = 0; r4 < r7; r4++)
             {
                 FUN_0202D4BC(&UNK_021C59F4.unk04->unk4E8[r4]);
-                if (FUN_0202D478((s16 *)&UNK_021C59F4.unk04->unk4E8[r4]) > 0)
+                if (FUN_0202D478(&UNK_021C59F4.unk04->unk4E8[r4]) > 0)
                 {
 
-                    FUN_02030C8C((s16 *)&UNK_021C59F4.unk04->unk4E8[r4],
+                    FUN_02030C8C(&UNK_021C59F4.unk04->unk4E8[r4],
                         (u32)r4,
                         UNK_021C59F4.unk04->unk460,
                         0,
