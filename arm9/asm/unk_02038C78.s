@@ -280,22 +280,22 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GetItemPocketId
     .word ScrCmd_Unk0081
     .word ScrCmd_Unk0082
-    .word FUN_02045958
-    .word FUN_020459AC
-    .word FUN_020459E8
-    .word FUN_02045A3C
-    .word FUN_02045A78
-    .word FUN_02045ACC
-    .word FUN_02045B08
-    .word FUN_02045B44
-    .word FUN_02045B80
-    .word FUN_02045BC8
-    .word FUN_02045C04
-    .word FUN_02045C40
-    .word FUN_02045C7C
-    .word FUN_02045CD4
-    .word FUN_02045D10
-    .word FUN_02045D4C
+    .word ScrCmd_Unk0083
+    .word ScrCmd_Unk0084
+    .word ScrCmd_Unk0085
+    .word ScrCmd_Unk0086
+    .word ScrCmd_Unk0087
+    .word ScrCmd_Unk0088
+    .word ScrCmd_Unk0089
+    .word ScrCmd_Unk008A
+    .word ScrCmd_Unk008B
+    .word ScrCmd_Unk008C
+    .word ScrCmd_Unk008D
+    .word ScrCmd_Unk008E
+    .word ScrCmd_Unk008F
+    .word ScrCmd_Unk0090
+    .word ScrCmd_Unk0091
+    .word ScrCmd_Unk0092
     .word FUN_0203B81C
     .word FUN_0203B85C
     .word FUN_0203B8A0
@@ -354,28 +354,28 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203CB20
     .word FUN_0203CB48
     .word FUN_0203CB60
-    .word FUN_020406CC
-    .word FUN_02040700
-    .word FUN_02040724
-    .word FUN_02040748
-    .word FUN_02040790
-    .word FUN_020407C8
-    .word FUN_02040800
-    .word FUN_0204083C
-    .word FUN_02040874
-    .word FUN_0204091C
-    .word FUN_020409C0
-    .word FUN_020409F8
-    .word FUN_02040A30
-    .word FUN_02040A7C
-    .word FUN_02040B0C
-    .word FUN_02040B5C
-    .word FUN_02040BAC
+    .word ScrCmd_GetPlayerName
+    .word ScrCmd_GetRivalName
+    .word ScrCmd_GetFriendName
+    .word ScrCmd_Unk00D0
+    .word ScrCmd_GetItemName
+    .word ScrCmd_GetPocketName
+    .word ScrCmd_GetTMHMMoveName
+    .word ScrCmd_GetMoveName
+    .word ScrCmd_Unk00D5
+    .word ScrCmd_Unk00D6
+    .word ScrCmd_GetPoketchAppName
+    .word ScrCmd_GetTrainerClassName
+    .word ScrCmd_Unk00D9
+    .word ScrCmd_Unk00DA
+    .word ScrCmd_Unk00DB
+    .word ScrCmd_Unk00DC
+    .word ScrCmd_Unk00DD
     .word FUN_0203CBBC
-    .word FUN_02040BFC
-    .word FUN_02040C34
-    .word FUN_02040C6C
-    .word FUN_02040CA4
+    .word ScrCmd_GetDecorationName
+    .word ScrCmd_GetUndergroundTrapName
+    .word ScrCmd_GetUndergroundItemName
+    .word ScrCmd_Unk00E2
     .word FUN_0203CB70
     .word FUN_0204185C
     .word FUN_0204188C
@@ -514,8 +514,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203DC70
     .word FUN_0203DC88
     .word FUN_0203DCA0
-    .word FUN_02043E00
-    .word FUN_02043E20
+    .word ScrCmd_Unk016D
+    .word ScrCmd_Unk016E
     .word FUN_0203DCB8
     .word FUN_0203DCC8
     .word FUN_0203DCD8
@@ -528,17 +528,17 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203C460
     .word FUN_0203C4B0
     .word FUN_0203D958
-    .word FUN_02040D04
-    .word FUN_02040D7C
-    .word FUN_02042B0C
-    .word FUN_02042B40
-    .word FUN_02042B74
-    .word FUN_02042BA8
-    .word FUN_02042BDC
-    .word FUN_02042C10
-    .word FUN_02042C44
-    .word FUN_02042C8C
-    .word FUN_02042CBC
+    .word ScrCmd_Unk017B
+    .word ScrCmd_GetNatureName
+    .word ScrCmd_Unk017D
+    .word ScrCmd_Unk017E
+    .word ScrCmd_Unk017F
+    .word ScrCmd_Unk0180
+    .word ScrCmd_Unk0181
+    .word ScrCmd_Unk0182
+    .word ScrCmd_Unk0183
+    .word ScrCmd_Unk0184
+    .word ScrCmd_Unk0185
     .word FUN_0203D998
     .word FUN_0203D9E8
     .word FUN_0203DA78
@@ -569,19 +569,19 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203DE58
     .word FUN_0203DE80
     .word ScrCmd_TakeMoneyAddress
-    .word FUN_02043E9C
-    .word FUN_02044120
-    .word FUN_02044138
-    .word FUN_0204413C
-    .word FUN_02043E50
-    .word FUN_02043E68
-    .word FUN_02043EFC
+    .word ScrCmd_Unk01A4
+    .word ScrCmd_Unk01A5
+    .word ScrCmd_Unk01A6
+    .word ScrCmd_Unk01A7
+    .word ScrCmd_Unk01A8
+    .word ScrCmd_Unk01A9
+    .word ScrCmd_Unk01AA
     .word ScrCmd_HasEnoughMoneyAddress
     .word FUN_0203DD50
-    .word FUN_02044140
-    .word FUN_02043F50
-    .word FUN_02043FA0
-    .word FUN_02043FF4
+    .word ScrCmd_Unk01AD
+    .word ScrCmd_Unk01AE
+    .word ScrCmd_Unk01AF
+    .word ScrCmd_Unk01B0
     .word FUN_0203DEC4
     .word FUN_0203DEF8
     .word FUN_0203DF2C
@@ -593,10 +593,10 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_getpartymonfriendship
     .word FUN_020448D4
     .word FUN_020449A4
-    .word FUN_02044034
+    .word ScrCmd_Unk01BC
     .word FUN_0203B618
-    .word FUN_020440C0
-    .word FUN_020440F0
+    .word ScrCmd_Unk01BE
+    .word ScrCmd_Unk01BF
     .word FUN_02044F58
     .word FUN_0203E018
     .word FUN_0203E054
@@ -608,7 +608,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02044D8C
     .word FUN_02044E34
     .word FUN_02044E78
-    .word FUN_02040E4C
+    .word ScrCmd_GetPokemonMoveName
     .word FUN_0203E138
     .word FUN_0203E168
     .word FUN_0203E254
@@ -711,7 +711,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0204505C
     .word FUN_02045104
     .word FUN_02045170
-    .word FUN_02040EB4
+    .word ScrCmd_Unk0232
     .word FUN_0203E9CC
     .word FUN_0203EA68
     .word FUN_02041E40
@@ -724,10 +724,10 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203EB48
     .word FUN_0203EB88
     .word FUN_02042D1C
-    .word ScrCmd_Unk02EF
-    .word ScrCmd_Unk02F0
-    .word ScrCmd_Unk02F1
-    .word ScrCmd_Unk02F2
+    .word ScrCmd_Unk023F
+    .word ScrCmd_Unk0240
+    .word ScrCmd_Unk0241
+    .word ScrCmd_Unk0242
     .word FUN_0203C5BC
     .word FUN_0203C614
     .word FUN_0203C680
@@ -742,7 +742,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02041194
     .word FUN_020411C4
     .word FUN_02041340
-    .word FUN_02040964
+    .word ScrCmd_Unk0251
     .word ScrCmd_pcfreespace
     .word ScrCmd_Unk0253
     .word ScrCmd_Unk0254
@@ -758,7 +758,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203EE58
     .word FUN_0203EE68
     .word FUN_0203EE78
-    .word FUN_02040DB4
+    .word ScrCmd_GetFashionName
     .word FUN_0203EE98
     .word FUN_0203EED8
     .word FUN_0203EF58
@@ -775,7 +775,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203F254
     .word FUN_0203F26C
     .word FUN_0203C58C
-    .word FUN_02040DEC
+    .word ScrCmd_Unk0272
     .word FUN_0203F2AC
     .word ScrCmd_HasEnoughCoinsImmediate
     .word FUN_0203F2E4
@@ -789,7 +789,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203F3AC
     .word FUN_0203F44C
     .word FUN_0203F418
-    .word FUN_020408BC
+    .word ScrCmd_Unk0280
     .word FUN_02044A0C
     .word FUN_0203F484
     .word FUN_02041674
@@ -840,7 +840,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203FB94
     .word FUN_0203FBA0
     .word FUN_0203FBAC
-    .word FUN_02040EF8
+    .word ScrCmd_GetSealName
     .word FUN_0203B2E0
     .word FUN_0203FBBC
     .word FUN_0203FC1C
@@ -857,17 +857,17 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203FC80
     .word FUN_0203FCB0
     .word FUN_0203FCDC
-    .word FUN_02040F34
-    .word FUN_02040F6C
-    .word FUN_02040FA4
-    .word FUN_02040FDC
-    .word FUN_02041014
-    .word FUN_0204104C
-    .word FUN_02041094
-    .word FUN_020410C8
-    .word FUN_02041100
-    .word FUN_02041138
-    .word FUN_02041174
+    .word ScrCmd_GetItemNameWithIndefArticle
+    .word ScrCmd_GetItemNamePlural
+    .word ScrCmd_GetDecorationNameWithArticle
+    .word ScrCmd_GetUndergroundTrapNameWithArticle
+    .word ScrCmd_GetUndergroundItemNameWithArticle
+    .word ScrCmd_Unk02C9
+    .word ScrCmd_Unk02CA
+    .word ScrCmd_GetFashionNameWithArticle
+    .word ScrCmd_Unk02CC
+    .word ScrCmd_GetSealNamePlural
+    .word ScrCmd_CapitalizeFirstChar
     .word ScrCmd_Unk02CF
     .word ScrCmd_Unk02D0
 
