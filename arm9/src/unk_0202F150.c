@@ -77,7 +77,8 @@ THUMB_FUNC u32 FUN_0202F150(u32 param0, u32 param1)
         }
 
         FUN_02031480(0xf);
-        struct UnkStruct0202F150 *ptr = (struct UnkStruct0202F150 *)AllocFromHeap(0xf, sizeof(struct UnkStruct0202F150));
+        struct UnkStruct0202F150 *ptr =
+            (struct UnkStruct0202F150 *)AllocFromHeap(0xf, sizeof(struct UnkStruct0202F150));
         UNK_021C59F4.unk04 = ptr;
         MI_CpuFill8(ptr, 0, 0x68C);
 
@@ -1262,8 +1263,10 @@ THUMB_FUNC void FUN_0203050C()
     {
         UNK_02105D58++;
 
-        if (FUN_0202D0D0(
-                UNK_021C59F4.unk04->unk000[UNK_021C59F4.unk04->unk67F], (u16)r4, 0xe, FUN_020304D4) == 0)
+        if (FUN_0202D0D0(UNK_021C59F4.unk04->unk000[UNK_021C59F4.unk04->unk67F],
+                (u16)r4,
+                0xe,
+                FUN_020304D4) == 0)
         {
             UNK_02105D58--;
             return;
@@ -1822,7 +1825,8 @@ THUMB_FUNC int FUN_02030C58()
     return FUN_0202D498(&UNK_021C59F4.unk04->unk464);
 }
 
-THUMB_FUNC void FUN_02030C70(u32 param0, u32 param1, u32 param2, void *param3, struct UnkStruct0202F150_sub2 *param4)
+THUMB_FUNC void FUN_02030C70(
+    u32 param0, u32 param1, u32 param2, void *param3, struct UnkStruct0202F150_sub2 *param4)
 {
     FUN_0202D934(param0, param1, param2, param3);
     param4->unk0a = 0xee;
@@ -1831,8 +1835,11 @@ THUMB_FUNC void FUN_02030C70(u32 param0, u32 param1, u32 param2, void *param3, s
     param4->unk00 = 0;
 }
 
-THUMB_FUNC void FUN_02030C8C(
-    struct UnkStruct0202F150_sub1 *param0, u32 param1, void *param2, u32 param3, struct UnkStruct0202F150_sub2 *param4)
+THUMB_FUNC void FUN_02030C8C(struct UnkStruct0202F150_sub1 *param0,
+    u32 param1,
+    void *param2,
+    u32 param3,
+    struct UnkStruct0202F150_sub2 *param4)
 {
 #pragma unused(param3)
     while (FUN_0202D478(param0) != 0)

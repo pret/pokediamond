@@ -3,15 +3,16 @@
 
 #include "global.h"
 #include "MI_memory.h"
+#include "RTC_api.h"
 #include "heap.h"
 #include "main.h"
-#include "RTC_api.h"
 
-struct UnkStruct0202F150_sub1 {
-        u32 unk00;
-        s16 unk04;
-        s16 unk06;
-        u32 unk08;
+struct UnkStruct0202F150_sub1
+{
+    u32 unk00;
+    s16 unk04;
+    s16 unk06;
+    u32 unk08;
 };
 
 struct UnkStruct0202F150_sub2
@@ -21,8 +22,6 @@ struct UnkStruct0202F150_sub2
     u16 unk08;
     u8 unk0a;
 };
-
-
 
 struct UnkStruct0202F150
 {
@@ -86,9 +85,6 @@ struct UnkStruct0202F150
     u8 unk68B;
 };
 
-
-
-
 THUMB_FUNC u32 FUN_0202F150(u32 param0, u32 param1);
 THUMB_FUNC void FUN_0202F2F0();
 THUMB_FUNC void FUN_0202F5A4();
@@ -137,9 +133,13 @@ THUMB_FUNC u32 FUN_02030B3C(u32 param0, u8 *param1, u32 param2);
 THUMB_FUNC u32 FUN_02030BC4(u32 param0, u8 *param1, u32 param2);
 THUMB_FUNC u32 FUN_02030C4C(u32 param0, u8 *param1);
 THUMB_FUNC int FUN_02030C58();
-THUMB_FUNC void FUN_02030C70(u32 param0, u32 param1, u32 param2, void *param3, struct UnkStruct0202F150_sub2 *param4);
-THUMB_FUNC void FUN_02030C8C(
-    struct UnkStruct0202F150_sub1 *param0, u32 param1, void *param2, u32 param3, struct UnkStruct0202F150_sub2 *param4);
+THUMB_FUNC void FUN_02030C70(
+    u32 param0, u32 param1, u32 param2, void *param3, struct UnkStruct0202F150_sub2 *param4);
+THUMB_FUNC void FUN_02030C8C(struct UnkStruct0202F150_sub1 *param0,
+    u32 param1,
+    void *param2,
+    u32 param3,
+    struct UnkStruct0202F150_sub2 *param4);
 THUMB_FUNC void FUN_02030DA4();
 THUMB_FUNC void FUN_02030DFC();
 THUMB_FUNC u32 FUN_02030E7C(u16 param0);
@@ -181,8 +181,4 @@ THUMB_FUNC u32 FUN_02031438();
 THUMB_FUNC void FUN_02031454();
 THUMB_FUNC void FUN_02031468();
 
-
-
-
-#endif //POKEDIAMOND_UNK_0202F150_H
-
+#endif // POKEDIAMOND_UNK_0202F150_H
