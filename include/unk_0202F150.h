@@ -7,6 +7,22 @@
 #include "main.h"
 #include "RTC_api.h"
 
+struct UnkStruct3 {
+        u32 unk00;
+        u16 unk04;
+        u16 unk06;
+        u32 unk08;
+};
+
+struct UnkStruct2
+{
+    u32 unk00;
+    void *unk04;
+    u16 unk08;
+    u8 unk0a;
+};
+
+
 
 struct UnkStruct1
 {
@@ -14,39 +30,19 @@ struct UnkStruct1
     u8 unk04c[264];
     u8 unk154[2][192];
     u8 unk2D4[384];
-    u32 unk454;
-    u32 unk458;
-    u32 unk45C;
-    u32 unk460;
-    u32 unk464;
-    u8 unk468[0x8];
-    u32 unk470;
-    u8 unk474[0x8];
-    struct
-    {
-        u32 unk00;
-        u32 unk04;
-        u32 unk08;
-    } unk47C[8];
-    u32 unk4DC;
-    u8 unk4E0[0x8];
-    struct
-    {
-        u32 unk00;
-        u32 unk04;
-        u32 unk08;
-    } unk4E8[8];
+    void *unk454;
+    void *unk458;
+    void *unk45C;
+    void *unk460;
+    struct UnkStruct3 unk464;
+    struct UnkStruct3 unk470;
+    struct UnkStruct3 unk47C[8];
+    struct UnkStruct3 unk4DC;
+    struct UnkStruct3 unk4E8[8];
     u32 unk548;
     u8 unk54C[32];
     u8 unk56C[32];
-    struct
-    {
-        u32 unk00;
-        u32 unk04;
-        u16 unk08;
-        u8 unk0a;
-        u8 unk0b;
-    } unk58C[8];
+    struct UnkStruct2 unk58C[8];
     u32 unk5EC;
     u32 unk5F0;
     u16 unk5F4;
@@ -90,21 +86,15 @@ struct UnkStruct1
     u8 unk68B;
 };
 
-struct UnkStruct2
-{
-    u32 unk00;
-    u32 unk04;
-    u16 unk08;
-    u8 unk0a;
-};
+
 
 
 THUMB_FUNC u32 FUN_0202F150(u32 param0, u32 param1);
 THUMB_FUNC void FUN_0202F2F0();
 THUMB_FUNC void FUN_0202F5A4();
-THUMB_FUNC void FUN_0202F820(u32 param0);
+THUMB_FUNC void FUN_0202F820(int param0);
 THUMB_FUNC void FUN_0202F8D4();
-THUMB_FUNC void FUN_0202F910(u32 param0);
+THUMB_FUNC void FUN_0202F910(int param0);
 THUMB_FUNC u32 FUN_0202F918(u32 param0, u32 param1, u32 param2, u32 param3);
 THUMB_FUNC u32 FUN_0202F950(u32 param0, u32 param1, u32 param2);
 THUMB_FUNC void FUN_0202F984();
@@ -127,7 +117,7 @@ THUMB_FUNC void FUN_0202FEEC();
 THUMB_FUNC void FUN_02030074();
 THUMB_FUNC void FUN_02030238(u32 param0, void *param1, u32 param2);
 THUMB_FUNC void FUN_0203026C(u32 param0, u8 *param1, u32 param2);
-THUMB_FUNC void FUN_020303BC(u32 param0, u32 param1, u16 param2);
+THUMB_FUNC void FUN_020303BC(u32 param0, u8 *param1, u16 param2);
 THUMB_FUNC void FUN_020303F4(u32 param0, u8 *param1, u16 param2);
 THUMB_FUNC void FUN_020304D4(u32 param0);
 THUMB_FUNC void FUN_020304F0(u32 param0);
@@ -141,15 +131,15 @@ THUMB_FUNC void FUN_0203086C();
 THUMB_FUNC u32 FUN_02030870(u8 *param0);
 THUMB_FUNC u32 FUN_02030930(u8 *param0);
 THUMB_FUNC void FUN_02030A00(u8 *param0);
-THUMB_FUNC u32 FUN_02030A78(u32 param0, u32 param1, u32 param2);
-THUMB_FUNC u32 FUN_02030ADC(u32 param0, u32 param1, u32 param2);
-THUMB_FUNC u32 FUN_02030B3C(u32 param0, u32 param1, u32 param2);
-THUMB_FUNC u32 FUN_02030BC4(u32 param0, u32 param1, u32 param2);
-THUMB_FUNC u32 FUN_02030C4C(u32 param0, u32 param1);
+THUMB_FUNC u32 FUN_02030A78(u32 param0, u8 *param1, u32 param2);
+THUMB_FUNC u32 FUN_02030ADC(u32 param0, u8 *param1, u32 param2);
+THUMB_FUNC u32 FUN_02030B3C(u32 param0, u8 *param1, u32 param2);
+THUMB_FUNC u32 FUN_02030BC4(u32 param0, u8 *param1, u32 param2);
+THUMB_FUNC u32 FUN_02030C4C(u32 param0, u8 *param1);
 THUMB_FUNC int FUN_02030C58();
-THUMB_FUNC void FUN_02030C70(u32 param0, u32 param1, u32 param2, u32 param3, void *param4);
+THUMB_FUNC void FUN_02030C70(u32 param0, u32 param1, u32 param2, void *param3, struct UnkStruct2 *param4);
 THUMB_FUNC void FUN_02030C8C(
-    s16 *param0, u32 param1, u32 param2, u32 param3, struct UnkStruct2 *param4);
+    s16 *param0, u32 param1, void *param2, u32 param3, struct UnkStruct2 *param4);
 THUMB_FUNC void FUN_02030DA4();
 THUMB_FUNC void FUN_02030DFC();
 THUMB_FUNC u32 FUN_02030E7C(u16 param0);
@@ -161,8 +151,8 @@ THUMB_FUNC u32 FUN_02030F88(u32 param0);
 THUMB_FUNC void FUN_02030FA8();
 THUMB_FUNC void FUN_02030FC8();
 THUMB_FUNC u32 FUN_02030FE0();
-THUMB_FUNC void FUN_02031000(u32 param0, u32 param1, u32 param2);
-THUMB_FUNC void FUN_0203105C(u32 param0, u32 param1, u32 param2);
+THUMB_FUNC void FUN_02031000(u32 param0, u8 *param1, u32 param2);
+THUMB_FUNC void FUN_0203105C(u32 param0, u8 *param1, u32 param2);
 THUMB_FUNC void FUN_02031088();
 THUMB_FUNC void FUN_0203110C(u32 param0, u32 param1, u8 *param2);
 THUMB_FUNC void FUN_02031134(u32 param0, u32 param1, u8 *param2);
@@ -178,7 +168,7 @@ THUMB_FUNC u32 FUN_02031258(u32 param0);
 THUMB_FUNC void FUN_02031268(u8 param0);
 THUMB_FUNC u8 FUN_02031280();
 THUMB_FUNC void FUN_0203129C();
-THUMB_FUNC void FUN_020312BC(u32 param0);
+THUMB_FUNC void FUN_020312BC(s64 *param0);
 THUMB_FUNC void FUN_02031354(u32 param0);
 THUMB_FUNC u32 FUN_02031370();
 THUMB_FUNC u32 FUN_02031388();
