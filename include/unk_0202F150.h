@@ -6,6 +6,7 @@
 #include "RTC_api.h"
 #include "heap.h"
 #include "main.h"
+#include "unk_0202D858.h"
 
 struct UnkStruct0202F150_sub1
 {
@@ -163,8 +164,8 @@ THUMB_FUNC u32 FUN_020311DC(u32 param0);
 THUMB_FUNC u32 FUN_020311E8();
 THUMB_FUNC u32 FUN_020311F0();
 THUMB_FUNC int FUN_02031228(u16 param0);
-THUMB_FUNC u32 FUN_02031248(u32 param0);
-THUMB_FUNC u32 FUN_02031258(u32 param0);
+THUMB_FUNC int FUN_02031248(u32 param0);
+THUMB_FUNC int FUN_02031258(u32 param0);
 THUMB_FUNC void FUN_02031268(u8 param0);
 THUMB_FUNC u8 FUN_02031280();
 THUMB_FUNC void FUN_0203129C();
