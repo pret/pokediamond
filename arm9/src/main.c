@@ -11,6 +11,7 @@
 #include "poke_overlay.h"
 #include "player_data.h"
 #include "sound.h"
+#include "timer3.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
@@ -34,7 +35,6 @@ extern void FUN_02002C14(void);
 extern void FUN_02002C50(int, int);
 extern struct SaveBlock2 * SaveBlock2_new(void);
 extern void * FUN_02029EF8(struct SaveBlock2 *);
-extern void FUN_02020AFC(void);
 extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
 extern int FUN_020227FC(struct SaveBlock2 *);
@@ -75,7 +75,7 @@ THUMB_FUNC void NitroMain(void)
     gBacklightTop.unk18 = -1;
     gBacklightTop.unk20 = SaveBlock2_new();
     InitSoundData(FUN_02029EF8(gBacklightTop.unk20), Sav2_PlayerData_GetOptionsAddr(gBacklightTop.unk20));
-    FUN_02020AFC();
+    Init_Timer3();
     if (FUN_020337E8(3) == 3)
         FUN_02034188(3, 0);
     if (FUN_020227FC(gBacklightTop.unk20) == 0)

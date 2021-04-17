@@ -67,7 +67,7 @@ FUN_02035068: ; 0x02035068
 	push {r3, lr}
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	cmp r0, #0x0
 	beq _0203507A
 	mov r0, #0x1
@@ -1406,7 +1406,7 @@ _02035B2C:
 	str r2, [r0, r1]
 	mov r0, #0x10
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0xb4
 	pop {r4-r7, pc}
 	.balign 4
@@ -1870,7 +1870,7 @@ _02035ECC:
 	bl FUN_0202A918
 	str r0, [r7, #0x20]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r7, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl FUN_02079C70
@@ -1918,7 +1918,7 @@ _02035F4A:
 	mov r0, #0x2
 	strb r0, [r7, #0x12]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r7, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl FUN_02079C70
@@ -1975,7 +1975,7 @@ _02035FD0:
 	mov r0, #0x2
 	strb r0, [r7, #0x12]
 	ldr r0, [r5, #0xc]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	str r0, [r7, #0x1c]
 	ldr r0, [r5, #0xc]
 	bl FUN_02079C70

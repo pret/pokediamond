@@ -880,7 +880,8 @@ NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
                    files/poketool/trgra/trfgra/narc_0192.NCLR \
                    files/poketool/trgra/trfgra/narc_0194.NCLR \
 
-NCER_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0002.NCER
+NCER_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0002.NCER \
+                   files/poketool/icongra/poke_icon/narc_0004.NCER
 
 NSCR_CLEAN_LIST := files/demo/title/titledemo/narc_0000.NSCR \
                    files/demo/title/titledemo/narc_0008.NSCR \

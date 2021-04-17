@@ -16,7 +16,7 @@ MOD05_021E8310: ; 0x021E8310
 	bl Sav2_Pokedex_get
 	add r7, r0, #0
 	ldr r0, [r6]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	str r0, [r5, #4]
 	add r0, r7, #0
 	bl Pokedex_GetSinnohDexFlag

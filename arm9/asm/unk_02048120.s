@@ -32,7 +32,7 @@ FUN_02048120: ; 0x02048120
 	sub sp, #0x8
 	add r4, r0, #0x0
 	ldr r0, _02048158 ; =UNK_020F465C
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, _0204815C ; =UNK_020F4630
 	bl FUN_02016BBC
 	ldr r2, _02048160 ; =UNK_020F4640

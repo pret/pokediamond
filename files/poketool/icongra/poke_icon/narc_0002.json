@@ -1,5 +1,5 @@
 {
-	"label": true,
+	"labelEnabled": true,
 	"extended": true,
 	"imageHeight": 32,
 	"imageWidth": 32,
@@ -31,8 +31,7 @@
 					"Priority": 0,
 					"Palette": 0
 				}
-			},
-			"label": "CellAnime0"
+			}
 		},
 		{
 			"readOnly": 2054,
@@ -60,8 +59,9 @@
 					"Priority": 0,
 					"Palette": 0
 				}
-			},
-			"label": "CellAnime1"
+			}
 		}
-	]
+	],
+	"labels": ["CellAnime0", "CellAnime1"],
+	"labelCount": 2
 }

@@ -42,8 +42,8 @@ _021D7592:
 	add r0, r6, #0
 	add r1, r0, #0
 	bl FUN_02015F34
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -66,7 +66,7 @@ _021D7592:
 	ldr r0, _021D76BC ; =MOD59_021D7724
 	add r1, r4, #0
 	bl Main_SetVBlankIntrCB
-	bl FUN_0201E788
+	bl GX_BothDispOn
 	mov r0, #1
 	str r0, [r5]
 	b _021D76AC
@@ -181,7 +181,7 @@ MOD59_021D76C0: ; 0x021D76C0
 	bl FUN_02024EB4
 	ldr r1, [r4, #0x74]
 	ldr r1, [r1, #0x18]
-	bl FUN_02024EF4
+	bl RivalsNameToU16Array
 	ldr r0, [r4, #0x70]
 	bl FUN_02077AC4
 	ldr r0, [r4, #0x74]
@@ -278,7 +278,7 @@ _021D7798:
 	sub r2, r2, #1
 	bne _021D7798
 	add r0, sp, #0x50
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r0, [r4]
 	bl FUN_02016B94
 	add r3, sp, #0x40

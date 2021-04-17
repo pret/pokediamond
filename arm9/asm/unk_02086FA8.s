@@ -850,7 +850,7 @@ _02087636:
 	bl FUN_0200C61C
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r4, #0x64]
 	add r0, r0, #0x1
 	str r0, [r4, #0x64]
@@ -984,7 +984,7 @@ _0208774C:
 	bne _02087810
 	mov r0, #0x2
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl FUN_02086F98
@@ -1105,7 +1105,7 @@ _02087844:
 	bl FUN_02086B70
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r4, #0x64]
 	add r0, r0, #0x1
 	str r0, [r4, #0x64]
@@ -1232,7 +1232,7 @@ _0208794C:
 	bl FUN_02086F98
 	mov r0, #0x2
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [r4, #0x6c]
 	mov r1, #0x0
 	bl FUN_0200C644

@@ -345,7 +345,7 @@ FUN_02048764: ; 0x02048764
 	add r0, r1, #0x0
 	bl FUN_0201901C
 	ldr r0, _020487D4 ; =UNK_020F46B0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _020487D8 ; =0x04000304
 	ldrh r1, [r2, #0x0]
 	lsr r0, r2, #0xb

@@ -414,7 +414,7 @@ MOD17_021D7794: ; 0x021D7794
 	ldr r0, _021D77B0 ; =gMain + 0x60
 	mov r1, #1
 	strb r1, [r0, #5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	pop {r3, pc}
 	nop
 _021D77B0: .word gMain + 0x60
@@ -426,7 +426,7 @@ MOD17_021D77B4: ; 0x021D77B4
 	ldr r0, _021D77D0 ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	bl MOD17_021D7E0C
 	bl MOD17_021D7E00
 	bl GX_ResetBankForTex
@@ -1163,7 +1163,7 @@ _021D7D12:
 	sub r2, r2, #1
 	bne _021D7D12
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -1177,7 +1177,7 @@ MOD17_021D7D28: ; 0x021D7D28
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021D7D9C ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
@@ -1254,14 +1254,14 @@ MOD17_021D7DB0: ; 0x021D7DB0
 	orr r0, r1
 	str r0, [r2]
 	bl FUN_020B0FC0
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r0, #0x1f
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x13
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -1280,8 +1280,8 @@ MOD17_021D7E00: ; 0x021D7E00
 	thumb_func_start MOD17_021D7E0C
 MOD17_021D7E0C: ; 0x021D7E0C
 	push {r3, lr}
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	bl FUN_020B0FC0
 	pop {r3, pc}
 	thumb_func_end MOD17_021D7E0C
@@ -4497,19 +4497,19 @@ MOD17_021D9778: ; 0x021D9778
 	bic r2, r3
 	strh r2, [r1, #6]
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #8
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0
 	bl FUN_0200E394
 	pop {r4, pc}
@@ -4535,16 +4535,16 @@ MOD17_021D9800: ; 0x021D9800
 	bl FUN_0201FD98
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	pop {r4, pc}
 	thumb_func_end MOD17_021D9800
 
@@ -13824,7 +13824,7 @@ _021DDBBC:
 	ldr r0, _021DDC2C ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
-	bl FUN_0201E7A0
+	bl GX_SwapDisplay
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #0xe

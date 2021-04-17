@@ -171,16 +171,16 @@ FUN_020861DC: ; 0x020861DC
 	bl FUN_020223BC
 	mov r0, #0x1
 	mov r1, #0x0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x3
 	mov r1, #0x0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldr r0, [r4, #0x8]
 	mov r1, #0x0
 	bl FUN_02003038
@@ -279,7 +279,7 @@ _020862D6:
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	str r0, [sp, #0x4]
 	mov r0, #0x0
 	str r0, [sp, #0x8]

@@ -6,11 +6,10 @@
 #include "proto.h"
 #include "msgdata.h"
 #include "constants/trainer_classes.h"
+#include "unk_02024E64.h"
 
 #pragma thumb on
 
-extern void * FUN_02024EC0(struct SaveBlock2 *);
-extern u16 * FUN_02024EE8(void *);
 
 // Loads all battle opponents, including multi-battle partner if exists.
 void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 * sav2, u32 heap_id)
@@ -23,7 +22,7 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 
 
     // FIXME: String formatting in files/msgdata/msg/narc_0559.txt is abnormal.
     msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 559, heap_id);
-    rivalName = FUN_02024EE8(FUN_02024EC0(sav2));
+    rivalName = GetRivalNamePtr(FUN_02024EC0(sav2));
     for (i = 0; i < 4; i++)
     {
         if (enemies->trainer_idxs[i] != 0)

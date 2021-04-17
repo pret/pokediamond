@@ -1984,7 +1984,7 @@ _021D840E:
 	sub r2, r2, #1
 	bne _021D840E
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -2207,10 +2207,10 @@ MOD16_021D8534: ; 0x021D8534
 	str r0, [r5, r1]
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	mov r0, #0x4f
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -3372,7 +3372,7 @@ MOD16_021D8DC0: ; 0x021D8DC0
 	bl FUN_020178BC
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r6, _021D8F1C ; =0x021FF4D8
 	add r3, sp, #0x54
 	ldmia r6!, {r0, r1}
@@ -25839,7 +25839,7 @@ _021E3288:
 _021E329E:
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021E32D0 ; =0x00000804
 	ldr r0, [r5, r0]
 	bl FreeToHeap
@@ -27619,7 +27619,7 @@ MOD16_021E4094: ; 0x021E4094
 	add r0, r0, #4
 	str r1, [r6, r0]
 	mov r0, #2
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r6, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -27658,7 +27658,7 @@ MOD16_021E40D4: ; 0x021E40D4
 	bl G2x_SetBlendAlpha_
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r6, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -27725,7 +27725,7 @@ _021E4158:
 _021E4162:
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x81
 	add r1, r4, #0
 	lsl r0, r0, #4
@@ -27773,7 +27773,7 @@ _021E417E:
 	bne _021E41CC
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	pop {r3, r4, r5, r6, r7, pc}
 _021E41CC:
 	add r0, r5, #0
@@ -51397,7 +51397,7 @@ MOD16_021EF218: ; 0x021EF218
 	bl FUN_020178BC
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r5, #0
 	mov r1, #0
 	bl FUN_020178A0

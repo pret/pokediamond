@@ -6,7 +6,6 @@
 #include "MWC_string.h"
 #include "function_target.h"
 #include "nitro.h"
-#include "global.fieldmap.h"
 #include "constants/global.h"
 #include "error_handling.h"
 

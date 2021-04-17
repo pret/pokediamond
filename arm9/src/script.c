@@ -17,7 +17,7 @@ THUMB_FUNC void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32
     for (i = 0; i < NELEMS(ctx->stack); i++)
         ctx->stack[i] = NULL;
 
-    ctx->unk74 = 0;
+    ctx->unk74 = NULL;
 }
 
 THUMB_FUNC u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr)
@@ -27,7 +27,7 @@ THUMB_FUNC u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr)
     return 1;
 }
 
-THUMB_FUNC void SetupNativeScript(struct ScriptContext *ctx, u8 (*ptr)(struct ScriptContext *))
+THUMB_FUNC void SetupNativeScript(struct ScriptContext *ctx, BOOL (*ptr)(struct ScriptContext *))
 {
     ctx->mode = 2;
     ctx->nativePtr = ptr;
@@ -39,9 +39,9 @@ THUMB_FUNC void StopScript(struct ScriptContext *ctx)
     ctx->scriptPtr = 0;
 }
 
-THUMB_FUNC void FUN_02038B6C(struct ScriptContext *ctx, s32 r1)
+THUMB_FUNC void FUN_02038B6C(struct ScriptContext *ctx, struct UnkStruct_0204639C *r1)
 {
-    ctx->unk74 = (u32)r1;
+    ctx->unk74 = r1;
 }
 
 THUMB_FUNC u8 RunScriptCommand(struct ScriptContext *ctx)

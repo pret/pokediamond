@@ -2,8 +2,9 @@
 #include "player_data.h"
 #include "overlay_manager.h"
 #include "mod59_021D74E0.h"
+#include "heap.h"
 
-extern void FUN_0201681C(u32 param0, u32 heap_id, u32 param2);
+
 extern u32 FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
 
 THUMB_FUNC BOOL MOD59_Init(struct UnkStruct_02006234 *param0)

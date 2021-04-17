@@ -179,8 +179,8 @@ MOD76_021D7638: ; 0x021D7638
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -275,7 +275,7 @@ _021D771A:
 	sub r2, r2, #1
 	bne _021D771A
 	add r0, sp, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	add sp, #0x28
 	pop {r4, pc}
 	.align 2, 0
@@ -370,7 +370,7 @@ MOD76_021D77E4: ; 0x021D77E4
 	add r4, r0, #0
 	mov r0, #0x17
 	mov r1, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #2
 	bl FUN_020178A0
@@ -2397,7 +2397,7 @@ MOD76_021D8758: ; 0x021D8758
 	bl FUN_0200BF60
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	add sp, #0x4c
 	pop {r4, r5, r6, r7, pc}
 	nop

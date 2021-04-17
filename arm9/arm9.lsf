@@ -48,7 +48,7 @@ Static arm9
 	Object unk_02015D14.o
 	Object unk_02015E30.o
 	Object game_init.o
-	Object unk_020166C8.o
+	Object heap.o
 	Object unk_02016B94.o
 	Object unk_0201B1A8.o
 	Object unk_0201B4E8.o
@@ -65,11 +65,11 @@ Static arm9
 	Object unk_0201CC08.o
 	Object unk_0201D040.o
 	Object unk_0201E00C.o
-	Object unk_0201E66C.o
+	Object GX_layers.o
 	Object unk_0201E7D8.o
 	Object unk_0201F06C.o
 	Object unk_020208B8.o
-	Object unk_02020AFC.o
+	Object timer3.o
 	Object error_handling.o
 	Object unk_02020C44.o
 	Object unk_0202134C.o
@@ -152,9 +152,10 @@ Static arm9
 	Object script.o
 	Object unk_02038C78.o
 	Object scrcmd.o
+	Object scrcmd_asm.o
 	Object scrcmd_2.o
 	Object scrcmd_3.o
-	Object scrcmd_4.o
+	Object scrcmd_names.o
 	Object scrcmd_5.o
 	Object scrcmd_6.o
 	Object scrcmd_7.o
@@ -164,16 +165,16 @@ Static arm9
 	Object scrcmd_11.o
 	Object scrcmd_12.o
 	Object scrcmd_13.o
-	Object scrcmd_14.o
-	Object scrcmd_15.o
-	Object scrcmd_16.o
+	Object scrcmd_coins.o
+	Object scrcmd_money.o
+	Object scrcmd_daycare.o
 	Object scrcmd_17.o
 	Object scrcmd_18_c.o
 	Object scrcmd_18.o
 	Object scrcmd_19.o
 	Object scrcmd_20.o
 	Object scrcmd_21.o
-	Object scrcmd_22.o
+	Object scrcmd_items.o
 	Object scrcmd_23.o
 	Object scrcmd_24.o
 	Object scrcmd_25.o
@@ -316,7 +317,7 @@ Static arm9
 	Object unk_0208A258.o
 	Object unk_0208A300.o
 	Object unk_0208A338.o
-	Object unk_0208A998.o
+	Object error_message_reset.o
 	### Third-party libraries ###
 	Object unk_0208AC14.o
 	Object custom_allocator.o

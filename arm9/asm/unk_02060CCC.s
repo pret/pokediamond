@@ -1033,7 +1033,7 @@ FUN_02061374: ; 0x02061374
 	strh r1, [r0, #0x0]
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r1, sp, #0x0
 	strh r0, [r1, #0x2]
 	add r0, r4, #0x0
@@ -1084,7 +1084,7 @@ FUN_020613CC: ; 0x020613CC
 	bl FUN_02060E34
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r1, sp, #0x4
 	strh r0, [r1, #0x6]
 	add r0, r4, #0x0
@@ -2838,7 +2838,7 @@ _0206218C:
 	bl FUN_02034FE4
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x0
@@ -2949,7 +2949,7 @@ FUN_02062240: ; 0x02062240
 	bl MOD06_02245910
 	add r0, sp, #0x0
 	ldrh r0, [r0, #0x2]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -3176,7 +3176,7 @@ FUN_020623F4: ; 0x020623F4
 	lsl r1, r0, #0x1
 	ldr r0, _0206245C ; =UNK_020F79EE
 	ldrh r0, [r0, r1]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

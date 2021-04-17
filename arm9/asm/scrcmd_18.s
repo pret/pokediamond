@@ -678,7 +678,7 @@ FUN_020448D4: ; 0x020448D4
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r7, r0, #0x0
 	ldr r0, [r6, #0xc]
 	bl SavArray_PlayerParty_get

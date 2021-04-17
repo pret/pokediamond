@@ -2215,7 +2215,7 @@ FUN_02029880: ; 0x02029880
 	cmp r0, #0x1
 	bne _02029942
 	add r0, r4, #0x0
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	add r1, r6, #0x0
@@ -2248,7 +2248,7 @@ _020298DE:
 	b _02029942
 _020298EE:
 	add r0, r4, #0x0
-	bl FUN_02034824
+	bl MapHeader_GetMapSec
 	add r7, r0, #0x0
 	lsl r0, r7, #0x10
 	lsr r0, r0, #0x10

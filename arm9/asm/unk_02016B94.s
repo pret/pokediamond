@@ -89,8 +89,8 @@ FUN_02016BBC: ; 0x02016BBC
 	asr r0, r0, #0x3
 	and r0, r1
 	str r0, [r2, #0x0]
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	pop {r4, pc}
 	nop
 _02016BF0: .word 0xC7FFFFFF
@@ -105,12 +105,12 @@ FUN_02016BF4: ; 0x02016BF4
 	ldr r1, [r2, #0x4]
 	ldr r2, [r2, #0xc]
 	bl GX_SetGraphicsMode
-	bl FUN_0201E6D8
+	bl GX_DisableEngineALayers
 	pop {r3, pc}
 _02016C0C:
 	ldr r0, [r2, #0x8]
 	bl GXS_SetGraphicsMode
-	bl FUN_0201E740
+	bl GX_DisableEngineBLayers
 	pop {r3, pc}
 
 	thumb_func_start FUN_02016C18
@@ -148,7 +148,7 @@ _02016C42: ; jump table (using 16-bit offset)
 _02016C52:
 	mov r0, #0x1
 	add r1, r0, #0x0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldrb r3, [r4, #0x14]
 	ldrb r1, [r4, #0x12]
 	ldrb r0, [r4, #0x11]
@@ -193,7 +193,7 @@ _02016CA0:
 _02016CAA:
 	mov r0, #0x2
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldrb r3, [r4, #0x14]
 	ldrb r1, [r4, #0x12]
 	ldrb r0, [r4, #0x11]
@@ -238,7 +238,7 @@ _02016CF8:
 _02016D02:
 	mov r0, #0x4
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	beq _02016D18
@@ -324,7 +324,7 @@ _02016D9A:
 _02016DA4:
 	mov r0, #0x8
 	mov r1, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	beq _02016DBA
@@ -410,7 +410,7 @@ _02016E3C:
 _02016E46:
 	mov r0, #0x1
 	add r1, r0, #0x0
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldrb r3, [r4, #0x14]
 	ldrb r1, [r4, #0x12]
 	ldrb r0, [r4, #0x11]
@@ -455,7 +455,7 @@ _02016E94:
 _02016E9E:
 	mov r0, #0x2
 	mov r1, #0x1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldrb r2, [r4, #0x13]
 	ldrb r1, [r4, #0x12]
 	ldrb r0, [r4, #0x11]
@@ -500,7 +500,7 @@ _02016EEC:
 _02016EF6:
 	mov r0, #0x4
 	mov r1, #0x1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	beq _02016F0C
@@ -586,7 +586,7 @@ _02016F8E:
 _02016F98:
 	mov r0, #0x8
 	mov r1, #0x1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	beq _02016FAE
@@ -1958,35 +1958,35 @@ _0201798E: ; jump table (using 16-bit offset)
 	.short _020179D6 - _0201798E - 2; case 7
 _0201799E:
 	mov r0, #0x1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	pop {r3, pc}
 _020179A6:
 	mov r0, #0x2
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	pop {r3, pc}
 _020179AE:
 	mov r0, #0x4
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	pop {r3, pc}
 _020179B6:
 	mov r0, #0x8
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	pop {r3, pc}
 _020179BE:
 	mov r0, #0x1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	pop {r3, pc}
 _020179C6:
 	mov r0, #0x2
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	pop {r3, pc}
 _020179CE:
 	mov r0, #0x4
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	pop {r3, pc}
 _020179D6:
 	mov r0, #0x8
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 _020179DC:
 	pop {r3, pc}
 	.balign 4

@@ -1925,7 +1925,7 @@ _021D84AA:
 	str r1, [r4, r0]
 	sub r0, #0x38
 	ldr r0, [r4, r0]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	mov r1, #0x52
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -9205,7 +9205,7 @@ MOD14_021DBEAC: ; 0x021DBEAC
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_0206BB28
+	bl SavArray_IsNatDexEnabled
 	ldrh r1, [r4, #4]
 	bl FUN_0206BB48
 	strh r0, [r4, #8]
@@ -10495,8 +10495,8 @@ _021DC79C:
 	mov r5, #1
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
-	bl FUN_0201E6D8
-	bl FUN_0201E740
+	bl GX_DisableEngineALayers
+	bl GX_DisableEngineBLayers
 	mov r1, #1
 	lsl r1, r1, #0x1a
 	ldr r0, [r1]
@@ -12835,7 +12835,7 @@ MOD14_021DDA38: ; 0x021DDA38
 	add r5, r0, #0
 	ldr r0, _021DDB20 ; =MOD14_021E63A4
 	add r4, r1, #0
-	bl FUN_0201E66C
+	bl GX_SetBanks
 	ldr r2, _021DDB24 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -13061,10 +13061,10 @@ _021DDBF2:
 _021DDC48:
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	mov r0, #0x10
 	mov r1, #1
-	bl FUN_0201E74C
+	bl GX_EngineBToggleLayers
 	bl GX_DispOn
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
@@ -13083,7 +13083,7 @@ MOD14_021DDC78: ; 0x021DDC78
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201E6E4
+	bl GX_EngineAToggleLayers
 	ldr r0, _021DDCDC ; =0x04000008
 	mov r1, #3
 	ldrh r2, [r0]
