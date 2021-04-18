@@ -9,7 +9,6 @@ vu8 UNK_02105D58 = 4;
 vu8 UNK_02105D59 = 4;
 
 extern int FUN_02033534();
-extern u32 FUN_0202D858(u16 param0);
 extern void FUN_02031480(u32 param0);
 extern void FUN_0202D7D8(u8 *param0, u32 param1, struct UnkStruct0202F150_sub1 *param2);
 extern u32 FUN_0200CA60(void (*param0)(), u32 param1, u32 param2);
@@ -57,7 +56,6 @@ extern u32 FUN_0202EDF8();
 extern u16 FUN_0202D19C();
 extern void FUN_020334E8(u32 param0, u32 param1);
 extern u32 FUN_0202EE60();
-extern u32 FUN_0202D884(u16 param0);
 extern void FUN_0202F05C();
 extern void GF_RTC_CopyDateTime(RTCDate *, RTCTime *);
 extern void FUN_0202D830(u8 *param0, u32 param1);
@@ -69,7 +67,7 @@ THUMB_FUNC u32 FUN_0202F150(u32 param0, u32 param1)
     UNK_021C59F4.unk00 = 0;
     if (param0 != 0)
     {
-        u32 res = FUN_0202D858((u16)FUN_02033534()) + 1;
+        int res = FUN_0202D858((u16)FUN_02033534()) + 1;
 
         if (UNK_021C59F4.unk04 != 0)
         {
@@ -148,7 +146,7 @@ THUMB_FUNC void FUN_0202F2F0()
     UNK_021C59F4.unk04->unk67F = 0;
     UNK_021C59F4.unk04->unk680 = 0;
 
-    int res = (int)FUN_0202D858((u16)FUN_02033534()) + 1;
+    int res = FUN_0202D858((u16)FUN_02033534()) + 1;
 
     MI_CpuFill8(UNK_021C59F4.unk04->unk458, 0, UNK_021C59F4.unk04->unk658 * res);
 
@@ -236,7 +234,7 @@ THUMB_FUNC void FUN_0202F5A4()
     UNK_021C59F4.unk04->unk62C = 0;
     UNK_021C59F4.unk04->unk62D = 0;
 
-    int res = (int)FUN_0202D858((u16)FUN_02033534()) + 1;
+    int res = FUN_0202D858((u16)FUN_02033534()) + 1;
 
     MI_CpuFill8(UNK_021C59F4.unk04->unk458, 0, UNK_021C59F4.unk04->unk658 * res);
 
@@ -883,7 +881,7 @@ THUMB_FUNC void FUN_0202FEEC()
     }
 
     int st0 = FUN_02031228((u16)FUN_02033534());
-    int r6 = (int)FUN_0202D858((u16)FUN_02033534()) + 1;
+    int r6 = FUN_0202D858((u16)FUN_02033534()) + 1;
 
     if (UNK_02105D59 == 2 || UNK_02105D59 == 0)
     {
@@ -1100,7 +1098,7 @@ THUMB_FUNC void FUN_0203026C(u32 param0, u8 *param1, u32 param2)
     if (FUN_0202FA28() == 1)
     {
         int r6 = FUN_02031228((u16)FUN_02033534());
-        int st4 = (int)FUN_0202D858((u16)FUN_02033534()) + 1;
+        int st4 = FUN_0202D858((u16)FUN_02033534()) + 1;
 
         int r4 = 0;
         while (r4 < st4)
@@ -1946,7 +1944,7 @@ THUMB_FUNC void FUN_02030DFC()
     {
         if (UNK_021C59F4.unk04->unk68B == 0)
         {
-            int r7 = (int)FUN_0202D858((u16)FUN_02033534()) + 1;
+            int r7 = FUN_0202D858((u16)FUN_02033534()) + 1;
             int r4;
             for (r4 = 0; r4 < r7; r4++)
             {
@@ -2258,12 +2256,12 @@ THUMB_FUNC int FUN_02031228(u16 param0)
     return 0x26;
 }
 
-THUMB_FUNC u32 FUN_02031248(u32 param0)
+THUMB_FUNC int FUN_02031248(u32 param0)
 {
     return FUN_0202D858((u16)param0) + 1;
 }
 
-THUMB_FUNC u32 FUN_02031258(u32 param0)
+THUMB_FUNC int FUN_02031258(u32 param0)
 {
     return FUN_0202D884((u16)param0) + 1;
 }
