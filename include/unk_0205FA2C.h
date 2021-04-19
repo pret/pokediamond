@@ -13,6 +13,7 @@
 #include "unk_0202A8F4.h"
 #include "unk_0204639C.h"
 #include "unk_0206BB28.h"
+#include "unk_02031480.h"
 
 struct UnkPlayerStruct1_0205FA2C
 {

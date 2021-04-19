@@ -190,7 +190,7 @@ THUMB_FUNC BOOL FUN_020316AC(u32 param0, void *param1)
     return FALSE;
 }
 
-THUMB_FUNC u8 *FUN_020316E0(u32 param0)
+THUMB_FUNC u8 *FUN_020316E0(int param0)
 {
     if (UNK_021C59FC->unk248[param0] != 0)
     {

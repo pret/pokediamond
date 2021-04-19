@@ -1,4 +1,5 @@
 #include "unk_0202F150.h"
+#include "unk_02031480.h"
 struct
 {
     u8 unk00;
@@ -9,7 +10,6 @@ vu8 UNK_02105D58 = 4;
 vu8 UNK_02105D59 = 4;
 
 extern int FUN_02033534();
-extern void FUN_02031480(u32 param0);
 extern void FUN_0202D7D8(u8 *param0, u32 param1, struct UnkStruct0202F150_sub1 *param2);
 extern u32 FUN_0200CA60(void (*param0)(), u32 param1, u32 param2);
 extern void FUN_0202D394(struct UnkStruct0202F150_sub1 *param0, u8 *param1, u32 param2);
@@ -19,7 +19,6 @@ extern void FUN_0202D330(void (*param0)(int));
 extern u32 FUN_0202E66C(u32 param0, u32 param1);
 extern void MOD04_021D83C0();
 extern u32 FUN_0202E784();
-extern void FUN_020314D0();
 extern void FUN_0202DBA4();
 extern void FUN_0200CAB4(u32 param0);
 extern void FUN_0202D824(u8 *param0);
@@ -30,7 +29,6 @@ extern void FUN_02031CDC();
 extern void FUN_0202EBD0(u16 param0);
 extern void FUN_0202ED70(u32 param0);
 extern void FUN_020335F4(u32 param0);
-extern void FUN_020315A4();
 extern void FUN_0202E538();
 extern u32 MOD04_021D78FC(void *param0, u32 param1);
 extern u32 FUN_0202CBD4();
