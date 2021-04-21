@@ -7,6 +7,7 @@
 #include "heap.h"
 #include "main.h"
 #include "unk_0202D858.h"
+#include "unk_02031480.h"
 
 struct UnkStruct0202F150_sub1
 {

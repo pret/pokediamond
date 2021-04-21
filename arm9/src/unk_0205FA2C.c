@@ -8,11 +8,9 @@ extern void FUN_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, struct PlayerDat
 extern u32 FUN_0203384C(u32 *param0);
 extern u32 *FUN_02038790(struct UnkStruct_0204639C *param0, u16 param1, u16 param2);
 extern u16 *GetVarPointer(struct UnkSavStruct80 *arg, u16);
-extern u32 FUN_02031190();
-extern u32 FUN_020316E0(u32 param0);
-extern u16 MOD06_02244660(struct UnkStruct_0204639C *param0, u32 param1);
-extern u16 MOD06_022446BC(struct UnkStruct_0204639C *param0, u32 param1);
-extern u16 MOD06_022446E0(struct UnkStruct_0204639C *param0, u32 param1);
+extern u16 MOD06_02244660(struct UnkStruct_0204639C *param0, u8 *param1);
+extern u16 MOD06_022446BC(struct UnkStruct_0204639C *param0, u8 *param1);
+extern u16 MOD06_022446E0(struct UnkStruct_0204639C *param0, u8 *param1);
 extern void FUN_0202A5CC(u32 param0, u32 param1);
 extern u32 FUN_0202A5D0(u32 param0);
 extern u32 FUN_0202A150(struct UnkStruct_02029FB0 *param0, u32 param1);
@@ -282,8 +280,8 @@ THUMB_FUNC int FUN_0205FD70(struct UnkStruct_0204639C *param0)
 {
     struct UnkStruct_0204639C *res = FUN_02046528(param0);
     u16 *res2 = (u16 *)FUN_0204652C(param0);
-    u32 res3 = FUN_020316E0(1 - FUN_02031190());
-    if (res3 == 0)
+    u8 *res3 = FUN_020316E0(1 - FUN_02031190());
+    if (res3 == NULL)
     {
         return 0;
     }
