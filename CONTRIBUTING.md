@@ -1,6 +1,6 @@
 # Contributing guide for Pokémon Diamond
 
-**As the repository is in a volatile state, contribution is closed to the public until further notice.**
+**The repository is in a volatile state.**
 
 This is a living document which lays out the procedure for decompiling the game code of Pokémon Diamond Version (5.0-US) for the Nintendo DS.
 
