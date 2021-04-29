@@ -3,6 +3,8 @@
 
 #include "RTC_api.h"
 
+struct SaveBlock2;
+
 struct UnkSaveStruct_0202376C_sub
 {
     /* 0x00 */ u32 field_00;
