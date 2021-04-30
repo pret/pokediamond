@@ -28,7 +28,8 @@ struct UnkSavStruct80
     u8 padding[0x8];
     u32 unk08;
     struct SaveBlock2 *saveBlock2; //0xC
-    u8 padding2[0xC];
+    struct UnkStruct_0204639C *unk10;
+    u8 padding2[0x8];
     u32 *mapId; //0x1C
     u8 padding3[0x18];
     u32 unk38;

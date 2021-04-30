@@ -5,12 +5,12 @@ extern void *UNK_020FA6E8;
 extern u32 FUN_02079C70(struct SaveBlock2 *sav2);
 extern void FUN_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[12]);
 extern void FUN_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, struct PlayerData *player_data);
-extern u32 FUN_0203384C(u32 *param0);
-extern u32 *FUN_02038790(struct UnkStruct_0204639C *param0, u16 param1, u16 param2);
+extern u32 FUN_0203384C(struct SaveBlock2 *sav2);
+extern u32 *FUN_02038790(struct UnkSavStruct80 *param0, u16 param1, u16 param2);
 extern u16 *GetVarPointer(struct UnkSavStruct80 *arg, u16);
-extern u16 MOD06_02244660(struct UnkStruct_0204639C *param0, u8 *param1);
-extern u16 MOD06_022446BC(struct UnkStruct_0204639C *param0, u8 *param1);
-extern u16 MOD06_022446E0(struct UnkStruct_0204639C *param0, u8 *param1);
+extern u16 MOD06_02244660(struct UnkSavStruct80 *param0, u8 *param1);
+extern u16 MOD06_022446BC(struct UnkSavStruct80 *param0, u8 *param1);
+extern u16 MOD06_022446E0(struct UnkSavStruct80 *param0, u8 *param1);
 extern void FUN_0202A5CC(u32 param0, u32 param1);
 extern u32 FUN_0202A5D0(u32 param0);
 extern u32 FUN_0202A150(struct UnkStruct_02029FB0 *param0, u32 param1);
@@ -36,12 +36,12 @@ const u8 UNK_020F7454[] = {
 };
 
 THUMB_FUNC u32 FUN_0205FA2C(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1, u32 heap_id)
+    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkSavStruct80 *param1, u32 heap_id)
 {
     struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)AllocFromHeapAtEnd(
         heap_id, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
-    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)(param1->unkC);
+    struct SaveBlock2 *sav2 = param1->saveBlock2;
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
     ptr->options = Sav2_PlayerData_GetOptionsAddr(sav2);
@@ -70,7 +70,7 @@ THUMB_FUNC u32 FUN_0205FA2C(
 }
 
 THUMB_FUNC u32 FUN_0205FAD8(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1)
+    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkSavStruct80 *param1)
 {
     if (FUN_0204647C(param1))
     {
@@ -105,9 +105,9 @@ THUMB_FUNC u32 FUN_0205FAD8(
 }
 
 THUMB_FUNC u32 FUN_0205FB34(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1, u32 heap_id)
+    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkSavStruct80 *param1, u32 heap_id)
 {
-    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)(param1->unkC);
+    struct SaveBlock2 *sav2 = param1->saveBlock2;
 
     struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)AllocFromHeapAtEnd(
         heap_id, sizeof(struct UnkPlayerStruct2_0205FA2C));
@@ -140,7 +140,7 @@ THUMB_FUNC u32 FUN_0205FB34(
 }
 
 THUMB_FUNC u32 FUN_0205FBC0(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkStruct_0204639C *param1)
+    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkSavStruct80 *param1)
 {
     if (FUN_0204647C(param1))
     {
@@ -158,7 +158,7 @@ THUMB_FUNC u32 FUN_0205FBC0(
 
 THUMB_FUNC int FUN_0205FBE8(struct UnkStruct_0204639C *param0)
 {
-    struct UnkStruct_0204639C *res = FUN_02046528(param0);
+    struct UnkSavStruct80 *res = FUN_02046528(param0);
     struct UnkCallbackStruct1_0205FA2C *res2 =
         (struct UnkCallbackStruct1_0205FA2C *)FUN_0204652C(param0);
     switch (res2->unk04)
@@ -192,7 +192,7 @@ THUMB_FUNC void FUN_0205FC50(struct UnkStruct_0204639C *param0,
     u8 param6,
     u8 param7)
 {
-    struct UnkStruct_0204639C *res = FUN_02046528(param0);
+    struct UnkSavStruct80 *res = FUN_02046528(param0);
 
     struct UnkCallbackStruct1_0205FA2C *ptr = (struct UnkCallbackStruct1_0205FA2C *)AllocFromHeap(
         0xb, sizeof(struct UnkCallbackStruct1_0205FA2C));
@@ -210,9 +210,9 @@ THUMB_FUNC void FUN_0205FC50(struct UnkStruct_0204639C *param0,
 }
 
 THUMB_FUNC u32 FUN_0205FC9C(
-    struct UnkCallbackStruct2_0205FA2C *param0, struct UnkStruct_0204639C *param1)
+    struct UnkCallbackStruct2_0205FA2C *param0, struct UnkSavStruct80 *param1)
 {
-    if (FUN_0203384C(param1->unkC))
+    if (FUN_0203384C(param1->saveBlock2))
     {
 
         param0->unk08 = FUN_02038790(param1, param0->unk12, param0->unk14);
@@ -224,7 +224,7 @@ THUMB_FUNC u32 FUN_0205FC9C(
 }
 
 THUMB_FUNC u32 FUN_0205FCC4(
-    struct UnkCallbackStruct2_0205FA2C *param0, struct UnkStruct_0204639C *param1)
+    struct UnkCallbackStruct2_0205FA2C *param0, struct UnkSavStruct80 *param1)
 {
     if (FUN_0204647C(param1))
     {
@@ -239,7 +239,7 @@ THUMB_FUNC u32 FUN_0205FCC4(
 
 THUMB_FUNC int FUN_0205FCE8(struct UnkStruct_0204639C *param0)
 {
-    struct UnkStruct_0204639C *res = FUN_02046528(param0);
+    struct UnkSavStruct80 *res = FUN_02046528(param0);
     struct UnkCallbackStruct2_0205FA2C *res2 =
         (struct UnkCallbackStruct2_0205FA2C *)FUN_0204652C(param0);
 
@@ -252,7 +252,7 @@ THUMB_FUNC int FUN_0205FCE8(struct UnkStruct_0204639C *param0)
         res2->unk04 = FUN_0205FCC4(res2, res);
         break;
     case 2:
-        u16 *var = GetVarPointer((struct UnkSavStruct80 *)res, res2->unk10);
+        u16 *var = GetVarPointer(res, res2->unk10);
         *var = (u16)res2->unk00;
         FreeToHeap(res2);
 
@@ -264,7 +264,7 @@ THUMB_FUNC int FUN_0205FCE8(struct UnkStruct_0204639C *param0)
 
 THUMB_FUNC void FUN_0205FD38(struct UnkStruct_0204639C *param0, u16 param1, u16 param2, u16 param3)
 {
-    struct UnkStruct_0204639C *res = FUN_02046528(param0);
+    struct UnkSavStruct80 *res = FUN_02046528(param0);
     struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(
         0xb, sizeof(struct UnkCallbackStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct2_0205FA2C));
@@ -278,7 +278,7 @@ THUMB_FUNC void FUN_0205FD38(struct UnkStruct_0204639C *param0, u16 param1, u16 
 
 THUMB_FUNC int FUN_0205FD70(struct UnkStruct_0204639C *param0)
 {
-    struct UnkStruct_0204639C *res = FUN_02046528(param0);
+    struct UnkSavStruct80 *res = FUN_02046528(param0);
     u16 *res2 = (u16 *)FUN_0204652C(param0);
     u8 *res3 = FUN_020316E0(1 - FUN_02031190());
     if (res3 == NULL)
@@ -286,7 +286,7 @@ THUMB_FUNC int FUN_0205FD70(struct UnkStruct_0204639C *param0)
         return 0;
     }
 
-    u16 *var = GetVarPointer((struct UnkSavStruct80 *)res, res2[1]);
+    u16 *var = GetVarPointer(res, res2[1]);
     switch (res2[0])
     {
     case 0:
@@ -294,11 +294,9 @@ THUMB_FUNC int FUN_0205FD70(struct UnkStruct_0204639C *param0)
         break;
     case 1:
         *var = MOD06_022446BC(res, res3);
-
         break;
     case 2:
         *var = MOD06_022446E0(res, res3);
-
         break;
     }
 
@@ -309,7 +307,7 @@ THUMB_FUNC int FUN_0205FD70(struct UnkStruct_0204639C *param0)
 
 THUMB_FUNC void FUN_0205FDDC(struct UnkStruct_0204639C *param0, u16 param1, u16 param2)
 {
-    struct UnkStruct_0204639C *res = FUN_02046528(param0);
+    struct UnkSavStruct80 *res = FUN_02046528(param0);
 
     u16 *ptr = AllocFromHeap(0xb, 2 * sizeof(u16));
     MI_CpuFill8(ptr, 0, 2 * sizeof(u16));

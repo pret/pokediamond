@@ -3,12 +3,12 @@
 #include "unk_0204639C.h"
 #include "unk_0204AEA8.h"
 
-extern void MOD05_021E3444(u32, struct UnkStruct_0204639C *, u32);
+extern void MOD05_021E3444(u32, struct UnkSavStruct80 *, u32);
 extern void FUN_0200433C(u32, u16, u32);
 
 THUMB_FUNC BOOL FUN_0204AEA8(struct UnkStruct_0204639C *a0)
 {
-    struct UnkStruct_0204639C *v0 = FUN_02046528(a0);
+    struct UnkSavStruct80 *v0 = FUN_02046528(a0);
     u32 *v1 = FUN_0204652C(a0);
 
     switch (v1[0])
