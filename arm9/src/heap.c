@@ -1,11 +1,12 @@
 #include "heap.h"
 #include "error_message_reset.h"
+#include "unk_02031734.h"
+
 
 extern void *tempName_NNS_FndCreateExpHeapEx(void *param0, u32 param1, u32 param2);
 extern void *tempName_NNS_FndAllocFromExpHeapEx(void *param0, u32 param1, s32 param2);
 extern void thunk_FUN_020adc8c();
 extern void FUN_020ADDF0(void *ptr1, void *ptr2);
-extern u32 FUN_02031810(void);
 extern u32 FUN_020ADDC8(void *param0);
 extern void FUN_020AE82C(u32 param0, void *param1, u32 param2);
 extern u32 FUN_020ADDC0(void *param0);

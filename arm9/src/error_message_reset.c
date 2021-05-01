@@ -1,5 +1,9 @@
 #include "error_message_reset.h"
 #include "GX_layers.h"
+#include "unk_02031734.h"
+#include "unk_0202F150.h"
+
+
 
 const u32 UNK_020FF49C[2] = { 0x1a030300, 0x00230112 };
 
@@ -27,9 +31,6 @@ extern void FUN_020196F4(u32 *, u8, u16, u16, u16, u16);
 extern void FUN_0200CCA4(u32 *param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_0200E394(u32 param0);
 extern void FUN_0200A274(u32 param0, u32 param1, u32 param2);
-extern BOOL FUN_02032DAC(void);
-extern BOOL FUN_0202FB80(void);
-extern BOOL FUN_02033678(void);
 extern void FUN_02019178(u32 *param0);
 
 THUMB_FUNC void VBlankHandler()
