@@ -585,7 +585,7 @@ THUMB_FUNC BOOL FUN_0202FB80()
     FUN_020335F4(0);
     FUN_020315A4();
 
-    return 1;
+    return TRUE;
 }
 
 THUMB_FUNC void FUN_0202FC60()
