@@ -1,15 +1,12 @@
 #ifndef POKEDIAMOND_UNK_02031734_H
 #define POKEDIAMOND_UNK_02031734_H
 
-
 #include "global.h"
 #include "MI_memory.h"
+#include "game_init.h"
 #include "heap.h"
 #include "player_data.h"
 #include "unk_0202F150.h"
-#include "game_init.h"
-#include "unk_0202F150.h"
-
 
 struct UnkStruct_02031734_const1
 {
@@ -20,7 +17,6 @@ struct UnkStruct_02031734_const2
 {
     u32 unk00[2];
 };
-
 
 struct UnkStruct_02031734
 {
@@ -57,9 +53,6 @@ struct UnkStruct_02031734
     u8 unk4E;
     u8 unk4F;
 };
-
-
-
 
 THUMB_FUNC void FUN_02031734(struct SaveBlock2 *sav2, u8 param1);
 THUMB_FUNC void FUN_020317C0();
@@ -219,5 +212,4 @@ THUMB_FUNC void FUN_020335F4();
 THUMB_FUNC BOOL FUN_02033678();
 THUMB_FUNC u32 FUN_020336A0(u8 param0);
 
-
-#endif //POKEDIAMOND_UNK_0202F150_H
+#endif // POKEDIAMOND_UNK_0202F150_H

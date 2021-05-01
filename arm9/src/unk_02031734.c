@@ -2,9 +2,13 @@
 
 const struct UnkStruct_02031734_const2 UNK_020EEC48 = { { (u32)FUN_02032B84, 0 } };
 
-const struct UnkStruct_02031734_const1 UNK_020EEC50 = { { (u32)FUN_0203213C, (u32)FUN_02032138, 0 } };
+const struct UnkStruct_02031734_const1 UNK_020EEC50 = {
+    { (u32)FUN_0203213C, (u32)FUN_02032138, 0 }
+};
 
-const struct UnkStruct_02031734_const1 UNK_020EEC5C = { { (u32)FUN_02032234, (u32)FUN_0203234C, 0 } };
+const struct UnkStruct_02031734_const1 UNK_020EEC5C = {
+    { (u32)FUN_02032234, (u32)FUN_0203234C, 0 }
+};
 
 char UNK_02105D5C[] = "FREAK";
 
@@ -2061,7 +2065,8 @@ THUMB_FUNC void FUN_02033288(struct SaveBlock2 *sav2)
     if (UNK_021C5A00 == NULL)
     {
         FUN_02016828(3, 0xf, 0x100);
-        UNK_021C5A00 = (struct UnkStruct_02031734 *)AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
+        UNK_021C5A00 =
+            (struct UnkStruct_02031734 *)AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
         MI_CpuFill8(UNK_021C5A00, 0, sizeof(struct UnkStruct_02031734));
 
         UNK_021C5A00->unk3F = 0x18;
@@ -2089,7 +2094,8 @@ THUMB_FUNC void FUN_02033310(struct SaveBlock2 *sav2)
     if (UNK_021C5A00 == NULL)
     {
         FUN_02016828(3, 0xf, 0x100);
-        UNK_021C5A00 = (struct UnkStruct_02031734 *)AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
+        UNK_021C5A00 =
+            (struct UnkStruct_02031734 *)AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
         MI_CpuFill8(UNK_021C5A00, 0, sizeof(struct UnkStruct_02031734));
         UNK_021C5A00->unk3F = 0x19;
         UNK_021C5A00->unk46 = 1;
