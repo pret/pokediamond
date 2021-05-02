@@ -22,9 +22,7 @@ struct UnkStruct_02031734
 {
     void *unk00;
     u8 unk04[6];
-    s64 unk0C;
-    s64 unk14;
-    s64 unk1C;
+    s64 unk0C[3];
     void (*unk24)();
     struct SaveBlock2 *unk28;
     struct PlayerData *unk2C;
@@ -53,6 +51,15 @@ struct UnkStruct_02031734
     u8 unk4E;
     u8 unk4F;
 };
+
+
+inline u32 compute(s64 *param0, u32 param1)
+{
+    param0[0] = param0[1] * param0[0] + param0[2];
+
+    return (u32)(((s64)((u64)(param0[0]) >> 32) * param1) >> 32);
+}
+
 
 THUMB_FUNC void FUN_02031734(struct SaveBlock2 *sav2, u8 param1);
 THUMB_FUNC void FUN_020317C0();
@@ -87,7 +94,7 @@ THUMB_FUNC void FUN_02031C64();
 THUMB_FUNC void FUN_02031C74(struct SaveBlock2 *sav2, u8 param1);
 THUMB_FUNC void FUN_02031CA8(struct SaveBlock2 *sav2, u8 param1);
 THUMB_FUNC void FUN_02031CDC();
-THUMB_FUNC void FUN_02031D20(void (*param0)(), u16 param1);
+THUMB_FUNC void FUN_02031D20(void (*param0)(), u32 param1);
 THUMB_FUNC void FUN_02031D30();
 THUMB_FUNC void FUN_02031E08();
 THUMB_FUNC void FUN_02031E8C();

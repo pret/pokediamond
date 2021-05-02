@@ -86,7 +86,7 @@ THUMB_FUNC void FUN_02031734(struct SaveBlock2 *sav2, u8 param1)
         UNK_021C5A00->unk48 = 0;
         UNK_021C5A00->unk3F = param1;
 
-        FUN_020312BC(&UNK_021C5A00->unk0C);
+        FUN_020312BC(UNK_021C5A00->unk0C);
         FUN_0202D8D0(0, 0, 0);
 
         if (param1 != 9 && param1 != 0x11 && param1 != 0xf)
@@ -451,10 +451,10 @@ THUMB_FUNC void FUN_02031CDC()
     }
 }
 
-THUMB_FUNC void FUN_02031D20(void (*param0)(), u16 param1)
+THUMB_FUNC void FUN_02031D20(void (*param0)(), u32 param1)
 {
     UNK_021C5A00->unk24 = param0;
-    UNK_021C5A00->unk3A = param1;
+    UNK_021C5A00->unk3A = (u16)param1;
 }
 
 THUMB_FUNC void FUN_02031D30()
@@ -482,44 +482,11 @@ THUMB_FUNC void FUN_02031D30()
             return;
         }
 
-#ifdef NONMATCHING
-        UNK_021C5A00->unk0C = UNK_021C5A00->unk0C * UNK_021C5A00->unk14 + UNK_021C5A00->unk1C;
-        u32 r1 = ((s64)((u64)(UNK_021C5A00->unk0C) >> 32) * 0x14) >> 32;
+        u32 r1 = compute(UNK_021C5A00->unk0C, 0x14);
 
         UNK_021C5A00->unk43 = 0;
         FUN_02031D20(FUN_020320C4, r1 + 0x14);
-#else
-        asm(
-            // clang-format off
-            ldr r0, =UNK_021C5A00
-            ldr r5, [r0, #0x0]
-            add r4, r5, #0x0
-            add r4, #0xc
-            ldr r0, [r4, #0x8]
-            ldr r1, [r4, #0xc]
-            ldr r2, [r5, #0xc]
-            ldr r3, [r4, #0x4]
-            bl _ll_mul
-            ldr r2, [r4, #0x10]
-            ldr r3, [r4, #0x14]
-            add r0, r2, r0
-            adc r3, r1
-            str r0, [r5, #0xc]
-            str r3, [r4, #0x4]
-            add r0, r3, #0x0
-            mov r1, #0x0
-            mov r2, #0x14
-            mov r3, #0x0
-            bl _ll_mul
-            mov r0, #0x0
-            add r5, #0x43
-            strb r0, [r5, #0x0]
-            ldr r0, =FUN_020320C4
-            add r1, #0x14
-            bl FUN_02031D20
-            pop {r3-r5, pc} // clang-format on
-        );
-#endif
+        return;
     }
 
     if (FUN_0202F950(1, 1, 0x1F4) != 0)
@@ -551,50 +518,14 @@ THUMB_FUNC void FUN_02031E08()
         if (FUN_0202F950(0, 1, 0x1F4) != 0)
         {
 
-#ifdef NONMATCHING
-            UNK_021C5A00->unk0C = UNK_021C5A00->unk0C * UNK_021C5A00->unk14 + UNK_021C5A00->unk1C;
-            u32 r1 = ((s64)((u64)(UNK_021C5A00->unk0C) >> 32) * 0x40) >> 32;
+            u32 r1 = compute(UNK_021C5A00->unk0C, 0x40);
 
             if (UNK_021C5A00->unk38 != 0)
             {
-                r1 = UNK_021C5A00->unk38 << 6;
+                r1 = (u32)(UNK_021C5A00->unk38 << 6);
                 UNK_021C5A00->unk38 = 0;
             }
             FUN_02031D20(FUN_02031EE0, r1);
-#else
-            asm(
-                // clang-format off
-                ldr r0, =UNK_021C5A00
-                ldr r5, [r0, #0x0]
-                add r4, r5, #0x0
-                add r4, #0xc
-                ldr r0, [r4, #0x8]
-                ldr r1, [r4, #0xc]
-                ldr r2, [r5, #0xc]
-                ldr r3, [r4, #0x4]
-                bl _ll_mul
-                ldr r2, [r4, #0x10]
-                ldr r3, [r4, #0x14]
-                add r0, r2, r0
-                adc r3, r1
-                str r0, [r5, #0xc]
-                mov r1, #0x0
-                str r3, [r4, #0x4]
-                lsr r0, r3, #0x1a
-                lsl r1, r1, #0x6
-                orr r1, r0
-                ldrh r0, [r5, #0x38]
-                cmp r0, #0x0
-                beq _02031E76
-                lsl r1, r0, #0x6
-                mov r0, #0x0
-                strh r0, [r5, #0x38]
-            _02031E76:
-                ldr r0, =FUN_02031EE0
-                bl FUN_02031D20
-                // clang-format on
-            );
-#endif
         }
     }
 }
@@ -606,39 +537,9 @@ THUMB_FUNC void FUN_02031E8C()
         if (FUN_0202F950(0, 0, 0x1F4) != 0)
         {
 
-#ifdef NONMATCHING
-            UNK_021C5A00->unk0C = UNK_021C5A00->unk0C * UNK_021C5A00->unk14 + UNK_021C5A00->unk1C;
-            u32 r1 = ((s64)((u64)(UNK_021C5A00->unk0C) >> 32) * 0x20) >> 32;
+            u32 r1 = compute(UNK_021C5A00->unk0C, 0x20);
 
             FUN_02031D20(FUN_02031EE0, r1 + 0x10);
-#else
-            asm(
-                // clang-format off
-                ldr r0, =UNK_021C5A00
-                ldr r4, [r0, #0x0]
-                add r5, r4, #0x0
-                add r5, #0xc
-                ldr r0, [r5, #0x8]
-                ldr r1, [r5, #0xc]
-                ldr r2, [r4, #0xc]
-                ldr r3, [r5, #0x4]
-                bl _ll_mul
-                ldr r2, [r5, #0x10]
-                ldr r3, [r5, #0x14]
-                add r0, r2, r0
-                adc r3, r1
-                str r0, [r4, #0xc]
-                mov r1, #0x0
-                lsr r2, r3, #0x1b
-                lsl r1, r1, #0x5
-                orr r1, r2
-                ldr r0, =FUN_02031EE0
-                add r1, #0x10
-                str r3, [r5, #0x4]
-                bl FUN_02031D20
-                // clang-format on
-            );
-#endif
         }
     }
 }
@@ -747,44 +648,10 @@ THUMB_FUNC void FUN_02032058()
         FUN_02031268(1);
         if (FUN_0202F918(0, UNK_021C5A00->unk43, 0x1F4, 1) != 0)
         {
-#ifdef NONMATCHING
-            UNK_021C5A00->unk0C = UNK_021C5A00->unk0C * UNK_021C5A00->unk14 + UNK_021C5A00->unk1C;
-            u32 r1 = ((s64)((u64)(UNK_021C5A00->unk0C) >> 32) * 0x14) >> 32;
+            u32 r1 = compute(UNK_021C5A00->unk0C, 0x14);
 
             UNK_021C5A00->unk43 = 0;
             FUN_02031D20(FUN_020320C4, r1 + 0x14);
-#else
-            asm(
-                // clang-format off
-                ldr r0, =UNK_021C5A00
-                ldr r5, [r0, #0x0]
-                add r4, r5, #0x0
-                add r4, #0xc
-                ldr r0, [r4, #0x8]
-                ldr r1, [r4, #0xc]
-                ldr r2, [r5, #0xc]
-                ldr r3, [r4, #0x4]
-                bl _ll_mul
-                ldr r2, [r4, #0x10]
-                ldr r3, [r4, #0x14]
-                add r0, r2, r0
-                adc r3, r1
-                str r0, [r5, #0xc]
-                str r3, [r4, #0x4]
-                add r0, r3, #0x0
-                mov r1, #0x0
-                mov r2, #0x14
-                mov r3, #0x0
-                bl _ll_mul
-                mov r0, #0x0
-                add r5, #0x43
-                strb r0, [r5, #0x0]
-                ldr r0, =FUN_020320C4
-                add r1, #0x14
-                bl FUN_02031D20
-                // clang-format on
-            );
-#endif
         }
     }
 }
@@ -1092,37 +959,12 @@ THUMB_FUNC void FUN_02032510()
 {
     if (FUN_0202EE0C() != 0 && FUN_0202F918(0, UNK_021C5A00->unk43, 0x200, 1) != 0)
     {
-#ifdef NONMATCHING
-        UNK_021C5A00->unk0C = UNK_021C5A00->unk0C * UNK_021C5A00->unk14 + UNK_021C5A00->unk1C;
+        // the compiler optimizes away the result of this function because it's not used, so any
+        // second parameter value matches
+        compute(UNK_021C5A00->unk0C, 0);
+
         FUN_0202FA10();
         UNK_021C5A00->unk43 = 0;
-#else
-        asm(
-            // clang-format off
-                ldr r0, =UNK_021C5A00
-                ldr r4, [r0, #0x0]
-                add r5, r4, #0x0
-                add r5, #0xc
-                ldr r0, [r5, #0x8]
-                ldr r1, [r5, #0xc]
-                ldr r2, [r4, #0xc]
-                ldr r3, [r5, #0x4]
-                bl _ll_mul
-                ldr r2, [r5, #0x10]
-                ldr r3, [r5, #0x14]
-                add r0, r2, r0
-                adc r3, r1
-                str r0, [r4, #0xc]
-                str r3, [r5, #0x4]
-                bl FUN_0202FA10
-                ldr r0, =UNK_021C5A00
-                mov r1, #0x0
-                ldr r0, [r0, #0x0]
-                add r0, #0x43
-                strb r1, [r0, #0x0]
-            // clang-format on
-        );
-#endif
 
         FUN_02031D20(FUN_02032578, 0x2710);
     }
@@ -1159,38 +1001,9 @@ THUMB_FUNC void FUN_020325D0()
     {
         FUN_0202FA10();
 
-#ifdef NONMATCHING
-        UNK_021C5A00->unk0C = UNK_021C5A00->unk0C * UNK_021C5A00->unk14 + UNK_021C5A00->unk1C;
-        u32 r1 = ((s64)((u64)(UNK_021C5A00->unk0C) >> 32) * 0x20) >> 32;
+        u32 r1 = compute(UNK_021C5A00->unk0C, 0x20);
 
         FUN_02031D20(FUN_020324C8, r1);
-#else
-        asm(
-            // clang-format off
-            ldr r0, =UNK_021C5A00
-            ldr r4, [r0, #0x0]
-            add r5, r4, #0x0
-            add r5, #0xc
-            ldr r0, [r5, #0x8]
-            ldr r1, [r5, #0xc]
-            ldr r2, [r4, #0xc]
-            ldr r3, [r5, #0x4]
-            bl _ll_mul
-            ldr r2, [r5, #0x10]
-            ldr r3, [r5, #0x14]
-            add r0, r2, r0
-            adc r3, r1
-            str r0, [r4, #0xc]
-            mov r1, #0x0
-            ldr r0, =FUN_020324C8
-            lsr r2, r3, #0x1b
-            lsl r1, r1, #0x5
-            orr r1, r2
-            str r3, [r5, #0x4]
-            bl FUN_02031D20
-            // clang-format on
-        );
-#endif
     }
 }
 
