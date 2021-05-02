@@ -1,4 +1,10 @@
+#include "global.h"
 #include "unk_02031734.h"
+#include "MI_memory.h"
+#include "game_init.h"
+#include "heap.h"
+#include "player_data.h"
+#include "unk_0202F150.h"
 
 const struct UnkStruct_02031734_const2 UNK_020EEC48 = { { (u32)FUN_02032B84, 0 } };
 
