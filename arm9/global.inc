@@ -4633,6 +4633,7 @@
 .extern FUN_020600DC
 .extern FUN_02060144
 .extern FUN_0206015C
+.extern FUN_02060194
 .extern FUN_02060344
 .extern FUN_020603B0
 .extern FUN_020603C8
