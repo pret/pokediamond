@@ -1,5 +1,7 @@
 #include "unk_0202F150.h"
 #include "unk_02031480.h"
+#include "unk_02031734.h"
+
 struct
 {
     u8 unk00;
@@ -9,7 +11,6 @@ struct
 vu8 UNK_02105D58 = 4;
 vu8 UNK_02105D59 = 4;
 
-extern int FUN_02033534();
 extern void FUN_0202D7D8(u8 *param0, u32 param1, struct UnkStruct0202F150_sub1 *param2);
 extern u32 FUN_0200CA60(void (*param0)(), u32 param1, u32 param2);
 extern void FUN_0202D394(struct UnkStruct0202F150_sub1 *param0, u8 *param1, u32 param2);
@@ -25,10 +26,8 @@ extern void FUN_0202D824(u8 *param0);
 extern u32 FUN_0202E9E8(u32 param0);
 extern u32 FUN_0202F03C();
 extern u32 FUN_0202EE24();
-extern void FUN_02031CDC();
 extern void FUN_0202EBD0(u16 param0);
 extern void FUN_0202ED70(u32 param0);
-extern void FUN_020335F4(u32 param0);
 extern void FUN_0202E538();
 extern u32 MOD04_021D78FC(void *param0, u32 param1);
 extern u32 FUN_0202CBD4();
@@ -52,7 +51,6 @@ extern void *FUN_0202DA40(u32 param0, u32 param1, u16 param2);
 extern u32 MOD04_021D8018();
 extern u32 FUN_0202EDF8();
 extern u16 FUN_0202D19C();
-extern void FUN_020334E8(u32 param0, u32 param1);
 extern u32 FUN_0202EE60();
 extern void FUN_0202F05C();
 extern void GF_RTC_CopyDateTime(RTCDate *, RTCTime *);
@@ -537,7 +535,7 @@ THUMB_FUNC void FUN_0202FB58()
     }
 }
 
-THUMB_FUNC u32 FUN_0202FB80()
+THUMB_FUNC BOOL FUN_0202FB80()
 {
     FUN_02031CDC();
 
@@ -587,7 +585,7 @@ THUMB_FUNC u32 FUN_0202FB80()
     FUN_020335F4(0);
     FUN_020315A4();
 
-    return 1;
+    return TRUE;
 }
 
 THUMB_FUNC void FUN_0202FC60()
@@ -2021,9 +2019,9 @@ THUMB_FUNC u32 FUN_02030E7C(u16 param0)
     return 0;
 }
 
-THUMB_FUNC u32 FUN_02030F20()
+THUMB_FUNC s32 FUN_02030F20()
 {
-    u32 r4 = 0;
+    s32 r4 = 0;
     for (int i = 0; i < 8; i++)
     {
         if (FUN_02030E7C((u16)i) != 0)

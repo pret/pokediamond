@@ -12,6 +12,10 @@
 #include "player_data.h"
 #include "sound.h"
 #include "timer3.h"
+#include "unk_02031734.h"
+#include "unk_0202F150.h"
+
+
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
@@ -23,9 +27,6 @@ struct Unk2106FA0 gBacklightTop;
 extern BOOL OverlayManager_new(struct Unk21DBE18 *, s32 *, int);
 extern BOOL OverlayManager_Run(int);
 extern void OverlayManager_delete(int);
-extern BOOL FUN_02033678(void);
-extern u32 FUN_020335B8(void);
-extern BOOL FUN_0202FB80(void);
 
 extern void InitSystemForTheGame(void);
 extern void InitGraphicMemory(void);
@@ -218,7 +219,6 @@ THUMB_FUNC void FUN_02000EE8(void)
 }
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
-extern BOOL FUN_02032DAC(void);
 
 // No Return
 THUMB_FUNC void DoSoftReset(u32 parameter)
