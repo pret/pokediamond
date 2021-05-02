@@ -2102,7 +2102,7 @@ THUMB_FUNC u8 FUN_020335B8()
 THUMB_FUNC void FUN_020335D0(s32 param0)
 {
     FUN_02033F70(0, 1, param0);
-    while (1)
+    while (TRUE)
     {
     }
 }
@@ -2110,7 +2110,7 @@ THUMB_FUNC void FUN_020335D0(s32 param0)
 THUMB_FUNC void FUN_020335E0()
 {
     FUN_02033F70(0, 4, 0);
-    while (1)
+    while (TRUE)
     {
     }
 }
