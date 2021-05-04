@@ -492,23 +492,23 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203D738
     .word FUN_0203D774
     .word FUN_0203D834
-    .word FUN_020453F4
-    .word FUN_02045424
-    .word FUN_02045438
-    .word FUN_02045468
-    .word FUN_02045484
-    .word FUN_020454CC
-    .word FUN_0204552C
-    .word FUN_02045500
-    .word FUN_0204557C
-    .word FUN_02045590
-    .word FUN_020455BC
-    .word FUN_020455D0
-    .word FUN_020455E4
-    .word FUN_02045610
-    .word FUN_02045624
-    .word FUN_02045638
-    .word FUN_02045664
+    .word ScrCmd_HasSinnohDex
+    .word ScrCmd_GiveSinnohDex
+    .word ScrCmd_Unk0159
+    .word ScrCmd_Unk015A
+    .word ScrCmd_HasBadge
+    .word ScrCmd_GiveBadge
+    .word ScrCmd_GetTotalEarnedBadges
+    .word ScrCmd_Unk015E
+    .word ScrCmd_Unk015F
+    .word ScrCmd_Unk0160
+    .word ScrCmd_Unk0161
+    .word ScrCmd_Unk0162
+    .word ScrCmd_Unk0163
+    .word ScrCmd_Unk0164
+    .word ScrCmd_Unk0165
+    .word ScrCmd_Unk0166
+    .word ScrCmd_Unk0167
     .word FUN_0203DC00
     .word FUN_0203DC58
     .word FUN_0203DC70
@@ -612,9 +612,9 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203E138
     .word FUN_0203E168
     .word FUN_0203E254
-    .word FUN_02045678
-    .word FUN_020456D4
-    .word FUN_0204572C
+    .word ScrCmd_Unk01CF
+    .word ScrCmd_Unk01D0
+    .word ScrCmd_Unk01D1
     .word FUN_0203E258
     .word FUN_0203E29C
     .word FUN_0203E2F8
