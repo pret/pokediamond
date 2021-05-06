@@ -24,7 +24,7 @@ jobs:
           wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
           sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
           sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main"
-          sudo apt -y --allow-downgrades install --install-recommends winehq-stable
+          sudo apt -y --allow-downgrades install --install-recommends wine-stable winehq-stable
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Setup Repo
@@ -43,7 +43,7 @@ jobs:
       - name: Build Diamond
         run: make diamond
       - name: Build Pearl
-        run: make pearl        
+        run: make pearl
       - name: Webhook
         run: |
           sudo chmod 755 $GITHUB_WORKSPACE/.github/calcrom/webhook.sh
