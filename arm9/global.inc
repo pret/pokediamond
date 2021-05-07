@@ -3238,7 +3238,7 @@
 .extern FUN_02041B9C
 .extern FUN_02041BC4
 .extern FUN_02041BF0
-.extern FUN_02041C38
+.extern ScrCmd_Unk021D
 .extern FUN_02041E40
 .extern FUN_02041FDC
 .extern FUN_02042000

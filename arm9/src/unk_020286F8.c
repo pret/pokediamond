@@ -75,9 +75,9 @@ void FUN_020287C0(struct UnkSaveStruct_020286F8 * ptr, u32 i, u32 j, struct Stri
         CopyStringToU16Array(k, ptr[i].unk_10, 8);
 }
 
-void FUN_020287EC(struct UnkSaveStruct_020286F8 * ptr, u32 i, u8 j)
+void FUN_020287EC(struct UnkSaveStruct_020286F8 * ptr, u32 i, u32 j)
 {
-    ptr[i].unk_20 = j;
+    ptr[i].unk_20 = (u8)j;
 }
 
 u8 FUN_020287F8(struct UnkSaveStruct_020286F8 * ptr, u32 i)
@@ -90,10 +90,9 @@ u8 FUN_02028804(struct UnkSaveStruct_020286F8 * ptr, u32 i)
     return ptr[i].unk_21;
 }
 
-
-void FUN_02028810(struct UnkSaveStruct_020286F8 * ptr, u32 i, u8 j)
+void FUN_02028810(struct UnkSaveStruct_020286F8 * ptr, u32 i, u32 j)
 {
-    ptr[i].unk_21 = j;
+    ptr[i].unk_21 = (u8)j;
 }
 
 struct UnkSaveStruct_020286F8 * FUN_0202881C(struct SaveBlock2 * sav2)
