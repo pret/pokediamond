@@ -150,6 +150,9 @@ BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx);
 BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx);
 BOOL ScrCmd_CapitalizeFirstChar(struct ScriptContext* ctx);
 
+//scrcmd_8.c
+BOOL ScrCmd_Unk021D(struct ScriptContext* ctx);
+
 //scrcmd_11.c
 BOOL ScrCmd_Unk017D(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk017E(struct ScriptContext* ctx);
