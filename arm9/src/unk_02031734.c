@@ -5,6 +5,8 @@
 #include "heap.h"
 #include "player_data.h"
 #include "unk_0202F150.h"
+#include "unk_0202E29C.h"
+
 
 const struct UnkStruct_02031734_const2 UNK_020EEC48 = { { (u32)FUN_02032B84, 0 } };
 
@@ -24,33 +26,19 @@ char UNK_02105D64[] = " FULL";
 
 struct UnkStruct_02031734 *UNK_021C5A00;
 
-extern void FUN_0202E49C();
 extern void FUN_0202D8D0(u32 param0, u32 param1, u32 param2);
 extern void FUN_02033E74();
 extern void FUN_0202D918();
 extern void FUN_02033ED0();
-extern void FUN_0202E4F0();
 extern void FUN_0202D298();
 extern void FUN_0202D344(u32 param0);
 extern void FUN_0202D1B0(u8 param0);
 extern void FUN_0202D36C(u32 param0);
 extern u32 MOD04_021DDB08();
 extern void FUN_02033EEC(u32 param0);
-extern u32 FUN_0202EDF8();
 extern u32 WM_GetLinkLevel();
-extern u32 FUN_0202E4C8();
-extern void FUN_0202E29C(struct PlayerData *player_data);
 extern void FUN_0202DB14(struct SaveBlock2 *sav2, u32 param1);
 extern s64 _ll_mul(s64, s64);
-extern u32 FUN_0202EE0C();
-extern void FUN_0202EA54();
-extern s32 FUN_0202E8F4();
-extern s32 FUN_0202E950();
-extern u32 FUN_0202E8A0(u8 param0);
-extern u32 FUN_0202E6F0();
-extern void FUN_0202EE84(u8 param0);
-extern void FUN_0202E7B0(u32 param0);
-extern u32 FUN_0202F104();
 extern void FUN_0202DBE0();
 extern void FUN_0202DDE8();
 extern void FUN_0202D308(void (*param0)(u32, u32));
@@ -58,7 +46,7 @@ extern void MOD04_021D83C0();
 extern s32 MOD04_021D7F8C();
 extern s32 MOD04_021D7800(u32 param0);
 extern u32 MOD04_021D8494(s32 param0);
-extern void MOD04_021D77C4(void (*param0)(u32, u8 *, u16), void (*param1)(u32, void *, u32));
+extern void MOD04_021D77C4(void (*param0)(u32, u8 *, u32), void (*param1)(u32, u8 *, u32));
 extern u32 MOD04_021D82BC(u8 param0);
 extern void MOD04_021D836C();
 extern u32 MOD04_021DD718(u32 *param0, u32 *param1);
@@ -66,11 +54,8 @@ extern void MOD04_021DD6F0();
 extern s32 MOD04_021D76AC();
 extern MOD05_021D74E0(struct SaveBlock2 *sav2, u32 param1);
 extern void MOD04_021D83A8(void (*param0)(s32));
-extern void FUN_0202EEB0(u8 param0);
 extern void FUN_02033F70(int, int, int);
 extern void FUN_0200541C();
-extern u32 FUN_0202EDD8();
-extern u32 FUN_0202E344();
 
 THUMB_FUNC void FUN_02031734(struct SaveBlock2 *sav2, u8 param1)
 {
@@ -451,7 +436,7 @@ THUMB_FUNC void FUN_02031CDC()
         return;
     }
 
-    if (FUN_0202EDF8() != 0)
+    if (FUN_0202EDF8())
     {
         FUN_02033EEC(3 - WM_GetLinkLevel());
     }
@@ -471,7 +456,7 @@ THUMB_FUNC void FUN_02031D30()
         return;
     }
 
-    if (FUN_0202E4C8() == 0)
+    if (!FUN_0202E4C8())
     {
         return;
     }
@@ -726,7 +711,7 @@ THUMB_FUNC void FUN_02032178()
 
 THUMB_FUNC void FUN_02032194()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_0202E7B0(0);
         FUN_0202FC60();
@@ -744,7 +729,7 @@ THUMB_FUNC void FUN_020321B8()
 
 THUMB_FUNC void FUN_020321D0()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_0202E29C(UNK_021C5A00->unk2C);
         FUN_0202DB14(UNK_021C5A00->unk28, UNK_021C5A00->unk30);
@@ -774,7 +759,7 @@ THUMB_FUNC void FUN_02032234()
 
 THUMB_FUNC void FUN_0203224C()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_0202E29C(UNK_021C5A00->unk2C);
         FUN_0202DB14(UNK_021C5A00->unk28, UNK_021C5A00->unk30);
@@ -925,7 +910,7 @@ THUMB_FUNC void FUN_02032440()
 
 THUMB_FUNC void FUN_02032478()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_0202E29C(UNK_021C5A00->unk2C);
         FUN_0202D1B0(UNK_021C5A00->unk3C);
@@ -978,7 +963,7 @@ THUMB_FUNC void FUN_02032510()
 
 THUMB_FUNC void FUN_02032578()
 {
-    if (FUN_0202F104() == 0)
+    if (!FUN_0202F104())
     {
         if (FUN_020311E8() != 0)
         {
@@ -1394,7 +1379,7 @@ THUMB_FUNC void FUN_02032B84()
 
 THUMB_FUNC void FUN_02032B8C()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_0202E29C(UNK_021C5A00->unk2C);
         FUN_0202DB14(UNK_021C5A00->unk28, 0);
@@ -1479,7 +1464,7 @@ THUMB_FUNC void FUN_02032C6C(u32 param0, u32 param1)
 
 THUMB_FUNC void FUN_02032CF4()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_0202E29C(UNK_021C5A00->unk2C);
         FUN_0202DB14(UNK_021C5A00->unk28, 0);
@@ -1545,7 +1530,7 @@ THUMB_FUNC BOOL FUN_02032DAC()
 
 THUMB_FUNC void FUN_02032E00()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_0202E29C(UNK_021C5A00->unk2C);
         FUN_0202DB14(UNK_021C5A00->unk28, 0);
@@ -1559,7 +1544,7 @@ THUMB_FUNC void FUN_02032E00()
 
 THUMB_FUNC void FUN_02032E48()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_0202E29C(UNK_021C5A00->unk2C);
         FUN_0202DB14(UNK_021C5A00->unk28, 0);
@@ -1981,7 +1966,7 @@ THUMB_FUNC void FUN_020333F0()
 
 THUMB_FUNC void FUN_0203341C()
 {
-    if (FUN_0202E4C8() != 0)
+    if (FUN_0202E4C8())
     {
         FUN_02016828(3, 0x31, 0x31000);
         if (FUN_0202F918(1, 1, 0x200, 1) != 0)
@@ -2164,12 +2149,12 @@ THUMB_FUNC void FUN_020335F4()
 
 THUMB_FUNC BOOL FUN_02033678()
 {
-    if (FUN_0202EDD8() != 0 || !FUN_02031810())
+    if (FUN_0202EDD8() || !FUN_02031810())
     {
         return TRUE;
     }
 
-    if (FUN_0202E344() == 0)
+    if (!FUN_0202E344())
     {
         return TRUE;
     }
