@@ -37,7 +37,9 @@ struct UnkSavStruct80
     u32 unk60;
     u8 padding5[0x14];
     u32 unk78;
-    u8 padding6[0x2C];
+    u8 padding6[0x1C];
+    void *unk98;
+    u8 padding7[0xC];
     struct UnkStruct_02046444 * unkA8;
 };
 

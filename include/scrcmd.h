@@ -150,6 +150,9 @@ BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx);
 BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx);
 BOOL ScrCmd_CapitalizeFirstChar(struct ScriptContext* ctx);
 
+//scrcmd_8.c
+BOOL ScrCmd_Unk021D(struct ScriptContext* ctx);
+
 //scrcmd_11.c
 BOOL ScrCmd_Unk017D(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk017E(struct ScriptContext* ctx);
@@ -219,6 +222,28 @@ BOOL ScrCmd_Unk01F3(struct ScriptContext* ctx);
 
 //scrcmd_20.c
 BOOL ScrCmd_Unk02A6(struct ScriptContext* ctx);
+
+//scrcmd_flags.c
+BOOL ScrCmd_HasSinnohDex(struct ScriptContext* ctx);
+BOOL ScrCmd_GiveSinnohDex(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0159(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk015A(struct ScriptContext* ctx);
+BOOL ScrCmd_HasBadge(struct ScriptContext* ctx);
+BOOL ScrCmd_GiveBadge(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk015E(struct ScriptContext* ctx);
+BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk015F(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0160(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0161(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0162(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0163(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0164(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0165(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0166(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0167(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01CF(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01D0(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01D1(struct ScriptContext* ctx);
 
 //scrcmd_items.c
 BOOL ScrCmd_GiveItem(struct ScriptContext* ctx);
