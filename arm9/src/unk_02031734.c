@@ -58,7 +58,7 @@ extern void MOD04_021D83C0();
 extern s32 MOD04_021D7F8C();
 extern s32 MOD04_021D7800(u32 param0);
 extern u32 MOD04_021D8494(s32 param0);
-extern void MOD04_021D77C4(void (*param0)(u32, u8 *, u16), void (*param1)(u32, void *, u32));
+extern void MOD04_021D77C4(void (*param0)(u32, u8 *, u32), void (*param1)(u32, u8 *, u32));
 extern u32 MOD04_021D82BC(u8 param0);
 extern void MOD04_021D836C();
 extern u32 MOD04_021DD718(u32 *param0, u32 *param1);

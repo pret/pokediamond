@@ -1044,7 +1044,7 @@ THUMB_FUNC void FUN_02030074()
     }
 }
 
-THUMB_FUNC void FUN_02030238(u32 param0, void *param1, u32 param2)
+THUMB_FUNC void FUN_02030238(u32 param0, u8 *param1, u32 param2)
 {
     if (UNK_021C59F4.unk04->unk66F[0] != 0)
     {
@@ -1143,7 +1143,7 @@ THUMB_FUNC void FUN_0203026C(u32 param0, u8 *param1, u32 param2)
     FUN_0202D3A4(&UNK_021C59F4.unk04->unk470, param1 + 4, param1[3], 0x5FF);
 }
 
-THUMB_FUNC void FUN_020303BC(u32 param0, u8 *param1, u16 param2)
+THUMB_FUNC void FUN_020303BC(u32 param0, u8 *param1, u32 param2)
 {
     if (UNK_021C59F4.unk04->unk66F[param0] != 0)
     {
@@ -1156,7 +1156,7 @@ THUMB_FUNC void FUN_020303BC(u32 param0, u8 *param1, u16 param2)
     FUN_020303F4(param0, param1, param2);
 }
 
-THUMB_FUNC void FUN_020303F4(u32 param0, u8 *param1, u16 param2)
+THUMB_FUNC void FUN_020303F4(u32 param0, u8 *param1, u32 param2)
 {
 #pragma unused(param2)
     UNK_021C59F4.unk04->unk638[param0]--;
