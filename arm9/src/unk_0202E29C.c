@@ -10,18 +10,18 @@
 #include "unk_0202F150.h"
 #include "unk_02031734.h"
 
-struct UnkStruct_const
+struct UnkStruct_0202E29C_const
 {
     u8 unk0[6];
 };
 
-const struct UnkStruct_const UNK_020EEC40 = { { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF } };
+const struct UnkStruct_0202E29C_const UNK_020EEC40 = { { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF } };
 
 struct
 {
     u16 unk0;
     u32 unk4;
-    struct UnkStruct2 *unk8;
+    struct UnkStruct_0202E29C *unk8;
 
 } UNK_021C59E8;
 
@@ -35,7 +35,7 @@ extern void FUN_0202D2F4();
 extern void FUN_0202D0A0(void (*param0)(u32, u8 *, u32), u32 param1);
 extern u32 FUN_0202CBD4();
 extern u32 FUN_0202CBFC();
-extern u32 FUN_0202C570(void (*param0)(struct UnkStruct2_sub *, u32), u8 *param1, u32 param2);
+extern u32 FUN_0202C570(void (*param0)(struct UnkStruct_0202E29C_sub *, u32), u8 *param1, u32 param2);
 extern u32 FUN_0202D21C();
 extern void FUN_0202C770();
 extern u32 FUN_0202D1E4();
@@ -43,7 +43,7 @@ extern void FUN_0202D100();
 extern u32 FUN_0202D1C8();
 extern u32 FUN_0202D200();
 extern void FUN_0202C4D8(u32 param0, u8 *param1, u32 param2);
-extern void FUN_0202D034(u32 param0, struct UnkStruct2_sub *param1);
+extern void FUN_0202D034(u32 param0, struct UnkStruct_0202E29C_sub *param1);
 extern u32 FUN_0202D358();
 extern void FUN_0202CB7C(void *param0, u32 param1);
 extern void FUN_0202D240(void *param0, u32 size, u32 param2, u32 param3);
@@ -61,8 +61,8 @@ THUMB_FUNC void FUN_0202E29C(struct PlayerData *player_data)
 {
     if (UNK_021C59E8.unk8 == NULL)
     {
-        UNK_021C59E8.unk8 = AllocFromHeap(0xf, sizeof(struct UnkStruct2));
-        MI_CpuFill8(UNK_021C59E8.unk8, 0, sizeof(struct UnkStruct2));
+        UNK_021C59E8.unk8 = AllocFromHeap(0xf, sizeof(struct UnkStruct_0202E29C));
+        MI_CpuFill8(UNK_021C59E8.unk8, 0, sizeof(struct UnkStruct_0202E29C));
 
         UNK_021C59E8.unk8->unkCA4 = AllocFromHeap(0xf, FUN_0202CEEC());
         MI_CpuFill8(UNK_021C59E8.unk8->unkCA4, 0, FUN_0202CEEC());
@@ -106,12 +106,12 @@ THUMB_FUNC BOOL FUN_0202E358(u8 *param0, u8 *param1, s32 param2)
     return TRUE;
 }
 
-THUMB_FUNC void FUN_0202E380(struct UnkStruct2_sub *param0, u32 param1)
+THUMB_FUNC void FUN_0202E380(struct UnkStruct_0202E29C_sub *param0, u32 param1)
 {
 #pragma unused(param1)
     s32 r5 = FUN_02033534();
     u8 r6 = FUN_0203354C();
-    struct UnkStruct2_sub4 *r4 = &param0->unk50;
+    struct UnkStruct_0202E29C_sub4 *r4 = &param0->unk50;
 
     if (r5 != 0xe)
     {
@@ -154,7 +154,7 @@ THUMB_FUNC void FUN_0202E380(struct UnkStruct2_sub *param0, u32 param1)
 
         UNK_021C59E8.unk8->unkC84[i] = 0x96;
 
-        MI_CpuCopy8(param0, &UNK_021C59E8.unk8->unk054[i], sizeof(struct UnkStruct2_sub));
+        MI_CpuCopy8(param0, &UNK_021C59E8.unk8->unk054[i], sizeof(struct UnkStruct_0202E29C_sub));
         return;
     }
 
@@ -170,7 +170,7 @@ THUMB_FUNC void FUN_0202E380(struct UnkStruct2_sub *param0, u32 param1)
     if (i < 0x10)
     {
         UNK_021C59E8.unk8->unkC84[i] = 0x96;
-        MI_CpuCopy8(param0, &UNK_021C59E8.unk8->unk054[i], sizeof(struct UnkStruct2_sub));
+        MI_CpuCopy8(param0, &UNK_021C59E8.unk8->unk054[i], sizeof(struct UnkStruct_0202E29C_sub));
         UNK_021C59E8.unk8->unkCB4 = 1;
     }
 }
@@ -308,7 +308,7 @@ THUMB_FUNC u32 FUN_0202E66C(u32 param0, u32 param1)
 
     if (FUN_0202CBD4() == 1)
     {
-        struct UnkStruct_const st0 = UNK_020EEC40;
+        struct UnkStruct_0202E29C_const st0 = UNK_020EEC40;
 
         if (FUN_0202C570(FUN_0202E380, st0.unk0, 0) != 0)
         {
@@ -608,7 +608,7 @@ THUMB_FUNC void FUN_0202EA9C()
 
     if (res != 0xf)
     {
-        struct UnkStruct2_sub2 *res = &UNK_021C59E8.unk8->unkCC4;
+        struct UnkStruct_0202E29C_sub2 *res = &UNK_021C59E8.unk8->unkCC4;
         GF_ASSERT((s32)FUN_02023AC4() <= 0x20);
         GF_ASSERT(PlayerProfile_sizeof() == 0x20);
 
@@ -625,29 +625,29 @@ THUMB_FUNC void FUN_0202EA9C()
     }
     else
     {
-        struct UnkStruct2_sub2 *res = &UNK_021C59E8.unk8->unkCC4;
+        struct UnkStruct_0202E29C_sub2 *res = &UNK_021C59E8.unk8->unkCC4;
         res->unk00 = PlayerProfile_GetTrainerID(player_data);
         res->unk04 = (u8)FUN_02033534();
         res->unk05 = FUN_0203354C();
 
-        MI_CpuCopy8(&UNK_021C59E8.unk8->unk000, &res->unk08, sizeof(struct UnkStruct2_sub3));
+        MI_CpuCopy8(&UNK_021C59E8.unk8->unk000, &res->unk08, sizeof(struct UnkStruct_0202E29C_sub3));
     }
 
-    DC_FlushRange(&UNK_021C59E8.unk8->unkCC4, sizeof(struct UnkStruct2_sub2));
-    FUN_0202CB7C(&UNK_021C59E8.unk8->unkCC4, sizeof(struct UnkStruct2_sub2));
+    DC_FlushRange(&UNK_021C59E8.unk8->unkCC4, sizeof(struct UnkStruct_0202E29C_sub2));
+    FUN_0202CB7C(&UNK_021C59E8.unk8->unkCC4, sizeof(struct UnkStruct_0202E29C_sub2));
 }
 
 THUMB_FUNC void FUN_0202EB7C()
 {
-    struct UnkStruct2_sub2 *r4 = &UNK_021C59E8.unk8->unkCC4;
+    struct UnkStruct_0202E29C_sub2 *r4 = &UNK_021C59E8.unk8->unkCC4;
     if (r4->unk06 != FUN_0202EDB8())
     {
         r4->unk06 = (u8)FUN_0202EDB8();
-        DC_FlushRange(&UNK_021C59E8.unk8->unkCC4, sizeof(struct UnkStruct2_sub2));
-        FUN_0202CB7C(&UNK_021C59E8.unk8->unkCC4, sizeof(struct UnkStruct2_sub2));
+        DC_FlushRange(&UNK_021C59E8.unk8->unkCC4, sizeof(struct UnkStruct_0202E29C_sub2));
+        FUN_0202CB7C(&UNK_021C59E8.unk8->unkCC4, sizeof(struct UnkStruct_0202E29C_sub2));
 
         FUN_0202D240(&UNK_021C59E8.unk8->unkCC4,
-            sizeof(struct UnkStruct2_sub2),
+            sizeof(struct UnkStruct_0202E29C_sub2),
             UNK_021C59E8.unk8->unkCC0,
             UNK_021C59E8.unk0);
     }
@@ -894,7 +894,7 @@ THUMB_FUNC u32 FUN_0202EEE8(u16 param0)
     return r4;
 }
 
-THUMB_FUNC struct UnkStruct2_sub *FUN_0202EF18(u32 param0)
+THUMB_FUNC struct UnkStruct_0202E29C_sub *FUN_0202EF18(u32 param0)
 {
     if (UNK_021C59E8.unk8 != NULL)
     {
@@ -907,7 +907,7 @@ THUMB_FUNC struct UnkStruct2_sub *FUN_0202EF18(u32 param0)
     return NULL;
 }
 
-THUMB_FUNC struct UnkStruct2_sub4 *FUN_0202EF44(s32 param0)
+THUMB_FUNC struct UnkStruct_0202E29C_sub4 *FUN_0202EF44(s32 param0)
 {
     if (UNK_021C59E8.unk8 != NULL)
     {
@@ -932,7 +932,7 @@ THUMB_FUNC struct PlayerData *FUN_0202EF84(int param0)
         return NULL;
     }
 
-    struct UnkStruct2_sub4 *r0 = &UNK_021C59E8.unk8->unk054[param0].unk50;
+    struct UnkStruct_0202E29C_sub4 *r0 = &UNK_021C59E8.unk8->unk054[param0].unk50;
 
     return &r0->unk10;
 }
@@ -1066,7 +1066,7 @@ THUMB_FUNC void FUN_0202F0B8()
 {
     FUN_0202EA9C();
     FUN_0202D240(&UNK_021C59E8.unk8->unkCC4,
-        sizeof(struct UnkStruct2_sub2),
+        sizeof(struct UnkStruct_0202E29C_sub2),
         UNK_021C59E8.unk8->unkCC0,
         UNK_021C59E8.unk0);
 }
@@ -1077,7 +1077,7 @@ THUMB_FUNC u32 FUN_0202F0DC(u8 param0)
     u32 r5 = 0;
     for (i = 0; i < 0x10; i++)
     {
-        struct UnkStruct2_sub4 *res = FUN_0202EF44(i);
+        struct UnkStruct_0202E29C_sub4 *res = FUN_0202EF44(i);
         if (res != 0 && res->unk04 == param0)
         {
             r5 += res->unk06;
@@ -1092,9 +1092,9 @@ THUMB_FUNC BOOL FUN_0202F104()
     return FUN_0202D2D0();
 }
 
-THUMB_FUNC void FUN_0202F10C(struct UnkStruct2_sub3 *param0)
+THUMB_FUNC void FUN_0202F10C(struct UnkStruct_0202E29C_sub3 *param0)
 {
-    MI_CpuCopy8(param0, &UNK_021C59E8.unk8->unk000, sizeof(struct UnkStruct2_sub3));
+    MI_CpuCopy8(param0, &UNK_021C59E8.unk8->unk000, sizeof(struct UnkStruct_0202E29C_sub3));
     FUN_0202F0B8();
 }
 
@@ -1102,7 +1102,7 @@ THUMB_FUNC u8 *FUN_0202F124(u32 param0)
 {
     if (UNK_021C59E8.unk8 != NULL && UNK_021C59E8.unk8->unkC84[param0] != 0)
     {
-        struct UnkStruct2_sub4 *r0 = &UNK_021C59E8.unk8->unk054[param0].unk50;
+        struct UnkStruct_0202E29C_sub4 *r0 = &UNK_021C59E8.unk8->unk054[param0].unk50;
         return r0->unk08;
     }
 

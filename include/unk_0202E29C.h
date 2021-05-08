@@ -5,7 +5,7 @@
 #include "mail_message.h"
 #include "player_data.h"
 
-struct UnkStruct2_sub4
+struct UnkStruct_0202E29C_sub4
 {
     u32 unk00;
     u8 unk04;
@@ -17,17 +17,17 @@ struct UnkStruct2_sub4
     u8 unk30[0x40];
 };
 
-struct UnkStruct2_sub
+struct UnkStruct_0202E29C_sub
 {
     u32 unk00;
     u8 unk04[6];
     u8 unk0A[0x2C];
     u16 unk36;
     u8 unk38[0x18];
-    struct UnkStruct2_sub4 unk50;
+    struct UnkStruct_0202E29C_sub4 unk50;
 };
 
-struct UnkStruct2_sub3
+struct UnkStruct_0202E29C_sub3
 {
     struct MailMessage unk00;
     struct PlayerData unk08;
@@ -37,19 +37,19 @@ struct UnkStruct2_sub3
     u8 unk4D[7];
 };
 
-struct UnkStruct2_sub2
+struct UnkStruct_0202E29C_sub2
 {
     u32 unk00;
     u8 unk04;
     u8 unk05;
     u8 unk06;
-    struct UnkStruct2_sub3 unk08;
+    struct UnkStruct_0202E29C_sub3 unk08;
 };
 
-struct UnkStruct2
+struct UnkStruct_0202E29C
 {
-    struct UnkStruct2_sub3 unk000;
-    struct UnkStruct2_sub unk054[16];
+    struct UnkStruct_0202E29C_sub3 unk000;
+    struct UnkStruct_0202E29C_sub unk054[16];
     u8 unkC54[8][6];
     u16 unkC84[16];
     void *unkCA4;
@@ -59,7 +59,7 @@ struct UnkStruct2
     struct PlayerData *unkCB8;
     void *unkCBC;
     u32 unkCC0;
-    struct UnkStruct2_sub2 unkCC4;
+    struct UnkStruct_0202E29C_sub2 unkCC4;
     u8 unkD20[0x84];
     u16 unkDA4;
     u16 unkDA6;
@@ -75,7 +75,7 @@ struct UnkStruct2
 void FUN_0202E29C(struct PlayerData *player_data);
 BOOL FUN_0202E344();
 BOOL FUN_0202E358(u8 *param0, u8 *param1, s32 param2);
-void FUN_0202E380(struct UnkStruct2_sub *param0, u32 param1);
+void FUN_0202E380(struct UnkStruct_0202E29C_sub *param0, u32 param1);
 void FUN_0202E470(u32 param0, u32 param1);
 void FUN_0202E488();
 void FUN_0202E49C();
@@ -118,8 +118,8 @@ BOOL FUN_0202EE60();
 void FUN_0202EE84(u32 param0);
 void FUN_0202EEB0(u32 param0);
 u32 FUN_0202EEE8(u16 param0);
-struct UnkStruct2_sub *FUN_0202EF18(u32 param0);
-struct UnkStruct2_sub4 *FUN_0202EF44(s32 param0);
+struct UnkStruct_0202E29C_sub *FUN_0202EF18(u32 param0);
+struct UnkStruct_0202E29C_sub4 *FUN_0202EF44(s32 param0);
 struct PlayerData *FUN_0202EF70();
 struct PlayerData *FUN_0202EF84(int param0);
 void FUN_0202EFAC(u8 *param0, s32 param1);
@@ -131,7 +131,7 @@ void FUN_0202F094(void *param0);
 void FUN_0202F0B8();
 u32 FUN_0202F0DC(u8 param0);
 BOOL FUN_0202F104();
-void FUN_0202F10C(struct UnkStruct2_sub3 *param0);
+void FUN_0202F10C(struct UnkStruct_0202E29C_sub3 *param0);
 u8 *FUN_0202F124(u32 param0);
 
 #endif // POKEDIAMOND_UNK_0202E29C_H
