@@ -5,7 +5,8 @@
 #include "mail_message.h"
 #include "player_data.h"
 
-struct UnkStruct2_sub4 {
+struct UnkStruct2_sub4
+{
     u32 unk00;
     u8 unk04;
     u8 unk05;
@@ -70,7 +71,6 @@ struct UnkStruct2
     u8 unkDAD;
     u8 unkDAE[0x2];
 };
-
 
 void FUN_0202E29C(struct PlayerData *player_data);
 BOOL FUN_0202E344();

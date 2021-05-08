@@ -1,6 +1,8 @@
 #include "unk_0202F150.h"
 #include "unk_02031480.h"
 #include "unk_02031734.h"
+#include "unk_0202E29C.h"
+
 
 struct
 {
@@ -15,20 +17,11 @@ extern void FUN_0202D7D8(u8 *param0, u32 param1, struct UnkStruct0202F150_sub1 *
 extern u32 FUN_0200CA60(void (*param0)(), u32 param1, u32 param2);
 extern void FUN_0202D394(struct UnkStruct0202F150_sub1 *param0, u8 *param1, u32 param2);
 extern void FUN_0202D804(u8 *param0);
-extern u32 FUN_0202E5F8(u32 param0, u32 param1, u32 param2);
 extern void FUN_0202D330(void (*param0)(int));
-extern u32 FUN_0202E66C(u32 param0, u32 param1);
 extern void MOD04_021D83C0();
-extern u32 FUN_0202E784();
 extern void FUN_0202DBA4();
 extern void FUN_0200CAB4(u32 param0);
 extern void FUN_0202D824(u8 *param0);
-extern u32 FUN_0202E9E8(u32 param0);
-extern u32 FUN_0202F03C();
-extern u32 FUN_0202EE24();
-extern void FUN_0202EBD0(u16 param0);
-extern void FUN_0202ED70(u32 param0);
-extern void FUN_0202E538();
 extern u32 MOD04_021D78FC(void *param0, u32 param1);
 extern u32 FUN_0202CBD4();
 extern void FUN_0202D4BC(void *param0);
@@ -49,10 +42,7 @@ extern s16 FUN_0202D9A0(u32 param0);
 extern u32 FUN_0202DA04(u32 param0);
 extern void *FUN_0202DA40(u32 param0, u32 param1, u16 param2);
 extern u32 MOD04_021D8018();
-extern u32 FUN_0202EDF8();
 extern u16 FUN_0202D19C();
-extern u32 FUN_0202EE60();
-extern void FUN_0202F05C();
 extern void GF_RTC_CopyDateTime(RTCDate *, RTCTime *);
 extern void FUN_0202D830(u8 *param0, u32 param1);
 extern u32 MOD04_021D8624();
@@ -472,7 +462,7 @@ THUMB_FUNC void FUN_0202FA5C()
         }
         else
         {
-            if (FUN_0202E784() != 0)
+            if (FUN_0202E784())
             {
                 r4 = 1;
             }
@@ -2033,11 +2023,11 @@ THUMB_FUNC s32 FUN_02030F20()
     return r4;
 }
 
-THUMB_FUNC u32 FUN_02030F40()
+THUMB_FUNC BOOL FUN_02030F40()
 {
     if (UNK_021C59F4.unk04 != NULL && FUN_02033534() >= 0x13)
     {
-        return 1;
+        return TRUE;
     }
 
     return FUN_0202EDF8();
@@ -2221,17 +2211,17 @@ THUMB_FUNC u32 FUN_020311E8()
     return FUN_0202EE24();
 }
 
-THUMB_FUNC u32 FUN_020311F0()
+THUMB_FUNC BOOL FUN_020311F0()
 {
     if (FUN_02031280() != 0)
     {
-        return 0;
+        return FALSE;
     }
 
     if (UNK_021C59F4.unk04 != NULL && UNK_021C59F4.unk04->unk689 != 0)
     {
         FUN_020334E8(1, 1);
-        return 1;
+        return TRUE;
     }
 
     return FUN_0202EE60();
