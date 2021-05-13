@@ -156,7 +156,7 @@ Static arm9
 	Object scrcmd_asm.o
 	Object scrcmd_2.o
 	Object scrcmd_3.o
-	Object scrcmd_4.o
+	Object scrcmd_names.o
 	Object scrcmd_5.o
 	Object scrcmd_6.o
 	Object scrcmd_7.o
@@ -168,13 +168,13 @@ Static arm9
 	Object scrcmd_13.o
 	Object scrcmd_coins.o
 	Object scrcmd_money.o
-	Object scrcmd_16.o
+	Object scrcmd_daycare.o
 	Object scrcmd_17.o
 	Object scrcmd_18_c.o
 	Object scrcmd_18.o
 	Object scrcmd_19.o
 	Object scrcmd_20.o
-	Object scrcmd_21.o
+	Object scrcmd_flags.o
 	Object scrcmd_items.o
 	Object scrcmd_23.o
 	Object scrcmd_24.o

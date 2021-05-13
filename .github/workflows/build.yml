@@ -12,7 +12,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Update and Install Software
@@ -43,7 +43,7 @@ jobs:
       - name: Build Diamond
         run: make diamond
       - name: Build Pearl
-        run: make pearl        
+        run: make pearl
       - name: Webhook
         run: |
           sudo chmod 755 $GITHUB_WORKSPACE/.github/calcrom/webhook.sh

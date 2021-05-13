@@ -69,16 +69,17 @@ struct Cell {
     short minX;
     short minY;
     struct OAM oam;
-    char *label;
 };
 
 struct JsonToCellOptions {
-    bool label;
+    bool labelEnabled;
     bool extended;
     int imageHeight;
     int imageWidth;
     int cellCount;
     struct Cell **cells;
+    char **labels;
+    int labelCount;
 };
 
 struct JsonToScreenOptions {

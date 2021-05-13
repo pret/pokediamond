@@ -744,16 +744,17 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
 	if (fp == NULL)
 		FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
 
-    unsigned int totalSize = (options->label > 0 ? 0x34 : 0x20) + options->cellCount * (options->extended ? 0x16 : 0xe);
+    unsigned int totalSize = (options->labelEnabled > 0 ? 0x34 : 0x20) + options->cellCount * (options->extended ? 0x16 : 0xe);
 
-    if (options->label)
+    if (options->labelEnabled)
     {
-        for (int i = 0; i < options->cellCount; i++) {
-            totalSize += strlen(options->cells[i]->label) + 5; //strlen + terminator + pointer
+        for (int j = 0; j < options->labelCount; j++)
+        {
+            totalSize += strlen(options->labels[j]) + 5; //strlen + terminator + pointer
         }
     }
 
-	WriteGenericNtrHeader(fp, "RECN", totalSize, true, false, options->label ? 3 : 1);
+	WriteGenericNtrHeader(fp, "RECN", totalSize, true, false, options->labelEnabled ? 3 : 1);
 
 	unsigned char KBECHeader[0x20] =
             {
@@ -858,12 +859,12 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
 
 	free(KBECContents);
 
-	if (options->label)
+	if (options->labelEnabled)
 	{
-        unsigned int lablSize = 8 + options->cellCount * 4;
-        for (i = 0; i < options->cellCount; i++)
+        unsigned int lablSize = 8;
+        for (int j = 0; j < options->labelCount; j++)
         {
-            lablSize += strlen(options->cells[i]->label) + 1;
+            lablSize += strlen(options->labels[j]) + 5;
         }
 
         unsigned char *labl = malloc(lablSize);
@@ -876,18 +877,20 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
 
         unsigned int position = 0;
 
-        for (i = 0; i < options->cellCount * 4; i += 4)
+        i = 0;
+        for (int j = 0; j < options->labelCount; j++)
         {
             labl[i + 8] = position & 0xff;
             labl[i + 9] = position >> 8;
 
-            position += strlen(options->cells[i / 4]->label) + 1;
+            position += strlen(options->labels[j]) + 1;
+            i += 4;
         }
 
-        for (int j = 0; j < options->cellCount; j++)
+        for (int j = 0; j < options->labelCount; j++)
         {
-            strcpy((char *) (labl + (i + 8)), options->cells[j]->label);
-            i += strlen(options->cells[j]->label) + 1;
+            strcpy((char *) (labl + (i + 8)), options->labels[j]);
+            i += strlen(options->labels[j]) + 1;
         }
 
         fwrite(labl, 1, lablSize, fp);

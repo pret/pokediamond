@@ -106,6 +106,70 @@ BOOL ScrCmd_Unk0048(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02CF(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx);
 
+//scrcmd_4.c
+BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetRivalName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetFriendName(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00D0(struct ScriptContext* ctx);
+BOOL ScrCmd_GetItemName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPocketName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetTMHMMoveName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetMoveName(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00D5(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0280(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00D6(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0251(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPoketchAppName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetTrainerClassName(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx);
+struct String* FUN_02040AE4(u32 msg_no, u32 heap_id);
+BOOL ScrCmd_Unk00DB(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00DC(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00DD(struct ScriptContext* ctx);
+BOOL ScrCmd_GetDecorationName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetUndergroundTrapName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetUndergroundItemName(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00E2(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk017B(struct ScriptContext* ctx);
+BOOL ScrCmd_GetNatureName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetFashionName(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0272(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPokemonMoveName(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0232(struct ScriptContext* ctx);
+BOOL ScrCmd_GetSealName(struct ScriptContext* ctx);
+BOOL ScrCmd_GetItemNameWithIndefArticle(struct ScriptContext* ctx);
+BOOL ScrCmd_GetItemNamePlural(struct ScriptContext* ctx);
+BOOL ScrCmd_GetDecorationNameWithArticle(struct ScriptContext* ctx);
+BOOL ScrCmd_GetUndergroundTrapNameWithArticle(struct ScriptContext* ctx);
+BOOL ScrCmd_GetUndergroundItemNameWithArticle(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk02C9(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk02CA(struct ScriptContext* ctx);
+BOOL ScrCmd_GetFashionNameWithArticle(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx);
+BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx);
+BOOL ScrCmd_CapitalizeFirstChar(struct ScriptContext* ctx);
+
+//scrcmd_8.c
+BOOL ScrCmd_Unk021D(struct ScriptContext* ctx);
+
+//scrcmd_11.c
+BOOL ScrCmd_Unk017D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk017E(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk017F(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0180(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0181(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0182(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0183(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0184(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0185(struct ScriptContext* ctx);
+
+//scrcmd_13.c
+BOOL ScrCmd_Unk0253(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0254(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0255(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0256(struct ScriptContext* ctx);
+
 //scrcmd_coins.c
 BOOL ScrCmd_Unk0075(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0076(struct ScriptContext* ctx);
@@ -128,6 +192,24 @@ BOOL ScrCmd_Unk0072(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0073(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0074(struct ScriptContext* ctx);
 
+//scrcmd_daycare.c
+BOOL ScrCmd_Unk016D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk016E(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A8(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A9(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01AE(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01AF(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01B0(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01BE(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01BF(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A5(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A6(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01A7(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01AD(struct ScriptContext* ctx);
+
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
 
@@ -141,6 +223,28 @@ BOOL ScrCmd_Unk01F3(struct ScriptContext* ctx);
 //scrcmd_20.c
 BOOL ScrCmd_Unk02A6(struct ScriptContext* ctx);
 
+//scrcmd_flags.c
+BOOL ScrCmd_HasSinnohDex(struct ScriptContext* ctx);
+BOOL ScrCmd_GiveSinnohDex(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0159(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk015A(struct ScriptContext* ctx);
+BOOL ScrCmd_HasBadge(struct ScriptContext* ctx);
+BOOL ScrCmd_GiveBadge(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk015E(struct ScriptContext* ctx);
+BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk015F(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0160(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0161(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0162(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0163(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0164(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0165(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0166(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0167(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01CF(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01D0(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01D1(struct ScriptContext* ctx);
+
 //scrcmd_items.c
 BOOL ScrCmd_GiveItem(struct ScriptContext* ctx);
 BOOL ScrCmd_TakeItem(struct ScriptContext* ctx);
@@ -151,10 +255,28 @@ BOOL ScrCmd_GetItemPocketId(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0081(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0082(struct ScriptContext* ctx);
 
+//scrcmd_23.c
+BOOL ScrCmd_Unk0083(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0084(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0085(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0086(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0087(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0088(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0089(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008A(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008B(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008C(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008E(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk008F(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0090(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0091(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0092(struct ScriptContext* ctx);
+
 //scrcmd_25.c
-BOOL ScrCmd_Unk02EF(struct ScriptContext* ctx);
-BOOL ScrCmd_Unk02F0(struct ScriptContext* ctx);
-BOOL ScrCmd_Unk02F1(struct ScriptContext* ctx);
-BOOL ScrCmd_Unk02F2(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk023F(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0240(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0241(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0242(struct ScriptContext* ctx);
 
 #endif //POKEDIAMOND_SCRCMD_H

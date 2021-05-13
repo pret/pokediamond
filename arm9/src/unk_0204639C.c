@@ -4,7 +4,7 @@
 
 #pragma thumb on
 
-struct UnkStruct_0204639C * FUN_0204639C(struct UnkStruct_0204639C * r5, UnkStruct_0204639C_cb r6, u32 * r7)
+struct UnkStruct_0204639C * FUN_0204639C(struct UnkSavStruct80 * r5, UnkStruct_0204639C_cb r6, u32 * r7)
 {
     struct UnkStruct_0204639C * ret = AllocFromHeapAtEnd(32, sizeof(struct UnkStruct_0204639C));
     ret->unk0 = 0;
@@ -18,10 +18,9 @@ struct UnkStruct_0204639C * FUN_0204639C(struct UnkStruct_0204639C * r5, UnkStru
     return ret;
 }
 
-void FUN_020463CC(struct UnkStruct_0204639C * r5, UnkStruct_0204639C_cb r4, u32 * r6)
+void FUN_020463CC(struct UnkSavStruct80 * r5, UnkStruct_0204639C_cb r4, u32 * r6)
 {
-    if (r5->unk10 != NULL)
-        ErrorHandling();
+    GF_ASSERT(r5->unk10 == NULL);
     r5->unk10 = FUN_0204639C(r5, r4, r6);
 }
 
@@ -85,7 +84,7 @@ BOOL FUN_020464A4(void * r0)
 
 BOOL FUN_020464B8(struct UnkStruct_0204639C * r4)
 {
-    struct UnkStruct_0204639C * r5 = FUN_02046528(r4);
+    struct UnkSavStruct80 * r5 = FUN_02046528(r4);
     u32 * r4_2 = FUN_0204652C(r4);
     switch (r4_2[0])
     {
@@ -113,7 +112,7 @@ void FUN_02046500(struct UnkStruct_0204639C * r6, u32 r5, u32 r4)
     FUN_0204640C(r6, FUN_020464B8, r2);
 }
 
-struct UnkStruct_0204639C * FUN_02046528(struct UnkStruct_0204639C * r0)
+struct UnkSavStruct80 * FUN_02046528(struct UnkStruct_0204639C * r0)
 {
     return r0->unk18;
 }
