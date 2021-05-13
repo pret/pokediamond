@@ -6,6 +6,9 @@
 #include "GX_layers.h"
 #include "gx.h"
 #include "heap.h"
+#include "math_util.h"
+#include "MI_uncompress.h"
+#include "OS_cache.h"
 
 struct UnkStruct1 {
     u32 unk00;
@@ -32,7 +35,7 @@ struct UnkStruct2 {
 
 
     struct InnerStruct {
-        u32 unk08;
+        void *unk08;
         u32 unk0c;
         u32 unk10;
 
@@ -58,6 +61,7 @@ THUMB_FUNC u32 FUN_02016BB8(u32 *param0);
 THUMB_FUNC void FUN_02016BBC(u32 *param0);
 THUMB_FUNC void FUN_02016BF4(u32 *param0, u32 param1);
 THUMB_FUNC void FUN_02016C18(struct UnkStruct2 *param0, u8 param1, struct UnkStruct1 *param2, u8 param3);
+
 
 
 
