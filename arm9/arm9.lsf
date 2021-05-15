@@ -157,7 +157,7 @@ Static arm9
 	Object scrcmd_3.o
 	Object scrcmd_names.o
 	Object scrcmd_5.o
-	Object scrcmd_6.o
+	Object scrcmd_sound.o
 	Object scrcmd_7.o
 	Object scrcmd_8.o
 	Object scrcmd_9.o
