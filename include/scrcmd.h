@@ -150,6 +150,34 @@ BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx);
 BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx);
 BOOL ScrCmd_CapitalizeFirstChar(struct ScriptContext* ctx);
 
+//scrcmd_sound.c
+BOOL ScrCmd_Unk02AE(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0050(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0051(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0052(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0053(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0054(struct ScriptContext *ctx);
+BOOL FUN_02041464(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0055(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0056(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0058(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0049(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk004A(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk004B(struct ScriptContext* ctx);
+BOOL FUN_02041540(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk004C(struct ScriptContext* ctx);
+BOOL ScrCmd_PlayCryWait(struct ScriptContext* ctx);
+BOOL FUN_02041598(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk004F(struct ScriptContext* ctx);
+BOOL FUN_020415CC(struct ScriptContext* ctx);
+BOOL ScrCmd_PlayBgm(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0059(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk005A(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk005B(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk005C(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk005D(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0283(struct ScriptContext *ctx);
+
 //scrcmd_8.c
 BOOL ScrCmd_Unk021D(struct ScriptContext* ctx);
 
