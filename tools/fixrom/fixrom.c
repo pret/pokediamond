@@ -60,49 +60,29 @@ static inline void HeaderWriteU32LE(int offset, uint32_t value)
     RomHeader[offset + 3] = value >> 24;
 }
 
+#define CRC16_POLYNOMIAL 0xA001
+
 static uint16_t Calc_CRC16(uint8_t * data, size_t length, uint16_t crc)
 {
-    static uint16_t CrcTable[16] = {
-        0x0000,
-        0xCC01,
-        0xD801,
-        0x1400,
-        0xF001,
-        0x3C00,
-        0x2800,
-        0xE401,
-        0xA001,
-        0x6C00,
-        0x7800,
-        0xB401,
-        0x5000,
-        0x9C01,
-        0x8801,
-        0x4400,
-    };
-    
-    uint16_t x = 0;
-    uint16_t y;
-    uint16_t bit = 0;
-    uint8_t * end = data + length;
-    while (data < end)
-    {
-        if (bit == 0)
-        {
-            x = data[0] | (data[1] << 8);
+    static uint16_t CrcTable[256] = {};
+    static int initialized = 0;
+    int i;
+
+    if (!initialized) {
+        for (i = 0; i < 256; i++) {
+            int c = i;
+            for (int j = 0; j < 8; j++) {
+                c = (c >> 1) ^ ((c & 1) ? CRC16_POLYNOMIAL : 0);
+            }
+            CrcTable[i] = c;
         }
-        y = CrcTable[crc & 15];
-        crc >>= 4;
-        crc ^= y;
-        y = CrcTable[(x >> bit) & 15];
-        crc ^= y;
-        bit += 4;
-        if (bit == 16)
-        {
-            data += 2;
-            bit = 0;
-        }
+        initialized = 1;
     }
+
+    for (i = 0; i < length; i++) {
+        crc = (crc >> 8) ^ CrcTable[(uint8_t)crc] ^ CrcTable[data[i]];
+    }
+
     return crc;
 }
 

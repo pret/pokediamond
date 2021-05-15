@@ -1,4 +1,6 @@
-cmake_minimum_required (VERSION 2.8.11)
+cmake_minimum_required (VERSION 3.15)
+set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
 project(PokeDiamond)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 11)
