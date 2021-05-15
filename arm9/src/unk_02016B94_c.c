@@ -1,8 +1,8 @@
-#include "unk_02016B94.h"
 #include "global.h"
 #include "GX_layers.h"
 #include "gx.h"
 #include "heap.h"
+#include "unk_02016B94.h"
 
 extern void FUN_020192D4();
 extern void FUN_02019358();
@@ -71,7 +71,6 @@ void (*const UNK_020EDB74[])() = {
     FUN_02019444,
     FUN_020193B4,
 };
-
 
 THUMB_FUNC void *FUN_02016B94(u32 heap_id)
 {
@@ -361,8 +360,6 @@ THUMB_FUNC void FUN_02016C18(
 #else
 GLOBAL_ASM("asm/nonmatchings/FUN_02016C18.s")
 #endif
-
-
 
 #ifdef NONMATCHING
 THUMB_FUNC void FUN_020170F4(struct UnkStruct2 *param0, u8 param1, u32 param2, u8 param3)
@@ -2161,7 +2158,7 @@ THUMB_FUNC void FUN_02017FE4(u32 param0, u32 param1)
     FUN_02017FB4(param0, &param1, 2, 0);
 }
 
-THUMB_FUNC u16 FUN_02017FFC(s32 param0, s32 param1, u32 param2)
+THUMB_FUNC u16 FUN_02017FFC(u8 param0, u8 param1, u8 param2)
 {
     switch (param2)
     {
@@ -2181,19 +2178,19 @@ THUMB_FUNC u16 FUN_02017FFC(s32 param0, s32 param1, u32 param2)
     }
 }
 
-THUMB_FUNC u16 FUN_02018068(u32 param0, u32 param1, u32 param2, u32 param3)
+THUMB_FUNC u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3)
 {
     u8 r2 = 0;
     u16 r3 = 0;
     s16 r4 = param2 - 32;
     s16 r5 = param3 - 32;
 
-    if ((param0 >> 5) != 0)
+    if (((u32)param0 >> 5) != 0)
     {
         r2++;
     }
 
-    if ((param1 >> 5) != 0)
+    if (((u32)param1 >> 5) != 0)
     {
         r2 += 2;
     }
@@ -2242,33 +2239,313 @@ THUMB_FUNC u16 FUN_02018068(u32 param0, u32 param1, u32 param2, u32 param3)
     return r3;
 }
 
+extern void FUN_02018170(struct UnkStruct2 *param0,
+    u32 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u8 param5,
+    u32 *param6,
+    u8 param7,
+    u8 param8,
+    u8 param9,
+    u8 param10);
 
-extern void FUN_02018170(struct UnkStruct2 *param0, u32 param1, u8 param2, u8 param3, u8 param4, u8 param5, u32 *param6, u8 param7, u8 param8, u8 param9, u8 param10);
-
-
-THUMB_FUNC void FUN_02018148(struct UnkStruct2 *param0, u32 param1, u32 *param2, u8 param3, u8 param4, u8 param5, u8 param6) {
+THUMB_FUNC void FUN_02018148(
+    struct UnkStruct2 *param0, u32 param1, u32 *param2, u8 param3, u8 param4, u8 param5, u8 param6)
+{
     FUN_02018170(param0, param1, param3, param4, param5, param6, param2, 0, 0, param5, param6);
 }
 
+extern void FUN_02018268(struct InnerStruct *param0,
+    u8 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u16 *param5,
+    u8 param6,
+    u8 param7,
+    u8 param8,
+    u8 param9,
+    u8 param10);
+extern void FUN_020183DC(struct InnerStruct *param0,
+    u8 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u8 *param5,
+    u8 param6,
+    u8 param7,
+    u8 param8,
+    u8 param9,
+    u8 param10);
 
-
-extern void FUN_02018268(struct InnerStruct *param0, u8 param1, u8 param2, u8 param3, u8 param4, u32 *param5, u8 param6, u8 param7, u8 param8, u8 param9, u8 param10);
-extern void FUN_020183DC(struct InnerStruct *param0, u8 param1, u8 param2, u8 param3, u8 param4, u32 *param5, u8 param6, u8 param7, u8 param8, u8 param9, u8 param10);
-
-THUMB_FUNC void FUN_02018170(struct UnkStruct2 *param0, u32 param1, u8 param2, u8 param3, u8 param4, u8 param5, u32 *param6, u8 param7, u8 param8, u8 param9, u8 param10) {
-    if (param0->unk08[param1].unk1c != 1) {
-        FUN_02018268(&param0->unk08[param1], param2, param3, param4, param5, param6, param7, param8, param9, param10, 0);
-    } else {
-        FUN_020183DC(&param0->unk08[param1], param2, param3, param4, param5, param6, param7, param8, param9, param10, 0);
+THUMB_FUNC void FUN_02018170(struct UnkStruct2 *param0,
+    u32 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u8 param5,
+    u32 *param6,
+    u8 param7,
+    u8 param8,
+    u8 param9,
+    u8 param10)
+{
+    if (param0->unk08[param1].unk1c != 1)
+    {
+        FUN_02018268(&param0->unk08[param1],
+            param2,
+            param3,
+            param4,
+            param5,
+            param6,
+            param7,
+            param8,
+            param9,
+            param10,
+            0);
+    }
+    else
+    {
+        FUN_020183DC(&param0->unk08[param1],
+            param2,
+            param3,
+            param4,
+            param5,
+            param6,
+            param7,
+            param8,
+            param9,
+            param10,
+            0);
     }
 }
 
+THUMB_FUNC void FUN_020181EC(struct UnkStruct2 *param0,
+    u32 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u8 param5,
+    u32 *param6,
+    u8 param7,
+    u8 param8,
+    u8 param9,
+    u8 param10)
+{
+    if (param0->unk08[param1].unk1c != 1)
+    {
+        FUN_02018268(&param0->unk08[param1],
+            param2,
+            param3,
+            param4,
+            param5,
+            param6,
+            param7,
+            param8,
+            param9,
+            param10,
+            1);
+    }
+    else
+    {
+        FUN_020183DC(&param0->unk08[param1],
+            param2,
+            param3,
+            param4,
+            param5,
+            param6,
+            param7,
+            param8,
+            param9,
+            param10,
+            1);
+    }
+}
 
+THUMB_FUNC void FUN_02018268(struct InnerStruct *param0,
+    u8 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u16 *param5,
+    u8 param6,
+    u8 param7,
+    u8 param8,
+    u8 param9,
+    u8 param10)
+{
+    void *st2c = param0->unk08;
 
-THUMB_FUNC void FUN_020181EC(struct UnkStruct2 *param0, u32 param1, u8 param2, u8 param3, u8 param4, u8 param5, u32 *param6, u8 param7, u8 param8, u8 param9, u8 param10) {
-    if (param0->unk08[param1].unk1c != 1) {
-        FUN_02018268(&param0->unk08[param1], param2, param3, param4, param5, param6, param7, param8, param9, param10, 1);
-    } else {
-        FUN_020183DC(&param0->unk08[param1], param2, param3, param4, param5, param6, param7, param8, param9, param10, 1);
+    if (st2c == 0)
+    {
+        return;
+    }
+
+    u8 st41;
+    u8 st40;
+    FUN_02017850(param0->unk1d, &st41, &st40);
+
+    u8 i;
+    u8 j;
+    if (param10 == 0)
+    {
+        for (i = 0; i < param4; i++)
+        {
+
+            if (param2 + i >= st40)
+            {
+                break;
+            }
+
+            if (param7 + i >= param9)
+            {
+                break;
+            }
+
+            for (j = 0; j < param3; j++)
+            {
+
+                if (param1 + j >= st41)
+                {
+                    break;
+                }
+
+                if (param6 + j >= param8)
+                {
+                    break;
+                }
+
+                ((u16 *)st2c)[FUN_02017FFC(param1 + j, param2 + i, param0->unk1d)] =
+                    param5[param6 + param8 * (param7 + i) + j];
+            }
+        }
+    }
+    else
+    {
+        for (i = 0; i < param4; i++)
+        {
+
+            if (param2 + i >= st40)
+            {
+                break;
+            }
+
+            if (param7 + i >= param9)
+            {
+                break;
+            }
+
+            for (j = 0; j < param3; j++)
+            {
+
+                if (param1 + j >= st41)
+                {
+                    break;
+                }
+
+                if (param6 + j >= param8)
+                {
+                    break;
+                }
+
+                ((u16 *)st2c)[FUN_02017FFC(param1 + j, param2 + i, param0->unk1d)] =
+                    param5[FUN_02018068(param6 + j, param7 + i, param8, param9)];
+            }
+        }
+    }
+}
+
+THUMB_FUNC void FUN_020183DC(struct InnerStruct *param0,
+    u8 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u8 *param5,
+    u8 param6,
+    u8 param7,
+    u8 param8,
+    u8 param9,
+    u8 param10)
+{
+    void *st2c = param0->unk08;
+
+    if (st2c == 0)
+    {
+        return;
+    }
+
+    u8 st41;
+    u8 st40;
+    FUN_02017850(param0->unk1d, &st41, &st40);
+
+    u8 i;
+    u8 j;
+    if (param10 == 0)
+    {
+        for (i = 0; i < param4; i++)
+        {
+
+            if (param2 + i >= st40)
+            {
+                break;
+            }
+
+            if (param7 + i >= param9)
+            {
+                break;
+            }
+
+            for (j = 0; j < param3; j++)
+            {
+
+                if (param1 + j >= st41)
+                {
+                    break;
+                }
+
+                if (param6 + j >= param8)
+                {
+                    break;
+                }
+
+                ((u8 *)st2c)[FUN_02017FFC(param1 + j, param2 + i, param0->unk1d)] =
+                    param5[param6 + param8 * (param7 + i) + j];
+            }
+        }
+    }
+    else
+    {
+        for (i = 0; i < param4; i++)
+        {
+
+            if (param2 + i >= st40)
+            {
+                break;
+            }
+
+            if (param7 + i >= param9)
+            {
+                break;
+            }
+
+            for (j = 0; j < param3; j++)
+            {
+
+                if (param1 + j >= st41)
+                {
+                    break;
+                }
+
+                if (param6 + j >= param8)
+                {
+                    break;
+                }
+
+                ((u8 *)st2c)[FUN_02017FFC(param1 + j, param2 + i, param0->unk1d)] =
+                    param5[FUN_02018068(param6 + j, param7 + i, param8, param9)];
+            }
+        }
     }
 }
