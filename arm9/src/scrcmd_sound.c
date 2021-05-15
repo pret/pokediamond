@@ -1,34 +1,4 @@
-#include "global.h"
-#include "script.h"
 #include "scrcmd.h"
-
-extern BOOL FUN_020413C0(struct ScriptContext *ctx);
-extern BOOL FUN_020413E8(struct ScriptContext *ctx);
-extern BOOL FUN_020413F8(struct ScriptContext *ctx);
-extern BOOL FUN_0204140C(struct ScriptContext *ctx);
-extern BOOL FUN_02041424(struct ScriptContext *ctx);
-extern BOOL FUN_0204143C(struct ScriptContext *ctx);
-extern BOOL FUN_02041464(struct ScriptContext *ctx);
-extern BOOL FUN_02041478(struct ScriptContext* ctx);
-extern BOOL FUN_0204149C(struct ScriptContext* ctx);
-extern BOOL FUN_020414B8(struct ScriptContext *ctx);
-extern BOOL FUN_020414CC(struct ScriptContext* ctx);
-extern BOOL FUN_020414E0(struct ScriptContext* ctx);
-extern BOOL FUN_020414FC(struct ScriptContext* ctx);
-extern BOOL FUN_02041518(struct ScriptContext* ctx);
-extern BOOL FUN_02041540(struct ScriptContext* ctx);
-extern BOOL FUN_02041558(struct ScriptContext* ctx);
-extern BOOL ScrCmd_waitcry(struct ScriptContext* ctx);
-extern BOOL FUN_02041598(struct ScriptContext* ctx);
-extern BOOL FUN_020415BC(struct ScriptContext* ctx);
-extern BOOL FUN_020415CC(struct ScriptContext* ctx);
-extern BOOL ScrCmd_playbgm(struct ScriptContext* ctx);
-extern BOOL FUN_020415E0(struct ScriptContext* ctx);
-extern BOOL FUN_02041618(struct ScriptContext* ctx);
-extern BOOL FUN_02041644(struct ScriptContext* ctx);
-extern BOOL FUN_02041650(struct ScriptContext* ctx);
-extern BOOL FUN_02041664(struct ScriptContext* ctx);
-extern BOOL FUN_02041674(struct ScriptContext* ctx);
 
 extern void* FUN_02029EF8(struct SaveBlock2* sav2);
 extern u32 FUN_02005D20(void *);
@@ -131,9 +101,9 @@ THUMB_FUNC BOOL FUN_02041478(struct ScriptContext* ctx)
 THUMB_FUNC BOOL FUN_0204149C(struct ScriptContext* ctx)
 {
 
-    u8 PtrIndx0 = *ctx->scriptPtr++;
+    u8 PtrIndx0 = ScriptReadByte(ctx);
 
-    u8 PtrIndx1 = *ctx->scriptPtr++;
+    u8 PtrIndx1 = ScriptReadByte(ctx);
 
     FUN_020047C8(PtrIndx0, PtrIndx1);
     return FALSE;
@@ -147,7 +117,7 @@ THUMB_FUNC BOOL FUN_020414B8(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL FUN_020414CC(struct ScriptContext* ctx)
 {
-    u8 PtrIndx0 = *ctx->scriptPtr++;
+    u8 PtrIndx0 = ScriptReadByte(ctx);
     FUN_020040F4(PtrIndx0);
     return FALSE;
 }
@@ -180,9 +150,9 @@ THUMB_FUNC BOOL FUN_02041518(struct ScriptContext* ctx)
 THUMB_FUNC BOOL FUN_02041540(struct ScriptContext* ctx)
 {
     if(!FUN_02005508((u16)ctx->data[0]))
-        return 1;
+        return TRUE;
     else
-        return 0;
+        return FALSE;
 }
 
 THUMB_FUNC BOOL FUN_02041558(struct ScriptContext* ctx)
