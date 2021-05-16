@@ -54,8 +54,8 @@ extern struct Unk21DBE18 MOD52_021D76C8;
 
 extern u8 SDK_STATIC_BSS_START[];
 
-const int gGameVersion = GAME_VERSION;
 const int gGameLanguage = GAME_LANGUAGE;
+const int gGameVersion = GAME_VERSION;
 
 THUMB_FUNC void NitroMain(void)
 {

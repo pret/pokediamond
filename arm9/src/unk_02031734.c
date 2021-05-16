@@ -18,11 +18,9 @@ const struct UnkStruct_02031734_const1 UNK_020EEC5C = {
     { (u32)FUN_02032234, (u32)FUN_0203234C, 0 }
 };
 
-char UNK_02105D5C[] = "FREAK";
-
-char UNK_02105D6C[] = " GAME";
-
 char UNK_02105D64[] = " FULL";
+char UNK_02105D5C[] = "FREAK";
+char UNK_02105D6C[] = " GAME";
 
 struct UnkStruct_02031734 *UNK_021C5A00;
 

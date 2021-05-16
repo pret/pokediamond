@@ -10,8 +10,8 @@ struct
     struct UnkStruct0202F150 *unk04;
 } UNK_021C59F4;
 
-vu8 UNK_02105D58 = 4;
 vu8 UNK_02105D59 = 4;
+vu8 UNK_02105D58 = 4;
 
 extern void FUN_0202D7D8(u8 *param0, u32 param1, struct UnkStruct0202F150_sub1 *param2);
 extern u32 FUN_0200CA60(void (*param0)(), u32 param1, u32 param2);

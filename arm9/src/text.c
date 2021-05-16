@@ -7,16 +7,9 @@ const struct FontInfo *gFonts = NULL;
 
 u16 UNK_021C5734[0x100];
 u32 UNK_021C5714[8];
-
-// These three variables are written and never read.
-// GenerateFontHalfRowLookupTable sets these variables
-// in a manner consistent with them being defined static
-// in the scope of that function, but doing so breaks the
-// allocation of other variables in this file.
-u16 UNK_021C5712;
 u16 UNK_021C570E;
 u16 UNK_021C5710;
-
+u16 UNK_021C5712;
 u8 UNK_021C570C;
 
 extern u32 FUN_0200CA7C(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2);
@@ -278,7 +271,6 @@ THUMB_FUNC u32 RenderFont(struct TextPrinter *printer)
     }
 }
 
-#ifdef NONMATCHING
 THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor)
 {
     s32 r5 = 0;
@@ -312,9 +304,6 @@ THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadow
         }
     }
 }
-#else
-GLOBAL_ASM("asm/nonmatchings/GenerateFontHalfRowLookupTable.s")
-#endif
 
 THUMB_FUNC void DecompressGlyphTile(const u16 *src, u16 *dst)
 {

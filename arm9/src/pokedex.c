@@ -226,12 +226,11 @@ void Pokedex_InitSeenDeoxysFormesArray(struct Pokedex * pokedex)
 
 static inline BOOL HasUnownLetterBeenSeen(struct Pokedex * pokedex, u8 letter)
 {
-    u8 * arr;
     s32 i;
+    u8 * arr;
     for (i = 0, arr = (u8 *)pokedex; i < 28; i++, arr++)
     {
-        u8 val = arr[0x010C];
-        if (letter == val)
+        if (letter == *(arr + 0x10C))
             return TRUE;
     }
     return FALSE;
@@ -239,12 +238,11 @@ static inline BOOL HasUnownLetterBeenSeen(struct Pokedex * pokedex, u8 letter)
 
 static inline s32 FindFirstAvailableUnownLetterSlot(struct Pokedex * pokedex)
 {
-    u8 * arr;
     s32 i;
+    u8 * arr;
     for (i = 0, arr = (u8 *)pokedex; i < 28; i++, arr++)
     {
-        u8 val = arr[0x010C];
-        if (val == 0xFF)
+        if (*(arr + 0x10C) == 0xFF)
             break;
     }
     return i;
@@ -320,26 +318,26 @@ s32 FUN_020242C8(struct Pokedex * pokedex, u16 species, s32 r4)
     return r1;
 }
 
-const u16 sSinnohDexMythicalMons[] = {
-    SPECIES_MANAPHY
-};
-
-const u16 sNationalDexMythicalMons[] = {
-    SPECIES_MEW,
-    SPECIES_LUGIA,
-    SPECIES_HO_OH,
-    SPECIES_CELEBI,
-    SPECIES_JIRACHI,
-    SPECIES_DEOXYS,
-    SPECIES_PHIONE,
-    SPECIES_MANAPHY,
-    SPECIES_DARKRAI,
-    SPECIES_SHAYMIN,
-    SPECIES_ARCEUS
-};
-
 BOOL Pokedex_SpeciesIsNotMythical(u16 species)
 {
+    static const u16 sSinnohDexMythicalMons[] = {
+        SPECIES_MANAPHY
+    };
+
+    static const u16 sNationalDexMythicalMons[] = {
+        SPECIES_MEW,
+        SPECIES_LUGIA,
+        SPECIES_HO_OH,
+        SPECIES_CELEBI,
+        SPECIES_JIRACHI,
+        SPECIES_DEOXYS,
+        SPECIES_PHIONE,
+        SPECIES_MANAPHY,
+        SPECIES_DARKRAI,
+        SPECIES_SHAYMIN,
+        SPECIES_ARCEUS
+    };
+
     s32 i;
     BOOL ret = TRUE;
     for (i = 0; i < (s32)NELEMS(sNationalDexMythicalMons); i++)

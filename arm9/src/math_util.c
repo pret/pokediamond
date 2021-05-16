@@ -6,7 +6,7 @@ extern const s16 UNK_020FFA38[]; // temporary until further notice
 /*
  * Constant tables
  */
-const s32 gSineTable[] =
+const fx32 gSineTable[] =
 {
     FX32_CONST(0.0),             // sin(0)
     FX32_CONST(0.017333984375),  // sin(1)
@@ -460,7 +460,7 @@ const s32 gSineTable[] =
     FX32_CONST(0.999755859375),  // sin(449)
 };
 
-const u16 UNK_020EDC7E[] = // rotations?
+static const u16 UNK_020EDC7E[] = // rotations?
 {
     0x0000, 0x00B7, 0x016D, 0x0223, 0x02D9, 0x038F, 0x0445, 0x04FB, 0x05B1, 0x0667,
     0x071D, 0x07D3, 0x0889, 0x093F, 0x09F5, 0x0AAB, 0x0B61, 0x0C17, 0x0CCD, 0x0D83,
@@ -592,31 +592,41 @@ THUMB_FUNC s32 Sin32(s32 degrees)
  * Random number generators
  */
 static u32 sMTRNG_State[624]; // Mersenne Twister seed storage/buffer
+#ifdef NONMATCHING
+// Using -ipa file makes the following hack unnecessary,
+// but for some reason forces UNK_020EDC7E to align to
+// word rather than short...
+static u32 sLCRNG_State;
+#define sMTRNG_State_2 sMTRNG_State
+#else
 static union
 {
     u32 LC_State; // Linear-congruential seed storage/buffer
     u32 MTRNG_State[]; // Don't bother asking why Game Freak did this. Just don't.
 } sRNGHack;
+#define sLCRNG_State sRNGHack.LC_State
+#define sMTRNG_State_2 (sRNGHack.MTRNG_State + 1)
+#endif
 
 // Returns the Linear-congruential buffer in full.
 THUMB_FUNC u32 GetLCRNGSeed()
 {
-    return sRNGHack.LC_State;
+    return sLCRNG_State;
 }
 
 // Initializes the Linear-congruential buffer with a 32-bit seed.
 THUMB_FUNC void SetLCRNGSeed(u32 seed)
 {
-    sRNGHack.LC_State = seed;
+    sLCRNG_State = seed;
 }
 
 // Calculates an unsigned 16-bit random integer using the Linear-congruential algorithm.
 THUMB_FUNC u16 LCRandom(void)
 {
     // cycle the RNG
-    sRNGHack.LC_State *= 0x41C64E6D;
-    sRNGHack.LC_State += 0x6073;
-    return (u16)(sRNGHack.LC_State / 65536); // shut up the compiler
+    sLCRNG_State *= 0x41C64E6D;
+    sLCRNG_State += 0x6073;
+    return (u16)(sLCRNG_State / 65536); // shut up the compiler
 }
 
 // Returns a cheap, psuedo-random unsigned 32-bit random integer from a seed.
@@ -631,7 +641,7 @@ static u32 sMTRNG_XOR[2] = {0, 0x9908b0df}; // Mersenne Twister XOR mask table
 // Initializes the Mersenne Twister buffer with a 32-bit seed.
 THUMB_FUNC void SetMTRNGSeed(u32 seed)
 {
-    sRNGHack.MTRNG_State[0+1] = seed;
+    sMTRNG_State_2[0] = seed;
 
     for (sMTRNG_Cycles = 1; sMTRNG_Cycles < 624; sMTRNG_Cycles++)
         sMTRNG_State[sMTRNG_Cycles] = 1812433253 * (sMTRNG_State[sMTRNG_Cycles - 1] ^ (sMTRNG_State[sMTRNG_Cycles - 1] >> 30)) + sMTRNG_Cycles;
@@ -659,8 +669,8 @@ THUMB_FUNC u32 MTRandom(void)
             sMTRNG_State[i] = sMTRNG_State[i + -227] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
         }
 
-        val = (sRNGHack.MTRNG_State[623+1] & 0x80000000) | (sRNGHack.MTRNG_State[0+1] & 0x7fffffff);
-        sRNGHack.MTRNG_State[623+1] = sRNGHack.MTRNG_State[396+1] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
+        val = (sMTRNG_State_2[623] & 0x80000000) | (sMTRNG_State_2[0] & 0x7fffffff);
+        sMTRNG_State_2[623] = sMTRNG_State_2[396] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
 
         sMTRNG_Cycles = 0;
     }
