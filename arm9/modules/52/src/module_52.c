@@ -150,10 +150,10 @@ THUMB_FUNC void MOD52_021D769C(u32 unused, struct SaveBlock2 *sav2)
     FUN_0205ECD4(SavArray_Flags_get(sav2));
 }
 
-const struct MOD52_Struct MOD52_021D76C8 = {
-    MOD52_021D757C,
-    MOD52_021D7594,
-    MOD52_021D75E8,
+const struct MOD52_Struct MOD52_021D76E8 = {
+    MOD52_021D74E0,
+    MOD52_021D74F8,
+    MOD52_021D750C,
     0xFFFFFFFF,
 };
 
@@ -164,10 +164,10 @@ const struct MOD52_Struct MOD52_021D76D8 = {
     0xFFFFFFFF,
 };
 
-const struct MOD52_Struct MOD52_021D76E8 = {
-    MOD52_021D74E0,
-    MOD52_021D74F8,
-    MOD52_021D750C,
+const struct MOD52_Struct MOD52_021D76C8 = {
+    MOD52_021D757C,
+    MOD52_021D7594,
+    MOD52_021D75E8,
     0xFFFFFFFF,
 };
 
