@@ -1,4 +1,4 @@
-#include "global.h"
+#include "function_target.h"
 #include "WIFI_stubsmd5_dummy.h"
 
 ARM_FUNC void MD5Final(u8 *digest, struct DGTHash1Context *context)

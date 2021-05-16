@@ -1,7 +1,8 @@
 #ifndef NITRO_RTC_INTERNAL_H_
 #define NITRO_RTC_INTERNAL_H_
 
-BOOL RtcSendPxiCommand(u8 command);
+#include "nitro/types.h"
+
 BOOL RTCi_WriteRawStatus2Async(void);
 BOOL RTCi_ReadRawTimeAsync(void);
 BOOL RTCi_ReadRawDateAsync(void);

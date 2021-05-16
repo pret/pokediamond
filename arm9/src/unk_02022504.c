@@ -26,7 +26,7 @@ THUMB_FUNC u8 *LoadHallOfFame(struct SaveBlock2 *sav2, u32 heap_id, int *ret_p)
     return ReadSaveFileFromFlash(sav2, heap_id, 0, ret_p);
 }
 
-THUMB_FUNC int *SaveHallOfFame(struct SaveBlock2 *sav2, u8 *data)
+THUMB_FUNC s32 *SaveHallOfFame(struct SaveBlock2 *sav2, u8 *data)
 {
     return WriteSaveFileToFlash(sav2, 0, data);
 }
