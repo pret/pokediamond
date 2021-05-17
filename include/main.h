@@ -20,7 +20,7 @@ struct UnkStruct_02006234
     struct Unk21DBE18 ovly_mgr;
     u32 unk10;
     u32 unk14;
-    int * unk18;
+    s32 * unk18;
     void * unk1C;
     struct SaveBlock2 * unk20;
     u32 unk24;
@@ -31,9 +31,9 @@ struct Unk2106FA0
     PMBackLightSwitch unk0;
     s32 unk4;
     FSOverlayID unk8;
-    s32 unkC;
+    struct UnkStruct_02006234 *unkC;
     FSOverlayID unk10;
-    struct Unk21DBE18 * unk14;
+    const struct Unk21DBE18 * unk14;
     s32 unk18;
     s32 unk1C;
     struct SaveBlock2 * unk20;
@@ -113,7 +113,7 @@ extern struct Main gMain;
 
 void FUN_02000DF4(void);
 void Main_RunOverlayManager(void);
-void RegisterMainOverlay(FSOverlayID id, struct Unk21DBE18 * arg1);
+void RegisterMainOverlay(FSOverlayID id, const struct Unk21DBE18 * arg1);
 void FUN_02000E9C(void);
 void FUN_02000EC8(u32 parameter);
 void FUN_02000EE8(void);

@@ -247,21 +247,20 @@ THUMB_FUNC void FUN_0202E538()
 
 THUMB_FUNC void FUN_0202E56C(u32 param0)
 {
-    UNK_021C59E8.unk8->unkDAD =
-        (UNK_021C59E8.unk8->unkDAD & ~8 | (u32)((u8)param0 << 0x1f) >> 0x1c);
+    UNK_021C59E8.unk8->unkDAD_3 = (u8)param0;
 }
 
 THUMB_FUNC void FUN_0202E594()
 {
     UNK_021C59E8.unk8->unkCB4 = 0;
 
-    UNK_021C59E8.unk8->unkDAD &= ~1;
+    UNK_021C59E8.unk8->unkDAD_0 = 0;
 
-    UNK_021C59E8.unk8->unkDAD &= ~4;
+    UNK_021C59E8.unk8->unkDAD_2 = 0;
 
     UNK_021C59E8.unk8->unkDAA = 0;
 
-    UNK_021C59E8.unk8->unkDAD &= ~0x10;
+    UNK_021C59E8.unk8->unkDAD_4 = 0;
 
     UNK_021C59E8.unk8->unkDAC = 0;
 
@@ -281,8 +280,7 @@ THUMB_FUNC BOOL FUN_0202E5F8(u32 param0, u32 param1, u32 param2)
         UNK_021C59E8.unk8->unkDAB = 1;
     }
 
-    UNK_021C59E8.unk8->unkDAD =
-        (UNK_021C59E8.unk8->unkDAD & ~0x20 | (u32)((u8)param2 << 0x1f) >> 0x1a);
+    UNK_021C59E8.unk8->unkDAD_5 = (u8)param2;
     if (FUN_0202CBD4() == 1 && FUN_0202CBFC() != 0)
     {
         return TRUE;
@@ -659,10 +657,9 @@ THUMB_FUNC void FUN_0202EBD0(u16 param0)
     FUN_0202DF54();
     FUN_0202EB7C();
 
-    if (FUN_0202D19C() == 0 && FUN_0202EE24() == 0 &&
-        ((u32)(UNK_021C59E8.unk8->unkDAD << 0x1d) >> 0x1f) != 0)
+    if (FUN_0202D19C() == 0 && FUN_0202EE24() == 0 && UNK_021C59E8.unk8->unkDAD_2)
     {
-        UNK_021C59E8.unk8->unkDAD = (UNK_021C59E8.unk8->unkDAD & ~1) | 1;
+        UNK_021C59E8.unk8->unkDAD_0 = 1;
     }
 
     if (UNK_021C59E8.unk8->unkDA6 == 0xFFFF)
@@ -670,10 +667,10 @@ THUMB_FUNC void FUN_0202EBD0(u16 param0)
         UNK_021C59E8.unk8->unkDA6 = param0;
     }
 
-    if (((u32)(UNK_021C59E8.unk8->unkDAD << 0x1e) >> 0x1f) != 0 &&
+    if (UNK_021C59E8.unk8->unkDAD_1 &&
         UNK_021C59E8.unk8->unkDA6 > param0)
     {
-        UNK_021C59E8.unk8->unkDAD = (UNK_021C59E8.unk8->unkDAD & ~1) | 1;
+        UNK_021C59E8.unk8->unkDAD_0 = 1;
     }
 
     if (FUN_0202CBE8() == 25)
@@ -713,7 +710,7 @@ THUMB_FUNC void FUN_0202EBD0(u16 param0)
 
         if (UNK_021C59E8.unk8 != NULL)
         {
-            UNK_021C59E8.unk8->unkDAD = (UNK_021C59E8.unk8->unkDAD & ~1) | 1;
+            UNK_021C59E8.unk8->unkDAD_0 = 1;
             return;
         }
         break;
@@ -731,7 +728,7 @@ THUMB_FUNC void FUN_0202EBD0(u16 param0)
         }
 
         u16 r5 = UNK_021C59E8.unk8->unkDA4;
-        if ((u32)(UNK_021C59E8.unk8->unkDAD << 0x1c) >> 0x1f != 0)
+        if (UNK_021C59E8.unk8->unkDAD_3)
         {
             UNK_021C59E8.unk0++;
         }
@@ -743,7 +740,7 @@ THUMB_FUNC void FUN_0202EBD0(u16 param0)
             r5,
             FUN_0202D858((u16)FUN_02033534()),
             FUN_0202EEE8((u16)FUN_02033534()),
-            (u32)(UNK_021C59E8.unk8->unkDAD << 0x1a) >> 0x1f);
+            UNK_021C59E8.unk8->unkDAD_5);
 
         UNK_021C59E8.unk8->unkDA8 = (u8)r5;
 
@@ -848,7 +845,7 @@ THUMB_FUNC BOOL FUN_0202EE44()
 
 THUMB_FUNC BOOL FUN_0202EE60()
 {
-    if (UNK_021C59E8.unk8 != NULL && (u32)(UNK_021C59E8.unk8->unkDAD << 0x1f) >> 0x1f != 0)
+    if (UNK_021C59E8.unk8 != NULL && UNK_021C59E8.unk8->unkDAD_0)
     {
         return TRUE;
     }
@@ -860,8 +857,7 @@ THUMB_FUNC void FUN_0202EE84(u32 param0)
 {
     if (UNK_021C59E8.unk8 != NULL)
     {
-        UNK_021C59E8.unk8->unkDAD =
-            (UNK_021C59E8.unk8->unkDAD & ~4) | (u32)((u8)param0 << 0x1f) >> 0x1d;
+        UNK_021C59E8.unk8->unkDAD_2 = (u8)param0;
     }
 }
 
@@ -869,8 +865,7 @@ THUMB_FUNC void FUN_0202EEB0(u32 param0)
 {
     if (UNK_021C59E8.unk8 != NULL)
     {
-        UNK_021C59E8.unk8->unkDAD =
-            (UNK_021C59E8.unk8->unkDAD & ~2) | (u32)((u8)param0 << 0x1f) >> 0x1e;
+        UNK_021C59E8.unk8->unkDAD_1 = (u8)param0;
 
         UNK_021C59E8.unk8->unkDA6 = 0xFFFF;
     }
@@ -1038,7 +1033,7 @@ THUMB_FUNC u32 FUN_0202F03C()
 {
     if (UNK_021C59E8.unk8 != NULL)
     {
-        return (u32)(UNK_021C59E8.unk8->unkDAD << 0x1b) >> 0x1f;
+        return UNK_021C59E8.unk8->unkDAD_4;
     }
 
     return 0;
@@ -1048,7 +1043,7 @@ THUMB_FUNC void FUN_0202F05C()
 {
     if (UNK_021C59E8.unk8 != NULL)
     {
-        UNK_021C59E8.unk8->unkDAD |= 0x10;
+        UNK_021C59E8.unk8->unkDAD_4 = 1;
     }
 }
 

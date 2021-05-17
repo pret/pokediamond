@@ -14,7 +14,7 @@
 #include "timer3.h"
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
-
+#include "module_52.h"
 
 
 FS_EXTERN_OVERLAY(MODULE_52);
@@ -23,10 +23,6 @@ FS_EXTERN_OVERLAY(MODULE_63);
 #define SOFT_RESET_KEY (PAD_BUTTON_L | PAD_BUTTON_R | PAD_BUTTON_START | PAD_BUTTON_SELECT)
 
 struct Unk2106FA0 gBacklightTop;
-
-extern BOOL OverlayManager_new(struct Unk21DBE18 *, s32 *, int);
-extern BOOL OverlayManager_Run(int);
-extern void OverlayManager_delete(int);
 
 extern void InitSystemForTheGame(void);
 extern void InitGraphicMemory(void);
@@ -50,12 +46,11 @@ extern void FUN_0200A318(void);
 extern void FUN_0200E2D8(void);
 
 extern struct Unk21DBE18 MOD63_021DBE18;
-extern struct Unk21DBE18 MOD52_021D76C8;
 
 extern u8 SDK_STATIC_BSS_START[];
 
-const int gGameVersion = GAME_VERSION;
 const int gGameLanguage = GAME_LANGUAGE;
+const int gGameVersion = GAME_VERSION;
 
 THUMB_FUNC void NitroMain(void)
 {
@@ -174,7 +169,7 @@ THUMB_FUNC void Main_RunOverlayManager(void)
     }
 }
 
-THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, struct Unk21DBE18 * arg1)
+THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, const struct Unk21DBE18 * arg1)
 {
     if (gBacklightTop.unk14 != NULL)
         ErrorHandling();
