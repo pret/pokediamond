@@ -5,7 +5,7 @@
 
 struct Unk21DBE18;
 
-struct UnkStruct_02006234 * OverlayManager_new(struct Unk21DBE18 * ovly_mgr, int * a1, u32 heap_id);
+struct UnkStruct_02006234 * OverlayManager_new(const struct Unk21DBE18 * ovly_mgr, s32 * a1, u32 heap_id);
 void OverlayManager_delete(struct UnkStruct_02006234 * a0);
 void * OverlayManager_CreateAndGetData(struct UnkStruct_02006234 * a0, u32 size, u32 heap_id);
 void * OverlayManager_GetData(struct UnkStruct_02006234 * a0);

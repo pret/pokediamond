@@ -4,7 +4,7 @@
 #include "heap.h"
 #include "overlay_manager.h"
 
-THUMB_FUNC struct UnkStruct_02006234 * OverlayManager_new(struct Unk21DBE18 * ovly_mgr, int * a1, u32 heap_id)
+THUMB_FUNC struct UnkStruct_02006234 * OverlayManager_new(const struct Unk21DBE18 * ovly_mgr, s32 * a1, u32 heap_id)
 {
     struct UnkStruct_02006234 * ret = (struct UnkStruct_02006234 *)AllocFromHeap(heap_id, sizeof(struct UnkStruct_02006234));
     ret->ovly_mgr = *ovly_mgr;
