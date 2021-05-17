@@ -38,7 +38,7 @@ THUMB_FUNC void OverlayManager_FreeData(struct UnkStruct_02006234 * a0)
     a0->unk1C = NULL;
 }
 
-THUMB_FUNC int * OverlayManager_GetField18(struct UnkStruct_02006234 * a0)
+THUMB_FUNC s32 * OverlayManager_GetField18(struct UnkStruct_02006234 * a0)
 {
     return a0->unk18;
 }

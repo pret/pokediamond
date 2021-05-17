@@ -336,9 +336,9 @@ THUMB_FUNC void FUN_0202F910(int param0)
     FUN_0202F820(param0);
 }
 
-THUMB_FUNC u32 FUN_0202F918(u32 param0, u32 param1, u32 param2, u32 param3)
+THUMB_FUNC BOOL FUN_0202F918(u32 param0, u32 param1, u32 param2, u32 param3)
 {
-    u32 ret = 1;
+    BOOL ret = TRUE;
     if (FUN_02033534() < 0x13)
     {
         ret = FUN_0202E5F8(param0, param1, param3);

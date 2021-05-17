@@ -93,7 +93,7 @@ THUMB_FUNC void FUN_0202F5A4();
 THUMB_FUNC void FUN_0202F820(int param0);
 THUMB_FUNC void FUN_0202F8D4();
 THUMB_FUNC void FUN_0202F910(int param0);
-THUMB_FUNC u32 FUN_0202F918(u32 param0, u32 param1, u32 param2, u32 param3);
+THUMB_FUNC BOOL FUN_0202F918(u32 param0, u32 param1, u32 param2, u32 param3);
 THUMB_FUNC u32 FUN_0202F950(u32 param0, u32 param1, u32 param2);
 THUMB_FUNC void FUN_0202F984();
 THUMB_FUNC void FUN_0202F9E0(u32 param0);
