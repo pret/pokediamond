@@ -302,6 +302,19 @@ BOOL ScrCmd_Unk0090(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0091(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0092(struct ScriptContext* ctx);
 
+//scrcmd_24.c
+BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk021E(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk021F(struct ScriptContext* ctx);
+void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, void* a3);
+BOOL ScrCmd_Unk0220(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0221(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0224(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0222(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0223(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0225(struct ScriptContext* ctx);
+
 //scrcmd_25.c
 BOOL ScrCmd_Unk023F(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0240(struct ScriptContext* ctx);
