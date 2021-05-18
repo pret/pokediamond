@@ -105,6 +105,7 @@ BOOL ScrCmd_Unk0047(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0048(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02CF(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk005E(struct ScriptContext *ctx);
 
 //scrcmd_4.c
 BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx);
