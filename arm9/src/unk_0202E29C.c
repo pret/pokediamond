@@ -941,35 +941,21 @@ THUMB_FUNC void FUN_0202EFAC(u8 *param0, s32 param1)
 #ifdef NONMATCHING
 THUMB_FUNC BOOL FUN_0202EFE4(u8 *param0)
 {
-
+    u8 (*ptr)[6] = UNK_021C59F0->unkC54;
     for (int i = 0; i < 8; i++)
     {
-        if (UNK_021C59F0->unkC54[i][0] != param0[0])
-        {
+        if (ptr[i][0] != param0[0])
             continue;
-        }
-
-        if (UNK_021C59F0->unkC54[i][1] != param0[1])
-        {
+        if (ptr[i][1] != param0[1])
             continue;
-        }
-        if (UNK_021C59F0->unkC54[i][2] != param0[2])
-        {
+        if (ptr[i][2] != param0[2])
             continue;
-        }
-        if (UNK_021C59F0->unkC54[i][3] != param0[3])
-        {
+        if (ptr[i][3] != param0[3])
             continue;
-        }
-        if (UNK_021C59F0->unkC54[i][4] != param0[4])
-        {
+        if (ptr[i][4] != param0[4])
             continue;
-        }
-        if (UNK_021C59F0->unkC54[i][5] != param0[5])
-        {
+        if (ptr[i][5] != param0[5])
             continue;
-        }
-
         return TRUE;
     }
 
