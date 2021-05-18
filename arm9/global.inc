@@ -7708,6 +7708,7 @@
 .extern MTX_TransApply44
 .extern NitroMain
 .extern gBacklightTop
+.extern UNK_02016FA4
 .extern OS_AllocFromArenaHi
 .extern OS_AllocFromArenaLo
 .extern OS_AllocFromHeap

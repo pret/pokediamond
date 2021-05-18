@@ -18576,7 +18576,7 @@ MOD83_02236804: ; 0x02236804
 	bl CTRDG_IsPulledOut
 	cmp r0, #1
 	beq _02236822
-	ldr r0, _02236B3C ; =gBacklightTop + 4
+	ldr r0, _02236B3C ; =UNK_02016FA4
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02236828
@@ -18966,7 +18966,7 @@ _02236B2E:
 	str r0, [r5]
 	b _02236D90
 	.align 2, 0
-_02236B3C: .word gBacklightTop + 4
+_02236B3C: .word UNK_02016FA4
 _02236B40: .word 0x000004A8
 _02236B44: .word 0x000004AC
 _02236B48: .word 0x0000E880
