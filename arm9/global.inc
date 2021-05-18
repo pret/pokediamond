@@ -8552,3 +8552,7 @@
 .extern FUN_02017E84
 .extern FUN_02017FFC
 .extern FUN_02018068
+.extern FUN_02018808
+.extern FUN_02018848
+.extern FUN_02018CA0
+.extern FUN_02018E88
