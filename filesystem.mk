@@ -2589,6 +2589,7 @@ files/poketool/icongra/poke_icon.narc: \
         files/poketool/icongra/poke_icon/narc_0000.NCLR \
         files/poketool/icongra/poke_icon/narc_0002.NCER \
         files/poketool/icongra/poke_icon/narc_0004.NCER \
+        files/poketool/icongra/poke_icon/narc_0006.NCER \
         files/poketool/icongra/poke_icon/narc_0007.NCGR \
         files/poketool/icongra/poke_icon/narc_0008.NCGR \
         files/poketool/icongra/poke_icon/narc_0009.NCGR \
