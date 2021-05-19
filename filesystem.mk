@@ -2614,6 +2614,11 @@ files/poketool/icongra/poke_icon.narc: \
         files/poketool/icongra/poke_icon/narc_0029.NCGR \
         files/poketool/icongra/poke_icon/narc_0030.NCGR \
         files/poketool/icongra/poke_icon/narc_0031.NCGR \
+        files/poketool/icongra/poke_icon/narc_0032.NCGR \
+        files/poketool/icongra/poke_icon/narc_0033.NCGR \
+        files/poketool/icongra/poke_icon/narc_0034.NCGR \
+        files/poketool/icongra/poke_icon/narc_0035.NCGR \
+        files/poketool/icongra/poke_icon/narc_0036.NCGR \
         files/poketool/icongra/poke_icon/narc_0402.NCGR
 
 files/msgdata/msg.narc: \
