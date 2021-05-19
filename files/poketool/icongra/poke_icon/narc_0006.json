@@ -4,7 +4,7 @@
 	"imageHeight": 32,
 	"imageWidth": 32,
 	"cellCount": 2,
-	"mappingType": 0,
+	"mappingType": 1,
 	"cells": [
 		{
 			"readOnly": 2054,
@@ -56,13 +56,13 @@
 					"Size": 2
 				},
 				"Attr2": {
-					"CharName": 16,
+					"CharName": 8,
 					"Priority": 0,
 					"Palette": 0
 				}
 			}
 		}
 	],
-	"labels": ["CellAnime0", "CellAnime1"],
-	"labelCount": 2
+	"labels": ["CellAnime0", "CellAnime1", "CellAnime2", "CellAnime3", "CellAnime4", "CellAnime5"],
+	"labelCount": 6
 }
