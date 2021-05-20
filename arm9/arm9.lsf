@@ -6,6 +6,7 @@ Static arm9
 {
 	Address 0x02000000
 	Object main.o
+	Object list_menu.o
 	Object unk_020010A8.o
 	Object unk_02001B80.o
 	Object string_util.o

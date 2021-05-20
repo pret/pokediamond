@@ -1110,7 +1110,7 @@ _02065C64:
 	lsl r3, r3, #0x18
 	ldrh r2, [r5, r2]
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]
@@ -1362,7 +1362,7 @@ _02065E14:
 	ldr r2, [sp, #0x4]
 	add r0, r5, r0
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]

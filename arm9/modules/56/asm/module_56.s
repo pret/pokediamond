@@ -3567,7 +3567,7 @@ _022139D0:
 	add r2, r1, #0
 	mov r3, #0x36
 	str r5, [sp, #0x30]
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r5, #0xb4
 	str r0, [r5]
 	add sp, #0x34
@@ -5134,7 +5134,7 @@ _02214642:
 	add r0, sp, #0x14
 	mov r1, #0
 	mov r3, #0x36
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r1, r5, #0
 	add r1, #0xbc
 	str r0, [r1]
@@ -5425,7 +5425,7 @@ _0221488C:
 	ldrh r2, [r2, r3]
 	mov r1, #0
 	mov r3, #0x36
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r1, r5, #0
 	add r1, #0xbc
 	str r0, [r1]
@@ -5717,7 +5717,7 @@ _02214ADC:
 	add r0, sp, #0x2c
 	add r2, r1, #0
 	mov r3, #0x36
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r1, r5, #0
 	add r1, #0xbc
 	str r0, [r1]

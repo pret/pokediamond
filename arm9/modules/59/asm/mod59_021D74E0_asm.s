@@ -1096,7 +1096,7 @@ _021D7DF2:
 	lsl r3, r3, #0x18
 	add r2, r1, #0
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x40]
 	ldr r0, [sp, #0x10]
 	ldr r2, _021D7EC4 ; =0x000003D9

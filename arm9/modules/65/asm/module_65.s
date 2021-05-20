@@ -1684,7 +1684,7 @@ _021D81C0:
 	ldrh r2, [r2]
 	add r0, #0x84
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r1, r5, #0
 	add r1, #0xc4
 	str r0, [r1]
@@ -2276,7 +2276,7 @@ _021D8648:
 	add r0, #0xa4
 	add r2, r1, #0
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r5, #0xc8
 	str r0, [r5]
 	pop {r3, r4, r5, pc}

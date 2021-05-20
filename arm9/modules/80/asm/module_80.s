@@ -13718,7 +13718,7 @@ _02234388:
 	ldrh r1, [r2, #6]
 	ldrh r2, [r2, #4]
 	mov r3, #0x3e
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -13912,7 +13912,7 @@ MOD80_022344DC: ; 0x022344DC
 	ldrh r2, [r3, r2]
 	add r0, sp, #0x18
 	mov r3, #0x3e
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x38
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -13968,7 +13968,7 @@ _02234578:
 	add r0, sp, #4
 	add r2, r1, #0
 	mov r3, #0x3e
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -14024,7 +14024,7 @@ _022345E8:
 	add r0, sp, #4
 	add r2, r1, #0
 	mov r3, #0x3e
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

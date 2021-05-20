@@ -7127,7 +7127,7 @@ MOD71_02231018: ; 0x02231018
 	mov r3, #0x1a
 	str r5, [sp, #0x14]
 	str r4, [sp, #0x20]
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	nop

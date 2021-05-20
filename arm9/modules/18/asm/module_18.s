@@ -22075,7 +22075,7 @@ _0224409E:
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
 	add r0, r5, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	ldr r1, [sp, #0xc]
 	str r0, [r1, #0xc]
 	add r0, r1, #0
@@ -29593,7 +29593,7 @@ _02247AFA:
 	strh r1, [r5, #0x3a]
 	add r0, sp, #0x14
 	add r2, r1, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
@@ -29745,7 +29745,7 @@ _02247C40:
 	strh r1, [r5, #0x3a]
 	add r2, r1, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
@@ -29898,7 +29898,7 @@ _02247D6C:
 	strh r1, [r5, #0x3a]
 	add r2, r1, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
@@ -31278,7 +31278,7 @@ _02248870:
 	strh r1, [r5, #0x36]
 	add r2, r1, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x1c]
 	add r5, #8
 	add r0, r5, #0
@@ -33530,7 +33530,7 @@ _02249A0E:
 	add r2, r1, #0
 	mov r3, #4
 	str r5, [sp, #0x3c]
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x50]
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
@@ -36727,7 +36727,7 @@ _0224B42C:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x48]
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
@@ -36848,7 +36848,7 @@ _0224B528:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x48]
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
@@ -38606,7 +38606,7 @@ _0224C396:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x48]
 	mov r0, #0x8b
 	lsl r0, r0, #2
@@ -39228,7 +39228,7 @@ _0224C87C:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x48]
 	add r5, #0x10
 	add r0, r5, #0
@@ -42402,7 +42402,7 @@ _0224E186:
 	ldr r2, [r5, #0x34]
 	ldrh r1, [r1]
 	ldrh r2, [r2]
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x28]
 	add r0, r5, #4
 	bl CopyWindowToVram

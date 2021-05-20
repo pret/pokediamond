@@ -1455,7 +1455,7 @@ _02063094:
 	ldr r2, [sp, #0x18]
 	add r0, #0xa0
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r1, r5, #0x0
 	add r1, #0xc0
 	str r0, [r1, #0x0]

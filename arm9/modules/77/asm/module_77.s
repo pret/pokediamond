@@ -1812,7 +1812,7 @@ _021D83B2:
 	lsl r3, r3, #0x18
 	add r2, r1, #0
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	ldr r1, _021D8410 ; =0x0000C054
 	ldr r2, _021D8414 ; =0x000001D9
 	str r0, [r5, r1]
@@ -1902,7 +1902,7 @@ _021D8462:
 	lsl r3, r3, #0x18
 	add r2, r1, #0
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	ldr r1, _021D84D0 ; =0x0000C054
 	ldr r2, _021D84D4 ; =0x000001D9
 	str r0, [r5, r1]

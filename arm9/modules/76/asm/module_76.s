@@ -1340,7 +1340,7 @@ _021D7F50:
 	ldrh r1, [r3, #0x12]
 	ldrh r2, [r3, #0x10]
 	mov r3, #0x43
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0x41
 	lsl r1, r1, #2
 	str r0, [r5, r1]

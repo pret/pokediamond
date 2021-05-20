@@ -9220,7 +9220,7 @@ _0223DC8E:
 	add r0, r2, #0
 	add r2, r1, #0
 	str r5, [sp, #0x20]
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x78]
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
@@ -11388,7 +11388,7 @@ _0223EEB8:
 	mov r1, #0
 	add r0, r2, #0
 	add r2, r1, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	ldr r1, _0223EF10 ; =0x02252420
 	ldr r2, [r1]
 	str r0, [r2, #0x5c]
@@ -14666,7 +14666,7 @@ _022409D2:
 	add r2, #0x78
 	ldrh r2, [r2]
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5]
 	add r5, #0x34
 	add r0, r5, #0
@@ -14855,7 +14855,7 @@ _02240B4A:
 	add r2, #0x7a
 	ldrh r2, [r2]
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #4]
 	add r5, #0x44
 	add r0, r5, #0
@@ -19028,7 +19028,7 @@ MOD06_02242CDC: ; 0x02242CDC
 	mov r1, #0
 	add r2, r5, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r4, #0x88
 	str r0, [r4]
 	add sp, #0x14
@@ -42332,7 +42332,7 @@ _0224E084:
 	mov r1, #0
 	ldr r0, _0224E16C ; =MOD6_022523A0
 	add r2, r1, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #8]
 	ldr r0, [r5, #4]
 	mov r1, #0

@@ -738,7 +738,7 @@ _021E2032:
 	add r0, r4, r0
 	mov r1, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0x6d
 	lsl r1, r1, #2
 	str r0, [r4, r1]

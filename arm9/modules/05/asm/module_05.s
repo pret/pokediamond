@@ -15277,7 +15277,7 @@ _021EFF54:
 	add r0, r2, #0
 	add r2, r1, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #4]
 	add r0, r5, #0
 	add r0, #0x20

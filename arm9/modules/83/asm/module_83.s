@@ -5869,7 +5869,7 @@ _02230436:
 	add r0, sp, #8
 	add r2, r1, #0
 	mov r3, #0x56
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r4, #0x78]
 	mov r0, #0
 	ldr r2, [sp, #0x40]
@@ -8205,7 +8205,7 @@ _02231752:
 	str r0, [sp, #0x10]
 	add r0, r2, #0
 	add r2, r1, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	ldr r1, _02231798 ; =0x00002B68
 	str r0, [r5, r1]
 	add sp, #0x24

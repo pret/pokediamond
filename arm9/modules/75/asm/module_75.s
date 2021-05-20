@@ -1606,7 +1606,7 @@ _021E784E:
 	add r1, r3, #0
 	add r0, sp, #0
 	mov r3, #6
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0x57
 	lsl r1, r1, #2
 	str r0, [r4, r1]
