@@ -4,6 +4,7 @@
 	"imageHeight": 32,
 	"imageWidth": 32,
 	"cellCount": 2,
+	"mappingType": 0,
 	"cells": [
 		{
 			"readOnly": 2054,

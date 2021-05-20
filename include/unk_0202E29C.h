@@ -68,7 +68,12 @@ struct UnkStruct_0202E29C
     u8 unkDAA;
     u8 unkDAB;
     u8 unkDAC;
-    u8 unkDAD;
+    u8 unkDAD_0:1;
+    u8 unkDAD_1:1;
+    u8 unkDAD_2:1;
+    u8 unkDAD_3:1;
+    u8 unkDAD_4:1;
+    u8 unkDAD_5:1;
     u8 unkDAE[0x2];
 };
 

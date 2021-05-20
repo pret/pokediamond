@@ -10,8 +10,8 @@ struct
     struct UnkStruct0202F150 *unk04;
 } UNK_021C59F4;
 
-vu8 UNK_02105D58 = 4;
 vu8 UNK_02105D59 = 4;
+vu8 UNK_02105D58 = 4;
 
 extern void FUN_0202D7D8(u8 *param0, u32 param1, struct UnkStruct0202F150_sub1 *param2);
 extern u32 FUN_0200CA60(void (*param0)(), u32 param1, u32 param2);
@@ -336,9 +336,9 @@ THUMB_FUNC void FUN_0202F910(int param0)
     FUN_0202F820(param0);
 }
 
-THUMB_FUNC u32 FUN_0202F918(u32 param0, u32 param1, u32 param2, u32 param3)
+THUMB_FUNC BOOL FUN_0202F918(u32 param0, u32 param1, u32 param2, u32 param3)
 {
-    u32 ret = 1;
+    BOOL ret = TRUE;
     if (FUN_02033534() < 0x13)
     {
         ret = FUN_0202E5F8(param0, param1, param3);

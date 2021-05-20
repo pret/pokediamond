@@ -222,28 +222,28 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0046
     .word ScrCmd_Unk0047
     .word ScrCmd_Unk0048
-    .word FUN_020414E0
-    .word FUN_020414FC
-    .word FUN_02041518
-    .word FUN_02041558
-    .word ScrCmd_waitcry
-    .word ScrCmd_playbgm
-    .word FUN_020415BC
-    .word FUN_020413E8
-    .word FUN_020413F8
-    .word FUN_0204140C
-    .word FUN_02041424
-    .word FUN_0204143C
-    .word FUN_02041478
-    .word FUN_0204149C
-    .word FUN_020414B8
-    .word FUN_020414CC
-    .word FUN_020415E0
-    .word FUN_02041618
-    .word FUN_02041644
-    .word FUN_02041650
-    .word FUN_02041664
-    .word FUN_0203AFC4
+    .word ScrCmd_Unk0049
+    .word ScrCmd_Unk004A
+    .word ScrCmd_Unk004B
+    .word ScrCmd_Unk004C
+    .word ScrCmd_PlayCryWait
+    .word ScrCmd_PlayBgm
+    .word ScrCmd_Unk004F
+    .word ScrCmd_Unk0050
+    .word ScrCmd_Unk0051
+    .word ScrCmd_Unk0052
+    .word ScrCmd_Unk0053
+    .word ScrCmd_Unk0054
+    .word ScrCmd_Unk0055
+    .word ScrCmd_Unk0056
+    .word ScrCmd_Unk0057
+    .word ScrCmd_Unk0058
+    .word ScrCmd_Unk0059
+    .word ScrCmd_Unk005A
+    .word ScrCmd_Unk005B
+    .word ScrCmd_Unk005C
+    .word ScrCmd_Unk005D
+    .word ScrCmd_Unk005E
     .word FUN_0203B148
     .word FUN_0203B1F0
     .word FUN_0203B3B0
@@ -603,8 +603,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203E078
     .word FUN_0203E0CC
     .word FUN_0203E120
-    .word FUN_02045D88
-    .word FUN_02045DD0
+    .word ScrCmd_Unk01C6
+    .word ScrCmd_Unk01C7
     .word FUN_02044D8C
     .word FUN_02044E34
     .word FUN_02044E78
@@ -691,14 +691,14 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203E848
     .word FUN_0203E858
     .word ScrCmd_Unk021D
-    .word FUN_02045E1C
-    .word FUN_02045E20
-    .word FUN_02045EE0
-    .word FUN_02045EE4
-    .word FUN_02045F84
-    .word FUN_02045F88
-    .word FUN_02045F24
-    .word FUN_02045FCC
+    .word ScrCmd_Unk021E
+    .word ScrCmd_Unk021F
+    .word ScrCmd_Unk0220
+    .word ScrCmd_Unk0221
+    .word ScrCmd_Unk0222
+    .word ScrCmd_Unk0223
+    .word ScrCmd_Unk0224
+    .word ScrCmd_Unk0225
     .word FUN_0203E870
     .word FUN_0203E894
     .word FUN_0203E8C4
@@ -792,7 +792,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0280
     .word FUN_02044A0C
     .word FUN_0203F484
-    .word FUN_02041674
+    .word ScrCmd_Unk0283
     .word FUN_0203F4D8
     .word FUN_0203F508
     .word FUN_0203F5D4
@@ -835,7 +835,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203B7F0
     .word FUN_0203FB4C
     .word FUN_0203B790
-    .word FUN_020413C0
+    .word ScrCmd_Unk02AE
     .word FUN_0203FB64
     .word FUN_0203FB94
     .word FUN_0203FBA0
