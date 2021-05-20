@@ -31,7 +31,8 @@ struct UnkStruct1 {
 
 struct UnkStruct2 {
     u32 unk00;
-    u32 unk04;
+    u16 unk04;
+    u16 unk06;
 
 
     struct InnerStruct {
