@@ -4,8 +4,8 @@
 #include "gx.h"
 #include "heap.h"
 
-extern void FUN_020B0030(u32 param0, u32 param1);
-extern void FUN_020B0138(u32 param0, u32 param1);
+extern void FUN_020B0030(void *param0, u32 *param1);
+extern void FUN_020B0138(void *param0, u32 *param1);
 
 const u8 UNK_020EDB30[8] = {
     0x10,
@@ -54,13 +54,13 @@ void (*const UNK_020EDB74[])(struct Window *) = {
     FUN_020193B4,
 };
 
-THUMB_FUNC void *FUN_02016B94(u32 heap_id)
+THUMB_FUNC struct UnkStruct2 *FUN_02016B94(u32 heap_id)
 {
-    void *ptr = AllocFromHeap(heap_id, 0x5a << 2);
-    memset(ptr, 0, 0x5a << 2);
-    *(u32 *)ptr = heap_id;
-    *(u16 *)(ptr + 4) = 0;
-    *(u16 *)(ptr + 6) = 0;
+    struct UnkStruct2 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct2));
+    memset(ptr, 0, sizeof(struct UnkStruct2));
+    ptr->unk00 = heap_id;
+    ptr->unk04 = 0;
+    ptr->unk06 = 0;
 
     return ptr;
 }
@@ -70,10 +70,10 @@ THUMB_FUNC u32 FUN_02016BB8(u32 *param0)
     return *param0;
 }
 
-THUMB_FUNC void FUN_02016BBC(u32 *param0)
+THUMB_FUNC void FUN_02016BBC(const struct GraphicsModes *modes)
 {
-    GX_SetGraphicsMode(param0[0], param0[1], param0[3]);
-    GXS_SetGraphicsMode(param0[2]);
+    GX_SetGraphicsMode(modes->mode1, modes->mode2, modes->mode4);
+    GXS_SetGraphicsMode(modes->mode3);
     reg_GX_DISPCNT &= 0xC7FFFFFF;
     reg_GX_DISPCNT &= 0xF8FFFFFF;
 
@@ -2336,33 +2336,33 @@ THUMB_FUNC void FUN_020178A0(struct UnkStruct2 *param0, u32 param1)
     }
 }
 
-THUMB_FUNC void FUN_020178BC(u32 param0, u32 param1)
+THUMB_FUNC void FUN_020178BC(u32 param0, u16 param1)
 {
     switch (param0)
     {
     case 0:
-        reg_G2_BG0CNT = reg_G2_BG0CNT & ~3 | param1;
+        reg_G2_BG0CNT = (u16)(reg_G2_BG0CNT & ~3 | param1);
         break;
     case 1:
-        reg_G2_BG1CNT = reg_G2_BG1CNT & ~3 | param1;
+        reg_G2_BG1CNT = (u16)(reg_G2_BG1CNT & ~3 | param1);
         break;
     case 2:
-        reg_G2_BG2CNT = reg_G2_BG2CNT & ~3 | param1;
+        reg_G2_BG2CNT = (u16)(reg_G2_BG2CNT & ~3 | param1);
         break;
     case 3:
-        reg_G2_BG3CNT = reg_G2_BG3CNT & ~3 | param1;
+        reg_G2_BG3CNT = (u16)(reg_G2_BG3CNT & ~3 | param1);
         break;
     case 4:
-        reg_G2S_DB_BG0CNT = reg_G2S_DB_BG0CNT & ~3 | param1;
+        reg_G2S_DB_BG0CNT = (u16)(reg_G2S_DB_BG0CNT & ~3 | param1);
         break;
     case 5:
-        reg_G2S_DB_BG1CNT = reg_G2S_DB_BG1CNT & ~3 | param1;
+        reg_G2S_DB_BG1CNT = (u16)(reg_G2S_DB_BG1CNT & ~3 | param1);
         break;
     case 6:
-        reg_G2S_DB_BG2CNT = reg_G2S_DB_BG2CNT & ~3 | param1;
+        reg_G2S_DB_BG2CNT = (u16)(reg_G2S_DB_BG2CNT & ~3 | param1);
         break;
     case 7:
-        reg_G2S_DB_BG3CNT = reg_G2S_DB_BG3CNT & ~3 | param1;
+        reg_G2S_DB_BG3CNT = (u16)(reg_G2S_DB_BG3CNT & ~3 | param1);
         break;
     }
 }
@@ -2398,12 +2398,12 @@ THUMB_FUNC void FUN_0201797C(u32 param0, GX_LayerToggle toggle)
     }
 }
 
-THUMB_FUNC void FUN_020179E0(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 val)
+THUMB_FUNC void FUN_020179E0(struct UnkStruct2 *param0, u32 param1, u32 param2, fx32 val)
 {
     FUN_02017B8C(&param0->unk08[param1], param2, val);
 
-    u32 r1 = param0->unk08[param1].unk14;
-    u32 r0 = param0->unk08[param1].unk18;
+    u32 r1 = (u32)param0->unk08[param1].unk14;
+    u32 r0 = (u32)param0->unk08[param1].unk18;
     switch (param1)
     {
     case 0:
@@ -2474,12 +2474,12 @@ THUMB_FUNC void FUN_020179E0(struct UnkStruct2 *param0, u32 param1, u32 param2, 
     }
 }
 
-THUMB_FUNC u32 FUN_02017B48(struct UnkStruct2 *param0, u32 param1)
+THUMB_FUNC fx32 FUN_02017B48(struct UnkStruct2 *param0, u32 param1)
 {
     return param0->unk08[param1].unk14;
 }
 
-THUMB_FUNC u32 FUN_02017B54(struct UnkStruct2 *param0, u32 param1)
+THUMB_FUNC fx32 FUN_02017B54(struct UnkStruct2 *param0, u32 param1)
 {
     return param0->unk08[param1].unk18;
 }
@@ -2487,16 +2487,16 @@ THUMB_FUNC u32 FUN_02017B54(struct UnkStruct2 *param0, u32 param1)
 THUMB_FUNC void FUN_02017B60(struct UnkStruct2 *param0,
     u32 param1,
     u32 param2,
-    u32 param3,
-    u32 param4,
-    u32 param5,
-    u32 param6)
+    fx32 param3,
+    struct Mtx22 *param4,
+    fx32 param5,
+    fx32 param6)
 {
     FUN_02017B8C(&param0->unk08[param1], param2, param3);
     FUN_02017BD0(param0, param1, param4, param5, param6);
 }
 
-THUMB_FUNC void FUN_02017B8C(struct InnerStruct *param0, u32 param1, u32 val)
+THUMB_FUNC void FUN_02017B8C(struct InnerStruct *param0, u32 param1, fx32 val)
 {
     switch (param1)
     {
@@ -2527,7 +2527,7 @@ THUMB_FUNC void FUN_02017BD0(
     switch (param1)
     {
     case 2:
-        G2x_SetBGyAffine_(0x04000020,
+        G2x_SetBGyAffine_(reg_G2_BG2P,
             param2,
             param3,
             param4,
@@ -2535,7 +2535,7 @@ THUMB_FUNC void FUN_02017BD0(
             param0->unk08[param1].unk18);
         break;
     case 3:
-        G2x_SetBGyAffine_(0x04000030,
+        G2x_SetBGyAffine_(reg_G2_BG3P,
             param2,
             param3,
             param4,
@@ -2543,7 +2543,7 @@ THUMB_FUNC void FUN_02017BD0(
             param0->unk08[param1].unk18);
         break;
     case 6:
-        G2x_SetBGyAffine_(0x04001020,
+        G2x_SetBGyAffine_(reg_G2S_DB_BG2P,
             param2,
             param3,
             param4,
@@ -2551,7 +2551,7 @@ THUMB_FUNC void FUN_02017BD0(
             param0->unk08[param1].unk18);
         break;
     case 7:
-        G2x_SetBGyAffine_(0x04001030,
+        G2x_SetBGyAffine_(reg_G2S_DB_BG3P,
             param2,
             param3,
             param4,
@@ -2658,7 +2658,7 @@ THUMB_FUNC void FUN_02017DFC(struct UnkStruct2 *param0, u32 param1, void *param2
 }
 
 THUMB_FUNC void FUN_02017E14(
-    struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u32 param4)
+    struct UnkStruct2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4)
 {
     if (param0->unk08[param1].unk1e == 0)
     {
@@ -2729,7 +2729,7 @@ THUMB_FUNC void FUN_02017F18(u32 param0, u32 size, u32 offset, u32 heap_id)
 }
 
 THUMB_FUNC void FUN_02017F48(
-    struct UnkStruct2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4)
+    struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u32 param4)
 {
     void *st4;
     u32 st0 = param3 * param0->unk08[param1].unk1f;
@@ -2774,27 +2774,29 @@ THUMB_FUNC u16 FUN_02017FFC(u8 param0, u8 param1, u8 param2)
     switch (param2)
     {
     case 0:
-        return param0 + (param1 << 4);
+        return (u16)(param0 + (param1 << 4));
     case 1:
     case 2:
-        return param0 + (param1 << 5);
+        return (u16)(param0 + (param1 << 5));
     case 3:
-        return (param0 & 0x1f) + ((param1 + (param0 & ~0x1f)) << 5);
+        return (u16)((param0 & 0x1f) + ((param1 + (param0 & ~0x1f)) << 5));
     case 4:
-        u16 res = ((u16)((param0 >> 5) + (param1 >> 5) * 2)) << 10;
+        u16 res = (u16)(((u16)((param0 >> 5) + (param1 >> 5) * 2)) << 10);
         res += (param0 & 0x1f) + ((param1 & 0x1f) << 5);
         return res;
     case 5:
         return 0;
     }
+
+    return param0;
 }
 
 THUMB_FUNC u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3)
 {
     u8 r2 = 0;
     u16 r3 = 0;
-    s16 r4 = param2 - 32;
-    s16 r5 = param3 - 32;
+    s16 r4 = (s16)(param2 - 32);
+    s16 r5 = (s16)(param3 - 32);
 
     if (((u32)param0 >> 5) != 0)
     {
@@ -2851,7 +2853,7 @@ THUMB_FUNC u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3)
 }
 
 THUMB_FUNC void FUN_02018148(
-    struct UnkStruct2 *param0, u32 param1, u32 *param2, u8 param3, u8 param4, u8 param5, u8 param6)
+    struct UnkStruct2 *param0, u32 param1, void *param2, u8 param3, u8 param4, u8 param5, u8 param6)
 {
     FUN_02018170(param0, param1, param3, param4, param5, param6, param2, 0, 0, param5, param6);
 }
@@ -2862,7 +2864,7 @@ THUMB_FUNC void FUN_02018170(struct UnkStruct2 *param0,
     u8 param3,
     u8 param4,
     u8 param5,
-    u32 *param6,
+    void *param6,
     u8 param7,
     u8 param8,
     u8 param9,
@@ -2875,7 +2877,7 @@ THUMB_FUNC void FUN_02018170(struct UnkStruct2 *param0,
             param3,
             param4,
             param5,
-            param6,
+            (u16 *)param6,
             param7,
             param8,
             param9,
@@ -2889,7 +2891,7 @@ THUMB_FUNC void FUN_02018170(struct UnkStruct2 *param0,
             param3,
             param4,
             param5,
-            param6,
+            (u8 *)param6,
             param7,
             param8,
             param9,
@@ -2904,7 +2906,7 @@ THUMB_FUNC void FUN_020181EC(struct UnkStruct2 *param0,
     u8 param3,
     u8 param4,
     u8 param5,
-    u32 *param6,
+    void *param6,
     u8 param7,
     u8 param8,
     u8 param9,
@@ -2917,7 +2919,7 @@ THUMB_FUNC void FUN_020181EC(struct UnkStruct2 *param0,
             param3,
             param4,
             param5,
-            param6,
+            (u16 *)param6,
             param7,
             param8,
             param9,
@@ -2931,7 +2933,7 @@ THUMB_FUNC void FUN_020181EC(struct UnkStruct2 *param0,
             param3,
             param4,
             param5,
-            param6,
+            (u8 *)param6,
             param7,
             param8,
             param9,
@@ -2993,7 +2995,7 @@ THUMB_FUNC void FUN_02018268(struct InnerStruct *param0,
                     break;
                 }
 
-                ((u16 *)st2c)[FUN_02017FFC(param1 + j, param2 + i, param0->unk1d)] =
+                ((u16 *)st2c)[FUN_02017FFC((u8)(param1 + j), (u8)(param2 + i), param0->unk1d)] =
                     param5[param6 + param8 * (param7 + i) + j];
             }
         }
@@ -3026,8 +3028,8 @@ THUMB_FUNC void FUN_02018268(struct InnerStruct *param0,
                     break;
                 }
 
-                ((u16 *)st2c)[FUN_02017FFC(param1 + j, param2 + i, param0->unk1d)] =
-                    param5[FUN_02018068(param6 + j, param7 + i, param8, param9)];
+                ((u16 *)st2c)[FUN_02017FFC((u8)(param1 + j), (u8)(param2 + i), param0->unk1d)] =
+                    param5[FUN_02018068((u8)(param6 + j), (u8)(param7 + i), param8, param9)];
             }
         }
     }
@@ -3086,7 +3088,7 @@ THUMB_FUNC void FUN_020183DC(struct InnerStruct *param0,
                     break;
                 }
 
-                ((u8 *)st2c)[FUN_02017FFC(param1 + j, param2 + i, param0->unk1d)] =
+                ((u8 *)st2c)[FUN_02017FFC((u8)(param1 + j), (u8)(param2 + i), param0->unk1d)] =
                     param5[param6 + param8 * (param7 + i) + j];
             }
         }
@@ -3119,8 +3121,8 @@ THUMB_FUNC void FUN_020183DC(struct InnerStruct *param0,
                     break;
                 }
 
-                ((u8 *)st2c)[FUN_02017FFC(param1 + j, param2 + i, param0->unk1d)] =
-                    param5[FUN_02018068(param6 + j, param7 + i, param8, param9)];
+                ((u8 *)st2c)[FUN_02017FFC((u8)(param1 + j), (u8)(param2 + i), param0->unk1d)] =
+                    param5[FUN_02018068((u8)(param6 + j), (u8)(param7 + i), param8, param9)];
             }
         }
     }
@@ -3142,7 +3144,7 @@ THUMB_FUNC void FUN_02018540(struct UnkStruct2 *param0,
     }
     else
     {
-        FUN_02018640(&param0->unk08[param1], param2, param3, param4, param5, param6);
+        FUN_02018640(&param0->unk08[param1], (u8)param2, param3, param4, param5, param6);
     }
 }
 
@@ -3182,11 +3184,11 @@ THUMB_FUNC void FUN_02018590(
                 }
                 else if (param6 == 0x10)
                 {
-                    ((u16 *)r4)[idx] = (((u16 *)r4)[idx] & 0xF000) + param1;
+                    ((u16 *)r4)[idx] = (u16)((((u16 *)r4)[idx] & 0xF000) + param1);
                 }
                 else
                 {
-                    ((u16 *)r4)[idx] = (param6 << 0xc) + param1;
+                    ((u16 *)r4)[idx] = (u16)((param6 << 0xc) + param1);
                 }
             }
         }
@@ -3255,7 +3257,7 @@ THUMB_FUNC void FUN_020186B4(
                 }
 
                 u16 idx = FUN_02017FFC(j, i, param0->unk08[param1].unk1d);
-                ((u16 *)r4)[idx] = (((u16 *)r4)[idx] & 0xfff) | (param6 << 0xc);
+                ((u16 *)r4)[idx] = (u16)((((u16 *)r4)[idx] & 0xfff) | (param6 << 0xc));
             }
         }
     }
@@ -3315,16 +3317,16 @@ THUMB_FUNC void *FUN_020187B0(u32 param0)
 
 THUMB_FUNC void FUN_02018808(u8 *param0, u32 param1, u8 (*param2)[2], u8 param3)
 {
-    param3 = param3 << 4;
+    param3 <<= 4;
     for (int i = 0; i < param1; i++)
     {
-        param2[i][0] = param0[i] & 0xf;
+        param2[i][0] = (u8)(param0[i] & 0xf);
         if (param2[i][0] != 0)
         {
             param2[i][0] += param3;
         }
 
-        param2[i][1] = (param0[i] >> 4) & 0xf;
+        param2[i][1] = (u8)((param0[i] >> 4) & 0xf);
         if (param2[i][1] != 0)
         {
             param2[i][1] += param3;
@@ -4470,7 +4472,7 @@ THUMB_FUNC void FUN_02018F4C(
 
 THUMB_FUNC void *FUN_02018FF4(u32 heap_id, s32 size)
 {
-    struct Window *ptr = AllocFromHeap(heap_id, size << 4);
+    struct Window *ptr = AllocFromHeap(heap_id, (u32)(size << 4));
 
     for (u16 i = 0; i < size; i++)
     {
@@ -4527,7 +4529,7 @@ THUMB_FUNC void FUN_02019064(struct UnkStruct2 *param0,
         return;
     }
 
-    void *ptr = AllocFromHeap(param0->unk00, param5 * param6 * param0->unk08[param2].unk1f);
+    void *ptr = AllocFromHeap(param0->unk00, (u32)(param5 * param6 * param0->unk08[param2].unk1f));
 
     if (ptr == NULL)
     {
@@ -4560,7 +4562,7 @@ THUMB_FUNC void FUN_02019064(struct UnkStruct2 *param0,
 THUMB_FUNC void FUN_020190EC(
     struct UnkStruct2 *param0, struct Window *param1, u8 param2, u8 param3, u16 param4, u8 param5)
 {
-    u32 size = param2 * param3 * 32;
+    u32 size = (u32)(param2 * param3 * 32);
 
     void *ptr = AllocFromHeap(param0->unk00, size);
 
@@ -4679,15 +4681,15 @@ THUMB_FUNC void FUN_020192D4(struct Window *param0)
     }
 
     r3 = param0->unk0a;
-    jCount = param0->unk05 + param0->unk07;
-    iCount = param0->unk06 + param0->unk08;
+    jCount = (u32)(param0->unk05 + param0->unk07);
+    iCount = (u32)(param0->unk06 + param0->unk08);
 
     for (i = param0->unk06; i < iCount; i++)
     {
         for (j = param0->unk05; j < jCount; j++)
         {
             st4[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) << 5) + (j & 0x1f)] =
-                (r3 | (param0->unk09 << 12));
+                (u16)(r3 | (param0->unk09 << 12));
 
             r3++;
         }
@@ -4716,7 +4718,7 @@ THUMB_FUNC void FUN_02019358(struct Window *param0)
     {
         for (j = 0; j < param0->unk07; j++)
         {
-            r4[j] = r5;
+            r4[j] = (u8)r5;
             r5++;
         }
         r4 += r6;
@@ -4740,8 +4742,8 @@ THUMB_FUNC void FUN_020193B4(struct Window *param0)
     st4 = param0->unk00->unk08[param0->unk04].unk08;
 
     st8 = UNK_020EDB30[param0->unk00->unk08[param0->unk04].unk1d];
-    jCount = param0->unk05 + param0->unk07;
-    iCount = param0->unk06 + param0->unk08;
+    jCount = (u32)(param0->unk05 + param0->unk07);
+    iCount = (u32)(param0->unk06 + param0->unk08);
 
     for (i = param0->unk06; i < iCount; i++)
     {
@@ -4808,7 +4810,7 @@ THUMB_FUNC void FUN_020194E0(struct Window *window)
     FUN_02017E14(window->unk00,
         window->unk04,
         window->unk0c,
-        window->unk07 * window->unk08 * 64,
+        (u32)(window->unk07 * window->unk08 * 64),
         window->unk0a);
 }
 
@@ -4819,7 +4821,7 @@ THUMB_FUNC void FUN_0201951C(struct Window *window)
     FUN_02017E14(window->unk00,
         window->unk04,
         window->unk0c,
-        window->unk07 * window->unk08 * 64,
+        (u32)(window->unk07 * window->unk08 * 64),
         window->unk0a);
 }
 
@@ -4828,7 +4830,7 @@ THUMB_FUNC void FUN_02019548(struct Window *window)
     FUN_02017E14(window->unk00,
         window->unk04,
         window->unk0c,
-        window->unk07 * window->unk08 * window->unk00->unk08[window->unk04].unk1f,
+        (u32)(window->unk07 * window->unk08 * window->unk00->unk08[window->unk04].unk1f),
         window->unk0a);
 }
 
@@ -4881,9 +4883,9 @@ THUMB_FUNC void FUN_02019620(struct Window *window, u8 param1)
         param1 |= param1 << 4;
     }
 
-    MIi_CpuClearFast((param1 << 0x18) | (param1 << 0x10) | (param1 << 0x8) | param1,
+    MIi_CpuClearFast((u32)((param1 << 0x18) | (param1 << 0x10) | (param1 << 0x8) | param1),
         window->unk0c,
-        window->unk00->unk08[window->unk04].unk1f * window->unk07 * window->unk08);
+        (u32)(window->unk00->unk08[window->unk04].unk1f * window->unk07 * window->unk08));
 }
 
 THUMB_FUNC void FUN_02019658(struct Window *window,
@@ -4913,7 +4915,9 @@ THUMB_FUNC void FUN_02019684(struct Window *window,
     u16 param10)
 {
     struct UnkStruct3 st1c = { param1, param4, param5 };
-    struct UnkStruct3 st14 = { window->unk0c, window->unk07 << 3, window->unk08 << 3 };
+    struct UnkStruct3 st14 = {
+        window->unk0c, (u16)(window->unk07 << 3), (u16)(window->unk08 << 3)
+    };
 
     if (window->unk00->unk08[window->unk04].unk1e == 0)
     {
@@ -4928,7 +4932,7 @@ THUMB_FUNC void FUN_02019684(struct Window *window,
 THUMB_FUNC void FUN_020196F4(
     struct Window *window, u8 param1, u16 param2, u16 param3, u16 param4, u16 param5)
 {
-    struct UnkStruct3 st8 = { window->unk0c, window->unk07 << 3, window->unk08 << 3 };
+    struct UnkStruct3 st8 = { window->unk0c, (u16)(window->unk07 << 3), (u16)(window->unk08 << 3) };
 
     if (window->unk00->unk08[window->unk04].unk1e == 0)
     {
@@ -7542,7 +7546,7 @@ THUMB_FUNC void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 pa
             for (j = 0; j < 8; j++)
             {
                 r5 = i + (j << 2);
-                r1 = i + (((st8 * (r3 & ~7)) | (r3 & 7)) << 2);
+                r1 = i + (int)(((st8 * (r3 & ~7)) | (r3 & 7)) << 2);
 
                 if (r1 < stc)
                 {
@@ -7550,7 +7554,7 @@ THUMB_FUNC void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 pa
                 }
                 else
                 {
-                    *(u32 *)(r2 + r5) = st4;
+                    *(u32 *)(r2 + r5) = (u32)st4;
                 }
 
                 r3++;
@@ -7566,7 +7570,7 @@ THUMB_FUNC void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 pa
             for (j = 0; j < 8; j++)
             {
                 r5 = i + (j << 2);
-                r1 = i + (((st8 * (r3 & ~7)) | (r3 & 7)) << 2);
+                r1 = i + (int)(((st8 * (r3 & ~7)) | (r3 & 7)) << 2);
 
                 if (r1 < stc)
                 {
@@ -7574,7 +7578,7 @@ THUMB_FUNC void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 pa
                 }
                 else
                 {
-                    *(u32 *)(r2 - r5) = st4;
+                    *(u32 *)(r2 - r5) = (u32)st4;
                 }
 
                 r3++;
@@ -7611,7 +7615,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
             for (j = 0; j < 8; j++)
             {
                 r5 = i + (j << 3);
-                r1 = i + (((st8 * (r3 & ~7)) | (r3 & 7)) << 3);
+                r1 = i + (int)(((st8 * (r3 & ~7)) | (r3 & 7)) << 3);
 
                 if (r1 < stc)
                 {
@@ -7619,7 +7623,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
                 }
                 else
                 {
-                    *(u32 *)(r2 + r5) = st4;
+                    *(u32 *)(r2 + r5) = (u32)st4;
                 }
 
                 r5 += 4;
@@ -7630,7 +7634,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
                 }
                 else
                 {
-                    *(u32 *)(r2 + r5) = st4;
+                    *(u32 *)(r2 + r5) = (u32)st4;
                 }
 
                 r3++;
@@ -7646,7 +7650,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
             for (j = 0; j < 8; j++)
             {
                 r5 = i + (j << 3);
-                r1 = i + (((st8 * (r3 & ~7)) | (r3 & 7)) << 3);
+                r1 = i + (int)(((st8 * (r3 & ~7)) | (r3 & 7)) << 3);
 
                 if (r1 < stc)
                 {
@@ -7654,7 +7658,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
                 }
                 else
                 {
-                    *(u32 *)(r2 - r5) = st4;
+                    *(u32 *)(r2 - r5) = (u32)st4;
                 }
 
                 r5 -= 4;
@@ -7665,7 +7669,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
                 }
                 else
                 {
-                    *(u32 *)(r2 - r5) = st4;
+                    *(u32 *)(r2 - r5) = (u32)st4;
                 }
 
                 r3++;
@@ -7794,29 +7798,29 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct2 *param0)
 {
     if ((param0->unk04 & 1) != 0)
     {
-        reg_G2_BG0OFS =
-            (param0->unk08[0].unk14 & 0x1ff) | ((param0->unk08[0].unk18 << 0x10) & 0x1ff0000);
+        reg_G2_BG0OFS = (u32)(
+            (param0->unk08[0].unk14 & 0x1ff) | ((param0->unk08[0].unk18 << 0x10) & 0x1ff0000));
     }
 
     if ((param0->unk04 & 2) != 0)
     {
-        reg_G2_BG1OFS =
-            (param0->unk08[1].unk14 & 0x1ff) | ((param0->unk08[1].unk18 << 0x10) & 0x1ff0000);
+        reg_G2_BG1OFS = (u32)(
+            (param0->unk08[1].unk14 & 0x1ff) | ((param0->unk08[1].unk18 << 0x10) & 0x1ff0000));
     }
 
     if ((param0->unk04 & 4) != 0)
     {
         if (param0->unk08[2].unk1c == 0)
         {
-            reg_G2_BG2OFS =
-                (param0->unk08[2].unk14 & 0x1ff) | ((param0->unk08[2].unk18 << 0x10) & 0x1ff0000);
+            reg_G2_BG2OFS = (u32)(
+                (param0->unk08[2].unk14 & 0x1ff) | ((param0->unk08[2].unk18 << 0x10) & 0x1ff0000));
         }
         else
         {
             struct Mtx22 st38;
             MTX22_2DAffine(
                 &st38, param0->unk08[2].unk20, param0->unk08[2].unk24, param0->unk08[2].unk28, 2);
-            G2x_SetBGyAffine_(0x04000020,
+            G2x_SetBGyAffine_(reg_G2_BG2P,
                 &st38,
                 param0->unk08[2].unk2c,
                 param0->unk08[2].unk30,
@@ -7829,15 +7833,15 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct2 *param0)
     {
         if (param0->unk08[3].unk1c == 0)
         {
-            reg_G2_BG3OFS =
-                (param0->unk08[3].unk14 & 0x1ff) | ((param0->unk08[3].unk18 << 0x10) & 0x1ff0000);
+            reg_G2_BG3OFS = (u32)(
+                (param0->unk08[3].unk14 & 0x1ff) | ((param0->unk08[3].unk18 << 0x10) & 0x1ff0000));
         }
         else
         {
             struct Mtx22 st28;
             MTX22_2DAffine(
                 &st28, param0->unk08[3].unk20, param0->unk08[3].unk24, param0->unk08[3].unk28, 2);
-            G2x_SetBGyAffine_(0x04000030,
+            G2x_SetBGyAffine_(reg_G2_BG3P,
                 &st28,
                 param0->unk08[3].unk2c,
                 param0->unk08[3].unk30,
@@ -7848,29 +7852,29 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct2 *param0)
 
     if ((param0->unk04 & 0x10) != 0)
     {
-        reg_G2S_DB_BG0OFS =
-            (param0->unk08[4].unk14 & 0x1ff) | ((param0->unk08[4].unk18 << 0x10) & 0x1ff0000);
+        reg_G2S_DB_BG0OFS = (u32)(
+            (param0->unk08[4].unk14 & 0x1ff) | ((param0->unk08[4].unk18 << 0x10) & 0x1ff0000));
     }
 
     if ((param0->unk04 & 0x20) != 0)
     {
-        reg_G2S_DB_BG1OFS =
-            (param0->unk08[5].unk14 & 0x1ff) | ((param0->unk08[5].unk18 << 0x10) & 0x1ff0000);
+        reg_G2S_DB_BG1OFS = (u32)(
+            (param0->unk08[5].unk14 & 0x1ff) | ((param0->unk08[5].unk18 << 0x10) & 0x1ff0000));
     }
 
     if ((param0->unk04 & 0x40) != 0)
     {
         if (param0->unk08[6].unk1c == 0)
         {
-            reg_G2S_DB_BG2OFS =
-                (param0->unk08[6].unk14 & 0x1ff) | ((param0->unk08[6].unk18 << 0x10) & 0x1ff0000);
+            reg_G2S_DB_BG2OFS = (u32)(
+                (param0->unk08[6].unk14 & 0x1ff) | ((param0->unk08[6].unk18 << 0x10) & 0x1ff0000));
         }
         else
         {
             struct Mtx22 st18;
             MTX22_2DAffine(
                 &st18, param0->unk08[6].unk20, param0->unk08[6].unk24, param0->unk08[6].unk28, 2);
-            G2x_SetBGyAffine_(0x04001020,
+            G2x_SetBGyAffine_(reg_G2S_DB_BG2P,
                 &st18,
                 param0->unk08[6].unk2c,
                 param0->unk08[6].unk30,
@@ -7883,15 +7887,15 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct2 *param0)
     {
         if (param0->unk08[7].unk1c == 0)
         {
-            reg_G2S_DB_BG3OFS =
-                (param0->unk08[7].unk14 & 0x1ff) | ((param0->unk08[7].unk18 << 0x10) & 0x1ff0000);
+            reg_G2S_DB_BG3OFS = (u32)(
+                (param0->unk08[7].unk14 & 0x1ff) | ((param0->unk08[7].unk18 << 0x10) & 0x1ff0000));
         }
         else
         {
             struct Mtx22 st08;
             MTX22_2DAffine(
                 &st08, param0->unk08[7].unk20, param0->unk08[7].unk24, param0->unk08[7].unk28, 2);
-            G2x_SetBGyAffine_(0x04001030,
+            G2x_SetBGyAffine_(reg_G2S_DB_BG3P,
                 &st08,
                 param0->unk08[7].unk2c,
                 param0->unk08[7].unk30,
@@ -7901,19 +7905,19 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct2 *param0)
     }
 }
 
-THUMB_FUNC void FUN_0201AEE4(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3)
+THUMB_FUNC void FUN_0201AEE4(struct UnkStruct2 *param0, u32 param1, u32 param2, fx32 param3)
 {
     FUN_02017B8C(&param0->unk08[param1], param2, param3);
     param0->unk04 |= 1 << param1;
 }
 
-THUMB_FUNC void FUN_0201AF08(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3)
+THUMB_FUNC void FUN_0201AF08(struct UnkStruct2 *param0, u32 param1, u32 param2, u16 param3)
 {
     FUN_0201AF2C(&param0->unk08[param1], param2, param3);
     param0->unk04 |= 1 << param1;
 }
 
-THUMB_FUNC void FUN_0201AF2C(struct InnerStruct *param0, u32 param1, u32 val)
+THUMB_FUNC void FUN_0201AF2C(struct InnerStruct *param0, u32 param1, u16 val)
 {
     switch (param1)
     {
@@ -7929,13 +7933,13 @@ THUMB_FUNC void FUN_0201AF2C(struct InnerStruct *param0, u32 param1, u32 val)
     }
 }
 
-THUMB_FUNC void FUN_0201AF50(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3)
+THUMB_FUNC void FUN_0201AF50(struct UnkStruct2 *param0, u32 param1, u32 param2, fx32 param3)
 {
     FUN_0201AF74(&param0->unk08[param1], param2, param3);
     param0->unk04 |= 1 << param1;
 }
 
-THUMB_FUNC void FUN_0201AF74(struct InnerStruct *param0, u32 param1, u32 val)
+THUMB_FUNC void FUN_0201AF74(struct InnerStruct *param0, u32 param1, fx32 val)
 {
     switch (param1 - 9)
     {
@@ -7974,11 +7978,11 @@ THUMB_FUNC u32 FUN_0201AFBC(struct UnkStruct2 *param0, u8 param1, u8 param2, u8 
         return 0;
     }
 
-    r6 = FUN_02017FFC(param2 >> 3, param3 >> 3, param0->unk08[param1].unk1d);
+    r6 = FUN_02017FFC((u8)(param2 >> 3), (u8)(param3 >> 3), param0->unk08[param1].unk1d);
     st18 = FUN_020187B0(param1);
 
-    st14 = param2 & 7;
-    st10 = param3 & 7;
+    st14 = (u8)(param2 & 7);
+    st10 = (u8)(param3 & 7);
 
     if (param0->unk08[param1].unk1e == 0)
     {
@@ -7988,11 +7992,11 @@ THUMB_FUNC u32 FUN_0201AFBC(struct UnkStruct2 *param0, u8 param1, u8 param2, u8 
         st18 += ((stc[r6] & 0x3ff) << 5);
         for (i = 0; i < 0x20; i++)
         {
-            ptr[(i << 1)] = ((u8 *)st18)[i] & 0xf;
-            ptr[(i << 1) + 1] = ((u8 *)st18)[i] >> 4;
+            ptr[(i << 1)] = (u8)(((u8 *)st18)[i] & 0xf);
+            ptr[(i << 1) + 1] = (u8)(((u8 *)st18)[i] >> 4);
         }
 
-        FUN_0201B118(param0, (stc[r6] >> 0xa) & 3, ptr);
+        FUN_0201B118(param0, (u8)((stc[r6] >> 0xa) & 3), ptr);
 
         r5 = ptr[st14 + (st10 << 3)];
         FreeToHeap(ptr);
@@ -8011,7 +8015,7 @@ THUMB_FUNC u32 FUN_0201AFBC(struct UnkStruct2 *param0, u8 param1, u8 param2, u8 
 
             memcpy(ptr, st18 + ((r4[r6] & 0x3ff) << 6), 0x40);
 
-            FUN_0201B118(param0, (r4[r6] >> 0xa) & 3, ptr);
+            FUN_0201B118(param0, (u8)((r4[r6] >> 0xa) & 3), ptr);
 
             r5 = ptr[st14 + (st10 << 3)];
             FreeToHeap(ptr);
