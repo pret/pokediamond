@@ -1365,7 +1365,7 @@ MOD76_021D7FAC: ; 0x021D7FAC
 	ldr r0, [r4, r0]
 	add r1, #0x12
 	add r2, #0x10
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x42
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

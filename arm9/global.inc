@@ -190,8 +190,8 @@
 .extern HandleDSLidAction
 .extern ListMenuInit
 .extern ListMenu_ProcessInput
-.extern FUN_02001300
-.extern FUN_02001328
+.extern DestroyListMenu
+.extern RedrawListMenu
 .extern FUN_02001354
 .extern FUN_020013C8
 .extern FUN_020013E8
@@ -883,8 +883,8 @@
 .extern FUN_0201365C
 .extern FUN_02013674
 .extern FUN_02013690
-.extern FUN_020136C0
-.extern FUN_020136E0
+.extern DestroyListMenuCursorObj
+.extern CreateListMenuCursorObj
 .extern FUN_020136F8
 .extern MailMsg_init
 .extern MailMsg_init_withBank

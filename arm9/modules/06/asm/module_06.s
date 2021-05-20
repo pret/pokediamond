@@ -9595,7 +9595,7 @@ _0223E006:
 	mov r1, #0
 	ldr r0, [r5, #0x78]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r5, #0x7c]
 	bl ListMenu_dtor
 	add r0, r5, #0
@@ -12966,7 +12966,7 @@ _0223FBDA:
 	strb r0, [r2]
 	ldr r0, [r1]
 	ldr r0, [r0, #0x5c]
-	bl FUN_02001328
+	bl RedrawListMenu
 	ldr r0, _0223FCF0 ; =0x02252420
 	mov r1, #3
 	ldr r0, [r0]
@@ -13853,7 +13853,7 @@ MOD06_02240364: ; 0x02240364
 	mov r1, #0
 	ldr r0, [r4, #0x5c]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #0x20
 	bl FUN_02019570
@@ -14686,7 +14686,7 @@ MOD06_02240A28: ; 0x02240A28
 	beq _02240A62
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #0x34
 	mov r1, #1
@@ -14921,7 +14921,7 @@ _02240C1A:
 	beq _02240C50
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r5, #0
 	add r0, #0x44
 	mov r1, #1
@@ -19439,7 +19439,7 @@ MOD06_02243024: ; 0x02243024
 	mov r1, #0
 	ldr r0, [r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r6, #0x74]
 	mov r1, #0
 	bl FUN_0200CCF8
@@ -42445,7 +42445,7 @@ _0224E1C0:
 	mov r1, #0
 	ldr r0, [r6, #8]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r6, #4]
 	bl FUN_02019570
 	ldr r0, [r6, #4]

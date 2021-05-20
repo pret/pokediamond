@@ -1133,7 +1133,7 @@ _021D7E66:
 	mov r1, #0
 	ldr r0, [r5, #0x40]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r5, #0x44]
 	bl ListMenu_dtor
 	ldr r0, _021D7EC8 ; =0x000005DC

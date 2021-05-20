@@ -1,12 +1,11 @@
-#pragma thumb on
-
 #include "global.h"
 #include "heap.h"
 #include "main.h"
 #include "list_menu.h"
 
 extern void * FUN_02013690(u32 heap_id);
-extern void FUN_020136E0(void *, u32);
+extern void CreateListMenuCursorObj(void *, u32);
+extern void DestroyListMenuCursorObj(void *);
 extern void FillWindowPixelBuffer(struct Window *, u32);
 void ListMenuPrintEntries(struct ListMenu *, u16, u16, u16);
 void ListMenuDrawCursor(struct ListMenu *);
@@ -14,11 +13,11 @@ BOOL ListMenuChangeSelection(struct ListMenu *, s32, u8, s32);
 void ListMenuCallSelectionChangedCallback(struct ListMenu *, BOOL);
 extern void CopyWindowToVram(struct Window *);
 
-struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id)
+THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id)
 {
     struct ListMenu * list = AllocFromHeap(heap_id, sizeof(struct ListMenu));
     list->template = *template;
-    list->unk_28 = FUN_02013690(heap_id);
+    list->cursor = FUN_02013690(heap_id);
     list->cursorPos = cursorPos;
     list->itemsAbove = itemsAbove;
     list->unk_30 = 0;
@@ -34,8 +33,8 @@ struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cur
     list->enabled = 0;
     if (list->template.totalItems < list->template.maxShowed)
         list->template.maxShowed = list->template.totalItems;
-    FUN_020136E0(
-        list->unk_28,
+    CreateListMenuCursorObj(
+        list->cursor,
         (u32)(
             ((u32)(list->template.cursorPal << 24) >> 8)
             | ((u32)(list->template.cursorShadowPal << 24) >> 16)
@@ -50,7 +49,7 @@ struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cur
     return list;
 }
 
-s32 ListMenu_ProcessInput(struct ListMenu * list)
+THUMB_FUNC s32 ListMenu_ProcessInput(struct ListMenu * list)
 {
     list->unk_33 = 0;
 
@@ -106,4 +105,22 @@ s32 ListMenu_ProcessInput(struct ListMenu * list)
             return LIST_NOTHING_CHOSEN;
         }
     }
+}
+
+THUMB_FUNC void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * itemsAbove)
+{
+    if (cursorPos != NULL)
+        *cursorPos = list->cursorPos;
+    if (itemsAbove != NULL)
+        *itemsAbove = list->itemsAbove;
+    DestroyListMenuCursorObj(list->cursor);
+    FUN_02016A8C(list->heap_id, list);
+}
+
+THUMB_FUNC void RedrawListMenu(struct ListMenu * list)
+{
+    FillWindowPixelBuffer(list->template.window, list->template.fillValue);
+    ListMenuPrintEntries(list, list->cursorPos, 0, list->template.maxShowed);
+    ListMenuDrawCursor(list);
+    CopyWindowToVram(list->template.window);
 }

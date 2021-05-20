@@ -1442,7 +1442,7 @@ _020519BA:
 	ldr r0, [r4, #0x10]
 	bl String_dtor
 	ldr r0, [r4, #0x78]
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl FUN_02051810

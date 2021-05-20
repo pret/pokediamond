@@ -1511,8 +1511,8 @@ _020136B2:
 _020136B8: .word 0x0001020F
 _020136BC: .word UNK_020ED548
 
-	thumb_func_start FUN_020136C0
-FUN_020136C0: ; 0x020136C0
+	thumb_func_start DestroyListMenuCursorObj
+DestroyListMenuCursorObj: ; 0x020136C0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020136CA
@@ -1530,8 +1530,8 @@ _020136D8:
 _020136DE:
 	pop {r4, pc}
 
-	thumb_func_start FUN_020136E0
-FUN_020136E0: ; 0x020136E0
+	thumb_func_start CreateListMenuCursorObj
+CreateListMenuCursorObj: ; 0x020136E0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0

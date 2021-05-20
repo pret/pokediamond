@@ -73,7 +73,7 @@ FUN_0208A3C8: ; 0x0208A3C8
 	ldr r0, [r4, #0x50]
 	bl FUN_020853A8
 	ldr r0, [r4, #0x14]
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 	ldr r0, [r4, #0x4]
 	bl String_dtor
 	ldr r0, [r4, #0x8]

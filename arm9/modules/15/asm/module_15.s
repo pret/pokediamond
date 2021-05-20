@@ -4359,7 +4359,7 @@ MOD15_021D9634: ; 0x021D9634
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _021D9642
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 _021D9642:
 	ldr r0, [r4, #0x3c]
 	cmp r0, #0

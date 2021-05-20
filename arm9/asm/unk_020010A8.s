@@ -5,50 +5,6 @@
 
 	.text
 
-	thumb_func_start FUN_02001300
-FUN_02001300: ; 0x02001300
-	push {r4, lr}
-	add r4, r0, #0x0
-	cmp r1, #0x0
-	beq _0200130C
-	ldrh r0, [r4, #0x2c]
-	strh r0, [r1, #0x0]
-_0200130C:
-	cmp r2, #0x0
-	beq _02001314
-	ldrh r0, [r4, #0x2e]
-	strh r0, [r2, #0x0]
-_02001314:
-	ldr r0, [r4, #0x28]
-	bl FUN_020136C0
-	add r0, r4, #0x0
-	add r0, #0x34
-	ldrb r0, [r0, #0x0]
-	add r1, r4, #0x0
-	bl FUN_02016A8C
-	pop {r4, pc}
-
-	thumb_func_start FUN_02001328
-FUN_02001328: ; 0x02001328
-	push {r4, lr}
-	add r4, r0, #0x0
-	ldrb r1, [r4, #0x18]
-	ldr r0, [r4, #0xc]
-	lsl r1, r1, #0x1c
-	lsr r1, r1, #0x1c
-	bl FillWindowPixelBuffer
-	ldrh r1, [r4, #0x2c]
-	ldrh r3, [r4, #0x12]
-	add r0, r4, #0x0
-	mov r2, #0x0
-	bl ListMenuPrintEntries
-	add r0, r4, #0x0
-	bl ListMenuDrawCursor
-	ldr r0, [r4, #0xc]
-	bl CopyWindowToVram
-	pop {r4, pc}
-	.balign 4
-
 	thumb_func_start FUN_02001354
 FUN_02001354: ; 0x02001354
 	push {r4-r6, lr}

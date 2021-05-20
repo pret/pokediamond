@@ -1911,7 +1911,7 @@ MOD75_021E7AA4: ; 0x021E7AA4
 	add r3, #8
 	add r1, r1, r2
 	add r2, r3, r2
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -2830,7 +2830,7 @@ _021E81D2:
 	add r3, #8
 	add r1, r1, r2
 	add r2, r3, r2
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
@@ -3709,7 +3709,7 @@ MOD75_021E8864: ; 0x021E8864
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02001328
+	bl RedrawListMenu
 	add r0, r4, #0
 	bl MOD75_021E8AAC
 	pop {r4, pc}
@@ -3928,7 +3928,7 @@ MOD75_021E8A48: ; 0x021E8A48
 	ldr r0, [r5, r0]
 	add r1, r4, #6
 	add r2, r4, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x57
 	mov r1, #0
 	lsl r0, r0, #2
@@ -5022,7 +5022,7 @@ MOD75_021E92BC: ; 0x021E92BC
 	add r3, #8
 	add r1, r1, r2
 	add r2, r3, r2
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -5608,7 +5608,7 @@ MOD75_021E97A8: ; 0x021E97A8
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02001328
+	bl RedrawListMenu
 	add r0, r4, #0
 	bl MOD75_021EB344
 	add r0, r4, #0
@@ -5633,7 +5633,7 @@ MOD75_021E97E4: ; 0x021E97E4
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02001328
+	bl RedrawListMenu
 	add r0, r4, #0
 	bl MOD75_021EB344
 	add r0, r4, #0

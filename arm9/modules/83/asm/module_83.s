@@ -4616,7 +4616,7 @@ _0222FA62:
 	beq _0222FA70
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 _0222FA70:
 	add r0, r7, #0
 	add r0, #0x18
@@ -5863,7 +5863,7 @@ _022303FE:
 	beq _02230436
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 _02230436:
 	mov r1, #0
 	add r0, sp, #8
@@ -8150,7 +8150,7 @@ _02231708:
 	beq _02231718
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 _02231718:
 	add r0, r7, #0
 	mov r1, #0x57
@@ -8510,7 +8510,7 @@ MOD83_02231A00: ; 0x02231A00
 	str r1, [r4, r0]
 	sub r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231A44 ; =0x00002B68
 	mov r1, #0
 	str r1, [r4, r0]

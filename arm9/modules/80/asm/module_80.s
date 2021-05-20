@@ -7626,7 +7626,7 @@ _02231240:
 	add r1, r2, #6
 	ldr r0, [r4, r0]
 	add r2, r2, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _022312B8 ; =0x00000FC8
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor
@@ -7643,7 +7643,7 @@ _02231266:
 	add r1, r2, #6
 	ldr r0, [r4, r0]
 	add r2, r2, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _022312B8 ; =0x00000FC8
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor
@@ -7747,7 +7747,7 @@ _02231342:
 	ldr r0, [r4, r0]
 	add r1, #0xa
 	add r2, #8
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231468 ; =0x00000FC8
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor
@@ -7780,7 +7780,7 @@ _0223138C:
 	ldr r0, [r4, r0]
 	add r1, #0xa
 	add r2, #8
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231468 ; =0x00000FC8
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor
@@ -7980,7 +7980,7 @@ _0223154A:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _022315F4 ; =0x00000FC8
 	ldr r0, [r5, r0]
 	bl ListMenu_dtor
@@ -8005,7 +8005,7 @@ _0223158E:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _022315F4 ; =0x00000FC8
 	ldr r0, [r5, r0]
 	bl ListMenu_dtor
@@ -8153,7 +8153,7 @@ _022316D0:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231770 ; =0x00000FC8
 	ldr r0, [r5, r0]
 	bl ListMenu_dtor
@@ -8178,7 +8178,7 @@ _0223170C:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231770 ; =0x00000FC8
 	ldr r0, [r5, r0]
 	bl ListMenu_dtor
@@ -12260,7 +12260,7 @@ _022337FA:
 	add r1, r2, #6
 	ldr r0, [r4, r0]
 	add r2, r2, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _0223387C ; =0x00000FC8
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor
@@ -12277,7 +12277,7 @@ _02233820:
 	add r1, r2, #6
 	ldr r0, [r4, r0]
 	add r2, r2, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _0223387C ; =0x00000FC8
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor
@@ -12415,7 +12415,7 @@ _02233932:
 	ldr r0, [r4, r0]
 	add r1, #0xa
 	add r2, #8
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233A50 ; =0x00000FC8
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor
@@ -12454,7 +12454,7 @@ _0223398C:
 	ldr r0, [r4, r0]
 	add r1, #0xa
 	add r2, #8
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233A50 ; =0x00000FC8
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor
@@ -12644,7 +12644,7 @@ _02233B26:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233BD0 ; =0x00000FC8
 	ldr r0, [r5, r0]
 	bl ListMenu_dtor
@@ -12669,7 +12669,7 @@ _02233B6A:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233BD0 ; =0x00000FC8
 	ldr r0, [r5, r0]
 	bl ListMenu_dtor
@@ -12816,7 +12816,7 @@ _02233CA4:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233D70 ; =0x00000FC8
 	ldr r0, [r5, r0]
 	bl ListMenu_dtor
@@ -12856,7 +12856,7 @@ _02233CFA:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233D70 ; =0x00000FC8
 	ldr r0, [r5, r0]
 	bl ListMenu_dtor

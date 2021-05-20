@@ -1725,7 +1725,7 @@ _021D823E:
 	ldr r0, [r0]
 	add r1, #0x80
 	add r2, #0x82
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r5, #0
 	add r0, #0xcc
 	ldr r0, [r0]
@@ -2304,7 +2304,7 @@ MOD65_021D86BC: ; 0x021D86BC
 	ldr r0, [r0]
 	add r1, sp, #0
 	add r2, #2
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]

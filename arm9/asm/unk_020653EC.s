@@ -1418,7 +1418,7 @@ FUN_02065EF8: ; 0x02065EF8
 	ldr r0, [r4, r0]
 	add r1, #0x2
 	add r2, sp, #0x0
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1495,7 +1495,7 @@ FUN_02065F8C: ; 0x02065F8C
 	ldr r0, [r4, r0]
 	add r1, #0x2
 	add r2, sp, #0x0
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]

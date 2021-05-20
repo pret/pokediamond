@@ -1937,7 +1937,7 @@ MOD77_021D84D8: ; 0x021D84D8
 	mov r1, #0
 	ldr r0, [r4, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _021D850C ; =0x0000C058
 	ldr r0, [r4, r0]
 	bl ListMenu_dtor

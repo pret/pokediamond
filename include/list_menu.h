@@ -18,6 +18,12 @@ struct Window
     u8 unk_04;
 };
 
+// TODO: Move to its own header, and fill it out
+struct ListMenuCursor
+{
+    // ???
+};
+
 struct ListMenuItem
 {
     const u16 * text;
@@ -59,7 +65,7 @@ struct ListMenu
     /*0x23*/ u8 unk_23;
     /*0x24*/ u8 fontId:7;
              u8 enabled:1;
-    /*0x28*/ void * unk_28;
+    /*0x28*/ struct ListMenuCursor *cursor;
     /*0x2c*/ u16 cursorPos;
     /*0x2e*/ u16 itemsAbove;
     /*0x30*/ u8 unk_30;
@@ -68,5 +74,10 @@ struct ListMenu
     /*0x33*/ u8 unk_33;
     /*0x34*/ u8 heap_id;
 };
+
+THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id);
+THUMB_FUNC s32 ListMenu_ProcessInput(struct ListMenu * list);
+THUMB_FUNC void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * itemsAbove);
+THUMB_FUNC void RedrawListMenu(struct ListMenu * list);
 
 #endif // POKEDIAMOND_LIST_MENU_H

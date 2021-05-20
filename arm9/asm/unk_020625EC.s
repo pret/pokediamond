@@ -1515,7 +1515,7 @@ FUN_02063178: ; 0x02063178
 	ldr r0, [r0, #0x0]
 	add r1, #0x22
 	add r2, #0x24
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0x0
 	add r0, #0xc4
 	ldr r0, [r0, #0x0]

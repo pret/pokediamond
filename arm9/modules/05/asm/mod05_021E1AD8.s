@@ -1134,7 +1134,7 @@ MOD05_021E2368: ; 0x021E2368
 	mov r1, #0
 	ldr r0, [r6, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x1a
 	lsl r0, r0, #4
 	ldr r0, [r6, r0]

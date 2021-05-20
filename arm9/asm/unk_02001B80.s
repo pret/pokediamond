@@ -130,7 +130,7 @@ FUN_02001C5C: ; 0x02001C5C
 	strb r0, [r1, #0x0]
 _02001C68:
 	ldr r0, [r4, #0xc]
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 	ldrb r0, [r4, #0x1c]
 	add r1, r4, #0x0
 	bl FUN_02016A8C

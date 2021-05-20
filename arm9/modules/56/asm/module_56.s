@@ -1450,7 +1450,7 @@ _022129D8:
 	beq _022129EA
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 _022129EA:
 	add r0, r4, #0
 	add r0, #0xb0
@@ -2479,7 +2479,7 @@ MOD56_02213194: ; 0x02213194
 	mov r1, #0
 	ldr r0, [r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r6, #0
 	mov r1, #0
 	add r0, #0xb4
@@ -3675,7 +3675,7 @@ _02213AF0:
 	mov r1, #0
 	ldr r0, [r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r5, #0
 	mov r1, #0
 	add r0, #0xb4
@@ -3864,7 +3864,7 @@ _02213C84:
 	add r0, r5, #0
 	add r0, #0xb4
 	ldr r0, [r0]
-	bl FUN_02001328
+	bl RedrawListMenu
 	str r4, [r5, #8]
 _02213CA8:
 	add r0, r5, #0
@@ -3917,7 +3917,7 @@ _02213CF0:
 	add r0, r5, #0
 	add r0, #0xb4
 	ldr r0, [r0]
-	bl FUN_02001328
+	bl RedrawListMenu
 _02213D0C:
 	add r1, sp, #0xc
 	ldrh r1, [r1, #2]
@@ -4099,7 +4099,7 @@ _02213E5C:
 	mov r1, #0
 	ldr r0, [r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r5, #0
 	mov r1, #0
 	add r0, #0xb4
@@ -5257,7 +5257,7 @@ _0221476E:
 	ldr r0, [r0]
 	mov r1, #0
 	add r2, r5, r2
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r5, #0
 	add r0, #0xb8
 	ldr r0, [r0]
@@ -5298,7 +5298,7 @@ _022147CE:
 	ldr r0, [r0]
 	mov r1, #0
 	add r2, r5, r2
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r5, #0xb8
 	ldr r0, [r5]
 	bl ListMenu_dtor
@@ -5521,7 +5521,7 @@ _02214994:
 	lsl r3, r3, #1
 	mov r1, #0
 	add r2, r2, r3
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r5, #0xb8
 	ldr r0, [r5]
 	bl ListMenu_dtor
@@ -6074,7 +6074,7 @@ _02214DEC:
 	mov r1, #0
 	ldr r0, [r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r4, #0xb8
 	ldr r0, [r4]
 	bl ListMenu_dtor

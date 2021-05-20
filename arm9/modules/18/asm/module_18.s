@@ -22037,7 +22037,7 @@ MOD18_02244028: ; 0x02244028
 	ldr r1, [sp, #0xc]
 	str r0, [r1, #0x10]
 	ldr r1, _022440C0 ; =0x0008090F
-	bl FUN_020136E0
+	bl CreateListMenuCursorObj
 	ldr r1, [sp, #8]
 	ldr r0, [sp, #0xc]
 	strb r1, [r0, #0x1d]
@@ -22316,7 +22316,7 @@ _02244268:
 	mov r0, #0
 	strb r0, [r5, #0x1c]
 	ldr r0, [sp, #4]
-	bl FUN_02001328
+	bl RedrawListMenu
 	mov r0, #0
 	add sp, #0x10
 	mvn r0, r0
@@ -22397,12 +22397,12 @@ MOD18_02244318: ; 0x02244318
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02244334
 	ldr r0, [r4, #0x10]
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 	ldr r0, [r4, #8]
 	bl FreeToHeap
 _02244334:
@@ -30159,7 +30159,7 @@ MOD18_02247FC0: ; 0x02247FC0
 	mov r1, #0
 	ldr r0, [r4, #0x20]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #0xc
 	bl FUN_02019570
@@ -31135,7 +31135,7 @@ MOD18_02248784: ; 0x02248784
 	mov r1, #0
 	ldr r0, [r4, #0x1c]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #8
 	bl FUN_02019570
@@ -33377,7 +33377,7 @@ _02249902:
 	beq _02249916
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0
 	str r0, [r4, #0x48]
 	b _02249936
@@ -33552,7 +33552,7 @@ MOD18_02249A64: ; 0x02249A64
 	beq _02249A8C
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r1, r4, #0
 	add r1, #0x24
 	ldrb r1, [r1]
@@ -42483,7 +42483,7 @@ MOD18_0224E26C: ; 0x0224E26C
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x34]
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #4
 	mov r1, #1
 	bl FUN_0200CCF8
