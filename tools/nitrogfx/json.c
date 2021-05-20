@@ -51,15 +51,16 @@ struct JsonToCellOptions *ParseNCERJson(char *path)
     cJSON *imageHeight = cJSON_GetObjectItemCaseSensitive(json, "imageHeight");
     cJSON *imageWidth = cJSON_GetObjectItemCaseSensitive(json, "imageWidth");
     cJSON *cellCount = cJSON_GetObjectItemCaseSensitive(json, "cellCount");
+    cJSON *mappingType = cJSON_GetObjectItemCaseSensitive(json, "mappingType");
 
     options->labelEnabled = GetBool(labelBool);
     options->extended = GetBool(extended);
     options->imageHeight = GetInt(imageHeight);
     options->imageWidth = GetInt(imageWidth);
     options->cellCount = GetInt(cellCount);
+    options->mappingType = GetInt(mappingType);
 
     options->cells = malloc(sizeof(struct Cell *) * options->cellCount);
-
 
     if (options->labelEnabled)
     {

@@ -14,50 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start FUN_0203AFC4
-FUN_0203AFC4: ; 0x0203AFC4
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadWord
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	add r1, r6, #0x0
-	bl FUN_0203B120
-	add r6, r0, #0x0
-	bne _0203AFF6
-	bl ErrorHandling
-_0203AFF6:
-	ldr r1, [r5, #0x8]
-	add r0, r6, #0x0
-	add r1, r1, r4
-	bl FUN_0205AEA4
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x4
-	bl FUN_02039438
-	ldrb r1, [r0, #0x0]
-	add r5, #0x80
-	mov r2, #0x0
-	add r1, r1, #0x1
-	strb r1, [r0, #0x0]
-	ldr r0, [r5, #0x0]
-	add r1, r4, #0x0
-	bl FUN_0203B174
-	mov r0, #0x0
-	pop {r4-r6, pc}
-
 	thumb_func_start FUN_0203B024
 FUN_0203B024: ; 0x0203B024
 	push {r3-r7, lr}

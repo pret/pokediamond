@@ -55,6 +55,10 @@ extern void MOD05_021E26CC(u32 param0, u8 param1);
 extern void MOD05_021E2B80(u32 param0, u8 param1);
 extern void MOD05_021E2B9C(u32 param0, u8 param1);
 
+extern u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
+extern u32 FUN_0205AEA4(u32 param0, const u8 *ptr);
+extern void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, u32 param2);
+
 extern u8 *UNK_020F34E0;
 
 static BOOL RunPauseTimer(struct ScriptContext *ctx);
@@ -1297,4 +1301,20 @@ THUMB_FUNC BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx)
     u32 *unk = FUN_02039438(ctx->unk80, 0);
     MOD05_021E2B9C(*unk, ScriptReadByte(ctx));
     return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx)
+{
+    u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u32 unk2 = ScriptReadWord(ctx);
+
+    u32 unk3 = FUN_0203B120(ctx->unk80, unk);
+    GF_ASSERT(unk3);
+
+    u32 unk4 = FUN_0205AEA4(unk3, ctx->scriptPtr + unk2);
+    u8 *unk5 = FUN_02039438(ctx->unk80, 4);
+    (*unk5)++;
+
+    FUN_0203B174(ctx->unk80, unk4, 0);
+    return FALSE;
 }
