@@ -7,14 +7,14 @@ extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);
 extern void FUN_02002EEC(u32 param0, u32 param1, u32 param2);
 
 extern void FUN_0200CD68(
-    struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
+    struct UnkStruct_02016B94_2 *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
 extern void FUN_0200D0BC(struct Window *param0, u32 param1, u32 param2, u32 param3);
 
 extern void FUN_02002B60(u8 param0);
 extern void FUN_02002B7C(u32 param0);
 extern void FUN_02002BB8(u32 param0);
 
-extern void FUN_0200D300(struct UnkStruct2 *param0,
+extern void FUN_0200D300(struct UnkStruct_02016B94_2 *param0,
     u32 param1,
     u32 param2,
     u32 param3,
@@ -33,7 +33,7 @@ THUMB_FUNC void FUN_02054590(u32 param0, u32 param1)
     FUN_02002EEC(param0, 384, 4);
 }
 
-THUMB_FUNC void FUN_020545B8(struct UnkStruct2 *param0, struct Window *param1, u32 param2)
+THUMB_FUNC void FUN_020545B8(struct UnkStruct_02016B94_2 *param0, struct Window *param1, u32 param2)
 {
     if (param2 == 3)
     {
@@ -80,7 +80,7 @@ THUMB_FUNC u8 FUN_020546C8(u32 param0) // bool8?
 }
 
 THUMB_FUNC void FUN_020546E0(
-    struct UnkStruct2 *param0, struct Window *param1, u32 param2, u32 param3)
+    struct UnkStruct_02016B94_2 *param0, struct Window *param1, u32 param2, u32 param3)
 {
     u32 r4 = 0;
     u32 r5 = 0;

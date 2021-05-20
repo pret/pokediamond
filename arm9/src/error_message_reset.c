@@ -6,20 +6,20 @@
 
 
 
-const struct UnkStruct4 UNK_020FF49C = { 0, 3, 3, 0x1a, 0x12, 1, 0x23 };
+const struct UnkStruct_02016B94_4 UNK_020FF49C = { 0, 3, 3, 0x1a, 0x12, 1, 0x23 };
 
 const u32 UNK_020FF4A4[2] = { 0x00020000, 0x00000000 };
 
 const struct GraphicsModes UNK_020FF4AC = { mode1 : 1 };
 
-const struct UnkStruct1 UNK_020FF4BC = { 0, 0, 0x800, 0, 1, 0, 0, 6, 0, 1, 0, 0, 0 };
+const struct UnkStruct_02016B94_1 UNK_020FF4BC = { 0, 0, 0x800, 0, 1, 0, 0, 6, 0, 1, 0, 0, 0 };
 
 const struct GraphicsBanks UNK_020FF4D8 = { bg : 3 };
 
 u32 sErrorMessagePrinterLock;
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
-extern void FUN_0200CB00(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
+extern void FUN_0200CB00(struct UnkStruct_02016B94_2 *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
 extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);
 extern void FUN_0200CCA4(struct Window *param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_0200E394(u32 param0);
@@ -35,7 +35,7 @@ THUMB_FUNC void VBlankHandler()
 THUMB_FUNC void PrintErrorMessageAndReset()
 {
 
-    struct UnkStruct2 *ptr;
+    struct UnkStruct_02016B94_2 *ptr;
     struct Window buf;
 
     if (sErrorMessagePrinterLock != 1)
