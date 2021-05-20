@@ -1,29 +1,11 @@
 #include "global.h"
+#include "unk_02016B94.h"
 #include "GX_layers.h"
 #include "gx.h"
 #include "heap.h"
-#include "unk_02016B94.h"
 
-extern void FUN_020192D4();
-extern void FUN_02019358();
-
-extern void FUN_020195D0();
-extern void FUN_0201960C();
-
-extern void FUN_020195A8();
-extern void FUN_020195E4();
-
-extern void FUN_020194C8();
-extern void FUN_0201951C();
-
-extern void FUN_0201949C();
-extern void FUN_020194E0();
-
-extern void FUN_020193B4();
-extern void FUN_02019444();
-
-extern u8 FUN_020177DC(u8 param0, u32 param1);
-extern void FUN_020179E0(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 val);
+extern void FUN_020B0030(u32 param0, u32 param1);
+extern void FUN_020B0138(u32 param0, u32 param1);
 
 const u8 UNK_020EDB30[8] = {
     0x10,
@@ -36,37 +18,37 @@ const u8 UNK_020EDB30[8] = {
     0x00,
 };
 
-void (*const UNK_020EDB5C[])() = {
+void (*const UNK_020EDB5C[])(struct Window *) = {
     FUN_020194C8,
     FUN_0201951C,
     FUN_020194C8,
 };
 
-void (*const UNK_020EDB50[])() = {
+void (*const UNK_020EDB50[])(struct Window *) = {
     FUN_020195A8,
     FUN_020195E4,
     FUN_020195A8,
 };
 
-void (*const UNK_020EDB44[])() = {
+void (*const UNK_020EDB44[])(struct Window *) = {
     FUN_020195D0,
     FUN_0201960C,
     FUN_020195D0,
 };
 
-void (*const UNK_020EDB38[])() = {
+void (*const UNK_020EDB38[])(struct Window *) = {
     FUN_020192D4,
     FUN_02019358,
     FUN_020192D4,
 };
 
-void (*const UNK_020EDB68[])() = {
+void (*const UNK_020EDB68[])(struct Window *) = {
     FUN_0201949C,
     FUN_020194E0,
     FUN_0201949C,
 };
 
-void (*const UNK_020EDB74[])() = {
+void (*const UNK_020EDB74[])(struct Window *) = {
     FUN_020193B4,
     FUN_02019444,
     FUN_020193B4,
@@ -2416,9 +2398,6 @@ THUMB_FUNC void FUN_0201797C(u32 param0, GX_LayerToggle toggle)
     }
 }
 
-extern void FUN_02017B8C(struct InnerStruct *param0, u32 param2, u32 val);
-extern void FUN_02017C6C(struct UnkStruct2 *param0, u32 param1);
-
 THUMB_FUNC void FUN_020179E0(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 val)
 {
     FUN_02017B8C(&param0->unk08[param1], param2, val);
@@ -2504,9 +2483,6 @@ THUMB_FUNC u32 FUN_02017B54(struct UnkStruct2 *param0, u32 param1)
 {
     return param0->unk08[param1].unk18;
 }
-
-extern void FUN_02017BD0(
-    struct UnkStruct2 *param0, u32 param1, struct Mtx22 *param2, fx32 param3, fx32 param4);
 
 THUMB_FUNC void FUN_02017B60(struct UnkStruct2 *param0,
     u32 param1,
@@ -2609,9 +2585,6 @@ THUMB_FUNC void FUN_02017C98(const void *param0, void *param1, u32 param2)
     MIi_CpuCopy16(param0, param1, param2);
 }
 
-extern void FUN_02017CE8(
-    struct UnkStruct2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
-
 THUMB_FUNC void FUN_02017CD0(struct UnkStruct2 *param0, u32 param1)
 {
     FUN_02017CE8(param0,
@@ -2620,8 +2593,6 @@ THUMB_FUNC void FUN_02017CD0(struct UnkStruct2 *param0, u32 param1)
         param0->unk08[param1].unk0c,
         param0->unk08[param1].unk10);
 }
-
-extern void FUN_02017D68(u32 param0, void *param1, u32 param2, u32 param3);
 
 THUMB_FUNC void FUN_02017CE8(
     struct UnkStruct2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4)
@@ -2686,9 +2657,6 @@ THUMB_FUNC void FUN_02017DFC(struct UnkStruct2 *param0, u32 param1, void *param2
     FUN_02017C98(param2, param0->unk08[param1].unk08, param3);
 }
 
-extern void FUN_02017E40(
-    struct UnkStruct2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
-
 THUMB_FUNC void FUN_02017E14(
     struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u32 param4)
 {
@@ -2699,8 +2667,6 @@ THUMB_FUNC void FUN_02017E14(
     }
     FUN_02017E40(param0, param1, param2, param3, param4 << 6);
 }
-
-extern void FUN_02017E84(u32 param0, void *param1, u32 param2, u32 param3);
 
 THUMB_FUNC void FUN_02017E40(
     struct UnkStruct2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4)
@@ -2884,46 +2850,11 @@ THUMB_FUNC u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3)
     return r3;
 }
 
-extern void FUN_02018170(struct UnkStruct2 *param0,
-    u32 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u32 *param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10);
-
 THUMB_FUNC void FUN_02018148(
     struct UnkStruct2 *param0, u32 param1, u32 *param2, u8 param3, u8 param4, u8 param5, u8 param6)
 {
     FUN_02018170(param0, param1, param3, param4, param5, param6, param2, 0, 0, param5, param6);
 }
-
-extern void FUN_02018268(struct InnerStruct *param0,
-    u8 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u16 *param5,
-    u8 param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10);
-extern void FUN_020183DC(struct InnerStruct *param0,
-    u8 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 *param5,
-    u8 param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10);
 
 THUMB_FUNC void FUN_02018170(struct UnkStruct2 *param0,
     u32 param1,
@@ -3195,11 +3126,6 @@ THUMB_FUNC void FUN_020183DC(struct InnerStruct *param0,
     }
 }
 
-extern void FUN_02018590(
-    struct InnerStruct *param0, u16 param1, u8 param2, u8 param3, u8 param4, u8 param5, u8 param6);
-extern void FUN_02018640(
-    struct InnerStruct *param0, u8 param1, u8 param2, u8 param3, u8 param4, u8 param5);
-
 THUMB_FUNC void FUN_02018540(struct UnkStruct2 *param0,
     u32 param1,
     u16 param2,
@@ -3352,8 +3278,6 @@ THUMB_FUNC void FUN_02018768(struct UnkStruct2 *param0, u32 param1, u16 param2)
         FUN_02017CD0(param0, param1);
     }
 }
-
-extern void FUN_0201AC68(struct UnkStruct2 *param0, u32 param1);
 
 THUMB_FUNC void FUN_0201878C(struct UnkStruct2 *param0, u32 param1, u16 param2)
 {
@@ -3775,13 +3699,6 @@ _02018A38:
     // clang-format on
 }
 #endif
-
-struct UnkStruct3
-{
-    void *unk00;
-    u16 unk04;
-    u16 unk06;
-};
 
 #ifdef NONMATCHING
 THUMB_FUNC void FUN_02018A60(struct UnkStruct3 *param0,
@@ -4551,22 +4468,6 @@ THUMB_FUNC void FUN_02018F4C(
     }
 }
 
-struct Window
-{
-    struct UnkStruct2 *unk00;
-    u8 unk04;
-    u8 unk05;
-    u8 unk06;
-    u8 unk07;
-    u8 unk08;
-    u8 unk09;
-    u16 unk0a : 15;
-    u16 unk0b : 1;
-    void *unk0c;
-};
-
-extern void FUN_0201901C(struct Window *ptr);
-
 THUMB_FUNC void *FUN_02018FF4(u32 heap_id, s32 size)
 {
     struct Window *ptr = AllocFromHeap(heap_id, size << 4);
@@ -4676,17 +4577,6 @@ THUMB_FUNC void FUN_020190EC(
         param1->unk0b = 0;
     }
 }
-
-struct UnkStruct4
-{
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    u8 unk4;
-    u8 unk5;
-    u16 unk6;
-};
 
 THUMB_FUNC void FUN_02019150(
     struct UnkStruct2 *param0, struct Window *param1, struct UnkStruct4 *param2)
@@ -4888,8 +4778,6 @@ THUMB_FUNC void FUN_02019444(struct Window *param0)
     }
 }
 
-extern void FUN_02019548(struct Window *window);
-
 THUMB_FUNC void FUN_0201949C(struct Window *window)
 {
     FUN_020192D4(window);
@@ -4998,17 +4886,6 @@ THUMB_FUNC void FUN_02019620(struct Window *window, u8 param1)
         window->unk00->unk08[window->unk04].unk1f * window->unk07 * window->unk08);
 }
 
-extern void FUN_02019684(struct Window *window,
-    void *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8,
-    u16 param9,
-    u16 param10);
 THUMB_FUNC void FUN_02019658(struct Window *window,
     void *param1,
     u16 param2,
@@ -7631,9 +7508,6 @@ FUN_0201A8BC: // 0x0201A8BC
 }
 #endif
 
-extern void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 param3);
-extern void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 param3);
-
 THUMB_FUNC void FUN_0201A8C8(struct Window *window, u32 param1, u8 param2, u8 param3)
 {
     if (window->unk00->unk08[window->unk04].unk1e == 0)
@@ -7839,8 +7713,6 @@ THUMB_FUNC void FUN_0201AB24(struct Window *window, u8 param1)
     window->unk09 = param1;
 }
 
-extern void FUN_020B0030(u32 param0, u32 param1);
-
 THUMB_FUNC u32 FUN_0201AB28(struct Window *window, u32 heap_id, const char *path)
 {
     void *ptr = FUN_020161A4(heap_id, path);
@@ -7851,8 +7723,6 @@ THUMB_FUNC u32 FUN_0201AB28(struct Window *window, u32 heap_id, const char *path
     return st0;
 }
 
-extern void FUN_020B0138(u32 param0, u32 param1);
-
 THUMB_FUNC u32 FUN_0201AB44(struct Window *window, u32 heap_id, const char *path)
 {
     void *ptr = FUN_020161A4(heap_id, path);
@@ -7862,9 +7732,6 @@ THUMB_FUNC u32 FUN_0201AB44(struct Window *window, u32 heap_id, const char *path
 
     return st0;
 }
-
-extern void FUN_0201AC78(struct UnkStruct2 *param0);
-extern void FUN_0201AB78(struct UnkStruct2 *param0);
 
 THUMB_FUNC void FUN_0201AB60(struct UnkStruct2 *param0)
 {
@@ -8040,8 +7907,6 @@ THUMB_FUNC void FUN_0201AEE4(struct UnkStruct2 *param0, u32 param1, u32 param2, 
     param0->unk04 |= 1 << param1;
 }
 
-extern void FUN_0201AF2C(struct InnerStruct *param0, u32 param2, u32 val);
-
 THUMB_FUNC void FUN_0201AF08(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3)
 {
     FUN_0201AF2C(&param0->unk08[param1], param2, param3);
@@ -8063,8 +7928,6 @@ THUMB_FUNC void FUN_0201AF2C(struct InnerStruct *param0, u32 param1, u32 val)
         break;
     }
 }
-
-extern void FUN_0201AF74(struct InnerStruct *param0, u32 param1, u32 val);
 
 THUMB_FUNC void FUN_0201AF50(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3)
 {
@@ -8096,8 +7959,6 @@ THUMB_FUNC void FUN_0201AF74(struct InnerStruct *param0, u32 param1, u32 val)
         break;
     }
 }
-
-extern void FUN_0201B118(struct UnkStruct2 *param0, u8 param1, u8 *param2);
 
 THUMB_FUNC u32 FUN_0201AFBC(struct UnkStruct2 *param0, u8 param1, u8 param2, u8 param3, u16 *param4)
 {
