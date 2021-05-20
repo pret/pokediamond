@@ -3,6 +3,7 @@
 #include "GX_layers.h"
 #include "gx.h"
 #include "heap.h"
+#include "game_init.h"
 
 extern void FUN_020B0030(void *param0, u32 *param1);
 extern void FUN_020B0138(void *param0, u32 *param1);

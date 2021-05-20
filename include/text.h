@@ -2,11 +2,12 @@
 #define POKEDIAMOND_TEXT_H
 
 #include "global.h"
+#include "unk_02016B94.h"
 
 struct TextPrinterTemplate
 {
     const u16* currentChar;
-    u32 windowId;
+    struct Window *windowId;
     u8 padding[1];
     u8 fontId;
     u8 x;

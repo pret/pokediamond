@@ -1,4 +1,7 @@
 #include "GX_layers.h"
+#include "GX_vramcnt.h"
+#include "gx.h"
+#include "main.h"
 
 
 struct GX_LayerData layer_data;

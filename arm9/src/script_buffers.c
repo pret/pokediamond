@@ -21,8 +21,6 @@ extern void StringCat_HandleTrainerName(struct String * dest, const struct Strin
 extern void StrAddChar(struct String * str, u16 val);
 extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 extern BOOL UncompressFromNarc(NarcId narcId, s32 memberNo, BOOL a2, u32 heap_id, BOOL a4);
-extern void FUN_02019658(int, u8 *, u16, u16, u16, u16, u16, u16, u16, u16);
-extern void FUN_020196F4(int, u8, u16, u16, u16, u16);
 
 const u16 UNK_020ECE6C[][2] = {
     { 0x0140, 0x0008 },
@@ -803,12 +801,12 @@ void MessagePrinter_delete(struct UnkStruct_0200B870 * a0)
     }
 }
 
-void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, int a2, int a3, int a4)
+void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window *a2, int a3, int a4)
 {
     FUN_02019658(a2, a0->unk_4->unk_14 + UNK_020ECE6C[a1][0], 0, 0, UNK_020ECE6C[a1][1], 8, (u16)a3, (u16)a4, UNK_020ECE6C[a1][1], 8);
 }
 
-void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, int sp30, int r5, int r7)
+void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *sp30, int r5, int r7)
 {
     ConvertUIntToDecimalString(string->data, value, mode, n);
     for (int i = 0; string->data[i] != EOS; i++)
