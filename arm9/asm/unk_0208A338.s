@@ -556,7 +556,7 @@ FUN_0208A77C: ; 0x0208A77C
 	bl FUN_02019064
 	add r0, r7, #0x0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r6, #0x0
 	add r4, r6, #0x0
 _0208A7D2:
@@ -644,7 +644,7 @@ FUN_0208A82C: ; 0x0208A82C
 	bl FUN_02019064
 	add r0, r7, #0x0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r6, #0x0
 	add r4, r6, #0x0
 _0208A882:

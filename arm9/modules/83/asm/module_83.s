@@ -5993,7 +5993,7 @@ MOD83_0223050C: ; 0x0223050C
 	bl FUN_02002E4C
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r6, [r4, #0x14]
 	cmp r6, #0
 	bne _02230554
@@ -6059,7 +6059,7 @@ MOD83_022305A4: ; 0x022305A4
 	bl FUN_02002E4C
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -6092,7 +6092,7 @@ MOD83_02230604: ; 0x02230604
 	add r6, r2, #0
 	bl OverlayManager_GetData
 	ldr r0, [r0, #0x78]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	mov r0, #1
 	mvn r0, r0
@@ -8238,7 +8238,7 @@ MOD83_022317A8: ; 0x022317A8
 	bl FUN_02002E4C
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r6, #0
 	add r1, r4, #0
 	add r2, r7, #0
@@ -9125,7 +9125,7 @@ _02231EBE:
 	bl FUN_02002E4C
 	add r1, r0, #0
 	add r0, r6, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x18]
 	ldr r3, [r4, #0x24]
 	str r0, [sp, #0x28]
@@ -9249,7 +9249,7 @@ _02231FD2:
 	add r0, r6, #0
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	beq _02231FFE
@@ -9529,7 +9529,7 @@ MOD83_02232208: ; 0x02232208
 	bl OverlayManager_GetData
 	ldr r1, _02232270 ; =0x00002B68
 	ldr r0, [r0, r1]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	mov r0, #1
 	mvn r0, r0
@@ -10694,7 +10694,7 @@ _02232B94:
 	ldr r0, _02232D1C ; =0x00002AA8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _02232D1C ; =0x00002AA8
 	add r0, r4, r0
 	bl CopyWindowToVram
@@ -11088,7 +11088,7 @@ _02232E7E:
 	mov r5, #0
 	ldr r0, [sp, #0x10]
 	add r1, r5, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	str r0, [sp, #0x14]
 	cmp r6, #0
@@ -11230,7 +11230,7 @@ MOD83_02232FE4: ; 0x02232FE4
 	str r0, [r5, r1]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #1
 	str r3, [sp]
 	ldr r0, _0223307C ; =0x000029A0
@@ -15511,7 +15511,7 @@ _02234F7A:
 	ldr r0, [r5]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 _02234F8C:
 	mov r0, #0
 	ldr r1, [r5, #0x34]
@@ -23084,7 +23084,7 @@ MOD83_0223894C: ; 0x0223894C
 	add r1, #0x48
 	ldrb r1, [r1]
 	ldr r0, [r5, #0x10]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 _02238976:
 	mov r0, #0
 	ldr r1, [r5, #0x4c]

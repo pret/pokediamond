@@ -316,7 +316,7 @@ _02074018:
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl FUN_0207322C
 	mov r0, #0xf

@@ -681,7 +681,7 @@ MOD24_02254D00: ; 0x02254D00
 	bne _02254D38
 	ldr r0, [r4, #0x70]
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 _02254D38:
 	mov r0, #1
 	pop {r4, pc}

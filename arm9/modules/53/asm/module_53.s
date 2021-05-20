@@ -1325,7 +1325,7 @@ MOD53_021D7FDC: ; 0x021D7FDC
 	lsl r0, r0, #2
 	add r0, r7, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #0x1e
@@ -1346,7 +1346,7 @@ MOD53_021D7FDC: ; 0x021D7FDC
 	lsl r0, r0, #2
 	add r0, r7, r0
 	mov r1, #2
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x15
 	str r0, [sp]
 	mov r0, #6
@@ -1368,7 +1368,7 @@ MOD53_021D7FDC: ; 0x021D7FDC
 	lsl r0, r0, #2
 	add r0, r7, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, [r7, #0x28]
 	mov r0, #1
 	mov r2, #0
@@ -1415,7 +1415,7 @@ _021D80A8:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x14]
 	add r6, #0x14
 	add r0, r0, #1
@@ -3633,7 +3633,7 @@ MOD53_021D91C8: ; 0x021D91C8
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xb6
 	lsl r0, r0, #2
 	add r0, r5, r0

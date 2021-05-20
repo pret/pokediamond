@@ -335,7 +335,7 @@ _021D7762:
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	b _021D7796
 _021D7784:
@@ -425,7 +425,7 @@ MOD65_021D7818: ; 0x021D7818
 	add r5, r0, #0
 	add r0, #0xc8
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	ldr r0, _021D78A4 ; =gMain
 	ldr r1, [r0, #0x48]
@@ -998,7 +998,7 @@ _021D7C68:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r7, r7, #1
 	add r4, #8
 	add r5, #0x10
@@ -3269,7 +3269,7 @@ MOD65_021D8E68: ; 0x021D8E68
 	add r0, r4, #0
 	add r0, #0x6c
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	ldrb r0, [r0, #0xb]
@@ -3842,7 +3842,7 @@ MOD65_021D92C4: ; 0x021D92C4
 	add r0, r4, #0
 	add r0, #0x6c
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x20]
 	bl StringSetEmpty
 	mov r0, #1

@@ -11,7 +11,7 @@ extern void FUN_0200CD68(u32 param0, u32 param1, u32 param2, u32 param3, u8 para
 extern u32 FUN_0201AB08(u32 *param0);
 extern void FUN_0200D0BC(u32 *param0, u32 param1, u32 param2, u32 param3);
 
-extern void FUN_02019620(u32 *param0, u32 param1);
+extern void FillWindowPixelBuffer(u32 *param0, u32 param1);
 
 extern void FUN_02002B60(u8 param0);
 extern void FUN_02002B7C(u32 param0);
@@ -52,7 +52,7 @@ THUMB_FUNC void FUN_02054608(u32 *param0, struct Options *options)
 
 THUMB_FUNC void FUN_0205464C(u32 *param0)
 {
-    FUN_02019620(param0, 15);
+    FillWindowPixelBuffer(param0, 15);
 }
 
 THUMB_FUNC u16 FUN_02054658(u8 windowId, const u16 *str, struct Options *options, u8 param3)
@@ -103,6 +103,6 @@ THUMB_FUNC void FUN_020546E0(u32 param0, u32 param1, u32 param2, u32 param3)
 THUMB_FUNC void FUN_02054744(u32 *param0, u32 param1, u32 param2)
 {
     FUN_0200D300(*param0, FUN_0201AB08(param0), 0x399, 9, (u8)param1, param2, 4);
-    FUN_02019620(param0, 15);
+    FillWindowPixelBuffer(param0, 15);
     FUN_0200D6F8(param0, 0, 0x399, 9, (u8)param1);
 }

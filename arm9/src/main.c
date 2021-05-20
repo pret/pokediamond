@@ -255,7 +255,7 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
     {
         HandleDSLidAction();
         FUN_02016464();
-        if (gMain.unk48 & 1)
+        if (gMain.newKeys & 1)
             break;
         FUN_02000E9C();
     }

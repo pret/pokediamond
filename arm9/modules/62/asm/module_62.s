@@ -3251,7 +3251,7 @@ MOD62_0222EE78: ; 0x0222EE78
 	cmp r5, r1
 	bne _0222EE96
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add sp, #0xc
@@ -3268,7 +3268,7 @@ _0222EE96:
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -3331,7 +3331,7 @@ MOD62_0222EEE0: ; 0x0222EEE0
 	bl FUN_0200D0BC
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -3377,7 +3377,7 @@ MOD62_0222EF44: ; 0x0222EF44
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -3552,14 +3552,14 @@ _0222F0E2:
 	bne _0222F0FE
 	add r0, r5, #0
 	mov r1, #0xee
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	b _0222F152
 _0222F0FE:
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x64
 	mov r1, #0x35
 	bl String_ctor
@@ -3621,7 +3621,7 @@ MOD62_0222F168: ; 0x0222F168
 	bne _0222F194
 	add r0, r5, r4
 	mov r1, #0xee
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -3629,7 +3629,7 @@ MOD62_0222F168: ; 0x0222F168
 _0222F194:
 	add r0, r5, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x64
 	mov r1, #0x35
 	bl String_ctor
@@ -3693,7 +3693,7 @@ MOD62_0222F208: ; 0x0222F208
 	cmp r5, r1
 	bne _0222F226
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add sp, #0xc
@@ -3710,7 +3710,7 @@ _0222F226:
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]

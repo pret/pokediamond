@@ -84,8 +84,8 @@ struct Main
     u32 unk3C;
     u32 unk40;
     u32 unk44;
-    u32 unk48;
-    u32 unk4C;
+    u32 newKeys;
+    u32 newAndRepeatedKeys;
     s32 unk50;
     s32 unk54;
     s32 unk58;

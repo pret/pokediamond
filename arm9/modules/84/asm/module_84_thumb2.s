@@ -577,7 +577,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	bl FUN_02019064
 	ldr r0, [r4, #0x24]
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x24]
 	bl FUN_02019270
 	ldr r0, [r4, #0x24]
@@ -712,7 +712,7 @@ _021D864C:
 	ble _021D86D0
 	ldr r0, [r5, #0x28]
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -880,7 +880,7 @@ MOD84_021D87B0: ; 0x021D87B0
 	beq _021D87CE
 	ldr r0, [r5, #0x24]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r4, _021D8814 ; =0x0001020F
 	b _021D87D0
 _021D87CE:

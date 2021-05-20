@@ -5886,8 +5886,8 @@ FUN_0201960C: ; 0x0201960C
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02019620
-FUN_02019620: ; 0x02019620
+	thumb_func_start FillWindowPixelBuffer
+FillWindowPixelBuffer: ; 0x02019620
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldrb r2, [r4, #0x4]

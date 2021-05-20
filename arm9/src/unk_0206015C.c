@@ -111,7 +111,7 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
 
     case 5:
         unkStruct1->unkE += 1;
-        if (unkStruct1->unkE < 0x3c && !(gMain.unk48 & 1))
+        if (unkStruct1->unkE < 0x3c && !(gMain.newKeys & 1))
             break;
 
         MOD06_02245198(unkStruct1->unkD, unkStruct1->unk4);

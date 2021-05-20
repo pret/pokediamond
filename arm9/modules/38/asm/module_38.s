@@ -1046,7 +1046,7 @@ MOD38_0225500C: ; 0x0225500C
 	add r0, r4, #0
 	mov r1, #4
 	add r6, r2, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r6, #0x12
 	bne _02255036
 	add r0, r5, #0
@@ -1106,7 +1106,7 @@ MOD38_02255084: ; 0x02255084
 	add r0, r4, #0
 	mov r1, #4
 	add r6, r2, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r2, r5, #0
 	add r0, #0xb8

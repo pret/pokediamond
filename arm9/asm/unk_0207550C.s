@@ -1403,7 +1403,7 @@ _020760D4:
 	lsl r1, r1, #0x4
 	add r0, r0, r1
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, _02076134 ; =0x00000B25
 	add r0, r5, #0x0
 	ldrb r1, [r5, r1]
@@ -1672,7 +1672,7 @@ _020762DC:
 	lsl r1, r1, #0x4
 	add r0, r0, r1
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, _020763E0 ; =0x00000B25
 	add r0, r4, #0x0
 	ldrb r1, [r4, r1]

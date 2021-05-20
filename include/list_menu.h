@@ -1,6 +1,14 @@
 #ifndef POKEDIAMOND_LIST_MENU_H
 #define POKEDIAMOND_LIST_MENU_H
 
+#define LIST_HEADER          -3
+#define LIST_CANCEL          -2
+#define LIST_NOTHING_CHOSEN  -1
+
+#define LIST_NO_MULTIPLE_SCROLL    0
+#define LIST_MULTIPLE_SCROLL_DPAD  1
+#define LIST_MULTIPLE_SCROLL_L_R   2
+
 struct ListMenu;
 
 // TODO: Move to its own header, and fill it out
@@ -10,11 +18,18 @@ struct Window
     u8 unk_04;
 };
 
+struct ListMenuItem
+{
+    const u16 * text;
+    s32 index;
+};
+
 // TODO: Document remaining fields.
 // A lot of these are named based on similar fields in gen 3.
 struct ListMenuTemplate
 {
-    u8 filler_00[12];
+    struct ListMenuItem * items;
+    u8 filler_04[8];
     /*0x0C*/ struct Window * window;
     /*0x10*/ u16 totalItems;
     /*0x12*/ u16 maxShowed;
@@ -26,7 +41,8 @@ struct ListMenuTemplate
     /*0x18*/ u8 fillValue:4;
              u8 cursorShadowPal:4;
     /*0x1A*/ u16 lettersSpacing:3;
-             u16 unk_1a_3:6;
+             u16 itemVerticalPadding:4;
+             u16 scrollMultiple:2;
              u16 fontId:6;
     /*0x1C*/ u8 filler_1C[4];
 };

@@ -2700,7 +2700,7 @@ MOD71_0222EC5C: ; 0x0222EC5C
 	bl GetMonData
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x20]
 	ldr r2, [sp, #8]
 	str r0, [sp]
@@ -2910,7 +2910,7 @@ _0222EE14:
 	str r0, [sp, #0x30]
 	add r0, r6, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -2985,7 +2985,7 @@ _0222EEA6:
 	lsr r7, r0, #0x10
 	add r0, r6, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x14
 	mov r1, #0x1a
 	bl String_ctor
@@ -4313,7 +4313,7 @@ MOD71_0222F954: ; 0x0222F954
 	mov r0, #0xda
 	lsl r0, r0, #6
 	ldr r0, [r5, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	mov r0, #1
 	mvn r0, r0
@@ -6627,7 +6627,7 @@ MOD71_02230C48: ; 0x02230C48
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #1
 	add r1, r5, #0
 	str r2, [sp]
@@ -6646,7 +6646,7 @@ MOD71_02230C48: ; 0x02230C48
 	add r0, r5, #0
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x15
 	str r0, [sp]
 	mov r0, #5
@@ -6666,7 +6666,7 @@ MOD71_02230C48: ; 0x02230C48
 	add r0, r5, #0
 	add r0, #0x60
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
@@ -6706,7 +6706,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #4
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0xe
@@ -6728,7 +6728,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #4
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -6750,7 +6750,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #4
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x11
 	str r0, [sp]
 	mov r0, #0xb
@@ -6771,7 +6771,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #6
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0xb
@@ -6792,7 +6792,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #4
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r4, _02230E80 ; =0x022313F4
 	mov r7, #0
 	mov r6, #0x33
@@ -6824,7 +6824,7 @@ _02230DE2:
 	ldr r0, [sp, #0x18]
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r7, r7, #1
 	add r6, #0x10
 	add r4, r4, #4
@@ -6861,7 +6861,7 @@ _02230E2C:
 	bl FUN_02019064
 	add r0, r5, r7
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r6, r6, #1
 	add r4, #0xa
 	cmp r6, #8
@@ -6995,7 +6995,7 @@ _02230F6A:
 _02230F76:
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	ldr r0, _02230FAC ; =0x0001020F

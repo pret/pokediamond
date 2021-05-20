@@ -1122,10 +1122,10 @@ _021D7DAC:
 _021D7DB4:
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r4, #0

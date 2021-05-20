@@ -2,14 +2,16 @@
 
 #include "global.h"
 #include "heap.h"
+#include "main.h"
 #include "list_menu.h"
 
 extern void * FUN_02013690(u32 heap_id);
 extern void FUN_020136E0(void *, u32);
-extern void FUN_02019620(struct Window *, u32);
-void FUN_02001714(struct ListMenu *, u16, u16, u16);
-void FUN_020017AC(struct ListMenu *);
-void FUN_02001B64(struct ListMenu *, BOOL);
+extern void FillWindowPixelBuffer(struct Window *, u32);
+void ListMenuPrintEntries(struct ListMenu *, u16, u16, u16);
+void ListMenuDrawCursor(struct ListMenu *);
+BOOL ListMenuChangeSelection(struct ListMenu *, s32, u8, s32);
+void ListMenuCallSelectionChangedCallback(struct ListMenu *, BOOL);
 extern void CopyWindowToVram(struct Window *);
 
 struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id)
@@ -40,10 +42,68 @@ struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cur
             | ((u32)(list->template.fillValue << 24) >> 24)
         )
     );
-    FUN_02019620(list->template.window, list->template.fillValue);
-    FUN_02001714(list, list->cursorPos, 0, list->template.maxShowed);
-    FUN_020017AC(list);
-    FUN_02001B64(list, 1);
+    FillWindowPixelBuffer(list->template.window, list->template.fillValue);
+    ListMenuPrintEntries(list, list->cursorPos, 0, list->template.maxShowed);
+    ListMenuDrawCursor(list);
+    ListMenuCallSelectionChangedCallback(list, TRUE);
     CopyWindowToVram(template->window);
     return list;
+}
+
+s32 ListMenu_ProcessInput(struct ListMenu * list)
+{
+    list->unk_33 = 0;
+
+    if (gMain.newKeys & REG_PAD_KEYINPUT_A_MASK) {
+        return list->template.items[list->cursorPos + list->itemsAbove].index;
+    }
+    else if (gMain.newKeys & REG_PAD_KEYINPUT_B_MASK) {
+        return LIST_CANCEL;
+    }
+    else if (gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_UP_MASK) {
+        if (!ListMenuChangeSelection(list, TRUE, 1, FALSE))
+            list->unk_33 = 1;
+        return LIST_NOTHING_CHOSEN;
+    }
+    else if (gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_DOWN_MASK) {
+        if (!ListMenuChangeSelection(list, TRUE, 1, TRUE))
+            list->unk_33 = 2;
+        return LIST_NOTHING_CHOSEN;
+    }
+    else
+    {
+        u16 rightButton, leftButton;
+        switch (list->template.scrollMultiple)
+        {
+        case LIST_NO_MULTIPLE_SCROLL:
+        default:
+            leftButton = FALSE;
+            rightButton = FALSE;
+            break;
+        case LIST_MULTIPLE_SCROLL_DPAD:
+            leftButton = gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_LEFT_MASK;
+            rightButton = gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_RIGHT_MASK;
+            break;
+        case LIST_MULTIPLE_SCROLL_L_R:
+            leftButton = gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_L_MASK;
+            rightButton = gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_R_MASK;
+            break;
+        }
+        if (leftButton)
+        {
+            if (!ListMenuChangeSelection(list, TRUE, list->template.maxShowed, FALSE))
+                list->unk_33 = 3;
+            return LIST_NOTHING_CHOSEN;
+        }
+        else if (rightButton)
+        {
+            if (!ListMenuChangeSelection(list, TRUE, list->template.maxShowed, TRUE))
+                list->unk_33 = 4;
+            return LIST_NOTHING_CHOSEN;
+        }
+        else
+        {
+            return LIST_NOTHING_CHOSEN;
+        }
+    }
 }

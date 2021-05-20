@@ -922,15 +922,15 @@ MOD60_021D7BA4: ; 0x021D7BA4
 	add r0, r4, #0
 	add r0, #0x2c
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x3c
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x4c
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x4c
 	bl FUN_020192B8
@@ -980,7 +980,7 @@ _021D7CF0:
 	bl FUN_02019570
 	add r0, r5, r4
 	add r1, r7, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	bl FUN_020192B8
 	add r0, r5, r4

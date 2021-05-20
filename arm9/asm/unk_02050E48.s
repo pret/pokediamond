@@ -1711,7 +1711,7 @@ FUN_02051B68: ; 0x02051B68
 	bl FUN_0200CB00
 	ldr r0, [sp, #0x20]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r7, #0x0
 	add r6, r7, #0x0
 	add r4, r7, #0x0
@@ -1837,7 +1837,7 @@ FUN_02051C88: ; 0x02051C88
 	bl FUN_0200CB00
 	add r0, r7, #0x0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r6, #0x0
 	add r4, r6, #0x0
 _02051CE0:

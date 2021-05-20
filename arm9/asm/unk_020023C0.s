@@ -500,7 +500,7 @@ _0200275C:
 	bl FUN_02002A00
 	ldrb r1, [r4, #0x12]
 	ldr r0, [r4, #0x4]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldrb r0, [r4, #0xa]
 	strb r0, [r4, #0xc]
 	ldrb r0, [r4, #0xb]

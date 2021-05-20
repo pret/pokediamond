@@ -966,7 +966,7 @@ _0203576C:
 	add r0, r5, #0x0
 	add r0, #0x10
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _0203589C ; =0x00000143
 	mov r0, #0x0
 	mov r1, #0x1a

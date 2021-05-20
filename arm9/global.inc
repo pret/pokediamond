@@ -189,7 +189,7 @@
 .extern FUN_02000F18
 .extern HandleDSLidAction
 .extern ListMenuInit
-.extern FUN_02001204
+.extern ListMenu_ProcessInput
 .extern FUN_02001300
 .extern FUN_02001328
 .extern FUN_02001354
@@ -1098,7 +1098,7 @@
 .extern FUN_020195D0
 .extern FUN_020195E4
 .extern FUN_0201960C
-.extern FUN_02019620
+.extern FillWindowPixelBuffer
 .extern FUN_02019658
 .extern FUN_02019684
 .extern FUN_020196F4

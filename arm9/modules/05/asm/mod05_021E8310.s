@@ -279,7 +279,7 @@ MOD05_021E84F4: ; 0x021E84F4
 	bl FUN_02002E4C
 	add r1, r0, #0
 	ldr r0, [r4, #0x10]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl MOD05_021E8410
 	ldr r0, [r4, #0x10]

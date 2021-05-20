@@ -1693,7 +1693,7 @@ _021E78F8:
 	add r0, r5, #0
 	add r0, #0x14
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #1
 	mvn r1, r1
 	cmp r7, r1
@@ -1959,7 +1959,7 @@ _021E7B12:
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x14
 	bl FUN_02019570
@@ -2038,7 +2038,7 @@ _021E7BC0:
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r6, r0, #0
 	mov r0, #0x57
 	lsl r0, r0, #2
@@ -2396,11 +2396,11 @@ MOD75_021E7E60: ; 0x021E7E60
 	bl MOD75_021E7AA4
 	add r0, r4, #4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #4
 	bl FUN_02019220
 	add r0, r4, #0
@@ -3776,7 +3776,7 @@ _021E892E:
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r6, r0, #0
 	mov r0, #0x57
 	lsl r0, r0, #2
@@ -4455,7 +4455,7 @@ MOD75_021E8E1C: ; 0x021E8E1C
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	ldr r2, _021E8EA8 ; =0x000003D9
 	add r0, #0x64
@@ -4567,7 +4567,7 @@ _021E8F3A:
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	ldr r2, _021E8FB8 ; =0x000003D9
 	add r0, #0x64
@@ -4686,7 +4686,7 @@ _021E9046:
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	ldr r2, _021E91A8 ; =0x000003D9
 	add r0, #0x64
@@ -4726,7 +4726,7 @@ _021E908E:
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x46
 	mov r1, #0xfe
 	lsl r0, r0, #2
@@ -5102,7 +5102,7 @@ MOD75_021E9394: ; 0x021E9394
 _021E93AA:
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	ldr r2, _021E942C ; =0x000003D9
 	add r0, #0x64
@@ -5473,7 +5473,7 @@ _021E967A:
 	add r0, r5, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl MOD75_021EB660
 	ldr r1, _021E9718 ; =0x00000426
@@ -5711,7 +5711,7 @@ _021E9872:
 	add r0, r5, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	ldr r2, _021E9928 ; =0x000003D9
 	add r0, #0x64
@@ -5864,7 +5864,7 @@ _021E99C6:
 	add r0, r5, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	ldr r2, _021E9B3C ; =0x000003D9
 	add r0, #0x64
@@ -6100,7 +6100,7 @@ _021E9BAC:
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -6195,7 +6195,7 @@ _021E9C80:
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -6405,7 +6405,7 @@ _021E9E2A:
 	add r0, r5, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl MOD75_021EB660
 	ldr r1, _021E9EDC ; =0x00000426
@@ -6654,7 +6654,7 @@ _021EA016:
 	add r0, r4, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	ldr r2, _021EA0C4 ; =0x000003D9
 	add r0, #0x64
@@ -7755,7 +7755,7 @@ MOD75_021EA8BC: ; 0x021EA8BC
 	add r4, r0, #0
 	add r0, #0x24
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r2, r4, #0
 	add r2, #0xc4
 	ldr r6, [r2]
@@ -7922,7 +7922,7 @@ MOD75_021EA9F8: ; 0x021EA9F8
 	add r0, r5, #0
 	add r0, #0x54
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _021EAAA0 ; =0x00000424
 	mov r4, #0
 	ldrb r0, [r5, r0]
@@ -8971,7 +8971,7 @@ _021EB22E:
 	add r0, r5, #0
 	add r0, #0x14
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r1, r5, #0
 	add r1, #0xc4
 	ldr r1, [r1]
@@ -9001,7 +9001,7 @@ _021EB298:
 	bl FUN_0200D0BC
 	add r0, r4, r6
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -9119,7 +9119,7 @@ _021EB37A:
 	add r0, r5, #0
 	add r0, #0x14
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r1, r5, #0
 	add r1, #0xc4
 	ldr r1, [r1]
@@ -9144,7 +9144,7 @@ MOD75_021EB3D8: ; 0x021EB3D8
 	add r5, r0, #0
 	add r0, #0x14
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -9214,7 +9214,7 @@ MOD75_021EB454: ; 0x021EB454
 	add r0, r5, #0
 	add r0, #0x34
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -9280,7 +9280,7 @@ MOD75_021EB504: ; 0x021EB504
 	add r4, #0x94
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -9365,7 +9365,7 @@ MOD75_021EB5B0: ; 0x021EB5B0
 	add r0, r5, #0
 	add r0, #0x64
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -9543,7 +9543,7 @@ MOD75_021EB708: ; 0x021EB708
 _021EB722:
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -9654,7 +9654,7 @@ MOD75_021EB808: ; 0x021EB808
 	bne _021EB854
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _021EB8E4 ; =0x000003F7
 	add r0, r4, #0
 	mov r1, #1
@@ -9755,7 +9755,7 @@ MOD75_021EB8E8: ; 0x021EB8E8
 	add r4, #0xa4
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _021EB9B0 ; =0x000003F7
 	add r0, r4, #0
 	mov r1, #1

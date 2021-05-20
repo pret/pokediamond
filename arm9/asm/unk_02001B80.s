@@ -634,7 +634,7 @@ FUN_02001FF4: ; 0x02001FF4
 	bl FUN_02002E4C
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x4]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldrb r0, [r5, #0x19]
 	ldrb r1, [r5, #0x16]
 	ldrb r7, [r5, #0x17]

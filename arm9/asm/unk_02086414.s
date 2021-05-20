@@ -552,7 +552,7 @@ FUN_02086784: ; 0x02086784
 	bl FUN_0200D0BC
 	add r0, r5, #0x0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -567,7 +567,7 @@ FUN_020867EC: ; 0x020867EC
 	str r0, [sp, #0xc]
 	str r2, [sp, #0x10]
 	add r6, r3, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _02086874 ; =0x0000013F
 	mov r0, #0x0
 	mov r1, #0x1a

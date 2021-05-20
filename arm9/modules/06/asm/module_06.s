@@ -9246,7 +9246,7 @@ _0223DD0C:
 	add r0, r4, #0
 	add r0, #0x18
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #1
 	mvn r1, r1
 	cmp r5, r1
@@ -9456,7 +9456,7 @@ MOD06_0223DED0: ; 0x0223DED0
 	bne _0223DF1C
 	add r0, #0x28
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x28
 	mov r1, #1
@@ -9560,7 +9560,7 @@ MOD06_0223DFB4: ; 0x0223DFB4
 	add r2, #2
 	bl FUN_02001448
 	ldr r0, [r5, #0x78]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	ldr r0, [r5, #0x78]
 	mov r1, #0
@@ -9637,7 +9637,7 @@ _0223E034:
 	add r0, r5, #0
 	add r0, #0x58
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x18
 	bl FUN_02019570
@@ -9832,7 +9832,7 @@ _0223E214:
 	add r0, r5, #0
 	add r0, #0x48
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x48
 	mov r1, #1
@@ -9934,7 +9934,7 @@ _0223E2C4:
 	add r0, r4, #0
 	add r0, #0x58
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0223E380 ; =0x000005DC
 	bl FUN_020054C8
 	add r0, r4, #0
@@ -10167,7 +10167,7 @@ MOD06_0223E4E8: ; 0x0223E4E8
 	add r4, r1, #0
 	add r0, #0x38
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r4, #0
 	bne _0223E50A
 	add r0, r5, #0
@@ -10429,7 +10429,7 @@ _0223E704:
 	add r0, r5, #0
 	add r0, #0x58
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r5, r2]
@@ -10644,7 +10644,7 @@ _0223E88A:
 	add r0, r5, #0
 	add r0, #0x58
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r5, r2]
@@ -11853,7 +11853,7 @@ _0223F2AA:
 	mov r1, #0xf
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0223F330 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
@@ -12074,7 +12074,7 @@ _0223F49A:
 	ldr r0, _0223F518 ; =0x02252420
 	ldr r0, [r0]
 	ldr r0, [r0, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 _0223F4A4:
 	mov r1, #1
 	mvn r1, r1
@@ -12611,7 +12611,7 @@ _0223F910:
 	mov r1, #0xf
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0223F950 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
@@ -12727,7 +12727,7 @@ _0223FA02:
 	mov r1, #0xf
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0223FA5C ; =0x02252420
 	add r1, r4, #0
 	ldr r2, [r0]
@@ -12995,7 +12995,7 @@ _0223FC14:
 _0223FC32:
 	ldr r0, [sp, #4]
 	ldr r0, [r0, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	bl FUN_0202DF08
 	cmp r0, #0xff
@@ -13094,7 +13094,7 @@ MOD06_0223FD08: ; 0x0223FD08
 	add r0, r4, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, [r4, #0x60]
 	mov r1, #4
 	bl FUN_020021AC
@@ -13421,7 +13421,7 @@ MOD06_0223FFD4: ; 0x0223FFD4
 	mov r0, #0
 	bl FUN_02031A24
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, _02240020 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x94
@@ -13459,7 +13459,7 @@ MOD06_02240030: ; 0x02240030
 	add r0, r5, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r5, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, [r5, #0x60]
 	mov r1, #4
 	bl FUN_020021AC
@@ -13681,7 +13681,7 @@ MOD06_02240204: ; 0x02240204
 	add r0, r4, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, _02240248 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x94
@@ -13719,7 +13719,7 @@ MOD06_02240258: ; 0x02240258
 	add r0, r5, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r5, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, [r5, #0x60]
 	mov r1, #4
 	bl FUN_020021AC
@@ -13778,7 +13778,7 @@ _022402DC:
 	add r0, r4, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r0, #0xa
 	bl FUN_020315D8
 	cmp r0, #0
@@ -13804,7 +13804,7 @@ MOD06_02240310: ; 0x02240310
 	add r0, r4, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, _02240354 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x94
@@ -13843,7 +13843,7 @@ MOD06_02240364: ; 0x02240364
 	ldr r0, [r0]
 	mov r1, #0xf
 	add r0, #0x40
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x20
 	mov r1, #0
@@ -14711,7 +14711,7 @@ MOD06_02240A64: ; 0x02240A64
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r2, r5, #0
 	ldr r0, [r5]
@@ -14873,7 +14873,7 @@ MOD06_02240BB8: ; 0x02240BB8
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #4]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r2, r5, #0
 	ldr r0, [r5, #4]
@@ -14992,7 +14992,7 @@ MOD06_02240C58: ; 0x02240C58
 	bl FUN_0200CCA4
 	ldr r0, [sp, #0x24]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x14]
 	add r1, r0, #0
 	add r1, #0x78
@@ -19287,7 +19287,7 @@ MOD06_02242F1C: ; 0x02242F1C
 	add r4, r0, #0
 	add r0, #0x88
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #1
 	mvn r1, r1
 	cmp r0, r1
@@ -19331,7 +19331,7 @@ _02242F6E:
 	add r0, r4, #0
 	add r0, #0x88
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #1
 	mvn r1, r1
 	cmp r0, r1
@@ -19480,7 +19480,7 @@ MOD06_02243080: ; 0x02243080
 	add r0, r5, #0
 	add r0, #0x14
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #0x54]
 	ldr r1, [sp, #0xc]
 	add r2, r4, #0
@@ -40892,7 +40892,7 @@ MOD06_0224D46C: ; 0x0224D46C
 	bl FUN_0200CCA4
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x64
 	mov r1, #0xb
 	bl String_ctor
@@ -41813,7 +41813,7 @@ MOD06_0224DC5C: ; 0x0224DC5C
 	bl FUN_02019064
 	ldr r0, [r5, #4]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #4]
 	mov r1, #0
 	mov r2, #1
@@ -41859,7 +41859,7 @@ MOD06_0224DCD8: ; 0x0224DCD8
 _0224DCEC:
 	ldr r0, [r5, #4]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r1, r6, #0
 	bl StringDup
@@ -42077,7 +42077,7 @@ _0224DEA8:
 	str r0, [r6, #0xc]
 	ldr r0, [r6, #4]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #1
 	str r0, [r6]
 _0224DED2:
@@ -42148,7 +42148,7 @@ MOD06_0224DF1C: ; 0x0224DF1C
 	bl BufferIntegerAsString
 	ldr r0, [r5, #4]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r7, #0
 	add r6, r5, #0
 	add r4, r7, #0
@@ -42463,7 +42463,7 @@ MOD06_0224E1E4: ; 0x0224E1E4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #8]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0
 	add r4, r0, #0
 	mvn r1, r1

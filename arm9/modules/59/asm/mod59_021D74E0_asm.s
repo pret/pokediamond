@@ -1111,7 +1111,7 @@ _021D7DF2:
 	b _021D7E96
 _021D7E4C:
 	ldr r0, [r5, #0x40]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0
 	mvn r1, r1
 	str r0, [r5, #0x48]

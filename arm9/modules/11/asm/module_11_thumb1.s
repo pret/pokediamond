@@ -633,7 +633,7 @@ _0222D99A:
 	bl FUN_02019064
 	ldr r0, [r5, #8]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #8]
 	mov r1, #0
 	mov r2, #1
@@ -795,7 +795,7 @@ _0222DC42:
 	bl FUN_02019064
 	ldr r0, [r4, #8]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #8]
 	mov r1, #0
 	mov r2, #1

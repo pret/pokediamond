@@ -421,7 +421,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	bl FUN_02019064
 	add r0, sp, #0x1c
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, sp, #0x1c
 	bl FUN_02019270
 	ldr r1, _02254BD4 ; =0x00000197

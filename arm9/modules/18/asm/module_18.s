@@ -22355,7 +22355,7 @@ _022442B2:
 	pop {r3, r4, r5, r6, r7, pc}
 _022442CA:
 	ldr r0, [sp, #4]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r1, r5, #0
 	ldr r0, [sp, #4]
@@ -23187,7 +23187,7 @@ MOD18_0224486C: ; 0x0224486C
 	bl FUN_020545B8
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0x80
 	str r3, [sp]
 	mov r2, #4
@@ -29766,7 +29766,7 @@ MOD18_02247C98: ; 0x02247C98
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0x20]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD18_02248FEC
@@ -29919,7 +29919,7 @@ MOD18_02247DD8: ; 0x02247DD8
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0x20]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD18_02248FEC
@@ -30102,7 +30102,7 @@ MOD18_02247F5C: ; 0x02247F5C
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0x20]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD18_02248FEC
@@ -31298,7 +31298,7 @@ MOD18_022488F0: ; 0x022488F0
 	add r5, r1, #0
 	add r7, r0, #0
 	ldr r0, [r5, #0x1c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r1, r5, #0
 	ldr r0, [r5, #0x1c]
@@ -33957,7 +33957,7 @@ MOD18_02249DB8: ; 0x02249DB8
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x50]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0x93
 	add r4, r0, #0
 	lsl r1, r1, #2
@@ -34434,7 +34434,7 @@ MOD18_0224A1C0: ; 0x0224A1C0
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x50]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0x93
 	add r4, r0, #0
 	lsl r1, r1, #2
@@ -34858,7 +34858,7 @@ MOD18_0224A550: ; 0x0224A550
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x50]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0x93
 	add r4, r0, #0
 	lsl r1, r1, #2
@@ -35800,7 +35800,7 @@ MOD18_0224AD04: ; 0x0224AD04
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x50]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0x93
 	add r4, r0, #0
 	lsl r1, r1, #2
@@ -36486,7 +36486,7 @@ MOD18_0224B250: ; 0x0224B250
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
 	ldr r0, [r4, #0x48]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r5, r0, #0
 	add r1, sp, #0
 	ldr r0, [r4, #0x48]
@@ -36862,7 +36862,7 @@ MOD18_0224B560: ; 0x0224B560
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x48]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r1, sp, #0
 	ldr r0, [r5, #0x48]
@@ -38642,7 +38642,7 @@ _0224C434:
 	add r0, r4, #0
 	add r0, #0x20
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	ldr r1, _0224C504 ; =0x00000247
@@ -38756,7 +38756,7 @@ MOD18_0224C510: ; 0x0224C510
 	add r0, #0x20
 	mov r1, #0xf
 	mov r5, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
 	beq _0224C546
@@ -39490,7 +39490,7 @@ _0224CB1A:
 	add r0, r4, #0
 	add r0, #0x20
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0x20
 	add r0, r4, #0
 	bl CopyWindowToVram
@@ -39531,7 +39531,7 @@ MOD18_0224CB34: ; 0x0224CB34
 	add r0, r5, #0
 	add r0, #0x30
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x30
 	bl CopyWindowToVram
@@ -39680,7 +39680,7 @@ _0224CC7E:
 	pop {r4, r5, r6, pc}
 _0224CC8E:
 	ldr r0, [r4, #0x48]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r5, r0, #0
 	add r1, sp, #4
 	ldr r0, [r4, #0x48]
@@ -39771,7 +39771,7 @@ _0224CD32:
 	pop {r4, r5, r6, pc}
 _0224CD48:
 	ldr r0, [r4, #0x48]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r5, r0, #0
 	add r1, sp, #4
 	ldr r0, [r4, #0x48]
@@ -40827,7 +40827,7 @@ MOD18_0224D5CC: ; 0x0224D5CC
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x30]
 	cmp r0, #0
 	beq _0224D644
@@ -41332,7 +41332,7 @@ MOD18_0224DA00: ; 0x0224DA00
 	add r0, r5, #0
 	add r0, #8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	ldr r3, _0224DAA0 ; =0x022513FC
 	str r6, [sp]
@@ -41590,7 +41590,7 @@ _0224DC4C:
 	add r0, r5, #0
 	add r0, #8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	ldr r2, _0224DCB0 ; =0x000001E2
 	add r0, #8
@@ -42345,7 +42345,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	add r0, r5, #0
 	add r0, #0x14
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r7, #0
 	mov r1, #0
 	bl NewString_ReadMsgData
@@ -42429,7 +42429,7 @@ MOD18_0224E210: ; 0x0224E210
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0x28]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD18_0224E73C
@@ -42804,7 +42804,7 @@ _0224E454:
 	add r0, r5, #0
 	add r0, #0x18
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x24]
 	mov r1, #9
 	bl NewString_ReadMsgData

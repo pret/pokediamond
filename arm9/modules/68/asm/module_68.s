@@ -555,7 +555,7 @@ MOD68_021D7958: ; 0x021D7958
 	add r4, r0, #0
 	add r0, r4, #4
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	ldr r3, _021D7974 ; =0x00010204
 	add r0, r4, #0
@@ -572,7 +572,7 @@ MOD68_021D7978: ; 0x021D7978
 	add r4, r0, #0
 	add r0, #0x24
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D7994 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #2
@@ -589,7 +589,7 @@ MOD68_021D7998: ; 0x021D7998
 	add r4, r0, #0
 	add r0, #0x34
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D79B4 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #3
@@ -606,7 +606,7 @@ MOD68_021D79B8: ; 0x021D79B8
 	add r4, r0, #0
 	add r0, #0x44
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D79D4 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #4
@@ -623,7 +623,7 @@ MOD68_021D79D8: ; 0x021D79D8
 	add r4, r0, #0
 	add r0, #0x54
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D79F4 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #5
@@ -640,7 +640,7 @@ MOD68_021D79F8: ; 0x021D79F8
 	add r4, r0, #0
 	add r0, #0x64
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D7A14 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #6
@@ -660,7 +660,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	add r4, #0x14
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #5
 	str r0, [sp]
 	add r0, r5, #0
@@ -752,7 +752,7 @@ MOD68_021D7AE4: ; 0x021D7AE4
 	add r5, #0xb4
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x7e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -790,7 +790,7 @@ MOD68_021D7B34: ; 0x021D7B34
 	add r5, #0x94
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0xc4
 	ldr r0, [r4]
 	mov r1, #0xa
@@ -826,7 +826,7 @@ MOD68_021D7B80: ; 0x021D7B80
 	add r5, #0xa4
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -871,7 +871,7 @@ MOD68_021D7BDC: ; 0x021D7BDC
 	add r5, #0x74
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0xc4
 	ldr r0, [r4]
 	mov r1, #8
@@ -907,7 +907,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	add r6, #0x84
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]

@@ -242,7 +242,7 @@ _021D76D6:
 _021D76FA:
 	ldr r0, _021D7988 ; =0x0000C054
 	ldr r0, [r4, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r6, r0, #0
 	sub r0, r7, #1
 	cmp r6, r0
@@ -358,7 +358,7 @@ _021D77A2:
 _021D77DE:
 	ldr r0, _021D7988 ; =0x0000C054
 	ldr r0, [r4, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r6, r0, #0
 	sub r0, r7, #1
 	cmp r6, r0
@@ -438,7 +438,7 @@ _021D7838:
 _021D7886:
 	ldr r0, _021D7988 ; =0x0000C054
 	ldr r0, [r4, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r6, r0, #0
 	sub r0, r7, #1
 	cmp r6, r0

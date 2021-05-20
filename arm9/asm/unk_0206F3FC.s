@@ -5223,7 +5223,7 @@ FUN_02071CB4: ; 0x02071CB4
 	lsl r1, r1, #0x4
 	add r0, r0, r1
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	bl FUN_02072B7C
@@ -5645,7 +5645,7 @@ _02072054:
 	bl FUN_0200D0BC
 	add r0, r5, r7
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl FUN_0207322C
 	add r0, r4, #0x0
@@ -5902,7 +5902,7 @@ _02072282:
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl FUN_0207322C
 	mov r0, #0xb
@@ -6066,7 +6066,7 @@ _020723D6:
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl FUN_0207322C
 	ldr r0, _02072410 ; =0x000005A4

@@ -1342,7 +1342,7 @@ _022128CE:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	mov r2, #0x16
 	add r0, #0xcc
@@ -2786,7 +2786,7 @@ _0221344C:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -3712,7 +3712,7 @@ _02213B2C:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	mov r2, #0x16
 	add r0, #0xcc
@@ -4139,7 +4139,7 @@ _02213ECE:
 	add r0, r5, #0
 	add r0, #0xb4
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r6, r0, #0
 _02213EE8:
 	mov r0, #1
@@ -5180,7 +5180,7 @@ _022146EE:
 	add r0, r5, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD56_02213BF4
@@ -5463,7 +5463,7 @@ _0221493C:
 	add r0, r5, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD56_02213BF4
@@ -5837,7 +5837,7 @@ _02214C1E:
 	add r0, r4, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r5, r0, #0
 	add r0, r4, #0
 	bl MOD56_02213BF4
@@ -7019,7 +7019,7 @@ _02215532:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0xb4
 	ldr r0, [r0]
@@ -7569,7 +7569,7 @@ MOD56_022159B0: ; 0x022159B0
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	mov r2, #0x16
 	add r0, #0xcc
@@ -8272,7 +8272,7 @@ _02215F82:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xcf
 	lsl r0, r0, #2
 	ldr r2, _02215FF0 ; =0x000001E2
@@ -8388,7 +8388,7 @@ _02216048:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	ldr r2, _022160E0 ; =0x000001D9

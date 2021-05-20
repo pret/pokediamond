@@ -5,144 +5,6 @@
 
 	.text
 
-	thumb_func_start FUN_02001204
-FUN_02001204: ; 0x02001204
-	push {r4-r6, lr}
-	add r4, r0, #0x0
-	add r1, r4, #0x0
-	ldr r6, _020012FC ; =gMain
-	mov r3, #0x0
-	add r1, #0x33
-	strb r3, [r1, #0x0]
-	ldr r1, [r6, #0x48]
-	mov r2, #0x1
-	add r5, r1, #0x0
-	tst r5, r2
-	beq _0200122C
-	ldrh r1, [r4, #0x2c]
-	ldrh r0, [r4, #0x2e]
-	ldr r2, [r4, #0x0]
-	add r0, r1, r0
-	lsl r0, r0, #0x3
-	add r0, r2, r0
-	ldr r0, [r0, #0x4]
-	pop {r4-r6, pc}
-_0200122C:
-	mov r5, #0x2
-	tst r1, r5
-	beq _02001236
-	sub r0, r5, #0x4
-	pop {r4-r6, pc}
-_02001236:
-	ldr r5, [r6, #0x4c]
-	mov r1, #0x40
-	tst r1, r5
-	beq _02001254
-	add r1, r2, #0x0
-	bl FUN_02001AA4
-	cmp r0, #0x0
-	bne _0200124E
-	mov r0, #0x1
-	add r4, #0x33
-	strb r0, [r4, #0x0]
-_0200124E:
-	mov r0, #0x0
-	mvn r0, r0
-	pop {r4-r6, pc}
-_02001254:
-	mov r1, #0x80
-	add r3, r5, #0x0
-	tst r3, r1
-	beq _02001274
-	add r1, r2, #0x0
-	add r3, r2, #0x0
-	bl FUN_02001AA4
-	cmp r0, #0x0
-	bne _0200126E
-	mov r0, #0x2
-	add r4, #0x33
-	strb r0, [r4, #0x0]
-_0200126E:
-	mov r0, #0x0
-	mvn r0, r0
-	pop {r4-r6, pc}
-_02001274:
-	ldrh r0, [r4, #0x1a]
-	lsl r0, r0, #0x17
-	lsr r0, r0, #0x1e
-	beq _02001284
-	cmp r0, #0x1
-	beq _0200128A
-	cmp r0, #0x2
-	beq _0200129C
-_02001284:
-	mov r0, #0x0
-	add r1, r0, #0x0
-	b _020012AC
-_0200128A:
-	mov r0, #0x20
-	mov r1, #0x10
-	and r0, r5
-	and r1, r5
-	lsl r0, r0, #0x10
-	lsl r1, r1, #0x10
-	lsr r0, r0, #0x10
-	lsr r1, r1, #0x10
-	b _020012AC
-_0200129C:
-	lsl r0, r1, #0x2
-	add r1, #0x80
-	and r0, r5
-	and r1, r5
-	lsl r0, r0, #0x10
-	lsl r1, r1, #0x10
-	lsr r0, r0, #0x10
-	lsr r1, r1, #0x10
-_020012AC:
-	cmp r0, #0x0
-	beq _020012D0
-	ldrh r2, [r4, #0x12]
-	add r0, r4, #0x0
-	mov r1, #0x1
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
-	mov r3, #0x0
-	bl FUN_02001AA4
-	cmp r0, #0x0
-	bne _020012CA
-	mov r0, #0x3
-	add r4, #0x33
-	strb r0, [r4, #0x0]
-_020012CA:
-	mov r0, #0x0
-	mvn r0, r0
-	pop {r4-r6, pc}
-_020012D0:
-	cmp r1, #0x0
-	beq _020012F4
-	ldrh r2, [r4, #0x12]
-	mov r1, #0x1
-	add r0, r4, #0x0
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
-	add r3, r1, #0x0
-	bl FUN_02001AA4
-	cmp r0, #0x0
-	bne _020012EE
-	mov r0, #0x4
-	add r4, #0x33
-	strb r0, [r4, #0x0]
-_020012EE:
-	mov r0, #0x0
-	mvn r0, r0
-	pop {r4-r6, pc}
-_020012F4:
-	mov r0, #0x0
-	mvn r0, r0
-	pop {r4-r6, pc}
-	nop
-_020012FC: .word gMain
-
 	thumb_func_start FUN_02001300
 FUN_02001300: ; 0x02001300
 	push {r4, lr}
@@ -174,14 +36,14 @@ FUN_02001328: ; 0x02001328
 	ldr r0, [r4, #0xc]
 	lsl r1, r1, #0x1c
 	lsr r1, r1, #0x1c
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldrh r1, [r4, #0x2c]
 	ldrh r3, [r4, #0x12]
 	add r0, r4, #0x0
 	mov r2, #0x0
-	bl FUN_02001714
+	bl ListMenuPrintEntries
 	add r0, r4, #0x0
-	bl FUN_020017AC
+	bl ListMenuDrawCursor
 	ldr r0, [r4, #0xc]
 	bl CopyWindowToVram
 	pop {r4, pc}
@@ -221,7 +83,7 @@ _0200136E:
 	mov r2, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02001AA4
+	bl ListMenuChangeSelection
 	b _020013AC
 _02001398:
 	cmp r0, #0x80
@@ -232,7 +94,7 @@ _02001398:
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	add r3, r2, #0x0
-	bl FUN_02001AA4
+	bl ListMenuChangeSelection
 _020013AC:
 	ldr r1, [sp, #0x18]
 	cmp r1, #0x0
@@ -742,8 +604,8 @@ _02001710:
 	add sp, #0x18
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02001714
-FUN_02001714: ; 0x02001714
+	thumb_func_start ListMenuPrintEntries
+ListMenuPrintEntries: ; 0x02001714
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
@@ -824,8 +686,8 @@ _020017A6:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020017AC
-FUN_020017AC: ; 0x020017AC
+	thumb_func_start ListMenuDrawCursor
+ListMenuDrawCursor: ; 0x020017AC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldrh r0, [r4, #0x1a]
@@ -1109,12 +971,12 @@ FUN_0200198C: ; 0x0200198C
 	ldr r0, [r5, #0xc]
 	lsl r1, r1, #0x1c
 	lsr r1, r1, #0x1c
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldrh r1, [r5, #0x2c]
 	ldrh r3, [r5, #0x12]
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl FUN_02001714
+	bl ListMenuPrintEntries
 	add sp, #0x8
 	pop {r3-r7, pc}
 _020019B8:
@@ -1151,7 +1013,7 @@ _020019B8:
 	add r0, r5, #0x0
 	mov r2, #0x0
 	add r3, r4, #0x0
-	bl FUN_02001714
+	bl ListMenuPrintEntries
 	ldrb r0, [r5, #0x17]
 	lsl r0, r0, #0x1c
 	lsr r2, r0, #0x1c
@@ -1207,7 +1069,7 @@ _02001A46:
 	add r0, r5, #0x0
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_02001714
+	bl ListMenuPrintEntries
 	ldr r0, [r5, #0xc]
 	bl FUN_0201AB0C
 	lsl r0, r0, #0x13
@@ -1228,8 +1090,8 @@ _02001A46:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02001AA4
-FUN_02001AA4: ; 0x02001AA4
+	thumb_func_start ListMenuChangeSelection
+ListMenuChangeSelection: ; 0x02001AA4
 	push {r3-r7, lr}
 	sub sp, #0x10
 	str r1, [sp, #0x0]
@@ -1298,10 +1160,10 @@ _02001B1A:
 	add r0, r4, #0x0
 	bl FUN_02001804
 	add r0, r4, #0x0
-	bl FUN_020017AC
+	bl ListMenuDrawCursor
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02001B64
+	bl ListMenuCallSelectionChangedCallback
 	ldr r0, [r4, #0xc]
 	bl CopyWindowToVram
 	b _02001B5E
@@ -1314,10 +1176,10 @@ _02001B38:
 	add r1, r6, #0x0
 	bl FUN_0200198C
 	add r0, r4, #0x0
-	bl FUN_020017AC
+	bl ListMenuDrawCursor
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02001B64
+	bl ListMenuCallSelectionChangedCallback
 	ldr r0, [r4, #0xc]
 	bl CopyWindowToVram
 _02001B5E:
@@ -1325,8 +1187,8 @@ _02001B5E:
 	add sp, #0x10
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02001B64
-FUN_02001B64: ; 0x02001B64
+	thumb_func_start ListMenuCallSelectionChangedCallback
+ListMenuCallSelectionChangedCallback: ; 0x02001B64
 	push {r3-r5, lr}
 	ldr r3, [r0, #0x4]
 	add r2, r1, #0x0
