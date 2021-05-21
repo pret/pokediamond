@@ -1380,7 +1380,7 @@ MOD76_021D7FD0: ; 0x021D7FD0
 	add r5, r1, #0
 	mov r1, #0x13
 	add r6, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	cmp r6, #1
 	beq _021D7FE8

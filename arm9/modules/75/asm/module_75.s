@@ -1624,7 +1624,7 @@ MOD75_021E7870: ; 0x021E7870
 	add r7, r1, #0
 	mov r1, #0x13
 	add r4, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r5, r0, #0
 	cmp r4, #1
 	beq _021E78F8
@@ -1751,7 +1751,7 @@ MOD75_021E797C: ; 0x021E797C
 	mov r1, #0x13
 	str r0, [sp]
 	add r7, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	add r0, #0xc4
 	ldr r0, [r0]

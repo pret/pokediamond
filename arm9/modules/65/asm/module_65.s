@@ -2057,11 +2057,11 @@ _021D84E0: .word 0x00000001
 
 	thumb_func_start MOD65_021D84E4
 MOD65_021D84E4: ; 0x021D84E4
-	ldr r3, _021D84EC ; =FUN_02001470
+	ldr r3, _021D84EC ; =ListMenuGetTemplateField
 	mov r1, #0x13
 	bx r3
 	nop
-_021D84EC: .word FUN_02001470
+_021D84EC: .word ListMenuGetTemplateField
 	thumb_func_end MOD65_021D84E4
 
 	thumb_func_start MOD65_021D84F0
@@ -2072,7 +2072,7 @@ MOD65_021D84F0: ; 0x021D84F0
 	mov r1, #0x13
 	add r7, r0, #0
 	add r6, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	cmp r6, #0
 	bne _021D850C

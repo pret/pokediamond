@@ -9236,7 +9236,7 @@ MOD06_0223DCF0: ; 0x0223DCF0
 	mov r1, #0x13
 	str r0, [sp, #0x10]
 	add r6, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	cmp r6, #1
 	beq _0223DD0C
@@ -9348,7 +9348,7 @@ _0223DDE4:
 _0223DDF0:
 	ldr r0, [sp, #0x10]
 	mov r1, #2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r0, #7
 	bls _0223DE16
 	add r1, sp, #0x14
@@ -9383,7 +9383,7 @@ MOD06_0223DE34: ; 0x0223DE34
 	add r4, r1, #0
 	mov r1, #0x13
 	add r7, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r1, #1
 	mvn r1, r1
 	add r5, r0, #0
@@ -11619,7 +11619,7 @@ MOD06_0223F0C8: ; 0x0223F0C8
 	mov r1, #3
 	add r5, r0, #0
 	mov r4, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r0, #0
 	bls _0223F0F6
 	add r6, r4, #0
@@ -11633,7 +11633,7 @@ _0223F0DC:
 	add r0, r5, #0
 	add r1, r7, #0
 	add r4, r4, #1
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r4, r0
 	blo _0223F0DC
 _0223F0F6:
@@ -12972,7 +12972,7 @@ _0223FBDA:
 	ldr r0, [r0]
 	mov r5, #0
 	ldr r0, [r0, #0x5c]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r0, #0
 	bls _0223FC32
 	ldr r4, _0223FCF0 ; =0x02252420
@@ -12989,7 +12989,7 @@ _0223FC14:
 	add r1, r7, #0
 	ldr r0, [r0, #0x5c]
 	add r5, r5, #1
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r5, r0
 	blo _0223FC14
 _0223FC32:

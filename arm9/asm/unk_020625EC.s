@@ -1546,7 +1546,7 @@ FUN_020631C8: ; 0x020631C8
 	push {r3-r5, lr}
 	mov r1, #0x13
 	add r5, r0, #0x0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0x0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -1555,7 +1555,7 @@ FUN_020631C8: ; 0x020631C8
 	bl FUN_02001448
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r2, sp, #0x0
 	ldrh r3, [r2, #0x0]
 	ldrh r2, [r2, #0x2]

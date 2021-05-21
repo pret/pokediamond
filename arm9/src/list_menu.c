@@ -12,6 +12,7 @@ void ListMenuDrawCursor(struct ListMenu *);
 BOOL ListMenuChangeSelection(struct ListMenu *, u8, u8, s32);
 void ListMenuCallSelectionChangedCallback(struct ListMenu *, BOOL);
 extern void CopyWindowToVram(struct Window *);
+extern s32 FUN_02002E4C(u8 fontId, s32 attr);
 
 THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id)
 {
@@ -187,4 +188,118 @@ u8 FUN_0200145C(struct ListMenu * list)
 s32 FUN_02001464(struct ListMenu * list, s32 index)
 {
     return list->template.items[index].index;
+}
+
+s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
+{
+    switch (attr)
+    {
+    case 0:
+        return (s32)list->template.moveCursorFunc;
+    case 1:
+        return (s32)list->template.itemPrintFunc;
+    case 2:
+        return (s32)list->template.totalItems;
+    case 3:
+        return (s32)list->template.maxShowed;
+    case 4:
+        break;
+    case 5:
+        return (s32)list->template.header_X;
+    case 6:
+        return (s32)list->template.item_X;
+    case 7:
+        return (s32)list->template.cursor_X;
+    case 8:
+        return (s32)list->template.upText_Y;
+    case 9:
+        return FUN_02002E4C(list->template.fontId, 1) + list->template.itemVerticalPadding;
+    case 10:
+        return (s32)list->template.cursorPal;
+    case 11:
+        return (s32)list->template.fillValue;
+    case 12:
+        return (s32)list->template.cursorShadowPal;
+    case 13:
+        return (s32)list->template.lettersSpacing;
+    case 14:
+        return (s32)list->template.itemVerticalPadding;
+    case 15:
+        return (s32)list->template.scrollMultiple;
+    case 16:
+        return (s32)list->template.fontId;
+    case 17:
+        return (s32)list->template.unk_1B_7;
+    case 18:
+        return (s32)list->template.window;
+    case 19:
+        return (s32)list->template.unk_1C;
+    }
+
+    return -1;
+}
+
+void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 value)
+{
+    switch (attr)
+    {
+    case 0:
+        list->template.moveCursorFunc = (LM_MOVECURSORFUNC)value;
+        break;
+    case 1:
+        list->template.itemPrintFunc = (LM_ITEMPRINTFUNC)value;
+        break;
+    case 2:
+        list->template.totalItems = (u16)value;
+        break;
+    case 3:
+        list->template.maxShowed = (u16)value;
+        break;
+    case 4:
+        break;
+    case 5:
+        list->template.header_X = (u8)value;
+        break;
+    case 6:
+        list->template.item_X = (u8)value;
+        break;
+    case 7:
+        list->template.cursor_X = (u8)value;
+        break;
+    case 8:
+        list->template.upText_Y = (u8)value;
+        break;
+    case 9:
+        break;
+    case 10:
+        list->template.cursorPal = (u8)value;
+        break;
+    case 11:
+        list->template.fillValue = (u8)value;
+        break;
+    case 12:
+        list->template.cursorShadowPal = (u8)value;
+        break;
+    case 13:
+        list->template.lettersSpacing = (u8)value;
+        break;
+    case 14:
+        list->template.itemVerticalPadding = (u8)value;
+        break;
+    case 15:
+        list->template.scrollMultiple = (u8)value;
+        break;
+    case 16:
+        list->template.fontId = (u8)value;
+        break;
+    case 17:
+        list->template.unk_1B_7 = (u8)value;
+        break;
+    case 18:
+        list->template.window = (struct Window *)value;
+        break;
+    case 19:
+        list->template.unk_1C = (u32)value;
+        break;
+    }
 }

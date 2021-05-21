@@ -32,10 +32,15 @@ struct ListMenuItem
 
 // TODO: Document remaining fields.
 // A lot of these are named based on similar fields in gen 3.
+
+typedef void (*LM_MOVECURSORFUNC)(s32, u8, struct ListMenu *);
+typedef void (*LM_ITEMPRINTFUNC)(struct Window *, s32, u8);
+
 struct ListMenuTemplate
 {
-    struct ListMenuItem * items;
-    u8 filler_04[8];
+    /*0x00*/ struct ListMenuItem * items;
+    /*0x04*/ LM_MOVECURSORFUNC moveCursorFunc;
+    /*0x08*/ LM_ITEMPRINTFUNC itemPrintFunc;
     /*0x0C*/ struct Window * window;
     /*0x10*/ u16 totalItems;
     /*0x12*/ u16 maxShowed;
@@ -50,7 +55,8 @@ struct ListMenuTemplate
              u16 itemVerticalPadding:4;
              u16 scrollMultiple:2;
              u16 fontId:6;
-    /*0x1C*/ u8 filler_1C[4];
+             u16 unk_1B_7:1;
+    /*0x1C*/ u32 unk_1C;
 };
 
 struct ListMenu

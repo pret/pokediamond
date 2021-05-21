@@ -199,8 +199,8 @@
 .extern FUN_02001448
 .extern FUN_0200145C
 .extern FUN_02001464
-.extern FUN_02001470
-.extern FUN_02001538
+.extern ListMenuGetTemplateField
+.extern ListMenuSetTemplateField
 .extern FUN_02001658
 .extern FUN_02001B80
 .extern FUN_02001B8C

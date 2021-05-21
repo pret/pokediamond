@@ -22099,7 +22099,7 @@ MOD18_022440C4: ; 0x022440C4
 	lsr r6, r0, #0x10
 	ldr r0, [r4, #0xc]
 	mov r1, #3
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	ldrh r0, [r4, #0x18]
@@ -22118,23 +22118,23 @@ _022440F0:
 	bhi _0224413A
 	ldr r0, [r4, #0xc]
 	mov r1, #7
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	str r0, [sp]
 	ldr r0, [r4, #0xc]
 	mov r1, #9
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
 	ldr r0, [r4, #0xc]
 	mov r1, #8
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	str r0, [sp, #4]
 	sub r0, r6, r5
 	add r5, r7, #0
 	mul r5, r0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x12
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	ldr r3, [sp, #4]
 	add r1, r0, #0
 	ldr r0, [r4, #0x10]
@@ -22159,7 +22159,7 @@ MOD18_02244140: ; 0x02244140
 	beq _0224418A
 	ldr r0, [sp, #4]
 	mov r1, #2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r7, r0, #0
 	add r1, sp, #0xc
 	ldr r0, [sp, #4]
@@ -33623,7 +33623,7 @@ MOD18_02249AF4: ; 0x02249AF4
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r2, #0x81
 	add r1, r0, #0
 	lsl r2, r2, #2
@@ -33862,7 +33862,7 @@ MOD18_02249CC8: ; 0x02249CC8
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -34077,7 +34077,7 @@ MOD18_02249EBC: ; 0x02249EBC
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r2, #0x81
 	add r1, r0, #0
 	lsl r2, r2, #2
@@ -34352,7 +34352,7 @@ MOD18_0224A0EC: ; 0x0224A0EC
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -34542,7 +34542,7 @@ MOD18_0224A2B4: ; 0x0224A2B4
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r2, #0x81
 	add r1, r0, #0
 	lsl r2, r2, #2
@@ -34776,7 +34776,7 @@ MOD18_0224A47C: ; 0x0224A47C
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -35399,7 +35399,7 @@ MOD18_0224A9B4: ; 0x0224A9B4
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r2, #0x81
 	add r1, r0, #0
 	lsl r2, r2, #2
@@ -35431,7 +35431,7 @@ MOD18_0224A9EC: ; 0x0224A9EC
 	add r4, r1, #0
 	mov r1, #0x13
 	add r5, r0, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	ldr r0, [r0, #0xc]
 	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
@@ -35715,7 +35715,7 @@ MOD18_0224AC24: ; 0x0224AC24
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -36444,7 +36444,7 @@ MOD18_0224B204: ; 0x0224B204
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r0, #1
 	mvn r0, r0
 	cmp r4, r0
@@ -36464,7 +36464,7 @@ MOD18_0224B228: ; 0x0224B228
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r0, #1
 	mvn r0, r0
 	cmp r4, r0
@@ -36973,7 +36973,7 @@ MOD18_0224B614: ; 0x0224B614
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -37066,7 +37066,7 @@ MOD18_0224B6E0: ; 0x0224B6E0
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -38632,7 +38632,7 @@ MOD18_0224C418: ; 0x0224C418
 	mov r1, #0x13
 	add r7, r0, #0
 	add r6, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	cmp r6, #0
 	beq _0224C434
@@ -38746,7 +38746,7 @@ MOD18_0224C510: ; 0x0224C510
 	mov r1, #0x13
 	str r0, [sp, #0xc]
 	str r2, [sp, #0x10]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl ScriptEnvironment_GetSav2Ptr
@@ -42643,12 +42643,12 @@ _0224E384:
 	ldr r0, [r5, #0x2c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r7, r0, #0
 	ldr r0, [r5, #0x2c]
 	mov r1, #3
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r3, r0, #0
 	add r1, sp, #0
 	lsl r2, r7, #0x10
@@ -42692,11 +42692,11 @@ MOD18_0224E3F0: ; 0x0224E3F0
 	add r4, r1, #0
 	add r5, r0, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	lsr r1, r4, #1
 	sub r0, r0, #1
 	cmp r1, r0

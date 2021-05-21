@@ -3021,7 +3021,7 @@ MOD56_02213624: ; 0x02213624
 	add r5, r1, #0
 	mov r1, #0x13
 	add r7, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	ldr r6, _02213750 ; =0x00010200
 	cmp r5, #0x20
@@ -3814,7 +3814,7 @@ _02213C24:
 	ldr r0, [r0]
 	mov r1, #2
 	add r2, r4, #2
-	bl FUN_02001538
+	bl ListMenuSetTemplateField
 	cmp r4, #3
 	ble _02213C50
 	add r0, r5, #0
@@ -3822,7 +3822,7 @@ _02213C24:
 	ldr r0, [r0]
 	mov r1, #3
 	mov r2, #5
-	bl FUN_02001538
+	bl ListMenuSetTemplateField
 	b _02213C5E
 _02213C50:
 	add r0, r5, #0
@@ -3830,7 +3830,7 @@ _02213C50:
 	ldr r0, [r0]
 	mov r1, #3
 	add r2, r4, #2
-	bl FUN_02001538
+	bl ListMenuSetTemplateField
 _02213C5E:
 	add r0, r5, #0
 	bl MOD56_02213938

@@ -1169,7 +1169,7 @@ FUN_02065CFC: ; 0x02065CFC
 	add r4, r1, #0x0
 	mov r1, #0x13
 	add r5, r0, #0x0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	ldr r1, _02065D48 ; =0x0000FFFF
 	cmp r4, r1
 	bne _02065D1C
@@ -1210,7 +1210,7 @@ FUN_02065D4C: ; 0x02065D4C
 	mov r1, #0x13
 	add r4, r0, #0x0
 	add r6, r2, #0x0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
@@ -1219,7 +1219,7 @@ FUN_02065D4C: ; 0x02065D4C
 	bl FUN_02001448
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r6, #0x0
