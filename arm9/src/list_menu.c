@@ -9,7 +9,7 @@ extern void DestroyListMenuCursorObj(void *);
 extern void FillWindowPixelBuffer(struct Window *, u32);
 void ListMenuPrintEntries(struct ListMenu *, u16, u16, u16);
 void ListMenuDrawCursor(struct ListMenu *);
-BOOL ListMenuChangeSelection(struct ListMenu *, s32, u8, s32);
+BOOL ListMenuChangeSelection(struct ListMenu *, u8, u8, s32);
 void ListMenuCallSelectionChangedCallback(struct ListMenu *, BOOL);
 extern void CopyWindowToVram(struct Window *);
 
@@ -123,4 +123,32 @@ THUMB_FUNC void RedrawListMenu(struct ListMenu * list)
     ListMenuPrintEntries(list, list->cursorPos, 0, list->template.maxShowed);
     ListMenuDrawCursor(list);
     CopyWindowToVram(list->template.window);
+}
+
+THUMB_FUNC s32 FUN_02001354(struct ListMenu * list, struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 updateFlag, u16 input, u16 * sp18, u16 * sp1C)
+{
+    if (template != NULL)
+        list->template = *template;
+    list->cursorPos = cursorPos;
+    list->itemsAbove = itemsAbove;
+    list->unk_30 = 0;
+    list->unk_31 = 0;
+
+    if (input == REG_PAD_KEYINPUT_UP_MASK)
+    {
+        ListMenuChangeSelection(list, updateFlag, 1, FALSE);
+    }
+    else if (input == REG_PAD_KEYINPUT_DOWN_MASK)
+    {
+        ListMenuChangeSelection(list, updateFlag, 1, TRUE);
+    }
+    if (sp18 != NULL)
+    {
+        *sp18 = list->cursorPos;
+    }
+    if (sp1C != NULL)
+    {
+        *sp1C = list->itemsAbove;
+    }
+    return -1;
 }
