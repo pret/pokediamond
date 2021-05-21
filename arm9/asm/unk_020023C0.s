@@ -549,7 +549,7 @@ _020027B6:
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
 	lsr r3, r3, #0x18
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r1, #0x0
 	b _020027F2
 _020027D8:
@@ -560,7 +560,7 @@ _020027D8:
 	mov r1, #0x0
 	mov r2, #0x4
 	lsr r3, r3, #0x18
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	add r0, r4, #0x0
 	add r0, #0x27
 	ldrb r0, [r0, #0x0]
@@ -686,7 +686,7 @@ _020028AC:
 	bl FUN_0201AB18
 	str r0, [sp, #0x28]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	ldr r1, _020029F8 ; =gTextFlags
 	ldrh r6, [r1, #0x2]
 	ldr r1, [sp, #0x28]
@@ -853,7 +853,7 @@ FUN_02002A00: ; 0x02002A00
 	bl FUN_0201AB18
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	ldr r1, _02002A90 ; =gTextFlags
 	add r7, r6, #0x2
 	ldrh r4, [r1, #0x2]

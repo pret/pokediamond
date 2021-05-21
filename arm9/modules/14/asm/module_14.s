@@ -19965,7 +19965,7 @@ _021E11CE:
 	add r0, #0x30
 	mov r2, #4
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	ldr r0, [r5, #4]
 	add r0, #0x30
 	bl FUN_02019548

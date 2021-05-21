@@ -1103,10 +1103,10 @@
 .extern FUN_02019684
 .extern FillWindowPixelRect
 .extern FUN_0201974C
-.extern FUN_0201A8C8
+.extern ScrollWindow
 .extern FUN_0201AB08
-.extern FUN_0201AB0C
-.extern FUN_0201AB10
+.extern GetWindowWidth
+.extern GetWindowHeight
 .extern FUN_0201AB14
 .extern FUN_0201AB18
 .extern FUN_0201AB1C

@@ -1792,7 +1792,7 @@ _021D82A2:
 	mov r1, #1
 	mov r2, #2
 	mov r3, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	b _021D8392
 _021D82D2:
 	mov r0, #0x1e
@@ -1812,7 +1812,7 @@ _021D82D2:
 	mov r1, #0
 	mov r2, #4
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r0, #1
 	strh r0, [r4, #0x14]
 	b _021D8392
@@ -1834,7 +1834,7 @@ _021D8302:
 	mov r1, #1
 	mov r2, #2
 	mov r3, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r0, #0
 	strh r0, [r4, #0x14]
 	b _021D8392
@@ -1856,7 +1856,7 @@ _021D8330:
 	mov r1, #0
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r0, #1
 	strh r0, [r4, #0x14]
 	b _021D8392
@@ -1881,7 +1881,7 @@ _021D835E:
 	mov r1, #0
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r0, #0
 	strh r0, [r4, #0x14]
 _021D8392:

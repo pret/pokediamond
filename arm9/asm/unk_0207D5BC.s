@@ -581,7 +581,7 @@ _0207D9B4:
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
 	add r0, r6, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #0x1b
 	lsr r0, r0, #0x18
 	sub r0, r0, r5
@@ -598,7 +598,7 @@ _0207D9D8:
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
 	add r0, r6, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #0x1b
 	lsr r0, r0, #0x18
 	sub r1, r0, r5
@@ -1647,7 +1647,7 @@ FUN_0207E200: ; 0x0207E200
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	mov r1, #0x76
 	str r1, [sp, #0x0]
 	mov r1, #0x9d

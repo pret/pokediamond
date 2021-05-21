@@ -4150,7 +4150,7 @@ _02213F22:
 	bl NewString_ReadMsgData
 	add r6, r0, #0
 	add r0, r5, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x28]
 	mov r0, #0
 	add r1, r6, #0
@@ -4196,7 +4196,7 @@ _02213FA6:
 	bl NewString_ReadMsgData
 	add r6, r0, #0
 	add r0, r5, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x2c]
 	mov r0, #0
 	add r1, r6, #0
@@ -4623,7 +4623,7 @@ MOD09_022142FC: ; 0x022142FC
 	cmp r0, #2
 	bne _02214360
 	add r0, r4, r6
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r5, r0, #0
 	add r0, sp, #0x20
 	ldrh r0, [r0, #0x10]
@@ -4766,7 +4766,7 @@ MOD09_0221445C: ; 0x0221445C
 	bl FUN_02002E14
 	add r6, r0, #0
 	add r0, r5, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r3, r0, #0
 	mov r0, #6
 	str r0, [sp]
@@ -4944,7 +4944,7 @@ _022145F4:
 	ldr r0, [r5, r0]
 	lsl r4, r6, #4
 	add r0, r0, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r6, r0, #0
 	mov r0, #0
 	ldr r1, [sp, #0x10]
@@ -5070,7 +5070,7 @@ MOD09_02214694: ; 0x02214694
 	ldr r0, _02214780 ; =0x00002070
 	ldr r0, [r5, r0]
 	add r0, r0, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r7
 	lsl r0, r0, #0x18
@@ -5179,7 +5179,7 @@ MOD09_02214790: ; 0x02214790
 	ldr r0, _0221487C ; =0x00002070
 	ldr r0, [r5, r0]
 	add r0, r0, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r7
 	lsl r0, r0, #0x18
@@ -5289,7 +5289,7 @@ MOD09_0221488C: ; 0x0221488C
 	ldr r0, _0221497C ; =0x00002070
 	ldr r0, [r5, r0]
 	add r0, r0, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r7
 	lsl r0, r0, #0x18
@@ -5401,7 +5401,7 @@ MOD09_0221498C: ; 0x0221498C
 	ldr r0, [r4, r0]
 	lsl r5, r5, #4
 	add r0, r0, r5
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r7
 	lsl r0, r0, #0x18
@@ -5513,7 +5513,7 @@ MOD09_02214A8C: ; 0x02214A8C
 	ldr r0, [r4, r0]
 	lsl r5, r5, #4
 	add r0, r0, r5
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r7
 	lsl r0, r0, #0x18
@@ -5602,7 +5602,7 @@ MOD09_02214B8C: ; 0x02214B8C
 	ldr r0, _02214D14 ; =0x00002070
 	ldr r0, [r5, r0]
 	add r0, #0x40
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r1, r0, #3
 	ldr r0, [sp, #0x14]
 	ldr r2, [sp, #0x10]
@@ -5843,7 +5843,7 @@ MOD09_02214DE8: ; 0x02214DE8
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r4, r6
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r5
 	lsl r0, r0, #0x10
@@ -5893,7 +5893,7 @@ _02214E42:
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r4, r6
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r5
 	lsl r0, r0, #0x10
@@ -5979,7 +5979,7 @@ MOD09_02214F18: ; 0x02214F18
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r4, r6
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r5
 	lsl r0, r0, #0x10
@@ -6029,7 +6029,7 @@ _02214F72:
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r4, r6
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r5
 	lsl r0, r0, #0x10
@@ -6166,7 +6166,7 @@ MOD09_022150C8: ; 0x022150C8
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r5, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r1, r0, r6
 	lsr r0, r1, #0x1f
@@ -6275,7 +6275,7 @@ MOD09_022151A8: ; 0x022151A8
 	bl FUN_02002E14
 	str r0, [sp, #0x1c]
 	add r0, r4, r6
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r1, r0, #3
 	ldr r0, [sp, #0x1c]
 	ldr r2, [sp, #0x18]
@@ -7030,7 +7030,7 @@ _02215830:
 	mov r4, #8
 _02215840:
 	ldr r0, [sp, #0x18]
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r6
 	sub r0, r0, r7
@@ -11816,7 +11816,7 @@ _0221803C:
 	lsl r1, r1, #4
 	add r0, r0, r1
 	add r1, r7, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	ldr r1, _022180B0 ; =0x00002070
 	ldr r0, [r5, r1]
 	add r1, r1, #5
@@ -11839,7 +11839,7 @@ _02218072:
 	add r0, r1, r0
 	ldr r2, [sp]
 	add r1, r7, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	ldr r0, _022180B0 ; =0x00002070
 	ldr r1, [r5, r0]
 	ldrb r0, [r6, r4]
@@ -14450,7 +14450,7 @@ MOD09_02219560: ; 0x02219560
 	bl FUN_02002E14
 	add r7, r0, #0
 	add r0, r5, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r7
 	lsr r3, r0, #1
@@ -14626,7 +14626,7 @@ MOD09_02219694: ; 0x02219694
 	bl FUN_02002E14
 	add r7, r0, #0
 	add r0, r4, r6
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r7
 	lsr r3, r0, #1
@@ -14841,7 +14841,7 @@ MOD09_02219884: ; 0x02219884
 	mov r0, #0x19
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, r0, r7
 	lsr r6, r0, #1
@@ -16913,7 +16913,7 @@ _0221A93C:
 	ldr r1, [sp]
 	add r2, r7, #0
 	mov r3, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	ldrb r0, [r4, r5]
 	ldr r1, [r6, #0x2c]
 	lsl r0, r0, #4

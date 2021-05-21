@@ -527,7 +527,7 @@ MOD68_021D7904: ; 0x021D7904
 	bl FUN_02002E14
 	add r7, r0, #0
 	add r0, r5, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r3, r0, #0
 	mov r1, #0
 	lsl r3, r3, #3

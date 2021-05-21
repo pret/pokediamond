@@ -434,10 +434,10 @@ _0222D8B2:
 	bl FUN_0201AB18
 	add r7, r0, #0
 	ldr r0, [sp, #0x1c]
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r5, r0, #0
 	ldr r0, [sp, #0x1c]
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r5, [sp]
 	str r0, [sp, #4]
 	mov r0, #0
@@ -908,7 +908,7 @@ MOD83_0222DCA0: ; 0x0222DCA0
 	bl FUN_02002E14
 	add r4, r0, #0
 	add r0, r6, #0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	add r4, #0x20
 	sub r3, r0, r4
@@ -1601,10 +1601,10 @@ _0222E206:
 	bl FUN_0201AB18
 	str r0, [sp, #0x14]
 	add r0, r5, #0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0
 	add r0, r5, #0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r7, [sp]
 	str r0, [sp, #4]
 	mov r0, #0
@@ -1628,10 +1628,10 @@ _0222E256:
 	bl FUN_0201AB18
 	str r0, [sp, #0x1c]
 	add r0, r5, #0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0
 	add r0, r5, #0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r7, [sp]
 	str r0, [sp, #4]
 	mov r0, #1
@@ -1707,7 +1707,7 @@ MOD83_0222E2E4: ; 0x0222E2E4
 	add r1, #0x5c
 	lsl r0, r0, #4
 	add r0, r1, r0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	add r0, r0, #2
 	lsl r3, r0, #3
 	mov r0, #0x42
@@ -1769,7 +1769,7 @@ _0222E362:
 	sub r0, r0, #1
 	lsl r4, r0, #3
 	add r0, r5, #0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	cmp r7, r4
 	ble _0222E384
 	mov r0, #1
@@ -23140,7 +23140,7 @@ _022389D0:
 	bl FUN_02002E14
 	add r7, r0, #0
 	ldr r0, [r5, #0x10]
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r3, r0, r7
 	ldr r0, [r5, #0x24]

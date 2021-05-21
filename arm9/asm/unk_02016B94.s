@@ -8422,8 +8422,8 @@ FUN_0201A8BC: ; 0x0201A8BC
 	nop
 _0201A8C4: .word 0x00007FC0
 
-	thumb_func_start FUN_0201A8C8
-FUN_0201A8C8: ; 0x0201A8C8
+	thumb_func_start ScrollWindow
+ScrollWindow: ; 0x0201A8C8
 	push {r4-r6, lr}
 	ldrb r6, [r0, #0x4]
 	mov r5, #0x2c
@@ -8752,13 +8752,13 @@ FUN_0201AB08: ; 0x0201AB08
 	ldrb r0, [r0, #0x4]
 	bx lr
 
-	thumb_func_start FUN_0201AB0C
-FUN_0201AB0C: ; 0x0201AB0C
+	thumb_func_start GetWindowWidth
+GetWindowWidth: ; 0x0201AB0C
 	ldrb r0, [r0, #0x7]
 	bx lr
 
-	thumb_func_start FUN_0201AB10
-FUN_0201AB10: ; 0x0201AB10
+	thumb_func_start GetWindowHeight
+GetWindowHeight: ; 0x0201AB10
 	ldrb r0, [r0, #0x8]
 	bx lr
 

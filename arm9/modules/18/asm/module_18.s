@@ -23388,7 +23388,7 @@ _02244AF8:
 	ldr r0, [sp, #0xc]
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	ldr r0, [sp, #0xc]
 	bl CopyWindowToVram
 	ldr r0, [r5]

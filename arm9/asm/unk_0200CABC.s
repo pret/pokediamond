@@ -291,10 +291,10 @@ FUN_0200CCA4: ; 0x0200CCA4
 	bl FUN_0201AB18
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x1c]
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	ldr r1, [sp, #0x1c]
 	ldr r2, [sp, #0x14]
 	str r1, [sp, #0x0]
@@ -328,10 +328,10 @@ FUN_0200CCF8: ; 0x0200CCF8
 	bl FUN_0201AB18
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	sub r1, r7, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
@@ -758,10 +758,10 @@ FUN_0200D06C: ; 0x0200D06C
 	bl FUN_0201AB18
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r7, [sp, #0x0]
 	str r0, [sp, #0x4]
 	lsl r0, r6, #0x18
@@ -813,10 +813,10 @@ FUN_0200D0E0: ; 0x0200D0E0
 	bl FUN_0201AB18
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	sub r1, r7, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
@@ -1575,10 +1575,10 @@ FUN_0200D6F8: ; 0x0200D6F8
 	bl FUN_0201AB18
 	str r0, [sp, #0x1c]
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r7, [sp, #0x0]
 	str r0, [sp, #0x4]
 	str r6, [sp, #0x8]
@@ -1604,10 +1604,10 @@ _0200D756:
 	bl FUN_0201AB18
 	str r0, [sp, #0x24]
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r7, [sp, #0x0]
 	str r0, [sp, #0x4]
 	str r6, [sp, #0x8]
@@ -1648,10 +1648,10 @@ FUN_0200D7A0: ; 0x0200D7A0
 	bl FUN_0201AB18
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	sub r1, r7, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
@@ -1681,10 +1681,10 @@ _0200D7FE:
 	bl FUN_0201AB18
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	sub r1, r6, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
@@ -1863,7 +1863,7 @@ FUN_0200D980: ; 0x0200D980
 	bl FUN_0201AB18
 	str r0, [sp, #0x1c]
 	ldr r0, [r5, #0x0]
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x20]
 	cmp r6, #0x2
 	bne _0200DA8A

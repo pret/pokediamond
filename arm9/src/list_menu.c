@@ -15,6 +15,9 @@ void ListMenuCallSelectionChangedCallback(struct ListMenu *, BOOL);
 extern void CopyWindowToVram(struct Window *);
 extern s32 GetFontAttribute(u8 fontId, s32 attr);
 extern void FillWindowPixelRect(struct Window *, u32 fillValue, u16 x, u16 y, u16 width, u16 height);
+extern void ScrollWindow(struct Window *, u8, u8, u8);
+extern u16 GetWindowWidth(struct Window *);
+extern u16 GetWindowHeight(struct Window *);
 
 static inline u32 MakeFontColor(u32 fgPal, u32 shdwPal, u32 bgPal)
 {
@@ -475,4 +478,44 @@ THUMB_FUNC u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *lis
         }
     }
     return 2;
+}
+
+THUMB_FUNC void ListMenuScroll(struct ListMenu * list, u8 count, u8 movingDown)
+{
+    if (count >= list->template.maxShowed)
+    {
+        FillWindowPixelBuffer(list->template.window, list->template.fillValue);
+        ListMenuPrintEntries(list, list->cursorPos, 0, list->template.maxShowed);
+    }
+    else
+    {
+        u8 yMultiplier = GetFontAttribute(list->template.fontId, 1) + list->template.itemVerticalPadding;
+
+        if (!movingDown)
+        {
+            u16 y, width, height;
+
+            ScrollWindow(list->template.window, 1, count * yMultiplier, (list->template.fillValue << 4) | list->template.fillValue);
+            ListMenuPrintEntries(list, list->cursorPos, 0, count);
+
+            y = (list->template.maxShowed * yMultiplier) + list->template.upText_Y;
+            width = GetWindowWidth(list->template.window);
+            height = GetWindowHeight(list->template.window);
+            FillWindowPixelRect(list->template.window,
+                                list->template.fillValue,
+                                0, y, width * 8, height * 8 - y);
+        }
+        else
+        {
+            u32 width;
+
+            ScrollWindow(list->template.window, 0, count * yMultiplier, (list->template.fillValue << 4) | list->template.fillValue);
+            ListMenuPrintEntries(list, list->cursorPos + (list->template.maxShowed - count), list->template.maxShowed - count, count);
+
+            width = GetWindowWidth(list->template.window);
+            FillWindowPixelRect(list->template.window,
+                                list->template.fillValue,
+                                0, 0, width * 8, list->template.upText_Y);
+        }
+    }
 }

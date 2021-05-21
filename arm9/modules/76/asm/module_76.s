@@ -1021,7 +1021,7 @@ _021D7CE8:
 	add r1, #8
 	lsl r0, r4, #4
 	add r0, r1, r0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #0x1b
 	lsr r0, r0, #0x18
 	sub r0, r0, r6
@@ -1041,7 +1041,7 @@ _021D7D12:
 	add r1, #8
 	lsl r0, r4, #4
 	add r0, r1, r0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #0x1b
 	lsr r0, r0, #0x18
 	sub r1, r0, r6

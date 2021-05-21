@@ -11665,7 +11665,7 @@ _0223F11A:
 	lsl r5, r5, #4
 	ldr r0, [r0]
 	add r0, #0x20
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, #8
 	lsl r0, r0, #0x10
