@@ -834,7 +834,7 @@ MOD27_02254EAC: ; 0x02254EAC
 	mov r1, #4
 	add r3, r2, #0
 	add r5, r0, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r4, #0
 	beq _02254EE0
 	lsl r0, r4, #0x10
@@ -846,7 +846,7 @@ MOD27_02254EAC: ; 0x02254EAC
 	add r0, r5, #0
 	mov r1, #0xf
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _02254EE0:
 	add r0, r5, #0
 	bl FUN_02019548

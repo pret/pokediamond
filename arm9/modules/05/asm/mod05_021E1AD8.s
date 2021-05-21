@@ -1259,7 +1259,7 @@ MOD05_021E2464: ; 0x021E2464
 	add r5, r0, #0
 	add r0, r4, #0
 	add r1, r0, #0
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	lsl r1, r0, #3
 	mov r0, #7
 	tst r0, r1
@@ -1318,7 +1318,7 @@ _021E2496:
 	add r0, #8
 	mov r1, #0xf
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r2, #0
 	add r0, r5, #0
 	mov r1, #0xf
@@ -1807,7 +1807,7 @@ MOD05_021E28A0: ; 0x021E28A0
 	mov r1, #0xf
 	mov r2, #0
 	str r3, [sp, #4]
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r2, #0x7a
 	mov r0, #0
 	mov r1, #0x1a

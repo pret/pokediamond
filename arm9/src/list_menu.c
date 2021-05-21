@@ -4,6 +4,7 @@
 #include "list_menu.h"
 
 extern void * FUN_02013690(u32 heap_id);
+extern void * ListMenuUpdateCursorObj(struct ListMenuCursor *, struct Window *, u8 x, u8 y);
 extern void CreateListMenuCursorObj(void *, u32);
 extern void DestroyListMenuCursorObj(void *);
 extern void FillWindowPixelBuffer(struct Window *, u32);
@@ -12,7 +13,8 @@ void ListMenuDrawCursor(struct ListMenu *);
 BOOL ListMenuChangeSelection(struct ListMenu *, u8, u8, s32);
 void ListMenuCallSelectionChangedCallback(struct ListMenu *, BOOL);
 extern void CopyWindowToVram(struct Window *);
-extern s32 FUN_02002E4C(u8 fontId, s32 attr);
+extern s32 GetFontAttribute(u8 fontId, s32 attr);
+extern void FillWindowPixelRect(struct Window *, u32 fillValue, u16 x, u16 y, u16 width, u16 height);
 
 static inline u32 MakeFontColor(u32 fgPal, u32 shdwPal, u32 bgPal)
 {
@@ -223,7 +225,7 @@ THUMB_FUNC s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
     case 8:
         return (s32)list->template.upText_Y;
     case 9:
-        return FUN_02002E4C(list->template.fontId, 1) + list->template.itemVerticalPadding;
+        return GetFontAttribute(list->template.fontId, 1) + list->template.itemVerticalPadding;
     case 10:
         return (s32)list->template.cursorPal;
     case 11:
@@ -239,7 +241,7 @@ THUMB_FUNC s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
     case 16:
         return (s32)list->template.fontId;
     case 17:
-        return (s32)list->template.unk_1B_7;
+        return (s32)list->template.cursorKind;
     case 18:
         return (s32)list->template.window;
     case 19:
@@ -303,7 +305,7 @@ THUMB_FUNC void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 v
         list->template.fontId = (u8)value;
         break;
     case 17:
-        list->template.unk_1B_7 = (u8)value;
+        list->template.cursorKind = (u8)value;
         break;
     case 18:
         list->template.window = (struct Window *)value;
@@ -314,12 +316,12 @@ THUMB_FUNC void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 v
     }
 }
 
-THUMB_FUNC void ListMenuPrint(struct ListMenu * list, struct ListMenuItem * items)
+THUMB_FUNC void ListMenuGetItemStr(struct ListMenu * list, struct ListMenuItem * items)
 {
     list->template.items = items;
 }
 
-THUMB_FUNC void FUN_0200165C(struct ListMenu * list, const u16 * str, u8 x, u8 y)
+THUMB_FUNC void ListMenuPrint(struct ListMenu * list, const u16 * str, u8 x, u8 y)
 {
     if (str != NULL)
     {
@@ -332,4 +334,145 @@ THUMB_FUNC void FUN_0200165C(struct ListMenu * list, const u16 * str, u8 x, u8 y
             AddTextPrinterParameterized3(list->template.window, list->template.fontId, str, x, y, 0xFF, MakeFontColor(list->template.cursorPal, list->template.cursorShadowPal, list->template.fillValue), list->template.lettersSpacing, 0, NULL);
         }
     }
+}
+
+THUMB_FUNC void ListMenuPrintEntries(struct ListMenu * list, u16 startIndex, u16 yOffset, u16 count)
+{
+    s32 i;
+    u8 x, y;
+    u8 yMultiplier = GetFontAttribute(list->template.fontId, 1) + list->template.itemVerticalPadding;
+
+    for (i = 0; i < count; i++)
+    {
+        if (list->template.items[startIndex].index != LIST_HEADER)
+            x = list->template.item_X;
+        else
+            x = list->template.header_X;
+        y = (yOffset + i) * yMultiplier + list->template.upText_Y;
+        if (list->template.itemPrintFunc != NULL)
+            list->template.itemPrintFunc(list, list->template.items[startIndex].index, y);
+        ListMenuPrint(list, list->template.items[startIndex].text, x, y);
+        startIndex++;
+    }
+}
+
+THUMB_FUNC void ListMenuDrawCursor(struct ListMenu * list)
+{
+    u8 yMultiplier = GetFontAttribute(list->template.fontId, 1) + list->template.itemVerticalPadding;
+    u8 x = list->template.cursor_X;
+    u8 y = list->itemsAbove * yMultiplier + list->template.upText_Y;
+    switch (list->template.cursorKind)
+    {
+    case 0:
+        ListMenuUpdateCursorObj(list->cursor, list->template.window, x, y);
+        break;
+    case 1:
+    case 2: // leftover
+    case 3: // leftover
+        break;
+    }
+}
+
+THUMB_FUNC void ListMenuErasePrintedCursor(struct ListMenu * list, u16 itemsAbove)
+{
+    switch (list->template.cursorKind)
+    {
+    case 0:
+        u8 yMultiplier = GetFontAttribute(list->template.fontId, 1) + list->template.itemVerticalPadding;
+        u8 width  = 8;
+        u8 height = 16;
+        FillWindowPixelRect(list->template.window,
+                            list->template.fillValue,
+                            list->template.cursor_X,
+                            itemsAbove * yMultiplier + list->template.upText_Y,
+                            width,
+                            height);
+        break;
+    case 1:
+    case 2: // leftover
+    case 3: // leftover
+        break;
+    }
+}
+
+THUMB_FUNC u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *list, u8 movingDown)
+{
+    u32 cursorPos;
+    u16 itemsAbove;
+    u16 newRow;
+
+    itemsAbove = list->itemsAbove;
+    cursorPos = list->cursorPos;
+
+    if (!movingDown)
+    {
+        if (list->template.maxShowed == 1)
+            newRow = 0;
+        else
+            newRow = list->template.maxShowed - ((list->template.maxShowed / 2) + (list->template.maxShowed % 2)) - 1;
+
+        if (cursorPos == 0)
+        {
+            while (itemsAbove != 0)
+            {
+                itemsAbove--;
+                if (list->template.items[cursorPos + itemsAbove].index != LIST_HEADER)
+                {
+                    list->itemsAbove = itemsAbove;
+                    return 1;
+                }
+            }
+            return 0;
+        }
+        else
+        {
+            while (itemsAbove > newRow)
+            {
+                itemsAbove--;
+                if (list->template.items[cursorPos + itemsAbove].index != LIST_HEADER)
+                {
+                    list->itemsAbove = itemsAbove;
+                    return 1;
+                }
+            }
+            list->itemsAbove = newRow;
+            list->cursorPos = cursorPos - 1;
+        }
+    }
+    else
+    {
+        if (list->template.maxShowed == 1)
+            newRow = 0;
+        else
+            newRow = ((list->template.maxShowed / 2) + (list->template.maxShowed % 2));
+
+        if (cursorPos == list->template.totalItems - list->template.maxShowed)
+        {
+            while (itemsAbove < list->template.maxShowed - 1)
+            {
+                itemsAbove++;
+                if (list->template.items[cursorPos + itemsAbove].index != LIST_HEADER)
+                {
+                    list->itemsAbove = itemsAbove;
+                    return 1;
+                }
+            }
+            return 0;
+        }
+        else
+        {
+            while (itemsAbove < newRow)
+            {
+                itemsAbove++;
+                if (list->template.items[cursorPos + itemsAbove].index != LIST_HEADER)
+                {
+                    list->itemsAbove = itemsAbove;
+                    return 1;
+                }
+            }
+            list->itemsAbove = newRow;
+            list->cursorPos = cursorPos + 1;
+        }
+    }
+    return 2;
 }

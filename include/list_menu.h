@@ -29,7 +29,7 @@ struct ListMenuItem
 // A lot of these are named based on similar fields in gen 3.
 
 typedef void (*LM_MOVECURSORFUNC)(s32, u8, struct ListMenu *);
-typedef void (*LM_ITEMPRINTFUNC)(struct Window *, s32, u8);
+typedef void (*LM_ITEMPRINTFUNC)(struct ListMenu *, s32, u8);
 
 struct ListMenuTemplate
 {
@@ -50,7 +50,7 @@ struct ListMenuTemplate
              u16 itemVerticalPadding:4;
              u16 scrollMultiple:2;
              u16 fontId:6;
-             u16 unk_1B_7:1;
+             u16 cursorKind:1;
     /*0x1C*/ u32 unk_1C;
 };
 

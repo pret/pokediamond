@@ -536,7 +536,7 @@ _021D9C9A:
 	add r0, #0x10
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r0, #0

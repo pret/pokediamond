@@ -1404,7 +1404,7 @@ _021D7FCA:
 	add r0, r5, r0
 	mov r1, #0xff
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r0, #1
 	bl FUN_02002B60
 	mov r0, #0
@@ -1711,7 +1711,7 @@ MOD65_021D8214: ; 0x021D8214
 	add r0, #0xe8
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r4, #0
 	beq _021D823E
 	add r0, r5, #0
@@ -1953,7 +1953,7 @@ _021D83D2:
 	mov r1, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldrb r1, [r4, #0x1b]
 	cmp r1, #5
 	bne _021D8434
@@ -2140,7 +2140,7 @@ _021D8578:
 	add r0, #0xf8
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r5, #0xff
 	bne _021D85B4
 	add r0, r4, #0

@@ -1205,7 +1205,7 @@ MOD36_0225510C: ; 0x0225510C
 	mov r1, #1
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r1, [r4, #0x54]
 	lsl r0, r5, #5
 	add r0, r1, r0

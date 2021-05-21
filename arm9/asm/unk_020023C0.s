@@ -193,7 +193,7 @@ _020024F2:
 	mov r1, #0x1
 	strb r0, [r4, #0xc]
 	ldrb r0, [r4, #0x9]
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	ldrb r1, [r4, #0xf]
 	ldrb r2, [r4, #0xd]
 	add sp, #0xc
@@ -520,7 +520,7 @@ _02002786:
 	bl FUN_02002A00
 	ldrb r0, [r4, #0x9]
 	mov r1, #0x1
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	ldrb r1, [r4, #0xf]
 	add r1, r1, r0
 	add r0, r4, #0x0

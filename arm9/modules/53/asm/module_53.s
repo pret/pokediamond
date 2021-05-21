@@ -3429,7 +3429,7 @@ _021D906C:
 	add r0, r4, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r6, r6, #1
 	add r4, #0x10
 	cmp r6, #5

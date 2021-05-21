@@ -17058,7 +17058,7 @@ MOD16_021DF350: ; 0x021DF350
 	mov r1, #0
 	mov r2, #0x18
 	mov r3, #8
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r6, #3
 	bhi _021DF394
 	add r0, r6, r6
@@ -17135,7 +17135,7 @@ MOD16_021DF3E4: ; 0x021DF3E4
 	mov r1, #0
 	mov r2, #0x18
 	mov r3, #8
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r0, #0x5d
 	add r1, r5, #0
 	bl MOD16_021D8270
@@ -17387,7 +17387,7 @@ MOD16_021DF5D0: ; 0x021DF5D0
 	mov r1, #0
 	mov r2, #0x58
 	mov r3, #0x34
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r5, #0x51
 	add r0, r5, #0
 	add r1, r6, #0
@@ -17433,7 +17433,7 @@ MOD16_021DF630: ; 0x021DF630
 	mov r1, #0
 	mov r2, #0x58
 	mov r3, #0x4d
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r6, #9
 	bhi _021DF698
 	add r0, r6, r6
@@ -17529,7 +17529,7 @@ MOD16_021DF6D8: ; 0x021DF6D8
 	mov r1, #0
 	mov r2, #0x58
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r6, #0x11
 	bhi _021DF774
 	add r0, r6, r6
@@ -41593,7 +41593,7 @@ MOD16_021EA858: ; 0x021EA858
 	add r2, r1, #0
 	add r0, r0, #4
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, [r4]
 	mov r1, #1
 	ldr r0, [r0]
@@ -41901,7 +41901,7 @@ MOD16_021EAAA4: ; 0x021EAAA4
 	mov r1, #0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r1, [sp, #0x38]
 	ldr r0, [sp, #0xc]
 	mov r6, #0
@@ -42016,7 +42016,7 @@ _021EABA2:
 	mov r1, #6
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	str r5, [r4]
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -42049,7 +42049,7 @@ MOD16_021EABC4: ; 0x021EABC4
 	mov r1, #0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r5, r6
 	bge _021EAC18
 _021EABFE:

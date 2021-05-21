@@ -5999,8 +5999,8 @@ _020196D6:
 	pop {r4-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020196F4
-FUN_020196F4: ; 0x020196F4
+	thumb_func_start FillWindowPixelRect
+FillWindowPixelRect: ; 0x020196F4
 	push {r3-r5, lr}
 	sub sp, #0x10
 	add r5, r1, #0x0

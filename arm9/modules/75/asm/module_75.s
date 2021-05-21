@@ -8646,7 +8646,7 @@ MOD75_021EAFB0: ; 0x021EAFB0
 	add r0, r5, #4
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	str r4, [sp]
 	mov r0, #0xff
@@ -9686,7 +9686,7 @@ _021EB854:
 	mov r1, #0xf
 	mov r2, #0
 	str r3, [sp, #4]
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _021EB866:
 	mov r0, #0x45
 	lsl r0, r0, #2

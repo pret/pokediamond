@@ -27,7 +27,7 @@ extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);
 extern void FUN_02017F18(u32 param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_02017FE4(u32 param0, u32 param1);
 extern void FUN_02019150(u32 *param0, u32 *param1, const u32 *param2);
-extern void FUN_020196F4(u32 *, u8, u16, u16, u16, u16);
+extern void FillWindowPixelRect(u32 *, u8, u16, u16, u16, u16);
 extern void FUN_0200CCA4(u32 *param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_0200E394(u32 param0);
 extern void FUN_0200A274(u32 param0, u32 param1, u32 param2);
@@ -98,7 +98,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
 
         FUN_0201BD5C();
         FUN_02019150(ptr, buf, UNK_020FF49C);
-        FUN_020196F4(buf, 15, 0, 0, 0xd0, 0x90);
+        FillWindowPixelRect(buf, 15, 0, 0, 0xd0, 0x90);
         FUN_0200CCA4(buf, 0, 0x1f7, 2);
 
         ReadMsgDataIntoString(msg_data, 3, str);

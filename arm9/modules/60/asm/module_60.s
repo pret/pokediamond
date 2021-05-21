@@ -1209,7 +1209,7 @@ MOD60_021D7EA4: ; 0x021D7EA4
 	mov r1, #0xff
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, [sp, #0x14]
 	cmp r0, #5
 	bne _021D7F26

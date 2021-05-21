@@ -2066,7 +2066,7 @@ _02066426:
 	add r0, r5, r1
 	mov r1, #0xff
 	add r3, r2, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r0, #0x1
 	bl FUN_02002B60
 	mov r0, #0x0

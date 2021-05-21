@@ -57,20 +57,20 @@ FUN_02001B8C: ; 0x02001B8C
 	strb r6, [r4, #0x17]
 	strb r7, [r4, #0x18]
 	ldrb r0, [r5, #0x8]
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r6, r0, #0x0
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x2
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r0, r6, r0
 	strb r0, [r4, #0x19]
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x1
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r6, r0, #0x0
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x3
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r0, r6, r0
 	strb r0, [r4, #0x1a]
 	add r0, r4, #0x0
@@ -108,7 +108,7 @@ FUN_02001C34: ; 0x02001C34
 	add r6, r1, #0x0
 	add r4, r2, #0x0
 	mov r1, #0x0
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0x0
 	str r4, [sp, #0x0]
 	mov r0, #0x2
@@ -420,7 +420,7 @@ FUN_02001E64: ; 0x02001E64
 _02001E7C:
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x6
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, sp, #0x8
 	add r7, r0, #0x0
 	add r0, r5, #0x0
@@ -437,7 +437,7 @@ _02001E7C:
 	ldrb r2, [r3, #0x1]
 	ldrb r3, [r3, #0x0]
 	ldr r0, [r5, #0x4]
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, r5, #0x0
 	bl FUN_02002080
 	add r0, r6, #0x0
@@ -631,7 +631,7 @@ FUN_02001FF4: ; 0x02001FF4
 	add r5, r0, #0x0
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x6
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x4]
 	bl FillWindowPixelBuffer
@@ -718,7 +718,7 @@ FUN_02002080: ; 0x02002080
 	ldrb r3, [r3, #0x0]
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x4]
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 _020020AA:
 	add sp, #0x4
 	pop {r3-r4, pc}

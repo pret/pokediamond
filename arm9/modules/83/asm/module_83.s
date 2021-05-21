@@ -901,7 +901,7 @@ MOD83_0222DCA0: ; 0x0222DCA0
 	add r5, r0, #0
 	mov r0, #0
 	mov r1, #2
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r2, r0, #0
 	mov r0, #0
 	add r1, r5, #0
@@ -2926,7 +2926,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	add r1, #0xf8
 	str r0, [r1]
 	mov r1, #1
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r2, r0, #0
 	add r0, r5, #0
 	add r0, #0xf0
@@ -5990,7 +5990,7 @@ MOD83_0223050C: ; 0x0223050C
 	str r0, [r4, #0xc]
 	mov r0, #1
 	mov r1, #6
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0
 	add r0, r5, #0
 	bl FillWindowPixelBuffer
@@ -6056,7 +6056,7 @@ MOD83_022305A4: ; 0x022305A4
 	bl CopyU16ArrayToStringN
 	mov r0, #0
 	mov r1, #6
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0
 	add r0, r5, #0
 	bl FillWindowPixelBuffer
@@ -8235,7 +8235,7 @@ MOD83_022317A8: ; 0x022317A8
 	add r6, r0, #0
 	mov r0, #1
 	mov r1, #6
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0
 	add r0, r5, #0
 	bl FillWindowPixelBuffer
@@ -9122,7 +9122,7 @@ _02231EBE:
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0
 	add r0, r6, #0
 	bl FillWindowPixelBuffer
@@ -23133,7 +23133,7 @@ _022389D0:
 	mov r1, #2
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r2, r0, #0
 	ldr r0, [r5, #0x40]
 	add r1, r4, #0

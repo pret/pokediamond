@@ -21221,7 +21221,7 @@ MOD14_021E1B9C: ; 0x021E1B9C
 	mov r1, #0xf
 	mov r2, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r6, #0x20
 	ldrb r2, [r6]
 	add r0, r4, #0
@@ -27058,7 +27058,7 @@ _021E47AE:
 	ldrh r3, [r5, #2]
 	add r0, r7, #0
 	mov r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r0, #2
 	ldrsh r0, [r5, r0]
 	mov r1, #0

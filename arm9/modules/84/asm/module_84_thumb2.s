@@ -786,7 +786,7 @@ _021D86E0:
 	ldr r0, [r5, #0x24]
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	b _021D8754
 _021D8718:
 	add r1, r3, #0
@@ -803,7 +803,7 @@ _021D8718:
 	ldr r0, [r5, #0x24]
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #8
@@ -816,7 +816,7 @@ _021D8718:
 	ldr r0, [r5, #0x24]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _021D8754:
 	mov r0, #1
 	str r0, [r5, #0x18]

@@ -327,8 +327,8 @@ _02002E2E:
 	.balign 4
 _02002E48: .word UNK_02106FC8
 
-	thumb_func_start FUN_02002E4C
-FUN_02002E4C: ; 0x02002E4C
+	thumb_func_start GetFontAttribute
+GetFontAttribute: ; 0x02002E4C
 	mov r2, #0x0
 	cmp r1, #0x7
 	bhi _02002EAC

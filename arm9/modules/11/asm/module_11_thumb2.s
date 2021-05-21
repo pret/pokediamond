@@ -23987,7 +23987,7 @@ _0223ADBA:
 	mov r2, #0x50
 	mov r3, #0
 	add r7, r0, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	str r1, [sp, #0x4c]
 	add r5, sp, #0xb0

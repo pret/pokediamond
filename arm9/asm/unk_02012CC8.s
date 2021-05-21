@@ -1546,8 +1546,8 @@ _020136F4:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020136F8
-FUN_020136F8: ; 0x020136F8
+	thumb_func_start ListMenuUpdateCursorObj
+ListMenuUpdateCursorObj: ; 0x020136F8
 	push {r4-r6, lr}
 	sub sp, #0x10
 	add r6, r0, #0x0

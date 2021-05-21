@@ -583,7 +583,7 @@ _0208A7D2:
 	ldr r0, [r5, #0x14]
 	add r1, r7, #0x0
 	add r3, r2, #0x0
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 _0208A808:
 	str r7, [r5, #0x68]
 	mov r1, #0x0
@@ -671,7 +671,7 @@ _0208A882:
 	ldr r0, [r5, #0x14]
 	add r1, r7, #0x0
 	add r3, r2, #0x0
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 _0208A8B8:
 	str r7, [r5, #0x68]
 	mov r1, #0x0
@@ -771,13 +771,13 @@ _0208A954:
 	lsr r1, r1, #0x10
 	str r1, [sp, #0x4]
 	mov r1, #0xf
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r3, [r4, #0x5c]
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x68]
 	mov r2, #0x0
 	lsl r3, r3, #0x4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	ldr r0, [r4, #0x68]
 	bl FUN_02019548
 	ldr r0, _0208A994 ; =0x000005DC

@@ -883,7 +883,7 @@ _021D7C5E:
 	add r0, #0x1c
 	mov r1, #0xf
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, r5, #0
 	ldr r2, _021D7D60 ; =0x000003E2
 	add r0, #0x1c
@@ -1234,7 +1234,7 @@ _021D7EFA:
 	add r0, #0x1c
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r1, r5, #0
 	str r1, [sp]
 	ldr r0, _021D8048 ; =0x00010200
@@ -1273,7 +1273,7 @@ _021D7F7C:
 	add r0, #0x1c
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r1, r5, #0
 	str r1, [sp]
 	ldr r0, _021D804C ; =0x000F0200

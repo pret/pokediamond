@@ -22,7 +22,7 @@ extern void StrAddChar(struct String * str, u16 val);
 extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 extern BOOL UncompressFromNarc(NarcId narcId, s32 memberNo, BOOL a2, u32 heap_id, BOOL a4);
 extern void FUN_02019658(int, u8 *, u16, u16, u16, u16, u16, u16, u16, u16);
-extern void FUN_020196F4(int, u8, u16, u16, u16, u16);
+extern void FillWindowPixelRect(int, u8, u16, u16, u16, u16);
 
 const u16 UNK_020ECE6C[][2] = {
     { 0x0140, 0x0008 },
@@ -819,7 +819,7 @@ void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum Pri
         }
         else
         {
-            FUN_020196F4(sp30, (u8)string->unk_28, (u16)r5, (u16)r7, 8, 8);
+            FillWindowPixelRect(sp30, (u8)string->unk_28, (u16)r5, (u16)r7, 8, 8);
         }
         r5 += 8;
     }

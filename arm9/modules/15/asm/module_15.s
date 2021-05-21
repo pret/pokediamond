@@ -5135,7 +5135,7 @@ MOD15_021D9C30: ; 0x021D9C30
 	ldrh r3, [r3, #2]
 	add r0, r4, #0
 	mov r1, #0xe
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #0xc
 	pop {r3, r4, pc}
 
@@ -5509,7 +5509,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	add r1, #0x2c
 	mov r2, #0
 	lsl r3, r4, #4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	add r5, #0x2c
 	add r0, r5, #0
 	bl CopyWindowToVram
@@ -5533,13 +5533,13 @@ MOD15_021D9F58: ; 0x021D9F58
 	add r0, #0x2c
 	mov r1, #9
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, [r5, #0x50]
 	add r5, #0x2c
 	add r1, r5, #0
 	mov r2, #0
 	lsl r3, r4, #4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -7291,7 +7291,7 @@ _021DAD1A:
 	add r0, r5, #0
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #8
 	pop {r3, r4, r5, pc}
 _021DAD3E:
@@ -7308,7 +7308,7 @@ _021DAD3E:
 	add r0, #0x10
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0xd0
 	str r0, [sp]
@@ -7319,7 +7319,7 @@ _021DAD3E:
 	add r0, r5, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #8
 	pop {r3, r4, r5, pc}
 

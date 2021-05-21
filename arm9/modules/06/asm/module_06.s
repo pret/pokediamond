@@ -9491,7 +9491,7 @@ _0223DF1C:
 	mov r1, #0xf
 	mov r2, #0
 	str r3, [sp, #4]
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _0223DF30:
 	mov r0, #0x10
 	mov r1, #0xb
@@ -11680,7 +11680,7 @@ _0223F11A:
 	add r0, #0x20
 	mov r2, #8
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, sp, #0xc
 	ldrh r2, [r0]
 	cmp r2, r4
@@ -12160,7 +12160,7 @@ _0223F53C:
 	mov r2, #8
 	add r0, #0x20
 	mov r3, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, _0223F580 ; =0x02252420
 	mov r1, #0
 	ldr r0, [r0]

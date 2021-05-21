@@ -201,7 +201,7 @@
 .extern FUN_02001464
 .extern ListMenuGetTemplateField
 .extern ListMenuSetTemplateField
-.extern ListMenuPrint
+.extern ListMenuGetItemStr
 .extern FUN_02001B80
 .extern FUN_02001B8C
 .extern FUN_02001C14
@@ -236,7 +236,7 @@
 .extern FontFunc
 .extern FUN_02002DE0
 .extern FUN_02002E14
-.extern FUN_02002E4C
+.extern GetFontAttribute
 .extern FUN_02002ED0
 .extern FUN_02002EEC
 .extern FUN_02002F08
@@ -885,7 +885,7 @@
 .extern FUN_02013690
 .extern DestroyListMenuCursorObj
 .extern CreateListMenuCursorObj
-.extern FUN_020136F8
+.extern ListMenuUpdateCursorObj
 .extern MailMsg_init
 .extern MailMsg_init_withBank
 .extern MailMsg_init_default
@@ -1101,7 +1101,7 @@
 .extern FillWindowPixelBuffer
 .extern FUN_02019658
 .extern FUN_02019684
-.extern FUN_020196F4
+.extern FillWindowPixelRect
 .extern FUN_0201974C
 .extern FUN_0201A8C8
 .extern FUN_0201AB08

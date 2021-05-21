@@ -22140,7 +22140,7 @@ _022440F0:
 	ldr r0, [r4, #0x10]
 	ldr r2, [sp]
 	add r3, r5, r3
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 _0224413A:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -22312,7 +22312,7 @@ _02244268:
 	ldr r1, [sp]
 	str r0, [r5, #8]
 	ldr r0, [sp, #4]
-	bl ListMenuPrint
+	bl ListMenuGetItemStr
 	mov r0, #0
 	strb r0, [r5, #0x1c]
 	ldr r0, [sp, #4]
