@@ -12,14 +12,6 @@ UNK_020ECAC8: ; 0x020ECAC8
 
 	.text
 
-	thumb_func_start FUN_02001B80
-FUN_02001B80: ; 0x02001B80
-	ldr r3, _02001B88 ; =CopyWindowToVram
-	ldr r0, [r0, #0xc]
-	bx r3
-	nop
-_02001B88: .word CopyWindowToVram
-
 	thumb_func_start FUN_02001B8C
 FUN_02001B8C: ; 0x02001B8C
 	push {r3-r7, lr}

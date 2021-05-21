@@ -202,7 +202,7 @@
 .extern ListMenuGetTemplateField
 .extern ListMenuSetTemplateField
 .extern ListMenuGetItemStr
-.extern FUN_02001B80
+.extern ListMenuCopyToVram
 .extern FUN_02001B8C
 .extern FUN_02001C14
 .extern FUN_02001C34

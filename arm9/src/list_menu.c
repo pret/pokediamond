@@ -568,10 +568,15 @@ THUMB_FUNC BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorA
     return FALSE;
 }
 
-void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 onInit)
+THUMB_FUNC void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 onInit)
 {
     if (list->template.moveCursorFunc != NULL)
     {
         list->template.moveCursorFunc(list, list->template.items[list->cursorPos + list->itemsAbove].index, onInit);
     }
+}
+
+THUMB_FUNC void ListMenuCopyToVram(struct ListMenu * list)
+{
+    CopyWindowToVram(list->template.window);
 }

@@ -38637,7 +38637,7 @@ MOD18_0224C418: ; 0x0224C418
 	cmp r6, #0
 	beq _0224C434
 	add r0, r7, #0
-	bl FUN_02001B80
+	bl ListMenuCopyToVram
 _0224C434:
 	add r0, r4, #0
 	add r0, #0x20
@@ -38761,7 +38761,7 @@ MOD18_0224C510: ; 0x0224C510
 	cmp r0, #0
 	beq _0224C546
 	ldr r0, [sp, #0xc]
-	bl FUN_02001B80
+	bl ListMenuCopyToVram
 _0224C546:
 	mov r0, #1
 	mvn r0, r0
