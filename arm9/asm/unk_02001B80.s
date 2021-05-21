@@ -764,18 +764,18 @@ CreateYesNoMenu: ; 0x020020EC
 	add r4, r0, #0x0
 	mov r0, #0x2
 	add r1, r5, #0x0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	add r1, r4, #0x0
 	mov r2, #0x29
 	mov r3, #0x0
 	add r6, r0, #0x0
-	bl ListMenu_ItemFromMsgData ; YES
+	bl ListMenuItems_AppendFromMsgData ; YES
 	mov r3, #0x2a
 	add r2, r3, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	sub r3, #0x2c
-	bl ListMenu_ItemFromMsgData ; NO
+	bl ListMenuItems_AppendFromMsgData ; NO
 	add r0, r4, #0x0
 	bl DestroyMsgData
 	add r0, r5, #0x0
@@ -888,7 +888,7 @@ FUN_020021EC: ; 0x020021EC
 	add r0, r4, #0x0
 	bl FreeToHeapExplicit
 	ldr r0, [r5, #0x0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl FUN_02001C5C

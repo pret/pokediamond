@@ -1051,7 +1051,7 @@ _021D7DC4:
 	bl FUN_02019150
 	ldr r1, [r5]
 	add r0, r6, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r7, #0
 	str r0, [r5, #0x44]
 	cmp r6, #0
@@ -1061,7 +1061,7 @@ _021D7DDE:
 	ldr r1, [r5, #0x4c]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r7, r7, #1
 	add r4, #8
 	cmp r7, r6
@@ -1135,7 +1135,7 @@ _021D7E66:
 	add r2, r1, #0
 	bl DestroyListMenu
 	ldr r0, [r5, #0x44]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _021D7EC8 ; =0x000005DC
 	bl FUN_020054C8
 	mov r0, #0

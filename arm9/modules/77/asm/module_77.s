@@ -1767,7 +1767,7 @@ MOD77_021D8370: ; 0x021D8370
 	bl FUN_02019150
 	ldrh r0, [r6, #0x10]
 	ldr r1, [r5]
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, _021D8404 ; =0x0000C058
 	mov r7, #0
 	str r0, [r5, r1]
@@ -1782,7 +1782,7 @@ _021D8398:
 	ldr r1, [r5, r1]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldrh r0, [r6, #0x10]
 	add r7, r7, #1
 	add r4, #8
@@ -1853,7 +1853,7 @@ MOD77_021D8418: ; 0x021D8418
 	str r0, [sp, #8]
 	ldr r1, [r5]
 	add r0, r6, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, _021D84C8 ; =0x0000C058
 	mov r4, #0
 	str r0, [r5, r1]
@@ -1865,7 +1865,7 @@ _021D844E:
 	ldr r0, [r5, r0]
 	ldr r1, [sp, #8]
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	cmp r4, r6
 	blo _021D844E
@@ -1940,7 +1940,7 @@ MOD77_021D84D8: ; 0x021D84D8
 	bl DestroyListMenu
 	ldr r0, _021D850C ; =0x0000C058
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	pop {r4, pc}
 	.align 2, 0
 _021D8504: .word 0x0000C024

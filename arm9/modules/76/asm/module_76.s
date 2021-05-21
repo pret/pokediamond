@@ -1257,7 +1257,7 @@ MOD76_021D7ECC: ; 0x021D7ECC
 	strb r1, [r5, r0]
 	ldrb r0, [r5, r0]
 	mov r1, #0x43
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r1, #0x42
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -1287,7 +1287,7 @@ _021D7F0E:
 	ldr r0, [r5, r0]
 	add r1, r7, #0
 	add r3, r2, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _021D7F42
 _021D7F2A:
 	mov r0, #0x42
@@ -1299,7 +1299,7 @@ _021D7F2A:
 	ldr r0, [r5, r0]
 	ldr r1, [r1]
 	sub r3, #0x22
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _021D7F50
 _021D7F42:
 	mov r0, #0x61
@@ -1369,7 +1369,7 @@ MOD76_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x42
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D7FAC

@@ -781,7 +781,7 @@ _0206F914:
 	bl FUN_02001C5C
 	ldr r0, _0206F978 ; =0x000006F8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r4, #0x0
 	mov r1, #0x1d
 	mov r2, #0x1

@@ -976,7 +976,7 @@ FUN_02065AF4: ; 0x02065AF4
 	ldrb r0, [r5, #0x1b]
 	ldr r1, [r5, #0x0]
 	add r0, r0, #0x1
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	add r7, r5, #0x0
@@ -995,7 +995,7 @@ _02065B7E:
 	ldr r1, [r2, #0x8]
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r5, r0]
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
@@ -1011,7 +1011,7 @@ _02065B9E:
 	sub r1, #0x4c
 	ldr r1, [r5, r1]
 	ldr r2, _02065CE0 ; =0x0000FFFF
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
 	mov r1, #0x5
@@ -1280,7 +1280,7 @@ FUN_02065DD8: ; 0x02065DD8
 	str r2, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -1309,7 +1309,7 @@ _02065E14:
 	ldr r1, [r5, r7]
 	ldr r2, [r6, r2]
 	ldr r3, [r3, #0x4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r4, #0x1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -1422,7 +1422,7 @@ FUN_02065EF8: ; 0x02065EF8
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1499,7 +1499,7 @@ FUN_02065F8C: ; 0x02065F8C
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0

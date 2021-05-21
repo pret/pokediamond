@@ -15197,7 +15197,7 @@ MOD05_021EFEDC: ; 0x021EFEDC
 	add r7, r0, #0
 	add r0, r7, #1
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5]
 	mov r0, #1
 	str r0, [sp]
@@ -15238,7 +15238,7 @@ _021EFF2E:
 	ldr r0, [r5]
 	ldr r1, [r5, #8]
 	add r2, r4, #0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 _021EFF54:
 	add r4, r4, #1
 	cmp r4, #0x20
@@ -15248,7 +15248,7 @@ _021EFF54:
 	ldr r0, [r5]
 	ldr r1, [r5, #0x3c]
 	sub r3, #0xd
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r4, _021EFFC0 ; =UNK05_021F8B4C
 	add r3, sp, #0x14
 	add r2, r3, #0
@@ -15368,7 +15368,7 @@ _021F0056:
 	add r2, r1, #0
 	bl DestroyListMenu
 	ldr r0, [r5]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
