@@ -7680,7 +7680,7 @@ MOD15_021DAFF8: ; 0x021DAFF8
 	cmp r0, #0
 	beq _021DB0D4
 	add r0, sp, #0x10
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [r5, #0xc]
 	add r1, sp, #0xc
 	str r0, [sp, #0x10]

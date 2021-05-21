@@ -7568,7 +7568,7 @@ MOD12_02231380: ; 0x02231380
 	add r6, r6, #1
 _022313B0:
 	add r0, sp, #0x34
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -9540,7 +9540,7 @@ _022322FE:
 	cmp r4, #0
 	bne _0223233C
 	add r0, sp, #0x3c
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -10928,7 +10928,7 @@ MOD12_02232D7C: ; 0x02232D7C
 	bl FUN_02019178
 _02232DA8:
 	add r0, r4, #0
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -29905,7 +29905,7 @@ _0223BCF0:
 	add r6, r6, #1
 _0223BD1C:
 	add r0, sp, #0x38
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]

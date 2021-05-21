@@ -25562,7 +25562,7 @@ MOD18_02245B1C: ; 0x02245B1C
 	ldr r0, [sp, #0x30]
 	mov r1, #1
 	str r4, [sp, #0x10]
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r1, r0, #0
 	str r1, [sp, #0x14]
 	mov r0, #0
@@ -41435,7 +41435,7 @@ _0224DB08:
 	add r0, r4, #0
 	str r7, [r4, #0x18]
 	add r0, #8
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r1, [r4, #0x40]
 	mov r0, #1
 	bic r1, r0

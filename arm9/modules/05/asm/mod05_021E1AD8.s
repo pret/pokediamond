@@ -1718,7 +1718,7 @@ MOD05_021E27E8: ; 0x021E27E8
 	add r6, r2, #0
 	mov r0, #4
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r4, r0, #0
 	str r6, [sp]
 	mov r0, #0xa
@@ -1878,7 +1878,7 @@ MOD05_021E2950: ; 0x021E2950
 	add r6, r2, #0
 	mov r0, #4
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r4, r0, #0
 	str r6, [sp]
 	mov r0, #0xa
@@ -2007,7 +2007,7 @@ MOD05_021E2A70: ; 0x021E2A70
 	add r6, r2, #0
 	mov r0, #4
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r4, r0, #0
 	str r6, [sp]
 	mov r0, #0xa

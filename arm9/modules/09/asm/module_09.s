@@ -3922,7 +3922,7 @@ _02213D74:
 	ldr r0, [r4]
 	ldrb r1, [r4, r1]
 	ldr r0, [r0, #0xc]
-	bl FUN_02018FF4
+	bl AllocWindows
 	ldr r1, _02213DDC ; =0x00002070
 	mov r5, #0
 	str r0, [r4, r1]
@@ -14355,7 +14355,7 @@ _022194C6:
 	add r1, #0x30
 	ldrb r1, [r1]
 	ldr r0, [r0, #0xc]
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #0x2c]
 	add r0, r5, #0
 	add r0, #0x30

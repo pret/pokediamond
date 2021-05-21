@@ -781,7 +781,7 @@ CreateYesNoMenu: ; 0x020020EC
 	add r0, r5, #0x0
 	mov r1, #0x1
 	str r6, [sp, #0x14]
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r1, r0, #0x0
 	str r1, [sp, #0x18]
 	mov r0, #0x0

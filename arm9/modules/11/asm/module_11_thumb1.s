@@ -746,7 +746,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	str r0, [r4, #4]
 	mov r0, #5
 	mov r1, #3
-	bl FUN_02018FF4
+	bl AllocWindows
 	mov r7, #0x73
 	str r0, [r4, #8]
 	mov r6, #0

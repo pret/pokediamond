@@ -8433,9 +8433,9 @@ MOD16_021DB388: ; 0x021DB388
 	add r4, r1, #0
 	mov r1, #1
 	add r6, r2, #0
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r7, r0, #0
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -51457,7 +51457,7 @@ MOD16_021EF318: ; 0x021EF318
 	add r5, r0, #0
 	add r0, r1, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r4, r0, #0
 	mov r3, #0
 	str r3, [sp]

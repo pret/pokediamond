@@ -662,7 +662,7 @@ MOD24_02254D00: ; 0x02254D00
 	add r4, r0, #0
 	mov r0, #8
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x70]
 	add r1, r0, #0
 	beq _02254D3C

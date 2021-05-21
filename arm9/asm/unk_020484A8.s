@@ -343,7 +343,7 @@ FUN_02048764: ; 0x02048764
 	str r0, [r1, #0x30]
 	add r1, #0x1c
 	add r0, r1, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, _020487D4 ; =UNK_020F46B0
 	bl GX_SetBanks
 	ldr r2, _020487D8 ; =0x04000304

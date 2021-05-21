@@ -559,7 +559,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	str r0, [r4, #0x30]
 	mov r0, #0x4b
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x24]
 	mov r3, #0
 	lsl r2, r5, #0x18
@@ -584,7 +584,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	bl CopyWindowToVram
 	mov r0, #0x4b
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x28]
 	mov r3, #0
 	lsl r2, r5, #0x18

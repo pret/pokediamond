@@ -389,7 +389,7 @@ MOD27_02254AF0: ; 0x02254AF0
 	add r7, r6, #0
 _02254B36:
 	add r0, r4, #0
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r5, #0
 	add r0, #0x9c
 	str r7, [r0]
@@ -608,7 +608,7 @@ MOD27_02254CC8: ; 0x02254CC8
 	add r4, #0x3c
 _02254CE8:
 	add r0, r4, #0
-	bl FUN_0201901C
+	bl InitWindow
 	ldrh r0, [r5, #2]
 	add r1, r4, #0
 	mov r2, #6

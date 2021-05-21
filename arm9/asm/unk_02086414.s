@@ -517,7 +517,7 @@ FUN_02086784: ; 0x02086784
 	add r0, r5, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x28]
 	lsl r2, r4, #0x18
 	lsl r0, r0, #0x18
@@ -627,7 +627,7 @@ FUN_02086878: ; 0x02086878
 	add r6, r1, #0x0
 	str r2, [sp, #0x14]
 	add r4, r3, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x3c]
 	ldr r3, [sp, #0x38]
 	lsl r0, r0, #0x18

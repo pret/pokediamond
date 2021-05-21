@@ -4947,11 +4947,11 @@ MOD73_021D9BE0: ; 0x021D9BE0
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #8]
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #0xc]
 	mov r0, #0x13
 	str r0, [sp]
@@ -5924,7 +5924,7 @@ MOD73_021DA2AC: ; 0x021DA2AC
 _021DA2FA:
 	ldr r0, [sp, #0x14]
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #8]
 	ldrh r0, [r5, #2]
 	mov r2, #2

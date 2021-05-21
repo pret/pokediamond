@@ -45,7 +45,7 @@ MOD11_0222F29C: ; 0x0222F29C
 	str r0, [r5, #4]
 	mov r0, #5
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #8]
 	add r0, r5, #0
 	bl FUN_0206BFF0
@@ -28099,7 +28099,7 @@ _0223CF5C:
 	add r0, r6, #0
 	bl String_dtor
 	add r0, sp, #0x68
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -88280,7 +88280,7 @@ _0225A49C:
 	cmp r4, #0
 	bne _0225A4DA
 	add r0, sp, #0x3c
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -88914,7 +88914,7 @@ MOD11_0225A968: ; 0x0225A968
 	bl FUN_02019178
 _0225A994:
 	add r0, r4, #0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [r5]
 	bl MOD11_0222FF68
 	mov r1, #0

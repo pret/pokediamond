@@ -2,13 +2,8 @@
 #define POKEDIAMOND_TEXT_H
 
 #include "global.h"
-
-// TODO: Move to its own header, and fill it out
-struct Window
-{
-    u8 * unk_00;
-    u8 unk_04;
-};
+#include "window.h"
+#include "font.h"
 
 struct TextPrinterTemplate
 {

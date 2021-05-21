@@ -1152,7 +1152,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x18]
 	add r0, sp, #0x1c
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1936,7 +1936,7 @@ _0222E442:
 	add r0, r4, r0
 	asr r7, r0, #1
 	ldr r0, [sp, #0x18]
-	bl FUN_0201901C
+	bl InitWindow
 	lsl r0, r5, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -3298,7 +3298,7 @@ MOD62_0222EEE0: ; 0x0222EEE0
 	add r0, r5, #0
 	add r4, r2, #0
 	add r6, r3, #0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x28]
 	lsl r2, r4, #0x18
 	lsl r0, r0, #0x18
@@ -3347,7 +3347,7 @@ MOD62_0222EF44: ; 0x0222EF44
 	add r0, r5, #0
 	add r4, r2, #0
 	add r6, r3, #0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x28]
 	lsl r2, r4, #0x18
 	lsl r0, r0, #0x18

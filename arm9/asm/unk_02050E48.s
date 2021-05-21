@@ -1255,7 +1255,7 @@ _02051836:
 	bl FUN_02019178
 	add r0, r5, #0x0
 	add r0, #0x14
-	bl FUN_0201901C
+	bl InitWindow
 _02051846:
 	add r0, r5, #0x0
 	add r0, #0x54
@@ -1267,7 +1267,7 @@ _02051846:
 	bl FUN_02019178
 	add r0, r5, #0x0
 	add r0, #0x54
-	bl FUN_0201901C
+	bl InitWindow
 _02051862:
 	add r0, r5, #0x0
 	add r0, #0x64
@@ -1279,7 +1279,7 @@ _02051862:
 	bl FUN_02019178
 	add r5, #0x64
 	add r0, r5, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 _0205187E:
 	pop {r3-r5, pc}
 
@@ -1325,13 +1325,13 @@ _0205188E:
 	str r0, [r4, #0x10]
 	add r0, r4, #0x0
 	add r0, #0x14
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r4, #0x0
 	add r0, #0x54
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r4, #0x0
 	add r0, #0x64
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0xb
 	bl ListMenuCursorNew
 	str r0, [r4, #0x78]

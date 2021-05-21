@@ -2737,7 +2737,7 @@ _021E9C02:
 	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	mov r1, #0x83
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -3709,7 +3709,7 @@ _021EA430:
 	bl GX_EngineAToggleLayers
 	mov r0, #4
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	mov r1, #2
 	lsl r1, r1, #8
 	str r0, [r4, r1]
@@ -5380,7 +5380,7 @@ _021EB18E:
 	str r0, [r4, #4]
 	mov r0, #4
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4]
 	mov r3, #0
 	str r3, [sp]

@@ -5022,8 +5022,8 @@ _02018FEA:
 	nop
 _02018FF0: .word 0x00007FC0
 
-	thumb_func_start FUN_02018FF4
-FUN_02018FF4: ; 0x02018FF4
+	thumb_func_start AllocWindows
+AllocWindows: ; 0x02018FF4
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	lsl r1, r5, #0x4
@@ -5035,7 +5035,7 @@ FUN_02018FF4: ; 0x02018FF4
 _02019006:
 	lsl r0, r4, #0x4
 	add r0, r6, r0
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r4, #0x1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -5045,8 +5045,8 @@ _02019018:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0201901C
-FUN_0201901C: ; 0x0201901C
+	thumb_func_start InitWindow
+InitWindow: ; 0x0201901C
 	mov r3, #0x0
 	str r3, [r0, #0x0]
 	mov r1, #0xff

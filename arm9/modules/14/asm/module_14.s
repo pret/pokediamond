@@ -13820,7 +13820,7 @@ MOD14_021DE1D0: ; 0x021DE1D0
 	beq _021DE262
 	mov r0, #0xa
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r4, r0, #0
 	beq _021DE250
 	ldr r0, _021DE270 ; =0x00005984
@@ -19634,7 +19634,7 @@ MOD14_021E0F40: ; 0x021E0F40
 	beq _021E0FA0
 	mov r0, #0xa
 	mov r1, #4
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #4]
 	cmp r0, #0
 	beq _021E0F94
@@ -20751,7 +20751,7 @@ MOD14_021E1818: ; 0x021E1818
 	add r6, r0, #0
 	mov r0, #0xa
 	mov r1, #2
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r6, #0x18]
 	cmp r0, #0
 	beq _021E1848
@@ -21631,7 +21631,7 @@ MOD14_021E1EEC: ; 0x021E1EEC
 	add r7, r0, #0
 	mov r0, #0xa
 	mov r1, #3
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r7, #0x10]
 	cmp r0, #0
 	beq _021E1F1A

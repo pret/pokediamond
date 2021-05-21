@@ -11454,15 +11454,15 @@ _0223EF28:
 	str r0, [r2, #0x7c]
 	ldr r0, [r1]
 	add r0, #0x20
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, _0223EFF4 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, _0223EFF4 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x40
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #4
 	bl ScrStrBufs_new
 	ldr r1, _0223EFF4 ; =0x02252420
@@ -14473,7 +14473,7 @@ MOD06_02240864: ; 0x02240864
 	bne _0224089E
 	add r0, r5, #0
 	add r0, #0x54
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [r5, #0x10]
 	add r1, r5, #0
 	ldr r0, [r0, #8]
@@ -41794,7 +41794,7 @@ MOD06_0224DC5C: ; 0x0224DC5C
 	str r3, [r5, #8]
 	add r0, r2, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #4]
 	mov r0, #0x13
 	str r0, [sp]
@@ -42039,7 +42039,7 @@ MOD06_0224DE60: ; 0x0224DE60
 	beq _0224DED2
 	add r0, r3, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r6, #4]
 	mov r0, #0xb
 	str r0, [sp]
@@ -42214,7 +42214,7 @@ _0224DFC0:
 	add r2, #0x14
 	str r0, [r5, r2]
 	ldr r0, [sp, #0x14]
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #4]
 	mov r0, #1
 	str r0, [sp]

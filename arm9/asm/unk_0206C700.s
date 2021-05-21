@@ -117,7 +117,7 @@ FUN_0206C700: ; 0x0206C700
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x4]
 	ldr r0, [sp, #0x18]
 	str r0, [r4, #0x2c]

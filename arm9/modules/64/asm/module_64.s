@@ -653,14 +653,14 @@ MOD64_021D7A54: ; 0x021D7A54
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r1, r5, #0
 	add r1, #0x98
 	str r0, [r1]
 	add r0, r5, #0
 	add r0, #0x98
 	ldr r0, [r0]
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x17
@@ -3393,14 +3393,14 @@ MOD64_021D8EF4: ; 0x021D8EF4
 _021D8F16:
 	ldr r0, [sp, #0x18]
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r1, r5, #0
 	add r1, #0x9c
 	str r0, [r1]
 	add r0, r5, #0
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FUN_0201901C
+	bl InitWindow
 	cmp r4, #0
 	beq _021D8F3C
 	cmp r4, #1

@@ -1070,8 +1070,8 @@
 .extern FUN_02018884
 .extern FUN_02018A60
 .extern FUN_02018F4C
-.extern FUN_02018FF4
-.extern FUN_0201901C
+.extern AllocWindows
+.extern InitWindow
 .extern FUN_02019048
 .extern FUN_02019064
 .extern FUN_020190EC

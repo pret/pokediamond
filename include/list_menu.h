@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_LIST_MENU_H
 #define POKEDIAMOND_LIST_MENU_H
 
-#include "text.h"
+#include "list_menu_cursor.h"
 
 #define LIST_HEADER          -3
 #define LIST_CANCEL          -2
@@ -12,12 +12,6 @@
 #define LIST_MULTIPLE_SCROLL_L_R   2
 
 struct ListMenu;
-
-// TODO: Move to its own header, and fill it out
-struct ListMenuCursor
-{
-    // ???
-};
 
 struct ListMenuItem
 {

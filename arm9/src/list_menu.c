@@ -2,18 +2,8 @@
 #include "heap.h"
 #include "main.h"
 #include "list_menu.h"
+#include "text.h"
 
-extern void * ListMenuCursorNew(u32 heap_id);
-extern void * ListMenuUpdateCursorObj(struct ListMenuCursor *, struct Window *, u8 x, u8 y);
-extern void ListMenuCursorSetColor(void *, u32);
-extern void DestroyListMenuCursorObj(void *);
-extern void FillWindowPixelBuffer(struct Window *, u32);
-extern void CopyWindowToVram(struct Window *);
-extern s32 GetFontAttribute(u8 fontId, s32 attr);
-extern void FillWindowPixelRect(struct Window *, u32 fillValue, u16 x, u16 y, u16 width, u16 height);
-extern void ScrollWindow(struct Window *, u8, u8, u8);
-extern u16 GetWindowWidth(struct Window *);
-extern u16 GetWindowHeight(struct Window *);
 void ListMenuPrintEntries(struct ListMenu * list, u16 startIndex, u16 yOffset, u16 count);
 void ListMenuDrawCursor(struct ListMenu * list);
 BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorAndCallCallback, u8 count, u8 movingDown);

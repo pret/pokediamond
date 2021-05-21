@@ -190,7 +190,7 @@ _0207D692:
 	mov r0, #0x13
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02018FF4
+	bl AllocWindows
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]

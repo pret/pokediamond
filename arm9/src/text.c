@@ -24,7 +24,6 @@ extern u32 FontFunc(u8 fontId, struct TextPrinter *printer);
 
 extern void *FUN_02006BB0(u32 param0, u32 param1, u32 param2, struct TextPrinter **param3, u32 param4);
 
-extern u32 GetWindowWidth(struct Window * window);
 extern void FUN_02019658(struct Window * param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7, u32 param8, u32 param9);
 
 
@@ -349,7 +348,7 @@ THUMB_FUNC void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2
         printer->Unk2C = FUN_0201C1B0();
     }
     u32 r6 = (u32)printer->Unk2C + param3 * (sizeof(struct TextPrinter) * 8);
-    u32 r2 = ((GetWindowWidth(window) - 3) << 0x13) >> 0x10;
+    u16 r2 = (GetWindowWidth(window) - 3) * 8;
     FUN_02019658(window, r6, 0, 0, 24, 32, r2, 0, 24, 32);
 }
 

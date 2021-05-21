@@ -48,13 +48,13 @@ FUN_0208A338: ; 0x0208A338
 	bl FUN_020853DC
 	add r0, r4, #0x0
 	add r0, #0x18
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r4, #0x0
 	add r0, #0x28
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r4, #0x0
 	add r0, #0x38
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0x0
 	str r0, [r4, #0x54]
 	ldr r1, _0208A3C4 ; =FUN_0208A458
@@ -102,7 +102,7 @@ FUN_0208A400: ; 0x0208A400
 	bl FUN_02019178
 	add r0, r4, #0x0
 	add r0, #0x18
-	bl FUN_0201901C
+	bl InitWindow
 _0208A41E:
 	add r0, r4, #0x0
 	add r0, #0x28
@@ -114,7 +114,7 @@ _0208A41E:
 	bl FUN_02019178
 	add r0, r4, #0x0
 	add r0, #0x28
-	bl FUN_0201901C
+	bl InitWindow
 _0208A43A:
 	add r0, r4, #0x0
 	add r0, #0x38
@@ -126,7 +126,7 @@ _0208A43A:
 	bl FUN_02019178
 	add r4, #0x38
 	add r0, r4, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 _0208A456:
 	pop {r4, pc}
 

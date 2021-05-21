@@ -2123,7 +2123,7 @@ MOD17_021D83E4: ; 0x021D83E4
 	str r0, [r5, r1]
 	mov r0, #0xd
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	ldr r2, _021D84EC ; =0x000006A8
 	mov r1, #0
 	str r0, [r5, r2]
@@ -2663,7 +2663,7 @@ _021D88F8:
 	str r0, [r4, r1]
 	mov r0, #0xd
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	ldr r1, _021D8994 ; =0x000006A8
 	mov r2, #0
 	str r0, [r4, r1]
@@ -11265,9 +11265,9 @@ _021DC898:
 	add r7, r0, #0
 	mov r0, #0xe
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r4, r0, #0
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	ldr r2, [sp, #0x28]
 	ldr r3, [sp, #0x2c]
@@ -11789,9 +11789,9 @@ MOD17_021DCC68: ; 0x021DCC68
 	mov r0, #0xe
 	mov r1, #1
 	add r4, r2, #0
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5]
-	bl FUN_0201901C
+	bl InitWindow
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -14242,7 +14242,7 @@ MOD17_021DDF1C: ; 0x021DDF1C
 	add r4, r0, #0
 	mov r0, #0xe
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	mov r1, #0x19
 	lsl r1, r1, #4
 	str r0, [r4, r1]
