@@ -125,7 +125,7 @@ THUMB_FUNC void RedrawListMenu(struct ListMenu * list)
     CopyWindowToVram(list->template.window);
 }
 
-THUMB_FUNC s32 FUN_02001354(struct ListMenu * list, struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 updateFlag, u16 input, u16 * sp18, u16 * sp1C)
+THUMB_FUNC s32 FUN_02001354(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 updateFlag, u16 input, u16 *cursorPosDest_p, u16 *itemsAboveDest_p)
 {
     if (template != NULL)
         list->template = *template;
@@ -142,13 +142,49 @@ THUMB_FUNC s32 FUN_02001354(struct ListMenu * list, struct ListMenuTemplate * te
     {
         ListMenuChangeSelection(list, updateFlag, 1, TRUE);
     }
-    if (sp18 != NULL)
+    if (cursorPosDest_p != NULL)
     {
-        *sp18 = list->cursorPos;
+        *cursorPosDest_p = list->cursorPos;
     }
-    if (sp1C != NULL)
+    if (itemsAboveDest_p != NULL)
     {
-        *sp1C = list->itemsAbove;
+        *itemsAboveDest_p = list->itemsAbove;
     }
     return -1;
+}
+
+s32 FUN_020013C8(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 input, u16 *cursorPosDest_p, u16 *itemsAboveDest_p)
+{
+    return FUN_02001354(list, template, cursorPos, itemsAbove, FALSE, input, cursorPosDest_p, itemsAboveDest_p);
+}
+
+void FUN_020013E8(struct ListMenu * list, u8 cursorPal, u8 fillValue, u8 cursorShadowPal)
+{
+    list->cursorPal = cursorPal;
+    list->fillValue = fillValue;
+    list->cursorShadowPal = cursorShadowPal;
+    list->enabled = TRUE;
+}
+
+void FUN_0200143C(struct ListMenu * list, u16 * index_p)
+{
+    *index_p = list->cursorPos + list->itemsAbove;
+}
+
+void FUN_02001448(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p)
+{
+    if (cursorPos_p != NULL)
+        *cursorPos_p = list->cursorPos;
+    if (itemsAbove_p != NULL)
+        *itemsAbove_p = list->itemsAbove;
+}
+
+u8 FUN_0200145C(struct ListMenu * list)
+{
+    return list->unk_33;
+}
+
+s32 FUN_02001464(struct ListMenu * list, s32 index)
+{
+    return list->template.items[index].index;
 }
