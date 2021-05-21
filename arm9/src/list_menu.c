@@ -14,6 +14,15 @@ void ListMenuCallSelectionChangedCallback(struct ListMenu *, BOOL);
 extern void CopyWindowToVram(struct Window *);
 extern s32 FUN_02002E4C(u8 fontId, s32 attr);
 
+static inline u32 MakeFontColor(u32 fgPal, u32 shdwPal, u32 bgPal)
+{
+    return (u32)(
+        ((u32)(fgPal << 24) >> 8)
+        | ((u32)(shdwPal << 24) >> 16)
+        | ((u32)(bgPal << 24) >> 24)
+    );
+}
+
 THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id)
 {
     struct ListMenu * list = AllocFromHeap(heap_id, sizeof(struct ListMenu));
@@ -31,11 +40,12 @@ THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * templa
     list->cursorShadowPal = list->template.cursorShadowPal;
     list->lettersSpacing = list->template.lettersSpacing;
     list->fontId = list->template.fontId;
-    list->enabled = 0;
+    list->overrideEnabled = FALSE;
     if (list->template.totalItems < list->template.maxShowed)
         list->template.maxShowed = list->template.totalItems;
     CreateListMenuCursorObj(
         list->cursor,
+//        MakeFontColor(list->template.cursorPal, list->template.cursorShadowPal, list->fillValue)
         (u32)(
             ((u32)(list->template.cursorPal << 24) >> 8)
             | ((u32)(list->template.cursorShadowPal << 24) >> 16)
@@ -154,25 +164,25 @@ THUMB_FUNC s32 FUN_02001354(struct ListMenu * list, const struct ListMenuTemplat
     return -1;
 }
 
-s32 FUN_020013C8(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 input, u16 *cursorPosDest_p, u16 *itemsAboveDest_p)
+THUMB_FUNC s32 FUN_020013C8(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 input, u16 *cursorPosDest_p, u16 *itemsAboveDest_p)
 {
     return FUN_02001354(list, template, cursorPos, itemsAbove, FALSE, input, cursorPosDest_p, itemsAboveDest_p);
 }
 
-void FUN_020013E8(struct ListMenu * list, u8 cursorPal, u8 fillValue, u8 cursorShadowPal)
+THUMB_FUNC void FUN_020013E8(struct ListMenu * list, u8 cursorPal, u8 fillValue, u8 cursorShadowPal)
 {
     list->cursorPal = cursorPal;
     list->fillValue = fillValue;
     list->cursorShadowPal = cursorShadowPal;
-    list->enabled = TRUE;
+    list->overrideEnabled = TRUE;
 }
 
-void FUN_0200143C(struct ListMenu * list, u16 * index_p)
+THUMB_FUNC void FUN_0200143C(struct ListMenu * list, u16 * index_p)
 {
     *index_p = list->cursorPos + list->itemsAbove;
 }
 
-void FUN_02001448(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p)
+THUMB_FUNC void FUN_02001448(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p)
 {
     if (cursorPos_p != NULL)
         *cursorPos_p = list->cursorPos;
@@ -180,17 +190,17 @@ void FUN_02001448(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p)
         *itemsAbove_p = list->itemsAbove;
 }
 
-u8 FUN_0200145C(struct ListMenu * list)
+THUMB_FUNC u8 FUN_0200145C(struct ListMenu * list)
 {
     return list->unk_33;
 }
 
-s32 FUN_02001464(struct ListMenu * list, s32 index)
+THUMB_FUNC s32 FUN_02001464(struct ListMenu * list, s32 index)
 {
     return list->template.items[index].index;
 }
 
-s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
+THUMB_FUNC s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
 {
     switch (attr)
     {
@@ -239,7 +249,7 @@ s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
     return -1;
 }
 
-void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 value)
+THUMB_FUNC void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 value)
 {
     switch (attr)
     {
@@ -301,5 +311,25 @@ void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 value)
     case 19:
         list->template.unk_1C = (u32)value;
         break;
+    }
+}
+
+THUMB_FUNC void ListMenuPrint(struct ListMenu * list, struct ListMenuItem * items)
+{
+    list->template.items = items;
+}
+
+THUMB_FUNC void FUN_0200165C(struct ListMenu * list, const u16 * str, u8 x, u8 y)
+{
+    if (str != NULL)
+    {
+        if (list->overrideEnabled)
+        {
+            AddTextPrinterParameterized3(list->template.window, list->fontId, str, x, y, 0xFF, MakeFontColor(list->cursorPal, list->cursorShadowPal, list->fillValue), list->lettersSpacing, 0, NULL);
+        }
+        else
+        {
+            AddTextPrinterParameterized3(list->template.window, list->template.fontId, str, x, y, 0xFF, MakeFontColor(list->template.cursorPal, list->template.cursorShadowPal, list->template.fillValue), list->template.lettersSpacing, 0, NULL);
+        }
     }
 }

@@ -22312,7 +22312,7 @@ _02244268:
 	ldr r1, [sp]
 	str r0, [r5, #8]
 	ldr r0, [sp, #4]
-	bl FUN_02001658
+	bl ListMenuPrint
 	mov r0, #0
 	strb r0, [r5, #0x1c]
 	ldr r0, [sp, #4]

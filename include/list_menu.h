@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_LIST_MENU_H
 #define POKEDIAMOND_LIST_MENU_H
 
+#include "text.h"
+
 #define LIST_HEADER          -3
 #define LIST_CANCEL          -2
 #define LIST_NOTHING_CHOSEN  -1
@@ -10,13 +12,6 @@
 #define LIST_MULTIPLE_SCROLL_L_R   2
 
 struct ListMenu;
-
-// TODO: Move to its own header, and fill it out
-struct Window
-{
-    u8 * unk_00;
-    u8 unk_04;
-};
 
 // TODO: Move to its own header, and fill it out
 struct ListMenuCursor
@@ -70,7 +65,7 @@ struct ListMenu
     /*0x22*/ u8 lettersSpacing:6;
     /*0x23*/ u8 unk_23;
     /*0x24*/ u8 fontId:7;
-             u8 enabled:1;
+             u8 overrideEnabled:1;
     /*0x28*/ struct ListMenuCursor *cursor;
     /*0x2c*/ u16 cursorPos;
     /*0x2e*/ u16 itemsAbove;

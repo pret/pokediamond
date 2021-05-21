@@ -201,7 +201,7 @@
 .extern FUN_02001464
 .extern ListMenuGetTemplateField
 .extern ListMenuSetTemplateField
-.extern FUN_02001658
+.extern ListMenuPrint
 .extern FUN_02001B80
 .extern FUN_02001B8C
 .extern FUN_02001C14
