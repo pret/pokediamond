@@ -3840,7 +3840,7 @@ _02213C5E:
 	ldr r0, [r0]
 	add r1, #2
 	add r2, sp, #0xc
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	cmp r4, #3
 	blt _02213C84
 	add r0, sp, #0xc
@@ -3860,7 +3860,7 @@ _02213C84:
 	ldrh r2, [r3, #2]
 	ldrh r3, [r3]
 	ldr r0, [r0]
-	bl FUN_020013C8
+	bl ListMenuTestInput
 	add r0, r5, #0
 	add r0, #0xb4
 	ldr r0, [r0]
@@ -3873,7 +3873,7 @@ _02213CA8:
 	ldr r0, [r0]
 	add r1, #2
 	add r2, sp, #0xc
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0xc
 	ldr r1, [r5, #8]
 	ldrh r3, [r0]
@@ -3913,7 +3913,7 @@ _02213CF0:
 	str r1, [sp, #8]
 	add r0, #0xb4
 	ldr r0, [r0]
-	bl FUN_020013C8
+	bl ListMenuTestInput
 	add r0, r5, #0
 	add r0, #0xb4
 	ldr r0, [r0]
@@ -5554,7 +5554,7 @@ MOD56_022149D8: ; 0x022149D8
 	add r0, #0xb4
 	ldr r0, [r0]
 	add r1, sp, #0x28
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, sp, #0x28
 	ldrh r0, [r0]
 	add r0, r5, r0
@@ -5878,7 +5878,7 @@ _02214C66:
 	add r0, #0xb4
 	ldr r0, [r0]
 	add r1, sp, #0xc
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, sp, #0xc
 	ldrh r0, [r0]
 	add r0, r4, r0
@@ -7024,7 +7024,7 @@ _02215532:
 	add r0, #0xb4
 	ldr r0, [r0]
 	add r1, sp, #0x14
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, sp, #0x14
 	ldrh r0, [r0]
 	add r0, r5, r0

@@ -3,21 +3,21 @@
 #include "main.h"
 #include "list_menu.h"
 
-extern void * FUN_02013690(u32 heap_id);
+extern void * ListMenuCursorNew(u32 heap_id);
 extern void * ListMenuUpdateCursorObj(struct ListMenuCursor *, struct Window *, u8 x, u8 y);
-extern void CreateListMenuCursorObj(void *, u32);
+extern void ListMenuCursorSetColor(void *, u32);
 extern void DestroyListMenuCursorObj(void *);
 extern void FillWindowPixelBuffer(struct Window *, u32);
-void ListMenuPrintEntries(struct ListMenu *, u16, u16, u16);
-void ListMenuDrawCursor(struct ListMenu *);
-BOOL ListMenuChangeSelection(struct ListMenu *, u8, u8, s32);
-void ListMenuCallSelectionChangedCallback(struct ListMenu *, BOOL);
 extern void CopyWindowToVram(struct Window *);
 extern s32 GetFontAttribute(u8 fontId, s32 attr);
 extern void FillWindowPixelRect(struct Window *, u32 fillValue, u16 x, u16 y, u16 width, u16 height);
 extern void ScrollWindow(struct Window *, u8, u8, u8);
 extern u16 GetWindowWidth(struct Window *);
 extern u16 GetWindowHeight(struct Window *);
+void ListMenuPrintEntries(struct ListMenu * list, u16 startIndex, u16 yOffset, u16 count);
+void ListMenuDrawCursor(struct ListMenu * list);
+BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorAndCallCallback, u8 count, u8 movingDown);
+void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 onInit);
 
 static inline u32 MakeFontColor(u32 fgPal, u32 shdwPal, u32 bgPal)
 {
@@ -32,7 +32,7 @@ THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * templa
 {
     struct ListMenu * list = AllocFromHeap(heap_id, sizeof(struct ListMenu));
     list->template = *template;
-    list->cursor = FUN_02013690(heap_id);
+    list->cursor = ListMenuCursorNew(heap_id);
     list->cursorPos = cursorPos;
     list->itemsAbove = itemsAbove;
     list->unk_30 = 0;
@@ -48,7 +48,7 @@ THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * templa
     list->overrideEnabled = FALSE;
     if (list->template.totalItems < list->template.maxShowed)
         list->template.maxShowed = list->template.totalItems;
-    CreateListMenuCursorObj(
+    ListMenuCursorSetColor(
         list->cursor,
 //        MakeFontColor(list->template.cursorPal, list->template.cursorShadowPal, list->fillValue)
         (u32)(
@@ -130,7 +130,7 @@ THUMB_FUNC void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * i
     if (itemsAbove != NULL)
         *itemsAbove = list->itemsAbove;
     DestroyListMenuCursorObj(list->cursor);
-    FUN_02016A8C(list->heap_id, list);
+    FreeToHeapExplicit(list->heap_id, list);
 }
 
 THUMB_FUNC void RedrawListMenu(struct ListMenu * list)
@@ -141,7 +141,7 @@ THUMB_FUNC void RedrawListMenu(struct ListMenu * list)
     CopyWindowToVram(list->template.window);
 }
 
-THUMB_FUNC s32 FUN_02001354(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 updateFlag, u16 input, u16 *cursorPosDest_p, u16 *itemsAboveDest_p)
+THUMB_FUNC s32 ListMenuTestInputInternal(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 updateFlag, u16 input, u16 *newCursorPos, u16 *newItemsAbove)
 {
     if (template != NULL)
         list->template = *template;
@@ -158,23 +158,23 @@ THUMB_FUNC s32 FUN_02001354(struct ListMenu * list, const struct ListMenuTemplat
     {
         ListMenuChangeSelection(list, updateFlag, 1, TRUE);
     }
-    if (cursorPosDest_p != NULL)
+    if (newCursorPos != NULL)
     {
-        *cursorPosDest_p = list->cursorPos;
+        *newCursorPos = list->cursorPos;
     }
-    if (itemsAboveDest_p != NULL)
+    if (newItemsAbove != NULL)
     {
-        *itemsAboveDest_p = list->itemsAbove;
+        *newItemsAbove = list->itemsAbove;
     }
     return -1;
 }
 
-THUMB_FUNC s32 FUN_020013C8(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 input, u16 *cursorPosDest_p, u16 *itemsAboveDest_p)
+THUMB_FUNC s32 ListMenuTestInput(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 input, u16 *newCursorPos, u16 *newItemsAbove)
 {
-    return FUN_02001354(list, template, cursorPos, itemsAbove, FALSE, input, cursorPosDest_p, itemsAboveDest_p);
+    return ListMenuTestInputInternal(list, template, cursorPos, itemsAbove, FALSE, input, newCursorPos, newItemsAbove);
 }
 
-THUMB_FUNC void FUN_020013E8(struct ListMenu * list, u8 cursorPal, u8 fillValue, u8 cursorShadowPal)
+THUMB_FUNC void ListMenuOverrideSetColors(struct ListMenu * list, u8 cursorPal, u8 fillValue, u8 cursorShadowPal)
 {
     list->cursorPal = cursorPal;
     list->fillValue = fillValue;
@@ -182,12 +182,12 @@ THUMB_FUNC void FUN_020013E8(struct ListMenu * list, u8 cursorPal, u8 fillValue,
     list->overrideEnabled = TRUE;
 }
 
-THUMB_FUNC void FUN_0200143C(struct ListMenu * list, u16 * index_p)
+THUMB_FUNC void ListMenuGetCurrentItemArrayId(struct ListMenu * list, u16 * index_p)
 {
     *index_p = list->cursorPos + list->itemsAbove;
 }
 
-THUMB_FUNC void FUN_02001448(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p)
+THUMB_FUNC void ListMenuGetScrollAndRow(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p)
 {
     if (cursorPos_p != NULL)
         *cursorPos_p = list->cursorPos;
@@ -195,12 +195,12 @@ THUMB_FUNC void FUN_02001448(struct ListMenu * list, u16 * cursorPos_p, u16 * it
         *itemsAbove_p = list->itemsAbove;
 }
 
-THUMB_FUNC u8 FUN_0200145C(struct ListMenu * list)
+THUMB_FUNC u8 ListMenuGetUnk33(struct ListMenu * list)
 {
     return list->unk_33;
 }
 
-THUMB_FUNC s32 FUN_02001464(struct ListMenu * list, s32 index)
+THUMB_FUNC s32 ListMenuGetValueByArrayId(struct ListMenu * list, s32 index)
 {
     return list->template.items[index].index;
 }
@@ -517,5 +517,61 @@ THUMB_FUNC void ListMenuScroll(struct ListMenu * list, u8 count, u8 movingDown)
                                 list->template.fillValue,
                                 0, 0, width * 8, list->template.upText_Y);
         }
+    }
+}
+
+THUMB_FUNC BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorAndCallCallback, u8 count, u8 movingDown)
+{
+    u16 oldSelectedRow;
+    u8 selectionChange, i, cursorCount;
+
+    oldSelectedRow = list->itemsAbove;
+    cursorCount = 0;
+    selectionChange = 0;
+    for (i = 0; i < count; i++)
+    {
+        do
+        {
+            u8 ret = ListMenuUpdateSelectedRowIndexAndScrollOffset(list, movingDown);
+
+            selectionChange |= ret;
+            if (ret != 2)
+                break;
+            cursorCount++;
+        }
+        while (list->template.items[list->cursorPos + list->itemsAbove].index == LIST_HEADER);
+    }
+
+    if (updateCursorAndCallCallback)
+    {
+        switch (selectionChange)
+        {
+        case 0:
+        default:
+            return TRUE;
+        case 1:
+            ListMenuErasePrintedCursor(list, oldSelectedRow);
+            ListMenuDrawCursor(list);
+            ListMenuCallSelectionChangedCallback(list, FALSE);
+            CopyWindowToVram(list->template.window);
+            break;
+        case 2:
+        case 3:
+            ListMenuErasePrintedCursor(list, oldSelectedRow);
+            ListMenuScroll(list, cursorCount, movingDown);
+            ListMenuDrawCursor(list);
+            ListMenuCallSelectionChangedCallback(list, FALSE);
+            CopyWindowToVram(list->template.window);
+            break;
+        }
+    }
+    return FALSE;
+}
+
+void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 onInit)
+{
+    if (list->template.moveCursorFunc != NULL)
+    {
+        list->template.moveCursorFunc(list, list->template.items[list->cursorPos + list->itemsAbove].index, onInit);
     }
 }

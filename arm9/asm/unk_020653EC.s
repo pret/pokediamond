@@ -1177,7 +1177,7 @@ FUN_02065CFC: ; 0x02065CFC
 	mov r1, #0x1
 	mov r2, #0xf
 	mov r3, #0x2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3-r5, pc}
 _02065D1C:
 	mov r1, #0xc
@@ -1191,14 +1191,14 @@ _02065D1C:
 	mov r1, #0x3
 	mov r2, #0xf
 	mov r3, #0x4
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3-r5, pc}
 _02065D38:
 	add r0, r5, #0x0
 	mov r1, #0x7
 	mov r2, #0xf
 	mov r3, #0x8
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3-r5, pc}
 	nop
 _02065D48: .word 0x0000FFFF
@@ -1216,7 +1216,7 @@ FUN_02065D4C: ; 0x02065D4C
 	add r0, r4, #0x0
 	add r1, #0x2
 	add r2, sp, #0x0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, r4, #0x0
 	mov r1, #0x2
 	bl ListMenuGetTemplateField

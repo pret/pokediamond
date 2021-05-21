@@ -382,7 +382,7 @@ MOD76_021D77E4: ; 0x021D77E4
 	bl FUN_020178A0
 	mov r0, #0x43
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D77E4
@@ -596,7 +596,7 @@ _021D799C:
 	ldr r0, [r5, r0]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	mov r0, #0x41
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -609,7 +609,7 @@ _021D799C:
 	ldr r0, [r5, r0]
 	add r1, #0x12
 	add r2, #0x10
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldr r2, [r5]
 	add r1, sp, #0
 	ldrh r1, [r1, #2]

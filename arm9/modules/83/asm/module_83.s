@@ -4538,7 +4538,7 @@ MOD83_0222F9DC: ; 0x0222F9DC
 	ldr r1, _0222F9F4 ; =MOD83_0223B884
 	mov r0, #0xf
 	ldr r1, [r1]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, _0222F9F4 ; =MOD83_0223B884
 	mov r1, #0
 	str r1, [r0]

@@ -1012,13 +1012,13 @@ MOD05_021E2278: ; 0x021E2278
 	mov r1, #3
 	mov r2, #0xf
 	mov r3, #4
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 _021E228E:
 	mov r1, #1
 	mov r2, #0xf
 	mov r3, #2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 	.balign 4, 0
 
@@ -1054,7 +1054,7 @@ _021E22B8:
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, r0]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0xb5
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -1226,7 +1226,7 @@ MOD05_021E2434: ; 0x021E2434
 	ldr r0, [r4, r1]
 	add r1, r1, #6
 	add r1, r4, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _021E2460 ; =0x000001BA
 	ldrh r1, [r4, r0]
 	add r0, #0xe2

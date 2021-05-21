@@ -1731,7 +1731,7 @@ FUN_02035DC8: ; 0x02035DC8
 	cmp r1, #0x0
 	beq _02035DF0
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02035DF0:
 	mov r0, #0xc
 	strh r0, [r4, #0x2a]
@@ -3193,7 +3193,7 @@ FUN_02036A14: ; 0x02036A14
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x73
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
@@ -3223,7 +3223,7 @@ FUN_02036A78: ; 0x02036A78
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x73
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
@@ -3255,7 +3255,7 @@ FUN_02036AB8: ; 0x02036AB8
 	ldr r1, [r4, r0]
 	mov r0, #0xb
 	ldr r7, [r1, #0x0]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r5, [r4, r0]
@@ -3264,7 +3264,7 @@ FUN_02036AB8: ; 0x02036AB8
 	bne _02036B0E
 	mov r0, #0xb
 	add r1, r5, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x7a
 	lsl r1, r1, #0x2
 	lsl r2, r7, #0x18
@@ -3320,7 +3320,7 @@ _02036B0E:
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0x0
 	bl FUN_0204649C
 	mov r0, #0x72

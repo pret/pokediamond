@@ -692,7 +692,7 @@ _021DC5A2:
 	bl NARC_dtor
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 _021DC5FE:
@@ -1362,7 +1362,7 @@ _021DCAD2:
 	bl MOD05_021DC880
 	ldr r1, [r4, #0x10]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #0x1c]
@@ -1390,7 +1390,7 @@ _021DCB14:
 	cmp r1, #0
 	beq _021DCB2C
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r1, [r4, #0xc]
 	ldr r0, _021DCB64 ; =0x00000F58
 	mov r2, #0
@@ -1414,7 +1414,7 @@ _021DCB3E:
 _021DCB4C:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4, #0xc]
 _021DCB58:

@@ -1552,7 +1552,7 @@ FUN_020631C8: ; 0x020631C8
 	add r0, r5, #0x0
 	add r1, #0x2
 	add r2, sp, #0x0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, r5, #0x0
 	mov r1, #0x2
 	bl ListMenuGetTemplateField

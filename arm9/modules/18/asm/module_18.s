@@ -22033,11 +22033,11 @@ MOD18_02244028: ; 0x02244028
 	ldr r1, [sp, #0x30]
 	strb r1, [r0, #0x1e]
 	ldr r0, [sp, #8]
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	ldr r1, [sp, #0xc]
 	str r0, [r1, #0x10]
 	ldr r1, _022440C0 ; =0x0008090F
-	bl CreateListMenuCursorObj
+	bl ListMenuCursorSetColor
 	ldr r1, [sp, #8]
 	ldr r0, [sp, #0xc]
 	strb r1, [r0, #0x1d]
@@ -22165,7 +22165,7 @@ MOD18_02244140: ; 0x02244140
 	ldr r0, [sp, #4]
 	add r1, #2
 	add r2, sp, #0xc
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldrb r0, [r5, #0x1c]
 	cmp r0, #0
 	bne _0224416E
@@ -22361,7 +22361,7 @@ _022442CA:
 	ldr r0, [sp, #4]
 	add r1, #0x20
 	ldrh r6, [r5, #0x20]
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldrh r0, [r5, #0x20]
 	cmp r6, r0
 	beq _022442EA
@@ -31304,7 +31304,7 @@ MOD18_022488F0: ; 0x022488F0
 	ldr r0, [r5, #0x1c]
 	add r1, #0x36
 	ldrh r6, [r5, #0x36]
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldrh r0, [r5, #0x36]
 	cmp r6, r0
 	beq _02248916
@@ -32213,7 +32213,7 @@ MOD18_02248FEC: ; 0x02248FEC
 	ldr r0, [r5, #0x20]
 	add r1, #0x3a
 	ldrh r4, [r5, #0x3a]
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldrh r0, [r5, #0x3a]
 	cmp r4, r0
 	beq _02249008
@@ -33853,7 +33853,7 @@ MOD18_02249CC8: ; 0x02249CC8
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -33964,7 +33964,7 @@ MOD18_02249DB8: ; 0x02249DB8
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, #0x50]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0x93
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -34343,7 +34343,7 @@ MOD18_0224A0EC: ; 0x0224A0EC
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -34441,7 +34441,7 @@ MOD18_0224A1C0: ; 0x0224A1C0
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, #0x50]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0x93
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -34767,7 +34767,7 @@ MOD18_0224A47C: ; 0x0224A47C
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -34865,7 +34865,7 @@ MOD18_0224A550: ; 0x0224A550
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, #0x50]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0x93
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -35443,14 +35443,14 @@ MOD18_0224A9EC: ; 0x0224A9EC
 	mov r1, #1
 	mov r2, #0xf
 	mov r3, #2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, r4, r5, pc}
 _0224AA1A:
 	mov r1, #2
 	add r0, r5, #0
 	mov r2, #0xf
 	add r3, r1, #0
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD18_0224A9EC
 
@@ -35706,7 +35706,7 @@ MOD18_0224AC24: ; 0x0224AC24
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -35807,7 +35807,7 @@ MOD18_0224AD04: ; 0x0224AD04
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, #0x50]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0x93
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -36492,7 +36492,7 @@ MOD18_0224B250: ; 0x0224B250
 	ldr r0, [r4, #0x48]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -36868,7 +36868,7 @@ MOD18_0224B560: ; 0x0224B560
 	ldr r0, [r5, #0x48]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -36964,7 +36964,7 @@ MOD18_0224B614: ; 0x0224B614
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -37057,7 +37057,7 @@ MOD18_0224B6E0: ; 0x0224B6E0
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -38067,7 +38067,7 @@ MOD18_0224BF84: ; 0x0224BF84
 	ldr r0, [r5, #0x48]
 	ldrh r4, [r5, r1]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _0224BFA4 ; =0x0000024A
 	ldrh r0, [r5, r0]
 	cmp r4, r0
@@ -39686,7 +39686,7 @@ _0224CC8E:
 	ldr r0, [r4, #0x48]
 	add r1, #2
 	add r2, sp, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #4
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -39696,7 +39696,7 @@ _0224CC8E:
 	ldr r0, [r4, #0x48]
 	ldrh r6, [r4, r1]
 	add r1, r4, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _0224CF54 ; =0x0000024A
 	ldrh r0, [r4, r0]
 	cmp r6, r0
@@ -39777,7 +39777,7 @@ _0224CD48:
 	ldr r0, [r4, #0x48]
 	add r1, #2
 	add r2, sp, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	mov r0, #0x92
 	lsl r0, r0, #2
 	ldrb r0, [r4, r0]
@@ -39792,7 +39792,7 @@ _0224CD48:
 	ldr r0, [r4, #0x48]
 	ldrh r6, [r4, r1]
 	add r1, r4, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _0224CF54 ; =0x0000024A
 	ldrh r0, [r4, r0]
 	cmp r6, r0
@@ -39916,7 +39916,7 @@ _0224CE68:
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #4
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -40138,7 +40138,7 @@ _0224D046:
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	mov r0, #0x92
 	lsl r0, r0, #2
 	ldrb r0, [r4, r0]
@@ -42512,13 +42512,13 @@ MOD18_0224E2B4: ; 0x0224E2B4
 	add r1, r2, #0
 	mov r2, #0xf
 	mov r3, #2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 _0224E2CC:
 	mov r1, #2
 	mov r2, #0xf
 	add r3, r1, #0
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 	thumb_func_end MOD18_0224E2B4
 
@@ -42639,7 +42639,7 @@ _0224E384:
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldr r0, [r5, #0x2c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
@@ -43078,7 +43078,7 @@ MOD18_0224E73C: ; 0x0224E73C
 	add r1, r5, #0
 	ldr r0, [r5, #0x28]
 	add r1, #0x40
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r5, #0x40
 	ldrh r0, [r5]
 	cmp r4, r0

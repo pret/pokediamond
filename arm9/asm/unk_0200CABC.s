@@ -1098,7 +1098,7 @@ FUN_0200D300: ; 0x0200D300
 	bl FUN_02017FB4
 	ldr r1, [sp, #0x14]
 	add r0, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, sp, #0x20
 	ldrb r3, [r0, #0x10]
 	cmp r3, #0x1

@@ -759,7 +759,7 @@ MOD75_021E71BC: ; 0x021E71BC
 	bl FUN_020178A0
 	mov r0, #6
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD75_021E71BC
@@ -1773,14 +1773,14 @@ MOD75_021E797C: ; 0x021E797C
 	mov r1, #8
 	mov r2, #0
 	mov r3, #9
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	b _021E79C6
 _021E79BA:
 	ldr r0, [sp]
 	mov r1, #1
 	mov r2, #0
 	mov r3, #2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 _021E79C6:
 	ldrb r0, [r6, #8]
 	cmp r0, #7
@@ -2019,7 +2019,7 @@ MOD75_021E7B7C: ; 0x021E7B7C
 	ldr r0, [r5, r0]
 	add r1, r4, #6
 	add r2, r4, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldr r0, _021E7CD8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #4
@@ -2046,7 +2046,7 @@ _021E7BC0:
 	ldr r0, [r5, r0]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0
 	ldrh r2, [r0]
 	ldrh r0, [r4, #4]
@@ -2085,7 +2085,7 @@ _021E7BFC:
 	lsl r1, r1, #0x10
 	ldr r0, [r5, r0]
 	lsr r1, r1, #0x10
-	bl FUN_02001464
+	bl ListMenuGetValueByArrayId
 	add r6, r0, #0
 	mov r0, #0x49
 	mov r1, #1
@@ -2102,7 +2102,7 @@ _021E7C38:
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_0200145C
+	bl ListMenuGetUnk33
 	cmp r0, #1
 	bne _021E7C5E
 	add r0, r5, #0
@@ -3643,7 +3643,7 @@ MOD75_021E8808: ; 0x021E8808
 	add r1, r2, r1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02001464
+	bl ListMenuGetValueByArrayId
 	mov r1, #1
 	mvn r1, r1
 	cmp r0, r1
@@ -3701,7 +3701,7 @@ MOD75_021E8864: ; 0x021E8864
 	lsl r0, r0, #2
 	ldrb r1, [r4, r1]
 	ldr r0, [r4, r0]
-	bl FUN_02001464
+	bl ListMenuGetValueByArrayId
 	ldr r1, _021E88B8 ; =0x0000047C
 	str r0, [r4, r1]
 	add r0, r4, #0
@@ -3744,7 +3744,7 @@ _021E88D0:
 	ldr r0, [r5, r0]
 	add r1, r4, #6
 	add r2, r4, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, r5, #0
 	bl MOD75_021E87B8
 	cmp r0, #1
@@ -3784,7 +3784,7 @@ _021E892E:
 	ldr r0, [r5, r0]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0
 	ldrh r2, [r0]
 	ldrh r0, [r4, #4]
@@ -3816,7 +3816,7 @@ _021E896A:
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_0200145C
+	bl ListMenuGetUnk33
 	cmp r0, #1
 	bne _021E899A
 	add r0, r5, #0
@@ -7055,7 +7055,7 @@ MOD75_021EA328: ; 0x021EA328
 	ldrh r3, [r3]
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_02001354
+	bl ListMenuTestInputInternal
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -7207,7 +7207,7 @@ MOD75_021EA444: ; 0x021EA444
 	ldrh r3, [r3]
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_02001354
+	bl ListMenuTestInputInternal
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -7904,7 +7904,7 @@ _021EA9A8:
 	bl FUN_02019220
 	mov r0, #6
 	add r1, r7, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -7993,7 +7993,7 @@ _021EAA8C:
 	bl FUN_02019220
 	ldr r1, [sp, #0x18]
 	mov r0, #6
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -8620,7 +8620,7 @@ MOD75_021EAF70: ; 0x021EAF70
 	bl FUN_02019658
 	mov r0, #6
 	add r1, r6, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	thumb_func_end MOD75_021EAF70
@@ -8695,7 +8695,7 @@ MOD75_021EB004: ; 0x021EB004
 	bl FUN_02019658
 	mov r0, #6
 	add r1, r6, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0

@@ -1237,7 +1237,7 @@ FUN_0206FCD4: ; 0x0206FCD4
 	bl FUN_020178A0
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.balign 4
 
@@ -1293,7 +1293,7 @@ FUN_0206FD24: ; 0x0206FD24
 	bl memcpy
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x1a
 	mov r0, #0x0
 	lsl r1, r1, #0x4
@@ -3729,7 +3729,7 @@ _02071146:
 	bl FUN_02072844
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r5, #0x0
 	bl FUN_0207295C
 	mov r1, #0x0

@@ -1333,7 +1333,7 @@ _0205188E:
 	add r0, #0x64
 	bl FUN_0201901C
 	mov r0, #0xb
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	str r0, [r4, #0x78]
 	bl FUN_02033534
 	add r1, r4, #0x0

@@ -202,13 +202,13 @@ MOD04_021D7660: ; 0x021D7660
 	ldr r0, [r2, r1]
 	sub r1, #0x50
 	ldr r1, [r2, r1]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r1, _021D76A0 ; =UNK04_0220FBC0
 	ldr r0, _021D76A8 ; =0x00001F54
 	ldr r2, [r1]
 	ldr r1, [r1, #4]
 	ldr r0, [r2, r0]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, _021D76A0 ; =UNK04_0220FBC0
 	mov r1, #0
 	str r1, [r0, #4]
@@ -3065,7 +3065,7 @@ MOD04_021D8C6C: ; 0x021D8C6C
 	lsl r0, r0, #8
 	ldr r0, [r2, r0]
 	ldr r1, [r1]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0
 	ldr r0, _021D8CBC ; =UNK04_0220FBC8
 	cmp r4, #0

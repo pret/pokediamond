@@ -3279,23 +3279,23 @@ _02253C0E:
 	cmp r1, #0
 	beq _02253C22
 	add r0, r5, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02253C22:
 	ldr r1, [r4, #0xc]
 	cmp r1, #0
 	beq _02253C2E
 	add r0, r5, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02253C2E:
 	ldr r1, [r4, #4]
 	cmp r1, #0
 	beq _02253C3A
 	add r0, r5, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02253C3A:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02253C42:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -3848,7 +3848,7 @@ MOD20_02254014: ; 0x02254014
 	cmp r1, #0
 	beq _02254028
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 _02254028:
@@ -3856,7 +3856,7 @@ _02254028:
 	cmp r1, #0
 	beq _02254038
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4, #4]
 _02254038:
@@ -4072,7 +4072,7 @@ _02254176:
 _02254188:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r4, #0
 _02254192:
 	add r0, r4, #0
@@ -4089,10 +4089,10 @@ MOD20_02254198: ; 0x02254198
 _022541A2:
 	ldr r0, [r4, #8]
 	ldr r1, [r4, #0x14]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [r4, #8]
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	thumb_func_end MOD20_02254198
 

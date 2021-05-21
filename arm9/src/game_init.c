@@ -203,7 +203,7 @@ void * FUN_020161A4(u32 heap_id, const char * path)
         {
             if (size != FS_ReadFile(&file, ret, (s32)size))
             {
-                FUN_02016A8C(heap_id, ret);
+                FreeToHeapExplicit(heap_id, ret);
                 ret = NULL;
             }
         }

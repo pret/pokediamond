@@ -1509,18 +1509,18 @@ _02077982:
 	ldr r1, _02077A70 ; =0x000004AC
 	mov r0, #0x12
 	ldr r1, [r4, r1]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x1
 	bne _020779C2
 	ldr r1, _02077A74 ; =0x000004B4
 	mov r0, #0x12
 	ldr r1, [r4, r1]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r1, _02077A78 ; =0x000004BC
 	mov r0, #0x12
 	ldr r1, [r4, r1]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _020779C2:
 	mov r0, #0x16
 	lsl r0, r0, #0x4
@@ -2250,7 +2250,7 @@ _02077FB0:
 	bl FUN_020178A0
 	mov r0, #0x12
 	add r1, r6, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_02077FE8

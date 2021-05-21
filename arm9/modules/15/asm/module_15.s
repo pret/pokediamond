@@ -4345,7 +4345,7 @@ MOD15_021D95E8: ; 0x021D95E8
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x48]
 	mov r0, #0x23
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	str r0, [r4, #0x50]
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}

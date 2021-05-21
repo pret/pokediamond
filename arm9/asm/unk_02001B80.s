@@ -41,7 +41,7 @@ FUN_02001B8C: ; 0x02001B8C
 	ldr r0, [r3, #0x0]
 	str r0, [r2, #0x0]
 	ldr r0, [sp, #0x4]
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	str r0, [r4, #0xc]
 	ldr r0, [sp, #0x24]
 	str r0, [r4, #0x10]
@@ -133,7 +133,7 @@ _02001C68:
 	bl DestroyListMenuCursorObj
 	ldrb r0, [r4, #0x1c]
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 
 	thumb_func_start FUN_02001C78
@@ -894,7 +894,7 @@ FUN_020021EC: ; 0x020021EC
 	bl FUN_02019178
 	ldr r1, [r5, #0x4]
 	add r0, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [r5, #0x0]
 	bl ListMenu_dtor
 	add r0, r5, #0x0

@@ -1672,7 +1672,7 @@ _02074B6A:
 	add r1, r7, #0x0
 	str r0, [r3, #0x0]
 	mov r0, #0xc
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x3
 	lsl r1, r1, #0x8
 	ldrb r3, [r4, r1]

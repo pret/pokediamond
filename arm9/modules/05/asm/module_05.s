@@ -339,7 +339,7 @@ MOD05_021E88C0: ; 0x021E88C0
 	bl GX_EngineAToggleLayers
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E88E8
@@ -513,7 +513,7 @@ _021E8A42:
 	bl MOD05_021E37A4
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 _021E8A56:
@@ -695,7 +695,7 @@ _021E8BC2:
 	bl MOD05_021E37A4
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 _021E8BD6:
@@ -851,7 +851,7 @@ _021E8CE6:
 _021E8D00:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 	mov r0, #1
@@ -1008,7 +1008,7 @@ _021E8E1C:
 _021E8E36:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 	mov r0, #1
@@ -1256,7 +1256,7 @@ _021E8FFC:
 _021E9010:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 	mov r0, #1
@@ -1391,7 +1391,7 @@ _021E910C:
 _021E9120:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 	mov r0, #1
@@ -1794,7 +1794,7 @@ _021E944E:
 	bl MOD05_021E37A4
 	ldr r1, [r7, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #0x10]
 	bl FUN_0200621C
 _021E948A:
@@ -2151,7 +2151,7 @@ _021E974A:
 	bl MOD05_021E3A48
 	ldr r1, [r6, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #0x10]
 	bl FUN_0200621C
 _021E9786:
@@ -2594,7 +2594,7 @@ _021E9AF0:
 	bl MOD05_021E3E44
 	ldr r1, [r7, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #0x14]
 	bl FUN_0200621C
 	add sp, #0x58
@@ -3183,7 +3183,7 @@ _021E9FA4:
 	ldr r1, [sp, #0x1c]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #0x18]
 	bl FUN_0200621C
 	add sp, #0x44
@@ -3594,7 +3594,7 @@ _021EA354:
 	bl MOD05_021E3E44
 	ldr r1, [r5, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 _021EA382:
@@ -4116,7 +4116,7 @@ _021EA76C:
 	ldr r1, [sp, #0x18]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #0x14]
 	bl FUN_0200621C
 _021EA7DE:
@@ -4472,7 +4472,7 @@ _021EAA98:
 	bl MOD05_021E3E44
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 _021EAAC6:
@@ -4781,7 +4781,7 @@ _021EAD1A:
 	bl MOD05_021E3E44
 	ldr r1, [r6, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #0x10]
 	bl FUN_0200621C
 _021EAD4C:
@@ -5156,7 +5156,7 @@ _021EB01A:
 	ldr r1, [sp, #0x14]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #0x10]
 	bl FUN_0200621C
 _021EB04A:
@@ -5586,7 +5586,7 @@ _021EB394:
 	strb r1, [r0]
 	ldr r1, [r5, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 _021EB3F2:
@@ -5797,7 +5797,7 @@ _021EB56C:
 _021EB58A:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 	mov r0, #1
@@ -6008,7 +6008,7 @@ _021EB720:
 _021EB73E:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0
 	bl FUN_0200621C
 	mov r0, #1
@@ -6506,7 +6506,7 @@ _021EBB60:
 	str r0, [r2]
 	ldr r1, [r5, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add sp, #0x30
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -7514,7 +7514,7 @@ _021EC37A:
 	bl MOD05_021E3E44
 	ldr r1, [r5, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add sp, #0x4c
 	mov r0, #1
 	pop {r4, r5, r6, r7, pc}
@@ -19600,11 +19600,11 @@ MOD05_021F21AC: ; 0x021F21AC
 	add r1, #0xe4
 	ldr r1, [r1]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r4, #0xf4
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021F21CC
@@ -22552,12 +22552,12 @@ _021F37C2:
 
 	thumb_func_start MOD05_021F37D0
 MOD05_021F37D0: ; 0x021F37D0
-	ldr r3, _021F37D8 ; =FUN_02016A8C
+	ldr r3, _021F37D8 ; =FreeToHeapExplicit
 	add r1, r0, #0
 	ldr r0, [r1]
 	bx r3
 	.balign 4, 0
-_021F37D8: .word FUN_02016A8C
+_021F37D8: .word FreeToHeapExplicit
 
 	thumb_func_start MOD05_021F37DC
 MOD05_021F37DC: ; 0x021F37DC
@@ -22588,7 +22588,7 @@ _021F37FC:
 	bne _021F37F0
 	ldr r0, [r5]
 	ldr r1, [r5, #0xc]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _021F380E:
 	pop {r3, r4, r5, pc}
 

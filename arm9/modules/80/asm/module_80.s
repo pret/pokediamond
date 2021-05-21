@@ -14093,7 +14093,7 @@ MOD80_02234698: ; 0x02234698
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, sp, #0
 	ldrh r1, [r4]
 	ldrh r0, [r0]

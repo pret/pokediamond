@@ -1750,7 +1750,7 @@ MOD71_0222E438: ; 0x0222E438
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r0, #0x1a
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

@@ -28,7 +28,7 @@ THUMB_FUNC void FUN_02016988();
 void *AllocFromHeap(u32 heap_id, u32 size);
 void *AllocFromHeapAtEnd(u32 heap_id, u32 size);
 void FreeToHeap(void *ptr);
-void FUN_02016A8C(u32 heap_id, void * ptr);
+void FreeToHeapExplicit(u32 heap_id, void * ptr);
 THUMB_FUNC u32 FUN_02016AF8(u32 param0);
 THUMB_FUNC void FUN_02016B20(u32 param0, u32 param1, u32 param2);
 THUMB_FUNC void FUN_02016B44(void *ptr, u32 param1);

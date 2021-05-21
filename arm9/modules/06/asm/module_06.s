@@ -9328,7 +9328,7 @@ _0223DDBA:
 	ldr r0, [sp, #0x10]
 	add r1, #2
 	add r2, sp, #0x14
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0x14
 	ldrh r0, [r0, #2]
 	cmp r0, #0
@@ -9558,14 +9558,14 @@ MOD06_0223DFB4: ; 0x0223DFB4
 	ldr r0, [r5, #0x78]
 	mov r1, #0
 	add r2, #2
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldr r0, [r5, #0x78]
 	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	ldr r0, [r5, #0x78]
 	mov r1, #0
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0
 	ldrh r2, [r0]
 	ldrh r0, [r0, #2]
@@ -11655,7 +11655,7 @@ MOD06_0223F0F8: ; 0x0223F0F8
 	cmp r0, #0
 	beq _0223F11A
 	add r1, sp, #0xc
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 _0223F11A:
 	add r0, sp, #0xc
 	ldrh r1, [r0]
@@ -12105,7 +12105,7 @@ _0223F4D8:
 	add r1, r4, #0
 	ldr r0, [r4, #0x5c]
 	add r1, #0x8e
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, r4, #0
 	add r0, #0x8e
 	ldrh r5, [r0]
@@ -12451,7 +12451,7 @@ MOD06_0223F7C4: ; 0x0223F7C4
 	cmp r0, #0
 	beq _0223F7E0
 	add r1, sp, #0xc
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 _0223F7E0:
 	add r0, sp, #0xc
 	ldrh r1, [r0]
@@ -14717,14 +14717,14 @@ MOD06_02240A64: ; 0x02240A64
 	ldr r0, [r5]
 	mov r1, #0
 	add r2, #0x78
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, r5, #0
 	add r0, #0x80
 	ldrh r6, [r0]
 	add r1, r5, #0
 	ldr r0, [r5]
 	add r1, #0x80
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, r5, #0
 	add r0, #0x80
 	ldrh r0, [r0]
@@ -14879,14 +14879,14 @@ MOD06_02240BB8: ; 0x02240BB8
 	ldr r0, [r5, #4]
 	mov r1, #0
 	add r2, #0x7a
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, r5, #0
 	add r0, #0x82
 	ldrh r6, [r0]
 	add r1, r5, #0
 	ldr r0, [r5, #4]
 	add r1, #0x82
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, r5, #0
 	add r0, #0x82
 	ldrh r0, [r0]
@@ -19219,13 +19219,13 @@ MOD06_02242E9C: ; 0x02242E9C
 	mov r1, #3
 	mov r2, #0xf
 	mov r3, #4
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 _02242EB2:
 	mov r1, #1
 	mov r2, #0xf
 	mov r3, #2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 	.align 2, 0
 
@@ -42471,7 +42471,7 @@ MOD06_0224E1E4: ; 0x0224E1E4
 	bne _0224E22A
 	ldr r0, [r5, #8]
 	add r1, sp, #0
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r2, #0x4b
 	add r0, sp, #0
 	lsl r2, r2, #2
@@ -42685,7 +42685,7 @@ MOD06_0224E39C: ; 0x0224E39C
 	ldr r0, [r4, #8]
 	add r1, sp, #0
 	mov r2, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0
 	ldrh r0, [r0]
 	cmp r0, #0

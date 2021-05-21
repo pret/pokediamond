@@ -3382,7 +3382,7 @@ _021D9002:
 	ldrh r7, [r5, r1]
 	ldr r0, [r5, r0]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _021D90D0 ; =0x00000418
 	ldrh r0, [r5, r0]
 	cmp r7, r0

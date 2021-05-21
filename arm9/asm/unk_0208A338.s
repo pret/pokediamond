@@ -36,7 +36,7 @@ FUN_0208A338: ; 0x0208A338
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x20
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	str r0, [r4, #0x14]
 	ldr r2, [r4, #0x0]
 	mov r0, #0x2

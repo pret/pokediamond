@@ -2083,7 +2083,7 @@ _021D850C:
 	add r0, r7, #0
 	add r1, #2
 	add r2, sp, #0x10
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0x10
 	ldrh r2, [r2]
 	mov r0, #7

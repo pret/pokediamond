@@ -1488,8 +1488,8 @@ _02013688:
 	strh r0, [r4, #0x0]
 	pop {r4, pc}
 
-	thumb_func_start FUN_02013690
-FUN_02013690: ; 0x02013690
+	thumb_func_start ListMenuCursorNew
+ListMenuCursorNew: ; 0x02013690
 	push {r3-r5, lr}
 	mov r1, #0x8
 	add r5, r0, #0x0
@@ -1530,8 +1530,8 @@ _020136D8:
 _020136DE:
 	pop {r4, pc}
 
-	thumb_func_start CreateListMenuCursorObj
-CreateListMenuCursorObj: ; 0x020136E0
+	thumb_func_start ListMenuCursorSetColor
+ListMenuCursorSetColor: ; 0x020136E0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0

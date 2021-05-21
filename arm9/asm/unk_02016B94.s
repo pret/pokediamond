@@ -2716,7 +2716,7 @@ FUN_02017F18: ; 0x02017F18
 	bl FUN_02017E84
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_02017F48
