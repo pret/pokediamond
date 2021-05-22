@@ -161,6 +161,7 @@ BOOL ScrCmd_Unk0054(struct ScriptContext *ctx);
 BOOL FUN_02041464(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0055(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0056(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk0057(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0058(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0049(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk004A(struct ScriptContext* ctx);
