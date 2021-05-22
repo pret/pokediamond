@@ -33,7 +33,7 @@ struct GraphicsModes {
 };
 
 
-THUMB_FUNC void VBlankHandler();
-THUMB_FUNC void PrintErrorMessageAndReset();
+void VBlankHandler();
+void PrintErrorMessageAndReset();
 
 #endif //POKEDIAMOND_ERROR_MESSAGE_RESET_H

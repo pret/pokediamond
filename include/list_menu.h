@@ -70,9 +70,9 @@ struct ListMenu
     /*0x34*/ u8 heap_id;
 };
 
-THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id);
-THUMB_FUNC s32 ListMenu_ProcessInput(struct ListMenu * list);
-THUMB_FUNC void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * itemsAbove);
-THUMB_FUNC void RedrawListMenu(struct ListMenu * list);
+struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id);
+s32 ListMenu_ProcessInput(struct ListMenu * list);
+void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * itemsAbove);
+void RedrawListMenu(struct ListMenu * list);
 
 #endif // POKEDIAMOND_LIST_MENU_H
