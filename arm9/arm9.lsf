@@ -36,6 +36,10 @@ Static arm9
 	Object unk_0200E850.o
 	Object unk_0201137C.o
 	Object unk_02011744.o
+	Object unk_02012004.o
+	Object gf_rtc.o
+	Object list_menu_items.o
+	Object unk_02012944.o
 	Object unk_02012CC8.o
 	Object mail_message.o
 	Object unk_020139D8.o
