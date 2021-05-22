@@ -2824,7 +2824,7 @@ THUMB_FUNC u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3)
     case 1:
         if (r5 >= 0)
         {
-            r3 += (1 << 0xa);
+            r3 += 0x400;
         }
         else
         {
