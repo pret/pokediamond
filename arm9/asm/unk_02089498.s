@@ -360,7 +360,7 @@ FUN_02089734: ; 0x02089734
 	add r0, r4, #0x0
 	mov r1, #0xf
 	add r3, r2, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #0x8
 	pop {r4, pc}
 	nop
@@ -539,7 +539,7 @@ _020898B8:
 	mov r1, #0xf
 	add r2, r6, #0x0
 	add r3, r6, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, r5, #0x0
 	ldr r2, _02089958 ; =0x000001E2
 	add r0, #0x1c

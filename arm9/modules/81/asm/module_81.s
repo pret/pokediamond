@@ -2229,7 +2229,7 @@ MOD81_02238E44: ; 0x02238E44
 	add r0, r4, #0
 	add r0, #0x44
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0x20
 	str r3, [sp]
 	mov r0, #0x3a
@@ -2527,7 +2527,7 @@ _0223918A:
 	add r0, r4, #0
 	add r0, #0x44
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -9281,7 +9281,7 @@ MOD81_0223C658: ; 0x0223C658
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0x20
 	str r3, [sp]
 	mov r0, #0x3a
@@ -9640,7 +9640,7 @@ _0223C9D0:
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff

@@ -67,7 +67,7 @@ _021DB4BA:
 	bl MOD05_021DB7A0
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}
@@ -419,7 +419,7 @@ _021DB73E:
 _021DB78A:
 	ldr r1, [sp, #0x14]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #8]
 	add sp, #0x1fc
 	add sp, #0x20
@@ -433,7 +433,7 @@ MOD05_021DB7A0: ; 0x021DB7A0
 	add r4, r0, #0
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}

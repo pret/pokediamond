@@ -504,7 +504,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	add r0, #0x14
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #4
 	add r0, sp, #8
 	strb r1, [r0]
@@ -523,7 +523,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	add r0, r4, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0

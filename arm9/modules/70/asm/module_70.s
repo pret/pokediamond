@@ -1022,11 +1022,11 @@ MOD70_021D7CC0: ; 0x021D7CC0
 	add r4, r0, #0
 	add r0, #0x14
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x24
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x14
 	bl FUN_02019548
@@ -1102,7 +1102,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	bl StringExpandPlaceholders
 	add r0, r6, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r2, #0xff
@@ -1136,7 +1136,7 @@ MOD70_021D7D98: ; 0x021D7D98
 	add r0, #0x24
 	mov r1, #0xf
 	str r0, [sp, #0xc]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	beq _021D7DC8

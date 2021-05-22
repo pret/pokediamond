@@ -305,7 +305,7 @@ _021D7702:
 	add r0, r5, #0
 	add r0, #0x94
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, [r5]
 	mov r0, #0x4c
 	bl String_ctor
@@ -432,7 +432,7 @@ _021D77F2:
 	add r0, r5, #0
 	add r0, #0x94
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, [r5]
 	mov r0, #0x4c
 	bl String_ctor
@@ -1484,7 +1484,7 @@ MOD61_021D7FF4: ; 0x021D7FF4
 _021D80BE:
 	add r0, r5, #0
 	add r1, r6, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r4, #5
 	bge _021D80D0
 	add r0, r5, #0

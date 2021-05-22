@@ -1152,7 +1152,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x18]
 	add r0, sp, #0x1c
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1936,7 +1936,7 @@ _0222E442:
 	add r0, r4, r0
 	asr r7, r0, #1
 	ldr r0, [sp, #0x18]
-	bl FUN_0201901C
+	bl InitWindow
 	lsl r0, r5, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -1957,7 +1957,7 @@ _0222E442:
 	bl FUN_02019064
 	add r0, r7, #0
 	mov r1, #0x35
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r2, #0x67
 	ldr r1, [sp, #0x1c]
 	lsl r2, r2, #2
@@ -1990,7 +1990,7 @@ _0222E49A:
 	ldr r0, [r1, r0]
 	ldr r2, [r2, #4]
 	add r1, r4, #0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r4, #0
 	bl String_dtor
 	add r6, r6, #1
@@ -3251,7 +3251,7 @@ MOD62_0222EE78: ; 0x0222EE78
 	cmp r5, r1
 	bne _0222EE96
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add sp, #0xc
@@ -3268,7 +3268,7 @@ _0222EE96:
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -3298,7 +3298,7 @@ MOD62_0222EEE0: ; 0x0222EEE0
 	add r0, r5, #0
 	add r4, r2, #0
 	add r6, r3, #0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x28]
 	lsl r2, r4, #0x18
 	lsl r0, r0, #0x18
@@ -3331,7 +3331,7 @@ MOD62_0222EEE0: ; 0x0222EEE0
 	bl FUN_0200D0BC
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -3347,7 +3347,7 @@ MOD62_0222EF44: ; 0x0222EF44
 	add r0, r5, #0
 	add r4, r2, #0
 	add r6, r3, #0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x28]
 	lsl r2, r4, #0x18
 	lsl r0, r0, #0x18
@@ -3377,7 +3377,7 @@ MOD62_0222EF44: ; 0x0222EF44
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -3552,14 +3552,14 @@ _0222F0E2:
 	bne _0222F0FE
 	add r0, r5, #0
 	mov r1, #0xee
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	b _0222F152
 _0222F0FE:
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x64
 	mov r1, #0x35
 	bl String_ctor
@@ -3621,7 +3621,7 @@ MOD62_0222F168: ; 0x0222F168
 	bne _0222F194
 	add r0, r5, r4
 	mov r1, #0xee
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -3629,7 +3629,7 @@ MOD62_0222F168: ; 0x0222F168
 _0222F194:
 	add r0, r5, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x64
 	mov r1, #0x35
 	bl String_ctor
@@ -3693,7 +3693,7 @@ MOD62_0222F208: ; 0x0222F208
 	cmp r5, r1
 	bne _0222F226
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add sp, #0xc
@@ -3710,7 +3710,7 @@ _0222F226:
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -4612,7 +4612,7 @@ MOD62_0222F904: ; 0x0222F904
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r4, #0xfc
 	add r0, r4, #0
 	bl FUN_02019178

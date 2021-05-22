@@ -84,8 +84,8 @@ struct Main
     u32 unk3C;
     u32 unk40;
     u32 unk44;
-    u32 unk48;
-    u32 unk4C;
+    u32 newKeys;
+    u32 newAndRepeatedKeys;
     s32 unk50;
     s32 unk54;
     s32 unk58;
@@ -104,8 +104,22 @@ struct Main
 
 //extern struct UnkStruct_021C4918 gMain + 0x60;
 
-extern struct Unk2106FA0 gBacklightTop;
-extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
+extern PMBackLightSwitch gBacklightTop;
+extern s32 UNK_02016FA4;
+
+struct UnkStruct_02016FA8
+{
+    FSOverlayID unk0;
+    struct UnkStruct_02006234 *unk4;
+    FSOverlayID unk8;
+    const struct Unk21DBE18 * unkC;
+    s32 unk10;
+    s32 unk14;
+    struct SaveBlock2 * unk18;
+
+};
+
+extern struct UnkStruct_02016FA8 UNK_02016FA8;
 
 void NitroMain(void);
 

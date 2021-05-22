@@ -1108,7 +1108,7 @@ MOD36_0225503C: ; 0x0225503C
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 _02255082:
 	add r0, r4, #0
 	add r0, #0x48
@@ -1205,7 +1205,7 @@ MOD36_0225510C: ; 0x0225510C
 	mov r1, #1
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r1, [r4, #0x54]
 	lsl r0, r5, #5
 	add r0, r1, r0
@@ -1298,7 +1298,7 @@ MOD36_022551E0: ; 0x022551E0
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0x48
 	add r0, r4, #0
 	bl FUN_02019548

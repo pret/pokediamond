@@ -24,7 +24,7 @@ struct UnkStruct_0204652C
     u8    unkE; // some kind of counter?
 };
 
-THUMB_FUNC void FUN_0206015C(struct UnkSavStruct80* savStruct);
-THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C * unkStruct0);
+void FUN_0206015C(struct UnkSavStruct80* savStruct);
+BOOL FUN_02060194(struct UnkStruct_0204639C * unkStruct0);
 
 #endif //UNK_0206015C_H_GUARD

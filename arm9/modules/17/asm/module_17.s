@@ -2123,7 +2123,7 @@ MOD17_021D83E4: ; 0x021D83E4
 	str r0, [r5, r1]
 	mov r0, #0xd
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	ldr r2, _021D84EC ; =0x000006A8
 	mov r1, #0
 	str r0, [r5, r2]
@@ -2663,7 +2663,7 @@ _021D88F8:
 	str r0, [r4, r1]
 	mov r0, #0xd
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	ldr r1, _021D8994 ; =0x000006A8
 	mov r2, #0
 	str r0, [r4, r1]
@@ -4691,7 +4691,7 @@ MOD17_021D9918: ; 0x021D9918
 	ldr r0, _021D99D4 ; =0x000006A8
 	mov r1, #0xf
 	ldr r0, [r5, r0]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -4753,7 +4753,7 @@ MOD17_021D99E0: ; 0x021D99E0
 	add r4, r1, #0
 	ldr r0, [r5, r0]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _021D9A5C ; =0x00000151
 	mov r0, #0
 	mov r1, #0x1a
@@ -4818,7 +4818,7 @@ _021D9A7E:
 	ldr r0, _021D9B08 ; =0x000006A8
 	mov r1, #0xf
 	ldr r0, [r5, r0]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _021D9B0C ; =0x00000151
 	mov r0, #0
 	mov r1, #0x1a
@@ -11265,9 +11265,9 @@ _021DC898:
 	add r7, r0, #0
 	mov r0, #0xe
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r4, r0, #0
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	ldr r2, [sp, #0x28]
 	ldr r3, [sp, #0x2c]
@@ -11436,7 +11436,7 @@ _021DC9CC:
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -11789,9 +11789,9 @@ MOD17_021DCC68: ; 0x021DCC68
 	mov r0, #0xe
 	mov r1, #1
 	add r4, r2, #0
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5]
-	bl FUN_0201901C
+	bl InitWindow
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -11817,7 +11817,7 @@ MOD17_021DCC68: ; 0x021DCC68
 	bl FUN_02019064
 	ldr r0, [r5]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x34]
 	cmp r0, #0
 	beq _021DCCCC
@@ -11860,7 +11860,7 @@ MOD17_021DCCEC: ; 0x021DCCEC
 	add r5, r0, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x28]
 	add r1, r4, #0
 	str r0, [sp]
@@ -11896,7 +11896,7 @@ MOD17_021DCD34: ; 0x021DCD34
 	add r5, r0, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x28]
 	add r1, r4, #0
 	str r0, [sp]
@@ -12396,7 +12396,7 @@ _021DD0D0:
 	bl MOD17_021DCC68
 	ldr r0, [r7, #0x18]
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp]
 	mov r3, #4
@@ -14242,7 +14242,7 @@ MOD17_021DDF1C: ; 0x021DDF1C
 	add r4, r0, #0
 	mov r0, #0xe
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	mov r1, #0x19
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -14313,7 +14313,7 @@ MOD17_021DDFAC: ; 0x021DDFAC
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	bne _021DDFCA

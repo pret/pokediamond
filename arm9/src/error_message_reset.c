@@ -20,18 +20,17 @@ u32 sErrorMessagePrinterLock;
 extern void FUN_0200E3A0(PMLCDTarget, int);
 extern u32 *FUN_02016B94(u32 param0);
 extern void FUN_02016BBC(const struct GraphicsModes *modes);
-extern void FUN_02016C18(u32 *param0, u32 param1, void *param2, u32 param3);
+extern void FUN_02016C18(u32 *param0, struct Window * param1, const u32 *param2, u32 param3);
 extern void FUN_02018744(u32 *param0, u32 param1);
 extern void FUN_0200CB00(u32 *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
 extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);
 extern void FUN_02017F18(u32 param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_02017FE4(u32 param0, u32 param1);
-extern void FUN_02019150(u32 *param0, u32 *param1, const u32 *param2);
-extern void FUN_020196F4(u32 *, u8, u16, u16, u16, u16);
-extern void FUN_0200CCA4(u32 *param0, u32 param1, u32 param2, u32 param3);
+extern void FUN_02019150(u32 *param0, struct Window *param1, const u32 *param2);
+extern void FUN_0200CCA4(struct Window *param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_0200E394(u32 param0);
 extern void FUN_0200A274(u32 param0, u32 param1, u32 param2);
-extern void FUN_02019178(u32 *param0);
+extern void FUN_02019178(struct Window *param0);
 
 THUMB_FUNC void VBlankHandler()
 {
@@ -44,7 +43,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
 {
 
     u32 *ptr;
-    u32 buf[4];
+    struct Window buf;
 
     if (sErrorMessagePrinterLock != 1)
     {
@@ -97,13 +96,13 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         struct String *str = String_ctor(6 << 6, 0);
 
         FUN_0201BD5C();
-        FUN_02019150(ptr, buf, UNK_020FF49C);
-        FUN_020196F4(buf, 15, 0, 0, 0xd0, 0x90);
-        FUN_0200CCA4(buf, 0, 0x1f7, 2);
+        FUN_02019150(ptr, &buf, UNK_020FF49C);
+        FillWindowPixelRect(&buf, 15, 0, 0, 0xd0, 0x90);
+        FUN_0200CCA4(&buf, 0, 0x1f7, 2);
 
         ReadMsgDataIntoString(msg_data, 3, str);
 
-        AddTextPrinterParameterized((u32)buf, 0, (const u16 *)str, 0, 0, 0, NULL); // wtf
+        AddTextPrinterParameterized(&buf, 0, (const u16 *)str, 0, 0, 0, NULL); // wtf
 
         String_dtor(str);
         GX_BothDispOn();
@@ -133,7 +132,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FUN_0200E3A0(PM_LCD_TOP, 0x7FFF);
         FUN_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
 
-        FUN_02019178(buf);
+        FUN_02019178(&buf);
 
         DestroyMsgData(msg_data);
         FreeToHeap(ptr);

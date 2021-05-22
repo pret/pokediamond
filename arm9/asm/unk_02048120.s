@@ -209,7 +209,7 @@ _02048298:
 	add r0, r4, #0x0
 	add r0, #0xc
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -263,7 +263,7 @@ FUN_020482F4: ; 0x020482F4
 	add r0, r5, #0x0
 	add r0, #0xc
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #0x1c]
 	ldr r1, [sp, #0x10]
 	add r2, r6, #0x0

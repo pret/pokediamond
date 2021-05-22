@@ -676,7 +676,7 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonAB(struct ScriptContext *ctx)
 THUMB_FUNC static BOOL FUN_0203A46C(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.unk48 & 0x3) // Mask (A | B) ?
+    if (gMain.newKeys & 0x3) // Mask (A | B) ?
     {
         return TRUE;
     }
@@ -692,7 +692,7 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonABTime(struct ScriptContext *ctx)
 
 THUMB_FUNC static BOOL FUN_0203A4AC(struct ScriptContext *ctx)
 {
-    if (gMain.unk48 & 0x3) // Mask (A | B) ?
+    if (gMain.newKeys & 0x3) // Mask (A | B) ?
     {
         return TRUE;
     }
@@ -713,27 +713,27 @@ THUMB_FUNC BOOL ScrCmd_WaitButton(struct ScriptContext *ctx)
 
 THUMB_FUNC static BOOL FUN_0203A4E0(struct ScriptContext *ctx)
 {
-    if (gMain.unk48 & 3)
+    if (gMain.newKeys & 3)
     {
         return TRUE;
     }
-    else if (gMain.unk48 & 0x40)
+    else if (gMain.newKeys & 0x40)
     {
         FUN_02055304(ctx->unk80->unk38, 0);
     }
-    else if (gMain.unk48 & 0x80)
+    else if (gMain.newKeys & 0x80)
     {
         FUN_02055304(ctx->unk80->unk38, 1);
     }
-    else if (gMain.unk48 & 0x20)
+    else if (gMain.newKeys & 0x20)
     {
         FUN_02055304(ctx->unk80->unk38, 2);
     }
-    else if (gMain.unk48 & 0x10)
+    else if (gMain.newKeys & 0x10)
     {
         FUN_02055304(ctx->unk80->unk38, 3);
     }
-    else if (gMain.unk48 & 0x400)
+    else if (gMain.newKeys & 0x400)
     {
         FUN_02039460(ctx->unk80);
     }
@@ -753,11 +753,11 @@ THUMB_FUNC BOOL ScrCmd_Unk0032(struct ScriptContext *ctx)
 THUMB_FUNC static BOOL FUN_0203A570(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.unk48 & 0x3)
+    if (gMain.newKeys & 0x3)
     {
         return TRUE;
     }
-    else if (gMain.unk48 & 0xf0)
+    else if (gMain.newKeys & 0xf0)
     {
         return TRUE;
     }
@@ -973,19 +973,19 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
         return TRUE;
     }
 
-    if (gMain.unk48 & 0x40)
+    if (gMain.newKeys & 0x40)
     {
         tmp = 0;
     }
-    else if (gMain.unk48 & 0x80)
+    else if (gMain.newKeys & 0x80)
     {
         tmp = 1;
     }
-    else if (gMain.unk48 & 0x20)
+    else if (gMain.newKeys & 0x20)
     {
         tmp = 2;
     }
-    else if (gMain.unk48 & 0x10)
+    else if (gMain.newKeys & 0x10)
     {
         tmp = 3;
     }
@@ -999,7 +999,7 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
     }
     else
     {
-        if (gMain.unk48 & 0x400)
+        if (gMain.newKeys & 0x400)
         {
             FUN_0201BD7C(*unk1);
             *varPtr = 1;
@@ -1022,24 +1022,24 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
     u16 *unk = GetVarPointer(ctx->unk80, (u16)ctx->data[0]);
 
     u32 tmp = 0xFFFF;
-    if (gMain.unk48 & 0x3)
+    if (gMain.newKeys & 0x3)
     {
         *unk = 0;
         return TRUE;
     }
-    else if (gMain.unk48 & 0x40)
+    else if (gMain.newKeys & 0x40)
     {
         tmp = 0;
     }
-    else if (gMain.unk48 & 0x80)
+    else if (gMain.newKeys & 0x80)
     {
         tmp = 1;
     }
-    else if (gMain.unk48 & 0x20)
+    else if (gMain.newKeys & 0x20)
     {
         tmp = 2;
     }
-    else if (gMain.unk48 & 0x10)
+    else if (gMain.newKeys & 0x10)
     {
         tmp = 3;
     }
@@ -1052,7 +1052,7 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
     }
     else
     {
-        if (gMain.unk48 & 0x400)
+        if (gMain.newKeys & 0x400)
         {
             *unk = 1;
             return TRUE;

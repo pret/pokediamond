@@ -2716,7 +2716,7 @@ FUN_02017F18: ; 0x02017F18
 	bl FUN_02017E84
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_02017F48
@@ -4256,8 +4256,8 @@ _02018A54: .word 0x0400100A
 _02018A58: .word 0x0400100C
 _02018A5C: .word 0x0400100E
 
-	thumb_func_start FUN_02018A60
-FUN_02018A60: ; 0x02018A60
+	thumb_func_start BlitBitmapRect4Bit
+BlitBitmapRect4Bit: ; 0x02018A60
 	push {r3-r7, lr}
 	sub sp, #0x68
 	str r2, [sp, #0x8]
@@ -4560,8 +4560,8 @@ _02018C92:
 _02018C98: .word 0x0000FFFF
 _02018C9C: .word 0x00003FE0
 
-	thumb_func_start FUN_02018CA0
-FUN_02018CA0: ; 0x02018CA0
+	thumb_func_start BlitBitmapRect8Bit
+BlitBitmapRect8Bit: ; 0x02018CA0
 	push {r3-r7, lr}
 	sub sp, #0x50
 	str r2, [sp, #0x8]
@@ -5022,8 +5022,8 @@ _02018FEA:
 	nop
 _02018FF0: .word 0x00007FC0
 
-	thumb_func_start FUN_02018FF4
-FUN_02018FF4: ; 0x02018FF4
+	thumb_func_start AllocWindows
+AllocWindows: ; 0x02018FF4
 	push {r4-r6, lr}
 	add r5, r1, #0x0
 	lsl r1, r5, #0x4
@@ -5035,7 +5035,7 @@ FUN_02018FF4: ; 0x02018FF4
 _02019006:
 	lsl r0, r4, #0x4
 	add r0, r6, r0
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r4, #0x1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -5045,8 +5045,8 @@ _02019018:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0201901C
-FUN_0201901C: ; 0x0201901C
+	thumb_func_start InitWindow
+InitWindow: ; 0x0201901C
 	mov r3, #0x0
 	str r3, [r0, #0x0]
 	mov r1, #0xff
@@ -5886,8 +5886,8 @@ FUN_0201960C: ; 0x0201960C
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02019620
-FUN_02019620: ; 0x02019620
+	thumb_func_start FillWindowPixelBuffer
+FillWindowPixelBuffer: ; 0x02019620
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldrb r2, [r4, #0x4]
@@ -5917,8 +5917,8 @@ _0201963C:
 	bl MIi_CpuClearFast
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02019658
-FUN_02019658: ; 0x02019658
+	thumb_func_start BlitBitmapRectToWindow
+BlitBitmapRectToWindow: ; 0x02019658
 	push {r4-r5, lr}
 	sub sp, #0x1c
 	add r4, sp, #0x18
@@ -5936,13 +5936,13 @@ FUN_02019658: ; 0x02019658
 	str r4, [sp, #0x14]
 	mov r4, #0x0
 	str r4, [sp, #0x18]
-	bl FUN_02019684
+	bl BlitBitmapRect
 	add sp, #0x1c
 	pop {r4-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02019684
-FUN_02019684: ; 0x02019684
+	thumb_func_start BlitBitmapRect
+BlitBitmapRect: ; 0x02019684
 	push {r4-r5, lr}
 	sub sp, #0x24
 	str r1, [sp, #0x1c]
@@ -5980,7 +5980,7 @@ FUN_02019684: ; 0x02019684
 	ldrh r0, [r4, #0x28]
 	str r0, [sp, #0x10]
 	add r0, sp, #0x1c
-	bl FUN_02018A60
+	bl BlitBitmapRect4Bit
 	add sp, #0x24
 	pop {r4-r5, pc}
 _020196D6:
@@ -5994,13 +5994,13 @@ _020196D6:
 	ldrh r0, [r4, #0x28]
 	str r0, [sp, #0x10]
 	add r0, sp, #0x1c
-	bl FUN_02018CA0
+	bl BlitBitmapRect8Bit
 	add sp, #0x24
 	pop {r4-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020196F4
-FUN_020196F4: ; 0x020196F4
+	thumb_func_start FillWindowPixelRect
+FillWindowPixelRect: ; 0x020196F4
 	push {r3-r5, lr}
 	sub sp, #0x10
 	add r5, r1, #0x0
@@ -8422,8 +8422,8 @@ FUN_0201A8BC: ; 0x0201A8BC
 	nop
 _0201A8C4: .word 0x00007FC0
 
-	thumb_func_start FUN_0201A8C8
-FUN_0201A8C8: ; 0x0201A8C8
+	thumb_func_start ScrollWindow
+ScrollWindow: ; 0x0201A8C8
 	push {r4-r6, lr}
 	ldrb r6, [r0, #0x4]
 	mov r5, #0x2c
@@ -8752,13 +8752,13 @@ FUN_0201AB08: ; 0x0201AB08
 	ldrb r0, [r0, #0x4]
 	bx lr
 
-	thumb_func_start FUN_0201AB0C
-FUN_0201AB0C: ; 0x0201AB0C
+	thumb_func_start GetWindowWidth
+GetWindowWidth: ; 0x0201AB0C
 	ldrb r0, [r0, #0x7]
 	bx lr
 
-	thumb_func_start FUN_0201AB10
-FUN_0201AB10: ; 0x0201AB10
+	thumb_func_start GetWindowHeight
+GetWindowHeight: ; 0x0201AB10
 	ldrb r0, [r0, #0x8]
 	bx lr
 

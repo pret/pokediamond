@@ -138,7 +138,7 @@ FUN_02034188: ; 0x02034188
 	add r0, sp, #0x14
 	mov r1, #0xf
 	add r3, r2, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r2, _0203438C ; =0x000001F7
 	add r0, sp, #0x14
 	mov r1, #0x0

@@ -12,14 +12,6 @@ UNK_020ECAC8: ; 0x020ECAC8
 
 	.text
 
-	thumb_func_start FUN_02001B80
-FUN_02001B80: ; 0x02001B80
-	ldr r3, _02001B88 ; =CopyWindowToVram
-	ldr r0, [r0, #0xc]
-	bx r3
-	nop
-_02001B88: .word CopyWindowToVram
-
 	thumb_func_start FUN_02001B8C
 FUN_02001B8C: ; 0x02001B8C
 	push {r3-r7, lr}
@@ -41,7 +33,7 @@ FUN_02001B8C: ; 0x02001B8C
 	ldr r0, [r3, #0x0]
 	str r0, [r2, #0x0]
 	ldr r0, [sp, #0x4]
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	str r0, [r4, #0xc]
 	ldr r0, [sp, #0x24]
 	str r0, [r4, #0x10]
@@ -57,20 +49,20 @@ FUN_02001B8C: ; 0x02001B8C
 	strb r6, [r4, #0x17]
 	strb r7, [r4, #0x18]
 	ldrb r0, [r5, #0x8]
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r6, r0, #0x0
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x2
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r0, r6, r0
 	strb r0, [r4, #0x19]
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x1
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r6, r0, #0x0
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x3
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r0, r6, r0
 	strb r0, [r4, #0x1a]
 	add r0, r4, #0x0
@@ -108,7 +100,7 @@ FUN_02001C34: ; 0x02001C34
 	add r6, r1, #0x0
 	add r4, r2, #0x0
 	mov r1, #0x0
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0x0
 	str r4, [sp, #0x0]
 	mov r0, #0x2
@@ -130,10 +122,10 @@ FUN_02001C5C: ; 0x02001C5C
 	strb r0, [r1, #0x0]
 _02001C68:
 	ldr r0, [r4, #0xc]
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 	ldrb r0, [r4, #0x1c]
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 
 	thumb_func_start FUN_02001C78
@@ -420,7 +412,7 @@ FUN_02001E64: ; 0x02001E64
 _02001E7C:
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x6
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, sp, #0x8
 	add r7, r0, #0x0
 	add r0, r5, #0x0
@@ -437,7 +429,7 @@ _02001E7C:
 	ldrb r2, [r3, #0x1]
 	ldrb r3, [r3, #0x0]
 	ldr r0, [r5, #0x4]
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, r5, #0x0
 	bl FUN_02002080
 	add r0, r6, #0x0
@@ -631,10 +623,10 @@ FUN_02001FF4: ; 0x02001FF4
 	add r5, r0, #0x0
 	ldrb r0, [r5, #0x8]
 	mov r1, #0x6
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x4]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldrb r0, [r5, #0x19]
 	ldrb r1, [r5, #0x16]
 	ldrb r7, [r5, #0x17]
@@ -718,7 +710,7 @@ FUN_02002080: ; 0x02002080
 	ldrb r3, [r3, #0x0]
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x4]
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 _020020AA:
 	add sp, #0x4
 	pop {r3-r4, pc}
@@ -772,24 +764,24 @@ CreateYesNoMenu: ; 0x020020EC
 	add r4, r0, #0x0
 	mov r0, #0x2
 	add r1, r5, #0x0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	add r1, r4, #0x0
 	mov r2, #0x29
 	mov r3, #0x0
 	add r6, r0, #0x0
-	bl ListMenu_ItemFromMsgData ; YES
+	bl ListMenuItems_AppendFromMsgData ; YES
 	mov r3, #0x2a
 	add r2, r3, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	sub r3, #0x2c
-	bl ListMenu_ItemFromMsgData ; NO
+	bl ListMenuItems_AppendFromMsgData ; NO
 	add r0, r4, #0x0
 	bl DestroyMsgData
 	add r0, r5, #0x0
 	mov r1, #0x1
 	str r6, [sp, #0x14]
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r1, r0, #0x0
 	str r1, [sp, #0x18]
 	mov r0, #0x0
@@ -894,9 +886,9 @@ FUN_020021EC: ; 0x020021EC
 	bl FUN_02019178
 	ldr r1, [r5, #0x4]
 	add r0, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [r5, #0x0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl FUN_02001C5C
@@ -921,7 +913,7 @@ FUN_02002218: ; 0x02002218
 	mov r2, #0x0
 	str r3, [sp, #0x14]
 	add r3, r2, #0x0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add sp, #0x18
 	pop {r4, pc}
 	nop

@@ -793,7 +793,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x14
 	bl FUN_02019548
@@ -2608,7 +2608,7 @@ _0222EAEA:
 _0222EB16:
 	ldr r0, [r4, #0x10]
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x10]
 	bl FUN_02019548
 	ldr r0, [r4, #0x28]
