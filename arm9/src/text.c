@@ -348,7 +348,7 @@ THUMB_FUNC void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2
     {
         printer->Unk2C = FUN_0201C1B0();
     }
-    u16 * r6 = printer->Unk2C + param3 * 6 * 32;
+    u16 * r6 = printer->Unk2C + param3 * 24 * 8;
     u16 r2 = (GetWindowWidth(window) - 3) * 8;
     BlitBitmapRectToWindow(window, r6, 0, 0, 24, 32, r2, 0, 24, 32);
 }
