@@ -95,12 +95,12 @@ THUMB_FUNC void FUN_0201BD7C(u32 param0)
     FUN_0201BCFC(param0);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
     printerTemplate.window = window;
-    printerTemplate.currentChar = str;
+    printerTemplate.currentChar.wrapped = str;
     printerTemplate.fontId = fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
@@ -118,12 +118,12 @@ THUMB_FUNC u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, co
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
     printerTemplate.window = window;
-    printerTemplate.currentChar = str;
+    printerTemplate.currentChar.wrapped = str;
     printerTemplate.fontId = fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
@@ -141,12 +141,12 @@ THUMB_FUNC u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, c
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
     printerTemplate.window = window;
-    printerTemplate.currentChar = str;
+    printerTemplate.currentChar.wrapped = str;
     printerTemplate.fontId = (u8)fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
@@ -184,13 +184,13 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
     }
 
     printer->printerTemplate = *printerTemplate;
-    printer->printerTemplate.currentChar = String_c_str((struct String *)printer->printerTemplate.currentChar); //TODO clean up
+    printer->printerTemplate.currentChar.raw = String_c_str(printer->printerTemplate.currentChar.wrapped);
     printer->callback = callback;
     UNK_021C570C = 0;
     FUN_0201C1A8(printer);
     if (speed != 0xff && speed != 0)
     {
-        printer->textSpeedBottom += 0xff;
+        printer->textSpeedBottom--;
         printer->textSpeedTop = 1;
         printer->minLetterSpacing = FUN_0201BCC8(RunTextPrinter, printer, 1);
         return printer->minLetterSpacing;

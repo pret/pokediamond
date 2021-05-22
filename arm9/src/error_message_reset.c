@@ -102,7 +102,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
 
         ReadMsgDataIntoString(msg_data, 3, str);
 
-        AddTextPrinterParameterized(&buf, 0, (const u16 *)str, 0, 0, 0, NULL); // wtf
+        AddTextPrinterParameterized(&buf, 0, str, 0, 0, 0, NULL);
 
         String_dtor(str);
         GX_BothDispOn();

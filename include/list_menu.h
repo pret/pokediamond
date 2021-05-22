@@ -2,6 +2,7 @@
 #define POKEDIAMOND_LIST_MENU_H
 
 #include "list_menu_cursor.h"
+#include "list_menu_items.h"
 
 #define LIST_HEADER          -3
 #define LIST_CANCEL          -2
@@ -12,12 +13,6 @@
 #define LIST_MULTIPLE_SCROLL_L_R   2
 
 struct ListMenu;
-
-struct ListMenuItem
-{
-    const u16 * text;
-    s32 index;
-};
 
 // TODO: Document remaining fields.
 // A lot of these are named based on similar fields in gen 3.
