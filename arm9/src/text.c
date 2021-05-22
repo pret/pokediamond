@@ -214,7 +214,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
         }
         if (speed != 0xff)
         {
-            CopyWindowToVram(printer->printerTemplate.window); // CopyWindowToVram?
+            CopyWindowToVram(printer->printerTemplate.window);
         }
         FUN_0201C238(printer);
         FreeToHeap((void *)printer);
