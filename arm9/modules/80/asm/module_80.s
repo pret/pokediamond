@@ -2951,7 +2951,7 @@ MOD80_0222EC98: ; 0x0222EC98
 	ldr r0, _0222ED88 ; =0x00000EB8
 	mov r1, #0
 	add r0, r7, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #2
 	str r0, [sp]
 	mov r3, #0
@@ -2992,7 +2992,7 @@ _0222ECF2:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x14]
 	add r6, #0x1e
 	add r0, r0, #1
@@ -3019,7 +3019,7 @@ _0222ECF2:
 	ldr r0, _0222ED94 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r7, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -3039,7 +3039,7 @@ _0222ECF2:
 	ldr r0, _0222ED98 ; =0x00000FB8
 	mov r1, #0xf
 	add r0, r7, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3678,7 +3678,7 @@ MOD80_0222F250: ; 0x0222F250
 	ldr r0, _0222F2A0 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0222F2A0 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
@@ -3720,7 +3720,7 @@ MOD80_0222F2A8: ; 0x0222F2A8
 	ldr r0, _0222F2F8 ; =0x00000FB8
 	mov r1, #0xf
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0222F2F8 ; =0x00000FB8
 	mov r1, #0
 	add r0, r5, r0
@@ -3761,7 +3761,7 @@ MOD80_0222F300: ; 0x0222F300
 	add r6, r0, #0
 	add r0, r5, #0
 	lsr r1, r1, #0x18
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -4250,7 +4250,7 @@ MOD80_0222F6EC: ; 0x0222F6EC
 	ldr r0, [sp, #0x14]
 	add r0, r0, r1
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xf
 	str r0, [sp]
 	mov r0, #0xa
@@ -4303,7 +4303,7 @@ _0222F754:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	add r7, r7, #1
@@ -4573,7 +4573,7 @@ MOD80_0222F96C: ; 0x0222F96C
 	bic r3, r1
 	mov r1, #0x3e
 	strb r3, [r2, #0xb]
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, _0222F9FC ; =0x00000FC8
 	mov r2, #0x36
 	str r0, [r4, r1]
@@ -4581,14 +4581,14 @@ MOD80_0222F96C: ; 0x0222F96C
 	ldr r1, _0222FA00 ; =0x00000B34
 	mov r3, #1
 	ldr r1, [r4, r1]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _0222F9FC ; =0x00000FC8
 	ldr r1, _0222FA00 ; =0x00000B34
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	mov r2, #0x37
 	mov r3, #2
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _0222F9FC ; =0x00000FC8
 	mov r2, #0x1f
 	ldr r1, [r4, r0]
@@ -4647,7 +4647,7 @@ _0222FA26:
 	bl FUN_02001C5C
 	ldr r0, _0222FADC ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _0222FAE0 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -4702,7 +4702,7 @@ _0222FAA4:
 	bl FUN_02001C5C
 	ldr r0, _0222FADC ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _0222FAE0 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -4805,7 +4805,7 @@ MOD80_0222FB3C: ; 0x0222FB3C
 	ldr r0, _0222FBB8 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0222FBB8 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
@@ -4912,7 +4912,7 @@ MOD80_0222FBC0: ; 0x0222FBC0
 _0222FC64:
 	add r0, r5, #0
 	add r1, r7, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #5
@@ -5506,7 +5506,7 @@ MOD80_02230128: ; 0x02230128
 	ldr r0, [sp, #0x14]
 	add r0, r0, r1
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xf
 	str r0, [sp]
 	mov r0, #0xa
@@ -5559,7 +5559,7 @@ _02230190:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	add r7, r7, #1
@@ -5983,7 +5983,7 @@ MOD80_022304F8: ; 0x022304F8
 	ldr r0, _02230548 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _02230548 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
@@ -6061,7 +6061,7 @@ MOD80_022305A8: ; 0x022305A8
 	add r5, r0, #0
 	add r7, r2, #0
 	add r4, r3, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #3
 	str r0, [sp]
 	ldr r0, _02230610 ; =0x000F0200
@@ -6113,7 +6113,7 @@ MOD80_02230614: ; 0x02230614
 	mov r1, #0
 	add r6, r0, #0
 	add r4, r2, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r5, #0
 	beq _0223063A
 	mov r2, #0
@@ -6516,7 +6516,7 @@ MOD80_02230944: ; 0x02230944
 	ldr r0, [sp, #0x14]
 	add r0, r0, r1
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #0
 	mov r3, #0xb5
 	ldr r0, _02230A70 ; =0x000F0D00
@@ -6551,7 +6551,7 @@ MOD80_02230944: ; 0x02230944
 	ldr r0, [sp, #0x14]
 	add r0, r0, r1
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, _02230A78 ; =0x00000F08
 	ldr r0, [sp, #0x14]
 	ldr r4, _02230A7C ; =0x0223719C
@@ -6582,7 +6582,7 @@ _022309D2:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r7, r7, #1
 	add r6, #0x16
 	add r4, r4, #4
@@ -6624,7 +6624,7 @@ _02230A20:
 	ldr r0, [sp, #0x18]
 	mov r1, #0
 	add r0, r0, r7
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r5, r5, #1
 	add r6, #0x10
 	add r4, r4, #4
@@ -7524,7 +7524,7 @@ MOD80_0223113C: ; 0x0223113C
 	ldr r0, _022311BC ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #5
 	str r0, [sp]
 	mov r0, #0xa
@@ -7543,7 +7543,7 @@ MOD80_0223113C: ; 0x0223113C
 	ldr r0, _022311C4 ; =0x00000EE8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #3
 	add sp, #0x14
 	pop {r3, r4, pc}
@@ -7626,10 +7626,10 @@ _02231240:
 	add r1, r2, #6
 	ldr r0, [r4, r0]
 	add r2, r2, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _022312B8 ; =0x00000FC8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _022312BC ; =0x000005DC
 	bl FUN_020054C8
 	mov r0, #6
@@ -7643,10 +7643,10 @@ _02231266:
 	add r1, r2, #6
 	ldr r0, [r4, r0]
 	add r2, r2, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _022312B8 ; =0x00000FC8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _022312C0 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
@@ -7747,10 +7747,10 @@ _02231342:
 	ldr r0, [r4, r0]
 	add r1, #0xa
 	add r2, #8
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231468 ; =0x00000FC8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _0223146C ; =0x00000EE8
 	mov r1, #0
 	add r0, r4, r0
@@ -7780,10 +7780,10 @@ _0223138C:
 	ldr r0, [r4, r0]
 	add r1, #0xa
 	add r2, #8
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231468 ; =0x00000FC8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02231474 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
@@ -7807,7 +7807,7 @@ _0223138C:
 	ldr r0, _0223147C ; =0x00000F18
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, _02231480 ; =0x00010200
@@ -7847,7 +7847,7 @@ _0223138C:
 	ldr r0, _02231488 ; =0x00000F38
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -7913,7 +7913,7 @@ MOD80_02231490: ; 0x02231490
 	ldr r0, _022314E8 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #3
 	add sp, #0x14
 	pop {r3, r4, pc}
@@ -7980,10 +7980,10 @@ _0223154A:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _022315F4 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _022315F8 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -8005,10 +8005,10 @@ _0223158E:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _022315F4 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _022315F8 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -8025,7 +8025,7 @@ _0223158E:
 	mov r1, #0
 	add r0, r5, r0
 	str r1, [r5, #0x2c]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -8089,7 +8089,7 @@ MOD80_02231614: ; 0x02231614
 	ldr r0, _0223166C ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #3
 	add sp, #0x14
 	pop {r3, r4, pc}
@@ -8153,10 +8153,10 @@ _022316D0:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231770 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02231774 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -8178,10 +8178,10 @@ _0223170C:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02231770 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02231774 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -8199,7 +8199,7 @@ _0223170C:
 	mov r1, #0
 	add r0, r5, r0
 	str r1, [r5, #0x2c]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, _02231788 ; =0x00010200
@@ -8377,7 +8377,7 @@ MOD80_0223187C: ; 0x0223187C
 	ldr r0, _022318CC ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _022318CC ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
@@ -9121,7 +9121,7 @@ MOD80_02231EA8: ; 0x02231EA8
 	ldr r0, _02231FDC ; =0x00000EB8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #0
 	mov r1, #0xb5
 	ldr r0, _02231FE0 ; =0x000F0E00
@@ -9150,7 +9150,7 @@ MOD80_02231EA8: ; 0x02231EA8
 	ldr r0, _02231FE4 ; =0x00000EC8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _02231FE4 ; =0x00000EC8
 	add r0, r4, r0
 	bl CopyWindowToVram
@@ -9172,7 +9172,7 @@ MOD80_02231EA8: ; 0x02231EA8
 	ldr r0, _02231FE8 ; =0x00000E98
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -9192,7 +9192,7 @@ MOD80_02231EA8: ; 0x02231EA8
 	ldr r0, _02231FF0 ; =0x00000FB8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x15
 	str r0, [sp]
 	mov r0, #6
@@ -9212,7 +9212,7 @@ MOD80_02231EA8: ; 0x02231EA8
 	ldr r0, _02231FF8 ; =0x00000EE8
 	mov r1, #6
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #1
 	ldr r0, _02231FFC ; =0x00010306
 	str r3, [sp]
@@ -9823,7 +9823,7 @@ MOD80_02232470: ; 0x02232470
 	bic r3, r1
 	mov r1, #0x3e
 	strb r3, [r2, #0xb]
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, _02232510 ; =0x00000FC8
 	mov r2, #0x5e
 	str r0, [r4, r1]
@@ -9831,21 +9831,21 @@ MOD80_02232470: ; 0x02232470
 	ldr r1, _02232514 ; =0x00000B34
 	mov r3, #1
 	ldr r1, [r4, r1]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _02232510 ; =0x00000FC8
 	ldr r1, _02232514 ; =0x00000B34
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	mov r2, #0x5f
 	mov r3, #2
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _02232510 ; =0x00000FC8
 	ldr r1, _02232514 ; =0x00000B34
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	mov r2, #0x60
 	mov r3, #3
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _02232510 ; =0x00000FC8
 	mov r2, #0x1f
 	ldr r1, [r4, r0]
@@ -9912,7 +9912,7 @@ _02232546:
 	bl FUN_02001C5C
 	ldr r0, _02232660 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02232664 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -9932,7 +9932,7 @@ _02232574:
 	bl FUN_02001C5C
 	ldr r0, _02232660 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02232664 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -10016,7 +10016,7 @@ _0223262E:
 	bl FUN_02001C5C
 	ldr r0, _02232660 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02232664 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -10063,7 +10063,7 @@ MOD80_02232670: ; 0x02232670
 	bic r3, r1
 	mov r1, #0x3e
 	strb r3, [r2, #0xb]
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, _02232710 ; =0x00000FC8
 	mov r2, #0x54
 	str r0, [r4, r1]
@@ -10071,21 +10071,21 @@ MOD80_02232670: ; 0x02232670
 	ldr r1, _02232714 ; =0x00000B34
 	mov r3, #1
 	ldr r1, [r4, r1]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _02232710 ; =0x00000FC8
 	ldr r1, _02232714 ; =0x00000B34
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	mov r2, #0x55
 	mov r3, #2
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _02232710 ; =0x00000FC8
 	ldr r1, _02232714 ; =0x00000B34
 	ldr r0, [r4, r0]
 	ldr r1, [r4, r1]
 	mov r2, #0x56
 	mov r3, #3
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _02232710 ; =0x00000FC8
 	mov r2, #0x1f
 	ldr r1, [r4, r0]
@@ -10152,7 +10152,7 @@ _02232746:
 	bl FUN_02001C5C
 	ldr r0, _0223283C ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02232840 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -10172,7 +10172,7 @@ _02232774:
 	bl FUN_02001C5C
 	ldr r0, _0223283C ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02232840 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -10239,7 +10239,7 @@ _0223280A:
 	bl FUN_02001C5C
 	ldr r0, _0223283C ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02232840 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -10679,7 +10679,7 @@ _02232B62:
 	add r4, r5, r0
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #1
@@ -11146,7 +11146,7 @@ _02232F22:
 	ldr r0, _02232F9C ; =0x00000EC8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #1
 	str r0, [sp]
 	ldr r0, _02232FA0 ; =0x00010200
@@ -11657,7 +11657,7 @@ MOD80_022332EC: ; 0x022332EC
 	ldr r0, _02233350 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _02233350 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
@@ -11908,7 +11908,7 @@ MOD80_02233500: ; 0x02233500
 	ldr r0, _022335CC ; =0x00000EB8
 	mov r1, #0
 	add r0, r7, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #0
 	mov r1, #0xb5
 	ldr r0, _022335D0 ; =0x000F0E00
@@ -11938,7 +11938,7 @@ MOD80_02233500: ; 0x02233500
 	ldr r0, _022335D4 ; =0x00000E98
 	mov r1, #0
 	add r0, r7, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp, #0x14]
 	ldr r0, _022335D8 ; =0x00000F08
@@ -11968,7 +11968,7 @@ _0223357E:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	ldr r0, [sp, #0x14]
@@ -12158,7 +12158,7 @@ _02233714:
 	ldr r0, _02233778 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #5
 	str r0, [sp]
 	mov r0, #0xa
@@ -12177,7 +12177,7 @@ _02233714:
 	ldr r0, _02233780 ; =0x00000EE8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #3
 	str r0, [r4, #0x2c]
 	add sp, #0x14
@@ -12260,10 +12260,10 @@ _022337FA:
 	add r1, r2, #6
 	ldr r0, [r4, r0]
 	add r2, r2, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _0223387C ; =0x00000FC8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #5
 	str r0, [r4, #0x2c]
 	ldr r0, _02233880 ; =0x000005DC
@@ -12277,10 +12277,10 @@ _02233820:
 	add r1, r2, #6
 	ldr r0, [r4, r0]
 	add r2, r2, #4
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _0223387C ; =0x00000FC8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02233884 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
@@ -12415,10 +12415,10 @@ _02233932:
 	ldr r0, [r4, r0]
 	add r1, #0xa
 	add r2, #8
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233A50 ; =0x00000FC8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02233A54 ; =0x00000EE8
 	mov r1, #0
 	add r0, r4, r0
@@ -12454,10 +12454,10 @@ _0223398C:
 	ldr r0, [r4, r0]
 	add r1, #0xa
 	add r2, #8
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233A50 ; =0x00000FC8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02233A58 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
@@ -12577,7 +12577,7 @@ MOD80_02233A6C: ; 0x02233A6C
 	ldr r0, _02233AC4 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #3
 	add sp, #0x14
 	pop {r3, r4, pc}
@@ -12644,10 +12644,10 @@ _02233B26:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233BD0 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02233BD4 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -12669,10 +12669,10 @@ _02233B6A:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233BD0 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02233BD4 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -12752,7 +12752,7 @@ MOD80_02233BE8: ; 0x02233BE8
 	ldr r0, _02233C40 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #3
 	add sp, #0x14
 	pop {r3, r4, pc}
@@ -12816,10 +12816,10 @@ _02233CA4:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233D70 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02233D74 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -12856,10 +12856,10 @@ _02233CFA:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _02233D70 ; =0x00000FC8
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, _02233D74 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
@@ -13235,7 +13235,7 @@ MOD80_02233FB4: ; 0x02233FB4
 _02233FE0:
 	add r0, r5, #0
 	add r1, r7, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #3
@@ -13307,7 +13307,7 @@ MOD80_02234048: ; 0x02234048
 _02234074:
 	add r0, r5, #0
 	add r1, r7, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #3
@@ -13416,7 +13416,7 @@ _0223415A:
 _0223415E:
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #3
@@ -13680,7 +13680,7 @@ MOD80_02234370: ; 0x02234370
 	mov r1, #0x3e
 	str r2, [sp]
 	add r6, r3, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5]
 	mov r4, #0
 _02234388:
@@ -13689,7 +13689,7 @@ _02234388:
 	add r1, r6, #0
 	add r2, #0x68
 	add r3, r4, #1
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	cmp r4, #9
 	blt _02234388
@@ -13718,7 +13718,7 @@ _02234388:
 	ldrh r1, [r2, #6]
 	ldrh r2, [r2, #4]
 	mov r3, #0x3e
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -13791,7 +13791,7 @@ _0223444A:
 _02234456:
 	add r0, r6, #1
 	mov r1, #0x3e
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, [sp]
 	str r0, [r1]
 	mov r0, #0
@@ -13816,7 +13816,7 @@ _02234472:
 	ldr r1, [sp, #4]
 	ldr r0, [r0]
 	add r3, r2, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _022344B6
 _02234494:
 	ldrh r1, [r5]
@@ -13833,7 +13833,7 @@ _02234494:
 	ldr r1, [sp, #4]
 	ldr r0, [r0]
 	add r3, r2, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 _022344B6:
 	ldr r0, [sp, #0x10]
 	add r5, r5, #2
@@ -13848,7 +13848,7 @@ _022344C2:
 	ldr r0, [r0]
 	ldr r1, [sp, #8]
 	sub r3, #0x77
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r6, #1
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
@@ -13867,7 +13867,7 @@ MOD80_022344DC: ; 0x022344DC
 	mov r1, #0xf
 	str r2, [sp, #0x10]
 	str r3, [sp, #0x14]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldrh r1, [r5, #6]
 	ldrh r0, [r5, #4]
 	ldr r2, [sp, #0x14]
@@ -13912,7 +13912,7 @@ MOD80_022344DC: ; 0x022344DC
 	ldrh r2, [r3, r2]
 	add r0, sp, #0x18
 	mov r3, #0x3e
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x38
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -13929,7 +13929,7 @@ MOD80_02234560: ; 0x02234560
 	mov r0, #4
 	mov r1, #0x3e
 	add r7, r2, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r5, _022345C8 ; =0x02237B64
 	str r0, [r6]
 	mov r4, #0
@@ -13938,7 +13938,7 @@ _02234578:
 	ldr r2, [r5]
 	ldr r3, [r5, #4]
 	add r1, r7, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	add r5, #8
 	cmp r4, #4
@@ -13968,7 +13968,7 @@ _02234578:
 	add r0, sp, #4
 	add r2, r1, #0
 	mov r3, #0x3e
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -13985,7 +13985,7 @@ MOD80_022345D0: ; 0x022345D0
 	mov r0, #0xd
 	mov r1, #0x3e
 	add r7, r2, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r5, _02234638 ; =0x02237494
 	str r0, [r6]
 	mov r4, #0
@@ -13994,7 +13994,7 @@ _022345E8:
 	ldr r2, [r5]
 	add r1, r7, #0
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	add r5, #8
 	cmp r4, #0xd
@@ -14024,7 +14024,7 @@ _022345E8:
 	add r0, sp, #4
 	add r2, r1, #0
 	mov r3, #0x3e
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -14089,11 +14089,11 @@ MOD80_02234698: ; 0x02234698
 	sub sp, #4
 	add r5, r0, #0
 	add r4, r1, #0
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, sp, #0
 	ldrh r1, [r4]
 	ldrh r0, [r0]
@@ -14449,7 +14449,7 @@ MOD80_02234958: ; 0x02234958
 	ldr r0, _02234990 ; =0x00000E98
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add sp, #0x14
 	pop {r3, r4, pc}
 	nop
@@ -18128,7 +18128,7 @@ MOD80_02236580: ; 0x02236580
 	ldr r0, _02236628 ; =0x00000EC8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x18
@@ -18149,7 +18149,7 @@ MOD80_02236580: ; 0x02236580
 	ldr r0, _0223662C ; =0x00000EB8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #1
 	mov r1, #0xb5
 	ldr r0, _02236630 ; =0x000F0E00
@@ -18180,7 +18180,7 @@ MOD80_02236580: ; 0x02236580
 	ldr r0, _02236634 ; =0x00000E98
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add sp, #0x14
 	pop {r3, r4, pc}
 	nop
@@ -19051,7 +19051,7 @@ MOD80_02236C70: ; 0x02236C70
 	ldr r0, _02236CD8 ; =0x00000E98
 	mov r1, #0xf
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _02236CD8 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
@@ -19206,7 +19206,7 @@ MOD80_02236D8C: ; 0x02236D8C
 	ldr r0, _02236DFC ; =0x00000EC8
 	mov r1, #0xf
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _02236DFC ; =0x00000EC8
 	mov r1, #1
 	add r0, r5, r0

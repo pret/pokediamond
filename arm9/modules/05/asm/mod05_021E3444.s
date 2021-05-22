@@ -1989,7 +1989,7 @@ _021E4370:
 	ldrb r1, [r1, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _021E4390:
 	add sp, #8
 	pop {r3, r4, r5, pc}

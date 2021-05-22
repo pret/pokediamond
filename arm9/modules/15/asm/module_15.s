@@ -4345,7 +4345,7 @@ MOD15_021D95E8: ; 0x021D95E8
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x48]
 	mov r0, #0x23
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	str r0, [r4, #0x50]
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -4359,7 +4359,7 @@ MOD15_021D9634: ; 0x021D9634
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _021D9642
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 _021D9642:
 	ldr r0, [r4, #0x3c]
 	cmp r0, #0
@@ -4749,7 +4749,7 @@ MOD15_021D9964: ; 0x021D9964
 	add r0, r4, #0
 	add r0, #0xc
 	mov r1, #0xd
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #4]
 	bl MOD15_021D86E4
 	cmp r0, #0
@@ -5135,7 +5135,7 @@ MOD15_021D9C30: ; 0x021D9C30
 	ldrh r3, [r3, #2]
 	add r0, r4, #0
 	mov r1, #0xe
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #0xc
 	pop {r3, r4, pc}
 
@@ -5194,7 +5194,7 @@ MOD15_021D9CB4: ; 0x021D9CB4
 	add r5, r1, #0
 	add r0, #0x1c
 	mov r1, #9
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r5, #3
 	bhi _021D9DB0
 	add r0, r5, r5
@@ -5462,7 +5462,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	add r4, r1, #0
 	add r0, #0x2c
 	mov r1, #9
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #0x48]
 	ldr r2, [r5, #0x4c]
 	mov r1, #9
@@ -5509,7 +5509,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	add r1, #0x2c
 	mov r2, #0
 	lsl r3, r4, #4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	add r5, #0x2c
 	add r0, r5, #0
 	bl CopyWindowToVram
@@ -5533,13 +5533,13 @@ MOD15_021D9F58: ; 0x021D9F58
 	add r0, #0x2c
 	mov r1, #9
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, [r5, #0x50]
 	add r5, #0x2c
 	add r1, r5, #0
 	mov r2, #0
 	lsl r3, r4, #4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -5650,7 +5650,7 @@ MOD15_021DA044: ; 0x021DA044
 	bl FUN_02019270
 	add r0, sp, #0x10
 	mov r1, #0xe
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, _021DA0B0 ; =0x00000183
 	mov r0, #0x1a
 	add r2, r4, #0
@@ -6021,7 +6021,7 @@ _021DA31A:
 	bl FUN_02019064
 	add r0, sp, #0x28
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	add r1, r5, #0
 	add r2, r0, #0
@@ -6102,7 +6102,7 @@ _021DA3CC:
 	add r4, r0, #0
 	add r0, sp, #0x20
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	bl MOD15_021DB770
 	add r7, r0, #0
 	ldr r5, _021DA474 ; =0x00000000
@@ -6215,7 +6215,7 @@ _021DA4C2:
 	bl FUN_02019064
 	add r0, r6, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xff
@@ -6769,7 +6769,7 @@ MOD15_021DA8E8: ; 0x021DA8E8
 	add r0, r5, #0
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x10
 	bl FUN_02019270
@@ -6853,7 +6853,7 @@ MOD15_021DA9D4: ; 0x021DA9D4
 	add r6, r0, #0
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r6, #0
 	bl MOD15_021DAD78
 	ldr r0, [r6, #4]
@@ -7291,7 +7291,7 @@ _021DAD1A:
 	add r0, r5, #0
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #8
 	pop {r3, r4, r5, pc}
 _021DAD3E:
@@ -7308,7 +7308,7 @@ _021DAD3E:
 	add r0, #0x10
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0xd0
 	str r0, [sp]
@@ -7319,7 +7319,7 @@ _021DAD3E:
 	add r0, r5, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -7378,7 +7378,7 @@ _021DADD4:
 	add r0, r5, #0
 	add r0, #0x20
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -7416,7 +7416,7 @@ _021DADD4:
 	ldr r1, [r5, #0x2c]
 	add r0, #0x10
 	add r3, r2, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r1, #0x60
 	lsl r2, r7, #0x10
 	lsl r3, r6, #0x10
@@ -7436,7 +7436,7 @@ _021DADD4:
 	ldr r1, [r5, #0x2c]
 	add r0, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -7680,7 +7680,7 @@ MOD15_021DAFF8: ; 0x021DAFF8
 	cmp r0, #0
 	beq _021DB0D4
 	add r0, sp, #0x10
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [r5, #0xc]
 	add r1, sp, #0xc
 	str r0, [sp, #0x10]

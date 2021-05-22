@@ -212,7 +212,7 @@ _0205AF14:
 	bl FUN_0205AE50
 	mov r0, #0x4
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r5, #0x0
 	bl FUN_0200CAB4
 	pop {r3-r5, pc}

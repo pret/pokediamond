@@ -2409,12 +2409,12 @@ _021E72CC:
 
 	thumb_func_start MOD05_021E72DC
 MOD05_021E72DC: ; 0x021E72DC
-	ldr r3, _021E72E4 ; =FUN_02016A8C
+	ldr r3, _021E72E4 ; =FreeToHeapExplicit
 	add r1, r0, #0
 	mov r0, #4
 	bx r3
 	.balign 4, 0
-_021E72E4: .word FUN_02016A8C
+_021E72E4: .word FreeToHeapExplicit
 
 	thumb_func_start MOD05_021E72E8
 MOD05_021E72E8: ; 0x021E72E8

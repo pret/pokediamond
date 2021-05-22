@@ -156,5 +156,5 @@ THUMB_FUNC UnkStruct021E7358 *MOD05_021E74D4(u32 param0)
 
 THUMB_FUNC void MOD05_021E74F8(UnkStruct021E7358 *param0)
 {
-    FUN_02016A8C(4, param0);
+    FreeToHeapExplicit(4, param0);
 }

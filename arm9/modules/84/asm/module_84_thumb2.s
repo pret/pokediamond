@@ -559,7 +559,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	str r0, [r4, #0x30]
 	mov r0, #0x4b
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x24]
 	mov r3, #0
 	lsl r2, r5, #0x18
@@ -577,14 +577,14 @@ MOD84_021D84F8: ; 0x021D84F8
 	bl FUN_02019064
 	ldr r0, [r4, #0x24]
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x24]
 	bl FUN_02019270
 	ldr r0, [r4, #0x24]
 	bl CopyWindowToVram
 	mov r0, #0x4b
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x28]
 	mov r3, #0
 	lsl r2, r5, #0x18
@@ -712,7 +712,7 @@ _021D864C:
 	ble _021D86D0
 	ldr r0, [r5, #0x28]
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -750,7 +750,7 @@ _021D864C:
 	ldr r0, [r5, #0x24]
 	ldr r1, [r1, #0xc]
 	lsr r3, r3, #0x10
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 _021D86D0:
 	mov r1, #1
 	str r1, [r5, #0x18]
@@ -786,7 +786,7 @@ _021D86E0:
 	ldr r0, [r5, #0x24]
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	b _021D8754
 _021D8718:
 	add r1, r3, #0
@@ -803,7 +803,7 @@ _021D8718:
 	ldr r0, [r5, #0x24]
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #8
@@ -816,7 +816,7 @@ _021D8718:
 	ldr r0, [r5, #0x24]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _021D8754:
 	mov r0, #1
 	str r0, [r5, #0x18]
@@ -880,7 +880,7 @@ MOD84_021D87B0: ; 0x021D87B0
 	beq _021D87CE
 	ldr r0, [r5, #0x24]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r4, _021D8814 ; =0x0001020F
 	b _021D87D0
 _021D87CE:

@@ -1162,7 +1162,7 @@ MOD47_022550FC: ; 0x022550FC
 	add r4, r0, #0
 	add r0, #0x20
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #0
@@ -1225,7 +1225,7 @@ MOD47_02255184: ; 0x02255184
 	add r4, r0, #0
 	add r0, #0x20
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #1
@@ -1265,7 +1265,7 @@ MOD47_022551D8: ; 0x022551D8
 	add r4, r0, #0
 	add r0, #0x20
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #2
@@ -1322,7 +1322,7 @@ MOD47_02255250: ; 0x02255250
 	add r4, r0, #0
 	add r0, #0x20
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #2
@@ -1386,7 +1386,7 @@ MOD47_022552D8: ; 0x022552D8
 	add r7, r1, #0
 	add r0, #0x20
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #0x58]
 	ldr r2, [r5, #0x5c]
 	mov r1, #5

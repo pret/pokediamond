@@ -3490,7 +3490,7 @@ FUN_0203CBE8: ; 0x0203CBE8
 	mov r1, #0x1
 	bl FUN_02039438
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl FUN_02039438

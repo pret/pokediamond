@@ -54,24 +54,23 @@ THUMB_FUNC void FUN_02054608(struct Window *param0, struct Options *options)
 
 THUMB_FUNC void FUN_0205464C(struct Window *param0)
 {
-    FUN_02019620(param0, 15);
+    FillWindowPixelBuffer(param0, 15);
 }
 
-THUMB_FUNC u16 FUN_02054658(u8 windowId, const u16 *str, struct Options *options, u8 param3)
+THUMB_FUNC u16 FUN_02054658(struct Window * window, const u16 *str, struct Options *options, u8 param3)
 {
     FUN_02002B60(param3);
     FUN_02002B7C(0);
     FUN_02002BB8(0);
-    return AddTextPrinterParameterized(
-        windowId, 1, str, 0, 0, (u32)Options_GetTextFrameDelay(options), NULL);
+    return AddTextPrinterParameterized(window, 1, str, 0, 0, (u32)Options_GetTextFrameDelay(options), NULL);
 }
 
-THUMB_FUNC u16 DrawFieldMessage(u8 windowId, const u16 *str, u8 fontId, u32 speed, u8 a4, u32 a5)
+THUMB_FUNC u16 DrawFieldMessage(struct Window * window, const u16 *str, u8 fontId, u32 speed, u8 a4, u32 a5)
 {
     FUN_02002B60(a4);
     FUN_02002B7C(a5);
     FUN_02002BB8(0);
-    return AddTextPrinterParameterized(windowId, fontId, str, 0, 0, speed, NULL);
+    return AddTextPrinterParameterized(window, fontId, str, 0, 0, speed, NULL);
 }
 
 THUMB_FUNC u8 FUN_020546C8(u32 param0) // bool8?
@@ -107,6 +106,6 @@ THUMB_FUNC void FUN_020546E0(
 THUMB_FUNC void FUN_02054744(struct Window *param0, u32 param1, u32 param2)
 {
     FUN_0200D300(param0->unk00, FUN_0201AB08(param0), 0x399, 9, (u8)param1, param2, 4);
-    FUN_02019620(param0, 15);
+    FillWindowPixelBuffer(param0, 15);
     FUN_0200D6F8(param0, 0, 0x399, 9, (u8)param1);
 }

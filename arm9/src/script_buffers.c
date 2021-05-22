@@ -12,6 +12,7 @@
 #include "trainer_data.h"
 #include "script_buffers.h"
 #include "unk_02024E64.h"
+#include "text.h"
 
 #pragma thumb on
 
@@ -20,7 +21,7 @@ extern void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
 extern void StringCat_HandleTrainerName(struct String * dest, const struct String * src);
 extern void StrAddChar(struct String * str, u16 val);
 extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
-extern BOOL UncompressFromNarc(NarcId narcId, s32 memberNo, BOOL a2, u32 heap_id, BOOL a4);
+extern void * UncompressFromNarc(NarcId narcId, s32 memberNo, BOOL isCompressed, u32 heap_id, BOOL allocAtEnd);
 
 const u16 UNK_020ECE6C[][2] = {
     { 0x0140, 0x0008 },
@@ -803,22 +804,22 @@ void MessagePrinter_delete(struct UnkStruct_0200B870 * a0)
 
 void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window *a2, int a3, int a4)
 {
-    FUN_02019658(a2, a0->unk_4->unk_14 + UNK_020ECE6C[a1][0], 0, 0, UNK_020ECE6C[a1][1], 8, (u16)a3, (u16)a4, UNK_020ECE6C[a1][1], 8);
+    BlitBitmapRectToWindow(a2, a0->unk_4->unk_14 + UNK_020ECE6C[a1][0], 0, 0, UNK_020ECE6C[a1][1], 8, (u16)a3, (u16)a4, UNK_020ECE6C[a1][1], 8);
 }
 
-void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *sp30, int r5, int r7)
+void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y)
 {
     ConvertUIntToDecimalString(string->data, value, mode, n);
     for (int i = 0; string->data[i] != EOS; i++)
     {
-        if (string->data[i] >= 0x00A2 && string->data[i] <= 0x00AB)
+        if (string->data[i] >= CHAR_0 && string->data[i] <= CHAR_9)
         {
-            FUN_02019658(sp30, string->unk_4->unk_14 + (string->data[i] - 0x00A2) * 32, 0, 0, 8, 8, (u16)r5, (u16)r7, 8, 8);
+            BlitBitmapRectToWindow(window, string->unk_4->unk_14 + (string->data[i] - CHAR_0) * 32, 0, 0, 8, 8, (u16)x, (u16)y, 8, 8);
         }
         else
         {
-            FUN_020196F4(sp30, (u8)string->unk_28, (u16)r5, (u16)r7, 8, 8);
+            FillWindowPixelRect(window, (u8)string->unk_28, (u16)x, (u16)y, 8, 8);
         }
-        r5 += 8;
+        x += 8;
     }
 }

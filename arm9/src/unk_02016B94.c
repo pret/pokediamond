@@ -2726,7 +2726,7 @@ THUMB_FUNC void FUN_02017F18(u32 param0, u32 size, u32 offset, u32 heap_id)
     memset(ptr, 0, size);
 
     FUN_02017E84(param0, ptr, offset, size);
-    FUN_02016A8C(heap_id, ptr);
+    FreeToHeapExplicit(heap_id, ptr);
 }
 
 THUMB_FUNC void FUN_02017F48(
@@ -3704,7 +3704,7 @@ _02018A38:
 #endif
 
 #ifdef NONMATCHING
-THUMB_FUNC void FUN_02018A60(struct UnkStruct_02016B94_3 *param0,
+THUMB_FUNC void BlitBitmapRect4Bit(struct UnkStruct_02016B94_3 *param0,
     struct UnkStruct_02016B94_3 *param1,
     u16 param2,
     u16 param3,
@@ -3801,7 +3801,7 @@ THUMB_FUNC void FUN_02018A60(struct UnkStruct_02016B94_3 *param0,
     }
 }
 #else
-THUMB_FUNC asm void FUN_02018A60(struct UnkStruct_02016B94_3 *param0,
+THUMB_FUNC asm void BlitBitmapRect4Bit(struct UnkStruct_02016B94_3 *param0,
     struct UnkStruct_02016B94_3 *param1,
     u16 param2,
     u16 param3,
@@ -4115,7 +4115,7 @@ _02018C92:
 #endif
 
 #ifdef NONMATCHING
-THUMB_FUNC void FUN_02018CA0(struct UnkStruct_02016B94_3 *param0,
+THUMB_FUNC void BlitBitmapRect8Bit(struct UnkStruct_02016B94_3 *param0,
     struct UnkStruct_02016B94_3 *param1,
     u16 param2,
     u16 param3,
@@ -4128,7 +4128,7 @@ THUMB_FUNC void FUN_02018CA0(struct UnkStruct_02016B94_3 *param0,
     // horrible for loops like the one above
 }
 #else
-THUMB_FUNC asm void FUN_02018CA0(struct UnkStruct_02016B94_3 *param0,
+THUMB_FUNC asm void BlitBitmapRect8Bit(struct UnkStruct_02016B94_3 *param0,
     struct UnkStruct_02016B94_3 *param1,
     u16 param2,
     u16 param3,
@@ -4471,19 +4471,19 @@ THUMB_FUNC void FUN_02018F4C(
     }
 }
 
-THUMB_FUNC void *FUN_02018FF4(u32 heap_id, s32 size)
+THUMB_FUNC void *AllocWindows(u32 heap_id, s32 size)
 {
     struct Window *ptr = AllocFromHeap(heap_id, (u32)(size << 4));
 
     for (u16 i = 0; i < size; i++)
     {
-        FUN_0201901C(&ptr[i]);
+        InitWindow(&ptr[i]);
     }
 
     return ptr;
 }
 
-THUMB_FUNC void FUN_0201901C(struct Window *param0)
+THUMB_FUNC void InitWindow(struct Window *param0)
 {
     param0->unk00 = 0;
     param0->unk04 = 0xff;
@@ -4877,7 +4877,7 @@ THUMB_FUNC void FUN_0201960C(struct Window *window)
     FUN_0201AC68(window->unk00, window->unk04);
 }
 
-THUMB_FUNC void FUN_02019620(struct Window *window, u8 param1)
+THUMB_FUNC void FillWindowPixelBuffer(struct Window *window, u8 param1)
 {
     if (window->unk00->unk08[window->unk04].unk1f == 0x20)
     {
@@ -4889,21 +4889,21 @@ THUMB_FUNC void FUN_02019620(struct Window *window, u8 param1)
         (u32)(window->unk00->unk08[window->unk04].unk1f * window->unk07 * window->unk08));
 }
 
-THUMB_FUNC void FUN_02019658(struct Window *window,
-    void *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8,
-    u16 param9)
+THUMB_FUNC void BlitBitmapRectToWindow(struct Window *window,
+    const void *src,
+    u16 srcX,
+    u16 srcY,
+    u16 srcWidth,
+    u16 srcHeight,
+    u16 dstX,
+    u16 dstY,
+    u16 dstWidth,
+    u16 dstHeight)
 {
-    FUN_02019684(window, param1, param2, param3, param4, param5, param6, param7, param8, param9, 0);
+    BlitBitmapRect(window, src, srcX, srcY, srcWidth, srcHeight, dstX, dstY, dstWidth, dstHeight, 0);
 }
 
-THUMB_FUNC void FUN_02019684(struct Window *window,
+THUMB_FUNC void BlitBitmapRect(struct Window *window,
     void *param1,
     u16 param2,
     u16 param3,
@@ -4922,26 +4922,25 @@ THUMB_FUNC void FUN_02019684(struct Window *window,
 
     if (window->unk00->unk08[window->unk04].unk1e == 0)
     {
-        FUN_02018A60(&st1c, &st14, param2, param3, param6, param7, param8, param9, param10);
+        BlitBitmapRect4Bit(&st1c, &st14, param2, param3, param6, param7, param8, param9, param10);
     }
     else
     {
-        FUN_02018CA0(&st1c, &st14, param2, param3, param6, param7, param8, param9, param10);
+        BlitBitmapRect8Bit(&st1c, &st14, param2, param3, param6, param7, param8, param9, param10);
     }
 }
 
-THUMB_FUNC void FUN_020196F4(
-    struct Window *window, u8 param1, u16 param2, u16 param3, u16 param4, u16 param5)
+THUMB_FUNC void FillWindowPixelRect(struct Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height)
 {
     struct UnkStruct_02016B94_3 st8 = { window->unk0c, (u16)(window->unk07 << 3), (u16)(window->unk08 << 3) };
 
     if (window->unk00->unk08[window->unk04].unk1e == 0)
     {
-        FUN_02018E88(&st8, param2, param3, param4, param5, param1);
+        FUN_02018E88(&st8, x, y, width, height, fillValue);
     }
     else
     {
-        FUN_02018F4C(&st8, param2, param3, param4, param5, param1);
+        FUN_02018F4C(&st8, x, y, width, height, fillValue);
     }
 }
 
@@ -7513,7 +7512,7 @@ FUN_0201A8BC: // 0x0201A8BC
 }
 #endif
 
-THUMB_FUNC void FUN_0201A8C8(struct Window *window, u32 param1, u8 param2, u8 param3)
+THUMB_FUNC void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3)
 {
     if (window->unk00->unk08[window->unk04].unk1e == 0)
     {
@@ -7689,11 +7688,11 @@ THUMB_FUNC u8 FUN_0201AB08(struct Window *window)
     return window->unk04;
 }
 
-THUMB_FUNC u8 FUN_0201AB0C(struct Window *window)
+THUMB_FUNC u8 GetWindowWidth(struct Window *window)
 {
     return window->unk07;
 }
-THUMB_FUNC u8 FUN_0201AB10(struct Window *window)
+THUMB_FUNC u8 GetWindowHeight(struct Window *window)
 {
     return window->unk08;
 }

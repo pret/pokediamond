@@ -146,7 +146,7 @@ FUN_020654D0: ; 0x020654D0
 	add r5, r1, #0x0
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0x0
 	mov r0, #0x69
 	lsl r0, r0, #0x2
@@ -256,7 +256,7 @@ FUN_020655B0: ; 0x020655B0
 	add r4, r1, #0x0
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r5, r0, #0x0
 	ldr r0, _02065638 ; =gMain
 	mov r1, #0x2
@@ -967,16 +967,16 @@ FUN_02065AF4: ; 0x02065AF4
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldrb r0, [r5, #0x1b]
 	ldr r1, [r5, #0x0]
 	add r0, r0, #0x1
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	add r7, r5, #0x0
@@ -995,7 +995,7 @@ _02065B7E:
 	ldr r1, [r2, #0x8]
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r5, r0]
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
@@ -1011,7 +1011,7 @@ _02065B9E:
 	sub r1, #0x4c
 	ldr r1, [r5, r1]
 	ldr r2, _02065CE0 ; =0x0000FFFF
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
 	mov r1, #0x5
@@ -1110,7 +1110,7 @@ _02065C64:
 	lsl r3, r3, #0x18
 	ldrh r2, [r5, r2]
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]
@@ -1169,7 +1169,7 @@ FUN_02065CFC: ; 0x02065CFC
 	add r4, r1, #0x0
 	mov r1, #0x13
 	add r5, r0, #0x0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	ldr r1, _02065D48 ; =0x0000FFFF
 	cmp r4, r1
 	bne _02065D1C
@@ -1177,7 +1177,7 @@ FUN_02065CFC: ; 0x02065CFC
 	mov r1, #0x1
 	mov r2, #0xf
 	mov r3, #0x2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3-r5, pc}
 _02065D1C:
 	mov r1, #0xc
@@ -1191,14 +1191,14 @@ _02065D1C:
 	mov r1, #0x3
 	mov r2, #0xf
 	mov r3, #0x4
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3-r5, pc}
 _02065D38:
 	add r0, r5, #0x0
 	mov r1, #0x7
 	mov r2, #0xf
 	mov r3, #0x8
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3-r5, pc}
 	nop
 _02065D48: .word 0x0000FFFF
@@ -1210,16 +1210,16 @@ FUN_02065D4C: ; 0x02065D4C
 	mov r1, #0x13
 	add r4, r0, #0x0
 	add r6, r2, #0x0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0x0
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r1, #0x2
 	add r2, sp, #0x0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r6, #0x0
@@ -1280,7 +1280,7 @@ FUN_02065DD8: ; 0x02065DD8
 	str r2, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -1295,7 +1295,7 @@ FUN_02065DD8: ; 0x02065DD8
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r7, #0x43
 	ldr r6, _02065ECC ; =UNK_020F7EAC
 	mov r4, #0x0
@@ -1309,7 +1309,7 @@ _02065E14:
 	ldr r1, [r5, r7]
 	ldr r2, [r6, r2]
 	ldr r3, [r3, #0x4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r4, #0x1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -1362,7 +1362,7 @@ _02065E14:
 	ldr r2, [sp, #0x4]
 	add r0, r5, r0
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]
@@ -1418,11 +1418,11 @@ FUN_02065EF8: ; 0x02065EF8
 	ldr r0, [r4, r0]
 	add r1, #0x2
 	add r2, sp, #0x0
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1495,11 +1495,11 @@ FUN_02065F8C: ; 0x02065F8C
 	ldr r0, [r4, r0]
 	add r1, #0x2
 	add r2, sp, #0x0
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -2006,7 +2006,7 @@ FUN_02066334: ; 0x02066334
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add sp, #0x14
 	pop {r3-r4, pc}
 	.balign 4
@@ -2066,7 +2066,7 @@ _02066426:
 	add r0, r5, r1
 	mov r1, #0xff
 	add r3, r2, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r0, #0x1
 	bl FUN_02002B60
 	mov r0, #0x0

@@ -22,7 +22,9 @@ FS_EXTERN_OVERLAY(MODULE_63);
 
 #define SOFT_RESET_KEY (PAD_BUTTON_L | PAD_BUTTON_R | PAD_BUTTON_START | PAD_BUTTON_SELECT)
 
-struct Unk2106FA0 gBacklightTop;
+s32 UNK_02016FA4;
+PMBackLightSwitch gBacklightTop;
+struct UnkStruct_02016FA8 UNK_02016FA8;;
 
 extern void InitSystemForTheGame(void);
 extern void InitGraphicMemory(void);
@@ -52,6 +54,7 @@ extern u8 SDK_STATIC_BSS_START[];
 const int gGameLanguage = GAME_LANGUAGE;
 const int gGameVersion = GAME_VERSION;
 
+__declspec(noreturn)
 THUMB_FUNC void NitroMain(void)
 {
     InitSystemForTheGame();
@@ -68,13 +71,13 @@ THUMB_FUNC void NitroMain(void)
     FUN_02002C50(0, 3);
     FUN_02002C50(1, 3);
     FUN_02002C50(3, 3);
-    gBacklightTop.unk18 = -1;
-    gBacklightTop.unk20 = SaveBlock2_new();
-    InitSoundData(FUN_02029EF8(gBacklightTop.unk20), Sav2_PlayerData_GetOptionsAddr(gBacklightTop.unk20));
+    UNK_02016FA8.unk10 = -1;
+    UNK_02016FA8.unk18 = SaveBlock2_new();
+    InitSoundData(FUN_02029EF8(UNK_02016FA8.unk18), Sav2_PlayerData_GetOptionsAddr(UNK_02016FA8.unk18));
     Init_Timer3();
     if (FUN_020337E8(3) == 3)
         FUN_02034188(3, 0);
-    if (FUN_020227FC(gBacklightTop.unk20) == 0)
+    if (FUN_020227FC(UNK_02016FA8.unk18) == 0)
     {
         FUN_02089D90(0);
     }
@@ -84,12 +87,12 @@ THUMB_FUNC void NitroMain(void)
         {
         case 0:
             // Title Demo
-            gBacklightTop.unk1C = 0;
+            UNK_02016FA8.unk14 = 0;
             RegisterMainOverlay(FS_OVERLAY_ID(MODULE_63), &MOD63_021DBE18);
             break;
         case 1:
             // Reset transition?
-            gBacklightTop.unk1C = 1;
+            UNK_02016FA8.unk14 = 1;
             RegisterMainOverlay(FS_OVERLAY_ID(MODULE_52), &MOD52_021D76C8);
             break;
         default:
@@ -102,7 +105,7 @@ THUMB_FUNC void NitroMain(void)
     InitializeMainRNG();
     FUN_0200A2AC();
     FUN_02015E30();
-    gBacklightTop.unk4 = 0;
+    UNK_02016FA4 = 0;
     for (;;)
     {
         FUN_02000EE8();
@@ -141,40 +144,40 @@ THUMB_FUNC void NitroMain(void)
 
 THUMB_FUNC void FUN_02000DF4(void)
 {
-    gBacklightTop.unk8 = (FSOverlayID)-1;
-    gBacklightTop.unkC = 0;
-    gBacklightTop.unk10 = (FSOverlayID)-1; // overlay invalid
-    gBacklightTop.unk14 = NULL;
+    UNK_02016FA8.unk0 = SDK_OVERLAY_INVALID_ID;
+    UNK_02016FA8.unk4 = NULL;
+    UNK_02016FA8.unk8 = SDK_OVERLAY_INVALID_ID; // overlay invalid
+    UNK_02016FA8.unkC = NULL;
 }
 
 THUMB_FUNC void Main_RunOverlayManager(void)
 {
-    if (!gBacklightTop.unkC)
+    if (UNK_02016FA8.unk4 == NULL)
     {
-        if (gBacklightTop.unk14 == NULL)
+        if (UNK_02016FA8.unkC == NULL)
             return;
-        if (gBacklightTop.unk10 != SDK_OVERLAY_INVALID_ID)
-            HandleLoadOverlay(gBacklightTop.unk10, 0);
-        gBacklightTop.unk8 = gBacklightTop.unk10;
-        gBacklightTop.unkC = OverlayManager_new(gBacklightTop.unk14, &gBacklightTop.unk18, 0);
-        gBacklightTop.unk10 = SDK_OVERLAY_INVALID_ID;
-        gBacklightTop.unk14 = NULL;
+        if (UNK_02016FA8.unk8 != SDK_OVERLAY_INVALID_ID)
+            HandleLoadOverlay(UNK_02016FA8.unk8, 0);
+        UNK_02016FA8.unk0 = UNK_02016FA8.unk8;
+        UNK_02016FA8.unk4 = OverlayManager_new(UNK_02016FA8.unkC, &UNK_02016FA8.unk10, 0);
+        UNK_02016FA8.unk8 = SDK_OVERLAY_INVALID_ID;
+        UNK_02016FA8.unkC = NULL;
     }
-    if (OverlayManager_Run(gBacklightTop.unkC))
+    if (OverlayManager_Run(UNK_02016FA8.unk4))
     {
-        OverlayManager_delete(gBacklightTop.unkC);
-        gBacklightTop.unkC = 0;
-        if (gBacklightTop.unk8 != SDK_OVERLAY_INVALID_ID)
-            UnloadOverlayByID(gBacklightTop.unk8);
+        OverlayManager_delete(UNK_02016FA8.unk4);
+        UNK_02016FA8.unk4 = NULL;
+        if (UNK_02016FA8.unk0 != SDK_OVERLAY_INVALID_ID)
+            UnloadOverlayByID(UNK_02016FA8.unk0);
     }
 }
 
 THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, const struct Unk21DBE18 * arg1)
 {
-    if (gBacklightTop.unk14 != NULL)
+    if (UNK_02016FA8.unkC != NULL)
         ErrorHandling();
-    gBacklightTop.unk10 = id;
-    gBacklightTop.unk14 = arg1;
+    UNK_02016FA8.unk8 = id;
+    UNK_02016FA8.unkC = arg1;
 }
 
 THUMB_FUNC void FUN_02000E9C(void)
@@ -215,7 +218,7 @@ THUMB_FUNC void FUN_02000EE8(void)
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
 
-// No Return
+__declspec(noreturn)
 THUMB_FUNC void DoSoftReset(u32 parameter)
 {
     FUN_0200E3A0(PM_LCD_TOP, 0x7FFF);
@@ -252,7 +255,7 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
     {
         HandleDSLidAction();
         FUN_02016464();
-        if (gMain.unk48 & 1)
+        if (gMain.newKeys & 1)
             break;
         FUN_02000E9C();
     }
@@ -289,10 +292,10 @@ THUMB_FUNC void HandleDSLidAction(void)
             FUN_0201CE04();
             if (CTRDG_IsPulledOut() == TRUE)
             {
-                gBacklightTop.unk4 = 1;
+                UNK_02016FA4 = 1;
             }
             {
-                int r1 = gBacklightTop.unk4;
+                int r1 = UNK_02016FA4;
                 while (1)
                 {
                     PMWakeUpTrigger trigger = PM_TRIGGER_COVER_OPEN | PM_TRIGGER_CARD;
@@ -306,7 +309,7 @@ THUMB_FUNC void HandleDSLidAction(void)
                     }
                     else if (PAD_DetectFold())
                     {
-                        r1 = gBacklightTop.unk4 = 1;
+                        r1 = UNK_02016FA4 = 1;
                     }
                     else
                         break;
@@ -326,6 +329,6 @@ THUMB_FUNC void HandleDSLidAction(void)
     {
         PM_GetBackLight(&top, &bottom);
         if (top == PM_BACKLIGHT_OFF)
-            PM_SetBackLight(PM_LCD_ALL, gBacklightTop.unk0);
+            PM_SetBackLight(PM_LCD_ALL, gBacklightTop);
     }
 }

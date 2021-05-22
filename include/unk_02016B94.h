@@ -204,7 +204,7 @@ u8 (*FUN_02018848(u8 *param0, u32 param1, u8 param2, u32 heap_id))[2];
 void *FUN_0201886C(struct UnkStruct_02016B94_2 *param0, u32 param1);
 u16 FUN_02018878(struct UnkStruct_02016B94_2 *param0, u32 param1);
 u8 FUN_02018884(struct UnkStruct_02016B94_2 *param0, u32 param1);
-void FUN_02018A60(struct UnkStruct_02016B94_3 *param0,
+void BlitBitmapRect4Bit(struct UnkStruct_02016B94_3 *param0,
     struct UnkStruct_02016B94_3 *param1,
     u16 param2,
     u16 param3,
@@ -213,7 +213,7 @@ void FUN_02018A60(struct UnkStruct_02016B94_3 *param0,
     u16 param6,
     u16 param7,
     u16 param8);
-void FUN_02018CA0(struct UnkStruct_02016B94_3 *param0,
+void BlitBitmapRect8Bit(struct UnkStruct_02016B94_3 *param0,
     struct UnkStruct_02016B94_3 *param1,
     u16 param2,
     u16 param3,
@@ -226,8 +226,8 @@ void FUN_02018E88(
     struct UnkStruct_02016B94_3 *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
 void FUN_02018F4C(
     struct UnkStruct_02016B94_3 *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
-void *FUN_02018FF4(u32 heap_id, s32 size);
-void FUN_0201901C(struct Window *param0);
+void *AllocWindows(u32 heap_id, s32 size);
+void InitWindow(struct Window *param0);
 BOOL FUN_02019048(struct Window *param0);
 void FUN_02019064(struct UnkStruct_02016B94_2 *param0,
     struct Window *param1,
@@ -263,18 +263,18 @@ void FUN_020195A8(struct Window *window);
 void FUN_020195D0(struct Window *window);
 void FUN_020195E4(struct Window *window);
 void FUN_0201960C(struct Window *window);
-void FUN_02019620(struct Window *window, u8 param1);
-void FUN_02019658(struct Window *window,
-    void *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8,
-    u16 param9);
-void FUN_02019684(struct Window *window,
+void FillWindowPixelBuffer(struct Window *window, u8 param1);
+void BlitBitmapRectToWindow(struct Window *window,
+    const void *src,
+    u16 srcX,
+    u16 srcY,
+    u16 srcWidth,
+    u16 srcHeight,
+    u16 dstX,
+    u16 dstY,
+    u16 dstWidth,
+    u16 dstHeight);
+void BlitBitmapRect(struct Window *window,
     void *param1,
     u16 param2,
     u16 param3,
@@ -285,15 +285,15 @@ void FUN_02019684(struct Window *window,
     u16 param8,
     u16 param9,
     u16 param10);
-void FUN_020196F4(struct Window *window, u8 param1, u16 param2, u16 param3, u16 param4, u16 param5);
+void FillWindowPixelRect(struct Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height);
 void FUN_0201974C(
     struct Window *window, u32 *param1, u32 param2, u32 param3, u16 param4, u16 param5, u32 param6);
-void FUN_0201A8C8(struct Window *window, u32 param1, u8 param2, u8 param3);
+void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3);
 void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 param3);
 void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 param3);
 u8 FUN_0201AB08(struct Window *window);
-u8 FUN_0201AB0C(struct Window *window);
-u8 FUN_0201AB10(struct Window *window);
+u8 GetWindowWidth(struct Window *window);
+u8 GetWindowHeight(struct Window *window);
 u8 FUN_0201AB14(struct Window *window);
 u8 FUN_0201AB18(struct Window *window);
 void FUN_0201AB1C(struct Window *window, u8 param1);

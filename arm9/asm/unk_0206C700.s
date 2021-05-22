@@ -117,7 +117,7 @@ FUN_0206C700: ; 0x0206C700
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x4]
 	ldr r0, [sp, #0x18]
 	str r0, [r4, #0x2c]
@@ -147,7 +147,7 @@ FUN_0206C700: ; 0x0206C700
 	bl FUN_02019064
 	ldr r0, [r4, #0x4]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
 	mov r2, #0x1
@@ -2673,7 +2673,7 @@ FUN_0206DD6C: ; 0x0206DD6C
 	bl FreeToHeap
 	ldr r0, [r4, #0x4]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x2c]
 	bl Options_GetTextFrameDelay
 	mov r3, #0x0

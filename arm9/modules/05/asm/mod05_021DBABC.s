@@ -24,7 +24,7 @@ MOD05_021DBAD8: ; 0x021DBAD8
 	add r4, r0, #0
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}

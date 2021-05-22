@@ -639,7 +639,7 @@ FUN_0203549C: ; 0x0203549C
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x14]
 	mov r1, #0xb
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r4, #0x24]
 	mov r5, #0x0
 	ldr r0, [sp, #0x14]
@@ -684,7 +684,7 @@ _02035526:
 	ldrb r2, [r2, #0x0]
 	ldr r0, [r4, #0x24]
 	add r1, r7, #0x0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	ldr r0, [sp, #0x20]
 	bl String_dtor
 	add r0, r7, #0x0
@@ -698,7 +698,7 @@ _02035594:
 	ldr r0, [r4, #0x24]
 	ldr r1, [sp, #0x18]
 	ldr r2, [r2, r6]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 _020355A2:
 	ldr r0, [sp, #0x1c]
 	add r0, #0x8c
@@ -902,7 +902,7 @@ FUN_02035718: ; 0x02035718
 	mov r1, #0x0
 	bl FUN_02001C5C
 	ldr r0, [r4, #0x24]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0x0
 	str r0, [r4, #0x20]
 	pop {r4, pc}
@@ -966,7 +966,7 @@ _0203576C:
 	add r0, r5, #0x0
 	add r0, #0x10
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _0203589C ; =0x00000143
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -1731,7 +1731,7 @@ FUN_02035DC8: ; 0x02035DC8
 	cmp r1, #0x0
 	beq _02035DF0
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02035DF0:
 	mov r0, #0xc
 	strh r0, [r4, #0x2a]
@@ -3193,7 +3193,7 @@ FUN_02036A14: ; 0x02036A14
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x73
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
@@ -3223,7 +3223,7 @@ FUN_02036A78: ; 0x02036A78
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x73
 	lsl r1, r1, #0x2
 	add r0, r5, #0x0
@@ -3255,7 +3255,7 @@ FUN_02036AB8: ; 0x02036AB8
 	ldr r1, [r4, r0]
 	mov r0, #0xb
 	ldr r7, [r1, #0x0]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r5, [r4, r0]
@@ -3264,7 +3264,7 @@ FUN_02036AB8: ; 0x02036AB8
 	bne _02036B0E
 	mov r0, #0xb
 	add r1, r5, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x7a
 	lsl r1, r1, #0x2
 	lsl r2, r7, #0x18
@@ -3320,7 +3320,7 @@ _02036B0E:
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r6, #0x0
 	bl FUN_0204649C
 	mov r0, #0x72

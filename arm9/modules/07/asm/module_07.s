@@ -4858,7 +4858,7 @@ _0221459E:
 	mov r1, #0xa
 	mov r2, #0
 	mov r3, #2
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp]
@@ -4868,7 +4868,7 @@ _0221459E:
 	mov r1, #9
 	mov r2, #0
 	mov r3, #3
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp]
@@ -4878,7 +4878,7 @@ _0221459E:
 	mov r1, #0xa
 	mov r2, #0
 	mov r3, #5
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -4900,19 +4900,19 @@ MOD07_02214600: ; 0x02214600
 	mov r1, #0
 	str r2, [sp, #0xc]
 	str r3, [sp, #0x10]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #0x20
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #0x30
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x28]
 	ldr r1, [sp, #8]
 	str r0, [sp]

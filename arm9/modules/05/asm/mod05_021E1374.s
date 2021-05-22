@@ -533,7 +533,7 @@ _021E1770:
 	bl FUN_0200CAB4
 	mov r0, #4
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _021E178E:
 	pop {r4, pc}
 	.balign 4, 0

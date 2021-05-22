@@ -1291,7 +1291,7 @@ FUN_020540C8: ; 0x020540C8
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _020540E4:
@@ -1408,7 +1408,7 @@ FUN_020541A4: ; 0x020541A4
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _020541C0:
@@ -1481,7 +1481,7 @@ FUN_02054228: ; 0x02054228
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02054244:
@@ -1581,7 +1581,7 @@ FUN_020542E8: ; 0x020542E8
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02054304:
@@ -1749,7 +1749,7 @@ FUN_0205442C: ; 0x0205442C
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02054448:
@@ -1900,7 +1900,7 @@ FUN_0205454C: ; 0x0205454C
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02054568:

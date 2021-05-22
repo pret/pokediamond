@@ -45,7 +45,7 @@ MOD11_0222F29C: ; 0x0222F29C
 	str r0, [r5, #4]
 	mov r0, #5
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #8]
 	add r0, r5, #0
 	bl FUN_0206BFF0
@@ -186,7 +186,7 @@ _0222F30E:
 	bl FUN_02019064
 	ldr r0, [r5, #8]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #8]
 	mov r1, #0
 	mov r2, #1
@@ -4854,7 +4854,7 @@ _022316CC:
 	add r4, r0, #0
 	add r0, r6, #0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	ldr r0, [sp, #0x28]
 	str r3, [sp]
@@ -4892,7 +4892,7 @@ _02231708:
 	add r4, r0, #0
 	add r0, r6, #0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	ldr r0, [sp, #0x28]
 	str r3, [sp]
@@ -4917,7 +4917,7 @@ _0223174C:
 	bl GetTrainerMessageByIdPair
 	add r0, r6, #0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	ldr r0, [sp, #0x28]
 	str r3, [sp]
@@ -4962,7 +4962,7 @@ MOD11_0223178C: ; 0x0223178C
 	bl MOD11_022321EC
 	add r0, r7, #0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	ldr r0, _022317DC ; =MOD11_0223220C
@@ -5000,7 +5000,7 @@ MOD11_022317E0: ; 0x022317E0
 	beq _02231814
 	add r0, r4, #0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 _02231814:
 	ldr r1, [sp, #0x28]
 	mov r0, #2
@@ -23862,7 +23862,7 @@ _0223AC50:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	mov r1, #0
 	mov r2, #1
@@ -23987,7 +23987,7 @@ _0223ADBA:
 	mov r2, #0x50
 	mov r3, #0
 	add r7, r0, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	str r1, [sp, #0x4c]
 	add r5, sp, #0xb0
@@ -28099,7 +28099,7 @@ _0223CF5C:
 	add r0, r6, #0
 	bl String_dtor
 	add r0, sp, #0x68
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -62294,7 +62294,7 @@ MOD11_0224D518: ; 0x0224D518
 	bl MOD11_0222FF6C
 	add r6, r0, #0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r6, #0
 	bl FUN_02019548
 	mov r1, #0x65
@@ -71657,7 +71657,7 @@ _022520D2:
 	bl MOD11_0222FF6C
 	add r6, r0, #0
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r6, #0
 	bl FUN_02019548
 	ldr r0, [r4]
@@ -88280,7 +88280,7 @@ _0225A49C:
 	cmp r4, #0
 	bne _0225A4DA
 	add r0, sp, #0x3c
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -88914,7 +88914,7 @@ MOD11_0225A968: ; 0x0225A968
 	bl FUN_02019178
 _0225A994:
 	add r0, r4, #0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [r5]
 	bl MOD11_0222FF68
 	mov r1, #0

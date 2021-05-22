@@ -141,7 +141,7 @@ FUN_02089F24: ; 0x02089F24
 	add r0, sp, #0xc
 	mov r1, #0xf
 	add r3, r2, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r2, _0208A0AC ; =0x000001F7
 	add r0, sp, #0xc
 	mov r1, #0x0
@@ -310,7 +310,7 @@ _0208A0C8:
 	add r0, sp, #0xc
 	mov r1, #0xf
 	add r3, r2, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r2, _0208A24C ; =0x000001F7
 	add r0, sp, #0xc
 	mov r1, #0x0

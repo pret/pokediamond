@@ -654,7 +654,7 @@ MOD43_02254CD0: ; 0x02254CD0
 	bl FUN_02019064
 	add r0, sp, #0x14
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff

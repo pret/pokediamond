@@ -2689,7 +2689,7 @@ MOD57_021D89F0: ; 0x021D89F0
 	add r2, r1, #0
 	add r3, r1, #0
 	add r7, r0, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0x88
 	str r0, [sp]
@@ -2699,7 +2699,7 @@ MOD57_021D89F0: ; 0x021D89F0
 	add r0, #0x10
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0x88
 	str r0, [sp]
@@ -2709,7 +2709,7 @@ MOD57_021D89F0: ; 0x021D89F0
 	add r0, #0x20
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0x88
 	str r0, [sp]
@@ -2719,7 +2719,7 @@ MOD57_021D89F0: ; 0x021D89F0
 	add r0, #0x30
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0x88
 	str r0, [sp]
@@ -2729,7 +2729,7 @@ MOD57_021D89F0: ; 0x021D89F0
 	add r0, #0x40
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0xe0
 	str r0, [sp]
@@ -2739,7 +2739,7 @@ MOD57_021D89F0: ; 0x021D89F0
 	add r0, #0x50
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0xe0
 	str r0, [sp]
@@ -2749,7 +2749,7 @@ MOD57_021D89F0: ; 0x021D89F0
 	add r0, #0x60
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r2, _021D8CEC ; =0x0000022D
 	mov r0, #0
 	mov r1, #0x1a
@@ -3042,7 +3042,7 @@ MOD57_021D8CF8: ; 0x021D8CF8
 	add r0, #0x70
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0xe0
 	str r0, [sp]
@@ -3052,7 +3052,7 @@ MOD57_021D8CF8: ; 0x021D8CF8
 	add r0, #0x80
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0xe0
 	str r0, [sp]
@@ -3062,7 +3062,7 @@ MOD57_021D8CF8: ; 0x021D8CF8
 	add r0, #0x90
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0xe0
 	str r0, [sp]
@@ -3072,7 +3072,7 @@ MOD57_021D8CF8: ; 0x021D8CF8
 	add r0, #0xa0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r2, _021D8FAC ; =0x0000022D
 	mov r0, #0
 	mov r1, #0x1a
@@ -3455,7 +3455,7 @@ _021D906E:
 	add r0, #0x50
 	mov r2, #0xb8
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r2, _021D913C ; =0x0000022D
 	mov r0, #0
 	mov r1, #0x1a
@@ -3558,7 +3558,7 @@ _021D9164:
 	mov r1, #0
 	mov r2, #0xcd
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add sp, #0x10
