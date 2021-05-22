@@ -249,10 +249,10 @@ THUMB_FUNC void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 v
     switch (attr)
     {
     case 0:
-        list->template.moveCursorFunc = (LM_MOVECURSORFUNC)value;
+        list->template.moveCursorFunc = (LM_MoveCursorFunc_t)value;
         break;
     case 1:
-        list->template.itemPrintFunc = (LM_ITEMPRINTFUNC)value;
+        list->template.itemPrintFunc = (LM_ItemPrintFunc_t)value;
         break;
     case 2:
         list->template.totalItems = (u16)value;
