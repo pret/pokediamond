@@ -3,6 +3,8 @@
 #include "string16.h"
 #include "MI_memory.h"
 #include "filesystem.h"
+#include "script_buffers.h"
+#include "unk_0200CA44.h"
 
 const struct FontInfo *gFonts = NULL;
 
@@ -13,19 +15,13 @@ u16 UNK_021C5710;
 u16 UNK_021C5712;
 u8 UNK_021C570C;
 
-extern u32 FUN_0200CA7C(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2);
-
 extern struct TextPrinter *FUN_0201B6C8(void);
-extern void FUN_0200CAB4(u32 param0);
 
 extern void FUN_0201C1A8(struct TextPrinter *printer);
-extern void CopyWindowToVram(struct Window * window);
 
 extern u32 FontFunc(u8 fontId, struct TextPrinter *printer);
 
-extern void *FUN_02006BB0(NarcId narcId, s32 param1, BOOL param2, void *param3, u32 heap_id);
-
-extern void BlitBitmapRectToWindow(struct Window * window, void * src, u16 srcX, u16 srcY, u16 srcWidth, u16 srcHeight, u16 dstX, u16 dstY, u16 dstWidth, u16 dstHeight);
+extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 
 
 THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
@@ -333,9 +329,9 @@ THUMB_FUNC void FUN_0201C1A8(struct TextPrinter *printer)
 THUMB_FUNC u16 *FUN_0201C1B0(void)
 {
     void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
-    struct Font * var;
+    struct UnkStruct_0200B870_sub * var;
     void *tmp = FUN_02006BB0(NARC_GRAPHIC_FONT, 5, 0, &var, 0);
-    MIi_CpuCopy32(var->unk20, res, 32 * 24 * sizeof(u16));
+    MIi_CpuCopy32(var->unk_14, res, 32 * 24 * sizeof(u16));
     FreeToHeap(tmp);
     return res;
 }
