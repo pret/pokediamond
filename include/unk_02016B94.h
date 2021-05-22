@@ -83,11 +83,11 @@ struct Window
     u8 unk04;
     u8 unk05;
     u8 unk06;
-    u8 unk07;
-    u8 unk08;
+    u8 width;
+    u8 height;
     u8 unk09;
-    u16 unk0a : 15;
-    u16 unk0b : 1;
+    u16 unk0a_0 : 15;
+    u16 unk0b_15 : 1;
     void *unk0c;
 };
 
@@ -95,7 +95,8 @@ struct UnkStruct_02016B94_2 *FUN_02016B94(u32 heap_id);
 u32 FUN_02016BB8(u32 *param0);
 void FUN_02016BBC(const struct GraphicsModes *modes);
 void FUN_02016BF4(u32 *param0, u32 param1);
-void FUN_02016C18(struct UnkStruct_02016B94_2 *param0, u8 param1, struct UnkStruct_02016B94_1 *param2, u8 param3);
+void FUN_02016C18(
+    struct UnkStruct_02016B94_2 *param0, u8 param1, struct UnkStruct_02016B94_1 *param2, u8 param3);
 void FUN_020170F4(struct UnkStruct_02016B94_2 *param0, u8 param1, u32 param2, u8 param3);
 u8 FUN_020177DC(u8 param0, u32 param1);
 void FUN_02017850(u32 param0, u8 *param1, u8 *param2);
@@ -113,19 +114,26 @@ void FUN_02017B60(struct UnkStruct_02016B94_2 *param0,
     fx32 param5,
     fx32 param6);
 void FUN_02017B8C(struct UnkStruct_02016B94_2_sub *param0, u32 param1, fx32 val);
-void FUN_02017BD0(
-    struct UnkStruct_02016B94_2 *param0, u32 param1, struct Mtx22 *param2, fx32 param3, fx32 param4);
+void FUN_02017BD0(struct UnkStruct_02016B94_2 *param0,
+    u32 param1,
+    struct Mtx22 *param2,
+    fx32 param3,
+    fx32 param4);
 void FUN_02017C6C(struct UnkStruct_02016B94_2 *param0, u32 param1);
 void FUN_02017C98(const void *param0, void *param1, u32 param2);
 void FUN_02017CD0(struct UnkStruct_02016B94_2 *param0, u32 param1);
-void FUN_02017CE8(struct UnkStruct_02016B94_2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
+void FUN_02017CE8(
+    struct UnkStruct_02016B94_2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
 void FUN_02017D68(u32 param0, void *param1, u32 offset, u32 size);
 void FUN_02017DFC(struct UnkStruct_02016B94_2 *param0, u32 param1, void *param2, u32 param3);
-void FUN_02017E14(struct UnkStruct_02016B94_2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
-void FUN_02017E40(struct UnkStruct_02016B94_2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
+void FUN_02017E14(
+    struct UnkStruct_02016B94_2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
+void FUN_02017E40(
+    struct UnkStruct_02016B94_2 *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
 void FUN_02017E84(u32 param0, void *param1, u32 offset, u32 size);
 void FUN_02017F18(u32 param0, u32 size, u32 offset, u32 heap_id);
-void FUN_02017F48(struct UnkStruct_02016B94_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
+void FUN_02017F48(
+    struct UnkStruct_02016B94_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
 void FUN_02017FB4(u32 param0, void *param1, u32 offset, u32 size);
 void FUN_02017FE4(u32 param0, u32 param1);
 u16 FUN_02017FFC(u8 param0, u8 param1, u8 param2);
@@ -189,12 +197,22 @@ void FUN_02018540(struct UnkStruct_02016B94_2 *param0,
     u8 param5,
     u8 param6,
     u8 param7);
-void FUN_02018590(
-    struct UnkStruct_02016B94_2_sub *param0, u16 param1, u8 param2, u8 param3, u8 param4, u8 param5, u8 param6);
+void FUN_02018590(struct UnkStruct_02016B94_2_sub *param0,
+    u16 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u8 param5,
+    u8 param6);
 void FUN_02018640(
     struct UnkStruct_02016B94_2_sub *param0, u8 param1, u8 param2, u8 param3, u8 param4, u8 param5);
-void FUN_020186B4(
-    struct UnkStruct_02016B94_2 *param0, u32 param1, u8 param2, u8 param3, u8 param4, u8 param5, u8 param6);
+void FUN_020186B4(struct UnkStruct_02016B94_2 *param0,
+    u32 param1,
+    u8 param2,
+    u8 param3,
+    u8 param4,
+    u8 param5,
+    u8 param6);
 void FUN_02018744(struct UnkStruct_02016B94_2 *param0, u32 param1);
 void FUN_02018768(struct UnkStruct_02016B94_2 *param0, u32 param1, u16 param2);
 void FUN_0201878C(struct UnkStruct_02016B94_2 *param0, u32 param1, u16 param2);
@@ -238,9 +256,15 @@ void FUN_02019064(struct UnkStruct_02016B94_2 *param0,
     u8 param6,
     u8 param7,
     u16 param8);
-void FUN_020190EC(
-    struct UnkStruct_02016B94_2 *param0, struct Window *param1, u8 param2, u8 param3, u16 param4, u8 param5);
-void FUN_02019150(struct UnkStruct_02016B94_2 *param0, struct Window *param1, struct UnkStruct_02016B94_4 *param2);
+void FUN_020190EC(struct UnkStruct_02016B94_2 *param0,
+    struct Window *param1,
+    u8 param2,
+    u8 param3,
+    u16 param4,
+    u8 param5);
+void FUN_02019150(struct UnkStruct_02016B94_2 *param0,
+    struct Window *param1,
+    struct UnkStruct_02016B94_4 *param2);
 void FUN_02019178(struct Window *param0);
 void FUN_020191A4(struct Window *param0, int param1);
 void CopyWindowToVram(struct Window *param0);
