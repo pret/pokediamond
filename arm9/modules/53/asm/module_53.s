@@ -2915,7 +2915,7 @@ _021D8C9C:
 	mov r1, ip
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD53_021D8C58

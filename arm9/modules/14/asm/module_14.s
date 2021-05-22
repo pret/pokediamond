@@ -21087,7 +21087,7 @@ _021E1AA0:
 	ldr r1, [r1, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02019684
+	bl BlitBitmapRect
 	add sp, #0x1c
 	pop {r4, r5, pc}
 	.align 2, 0

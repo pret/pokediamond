@@ -2,6 +2,7 @@
 #include "heap.h"
 #include "string16.h"
 #include "MI_memory.h"
+#include "filesystem.h"
 
 const struct FontInfo *gFonts = NULL;
 
@@ -22,9 +23,9 @@ extern void CopyWindowToVram(struct Window * window);
 
 extern u32 FontFunc(u8 fontId, struct TextPrinter *printer);
 
-extern void *FUN_02006BB0(u32 param0, u32 param1, u32 param2, struct TextPrinter **param3, u32 param4);
+extern void *FUN_02006BB0(NarcId narcId, s32 param1, BOOL param2, void *param3, u32 heap_id);
 
-extern void FUN_02019658(struct Window * param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7, u32 param8, u32 param9);
+extern void BlitBitmapRectToWindow(struct Window * window, void * src, u16 srcX, u16 srcY, u16 srcWidth, u16 srcHeight, u16 dstX, u16 dstY, u16 dstWidth, u16 dstHeight);
 
 
 THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
@@ -329,12 +330,12 @@ THUMB_FUNC void FUN_0201C1A8(struct TextPrinter *printer)
     printer->Unk2C = NULL;
 }
 
-THUMB_FUNC void *FUN_0201C1B0(void)
+THUMB_FUNC u16 *FUN_0201C1B0(void)
 {
-    void *res = AllocFromHeap(0, sizeof(struct TextPrinter) * 32);
-    struct TextPrinter *var;
-    void *tmp = FUN_02006BB0(14, 5, 0, &var, 0);
-    MIi_CpuCopy32((void *)var->printerTemplate.Unk20, res, sizeof(struct TextPrinter) * 32); //todo Unk20 can't be right here
+    void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
+    struct Font * var;
+    void *tmp = FUN_02006BB0(NARC_GRAPHIC_FONT, 5, 0, &var, 0);
+    MIi_CpuCopy32(var->unk20, res, 32 * 24 * sizeof(u16));
     FreeToHeap(tmp);
     return res;
 }
@@ -347,9 +348,9 @@ THUMB_FUNC void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2
     {
         printer->Unk2C = FUN_0201C1B0();
     }
-    u32 r6 = (u32)printer->Unk2C + param3 * (sizeof(struct TextPrinter) * 8);
+    u16 * r6 = printer->Unk2C + param3 * 6 * 32;
     u16 r2 = (GetWindowWidth(window) - 3) * 8;
-    FUN_02019658(window, r6, 0, 0, 24, 32, r2, 0, 24, 32);
+    BlitBitmapRectToWindow(window, r6, 0, 0, 24, 32, r2, 0, 24, 32);
 }
 
 THUMB_FUNC void FUN_0201C238(struct TextPrinter *printer)

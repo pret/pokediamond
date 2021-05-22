@@ -4119,7 +4119,7 @@ _02078EB4:
 	mov r2, #0x0
 	ldr r0, [sp, #0x18]
 	add r3, r2, #0x0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	b _02078F56
 _02078F00:
 	ldr r0, _02078F78 ; =0x0000D004

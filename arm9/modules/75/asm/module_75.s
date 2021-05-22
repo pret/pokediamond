@@ -7898,7 +7898,7 @@ _021EA9A8:
 	ldr r1, [r1, #0x14]
 	add r0, #0x54
 	mov r3, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add r5, #0x54
 	add r0, r5, #0
 	bl FUN_02019220
@@ -7979,7 +7979,7 @@ _021EAA4C:
 	add r0, r6, #0
 	ldr r1, [r1, #0x14]
 	mov r3, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -8617,7 +8617,7 @@ MOD75_021EAF70: ; 0x021EAF70
 	add r0, r5, #4
 	ldr r1, [r1, #0x14]
 	mov r2, #0x28
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r0, #6
 	add r1, r6, #0
 	bl FreeToHeapExplicit
@@ -8692,7 +8692,7 @@ MOD75_021EB004: ; 0x021EB004
 	add r0, r5, #4
 	ldr r1, [r1, #0x14]
 	add r3, r2, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r0, #6
 	add r1, r6, #0
 	bl FreeToHeapExplicit

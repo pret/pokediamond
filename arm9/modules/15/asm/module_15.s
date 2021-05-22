@@ -7416,7 +7416,7 @@ _021DADD4:
 	ldr r1, [r5, #0x2c]
 	add r0, #0x10
 	add r3, r2, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r1, #0x60
 	lsl r2, r7, #0x10
 	lsl r3, r6, #0x10
@@ -7436,7 +7436,7 @@ _021DADD4:
 	ldr r1, [r5, #0x2c]
 	add r0, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

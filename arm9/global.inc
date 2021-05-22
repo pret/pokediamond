@@ -1068,7 +1068,7 @@
 .extern FUN_0201886C
 .extern FUN_02018878
 .extern FUN_02018884
-.extern FUN_02018A60
+.extern BlitBitmapRect4Bit
 .extern FUN_02018F4C
 .extern AllocWindows
 .extern InitWindow
@@ -1099,8 +1099,8 @@
 .extern FUN_020195E4
 .extern FUN_0201960C
 .extern FillWindowPixelBuffer
-.extern FUN_02019658
-.extern FUN_02019684
+.extern BlitBitmapRectToWindow
+.extern BlitBitmapRect
 .extern FillWindowPixelRect
 .extern FUN_0201974C
 .extern ScrollWindow

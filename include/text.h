@@ -7,49 +7,49 @@
 
 struct TextPrinterTemplate
 {
-    const u16* currentChar;
-    struct Window * window;
-    u8 padding[1];
-    u8 fontId;
-    u8 x;
-    u8 y;
-    u8 currentX;
-    u8 currentY;
-    u8 letterSpacing;
-    u8 lineSpacing;
-    u8 unk;
-    u8 fgColor;
-    u8 bgColor;
-    u8 shadowColor;
-    union
-    {
-        struct
-        {
-            u16 unk2;
-            u8 unk3;
-            u8 unk4;
-        };
-        u32 Unk20; //todo this can't be right
-    };
+    const u16* currentChar; // 0
+    struct Window * window; // 4
+    u8 padding[1]; // 8
+    u8 fontId; // 9
+    u8 x; // a
+    u8 y; // b
+    u8 currentX; // c
+    u8 currentY; // d
+    u8 letterSpacing; // e
+    u8 lineSpacing; // f
+    u8 unk; // 10
+    u8 fgColor; // 11
+    u8 bgColor; // 12
+    u8 shadowColor; // 13
+    u16 unk2; // 14
+    u8 unk3; // 16
+    u8 unk4; // 17
+};
+
+struct Font
+{
+    u8 filler[20];
+    void * unk20;
 };
 
 struct TextPrinter
 {
     struct TextPrinterTemplate printerTemplate;
 
-    u8 (*callback)(struct TextPrinterTemplate *, u16); // 0x10
+    u8 (*callback)(struct TextPrinterTemplate *, u16); // 0x18
 
     u8 subStructFields[7]; // always cast to struct TextPrinterSubStruct... so why bother
-    u8 active;
-    u8 state;       // 0x1C
-    u8 textSpeedBottom:7;
+                           // 1c
+    u8 active; // 23
+    u8 state;       // 0x24
+    u8 textSpeedBottom:7; // 25
     u8 textSpeedTop:1;
-    u8 delayCounter;
-    u8 scrollDistance;
-    u8 minLetterSpacing;  // 0x20
+    u8 delayCounter; // 26
+    u8 scrollDistance; // 27
+    u8 minLetterSpacing;  // 0x28
     u8 Unk29; // used to be japanese, not sure about that anymore
     u16 Unk2A;
-    void *Unk2C;
+    u16 *Unk2C;
 };
 
 struct FontInfo
@@ -80,7 +80,7 @@ u32 RenderFont(struct TextPrinter *printer);
 void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor);
 void DecompressGlyphTile(const u16 *src, u16 *dst);
 void FUN_0201C1A8(struct TextPrinter *printer);
-void *FUN_0201C1B0(void);
+u16 *FUN_0201C1B0(void);
 void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2, u32 param3);
 void FUN_0201C238(struct TextPrinter *printer);
 

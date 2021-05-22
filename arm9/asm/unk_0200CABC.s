@@ -879,7 +879,7 @@ FUN_0200D148: ; 0x0200D148
 	mov r0, #0x0
 	str r0, [sp, #0x10]
 	add r0, sp, #0x1c
-	bl FUN_02018A60
+	bl BlitBitmapRect4Bit
 	add sp, #0x24
 	pop {r4-r5, pc}
 

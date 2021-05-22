@@ -1780,7 +1780,7 @@ _021DA888:
 	mov r1, ip
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD58_021DA844

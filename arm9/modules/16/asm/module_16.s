@@ -9139,7 +9139,7 @@ MOD16_021DB7F4: ; 0x021DB7F4
 	str r0, [sp, #0x10]
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 _021DB848:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}

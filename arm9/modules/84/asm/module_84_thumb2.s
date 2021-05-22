@@ -750,7 +750,7 @@ _021D864C:
 	ldr r0, [r5, #0x24]
 	ldr r1, [r1, #0xc]
 	lsr r3, r3, #0x10
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 _021D86D0:
 	mov r1, #1
 	str r1, [r5, #0x18]

@@ -4256,8 +4256,8 @@ _02018A54: .word 0x0400100A
 _02018A58: .word 0x0400100C
 _02018A5C: .word 0x0400100E
 
-	thumb_func_start FUN_02018A60
-FUN_02018A60: ; 0x02018A60
+	thumb_func_start BlitBitmapRect4Bit
+BlitBitmapRect4Bit: ; 0x02018A60
 	push {r3-r7, lr}
 	sub sp, #0x68
 	str r2, [sp, #0x8]
@@ -4560,8 +4560,8 @@ _02018C92:
 _02018C98: .word 0x0000FFFF
 _02018C9C: .word 0x00003FE0
 
-	thumb_func_start FUN_02018CA0
-FUN_02018CA0: ; 0x02018CA0
+	thumb_func_start BlitBitmapRect8Bit
+BlitBitmapRect8Bit: ; 0x02018CA0
 	push {r3-r7, lr}
 	sub sp, #0x50
 	str r2, [sp, #0x8]
@@ -5917,8 +5917,8 @@ _0201963C:
 	bl MIi_CpuClearFast
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02019658
-FUN_02019658: ; 0x02019658
+	thumb_func_start BlitBitmapRectToWindow
+BlitBitmapRectToWindow: ; 0x02019658
 	push {r4-r5, lr}
 	sub sp, #0x1c
 	add r4, sp, #0x18
@@ -5936,13 +5936,13 @@ FUN_02019658: ; 0x02019658
 	str r4, [sp, #0x14]
 	mov r4, #0x0
 	str r4, [sp, #0x18]
-	bl FUN_02019684
+	bl BlitBitmapRect
 	add sp, #0x1c
 	pop {r4-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02019684
-FUN_02019684: ; 0x02019684
+	thumb_func_start BlitBitmapRect
+BlitBitmapRect: ; 0x02019684
 	push {r4-r5, lr}
 	sub sp, #0x24
 	str r1, [sp, #0x1c]
@@ -5980,7 +5980,7 @@ FUN_02019684: ; 0x02019684
 	ldrh r0, [r4, #0x28]
 	str r0, [sp, #0x10]
 	add r0, sp, #0x1c
-	bl FUN_02018A60
+	bl BlitBitmapRect4Bit
 	add sp, #0x24
 	pop {r4-r5, pc}
 _020196D6:
@@ -5994,7 +5994,7 @@ _020196D6:
 	ldrh r0, [r4, #0x28]
 	str r0, [sp, #0x10]
 	add r0, sp, #0x1c
-	bl FUN_02018CA0
+	bl BlitBitmapRect8Bit
 	add sp, #0x24
 	pop {r4-r5, pc}
 	.balign 4

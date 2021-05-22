@@ -913,7 +913,7 @@ FUN_02002218: ; 0x02002218
 	mov r2, #0x0
 	str r3, [sp, #0x14]
 	add r3, r2, #0x0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add sp, #0x18
 	pop {r4, pc}
 	nop
