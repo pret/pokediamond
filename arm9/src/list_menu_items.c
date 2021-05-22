@@ -4,7 +4,6 @@
 #include "heap.h"
 
 void ListMenuItems_DestroyMenuStrings(struct ListMenuItem * items);
-struct ListMenuItem * ListMenuItems_SeekEnd(struct ListMenuItem * items, s32 * idx_p);
 
 THUMB_FUNC struct ListMenuItem * ListMenuItems_ctor(u32 count, u32 heap_id)
 {
@@ -18,7 +17,7 @@ THUMB_FUNC struct ListMenuItem * ListMenuItems_ctor(u32 count, u32 heap_id)
             ret[i].value = 0;
         }
         ret[i].text = (struct String *)-1u;
-        ret[i].value = heap_id;
+        ret[i].value = (s32)heap_id;
     }
     return ret;
 }
@@ -31,7 +30,7 @@ THUMB_FUNC void ListMenuItems_dtor(struct ListMenuItem * items)
 
 THUMB_FUNC void ListMenuItems_AppendFromMsgData(struct ListMenuItem * items, struct MsgData * msgData, u32 msgNo, s32 value)
 {
-    s32 heap_id;
+    u32 heap_id;
     struct ListMenuItem * newItem = ListMenuItems_SeekEnd(items, &heap_id);
     if (newItem != NULL)
     {
@@ -42,7 +41,7 @@ THUMB_FUNC void ListMenuItems_AppendFromMsgData(struct ListMenuItem * items, str
 
 THUMB_FUNC void ListMenuItems_AddItem(struct ListMenuItem * items, struct String * str, s32 value)
 {
-    s32 heap_id;
+    u32 heap_id;
     struct ListMenuItem * newItem = ListMenuItems_SeekEnd(items, &heap_id);
     if (newItem != NULL)
     {
@@ -53,7 +52,7 @@ THUMB_FUNC void ListMenuItems_AddItem(struct ListMenuItem * items, struct String
 
 THUMB_FUNC void ListMenuItems_CopyItem(struct ListMenuItem * items, struct ListMenuItem * src)
 {
-    s32 heap_id;
+    u32 heap_id;
     struct ListMenuItem * newItem = ListMenuItems_SeekEnd(items, &heap_id);
     if (newItem != NULL)
     {
@@ -62,7 +61,7 @@ THUMB_FUNC void ListMenuItems_CopyItem(struct ListMenuItem * items, struct ListM
     }
 }
 
-THUMB_FUNC struct ListMenuItem * ListMenuItems_SeekEnd(struct ListMenuItem * items, s32 * heap_id_p)
+THUMB_FUNC struct ListMenuItem * ListMenuItems_SeekEnd(struct ListMenuItem * items, u32 * heap_id_p)
 {
     struct ListMenuItem * ret;
     for (; items->text != NULL; items++)
@@ -76,7 +75,7 @@ THUMB_FUNC struct ListMenuItem * ListMenuItems_SeekEnd(struct ListMenuItem * ite
     ret = items;
     for (; items->text != (struct String *)-1u; items++)
         ;
-    *heap_id_p = items->value;
+    *heap_id_p = (u32)items->value;
     return ret;
 }
 

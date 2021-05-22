@@ -9,6 +9,6 @@ struct PCStorage *GetStoragePCPointer(struct SaveBlock2 *sav2);
 void *FUN_0202251C(struct SaveBlock2 *sav2);
 void *FUN_02022528(struct SaveBlock2 *sav2);
 u8 *LoadHallOfFame(struct SaveBlock2 *sav2, u32 heap_id, int *ret_p);
-s32 *SaveHallOfFame(struct SaveBlock2 *sav2, u8 *data);
+s32 SaveHallOfFame(struct SaveBlock2 *sav2, u8 *data);
 
 #endif //POKEDIAMOND_UNK_02022504_H
