@@ -356,6 +356,12 @@ Static arm9
 	Object WCM_util.o
 	Object WIFI_stubsmd5_dummy.o
 	Object libVCT.o
+	### Nitro System SDK ###
+	Object NNS_FND_list.o
+	Object NNS_FND_heapcommon.o
+	Object NNS_FND_expheap.o
+	Object NNS_FND_frameheap.o
+	Object NNS_FND_allocator.o
 	Object unk_020ADA84.o
 	Object sndlib.o
 	### Nitro SDK ###
