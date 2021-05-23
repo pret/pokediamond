@@ -139,11 +139,11 @@ MOD05_021E8410: ; 0x021E8410
 	add r5, r0, #0
 	mov r0, #0
 	mov r1, #1
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r4, r0, #0
 	mov r0, #0
 	mov r1, #3
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r0, r4, r0
 	str r0, [sp, #0x14]
 	mov r4, #0
@@ -204,7 +204,7 @@ _021E846E:
 	add r6, r0, #0
 	mov r0, #0
 	mov r1, #2
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r2, r0, #0
 	mov r0, #0
 	add r1, r6, #0
@@ -276,10 +276,10 @@ MOD05_021E84F4: ; 0x021E84F4
 	bl FUN_0200CB00
 	mov r0, #0
 	mov r1, #6
-	bl FUN_02002E4C
+	bl GetFontAttribute
 	add r1, r0, #0
 	ldr r0, [r4, #0x10]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl MOD05_021E8410
 	ldr r0, [r4, #0x10]

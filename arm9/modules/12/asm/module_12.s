@@ -7568,7 +7568,7 @@ MOD12_02231380: ; 0x02231380
 	add r6, r6, #1
 _022313B0:
 	add r0, sp, #0x34
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -9540,7 +9540,7 @@ _022322FE:
 	cmp r4, #0
 	bne _0223233C
 	add r0, sp, #0x3c
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -10928,7 +10928,7 @@ MOD12_02232D7C: ; 0x02232D7C
 	bl FUN_02019178
 _02232DA8:
 	add r0, r4, #0
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -15225,7 +15225,7 @@ MOD12_02234EFC: ; 0x02234EFC
 	add r4, r0, #0
 	add r0, #0x34
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0x34
 	add r0, r4, #0
 	bl CopyWindowToVram
@@ -15275,7 +15275,7 @@ _02234F42:
 	add r0, r5, #0
 	add r0, #0x34
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -25518,7 +25518,7 @@ _02239AF4:
 	add r0, r5, #0
 	add r0, #0x34
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -29905,7 +29905,7 @@ _0223BCF0:
 	add r6, r6, #1
 _0223BD1C:
 	add r0, sp, #0x38
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -34767,7 +34767,7 @@ _0223E210:
 	add r0, r5, #0
 	add r0, #0x78
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -35104,7 +35104,7 @@ _0223E49A:
 	add r0, r5, #0
 	add r0, #0x88
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -43554,7 +43554,7 @@ _02242618:
 	add r0, r5, #0
 	add r0, #0x34
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -43894,13 +43894,13 @@ _022428E6:
 	str r0, [sp, #0x14]
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #5
 	lsl r0, r0, #4
 	str r0, [sp, #0x18]
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #3
 	str r0, [sp]
 	mov r0, #0
@@ -47014,7 +47014,7 @@ _022440EE:
 	ldr r0, [r4]
 	mov r1, #0xff
 	add r0, #0x34
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4]
 	add r0, #0x34
 	bl CopyWindowToVram

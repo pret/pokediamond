@@ -533,7 +533,7 @@ FUN_0207A08C: ; 0x0207A08C
 	bl FUN_020178A0
 	mov r0, #0x13
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.balign 4
 

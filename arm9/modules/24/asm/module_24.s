@@ -662,7 +662,7 @@ MOD24_02254D00: ; 0x02254D00
 	add r4, r0, #0
 	mov r0, #8
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x70]
 	add r1, r0, #0
 	beq _02254D3C
@@ -681,7 +681,7 @@ MOD24_02254D00: ; 0x02254D00
 	bne _02254D38
 	ldr r0, [r4, #0x70]
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 _02254D38:
 	mov r0, #1
 	pop {r4, pc}
@@ -987,7 +987,7 @@ _02254F80:
 	mov r1, #4
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	asr r1, r5, #3
 	mov r2, #0x14
 	asr r0, r6, #3
@@ -1048,7 +1048,7 @@ _02254FF2:
 	mov r1, #1
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, [r7, #0x70]
 	mov r2, #0x20
 	ldr r1, [r0, #0xc]

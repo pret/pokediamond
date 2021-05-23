@@ -9,7 +9,7 @@ import os
 from collections import namedtuple, defaultdict
 from io import StringIO
 
-MAX_FN_SIZE = 100
+MAX_FN_SIZE = 3000
 SLOW_CHECKS = False
 
 EI_NIDENT     = 16
@@ -375,14 +375,14 @@ def is_temp_name(name):
 # https://stackoverflow.com/a/241506
 def re_comment_replacer(match):
     s = match.group(0)
-    if s[0] in "/#":
+    if s[0] in "/#;":
         return " "
     else:
         return s
 
 
 re_comment_or_string = re.compile(
-    r'#.*|/\*.*?\*/|"(?:\\.|[^\\"])*"'
+    r';.*|#.*|/\*.*?\*/|"(?:\\.|[^\\"])*"'
 )
 
 
@@ -584,8 +584,12 @@ class GlobalAsmBlock:
         elif line.startswith('.byte'):
             self.add_sized(len(line.split(',')), real_line)
         # Branches are 4 bytes long
-        elif line.startswith('bl'):
+        elif line.startswith('bl') and not line.startswith('bls'):
             self.add_sized(4, real_line)
+        elif line.startswith('.word'):
+            self.add_sized(4, real_line)
+        elif line.startswith('.extern'):
+            pass
         else:
             # Unfortunately, macros are hard to support for .rodata --
             # we don't know how how space they will expand to before
@@ -820,7 +824,7 @@ def repl_float_hex(m):
 def parse_source(f, opt, framepointer, input_enc, output_enc, print_source=None):
     opt = "O4"
     min_instr_count = 3 # idk
-    skip_instr_count = 2 # idk
+    skip_instr_count = 3 # mandatory instructions: push, pop and mov r0, 0
 
     use_jtbl_for_rodata = False
     if opt in ['O2', 'g3'] and not framepointer:

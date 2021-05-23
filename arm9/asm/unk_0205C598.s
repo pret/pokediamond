@@ -723,7 +723,7 @@ FUN_0205CAE0: ; 0x0205CAE0
 	bl FUN_0201B6C8
 	add r1, r0, #0x0
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r4, #0x0
 	bl FUN_0200CAB4
 	pop {r4, pc}

@@ -27,5 +27,5 @@ ARM_FUNC BOOL RTCi_WriteRawStatus2Async(void)
 ARM_FUNC static BOOL RtcSendPxiCommand(u8 command)
 {
     s32 data = command << 8 & 0x7f00;
-    return PXI_SendWordByFifo(PXI_FIFO_TAG_RTC, data, FALSE) >= 0;
+    return PXI_SendWordByFifo(PXI_FIFO_TAG_RTC, (u32)data, FALSE) >= 0;
 }

@@ -309,7 +309,7 @@ void FreeToHeap(void *ptr)
     ErrorHandling();
 }
 
-void FUN_02016A8C(u32 param0, void *param1)
+void FreeToHeapExplicit(u32 param0, void *param1)
 {
     GF_ASSERT (OS_GetProcMode() != OS_PROCMODE_IRQ);
 

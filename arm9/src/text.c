@@ -2,30 +2,26 @@
 #include "heap.h"
 #include "string16.h"
 #include "MI_memory.h"
+#include "filesystem.h"
+#include "script_buffers.h"
+#include "unk_0200CA44.h"
 
 const struct FontInfo *gFonts = NULL;
 
 u16 UNK_021C5734[0x100];
-u32 UNK_021C5714[8];
+BOOL UNK_021C5714[8];
 u16 UNK_021C570E;
 u16 UNK_021C5710;
 u16 UNK_021C5712;
 u8 UNK_021C570C;
 
-extern u32 FUN_0200CA7C(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2);
-
 extern struct TextPrinter *FUN_0201B6C8(void);
-extern void FUN_0200CAB4(u32 param0);
 
 extern void FUN_0201C1A8(struct TextPrinter *printer);
-extern void CopyWindowToVram(u32 windowId);
 
 extern u32 FontFunc(u8 fontId, struct TextPrinter *printer);
 
-extern void *FUN_02006BB0(u32 param0, u32 param1, u32 param2, struct TextPrinter **param3, u32 param4);
-
-extern u32 FUN_0201AB0C(u32 windowId);
-extern void FUN_02019658(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7, u32 param8, u32 param9);
+extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 
 
 THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
@@ -99,12 +95,12 @@ THUMB_FUNC void FUN_0201BD7C(u32 param0)
     FUN_0201BCFC(param0);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
-    printerTemplate.windowId = windowId;
-    printerTemplate.currentChar = str;
+    printerTemplate.window = window;
+    printerTemplate.currentChar.wrapped = str;
     printerTemplate.fontId = fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
@@ -122,12 +118,12 @@ THUMB_FUNC u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *s
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
-    printerTemplate.windowId = windowId;
-    printerTemplate.currentChar = str;
+    printerTemplate.window = window;
+    printerTemplate.currentChar.wrapped = str;
     printerTemplate.fontId = fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
@@ -145,13 +141,13 @@ THUMB_FUNC u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
-    printerTemplate.windowId = windowId;
-    printerTemplate.currentChar = str;
-    printerTemplate.fontId = fontId;
+    printerTemplate.window = window;
+    printerTemplate.currentChar.wrapped = str;
+    printerTemplate.fontId = (u8)fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
     printerTemplate.currentX = (u8)x;
@@ -188,13 +184,13 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
     }
 
     printer->printerTemplate = *printerTemplate;
-    printer->printerTemplate.currentChar = String_c_str((struct String *)printer->printerTemplate.currentChar); //TODO clean up
+    printer->printerTemplate.currentChar.raw = String_c_str(printer->printerTemplate.currentChar.wrapped);
     printer->callback = callback;
     UNK_021C570C = 0;
     FUN_0201C1A8(printer);
     if (speed != 0xff && speed != 0)
     {
-        printer->textSpeedBottom += 0xff;
+        printer->textSpeedBottom--;
         printer->textSpeedTop = 1;
         printer->minLetterSpacing = FUN_0201BCC8(RunTextPrinter, printer, 1);
         return printer->minLetterSpacing;
@@ -214,7 +210,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
         }
         if (speed != 0xff)
         {
-            CopyWindowToVram(printer->printerTemplate.windowId); // CopyWindowToVram?
+            CopyWindowToVram(printer->printerTemplate.window);
         }
         FUN_0201C238(printer);
         FreeToHeap((void *)printer);
@@ -235,7 +231,7 @@ THUMB_FUNC void RunTextPrinter(u32 param0, struct TextPrinter *printer)
             switch (temp)
             {
                 case 0:
-                    CopyWindowToVram(printer->printerTemplate.windowId);
+                    CopyWindowToVram(printer->printerTemplate.window);
                     //fallthrough
                 case 3:
                     if (printer->callback == NULL)
@@ -330,12 +326,12 @@ THUMB_FUNC void FUN_0201C1A8(struct TextPrinter *printer)
     printer->Unk2C = NULL;
 }
 
-THUMB_FUNC void *FUN_0201C1B0(void)
+THUMB_FUNC u16 *FUN_0201C1B0(void)
 {
-    void *res = AllocFromHeap(0, sizeof(struct TextPrinter) * 32);
-    struct TextPrinter *var;
-    void *tmp = FUN_02006BB0(14, 5, 0, &var, 0);
-    MIi_CpuCopy32((void *)var->printerTemplate.Unk20, res, sizeof(struct TextPrinter) * 32); //todo Unk20 can't be right here
+    void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
+    struct UnkStruct_0200B870_sub * var;
+    void *tmp = FUN_02006BB0(NARC_GRAPHIC_FONT, 5, 0, &var, 0);
+    MIi_CpuCopy32(var->unk_14, res, 32 * 24 * sizeof(u16));
     FreeToHeap(tmp);
     return res;
 }
@@ -343,14 +339,14 @@ THUMB_FUNC void *FUN_0201C1B0(void)
 THUMB_FUNC void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2, u32 param3)
 {
 #pragma unused (param1, param2)
-    u32 windowId = printer->printerTemplate.windowId;
+    struct Window * window = printer->printerTemplate.window;
     if (printer->Unk2C == NULL)
     {
         printer->Unk2C = FUN_0201C1B0();
     }
-    u32 r6 = (u32)printer->Unk2C + param3 * (sizeof(struct TextPrinter) * 8);
-    u32 r2 = ((FUN_0201AB0C(windowId) - 3) << 0x13) >> 0x10;
-    FUN_02019658(windowId, r6, 0, 0, 24, 32, r2, 0, 24, 32);
+    u16 * r6 = printer->Unk2C + param3 * 24 * 8;
+    u16 r2 = (u16)((GetWindowWidth(window) - 3) * 8);
+    BlitBitmapRectToWindow(window, r6, 0, 0, 24, 32, r2, 0, 24, 32);
 }
 
 THUMB_FUNC void FUN_0201C238(struct TextPrinter *printer)

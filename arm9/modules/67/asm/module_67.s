@@ -327,7 +327,7 @@ MOD67_021D777C: ; 0x021D777C
 	bl FUN_020178A0
 	mov r0, #0x2a
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD67_021D777C
@@ -1122,10 +1122,10 @@ _021D7DAC:
 _021D7DB4:
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r4, #0

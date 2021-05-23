@@ -633,7 +633,7 @@ _0222D99A:
 	bl FUN_02019064
 	ldr r0, [r5, #8]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #8]
 	mov r1, #0
 	mov r2, #1
@@ -746,7 +746,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	str r0, [r4, #4]
 	mov r0, #5
 	mov r1, #3
-	bl FUN_02018FF4
+	bl AllocWindows
 	mov r7, #0x73
 	str r0, [r4, #8]
 	mov r6, #0
@@ -795,7 +795,7 @@ _0222DC42:
 	bl FUN_02019064
 	ldr r0, [r4, #8]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #8]
 	mov r1, #0
 	mov r2, #1

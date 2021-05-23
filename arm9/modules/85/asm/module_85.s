@@ -847,7 +847,7 @@ MOD85_021D7BEC: ; 0x021D7BEC
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _021D7C40 ; =0x00000408
 	ldr r2, [r4, #0x18]
 	ldr r0, [r5, r0]
@@ -884,7 +884,7 @@ MOD85_021D7C44: ; 0x021D7C44
 	add r0, r5, r4
 	add r0, #8
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #8
 	bl FUN_02019220

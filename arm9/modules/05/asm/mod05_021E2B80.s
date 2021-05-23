@@ -296,7 +296,7 @@ MOD05_CreateMessageBox: ; 0x021E2D9C
 _021E2DC8:
 	ldr r0, [r4, #0xc]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 

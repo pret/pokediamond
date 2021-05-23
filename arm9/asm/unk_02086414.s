@@ -517,7 +517,7 @@ FUN_02086784: ; 0x02086784
 	add r0, r5, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x28]
 	lsl r2, r4, #0x18
 	lsl r0, r0, #0x18
@@ -552,7 +552,7 @@ FUN_02086784: ; 0x02086784
 	bl FUN_0200D0BC
 	add r0, r5, #0x0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -567,7 +567,7 @@ FUN_020867EC: ; 0x020867EC
 	str r0, [sp, #0xc]
 	str r2, [sp, #0x10]
 	add r6, r3, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _02086874 ; =0x0000013F
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -627,7 +627,7 @@ FUN_02086878: ; 0x02086878
 	add r6, r1, #0x0
 	str r2, [sp, #0x14]
 	add r4, r3, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x3c]
 	ldr r3, [sp, #0x38]
 	lsl r0, r0, #0x18
@@ -658,7 +658,7 @@ FUN_02086878: ; 0x02086878
 	bl FUN_02019064
 	mov r0, #0x2
 	mov r1, #0x47
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x44]
 	ldr r2, _0208695C ; =0x0000013F
 	mov r0, #0x0
@@ -675,7 +675,7 @@ _020868DE:
 	ldr r0, [r5, #0x44]
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r6, #0x0
 	bl String_dtor
 	add r4, r4, #0x1
@@ -744,7 +744,7 @@ FUN_02086960: ; 0x02086960
 	mov r1, #0x0
 	bl FUN_02001C5C
 	ldr r0, [r4, #0x44]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	pop {r4, pc}
 
 	thumb_func_start FUN_0208698C

@@ -33,10 +33,10 @@ FUN_020573AC: ; 0x020573AC
 	bl FUN_020583CC
 	add r1, r0, #0x0
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0xb
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.balign 4
 
@@ -1035,10 +1035,10 @@ _02057C42:
 	blt _02057C1A
 	ldr r1, [r5, #0x10]
 	mov r0, #0xb
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0xb
 	add r1, r5, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_02057C64

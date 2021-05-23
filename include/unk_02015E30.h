@@ -15,8 +15,8 @@ struct UnkStruct_02015E30
     u64 unk18;
 };
 
-THUMB_FUNC void FUN_02015E30();
-THUMB_FUNC void FUN_02015E3C(struct IGT *igt);
-THUMB_FUNC void FUN_02015E60();
+void FUN_02015E30();
+void FUN_02015E3C(struct IGT *igt);
+void FUN_02015E60();
 
 #endif //POKEDIAMOND_UNK_02015E30_H

@@ -781,7 +781,7 @@ _0206F914:
 	bl FUN_02001C5C
 	ldr r0, _0206F978 ; =0x000006F8
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r4, #0x0
 	mov r1, #0x1d
 	mov r2, #0x1
@@ -1237,7 +1237,7 @@ FUN_0206FCD4: ; 0x0206FCD4
 	bl FUN_020178A0
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.balign 4
 
@@ -1293,7 +1293,7 @@ FUN_0206FD24: ; 0x0206FD24
 	bl memcpy
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r1, #0x1a
 	mov r0, #0x0
 	lsl r1, r1, #0x4
@@ -3729,7 +3729,7 @@ _02071146:
 	bl FUN_02072844
 	mov r0, #0xc
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r5, #0x0
 	bl FUN_0207295C
 	mov r1, #0x0
@@ -5223,7 +5223,7 @@ FUN_02071CB4: ; 0x02071CB4
 	lsl r1, r1, #0x4
 	add r0, r0, r1
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	bl FUN_02072B7C
@@ -5645,7 +5645,7 @@ _02072054:
 	bl FUN_0200D0BC
 	add r0, r5, r7
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl FUN_0207322C
 	add r0, r4, #0x0
@@ -5902,7 +5902,7 @@ _02072282:
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl FUN_0207322C
 	mov r0, #0xb
@@ -6066,7 +6066,7 @@ _020723D6:
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl FUN_0207322C
 	ldr r0, _02072410 ; =0x000005A4

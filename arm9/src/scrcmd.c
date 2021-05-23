@@ -4,6 +4,7 @@
 #include "options.h"
 #include "player_data.h"
 #include "text.h"
+#include "unk_02016B94.h"
 
 extern void *FUN_02039438(struct UnkSavStruct80* arg, u32 id);
 extern void *CreateScriptContext(struct UnkSavStruct80* arg, u16 id);
@@ -27,16 +28,14 @@ extern void FUN_02055304(u32 param0, u32 param1);
 extern void FUN_02039460(struct UnkSavStruct80 *arg);
 extern void FUN_020545B8(u32 param0, u8 *param1, u32 param2);
 extern void FUN_02054608(u8 *param0, struct Options *options);
-extern void FUN_0200D0E0(u32 *param0, u32 param1);
-extern void FUN_02019178(u32 *param0);
-extern void FUN_020179E0(u32 param0, u32 param1, u32 param2, u16 val);
+extern void FUN_0200D0E0(struct Window *param0, u32 param1);
 extern u32 FUN_02058510(u32 param0, u32 param1);
 extern void MOD05_021E8128(u32 param0, u8 type, u16 map);
 extern void MOD05_021E8130(u32 param0, u32 param1);
 extern void MOD05_021E8158(struct UnkSavStruct80 *unk80);
-extern u32 MOD05_021E8140(u32 param0);
+extern struct Window * MOD05_021E8140(u32 param0);
 extern BOOL MOD05_021E8148(u32 param0);
-extern u8 FUN_02054658(u32 param0, struct String *str, struct Options *opt, u32 param3);
+extern u8 FUN_02054658(struct Window * param0, struct String *str, struct Options *opt, u32 param3);
 extern void MOD05_021E8144(u32 param0);
 extern void FUN_0200CB00(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5);
 extern u32 Std_CreateYesNoMenu(u32 param0, u8 **param1, u32 param2, u32 param3, u32 param4);
@@ -676,7 +675,7 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonAB(struct ScriptContext *ctx)
 THUMB_FUNC static BOOL FUN_0203A46C(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.unk48 & 0x3) // Mask (A | B) ?
+    if (gMain.newKeys & 0x3) // Mask (A | B) ?
     {
         return TRUE;
     }
@@ -692,7 +691,7 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonABTime(struct ScriptContext *ctx)
 
 THUMB_FUNC static BOOL FUN_0203A4AC(struct ScriptContext *ctx)
 {
-    if (gMain.unk48 & 0x3) // Mask (A | B) ?
+    if (gMain.newKeys & 0x3) // Mask (A | B) ?
     {
         return TRUE;
     }
@@ -713,27 +712,27 @@ THUMB_FUNC BOOL ScrCmd_WaitButton(struct ScriptContext *ctx)
 
 THUMB_FUNC static BOOL FUN_0203A4E0(struct ScriptContext *ctx)
 {
-    if (gMain.unk48 & 3)
+    if (gMain.newKeys & 3)
     {
         return TRUE;
     }
-    else if (gMain.unk48 & 0x40)
+    else if (gMain.newKeys & 0x40)
     {
         FUN_02055304(ctx->unk80->unk38, 0);
     }
-    else if (gMain.unk48 & 0x80)
+    else if (gMain.newKeys & 0x80)
     {
         FUN_02055304(ctx->unk80->unk38, 1);
     }
-    else if (gMain.unk48 & 0x20)
+    else if (gMain.newKeys & 0x20)
     {
         FUN_02055304(ctx->unk80->unk38, 2);
     }
-    else if (gMain.unk48 & 0x10)
+    else if (gMain.newKeys & 0x10)
     {
         FUN_02055304(ctx->unk80->unk38, 3);
     }
-    else if (gMain.unk48 & 0x400)
+    else if (gMain.newKeys & 0x400)
     {
         FUN_02039460(ctx->unk80);
     }
@@ -753,11 +752,11 @@ THUMB_FUNC BOOL ScrCmd_Unk0032(struct ScriptContext *ctx)
 THUMB_FUNC static BOOL FUN_0203A570(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.unk48 & 0x3)
+    if (gMain.newKeys & 0x3)
     {
         return TRUE;
     }
-    else if (gMain.unk48 & 0xf0)
+    else if (gMain.newKeys & 0xf0)
     {
         return TRUE;
     }
@@ -777,7 +776,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_Unk0034(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
-    u32 *unk = FUN_02039438(unk80, 0x1); //windowID?
+    struct Window *unk = FUN_02039438(unk80, 0x1);
     u8 *unk2 = FUN_02039438(unk80, 0x6);
     FUN_0200D0E0(unk, 0);  //clear window?
     FUN_02019178(unk);
@@ -788,7 +787,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0034(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_Unk0035(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
-    u32 *unk = FUN_02039438(unk80, 0x1); //windowID?
+    struct Window *unk = FUN_02039438(unk80, 0x1);
     u8 *unk2 = FUN_02039438(unk80, 0x6);
     FUN_02019178(unk);
     *unk2 = 0;
@@ -893,7 +892,7 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx)
     MOD05_021E8158(unk80);
     ReadMsgDataIntoString(ctx->msgData, msg, *unk1);
     StringExpandPlaceholders(*unk3, *unk2, *unk1);
-    AddTextPrinterParameterized(MOD05_021E8140(unk80->unk60), 1, (u16 *)*unk2, 0, 0, 0, NULL);
+    AddTextPrinterParameterized(MOD05_021E8140(unk80->unk60), 1, *unk2, 0, 0, 0, NULL);
 
     return TRUE;
 }
@@ -973,19 +972,19 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
         return TRUE;
     }
 
-    if (gMain.unk48 & 0x40)
+    if (gMain.newKeys & 0x40)
     {
         tmp = 0;
     }
-    else if (gMain.unk48 & 0x80)
+    else if (gMain.newKeys & 0x80)
     {
         tmp = 1;
     }
-    else if (gMain.unk48 & 0x20)
+    else if (gMain.newKeys & 0x20)
     {
         tmp = 2;
     }
-    else if (gMain.unk48 & 0x10)
+    else if (gMain.newKeys & 0x10)
     {
         tmp = 3;
     }
@@ -999,7 +998,7 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
     }
     else
     {
-        if (gMain.unk48 & 0x400)
+        if (gMain.newKeys & 0x400)
         {
             FUN_0201BD7C(*unk1);
             *varPtr = 1;
@@ -1022,24 +1021,24 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
     u16 *unk = GetVarPointer(ctx->unk80, (u16)ctx->data[0]);
 
     u32 tmp = 0xFFFF;
-    if (gMain.unk48 & 0x3)
+    if (gMain.newKeys & 0x3)
     {
         *unk = 0;
         return TRUE;
     }
-    else if (gMain.unk48 & 0x40)
+    else if (gMain.newKeys & 0x40)
     {
         tmp = 0;
     }
-    else if (gMain.unk48 & 0x80)
+    else if (gMain.newKeys & 0x80)
     {
         tmp = 1;
     }
-    else if (gMain.unk48 & 0x20)
+    else if (gMain.newKeys & 0x20)
     {
         tmp = 2;
     }
-    else if (gMain.unk48 & 0x10)
+    else if (gMain.newKeys & 0x10)
     {
         tmp = 3;
     }
@@ -1052,7 +1051,7 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
     }
     else
     {
-        if (gMain.unk48 & 0x400)
+        if (gMain.newKeys & 0x400)
         {
             *unk = 1;
             return TRUE;

@@ -2064,7 +2064,7 @@ _021D844C:
 	add r0, #0xac
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, r7, #0
 	mov r1, #0
 	add r2, r4, #0

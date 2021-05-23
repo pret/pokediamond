@@ -165,7 +165,7 @@ _02254960:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	ldr r0, [sp, #0x18]
@@ -193,7 +193,7 @@ _02254960:
 	add r0, r5, #0
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x10
 	bl CopyWindowToVram
@@ -221,7 +221,7 @@ _02254960:
 	add r0, r5, #0
 	add r0, #0x20
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x20
 	bl CopyWindowToVram
@@ -792,20 +792,20 @@ MOD51_02254E48: ; 0x02254E48
 	add r7, r5, r0
 	add r0, r7, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x76
 	lsl r0, r0, #2
 	add r0, r5, r0
 	str r0, [sp, #0x1c]
 	add r0, r0, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x7a
 	lsl r0, r0, #2
 	add r5, r5, r0
 	add r0, r5, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #0xff

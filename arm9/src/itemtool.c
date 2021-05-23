@@ -778,7 +778,7 @@ u32 GetItemAttr(u16 item, u32 attr, u32 heap_id)
     u32 ret;
     struct ItemData * itemData = (struct ItemData *)LoadItemDataOrGfx(item, 0, heap_id);
     ret = GetItemAttr_PreloadedItemData(itemData, attr);
-    FUN_02016A8C(heap_id, itemData);
+    FreeToHeapExplicit(heap_id, itemData);
     return ret;
 }
 
