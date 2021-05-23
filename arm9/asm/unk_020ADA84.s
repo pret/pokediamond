@@ -12201,9 +12201,6 @@ _020B838C: .word UNK_021CEE18
 	arm_func_start FUN_020B8390
 FUN_020B8390: ; 0x020B8390
 	orr r0, r0, r1, lsl #0x4
-
-	arm_func_start FUN_020B8394
-FUN_020B8394: ; 0x020B8394
 	ldr r1, [sp, #0x4]
 	orr r0, r0, r2, lsl #0x6
 	orr r0, r1, r0
@@ -19260,9 +19257,6 @@ FUN_020BE62C: ; 0x020BE62C
 	orrne r1, r1, #0x1
 	strne r1, [r0, #0x0]
 	bne _020BE658
-
-	arm_func_start FUN_020BE640
-FUN_020BE640: ; 0x020BE640
 	ldr r2, [r1, #0x0]
 	str r2, [r0, #0x4]
 	ldr r2, [r1, #0x4]
