@@ -32,9 +32,9 @@ void InitSoundData(void * a0, struct Options * a1)
     NNS_SndInit();
     FUN_020040C8();
     FUN_02004064(sdat);
-    sdat->unk_00090 = NNS_SndHeapCreate(sdat->unk_00094, sizeof(sdat->unk_00094));
-    NNS_SndArcInit(&sdat->header, "data/sound/sound_data.sdat", sdat->unk_00090, 0);
-    NNS_SndArcPlayerSetup(sdat->unk_00090);
+    sdat->heap = NNS_SndHeapCreate(sdat->unk_00094, sizeof(sdat->unk_00094));
+    NNS_SndArcInit(&sdat->header, "data/sound/sound_data.sdat", sdat->heap, 0);
+    NNS_SndArcPlayerSetup(sdat->heap);
     FUN_02004088(sdat);
     FUN_020040A4(sdat);
     UNK_02107074 = 0;
@@ -203,7 +203,7 @@ void * FUN_02003D38(u32 a0)
 int FUN_02003F3C(int * a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    int r4 = NNS_SndHeapSaveState(sdat->unk_00090);
+    int r4 = NNS_SndHeapSaveState(sdat->heap);
     GF_ASSERT(r4 != -1);
     if (a0 != NULL)
         *a0 = r4;
@@ -213,37 +213,37 @@ int FUN_02003F3C(int * a0)
 void FUN_02003F64(int a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    NNS_SndHeapLoadState(sdat->unk_00090, a0);
+    NNS_SndHeapLoadState(sdat->heap, a0);
 }
 
-BOOL FUN_02003F78(u32 * a0)
+BOOL FUN_02003F78(int a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadGroup(a0, sdat->unk_00090);
+    return NNS_SndArcLoadGroup(a0, sdat->heap);
 }
 
-BOOL FUN_02003F90(u32 * a0)
+BOOL FUN_02003F90(int a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadSeq(a0, sdat->unk_00090);
+    return NNS_SndArcLoadSeq(a0, sdat->heap);
 }
 
-BOOL FUN_02003FA8(u32 * a0, u32 * a1)
+BOOL FUN_02003FA8(int a0, u32 a1)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadSeqEx(a0, a1, sdat->unk_00090);
+    return NNS_SndArcLoadSeqEx(a0, a1, sdat->heap);
 }
 
-BOOL FUN_02003FC4(u32 * a0)
+BOOL FUN_02003FC4(int a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadWaveArc(a0, sdat->unk_00090);
+    return NNS_SndArcLoadWaveArc(a0, sdat->heap);
 }
 
-BOOL FUN_02003FDC(u32 * a0)
+BOOL FUN_02003FDC(int a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadBank(a0, sdat->unk_00090);
+    return NNS_SndArcLoadBank(a0, sdat->heap);
 }
 
 u32 * FUN_02003FF4(int a0)
@@ -303,7 +303,7 @@ void FUN_02004088(struct SoundData * sdat)
 void FUN_020040A4(struct SoundData * sdat)
 {
     FUN_02003F3C(&sdat->unk_BCD1C[0]);
-    FUN_02003F78(NULL);
+    FUN_02003F78(0);
     FUN_02003F3C(&sdat->unk_BCD1C[1]);
 }
 

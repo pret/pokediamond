@@ -2,13 +2,15 @@
 #define POKEDIAMOND_SOUND_H
 
 #include "FS_file.h"
-#include "sdat.h"
+#include "NNS_SND_arc.h"
+#include "NNS_SND_heap.h"
+#include "NNS_SND_arc_loader.h"
 #include "player_data.h"
 
 struct SoundData
 {
     NNSSndArc header;
-    void * unk_00090;
+    NNSSndHeapHandle * heap; // 0x00090
     u8 unk_00094[0xBBC00];
     u32 unk_BBC94[9];
     u32 unk_BBCB8;
@@ -54,11 +56,11 @@ void InitSoundData(void * a0, struct Options * a1);
 void * FUN_02003D38(u32 a0);
 int FUN_02003F3C(int * a0);
 void FUN_02003F64(int a0);
-BOOL FUN_02003F78(u32 * a0);
-BOOL FUN_02003F90(u32 * a0);
-BOOL FUN_02003FA8(u32 * a0, u32 * a1);
-BOOL FUN_02003FC4(u32 * a0);
-BOOL FUN_02003FDC(u32 * a0);
+BOOL FUN_02003F78(int a0);
+BOOL FUN_02003F90(int a0);
+BOOL FUN_02003FA8(int a0, u32 a1);
+BOOL FUN_02003FC4(int a0);
+BOOL FUN_02003FDC(int a0);
 u32 * FUN_02003FF4(int a0);
 u32 FUN_02004018(u32 a0);
 void DoSoundUpdateFrame(void);
