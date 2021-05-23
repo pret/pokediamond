@@ -1,11 +1,11 @@
 #include "unk_0205FA2C.h"
+#include "unk_020337E8.h"
 
 extern void *UNK_020F96DC;
 extern void *UNK_020FA6E8;
 extern u32 FUN_02079C70(struct SaveBlock2 *sav2);
 extern void FUN_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[12]);
 extern void FUN_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, struct PlayerData *player_data);
-extern u32 FUN_0203384C(struct SaveBlock2 *sav2);
 extern u32 *FUN_02038790(struct UnkSavStruct80 *param0, u16 param1, u16 param2);
 extern u16 *GetVarPointer(struct UnkSavStruct80 *arg, u16);
 extern u16 MOD06_02244660(struct UnkSavStruct80 *param0, u8 *param1);
