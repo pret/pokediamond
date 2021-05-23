@@ -17,9 +17,15 @@
 #define CHAR_8        0x00AA
 #define CHAR_9        0x00AB
 
+union StrbufForPrint
+{
+    struct String * wrapped;
+    const u16 * raw;
+};
+
 struct TextPrinterTemplate
 {
-    const u16* currentChar; // 0
+    union StrbufForPrint currentChar; // 0
     struct Window * window; // 4
     u8 padding[1]; // 8
     u8 fontId; // 9
@@ -77,9 +83,9 @@ BOOL FUN_0201BD44(u32 param0);
 void FUN_0201BD5C(void);
 u8 FUN_0201BD70(u32 param0);
 void FUN_0201BD7C(u32 param0);
-u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));
-u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16));
-u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16));
+u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16));
 u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));
 void RunTextPrinter(u32 param0, struct TextPrinter *printer);
 u32 RenderFont(struct TextPrinter *printer);

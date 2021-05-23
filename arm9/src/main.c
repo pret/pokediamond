@@ -24,7 +24,7 @@ FS_EXTERN_OVERLAY(MODULE_63);
 
 s32 UNK_02016FA4;
 PMBackLightSwitch gBacklightTop;
-struct UnkStruct_02016FA8 UNK_02016FA8;;
+struct UnkStruct_02016FA8 UNK_02016FA8;
 
 extern void InitSystemForTheGame(void);
 extern void InitGraphicMemory(void);

@@ -33,9 +33,9 @@ extern u32 FUN_02058510(u32 param0, u32 param1);
 extern void MOD05_021E8128(u32 param0, u8 type, u16 map);
 extern void MOD05_021E8130(u32 param0, u32 param1);
 extern void MOD05_021E8158(struct UnkSavStruct80 *unk80);
-extern u32 MOD05_021E8140(u32 param0);
+extern struct Window * MOD05_021E8140(u32 param0);
 extern BOOL MOD05_021E8148(u32 param0);
-extern u8 FUN_02054658(u32 param0, struct String *str, struct Options *opt, u32 param3);
+extern u8 FUN_02054658(struct Window * param0, struct String *str, struct Options *opt, u32 param3);
 extern void MOD05_021E8144(u32 param0);
 extern void FUN_0200CB00(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5);
 extern u32 Std_CreateYesNoMenu(u32 param0, u8 **param1, u32 param2, u32 param3, u32 param4);
@@ -892,7 +892,7 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx)
     MOD05_021E8158(unk80);
     ReadMsgDataIntoString(ctx->msgData, msg, *unk1);
     StringExpandPlaceholders(*unk3, *unk2, *unk1);
-    AddTextPrinterParameterized(MOD05_021E8140(unk80->unk60), 1, (u16 *)*unk2, 0, 0, 0, NULL);
+    AddTextPrinterParameterized(MOD05_021E8140(unk80->unk60), 1, *unk2, 0, 0, 0, NULL);
 
     return TRUE;
 }

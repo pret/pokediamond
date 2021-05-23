@@ -141,7 +141,7 @@ void FUN_02015FC8(void)
     {
         csum++;
     }
-    FUN_020166C8((u32 *)UNK_020EDB10, 4, 92, (int)csum);
+    FUN_020166C8((u32 *)UNK_020EDB10, 4, 92, csum);
 }
 
 void InitSystemForTheGame(void)

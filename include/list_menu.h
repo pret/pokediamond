@@ -2,6 +2,7 @@
 #define POKEDIAMOND_LIST_MENU_H
 
 #include "list_menu_cursor.h"
+#include "list_menu_items.h"
 
 #define LIST_HEADER          -3
 #define LIST_CANCEL          -2
@@ -12,12 +13,6 @@
 #define LIST_MULTIPLE_SCROLL_L_R   2
 
 struct ListMenu;
-
-struct ListMenuItem
-{
-    const u16 * text;
-    s32 index;
-};
 
 // TODO: Document remaining fields.
 // A lot of these are named based on similar fields in gen 3.
@@ -74,5 +69,20 @@ struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cur
 s32 ListMenu_ProcessInput(struct ListMenu * list);
 void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * itemsAbove);
 void RedrawListMenu(struct ListMenu * list);
+s32 ListMenuTestInputInternal(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 updateFlag, u16 input, u16 *newCursorPos, u16 *newItemsAbove);
+s32 ListMenuTestInput(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 input, u16 *newCursorPos, u16 *newItemsAbove);
+void ListMenuOverrideSetColors(struct ListMenu * list, u8 cursorPal, u8 fillValue, u8 cursorShadowPal);
+void ListMenuGetCurrentItemArrayId(struct ListMenu * list, u16 * index_p);
+void ListMenuGetScrollAndRow(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p);
+u8 ListMenuGetUnk33(struct ListMenu * list);
+s32 ListMenuGetValueByArrayId(struct ListMenu * list, s32 index);
+s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr);
+void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 value);
+void ListMenuGetItemStr(struct ListMenu * list, struct ListMenuItem * items);
+void ListMenuPrint(struct ListMenu * list, struct String * str, u8 x, u8 y);
+void ListMenuErasePrintedCursor(struct ListMenu * list, u16 itemsAbove);
+u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *list, u8 movingDown);
+void ListMenuScroll(struct ListMenu * list, u8 count, u8 movingDown);
+void ListMenuCopyToVram(struct ListMenu * list);
 
 #endif // POKEDIAMOND_LIST_MENU_H

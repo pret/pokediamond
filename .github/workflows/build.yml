@@ -19,7 +19,7 @@ jobs:
         run: |
           sudo apt update
           sudo ACCEPT_EULA=Y apt -y --fix-missing --allow-downgrades upgrade
-          sudo apt -y --allow-downgrades install g++-8-multilib linux-libc-dev binutils-arm-none-eabi
+          sudo apt -y --allow-downgrades install g++-8-multilib linux-libc-dev binutils-arm-none-eabi p7zip-full
           sudo dpkg --add-architecture i386
           wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
           sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
@@ -31,14 +31,14 @@ jobs:
         run: |
           mkdir -p ~/download
           cd ~/download
-          wget http://private.martmists.com/mwccarm.zip
-          wget http://private.martmists.com/nitro.tar.gz
+          wget https://cdn.discordapp.com/attachments/698589325620936736/845499146982129684/mwccarm.zip
+          wget https://cdn.discordapp.com/attachments/698589325620936736/722822401963851797/NitroSDK-3_2-060901.7z
           unzip mwccarm.zip
           mv mwccarm $GITHUB_WORKSPACE/tools
-          tar xzf nitro.tar.gz
-          mv tools/bin $GITHUB_WORKSPACE/tools
-          mv include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/arm7
-          mv include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/arm9
+          7z x NitroSDK-3_2-060901.7z
+          mv NitroSDK-3_2-060901/tools/bin $GITHUB_WORKSPACE/tools
+          mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/arm7
+          mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/arm9
         working-directory: ~
       - name: Build Diamond
         run: make diamond
