@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; NNS_G3dGetTex
-	arm_func_start FUN_020BC0FC
-FUN_020BC0FC: ; 0x020BC0FC
+	arm_func_start NNS_G3dGetTex
+NNS_G3dGetTex: ; 0x020BC0FC
 	ldrh r2, [r0, #0xc]
 	ldrh r1, [r0, #0xe]
 	add r3, r0, r2
@@ -24,20 +23,18 @@ _020BC12C:
 	bx lr
 	.balign 4
 _020BC138: .word 0x30585442
-	arm_func_end FUN_020BC0FC
+	arm_func_end NNS_G3dGetTex
 
-	; _end
-	arm_func_start FUN_020BC13C
-FUN_020BC13C: ; 0x020BC13C
+	arm_func_start NNS_G3dGetMdlSet
+NNS_G3dGetMdlSet: ; 0x020BC13C
 	ldrh r1, [r0, #0xc]
 	ldr r1, [r0, r1]
 	add r0, r0, r1
 	bx lr
-	arm_func_end FUN_020BC13C
+	arm_func_end NNS_G3dGetMdlSet
 
-	; _end
-	arm_func_start FUN_020BC14C
-FUN_020BC14C: ; 0x020BC14C
+	arm_func_start NNS_G3dGetResDictIdxByName
+NNS_G3dGetResDictIdxByName: ; 0x020BC14C
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	ldrb r2, [r0, #0x1]
@@ -129,11 +126,10 @@ _020BC294:
 	mvn r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020BC14C
+	arm_func_end NNS_G3dGetResDictIdxByName
 
-	; _end
-	arm_func_start FUN_020BC2A0
-FUN_020BC2A0: ; 0x020BC2A0
+	arm_func_start NNS_G3dGetResDataByName
+NNS_G3dGetResDataByName: ; 0x020BC2A0
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	ldrb r2, [r0, #0x1]
@@ -232,11 +228,10 @@ _020BC404:
 	mov r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020BC2A0
+	arm_func_end NNS_G3dGetResDataByName
 
-	; _end
-	arm_func_start FUN_020BC410
-FUN_020BC410: ; 0x020BC410
+	arm_func_start NNSi_G3dGetTexPatAnmDataByIdx
+NNSi_G3dGetTexPatAnmDataByIdx: ; 0x020BC410
 	ldrh r3, [r0, #0x12]
 	add r0, r0, #0xc
 	ldrh r2, [r0, r3]
@@ -244,16 +239,15 @@ FUN_020BC410: ; 0x020BC410
 	add r0, r0, #0x4
 	mla r0, r2, r1, r0
 	bx lr
-	arm_func_end FUN_020BC410
+	arm_func_end NNSi_G3dGetTexPatAnmDataByIdx
 
-	; _end
-	arm_func_start FUN_020BC42C
-FUN_020BC42C: ; 0x020BC42C
+	arm_func_start NNSi_G3dGetTexPatAnmFV
+NNSi_G3dGetTexPatAnmFV: ; 0x020BC42C
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
 	mov r4, r2
-	bl FUN_020BC410
+	bl NNSi_G3dGetTexPatAnmDataByIdx
 	ldrsh r1, [r0, #0x4]
 	ldrh r3, [r0, #0x6]
 	mul r2, r1, r4
@@ -286,29 +280,26 @@ _020BC49C:
 	add r0, r3, r2, lsl #0x2
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020BC42C
+	arm_func_end NNSi_G3dGetTexPatAnmFV
 
-	; _end
-	arm_func_start FUN_020BC4A8
-FUN_020BC4A8: ; 0x020BC4A8
+	arm_func_start NNSi_G3dGetTexPatAnmPlttNameByIdx
+NNSi_G3dGetTexPatAnmPlttNameByIdx: ; 0x020BC4A8
 	ldrh r2, [r0, #0xa]
 	add r0, r0, r2
 	add r0, r0, r1, lsl #0x4
 	bx lr
-	arm_func_end FUN_020BC4A8
+	arm_func_end NNSi_G3dGetTexPatAnmPlttNameByIdx
 
-	; _end
-	arm_func_start FUN_020BC4B8
-FUN_020BC4B8: ; 0x020BC4B8
+	arm_func_start NNSi_G3dGetTexPatAnmTexNameByIdx
+NNSi_G3dGetTexPatAnmTexNameByIdx: ; 0x020BC4B8
 	ldrh r2, [r0, #0x8]
 	add r0, r0, r2
 	add r0, r0, r1, lsl #0x4
 	bx lr
-	arm_func_end FUN_020BC4B8
+	arm_func_end NNSi_G3dGetTexPatAnmTexNameByIdx
 
-	; _end
-	arm_func_start FUN_020BC4C8
-FUN_020BC4C8: ; 0x020BC4C8
+	arm_func_start NNS_G3dGetAnmByIdx
+NNS_G3dGetAnmByIdx: ; 0x020BC4C8
 	ldrh r2, [r0, #0xc]
 	ldr r2, [r0, r2]
 	add r12, r0, r2
@@ -323,5 +314,4 @@ FUN_020BC4C8: ; 0x020BC4C8
 	addne r0, r12, r0
 	moveq r0, #0x0
 	bx lr
-	arm_func_end FUN_020BC4C8
-
+	arm_func_end NNS_G3dGetAnmByIdx

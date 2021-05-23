@@ -670,7 +670,7 @@ _02254D24:
 	bl NARC_AllocAndReadWholeMember
 	add r1, sp, #0x2c
 	str r0, [sp, #0x20]
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0x2c]
 	mov r1, #1
 	ldr r0, [r0, #0x14]

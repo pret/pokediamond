@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020B76B0
-FUN_020B76B0: ; 0x020B76B0
+	arm_func_start NNSi_G2dBitReaderRead
+NNSi_G2dBitReaderRead: ; 0x020B76B0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	ldrsb r2, [r0, #0x4]
@@ -25,7 +24,7 @@ FUN_020B76B0: ; 0x020B76B0
 	strb r2, [r0, #0x5]
 	mov r2, #0x8
 	strb r2, [r0, #0x4]
-	bl FUN_020B76B0
+	bl NNSi_G2dBitReaderRead
 	orr r5, r0, r5
 _020B7704:
 	rsb r0, r4, #0x8
@@ -33,5 +32,4 @@ _020B7704:
 	and r0, r5, r1, asr r0
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020B76B0
-
+	arm_func_end NNSi_G2dBitReaderRead

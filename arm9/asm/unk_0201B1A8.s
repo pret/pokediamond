@@ -1,12 +1,12 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021CED98
-	.extern UNK_021CEDD4
-	.extern UNK_021064C0
-	.extern UNK_021064B8
-	.extern UNK_021064C4
-	.extern UNK_021064BC
+	.extern NNS_G3dGlb
+	.extern NNS_G3dGlb
+	.extern NNS_GfdDefaultFuncAllocPlttVram
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncFreePlttVram
+	.extern NNS_GfdDefaultFuncFreeTexVram
 
 	.section .bss
 
@@ -23,7 +23,7 @@ FUN_0201B1A8: ; 0x0201B1A8
 	add r4, r2, #0x0
 	bl FUN_020161A4
 	str r0, [r5, #0x0]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	cmp r0, #0x0
 	beq _0201B1D2
 	bl FUN_0201B254
@@ -33,10 +33,10 @@ FUN_0201B1A8: ; 0x0201B1A8
 	ldr r1, [r0, #0x8]
 	bl DC_FlushRange
 	ldr r0, [r5, #0x0]
-	bl FUN_020BB59C
+	bl NNS_G3dResDefaultSetup
 _0201B1D2:
 	ldr r0, [r5, #0x0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -50,7 +50,7 @@ FUN_0201B1E4: ; 0x0201B1E4
 	add r5, r1, #0x0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	cmp r0, #0x0
 	beq _0201B20A
 	bl FUN_0201B254
@@ -60,10 +60,10 @@ FUN_0201B1E4: ; 0x0201B1E4
 	ldr r1, [r0, #0x8]
 	bl DC_FlushRange
 	ldr r0, [r5, #0x0]
-	bl FUN_020BB59C
+	bl NNS_G3dResDefaultSetup
 _0201B20A:
 	ldr r0, [r5, #0x0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -81,7 +81,7 @@ FUN_0201B21C: ; 0x0201B21C
 	bl FUN_0201B1A8
 	ldr r1, [r4, #0x0]
 	add r0, r5, #0x0
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0201B234
@@ -98,7 +98,7 @@ FUN_0201B234: ; 0x0201B234
 _0201B24A:
 	ldr r1, [r4, #0x0]
 	add r0, r5, #0x0
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0201B254
@@ -125,24 +125,24 @@ FUN_0201B26C: ; 0x0201B26C
 	add r0, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_020B8474
-	ldr r1, _0201B2A0 ; =UNK_021CEDD4
+	bl NNS_G3dGlbSetBaseTrans
+	ldr r1, _0201B2A0 ; =NNS_G3dGlb + 0xBC
 	add r0, r4, #0x0
 	bl MI_Copy36B
-	ldr r1, _0201B2A4 ; =UNK_021CED98
+	ldr r1, _0201B2A4 ; =NNS_G3dGlb + 0x80
 	mov r0, #0xa4
 	ldr r2, [r1, #0x7c]
 	bic r2, r0
 	add r0, r6, #0x0
 	str r2, [r1, #0x7c]
-	bl FUN_020B844C
-	bl FUN_020B849C
+	bl NNS_G3dGlbSetBaseScale
+	bl NNS_G3dGlbFlushP
 	add r0, r5, #0x0
-	bl FUN_020BAC98
+	bl NNS_G3dDraw
 	pop {r4-r6, pc}
 	nop
-_0201B2A0: .word UNK_021CEDD4
-_0201B2A4: .word UNK_021CED98
+_0201B2A0: .word NNS_G3dGlb + 0xBC
+_0201B2A4: .word NNS_G3dGlb + 0x80
 
 	thumb_func_start FUN_0201B2A8
 FUN_0201B2A8: ; 0x0201B2A8
@@ -151,28 +151,28 @@ FUN_0201B2A8: ; 0x0201B2A8
 	add r0, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_020B8474
-	ldr r1, _0201B2E4 ; =UNK_021CEDD4
+	bl NNS_G3dGlbSetBaseTrans
+	ldr r1, _0201B2E4 ; =NNS_G3dGlb + 0xBC
 	add r0, r4, #0x0
 	bl MI_Copy36B
-	ldr r1, _0201B2E8 ; =UNK_021CED98
+	ldr r1, _0201B2E8 ; =NNS_G3dGlb + 0x80
 	mov r0, #0xa4
 	ldr r2, [r1, #0x7c]
 	bic r2, r0
 	str r2, [r1, #0x7c]
 	add r0, r6, #0x0
-	bl FUN_020B844C
-	bl FUN_020B849C
+	bl NNS_G3dGlbSetBaseScale
+	bl NNS_G3dGlbFlushP
 	mov r1, #0x0
 	ldr r0, [r5, #0x4]
 	add r2, r1, #0x0
 	mov r3, #0x1
-	bl FUN_020BAFB8
-	bl FUN_020BB394
+	bl NNS_G3dDraw1Mat1Shp
+	bl NNS_G3dGeFlushBuffer
 	pop {r4-r6, pc}
 	.balign 4
-_0201B2E4: .word UNK_021CEDD4
-_0201B2E8: .word UNK_021CED98
+_0201B2E4: .word NNS_G3dGlb + 0xBC
+_0201B2E8: .word NNS_G3dGlb + 0x80
 
 	thumb_func_start FUN_0201B2EC
 FUN_0201B2EC: ; 0x0201B2EC
@@ -269,11 +269,11 @@ _0201B3A4: .word FUN_020223BC
 FUN_0201B3A8: ; 0x0201B3A8
 	push {r4, lr}
 	add r4, r1, #0x0
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	cmp r4, #0x0
 	beq _0201B3BE
 	add r1, r4, #0x0
-	bl FUN_020B7790
+	bl NNS_G3dBindMdlSet
 	mov r0, #0x1
 	pop {r4, pc}
 _0201B3BE:
@@ -299,17 +299,17 @@ _0201B3D2:
 	str r1, [sp, #0x0]
 	cmp r5, #0x0
 	beq _0201B4D0
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	str r0, [sp, #0xc]
 	cmp r6, #0x0
 	beq _0201B412
-	ldr r3, _0201B4D8 ; =UNK_021064B8
+	ldr r3, _0201B4D8 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	add r0, r6, #0x0
@@ -325,7 +325,7 @@ _0201B412:
 _0201B414:
 	cmp r4, #0x0
 	beq _0201B42E
-	ldr r3, _0201B4D8 ; =UNK_021064B8
+	ldr r3, _0201B4D8 ; =NNS_GfdDefaultFuncAllocTexVram
 	add r0, r4, #0x0
 	ldr r3, [r3, #0x0]
 	mov r1, #0x1
@@ -342,7 +342,7 @@ _0201B430:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0x0
 	beq _0201B450
-	ldr r3, _0201B4DC ; =UNK_021064C0
+	ldr r3, _0201B4DC ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x2
 	ldrh r2, [r5, #0x20]
 	lsl r1, r1, #0xe
@@ -361,7 +361,7 @@ _0201B452:
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	bne _0201B46E
-	ldr r1, _0201B4E0 ; =UNK_021064BC
+	ldr r1, _0201B4E0 ; =NNS_GfdDefaultFuncFreeTexVram
 	add r0, r7, #0x0
 	ldr r1, [r1, #0x0]
 	blx r1
@@ -376,7 +376,7 @@ _0201B46E:
 	ldr r0, [sp, #0x4]
 	cmp r0, #0x0
 	bne _0201B48A
-	ldr r1, _0201B4E0 ; =UNK_021064BC
+	ldr r1, _0201B4E0 ; =NNS_GfdDefaultFuncFreeTexVram
 	add r0, r6, #0x0
 	ldr r1, [r1, #0x0]
 	blx r1
@@ -391,7 +391,7 @@ _0201B48A:
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x0
 	bne _0201B4A6
-	ldr r1, _0201B4E4 ; =UNK_021064C4
+	ldr r1, _0201B4E4 ; =NNS_GfdDefaultFuncFreePlttVram
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x0]
 	blx r1
@@ -406,25 +406,25 @@ _0201B4A6:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	add r2, r6, #0x0
-	bl FUN_020B7DFC
+	bl NNS_G3dTexSetTexKey
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_020B7CDC
+	bl NNS_G3dPlttSetPlttKey
 	ldr r1, [r5, #0x4]
 	add r0, r5, #0x0
 	bl DC_FlushRange
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_020B7D28
+	bl NNS_G3dTexLoad
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_020B7C78
+	bl NNS_G3dPlttLoad
 _0201B4D0:
 	mov r0, #0x1
 	add sp, #0x10
 	pop {r3-r7, pc}
 	nop
-_0201B4D8: .word UNK_021064B8
-_0201B4DC: .word UNK_021064C0
-_0201B4E0: .word UNK_021064BC
-_0201B4E4: .word UNK_021064C4
+_0201B4D8: .word NNS_GfdDefaultFuncAllocTexVram
+_0201B4DC: .word NNS_GfdDefaultFuncAllocPlttVram
+_0201B4E0: .word NNS_GfdDefaultFuncFreeTexVram
+_0201B4E4: .word NNS_GfdDefaultFuncFreePlttVram

@@ -3,41 +3,36 @@
 
 	.section .rodata
 
-	; cvtTbl$7926
-	.global UNK_020FF8C4
-UNK_020FF8C4: ; 0x020FF8C4
+	.global cvtTbl$7926
+cvtTbl$7926: ; 0x020FF8C4
 	.byte 0x00, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x23, 0x00, 0x00, 0x00
-
 	; static const in function
+
 	.section .bss
 
-	; s_pTaskRegisterFunc
-	.global UNK_021CECFC
-UNK_021CECFC: ; 0x021CECFC
+	.global s_pTaskRegisterFunc
+s_pTaskRegisterFunc: ; 0x021CECFC
 	.space 0x4
 
-	; s_numCellState
-	.global UNK_021CED00
-UNK_021CED00: ; 0x021CED00
+	.global s_numCellState
+s_numCellState: ; 0x021CED00
 	.space 0x4
 
-	; s_pCellStateArray
-	.global UNK_021CED04
-UNK_021CED04: ; 0x021CED04
+	.global s_pCellStateArray
+s_pCellStateArray: ; 0x021CED04
 	.space 0x4
 
 	.section .text
 
-	; NNS_G2dFreeCellTransferStateHandle
-	arm_func_start FUN_020B4358
-FUN_020B4358: ; 0x020B4358
+	arm_func_start NNS_G2dFreeCellTransferStateHandle
+NNS_G2dFreeCellTransferStateHandle: ; 0x020B4358
 	stmdb sp!, {r4,lr}
-	ldr r2, _020B43A0 ; =UNK_021CED04
+	ldr r2, _020B43A0 ; =s_pCellStateArray
 	mov r1, #0x30
 	ldr r2, [r2, #0x0]
 	mla r4, r0, r1, r2
 	mov r0, r4
-	bl FUN_020B10CC
+	bl NNSi_G2dInitializeVRamLocation
 	mov r0, #0x0
 	str r0, [r4, #0xc]
 	str r0, [r4, #0x10]
@@ -50,18 +45,17 @@ FUN_020B4358: ; 0x020B4358
 	str r0, [r4, #0x2c]
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020B43A0: .word UNK_021CED04
-	arm_func_end FUN_020B4358
+_020B43A0: .word s_pCellStateArray
+	arm_func_end NNS_G2dFreeCellTransferStateHandle
 
-	; NNS_G2dGetNewCellTransferStateHandle
-	arm_func_start FUN_020B43A4
-FUN_020B43A4: ; 0x020B43A4
-	ldr r1, _020B43F8 ; =UNK_021CED00
+	arm_func_start NNS_G2dGetNewCellTransferStateHandle
+NNS_G2dGetNewCellTransferStateHandle: ; 0x020B43A4
+	ldr r1, _020B43F8 ; =s_numCellState
 	mov r0, #0x0
 	ldr r3, [r1, #0x0]
 	cmp r3, #0x0
 	bls _020B43F0
-	ldr r1, _020B43FC ; =UNK_021CED04
+	ldr r1, _020B43FC ; =s_pCellStateArray
 	ldr r2, [r1, #0x0]
 	mov r12, r2
 _020B43C4:
@@ -80,34 +74,32 @@ _020B43F0:
 	mvn r0, #0x0
 	bx lr
 	.balign 4
-_020B43F8: .word UNK_021CED00
-_020B43FC: .word UNK_021CED04
-	arm_func_end FUN_020B43A4
+_020B43F8: .word s_numCellState
+_020B43FC: .word s_pCellStateArray
+	arm_func_end NNS_G2dGetNewCellTransferStateHandle
 
-	; _end
-	arm_func_start FUN_020B4400
-FUN_020B4400: ; 0x020B4400
+	arm_func_start NNS_G2dSetCellTransferStateRequested
+NNS_G2dSetCellTransferStateRequested: ; 0x020B4400
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r1
 	mov r4, r2
-	bl FUN_020B469C
+	bl NNSi_G2dGetCellTransferState
 	mvn r1, #0x0
 	str r1, [r0, #0x24]
 	str r5, [r0, #0x28]
 	str r4, [r0, #0x2c]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020B4400
+	arm_func_end NNS_G2dSetCellTransferStateRequested
 
-	; NNS_G2dUpdateCellTransferStateManager
-	arm_func_start FUN_020B442C
-FUN_020B442C: ; 0x020B442C
+	arm_func_start NNS_G2dUpdateCellTransferStateManager
+NNS_G2dUpdateCellTransferStateManager: ; 0x020B442C
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x14
 	mov r0, #0x0
 	str r0, [sp, #0x0]
-	ldr r0, _020B4558 ; =UNK_021CED00
+	ldr r0, _020B4558 ; =s_numCellState
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	addls sp, sp, #0x14
@@ -119,7 +111,7 @@ FUN_020B442C: ; 0x020B442C
 	str r0, [sp, #0x8]
 	str r0, [sp, #0xc]
 _020B4468:
-	ldr r0, _020B455C ; =UNK_021CED04
+	ldr r0, _020B455C ; =s_pCellStateArray
 	ldr r1, [r0, #0x0]
 	ldr r0, [sp, #0x4]
 	add r8, r1, r0
@@ -143,17 +135,17 @@ _020B4498:
 _020B44B8:
 	cmp r1, #0x0
 	beq _020B4514
-	ldr r0, _020B4560 ; =UNK_020FF8C4
+	ldr r0, _020B4560 ; =cvtTbl$7926
 	cmp r9, #0x0
 	ldr r7, [r0, r9, lsl #0x2]
 	ldreq r10, [r8, #0x14]
 	mov r0, r8
 	mov r1, r9
 	ldrne r10, [r8, #0x10]
-	bl FUN_020B10BC
+	bl NNSi_G2dGetVramLocation
 	mov r1, r0
 	mov r0, r7
-	ldr r7, _020B4564 ; =UNK_021CECFC
+	ldr r7, _020B4564 ; =s_pTaskRegisterFunc
 	ldr r2, [r8, #0x28]
 	ldr r3, [r8, #0x2c]
 	ldr r7, [r7, #0x0]
@@ -172,7 +164,7 @@ _020B4520:
 	ldr r0, [sp, #0xc]
 	str r0, [r8, #0x20]
 _020B4528:
-	ldr r0, _020B4558 ; =UNK_021CED00
+	ldr r0, _020B4558 ; =s_numCellState
 	ldr r1, [r0, #0x0]
 	ldr r0, [sp, #0x0]
 	add r0, r0, #0x1
@@ -185,21 +177,20 @@ _020B4528:
 	add sp, sp, #0x14
 	ldmia sp!, {r4-r11,pc}
 	.balign 4
-_020B4558: .word UNK_021CED00
-_020B455C: .word UNK_021CED04
-_020B4560: .word UNK_020FF8C4
-_020B4564: .word UNK_021CECFC
-	arm_func_end FUN_020B442C
+_020B4558: .word s_numCellState
+_020B455C: .word s_pCellStateArray
+_020B4560: .word cvtTbl$7926
+_020B4564: .word s_pTaskRegisterFunc
+	arm_func_end NNS_G2dUpdateCellTransferStateManager
 
-	; NNS_G2dInitCellTransferStateManager
-	arm_func_start FUN_020B4568
-FUN_020B4568: ; 0x020B4568
+	arm_func_start NNS_G2dInitCellTransferStateManager
+NNS_G2dInitCellTransferStateManager: ; 0x020B4568
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
-	ldr ip, _020B45E4 ; =UNK_021CECFC
+	ldr ip, _020B45E4 ; =s_pTaskRegisterFunc
 	movs r6, r1
-	ldr r1, _020B45E8 ; =UNK_021CED00
-	ldr r3, _020B45EC ; =UNK_021CED04
+	ldr r1, _020B45E8 ; =s_numCellState
+	ldr r3, _020B45EC ; =s_pCellStateArray
 	mov r7, r0
 	str r2, [r12, #0x0]
 	mov r5, #0x0
@@ -210,7 +201,7 @@ FUN_020B4568: ; 0x020B4568
 	mov r4, r5
 _020B45A0:
 	mov r0, r7
-	bl FUN_020B10CC
+	bl NNSi_G2dInitializeVRamLocation
 	str r4, [r7, #0xc]
 	str r4, [r7, #0x10]
 	str r4, [r7, #0x14]
@@ -227,17 +218,16 @@ _020B45A0:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020B45E4: .word UNK_021CECFC
-_020B45E8: .word UNK_021CED00
-_020B45EC: .word UNK_021CED04
-	arm_func_end FUN_020B4568
+_020B45E4: .word s_pTaskRegisterFunc
+_020B45E8: .word s_numCellState
+_020B45EC: .word s_pCellStateArray
+	arm_func_end NNS_G2dInitCellTransferStateManager
 
-	; NNSi_G2dInitCellTransferState
-	arm_func_start FUN_020B45F0
-FUN_020B45F0: ; 0x020B45F0
+	arm_func_start NNSi_G2dInitCellTransferState
+NNSi_G2dInitCellTransferState: ; 0x020B45F0
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
-	ldr ip, _020B4698 ; =UNK_021CED04
+	ldr ip, _020B4698 ; =s_pCellStateArray
 	mov r4, #0x30
 	ldr r12, [r12, #0x0]
 	mov r7, r1
@@ -245,14 +235,14 @@ FUN_020B45F0: ; 0x020B45F0
 	mov r0, r4
 	mov r6, r2
 	mov r5, r3
-	bl FUN_020B10CC
+	bl NNSi_G2dInitializeVRamLocation
 	mvn r0, #0x0
 	cmp r7, r0
 	beq _020B4638
 	mov r0, r4
 	mov r2, r7
 	mov r1, #0x0
-	bl FUN_020B10C4
+	bl NNSi_G2dSetVramLocation
 _020B4638:
 	mvn r0, #0x0
 	cmp r6, r0
@@ -260,7 +250,7 @@ _020B4638:
 	mov r0, r4
 	mov r2, r6
 	mov r1, #0x1
-	bl FUN_020B10C4
+	bl NNSi_G2dSetVramLocation
 _020B4654:
 	mvn r0, #0x0
 	cmp r5, r0
@@ -268,7 +258,7 @@ _020B4654:
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0x2
-	bl FUN_020B10C4
+	bl NNSi_G2dSetVramLocation
 _020B4670:
 	ldr r1, [sp, #0x18]
 	ldr r0, [sp, #0x1c]
@@ -281,18 +271,16 @@ _020B4670:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020B4698: .word UNK_021CED04
-	arm_func_end FUN_020B45F0
+_020B4698: .word s_pCellStateArray
+	arm_func_end NNSi_G2dInitCellTransferState
 
-	; NNSi_G2dGetCellTransferState
-	arm_func_start FUN_020B469C
-FUN_020B469C: ; 0x020B469C
-	ldr r2, _020B46B0 ; =UNK_021CED04
+	arm_func_start NNSi_G2dGetCellTransferState
+NNSi_G2dGetCellTransferState: ; 0x020B469C
+	ldr r2, _020B46B0 ; =s_pCellStateArray
 	mov r1, #0x30
 	ldr r2, [r2, #0x0]
 	mla r0, r1, r0, r2
 	bx lr
 	.balign 4
-_020B46B0: .word UNK_021CED04
-	arm_func_end FUN_020B469C
-
+_020B46B0: .word s_pCellStateArray
+	arm_func_end NNSi_G2dGetCellTransferState

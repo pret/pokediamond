@@ -1,13 +1,11 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-
-	.extern FUN_020ADCA4
-	.extern FUN_020ADC8C
-
+	.extern NNSi_FndInitHeapHead
+	.extern NNSi_FndFinalizeHeap
 	.text
 
-	arm_func_start FUN_020AE554
-FUN_020AE554: ; 0x020AE554
+	arm_func_start NNS_FndFreeByStateToFrmHeap
+NNS_FndFreeByStateToFrmHeap: ; 0x020AE554
 	add r2, r0, #0x24
 	cmp r1, #0x0
 	ldr r3, [r2, #0x8]
@@ -33,10 +31,10 @@ _020AE584:
 	ldr r1, [r3, #0xc]
 	str r1, [r2, #0x8]
 	bx lr
-	arm_func_end FUN_020AE554
+	arm_func_end NNS_FndFreeByStateToFrmHeap
 
-	arm_func_start FUN_020AE5B0
-FUN_020AE5B0: ; 0x020AE5B0
+	arm_func_start NNS_FndRecordStateForFrmHeap
+NNS_FndRecordStateForFrmHeap: ; 0x020AE5B0
 	stmdb sp!, {r4-r6,lr}
 	add r4, r0, #0x24
 	ldr r5, [r0, #0x24]
@@ -44,7 +42,7 @@ FUN_020AE5B0: ; 0x020AE5B0
 	mov r0, r4
 	mov r1, #0x10
 	mov r2, #0x4
-	bl FUN_020AE77C
+	bl AllocFromHead
 	cmp r0, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
@@ -57,29 +55,29 @@ FUN_020AE5B0: ; 0x020AE5B0
 	str r0, [r4, #0x8]
 	mov r0, #0x1
 	ldmia sp!, {r4-r6,pc}
-	arm_func_end FUN_020AE5B0
+	arm_func_end NNS_FndRecordStateForFrmHeap
 
-	arm_func_start FUN_020AE600
-FUN_020AE600: ; 0x020AE600
+	arm_func_start NNS_FndFreeToFrmHeap
+NNS_FndFreeToFrmHeap: ; 0x020AE600
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r4, r1
 	mov r5, r0
 	ands r1, r4, #0x1
 	beq _020AE61C
-	bl FUN_020AE6F8
+	bl FreeHead
 _020AE61C:
 	ands r0, r4, #0x2
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
 	mov r0, r5
-	bl FUN_020AE6C8
+	bl FreeTail
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020AE600
+	arm_func_end NNS_FndFreeToFrmHeap
 
-	arm_func_start FUN_020AE638
-FUN_020AE638: ; 0x020AE638
+	arm_func_start NNS_FndAllocFromFrmHeapEx
+NNS_FndAllocFromFrmHeapEx: ; 0x020AE638
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	cmp r1, #0x0
@@ -89,26 +87,26 @@ FUN_020AE638: ; 0x020AE638
 	cmp r2, #0x0
 	bic r1, r1, #0x3
 	blt _020AE668
-	bl FUN_020AE77C
+	bl AllocFromHead
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 _020AE668:
 	rsb r2, r2, #0x0
-	bl FUN_020AE710
+	bl AllocFromTail
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020AE638
+	arm_func_end NNS_FndAllocFromFrmHeapEx
 
-	arm_func_start thunk_FUN_020adc8c_2
-thunk_FUN_020adc8c_2: ; 0x020AE678
-	ldr ip, _020AE680 ; =FUN_020ADC8C
+	arm_func_start NNS_FndDestroyFrmHeap
+NNS_FndDestroyFrmHeap: ; 0x020AE678
+	ldr ip, _020AE680 ; =NNSi_FndFinalizeHeap
 	bx r12
 	.balign 4
-_020AE680: .word FUN_020ADC8C
-	arm_func_end thunk_FUN_020adc8c_2
+_020AE680: .word NNSi_FndFinalizeHeap
+	arm_func_end NNS_FndDestroyFrmHeap
 
-	arm_func_start FUN_020AE684
-FUN_020AE684: ; 0x020AE684
+	arm_func_start NNS_FndCreateFrmHeapEx
+NNS_FndCreateFrmHeapEx: ; 0x020AE684
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	add r1, r1, r0
@@ -125,13 +123,13 @@ _020AE6B0:
 	mov r0, #0x0
 	ldmia sp!, {pc}
 _020AE6BC:
-	bl FUN_020AE7E0
+	bl InitFrameHeap
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020AE684
+	arm_func_end NNS_FndCreateFrmHeapEx
 
-	arm_func_start FUN_020AE6C8
-FUN_020AE6C8: ; 0x020AE6C8
+	arm_func_start FreeTail
+FreeTail: ; 0x020AE6C8
 	add r2, r0, #0x24
 	ldr r3, [r2, #0x8]
 	cmp r3, #0x0
@@ -146,20 +144,20 @@ _020AE6EC:
 	ldr r0, [r0, #0x1c]
 	str r0, [r2, #0x4]
 	bx lr
-	arm_func_end FUN_020AE6C8
+	arm_func_end FreeTail
 
-	arm_func_start FUN_020AE6F8
-FUN_020AE6F8: ; 0x020AE6F8
+	arm_func_start FreeHead
+FreeHead: ; 0x020AE6F8
 	ldr r1, [r0, #0x18]
 	add r2, r0, #0x24
 	str r1, [r0, #0x24]
 	mov r0, #0x0
 	str r0, [r2, #0x8]
 	bx lr
-	arm_func_end FUN_020AE6F8
+	arm_func_end FreeHead
 
-	arm_func_start FUN_020AE710
-FUN_020AE710: ; 0x020AE710
+	local_arm_func_start AllocFromTail
+AllocFromTail: ; 0x020AE710
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
@@ -188,10 +186,10 @@ _020AE76C:
 	str r4, [r5, #0x4]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020AE710
+	arm_func_end AllocFromTail
 
-	arm_func_start FUN_020AE77C
-FUN_020AE77C:
+	local_arm_func_start AllocFromHead
+AllocFromHead:
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	ldr r0, [r6, #0x0]
@@ -218,10 +216,10 @@ _020AE7D4:
 	mov r0, r5
 	str r4, [r6, #0x0]
 	ldmia sp!, {r4-r6,pc}
-	arm_func_end FUN_020AE77C
+	arm_func_end AllocFromHead
 
-	arm_func_start FUN_020AE7E0
-FUN_020AE7E0: ; 0x020AE7E0
+	arm_func_start InitFrameHeap
+InitFrameHeap: ; 0x020AE7E0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
@@ -230,7 +228,7 @@ FUN_020AE7E0: ; 0x020AE7E0
 	str r2, [sp, #0x0]
 	ldr r1, _020AE828 ; =0x46524D48
 	add r2, r4, #0xc
-	bl FUN_020ADCA4
+	bl NNSi_FndInitHeapHead
 	ldr r0, [r5, #0x18]
 	mov r1, #0x0
 	str r0, [r5, #0x24]
@@ -242,4 +240,4 @@ FUN_020AE7E0: ; 0x020AE7E0
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020AE828: .word 0x46524D48
-	arm_func_end FUN_020AE7E0
+	arm_func_end InitFrameHeap

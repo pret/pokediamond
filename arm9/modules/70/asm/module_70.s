@@ -407,7 +407,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	mov r0, #0x3d
 	bl FUN_02016B94
 	str r0, [r4, #0x10]
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -1462,19 +1462,19 @@ MOD70_021D7FF8: ; 0x021D7FF8
 	add r7, r4, #0
 _021D8050:
 	add r0, sp, #0x2c
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, sp, #0x18
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	ldr r0, [sp, #0x14]
 	add r1, r4, #0
 	mov r2, #1
 	add r3, sp, #0x2c
-	bl FUN_020B1768
+	bl NNS_G2dLoadImage1DMapping
 	ldr r0, [sp, #0x10]
 	add r1, r7, #0
 	mov r2, #1
 	add r3, sp, #0x18
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 	ldr r0, [r6]
 	lsl r0, r0, #0xc
 	str r0, [sp, #0x58]

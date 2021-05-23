@@ -9385,7 +9385,7 @@ MOD83_022320D8: ; 0x022320D8
 	bl UncompressFromNarc
 	add r1, sp, #4
 	add r7, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r0, _02232114 ; =0x0000299C
 	ldr r2, [sp, #4]
 	lsl r1, r4, #0x18
@@ -15684,7 +15684,7 @@ MOD83_022350EC: ; 0x022350EC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r6, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -15971,7 +15971,7 @@ MOD83_022352FC: ; 0x022352FC
 	bl ReadWholeNarcMemberByIdPair
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0
 	bne _02235330
 	add r0, r4, #0
@@ -15994,7 +15994,7 @@ MOD83_02235334: ; 0x02235334
 	bl NARC_ReadWholeMember
 	add r0, r4, #0
 	add r1, r5, #0
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end MOD83_02235334
@@ -23333,7 +23333,7 @@ MOD83_02238B4C: ; 0x02238B4C
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	ldr r6, _02238BB4 ; =MOD83_0223BC30
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -24223,7 +24223,7 @@ MOD83_022391EC: ; 0x022391EC
 	bl UncompressFromNarc
 	add r1, sp, #0x14
 	str r0, [sp, #0x10]
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r2, [sp, #0x14]
 	mov r3, #6
 	add r0, r5, #0

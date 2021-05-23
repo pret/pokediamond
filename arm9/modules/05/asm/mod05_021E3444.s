@@ -1652,7 +1652,7 @@ MOD05_021E40F0: ; 0x021E40F0
 	bl DC_FlushRange
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -1671,7 +1671,7 @@ MOD05_021E4118: ; 0x021E4118
 	bl DC_FlushRange
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0

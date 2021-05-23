@@ -417,14 +417,14 @@ MOD63_021D8BD8: ; 0x021D8BD8
 	add r3, r1, #0
 	bl FUN_02022318
 	str r0, [r4, #0x10]
-	ldr r3, _021D8C18 ; =UNK_021064B8
+	ldr r3, _021D8C18 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #2
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D8C1C ; =UNK_021064C0
+	ldr r3, _021D8C1C ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r0, #0x80
 	ldr r3, [r3]
 	mov r1, #0
@@ -434,8 +434,8 @@ MOD63_021D8BD8: ; 0x021D8BD8
 	pop {r4, pc}
 	nop
 _021D8C14: .word MOD63_021D8C20
-_021D8C18: .word UNK_021064B8
-_021D8C1C: .word UNK_021064C0
+_021D8C18: .word NNS_GfdDefaultFuncAllocTexVram
+_021D8C1C: .word NNS_GfdDefaultFuncAllocPlttVram
 	thumb_func_end MOD63_021D8BD8
 
 	thumb_func_start MOD63_021D8C20
@@ -1565,11 +1565,11 @@ _021D950C:
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	asr r3, r3, #0x10
-	bl FUN_020B8418
+	bl NNS_G3dGlbLightVector
 	lsl r1, r4, #1
 	ldrh r1, [r7, r1]
 	add r0, r4, #0
-	bl FUN_020B8404
+	bl NNS_G3dGlbLightColor
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -1578,11 +1578,11 @@ _021D950C:
 	ldr r0, _021D9594 ; =0x00004210
 	ldr r1, _021D9598 ; =0x0000318A
 	mov r2, #0
-	bl FUN_020B83E0
+	bl NNS_G3dGlbMaterialColorDiffAmb
 	ldr r0, _021D959C ; =0x00004A52
 	ldr r1, _021D95A0 ; =0x000039CE
 	mov r2, #0
-	bl FUN_020B83BC
+	bl NNS_G3dGlbMaterialColorSpecEmi
 	mov r0, #0x1f
 	str r0, [sp]
 	mov r0, #2
@@ -1592,7 +1592,7 @@ _021D950C:
 	mov r0, #0xd
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_020B8390
+	bl NNS_G3dGlbPolygonAttr
 	ldr r0, _021D95A4 ; =MOD63_021D8CB0
 	add r1, r5, #0
 	bl Main_SetVBlankIntrCB
@@ -1767,7 +1767,7 @@ _021D96C6:
 	beq _021D96F4
 	ldr r1, [sp, #0x14]
 	add r1, r1, r7
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0
 	bne _021D96F8
 	ldr r0, [r6, #0x2c]
@@ -1912,7 +1912,7 @@ MOD63_021D9810: ; 0x021D9810
 	mov r2, #0x4c
 	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [r5, #0x3c]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r5, #0x40]
 	bl FUN_0201B3C4
 	cmp r0, #0
@@ -1965,7 +1965,7 @@ _021D9890:
 	add r0, r5, r6
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrb r0, [r0, #9]
 	cmp r0, #1
 	beq _021D98A4
@@ -1974,7 +1974,7 @@ _021D98A4:
 	add r0, r5, r6
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -1985,29 +1985,29 @@ _021D98BC:
 	ldr r0, [sp, #0x10]
 	add r1, r4, #0
 	add r0, r0, r6
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x40
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x80
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #2
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #8
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #1
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #0xa
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0xf
-	bl FUN_020BC02C
+	bl NNSi_G3dModifyPolygonAttrMask
 	add r0, r7, #1
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
@@ -3038,7 +3038,7 @@ MOD63_021DA158: ; 0x021DA158
 	beq _021DA18E
 	add r1, r4, #0
 	add r1, #0x14
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0
 	bne _021DA192
 	ldr r0, [r4, #0x14]

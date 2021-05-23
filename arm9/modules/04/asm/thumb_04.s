@@ -61,7 +61,7 @@ _021D74F2:
 	bic r0, r1
 	mov r1, #0x2b
 	lsl r1, r1, #0xc
-	bl tempName_NNS_FndCreateExpHeapEx
+	bl NNS_FndCreateExpHeapEx
 	ldr r1, _021D7644 ; =UNK04_0220FBC0
 	ldr r3, _021D7654 ; =0x00001F08
 	ldr r2, [r1]
@@ -195,7 +195,7 @@ MOD04_021D7660: ; 0x021D7660
 	beq _021D7698
 	ldr r0, _021D76A4 ; =0x00001F08
 	ldr r0, [r1, r0]
-	bl thunk_FUN_020adc8c
+	bl NNS_FndDestroyExpHeap
 	ldr r0, _021D76A0 ; =UNK04_0220FBC0
 	ldr r1, _021D76A8 ; =0x00001F54
 	ldr r2, [r0]
@@ -1130,7 +1130,7 @@ MOD04_021D7DA8: ; 0x021D7DA8
 	ldr r0, _021D7DE8 ; =0x00001F08
 	ldr r0, [r1, r0]
 	add r1, r5, #0
-	bl tempName_NNS_FndAllocFromExpHeapEx
+	bl NNS_FndAllocFromExpHeapEx
 	add r5, r0, #0
 	bne _021D7DD8
 	mov r0, #1
@@ -1160,7 +1160,7 @@ MOD04_021D7DEC: ; 0x021D7DEC
 	ldr r0, _021D7E14 ; =0x00001F08
 	ldr r0, [r1, r0]
 	add r1, r5, #0
-	bl FUN_020ADDF0
+	bl NNS_FndFreeToExpHeap
 	add r0, r4, #0
 	bl OS_RestoreInterrupts
 _021D7E0C:
@@ -2347,12 +2347,12 @@ _021D86CE:
 	str r1, [r2, r0]
 	mov r0, #1
 	bl FUN_020AA770
-	bl SDAT_Init
+	bl NNS_SndInit
 	ldr r0, _021D8718 ; =UNK04_0220FBC8
 	ldr r1, [r0, #4]
 	ldr r0, _021D8728 ; =0x00003504
 	add r0, r1, r0
-	bl FUN_020C16FC
+	bl NNS_SndStrmInit
 	ldr r1, _021D8718 ; =UNK04_0220FBC8
 	mov r0, #0
 	ldr r2, [r1, #4]
@@ -2887,13 +2887,13 @@ _021D8ACA:
 	ldr r0, [r5, #4]
 	add r2, sp, #0x10
 	add r0, r0, r3
-	bl FUN_020C169C
+	bl NNS_SndStrmAllocChannel
 	add r0, r5, #0
 	ldr r1, [r0, #4]
 	ldr r0, _021D8BDC ; =0x00003504
 	add r0, r1, r0
 	mov r1, #0
-	bl FUN_020C13C4
+	bl NNS_SndStrmSetVolume
 	mov r0, #0x41
 	str r0, [sp]
 	mov r0, #2
@@ -2914,7 +2914,7 @@ _021D8ACA:
 	add r2, r3, r2
 	mov r1, #1
 	lsl r3, r7, #1
-	bl FUN_020C14AC
+	bl NNS_SndStrmSetup
 	ldr r2, _021D8BCC ; =UNK04_0220FBC8
 	ldr r1, _021D8BE4 ; =0x000034F8
 	ldr r0, [r2, #4]
@@ -2975,14 +2975,14 @@ _021D8BEC: .word 0x000034FC
 	thumb_func_start MOD04_021D8BF0
 MOD04_021D8BF0: ; 0x021D8BF0
 	ldr r0, _021D8BFC ; =UNK04_0220FBC8
-	ldr r3, _021D8C00 ; =FUN_020C1458
+	ldr r3, _021D8C00 ; =NNS_SndStrmStart
 	ldr r1, [r0, #4]
 	ldr r0, _021D8C04 ; =0x00003504
 	add r0, r1, r0
 	bx r3
 	.align 2, 0
 _021D8BFC: .word UNK04_0220FBC8
-_021D8C00: .word FUN_020C1458
+_021D8C00: .word NNS_SndStrmStart
 _021D8C04: .word 0x00003504
 
 	thumb_func_start MOD04_021D8C08
@@ -3052,12 +3052,12 @@ MOD04_021D8C6C: ; 0x021D8C6C
 	ldr r1, [r0, #4]
 	ldr r0, _021D8CC4 ; =0x00003504
 	add r0, r1, r0
-	bl FUN_020C1430
+	bl NNS_SndStrmStop
 	ldr r0, _021D8CBC ; =UNK04_0220FBC8
 	ldr r1, [r0, #4]
 	ldr r0, _021D8CC4 ; =0x00003504
 	add r0, r1, r0
-	bl FUN_020C1674
+	bl NNS_SndStrmFreeChannel
 	bl VCT_Cleanup
 	ldr r1, _021D8CBC ; =UNK04_0220FBC8
 	mov r0, #0x35

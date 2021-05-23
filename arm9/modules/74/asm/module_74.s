@@ -341,7 +341,7 @@ MOD74_021D7784: ; 0x021D7784
 	push {r4, lr}
 	add r4, r0, #0
 	bl MOD74_021D82E8
-	bl FUN_020AEEB8
+	bl NNS_GfdDoVramTransfer
 	ldr r0, [r4, #0x10]
 	bl FUN_0201AB60
 	ldr r3, _021D77A4 ; =0x027E0000

@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; NNS_G3dDraw1Mat1Shp
-	arm_func_start FUN_020BAFB8
-FUN_020BAFB8: ; 0x020BAFB8
+	arm_func_start NNS_G3dDraw1Mat1Shp
+NNS_G3dDraw1Mat1Shp: ; 0x020BAFB8
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x6c
 	mov r6, r0
@@ -21,7 +20,7 @@ FUN_020BAFB8: ; 0x020BAFB8
 	str r12, [sp, #0x54]
 	str r12, [sp, #0x58]
 	str r12, [sp, #0x5c]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 _020BAFF8:
 	cmp r7, #0x0
 	beq _020BB150
@@ -59,13 +58,13 @@ _020BAFF8:
 	add r1, sp, #0x4
 	mov r2, #0x6
 	str r3, [sp, #0x18]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldrh r0, [r4, #0x1e]
 	ands r0, r0, #0x1
 	beq _020BB150
 	ldrb r12, [r6, #0x16]
 	mov r3, #0x8
-	ldr r1, _020BB1BC ; =UNK_02106620
+	ldr r1, _020BB1BC ; =NNS_G3dSendTexSRT_FuncArray
 	str r3, [sp, #0x1c]
 	ldrh r2, [r4, #0x20]
 	add r0, r4, #0x2c
@@ -123,7 +122,7 @@ _020BB150:
 	ldr r0, [r2, #0x8]
 	ldr r1, [r2, #0xc]
 	add r0, r2, r0
-	bl FUN_020BB2B0
+	bl NNS_G3dGeSendDL
 	ldr r3, [r6, #0x20]
 	cmp r3, #0x1000
 	addeq sp, sp, #0x6c
@@ -134,12 +133,11 @@ _020BB150:
 	str r3, [sp, #0x60]
 	str r3, [sp, #0x64]
 	str r3, [sp, #0x68]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x6c
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
 _020BB1B4: .word 0x00293130
 _020BB1B8: .word 0x00002B2A
-_020BB1BC: .word UNK_02106620
-	arm_func_end FUN_020BAFB8
-
+_020BB1BC: .word NNS_G3dSendTexSRT_FuncArray
+	arm_func_end NNS_G3dDraw1Mat1Shp

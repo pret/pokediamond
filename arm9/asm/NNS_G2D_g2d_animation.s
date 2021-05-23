@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020B0408
-FUN_020B0408: ; 0x020B0408
+	arm_func_start NNSi_G2dIsAnimCtrlLoopAnim
+NNSi_G2dIsAnimCtrlLoopAnim: ; 0x020B0408
 	ldr r1, [r0, #0x14]
 	cmp r1, #0x0
 	ldreq r0, [r0, #0x18]
@@ -20,21 +19,19 @@ _020B0428:
 _020B0430:
 	mov r0, #0x0
 	bx lr
-	arm_func_end FUN_020B0408
+	arm_func_end NNSi_G2dIsAnimCtrlLoopAnim
 
-	; NNS_G2dBindAnimCtrl
-	arm_func_start FUN_020B0438
-FUN_020B0438: ; 0x020B0438
-	ldr ip, _020B0444 ; =FUN_020B0448
+	arm_func_start NNS_G2dBindAnimCtrl
+NNS_G2dBindAnimCtrl: ; 0x020B0438
+	ldr ip, _020B0444 ; =NNS_G2dResetAnimCtrlState
 	str r1, [r0, #0x18]
 	bx r12
 	.balign 4
-_020B0444: .word FUN_020B0448
-	arm_func_end FUN_020B0438
+_020B0444: .word NNS_G2dResetAnimCtrlState
+	arm_func_end NNS_G2dBindAnimCtrl
 
-	; NNS_G2dResetAnimCtrlState
-	arm_func_start FUN_020B0448
-FUN_020B0448: ; 0x020B0448
+	arm_func_start NNS_G2dResetAnimCtrlState
+NNS_G2dResetAnimCtrlState: ; 0x020B0448
 	ldr r1, [r0, #0x10]
 	cmp r1, #0x0
 	movgt r2, #0x1
@@ -56,32 +53,30 @@ _020B047C:
 	sub r1, r1, #0x8
 	str r1, [r0, #0x0]
 _020B0494:
-	ldr ip, _020B04A4 ; =FUN_020B0534
+	ldr ip, _020B04A4 ; =NNS_G2dTickAnimCtrl
 	mov r1, #0x0
 	str r1, [r0, #0xc]
 	bx r12
 	.balign 4
-_020B04A4: .word FUN_020B0534
-	arm_func_end FUN_020B0448
+_020B04A4: .word NNS_G2dTickAnimCtrl
+	arm_func_end NNS_G2dResetAnimCtrlState
 
-	; _end
-	arm_func_start FUN_020B04A8
-FUN_020B04A8: ; 0x020B04A8
+	arm_func_start NNS_G2dInitAnimCallBackFunctor
+NNS_G2dInitAnimCallBackFunctor: ; 0x020B04A8
 	mov r1, #0x0
 	str r1, [r0, #0x0]
 	str r1, [r0, #0x4]
 	str r1, [r0, #0x8]
 	strh r1, [r0, #0xc]
 	bx lr
-	arm_func_end FUN_020B04A8
+	arm_func_end NNS_G2dInitAnimCallBackFunctor
 
-	; _end
-	arm_func_start FUN_020B04C0
-FUN_020B04C0: ; 0x020B04C0
+	arm_func_start NNS_G2dInitAnimCtrl
+NNS_G2dInitAnimCtrl: ; 0x020B04C0
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	add r0, r4, #0x1c
-	bl FUN_020B04A8
+	bl NNS_G2dInitAnimCallBackFunctor
 	mov r1, #0x0
 	str r1, [r4, #0x0]
 	str r1, [r4, #0x4]
@@ -93,11 +88,10 @@ FUN_020B04C0: ; 0x020B04C0
 	str r1, [r4, #0x14]
 	str r1, [r4, #0x18]
 	ldmia sp!, {r4,pc}
-	arm_func_end FUN_020B04C0
+	arm_func_end NNS_G2dInitAnimCtrl
 
-	; _end
-	arm_func_start FUN_020B04FC
-FUN_020B04FC: ; 0x020B04FC
+	arm_func_start NNS_G2dGetAnimCtrlCurrentFrame
+NNS_G2dGetAnimCtrlCurrentFrame: ; 0x020B04FC
 	ldr r1, [r0, #0x18]
 	ldr r2, [r0, #0x0]
 	ldr r0, [r1, #0xc]
@@ -105,23 +99,21 @@ FUN_020B04FC: ; 0x020B04FC
 	mov r0, r0, lsl #0xd
 	mov r0, r0, lsr #0x10
 	bx lr
-	arm_func_end FUN_020B04FC
+	arm_func_end NNS_G2dGetAnimCtrlCurrentFrame
 
-	; _end
-	arm_func_start FUN_020B0518
-FUN_020B0518: ; 0x020B0518
+	arm_func_start NNS_G2dSetAnimCtrlCurrentFrame
+NNS_G2dSetAnimCtrlCurrentFrame: ; 0x020B0518
 	stmdb sp!, {r4,lr}
 	mov r4, r0
-	bl FUN_020B06EC
+	bl SetAnimCtrlCurrentFrameImpl_
 	cmp r0, #0x0
 	movne r1, #0x0
 	strne r1, [r4, #0xc]
 	ldmia sp!, {r4,pc}
-	arm_func_end FUN_020B0518
+	arm_func_end NNS_G2dSetAnimCtrlCurrentFrame
 
-	; _end
-	arm_func_start FUN_020B0534
-FUN_020B0534: ; 0x020B0534
+	arm_func_start NNS_G2dTickAnimCtrl
+NNS_G2dTickAnimCtrl: ; 0x020B0534
 	stmdb sp!, {r4-r8,lr}
 	mov r8, r0
 	ldr r0, [r8, #0x8]
@@ -192,7 +184,7 @@ _020B0634:
 	cmp r0, #0x0
 	beq _020B0644
 	mov r0, r8
-	bl FUN_020B0710
+	bl SequenceEdgeHandle_
 _020B0644:
 	ldr r0, [r8, #0x1c]
 	cmp r0, #0x0
@@ -238,19 +230,17 @@ _020B06D0:
 	bne _020B058C
 	mov r0, r7
 	ldmia sp!, {r4-r8,pc}
-	arm_func_end FUN_020B0534
+	arm_func_end NNS_G2dTickAnimCtrl
 
-	; _end
-	arm_func_start FUN_020B06E0
-FUN_020B06E0: ; 0x020B06E0
+	arm_func_start NNS_G2dGetAnimCtrlCurrentElement
+NNS_G2dGetAnimCtrlCurrentElement: ; 0x020B06E0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x0]
 	bx lr
-	arm_func_end FUN_020B06E0
+	arm_func_end NNS_G2dGetAnimCtrlCurrentElement
 
-	; _end
-	arm_func_start FUN_020B06EC
-FUN_020B06EC: ; 0x020B06EC
+	arm_func_start SetAnimCtrlCurrentFrameImpl_
+SetAnimCtrlCurrentFrameImpl_: ; 0x020B06EC
 	ldr r3, [r0, #0x18]
 	ldrh r2, [r3, #0x0]
 	cmp r1, r2
@@ -260,11 +250,10 @@ FUN_020B06EC: ; 0x020B06EC
 	movcc r0, #0x1
 	movcs r0, #0x0
 	bx lr
-	arm_func_end FUN_020B06EC
+	arm_func_end SetAnimCtrlCurrentFrameImpl_
 
-	; _end
-	arm_func_start FUN_020B0710
-FUN_020B0710: ; 0x020B0710
+	arm_func_start SequenceEdgeHandle_
+SequenceEdgeHandle_: ; 0x020B0710
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, [r4, #0x14]
@@ -307,7 +296,7 @@ _020B0780:
 	bne _020B0800
 _020B07A8:
 	mov r0, r4
-	bl FUN_020B0448
+	bl NNS_G2dResetAnimCtrlState
 	b _020B0800
 _020B07B4:
 	ldr r0, [r4, #0x1c]
@@ -330,7 +319,7 @@ _020B07D0:
 	bne _020B0800
 _020B07F8:
 	mov r0, r4
-	bl FUN_020B0448
+	bl NNS_G2dResetAnimCtrlState
 _020B0800:
 	ldr r1, [r4, #0x18]
 	ldr r2, [r4, #0x0]
@@ -344,5 +333,4 @@ _020B0800:
 	cmp r2, r1
 	strcc r1, [r4, #0x0]
 	ldmia sp!, {r4,pc}
-	arm_func_end FUN_020B0710
-
+	arm_func_end SequenceEdgeHandle_

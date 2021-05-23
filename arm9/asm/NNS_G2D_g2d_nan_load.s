@@ -3,20 +3,18 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020AFC04
-FUN_020AFC04: ; 0x020AFC04
+	arm_func_start NNS_G2dGetAnimSequenceByIdx
+NNS_G2dGetAnimSequenceByIdx: ; 0x020AFC04
 	ldrh r2, [r0, #0x0]
 	cmp r2, r1
 	ldrhi r0, [r0, #0x4]
 	addhi r0, r0, r1, lsl #0x4
 	movls r0, #0x0
 	bx lr
-	arm_func_end FUN_020AFC04
+	arm_func_end NNS_G2dGetAnimSequenceByIdx
 
-	; _end
-	arm_func_start FUN_020AFC1C
-FUN_020AFC1C: ; 0x020AFC1C
+	arm_func_start NNS_G2dUnpackNAN
+NNS_G2dUnpackNAN: ; 0x020AFC1C
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x4
 	ldr r1, [r0, #0x4]
@@ -115,41 +113,38 @@ _020AFD6C:
 	blo _020AFD14
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9,pc}
-	arm_func_end FUN_020AFC1C
+	arm_func_end NNS_G2dUnpackNAN
 
-	; NNS_G2dGetUnpackedMCAnimBank
-	arm_func_start thunk_FUN_020afda0
-thunk_FUN_020afda0: ; 0x020AFD88
-	ldr ip, _020AFD90 ; =FUN_020AFDA0
+	arm_func_start NNS_G2dGetUnpackedMCAnimBank
+NNS_G2dGetUnpackedMCAnimBank: ; 0x020AFD88
+	ldr ip, _020AFD90 ; =GetUnpackedAnimBankImpl_
 	bx r12
 	.balign 4
-_020AFD90: .word FUN_020AFDA0
-	arm_func_end thunk_FUN_020afda0
+_020AFD90: .word GetUnpackedAnimBankImpl_
+	arm_func_end NNS_G2dGetUnpackedMCAnimBank
 
-	; NNS_G2dGetUnpackedAnimBank
-	arm_func_start thunk_FUN_020afda0_2
-thunk_FUN_020afda0_2: ; 0x020AFD94
-	ldr ip, _020AFD9C ; =FUN_020AFDA0
+	arm_func_start NNS_G2dGetUnpackedAnimBank
+NNS_G2dGetUnpackedAnimBank: ; 0x020AFD94
+	ldr ip, _020AFD9C ; =GetUnpackedAnimBankImpl_
 	bx r12
 	.balign 4
-_020AFD9C: .word FUN_020AFDA0
-	arm_func_end thunk_FUN_020afda0_2
+_020AFD9C: .word GetUnpackedAnimBankImpl_
+	arm_func_end NNS_G2dGetUnpackedAnimBank
 
-	; GetUnpackedAnimBankImpl_
-	arm_func_start FUN_020AFDA0
-FUN_020AFDA0: ; 0x020AFDA0
+	arm_func_start GetUnpackedAnimBankImpl_
+GetUnpackedAnimBankImpl_: ; 0x020AFDA0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r1
 	ldr r1, _020AFDE4 ; =0x41424E4B
-	bl FUN_020B01F8
+	bl NNS_G2dFindBinaryBlock
 	movs r4, r0
 	moveq r0, #0x0
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
 	add r0, r4, #0x8
-	bl FUN_020AFC1C
+	bl NNS_G2dUnpackNAN
 	add r0, r4, #0x8
 	str r0, [r5, #0x0]
 	mov r0, #0x1
@@ -157,5 +152,4 @@ FUN_020AFDA0: ; 0x020AFDA0
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020AFDE4: .word 0x41424E4B
-	arm_func_end FUN_020AFDA0
-
+	arm_func_end GetUnpackedAnimBankImpl_

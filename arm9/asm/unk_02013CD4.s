@@ -1,11 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021064C0
+	.extern NNS_GfdDefaultFuncAllocPlttVram
 	.extern FX_SinCosTable_
-	.extern UNK_021064B8
-	.extern UNK_021064C4
-	.extern UNK_021064BC
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncFreePlttVram
+	.extern NNS_GfdDefaultFuncFreeTexVram
 
 	.text
 
@@ -141,7 +141,7 @@ _02013DC6:
 	thumb_func_start FUN_02013DD4
 FUN_02013DD4: ; 0x02013DD4
 	push {r4, lr}
-	ldr r1, _02013DE8 ; =UNK_021064BC
+	ldr r1, _02013DE8 ; =NNS_GfdDefaultFuncFreeTexVram
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r1, [r1, #0x0]
@@ -150,7 +150,7 @@ FUN_02013DD4: ; 0x02013DD4
 	bl FUN_02013F50
 	pop {r4, pc}
 	.balign 4
-_02013DE8: .word UNK_021064BC
+_02013DE8: .word NNS_GfdDefaultFuncFreeTexVram
 
 	thumb_func_start FUN_02013DEC
 FUN_02013DEC: ; 0x02013DEC
@@ -204,7 +204,7 @@ _02013E36:
 	thumb_func_start FUN_02013E44
 FUN_02013E44: ; 0x02013E44
 	push {r4, lr}
-	ldr r1, _02013E58 ; =UNK_021064C4
+	ldr r1, _02013E58 ; =NNS_GfdDefaultFuncFreePlttVram
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r1, [r1, #0x0]
@@ -213,7 +213,7 @@ FUN_02013E44: ; 0x02013E44
 	bl FUN_02013F5C
 	pop {r4, pc}
 	.balign 4
-_02013E58: .word UNK_021064C4
+_02013E58: .word NNS_GfdDefaultFuncFreePlttVram
 
 	thumb_func_start FUN_02013E5C
 FUN_02013E5C: ; 0x02013E5C
@@ -401,21 +401,21 @@ _02013F4C: .word 0x00007FFF
 
 	thumb_func_start FUN_02013F50
 FUN_02013F50: ; 0x02013F50
-	ldr r3, _02013F58 ; =FUN_020B1A24
+	ldr r3, _02013F58 ; =NNS_G2dInitImageProxy
 	mov r1, #0x0
 	stmia r0!, {r1}
 	bx r3
 	.balign 4
-_02013F58: .word FUN_020B1A24
+_02013F58: .word NNS_G2dInitImageProxy
 
 	thumb_func_start FUN_02013F5C
 FUN_02013F5C: ; 0x02013F5C
-	ldr r3, _02013F64 ; =FUN_020B19DC
+	ldr r3, _02013F64 ; =NNS_G2dInitImagePaletteProxy
 	mov r1, #0x0
 	stmia r0!, {r1}
 	bx r3
 	.balign 4
-_02013F64: .word FUN_020B19DC
+_02013F64: .word NNS_G2dInitImagePaletteProxy
 
 	thumb_func_start FUN_02013F68
 FUN_02013F68: ; 0x02013F68
@@ -585,7 +585,7 @@ _02014076:
 	thumb_func_start FUN_0201407C
 FUN_0201407C: ; 0x0201407C
 	push {r3, lr}
-	ldr r3, _0201408C ; =UNK_021064B8
+	ldr r3, _0201408C ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x0
 	ldr r0, [r0, #0x10]
 	ldr r3, [r3, #0x0]
@@ -593,12 +593,12 @@ FUN_0201407C: ; 0x0201407C
 	blx r3
 	pop {r3, pc}
 	.balign 4
-_0201408C: .word UNK_021064B8
+_0201408C: .word NNS_GfdDefaultFuncAllocTexVram
 
 	thumb_func_start FUN_02014090
 FUN_02014090: ; 0x02014090
 	push {r3, lr}
-	ldr r3, _020140A0 ; =UNK_021064C0
+	ldr r3, _020140A0 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	lsl r0, r0, #0x5
@@ -606,7 +606,7 @@ FUN_02014090: ; 0x02014090
 	blx r3
 	pop {r3, pc}
 	.balign 4
-_020140A0: .word UNK_021064C0
+_020140A0: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_020140A4
 FUN_020140A4: ; 0x020140A4
@@ -615,7 +615,7 @@ FUN_020140A4: ; 0x020140A4
 	add r3, r2, #0x0
 	lsr r1, r1, #0xd
 	mov r2, #0x0
-	bl FUN_020B1528
+	bl NNS_G2dLoadImage2DMapping
 	pop {r3, pc}
 
 	thumb_func_start FUN_020140B4
@@ -632,7 +632,7 @@ FUN_020140B4: ; 0x020140B4
 	str r2, [r5, #0x8]
 	lsr r1, r1, #0xd
 	mov r2, #0x0
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 	str r4, [r5, #0x8]
 	pop {r3-r5, pc}
 	.balign 4
@@ -781,7 +781,7 @@ _02014172:
 	str r4, [sp, #0x10]
 	ldrsh r3, [r5, r3]
 	add r1, r0, #0x0
-	bl FUN_020B0250
+	bl NNS_G2dDrawSpriteFast
 	ldr r0, _02014214 ; =0x04000448
 	mov r1, #0x1
 	str r1, [r0, #0x0]
@@ -868,14 +868,14 @@ _0201424C:
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
 	add r0, r0, #0x4
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_02013F14
 	ldr r0, [r5, #0x8]
 	mov r1, #0x0
 	add r0, r0, #0x4
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_02013F18

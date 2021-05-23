@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020BDB40
-FUN_020BDB40: ; 0x020BDB40
+	arm_func_start NNSi_G3dAnmCalcNsBma
+NNSi_G3dAnmCalcNsBma: ; 0x020BDB40
 	stmdb sp!, {r4-r8,lr}
 	ldr r7, [r1, #0x8]
 	mov r2, r2, lsl #0x10
@@ -23,12 +22,12 @@ FUN_020BDB40: ; 0x020BDB40
 	mov r0, r7
 	mov r2, r6
 	add r5, r3, r4
-	bl FUN_020BDDAC
+	bl GetMatColAnmValue_
 	mov r4, r0
 	ldr r1, [r5, #0x4]
 	mov r0, r7
 	mov r2, r6
-	bl FUN_020BDDAC
+	bl GetMatColAnmValue_
 	ldr r1, [r8, #0x4]
 	mov r2, r6
 	and r1, r1, #0x8000
@@ -37,12 +36,12 @@ FUN_020BDB40: ; 0x020BDB40
 	str r0, [r8, #0x4]
 	mov r0, r7
 	ldr r1, [r5, #0xc]
-	bl FUN_020BDDAC
+	bl GetMatColAnmValue_
 	mov r4, r0
 	mov r0, r7
 	ldr r1, [r5, #0x8]
 	mov r2, r6
-	bl FUN_020BDDAC
+	bl GetMatColAnmValue_
 	mov r2, r6
 	ldr r1, [r8, #0x8]
 	and r1, r1, #0x8000
@@ -51,20 +50,19 @@ FUN_020BDB40: ; 0x020BDB40
 	str r0, [r8, #0x8]
 	mov r0, r7
 	ldr r1, [r5, #0x10]
-	bl FUN_020BDCB8
+	bl GetMatColAnmuAlphaValue_
 	ldr r1, [r8, #0xc]
 	bic r1, r1, #0x1f0000
 	orr r0, r1, r0, lsl #0x10
 	str r0, [r8, #0xc]
 	ldmia sp!, {r4-r8,pc}
-	arm_func_end FUN_020BDB40
+	arm_func_end NNSi_G3dAnmCalcNsBma
 
-	; NNSi_G3dAnmObjInitNsBma
-	arm_func_start FUN_020BDC0C
-FUN_020BDC0C: ; 0x020BDC0C
+	arm_func_start NNSi_G3dAnmObjInitNsBma
+NNSi_G3dAnmObjInitNsBma: ; 0x020BDC0C
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x4
-	ldr r3, _020BDCB4 ; =UNK_021065A8
+	ldr r3, _020BDCB4 ; =NNS_G3dFuncAnmMatNsBmaDefault
 	ldr r4, [r2, #0x8]
 	ldr r3, [r3, #0x0]
 	mov r9, r0
@@ -93,7 +91,7 @@ _020BDC6C:
 	ldrh r1, [r2, #0x2]
 	add r1, r2, r1
 	add r1, r1, r6
-	bl FUN_020BC14C
+	bl NNS_G3dGetResDictIdxByName
 	cmp r0, #0x0
 	orrge r1, r7, #0x100
 	addge r0, r9, r0, lsl #0x1
@@ -106,12 +104,11 @@ _020BDC6C:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9,pc}
 	.balign 4
-_020BDCB4: .word UNK_021065A8
-	arm_func_end FUN_020BDC0C
+_020BDCB4: .word NNS_G3dFuncAnmMatNsBmaDefault
+	arm_func_end NNSi_G3dAnmObjInitNsBma
 
-	; GetMatColAnmuAlphaValue_
-	arm_func_start FUN_020BDCB8
-FUN_020BDCB8: ; 0x020BDCB8
+	arm_func_start GetMatColAnmuAlphaValue_
+GetMatColAnmuAlphaValue_: ; 0x020BDCB8
 	ands r3, r1, #0x20000000
 	movne r0, r1, lsl #0x10
 	movne r0, r0, lsr #0x10
@@ -178,11 +175,10 @@ _020BDD9C:
 	.balign 4
 _020BDDA4: .word 0x0000FFFF
 _020BDDA8: .word 0x1FFF0000
-	arm_func_end FUN_020BDCB8
+	arm_func_end GetMatColAnmuAlphaValue_
 
-	; GetMatColAnmValue_
-	arm_func_start FUN_020BDDAC
-FUN_020BDDAC: ; 0x020BDDAC
+	arm_func_start GetMatColAnmValue_
+GetMatColAnmValue_: ; 0x020BDDAC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ands r3, r1, #0x20000000
@@ -288,5 +284,4 @@ _020BDEE0:
 _020BDF2C: .word 0x0000FFFF
 _020BDF30: .word 0x1FFF0000
 _020BDF34: .word 0x00007C1F
-	arm_func_end FUN_020BDDAC
-
+	arm_func_end GetMatColAnmValue_

@@ -1015,7 +1015,7 @@ _02254FFC:
 	bl NARC_ReadFromMember
 	ldr r0, [sp, #0x18]
 	add r1, sp, #0x20
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0x20]
 	mov r1, #2
 	ldr r0, [r0, #0x14]

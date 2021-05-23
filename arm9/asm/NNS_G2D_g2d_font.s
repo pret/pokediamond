@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020B5ABC
-FUN_020B5ABC: ; 0x020B5ABC
+	arm_func_start NNSi_G2dFontGetTextRect
+NNSi_G2dFontGetTextRect: ; 0x020B5ABC
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0xc
 	add r5, sp, #0x0
@@ -25,7 +24,7 @@ _020B5AF8:
 	mov r0, r9
 	mov r1, r8
 	mov r3, r6
-	bl FUN_020B5BC8
+	bl NNSi_G2dFontGetStringWidth
 	ldr r1, [sp, #0x0]
 	ldr r2, [sp, #0x28]
 	cmp r0, r1
@@ -46,11 +45,10 @@ _020B5B24:
 	str r1, [r5, #0x4]
 	add sp, sp, #0xc
 	ldmia sp!, {r4-r9,pc}
-	arm_func_end FUN_020B5ABC
+	arm_func_end NNSi_G2dFontGetTextRect
 
-	; _end
-	arm_func_start FUN_020B5B54
-FUN_020B5B54: ; 0x020B5B54
+	arm_func_start NNSi_G2dFontGetTextHeight
+NNSi_G2dFontGetTextHeight: ; 0x020B5B54
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0x10
 	str r2, [sp, #0x0]
@@ -82,11 +80,10 @@ _020B5BAC:
 	sub r0, r0, r5
 	add sp, sp, #0x10
 	ldmia sp!, {r4-r8,pc}
-	arm_func_end FUN_020B5B54
+	arm_func_end NNSi_G2dFontGetTextHeight
 
-	; NNSi_G2dFontGetStringWidth
-	arm_func_start FUN_020B5BC8
-FUN_020B5BC8: ; 0x020B5BC8
+	arm_func_start NNSi_G2dFontGetStringWidth
+NNSi_G2dFontGetStringWidth: ; 0x020B5BC8
 	stmdb sp!, {r4-r10,lr}
 	sub sp, sp, #0x8
 	mov r8, r0
@@ -105,13 +102,13 @@ _020B5C00:
 	cmp r1, #0xa
 	beq _020B5C58
 	mov r0, r8
-	bl FUN_020B5CE4
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	cmp r1, r9
 	ldreq r0, [r8, #0x0]
 	ldreqh r1, [r0, #0x2]
 	mov r0, r8
-	bl FUN_020B5C88
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	ldrh r1, [r8, #0x8]
 	cmp r1, #0x0
 	ldrnesb r1, [r0, #0x0]
@@ -139,11 +136,10 @@ _020B5C70:
 	ldmia sp!, {r4-r10,pc}
 	.balign 4
 _020B5C84: .word 0x0000FFFF
-	arm_func_end FUN_020B5BC8
+	arm_func_end NNSi_G2dFontGetStringWidth
 
-	; _end
-	arm_func_start FUN_020B5C88
-FUN_020B5C88: ; 0x020B5C88
+	arm_func_start NNS_G2dFontGetCharWidthsFromIndex
+NNS_G2dFontGetCharWidthsFromIndex: ; 0x020B5C88
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r3, [r0, #0x0]
@@ -170,11 +166,10 @@ _020B5CD8:
 	add r0, r3, #0x4
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020B5C88
+	arm_func_end NNS_G2dFontGetCharWidthsFromIndex
 
-	; NNS_G2dFontFindGlyphIndex
-	arm_func_start FUN_020B5CE4
-FUN_020B5CE4: ; 0x020B5CE4
+	arm_func_start NNS_G2dFontFindGlyphIndex
+NNS_G2dFontFindGlyphIndex: ; 0x020B5CE4
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r0, [r0, #0x0]
@@ -188,7 +183,7 @@ _020B5CFC:
 	ldrh r2, [r0, #0x2]
 	cmp r1, r2
 	bhi _020B5D20
-	bl FUN_020B5D7C
+	bl GetGlyphIndex
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 _020B5D20:
@@ -201,33 +196,31 @@ _020B5D2C:
 	ldmia sp!, {pc}
 	.balign 4
 _020B5D38: .word 0x0000FFFF
-	arm_func_end FUN_020B5CE4
+	arm_func_end NNS_G2dFontFindGlyphIndex
 
-	; NNS_G2dFontInitUTF16
-	arm_func_start FUN_020B5D3C
-FUN_020B5D3C: ; 0x020B5D3C
+	arm_func_start NNS_G2dFontInitUTF16
+NNS_G2dFontInitUTF16: ; 0x020B5D3C
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	mov r0, r1
 	mov r1, r4
-	bl FUN_020B7558
+	bl NNSi_G2dGetUnpackedFont
 	sub r0, r0, #0x1
 	strh r0, [r4, #0x8]
 	ldrh r0, [r4, #0x8]
 	cmp r0, #0x0
 	movne r1, #0x2
 	moveq r1, #0x3
-	ldr r0, _020B5D78 ; =FUN_020B7718
+	ldr r0, _020B5D78 ; =NNSi_G2dSplitCharUTF16
 	strh r1, [r4, #0xa]
 	str r0, [r4, #0x4]
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020B5D78: .word FUN_020B7718
-	arm_func_end FUN_020B5D3C
+_020B5D78: .word NNSi_G2dSplitCharUTF16
+	arm_func_end NNS_G2dFontInitUTF16
 
-	; GetGlyphIndex
-	arm_func_start FUN_020B5D7C
-FUN_020B5D7C: ; 0x020B5D7C
+	arm_func_start GetGlyphIndex
+GetGlyphIndex: ; 0x020B5D7C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldrh r3, [r0, #0x4]
@@ -288,5 +281,4 @@ _020B5E40:
 	ldmia sp!, {pc}
 	.balign 4
 _020B5E4C: .word 0x0000FFFF
-	arm_func_end FUN_020B5D7C
-
+	arm_func_end GetGlyphIndex

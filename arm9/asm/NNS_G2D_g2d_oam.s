@@ -3,87 +3,41 @@
 
 	.section .rodata
 
-	; NNSi_objSizeHTbl
-	.global UNK_020FF894
-UNK_020FF894: ; 0x020FF894
+	.global NNSi_objSizeHTbl
+NNSi_objSizeHTbl: ; 0x020FF894
 	.byte 0x08, 0x00, 0x10, 0x00, 0x20, 0x00, 0x40, 0x00, 0x08, 0x00, 0x08, 0x00, 0x10, 0x00, 0x20, 0x00
 	.byte 0x10, 0x00, 0x20, 0x00, 0x20, 0x00, 0x40, 0x00
 
-	; NNSi_objSizeWTbl
-	.global UNK_020FF8AC
-UNK_020FF8AC: ; 0x020FF8AC
+	.global NNSi_objSizeWTbl
+NNSi_objSizeWTbl: ; 0x020FF8AC
 	.byte 0x08, 0x00, 0x10, 0x00, 0x20, 0x00, 0x40, 0x00, 0x10, 0x00, 0x20, 0x00, 0x20, 0x00, 0x40, 0x00
 	.byte 0x08, 0x00, 0x08, 0x00, 0x10, 0x00, 0x20, 0x00
-
 	; static const in function
+
 	.section .data
 
-	; funcTbl$8497
-	.global UNK_0210655C
-UNK_0210655C: ; 0x0210655C
-	.word FUN_020B1088
-	.word FUN_020B1098
+	.global funcTbl$8497
+funcTbl$8497: ; 0x0210655C
+	.word CpuLoadOAMMain_
+	.word CpuLoadOAMSub_
 	.word 0
 	.word 0
 	.word 0
 
 	.section .bss
 
-	; numRegisterdInstance_
-	.global UNK_021CCD9C
-UNK_021CCD9C: ; 0x021CCD9C
+	.global numRegisterdInstance_
+numRegisterdInstance_: ; 0x021CCD9C
 	.space 0x4
 
-	; oamCache_
-	.global UNK_021CCDA0
-UNK_021CCDA0: ; 0x021CCDA0
-	.space 0x100
-
-	; oamCache_ + 0x100
-	.global UNK_021CCEA0
-UNK_021CCEA0: ; 0x021CCEA0
-	.space 0x400
-
-	; oamCache_ + 0x500
-	.global UNK_021CD2A0
-UNK_021CD2A0: ; 0x021CD2A0
-	.space 0x40
-
-	; oamCache_ + 0x540
-	.global UNK_021CD2E0
-UNK_021CD2E0: ; 0x021CD2E0
-	.space 0x100
-
-	; oamCache_ + 0x640
-	.global UNK_021CD3E0
-UNK_021CD3E0: ; 0x021CD3E0
-	.space 0x400
-
-	; oamCache_ + 0xA40
-	.global UNK_021CD7E0
-UNK_021CD7E0: ; 0x021CD7E0
-	.space 0x40
-
-	; oamCache_ + 0xA80
-	.global UNK_021CD820
-UNK_021CD820: ; 0x021CD820
-	.space 0x100
-
-	; oamCache_ + 0xB80
-	.global UNK_021CD920
-UNK_021CD920: ; 0x021CD920
-	.space 0x400
-
-	; oamCache_ + 0xF80
-	.global UNK_021CDD20
-UNK_021CDD20: ; 0x021CDD20
-	.space 0x40
+	.global oamCache_
+oamCache_: ; 0x021CCDA0
+	.space 0xFC0
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020B0830
-FUN_020B0830: ; 0x020B0830
+	arm_func_start NNS_G2dGetOamManagerOamCapacity
+NNS_G2dGetOamManagerOamCapacity: ; 0x020B0830
 	ldrh r3, [r0, #0x6]
 	ldrh r2, [r0, #0x8]
 	mov r12, #0x0
@@ -101,22 +55,20 @@ _020B0854:
 	movne r0, r0, lsr #0x10
 	moveq r0, #0x0
 	bx lr
-	arm_func_end FUN_020B0830
+	arm_func_end NNS_G2dGetOamManagerOamCapacity
 
-	; _end
-	arm_func_start FUN_020B0870
-FUN_020B0870: ; 0x020B0870
+	arm_func_start NNS_G2dApplyAndResetOamManagerBuffer
+NNS_G2dApplyAndResetOamManagerBuffer: ; 0x020B0870
 	stmdb sp!, {r4,lr}
 	mov r4, r0
-	bl FUN_020B09B4
+	bl NNS_G2dApplyOamManagerToHW
 	mov r0, r4
-	bl FUN_020B0888
+	bl NNS_G2dResetOamManagerBuffer
 	ldmia sp!, {r4,pc}
-	arm_func_end FUN_020B0870
+	arm_func_end NNS_G2dApplyAndResetOamManagerBuffer
 
-	; NNS_G2dResetOamManagerBuffer
-	arm_func_start FUN_020B0888
-FUN_020B0888: ; 0x020B0888
+	arm_func_start NNS_G2dResetOamManagerBuffer
+NNS_G2dResetOamManagerBuffer: ; 0x020B0888
 	stmdb sp!, {r4-r6,lr}
 	mov r5, r0
 	ldr r0, [r5, #0x14]
@@ -142,7 +94,7 @@ _020B08C0:
 	mov r4, r0, lsr #0xd
 _020B08E0:
 	ldr r2, [r5, #0x0]
-	ldr r1, _020B09AC ; =UNK_021CCDA0
+	ldr r1, _020B09AC ; =oamCache_
 	mov r0, #0x540
 	mla r1, r2, r0, r1
 	ldrh r0, [r5, #0x4]
@@ -169,7 +121,7 @@ _020B0930:
 	b _020B0998
 _020B0944:
 	ldr r2, [r5, #0x0]
-	ldr r1, _020B09AC ; =UNK_021CCDA0
+	ldr r1, _020B09AC ; =oamCache_
 	mov r0, #0x540
 	mla r1, r2, r0, r1
 	ldrh r2, [r5, #0x4]
@@ -197,20 +149,19 @@ _020B0998:
 	strh r0, [r5, #0xe]
 	ldmia sp!, {r4-r6,pc}
 	.balign 4
-_020B09AC: .word UNK_021CCDA0
+_020B09AC: .word oamCache_
 _020B09B0: .word GXi_DmaId
-	arm_func_end FUN_020B0888
+	arm_func_end NNS_G2dResetOamManagerBuffer
 
-	; NNS_G2dApplyOamManagerToHW
-	arm_func_start FUN_020B09B4
-FUN_020B09B4: ; 0x020B09B4
+	arm_func_start NNS_G2dApplyOamManagerToHW
+NNS_G2dApplyOamManagerToHW: ; 0x020B09B4
 	stmdb sp!, {r4-r10,lr}
 	mov r7, r0
 	ldr r0, [r7, #0x14]
 	cmp r0, #0x0
 	beq _020B0A48
 	ldr r5, [r7, #0x0]
-	ldr r1, _020B0BA8 ; =UNK_021CCDA0
+	ldr r1, _020B0BA8 ; =oamCache_
 	mov r0, #0x540
 	mla r1, r5, r0, r1
 	ldrh r2, [r7, #0x4]
@@ -245,12 +196,12 @@ _020B0A34:
 	ldmia sp!, {r4-r10,pc}
 _020B0A48:
 	ldr r0, [r7, #0x0]
-	ldr r2, _020B0BA8 ; =UNK_021CCDA0
+	ldr r2, _020B0BA8 ; =oamCache_
 	mov r1, #0x540
 	mla r2, r0, r1, r2
 	ldrh r5, [r7, #0x4]
 	ldrh r1, [r7, #0x6]
-	ldr r3, _020B0BAC ; =UNK_0210655C
+	ldr r3, _020B0BAC ; =funcTbl$8497
 	add r4, r2, #0x100
 	sub r1, r1, r5
 	add r1, r1, #0x1
@@ -291,14 +242,14 @@ _020B0AEC:
 	cmp r3, #0x0
 	ldmeqia sp!, {r4-r10,pc}
 	ldr r0, [r7, #0x0]
-	ldr r2, _020B0BA8 ; =UNK_021CCDA0
+	ldr r2, _020B0BA8 ; =oamCache_
 	mov r1, #0x540
 	mla r2, r0, r1, r2
 	ldrh r5, [r7, #0xa]
 	add r4, r2, #0x100
 	ldrh r1, [r7, #0xc]
 	mov r2, r5, lsl #0x15
-	ldr r3, _020B0BAC ; =UNK_0210655C
+	ldr r3, _020B0BAC ; =funcTbl$8497
 	sub r1, r1, r5
 	add r1, r1, #0x1
 	mov r1, r1, lsl #0x10
@@ -337,13 +288,12 @@ _020B0B40:
 	blo _020B0B40
 	ldmia sp!, {r4-r10,pc}
 	.balign 4
-_020B0BA8: .word UNK_021CCDA0
-_020B0BAC: .word UNK_0210655C
-	arm_func_end FUN_020B09B4
+_020B0BA8: .word oamCache_
+_020B0BAC: .word funcTbl$8497
+	arm_func_end NNS_G2dApplyOamManagerToHW
 
-	; NNS_G2dEntryOamManagerAffine
-	arm_func_start FUN_020B0BB0
-FUN_020B0BB0: ; 0x020B0BB0
+	arm_func_start NNS_G2dEntryOamManagerAffine
+NNS_G2dEntryOamManagerAffine: ; 0x020B0BB0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldrh r12, [r0, #0xc]
@@ -370,7 +320,7 @@ _020B0BDC:
 	ldreq r0, _020B0C74 ; =0x0000FFFE
 	ldmeqia sp!, {pc}
 	ldr lr, [r0, #0x0]
-	ldr r3, _020B0C78 ; =UNK_021CCDA0
+	ldr r3, _020B0C78 ; =oamCache_
 	mov r2, #0x540
 	mla r12, lr, r2, r3
 	ldr r3, [r1, #0x0]
@@ -396,12 +346,11 @@ _020B0BDC:
 	ldmia sp!, {pc}
 	.balign 4
 _020B0C74: .word 0x0000FFFE
-_020B0C78: .word UNK_021CCDA0
-	arm_func_end FUN_020B0BB0
+_020B0C78: .word oamCache_
+	arm_func_end NNS_G2dEntryOamManagerAffine
 
-	; NNS_G2dEntryOamManagerOamWithAffineIdx
-	arm_func_start FUN_020B0C7C
-FUN_020B0C7C: ; 0x020B0C7C
+	arm_func_start NNS_G2dEntryOamManagerOamWithAffineIdx
+NNS_G2dEntryOamManagerOamWithAffineIdx: ; 0x020B0C7C
 	stmdb sp!, {r4,lr}
 	ldrh r12, [r0, #0x6]
 	ldrh r4, [r0, #0x8]
@@ -425,7 +374,7 @@ _020B0CA4:
 	cmp r3, #0x0
 	beq _020B0D48
 	ldr r4, [r0, #0x0]
-	ldr ip, _020B0D50 ; =UNK_021CCDA0
+	ldr ip, _020B0D50 ; =oamCache_
 	mov r3, #0x540
 	mla r12, r4, r3, r12
 	ldrh r3, [r0, #0x8]
@@ -459,13 +408,12 @@ _020B0D48:
 	mov r0, #0x0
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020B0D50: .word UNK_021CCDA0
+_020B0D50: .word oamCache_
 _020B0D54: .word 0x0000FFFE
-	arm_func_end FUN_020B0C7C
+	arm_func_end NNS_G2dEntryOamManagerOamWithAffineIdx
 
-	; NNS_G2dEntryOamManagerOam
-	arm_func_start FUN_020B0D58
-FUN_020B0D58: ; 0x020B0D58
+	arm_func_start NNS_G2dEntryOamManagerOam
+NNS_G2dEntryOamManagerOam: ; 0x020B0D58
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	ldrh lr, [r0, #0x6]
@@ -490,7 +438,7 @@ _020B0D84:
 	cmp r3, #0x0
 	beq _020B0E24
 	ldr lr, [r0, #0x0]
-	ldr ip, _020B0E30 ; =UNK_021CCDA0
+	ldr ip, _020B0E30 ; =oamCache_
 	mov r3, #0x540
 	mla r12, lr, r3, r12
 	ldrh r3, [r0, #0x8]
@@ -525,16 +473,15 @@ _020B0E24:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
-_020B0E30: .word UNK_021CCDA0
-	arm_func_end FUN_020B0D58
+_020B0E30: .word oamCache_
+	arm_func_end NNS_G2dEntryOamManagerOam
 
-	; NNS_G2dGetNewOamManagerInstance
-	arm_func_start FUN_020B0E34
-FUN_020B0E34: ; 0x020B0E34
+	arm_func_start NNS_G2dGetNewOamManagerInstance
+NNS_G2dGetNewOamManagerInstance: ; 0x020B0E34
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	ldr r5, [sp, #0x1c]
-	ldr r6, _020B0FB4 ; =UNK_021CCDA0
+	ldr r6, _020B0FB4 ; =oamCache_
 	mov r4, #0x540
 	mla r4, r5, r4, r6
 	mov lr, r1
@@ -563,7 +510,7 @@ _020B0E9C:
 _020B0EA0:
 	cmp r0, #0x0
 	beq _020B0EE0
-	ldr r0, _020B0FBC ; =UNK_021CCD9C
+	ldr r0, _020B0FBC ; =numRegisterdInstance_
 	sub r2, r12, lr
 	ldrh r7, [r0, #0x0]
 	add r1, r4, r3
@@ -639,80 +586,77 @@ _020B0F98:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020B0FB4: .word UNK_021CCDA0
+_020B0FB4: .word oamCache_
 _020B0FB8: .word 0x0000FFFF
-_020B0FBC: .word UNK_021CCD9C
-	arm_func_end FUN_020B0E34
+_020B0FBC: .word numRegisterdInstance_
+	arm_func_end NNS_G2dGetNewOamManagerInstance
 
-	; NNS_G2dInitOamManagerModule
-	arm_func_start FUN_020B0FC0
-FUN_020B0FC0: ; 0x020B0FC0
+	arm_func_start NNS_G2dInitOamManagerModule
+NNS_G2dInitOamManagerModule: ; 0x020B0FC0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020B1060 ; =UNK_021CCEA0
+	ldr r1, _020B1060 ; =oamCache_ + 0x100
 	mov r0, #0xc0
 	mov r2, #0x400
 	bl MIi_CpuClear16
-	ldr r1, _020B1064 ; =UNK_021CD3E0
+	ldr r1, _020B1064 ; =oamCache_ + 0x640
 	mov r0, #0xc0
 	mov r2, #0x400
 	bl MIi_CpuClear16
-	ldr r1, _020B1068 ; =UNK_021CD920
+	ldr r1, _020B1068 ; =oamCache_ + 0xB80
 	mov r0, #0xc0
 	mov r2, #0x400
 	bl MIi_CpuClear16
 	ldr r0, _020B106C ; =0x0000FFFF
-	ldr r1, _020B1070 ; =UNK_021CCDA0
+	ldr r1, _020B1070 ; =oamCache_
 	mov r2, #0x100
 	bl MIi_CpuClear16
 	ldr r0, _020B106C ; =0x0000FFFF
-	ldr r1, _020B1074 ; =UNK_021CD2E0
+	ldr r1, _020B1074 ; =oamCache_ + 0x540
 	mov r2, #0x100
 	bl MIi_CpuClear16
 	ldr r0, _020B106C ; =0x0000FFFF
-	ldr r1, _020B1078 ; =UNK_021CD820
+	ldr r1, _020B1078 ; =oamCache_ + 0xA80
 	mov r2, #0x100
 	bl MIi_CpuClear16
 	ldr r0, _020B106C ; =0x0000FFFF
-	ldr r1, _020B107C ; =UNK_021CD2A0
+	ldr r1, _020B107C ; =oamCache_ + 0x500
 	mov r2, #0x40
 	bl MIi_CpuClear16
 	ldr r0, _020B106C ; =0x0000FFFF
-	ldr r1, _020B1080 ; =UNK_021CD7E0
+	ldr r1, _020B1080 ; =oamCache_ + 0xA40
 	mov r2, #0x40
 	bl MIi_CpuClear16
 	ldr r0, _020B106C ; =0x0000FFFF
-	ldr r1, _020B1084 ; =UNK_021CDD20
+	ldr r1, _020B1084 ; =oamCache_ + 0xF80
 	mov r2, #0x40
 	bl MIi_CpuClear16
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 	.balign 4
-_020B1060: .word UNK_021CCEA0
-_020B1064: .word UNK_021CD3E0
-_020B1068: .word UNK_021CD920
+_020B1060: .word oamCache_ + 0x100
+_020B1064: .word oamCache_ + 0x640
+_020B1068: .word oamCache_ + 0xB80
 _020B106C: .word 0x0000FFFF
-_020B1070: .word UNK_021CCDA0
-_020B1074: .word UNK_021CD2E0
-_020B1078: .word UNK_021CD820
-_020B107C: .word UNK_021CD2A0
-_020B1080: .word UNK_021CD7E0
-_020B1084: .word UNK_021CDD20
-	arm_func_end FUN_020B0FC0
+_020B1070: .word oamCache_
+_020B1074: .word oamCache_ + 0x540
+_020B1078: .word oamCache_ + 0xA80
+_020B107C: .word oamCache_ + 0x500
+_020B1080: .word oamCache_ + 0xA40
+_020B1084: .word oamCache_ + 0xF80
+	arm_func_end NNS_G2dInitOamManagerModule
 
-	; CpuLoadOAMMain_
-	arm_func_start FUN_020B1088
-FUN_020B1088: ; 0x020B1088
+	arm_func_start CpuLoadOAMMain_
+CpuLoadOAMMain_: ; 0x020B1088
 	ldr ip, _020B1094 ; =MIi_CpuCopy16
 	add r1, r1, #0x7000000
 	bx r12
 	.balign 4
 _020B1094: .word MIi_CpuCopy16
-	arm_func_end FUN_020B1088
+	arm_func_end CpuLoadOAMMain_
 
-	; CpuLoadOAMSub_
-	arm_func_start FUN_020B1098
-FUN_020B1098: ; 0x020B1098
+	arm_func_start CpuLoadOAMSub_
+CpuLoadOAMSub_: ; 0x020B1098
 	ldr r3, _020B10A8 ; =0x07000400
 	ldr ip, _020B10AC ; =MIi_CpuCopy16
 	add r1, r1, r3
@@ -720,5 +664,4 @@ FUN_020B1098: ; 0x020B1098
 	.balign 4
 _020B10A8: .word 0x07000400
 _020B10AC: .word MIi_CpuCopy16
-	arm_func_end FUN_020B1098
-
+	arm_func_end CpuLoadOAMSub_

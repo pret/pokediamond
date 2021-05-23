@@ -2,8 +2,8 @@
 	.include "global.inc"
 
 	.extern FX_SinCosTable_
-	.extern UNK_021064B8
-	.extern UNK_021064C0
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncAllocPlttVram
 
 	.section .data
 	.global UNK_02106158
@@ -773,7 +773,7 @@ _0208B60C:
 FUN_0208B630: ; 0x0208B630
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r3, _0208B660 ; =UNK_021064C0
+	ldr r3, _0208B660 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -784,14 +784,14 @@ FUN_0208B630: ; 0x0208B630
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_0208B660: .word UNK_021064C0
+_0208B660: .word NNS_GfdDefaultFuncAllocPlttVram
 _0208B664: .word 0x0000FFFF
 
 	arm_func_start FUN_0208B668
 FUN_0208B668: ; 0x0208B668
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r3, _0208B698 ; =UNK_021064B8
+	ldr r3, _0208B698 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -802,7 +802,7 @@ FUN_0208B668: ; 0x0208B668
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_0208B698: .word UNK_021064B8
+_0208B698: .word NNS_GfdDefaultFuncAllocTexVram
 _0208B69C: .word 0x0000FFFF
 
 	arm_func_start FUN_0208B6A0

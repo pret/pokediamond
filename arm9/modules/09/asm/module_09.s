@@ -2185,7 +2185,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r1, [sp, #0x10]
 	add r0, r5, #0
 	add r1, #0xc
@@ -2199,7 +2199,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r1, [sp, #0x10]
 	add r0, r5, #0
 	add r1, #0xc
@@ -3409,7 +3409,7 @@ _02213976:
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	add r7, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -14010,7 +14010,7 @@ MOD09_022191C0: ; 0x022191C0
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r1, [sp, #0x10]
 	add r0, r5, #0
 	add r1, #0xc

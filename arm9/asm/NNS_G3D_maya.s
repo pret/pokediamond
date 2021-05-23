@@ -2,24 +2,20 @@
 	.include "global.inc"
 
 	.section .data
-
-	; calcTexMtx_
-	.global UNK_021067B0
-UNK_021067B0: ; 0x021067B0
-	.word FUN_020BEBD8
-	.word FUN_020BEB00
-	.word FUN_020BEA84
-	.word FUN_020BEA3C
-	.word FUN_020BE954
-	.word FUN_020BE894
-	.word FUN_020BE850
-	.word FUN_020BE82C
+calcTexMtx_: ; 0x021067B0
+	.word texmtxCalc_flag_
+	.word texmtxCalc_flagS_
+	.word texmtxCalc_flagR_
+	.word texmtxCalc_flagRS_
+	.word texmtxCalc_flagT_
+	.word texmtxCalc_flagTS_
+	.word texmtxCalc_flagTR_
+	.word texmtxCalc_flagTRS_
 
 	.section .text
 
-	; NNSi_G3dSendTexSRTMaya
-	arm_func_start FUN_020BE6E4
-FUN_020BE6E4: ; 0x020BE6E4
+	arm_func_start NNSi_G3dSendTexSRTMaya
+NNSi_G3dSendTexSRTMaya: ; 0x020BE6E4
 	stmdb sp!, {r4,lr}
 	sub sp, sp, #0x50
 	mov r4, r0
@@ -46,7 +42,7 @@ FUN_020BE6E4: ; 0x020BE6E4
 	str r1, [sp, #0x14]
 	str r1, [sp, #0x10]
 	ldr r1, [r4, #0x0]
-	ldr r0, _020BE828 ; =UNK_021067B0
+	ldr r0, _020BE828 ; =calcTexMtx_
 	and r1, r1, #0x7
 	ldr r2, [r0, r1, lsl #0x2]
 	add r0, sp, #0x8
@@ -98,18 +94,17 @@ _020BE804:
 	ldr r0, [sp, #0x0]
 	add r1, r1, #0x4
 	mov r2, #0x12
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x50
 	ldmia sp!, {r4,pc}
 	.balign 4
 _020BE820: .word 0x00101610
 _020BE824: .word 0x00101810
-_020BE828: .word UNK_021067B0
-	arm_func_end FUN_020BE6E4
+_020BE828: .word calcTexMtx_
+	arm_func_end NNSi_G3dSendTexSRTMaya
 
-	; _end
-	arm_func_start FUN_020BE82C
-FUN_020BE82C: ; 0x020BE82C
+	local_arm_func_start texmtxCalc_flagTRS_
+texmtxCalc_flagTRS_: ; 0x020BE82C
 	mov r2, #0x1000
 	str r2, [r0, #0x0]
 	mov r1, #0x0
@@ -119,11 +114,10 @@ FUN_020BE82C: ; 0x020BE82C
 	str r1, [r0, #0x30]
 	str r1, [r0, #0x34]
 	bx lr
-	arm_func_end FUN_020BE82C
+	arm_func_end texmtxCalc_flagTRS_
 
-	; _end
-	arm_func_start FUN_020BE850
-FUN_020BE850: ; 0x020BE850
+	local_arm_func_start texmtxCalc_flagTR_
+texmtxCalc_flagTR_: ; 0x020BE850
 	ldr r2, [r1, #0x18]
 	mov r12, #0x0
 	str r2, [r0, #0x0]
@@ -141,11 +135,10 @@ FUN_020BE850: ; 0x020BE850
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	bx lr
-	arm_func_end FUN_020BE850
+	arm_func_end texmtxCalc_flagTR_
 
-	; _end
-	arm_func_start FUN_020BE894
-FUN_020BE894: ; 0x020BE894
+	local_arm_func_start texmtxCalc_flagTS_
+texmtxCalc_flagTS_: ; 0x020BE894
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r5, r1
@@ -194,11 +187,10 @@ FUN_020BE894: ; 0x020BE894
 	str r0, [r6, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020BE894
+	arm_func_end texmtxCalc_flagTS_
 
-	; _end
-	arm_func_start FUN_020BE954
-FUN_020BE954: ; 0x020BE954
+	local_arm_func_start texmtxCalc_flagT_
+texmtxCalc_flagT_: ; 0x020BE954
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
 	mov r9, r1
@@ -257,11 +249,10 @@ FUN_020BE954: ; 0x020BE954
 	str r0, [r10, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020BE954
+	arm_func_end texmtxCalc_flagT_
 
-	; _end
-	arm_func_start FUN_020BEA3C
-FUN_020BEA3C: ; 0x020BEA3C
+	local_arm_func_start texmtxCalc_flagRS_
+texmtxCalc_flagRS_: ; 0x020BEA3C
 	mov r2, #0x1000
 	str r2, [r0, #0x0]
 	str r2, [r0, #0x14]
@@ -280,11 +271,10 @@ FUN_020BEA3C: ; 0x020BEA3C
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	bx lr
-	arm_func_end FUN_020BEA3C
+	arm_func_end texmtxCalc_flagRS_
 
-	; _end
-	arm_func_start FUN_020BEA84
-FUN_020BEA84: ; 0x020BEA84
+	local_arm_func_start texmtxCalc_flagR_
+texmtxCalc_flagR_: ; 0x020BEA84
 	stmdb sp!, {r4,lr}
 	ldr r3, [r1, #0x18]
 	mov r2, #0x0
@@ -316,11 +306,10 @@ FUN_020BEA84: ; 0x020BEA84
 	str r1, [r0, #0x34]
 	str r2, [r0, #0x10]
 	ldmia sp!, {r4,pc}
-	arm_func_end FUN_020BEA84
+	arm_func_end texmtxCalc_flagR_
 
-	; _end
-	arm_func_start FUN_020BEB00
-FUN_020BEB00: ; 0x020BEB00
+	local_arm_func_start texmtxCalc_flagS_
+texmtxCalc_flagS_: ; 0x020BEB00
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r5, r1
@@ -375,11 +364,10 @@ FUN_020BEB00: ; 0x020BEB00
 	str r0, [r6, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020BEB00
+	arm_func_end texmtxCalc_flagS_
 
-	; _end
-	arm_func_start FUN_020BEBD8
-FUN_020BEBD8: ; 0x020BEBD8
+	local_arm_func_start texmtxCalc_flag_
+texmtxCalc_flag_: ; 0x020BEBD8
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
 	mov r9, r1
@@ -449,11 +437,10 @@ FUN_020BEBD8: ; 0x020BEBD8
 	str r0, [r10, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020BEBD8
+	arm_func_end texmtxCalc_flag_
 
-	; NNSi_G3dGetJointScaleMaya
-	arm_func_start FUN_020BECEC
-FUN_020BECEC: ; 0x020BECEC
+	arm_func_start NNSi_G3dGetJointScaleMaya
+NNSi_G3dGetJointScaleMaya: ; 0x020BECEC
 	stmdb sp!, {r4-r8,lr}
 	mov r12, r0
 	ands r0, r3, #0x4
@@ -464,7 +451,7 @@ FUN_020BECEC: ; 0x020BECEC
 	orr r0, r1, #0x1
 	str r0, [r12, #0x0]
 	beq _020BEDB8
-	ldr r0, _020BEE2C ; =UNK_021CEF7C
+	ldr r0, _020BEE2C ; =NNS_G3dRS
 	ldrb r7, [r2, #0x1]
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
@@ -484,7 +471,7 @@ _020BED40:
 	ldr r0, [r1, #0x8]
 	str r0, [r12, #0xc]
 	beq _020BEDB8
-	ldr lr, _020BEE2C ; =UNK_021CEF7C
+	ldr lr, _020BEE2C ; =NNS_G3dRS
 	ldrb r0, [r2, #0x1]
 	ldr r4, [lr, #0x0]
 	mov lr, #0x18
@@ -498,11 +485,11 @@ _020BED40:
 	and r0, r6, r4
 	str r0, [r8, r7, lsl #0x2]
 	ldr r4, [r1, #0xc]
-	ldr r0, _020BEE30 ; =UNK_021CFD8C
-	ldr lr, _020BEE34 ; =UNK_021CFD90
+	ldr r0, _020BEE30 ; =NNS_G3dRSOnGlb + 0xE0C
+	ldr lr, _020BEE34 ; =NNS_G3dRSOnGlb + 0xE10
 	str r4, [r0, r5]
 	ldr r4, [r1, #0x10]
-	ldr r0, _020BEE38 ; =UNK_021CFD94
+	ldr r0, _020BEE38 ; =NNS_G3dRSOnGlb + 0xE14
 	str r4, [lr, r5]
 	ldr r1, [r1, #0x14]
 	str r1, [r0, r5]
@@ -511,7 +498,7 @@ _020BEDB8:
 	beq _020BEE1C
 	ldrb r0, [r2, #0x2]
 	ldr r2, [r12, #0x0]
-	ldr r1, _020BEE2C ; =UNK_021CEF7C
+	ldr r1, _020BEE2C ; =NNS_G3dRS
 	orr r2, r2, #0x20
 	str r2, [r12, #0x0]
 	ldr r2, [r1, #0x0]
@@ -526,7 +513,7 @@ _020BEDB8:
 	orrne r0, r0, #0x8
 	strne r0, [r12, #0x0]
 	bne _020BEE1C
-	ldr r2, _020BEE30 ; =UNK_021CFD8C
+	ldr r2, _020BEE30 ; =NNS_G3dRSOnGlb + 0xE0C
 	mov r1, #0x18
 	mla r1, r0, r1, r2
 	add r3, r12, #0x10
@@ -538,15 +525,14 @@ _020BEE1C:
 	str r0, [r12, #0x0]
 	ldmia sp!, {r4-r8,pc}
 	.balign 4
-_020BEE2C: .word UNK_021CEF7C
-_020BEE30: .word UNK_021CFD8C
-_020BEE34: .word UNK_021CFD90
-_020BEE38: .word UNK_021CFD94
-	arm_func_end FUN_020BECEC
+_020BEE2C: .word NNS_G3dRS
+_020BEE30: .word NNS_G3dRSOnGlb + 0xE0C
+_020BEE34: .word NNS_G3dRSOnGlb + 0xE10
+_020BEE38: .word NNS_G3dRSOnGlb + 0xE14
+	arm_func_end NNSi_G3dGetJointScaleMaya
 
-	; _end
-	arm_func_start FUN_020BEE3C
-FUN_020BEE3C: ; 0x020BEE3C
+	arm_func_start NNSi_G3dSendJointSRTMaya
+NNSi_G3dSendJointSRTMaya: ; 0x020BEE3C
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
@@ -563,13 +549,13 @@ FUN_020BEE3C: ; 0x020BEE3C
 	add r1, r5, #0x4c
 	mov r0, #0x1c
 	mov r2, #0x3
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r4, #0x0
 _020BEE84:
 	add r1, r5, #0x10
 	mov r0, #0x1b
 	mov r2, #0x3
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 _020BEE94:
 	ldr r0, [r5, #0x0]
 	ands r0, r0, #0x2
@@ -579,13 +565,13 @@ _020BEE94:
 	add r1, r5, #0x28
 	mov r0, #0x19
 	mov r2, #0xc
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	b _020BEEE8
 _020BEEBC:
 	add r1, r5, #0x28
 	mov r0, #0x1a
 	mov r2, #0x9
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	b _020BEEE8
 _020BEED0:
 	cmp r4, #0x0
@@ -593,7 +579,7 @@ _020BEED0:
 	add r1, r5, #0x4c
 	mov r0, #0x1c
 	mov r2, #0x3
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 _020BEEE8:
 	ldr r0, [r5, #0x0]
 	ands r0, r0, #0x1
@@ -602,8 +588,7 @@ _020BEEE8:
 	add r1, r5, #0x4
 	mov r0, #0x1b
 	mov r2, #0x3
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020BEE3C
-
+	arm_func_end NNSi_G3dSendJointSRTMaya

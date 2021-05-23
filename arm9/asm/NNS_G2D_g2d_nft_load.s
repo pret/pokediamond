@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; NNSi_G2dUnpackNFT
-	arm_func_start FUN_020B7468
-FUN_020B7468: ; 0x020B7468
+	arm_func_start NNSi_G2dUnpackNFT
+NNSi_G2dUnpackNFT: ; 0x020B7468
 	stmdb sp!, {r4-r6,lr}
 	ldrh r2, [r0, #0xc]
 	ldrh r3, [r0, #0xe]
@@ -73,11 +72,10 @@ _020B7548: .word 0x46494E46
 _020B754C: .word 0x43574448
 _020B7550: .word 0x434D4150
 _020B7554: .word 0x43474C50
-	arm_func_end FUN_020B7468
+	arm_func_end NNSi_G2dUnpackNFT
 
-	; NNSi_G2dGetUnpackedFont
-	arm_func_start FUN_020B7558
-FUN_020B7558: ; 0x020B7558
+	arm_func_start NNSi_G2dGetUnpackedFont
+NNSi_G2dGetUnpackedFont: ; 0x020B7558
 	stmdb sp!, {r4-r6,lr}
 	movs r6, r0
 	mov r5, r1
@@ -155,10 +153,10 @@ _020B7644:
 	bl OS_Terminate
 _020B7654:
 	mov r0, r6
-	bl FUN_020B7468
+	bl NNSi_G2dUnpackNFT
 	ldr r1, _020B76AC ; =0x46494E46
 	mov r0, r6
-	bl FUN_020B01F8
+	bl NNS_G2dFindBinaryBlock
 	cmp r0, #0x0
 	moveq r0, #0x0
 	streq r0, [r5, #0x0]
@@ -179,5 +177,4 @@ _020B76A0:
 	.balign 4
 _020B76A8: .word 0x4E465452
 _020B76AC: .word 0x46494E46
-	arm_func_end FUN_020B7558
-
+	arm_func_end NNSi_G2dGetUnpackedFont

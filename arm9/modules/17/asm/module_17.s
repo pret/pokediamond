@@ -508,7 +508,7 @@ MOD17_021D786C: ; 0x021D786C
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_020222AC
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	beq _021D7884
@@ -768,7 +768,7 @@ MOD17_021D7A2C: ; 0x021D7A2C
 	lsl r5, r5, #2
 	add r0, r6, #0
 	add r1, r1, r5
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [r4, #0x30]
 	ldr r0, [r0, r5]
 	pop {r4, r5, r6, pc}
@@ -1046,7 +1046,7 @@ MOD17_021D7C28: ; 0x021D7C28
 	add r6, r2, #0
 	ldr r7, [sp, #0x18]
 	str r1, [r0]
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	ldr r1, _021D7CB0 ; =0x04000470
 	lsl r0, r4, #0xc
 	str r0, [r1]
@@ -1173,7 +1173,7 @@ _021D7D24: .word MOD17_021DE32C
 	thumb_func_start MOD17_021D7D28
 MOD17_021D7D28: ; 0x021D7D28
 	push {r3, lr}
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
@@ -1218,11 +1218,11 @@ MOD17_021D7D28: ; 0x021D7D28
 	str r0, [r2]
 	str r1, [r2, #0x40]
 	mov r1, #1
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	pop {r3, pc}
 	.align 2, 0
 _021D7D9C: .word 0x04000008
@@ -1253,7 +1253,7 @@ MOD17_021D7DB0: ; 0x021D7DB0
 	mov r0, #0x10
 	orr r0, r1
 	str r0, [r2]
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r0, #0x1f
@@ -1272,8 +1272,8 @@ _021D7DFC: .word 0xFFCFFFEF
 	thumb_func_start MOD17_021D7E00
 MOD17_021D7E00: ; 0x021D7E00
 	push {r3, lr}
-	bl FUN_020AEAF4
-	bl FUN_020AEC60
+	bl NNS_GfdResetFrmTexVramState
+	bl NNS_GfdResetFrmPlttVramState
 	pop {r3, pc}
 	thumb_func_end MOD17_021D7E00
 
@@ -1282,7 +1282,7 @@ MOD17_021D7E0C: ; 0x021D7E0C
 	push {r3, lr}
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	pop {r3, pc}
 	thumb_func_end MOD17_021D7E0C
 
@@ -1658,7 +1658,7 @@ MOD17_021D80CC: ; 0x021D80CC
 	bl FUN_0201E00C
 	bl FUN_0201D168
 	bl FUN_0201E0BC
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7c
@@ -1787,7 +1787,7 @@ _021D81C6:
 	ldr r1, [r6, #8]
 	add r0, r4, #0
 	add r1, r1, #4
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, [r7]
 	ldr r0, [r6, #8]
 	str r1, [r0]
@@ -1851,7 +1851,7 @@ _021D822A:
 	ldr r0, [sp, #0xc]
 	add r1, r1, r6
 	add r1, r1, #4
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r0, [r5, #8]
 	add r0, r0, r6
 	ldr r0, [r0, #4]
@@ -1914,13 +1914,13 @@ MOD17_021D82E4: ; 0x021D82E4
 	add r6, r3, #0
 	bl FUN_02006D98
 	str r0, [r5, #0x20]
-	ldr r3, _021D833C ; =UNK_021064B8
+	ldr r3, _021D833C ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0
 	ldr r3, [r3]
 	add r0, r4, #0
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D8340 ; =UNK_021064C0
+	ldr r3, _021D8340 ; =NNS_GfdDefaultFuncAllocPlttVram
 	add r4, r0, #0
 	ldr r3, [r3]
 	add r0, r6, #0
@@ -1948,8 +1948,8 @@ MOD17_021D82E4: ; 0x021D82E4
 	str r0, [r5, #0x24]
 	pop {r4, r5, r6, pc}
 	nop
-_021D833C: .word UNK_021064B8
-_021D8340: .word UNK_021064C0
+_021D833C: .word NNS_GfdDefaultFuncAllocTexVram
+_021D8340: .word NNS_GfdDefaultFuncAllocPlttVram
 _021D8344: .word 0x7FFF0000
 _021D8348: .word 0xFFFF0000
 	thumb_func_end MOD17_021D82E4
@@ -8916,7 +8916,7 @@ MOD17_021DB700: ; 0x021DB700
 	bl UncompressFromNarc
 	add r1, sp, #0x10
 	add r6, r0, #0
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0x10]
 	ldr r0, [r0, #0x14]
 	bl FUN_02008A74
@@ -13727,7 +13727,7 @@ _021DDAC6:
 	add r1, r1, r5
 	add r0, r7, #0
 	add r1, r1, #4
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #4]
 	ldr r1, [r0]
 	ldr r0, [r4]
@@ -13758,7 +13758,7 @@ _021DDB1E:
 	ldr r1, [r4, #8]
 	add r0, r5, #0
 	add r1, r1, #4
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r0, [sp, #4]
 	ldr r1, [r0]
 	ldr r0, [r4, #8]
@@ -13875,7 +13875,7 @@ MOD17_021DDC30: ; 0x021DDC30
 	bl OverlayManager_GetData
 	add r5, r0, #0
 	bl FUN_020222AC
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	ldr r0, [r5, #0x10]
 	bl MOD17_021DD518
 	mov r0, #0

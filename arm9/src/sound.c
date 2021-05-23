@@ -28,12 +28,12 @@ extern void FUN_02005CFC(void);
 void InitSoundData(void * a0, struct Options * a1)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    SDAT_Init();
+    NNS_SndInit();
     FUN_020040C8();
     FUN_02004064(sdat);
-    sdat->unk_00090 = FUN_020C2A94(sdat->unk_00094, sizeof(sdat->unk_00094));
-    SDAT_Open(&sdat->header, "data/sound/sound_data.sdat", sdat->unk_00090, 0);
-    FUN_020C39CC(sdat->unk_00090);
+    sdat->unk_00090 = NNS_SndHeapCreate(sdat->unk_00094, sizeof(sdat->unk_00094));
+    NNS_SndArcInit(&sdat->header, "data/sound/sound_data.sdat", sdat->unk_00090, 0);
+    NNS_SndArcPlayerSetup(sdat->unk_00090);
     FUN_02004088(sdat);
     FUN_020040A4(sdat);
     UNK_02107070[1] = 0;
@@ -51,7 +51,7 @@ void DoSoundUpdateFrame(void)
         FUN_02003C40();
     }
     FUN_02005CFC();
-    FUN_020C01A0();
+    NNS_SndMain();
 }
 
 void FUN_02003C40(void)
@@ -202,7 +202,7 @@ void * FUN_02003D38(u32 a0)
 int FUN_02003F3C(int * a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    int r4 = FUN_020C290C(sdat->unk_00090);
+    int r4 = NNS_SndHeapSaveState(sdat->unk_00090);
     GF_ASSERT(r4 != -1);
     if (a0 != NULL)
         *a0 = r4;
@@ -212,37 +212,37 @@ int FUN_02003F3C(int * a0)
 void FUN_02003F64(int a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    FUN_020C2828(sdat->unk_00090, a0);
+    NNS_SndHeapLoadState(sdat->unk_00090, a0);
 }
 
 BOOL FUN_02003F78(u32 * a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return FUN_020C36A8(a0, sdat->unk_00090);
+    return NNS_SndArcLoadGroup(a0, sdat->unk_00090);
 }
 
 BOOL FUN_02003F90(u32 * a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return FUN_020C3674(a0, sdat->unk_00090);
+    return NNS_SndArcLoadSeq(a0, sdat->unk_00090);
 }
 
 BOOL FUN_02003FA8(u32 * a0, u32 * a1)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return FUN_020C35E0(a0, a1, sdat->unk_00090);
+    return NNS_SndArcLoadSeqEx(a0, a1, sdat->unk_00090);
 }
 
 BOOL FUN_02003FC4(u32 * a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return FUN_020C360C(a0, sdat->unk_00090);
+    return NNS_SndArcLoadWaveArc(a0, sdat->unk_00090);
 }
 
 BOOL FUN_02003FDC(u32 * a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return FUN_020C3640(a0, sdat->unk_00090);
+    return NNS_SndArcLoadBank(a0, sdat->unk_00090);
 }
 
 u32 * FUN_02003FF4(int a0)
@@ -295,7 +295,7 @@ void FUN_02004088(struct SoundData * sdat)
     int i;
     for (i = 0; i < 9; i++)
     {
-        FUN_020C0F80(&sdat->unk_BBC94[i]);
+        NNS_SndHandleInit(&sdat->unk_BBC94[i]);
     }
 }
 
@@ -315,7 +315,7 @@ void FUN_020040C8(void)
 
 void FUN_020040DC(void)
 {
-    FUN_020C1040(7, 0);
+    NNS_SndPlayerStopSeqByPlayerNo(7, 0);
     FUN_02003FF4(7);
-    FUN_020C0F68();
+    NNS_SndHandleReleaseSeq();
 }

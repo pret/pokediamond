@@ -1223,7 +1223,7 @@ MOD20_02252C5C: ; 0x02252C5C
 	lsl r0, r0, #4
 	str r7, [r4, r0]
 	ldr r0, [r4, r0]
-	bl FUN_020B0888
+	bl NNS_G2dResetOamManagerBuffer
 	mov r0, #0x15
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -3062,7 +3062,7 @@ _02253A4E:
 	bl NARC_ReadFromMember
 	add r0, r7, #0
 	add r1, sp, #0x20
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0x20]
 	add r1, r5, #0
 	ldr r0, [r0, #0x14]
@@ -3239,7 +3239,7 @@ MOD20_02253BA4: ; 0x02253BA4
 	str r7, [r4]
 	str r5, [r4, #0x18]
 	add r0, r7, #0
-	bl FUN_020B0830
+	bl NNS_G2dGetOamManagerOamCapacity
 	strh r0, [r4, #0x10]
 	ldrh r1, [r4, #0x10]
 	add r0, r5, #0
@@ -3354,7 +3354,7 @@ _02253C96:
 	mov r1, #2
 	add r0, #8
 	lsl r1, r1, #0xc
-	bl FUN_020B1EC4
+	bl NNS_G2dTickCellAnimation
 	add r0, r4, #0
 	add r0, #0x86
 	ldrb r0, [r0]
@@ -3391,7 +3391,7 @@ _02253CAE:
 	ldr r2, [r4, #0x34]
 	add r0, r5, #0
 	lsr r1, r1, #0x10
-	bl FUN_020B1AF8
+	bl NNS_G2dMakeCellToOams
 	b _02253D86
 _02253CEE:
 	ldr r0, [r4, #0x6c]
@@ -3452,7 +3452,7 @@ _02253D62:
 	ldr r0, [sp, #0xc]
 	ldr r1, [r4, #0x6c]
 	ldr r0, [r0]
-	bl FUN_020B0BB0
+	bl NNS_G2dEntryOamManagerAffine
 	add r1, sp, #0x18
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -3464,7 +3464,7 @@ _02253D62:
 	ldr r3, [r4, #0x6c]
 	add r0, r5, #0
 	lsr r1, r1, #0x10
-	bl FUN_020B1AF8
+	bl NNS_G2dMakeCellToOams
 _02253D86:
 	ldr r1, [sp, #0x10]
 	sub r1, r1, r0
@@ -3569,7 +3569,7 @@ _02253E38:
 	lsl r2, r2, #0xd
 	ldr r0, [r0]
 	lsr r2, r2, #0x10
-	bl FUN_020B0D58
+	bl NNS_G2dEntryOamManagerOam
 _02253E52:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
@@ -3607,12 +3607,12 @@ MOD20_02253E74: ; 0x02253E74
 	ldr r0, [r6, #0xc]
 	str r0, [r4, #4]
 	ldrh r1, [r5, #8]
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r1, r0, #0
 	add r0, r4, #0
 	ldr r2, [r4]
 	add r0, #8
-	bl FUN_020B1F80
+	bl NNS_G2dInitCellAnimation
 	ldr r1, [r5]
 	ldr r0, [r5, #4]
 	str r1, [r4, #0x64]
@@ -3686,12 +3686,12 @@ MOD20_02253F28: ; 0x02253F28
 	lsl r1, r1, #0x10
 	ldr r0, [r4, #4]
 	lsr r1, r1, #0x10
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r1, r0, #0
 	add r0, r4, #0
 	ldr r2, [r4]
 	add r0, #8
-	bl FUN_020B1F80
+	bl NNS_G2dInitCellAnimation
 	pop {r4, pc}
 	thumb_func_end MOD20_02253F28
 
@@ -3820,7 +3820,7 @@ MOD20_02253FBC: ; 0x02253FBC
 	beq _0225400E
 	add r1, r5, #0
 	add r1, #8
-	bl FUN_020AFEB8
+	bl NNS_G2dGetUnpackedCellBank
 	cmp r0, #0
 	bne _02253FFC
 	mov r0, #0
@@ -3829,7 +3829,7 @@ _02253FFC:
 	ldr r0, [r5, #4]
 	add r5, #0xc
 	add r1, r5, #0
-	bl thunk_FUN_020afda0
+	bl NNS_G2dGetUnpackedMCAnimBank
 	cmp r0, #0
 	bne _0225400E
 	mov r0, #0

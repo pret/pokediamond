@@ -2592,7 +2592,7 @@ MOD15_021D87F8: ; 0x021D87F8
 	bl FUN_02015F1C
 	str r5, [r4, #0x18]
 	str r6, [r4, #0x1c]
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -2925,19 +2925,19 @@ MOD15_021D8AB4: ; 0x021D8AB4
 	mov r0, #0x66
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0x6b
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0x15
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0
 	str r3, [sp]
 	mov r2, #1
@@ -7801,9 +7801,9 @@ MOD15_021DB154: ; 0x021DB154
 	sub sp, #0x4c
 	add r4, r0, #0
 	add r0, sp, #0x38
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	add r0, sp, #0x14
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r0, #0x23
 	str r0, [sp]
 	add r0, sp, #0x38

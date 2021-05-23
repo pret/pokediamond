@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020BE5A0
-FUN_020BE5A0: ; 0x020BE5A0
+	arm_func_start NNSi_G3dAnmCalcNsBva
+NNSi_G3dAnmCalcNsBva: ; 0x020BE5A0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr lr, [r1, #0x8]
@@ -22,12 +21,11 @@ FUN_020BE5A0: ; 0x020BE5A0
 	str r1, [r0, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020BE5A0
+	arm_func_end NNSi_G3dAnmCalcNsBva
 
-	; NNSi_G3dAnmObjInitNsBva
-	arm_func_start FUN_020BE5E0
-FUN_020BE5E0: ; 0x020BE5E0
-	ldr r3, _020BE628 ; =UNK_02106598
+	arm_func_start NNSi_G3dAnmObjInitNsBva
+NNSi_G3dAnmObjInitNsBva: ; 0x020BE5E0
+	ldr r3, _020BE628 ; =NNS_G3dFuncAnmVisNsBvaDefault
 	mov r12, #0x0
 	ldr r3, [r3, #0x0]
 	str r3, [r0, #0xc]
@@ -47,6 +45,5 @@ _020BE608:
 	blo _020BE608
 	bx lr
 	.balign 4
-_020BE628: .word UNK_02106598
-	arm_func_end FUN_020BE5E0
-
+_020BE628: .word NNS_G3dFuncAnmVisNsBvaDefault
+	arm_func_end NNSi_G3dAnmObjInitNsBva

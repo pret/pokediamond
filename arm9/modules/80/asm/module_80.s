@@ -1473,7 +1473,7 @@ _0222DFE4:
 	mov r1, #2
 	lsl r1, r1, #0x10
 	mov r2, #0
-	bl tempName_NNS_FndCreateExpHeapEx
+	bl NNS_FndCreateExpHeapEx
 	str r0, [r4, #0x4c]
 	mov r0, #1
 	str r0, [r5]
@@ -1830,7 +1830,7 @@ MOD80_0222E3CC: ; 0x0222E3CC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x1c
 	add r5, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -2269,7 +2269,7 @@ MOD80_0222E750: ; 0x0222E750
 	add r1, r5, #0
 	ldr r0, [r0]
 	add r2, r4, #0
-	bl tempName_NNS_FndAllocFromExpHeapEx
+	bl NNS_FndAllocFromExpHeapEx
 	add r4, r0, #0
 	add r0, r6, #0
 	bl OS_RestoreInterrupts
@@ -2289,7 +2289,7 @@ MOD80_0222E778: ; 0x0222E778
 	ldr r0, _0222E798 ; =0x02237E24
 	add r1, r5, #0
 	ldr r0, [r0]
-	bl FUN_020ADDF0
+	bl NNS_FndFreeToExpHeap
 	add r0, r4, #0
 	bl OS_RestoreInterrupts
 _0222E794:
@@ -10717,7 +10717,7 @@ MOD80_02232BAC: ; 0x02232BAC
 	add r4, r0, #0
 	beq _02232BCE
 	add r1, r5, #0
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0
 	bne _02232BCE
 	add r0, r4, #0

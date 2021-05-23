@@ -3,25 +3,21 @@
 
 	.section .data
 
-	; NNS_G3dSendJointSRT_FuncArray
-	.global UNK_02106608
-UNK_02106608: ; 0x02106608
-	.word FUN_020BE668
-	.word FUN_020BEE3C
-	.word FUN_020BF2FC
+	.global NNS_G3dSendJointSRT_FuncArray
+NNS_G3dSendJointSRT_FuncArray: ; 0x02106608
+	.word NNSi_G3dSendJointSRTBasic
+	.word NNSi_G3dSendJointSRTMaya
+	.word NNSi_G3dSendJointSRTSi3d
 
-	; NNS_G3dGetJointScale_FuncArray
-	.global UNK_02106614
-UNK_02106614: ; 0x02106614
-	.word FUN_020BE62C
-	.word FUN_020BECEC
-	.word FUN_020BF0D4
+	.global NNS_G3dGetJointScale_FuncArray
+NNS_G3dGetJointScale_FuncArray: ; 0x02106614
+	.word NNSi_G3dGetJointScaleBasic
+	.word NNSi_G3dGetJointScaleMaya
+	.word NNSi_G3dGetJointScaleSi3d
 
-	; NNS_G3dSendTexSRT_FuncArray
-	.global UNK_02106620
-UNK_02106620: ; 0x02106620
-	.word FUN_020BE6E4
-	.word FUN_020BEF10
-	.word FUN_020BF42C
-	.word FUN_020BFA9C
-
+	.global NNS_G3dSendTexSRT_FuncArray
+NNS_G3dSendTexSRT_FuncArray: ; 0x02106620
+	.word NNSi_G3dSendTexSRTMaya
+	.word NNSi_G3dSendTexSRTSi3d
+	.word NNSi_G3dSendTexSRT3dsMax
+	.word NNSi_G3dSendTexSRTXsi

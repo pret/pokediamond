@@ -5,8 +5,8 @@
 
 	.global UNK_020ECB98
 UNK_020ECB98: ; 0x020ECB98
-	.word FUN_020B1768
-	.word FUN_020B1528
+	.word NNS_G2dLoadImage1DMapping
+	.word NNS_G2dLoadImage2DMapping
 
 	.global UNK_020ECBA0
 UNK_020ECBA0: ; 0x020ECBA0
@@ -14,7 +14,7 @@ UNK_020ECBA0: ; 0x020ECBA0
 
 	.global UNK_020ECBA8
 UNK_020ECBA8: ; 0x020ECBA8
-	.word FUN_020B1768, FUN_020B1528
+	.word NNS_G2dLoadImage1DMapping, NNS_G2dLoadImage2DMapping
 
 	.global UNK_020ECBB0
 UNK_020ECBB0: ; 0x020ECBB0
@@ -38,7 +38,7 @@ FUN_0200687C: ; 0x0200687C
 	add r7, r0, #0x0
 	beq _020068C2
 	add r1, sp, #0x4
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0x0
 	beq _020068BC
 	cmp r4, #0x0
@@ -78,7 +78,7 @@ FUN_020068C8: ; 0x020068C8
 	add r7, r0, #0x0
 	beq _0200692C
 	add r1, sp, #0x4
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	cmp r0, #0x0
 	beq _02006926
 	cmp r4, #0x0
@@ -147,7 +147,7 @@ FUN_02006948: ; 0x02006948
 	cmp r0, #0x0
 	beq _02006A2A
 	add r1, sp, #0x8
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0x0
 	beq _02006A24
 	ldr r0, [sp, #0x8]
@@ -262,7 +262,7 @@ FUN_02006A34: ; 0x02006A34
 	add r7, r0, #0x0
 	beq _02006A80
 	add r1, sp, #0x4
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	cmp r0, #0x0
 	beq _02006A7A
 	cmp r4, #0x0
@@ -306,11 +306,11 @@ FUN_02006A8C: ; 0x02006A8C
 	add r6, r0, #0x0
 	beq _02006AE0
 	add r1, sp, #0x4
-	bl FUN_020B00F0
+	bl NNS_G2dGetUnpackedPaletteCompressInfo
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	add r1, sp, #0x8
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0x0
 	beq _02006ADA
 	cmp r7, #0x0
@@ -321,14 +321,14 @@ FUN_02006A8C: ; 0x02006A8C
 	ldr r0, [sp, #0x8]
 	ldr r1, [sp, #0x4]
 	add r3, r5, #0x0
-	bl FUN_020B10E8
+	bl NNS_G2dLoadPaletteEx
 	b _02006ADA
 _02006ACE:
 	ldr r0, [sp, #0x8]
 	ldr r3, [sp, #0x24]
 	add r1, r4, #0x0
 	add r2, r5, #0x0
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 _02006ADA:
 	add r0, r6, #0x0
 	bl FreeToHeap
@@ -349,7 +349,7 @@ FUN_02006AE4: ; 0x02006AE4
 	ldr r4, _02006B30 ; =0x00000000
 	beq _02006B28
 	add r1, sp, #0x4
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	cmp r0, #0x0
 	beq _02006B22
 	ldr r1, [sp, #0x18]
@@ -391,7 +391,7 @@ FUN_02006B38: ; 0x02006B38
 	add r4, r0, #0x0
 	beq _02006B9E
 	add r1, sp, #0x4
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	cmp r0, #0x0
 	beq _02006B98
 	ldr r1, [sp, #0x18]
@@ -453,7 +453,7 @@ FUN_02006BB0: ; 0x02006BB0
 	add r5, r0, #0x0
 	beq _02006BD6
 	add r1, r4, #0x0
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0x0
 	bne _02006BD6
 	add r0, r5, #0x0
@@ -476,7 +476,7 @@ FUN_02006BDC: ; 0x02006BDC
 	add r5, r0, #0x0
 	beq _02006C02
 	add r1, r4, #0x0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	cmp r0, #0x0
 	bne _02006C02
 	add r0, r5, #0x0
@@ -498,7 +498,7 @@ FUN_02006C08: ; 0x02006C08
 	add r4, r0, #0x0
 	beq _02006C2C
 	add r1, r5, #0x0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0x0
 	bne _02006C2C
 	add r0, r4, #0x0
@@ -520,7 +520,7 @@ FUN_02006C30: ; 0x02006C30
 	add r5, r0, #0x0
 	beq _02006C56
 	add r1, r4, #0x0
-	bl FUN_020AFEB8
+	bl NNS_G2dGetUnpackedCellBank
 	cmp r0, #0x0
 	bne _02006C56
 	add r0, r5, #0x0
@@ -543,7 +543,7 @@ FUN_02006C5C: ; 0x02006C5C
 	add r5, r0, #0x0
 	beq _02006C82
 	add r1, r4, #0x0
-	bl thunk_FUN_020afda0_2
+	bl NNS_G2dGetUnpackedAnimBank
 	cmp r0, #0x0
 	bne _02006C82
 	add r0, r5, #0x0

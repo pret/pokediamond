@@ -144,7 +144,7 @@ _02006E12:
 	add r5, #0x98
 	cmp r6, #0x4
 	blt _02006E12
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	ldr r2, _02006EC8 ; =0x000002E3
 	mov r0, #0x0
 	strb r0, [r4, r2]
@@ -155,7 +155,7 @@ _02006E12:
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	str r0, [sp, #0x4]
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0xc]
 	mov r1, #0xaf
 	ldr r0, [r0, #0x4]
@@ -235,7 +235,7 @@ FUN_02006ED4: ; 0x02006ED4
 	bl FUN_020082A8
 	add r0, r5, #0x0
 	bl FUN_020086F4
-	bl FUN_020BB394
+	bl NNS_G3dGeFlushBuffer
 	mov r6, #0x9f
 	mov r0, #0x0
 	ldr r4, _02007250 ; =0x04000444
@@ -295,7 +295,7 @@ _02006F48:
 	add r1, #0x24
 	blx r2
 _02006F56:
-	bl FUN_020BB394
+	bl NNS_G3dGeFlushBuffer
 	ldr r0, _02007258 ; =0x000002E3
 	ldrb r0, [r5, r0]
 	cmp r0, #0x1
@@ -505,7 +505,7 @@ _02006F7E:
 	add r2, r3, r2
 	asr r1, r1, #0x10
 	mov r3, r12
-	bl FUN_020B0250
+	bl NNS_G2dDrawSpriteFast
 	b _02007174
 _02007104:
 	mov r0, #0x34
@@ -562,7 +562,7 @@ _02007104:
 	lsl r1, r1, #0x10
 	asr r1, r1, #0x10
 	add r2, r6, r2
-	bl FUN_020B0250
+	bl NNS_G2dDrawSpriteFast
 _02007174:
 	add r0, r4, #0x0
 	add r0, #0x6c
@@ -725,7 +725,7 @@ _0200727C:
 	lsl r1, r1, #0x10
 	ldr r2, _020072E0 ; =0xFFFFFC18
 	asr r1, r1, #0x10
-	bl FUN_020B0250
+	bl NNS_G2dDrawSpriteFast
 _020072BC:
 	ldr r0, [sp, #0x14]
 	add r4, #0x98
@@ -2884,7 +2884,7 @@ FUN_020081C4: ; 0x020081C4
 	strb r1, [r4, r0]
 	sub r0, #0x81
 	add r0, r4, r0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0xae
 	lsl r3, r3, #0x2
 	mov r1, #0x20
@@ -2910,7 +2910,7 @@ FUN_020081C4: ; 0x020081C4
 	ldr r1, [r4, r1]
 	mov r2, #0x0
 	add r3, r4, r3
-	bl FUN_020B1528
+	bl NNS_G2dLoadImage2DMapping
 _02008212:
 	ldr r0, _02008258 ; =0x000002E2
 	ldrb r1, [r4, r0]
@@ -2920,7 +2920,7 @@ _02008212:
 	strb r1, [r4, r0]
 	sub r0, #0x5e
 	add r0, r4, r0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r3, #0xaa
 	lsl r3, r3, #0x2
 	add r0, r3, #0x0
@@ -2941,7 +2941,7 @@ _02008212:
 	add r0, r4, r0
 	mov r2, #0x0
 	add r3, r4, r3
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 _02008252:
 	pop {r4, pc}
 	.balign 4
@@ -3037,7 +3037,7 @@ _020082CC:
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x58
 	str r0, [sp, #0x4c]
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0x58]
 	mov r1, #0xaf
 	ldr r0, [r0, #0x4]
@@ -3600,7 +3600,7 @@ _02008706:
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x10]
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r0, [sp, #0x18]
 	mov r7, #0x0
 	ldr r1, [r0, #0x0]
@@ -3646,7 +3646,7 @@ _0200874A:
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x4]
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r0, [sp, #0x18]
 	mov r7, #0xad
 	ldr r0, [r0, #0xc]

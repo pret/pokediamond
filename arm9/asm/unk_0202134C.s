@@ -8,7 +8,7 @@ FUN_0202134C: ; 0x0202134C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020B33A0
+	bl NNS_G2dInitRenderer
 	add r5, #0x80
 	str r4, [r5, #0x0]
 	pop {r3-r5, pc}
@@ -20,7 +20,7 @@ FUN_0202135C: ; 0x0202135C
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_020B3334
+	bl NNS_G2dInitRenderSurface
 	add r2, r5, #0x0
 	ldmia r4!, {r0-r1}
 	stmia r2!, {r0-r1}
@@ -36,7 +36,7 @@ FUN_0202135C: ; 0x0202135C
 	cmp r0, #0x0
 	beq _0202138C
 	add r1, r5, #0x0
-	bl FUN_020B3390
+	bl NNS_G2dAddRendererTargetSurface
 _0202138C:
 	pop {r3-r7, pc}
 	.balign 4

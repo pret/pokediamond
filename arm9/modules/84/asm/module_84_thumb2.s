@@ -1836,10 +1836,10 @@ _021D8ECE:
 _021D8EF2:
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, r4, #0
 	add r0, #0x34
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #1
@@ -1922,12 +1922,12 @@ _021D8F86:
 	lsr r7, r5, #1
 _021D8FA6:
 	add r0, r4, #0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	ldr r0, [sp, #0x20]
 	add r1, r5, #0
 	mov r2, #1
 	add r3, r4, #0
-	bl FUN_020B1768
+	bl NNS_G2dLoadImage1DMapping
 	add r6, r6, #1
 	add r4, #0x24
 	add r5, r5, r7
@@ -3164,7 +3164,7 @@ _021D995A:
 	str r0, [r4, #0x48]
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #1
@@ -3181,7 +3181,7 @@ _021D995A:
 	bl FUN_02006AE4
 	add r0, r4, #0
 	add r0, #0x34
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0x4b
 	str r0, [sp]
 	add r0, r4, #0
@@ -4259,10 +4259,10 @@ _021DA1E2:
 	str r0, [r4, #0x54]
 	add r0, r4, #0
 	add r0, #0x1c
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, r4, #0
 	add r0, #0x40
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #1

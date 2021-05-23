@@ -3,31 +3,26 @@
 
 	.section .bss
 
-	; bInitialized$7761
-	.global UNK_021D26D4
-UNK_021D26D4: ; 0x021D26D4
+	.global bInitialized$7761
+bInitialized$7761: ; 0x021D26D4
 	.space 0x4
 
-	; sStrmList
-	.global UNK_021D26D8
-UNK_021D26D8: ; 0x021D26D8
+	.global sStrmList
+sStrmList: ; 0x021D26D8
 	.space 0xc
 
-	; buffer$7877
-	.global UNK_021D26E4
-UNK_021D26E4: ; 0x021D26E4
+	.global buffer$7877
+buffer$7877: ; 0x021D26E4
 	.space 0x40
 
-	; sStrmChannel
-	.global UNK_021D2724
-UNK_021D2724: ; 0x021D2724
+	.global sStrmChannel
+sStrmChannel: ; 0x021D2724
 	.space 0x80
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020C1198
-FUN_020C1198: ; 0x020C1198
+	local_arm_func_start EndSleep
+EndSleep: ; 0x020C1198
 	stmdb sp!, {r4-r6,lr}
 	mov r4, r0
 	ldr r0, [r4, #0x24]
@@ -43,7 +38,7 @@ _020C11C0:
 	mov r6, r0
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020C1254
+	bl StrmCallback
 	mov r0, r6
 	bl OS_RestoreInterrupts
 	ldr r0, [r4, #0x38]
@@ -59,9 +54,8 @@ _020C11E8:
 	bl SND_StartTimer
 	ldmia sp!, {r4-r6,pc}
 
-	; _end
-	arm_func_start FUN_020C1208
-FUN_020C1208: ; 0x020C1208
+	local_arm_func_start BeginSleep
+BeginSleep: ; 0x020C1208
 	stmdb sp!, {r4,lr}
 	ldr r1, [r0, #0x24]
 	mov r1, r1, lsl #0x1e
@@ -82,9 +76,8 @@ FUN_020C1208: ; 0x020C1208
 	bl SND_WaitForCommandProc
 	ldmia sp!, {r4,pc}
 
-	; StrmCallback
-	arm_func_start FUN_020C1254
-FUN_020C1254: ; 0x020C1254
+	arm_func_start StrmCallback
+StrmCallback: ; 0x020C1254
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0xc
 	mov r5, r0
@@ -99,8 +92,8 @@ FUN_020C1254: ; 0x020C1254
 	cmp r1, #0x0
 	mov r12, #0x0
 	ble _020C12B8
-	ldr r2, _020C1300 ; =UNK_021D2724
-	ldr r0, _020C1304 ; =UNK_021D26E4
+	ldr r2, _020C1300 ; =sStrmChannel
+	ldr r0, _020C1304 ; =buffer$7877
 _020C1294:
 	add r1, r5, r12
 	ldrb r1, [r1, #0x4c]
@@ -113,7 +106,7 @@ _020C1294:
 	blt _020C1294
 _020C12B8:
 	ldr r0, [r5, #0x20]
-	ldr r2, _020C1304 ; =UNK_021D26E4
+	ldr r2, _020C1304 ; =buffer$7877
 	str r0, [sp, #0x0]
 	ldr r12, [r5, #0x34]
 	mov r0, r4
@@ -131,38 +124,35 @@ _020C12B8:
 	add sp, sp, #0xc
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
-_020C1300: .word UNK_021D2724
-_020C1304: .word UNK_021D26E4
+_020C1300: .word sStrmChannel
+_020C1304: .word buffer$7877
 
-	; AlarmCallback
-	arm_func_start FUN_020C1308
-FUN_020C1308: ; 0x020C1308
-	ldr ip, _020C1314 ; =FUN_020C1254
+	local_arm_func_start AlarmCallback
+AlarmCallback: ; 0x020C1308
+	ldr ip, _020C1314 ; =StrmCallback
 	mov r1, #0x1
 	bx r12
 	.balign 4
-_020C1314: .word FUN_020C1254
+_020C1314: .word StrmCallback
 
-	; ShutdownStrm
-	arm_func_start FUN_020C1318
-FUN_020C1318: ; 0x020C1318
+	arm_func_start ShutdownStrm
+ShutdownStrm: ; 0x020C1318
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, [r4, #0x40]
-	bl FUN_020C029C
-	ldr r0, _020C1344 ; =UNK_021D26D8
+	bl NNS_SndFreeAlarm
+	ldr r0, _020C1344 ; =sStrmList
 	mov r1, r4
-	bl FUN_020ADAB0
+	bl NNS_FndRemoveListObject
 	ldr r0, [r4, #0x24]
 	bic r0, r0, #0x1
 	str r0, [r4, #0x24]
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020C1344: .word UNK_021D26D8
+_020C1344: .word sStrmList
 
-	; _end
-	arm_func_start FUN_020C1348
-FUN_020C1348: ; 0x020C1348
+	local_arm_func_start ForceStopStrm
+ForceStopStrm: ; 0x020C1348
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r4, r0
@@ -192,13 +182,12 @@ FUN_020C1348: ; 0x020C1348
 	bl SND_WaitForCommandProc
 _020C13B4:
 	mov r0, r4
-	bl FUN_020C1318
+	bl ShutdownStrm
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 
-	; NNS_SndStrmSetVolume
-	arm_func_start FUN_020C13C4
-FUN_020C13C4: ; 0x020C13C4
+	arm_func_start NNS_SndStrmSetVolume
+NNS_SndStrmSetVolume: ; 0x020C13C4
 	stmdb sp!, {r4-r8,lr}
 	mov r7, r0
 	str r1, [r7, #0x3c]
@@ -206,7 +195,7 @@ FUN_020C13C4: ; 0x020C13C4
 	mov r5, #0x0
 	cmp r0, #0x0
 	ldmleia sp!, {r4-r8,pc}
-	ldr r4, _020C142C ; =UNK_021D2724
+	ldr r4, _020C142C ; =sStrmChannel
 	mov r8, #0x1
 _020C13E8:
 	add r0, r7, r5
@@ -227,11 +216,10 @@ _020C13E8:
 	blt _020C13E8
 	ldmia sp!, {r4-r8,pc}
 	.balign 4
-_020C142C: .word UNK_021D2724
+_020C142C: .word sStrmChannel
 
-	; _end
-	arm_func_start FUN_020C1430
-FUN_020C1430: ; 0x020C1430
+	arm_func_start NNS_SndStrmStop
+NNS_SndStrmStop: ; 0x020C1430
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r1, [r0, #0x24]
@@ -239,13 +227,12 @@ FUN_020C1430: ; 0x020C1430
 	movs r1, r1, asr #0x1f
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {pc}
-	bl FUN_020C1348
+	bl ForceStopStrm
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; _end
-	arm_func_start FUN_020C1458
-FUN_020C1458: ; 0x020C1458
+	arm_func_start NNS_SndStrmStart
+NNS_SndStrmStart: ; 0x020C1458
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, [r4, #0x40]
@@ -268,9 +255,8 @@ FUN_020C1458: ; 0x020C1458
 	str r0, [r4, #0x24]
 	ldmia sp!, {r4,pc}
 
-	; NNS_SndStrmSetup
-	arm_func_start FUN_020C14AC
-FUN_020C14AC: ; 0x020C14AC
+	arm_func_start NNS_SndStrmSetup
+NNS_SndStrmSetup: ; 0x020C14AC
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x24
 	mov r10, r0
@@ -283,7 +269,7 @@ FUN_020C14AC: ; 0x020C14AC
 	mov r4, r3
 	str r1, [sp, #0x4c]
 	beq _020C14E0
-	bl FUN_020C1430
+	bl NNS_SndStrmStop
 _020C14E0:
 	ldr r0, [sp, #0x4c]
 	ldr r2, [r10, #0x48]
@@ -303,7 +289,7 @@ _020C14E0:
 	ldr r1, [sp, #0x4c]
 	bl _u32_div_f
 	str r0, [sp, #0x1c]
-	bl FUN_020C02BC
+	bl NNS_SndAllocAlarm
 	str r0, [r10, #0x40]
 	ldr r0, [r10, #0x40]
 	cmp r0, #0x0
@@ -316,7 +302,7 @@ _020C14E0:
 	ble _020C15D4
 	ldr r0, [sp, #0x48]
 	mov r7, r0, lsl #0x5
-	ldr r6, _020C1668 ; =UNK_021D2724
+	ldr r6, _020C1668 ; =sStrmChannel
 	mov r5, r8
 	mov r4, #0x7f
 	mov r11, #0x40
@@ -351,12 +337,12 @@ _020C15D4:
 	str r10, [sp, #0x0]
 	ldr r1, [sp, #0x1c]
 	ldr r0, [r10, #0x40]
-	ldr r3, _020C166C ; =FUN_020C1308
+	ldr r3, _020C166C ; =AlarmCallback
 	mov r2, r1
 	bl SND_SetupAlarm
-	ldr r0, _020C1670 ; =UNK_021D26D8
+	ldr r0, _020C1670 ; =sStrmList
 	mov r1, r10
-	bl FUN_020ADBE8
+	bl NNS_FndAppendListObject
 	ldr r0, [sp, #0x4c]
 	str r9, [r10, #0x20]
 	str r0, [r10, #0x2c]
@@ -377,7 +363,7 @@ _020C15D4:
 	mov r0, r10
 	mov r1, #0x0
 	str r2, [r10, #0x2c]
-	bl FUN_020C1254
+	bl StrmCallback
 	ldr r1, [sp, #0x4c]
 	mov r0, r4
 	str r1, [r10, #0x2c]
@@ -386,27 +372,25 @@ _020C15D4:
 	add sp, sp, #0x24
 	ldmia sp!, {r4-r11,pc}
 	.balign 4
-_020C1668: .word UNK_021D2724
-_020C166C: .word FUN_020C1308
-_020C1670: .word UNK_021D26D8
+_020C1668: .word sStrmChannel
+_020C166C: .word AlarmCallback
+_020C1670: .word sStrmList
 
-	; _end
-	arm_func_start FUN_020C1674
-FUN_020C1674: ; 0x020C1674
+	arm_func_start NNS_SndStrmFreeChannel
+NNS_SndStrmFreeChannel: ; 0x020C1674
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, [r4, #0x44]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-	bl FUN_020C0340
+	bl NNS_SndUnlockChannel
 	mov r0, #0x0
 	str r0, [r4, #0x44]
 	str r0, [r4, #0x48]
 	ldmia sp!, {r4,pc}
 
-	; _end
-	arm_func_start FUN_020C169C
-FUN_020C169C: ; 0x020C169C
+	arm_func_start NNS_SndStrmAllocChannel
+NNS_SndStrmAllocChannel: ; 0x020C169C
 	stmdb sp!, {r4-r6,lr}
 	mov r5, r1
 	mov r4, #0x0
@@ -426,7 +410,7 @@ _020C16BC:
 	blt _020C16BC
 _020C16DC:
 	mov r0, r4
-	bl FUN_020C0370
+	bl NNS_SndLockChannel
 	cmp r0, #0x0
 	moveq r0, #0x0
 	strne r5, [r6, #0x48]
@@ -434,24 +418,23 @@ _020C16DC:
 	movne r0, #0x1
 	ldmia sp!, {r4-r6,pc}
 
-	; NNS_SndStrmInit
-	arm_func_start FUN_020C16FC
-FUN_020C16FC: ; 0x020C16FC
+	arm_func_start NNS_SndStrmInit
+NNS_SndStrmInit: ; 0x020C16FC
 	stmdb sp!, {r4,lr}
-	ldr r1, _020C176C ; =UNK_021D26D4
+	ldr r1, _020C176C ; =bInitialized$7761
 	mov r4, r0
 	ldr r0, [r1, #0x0]
 	cmp r0, #0x0
 	bne _020C172C
-	ldr r0, _020C1770 ; =UNK_021D26D8
+	ldr r0, _020C1770 ; =sStrmList
 	mov r1, #0x0
-	bl FUN_020ADC74
-	ldr r0, _020C176C ; =UNK_021D26D4
+	bl NNS_FndInitList
+	ldr r0, _020C176C ; =bInitialized$7761
 	mov r1, #0x1
 	str r1, [r0, #0x0]
 _020C172C:
-	ldr r1, _020C1774 ; =FUN_020C1208
-	ldr r0, _020C1778 ; =FUN_020C1198
+	ldr r1, _020C1774 ; =BeginSleep
+	ldr r0, _020C1778 ; =EndSleep
 	str r1, [r4, #0x8]
 	str r4, [r4, #0xc]
 	str r0, [r4, #0x14]
@@ -467,8 +450,7 @@ _020C172C:
 	str r0, [r4, #0x24]
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020C176C: .word UNK_021D26D4
-_020C1770: .word UNK_021D26D8
-_020C1774: .word FUN_020C1208
-_020C1778: .word FUN_020C1198
-
+_020C176C: .word bInitialized$7761
+_020C1770: .word sStrmList
+_020C1774: .word BeginSleep
+_020C1778: .word EndSleep

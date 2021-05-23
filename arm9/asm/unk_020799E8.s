@@ -264,7 +264,7 @@ FUN_02079B60: ; 0x02079B60
 _02079B9A:
 	add r0, r7, #0x0
 	add r1, sp, #0x10
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	cmp r4, #0x0
 	bne _02079BAE
 	ldr r0, [sp, #0x10]
@@ -286,7 +286,7 @@ _02079BAE:
 _02079BC6:
 	add r0, r7, #0x0
 	add r1, sp, #0xc
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	cmp r4, #0x0
 	bne _02079BDA
 	ldr r0, [sp, #0xc]
@@ -322,7 +322,7 @@ _02079BF8:
 _02079C10:
 	add r0, r7, #0x0
 	add r1, sp, #0x8
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r4, #0x0
 	bne _02079C24
 	ldr r0, [sp, #0x8]
@@ -363,6 +363,6 @@ FUN_02079C40: ; 0x02079C40
 	bl NARC_ReadWholeMember
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	add r0, r4, #0x0
 	pop {r3-r7, pc}

@@ -686,7 +686,7 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, _0222DB98 ; =0x00001B38
 	ldr r0, [r4, r0]
 	bl MOD69_0222F11C
@@ -694,11 +694,11 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	mov r0, #0x12
 	add r1, sp, #4
 	str r2, [sp, #4]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, _0222DB9C ; =0x00001B3C
 	ldr r0, [r4, r0]
 	bl MOD69_0222F63C
@@ -706,7 +706,7 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, _0222DBA0 ; =0x04000540
 	mov r1, #1
 	str r1, [r0]
@@ -921,7 +921,7 @@ MOD69_0222DD54: ; 0x0222DD54
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _0222DDE4 ; =0x04000060
 	ldr r2, _0222DDE8 ; =0xFFFFCFFD
@@ -957,11 +957,11 @@ MOD69_0222DD54: ; 0x0222DD54
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -1071,7 +1071,7 @@ MOD69_0222DE98: ; 0x0222DE98
 	push {r3, r4, lr}
 	sub sp, #0x1c
 	add r4, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -1193,19 +1193,19 @@ _0222DF72:
 	str r0, [sp, #0x34]
 _0222DF98:
 	add r0, sp, #0x5c
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, sp, #0x48
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	ldr r0, [sp, #0x44]
 	add r1, r7, #0
 	mov r2, #1
 	add r3, sp, #0x5c
-	bl FUN_020B1768
+	bl NNS_G2dLoadImage1DMapping
 	ldr r0, [sp, #0x40]
 	add r1, r6, #0
 	mov r2, #1
 	add r3, sp, #0x48
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 	ldr r0, [sp, #0x20]
 	add r0, r0, #1
 	str r0, [sp, #0x94]
@@ -1333,20 +1333,20 @@ _0222DF98:
 	b _0222DF98
 _0222E0D4:
 	add r0, sp, #0x5c
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, sp, #0x48
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r1, #0x96
 	ldr r0, [sp, #0x44]
 	lsl r1, r1, #8
 	mov r2, #1
 	add r3, sp, #0x5c
-	bl FUN_020B1768
+	bl NNS_G2dLoadImage1DMapping
 	ldr r0, [sp, #0x40]
 	mov r1, #0xc0
 	mov r2, #1
 	add r3, sp, #0x48
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0]
@@ -2169,7 +2169,7 @@ _0222E77E:
 	str r0, [r3]
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0x19
 	add r0, r4, #0
 	lsl r3, r3, #8
@@ -2179,7 +2179,7 @@ _0222E77E:
 	add r0, #0x48
 	mov r1, #1
 	add r2, r2, r3
-	bl FUN_020B1A1C
+	bl NNS_G2dSetImageLocation
 	ldr r0, _0222E7BC ; =MOD69_0222E7C0
 	add r1, r4, #0
 	mov r2, #0

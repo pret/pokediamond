@@ -1,29 +1,28 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-
 	.text
 
-	arm_func_start FUN_020ADA84
-FUN_020ADA84: ; 0x020ADA84
+	arm_func_start NNS_FndGetPrevListObject
+NNS_FndGetPrevListObject: ; 0x020ADA84
 	cmp r1, #0x0
 	ldreq r0, [r0, #0x4]
 	ldrneh r0, [r0, #0xa]
 	ldrne r0, [r1, r0]
 	bx lr
-	arm_func_end FUN_020ADA84
+	arm_func_end NNS_FndGetPrevListObject
 
-	arm_func_start FUN_020ADA98
-FUN_020ADA98: ; 0x020ADA98
+	arm_func_start NNS_FndGetNextListObject
+NNS_FndGetNextListObject: ; 0x020ADA98
 	cmp r1, #0x0
 	ldreq r0, [r0, #0x0]
 	ldrneh r0, [r0, #0xa]
 	addne r0, r1, r0
 	ldrne r0, [r0, #0x4]
 	bx lr
-	arm_func_end FUN_020ADA98
+	arm_func_end NNS_FndGetNextListObject
 
-	arm_func_start FUN_020ADAB0
-FUN_020ADAB0: ; 0x020ADAB0
+	arm_func_start NNS_FndRemoveListObject
+NNS_FndRemoveListObject: ; 0x020ADAB0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldrh r12, [r0, #0xa]
@@ -50,16 +49,16 @@ FUN_020ADAB0: ; 0x020ADAB0
 	strh r1, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020ADAB0
+	arm_func_end NNS_FndRemoveListObject
 
-	arm_func_start FUN_020ADB18
-FUN_020ADB18: ; 0x020ADB18
+	arm_func_start NNS_FndInsertListObject
+NNS_FndInsertListObject: ; 0x020ADB18
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	cmp r1, #0x0
 	bne _020ADB38
 	mov r1, r2
-	bl FUN_020ADBE8
+	bl NNS_FndAppendListObject
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 _020ADB38:
@@ -67,7 +66,7 @@ _020ADB38:
 	cmp r1, r3
 	bne _020ADB54
 	mov r1, r2
-	bl FUN_020ADB8C
+	bl NNS_FndPrependListObject
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 _020ADB54:
@@ -85,16 +84,16 @@ _020ADB54:
 	strh r1, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020ADB18
+	arm_func_end NNS_FndInsertListObject
 
-	arm_func_start FUN_020ADB8C
-FUN_020ADB8C: ; 0x020ADB8C
+	arm_func_start NNS_FndPrependListObject
+NNS_FndPrependListObject: ; 0x020ADB8C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r2, [r0, #0x0]
 	cmp r2, #0x0
 	bne _020ADBAC
-	bl FUN_020ADC48
+	bl SetFirstObject
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 _020ADBAC:
@@ -113,16 +112,16 @@ _020ADBAC:
 	strh r1, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020ADB8C
+	arm_func_end NNS_FndPrependListObject
 
-	arm_func_start FUN_020ADBE8
-FUN_020ADBE8: ; 0x020ADBE8
+	arm_func_start NNS_FndAppendListObject
+NNS_FndAppendListObject: ; 0x020ADBE8
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r2, [r0, #0x0]
 	cmp r2, #0x0
 	bne _020ADC08
-	bl FUN_020ADC48
+	bl SetFirstObject
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 _020ADC08:
@@ -142,10 +141,10 @@ _020ADC08:
 	strh r1, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020ADBE8
+	arm_func_end NNS_FndAppendListObject
 
-	arm_func_start FUN_020ADC48
-FUN_020ADC48: ; 0x020ADC48
+	arm_func_start SetFirstObject
+SetFirstObject: ; 0x020ADC48
 	ldrh r3, [r0, #0xa]
 	mov r2, #0x0
 	add r12, r1, r3
@@ -157,14 +156,14 @@ FUN_020ADC48: ; 0x020ADC48
 	add r1, r1, #0x1
 	strh r1, [r0, #0x8]
 	bx lr
-	arm_func_end FUN_020ADC48
+	arm_func_end SetFirstObject
 
-	arm_func_start FUN_020ADC74
-FUN_020ADC74: ; 0x020ADC74
+	arm_func_start NNS_FndInitList
+NNS_FndInitList: ; 0x020ADC74
 	mov r2, #0x0
 	str r2, [r0, #0x0]
 	str r2, [r0, #0x4]
 	strh r2, [r0, #0x8]
 	strh r1, [r0, #0xa]
 	bx lr
-	arm_func_end FUN_020ADC74
+	arm_func_end NNS_FndInitList

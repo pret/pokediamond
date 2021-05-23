@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021CED64
+	.extern NNS_G3dGlb
 
 	.section .rodata
 
@@ -205,7 +205,7 @@ FUN_02012DE4: ; 0x02012DE4
 	beq _02012E02
 	add r0, r5, #0x0
 	add r0, #0x58
-	bl FUN_020AE8CC
+	bl NNS_GfdSetFrmTexVramState
 	b _02012E22
 _02012E02:
 	mov r0, #0x2
@@ -218,7 +218,7 @@ _02012E0E:
 	ldr r0, [r4, #0x58]
 	cmp r0, #0x0
 	beq _02012E1A
-	bl FUN_020AF894
+	bl NNS_GfdFreeLnkTexVram
 	str r7, [r4, #0x58]
 _02012E1A:
 	add r6, r6, #0x1
@@ -234,7 +234,7 @@ _02012E22:
 	beq _02012E38
 	add r0, r5, #0x0
 	add r0, #0x98
-	bl FUN_020AEC7C
+	bl NNS_GfdSetFrmPlttVramState
 	b _02012E60
 _02012E38:
 	mov r0, #0x8
@@ -249,7 +249,7 @@ _02012E44:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _02012E58
-	bl FUN_020AFA80
+	bl NNS_GfdFreeLnkPlttVram
 	add r0, r4, #0x0
 	add r0, #0x98
 	str r7, [r0, #0x0]
@@ -766,7 +766,7 @@ _020131B2:
 	beq _020131C8
 	add r0, r5, #0x0
 	add r0, #0x58
-	bl FUN_020AE918
+	bl NNS_GfdGetFrmTexVramState
 	b _020131DE
 _020131C8:
 	mov r0, #0x2
@@ -787,7 +787,7 @@ _020131DE:
 	beq _020131EE
 	add r0, r5, #0x0
 	add r0, #0x98
-	bl FUN_020AEC98
+	bl NNS_GfdGetFrmPlttVramState
 	b _02013208
 _020131EE:
 	mov r0, #0x8
@@ -952,19 +952,19 @@ FUN_02013300: ; 0x02013300
 	bl FUN_0201EB8C
 	bl FUN_0201EBA4
 _0201331C:
-	bl FUN_020B849C
+	bl NNS_G3dGlbFlushP
 	ldr r0, [r4, #0x0]
-	ldr r1, _02013338 ; =UNK_021CED64
+	ldr r1, _02013338 ; =NNS_G3dGlb + 0x4C
 	bl FUN_0208AD80
 	ldr r0, [r4, #0x20]
 	cmp r0, #0x0
 	beq _02013332
 	bl FUN_0201EB98
 _02013332:
-	bl FUN_020B849C
+	bl NNS_G3dGlbFlushP
 	pop {r4, pc}
 	.balign 4
-_02013338: .word UNK_021CED64
+_02013338: .word NNS_G3dGlb + 0x4C
 
 	thumb_func_start FUN_0201333C
 FUN_0201333C: ; 0x0201333C

@@ -8063,7 +8063,7 @@ MOD08_02215A44: ; 0x02215A44
 	cmp r0, #0
 	ble _02215A62
 	bl FUN_020222AC
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 _02215A62:
 	bl FUN_02013388
 _02215A66:
@@ -8072,7 +8072,7 @@ _02215A66:
 	thumb_func_start MOD08_02215A68
 MOD08_02215A68: ; 0x02215A68
 	push {r4, lr}
-	ldr r3, _02215A80 ; =UNK_021064B8
+	ldr r3, _02215A80 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0
 	ldr r3, [r3]
 	blx r3
@@ -8082,12 +8082,12 @@ MOD08_02215A68: ; 0x02215A68
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02215A80: .word UNK_021064B8
+_02215A80: .word NNS_GfdDefaultFuncAllocTexVram
 
 	thumb_func_start MOD08_02215A84
 MOD08_02215A84: ; 0x02215A84
 	push {r4, lr}
-	ldr r3, _02215A9C ; =UNK_021064C0
+	ldr r3, _02215A9C ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #0
 	ldr r3, [r3]
 	blx r3
@@ -8097,7 +8097,7 @@ MOD08_02215A84: ; 0x02215A84
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02215A9C: .word UNK_021064C0
+_02215A9C: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start MOD08_02215AA0
 MOD08_02215AA0: ; 0x02215AA0

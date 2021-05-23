@@ -715,7 +715,7 @@ _0222DA48:
 	mov r1, #2
 	lsl r1, r1, #0x10
 	mov r2, #0
-	bl tempName_NNS_FndCreateExpHeapEx
+	bl NNS_FndCreateExpHeapEx
 	str r0, [r4, #0x28]
 	mov r0, #1
 	str r0, [r5]
@@ -984,7 +984,7 @@ MOD82_0222DD54: ; 0x0222DD54
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r6, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -1256,7 +1256,7 @@ MOD82_0222DF74: ; 0x0222DF74
 	add r1, r5, #0
 	ldr r0, [r0, #4]
 	add r2, r4, #0
-	bl tempName_NNS_FndAllocFromExpHeapEx
+	bl NNS_FndAllocFromExpHeapEx
 	add r4, r0, #0
 	add r0, r6, #0
 	bl OS_RestoreInterrupts
@@ -1276,7 +1276,7 @@ MOD82_0222DF9C: ; 0x0222DF9C
 	ldr r0, _0222DFBC ; =0x0222FC0C
 	add r1, r5, #0
 	ldr r0, [r0, #4]
-	bl FUN_020ADDF0
+	bl NNS_FndFreeToExpHeap
 	add r0, r4, #0
 	bl OS_RestoreInterrupts
 _0222DFB8:

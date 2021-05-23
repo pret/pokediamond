@@ -573,7 +573,7 @@ _021E4EC0:
 	add r0, r4, #0
 	bl FUN_0201F8E0
 	mov r1, #1
-	bl FUN_020BB9F4
+	bl NNS_G3dMdlSetMdlFogEnableFlagAll
 	add r0, r4, #0
 	bl FUN_0201F8E0
 	bl MOD05_021DB5EC
@@ -969,7 +969,7 @@ MOD05_021E5198: ; 0x021E5198
 	ldr r0, [r4]
 	add r6, r1, #0
 	add r5, r2, #0
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	cmp r0, #0
 	beq _021E51C8
 	bl FUN_0201B254
@@ -979,13 +979,13 @@ MOD05_021E5198: ; 0x021E5198
 	ldr r1, [r0, #8]
 	bl DC_FlushRange
 	ldr r0, [r4]
-	bl FUN_020BB59C
+	bl NNS_G3dResDefaultSetup
 	cmp r0, #0
 	bne _021E51C8
 	bl ErrorHandling
 _021E51C8:
 	ldr r0, [r4]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -997,7 +997,7 @@ _021E51C8:
 _021E51E0:
 	ldr r1, [r5]
 	add r0, r6, #0
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 
@@ -1038,7 +1038,7 @@ MOD05_021E5224: ; 0x021E5224
 	add r2, r3, #0
 	bl MOD05_021E4C6C
 	str r0, [r4]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	str r0, [r4, #4]
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
@@ -1046,7 +1046,7 @@ MOD05_021E5224: ; 0x021E5224
 	add r0, r0, r1
 	str r0, [r4, #8]
 	ldr r0, [r4]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	beq _021E525A
@@ -1071,17 +1071,17 @@ MOD05_021E5260: ; 0x021E5260
 	bl MOD05_021E4C6C
 	str r0, [r5]
 	mov r1, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	str r0, [r5, #4]
 	ldr r1, [r5, #4]
 	ldr r2, [r4, #8]
 	add r0, r6, #0
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r5, #8]
 	ldr r1, [r5, #4]
 	ldr r2, [r4, #8]
 	ldr r3, [r4, #0xc]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 

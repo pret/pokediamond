@@ -90,7 +90,7 @@ _0200BB8A:
 	ldr r1, [r5, #0x0]
 	add r0, r7, #0x0
 	bl FUN_0201E00C
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	ldr r0, [r5, #0x8]
 	cmp r0, #0x1
 	bne _0200BBD6

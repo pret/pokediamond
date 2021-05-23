@@ -3,15 +3,14 @@
 
 	.section .text
 
-	; NNS_G3dWorldPosToScrPos
-	arm_func_start FUN_020BB408
-FUN_020BB408: ; 0x020BB408
+	arm_func_start NNS_G3dWorldPosToScrPos
+NNS_G3dWorldPosToScrPos: ; 0x020BB408
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x1c
 	mov r5, r1
 	mov r4, r2
-	ldr r6, _020BB594 ; =UNK_021CED20
-	ldr r1, _020BB598 ; =UNK_021CED64
+	ldr r6, _020BB594 ; =NNS_G3dGlb + 0x8
+	ldr r1, _020BB598 ; =NNS_G3dGlb + 0x4C
 	add r2, sp, #0x10
 	bl MTX_MultVec43
 	ldr r1, [sp, #0x14]
@@ -87,7 +86,7 @@ _020BB534:
 	add r1, sp, #0x4
 	add r2, sp, #0x8
 	add r3, sp, #0xc
-	bl FUN_020B8200
+	bl NNS_G3dGlbGetViewPort
 	ldr r2, [sp, #0x0]
 	ldr r0, [sp, #0x8]
 	ldr r12, [sp, #0xc]
@@ -108,13 +107,12 @@ _020BB534:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4-r9,pc}
 	.balign 4
-_020BB594: .word UNK_021CED20
-_020BB598: .word UNK_021CED64
-	arm_func_end FUN_020BB408
+_020BB594: .word NNS_G3dGlb + 0x8
+_020BB598: .word NNS_G3dGlb + 0x4C
+	arm_func_end NNS_G3dWorldPosToScrPos
 
-	; NNS_G3dResDefaultSetup
-	arm_func_start FUN_020BB59C
-FUN_020BB59C: ; 0x020BB59C
+	arm_func_start NNS_G3dResDefaultSetup
+NNS_G3dResDefaultSetup: ; 0x020BB59C
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
@@ -157,20 +155,20 @@ _020BB624:
 	mov r0, r5
 	mov r9, r11
 	mov r8, r11
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	movs r4, r0
 	beq _020BB77C
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	mov r7, r0
 	mov r0, r4
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	mov r6, r0
 	mov r0, r4
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	mov r10, r0
 	cmp r7, #0x0
 	beq _020BB68C
-	ldr r0, _020BB7E4 ; =UNK_021064B8
+	ldr r0, _020BB7E4 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x0
 	ldr r3, [r0, #0x0]
 	mov r0, r7
@@ -184,7 +182,7 @@ _020BB68C:
 _020BB690:
 	cmp r6, #0x0
 	beq _020BB6BC
-	ldr r1, _020BB7E4 ; =UNK_021064B8
+	ldr r1, _020BB7E4 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, r6
 	ldr r3, [r1, #0x0]
 	mov r1, #0x1
@@ -198,7 +196,7 @@ _020BB6BC:
 _020BB6C0:
 	cmp r10, #0x0
 	beq _020BB6F0
-	ldr r1, _020BB7E8 ; =UNK_021064C0
+	ldr r1, _020BB7E8 ; =NNS_GfdDefaultFuncAllocPlttVram
 	ldrh r2, [r4, #0x20]
 	ldr r3, [r1, #0x0]
 	mov r0, r10
@@ -218,15 +216,15 @@ _020BB6F4:
 	cmp r8, #0x0
 	bne _020BB748
 _020BB70C:
-	ldr r1, _020BB7EC ; =UNK_021064C4
+	ldr r1, _020BB7EC ; =NNS_GfdDefaultFuncFreePlttVram
 	mov r0, r10
 	ldr r1, [r1, #0x0]
 	blx r1
-	ldr r1, _020BB7F0 ; =UNK_021064BC
+	ldr r1, _020BB7F0 ; =NNS_GfdDefaultFuncFreeTexVram
 	mov r0, r6
 	ldr r1, [r1, #0x0]
 	blx r1
-	ldr r1, _020BB7F0 ; =UNK_021064BC
+	ldr r1, _020BB7F0 ; =NNS_GfdDefaultFuncFreeTexVram
 	mov r0, r7
 	ldr r1, [r1, #0x0]
 	blx r1
@@ -237,27 +235,27 @@ _020BB748:
 	mov r0, r4
 	mov r1, r7
 	mov r2, r6
-	bl FUN_020B7DFC
+	bl NNS_G3dTexSetTexKey
 	mov r0, r4
 	mov r1, r10
-	bl FUN_020B7CDC
+	bl NNS_G3dPlttSetPlttKey
 	mov r0, r4
 	mov r1, #0x1
-	bl FUN_020B7D28
+	bl NNS_G3dTexLoad
 	mov r0, r4
 	mov r1, #0x1
-	bl FUN_020B7C78
+	bl NNS_G3dPlttLoad
 _020BB77C:
 	ldr r1, [r5, #0x0]
 	ldr r0, _020BB7DC ; =0x30444D42
 	cmp r1, r0
 	bne _020BB7A4
 	mov r0, r5
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	cmp r4, #0x0
 	beq _020BB7A4
 	mov r1, r4
-	bl FUN_020B7790
+	bl NNS_G3dBindMdlSet
 _020BB7A4:
 	add sp, sp, #0x4
 	mov r0, #0x1
@@ -278,19 +276,18 @@ _020BB7D4: .word 0x30415442
 _020BB7D8: .word 0x30505442
 _020BB7DC: .word 0x30444D42
 _020BB7E0: .word 0x30585442
-_020BB7E4: .word UNK_021064B8
-_020BB7E8: .word UNK_021064C0
-_020BB7EC: .word UNK_021064C4
-_020BB7F0: .word UNK_021064BC
-	arm_func_end FUN_020BB59C
+_020BB7E4: .word NNS_GfdDefaultFuncAllocTexVram
+_020BB7E8: .word NNS_GfdDefaultFuncAllocPlttVram
+_020BB7EC: .word NNS_GfdDefaultFuncFreePlttVram
+_020BB7F0: .word NNS_GfdDefaultFuncFreeTexVram
+	arm_func_end NNS_G3dResDefaultSetup
 
-	; NNS_G3dInit
-	arm_func_start FUN_020BB7F4
-FUN_020BB7F4: ; 0x020BB7F4
+	arm_func_start NNS_G3dInit
+NNS_G3dInit: ; 0x020BB7F4
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl G3X_Init
-	bl FUN_020B84D8
+	bl NNS_G3dGlbInit
 	ldr r1, _020BB820 ; =0x04000600
 	ldr r0, [r1, #0x0]
 	bic r0, r0, #0xc0000000
@@ -300,16 +297,15 @@ FUN_020BB7F4: ; 0x020BB7F4
 	ldmia sp!, {pc}
 	.balign 4
 _020BB820: .word 0x04000600
-	arm_func_end FUN_020BB7F4
+	arm_func_end NNS_G3dInit
 
-	; NNS_G3dGetCurrentMtx
-	arm_func_start FUN_020BB824
-FUN_020BB824: ; 0x020BB824
+	arm_func_start NNS_G3dGetCurrentMtx
+NNS_G3dGetCurrentMtx: ; 0x020BB824
 	stmdb sp!, {r4-r6,lr}
 	sub sp, sp, #0x40
 	mov r6, r0
 	mov r5, r1
-	bl FUN_020BB394
+	bl NNS_G3dGeFlushBuffer
 	ldr r0, _020BB8B4 ; =0x04000440
 	mov r2, #0x0
 	ldr r1, _020BB8B8 ; =0x04000444
@@ -350,5 +346,4 @@ _020BB8B4: .word 0x04000440
 _020BB8B8: .word 0x04000444
 _020BB8BC: .word 0x04000454
 _020BB8C0: .word 0x04000448
-	arm_func_end FUN_020BB824
-
+	arm_func_end NNS_G3dGetCurrentMtx

@@ -333,7 +333,7 @@ FUN_02033D3C: ; 0x02033D3C
 	bl DC_FlushRange
 	ldr r0, [sp, #0x4]
 	add r1, sp, #0x0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r5, #0x1
 	bne _02033D80
 	ldr r0, [sp, #0x0]
@@ -386,7 +386,7 @@ _02033DC8:
 	bl DC_FlushRange
 	ldr r0, [sp, #0x4]
 	add r1, sp, #0x0
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	cmp r5, #0x1
 	bne _02033DF0
 	mov r0, #0x1

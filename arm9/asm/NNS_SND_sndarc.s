@@ -3,50 +3,44 @@
 
 	.section .bss
 
-	; sCurrent
-	.global UNK_021D28C0
-UNK_021D28C0: ; 0x021D28C0
+	.global sCurrent
+sCurrent: ; 0x021D28C0
 	.space 0x4
 
 	.section .text
 
-	; _end
-	arm_func_start SDATi_SymbDtor
-SDATi_SymbDtor: ; 0x020C209C
+	arm_func_start SymbolDisposeCallback
+SymbolDisposeCallback: ; 0x020C209C
 	mov r0, #0x0
 	str r0, [r2, #0x88]
 	bx lr
 
-	; _end
-	arm_func_start SDATi_FatDtor
-SDATi_FatDtor: ; 0x020C20A8
+	arm_func_start FatDisposeCallback
+FatDisposeCallback: ; 0x020C20A8
 	mov r0, #0x0
 	str r0, [r2, #0x84]
 	bx lr
 
-	; _end
-	arm_func_start SDATi_InfoDtor
-SDATi_InfoDtor: ; 0x020C20B4
+	arm_func_start InfoDisposeCallback
+InfoDisposeCallback: ; 0x020C20B4
 	mov r0, #0x0
 	str r0, [r2, #0x8c]
 	bx lr
 
-	; NNS_SndArcSetFileAddress
-	arm_func_start FUN_020C20C0
-FUN_020C20C0: ; 0x020C20C0
-	ldr r2, _020C20D8 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcSetFileAddress
+NNS_SndArcSetFileAddress: ; 0x020C20C0
+	ldr r2, _020C20D8 ; =sCurrent
 	ldr r2, [r2, #0x0]
 	ldr r2, [r2, #0x84]
 	add r0, r2, r0, lsl #0x4
 	str r1, [r0, #0x14]
 	bx lr
 	.balign 4
-_020C20D8: .word UNK_021D28C0
+_020C20D8: .word sCurrent
 
-	; NNS_SndArcGetFileAddress
-	arm_func_start FUN_020C20DC
-FUN_020C20DC: ; 0x020C20DC
-	ldr r1, _020C2100 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetFileAddress
+NNS_SndArcGetFileAddress: ; 0x020C20DC
+	ldr r1, _020C2100 ; =sCurrent
 	ldr r1, [r1, #0x0]
 	ldr r2, [r1, #0x84]
 	ldr r1, [r2, #0x8]
@@ -56,13 +50,12 @@ FUN_020C20DC: ; 0x020C20DC
 	ldrcc r0, [r0, #0x14]
 	bx lr
 	.balign 4
-_020C2100: .word UNK_021D28C0
+_020C2100: .word sCurrent
 
-	; NNS_SndArcReadFile
-	arm_func_start FUN_020C2104
-FUN_020C2104: ; 0x020C2104
+	arm_func_start NNS_SndArcReadFile
+NNS_SndArcReadFile: ; 0x020C2104
 	stmdb sp!, {r4-r6,lr}
-	ldr r4, _020C2178 ; =UNK_021D28C0
+	ldr r4, _020C2178 ; =sCurrent
 	mov r5, r2
 	ldr r4, [r4, #0x0]
 	mov r6, r1
@@ -91,12 +84,11 @@ FUN_020C2104: ; 0x020C2104
 	bl FS_ReadFile
 	ldmia sp!, {r4-r6,pc}
 	.balign 4
-_020C2178: .word UNK_021D28C0
+_020C2178: .word sCurrent
 
-	; NNS_SndArcGetFileSize
-	arm_func_start FUN_020C217C
-FUN_020C217C: ; 0x020C217C
-	ldr r1, _020C21A0 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetFileSize
+NNS_SndArcGetFileSize: ; 0x020C217C
+	ldr r1, _020C21A0 ; =sCurrent
 	ldr r1, [r1, #0x0]
 	ldr r2, [r1, #0x84]
 	ldr r1, [r2, #0x8]
@@ -106,12 +98,11 @@ FUN_020C217C: ; 0x020C217C
 	ldrcc r0, [r0, #0x10]
 	bx lr
 	.balign 4
-_020C21A0: .word UNK_021D28C0
+_020C21A0: .word sCurrent
 
-	; NNS_SndArcGetGroupInfo
-	arm_func_start FUN_020C21A4
-FUN_020C21A4: ; 0x020C21A4
-	ldr r1, _020C2204 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetGroupInfo
+NNS_SndArcGetGroupInfo: ; 0x020C21A4
+	ldr r1, _020C2204 ; =sCurrent
 	ldr r3, [r1, #0x0]
 	ldr r2, [r3, #0x8c]
 	ldr r1, [r2, #0x1c]
@@ -136,12 +127,11 @@ FUN_020C21A4: ; 0x020C21A4
 	addne r0, r0, r1
 	bx lr
 	.balign 4
-_020C2204: .word UNK_021D28C0
+_020C2204: .word sCurrent
 
-	; NNS_SndArcGetPlayerInfo
-	arm_func_start FUN_020C2208
-FUN_020C2208: ; 0x020C2208
-	ldr r1, _020C2268 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetPlayerInfo
+NNS_SndArcGetPlayerInfo: ; 0x020C2208
+	ldr r1, _020C2268 ; =sCurrent
 	ldr r3, [r1, #0x0]
 	ldr r2, [r3, #0x8c]
 	ldr r1, [r2, #0x18]
@@ -166,12 +156,11 @@ FUN_020C2208: ; 0x020C2208
 	addne r0, r0, r1
 	bx lr
 	.balign 4
-_020C2268: .word UNK_021D28C0
+_020C2268: .word sCurrent
 
-	; NNS_SndArcGetWaveArcInfo
-	arm_func_start FUN_020C226C
-FUN_020C226C: ; 0x020C226C
-	ldr r1, _020C22CC ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetWaveArcInfo
+NNS_SndArcGetWaveArcInfo: ; 0x020C226C
+	ldr r1, _020C22CC ; =sCurrent
 	ldr r3, [r1, #0x0]
 	ldr r2, [r3, #0x8c]
 	ldr r1, [r2, #0x14]
@@ -196,12 +185,11 @@ FUN_020C226C: ; 0x020C226C
 	addne r0, r0, r1
 	bx lr
 	.balign 4
-_020C22CC: .word UNK_021D28C0
+_020C22CC: .word sCurrent
 
-	; NNS_SndArcGetBankInfo
-	arm_func_start FUN_020C22D0
-FUN_020C22D0: ; 0x020C22D0
-	ldr r1, _020C2330 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetBankInfo
+NNS_SndArcGetBankInfo: ; 0x020C22D0
+	ldr r1, _020C2330 ; =sCurrent
 	ldr r3, [r1, #0x0]
 	ldr r2, [r3, #0x8c]
 	ldr r1, [r2, #0x10]
@@ -226,12 +214,11 @@ FUN_020C22D0: ; 0x020C22D0
 	addne r0, r0, r1
 	bx lr
 	.balign 4
-_020C2330: .word UNK_021D28C0
+_020C2330: .word sCurrent
 
-	; NNS_SndArcGetSeqArcInfo
-	arm_func_start FUN_020C2334
-FUN_020C2334: ; 0x020C2334
-	ldr r1, _020C2394 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetSeqArcInfo
+NNS_SndArcGetSeqArcInfo: ; 0x020C2334
+	ldr r1, _020C2394 ; =sCurrent
 	ldr r3, [r1, #0x0]
 	ldr r2, [r3, #0x8c]
 	ldr r1, [r2, #0xc]
@@ -256,12 +243,11 @@ FUN_020C2334: ; 0x020C2334
 	addne r0, r0, r1
 	bx lr
 	.balign 4
-_020C2394: .word UNK_021D28C0
+_020C2394: .word sCurrent
 
-	; NNS_SndArcGetSeqInfo
-	arm_func_start FUN_020C2398
-FUN_020C2398: ; 0x020C2398
-	ldr r1, _020C23F8 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetSeqInfo
+NNS_SndArcGetSeqInfo: ; 0x020C2398
+	ldr r1, _020C23F8 ; =sCurrent
 	ldr r3, [r1, #0x0]
 	ldr r2, [r3, #0x8c]
 	ldr r1, [r2, #0x8]
@@ -286,43 +272,39 @@ FUN_020C2398: ; 0x020C2398
 	addne r0, r0, r1
 	bx lr
 	.balign 4
-_020C23F8: .word UNK_021D28C0
+_020C23F8: .word sCurrent
 
-	; _end
-	arm_func_start FUN_020C23FC
-FUN_020C23FC: ; 0x020C23FC
+	arm_func_start NNS_SndArcGetSeqParam
+NNS_SndArcGetSeqParam: ; 0x020C23FC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	bl FUN_020C2398
+	bl NNS_SndArcGetSeqInfo
 	cmp r0, #0x0
 	moveq r0, #0x0
 	addne r0, r0, #0x4
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; NNS_SndArcGetCurrent
-	arm_func_start FUN_020C241C
-FUN_020C241C: ; 0x020C241C
-	ldr r0, _020C2428 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcGetCurrent
+NNS_SndArcGetCurrent: ; 0x020C241C
+	ldr r0, _020C2428 ; =sCurrent
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020C2428: .word UNK_021D28C0
+_020C2428: .word sCurrent
 
-	; NNS_SndArcSetCurrent
-	arm_func_start FUN_020C242C
-FUN_020C242C: ; 0x020C242C
-	ldr r1, _020C2440 ; =UNK_021D28C0
+	arm_func_start NNS_SndArcSetCurrent
+NNS_SndArcSetCurrent: ; 0x020C242C
+	ldr r1, _020C2440 ; =sCurrent
 	ldr r2, [r1, #0x0]
 	str r0, [r1, #0x0]
 	mov r0, r2
 	bx lr
 	.balign 4
-_020C2440: .word UNK_021D28C0
+_020C2440: .word sCurrent
 
-	; NNS_SndArcInitOnMemory
-	arm_func_start FUN_020C2444
-FUN_020C2444: ; 0x020C2444
+	arm_func_start NNS_SndArcInitOnMemory
+NNS_SndArcInitOnMemory: ; 0x020C2444
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
@@ -369,14 +351,13 @@ _020C24BC:
 	blo _020C24BC
 _020C24F0:
 	mov r1, #0x0
-	ldr r0, _020C2508 ; =UNK_021D28C0
+	ldr r0, _020C2508 ; =sCurrent
 	str r1, [r5, #0x30]
 	str r5, [r0, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
-_020C2508: .word UNK_021D28C0
-
+_020C2508: .word sCurrent
 SDATi_ReadHeaders:
 	stmdb sp!, {r4-r6,lr}
 	sub sp, sp, #0x8
@@ -404,10 +385,10 @@ SDATi_ReadHeaders:
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r1, [r6, #0x1c]
-	ldr r2, _020C26EC ; =SDATi_InfoDtor
+	ldr r2, _020C26EC ; =InfoDisposeCallback
 	mov r0, r5
 	mov r3, r6
-	bl SDATi_AllocAndInitChunk
+	bl NNS_SndHeapAlloc
 	str r0, [r6, #0x8c]
 	ldr r0, [r6, #0x8c]
 	cmp r0, #0x0
@@ -434,10 +415,10 @@ SDATi_ReadHeaders:
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r1, [r6, #0x24]
-	ldr r2, _020C26F0 ; =SDATi_FatDtor
+	ldr r2, _020C26F0 ; =FatDisposeCallback
 	mov r0, r5
 	mov r3, r6
-	bl SDATi_AllocAndInitChunk
+	bl NNS_SndHeapAlloc
 	str r0, [r6, #0x84]
 	ldr r0, [r6, #0x84]
 	cmp r0, #0x0
@@ -467,11 +448,11 @@ SDATi_ReadHeaders:
 	cmp r1, #0x0
 	beq _020C26E0
 	mov r4, #0x0
-	ldr r2, _020C26F4 ; =SDATi_SymbDtor
+	ldr r2, _020C26F4 ; =SymbolDisposeCallback
 	mov r0, r5
 	mov r3, r6
 	str r4, [sp, #0x0]
-	bl SDATi_AllocAndInitChunk
+	bl NNS_SndHeapAlloc
 	str r0, [r6, #0x88]
 	ldr r0, [r6, #0x88]
 	cmp r0, #0x0
@@ -500,13 +481,12 @@ _020C26E0:
 	add sp, sp, #0x8
 	ldmia sp!, {r4-r6,pc}
 	.balign 4
-_020C26EC: .word SDATi_InfoDtor
-_020C26F0: .word SDATi_FatDtor
-_020C26F4: .word SDATi_SymbDtor
+_020C26EC: .word InfoDisposeCallback
+_020C26F0: .word FatDisposeCallback
+_020C26F4: .word SymbolDisposeCallback
 
-	; NNS_SndArcInit
-	arm_func_start SDAT_Open
-SDAT_Open: ; 0x020C26F8
+	arm_func_start NNS_SndArcInit
+NNS_SndArcInit: ; 0x020C26F8
 	; r0: &sSoundDataBuffer
 	; r1: char* filename
 	; r2: (&sSoundDataBuffer)->unk_0090
@@ -538,9 +518,8 @@ SDAT_Open: ; 0x020C26F8
 	str r3, [r6, #0x30]
 	bl SDATi_ReadHeaders
 	cmp r0, #0x0
-	ldrne r0, _020C2770 ; =UNK_021D28C0
+	ldrne r0, _020C2770 ; =sCurrent
 	strne r6, [r0, #0x0]
 	ldmia sp!, {r4-r6,pc}
 	.balign 4
-_020C2770: .word UNK_021D28C0
-
+_020C2770: .word sCurrent

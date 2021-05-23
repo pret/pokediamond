@@ -3,77 +3,62 @@
 
 	.section .data
 
-	; NNS_G3dAnmFmtNum
-	.global UNK_02106594
-UNK_02106594: ; 0x02106594
+	.global NNS_G3dAnmFmtNum
+NNS_G3dAnmFmtNum: ; 0x02106594
 	.byte 0x05, 0x00, 0x00, 0x00
 
-	; NNS_G3dFuncAnmVisNsBvaDefault
-	.global UNK_02106598
-UNK_02106598: ; 0x02106598
-	.word FUN_020BE5A0
+	.global NNS_G3dFuncAnmVisNsBvaDefault
+NNS_G3dFuncAnmVisNsBvaDefault: ; 0x02106598
+	.word NNSi_G3dAnmCalcNsBva
 
-	; NNS_G3dFuncAnmJntNsBcaDefault
-	.global UNK_0210659C
-UNK_0210659C: ; 0x0210659C
-	.word FUN_020BDA70
+	.global NNS_G3dFuncAnmJntNsBcaDefault
+NNS_G3dFuncAnmJntNsBcaDefault: ; 0x0210659C
+	.word NNSi_G3dAnmCalcNsBca
 
-	; NNS_G3dFuncAnmMatNsBtaDefault
-	.global UNK_021065A0
-UNK_021065A0: ; 0x021065A0
-	.word FUN_020BDF38
+	.global NNS_G3dFuncAnmMatNsBtaDefault
+NNS_G3dFuncAnmMatNsBtaDefault: ; 0x021065A0
+	.word NNSi_G3dAnmCalcNsBta
 
-	; NNS_G3dFuncAnmMatNsBtpDefault
-	.global UNK_021065A4
-UNK_021065A4: ; 0x021065A4
-	.word FUN_020BE334
+	.global NNS_G3dFuncAnmMatNsBtpDefault
+NNS_G3dFuncAnmMatNsBtpDefault: ; 0x021065A4
+	.word NNSi_G3dAnmCalcNsBtp
 
-	; NNS_G3dFuncAnmMatNsBmaDefault
-	.global UNK_021065A8
-UNK_021065A8: ; 0x021065A8
-	.word FUN_020BDB40
+	.global NNS_G3dFuncAnmMatNsBmaDefault
+NNS_G3dFuncAnmMatNsBmaDefault: ; 0x021065A8
+	.word NNSi_G3dAnmCalcNsBma
 
-	; NNS_G3dFuncBlendVisDefault
-	.global UNK_021065AC
-UNK_021065AC: ; 0x021065AC
-	.word FUN_020B8640
+	.global NNS_G3dFuncBlendVisDefault
+NNS_G3dFuncBlendVisDefault: ; 0x021065AC
+	.word NNSi_G3dAnmBlendVis
 
-	; NNS_G3dFuncBlendJntDefault
-	.global UNK_021065B0
-UNK_021065B0: ; 0x021065B0
-	.word FUN_020B86B0
+	.global NNS_G3dFuncBlendJntDefault
+NNS_G3dFuncBlendJntDefault: ; 0x021065B0
+	.word NNSi_G3dAnmBlendJnt
 
-	; NNS_G3dFuncBlendMatDefault
-	.global UNK_021065B4
-UNK_021065B4: ; 0x021065B4
-	.word FUN_020B8A08
+	.global NNS_G3dFuncBlendMatDefault
+NNS_G3dFuncBlendMatDefault: ; 0x021065B4
+	.word NNSi_G3dAnmBlendMat
 
-	; NNS_G3dAnmObjInitFuncArray
-	.global UNK_021065B8
-UNK_021065B8: ; 0x021065B8
+	.global NNS_G3dAnmObjInitFuncArray
+NNS_G3dAnmObjInitFuncArray: ; 0x021065B8
 	.byte 0x4D, 0x00, 0x41, 0x4D
-
-	; NNS_G3dAnmObjInitFuncArray + 0x4
-	.global UNK_021065BC
-UNK_021065BC: ; 0x021065BC
-	.word FUN_020BDC0C
+	.word NNSi_G3dAnmObjInitNsBma
 	.byte 0x4D, 0x00, 0x50, 0x54
-	.word FUN_020BE4F0
+	.word NNSi_G3dAnmObjInitNsBtp
 	.byte 0x4D, 0x00, 0x41, 0x54
-	.word FUN_020BDF84
+	.word NNSi_G3dAnmObjInitNsBta
 	.byte 0x56, 0x00, 0x41, 0x56
-	.word FUN_020BE5E0
+	.word NNSi_G3dAnmObjInitNsBva
 	.byte 0x4A, 0x00, 0x41, 0x43
-	.word FUN_020BDAB4
+	.word NNSi_G3dAnmObjInitNsBca
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020B8640
-FUN_020B8640: ; 0x020B8640
+	arm_func_start NNSi_G3dAnmBlendVis
+NNSi_G3dAnmBlendVis: ; 0x020B8640
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0x8
 	mov r7, r0
@@ -104,11 +89,10 @@ _020B869C:
 	bne _020B8664
 	add sp, sp, #0x8
 	ldmia sp!, {r4-r8,pc}
-	arm_func_end FUN_020B8640
+	arm_func_end NNSi_G3dAnmBlendVis
 
-	; _end
-	arm_func_start FUN_020B86B0
-FUN_020B86B0: ; 0x020B86B0
+	arm_func_start NNSi_G3dAnmBlendJnt
+NNSi_G3dAnmBlendJnt: ; 0x020B86B0
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x5c
 	mov r9, r1
@@ -199,19 +183,19 @@ _020B87F0:
 	mov r2, r6
 	add r0, r10, #0x4
 	and r3, r3, #0x1
-	bl FUN_020B8998
+	bl blendScaleVec_
 	ldr r1, [sp, #0x0]
 	add r0, r10, #0x10
 	and r3, r1, #0x8
 	mov r1, r11
 	mov r2, r6
-	bl FUN_020B8998
+	bl blendScaleVec_
 	ldr r3, [sp, #0x0]
 	add r0, r10, #0x1c
 	add r1, sp, #0x1c
 	mov r2, r6
 	and r3, r3, #0x10
-	bl FUN_020B8998
+	bl blendScaleVec_
 	ldr r0, [sp, #0x0]
 	ands r0, r0, #0x4
 	bne _020B8898
@@ -304,11 +288,10 @@ _020B8948:
 	mov r0, #0x1
 	add sp, sp, #0x5c
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020B86B0
+	arm_func_end NNSi_G3dAnmBlendJnt
 
-	; _end
-	arm_func_start FUN_020B8998
-FUN_020B8998: ; 0x020B8998
+	arm_func_start blendScaleVec_
+blendScaleVec_: ; 0x020B8998
 	cmp r3, #0x0
 	beq _020B89C8
 	ldr r1, [r0, #0x0]
@@ -338,11 +321,10 @@ _020B89C8:
 	add r1, r3, r1, asr #0xc
 	str r1, [r0, #0x8]
 	bx lr
-	arm_func_end FUN_020B8998
+	arm_func_end blendScaleVec_
 
-	; _end
-	arm_func_start FUN_020B8A08
-FUN_020B8A08: ; 0x020B8A08
+	arm_func_start NNSi_G3dAnmBlendMat
+NNSi_G3dAnmBlendMat: ; 0x020B8A08
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r6, r0
@@ -367,5 +349,4 @@ _020B8A4C:
 	bne _020B8A24
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020B8A08
-
+	arm_func_end NNSi_G3dAnmBlendMat

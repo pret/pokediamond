@@ -3,9 +3,8 @@
 
 	.section .rodata
 
-	; pivotUtil_
-	.global UNK_020FFA14
-UNK_020FFA14: ; 0x020FFA14
+	.global pivotUtil_
+pivotUtil_: ; 0x020FFA14
 	.byte 0x04, 0x05, 0x07, 0x08
 	.byte 0x03, 0x05, 0x06, 0x08
 	.byte 0x03, 0x04, 0x06, 0x07
@@ -18,9 +17,8 @@ UNK_020FFA14: ; 0x020FFA14
 
 	.section .text
 
-	; getRotDataByIdx_
-	arm_func_start FUN_020BC500
-FUN_020BC500: ; 0x020BC500
+	arm_func_start getRotDataByIdx_
+getRotDataByIdx_: ; 0x020BC500
 	stmdb sp!, {r4,lr}
 	ands r4, r3, #0x8000
 	beq _020BC5E0
@@ -57,21 +55,21 @@ FUN_020BC500: ; 0x020BC500
 	rsbne lr, lr, #0x0
 	moveq lr, #0x1000
 	str lr, [r0, r1, lsl #0x2]
-	ldr r4, _020BC688 ; =UNK_020FFA14
-	ldr lr, _020BC68C ; =UNK_020FFA14 + 1
+	ldr r4, _020BC688 ; =pivotUtil_
+	ldr lr, _020BC68C ; =pivotUtil_ + 1
 	ldrb r4, [r4, r1, lsl #0x2]
 	str r12, [r0, r4, lsl #0x2]
 	ldrb lr, [lr, r1, lsl #0x2]
 	str r3, [r0, lr, lsl #0x2]
 	ldrsh lr, [r2, #0x0]
 	ands lr, lr, #0x20
-	ldr lr, _020BC690 ; =UNK_020FFA14 + 2
+	ldr lr, _020BC690 ; =pivotUtil_ + 2
 	rsbne r3, r3, #0x0
 	ldrb lr, [lr, r1, lsl #0x2]
 	str r3, [r0, lr, lsl #0x2]
 	ldrsh r2, [r2, #0x0]
 	ands r2, r2, #0x40
-	ldr r2, _020BC694 ; =UNK_020FFA14 + 3
+	ldr r2, _020BC694 ; =pivotUtil_ + 3
 	rsbne r12, r12, #0x0
 	ldrb r1, [r2, r1, lsl #0x2]
 	str r12, [r0, r1, lsl #0x2]
@@ -121,15 +119,14 @@ _020BC5E0:
 	ldmia sp!, {r4,pc}
 	.balign 4
 _020BC684: .word 0x00007FFF
-_020BC688: .word UNK_020FFA14
-_020BC68C: .word UNK_020FFA14 + 1
-_020BC690: .word UNK_020FFA14 + 2
-_020BC694: .word UNK_020FFA14 + 3
-	arm_func_end FUN_020BC500
+_020BC688: .word pivotUtil_
+_020BC68C: .word pivotUtil_ + 1
+_020BC690: .word pivotUtil_ + 2
+_020BC694: .word pivotUtil_ + 3
+	arm_func_end getRotDataByIdx_
 
-	; getRotDataEx_
-	arm_func_start FUN_020BC698
-FUN_020BC698: ; 0x020BC698
+	arm_func_start getRotDataEx_
+getRotDataEx_: ; 0x020BC698
 	stmdb sp!, {r4-r10,lr}
 	sub sp, sp, #0x48
 	ldrh r4, [r3, #0x4]
@@ -162,7 +159,7 @@ _020BC6F0:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	cmp r0, #0x0
 	addeq sp, sp, #0x48
 	ldmeqia sp!, {r4-r10,pc}
@@ -231,14 +228,14 @@ _020BC800:
 	add r0, sp, #0x0
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	mov r1, r7, lsl #0x1
 	ldrh r3, [r8, r1]
 	orr r7, r0, #0x0
 	add r0, sp, #0x24
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	ldr r3, [sp, #0x0]
 	ldr r1, [sp, #0x24]
 	mul r2, r3, r9
@@ -345,11 +342,10 @@ _020BC9C4: .word 0x1FFF0000
 _020BC9C8: .word 0x00001FFF
 _020BC9CC: .word 0x00003FFF
 _020BC9D0: .word 0x00000FFF
-	arm_func_end FUN_020BC698
+	arm_func_end getRotDataEx_
 
-	; getRotData_
-	arm_func_start FUN_020BC9D4
-FUN_020BC9D4: ; 0x020BC9D4
+	arm_func_start getRotData_
+getRotData_: ; 0x020BC9D4
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x4c
 	ldr r5, [r3, #0xc]
@@ -398,14 +394,14 @@ _020BCA44:
 	mov r1, r5
 	mov r2, r4
 	mov r7, #0x0
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	mov r1, r9, lsl #0x1
 	ldrh r3, [r8, r1]
 	orr r7, r7, r0
 	add r0, sp, #0x0
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	ldr r3, [sp, #0x0]
 	ldr r1, [r6, #0x0]
 	mov r2, #0x3
@@ -494,14 +490,14 @@ _020BCBE8:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	add r1, r8, r7, lsl #0x1
 	ldrh r3, [r1, #0x2]
 	orr r7, r0, #0x0
 	add r0, sp, #0x24
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	ldr r2, [r6, #0x0]
 	ldr r1, [sp, #0x24]
 	orr r7, r7, r0
@@ -582,7 +578,7 @@ _020BCD40:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	cmp r0, #0x0
 	addeq sp, sp, #0x4c
 	ldmeqia sp!, {r4-r9,pc}
@@ -611,11 +607,10 @@ _020BCD40:
 	ldmia sp!, {r4-r9,pc}
 	.balign 4
 _020BCDC0: .word 0x1FFF0000
-	arm_func_end FUN_020BC9D4
+	arm_func_end getRotData_
 
-	; getScaleDataEx_
-	arm_func_start FUN_020BCDC4
-FUN_020BCDC4: ; 0x020BCDC4
+	arm_func_start getScaleDataEx_
+getScaleDataEx_: ; 0x020BCDC4
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	ldrh r4, [r3, #0x4]
@@ -732,11 +727,10 @@ _020BCF60: .word 0x1FFF0000
 _020BCF64: .word 0x00001FFF
 _020BCF68: .word 0x00003FFF
 _020BCF6C: .word 0x00000FFF
-	arm_func_end FUN_020BCDC4
+	arm_func_end getScaleDataEx_
 
-	; getScaleData_
-	arm_func_start FUN_020BCF70
-FUN_020BCF70: ; 0x020BCF70
+	arm_func_start getScaleData_
+getScaleData_: ; 0x020BCF70
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	ldr r4, [r2, #0x4]
@@ -880,11 +874,10 @@ _020BD150:
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020BD184: .word 0x1FFF0000
-	arm_func_end FUN_020BCF70
+	arm_func_end getScaleData_
 
-	; getTransDataEx_
-	arm_func_start FUN_020BD188
-FUN_020BD188: ; 0x020BD188
+	arm_func_start getTransDataEx_
+getTransDataEx_: ; 0x020BD188
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	ldrh r4, [r3, #0x4]
@@ -984,11 +977,10 @@ _020BD2E8: .word 0x00000FFF
 _020BD2EC: .word 0x1FFF0000
 _020BD2F0: .word 0x00001FFF
 _020BD2F4: .word 0x00003FFF
-	arm_func_end FUN_020BD188
+	arm_func_end getTransDataEx_
 
-	; getTransData_
-	arm_func_start FUN_020BD2F8
-FUN_020BD2F8: ; 0x020BD2F8
+	arm_func_start getTransData_
+getTransData_: ; 0x020BD2F8
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r12, [r2, #0x4]
@@ -1092,11 +1084,10 @@ _020BD44C:
 	ldmia sp!, {pc}
 	.balign 4
 _020BD46C: .word 0x1FFF0000
-	arm_func_end FUN_020BD2F8
+	arm_func_end getTransData_
 
-	; getJntSRTAnmResult_
-	arm_func_start FUN_020BD470
-FUN_020BD470: ; 0x020BD470
+	arm_func_start getJntSRTAnmResult_
+getJntSRTAnmResult_: ; 0x020BD470
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x34
 	mov r9, r0
@@ -1133,14 +1124,14 @@ _020BD4C8:
 	mov r2, r4
 	mov r3, r9
 	add r0, r7, #0x4c
-	bl FUN_020BD188
+	bl getTransDataEx_
 	b _020BD514
 _020BD500:
 	mov r1, r8
 	mov r2, r4
 	mov r3, r9
 	add r0, r7, #0x4c
-	bl FUN_020BD2F8
+	bl getTransData_
 _020BD514:
 	add r4, r4, #0x8
 	b _020BD524
@@ -1156,14 +1147,14 @@ _020BD524:
 	mov r2, r4
 	mov r3, r9
 	add r0, r7, #0x50
-	bl FUN_020BD188
+	bl getTransDataEx_
 	b _020BD560
 _020BD54C:
 	mov r1, r8
 	mov r2, r4
 	mov r3, r9
 	add r0, r7, #0x50
-	bl FUN_020BD2F8
+	bl getTransData_
 _020BD560:
 	add r4, r4, #0x8
 	b _020BD570
@@ -1179,14 +1170,14 @@ _020BD570:
 	mov r2, r4
 	mov r3, r9
 	add r0, r7, #0x54
-	bl FUN_020BD188
+	bl getTransDataEx_
 	b _020BD5AC
 _020BD598:
 	mov r1, r8
 	mov r2, r4
 	mov r3, r9
 	add r0, r7, #0x54
-	bl FUN_020BD2F8
+	bl getTransData_
 _020BD5AC:
 	add r4, r4, #0x8
 	b _020BD5DC
@@ -1201,7 +1192,7 @@ _020BD5C0:
 	strne r0, [r7, #0x0]
 	bne _020BD5DC
 	mov r0, r7
-	bl FUN_020BDA08
+	bl getMdlTrans_
 _020BD5DC:
 	ands r0, r5, #0xc0
 	bne _020BD6A8
@@ -1213,14 +1204,14 @@ _020BD5DC:
 	mov r2, r4
 	mov r3, r9
 	add r0, r7, #0x28
-	bl FUN_020BC698
+	bl getRotDataEx_
 	b _020BD620
 _020BD60C:
 	mov r1, r8
 	mov r2, r4
 	mov r3, r9
 	add r0, r7, #0x28
-	bl FUN_020BC9D4
+	bl getRotData_
 _020BD620:
 	add r4, r4, #0x8
 	b _020BD6C4
@@ -1231,7 +1222,7 @@ _020BD628:
 	add r0, r7, #0x28
 	add r1, r9, r1
 	add r2, r9, r2
-	bl FUN_020BC500
+	bl getRotDataByIdx_
 	cmp r0, #0x0
 	beq _020BD6A0
 	ldr r12, [r7, #0x3c]
@@ -1265,7 +1256,7 @@ _020BD6A8:
 	strne r0, [r7, #0x0]
 	bne _020BD6C4
 	mov r0, r7
-	bl FUN_020BD850
+	bl getMdlRot_
 _020BD6C4:
 	ands r0, r5, #0x600
 	bne _020BD7F0
@@ -1277,14 +1268,14 @@ _020BD6C4:
 	mov r1, r8
 	mov r2, r4
 	mov r3, r9
-	bl FUN_020BCDC4
+	bl getScaleDataEx_
 	b _020BD708
 _020BD6F4:
 	add r0, sp, #0x0
 	mov r1, r8
 	mov r2, r4
 	mov r3, r9
-	bl FUN_020BCF70
+	bl getScaleData_
 _020BD708:
 	ldr r1, [sp, #0x0]
 	ldr r0, [sp, #0x4]
@@ -1305,14 +1296,14 @@ _020BD72C:
 	mov r1, r8
 	mov r3, r9
 	add r2, r4, #0x8
-	bl FUN_020BCDC4
+	bl getScaleDataEx_
 	b _020BD768
 _020BD754:
 	add r0, sp, #0x8
 	mov r1, r8
 	mov r3, r9
 	add r2, r4, #0x8
-	bl FUN_020BCF70
+	bl getScaleData_
 _020BD768:
 	ldr r1, [sp, #0x8]
 	ldr r0, [sp, #0xc]
@@ -1333,14 +1324,14 @@ _020BD78C:
 	mov r1, r8
 	mov r3, r9
 	add r2, r4, #0x10
-	bl FUN_020BCDC4
+	bl getScaleDataEx_
 	b _020BD7C8
 _020BD7B4:
 	add r0, sp, #0x10
 	mov r1, r8
 	mov r3, r9
 	add r2, r4, #0x10
-	bl FUN_020BCF70
+	bl getScaleData_
 _020BD7C8:
 	ldr r1, [sp, #0x10]
 	ldr r0, [sp, #0x14]
@@ -1360,14 +1351,14 @@ _020BD7F0:
 	strne r0, [r7, #0x0]
 	bne _020BD814
 	mov r0, r7
-	bl FUN_020BD9A4
+	bl getMdlScale_
 	add sp, sp, #0x34
 	ldmia sp!, {r4-r11,pc}
 _020BD814:
 	ldr r0, [r7, #0x0]
 	add r1, sp, #0x18
 	ands r0, r0, #0x1
-	ldr r0, _020BD84C ; =UNK_021CEF7C
+	ldr r0, _020BD84C ; =NNS_G3dRS
 	movne r3, #0x4
 	ldr r4, [r0, #0x0]
 	moveq r3, #0x0
@@ -1379,14 +1370,13 @@ _020BD814:
 	ldmia sp!, {r4-r11,pc}
 	.balign 4
 _020BD848: .word 0x00000FFF
-_020BD84C: .word UNK_021CEF7C
-	arm_func_end FUN_020BD470
+_020BD84C: .word NNS_G3dRS
+	arm_func_end getJntSRTAnmResult_
 
-	; getMdlRot_
-	arm_func_start FUN_020BD850
-FUN_020BD850: ; 0x020BD850
+	arm_func_start getMdlRot_
+getMdlRot_: ; 0x020BD850
 	stmdb sp!, {r4-r8,lr}
-	ldr r1, _020BD990 ; =UNK_021CEF7C
+	ldr r1, _020BD990 ; =NNS_G3dRS
 	mov r8, r0
 	ldr r0, [r1, #0x0]
 	ldr r3, [r0, #0xd4]
@@ -1418,10 +1408,10 @@ FUN_020BD850: ; 0x020BD850
 	movne r0, #0x1000
 	rsbne r2, r0, #0x0
 	moveq r2, #0x1000
-	ldr r0, _020BD994 ; =UNK_020FFA14
+	ldr r0, _020BD994 ; =pivotUtil_
 	str r2, [r1, #0x28]
 	ldrb r1, [r0, r5, lsl #0x2]
-	ldr r0, _020BD998 ; =UNK_020FFA14 + 1
+	ldr r0, _020BD998 ; =pivotUtil_ + 1
 	add r1, r8, r1, lsl #0x2
 	str r7, [r1, #0x28]
 	ldrb r0, [r0, r5, lsl #0x2]
@@ -1429,14 +1419,14 @@ FUN_020BD850: ; 0x020BD850
 	str r6, [r0, #0x28]
 	ldrh r0, [r4, #0x0]
 	ands r0, r0, #0x200
-	ldr r0, _020BD99C ; =UNK_020FFA14 + 2
+	ldr r0, _020BD99C ; =pivotUtil_ + 2
 	rsbne r6, r6, #0x0
 	ldrb r0, [r0, r5, lsl #0x2]
 	add r0, r8, r0, lsl #0x2
 	str r6, [r0, #0x28]
 	ldrh r0, [r4, #0x0]
 	ands r0, r0, #0x400
-	ldr r0, _020BD9A0 ; =UNK_020FFA14 + 3
+	ldr r0, _020BD9A0 ; =pivotUtil_ + 3
 	rsbne r7, r7, #0x0
 	ldrb r0, [r0, r5, lsl #0x2]
 	add r0, r8, r0, lsl #0x2
@@ -1468,18 +1458,17 @@ _020BD980:
 	str r0, [r8, #0x0]
 	ldmia sp!, {r4-r8,pc}
 	.balign 4
-_020BD990: .word UNK_021CEF7C
-_020BD994: .word UNK_020FFA14
-_020BD998: .word UNK_020FFA14 + 1
-_020BD99C: .word UNK_020FFA14 + 2
-_020BD9A0: .word UNK_020FFA14 + 3
-	arm_func_end FUN_020BD850
+_020BD990: .word NNS_G3dRS
+_020BD994: .word pivotUtil_
+_020BD998: .word pivotUtil_ + 1
+_020BD99C: .word pivotUtil_ + 2
+_020BD9A0: .word pivotUtil_ + 3
+	arm_func_end getMdlRot_
 
-	; getMdlScale_
-	arm_func_start FUN_020BD9A4
-FUN_020BD9A4: ; 0x020BD9A4
+	arm_func_start getMdlScale_
+getMdlScale_: ; 0x020BD9A4
 	stmdb sp!, {r4,lr}
-	ldr r1, _020BDA04 ; =UNK_021CEF7C
+	ldr r1, _020BDA04 ; =NNS_G3dRS
 	ldr r12, [r1, #0x0]
 	ldr r4, [r12, #0xd4]
 	ldr r2, [r12, #0x0]
@@ -1504,13 +1493,12 @@ _020BD9F8:
 	blx r12
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020BDA04: .word UNK_021CEF7C
-	arm_func_end FUN_020BD9A4
+_020BDA04: .word NNS_G3dRS
+	arm_func_end getMdlScale_
 
-	; getMdlTrans_
-	arm_func_start FUN_020BDA08
-FUN_020BDA08: ; 0x020BDA08
-	ldr r1, _020BDA6C ; =UNK_021CEF7C
+	arm_func_start getMdlTrans_
+getMdlTrans_: ; 0x020BDA08
+	ldr r1, _020BDA6C ; =NNS_G3dRS
 	ldr r1, [r1, #0x0]
 	ldr r12, [r1, #0xd4]
 	ldr r1, [r1, #0x0]
@@ -1536,12 +1524,11 @@ FUN_020BDA08: ; 0x020BDA08
 	str r1, [r0, #0x54]
 	bx lr
 	.balign 4
-_020BDA6C: .word UNK_021CEF7C
-	arm_func_end FUN_020BDA08
+_020BDA6C: .word NNS_G3dRS
+	arm_func_end getMdlTrans_
 
-	; _end
-	arm_func_start FUN_020BDA70
-FUN_020BDA70: ; 0x020BDA70
+	arm_func_start NNSi_G3dAnmCalcNsBca
+NNSi_G3dAnmCalcNsBca: ; 0x020BDA70
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r3, r0
@@ -1557,19 +1544,18 @@ FUN_020BDA70: ; 0x020BDA70
 _020BDAA0:
 	mov r1, r2
 	mov r2, r12
-	bl FUN_020BD470
+	bl getJntSRTAnmResult_
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020BDA70
+	arm_func_end NNSi_G3dAnmCalcNsBca
 
-	; NNSi_G3dAnmObjInitNsBca
-	arm_func_start FUN_020BDAB4
-FUN_020BDAB4: ; 0x020BDAB4
+	arm_func_start NNSi_G3dAnmObjInitNsBca
+NNSi_G3dAnmObjInitNsBca: ; 0x020BDAB4
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
 	mov r4, r1
-	ldr r0, _020BDB3C ; =UNK_0210659C
+	ldr r0, _020BDB3C ; =NNS_G3dFuncAnmJntNsBcaDefault
 	str r4, [r5, #0x8]
 	ldr r0, [r0, #0x0]
 	add r1, r5, #0x1a
@@ -1601,6 +1587,5 @@ _020BDB08:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
-_020BDB3C: .word UNK_0210659C
-	arm_func_end FUN_020BDAB4
-
+_020BDB3C: .word NNS_G3dFuncAnmJntNsBcaDefault
+	arm_func_end NNSi_G3dAnmObjInitNsBca

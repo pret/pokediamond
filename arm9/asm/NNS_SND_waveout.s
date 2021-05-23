@@ -3,16 +3,14 @@
 
 	.section .bss
 
-	; sWaveOut
-	.global UNK_021D1CBC
-UNK_021D1CBC: ; 0x021D1CBC
+	.global sWaveOut
+sWaveOut: ; 0x021D1CBC
 	.space 0x140
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020C03B8
-FUN_020C03B8: ; 0x020C03B8
+	arm_func_start NNS_SndWaveOutIsPlaying
+NNS_SndWaveOutIsPlaying: ; 0x020C03B8
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, [r4, #0x8]
@@ -40,9 +38,8 @@ _020C03F8:
 	streq r0, [r4, #0x8]
 	ldmia sp!, {r4,pc}
 
-	; _end
-	arm_func_start FUN_020C041C
-FUN_020C041C: ; 0x020C041C
+	arm_func_start NNS_SndWaveOutSetPan
+NNS_SndWaveOutSetPan: ; 0x020C041C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r2, [r0, #0x8]
@@ -56,9 +53,8 @@ FUN_020C041C: ; 0x020C041C
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; NNS_SndWaveOutSetSpeed
-	arm_func_start FUN_020C044C
-FUN_020C044C: ; 0x020C044C
+	arm_func_start NNS_SndWaveOutSetSpeed
+NNS_SndWaveOutSetSpeed: ; 0x020C044C
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
@@ -98,9 +94,8 @@ _020C04B8:
 _020C04D4: .word 0xD87F8000
 _020C04D8: .word 0x0000FFFF
 
-	; _end
-	arm_func_start FUN_020C04DC
-FUN_020C04DC: ; 0x020C04DC
+	arm_func_start NNS_SndWaveOutSetVolume
+NNS_SndWaveOutSetVolume: ; 0x020C04DC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r2, [r0, #0x8]
@@ -115,9 +110,8 @@ FUN_020C04DC: ; 0x020C04DC
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; _end
-	arm_func_start FUN_020C0510
-FUN_020C0510: ; 0x020C0510
+	arm_func_start NNS_SndWaveOutStop
+NNS_SndWaveOutStop: ; 0x020C0510
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, [r4, #0x8]
@@ -134,9 +128,8 @@ FUN_020C0510: ; 0x020C0510
 	str r0, [r4, #0x8]
 	ldmia sp!, {r4,pc}
 
-	; NNS_SndWaveOutStart
-	arm_func_start FUN_020C054C
-FUN_020C054C: ; 0x020C054C
+	arm_func_start NNS_SndWaveOutStart
+NNS_SndWaveOutStart: ; 0x020C054C
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x1c
 	movs r8, r1
@@ -215,36 +208,33 @@ _020C05E0:
 _020C0668: .word 0xD87F8000
 _020C066C: .word 0x0000FFFF
 
-	; NNS_SndWaveOutFreeChannel
-	arm_func_start FUN_020C0670
-FUN_020C0670: ; 0x020C0670
+	arm_func_start NNS_SndWaveOutFreeChannel
+NNS_SndWaveOutFreeChannel: ; 0x020C0670
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	ldr ip, _020C0684 ; =FUN_020C0340
+	ldr ip, _020C0684 ; =NNS_SndUnlockChannel
 	mov r0, r1, lsl r0
 	bx r12
 	.balign 4
-_020C0684: .word FUN_020C0340
+_020C0684: .word NNS_SndUnlockChannel
 
-	; NNS_SndWaveOutAllocChannel
-	arm_func_start FUN_020C0688
-FUN_020C0688: ; 0x020C0688
+	arm_func_start NNS_SndWaveOutAllocChannel
+NNS_SndWaveOutAllocChannel: ; 0x020C0688
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	mov r0, #0x1
 	mov r0, r0, lsl r4
-	bl FUN_020C0370
+	bl NNS_SndLockChannel
 	cmp r0, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
 	mov r0, #0x14
 	mul r0, r4, r0
-	ldr r2, _020C06C8 ; =UNK_021D1CBC
+	ldr r2, _020C06C8 ; =sWaveOut
 	mov r1, #0x0
 	str r4, [r2, r0]
 	add r0, r2, r0
 	str r1, [r0, #0x8]
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020C06C8: .word UNK_021D1CBC
-
+_020C06C8: .word sWaveOut

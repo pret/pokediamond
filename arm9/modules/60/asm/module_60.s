@@ -403,7 +403,7 @@ MOD60_021D77D4: ; 0x021D77D4
 	str r0, [r4, #0x10]
 _021D7804:
 	bl FUN_0200BC30
-	bl FUN_020AEEB8
+	bl NNS_GfdDoVramTransfer
 	ldr r0, [r4, #0x14]
 	bl FUN_0201AB60
 	ldr r3, _021D782C ; =0x027E0000
@@ -688,7 +688,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	bl NARC_ReadWholeMember
 	add r0, r6, #0
 	add r1, sp, #0x20
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r3, [sp, #0x20]
 	mov r1, #0
 	str r1, [sp]
@@ -719,7 +719,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	bl NARC_ReadWholeMember
 	add r0, r6, #0
 	add r1, sp, #0x1c
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, [sp, #0x1c]
 	mov r0, #0
 	ldr r1, [r1, #0xc]
@@ -748,7 +748,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	add r1, r5, #0
 	ldr r0, [r5, #0x24]
 	add r1, #0x28
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	add r0, r4, #0
 	bl NARC_dtor
 	mov r3, #0

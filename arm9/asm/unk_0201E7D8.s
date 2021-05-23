@@ -1,13 +1,13 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021CED98
-	.extern UNK_021CEF64
-	.extern UNK_021CED20
+	.extern NNS_G3dGlb
+	.extern NNS_G3dGlb
+	.extern NNS_G3dGlb
 	.extern FX_SinCosTable_
-	.extern UNK_021CEF58
-	.extern UNK_021CEF70
-	.extern UNK_021CED64
+	.extern NNS_G3dGlb
+	.extern NNS_G3dGlb
+	.extern NNS_G3dGlb
 
 	.section .data
 
@@ -576,7 +576,7 @@ FUN_0201EBA4: ; 0x0201EBA4
 	str r0, [r3, #0x0]
 _0201EBEE:
 	ldr r0, _0201EC40 ; =UNK_021C59A4
-	ldr r5, _0201EC44 ; =UNK_021CEF58
+	ldr r5, _0201EC44 ; =NNS_G3dGlb + 0x240
 	ldr r4, [r0, #0x0]
 	add r3, r4, #0x0
 	add r2, r4, #0x0
@@ -588,26 +588,26 @@ _0201EBEE:
 	add r2, #0x2c
 	str r0, [r5, #0x0]
 	add r6, r2, #0x0
-	ldr r5, _0201EC48 ; =UNK_021CEF64
+	ldr r5, _0201EC48 ; =NNS_G3dGlb + 0x24C
 	ldmia r6!, {r0-r1}
 	stmia r5!, {r0-r1}
 	ldr r0, [r6, #0x0]
 	add r3, #0x20
 	str r0, [r5, #0x0]
 	add r6, r3, #0x0
-	ldr r5, _0201EC4C ; =UNK_021CEF70
+	ldr r5, _0201EC4C ; =NNS_G3dGlb + 0x258
 	ldmia r6!, {r0-r1}
 	stmia r5!, {r0-r1}
 	ldr r0, [r6, #0x0]
 	add r1, r2, #0x0
 	str r0, [r5, #0x0]
-	ldr r0, _0201EC50 ; =UNK_021CED64
+	ldr r0, _0201EC50 ; =NNS_G3dGlb + 0x4C
 	add r2, r3, #0x0
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
 	bl G3i_LookAt_
-	ldr r1, _0201EC54 ; =UNK_021CED98
+	ldr r1, _0201EC54 ; =NNS_G3dGlb + 0x80
 	mov r0, #0xe8
 	ldr r2, [r1, #0x7c]
 	bic r2, r0
@@ -617,11 +617,11 @@ _0201EC3A:
 	pop {r3-r6, pc}
 	nop
 _0201EC40: .word UNK_021C59A4
-_0201EC44: .word UNK_021CEF58
-_0201EC48: .word UNK_021CEF64
-_0201EC4C: .word UNK_021CEF70
-_0201EC50: .word UNK_021CED64
-_0201EC54: .word UNK_021CED98
+_0201EC44: .word NNS_G3dGlb + 0x240
+_0201EC48: .word NNS_G3dGlb + 0x24C
+_0201EC4C: .word NNS_G3dGlb + 0x258
+_0201EC50: .word NNS_G3dGlb + 0x4C
+_0201EC54: .word NNS_G3dGlb + 0x80
 
 	thumb_func_start FUN_0201EC58
 FUN_0201EC58: ; 0x0201EC58
@@ -882,14 +882,14 @@ FUN_0201EE2C: ; 0x0201EE2C
 	str r0, [sp, #0x4]
 	mov r0, #0x0
 	str r0, [sp, #0x8]
-	ldr r0, _0201EEE4 ; =UNK_021CED20
+	ldr r0, _0201EEE4 ; =NNS_G3dGlb + 0x8
 	str r0, [sp, #0xc]
 	ldr r0, [r5, #0x0]
 	ldr r1, [r5, #0x4]
 	ldr r2, [r5, #0x8]
 	ldr r3, [r5, #0xc]
 	bl G3i_PerspectiveW_
-	ldr r1, _0201EEE8 ; =UNK_021CED98
+	ldr r1, _0201EEE8 ; =NNS_G3dGlb + 0x80
 	mov r0, #0x50
 	ldr r2, [r1, #0x7c]
 	add r5, #0x44
@@ -939,12 +939,12 @@ _0201EE6C:
 	lsl r0, r6, #0x1
 	str r0, [sp, #0x8]
 	str r2, [sp, #0xc]
-	ldr r0, _0201EEE4 ; =UNK_021CED20
+	ldr r0, _0201EEE4 ; =NNS_G3dGlb + 0x8
 	neg r2, r3
 	str r0, [sp, #0x10]
 	add r0, r4, #0x0
 	bl G3i_OrthoW_
-	ldr r1, _0201EEE8 ; =UNK_021CED98
+	ldr r1, _0201EEE8 ; =NNS_G3dGlb + 0x80
 	mov r0, #0x50
 	ldr r2, [r1, #0x7c]
 	add r5, #0x44
@@ -958,8 +958,8 @@ _0201EE6C:
 	add sp, #0x14
 	pop {r3-r6, pc}
 	nop
-_0201EEE4: .word UNK_021CED20
-_0201EEE8: .word UNK_021CED98
+_0201EEE4: .word NNS_G3dGlb + 0x8
+_0201EEE8: .word NNS_G3dGlb + 0x80
 _0201EEEC: .word UNK_02105BB8
 
 	thumb_func_start FUN_0201EEF0

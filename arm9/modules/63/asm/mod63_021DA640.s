@@ -108,7 +108,7 @@ MOD63_021DA6E8: ; 0x021DA6E8
 	orr r0, r1
 	str r0, [r2]
 	bl MOD63_021DA640
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -876,7 +876,7 @@ MOD63_021DAD18: ; 0x021DAD18
 	add r6, r2, #0
 	bl FUN_02020354
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r7, r0, #0
 	cmp r6, #0
 	bne _021DAD44

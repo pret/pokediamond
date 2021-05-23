@@ -3,46 +3,39 @@
 
 	.section .bss
 
-	; sCurDriverInfo
-	.global UNK_021D1C8C
-UNK_021D1C8C: ; 0x021D1C8C
+	.global sCurDriverInfo
+sCurDriverInfo: ; 0x021D1C8C
 	.space 0x4
 
-	; sDriverInfoFirstFlag
-	.global UNK_021D1C90
-UNK_021D1C90: ; 0x021D1C90
+	.global sDriverInfoFirstFlag
+sDriverInfoFirstFlag: ; 0x021D1C90
 	.space 0x4
 
-	; initialized$8127
-	.global UNK_021D1C94
-UNK_021D1C94: ; 0x021D1C94
+	.global initialized$8127
+initialized$8127: ; 0x021D1C94
 	.space 0x4
 
-	; sPreSleepCallback
-	.global UNK_021D1C98
-UNK_021D1C98: ; 0x021D1C98
+	.global sPreSleepCallback
+sPreSleepCallback: ; 0x021D1C98
 	.space 0xc
 
-	; sPostSleepCallback
-	.global UNK_021D1CA4
-UNK_021D1CA4: ; 0x021D1CA4
+	.global sPostSleepCallback
+sPostSleepCallback: ; 0x021D1CA4
 	.space 0xc
 
 	.section .text
 
-	; EndSleep
-	arm_func_start FUN_020C0130
-FUN_020C0130: ; 0x020C0130
-	ldr ip, _020C0138 ; =FUN_020C187C
+	local_arm_func_start EndSleep
+EndSleep: ; 0x020C0130
+	ldr ip, _020C0138 ; =NNSi_SndCaptureEndSleep
 	bx r12
 	.balign 4
-_020C0138: .word FUN_020C187C
+_020C0138: .word NNSi_SndCaptureEndSleep
 
-	; _end
-	arm_func_start FUN_020C013C
-FUN_020C013C: ; 0x020C013C
+	local_arm_func_start BeginSleep
+BeginSleep: ; 0x020C013C
 	stmdb sp!, {r4,lr}
-	bl FUN_020C18F8
+	bl NNSi_SndCaptureBeginSleep
 	mov r0, #0x0
 	mov r1, r0
 	mov r2, r0
@@ -56,9 +49,8 @@ FUN_020C013C: ; 0x020C013C
 	bl SND_WaitForCommandProc
 	ldmia sp!, {r4,pc}
 
-	; _end
-	arm_func_start FUN_020C0174
-FUN_020C0174: ; 0x020C0174
+	arm_func_start NNS_SndSetMonoFlag
+NNS_SndSetMonoFlag: ; 0x020C0174
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	cmp r0, #0x0
@@ -72,9 +64,8 @@ _020C0194:
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; _end
-	arm_func_start FUN_020C01A0
-FUN_020C01A0: ; 0x020C01A0
+	arm_func_start NNS_SndMain
+NNS_SndMain: ; 0x020C01A0
 	stmdb sp!, {r4,lr}
 	mov r4, #0x0
 _020C01A8:
@@ -82,19 +73,18 @@ _020C01A8:
 	bl SND_RecvCommandReply
 	cmp r0, #0x0
 	bne _020C01A8
-	bl FUN_020C0BA0
-	bl FUN_020C1D9C
-	bl FUN_020C3C88
+	bl NNSi_SndPlayerMain
+	bl NNSi_SndCaptureMain
+	bl NNSi_SndArcStrmMain
 	mov r0, #0x0
 	bl SND_FlushCommand
 	ldmia sp!, {r4,pc}
 
-	; NNS_SndInit
-	arm_func_start SDAT_Init
-SDAT_Init: ; 0x020C01D0
+	arm_func_start NNS_SndInit
+NNS_SndInit: ; 0x020C01D0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r0, _020C0254 ; =UNK_021D1C94
+	ldr r0, _020C0254 ; =initialized$8127
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
 	addne sp, sp, #0x4
@@ -102,35 +92,34 @@ SDAT_Init: ; 0x020C01D0
 	mov r1, #0x1
 	str r1, [r0, #0x0]
 	bl SND_Init
-	ldr ip, _020C0258 ; =FUN_020C013C
-	ldr r0, _020C025C ; =UNK_021D1C98
+	ldr ip, _020C0258 ; =BeginSleep
+	ldr r0, _020C025C ; =sPreSleepCallback
 	mov r3, #0x0
-	ldr r1, _020C0260 ; =UNK_021D1CA4
-	ldr r2, _020C0264 ; =FUN_020C0130
+	ldr r1, _020C0260 ; =sPostSleepCallback
+	ldr r2, _020C0264 ; =EndSleep
 	str r12, [r0, #0x0]
 	str r3, [r0, #0x4]
 	str r2, [r1, #0x0]
 	str r3, [r1, #0x4]
 	bl PM_PrependPreSleepCallback
-	ldr r0, _020C0260 ; =UNK_021D1CA4
+	ldr r0, _020C0260 ; =sPostSleepCallback
 	bl PM_AppendPostSleepCallback
-	bl FUN_020C0270
-	bl FUN_020C1E38
-	bl FUN_020C0D20
-	ldr r1, _020C0268 ; =UNK_021D1C8C
+	bl NNSi_SndInitResourceMgr
+	bl NNSi_SndCaptureInit
+	bl NNSi_SndPlayerInit
+	ldr r1, _020C0268 ; =sCurDriverInfo
 	mvn r3, #0x0
-	ldr r0, _020C026C ; =UNK_021D1C90
+	ldr r0, _020C026C ; =sDriverInfoFirstFlag
 	mov r2, #0x1
 	strb r3, [r1, #0x0]
 	str r2, [r0, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 	.balign 4
-_020C0254: .word UNK_021D1C94
-_020C0258: .word FUN_020C013C
-_020C025C: .word UNK_021D1C98
-_020C0260: .word UNK_021D1CA4
-_020C0264: .word FUN_020C0130
-_020C0268: .word UNK_021D1C8C
-_020C026C: .word UNK_021D1C90
-
+_020C0254: .word initialized$8127
+_020C0258: .word BeginSleep
+_020C025C: .word sPreSleepCallback
+_020C0260: .word sPostSleepCallback
+_020C0264: .word EndSleep
+_020C0268: .word sCurDriverInfo
+_020C026C: .word sDriverInfoFirstFlag

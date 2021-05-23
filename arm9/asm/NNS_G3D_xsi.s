@@ -3,23 +3,21 @@
 
 	.section .data
 
-	; calcTexMtx_
-	.global UNK_021067F0
-UNK_021067F0: ; 0x021067F0
-	.word FUN_020BFFD4
-	.word FUN_020BFEEC
-	.word FUN_020BFE68
-	.word FUN_020BFE0C
-	.word FUN_020BFD38
-	.word FUN_020BFC8C
-	.word FUN_020BFC4C
-	.word FUN_020BFC28
+	.global calcTexMtx_
+calcTexMtx_: ; 0x021067F0
+	.word texmtxCalc_flag_
+	.word texmtxCalc_flagS_
+	.word texmtxCalc_flagR_
+	.word texmtxCalc_flagRS_
+	.word texmtxCalc_flagT_
+	.word texmtxCalc_flagTS_
+	.word texmtxCalc_flagTR_
+	.word texmtxCalc_flagTRS_
 
 	.section .text
 
-	; NNSi_G3dSendTexSRTXsi
-	arm_func_start FUN_020BFA9C
-FUN_020BFA9C: ; 0x020BFA9C
+	arm_func_start NNSi_G3dSendTexSRTXsi
+NNSi_G3dSendTexSRTXsi: ; 0x020BFA9C
 	stmdb sp!, {r4,lr}
 	sub sp, sp, #0x50
 	mov r4, r0
@@ -63,7 +61,7 @@ FUN_020BFA9C: ; 0x020BFA9C
 	ldrne r0, [r4, #0x28]
 	strne r0, [r4, #0x24]
 	ldr r1, [r4, #0x0]
-	ldr r0, _020BFC24 ; =UNK_021067F0
+	ldr r0, _020BFC24 ; =calcTexMtx_
 	and r1, r1, #0x7
 	ldr r2, [r0, r1, lsl #0x2]
 	add r0, sp, #0x8
@@ -115,18 +113,17 @@ _020BFC00:
 	ldr r0, [sp, #0x0]
 	add r1, r1, #0x4
 	mov r2, #0x12
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x50
 	ldmia sp!, {r4,pc}
 	.balign 4
 _020BFC1C: .word 0x00101610
 _020BFC20: .word 0x00101810
-_020BFC24: .word UNK_021067F0
-	arm_func_end FUN_020BFA9C
+_020BFC24: .word calcTexMtx_
+	arm_func_end NNSi_G3dSendTexSRTXsi
 
-	; _end
-	arm_func_start FUN_020BFC28
-FUN_020BFC28: ; 0x020BFC28
+	arm_func_start texmtxCalc_flagTRS_
+texmtxCalc_flagTRS_: ; 0x020BFC28
 	mov r2, #0x1000
 	str r2, [r0, #0x0]
 	mov r1, #0x0
@@ -136,11 +133,10 @@ FUN_020BFC28: ; 0x020BFC28
 	str r1, [r0, #0x30]
 	str r1, [r0, #0x34]
 	bx lr
-	arm_func_end FUN_020BFC28
+	arm_func_end texmtxCalc_flagTRS_
 
-	; _end
-	arm_func_start FUN_020BFC4C
-FUN_020BFC4C: ; 0x020BFC4C
+	arm_func_start texmtxCalc_flagTR_
+texmtxCalc_flagTR_: ; 0x020BFC4C
 	ldr r2, [r1, #0x18]
 	mov r3, #0x0
 	str r2, [r0, #0x0]
@@ -157,11 +153,10 @@ FUN_020BFC4C: ; 0x020BFC4C
 	str r1, [r0, #0x34]
 	str r3, [r0, #0x10]
 	bx lr
-	arm_func_end FUN_020BFC4C
+	arm_func_end texmtxCalc_flagTR_
 
-	; _end
-	arm_func_start FUN_020BFC8C
-FUN_020BFC8C: ; 0x020BFC8C
+	arm_func_start texmtxCalc_flagTS_
+texmtxCalc_flagTS_: ; 0x020BFC8C
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r5, r1
@@ -205,11 +200,10 @@ FUN_020BFC8C: ; 0x020BFC8C
 	str r0, [r6, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020BFC8C
+	arm_func_end texmtxCalc_flagTS_
 
-	; _end
-	arm_func_start FUN_020BFD38
-FUN_020BFD38: ; 0x020BFD38
+	arm_func_start texmtxCalc_flagT_
+texmtxCalc_flagT_: ; 0x020BFD38
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
 	mov r9, r1
@@ -263,11 +257,10 @@ FUN_020BFD38: ; 0x020BFD38
 	str r0, [r10, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020BFD38
+	arm_func_end texmtxCalc_flagT_
 
-	; _end
-	arm_func_start FUN_020BFE0C
-FUN_020BFE0C: ; 0x020BFE0C
+	arm_func_start texmtxCalc_flagRS_
+texmtxCalc_flagRS_: ; 0x020BFE0C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r2, #0x1000
@@ -291,11 +284,10 @@ FUN_020BFE0C: ; 0x020BFE0C
 	str lr, [r0, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020BFE0C
+	arm_func_end texmtxCalc_flagRS_
 
-	; _end
-	arm_func_start FUN_020BFE68
-FUN_020BFE68: ; 0x020BFE68
+	arm_func_start texmtxCalc_flagR_
+texmtxCalc_flagR_: ; 0x020BFE68
 	stmdb sp!, {r4,lr}
 	ldr r3, [r1, #0x18]
 	mov r2, #0x0
@@ -329,11 +321,10 @@ FUN_020BFE68: ; 0x020BFE68
 	str r1, [r0, #0x34]
 	str r2, [r0, #0x10]
 	ldmia sp!, {r4,pc}
-	arm_func_end FUN_020BFE68
+	arm_func_end texmtxCalc_flagR_
 
-	; _end
-	arm_func_start FUN_020BFEEC
-FUN_020BFEEC: ; 0x020BFEEC
+	arm_func_start texmtxCalc_flagS_
+texmtxCalc_flagS_: ; 0x020BFEEC
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r5, r1
@@ -392,11 +383,10 @@ FUN_020BFEEC: ; 0x020BFEEC
 	str r0, [r6, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020BFEEC
+	arm_func_end texmtxCalc_flagS_
 
-	; _end
-	arm_func_start FUN_020BFFD4
-FUN_020BFFD4: ; 0x020BFFD4
+	arm_func_start texmtxCalc_flag_
+texmtxCalc_flag_: ; 0x020BFFD4
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
 	mov r6, r1
@@ -484,4 +474,4 @@ FUN_020BFFD4: ; 0x020BFFD4
 	str r0, [r7, #0x10]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020BFFD4
+	arm_func_end texmtxCalc_flag_

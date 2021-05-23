@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020B772C
-FUN_020B772C: ; 0x020B772C
+	arm_func_start NNS_G3dReleaseMdlSet
+NNS_G3dReleaseMdlSet: ; 0x020B772C
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r6, r0
@@ -23,20 +22,19 @@ _020B7750:
 	ldr r0, [r0, #0x4]
 	add r7, r6, r0
 	mov r0, r7
-	bl FUN_020B79A4
+	bl NNS_G3dReleaseMdlTex
 	mov r0, r7
-	bl FUN_020B780C
+	bl NNS_G3dReleaseMdlPltt
 	ldrb r0, [r6, #0x9]
 	add r5, r5, #0x1
 	cmp r5, r0
 	blo _020B7750
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020B772C
+	arm_func_end NNS_G3dReleaseMdlSet
 
-	; _end
-	arm_func_start FUN_020B7790
-FUN_020B7790: ; 0x020B7790
+	arm_func_start NNS_G3dBindMdlSet
+NNS_G3dBindMdlSet: ; 0x020B7790
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x4
 	mov r8, r0
@@ -56,11 +54,11 @@ _020B77B8:
 	ldr r0, [r0, #0x4]
 	add r9, r8, r0
 	mov r0, r9
-	bl FUN_020B7A04
+	bl NNS_G3dBindMdlTex
 	and r5, r5, r0
 	mov r0, r9
 	mov r1, r7
-	bl FUN_020B7864
+	bl NNS_G3dBindMdlPltt
 	ldrb r1, [r8, #0x9]
 	add r6, r6, #0x1
 	and r5, r5, r0
@@ -70,11 +68,10 @@ _020B7800:
 	mov r0, r5
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9,pc}
-	arm_func_end FUN_020B7790
+	arm_func_end NNS_G3dBindMdlSet
 
-	; _end
-	arm_func_start FUN_020B780C
-FUN_020B780C: ; 0x020B780C
+	arm_func_start NNS_G3dReleaseMdlPltt
+NNS_G3dReleaseMdlPltt: ; 0x020B780C
 	ldr r2, [r0, #0x8]
 	mov r1, #0x0
 	add r2, r0, r2
@@ -98,11 +95,10 @@ _020B782C:
 	cmp r1, r0
 	blo _020B782C
 	bx lr
-	arm_func_end FUN_020B780C
+	arm_func_end NNS_G3dReleaseMdlPltt
 
-	; _end
-	arm_func_start FUN_020B7864
-FUN_020B7864: ; 0x020B7864
+	arm_func_start NNS_G3dBindMdlPltt
+NNS_G3dBindMdlPltt: ; 0x020B7864
 	stmdb sp!, {r4-r10,lr}
 	ldr r2, [r0, #0x8]
 	mov r10, r1
@@ -124,7 +120,7 @@ _020B7898:
 	add r0, r10, r0
 	add r1, r2, r1
 	add r1, r1, r5
-	bl FUN_020BC2A0
+	bl NNS_G3dGetResDataByName
 	movs r3, r0
 	beq _020B78F0
 	ldrh r1, [r8, #0x6]
@@ -137,7 +133,7 @@ _020B7898:
 	bne _020B78F4
 	mov r0, r9
 	mov r2, r10
-	bl FUN_020B7910
+	bl bindMdlPltt_Internal_
 	b _020B78F4
 _020B78F0:
 	mov r6, r4
@@ -150,11 +146,10 @@ _020B78F4:
 _020B7908:
 	mov r0, r6
 	ldmia sp!, {r4-r10,pc}
-	arm_func_end FUN_020B7864
+	arm_func_end NNS_G3dBindMdlPltt
 
-	; _end
-	arm_func_start FUN_020B7910
-FUN_020B7910: ; 0x020B7910
+	arm_func_start bindMdlPltt_Internal_
+bindMdlPltt_Internal_: ; 0x020B7910
 	stmdb sp!, {r4-r6,lr}
 	ldrh r5, [r1, #0x0]
 	ldr r2, [r2, #0x2c]
@@ -194,11 +189,10 @@ _020B7994:
 	orr r0, r0, #0x1
 	strb r0, [r1, #0x3]
 	ldmia sp!, {r4-r6,pc}
-	arm_func_end FUN_020B7910
+	arm_func_end bindMdlPltt_Internal_
 
-	; _end
-	arm_func_start FUN_020B79A4
-FUN_020B79A4: ; 0x020B79A4
+	arm_func_start NNS_G3dReleaseMdlTex
+NNS_G3dReleaseMdlTex: ; 0x020B79A4
 	stmdb sp!, {r4-r6,lr}
 	ldr r2, [r0, #0x8]
 	mov r4, #0x0
@@ -218,18 +212,17 @@ _020B79C8:
 	ands r0, r0, #0x1
 	beq _020B79F0
 	mov r0, r6
-	bl FUN_020B7AB8
+	bl releaseMdlTex_Internal_
 _020B79F0:
 	ldrb r0, [r5, #0x1]
 	add r4, r4, #0x1
 	cmp r4, r0
 	blo _020B79C8
 	ldmia sp!, {r4-r6,pc}
-	arm_func_end FUN_020B79A4
+	arm_func_end NNS_G3dReleaseMdlTex
 
-	; _end
-	arm_func_start FUN_020B7A04
-FUN_020B7A04: ; 0x020B7A04
+	arm_func_start NNS_G3dBindMdlTex
+NNS_G3dBindMdlTex: ; 0x020B7A04
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
 	ldr r2, [r0, #0x8]
@@ -252,7 +245,7 @@ _020B7A40:
 	ldrh r1, [r2, #0x2]
 	add r1, r2, r1
 	add r1, r1, r6
-	bl FUN_020BC2A0
+	bl NNS_G3dGetResDataByName
 	movs r3, r0
 	beq _020B7A94
 	ldrh r1, [r8, #0x6]
@@ -265,7 +258,7 @@ _020B7A40:
 	bne _020B7A98
 	mov r0, r9
 	mov r2, r10
-	bl FUN_020B7B40
+	bl bindMdlTex_Internal_
 	b _020B7A98
 _020B7A94:
 	mov r11, r4
@@ -279,11 +272,10 @@ _020B7AAC:
 	mov r0, r11
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020B7A04
+	arm_func_end NNS_G3dBindMdlTex
 
-	; releaseMdlTex_Internal_
-	arm_func_start FUN_020B7AB8
-FUN_020B7AB8: ; 0x020B7AB8
+	arm_func_start releaseMdlTex_Internal_
+releaseMdlTex_Internal_: ; 0x020B7AB8
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	ldrh r4, [r1, #0x0]
@@ -321,11 +313,10 @@ _020B7B28:
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
 _020B7B3C: .word 0xC00F0000
-	arm_func_end FUN_020B7AB8
+	arm_func_end releaseMdlTex_Internal_
 
-	; bindMdlTex_Internal_
-	arm_func_start FUN_020B7B40
-FUN_020B7B40: ; 0x020B7B40
+	arm_func_start bindMdlTex_Internal_
+bindMdlTex_Internal_: ; 0x020B7B40
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0xc
 	mov r11, r1
@@ -401,11 +392,10 @@ _020B7C3C:
 	.balign 4
 _020B7C50: .word 0x0000FFFF
 _020B7C54: .word 0x000007FF
-	arm_func_end FUN_020B7B40
+	arm_func_end bindMdlTex_Internal_
 
-	; _end
-	arm_func_start FUN_020B7C58
-FUN_020B7C58: ; 0x020B7C58
+	arm_func_start NNS_G3dPlttReleasePlttKey
+NNS_G3dPlttReleasePlttKey: ; 0x020B7C58
 	ldrh r2, [r0, #0x32]
 	mov r1, #0x0
 	bic r2, r2, #0x1
@@ -414,11 +404,10 @@ FUN_020B7C58: ; 0x020B7C58
 	str r1, [r0, #0x2c]
 	mov r0, r2
 	bx lr
-	arm_func_end FUN_020B7C58
+	arm_func_end NNS_G3dPlttReleasePlttKey
 
-	; NNS_G3dPlttLoad
-	arm_func_start FUN_020B7C78
-FUN_020B7C78: ; 0x020B7C78
+	arm_func_start NNS_G3dPlttLoad
+NNS_G3dPlttLoad: ; 0x020B7C78
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	movs r4, r1
@@ -446,26 +435,23 @@ _020B7C90:
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020B7CD8: .word 0x0000FFFF
-	arm_func_end FUN_020B7C78
+	arm_func_end NNS_G3dPlttLoad
 
-	; _end
-	arm_func_start FUN_020B7CDC
-FUN_020B7CDC: ; 0x020B7CDC
+	arm_func_start NNS_G3dPlttSetPlttKey
+NNS_G3dPlttSetPlttKey: ; 0x020B7CDC
 	str r1, [r0, #0x2c]
 	bx lr
-	arm_func_end FUN_020B7CDC
+	arm_func_end NNS_G3dPlttSetPlttKey
 
-	; _end
-	arm_func_start FUN_020B7CE4
-FUN_020B7CE4: ; 0x020B7CE4
+	arm_func_start NNS_G3dPlttGetRequiredSize
+NNS_G3dPlttGetRequiredSize: ; 0x020B7CE4
 	ldrh r0, [r0, #0x30]
 	mov r0, r0, lsl #0x3
 	bx lr
-	arm_func_end FUN_020B7CE4
+	arm_func_end NNS_G3dPlttGetRequiredSize
 
-	; _end
-	arm_func_start FUN_020B7CF0
-FUN_020B7CF0: ; 0x020B7CF0
+	arm_func_start NNS_G3dTexReleaseTexKey
+NNS_G3dTexReleaseTexKey: ; 0x020B7CF0
 	ldrh r12, [r0, #0x10]
 	mov r3, #0x0
 	bic r12, r12, #0x1
@@ -480,11 +466,10 @@ FUN_020B7CF0: ; 0x020B7CF0
 	str r1, [r2, #0x0]
 	str r3, [r0, #0x18]
 	bx lr
-	arm_func_end FUN_020B7CF0
+	arm_func_end NNS_G3dTexReleaseTexKey
 
-	; NNS_G3dTexLoad
-	arm_func_start FUN_020B7D28
-FUN_020B7D28: ; 0x020B7D28
+	arm_func_start NNS_G3dTexLoad
+NNS_G3dTexLoad: ; 0x020B7D28
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x4
 	movs r8, r1
@@ -542,53 +527,49 @@ _020B7DDC:
 	.balign 4
 _020B7DF4: .word 0x0000FFFF
 _020B7DF8: .word 0x0001FFFF
-	arm_func_end FUN_020B7D28
+	arm_func_end NNS_G3dTexLoad
 
-	; _end
-	arm_func_start FUN_020B7DFC
-FUN_020B7DFC: ; 0x020B7DFC
+	arm_func_start NNS_G3dTexSetTexKey
+NNS_G3dTexSetTexKey: ; 0x020B7DFC
 	cmp r1, #0x0
 	strne r1, [r0, #0x8]
 	cmp r2, #0x0
 	strne r2, [r0, #0x18]
 	bx lr
-	arm_func_end FUN_020B7DFC
+	arm_func_end NNS_G3dTexSetTexKey
 
-	; _end
-	arm_func_start FUN_020B7E10
-FUN_020B7E10: ; 0x020B7E10
+	arm_func_start NNS_G3dTex4x4GetRequiredSize
+NNS_G3dTex4x4GetRequiredSize: ; 0x020B7E10
 	ldrh r0, [r0, #0x1c]
 	mov r0, r0, lsl #0x3
 	bx lr
-	arm_func_end FUN_020B7E10
+	arm_func_end NNS_G3dTex4x4GetRequiredSize
 
-	; _end
-	arm_func_start FUN_020B7E1C
-FUN_020B7E1C: ; 0x020B7E1C
+	arm_func_start NNS_G3dTexGetRequiredSize
+NNS_G3dTexGetRequiredSize: ; 0x020B7E1C
 	ldrh r0, [r0, #0xc]
 	mov r0, r0, lsl #0x3
 	bx lr
-	arm_func_end FUN_020B7E1C
+	arm_func_end NNS_G3dTexGetRequiredSize
 
-	; _end
-	arm_func_start FUN_020B7E28
-FUN_020B7E28: ; 0x020B7E28
+	arm_func_start NNS_G3dRenderObjRemoveAnmObj
+NNS_G3dRenderObjRemoveAnmObj: ; 0x020B7E28
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
 	add r0, r5, #0x8
 	mov r4, r1
-	bl FUN_020B7E88
+	bl removeLink_
 	cmp r0, #0x0
 	bne _020B7E74
 	mov r1, r4
 	add r0, r5, #0x10
-	bl FUN_020B7E88
+	bl removeLink_
 	cmp r0, #0x0
 	bne _020B7E74
 	mov r1, r4
 	add r0, r5, #0x18
-	bl FUN_020B7E88
+	bl removeLink_
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
@@ -598,11 +579,10 @@ _020B7E74:
 	str r0, [r5, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020B7E28
+	arm_func_end NNS_G3dRenderObjRemoveAnmObj
 
-	; _end
-	arm_func_start FUN_020B7E88
-FUN_020B7E88: ; 0x020B7E88
+	arm_func_start removeLink_
+removeLink_: ; 0x020B7E88
 	ldr r2, [r0, #0x0]
 	cmp r2, #0x0
 	moveq r0, #0x0
@@ -636,11 +616,10 @@ _020B7EE4:
 _020B7EF4:
 	mov r0, #0x0
 	bx lr
-	arm_func_end FUN_020B7E88
+	arm_func_end removeLink_
 
-	; _end
-	arm_func_start FUN_020B7EFC
-FUN_020B7EFC: ; 0x020B7EFC
+	arm_func_start NNS_G3dRenderObjAddAnmObj
+NNS_G3dRenderObjAddAnmObj: ; 0x020B7EFC
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r4, r1
@@ -657,33 +636,32 @@ FUN_020B7EFC: ; 0x020B7EFC
 	ldmia sp!, {r4-r5,pc}
 _020B7F34:
 	add r0, r5, #0x3c
-	bl FUN_020B7F88
+	bl updateHintVec_
 	mov r1, r4
 	add r0, r5, #0x8
-	bl FUN_020B7FF8
+	bl addLink_
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 _020B7F50:
 	add r0, r5, #0x44
-	bl FUN_020B7F88
+	bl updateHintVec_
 	mov r1, r4
 	add r0, r5, #0x10
-	bl FUN_020B7FF8
+	bl addLink_
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 _020B7F6C:
 	add r0, r5, #0x4c
-	bl FUN_020B7F88
+	bl updateHintVec_
 	mov r1, r4
 	add r0, r5, #0x18
-	bl FUN_020B7FF8
+	bl addLink_
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020B7EFC
+	arm_func_end NNS_G3dRenderObjAddAnmObj
 
-	; _end
-	arm_func_start FUN_020B7F88
-FUN_020B7F88: ; 0x020B7F88
+	local_arm_func_start updateHintVec_
+updateHintVec_: ; 0x020B7F88
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	cmp r1, #0x0
@@ -715,11 +693,10 @@ _020B7FE4:
 	bne _020B7FA4
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
-	arm_func_end FUN_020B7F88
+	arm_func_end updateHintVec_
 
-	; _end
-	arm_func_start FUN_020B7FF8
-FUN_020B7FF8: ; 0x020B7FF8
+	arm_func_start addLink_
+addLink_: ; 0x020B7FF8
 	ldr r12, [r0, #0x0]
 	cmp r12, #0x0
 	streq r1, [r0, #0x0]
@@ -776,11 +753,10 @@ _020B809C:
 _020B80AC:
 	str r1, [r12, #0x10]
 	bx lr
-	arm_func_end FUN_020B7FF8
+	arm_func_end addLink_
 
-	; NNS_G3dRenderObjInit
-	arm_func_start FUN_020B80B4
-FUN_020B80B4: ; 0x020B80B4
+	arm_func_start NNS_G3dRenderObjInit
+NNS_G3dRenderObjInit: ; 0x020B80B4
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
@@ -789,10 +765,10 @@ FUN_020B80B4: ; 0x020B80B4
 	mov r0, #0x0
 	mov r2, #0x54
 	bl MIi_CpuClear32
-	ldr r0, _020B8104 ; =UNK_021065B4
-	ldr r1, _020B8108 ; =UNK_021065B0
+	ldr r0, _020B8104 ; =NNS_G3dFuncBlendMatDefault
+	ldr r1, _020B8108 ; =NNS_G3dFuncBlendJntDefault
 	ldr r2, [r0, #0x0]
-	ldr r0, _020B810C ; =UNK_021065AC
+	ldr r0, _020B810C ; =NNS_G3dFuncBlendVisDefault
 	str r2, [r5, #0xc]
 	ldr r1, [r1, #0x0]
 	str r1, [r5, #0x14]
@@ -802,14 +778,13 @@ FUN_020B80B4: ; 0x020B80B4
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
-_020B8104: .word UNK_021065B4
-_020B8108: .word UNK_021065B0
-_020B810C: .word UNK_021065AC
-	arm_func_end FUN_020B80B4
+_020B8104: .word NNS_G3dFuncBlendMatDefault
+_020B8108: .word NNS_G3dFuncBlendJntDefault
+_020B810C: .word NNS_G3dFuncBlendVisDefault
+	arm_func_end NNS_G3dRenderObjInit
 
-	; NNS_G3dAnmObjInit
-	arm_func_start FUN_020B8110
-FUN_020B8110: ; 0x020B8110
+	arm_func_start NNS_G3dAnmObjInit
+NNS_G3dAnmObjInit: ; 0x020B8110
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r12, #0x0
@@ -820,14 +795,14 @@ FUN_020B8110: ; 0x020B8110
 	strb r4, [r0, #0x18]
 	mov r4, #0x1000
 	str r4, [r0, #0x4]
-	ldr lr, _020B81A4 ; =UNK_02106594
+	ldr lr, _020B81A4 ; =NNS_G3dAnmFmtNum
 	str r3, [r0, #0x14]
 	ldr r6, [lr, #0x0]
 	cmp r6, #0x0
 	addls sp, sp, #0x4
 	ldmlsia sp!, {r4-r7,pc}
 	ldrb r7, [r1, #0x0]
-	ldr r4, _020B81A8 ; =UNK_021065B8
+	ldr r4, _020B81A8 ; =NNS_G3dAnmObjInitFuncArray
 _020B8158:
 	ldrb r3, [r4, r12, lsl #0x3]
 	mov r5, r12, lsl #0x3
@@ -838,7 +813,7 @@ _020B8158:
 	ldrh r3, [r3, #0x2]
 	cmp lr, r3
 	bne _020B8190
-	ldr r3, _020B81AC ; =UNK_021065BC
+	ldr r3, _020B81AC ; =NNS_G3dAnmObjInitFuncArray + 0x4
 	ldr r3, [r3, r5]
 	blx r3
 	add sp, sp, #0x4
@@ -850,14 +825,13 @@ _020B8190:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020B81A4: .word UNK_02106594
-_020B81A8: .word UNK_021065B8
-_020B81AC: .word UNK_021065BC
-	arm_func_end FUN_020B8110
+_020B81A4: .word NNS_G3dAnmFmtNum
+_020B81A8: .word NNS_G3dAnmObjInitFuncArray
+_020B81AC: .word NNS_G3dAnmObjInitFuncArray + 0x4
+	arm_func_end NNS_G3dAnmObjInit
 
-	; _end
-	arm_func_start FUN_020B81B0
-FUN_020B81B0: ; 0x020B81B0
+	arm_func_start NNS_G3dAnmObjCalcSizeRequired
+NNS_G3dAnmObjCalcSizeRequired: ; 0x020B81B0
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x4a
 	beq _020B81E4
@@ -881,5 +855,4 @@ _020B81E4:
 _020B81F8:
 	mov r0, #0x0
 	bx lr
-	arm_func_end FUN_020B81B0
-
+	arm_func_end NNS_G3dAnmObjCalcSizeRequired

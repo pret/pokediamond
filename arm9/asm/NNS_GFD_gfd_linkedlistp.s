@@ -3,47 +3,38 @@
 
 	.section .bss
 
-	; mgr_
-	.global UNK_021CCD88
-UNK_021CCD88: ; 0x021CCD88
-	.space 0x4
-
-	; mgr_ + 0x4
-	.global UNK_021CCD8C
-UNK_021CCD8C: ; 0x021CCD8C
-	.space 0x10
+mgr_: ; 0x021CCD88
+	.space 0x14
 
 	.section .text
 
-	; NNS_GfdResetLnkPlttVramState
-	arm_func_start FUN_020AFA30
-FUN_020AFA30: ; 0x020AFA30
+	arm_func_start NNS_GfdResetLnkPlttVramState
+NNS_GfdResetLnkPlttVramState: ; 0x020AFA30
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r0, _020AFA78 ; =UNK_021CCD88
+	ldr r0, _020AFA78 ; =mgr_
 	ldr r1, [r0, #0x10]
 	ldr r0, [r0, #0xc]
 	mov r1, r1, lsr #0x4
-	bl FUN_020AF64C
-	ldr r1, _020AFA78 ; =UNK_021CCD88
+	bl NNSi_GfdInitLnkVramBlockPool
+	ldr r1, _020AFA78 ; =mgr_
 	str r0, [r1, #0x4]
 	mov r0, r1
-	bl FUN_020AF698
-	ldr r0, _020AFA78 ; =UNK_021CCD88
-	ldr r1, _020AFA7C ; =UNK_021CCD8C
+	bl NNSi_GfdInitLnkVramMan
+	ldr r0, _020AFA78 ; =mgr_
+	ldr r1, _020AFA7C ; =mgr_ + 0x4
 	ldr r3, [r0, #0x8]
 	mov r2, #0x0
-	bl FUN_020AF5E0
+	bl NNSi_GfdAddNewFreeBlock
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 	.balign 4
-_020AFA78: .word UNK_021CCD88
-_020AFA7C: .word UNK_021CCD8C
-	arm_func_end FUN_020AFA30
+_020AFA78: .word mgr_
+_020AFA7C: .word mgr_ + 0x4
+	arm_func_end NNS_GfdResetLnkPlttVramState
 
-	; NNS_GfdFreeLnkPlttVram
-	arm_func_start FUN_020AFA80
-FUN_020AFA80: ; 0x020AFA80
+	arm_func_start NNS_GfdFreeLnkPlttVram
+NNS_GfdFreeLnkPlttVram: ; 0x020AFA80
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r1, #0x10000
@@ -52,11 +43,11 @@ FUN_020AFA80: ; 0x020AFA80
 	and r2, r0, r2
 	and r12, r0, r1
 	mov r3, r2, lsr #0x10
-	ldr r0, _020AFACC ; =UNK_021CCD88
-	ldr r1, _020AFAD0 ; =UNK_021CCD8C
+	ldr r0, _020AFACC ; =mgr_
+	ldr r1, _020AFAD0 ; =mgr_ + 0x4
 	mov r2, r12, lsl #0x3
 	mov r3, r3, lsl #0x3
-	bl FUN_020AF334
+	bl NNSi_GfdFreeLnkVram
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
@@ -64,13 +55,12 @@ FUN_020AFA80: ; 0x020AFA80
 	ldmia sp!, {pc}
 	.balign 4
 _020AFAC8: .word 0x0000FFFF
-_020AFACC: .word UNK_021CCD88
-_020AFAD0: .word UNK_021CCD8C
-	arm_func_end FUN_020AFA80
+_020AFACC: .word mgr_
+_020AFAD0: .word mgr_ + 0x4
+	arm_func_end NNS_GfdFreeLnkPlttVram
 
-	; NNS_GfdAllocLnkPlttVram
-	arm_func_start FUN_020AFAD4
-FUN_020AFAD4: ; 0x020AFAD4
+	arm_func_start NNS_GfdAllocLnkPlttVram
+NNS_GfdAllocLnkPlttVram: ; 0x020AFAD4
 	stmdb sp!, {r4,lr}
 	sub sp, sp, #0x8
 	cmp r0, #0x0
@@ -85,31 +75,31 @@ FUN_020AFAD4: ; 0x020AFAD4
 	cmp r1, #0x0
 	beq _020AFB50
 	mov r12, #0x8
-	ldr r0, _020AFB9C ; =UNK_021CCD88
-	ldr r1, _020AFBA0 ; =UNK_021CCD8C
+	ldr r0, _020AFB9C ; =mgr_
+	ldr r1, _020AFBA0 ; =mgr_ + 0x4
 	add r2, sp, #0x4
 	mov r3, r4
 	str r12, [sp, #0x0]
-	bl FUN_020AF488
+	bl NNSi_GfdAllocLnkVramAligned
 	ldr r2, [sp, #0x4]
 	add r1, r2, r4
 	cmp r1, #0x10000
 	bls _020AFB6C
-	ldr r0, _020AFB9C ; =UNK_021CCD88
-	ldr r1, _020AFBA0 ; =UNK_021CCD8C
+	ldr r0, _020AFB9C ; =mgr_
+	ldr r1, _020AFBA0 ; =mgr_ + 0x4
 	mov r3, r4
-	bl FUN_020AF334
+	bl NNSi_GfdFreeLnkVram
 	add sp, sp, #0x8
 	mov r0, #0x0
 	ldmia sp!, {r4,pc}
 _020AFB50:
-	ldr r0, _020AFB9C ; =UNK_021CCD88
+	ldr r0, _020AFB9C ; =mgr_
 	mov r12, #0x10
-	ldr r1, _020AFBA0 ; =UNK_021CCD8C
+	ldr r1, _020AFBA0 ; =mgr_ + 0x4
 	add r2, sp, #0x4
 	mov r3, r4
 	str r12, [sp, #0x0]
-	bl FUN_020AF488
+	bl NNSi_GfdAllocLnkVramAligned
 _020AFB6C:
 	cmp r0, #0x0
 	addeq sp, sp, #0x8
@@ -124,42 +114,39 @@ _020AFB6C:
 	ldmia sp!, {r4,pc}
 	.balign 4
 _020AFB98: .word 0x0007FFF8
-_020AFB9C: .word UNK_021CCD88
-_020AFBA0: .word UNK_021CCD8C
+_020AFB9C: .word mgr_
+_020AFBA0: .word mgr_ + 0x4
 _020AFBA4: .word 0x0000FFFF
-	arm_func_end FUN_020AFAD4
+	arm_func_end NNS_GfdAllocLnkPlttVram
 
-	; NNS_GfdInitLnkPlttVramManager
-	arm_func_start FUN_020AFBA8
-FUN_020AFBA8: ; 0x020AFBA8
+	arm_func_start NNS_GfdInitLnkPlttVramManager
+NNS_GfdInitLnkPlttVramManager: ; 0x020AFBA8
 	stmdb sp!, {r4,lr}
-	ldr ip, _020AFBE8 ; =UNK_021CCD88
+	ldr ip, _020AFBE8 ; =mgr_
 	mov r4, r3
 	str r0, [r12, #0x8]
 	str r1, [r12, #0xc]
 	str r2, [r12, #0x10]
-	bl FUN_020AFA30
+	bl NNS_GfdResetLnkPlttVramState
 	cmp r4, #0x0
 	ldmeqia sp!, {r4,pc}
-	ldr r3, _020AFBEC ; =FUN_020AFAD4
-	ldr r1, _020AFBF0 ; =UNK_021064C0
-	ldr r2, _020AFBF4 ; =FUN_020AFA80
-	ldr r0, _020AFBF8 ; =UNK_021064C4
+	ldr r3, _020AFBEC ; =NNS_GfdAllocLnkPlttVram
+	ldr r1, _020AFBF0 ; =NNS_GfdDefaultFuncAllocPlttVram
+	ldr r2, _020AFBF4 ; =NNS_GfdFreeLnkPlttVram
+	ldr r0, _020AFBF8 ; =NNS_GfdDefaultFuncFreePlttVram
 	str r3, [r1, #0x0]
 	str r2, [r0, #0x0]
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020AFBE8: .word UNK_021CCD88
-_020AFBEC: .word FUN_020AFAD4
-_020AFBF0: .word UNK_021064C0
-_020AFBF4: .word FUN_020AFA80
-_020AFBF8: .word UNK_021064C4
-	arm_func_end FUN_020AFBA8
+_020AFBE8: .word mgr_
+_020AFBEC: .word NNS_GfdAllocLnkPlttVram
+_020AFBF0: .word NNS_GfdDefaultFuncAllocPlttVram
+_020AFBF4: .word NNS_GfdFreeLnkPlttVram
+_020AFBF8: .word NNS_GfdDefaultFuncFreePlttVram
+	arm_func_end NNS_GfdInitLnkPlttVramManager
 
-	; _end
-	arm_func_start FUN_020AFBFC
-FUN_020AFBFC: ; 0x020AFBFC
+	arm_func_start NNS_GfdGetLnkPlttVramManagerWorkSize
+NNS_GfdGetLnkPlttVramManagerWorkSize: ; 0x020AFBFC
 	mov r0, r0, lsl #0x4
 	bx lr
-	arm_func_end FUN_020AFBFC
-
+	arm_func_end NNS_GfdGetLnkPlttVramManagerWorkSize

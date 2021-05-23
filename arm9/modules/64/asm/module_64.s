@@ -416,7 +416,7 @@ MOD64_021D785C: ; 0x021D785C
 	push {r4, r5, lr}
 	sub sp, #0x24
 	add r4, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -456,7 +456,7 @@ MOD64_021D78B4: ; 0x021D78B4
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _021D7940 ; =0x04000060
 	ldr r1, _021D7944 ; =0xFFFFCFFD
@@ -511,11 +511,11 @@ _021D7900:
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	add sp, #4
 	pop {r3, r4, pc}
 	.align 2, 0
@@ -533,8 +533,8 @@ _021D7960: .word 0xBFFF0000
 	thumb_func_start MOD64_021D7964
 MOD64_021D7964: ; 0x021D7964
 	push {r3, lr}
-	bl FUN_020AEAF4
-	bl FUN_020AEC60
+	bl NNS_GfdResetFrmTexVramState
+	bl NNS_GfdResetFrmPlttVramState
 	pop {r3, pc}
 	thumb_func_end MOD64_021D7964
 
@@ -741,13 +741,13 @@ MOD64_021D7B04: ; 0x021D7B04
 	mov r1, #2
 	lsl r1, r1, #8
 	str r0, [r5, r1]
-	ldr r3, _021D7BA4 ; =UNK_021064B8
+	ldr r3, _021D7BA4 ; =NNS_GfdDefaultFuncAllocTexVram
 	lsl r0, r1, #6
 	mov r1, #0
 	ldr r3, [r3]
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D7BA8 ; =UNK_021064C0
+	ldr r3, _021D7BA8 ; =NNS_GfdDefaultFuncAllocPlttVram
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -808,8 +808,8 @@ _021D7B8E:
 	blt _021D7B8E
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021D7BA4: .word UNK_021064B8
-_021D7BA8: .word UNK_021064C0
+_021D7BA4: .word NNS_GfdDefaultFuncAllocTexVram
+_021D7BA8: .word NNS_GfdDefaultFuncAllocPlttVram
 _021D7BAC: .word 0x7FFF0000
 _021D7BB0: .word 0xFFFF0000
 	thumb_func_end MOD64_021D7B04
@@ -1059,7 +1059,7 @@ MOD64_021D7D7C: ; 0x021D7D7C
 	mov r0, #0x52
 	bl UncompressFromNarc
 	str r0, [r4, #0x54]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	str r0, [r4, #0x58]
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
@@ -1067,7 +1067,7 @@ MOD64_021D7D7C: ; 0x021D7D7C
 	add r0, r0, r1
 	str r0, [r4, #0x5c]
 	ldr r0, [r4, #0x54]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r4, #0x60]
 	bl FUN_0201B3C4
 	ldr r0, [r4, #0x54]
@@ -1075,7 +1075,7 @@ MOD64_021D7D7C: ; 0x021D7D7C
 	bl FUN_0201B3A8
 	ldr r1, [r4, #0x5c]
 	add r0, r4, #0
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add sp, #4
 	pop {r3, r4, pc}
 	thumb_func_end MOD64_021D7D7C
@@ -1094,20 +1094,20 @@ MOD64_021D7DC0: ; 0x021D7DC0
 	bl UncompressFromNarc
 	str r0, [r4, #0x64]
 	mov r1, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	str r0, [r4, #0x68]
 	ldr r1, [r4, #0x68]
 	ldr r2, [r4, #0x5c]
 	add r0, r5, #0
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4, #0x6c]
 	ldr r1, [r4, #0x68]
 	ldr r2, [r4, #0x5c]
 	ldr r3, [r4, #0x60]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r4, #0x6c]
 	add r0, r4, #0
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -1128,7 +1128,7 @@ _021D7E14:
 	beq _021D7E28
 	ldr r1, [r5, #0x6c]
 	add r0, r4, #0
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	ldr r0, [r5, #0x64]
 	bl FreeToHeap
 _021D7E28:
@@ -1442,18 +1442,18 @@ MOD64_021D8058: ; 0x021D8058
 	ldr r2, _021D809C ; =0xFFFFF000
 	add r1, r0, #0
 	add r3, r0, #0
-	bl FUN_020B8418
+	bl NNS_G3dGlbLightVector
 	ldr r1, _021D80A0 ; =0x00007FFF
 	mov r0, #0
-	bl FUN_020B8404
+	bl NNS_G3dGlbLightColor
 	ldr r0, _021D80A0 ; =0x00007FFF
 	mov r2, #0
 	add r1, r0, #0
-	bl FUN_020B83E0
+	bl NNS_G3dGlbMaterialColorDiffAmb
 	ldr r0, _021D80A0 ; =0x00007FFF
 	mov r2, #0
 	add r1, r0, #0
-	bl FUN_020B83BC
+	bl NNS_G3dGlbMaterialColorSpecEmi
 	mov r0, #0x26
 	lsl r0, r0, #4
 	mov r4, #0
@@ -1634,9 +1634,9 @@ MOD64_021D81D8: ; 0x021D81D8
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
-	bl FUN_020BB394
-	bl FUN_020B02C8
+	bl NNS_G3dGeBufferOP_N
+	bl NNS_G3dGeFlushBuffer
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
@@ -1648,11 +1648,11 @@ MOD64_021D81D8: ; 0x021D81D8
 	mov r0, #0x12
 	add r1, sp, #4
 	str r2, [sp, #4]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	bl FUN_0201EBA4
 	add r0, r4, #0
 	bl MOD64_021D8058
@@ -1660,7 +1660,7 @@ MOD64_021D81D8: ; 0x021D81D8
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_020222B4

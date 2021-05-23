@@ -8797,7 +8797,7 @@ FUN_0201AB28: ; 0x0201AB28
 	bl FUN_020161A4
 	add r1, sp, #0x0
 	str r0, [r4, #0x0]
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	ldr r0, [sp, #0x0]
 	add sp, #0x4
 	pop {r3-r4, pc}
@@ -8812,7 +8812,7 @@ FUN_0201AB44: ; 0x0201AB44
 	bl FUN_020161A4
 	add r1, sp, #0x0
 	str r0, [r4, #0x0]
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r0, [sp, #0x0]
 	add sp, #0x4
 	pop {r3-r4, pc}

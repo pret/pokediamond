@@ -3,15 +3,14 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020AFDE8
-FUN_020AFDE8: ; 0x020AFDE8
+	arm_func_start NNS_G2dUnpackNCE
+NNS_G2dUnpackNCE: ; 0x020AFDE8
 	stmdb sp!, {r4-r6,lr}
 	mov r5, r0
 	ldr r1, [r5, #0x4]
 	add r1, r1, r5
 	str r1, [r5, #0x4]
-	bl FUN_020AFF10
+	bl GetPtrOamArrayHead_
 	ldrh r1, [r5, #0x0]
 	mov r4, r0
 	mov r6, #0x0
@@ -20,7 +19,7 @@ FUN_020AFDE8: ; 0x020AFDE8
 _020AFE14:
 	mov r0, r5
 	mov r1, r6
-	bl FUN_020AFE8C
+	bl NNS_G2dGetCellDataByIdx
 	ldr r2, [r0, #0x4]
 	add r1, r6, #0x1
 	add r2, r2, r4
@@ -48,13 +47,12 @@ _020AFE6C:
 	add r0, r0, r5
 	str r0, [r5, #0x14]
 	ldr r0, [r5, #0x14]
-	bl FUN_020AFF00
+	bl UnPackExtendedData_
 	ldmia sp!, {r4-r6,pc}
-	arm_func_end FUN_020AFDE8
+	arm_func_end NNS_G2dUnpackNCE
 
-	; _end
-	arm_func_start FUN_020AFE8C
-FUN_020AFE8C: ; 0x020AFE8C
+	arm_func_start NNS_G2dGetCellDataByIdx
+NNS_G2dGetCellDataByIdx: ; 0x020AFE8C
 	ldrh r2, [r0, #0x0]
 	cmp r1, r2
 	movcs r0, #0x0
@@ -66,23 +64,22 @@ FUN_020AFE8C: ; 0x020AFE8C
 	ldreq r0, [r0, #0x4]
 	addeq r0, r0, r1, lsl #0x3
 	bx lr
-	arm_func_end FUN_020AFE8C
+	arm_func_end NNS_G2dGetCellDataByIdx
 
-	; NNS_G2dGetUnpackedCellBank
-	arm_func_start FUN_020AFEB8
-FUN_020AFEB8: ; 0x020AFEB8
+	arm_func_start NNS_G2dGetUnpackedCellBank
+NNS_G2dGetUnpackedCellBank: ; 0x020AFEB8
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r1
 	ldr r1, _020AFEFC ; =0x4345424B
-	bl FUN_020B01F8
+	bl NNS_G2dFindBinaryBlock
 	movs r4, r0
 	moveq r0, #0x0
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
 	add r0, r4, #0x8
-	bl FUN_020AFDE8
+	bl NNS_G2dUnpackNCE
 	add r0, r4, #0x8
 	str r0, [r5, #0x0]
 	mov r0, #0x1
@@ -90,21 +87,19 @@ FUN_020AFEB8: ; 0x020AFEB8
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020AFEFC: .word 0x4345424B
-	arm_func_end FUN_020AFEB8
+	arm_func_end NNS_G2dGetUnpackedCellBank
 
-	; UnPackExtendedData_
-	arm_func_start FUN_020AFF00
-FUN_020AFF00: ; 0x020AFF00
-	ldr ip, _020AFF0C ; =FUN_020B01B0
+	arm_func_start UnPackExtendedData_
+UnPackExtendedData_: ; 0x020AFF00
+	ldr ip, _020AFF0C ; =NNSi_G2dUnpackUserExCellAttrBank
 	add r0, r0, #0x8
 	bx r12
 	.balign 4
-_020AFF0C: .word FUN_020B01B0
-	arm_func_end FUN_020AFF00
+_020AFF0C: .word NNSi_G2dUnpackUserExCellAttrBank
+	arm_func_end UnPackExtendedData_
 
-	; _end
-	arm_func_start FUN_020AFF10
-FUN_020AFF10: ; 0x020AFF10
+	arm_func_start GetPtrOamArrayHead_
+GetPtrOamArrayHead_: ; 0x020AFF10
 	ldrh r1, [r0, #0x2]
 	ands r1, r1, #0x1
 	ldrneh r1, [r0, #0x0]
@@ -114,5 +109,4 @@ FUN_020AFF10: ; 0x020AFF10
 	ldreq r0, [r0, #0x4]
 	addeq r0, r0, r1, lsl #0x3
 	bx lr
-	arm_func_end FUN_020AFF10
-
+	arm_func_end GetPtrOamArrayHead_

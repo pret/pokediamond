@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; NNS_G2dDrawSpriteFast
-	arm_func_start FUN_020B0250
-FUN_020B0250: ; 0x020B0250
+	arm_func_start NNS_G2dDrawSpriteFast
+NNS_G2dDrawSpriteFast: ; 0x020B0250
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	ldr r5, _020B02C0 ; =0x04000470
@@ -31,17 +30,16 @@ FUN_020B0250: ; 0x020B0250
 	mov r2, r2, lsl #0xc
 	mov r3, r3, lsl #0xc
 	str r12, [lr, #0x0]
-	bl FUN_020B0340
+	bl DrawOneQuad_
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020B02C0: .word 0x04000470
 _020B02C4: .word 0x0400046C
-	arm_func_end FUN_020B0250
+	arm_func_end NNS_G2dDrawSpriteFast
 
-	; NNS_G2dSetupSoftwareSpriteCamera
-	arm_func_start FUN_020B02C8
-FUN_020B02C8: ; 0x020B02C8
+	arm_func_start NNS_G2dSetupSoftwareSpriteCamera
+NNS_G2dSetupSoftwareSpriteCamera: ; 0x020B02C8
 	stmdb sp!, {lr}
 	sub sp, sp, #0x14
 	ldr r2, _020B0330 ; =0xBFFF0000
@@ -73,11 +71,10 @@ _020B0330: .word 0xBFFF0000
 _020B0334: .word 0x04000580
 _020B0338: .word 0x0400044C
 _020B033C: .word 0x04000440
-	arm_func_end FUN_020B02C8
+	arm_func_end NNS_G2dSetupSoftwareSpriteCamera
 
-	; DrawOneQuad_
-	arm_func_start FUN_020B0340
-FUN_020B0340: ; 0x020B0340
+	arm_func_start DrawOneQuad_
+DrawOneQuad_: ; 0x020B0340
 	stmdb sp!, {r4-r6,lr}
 	mov r3, r3, lsl #0x8
 	mov r0, r0, lsl #0x8
@@ -129,5 +126,4 @@ _020B03F8: .word 0x04000488
 _020B03FC: .word 0x0400048C
 _020B0400: .word 0x10001000
 _020B0404: .word 0x04000504
-	arm_func_end FUN_020B0340
-
+	arm_func_end DrawOneQuad_

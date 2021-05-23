@@ -3,27 +3,22 @@
 
 	.section .rodata
 
-	; objs$8221
-	.global UNK_020FF970
-UNK_020FF970: ; 0x020FF970
+	.global objs$8221
+objs$8221: ; 0x020FF970
 	.byte 0x00, 0x00, 0x01, 0x00, 0x02, 0x00, 0x02, 0x00, 0x00, 0x01, 0x01, 0x01, 0x02, 0x01, 0x02, 0x01
 	.byte 0x00, 0x02, 0x01, 0x02, 0x02, 0x02, 0x03, 0x02, 0x00, 0x02, 0x01, 0x02, 0x02, 0x03, 0x03, 0x03
 
-	; static const in function
-	; shape$8277
-	.global UNK_020FF990
-UNK_020FF990: ; 0x020FF990
+	.global shape$8277
+shape$8277: ; 0x020FF990
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x40, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x40, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x80, 0x00, 0x40, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x00, 0x80, 0x00, 0x40, 0x00, 0xC0
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0xC0, 0x00, 0x00, 0x00, 0xC0
 
-	; static const in function
 	.section .text
 
-	; NNS_G2dArrangeOBJ1D
-	arm_func_start FUN_020B5E50
-FUN_020B5E50: ; 0x020B5E50
+	arm_func_start NNS_G2dArrangeOBJ1D
+NNS_G2dArrangeOBJ1D: ; 0x020B5E50
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x3c
 	mov r7, r0
@@ -48,7 +43,7 @@ FUN_020B5E50: ; 0x020B5E50
 	movge r1, #0x3
 	clzlt r0, r0
 	rsblt r1, r0, #0x1f
-	ldr r0, _020B6170 ; =UNK_020FF970
+	ldr r0, _020B6170 ; =objs$8221
 	mvn r3, #0x0
 	add r1, r0, r1, lsl #0x3
 	add r0, r1, r2, lsl #0x1
@@ -69,7 +64,7 @@ FUN_020B5E50: ; 0x020B5E50
 	strne r1, [sp, #0x24]
 	mov r1, #0x0
 	str r1, [sp, #0x28]
-	bl FUN_020B704C
+	bl OBJSizeToShape
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0x14]
 	mov r10, r1, asr r4
@@ -155,7 +150,7 @@ _020B5FE8:
 	add r3, r11, r1, lsl #0x3
 	mov r0, r7
 	mov r1, r4
-	bl FUN_020B5E50
+	bl NNS_G2dArrangeOBJ1D
 	ldr r1, [sp, #0x24]
 	add r7, r7, r0, lsl #0x3
 	mul r2, r1, r4
@@ -186,7 +181,7 @@ _020B6078:
 	str r1, [sp, #0xc]
 	ldr r1, [sp, #0x1c]
 	mov r2, r4
-	bl FUN_020B5E50
+	bl NNS_G2dArrangeOBJ1D
 	ldr r2, [sp, #0x24]
 	ldr r1, [sp, #0x1c]
 	add r7, r7, r0, lsl #0x3
@@ -223,7 +218,7 @@ _020B60F0:
 	mov r0, r7
 	add r3, r11, r3, lsl #0x3
 	str r4, [sp, #0xc]
-	bl FUN_020B5E50
+	bl NNS_G2dArrangeOBJ1D
 	ldr r1, [sp, #0x28]
 	add r0, r1, r0
 	str r0, [sp, #0x28]
@@ -232,15 +227,14 @@ _020B6164:
 	add sp, sp, #0x3c
 	ldmia sp!, {r4-r11,pc}
 	.balign 4
-_020B6170: .word UNK_020FF970
+_020B6170: .word objs$8221
 _020B6174: .word 0x000001FF
 _020B6178: .word 0xFE00FF00
 _020B617C: .word 0x3FFF3FFF
-	arm_func_end FUN_020B5E50
+	arm_func_end NNS_G2dArrangeOBJ1D
 
-	; _end
-	arm_func_start FUN_020B6180
-FUN_020B6180: ; 0x020B6180
+	arm_func_start NNSi_G2dCalcRequiredOBJ
+NNSi_G2dCalcRequiredOBJ: ; 0x020B6180
 	stmdb sp!, {r4-r6,lr}
 	mov r3, r0, lsr #0x3
 	mov r6, r1, lsr #0x3
@@ -264,11 +258,10 @@ FUN_020B6180: ; 0x020B6180
 	add r0, lr, r0, lsr #0x2
 	mla r0, r1, r0, r12
 	ldmia sp!, {r4-r6,pc}
-	arm_func_end FUN_020B6180
+	arm_func_end NNSi_G2dCalcRequiredOBJ
 
-	; _end
-	arm_func_start FUN_020B61DC
-FUN_020B61DC: ; 0x020B61DC
+	arm_func_start NNS_G2dMapScrToChar256x16Pltt
+NNS_G2dMapScrToChar256x16Pltt: ; 0x020B61DC
 	stmdb sp!, {r4-r8,lr}
 	ldr r12, [sp, #0x1c]
 	ldr r8, [sp, #0x18]
@@ -297,11 +290,10 @@ _020B622C:
 	add r0, r0, lr
 	blt _020B6204
 	ldmia sp!, {r4-r8,pc}
-	arm_func_end FUN_020B61DC
+	arm_func_end NNS_G2dMapScrToChar256x16Pltt
 
-	; _end
-	arm_func_start FUN_020B6240
-FUN_020B6240: ; 0x020B6240
+	arm_func_start NNS_G2dMapScrToCharText
+NNS_G2dMapScrToCharText: ; 0x020B6240
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0x8
 	ldr r5, [sp, #0x24]
@@ -315,7 +307,7 @@ FUN_020B6240: ; 0x020B6240
 	mov r3, r5
 	add r0, r0, r4, lsl #0x1
 	str lr, [sp, #0x4]
-	bl FUN_020B61DC
+	bl NNS_G2dMapScrToChar256x16Pltt
 	add sp, sp, #0x8
 	ldmia sp!, {r4-r8,pc}
 _020B6280:
@@ -352,11 +344,10 @@ _020B62E4:
 	blt _020B62A0
 	add sp, sp, #0x8
 	ldmia sp!, {r4-r8,pc}
-	arm_func_end FUN_020B6240
+	arm_func_end NNS_G2dMapScrToCharText
 
-	; NNS_G2dCharCanvasInitForOBJ1D
-	arm_func_start FUN_020B62F8
-FUN_020B62F8: ; 0x020B62F8
+	arm_func_start NNS_G2dCharCanvasInitForOBJ1D
+NNS_G2dCharCanvasInitForOBJ1D: ; 0x020B62F8
 	stmdb sp!, {r4-r6,lr}
 	sub sp, sp, #0x18
 	cmp r2, #0x8
@@ -369,16 +360,16 @@ FUN_020B62F8: ; 0x020B62F8
 	movge r6, #0x3
 	clzlt r4, r4
 	rsblt r6, r4, #0x1f
-	ldr r4, _020B6378 ; =UNK_020FF970
+	ldr r4, _020B6378 ; =objs$8221
 	ldr r5, [sp, #0x28]
 	add r4, r4, r6, lsl #0x3
 	ldrb r6, [r4, r12, lsl #0x1]
 	add r12, r4, r12, lsl #0x1
-	ldr r4, _020B637C ; =FUN_020B6908
+	ldr r4, _020B637C ; =DrawGlyph1D
 	strb r6, [sp, #0x14]
 	ldrb r6, [r12, #0x1]
-	ldr lr, _020B6380 ; =FUN_020B68AC
-	ldr ip, _020B6384 ; =FUN_020B64C0
+	ldr lr, _020B6380 ; =ClearContinuous
+	ldr ip, _020B6384 ; =ClearArea1D
 	strb r6, [sp, #0x15]
 	str r5, [sp, #0x0]
 	str r4, [sp, #0x4]
@@ -386,42 +377,40 @@ FUN_020B62F8: ; 0x020B62F8
 	str r12, [sp, #0xc]
 	ldr r12, [sp, #0x14]
 	str r12, [sp, #0x10]
-	bl FUN_020B6488
+	bl InitCharCanvas
 	add sp, sp, #0x18
 	ldmia sp!, {r4-r6,pc}
 	.balign 4
-_020B6378: .word UNK_020FF970
-_020B637C: .word FUN_020B6908
-_020B6380: .word FUN_020B68AC
-_020B6384: .word FUN_020B64C0
-	arm_func_end FUN_020B62F8
+_020B6378: .word objs$8221
+_020B637C: .word DrawGlyph1D
+_020B6380: .word ClearContinuous
+_020B6384: .word ClearArea1D
+	arm_func_end NNS_G2dCharCanvasInitForOBJ1D
 
-	; NNS_G2dCharCanvasInitForBG
-	arm_func_start FUN_020B6388
-FUN_020B6388: ; 0x020B6388
+	arm_func_start NNS_G2dCharCanvasInitForBG
+NNS_G2dCharCanvasInitForBG: ; 0x020B6388
 	stmdb sp!, {lr}
 	sub sp, sp, #0x14
 	ldr lr, [sp, #0x18]
-	ldr ip, _020B63C0 ; =FUN_020B6B10
+	ldr ip, _020B63C0 ; =DrawGlyphLine
 	str lr, [sp, #0x0]
-	ldr lr, _020B63C4 ; =FUN_020B68AC
+	ldr lr, _020B63C4 ; =ClearContinuous
 	str r12, [sp, #0x4]
-	ldr ip, _020B63C8 ; =FUN_020B66D4
+	ldr ip, _020B63C8 ; =ClearAreaLine
 	str lr, [sp, #0x8]
 	str r12, [sp, #0xc]
 	str r2, [sp, #0x10]
-	bl FUN_020B6488
+	bl InitCharCanvas
 	add sp, sp, #0x14
 	ldmia sp!, {pc}
 	.balign 4
-_020B63C0: .word FUN_020B6B10
-_020B63C4: .word FUN_020B68AC
-_020B63C8: .word FUN_020B66D4
-	arm_func_end FUN_020B6388
+_020B63C0: .word DrawGlyphLine
+_020B63C4: .word ClearContinuous
+_020B63C8: .word ClearAreaLine
+	arm_func_end NNS_G2dCharCanvasInitForBG
 
-	; NNS_G2dCharCanvasDrawChar
-	arm_func_start FUN_020B63CC
-FUN_020B63CC: ; 0x020B63CC
+	arm_func_start NNS_G2dCharCanvasDrawChar
+NNS_G2dCharCanvasDrawChar: ; 0x020B63CC
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0x10
 	mov r7, r1
@@ -430,7 +419,7 @@ FUN_020B63CC: ; 0x020B63CC
 	mov r0, r7
 	mov r6, r2
 	mov r5, r3
-	bl FUN_020B5CE4
+	bl NNS_G2dFontFindGlyphIndex
 	ldr r1, _020B6484 ; =0x0000FFFF
 	mov r4, r0
 	cmp r4, r1
@@ -438,7 +427,7 @@ FUN_020B63CC: ; 0x020B63CC
 	ldreqh r4, [r0, #0x2]
 	mov r0, r7
 	mov r1, r4
-	bl FUN_020B5C88
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	str r0, [sp, #0x8]
 	ldr r0, [r7, #0x0]
 	ldr r2, [sp, #0x28]
@@ -470,11 +459,10 @@ FUN_020B63CC: ; 0x020B63CC
 	ldmia sp!, {r4-r8,pc}
 	.balign 4
 _020B6484: .word 0x0000FFFF
-	arm_func_end FUN_020B63CC
+	arm_func_end NNS_G2dCharCanvasDrawChar
 
-	; _end
-	arm_func_start FUN_020B6488
-FUN_020B6488: ; 0x020B6488
+	arm_func_start InitCharCanvas
+InitCharCanvas: ; 0x020B6488
 	str r2, [r0, #0x4]
 	ldr r2, [sp, #0x0]
 	str r3, [r0, #0x8]
@@ -489,11 +477,10 @@ FUN_020B6488: ; 0x020B6488
 	str r2, [r0, #0x1c]
 	str r1, [r0, #0x10]
 	bx lr
-	arm_func_end FUN_020B6488
+	arm_func_end InitCharCanvas
 
-	; _end
-	arm_func_start FUN_020B64C0
-FUN_020B64C0: ; 0x020B64C0
+	arm_func_start ClearArea1D
+ClearArea1D: ; 0x020B64C0
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x54
 	ldrb r4, [r0, #0xc]
@@ -597,7 +584,7 @@ _020B6630:
 	str r0, [sp, #0x4]
 	mov r0, r7
 	mov r1, r6
-	bl FUN_020B7068
+	bl GetCharIndex1D
 	ldr r2, [sp, #0x1c]
 	cmp r8, r10
 	sublt r1, r10, r8
@@ -616,7 +603,7 @@ _020B6630:
 	ldr r2, [sp, #0x28]
 	mla r0, r12, r0, r2
 	mov r2, r9
-	bl FUN_020B6F18
+	bl ClearChar
 	add r8, r8, #0x8
 	add r7, r7, #0x1
 	cmp r8, r5
@@ -631,11 +618,10 @@ _020B66B0:
 	blt _020B65E4
 	add sp, sp, #0x54
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020B64C0
+	arm_func_end ClearArea1D
 
-	; _end
-	arm_func_start FUN_020B66D4
-FUN_020B66D4: ; 0x020B66D4
+	arm_func_start ClearAreaLine
+ClearAreaLine: ; 0x020B66D4
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x3c
 	ldrb r4, [r0, #0xc]
@@ -739,7 +725,7 @@ _020B6828:
 	mov r2, r9
 	str r0, [sp, #0x8]
 	mov r0, r6
-	bl FUN_020B6F18
+	bl ClearChar
 	ldr r0, [sp, #0x30]
 	add r8, r8, #0x8
 	add r6, r6, r0
@@ -758,11 +744,10 @@ _020B687C:
 	blt _020B67E0
 	add sp, sp, #0x3c
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020B66D4
+	arm_func_end ClearAreaLine
 
-	; _end
-	arm_func_start FUN_020B68AC
-FUN_020B68AC: ; 0x020B68AC
+	arm_func_start ClearContinuous
+ClearContinuous: ; 0x020B68AC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r3, r0
@@ -786,11 +771,10 @@ FUN_020B68AC: ; 0x020B68AC
 	bl MIi_CpuClearFast
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020B68AC
+	arm_func_end ClearContinuous
 
-	; _end
-	arm_func_start FUN_020B6908
-FUN_020B6908: ; 0x020B6908
+	arm_func_start DrawGlyph1D
+DrawGlyph1D: ; 0x020B6908
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4c
 	ldr r7, [sp, #0x74]
@@ -904,12 +888,12 @@ _020B6AAC:
 	mov r0, r7
 	mov r1, r10
 	str r4, [sp, #0x4]
-	bl FUN_020B7068
+	bl GetCharIndex1D
 	mla r1, r0, r5, r6
 	add r0, sp, #0x24
 	str r9, [sp, #0x2c]
 	str r1, [sp, #0x24]
-	bl FUN_020B6CAC
+	bl LetterChar
 	sub r9, r9, #0x8
 	add r7, r7, #0x1
 	cmp r9, r8
@@ -924,11 +908,10 @@ _020B6AEC:
 	bgt _020B6A90
 	add sp, sp, #0x4c
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020B6908
+	arm_func_end DrawGlyph1D
 
-	; _end
-	arm_func_start FUN_020B6B10
-FUN_020B6B10: ; 0x020B6B10
+	arm_func_start DrawGlyphLine
+DrawGlyphLine: ; 0x020B6B10
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x2c
 	ldr r4, [sp, #0x54]
@@ -1022,7 +1005,7 @@ _020B6C70:
 	mov r0, r4
 	str r6, [sp, #0x4]
 	str r8, [sp, #0xc]
-	bl FUN_020B6CAC
+	bl LetterChar
 	sub r8, r8, #0x8
 	cmp r8, r7
 	add r6, r6, r5
@@ -1035,11 +1018,10 @@ _020B6C90:
 	bgt _020B6C60
 	add sp, sp, #0x2c
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020B6B10
+	arm_func_end DrawGlyphLine
 
-	; _end
-	arm_func_start FUN_020B6CAC
-FUN_020B6CAC: ; 0x020B6CAC
+	arm_func_start LetterChar
+LetterChar: ; 0x020B6CAC
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x34
 	ldr r5, [r0, #0x8]
@@ -1108,7 +1090,7 @@ _020B6D88:
 	strb r0, [sp, #0x28]
 	strb r0, [sp, #0x29]
 	mov r0, r9
-	bl FUN_020B76B0
+	bl NNSi_G2dBitReaderRead
 	ldr r8, [sp, #0x0]
 	mov r0, r8
 	cmp r0, r10
@@ -1116,7 +1098,7 @@ _020B6D88:
 _020B6DCC:
 	mov r0, r9
 	mov r1, r6
-	bl FUN_020B76B0
+	bl NNSi_G2dBitReaderRead
 	cmp r0, #0x0
 	mvnne r1, r4, lsl r8
 	addne r0, r7, r0
@@ -1165,7 +1147,7 @@ _020B6E58:
 	strb r0, [sp, #0x30]
 	strb r0, [sp, #0x31]
 	add r0, sp, #0x2c
-	bl FUN_020B76B0
+	bl NNSi_G2dBitReaderRead
 	ldr r0, [sp, #0x0]
 	cmp r0, r10
 	mov r5, r0
@@ -1173,7 +1155,7 @@ _020B6E58:
 _020B6EA0:
 	add r0, sp, #0x2c
 	mov r1, r6
-	bl FUN_020B76B0
+	bl NNSi_G2dBitReaderRead
 	cmp r0, #0x0
 	beq _020B6EDC
 	cmp r5, #0x20
@@ -1203,11 +1185,10 @@ _020B6EE8:
 	blo _020B6E58
 	add sp, sp, #0x34
 	ldmia sp!, {r4-r11,pc}
-	arm_func_end FUN_020B6CAC
+	arm_func_end LetterChar
 
-	; _end
-	arm_func_start FUN_020B6F18
-FUN_020B6F18: ; 0x020B6F18
+	arm_func_start ClearChar
+ClearChar: ; 0x020B6F18
 	stmdb sp!, {r4-r6,lr}
 	mov lr, r0
 	cmp r3, #0x8
@@ -1289,27 +1270,25 @@ _020B701C:
 	cmp r5, r4
 	blo _020B701C
 	ldmia sp!, {r4-r6,pc}
-	arm_func_end FUN_020B6F18
+	arm_func_end ClearChar
 
-	; OBJSizeToShape
-	arm_func_start FUN_020B704C
-FUN_020B704C: ; 0x020B704C
+	arm_func_start OBJSizeToShape
+OBJSizeToShape: ; 0x020B704C
 	ldrb r3, [r0, #0x1]
-	ldr r2, _020B7064 ; =UNK_020FF990
+	ldr r2, _020B7064 ; =shape$8277
 	ldrb r1, [r0, #0x0]
 	add r0, r2, r3, lsl #0x4
 	ldr r0, [r0, r1, lsl #0x2]
 	bx lr
 	.balign 4
-_020B7064: .word UNK_020FF990
-	arm_func_end FUN_020B704C
+_020B7064: .word shape$8277
+	arm_func_end OBJSizeToShape
 
-	; GetCharIndex1D
-	arm_func_start FUN_020B7068
-FUN_020B7068: ; 0x020B7068
+	arm_func_start GetCharIndex1D
+GetCharIndex1D: ; 0x020B7068
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
-	ldr fp, _020B7164 ; =UNK_020FF970
+	ldr fp, _020B7164 ; =objs$8221
 	mov r9, #0x0
 	mov r10, #0x3
 	mvn r7, #0x0
@@ -1374,6 +1353,5 @@ _020B7118:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r11,pc}
 	.balign 4
-_020B7164: .word UNK_020FF970
-	arm_func_end FUN_020B7068
-
+_020B7164: .word objs$8221
+	arm_func_end GetCharIndex1D

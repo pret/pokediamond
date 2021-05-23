@@ -3,54 +3,43 @@
 
 	.section .bss
 
-	; sPrepareThread
-	.global UNK_021D2900
-UNK_021D2900: ; 0x021D2900
+	.global sPrepareThread
+sPrepareThread: ; 0x021D2900
 	.space 0x4
 
-	; sFreeCommandList
-	.global UNK_021D2904
-UNK_021D2904: ; 0x021D2904
-	.space 0x4d4
+	.global sFreeCommandList
+sFreeCommandList: ; 0x021D2904
+	.space 0xC
+    ; sStrmThread
+    .global sStrmThread
+sStrmThread: ; 0x021D2910
+	.space 0x4EC
 
-	; sFreeCommandList + 0x4D4
-	.global UNK_021D2DD8
-UNK_021D2DD8: ; 0x021D2DD8
-	.space 0x18
-
-	; sFreeCommandList + 0x4EC
-	.global UNK_021D2DF0
-UNK_021D2DF0: ; 0x021D2DF0
-	.space 0xc
-
-	; sStrmPlayer
-	.global UNK_021D2DFC
-UNK_021D2DFC: ; 0x021D2DFC
+	.global sStrmPlayer
+sStrmPlayer: ; 0x021D2DFC
 	.space 0x5c0
 
 	.section .text
 
-	; FreeCommandBuffer
-	arm_func_start FUN_020C3A6C
-FUN_020C3A6C: ; 0x020C3A6C
+	arm_func_start FreeCommandBuffer
+FreeCommandBuffer: ; 0x020C3A6C
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
 	bl OS_DisableInterrupts
 	mov r4, r0
-	ldr r0, _020C3A9C ; =UNK_021D2904
+	ldr r0, _020C3A9C ; =sFreeCommandList
 	mov r1, r5
-	bl FUN_020ADBE8
+	bl NNS_FndAppendListObject
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
-_020C3A9C: .word UNK_021D2904
+_020C3A9C: .word sFreeCommandList
 
-	; _end
-	arm_func_start FUN_020C3AA0
-FUN_020C3AA0: ; 0x020C3AA0
+	arm_func_start RemoveCommandByPlayer
+RemoveCommandByPlayer: ; 0x020C3AA0
 	stmdb sp!, {r4-r8,lr}
 	mov r8, r0
 	mov r7, r1
@@ -58,22 +47,22 @@ FUN_020C3AA0: ; 0x020C3AA0
 	mov r6, r0
 	mov r0, r8
 	mov r1, #0x0
-	bl FUN_020ADA98
+	bl NNS_FndGetNextListObject
 	movs r5, r0
 	beq _020C3B04
 _020C3AC8:
 	mov r0, r8
 	mov r1, r5
-	bl FUN_020ADA98
+	bl NNS_FndGetNextListObject
 	ldr r1, [r5, #0x8]
 	mov r4, r0
 	cmp r1, r7
 	bne _020C3AF8
 	mov r0, r8
 	mov r1, r5
-	bl FUN_020ADAB0
+	bl NNS_FndRemoveListObject
 	mov r0, r5
-	bl FUN_020C3A6C
+	bl FreeCommandBuffer
 _020C3AF8:
 	mov r5, r4
 	cmp r4, #0x0
@@ -83,9 +72,8 @@ _020C3B04:
 	bl OS_RestoreInterrupts
 	ldmia sp!, {r4-r8,pc}
 
-	; _end
-	arm_func_start FUN_020C3B10
-FUN_020C3B10: ; 0x020C3B10
+	arm_func_start FreeChannel
+FreeChannel: ; 0x020C3B10
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r1, [r0, #0x120]
@@ -98,49 +86,47 @@ FUN_020C3B10: ; 0x020C3B10
 	cmp r1, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {pc}
-	bl FUN_020C1674
+	bl NNS_SndStrmFreeChannel
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; ShutdownPlayer
-	arm_func_start FUN_020C3B4C
-FUN_020C3B4C: ; 0x020C3B4C
+	local_arm_func_start ShutdownPlayer
+ShutdownPlayer: ; 0x020C3B4C
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r1, [r4, #0x110]
 	mov r1, r1, lsl #0x1f
 	movs r1, r1, asr #0x1f
 	ldmeqia sp!, {r4,pc}
-	bl FUN_020C3B10
+	bl FreeChannel
 	ldr r1, [r4, #0x164]
 	mov r0, r4
 	blx r1
-	ldr r0, _020C3BA8 ; =UNK_021D2DF0
+	ldr r0, _020C3BA8 ; =sStrmThread + 0x4E0
 	mov r1, r4
-	bl FUN_020C3AA0
-	ldr r0, _020C3BAC ; =UNK_021D2900
+	bl RemoveCommandByPlayer
+	ldr r0, _020C3BAC ; =sPrepareThread
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _020C3B9C
 	mov r1, r4
 	add r0, r0, #0x4e0
-	bl FUN_020C3AA0
+	bl RemoveCommandByPlayer
 _020C3B9C:
 	mov r0, r4
-	bl FUN_020C3C4C
+	bl FreePlayer
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020C3BA8: .word UNK_021D2DF0
-_020C3BAC: .word UNK_021D2900
+_020C3BA8: .word sStrmThread + 0x4E0
+_020C3BAC: .word sPrepareThread
 
-	; ForceStopStrm
-	arm_func_start FUN_020C3BB0
-FUN_020C3BB0: ; 0x020C3BB0
+	local_arm_func_start ForceStopStrm
+ForceStopStrm: ; 0x020C3BB0
 	stmdb sp!, {r4,lr}
 	mov r4, r0
-	ldr r0, _020C3C40 ; =UNK_021D2DD8
+	ldr r0, _020C3C40 ; =sStrmThread + 0x4C8
 	bl OS_LockMutex
-	ldr r0, _020C3C44 ; =UNK_021D2900
+	ldr r0, _020C3C44 ; =sPrepareThread
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
 	beq _020C3BDC
@@ -153,7 +139,7 @@ _020C3BDC:
 	movs r0, r0, asr #0x1f
 	beq _020C3BF4
 	mov r0, r4
-	bl FUN_020C1430
+	bl NNS_SndStrmStop
 _020C3BF4:
 	ldr r0, [r4, #0x110]
 	mov r0, r0, lsl #0x1f
@@ -164,10 +150,10 @@ _020C3BF4:
 	blx r1
 _020C3C10:
 	mov r0, r4
-	bl FUN_020C3B4C
-	ldr r0, _020C3C40 ; =UNK_021D2DD8
+	bl ShutdownPlayer
+	ldr r0, _020C3C40 ; =sStrmThread + 0x4C8
 	bl OS_UnlockMutex
-	ldr r0, _020C3C44 ; =UNK_021D2900
+	ldr r0, _020C3C44 ; =sPrepareThread
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
 	ldmeqia sp!, {r4,pc}
@@ -176,13 +162,12 @@ _020C3C10:
 	bl OS_UnlockMutex
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020C3C40: .word UNK_021D2DD8
-_020C3C44: .word UNK_021D2900
+_020C3C40: .word sStrmThread + 0x4C8
+_020C3C44: .word sPrepareThread
 _020C3C48: .word 0x000004C8
 
-	; _end
-	arm_func_start FUN_020C3C4C
-FUN_020C3C4C: ; 0x020C3C4C
+	arm_func_start FreePlayer
+FreePlayer: ; 0x020C3C4C
 	ldr r2, [r0, #0x14c]
 	cmp r2, #0x0
 	movne r1, #0x0
@@ -199,12 +184,11 @@ FUN_020C3C4C: ; 0x020C3C4C
 	str r1, [r0, #0x110]
 	bx lr
 
-	; NNSi_SndArcStrmMain
-	arm_func_start FUN_020C3C88
-FUN_020C3C88: ; 0x020C3C88
+	arm_func_start NNSi_SndArcStrmMain
+NNSi_SndArcStrmMain: ; 0x020C3C88
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
-	ldr r5, _020C3D94 ; =UNK_021D2DFC
+	ldr r5, _020C3D94 ; =sStrmPlayer
 	mov r7, #0x0
 	ldr r4, _020C3D98 ; =SNDi_DecibelTable
 _020C3C9C:
@@ -216,7 +200,7 @@ _020C3C9C:
 	cmp r0, #0x0
 	bne _020C3CC4
 	mov r0, r5
-	bl FUN_020C3BB0
+	bl ForceStopStrm
 	b _020C3D7C
 _020C3CC4:
 	mov r0, r1, lsl #0x1d
@@ -226,7 +210,7 @@ _020C3CC4:
 	cmp r0, #0x0
 	beq _020C3CFC
 	mov r0, r5
-	bl FUN_020C1458
+	bl NNS_SndStrmStart
 	ldr r0, [r5, #0x110]
 	orr r0, r0, #0x2
 	str r0, [r5, #0x110]
@@ -239,12 +223,12 @@ _020C3CFC:
 	movs r0, r0, asr #0x1f
 	beq _020C3D7C
 	add r0, r5, #0xe8
-	bl FUN_020C3DF4
+	bl NNSi_SndFaderUpdate
 	ldr r1, [r5, #0x154]
 	add r0, r5, #0xe8
 	mov r1, r1, lsl #0x1
 	ldrsh r6, [r4, r1]
-	bl FUN_020C3E0C
+	bl NNSi_SndFaderGet
 	mov r0, r0, asr #0x8
 	mov r0, r0, lsl #0x1
 	ldrsh r1, [r4, r0]
@@ -254,7 +238,7 @@ _020C3CFC:
 	beq _020C3D54
 	mov r0, r5
 	mov r1, r6
-	bl FUN_020C13C4
+	bl NNS_SndStrmSetVolume
 	str r6, [r5, #0x158]
 _020C3D54:
 	ldr r0, [r5, #0x110]
@@ -262,11 +246,11 @@ _020C3D54:
 	movs r0, r0, asr #0x1f
 	beq _020C3D7C
 	add r0, r5, #0xe8
-	bl FUN_020C3DDC
+	bl NNSi_SndFaderIsFinished
 	cmp r0, #0x0
 	beq _020C3D7C
 	mov r0, r5
-	bl FUN_020C3BB0
+	bl ForceStopStrm
 _020C3D7C:
 	add r7, r7, #0x1
 	cmp r7, #0x4
@@ -275,6 +259,5 @@ _020C3D7C:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020C3D94: .word UNK_021D2DFC
+_020C3D94: .word sStrmPlayer
 _020C3D98: .word SNDi_DecibelTable
-

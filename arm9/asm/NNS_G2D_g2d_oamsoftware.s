@@ -3,61 +3,52 @@
 
 	.section .rodata
 
-	; pltFmtTbl$8430
-	.global UNK_020FF8D0
-UNK_020FF8D0: ; 0x020FF8D0
+	.global pltFmtTbl$8430
+pltFmtTbl$8430: ; 0x020FF8D0
 	.byte 0x03, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
-
 	; static const in function
-	; texSize_$8337
-	.global UNK_020FF8D8
-UNK_020FF8D8: ; 0x020FF8D8
+
+	.global texSize_$8337
+texSize_$8337: ; 0x020FF8D8
 	.byte 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00
 	.byte 0x10, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00
 
-	; gxTexSizeSTbl
-	.global UNK_020FF8F8
-UNK_020FF8F8: ; 0x020FF8F8
+	.global gxTexSizeSTbl
+gxTexSizeSTbl: ; 0x020FF8F8
 	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00
 	.byte 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
 
-	; gxTexSizeTTbl
-	.global UNK_020FF928
-UNK_020FF928: ; 0x020FF928
+	.global gxTexSizeTTbl
+gxTexSizeTTbl: ; 0x020FF928
 	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
 	.byte 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00
 
 	.section .data
 
-	; zOffsetStep_
-	.global UNK_02106590
-UNK_02106590: ; 0x02106590
+	.global zOffsetStep_
+zOffsetStep_: ; 0x02106590
 	.byte 0x00, 0xF0, 0xFF, 0xFF
 
 	.section .bss
 
-	; bAutoZOffsetAdd_
-	.global UNK_021CED08
-UNK_021CED08: ; 0x021CED08
+	.global bAutoZOffsetAdd_
+bAutoZOffsetAdd_: ; 0x021CED08
 	.space 0x4
 
-	; s_pUVFlipCorrectFunc
-	.global UNK_021CED0C
-UNK_021CED0C: ; 0x021CED0C
+	.global s_pUVFlipCorrectFunc
+s_pUVFlipCorrectFunc: ; 0x021CED0C
 	.space 0x4
 
-	; zOffset_
-	.global UNK_021CED10
-UNK_021CED10: ; 0x021CED10
+	.global zOffset_
+zOffset_: ; 0x021CED10
 	.space 0x4
 
 	.section .text
 
-	; NNS_G2dDrawOneOam3DDirectWithPosFast
-	arm_func_start FUN_020B46B4
-FUN_020B46B4: ; 0x020B46B4
+	arm_func_start NNS_G2dDrawOneOam3DDirectWithPosFast
+NNS_G2dDrawOneOam3DDirectWithPosFast: ; 0x020B46B4
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x1c
 	add r12, sp, #0x4
@@ -70,7 +61,7 @@ FUN_020B46B4: ; 0x020B46B4
 	ldr r3, [sp, #0x38]
 	mov r0, r7
 	str r12, [sp, #0x0]
-	bl FUN_020B498C
+	bl CalcSpriteParams_
 	ldr r2, [r7, #0x0]
 	and r1, r2, #0x300
 	cmp r1, #0x100
@@ -83,17 +74,17 @@ _020B4708:
 	cmp r1, #0x300
 	bne _020B478C
 	ldr r0, _020B4914 ; =0xC000C000
-	ldr r1, _020B4918 ; =UNK_021CED08
+	ldr r1, _020B4918 ; =bAutoZOffsetAdd_
 	and r0, r2, r0
 	and r2, r0, #0xc0000000
 	mov r12, r2, lsr #0x1e
 	and r0, r0, #0xc000
 	mov lr, r0, asr #0xe
-	ldr r3, _020B491C ; =UNK_020FF8AC
+	ldr r3, _020B491C ; =NNSi_objSizeWTbl
 	ldr r0, [r1, #0x0]
-	ldr r2, _020B4920 ; =UNK_020FF894
+	ldr r2, _020B4920 ; =NNSi_objSizeHTbl
 	cmp r0, #0x0
-	ldrne r0, _020B4924 ; =UNK_021CED10
+	ldrne r0, _020B4924 ; =zOffset_
 	mov r12, r12, lsl #0x1
 	add r1, r2, lr, lsl #0x3
 	add r3, r3, lr, lsl #0x3
@@ -114,11 +105,11 @@ _020B4708:
 	str r3, [r1, #0x0]
 	b _020B47C0
 _020B478C:
-	ldr r0, _020B4918 ; =UNK_021CED08
+	ldr r0, _020B4918 ; =bAutoZOffsetAdd_
 	ldr r1, _020B4928 ; =0x04000470
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
-	ldrne r0, _020B4924 ; =UNK_021CED10
+	ldrne r0, _020B4924 ; =zOffset_
 	ldrne r0, [r0, #0x0]
 	addne r2, r0, r4, lsl #0xc
 	mov r0, r6, lsl #0xc
@@ -199,14 +190,14 @@ _020B47C0:
 	mov r2, #0x0
 	str r2, [r0, #0x0]
 	ldr r1, _020B4940 ; =0x04000504
-	ldr r0, _020B4918 ; =UNK_021CED08
+	ldr r0, _020B4918 ; =bAutoZOffsetAdd_
 	str r2, [r1, #0x0]
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	addeq sp, sp, #0x1c
 	ldmeqia sp!, {r4-r7,pc}
-	ldr r1, _020B4924 ; =UNK_021CED10
-	ldr r0, _020B4944 ; =UNK_02106590
+	ldr r1, _020B4924 ; =zOffset_
+	ldr r0, _020B4944 ; =zOffsetStep_
 	ldr r2, [r1, #0x0]
 	ldr r0, [r0, #0x0]
 	add r0, r2, r0
@@ -215,10 +206,10 @@ _020B47C0:
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
 _020B4914: .word 0xC000C000
-_020B4918: .word UNK_021CED08
-_020B491C: .word UNK_020FF8AC
-_020B4920: .word UNK_020FF894
-_020B4924: .word UNK_021CED10
+_020B4918: .word bAutoZOffsetAdd_
+_020B491C: .word NNSi_objSizeWTbl
+_020B4920: .word NNSi_objSizeHTbl
+_020B4924: .word zOffset_
 _020B4928: .word 0x04000470
 _020B492C: .word 0x0400046C
 _020B4930: .word 0x04000500
@@ -226,53 +217,48 @@ _020B4934: .word 0x04000488
 _020B4938: .word 0x04000490
 _020B493C: .word 0x00010040
 _020B4940: .word 0x04000504
-_020B4944: .word UNK_02106590
-	arm_func_end FUN_020B46B4
+_020B4944: .word zOffsetStep_
+	arm_func_end NNS_G2dDrawOneOam3DDirectWithPosFast
 
-	; NNSi_G2dGetOamSoftEmuAutoZOffsetStep
-	arm_func_start FUN_020B4948
-FUN_020B4948: ; 0x020B4948
-	ldr r0, _020B4954 ; =UNK_02106590
+	arm_func_start NNSi_G2dGetOamSoftEmuAutoZOffsetStep
+NNSi_G2dGetOamSoftEmuAutoZOffsetStep: ; 0x020B4948
+	ldr r0, _020B4954 ; =zOffsetStep_
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020B4954: .word UNK_02106590
-	arm_func_end FUN_020B4948
+_020B4954: .word zOffsetStep_
+	arm_func_end NNSi_G2dGetOamSoftEmuAutoZOffsetStep
 
-	; NNSi_G2dSetOamSoftEmuAutoZOffsetStep
-	arm_func_start FUN_020B4958
-FUN_020B4958: ; 0x020B4958
-	ldr r1, _020B4964 ; =UNK_02106590
+	arm_func_start NNSi_G2dSetOamSoftEmuAutoZOffsetStep
+NNSi_G2dSetOamSoftEmuAutoZOffsetStep: ; 0x020B4958
+	ldr r1, _020B4964 ; =zOffsetStep_
 	str r0, [r1, #0x0]
 	bx lr
 	.balign 4
-_020B4964: .word UNK_02106590
-	arm_func_end FUN_020B4958
+_020B4964: .word zOffsetStep_
+	arm_func_end NNSi_G2dSetOamSoftEmuAutoZOffsetStep
 
-	; NNSi_G2dResetOamSoftEmuAutoZOffset
-	arm_func_start FUN_020B4968
-FUN_020B4968: ; 0x020B4968
-	ldr r0, _020B4978 ; =UNK_021CED10
+	arm_func_start NNSi_G2dResetOamSoftEmuAutoZOffset
+NNSi_G2dResetOamSoftEmuAutoZOffset: ; 0x020B4968
+	ldr r0, _020B4978 ; =zOffset_
 	mov r1, #0x0
 	str r1, [r0, #0x0]
 	bx lr
 	.balign 4
-_020B4978: .word UNK_021CED10
-	arm_func_end FUN_020B4968
+_020B4978: .word zOffset_
+	arm_func_end NNSi_G2dResetOamSoftEmuAutoZOffset
 
-	; NNSi_G2dSetOamSoftEmuAutoZOffsetFlag
-	arm_func_start FUN_020B497C
-FUN_020B497C: ; 0x020B497C
-	ldr r1, _020B4988 ; =UNK_021CED08
+	arm_func_start NNSi_G2dSetOamSoftEmuAutoZOffsetFlag
+NNSi_G2dSetOamSoftEmuAutoZOffsetFlag: ; 0x020B497C
+	ldr r1, _020B4988 ; =bAutoZOffsetAdd_
 	str r0, [r1, #0x0]
 	bx lr
 	.balign 4
-_020B4988: .word UNK_021CED08
-	arm_func_end FUN_020B497C
+_020B4988: .word bAutoZOffsetAdd_
+	arm_func_end NNSi_G2dSetOamSoftEmuAutoZOffsetFlag
 
-	; CalcSpriteParams_
-	arm_func_start FUN_020B498C
-FUN_020B498C: ; 0x020B498C
+	arm_func_start CalcSpriteParams_
+CalcSpriteParams_: ; 0x020B498C
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0xc
 	mov r6, r0
@@ -283,9 +269,9 @@ FUN_020B498C: ; 0x020B498C
 	and r0, r4, #0xc0000000
 	and r4, r4, #0xc000
 	mov lr, r0, lsr #0x1e
-	ldr r0, _020B4BD0 ; =UNK_020FF8AC
+	ldr r0, _020B4BD0 ; =NNSi_objSizeWTbl
 	mov r12, r4, asr #0xe
-	ldr r8, _020B4BD4 ; =UNK_020FF894
+	ldr r8, _020B4BD4 ; =NNSi_objSizeHTbl
 	mov r4, lr, lsl #0x1
 	add r0, r0, r12, lsl #0x3
 	ldrh r9, [r4, r0]
@@ -320,7 +306,7 @@ FUN_020B498C: ; 0x020B498C
 	cmp r1, #0x4
 	moveq r1, r7, lsl #0xf
 	moveq r7, r1, lsr #0x10
-	ldr r1, _020B4BDC ; =UNK_020FF8D8
+	ldr r1, _020B4BDC ; =texSize_$8337
 	ldr r1, [r1, r2, lsl #0x2]
 	sub r1, r1, #0x1
 	and r1, r7, r1
@@ -338,9 +324,9 @@ _020B4A74:
 	add r1, r1, #0x5
 	ldr r3, [r5, #0x8]
 	mov lr, lr, lsl #0x10
-	ldr sb, _020B4BE0 ; =UNK_020FF8F8
+	ldr sb, _020B4BE0 ; =gxTexSizeSTbl
 	mov r12, r12, lsr #0x10
-	ldr r8, _020B4BE4 ; =UNK_020FF928
+	ldr r8, _020B4BE4 ; =gxTexSizeTTbl
 	add r1, r2, r7, lsl r1
 	mov r2, r3, lsl #0x1a
 	orr r3, r2, r1, lsr #0x3
@@ -381,7 +367,7 @@ _020B4AE0:
 	ldrne r2, [r0, #0x4]
 	ldrne r1, [r0, #0xc]
 	strne r1, [r0, #0x4]
-	ldr r1, _020B4BE8 ; =UNK_021CED0C
+	ldr r1, _020B4BE8 ; =s_pUVFlipCorrectFunc
 	strne r2, [r0, #0xc]
 	ldr r7, [r1, #0x0]
 	cmp r7, #0x0
@@ -400,7 +386,7 @@ _020B4B60:
 	mov r3, r1, lsl #0x12
 	ldr r1, [r5, #0xc]
 	mov r0, r0, lsl #0x10
-	ldr r2, _020B4BEC ; =UNK_020FF8D0
+	ldr r2, _020B4BEC ; =pltFmtTbl$8430
 	mov r3, r3, lsr #0x1f
 	cmp r1, #0x0
 	mov r0, r0, lsr #0x10
@@ -423,14 +409,13 @@ _020B4BA4:
 	ldmia sp!, {r4-r9,pc}
 	.balign 4
 _020B4BCC: .word 0xC000C000
-_020B4BD0: .word UNK_020FF8AC
-_020B4BD4: .word UNK_020FF894
+_020B4BD0: .word NNSi_objSizeWTbl
+_020B4BD4: .word NNSi_objSizeHTbl
 _020B4BD8: .word 0x040004A8
-_020B4BDC: .word UNK_020FF8D8
-_020B4BE0: .word UNK_020FF8F8
-_020B4BE4: .word UNK_020FF928
-_020B4BE8: .word UNK_021CED0C
-_020B4BEC: .word UNK_020FF8D0
+_020B4BDC: .word texSize_$8337
+_020B4BE0: .word gxTexSizeSTbl
+_020B4BE4: .word gxTexSizeTTbl
+_020B4BE8: .word s_pUVFlipCorrectFunc
+_020B4BEC: .word pltFmtTbl$8430
 _020B4BF0: .word 0x040004AC
-	arm_func_end FUN_020B498C
-
+	arm_func_end CalcSpriteParams_

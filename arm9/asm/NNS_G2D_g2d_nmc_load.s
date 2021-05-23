@@ -3,20 +3,18 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020AFF34
-FUN_020AFF34: ; 0x020AFF34
+	arm_func_start NNS_G2dGetMultiCellDataByIdx
+NNS_G2dGetMultiCellDataByIdx: ; 0x020AFF34
 	ldrh r2, [r0, #0x0]
 	cmp r1, r2
 	ldrcc r0, [r0, #0x4]
 	addcc r0, r0, r1, lsl #0x3
 	movcs r0, #0x0
 	bx lr
-	arm_func_end FUN_020AFF34
+	arm_func_end NNS_G2dGetMultiCellDataByIdx
 
-	; _end
-	arm_func_start FUN_020AFF4C
-FUN_020AFF4C: ; 0x020AFF4C
+	arm_func_start NNS_G2dUnpackNMC
+NNS_G2dUnpackNMC: ; 0x020AFF4C
 	stmdb sp!, {r4,lr}
 	ldr r1, [r0, #0x4]
 	mov r4, #0x0
@@ -48,35 +46,33 @@ _020AFFA8:
 	add r1, r1, r0
 	str r1, [r0, #0x10]
 	ldr r0, [r0, #0x10]
-	bl FUN_020AFFC8
+	bl UnpackExtendedData_
 	ldmia sp!, {r4,pc}
-	arm_func_end FUN_020AFF4C
+	arm_func_end NNS_G2dUnpackNMC
 
-	; UnpackExtendedData_
-	arm_func_start FUN_020AFFC8
-FUN_020AFFC8: ; 0x020AFFC8
-	ldr ip, _020AFFD4 ; =FUN_020B01B0
+	arm_func_start UnpackExtendedData_
+UnpackExtendedData_: ; 0x020AFFC8
+	ldr ip, _020AFFD4 ; =NNSi_G2dUnpackUserExCellAttrBank
 	add r0, r0, #0x8
 	bx r12
 	.balign 4
-_020AFFD4: .word FUN_020B01B0
-	arm_func_end FUN_020AFFC8
+_020AFFD4: .word NNSi_G2dUnpackUserExCellAttrBank
+	arm_func_end UnpackExtendedData_
 
-	; NNS_G2dGetUnpackedMultiCellBank
-	arm_func_start FUN_020AFFD8
-FUN_020AFFD8: ; 0x020AFFD8
+	arm_func_start NNS_G2dGetUnpackedMultiCellBank
+NNS_G2dGetUnpackedMultiCellBank: ; 0x020AFFD8
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, r1
 	ldr r1, _020B001C ; =0x4D43424B
-	bl FUN_020B01F8
+	bl NNS_G2dFindBinaryBlock
 	movs r4, r0
 	moveq r0, #0x0
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
 	add r0, r4, #0x8
-	bl FUN_020AFF4C
+	bl NNS_G2dUnpackNMC
 	add r0, r4, #0x8
 	str r0, [r5, #0x0]
 	mov r0, #0x1
@@ -84,5 +80,4 @@ FUN_020AFFD8: ; 0x020AFFD8
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020B001C: .word 0x4D43424B
-	arm_func_end FUN_020AFFD8
-
+	arm_func_end NNS_G2dGetUnpackedMultiCellBank

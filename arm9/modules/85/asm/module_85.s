@@ -570,7 +570,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B1C ; =0x00000448
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, _021D7B1C ; =0x00000448
 	mov r2, #0x1a
 	ldr r1, [r4, r1]
@@ -588,7 +588,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B20 ; =0x00000444
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, _021D7B20 ; =0x00000444
 	mov r1, #0
 	ldr r3, [r4, r0]
@@ -609,7 +609,7 @@ MOD85_021D797C: ; 0x021D797C
 	lsl r1, r1, #6
 	add r1, r4, r1
 	add r5, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r0, #0x11
 	lsl r0, r0, #6
 	ldr r3, [r4, r0]
@@ -633,7 +633,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B20 ; =0x00000444
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, _021D7B20 ; =0x00000444
 	mov r1, #0
 	ldr r3, [r4, r0]
@@ -654,7 +654,7 @@ MOD85_021D797C: ; 0x021D797C
 	lsl r1, r1, #6
 	add r1, r4, r1
 	add r5, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r0, #0x11
 	lsl r0, r0, #6
 	ldr r3, [r4, r0]
@@ -678,7 +678,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B1C ; =0x00000448
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, _021D7B1C ; =0x00000448
 	mov r2, #0x1a
 	ldr r1, [r4, r1]
@@ -696,7 +696,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B20 ; =0x00000444
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, _021D7B20 ; =0x00000444
 	mov r1, #0
 	ldr r3, [r4, r0]
@@ -717,7 +717,7 @@ MOD85_021D797C: ; 0x021D797C
 	lsl r1, r1, #6
 	add r1, r4, r1
 	add r5, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r0, #0x11
 	lsl r0, r0, #6
 	ldr r3, [r4, r0]
@@ -933,7 +933,7 @@ MOD85_021D7CB0: ; 0x021D7CB0
 	push {r3, r4, lr}
 	sub sp, #0x1c
 	add r4, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -8587,7 +8587,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r0, [sp]
 	mov r1, #1
 	add r2, r4, #4
@@ -8627,7 +8627,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	add r2, r4, #0
 	ldr r0, [sp]
 	mov r1, #0
@@ -8641,7 +8641,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	add r2, r4, #0
 	ldr r0, [sp]
 	mov r1, #0
@@ -8655,7 +8655,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	add r2, r4, #0
 	ldr r0, [sp]
 	mov r1, #0
@@ -8669,7 +8669,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	mov r2, #0x51
 	lsl r2, r2, #2
 	ldr r0, [sp]
@@ -8684,7 +8684,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	mov r2, #0x59
 	lsl r2, r2, #2
 	ldr r0, [sp]
@@ -8705,7 +8705,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r5, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	mov r2, #0x69
 	lsl r2, r2, #2
 	ldr r0, [sp]

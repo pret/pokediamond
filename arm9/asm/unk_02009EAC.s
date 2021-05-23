@@ -95,7 +95,7 @@ _02009F1C:
 	lsl r2, r4, #0x10
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_020B0E34
+	bl NNS_G2dGetNewOamManagerInstance
 	cmp r0, #0x0
 	bne _02009F48
 	bl ErrorHandling
@@ -118,7 +118,7 @@ _02009F48:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020B0E34
+	bl NNS_G2dGetNewOamManagerInstance
 	cmp r0, #0x0
 	bne _02009F78
 	bl ErrorHandling
@@ -135,11 +135,11 @@ FUN_02009F80: ; 0x02009F80
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _02009F98
-	bl FUN_020B0870
+	bl NNS_G2dApplyAndResetOamManagerBuffer
 	ldr r0, _02009F9C ; =UNK_021C4670
 	ldr r0, [r0, #0x0]
 	add r0, #0x1c
-	bl FUN_020B0870
+	bl NNS_G2dApplyAndResetOamManagerBuffer
 _02009F98:
 	pop {r3, pc}
 	nop
@@ -264,7 +264,7 @@ FUN_0200A074: ; 0x0200A074
 	add r2, r1, #0x0
 	ldr r0, [r0, #0x0]
 	add r1, r3, #0x0
-	bl FUN_020B0C7C
+	bl NNS_G2dEntryOamManagerOamWithAffineIdx
 	add r4, r0, #0x0
 	bne _0200A08C
 	bl ErrorHandling
@@ -283,7 +283,7 @@ FUN_0200A094: ; 0x0200A094
 	ldr r0, [r0, #0x0]
 	add r1, r3, #0x0
 	add r0, #0x1c
-	bl FUN_020B0C7C
+	bl NNS_G2dEntryOamManagerOamWithAffineIdx
 	add r4, r0, #0x0
 	bne _0200A0AE
 	bl ErrorHandling
@@ -299,7 +299,7 @@ FUN_0200A0B8: ; 0x0200A0B8
 	add r1, r0, #0x0
 	ldr r0, _0200A0D4 ; =UNK_021C4670
 	ldr r0, [r0, #0x0]
-	bl FUN_020B0BB0
+	bl NNS_G2dEntryOamManagerAffine
 	add r4, r0, #0x0
 	ldr r0, _0200A0D8 ; =0x0000FFFE
 	cmp r4, r0
@@ -319,7 +319,7 @@ FUN_0200A0DC: ; 0x0200A0DC
 	ldr r0, _0200A0FC ; =UNK_021C4670
 	ldr r0, [r0, #0x0]
 	add r0, #0x1c
-	bl FUN_020B0BB0
+	bl NNS_G2dEntryOamManagerAffine
 	add r4, r0, #0x0
 	ldr r0, _0200A100 ; =0x0000FFFE
 	cmp r4, r0

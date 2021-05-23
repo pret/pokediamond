@@ -82,7 +82,7 @@ FUN_02012044: ; 0x02012044
 _02012054:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	add r6, r0, #0x0
 	cmp r5, #0x0
 	bne _02012066
@@ -309,7 +309,7 @@ FUN_020121E8: ; 0x020121E8
 _02012204:
 	ldr r0, [sp, #0x20]
 	add r1, sp, #0x2c
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	cmp r0, #0x0
 	bne _02012214
 	bl ErrorHandling
@@ -649,7 +649,7 @@ FUN_02012470: ; 0x02012470
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x0
 	add r5, r0, #0x0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0x1
 	beq _0201249C
 	bl ErrorHandling

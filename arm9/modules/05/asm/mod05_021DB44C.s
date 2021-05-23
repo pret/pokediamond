@@ -229,21 +229,21 @@ MOD05_021DB5EC: ; 0x021DB5EC
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x40
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x80
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #2
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #8
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #1
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #0xa
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021DB61C

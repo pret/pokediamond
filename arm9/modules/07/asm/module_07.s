@@ -3155,7 +3155,7 @@ _0221380C: .word 0x00000B58
 	thumb_func_start MOD07_02213810
 MOD07_02213810: ; 0x02213810
 	push {r4, lr}
-	ldr r3, _02213830 ; =UNK_021064B8
+	ldr r3, _02213830 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0
 	ldr r3, [r3]
 	blx r3
@@ -3169,12 +3169,12 @@ _02213828:
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02213830: .word UNK_021064B8
+_02213830: .word NNS_GfdDefaultFuncAllocTexVram
 
 	thumb_func_start MOD07_02213834
 MOD07_02213834: ; 0x02213834
 	push {r4, lr}
-	ldr r3, _02213854 ; =UNK_021064C0
+	ldr r3, _02213854 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #1
 	ldr r3, [r3]
 	blx r3
@@ -3188,7 +3188,7 @@ _0221384C:
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02213854: .word UNK_021064C0
+_02213854: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start MOD07_02213858
 MOD07_02213858: ; 0x02213858
@@ -3319,7 +3319,7 @@ MOD07_02213924: ; 0x02213924
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r2, [sp, #0x10]
 	mov r0, #3
 	ldr r1, [r2, #0xc]

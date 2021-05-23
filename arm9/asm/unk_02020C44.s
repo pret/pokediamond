@@ -1,10 +1,10 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021064B8
-	.extern UNK_021064C0
-	.extern UNK_021064C4
-	.extern UNK_021064BC
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncAllocPlttVram
+	.extern NNS_GfdDefaultFuncFreePlttVram
+	.extern NNS_GfdDefaultFuncFreeTexVram
 
 	.text
 
@@ -488,7 +488,7 @@ _02020FA4:
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _02020FB8
-	ldr r1, _02020FE8 ; =UNK_021064BC
+	ldr r1, _02020FE8 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r1, [r1, #0x0]
 	blx r1
 	cmp r0, #0x0
@@ -498,7 +498,7 @@ _02020FB8:
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	beq _02020FCC
-	ldr r1, _02020FE8 ; =UNK_021064BC
+	ldr r1, _02020FE8 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r1, [r1, #0x0]
 	blx r1
 	cmp r0, #0x0
@@ -508,7 +508,7 @@ _02020FCC:
 	ldr r0, [r4, #0xc]
 	cmp r0, #0x0
 	beq _02020FE0
-	ldr r1, _02020FEC ; =UNK_021064C4
+	ldr r1, _02020FEC ; =NNS_GfdDefaultFuncFreePlttVram
 	ldr r1, [r1, #0x0]
 	blx r1
 	cmp r0, #0x0
@@ -519,8 +519,8 @@ _02020FE0:
 	bl FUN_0202120C
 	pop {r3-r5, pc}
 	.balign 4
-_02020FE8: .word UNK_021064BC
-_02020FEC: .word UNK_021064C4
+_02020FE8: .word NNS_GfdDefaultFuncFreeTexVram
+_02020FEC: .word NNS_GfdDefaultFuncFreePlttVram
 
 	thumb_func_start FUN_02020FF0
 FUN_02020FF0: ; 0x02020FF0
@@ -842,7 +842,7 @@ FUN_02021220: ; 0x02021220
 	push {r3, lr}
 	ldr r0, [r0, #0x0]
 	bl FUN_02020E0C
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	pop {r3, pc}
 	.balign 4
 
@@ -858,7 +858,7 @@ FUN_02021230: ; 0x02021230
 _02021240:
 	ldr r0, [r0, #0x10]
 _02021242:
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	pop {r3, pc}
 
 	thumb_func_start FUN_02021248
@@ -869,17 +869,17 @@ FUN_02021248: ; 0x02021248
 	str r1, [sp, #0x0]
 	str r2, [sp, #0x4]
 	str r3, [sp, #0x8]
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	add r4, r0, #0x0
 	cmp r7, #0x0
 	beq _0202127E
-	ldr r3, _020212B0 ; =UNK_021064B8
+	ldr r3, _020212B0 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	add r0, r7, #0x0
@@ -890,7 +890,7 @@ FUN_02021248: ; 0x02021248
 _0202127E:
 	cmp r6, #0x0
 	beq _02021292
-	ldr r3, _020212B0 ; =UNK_021064B8
+	ldr r3, _020212B0 ; =NNS_GfdDefaultFuncAllocTexVram
 	add r0, r6, #0x0
 	ldr r3, [r3, #0x0]
 	mov r1, #0x1
@@ -901,7 +901,7 @@ _0202127E:
 _02021292:
 	cmp r4, #0x0
 	beq _020212AC
-	ldr r3, _020212B4 ; =UNK_021064C0
+	ldr r3, _020212B4 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x2
 	ldrh r2, [r5, #0x20]
 	lsl r1, r1, #0xe
@@ -916,8 +916,8 @@ _020212AC:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
-_020212B0: .word UNK_021064B8
-_020212B4: .word UNK_021064C0
+_020212B0: .word NNS_GfdDefaultFuncAllocTexVram
+_020212B4: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_020212B8
 FUN_020212B8: ; 0x020212B8
@@ -933,10 +933,10 @@ FUN_020212B8: ; 0x020212B8
 	bl DC_FlushRange
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_020B7D28
+	bl NNS_G3dTexLoad
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_020B7C78
+	bl NNS_G3dPlttLoad
 	pop {r4, pc}
 	.balign 4
 
@@ -945,10 +945,10 @@ FUN_020212E4: ; 0x020212E4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r3, #0x0
-	bl FUN_020B7DFC
+	bl NNS_G3dTexSetTexKey
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_020B7CDC
+	bl NNS_G3dPlttSetPlttKey
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_020212F8
@@ -958,9 +958,9 @@ FUN_020212F8: ; 0x020212F8
 	add r4, r0, #0x0
 	add r1, sp, #0x4
 	add r2, sp, #0x0
-	bl FUN_020B7CF0
+	bl NNS_G3dTexReleaseTexKey
 	add r0, r4, #0x0
-	bl FUN_020B7C58
+	bl NNS_G3dPlttReleasePlttKey
 	add sp, #0x8
 	pop {r4, pc}
 
@@ -986,7 +986,7 @@ FUN_02021310: ; 0x02021310
 FUN_02021334: ; 0x02021334
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	add r4, r0, #0x0
 	bne _02021344
 	bl ErrorHandling

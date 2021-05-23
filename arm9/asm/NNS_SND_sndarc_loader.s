@@ -3,16 +3,14 @@
 
 	.section .bss
 
-	; waveArcHeader$8213
-	.global UNK_021D28C4
-UNK_021D28C4: ; 0x021D28C4
+	.global waveArcHeader$8213
+waveArcHeader$8213: ; 0x021D28C4
 	.space 0x3c
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020C2B1C
-FUN_020C2B1C: ; 0x020C2B1C
+	arm_func_start LoadSingleWaves
+LoadSingleWaves: ; 0x020C2B1C
 	stmdb sp!, {r4-r10,lr}
 	sub sp, sp, #0x20
 	mov r8, r0
@@ -49,7 +47,7 @@ _020C2B80:
 	mov r0, r8
 	mov r2, r5
 	mov r3, r4
-	bl FUN_020C2BE0
+	bl LoadSingleWave
 	cmp r0, #0x0
 	addeq sp, sp, #0x20
 	moveq r0, #0x0
@@ -66,9 +64,8 @@ _020C2BD4:
 	add sp, sp, #0x20
 	ldmia sp!, {r4-r10,pc}
 
-	; LoadSingleWave
-	arm_func_start FUN_020C2BE0
-FUN_020C2BE0: ; 0x020C2BE0
+	arm_func_start LoadSingleWave
+LoadSingleWave: ; 0x020C2BE0
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x4
 	mov r7, r0
@@ -95,12 +92,12 @@ FUN_020C2BE0: ; 0x020C2BE0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r9,pc}
-	ldr r2, _020C2CBC ; =FUN_020C2CC0
+	ldr r2, _020C2CBC ; =SingleWaveDisposeCallback
 	mov r0, r4
 	mov r3, r7
 	add r1, r9, #0x20
 	str r6, [sp, #0x0]
-	bl SDATi_AllocAndInitChunk
+	bl NNS_SndHeapAlloc
 	movs r4, r0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
@@ -109,7 +106,7 @@ FUN_020C2BE0: ; 0x020C2BE0
 	mov r1, r4
 	mov r2, r9
 	mov r3, r8
-	bl FUN_020C2104
+	bl NNS_SndArcReadFile
 	cmp r9, r0
 	addne sp, sp, #0x4
 	movne r0, #0x0
@@ -125,11 +122,10 @@ FUN_020C2BE0: ; 0x020C2BE0
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9,pc}
 	.balign 4
-_020C2CBC: .word FUN_020C2CC0
+_020C2CBC: .word SingleWaveDisposeCallback
 
-	; _end
-	arm_func_start FUN_020C2CC0
-FUN_020C2CC0: ; 0x020C2CC0
+	arm_func_start SingleWaveDisposeCallback
+SingleWaveDisposeCallback: ; 0x020C2CC0
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r5, r2
@@ -152,28 +148,26 @@ _020C2CFC:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 
-	; _end
-	arm_func_start FUN_020C2D10
-FUN_020C2D10: ; 0x020C2D10
+	arm_func_start WaveArcTableDisposeCallback
+WaveArcTableDisposeCallback: ; 0x020C2D10
 	stmdb sp!, {r4,lr}
 	mov r1, r2
 	mov r4, r0
 	mov r2, r3
-	bl FUN_020C2DD0
+	bl DisposeCallback
 	mov r0, r4
 	bl SND_DestroyWaveArc
 	ldmia sp!, {r4,pc}
 
-	; _end
-	arm_func_start FUN_020C2D30
-FUN_020C2D30: ; 0x020C2D30
+	arm_func_start WaveArcDisposeCallback
+WaveArcDisposeCallback: ; 0x020C2D30
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r4, r1
 	mov r1, r2
 	mov r5, r0
 	mov r2, r3
-	bl FUN_020C2DD0
+	bl DisposeCallback
 	mov r0, r5
 	add r1, r5, r4
 	bl SND_InvalidateWaveData
@@ -182,16 +176,15 @@ FUN_020C2D30: ; 0x020C2D30
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 
-	; _end
-	arm_func_start FUN_020C2D68
-FUN_020C2D68: ; 0x020C2D68
+	arm_func_start BankDisposeCallback
+BankDisposeCallback: ; 0x020C2D68
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r4, r1
 	mov r1, r2
 	mov r5, r0
 	mov r2, r3
-	bl FUN_020C2DD0
+	bl DisposeCallback
 	mov r0, r5
 	add r1, r5, r4
 	bl SND_InvalidateBankData
@@ -200,25 +193,23 @@ FUN_020C2D68: ; 0x020C2D68
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 
-	; _end
-	arm_func_start FUN_020C2DA0
-FUN_020C2DA0: ; 0x020C2DA0
+	arm_func_start SeqDisposeCallback
+SeqDisposeCallback: ; 0x020C2DA0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r4, r1
 	mov r1, r2
 	mov r5, r0
 	mov r2, r3
-	bl FUN_020C2DD0
+	bl DisposeCallback
 	mov r0, r5
 	add r1, r5, r4
 	bl SND_InvalidateSeqData
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
 
-	; _end
-	arm_func_start FUN_020C2DD0
-FUN_020C2DD0: ; 0x020C2DD0
+	arm_func_start DisposeCallback
+DisposeCallback: ; 0x020C2DD0
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	movs r5, r1
@@ -229,44 +220,43 @@ FUN_020C2DD0: ; 0x020C2DD0
 	bl OS_DisableInterrupts
 	mov r4, r0
 	mov r0, r5
-	bl FUN_020C242C
+	bl NNS_SndArcSetCurrent
 	mov r5, r0
 	mov r0, r6
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 	cmp r7, r0
 	bne _020C2E1C
 	mov r0, r6
 	mov r1, #0x0
-	bl FUN_020C20C0
+	bl NNS_SndArcSetFileAddress
 _020C2E1C:
 	mov r0, r5
-	bl FUN_020C242C
+	bl NNS_SndArcSetCurrent
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 
-	; LoadWaveArcTable
-	arm_func_start FUN_020C2E34
-FUN_020C2E34: ; 0x020C2E34
+	arm_func_start LoadWaveArcTable
+LoadWaveArcTable: ; 0x020C2E34
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x4
 	mov r9, r0
 	mov r8, r1
 	mov r7, r2
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 	movs r6, r0
 	bne _020C2F40
-	ldr r1, _020C2F4C ; =UNK_021D28C4
+	ldr r1, _020C2F4C ; =waveArcHeader$8213
 	mov r0, r9
 	mov r2, #0x3c
 	mov r3, #0x0
-	bl FUN_020C2104
+	bl NNS_SndArcReadFile
 	cmp r0, #0x3c
 	addne sp, sp, #0x4
 	movne r0, #0x0
 	ldmneia sp!, {r4-r9,pc}
-	ldr r0, _020C2F4C ; =UNK_021D28C4
+	ldr r0, _020C2F4C ; =waveArcHeader$8213
 	cmp r8, #0x0
 	ldr r0, [r0, #0x38]
 	addeq sp, sp, #0x4
@@ -278,14 +268,14 @@ FUN_020C2E34: ; 0x020C2E34
 	cmp r7, #0x0
 	moveq r3, #0x0
 	beq _020C2EB0
-	bl FUN_020C241C
+	bl NNS_SndArcGetCurrent
 	mov r3, r0
 _020C2EB0:
-	ldr r2, _020C2F50 ; =FUN_020C2D10
+	ldr r2, _020C2F50 ; =WaveArcTableDisposeCallback
 	mov r0, r8
 	add r1, r5, #0x20
 	str r9, [sp, #0x0]
-	bl SDATi_AllocAndInitChunk
+	bl NNS_SndHeapAlloc
 	movs r6, r0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
@@ -294,7 +284,7 @@ _020C2EB0:
 	mov r1, r6
 	add r2, r4, #0x3c
 	mov r3, #0x0
-	bl FUN_020C2104
+	bl NNS_SndArcReadFile
 	add r1, r4, #0x3c
 	cmp r0, r1
 	addne sp, sp, #0x4
@@ -316,37 +306,36 @@ _020C2EB0:
 	beq _020C2F40
 	mov r0, r9
 	mov r1, r6
-	bl FUN_020C20C0
+	bl NNS_SndArcSetFileAddress
 _020C2F40:
 	mov r0, r6
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9,pc}
 	.balign 4
-_020C2F4C: .word UNK_021D28C4
-_020C2F50: .word FUN_020C2D10
+_020C2F4C: .word waveArcHeader$8213
+_020C2F50: .word WaveArcTableDisposeCallback
 
-	; LoadWaveArc
-	arm_func_start FUN_020C2F54
-FUN_020C2F54: ; 0x020C2F54
+	arm_func_start LoadWaveArc
+LoadWaveArc: ; 0x020C2F54
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r7, r0
 	mov r6, r1
 	mov r5, r2
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 	movs r4, r0
 	bne _020C2FBC
 	cmp r5, #0x0
 	moveq r2, #0x0
 	beq _020C2F88
-	bl FUN_020C241C
+	bl NNS_SndArcGetCurrent
 	mov r2, r0
 _020C2F88:
-	ldr r1, _020C2FC8 ; =FUN_020C2D30
+	ldr r1, _020C2FC8 ; =WaveArcDisposeCallback
 	mov r0, r7
 	mov r3, r7
 	str r6, [sp, #0x0]
-	bl FUN_020C3134
+	bl NNSi_SndArcLoadFile
 	mov r4, r0
 	cmp r5, #0x0
 	beq _020C2FBC
@@ -354,36 +343,35 @@ _020C2F88:
 	beq _020C2FBC
 	mov r0, r7
 	mov r1, r4
-	bl FUN_020C20C0
+	bl NNS_SndArcSetFileAddress
 _020C2FBC:
 	mov r0, r4
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020C2FC8: .word FUN_020C2D30
+_020C2FC8: .word WaveArcDisposeCallback
 
-	; LoadBank
-	arm_func_start FUN_020C2FCC
-FUN_020C2FCC: ; 0x020C2FCC
+	arm_func_start LoadBank
+LoadBank: ; 0x020C2FCC
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r7, r0
 	mov r6, r1
 	mov r5, r2
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 	movs r4, r0
 	bne _020C3034
 	cmp r5, #0x0
 	moveq r2, #0x0
 	beq _020C3000
-	bl FUN_020C241C
+	bl NNS_SndArcGetCurrent
 	mov r2, r0
 _020C3000:
-	ldr r1, _020C3040 ; =FUN_020C2D68
+	ldr r1, _020C3040 ; =BankDisposeCallback
 	mov r0, r7
 	mov r3, r7
 	str r6, [sp, #0x0]
-	bl FUN_020C3134
+	bl NNSi_SndArcLoadFile
 	mov r4, r0
 	cmp r5, #0x0
 	beq _020C3034
@@ -391,36 +379,35 @@ _020C3000:
 	beq _020C3034
 	mov r0, r7
 	mov r1, r4
-	bl FUN_020C20C0
+	bl NNS_SndArcSetFileAddress
 _020C3034:
 	mov r0, r4
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020C3040: .word FUN_020C2D68
+_020C3040: .word BankDisposeCallback
 
-	; LoadSeqArc
-	arm_func_start FUN_020C3044
-FUN_020C3044: ; 0x020C3044
+	arm_func_start LoadSeqArc
+LoadSeqArc: ; 0x020C3044
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r7, r0
 	mov r6, r1
 	mov r5, r2
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 	movs r4, r0
 	bne _020C30AC
 	cmp r5, #0x0
 	moveq r2, #0x0
 	beq _020C3078
-	bl FUN_020C241C
+	bl NNS_SndArcGetCurrent
 	mov r2, r0
 _020C3078:
-	ldr r1, _020C30B8 ; =FUN_020C2DA0
+	ldr r1, _020C30B8 ; =SeqDisposeCallback
 	mov r0, r7
 	mov r3, r7
 	str r6, [sp, #0x0]
-	bl FUN_020C3134
+	bl NNSi_SndArcLoadFile
 	mov r4, r0
 	cmp r5, #0x0
 	beq _020C30AC
@@ -428,36 +415,35 @@ _020C3078:
 	beq _020C30AC
 	mov r0, r7
 	mov r1, r4
-	bl FUN_020C20C0
+	bl NNS_SndArcSetFileAddress
 _020C30AC:
 	mov r0, r4
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020C30B8: .word FUN_020C2DA0
+_020C30B8: .word SeqDisposeCallback
 
-	; LoadSeq
-	arm_func_start FUN_020C30BC
-FUN_020C30BC: ; 0x020C30BC
+	arm_func_start LoadSeq
+LoadSeq: ; 0x020C30BC
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r7, r0
 	mov r6, r1
 	mov r5, r2
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 	movs r4, r0
 	bne _020C3124
 	cmp r5, #0x0
 	moveq r2, #0x0
 	beq _020C30F0
-	bl FUN_020C241C
+	bl NNS_SndArcGetCurrent
 	mov r2, r0
 _020C30F0:
-	ldr r1, _020C3130 ; =FUN_020C2DA0
+	ldr r1, _020C3130 ; =SeqDisposeCallback
 	mov r0, r7
 	mov r3, r7
 	str r6, [sp, #0x0]
-	bl FUN_020C3134
+	bl NNSi_SndArcLoadFile
 	mov r4, r0
 	cmp r5, #0x0
 	beq _020C3124
@@ -465,24 +451,23 @@ _020C30F0:
 	beq _020C3124
 	mov r0, r7
 	mov r1, r4
-	bl FUN_020C20C0
+	bl NNS_SndArcSetFileAddress
 _020C3124:
 	mov r0, r4
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
-_020C3130: .word FUN_020C2DA0
+_020C3130: .word SeqDisposeCallback
 
-	; _end
-	arm_func_start FUN_020C3134
-FUN_020C3134: ; 0x020C3134
+	arm_func_start NNSi_SndArcLoadFile
+NNSi_SndArcLoadFile: ; 0x020C3134
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0x8
 	mov r8, r0
 	mov r7, r1
 	mov r6, r2
 	mov r4, r3
-	bl FUN_020C217C
+	bl NNS_SndArcGetFileSize
 	movs r5, r0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
@@ -496,7 +481,7 @@ FUN_020C3134: ; 0x020C3134
 	mov r3, r6
 	add r1, r5, #0x20
 	str r4, [sp, #0x0]
-	bl SDATi_AllocAndInitChunk
+	bl NNS_SndHeapAlloc
 	movs r4, r0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
@@ -505,7 +490,7 @@ FUN_020C3134: ; 0x020C3134
 	mov r1, r4
 	mov r2, r5
 	mov r3, #0x0
-	bl FUN_020C2104
+	bl NNS_SndArcReadFile
 	cmp r5, r0
 	addne sp, sp, #0x8
 	movne r0, #0x0
@@ -517,14 +502,13 @@ FUN_020C3134: ; 0x020C3134
 	add sp, sp, #0x8
 	ldmia sp!, {r4-r8,pc}
 
-	; _end
-	arm_func_start FUN_020C31D4
-FUN_020C31D4: ; 0x020C31D4
+	arm_func_start NNSi_SndArcLoadWaveArc
+NNSi_SndArcLoadWaveArc: ; 0x020C31D4
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r1
 	mov r5, r2
 	mov r4, r3
-	bl FUN_020C226C
+	bl NNS_SndArcGetWaveArcInfo
 	cmp r0, #0x0
 	moveq r0, #0x5
 	ldmeqia sp!, {r4-r6,pc}
@@ -538,7 +522,7 @@ FUN_020C31D4: ; 0x020C31D4
 	mov r0, r0, lsl #0x8
 	mov r2, r4
 	mov r0, r0, lsr #0x8
-	bl FUN_020C2E34
+	bl LoadWaveArcTable
 	b _020C323C
 _020C3224:
 	ldr r0, [r0, #0x0]
@@ -546,7 +530,7 @@ _020C3224:
 	mov r0, r0, lsl #0x8
 	mov r2, r4
 	mov r0, r0, lsr #0x8
-	bl FUN_020C2F54
+	bl LoadWaveArc
 _020C323C:
 	cmp r0, #0x0
 	bne _020C325C
@@ -556,7 +540,7 @@ _020C324C:
 	ldr r0, [r0, #0x0]
 	mov r0, r0, lsl #0x8
 	mov r0, r0, lsr #0x8
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 _020C325C:
 	ldr r1, [sp, #0x10]
 	cmp r1, #0x0
@@ -564,15 +548,14 @@ _020C325C:
 	mov r0, #0x0
 	ldmia sp!, {r4-r6,pc}
 
-	; NNSi_SndArcLoadBank
-	arm_func_start FUN_020C3270
-FUN_020C3270: ; 0x020C3270
+	arm_func_start NNSi_SndArcLoadBank
+NNSi_SndArcLoadBank: ; 0x020C3270
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0xc
 	mov r10, r1
 	mov r9, r2
 	mov r11, r3
-	bl FUN_020C22D0
+	bl NNS_SndArcGetBankInfo
 	movs r8, r0
 	addeq sp, sp, #0xc
 	moveq r0, #0x4
@@ -582,7 +565,7 @@ FUN_020C3270: ; 0x020C3270
 	ldr r0, [r8, #0x0]
 	mov r1, r9
 	mov r2, r11
-	bl FUN_020C2FCC
+	bl LoadBank
 	movs r7, r0
 	bne _020C32D0
 	add sp, sp, #0xc
@@ -590,7 +573,7 @@ FUN_020C3270: ; 0x020C3270
 	ldmia sp!, {r4-r11,pc}
 _020C32C4:
 	ldr r0, [r8, #0x0]
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 	mov r7, r0
 _020C32D0:
 	and r5, r10, #0x4
@@ -601,7 +584,7 @@ _020C32D8:
 	ldr r1, _020C33B4 ; =0x0000FFFF
 	cmp r0, r1
 	beq _020C3390
-	bl FUN_020C226C
+	bl NNS_SndArcGetWaveArcInfo
 	movs r4, r0
 	addeq sp, sp, #0xc
 	moveq r0, #0x5
@@ -613,7 +596,7 @@ _020C32D8:
 	mov r1, r10
 	mov r2, r9
 	mov r3, r11
-	bl FUN_020C31D4
+	bl NNSi_SndArcLoadWaveArc
 	cmp r0, #0x0
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4-r11,pc}
@@ -629,7 +612,7 @@ _020C32D8:
 	mov r1, r7
 	mov r2, r6
 	mov r3, r3, lsr #0x8
-	bl FUN_020C2B1C
+	bl LoadSingleWaves
 	cmp r0, #0x0
 	addeq sp, sp, #0xc
 	moveq r0, #0x9
@@ -656,14 +639,13 @@ _020C3390:
 	.balign 4
 _020C33B4: .word 0x0000FFFF
 
-	; _end
-	arm_func_start FUN_020C33B8
-FUN_020C33B8: ; 0x020C33B8
+	arm_func_start NNSi_SndArcLoadSeqArc
+NNSi_SndArcLoadSeqArc: ; 0x020C33B8
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r1
 	mov r5, r2
 	mov r4, r3
-	bl FUN_020C2334
+	bl NNS_SndArcGetSeqArcInfo
 	cmp r0, #0x0
 	moveq r0, #0x3
 	ldmeqia sp!, {r4-r6,pc}
@@ -672,14 +654,14 @@ FUN_020C33B8: ; 0x020C33B8
 	ldr r0, [r0, #0x0]
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020C3044
+	bl LoadSeqArc
 	cmp r0, #0x0
 	bne _020C3408
 	mov r0, #0x7
 	ldmia sp!, {r4-r6,pc}
 _020C3400:
 	ldr r0, [r0, #0x0]
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 _020C3408:
 	ldr r1, [sp, #0x10]
 	cmp r1, #0x0
@@ -687,15 +669,14 @@ _020C3408:
 	mov r0, #0x0
 	ldmia sp!, {r4-r6,pc}
 
-	; _end
-	arm_func_start FUN_020C341C
-FUN_020C341C: ; 0x020C341C
+	arm_func_start NNSi_SndArcLoadSeq
+NNSi_SndArcLoadSeq: ; 0x020C341C
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r7, r1
 	mov r6, r2
 	mov r5, r3
-	bl FUN_020C2398
+	bl NNS_SndArcGetSeqInfo
 	movs r4, r0
 	addeq sp, sp, #0x4
 	moveq r0, #0x2
@@ -706,7 +687,7 @@ FUN_020C341C: ; 0x020C341C
 	mov r1, r7
 	mov r2, r6
 	mov r3, r5
-	bl FUN_020C3270
+	bl NNSi_SndArcLoadBank
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r7,pc}
@@ -715,7 +696,7 @@ FUN_020C341C: ; 0x020C341C
 	ldr r0, [r4, #0x0]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_020C30BC
+	bl LoadSeq
 	cmp r0, #0x0
 	bne _020C34A0
 	add sp, sp, #0x4
@@ -723,7 +704,7 @@ FUN_020C341C: ; 0x020C341C
 	ldmia sp!, {r4-r7,pc}
 _020C3498:
 	ldr r0, [r4, #0x0]
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 _020C34A0:
 	ldr r1, [sp, #0x18]
 	cmp r1, #0x0
@@ -732,13 +713,12 @@ _020C34A0:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
 
-	; _end
-	arm_func_start FUN_020C34B8
-FUN_020C34B8: ; 0x020C34B8
+	arm_func_start NNSi_SndArcLoadGroup
+NNSi_SndArcLoadGroup: ; 0x020C34B8
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0xc
 	mov r9, r1
-	bl FUN_020C21A4
+	bl NNS_SndArcGetGroupInfo
 	movs r8, r0
 	addeq sp, sp, #0xc
 	moveq r0, #0x1
@@ -769,7 +749,7 @@ _020C3520:
 	ldr r0, [r6, #0x4]
 	mov r2, r9
 	mov r3, r4
-	bl FUN_020C341C
+	bl NNSi_SndArcLoadSeq
 	cmp r0, #0x0
 	beq _020C35C0
 	add sp, sp, #0xc
@@ -780,7 +760,7 @@ _020C3548:
 	ldr r0, [r6, #0x4]
 	mov r2, r9
 	mov r3, r4
-	bl FUN_020C33B8
+	bl NNSi_SndArcLoadSeqArc
 	cmp r0, #0x0
 	beq _020C35C0
 	add sp, sp, #0xc
@@ -791,7 +771,7 @@ _020C3570:
 	ldr r0, [r6, #0x4]
 	mov r2, r9
 	mov r3, r4
-	bl FUN_020C3270
+	bl NNSi_SndArcLoadBank
 	cmp r0, #0x0
 	beq _020C35C0
 	add sp, sp, #0xc
@@ -803,7 +783,7 @@ _020C3598:
 	ldrb r1, [r6, #0x1]
 	ldr r0, [r6, #0x4]
 	mov r3, r4
-	bl FUN_020C31D4
+	bl NNSi_SndArcLoadWaveArc
 	cmp r0, #0x0
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4-r11,pc}
@@ -818,24 +798,22 @@ _020C35D4:
 	add sp, sp, #0xc
 	ldmia sp!, {r4-r11,pc}
 
-	; _end
-	arm_func_start FUN_020C35E0
-FUN_020C35E0: ; 0x020C35E0
+	arm_func_start NNS_SndArcLoadSeqEx
+NNS_SndArcLoadSeqEx: ; 0x020C35E0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r12, #0x0
 	mov r3, #0x1
 	str r12, [sp, #0x0]
-	bl FUN_020C341C
+	bl NNSi_SndArcLoadSeq
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; _end
-	arm_func_start FUN_020C360C
-FUN_020C360C: ; 0x020C360C
+	arm_func_start NNS_SndArcLoadWaveArc
+NNS_SndArcLoadWaveArc: ; 0x020C360C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r2, r1
@@ -843,16 +821,15 @@ FUN_020C360C: ; 0x020C360C
 	mov r1, #0xff
 	mov r3, #0x1
 	str r12, [sp, #0x0]
-	bl FUN_020C31D4
+	bl NNSi_SndArcLoadWaveArc
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; _end
-	arm_func_start FUN_020C3640
-FUN_020C3640: ; 0x020C3640
+	arm_func_start NNS_SndArcLoadBank
+NNS_SndArcLoadBank: ; 0x020C3640
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r2, r1
@@ -860,16 +837,15 @@ FUN_020C3640: ; 0x020C3640
 	mov r1, #0xff
 	mov r3, #0x1
 	str r12, [sp, #0x0]
-	bl FUN_020C3270
+	bl NNSi_SndArcLoadBank
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; _end
-	arm_func_start FUN_020C3674
-FUN_020C3674: ; 0x020C3674
+	arm_func_start NNS_SndArcLoadSeq
+NNS_SndArcLoadSeq: ; 0x020C3674
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r2, r1
@@ -877,22 +853,20 @@ FUN_020C3674: ; 0x020C3674
 	mov r1, #0xff
 	mov r3, #0x1
 	str r12, [sp, #0x0]
-	bl FUN_020C341C
+	bl NNSi_SndArcLoadSeq
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
 
-	; _end
-	arm_func_start FUN_020C36A8
-FUN_020C36A8: ; 0x020C36A8
+	arm_func_start NNS_SndArcLoadGroup
+NNS_SndArcLoadGroup: ; 0x020C36A8
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	bl FUN_020C34B8
+	bl NNSi_SndArcLoadGroup
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-

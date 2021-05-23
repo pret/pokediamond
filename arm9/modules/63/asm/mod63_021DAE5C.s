@@ -239,7 +239,7 @@ MOD63_021DAFEC: ; 0x021DAFEC
 	orr r0, r1
 	str r0, [r3]
 	bl MOD63_021DAE5C
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80

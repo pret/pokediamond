@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020C3D9C
-FUN_020C3D9C: ; 0x020C3D9C
+	arm_func_start NNSi_SndSeqArcGetSeqInfo
+NNSi_SndSeqArcGetSeqInfo: ; 0x020C3D9C
 	cmp r1, #0x0
 	movlt r0, #0x0
 	bxlt lr
@@ -22,4 +21,3 @@ FUN_020C3D9C: ; 0x020C3D9C
 	add r0, r3, r2
 	moveq r0, #0x0
 	bx lr
-

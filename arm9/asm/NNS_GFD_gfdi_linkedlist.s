@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020AF334
-FUN_020AF334: ; 0x020AF334
+	arm_func_start NNSi_GfdFreeLnkVram
+NNSi_GfdFreeLnkVram: ; 0x020AF334
 	stmdb sp!, {r4-r6,lr}
 	sub sp, sp, #0x10
 	add r3, r2, r3
@@ -95,11 +94,10 @@ _020AF418:
 	mov r0, #0x1
 	add sp, sp, #0x10
 	ldmia sp!, {r4-r6,pc}
-	arm_func_end FUN_020AF334
+	arm_func_end NNSi_GfdFreeLnkVram
 
-	; _end
-	arm_func_start FUN_020AF488
-FUN_020AF488: ; 0x020AF488
+	arm_func_start NNSi_GfdAllocLnkVramAligned
+NNSi_GfdAllocLnkVramAligned: ; 0x020AF488
 	stmdb sp!, {r4-r10,lr}
 	ldr r4, [r0, #0x0]
 	ldr r9, [sp, #0x20]
@@ -185,23 +183,21 @@ _020AF5B8:
 	mov r0, #0x0
 	str r0, [r2, #0x0]
 	ldmia sp!, {r4-r10,pc}
-	arm_func_end FUN_020AF488
+	arm_func_end NNSi_GfdAllocLnkVramAligned
 
-	; _end
-	arm_func_start FUN_020AF5C4
-FUN_020AF5C4: ; 0x020AF5C4
+	arm_func_start NNSi_GfdAllocLnkVram
+NNSi_GfdAllocLnkVram: ; 0x020AF5C4
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r12, #0x0
 	str r12, [sp, #0x0]
-	bl FUN_020AF488
+	bl NNSi_GfdAllocLnkVramAligned
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020AF5C4
+	arm_func_end NNSi_GfdAllocLnkVram
 
-	; _end
-	arm_func_start FUN_020AF5E0
-FUN_020AF5E0: ; 0x020AF5E0
+	arm_func_start NNSi_GfdAddNewFreeBlock
+NNSi_GfdAddNewFreeBlock: ; 0x020AF5E0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr lr, [r1, #0x0]
@@ -230,11 +226,10 @@ _020AF640:
 	mov r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020AF5E0
+	arm_func_end NNSi_GfdAddNewFreeBlock
 
-	; _end
-	arm_func_start FUN_020AF64C
-FUN_020AF64C: ; 0x020AF64C
+	arm_func_start NNSi_GfdInitLnkVramBlockPool
+NNSi_GfdInitLnkVramBlockPool: ; 0x020AF64C
 	stmdb sp!, {r4,lr}
 	subs lr, r1, #0x1
 	mov r2, #0x0
@@ -256,13 +251,11 @@ _020AF684:
 	add r1, r0, r1, lsl #0x4
 	str r2, [r1, #-0x4]
 	ldmia sp!, {r4,pc}
-	arm_func_end FUN_020AF64C
+	arm_func_end NNSi_GfdInitLnkVramBlockPool
 
-	; _end
-	arm_func_start FUN_020AF698
-FUN_020AF698: ; 0x020AF698
+	arm_func_start NNSi_GfdInitLnkVramMan
+NNSi_GfdInitLnkVramMan: ; 0x020AF698
 	mov r1, #0x0
 	str r1, [r0, #0x0]
 	bx lr
-	arm_func_end FUN_020AF698
-
+	arm_func_end NNSi_GfdInitLnkVramMan

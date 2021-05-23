@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020B01B0
-FUN_020B01B0: ; 0x020B01B0
+	arm_func_start NNSi_G2dUnpackUserExCellAttrBank
+NNSi_G2dUnpackUserExCellAttrBank: ; 0x020B01B0
 	ldr r1, [r0, #0x4]
 	mov r12, #0x0
 	add r1, r1, r0
@@ -25,11 +24,10 @@ _020B01CC:
 	cmp r12, r2
 	blo _020B01CC
 	bx lr
-	arm_func_end FUN_020B01B0
+	arm_func_end NNSi_G2dUnpackUserExCellAttrBank
 
-	; _end
-	arm_func_start FUN_020B01F8
-FUN_020B01F8: ; 0x020B01F8
+	arm_func_start NNS_G2dFindBinaryBlock
+NNS_G2dFindBinaryBlock: ; 0x020B01F8
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldrh r2, [r0, #0xc]
@@ -54,5 +52,4 @@ _020B0244:
 	mov r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
-	arm_func_end FUN_020B01F8
-
+	arm_func_end NNS_G2dFindBinaryBlock

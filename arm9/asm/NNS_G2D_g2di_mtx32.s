@@ -3,9 +3,8 @@
 
 	.section .text
 
-	; _end
-	arm_func_start FUN_020B423C
-FUN_020B423C: ; 0x020B423C
+	arm_func_start NNSi_G2dMtxConcat32
+NNSi_G2dMtxConcat32: ; 0x020B423C
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x1c
 	ldr r4, [r0, #0x4]
@@ -77,5 +76,4 @@ FUN_020B423C: ; 0x020B423C
 	stmeqia r12, {r0-r1}
 	add sp, sp, #0x1c
 	ldmia sp!, {r4-r7,pc}
-	arm_func_end FUN_020B423C
-
+	arm_func_end NNSi_G2dMtxConcat32

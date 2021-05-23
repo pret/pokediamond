@@ -7834,7 +7834,7 @@ MOD75_021EA950: ; 0x021EA950
 	bl NARC_AllocAndReadWholeMember
 	add r1, r5, #0
 	add r4, r0, #0
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD75_021EA950
@@ -8587,7 +8587,7 @@ MOD75_021EAF54: ; 0x021EAF54
 	bl NARC_AllocAndReadWholeMember
 	add r1, r5, #0
 	add r4, r0, #0
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD75_021EAF54

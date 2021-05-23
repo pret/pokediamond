@@ -2,10 +2,10 @@
     .include "global.inc"
 
 	.extern FX_SinCosTable_
-	.extern UNK_021064C0
-	.extern UNK_021064B8
-	.extern UNK_021064BC
-	.extern UNK_021064C4
+	.extern NNS_GfdDefaultFuncAllocPlttVram
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncFreeTexVram
+	.extern NNS_GfdDefaultFuncFreePlttVram
 
 	.section .rodata
 
@@ -569,18 +569,18 @@ FUN_0201F454: ; 0x0201F454
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	str r0, [sp, #0x0]
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	beq _0201F492
-	ldr r3, _0201F4E4 ; =UNK_021064B8
+	ldr r3, _0201F4E4 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	add r2, r1, #0x0
@@ -597,7 +597,7 @@ _0201F496:
 	ldr r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _0201F4B2
-	ldr r3, _0201F4E4 ; =UNK_021064B8
+	ldr r3, _0201F4E4 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x1
 	ldr r3, [r3, #0x0]
 	mov r2, #0x0
@@ -614,7 +614,7 @@ _0201F4B6:
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x0
 	beq _0201F4DA
-	ldr r3, _0201F4E8 ; =UNK_021064C0
+	ldr r3, _0201F4E8 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x2
 	ldrh r2, [r5, #0x20]
 	lsl r1, r1, #0xe
@@ -635,17 +635,17 @@ _0201F4DE:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	nop
-_0201F4E4: .word UNK_021064B8
-_0201F4E8: .word UNK_021064C0
+_0201F4E4: .word NNS_GfdDefaultFuncAllocTexVram
+_0201F4E8: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_0201F4EC
 FUN_0201F4EC: ; 0x0201F4EC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r3, #0x0
-	bl FUN_020B7CF0
+	bl NNS_G3dTexReleaseTexKey
 	add r0, r5, #0x0
-	bl FUN_020B7C58
+	bl NNS_G3dPlttReleasePlttKey
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
 
@@ -656,14 +656,14 @@ FUN_0201F500: ; 0x0201F500
 	ldr r1, [r2, #0x0]
 	ldr r2, [r3, #0x0]
 	add r5, r0, #0x0
-	bl FUN_020B7DFC
+	bl NNS_G3dTexSetTexKey
 	ldr r1, [sp, #0x10]
 	add r0, r5, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_020B7CDC
+	bl NNS_G3dPlttSetPlttKey
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_020B7790
+	bl NNS_G3dBindMdlSet
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -675,28 +675,28 @@ FUN_0201F524: ; 0x0201F524
 	add r4, r2, #0x0
 	cmp r0, #0x0
 	beq _0201F536
-	ldr r1, _0201F550 ; =UNK_021064BC
+	ldr r1, _0201F550 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r1, [r1, #0x0]
 	blx r1
 _0201F536:
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x0
 	beq _0201F542
-	ldr r1, _0201F550 ; =UNK_021064BC
+	ldr r1, _0201F550 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r1, [r1, #0x0]
 	blx r1
 _0201F542:
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _0201F54E
-	ldr r1, _0201F554 ; =UNK_021064C4
+	ldr r1, _0201F554 ; =NNS_GfdDefaultFuncFreePlttVram
 	ldr r1, [r1, #0x0]
 	blx r1
 _0201F54E:
 	pop {r3-r5, pc}
 	.balign 4
-_0201F550: .word UNK_021064BC
-_0201F554: .word UNK_021064C4
+_0201F550: .word NNS_GfdDefaultFuncFreeTexVram
+_0201F554: .word NNS_GfdDefaultFuncFreePlttVram
 
 	thumb_func_start FUN_0201F558
 FUN_0201F558: ; 0x0201F558
@@ -713,22 +713,22 @@ _0201F568:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 _0201F56E:
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	ldr r1, [sp, #0x0]
 	cmp r1, r6
 	bne _0201F5AA
@@ -780,7 +780,7 @@ FUN_0201F5D4: ; 0x0201F5D4
 	add r0, r5, #0x0
 	ldr r1, [r5, #0x7c]
 	add r0, #0x24
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add r0, r5, #0x0
 	add r0, #0xa8
 	ldrb r0, [r0, #0x0]
@@ -882,7 +882,7 @@ FUN_0201F69C: ; 0x0201F69C
 	add r0, r5, #0x0
 	ldr r1, [r5, #0x7c]
 	add r0, #0x24
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add r0, r4, #0x0
 	bl FUN_0201FBCC
 	add r5, #0x84
@@ -1602,7 +1602,7 @@ FUN_0201FB9C: ; 0x0201FB9C
 	add r5, r2, #0x0
 	bl FUN_0201FC90
 	add r7, r0, #0x0
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	add r4, r0, #0x0
 	ldrh r0, [r4, #0xe]
 	add r0, r4, r0
@@ -1612,7 +1612,7 @@ FUN_0201FB9C: ; 0x0201FB9C
 	cmp r5, #0x0
 	beq _0201FBC6
 	add r0, r7, #0x0
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r5, #0x0]
 _0201FBC6:
 	add r0, r4, #0x0
@@ -1724,7 +1724,7 @@ FUN_0201FC70: ; 0x0201FC70
 	sub sp, #0xc
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x78]
-	bl FUN_020B772C
+	bl NNS_G3dReleaseMdlSet
 	add r4, #0x80
 	ldr r0, [r4, #0x0]
 	add r1, sp, #0x4
@@ -1828,7 +1828,7 @@ _0201FD0C:
 	ldr r0, [r4, r1]
 	add r1, r1, #0x4
 	add r1, r4, r1
-	bl thunk_FUN_020afda0_2
+	bl NNS_G2dGetUnpackedAnimBank
 	mov r0, #0x12
 	mov r1, #0x1
 	lsl r0, r0, #0x4
@@ -2002,10 +2002,10 @@ FUN_0201FE6C: ; 0x0201FE6C
 	bl memset
 	add r0, r4, #0x0
 	add r0, #0xb4
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, r4, #0x0
 	add r0, #0xd8
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0x0
 	str r0, [r4, #0x30]
 	pop {r4, pc}
@@ -2072,7 +2072,7 @@ _0201FEA6:
 	add r1, r4, #0x0
 	add r1, #0x26
 	ldrb r1, [r1, #0x0]
-	bl FUN_020B502C
+	bl NNS_G2dSetRndCoreAffineOverwriteMode
 	add r0, r4, #0x0
 	add r0, #0x27
 	ldrb r2, [r0, #0x0]
@@ -2084,7 +2084,7 @@ _0201FEA6:
 	mov r3, #0x2
 	and r1, r2
 	and r2, r3
-	bl FUN_020B4F38
+	bl NNS_G2dSetRndCoreFlipMode
 	add r0, r4, #0x0
 	mov r2, #0x1
 	add r0, #0x34
@@ -2193,13 +2193,13 @@ _0201FFE4:
 	ldr r1, [r1, #0x0]
 	add r0, #0xb4
 	add r4, #0x40
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	mov r1, #0x0
 	mvn r1, r1
 	cmp r0, r1
 	beq _0202000E
 	ldr r0, [r4, #0x5c]
-	bl FUN_020B4358
+	bl NNS_G2dFreeCellTransferStateHandle
 _0202000E:
 	add r0, r5, #0x0
 	add r0, #0xec
@@ -2409,11 +2409,11 @@ _0202014A:
 	lsl r1, r1, #0x10
 	ldr r0, [r4, #0x4]
 	lsr r1, r1, #0x10
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x8
-	bl FUN_020B1EE4
+	bl NNS_G2dSetCellAnimationSequence
 	mov r0, #0x1
 	str r0, [r4, #0x10]
 	pop {r4, pc}
@@ -2422,11 +2422,11 @@ _02020168:
 	add r4, #0x40
 	ldr r0, [r4, #0x6c]
 	add r1, r3, #0x0
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x8
-	bl FUN_020B242C
+	bl NNS_G2dSetAnimSequenceToMCAnimation
 	mov r0, #0x1
 	str r0, [r4, #0x10]
 	pop {r4, pc}
@@ -2459,7 +2459,7 @@ _020201A8:
 	add r5, #0x40
 	add r0, r5, #0x0
 	add r0, #0x8
-	bl FUN_020B0448
+	bl NNS_G2dResetAnimCtrlState
 	mov r0, #0x1
 	str r0, [r5, #0x10]
 	add r0, r4, #0x0
@@ -2471,7 +2471,7 @@ _020201C2:
 	add r5, #0x40
 	add r0, r5, #0x0
 	add r0, #0x8
-	bl FUN_020B0448
+	bl NNS_G2dResetAnimCtrlState
 	mov r0, #0x1
 	str r0, [r5, #0x10]
 	add r0, r4, #0x0
@@ -2499,12 +2499,12 @@ FUN_020201E4: ; 0x020201E4
 _020201F4:
 	add r0, #0x40
 	add r0, #0x8
-	bl FUN_020B1EC4
+	bl NNS_G2dTickCellAnimation
 	pop {r3, pc}
 _020201FE:
 	add r0, #0x40
 	add r0, #0x8
-	bl FUN_020B224C
+	bl NNS_G2dTickMCAnimation
 	pop {r3, pc}
 
 	thumb_func_start FUN_02020208
@@ -2520,22 +2520,22 @@ FUN_02020208: ; 0x02020208
 _02020218:
 	add r0, #0x40
 	add r0, #0x8
-	bl FUN_020B1EA4
+	bl NNS_G2dSetCellAnimationCurrentFrame
 	pop {r3, pc}
 _02020222:
 	add r0, #0x40
 	add r0, #0x8
-	bl FUN_020B2194
+	bl NNS_G2dSetMCAnimationCurrentFrame
 	pop {r3, pc}
 
 	thumb_func_start FUN_0202022C
 FUN_0202022C: ; 0x0202022C
-	ldr r3, _02020234 ; =FUN_020B04FC
+	ldr r3, _02020234 ; =NNS_G2dGetAnimCtrlCurrentFrame
 	add r0, #0x40
 	add r0, #0x8
 	bx r3
 	.balign 4
-_02020234: .word FUN_020B04FC
+_02020234: .word NNS_G2dGetAnimCtrlCurrentFrame
 
 	thumb_func_start FUN_02020238
 FUN_02020238: ; 0x02020238
@@ -2969,12 +2969,12 @@ FUN_0202050C: ; 0x0202050C
 	add r4, #0x40
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r4, #0x8
 	add r1, r0, #0x0
 	ldr r2, [r5, #0x40]
 	add r0, r4, #0x0
-	bl FUN_020B1F80
+	bl NNS_G2dInitCellAnimation
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -2986,22 +2986,22 @@ FUN_0202052C: ; 0x0202052C
 	add r4, r6, #0x0
 	add r4, #0x40
 	add r5, r0, #0x0
-	bl FUN_020B43A4
+	bl NNS_G2dGetNewCellTransferStateHandle
 	str r0, [r4, #0x5c]
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
 	ldr r5, [r5, #0x4]
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	str r0, [sp, #0x18]
 	add r0, r6, #0x0
 	add r0, #0xb4
 	mov r1, #0x1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	add r0, #0xb4
 	mov r1, #0x2
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	mov r1, #0x0
 	mvn r1, r1
 	str r1, [sp, #0x0]
@@ -3018,7 +3018,7 @@ FUN_0202052C: ; 0x0202052C
 	ldr r2, [r6, #0x40]
 	ldr r3, [r4, #0x5c]
 	add r0, #0x8
-	bl FUN_020B1EFC
+	bl NNS_G2dInitCellAnimationVramTransfered
 	add sp, #0x1c
 	pop {r4-r7, pc}
 
@@ -3032,10 +3032,10 @@ FUN_02020588: ; 0x02020588
 	ldr r0, [r4, #0x6c]
 	add r7, r1, #0x0
 	mov r1, #0x0
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0x68]
-	bl FUN_020B23D8
+	bl NNS_G2dGetMCBankNumNodesRequired
 	add r6, r0, #0x0
 	mov r1, #0x28
 	add r0, r7, #0x0
@@ -3058,11 +3058,11 @@ FUN_02020588: ; 0x02020588
 	ldr r1, [r4, #0x70]
 	ldr r2, [r4, #0x74]
 	add r0, #0x8
-	bl FUN_020B20C8
+	bl NNS_G2dInitMCAnimation
 	add r4, #0x8
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020B242C
+	bl NNS_G2dSetAnimSequenceToMCAnimation
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -3087,7 +3087,7 @@ _02020600:
 _02020602:
 	cmp r4, #0x0
 	beq _02020612
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r1, r4, #0x0
 	bl _u32_div_f
 	pop {r4, pc}
@@ -3115,19 +3115,19 @@ FUN_02020618: ; 0x02020618
 	ldr r0, [r5, r0]
 	add r1, #0xb4
 	add r2, #0xd8
-	bl thunk_FUN_020b5040
+	bl NNS_G2dSetRendererImageProxy
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020B326C
-	bl FUN_020B2B58
+	bl NNS_G2dBeginRendering
+	bl NNS_G2dPushMtx
 	add r1, r4, #0x0
 	mov r0, #0x45
 	add r1, #0x26
 	lsl r0, r0, #0x2
 	ldrb r1, [r1, #0x0]
 	ldr r0, [r5, r0]
-	bl FUN_020B502C
+	bl NNS_G2dSetRndCoreAffineOverwriteMode
 	add r0, r4, #0x0
 	add r0, #0x26
 	ldrb r0, [r0, #0x0]
@@ -3143,7 +3143,7 @@ FUN_02020618: ; 0x02020618
 	mov r3, #0x2
 	and r1, r2
 	and r2, r3
-	bl FUN_020B4F38
+	bl NNS_G2dSetRndCoreFlipMode
 	b _0202068E
 _02020680:
 	mov r0, #0x45
@@ -3151,12 +3151,12 @@ _02020680:
 	mov r1, #0x0
 	ldr r0, [r5, r0]
 	add r2, r1, #0x0
-	bl FUN_020B4F38
+	bl NNS_G2dSetRndCoreFlipMode
 _0202068E:
 	ldr r0, [sp, #0x0]
 	ldr r1, [sp, #0x4]
 	ldr r2, [sp, #0x8]
-	bl FUN_020B2A08
+	bl NNS_G2dTranslate
 	add r0, r4, #0x0
 	add r0, #0x26
 	ldrb r0, [r0, #0x0]
@@ -3165,11 +3165,11 @@ _0202068E:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0x14]
-	bl FUN_020B2A08
+	bl NNS_G2dTranslate
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x20]
-	bl FUN_020B28B4
+	bl NNS_G2dScale
 	ldrh r0, [r4, #0x24]
 	ldr r2, _02020770 ; =FX_SinCosTable_
 	asr r0, r0, #0x4
@@ -3179,14 +3179,14 @@ _0202068E:
 	lsl r1, r1, #0x1
 	ldrsh r0, [r2, r0]
 	ldrsh r1, [r2, r1]
-	bl FUN_020B2794
+	bl NNS_G2dRotZ
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0x14]
 	neg r0, r0
 	neg r1, r1
 	neg r2, r2
-	bl FUN_020B2A08
+	bl NNS_G2dTranslate
 _020206DC:
 	add r0, r4, #0x0
 	add r0, #0x28
@@ -3249,16 +3249,16 @@ _0202074E:
 	add r4, #0x40
 	add r4, #0x8
 	add r0, r4, #0x0
-	bl FUN_020B317C
+	bl NNS_G2dDrawCellAnimation
 	b _02020764
 _0202075A:
 	add r4, #0x40
 	add r4, #0x8
 	add r0, r4, #0x0
-	bl FUN_020B2D9C
+	bl NNS_G2dDrawMultiCellAnimation
 _02020764:
-	bl FUN_020B2B08
-	bl FUN_020B31F0
+	bl NNS_G2dPopMtx
+	bl NNS_G2dEndRendering
 	add sp, #0xc
 	pop {r3-r6, pc}
 	.balign 4

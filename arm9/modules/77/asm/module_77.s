@@ -2554,7 +2554,7 @@ MOD77_021D89F4: ; 0x021D89F4
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	asr r3, r3, #0x10
-	bl FUN_020B8418
+	bl NNS_G3dGlbLightVector
 	pop {r4, pc}
 	nop
 _021D8A28: .word 0x0000C2DC

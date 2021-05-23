@@ -5780,7 +5780,7 @@ MOD18_0223C37C: ; 0x0223C37C
 	ldr r1, [r0]
 	ldr r0, _0223C56C ; =0x000009EB
 	strb r2, [r1, r0]
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7c
@@ -21387,7 +21387,7 @@ _02243B16:
 	str r0, [sp, #0x24]
 	add r0, sp, #0x1c
 	add r1, sp, #0x18
-	bl FUN_020BB408
+	bl NNS_G3dWorldPosToScrPos
 	ldr r0, [sp, #0x18]
 	lsl r0, r0, #0xc
 	str r0, [sp, #0x1c]
