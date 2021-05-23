@@ -4,6 +4,7 @@
 #include "options.h"
 #include "player_data.h"
 #include "text.h"
+#include "unk_02016B94.h"
 
 extern void *FUN_02039438(struct UnkSavStruct80* arg, u32 id);
 extern void *CreateScriptContext(struct UnkSavStruct80* arg, u16 id);
@@ -27,9 +28,7 @@ extern void FUN_02055304(u32 param0, u32 param1);
 extern void FUN_02039460(struct UnkSavStruct80 *arg);
 extern void FUN_020545B8(u32 param0, u8 *param1, u32 param2);
 extern void FUN_02054608(u8 *param0, struct Options *options);
-extern void FUN_0200D0E0(u32 *param0, u32 param1);
-extern void FUN_02019178(u32 *param0);
-extern void FUN_020179E0(u32 param0, u32 param1, u32 param2, u16 val);
+extern void FUN_0200D0E0(struct Window *param0, u32 param1);
 extern u32 FUN_02058510(u32 param0, u32 param1);
 extern void MOD05_021E8128(u32 param0, u8 type, u16 map);
 extern void MOD05_021E8130(u32 param0, u32 param1);
@@ -777,7 +776,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_Unk0034(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
-    u32 *unk = FUN_02039438(unk80, 0x1); //windowID?
+    struct Window *unk = FUN_02039438(unk80, 0x1);
     u8 *unk2 = FUN_02039438(unk80, 0x6);
     FUN_0200D0E0(unk, 0);  //clear window?
     FUN_02019178(unk);
@@ -788,7 +787,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0034(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_Unk0035(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
-    u32 *unk = FUN_02039438(unk80, 0x1); //windowID?
+    struct Window *unk = FUN_02039438(unk80, 0x1);
     u8 *unk2 = FUN_02039438(unk80, 0x6);
     FUN_02019178(unk);
     *unk2 = 0;

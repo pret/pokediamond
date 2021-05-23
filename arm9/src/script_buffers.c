@@ -12,7 +12,6 @@
 #include "trainer_data.h"
 #include "script_buffers.h"
 #include "unk_02024E64.h"
-#include "window.h"
 #include "text.h"
 
 #pragma thumb on
@@ -803,7 +802,7 @@ void MessagePrinter_delete(struct UnkStruct_0200B870 * a0)
     }
 }
 
-void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window * a2, int a3, int a4)
+void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window *a2, int a3, int a4)
 {
     BlitBitmapRectToWindow(a2, a0->unk_4->unk_14 + UNK_020ECE6C[a1][0], 0, 0, UNK_020ECE6C[a1][1], 8, (u16)a3, (u16)a4, UNK_020ECE6C[a1][1], 8);
 }
