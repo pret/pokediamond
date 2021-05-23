@@ -33,6 +33,7 @@ _020AE584:
 	ldr r1, [r3, #0xc]
 	str r1, [r2, #0x8]
 	bx lr
+	arm_func_end FUN_020AE554
 
 	arm_func_start FUN_020AE5B0
 FUN_020AE5B0: ; 0x020AE5B0
@@ -56,6 +57,7 @@ FUN_020AE5B0: ; 0x020AE5B0
 	str r0, [r4, #0x8]
 	mov r0, #0x1
 	ldmia sp!, {r4-r6,pc}
+	arm_func_end FUN_020AE5B0
 
 	arm_func_start FUN_020AE600
 FUN_020AE600: ; 0x020AE600
@@ -74,6 +76,7 @@ _020AE61C:
 	bl FUN_020AE6C8
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
+	arm_func_end FUN_020AE600
 
 	arm_func_start FUN_020AE638
 FUN_020AE638: ; 0x020AE638
@@ -94,6 +97,7 @@ _020AE668:
 	bl FUN_020AE710
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end FUN_020AE638
 
 	arm_func_start thunk_FUN_020adc8c_2
 thunk_FUN_020adc8c_2: ; 0x020AE678
@@ -101,6 +105,7 @@ thunk_FUN_020adc8c_2: ; 0x020AE678
 	bx r12
 	.balign 4
 _020AE680: .word FUN_020ADC8C
+	arm_func_end thunk_FUN_020adc8c_2
 
 	arm_func_start FUN_020AE684
 FUN_020AE684: ; 0x020AE684
@@ -123,6 +128,7 @@ _020AE6BC:
 	bl FUN_020AE7E0
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end FUN_020AE684
 
 	arm_func_start FUN_020AE6C8
 FUN_020AE6C8: ; 0x020AE6C8
@@ -140,6 +146,7 @@ _020AE6EC:
 	ldr r0, [r0, #0x1c]
 	str r0, [r2, #0x4]
 	bx lr
+	arm_func_end FUN_020AE6C8
 
 	arm_func_start FUN_020AE6F8
 FUN_020AE6F8: ; 0x020AE6F8
@@ -149,6 +156,7 @@ FUN_020AE6F8: ; 0x020AE6F8
 	mov r0, #0x0
 	str r0, [r2, #0x8]
 	bx lr
+	arm_func_end FUN_020AE6F8
 
 	arm_func_start FUN_020AE710
 FUN_020AE710: ; 0x020AE710
@@ -180,6 +188,7 @@ _020AE76C:
 	str r4, [r5, #0x4]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
+	arm_func_end FUN_020AE710
 
 	arm_func_start FUN_020AE77C
 FUN_020AE77C:
@@ -209,6 +218,7 @@ _020AE7D4:
 	mov r0, r5
 	str r4, [r6, #0x0]
 	ldmia sp!, {r4-r6,pc}
+	arm_func_end FUN_020AE77C
 
 	arm_func_start FUN_020AE7E0
 FUN_020AE7E0: ; 0x020AE7E0
@@ -232,3 +242,4 @@ FUN_020AE7E0: ; 0x020AE7E0
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020AE828: .word 0x46524D48
+	arm_func_end FUN_020AE7E0

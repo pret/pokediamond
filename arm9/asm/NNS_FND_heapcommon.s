@@ -21,6 +21,7 @@ FUN_020ADC8C: ; 0x020ADC8C
 	mov r1, r4
 	bl FUN_020ADAB0
 	ldmia sp!, {r4,pc}
+	arm_func_end FUN_020ADC8C
 
 	arm_func_start FUN_020ADCA4
 FUN_020ADCA4:
@@ -61,6 +62,7 @@ _020ADD14:
 	.balign 4
 _020ADD28: .word UNK_021CCD38
 _020ADD2C: .word UNK_021CCD3C
+	arm_func_end FUN_020ADCA4
 
 	arm_func_start FUN_020ADD30
 FUN_020ADD30: ; 0x020ADD30
@@ -75,6 +77,7 @@ FUN_020ADD30: ; 0x020ADD30
 	ldmia sp!, {r4,pc}
 	.balign 4
 _020ADD54: .word UNK_021CCD3C
+	arm_func_end FUN_020ADD30
 
 	arm_func_start FUN_020ADD58
 FUN_020ADD58:
@@ -107,3 +110,4 @@ _020ADDA4:
 _020ADDB8:
 	mov r0, #0x0
 	ldmia sp!, {r4-r6,pc}
+	arm_func_end FUN_020ADD58

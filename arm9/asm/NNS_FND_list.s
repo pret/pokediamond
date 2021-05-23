@@ -10,6 +10,7 @@ FUN_020ADA84: ; 0x020ADA84
 	ldrneh r0, [r0, #0xa]
 	ldrne r0, [r1, r0]
 	bx lr
+	arm_func_end FUN_020ADA84
 
 	arm_func_start FUN_020ADA98
 FUN_020ADA98: ; 0x020ADA98
@@ -19,6 +20,7 @@ FUN_020ADA98: ; 0x020ADA98
 	addne r0, r1, r0
 	ldrne r0, [r0, #0x4]
 	bx lr
+	arm_func_end FUN_020ADA98
 
 	arm_func_start FUN_020ADAB0
 FUN_020ADAB0: ; 0x020ADAB0
@@ -48,6 +50,7 @@ FUN_020ADAB0: ; 0x020ADAB0
 	strh r1, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end FUN_020ADAB0
 
 	arm_func_start FUN_020ADB18
 FUN_020ADB18: ; 0x020ADB18
@@ -82,6 +85,7 @@ _020ADB54:
 	strh r1, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end FUN_020ADB18
 
 	arm_func_start FUN_020ADB8C
 FUN_020ADB8C: ; 0x020ADB8C
@@ -109,6 +113,7 @@ _020ADBAC:
 	strh r1, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end FUN_020ADB8C
 
 	arm_func_start FUN_020ADBE8
 FUN_020ADBE8: ; 0x020ADBE8
@@ -137,6 +142,7 @@ _020ADC08:
 	strh r1, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end FUN_020ADBE8
 
 	arm_func_start FUN_020ADC48
 FUN_020ADC48: ; 0x020ADC48
@@ -151,6 +157,7 @@ FUN_020ADC48: ; 0x020ADC48
 	add r1, r1, #0x1
 	strh r1, [r0, #0x8]
 	bx lr
+	arm_func_end FUN_020ADC48
 
 	arm_func_start FUN_020ADC74
 FUN_020ADC74: ; 0x020ADC74
@@ -160,4 +167,4 @@ FUN_020ADC74: ; 0x020ADC74
 	strh r2, [r0, #0x8]
 	strh r1, [r0, #0xa]
 	bx lr
-
+	arm_func_end FUN_020ADC74

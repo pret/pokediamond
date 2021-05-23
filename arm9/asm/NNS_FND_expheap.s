@@ -10,6 +10,7 @@
 FUN_020ADDC0: ; 0x020ADDC0
 	ldr r0, [r0, #-0xc]
 	bx lr
+	arm_func_end FUN_020ADDC0
 
 	arm_func_start FUN_020ADDC8
 FUN_020ADDC8: ; 0x020ADDC8
@@ -24,6 +25,7 @@ _020ADDD8:
 	cmp r2, #0x0
 	bne _020ADDD8
 	bx lr
+	arm_func_end FUN_020ADDC8
 
 	arm_func_start FUN_020ADDF0
 FUN_020ADDF0: ; 0x020ADDF0
@@ -42,6 +44,7 @@ FUN_020ADDF0: ; 0x020ADDF0
 	bl FUN_020AE02C
 	add sp, sp, #0xc
 	ldmia sp!, {r4-r5,pc}
+	arm_func_end FUN_020ADDF0
 
 	arm_func_start FUN_020ADE2C
 FUN_020ADE2C: ; 0x020ADE2C
@@ -146,6 +149,7 @@ _020ADF90:
 	ldmia sp!, {r4-r10,pc}
 	.balign 4
 _020ADF9C: .word 0x00004652
+	arm_func_end FUN_020ADE2C
 
 	arm_func_start tempName_NNS_FndAllocFromExpHeapEx
 tempName_NNS_FndAllocFromExpHeapEx: ; 0x020ADFA0
@@ -165,6 +169,7 @@ _020ADFCC:
 	bl FUN_020AE11C
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end tempName_NNS_FndAllocFromExpHeapEx
 
 	arm_func_start thunk_FUN_020adc8c
 thunk_FUN_020adc8c: ; 0x020ADFDC
@@ -172,6 +177,7 @@ thunk_FUN_020adc8c: ; 0x020ADFDC
 	bx r12
 	.balign 4
 _020ADFE4: .word FUN_020ADC8C
+	arm_func_end thunk_FUN_020adc8c
 
 	arm_func_start tempName_NNS_FndCreateExpHeapEx
 tempName_NNS_FndCreateExpHeapEx: ; 0x020ADFE8
@@ -194,6 +200,7 @@ _020AE020:
 	bl FUN_020AE420
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end tempName_NNS_FndCreateExpHeapEx
 
 	arm_func_start FUN_020AE02C
 FUN_020AE02C:
@@ -262,6 +269,7 @@ _020AE0D4:
 	ldmia sp!, {r4-r6,pc}
 	.balign 4
 _020AE118: .word 0x00004652
+	arm_func_end FUN_020AE02C
 
 	arm_func_start FUN_020AE11C
 FUN_020AE11C: ; 0x020AE11C
@@ -315,6 +323,7 @@ _020AE1B0:
 	bl FUN_020AE298
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9,pc}
+	arm_func_end FUN_020AE11C
 
 	arm_func_start FUN_020AE1D8
 FUN_020AE1D8: ; 0x020AE1D8
@@ -369,6 +378,7 @@ _020AE270:
 	bl FUN_020AE298
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9,pc}
+	arm_func_end FUN_020AE1D8
 
 	arm_func_start FUN_020AE298
 FUN_020AE298: ; 0x020AE298
@@ -474,6 +484,7 @@ _020AE378:
 	.balign 4
 _020AE418: .word 0x00004652
 _020AE41C: .word 0x00005544
+	arm_func_end FUN_020AE298
 
 	arm_func_start FUN_020AE420
 FUN_020AE420: ; 0x020AE420
@@ -510,6 +521,7 @@ FUN_020AE420: ; 0x020AE420
 	.balign 4
 _020AE498: .word 0x45585048
 _020AE49C: .word 0x00004652
+	arm_func_end FUN_020AE420
 
 	arm_func_start FUN_020AE4A0
 FUN_020AE4A0: ; 0x020AE4A0
@@ -525,6 +537,7 @@ FUN_020AE4A0: ; 0x020AE4A0
 	mov r0, r3
 	str r2, [r3, #0xc]
 	bx lr
+	arm_func_end FUN_020AE4A0
 
 	arm_func_start FUN_020AE4D0
 FUN_020AE4D0: ; 0x020AE4D0
@@ -540,6 +553,7 @@ FUN_020AE4D0: ; 0x020AE4D0
 	streq r1, [r0, #0x4]
 	mov r0, r1
 	bx lr
+	arm_func_end FUN_020AE4D0
 
 	arm_func_start FUN_020AE500
 FUN_020AE500: ; 0x020AE500
@@ -553,6 +567,7 @@ FUN_020AE500: ; 0x020AE500
 	streq r2, [r0, #0x4]
 	mov r0, r2
 	bx lr
+	arm_func_end FUN_020AE500
 
 	arm_func_start FUN_020AE528
 FUN_020AE528: ; 0x020AE528
@@ -567,3 +582,4 @@ FUN_020AE528: ; 0x020AE528
 	add r1, r1, r3
 	str r1, [r0, #0x4]
 	bx lr
+	arm_func_end FUN_020AE528

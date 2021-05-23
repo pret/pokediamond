@@ -22,6 +22,7 @@ FUN_020AE82C: ; 0x020AE82C
 	bx lr
 	.balign 4
 _020AE848: .word UNK_020FF7CC
+	arm_func_end FUN_020AE82C
 
 	arm_func_start FUN_020AE84C
 FUN_020AE84C: ; 0x020AE84C
@@ -32,6 +33,7 @@ FUN_020AE84C: ; 0x020AE84C
 	blx r2
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end FUN_020AE84C
 
 	arm_func_start FUN_020AE868
 FUN_020AE868: ; 0x020AE868
@@ -42,6 +44,7 @@ FUN_020AE868: ; 0x020AE868
 	blx r2
 	add sp, sp, #0x4
 	ldmia sp!, {pc}
+	arm_func_end FUN_020AE868
 
 	arm_func_start FUN_020AE884
 FUN_020AE884: ; 0x020AE884
@@ -50,6 +53,7 @@ FUN_020AE884: ; 0x020AE884
 	bx r12
 	.balign 4
 _020AE890: .word FUN_020ADDF0
+	arm_func_end FUN_020AE884
 
 	arm_func_start FUN_020AE894
 FUN_020AE894: ; 0x020AE894
@@ -60,3 +64,4 @@ FUN_020AE894: ; 0x020AE894
 	bx r12
 	.balign 4
 _020AE8A8: .word tempName_NNS_FndAllocFromExpHeapEx
+	arm_func_end FUN_020AE894
