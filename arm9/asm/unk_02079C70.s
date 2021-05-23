@@ -2750,7 +2750,7 @@ _0207B256:
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	add r4, r0, #0x0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	mov r0, #0x20

@@ -66,13 +66,13 @@ _021D7558:
 	ldrsh r2, [r3, r7]
 	ldrsh r3, [r3, r6]
 	add r0, r4, #0
-	bl FUN_020B8418
+	bl NNS_G3dGlbLightVector
 	ldr r2, [r5, #4]
 	lsl r1, r4, #1
 	add r1, r2, r1
 	ldrh r1, [r1, #0x18]
 	add r0, r4, #0
-	bl FUN_020B8404
+	bl NNS_G3dGlbLightColor
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -82,12 +82,12 @@ _021D7558:
 	ldrh r0, [r2, #0x20]
 	ldrh r1, [r2, #0x22]
 	ldr r2, [r2, #0x28]
-	bl FUN_020B83E0
+	bl NNS_G3dGlbMaterialColorDiffAmb
 	ldr r2, [r5, #4]
 	ldrh r0, [r2, #0x24]
 	ldrh r1, [r2, #0x26]
 	ldr r2, [r2, #0x2c]
-	bl FUN_020B83BC
+	bl NNS_G3dGlbMaterialColorSpecEmi
 	ldr r3, [r5, #4]
 	ldr r0, [r3, #0x40]
 	str r0, [sp]
@@ -97,7 +97,7 @@ _021D7558:
 	ldr r1, [r3, #0x34]
 	ldr r2, [r3, #0x38]
 	ldr r3, [r3, #0x3c]
-	bl FUN_020B8390
+	bl NNS_G3dGlbPolygonAttr
 	mov r0, #0
 	mov r1, #0x48
 	bl FUN_02079A70
@@ -243,7 +243,7 @@ _021D76C8:
 	add r1, #0x80
 	ldr r1, [r1]
 	add r0, r7, #0
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	ldr r0, [r5, #0x60]
 	bl FreeToHeap
 	add r0, r4, #1
@@ -358,26 +358,26 @@ MOD78_021D778C: ; 0x021D778C
 	add r2, #0x5c
 	bl FUN_0201B234
 	ldr r0, [r5, #0x5c]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [sp, #4]
 	ldr r0, [r5, #0x58]
 	mov r1, #0
 	mov r2, #0x40
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	ldr r0, [r5, #0x58]
 	mov r1, #0
 	mov r2, #0x80
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #2
 	ldr r0, [r5, #0x58]
 	mov r1, #0
 	lsl r2, r2, #8
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #1
 	ldr r0, [r5, #0x58]
 	mov r1, #0
 	lsl r2, r2, #0xa
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	add r0, r5, #0
 	str r0, [sp, #8]
 	add r0, #0x70
@@ -402,12 +402,12 @@ _021D780E:
 	bl NARC_AllocAndReadWholeMember
 	str r0, [r4, #0x60]
 	mov r1, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	add r7, r0, #0
 	ldr r0, [sp, #8]
 	ldr r2, [r5, #0x58]
 	add r1, r7, #0
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	add r1, r4, #0
 	add r1, #0x80
 	str r0, [r1]
@@ -417,11 +417,11 @@ _021D780E:
 	ldr r2, [r5, #0x58]
 	ldr r3, [sp, #4]
 	add r1, r7, #0
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	add r4, #0x80
 	ldr r1, [r4]
 	add r0, r5, #4
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r6, #1
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18

@@ -1022,7 +1022,7 @@ _021D7D4C:
 	ldr r0, [r4, r1]
 	add r1, r1, #4
 	add r1, r4, r1
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0
 	bne _021D7D60
 	bl ErrorHandling
@@ -1076,7 +1076,7 @@ _021D7DBC:
 	ldr r0, [r4, r1]
 	add r1, r1, #4
 	add r1, r4, r1
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0
 	bne _021D7DD0
 	bl ErrorHandling
@@ -3573,7 +3573,7 @@ MOD57_021D9184: ; 0x021D9184
 	sub sp, #0x3c
 	add r7, r0, #0
 	bl MOD57_021D9578
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -3709,7 +3709,7 @@ _021D9290:
 	beq _021D92CA
 	ldr r1, [sp, #0x18]
 	add r1, r1, r6
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0
 	bne _021D92CE
 	mov r0, #0x1e
@@ -4024,7 +4024,7 @@ _021D9536:
 	ldr r0, [r1, r0]
 	bl FUN_02020354
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	str r0, [sp]
 	lsl r0, r4, #5
 	str r0, [sp, #4]

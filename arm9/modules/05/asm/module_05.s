@@ -12073,7 +12073,7 @@ _021EE78C:
 	bne _021EE7C4
 	sub r0, #0x10
 	ldr r0, [r2, r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	add r7, r0, #0
 	ldrh r0, [r7, #0xe]
 	add r0, r7, r0
@@ -13883,8 +13883,8 @@ MOD05_021EF514: ; 0x021EF514
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	bl FUN_020162FC
-	bl FUN_020AF6A4
-	bl FUN_020AFA30
+	bl NNS_GfdResetLnkTexVramState
+	bl NNS_GfdResetLnkPlttVramState
 	mov r4, #0
 	add r6, r5, #4
 	mov r7, #0x30
@@ -14531,7 +14531,7 @@ _021EF9B0:
 _021EF9B6:
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	add r5, r0, #0
 	ldrb r0, [r5, #9]
 	cmp r0, #1
@@ -14547,7 +14547,7 @@ _021EF9CA:
 _021EF9D8:
 	ldr r0, [r4, #8]
 	add r1, r5, #0
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	ldr r0, [r4, #0x18]
 	mov r1, #1
 	str r1, [r0]
@@ -14621,14 +14621,14 @@ MOD05_021EFA40: ; 0x021EFA40
 	bl ErrorHandling
 _021EFA6A:
 	ldr r0, [r4]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrb r0, [r0, #9]
 	cmp r0, #1
 	beq _021EFA7A
 	bl ErrorHandling
 _021EFA7A:
 	ldr r0, [r4]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -14638,7 +14638,7 @@ _021EFA7A:
 _021EFA8E:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -15780,7 +15780,7 @@ _021F03A8:
 	asr r0, r1, #4
 	lsl r3, r0, #1
 	lsl r1, r3, #1
-	ldr r2, _021F0438 ; =UNK_020FFA38
+	ldr r2, _021F0438 ; =FX_SinCosTable_
 	add r3, r3, #1
 	lsl r3, r3, #1
 	ldrsh r1, [r2, r1]
@@ -15794,7 +15794,7 @@ _021F03A8:
 	asr r0, r5, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
-	ldr r3, _021F0438 ; =UNK_020FFA38
+	ldr r3, _021F0438 ; =FX_SinCosTable_
 	add r2, r2, #1
 	lsl r2, r2, #1
 	ldrsh r1, [r3, r1]
@@ -15839,7 +15839,7 @@ _021F03A8:
 	pop {r4, r5, r6, r7, pc}
 	nop
 _021F0434: .word UNK05_021F8B6C
-_021F0438: .word UNK_020FFA38
+_021F0438: .word FX_SinCosTable_
 
 	thumb_func_start MOD05_021F043C
 MOD05_021F043C: ; 0x021F043C
@@ -15866,7 +15866,7 @@ MOD05_021F0454: ; 0x021F0454
 	bl FUN_0201F008
 	strh r0, [r5]
 	ldrh r0, [r5]
-	ldr r2, _021F04F0 ; =UNK_020FFA38
+	ldr r2, _021F04F0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r1, r0, #1
 	lsl r0, r1, #1
@@ -15909,7 +15909,7 @@ MOD05_021F0454: ; 0x021F0454
 	str r0, [r5, #0x1c]
 	add r0, sp, #0
 	ldrh r0, [r0]
-	ldr r3, _021F04F0 ; =UNK_020FFA38
+	ldr r3, _021F04F0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -15924,7 +15924,7 @@ MOD05_021F0454: ; 0x021F0454
 	add sp, #0x2c
 	pop {r4, r5, pc}
 	nop
-_021F04F0: .word UNK_020FFA38
+_021F04F0: .word FX_SinCosTable_
 _021F04F4: .word UNK05_021F8B78
 
 	thumb_func_start MOD05_021F04F8
@@ -21368,7 +21368,7 @@ MOD05_021F2E70: ; 0x021F2E70
 	add r0, r4, #0
 	bl FUN_0201F8E0
 	mov r1, #1
-	bl FUN_020BB9F4
+	bl NNS_G3dMdlSetMdlFogEnableFlagAll
 	add r0, r4, #0
 	bl FUN_0201F8E0
 	bl MOD05_021DB5EC
@@ -22303,7 +22303,7 @@ _021F3596:
 	mov r2, #0
 	bl MOD05_021F2DB0
 	str r0, [r5, #0x10]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	add r4, r0, #0
 	add r0, r6, #0
 	bl MOD05_021F2E00
@@ -25006,7 +25006,7 @@ _021F49E4:
 	str r0, [r5, r1]
 	sub r0, r1, #4
 	ldr r0, [r5, r0]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	ldr r1, _021F4BA8 ; =0x000008A4
 	str r0, [r5, r1]
 	ldrh r0, [r7, #8]
@@ -25014,7 +25014,7 @@ _021F49E4:
 	beq _021F4A2C
 	sub r0, r1, #4
 	ldr r0, [r5, r0]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	ldr r1, _021F4BB0 ; =0x000008A8
 	str r0, [r5, r1]
 	b _021F4A32
@@ -25099,7 +25099,7 @@ _021F4ABE:
 	cmp r6, r0
 	bge _021F4AEC
 	ldr r0, [r4, #4]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	add r1, r0, #0
 	ldrh r2, [r1, #0xe]
 	ldr r3, [r7, #4]
@@ -25137,7 +25137,7 @@ _021F4B10:
 	mov r2, #4
 	bl NARC_AllocAndReadWholeMember
 	str r0, [r5, #4]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	add r4, r0, #0
 	beq _021F4B46
 	bl FUN_0201B3C4
@@ -26120,7 +26120,7 @@ MOD05_021F5268: ; 0x021F5268
 	add r2, r5, #0
 	bl UncompressFromNarc
 	str r0, [r4]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	str r0, [r4, #4]
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
@@ -26128,7 +26128,7 @@ MOD05_021F5268: ; 0x021F5268
 	add r0, r0, r1
 	str r0, [r4, #8]
 	ldr r0, [r4]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	beq _021F52A4
@@ -26166,18 +26166,18 @@ MOD05_021F52C8: ; 0x021F52C8
 	beq _021F52F8
 	add r1, sp, #4
 	add r2, sp, #0
-	bl FUN_020B7CF0
-	ldr r1, _021F5314 ; =UNK_021064BC
+	bl NNS_G3dTexReleaseTexKey
+	ldr r1, _021F5314 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r0, [sp, #4]
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _021F5314 ; =UNK_021064BC
+	ldr r1, _021F5314 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r0, [sp]
 	ldr r1, [r1]
 	blx r1
 	ldr r0, [r4, #0xc]
-	bl FUN_020B7C58
-	ldr r1, _021F5318 ; =UNK_021064C4
+	bl NNS_G3dPlttReleasePlttKey
+	ldr r1, _021F5318 ; =NNS_GfdDefaultFuncFreePlttVram
 	ldr r1, [r1]
 	blx r1
 _021F52F8:
@@ -26196,8 +26196,8 @@ _021F5306:
 	add sp, #8
 	pop {r4, pc}
 	nop
-_021F5314: .word UNK_021064BC
-_021F5318: .word UNK_021064C4
+_021F5314: .word NNS_GfdDefaultFuncFreeTexVram
+_021F5318: .word NNS_GfdDefaultFuncFreePlttVram
 
 	thumb_func_start MOD05_021F531C
 MOD05_021F531C: ; 0x021F531C
@@ -26241,7 +26241,7 @@ MOD05_021F5358: ; 0x021F5358
 	beq _021F5376
 	add r0, r1, #0
 	ldr r1, [r4, #8]
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
 	bne _021F5376
@@ -26343,7 +26343,7 @@ MOD05_021F5400: ; 0x021F5400
 	bl memset
 	ldr r1, [r5, #8]
 	add r0, r4, #0
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	mov r0, #1
 	str r0, [r4, #0x6c]
 	lsl r0, r0, #0xc
@@ -26354,11 +26354,11 @@ MOD05_021F5400: ; 0x021F5400
 
 	thumb_func_start MOD05_021F5424
 MOD05_021F5424: ; 0x021F5424
-	ldr r3, _021F542C ; =FUN_020B7EFC
+	ldr r3, _021F542C ; =NNS_G3dRenderObjAddAnmObj
 	ldr r1, [r1, #8]
 	bx r3
 	nop
-_021F542C: .word FUN_020B7EFC
+_021F542C: .word NNS_G3dRenderObjAddAnmObj
 
 	thumb_func_start MOD05_021F5430
 MOD05_021F5430: ; 0x021F5430
@@ -26373,7 +26373,7 @@ MOD05_021F5430: ; 0x021F5430
 	add r0, r4, #0
 	add r0, #0x70
 	ldrh r0, [r0]
-	ldr r3, _021F54C8 ; =UNK_020FFA38
+	ldr r3, _021F54C8 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -26390,7 +26390,7 @@ MOD05_021F5430: ; 0x021F5430
 	add r0, r4, #0
 	add r0, #0x74
 	ldrh r0, [r0]
-	ldr r3, _021F54C8 ; =UNK_020FFA38
+	ldr r3, _021F54C8 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -26407,7 +26407,7 @@ MOD05_021F5430: ; 0x021F5430
 	add r0, r4, #0
 	add r0, #0x72
 	ldrh r0, [r0]
-	ldr r3, _021F54C8 ; =UNK_020FFA38
+	ldr r3, _021F54C8 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -26432,7 +26432,7 @@ _021F54C4:
 	add sp, #0x48
 	pop {r4, pc}
 	.balign 4, 0
-_021F54C8: .word UNK_020FFA38
+_021F54C8: .word FX_SinCosTable_
 
 	thumb_func_start MOD05_021F54CC
 MOD05_021F54CC: ; 0x021F54CC
@@ -26471,17 +26471,17 @@ MOD05_021F54EC: ; 0x021F54EC
 	add r0, r2, #0
 	mov r1, #0
 	add r6, r3, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	str r0, [r5, #4]
 	ldr r1, [r5, #4]
 	ldr r2, [r4, #8]
 	add r0, r6, #0
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r5, #8]
 	ldr r1, [r5, #4]
 	ldr r2, [r4, #8]
 	ldr r3, [r4, #0xc]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start MOD05_021F5518

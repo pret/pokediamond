@@ -378,7 +378,7 @@ _0201E2A4:
 _0201E2A6:
 	cmp r4, #0x0
 	beq _0201E2B6
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r1, r4, #0x0
 	bl _u32_div_f
 	pop {r4, pc}
@@ -434,7 +434,7 @@ FUN_0201E2F8: ; 0x0201E2F8
 	str r0, [r4, #0xc]
 	add r4, #0x10
 	add r0, r4, #0x0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	pop {r4, pc}
 
 	thumb_func_start FUN_0201E314
@@ -675,7 +675,7 @@ FUN_0201E4BC: ; 0x0201E4BC
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x10
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	ldr r0, [r4, #0x4]
 	mov r2, #0x1
 	tst r0, r2
@@ -684,7 +684,7 @@ FUN_0201E4BC: ; 0x0201E4BC
 	ldr r0, [r4, #0x0]
 	ldr r1, [r4, #0x24]
 	add r3, #0x10
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 _0201E4DA:
 	ldr r0, [r4, #0x4]
 	mov r2, #0x2
@@ -694,7 +694,7 @@ _0201E4DA:
 	ldr r1, [r4, #0x28]
 	add r4, #0x10
 	add r3, r4, #0x0
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 _0201E4EE:
 	pop {r4, pc}
 

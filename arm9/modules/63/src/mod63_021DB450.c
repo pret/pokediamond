@@ -5,8 +5,8 @@
 #include "mod63_021DB450.h"
 
 //todo resolve to static code
-extern u32 (*UNK_021064B8)(u32 param0, u32 param1, u32 param2);
-extern u32 (*UNK_021064C0)(u32 param0, u32 param1, u32 param2);
+extern u32 (*NNS_GfdDefaultFuncAllocTexVram)(u32 param0, u32 param1, u32 param2);
+extern u32 (*NNS_GfdDefaultFuncAllocPlttVram)(u32 param0, u32 param1, u32 param2);
 
 extern void FUN_0201327C(u32 param0);
 extern void FUN_020132BC(u32 param0);
@@ -29,7 +29,7 @@ extern void FUN_020072E8(struct UnkStruct63_021DB450 *);
 extern void FUN_020081C4(struct UnkStruct63_021DB450 *);
 
 extern void FUN_020222AC(void);
-extern void FUN_020B02C8(void);
+extern void NNS_G2dSetupSoftwareSpriteCamera(void);
 extern u32 FUN_02006ED4(struct UnkStruct63_021DB450 *);
 extern void FUN_020222B4(u32, u32);
 
@@ -50,7 +50,7 @@ const struct UnkStruct63_021DBEF0 MOD63_021DBEF0[3];
 
 THUMB_FUNC u32 MOD63_021DB450(u32 param0, u32 param1)
 {
-    u32 res0 = (UNK_021064B8)(param0, param1, 0);
+    u32 res0 = (NNS_GfdDefaultFuncAllocTexVram)(param0, param1, 0);
     FUN_0201327C(res0);
     GF_ASSERT(res0);
     return (u32)((u16)res0 * 8);
@@ -58,7 +58,7 @@ THUMB_FUNC u32 MOD63_021DB450(u32 param0, u32 param1)
 
 THUMB_FUNC u32 MOD63_021DB474(u32 param0, u32 param1)
 {
-    u32 res0 = (UNK_021064C0)(param0, param1, 1);
+    u32 res0 = (NNS_GfdDefaultFuncAllocPlttVram)(param0, param1, 1);
     GF_ASSERT(res0);
     FUN_020132BC(res0);
     return (u32)((u16)res0 * 8);
@@ -114,7 +114,7 @@ THUMB_FUNC void MOD63_021DB5A8(UnkStruct63_021DB450 *param0)
         return;
     }
     FUN_020222AC();
-    FUN_020B02C8();
+    NNS_G2dSetupSoftwareSpriteCamera();
     (void)FUN_02006ED4(param0->field_00);
     MOD63_021DB934();
     FUN_020222B4(1, 0);

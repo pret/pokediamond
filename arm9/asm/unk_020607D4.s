@@ -556,7 +556,7 @@ _02060BF6:
 	add r0, r4, #0x0
 	bl MOD05_021F4BD0
 	ldr r0, [r0, #0x0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r2, sp, #0x20
 	mov r3, #0x0

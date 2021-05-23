@@ -99,7 +99,7 @@ UNK_020FB6E6: ; 0x020FB6E6
 FUN_0207EF6C: ; 0x0207EF6C
 	push {r3-r4, lr}
 	sub sp, #0x4
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_Init
 	bl G3X_InitMtxStack
 	ldr r0, _0207EFEC ; =0x04000060
@@ -183,16 +183,16 @@ FUN_0207F008: ; 0x0207F008
 	mov r0, #0x2
 	str r0, [r2, #0x0]
 	str r3, [r1, #0x0]
-	bl FUN_020B849C
+	bl NNS_G3dGlbFlushP
 	mov r0, #0xb7
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	bl FUN_0207F108
-	bl FUN_020B849C
+	bl NNS_G3dGlbFlushP
 	add r0, r4, #0x0
 	bl FUN_0207F1A4
 _0207F046:
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	mov r0, #0xae
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]

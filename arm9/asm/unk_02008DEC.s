@@ -1457,7 +1457,7 @@ FUN_0200986C: ; 0x0200986C
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	str r5, [r4, #0x4]
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
@@ -1475,7 +1475,7 @@ FUN_0200988C: ; 0x0200988C
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	str r5, [r4, #0x4]
 	str r6, [r4, #0x8]
 	add r0, r4, #0x0
@@ -1492,7 +1492,7 @@ FUN_020098B0: ; 0x020098B0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_020AFEB8
+	bl NNS_G2dGetUnpackedCellBank
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1507,7 +1507,7 @@ FUN_020098CC: ; 0x020098CC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl thunk_FUN_020afda0_2
+	bl NNS_G2dGetUnpackedAnimBank
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1522,7 +1522,7 @@ FUN_020098E8: ; 0x020098E8
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_020AFFD8
+	bl NNS_G2dGetUnpackedMultiCellBank
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -1537,7 +1537,7 @@ FUN_02009904: ; 0x02009904
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl thunk_FUN_020afda0
+	bl NNS_G2dGetUnpackedMCAnimBank
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -2266,7 +2266,7 @@ FUN_02009E88: ; 0x02009E88
 	mov r1, #0x0
 	bl FUN_02009E54
 	add r1, r4, #0x0
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	mov r1, #0x0
 	mvn r1, r1
 	cmp r0, r1

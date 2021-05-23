@@ -1,8 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021064B8
-	.extern UNK_021064C0
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncAllocPlttVram
 
 	.section .rodata
 
@@ -217,14 +217,14 @@ _02086508: .word 0x04000580
 	thumb_func_start FUN_0208650C
 FUN_0208650C: ; 0x0208650C
 	push {r3-r5, lr}
-	ldr r3, _02086544 ; =UNK_021064B8
+	ldr r3, _02086544 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #0x2
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	lsl r0, r0, #0xe
 	add r2, r1, #0x0
 	blx r3
-	ldr r3, _02086548 ; =UNK_021064C0
+	ldr r3, _02086548 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x0
 	add r4, r0, #0x0
 	ldr r3, [r3, #0x0]
@@ -243,8 +243,8 @@ _0208653C:
 	bl FUN_02012CC8
 	pop {r3-r5, pc}
 	nop
-_02086544: .word UNK_021064B8
-_02086548: .word UNK_021064C0
+_02086544: .word NNS_GfdDefaultFuncAllocTexVram
+_02086548: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_0208654C
 FUN_0208654C: ; 0x0208654C
@@ -400,7 +400,7 @@ FUN_02086698: ; 0x02086698
 	cmp r0, #0x0
 	ble _020866AE
 	bl FUN_020222AC
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 _020866AE:
 	bl FUN_02013388
 	mov r0, #0x1
@@ -845,7 +845,7 @@ FUN_020869F0: ; 0x020869F0
 	thumb_func_start FUN_02086A48
 FUN_02086A48: ; 0x02086A48
 	push {r4, lr}
-	ldr r3, _02086A60 ; =UNK_021064B8
+	ldr r3, _02086A60 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -855,12 +855,12 @@ FUN_02086A48: ; 0x02086A48
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02086A60: .word UNK_021064B8
+_02086A60: .word NNS_GfdDefaultFuncAllocTexVram
 
 	thumb_func_start FUN_02086A64
 FUN_02086A64: ; 0x02086A64
 	push {r4, lr}
-	ldr r3, _02086A7C ; =UNK_021064C0
+	ldr r3, _02086A7C ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -870,7 +870,7 @@ FUN_02086A64: ; 0x02086A64
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02086A7C: .word UNK_021064C0
+_02086A7C: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_02086A80
 FUN_02086A80: ; 0x02086A80

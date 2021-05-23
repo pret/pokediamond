@@ -1084,7 +1084,7 @@ FUN_0200D300: ; 0x0200D300
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x14]
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	add r2, sp, #0x20
 	ldr r1, [sp, #0x18]
 	ldrb r2, [r2, #0x10]
@@ -2574,7 +2574,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	bl FUN_02009C5C
 	mov r1, #0x1
 	str r0, [sp, #0x4]
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	mov r1, #0x19
 	add r7, r0, #0x0
 	add r0, r4, #0x0
@@ -2601,7 +2601,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	ldr r1, [sp, #0x4]
 	bl FUN_02009E54
 	mov r1, #0x1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x20

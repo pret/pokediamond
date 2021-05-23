@@ -865,7 +865,7 @@ MOD55_021D7C20: ; 0x021D7C20
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -4013,7 +4013,7 @@ _021D9570: .word MOD55_021DA314
 	thumb_func_start MOD55_021D9574
 MOD55_021D9574: ; 0x021D9574
 	push {r3, lr}
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
@@ -4807,7 +4807,7 @@ MOD55_021D9C50: ; 0x021D9C50
 	add r4, r1, #0
 	bl G3X_ResetMtxStack
 	bl G3X_ResetMtxStack_2
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	add r0, r5, #0
 	add r0, #0xdc
 	ldr r0, [r0]
@@ -4862,7 +4862,7 @@ MOD55_021D9CC4: ; 0x021D9CC4
 	add r4, r1, #0
 	bl G3X_ResetMtxStack
 	bl G3X_ResetMtxStack_2
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	add r0, r5, #0
 	add r0, #0xdc
 	ldr r0, [r0]

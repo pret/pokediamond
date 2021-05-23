@@ -82,7 +82,7 @@ _021D9ABE:
 _021D9AD0:
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	add r6, r0, #0
 	bne _021D9AE0
 	bl ErrorHandling
@@ -90,7 +90,7 @@ _021D9AE0:
 	ldr r0, [sp, #0x1c]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r5]
 	cmp r5, #0
 	bne _021D9AF4
@@ -100,7 +100,7 @@ _021D9AF4:
 	ldr r3, [sp, #0x18]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -117,7 +117,7 @@ _021D9B0E:
 	mov r0, #0
 	pop {r3, pc}
 _021D9B16:
-	bl FUN_020B7E28
+	bl NNS_G3dRenderObjRemoveAnmObj
 	mov r0, #1
 	pop {r3, pc}
 	.balign 4, 0
@@ -571,7 +571,7 @@ _021D9E58:
 	add r1, r6, r1
 	ldr r0, [sp]
 	ldr r1, [r1, #0x10]
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 _021D9E6A:
 	add sp, #0x18
 	mov r0, #1
@@ -671,7 +671,7 @@ _021D9F12:
 	add r1, r4, r1
 	ldr r0, [sp, #0xc]
 	ldr r1, [r1, #0x10]
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	mov r0, #1
 	str r0, [sp]
 	b _021D9F32
@@ -709,7 +709,7 @@ _021D9F54:
 	bne _021D9F6E
 	ldr r1, [r5, #0x10]
 	add r0, r6, #0
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	str r7, [r5, #0x10]
 	ldr r0, [r5, #0x24]
 	bl FreeToHeap
@@ -743,7 +743,7 @@ _021D9F90:
 	bne _021D9FAC
 	ldr r1, [r5]
 	add r0, r4, #0
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	mov r0, #0
 	str r0, [r5]
 	ldr r0, [r5, #0x14]
@@ -1320,7 +1320,7 @@ _021DA360:
 	bl MOD05_021D9B04
 	ldr r0, [r6, #0x14]
 	ldr r1, [sp]
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 _021DA378:
 	add r0, r4, #1
 	lsl r0, r0, #0x18

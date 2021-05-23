@@ -2224,7 +2224,7 @@ MOD71_0222E884: ; 0x0222E884
 	add r6, r0, #0
 	beq _0222E8D6
 	add r1, sp, #4
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	cmp r0, #0
 	beq _0222E8D0
 	ldr r0, [sp, #0x1c]
@@ -2449,7 +2449,7 @@ MOD71_0222EA68: ; 0x0222EA68
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7f

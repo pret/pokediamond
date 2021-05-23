@@ -106,7 +106,7 @@ _02237F0A:
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 _02237F22:
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x7f
@@ -1479,7 +1479,7 @@ MOD81_02238940: ; 0x02238940
 	add r5, r0, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	bl FUN_0201EBA4
 	ldr r0, [r5, #0x1c]
 	mov r6, #0
@@ -1504,7 +1504,7 @@ _02238976:
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -1520,7 +1520,7 @@ MOD81_02238988: ; 0x02238988
 	add r0, r4, #0
 	add r0, #0x80
 	ldrh r0, [r0]
-	ldr r3, _02238A34 ; =UNK_020FFA38
+	ldr r3, _02238A34 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1537,7 +1537,7 @@ MOD81_02238988: ; 0x02238988
 	add r0, r4, #0
 	add r0, #0x82
 	ldrh r0, [r0]
-	ldr r3, _02238A34 ; =UNK_020FFA38
+	ldr r3, _02238A34 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1554,7 +1554,7 @@ MOD81_02238988: ; 0x02238988
 	add r0, r4, #0
 	add r0, #0x84
 	ldrh r0, [r0]
-	ldr r3, _02238A34 ; =UNK_020FFA38
+	ldr r3, _02238A34 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1579,7 +1579,7 @@ MOD81_02238988: ; 0x02238988
 	add r2, r0, #0
 	add r3, r0, #0
 	str r0, [sp, #4]
-	bl FUN_020B8390
+	bl NNS_G3dGlbPolygonAttr
 _02238A20:
 	add r1, r4, #0
 	add r0, r4, #4
@@ -1591,7 +1591,7 @@ _02238A20:
 	add sp, #0x50
 	pop {r4, pc}
 	.align 2, 0
-_02238A34: .word UNK_020FFA38
+_02238A34: .word FX_SinCosTable_
 	thumb_func_end MOD81_02238988
 
 	thumb_func_start MOD81_02238A38
@@ -1668,7 +1668,7 @@ MOD81_02238A84: ; 0x02238A84
 	ldr r0, [r4, r6]
 	cmp r0, #0
 	beq _02238B02
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	str r0, [r5, #0x58]
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
@@ -1676,7 +1676,7 @@ MOD81_02238A84: ; 0x02238A84
 	add r0, r0, r1
 	str r0, [r5, #0x5c]
 	ldr r0, [r5]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r5, #0x60]
 	bl FUN_0201B3C4
 	ldr r0, [r5]
@@ -1684,7 +1684,7 @@ MOD81_02238A84: ; 0x02238A84
 	bl FUN_0201B3A8
 	ldr r1, [r5, #0x5c]
 	add r0, r5, #4
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	ldr r0, [sp, #0x20]
 	mov r1, #0x1f
 	str r0, [r5, #0x68]
@@ -1777,13 +1777,13 @@ MOD81_02238B5C: ; 0x02238B5C
 	mov r2, #0x1f
 	mov r1, #0
 	lsl r2, r2, #0x10
-	bl FUN_020BC02C
+	bl NNSi_G3dModifyPolygonAttrMask
 	pop {r3, pc}
 _02238B76:
 	mov r2, #0x1f
 	mov r1, #1
 	lsl r2, r2, #0x10
-	bl FUN_020BC02C
+	bl NNSi_G3dModifyPolygonAttrMask
 	pop {r3, pc}
 	.align 2, 0
 	thumb_func_end MOD81_02238B5C
@@ -1806,7 +1806,7 @@ MOD81_02238B8C: ; 0x02238B8C
 	add r0, r4, #0
 	add r0, #0x80
 	ldrh r0, [r0]
-	ldr r3, _02238C3C ; =UNK_020FFA38
+	ldr r3, _02238C3C ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1823,7 +1823,7 @@ MOD81_02238B8C: ; 0x02238B8C
 	add r0, r4, #0
 	add r0, #0x82
 	ldrh r0, [r0]
-	ldr r3, _02238C3C ; =UNK_020FFA38
+	ldr r3, _02238C3C ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1840,7 +1840,7 @@ MOD81_02238B8C: ; 0x02238B8C
 	add r0, r4, #0
 	add r0, #0x84
 	ldrh r0, [r0]
-	ldr r3, _02238C3C ; =UNK_020FFA38
+	ldr r3, _02238C3C ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1857,7 +1857,7 @@ MOD81_02238B8C: ; 0x02238B8C
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	bl FUN_0201EBA4
 	add r1, r4, #0
 	ldr r0, [r4, #0x5c]
@@ -1871,12 +1871,12 @@ MOD81_02238B8C: ; 0x02238B8C
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add r0, r4, #0
 	add sp, #0x4c
 	pop {r3, r4, pc}
 	.align 2, 0
-_02238C3C: .word UNK_020FFA38
+_02238C3C: .word FX_SinCosTable_
 	thumb_func_end MOD81_02238B8C
 
 	thumb_func_start MOD81_02238C40
@@ -2123,9 +2123,9 @@ MOD81_02238DFC: ; 0x02238DFC
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
-	bl FUN_020BB394
-	bl FUN_020B02C8
+	bl NNS_G3dGeBufferOP_N
+	bl NNS_G3dGeFlushBuffer
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	ldr r0, [r4, #0xc]
 	bl FUN_020081C4
 	ldr r0, [r4, #0xc]
@@ -2134,7 +2134,7 @@ MOD81_02238DFC: ; 0x02238DFC
 	str r2, [sp]
 	mov r0, #0x12
 	add r1, sp, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [r4, #0x5c]
 	bl MOD81_02238940
 	mov r0, #0
@@ -2694,7 +2694,7 @@ MOD81_022392D8: ; 0x022392D8
 	push {r3, r4, r5, r6, lr}
 	sub sp, #4
 	add r5, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _02239380 ; =0x04000060
 	ldr r2, _02239384 ; =0xFFFFCFFD
@@ -2730,19 +2730,19 @@ MOD81_022392D8: ; 0x022392D8
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
-	ldr r3, _02239394 ; =UNK_021064B8
+	bl NNS_GfdInitFrmPlttVramManager
+	ldr r3, _02239394 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #1
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _02239398 ; =UNK_021064C0
+	ldr r3, _02239398 ; =NNS_GfdDefaultFuncAllocPlttVram
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -2774,8 +2774,8 @@ _02239384: .word 0xFFFFCFFD
 _02239388: .word 0x0000CFFB
 _0223938C: .word 0x04000540
 _02239390: .word 0xBFFF0000
-_02239394: .word UNK_021064B8
-_02239398: .word UNK_021064C0
+_02239394: .word NNS_GfdDefaultFuncAllocTexVram
+_02239398: .word NNS_GfdDefaultFuncAllocPlttVram
 _0223939C: .word 0x7FFF0000
 _022393A0: .word 0xFFFF0000
 	thumb_func_end MOD81_022392D8
@@ -2829,9 +2829,9 @@ MOD81_022393F4: ; 0x022393F4
 	mov r3, #8
 	bl MOD81_0223874C
 	add r0, sp, #0x5c
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	add r0, sp, #0x38
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0
 	str r3, [sp]
 	mov r2, #1
@@ -3962,7 +3962,7 @@ MOD81_02239CDC: ; 0x02239CDC
 	push {r4, lr}
 	sub sp, #0x10
 	add r4, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _02239DBC ; =0x04000060
 	ldr r1, _02239DC0 ; =0xFFFFCFFD
@@ -4006,11 +4006,11 @@ MOD81_02239CDC: ; 0x02239CDC
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -4099,9 +4099,9 @@ MOD81_02239E00: ; 0x02239E00
 	mov r3, #0xc
 	bl MOD81_0223874C
 	add r0, sp, #0x60
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	add r0, sp, #0x3c
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0
 	str r3, [sp]
 	mov r2, #1
@@ -5879,7 +5879,7 @@ MOD81_0223ABD8: ; 0x0223ABD8
 	push {r3, r4, lr}
 	sub sp, #0x24
 	add r4, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _0223ACAC ; =0x04000060
 	ldr r1, _0223ACB0 ; =0xFFFFCFFD
@@ -5923,11 +5923,11 @@ MOD81_0223ABD8: ; 0x0223ABD8
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -6006,9 +6006,9 @@ MOD81_0223ACE8: ; 0x0223ACE8
 	mov r3, #8
 	bl MOD81_0223874C
 	add r0, sp, #0x5c
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	add r0, sp, #0x38
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0
 	str r3, [sp]
 	mov r2, #1
@@ -7391,7 +7391,7 @@ MOD81_0223B7E8: ; 0x0223B7E8
 	push {r3, r4, lr}
 	sub sp, #0x24
 	add r4, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _0223B8C8 ; =0x04000060
 	ldr r1, _0223B8CC ; =0xFFFFCFFD
@@ -7435,11 +7435,11 @@ MOD81_0223B7E8: ; 0x0223B7E8
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -7525,9 +7525,9 @@ MOD81_0223B908: ; 0x0223B908
 	mov r3, #8
 	bl MOD81_0223874C
 	add r0, sp, #0x5c
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	add r0, sp, #0x38
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0
 	str r3, [sp]
 	mov r2, #1
@@ -8643,7 +8643,7 @@ MOD81_0223C1DC: ; 0x0223C1DC
 	push {r4, lr}
 	sub sp, #0x10
 	add r4, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _0223C2C0 ; =0x04000060
 	ldr r1, _0223C2C4 ; =0xFFFFCFFD
@@ -8687,11 +8687,11 @@ MOD81_0223C1DC: ; 0x0223C1DC
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -9177,9 +9177,9 @@ MOD81_0223C60C: ; 0x0223C60C
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
-	bl FUN_020BB394
-	bl FUN_020B02C8
+	bl NNS_G3dGeBufferOP_N
+	bl NNS_G3dGeFlushBuffer
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	ldr r0, [r4, #0x10]
 	bl FUN_020081C4
 	ldr r0, [r4, #0x10]
@@ -9188,7 +9188,7 @@ MOD81_0223C60C: ; 0x0223C60C
 	str r2, [sp]
 	mov r0, #0x12
 	add r1, sp, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [r4, #0x60]
 	cmp r0, #0
 	beq _0223C64A
@@ -9746,7 +9746,7 @@ MOD81_0223CAC4: ; 0x0223CAC4
 	push {r3, r4, r5, r6, lr}
 	sub sp, #4
 	add r5, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _0223CB6C ; =0x04000060
 	ldr r2, _0223CB70 ; =0xFFFFCFFD
@@ -9782,19 +9782,19 @@ MOD81_0223CAC4: ; 0x0223CAC4
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
-	ldr r3, _0223CB80 ; =UNK_021064B8
+	bl NNS_GfdInitFrmPlttVramManager
+	ldr r3, _0223CB80 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #1
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _0223CB84 ; =UNK_021064C0
+	ldr r3, _0223CB84 ; =NNS_GfdDefaultFuncAllocPlttVram
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -9826,8 +9826,8 @@ _0223CB70: .word 0xFFFFCFFD
 _0223CB74: .word 0x0000CFFB
 _0223CB78: .word 0x04000540
 _0223CB7C: .word 0xBFFF0000
-_0223CB80: .word UNK_021064B8
-_0223CB84: .word UNK_021064C0
+_0223CB80: .word NNS_GfdDefaultFuncAllocTexVram
+_0223CB84: .word NNS_GfdDefaultFuncAllocPlttVram
 _0223CB88: .word 0x7FFF0000
 _0223CB8C: .word 0xFFFF0000
 	thumb_func_end MOD81_0223CAC4
@@ -9881,9 +9881,9 @@ MOD81_0223CBE0: ; 0x0223CBE0
 	mov r3, #8
 	bl MOD81_0223874C
 	add r0, sp, #0x5c
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	add r0, sp, #0x38
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0
 	str r3, [sp]
 	mov r2, #1

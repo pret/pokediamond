@@ -133,7 +133,7 @@ _021DBFA8:
 	str r0, [r1, r5]
 	add r0, r1, #0
 	ldr r0, [r0, r5]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	add r1, r6, r5
 	str r0, [r1, #8]
 	add r0, r4, #0

@@ -2393,7 +2393,7 @@ MOD06_0223A828: ; 0x0223A828
 	str r1, [r0]
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add r4, #0x40
 	add r0, r4, #0
 	bl MOD06_0223A400
@@ -2401,7 +2401,7 @@ MOD06_0223A828: ; 0x0223A828
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 _0223A860:
 	add sp, #4
 	pop {r3, r4, pc}
@@ -23537,11 +23537,11 @@ MOD06_02244F84: ; 0x02244F84
 	add r7, r0, #0
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	str r0, [sp]
 	add r0, r7, #0
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	mov r1, #0x32
 	add r5, r0, #0
 	add r0, r4, #0
@@ -24040,7 +24040,7 @@ _02245392:
 	ldr r1, [r5, #0x2c]
 	bl MOD05_021F4BD0
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -28490,7 +28490,7 @@ MOD06_02247544: ; 0x02247544
 	bl NARC_AllocAndReadWholeMember
 	add r1, r5, #0
 	add r4, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, [r5]
 	mov r0, #3
 	ldr r1, [r1, #0xc]
@@ -28513,7 +28513,7 @@ MOD06_0224756C: ; 0x0224756C
 	bl NARC_AllocAndReadWholeMember
 	add r1, r4, #0
 	add r6, r0, #0
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r3, [r4]
 	mov r0, #0
 	str r0, [sp]
@@ -28551,7 +28551,7 @@ MOD06_022475A4: ; 0x022475A4
 	bl NARC_AllocAndReadWholeMember
 	add r1, r4, #0
 	add r6, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r3, [r4]
 	add r0, r5, #0
 	add r2, r3, #0
@@ -28870,7 +28870,7 @@ MOD06_02247808: ; 0x02247808
 	bl FUN_020094F0
 	bl FUN_02009C5C
 	mov r1, #1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	mov r1, #0x32
 	add r5, r0, #0
 	add r0, r4, #0
@@ -28923,7 +28923,7 @@ MOD06_02247860: ; 0x02247860
 	add r1, r6, #0
 	bl FUN_02009E54
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0x20
@@ -32641,12 +32641,12 @@ MOD06_022494E4: ; 0x022494E4
 	ldr r0, [r5, r0]
 	mov r1, #1
 	lsl r2, r2, #0x10
-	bl FUN_020BC02C
+	bl NNSi_G3dModifyPolygonAttrMask
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	add r1, r4, #0
-	bl FUN_020BBA34
+	bl NNS_G3dMdlSetMdlAlphaAll
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD06_02249508
@@ -34087,10 +34087,10 @@ _0224A000:
 	ldr r0, [r4, #0x18]
 	mov r1, #1
 	lsl r2, r2, #0x10
-	bl FUN_020BC02C
+	bl NNSi_G3dModifyPolygonAttrMask
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0xc]
-	bl FUN_020BBA34
+	bl NNS_G3dMdlSetMdlAlphaAll
 	ldr r0, [r4, #0x14]
 	add r1, sp, #0x30
 	add r2, sp, #0
@@ -35048,13 +35048,13 @@ MOD06_0224A710: ; 0x0224A710
 	add r0, r4, #4
 	ldr r1, [r2, #0x18]
 	ldr r2, [r2, #0xc]
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4]
 	ldr r3, [r5, #0x14]
 	ldr r1, [r3, #0x18]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r5, #0x14]
 	add r0, r4, #0
 	add r0, #0x18
@@ -35063,7 +35063,7 @@ MOD06_0224A710: ; 0x0224A710
 	add r0, r4, #0
 	ldr r1, [r4]
 	add r0, #0x18
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	ldr r0, [r5, #0x18]
 	bl FUN_02058448
 	str r0, [r5, #4]
@@ -35108,7 +35108,7 @@ MOD06_0224A7C8: ; 0x0224A7C8
 	ldr r4, [r1, #0x1c]
 	ldr r1, [r4]
 	add r0, r4, #4
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	add r0, r4, #0
 	bl MOD05_021E4C00
 	pop {r4, pc}
@@ -36429,13 +36429,13 @@ MOD06_0224B188: ; 0x0224B188
 	add r0, r4, #4
 	ldr r1, [r2, #0x18]
 	ldr r2, [r2, #0xc]
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4]
 	ldr r3, [r5, #8]
 	ldr r1, [r3, #0x18]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r5, #8]
 	add r0, r4, #0
 	add r0, #0x18
@@ -36444,7 +36444,7 @@ MOD06_0224B188: ; 0x0224B188
 	add r0, r4, #0
 	ldr r1, [r4]
 	add r0, #0x18
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r6, #0
 	add r1, sp, #0
 	bl FUN_0206477C
@@ -36464,7 +36464,7 @@ MOD06_0224B200: ; 0x0224B200
 	ldr r4, [r1]
 	ldr r1, [r4]
 	add r0, r4, #4
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	add r0, r4, #0
 	bl MOD05_021E4C00
 	pop {r4, pc}
@@ -36635,13 +36635,13 @@ MOD06_0224B324: ; 0x0224B324
 	add r0, r4, #4
 	ldr r1, [r2, #0x18]
 	ldr r2, [r2, #0xc]
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4]
 	ldr r3, [r5, #8]
 	ldr r1, [r3, #0x18]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r5, #8]
 	add r0, r4, #0
 	add r0, #0x18
@@ -36650,7 +36650,7 @@ MOD06_0224B324: ; 0x0224B324
 	add r0, r4, #0
 	ldr r1, [r4]
 	add r0, #0x18
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r6, #0
 	add r1, sp, #0
 	bl FUN_0206477C
@@ -36670,7 +36670,7 @@ MOD06_0224B39C: ; 0x0224B39C
 	ldr r4, [r1]
 	ldr r1, [r4]
 	add r0, r4, #4
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	add r0, r4, #0
 	bl MOD05_021E4C00
 	pop {r4, pc}
@@ -38617,14 +38617,14 @@ _0224C328:
 	bl MOD05_021F4BD0
 	str r0, [sp, #0x18]
 	ldr r0, [r6]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
 	add r7, r0, r1
 	ldr r0, [sp, #0x18]
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -38901,7 +38901,7 @@ _0224C590:
 	ldr r1, [r5, #0x2c]
 	bl MOD05_021F4BD0
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r2, sp, #0x18
 	mov r3, #0
@@ -43012,7 +43012,7 @@ _0224E604:
 	ldr r1, [r6, #0x2c]
 	bl MOD05_021F4BD0
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]

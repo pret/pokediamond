@@ -2366,9 +2366,9 @@ MOD73_021D8858: ; 0x021D8858
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
-	bl FUN_020BB394
-	bl FUN_020B02C8
+	bl NNS_G3dGeBufferOP_N
+	bl NNS_G3dGeFlushBuffer
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	mov r0, #0xaf
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -2380,7 +2380,7 @@ _021D8882:
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_020222B4
@@ -2595,7 +2595,7 @@ MOD73_021D8A18: ; 0x021D8A18
 	push {r4, r5, lr}
 	sub sp, #0x24
 	add r4, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -2754,7 +2754,7 @@ _021D8B3A:
 MOD73_021D8B4C: ; 0x021D8B4C
 	push {r3, r4, lr}
 	sub sp, #4
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _021D8BB8 ; =0x04000060
 	ldr r2, _021D8BBC ; =0xFFFFCFFD
@@ -2793,11 +2793,11 @@ MOD73_021D8B4C: ; 0x021D8B4C
 	str r0, [r2]
 	str r1, [r2, #0x40]
 	mov r1, #1
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #2
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	add sp, #4
 	pop {r3, r4, pc}
 	nop
@@ -2812,8 +2812,8 @@ _021D8BCC: .word 0xBFFF0000
 	thumb_func_start MOD73_021D8BD0
 MOD73_021D8BD0: ; 0x021D8BD0
 	push {r3, lr}
-	bl FUN_020AEAF4
-	bl FUN_020AEC60
+	bl NNS_GfdResetFrmTexVramState
+	bl NNS_GfdResetFrmPlttVramState
 	pop {r3, pc}
 	thumb_func_end MOD73_021D8BD0
 
@@ -6738,7 +6738,7 @@ _021DA906:
 	str r0, [sp, #0x6c]
 	asr r0, r0, #0x1f
 	lsl r3, r2, #1
-	ldr r1, _021DAAA0 ; =UNK_020FFA38
+	ldr r1, _021DAAA0 ; =FX_SinCosTable_
 	str r0, [sp, #0x70]
 	ldr r0, [sp, #0xa8]
 	ldrsh r6, [r1, r3]
@@ -6904,7 +6904,7 @@ _021DA906:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021DAA9C: .word MOD73_021DBE7C
-_021DAAA0: .word UNK_020FFA38
+_021DAAA0: .word FX_SinCosTable_
 _021DAAA4: .word 0x0000019A
 	thumb_func_end MOD73_021DA8BC
 
@@ -7130,7 +7130,7 @@ _021DABFC:
 	lsl r4, r0, #1
 	add r0, r4, #1
 	lsl r1, r0, #1
-	ldr r0, _021DAC98 ; =UNK_020FFA38
+	ldr r0, _021DAC98 ; =FX_SinCosTable_
 	add r2, r6, #0
 	ldrsh r0, [r0, r1]
 	add r3, r7, #0
@@ -7146,7 +7146,7 @@ _021DABFC:
 	lsr r0, r0, #0xc
 	orr r0, r1
 	str r0, [sp]
-	ldr r0, _021DAC98 ; =UNK_020FFA38
+	ldr r0, _021DAC98 ; =FX_SinCosTable_
 	lsl r1, r4, #1
 	ldrsh r0, [r0, r1]
 	add r2, r6, #0
@@ -7177,7 +7177,7 @@ _021DAC94:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DAC98: .word UNK_020FFA38
+_021DAC98: .word FX_SinCosTable_
 	thumb_func_end MOD73_021DABD0
 
 	thumb_func_start MOD73_021DAC9C
@@ -7706,7 +7706,7 @@ MOD73_021DB020: ; 0x021DB020
 	asr r0, r0, #4
 	lsl r1, r0, #1
 	add r0, r1, #1
-	ldr r7, _021DB124 ; =UNK_020FFA38
+	ldr r7, _021DB124 ; =FX_SinCosTable_
 	lsl r0, r0, #1
 	ldrsh r3, [r7, r0]
 	asr r6, r3, #0x1f
@@ -7819,7 +7819,7 @@ _021DB112:
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	nop
-_021DB124: .word UNK_020FFA38
+_021DB124: .word FX_SinCosTable_
 _021DB128: .word 0x00000000
 	thumb_func_end MOD73_021DB020
 

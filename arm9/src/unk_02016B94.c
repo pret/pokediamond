@@ -5,8 +5,8 @@
 #include "gx.h"
 #include "heap.h"
 
-extern void FUN_020B0030(void *param0, u32 *param1);
-extern void FUN_020B0138(void *param0, u32 *param1);
+extern void NNS_G2dGetUnpackedBGCharacterData(void *param0, u32 *param1);
+extern void NNS_G2dGetUnpackedPaletteData(void *param0, u32 *param1);
 
 const u8 UNK_020EDB30[8] = {
     0x10,
@@ -7747,7 +7747,7 @@ THUMB_FUNC u32 FUN_0201AB28(struct Window *window, u32 heap_id, const char *path
     void *ptr = FUN_020161A4(heap_id, path);
     window->unk00 = ptr;
     u32 st0;
-    FUN_020B0030(ptr, &st0);
+    NNS_G2dGetUnpackedBGCharacterData(ptr, &st0);
 
     return st0;
 }
@@ -7757,7 +7757,7 @@ THUMB_FUNC u32 FUN_0201AB44(struct Window *window, u32 heap_id, const char *path
     void *ptr = FUN_020161A4(heap_id, path);
     window->unk00 = ptr;
     u32 st0;
-    FUN_020B0138(ptr, &st0);
+    NNS_G2dGetUnpackedPaletteData(ptr, &st0);
 
     return st0;
 }

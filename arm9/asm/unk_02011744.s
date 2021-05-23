@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 
 	.section .rodata
 
@@ -870,7 +870,7 @@ _02011D52:
 	beq _02011D92
 _02011D68:
 	add r0, r5, #0x0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	str r7, [sp, #0x0]
 	ldr r0, [sp, #0x30]
 	str r6, [sp, #0x4]

@@ -138,7 +138,7 @@ MOD66_021D75C8: ; 0x021D75C8
 	beq _021D75DE
 	blx r1
 _021D75DE:
-	bl FUN_020AEEB8
+	bl NNS_GfdDoVramTransfer
 	add r0, r4, #0
 	bl MOD66_021D9220
 	ldr r0, [r4, #0x28]

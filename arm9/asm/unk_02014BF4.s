@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 
 	.section .rodata
 
@@ -1311,7 +1311,7 @@ FUN_0201551C: ; 0x0201551C
 	ldr r2, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _0201554C ; =UNK_020FFA38
+	ldr r0, _0201554C ; =FX_SinCosTable_
 	ldrsh r0, [r0, r1]
 	mul r0, r2
 	asr r1, r0, #0xc
@@ -1323,7 +1323,7 @@ FUN_0201551C: ; 0x0201551C
 	add sp, #0xc
 	pop {r3-r4, pc}
 	nop
-_0201554C: .word UNK_020FFA38
+_0201554C: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02015550
 FUN_02015550: ; 0x02015550
@@ -1340,7 +1340,7 @@ FUN_02015550: ; 0x02015550
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015584 ; =UNK_020FFA38
+	ldr r1, _02015584 ; =FX_SinCosTable_
 	ldrsh r1, [r1, r2]
 	mul r1, r0
 	add r0, sp, #0x0
@@ -1352,7 +1352,7 @@ FUN_02015550: ; 0x02015550
 	add sp, #0xc
 	pop {r3-r4, pc}
 	nop
-_02015584: .word UNK_020FFA38
+_02015584: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02015588
 FUN_02015588: ; 0x02015588
@@ -2032,7 +2032,7 @@ _02015A5C: ; jump table (using 16-bit offset)
 _02015A64:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015AE8 ; =UNK_020FFA38
+	ldr r0, _02015AE8 ; =FX_SinCosTable_
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2045,7 +2045,7 @@ _02015A78:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015AE8 ; =UNK_020FFA38
+	ldr r1, _02015AE8 ; =FX_SinCosTable_
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2056,7 +2056,7 @@ _02015A78:
 _02015A90:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015AE8 ; =UNK_020FFA38
+	ldr r0, _02015AE8 ; =FX_SinCosTable_
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2070,7 +2070,7 @@ _02015AA6:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015AE8 ; =UNK_020FFA38
+	ldr r1, _02015AE8 ; =FX_SinCosTable_
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2101,7 +2101,7 @@ _02015AC4:
 _02015AE6:
 	pop {r4, pc}
 	.balign 4
-_02015AE8: .word UNK_020FFA38
+_02015AE8: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02015AEC
 FUN_02015AEC: ; 0x02015AEC
@@ -2135,7 +2135,7 @@ _02015B1A: ; jump table (using 16-bit offset)
 _02015B22:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015BA8 ; =UNK_020FFA38
+	ldr r0, _02015BA8 ; =FX_SinCosTable_
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2148,7 +2148,7 @@ _02015B36:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015BA8 ; =UNK_020FFA38
+	ldr r1, _02015BA8 ; =FX_SinCosTable_
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2159,7 +2159,7 @@ _02015B36:
 _02015B4E:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015BA8 ; =UNK_020FFA38
+	ldr r0, _02015BA8 ; =FX_SinCosTable_
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2173,7 +2173,7 @@ _02015B64:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015BA8 ; =UNK_020FFA38
+	ldr r1, _02015BA8 ; =FX_SinCosTable_
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2204,7 +2204,7 @@ _02015B82:
 _02015BA4:
 	pop {r4, pc}
 	nop
-_02015BA8: .word UNK_020FFA38
+_02015BA8: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02015BAC
 FUN_02015BAC: ; 0x02015BAC

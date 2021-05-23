@@ -922,7 +922,7 @@ _02004800:
 	add r0, r4, #0x0
 	bl FUN_02003FF4
 	add r1, r5, #0x0
-	bl FUN_020C0F8C
+	bl NNS_SndPlayerPause
 	strb r5, [r6, #0x0]
 _0200480E:
 	pop {r4-r6, pc}
@@ -948,7 +948,7 @@ FUN_02004828: ; 0x02004828
 	bl FUN_02003FF4
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_020C0EF4
+	bl NNS_SndPlayerMoveVolume
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0200483C
@@ -964,7 +964,7 @@ _02004844:
 _0200484A:
 	bl FUN_02003FF4
 	add r1, r4, #0x0
-	bl FUN_020C0F30
+	bl NNS_SndPlayerSetInitialVolume
 	pop {r4, pc}
 	.balign 4
 
@@ -972,7 +972,7 @@ _0200484A:
 FUN_02004858: ; 0x02004858
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl FUN_020C23FC
+	bl NNS_SndArcGetSeqParam
 	cmp r5, #0x1
 	beq _02004868
 	cmp r5, #0x8
@@ -1018,7 +1018,7 @@ FUN_020048A0: ; 0x020048A0
 	add r1, r5, #0x0
 	add r3, r2, #0x0
 	str r4, [sp, #0x0]
-	bl FUN_020C3910
+	bl NNS_SndArcPlayerStartSeqEx
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1030,7 +1030,7 @@ FUN_020048BC: ; 0x020048BC
 	bl ErrorHandling
 _020048C6:
 	add r0, r4, #0x0
-	bl FUN_020C0F50
+	bl NNS_SndPlayerCountPlayingSeqByPlayerNo
 	pop {r4, pc}
 	.balign 4
 
@@ -1042,7 +1042,7 @@ FUN_020048D0: ; 0x020048D0
 	mov r0, #0xff
 	pop {r3, pc}
 _020048DA:
-	bl FUN_020C23FC
+	bl NNS_SndArcGetSeqParam
 	cmp r0, #0x0
 	bne _020048E6
 	mov r0, #0xff
@@ -1054,22 +1054,22 @@ _020048E6:
 
 	thumb_func_start FUN_020048EC
 FUN_020048EC: ; 0x020048EC
-	ldr r3, _020048F0 ; =FUN_020C0E14
+	ldr r3, _020048F0 ; =NNS_SndPlayerGetSeqNo
 	bx r3
 	.balign 4
-_020048F0: .word FUN_020C0E14
+_020048F0: .word NNS_SndPlayerGetSeqNo
 
 	thumb_func_start FUN_020048F4
 FUN_020048F4: ; 0x020048F4
 	push {r3, lr}
 	bl FUN_02004900
-	bl FUN_020C22D0
+	bl NNS_SndArcGetBankInfo
 	pop {r3, pc}
 
 	thumb_func_start FUN_02004900
 FUN_02004900: ; 0x02004900
 	push {r3, lr}
-	bl FUN_020C23FC
+	bl NNS_SndArcGetSeqParam
 	cmp r0, #0x0
 	bne _0200490E
 	mov r0, #0x0
@@ -1166,7 +1166,7 @@ _020049A8:
 	bl FUN_02003D38
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020C0688
+	bl NNS_SndWaveOutAllocChannel
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _020049CA
@@ -1187,7 +1187,7 @@ _020049D6:
 	bl FUN_02003D38
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020C0688
+	bl NNS_SndWaveOutAllocChannel
 	str r0, [r6, #0x0]
 	cmp r0, #0x0
 	bne _020049F4
@@ -1230,7 +1230,7 @@ _02004A2A:
 	add r0, r5, #0x0
 	bl FUN_02004930
 	ldr r0, [r0, #0x0]
-	bl FUN_020C0670
+	bl NNS_SndWaveOutFreeChannel
 	mov r0, #0x0
 	strb r0, [r6, #0x0]
 	pop {r4-r6, pc}
@@ -1244,7 +1244,7 @@ _02004A4C:
 	add r0, r5, #0x0
 	bl FUN_02004930
 	ldr r0, [r0, #0x0]
-	bl FUN_020C0670
+	bl NNS_SndWaveOutFreeChannel
 	mov r0, #0x0
 	strb r0, [r4, #0x0]
 	pop {r4-r6, pc}
@@ -1276,7 +1276,7 @@ FUN_02004A6C: ; 0x02004A6C
 	ldr r2, [r3, #0x8]
 	ldr r0, [r0, #0x0]
 	ldr r3, [r3, #0xc]
-	bl FUN_020C054C
+	bl NNS_SndWaveOutStart
 	add r5, r0, #0x0
 	bne _02004AA4
 	add r0, r4, #0x0
@@ -1292,7 +1292,7 @@ FUN_02004AAC: ; 0x02004AAC
 	push {r3, lr}
 	bl FUN_02004930
 	ldr r0, [r0, #0x0]
-	bl FUN_020C0510
+	bl NNS_SndWaveOutStop
 	pop {r3, pc}
 	.balign 4
 
@@ -1301,7 +1301,7 @@ FUN_02004ABC: ; 0x02004ABC
 	push {r3, lr}
 	bl FUN_02004930
 	ldr r0, [r0, #0x0]
-	bl FUN_020C03B8
+	bl NNS_SndWaveOutIsPlaying
 	pop {r3, pc}
 	.balign 4
 
@@ -1316,7 +1316,7 @@ _02004AD6:
 	bl FUN_02004930
 	ldr r0, [r0, #0x0]
 	add r1, r4, #0x0
-	bl FUN_020C041C
+	bl NNS_SndWaveOutSetPan
 	pop {r4, pc}
 
 	thumb_func_start FUN_02004AE4
@@ -1326,7 +1326,7 @@ FUN_02004AE4: ; 0x02004AE4
 	bl FUN_02004930
 	ldr r0, [r0, #0x0]
 	add r1, r4, #0x0
-	bl FUN_020C044C
+	bl NNS_SndWaveOutSetSpeed
 	pop {r4, pc}
 	.balign 4
 
@@ -1346,14 +1346,14 @@ FUN_02004AF8: ; 0x02004AF8
 	bl _s32_div_f
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_020C04DC
+	bl NNS_SndWaveOutSetVolume
 	pop {r3-r5, pc}
 _02004B20:
 	add r0, r4, #0x0
 	bl FUN_02004930
 	ldr r0, [r0, #0x0]
 	add r1, r5, #0x0
-	bl FUN_020C04DC
+	bl NNS_SndWaveOutSetVolume
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02004B30
@@ -1375,7 +1375,7 @@ FUN_02004B30: ; 0x02004B30
 	bl ErrorHandling
 _02004B54:
 	add r0, r6, #0x0
-	bl FUN_020C226C
+	bl NNS_SndArcGetWaveArcInfo
 	add r7, r0, #0x0
 	bne _02004B68
 	bl ErrorHandling
@@ -1386,7 +1386,7 @@ _02004B68:
 	ldr r0, [r7, #0x0]
 	lsl r0, r0, #0x8
 	lsr r0, r0, #0x8
-	bl FUN_020C217C
+	bl NNS_SndArcGetFileSize
 	add r6, r0, #0x0
 	bne _02004B80
 	bl ErrorHandling
@@ -1416,7 +1416,7 @@ _02004B9C:
 	lsr r0, r0, #0x8
 	add r2, r6, #0x0
 	mov r3, #0x0
-	bl FUN_020C2104
+	bl NNS_SndArcReadFile
 	mov r1, #0x0
 	mvn r1, r1
 	cmp r0, r1
@@ -1518,10 +1518,10 @@ _02004C76:
 
 	thumb_func_start FUN_02004C78
 FUN_02004C78: ; 0x02004C78
-	ldr r3, _02004C7C ; =FUN_020C1E58
+	ldr r3, _02004C7C ; =NNS_SndCaptureIsActive
 	bx r3
 	.balign 4
-_02004C7C: .word FUN_020C1E58
+_02004C7C: .word NNS_SndCaptureIsActive
 
 	thumb_func_start FUN_02004C80
 FUN_02004C80: ; 0x02004C80
@@ -1537,23 +1537,23 @@ FUN_02004C80: ; 0x02004C80
 	mov r2, #0x0
 	lsl r3, r3, #0x6
 	str r4, [sp, #0x0]
-	bl FUN_020C1FF0
+	bl NNS_SndCaptureStartReverb
 	add sp, #0x4
 	pop {r3-r4, pc}
 
 	thumb_func_start FUN_02004CA4
 FUN_02004CA4: ; 0x02004CA4
-	ldr r3, _02004CA8 ; =FUN_020C1F54
+	ldr r3, _02004CA8 ; =NNS_SndCaptureStopReverb
 	bx r3
 	.balign 4
-_02004CA8: .word FUN_020C1F54
+_02004CA8: .word NNS_SndCaptureStopReverb
 
 	thumb_func_start FUN_02004CAC
 FUN_02004CAC: ; 0x02004CAC
-	ldr r3, _02004CB0 ; =FUN_020C1FA4
+	ldr r3, _02004CB0 ; =NNS_SndCaptureSetReverbVolume
 	bx r3
 	.balign 4
-_02004CB0: .word FUN_020C1FA4
+_02004CB0: .word NNS_SndCaptureSetReverbVolume
 
 	thumb_func_start FUN_02004CB4
 FUN_02004CB4: ; 0x02004CB4
@@ -1579,7 +1579,7 @@ FUN_02004CB4: ; 0x02004CB4
 	ldr r3, _02004CF8 ; =0x000055F0
 	add r0, r4, #0x0
 	mov r2, #0x0
-	bl FUN_020C1EA4
+	bl NNS_SndCaptureStartEffect
 	add sp, #0xc
 	pop {r3-r4, pc}
 	nop
@@ -1588,10 +1588,10 @@ _02004CF8: .word 0x000055F0
 
 	thumb_func_start FUN_02004CFC
 FUN_02004CFC: ; 0x02004CFC
-	ldr r3, _02004D00 ; =FUN_020C1E68
+	ldr r3, _02004D00 ; =NNS_SndCaptureStopEffect
 	bx r3
 	.balign 4
-_02004D00: .word FUN_020C1E68
+_02004D00: .word NNS_SndCaptureStopEffect
 
 	thumb_func_start FUN_02004D04
 FUN_02004D04: ; 0x02004D04
@@ -1619,7 +1619,7 @@ FUN_02004D20: ; 0x02004D20
 	bl FUN_02003FF4
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_020C0EA4
+	bl NNS_SndPlayerSetTrackPitch
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02004D34
@@ -1642,14 +1642,14 @@ FUN_02004D4C: ; 0x02004D4C
 	bl FUN_02003FF4
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_020C0E7C
+	bl NNS_SndPlayerSetTrackPan
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02004D60
 FUN_02004D60: ; 0x02004D60
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_020C0174
+	bl NNS_SndSetMonoFlag
 	ldr r0, _02004D70 ; =UNK_021C3DD8
 	str r4, [r0, #0x0]
 	pop {r4, pc}
@@ -1866,7 +1866,7 @@ FUN_02004ED0: ; 0x02004ED0
 _02004EF0:
 	mov r0, #0x1
 _02004EF2:
-	bl FUN_020C226C
+	bl NNS_SndArcGetWaveArcInfo
 	cmp r0, #0x0
 	bne _02004F02
 	bl ErrorHandling
@@ -1876,7 +1876,7 @@ _02004F02:
 	ldr r0, [r0, #0x0]
 	lsl r0, r0, #0x8
 	lsr r0, r0, #0x8
-	bl FUN_020C20DC
+	bl NNS_SndArcGetFileAddress
 	cmp r0, #0x0
 	bne _02004F18
 	bl ErrorHandling
@@ -1928,7 +1928,7 @@ _02004F62:
 FUN_02004F64: ; 0x02004F64
 	push {r3, lr}
 	bl FUN_02003FF4
-	bl FUN_020C0DD4
+	bl NNS_SndPlayerGetTick
 	pop {r3, pc}
 
 	thumb_func_start FUN_02004F70
@@ -2216,12 +2216,12 @@ _0200515A:
 
 	thumb_func_start FUN_02005160
 FUN_02005160: ; 0x02005160
-	ldr r3, _02005168 ; =FUN_020C1148
+	ldr r3, _02005168 ; =NNS_SndPlayerSetAllocatableChannel
 	add r1, r0, #0x0
 	mov r0, #0x7
 	bx r3
 	.balign 4
-_02005168: .word FUN_020C1148
+_02005168: .word NNS_SndPlayerSetAllocatableChannel
 
 	thumb_func_start FUN_0200516C
 FUN_0200516C: ; 0x0200516C
@@ -2282,7 +2282,7 @@ _020051E8: .word 0x0000047E
 
 	thumb_func_start FUN_020051EC
 FUN_020051EC: ; 0x020051EC
-	ldr r3, _020051F0 ; =FUN_020C1180
+	ldr r3, _020051F0 ; =NNS_SndPlayerSetPlayerVolume
 	bx r3
 	.balign 4
-_020051F0: .word FUN_020C1180
+_020051F0: .word NNS_SndPlayerSetPlayerVolume

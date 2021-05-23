@@ -188,7 +188,7 @@ _021E5A4E:
 	lsl r0, r0, #0xc
 	sub r0, r1, r0
 	str r0, [sp, #0x5c]
-	bl FUN_020B8344
+	bl NNS_G3dGlbGetInvV
 	mov r2, #0
 	add r5, r0, #0
 	add r0, sp, #0x24

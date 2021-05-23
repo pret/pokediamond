@@ -1,8 +1,8 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021CEDD4
-	.extern UNK_021CED98
+	.extern NNS_G3dGlb
+	.extern NNS_G3dGlb
 
 	.text
 
@@ -38,22 +38,22 @@ FUN_0201B6D0: ; 0x0201B6D0
 	ldrsh r3, [r4, r3]
 	bl FUN_0201B808
 	add r0, sp, #0x1c
-	bl FUN_020B8474
-	ldr r1, _0201B764 ; =UNK_021CEDD4
+	bl NNS_G3dGlbSetBaseTrans
+	ldr r1, _0201B764 ; =NNS_G3dGlb + 0xBC
 	add r0, r5, #0x0
 	bl MI_Copy36B
-	ldr r1, _0201B768 ; =UNK_021CED98
+	ldr r1, _0201B768 ; =NNS_G3dGlb + 0x80
 	mov r0, #0xa4
 	ldr r2, [r1, #0x7c]
 	bic r2, r0
 	add r0, r7, #0x0
 	str r2, [r1, #0x7c]
-	bl FUN_020B844C
-	bl FUN_020B849C
+	bl NNS_G3dGlbSetBaseScale
+	bl NNS_G3dGlbFlushP
 	mov r1, #0x0
 	mov r0, #0x11
 	add r2, r1, #0x0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [r4, #0x24]
 	add r1, sp, #0x10
 	str r0, [sp, #0x10]
@@ -61,7 +61,7 @@ FUN_0201B6D0: ; 0x0201B6D0
 	str r0, [sp, #0x18]
 	mov r0, #0x1b
 	mov r2, #0x3
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add r0, sp, #0x28
 	bl FUN_0201B82C
 	add r4, r0, #0x0
@@ -69,13 +69,13 @@ FUN_0201B6D0: ; 0x0201B6D0
 	mov r0, #0x12
 	add r1, sp, #0xc
 	str r2, [sp, #0xc]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add r0, r4, #0x0
 	add sp, #0x34
 	pop {r4-r7, pc}
 	.balign 4
-_0201B764: .word UNK_021CEDD4
-_0201B768: .word UNK_021CED98
+_0201B764: .word NNS_G3dGlb + 0xBC
+_0201B768: .word NNS_G3dGlb + 0x80
 
 	thumb_func_start FUN_0201B76C
 FUN_0201B76C: ; 0x0201B76C
@@ -97,12 +97,12 @@ FUN_0201B76C: ; 0x0201B76C
 	add r2, r0, #0x0
 	bl FUN_0201B808
 	add r0, r5, #0x0
-	bl FUN_020B8474
-	bl FUN_020B849C
+	bl NNS_G3dGlbSetBaseTrans
+	bl NNS_G3dGlbFlushP
 	mov r1, #0x0
 	mov r0, #0x11
 	add r2, r1, #0x0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [r4, #0x10]
 	lsl r2, r0, #0xc
 	ldr r0, [r4, #0xc]
@@ -115,7 +115,7 @@ FUN_0201B76C: ; 0x0201B76C
 	mov r0, #0x1b
 	add r1, sp, #0x10
 	mov r2, #0x3
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add r0, sp, #0x1c
 	bl FUN_0201B82C
 	add r4, r0, #0x0
@@ -123,7 +123,7 @@ FUN_0201B76C: ; 0x0201B76C
 	mov r0, #0x12
 	add r1, sp, #0xc
 	str r2, [sp, #0xc]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add r0, r4, #0x0
 	add sp, #0x28
 	pop {r3-r5, pc}
@@ -183,22 +183,22 @@ FUN_0201B82C: ; 0x0201B82C
 	mov r0, #0x29
 	add r1, sp, #0x4
 	str r2, [sp, #0x8]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x40
 	add r1, sp, #0x0
 	mov r2, #0x1
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r1, #0x0
 	mov r0, #0x41
 	add r2, r1, #0x0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r0, #0x70
 	add r1, r4, #0x0
 	mov r2, #0x3
-	bl FUN_020BB1C0
-	bl FUN_020BB394
+	bl NNS_G3dGeBufferOP_N
+	bl NNS_G3dGeFlushBuffer
 	add r4, sp, #0x8
 _0201B86A:
 	add r0, r4, #0x0

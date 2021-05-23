@@ -1274,7 +1274,7 @@ FUN_0206FD24: ; 0x0206FD24
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0x0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r2, [sp, #0x10]
 	mov r0, #0x3
 	ldr r1, [r2, #0xc]
@@ -6204,7 +6204,7 @@ FUN_020724D4: ; 0x020724D4
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	str r0, [sp, #0x8]
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r0, [sp, #0xc]
 	mov r4, #0x0
 	str r0, [sp, #0x4]

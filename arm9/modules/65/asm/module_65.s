@@ -5301,7 +5301,7 @@ MOD65_021D9E98: ; 0x021D9E98
 	mov r2, #0x1c
 	add r5, r0, #0
 	bl MI_CpuFill8
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_Init
 	bl G3X_InitMtxStack
 	ldr r0, _021D9F34 ; =0x04000060
@@ -5388,8 +5388,8 @@ MOD65_021D9F50: ; 0x021D9F50
 	mov r0, #2
 	str r0, [r2]
 	str r3, [r1]
-	bl FUN_020B849C
-	bl FUN_020B02C8
+	bl NNS_G3dGlbFlushP
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	ldr r0, [r4, #4]
 	bl FUN_02006ED4
 	ldr r0, _021D9F88 ; =0x04000540

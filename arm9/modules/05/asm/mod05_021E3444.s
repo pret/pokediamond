@@ -1232,7 +1232,7 @@ MOD05_021E3DA0: ; 0x021E3DA0
 	bl MTX_Identity22_
 	add r0, sp, #8
 	ldrh r0, [r0, #0x14]
-	ldr r3, _021E3E0C ; =UNK_020FFA38
+	ldr r3, _021E3E0C ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1271,7 +1271,7 @@ MOD05_021E3DA0: ; 0x021E3DA0
 	bl FUN_0200CA98
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021E3E0C: .word UNK_020FFA38
+_021E3E0C: .word FX_SinCosTable_
 _021E3E10: .word MOD05_021E3D70
 
 	thumb_func_start MOD05_021E3E14
@@ -1652,7 +1652,7 @@ MOD05_021E40F0: ; 0x021E40F0
 	bl DC_FlushRange
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -1671,7 +1671,7 @@ MOD05_021E4118: ; 0x021E4118
 	bl DC_FlushRange
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -2286,7 +2286,7 @@ MOD05_021E45A0: ; 0x021E45A0
 	add r4, r1, #0
 	lsl r1, r0, #1
 	lsl r0, r1, #1
-	ldr r2, _021E4680 ; =UNK_020FFA38
+	ldr r2, _021E4680 ; =FX_SinCosTable_
 	add r1, r1, #1
 	lsl r1, r1, #1
 	ldrsh r0, [r2, r0]
@@ -2297,7 +2297,7 @@ MOD05_021E45A0: ; 0x021E45A0
 	asr r0, r4, #4
 	lsl r1, r0, #1
 	lsl r0, r1, #1
-	ldr r2, _021E4680 ; =UNK_020FFA38
+	ldr r2, _021E4680 ; =FX_SinCosTable_
 	add r1, r1, #1
 	lsl r1, r1, #1
 	ldrsh r0, [r2, r0]
@@ -2389,7 +2389,7 @@ _021E464C:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-_021E4680: .word UNK_020FFA38
+_021E4680: .word FX_SinCosTable_
 _021E4684: .word 0x00000000
 
 	thumb_func_start MOD05_021E4688

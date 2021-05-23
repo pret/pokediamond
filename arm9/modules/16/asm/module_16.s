@@ -1996,7 +1996,7 @@ MOD16_021D8424: ; 0x021D8424
 	push {r4, r5, lr}
 	sub sp, #0x24
 	add r4, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -2053,7 +2053,7 @@ _021D849C: .word 0x000019FC
 	thumb_func_start MOD16_021D84A0
 MOD16_021D84A0: ; 0x021D84A0
 	push {r3, lr}
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _021D8500 ; =0x04000060
 	ldr r2, _021D8504 ; =0xFFFFCFFD
@@ -2089,11 +2089,11 @@ MOD16_021D84A0: ; 0x021D84A0
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	pop {r3, pc}
 	.align 2, 0
 _021D8500: .word 0x04000060
@@ -2106,8 +2106,8 @@ _021D8510: .word 0xBFFF0000
 	thumb_func_start MOD16_021D8514
 MOD16_021D8514: ; 0x021D8514
 	push {r3, lr}
-	bl FUN_020AEAF4
-	bl FUN_020AEC60
+	bl NNS_GfdResetFrmTexVramState
+	bl NNS_GfdResetFrmPlttVramState
 	pop {r3, pc}
 	thumb_func_end MOD16_021D8514
 
@@ -2313,7 +2313,7 @@ MOD16_021D86B4: ; 0x021D86B4
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	bl FUN_0201FDEC
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	mov r0, #0x55
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -3182,7 +3182,7 @@ MOD16_021D8CB4: ; 0x021D8CB4
 	add r7, r0, #0
 	beq _021D8CF6
 	add r1, sp, #4
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0
 	beq _021D8CF0
 	cmp r4, #0
@@ -3220,7 +3220,7 @@ MOD16_021D8CFC: ; 0x021D8CFC
 	add r7, r0, #0
 	beq _021D8D42
 	add r1, sp, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0
 	beq _021D8D3C
 	cmp r4, #0
@@ -3258,7 +3258,7 @@ MOD16_021D8D48: ; 0x021D8D48
 	add r4, r0, #0
 	beq _021D8D6A
 	add r1, r5, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	cmp r0, #0
 	bne _021D8D6A
 	add r0, r4, #0
@@ -3280,7 +3280,7 @@ MOD16_021D8D70: ; 0x021D8D70
 	add r4, r0, #0
 	beq _021D8D92
 	add r1, r5, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0
 	bne _021D8D92
 	add r0, r4, #0
@@ -3302,7 +3302,7 @@ MOD16_021D8D98: ; 0x021D8D98
 	add r4, r0, #0
 	beq _021D8DBA
 	add r1, r5, #0
-	bl FUN_020B0030
+	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0
 	bne _021D8DBA
 	add r0, r4, #0
@@ -3545,14 +3545,14 @@ MOD16_021D8F9C: ; 0x021D8F9C
 	mov r1, #0x55
 	lsl r1, r1, #2
 	str r0, [r5, r1]
-	ldr r3, _021D9030 ; =UNK_021064B8
+	ldr r3, _021D9030 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #2
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D9034 ; =UNK_021064C0
+	ldr r3, _021D9034 ; =NNS_GfdDefaultFuncAllocPlttVram
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -3607,8 +3607,8 @@ _021D9004:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021D9030: .word UNK_021064B8
-_021D9034: .word UNK_021064C0
+_021D9030: .word NNS_GfdDefaultFuncAllocTexVram
+_021D9034: .word NNS_GfdDefaultFuncAllocPlttVram
 _021D9038: .word 0x7FFF0000
 _021D903C: .word 0xFFFF0000
 _021D9040: .word MOD16_021FF490
@@ -29023,7 +29023,7 @@ _021E4ACE:
 	lsr r0, r0, #0x10
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _021E4B10 ; =UNK_020FFA38
+	ldr r0, _021E4B10 ; =FX_SinCosTable_
 	mov r2, #3
 	ldrsh r0, [r0, r1]
 	lsl r2, r2, #0x10
@@ -29044,7 +29044,7 @@ _021E4ACE:
 	pop {r3, pc}
 	.align 2, 0
 _021E4B0C: .word 0x00007FFF
-_021E4B10: .word UNK_020FFA38
+_021E4B10: .word FX_SinCosTable_
 	thumb_func_end MOD16_021E4AC0
 
 	thumb_func_start MOD16_021E4B14
@@ -49298,7 +49298,7 @@ MOD16_021EE2A4: ; 0x021EE2A4
 	lsl r4, r0, #1
 	add r0, r4, #1
 	lsl r1, r0, #1
-	ldr r0, _021EE354 ; =UNK_020FFA38
+	ldr r0, _021EE354 ; =FX_SinCosTable_
 	mov r3, #0
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -49312,7 +49312,7 @@ MOD16_021EE2A4: ; 0x021EE2A4
 	lsr r5, r2, #0xc
 	orr r5, r0
 	mov r2, #0xe
-	ldr r0, _021EE354 ; =UNK_020FFA38
+	ldr r0, _021EE354 ; =FX_SinCosTable_
 	lsl r1, r4, #1
 	ldrsh r0, [r0, r1]
 	lsl r2, r2, #0xe
@@ -49364,7 +49364,7 @@ MOD16_021EE2A4: ; 0x021EE2A4
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EE354: .word UNK_020FFA38
+_021EE354: .word FX_SinCosTable_
 	thumb_func_end MOD16_021EE2A4
 
 	thumb_func_start MOD16_021EE358
@@ -49737,7 +49737,7 @@ MOD16_021EE5D0: ; 0x021EE5D0
 	bl FUN_02003974
 	ldr r0, [sp, #4]
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r2, r5, #0
 	add r2, #0xbc
 	add r1, r0, #0
@@ -49762,7 +49762,7 @@ MOD16_021EE5D0: ; 0x021EE5D0
 	bl FUN_02003974
 	ldr r0, [sp, #8]
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r5, #0xc0
 	add r1, r0, #0
 	ldr r2, [r5]

@@ -25937,27 +25937,27 @@ _022341D8: .word 0x0000A001
 
 	arm_func_start MOD13_022341DC
 MOD13_022341DC: ; 0x022341DC
-	ldr ip, _022341E4 ; =FUN_020C01A0
+	ldr ip, _022341E4 ; =NNS_SndMain
 	bx ip
 	.align 2, 0
-_022341E4: .word FUN_020C01A0
+_022341E4: .word NNS_SndMain
 
 	arm_func_start MOD13_022341E8
 MOD13_022341E8: ; 0x022341E8
 	ldr r0, _02234200 ; =0x02243154
-	ldr ip, _02234204 ; =FUN_020C10A4
+	ldr ip, _02234204 ; =NNS_SndPlayerStopSeq
 	ldr r0, [r0]
 	mov r1, #0
 	add r0, r0, #0x90
 	bx ip
 	.align 2, 0
 _02234200: .word MOD13_02243154
-_02234204: .word FUN_020C10A4
+_02234204: .word NNS_SndPlayerStopSeq
 
 	arm_func_start MOD13_02234208
 MOD13_02234208: ; 0x02234208
 	ldr r2, _02234224 ; =0x02243154
-	ldr ip, _02234228 ; =FUN_020C0EA4
+	ldr ip, _02234228 ; =NNS_SndPlayerSetTrackPitch
 	ldr r3, [r2]
 	mov r2, r1
 	mov r1, r0
@@ -25965,32 +25965,32 @@ MOD13_02234208: ; 0x02234208
 	bx ip
 	.align 2, 0
 _02234224: .word MOD13_02243154
-_02234228: .word FUN_020C0EA4
+_02234228: .word NNS_SndPlayerSetTrackPitch
 
 	arm_func_start MOD13_0223422C
 MOD13_0223422C: ; 0x0223422C
 	ldr r2, _02234244 ; =0x02243154
 	mov r1, r0
 	ldr r0, [r2]
-	ldr ip, _02234248 ; =FUN_020C0F40
+	ldr ip, _02234248 ; =NNS_SndPlayerSetVolume
 	add r0, r0, #0x90
 	bx ip
 	.align 2, 0
 _02234244: .word MOD13_02243154
-_02234248: .word FUN_020C0F40
+_02234248: .word NNS_SndPlayerSetVolume
 
 	arm_func_start MOD13_0223424C
 MOD13_0223424C: ; 0x0223424C
 	ldr r1, _02234268 ; =0x02243154
 	mov r2, r0
 	ldr r0, [r1]
-	ldr ip, _0223426C ; =FUN_020C3888
+	ldr ip, _0223426C ; =NNS_SndArcPlayerStartSeqArc
 	mov r1, #0
 	add r0, r0, #0x90
 	bx ip
 	.align 2, 0
 _02234268: .word MOD13_02243154
-_0223426C: .word FUN_020C3888
+_0223426C: .word NNS_SndArcPlayerStartSeqArc
 
 	arm_func_start MOD13_02234270
 MOD13_02234270: ; 0x02234270
@@ -26024,17 +26024,17 @@ MOD13_022342A0: ; 0x022342A0
 	ldr r1, _0223432C ; =0x02243154
 	ldr r1, [r1]
 	str r0, [r1, #0x94]
-	bl SDAT_Init
+	bl NNS_SndInit
 	ldr r0, _0223432C ; =0x02243154
 	ldr r0, [r0]
 	ldr r1, [r0, #0x94]
-	bl FUN_020C2444
+	bl NNS_SndArcInitOnMemory
 	mov r0, #0
-	bl FUN_020C39CC
+	bl NNS_SndArcPlayerSetup
 	ldr r0, _0223432C ; =0x02243154
 	ldr r0, [r0]
 	add r0, r0, #0x90
-	bl FUN_020C0F80
+	bl NNS_SndHandleInit
 	mov r0, #0
 	ldr r1, _02234334 ; =MOD13_022341DC
 	mov r2, r0
@@ -33219,7 +33219,7 @@ MOD13_0223A440: ; 0x0223A440
 	str r1, [sp, #0xc]
 	ldrb r1, [r4, #0x36]
 	ldrb r2, [r4, #0x37]
-	bl FUN_020B5E50
+	bl NNS_G2dArrangeOBJ1D
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 
@@ -33245,7 +33245,7 @@ MOD13_0223A4F0: ; 0x0223A4F0
 	str lr, [sp, #8]
 	add r0, r0, #0x20
 	str ip, [sp, #0xc]
-	bl FUN_020B7168
+	bl NNSi_G2dTextCanvasDrawTextRect
 	add sp, sp, #0x14
 	ldmia sp!, {pc}
 
@@ -33271,14 +33271,14 @@ _0223A564:
 	ldr r0, [r0]
 	add r5, r0, r4
 	mov r0, r5
-	bl FUN_020B5CE4
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	ldr r0, _0223A5EC ; =0x0000FFFF
 	cmp r1, r0
 	ldreq r0, [r5]
 	ldreqh r1, [r0, #2]
 	mov r0, r5
-	bl FUN_020B5C88
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	ldrh r1, [r5, #8]
 	ldrh r2, [r7]
 	ldr r3, [sp, #8]
@@ -33319,7 +33319,7 @@ MOD13_0223A5F0: ; 0x0223A5F0
 	mla r1, ip, r3, lr
 	mov r3, r2
 	mov r2, r4
-	bl FUN_020B63CC
+	bl NNS_G2dCharCanvasDrawChar
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
@@ -33334,7 +33334,7 @@ MOD13_0223A634: ; 0x0223A634
 	str lr, [sp]
 	add r0, r0, #0x20
 	str ip, [sp, #4]
-	bl FUN_020B7218
+	bl NNSi_G2dTextCanvasDrawText
 	add sp, sp, #0xc
 	ldmia sp!, {pc}
 
@@ -33504,7 +33504,7 @@ _0223A88C:
 	mov r0, r6
 	mov r2, r4
 	mov r3, r5
-	bl FUN_020B6388
+	bl NNS_G2dCharCanvasInitForBG
 	ldr r1, _0223A954 ; =0x022431A4
 	mov r0, #0xc
 	ldr r2, [r1]
@@ -33533,7 +33533,7 @@ _0223A8E0:
 	str r7, [sp, #8]
 	mov r4, #0xf
 	str r4, [sp, #0xc]
-	bl FUN_020B6240
+	bl NNS_G2dMapScrToCharText
 	mov r0, r6
 	mov r1, #0
 	bl MOD13_0223A4D8
@@ -33601,7 +33601,7 @@ MOD13_0223A9A4: ; 0x0223A9A4
 	mov r0, r6
 	strh r1, [r4, #0x34]
 	mov r1, r5
-	bl FUN_020B6180
+	bl NNSi_G2dCalcRequiredOBJ
 	ldr r1, [sp, #0x20]
 	cmp r7, #1
 	str r0, [r1]
@@ -33614,7 +33614,7 @@ MOD13_0223A9A4: ; 0x0223A9A4
 	mov r2, r6
 	mov r3, r5
 	add r1, ip, r7, lsl #7
-	bl FUN_020B62F8
+	bl NNS_G2dCharCanvasInitForOBJ1D
 	ldr r2, [r4, #0x18]
 	mov r0, r4
 	mov r1, #0
@@ -33694,7 +33694,7 @@ _0223AB20:
 	add r0, r2, r8, lsl #2
 	ldr r1, [r0, #0x78c]
 	add r0, r2, r7
-	bl FUN_020B5D3C
+	bl NNS_G2dFontInitUTF16
 	add r8, r8, #1
 	cmp r8, #2
 	add r7, r7, #0xc
@@ -34004,7 +34004,7 @@ MOD13_0223AF48: ; 0x0223AF48
 	ldr r0, _0223AF8C ; =0x022431A8
 	mov r1, r5
 	ldr r0, [r0]
-	bl FUN_020ADDF0
+	bl NNS_FndFreeToExpHeap
 	mov r0, r4
 	bl OS_EnableIrqMask
 	add sp, sp, #4
@@ -34026,7 +34026,7 @@ MOD13_0223AF90: ; 0x0223AF90
 	ldmeqia sp!, {r4, r5, pc}
 	ldr r0, _0223AFDC ; =0x022431A8
 	ldr r0, [r0]
-	bl FUN_020ADDF0
+	bl NNS_FndFreeToExpHeap
 	mov r0, r4
 	bl OS_EnableIrqMask
 	mov r0, #0
@@ -34060,7 +34060,7 @@ MOD13_0223B004: ; 0x0223B004
 	ldr r0, [r1]
 	mov r1, r6
 	mov r2, r5
-	bl tempName_NNS_FndAllocFromExpHeapEx
+	bl NNS_FndAllocFromExpHeapEx
 	movs r5, r0
 	bne _0223B03C
 	bl OS_Terminate
@@ -34078,7 +34078,7 @@ MOD13_0223B050: ; 0x0223B050
 	sub sp, sp, #4
 	ldr r0, _0223B078 ; =0x022431A8
 	ldr r0, [r0]
-	bl thunk_FUN_020adc8c
+	bl NNS_FndDestroyExpHeap
 	ldr r0, _0223B078 ; =0x022431A8
 	mov r1, #0
 	str r1, [r0]
@@ -34097,7 +34097,7 @@ MOD13_0223B07C: ; 0x0223B07C
 	mov r0, r4
 	mov r1, #0x40000
 	mov r2, #0
-	bl tempName_NNS_FndCreateExpHeapEx
+	bl NNS_FndCreateExpHeapEx
 	ldr r1, _0223B0B8 ; =0x022431A8
 	cmp r0, #0
 	str r0, [r1]

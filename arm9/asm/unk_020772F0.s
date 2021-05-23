@@ -2418,7 +2418,7 @@ FUN_02078140: ; 0x02078140
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r1, #0x80

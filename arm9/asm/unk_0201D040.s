@@ -858,11 +858,11 @@ FUN_0201D690: ; 0x0201D690
 	add r1, #0x3c
 	strb r2, [r1, #0x0]
 	str r2, [r0, #0x40]
-	ldr r3, _0201D6B0 ; =FUN_020B1A24
+	ldr r3, _0201D6B0 ; =NNS_G2dInitImageProxy
 	add r0, #0x10
 	bx r3
 	nop
-_0201D6B0: .word FUN_020B1A24
+_0201D6B0: .word NNS_G2dInitImageProxy
 
 	thumb_func_start FUN_0201D6B4
 FUN_0201D6B4: ; 0x0201D6B4
@@ -1277,7 +1277,7 @@ FUN_0201D9B0: ; 0x0201D9B0
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x10
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	ldr r1, [r4, #0x4]
 	cmp r1, #0x3
 	beq _0201D9C8
@@ -1325,13 +1325,13 @@ _0201DA04:
 	add r5, #0x10
 	add r2, r4, #0x0
 	add r3, r5, #0x0
-	bl FUN_020B1528
+	bl NNS_G2dLoadImage2DMapping
 	b _0201DA20
 _0201DA16:
 	add r5, #0x10
 	add r2, r4, #0x0
 	add r3, r5, #0x0
-	bl FUN_020B1768
+	bl NNS_G2dLoadImage1DMapping
 _0201DA20:
 	cmp r4, #0x1
 	bne _0201DA2C
@@ -1351,7 +1351,7 @@ FUN_0201DA38: ; 0x0201DA38
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x10
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	ldr r1, [r4, #0x4]
 	cmp r1, #0x3
 	beq _0201DA50
@@ -1394,7 +1394,7 @@ _0201DA88:
 	add r5, #0x10
 	add r2, r4, #0x0
 	add r3, r5, #0x0
-	bl FUN_020B1340
+	bl NNS_G2dLoadImageVramTransfer
 	cmp r4, #0x1
 	bne _0201DAA0
 	mov r0, #0x1
@@ -1932,7 +1932,7 @@ FUN_0201DE4C: ; 0x0201DE4C
 	beq _0201DE8A
 	add r0, r4, #0x0
 	add r0, #0x10
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	ldr r1, _0201DECC ; =UNK_021C5994
 	ldr r2, [r1, #0x0]
 	ldr r1, [r2, #0x1c]
@@ -1958,7 +1958,7 @@ _0201DE8A:
 	beq _0201DEC4
 	add r0, r4, #0x0
 	add r0, #0x10
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	ldr r1, _0201DECC ; =UNK_021C5994
 	ldr r2, [r1, #0x0]
 	ldr r1, [r2, #0x20]
