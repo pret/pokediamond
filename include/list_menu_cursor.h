@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_LIST_MENU_CURSOR_H
 #define POKEDIAMOND_LIST_MENU_CURSOR_H
 
-#include "window.h"
+#include "unk_02016B94.h"
 
 // TODO: Move to its own header, and fill it out
 struct ListMenuCursor

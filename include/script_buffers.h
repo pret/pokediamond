@@ -4,7 +4,7 @@
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "trainer_data.h"
-#include "window.h"
+#include "unk_02016B94.h"
 
 struct UnkStruct_0200AA80_sub_sub
 {

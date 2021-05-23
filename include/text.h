@@ -2,8 +2,9 @@
 #define POKEDIAMOND_TEXT_H
 
 #include "global.h"
-#include "window.h"
 #include "font.h"
+#include "unk_02016B94.h"
+
 
 #define CHAR_0        0x00A2
 #define CHAR_1        0x00A3
