@@ -906,7 +906,7 @@ _020AEAF0: .word 0x0000FFFF
 	arm_func_end FUN_020AE96C
 
 	arm_func_start FUN_020AEAF4
-FUN_020AEAF4:
+FUN_020AEAF4: ; 0x020AEAF4
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	ldr r0, _020AEB68 ; =UNK_021CCD48
@@ -1015,7 +1015,7 @@ _020AEC5C: .word UNK_021064D0
 	arm_func_end FUN_020AEC10
 
 	arm_func_start FUN_020AEC60
-FUN_020AEC60:
+FUN_020AEC60: ; 0x020AEC60
 	ldr r0, _020AEC78 ; =UNK_021CCD4C
 	mov r2, #0x0
 	ldr r1, [r0, #0x8]
@@ -1249,7 +1249,7 @@ _020AEF38: .word FUN_020AEFD4
 	arm_func_end FUN_020AEF1C
 
 	arm_func_start FUN_020AEF3C
-FUN_020AEF3C:
+FUN_020AEF3C: ; 0x020AEF3C
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl FUN_020AF2E0
@@ -1712,7 +1712,7 @@ FUN_020AF30C: ; 0x020AF30C
 	arm_func_end FUN_020AF30C
 
 	arm_func_start FUN_020AF334
-FUN_020AF334:
+FUN_020AF334: ; 0x020AF334
 	stmdb sp!, {r4-r6,lr}
 	sub sp, sp, #0x10
 	add r3, r2, r3
@@ -1805,7 +1805,7 @@ _020AF418:
 	arm_func_end FUN_020AF334
 
 	arm_func_start FUN_020AF488
-FUN_020AF488:
+FUN_020AF488: ; 0x020AF488
 	stmdb sp!, {r4-r10,lr}
 	ldr r4, [r0, #0x0]
 	ldr r9, [sp, #0x20]
@@ -1894,7 +1894,7 @@ _020AF5B8:
 	arm_func_end FUN_020AF488
 
 	arm_func_start FUN_020AF5C4
-FUN_020AF5C4:
+FUN_020AF5C4: ; 0x020AF5C4
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r12, #0x0
@@ -2235,7 +2235,7 @@ FUN_020AFA28: ; 0x020AFA28
 	arm_func_end FUN_020AFA28
 
 	arm_func_start FUN_020AFA30
-FUN_020AFA30:
+FUN_020AFA30: ; 0x020AFA30
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r0, _020AFA78 ; =UNK_021CCD88
@@ -2880,7 +2880,7 @@ _020B01CC:
 	arm_func_end FUN_020B01B0
 
 	arm_func_start FUN_020B01F8
-FUN_020B01F8:
+FUN_020B01F8: ; 0x020B01F8
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldrh r2, [r0, #0xc]
@@ -3033,7 +3033,7 @@ _020B0404: .word 0x04000504
 	arm_func_end FUN_020B0340
 
 	arm_func_start FUN_020B0408
-FUN_020B0408:
+FUN_020B0408: ; 0x020B0408
 	ldr r1, [r0, #0x14]
 	cmp r1, #0x0
 	ldreq r0, [r0, #0x18]
@@ -3131,7 +3131,7 @@ FUN_020B04FC: ; 0x020B04FC
 	arm_func_end FUN_020B04FC
 
 	arm_func_start FUN_020B0518
-FUN_020B0518:
+FUN_020B0518: ; 0x020B0518
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl FUN_020B06EC
@@ -3142,7 +3142,7 @@ FUN_020B0518:
 	arm_func_end FUN_020B0518
 
 	arm_func_start FUN_020B0534
-FUN_020B0534:
+FUN_020B0534: ; 0x020B0534
 	stmdb sp!, {r4-r8,lr}
 	mov r8, r0
 	ldr r0, [r8, #0x8]
@@ -3269,7 +3269,7 @@ FUN_020B06E0: ; 0x020B06E0
 	arm_func_end FUN_020B06E0
 
 	arm_func_start FUN_020B06EC
-FUN_020B06EC:
+FUN_020B06EC: ; 0x020B06EC
 	ldr r3, [r0, #0x18]
 	ldrh r2, [r3, #0x0]
 	cmp r1, r2
@@ -4008,13 +4008,13 @@ FUN_020B10BC: ; 0x020B10BC
 	arm_func_end FUN_020B10BC
 
 	arm_func_start FUN_020B10C4
-FUN_020B10C4:
+FUN_020B10C4: ; 0x020B10C4
 	str r2, [r0, r1, lsl #0x2]
 	bx lr
 	arm_func_end FUN_020B10C4
 
 	arm_func_start FUN_020B10CC
-FUN_020B10CC:
+FUN_020B10CC: ; 0x020B10CC
 	mov r2, #0x0
 	mvn r1, #0x0
 _020B10D4:
@@ -4706,7 +4706,7 @@ _020B19A4: .word 0x04001000
 	arm_func_end FUN_020B1768
 
 	arm_func_start FUN_020B19A8
-FUN_020B19A8:
+FUN_020B19A8: ; 0x020B19A8
 	add r0, r0, r1, lsl #0x2
 	ldr r1, [r0, #0x8]
 	mvn r0, #0x0
@@ -4744,7 +4744,7 @@ _020B19E4:
 	arm_func_end FUN_020B19DC
 
 	arm_func_start FUN_020B19FC
-FUN_020B19FC:
+FUN_020B19FC: ; 0x020B19FC
 	ldr r1, [r0, r1, lsl #0x2]
 	mvn r0, #0x0
 	cmp r1, r0
@@ -4792,7 +4792,7 @@ FUN_020B1A40: ; 0x020B1A40
 	arm_func_end FUN_020B1A40
 
 	arm_func_start FUN_020B1A68
-FUN_020B1A68:
+FUN_020B1A68: ; 0x020B1A68
 	ldr ip, _020B1A74 ; =FUN_020B1A40
 	str r1, [r0, #0x0]
 	bx r12
@@ -5757,7 +5757,7 @@ _020B2788: .word FUN_020B5040
 	arm_func_end thunk_FUN_020b5040
 
 	arm_func_start FUN_020B278C
-FUN_020B278C:
+FUN_020B278C: ; 0x020B278C
 	ldr r0, [r0, #0x78]
 	bx lr
 	arm_func_end FUN_020B278C
@@ -6754,7 +6754,7 @@ _020B3550: .word FX_SinCosTable_
 	arm_func_end FUN_020B3474
 
 	arm_func_start FUN_020B3554
-FUN_020B3554:
+FUN_020B3554: ; 0x020B3554
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
@@ -7513,7 +7513,7 @@ _020B400C: .word UNK_02106578
 	arm_func_end FUN_020B3EE0
 
 	arm_func_start FUN_020B4010
-FUN_020B4010:
+FUN_020B4010: ; 0x020B4010
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	ldr r0, _020B4154 ; =UNK_021CDD70
@@ -8176,7 +8176,7 @@ _020B4944: .word UNK_02106590
 	arm_func_end FUN_020B46B4
 
 	arm_func_start FUN_020B4948
-FUN_020B4948:
+FUN_020B4948: ; 0x020B4948
 	ldr r0, _020B4954 ; =UNK_02106590
 	ldr r0, [r0, #0x0]
 	bx lr
@@ -8185,7 +8185,7 @@ _020B4954: .word UNK_02106590
 	arm_func_end FUN_020B4948
 
 	arm_func_start FUN_020B4958
-FUN_020B4958:
+FUN_020B4958: ; 0x020B4958
 	ldr r1, _020B4964 ; =UNK_02106590
 	str r0, [r1, #0x0]
 	bx lr
@@ -8204,7 +8204,7 @@ _020B4978: .word UNK_021CED10
 	arm_func_end FUN_020B4968
 
 	arm_func_start FUN_020B497C
-FUN_020B497C:
+FUN_020B497C: ; 0x020B497C
 	ldr r1, _020B4988 ; =UNK_021CED08
 	str r0, [r1, #0x0]
 	bx lr
@@ -8445,7 +8445,7 @@ _020B4CD8: .word UNK_021CED14
 	arm_func_end FUN_020B4BF4
 
 	arm_func_start FUN_020B4CDC
-FUN_020B4CDC:
+FUN_020B4CDC: ; 0x020B4CDC
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	ldr r1, _020B4D9C ; =UNK_021CED14
@@ -8641,7 +8641,7 @@ FUN_020B4F38: ; 0x020B4F38
 	arm_func_end FUN_020B4F38
 
 	arm_func_start FUN_020B4F74
-FUN_020B4F74:
+FUN_020B4F74: ; 0x020B4F74
 	ldr r0, [r0, #0x24]
 	ands r0, r0, #0x2
 	movne r0, #0x1
@@ -8650,7 +8650,7 @@ FUN_020B4F74:
 	arm_func_end FUN_020B4F74
 
 	arm_func_start FUN_020B4F88
-FUN_020B4F88:
+FUN_020B4F88: ; 0x020B4F88
 	ldr r0, [r0, #0x24]
 	ands r0, r0, #0x1
 	movne r0, #0x1
@@ -9532,7 +9532,7 @@ _020B5BAC:
 	arm_func_end FUN_020B5B54
 
 	arm_func_start FUN_020B5BC8
-FUN_020B5BC8:
+FUN_020B5BC8: ; 0x020B5BC8
 	stmdb sp!, {r4-r10,lr}
 	sub sp, sp, #0x8
 	mov r8, r0
@@ -11465,7 +11465,7 @@ _020B76AC: .word 0x46494E46
 	arm_func_end FUN_020B7558
 
 	arm_func_start FUN_020B76B0
-FUN_020B76B0:
+FUN_020B76B0: ; 0x020B76B0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	ldrsb r2, [r0, #0x4]
@@ -11650,7 +11650,7 @@ _020B7908:
 	arm_func_end FUN_020B7864
 
 	arm_func_start FUN_020B7910
-FUN_020B7910:
+FUN_020B7910: ; 0x020B7910
 	stmdb sp!, {r4-r6,lr}
 	ldrh r5, [r1, #0x0]
 	ldr r2, [r2, #0x2c]
@@ -11817,7 +11817,7 @@ _020B7B3C: .word 0xC00F0000
 	arm_func_end FUN_020B7AB8
 
 	arm_func_start FUN_020B7B40
-FUN_020B7B40:
+FUN_020B7B40: ; 0x020B7B40
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0xc
 	mov r11, r1
@@ -12083,7 +12083,7 @@ _020B7E74:
 	arm_func_end FUN_020B7E28
 
 	arm_func_start FUN_020B7E88
-FUN_020B7E88:
+FUN_020B7E88: ; 0x020B7E88
 	ldr r2, [r0, #0x0]
 	cmp r2, #0x0
 	moveq r0, #0x0
@@ -12937,7 +12937,7 @@ _020B8948:
 	arm_func_end FUN_020B86B0
 
 	arm_func_start FUN_020B8998
-FUN_020B8998:
+FUN_020B8998: ; 0x020B8998
 	cmp r3, #0x0
 	beq _020B89C8
 	ldr r1, [r0, #0x0]
@@ -15465,7 +15465,7 @@ _020BAD70: .word UNK_021CEF7C
 	arm_func_end FUN_020BAC98
 
 	arm_func_start FUN_020BAD74
-FUN_020BAD74:
+FUN_020BAD74: ; 0x020BAD74
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	cmp r1, #0x0
@@ -15605,7 +15605,7 @@ _020BAF68: .word UNK_02106620
 	arm_func_end FUN_020BADE4
 
 	arm_func_start FUN_020BAF6C
-FUN_020BAF6C:
+FUN_020BAF6C: ; 0x020BAF6C
 	stmdb sp!, {r4-r6,lr}
 	mov r5, r0
 	ldr r6, _020BAFB4 ; =UNK_02106730
@@ -15769,7 +15769,7 @@ _020BB1BC: .word UNK_02106620
 	arm_func_end FUN_020BAFB8
 
 	arm_func_start FUN_020BB1C0
-FUN_020BB1C0:
+FUN_020BB1C0: ; 0x020BB1C0
 	stmdb sp!, {r4-r6,lr}
 	ldr r3, _020BB2A4 ; =UNK_021D1C80
 	mov r6, r0
@@ -16988,7 +16988,7 @@ _020BC138: .word 0x30585442
 	arm_func_end FUN_020BC0FC
 
 	arm_func_start FUN_020BC13C
-FUN_020BC13C:
+FUN_020BC13C: ; 0x020BC13C
 	ldrh r1, [r0, #0xc]
 	ldr r1, [r0, r1]
 	add r0, r0, r1
@@ -16996,7 +16996,7 @@ FUN_020BC13C:
 	arm_func_end FUN_020BC13C
 
 	arm_func_start FUN_020BC14C
-FUN_020BC14C:
+FUN_020BC14C: ; 0x020BC14C
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	ldrb r2, [r0, #0x1]
@@ -17279,7 +17279,7 @@ FUN_020BC4C8: ; 0x020BC4C8
 	arm_func_end FUN_020BC4C8
 
 	arm_func_start FUN_020BC500
-FUN_020BC500:
+FUN_020BC500: ; 0x020BC500
 	stmdb sp!, {r4,lr}
 	ands r4, r3, #0x8000
 	beq _020BC5E0
@@ -19356,7 +19356,7 @@ _020BE234: .word 0x0000FFFF
 	arm_func_end FUN_020BE12C
 
 	arm_func_start FUN_020BE238
-FUN_020BE238:
+FUN_020BE238: ; 0x020BE238
 	ands r12, r1, #0x20000000
 	movne r0, r2
 	bxne lr
