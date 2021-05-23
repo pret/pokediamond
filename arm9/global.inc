@@ -8236,7 +8236,7 @@
 .extern Unk_02106A04
 .extern UNK_020FF368
 .extern UNK_020FF3D4
-.extern UNK_020FFA38
+.extern FX_SinCosTable_
 .extern UNK_02105BB8
 .extern UNK_021064BC
 .extern UNK_021064C4

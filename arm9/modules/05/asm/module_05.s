@@ -15780,7 +15780,7 @@ _021F03A8:
 	asr r0, r1, #4
 	lsl r3, r0, #1
 	lsl r1, r3, #1
-	ldr r2, _021F0438 ; =UNK_020FFA38
+	ldr r2, _021F0438 ; =FX_SinCosTable_
 	add r3, r3, #1
 	lsl r3, r3, #1
 	ldrsh r1, [r2, r1]
@@ -15794,7 +15794,7 @@ _021F03A8:
 	asr r0, r5, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
-	ldr r3, _021F0438 ; =UNK_020FFA38
+	ldr r3, _021F0438 ; =FX_SinCosTable_
 	add r2, r2, #1
 	lsl r2, r2, #1
 	ldrsh r1, [r3, r1]
@@ -15839,7 +15839,7 @@ _021F03A8:
 	pop {r4, r5, r6, r7, pc}
 	nop
 _021F0434: .word UNK05_021F8B6C
-_021F0438: .word UNK_020FFA38
+_021F0438: .word FX_SinCosTable_
 
 	thumb_func_start MOD05_021F043C
 MOD05_021F043C: ; 0x021F043C
@@ -15866,7 +15866,7 @@ MOD05_021F0454: ; 0x021F0454
 	bl FUN_0201F008
 	strh r0, [r5]
 	ldrh r0, [r5]
-	ldr r2, _021F04F0 ; =UNK_020FFA38
+	ldr r2, _021F04F0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r1, r0, #1
 	lsl r0, r1, #1
@@ -15909,7 +15909,7 @@ MOD05_021F0454: ; 0x021F0454
 	str r0, [r5, #0x1c]
 	add r0, sp, #0
 	ldrh r0, [r0]
-	ldr r3, _021F04F0 ; =UNK_020FFA38
+	ldr r3, _021F04F0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -15924,7 +15924,7 @@ MOD05_021F0454: ; 0x021F0454
 	add sp, #0x2c
 	pop {r4, r5, pc}
 	nop
-_021F04F0: .word UNK_020FFA38
+_021F04F0: .word FX_SinCosTable_
 _021F04F4: .word UNK05_021F8B78
 
 	thumb_func_start MOD05_021F04F8
@@ -26373,7 +26373,7 @@ MOD05_021F5430: ; 0x021F5430
 	add r0, r4, #0
 	add r0, #0x70
 	ldrh r0, [r0]
-	ldr r3, _021F54C8 ; =UNK_020FFA38
+	ldr r3, _021F54C8 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -26390,7 +26390,7 @@ MOD05_021F5430: ; 0x021F5430
 	add r0, r4, #0
 	add r0, #0x74
 	ldrh r0, [r0]
-	ldr r3, _021F54C8 ; =UNK_020FFA38
+	ldr r3, _021F54C8 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -26407,7 +26407,7 @@ MOD05_021F5430: ; 0x021F5430
 	add r0, r4, #0
 	add r0, #0x72
 	ldrh r0, [r0]
-	ldr r3, _021F54C8 ; =UNK_020FFA38
+	ldr r3, _021F54C8 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -26432,7 +26432,7 @@ _021F54C4:
 	add sp, #0x48
 	pop {r4, pc}
 	.balign 4, 0
-_021F54C8: .word UNK_020FFA38
+_021F54C8: .word FX_SinCosTable_
 
 	thumb_func_start MOD05_021F54CC
 MOD05_021F54CC: ; 0x021F54CC

@@ -1055,7 +1055,7 @@ MOD17_021D7C28: ; 0x021D7C28
 	mov r0, #0
 	str r0, [r1]
 	ldr r0, [sp]
-	ldr r1, _021D7CB4 ; =UNK_020FFA38
+	ldr r1, _021D7CB4 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r0, r2, #1
@@ -1101,7 +1101,7 @@ _021D7CA0:
 	nop
 _021D7CAC: .word 0x04000454
 _021D7CB0: .word 0x04000470
-_021D7CB4: .word UNK_020FFA38
+_021D7CB4: .word FX_SinCosTable_
 _021D7CB8: .word 0x0400046C
 _021D7CBC: .word 0x04000448
 	thumb_func_end MOD17_021D7C28

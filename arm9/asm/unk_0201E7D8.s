@@ -4,7 +4,7 @@
 	.extern UNK_021CED98
 	.extern UNK_021CEF64
 	.extern UNK_021CED20
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 	.extern UNK_021CEF58
 	.extern UNK_021CEF70
 	.extern UNK_021CED64
@@ -32,7 +32,7 @@ FUN_0201E7D8: ; 0x0201E7D8
 	ldrh r4, [r5, #0x3c]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _0201E8B4 ; =UNK_020FFA38
+	ldr r0, _0201E8B4 ; =FX_SinCosTable_
 	asr r3, r2, #0x1f
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -46,7 +46,7 @@ FUN_0201E7D8: ; 0x0201E7D8
 	lsl r2, r2, #0x1
 	add r2, r2, #0x1
 	lsl r3, r2, #0x1
-	ldr r2, _0201E8B4 ; =UNK_020FFA38
+	ldr r2, _0201E8B4 ; =FX_SinCosTable_
 	lsl r1, r1, #0x14
 	ldrsh r2, [r2, r3]
 	lsr r0, r0, #0xc
@@ -69,7 +69,7 @@ FUN_0201E7D8: ; 0x0201E7D8
 	lsl r0, r0, #0x1
 	add r0, r0, #0x1
 	lsl r1, r0, #0x1
-	ldr r0, _0201E8B4 ; =UNK_020FFA38
+	ldr r0, _0201E8B4 ; =FX_SinCosTable_
 	asr r3, r2, #0x1f
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -86,7 +86,7 @@ FUN_0201E7D8: ; 0x0201E7D8
 	lsl r2, r2, #0x1
 	add r2, r2, #0x1
 	lsl r3, r2, #0x1
-	ldr r2, _0201E8B4 ; =UNK_020FFA38
+	ldr r2, _0201E8B4 ; =FX_SinCosTable_
 	orr r0, r1
 	ldrsh r2, [r2, r3]
 	asr r1, r0, #0x1f
@@ -106,7 +106,7 @@ FUN_0201E7D8: ; 0x0201E7D8
 	str r1, [r5, #0x1c]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _0201E8B4 ; =UNK_020FFA38
+	ldr r0, _0201E8B4 ; =FX_SinCosTable_
 	ldr r2, [r5, #0x38]
 	ldrsh r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -129,7 +129,7 @@ FUN_0201E7D8: ; 0x0201E7D8
 	bl VEC_Add
 	pop {r3-r5, pc}
 	nop
-_0201E8B4: .word UNK_020FFA38
+_0201E8B4: .word FX_SinCosTable_
 
 	thumb_func_start FUN_0201E8B8
 FUN_0201E8B8: ; 0x0201E8B8
@@ -140,7 +140,7 @@ FUN_0201E8B8: ; 0x0201E8B8
 	ldrh r4, [r5, #0x3c]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _0201E998 ; =UNK_020FFA38
+	ldr r0, _0201E998 ; =FX_SinCosTable_
 	asr r3, r2, #0x1f
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -154,7 +154,7 @@ FUN_0201E8B8: ; 0x0201E8B8
 	lsl r2, r2, #0x1
 	add r2, r2, #0x1
 	lsl r3, r2, #0x1
-	ldr r2, _0201E998 ; =UNK_020FFA38
+	ldr r2, _0201E998 ; =FX_SinCosTable_
 	lsl r1, r1, #0x14
 	ldrsh r2, [r2, r3]
 	lsr r0, r0, #0xc
@@ -178,7 +178,7 @@ FUN_0201E8B8: ; 0x0201E8B8
 	lsl r0, r0, #0x1
 	add r0, r0, #0x1
 	lsl r1, r0, #0x1
-	ldr r0, _0201E998 ; =UNK_020FFA38
+	ldr r0, _0201E998 ; =FX_SinCosTable_
 	asr r3, r2, #0x1f
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -195,7 +195,7 @@ FUN_0201E8B8: ; 0x0201E8B8
 	lsl r2, r2, #0x1
 	add r2, r2, #0x1
 	lsl r3, r2, #0x1
-	ldr r2, _0201E998 ; =UNK_020FFA38
+	ldr r2, _0201E998 ; =FX_SinCosTable_
 	orr r0, r1
 	ldrsh r2, [r2, r3]
 	asr r1, r0, #0x1f
@@ -216,7 +216,7 @@ FUN_0201E8B8: ; 0x0201E8B8
 	lsr r0, r0, #0x10
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _0201E998 ; =UNK_020FFA38
+	ldr r0, _0201E998 ; =FX_SinCosTable_
 	ldr r2, [r5, #0x38]
 	ldrsh r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -240,7 +240,7 @@ FUN_0201E8B8: ; 0x0201E8B8
 	bl VEC_Add
 	pop {r3-r5, pc}
 	.balign 4
-_0201E998: .word UNK_020FFA38
+_0201E998: .word FX_SinCosTable_
 
 	thumb_func_start FUN_0201E99C
 FUN_0201E99C: ; 0x0201E99C
@@ -249,7 +249,7 @@ FUN_0201E99C: ; 0x0201E99C
 	strh r0, [r2, #0x0]
 	asr r0, r0, #0x4
 	lsl r3, r0, #0x1
-	ldr r2, _0201E9E0 ; =UNK_020FFA38
+	ldr r2, _0201E9E0 ; =FX_SinCosTable_
 	lsl r0, r3, #0x1
 	ldrsh r0, [r2, r0]
 	str r0, [r1, #0x0]
@@ -278,7 +278,7 @@ FUN_0201E99C: ; 0x0201E99C
 	str r2, [r1, #0x64]
 	bx lr
 	nop
-_0201E9E0: .word UNK_020FFA38
+_0201E9E0: .word FX_SinCosTable_
 _0201E9E4: .word 0x00001555
 
 	thumb_func_start FUN_0201E9E8
@@ -973,7 +973,7 @@ FUN_0201EEF0: ; 0x0201EEF0
 	ldr r3, _0201EF24 ; =FUN_0201EE2C
 	asr r0, r0, #0x4
 	lsl r2, r0, #0x2
-	ldr r0, _0201EF28 ; =UNK_020FFA38
+	ldr r0, _0201EF28 ; =FX_SinCosTable_
 	ldrsh r2, [r0, r2]
 	str r2, [r1, #0x0]
 	add r2, r1, #0x0
@@ -991,7 +991,7 @@ FUN_0201EEF0: ; 0x0201EEF0
 	bx r3
 	nop
 _0201EF24: .word FUN_0201EE2C
-_0201EF28: .word UNK_020FFA38
+_0201EF28: .word FX_SinCosTable_
 
 	thumb_func_start FUN_0201EF2C
 FUN_0201EF2C: ; 0x0201EF2C
@@ -1008,7 +1008,7 @@ FUN_0201EF2C: ; 0x0201EF2C
 	ldrh r0, [r0, #0x0]
 	asr r0, r0, #0x4
 	lsl r2, r0, #0x2
-	ldr r0, _0201EF6C ; =UNK_020FFA38
+	ldr r0, _0201EF6C ; =FX_SinCosTable_
 	ldrsh r2, [r0, r2]
 	str r2, [r1, #0x0]
 	add r2, r1, #0x0
@@ -1026,7 +1026,7 @@ FUN_0201EF2C: ; 0x0201EF2C
 	bx r3
 	nop
 _0201EF68: .word FUN_0201EE2C
-_0201EF6C: .word UNK_020FFA38
+_0201EF6C: .word FX_SinCosTable_
 
 	thumb_func_start FUN_0201EF70
 FUN_0201EF70: ; 0x0201EF70

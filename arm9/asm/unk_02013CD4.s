@@ -2,7 +2,7 @@
     .include "global.inc"
 
 	.extern UNK_021064C0
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 	.extern UNK_021064B8
 	.extern UNK_021064C4
 	.extern UNK_021064BC
@@ -741,7 +741,7 @@ _02014172:
 	str r1, [r3, #0x0]
 	str r2, [r3, #0x0]
 	ldr r0, [r5, #0x18]
-	ldr r1, _0201420C ; =UNK_020FFA38
+	ldr r1, _0201420C ; =FX_SinCosTable_
 	asr r0, r0, #0x4
 	lsl r2, r0, #0x1
 	lsl r0, r2, #0x1
@@ -793,7 +793,7 @@ _020141FC: .word 0x7FFF8000
 _02014200: .word 0x00004210
 _02014204: .word 0x040004AC
 _02014208: .word 0x04000470
-_0201420C: .word UNK_020FFA38
+_0201420C: .word FX_SinCosTable_
 _02014210: .word 0x0400046C
 _02014214: .word 0x04000448
 

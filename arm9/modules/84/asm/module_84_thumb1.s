@@ -1010,7 +1010,7 @@ MOD84_021D7CFC: ; 0x021D7CFC
 	add r0, r4, #0
 	add r0, #0x94
 	ldrh r0, [r0]
-	ldr r3, _021D7DF0 ; =UNK_020FFA38
+	ldr r3, _021D7DF0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1027,7 +1027,7 @@ MOD84_021D7CFC: ; 0x021D7CFC
 	add r0, r4, #0
 	add r0, #0x96
 	ldrh r0, [r0]
-	ldr r3, _021D7DF0 ; =UNK_020FFA38
+	ldr r3, _021D7DF0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1044,7 +1044,7 @@ MOD84_021D7CFC: ; 0x021D7CFC
 	add r0, r4, #0
 	add r0, #0x98
 	ldrh r0, [r0]
-	ldr r3, _021D7DF0 ; =UNK_020FFA38
+	ldr r3, _021D7DF0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1105,7 +1105,7 @@ _021D7DBA:
 	add sp, #0x4c
 	pop {r3, r4, pc}
 	nop
-_021D7DF0: .word UNK_020FFA38
+_021D7DF0: .word FX_SinCosTable_
 	thumb_func_end MOD84_021D7CFC
 
 	thumb_func_start MOD84_021D7DF4

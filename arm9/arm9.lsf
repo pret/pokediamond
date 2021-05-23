@@ -371,6 +371,7 @@ Static arm9
 	Object FX_mtx44.o
 	Object FX_cp.o
 	Object FX_vec.o
+	Object FX_sincos.o
 	Object FX_atan.o
 	Object FX.o
 	Object GX.o

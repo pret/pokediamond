@@ -1,7 +1,7 @@
 #include "global.h"
 #include "math_util.h"
 
-extern const s16 UNK_020FFA38[]; // temporary until further notice
+extern const s16 FX_SinCosTable_[]; // temporary until further notice
 
 /*
  * Constant tables
@@ -697,8 +697,8 @@ THUMB_FUNC void MTX22_2DAffine(struct Mtx22 * mtx, u16 radians, fx32 x, fx32 y, 
         radians = (u16)((u32)(radians * 65535) / 360); // shut up the compiler
 
     MTX_Rot22_(mtx,
-        UNK_020FFA38[((radians >> 4) * 2)], // TODO: macros
-        UNK_020FFA38[((radians >> 4) * 2) + 1]); // TODO: macros
+        FX_SinCosTable_[((radians >> 4) * 2)], // TODO: macros
+        FX_SinCosTable_[((radians >> 4) * 2) + 1]); // TODO: macros
     MTX_ScaleApply22(mtx, mtx, x, y);
 }
 

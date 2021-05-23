@@ -3,6 +3,7 @@
 
 	.rodata
 
+	; static const in function
 	.global UNK_020FF7CC
 UNK_020FF7CC: ; 0x020FF7CC
 	.word FUN_020AE894

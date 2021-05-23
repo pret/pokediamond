@@ -2,7 +2,7 @@
     .include "global.inc"
 
 	.extern UNK_020ECD4C
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 
 	.section .rodata
 
@@ -349,7 +349,7 @@ _02006F7E:
 	ldrh r0, [r4, #0x38]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02007268 ; =UNK_020FFA38
+	ldr r0, _02007268 ; =FX_SinCosTable_
 	add r2, r0, r1
 	ldrsh r0, [r0, r1]
 	mov r1, #0x2
@@ -358,7 +358,7 @@ _02006F7E:
 	ldrh r0, [r4, #0x3a]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02007268 ; =UNK_020FFA38
+	ldr r0, _02007268 ; =FX_SinCosTable_
 	add r2, r0, r1
 	ldrsh r0, [r0, r1]
 	mov r1, #0x2
@@ -367,7 +367,7 @@ _02006F7E:
 	ldrh r0, [r4, #0x3c]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02007268 ; =UNK_020FFA38
+	ldr r0, _02007268 ; =FX_SinCosTable_
 	add r2, r0, r1
 	ldrsh r0, [r0, r1]
 	mov r1, #0x2
@@ -689,7 +689,7 @@ _02007258: .word 0x000002E3
 _0200725C: .word 0x04000454
 _02007260: .word 0x040004AC
 _02007264: .word 0x04000470
-_02007268: .word UNK_020FFA38
+_02007268: .word FX_SinCosTable_
 _0200726C: .word 0x040004C0
 _02007270: .word 0x00004210
 _02007274: .word 0x040004A4

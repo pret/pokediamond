@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 	.extern UNK_021064C0
 	.extern UNK_021064B8
 	.extern UNK_021064BC
@@ -3171,7 +3171,7 @@ _0202068E:
 	ldr r2, [r4, #0x20]
 	bl FUN_020B28B4
 	ldrh r0, [r4, #0x24]
-	ldr r2, _02020770 ; =UNK_020FFA38
+	ldr r2, _02020770 ; =FX_SinCosTable_
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x1
 	lsl r0, r1, #0x1
@@ -3262,7 +3262,7 @@ _02020764:
 	add sp, #0xc
 	pop {r3-r6, pc}
 	.balign 4
-_02020770: .word UNK_020FFA38
+_02020770: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02020774
 FUN_02020774: ; 0x02020774

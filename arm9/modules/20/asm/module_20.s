@@ -3404,7 +3404,7 @@ _02253CEE:
 	add r0, #0x8c
 	ldrh r2, [r6, #0x10]
 	ldrh r0, [r0]
-	ldr r1, _02253E58 ; =UNK_020FFA38
+	ldr r1, _02253E58 ; =FX_SinCosTable_
 	add r0, r2, r0
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -3425,7 +3425,7 @@ _02253D20:
 	beq _02253D3E
 	asr r0, r0, #4
 	lsl r3, r0, #2
-	ldr r1, _02253E58 ; =UNK_020FFA38
+	ldr r1, _02253E58 ; =FX_SinCosTable_
 	ldr r0, [r4, #0x6c]
 	add r2, r1, r3
 	ldrsh r1, [r1, r3]
@@ -3574,7 +3574,7 @@ _02253E52:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02253E58: .word UNK_020FFA38
+_02253E58: .word FX_SinCosTable_
 _02253E5C: .word 0xDFFFFFFF
 _02253E60: .word 0xFFFFF3FF
 _02253E64: .word 0xFFFF0FFF

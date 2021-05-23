@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 	.section .rodata
 
 	.global UNK_020F5C04
@@ -1320,7 +1320,7 @@ FUN_020540E8: ; 0x020540E8
 	ldr r1, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r5, r0, #0x2
-	ldr r0, _02054164 ; =UNK_020FFA38
+	ldr r0, _02054164 ; =FX_SinCosTable_
 	ldrsh r5, [r0, r5]
 	asr r0, r5, #0x1f
 	lsr r6, r5, #0x10
@@ -1363,7 +1363,7 @@ _0205415E:
 	add sp, #0xc
 	pop {r3-r6, pc}
 	.balign 4
-_02054164: .word UNK_020FFA38
+_02054164: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02054168
 FUN_02054168: ; 0x02054168
@@ -1801,7 +1801,7 @@ _0205447E:
 	ldr r6, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02054500 ; =UNK_020FFA38
+	ldr r0, _02054500 ; =FX_SinCosTable_
 	ldrsh r0, [r0, r1]
 	asr r3, r0, #0x1f
 	lsr r1, r0, #0xf
@@ -1851,7 +1851,7 @@ _020544F8:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	nop
-_02054500: .word UNK_020FFA38
+_02054500: .word FX_SinCosTable_
 _02054504: .word 0x00000666
 
 	thumb_func_start FUN_02054508

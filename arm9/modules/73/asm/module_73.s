@@ -6738,7 +6738,7 @@ _021DA906:
 	str r0, [sp, #0x6c]
 	asr r0, r0, #0x1f
 	lsl r3, r2, #1
-	ldr r1, _021DAAA0 ; =UNK_020FFA38
+	ldr r1, _021DAAA0 ; =FX_SinCosTable_
 	str r0, [sp, #0x70]
 	ldr r0, [sp, #0xa8]
 	ldrsh r6, [r1, r3]
@@ -6904,7 +6904,7 @@ _021DA906:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021DAA9C: .word MOD73_021DBE7C
-_021DAAA0: .word UNK_020FFA38
+_021DAAA0: .word FX_SinCosTable_
 _021DAAA4: .word 0x0000019A
 	thumb_func_end MOD73_021DA8BC
 
@@ -7130,7 +7130,7 @@ _021DABFC:
 	lsl r4, r0, #1
 	add r0, r4, #1
 	lsl r1, r0, #1
-	ldr r0, _021DAC98 ; =UNK_020FFA38
+	ldr r0, _021DAC98 ; =FX_SinCosTable_
 	add r2, r6, #0
 	ldrsh r0, [r0, r1]
 	add r3, r7, #0
@@ -7146,7 +7146,7 @@ _021DABFC:
 	lsr r0, r0, #0xc
 	orr r0, r1
 	str r0, [sp]
-	ldr r0, _021DAC98 ; =UNK_020FFA38
+	ldr r0, _021DAC98 ; =FX_SinCosTable_
 	lsl r1, r4, #1
 	ldrsh r0, [r0, r1]
 	add r2, r6, #0
@@ -7177,7 +7177,7 @@ _021DAC94:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DAC98: .word UNK_020FFA38
+_021DAC98: .word FX_SinCosTable_
 	thumb_func_end MOD73_021DABD0
 
 	thumb_func_start MOD73_021DAC9C
@@ -7706,7 +7706,7 @@ MOD73_021DB020: ; 0x021DB020
 	asr r0, r0, #4
 	lsl r1, r0, #1
 	add r0, r1, #1
-	ldr r7, _021DB124 ; =UNK_020FFA38
+	ldr r7, _021DB124 ; =FX_SinCosTable_
 	lsl r0, r0, #1
 	ldrsh r3, [r7, r0]
 	asr r6, r3, #0x1f
@@ -7819,7 +7819,7 @@ _021DB112:
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	nop
-_021DB124: .word UNK_020FFA38
+_021DB124: .word FX_SinCosTable_
 _021DB128: .word 0x00000000
 	thumb_func_end MOD73_021DB020
 

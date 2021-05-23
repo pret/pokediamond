@@ -323,7 +323,7 @@ FUN_02012B88: ; 0x02012B88
 _02012BA0:
 	asr r0, r4, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02012BDC ; =UNK_020FFA38
+	ldr r0, _02012BDC ; =FX_SinCosTable_
 	ldr r2, [sp, #0x4]
 	ldrsh r0, [r0, r1]
 	ldr r3, [sp, #0x8]
@@ -351,7 +351,7 @@ _02012BD6:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	nop
-_02012BDC: .word UNK_020FFA38
+_02012BDC: .word FX_SinCosTable_
 _02012BE0: .word 0x00000000
 
 	thumb_func_start FUN_02012BE4
