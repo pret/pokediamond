@@ -6,7 +6,8 @@
 #pragma thumb on
 
 static struct SoundData sSoundDataBuffer;
-static u32 UNK_02107070[2];
+static u32 UNK_02107070;
+static u32 UNK_02107074;
 
 void FUN_02003C40(void);
 BOOL FUN_02003D04(void);
@@ -36,7 +37,7 @@ void InitSoundData(void * a0, struct Options * a1)
     NNS_SndArcPlayerSetup(sdat->unk_00090);
     FUN_02004088(sdat);
     FUN_020040A4(sdat);
-    UNK_02107070[1] = 0;
+    UNK_02107074 = 0;
     sdat->unk_BCD4C = a0;
     FUN_02004D60(a1->soundMethod);
 }
@@ -57,7 +58,7 @@ void DoSoundUpdateFrame(void)
 void FUN_02003C40(void)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    switch (UNK_02107070[0])
+    switch (UNK_02107070)
     {
     case 1:
         FUN_02003CE8(2);
@@ -92,7 +93,7 @@ void FUN_02003CE8(int a0)
 {
     struct SoundData * sdat = GetSoundDataPointer();
     sdat->unk_BCCFC = 0;
-    UNK_02107070[0] = (u32)a0;
+    UNK_02107070 = (u32)a0;
 }
 
 BOOL FUN_02003D04(void)
