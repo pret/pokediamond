@@ -203,133 +203,133 @@ _0200421A: ; jump table (using 16-bit offset)
 	.short _020042AE - _0200421A - 2; case 3
 _02004222:
 	mov r0, #0x1
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _0200422C:
 	mov r0, #0x2
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _02004236:
 	mov r0, #0xd
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _02004240:
 	mov r0, #0x1
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _0200424A:
 	mov r0, #0x2
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _02004254:
 	mov r0, #0x1
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _0200425E:
 	mov r0, #0xb
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _02004268:
 	mov r0, #0x1
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _02004272:
 	mov r0, #0xe
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _0200427C:
 	mov r0, #0x3
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _02004286:
 	mov r0, #0x6
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _02004290:
 	mov r0, #0x5
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _0200429A:
 	mov r0, #0x9
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _020042A4:
 	mov r0, #0xa
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _020042AE:
 	ldr r0, _02004330 ; =0x000005E5
-	bl FUN_02003FDC
+	bl GF_Snd_LoadBank
 	ldr r0, _02004330 ; =0x000005E5
-	bl FUN_02003FC4
+	bl GF_Snd_LoadWaveArc
 	add r1, r0, #0x0
 	b _0200432C
 _020042BE:
 	mov r0, #0xc
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _020042C8:
 	mov r0, #0x7
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _020042D2:
 	mov r0, #0x8
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _020042DC:
 	mov r0, #0xf
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _020042E6:
 	mov r0, #0x3
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _020042F0:
 	mov r0, #0x5
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _020042FA:
 	mov r0, #0xf
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _02004304:
 	mov r0, #0x4
-	bl FUN_02003F78
+	bl GF_Snd_LoadGroup
 	add r1, r0, #0x0
 	b _0200432C
 _0200430E:
 	ldr r0, _02004334 ; =0x000005ED
-	bl FUN_02003FDC
+	bl GF_Snd_LoadBank
 	ldr r0, _02004334 ; =0x000005ED
-	bl FUN_02003FC4
+	bl GF_Snd_LoadWaveArc
 	add r1, r0, #0x0
 	b _0200432C
 _0200431E:
 	ldr r0, _02004338 ; =0x000005EC
-	bl FUN_02003FDC
+	bl GF_Snd_LoadBank
 	ldr r0, _02004338 ; =0x000005EC
-	bl FUN_02003FC4
+	bl GF_Snd_LoadWaveArc
 	add r1, r0, #0x0
 _0200432C:
 	add r0, r1, #0x0
@@ -536,15 +536,15 @@ FUN_020044A8: ; 0x020044A8
 	mov r0, #0x17
 	bl FUN_02003D38
 	ldr r0, [r0, #0x0]
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	mov r0, #0x18
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	add r0, r4, #0x0
 	bl FUN_02004180
 	mov r0, #0x19
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	pop {r4, pc}
 
 	thumb_func_start FUN_020044D4
@@ -588,12 +588,12 @@ _02004528:
 	bne _02004560
 	mov r0, #0x2
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	mov r0, #0x4
 	bl FUN_02004180
 	mov r0, #0x19
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	cmp r4, r5
 	beq _02004554
 	mov r0, #0x1
@@ -628,17 +628,17 @@ FUN_02004568: ; 0x02004568
 	beq _02004594
 	add r0, r5, #0x0
 	mov r1, #0x4
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 	bl ErrorHandling
 	b _0200459C
 _02004594:
 	ldrh r0, [r4, #0x0]
 	mov r1, #0x6
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 _0200459C:
 	mov r0, #0x1a
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	mov r0, #0x1
 	mov r1, #0x0
 	bl FUN_020047C8
@@ -671,18 +671,18 @@ FUN_020045C4: ; 0x020045C4
 _020045E4:
 	mov r0, #0x1
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	ldrh r0, [r4, #0x0]
 	mov r1, #0x2
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 	mov r0, #0x18
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	mov r0, #0x4
 	bl FUN_02004180
 	mov r0, #0x19
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	ldrh r0, [r4, #0x0]
 	bl FUN_02004900
 	ldr r1, _02004644 ; =0x000003E9
@@ -693,17 +693,17 @@ _020045E4:
 	beq _02004630
 	add r0, r7, #0x0
 	mov r1, #0x4
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 	bl ErrorHandling
 	b _02004638
 _02004630:
 	ldrh r0, [r4, #0x0]
 	mov r1, #0x4
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 _02004638:
 	mov r0, #0x1a
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 _02004642:
 	pop {r3-r7, pc}
 	.balign 4
@@ -718,12 +718,12 @@ FUN_02004648: ; 0x02004648
 	bl FUN_020051AC
 	mov r0, #0x2
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	mov r0, #0x5
 	bl FUN_02004180
 	mov r0, #0x19
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	mov r0, #0x1
 	bl FUN_02004DBC
 	add r0, r4, #0x0
@@ -786,7 +786,7 @@ FUN_020046E8: ; 0x020046E8
 	bl FUN_02004180
 	mov r0, #0x1b
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	pop {r4, pc}
 	.balign 4
 
@@ -820,7 +820,7 @@ FUN_02004738: ; 0x02004738
 	push {r3, lr}
 	mov r0, #0x4
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	pop {r3, pc}
 	.balign 4
 
@@ -1824,7 +1824,7 @@ FUN_02004E98: ; 0x02004E98
 	add r5, r0, #0x0
 	mov r0, #0x5
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	lsl r0, r5, #0x10
 	lsr r4, r0, #0x10
 	ldr r0, _02004ECC ; =0x000001B9
@@ -1839,7 +1839,7 @@ _02004EBA:
 	mov r4, #0x1
 _02004EBC:
 	add r0, r4, #0x0
-	bl FUN_02003FC4
+	bl GF_Snd_LoadWaveArc
 	add r0, r4, #0x0
 	bl FUN_02004ED0
 	pop {r3-r5, pc}

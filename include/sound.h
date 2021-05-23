@@ -12,7 +12,7 @@ struct SoundData
     NNSSndArc header;
     NNSSndHeapHandle * heap; // 0x00090
     u8 unk_00094[0xBBC00];
-    u32 unk_BBC94[9];
+    u32 players[9];
     u32 unk_BBCB8;
     u32 unk_BBCBC;
     u8 unk_BBCC0[0x20];
@@ -54,14 +54,14 @@ struct SoundData
 struct SoundData * GetSoundDataPointer(void);
 void InitSoundData(void * a0, struct Options * a1);
 void * FUN_02003D38(u32 a0);
-int FUN_02003F3C(int * a0);
-void FUN_02003F64(int a0);
-BOOL FUN_02003F78(int a0);
-BOOL FUN_02003F90(int a0);
-BOOL FUN_02003FA8(int a0, u32 a1);
-BOOL FUN_02003FC4(int a0);
-BOOL FUN_02003FDC(int a0);
-u32 * FUN_02003FF4(int a0);
+int GF_Snd_SaveState(int * level_p);
+void GF_Snd_RestoreState(int level);
+BOOL GF_Snd_LoadGroup(int groupNo);
+BOOL GF_Snd_LoadSeq(int seqNo);
+BOOL GF_Snd_LoadSeqEx(int seqNo, u32 loadFlag);
+BOOL GF_Snd_LoadWaveArc(int waveArcNo);
+BOOL GF_Snd_LoadBank(int bankNo);
+u32 * FUN_02003FF4(int playerNo);
 u32 FUN_02004018(u32 a0);
 void DoSoundUpdateFrame(void);
 

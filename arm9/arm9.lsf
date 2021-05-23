@@ -111,6 +111,7 @@ Static arm9
 	Object seal_case.o
 	Object unk_02029CEC.o
 	Object igt.o
+	Object sav_chatot.o
 	Object unk_02029EC4.o
 	Object unk_02029FB0.o
 	Object unk_0202A1E0.o

@@ -3,63 +3,6 @@
 
 	.text
 
-	thumb_func_start FUN_02029EC4
-FUN_02029EC4: ; 0x02029EC4
-	mov r0, #0xfb
-	lsl r0, r0, #0x2
-	bx lr
-	.balign 4
-
-	thumb_func_start FUN_02029ECC
-FUN_02029ECC: ; 0x02029ECC
-	push {r4, lr}
-	add r4, r0, #0x0
-	mov r2, #0xfb
-	mov r0, #0x0
-	add r1, r4, #0x0
-	lsl r2, r2, #0x2
-	bl MIi_CpuClear32
-	mov r0, #0x0
-	str r0, [r4, #0x0]
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start FUN_02029EE4
-FUN_02029EE4: ; 0x02029EE4
-	push {r4, lr}
-	mov r1, #0xfb
-	lsl r1, r1, #0x2
-	bl AllocFromHeap
-	add r4, r0, #0x0
-	bl FUN_02029ECC
-	add r0, r4, #0x0
-	pop {r4, pc}
-
-	thumb_func_start FUN_02029EF8
-FUN_02029EF8: ; 0x02029EF8
-	ldr r3, _02029F00 ; =SavArray_get
-	mov r1, #0x16
-	bx r3
-	nop
-_02029F00: .word SavArray_get
-
-	thumb_func_start FUN_02029F04
-FUN_02029F04: ; 0x02029F04
-	ldr r0, [r0, #0x0]
-	bx lr
-
-	thumb_func_start FUN_02029F08
-FUN_02029F08: ; 0x02029F08
-	mov r1, #0x0
-	str r1, [r0, #0x0]
-	bx lr
-	.balign 4
-
-	thumb_func_start FUN_02029F10
-FUN_02029F10: ; 0x02029F10
-	add r0, r0, #0x4
-	bx lr
-
 	thumb_func_start FUN_02029F14
 FUN_02029F14: ; 0x02029F14
 	push {r4-r7}
