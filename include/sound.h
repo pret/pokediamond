@@ -6,12 +6,13 @@
 #include "NNS_SND_heap.h"
 #include "NNS_SND_arc_loader.h"
 #include "player_data.h"
+#include "sav_chatot.h"
 
 struct SoundData
 {
     NNSSndArc header;
     NNSSndHeapHandle * heap; // 0x00090
-    u8 unk_00094[0xBBC00];
+    u8 heapBuffer[0xBBC00];
     u32 players[9];
     u32 unk_BBCB8;
     u32 unk_BBCBC;
@@ -44,7 +45,7 @@ struct SoundData
     u32 unk_BCD3C;
     u64 unk_BCD40;
     u32 unk_BCD48;
-    void * unk_BCD4C;
+    struct SaveChatotSoundClip * chatot;
     u32 unk_BCD50;
     u32 unk_BCD54;
     u32 unk_BCD58;
@@ -52,7 +53,7 @@ struct SoundData
 };
 
 struct SoundData * GetSoundDataPointer(void);
-void InitSoundData(void * a0, struct Options * a1);
+void InitSoundData(struct SaveChatotSoundClip * chatot, struct Options * options);
 void * FUN_02003D38(u32 a0);
 int GF_Snd_SaveState(int * level_p);
 void GF_Snd_RestoreState(int level);

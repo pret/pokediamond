@@ -26,20 +26,20 @@ extern void FUN_0200538C(int, int, int);
 extern BOOL FUN_02005404(void);
 extern void FUN_02005CFC(void);
 
-void InitSoundData(void * a0, struct Options * a1)
+void InitSoundData(struct SaveChatotSoundClip * chatot, struct Options * options)
 {
     struct SoundData * sdat = GetSoundDataPointer();
     NNS_SndInit();
     GF_InitMic();
     GF_SoundDataInit(sdat);
-    sdat->heap = NNS_SndHeapCreate(sdat->unk_00094, sizeof(sdat->unk_00094));
+    sdat->heap = NNS_SndHeapCreate(sdat->heapBuffer, sizeof(sdat->heapBuffer));
     NNS_SndArcInit(&sdat->header, "data/sound/sound_data.sdat", sdat->heap, 0);
     NNS_SndArcPlayerSetup(sdat->heap);
     FUN_02004088(sdat);
     FUN_020040A4(sdat);
     UNK_02107074 = 0;
-    sdat->unk_BCD4C = a0;
-    FUN_02004D60(a1->soundMethod);
+    sdat->chatot = chatot;
+    FUN_02004D60(options->soundMethod);
 }
 
 void DoSoundUpdateFrame(void)
@@ -185,7 +185,7 @@ void * FUN_02003D38(u32 a0)
     case 34:
         return &sdat->unk_BCD48;
     case 35:
-        return &sdat->unk_BCD4C;
+        return &sdat->chatot;
     case 36:
         return &sdat->unk_BCD50;
     case 37:

@@ -26,17 +26,12 @@ s32 UNK_02016FA4;
 PMBackLightSwitch gBacklightTop;
 struct UnkStruct_02016FA8 UNK_02016FA8;
 
-extern void InitSystemForTheGame(void);
-extern void InitGraphicMemory(void);
 extern void FUN_02022294(void);
 extern void GF_InitRTCWork(void);
 extern void FUN_02002C14(void);
 extern void FUN_02002C50(int, int);
-extern struct SaveBlock2 * SaveBlock2_new(void);
-extern void * Sav2_Chatot_get(struct SaveBlock2 *);
 extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
-extern int FUN_020227FC(struct SaveBlock2 *);
 extern void FUN_02089D90(int);
 extern void FUN_0200A2AC(void);
 extern void FUN_02015E30(void);
