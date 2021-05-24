@@ -81,12 +81,12 @@ FUN_02005288: ; 0x02005288
 	mov r0, #0x3
 	add r4, r2, #0x0
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	add r0, r5, #0x0
-	bl FUN_02003F90
+	bl GF_Snd_LoadSeq
 	mov r0, #0x1a
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	add r0, r4, #0x0
 	bl FUN_02003FF4
 	add r1, r5, #0x0
@@ -148,7 +148,7 @@ _02005318:
 _0200532A:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 	mov r0, #0x7
 	bl FUN_02003FF4
 	add r1, r5, #0x0
@@ -1232,10 +1232,10 @@ PlayBGM: ; 0x02005C28
 _02005C48:
 	mov r0, #0x1c
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 	mov r0, #0x2
 	bl FUN_02003FF4
 	add r1, r5, #0x0
@@ -1282,7 +1282,7 @@ FUN_02005CA0: ; 0x02005CA0
 	bl NNS_SndPlayerStopSeq
 	mov r0, #0x6
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	pop {r4, pc}
 
 	thumb_func_start FUN_02005CBC

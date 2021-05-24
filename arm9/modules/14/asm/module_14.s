@@ -122,8 +122,8 @@ StoragePC_Overlay_Teardown: ; 0x021D75B8
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02029EF8
-	bl FUN_02029F08
+	bl Sav2_Chatot_get
+	bl Chatot_invalidate
 _021D75DE:
 	mov r0, #0x45
 	lsl r0, r0, #2

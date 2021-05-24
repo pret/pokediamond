@@ -16126,8 +16126,8 @@ _02235590:
 	bne _022355DC
 	ldr r0, [r5]
 	ldr r0, [r0, #0x20]
-	bl FUN_02029EF8
-	bl FUN_02029F08
+	bl Sav2_Chatot_get
+	bl Chatot_invalidate
 _022355DC:
 	cmp r6, #0
 	beq _022355EA

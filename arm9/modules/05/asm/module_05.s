@@ -7747,8 +7747,8 @@ _021EC544:
 	cmp r0, #0
 	bne _021EC572
 	add r0, r7, #0
-	bl FUN_02029EF8
-	bl FUN_02029F08
+	bl Sav2_Chatot_get
+	bl Chatot_invalidate
 _021EC572:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}

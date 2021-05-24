@@ -11,8 +11,8 @@ static u32 UNK_02107074;
 
 void FUN_02003C40(void);
 BOOL FUN_02003D04(void);
-void FUN_020040C8(void);
-void FUN_02004064(struct SoundData *);
+void GF_InitMic(void);
+void GF_SoundDataInit(struct SoundData *);
 void FUN_02004088(struct SoundData *);
 void FUN_020040A4(struct SoundData *);
 void FUN_02003CE8(int);
@@ -26,20 +26,20 @@ extern void FUN_0200538C(int, int, int);
 extern BOOL FUN_02005404(void);
 extern void FUN_02005CFC(void);
 
-void InitSoundData(void * a0, struct Options * a1)
+void InitSoundData(struct SaveChatotSoundClip * chatot, struct Options * options)
 {
     struct SoundData * sdat = GetSoundDataPointer();
     NNS_SndInit();
-    FUN_020040C8();
-    FUN_02004064(sdat);
-    sdat->heap = NNS_SndHeapCreate(sdat->unk_00094, sizeof(sdat->unk_00094));
+    GF_InitMic();
+    GF_SoundDataInit(sdat);
+    sdat->heap = NNS_SndHeapCreate(sdat->heapBuffer, sizeof(sdat->heapBuffer));
     NNS_SndArcInit(&sdat->header, "data/sound/sound_data.sdat", sdat->heap, 0);
     NNS_SndArcPlayerSetup(sdat->heap);
     FUN_02004088(sdat);
     FUN_020040A4(sdat);
     UNK_02107074 = 0;
-    sdat->unk_BCD4C = a0;
-    FUN_02004D60(a1->soundMethod);
+    sdat->chatot = chatot;
+    FUN_02004D60(options->soundMethod);
 }
 
 void DoSoundUpdateFrame(void)
@@ -185,7 +185,7 @@ void * FUN_02003D38(u32 a0)
     case 34:
         return &sdat->unk_BCD48;
     case 35:
-        return &sdat->unk_BCD4C;
+        return &sdat->chatot;
     case 36:
         return &sdat->unk_BCD50;
     case 37:
@@ -200,61 +200,61 @@ void * FUN_02003D38(u32 a0)
     }
 }
 
-int FUN_02003F3C(int * a0)
+int GF_Snd_SaveState(int * level_p)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    int r4 = NNS_SndHeapSaveState(sdat->heap);
-    GF_ASSERT(r4 != -1);
-    if (a0 != NULL)
-        *a0 = r4;
-    return r4;
+    int level = NNS_SndHeapSaveState(sdat->heap);
+    GF_ASSERT(level != -1);
+    if (level_p != NULL)
+        *level_p = level;
+    return level;
 }
 
-void FUN_02003F64(int a0)
+void GF_Snd_RestoreState(int level)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    NNS_SndHeapLoadState(sdat->heap, a0);
+    NNS_SndHeapLoadState(sdat->heap, level);
 }
 
-BOOL FUN_02003F78(int a0)
+BOOL GF_Snd_LoadGroup(int groupNo)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadGroup(a0, sdat->heap);
+    return NNS_SndArcLoadGroup(groupNo, sdat->heap);
 }
 
-BOOL FUN_02003F90(int a0)
+BOOL GF_Snd_LoadSeq(int seqNo)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadSeq(a0, sdat->heap);
+    return NNS_SndArcLoadSeq(seqNo, sdat->heap);
 }
 
-BOOL FUN_02003FA8(int a0, u32 a1)
+BOOL GF_Snd_LoadSeqEx(int seqNo, u32 loadFlag)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadSeqEx(a0, a1, sdat->heap);
+    return NNS_SndArcLoadSeqEx(seqNo, loadFlag, sdat->heap);
 }
 
-BOOL FUN_02003FC4(int a0)
+BOOL GF_Snd_LoadWaveArc(int waveArcNo)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadWaveArc(a0, sdat->heap);
+    return NNS_SndArcLoadWaveArc(waveArcNo, sdat->heap);
 }
 
-BOOL FUN_02003FDC(int a0)
+BOOL GF_Snd_LoadBank(int bankNo)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    return NNS_SndArcLoadBank(a0, sdat->heap);
+    return NNS_SndArcLoadBank(bankNo, sdat->heap);
 }
 
-u32 * FUN_02003FF4(int a0)
+u32 * FUN_02003FF4(int playerNo)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    if (a0 >= 9)
+    if (playerNo >= (s32)NELEMS(sdat->players))
     {
         GF_ASSERT(0);
-        a0 = 0;
+        playerNo = 0;
     }
-    return &sdat->unk_BBC94[a0];
+    return &sdat->players[playerNo];
 }
 
 u32 FUN_02004018(u32 a0)
@@ -283,7 +283,7 @@ u32 FUN_02004018(u32 a0)
     }
 }
 
-void FUN_02004064(struct SoundData * sdat)
+void GF_SoundDataInit(struct SoundData * sdat)
 {
     int i;
     memset(sdat, 0, sizeof(*sdat));
@@ -296,18 +296,18 @@ void FUN_02004088(struct SoundData * sdat)
     int i;
     for (i = 0; i < 9; i++)
     {
-        NNS_SndHandleInit(&sdat->unk_BBC94[i]);
+        NNS_SndHandleInit(&sdat->players[i]);
     }
 }
 
 void FUN_020040A4(struct SoundData * sdat)
 {
-    FUN_02003F3C(&sdat->unk_BCD1C[0]);
-    FUN_02003F78(0);
-    FUN_02003F3C(&sdat->unk_BCD1C[1]);
+    GF_Snd_SaveState(&sdat->unk_BCD1C[0]);
+    GF_Snd_LoadGroup(0);
+    GF_Snd_SaveState(&sdat->unk_BCD1C[1]);
 }
 
-void FUN_020040C8(void)
+void GF_InitMic(void)
 {
     MIC_Init();
     PM_SetAmp(1);

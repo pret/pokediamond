@@ -97,7 +97,7 @@ _0204775C:
 	add r4, r7, #0x0
 _02047774:
 	add r0, r5, #0x0
-	bl FUN_02029EE4
+	bl Chatot_new
 	mov r1, #0x46
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -455,11 +455,11 @@ FUN_02047A64: ; 0x02047A64
 	add r2, r0, r2
 	mov r0, #0x46
 	lsl r0, r0, #0x2
-	ldr r3, _02047A74 ; =FUN_02029F9C
+	ldr r3, _02047A74 ; =Chatot_copy
 	ldr r0, [r2, r0]
 	bx r3
 	nop
-_02047A74: .word FUN_02029F9C
+_02047A74: .word Chatot_copy
 
 	thumb_func_start FUN_02047A78
 FUN_02047A78: ; 0x02047A78
@@ -480,7 +480,7 @@ FUN_02047A78: ; 0x02047A78
 	bl Sav2_Pokedex_get
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0xc]
-	bl FUN_02029EF8
+	bl Sav2_Chatot_get
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -628,7 +628,7 @@ FUN_02047BC0: ; 0x02047BC0
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029EF8
+	bl Sav2_Chatot_get
 	str r0, [sp, #0x8]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -795,7 +795,7 @@ FUN_02047D48: ; 0x02047D48
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029EF8
+	bl Sav2_Chatot_get
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
