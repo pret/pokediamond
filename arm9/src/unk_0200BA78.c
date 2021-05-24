@@ -25,7 +25,7 @@ THUMB_FUNC void FUN_0200BAAC(
     {
         if (param0->data[i] >= 0xa2 && param0->data[i] <= 0xab)
         {
-            MIi_CpuCopy32(
+            MI_CpuCopy32(
                 &param0->unk_4->unk_14[(param0->data[i] - 0xa2) << 5], dest + i * 0x20, 0x20);
         }
         else

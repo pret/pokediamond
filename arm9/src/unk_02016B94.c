@@ -312,7 +312,7 @@ THUMB_FUNC void FUN_02016C18(
     {
         param0->unk08[param1].unk08 = AllocFromHeap(param0->unk00, param2->unk08);
 
-        MIi_CpuClear16(0, param0->unk08[param1].unk08, param2->unk08);
+        MI_CpuClear16(param0->unk08[param1].unk08, param2->unk08);
 
         param0->unk08[param1].unk0c = param2->unk08;
         param0->unk08[param1].unk10 = param2->unk0c;
@@ -2580,11 +2580,11 @@ THUMB_FUNC void FUN_02017C98(const void *param0, void *param1, u32 param2)
 
     if (((u32)param0 % 4) == 0 && ((u32)param1 % 4) == 0 && ((u16)param2 % 4) == 0)
     {
-        MIi_CpuCopy32(param0, param1, param2);
+        MI_CpuCopy32(param0, param1, param2);
         return;
     }
 
-    MIi_CpuCopy16(param0, param1, param2);
+    MI_CpuCopy16(param0, param1, param2);
 }
 
 THUMB_FUNC void FUN_02017CD0(struct UnkStruct_02016B94_2 *param0, u32 param1)
@@ -2749,7 +2749,7 @@ THUMB_FUNC void FUN_02017F48(
         r5 = r5 << 0x18 | r5 << 0x10 | r5 << 8 | r5;
     }
 
-    MIi_CpuClearFast(r5, st4, st0);
+    MI_CpuFillFast(st4, r5, st0);
 
     FUN_02017E84((u8)param1, st4, param0->unk08[param1].unk1f * param4, st0);
     FreeToHeap(st4);
@@ -3285,7 +3285,7 @@ THUMB_FUNC void FUN_02018744(struct UnkStruct_02016B94_2 *param0, u32 param1)
 {
     if (param0->unk08[param1].unk08 != NULL)
     {
-        MIi_CpuClear16(0, param0->unk08[param1].unk08, param0->unk08[param1].unk0c);
+        MI_CpuClear16(param0->unk08[param1].unk08, param0->unk08[param1].unk0c);
         FUN_02017CD0(param0, param1);
     }
 }
@@ -3294,7 +3294,7 @@ THUMB_FUNC void FUN_02018768(struct UnkStruct_02016B94_2 *param0, u32 param1, u1
 {
     if (param0->unk08[param1].unk08 != NULL)
     {
-        MIi_CpuClear16(param2, param0->unk08[param1].unk08, param0->unk08[param1].unk0c);
+        MI_CpuFill16(param0->unk08[param1].unk08, param2, param0->unk08[param1].unk0c);
         FUN_02017CD0(param0, param1);
     }
 }
@@ -3303,7 +3303,7 @@ THUMB_FUNC void FUN_0201878C(struct UnkStruct_02016B94_2 *param0, u32 param1, u1
 {
     if (param0->unk08[param1].unk08 != NULL)
     {
-        MIi_CpuClear16(param2, param0->unk08[param1].unk08, param0->unk08[param1].unk0c);
+        MI_CpuFill16(param0->unk08[param1].unk08, param2, param0->unk08[param1].unk0c);
         FUN_0201AC68(param0, param1);
     }
 }
@@ -4905,9 +4905,10 @@ THUMB_FUNC void FillWindowPixelBuffer(struct Window *window, u8 param1)
         param1 |= param1 << 4;
     }
 
-    MIi_CpuClearFast((u32)((param1 << 0x18) | (param1 << 0x10) | (param1 << 0x8) | param1),
+    MI_CpuFillFast(
         window->unk0c,
-        (u32)(window->unk00->unk08[window->unk04].unk1f * window->width * window->height));
+        (u32)((param1 << 0x18) | (param1 << 0x10) | (param1 << 0x8) | param1),
+    (u32)(window->unk00->unk08[window->unk04].unk1f * window->width * window->height));
 }
 
 THUMB_FUNC void BlitBitmapRectToWindow(struct Window *window,
