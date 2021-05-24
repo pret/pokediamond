@@ -33,7 +33,7 @@ extern void GF_InitRTCWork(void);
 extern void FUN_02002C14(void);
 extern void FUN_02002C50(int, int);
 extern struct SaveBlock2 * SaveBlock2_new(void);
-extern void * FUN_02029EF8(struct SaveBlock2 *);
+extern void * Sav2_Chatot_get(struct SaveBlock2 *);
 extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
 extern int FUN_020227FC(struct SaveBlock2 *);
@@ -73,7 +73,7 @@ THUMB_FUNC void NitroMain(void)
     FUN_02002C50(3, 3);
     UNK_02016FA8.unk10 = -1;
     UNK_02016FA8.unk18 = SaveBlock2_new();
-    InitSoundData(FUN_02029EF8(UNK_02016FA8.unk18), Sav2_PlayerData_GetOptionsAddr(UNK_02016FA8.unk18));
+    InitSoundData(Sav2_Chatot_get(UNK_02016FA8.unk18), Sav2_PlayerData_GetOptionsAddr(UNK_02016FA8.unk18));
     Init_Timer3();
     if (FUN_020337E8(3) == 3)
         FUN_02034188(3, 0);

@@ -30,7 +30,7 @@ FUN_02005D20: ; 0x02005D20
 	bl FUN_02003D38
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02029F04
+	bl Chatot_exists
 	cmp r0, #0x0
 	bne _02005D3A
 	mov r0, #0x0
@@ -80,10 +80,10 @@ _02005D70:
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r6, #0x0
-	bl FUN_02029F10
+	bl Chatot_GetData
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl FUN_02029F14
+	bl Chatot_Decode
 	mov r0, #0xe
 	bl FUN_02004930
 	str r0, [sp, #0x8]
@@ -192,7 +192,7 @@ FUN_02005E6C: ; 0x02005E6C
 	bl FUN_02004DB4
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02029F4C
+	bl Chatot_Encode
 	pop {r4, pc}
 	.balign 4
 
@@ -250,14 +250,14 @@ _02005EDC: .word 0x000001B9
 FUN_02005EE0: ; 0x02005EE0
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02029F04
+	bl Chatot_exists
 	cmp r0, #0x0
 	bne _02005EF0
 	mov r0, #0x0
 	pop {r4, pc}
 _02005EF0:
 	add r0, r4, #0x0
-	bl FUN_02029F10
+	bl Chatot_GetData
 	mov r1, #0xf
 	ldrsb r0, [r0, r1]
 	sub r1, #0x2d

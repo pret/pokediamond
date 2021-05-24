@@ -572,7 +572,7 @@ _0206C350:
 	add r0, r4, #0x0
 	ldr r1, [r2, r1]
 	add r0, #0x20
-	bl FUN_02029F9C
+	bl Chatot_copy
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4

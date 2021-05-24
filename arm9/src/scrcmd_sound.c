@@ -1,6 +1,6 @@
 #include "scrcmd.h"
 
-extern void* FUN_02029EF8(struct SaveBlock2* sav2);
+extern void* Sav2_Chatot_get(struct SaveBlock2* sav2);
 extern u32 FUN_02005D20(void *);
 extern void FUN_02005E6C(void *);
 extern void FUN_0200433C(u32, u32, u32);
@@ -203,7 +203,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0059(struct ScriptContext* ctx)
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
 
-    void* unk = FUN_02029EF8(ctx->unk80->saveBlock2);
+    void* unk = Sav2_Chatot_get(ctx->unk80->saveBlock2);
     if (FUN_02005D20(unk) == 1)
     {
         *ret_ptr = 1;
@@ -241,7 +241,7 @@ THUMB_FUNC BOOL ScrCmd_Unk005B(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_Unk005C(struct ScriptContext* ctx)
 {
-    void* unk = FUN_02029EF8(ctx->unk80->saveBlock2);
+    void* unk = Sav2_Chatot_get(ctx->unk80->saveBlock2);
     FUN_02005E6C(unk);
 
     return TRUE;

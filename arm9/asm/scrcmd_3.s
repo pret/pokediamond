@@ -173,7 +173,7 @@ FUN_0203FF10: ; 0x0203FF10
 	str r0, [sp, #0x30]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029EF8
+	bl Sav2_Chatot_get
 	str r0, [sp, #0x34]
 	add r0, sp, #0x14
 	bl FUN_02081214

@@ -916,7 +916,7 @@ _020812F2:
 	add r5, r4, #0x0
 _02081304:
 	mov r0, #0x14
-	bl FUN_02029EE4
+	bl Chatot_new
 	mov r1, #0x57
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -927,7 +927,7 @@ _02081304:
 	add r0, r1, #0x0
 	ldr r0, [r4, r0]
 	ldr r1, [r6, #0x20]
-	bl FUN_02029F9C
+	bl Chatot_copy
 	ldr r0, [r6, #0x8]
 	ldr r1, [r4, #0x0]
 	bl CopyPokemonToPokemon
@@ -1900,7 +1900,7 @@ _02081A7C:
 	strb r0, [r4, r2]
 	pop {r3-r7, pc}
 _02081A8A:
-	bl FUN_02029EC4
+	bl Sav2_Chatot_sizeof
 	add r2, r0, #0x0
 	mov r0, #0x57
 	lsl r0, r0, #0x2

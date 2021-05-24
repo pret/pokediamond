@@ -1161,7 +1161,7 @@ _0222DF74:
 	b _0222E0E8
 _0222DF80:
 	ldr r0, [r4, #4]
-	bl FUN_02029EF8
+	bl Sav2_Chatot_get
 	bl MOD71_0222F528
 	ldr r0, [r4, #0x4c]
 	add r0, r0, #1
@@ -3446,7 +3446,7 @@ MOD71_0222F264: ; 0x0222F264
 	cmp r0, r1
 	bne _0222F2AE
 	ldr r0, [r4, #4]
-	bl FUN_02029EF8
+	bl Sav2_Chatot_get
 	mov r1, #0
 	mov r2, #0x64
 	add r3, r1, #0
@@ -6379,8 +6379,8 @@ _02230A40:
 	cmp r0, #0
 	bne _02230A98
 	ldr r0, [r5, #0x10]
-	bl FUN_02029EF8
-	bl FUN_02029F08
+	bl Sav2_Chatot_get
+	bl Chatot_invalidate
 _02230A98:
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0
