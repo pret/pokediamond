@@ -2417,7 +2417,7 @@ _02038956:
 	ldr r1, [r5, #0x8]
 	ldr r2, [sp, #0x4]
 	add r3, r6, #0x0
-	bl FUN_020127C0
+	bl GF_RTC_TimeDelta
 	mov r2, #0x3c
 	mov r3, #0x0
 	bl _ll_sdiv

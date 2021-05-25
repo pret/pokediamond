@@ -44,7 +44,7 @@ FUN_0204BA1C: ; 0x0204BA1C
 	add r2, r0, #0x0
 	ldr r0, [r1, #0x40]
 	ldr r1, [r1, #0x44]
-	bl FUN_020127C0
+	bl GF_RTC_TimeDelta
 	mov r2, #0xfa
 	mov r3, #0x0
 	lsl r2, r2, #0x2

@@ -136,7 +136,7 @@ FUN_02034FE4: ; 0x02034FE4
 	bl Sav2_SysInfo_RTC_get
 	add r6, r0, #0x0
 	add r0, r6, #0x4
-	bl FUN_02012710
+	bl GF_RTC_GetDayOfYear
 	sub r5, r0, #0x1
 	bmi _0203500C
 	ldr r0, _02035060 ; =0x0000016E

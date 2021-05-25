@@ -17,6 +17,8 @@ typedef struct GF_RTC_Work
 
 GF_RTC_Work sGFRTCWork;
 
+#define MAX_SECONDS     (3155759999ll)
+
 void GF_RTC_GetDateTime(GF_RTC_Work * work);
 
 THUMB_FUNC void GF_InitRTCWork(void)
@@ -95,7 +97,7 @@ static inline BOOL IsLeapYear(s32 year)
     return ((year % 4) == 0 && (year % 100) != 0) || ((year % 400) == 0);
 }
 
-THUMB_FUNC s32 FUN_02012710(const RTCDate * date)
+THUMB_FUNC s32 GF_RTC_GetDayOfYear(const RTCDate * date)
 {
     RTCDate date_stack;
     s32 days;
@@ -167,15 +169,15 @@ THUMB_FUNC enum RTC_TimeOfDay GF_RTC_GetTimeOfDayByHour(s32 hour)
     return sTimeOfDayByHour[hour];
 }
 
-THUMB_FUNC s64 FUN_020127C0(s64 r4r7, s64 r5r6)
+THUMB_FUNC s64 GF_RTC_TimeDelta(s64 first, s64 last)
 {
     RTCDate maxDate = { 99, 12, 31, 0 };
     RTCTime maxTime = { 23, 59, 59 };
 
-    s64 r2r3 = RTC_ConvertDateTimeToSecond(&maxDate, &maxTime);
-    GF_ASSERT(r2r3 == 3155759999ll);
-    if (r4r7 < r5r6)
-        return r5r6 - r4r7;
+    s64 check = RTC_ConvertDateTimeToSecond(&maxDate, &maxTime);
+    GF_ASSERT(check == MAX_SECONDS);
+    if (first < last)
+        return last - first;
     else
-        return r5r6 + (3155759999ll - r4r7);
+        return last + (MAX_SECONDS - first);
 }
