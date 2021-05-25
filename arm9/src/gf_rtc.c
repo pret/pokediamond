@@ -22,7 +22,7 @@ void GF_RTC_GetDateTime(GF_RTC_Work * work);
 THUMB_FUNC void GF_InitRTCWork(void)
 {
     RTC_Init();
-    __clear(&sGFRTCWork, sizeof(sGFRTCWork));
+    __builtin__clear(&sGFRTCWork, sizeof(sGFRTCWork));
     sGFRTCWork.getDateTimeSuccess = FALSE;
     sGFRTCWork.getDateTimeLock = FALSE;
     sGFRTCWork.getDateTimeSleep = 0;
