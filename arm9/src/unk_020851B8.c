@@ -47,11 +47,11 @@ THUMB_FUNC void FUN_02085200(struct UnkStruct_020851B8 *param0, u16 berry_id)
 {
     u32 index = berry_id / 32;
     u32 tag = 1 << (berry_id % 32);
-    u32 value = param0->flags[index];
-    param0->flags[index] = value | tag;
+    param0->flags[index] |= tag;
 }
 
-THUMB_FUNC u8 FUN_02085224(struct UnkStruct_020851B8 *param0, u16 berry_id) {
+THUMB_FUNC u8 FUN_02085224(struct UnkStruct_020851B8 *param0, u16 berry_id)
+{
     u32 index = berry_id / 32;
     u32 tag = 1 << (berry_id % 32);
 
