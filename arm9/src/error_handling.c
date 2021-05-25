@@ -5,7 +5,7 @@
 
 
 
-THUMB_FUNC void ErrorHandling(void)
+THUMB_FUNC void GF_AssertFail(void)
 {
     if (FUN_02031810())
     {

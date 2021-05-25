@@ -189,7 +189,7 @@ FUN_02063A80: ; 0x02063A80
 	ldr r0, _02063A98 ; =0x19740205
 	cmp r1, r0
 	beq _02063A90
-	bl ErrorHandling
+	bl GF_AssertFail
 _02063A90:
 	add r0, r4, #0x0
 	bl FreeToHeap

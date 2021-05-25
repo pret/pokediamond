@@ -26,7 +26,7 @@ FUN_0204AF3C: ; 0x0204AF3C
 	bl FUN_0203739C
 	cmp r0, #0x0
 	bne _0204AF54
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3-r5, pc}
 _0204AF54:
 	add r0, r4, #0x0
@@ -62,7 +62,7 @@ FUN_0204AF84: ; 0x0204AF84
 	bl FUN_0203739C
 	cmp r0, #0x0
 	beq _0204AF9C
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3-r5, pc}
 _0204AF9C:
 	add r0, r4, #0x0
@@ -97,7 +97,7 @@ FUN_0204AFC8: ; 0x0204AFC8
 	bl FUN_0203739C
 	cmp r0, #0x0
 	bne _0204AFE2
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xc
 	pop {r3-r4, pc}
 _0204AFE2:
@@ -130,7 +130,7 @@ FUN_0204B00C: ; 0x0204B00C
 	bl FUN_0203739C
 	cmp r0, #0x0
 	bne _0204B026
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xc
 	pop {r3-r4, pc}
 _0204B026:

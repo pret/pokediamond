@@ -1388,7 +1388,7 @@ MOD81_02238898: ; 0x02238898
 	ldr r0, [r0]
 	cmp r0, #0x20
 	blt _022388A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _022388A8:
 	ldr r0, _022388B8 ; =0x0223D3C0
 	ldr r2, [r0]

@@ -129,7 +129,7 @@ FUN_0201466C: ; 0x0201466C
 	lsr r0, r0, #0x1c
 	cmp r0, #0x1
 	beq _02014680
-	bl ErrorHandling
+	bl GF_AssertFail
 _02014680:
 	add r0, r4, #0x0
 	add r0, #0x9a

@@ -743,7 +743,7 @@ _0206CCCE:
 	lsl r1, r1, #0xe
 	cmp r0, r1
 	bhi _0206CD16
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206CD16:
 	ldr r0, _0206CE24 ; =0x000005F9
 	bl FUN_020054C8

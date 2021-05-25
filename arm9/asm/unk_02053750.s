@@ -1222,7 +1222,7 @@ FUN_02054008: ; 0x02054008
 	bl FUN_0201FE94
 	add r4, r0, #0x0
 	bne _02054064
-	bl ErrorHandling
+	bl GF_AssertFail
 _02054064:
 	add r0, r4, #0x0
 	add sp, #0x30

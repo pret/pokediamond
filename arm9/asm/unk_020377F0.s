@@ -322,7 +322,7 @@ _020378BC:
 	str r1, [r0, #0x0]
 	b _020378C8
 _020378C4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020378C8:
 	ldr r1, _020378F4 ; =UNK_02105DB8
 	add r0, r6, #0x0
@@ -357,7 +357,7 @@ FUN_020378FC: ; 0x020378FC
 	bl FUN_0206E384
 	cmp r0, #0x5
 	bne _02037916
-	bl ErrorHandling
+	bl GF_AssertFail
 _02037916:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
@@ -2333,7 +2333,7 @@ FUN_020388B4: ; 0x020388B4
 	bl MOD05_021ED49C
 	add r5, r0, #0x0
 	bne _020388CC
-	bl ErrorHandling
+	bl GF_AssertFail
 _020388CC:
 	add r0, r4, #0x0
 	add r1, r5, #0x0

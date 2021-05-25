@@ -175,7 +175,7 @@ FUN_02064520: ; 0x02064520
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0206452A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206452A:
 	add r0, r4, #0x0
 	bl FUN_020646A0
@@ -254,7 +254,7 @@ FUN_020645B0: ; 0x020645B0
 	bl FUN_0200CA44
 	add r4, r0, #0x0
 	bne _020645C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020645C6:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -276,7 +276,7 @@ FUN_020645DC: ; 0x020645DC
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _020645EC
-	bl ErrorHandling
+	bl GF_AssertFail
 _020645EC:
 	add r2, r4, #0x0
 	mov r1, #0x10
@@ -309,7 +309,7 @@ FUN_0206460C: ; 0x0206460C
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02064622
-	bl ErrorHandling
+	bl GF_AssertFail
 _02064622:
 	add r0, r4, #0x0
 	mov r1, #0x0

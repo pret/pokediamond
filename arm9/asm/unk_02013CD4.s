@@ -18,7 +18,7 @@ FUN_02013CD4: ; 0x02013CD4
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02013CE8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013CE8:
 	ldr r0, [r5, #0x0]
 	ldr r1, [r5, #0xc]
@@ -47,22 +47,22 @@ FUN_02013D18: ; 0x02013D18
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02013D22
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013D22:
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02013D2C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013D2C:
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	bne _02013D36
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013D36:
 	ldr r0, [r4, #0x10]
 	cmp r0, #0x0
 	bne _02013D40
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013D40:
 	ldr r0, [r4, #0x0]
 	bl FreeToHeap
@@ -116,20 +116,20 @@ FUN_02013D98: ; 0x02013D98
 	bl FUN_02014024
 	add r4, r0, #0x0
 	bne _02013DAA
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013DAA:
 	ldr r0, [r5, #0x4]
 	ldr r0, [r0, #0x8]
 	cmp r0, #0x0
 	beq _02013DB6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013DB6:
 	ldr r0, [r5, #0x4]
 	bl FUN_0201407C
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02013DC6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013DC6:
 	ldr r0, [r5, #0x4]
 	ldr r1, [r4, #0x0]
@@ -185,14 +185,14 @@ FUN_02013E14: ; 0x02013E14
 	bl FUN_02014050
 	add r4, r0, #0x0
 	bne _02013E26
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013E26:
 	ldr r0, [r5, #0x8]
 	bl FUN_02014090
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02013E36
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013E36:
 	ldr r0, [r5, #0x4]
 	ldr r1, [r4, #0x0]
@@ -248,7 +248,7 @@ FUN_02013E84: ; 0x02013E84
 	bl FUN_02013FF8
 	add r4, r0, #0x0
 	bne _02013E96
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013E96:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
@@ -273,7 +273,7 @@ FUN_02013EB0: ; 0x02013EB0
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _02013EBE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013EBE:
 	str r4, [r5, #0x20]
 	pop {r3-r5, pc}
@@ -426,7 +426,7 @@ FUN_02013F68: ; 0x02013F68
 	bl AllocFromHeap
 	add r7, r0, #0x0
 	bne _02013F7C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013F7C:
 	mov r4, #0x0
 	cmp r6, #0x0
@@ -454,7 +454,7 @@ FUN_02013F98: ; 0x02013F98
 	bl AllocFromHeap
 	add r7, r0, #0x0
 	bne _02013FAE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013FAE:
 	mov r4, #0x0
 	cmp r6, #0x0
@@ -481,7 +481,7 @@ FUN_02013FC8: ; 0x02013FC8
 	bl AllocFromHeap
 	add r7, r0, #0x0
 	bne _02013FDE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013FDE:
 	mov r4, #0x0
 	cmp r6, #0x0

@@ -29,7 +29,7 @@ FUN_02087A84: ; 0x02087A84
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02087A8E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087A8E:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -44,17 +44,17 @@ FUN_02087A98: ; 0x02087A98
 	add r4, r2, #0x0
 	cmp r5, #0x0
 	bne _02087AA8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087AA8:
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x0
 	beq _02087AB2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087AB2:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	beq _02087ABC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087ABC:
 	add r0, r4, #0x0
 	bl FUN_02087C18
@@ -99,12 +99,12 @@ FUN_02087B0C: ; 0x02087B0C
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02087B1A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087B1A:
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	bne _02087B24
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087B24:
 	ldr r0, [r4, #0x0]
 	bl FreeToHeap
@@ -134,12 +134,12 @@ FUN_02087B58: ; 0x02087B58
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _02087B66
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087B66:
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x0
 	bne _02087B70
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087B70:
 	ldr r1, [r5, #0x0]
 	lsl r0, r4, #0x2
@@ -153,12 +153,12 @@ FUN_02087B78: ; 0x02087B78
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _02087B86
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087B86:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	bne _02087B90
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087B90:
 	ldr r1, [r5, #0x4]
 	lsl r0, r4, #0x2
@@ -172,12 +172,12 @@ FUN_02087B98: ; 0x02087B98
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _02087BA6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087BA6:
 	ldr r0, [r5, #0x8]
 	cmp r0, #0x0
 	bne _02087BB0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087BB0:
 	ldr r1, [r5, #0x8]
 	lsl r0, r4, #0x1
@@ -191,12 +191,12 @@ FUN_02087BB8: ; 0x02087BB8
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _02087BC6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087BC6:
 	ldr r0, [r5, #0xc]
 	cmp r0, #0x0
 	bne _02087BD0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087BD0:
 	ldr r1, [r5, #0xc]
 	lsl r0, r4, #0x1
@@ -210,12 +210,12 @@ FUN_02087BD8: ; 0x02087BD8
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _02087BE6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087BE6:
 	ldr r0, [r5, #0x10]
 	cmp r0, #0x0
 	bne _02087BF0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087BF0:
 	ldr r1, [r5, #0x10]
 	lsl r0, r4, #0x1
@@ -229,12 +229,12 @@ FUN_02087BF8: ; 0x02087BF8
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _02087C06
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087C06:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0x0
 	bne _02087C10
-	bl ErrorHandling
+	bl GF_AssertFail
 _02087C10:
 	ldr r1, [r5, #0x14]
 	lsl r0, r4, #0x1

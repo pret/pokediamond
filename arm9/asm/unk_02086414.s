@@ -234,11 +234,11 @@ FUN_0208650C: ; 0x0208650C
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	bne _02086534
-	bl ErrorHandling
+	bl GF_AssertFail
 _02086534:
 	cmp r5, #0x0
 	bne _0208653C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0208653C:
 	bl FUN_02012CC8
 	pop {r3-r5, pc}
@@ -978,7 +978,7 @@ FUN_02086B40: ; 0x02086B40
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02086B54
-	bl ErrorHandling
+	bl GF_AssertFail
 _02086B54:
 	ldr r0, [r5, #0x0]
 	ldr r2, [r5, #0x4]
@@ -1403,7 +1403,7 @@ FUN_02086E48: ; 0x02086E48
 	bl FUN_0200BBF0
 	cmp r0, #0x0
 	bne _02086EB2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02086EB2:
 	ldr r0, [r4, #0x4c]
 	ldr r1, [r4, #0x48]
@@ -1411,7 +1411,7 @@ _02086EB2:
 	bl FUN_0200BF60
 	cmp r0, #0x0
 	bne _02086EC4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02086EC4:
 	add sp, #0x4c
 	pop {r3-r6, pc}

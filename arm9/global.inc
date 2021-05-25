@@ -143,7 +143,7 @@
 .extern DGT_Hash2SetSource
 .extern DGTi_Hash2CalcHmac
 .extern DGTi_hash2_arm4_small
-.extern ErrorHandling
+.extern GF_AssertFail
 .extern FS_ChangeDir
 .extern FS_CloseFile
 .extern FS_ConvertPathToFileID

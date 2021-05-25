@@ -170,7 +170,7 @@ THUMB_FUNC void Main_RunOverlayManager(void)
 THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, const struct Unk21DBE18 * arg1)
 {
     if (UNK_02016FA8.unkC != NULL)
-        ErrorHandling();
+        GF_AssertFail();
     UNK_02016FA8.unk8 = id;
     UNK_02016FA8.unkC = arg1;
 }

@@ -73,7 +73,7 @@ _021D7564:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _021D757A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D757A:
 	mov r0, #4
 	mov r1, #0x28
@@ -250,7 +250,7 @@ _021D76E2:
 	ldr r0, [r4, #0x4c]
 	cmp r0, #0
 	bne _021D7720
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7720:
 	ldr r0, [r4, #0x24]
 	bl MOD05_021EF514
@@ -931,7 +931,7 @@ _021D7CC6:
 	add sp, #0xc
 	pop {pc}
 _021D7CE6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xc
 	pop {pc}
 	.balign 4, 0
@@ -965,7 +965,7 @@ MOD05_021D7CF0: ; 0x021D7CF0
 	ldr r0, [r5, #0x30]
 	cmp r0, #0
 	beq _021D7D36
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7D36:
 	mov r0, #4
 	add r1, r4, #0

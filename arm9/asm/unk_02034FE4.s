@@ -143,7 +143,7 @@ FUN_02034FE4: ; 0x02034FE4
 	cmp r5, r0
 	blt _02035010
 _0203500C:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02035010:
 	ldr r0, [r6, #0x8]
 	cmp r0, #0x2

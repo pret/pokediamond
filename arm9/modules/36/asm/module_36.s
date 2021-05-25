@@ -984,7 +984,7 @@ MOD36_02254F5C: ; 0x02254F5C
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254F70
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254F70:
 	add r0, r5, #0
 	bl MOD20_022538A0
@@ -1003,7 +1003,7 @@ _02254F70:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254F9E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254F9E:
 	mov r0, #0
 	str r0, [sp]
@@ -1037,7 +1037,7 @@ _02254F9E:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254FEA
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254FEA:
 	add r0, r4, #0
 	lsr r1, r6, #5
@@ -1064,7 +1064,7 @@ _02254FEA:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02255028
-	bl ErrorHandling
+	bl GF_AssertFail
 _02255028:
 	add sp, #0x14
 	pop {r3, r4, r5, r6, pc}

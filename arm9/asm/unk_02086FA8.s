@@ -463,7 +463,7 @@ _02087322:
 	str r0, [r4, #0x5c]
 	b _02087486
 _0208735C:
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _02087486
 _02087362:
 	bl FUN_02005670

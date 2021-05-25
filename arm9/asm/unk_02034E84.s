@@ -75,7 +75,7 @@ FUN_02034E78: ; 0x02034E78
 	cmp r0, #0x14
 	bls _02034E88
 _02034E82:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x1
 _02034E88:
 	sub r0, r0, #0x1

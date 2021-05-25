@@ -19,7 +19,7 @@ MOD64_021D74E0: ; 0x021D74E0
 	bl OverlayManager_CreateAndGetData
 	add r5, r0, #0
 	bne _021D7504
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7504:
 	ldr r2, _021D7630 ; =0x000006B4
 	add r0, r5, #0
@@ -54,7 +54,7 @@ _021D7504:
 	bl FUN_0201CC24
 	cmp r0, #1
 	beq _021D755E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D755E:
 	add r0, r5, #0
 	mov r1, #0x2f
@@ -254,7 +254,7 @@ MOD64_021D76F4: ; 0x021D76F4
 	bl FUN_0201CD04
 	cmp r0, #1
 	beq _021D7726
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7726:
 	mov r0, #0x65
 	lsl r0, r0, #4
@@ -2310,7 +2310,7 @@ MOD64_021D86DC: ; 0x021D86DC
 	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	bne _021D86F8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D86F8:
 	add r0, r4, #0
 	add r1, r6, #0
@@ -2358,7 +2358,7 @@ MOD64_021D8744: ; 0x021D8744
 	str r3, [sp, #0x10]
 	cmp r0, #0
 	beq _021D875C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D875C:
 	mov r0, #0
 	mov r1, #0x1a
@@ -2367,7 +2367,7 @@ _021D875C:
 	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	bne _021D8770
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8770:
 	ldr r1, [sp, #0x10]
 	add r0, r6, #0
@@ -2510,7 +2510,7 @@ MOD64_021D8864: ; 0x021D8864
 	add r6, r2, #0
 	cmp r0, #0
 	beq _021D8876
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8876:
 	ldr r1, _021D88B8 ; =0xFFFFEAAB
 	ldr r2, _021D88BC ; =0xFFFFDC72
@@ -2828,7 +2828,7 @@ MOD64_021D8AE0: ; 0x021D8AE0
 	ldr r0, [r4, #0x28]
 	cmp r0, #0
 	beq _021D8AEE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8AEE:
 	add r0, r4, #0
 	mov r1, #2
@@ -3016,7 +3016,7 @@ MOD64_021D8C3C: ; 0x021D8C3C
 	str r3, [sp]
 	cmp r0, #0
 	beq _021D8C50
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8C50:
 	ldr r4, [sp, #0x24]
 	add r0, r5, #0
@@ -3057,7 +3057,7 @@ MOD64_021D8C94: ; 0x021D8C94
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
 	beq _021D8CA2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8CA2:
 	mov r0, #1
 	mvn r0, r0
@@ -3240,7 +3240,7 @@ MOD64_021D8DDC: ; 0x021D8DDC
 	str r3, [sp]
 	cmp r0, #0
 	beq _021D8DF0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8DF0:
 	ldr r4, [sp, #0x28]
 	ldr r2, [sp]
@@ -3281,7 +3281,7 @@ MOD64_021D8E34: ; 0x021D8E34
 	ldr r0, [r4, #0x3c]
 	cmp r0, #0
 	beq _021D8E42
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8E42:
 	mov r0, #1
 	mvn r0, r0
@@ -3501,7 +3501,7 @@ MOD64_021D8FD0: ; 0x021D8FD0
 	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	bne _021D8FEC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8FEC:
 	add r0, r4, #0
 	add r1, r6, #0
@@ -3567,7 +3567,7 @@ _021D905C:
 	ldr r0, _021D9070 ; =0x00000189
 	pop {r3, pc}
 _021D9060:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	.align 2, 0

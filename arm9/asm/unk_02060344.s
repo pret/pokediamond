@@ -40,7 +40,7 @@ _0206036A:
 _0206038C:
 	cmp r1, #0xc8
 	blt _02060394
-	bl ErrorHandling
+	bl GF_AssertFail
 _02060394:
 	mov r1, #0x0
 _02060396:

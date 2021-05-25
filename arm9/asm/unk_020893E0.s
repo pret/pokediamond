@@ -40,7 +40,7 @@ FUN_020893F0: ; 0x020893F0
 	str r4, [r0, #0x0]
 	pop {r4, pc}
 _0208940A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	.balign 4
 _02089410: .word UNK_021C5C58
@@ -62,7 +62,7 @@ FUN_02089418: ; 0x02089418
 	mov r0, #0x1
 	pop {r3, pc}
 _02089434:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02089438:
 	mov r0, #0x0
 	pop {r3, pc}
@@ -85,7 +85,7 @@ FUN_02089444: ; 0x02089444
 	str r4, [r0, #0x0]
 	pop {r4, pc}
 _0208945E:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	.balign 4
 _02089464: .word UNK_021C5C58
@@ -107,7 +107,7 @@ FUN_0208946C: ; 0x0208946C
 	mov r0, #0x1
 	pop {r3, pc}
 _02089488:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0208948C:
 	mov r0, #0x0
 	pop {r3, pc}

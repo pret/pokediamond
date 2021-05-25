@@ -26,7 +26,7 @@ FUN_0201CC08: ; 0x0201CC08
 	ldrh r0, [r0, #0x1a]
 	cmp r0, #0x0
 	beq _0201CC16
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201CC16:
 	ldr r0, _0201CC20 ; =UNK_021C5978
 	mov r1, #0x0
@@ -45,7 +45,7 @@ FUN_0201CC24: ; 0x0201CC24
 	ldrh r0, [r0, #0x1a]
 	cmp r0, #0x0
 	beq _0201CC36
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201CC36:
 	cmp r4, #0x5
 	bhs _0201CC3E
@@ -168,7 +168,7 @@ FUN_0201CD04: ; 0x0201CD04
 	ldrh r0, [r0, #0x1a]
 	cmp r0, #0x0
 	beq _0201CD14
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201CD14:
 	bl FUN_0201CCC0
 	add r4, r0, #0x0
@@ -199,7 +199,7 @@ FUN_0201CD38: ; 0x0201CD38
 	mov r5, #0x3
 	cmp r0, #0x0
 	beq _0201CD4E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201CD4E:
 	ldr r0, _0201CD8C ; =UNK_021C5978
 	ldrh r0, [r0, #0x18]
@@ -285,7 +285,7 @@ FUN_0201CDD0: ; 0x0201CDD0
 	bl FUN_0201CE2C
 	cmp r0, #0x1
 	beq _0201CDF2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201CDF2:
 	ldr r0, _0201CDFC ; =UNK_021C5978
 	mov r1, #0x0
@@ -309,7 +309,7 @@ FUN_0201CE04: ; 0x0201CE04
 	bl FUN_0201CCC0
 	cmp r0, #0x1
 	beq _0201CE20
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201CE20:
 	ldr r0, _0201CE28 ; =UNK_021C5978
 	mov r1, #0x1

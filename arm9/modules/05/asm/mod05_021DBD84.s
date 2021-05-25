@@ -16,7 +16,7 @@ MOD05_021DBD84: ; 0x021DBD84
 	add r4, r1, r0
 	cmp r2, #0x10
 	blo _021DBD9E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DBD9E:
 	mov r0, #4
 	bl FUN_0201EB64

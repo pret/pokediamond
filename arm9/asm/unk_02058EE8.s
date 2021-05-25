@@ -2621,11 +2621,11 @@ FUN_02059A60: ; 0x02059A60
 	mvn r0, r0
 	cmp r5, r0
 	bne _02059A92
-	bl ErrorHandling
+	bl GF_AssertFail
 _02059A92:
 	cmp r5, #0x4
 	blt _02059A9A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02059A9A:
 	ldr r1, _02059ABC ; =UNK_020F6630
 	lsl r5, r5, #0x2

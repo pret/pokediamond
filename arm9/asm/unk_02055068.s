@@ -82,7 +82,7 @@ FUN_02055108: ; 0x02055108
 	bl FUN_020553A0
 	add r4, r0, #0x0
 	bne _02055118
-	bl ErrorHandling
+	bl GF_AssertFail
 _02055118:
 	add r0, r4, #0x0
 	bl FUN_02058578
@@ -139,7 +139,7 @@ FUN_0205517C: ; 0x0205517C
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0205518E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205518E:
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -208,7 +208,7 @@ FUN_02055208: ; 0x02055208
 	bl FUN_0205753C
 	add r5, r0, #0x0
 	bne _02055228
-	bl ErrorHandling
+	bl GF_AssertFail
 _02055228:
 	add r0, r5, #0x0
 	mov r1, #0xff
@@ -300,7 +300,7 @@ FUN_020552E4: ; 0x020552E4
 	bl FUN_020552A4
 	add r4, r0, #0x0
 	bne _020552F2
-	bl ErrorHandling
+	bl GF_AssertFail
 _020552F2:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -432,7 +432,7 @@ FUN_020553A8: ; 0x020553A8
 	add r5, r0, #0x0
 	cmp r4, #0x3
 	blt _020553B6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020553B6:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -446,7 +446,7 @@ FUN_020553C4: ; 0x020553C4
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020553CE
-	bl ErrorHandling
+	bl GF_AssertFail
 _020553CE:
 	ldr r0, [r4, #0x18]
 	pop {r4, pc}
@@ -884,7 +884,7 @@ _0205563A:
 	mov r0, #0xc9
 	pop {r3, pc}
 _0205563E:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -937,7 +937,7 @@ _0205568A:
 	lsl r0, r0, #0x8
 	pop {r3, pc}
 _02055690:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x1
 	pop {r3, pc}
 

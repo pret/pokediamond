@@ -708,7 +708,7 @@ _021D8E36:
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8E42:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8E46:
 	ldr r0, [r5, #8]
 	cmp r0, #0
@@ -1227,7 +1227,7 @@ _021D9286:
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	bne _021D9296
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9296:
 	ldr r0, [r4, #0x28]
 	bl FUN_0200CAB4
@@ -1772,10 +1772,10 @@ _021D96C6:
 	bne _021D96F8
 	ldr r0, [r6, #0x2c]
 	bl FreeToHeap
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _021D96F8
 _021D96F4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D96F8:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -1917,13 +1917,13 @@ MOD63_021D9810: ; 0x021D9810
 	bl FUN_0201B3C4
 	cmp r0, #0
 	bne _021D9834
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9834:
 	ldr r0, [r5, #0x40]
 	ldr r0, [r0, #0x14]
 	cmp r0, #0
 	bne _021D9840
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9840:
 	ldr r2, [r5, #0x40]
 	ldr r0, [r5, #0x3c]
@@ -1960,7 +1960,7 @@ _021D9862:
 	bl FUN_0201B3A8
 	cmp r0, #0
 	bne _021D9890
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9890:
 	add r0, r5, r6
 	add r0, #0x9c
@@ -1969,7 +1969,7 @@ _021D9890:
 	ldrb r0, [r0, #9]
 	cmp r0, #1
 	beq _021D98A4
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D98A4:
 	add r0, r5, r6
 	add r0, #0x9c
@@ -1980,7 +1980,7 @@ _021D98A4:
 	ldr r1, [r1, #0xc]
 	add r4, r0, r1
 	bne _021D98BC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D98BC:
 	ldr r0, [sp, #0x10]
 	add r1, r4, #0
@@ -3043,10 +3043,10 @@ MOD63_021DA158: ; 0x021DA158
 	bne _021DA192
 	ldr r0, [r4, #0x14]
 	bl FreeToHeap
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _021DA192
 _021DA18E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA192:
 	add r0, r5, #0
 	bl NARC_dtor

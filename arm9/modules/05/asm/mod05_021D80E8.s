@@ -1674,7 +1674,7 @@ _021D8E84:
 	mov r0, #2
 	b _021D8E96
 _021D8E8C:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x20
 	mov r0, #0
 	pop {r3, r4, r5, pc}
@@ -1702,7 +1702,7 @@ _021D8EB0:
 	beq _021D8ED2
 	cmp r0, #3
 	beq _021D8ED2
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x20
 	mov r0, #0
 	pop {r3, r4, r5, pc}
@@ -2118,7 +2118,7 @@ _021D91DC:
 	ldr r0, _021D9244 ; =0x00000FFF
 	cmp r1, r0
 	beq _021D91F2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D91F2:
 	ldr r0, [r4, #0xc]
 	bl FUN_02034E30

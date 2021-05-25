@@ -176,7 +176,7 @@ THUMB_FUNC void ReadFromNarcMemberByPathAndId(void * dest, const char * path, s3
     FS_ReadFile(&file, &chunk_size, 4);
     FS_ReadFile(&file, &num_files, 2);
     if (num_files <= file_idx)
-        ErrorHandling();
+        GF_AssertFail();
     chunk_starts[1] = chunk_starts[0] + chunk_size;
     FS_SeekFile(&file, (s32)(chunk_starts[1] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
@@ -191,7 +191,7 @@ THUMB_FUNC void ReadFromNarcMemberByPathAndId(void * dest, const char * path, s3
     else
         chunk_size = size;
     if (chunk_size == 0)
-        ErrorHandling();
+        GF_AssertFail();
     FS_ReadFile(&file, dest, (s32)chunk_size);
     FS_CloseFile(&file);
 }
@@ -217,7 +217,7 @@ THUMB_FUNC void * AllocAndReadFromNarcMemberByPathAndId(const char * path, s32 f
     FS_ReadFile(&file, &chunk_size, 4);
     FS_ReadFile(&file, &num_files, 2);
     if (num_files <= file_idx)
-        ErrorHandling();
+        GF_AssertFail();
     chunk_starts[1] = chunk_starts[0] + chunk_size;
     FS_SeekFile(&file, (s32)(chunk_starts[1] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
@@ -232,7 +232,7 @@ THUMB_FUNC void * AllocAndReadFromNarcMemberByPathAndId(const char * path, s32 f
     else
         chunk_size = size;
     if (chunk_size == 0)
-        ErrorHandling();
+        GF_AssertFail();
     switch (r4)
     {
     case 0:
@@ -297,7 +297,7 @@ THUMB_FUNC u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx)
     FS_ReadFile(&file, &chunk_size, 4);
     FS_ReadFile(&file, &num_files, 2);
     if (num_files <= file_idx)
-        ErrorHandling();
+        GF_AssertFail();
     chunk_starts[1] = chunk_starts[0] + chunk_size;
     FS_SeekFile(&file, (s32)(chunk_starts[1] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
@@ -309,7 +309,7 @@ THUMB_FUNC u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx)
     FS_SeekFile(&file, (s32)(chunk_starts[2] + 8 + file_start + 0), FS_SEEK_SET);
     chunk_size = file_end - file_start;
     if (chunk_size == 0)
-        ErrorHandling();
+        GF_AssertFail();
     // Bug: File is never closed
     return chunk_size;
 }
@@ -349,7 +349,7 @@ THUMB_FUNC void * NARC_AllocAndReadWholeMember(NARC * narc, u32 file_id, u32 hea
     u32 file_end;
     void * dest;
     if (narc->num_files <= file_id)
-        ErrorHandling();
+        GF_AssertFail();
     FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 12 + 8 * file_id), FS_SEEK_SET);
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_ReadFile(&narc->file, &file_end, 4);
@@ -367,7 +367,7 @@ THUMB_FUNC void NARC_ReadWholeMember(NARC * narc, u32 file_id, void * dest)
     u32 file_start;
     u32 file_end;
     if (narc->num_files <= file_id)
-        ErrorHandling();
+        GF_AssertFail();
     FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 12 + 8 * file_id), FS_SEEK_SET);
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_ReadFile(&narc->file, &file_end, 4);
@@ -380,7 +380,7 @@ THUMB_FUNC u32 NARC_GetMemberSize(NARC * narc, u32 file_id)
     u32 file_start;
     u32 file_end;
     if (narc->num_files <= file_id)
-        ErrorHandling();
+        GF_AssertFail();
     FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 12 + 8 * file_id), FS_SEEK_SET);
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_ReadFile(&narc->file, &file_end, 4);
@@ -391,7 +391,7 @@ THUMB_FUNC void NARC_ReadFromMember(NARC * narc, u32 file_id, u32 pos, u32 size,
 {
     u32 file_start;
     if (narc->num_files <= file_id)
-        ErrorHandling();
+        GF_AssertFail();
     FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 12 + 8 * file_id), FS_SEEK_SET);
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_SeekFile(&narc->file, (s32)(narc->gmif_start + 8 + file_start + pos), FS_SEEK_SET);

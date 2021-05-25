@@ -226,7 +226,7 @@ _022525B2:
 	pop {r3, r4, r5, pc}
 _022525C0:
 	beq _022525C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _022525C6:
 	ldr r0, [r4, #0x34]
 	mov r1, #0
@@ -629,7 +629,7 @@ LoadPoketchApp: ; 0x022528B0
 	cmp r4, #0x19
 	blo _022528C0
 _022528BC:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022528C0:
 	mov r0, #0
 	ldr r1, [r5, #0x14]
@@ -688,7 +688,7 @@ MOD20_02252918: ; 0x02252918
 	ldrb r0, [r4, #2]
 	cmp r0, #0
 	beq _02252926
-	bl ErrorHandling
+	bl GF_AssertFail
 _02252926:
 	add r0, r4, #0
 	ldr r2, [r4, #0x4c]
@@ -723,7 +723,7 @@ MOD20_0225294C: ; 0x0225294C
 	ldrb r0, [r4, #2]
 	cmp r0, #2
 	beq _0225295A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0225295A:
 	ldr r0, [r4, #0x24]
 	ldr r1, [r4, #0x40]
@@ -767,7 +767,7 @@ MOD20_0225298C: ; 0x0225298C
 	ldrb r0, [r4, #2]
 	cmp r0, #1
 	beq _0225299A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0225299A:
 	mov r0, #2
 	strb r0, [r4, #2]
@@ -781,7 +781,7 @@ MOD20_022529A0: ; 0x022529A0
 	ldrb r0, [r4, #2]
 	cmp r0, #3
 	beq _022529AE
-	bl ErrorHandling
+	bl GF_AssertFail
 _022529AE:
 	mov r0, #0
 	strb r0, [r4, #2]
@@ -2587,7 +2587,7 @@ MOD20_02253714: ; 0x02253714
 	ldr r0, _02253750 ; =0x12345678
 	cmp r1, r0
 	beq _02253726
-	bl ErrorHandling
+	bl GF_AssertFail
 _02253726:
 	ldr r6, [r5]
 	mov r2, #0
@@ -2625,7 +2625,7 @@ MOD20_02253754: ; 0x02253754
 	ldr r0, _02253790 ; =0x12345678
 	cmp r1, r0
 	beq _02253766
-	bl ErrorHandling
+	bl GF_AssertFail
 _02253766:
 	ldr r3, [r5]
 	mov r2, #0
@@ -2648,7 +2648,7 @@ _02253782:
 	cmp r2, r3
 	blo _02253770
 _0225378A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02253790: .word 0x12345678
@@ -2781,7 +2781,7 @@ _02253866:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 _02253870:
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _02253880
 _02253876:
 	add r3, #0xc
@@ -2790,7 +2790,7 @@ _02253876:
 	cmp r2, r1
 	bne _022537FA
 _02253880:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02253884:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -4035,7 +4035,7 @@ MOD20_02254130: ; 0x02254130
 	str r3, [sp, #4]
 	ldr r5, [sp, #0x20]
 	bne _02254144
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254144:
 	add r0, r5, #0
 	mov r1, #0x18
@@ -4085,7 +4085,7 @@ MOD20_02254198: ; 0x02254198
 	push {r4, lr}
 	add r4, r0, #0
 	bne _022541A2
-	bl ErrorHandling
+	bl GF_AssertFail
 _022541A2:
 	ldr r0, [r4, #8]
 	ldr r1, [r4, #0x14]
@@ -4481,11 +4481,11 @@ MOD20_02254420: ; 0x02254420
 	add r7, r3, #0
 	cmp r5, #0x1e
 	blo _02254432
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254432:
 	cmp r4, #0x21
 	blo _0225443A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0225443A:
 	cmp r5, #0x1e
 	blo _02254440
@@ -4517,7 +4517,7 @@ MOD20_02254460: ; 0x02254460
 	add r6, r2, #0
 	cmp r5, #4
 	blo _02254470
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254470:
 	ldr r0, _02254480 ; =MOD20_02254724
 	lsl r1, r5, #3

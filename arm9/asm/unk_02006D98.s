@@ -873,7 +873,7 @@ _020073AE:
 _020073BE:
 	cmp r4, #0x4
 	bne _020073C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020073C6:
 	ldr r0, [sp, #0x30]
 	ldr r3, [sp, #0x14]
@@ -908,7 +908,7 @@ FUN_020073E8: ; 0x020073E8
 	str r3, [sp, #0x4]
 	lsr r0, r0, #0x1f
 	beq _02007408
-	bl ErrorHandling
+	bl GF_AssertFail
 _02007408:
 	add r5, r4, r6
 	mov r0, #0x0
@@ -1747,7 +1747,7 @@ _020079CC:
 	lsr r0, r0, #0x1e
 	pop {r3, pc}
 _020079D6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -2961,7 +2961,7 @@ FUN_02008268: ; 0x02008268
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02008272
-	bl ErrorHandling
+	bl GF_AssertFail
 _02008272:
 	ldr r0, [r4, #0x0]
 	lsl r0, r0, #0x1f

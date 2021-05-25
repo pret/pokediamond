@@ -78,7 +78,7 @@ FUN_02012044: ; 0x02012044
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r4, r0, #0x0
 	bne _02012054
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012054:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
@@ -86,11 +86,11 @@ _02012054:
 	add r6, r0, #0x0
 	cmp r5, #0x0
 	bne _02012066
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012066:
 	cmp r6, #0x0
 	bne _0201206E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201206E:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -109,7 +109,7 @@ FUN_02012078: ; 0x02012078
 	add r5, r3, #0x0
 	cmp r0, r6
 	bge _02012090
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012090:
 	ldr r0, [sp, #0xc]
 	ldrh r1, [r4, #0x0]
@@ -117,7 +117,7 @@ _02012090:
 	str r0, [sp, #0x14]
 	cmp r1, r0
 	bge _020120A0
-	bl ErrorHandling
+	bl GF_AssertFail
 _020120A0:
 	ldr r0, [r4, #0x14]
 	str r0, [sp, #0x20]
@@ -305,14 +305,14 @@ FUN_020121E8: ; 0x020121E8
 	str r0, [sp, #0x20]
 	cmp r0, #0x0
 	bne _02012204
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012204:
 	ldr r0, [sp, #0x20]
 	add r1, sp, #0x2c
 	bl NNS_G2dGetUnpackedCharacterData
 	cmp r0, #0x0
 	bne _02012214
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012214:
 	ldr r1, [sp, #0x4c]
 	ldr r0, [sp, #0x8]
@@ -321,7 +321,7 @@ _02012214:
 	ldrh r0, [r0, #0x2]
 	cmp r0, r6
 	bge _02012226
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012226:
 	ldr r1, [sp, #0x50]
 	ldr r0, [sp, #0x48]
@@ -332,7 +332,7 @@ _02012226:
 	ldr r0, [sp, #0x10]
 	cmp r1, r0
 	bge _0201223C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201223C:
 	ldr r0, [sp, #0x2c]
 	ldr r0, [r0, #0x14]
@@ -652,7 +652,7 @@ FUN_02012470: ; 0x02012470
 	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0x1
 	beq _0201249C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201249C:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0

@@ -27,7 +27,7 @@ FUN_0205F314: ; 0x0205F314
 	cmp r5, r1
 	bls _0205F334
 _0205F32C:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0205F334:
@@ -212,7 +212,7 @@ FUN_0205F45C: ; 0x0205F45C
 	cmp r4, #0x3
 	blo _0205F46A
 _0205F466:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205F46A:
 	ldr r0, _0205F474 ; =UNK_020F7430
 	lsl r1, r4, #0x1
@@ -271,7 +271,7 @@ FUN_0205F4C8: ; 0x0205F4C8
 	cmp r4, #0x4
 	blt _0205F4D6
 _0205F4D2:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205F4D6:
 	ldr r0, _0205F4E0 ; =UNK_020F7436
 	lsl r1, r4, #0x1

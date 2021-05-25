@@ -1572,7 +1572,7 @@ _0200F248:
 	mov r7, #0xf
 	mvn r7, r7
 	mov r6, #0x0
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0200F274
 _0200F254:
 	cmp r1, r0
@@ -1591,7 +1591,7 @@ _0200F26A:
 	mov r7, #0x0
 	add r6, r7, #0x0
 	sub r6, #0x10
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200F274:
 	ldr r0, [r5, #0x10]
 	add r1, r7, #0x0
@@ -1701,7 +1701,7 @@ FUN_0200F330: ; 0x0200F330
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	bne _0200F33A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200F33A:
 	ldr r0, _0200F54C ; =0x04000006
 	ldrh r0, [r0, #0x0]
@@ -2062,7 +2062,7 @@ FUN_0200F5D8: ; 0x0200F5D8
 	add r4, r1, #0x0
 	cmp r0, r4
 	bgt _0200F5E8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200F5E8:
 	ldr r0, _0200F5F4 ; =0x00000604
 	ldr r1, [r5, #0x0]
@@ -2304,7 +2304,7 @@ FUN_0200F7AC: ; 0x0200F7AC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bne _0200F7B6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200F7B6:
 	ldr r0, _0200FAC0 ; =0x04000006
 	ldrh r0, [r0, #0x0]
@@ -3371,7 +3371,7 @@ _0200FF9E:
 	mov r6, #0x1
 	b _0200FFA6
 _0200FFA2:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200FFA6:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
@@ -3740,7 +3740,7 @@ _02010272:
 	mov r6, #0x1
 	b _0201027A
 _02010276:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201027A:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
@@ -4189,7 +4189,7 @@ FUN_020105A0: ; 0x020105A0
 	str r0, [sp, #0x4]
 	cmp r0, #0xc0
 	blt _0201060C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201060C:
 	ldr r2, [sp, #0x4]
 	add r0, r4, #0x0
@@ -4326,7 +4326,7 @@ _02010714:
 	mov r6, #0x1
 	b _0201071C
 _02010718:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201071C:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
@@ -4350,7 +4350,7 @@ FUN_02010720: ; 0x02010720
 	str r0, [r7, #0xc]
 	cmp r0, #0x0
 	bne _02010748
-	bl ErrorHandling
+	bl GF_AssertFail
 _02010748:
 	ldrb r0, [r5, #0x8]
 	str r0, [r7, #0x10]
@@ -4689,7 +4689,7 @@ _020109DC:
 	mov r6, #0x1
 	b _020109E4
 _020109E0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020109E4:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
@@ -5102,7 +5102,7 @@ _02010D10:
 	mov r6, #0x1
 	b _02010D18
 _02010D14:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02010D18:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
@@ -5448,7 +5448,7 @@ _02010FC4:
 	mov r6, #0x1
 	b _02010FCC
 _02010FC8:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02010FCC:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
@@ -5809,7 +5809,7 @@ _0201126A:
 	mov r4, #0x1
 	b _02011272
 _0201126E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011272:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}

@@ -103,7 +103,7 @@ FUN_0201B580: ; 0x0201B580
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	bne _0201B58C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201B58C:
 	add r1, r4, #0x0
 	add r1, #0x34

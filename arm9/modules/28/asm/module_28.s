@@ -744,7 +744,7 @@ _02254D24:
 	bl MOD20_02253F9C
 	b _02254DE0
 _02254DDC:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254DE0:
 	ldrh r0, [r4, #8]
 	mov r1, #0x1c ; BASE_FLIP
