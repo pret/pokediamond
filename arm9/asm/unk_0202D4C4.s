@@ -276,7 +276,7 @@ _0202D69E:
 	ldr r0, _0202D710 ; =0x0000FFFE
 	cmp r7, r0
 	blt _0202D6A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202D6A8:
 	ldr r0, [sp, #0x0]
 	bl FUN_0202D9A0

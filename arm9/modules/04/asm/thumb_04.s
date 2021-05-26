@@ -12,7 +12,7 @@ MOD04_021D74E0: ; 0x021D74E0
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _021D74F2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D74F2:
 	ldr r1, _021D7648 ; =0x00001FAC
 	add r0, r4, #0

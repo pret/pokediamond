@@ -331,7 +331,7 @@ THUMB_FUNC u16 *FUN_0201C1B0(void)
     void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
     struct UnkStruct_0200B870_sub * var;
     void *tmp = FUN_02006BB0(NARC_GRAPHIC_FONT, 5, 0, &var, 0);
-    MIi_CpuCopy32(var->unk_14, res, 32 * 24 * sizeof(u16));
+    MI_CpuCopy32(var->unk_14, res, 32 * 24 * sizeof(u16));
     FreeToHeap(tmp);
     return res;
 }

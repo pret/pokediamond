@@ -55,11 +55,11 @@ _02033714:
 	add r5, r0, #0x0
 	cmp r5, #0x2
 	bne _02033722
-	bl ErrorHandling
+	bl GF_AssertFail
 _02033722:
 	cmp r5, #0x3
 	bne _0203372A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203372A:
 	cmp r5, #0x1
 	bne _02033774
@@ -81,11 +81,11 @@ _0203374A:
 	add r5, r0, #0x0
 	cmp r5, #0x3
 	bne _02033758
-	bl ErrorHandling
+	bl GF_AssertFail
 _02033758:
 	cmp r5, #0x1
 	bne _02033760
-	bl ErrorHandling
+	bl GF_AssertFail
 _02033760:
 	cmp r5, #0x2
 	bne _02033774

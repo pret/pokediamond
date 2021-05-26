@@ -83,13 +83,13 @@ LoadOverlay_MODULE_05: ; 0x02037350
 	ldr r0, [r0, #0x4]
 	cmp r0, #0x0
 	beq _02037360
-	bl ErrorHandling
+	bl GF_AssertFail
 _02037360:
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _0203736C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203736C:
 	ldr r0, _0203738C ; =SDK_OVERLAY_MODULE_05_ID
 	mov r1, #0x2
@@ -166,7 +166,7 @@ FUN_020373D4: ; 0x020373D4
 	add r6, r2, #0x0
 	cmp r0, #0x0
 	beq _020373E8
-	bl ErrorHandling
+	bl GF_AssertFail
 _020373E8:
 	add r0, r5, #0x0
 	bl FUN_02037394

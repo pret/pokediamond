@@ -11,7 +11,7 @@ FUN_02034A28: ; 0x02034A28
 	add r4, r1, #0x0
 	cmp r0, #0x0
 	beq _02034A38
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034A38:
 	ldr r1, _02034A44 ; =0x00000AC8
 	add r0, r4, #0x0
@@ -28,7 +28,7 @@ FUN_02034A48: ; 0x02034A48
 	ldr r0, [r4, #0x14]
 	cmp r0, #0x0
 	bne _02034A56
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034A56:
 	ldr r0, [r4, #0x14]
 	bl FreeToHeap
@@ -43,7 +43,7 @@ FUN_02034A60: ; 0x02034A60
 	add r4, r1, #0x0
 	cmp r0, #0x0
 	bne _02034A70
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034A70:
 	ldr r0, [r5, #0x14]
 	add r1, r4, #0x0
@@ -76,7 +76,7 @@ FUN_02034A98: ; 0x02034A98
 	lsl r1, r1, #0xa
 	cmp r0, r1
 	blo _02034AB8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034AB8:
 	add r5, #0x20
 	add r0, r5, #0x0
@@ -94,7 +94,7 @@ FUN_02034AC8: ; 0x02034AC8
 	ldr r4, [r0, #0x4]
 	cmp r0, #0x0
 	bne _02034AD8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034AD8:
 	cmp r4, #0x0
 	beq _02034AEC
@@ -232,7 +232,7 @@ _02034B9C:
 	cmp r2, r5
 	blo _02034B8A
 _02034BA4:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
@@ -261,7 +261,7 @@ _02034BCC:
 	cmp r3, r5
 	blo _02034BBC
 _02034BD4:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
@@ -290,7 +290,7 @@ _02034BFC:
 	cmp r3, r5
 	blo _02034BEC
 _02034C04:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
@@ -452,7 +452,7 @@ FUN_02034CEC: ; 0x02034CEC
 	lsl r1, r1, #0x8
 	cmp r0, r1
 	blo _02034D1C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034D1C:
 	mov r0, #0x82
 	lsl r0, r0, #0x4
@@ -469,7 +469,7 @@ FUN_02034D2C: ; 0x02034D2C
 	ldr r0, [r4, #0x14]
 	cmp r0, #0x0
 	bne _02034D3A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034D3A:
 	mov r0, #0x82
 	ldr r1, [r4, #0x14]

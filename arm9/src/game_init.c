@@ -181,12 +181,12 @@ void InitSystemForTheGame(void)
 void InitGraphicMemory(void)
 {
     GX_SetBankForLCDC(0x1FF);
-    MIi_CpuClearFast(0, (void *)HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE);
+    MI_CpuClearFast((void *)HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE);
     GX_DisableBankForLCDC();
-    MIi_CpuClearFast(0xC0, (void *)HW_OAM, HW_OAM_SIZE);
-    MIi_CpuClearFast(0xC0, (void *)HW_DB_OAM, HW_DB_OAM_SIZE);
-    MIi_CpuClearFast(0, (void *)HW_PLTT, HW_PLTT_SIZE);
-    MIi_CpuClearFast(0, (void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
+    MI_CpuFillFast((void *)HW_OAM, 0xC0, HW_OAM_SIZE);
+    MI_CpuFillFast((void *)HW_DB_OAM, 0xC0, HW_DB_OAM_SIZE);
+    MI_CpuClearFast((void *)HW_PLTT, HW_PLTT_SIZE);
+    MI_CpuClearFast((void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
 }
 
 void * FUN_020161A4(u32 heap_id, const char * path)

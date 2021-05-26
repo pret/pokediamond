@@ -209,7 +209,7 @@ FUN_02088490: ; 0x02088490
 	str r0, [sp, #0x3c]
 	cmp r0, #0x0
 	bge _020884B4
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x70
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -404,7 +404,7 @@ _02088612:
 	bl FUN_02020248
 	b _02088656
 _02088652:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088656:
 	ldr r0, [sp, #0x38]
 	str r4, [r0, #0x4]
@@ -495,7 +495,7 @@ FUN_020886CC: ; 0x020886CC
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02088704
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088704:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
@@ -546,7 +546,7 @@ _02088734:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02088768
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088768:
 	add r4, r4, #0x1
 	add r6, r6, #0x4
@@ -584,7 +584,7 @@ _02088780:
 	ldr r0, [r0, r4]
 	cmp r0, #0x0
 	bne _020887B4
-	bl ErrorHandling
+	bl GF_AssertFail
 _020887B4:
 	ldr r0, [r6, #0x0]
 	ldr r0, [r0, r4]

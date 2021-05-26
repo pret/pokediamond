@@ -145,11 +145,11 @@ FUN_0206DF18: ; 0x0206DF18
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	bne _0206DF40
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206DF40:
 	cmp r5, #0x0
 	bne _0206DF48
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206DF48:
 	bl FUN_02012CC8
 	pop {r3-r5, pc}
@@ -313,7 +313,7 @@ FUN_0206E07C: ; 0x0206E07C
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0206E090
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206E090:
 	ldr r0, [r5, #0x0]
 	ldr r2, [r5, #0x4]

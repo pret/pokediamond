@@ -9,11 +9,11 @@ MOD05_021DBE04: ; 0x021DBE04
 	ldr r4, [r0, #0x18]
 	cmp r4, #0
 	bne _021DBE10
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DBE10:
 	cmp r4, #5
 	blt _021DBE18
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DBE18:
 	sub r0, r4, #1
 	pop {r4, pc}

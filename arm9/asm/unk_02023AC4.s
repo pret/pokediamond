@@ -171,7 +171,7 @@ FUN_02023BA4: ; 0x02023BA4
 	add r4, r0, #0x0
 	cmp r5, #0x1
 	blt _02023BB2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02023BB2:
 	add r0, r4, #0x0
 	mov r1, #0xd

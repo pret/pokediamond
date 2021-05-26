@@ -70,7 +70,7 @@ _02029FE0:
 	ldrh r0, [r0, #0x0]
 	pop {r3, pc}
 _02029FF0:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -95,7 +95,7 @@ _0202A008:
 	strh r2, [r0, #0x0]
 	b _0202A01E
 _0202A01A:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202A01E:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -129,7 +129,7 @@ _0202A04E:
 	ldr r0, _0202A06C ; =0x0000270F
 	pop {r3, pc}
 _0202A052:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 	nop
@@ -282,7 +282,7 @@ FUN_0202A170: ; 0x0202A170
 	add r5, r0, #0x0
 	cmp r4, #0x26
 	blt _0202A17E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202A17E:
 	add r0, r5, #0x0
 	mov r1, #0x0

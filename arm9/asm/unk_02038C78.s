@@ -1035,7 +1035,7 @@ _02038DA8:
 	ldrb r0, [r4, #0x9]
 	cmp r0, #0x0
 	bne _02038DC8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02038DC8:
 	mov r0, #0x0
 	str r0, [r5, #0x38]
@@ -1089,7 +1089,7 @@ CreateFieldContext: ; 0x02038E20
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02038E32
-	bl ErrorHandling
+	bl GF_AssertFail
 _02038E32:
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -1164,7 +1164,7 @@ CreateScriptContext: ; 0x02038EB0
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02038EC6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02038EC6:
 	ldr r2, _02038EE4 ; =sNumScriptCmds
 	ldr r1, _02038EE8 ; =gScriptCmdTable
@@ -1865,7 +1865,7 @@ _02039426:
 	add r0, r0, r1
 	pop {r3, pc}
 _02039430:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -1880,7 +1880,7 @@ FUN_02039438: ; 0x02039438
 	ldr r0, _0203945C ; =0x0003643F
 	cmp r1, r0
 	beq _02039450
-	bl ErrorHandling
+	bl GF_AssertFail
 _02039450:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
@@ -1989,7 +1989,7 @@ FUN_02039504: ; 0x02039504
 	add r5, r0, #0x0
 	cmp r4, #0x10
 	blo _02039512
-	bl ErrorHandling
+	bl GF_AssertFail
 _02039512:
 	ldr r1, _02039524 ; =0x00004020
 	add r0, r5, #0x0
@@ -2236,7 +2236,7 @@ _020396C0:
 _020396CE:
 	cmp r1, #0xe5
 	blo _020396DA
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r4, pc}
 _020396DA:
@@ -2280,7 +2280,7 @@ _02039718:
 _02039726:
 	cmp r1, #0xe5
 	blo _02039732
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r7, pc}
 _02039732:

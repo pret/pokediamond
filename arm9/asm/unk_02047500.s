@@ -79,7 +79,7 @@ FUN_0204755C: ; 0x0204755C
 	add r4, r1, #0x0
 	cmp r5, #0x1f
 	blo _0204756A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204756A:
 	ldr r0, _02047580 ; =UNK_020F457C
 	lsl r1, r5, #0x2
@@ -101,7 +101,7 @@ FUN_02047588: ; 0x02047588
 	add r4, r0, #0x0
 	cmp r4, #0x1f
 	blo _02047594
-	bl ErrorHandling
+	bl GF_AssertFail
 _02047594:
 	ldr r0, _0204759C ; =UNK_020F457E
 	lsl r1, r4, #0x2

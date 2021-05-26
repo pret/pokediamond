@@ -186,7 +186,7 @@ _0204C2F4:
 	mov r4, #0x6
 	b _0204C36A
 _0204C302:
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0204C36A
 _0204C308:
 	ldr r0, [sp, #0x8]
@@ -207,7 +207,7 @@ _0204C320:
 	mov r4, #0x6
 	b _0204C36A
 _0204C32E:
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0204C36A
 _0204C334:
 	ldr r0, [sp, #0x8]
@@ -229,10 +229,10 @@ _0204C356:
 	bl FUN_02034930
 	cmp r0, #0x0
 	bne _0204C36A
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0204C36A
 _0204C366:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204C36A:
 	ldr r1, _0204C37C ; =FUN_0204C380
 	add r0, r7, #0x0
@@ -556,7 +556,7 @@ _0204C5E6:
 	bl FUN_0205ADDC
 	b _0204C5F6
 _0204C5F2:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204C5F6:
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
@@ -926,7 +926,7 @@ _0204C8EA:
 	bl FUN_0205ADDC
 	b _0204C8FC
 _0204C8F8:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204C8FC:
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1

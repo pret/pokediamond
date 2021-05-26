@@ -160,7 +160,7 @@ _0204A478:
 _0204A482:
 	cmp r4, #0x10
 	blo _0204A48A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204A48A:
 	lsl r0, r4, #0x1
 	strh r5, [r6, r0]

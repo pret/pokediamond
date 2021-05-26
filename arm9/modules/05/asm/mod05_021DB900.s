@@ -11,7 +11,7 @@ MOD05_021DB900: ; 0x021DB900
 	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021DB912
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB912:
 	add r0, r4, #0
 	pop {r4, pc}
@@ -37,7 +37,7 @@ MOD05_021DB918: ; 0x021DB918
 	bl FS_ReadFile
 	cmp r0, #0
 	bge _021DB946
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB946:
 	add r0, sp, #4
 	add r1, sp, #0
@@ -45,7 +45,7 @@ _021DB946:
 	bl FS_ReadFile
 	cmp r0, #0
 	bge _021DB958
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB958:
 	add r0, sp, #0
 	ldrh r1, [r0, #2]
@@ -58,7 +58,7 @@ _021DB958:
 	str r0, [r5]
 	cmp r0, #0
 	bne _021DB974
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB974:
 	mov r0, #4
 	add r1, r4, #0
@@ -66,7 +66,7 @@ _021DB974:
 	str r0, [r5, #4]
 	cmp r0, #0
 	bne _021DB986
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB986:
 	ldr r1, [r5]
 	add r0, sp, #4
@@ -74,7 +74,7 @@ _021DB986:
 	bl FS_ReadFile
 	cmp r0, #0
 	bge _021DB998
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB998:
 	ldr r1, [r5, #4]
 	add r0, sp, #4
@@ -82,14 +82,14 @@ _021DB998:
 	bl FS_ReadFile
 	cmp r0, #0
 	bge _021DB9AA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB9AA:
 	add r0, sp, #4
 	bl FS_CloseFile
 	add sp, #0x4c
 	pop {r3, r4, r5, r6, pc}
 _021DB9B4:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x4c
 	pop {r3, r4, r5, r6, pc}
 

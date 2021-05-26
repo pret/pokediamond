@@ -1,6 +1,6 @@
 #ifndef POKEDIAMOND_ERROR_HANDLING_H
 #define POKEDIAMOND_ERROR_HANDLING_H
 
-void ErrorHandling(void);
+void GF_AssertFail(void);
 
 #endif //POKEDIAMOND_ERROR_HANDLING_H

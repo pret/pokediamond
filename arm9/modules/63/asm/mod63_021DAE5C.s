@@ -165,7 +165,7 @@ MOD63_021DAF80: ; 0x021DAF80
 	add r4, r1, #0
 	cmp r4, r0
 	blt _021DAF90
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAF90:
 	mov r0, #0xc
 	ldr r1, [r5, #4]
@@ -603,7 +603,7 @@ _021DB2E6:
 	lsr r4, r1, #0x18
 	cmp r4, #0xa
 	blo _021DB2CE
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r4, pc}
 	thumb_func_end MOD63_021DB2C8

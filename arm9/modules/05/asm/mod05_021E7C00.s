@@ -83,7 +83,7 @@ MOD05_021E7C80: ; 0x021E7C80
 	add r4, r1, #0
 	cmp r5, #0x20
 	blt _021E7C90
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E7C90:
 	add r6, sp, #0
 	mov r3, #0
@@ -427,7 +427,7 @@ MOD05_021E7EEC: ; 0x021E7EEC
 	add r5, r0, #0
 	cmp r4, #0x20
 	blt _021E7EFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E7EFA:
 	mov r0, #0x8c
 	mul r0, r4
@@ -435,7 +435,7 @@ _021E7EFA:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _021E7F0A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E7F0A:
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
@@ -602,7 +602,7 @@ _021E8044:
 	lsr r4, r1, #0x18
 	cmp r4, #0x20
 	blo _021E7FD4
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x20
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}

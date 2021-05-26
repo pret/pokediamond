@@ -33,7 +33,7 @@ FUN_0206E0F0: ; 0x0206E0F0
 	add r4, r0, #0x0
 	cmp r4, #0x17
 	blo _0206E0FC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206E0FC:
 	ldr r0, _0206E104 ; =UNK_020F83E0
 	lsl r1, r4, #0x2
@@ -63,7 +63,7 @@ FUN_0206E114: ; 0x0206E114
 	add r4, r0, #0x0
 	cmp r4, #0x17
 	blo _0206E120
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206E120:
 	ldr r0, _0206E128 ; =UNK_020F843C
 	ldrb r0, [r0, r4]
@@ -255,7 +255,7 @@ FUN_0206E278: ; 0x0206E278
 	add r4, r0, #0x0
 	cmp r4, #0x3
 	blo _0206E284
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206E284:
 	ldr r0, _0206E28C ; =UNK_020F83D4
 	lsl r1, r4, #0x2
@@ -270,7 +270,7 @@ FUN_0206E290: ; 0x0206E290
 	add r4, r0, #0x0
 	cmp r4, #0x3
 	blo _0206E29C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206E29C:
 	ldr r0, _0206E2A4 ; =UNK_020F83D0
 	ldrb r0, [r0, r4]

@@ -1981,7 +1981,7 @@ MOD53_021D852C: ; 0x021D852C
 	bl MOD53_021D941C
 	cmp r0, #0
 	bne _021D8568
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8568:
 	add r0, r5, #0
 	mov r1, #6
@@ -2372,7 +2372,7 @@ MOD53_021D8860: ; 0x021D8860
 	bl MOD53_021D941C
 	cmp r0, #0
 	bne _021D889C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D889C:
 	add r0, r5, #0
 	mov r1, #0xe
@@ -3870,7 +3870,7 @@ _021D9374:
 _021D93C0:
 	cmp r0, #0
 	bne _021D93C8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D93C8:
 	mov r0, #1
 	pop {r3, r4, r5, pc}

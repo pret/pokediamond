@@ -147,12 +147,12 @@ _021D8034:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _021D8062
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8062:
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	bne _021D806C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D806C:
 	ldrh r1, [r6, #4]
 	cmp r1, #0
@@ -177,7 +177,7 @@ _021D808C:
 	cmp r1, r2
 	blt _021D8034
 _021D8094:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

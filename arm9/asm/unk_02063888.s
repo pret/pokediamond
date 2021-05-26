@@ -77,7 +77,7 @@ _020638F8:
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	bne _02063920
-	bl ErrorHandling
+	bl GF_AssertFail
 _02063920:
 	add r0, r6, #0x0
 	add r1, sp, #0x8

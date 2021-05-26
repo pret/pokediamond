@@ -108,7 +108,7 @@ _02021638:
 	ldr r0, [r5, #0x60]
 	cmp r0, #0x0
 	bne _02021642
-	bl ErrorHandling
+	bl GF_AssertFail
 _02021642:
 	ldr r0, [sp, #0x18]
 	ldr r1, [r5, #0x64]
@@ -135,7 +135,7 @@ _02021660:
 	cmp r0, #0x2
 	bls _02021678
 _02021674:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02021678:
 	add r0, r5, #0x0
 	add r0, #0x6a

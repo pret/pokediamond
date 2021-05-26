@@ -68,7 +68,7 @@ MOD05_021DC124: ; 0x021DC124
 	add r4, r1, #0
 	cmp r0, #6
 	beq _021DC134
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC134:
 	ldr r2, [r5, #4]
 	cmp r2, r4
@@ -78,7 +78,7 @@ _021DC134:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC14A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC14A:
 	ldr r0, [r5]
 	mov r1, #0
@@ -86,7 +86,7 @@ _021DC14A:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC15C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC15C:
 	ldr r0, [r5]
 	mov r1, #3
@@ -94,7 +94,7 @@ _021DC15C:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC16E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC16E:
 	str r4, [r5, #4]
 _021DC170:
@@ -122,7 +122,7 @@ _021DC190:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
 	beq _021DC19A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC19A:
 	str r4, [r5, #8]
 	ldr r0, [r5, #4]
@@ -182,7 +182,7 @@ _021DC1F6:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC208
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC208:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -200,7 +200,7 @@ _021DC210:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC22E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC22E:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -213,7 +213,7 @@ _021DC236:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC248
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC248:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -236,7 +236,7 @@ _021DC264:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC276
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC276:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -288,7 +288,7 @@ _021DC2C4:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC2D6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC2D6:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -311,7 +311,7 @@ _021DC2F2:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC304
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC304:
 	ldr r0, [r4]
 	ldr r2, [r4, #8]
@@ -319,7 +319,7 @@ _021DC304:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC316
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC316:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -337,7 +337,7 @@ _021DC31E:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC33C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC33C:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -1559,7 +1559,7 @@ _021DCC66:
 	bl MOD05_021DCD68
 	cmp r0, #0
 	bne _021DCC74
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCC74:
 	ldr r0, [r4, #0x18]
 	add r0, r0, #1
@@ -1981,7 +1981,7 @@ MOD05_021DCF68: ; 0x021DCF68
 	str r0, [sp, #0x14]
 	cmp r0, #0
 	bne _021DCFA0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCFA0:
 	ldr r0, [sp, #0x14]
 	add r1, sp, #0x18
@@ -2043,15 +2043,15 @@ MOD05_021DD010: ; 0x021DD010
 	add r4, r1, #0
 	cmp r0, #0
 	beq _021DD020
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DD020:
 	cmp r4, #0
 	bgt _021DD028
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DD028:
 	cmp r4, #0x28
 	bls _021DD030
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DD030:
 	add r0, r5, #0
 	add r0, #0xc
@@ -10147,7 +10147,7 @@ MOD05_021E0FA4: ; 0x021E0FA4
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021E0FB6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E0FB6:
 	ldr r1, _021E0FCC ; =0x00000F5C
 	mov r0, #1
