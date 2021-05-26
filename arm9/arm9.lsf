@@ -158,7 +158,6 @@ Static arm9
 	Object scrcmd.o
 	Object scrcmd_asm.o
 	Object scrcmd_mart.o
-	Object scrcmd_2.o
 	Object scrcmd_3.o
 	Object scrcmd_names.o
 	Object scrcmd_5.o

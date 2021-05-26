@@ -476,10 +476,10 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203D66C
     .word FUN_0203D6C4
     .word FUN_0203D560
-    .word FUN_0203FCF4
-    .word FUN_0203FDBC
-    .word FUN_0203FE08
-    .word FUN_0203FE48
+    .word ScrCmd_NormalMart
+    .word ScrCmd_SpecialMart
+    .word ScrCmd_GoodsMart
+    .word ScrCmd_SealsMart
     .word FUN_0203D868
     .word FUN_0203D874
     .word ScrCmd_getplayergender
@@ -748,7 +748,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0254
     .word ScrCmd_Unk0255
     .word ScrCmd_Unk0256
-    .word FUN_0203FE80
+    .word ScrCmd_AccessoriesShop
     .word FUN_0203EDA4
     .word FUN_0203EDC8
     .word FUN_0203EDE0

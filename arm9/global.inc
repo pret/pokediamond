@@ -3114,11 +3114,11 @@
 .extern FUN_0203FC80
 .extern FUN_0203FCB0
 .extern FUN_0203FCDC
-.extern FUN_0203FCF4
-.extern FUN_0203FDBC
-.extern FUN_0203FE08
-.extern FUN_0203FE48
-.extern FUN_0203FE80
+.extern ScrCmd_NormalMart
+.extern ScrCmd_SpecialMart
+.extern ScrCmd_GoodsMart
+.extern ScrCmd_SealsMart
+.extern ScrCmd_AccessoriesShop
 .extern FUN_0203FE90
 .extern FUN_0203FEC0
 .extern FUN_0203FF10

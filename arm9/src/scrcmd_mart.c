@@ -1,7 +1,11 @@
 #include "global.h"
 #include "constants/items.h"
+#include "constants/seal_constants.h"
+#include "constants/decorations.h"
 #include "scrcmd.h"
 #include "module_06.h"
+
+extern void FUN_02038AD0(struct UnkStruct_0204639C *);
 
 static const u16 UNK_020F40A6[] = {
     ITEM_AIR_MAIL,
@@ -94,21 +98,21 @@ static const u16 UNK_020F40E4[] = {
 };
 
 static const u16 UNK_020F410C[] = {
-    ITEM_DIVE_BALL,
-    ITEM_PARLYZ_HEAL,
-    ITEM_HYPER_POTION,
-    ITEM_SUPER_POTION,
-    ITEM_FULL_HEAL,
+    DECORATION_YELLOW_CUSHION,
+    DECORATION_CUPBOARD,
+    DECORATION_TV,
+    DECORATION_REFRIGERATOR,
+    DECORATION_PRETTY_SINK,
     0xFFFF
 };
 
 static const u16 UNK_020F4118[] = {
-    115,
-    116,
-    117,
-    119,
-    120,
-    121,
+    DECORATION_MUNCHLAX_DOLL,
+    DECORATION_BONSLY_DOLL,
+    DECORATION_MIME_JR__DOLL,
+    DECORATION_MANTYKE_DOLL,
+    DECORATION_BUIZEL_DOLL,
+    DECORATION_CHATOT_DOLL,
     0xFFFF
 };
 
@@ -133,57 +137,57 @@ static const u16 UNK_020F4134[] = {
 };
 
 static const u16 UNK_020F41B2[] = {
-    ITEM_DIVE_BALL,
-    ITEM_CALCIUM,
-    ITEM_REVIVE,
-    ITEM_LAVA_COOKIE,
-    ITEM_HEAL_BALL,
-    ITEM_AWAKENING,
-    ITEM_ENERGY_ROOT,
+    SEAL_STAR_A,
+    SEAL_A,
+    SEAL_FIRE_A,
+    SEAL_SONG_A,
+    SEAL_LINE_B,
+    SEAL_ELE_B,
+    SEAL_PARTY_D,
     0xFFFF
 };
 
 static const u16 UNK_020F4142[] = {
-    ITEM_ULTRA_BALL,
-    ITEM_REPEAT_BALL,
-    ITEM_FRESH_WATER,
-    ITEM_REVIVAL_HERB,
-    ITEM_SACRED_ASH,
-    ITEM_CHERISH_BALL,
-    ITEM_FULL_RESTORE,
+    SEAL_HEART_B,
+    SEAL_STAR_C,
+    SEAL_FIRE_C,
+    SEAL_FLORA_B,
+    SEAL_SONG_C,
+    SEAL_SMOKE_A,
+    SEAL_ELE_D,
     0xFFFF
 };
 
 static const u16 UNK_020F4152[] = {
-    ITEM_FULL_HEAL,
-    ITEM_ENERGYPOWDER,
-    ITEM_MAX_ELIXIR,
-    ITEM_CARBOS,
-    ITEM_NET_BALL,
-    ITEM_DUSK_BALL,
-    ITEM_ICE_HEAL,
+    SEAL_FOAMY_D,
+    SEAL_PARTY_C,
+    SEAL_FLORA_F,
+    SEAL_SONG_G,
+    SEAL_HEART_F,
+    SEAL_LINE_A,
+    SEAL_ELE_A,
     0xFFFF
 };
 
 static const u16 UNK_020F4162[] = {
-    ITEM_GREAT_BALL,
-    ITEM_TIMER_BALL,
-    ITEM_SODA_POP,
-    ITEM_ETHER,
-    ITEM_HP_UP,
-    ITEM_POTION,
-    ITEM_MAX_POTION,
+    SEAL_HEART_C,
+    SEAL_STAR_D,
+    SEAL_FIRE_D,
+    SEAL_FLORA_C,
+    SEAL_SONG_D,
+    SEAL_SMOKE_B,
+    SEAL_FOAMY_A,
     0xFFFF
 };
 
 static const u16 UNK_020F4172[] = {
-    ITEM_POKE_BALL,
-    ITEM_HYPER_POTION,
-    ITEM_LEMONADE,
-    ITEM_MAX_ETHER,
-    ITEM_PROTEIN,
-    ITEM_LUXURY_BALL,
-    ITEM_ANTIDOTE,
+    SEAL_HEART_D,
+    SEAL_FOAMY_B,
+    SEAL_PARTY_A,
+    SEAL_FLORA_D,
+    SEAL_SONG_E,
+    SEAL_STAR_E,
+    SEAL_SMOKE_C,
     0xFFFF
 };
 
@@ -199,24 +203,24 @@ static const u16 UNK_020F4182[] = {
 };
 
 static const u16 UNK_020F4192[] = {
-    ITEM_MASTER_BALL,
-    ITEM_NEST_BALL,
-    ITEM_MAX_REVIVE,
-    ITEM_BERRY_JUICE,
-    ITEM_QUICK_BALL,
-    ITEM_PARLYZ_HEAL,
-    ITEM_HEAL_POWDER,
+    SEAL_HEART_A,
+    SEAL_STAR_B,
+    SEAL_FIRE_B,
+    SEAL_SONG_B,
+    SEAL_LINE_C,
+    SEAL_ELE_C,
+    SEAL_FLORA_A,
     0xFFFF
 };
 
 static const u16 UNK_020F41A2[] = {
-    ITEM_SUPER_POTION,
-    ITEM_MOOMOO_MILK,
-    ITEM_ELIXIR,
-    ITEM_IRON,
-    ITEM_SAFARI_BALL,
-    ITEM_PREMIER_BALL,
-    ITEM_BURN_HEAL,
+    SEAL_FOAMY_C,
+    SEAL_PARTY_B,
+    SEAL_FLORA_E,
+    SEAL_SONG_F,
+    SEAL_HEART_E,
+    SEAL_STAR_F,
+    SEAL_SMOKE_D,
     0xFFFF
 };
 
@@ -275,7 +279,7 @@ static const u16 UNK_020F41FE[] = {
     0xFFFF
 };
 
-static const u16 UNK_020F4218[][2] = {
+static const u16 sNormalMartBadgeThresholds[][2] = {
     // Balls
     {ITEM_POKE_BALL,    1},
     {ITEM_GREAT_BALL,   3},
@@ -303,22 +307,12 @@ static const u16 UNK_020F4218[][2] = {
     {ITEM_MAX_REPEL,    4},
 };
 
-const u16 *UNK_02105DEC[] = {
+const u16 *sDecorationMartPointers[] = {
     UNK_020F410C,
     UNK_020F4118,
 };
 
-const u16 *UNK_02105DF4[] = {
-    UNK_020F4192,
-    UNK_020F4142,
-    UNK_020F4162,
-    UNK_020F4172,
-    UNK_020F41A2,
-    UNK_020F4152,
-    UNK_020F41B2,
-};
-
-const u16 *UNK_02105E10[] = {
+const u16 *sSpecialMartPointers[] = {
     UNK_020F40A6,
     UNK_020F40B4,
     UNK_020F40AC,
@@ -340,7 +334,17 @@ const u16 *UNK_02105E10[] = {
     UNK_020F41C2,
 };
 
-THUMB_FUNC BOOL FUN_0203FCF4(struct ScriptContext * ctx)
+const u16 *sSealsMartPointers[] = {
+    UNK_020F4192,
+    UNK_020F4142,
+    UNK_020F4162,
+    UNK_020F4172,
+    UNK_020F41A2,
+    UNK_020F4152,
+    UNK_020F41B2,
+};
+
+THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx)
 {
     u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     s32 param;
@@ -381,15 +385,58 @@ THUMB_FUNC BOOL FUN_0203FCF4(struct ScriptContext * ctx)
             param = 1;
             break;
     }
-    for (i = 0; i < NELEMS(UNK_020F4218); i++)
+    for (i = 0; i < NELEMS(sNormalMartBadgeThresholds); i++)
     {
-        if (param >= UNK_020F4218[i][1])
+        if (param >= sNormalMartBadgeThresholds[i][1])
         {
-            martItems[martIdx] = UNK_020F4218[i][0];
+            martItems[martIdx] = sNormalMartBadgeThresholds[i][0];
             martIdx++;
         }
     }
     martItems[martIdx] = 0xFFFF; // terminator
-    MOD06_0223D3D0(ctx->unk74, ctx->unk80, martItems, 0, 0);
+    MOD06_0223D3D0(ctx->unk74, ctx->unk80, martItems, MART_ITEMS, 0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx)
+{
+    u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u32 sp0;
+
+    // Fakematch?
+    if ((u16)(whichMart + (u16)(-8u)) <= 5)
+        sp0 = 1;
+    else
+        sp0 = 0;
+
+    MOD06_0223D3D0(ctx->unk74, ctx->unk80, sSpecialMartPointers[whichMart], MART_ITEMS, sp0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx)
+{
+    u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u32 sp0;
+
+    if (whichMart <= 1)
+        sp0 = 1;
+    else
+        sp0 = 0;
+
+    MOD06_0223D3D0(ctx->unk74, ctx->unk80, sDecorationMartPointers[whichMart], MART_DECORATIONS, sp0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_SealsMart(struct ScriptContext * ctx)
+{
+    u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+
+    MOD06_0223D3D0(ctx->unk74, ctx->unk80, sSealsMartPointers[whichMart], MART_SEALS, 0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx)
+{
+    FUN_02038AD0(ctx->unk80->unk10);
     return TRUE;
 }
