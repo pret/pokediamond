@@ -157,6 +157,7 @@ Static arm9
 	Object unk_02038C78.o
 	Object scrcmd.o
 	Object scrcmd_asm.o
+	Object scrcmd_mart.o
 	Object scrcmd_2.o
 	Object scrcmd_3.o
 	Object scrcmd_names.o
