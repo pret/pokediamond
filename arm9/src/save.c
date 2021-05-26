@@ -82,7 +82,7 @@ BOOL FUN_0202263C(struct SaveBlock2 * sav2)
     FlashClobberChunkFooter(sav2, 1, (u32)(sav2->unk_20220[1] == 0 ? 1 : 0));
     FlashClobberChunkFooter(sav2, 0, (u32)(sav2->unk_20220[0]));
     FlashClobberChunkFooter(sav2, 1, (u32)(sav2->unk_20220[1]));
-    MIi_CpuClearFast(-1u, r6, 0x1000);
+    MI_CpuFillFast(r6, -1u, 0x1000);
     for (int i = 0; i < 64; i++)
     {
         FlashWriteChunk((u32)(0x1000 * i), r6, 0x1000);

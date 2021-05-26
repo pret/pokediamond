@@ -629,7 +629,7 @@ FUN_02004568: ; 0x02004568
 	add r0, r5, #0x0
 	mov r1, #0x4
 	bl GF_Snd_LoadSeqEx
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0200459C
 _02004594:
 	ldrh r0, [r4, #0x0]
@@ -694,7 +694,7 @@ _020045E4:
 	add r0, r7, #0x0
 	mov r1, #0x4
 	bl GF_Snd_LoadSeqEx
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _02004638
 _02004630:
 	ldrh r0, [r4, #0x0]
@@ -831,7 +831,7 @@ FUN_02004748: ; 0x02004748
 	bl GetSoundDataPointer
 	cmp r4, #0x7
 	blt _02004762
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x1a
 	bl FUN_02003D38
 	ldr r0, [r0, #0x0]
@@ -1027,7 +1027,7 @@ FUN_020048BC: ; 0x020048BC
 	push {r4, lr}
 	add r4, r0, #0x0
 	bpl _020048C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020048C6:
 	add r0, r4, #0x0
 	bl NNS_SndPlayerCountPlayingSeqByPlayerNo
@@ -1114,21 +1114,21 @@ FUN_02004930: ; 0x02004930
 	beq _02004954
 	cmp r5, #0xf
 	beq _02004954
-	bl ErrorHandling
+	bl GF_AssertFail
 _02004954:
 	cmp r5, #0xe
 	bne _02004962
 	ldrb r0, [r6, #0x0]
 	cmp r0, #0x0
 	bne _02004962
-	bl ErrorHandling
+	bl GF_AssertFail
 _02004962:
 	cmp r5, #0xf
 	bne _02004970
 	ldrb r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02004970
-	bl ErrorHandling
+	bl GF_AssertFail
 _02004970:
 	cmp r5, #0xe
 	bne _0200497C
@@ -1155,7 +1155,7 @@ FUN_02004984: ; 0x02004984
 	beq _020049A8
 	cmp r5, #0xf
 	beq _020049A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _020049A8:
 	cmp r5, #0xe
 	bne _020049D6
@@ -1177,7 +1177,7 @@ _020049CA:
 	strb r0, [r6, #0x0]
 	b _020049FE
 _020049D0:
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _020049FE
 _020049D6:
 	ldrb r0, [r4, #0x0]
@@ -1198,7 +1198,7 @@ _020049F4:
 	strb r0, [r4, #0x0]
 	b _020049FE
 _020049FA:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020049FE:
 	mov r0, #0x1
 	pop {r4-r6, pc}
@@ -1219,7 +1219,7 @@ FUN_02004A04: ; 0x02004A04
 	beq _02004A2A
 	cmp r5, #0xf
 	beq _02004A2A
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4-r6, pc}
 _02004A2A:
 	cmp r5, #0xe
@@ -1235,7 +1235,7 @@ _02004A2A:
 	strb r0, [r6, #0x0]
 	pop {r4-r6, pc}
 _02004A46:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4-r6, pc}
 _02004A4C:
 	ldrb r0, [r4, #0x0]
@@ -1249,7 +1249,7 @@ _02004A4C:
 	strb r0, [r4, #0x0]
 	pop {r4-r6, pc}
 _02004A64:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -1372,13 +1372,13 @@ FUN_02004B30: ; 0x02004B30
 	beq _02004B54
 	cmp r5, #0xf
 	beq _02004B54
-	bl ErrorHandling
+	bl GF_AssertFail
 _02004B54:
 	add r0, r6, #0x0
 	bl NNS_SndArcGetWaveArcInfo
 	add r7, r0, #0x0
 	bne _02004B68
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x30
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -1389,7 +1389,7 @@ _02004B68:
 	bl NNS_SndArcGetFileSize
 	add r6, r0, #0x0
 	bne _02004B80
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x30
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -1402,7 +1402,7 @@ _02004B80:
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02004B9C
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x30
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -1421,7 +1421,7 @@ _02004B9C:
 	mvn r1, r1
 	cmp r0, r1
 	bne _02004BC6
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x30
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -1502,7 +1502,7 @@ FUN_02004C3C: ; 0x02004C3C
 	beq _02004C60
 	cmp r5, #0xf
 	beq _02004C60
-	bl ErrorHandling
+	bl GF_AssertFail
 _02004C60:
 	add r0, r5, #0x0
 	bl FUN_02004AAC
@@ -1869,7 +1869,7 @@ _02004EF2:
 	bl NNS_SndArcGetWaveArcInfo
 	cmp r0, #0x0
 	bne _02004F02
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02004F02:
@@ -1879,7 +1879,7 @@ _02004F02:
 	bl NNS_SndArcGetFileAddress
 	cmp r0, #0x0
 	bne _02004F18
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02004F18:

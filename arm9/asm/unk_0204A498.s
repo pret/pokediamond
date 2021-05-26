@@ -295,7 +295,7 @@ _0204A69C:
 	str r1, [r0, #0x0]
 	pop {r3, pc}
 _0204A6A6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, pc}
 	.balign 4
 _0204A6AC: .word UNK_020F4708
@@ -404,7 +404,7 @@ _0204A754:
 	blt _0204A768
 	cmp r4, #0x0
 	bne _0204A76A
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0204A76A
 _0204A768:
 	mov r4, #0x0
@@ -542,7 +542,7 @@ FUN_0204A840: ; 0x0204A840
 	cmp r7, #0x0
 	bge _0204A868
 _0204A864:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204A868:
 	lsl r0, r6, #0x10
 	str r0, [r5, #0x0]

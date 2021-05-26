@@ -17,7 +17,7 @@ MOD05_021E1374: ; 0x021E1374
 	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021E1396
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, r6, r7, pc}
 _021E1396:
 	mov r2, #0x47
@@ -493,7 +493,7 @@ MOD05_021E1724: ; 0x021E1724
 	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021E173C
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 _021E173C:
 	ldr r0, _021E1750 ; =MOD05_021E1754
@@ -520,7 +520,7 @@ MOD05_021E1754: ; 0x021E1754
 	ldrh r0, [r1, r0]
 	cmp r0, #0
 	bne _021E1770
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E1770:
 	ldr r2, [r4, #8]
 	ldr r0, _021E1790 ; =0x00000112

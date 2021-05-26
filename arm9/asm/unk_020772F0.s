@@ -1639,11 +1639,11 @@ FUN_02077AC4: ; 0x02077AC4
 	ldr r0, [r4, #0x18]
 	cmp r0, #0x0
 	bne _02077AD2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02077AD2:
 	cmp r4, #0x0
 	bne _02077ADA
-	bl ErrorHandling
+	bl GF_AssertFail
 _02077ADA:
 	ldr r0, [r4, #0x18]
 	bl String_dtor

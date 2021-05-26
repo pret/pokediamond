@@ -18,7 +18,7 @@ FUN_02002F08: ; 0x02002F08
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02002F22
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002F22:
 	add r0, r5, #0x0
 	bl String_c_str
@@ -103,7 +103,7 @@ FUN_02002F9C: ; 0x02002F9C
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02002FB4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002FB4:
 	add r0, r5, #0x0
 	bl String_c_str
@@ -229,7 +229,7 @@ FUN_02003084: ; 0x02003084
 	bl FUN_02006C08
 	add r6, r0, #0x0
 	bne _0200309E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200309E:
 	cmp r4, #0x0
 	bne _020030A6
@@ -247,7 +247,7 @@ _020030A6:
 	add r0, r4, r0
 	cmp r0, r1
 	bls _020030C0
-	bl ErrorHandling
+	bl GF_AssertFail
 _020030C0:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10

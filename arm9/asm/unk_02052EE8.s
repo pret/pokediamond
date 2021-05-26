@@ -300,7 +300,7 @@ FUN_02053104: ; 0x02053104
 	ldr r0, [r0, r5]
 	cmp r3, r0
 	beq _02053120
-	bl ErrorHandling
+	bl GF_AssertFail
 _02053120:
 	pop {r4-r6, pc}
 	nop
@@ -426,7 +426,7 @@ _02053206:
 	bl FUN_02058060
 	add r5, r0, #0x0
 	bne _02053216
-	bl ErrorHandling
+	bl GF_AssertFail
 _02053216:
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0x4
@@ -761,7 +761,7 @@ _020534AC:
 	bl FUN_02058060
 	add r4, r0, #0x0
 	bne _020534BC
-	bl ErrorHandling
+	bl GF_AssertFail
 _020534BC:
 	add r0, r4, #0x0
 	mov r1, #0x1
@@ -787,7 +787,7 @@ FUN_020534DC: ; 0x020534DC
 	bl FUN_02058060
 	add r4, r0, #0x0
 	bne _020534F0
-	bl ErrorHandling
+	bl GF_AssertFail
 _020534F0:
 	add r0, r4, #0x0
 	bl FUN_0205AD98
@@ -811,7 +811,7 @@ _0205350E:
 	bl FUN_02058060
 	add r4, r0, #0x0
 	bne _02053524
-	bl ErrorHandling
+	bl GF_AssertFail
 _02053524:
 	ldrb r1, [r5, #0x8]
 	add r0, r4, #0x0

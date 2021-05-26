@@ -11,7 +11,7 @@
 
 #define NELEMS(a) (sizeof(a) / sizeof(*(a)))
 
-#define GF_ASSERT(expr) do {if (!(expr)) ErrorHandling();} while (0)
+#define GF_ASSERT(expr) do {if (!(expr)) GF_AssertFail();} while (0)
 
 #ifndef IN_MAIN_C
 extern const u8 gGameLanguage;

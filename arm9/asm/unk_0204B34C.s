@@ -532,7 +532,7 @@ _0204B73A:
 	add r4, r4, #0x1
 	b _0204B746
 _0204B742:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204B746:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
@@ -604,7 +604,7 @@ _0204B7C0:
 	add r4, r4, #0x1
 	b _0204B7CC
 _0204B7C8:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204B7CC:
 	ldr r0, [r5, #0x34]
 	add r1, r7, #0x0

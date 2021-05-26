@@ -568,7 +568,7 @@ _021E32E0:
 	str r0, [r4, #0x14]
 	pop {r4, pc}
 _021E32E6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	.balign 4, 0
 _021E32EC: .word MOD05_021E3124

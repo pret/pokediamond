@@ -14039,7 +14039,7 @@ MOD80_02234640: ; 0x02234640
 	add r4, r0, #0
 	cmp r5, #0xc
 	blt _0223464E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223464E:
 	ldr r0, _02234660 ; =0x02237498
 	lsl r1, r5, #3
@@ -14600,7 +14600,7 @@ _02234A8A:
 	str r0, [r4, #0x2c]
 	b _02234AA8
 _02234AA4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02234AA8:
 	add r0, r4, #0
 	bl MOD80_0222E8BC
@@ -15866,7 +15866,7 @@ MOD80_022353B4: ; 0x022353B4
 	lsr r5, r0, #0x10
 	cmp r5, #0x3c
 	blo _022353E0
-	bl ErrorHandling
+	bl GF_AssertFail
 _022353E0:
 	ldr r0, _022353F0 ; =0x00000FDC
 	add r1, r5, #2
@@ -17695,7 +17695,7 @@ _02236208:
 	add r0, #0xd4
 	pop {r3, pc}
 _02236210:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	thumb_func_end MOD80_022361E8

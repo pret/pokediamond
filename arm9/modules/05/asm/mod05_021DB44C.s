@@ -10,7 +10,7 @@ MOD05_021DB44C: ; 0x021DB44C
 	add r5, r0, #0
 	cmp r6, #3
 	blo _021DB45A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB45A:
 	mov r0, #4
 	mov r1, #0x14
@@ -60,7 +60,7 @@ MOD05_021DB4B0: ; 0x021DB4B0
 	push {r4, lr}
 	add r4, r0, #0
 	bne _021DB4BA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB4BA:
 	ldr r0, [r4]
 	add r0, r0, #4
@@ -77,7 +77,7 @@ MOD05_021DB4D0: ; 0x021DB4D0
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	bne _021DB4DA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB4DA:
 	bl GF_RTC_TimeToSec
 	lsr r1, r0, #0x1f

@@ -1898,7 +1898,7 @@ _0222E532:
 	ldr r0, [r0, r1]
 	cmp r0, #0
 	bne _0222E67E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222E67E:
 	ldr r5, [sp, #4]
 	mov r0, #0
@@ -3078,11 +3078,11 @@ MOD11_0222EFDC: ; 0x0222EFDC
 	add r5, r0, #0
 	cmp r4, #0
 	bne _0222F004
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F004:
 	cmp r5, #0
 	bne _0222F00C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F00C:
 	bl FUN_02012CC8
 	pop {r3, r4, r5, pc}

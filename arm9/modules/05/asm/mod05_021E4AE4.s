@@ -76,7 +76,7 @@ MOD05_021E4B64: ; 0x021E4B64
 	bl MOD05_021E4D2C
 	cmp r0, #0
 	beq _021E4B78
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, pc}
 _021E4B78:
 	add r0, r5, #0
@@ -166,7 +166,7 @@ MOD05_021E4C08: ; 0x021E4C08
 	bl MOD05_021E4D2C
 	cmp r0, #0
 	bne _021E4C1A
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 _021E4C1A:
@@ -333,7 +333,7 @@ _021E4D1C:
 	sub r4, r4, #1
 	bne _021E4D0E
 _021E4D22:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -402,7 +402,7 @@ _021E4D7A:
 	cmp r2, #0x20
 	bne _021E4D72
 _021E4D82:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	nop
@@ -454,7 +454,7 @@ MOD05_021E4DC4: ; 0x021E4DC4
 	bl FUN_020644E4
 	add r4, r0, #0
 	bne _021E4DDE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E4DDE:
 	add r0, r4, #0
 	add sp, #8
@@ -566,7 +566,7 @@ MOD05_021E4E90: ; 0x021E4E90
 	bl FUN_0201F6E8
 	add r4, r0, #0
 	bne _021E4EC0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E4EC0:
 	cmp r4, #0
 	beq _021E4EDA
@@ -618,7 +618,7 @@ MOD05_021E4EFC: ; 0x021E4EFC
 	bl FUN_02021050
 	add r4, r0, #0
 	bne _021E4F2E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E4F2E:
 	add r0, r4, #0
 	bl FUN_020210AC
@@ -638,7 +638,7 @@ _021E4F3C:
 	bl MOD05_021E4FC8
 	add r4, r0, #0
 	bne _021E4F58
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E4F58:
 	add r0, r4, #0
 	add sp, #0x1c
@@ -700,7 +700,7 @@ _021E4FBA:
 	add r3, #8
 	sub r2, r2, #1
 	bne _021E4FAE
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, pc}
 	.balign 4, 0
 
@@ -742,7 +742,7 @@ _021E4FFC:
 _021E5002:
 	cmp r4, #0
 	bne _021E500A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E500A:
 	add r0, r4, #0
 	mov r1, #0
@@ -790,7 +790,7 @@ _021E505C:
 	add r3, #8
 	sub r2, r2, #1
 	bne _021E5052
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	.balign 4, 0
@@ -884,7 +884,7 @@ MOD05_021E50D4: ; 0x021E50D4
 	bl FUN_02020F54
 	cmp r0, #0
 	bne _021E5106
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E5106:
 	ldr r2, [r4, #0x18]
 	add r0, r5, #0
@@ -982,7 +982,7 @@ MOD05_021E5198: ; 0x021E5198
 	bl NNS_G3dResDefaultSetup
 	cmp r0, #0
 	bne _021E51C8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E51C8:
 	ldr r0, [r4]
 	bl NNS_G3dGetMdlSet
@@ -993,7 +993,7 @@ _021E51C8:
 	str r0, [r5]
 	cmp r5, #0
 	bne _021E51E0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E51E0:
 	ldr r1, [r5]
 	add r0, r6, #0

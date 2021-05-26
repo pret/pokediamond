@@ -480,7 +480,7 @@ _0205A254:
 	str r0, [r4, #0xc]
 	pop {r3-r7, pc}
 _0205A268:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x8
 	pop {r3-r7, pc}
 
@@ -785,7 +785,7 @@ _0205A486:
 	mvn r0, r0
 	cmp r1, r0
 	bne _0205A496
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205A496:
 	add r4, r4, #0x1
 	lsl r0, r4, #0x2
@@ -942,7 +942,7 @@ _0205A5A2:
 	mvn r0, r0
 	cmp r1, r0
 	bne _0205A5B2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205A5B2:
 	add r4, r4, #0x1
 	lsl r0, r4, #0x2
@@ -1617,7 +1617,7 @@ _0205AA9A:
 _0205AAA4:
 	cmp r4, #0x0
 	bne _0205AAAC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205AAAC:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -1674,7 +1674,7 @@ _0205AB0A:
 	ldr r2, [r1, #0x0]
 	cmp r2, #0x27
 	bne _0205AB02
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 	nop
@@ -1965,7 +1965,7 @@ _0205AD26:
 _0205AD36:
 	cmp r4, #0x4
 	blt _0205AD3E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205AD3E:
 	add r0, r4, #0x1
 	lsr r2, r0, #0x1f

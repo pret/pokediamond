@@ -148,7 +148,7 @@ THUMB_FUNC UnkStruct021E7358 *MOD05_021E74D4(u32 param0)
     UnkStruct021E7358 *res = (UnkStruct021E7358 *)AllocFromHeapAtEnd(4, param0);
     if (res == NULL)
     {
-        ErrorHandling();
+        GF_AssertFail();
     }
     memset((void *)res, 0, param0);
     return res;

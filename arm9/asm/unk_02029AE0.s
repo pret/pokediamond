@@ -39,11 +39,11 @@ FUN_02029B08: ; 0x02029B08
 	add r4, r2, #0x0
 	cmp r5, r0
 	blt _02029B1C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02029B1C:
 	cmp r4, #0x40
 	blt _02029B24
-	bl ErrorHandling
+	bl GF_AssertFail
 _02029B24:
 	strb r5, [r6, #0x5]
 	add r0, r6, #0x0
@@ -75,11 +75,11 @@ FUN_02029B40: ; 0x02029B40
 	add r4, r2, #0x0
 	cmp r5, r0
 	blt _02029B54
-	bl ErrorHandling
+	bl GF_AssertFail
 _02029B54:
 	cmp r4, #0x40
 	blt _02029B5C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02029B5C:
 	cmp r5, #0x0
 	bne _02029B64
@@ -118,17 +118,17 @@ FUN_02029B90: ; 0x02029B90
 	str r3, [sp, #0x0]
 	cmp r3, #0x4
 	blt _02029BA2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02029BA2:
 	mov r0, #0x1
 	lsl r0, r0, #0x8
 	cmp r5, r0
 	blt _02029BAE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02029BAE:
 	cmp r4, #0x40
 	blt _02029BB6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02029BB6:
 	cmp r5, #0x0
 	beq _02029BFE

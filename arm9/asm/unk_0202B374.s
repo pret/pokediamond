@@ -112,7 +112,7 @@ _0202B422:
 	add r3, r3, #0x1
 	cmp r3, #0x4
 	blt _0202B418
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, pc}
 	.balign 4
 
@@ -324,7 +324,7 @@ _0202B574:
 	add r4, #0xcc
 	b _0202B57E
 _0202B57A:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202B57E:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -362,7 +362,7 @@ _0202B5B0:
 	add r4, r0, r1
 	b _0202B5BA
 _0202B5B6:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202B5BA:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -672,7 +672,7 @@ FUN_0202B7C8: ; 0x0202B7C8
 	bl FUN_0202B820
 	cmp r0, #0x1
 	beq _0202B7DE
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202B7DE:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -695,7 +695,7 @@ FUN_0202B7F4: ; 0x0202B7F4
 	bl FUN_0202B820
 	cmp r0, #0x0
 	beq _0202B80A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202B80A:
 	add r0, r5, #0x0
 	add r1, r6, #0x0

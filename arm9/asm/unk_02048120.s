@@ -67,7 +67,7 @@ FUN_02048164: ; 0x02048164
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0204817A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204817A:
 	add r0, r4, #0x0
 	mov r1, #0x0

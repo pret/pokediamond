@@ -134,7 +134,7 @@ MOD05_021E569C: ; 0x021E569C
 	bl FUN_020582A8
 	cmp r0, #0
 	bne _021E56B8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E56B8:
 	ldr r0, [r4]
 	cmp r0, #0

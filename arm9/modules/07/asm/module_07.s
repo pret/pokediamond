@@ -3163,7 +3163,7 @@ MOD07_02213810: ; 0x02213810
 	bl FUN_0201327C
 	cmp r4, #0
 	bne _02213828
-	bl ErrorHandling
+	bl GF_AssertFail
 _02213828:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0xd
@@ -3182,7 +3182,7 @@ MOD07_02213834: ; 0x02213834
 	bl FUN_020132BC
 	cmp r4, #0
 	bne _0221384C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0221384C:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0xd

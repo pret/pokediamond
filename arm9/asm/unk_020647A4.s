@@ -105,7 +105,7 @@ _0206480A:
 	bl FUN_0204AA5C
 	cmp r0, #0x0
 	bne _0206482C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206482C:
 	ldr r1, [sp, #0x14]
 	add r0, sp, #0x18
@@ -316,7 +316,7 @@ _02064996:
 	str r1, [r0, #0x8]
 	pop {r3-r5, pc}
 _020649A0:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3-r5, pc}
 	nop
 _020649A8: .word 0x00000123
@@ -474,7 +474,7 @@ _02064ACA:
 	bl FUN_0204AA5C
 	cmp r0, #0x0
 	bne _02064AEC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02064AEC:
 	ldr r1, [sp, #0xc]
 	add r0, sp, #0x10
@@ -598,7 +598,7 @@ _02064BCA:
 	bl FUN_0204AA5C
 	cmp r0, #0x0
 	bne _02064BEC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02064BEC:
 	ldr r1, [sp, #0xc]
 	add r0, sp, #0x10

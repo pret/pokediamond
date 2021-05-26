@@ -38,7 +38,7 @@ _0202D3BC:
 _0202D3CC:
 	cmp r7, #0x0
 	bne _0202D3D4
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202D3D4:
 	add r0, r5, #0x0
 	add r1, r4, #0x0

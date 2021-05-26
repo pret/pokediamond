@@ -2093,7 +2093,7 @@ FUN_02050BF8: ; 0x02050BF8
 	add r4, r0, #0x0
 	cmp r4, #0x4
 	blt _02050C04
-	bl ErrorHandling
+	bl GF_AssertFail
 _02050C04:
 	ldr r0, _02050C10 ; =UNK_021C5A6C
 	ldr r1, [r0, #0x0]

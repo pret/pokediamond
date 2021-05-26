@@ -391,7 +391,7 @@ _0202531E: ; jump table (using 16-bit offset)
 	.short _02025336 - _0202531E - 2; case 4
 	.short _0202534E - _0202531E - 2; case 5
 _0202532A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 _02025330:
 	add r0, r2, #0x1

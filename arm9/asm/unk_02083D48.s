@@ -472,7 +472,7 @@ FUN_02083FDC: ; 0x02083FDC
 	bl FUN_02031190
 	cmp r0, #0x0
 	beq _02083FEE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02083FEE:
 	bl FUN_02031190
 	cmp r0, #0x0

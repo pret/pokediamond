@@ -50,7 +50,7 @@ _0205ECC0:
 	bl FUN_0205EC94
 	pop {r3, pc}
 _0205ECCA:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205ECCE:
 	mov r0, #0x0
 	pop {r3, pc}
@@ -886,7 +886,7 @@ FUN_0205F2E4: ; 0x0205F2E4
 	add r6, r1, #0x0
 	cmp r4, #0x45
 	blo _0205F2F4
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205F2F4:
 	mov r2, #0x9b
 	lsl r2, r2, #0x4
