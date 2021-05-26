@@ -316,7 +316,7 @@ _0205C584:
 	ldr r0, [r2, #0x8]
 	pop {r3, pc}
 _0205C588:
-	bl ErrorHandling
+	bl GF_AssertFail
 	ldr r0, _0205C590 ; =0x0000FFFF
 	pop {r3, pc}
 	.balign 4

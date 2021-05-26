@@ -3935,7 +3935,7 @@ _0222F5E2:
 	lsl r0, r0, #0xa
 	cmp r1, r0
 	blo _0222F608
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F608:
 	mov r0, #1
 	str r0, [r7, #4]

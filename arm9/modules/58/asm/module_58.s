@@ -2306,7 +2306,7 @@ _021DAC62:
 	lsl r0, r0, #0xa
 	cmp r7, r0
 	blt _021DAC6E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAC6E:
 	mov r0, #6
 	add r6, r6, #1

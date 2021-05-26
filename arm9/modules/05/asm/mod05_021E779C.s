@@ -38,7 +38,7 @@ MOD05_021E77C8: ; 0x021E77C8
 	sub r1, r1, #1
 	str r1, [r0]
 	bpl _021E77D6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E77D6:
 	pop {r3, pc}
 
@@ -56,7 +56,7 @@ MOD05_021E77E0: ; 0x021E77E0
 	sub r1, r1, #1
 	str r1, [r0, #4]
 	bpl _021E77EE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E77EE:
 	pop {r3, pc}
 
@@ -544,7 +544,7 @@ MOD05_021E7B78: ; 0x021E7B78
 	bl FUN_020582A8
 	cmp r0, #0
 	bne _021E7B94
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E7B94:
 	add r0, r6, #0
 	add r1, sp, #0

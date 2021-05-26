@@ -95,7 +95,7 @@ THUMB_FUNC u32 FUN_0202F150(u32 param0, u32 param1)
         r4 = 1;
         if (UNK_021C59F4.unk04 == 0)
         {
-            ErrorHandling();
+            GF_AssertFail();
         }
     }
 
@@ -1191,7 +1191,7 @@ THUMB_FUNC void FUN_020304D4(u32 param0)
         return;
     }
 
-    ErrorHandling();
+    GF_AssertFail();
 }
 
 THUMB_FUNC void FUN_020304F0(u32 param0)
@@ -1202,7 +1202,7 @@ THUMB_FUNC void FUN_020304F0(u32 param0)
         return;
     }
 
-    ErrorHandling();
+    GF_AssertFail();
 }
 
 THUMB_FUNC void FUN_0203050C()
@@ -1741,7 +1741,7 @@ THUMB_FUNC u32 FUN_02030B3C(u32 param0, u8 *param1, u32 param2)
 {
     if (FUN_02031190() != 0)
     {
-        ErrorHandling();
+        GF_AssertFail();
         return 0;
     }
 

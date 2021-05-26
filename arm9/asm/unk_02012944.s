@@ -34,7 +34,7 @@ FUN_02012974: ; 0x02012974
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201297E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201297E:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -46,7 +46,7 @@ FUN_02012988: ; 0x02012988
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02012992
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012992:
 	ldrb r0, [r4, #0x8]
 	lsl r0, r0, #0x2
@@ -59,7 +59,7 @@ FUN_0201299C: ; 0x0201299C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020129A6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020129A6:
 	ldrb r1, [r4, #0x8]
 	mov r0, #0x1
@@ -147,13 +147,13 @@ FUN_02012A30: ; 0x02012A30
 	add r7, r3, #0x0
 	cmp r5, #0x0
 	bne _02012A42
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012A42:
 	ldr r0, _02012AB0 ; =0x00000604
 	ldr r0, [r5, r0]
 	cmp r0, #0x0
 	beq _02012A4E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012A4E:
 	ldr r0, _02012AB4 ; =0x0000078C
 	mov r2, #0x0
@@ -212,7 +212,7 @@ FUN_02012AC4: ; 0x02012AC4
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02012ACE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012ACE:
 	ldr r0, _02012AF8 ; =0x00000604
 	ldr r0, [r4, r0]
@@ -451,7 +451,7 @@ FUN_02012C98: ; 0x02012C98
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bne _02012CA2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012CA2:
 	mov r0, #0x6
 	lsl r0, r0, #0x8

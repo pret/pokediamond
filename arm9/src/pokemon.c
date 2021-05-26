@@ -176,14 +176,14 @@ const s8 sNatureStatMods[][5] = {
 
 void ZeroMonData(struct Pokemon * pokemon)
 {
-    MIi_CpuClearFast(0, pokemon, sizeof(struct Pokemon));
+    MI_CpuClearFast(pokemon, sizeof(struct Pokemon));
     ENCRYPT_BOX(&pokemon->box);
     ENCRYPT_PTY(pokemon);
 }
 
 void ZeroBoxMonData(struct BoxPokemon * boxmon)
 {
-    MIi_CpuClearFast(0, boxmon, sizeof(struct BoxPokemon));
+    MI_CpuClearFast(boxmon, sizeof(struct BoxPokemon));
     ENCRYPT_BOX(boxmon);
 }
 
@@ -272,7 +272,7 @@ void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, in
     FreeToHeap(mail);
     capsule = 0;
     SetMonData(pokemon, MON_DATA_CAPSULE, &capsule);
-    MIi_CpuClearFast(0, seal_coords, sizeof(seal_coords));
+    MI_CpuClearFast(seal_coords, sizeof(seal_coords));
     SetMonData(pokemon, MON_DATA_SEAL_COORDS, seal_coords);
     CalcMonLevelAndStats(pokemon);
 }
@@ -3004,7 +3004,7 @@ void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest)
     SetMonData(dest, MON_DATA_MAIL_STRUCT, mail);
     FreeToHeap(mail);
     SetMonData(dest, MON_DATA_CAPSULE, &sp0);
-    MIi_CpuClearFast(0, &sp4, sizeof(sp4));
+    MI_CpuClearFast(&sp4, sizeof(sp4));
     SetMonData(dest, MON_DATA_SEAL_COORDS, &sp4);
     CalcMonLevelAndStats(dest);
 }
@@ -3724,7 +3724,7 @@ void Pokemon_RemoveCapsule(struct Pokemon * pokemon)
 {
     u8 sp0 = 0;
     CapsuleArray sp1;
-    MIi_CpuClearFast(0, &sp1, sizeof(sp1));
+    MI_CpuClearFast(&sp1, sizeof(sp1));
     SetMonData(pokemon, MON_DATA_CAPSULE, &sp0);
     SetMonData(pokemon, MON_DATA_SEAL_COORDS, &sp1);
 }

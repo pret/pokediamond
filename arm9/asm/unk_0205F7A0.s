@@ -173,7 +173,7 @@ FUN_0205F8CC: ; 0x0205F8CC
 	bl FS_OpenFile
 	cmp r0, #0x0
 	bne _0205F8F8
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x70
 	pop {r3-r7, pc}
 _0205F8F8:
@@ -183,7 +183,7 @@ _0205F8F8:
 	bl FS_ReadFile
 	cmp r0, #0x0
 	bge _0205F90A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205F90A:
 	mov r0, #0xb
 	mov r1, #0x4

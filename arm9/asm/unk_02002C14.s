@@ -92,7 +92,7 @@ FUN_02002C84: ; 0x02002C84
 	add r5, r1, #0x0
 	cmp r4, #0x4
 	blt _02002C92
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002C92:
 	ldr r0, _02002CBC ; =UNK_02106FC8
 	lsl r4, r4, #0x2
@@ -102,7 +102,7 @@ _02002C92:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02002CA6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002CA6:
 	ldr r0, _02002CBC ; =UNK_02106FC8
 	mov r1, #0x0
@@ -122,7 +122,7 @@ FUN_02002CC0: ; 0x02002CC0
 	add r4, r0, #0x0
 	cmp r4, #0x4
 	blt _02002CCC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002CCC:
 	ldr r0, _02002CF4 ; =UNK_02106FC8
 	lsl r4, r4, #0x2
@@ -132,7 +132,7 @@ _02002CCC:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02002CE0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002CE0:
 	ldr r0, _02002CF4 ; =UNK_02106FC8
 	mov r1, #0x1
@@ -152,7 +152,7 @@ FUN_02002CF8: ; 0x02002CF8
 	add r4, r0, #0x0
 	cmp r4, #0x4
 	blt _02002D04
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002D04:
 	ldr r0, _02002D8C ; =UNK_02106FC8
 	lsl r6, r4, #0x2
@@ -284,7 +284,7 @@ FUN_02002DE0: ; 0x02002DE0
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02002DFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002DFA:
 	ldr r0, _02002E10 ; =UNK_02106FC8
 	add r1, r5, #0x0
@@ -311,7 +311,7 @@ FUN_02002E14: ; 0x02002E14
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02002E2E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02002E2E:
 	add r0, r5, #0x0
 	bl String_c_str

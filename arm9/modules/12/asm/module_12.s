@@ -761,11 +761,11 @@ MOD12_0222DCAC: ; 0x0222DCAC
 	add r5, r0, #0
 	cmp r4, #0
 	bne _0222DCD4
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222DCD4:
 	cmp r5, #0
 	bne _0222DCDC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222DCDC:
 	bl FUN_02012CC8
 	pop {r3, r4, r5, pc}
@@ -780,7 +780,7 @@ MOD12_0222DCEC: ; 0x0222DCEC
 	ldr r0, [r4]
 	cmp r0, #0
 	bne _0222DCFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222DCFA:
 	ldr r1, _0222DD1C ; =0x00000172
 	mov r0, #0
@@ -4016,11 +4016,11 @@ MOD12_0222F6E0: ; 0x0222F6E0
 	add r5, r0, #0
 	cmp r4, #0
 	bne _0222F708
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F708:
 	cmp r5, #0
 	bne _0222F710
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F710:
 	bl FUN_02012CC8
 	pop {r3, r4, r5, pc}
@@ -4035,7 +4035,7 @@ MOD12_0222F720: ; 0x0222F720
 	ldr r0, [r4]
 	cmp r0, #0
 	bne _0222F72E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F72E:
 	mov r3, #0
 	mov r0, #3
@@ -5408,7 +5408,7 @@ MOD12_0223023C: ; 0x0223023C
 	bl FUN_020133C8
 	cmp r0, #0
 	beq _02230254
-	bl ErrorHandling
+	bl GF_AssertFail
 _02230254:
 	add r0, r4, #0
 	bl MOD12_02230A40
@@ -5945,7 +5945,7 @@ MOD12_022306F8: ; 0x022306F8
 	ldr r0, [r5]
 	cmp r0, #0
 	bne _02230706
-	bl ErrorHandling
+	bl GF_AssertFail
 _02230706:
 	mov r4, #0xad
 	lsl r4, r4, #4
@@ -6292,7 +6292,7 @@ MOD12_022309D8: ; 0x022309D8
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	beq _022309E8
-	bl ErrorHandling
+	bl GF_AssertFail
 _022309E8:
 	mov r1, #0x12
 	mov r0, #0x17
@@ -7947,7 +7947,7 @@ _022316A6:
 	mov r6, #0x69
 	b _022316B2
 _022316AA:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 _022316B2:
@@ -8241,7 +8241,7 @@ MOD12_022318DC: ; 0x022318DC
 	ldr r0, [r4]
 	cmp r0, #0
 	bne _022318EA
-	bl ErrorHandling
+	bl GF_AssertFail
 _022318EA:
 	ldr r0, [r4]
 	bl FUN_0200CAB4
@@ -8711,7 +8711,7 @@ MOD12_02231C80: ; 0x02231C80
 	sub r0, r6, #1
 	cmp r1, r0
 	bne _02231C96
-	bl ErrorHandling
+	bl GF_AssertFail
 _02231C96:
 	mov r0, #0x2e
 	lsl r0, r0, #4
@@ -8730,7 +8730,7 @@ _02231CB0:
 	ldr r0, [r4, #0x18]
 	cmp r0, #0
 	bne _02231CBA
-	bl ErrorHandling
+	bl GF_AssertFail
 _02231CBA:
 	ldr r0, [r4, #0x14]
 	bl FUN_02020988
@@ -9148,7 +9148,7 @@ _02231FC0:
 	ldrb r0, [r6, r0]
 	cmp r0, #0xff
 	beq _02232000
-	bl ErrorHandling
+	bl GF_AssertFail
 _02232000:
 	ldr r0, _022320A0 ; =0x000002E1
 	strb r4, [r6, r0]
@@ -9181,7 +9181,7 @@ _02232030:
 	str r0, [sp, #0x1c]
 	cmp r0, #6
 	ble _02232040
-	bl ErrorHandling
+	bl GF_AssertFail
 _02232040:
 	mov r0, #0x18
 	mul r0, r4
@@ -9201,7 +9201,7 @@ _02232054:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _02232066
-	bl ErrorHandling
+	bl GF_AssertFail
 _02232066:
 	ldr r0, [sp, #0x20]
 	ldr r3, _022320BC ; =MOD12_02244E50
@@ -9516,7 +9516,7 @@ MOD12_022322C0: ; 0x022322C0
 	ldr r4, [sp, #0xa8]
 	cmp r0, #0
 	beq _022322DA
-	bl ErrorHandling
+	bl GF_AssertFail
 _022322DA:
 	ldr r1, [r7, #4]
 	cmp r4, #0
@@ -9759,7 +9759,7 @@ _0223249A:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _022324AC
-	bl ErrorHandling
+	bl GF_AssertFail
 _022324AC:
 	lsl r0, r4, #1
 	ldrh r0, [r7, r0]
@@ -9989,7 +9989,7 @@ MOD12_02232654: ; 0x02232654
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
 	beq _02232664
-	bl ErrorHandling
+	bl GF_AssertFail
 _02232664:
 	mov r0, #0xb9
 	lsl r0, r0, #2
@@ -10516,7 +10516,7 @@ MOD12_02232A68: ; 0x02232A68
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	beq _02232A78
-	bl ErrorHandling
+	bl GF_AssertFail
 _02232A78:
 	mov r0, #0xc1
 	lsl r0, r0, #2
@@ -12081,7 +12081,7 @@ MOD12_0223361C: ; 0x0223361C
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _0223362A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223362A:
 	ldr r0, [r4, #4]
 	bl FUN_0200CAB4
@@ -12174,7 +12174,7 @@ MOD12_022336AC: ; 0x022336AC
 	ldr r0, [r0, #0x58]
 	cmp r0, #0
 	bne _022336D4
-	bl ErrorHandling
+	bl GF_AssertFail
 _022336D4:
 	add r2, r5, #0
 	add r2, #0x58
@@ -12256,7 +12256,7 @@ _02233772:
 	ldr r0, [r7, #0x58]
 	cmp r0, #0
 	beq _0223377C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223377C:
 	mov r1, #0x32
 	mov r0, #0x15
@@ -12322,7 +12322,7 @@ _022337E6:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0223380C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223380C:
 	mov r1, #0x32
 	mov r0, #0x15
@@ -12802,7 +12802,7 @@ MOD12_02233BBC: ; 0x02233BBC
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	bne _02233BCE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02233BCE:
 	mov r0, #0x5f
 	lsl r0, r0, #2
@@ -12826,7 +12826,7 @@ MOD12_02233BE4: ; 0x02233BE4
 	add r5, r2, #0
 	cmp r0, #0
 	bne _02233BFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _02233BFA:
 	ldr r1, _02233C60 ; =MOD12_02245200
 	lsl r2, r6, #2
@@ -12893,7 +12893,7 @@ MOD12_02233C74: ; 0x02233C74
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	bne _02233C86
-	bl ErrorHandling
+	bl GF_AssertFail
 _02233C86:
 	mov r0, #0x5f
 	lsl r0, r0, #2
@@ -13217,7 +13217,7 @@ MOD12_02233EEC: ; 0x02233EEC
 	add r4, r1, #0
 	cmp r0, #0
 	beq _02233F00
-	bl ErrorHandling
+	bl GF_AssertFail
 _02233F00:
 	mov r0, #1
 	str r0, [sp]
@@ -14137,7 +14137,7 @@ MOD12_02234628: ; 0x02234628
 	str r0, [sp, #4]
 	cmp r0, #5
 	ble _02234644
-	bl ErrorHandling
+	bl GF_AssertFail
 _02234644:
 	ldr r0, [sp]
 	mov r1, #0x14
@@ -14681,7 +14681,7 @@ MOD12_02234A60: ; 0x02234A60
 	blt _02234A78
 	cmp r5, #0
 	bne _02234A78
-	bl ErrorHandling
+	bl GF_AssertFail
 _02234A78:
 	cmp r7, #0x1c
 	bls _02234A7E
@@ -15213,7 +15213,7 @@ _02234ECC:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 _02234EF2:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02234EF6:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -15317,7 +15317,7 @@ MOD12_02234FB0: ; 0x02234FB0
 	add r6, r3, #0
 	cmp r5, #0x2f
 	blo _02234FC4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02234FC4:
 	ldr r0, _02234FE4 ; =MOD12_0224540C + 3
 	lsl r3, r5, #2
@@ -15734,11 +15734,11 @@ _022352D6:
 	ldr r4, [r0, r1]
 	cmp r4, #0
 	bge _022352E4
-	bl ErrorHandling
+	bl GF_AssertFail
 _022352E4:
 	cmp r4, #0x7f
 	ble _022352EC
-	bl ErrorHandling
+	bl GF_AssertFail
 _022352EC:
 	add r0, r4, #0
 	pop {r4, pc}
@@ -24466,13 +24466,13 @@ _02239404:
 	ldrh r0, [r0]
 	cmp r0, #0
 	bne _02239428
-	bl ErrorHandling
+	bl GF_AssertFail
 _02239428:
 	ldr r0, [sp, #0x58]
 	ldrb r0, [r0]
 	cmp r0, #3
 	blo _02239434
-	bl ErrorHandling
+	bl GF_AssertFail
 _02239434:
 	add sp, #0x44
 	pop {r4, r5, r6, r7, pc}
@@ -25164,7 +25164,7 @@ MOD12_02239838: ; 0x02239838
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _02239872
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, r6, r7, pc}
 _02239858:
 	bl FUN_02007534
@@ -25390,7 +25390,7 @@ MOD12_02239A10: ; 0x02239A10
 	add r4, r1, #0
 	cmp r0, #0
 	beq _02239A22
-	bl ErrorHandling
+	bl GF_AssertFail
 _02239A22:
 	mov r1, #0x30
 	ldr r2, [r5]
@@ -25442,7 +25442,7 @@ MOD12_02239A6C: ; 0x02239A6C
 	beq _02239A82
 	cmp r6, #0
 	bne _02239A82
-	bl ErrorHandling
+	bl GF_AssertFail
 _02239A82:
 	cmp r4, #0
 	beq _02239ACC
@@ -25477,7 +25477,7 @@ _02239A82:
 	add sp, #8
 	pop {r4, r5, r6, pc}
 _02239AC8:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02239ACC:
 	add sp, #8
 	pop {r4, r5, r6, pc}
@@ -25547,7 +25547,7 @@ MOD12_02239B48: ; 0x02239B48
 	add r4, r2, #0
 	cmp r5, #0xf
 	blo _02239B5A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02239B5A:
 	str r4, [sp]
 	ldr r2, _02239B74 ; =MOD12_02245F48
@@ -27277,7 +27277,7 @@ _0223A886:
 	ldr r0, [r0, #0x24]
 	cmp r0, #0
 	bne _0223A892
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223A892:
 	ldr r0, [r4]
 	mov r1, #0
@@ -27863,7 +27863,7 @@ _0223AD20:
 	ldr r0, [r0, #0x24]
 	cmp r0, #0
 	bne _0223AD2C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223AD2C:
 	ldrb r0, [r4, #0xf]
 	add r0, r0, #1
@@ -29305,7 +29305,7 @@ MOD12_0223B878: ; 0x0223B878
 	sub r0, #0x97
 	cmp r1, r0
 	bne _0223B88A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223B88A:
 	mov r0, #0x96
 	ldrsb r1, [r5, r0]
@@ -29323,7 +29323,7 @@ _0223B8A2:
 	ldr r0, [r4, #0x18]
 	cmp r0, #0
 	bne _0223B8AC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223B8AC:
 	ldr r0, [r4, #0x14]
 	bl FUN_02020988
@@ -29881,7 +29881,7 @@ MOD12_0223BCD8: ; 0x0223BCD8
 	ldr r4, [sp, #0x9c]
 	cmp r0, #0
 	beq _0223BCF0
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223BCF0:
 	ldr r0, [sp, #0x18]
 	mov r2, #0
@@ -30080,7 +30080,7 @@ MOD12_0223BE64: ; 0x0223BE64
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	beq _0223BE74
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223BE74:
 	add r0, r4, #0
 	add r0, #0x98
@@ -30605,7 +30605,7 @@ _0223C252:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0223C262
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C262:
 	add r4, r4, #1
 _0223C264:
@@ -31107,7 +31107,7 @@ _0223C618:
 	add r2, r2, #4
 	cmp r0, #0x44
 	blt _0223C602
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
@@ -33052,7 +33052,7 @@ _0223D532:
 	mvn r4, r4
 	cmp r0, r4
 	bne _0223D540
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 _0223D540:
 	strb r3, [r1, r0]
@@ -33295,7 +33295,7 @@ _0223D6DA:
 	add r7, r0, #0
 	b _0223D70C
 _0223D708:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D70C:
 	cmp r7, #1
 	bne _0223D750
@@ -33988,7 +33988,7 @@ MOD12_0223DC28: ; 0x0223DC28
 	str r2, [sp]
 	cmp r0, #0
 	beq _0223DC46
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223DC46:
 	ldr r0, _0223DCB0 ; =0x0000106C
 	mov r2, #0x28
@@ -34173,7 +34173,7 @@ _0223DD92:
 	strb r0, [r2, r3]
 	pop {r3, r4, r5, pc}
 _0223DDA4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223DDA8:
 	pop {r3, r4, r5, pc}
 	nop
@@ -34549,7 +34549,7 @@ MOD12_0223E068: ; 0x0223E068
 	beq _0223E07E
 	cmp r5, #0
 	bne _0223E07E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E07E:
 	cmp r6, #6
 	bls _0223E084
@@ -34722,7 +34722,7 @@ _0223E16A:
 	add sp, #8
 	pop {r4, r5, r6, pc}
 _0223E1E4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E1E8:
 	add sp, #8
 	pop {r4, r5, r6, pc}
@@ -34799,7 +34799,7 @@ MOD12_0223E274: ; 0x0223E274
 	add r6, r2, #0
 	cmp r4, #8
 	blo _0223E286
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E286:
 	lsl r3, r4, #2
 	ldr r2, _0223E2A0 ; =MOD12_02246224
@@ -34891,7 +34891,7 @@ MOD12_0223E32C: ; 0x0223E32C
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _0223E33E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E33E:
 	mov r0, #0x17
 	mov r1, #0x10
@@ -35065,7 +35065,7 @@ MOD12_0223E488: ; 0x0223E488
 	add r7, r2, #0
 	cmp r4, #8
 	blo _0223E49A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E49A:
 	ldr r0, _0223E51C ; =0x00001BF1
 	ldrb r0, [r5, r0]
@@ -35570,7 +35570,7 @@ MOD12_0223E868: ; 0x0223E868
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _0223E87A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E87A:
 	mov r0, #0x81
 	lsl r0, r0, #2
@@ -35613,7 +35613,7 @@ MOD12_0223E8B4: ; 0x0223E8B4
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _0223E8C8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E8C8:
 	cmp r5, #0
 	bne _0223E8D0
@@ -35753,7 +35753,7 @@ MOD12_0223E9C4: ; 0x0223E9C4
 	add r6, r2, #0
 	cmp r5, #0x21
 	blo _0223E9D6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E9D6:
 	ldr r0, _0223EA3C ; =MOD12_0224637C
 	lsl r1, r5, #2
@@ -38064,7 +38064,7 @@ _0223FBA6:
 	mov r0, #4
 	pop {r3, pc}
 _0223FBAA:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	.align 2, 0
@@ -38099,7 +38099,7 @@ _0223FBDC:
 	mov r0, #3
 	pop {r3, pc}
 _0223FBE0:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 
@@ -39925,7 +39925,7 @@ MOD12_022409CC: ; 0x022409CC
 	add r4, r0, #0
 	cmp r5, #4
 	blo _022409DA
-	bl ErrorHandling
+	bl GF_AssertFail
 _022409DA:
 	ldr r0, _02240A0C ; =MOD12_022464C0
 	cmp r4, #3
@@ -39967,7 +39967,7 @@ MOD12_02240A10: ; 0x02240A10
 	add r4, r3, #0
 	cmp r7, #4
 	blo _02240A22
-	bl ErrorHandling
+	bl GF_AssertFail
 _02240A22:
 	mov r0, #0
 	mvn r0, r0
@@ -40469,7 +40469,7 @@ MOD12_02240DC4: ; 0x02240DC4
 	add r4, r0, #0
 	cmp r4, #5
 	blo _02240DD0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02240DD0:
 	ldr r0, _02240DD8 ; =MOD12_022464D0
 	lsl r1, r4, #2
@@ -40494,7 +40494,7 @@ MOD12_02240DE4: ; 0x02240DE4
 	add r4, r0, #0
 	cmp r4, #5
 	blo _02240DF0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02240DF0:
 	ldr r0, _02240DF8 ; =MOD12_022464C8
 	ldrb r0, [r0, r4]
@@ -40660,7 +40660,7 @@ _02240F14:
 	add r4, r4, #1
 	cmp r4, #0x20
 	blt _02240F00
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -40695,7 +40695,7 @@ MOD12_02240F3C: ; 0x02240F3C
 	str r3, [sp]
 	cmp r4, r0
 	bls _02240F5A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02240F5A:
 	add r0, r5, #0
 	mov r2, #2
@@ -40750,7 +40750,7 @@ MOD12_02240FB0: ; 0x02240FB0
 	str r3, [sp]
 	cmp r7, r0
 	bls _02240FCC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02240FCC:
 	add r0, r5, #0
 	mov r2, #2
@@ -40840,7 +40840,7 @@ _02241066:
 	ldrh r0, [r5, #4]
 	cmp r4, r0
 	blt _02241070
-	bl ErrorHandling
+	bl GF_AssertFail
 _02241070:
 	add r0, r5, #0
 	add r1, r6, #0
@@ -42079,11 +42079,11 @@ MOD12_02241B0C: ; 0x02241B0C
 	add r5, r0, #0
 	cmp r4, #0
 	bne _02241B34
-	bl ErrorHandling
+	bl GF_AssertFail
 _02241B34:
 	cmp r5, #0
 	bne _02241B3C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02241B3C:
 	bl FUN_02012CC8
 	pop {r3, r4, r5, pc}
@@ -42098,7 +42098,7 @@ MOD12_02241B4C: ; 0x02241B4C
 	ldr r0, [r4]
 	cmp r0, #0
 	bne _02241B5A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02241B5A:
 	mov r1, #0xf3
 	mov r5, #0
@@ -42233,7 +42233,7 @@ _02241C1E:
 _02241C2C:
 	cmp r5, #4
 	bne _02241C34
-	bl ErrorHandling
+	bl GF_AssertFail
 _02241C34:
 	ldr r0, _02241CE8 ; =0x00000438
 	ldr r1, _02241CEC ; =0x00000439
@@ -43323,7 +43323,7 @@ _02242462:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0224247A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224247A:
 	mov r1, #0x32
 	mov r0, #0x18
@@ -43404,7 +43404,7 @@ MOD12_02242500: ; 0x02242500
 	beq _02242516
 	cmp r5, #0
 	bne _02242516
-	bl ErrorHandling
+	bl GF_AssertFail
 _02242516:
 	cmp r6, #3
 	bhi _022425EC
@@ -43509,7 +43509,7 @@ _02242596:
 	add sp, #8
 	pop {r4, r5, r6, pc}
 _022425EC:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022425F0:
 	add sp, #8
 	pop {r4, r5, r6, pc}
@@ -43586,7 +43586,7 @@ MOD12_02242678: ; 0x02242678
 	add r6, r2, #0
 	cmp r4, #7
 	blo _0224268A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224268A:
 	lsl r3, r4, #2
 	ldr r2, _022426A4 ; =MOD12_0224664C
@@ -44869,7 +44869,7 @@ _022430EC:
 	add r4, r2, r0
 	b _02243114
 _0224310C:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 _02243114:
@@ -44901,7 +44901,7 @@ _02243144:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0xc
 	ble _0224314E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224314E:
 	mov r0, #0
 	str r0, [sp, #8]
@@ -45562,7 +45562,7 @@ _02243628:
 	str r0, [r4]
 	b _02243638
 _02243630:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 _02243638:
@@ -47498,7 +47498,7 @@ _022444C4:
 	blt _022444C4
 	b _022444D8
 _022444D4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022444D8:
 	ldr r0, _022444F0 ; =MOD12_022444F8
 	ldr r2, _022444F4 ; =0x00007530

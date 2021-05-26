@@ -10,7 +10,7 @@ THUMB_FUNC u32 Sav2_Chatot_sizeof(void)
 
 THUMB_FUNC void Sav2_Chatot_init(struct SaveChatotSoundClip * chatot)
 {
-    MIi_CpuClear32(0, chatot, sizeof(struct SaveChatotSoundClip));
+    MI_CpuClear32(chatot, sizeof(struct SaveChatotSoundClip));
     chatot->exists = FALSE;
 }
 
@@ -94,5 +94,5 @@ THUMB_FUNC void Chatot_Encode(struct SaveChatotSoundClip * chatot, const s8 * da
 
 THUMB_FUNC void Chatot_copy(struct SaveChatotSoundClip * dest, const struct SaveChatotSoundClip * src)
 {
-    MIi_CpuCopyFast(src, dest, sizeof(struct SaveChatotSoundClip));
+    MI_CpuCopyFast(src, dest, sizeof(struct SaveChatotSoundClip));
 }

@@ -2745,7 +2745,7 @@ _021D8944:
 	blt _021D8928
 	pop {r4, r5, r6, pc}
 _021D894E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8952:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -5998,7 +5998,7 @@ _021DA310:
 	ldr r0, _021DA3B0 ; =0x000003EE
 	cmp r6, r0
 	blo _021DA31A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA31A:
 	ldr r0, [sp, #0x24]
 	lsl r3, r7, #0x18
@@ -6077,7 +6077,7 @@ MOD15_021DA3B4: ; 0x021DA3B4
 	str r2, [sp, #0x14]
 	cmp r0, r1
 	blo _021DA3CC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA3CC:
 	mov r0, #0xa
 	str r0, [sp]
@@ -6191,7 +6191,7 @@ _021DA4B6:
 	lsl r0, r0, #4
 	cmp r5, r0
 	blo _021DA4C2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA4C2:
 	ldrh r0, [r4, #2]
 	add r1, r6, #0
@@ -8609,7 +8609,7 @@ MOD15_021DB774: ; 0x021DB774
 	add r5, r1, #0
 	cmp r4, #0x1b
 	blo _021DB782
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB782:
 	mov r1, #0xa
 	ldr r2, _021DB794 ; =0x021DBA4C
@@ -8630,7 +8630,7 @@ MOD15_021DB798: ; 0x021DB798
 	add r6, r2, #0
 	cmp r5, #0x1b
 	blo _021DB7A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB7A8:
 	mov r0, #0xa
 	add r1, r5, #0
@@ -8652,7 +8652,7 @@ MOD15_021DB7C4: ; 0x021DB7C4
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB7D0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB7D0:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8669,7 +8669,7 @@ MOD15_021DB7E0: ; 0x021DB7E0
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB7EC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB7EC:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8686,7 +8686,7 @@ MOD15_021DB7FC: ; 0x021DB7FC
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB808
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB808:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8703,7 +8703,7 @@ MOD15_021DB818: ; 0x021DB818
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB824
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB824:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8720,7 +8720,7 @@ MOD15_021DB834: ; 0x021DB834
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB840
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB840:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8737,7 +8737,7 @@ MOD15_021DB850: ; 0x021DB850
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB85C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB85C:
 	mov r0, #0xa
 	add r1, r4, #0

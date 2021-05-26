@@ -34,7 +34,7 @@ FUN_02011744: ; 0x02011744
 	str r0, [sp, #0x8]
 	cmp r0, #0x0
 	bne _0201175E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201175E:
 	ldr r4, [sp, #0x8]
 	ldr r5, [sp, #0x8]
@@ -50,7 +50,7 @@ _02011766:
 	str r0, [r5, #0x0]
 	cmp r0, #0x0
 	bne _0201177E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201177E:
 	add r6, r6, #0x1
 	add r4, r4, #0x4
@@ -68,7 +68,7 @@ _0201177E:
 	cmp r0, #0x0
 	str r0, [r1, #0x60]
 	bne _020117A4
-	bl ErrorHandling
+	bl GF_AssertFail
 _020117A4:
 	ldr r1, [sp, #0x4]
 	ldr r0, [sp, #0x8]
@@ -87,7 +87,7 @@ FUN_020117BC: ; 0x020117BC
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	bne _020117C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020117C6:
 	mov r4, #0x0
 	add r5, r6, #0x0
@@ -111,13 +111,13 @@ FUN_020117E8: ; 0x020117E8
 	sub sp, #0x1c
 	add r5, r0, #0x0
 	bne _020117F4
-	bl ErrorHandling
+	bl GF_AssertFail
 _020117F4:
 	ldr r0, [r5, #0x0]
 	bl FUN_02011BA0
 	add r4, r0, #0x0
 	bne _02011802
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011802:
 	ldr r0, [r5, #0x10]
 	add r3, sp, #0x8
@@ -173,12 +173,12 @@ FUN_02011870: ; 0x02011870
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201187A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201187A:
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02011884
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011884:
 	add r0, r4, #0x0
 	bl FUN_02011F00
@@ -219,7 +219,7 @@ FUN_020118C4: ; 0x020118C4
 	str r1, [sp, #0x0]
 	cmp r5, #0x0
 	bne _020118D6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020118D6:
 	ldr r0, [sp, #0x0]
 	str r0, [r5, #0xc]
@@ -278,7 +278,7 @@ FUN_02011938: ; 0x02011938
 	sub sp, #0x10
 	add r5, r0, #0x0
 	bne _02011944
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011944:
 	ldr r0, [r5, #0x8]
 	cmp r0, #0x0
@@ -337,15 +337,15 @@ FUN_020119A4: ; 0x020119A4
 	add r6, r2, #0x0
 	cmp r5, #0x0
 	bne _020119B4
-	bl ErrorHandling
+	bl GF_AssertFail
 _020119B4:
 	cmp r4, #0x0
 	bne _020119BC
-	bl ErrorHandling
+	bl GF_AssertFail
 _020119BC:
 	cmp r6, #0x0
 	bne _020119C4
-	bl ErrorHandling
+	bl GF_AssertFail
 _020119C4:
 	ldr r0, [r5, #0xc]
 	str r0, [r4, #0x0]
@@ -361,7 +361,7 @@ FUN_020119D0: ; 0x020119D0
 	add r7, r1, #0x0
 	cmp r5, #0x0
 	bne _020119DE
-	bl ErrorHandling
+	bl GF_AssertFail
 _020119DE:
 	ldr r0, [r5, #0x4]
 	mov r6, #0x0
@@ -389,7 +389,7 @@ FUN_02011A00: ; 0x02011A00
 	add r7, r1, #0x0
 	cmp r5, #0x0
 	bne _02011A0E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011A0E:
 	ldr r0, [r5, #0x4]
 	mov r6, #0x0
@@ -417,7 +417,7 @@ FUN_02011A30: ; 0x02011A30
 	add r7, r1, #0x0
 	cmp r5, #0x0
 	bne _02011A3E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011A3E:
 	ldr r0, [r5, #0x4]
 	mov r6, #0x0
@@ -445,7 +445,7 @@ FUN_02011A60: ; 0x02011A60
 	add r7, r1, #0x0
 	cmp r5, #0x0
 	bne _02011A6E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011A6E:
 	ldr r0, [r5, #0x4]
 	mov r6, #0x0
@@ -473,7 +473,7 @@ FUN_02011A90: ; 0x02011A90
 	add r7, r1, #0x0
 	cmp r5, #0x0
 	bne _02011A9E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011A9E:
 	ldr r0, [r5, #0x4]
 	mov r6, #0x0
@@ -501,7 +501,7 @@ FUN_02011AC0: ; 0x02011AC0
 	add r7, r1, #0x0
 	cmp r5, #0x0
 	bne _02011ACE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011ACE:
 	ldr r0, [r5, #0x4]
 	mov r6, #0x0
@@ -529,7 +529,7 @@ FUN_02011AF0: ; 0x02011AF0
 	add r7, r1, #0x0
 	cmp r5, #0x0
 	bne _02011AFE
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011AFE:
 	ldr r0, [r5, #0x4]
 	mov r6, #0x0
@@ -567,7 +567,7 @@ FUN_02011B20: ; 0x02011B20
 	str r3, [sp, #0x4]
 	cmp r1, r0
 	bge _02011B42
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011B42:
 	ldrb r2, [r6, #0x8]
 	ldr r1, [sp, #0x0]
@@ -575,7 +575,7 @@ _02011B42:
 	add r0, r1, r0
 	cmp r2, r0
 	bge _02011B52
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011B52:
 	ldr r0, [sp, #0x0]
 	mov r4, #0x0
@@ -719,7 +719,7 @@ FUN_02011BF4: ; 0x02011BF4
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x1
 	bne _02011C54
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011C54:
 	add r0, r5, #0x0
 	mov r1, #0x1
@@ -774,12 +774,12 @@ FUN_02011CA4: ; 0x02011CA4
 	add r6, r3, #0x0
 	cmp r7, #0x0
 	bne _02011CB8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011CB8:
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x0
 	bne _02011CC2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011CC2:
 	ldr r0, [sp, #0x0]
 	mov r4, #0x0
@@ -1053,7 +1053,7 @@ _02011EC2:
 	ldr r0, [r0, r5]
 	cmp r0, #0x0
 	bne _02011EDC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011EDC:
 	ldr r0, [r4, #0x0]
 	add r7, #0x24
@@ -1174,7 +1174,7 @@ FUN_02011FAC: ; 0x02011FAC
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	bne _02011FBC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011FBC:
 	mov r0, #0x0
 	str r0, [r4, #0xc]
@@ -1188,7 +1188,7 @@ FUN_02011FC8: ; 0x02011FC8
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02011FD2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02011FD2:
 	add r0, r4, #0x0
 	bl FreeToHeap

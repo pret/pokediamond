@@ -415,7 +415,7 @@ FUN_0201EABC: ; 0x0201EABC
 	add r0, r7, #0x1
 	cmp r0, r5
 	ble _0201EADA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201EADA:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x24

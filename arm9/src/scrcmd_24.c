@@ -62,7 +62,7 @@ THUMB_FUNC asm BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx)
     ldr r0, [r4, #0x0]
     cmp r0, #0x0
     bne _02045DFC
-    bl ErrorHandling
+    bl GF_AssertFail
 _02045DFC:
     ldr r0, [r4, #0x0]
     bl FUN_02037D5C
@@ -199,7 +199,7 @@ THUMB_FUNC asm BOOL ScrCmd_Unk0223(struct ScriptContext* ctx)
     ldr r4, [r0, #0x0]
     cmp r4, #0x0
     bne _02045FB2
-    bl ErrorHandling
+    bl GF_AssertFail
 _02045FB2:
     ldrb r0, [r4, #0x16]
     cmp r0, #0x0
@@ -257,7 +257,7 @@ THUMB_FUNC asm BOOL ScrCmd_Unk0225(struct ScriptContext* ctx)
     ldr r4, [r0, #0x0]
     cmp r4, #0x0
     bne _02045FB2
-    bl ErrorHandling
+    bl GF_AssertFail
 _02045FB2:
     ldrb r0, [r4, #0x16]
     cmp r0, #0x0

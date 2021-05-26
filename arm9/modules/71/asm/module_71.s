@@ -964,7 +964,7 @@ _0222DDD8:
 	lsr r5, r0, #0x10
 	cmp r5, #0x3c
 	blo _0222DDF8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222DDF8:
 	bl FUN_02031190
 	mov r1, #0x1f
@@ -3551,7 +3551,7 @@ MOD71_0222F350: ; 0x0222F350
 	add r4, r2, #0
 	cmp r5, #0xd
 	blt _0222F362
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F362:
 	ldr r1, _0222F3C8 ; =0x02231220
 	lsl r0, r5, #3

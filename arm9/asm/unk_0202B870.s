@@ -109,7 +109,7 @@ FUN_0202B8F0: ; 0x0202B8F0
 	cmp r2, #0x6
 	blo _0202B8FE
 	blo _0202B930
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4-r6, pc}
 _0202B8FE:
 	mov r3, #0x90

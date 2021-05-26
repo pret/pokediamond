@@ -15,7 +15,7 @@ THUMB_FUNC u32 FUN_0202ABC8()
 
 THUMB_FUNC void FUN_0202ABCC(struct Unk0202ABBC* unk)
 {
-    MIi_CpuClearFast(0, unk, 0xf4);
+    MI_CpuClearFast(unk, sizeof(struct Unk0202ABBC));
 }
 
 THUMB_FUNC u16 FUN_0202ABDC(struct Unk0202ABBC* unk)
@@ -30,12 +30,12 @@ THUMB_FUNC void FUN_0202ABE4(struct Unk0202ABBC* unk, u16 data)
 
 THUMB_FUNC void FUN_0202ABEC(void *srcp, void *destp)
 {
-    MIi_CpuCopyFast(srcp, destp, 0xec);
+    MI_CpuCopyFast(srcp, destp, 0xec);
 }
 
 THUMB_FUNC void FUN_0202ABF8(void *destp, void *srcp)
 {
-    MIi_CpuCopyFast(srcp, destp, 0xec);
+    MI_CpuCopyFast(srcp, destp, 0xec);
 }
 
 THUMB_FUNC u32 FUN_0202AC08(struct Unk0202ABBC* unk)

@@ -44,7 +44,7 @@ FUN_0204BA1C: ; 0x0204BA1C
 	add r2, r0, #0x0
 	ldr r0, [r1, #0x40]
 	ldr r1, [r1, #0x44]
-	bl FUN_020127C0
+	bl GF_RTC_TimeDelta
 	mov r2, #0xfa
 	mov r3, #0x0
 	lsl r2, r2, #0x2
@@ -157,7 +157,7 @@ FUN_0204BAF4: ; 0x0204BAF4
 	cmp r5, r0
 	bls _0204BB08
 _0204BB04:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204BB08:
 	mov r3, #0x6
 	add r0, r4, #0x0
@@ -267,7 +267,7 @@ FUN_0204BBC4: ; 0x0204BBC4
 	lsr r5, r0, #0x10
 	cmp r5, #0xa
 	blo _0204BBDE
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204BBDE:
 	add r0, r5, #0x5
 	str r0, [r4, #0x38]
@@ -373,7 +373,7 @@ _0204BC86:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bne _0204BC94
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204BC94:
 	add r0, r6, #0x0
 	add r0, #0x14
@@ -405,7 +405,7 @@ _0204BCA4:
 	lsr r0, r0, #0x10
 	cmp r4, r0
 	blo _0204BCD8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204BCD8:
 	cmp r4, #0x14
 	bge _0204BCE0
@@ -437,7 +437,7 @@ _0204BD04:
 	add r0, #0x8
 	cmp r1, #0x6
 	blt _0204BCE6
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -463,7 +463,7 @@ _0204BD28:
 	strb r1, [r0, #0x0]
 	pop {r4, pc}
 _0204BD3A:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204BD3E:
 	pop {r4, pc}
 

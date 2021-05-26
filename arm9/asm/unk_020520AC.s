@@ -125,7 +125,7 @@ FUN_020520AC: ; 0x020520AC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bne _020520B6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020520B6:
 	ldr r0, [r4, #0x78]
 	cmp r0, #0x0
@@ -814,7 +814,7 @@ _020525F4:
 	mov r0, #0x5
 	pop {r4-r6, pc}
 _020525F8:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -1144,7 +1144,7 @@ FUN_02052814: ; 0x02052814
 	mvn r0, r0
 	cmp r4, r0
 	bne _02052836
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _02052836
 _02052834:
 	add r5, r4, #0x0
@@ -1516,7 +1516,7 @@ _02052AF2:
 	ldr r0, [r0, r1]
 	pop {r4-r6, pc}
 _02052AFA:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x28
 	pop {r4-r6, pc}
 	nop

@@ -100,7 +100,7 @@ _020603F6:
 	lsr r6, r0, #0x10
 	cmp r6, #0x10
 	blo _02060412
-	bl ErrorHandling
+	bl GF_AssertFail
 _02060412:
 	cmp r6, #0x0
 	bne _02060420
@@ -129,7 +129,7 @@ FUN_0206043C: ; 0x0206043C
 	add r4, r0, #0x0
 	cmp r4, #0x1d
 	blo _02060448
-	bl ErrorHandling
+	bl GF_AssertFail
 _02060448:
 	ldr r0, _02060450 ; =UNK_020F7460
 	lsl r1, r4, #0x2
@@ -206,7 +206,7 @@ _020604C2:
 	mov r6, #0x28
 	b _020604D0
 _020604C8:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x20
 	pop {r3-r7, pc}
 _020604D0:
@@ -303,7 +303,7 @@ _0206059C:
 	lsr r5, r0, #0x10
 	cmp r5, #0x1d
 	blo _020605B2
-	bl ErrorHandling
+	bl GF_AssertFail
 _020605B2:
 	lsl r0, r5, #0x18
 	lsr r2, r0, #0x18
@@ -361,7 +361,7 @@ _0206061E:
 	ldrh r5, [r4, #0x0]
 	cmp r5, #0x0
 	bne _02060628
-	bl ErrorHandling
+	bl GF_AssertFail
 _02060628:
 	cmp r5, #0x1
 	bhi _02060630
@@ -383,7 +383,7 @@ _02060630:
 	lsr r6, r0, #0x10
 	cmp r6, r5
 	blo _02060658
-	bl ErrorHandling
+	bl GF_AssertFail
 _02060658:
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x17

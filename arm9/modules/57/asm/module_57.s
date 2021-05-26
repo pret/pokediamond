@@ -1016,7 +1016,7 @@ MOD57_021D7CA4: ; 0x021D7CA4
 	ldr r0, [r4, r1]
 	cmp r0, #0
 	bne _021D7D4C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7D4C:
 	ldr r1, _021D7ECC ; =0x000030B8
 	ldr r0, [r4, r1]
@@ -1025,7 +1025,7 @@ _021D7D4C:
 	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0
 	bne _021D7D60
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7D60:
 	add r0, r4, #0
 	add r0, #0xb4
@@ -1070,7 +1070,7 @@ _021D7D9C:
 	ldr r0, [r4, r1]
 	cmp r0, #0
 	bne _021D7DBC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7DBC:
 	ldr r1, _021D7ECC ; =0x000030B8
 	ldr r0, [r4, r1]
@@ -1079,7 +1079,7 @@ _021D7DBC:
 	bl NNS_G2dGetUnpackedBGCharacterData
 	cmp r0, #0
 	bne _021D7DD0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7DD0:
 	ldr r3, _021D7ED0 ; =0x000032FC
 	mov r0, #0x19
@@ -2000,7 +2000,7 @@ MOD57_021D84AC: ; 0x021D84AC
 	add r6, r0, #0
 	cmp r7, r6
 	bls _021D850C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D850C:
 	cmp r7, r6
 	bhs _021D8578
@@ -2292,7 +2292,7 @@ _021D8732:
 	mov r0, #4
 	pop {r3, pc}
 _021D873A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	.align 2, 0
@@ -3442,7 +3442,7 @@ MOD57_021D905C: ; 0x021D905C
 	ldr r0, [r5, #0x18]
 	cmp r0, #0
 	bne _021D906E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D906E:
 	ldr r0, [r5, #0x18]
 	bl GetIGTHours
@@ -3716,10 +3716,10 @@ _021D9290:
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
 	bl FreeToHeap
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _021D92CE
 _021D92CA:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D92CE:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -4011,11 +4011,11 @@ MOD57_021D951C: ; 0x021D951C
 	add r6, r2, #0
 	cmp r4, #8
 	blo _021D952E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D952E:
 	cmp r6, #3
 	bls _021D9536
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9536:
 	lsl r7, r4, #2
 	mov r0, #0x57

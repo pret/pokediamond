@@ -9,9 +9,9 @@ static struct LoadedOverlay gLoadedOverlays[3][8];
 THUMB_FUNC void FreeOverlayAllocation(struct LoadedOverlay * loaded)
 {
     if (loaded->active != TRUE)
-        ErrorHandling();
+        GF_AssertFail();
     if (FS_UnloadOverlay(MI_PROCESSOR_ARM9, loaded->id) != TRUE)
-        ErrorHandling();
+        GF_AssertFail();
     loaded->active = FALSE;
 }
 
@@ -35,7 +35,7 @@ THUMB_FUNC s32 GetOverlayLoadDestination(FSOverlayID id)
     u8 *end;
     u8 *start;
     if (FS_LoadOverlayInfo(&info, MI_PROCESSOR_ARM9, id) != TRUE)
-        ErrorHandling();
+        GF_AssertFail();
     start = (u8 *)HW_ITCM_IMAGE;
     end = (u8 *)HW_ITCM_END;
     if (info.header.ram_address <= end && info.header.ram_address >= start)
@@ -72,7 +72,7 @@ THUMB_FUNC BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
     }
     if (r6 >= 8)
     {
-        ErrorHandling();
+        GF_AssertFail();
         return FALSE;
     }
     if (r7 == OVERLAY_LOAD_ITCM || r7 == OVERLAY_LOAD_DTCM)
@@ -91,7 +91,7 @@ THUMB_FUNC BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
         result = LoadOverlayNoInitAsync(MI_PROCESSOR_ARM9, id);
         break;
     default:
-        ErrorHandling();
+        GF_AssertFail();
         return FALSE;
     }
     if (r7 == OVERLAY_LOAD_ITCM || r7 == OVERLAY_LOAD_DTCM)
@@ -100,7 +100,7 @@ THUMB_FUNC BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
     }
     if (result == 0)
     {
-        ErrorHandling();
+        GF_AssertFail();
         return FALSE;
     }
     return TRUE;
@@ -120,7 +120,7 @@ THUMB_FUNC BOOL CanOverlayBeLoaded(FSOverlayID id)
         {
             if ((start >= start2 && start < end2) || (end > start2 && end <= end2) || (start <= start2 && end >= end2))
             {
-                ErrorHandling();
+                GF_AssertFail();
                 return FALSE;
             }
         }
@@ -146,7 +146,7 @@ THUMB_FUNC BOOL GetOverlayRamBounds(FSOverlayID id, void ** start, void ** end)
 {
     FSOverlayInfo info;
     if (!FS_LoadOverlayInfo(&info, MI_PROCESSOR_ARM9, id)) {
-        ErrorHandling();
+        GF_AssertFail();
         return FALSE;
     }
     *start = (void *)info.header.ram_address;

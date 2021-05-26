@@ -4094,7 +4094,7 @@ MOD66_021D94A4: ; 0x021D94A4
 	bl FS_OpenFile
 	cmp r0, #0
 	bne _021D94C8
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x4c
 	mov r0, #0
 	pop {r4, r5, r6, r7, pc}
@@ -4105,7 +4105,7 @@ _021D94C8:
 	bl FS_ReadFile
 	cmp r0, #0
 	bge _021D94DA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D94DA:
 	add r0, r4, #0
 	mov r1, #8

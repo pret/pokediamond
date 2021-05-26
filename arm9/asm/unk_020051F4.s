@@ -47,7 +47,7 @@ _0200523E:
 	add r4, r0, #0x0
 	b _02005258
 _02005250:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _02005258:
@@ -134,7 +134,7 @@ FUN_02005308: ; 0x02005308
 	add r5, r1, #0x0
 	cmp r0, #0x4
 	beq _02005318
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02005318:
@@ -142,7 +142,7 @@ _02005318:
 	bl FUN_020048D0
 	cmp r0, #0x7
 	beq _0200532A
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0200532A:
@@ -1072,7 +1072,7 @@ FUN_02005AE0: ; 0x02005AE0
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02005B04
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4-r6, pc}
 _02005B04:
 	mov r2, #0x0

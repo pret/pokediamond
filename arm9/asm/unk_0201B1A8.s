@@ -94,7 +94,7 @@ FUN_0201B234: ; 0x0201B234
 	bl FUN_0201B1E4
 	cmp r4, #0x0
 	bne _0201B24A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201B24A:
 	ldr r1, [r4, #0x0]
 	add r0, r5, #0x0
@@ -367,7 +367,7 @@ _0201B452:
 	blx r1
 	cmp r0, #0x0
 	beq _0201B468
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201B468:
 	add sp, #0x10
 	mov r0, #0x0
@@ -382,7 +382,7 @@ _0201B46E:
 	blx r1
 	cmp r0, #0x0
 	beq _0201B484
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201B484:
 	add sp, #0x10
 	mov r0, #0x0
@@ -397,7 +397,7 @@ _0201B48A:
 	blx r1
 	cmp r0, #0x0
 	beq _0201B4A0
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201B4A0:
 	add sp, #0x10
 	mov r0, #0x0

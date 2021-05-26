@@ -95,18 +95,18 @@ FUN_0200E1D0: ; 0x0200E1D0
 	add r6, r3, #0x0
 	cmp r0, #0x0
 	bne _0200E1E6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200E1E6:
 	ldr r0, [sp, #0x34]
 	cmp r0, #0x0
 	bne _0200E1F0
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200E1F0:
 	ldr r0, _0200E2AC ; =UNK_021C47F4
 	ldrh r0, [r0, #0xc]
 	cmp r0, #0x0
 	beq _0200E1FC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200E1FC:
 	ldr r0, _0200E2B0 ; =UNK_021C46B4
 	bl FUN_0200E808
@@ -672,14 +672,14 @@ FUN_0200E628: ; 0x0200E628
 	str r1, [sp, #0x0]
 	cmp r0, #0x0
 	beq _0200E64A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200E64A:
 	add r6, r5, #0x0
 	add r6, #0x8
 	ldr r0, [r6, r4]
 	cmp r0, #0x0
 	bne _0200E658
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200E658:
 	ldr r0, [r5, #0x10]
 	cmp r0, #0x0
@@ -697,7 +697,7 @@ _0200E672:
 	ldr r0, [sp, #0x4]
 	cmp r0, #0x1
 	beq _0200E67C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200E67C:
 	ldr r0, [sp, #0x0]
 	cmp r7, #0x0

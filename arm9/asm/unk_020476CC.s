@@ -327,7 +327,7 @@ _0204796C:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	bne _02047976
-	bl ErrorHandling
+	bl GF_AssertFail
 _02047976:
 	ldr r0, [r5, #0x4]
 	bl FreeToHeap
@@ -343,7 +343,7 @@ _02047988:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02047996
-	bl ErrorHandling
+	bl GF_AssertFail
 _02047996:
 	add r0, r4, #0x0
 	add r0, #0xf8
@@ -361,7 +361,7 @@ _020479B0:
 	ldr r0, [r4, r6]
 	cmp r0, #0x0
 	bne _020479BA
-	bl ErrorHandling
+	bl GF_AssertFail
 _020479BA:
 	mov r0, #0x46
 	lsl r0, r0, #0x2
@@ -399,7 +399,7 @@ FUN_020479FC: ; 0x020479FC
 	add r6, r1, #0x0
 	cmp r4, #0x4
 	blt _02047A0C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02047A0C:
 	lsl r0, r4, #0x2
 	add r0, r5, r0
@@ -408,7 +408,7 @@ _02047A0C:
 	bl AddMonToParty
 	cmp r0, #0x0
 	bne _02047A20
-	bl ErrorHandling
+	bl GF_AssertFail
 _02047A20:
 	pop {r4-r6, pc}
 	.balign 4
@@ -421,7 +421,7 @@ FUN_02047A24: ; 0x02047A24
 	add r6, r1, #0x0
 	cmp r4, #0x4
 	blt _02047A34
-	bl ErrorHandling
+	bl GF_AssertFail
 _02047A34:
 	lsl r1, r4, #0x2
 	add r1, r5, r1
@@ -439,7 +439,7 @@ FUN_02047A44: ; 0x02047A44
 	add r6, r1, #0x0
 	cmp r4, #0x4
 	blt _02047A54
-	bl ErrorHandling
+	bl GF_AssertFail
 _02047A54:
 	lsl r1, r4, #0x2
 	add r1, r5, r1
@@ -1144,7 +1144,7 @@ _02048054:
 	ldr r0, [r0, r1]
 	pop {r3-r5, pc}
 _02048060:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0xc
 	pop {r3-r5, pc}
 	.balign 4

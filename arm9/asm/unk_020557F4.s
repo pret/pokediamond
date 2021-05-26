@@ -1157,7 +1157,7 @@ _0205614C:
 	add sp, #0xc
 	pop {r4-r7, pc}
 _02056162:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -1248,7 +1248,7 @@ _02056204:
 	mov r0, #0x2
 	pop {r3, pc}
 _02056208:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 
@@ -1709,7 +1709,7 @@ _0205657E:
 	mov r0, #0x1
 	pop {r3, pc}
 _02056582:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -2096,7 +2096,7 @@ _0205689A:
 	mov r0, #0x1
 	pop {r3, pc}
 _0205689E:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -3227,7 +3227,7 @@ _02057172:
 	b _0205718E
 _02057188:
 	mov r4, #0x0
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205718E:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}

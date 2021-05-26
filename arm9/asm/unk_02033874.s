@@ -191,7 +191,7 @@ _020339D8:
 	str r0, [r6, #0x0]
 	cmp r0, #0x3
 	bne _020339FE
-	bl ErrorHandling
+	bl GF_AssertFail
 _020339FE:
 	ldr r0, [r6, #0x0]
 	cmp r0, #0x0

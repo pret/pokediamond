@@ -149,7 +149,7 @@ _020608F0:
 	bl FUN_020054C8
 	b _0206090A
 _020608F8:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add sp, #0x28
@@ -472,7 +472,7 @@ _02060B6A:
 	str r0, [r4, #0x24]
 	b _02060B86
 _02060B7C:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r3-r4, pc}
@@ -569,7 +569,7 @@ _02060BF6:
 	bl FUN_0204A9F0
 	cmp r0, #0x0
 	bne _02060C38
-	bl ErrorHandling
+	bl GF_AssertFail
 _02060C38:
 	ldr r0, [sp, #0x20]
 	bl MOD05_021E7EC8
@@ -594,7 +594,7 @@ _02060C38:
 	bl MOD05_021DA464
 	b _02060C6E
 _02060C6A:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02060C6E:
 	add r0, r6, #0x1
 	lsl r0, r0, #0x18
@@ -644,7 +644,7 @@ _02060CA8:
 	str r1, [r0, #0x8]
 	pop {r3, pc}
 _02060CC4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02060CC8:
 	pop {r3, pc}
 	.balign 4

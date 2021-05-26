@@ -143,7 +143,7 @@
 .extern DGT_Hash2SetSource
 .extern DGTi_Hash2CalcHmac
 .extern DGTi_hash2_arm4_small
-.extern ErrorHandling
+.extern GF_AssertFail
 .extern FS_ChangeDir
 .extern FS_CloseFile
 .extern FS_ConvertPathToFileID
@@ -805,11 +805,11 @@
 .extern GF_RTC_CopyDate
 .extern GF_RTC_TimeToSec
 .extern GF_RTC_DateTimeToSec
-.extern FUN_02012710
+.extern GF_RTC_GetDayOfYear
 .extern IsNighttime
 .extern GF_RTC_GetTimeOfDay
 .extern GF_RTC_GetTimeOfDayByHour
-.extern FUN_020127C0
+.extern GF_RTC_TimeDelta
 .extern ListMenuItems_ctor
 .extern ListMenuItems_dtor
 .extern ListMenuItems_AppendFromMsgData

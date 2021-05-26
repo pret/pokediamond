@@ -147,7 +147,7 @@ _0200248C:
 	lsl r0, r0, #0x8
 	cmp r5, r0
 	bne _020024B0
-	bl ErrorHandling
+	bl GF_AssertFail
 _020024B0:
 	ldr r0, _02002664 ; =0x0000F0FD
 	cmp r5, r0

@@ -134,7 +134,7 @@ MOD05_021E585C: ; 0x021E585C
 	bl FUN_020582A8
 	cmp r0, #0
 	bne _021E5878
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E5878:
 	add r0, r5, #0
 	add r1, sp, #0

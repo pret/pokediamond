@@ -30,7 +30,7 @@ _0202BEB4:
 	bl GetMonData
 	cmp r0, #0x0
 	beq _0202BECC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202BECC:
 	add r4, r4, #0x1
 	add r5, #0xec
@@ -60,7 +60,7 @@ _0202BEF0:
 	bl GetMonData
 	cmp r0, #0x0
 	beq _0202BF08
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202BF08:
 	add r4, r4, #0x1
 	add r5, #0xec
@@ -178,7 +178,7 @@ FUN_0202BFD8: ; 0x0202BFD8
 	add r4, r2, #0x0
 	cmp r5, #0x6
 	blt _0202BFE8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202BFE8:
 	mov r0, #0xec
 	mul r0, r5

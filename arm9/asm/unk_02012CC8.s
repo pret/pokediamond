@@ -96,7 +96,7 @@ _02012D04:
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02012D14
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012D14:
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -337,7 +337,7 @@ _02012EE4:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012EF0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012EF0:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -363,7 +363,7 @@ _02012F10:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012F1C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012F1C:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -389,7 +389,7 @@ _02012F3C:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012F48
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012F48:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -415,7 +415,7 @@ _02012F68:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012F74
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012F74:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -441,7 +441,7 @@ _02012F94:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012FA0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012FA0:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -467,7 +467,7 @@ _02012FC0:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012FCC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012FCC:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -493,7 +493,7 @@ _02012FEC:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012FF8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012FF8:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -519,7 +519,7 @@ _02013018:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013024
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013024:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -545,7 +545,7 @@ _02013044:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013050
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013050:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -571,7 +571,7 @@ _02013070:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _0201307C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201307C:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -597,7 +597,7 @@ _0201309C:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _020130A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _020130A8:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -623,7 +623,7 @@ _020130C8:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _020130D4
-	bl ErrorHandling
+	bl GF_AssertFail
 _020130D4:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -649,7 +649,7 @@ _020130F4:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013100
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013100:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -675,7 +675,7 @@ _02013120:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _0201312C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201312C:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -701,7 +701,7 @@ _0201314C:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013158
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013158:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -727,7 +727,7 @@ _02013178:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013184
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013184:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -751,12 +751,12 @@ FUN_02013194: ; 0x02013194
 	add r7, r3, #0x0
 	cmp r0, #0x0
 	bne _020131A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _020131A8:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	beq _020131B2
-	bl ErrorHandling
+	bl GF_AssertFail
 _020131B2:
 	add r0, r5, #0x0
 	add r0, #0xd8
@@ -870,13 +870,13 @@ FUN_0201327C: ; 0x0201327C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02013286
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013286:
 	ldr r0, _020132B8 ; =UNK_021C4850
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02013292
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013292:
 	ldr r0, _020132B8 ; =UNK_021C4850
 	mov r1, #0x0
@@ -895,7 +895,7 @@ _020132A8:
 	add r2, r2, #0x4
 	cmp r1, #0x10
 	blt _0201329A
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	nop
 _020132B8: .word UNK_021C4850
@@ -905,13 +905,13 @@ FUN_020132BC: ; 0x020132BC
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020132C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020132C6:
 	ldr r0, _020132FC ; =UNK_021C4850
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _020132D2
-	bl ErrorHandling
+	bl GF_AssertFail
 _020132D2:
 	ldr r0, _020132FC ; =UNK_021C4850
 	mov r1, #0x0
@@ -933,7 +933,7 @@ _020132EE:
 	add r2, r2, #0x4
 	cmp r1, #0x10
 	blt _020132DA
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	.balign 4
 _020132FC: .word UNK_021C4850
@@ -1516,7 +1516,7 @@ DestroyListMenuCursorObj: ; 0x020136C0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020136CA
-	bl ErrorHandling
+	bl GF_AssertFail
 _020136CA:
 	cmp r4, #0x0
 	beq _020136DE
@@ -1537,7 +1537,7 @@ ListMenuCursorSetColor: ; 0x020136E0
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _020136EE
-	bl ErrorHandling
+	bl GF_AssertFail
 _020136EE:
 	cmp r5, #0x0
 	beq _020136F4

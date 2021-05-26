@@ -217,7 +217,7 @@ _02088C12:
 	mov r0, #0x5
 	pop {r3-r5, pc}
 _02088C16:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x95
 	str r0, [r4, #0x8]
 _02088C1E:
@@ -231,7 +231,7 @@ _02088C1E:
 	bl Bag_TakeItem
 	cmp r0, #0x0
 	bne _02088C38
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088C38:
 	mov r0, #0x4
 	pop {r3-r5, pc}
