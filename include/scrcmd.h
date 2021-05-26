@@ -107,6 +107,13 @@ BOOL ScrCmd_Unk02CF(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk005E(struct ScriptContext *ctx);
 
+// scrcmd_mart.c
+BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
+BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx);
+BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx);
+BOOL ScrCmd_SealsMart(struct ScriptContext * ctx);
+BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx);
+
 //scrcmd_4.c
 BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx);
 BOOL ScrCmd_GetRivalName(struct ScriptContext* ctx);

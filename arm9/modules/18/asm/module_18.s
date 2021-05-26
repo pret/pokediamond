@@ -33727,7 +33727,7 @@ MOD18_02249BA8: ; 0x02249BA8
 	bl MOD18_0223D678
 	ldr r1, _02249CB0 ; =0x0000023B
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
 	bl ListMenuItems_ctor
@@ -34194,7 +34194,7 @@ MOD18_02249F8C: ; 0x02249F8C
 	bl MOD18_0223D678
 	ldr r1, _0224A0D4 ; =0x00000239
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
 	bl ListMenuItems_ctor
@@ -34643,7 +34643,7 @@ MOD18_0224A360: ; 0x0224A360
 	bl MOD18_0223D678
 	ldr r1, _0224A464 ; =0x00000239
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
 	bl ListMenuItems_ctor
@@ -35581,7 +35581,7 @@ MOD18_0224AB08: ; 0x0224AB08
 	bl MOD18_0223D678
 	ldr r1, _0224AC0C ; =0x00000237
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
 	bl ListMenuItems_ctor
@@ -37823,7 +37823,7 @@ MOD18_0224BD54: ; 0x0224BD54
 	mov r1, #0x91
 	lsl r1, r1, #2
 	mov r2, #1
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	ldr r0, _0224BDE4 ; =0x00000246
 	mov r1, #0
 	strb r1, [r4, r0]
@@ -39123,7 +39123,7 @@ MOD18_0224C7D4: ; 0x0224C7D4
 	bl MOD18_0223D678
 	ldr r1, _0224C938 ; =0x0000023B
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	b _0224C876
 _0224C83C:
 	cmp r0, #0
@@ -39137,7 +39137,7 @@ _0224C83C:
 	bl MOD18_0223D678
 	ldr r1, _0224C93C ; =0x00000237
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	b _0224C876
 _0224C85C:
 	mov r0, #0
@@ -39149,7 +39149,7 @@ _0224C85C:
 	bl MOD18_0223D678
 	ldr r1, _0224C940 ; =0x00000239
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 _0224C876:
 	mov r7, #0x21
 	mov r4, #0
@@ -39394,7 +39394,7 @@ MOD18_0224CA58: ; 0x0224CA58
 	bl MOD18_0223D658
 	ldr r1, _0224CA90 ; =0x00000241
 	mov r2, #1
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	bl MOD18_0223D658
 	add r4, r0, #0
 	bl FUN_02031190
@@ -41034,7 +41034,7 @@ _0224D7BC:
 	bl MOD18_0223D658
 	ldr r1, _0224D80C ; =0x00000245
 	mov r2, #1
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	mov r0, #4
 	bl FUN_02025964
 	add r6, r0, #0
@@ -41468,8 +41468,9 @@ MOD18_0224DB5C: ; 0x0224DB5C
 	pop {r4, pc}
 	thumb_func_end MOD18_0224DB5C
 
-	thumb_func_start MOD18_0224DB80
-MOD18_0224DB80: ; 0x0224DB80
+	thumb_func_start MOD18_LoadMsgBank
+MOD18_LoadMsgBank: ; 0x0224DB80
+    ; void MOD18_LoadMsgBank(struct MOD18Work * work, s32 bank, u32 async)
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0x2c]
@@ -41492,7 +41493,7 @@ MOD18_0224DB80: ; 0x0224DB80
 _0224DBAC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-	thumb_func_end MOD18_0224DB80
+	thumb_func_end MOD18_LoadMsgBank
 
 	thumb_func_start MOD18_0224DBB0
 MOD18_0224DBB0: ; 0x0224DBB0
@@ -42917,7 +42918,7 @@ _0224E5CE:
 	bl MOD18_0223D678
 	ldr r1, _0224E68C ; =0x00000237
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	ldr r4, _0224E698 ; =0x022507D0
 	add r3, sp, #0x30
 	add r2, r3, #0
