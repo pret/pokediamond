@@ -22,7 +22,6 @@ Static arm9
 	Object overlay_manager.o
 	Object filesystem.o
 	Object gf_gfx_loader.o
-	Object unk_02006864.o
 	Object unk_02006D98.o
 	Object unk_02008AA4.o
 	Object unk_02008DEC.o
