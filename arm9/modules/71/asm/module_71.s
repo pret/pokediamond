@@ -756,7 +756,7 @@ _0222DC0C:
 	mov r0, #0x13
 	mov r2, #0
 	add r3, r6, r3
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	mov r1, #0x79
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -1821,7 +1821,7 @@ MOD71_0222E4DC: ; 0x0222E4DC
 	ldrh r1, [r2, r1]
 	mov r2, #5
 	lsl r3, r3, #5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r0, _0222E548 ; =0x00002110
 	mov r1, #0
 	str r1, [r5, r0]
@@ -2220,7 +2220,7 @@ MOD71_0222E884: ; 0x0222E884
 	str r2, [sp]
 	ldr r2, [sp, #0x20]
 	ldr r3, [sp, #0x24]
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r6, r0, #0
 	beq _0222E8D6
 	add r1, sp, #4
@@ -2291,7 +2291,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	mov r2, #4
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0
 	mov r0, #0x12
 	lsl r0, r0, #4
@@ -2301,7 +2301,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02017FE4
@@ -2325,7 +2325,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -2353,7 +2353,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r1, #4
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	mov r1, #0x40
 	mov r2, #0x1a
@@ -2375,7 +2375,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -2389,7 +2389,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	add r2, r4, #0
 	add r3, r1, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -2403,7 +2403,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	add r2, r4, #0
 	add r3, r1, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #4
 	mov r1, #0x40
 	mov r2, #0x1a
@@ -2628,7 +2628,7 @@ _0222EAA6:
 	mov r0, #0x13
 	mov r2, #1
 	add r3, #0xc0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD71_0222EA68

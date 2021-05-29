@@ -349,7 +349,7 @@ MOD32_02254A9C: ; 0x02254A9C
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x68
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #8
 	str r0, [sp]
 	add r0, r5, #0
@@ -465,7 +465,7 @@ MOD32_02254B58: ; 0x02254B58
 	mov r0, #0xc
 	mov r1, #0x65
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -477,7 +477,7 @@ MOD32_02254B58: ; 0x02254B58
 	mov r0, #0xc
 	mov r1, #0x64
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C

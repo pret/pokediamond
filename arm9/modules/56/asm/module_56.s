@@ -950,7 +950,7 @@ MOD56_0221257C: ; 0x0221257C
 	mov r0, #0x5c
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x36
@@ -958,7 +958,7 @@ MOD56_0221257C: ; 0x0221257C
 	mov r0, #0x5c
 	mov r1, #3
 	mov r2, #4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x1a
 	mov r0, #0
 	lsl r1, r1, #4
@@ -978,7 +978,7 @@ MOD56_0221257C: ; 0x0221257C
 	mov r0, #0x5c
 	mov r1, #2
 	add r2, r4, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -988,7 +988,7 @@ MOD56_0221257C: ; 0x0221257C
 	mov r0, #0x5c
 	mov r1, #4
 	add r2, r4, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -999,7 +999,7 @@ MOD56_0221257C: ; 0x0221257C
 	mov r1, #9
 	add r2, r4, #0
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1010,7 +1010,7 @@ MOD56_0221257C: ; 0x0221257C
 	mov r1, #0xa
 	add r2, r4, #0
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	add r5, #0xc4
 	ldr r0, [r5]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -2464,7 +2464,7 @@ MOD56_02213194: ; 0x02213194
 	ldr r2, [r2]
 	mov r0, #0x5c
 	mov r1, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	add r0, r6, #0
 	add r0, #0xb0
 	ldr r0, [r0]
@@ -3644,7 +3644,7 @@ MOD56_02213A94: ; 0x02213A94
 	ldr r2, [r2]
 	mov r0, #0x5c
 	mov r1, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xd7
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -6929,7 +6929,7 @@ MOD56_0221547C: ; 0x0221547C
 	ldr r2, [r2]
 	mov r0, #0x5c
 	mov r1, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xf3
 	mov r1, #0
 	lsl r0, r0, #2
@@ -6964,7 +6964,7 @@ MOD56_022154BC: ; 0x022154BC
 	mov r0, #0x5c
 	mov r1, #6
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xcb
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -7564,7 +7564,7 @@ MOD56_022159B0: ; 0x022159B0
 	ldr r2, [r2]
 	mov r0, #0x5c
 	mov r1, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xd7
 	lsl r0, r0, #2
 	add r0, r5, r0

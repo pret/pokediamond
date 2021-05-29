@@ -792,7 +792,7 @@ MOD83_0222DBD0: ; 0x0222DBD0
 	mov r1, #0x29
 	mov r2, #0
 	mov r3, #0x80
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0xe
 	lsl r0, r0, #6
 	str r0, [sp]
@@ -807,7 +807,7 @@ MOD83_0222DBD0: ; 0x0222DBD0
 	mov r0, #0x74
 	mov r1, #0x28
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -2581,7 +2581,7 @@ _0222E960:
 	add r3, r0, #0
 	add r2, r1, #0
 	add r3, #0x8c
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #5
@@ -2594,7 +2594,7 @@ _0222E960:
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #4]
 	mov r0, #0x74
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -2607,7 +2607,7 @@ _0222E960:
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #4]
 	mov r0, #0x74
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -2645,7 +2645,7 @@ MOD83_0222EA88: ; 0x0222EA88
 	mov r0, #0x74
 	mov r1, #0
 	add r3, #0xfc
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #5
@@ -2658,7 +2658,7 @@ MOD83_0222EA88: ; 0x0222EA88
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #4]
 	mov r0, #0x74
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -2672,7 +2672,7 @@ MOD83_0222EA88: ; 0x0222EA88
 	ldr r2, [r4, #4]
 	mov r0, #0x74
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -5690,7 +5690,7 @@ MOD83_022302B4: ; 0x022302B4
 	mov r0, #0x74
 	mov r1, #0
 	add r3, #0xfc
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #5
@@ -5703,7 +5703,7 @@ MOD83_022302B4: ; 0x022302B4
 	mov r0, #0x74
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -5717,7 +5717,7 @@ MOD83_022302B4: ; 0x022302B4
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -5751,7 +5751,7 @@ MOD83_02230330: ; 0x02230330
 	add r3, r0, #0
 	add r2, r1, #0
 	add r3, #0x8c
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #5
@@ -5764,7 +5764,7 @@ MOD83_02230330: ; 0x02230330
 	mov r0, #0x74
 	add r2, r4, #0
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -5777,7 +5777,7 @@ MOD83_02230330: ; 0x02230330
 	mov r0, #0x74
 	mov r1, #2
 	add r2, r4, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -8285,7 +8285,7 @@ MOD83_02231820: ; 0x02231820
 	mov r1, #0xb
 	mov r2, #0
 	lsl r3, r3, #4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x57
@@ -8295,7 +8295,7 @@ MOD83_02231820: ; 0x02231820
 	mov r1, #0x10
 	mov r2, #0
 	lsl r3, r3, #6
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #3
@@ -8308,7 +8308,7 @@ MOD83_02231820: ; 0x02231820
 	mov r0, #0x74
 	mov r1, #0x11
 	add r2, r4, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -8321,7 +8321,7 @@ MOD83_02231820: ; 0x02231820
 	mov r0, #0x74
 	mov r1, #0x12
 	add r2, r4, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -9382,7 +9382,7 @@ MOD83_022320D8: ; 0x022320D8
 	add r6, r3, #0
 	ldr r3, [r5]
 	mov r0, #0x74
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r1, sp, #4
 	add r7, r0, #0
 	bl NNS_G2dGetUnpackedScreenData
@@ -9417,7 +9417,7 @@ MOD83_02232118: ; 0x02232118
 	mov r0, #0x74
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #3
@@ -9431,7 +9431,7 @@ MOD83_02232118: ; 0x02232118
 	ldr r2, [r5, r2]
 	mov r0, #0x74
 	mov r1, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	cmp r4, #0
 	beq _0223215E
 	cmp r4, #1
@@ -9451,7 +9451,7 @@ _0223215E:
 	ldr r2, [r5, r2]
 	mov r0, #0x74
 	mov r1, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	b _0223219C
 _0223217E:
 	mov r0, #0
@@ -9467,7 +9467,7 @@ _0223217E:
 	ldr r2, [r5, r2]
 	mov r0, #0x74
 	mov r1, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 _0223219C:
 	mov r0, #0x20
 	str r0, [sp]
@@ -9478,7 +9478,7 @@ _0223219C:
 	add r3, r0, #0
 	add r2, r1, #0
 	add r3, #0xec
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -9492,7 +9492,7 @@ _0223219C:
 	ldr r2, [r5, r2]
 	mov r0, #0x74
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r2, #3
 	add r0, r5, #0
 	mov r1, #2
@@ -9622,7 +9622,7 @@ _022322A8:
 	str r0, [sp, #4]
 	mov r0, #0x13
 	mov r3, #0x60
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 _022322DC:
 	mov r0, #0xb2
 	mov r6, #0
@@ -9673,7 +9673,7 @@ _02232312:
 	str r0, [sp]
 	mov r0, #0x13
 	add r3, sp, #0x18
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, #2
@@ -15800,7 +15800,7 @@ _02235132:
 	str r0, [sp, #4]
 	mov r0, #0x13
 	add r3, #0xff
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD83_022350EC
@@ -17545,7 +17545,7 @@ _02235F48:
 	mov r0, #0x74
 	mov r1, #0x13
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #5
@@ -17559,7 +17559,7 @@ _02235F48:
 	mov r0, #0x74
 	mov r1, #0x16
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #2
 	mov r1, #0x4e
 	bl FUN_02002C50
@@ -17588,7 +17588,7 @@ MOD83_02235FBC: ; 0x02235FBC
 	mov r0, #0x74
 	mov r1, #0x14
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -17846,7 +17846,7 @@ _02236148:
 	mov r0, #0x74
 	mov r1, #0x15
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -23956,7 +23956,7 @@ MOD83_02238F94: ; 0x02238F94
 	str r0, [sp, #4]
 	ldrh r0, [r4]
 	ldrh r1, [r4, #4]
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -24183,7 +24183,7 @@ MOD83_022391CC: ; 0x022391CC
 	mov r0, #0x74
 	mov r1, #0x1d
 	add r3, #0xfc
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #8
 	pop {r3, pc}
 	.align 2, 0
@@ -24213,14 +24213,14 @@ MOD83_022391EC: ; 0x022391EC
 	str r0, [sp, #0xc]
 	mov r0, #0x74
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r2, #1
 	ldr r3, _022392DC ; =MOD83_0223BC30
 	str r2, [sp]
 	ldr r3, [r3, #4]
 	mov r0, #0x74
 	mov r1, #0x1f
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r1, sp, #0x14
 	str r0, [sp, #0x10]
 	bl NNS_G2dGetUnpackedScreenData

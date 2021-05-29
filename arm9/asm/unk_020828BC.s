@@ -177,7 +177,7 @@ _0208292A:
 	mov r0, #0x5a
 	add r2, r1, #0x0
 	add r3, r5, #0x0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [sp, #0x14]
 	mov r0, #0x5a
 	mov r1, #0x0
@@ -513,7 +513,7 @@ FUN_02082B90: ; 0x02082B90
 	mov r0, #0x5a
 	mov r1, #0x2
 	mov r2, #0x0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [sp, #0x14]
 	ldr r1, _02082D10 ; =0x00000121
 	ldr r0, [sp, #0x8]
@@ -938,7 +938,7 @@ FUN_02082ED0: ; 0x02082ED0
 	add r2, r5, #0x0
 	add r4, r5, #0x0
 	str r1, [sp, #0x0]
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [sp, #0x14]
 	mov r0, #0x5a
 	mov r1, #0x1

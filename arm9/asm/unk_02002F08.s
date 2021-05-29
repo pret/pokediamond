@@ -226,7 +226,7 @@ FUN_02003084: ; 0x02003084
 	add r1, r2, #0x0
 	add r2, sp, #0x4
 	ldr r4, [sp, #0x1c]
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r6, r0, #0x0
 	bne _0200309E
 	bl GF_AssertFail
