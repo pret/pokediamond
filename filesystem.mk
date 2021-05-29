@@ -275,10 +275,13 @@ endif
 HOSTFS_FILES := $(NITROFS_FILES:%=files/%)
 
 %.narc:
-	$(KNARC) -d $(basename $@)/ -p $@
+	$(KNARC) -d $(basename $@)/ -p $@ -i
 
 %.arc:
-	$(KNARC) -d $(basename $@)/ -p $@
+	$(KNARC) -d $(basename $@)/ -p $@ -i
+
+%.naix: %.narc
+files/wazaeffect/we.naix: %.naix: %.arc
 
 O2NARC_TARGETS := \
 	files/poketool/personal/personal.narc \
@@ -295,8 +298,9 @@ O2NARC_TARGETS := \
 ALL_O2NARC_TARGETS := $(O2NARC_TARGETS) \
 	files/poketool/trainer/trpoke.narc
 
+O2NARCFLAGS := -i
 files/poketool/personal/pms.narc: O2NARCFLAGS = -f
-files/itemtool/itemdata/item_data.narc: O2NARCFLAGS = -p 0xFF
+files/itemtool/itemdata/item_data.narc: O2NARCFLAGS += -p 0xFF
 
 ifeq (,$(NODEP))
 $(ALL_O2NARC_TARGETS): dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(patsubst %.narc,%.json.txt,$@))

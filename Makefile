@@ -162,6 +162,7 @@ clean: mostlyclean clean-fs clean-tools
 
 clean-fs:
 	$(RM) $(filter %.narc %.arc,$(HOSTFS_FILES))
+	$(RM) $(patsubst %.narc,%.naix,$(patsubst %.arc,%.naix,$(filter %.narc %.arc,$(HOSTFS_FILES))))
 	$(RM) $(NCGR_CLEAN_LIST) $(NCLR_CLEAN_LIST) $(NCER_CLEAN_LIST) $(NSCR_CLEAN_LIST)
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 	$(RM) files/msgdata/msg/narc_*.bin
@@ -214,7 +215,7 @@ include filesystem.mk
 
 # TODO: Rules for Pearl
 # FIXME: Computed secure area CRC in header is incorrect due to first 8 bytes of header not actually being "encryObj"
-$(ROM): rom.rsf arm9 arm7 filesystem $(BNR) tools/bin/rom_header.template.sbin
+$(ROM): rom.rsf filesystem arm9 arm7 $(BNR) tools/bin/rom_header.template.sbin
 	$(MAKEROM) -DBUILD_DIR="$(BUILD_DIR)" -DBNR="$(BNR)" -DTITLE_NAME="$(TITLE_NAME)" -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
 ifeq ($(SHIFTED),0)
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
