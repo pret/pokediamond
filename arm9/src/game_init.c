@@ -10,6 +10,7 @@
 #include "game_init.h"
 #include "registers.h"
 #include "heap.h"
+#include "OS_interrupt.h"
 
 #pragma thumb on
 
@@ -34,7 +35,7 @@ static struct {
 
 struct Main gMain;
 
-void Main_HBlankIntr(BOOL);
+void Main_ToggleHBlankInterrupt(BOOL enableFlag);
 void FUN_0201B5CC(void *);
 
 void FUN_02015EA0(void)
@@ -66,7 +67,7 @@ void Main_SetVBlankIntrCB(void (*a0)(void *), void * a1)
 
 void FUN_02015F1C(void)
 {
-    Main_HBlankIntr(FALSE);
+    Main_ToggleHBlankInterrupt(FALSE);
     gMain.hBlankIntr = NULL;
     gMain.hBlankIntrArg = NULL;
 }
@@ -75,7 +76,7 @@ BOOL FUN_02015F34(void (*a0)(void *), void * a1)
 {
     if (a0 == 0)
     {
-        Main_HBlankIntr(FALSE);
+        Main_ToggleHBlankInterrupt(FALSE);
         gMain.hBlankIntr = NULL;
         gMain.hBlankIntrArg = NULL;
         return TRUE;
@@ -84,7 +85,7 @@ BOOL FUN_02015F34(void (*a0)(void *), void * a1)
     {
         gMain.hBlankIntrArg = a1;
         gMain.hBlankIntr = a0;
-        Main_HBlankIntr(TRUE);
+        Main_ToggleHBlankInterrupt(TRUE);
         return TRUE;
     }
     else
@@ -93,36 +94,36 @@ BOOL FUN_02015F34(void (*a0)(void *), void * a1)
     }
 }
 
-void FUN_02015F6C(void)
+void Main_CallHBlankCallback(void)
 {
     if (gMain.hBlankIntr != NULL)
         gMain.hBlankIntr(gMain.hBlankIntrArg);
 }
 
-void Main_HBlankIntr(BOOL a0)
+void Main_ToggleHBlankInterrupt(BOOL enableFlag)
 {
     (void)OS_DisableIrq();
-    if (!a0)
+    if (!enableFlag)
     {
         (void)OS_GetIrqMask();
-        OS_DisableIrqMask(2);
+        OS_DisableIrqMask(OS_IE_H_BLANK);
         GX_HBlankIntr(FALSE);
     }
     else
     {
         (void)OS_GetIrqMask();
-        OS_SetIrqFunction(2, FUN_02015F6C);
-        OS_EnableIrqMask(2);
+        OS_SetIrqFunction(OS_IE_H_BLANK, Main_CallHBlankCallback);
+        OS_EnableIrqMask(OS_IE_H_BLANK);
         GX_HBlankIntr(TRUE);
     }
     (void)OS_EnableIrq();
 }
 
-const u32 UNK_020EDB10[][2] = {
-    { 0x0000D000, 0x00000000 },
-    { 0x00021000, 0x00000000 },
-    { 0x00001000, 0x00000000 },
-    { 0x0010D800, 0x00000000 }
+const struct UnkStruct_020EDB10 UNK_020EDB10[] = {
+    { 0x00D000, OS_ARENA_MAIN },
+    { 0x021000, OS_ARENA_MAIN },
+    { 0x001000, OS_ARENA_MAIN },
+    { 0x10D800, OS_ARENA_MAIN }
 };
 
 void FUN_02015FC8(void)
@@ -141,7 +142,7 @@ void FUN_02015FC8(void)
     {
         csum++;
     }
-    FUN_020166C8((u32 *)UNK_020EDB10, 4, 92, csum);
+    FUN_020166C8(UNK_020EDB10, NELEMS(UNK_020EDB10), 92, csum);
 }
 
 void InitSystemForTheGame(void)

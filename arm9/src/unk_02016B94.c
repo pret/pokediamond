@@ -98,7 +98,7 @@ THUMB_FUNC void FUN_02016BF4(u32 *param0, u32 param1)
 
 #ifdef NONMATCHING
 THUMB_FUNC void FUN_02016C18(
-    struct UnkStruct_02016B94_2 *param0, u8 param1, struct UnkStruct_02016B94_1 *param2, u8 param3)
+    struct UnkStruct_02016B94_2 *param0, u8 param1, const struct UnkStruct_02016B94_1 *param2, u8 param3)
 {
     u8 res = FUN_020177DC(param2->unk10, param3);
     switch (param1)
@@ -342,7 +342,7 @@ THUMB_FUNC void FUN_02016C18(
 }
 #else
 THUMB_FUNC asm void FUN_02016C18(
-    struct UnkStruct_02016B94_2 *param0, u8 param1, struct UnkStruct_02016B94_1 *param2, u8 param3)
+    struct UnkStruct_02016B94_2 *param0, u8 param1, const struct UnkStruct_02016B94_1 *param2, u8 param3)
 {
     // clang-format off
     push {r3-r7, lr}
@@ -4603,7 +4603,7 @@ THUMB_FUNC void FUN_020190EC(struct UnkStruct_02016B94_2 *param0,
 }
 
 THUMB_FUNC void FUN_02019150(
-    struct UnkStruct_02016B94_2 *param0, struct Window *param1, struct UnkStruct_02016B94_4 *param2)
+    struct UnkStruct_02016B94_2 *param0, struct Window *param1, const struct UnkStruct_02016B94_4 *param2)
 {
 
     FUN_02019064(param0,

@@ -1,28 +1,20 @@
 #include "heap.h"
 #include "error_message_reset.h"
 #include "unk_02031734.h"
-
-
-extern void *NNS_FndCreateExpHeapEx(void *param0, u32 param1, u32 param2);
-extern void *NNS_FndAllocFromExpHeapEx(void *param0, u32 param1, s32 param2);
-extern void NNS_FndDestroyExpHeap();
-extern void NNS_FndFreeToExpHeap(void *ptr1, void *ptr2);
-extern u32 NNS_FndGetTotalFreeSizeForExpHeap(void *param0);
-extern void NNS_FndInitAllocatorForExpHeap(u32 param0, void *param1, u32 param2);
-extern u32 NNS_FndGetSizeForMBlockExpHeap(void *param0);
-extern void NNS_FndResizeForMBlockExpHeap(void *ptr1, void *ptr2, u32 param2);
-
+#include "NNS_FND_expheap.h"
 
 struct UnkStruct_020166C8 UNK_021C4D28;
 
-
-THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
+THUMB_FUNC void FUN_020166C8(const struct UnkStruct_020EDB10 *templates, u32 nTemplates, u32 totalNumHeaps, u32 pre_size)
 {
-    u32 unk_size = param1 + 24;
+    void * ptr;
+    u32 unk_size, r7;
 
-    if (param2 < unk_size)
+    unk_size = nTemplates + 24;
+
+    if (totalNumHeaps < unk_size)
     {
-        param2 = unk_size;
+        totalNumHeaps = unk_size;
     }
     if (pre_size != 0)
     {
@@ -34,90 +26,80 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
         OS_AllocFromArenaLo(OS_ARENA_MAIN, pre_size, 4);
     }
 
-    u32 r7 = param2 * 2;
+    UNK_021C4D28.heapHandles = (NNSFndHeapHandle*) OS_AllocFromArenaLo(
+        OS_ARENA_MAIN,
+        (unk_size + 1) * sizeof(NNSFndHeapHandle)
+      + unk_size * sizeof(NNSFndHeapHandle)
+      + unk_size * sizeof(void *)
+      + totalNumHeaps * sizeof(u16)
+      + totalNumHeaps,
+      4
+    );
+    UNK_021C4D28.unk04 = UNK_021C4D28.heapHandles + (unk_size + 1);
+    UNK_021C4D28.unk08 = (void **)(UNK_021C4D28.unk04 + unk_size);
+    UNK_021C4D28.unk0c = (u16 *)(UNK_021C4D28.unk08 + unk_size);
+    UNK_021C4D28.heapIdxs = (u8 *)(UNK_021C4D28.unk0c + totalNumHeaps);
+    UNK_021C4D28.totalNumHeaps = (u16)totalNumHeaps;
+    UNK_021C4D28.nTemplates = (u16)nTemplates;
 
-    void *ptr = OS_AllocFromArenaLo(OS_ARENA_MAIN, (unk_size * 3 + 1) * sizeof(u32) + r7 + param2, 4);
-    UNK_021C4D28.unk00 = ptr;
-    ptr += (unk_size + 1) * 4;
-    UNK_021C4D28.unk04 = ptr;
-    ptr += unk_size * 4;
-    UNK_021C4D28.unk08 = ptr;
-    ptr += unk_size * 4;
-    UNK_021C4D28.unk0c = ptr;
-    ptr += r7;
-    UNK_021C4D28.unk10 = ptr;
-    UNK_021C4D28.unk14 = (u16)param2;
-    UNK_021C4D28.unk16 = (u16)param1;
-
-    r7 = 0;
     UNK_021C4D28.unk1a = (u16)unk_size;
     UNK_021C4D28.unk18 = (u16)unk_size;
 
-    while (r7 < param1)
+    for (r7 = 0; r7 < nTemplates; r7++)
     {
-        void *ptr;
-        if (param0[1] == 0 || param0[1] != 2)
+        switch (templates[r7].arena)
         {
-            ptr = OS_AllocFromArenaLo(OS_ARENA_MAIN, param0[0], 4);
+        case OS_ARENA_MAIN:
+        default:
+            ptr = OS_AllocFromArenaLo(OS_ARENA_MAIN, templates[r7].size, 4);
+            break;
+        case OS_ARENA_MAINEX:
+            ptr = OS_AllocFromArenaHi(OS_ARENA_MAINEX, templates[r7].size, 4);
+            break;
+        }
+
+        if (ptr != NULL)
+        {
+
+            UNK_021C4D28.heapHandles[r7] = NNS_FndCreateExpHeapEx(ptr, templates[r7].size, 0);
+            UNK_021C4D28.heapIdxs[r7] = (u8)r7;
         }
         else
         {
-            ptr = OS_AllocFromArenaHi(OS_ARENA_MAINEX, param0[0], 4);
+            GF_ASSERT(0);
         }
-
-        if (ptr != 0)
-        {
-
-            UNK_021C4D28.unk00[r7] = NNS_FndCreateExpHeapEx(ptr, param0[0], 0);
-            UNK_021C4D28.unk10[r7] = (u8)r7;
-        }
-        else
-        {
-            GF_AssertFail();
-        }
-
-        param0 += 2;
-        r7++;
     }
 
-    while (param1 < unk_size + 1)
+    while (nTemplates < unk_size + 1)
     {
-        UNK_021C4D28.unk00[param1] = 0;
-        UNK_021C4D28.unk10[param1] = (u8)UNK_021C4D28.unk1a;
+        UNK_021C4D28.heapHandles[nTemplates] = NULL;
+        UNK_021C4D28.heapIdxs[nTemplates] = (u8)UNK_021C4D28.unk1a;
 
-        param1++;
+        nTemplates++;
     }
 
-    while (param1 < param2)
+    while (nTemplates < totalNumHeaps)
     {
-        UNK_021C4D28.unk10[param1] = (u8)UNK_021C4D28.unk1a;
+        UNK_021C4D28.heapIdxs[nTemplates] = (u8)UNK_021C4D28.unk1a;
 
-        param1++;
+        nTemplates++;
     }
 
-    for (param1 = 0; param1 < param2; param1++)
+    for (nTemplates = 0; nTemplates < totalNumHeaps; nTemplates++)
     {
-        UNK_021C4D28.unk0c[param1] = 0;
+        UNK_021C4D28.unk0c[nTemplates] = 0;
     }
 }
 
 THUMB_FUNC s32 FUN_020167F4()
 {
-    s32 i = UNK_021C4D28.unk16;
-    s32 j = UNK_021C4D28.unk18;
+    s32 i;
+    s32 j;
 
-    if (i < j)
+    for (i = UNK_021C4D28.nTemplates; i < UNK_021C4D28.unk18; i++)
     {
-        void **ptr = UNK_021C4D28.unk00 + i;
-        do
-        {
-            if (*ptr == 0)
-            {
-                return i;
-            }
-            i++;
-            ptr++;
-        } while (i < j);
+        if (UNK_021C4D28.heapHandles[i] == NULL)
+            return i;
     }
 
     return -1;
@@ -137,10 +119,10 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
 {
     GF_ASSERT(OS_GetProcMode() != OS_PROCMODE_IRQ);
 
-    u8 *ptr = UNK_021C4D28.unk10;
+    u8 *ptr = UNK_021C4D28.heapIdxs;
     if (UNK_021C4D28.unk1a == ptr[param1])
     {
-        void *ptr2 = UNK_021C4D28.unk00[ptr[param0]];
+        void *ptr2 = UNK_021C4D28.heapHandles[ptr[param0]];
         if (ptr2 != 0)
         {
             void *ptr3 = NNS_FndAllocFromExpHeapEx(ptr2, param2, param3);
@@ -149,14 +131,14 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
                 param3 = FUN_020167F4();
                 if (param3 >= 0)
                 {
-                    UNK_021C4D28.unk00[param3] = NNS_FndCreateExpHeapEx(ptr3, param2, 0);
+                    UNK_021C4D28.heapHandles[param3] = NNS_FndCreateExpHeapEx(ptr3, param2, 0);
 
 
-                    if (UNK_021C4D28.unk00[param3] != 0)
+                    if (UNK_021C4D28.heapHandles[param3] != 0)
                     {
                         UNK_021C4D28.unk04[param3] = ptr2;
                         UNK_021C4D28.unk08[param3] = ptr3;
-                        UNK_021C4D28.unk10[param1] = (u8)param3;
+                        UNK_021C4D28.heapIdxs[param1] = (u8)param3;
 
                         return 1;
                     }
@@ -191,11 +173,11 @@ THUMB_FUNC void FUN_020168D0(u32 heap_id)
 {
     GF_ASSERT (OS_GetProcMode() != OS_PROCMODE_IRQ);
 
-    if (UNK_021C4D28.unk00[UNK_021C4D28.unk10[heap_id]] != 0)
+    if (UNK_021C4D28.heapHandles[UNK_021C4D28.heapIdxs[heap_id]] != 0)
     {
         NNS_FndDestroyExpHeap();
 
-        u8 index = UNK_021C4D28.unk10[heap_id];
+        u8 index = UNK_021C4D28.heapIdxs[heap_id];
         void *ptr1 = UNK_021C4D28.unk04[index];
         void *ptr2 = UNK_021C4D28.unk08[index];
         if (ptr1 != 0 && ptr2 != 0)
@@ -207,11 +189,11 @@ THUMB_FUNC void FUN_020168D0(u32 heap_id)
             GF_AssertFail();
         }
 
-        UNK_021C4D28.unk00[UNK_021C4D28.unk10[heap_id]] = 0;
-        UNK_021C4D28.unk04[UNK_021C4D28.unk10[heap_id]] = 0;
-        UNK_021C4D28.unk08[UNK_021C4D28.unk10[heap_id]] = 0;
+        UNK_021C4D28.heapHandles[UNK_021C4D28.heapIdxs[heap_id]] = 0;
+        UNK_021C4D28.unk04[UNK_021C4D28.heapIdxs[heap_id]] = 0;
+        UNK_021C4D28.unk08[UNK_021C4D28.heapIdxs[heap_id]] = 0;
 
-        UNK_021C4D28.unk10[heap_id] = (u8)UNK_021C4D28.unk1a;
+        UNK_021C4D28.heapIdxs[heap_id] = (u8)UNK_021C4D28.unk1a;
     }
 }
 
@@ -245,10 +227,10 @@ THUMB_FUNC void FUN_02016988()
 void *AllocFromHeap(u32 heap_id, u32 size)
 {
     void *ptr = 0;
-    if (heap_id < UNK_021C4D28.unk14)
+    if (heap_id < UNK_021C4D28.totalNumHeaps)
     {
-        u8 index = UNK_021C4D28.unk10[heap_id];
-        ptr = FUN_02016944(UNK_021C4D28.unk00[index], size, 4, heap_id);
+        u8 index = UNK_021C4D28.heapIdxs[heap_id];
+        ptr = FUN_02016944(UNK_021C4D28.heapHandles[index], size, 4, heap_id);
     }
     if (ptr != 0)
     {
@@ -265,10 +247,10 @@ void *AllocFromHeap(u32 heap_id, u32 size)
 void *AllocFromHeapAtEnd(u32 heap_id, u32 size)
 {
     void *ptr = 0;
-    if (heap_id < UNK_021C4D28.unk14)
+    if (heap_id < UNK_021C4D28.totalNumHeaps)
     {
-        u8 index = UNK_021C4D28.unk10[heap_id];
-        ptr = FUN_02016944(UNK_021C4D28.unk00[index], size, -4, heap_id);
+        u8 index = UNK_021C4D28.heapIdxs[heap_id];
+        ptr = FUN_02016944(UNK_021C4D28.heapHandles[index], size, -4, heap_id);
     }
 
     if (ptr != 0)
@@ -287,10 +269,10 @@ void FreeToHeap(void *ptr)
 {
     u8 heap_id = (u8)((u32 *)ptr)[-1];
 
-    if ((u16)heap_id < UNK_021C4D28.unk14)
+    if ((u16)heap_id < UNK_021C4D28.totalNumHeaps)
     {
-        u8 index = UNK_021C4D28.unk10[heap_id];
-        void *ptr2 = UNK_021C4D28.unk00[index];
+        u8 index = UNK_021C4D28.heapIdxs[heap_id];
+        void *ptr2 = UNK_021C4D28.heapHandles[index];
         GF_ASSERT(ptr2);
 
         if (UNK_021C4D28.unk0c[heap_id] == 0)
@@ -313,10 +295,10 @@ void FreeToHeapExplicit(u32 param0, void *param1)
 {
     GF_ASSERT (OS_GetProcMode() != OS_PROCMODE_IRQ);
 
-    if (param0 < UNK_021C4D28.unk14)
+    if (param0 < UNK_021C4D28.totalNumHeaps)
     {
-        u8 index = UNK_021C4D28.unk10[param0];
-        void *ptr = UNK_021C4D28.unk00[index];
+        u8 index = UNK_021C4D28.heapIdxs[param0];
+        void *ptr = UNK_021C4D28.heapHandles[index];
         GF_ASSERT (ptr );
 
         u8 heap_id = (u8)((u32 *)param1)[-1];
@@ -334,10 +316,10 @@ void FreeToHeapExplicit(u32 param0, void *param1)
 
 THUMB_FUNC u32 FUN_02016AF8(u32 param0)
 {
-    if (param0 < UNK_021C4D28.unk14)
+    if (param0 < UNK_021C4D28.totalNumHeaps)
     {
-        u8 index = UNK_021C4D28.unk10[param0];
-        return NNS_FndGetTotalFreeSizeForExpHeap(UNK_021C4D28.unk00[index]);
+        u8 index = UNK_021C4D28.heapIdxs[param0];
+        return NNS_FndGetTotalFreeSizeForExpHeap(UNK_021C4D28.heapHandles[index]);
     }
 
     GF_AssertFail();
@@ -346,11 +328,11 @@ THUMB_FUNC u32 FUN_02016AF8(u32 param0)
 
 THUMB_FUNC void FUN_02016B20(u32 param0, u32 param1, u32 param2)
 {
-    if (param1 < UNK_021C4D28.unk14)
+    if (param1 < UNK_021C4D28.totalNumHeaps)
     {
 
-        u8 index = UNK_021C4D28.unk10[param1];
-        NNS_FndInitAllocatorForExpHeap(param0, UNK_021C4D28.unk00[index], param2);
+        u8 index = UNK_021C4D28.heapIdxs[param1];
+        NNS_FndInitAllocatorForExpHeap(param0, UNK_021C4D28.heapHandles[index], param2);
         return;
     }
 
@@ -366,9 +348,9 @@ THUMB_FUNC void FUN_02016B44(void *ptr, u32 param1)
     {
         u8 heap_id = (u8)((u32 *)ptr)[-1];
 
-        u8 index = UNK_021C4D28.unk10[heap_id];
+        u8 index = UNK_021C4D28.heapIdxs[heap_id];
 
-        NNS_FndResizeForMBlockExpHeap(UNK_021C4D28.unk00[index], ptr - 16, param1);
+        NNS_FndResizeForMBlockExpHeap(UNK_021C4D28.heapHandles[index], ptr - 16, param1);
         return;
     }
     GF_AssertFail();

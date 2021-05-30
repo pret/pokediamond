@@ -8,7 +8,9 @@
 
 const struct UnkStruct_02016B94_4 UNK_020FF49C = { 0, 3, 3, 0x1a, 0x12, 1, 0x23 };
 
-const u32 UNK_020FF4A4[2] = { 0x00020000, 0x00000000 };
+const struct UnkStruct_020EDB10 UNK_020FF4A4[] = {
+    {0x00020000, OS_ARENA_MAIN}
+};
 
 const struct GraphicsModes UNK_020FF4AC = { mode1 : 1 };
 
@@ -44,13 +46,13 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         OS_SetArenaHi(OS_ARENA_MAIN, OS_GetInitArenaHi(OS_ARENA_MAIN));
         OS_SetArenaLo(OS_ARENA_MAIN, OS_GetInitArenaLo(OS_ARENA_MAIN));
 
-        FUN_020166C8((u32 *)UNK_020FF4A4, 1, 1, 0);
+        FUN_020166C8(UNK_020FF4A4, NELEMS(UNK_020FF4A4), 1, 0);
         FUN_0200E3A0(PM_LCD_TOP, 0);
         FUN_0200E3A0(PM_LCD_BOTTOM, 0);
 
-        OS_DisableIrqMask(1);
-        OS_SetIrqFunction(1, &VBlankHandler);
-        OS_EnableIrqMask(1);
+        OS_DisableIrqMask(OS_IE_V_BLANK);
+        OS_SetIrqFunction(OS_IE_V_BLANK, &VBlankHandler);
+        OS_EnableIrqMask(OS_IE_V_BLANK);
 
         Main_SetVBlankIntrCB(NULL, NULL);
 
