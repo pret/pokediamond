@@ -24929,7 +24929,7 @@ MOD05_021F4968: ; 0x021F4968
 	sub r1, r1, r0
 	bx r3
 	nop
-_021F4974: .word FUN_02016B44
+_021F4974: .word ReallocFromHeap
 
 	thumb_func_start MOD05_021F4978
 MOD05_021F4978: ; 0x021F4978

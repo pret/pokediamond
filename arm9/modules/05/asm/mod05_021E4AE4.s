@@ -1093,7 +1093,7 @@ MOD05_021E5294: ; 0x021E5294
 	add r1, r0, #0
 	add r0, r4, #0
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	pop {r4, pc}
 
 	.section .rodata

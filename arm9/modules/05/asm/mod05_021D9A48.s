@@ -199,7 +199,7 @@ _021D9B98:
 	mov r1, #4
 	add r0, r7, #0
 	add r2, r1, #0
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	mov r0, #0x6e
 	mov r1, #4
 	bl NARC_ctor

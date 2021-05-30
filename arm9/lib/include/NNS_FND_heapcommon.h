@@ -3,6 +3,8 @@
 
 #include "NNS_FND_list.h"
 
+#define NNS_FND_HEAP_DEFAULT_ALIGNMENT          4
+
 typedef struct NNSiFndHeapHead NNSiFndHeapHead;
 
 struct NNSiFndHeapHead

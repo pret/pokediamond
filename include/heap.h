@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "NNS_FND_expheap.h"
+#include "NNS_FND_allocator.h"
 
 struct UnkStruct_020EDB10
 {
@@ -28,7 +29,7 @@ void FUN_020166C8(const struct UnkStruct_020EDB10 *templates, u32 nTemplates, u3
 s32 FUN_020167F4();
 u32 FUN_0201681C(u32 param0, u32 heap_id, u32 param2);
 u32 FUN_02016828(u32 param0, u32 param1, u32 param2);
-u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3);
+u32 FUN_02016834(u32 param0, u32 param1, u32 size, s32 alignment);
 void FUN_020168D0(u32 heap_id);
 u32 *FUN_02016944(void *param0, u32 param1, s32 param2, u32 param3);
 void FUN_02016988();
@@ -36,9 +37,9 @@ void *AllocFromHeap(u32 heap_id, u32 size);
 void *AllocFromHeapAtEnd(u32 heap_id, u32 size);
 void FreeToHeap(void *ptr);
 void FreeToHeapExplicit(u32 heap_id, void * ptr);
-u32 FUN_02016AF8(u32 param0);
-void FUN_02016B20(u32 param0, u32 param1, u32 param2);
-void FUN_02016B44(void *ptr, u32 param1);
+u32 GF_ExpHeap_FndGetTotalFreeSize(u32 heap_id);
+void GF_ExpHeap_FndInitAllocator(NNSFndAllocator * pAllocator, u32 heap_id, int alignment);
+void ReallocFromHeap(void *ptr, u32 newSize);
 u32 FUN_02016B90(u32 param0);
 
 #endif //POKEDIAMOND_HEAP_H

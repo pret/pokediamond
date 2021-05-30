@@ -500,7 +500,7 @@ MOD63_021D78BC: ; 0x021D78BC
 	add r0, #0x68
 	add r1, r4, #0
 	mov r2, #4
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	mov r0, #0x30
 	add r1, r6, #0
 	add r2, r4, #0

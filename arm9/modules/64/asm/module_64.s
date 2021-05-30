@@ -30,7 +30,7 @@ _021D7504:
 	add r0, r5, r0
 	mov r1, #0x2f
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r0, r4, #0
 	bl OverlayManager_GetField18
 	add r4, r0, #0

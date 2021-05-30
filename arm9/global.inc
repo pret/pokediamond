@@ -1030,9 +1030,9 @@
 .extern AllocFromHeapAtEnd
 .extern FreeToHeap
 .extern FreeToHeapExplicit
-.extern FUN_02016AF8
-.extern FUN_02016B20
-.extern FUN_02016B44
+.extern GF_ExpHeap_FndGetTotalFreeSize
+.extern GF_ExpHeap_FndInitAllocator
+.extern ReallocFromHeap
 .extern FUN_02016B90
 .extern FUN_02016B94
 .extern FUN_02016BB8

@@ -338,7 +338,7 @@ MOD78_021D778C: ; 0x021D778C
 	add r0, #0x70
 	mov r1, #0x48
 	mov r2, #4
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r1, r5, #0
 	add r1, #0x9c
 	ldrb r2, [r1]

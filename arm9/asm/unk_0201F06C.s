@@ -265,7 +265,7 @@ _0201F1C8:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r5, #0x4]
 	mov r2, #0x4
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	ldr r0, [r5, #0x0]
 	ldr r1, [r5, #0x4]
 	bl FUN_0201C360

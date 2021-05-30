@@ -934,7 +934,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	add r0, #0x6c
 	mov r1, #0x4b
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	ldr r0, [r4, #4]
 	mov r1, #0
 	bl NNS_G3dGetAnmByIdx

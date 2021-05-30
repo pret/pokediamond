@@ -1930,7 +1930,7 @@ _021D9840:
 	ldr r1, [r2, #0x14]
 	add r1, r2, r1
 	sub r1, r1, r0
-	bl FUN_02016B44
+	bl ReallocFromHeap
 	mov r0, #0x80
 	mov r1, #0x4c
 	bl NARC_ctor
