@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start ScrCmd_getpartyspecies
-ScrCmd_getpartyspecies: ; 0x0204434C
+	thumb_func_start ScrCmd_GetPartySpecies
+ScrCmd_GetPartySpecies: ; 0x0204434C
 	; getpartyspecies XXXX, YYYY
 	; Sets var YYYY to species of mon in party slot XXXX.
 	; If mon is an egg, the value is SPECIES_NONE.
@@ -49,8 +49,8 @@ _020443A2:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start ScrCmd_checkpartymonotid
-ScrCmd_checkpartymonotid: ; 0x020443A8
+	thumb_func_start ScrCmd_CheckPartyMonOTID
+ScrCmd_CheckPartyMonOTID: ; 0x020443A8
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -98,8 +98,8 @@ _0204440E:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start ScrCmd_giveegg
-ScrCmd_giveegg: ; 0x02044414
+	thumb_func_start ScrCmd_GiveEgg
+ScrCmd_GiveEgg: ; 0x02044414
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -157,8 +157,8 @@ _02044494:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_setpartymonmove
-ScrCmd_setpartymonmove: ; 0x0204449C
+	thumb_func_start ScrCmd_SetPartyMonMove
+ScrCmd_SetPartyMonMove: ; 0x0204449C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -196,8 +196,8 @@ ScrCmd_setpartymonmove: ; 0x0204449C
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_partymonhasmove
-ScrCmd_partymonhasmove: ; 0x020444F4
+	thumb_func_start ScrCmd_PartyMonHasMove
+ScrCmd_PartyMonHasMove: ; 0x020444F4
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -271,8 +271,8 @@ _02044592:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_findpartymonwithmove
-ScrCmd_findpartymonwithmove: ; 0x02044598
+	thumb_func_start ScrCmd_FindPartyMonWithMove
+ScrCmd_FindPartyMonWithMove: ; 0x02044598
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -359,8 +359,8 @@ _02044648:
 _02044650: .word 0x00000006
 _02044654: .word 0x00000000
 
-	thumb_func_start ScrCmd_survivepsn
-ScrCmd_survivepsn: ; 0x02044658
+	thumb_func_start ScrCmd_SurvivePsn
+ScrCmd_SurvivePsn: ; 0x02044658
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -389,8 +389,8 @@ ScrCmd_survivepsn: ; 0x02044658
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start ScrCmd_countpartymonsatorbelowlevel
-ScrCmd_countpartymonsatorbelowlevel: ; 0x0204469C
+	thumb_func_start ScrCmd_CountPartyMonsAtOrBelowLevel
+ScrCmd_CountPartyMonsAtOrBelowLevel: ; 0x0204469C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -459,8 +459,8 @@ _02044726:
 	add sp, #0xc
 	pop {r4-r7, pc}
 
-	thumb_func_start ScrCmd_getpartymonlevel
-ScrCmd_getpartymonlevel: ; 0x02044730
+	thumb_func_start ScrCmd_GetPartyMonLevel
+ScrCmd_GetPartyMonLevel: ; 0x02044730
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -501,8 +501,8 @@ _02044786:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_getpartymonnature
-ScrCmd_getpartymonnature: ; 0x0204478C
+	thumb_func_start ScrCmd_GetPartyMonNature
+ScrCmd_GetPartyMonNature: ; 0x0204478C
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r1, r6, #0x0
@@ -554,8 +554,8 @@ _020447F2:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_findpartymonwithnature
-ScrCmd_findpartymonwithnature: ; 0x02044800
+	thumb_func_start ScrCmd_FindPartyMonWithNature
+ScrCmd_FindPartyMonWithNature: ; 0x02044800
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -619,8 +619,8 @@ _0204487E:
 _02044884: .word 0x000000FF
 _02044888: .word 0x00000000
 
-	thumb_func_start ScrCmd_getpartymonfriendship
-ScrCmd_getpartymonfriendship: ; 0x0204488C
+	thumb_func_start ScrCmd_GetPartyMonFriendship
+ScrCmd_GetPartyMonFriendship: ; 0x0204488C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -651,8 +651,8 @@ ScrCmd_getpartymonfriendship: ; 0x0204488C
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020448D4
-FUN_020448D4: ; 0x020448D4
+	thumb_func_start ScrCmd_Unk01BA
+ScrCmd_Unk01BA: ; 0x020448D4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -748,8 +748,8 @@ _02044994:
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020449A4
-FUN_020449A4: ; 0x020449A4
+	thumb_func_start ScrCmd_Unk01BB
+ScrCmd_Unk01BB: ; 0x020449A4
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
@@ -797,8 +797,8 @@ _020449FA:
 	add sp, #0x4
 	pop {r3-r6, pc}
 
-	thumb_func_start FUN_02044A0C
-FUN_02044A0C: ; 0x02044A0C
+	thumb_func_start ScrCmd_Unk0281
+ScrCmd_Unk0281: ; 0x02044A0C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -839,8 +839,8 @@ FUN_02044A0C: ; 0x02044A0C
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044A6C
-FUN_02044A6C: ; 0x02044A6C
+	thumb_func_start ScrCmd_Unk0247
+ScrCmd_Unk0247: ; 0x02044A6C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -859,8 +859,8 @@ FUN_02044A6C: ; 0x02044A6C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044A94
-FUN_02044A94: ; 0x02044A94
+	thumb_func_start ScrCmd_Unk0248
+ScrCmd_Unk0248: ; 0x02044A94
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -906,8 +906,8 @@ FUN_02044A94: ; 0x02044A94
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044B00
-FUN_02044B00: ; 0x02044B00
+	thumb_func_start ScrCmd_Unk0177
+ScrCmd_Unk0177: ; 0x02044B00
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -927,8 +927,8 @@ FUN_02044B00: ; 0x02044B00
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044B2C
-FUN_02044B2C: ; 0x02044B2C
+	thumb_func_start ScrCmd_Unk019A
+ScrCmd_Unk019A: ; 0x02044B2C
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -970,8 +970,8 @@ _02044B7A:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044B84
-FUN_02044B84: ; 0x02044B84
+	thumb_func_start ScrCmd_Unk019B
+ScrCmd_Unk019B: ; 0x02044B84
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -1034,8 +1034,8 @@ _02044C00:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044C0C
-FUN_02044C0C: ; 0x02044C0C
+	thumb_func_start ScrCmd_Unk019C
+ScrCmd_Unk019C: ; 0x02044C0C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -1092,8 +1092,8 @@ _02044C76:
 	add sp, #0xc
 	pop {r4-r7, pc}
 
-	thumb_func_start FUN_02044C88
-FUN_02044C88: ; 0x02044C88
+	thumb_func_start ScrCmd_Unk019D
+ScrCmd_Unk019D: ; 0x02044C88
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -1135,8 +1135,8 @@ _02044CD6:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044CE0
-FUN_02044CE0: ; 0x02044CE0
+	thumb_func_start ScrCmd_Unk0119
+ScrCmd_Unk0119: ; 0x02044CE0
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -1184,8 +1184,8 @@ _02044D3C:
 	.balign 4
 _02044D40: .word 0x00000000
 
-	thumb_func_start FUN_02044D44
-FUN_02044D44: ; 0x02044D44
+	thumb_func_start ScrCmd_Unk011A
+ScrCmd_Unk011A: ; 0x02044D44
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -1216,8 +1216,8 @@ FUN_02044D44: ; 0x02044D44
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02044D8C
-FUN_02044D8C: ; 0x02044D8C
+	thumb_func_start ScrCmd_Unk01C8
+ScrCmd_Unk01C8: ; 0x02044D8C
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -1297,8 +1297,8 @@ _02044E2C:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044E34
-FUN_02044E34: ; 0x02044E34
+	thumb_func_start ScrCmd_Unk01C9
+ScrCmd_Unk01C9: ; 0x02044E34
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -1327,8 +1327,8 @@ FUN_02044E34: ; 0x02044E34
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02044E78
-FUN_02044E78: ; 0x02044E78
+	thumb_func_start ScrCmd_Unk01CA
+ScrCmd_Unk01CA: ; 0x02044E78
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -1369,8 +1369,8 @@ FUN_02044E78: ; 0x02044E78
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044ED8
-FUN_02044ED8: ; 0x02044ED8
+	thumb_func_start ScrCmd_Unk01EE
+ScrCmd_Unk01EE: ; 0x02044ED8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -1401,8 +1401,8 @@ FUN_02044ED8: ; 0x02044ED8
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02044F20
-FUN_02044F20: ; 0x02044F20
+	thumb_func_start ScrCmd_Unk01F0
+ScrCmd_Unk01F0: ; 0x02044F20
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -1427,8 +1427,8 @@ FUN_02044F20: ; 0x02044F20
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02044F58
-FUN_02044F58: ; 0x02044F58
+	thumb_func_start ScrCmd_Unk01C0
+ScrCmd_Unk01C0: ; 0x02044F58
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -1495,8 +1495,8 @@ _02044FDE:
 	.balign 4
 _02044FE4: .word 0x00000000
 
-	thumb_func_start FUN_02044FE8
-FUN_02044FE8: ; 0x02044FE8
+	thumb_func_start ScrCmd_Unk022E
+ScrCmd_Unk022E: ; 0x02044FE8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -1550,8 +1550,8 @@ _02045048:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204505C
-FUN_0204505C: ; 0x0204505C
+	thumb_func_start ScrCmd_Unk022F
+ScrCmd_Unk022F: ; 0x0204505C
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -1632,8 +1632,8 @@ _020450E8:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045104
-FUN_02045104: ; 0x02045104
+	thumb_func_start ScrCmd_Unk0230
+ScrCmd_Unk0230: ; 0x02045104
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -1679,8 +1679,8 @@ FUN_02045104: ; 0x02045104
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045170
-FUN_02045170: ; 0x02045170
+	thumb_func_start ScrCmd_Unk0231
+ScrCmd_Unk0231: ; 0x02045170
 	push {r3-r6, lr}
 	sub sp, #0x4
 	add r5, r0, #0x0
@@ -1722,8 +1722,8 @@ FUN_02045170: ; 0x02045170
 	pop {r3-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020451D0
-FUN_020451D0: ; 0x020451D0
+	thumb_func_start ScrCmd_Unk02B7
+ScrCmd_Unk02B7: ; 0x020451D0
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -1795,7 +1795,7 @@ _0204524C:
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02045264
-FUN_02045264: ; 0x02045264
+	thumb_func_start ScrCmd_Unk00A0
+ScrCmd_Unk00A0: ; 0x02045264
 	mov r0, #0x0
 	bx lr
