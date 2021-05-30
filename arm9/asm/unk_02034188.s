@@ -58,7 +58,7 @@ FUN_02034188: ; 0x02034188
 	str r0, [r2, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, _02034370 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]

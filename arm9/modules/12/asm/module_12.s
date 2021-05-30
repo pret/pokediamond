@@ -102,7 +102,7 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	bl FUN_0201C24C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #0x23
 	add r1, r4, #0
 	lsl r2, r2, #4
@@ -3237,7 +3237,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	bl FUN_0201C24C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, [r5, #0x30]
 	bl MOD12_0222F548
 	bl FUN_0201CC08
@@ -5099,7 +5099,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	bl FUN_0201C24C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r1, r5, #0
 	ldr r0, [r5]
 	add r1, #0x14
@@ -41182,7 +41182,7 @@ MOD12_02241210: ; 0x02241210
 	bl FUN_0201C24C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, [r5, #0x30]
 	bl MOD12_02241864
 	bl FUN_0201CC08

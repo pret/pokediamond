@@ -30,7 +30,7 @@ MOD67_021D74E0: ; 0x021D74E0
 	strh r1, [r3]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #2
 	mov r0, #3
 	mov r1, #0x2a

@@ -7745,7 +7745,7 @@ THUMB_FUNC void FUN_0201AB24(struct Window *window, u8 param1)
 
 THUMB_FUNC u32 FUN_0201AB28(struct Window *window, u32 heap_id, const char *path)
 {
-    void *ptr = FUN_020161A4(heap_id, path);
+    void *ptr = AllocAndReadFile(heap_id, path);
     window->unk00 = ptr;
     u32 st0;
     NNS_G2dGetUnpackedBGCharacterData(ptr, &st0);
@@ -7755,7 +7755,7 @@ THUMB_FUNC u32 FUN_0201AB28(struct Window *window, u32 heap_id, const char *path
 
 THUMB_FUNC u32 FUN_0201AB44(struct Window *window, u32 heap_id, const char *path)
 {
-    void *ptr = FUN_020161A4(heap_id, path);
+    void *ptr = AllocAndReadFile(heap_id, path);
     window->unk00 = ptr;
     u32 st0;
     NNS_G2dGetUnpackedPaletteData(ptr, &st0);

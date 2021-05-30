@@ -146,7 +146,7 @@ _02020D38:
 _02020D48:
 	ldr r0, [sp, #0x0]
 	add r1, r6, #0x0
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	str r0, [r4, #0x4]
 	cmp r0, #0x0
 	bne _02020D5A

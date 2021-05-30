@@ -13882,7 +13882,7 @@ MOD05_021EF4F8: ; 0x021EF4F8
 MOD05_021EF514: ; 0x021EF514
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl FUN_020162FC
+	bl ClearFileCache
 	bl NNS_GfdResetLnkTexVramState
 	bl NNS_GfdResetLnkPlttVramState
 	mov r4, #0

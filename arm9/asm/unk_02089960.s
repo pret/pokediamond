@@ -101,7 +101,7 @@ _020899B8:
 	str r0, [r2, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r6, #0x0
 	bl FUN_02089A6C
 	add r0, r6, #0x0

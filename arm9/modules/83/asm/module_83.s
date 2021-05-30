@@ -15353,11 +15353,11 @@ MOD83_02234E40: ; 0x02234E40
 	add r0, r4, #0
 	bl FUN_0202BF90
 	mov r0, #4
-	bl FUN_020166A8
+	bl SetSoftResetDisableMask
 	ldr r0, [r5, #0x10]
 	bl FUN_02022720
 	mov r0, #4
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD83_02234E40
 
@@ -19168,7 +19168,7 @@ _02236CAE:
 	mov r0, #0x15
 	str r0, [r5]
 	mov r0, #4
-	bl FUN_020166A8
+	bl SetSoftResetDisableMask
 	b _02236D90
 _02236CF0:
 	ldr r0, _02236DB0 ; =0x0000E88C
@@ -19219,7 +19219,7 @@ _02236D36:
 	mov r0, #0x16
 	str r0, [r5]
 	mov r0, #4
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 	b _02236D90
 _02236D54:
 	ldr r0, _02236DC8 ; =gMain + 0x40
@@ -24577,7 +24577,7 @@ _022394E4: ; jump table
 	.short _02239538 - _022394E4 - 2 ; case 4
 _022394EE:
 	mov r0, #4
-	bl FUN_020166A8
+	bl SetSoftResetDisableMask
 	ldr r0, [r4, #0x14]
 	mov r1, #2
 	bl FUN_02022840
@@ -24610,7 +24610,7 @@ _02239528:
 	cmp r0, #1
 	bhi _02239534
 	mov r0, #4
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 _02239534:
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
@@ -24645,7 +24645,7 @@ MOD83_0223955C: ; 0x0223955C
 	ldr r0, [r0, #0x14]
 	bl FUN_0202287C
 	mov r0, #4
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 	pop {r3, pc}
 	nop
 _02239570: .word MOD83_0223BC30

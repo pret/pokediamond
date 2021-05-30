@@ -61,7 +61,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         reg_GX_DISPCNT &= 0xFFFFE0FF;
         reg_GXS_DB_DISPCNT &= 0xFFFFE0FF;
 
-        FUN_0201669C(4, 8);
+        SetKeyRepeatTimers(4, 8);
 
         gMain.unk65 = 0;
         GX_SwapDisplay();

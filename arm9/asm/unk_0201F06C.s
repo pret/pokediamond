@@ -1821,7 +1821,7 @@ _0201FD0C:
 	str r0, [r4, r1]
 	ldr r0, [r5, #0x8]
 	ldr r1, _0201FD54 ; =UNK_02105BBC
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	mov r1, #0x46
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]

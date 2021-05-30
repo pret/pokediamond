@@ -100,7 +100,7 @@ _021D7540:
 	bl GX_SwapDisplay
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r5, #0
 	bl MOD77_021D7C64
 	mov r0, #1

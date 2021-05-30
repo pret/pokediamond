@@ -87,7 +87,7 @@ FUN_02079C7C: ; 0x02079C7C
 	strh r2, [r0, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #0x1
 	mov r0, #0x3
 	mov r1, #0x13

@@ -35,14 +35,14 @@ void Options_SetButtonModeOnMain(struct SaveBlock2 * sav2, u32 buttonMode) {
 
     switch (buttonMode) {
         case 1:
-            gMain.unk34 = 1;
+            gMain.buttonMode = 1;
             break;
         case 2:
-            gMain.unk34 = 3;
+            gMain.buttonMode = 3;
             break;
         case 0:
         default:
-            gMain.unk34 = 0;
+            gMain.buttonMode = 0;
             break;
     }
 }

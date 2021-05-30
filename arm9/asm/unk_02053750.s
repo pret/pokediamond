@@ -974,7 +974,7 @@ _02053E24:
 	bl FUN_02009DAC
 	ldr r1, _02053E88 ; =UNK_02105F80
 	mov r0, #0x4
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	ldr r1, [r5, #0x10]
 	add r4, r0, #0x0
 	str r1, [sp, #0x0]
@@ -1012,7 +1012,7 @@ FUN_02053E8C: ; 0x02053E8C
 	add r4, r0, #0x0
 	mov r0, #0x4
 	add r1, r6, #0x0
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	add r6, r0, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x4

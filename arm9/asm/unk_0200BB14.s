@@ -342,7 +342,7 @@ _0200BD68:
 	str r0, [sp, #0x18]
 	ldr r0, [r5, #0x0]
 	ldr r1, [r6, #0x0]
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	ldr r1, [sp, #0x18]
 	ldr r2, [r5, #0x0]
 	str r0, [sp, #0x1c]
@@ -408,7 +408,7 @@ _0200BDF6:
 	ldr r1, [sp, #0x10]
 	ldr r0, [r5, #0x0]
 	ldr r1, [r1, #0x18]
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	ldr r1, [r4, #0x14]
 	add r6, r0, #0x0
 	str r1, [sp, #0x0]

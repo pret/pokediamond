@@ -326,7 +326,7 @@ FUN_02033D3C: ; 0x02033D3C
 	beq _02033D92
 	ldr r0, _02033D98 ; =UNK_02105D88
 	add r1, sp, #0x4
-	bl FUN_020161F8
+	bl OpenAndReadWholeFile
 	mov r1, #0x96
 	ldr r0, [sp, #0x4]
 	lsl r1, r1, #0x2
@@ -374,11 +374,11 @@ FUN_02033D9C: ; 0x02033D9C
 	add r1, sp, #0x4
 	beq _02033DC2
 	ldr r0, _02033E5C ; =UNK_02105D98
-	bl FUN_020161F8
+	bl OpenAndReadWholeFile
 	b _02033DC8
 _02033DC2:
 	ldr r0, _02033E60 ; =UNK_02105DA8
-	bl FUN_020161F8
+	bl OpenAndReadWholeFile
 _02033DC8:
 	mov r1, #0x96
 	ldr r0, [sp, #0x4]

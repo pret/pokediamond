@@ -777,7 +777,7 @@ _020772FE:
 	str r0, [r4, r1]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl FUN_02077B24
 	mov r0, #0x16
 	lsl r0, r0, #0x4

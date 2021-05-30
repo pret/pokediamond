@@ -73,7 +73,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	bl MOD68_021D7870
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl FUN_0201CC08
 	mov r0, #4
 	bl FUN_0201CC24

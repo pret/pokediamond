@@ -74,7 +74,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	bl MOD71_0222E76C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl MOD71_0222E558
 	mov r0, #0x5d
 	lsl r0, r0, #2
@@ -932,7 +932,7 @@ _0222DDA6:
 	mov r0, #0x50
 	bl FUN_02031588
 	mov r0, #2
-	bl FUN_020166A8
+	bl SetSoftResetDisableMask
 	add r0, r4, #0
 	bl MOD71_02230B88
 	ldr r0, [r4, #0x4c]
@@ -1317,7 +1317,7 @@ _0222E094:
 	mov r2, #1
 	bl MOD71_02230F40
 	mov r0, #2
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 	add sp, #0x10
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}

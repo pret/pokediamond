@@ -43226,7 +43226,7 @@ _0224E848: ; jump table
 _0224E858:
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl MOD18_0224E01C
 	ldr r3, _0224E940 ; =0x00000504
 	add r1, r6, #0

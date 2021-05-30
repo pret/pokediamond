@@ -143,7 +143,7 @@ FUN_0206F3FC: ; 0x0206F3FC
 	strh r1, [r3, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #0x2
 	mov r0, #0x3
 	mov r1, #0xc

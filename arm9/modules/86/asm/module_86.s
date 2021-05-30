@@ -57,7 +57,7 @@ MOD86_021D74E0: ; 0x021D74E0
 	str r0, [r2]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r4, #0
 	bl MOD86_021D76EC
 	add r0, r4, #0

@@ -43,7 +43,7 @@ MOD55_021D7504: ; 0x021D7504
 	str r0, [r2]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r0, #0x34
 	bl FUN_02016B94
 	str r0, [r4, #4]

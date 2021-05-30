@@ -1807,7 +1807,7 @@ THUMB_FUNC void FUN_020331C4()
 {
     if (UNK_021C5A00 != NULL)
     {
-        FUN_020166B8(1);
+        ClearSoftResetDisableMask(1);
         FUN_02031D20(FUN_02032440, 5);
     }
 }
@@ -1875,7 +1875,7 @@ THUMB_FUNC void FUN_02033288(struct SaveBlock2 *sav2)
         UNK_021C5A00->unk46 = 1;
         UNK_021C5A00->unk28 = sav2;
         FUN_020334E8(0, 1);
-        FUN_020166A8(1);
+        SetSoftResetDisableMask(1);
     }
 }
 
@@ -1883,7 +1883,7 @@ THUMB_FUNC void FUN_020332DC()
 {
     if (UNK_021C5A00 != 0)
     {
-        FUN_020166B8(1);
+        ClearSoftResetDisableMask(1);
         FUN_020334E8(0, 0);
         FreeToHeap(UNK_021C5A00);
         UNK_021C5A00 = NULL;
@@ -1903,7 +1903,7 @@ THUMB_FUNC void FUN_02033310(struct SaveBlock2 *sav2)
         UNK_021C5A00->unk46 = 1;
         UNK_021C5A00->unk28 = sav2;
         FUN_020334E8(0, 1);
-        FUN_020166A8(1);
+        SetSoftResetDisableMask(1);
     }
 }
 
@@ -1911,7 +1911,7 @@ THUMB_FUNC void FUN_02033364()
 {
     if (UNK_021C5A00 != 0)
     {
-        FUN_020166B8(1);
+        ClearSoftResetDisableMask(1);
         FUN_020334E8(0, 0);
         FreeToHeap(UNK_021C5A00);
         UNK_021C5A00 = NULL;
@@ -1985,7 +1985,7 @@ THUMB_FUNC void *FUN_0203346C(struct SaveBlock2 *sav2, u32 param1)
         return 0;
     }
 
-    FUN_020166A8(1);
+    SetSoftResetDisableMask(1);
     FUN_02016828(3, 0xf, 0x7080);
     FUN_02031734(sav2, 0x17);
     UNK_021C5A00->unk00 = AllocFromHeap(0xf, param1);
@@ -2127,7 +2127,7 @@ THUMB_FUNC void FUN_020335F4()
 
         FUN_0200541C();
         FUN_0202287C(UNK_021C5A00->unk28);
-        gMain.unk64 = 1;
+        gMain.touchpadReadAuto = 1;
         if (UNK_021C5A00->unk4E == 3)
         {
             FUN_020335A4(3);

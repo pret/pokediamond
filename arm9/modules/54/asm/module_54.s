@@ -67,7 +67,7 @@ _021D74F6:
 	str r0, [r4, #0x28]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl MOD54_021D7874
 	ldr r0, [r4]
 	bl MOD54_021D7894

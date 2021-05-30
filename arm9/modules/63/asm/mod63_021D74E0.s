@@ -37,7 +37,7 @@ MOD63_021D74E0: ; 0x021D74E0
 	str r0, [r2]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #1
 	mov r0, #3
 	mov r1, #0x1e

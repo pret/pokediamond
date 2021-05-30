@@ -68,7 +68,7 @@ MOD75_021E6BA0: ; 0x021E6BA0
 	bl FUN_0200E1D0
 	mov r0, #3
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r4, #0
 	bl MOD75_021E7470
 	add r0, r4, #0

@@ -267,7 +267,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	str r0, [r2]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r0, #0x36
 	bl FUN_02016B94
 	add r1, r4, #0

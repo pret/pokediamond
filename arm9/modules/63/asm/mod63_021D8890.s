@@ -582,7 +582,7 @@ MOD63_021D8D10: ; 0x021D8D10
 	bl GX_DisableEngineBLayers
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r0, #3
 	mov r1, #0x4c
 	lsl r2, r0, #0x11
