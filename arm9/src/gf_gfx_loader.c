@@ -1,7 +1,6 @@
 #include "global.h"
 #include "filesystem.h"
 #include "NNS_g2d.h"
-#include "GXS_ioreg.h"
 #include "gf_gfx_loader.h"
 
 THUMB_FUNC u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct UnkStruct_02016B94_2 * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id)
