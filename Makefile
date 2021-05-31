@@ -205,7 +205,7 @@ $(BUILD_DIR)/%.o: %.c $$(dep)
 $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) $< -o $@
 
-arm9:
+arm9: filesystem
 	$(MAKE) -C arm9 $(MAKE_VARS)
 
 arm7:
@@ -215,7 +215,7 @@ include filesystem.mk
 
 # TODO: Rules for Pearl
 # FIXME: Computed secure area CRC in header is incorrect due to first 8 bytes of header not actually being "encryObj"
-$(ROM): rom.rsf filesystem arm9 arm7 $(BNR) tools/bin/rom_header.template.sbin
+$(ROM): rom.rsf arm9 arm7 $(BNR) tools/bin/rom_header.template.sbin
 	$(MAKEROM) -DBUILD_DIR="$(BUILD_DIR)" -DBNR="$(BNR)" -DTITLE_NAME="$(TITLE_NAME)" -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
 ifeq ($(SHIFTED),0)
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
