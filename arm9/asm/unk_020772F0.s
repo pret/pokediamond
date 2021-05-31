@@ -2269,7 +2269,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r0, #0x1f
 	add r2, r1, #0x0
 	add r3, r1, #0x0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x20
 	str r0, [sp, #0x0]
 	mov r0, #0x12
@@ -2278,7 +2278,7 @@ FUN_02077FE8: ; 0x02077FE8
 	add r1, r0, #0x0
 	mov r2, #0x4
 	mov r3, #0x0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x4
 	mov r1, #0x0
 	bl FUN_02017FE4
@@ -2295,7 +2295,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r0, #0x1f
 	add r2, r4, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x6
@@ -2309,7 +2309,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r1, #0x4
 	add r2, r4, #0x0
 	mov r3, #0x2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x2
@@ -2322,7 +2322,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r0, #0x1f
 	mov r1, #0x2
 	add r2, r4, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0xe
@@ -2335,7 +2335,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r0, #0x1f
 	mov r1, #0x6
 	add r2, r4, #0x0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r3, #0x0
 	mov r0, #0xe
 	str r3, [sp, #0x0]
@@ -2348,7 +2348,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r0, #0x1f
 	mov r1, #0x7
 	add r2, r4, #0x0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r1, #0x6
 	mov r0, #0x0
 	lsl r1, r1, #0x6
@@ -2382,7 +2382,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r1, #0x10
 	mov r2, #0x1
 	add r3, r5, r3
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	ldr r1, _0207810C ; =0x000004AC
 	str r0, [r5, r1]
 	add sp, #0x10
@@ -2533,7 +2533,7 @@ _0207818C:
 	mov r0, #0x13
 	mov r2, #0x0
 	add r3, r5, r3
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	ldr r1, _02078320 ; =0x000004B4
 	str r0, [r5, r1]
 	add r0, r1, #0x4
@@ -2547,7 +2547,7 @@ _0207818C:
 	lsl r2, r0, #0x6
 	add r2, r5, r2
 	mov r3, #0x12
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	ldr r1, _02078324 ; =0x000004BC
 	str r0, [r5, r1]
 	add r0, r1, #0x4
@@ -3131,7 +3131,7 @@ _020786F0:
 	mov r0, #0x1f
 	add r1, r7, #0x6
 	add r3, r6, #0x0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	bl FUN_02078BA8
@@ -3435,7 +3435,7 @@ FUN_0207890C: ; 0x0207890C
 	ldr r2, [r5, r2]
 	mov r0, #0x1f
 	mov r1, #0x9
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x46
 	mov r1, #0x4
 	lsl r0, r0, #0x4

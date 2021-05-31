@@ -322,7 +322,7 @@ MOD50_02254A48: ; 0x02254A48
 	ldr r2, [r5, #4]
 	mov r0, #0xc
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -342,7 +342,7 @@ MOD50_02254A48: ; 0x02254A48
 	mov r1, #9
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r1, [r5]
 	ldr r0, [r5, #4]
 	ldr r1, [r1]

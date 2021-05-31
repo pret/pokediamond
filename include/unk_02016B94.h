@@ -219,7 +219,7 @@ void FUN_0201878C(struct UnkStruct_02016B94_2 *param0, u32 param1, u16 param2);
 void *FUN_020187B0(u32 param0);
 void FUN_02018808(u8 *param0, u32 param1, u8 (*param2)[2], u8 param3);
 u8 (*FUN_02018848(u8 *param0, u32 param1, u8 param2, u32 heap_id))[2];
-void *FUN_0201886C(struct UnkStruct_02016B94_2 *param0, u32 param1);
+void *FUN_0201886C(struct UnkStruct_02016B94_2 *param0, u8 param1);
 u16 FUN_02018878(struct UnkStruct_02016B94_2 *param0, u32 param1);
 u8 FUN_02018884(struct UnkStruct_02016B94_2 *param0, u32 param1);
 void BlitBitmapRect4Bit(struct UnkStruct_02016B94_3 *param0,

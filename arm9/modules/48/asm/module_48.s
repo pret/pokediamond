@@ -438,7 +438,7 @@ MOD48_02254B30: ; 0x02254B30
 	mov r0, #0xc
 	mov r1, #0x7a
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -450,7 +450,7 @@ MOD48_02254B30: ; 0x02254B30
 	mov r0, #0xc
 	mov r1, #0x79
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C
@@ -679,7 +679,7 @@ MOD48_02254D2C: ; 0x02254D2C
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x7d
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	add r1, r4, #0
 	lsr r0, r0, #5
 	add r1, #0xac

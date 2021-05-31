@@ -42,7 +42,7 @@ FUN_0200CABC: ; 0x0200CABC
 	mov r0, #0x26
 	add r2, r5, #0x0
 	add r3, r4, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add sp, #0x10
 	pop {r3-r5, pc}
 _0200CAE2:
@@ -55,7 +55,7 @@ _0200CAE2:
 	mov r0, #0x26
 	add r2, r5, #0x0
 	add r3, r4, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add sp, #0x10
 	pop {r3-r5, pc}
 
@@ -89,7 +89,7 @@ _0200CB18:
 	str r0, [sp, #0xc]
 	mov r0, #0x26
 	add r3, r5, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r0, sp, #0x10
 	ldrb r0, [r0, #0x10]
 	cmp r0, #0x2
@@ -108,7 +108,7 @@ _0200CB3C:
 	str r0, [sp, #0x4]
 	mov r0, #0x26
 	lsl r3, r4, #0x5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x10
 	pop {r4-r6, pc}
 _0200CB56:
@@ -119,7 +119,7 @@ _0200CB56:
 	str r0, [sp, #0x4]
 	mov r0, #0x26
 	lsl r3, r4, #0x5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x10
 	pop {r4-r6, pc}
 
@@ -394,7 +394,7 @@ FUN_0200CD68: ; 0x0200CD68
 	str r0, [sp, #0xc]
 	mov r0, #0x26
 	add r3, r5, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	cmp r5, #0x4
 	bhs _0200CDB8
 	add r0, r7, #0x0
@@ -407,7 +407,7 @@ FUN_0200CD68: ; 0x0200CD68
 	str r0, [sp, #0x4]
 	mov r0, #0x26
 	lsl r3, r4, #0x5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x14
 	pop {r4-r7, pc}
 _0200CDB8:
@@ -421,7 +421,7 @@ _0200CDB8:
 	str r0, [sp, #0x4]
 	mov r0, #0x26
 	lsl r3, r4, #0x5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4
@@ -908,7 +908,7 @@ FUN_0200D18C: ; 0x0200D18C
 	mov r1, #0x16
 	mov r2, #0x0
 	add r3, sp, #0x3c
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0x2c]
 	ldr r0, [sp, #0x3c]
 	mov r7, #0x0
@@ -1006,7 +1006,7 @@ FUN_0200D274: ; 0x0200D274
 	str r0, [sp, #0x0]
 	mov r0, #0x26
 	add r3, sp, #0x10
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0xc]
 	mov r1, #0x9
 	ldr r0, [sp, #0x2c]
@@ -1077,7 +1077,7 @@ FUN_0200D300: ; 0x0200D300
 	mov r0, #0x24
 	add r3, r6, #0x0
 	str r4, [sp, #0xc]
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x24 ; NARC_GRAPHIC_FIELD_BOARD
 	mov r1, #0x1
 	add r2, r4, #0x0
@@ -1144,7 +1144,7 @@ _0200D390:
 	str r0, [sp, #0xc]
 	mov r0, #0x24
 	add r3, r4, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add sp, #0x10
 	pop {r3-r5, pc}
 
@@ -1792,7 +1792,7 @@ _0200D8DA:
 	mov r0, #0x26
 	mov r2, #0x0
 	add r3, sp, #0x30
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	mov r2, #0x80
 	add r5, r0, #0x0
 	str r2, [sp, #0x0]

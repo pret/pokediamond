@@ -629,7 +629,7 @@ _021D7A06:
 	ldr r2, [r5, #0x10]
 	mov r0, #0x84
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -640,7 +640,7 @@ _021D7A06:
 	ldr r2, [r5, #0x10]
 	mov r0, #0x84
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x20
 	str r0, [sp]
 	ldr r0, [r5]
@@ -649,7 +649,7 @@ _021D7A06:
 	ldr r1, [sp, #0x14]
 	mov r0, #0x84
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -660,7 +660,7 @@ _021D7A06:
 	ldr r2, [r5, #0x10]
 	mov r0, #0x84
 	mov r3, #7
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -671,7 +671,7 @@ _021D7A06:
 	ldr r2, [r5, #0x10]
 	mov r0, #0x84
 	mov r3, #7
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x20
 	str r0, [sp]
 	ldr r0, [r5]
@@ -680,7 +680,7 @@ _021D7A06:
 	mov r0, #0x84
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -691,7 +691,7 @@ _021D7A06:
 	ldr r2, [r5, #0x10]
 	mov r0, #0x84
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -715,7 +715,7 @@ _021D7A06:
 	ldr r2, [r5, #0x10]
 	mov r0, #0x84
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0x20
 	str r3, [sp]
 	ldr r0, [r5]
@@ -723,7 +723,7 @@ _021D7A06:
 	str r0, [sp, #4]
 	mov r0, #0x84
 	mov r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -734,7 +734,7 @@ _021D7A06:
 	ldr r2, [r5, #0x10]
 	mov r0, #0x84
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x18
@@ -759,7 +759,7 @@ _021D7A06:
 	ldr r2, [r5, #0x10]
 	mov r0, #0x84
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0x20
 	str r3, [sp]
 	ldr r0, [r5]
@@ -767,7 +767,7 @@ _021D7A06:
 	str r0, [sp, #4]
 	mov r0, #0x84
 	mov r2, #4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	ldr r3, [r5]
 	mov r1, #0x20

@@ -596,7 +596,7 @@ MOD84_021D7968: ; 0x021D7968
 	mov r0, #0x7f
 	mov r1, #0x42
 	add r3, r2, #0
-	bl FUN_02006948
+	bl GfGfxLoader_GXLoadPalWithSrcOffset
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20
@@ -606,7 +606,7 @@ MOD84_021D7968: ; 0x021D7968
 	mov r0, #0x7f
 	mov r1, #0x42
 	mov r2, #4
-	bl FUN_02006948
+	bl GfGfxLoader_GXLoadPalWithSrcOffset
 	ldr r2, _021D7A74 ; =0x04000050
 	mov r0, #0
 	add r3, r2, #0
@@ -859,7 +859,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	mov r1, #1
 	mov r3, #0x4b
 	add r4, #0x38
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [r5, #0x38]
 	ldr r1, [sp, #8]
 	bl DC_FlushRange
@@ -924,7 +924,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	mov r0, #0x7f
 	mov r1, #3
 	mov r3, #0x4b
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [r4, #4]
 	cmp r0, #0
 	beq _021D7CCC
@@ -1129,7 +1129,7 @@ _021D7E08:
 	str r0, [sp, #4]
 	mov r0, #0x7f
 	mov r3, #0x4b
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [r4]
 	cmp r0, #0
 	beq _021D7E9A
@@ -1274,7 +1274,7 @@ _021D7F2C:
 	ldrh r1, [r1, r4]
 	mov r0, #0x7f
 	add r3, r2, #0
-	bl FUN_02006AE4
+	bl GfGfxLoader_LoadImageMapping
 	mov r0, #0x4b
 	ldr r1, _021D7F88 ; =0x021DA662
 	str r0, [sp]
@@ -1286,7 +1286,7 @@ _021D7F2C:
 	mov r0, #0x7f
 	mov r2, #1
 	mov r3, #0
-	bl FUN_02006A8C
+	bl GfGfxLoader_PartiallyLoadPalette
 	ldr r1, _021D7F8C ; =0x021DA664
 	ldr r2, _021D7F90 ; =0x021DA666
 	ldrh r1, [r1, r4]

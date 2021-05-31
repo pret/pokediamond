@@ -2365,7 +2365,7 @@ _0206DA26:
 	str r0, [sp, #0xc]
 	mov r0, #0x76
 	mov r3, #0x3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -2376,7 +2376,7 @@ _0206DA26:
 	str r0, [sp, #0xc]
 	mov r0, #0x76
 	mov r3, #0x3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	mov r0, #0x40
@@ -2441,7 +2441,7 @@ _0206DA26:
 	mov r0, #0xc
 	add r2, r4, #0x0
 	mov r3, #0x4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -2453,7 +2453,7 @@ _0206DA26:
 	mov r0, #0xc
 	add r2, r4, #0x0
 	mov r3, #0x4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r0, #0x20

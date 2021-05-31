@@ -3801,7 +3801,7 @@ MOD62_0222F2C8: ; 0x0222F2C8
 	ldr r2, [r2]
 	add r1, #0xb1
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3816,7 +3816,7 @@ MOD62_0222F2C8: ; 0x0222F2C8
 	ldr r2, [r2]
 	add r1, #0xc1
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0x40
@@ -3844,7 +3844,7 @@ MOD62_0222F2C8: ; 0x0222F2C8
 	ldr r2, [r2]
 	add r1, #0xb2
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3858,7 +3858,7 @@ MOD62_0222F2C8: ; 0x0222F2C8
 	ldr r2, [r4]
 	add r1, #0xc2
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	add sp, #0x10
 	pop {r4, pc}
 	thumb_func_end MOD62_0222F2C8
@@ -3882,7 +3882,7 @@ MOD62_0222F36C: ; 0x0222F36C
 	ldr r2, [r2]
 	add r1, #0xb0
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3897,7 +3897,7 @@ MOD62_0222F36C: ; 0x0222F36C
 	ldr r2, [r2]
 	add r1, #0xc0
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x40
@@ -3935,7 +3935,7 @@ MOD62_0222F3D4: ; 0x0222F3D4
 	ldr r2, [r2]
 	add r1, #0xb0
 	mov r3, #7
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3950,7 +3950,7 @@ MOD62_0222F3D4: ; 0x0222F3D4
 	ldr r2, [r2]
 	add r1, #0xbf
 	mov r3, #7
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x40

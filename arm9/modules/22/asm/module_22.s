@@ -1164,7 +1164,7 @@ MOD22_02255098: ; 0x02255098
 	mov r0, #0xc
 	mov r1, #0x15
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1176,7 +1176,7 @@ MOD22_02255098: ; 0x02255098
 	mov r0, #0xc
 	mov r1, #0x14
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C
@@ -1245,7 +1245,7 @@ MOD22_0225516C: ; 0x0225516C
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #2
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #0
 	str r0, [sp]
 	mov r2, #1
@@ -1256,7 +1256,7 @@ MOD22_0225516C: ; 0x0225516C
 	mov r0, #0xc
 	mov r1, #0x16
 	lsl r3, r3, #8
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #1
 	add sp, #0xc
 	pop {pc}

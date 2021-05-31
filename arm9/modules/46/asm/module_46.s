@@ -313,7 +313,7 @@ MOD46_02254A38: ; 0x02254A38
 	ldr r2, [r5, #4]
 	mov r0, #0xc
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -333,7 +333,7 @@ MOD46_02254A38: ; 0x02254A38
 	mov r1, #9
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r0, [r5, #4]
 	mov r1, #0x1a
 	mov r2, #6

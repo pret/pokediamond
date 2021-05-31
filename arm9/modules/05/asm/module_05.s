@@ -26118,7 +26118,7 @@ MOD05_021F5268: ; 0x021F5268
 	add r1, r2, #0
 	str r5, [sp]
 	add r2, r5, #0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r4]
 	bl NNS_G3dGetMdlSet
 	str r0, [r4, #4]
@@ -26211,7 +26211,7 @@ MOD05_021F531C: ; 0x021F531C
 	ldr r3, [sp, #0x18]
 	add r2, r6, #0
 	str r6, [sp]
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r2, r0, #0
 	ldr r3, [sp, #0x1c]
 	add r0, r5, #0

@@ -21,7 +21,7 @@ extern void FUN_0201C1A8(struct TextPrinter *printer);
 
 extern u32 FontFunc(u8 fontId, struct TextPrinter *printer);
 
-extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
+extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 
 
 THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
@@ -330,7 +330,7 @@ THUMB_FUNC u16 *FUN_0201C1B0(void)
 {
     void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
     struct UnkStruct_0200B870_sub * var;
-    void *tmp = FUN_02006BB0(NARC_GRAPHIC_FONT, 5, 0, &var, 0);
+    void *tmp = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, 5, 0, &var, 0);
     MI_CpuCopy32(var->unk_14, res, 32 * 24 * sizeof(u16));
     FreeToHeap(tmp);
     return res;

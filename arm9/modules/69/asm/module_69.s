@@ -533,7 +533,7 @@ _0222DA0E:
 	ldr r2, [r4, #0x10]
 	mov r0, #0x69
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -811,7 +811,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	ldr r2, [r4, #0x10]
 	mov r0, #0x69
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -822,7 +822,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	ldr r2, [r4, #0x10]
 	mov r0, #0x69
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x60
 	str r0, [sp]
 	mov r0, #0x3f
@@ -831,7 +831,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	mov r0, #0x69
 	mov r1, #4
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -843,7 +843,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	ldr r2, [r4, #0x10]
 	mov r0, #0x69
 	add r3, r1, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	bl FUN_02017CD0
@@ -1095,7 +1095,7 @@ MOD69_0222DE98: ; 0x0222DE98
 	mov r1, #0x29
 	mov r2, #0
 	add r3, sp, #0x18
-	bl FUN_02006C30
+	bl GfGfxLoader_GetCellBank
 	mov r1, #0x5b
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1105,7 +1105,7 @@ MOD69_0222DE98: ; 0x0222DE98
 	mov r1, #0x2a
 	mov r2, #0
 	add r3, sp, #0x14
-	bl FUN_02006C5C
+	bl GfGfxLoader_GetAnimBank
 	mov r1, #0x17
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -1156,13 +1156,13 @@ MOD69_0222DF0C: ; 0x0222DF0C
 	str r0, [sp]
 	mov r0, #0x1b
 	add r3, sp, #0x44
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0x28]
 	mov r0, #0x1b
 	mov r1, #0x27
 	add r2, sp, #0x40
 	mov r3, #0x3f
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [sp, #0x24]
 	mov r0, #0
 	str r0, [sp, #0x20]
@@ -1303,7 +1303,7 @@ _0222DF98:
 	ldrh r1, [r1, #4]
 	mov r2, #1
 	add r3, r6, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x81
 	lsl r1, r1, #2
 	ldr r1, [r5, r1]
@@ -1398,7 +1398,7 @@ _0222E10E:
 	ldrh r1, [r1, #4]
 	mov r2, #1
 	mov r3, #0xc0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp, #0x94]
 	add r0, sp, #0x80
