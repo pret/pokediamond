@@ -27,7 +27,7 @@ void FUN_02016444(u8 a0);
 void FUN_02016454(u8 a0);
 void ReadKeypadAndTocuhpad(void);
 void ApplyButtonModeToInput(void);
-void SetKeyRepeatTimers(int x, int y);
+void SetKeyRepeatTimers(int continueDelay, int startDelay);
 void SetSoftResetDisableMask(u8 a0);
 void ClearSoftResetDisableMask(u8 a0);
 

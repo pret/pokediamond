@@ -1,9 +1,10 @@
 #include "error_message_reset.h"
 #include "GX_layers.h"
+#include "GXS_ioreg.h"
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
 #include "unk_02016B94.h"
-
+#include "PAD_pad.h"
 
 
 const struct UnkStruct_02016B94_4 UNK_020FF49C = { 0, 3, 3, 0x1a, 0x12, 1, 0x23 };
@@ -12,7 +13,7 @@ const struct HeapParam UNK_020FF4A4[] = {
     {0x00020000, OS_ARENA_MAIN}
 };
 
-const struct GraphicsModes UNK_020FF4AC = { mode1 : 1 };
+const struct GraphicsModes UNK_020FF4AC = { dispMode : GX_DISPMODE_GRAPHICS };
 
 const struct UnkStruct_02016B94_1 UNK_020FF4BC = { 0, 0, 0x800, 0, 1, 0, 0, 6, 0, 1, 0, 0, 0 };
 
@@ -60,8 +61,8 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         GX_DisableEngineALayers();
         GX_DisableEngineBLayers();
 
-        reg_GX_DISPCNT &= 0xFFFFE0FF;
-        reg_GXS_DB_DISPCNT &= 0xFFFFE0FF;
+        reg_GX_DISPCNT &= ~REG_GX_DISPCNT_DISPLAY_MASK;
+        reg_GXS_DB_DISPCNT &= ~REG_GXS_DB_DISPCNT_DISPLAY_MASK;
 
         SetKeyRepeatTimers(4, 8);
 
@@ -70,8 +71,8 @@ THUMB_FUNC void PrintErrorMessageAndReset()
 
         reg_G2_BLDCNT = 0;
         reg_G2S_DB_BLDCNT = 0;
-        reg_GX_DISPCNT &= 0xFFFF1FFF;
-        reg_GXS_DB_DISPCNT &= 0xFFFF1FFF;
+        reg_GX_DISPCNT &= ~(REG_GX_DISPCNT_OW_MASK | REG_GX_DISPCNT_W1_MASK | REG_GX_DISPCNT_W0_MASK);
+        reg_GXS_DB_DISPCNT &= ~(REG_GXS_DB_DISPCNT_OW_MASK | REG_GXS_DB_DISPCNT_W1_MASK | REG_GXS_DB_DISPCNT_W0_MASK);
 
         GX_SetBanks(&UNK_020FF4D8);
         ptr = FUN_02016B94(0);
@@ -106,24 +107,22 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FUN_0200A274(0, 0x3f, 3);
         FUN_02032DAC();
 
-    lid:
-        HandleDSLidAction();
-        FUN_0202FB80();
-        if (!FUN_02033678())
+        while (1)
         {
-            OS_WaitIrq(1, 1);
-            goto lid;
+            HandleDSLidAction();
+            FUN_0202FB80();
+            if (FUN_02033678())
+                break;
+            OS_WaitIrq(TRUE, OS_IE_V_BLANK);
         }
 
-
-    lid2:
-        HandleDSLidAction();
-        if (!((u16)(((reg_PAD_KEYINPUT | *(vu16 *)HW_BUTTON_XY_BUF) ^ 0x2FFF) & 0x2FFF) & 1))
+        while (1)
         {
-            OS_WaitIrq(1, 1);
-            goto lid2;
+            HandleDSLidAction();
+            if ((PAD_Read() & PAD_BUTTON_A))
+                break;
+            OS_WaitIrq(TRUE, OS_IE_V_BLANK);
         }
-
         FUN_0200E3A0(PM_LCD_TOP, 0x7FFF);
         FUN_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
 

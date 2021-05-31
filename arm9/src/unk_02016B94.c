@@ -73,25 +73,25 @@ THUMB_FUNC u32 FUN_02016BB8(u32 *param0)
 
 THUMB_FUNC void FUN_02016BBC(const struct GraphicsModes *modes)
 {
-    GX_SetGraphicsMode(modes->mode1, modes->mode2, modes->mode4);
-    GXS_SetGraphicsMode(modes->mode3);
-    reg_GX_DISPCNT &= 0xC7FFFFFF;
-    reg_GX_DISPCNT &= 0xF8FFFFFF;
+    GX_SetGraphicsMode(modes->dispMode, modes->bgMode, modes->_2d3dMode);
+    GXS_SetGraphicsMode(modes->subMode);
+    reg_GX_DISPCNT &= ~REG_GX_DISPCNT_BGSCREENOFFSET_MASK;
+    reg_GX_DISPCNT &= ~REG_GX_DISPCNT_BGCHAROFFSET_MASK;
 
     GX_DisableEngineALayers();
     GX_DisableEngineBLayers();
 }
 
-THUMB_FUNC void FUN_02016BF4(u32 *param0, u32 param1)
+THUMB_FUNC void FUN_02016BF4(const struct GraphicsModes *param0, u32 param1)
 {
     if (param1 == 0)
     {
-        GX_SetGraphicsMode(param0[0], param0[1], param0[3]);
+        GX_SetGraphicsMode(param0->dispMode, param0->bgMode, param0->_2d3dMode);
         GX_DisableEngineALayers();
     }
     else
     {
-        GXS_SetGraphicsMode(param0[2]);
+        GXS_SetGraphicsMode(param0->subMode);
         GX_DisableEngineBLayers();
     }
 }

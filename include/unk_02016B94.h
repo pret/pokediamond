@@ -94,7 +94,7 @@ struct Window
 struct UnkStruct_02016B94_2 *FUN_02016B94(u32 heap_id);
 u32 FUN_02016BB8(u32 *param0);
 void FUN_02016BBC(const struct GraphicsModes *modes);
-void FUN_02016BF4(u32 *param0, u32 param1);
+void FUN_02016BF4(const struct GraphicsModes *param0, u32 param1);
 void FUN_02016C18(
     struct UnkStruct_02016B94_2 *param0, u8 param1, const struct UnkStruct_02016B94_1 *param2, u8 param3);
 void FUN_020170F4(struct UnkStruct_02016B94_2 *param0, u8 param1, u32 param2, u8 param3);

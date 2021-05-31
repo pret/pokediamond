@@ -536,10 +536,10 @@ void ApplyButtonModeToInput(void)
     }
 }
 
-void SetKeyRepeatTimers(int x, int y)
+void SetKeyRepeatTimers(int continueDelay, int startDelay)
 {
-    gMain.keyRepeatContinueDelay = x;
-    gMain.keyRepeatStartDelay = y;
+    gMain.keyRepeatContinueDelay = continueDelay;
+    gMain.keyRepeatStartDelay = startDelay;
 }
 
 void SetSoftResetDisableMask(u8 a0)

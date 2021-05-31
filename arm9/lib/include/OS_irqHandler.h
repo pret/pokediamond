@@ -16,6 +16,6 @@ static inline OSIrqMask OS_GetIrqCheckFlag(void)
 
 void OS_IrqHandler(void);
 void OS_IrqHandler_ThreadSwitch(void);
-void OS_WaitIrq(BOOL param1, u32 param2);
+void OS_WaitIrq(BOOL clear, OSIrqMask irqFlags);
 
 #endif //POKEDIAMOND_OS_IRQHANDLER_H
