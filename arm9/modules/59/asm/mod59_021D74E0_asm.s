@@ -189,7 +189,7 @@ MOD59_021D76C0: ; 0x021D76C0
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	add r0, r5, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _021D771C ; =SDK_OVERLAY_MODULE_52_ID
 	ldr r1, _021D7720 ; =MOD52_021D76D8
 	bl RegisterMainOverlay

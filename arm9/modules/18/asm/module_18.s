@@ -1747,7 +1747,7 @@ MOD18_0223A3D4: ; 0x0223A3D4
 	mov r0, #3
 	mov r1, #0x1d
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #0x1d
 	bl FUN_02016B94
 	add r4, r0, #0
@@ -1984,7 +1984,7 @@ _0223A5F8:
 	ldr r0, [r0]
 	str r1, [r0, #4]
 	mov r0, #0x1d
-	bl FUN_020168D0
+	bl DestroyHeap
 	bl MOD18_0223D638
 	ldr r1, _0223A648 ; =0x02251380
 	ldr r1, [r1]

@@ -807,7 +807,7 @@ FUN_02081214: ; 0x02081214
 	mov r0, #0xb
 	mov r1, #0x14
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	bl FUN_020811D8
 	add r4, r0, #0x0
 	bl GetLCRNGSeed
@@ -1191,7 +1191,7 @@ _020814FE:
 	add r0, r7, #0x0
 	bl FUN_0208120C
 	mov r0, #0x14
-	bl FUN_020168D0
+	bl DestroyHeap
 	pop {r3-r7, pc}
 	.balign 4
 

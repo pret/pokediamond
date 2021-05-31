@@ -92,7 +92,7 @@ FUN_02079C7C: ; 0x02079C7C
 	mov r0, #0x3
 	mov r1, #0x13
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _02079DAC ; =0x0000069C
 	add r0, r4, #0x0
 	mov r2, #0x13
@@ -339,7 +339,7 @@ FUN_02079ECC: ; 0x02079ECC
 	add r0, r4, #0x0
 	bl OverlayManager_FreeData
 	mov r0, #0x13
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4

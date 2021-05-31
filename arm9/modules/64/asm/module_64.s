@@ -12,7 +12,7 @@ MOD64_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x2f
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D7630 ; =0x000006B4
 	add r0, r4, #0
 	mov r2, #0x2f
@@ -299,7 +299,7 @@ _021D7726:
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x2f
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD64_021D76F4

@@ -418,7 +418,7 @@ FUN_020857F8: ; 0x020857F8
 	mov r0, #0x3
 	mov r1, #0x28
 	lsl r2, r2, #0xc
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r4, #0x0
 	mov r1, #0x1c
 	mov r2, #0x28
@@ -629,6 +629,6 @@ FUN_020859A0: ; 0x020859A0
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	ldr r0, [r4, #0x0]
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x1
 	pop {r3-r5, pc}

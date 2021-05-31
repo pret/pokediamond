@@ -1022,10 +1022,10 @@
 .extern SetKeyRepeatTimers
 .extern SetSoftResetDisableMask
 .extern ClearSoftResetDisableMask
-.extern FUN_020166C8
-.extern FUN_0201681C
-.extern FUN_02016828
-.extern FUN_020168D0
+.extern InitHeapSystem
+.extern CreateHeap
+.extern CreateHeapAtEnd
+.extern DestroyHeap
 .extern AllocFromHeap
 .extern AllocFromHeapAtEnd
 .extern FreeToHeap
@@ -1033,7 +1033,7 @@
 .extern GF_ExpHeap_FndGetTotalFreeSize
 .extern GF_ExpHeap_FndInitAllocator
 .extern ReallocFromHeap
-.extern FUN_02016B90
+.extern GF_heap_c_dummy_return_true
 .extern FUN_02016B94
 .extern FUN_02016BB8
 .extern FUN_02016BBC

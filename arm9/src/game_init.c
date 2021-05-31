@@ -142,7 +142,7 @@ void FUN_02015FC8(void)
     {
         csum++;
     }
-    FUN_020166C8(UNK_020EDB10, NELEMS(UNK_020EDB10), 92, csum);
+    InitHeapSystem(UNK_020EDB10, NELEMS(UNK_020EDB10), 92, csum);
 }
 
 void InitSystemForTheGame(void)

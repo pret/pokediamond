@@ -33,7 +33,7 @@ MOD57_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x19
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D76F0 ; =0x00003320
 	add r0, r5, #0
 	mov r2, #0x19
@@ -561,7 +561,7 @@ MOD57_021D7944: ; 0x021D7944
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x19
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	mov r1, #0x7f
 	bl FUN_020051EC

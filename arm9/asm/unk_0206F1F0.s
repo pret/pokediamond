@@ -203,7 +203,7 @@ _0206F34A:
 	ldr r2, _0206F388 ; =0x00040100
 	mov r0, #0x3
 	mov r1, #0x36
-	bl FUN_0201681C
+	bl CreateHeap
 	bl FUN_02088878
 	mov r0, #0x36
 	bl MOD07_02211E60

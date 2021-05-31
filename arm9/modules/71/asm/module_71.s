@@ -27,7 +27,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	ldr r2, _0222D734 ; =0x000707D0
 	mov r0, #3
 	mov r1, #0x1a
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _0222D738 ; =0x000036B4
 	add r0, r5, #0
 	mov r2, #0x1a
@@ -1777,7 +1777,7 @@ MOD71_0222E438: ; 0x0222E438
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x1a
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop

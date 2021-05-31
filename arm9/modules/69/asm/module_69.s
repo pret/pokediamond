@@ -13,7 +13,7 @@ HOF_OverlayInit: ; 0x0222D5C0
 	mov r0, #3
 	mov r1, #0x3f
 	lsl r2, r0, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _0222D70C ; =0x00001B60
 	add r0, r5, #0
 	mov r2, #0x3f
@@ -213,7 +213,7 @@ _0222D762:
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x3f
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]

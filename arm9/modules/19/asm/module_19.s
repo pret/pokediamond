@@ -11,7 +11,7 @@ MOD19_02252440: ; 0x02252440
 	mov r0, #3
 	mov r1, #8
 	lsl r2, r0, #0xf
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #0
 	bl GXS_SetGraphicsMode
 	mov r0, #0x80
@@ -91,7 +91,7 @@ MOD19_022524F4: ; 0x022524F4
 	mov r1, #4
 	bl FUN_020178A0
 	mov r0, #8
-	bl FUN_020168D0
+	bl DestroyHeap
 	pop {r3, pc}
 	thumb_func_end MOD19_022524F4
 

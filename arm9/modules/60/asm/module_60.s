@@ -13,7 +13,7 @@ MOD60_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x26
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0xad
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -215,7 +215,7 @@ _021D769A:
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	ldr r0, [r4]
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop

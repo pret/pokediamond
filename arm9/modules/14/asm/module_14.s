@@ -11,12 +11,12 @@ StoragePC_Overlay_Init: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #9
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r2, #0xf
 	mov r0, #3
 	mov r1, #0xa
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x87
 	add r0, r5, #0
 	lsl r1, r1, #2
@@ -132,9 +132,9 @@ _021D75DE:
 	add r0, r4, #0
 	bl MOD14_021DB398
 	mov r0, #9
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0xa
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -5546,7 +5546,7 @@ _021DA1FE:
 	ldr r0, [r4, r0]
 	bl MOD14_021DCA38
 	mov r0, #0xa
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -5592,7 +5592,7 @@ _021DA256:
 	mov r0, #3
 	mov r1, #0xa
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r2, #0x12
 	lsl r2, r2, #4
 	ldr r0, [r4, r2]
@@ -5658,7 +5658,7 @@ _021DA2F2:
 	ldr r0, [r5, r0]
 	bl MOD14_021DCA38
 	mov r0, #0xa
-	bl FUN_020168D0
+	bl DestroyHeap
 	add r0, r5, #0
 	bl MOD14_021D83E4
 	mov r1, #0x4b
@@ -5693,7 +5693,7 @@ _021DA334:
 	mov r0, #3
 	mov r1, #0xa
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0
 	bl MOD14_021DC3F4
 	cmp r0, #1
@@ -5803,7 +5803,7 @@ _021DA41E:
 	ldr r0, [r4, r0]
 	bl MOD14_021DCA38
 	mov r0, #0xa
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -5889,7 +5889,7 @@ _021DA4F4:
 	mov r0, #3
 	mov r1, #0xa
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #0x45
 	lsl r0, r0, #2
 	add r0, r4, r0

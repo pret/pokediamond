@@ -586,7 +586,7 @@ MOD63_021D8D10: ; 0x021D8D10
 	mov r0, #3
 	mov r1, #0x4c
 	lsl r2, r0, #0x11
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0xab
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -739,7 +739,7 @@ MOD63_021D8E68: ; 0x021D8E68
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4c
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _021D8E94 ; =SDK_OVERLAY_MODULE_63_ID
 	ldr r1, _021D8E98 ; =MOD63_021DBAB8
 	bl RegisterMainOverlay

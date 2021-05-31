@@ -27084,7 +27084,7 @@ MOD05_021F5990: ; 0x021F5990
 	str r0, [sp]
 	add r7, r1, #0
 	str r3, [sp, #4]
-	bl FUN_0201681C
+	bl CreateHeap
 	cmp r0, #1
 	beq _021F59B2
 	bl GF_AssertFail
@@ -27142,7 +27142,7 @@ _021F5A0E:
 	add r0, r6, #0
 	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 

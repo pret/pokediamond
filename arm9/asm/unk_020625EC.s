@@ -61,7 +61,7 @@ FUN_020625EC: ; 0x020625EC
 	mov r1, #0x50
 	lsl r2, r0, #0xd
 	ldr r6, [r5, #0xc]
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x2d
 	mov r0, #0x50
 	lsl r1, r1, #0x4
@@ -194,7 +194,7 @@ _020626FE:
 	lsl r2, r2, #0x4
 	bl MI_CpuFill8
 	add r0, r5, #0x0
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0xc
 	add sp, #0x8
 	pop {r3-r7, pc}

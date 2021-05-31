@@ -730,7 +730,7 @@ _020772FE:
 	mov r0, #0x3
 	mov r1, #0x12
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x5d
 	add r0, r6, #0x0
 	lsl r1, r1, #0x4
@@ -1583,7 +1583,7 @@ _02077A0C:
 	add r1, r0, #0x0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x12
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _02077A80 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]

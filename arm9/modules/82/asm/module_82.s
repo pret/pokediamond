@@ -641,7 +641,7 @@ _0222DA48:
 	mov r0, #3
 	mov r1, #0x44
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _0222DB58 ; =0x00000EC8
 	add r0, r6, #0
 	mov r2, #0x44
@@ -887,7 +887,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x44
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0

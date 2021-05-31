@@ -25,7 +25,7 @@ _021D74FC:
 	mov r0, #3
 	mov r1, #0x4b
 	lsl r2, r0, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D7670 ; =0x00001244
 	add r0, r6, #0
 	mov r2, #0x4b
@@ -269,7 +269,7 @@ _021D772E:
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4b
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _021D773E:

@@ -23,7 +23,7 @@ MOD73_021D74F0: ; 0x021D74F0
 	mov r0, #3
 	mov r1, #0x38
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D757C ; =0x000015E8
 	add r0, r5, #0
 	mov r2, #0x38
@@ -201,7 +201,7 @@ MOD73_021D7640: ; 0x021D7640
 	mov r0, #0
 	str r0, [r6, #0x18]
 	add r0, r4, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

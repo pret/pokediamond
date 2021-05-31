@@ -187,16 +187,16 @@ FUN_02037400: ; 0x02037400
 	mov r0, #0x3
 	mov r1, #0xb
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x20
 	mov r0, #0x3
 	lsl r2, r1, #0x9
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r2, #0x3
 	mov r0, #0x0
 	mov r1, #0x5b
 	lsl r2, r2, #0x8
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0x0
 	mov r1, #0xb8
 	mov r2, #0xb
@@ -282,11 +282,11 @@ FUN_020374B0: ; 0x020374B0
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	mov r0, #0x5b
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0xb
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x20
-	bl FUN_020168D0
+	bl DestroyHeap
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02037504

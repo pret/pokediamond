@@ -89,7 +89,7 @@ _021D7580:
 	mov r0, #3
 	mov r1, #0x34
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D7610 ; =0x0000041C
 	add r0, r6, #0
 	mov r2, #0x34
@@ -164,7 +164,7 @@ _021D7628:
 	mov r0, #3
 	mov r1, #0x34
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D76B8 ; =0x0000041C
 	add r0, r6, #0
 	mov r2, #0x34
@@ -349,7 +349,7 @@ MOD55_021D77AC: ; 0x021D77AC
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x34
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD55_021D77AC

@@ -1633,7 +1633,7 @@ _020382F6:
 	mov r0, #0x3
 	mov r1, #0x1a
 	lsl r2, r0, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x24]
@@ -1691,7 +1691,7 @@ _02038386:
 	ldr r0, [r4, #0x60]
 	bl FUN_0206C92C
 	mov r0, #0x1a
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x7
 	str r0, [r4, #0x0]
 	b _020383C8

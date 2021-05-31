@@ -110,7 +110,7 @@ _02048556:
 	mov r1, #0x4
 	mov r0, #0x3
 	lsl r2, r1, #0xf
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	bl FUN_02048764
@@ -240,7 +240,7 @@ _02048666:
 	add r0, r5, #0x0
 	bl FreeToHeap
 	mov r0, #0x4
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x0
 	bl OS_ResetSystem
 	add sp, #0xc

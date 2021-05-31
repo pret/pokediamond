@@ -50,7 +50,7 @@ FUN_02052EE8: ; 0x02052EE8
 	ldr r0, [r0, #0x38]
 	str r0, [r4, #0x8]
 	mov r0, #0xb
-	bl FUN_02016828
+	bl CreateHeapAtEnd
 	mov r0, #0x59
 	bl FUN_02053618
 	ldr r1, _02052F6C ; =0x000004DC
@@ -113,7 +113,7 @@ FUN_02052FA4: ; 0x02052FA4
 	ldr r0, [r4, r0]
 	bl FUN_0205362C
 	mov r0, #0x59
-	bl FUN_020168D0
+	bl DestroyHeap
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r4, pc}

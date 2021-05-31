@@ -11,12 +11,12 @@ MOD70_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x3c
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r2, #7
 	mov r0, #3
 	mov r1, #0x3d
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0
 	mov r1, #0xdc
 	mov r2, #0x3c
@@ -76,9 +76,9 @@ MOD70_021D755C: ; 0x021D755C
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x3d
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x3c
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0

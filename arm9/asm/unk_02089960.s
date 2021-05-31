@@ -38,7 +38,7 @@ FUN_02089960: ; 0x02089960
 	mov r0, #0x3
 	mov r1, #0x58
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0x0
 	mov r1, #0x3c
 	mov r2, #0x58
@@ -141,7 +141,7 @@ FUN_02089A40: ; 0x02089A40
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	add r0, r4, #0x0
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _02089A64 ; =SDK_OVERLAY_MODULE_83_ID
 	ldr r1, _02089A68 ; =MOD83_0223A360
 	bl RegisterMainOverlay

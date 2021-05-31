@@ -46,7 +46,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         OS_SetArenaHi(OS_ARENA_MAIN, OS_GetInitArenaHi(OS_ARENA_MAIN));
         OS_SetArenaLo(OS_ARENA_MAIN, OS_GetInitArenaLo(OS_ARENA_MAIN));
 
-        FUN_020166C8(UNK_020FF4A4, NELEMS(UNK_020FF4A4), 1, 0);
+        InitHeapSystem(UNK_020FF4A4, NELEMS(UNK_020FF4A4), 1, 0);
         FUN_0200E3A0(PM_LCD_TOP, 0);
         FUN_0200E3A0(PM_LCD_BOTTOM, 0);
 
