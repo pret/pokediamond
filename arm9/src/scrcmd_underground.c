@@ -6,7 +6,7 @@ extern BOOL FUN_02026298(void*, u16);
 extern void* FUN_02026CC4(struct SaveBlock2* sav2);
 extern BOOL FUN_020260C4(void*, u16, u16);
 
-THUMB_FUNC BOOL ScrCmd_Unk0083(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GiveSecretBaseDecoration(struct ScriptContext* ctx)
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     u16 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -19,7 +19,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0083(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0084(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_TakeSecretBaseDecoration(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -28,7 +28,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0084(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0085(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_HasSpaceForDecoration(struct ScriptContext* ctx)
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     u16 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -41,7 +41,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0085(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0086(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetDecorationCount(struct ScriptContext* ctx) //somewhat unsure on name, was originally CheckGoods
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -50,7 +50,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0086(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0087(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GiveUndergroundTrap(struct ScriptContext* ctx)
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     u16 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -63,7 +63,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0087(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0088(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_TakeUndergroundTrap(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -72,7 +72,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0088(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0089(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_HasSpaceForTrap(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -81,7 +81,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0089(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk008A(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetTrapCount(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -90,7 +90,7 @@ THUMB_FUNC BOOL ScrCmd_Unk008A(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk008B(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GiveTreasure(struct ScriptContext* ctx)
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -101,7 +101,7 @@ THUMB_FUNC BOOL ScrCmd_Unk008B(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk008C(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_TakeTreasure(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -110,7 +110,7 @@ THUMB_FUNC BOOL ScrCmd_Unk008C(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk008D(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_HasSpaceForTreasure(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -119,7 +119,7 @@ THUMB_FUNC BOOL ScrCmd_Unk008D(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk008E(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetTreasureCount(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -128,7 +128,7 @@ THUMB_FUNC BOOL ScrCmd_Unk008E(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk008F(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GiveUndergroundSphere(struct ScriptContext* ctx)
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     u16 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -141,7 +141,7 @@ THUMB_FUNC BOOL ScrCmd_Unk008F(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0090(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_TakeUndergroundSphere(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -150,7 +150,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0090(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0091(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_HasSpaceForSphere(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -159,7 +159,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0091(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0092(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetSphereCount(struct ScriptContext* ctx)
 {
     u16 unused1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));

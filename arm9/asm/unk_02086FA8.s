@@ -185,7 +185,7 @@ _0208710E:
 	cmp r0, #0x0
 	bne _0208712A
 	ldr r0, _02087244 ; =0x00000484
-	bl PlayBGM
+	bl PlaySound
 	ldr r0, [r4, #0x5c]
 	add r0, r0, #0x1
 	str r0, [r4, #0x5c]
@@ -470,7 +470,7 @@ _02087362:
 	cmp r0, #0x0
 	bne _0208737E
 	ldr r0, _02087498 ; =0x00000484
-	bl PlayBGM
+	bl PlaySound
 	ldr r0, [r4, #0x5c]
 	add r0, r0, #0x1
 	str r0, [r4, #0x5c]

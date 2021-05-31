@@ -9611,7 +9611,7 @@ _0223C982:
 	add r0, #0x48
 	bl CopyWindowToVram
 	ldr r0, _0223CA90 ; =0x00000484
-	bl PlayBGM
+	bl PlaySound
 	mov r0, #0
 	str r0, [r4, #8]
 	mov r0, #1

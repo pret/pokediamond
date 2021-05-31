@@ -199,9 +199,9 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk002F
     .word ScrCmd_WaitButtonAB
     .word ScrCmd_WaitButton
-    .word ScrCmd_Unk0032
+    .word ScrCmd_WaitButtonABPad
     .word ScrCmd_Unk0033
-    .word ScrCmd_Unk0034
+    .word ScrCmd_CloseMessageBox
     .word ScrCmd_Unk0035
     .word ScrCmd_CreateMessageBox
     .word ScrCmd_Unk0037
@@ -222,26 +222,26 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0046
     .word ScrCmd_Unk0047
     .word ScrCmd_Unk0048
-    .word ScrCmd_Unk0049
-    .word ScrCmd_Unk004A
-    .word ScrCmd_Unk004B
-    .word ScrCmd_Unk004C
+    .word ScrCmd_PlayFanfare
+    .word ScrCmd_StopFanfare
+    .word ScrCmd_PlayFanfareWait
+    .word ScrCmd_PlayCry
     .word ScrCmd_PlayCryWait
+    .word ScrCmd_PlaySound
+    .word ScrCmd_PlaySoundWait
     .word ScrCmd_PlayBgm
-    .word ScrCmd_Unk004F
-    .word ScrCmd_Unk0050
-    .word ScrCmd_Unk0051
-    .word ScrCmd_Unk0052
+    .word ScrCmd_StopBgm
+    .word ScrCmd_PlayDefaultBgm
     .word ScrCmd_Unk0053
-    .word ScrCmd_Unk0054
-    .word ScrCmd_Unk0055
+    .word ScrCmd_FadeOutBgm
+    .word ScrCmd_FadeInBgm
     .word ScrCmd_Unk0056
     .word ScrCmd_Unk0057
     .word ScrCmd_Unk0058
-    .word ScrCmd_Unk0059
-    .word ScrCmd_Unk005A
-    .word ScrCmd_Unk005B
-    .word ScrCmd_Unk005C
+    .word ScrCmd_CheckChatotCry
+    .word ScrCmd_StartChatotRecord
+    .word ScrCmd_StopChatotRecord
+    .word ScrCmd_SaveChatotCry
     .word ScrCmd_Unk005D
     .word ScrCmd_Unk005E
     .word ScrCmd_Unk005F
@@ -263,12 +263,12 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GiveMoney
     .word ScrCmd_TakeMoneyImmediate
     .word ScrCmd_HasEnoughMoneyImmediate
-    .word ScrCmd_Unk0072
-    .word ScrCmd_Unk0073
-    .word ScrCmd_Unk0074
-    .word ScrCmd_Unk0075
-    .word ScrCmd_Unk0076
-    .word ScrCmd_Unk0077
+    .word ScrCmd_ShowMoneyBox
+    .word ScrCmd_HideMoneyBox
+    .word ScrCmd_UpdateMoneyBox
+    .word ScrCmd_ShowCoinBox
+    .word ScrCmd_HideCoinBox
+    .word ScrCmd_UpdateCoinBox
     .word ScrCmd_GetCoins
     .word ScrCmd_GiveCoins
     .word ScrCmd_TakeCoinsImmediate
@@ -280,22 +280,22 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GetItemPocketId
     .word ScrCmd_Unk0081
     .word ScrCmd_Unk0082
-    .word ScrCmd_Unk0083
-    .word ScrCmd_Unk0084
-    .word ScrCmd_Unk0085
-    .word ScrCmd_Unk0086
-    .word ScrCmd_Unk0087
-    .word ScrCmd_Unk0088
-    .word ScrCmd_Unk0089
-    .word ScrCmd_Unk008A
-    .word ScrCmd_Unk008B
-    .word ScrCmd_Unk008C
-    .word ScrCmd_Unk008D
-    .word ScrCmd_Unk008E
-    .word ScrCmd_Unk008F
-    .word ScrCmd_Unk0090
-    .word ScrCmd_Unk0091
-    .word ScrCmd_Unk0092
+    .word ScrCmd_GiveSecretBaseDecoration
+    .word ScrCmd_TakeSecretBaseDecoration
+    .word ScrCmd_HasSpaceForDecoration
+    .word ScrCmd_GetDecorationCount
+    .word ScrCmd_GiveUndergroundTrap
+    .word ScrCmd_TakeUndergroundTrap
+    .word ScrCmd_HasSpaceForTrap
+    .word ScrCmd_GetTrapCount
+    .word ScrCmd_GiveTreasure
+    .word ScrCmd_TakeTreasure
+    .word ScrCmd_HasSpaceForTreasure
+    .word ScrCmd_GetTreasureCount
+    .word ScrCmd_GiveUndergroundSphere
+    .word ScrCmd_TakeUndergroundSphere
+    .word ScrCmd_HasSpaceForSphere
+    .word ScrCmd_GetSphereCount
     .word ScrCmd_Unk0093
     .word ScrCmd_Unk0094
     .word ScrCmd_Unk0095
@@ -357,25 +357,25 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GetPlayerName
     .word ScrCmd_GetRivalName
     .word ScrCmd_GetFriendName
-    .word ScrCmd_Unk00D0
+    .word ScrCmd_GetPokemonName
     .word ScrCmd_GetItemName
     .word ScrCmd_GetPocketName
     .word ScrCmd_GetTMHMMoveName
     .word ScrCmd_GetMoveName
     .word ScrCmd_Unk00D5
-    .word ScrCmd_Unk00D6
+    .word ScrCmd_GetPokemonNickname
     .word ScrCmd_GetPoketchAppName
     .word ScrCmd_GetTrainerClassName
     .word ScrCmd_Unk00D9
     .word ScrCmd_Unk00DA
-    .word ScrCmd_Unk00DB
-    .word ScrCmd_Unk00DC
-    .word ScrCmd_Unk00DD
+    .word ScrCmd_GetPlayerStarterName
+    .word ScrCmd_GetRivalStarterName
+    .word ScrCmd_GetCounterpartStarterName
     .word ScrCmd_Unk00DE
     .word ScrCmd_GetDecorationName
     .word ScrCmd_GetUndergroundTrapName
     .word ScrCmd_GetUndergroundItemName
-    .word ScrCmd_Unk00E2
+    .word ScrCmd_GetMapName
     .word ScrCmd_Unk00E3
     .word ScrCmd_Unk00E4
     .word ScrCmd_Unk00E5
@@ -494,28 +494,28 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0156
     .word ScrCmd_HasSinnohDex
     .word ScrCmd_GiveSinnohDex
-    .word ScrCmd_Unk0159
-    .word ScrCmd_Unk015A
+    .word ScrCmd_HasRunningShoes
+    .word ScrCmd_GiveRunningShoes
     .word ScrCmd_HasBadge
     .word ScrCmd_GiveBadge
     .word ScrCmd_GetTotalEarnedBadges
-    .word ScrCmd_Unk015E
-    .word ScrCmd_Unk015F
+    .word ScrCmd_GiveBag
+    .word ScrCmd_HasBag
     .word ScrCmd_Unk0160
     .word ScrCmd_Unk0161
     .word ScrCmd_Unk0162
     .word ScrCmd_Unk0163
     .word ScrCmd_Unk0164
     .word ScrCmd_Unk0165
-    .word ScrCmd_Unk0166
-    .word ScrCmd_Unk0167
+    .word ScrCmd_CheckGameCompleted
+    .word ScrCmd_SetGameCompleted
     .word ScrCmd_Unk0168
     .word ScrCmd_Unk0169
     .word ScrCmd_Unk016A
     .word ScrCmd_Unk016B
     .word ScrCmd_Unk016C
-    .word ScrCmd_Unk016D
-    .word ScrCmd_Unk016E
+    .word ScrCmd_GetDaycarePokemonNames
+    .word ScrCmd_GetDaycareStatus
     .word ScrCmd_Unk016F
     .word ScrCmd_Unk0170
     .word ScrCmd_Unk0171
@@ -528,17 +528,17 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0178
     .word ScrCmd_Unk0179
     .word ScrCmd_Unk017A
-    .word ScrCmd_Unk017B
+    .word ScrCmd_GetBerryName
     .word ScrCmd_GetNatureName
-    .word ScrCmd_Unk017D
-    .word ScrCmd_Unk017E
-    .word ScrCmd_Unk017F
-    .word ScrCmd_Unk0180
-    .word ScrCmd_Unk0181
-    .word ScrCmd_Unk0182
-    .word ScrCmd_Unk0183
+    .word ScrCmd_GetBerryTreeGrowth
+    .word ScrCmd_GetBerryTreeType
+    .word ScrCmd_GetBerryTreeMulch
+    .word ScrCmd_GetBerryTreeWater
+    .word ScrCmd_GetBerryTreeAmount
+    .word ScrCmd_SetBerryTreeMulch
+    .word ScrCmd_SetBerryTreeType
     .word ScrCmd_Unk0184
-    .word ScrCmd_Unk0185
+    .word ScrCmd_TakeBerryTreeBerries
     .word ScrCmd_Unk0186
     .word ScrCmd_Unk0187
     .word ScrCmd_Unk0188
@@ -573,13 +573,13 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk01A5
     .word ScrCmd_Unk01A6
     .word ScrCmd_Unk01A7
-    .word ScrCmd_Unk01A8
-    .word ScrCmd_Unk01A9
+    .word ScrCmd_DeleteDaycareEgg
+    .word ScrCmd_GiveDaycareEgg
     .word ScrCmd_Unk01AA
     .word ScrCmd_HasEnoughMoneyAddress
     .word ScrCmd_Unk01AC
     .word ScrCmd_Unk01AD
-    .word ScrCmd_Unk01AE
+    .word ScrCmd_GetDaycareLevel
     .word ScrCmd_Unk01AF
     .word ScrCmd_Unk01B0
     .word ScrCmd_Unk01B1
@@ -612,9 +612,9 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk01CC
     .word ScrCmd_Unk01CD
     .word ScrCmd_Unk01CE
-    .word ScrCmd_Unk01CF
-    .word ScrCmd_Unk01D0
-    .word ScrCmd_Unk01D1
+    .word ScrCmd_GetSetStrength
+    .word ScrCmd_GetSetFlash
+    .word ScrCmd_GetSetDefog
     .word ScrCmd_Unk01D2
     .word ScrCmd_Unk01D3
     .word ScrCmd_Unk01D4
@@ -646,11 +646,11 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk01EE
     .word ScrCmd_Unk01EF
     .word ScrCmd_Unk01F0
-    .word ScrCmd_Unk01F1
+    .word ScrCmd_CountFossils
     .word ScrCmd_Unk01F2
     .word ScrCmd_Unk01F3
-    .word ScrCmd_Unk01F4
-    .word ScrCmd_Unk01F5
+    .word ScrCmd_GetFossilPokemon
+    .word ScrCmd_GetFossilMinimumAmount
     .word ScrCmd_CountPartyMonsAtOrBelowLevel
     .word ScrCmd_SurvivePsn
     .word ScrCmd_Unk01F8
@@ -711,7 +711,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk022F
     .word ScrCmd_Unk0230
     .word ScrCmd_Unk0231
-    .word ScrCmd_Unk0232
+    .word ScrCmd_GetRibbonName
     .word ScrCmd_Unk0233
     .word ScrCmd_Unk0234
     .word ScrCmd_Unk0235
@@ -770,12 +770,12 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk026A
     .word ScrCmd_Unk026B
     .word ScrCmd_Unk026C
-    .word ScrCmd_Unk026D
+    .word ScrCmd_MessageUnown
     .word ScrCmd_Unk026E
     .word ScrCmd_Unk026F
     .word ScrCmd_Unk0270
     .word ScrCmd_Unk0271
-    .word ScrCmd_Unk0272
+    .word ScrCmd_GetWhiteRockInscription
     .word ScrCmd_Unk0273
     .word ScrCmd_HasEnoughCoinsImmediate
     .word ScrCmd_Unk0275
@@ -792,7 +792,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0280
     .word ScrCmd_Unk0281
     .word ScrCmd_Unk0282
-    .word ScrCmd_Unk0283
+    .word ScrCmd_SetVolume
     .word ScrCmd_Unk0284
     .word ScrCmd_Unk0285
     .word ScrCmd_Unk0286

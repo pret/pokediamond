@@ -38774,7 +38774,7 @@ _0224C476:
 	mov r2, #0
 	bl MOD05_021DA4EC
 	ldr r0, _0224C51C ; =0x0000048E
-	bl PlayBGM
+	bl PlaySound
 	ldrb r0, [r4, #0xf]
 	add r0, r0, #1
 	strb r0, [r4, #0xf]

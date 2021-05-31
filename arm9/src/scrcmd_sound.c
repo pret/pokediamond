@@ -7,7 +7,7 @@ extern void FUN_0200433C(u32, u32, u32);
 extern u32 FUN_02005E28(void);
 extern void FUN_02005E64(void);
 extern BOOL FUN_02005CBC(void);
-extern void PlayBGM(u16);
+extern void PlaySound(u16);
 extern u32 FUN_02004124(u16);
 extern void FUN_0204AB20(struct UnkSavStruct80 *ctx, u16);
 extern u16 FUN_0204ABA8(struct UnkSavStruct80 *ctx, u32);
@@ -38,33 +38,33 @@ THUMB_FUNC BOOL ScrCmd_Unk02AE(struct ScriptContext *ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0050(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_PlayBgm(struct ScriptContext *ctx)
 {
     FUN_0200521C(ScriptReadHalfword(ctx));
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0051(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_StopBgm(struct ScriptContext *ctx)
 {
     u32 unk0 = FUN_02004124(ScriptReadHalfword(ctx));
     FUN_02005350(unk0, 0);
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0052(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_PlayDefaultBgm(struct ScriptContext *ctx)
 {
     u16 unk0 = FUN_0204ABA8(ctx->unk80, *ctx->unk80->mapId);
     FUN_0200521C(unk0);
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0053(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0053(struct ScriptContext *ctx) //Special BGM?
 {
     FUN_0204AB20(ctx->unk80, ScriptReadHalfword(ctx));
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0054(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_FadeOutBgm(struct ScriptContext *ctx)
 {
     u16 unk1 = ScriptReadHalfword(ctx);
     u16 unk2 = ScriptReadHalfword(ctx);
@@ -85,7 +85,7 @@ THUMB_FUNC BOOL FUN_02041464(struct ScriptContext* ctx)
         return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0055(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_FadeInBgm(struct ScriptContext* ctx)
 {
     u16 unk = ScriptReadHalfword(ctx);
 
@@ -120,21 +120,21 @@ THUMB_FUNC BOOL ScrCmd_Unk0058(struct ScriptContext* ctx)
 }
 
 
-THUMB_FUNC BOOL ScrCmd_Unk0049(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_PlayFanfare(struct ScriptContext* ctx)
 {
     u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     FUN_020054C8(unk);
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk004A(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_StopFanfare(struct ScriptContext* ctx)
 {
     u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     FUN_020054F0(unk, 0);
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk004B(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_PlayFanfareWait(struct ScriptContext* ctx)
 {
     u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
 
@@ -152,7 +152,7 @@ THUMB_FUNC BOOL FUN_02041540(struct ScriptContext* ctx)
         return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk004C(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_PlayCry(struct ScriptContext* ctx)
 {
     u16 unk0 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unused = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -176,15 +176,15 @@ THUMB_FUNC BOOL FUN_02041598(struct ScriptContext* ctx)
         return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_PlayBgm(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_PlaySound(struct ScriptContext* ctx)
 {
     u16 bgm_id = ScriptReadHalfword(ctx);
-    PlayBGM(bgm_id);
+    PlaySound(bgm_id);
 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk004F(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_PlaySoundWait(struct ScriptContext* ctx)
 {
     SetupNativeScript(ctx, FUN_020415CC);
     return TRUE;
@@ -199,7 +199,7 @@ THUMB_FUNC BOOL FUN_020415CC(struct ScriptContext* ctx)
         return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0059(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_CheckChatotCry(struct ScriptContext* ctx)
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
 
@@ -216,7 +216,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0059(struct ScriptContext* ctx)
     }
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk005A(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_StartChatotRecord(struct ScriptContext* ctx)
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
 
@@ -232,14 +232,14 @@ THUMB_FUNC BOOL ScrCmd_Unk005A(struct ScriptContext* ctx)
     }
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk005B(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_StopChatotRecord(struct ScriptContext* ctx)
 {
 #pragma unused(ctx)
     FUN_02005E64();
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk005C(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_SaveChatotCry(struct ScriptContext* ctx)
 {
     void* unk = Sav2_Chatot_get(ctx->unk80->saveBlock2);
     FUN_02005E6C(unk);
@@ -254,7 +254,7 @@ THUMB_FUNC BOOL ScrCmd_Unk005D(struct ScriptContext* ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0283(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_SetVolume(struct ScriptContext* ctx)
 {
     u16 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unk2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
