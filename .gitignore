@@ -49,3 +49,4 @@ symbols.csv
 *.arc
 files/**/*.c
 *.o
+*.naix

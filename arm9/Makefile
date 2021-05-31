@@ -54,7 +54,7 @@ SRC_DIRS := src lib lib/src $(sort $(wildcard modules/*/src))
 ASM_DIRS := asm data files $(sort $(wildcard modules/*/asm))
 LIBASM_DIRS := lib/syscall
 INCLUDE_RECURSIVE_DIRS := ../include-mw lib/include
-INCLUDE_DIRS := ../include $(sort $(wildcard modules/*/include))
+INCLUDE_DIRS := ../include $(sort $(wildcard modules/*/include)) ../files
 
 C_FILES    := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.c)))
 CXX_FILES  := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.cpp)))
