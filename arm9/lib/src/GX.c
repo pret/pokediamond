@@ -1,6 +1,5 @@
 #include "global.h"
 #include "gx.h"
-#include "GXS_ioreg.h"
 
 u32 GXi_DmaId = 3;
 vu16 GXi_VRamLockId = 0;

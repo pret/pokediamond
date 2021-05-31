@@ -5,7 +5,7 @@
 #include "MI_memory.h"
 #include "MI_dma.h"
 #include "OS_vramExclusive.h"
-#include "GX_ioreg.h"
+#include "registers.h"
 
 //temporary while other files aren't decompiled
 

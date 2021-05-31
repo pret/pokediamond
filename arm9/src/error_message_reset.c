@@ -1,6 +1,6 @@
 #include "error_message_reset.h"
 #include "GX_layers.h"
-#include "GXS_ioreg.h"
+#include "gx.h"
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
 #include "unk_02016B94.h"
