@@ -7,7 +7,7 @@ extern u32 MOD05_021E2950(struct UnkSavStruct80* arg, u8, u8);
 extern MOD05_021E29B4();
 extern MOD05_021E29C8();
 
-THUMB_FUNC BOOL ScrCmd_Unk0075(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx)
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     u32 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -20,7 +20,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0075(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0076(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_HideCoinBox(struct ScriptContext * ctx)
 {
     u16 ** unk = FUN_02039438(ctx->unk80, 0x26);
     MOD05_021E29B4(*unk);
@@ -28,7 +28,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0076(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0077(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_UpdateCoinBox(struct ScriptContext * ctx)
 {
     u16 ** unk = FUN_02039438(ctx->unk80, 0x26);
     MOD05_021E29C8(ctx->unk80, *unk);

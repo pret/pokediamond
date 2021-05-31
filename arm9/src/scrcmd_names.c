@@ -53,7 +53,7 @@ THUMB_FUNC BOOL ScrCmd_GetFriendName(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00D0(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetPokemonName(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
@@ -145,7 +145,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0280(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00D6(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetPokemonNickname(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
@@ -237,7 +237,7 @@ THUMB_FUNC struct String* FUN_02040AE4(u32 msg_no, u32 heap_id)
     return ret;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00DB(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx)
 {
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
     u8 idx = ScriptReadByte(ctx);
@@ -251,7 +251,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00DB(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00DC(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetRivalStarterName(struct ScriptContext* ctx)
 {
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
     u8 idx = ScriptReadByte(ctx);
@@ -265,7 +265,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00DC(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00DD(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetCounterpartStarterName(struct ScriptContext* ctx)
 {
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
     u8 idx = ScriptReadByte(ctx);
@@ -312,7 +312,7 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundItemName(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00E2(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetMapName(struct ScriptContext* ctx)
 {
     struct String* str = String_ctor(22, 4);
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
@@ -326,7 +326,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00E2(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk017B(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetBerryName(struct ScriptContext* ctx)
 {
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
     u8 idx = ScriptReadByte(ctx);
@@ -362,7 +362,7 @@ THUMB_FUNC BOOL ScrCmd_GetFashionName(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0272(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetWhiteRockInscription(struct ScriptContext* ctx)
 {
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
     u8 idx = ScriptReadByte(ctx);
@@ -393,7 +393,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonMoveName(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0232(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetRibbonName(struct ScriptContext* ctx)
 {
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
     u8 idx = ScriptReadByte(ctx);
