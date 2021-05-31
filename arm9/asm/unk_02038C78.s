@@ -212,7 +212,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Menu
     .word ScrCmd_ScrollBg
     .word ScrCmd_YesNoMenu
-    .word FUN_0203DEA8
+    .word ScrCmd_Unk003F
     .word ScrCmd_Unk0040
     .word ScrCmd_Unk0041
     .word ScrCmd_Unk0042
@@ -244,22 +244,22 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk005C
     .word ScrCmd_Unk005D
     .word ScrCmd_Unk005E
-    .word FUN_0203B148
-    .word FUN_0203B1F0
-    .word FUN_0203B3B0
-    .word FUN_0203B3C0
-    .word FUN_0203B3DC
-    .word FUN_0203B3F8
-    .word FUN_0203B440
-    .word FUN_0203B468
-    .word FUN_0203B500
-    .word FUN_0203B544
-    .word FUN_0203B574
-    .word FUN_0203B5B8
-    .word FUN_0203B640
-    .word FUN_0203B724
-    .word FUN_0203B758
-    .word FUN_0203B7D8
+    .word ScrCmd_Unk005F
+    .word ScrCmd_Unk0060
+    .word ScrCmd_Unk0061
+    .word ScrCmd_Unk0062
+    .word ScrCmd_Unk0063
+    .word ScrCmd_Unk0064
+    .word ScrCmd_Unk0065
+    .word ScrCmd_Unk0066
+    .word ScrCmd_Unk0067
+    .word ScrCmd_Unk0068
+    .word ScrCmd_Unk0069
+    .word ScrCmd_Unk006A
+    .word ScrCmd_Unk006B
+    .word ScrCmd_Unk006C
+    .word ScrCmd_Unk006D
+    .word ScrCmd_Unk006E
     .word ScrCmd_GiveMoney
     .word ScrCmd_TakeMoneyImmediate
     .word ScrCmd_HasEnoughMoneyImmediate
@@ -296,64 +296,64 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0090
     .word ScrCmd_Unk0091
     .word ScrCmd_Unk0092
-    .word FUN_0203B81C
-    .word FUN_0203B85C
-    .word FUN_0203B8A0
+    .word ScrCmd_Unk0093
+    .word ScrCmd_Unk0094
+    .word ScrCmd_Unk0095
     .word ScrCmd_GiveMon
-    .word ScrCmd_giveegg
-    .word ScrCmd_setpartymonmove
-    .word ScrCmd_partymonhasmove
-    .word ScrCmd_findpartymonwithmove
-    .word FUN_0203BB34
-    .word FUN_0203BB80
-    .word FUN_0203BB84
-    .word FUN_0203BB88
-    .word FUN_0203BB8C
-    .word FUN_02045264
-    .word FUN_0203BC1C
-    .word FUN_0203BCBC
-    .word FUN_0203BCCC
-    .word FUN_0203BCD8
-    .word FUN_0203BF20
-    .word FUN_0203BF2C
-    .word FUN_0203BF84
-    .word FUN_0203BFEC
-    .word FUN_0203C118
-    .word FUN_0203C12C
-    .word ScrCmd_monstoragepc
-    .word FUN_0203C2C4
-    .word FUN_0203C2E0
-    .word FUN_0203C2F0
-    .word FUN_0203C300
-    .word ScrCmd_halloffame
-    .word FUN_0203C33C
-    .word FUN_0203C368
-    .word FUN_0203C3C8
-    .word FUN_0203C3E8
-    .word FUN_0203C430
-    .word FUN_020416A8
-    .word FUN_02041770
-    .word FUN_020417E0
-    .word FUN_02041808
-    .word FUN_0203C4F0
-    .word FUN_0203C520
-    .word FUN_0203C6C4
-    .word FUN_0203C70C
-    .word FUN_0203C730
-    .word FUN_0203C844
-    .word FUN_0203C874
-    .word FUN_0203C8B4
-    .word FUN_0203C8E4
-    .word FUN_0203C930
-    .word FUN_0203C960
-    .word FUN_0203C990
-    .word FUN_0203CA20
-    .word FUN_0203CA2C
-    .word FUN_0203CA5C
-    .word FUN_0203CB08
-    .word FUN_0203CB20
-    .word FUN_0203CB48
-    .word FUN_0203CB60
+    .word ScrCmd_GiveEgg
+    .word ScrCmd_SetPartyMonMove
+    .word ScrCmd_PartyMonHasMove
+    .word ScrCmd_FindPartyMonWithMove
+    .word ScrCmd_Unk009B
+    .word ScrCmd_Unk009C
+    .word ScrCmd_Unk009D
+    .word ScrCmd_Unk009E
+    .word ScrCmd_Unk009F
+    .word ScrCmd_Unk00A0
+    .word ScrCmd_Unk00A1
+    .word ScrCmd_Unk00A2
+    .word ScrCmd_Unk00A3
+    .word ScrCmd_Unk00A4
+    .word ScrCmd_Unk00A5
+    .word ScrCmd_Unk00A6
+    .word ScrCmd_Unk00A7
+    .word ScrCmd_Unk00A8
+    .word ScrCmd_Unk00A9
+    .word ScrCmd_Unk00AA
+    .word ScrCmd_MonStoragePC
+    .word ScrCmd_Unk00AC
+    .word ScrCmd_Unk00AD
+    .word ScrCmd_Unk00AE
+    .word ScrCmd_Unk00AF
+    .word ScrCmd_HallOfFame
+    .word ScrCmd_Unk00B1
+    .word ScrCmd_Unk00B2
+    .word ScrCmd_Unk00B3
+    .word ScrCmd_Unk00B4
+    .word ScrCmd_Unk00B5
+    .word ScrCmd_Unk00B6
+    .word ScrCmd_Unk00B7
+    .word ScrCmd_Unk00B8
+    .word ScrCmd_Unk00B9
+    .word ScrCmd_Unk00BA
+    .word ScrCmd_Unk00BB
+    .word ScrCmd_Unk00BC
+    .word ScrCmd_Unk00BD
+    .word ScrCmd_Unk00BE
+    .word ScrCmd_Unk00BF
+    .word ScrCmd_Unk00C0
+    .word ScrCmd_Unk00C1
+    .word ScrCmd_Unk00C2
+    .word ScrCmd_Unk00C3
+    .word ScrCmd_Unk00C4
+    .word ScrCmd_Unk00C5
+    .word ScrCmd_Unk00C6
+    .word ScrCmd_Unk00C7
+    .word ScrCmd_Unk00C8
+    .word ScrCmd_Unk00C9
+    .word ScrCmd_Unk00CA
+    .word ScrCmd_Unk00CB
+    .word ScrCmd_Unk00CC
     .word ScrCmd_GetPlayerName
     .word ScrCmd_GetRivalName
     .word ScrCmd_GetFriendName
@@ -371,127 +371,127 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk00DB
     .word ScrCmd_Unk00DC
     .word ScrCmd_Unk00DD
-    .word FUN_0203CBBC
+    .word ScrCmd_Unk00DE
     .word ScrCmd_GetDecorationName
     .word ScrCmd_GetUndergroundTrapName
     .word ScrCmd_GetUndergroundItemName
     .word ScrCmd_Unk00E2
-    .word FUN_0203CB70
-    .word FUN_0204185C
-    .word FUN_0204188C
-    .word FUN_0203CBE8
-    .word FUN_02041970
-    .word FUN_020419F8
-    .word FUN_02041A80
-    .word FUN_02041AB4
-    .word FUN_02041AD4
-    .word FUN_02041AE0
-    .word FUN_02041B10
-    .word FUN_02041B70
-    .word FUN_02041B9C
-    .word FUN_02041BC4
-    .word FUN_02041BF0
-    .word FUN_0203CC88
-    .word FUN_0203CD20
-    .word FUN_0203CDB8
-    .word FUN_0203CDC4
-    .word FUN_0203CDD0
-    .word FUN_0203CE00
-    .word FUN_0203FE90
-    .word FUN_0203FEC0
-    .word FUN_0203FF10
-    .word FUN_02040028
-    .word FUN_02040074
-    .word FUN_020400C8
-    .word FUN_0204011C
-    .word FUN_02040170
-    .word FUN_020401CC
-    .word FUN_02040204
-    .word FUN_02040220
-    .word FUN_0204025C
-    .word FUN_02040298
-    .word FUN_020402D4
-    .word FUN_02040304
-    .word FUN_02040340
-    .word FUN_02040370
-    .word FUN_020403A0
-    .word FUN_020403D0
-    .word FUN_02040414
-    .word FUN_02040458
-    .word FUN_020404FC
-    .word FUN_0204052C
-    .word FUN_0204056C
-    .word FUN_02040488
-    .word FUN_020405CC
-    .word FUN_020405F8
-    .word FUN_02040638
-    .word FUN_0204064C
-    .word FUN_02040660
-    .word FUN_020406C0
-    .word FUN_0204059C
-    .word FUN_020405B4
-    .word FUN_02044CE0
-    .word FUN_02044D44
-    .word FUN_0203CE0C
-    .word FUN_0203CE8C
-    .word FUN_0203CEBC
-    .word FUN_0203CF04
-    .word FUN_0203CF34
-    .word FUN_0203CF64
-    .word FUN_0203CF94
-    .word FUN_0203CFC4
-    .word FUN_0203CFC8
-    .word FUN_0203D050
-    .word FUN_0203D0F8
-    .word FUN_0203D134
-    .word FUN_0203D140
-    .word FUN_0203D150
-    .word FUN_0203D178
-    .word FUN_0203D194
-    .word FUN_0203D1A4
-    .word FUN_0203D1C0
-    .word FUN_0203D214
-    .word FUN_0203C054
-    .word FUN_0203C090
-    .word FUN_0203C0CC
-    .word FUN_0203D23C
-    .word FUN_0203D248
-    .word FUN_0203D278
-    .word FUN_0203D2A4
-    .word FUN_0203D2E4
-    .word FUN_0203D330
-    .word FUN_0203D33C
-    .word FUN_0203D36C
-    .word FUN_0203D3A4
-    .word FUN_0203D60C
-    .word FUN_0203D61C
-    .word FUN_0203D3DC
-    .word FUN_0203D448
-    .word FUN_0203D458
-    .word FUN_0203D490
-    .word FUN_0203D528
-    .word FUN_0203D5B0
-    .word FUN_0203D5F8
-    .word FUN_0203D630
-    .word FUN_0203D66C
-    .word FUN_0203D6C4
-    .word FUN_0203D560
+    .word ScrCmd_Unk00E3
+    .word ScrCmd_Unk00E4
+    .word ScrCmd_Unk00E5
+    .word ScrCmd_Unk00E6
+    .word ScrCmd_Unk00E7
+    .word ScrCmd_Unk00E8
+    .word ScrCmd_Unk00E9
+    .word ScrCmd_Unk00EA
+    .word ScrCmd_Unk00EB
+    .word ScrCmd_Unk00EC
+    .word ScrCmd_Unk00ED
+    .word ScrCmd_Unk00EE
+    .word ScrCmd_Unk00EF
+    .word ScrCmd_Unk00F0
+    .word ScrCmd_Unk00F1
+    .word ScrCmd_Unk00F2
+    .word ScrCmd_Unk00F3
+    .word ScrCmd_Unk00F4
+    .word ScrCmd_Unk00F5
+    .word ScrCmd_Unk00F6
+    .word ScrCmd_Unk00F7
+    .word ScrCmd_Unk00F8
+    .word ScrCmd_Unk00F9
+    .word ScrCmd_Unk00FA
+    .word ScrCmd_Unk00FB
+    .word ScrCmd_Unk00FC
+    .word ScrCmd_Unk00FD
+    .word ScrCmd_Unk00FE
+    .word ScrCmd_Unk00FF
+    .word ScrCmd_Unk0100
+    .word ScrCmd_Unk0101
+    .word ScrCmd_Unk0102
+    .word ScrCmd_Unk0103
+    .word ScrCmd_Unk0104
+    .word ScrCmd_Unk0105
+    .word ScrCmd_Unk0106
+    .word ScrCmd_Unk0107
+    .word ScrCmd_Unk0108
+    .word ScrCmd_Unk0109
+    .word ScrCmd_Unk010A
+    .word ScrCmd_Unk010B
+    .word ScrCmd_Unk010C
+    .word ScrCmd_Unk010D
+    .word ScrCmd_Unk010E
+    .word ScrCmd_Unk010F
+    .word ScrCmd_Unk0110
+    .word ScrCmd_Unk0111
+    .word ScrCmd_Unk0112
+    .word ScrCmd_Unk0113
+    .word ScrCmd_Unk0114
+    .word ScrCmd_Unk0115
+    .word ScrCmd_Unk0116
+    .word ScrCmd_Unk0117
+    .word ScrCmd_Unk0118
+    .word ScrCmd_Unk0119
+    .word ScrCmd_Unk011A
+    .word ScrCmd_Unk011B
+    .word ScrCmd_Unk011C
+    .word ScrCmd_Unk011D
+    .word ScrCmd_Unk011E
+    .word ScrCmd_Unk011F
+    .word ScrCmd_Unk0120
+    .word ScrCmd_Unk0121
+    .word ScrCmd_Unk0122
+    .word ScrCmd_Unk0123
+    .word ScrCmd_Unk0124
+    .word ScrCmd_Unk0125
+    .word ScrCmd_Unk0126
+    .word ScrCmd_Unk0127
+    .word ScrCmd_Unk0128
+    .word ScrCmd_Unk0129
+    .word ScrCmd_Unk012A
+    .word ScrCmd_Unk012B
+    .word ScrCmd_Unk012C
+    .word ScrCmd_Unk012D
+    .word ScrCmd_Unk012E
+    .word ScrCmd_Unk012F
+    .word ScrCmd_Unk0130
+    .word ScrCmd_Unk0131
+    .word ScrCmd_Unk0132
+    .word ScrCmd_Unk0133
+    .word ScrCmd_Unk0134
+    .word ScrCmd_Unk0135
+    .word ScrCmd_Unk0136
+    .word ScrCmd_Unk0137
+    .word ScrCmd_Unk0138
+    .word ScrCmd_Unk0139
+    .word ScrCmd_Unk013A
+    .word ScrCmd_Unk013B
+    .word ScrCmd_Unk013C
+    .word ScrCmd_Unk013D
+    .word ScrCmd_Unk013E
+    .word ScrCmd_Unk013F
+    .word ScrCmd_Unk0140
+    .word ScrCmd_Unk0141
+    .word ScrCmd_Unk0142
+    .word ScrCmd_Unk0143
+    .word ScrCmd_Unk0144
+    .word ScrCmd_Unk0145
+    .word ScrCmd_Unk0146
     .word ScrCmd_NormalMart
     .word ScrCmd_SpecialMart
     .word ScrCmd_GoodsMart
     .word ScrCmd_SealsMart
-    .word FUN_0203D868
-    .word FUN_0203D874
-    .word ScrCmd_getplayergender
-    .word ScrCmd_healparty
-    .word FUN_0203D8E8
-    .word FUN_0203D8EC
-    .word FUN_0203D938
-    .word FUN_0203D948
-    .word FUN_0203D728
-    .word FUN_0203D738
-    .word FUN_0203D774
-    .word FUN_0203D834
+    .word ScrCmd_Unk014B
+    .word ScrCmd_Unk014C
+    .word ScrCmd_GetPlayerGender
+    .word ScrCmd_HealParty
+    .word ScrCmd_Unk014F
+    .word ScrCmd_Unk0150
+    .word ScrCmd_Unk0151
+    .word ScrCmd_Unk0152
+    .word ScrCmd_Unk0153
+    .word ScrCmd_Unk0154
+    .word ScrCmd_Unk0155
+    .word ScrCmd_Unk0156
     .word ScrCmd_HasSinnohDex
     .word ScrCmd_GiveSinnohDex
     .word ScrCmd_Unk0159
@@ -509,25 +509,25 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0165
     .word ScrCmd_Unk0166
     .word ScrCmd_Unk0167
-    .word FUN_0203DC00
-    .word FUN_0203DC58
-    .word FUN_0203DC70
-    .word FUN_0203DC88
-    .word FUN_0203DCA0
+    .word ScrCmd_Unk0168
+    .word ScrCmd_Unk0169
+    .word ScrCmd_Unk016A
+    .word ScrCmd_Unk016B
+    .word ScrCmd_Unk016C
     .word ScrCmd_Unk016D
     .word ScrCmd_Unk016E
-    .word FUN_0203DCB8
-    .word FUN_0203DCC8
-    .word FUN_0203DCD8
-    .word FUN_0203DCE8
-    .word FUN_0203DCF8
-    .word FUN_0203DD08
-    .word FUN_0203DD18
-    .word FUN_0203DD34
-    .word FUN_02044B00
-    .word FUN_0203C460
-    .word FUN_0203C4B0
-    .word FUN_0203D958
+    .word ScrCmd_Unk016F
+    .word ScrCmd_Unk0170
+    .word ScrCmd_Unk0171
+    .word ScrCmd_Unk0172
+    .word ScrCmd_Unk0173
+    .word ScrCmd_Unk0174
+    .word ScrCmd_Unk0175
+    .word ScrCmd_Unk0176
+    .word ScrCmd_Unk0177
+    .word ScrCmd_Unk0178
+    .word ScrCmd_Unk0179
+    .word ScrCmd_Unk017A
     .word ScrCmd_Unk017B
     .word ScrCmd_GetNatureName
     .word ScrCmd_Unk017D
@@ -539,35 +539,35 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0183
     .word ScrCmd_Unk0184
     .word ScrCmd_Unk0185
-    .word FUN_0203D998
-    .word FUN_0203D9E8
-    .word FUN_0203DA78
-    .word FUN_0203DAB0
-    .word FUN_0203DAE8
-    .word FUN_0203DB38
-    .word FUN_0203DB88
+    .word ScrCmd_Unk0186
+    .word ScrCmd_Unk0187
+    .word ScrCmd_Unk0188
+    .word ScrCmd_Unk0189
+    .word ScrCmd_Unk018A
+    .word ScrCmd_Unk018B
+    .word ScrCmd_Unk018C
     .word ScrCmd_ShowSaveClock
     .word ScrCmd_HideSaveClock
-    .word FUN_0203DBD4
+    .word ScrCmd_Unk018F
     .word ScrCmd_WaitButtonABTime
-    .word FUN_0203B8E4
-    .word FUN_0203B944
-    .word FUN_0203B968
-    .word FUN_0203B9B4
-    .word FUN_0203BA3C
-    .word FUN_0203BAB0
-    .word FUN_0203BAF4
-    .word ScrCmd_getpartyspecies
-    .word ScrCmd_checkpartymonotid
-    .word FUN_02044B2C
-    .word FUN_02044B84
-    .word FUN_02044C0C
-    .word FUN_02044C88
-    .word FUN_0203DD60
-    .word FUN_0203DE00
-    .word FUN_0203DE4C
-    .word FUN_0203DE58
-    .word FUN_0203DE80
+    .word ScrCmd_Unk0191
+    .word ScrCmd_Unk0192
+    .word ScrCmd_Unk0193
+    .word ScrCmd_Unk0194
+    .word ScrCmd_Unk0195
+    .word ScrCmd_Unk0196
+    .word ScrCmd_Unk0197
+    .word ScrCmd_GetPartySpecies
+    .word ScrCmd_CheckPartyMonOTID
+    .word ScrCmd_Unk019A
+    .word ScrCmd_Unk019B
+    .word ScrCmd_Unk019C
+    .word ScrCmd_Unk019D
+    .word ScrCmd_Unk019E
+    .word ScrCmd_Unk019F
+    .word ScrCmd_Unk01A0
+    .word ScrCmd_Unk01A1
+    .word ScrCmd_Unk01A2
     .word ScrCmd_TakeMoneyAddress
     .word ScrCmd_Unk01A4
     .word ScrCmd_Unk01A5
@@ -577,83 +577,83 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk01A9
     .word ScrCmd_Unk01AA
     .word ScrCmd_HasEnoughMoneyAddress
-    .word FUN_0203DD50
+    .word ScrCmd_Unk01AC
     .word ScrCmd_Unk01AD
     .word ScrCmd_Unk01AE
     .word ScrCmd_Unk01AF
     .word ScrCmd_Unk01B0
-    .word FUN_0203DEC4
-    .word FUN_0203DEF8
-    .word FUN_0203DF2C
-    .word FUN_0203DF38
-    .word FUN_0203DF64
-    .word FUN_0203DF84
-    .word FUN_0203DFA8
-    .word FUN_0203DFE0
-    .word ScrCmd_getpartymonfriendship
-    .word FUN_020448D4
-    .word FUN_020449A4
+    .word ScrCmd_Unk01B1
+    .word ScrCmd_Unk01B2
+    .word ScrCmd_Unk01B3
+    .word ScrCmd_Unk01B4
+    .word ScrCmd_Unk01B5
+    .word ScrCmd_Unk01B6
+    .word ScrCmd_Unk01B7
+    .word ScrCmd_Unk01B8
+    .word ScrCmd_GetPartyMonFriendship
+    .word ScrCmd_Unk01BA
+    .word ScrCmd_Unk01BB
     .word ScrCmd_Unk01BC
-    .word FUN_0203B618
+    .word ScrCmd_Unk01BD
     .word ScrCmd_Unk01BE
     .word ScrCmd_Unk01BF
-    .word FUN_02044F58
-    .word FUN_0203E018
-    .word FUN_0203E054
-    .word FUN_0203E078
-    .word FUN_0203E0CC
-    .word FUN_0203E120
+    .word ScrCmd_Unk01C0
+    .word ScrCmd_Unk01C1
+    .word ScrCmd_Unk01C2
+    .word ScrCmd_Unk01C3
+    .word ScrCmd_Unk01C4
+    .word ScrCmd_Unk01C5
     .word ScrCmd_Unk01C6
     .word ScrCmd_Unk01C7
-    .word FUN_02044D8C
-    .word FUN_02044E34
-    .word FUN_02044E78
+    .word ScrCmd_Unk01C8
+    .word ScrCmd_Unk01C9
+    .word ScrCmd_Unk01CA
     .word ScrCmd_GetPokemonMoveName
-    .word FUN_0203E138
-    .word FUN_0203E168
-    .word FUN_0203E254
+    .word ScrCmd_Unk01CC
+    .word ScrCmd_Unk01CD
+    .word ScrCmd_Unk01CE
     .word ScrCmd_Unk01CF
     .word ScrCmd_Unk01D0
     .word ScrCmd_Unk01D1
-    .word FUN_0203E258
-    .word FUN_0203E29C
-    .word FUN_0203E2F8
-    .word FUN_0203E35C
-    .word FUN_0203E38C
-    .word FUN_0203C174
-    .word FUN_0203C1AC
-    .word FUN_0203C200
-    .word FUN_02042354
-    .word FUN_02042364
-    .word FUN_02042394
-    .word FUN_020423B0
-    .word FUN_02042700
-    .word FUN_02042780
-    .word FUN_020427A8
-    .word FUN_020427D0
-    .word FUN_02042864
-    .word FUN_02042894
-    .word FUN_020428E0
-    .word FUN_0203E4F0
-    .word FUN_0203E510
-    .word FUN_0203E568
-    .word FUN_0203E3D0
-    .word FUN_0203E408
-    .word FUN_0203E440
-    .word FUN_0203E470
-    .word FUN_0203E4A0
-    .word FUN_0203E4B0
-    .word FUN_02044ED8
-    .word FUN_0203E4D8
-    .word FUN_02044F20
+    .word ScrCmd_Unk01D2
+    .word ScrCmd_Unk01D3
+    .word ScrCmd_Unk01D4
+    .word ScrCmd_Unk01D5
+    .word ScrCmd_Unk01D6
+    .word ScrCmd_Unk01D7
+    .word ScrCmd_Unk01D8
+    .word ScrCmd_Unk01D9
+    .word ScrCmd_Unk01DA
+    .word ScrCmd_Unk01DB
+    .word ScrCmd_Unk01DC
+    .word ScrCmd_Unk01DD
+    .word ScrCmd_Unk01DE
+    .word ScrCmd_Unk01DF
+    .word ScrCmd_Unk01E0
+    .word ScrCmd_Unk01E1
+    .word ScrCmd_Unk01E2
+    .word ScrCmd_Unk01E3
+    .word ScrCmd_Unk01E4
+    .word ScrCmd_Unk01E5
+    .word ScrCmd_Unk01E6
+    .word ScrCmd_Unk01E7
+    .word ScrCmd_Unk01E8
+    .word ScrCmd_Unk01E9
+    .word ScrCmd_Unk01EA
+    .word ScrCmd_Unk01EB
+    .word ScrCmd_Unk01EC
+    .word ScrCmd_Unk01ED
+    .word ScrCmd_Unk01EE
+    .word ScrCmd_Unk01EF
+    .word ScrCmd_Unk01F0
     .word ScrCmd_Unk01F1
     .word ScrCmd_Unk01F2
     .word ScrCmd_Unk01F3
     .word ScrCmd_Unk01F4
     .word ScrCmd_Unk01F5
-    .word ScrCmd_countpartymonsatorbelowlevel
-    .word ScrCmd_survivepsn
-    .word FUN_0203BC2C
+    .word ScrCmd_CountPartyMonsAtOrBelowLevel
+    .word ScrCmd_SurvivePsn
+    .word ScrCmd_Unk01F8
     .word ScrCmd_DebugWatch
     .word ScrCmd_MessageFrom
     .word ScrCmd_MessageFrom2
@@ -661,35 +661,35 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk01FD
     .word ScrCmd_Unk01FE
     .word ScrCmd_Unk01FF
-    .word FUN_0203C7F4
-    .word FUN_0203C820
-    .word FUN_0203E5DC
-    .word FUN_0203C788
-    .word FUN_0203C7E4
-    .word FUN_0203C0FC
-    .word FUN_0203E674
-    .word FUN_0203BD08
-    .word FUN_0203BD28
-    .word FUN_0203BE50
-    .word FUN_0203BECC
-    .word FUN_0203BF00
+    .word ScrCmd_Unk0200
+    .word ScrCmd_Unk0201
+    .word ScrCmd_Unk0202
+    .word ScrCmd_Unk0203
+    .word ScrCmd_Unk0204
+    .word ScrCmd_Unk0205
+    .word ScrCmd_Unk0206
+    .word ScrCmd_Unk0207
+    .word ScrCmd_Unk0208
+    .word ScrCmd_Unk0209
+    .word ScrCmd_Unk020A
+    .word ScrCmd_Unk020B
     .word ScrCmd_Unk020C
-    .word FUN_0203E684
-    .word FUN_0203E6B4
-    .word FUN_0203E6C4
-    .word FUN_0203E6FC
-    .word FUN_0203E72C
-    .word ScrCmd_getpartymonnature
-    .word ScrCmd_findpartymonwithnature
-    .word FUN_0203E744
-    .word FUN_02044158
-    .word FUN_0204416C
-    .word FUN_02044198
-    .word FUN_0203E774
-    .word FUN_0203E7F0
-    .word FUN_0203E81C
-    .word FUN_0203E848
-    .word FUN_0203E858
+    .word ScrCmd_Unk020D
+    .word ScrCmd_Unk020E
+    .word ScrCmd_Unk020F
+    .word ScrCmd_Unk0210
+    .word ScrCmd_Unk0211
+    .word ScrCmd_GetPartyMonNature
+    .word ScrCmd_FindPartyMonWithNature
+    .word ScrCmd_Unk0214
+    .word ScrCmd_Unk0215
+    .word ScrCmd_Unk0216
+    .word ScrCmd_Unk0217
+    .word ScrCmd_Unk0218
+    .word ScrCmd_Unk0219
+    .word ScrCmd_Unk021A
+    .word ScrCmd_Unk021B
+    .word ScrCmd_Unk021C
     .word ScrCmd_Unk021D
     .word ScrCmd_Unk021E
     .word ScrCmd_Unk021F
@@ -699,164 +699,164 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_Unk0223
     .word ScrCmd_Unk0224
     .word ScrCmd_Unk0225
-    .word FUN_0203E870
-    .word FUN_0203E894
-    .word FUN_0203E8C4
-    .word FUN_0203E8F4
-    .word FUN_0203E928
-    .word FUN_0203E940
-    .word FUN_0203E954
-    .word FUN_0203E968
-    .word FUN_02044FE8
-    .word FUN_0204505C
-    .word FUN_02045104
-    .word FUN_02045170
+    .word ScrCmd_Unk0226
+    .word ScrCmd_Unk0227
+    .word ScrCmd_Unk0228
+    .word ScrCmd_Unk0229
+    .word ScrCmd_Unk022A
+    .word ScrCmd_Unk022B
+    .word ScrCmd_Unk022C
+    .word ScrCmd_Unk022D
+    .word ScrCmd_Unk022E
+    .word ScrCmd_Unk022F
+    .word ScrCmd_Unk0230
+    .word ScrCmd_Unk0231
     .word ScrCmd_Unk0232
-    .word FUN_0203E9CC
-    .word FUN_0203EA68
-    .word FUN_02041E40
-    .word FUN_02041FDC
-    .word FUN_02042038
-    .word FUN_02042110
-    .word FUN_0203EA90
-    .word FUN_0203EAB0
-    .word FUN_0203EB20
-    .word FUN_0203EB48
-    .word FUN_0203EB88
-    .word FUN_02042D1C
+    .word ScrCmd_Unk0233
+    .word ScrCmd_Unk0234
+    .word ScrCmd_Unk0235
+    .word ScrCmd_Unk0236
+    .word ScrCmd_Unk0237
+    .word ScrCmd_Unk0238
+    .word ScrCmd_Unk0239
+    .word ScrCmd_Unk023A
+    .word ScrCmd_Unk023B
+    .word ScrCmd_Unk023C
+    .word ScrCmd_Unk023D
+    .word ScrCmd_Unk023E
     .word ScrCmd_Unk023F
     .word ScrCmd_Unk0240
     .word ScrCmd_Unk0241
     .word ScrCmd_Unk0242
-    .word FUN_0203C5BC
-    .word FUN_0203C614
-    .word FUN_0203C680
-    .word ScrCmd_gameversion
-    .word FUN_02044A6C
-    .word FUN_02044A94
-    .word ScrCmd_givewallpaper
-    .word FUN_0203ECAC
-    .word FUN_0203ECD8
-    .word FUN_0203ECF4
-    .word FUN_0203ED10
-    .word FUN_02041194
-    .word FUN_020411C4
-    .word FUN_02041340
+    .word ScrCmd_Unk0243
+    .word ScrCmd_Unk0244
+    .word ScrCmd_Unk0245
+    .word ScrCmd_GameVersion
+    .word ScrCmd_Unk0247
+    .word ScrCmd_Unk0248
+    .word ScrCmd_GiveWallpaper
+    .word ScrCmd_Unk024A
+    .word ScrCmd_Unk024B
+    .word ScrCmd_Unk024C
+    .word ScrCmd_Unk024D
+    .word ScrCmd_Unk024E
+    .word ScrCmd_Unk024F
+    .word ScrCmd_Unk0250
     .word ScrCmd_Unk0251
-    .word ScrCmd_pcfreespace
+    .word ScrCmd_PCFreeSpace
     .word ScrCmd_Unk0253
     .word ScrCmd_Unk0254
     .word ScrCmd_Unk0255
     .word ScrCmd_Unk0256
     .word ScrCmd_AccessoriesShop
-    .word FUN_0203EDA4
-    .word FUN_0203EDC8
-    .word FUN_0203EDE0
-    .word FUN_0203EE08
-    .word FUN_0203EE18
-    .word FUN_0203EE28
-    .word FUN_0203EE58
-    .word FUN_0203EE68
-    .word FUN_0203EE78
+    .word ScrCmd_Unk0258
+    .word ScrCmd_Unk0259
+    .word ScrCmd_Unk025A
+    .word ScrCmd_Unk025B
+    .word ScrCmd_Unk025C
+    .word ScrCmd_Unk025D
+    .word ScrCmd_Unk025E
+    .word ScrCmd_Unk025F
+    .word ScrCmd_Unk0260
     .word ScrCmd_GetFashionName
-    .word FUN_0203EE98
-    .word FUN_0203EED8
-    .word FUN_0203EF58
-    .word FUN_0203F00C
-    .word FUN_0203F020
-    .word FUN_0203F034
-    .word FUN_0203F058
-    .word FUN_0203F07C
-    .word FUN_0203F110
-    .word FUN_0203F174
-    .word FUN_0203F19C
+    .word ScrCmd_Unk0262
+    .word ScrCmd_Unk0263
+    .word ScrCmd_Unk0264
+    .word ScrCmd_Unk0265
+    .word ScrCmd_Unk0266
+    .word ScrCmd_Unk0267
+    .word ScrCmd_Unk0268
+    .word ScrCmd_Unk0269
+    .word ScrCmd_Unk026A
+    .word ScrCmd_Unk026B
+    .word ScrCmd_Unk026C
     .word ScrCmd_Unk026D
-    .word FUN_0203F234
-    .word FUN_0203F254
-    .word FUN_0203F26C
-    .word FUN_0203C58C
+    .word ScrCmd_Unk026E
+    .word ScrCmd_Unk026F
+    .word ScrCmd_Unk0270
+    .word ScrCmd_Unk0271
     .word ScrCmd_Unk0272
-    .word FUN_0203F2AC
+    .word ScrCmd_Unk0273
     .word ScrCmd_HasEnoughCoinsImmediate
-    .word FUN_0203F2E4
+    .word ScrCmd_Unk0275
     .word ScrCmd_CanGiveCoins
-    .word FUN_0203F31C
-    .word ScrCmd_getpartymonlevel
-    .word FUN_0203F348
-    .word FUN_0203F38C
-    .word FUN_0203F39C
-    .word FUN_0204214C
-    .word FUN_0203F3AC
-    .word FUN_0203F44C
-    .word FUN_0203F418
+    .word ScrCmd_Unk0277
+    .word ScrCmd_GetPartyMonLevel
+    .word ScrCmd_Unk0279
+    .word ScrCmd_Unk027A
+    .word ScrCmd_Unk027B
+    .word ScrCmd_Unk027C
+    .word ScrCmd_Unk027D
+    .word ScrCmd_Unk027E
+    .word ScrCmd_Unk027F
     .word ScrCmd_Unk0280
-    .word FUN_02044A0C
-    .word FUN_0203F484
+    .word ScrCmd_Unk0281
+    .word ScrCmd_Unk0282
     .word ScrCmd_Unk0283
-    .word FUN_0203F4D8
-    .word FUN_0203F508
-    .word FUN_0203F5D4
-    .word FUN_0203F604
-    .word FUN_0203F634
-    .word FUN_0203F664
-    .word FUN_0203F6E4
-    .word FUN_0203F720
-    .word FUN_0203BDB8
-    .word FUN_0203BE68
-    .word FUN_0203BE80
-    .word FUN_0203F760
-    .word FUN_0203F7C8
-    .word FUN_0203F80C
-    .word FUN_0203F880
-    .word FUN_0203F924
-    .word FUN_02042950
-    .word FUN_02042980
-    .word FUN_02042998
-    .word FUN_020429B8
-    .word FUN_020429E8
-    .word FUN_02042A18
-    .word FUN_02042A48
-    .word FUN_02042A98
-    .word FUN_0203D7DC
+    .word ScrCmd_Unk0284
+    .word ScrCmd_Unk0285
+    .word ScrCmd_Unk0286
+    .word ScrCmd_Unk0287
+    .word ScrCmd_Unk0288
+    .word ScrCmd_Unk0289
+    .word ScrCmd_Unk028A
+    .word ScrCmd_Unk028B
+    .word ScrCmd_Unk028C
+    .word ScrCmd_Unk028D
+    .word ScrCmd_Unk028E
+    .word ScrCmd_Unk028F
+    .word ScrCmd_Unk0290
+    .word ScrCmd_Unk0291
+    .word ScrCmd_Unk0292
+    .word ScrCmd_Unk0293
+    .word ScrCmd_Unk0294
+    .word ScrCmd_Unk0295
+    .word ScrCmd_Unk0296
+    .word ScrCmd_Unk0297
+    .word ScrCmd_Unk0298
+    .word ScrCmd_Unk0299
+    .word ScrCmd_Unk029A
+    .word ScrCmd_Unk029B
+    .word ScrCmd_Unk029C
     .word ScrCmd_Unk029D
-    .word FUN_0203F8C0
-    .word FUN_0203F954
-    .word FUN_0204190C
-    .word FUN_0203B024
-    .word FUN_0203F9DC
-    .word FUN_0203F988
-    .word FUN_0203F9B0
-    .word FUN_0203B914
+    .word ScrCmd_Unk029E
+    .word ScrCmd_Unk029F
+    .word ScrCmd_Unk02A0
+    .word ScrCmd_Unk02A1
+    .word ScrCmd_Unk02A2
+    .word ScrCmd_Unk02A3
+    .word ScrCmd_Unk02A4
+    .word ScrCmd_Unk02A5
     .word ScrCmd_Unk02A6
-    .word FUN_0203FA14
+    .word ScrCmd_Unk02A7
     .word ScrCmd_TakeCoinsAddress
     .word ScrCmd_HasEnoughCoinsAddress
-    .word FUN_0203FA58
-    .word FUN_0203B7F0
-    .word FUN_0203FB4C
-    .word FUN_0203B790
+    .word ScrCmd_Unk02AA
+    .word ScrCmd_Unk02AB
+    .word ScrCmd_Unk02AC
+    .word ScrCmd_Unk02AD
     .word ScrCmd_Unk02AE
-    .word FUN_0203FB64
-    .word FUN_0203FB94
-    .word FUN_0203FBA0
-    .word FUN_0203FBAC
+    .word ScrCmd_Unk02AF
+    .word ScrCmd_Unk02B0
+    .word ScrCmd_Unk02B1
+    .word ScrCmd_Unk02B2
     .word ScrCmd_GetSealName
-    .word FUN_0203B2E0
-    .word FUN_0203FBBC
-    .word FUN_0203FC1C
-    .word FUN_020451D0
-    .word FUN_02042000
+    .word ScrCmd_Unk02B4
+    .word ScrCmd_Unk02B5
+    .word ScrCmd_Unk02B6
+    .word ScrCmd_Unk02B7
+    .word ScrCmd_Unk02B8
     .word ScrCmd_Unk02B9
-    .word FUN_0203D4E8
-    .word FUN_0203D920
-    .word FUN_02041B40
-    .word FUN_0203D0A4
-    .word FUN_0203FC58
-    .word FUN_0203CAE8
+    .word ScrCmd_Unk02BA
+    .word ScrCmd_Unk02BB
+    .word ScrCmd_Unk02BC
+    .word ScrCmd_Unk02BD
+    .word ScrCmd_Unk02BE
+    .word ScrCmd_Unk02BF
     .word ScrCmd_Unk02C0
-    .word FUN_0203FC80
-    .word FUN_0203FCB0
-    .word FUN_0203FCDC
+    .word ScrCmd_Unk02C1
+    .word ScrCmd_Unk02C2
+    .word ScrCmd_Unk02C3
     .word ScrCmd_GetItemNameWithIndefArticle
     .word ScrCmd_GetItemNamePlural
     .word ScrCmd_GetDecorationNameWithArticle
