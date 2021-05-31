@@ -166,7 +166,7 @@ Static arm9
 	Object scrcmd_8.o
 	Object scrcmd_9.o
 	Object scrcmd_10.o
-	Object scrcmd_11.o
+	Object scrcmd_berry_trees.o
 	Object scrcmd_12.o
 	Object scrcmd_13.o
 	Object scrcmd_coins.o
@@ -175,11 +175,11 @@ Static arm9
 	Object scrcmd_17.o
 	Object scrcmd_18_c.o
 	Object scrcmd_18.o
-	Object scrcmd_19.o
+	Object scrcmd_fossils.o
 	Object scrcmd_20.o
 	Object scrcmd_flags.o
 	Object scrcmd_items.o
-	Object scrcmd_23.o
+	Object scrcmd_underground.o
 	Object scrcmd_24.o
 	Object scrcmd_25.o
 	Object unk_02046030.o

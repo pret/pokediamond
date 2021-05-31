@@ -9944,9 +9944,9 @@ _021DBD82:
 	add r0, sp, #8
 	str r0, [sp, #4]
 	.ifdef DIAMOND
-	mov r0, #0x8b
+	mov r0, #0x8b ; NARC_APPLICATION_ZUKANLIST_ZKN_DATA_ZUKAN_ENC_DIAMOND
 	.else
-	mov r0, #0x8c
+	mov r0, #0x8c ; NARC_APPLICATION_ZUKANLIST_ZKN_DATA_ZUKAN_ENC_PEARL
 	.endif
 	add r1, r5, r1
 	bl GfGfxLoader_LoadFromNarc_GetSizeOut
@@ -9999,9 +9999,9 @@ MOD16_021DBDE4: ; 0x021DBDE4
 	add r0, sp, #8
 	str r0, [sp, #4]
 	.ifdef DIAMOND
-	mov r0, #0x8b
+	mov r0, #0x8b ; NARC_APPLICATION_ZUKANLIST_ZKN_DATA_ZUKAN_ENC_DIAMOND
 	.else
-	mov r0, #0x8c
+	mov r0, #0x8c ; NARC_APPLICATION_ZUKANLIST_ZKN_DATA_ZUKAN_ENC_PEARL
 	.endif
 	add r2, r1, #0
 	bl GfGfxLoader_LoadFromNarc_GetSizeOut
@@ -10027,9 +10027,9 @@ MOD16_021DBE0C: ; 0x021DBE0C
 	add r0, sp, #8
 	str r0, [sp, #4]
 	.ifdef DIAMOND
-	mov r0, #0x8b
+	mov r0, #0x8b ; NARC_APPLICATION_ZUKANLIST_ZKN_DATA_ZUKAN_ENC_DIAMOND
 	.else
-	mov r0, #0x8c
+	mov r0, #0x8c ; NARC_APPLICATION_ZUKANLIST_ZKN_DATA_ZUKAN_ENC_PEARL
 	.endif
 	mov r1, #2
 	bl GfGfxLoader_LoadFromNarc_GetSizeOut
