@@ -5,13 +5,13 @@
 #include "NNS_FND_expheap.h"
 #include "NNS_FND_allocator.h"
 
-struct UnkStruct_020EDB10
+struct HeapParam
 {
     u32 size;
     OSArenaId arena;
 };
 
-void InitHeapSystem(const struct UnkStruct_020EDB10 *templates, u32 nTemplates, u32 totalNumHeaps, u32 pre_size);
+void InitHeapSystem(const struct HeapParam *templates, u32 nTemplates, u32 totalNumHeaps, u32 pre_size);
 s32 FindFirstAvailableHeapHandle();
 BOOL CreateHeap(u32 parent, u32 child, u32 size);
 BOOL CreateHeapAtEnd(u32 parent, u32 child, u32 size);

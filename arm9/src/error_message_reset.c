@@ -8,7 +8,7 @@
 
 const struct UnkStruct_02016B94_4 UNK_020FF49C = { 0, 3, 3, 0x1a, 0x12, 1, 0x23 };
 
-const struct UnkStruct_020EDB10 UNK_020FF4A4[] = {
+const struct HeapParam UNK_020FF4A4[] = {
     {0x00020000, OS_ARENA_MAIN}
 };
 

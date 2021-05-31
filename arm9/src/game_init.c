@@ -119,7 +119,7 @@ void Main_ToggleHBlankInterrupt(BOOL enableFlag)
     (void)OS_EnableIrq();
 }
 
-const struct UnkStruct_020EDB10 UNK_020EDB10[] = {
+const struct HeapParam UNK_020EDB10[] = {
     { 0x00D000, OS_ARENA_MAIN },
     { 0x021000, OS_ARENA_MAIN },
     { 0x001000, OS_ARENA_MAIN },
