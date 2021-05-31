@@ -578,7 +578,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01FF(struct ScriptContext *ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk026D(struct ScriptContext *ctx) //message unown font?
+THUMB_FUNC BOOL ScrCmd_MessageUnown(struct ScriptContext *ctx)
 {
     struct UnkStruct_0203A288 myLocalStruct;
     u16 msg = ScriptReadHalfword(ctx);
@@ -743,7 +743,7 @@ THUMB_FUNC static BOOL FUN_0203A4E0(struct ScriptContext *ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0032(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_WaitButtonABPad(struct ScriptContext *ctx)
 {
     SetupNativeScript(ctx, FUN_0203A570);
     return TRUE;
@@ -773,7 +773,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0034(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_CloseMessageBox(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     struct Window *unk = FUN_02039438(unk80, 0x1);
@@ -1302,7 +1302,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //ApplyMovement?
 {
     u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u32 unk2 = ScriptReadWord(ctx);
