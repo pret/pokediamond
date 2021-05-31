@@ -704,7 +704,7 @@ MOD64_021D7A54: ; 0x021D7A54
 	mov r2, #0
 	mov r3, #0x40
 	str r4, [sp, #4]
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add r5, #0x98
 	mov r1, #0
 	mov r2, #2
@@ -1057,7 +1057,7 @@ MOD64_021D7D7C: ; 0x021D7D7C
 	add r4, r0, #0
 	str r2, [sp]
 	mov r0, #0x52
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r4, #0x54]
 	bl NNS_G3dGetMdlSet
 	str r0, [r4, #0x58]
@@ -1091,7 +1091,7 @@ MOD64_021D7DC0: ; 0x021D7DC0
 	str r2, [sp]
 	mov r0, #0x52
 	add r3, r6, #0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r4, #0x64]
 	mov r1, #0
 	bl NNS_G3dGetAnmByIdx
@@ -2920,14 +2920,14 @@ MOD64_021D8B70: ; 0x021D8B70
 	mov r2, #0
 	add r3, #0x14
 	str r6, [sp]
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	add r2, r5, #0
 	str r0, [r5, #0xc]
 	mov r0, #0x52
 	mov r1, #0xf
 	add r2, #0x18
 	add r3, r6, #0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [r5, #0x10]
 	ldr r0, _021D8C04 ; =0x0000064C
 	ldr r0, [r4, r0]
@@ -3386,7 +3386,7 @@ MOD64_021D8EF4: ; 0x021D8EF4
 	mov r1, #0x11
 	mov r2, #0
 	mov r3, #0xa0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r5, [sp, #0x14]
 	mov r4, #0
 	mov r6, #1

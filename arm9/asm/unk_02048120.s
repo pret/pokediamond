@@ -49,7 +49,7 @@ FUN_02048120: ; 0x02048120
 	mov r1, #0x6
 	mov r2, #0x0
 	lsl r3, r3, #0x4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x8
 	pop {r4, pc}
 	.balign 4

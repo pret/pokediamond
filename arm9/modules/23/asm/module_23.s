@@ -1165,7 +1165,7 @@ MOD23_02255088: ; 0x02255088
 	mov r0, #0xc
 	mov r1, #0x10
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1177,7 +1177,7 @@ MOD23_02255088: ; 0x02255088
 	mov r0, #0xc
 	mov r1, #0x11
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	add r0, r5, #0
 	bl MOD23_02255124
 	mov r0, #0

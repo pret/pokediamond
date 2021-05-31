@@ -471,7 +471,7 @@ _020148EA:
 	ldr r0, [r5, #0x8]
 	ldr r1, [r7, #0xc]
 	add r3, r6, #0x0
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	str r0, [r4, #0x8]
 	ldr r0, [r4, #0x18]
 	ldr r1, [r5, #0x1c]
@@ -672,7 +672,7 @@ _02014A58:
 	add r0, r7, #0x0
 	mov r2, #0x1
 	add r3, r4, #0x4
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [r4, #0x8]
 	str r5, [r4, #0x0]
 	ldr r0, [sp, #0x20]
@@ -710,7 +710,7 @@ _02014AA6:
 	ldr r3, [sp, #0x1c]
 	add r0, r7, #0x0
 	add r2, r4, #0x0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [r4, #0x4]
 	str r5, [r4, #0x8]
 	ldr r0, [sp, #0x18]

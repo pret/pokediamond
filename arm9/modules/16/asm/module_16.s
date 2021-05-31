@@ -6027,7 +6027,7 @@ _021DA196:
 	mov r0, #0x4b
 	add r1, r5, #0
 	add r3, r6, #0
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	ldr r1, [sp, #8]
 	lsr r1, r1, #1
 	str r1, [r4]
@@ -9949,7 +9949,7 @@ _021DBD82:
 	mov r0, #0x8c
 	.endif
 	add r1, r5, r1
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [r4]
 	ldr r0, [sp, #8]
 	lsr r0, r0, #2
@@ -10004,7 +10004,7 @@ MOD16_021DBDE4: ; 0x021DBDE4
 	mov r0, #0x8c
 	.endif
 	add r2, r1, #0
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	cmp r4, #0
 	beq _021DBE06
 	ldr r1, [sp, #8]
@@ -10032,7 +10032,7 @@ MOD16_021DBE0C: ; 0x021DBE0C
 	mov r0, #0x8c
 	.endif
 	mov r1, #2
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	add r5, r0, #0
 	cmp r4, #0
 	beq _021DBE34
@@ -52059,7 +52059,7 @@ MOD16_021EF790: ; 0x021EF790
 	mov r1, #6
 	add r3, r2, #0
 	str r4, [sp, #4]
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -52070,13 +52070,13 @@ MOD16_021EF790: ; 0x021EF790
 	mov r1, #0x21
 	add r2, r5, #0
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	str r4, [sp]
 	mov r0, #0x45
 	mov r1, #0x32
 	mov r2, #1
 	add r3, sp, #0x10
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	ldr r2, [sp, #0x10]
 	mov r3, #0
 	str r3, [sp]
@@ -52100,7 +52100,7 @@ MOD16_021EF790: ; 0x021EF790
 	mov r1, #0x33
 	mov r2, #1
 	add r3, sp, #0x10
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	ldr r2, [sp, #0x10]
 	mov r1, #3
 	str r1, [sp]
@@ -52124,7 +52124,7 @@ MOD16_021EF790: ; 0x021EF790
 	mov r1, #0x34
 	mov r2, #1
 	add r3, sp, #0x10
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	add r6, r0, #0
 	ldr r2, [sp, #0x10]
 	mov r0, #8
@@ -52149,7 +52149,7 @@ MOD16_021EF790: ; 0x021EF790
 	mov r1, #0x36
 	mov r2, #1
 	add r3, sp, #0x10
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	add r4, r0, #0
 	ldr r2, [sp, #0x10]
 	mov r0, #0x10
@@ -52192,13 +52192,13 @@ MOD16_021EF8A8: ; 0x021EF8A8
 	mov r1, #0x21
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	str r5, [sp]
 	mov r0, #0x45
 	mov r1, #0x39
 	mov r2, #1
 	add r3, sp, #0x10
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	ldr r2, [sp, #0x10]
 	mov r3, #0
 	str r3, [sp]
@@ -52520,7 +52520,7 @@ MOD16_021EFB20: ; 0x021EFB20
 	mov r1, #0x17
 	add r2, #8
 	add r3, r5, #0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	b _021EFB48
 _021EFB3A:
 	add r2, r4, #0
@@ -52528,7 +52528,7 @@ _021EFB3A:
 	mov r1, #0x18
 	add r2, #8
 	add r3, r5, #0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 _021EFB48:
 	add r2, r4, #0
 	str r0, [r4]
@@ -52536,7 +52536,7 @@ _021EFB48:
 	mov r1, #0x1a
 	add r2, #0xc
 	add r3, r5, #0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [r4, #4]
 	mov r1, #0
 	str r1, [r4, #0x10]

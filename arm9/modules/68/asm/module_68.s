@@ -340,7 +340,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	ldr r2, [r5]
 	mov r0, #0x35
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -350,7 +350,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	ldr r2, [r5]
 	mov r0, #0x35
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -361,7 +361,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	mov r0, #0x35
 	mov r1, #1
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x24
@@ -369,7 +369,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	mov r0, #0x35
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x24
 	mov r1, #0x80
 	bl AllocFromHeap
@@ -1286,7 +1286,7 @@ MOD68_021D7EEC: ; 0x021D7EEC
 	str r0, [sp, #0xc]
 	ldr r2, [r4]
 	mov r0, #0x35
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x7e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1300,7 +1300,7 @@ MOD68_021D7EEC: ; 0x021D7EEC
 	mov r0, #0x35
 	mov r2, #0
 	mov r3, #0x60
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0

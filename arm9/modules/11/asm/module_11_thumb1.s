@@ -527,7 +527,7 @@ _0222D99A:
 	mov r0, #7
 	add r1, r1, #3
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r0, r5, #0
 	bl MOD11_02230C68
 	add r2, r0, #0
@@ -581,7 +581,7 @@ _0222D99A:
 	mov r0, #7
 	mov r1, #2
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #1
 	lsl r0, r0, #0x1a
 	ldr r2, [r0]
@@ -1547,7 +1547,7 @@ _0222E2F0:
 	add r1, r1, #3
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r0, r5, #0
 	bl MOD11_02230C68
 	add r6, r0, #0
@@ -1601,7 +1601,7 @@ _0222E2F0:
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #1
 	lsl r0, r0, #0x1a
 	ldr r2, [r0]
