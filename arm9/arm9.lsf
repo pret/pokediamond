@@ -545,6 +545,15 @@ Static arm9
 	Object MATH_crc.o
 	Object STD_string.o
 	### Standard libraries ###
+	### Bundled with CodeWarrior, so probably compiled with 2.0sp1 ###
+	Object MSL_abort_exit.o
+	Object MSL_math.o
+	Object MSL_ansi_files.o
+	Object MSL_arith.o
+	Object MSL_assert.o
+	Object MSL_buffer_io.o
+	Object MSL_direct_io.o
+	Object MSL_file_io.o
 	Object libc.o
 	Object stdlibmwcc.o
 }

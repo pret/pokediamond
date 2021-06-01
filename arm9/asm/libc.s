@@ -1,6 +1,13 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 	.extern OSi_ThreadInfo
+	.extern __console_exit
+    .extern __stdio_exit
+    .extern __cs_id
+    .extern __cs_ref
+    .extern __cs
+    .extern __files
+    .extern __prep_buffer
 
 	.section .rodata
 
@@ -125,73 +132,30 @@ UNK_02104764: ; 0x02104764
 
 	.section .data
 
-	.global UNK_02106A58
-UNK_02106A58: ; 0x02106A58
-	.byte 0x00, 0x00, 0x00, 0x00, 0x24, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.word UNK_021D73A8
-	.byte 0x00, 0x01, 0x00, 0x00
-	.word UNK_021D73A8
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.word __read_console
-	.word __write_console
-	.word __close_console
-	.byte 0x00, 0x00, 0x00, 0x00
-
-	.global UNK_02106AA4
-UNK_02106AA4: ; 0x02106AA4
-	.byte 0x01, 0x00, 0x00, 0x00, 0x28, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.word UNK_021D72A8
-	.byte 0x00, 0x01, 0x00, 0x00
-	.word UNK_021D72A8
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.word __read_console
-	.word __write_console
-	.word __close_console
-	.byte 0x00, 0x00, 0x00, 0x00
-
-	.global UNK_02106AF0
-UNK_02106AF0: ; 0x02106AF0
-	.byte 0x02, 0x00, 0x00, 0x00, 0x08, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.word UNK_021D71A8
-	.byte 0x00, 0x01, 0x00, 0x00
-	.word UNK_021D71A8
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.word __read_console
-	.word __write_console
-	.word __close_console
-	.byte 0x00, 0x00, 0x00, 0x00
-
-	.global UNK_02106B3C
-UNK_02106B3C: ; 0x02106B3C
-	.asciz "Assertion (%s) failed in \"%s\", function \"%s\", line %d\n"
-
 	.balign 4, 0
-	.global UNK_02106B74
-UNK_02106B74: ; 0x02106B74
+	.global __float_huge
+__float_huge: ; 0x02106B74
 	.word 0x7F800000 ; inf
 
-	.global UNK_02106B78
-UNK_02106B78: ; 0x02106B78
+	.global __float_nan
+__float_nan: ; 0x02106B78
 	.word 0x7FFFFFFF ; nan
 
-	.global UNK_02106B7C
-UNK_02106B7C: ; 0x02106B7C
-	.word 0x00000000, 0x7FF00000 ; 1.06047983e-314
+	.global __double_huge
+__double_huge: ; 0x02106B7C
+	.word 0x00000000, 0x7FF00000 ; inf
 
+    .balign 4
 	.global UNK_02106B84
 UNK_02106B84: ; 0x02106B84
-	.byte 0x00, 0x00, 0x00, 0x00
+    .asciz ""
 
+    .balign 4
 	.global UNK_02106B88
 UNK_02106B88: ; 0x02106B88
-	.byte 0x25, 0x54, 0x00, 0x00
+    .asciz "%T"
 
+    .balign 4
 	.global UNK_02106B8C
 UNK_02106B8C: ; 0x02106B8C
 	.asciz "AM|PM"
@@ -482,46 +446,6 @@ UNK_02106F5C: ; 0x02106F5C
 
 	.section .bss
 
-	.global UNK_021D6F78
-UNK_021D6F78: ; 0x021D6F78
-	.space 0x10
-
-	.global UNK_021D6F88
-UNK_021D6F88: ; 0x021D6F88
-	.space 0x100
-
-	.global UNK_021D7088
-UNK_021D7088: ; 0x021D7088
-	.space 0x24
-
-	.global UNK_021D70AC
-UNK_021D70AC: ; 0x021D70AC
-	.space 0x24
-
-	.global UNK_021D70D0
-UNK_021D70D0: ; 0x021D70D0
-	.space 0x48
-
-	.global UNK_021D7118
-UNK_021D7118: ; 0x021D7118
-	.space 0x60
-
-	.global UNK_021D7178
-UNK_021D7178: ; 0x021D7178
-	.space 0x30
-
-	.global UNK_021D71A8
-UNK_021D71A8: ; 0x021D71A8
-	.space 0x100
-
-	.global UNK_021D72A8
-UNK_021D72A8: ; 0x021D72A8
-	.space 0x100
-
-	.global UNK_021D73A8
-UNK_021D73A8: ; 0x021D73A8
-	.space 0x100
-
 	.global UNK_021D74A8
 UNK_021D74A8: ; 0x021D74A8
 	.space 0x4
@@ -532,931 +456,6 @@ UNK_021D74AC: ; 0x021D74AC
 
 	.section .text
 	.balign 4, 0
-
-	arm_func_start abort
-abort: ; 0x020DE14C
-	stmdb sp!, {r3,lr}
-	mov r0, #0x1
-	bl raise
-	ldr r1, _020DE16C ; =UNK_021D6F78
-	mov r0, #0x1
-	str r0, [r1, #0xc]
-	bl exit
-	ldmia sp!, {r3,pc}
-	.balign 4
-_020DE16C: .word UNK_021D6F78
-
-	arm_func_start exit
-exit: ; 0x020DE170
-	stmdb sp!, {r4,lr}
-	ldr r1, _020DE1B8 ; =UNK_021D6F78
-	mov r4, r0
-	ldr r0, [r1, #0xc]
-	cmp r0, #0x0
-	bne _020DE1AC
-	bl __destroy_global_chain
-	ldr r0, _020DE1B8 ; =UNK_021D6F78
-	ldr r0, [r0, #0x4]
-	cmp r0, #0x0
-	beq _020DE1AC
-	blx r0
-	ldr r0, _020DE1B8 ; =UNK_021D6F78
-	mov r1, #0x0
-	str r1, [r0, #0x4]
-_020DE1AC:
-	mov r0, r4
-	bl __exit
-	ldmia sp!, {r4,pc}
-	.balign 4
-_020DE1B8: .word UNK_021D6F78
-
-	arm_func_start __exit
-__exit: ; 0x020DE1BC
-	stmdb sp!, {r3-r5,lr}
-	ldr r0, _020DE2CC ; =UNK_021D70D0
-	bl OS_TryLockMutex
-	cmp r0, #0x0
-	bne _020DE1F4
-	ldr r0, _020DE2D0 ; =OSi_ThreadInfo
-	ldr r1, _020DE2D4 ; =UNK_021D7088
-	ldr r2, [r0, #0x4]
-	ldr r0, _020DE2D8 ; =UNK_021D70AC
-	ldr r3, [r2, #0x6c]
-	mov r2, #0x1
-	str r3, [r1, #0x0]
-	str r2, [r0, #0x0]
-	b _020DE24C
-_020DE1F4:
-	ldr r0, _020DE2D0 ; =OSi_ThreadInfo
-	ldr r1, _020DE2D4 ; =UNK_021D7088
-	ldr r0, [r0, #0x4]
-	ldr r1, [r1, #0x0]
-	ldr r0, [r0, #0x6c]
-	cmp r1, r0
-	bne _020DE224
-	ldr r0, _020DE2D8 ; =UNK_021D70AC
-	ldr r1, [r0, #0x0]
-	add r1, r1, #0x1
-	str r1, [r0, #0x0]
-	b _020DE24C
-_020DE224:
-	ldr r0, _020DE2CC ; =UNK_021D70D0
-	bl OS_LockMutex
-	ldr r0, _020DE2D0 ; =OSi_ThreadInfo
-	ldr r1, _020DE2D4 ; =UNK_021D7088
-	ldr r2, [r0, #0x4]
-	ldr r0, _020DE2D8 ; =UNK_021D70AC
-	ldr r3, [r2, #0x6c]
-	mov r2, #0x1
-	str r3, [r1, #0x0]
-	str r2, [r0, #0x0]
-_020DE24C:
-	ldr r4, _020DE2DC ; =UNK_021D6F78
-	ldr r0, [r4, #0x8]
-	cmp r0, #0x0
-	ble _020DE280
-	ldr r5, _020DE2E0 ; =UNK_021D6F88
-_020DE260:
-	ldr r0, [r4, #0x8]
-	sub r1, r0, #0x1
-	ldr r0, [r5, r1, lsl #0x2]
-	str r1, [r4, #0x8]
-	blx r0
-	ldr r0, [r4, #0x8]
-	cmp r0, #0x0
-	bgt _020DE260
-_020DE280:
-	ldr r0, _020DE2D8 ; =UNK_021D70AC
-	ldr r1, [r0, #0x0]
-	subs r1, r1, #0x1
-	str r1, [r0, #0x0]
-	bne _020DE29C
-	ldr r0, _020DE2CC ; =UNK_021D70D0
-	bl OS_UnlockMutex
-_020DE29C:
-	ldr r0, _020DE2DC ; =UNK_021D6F78
-	ldr r0, [r0, #0x0]
-	cmp r0, #0x0
-	beq _020DE2BC
-	blx r0
-	ldr r0, _020DE2DC ; =UNK_021D6F78
-	mov r1, #0x0
-	str r1, [r0, #0x0]
-_020DE2BC:
-	mov r0, #0x0
-	bl fflush
-	bl _ExitProcess
-	ldmia sp!, {r3-r5,pc}
-	.balign 4
-_020DE2CC: .word UNK_021D70D0
-_020DE2D0: .word OSi_ThreadInfo
-_020DE2D4: .word UNK_021D7088
-_020DE2D8: .word UNK_021D70AC
-_020DE2DC: .word UNK_021D6F78
-_020DE2E0: .word UNK_021D6F88
-
-	arm_func_start nan
-nan: ; 0x020DE2E4
-	ldr r0, _020DE2F4 ; =UNK_02106B78
-	ldr ip, _020DE2F8 ; =_f2d
-	ldr r0, [r0, #0x0]
-	bx r12
-	.balign 4
-_020DE2F4: .word UNK_02106B78
-_020DE2F8: .word _f2d
-
-	arm_func_start __flush_line_buffered_output_files
-__flush_line_buffered_output_files:
-	stmdb sp!, {r3-r9,lr}
-	ldr r0, _020DE384 ; =UNK_02106A58
-	mov r4, #0x0
-	mov r5, #0x1
-	mov r8, r0
-	mvn r9, #0x0
-	mov r7, r4
-	mov r6, #0x4c
-_020DE31C:
-	ldr r1, [r0, #0x4]
-	mov r2, r1, lsl #0x16
-	movs r2, r2, lsr #0x1d
-	beq _020DE35C
-	mov r1, r1, lsl #0x19
-	mov r1, r1, lsr #0x1e
-	tst r1, #0x1
-	beq _020DE35C
-	ldr r1, [r0, #0x8]
-	mov r1, r1, lsl #0x1d
-	mov r1, r1, lsr #0x1d
-	cmp r1, #0x1
-	bne _020DE35C
-	bl fflush
-	cmp r0, #0x0
-	movne r4, r9
-_020DE35C:
-	cmp r5, #0x3
-	movge r0, r7
-	bge _020DE374
-	mul r0, r5, r6
-	add r5, r5, #0x1
-	add r0, r8, r0
-_020DE374:
-	cmp r0, #0x0
-	bne _020DE31C
-	mov r0, r4
-	ldmia sp!, {r3-r9,pc}
-	.balign 4
-_020DE384: .word UNK_02106A58
-
-	arm_func_start __flush_all
-__flush_all: ; 0x020DE388
-	stmdb sp!, {r3-r9,lr}
-	ldr r0, _020DE3EC ; =UNK_02106A58
-	mov r4, #0x0
-	mov r5, #0x1
-	mov r8, r0
-	mvn r9, #0x0
-	mov r7, r4
-	mov r6, #0x4c
-_020DE3A8:
-	ldr r1, [r0, #0x4]
-	mov r1, r1, lsl #0x16
-	movs r1, r1, lsr #0x1d
-	beq _020DE3C4
-	bl fflush
-	cmp r0, #0x0
-	movne r4, r9
-_020DE3C4:
-	cmp r5, #0x3
-	movge r0, r7
-	bge _020DE3DC
-	mul r0, r5, r6
-	add r5, r5, #0x1
-	add r0, r8, r0
-_020DE3DC:
-	cmp r0, #0x0
-	bne _020DE3A8
-	mov r0, r4
-	ldmia sp!, {r3-r9,pc}
-	.balign 4
-_020DE3EC: .word UNK_02106A58
-
-	arm_func_start abs
-abs: ; 0x020DE3F0
-	cmp r0, #0x0
-	rsblt r0, r0, #0x0
-	bx lr
-
-	arm_func_start __msl_assertion_failed
-__msl_assertion_failed: ; 0x020DE3FC
-	stmdb sp!, {r3-r4,lr}
-	sub sp, sp, #0x4
-	mov r4, r0
-	mov lr, r1
-	mov r12, r2
-	str r3, [sp, #0x0]
-	ldr r0, _020DE434 ; =UNK_02106B3C
-	mov r1, r4
-	mov r2, lr
-	mov r3, r12
-	bl printf
-	bl abort
-	add sp, sp, #0x4
-	ldmia sp!, {r3-r4,pc}
-	.balign 4
-_020DE434: .word UNK_02106B3C
-
-	arm_func_start __convert_from_newlines
-__convert_from_newlines:
-	bx lr
-
-	arm_func_start __convert_to_newlines
-__convert_to_newlines:
-	bx lr
-
-	arm_func_start __prep_buffer
-__prep_buffer:
-	ldr r1, [r0, #0x1c]
-	str r1, [r0, #0x24]
-	ldr r3, [r0, #0x20]
-	str r3, [r0, #0x28]
-	ldr r2, [r0, #0x18]
-	ldr r1, [r0, #0x2c]
-	and r1, r2, r1
-	sub r1, r3, r1
-	str r1, [r0, #0x28]
-	ldr r1, [r0, #0x18]
-	str r1, [r0, #0x34]
-	bx lr
-
-	arm_func_start __load_buffer
-__load_buffer:
-	stmdb sp!, {r4-r6,lr}
-	mov r5, r2
-	mov r4, r0
-	mov r6, r1
-	bl __prep_buffer
-	cmp r5, #0x1
-	ldreq r0, [r4, #0x20]
-	add r2, r4, #0x28
-	streq r0, [r4, #0x28]
-	ldr r0, [r4, #0x0]
-	ldr r1, [r4, #0x1c]
-	ldr r3, [r4, #0x48]
-	ldr r12, [r4, #0x3c]
-	blx r12
-	cmp r0, #0x2
-	moveq r1, #0x0
-	streq r1, [r4, #0x28]
-	cmp r6, #0x0
-	ldrne r1, [r4, #0x28]
-	strne r1, [r6, #0x0]
-	cmp r0, #0x0
-	ldmneia sp!, {r4-r6,pc}
-	ldr r1, [r4, #0x18]
-	ldr r0, [r4, #0x28]
-	add r0, r1, r0
-	str r0, [r4, #0x18]
-	ldr r0, [r4, #0x4]
-	mov r0, r0, lsl #0x13
-	movs r0, r0, lsr #0x1f
-	bne _020DE4F4
-	ldr r0, [r4, #0x1c]
-	add r1, r4, #0x28
-	bl __convert_to_newlines
-_020DE4F4:
-	mov r0, #0x0
-	ldmia sp!, {r4-r6,pc}
-
-	arm_func_start __flush_buffer
-__flush_buffer:
-	stmdb sp!, {r3-r5,lr}
-	mov r5, r0
-	ldr r2, [r5, #0x24]
-	ldr r0, [r5, #0x1c]
-	mov r4, r1
-	subs r0, r2, r0
-	beq _020DE574
-	str r0, [r5, #0x28]
-	ldr r0, [r5, #0x4]
-	mov r0, r0, lsl #0x13
-	movs r0, r0, lsr #0x1f
-	bne _020DE538
-	ldr r0, [r5, #0x1c]
-	add r1, r5, #0x28
-	bl __convert_from_newlines
-_020DE538:
-	ldr r0, [r5, #0x0]
-	ldr r1, [r5, #0x1c]
-	ldr r3, [r5, #0x48]
-	ldr r12, [r5, #0x40]
-	add r2, r5, #0x28
-	blx r12
-	cmp r4, #0x0
-	ldrne r1, [r5, #0x28]
-	strne r1, [r4, #0x0]
-	cmp r0, #0x0
-	ldmneia sp!, {r3-r5,pc}
-	ldr r1, [r5, #0x18]
-	ldr r0, [r5, #0x28]
-	add r0, r1, r0
-	str r0, [r5, #0x18]
-_020DE574:
-	mov r0, r5
-	bl __prep_buffer
-	mov r0, #0x0
-	ldmia sp!, {r3-r5,pc}
-
-	arm_func_start fread
-fread: ; 0x020DE584
-	stmdb sp!, {r4-r10,lr}
-	ldr r4, _020DE67C ; =UNK_02106A58
-	mov r7, r3
-	cmp r7, r4
-	moveq r6, #0x2
-	mov r10, r0
-	movne r6, #0x5
-	mov r0, #0x18
-	mul r4, r6, r0
-	ldr r5, _020DE680 ; =UNK_021D70D0
-	mov r9, r1
-	add r0, r5, r4
-	mov r8, r2
-	bl OS_TryLockMutex
-	cmp r0, #0x0
-	bne _020DE5E8
-	ldr r0, _020DE684 ; =OSi_ThreadInfo
-	ldr r2, _020DE688 ; =UNK_021D7088
-	ldr r1, [r0, #0x4]
-	ldr r0, _020DE68C ; =UNK_021D70AC
-	ldr r3, [r1, #0x6c]
-	mov r1, #0x1
-	str r3, [r2, r6, lsl #0x2]
-	str r1, [r0, r6, lsl #0x2]
-	b _020DE640
-_020DE5E8:
-	ldr r0, _020DE684 ; =OSi_ThreadInfo
-	ldr r1, _020DE688 ; =UNK_021D7088
-	ldr r0, [r0, #0x4]
-	ldr r1, [r1, r6, lsl #0x2]
-	ldr r0, [r0, #0x6c]
-	cmp r1, r0
-	bne _020DE618
-	ldr r1, _020DE68C ; =UNK_021D70AC
-	ldr r0, [r1, r6, lsl #0x2]
-	add r0, r0, #0x1
-	str r0, [r1, r6, lsl #0x2]
-	b _020DE640
-_020DE618:
-	add r0, r5, r4
-	bl OS_LockMutex
-	ldr r0, _020DE684 ; =OSi_ThreadInfo
-	ldr r2, _020DE688 ; =UNK_021D7088
-	ldr r1, [r0, #0x4]
-	ldr r0, _020DE68C ; =UNK_021D70AC
-	ldr r3, [r1, #0x6c]
-	mov r1, #0x1
-	str r3, [r2, r6, lsl #0x2]
-	str r1, [r0, r6, lsl #0x2]
-_020DE640:
-	mov r0, r10
-	mov r1, r9
-	mov r2, r8
-	mov r3, r7
-	bl __fread
-	ldr r1, _020DE68C ; =UNK_021D70AC
-	mov r7, r0
-	ldr r0, [r1, r6, lsl #0x2]
-	subs r0, r0, #0x1
-	str r0, [r1, r6, lsl #0x2]
-	bne _020DE674
-	add r0, r5, r4
-	bl OS_UnlockMutex
-_020DE674:
-	mov r0, r7
-	ldmia sp!, {r4-r10,pc}
-	.balign 4
-_020DE67C: .word UNK_02106A58
-_020DE680: .word UNK_021D70D0
-_020DE684: .word OSi_ThreadInfo
-_020DE688: .word UNK_021D7088
-_020DE68C: .word UNK_021D70AC
-
-	arm_func_start __fread
-__fread: ; 0x020DE690
-	stmdb sp!, {r3-r10,lr}
-	sub sp, sp, #0x4
-	mov r7, r3
-	mov r9, r0
-	mov r8, r1
-	mov r0, r7
-	mov r1, #0x0
-	mov r4, r2
-	bl fwide
-	cmp r0, #0x0
-	bne _020DE6C8
-	mov r0, r7
-	mvn r1, #0x0
-	bl fwide
-_020DE6C8:
-	muls r4, r8, r4
-	beq _020DE6EC
-	ldrb r0, [r7, #0xd]
-	cmp r0, #0x0
-	bne _020DE6EC
-	ldr r1, [r7, #0x4]
-	mov r0, r1, lsl #0x16
-	movs r0, r0, lsr #0x1d
-	bne _020DE6F8
-_020DE6EC:
-	add sp, sp, #0x4
-	mov r0, #0x0
-	ldmia sp!, {r3-r10,pc}
-_020DE6F8:
-	mov r0, r1, lsl #0x13
-	movs r0, r0, lsr #0x1f
-	movne r0, r1, lsl #0x19
-	movne r0, r0, lsr #0x1e
-	ldr r1, [r7, #0x8]
-	cmpne r0, #0x2
-	mov r6, #0x1
-	mov r0, r1, lsl #0x1d
-	movne r6, #0x0
-	movs r0, r0, lsr #0x1d
-	bne _020DE74C
-	ldr r0, [r7, #0x4]
-	mov r0, r0, lsl #0x1b
-	mov r0, r0, lsr #0x1d
-	tst r0, #0x1
-	beq _020DE74C
-	bic r0, r1, #0x7
-	orr r0, r0, #0x2
-	str r0, [r7, #0x8]
-	mov r0, #0x0
-	str r0, [r7, #0x28]
-_020DE74C:
-	ldr r0, [r7, #0x8]
-	mov r0, r0, lsl #0x1d
-	mov r0, r0, lsr #0x1d
-	cmp r0, #0x2
-	bhs _020DE778
-	mov r0, #0x1
-	strb r0, [r7, #0xd]
-	mov r0, #0x0
-	add sp, sp, #0x4
-	str r0, [r7, #0x28]
-	ldmia sp!, {r3-r10,pc}
-_020DE778:
-	ldr r0, [r7, #0x4]
-	mov r0, r0, lsl #0x19
-	mov r0, r0, lsr #0x1e
-	tst r0, #0x1
-	beq _020DE7B0
-	bl __flush_line_buffered_output_files
-	cmp r0, #0x0
-	beq _020DE7B0
-	mov r0, #0x1
-	strb r0, [r7, #0xd]
-	mov r0, #0x0
-	add sp, sp, #0x4
-	str r0, [r7, #0x28]
-	ldmia sp!, {r3-r10,pc}
-_020DE7B0:
-	cmp r4, #0x0
-	mov r5, #0x0
-	beq _020DE874
-	ldr r0, [r7, #0x8]
-	mov r0, r0, lsl #0x1d
-	mov r0, r0, lsr #0x1d
-	cmp r0, #0x3
-	blo _020DE874
-	mov r10, r5
-_020DE7D4:
-	mov r0, r7
-	mov r1, r10
-	bl fwide
-	cmp r0, #0x1
-	ldr r0, [r7, #0x8]
-	bne _020DE808
-	mov r0, r0, lsl #0x1d
-	add r0, r7, r0, lsr #0x1c
-	ldrh r0, [r0, #0xe]
-	add r5, r5, #0x2
-	sub r4, r4, #0x2
-	strh r0, [r9], #0x2
-	b _020DE820
-_020DE808:
-	mov r0, r0, lsl #0x1d
-	add r0, r7, r0, lsr #0x1d
-	ldrb r0, [r0, #0xf]
-	add r5, r5, #0x1
-	sub r4, r4, #0x1
-	strb r0, [r9], #0x1
-_020DE820:
-	ldr r1, [r7, #0x8]
-	cmp r4, #0x0
-	mov r0, r1, lsl #0x1d
-	mov r0, r0, lsr #0x1d
-	sub r0, r0, #0x1
-	bic r1, r1, #0x7
-	and r0, r0, #0x7
-	orr r0, r1, r0
-	str r0, [r7, #0x8]
-	beq _020DE85C
-	ldr r0, [r7, #0x8]
-	mov r0, r0, lsl #0x1d
-	mov r0, r0, lsr #0x1d
-	cmp r0, #0x3
-	bhs _020DE7D4
-_020DE85C:
-	ldr r0, [r7, #0x8]
-	mov r0, r0, lsl #0x1d
-	mov r0, r0, lsr #0x1d
-	cmp r0, #0x2
-	ldreq r0, [r7, #0x30]
-	streq r0, [r7, #0x28]
-_020DE874:
-	cmp r4, #0x0
-	beq _020DE938
-	ldr r0, [r7, #0x28]
-	cmp r0, #0x0
-	cmpeq r6, #0x0
-	beq _020DE938
-	mov r10, #0x0
-_020DE890:
-	ldr r0, [r7, #0x28]
-	cmp r0, #0x0
-	bne _020DE8E4
-	mov r0, r7
-	mov r1, r10
-	mov r2, r10
-	bl __load_buffer
-	cmp r0, #0x0
-	beq _020DE8E4
-	cmp r0, #0x1
-	mov r0, #0x1
-	streqb r0, [r7, #0xd]
-	beq _020DE8D4
-	ldr r1, [r7, #0x8]
-	bic r1, r1, #0x7
-	str r1, [r7, #0x8]
-	strb r0, [r7, #0xc]
-_020DE8D4:
-	mov r0, #0x0
-	str r0, [r7, #0x28]
-	mov r4, #0x0
-	b _020DE938
-_020DE8E4:
-	ldr r0, [r7, #0x28]
-	str r0, [sp, #0x0]
-	cmp r0, r4
-	strhi r4, [sp, #0x0]
-	ldr r1, [r7, #0x24]
-	ldr r2, [sp, #0x0]
-	mov r0, r9
-	bl memcpy
-	ldr r2, [sp, #0x0]
-	ldr r0, [r7, #0x24]
-	subs r4, r4, r2
-	add r0, r0, r2
-	str r0, [r7, #0x24]
-	ldr r1, [r7, #0x28]
-	ldr r0, [sp, #0x0]
-	add r9, r9, r2
-	sub r0, r1, r0
-	add r5, r5, r2
-	str r0, [r7, #0x28]
-	cmpne r6, #0x0
-	bne _020DE890
-_020DE938:
-	cmp r4, #0x0
-	beq _020DE9C4
-	cmp r6, #0x0
-	bne _020DE9C4
-	ldr r6, [r7, #0x1c]
-	ldr r10, [r7, #0x20]
-	add r1, sp, #0x0
-	str r9, [r7, #0x1c]
-	mov r0, r7
-	mov r2, #0x1
-	str r4, [r7, #0x20]
-	bl __load_buffer
-	cmp r0, #0x0
-	beq _020DE9A4
-	cmp r0, #0x1
-	mov r0, #0x1
-	bne _020DE98C
-	strb r0, [r7, #0xd]
-	mov r0, #0x0
-	str r0, [r7, #0x28]
-	b _020DE9A4
-_020DE98C:
-	ldr r1, [r7, #0x8]
-	bic r1, r1, #0x7
-	str r1, [r7, #0x8]
-	strb r0, [r7, #0xc]
-	mov r0, #0x0
-	str r0, [r7, #0x28]
-_020DE9A4:
-	ldr r1, [sp, #0x0]
-	mov r0, r7
-	str r6, [r7, #0x1c]
-	str r10, [r7, #0x20]
-	add r5, r5, r1
-	bl __prep_buffer
-	mov r0, #0x0
-	str r0, [r7, #0x28]
-_020DE9C4:
-	mov r0, r5
-	mov r1, r8
-	bl _u32_div_f
-	add sp, sp, #0x4
-	ldmia sp!, {r3-r10,pc}
-
-	arm_func_start __fwrite
-__fwrite:
-	stmdb sp!, {r3-r11,lr}
-	sub sp, sp, #0x8
-	mov r9, r3
-	mov r10, r0
-	str r1, [sp, #0x0]
-	mov r0, r9
-	mov r1, #0x0
-	mov r4, r2
-	bl fwide
-	cmp r0, #0x0
-	bne _020DEA10
-	mov r0, r9
-	mvn r1, #0x0
-	bl fwide
-_020DEA10:
-	ldr r0, [sp, #0x0]
-	muls r5, r0, r4
-	beq _020DEA38
-	ldrb r0, [r9, #0xd]
-	cmp r0, #0x0
-	bne _020DEA38
-	ldr r1, [r9, #0x4]
-	mov r0, r1, lsl #0x16
-	movs r0, r0, lsr #0x1d
-	bne _020DEA44
-_020DEA38:
-	add sp, sp, #0x8
-	mov r0, #0x0
-	ldmia sp!, {r3-r11,pc}
-_020DEA44:
-	mov r0, r1, lsl #0x13
-	movs r0, r0, lsr #0x1f
-	movne r0, r1, lsl #0x19
-	movne r0, r0, lsr #0x1e
-	cmpne r0, #0x2
-	ldr r1, [r9, #0x8]
-	cmpne r0, #0x1
-	mov r8, #0x1
-	mov r0, r1, lsl #0x1d
-	movne r8, #0x0
-	movs r0, r0, lsr #0x1d
-	bne _020DEA9C
-	ldr r0, [r9, #0x4]
-	mov r0, r0, lsl #0x1b
-	mov r0, r0, lsr #0x1d
-	tst r0, #0x2
-	beq _020DEA9C
-	bic r0, r1, #0x7
-	orr r1, r0, #0x1
-	mov r0, r9
-	str r1, [r9, #0x8]
-	bl __prep_buffer
-_020DEA9C:
-	ldr r0, [r9, #0x8]
-	mov r0, r0, lsl #0x1d
-	mov r0, r0, lsr #0x1d
-	cmp r0, #0x1
-	beq _020DEAC8
-	mov r0, #0x1
-	strb r0, [r9, #0xd]
-	mov r0, #0x0
-	add sp, sp, #0x8
-	str r0, [r9, #0x28]
-	ldmia sp!, {r3-r11,pc}
-_020DEAC8:
-	cmp r5, #0x0
-	mov r6, #0x0
-	beq _020DEBF0
-	ldr r0, [r9, #0x1c]
-	ldr r2, [r9, #0x24]
-	cmp r2, r0
-	cmpeq r8, #0x0
-	beq _020DEBF0
-	ldr r1, [r9, #0x20]
-	sub r0, r2, r0
-	sub r0, r1, r0
-	str r0, [r9, #0x28]
-	mov r11, #0xa
-	mov r4, #0x0
-_020DEB00:
-	ldr r0, [r9, #0x28]
-	mov r7, r4
-	str r0, [sp, #0x4]
-	cmp r0, r5
-	strhi r5, [sp, #0x4]
-	ldr r0, [r9, #0x4]
-	mov r0, r0, lsl #0x19
-	mov r0, r0, lsr #0x1e
-	cmp r0, #0x1
-	bne _020DEB50
-	ldr r2, [sp, #0x4]
-	cmp r2, #0x0
-	beq _020DEB50
-	mov r0, r10
-	mov r1, r11
-	bl __memrchr
-	movs r7, r0
-	addne r0, r7, #0x1
-	subne r0, r0, r10
-	strne r0, [sp, #0x4]
-_020DEB50:
-	ldr r2, [sp, #0x4]
-	cmp r2, #0x0
-	beq _020DEB90
-	ldr r0, [r9, #0x24]
-	mov r1, r10
-	bl memcpy
-	ldr r2, [sp, #0x4]
-	ldr r0, [r9, #0x24]
-	add r10, r10, r2
-	add r0, r0, r2
-	str r0, [r9, #0x24]
-	ldr r1, [r9, #0x28]
-	ldr r0, [sp, #0x4]
-	sub r5, r5, r2
-	sub r0, r1, r0
-	str r0, [r9, #0x28]
-_020DEB90:
-	ldr r0, [r9, #0x28]
-	cmp r0, #0x0
-	beq _020DEBB4
-	cmp r7, #0x0
-	bne _020DEBB4
-	ldr r0, [r9, #0x4]
-	mov r0, r0, lsl #0x19
-	movs r0, r0, lsr #0x1e
-	bne _020DEBDC
-_020DEBB4:
-	mov r0, r9
-	mov r1, #0x0
-	bl __flush_buffer
-	cmp r0, #0x0
-	beq _020DEBDC
-	mov r0, #0x1
-	strb r0, [r9, #0xd]
-	mov r5, #0x0
-	str r5, [r9, #0x28]
-	b _020DEBF0
-_020DEBDC:
-	ldr r0, [sp, #0x4]
-	cmp r5, #0x0
-	add r6, r6, r0
-	cmpne r8, #0x0
-	bne _020DEB00
-_020DEBF0:
-	cmp r5, #0x0
-	beq _020DEC5C
-	cmp r8, #0x0
-	bne _020DEC5C
-	ldr r4, [r9, #0x1c]
-	ldr r7, [r9, #0x20]
-	add r2, r10, r5
-	str r10, [r9, #0x1c]
-	str r5, [r9, #0x20]
-	add r1, sp, #0x4
-	mov r0, r9
-	str r2, [r9, #0x24]
-	bl __flush_buffer
-	cmp r0, #0x0
-	ldreq r0, [sp, #0x4]
-	addeq r6, r6, r0
-	beq _020DEC44
-	mov r0, #0x1
-	strb r0, [r9, #0xd]
-	mov r0, #0x0
-	str r0, [r9, #0x28]
-_020DEC44:
-	str r4, [r9, #0x1c]
-	mov r0, r9
-	str r7, [r9, #0x20]
-	bl __prep_buffer
-	mov r0, #0x0
-	str r0, [r9, #0x28]
-_020DEC5C:
-	ldr r0, [r9, #0x4]
-	ldr r1, [sp, #0x0]
-	mov r0, r0, lsl #0x19
-	mov r0, r0, lsr #0x1e
-	cmp r0, #0x2
-	movne r0, #0x0
-	strne r0, [r9, #0x28]
-	mov r0, r6
-	bl _u32_div_f
-	add sp, sp, #0x8
-	ldmia sp!, {r3-r11,pc}
-
-	arm_func_start fclose
-fclose: ; 0x020DEC88
-	stmdb sp!, {r3-r5,lr}
-	movs r5, r0
-	mvneq r0, #0x0
-	ldmeqia sp!, {r3-r5,pc}
-	ldr r1, [r5, #0x4]
-	mov r1, r1, lsl #0x16
-	movs r1, r1, lsr #0x1d
-	moveq r0, #0x0
-	ldmeqia sp!, {r3-r5,pc}
-	bl fflush
-	mov r4, r0
-	ldr r0, [r5, #0x0]
-	ldr r1, [r5, #0x44]
-	blx r1
-	ldr r1, [r5, #0x4]
-	mov r2, #0x0
-	bic r1, r1, #0x380
-	str r1, [r5, #0x4]
-	str r2, [r5, #0x0]
-	ldr r1, [r5, #0x8]
-	mov r1, r1, lsl #0x1c
-	movs r1, r1, lsr #0x1f
-	subne r0, r2, #0x1
-	ldmneia sp!, {r3-r5,pc}
-	cmp r4, #0x0
-	cmpeq r0, #0x0
-	movne r2, #0x1
-	rsb r0, r2, #0x0
-	ldmia sp!, {r3-r5,pc}
-
-	arm_func_start fflush
-fflush:
-	stmdb sp!, {r4,lr}
-	movs r4, r0
-	bne _020DED10
-	bl __flush_all
-	ldmia sp!, {r4,pc}
-_020DED10:
-	ldrb r0, [r4, #0xd]
-	cmp r0, #0x0
-	bne _020DED2C
-	ldr r0, [r4, #0x4]
-	mov r1, r0, lsl #0x16
-	movs r1, r1, lsr #0x1d
-	bne _020DED34
-_020DED2C:
-	mvn r0, #0x0
-	ldmia sp!, {r4,pc}
-_020DED34:
-	mov r0, r0, lsl #0x1b
-	mov r0, r0, lsr #0x1d
-	cmp r0, #0x1
-	moveq r0, #0x0
-	ldmeqia sp!, {r4,pc}
-	ldr r0, [r4, #0x8]
-	mov r1, r0, lsl #0x1d
-	mov r1, r1, lsr #0x1d
-	cmp r1, #0x3
-	biccs r0, r0, #0x7
-	orrcs r0, r0, #0x2
-	strcs r0, [r4, #0x8]
-	ldr r0, [r4, #0x8]
-	mov r0, r0, lsl #0x1d
-	mov r0, r0, lsr #0x1d
-	cmp r0, #0x2
-	moveq r0, #0x0
-	streq r0, [r4, #0x28]
-	ldr r0, [r4, #0x8]
-	mov r1, r0, lsl #0x1d
-	mov r1, r1, lsr #0x1d
-	cmp r1, #0x1
-	beq _020DEDA0
-	bic r0, r0, #0x7
-	str r0, [r4, #0x8]
-	mov r0, #0x0
-	ldmia sp!, {r4,pc}
-_020DEDA0:
-	mov r0, r4
-	mov r1, #0x0
-	bl __flush_buffer
-	cmp r0, #0x0
-	mov r0, #0x0
-	beq _020DEDCC
-	mov r1, #0x1
-	strb r1, [r4, #0xd]
-	str r0, [r4, #0x28]
-	sub r0, r0, #0x1
-	ldmia sp!, {r4,pc}
-_020DEDCC:
-	ldr r1, [r4, #0x8]
-	bic r1, r1, #0x7
-	str r1, [r4, #0x8]
-	str r0, [r4, #0x18]
-	str r0, [r4, #0x28]
-	ldmia sp!, {r4,pc}
 
 	arm_func_start _ftell
 _ftell: ; 0x020DEDE4
@@ -1498,31 +497,31 @@ _020DEE5C: .word UNK_021D74A8
 	arm_func_start ftell
 ftell: ; 0x020DEE60
 	stmdb sp!, {r3-r7,lr}
-	ldr r1, _020DEF60 ; =UNK_02106A58
+	ldr r1, _020DEF60 ; =__files
 	mov r7, r0
 	cmp r7, r1
 	moveq r6, #0x2
 	beq _020DEE98
-	ldr r0, _020DEF64 ; =UNK_02106AA4
+	ldr r0, _020DEF64 ; =__files + 0x4C
 	cmp r7, r0
 	moveq r6, #0x3
 	beq _020DEE98
-	ldr r0, _020DEF68 ; =UNK_02106AF0
+	ldr r0, _020DEF68 ; =__files + 0x98
 	cmp r7, r0
 	moveq r6, #0x4
 	movne r6, #0x5
 _020DEE98:
 	mov r0, #0x18
 	mul r4, r6, r0
-	ldr r5, _020DEF6C ; =UNK_021D70D0
+	ldr r5, _020DEF6C ; =__cs
 	add r0, r5, r4
 	bl OS_TryLockMutex
 	cmp r0, #0x0
 	bne _020DEED8
 	ldr r0, _020DEF70 ; =OSi_ThreadInfo
-	ldr r2, _020DEF74 ; =UNK_021D7088
+	ldr r2, _020DEF74 ; =__cs_id
 	ldr r1, [r0, #0x4]
-	ldr r0, _020DEF78 ; =UNK_021D70AC
+	ldr r0, _020DEF78 ; =__cs_ref
 	ldr r3, [r1, #0x6c]
 	mov r1, #0x1
 	str r3, [r2, r6, lsl #0x2]
@@ -1530,13 +529,13 @@ _020DEE98:
 	b _020DEF30
 _020DEED8:
 	ldr r0, _020DEF70 ; =OSi_ThreadInfo
-	ldr r1, _020DEF74 ; =UNK_021D7088
+	ldr r1, _020DEF74 ; =__cs_id
 	ldr r0, [r0, #0x4]
 	ldr r1, [r1, r6, lsl #0x2]
 	ldr r0, [r0, #0x6c]
 	cmp r1, r0
 	bne _020DEF08
-	ldr r1, _020DEF78 ; =UNK_021D70AC
+	ldr r1, _020DEF78 ; =__cs_ref
 	ldr r0, [r1, r6, lsl #0x2]
 	add r0, r0, #0x1
 	str r0, [r1, r6, lsl #0x2]
@@ -1545,9 +544,9 @@ _020DEF08:
 	add r0, r5, r4
 	bl OS_LockMutex
 	ldr r0, _020DEF70 ; =OSi_ThreadInfo
-	ldr r2, _020DEF74 ; =UNK_021D7088
+	ldr r2, _020DEF74 ; =__cs_id
 	ldr r1, [r0, #0x4]
-	ldr r0, _020DEF78 ; =UNK_021D70AC
+	ldr r0, _020DEF78 ; =__cs_ref
 	ldr r3, [r1, #0x6c]
 	mov r1, #0x1
 	str r3, [r2, r6, lsl #0x2]
@@ -1555,7 +554,7 @@ _020DEF08:
 _020DEF30:
 	mov r0, r7
 	bl _ftell
-	ldr r1, _020DEF78 ; =UNK_021D70AC
+	ldr r1, _020DEF78 ; =__cs_ref
 	mov r7, r0
 	ldr r0, [r1, r6, lsl #0x2]
 	subs r0, r0, #0x1
@@ -1567,13 +566,13 @@ _020DEF58:
 	mov r0, r7
 	ldmia sp!, {r3-r7,pc}
 	.balign 4
-_020DEF60: .word UNK_02106A58
-_020DEF64: .word UNK_02106AA4
-_020DEF68: .word UNK_02106AF0
-_020DEF6C: .word UNK_021D70D0
+_020DEF60: .word __files
+_020DEF64: .word __files + 0x4C
+_020DEF68: .word __files + 0x98
+_020DEF6C: .word __cs
 _020DEF70: .word OSi_ThreadInfo
-_020DEF74: .word UNK_021D7088
-_020DEF78: .word UNK_021D70AC
+_020DEF74: .word __cs_id
+_020DEF78: .word __cs_ref
 
 	arm_func_start _fseek
 _fseek: ; 0x020DEF7C
@@ -1713,33 +712,33 @@ _020DF160: .word UNK_021D74A8
 	arm_func_start fseek
 fseek:
 	stmdb sp!, {r3-r9,lr}
-	ldr r3, _020DF274 ; =UNK_02106A58
+	ldr r3, _020DF274 ; =__files
 	mov r9, r0
 	cmp r9, r3
 	mov r8, r1
 	mov r7, r2
 	moveq r6, #0x2
 	beq _020DF1A4
-	ldr r0, _020DF278 ; =UNK_02106AA4
+	ldr r0, _020DF278 ; =__files + 0x4C
 	cmp r9, r0
 	moveq r6, #0x3
 	beq _020DF1A4
-	ldr r0, _020DF27C ; =UNK_02106AF0
+	ldr r0, _020DF27C ; =__files + 0x98
 	cmp r9, r0
 	moveq r6, #0x4
 	movne r6, #0x5
 _020DF1A4:
 	mov r0, #0x18
 	mul r4, r6, r0
-	ldr r5, _020DF280 ; =UNK_021D70D0
+	ldr r5, _020DF280 ; =__cs
 	add r0, r5, r4
 	bl OS_TryLockMutex
 	cmp r0, #0x0
 	bne _020DF1E4
 	ldr r0, _020DF284 ; =OSi_ThreadInfo
-	ldr r2, _020DF288 ; =UNK_021D7088
+	ldr r2, _020DF288 ; =__cs_id
 	ldr r1, [r0, #0x4]
-	ldr r0, _020DF28C ; =UNK_021D70AC
+	ldr r0, _020DF28C ; =__cs_ref
 	ldr r3, [r1, #0x6c]
 	mov r1, #0x1
 	str r3, [r2, r6, lsl #0x2]
@@ -1747,13 +746,13 @@ _020DF1A4:
 	b _020DF23C
 _020DF1E4:
 	ldr r0, _020DF284 ; =OSi_ThreadInfo
-	ldr r1, _020DF288 ; =UNK_021D7088
+	ldr r1, _020DF288 ; =__cs_id
 	ldr r0, [r0, #0x4]
 	ldr r1, [r1, r6, lsl #0x2]
 	ldr r0, [r0, #0x6c]
 	cmp r1, r0
 	bne _020DF214
-	ldr r1, _020DF28C ; =UNK_021D70AC
+	ldr r1, _020DF28C ; =__cs_ref
 	ldr r0, [r1, r6, lsl #0x2]
 	add r0, r0, #0x1
 	str r0, [r1, r6, lsl #0x2]
@@ -1762,9 +761,9 @@ _020DF214:
 	add r0, r5, r4
 	bl OS_LockMutex
 	ldr r0, _020DF284 ; =OSi_ThreadInfo
-	ldr r2, _020DF288 ; =UNK_021D7088
+	ldr r2, _020DF288 ; =__cs_id
 	ldr r1, [r0, #0x4]
-	ldr r0, _020DF28C ; =UNK_021D70AC
+	ldr r0, _020DF28C ; =__cs_ref
 	ldr r3, [r1, #0x6c]
 	mov r1, #0x1
 	str r3, [r2, r6, lsl #0x2]
@@ -1774,7 +773,7 @@ _020DF23C:
 	mov r1, r8
 	mov r2, r7
 	bl _fseek
-	ldr r1, _020DF28C ; =UNK_021D70AC
+	ldr r1, _020DF28C ; =__cs_ref
 	mov r7, r0
 	ldr r0, [r1, r6, lsl #0x2]
 	subs r0, r0, #0x1
@@ -1786,13 +785,13 @@ _020DF26C:
 	mov r0, r7
 	ldmia sp!, {r3-r9,pc}
 	.balign 4
-_020DF274: .word UNK_02106A58
-_020DF278: .word UNK_02106AA4
-_020DF27C: .word UNK_02106AF0
-_020DF280: .word UNK_021D70D0
+_020DF274: .word __files
+_020DF278: .word __files + 0x4C
+_020DF27C: .word __files + 0x98
+_020DF280: .word __cs
 _020DF284: .word OSi_ThreadInfo
-_020DF288: .word UNK_021D7088
-_020DF28C: .word UNK_021D70AC
+_020DF288: .word __cs_id
+_020DF28C: .word __cs_ref
 
 	arm_func_start rewind
 rewind: ; 0x020DF290
@@ -4466,7 +3465,7 @@ __StringWrite: ; 0x020E1670
 printf: ; 0x020E16B4
 	stmdb sp!, {r0-r3}
 	stmdb sp!, {r4,lr}
-	ldr r0, _020E17B4 ; =UNK_02106AA4
+	ldr r0, _020E17B4 ; =__files + 0x4C
 	mvn r1, #0x0
 	bl fwide
 	cmp r0, #0x0
@@ -4474,14 +3473,14 @@ printf: ; 0x020E16B4
 	ldmgeia sp!, {r4,lr}
 	addge sp, sp, #0x10
 	bxge lr
-	ldr r0, _020E17B8 ; =UNK_021D7118
+	ldr r0, _020E17B8 ; =__cs + 0x48
 	bl OS_TryLockMutex
 	cmp r0, #0x0
 	bne _020E1710
 	ldr r0, _020E17BC ; =OSi_ThreadInfo
-	ldr r1, _020E17C0 ; =UNK_021D7088
+	ldr r1, _020E17C0 ; =__cs_id
 	ldr r2, [r0, #0x4]
-	ldr r0, _020E17C4 ; =UNK_021D70AC
+	ldr r0, _020E17C4 ; =__cs_ref
 	ldr r3, [r2, #0x6c]
 	mov r2, #0x1
 	str r3, [r1, #0xc]
@@ -4489,24 +3488,24 @@ printf: ; 0x020E16B4
 	b _020E1768
 _020E1710:
 	ldr r0, _020E17BC ; =OSi_ThreadInfo
-	ldr r1, _020E17C0 ; =UNK_021D7088
+	ldr r1, _020E17C0 ; =__cs_id
 	ldr r0, [r0, #0x4]
 	ldr r1, [r1, #0xc]
 	ldr r0, [r0, #0x6c]
 	cmp r1, r0
 	bne _020E1740
-	ldr r0, _020E17C4 ; =UNK_021D70AC
+	ldr r0, _020E17C4 ; =__cs_ref
 	ldr r1, [r0, #0xc]
 	add r1, r1, #0x1
 	str r1, [r0, #0xc]
 	b _020E1768
 _020E1740:
-	ldr r0, _020E17B8 ; =UNK_021D7118
+	ldr r0, _020E17B8 ; =__cs + 0x48
 	bl OS_LockMutex
 	ldr r0, _020E17BC ; =OSi_ThreadInfo
-	ldr r1, _020E17C0 ; =UNK_021D7088
+	ldr r1, _020E17C0 ; =__cs_id
 	ldr r2, [r0, #0x4]
-	ldr r0, _020E17C4 ; =UNK_021D70AC
+	ldr r0, _020E17C4 ; =__cs_ref
 	ldr r3, [r2, #0x6c]
 	mov r2, #0x1
 	str r3, [r1, #0xc]
@@ -4516,16 +3515,16 @@ _020E1768:
 	bic r3, r0, #0x3
 	ldr r2, [sp, #0x8]
 	ldr r0, _020E17C8 ; =__FileWrite
-	ldr r1, _020E17B4 ; =UNK_02106AA4
+	ldr r1, _020E17B4 ; =__files + 0x4C
 	add r3, r3, #0x4
 	bl __pformatter
-	ldr r1, _020E17C4 ; =UNK_021D70AC
+	ldr r1, _020E17C4 ; =__cs_ref
 	mov r4, r0
 	ldr r0, [r1, #0xc]
 	subs r0, r0, #0x1
 	str r0, [r1, #0xc]
 	bne _020E17A4
-	ldr r0, _020E17B8 ; =UNK_021D7118
+	ldr r0, _020E17B8 ; =__cs + 0x48
 	bl OS_UnlockMutex
 _020E17A4:
 	mov r0, r4
@@ -4533,11 +3532,11 @@ _020E17A4:
 	add sp, sp, #0x10
 	bx lr
 	.balign 4
-_020E17B4: .word UNK_02106AA4
-_020E17B8: .word UNK_021D7118
+_020E17B4: .word __files + 0x4C
+_020E17B8: .word __cs + 0x48
 _020E17BC: .word OSi_ThreadInfo
-_020E17C0: .word UNK_021D7088
-_020E17C4: .word UNK_021D70AC
+_020E17C0: .word __cs_id
+_020E17C4: .word __cs_ref
 _020E17C8: .word __FileWrite
 
 	arm_func_start vsnprintf
@@ -5630,7 +4629,7 @@ _020E2600:
 	ldr r0, [sp, #0x30]
 	cmp r0, #0x0
 	beq _020E261C
-	ldr r0, _020E2C78 ; =UNK_02106B78
+	ldr r0, _020E2C78 ; =__float_nan
 	ldr r0, [r0, #0x0]
 	bl _f2d
 	b _020E2668
@@ -5649,7 +4648,7 @@ _020E261C:
 	beq _020E2C3C
 	mov r0, #0x1
 	str r0, [sp, #0x30]
-	ldr r0, _020E2C78 ; =UNK_02106B78
+	ldr r0, _020E2C78 ; =__float_nan
 	ldr r0, [r0, #0x0]
 	bl _f2d
 	b _020E2668
@@ -6111,7 +5110,7 @@ _020E2C68:
 	ldmia sp!, {r3-r11,pc}
 	.balign 4
 _020E2C74: .word UNK_0210430C
-_020E2C78: .word UNK_02106B78
+_020E2C78: .word __float_nan
 
 	arm_func_start __StringRead
 __StringRead: ; 0x020E2C7C
@@ -6205,14 +5204,14 @@ _020E2D94:
 	mvn r0, #0x0
 	ldmia sp!, {r3-r5,pc}
 _020E2D9C:
-	ldr r0, _020E2E98 ; =UNK_021D7178
+	ldr r0, _020E2E98 ; =__cs + 0xA8
 	bl OS_TryLockMutex
 	cmp r0, #0x0
 	bne _020E2DD0
 	ldr r0, _020E2E9C ; =OSi_ThreadInfo
-	ldr r1, _020E2EA0 ; =UNK_021D7088
+	ldr r1, _020E2EA0 ; =__cs_id
 	ldr r2, [r0, #0x4]
-	ldr r0, _020E2EA4 ; =UNK_021D70AC
+	ldr r0, _020E2EA4 ; =__cs_ref
 	ldr r3, [r2, #0x6c]
 	mov r2, #0x1
 	str r3, [r1, #0x1c]
@@ -6220,24 +5219,24 @@ _020E2D9C:
 	b _020E2E28
 _020E2DD0:
 	ldr r0, _020E2E9C ; =OSi_ThreadInfo
-	ldr r1, _020E2EA0 ; =UNK_021D7088
+	ldr r1, _020E2EA0 ; =__cs_id
 	ldr r0, [r0, #0x4]
 	ldr r1, [r1, #0x1c]
 	ldr r0, [r0, #0x6c]
 	cmp r1, r0
 	bne _020E2E00
-	ldr r0, _020E2EA4 ; =UNK_021D70AC
+	ldr r0, _020E2EA4 ; =__cs_ref
 	ldr r1, [r0, #0x1c]
 	add r1, r1, #0x1
 	str r1, [r0, #0x1c]
 	b _020E2E28
 _020E2E00:
-	ldr r0, _020E2E98 ; =UNK_021D7178
+	ldr r0, _020E2E98 ; =__cs + 0xA8
 	bl OS_LockMutex
 	ldr r0, _020E2E9C ; =OSi_ThreadInfo
-	ldr r1, _020E2EA0 ; =UNK_021D7088
+	ldr r1, _020E2EA0 ; =__cs_id
 	ldr r2, [r0, #0x4]
-	ldr r0, _020E2EA4 ; =UNK_021D70AC
+	ldr r0, _020E2EA4 ; =__cs_ref
 	ldr r3, [r2, #0x6c]
 	mov r2, #0x1
 	str r3, [r1, #0x1c]
@@ -6249,12 +5248,12 @@ _020E2E28:
 	cmp r4, #0x1
 	movne r0, #0x0
 	strne r0, [r1, r2, lsl #0x2]
-	ldr r0, _020E2EA4 ; =UNK_021D70AC
+	ldr r0, _020E2EA4 ; =__cs_ref
 	ldr r1, [r0, #0x1c]
 	subs r1, r1, #0x1
 	str r1, [r0, #0x1c]
 	bne _020E2E5C
-	ldr r0, _020E2E98 ; =UNK_021D7178
+	ldr r0, _020E2E98 ; =__cs + 0xA8
 	bl OS_UnlockMutex
 _020E2E5C:
 	cmp r4, #0x1
@@ -6276,10 +5275,10 @@ _020E2E88:
 	mov r0, #0x0
 	ldmia sp!, {r3-r5,pc}
 	.balign 4
-_020E2E98: .word UNK_021D7178
+_020E2E98: .word __cs + 0xA8
 _020E2E9C: .word OSi_ThreadInfo
-_020E2EA0: .word UNK_021D7088
-_020E2EA4: .word UNK_021D70AC
+_020E2EA0: .word __cs_id
+_020E2EA4: .word __cs_ref
 _020E2EA8: .word UNK_021D74AC
 
 	arm_func_start strlen
@@ -6894,14 +5893,14 @@ _020E3688:
 	ldr r0, [sp, #0x28]
 	cmp r0, #0x0
 	beq _020E36B8
-	ldr r1, _020E4300 ; =UNK_02106B74
+	ldr r1, _020E4300 ; =__float_huge
 	mov r0, #0x0
 	ldr r1, [r1, #0x0]
 	bl _fsub
 	bl _f2d
 	b _020E36C4
 _020E36B8:
-	ldr r0, _020E4300 ; =UNK_02106B74
+	ldr r0, _020E4300 ; =__float_huge
 	ldr r0, [r0, #0x0]
 	bl _f2d
 _020E36C4:
@@ -7760,11 +6759,11 @@ _020E423C:
 	ldmneia sp!, {r3-r11,pc}
 	ldr r0, [sp, #0x28]
 	cmp r0, #0x0
-	ldreq r1, _020E4310 ; =UNK_02106B7C
+	ldreq r1, _020E4310 ; =__double_huge
 	addeq sp, sp, #0xa8
 	ldmeqia r1, {r0-r1}
 	ldmeqia sp!, {r3-r11,pc}
-	ldr r1, _020E4310 ; =UNK_02106B7C
+	ldr r1, _020E4310 ; =__double_huge
 	mov r0, #0x0
 	ldmia r1, {r2-r3}
 	mov r1, r0
@@ -7799,11 +6798,11 @@ _020E42F0: .word UNK_02104439
 _020E42F4: .word UNK_02104434
 _020E42F8: .word UNK_0210430C
 _020E42FC: .word UNK_0210428C
-_020E4300: .word UNK_02106B74
+_020E4300: .word __float_huge
 _020E4304: .word 0x00007FFF
 _020E4308: .word 0x00000E2C
 _020E430C: .word 0x0000018E
-_020E4310: .word UNK_02106B7C
+_020E4310: .word __double_huge
 _020E4314: .word 0x7FEFFFFF
 _020E4318:
 	ldr r3, _020E4314 ; =0x7FEFFFFF
@@ -7814,7 +6813,7 @@ _020E4318:
 	bls _020E4344
 	ldr r0, [sp, #0xd0]
 	mov r2, #0x1
-	ldr r1, _020E4310 ; =UNK_02106B7C
+	ldr r1, _020E4310 ; =__double_huge
 	str r2, [r0, #0x0]
 	ldmia r1, {r4,r6}
 _020E4344:
@@ -11387,7 +10386,7 @@ _020E73E8:
 	add r7, r0, #0x1
 	orrs r0, r7, r5
 	bne _020E7420
-	ldr r0, _020E764C ; =UNK_02106B78
+	ldr r0, _020E764C ; =__float_nan
 	ldr r1, _020E7650 ; =UNK_021D74A8
 	ldr r0, [r0, #0x0]
 	mov r2, #0x21
@@ -11542,7 +10541,7 @@ _020E763C: .word 0x7FF00000
 _020E7640: .word 0x43400000
 _020E7644: .word 0xFFFFFC01
 _020E7648: .word 0x3FE00000
-_020E764C: .word UNK_02106B78
+_020E764C: .word __float_nan
 _020E7650: .word UNK_021D74A8
 _020E7654: .word 0x41E00000
 _020E7658: .word 0x3FEFFFFF
@@ -13661,7 +12660,7 @@ _020E93F0:
 	mov r5, #0x0
 	cmp r0, #0x0
 	ldreq r4, _020E996C ; =0x3FF00000
-	ldr r0, _020E9974 ; =UNK_02106B74
+	ldr r0, _020E9974 ; =__float_huge
 	ldrne r4, _020E9970 ; =0xBFF00000
 	ldr r0, [r0, #0x0]
 	bl _f2d
@@ -13736,7 +12735,7 @@ _020E94C8:
 	mov r5, #0x0
 	cmp r0, #0x0
 	ldreq r4, _020E996C ; =0x3FF00000
-	ldr r0, _020E9974 ; =UNK_02106B74
+	ldr r0, _020E9974 ; =__float_huge
 	ldrne r4, _020E9970 ; =0xBFF00000
 	ldr r0, [r0, #0x0]
 	bl _f2d
@@ -14039,7 +13038,7 @@ _020E995C:
 	.balign 4
 _020E996C: .word 0x3FF00000
 _020E9970: .word 0xBFF00000
-_020E9974: .word UNK_02106B74
+_020E9974: .word __float_huge
 _020E9978: .word 0x7FF00000
 _020E997C: .word UNK_02106F5C
 _020E9980: .word UNK_02106E48
