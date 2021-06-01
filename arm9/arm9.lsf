@@ -176,7 +176,7 @@ Static arm9
 	Object scrcmd_18_c.o
 	Object scrcmd_18.o
 	Object scrcmd_fossils.o
-	Object scrcmd_20.o
+	Object scrcmd_prizes.o
 	Object scrcmd_flags.o
 	Object scrcmd_items.o
 	Object scrcmd_underground.o

@@ -3357,7 +3357,7 @@
 .extern ScrCmd_GetFossilMinimumAmount
 .extern ScrCmd_Unk01F2
 .extern ScrCmd_Unk01F3
-.extern ScrCmd_Unk02A6
+.extern ScrCmd_GetPrizeItemIdAndCost
 .extern ScrCmd_HasSinnohDex
 .extern ScrCmd_GiveSinnohDex
 .extern ScrCmd_HasRunningShoes

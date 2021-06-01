@@ -257,8 +257,8 @@ BOOL ScrCmd_GetFossilMinimumAmount(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01F2(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01F3(struct ScriptContext* ctx);
 
-//scrcmd_20.c
-BOOL ScrCmd_Unk02A6(struct ScriptContext* ctx);
+//scrcmd_prizes.c
+BOOL ScrCmd_GetPrizeItemIdAndCost(struct ScriptContext* ctx);
 
 //scrcmd_flags.c
 BOOL ScrCmd_HasSinnohDex(struct ScriptContext* ctx);
