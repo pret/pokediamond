@@ -2010,7 +2010,7 @@ MOD07_02212E90: ; 0x02212E90
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #0xc]
 	mov r0, #0x6c
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2022,7 +2022,7 @@ MOD07_02212E90: ; 0x02212E90
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #0xc]
 	mov r0, #0x6c
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2034,7 +2034,7 @@ MOD07_02212E90: ; 0x02212E90
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #0xc]
 	mov r0, #0x6c
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2046,7 +2046,7 @@ MOD07_02212E90: ; 0x02212E90
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #0xc]
 	mov r0, #0x6c
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	ldr r0, [r4]
@@ -2055,7 +2055,7 @@ MOD07_02212E90: ; 0x02212E90
 	add r3, r2, #0
 	str r0, [sp, #4]
 	mov r0, #0x6c
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0
 	ldr r0, [r4, #8]
 	add r2, r1, #0
@@ -3299,7 +3299,7 @@ MOD07_02213924: ; 0x02213924
 	str r0, [sp, #0xc]
 	ldr r2, [r5, #0xc]
 	mov r0, #0x14
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3311,7 +3311,7 @@ MOD07_02213924: ; 0x02213924
 	str r0, [sp, #0xc]
 	ldr r2, [r5, #0xc]
 	mov r0, #0x14
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r2, [r5]
 	mov r0, #0x14
 	ldr r2, [r2, #0x24]

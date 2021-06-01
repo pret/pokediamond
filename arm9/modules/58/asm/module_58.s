@@ -580,7 +580,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r0, #0x5f
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x40
 	str r0, [sp]
 	mov r0, #0x27
@@ -589,7 +589,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #2
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x1a
 	mov r0, #0
 	lsl r1, r1, #4
@@ -618,7 +618,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #3
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -632,7 +632,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #5
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -646,7 +646,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #4
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -660,7 +660,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #6
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r5, #0xc]
 	bl Options_GetFrame
 	lsl r0, r0, #0x18

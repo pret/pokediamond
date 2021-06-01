@@ -612,7 +612,7 @@ _021D79A6:
 	mov r1, #1
 	add r2, #0x1c
 	mov r3, #0x33
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [r7, #0x18]
 	mov r1, #0x32
 	ldr r0, _021D7A30 ; =0x00004A44
@@ -694,7 +694,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r0, #0x56
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x33
@@ -703,7 +703,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	add r1, r0, #0
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x1a
 	mov r0, #0
 	lsl r1, r1, #4
@@ -725,7 +725,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r1, #0xa
 	add r2, r4, #0
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -737,7 +737,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r1, #0xb
 	add r2, r4, #0
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -750,7 +750,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r0, #0x56
 	mov r1, #2
 	add r2, r4, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -763,7 +763,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r0, #0x56
 	mov r1, #3
 	add r2, r4, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r5, #8]
 	ldr r0, [r0, #8]
 	bl Options_GetFrame
@@ -3240,7 +3240,7 @@ MOD54_021D8E64: ; 0x021D8E64
 	mov r1, #8
 	add r2, r4, r2
 	mov r3, #0x33
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	mov r2, #0xcd
 	lsl r2, r2, #2
 	str r0, [r4, r2]
@@ -3249,7 +3249,7 @@ MOD54_021D8E64: ; 0x021D8E64
 	mov r1, #7
 	add r2, r4, r2
 	mov r3, #0x33
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	mov r3, #0xce
 	lsl r3, r3, #2
 	str r0, [r4, r3]
@@ -3260,7 +3260,7 @@ MOD54_021D8E64: ; 0x021D8E64
 	mov r1, #0x20
 	mov r2, #1
 	add r3, r4, r3
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	mov r1, #0xc9
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -3271,7 +3271,7 @@ MOD54_021D8E64: ; 0x021D8E64
 	mov r1, #9
 	mov r2, #1
 	add r3, r4, r3
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	mov r1, #0xca
 	lsl r1, r1, #2
 	str r0, [r4, r1]

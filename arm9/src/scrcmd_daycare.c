@@ -17,7 +17,7 @@ extern u16 MOD05_021ED5C4(struct PlayerParty* party, int idx, struct ScrStrBufs*
 extern u16 MOD05_021ED5EC(struct DayCare* daycare);
 extern u32 MOD05_021ED644(struct DayCare* daycare);
 
-THUMB_FUNC BOOL ScrCmd_Unk016D(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext* ctx)
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
@@ -28,7 +28,7 @@ THUMB_FUNC BOOL ScrCmd_Unk016D(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk016E(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetDaycareStatus(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct SaveBlock2* sav2 = sav_ptr->saveBlock2;
@@ -40,7 +40,7 @@ THUMB_FUNC BOOL ScrCmd_Unk016E(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01A8(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_DeleteDaycareEgg(struct ScriptContext* ctx)
 {
     struct DayCare* daycare = SavArray_get(ctx->unk80->saveBlock2, 8);
     MOD05_021ECD64(daycare);
@@ -48,7 +48,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01A8(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01A9(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct DayCare* daycare = SavArray_get(sav_ptr->saveBlock2, 8);
@@ -90,7 +90,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01AE(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetDaycareLevel(struct ScriptContext* ctx)
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);

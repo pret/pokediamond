@@ -72,7 +72,7 @@ FUN_0200317C: ; 0x0200317C
 	add r5, r3, #0x0
 	add r2, sp, #0x0
 	add r3, r4, #0x0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0x0
 	bne _02003192
 	bl GF_AssertFail
@@ -1387,7 +1387,7 @@ FUN_02003B40: ; 0x02003B40
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	add r2, sp, #0x4
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0x0
 	bne _02003B58
 	bl GF_AssertFail
