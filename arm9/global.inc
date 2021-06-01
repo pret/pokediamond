@@ -8225,10 +8225,10 @@
 .extern UNK_021C93A0
 .extern UNK_021C9520
 .extern UNK_021C9EE0
-.extern UNK_021D74A8
+.extern errno
 .extern Unk_0210683C
-.extern UNK_0210420C
-.extern UNK_0210428C
+.extern __lower_mapC
+.extern __upper_mapC
 .extern UNK_0210430C
 .extern Unk_02106840
 .extern Unk_02106900

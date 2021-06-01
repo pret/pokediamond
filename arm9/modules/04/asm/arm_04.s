@@ -161,7 +161,7 @@ _021D8F40:
 	ldr r0, _021D91BC ; =UNK04_02210468
 	mov r2, #0
 	ldr r1, [r0]
-	ldr r0, _021D91C4 ; =UNK_021D74A8
+	ldr r0, _021D91C4 ; =errno
 	str r2, [sp]
 	str r2, [r0]
 	add r0, r1, #0x1000
@@ -169,7 +169,7 @@ _021D8F40:
 	ldr r1, _021D91C8 ; =UNK04_0220BF3C
 	bl MOD04_021DA388
 	bl atol
-	ldr r1, _021D91C4 ; =UNK_021D74A8
+	ldr r1, _021D91C4 ; =errno
 	ldr r1, [r1]
 	cmp r1, #0x22
 	bne _021D8F9C
@@ -324,7 +324,7 @@ _021D91B0:
 	.align 2, 0
 _021D91BC: .word UNK04_02210468
 _021D91C0: .word UNK04_0220BF34
-_021D91C4: .word UNK_021D74A8
+_021D91C4: .word errno
 _021D91C8: .word UNK04_0220BF3C
 _021D91CC: .word 0x00004E85
 _021D91D0: .word 0x000059D8
@@ -3164,7 +3164,7 @@ _021DB970:
 	bl MOD04_021DA388
 	bl atol
 	mov sl, r0
-	ldr r0, _021DC690 ; =UNK_021D74A8
+	ldr r0, _021DC690 ; =errno
 	ldr r0, [r0]
 	cmp r0, #0x22
 	bne _021DB9A0
@@ -3653,7 +3653,7 @@ _021DC080:
 	bl MOD04_021DA388
 	bl atol
 	mov sl, r0
-	ldr r0, _021DC690 ; =UNK_021D74A8
+	ldr r0, _021DC690 ; =errno
 	ldr r0, [r0]
 	cmp r0, #0x22
 	bne _021DC0BC
@@ -3705,7 +3705,7 @@ _021DC118:
 _021DC14C:
 	add r0, sp, #0x64
 	bl atol
-	ldr r1, _021DC690 ; =UNK_021D74A8
+	ldr r1, _021DC690 ; =errno
 	ldr r1, [r1]
 	cmp r1, #0x22
 	bne _021DC17C
@@ -3873,7 +3873,7 @@ _021DC3B4:
 	strb r2, [r1, r0]
 	mov r0, r1
 	bl atol
-	ldr r1, _021DC690 ; =UNK_021D74A8
+	ldr r1, _021DC690 ; =errno
 	ldr r1, [r1]
 	cmp r1, #0x22
 	bne _021DC3F0
@@ -4067,7 +4067,7 @@ _021DC680: .word UNK04_0220C36C
 _021DC684: .word OSi_ThreadInfo
 _021DC688: .word 0x00001B34
 _021DC68C: .word UNK04_0220C418
-_021DC690: .word UNK_021D74A8
+_021DC690: .word errno
 _021DC694: .word 0x0000012E
 _021DC698: .word UNK04_0221048C
 _021DC69C: .word UNK04_0220BEB4
@@ -4408,7 +4408,7 @@ MOD04_021DCA84: ; 0x021DCA84
 	mov r1, r6
 	bl strcpy
 	mov r2, #0
-	ldr r1, _021DCCB8 ; =UNK_021D74A8
+	ldr r1, _021DCCB8 ; =errno
 	add r0, sp, #0x28
 	strb r2, [sp, #0x23]
 	strb r2, [sp, #0x27]
@@ -4418,7 +4418,7 @@ MOD04_021DCA84: ; 0x021DCA84
 	strb r2, [sp, #0x35]
 	str r2, [r1]
 	bl atol
-	ldr r1, _021DCCB8 ; =UNK_021D74A8
+	ldr r1, _021DCCB8 ; =errno
 	str r0, [sp]
 	ldr r1, [r1]
 	cmp r1, #0x22
@@ -4445,12 +4445,12 @@ _021DCBC4:
 	ldr r0, [sp, #4]
 	cmp r0, #0xc
 	bhi _021DCCA8
-	ldr r1, _021DCCB8 ; =UNK_021D74A8
+	ldr r1, _021DCCB8 ; =errno
 	mov r2, #0
 	add r0, sp, #0x21
 	str r2, [r1]
 	bl atol
-	ldr r1, _021DCCB8 ; =UNK_021D74A8
+	ldr r1, _021DCCB8 ; =errno
 	str r0, [sp, #8]
 	ldr r0, [r1]
 	cmp r0, #0x22
@@ -4459,7 +4459,7 @@ _021DCBC4:
 	add r0, sp, #0x2d
 	str r2, [r1]
 	bl atol
-	ldr r1, _021DCCB8 ; =UNK_021D74A8
+	ldr r1, _021DCCB8 ; =errno
 	str r0, [sp, #0x10]
 	ldr r0, [r1]
 	cmp r0, #0x22
@@ -4468,7 +4468,7 @@ _021DCBC4:
 	add r0, sp, #0x30
 	str r2, [r1]
 	bl atol
-	ldr r1, _021DCCB8 ; =UNK_021D74A8
+	ldr r1, _021DCCB8 ; =errno
 	str r0, [sp, #0x14]
 	ldr r0, [r1]
 	cmp r0, #0x22
@@ -4477,7 +4477,7 @@ _021DCBC4:
 	add r0, sp, #0x33
 	str r2, [r1]
 	bl atol
-	ldr r1, _021DCCB8 ; =UNK_021D74A8
+	ldr r1, _021DCCB8 ; =errno
 	str r0, [sp, #0x18]
 	ldr r0, [r1]
 	cmp r0, #0x22
@@ -4505,7 +4505,7 @@ _021DCCA8:
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
 _021DCCB4: .word UNK04_0220C580
-_021DCCB8: .word UNK_021D74A8
+_021DCCB8: .word errno
 _021DCCBC: .word UNK04_0220C550
 _021DCCC0: .word UNK04_022104FC
 _021DCCC4: .word UNK04_022104F8
@@ -4550,7 +4550,7 @@ _021DCD20:
 	ldmia sp!, {r4, pc}
 _021DCD4C:
 	bl atol
-	ldr r1, _021DCEE4 ; =UNK_021D74A8
+	ldr r1, _021DCEE4 ; =errno
 	mov r2, r0
 	ldr r0, [r1]
 	cmp r0, #0x22
@@ -4588,7 +4588,7 @@ _021DCDA0:
 _021DCDD4:
 	add r0, sp, #0
 	bl atol
-	ldr r1, _021DCEE4 ; =UNK_021D74A8
+	ldr r1, _021DCEE4 ; =errno
 	mov r2, r0
 	ldr r0, [r1]
 	cmp r0, #0x22
@@ -4659,7 +4659,7 @@ _021DCED4: .word UNK04_02210504
 _021DCED8: .word 0xFFFF9DF3
 _021DCEDC: .word UNK04_0220C5A0
 _021DCEE0: .word UNK04_0220C5A8
-_021DCEE4: .word UNK_021D74A8
+_021DCEE4: .word errno
 _021DCEE8: .word 0xFFFF9E58
 _021DCEEC: .word UNK04_0220C5B4
 _021DCEF0: .word 0xFFFFA240
@@ -27563,7 +27563,7 @@ MOD04_021F01C4: ; 0x021F01C4
 	mov r2, r0
 	cmp r3, #0
 	beq _021F01FC
-	ldr r1, _021F0204 ; =UNK_0210420C
+	ldr r1, _021F0204 ; =__lower_mapC
 _021F01D8:
 	cmp r3, #0
 	blt _021F01EC
@@ -27579,7 +27579,7 @@ _021F01FC:
 	mov r0, r2
 	bx lr
 	.align 2, 0
-_021F0204: .word UNK_0210420C
+_021F0204: .word __lower_mapC
 	arm_func_end MOD04_021F01C4
 
 	arm_func_start MOD04_021F0208
@@ -33471,7 +33471,7 @@ _021F5418:
 	blt _021F5434
 	cmp r1, #0x80
 	bge _021F5434
-	ldr r0, _021F5844 ; =UNK_0210428C
+	ldr r0, _021F5844 ; =__upper_mapC
 	ldrb r1, [r0, r1]
 _021F5434:
 	mov r0, r1, lsl #0x18
@@ -33758,7 +33758,7 @@ _021F5834: .word UNK04_0220E2B8
 _021F5838: .word UNK04_0220E2C4
 _021F583C: .word UNK04_0220E2D0
 _021F5840: .word UNK04_0220E2E8
-_021F5844: .word UNK_0210428C
+_021F5844: .word __upper_mapC
 _021F5848: .word UNK04_0220E2F8
 _021F584C: .word UNK04_0220E2FC
 _021F5850: .word UNK04_0220E300
@@ -49986,7 +49986,7 @@ MOD04_022034F4: ; 0x022034F4
 	mov ip, #0
 	cmp lr, #0
 	beq _02203538
-	ldr r3, _0220354C ; =UNK_0210420C
+	ldr r3, _0220354C ; =__lower_mapC
 	ldr r2, _02203550 ; =0x9CCF9319
 _02203514:
 	cmp lr, #0
@@ -50006,7 +50006,7 @@ _02203538:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_0220354C: .word UNK_0210420C
+_0220354C: .word __lower_mapC
 _02203550: .word 0x9CCF9319
 	arm_func_end MOD04_022034F4
 
@@ -53297,7 +53297,7 @@ MOD04_02206124: ; 0x02206124
 	mov ip, #0
 	cmp lr, #0
 	beq _02206168
-	ldr r3, _0220617C ; =UNK_0210420C
+	ldr r3, _0220617C ; =__lower_mapC
 	ldr r2, _02206180 ; =0x9CCF9319
 _02206144:
 	cmp lr, #0
@@ -53317,7 +53317,7 @@ _02206168:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_0220617C: .word UNK_0210420C
+_0220617C: .word __lower_mapC
 _02206180: .word 0x9CCF9319
 	arm_func_end MOD04_02206124
 

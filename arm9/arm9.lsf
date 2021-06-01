@@ -547,13 +547,22 @@ Static arm9
 	### Standard libraries ###
 	### Bundled with CodeWarrior, so probably compiled with 2.0sp1 ###
 	Object MSL_abort_exit.o
+	Object MSL_critical_regions_NITRO.o
 	Object MSL_math.o
 	Object MSL_ansi_files.o
 	Object MSL_arith.o
 	Object MSL_assert.o
 	Object MSL_buffer_io.o
+	Object MSL_ctype.o
 	Object MSL_direct_io.o
+	Object MSL_errno.o
 	Object MSL_file_io.o
+	Object MSL_file_pos.o
+	Object MSL_float.o
+	Object MSL_mbstring.o
+	Object MSL_mem.o
+	Object MSL_mem_funcs.o
+	Object MSL_printf.o
 	Object libc.o
 	Object stdlibmwcc.o
 }
