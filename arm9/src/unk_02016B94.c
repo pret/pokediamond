@@ -3361,7 +3361,7 @@ THUMB_FUNC u8 (*FUN_02018848(u8 *param0, u32 param1, u8 param2, u32 heap_id))[2]
     return ptr;
 }
 
-THUMB_FUNC void *FUN_0201886C(struct UnkStruct_02016B94_2 *param0, u32 param1)
+THUMB_FUNC void *FUN_0201886C(struct UnkStruct_02016B94_2 *param0, u8 param1)
 {
     return param0->unk08[param1].unk08;
 }

@@ -8879,7 +8879,7 @@ MOD06_0223D9E8: ; 0x0223D9E8
 	ldr r2, [r4]
 	mov r0, #0x3e
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	ldr r0, _0223DA88 ; =0x00000241
 	ldrb r0, [r4, r0]
 	cmp r0, #0
@@ -8894,7 +8894,7 @@ MOD06_0223D9E8: ; 0x0223D9E8
 	mov r0, #0x3e
 	mov r1, #2
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	b _0223DA3E
 _0223DA26:
 	mov r0, #0
@@ -8907,7 +8907,7 @@ _0223DA26:
 	mov r0, #0x3e
 	mov r1, #3
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 _0223DA3E:
 	mov r0, #0x20
 	str r0, [sp]
@@ -8917,7 +8917,7 @@ _0223DA3E:
 	mov r0, #0x3e
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r3, #0xb
@@ -30992,7 +30992,7 @@ _0224886C:
 	mov r0, #0x73
 	add r1, r6, #0
 	add r3, r5, #0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r4]
 	str r5, [r4, #0x10]
 	str r6, [r4, #0xc]
@@ -38774,7 +38774,7 @@ _0224C476:
 	mov r2, #0
 	bl MOD05_021DA4EC
 	ldr r0, _0224C51C ; =0x0000048E
-	bl PlayBGM
+	bl PlaySound
 	ldrb r0, [r4, #0xf]
 	add r0, r0, #1
 	strb r0, [r4, #0xf]
@@ -44316,7 +44316,7 @@ _0224EFCC:
 	add r1, r4, #4
 	mov r2, #0
 	mov r3, #4
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r6, r7]
 	add r4, r4, #1
 	add r6, r6, #4

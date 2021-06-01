@@ -5,6 +5,7 @@
 #include "MI_memory.h"
 #include "MI_dma.h"
 #include "OS_vramExclusive.h"
+#include "registers.h"
 
 //temporary while other files aren't decompiled
 
@@ -165,5 +166,19 @@ typedef enum
     GX_DISP_SELECT_MAIN_SUB = 1
 }
 GXDispSelect;
+
+typedef enum
+{
+    GX_OBJVRAMMODE_CHAR_2D = (0 << REG_GX_DISPCNT_OBJMAP_SHIFT) | (0 << REG_GX_DISPCNT_EXOBJ_SHIFT),
+    GX_OBJVRAMMODE_CHAR_1D_32K =
+    (1 << REG_GX_DISPCNT_OBJMAP_SHIFT) | (0 << REG_GX_DISPCNT_EXOBJ_SHIFT),
+    GX_OBJVRAMMODE_CHAR_1D_64K =
+    (1 << REG_GX_DISPCNT_OBJMAP_SHIFT) | (1 << REG_GX_DISPCNT_EXOBJ_SHIFT),
+    GX_OBJVRAMMODE_CHAR_1D_128K =
+    (1 << REG_GX_DISPCNT_OBJMAP_SHIFT) | (2 << REG_GX_DISPCNT_EXOBJ_SHIFT),
+    GX_OBJVRAMMODE_CHAR_1D_256K =
+    (1 << REG_GX_DISPCNT_OBJMAP_SHIFT) | (3 << REG_GX_DISPCNT_EXOBJ_SHIFT)
+}
+    GXOBJVRamModeChar;
 
 #endif //GUARD_GX_H

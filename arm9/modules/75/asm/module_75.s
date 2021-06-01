@@ -785,7 +785,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #7
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -796,7 +796,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #0xa
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -807,7 +807,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #9
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #6
@@ -815,7 +815,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #8
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #6
@@ -824,7 +824,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r1, #0x12
 	mov r2, #0
 	lsl r3, r0, #5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x16
 	mov r0, #0
 	lsl r1, r1, #4
@@ -862,7 +862,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #0xb
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #6
@@ -870,7 +870,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #0xc
 	mov r2, #4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -881,7 +881,7 @@ MOD75_021E7214: ; 0x021E7214
 	ldr r2, [r4]
 	add r1, r0, #0
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -892,7 +892,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #0x25
 	mov r3, #7
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -903,7 +903,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #0x24
 	mov r3, #7
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -914,7 +914,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #0xf
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0x40
 	str r3, [sp]
 	mov r0, #6
@@ -922,7 +922,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0xd
 	mov r1, #0xe
 	mov r2, #4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0

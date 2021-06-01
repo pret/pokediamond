@@ -82,7 +82,7 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0072(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_ShowMoneyBox(struct ScriptContext * ctx)
 {
     struct UnkSavStruct80 * sav_ptr = ctx->unk80;
     u32 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -94,7 +94,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0072(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0073(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_HideMoneyBox(struct ScriptContext * ctx)
 {
     u32 ** unk = FUN_02039438(ctx->unk80, 0x27);
     MOD05_021E288C(*unk);
@@ -102,7 +102,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0073(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0074(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_UpdateMoneyBox(struct ScriptContext * ctx)
 {
     u32 ** unk = FUN_02039438(ctx->unk80, 0x27);
     MOD05_021E28A0(ctx->unk80, *unk);

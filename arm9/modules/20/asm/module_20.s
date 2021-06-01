@@ -1331,7 +1331,7 @@ MOD20_02252D44: ; 0x02252D44
 	mov r1, #0
 	add r2, sp, #0
 	mov r3, #7
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0
 	beq _02252D7A
 	ldr r0, [sp]
@@ -1591,7 +1591,7 @@ MOD20_02252ED0: ; 0x02252ED0
 	ldr r2, [r4, r2]
 	mov r1, #0xe
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1604,7 +1604,7 @@ MOD20_02252ED0: ; 0x02252ED0
 	ldr r2, [r4, r2]
 	mov r1, #0xf
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1621,7 +1621,7 @@ MOD20_02252ED0: ; 0x02252ED0
 	mov r1, #0xd
 	mov r2, #4
 	lsl r3, r3, #5
-	bl FUN_02006948
+	bl GfGfxLoader_GXLoadPalWithSrcOffset
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20
@@ -2232,7 +2232,7 @@ MOD20_02253430: ; 0x02253430
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #2
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #0x60
 	str r0, [sp]
 	mov r0, #7
@@ -2241,7 +2241,7 @@ MOD20_02253430: ; 0x02253430
 	mov r0, #0xc
 	mov r2, #5
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add r0, r5, #0
 	mov r1, #0xf
 	bl MOD20_022534D4
@@ -2994,7 +2994,7 @@ MOD20_022539C4: ; 0x022539C4
 	mov r0, #0x13
 	add r2, sp, #0
 	mov r3, #8
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0
 	beq _02253A02
 	ldr r0, [sp]
@@ -3805,12 +3805,12 @@ MOD20_02253FBC: ; 0x02253FBC
 	str r4, [r5, #0x10]
 	add r0, r6, #0
 	add r2, r4, #0
-	bl FUN_02006C88
+	bl GfGfxLoader_UncompressFromNarc
 	str r0, [r5]
 	add r0, r6, #0
 	add r1, r7, #0
 	add r2, r4, #0
-	bl FUN_02006C88
+	bl GfGfxLoader_UncompressFromNarc
 	str r0, [r5, #4]
 	ldr r0, [r5]
 	cmp r0, #0

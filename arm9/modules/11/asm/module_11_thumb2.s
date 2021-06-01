@@ -6258,7 +6258,7 @@ _02232234:
 	b _02232252
 _0223223C:
 	ldr r0, _02232258 ; =0x00000484
-	bl PlayBGM
+	bl PlaySound
 	b _02232252
 _02232244:
 	ldr r0, _0223225C ; =0x000005E6
@@ -6266,7 +6266,7 @@ _02232244:
 	b _02232252
 _0223224C:
 	ldr r0, _02232260 ; =0x00000483
-	bl PlayBGM
+	bl PlaySound
 _02232252:
 	add r0, r4, #0
 	pop {r4, pc}
@@ -84494,7 +84494,7 @@ _02258512:
 	mov r0, #7
 	mov r2, #1
 	add r3, sp, #0x18
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	add r5, r0, #0
 	lsl r0, r4, #2
 	add r0, r6, r0
@@ -84597,7 +84597,7 @@ _022585DE:
 	mov r1, #0xca
 	add r2, sp, #0x14
 	mov r3, #5
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0
 	ldr r0, [sp, #0x14]
 	ldr r1, [r6, #0x60]
@@ -84696,7 +84696,7 @@ MOD11_022586BC: ; 0x022586BC
 	mov r1, #0x11
 	add r2, r5, #0
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	ldr r2, _02258790 ; =0x00004E2D
 	add r0, r6, #0
 	add r1, r4, #0
@@ -88713,7 +88713,7 @@ _0225A7CE:
 	ldr r0, [sp, #0x40]
 	mov r2, #1
 	add r3, sp, #0x4c
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0x44]
 	ldr r0, [sp, #0x4c]
 	ldr r1, [sp, #0x1c]

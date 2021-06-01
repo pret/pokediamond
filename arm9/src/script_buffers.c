@@ -20,8 +20,8 @@ extern u32 GetCityNamesMsgdataIdByCountry(u32);
 extern void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
 extern void StringCat_HandleTrainerName(struct String * dest, const struct String * src);
 extern void StrAddChar(struct String * str, u16 val);
-extern void * FUN_02006BB0(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
-extern void * UncompressFromNarc(NarcId narcId, s32 memberNo, BOOL isCompressed, u32 heap_id, BOOL allocAtEnd);
+extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
+extern void * GfGfxLoader_LoadFromNarc(NarcId narcId, s32 memberNo, BOOL isCompressed, u32 heap_id, BOOL allocAtEnd);
 
 const u16 UNK_020ECE6C[][2] = {
     { 0x0140, 0x0008 },
@@ -751,7 +751,7 @@ struct UnkStruct_0200B870 * MessagePrinter_new(u32 r5, u32 r6, u32 sp4, u32 r4)
     struct UnkStruct_0200B870 * sp8 = AllocFromHeap(r4, sizeof(struct UnkStruct_0200B870));
     if (sp8 != NULL)
     {
-        sp8->unk_0 = FUN_02006BB0(NARC_GRAPHIC_FONT, 4, 1, &sp8->unk_4, r4);
+        sp8->unk_0 = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, 4, 1, &sp8->unk_4, r4);
         int i;
         u8 * ptr = sp8->unk_4->unk_14;
         for (i = 0; i < sp8->unk_4->unk_10; i++)

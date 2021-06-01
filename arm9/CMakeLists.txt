@@ -15,5 +15,5 @@ file(GLOB_RECURSE SOURCES "*.c" "*.cpp")
 file(GLOB MODULE_INC modules/*/include)
 
 add_executable(DP_Arm9 ${SOURCES})
-target_include_directories(DP_Arm9 PRIVATE ../include ../include-mw lib/include ${MODULE_INC})
+target_include_directories(DP_Arm9 PRIVATE ../include ../include-mw lib/include ${MODULE_INC} ../files)
 target_compile_definitions(DP_Arm9 PUBLIC __CLION_IDE__)

@@ -897,7 +897,7 @@ MOD77_021D7C64: ; 0x021D7C64
 	mov r0, #0x66
 	ldr r3, [r3]
 	mov r1, #0x12
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x20]
 	mov r1, #6
@@ -957,7 +957,7 @@ _021D7CE0:
 	mov r0, #0x66
 	ldr r3, [r3]
 	mov r2, #0
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x1c]
 	mov r5, #1
@@ -1360,7 +1360,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x81
 	mov r1, #5
 	mov r3, #7
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x80
 	str r0, [sp]
 	ldr r0, [r5]
@@ -1369,7 +1369,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x81
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1381,7 +1381,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x81
 	ldr r2, [r5, r2]
 	add r3, r1, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r5, #8]
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
@@ -1468,7 +1468,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x81
 	mov r1, #5
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x80
 	str r0, [sp]
 	ldr r0, [r5]
@@ -1477,7 +1477,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x81
 	mov r1, #6
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1489,7 +1489,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x81
 	mov r1, #7
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r5]

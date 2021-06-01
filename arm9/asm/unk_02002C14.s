@@ -411,7 +411,7 @@ FUN_02002ED0: ; 0x02002ED0
 	mov r0, #0xe
 	mov r1, #0x6
 	add r2, r4, #0x0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x8
 	pop {r4, pc}
 
@@ -427,6 +427,6 @@ FUN_02002EEC: ; 0x02002EEC
 	mov r0, #0xe
 	mov r1, #0x7
 	add r2, r4, #0x0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x8
 	pop {r4, pc}

@@ -1752,7 +1752,7 @@ _021D81AC:
 	add r1, r4, #1
 	mov r2, #0
 	mov r3, #0xe
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [sp, #4]
 	cmp r0, #0
 	bne _021D81C6
@@ -1778,7 +1778,7 @@ _021D81C6:
 	mov r0, #0x19
 	add r2, r1, #0
 	mov r3, #0xe
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r4, r0, #0
 	ldr r0, [r6, #0x14]
 	add r1, r4, #0
@@ -1816,7 +1816,7 @@ _021D822A:
 	add r1, #0xce
 	mov r2, #0
 	mov r3, #0xe
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r2, r4, #0
 	add r1, r0, #0
 	add r2, #0x64
@@ -1837,7 +1837,7 @@ _021D822A:
 	str r0, [sp]
 	ldr r1, [sp, #8]
 	mov r0, #0x19
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [sp, #0xc]
 	ldr r0, [r5, #0x14]
 	ldr r1, [sp, #0xc]
@@ -1887,7 +1887,7 @@ MOD17_021D82B8: ; 0x021D82B8
 	mov r0, #0x19
 	mov r1, #0xeb
 	str r2, [sp]
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r4, #0x28]
 	add sp, #4
 	pop {r3, r4, pc}
@@ -8834,7 +8834,7 @@ MOD17_021DB6D8: ; 0x021DB6D8
 	ldrh r0, [r1]
 	ldrh r1, [r1, #2]
 	mov r3, #0xe
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r1, r0, #0
 	add r0, r4, #0
 	mov r2, #0x76
@@ -8913,7 +8913,7 @@ MOD17_021DB700: ; 0x021DB700
 	ldrh r0, [r6]
 	ldrh r1, [r6, #2]
 	ldr r3, [sp, #0x30]
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r1, sp, #0x10
 	add r6, r0, #0
 	bl NNS_G2dGetUnpackedCharacterData
@@ -9813,7 +9813,7 @@ _021DBDAA:
 	ldr r0, [r5]
 	add r3, sp, #0x14
 	ldr r0, [r0, #4]
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	ldr r3, [r5]
 	add r4, r0, #0
 	ldr r0, [r3, #0x18]
@@ -9850,7 +9850,7 @@ MOD17_021DBDE8: ; 0x021DBDE8
 	ldr r0, [r1, #4]
 	ldr r1, [r1, #8]
 	add r3, sp, #0x14
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	ldr r3, [r5]
 	add r4, r0, #0
 	ldr r0, [r3, #0x18]
@@ -10023,7 +10023,7 @@ _021DBF2A:
 	ldr r0, [r5, #4]
 	ldr r1, [r5, #0x10]
 	add r3, sp, #0x24
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	ldr r2, [sp, #0x24]
 	str r0, [sp, #0x20]
 	ldrh r0, [r2]
@@ -10206,7 +10206,7 @@ _021DC0A0:
 	add r0, r7, #0
 	mov r2, #0
 	add r3, r4, #4
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [r4, #8]
 	str r5, [r4]
 	ldr r0, [sp, #0x20]
@@ -10245,7 +10245,7 @@ _021DC0EE:
 	ldr r3, [sp, #0x1c]
 	add r0, r7, #0
 	add r2, r4, #0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [r4, #4]
 	str r5, [r4, #8]
 	ldr r0, [sp, #0x18]
@@ -13716,7 +13716,7 @@ _021DDAC6:
 	mov r0, #0x19
 	add r1, r5, #1
 	mov r2, #0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r7, r0, #0
 	ldr r0, [r4, #0x10]
 	add r1, r7, #0
@@ -13749,7 +13749,7 @@ _021DDB1E:
 	ldr r3, [sp, #0xc]
 	mov r0, #0x19
 	add r2, r1, #0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r5, r0, #0
 	ldr r0, [r4, #0x14]
 	add r1, r5, #0
@@ -14023,7 +14023,7 @@ MOD17_021DDD54: ; 0x021DDD54
 	mov r1, #0x7e
 	mov r2, #0
 	mov r3, #0x60
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -14034,7 +14034,7 @@ MOD17_021DDD54: ; 0x021DDD54
 	mov r0, #0x19
 	mov r1, #0x7d
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	ldr r0, [r5, #0xc]
 	cmp r0, #0
 	bne _021DDD92
@@ -14050,7 +14050,7 @@ _021DDD96:
 	mov r0, #0x19
 	mov r2, #0
 	add r3, sp, #0x10
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	ldr r2, [sp, #0x10]
 	mov r3, #0
 	str r3, [sp]
@@ -14106,7 +14106,7 @@ MOD17_021DDDFC: ; 0x021DDDFC
 	add r1, r0, #0
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -14118,7 +14118,7 @@ MOD17_021DDDFC: ; 0x021DDDFC
 	mov r0, #0xc
 	mov r1, #0xb
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -14130,7 +14130,7 @@ MOD17_021DDDFC: ; 0x021DDDFC
 	mov r0, #0xc
 	mov r1, #0xa
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0

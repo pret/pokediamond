@@ -528,7 +528,7 @@ MOD27_02254C08: ; 0x02254C08
 	mov r0, #0xc
 	mov r1, #0x6a
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0
 	lsr r5, r0, #5
 	str r3, [sp]
@@ -898,7 +898,7 @@ MOD27_02254F18: ; 0x02254F18
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x6d
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r4, #0
 	add r0, sp, #0x18
 	strb r4, [r0, #0xa]

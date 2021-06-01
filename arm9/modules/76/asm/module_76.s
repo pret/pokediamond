@@ -402,7 +402,7 @@ MOD76_021D7814: ; 0x021D7814
 	mov r0, #0x71
 	mov r1, #0xa
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -413,7 +413,7 @@ MOD76_021D7814: ; 0x021D7814
 	mov r0, #0x71
 	mov r1, #0xb
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x43
@@ -421,7 +421,7 @@ MOD76_021D7814: ; 0x021D7814
 	mov r0, #0x71
 	mov r1, #0xc
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #7
 	mov r0, #0
 	lsl r1, r1, #6
@@ -2105,7 +2105,7 @@ _021D85BE:
 	b _021D85D6
 _021D85C6:
 	ldr r0, _021D85E0 ; =0x00000483
-	bl PlayBGM
+	bl PlaySound
 	b _021D85D6
 _021D85CE:
 	ldr r0, _021D85DC ; =0x000005E6

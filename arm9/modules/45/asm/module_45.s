@@ -505,7 +505,7 @@ MOD45_02254BE0: ; 0x02254BE0
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x72
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #8
 	str r0, [sp]
 	add r0, r5, #0
@@ -660,7 +660,7 @@ MOD45_02254CCC: ; 0x02254CCC
 	mov r0, #0xc
 	mov r1, #0x6f
 	mov r3, #7
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C
@@ -766,7 +766,7 @@ MOD45_02254DDC: ; 0x02254DDC
 	mov r0, #0xc
 	mov r1, #0x6e
 	mov r3, #7
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r6, #4]
 	mov r4, #0
 	cmp r0, #0

@@ -46,7 +46,7 @@ _02011766:
 	mov r2, #0x0
 	add r3, r4, #0x0
 	str r7, [sp, #0x0]
-	bl FUN_02006C30
+	bl GfGfxLoader_GetCellBank
 	str r0, [r5, #0x0]
 	cmp r0, #0x0
 	bne _0201177E

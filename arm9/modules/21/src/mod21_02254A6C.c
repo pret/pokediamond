@@ -5,7 +5,7 @@
 
 extern void MOD20_022536F4(u32 *param0, u32 param1);
 extern u32 MOD20_02252D34(void);
-extern void *FUN_02006BDC(u32 param0, u32 param1, u32 param2, void *param3, u32 param4);
+extern void *GfGfxLoader_GetScrnData(u32 param0, u32 param1, u32 param2, void *param3, u32 param4);
 extern void MOD20_022537E0(void *param0, u32 param1, void *param2, u32 param3, void *param4, u32 param5, u32 param6);
 
 UnkOverlayStruct1 const MOD21_02254DAC[] = {
@@ -26,8 +26,8 @@ u8 const MOD21_02254D90[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x
                               0x00, 0x01, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
 extern void FUN_02016C18(u32 param0, u32 param1, void *param2, u32 param3);
-extern void FUN_0200687C(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
-extern void FUN_020068C8(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
+extern void GfGfxLoader_LoadCharData(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
+extern void GfGfxLoader_LoadScrnData(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
 extern void MOD20_02252D7C(u32 param0, u32 param1);
 extern void FUN_02017CD0(u32 param0, u32 param1);
 extern void FUN_020178A0(u32 param0, u32 param1);
@@ -45,7 +45,7 @@ THUMB_FUNC BOOL MOD21_02254A6C(UnkStruct02254A6C *param0, void *param1)
         MOD20_022536F4(strct->Unk08, 8);
         strct->Unk00 = param1;
         strct->Unk04 = MOD20_02252D34();
-        void *res = FUN_02006BDC(12, 0x19, 1, &sp4, 8);
+        void *res = GfGfxLoader_GetScrnData(12, 0x19, 1, &sp4, 8);
         if (res == 0)
         {
             FreeToHeap(strct);
@@ -105,8 +105,8 @@ THUMB_FUNC BOOL MOD21_02254B60(u32 param0, void *param1)
 #pragma unused (param0)
     UnkStruct02254A6C *strct = MOD20_022538A0(param1);
     FUN_02016C18(strct->Unk04, 6, MOD21_02254D90, 0);
-    FUN_0200687C(12, 23, strct->Unk04, 6, 0, 0, 1, 8);
-    FUN_020068C8(12, 24, strct->Unk04, 6, 0, 0, 1, 8);
+    GfGfxLoader_LoadCharData(12, 23, strct->Unk04, 6, 0, 0, 1, 8);
+    GfGfxLoader_LoadScrnData(12, 24, strct->Unk04, 6, 0, 0, 1, 8);
     MOD20_02252D7C(0, 0);
     MOD21_02254C5C(strct);
     FUN_02017CD0(strct->Unk04, 6);

@@ -1170,7 +1170,7 @@ MOD05_021E3D20: ; 0x021E3D20
 	str r0, [sp, #4]
 	mov r0, #0x70
 	add r2, r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1181,7 +1181,7 @@ MOD05_021E3D20: ; 0x021E3D20
 	add r1, r6, #0
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1192,7 +1192,7 @@ MOD05_021E3D20: ; 0x021E3D20
 	add r1, r5, #0
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 
@@ -1464,7 +1464,7 @@ MOD05_021E3F68: ; 0x021E3F68
 	ldrh r1, [r1, #8]
 	add r2, sp, #4
 	add r3, r4, #0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0
 	add r0, sp, #0x20
 	ldrh r0, [r0, #0x10]
@@ -1549,7 +1549,7 @@ MOD05_021E4014: ; 0x021E4014
 	ldrh r1, [r1, #0xa]
 	mov r2, #0
 	add r3, sp, #0xc
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #4]
 	ldr r0, [sp, #0xc]
 	ldr r0, [r0, #0x14]
