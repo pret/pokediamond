@@ -45,7 +45,7 @@ extern void FUN_02009A90(u32 *param0);
 extern void FUN_02009D34(u32 *param0);
 extern u32 FUN_02008BE0(
     void *param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
-extern u32 FUN_0201FE94(struct UnkStruct4 *param0);
+extern u32 FUN_0201FE94(struct UnkStruct_0200BB14_4 *param0);
 extern void FUN_02020130(u32 param0, u32 param1);
 extern void FUN_02020248(u32 param0, u32 param1);
 extern u32 FUN_0200945C(u32 param0, s32 param1);
@@ -57,7 +57,7 @@ extern u32 FUN_02008FEC(
 extern u32 FUN_02009D68(u32 param0);
 extern u32 FUN_02009E88(u32 param0, u32 param1);
 extern void FUN_02003108(u32 param0, u32 param1, u16 param2, u32 param3);
-extern void FUN_02008AA4(struct UnkStruct7 *param0,
+extern void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     s32 param1,
     s32 param2,
     s32 param3,
@@ -116,9 +116,9 @@ extern void FUN_02009BE8(u32 param0);
 extern void FUN_02009168(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5);
 extern void FUN_02009DE0(u32 param0);
 
-THUMB_FUNC struct UnkStruct1 *FUN_0200BB14(u32 heap_id)
+THUMB_FUNC struct UnkStruct_0200BB14_1 *FUN_0200BB14(u32 heap_id)
 {
-    struct UnkStruct1 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct1));
+    struct UnkStruct_0200BB14_1 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_0200BB14_1));
     if (ptr == NULL)
     {
         return NULL;
@@ -131,11 +131,11 @@ THUMB_FUNC struct UnkStruct1 *FUN_0200BB14(u32 heap_id)
     return ptr;
 }
 
-THUMB_FUNC struct UnkStruct2 *FUN_0200BB34(struct UnkStruct1 *param0)
+THUMB_FUNC struct UnkStruct_0200BB14_2 *FUN_0200BB34(struct UnkStruct_0200BB14_1 *param0)
 {
     GF_ASSERT(param0 != NULL);
 
-    struct UnkStruct2 *ptr = AllocFromHeap(param0->unk000, sizeof(struct UnkStruct2));
+    struct UnkStruct_0200BB14_2 *ptr = AllocFromHeap(param0->unk000, sizeof(struct UnkStruct_0200BB14_2));
     if (ptr == NULL)
     {
         return NULL;
@@ -156,7 +156,7 @@ THUMB_FUNC u32 FUN_0200BB68(u32 param0)
     return param0 + 0x10;
 }
 
-THUMB_FUNC u32 FUN_0200BB6C(struct UnkStruct1 *param0, u32 *param1, u32 *param2, u32 param3)
+THUMB_FUNC u32 FUN_0200BB6C(struct UnkStruct_0200BB14_1 *param0, u32 *param1, u32 *param2, u32 param3)
 {
     GF_ASSERT(param0 != NULL);
 
@@ -191,7 +191,7 @@ THUMB_FUNC u32 FUN_0200BB6C(struct UnkStruct1 *param0, u32 *param1, u32 *param2,
     return 1;
 }
 
-THUMB_FUNC u32 FUN_0200BBF0(struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 param2)
+THUMB_FUNC u32 FUN_0200BBF0(struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1, u32 param2)
 {
     if (param0 == NULL || param1 == NULL)
     {
@@ -225,12 +225,12 @@ THUMB_FUNC void FUN_0200BC38()
     FUN_0201C348();
 }
 
-THUMB_FUNC void FUN_0200BC40(struct UnkStruct2 *param0)
+THUMB_FUNC void FUN_0200BC40(struct UnkStruct_0200BB14_2 *param0)
 {
     FUN_0201FD58(param0->unk00);
 }
 
-THUMB_FUNC void FUN_0200BC4C(struct UnkStruct2 *param0)
+THUMB_FUNC void FUN_0200BC4C(struct UnkStruct_0200BB14_2 *param0)
 {
     if (param0->unk04 != 0)
     {
@@ -238,7 +238,7 @@ THUMB_FUNC void FUN_0200BC4C(struct UnkStruct2 *param0)
     }
 }
 
-THUMB_FUNC void FUN_0200BC5C(struct UnkStruct2 *param0)
+THUMB_FUNC void FUN_0200BC5C(struct UnkStruct_0200BB14_2 *param0)
 {
     for (int i = 0; i < (int)param0->unk54; i++)
     {
@@ -268,13 +268,13 @@ THUMB_FUNC void FUN_0200BCB0(u32 *param0)
     }
 }
 
-THUMB_FUNC void FUN_0200BCD0(struct UnkStruct1 *param0, struct UnkStruct2 *param1)
+THUMB_FUNC void FUN_0200BCD0(struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1)
 {
     param0->unk004--;
     FreeToHeap(param1);
 }
 
-THUMB_FUNC void FUN_0200BCE0(struct UnkStruct1 *param0, struct UnkStruct2 *param1)
+THUMB_FUNC void FUN_0200BCE0(struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1)
 {
     FUN_0200BC40(param1);
     FUN_0200BC4C(param1);
@@ -290,7 +290,7 @@ THUMB_FUNC void FUN_0200BD04(u32 *param0)
 }
 
 THUMB_FUNC u32 FUN_0200BD20(
-    struct UnkStruct1 *param0, struct UnkStruct2 *param1, const char **param2)
+    struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1, const char **param2)
 {
     int st14 = 6;
     const char **st10 = param2;
@@ -347,7 +347,7 @@ THUMB_FUNC u32 FUN_0200BD20(
     return 1;
 }
 
-THUMB_FUNC u32 FUN_0200BE38(u32 *param0, u32 *param1, struct UnkStruct3 *param2)
+THUMB_FUNC u32 FUN_0200BE38(u32 *param0, u32 *param1, struct UnkStruct_0200BB14_3 *param2)
 {
     return FUN_0200BE74(param0,
         param1,
@@ -385,9 +385,9 @@ THUMB_FUNC u32 FUN_0200BE74(u32 *param0,
 #pragma unused(param12)
 #pragma unused(param13)
 
-    struct UnkStruct4 st0;
+    struct UnkStruct_0200BB14_4 st0;
     st0.unk00 = param1[0];
-    st0.unk04 = &(*(struct UnkStruct7 **)(param1[1]))[param2];
+    st0.unk04 = &(*(struct UnkStruct_0200BB14_sub **)(param1[1]))[param2];
 
     float r0;
     if (param3 > 0)
@@ -444,9 +444,9 @@ THUMB_FUNC u32 FUN_0200BE74(u32 *param0,
     return r4;
 }
 
-THUMB_FUNC u32 FUN_0200BF60(struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2)
+THUMB_FUNC u32 FUN_0200BF60(struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1, u32 *param2)
 {
-    struct UnkStruct1 *st0 = param0;
+    struct UnkStruct_0200BB14_1 *st0 = param0;
     int i;
     int st4 = 6;
 
@@ -485,7 +485,7 @@ THUMB_FUNC u32 FUN_0200BF60(struct UnkStruct1 *param0, struct UnkStruct2 *param1
 }
 
 THUMB_FUNC u32 FUN_0200C00C(
-    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6)
+    u32 *param0, struct UnkStruct_0200BB14_2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6)
 {
     if (FUN_0200945C(param1->unk0c[0], param6) == 0)
     {
@@ -510,7 +510,7 @@ THUMB_FUNC u32 FUN_0200C00C(
 }
 
 THUMB_FUNC s32 FUN_0200C06C(u32 *param0,
-    struct UnkStruct2 *param1,
+    struct UnkStruct_0200BB14_2 *param1,
     u32 param2,
     u32 param3,
     u32 param4,
@@ -538,7 +538,7 @@ THUMB_FUNC s32 FUN_0200C06C(u32 *param0,
 THUMB_FUNC u8 FUN_0200C0DC(u32 param0,
     u32 param1,
     u32 *param2,
-    struct UnkStruct2 *param3,
+    struct UnkStruct_0200BB14_2 *param3,
     u32 param4,
     u32 param5,
     u32 param6,
@@ -556,36 +556,36 @@ THUMB_FUNC u8 FUN_0200C0DC(u32 param0,
 }
 
 THUMB_FUNC u32 FUN_0200C124(
-    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, s32 param5)
+    u32 *param0, struct UnkStruct_0200BB14_2 *param1, u32 param2, u32 param3, u32 param4, s32 param5)
 {
     return FUN_0200C404(param0, param1, param2, param3, param4, 2, param5);
 }
 
 THUMB_FUNC u32 FUN_0200C13C(
-    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, s32 param5)
+    u32 *param0, struct UnkStruct_0200BB14_2 *param1, u32 param2, u32 param3, u32 param4, s32 param5)
 {
     return FUN_0200C404(param0, param1, param2, param3, param4, 3, param5);
 }
 
-THUMB_FUNC struct UnkStruct5 *FUN_0200C154(
-    struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2)
+THUMB_FUNC struct UnkStruct_0200BB14_5 *FUN_0200C154(
+    struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1, u32 *param2)
 {
-    struct UnkStruct4 st44;
+    struct UnkStruct_0200BB14_4 st44;
     s32 st2c[6];
 
-    struct UnkStruct5 *ptr = AllocFromHeap(param0->unk000, sizeof(struct UnkStruct5));
+    struct UnkStruct_0200BB14_5 *ptr = AllocFromHeap(param0->unk000, sizeof(struct UnkStruct_0200BB14_5));
     if (ptr == NULL)
     {
         return 0;
     }
 
-    ptr->unk08 = AllocFromHeap(param0->unk000, sizeof(struct UnkStruct6));
+    ptr->unk08 = AllocFromHeap(param0->unk000, sizeof(struct UnkStruct_0200BB14_6));
     if (ptr->unk08 == 0)
     {
         return 0;
     }
 
-    ptr->unk08->unk0 = AllocFromHeap(param0->unk000, sizeof(struct UnkStruct7));
+    ptr->unk08->unk0 = AllocFromHeap(param0->unk000, sizeof(struct UnkStruct_0200BB14_sub));
     ptr->unk04 = ptr->unk08->unk0;
     if (ptr->unk08->unk0 == NULL)
     {
@@ -710,27 +710,27 @@ THUMB_FUNC u32 FUN_0200C344(u32 *param0, u32 param1, u32 param2)
     return FUN_02009E88(FUN_020094F0(param0[4], param1), param2);
 }
 
-THUMB_FUNC u32 FUN_0200C358(struct UnkStruct2 *param0, u32 param1)
+THUMB_FUNC u32 FUN_0200C358(struct UnkStruct_0200BB14_2 *param0, u32 param1)
 {
     return FUN_0200C4F4(param0->unk0c[0], param0->unk24[0], param1);
 }
 
-THUMB_FUNC u32 FUN_0200C368(struct UnkStruct2 *param0, u32 param1)
+THUMB_FUNC u32 FUN_0200C368(struct UnkStruct_0200BB14_2 *param0, u32 param1)
 {
     return FUN_0200C548(param0->unk0c[1], param0->unk24[1], param1);
 }
 
-THUMB_FUNC u32 FUN_0200C378(struct UnkStruct2 *param0, u32 param1)
+THUMB_FUNC u32 FUN_0200C378(struct UnkStruct_0200BB14_2 *param0, u32 param1)
 {
     return FUN_0200C4A8(param0->unk0c[2], param0->unk24[2], param1);
 }
 
-THUMB_FUNC u32 FUN_0200C388(struct UnkStruct2 *param0, u32 param1)
+THUMB_FUNC u32 FUN_0200C388(struct UnkStruct_0200BB14_2 *param0, u32 param1)
 {
     return FUN_0200C4A8(param0->unk0c[3], param0->unk24[3], param1);
 }
 
-THUMB_FUNC void FUN_0200C398(struct UnkStruct1 *param0, struct UnkStruct2 *param1)
+THUMB_FUNC void FUN_0200C398(struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1)
 {
     FUN_0200BC40(param1);
     FUN_02009C30(param1->unk24[0]);
@@ -758,7 +758,7 @@ THUMB_FUNC void FUN_0200C3DC(u32 *param0)
 }
 
 THUMB_FUNC u32 FUN_0200C404(
-    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6)
+    u32 *param0, struct UnkStruct_0200BB14_2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6)
 {
     if (FUN_0200945C(param1->unk0c[param5], param6) == 0)
     {
@@ -1205,7 +1205,7 @@ THUMB_FUNC void FUN_0200C90C(u32 *param0, u32 param1)
 }
 
 THUMB_FUNC u32 FUN_0200C918(
-    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6)
+    u32 *param0, struct UnkStruct_0200BB14_2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6)
 {
     if (FUN_0200945C(param1->unk0c[0], param6) == 0)
     {
@@ -1231,7 +1231,7 @@ THUMB_FUNC u32 FUN_0200C918(
 }
 
 THUMB_FUNC u32 FUN_0200C978(
-    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6)
+    u32 *param0, struct UnkStruct_0200BB14_2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6)
 {
     if (FUN_0200945C(param1->unk0c[0], param6) == 0)
     {
