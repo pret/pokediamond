@@ -12,26 +12,22 @@ extern void FUN_02029B90(u32 param0, u32 param1, u32 param2, u32 param3);
 THUMB_FUNC void FUN_02033778(u32 param0)
 {
     s32 unk = FUN_02030F20();
-    if (FUN_0202DFA4(0) == NULL)
+    if (FUN_0202DFA4(0) != NULL)
     {
-        return;
-    }
-
-    for (s32 i = 0; i < unk; i++)
-    {
-        if (FUN_02031190() == i)
+        for (s32 i = 0; i < unk; i++)
         {
-            continue;
+            if (FUN_02031190() != i)
+            {
+                FUN_020337C8(param0, FUN_0202E020(i), FUN_0202E044(i), PlayerProfile_GetLanguage(FUN_0202DFA4(i)));
+            }
         }
-        FUN_020337C8(param0, FUN_0202E020(i), FUN_0202E044(i), PlayerProfile_GetLanguage(FUN_0202DFA4(i)));
     }
 }
 
 THUMB_FUNC void FUN_020337C8(u32 param0, u32 param1, u32 param2, u32 language)
 {
-    if (FUN_02029B40(param0, param1, param2, language) != 0)
+    if (FUN_02029B40(param0, param1, param2, language) == 0)
     {
-        return;
+        FUN_02029B90(param0, param1, param2, 1);
     }
-    FUN_02029B90(param0, param1, param2, 1);
 }
