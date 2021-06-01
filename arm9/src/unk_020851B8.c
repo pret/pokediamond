@@ -1,9 +1,10 @@
 #include "global.h"
-#include "heap.h"
-#include "constants/items.h"
 #include "unk_020851B8.h"
+#include "constants/items.h"
+#include "heap.h"
 
-static inline void _clear(u8 *ptr) {
+static inline void _clear(u8 *ptr)
+{
     *ptr++ = 0;
     *ptr++ = 0;
     *ptr++ = 0;
@@ -21,7 +22,7 @@ static inline void _clear(u8 *ptr) {
 THUMB_FUNC struct UnkStruct_020851B8 *FUN_020851B8(u32 heap_id)
 {
     struct UnkStruct_020851B8 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_020851B8));
-    _clear((u8 *) ptr);
+    _clear((u8 *)ptr);
     return ptr;
 }
 
@@ -45,17 +46,12 @@ THUMB_FUNC void FUN_020851F8(struct UnkStruct_020851B8 *param0, u8 param1, u8 pa
 
 THUMB_FUNC void FUN_02085200(struct UnkStruct_020851B8 *param0, u16 berry_id)
 {
-    u32 index = berry_id / 32;
-    u32 tag = 1 << (berry_id % 32);
-    param0->flags[index] |= tag;
+    param0->flags[berry_id / 32] |= 1 << (berry_id % 32);
 }
 
 THUMB_FUNC u8 FUN_02085224(struct UnkStruct_020851B8 *param0, u16 berry_id)
 {
-    u32 index = berry_id / 32;
-    u32 tag = 1 << (berry_id % 32);
-
-    return param0->flags[index] & tag ? 1 : 0;
+    return param0->flags[berry_id / 32] & (1 << (berry_id % 32)) ? 1 : 0;
 }
 
 THUMB_FUNC void FUN_0208524C(struct UnkStruct_020851B8 *param0, u8 *param1, u8 *param2)
