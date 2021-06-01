@@ -563,6 +563,15 @@ Static arm9
 	Object MSL_mem.o
 	Object MSL_mem_funcs.o
 	Object MSL_printf.o
+	Object MSL_qsort.o
+	Object MSL_rand.o
+	Object MSL_scanf.o
+	Object MSL_signal.o
+	Object MSL_string.o
+	Object MSL_strtold.o
+	Object MSL_strtoul.o
+	Object MSL_wchar_io.o
+	Object MSL_wmem.o
 	Object libc.o
 	Object stdlibmwcc.o
 }

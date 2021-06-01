@@ -8229,7 +8229,7 @@
 .extern Unk_0210683C
 .extern __lower_mapC
 .extern __upper_mapC
-.extern UNK_0210430C
+.extern __msl_digit
 .extern Unk_02106840
 .extern Unk_02106900
 .extern Unk_02106A00
@@ -8455,7 +8455,7 @@
 .extern strspn
 .extern strstr
 .extern strtold
-.extern strtold2
+.extern strtol
 .extern strtoul
 .extern swprintf
 .extern sys_exit

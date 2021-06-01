@@ -220,7 +220,7 @@ _021D9014:
 	add r1, sp, #0
 	add r0, r2, r0
 	mov r2, #0xa
-	bl strtold2
+	bl strtol
 	ldr r2, _021D91BC ; =UNK04_02210468
 	ldr r1, _021D91D4 ; =0x0000100C
 	ldr r5, [r2]
@@ -45849,7 +45849,7 @@ _021FFDB8:
 	add r3, r4, #1
 	cmp r0, #0
 	beq _021FFE10
-	ldr r1, _021FFEA8 ; =UNK_0210430C
+	ldr r1, _021FFEA8 ; =__msl_digit
 	mov r2, #0
 _021FFDD0:
 	cmp r0, #0
@@ -45915,7 +45915,7 @@ _021FFE84:
 	.align 2, 0
 _021FFEA0: .word UNK04_0220EFD8
 _021FFEA4: .word UNK04_0220EFF8
-_021FFEA8: .word UNK_0210430C
+_021FFEA8: .word __msl_digit
 _021FFEAC: .word 0x0000FFFF
 	arm_func_end MOD04_021FFD28
 
@@ -50366,7 +50366,7 @@ _022039A8:
 	mov r1, #0
 	b _022039C0
 _022039B0:
-	ldr r1, _022039DC ; =UNK_0210430C
+	ldr r1, _022039DC ; =__msl_digit
 	mov r2, r2, lsl #1
 	ldrh r1, [r1, r2]
 	and r1, r1, #8
@@ -50381,7 +50381,7 @@ _022039D0:
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
 _022039D8: .word UNK04_0220F7E0
-_022039DC: .word UNK_0210430C
+_022039DC: .word __msl_digit
 	arm_func_end MOD04_0220394C
 
 	arm_func_start MOD04_022039E0
