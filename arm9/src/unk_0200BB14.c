@@ -249,7 +249,7 @@ THUMB_FUNC void FUN_0200BC4C(struct UnkStruct_0200BB14_2 *param0)
 
 THUMB_FUNC void FUN_0200BC5C(struct UnkStruct_0200BB14_2 *param0)
 {
-    for (s32 i = 0; i < (s32)param0->unk54; i++)
+    for (s32 i = 0; i < param0->unk54; i++)
     {
         FUN_020096B4(FUN_02009660(param0->unk08, i));
     }
@@ -258,7 +258,7 @@ THUMB_FUNC void FUN_0200BC5C(struct UnkStruct_0200BB14_2 *param0)
     FUN_02009C30(param0->unk24[0]);
     FUN_02009E28(param0->unk24[1]);
 
-    for (s32 i = 0; i < (s32)param0->unk54; i++)
+    for (s32 i = 0; i < param0->unk54; i++)
     {
         FUN_02009448(param0->unk24[i]);
         FUN_02008E2C(param0->unk0c[i]);
@@ -400,34 +400,34 @@ THUMB_FUNC u32 FUN_0200BE74(u32 *param0,
     st0.unk00 = param1[0];
     st0.unk04 = &(*(struct UnkStruct_0200BB14_sub **)(param1[1]))[param2];
 
-    float r0;
+    f32 r0;
     if (param3 > 0)
     {
-        r0 = ((float)(param3 * 0x1000) + (float)0.5);
+        r0 = ((f32)(param3 * 0x1000) + (f32)0.5);
     }
     else
     {
-        r0 = ((float)(param3 * 0x1000) - (float)0.5);
+        r0 = ((f32)(param3 * 0x1000) - (f32)0.5);
     }
     st0.unk08 = (s32)r0;
 
     if (param4 > 0)
     {
-        r0 = ((float)(param4 * 0x1000) + (float)0.5);
+        r0 = ((f32)(param4 * 0x1000) + (f32)0.5);
     }
     else
     {
-        r0 = ((float)(param4 * 0x1000) - (float)0.5);
+        r0 = ((f32)(param4 * 0x1000) - (f32)0.5);
     }
     st0.unk0c = (s32)r0;
 
     if (param5 > 0)
     {
-        r0 = ((float)(param5 * 0x1000) + (float)0.5);
+        r0 = ((f32)(param5 * 0x1000) + (f32)0.5);
     }
     else
     {
-        r0 = ((float)(param5 * 0x1000) - (float)0.5);
+        r0 = ((f32)(param5 * 0x1000) - (f32)0.5);
     }
     st0.unk10 = (s32)r0;
 
@@ -486,9 +486,9 @@ THUMB_FUNC BOOL FUN_0200BF60(
             param1->unk24[i] = FUN_02009424(param2[i], st0->unk000);
             param1->unk3c[i] = 0;
 
-            for (s32 j = 0; j < (s32)((u32 *)param1->unk24[i])[1]; j++)
+            for (s32 j = 0; j < (s32)param1->unk24[i][1]; j++)
             {
-                ((u32 *)(((u32 *)param1->unk24[i])[0]))[j] = 0;
+                ((u32 *)param1->unk24[i][0])[j] = 0;
             }
         }
     }
@@ -665,34 +665,34 @@ THUMB_FUNC struct UnkStruct_0200BB14_5 *FUN_0200C154(
 
     st44.unk00 = param1->unk00;
     st44.unk04 = ptr->unk04;
-    float r0;
+    f32 r0;
     if (((s16 *)param2)[0] > 0)
     {
-        r0 = ((float)(((s16 *)param2)[0] << 0xc) + (float)0.5);
+        r0 = ((f32)(((s16 *)param2)[0] << 0xc) + (f32)0.5);
     }
     else
     {
-        r0 = ((float)(((s16 *)param2)[0] << 0xc) - (float)0.5);
+        r0 = ((f32)(((s16 *)param2)[0] << 0xc) - (f32)0.5);
     }
     st44.unk08 = (s32)r0;
 
     if (((s16 *)param2)[1] > 0)
     {
-        r0 = ((float)(((s16 *)param2)[1] << 0xc) + (float)0.5);
+        r0 = ((f32)(((s16 *)param2)[1] << 0xc) + (f32)0.5);
     }
     else
     {
-        r0 = ((float)(((s16 *)param2)[1] << 0xc) - (float)0.5);
+        r0 = ((f32)(((s16 *)param2)[1] << 0xc) - (f32)0.5);
     }
     st44.unk0c = (s32)r0;
 
     if (((s16 *)param2)[2] > 0)
     {
-        r0 = ((float)(((s16 *)param2)[2] << 0xc) + (float)0.5);
+        r0 = ((f32)(((s16 *)param2)[2] << 0xc) + (f32)0.5);
     }
     else
     {
-        r0 = ((float)(((s16 *)param2)[2] << 0xc) - (float)0.5);
+        r0 = ((f32)(((s16 *)param2)[2] << 0xc) - (f32)0.5);
     }
     st44.unk10 = (s32)r0;
 
@@ -764,7 +764,7 @@ THUMB_FUNC void FUN_0200C398(
     FUN_02009C30(param1->unk24[0]);
     FUN_02009E28(param1->unk24[1]);
 
-    for (s32 i = 0; i < (s32)param1->unk54; i++)
+    for (s32 i = 0; i < param1->unk54; i++)
     {
         FUN_02009448(param1->unk24[i]);
         FUN_02008E2C(param1->unk0c[i]);
@@ -1093,20 +1093,20 @@ THUMB_FUNC void FUN_0200C750(u32 *param0, u32 param1, u32 param2, u32 param3)
 
 THUMB_FUNC void FUN_0200C75C(u32 param0, u16 *param1, u16 *param2)
 {
-    u32 *r4 = FUN_0202011C(param0, param1, param2);
+    s32 *r4 = FUN_0202011C(param0, param1, param2);
 
-    param1[0] = (u16)((s32)(r4[0] + ((u32)((s32)r4[0] >> 0xb) >> 0x14)) >> 0xc);
+    param1[0] = r4[0] / 0x1000;
 
     if (FUN_02020380(param0) == 2)
     {
-        u32 r1 = r4[1] - 0xc0000;
+        s32 r1 = r4[1] - 0xc0000;
 
-        param2[0] = (u16)((s32)(r1 + ((u32)((s32)r1 >> 0xb) >> 0x14)) >> 0xc);
+        param2[0] = r1 / 0x1000;
 
         return;
     }
 
-    param2[0] = (u16)((s32)(r4[1] + ((u32)((s32)r4[1] >> 0xb) >> 0x14)) >> 0xc);
+    param2[0] = r4[1] / 0x1000;
 }
 
 THUMB_FUNC void FUN_0200C7A0(u32 *param0, u16 *param1, u16 *param2)
@@ -1116,20 +1116,20 @@ THUMB_FUNC void FUN_0200C7A0(u32 *param0, u16 *param1, u16 *param2)
 
 THUMB_FUNC void FUN_0200C7AC(u32 param0, u16 *param1, u16 *param2, u32 param3)
 {
-    u32 *r4 = FUN_0202011C(param0, param1, param2);
+    s32 *r4 = FUN_0202011C(param0, param1, param2);
 
-    param1[0] = (u16)((s32)(r4[0] + ((u32)((s32)r4[0] >> 0xb) >> 0x14)) >> 0xc);
+    param1[0] = r4[0] / 0x1000;
 
     if (FUN_02020380(param0) == 2)
     {
-        u32 r1 = r4[1] - param3;
+        s32 r1 = r4[1] - param3;
 
-        param2[0] = (u16)((s32)(r1 + ((u32)((s32)r1 >> 0xb) >> 0x14)) >> 0xc);
+        param2[0] = r1 / 0x1000;
 
         return;
     }
 
-    param2[0] = (u16)((s32)(r4[1] + ((u32)((s32)r4[1] >> 0xb) >> 0x14)) >> 0xc);
+    param2[0] = r4[1] / 0x1000;
 }
 
 THUMB_FUNC void FUN_0200C7F0(u32 *param0, u16 *param1, u16 *param2, u32 param3)
