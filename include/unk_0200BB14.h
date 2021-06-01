@@ -5,14 +5,19 @@ struct UnkStruct1
     u32 unk000;
     u32 unk004;
     u32 unk008;
-    u8 unk00c[0x12c];
+    u32 unk00c;
+    u8 unk010[0x128];
 };
 
 struct UnkStruct2
 {
-    u8 unk00[0xc];
+    u32 unk00;
+    u32 unk04;
+    u32 *unk08;
     u32 unk0c[6];
-    u8 unk24[0x34];
+    u32 *unk24[6];
+    u32 unk3c[6];
+    s32 unk54;
 };
 
 struct UnkStruct3
@@ -31,10 +36,14 @@ struct UnkStruct3
     u32 unk24;
 };
 
+struct UnkStruct7 {
+    u8 unk00[0x24];
+};
+
 struct UnkStruct4
 {
     u32 unk00;
-    u32 unk04;
+    struct UnkStruct7 *unk04;
     s32 unk08;
     s32 unk0c;
     s32 unk10;
@@ -47,23 +56,38 @@ struct UnkStruct4
     u32 unk2c;
 };
 
+
+
+
+struct UnkStruct6 {
+    struct UnkStruct7 *unk0;
+    u32 unk4;
+};
+struct UnkStruct5 {
+    u32 unk00;
+    struct UnkStruct7 *unk04;
+    struct UnkStruct6 *unk08;
+    u32 unk0c;
+};
+
+
 struct UnkStruct1 *FUN_0200BB14(u32 heap_id);
 struct UnkStruct2 *FUN_0200BB34(struct UnkStruct1 *param0);
 u32 FUN_0200BB68(u32 param0);
-u32 FUN_0200BB6C(u32 *param0, u32 *param1, u32 *param2, u32 param3);
-u32 FUN_0200BBF0(u32 *param0, u32 *param1, u32 param2);
+u32 FUN_0200BB6C(struct UnkStruct1 *param0, u32 *param1, u32 *param2, u32 param3);
+u32 FUN_0200BBF0(struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 param2);
 void FUN_0200BC14(u32 param0);
 void FUN_0200BC1C(u32 *param0);
 void FUN_0200BC30();
 void FUN_0200BC38();
-void FUN_0200BC40(u32 *param0);
-void FUN_0200BC4C(u32 *param0);
-void FUN_0200BC5C(u32 *param0);
+void FUN_0200BC40(struct UnkStruct2 *param0);
+void FUN_0200BC4C(struct UnkStruct2 *param0);
+void FUN_0200BC5C(struct UnkStruct2 *param0);
 void FUN_0200BCB0(u32 *param0);
-void FUN_0200BCD0(u32 *param0, void *param1);
-void FUN_0200BCE0(u32 *param0, u32 *param1);
+void FUN_0200BCD0(struct UnkStruct1 *param0, struct UnkStruct2 *param1);
+void FUN_0200BCE0(struct UnkStruct1 *param0, struct UnkStruct2 *param1);
 void FUN_0200BD04(u32 *param0);
-u32 FUN_0200BD20(u32 *param0, u32 *param1, u32 *param2);
+u32 FUN_0200BD20(struct UnkStruct1 *param0, struct UnkStruct2 *param1, const char **param2);
 u32 FUN_0200BE38(u32 *param0, u32 *param1, struct UnkStruct3 *param2);
 u32 FUN_0200BE74(u32 *param0,
     u32 *param1,
@@ -79,40 +103,40 @@ u32 FUN_0200BE74(u32 *param0,
     u32 param11,
     u32 param12,
     u32 param13);
-u32 FUN_0200BF60(u32 *param0, u32 *param1, u32 *param2);
+u32 FUN_0200BF60(struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2);
 u32 FUN_0200C00C(
-    u32 *param0, u32 *param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6);
+    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6);
 s32 FUN_0200C06C(u32 *param0,
-    u32 *param1,
+    struct UnkStruct2 *param1,
     u32 param2,
     u32 param3,
     u32 param4,
     u32 param5,
     u32 param6,
-    u32 param7);
+    s32 param7);
 u8 FUN_0200C0DC(u32 param0,
     u32 param1,
     u32 *param2,
-    u32 *param3,
+    struct UnkStruct2 *param3,
     u32 param4,
     u32 param5,
     u32 param6,
     u32 param7,
     u32 param8,
-    u32 param9);
-u32 FUN_0200C124(u32 *param0, u32 *param1, u32 param2, u32 param3, u32 param4, u32 param5);
-u32 FUN_0200C13C(u32 *param0, u32 *param1, u32 param2, u32 param3, u32 param4, u32 param5);
-u32 *FUN_0200C154(u32 *param0, u32 *param1, u32 *param2);
+    s32 param9);
+u32 FUN_0200C124(u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, s32 param5);
+u32 FUN_0200C13C(u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, s32 param5);
+struct UnkStruct5 *FUN_0200C154(struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2);
 u32 FUN_0200C334(u32 *param0, u32 param1);
 u32 FUN_0200C344(u32 *param0, u32 param1, u32 param2);
-u32 FUN_0200C358(u32 *param0, u32 param1);
-u32 FUN_0200C368(u32 *param0, u32 param1);
-u32 FUN_0200C378(u32 *param0, u32 param1);
-u32 FUN_0200C388(u32 *param0, u32 param1);
-void FUN_0200C398(u32 param0, u32 *param1);
+u32 FUN_0200C358(struct UnkStruct2 *param0, u32 param1);
+u32 FUN_0200C368(struct UnkStruct2 *param0, u32 param1);
+u32 FUN_0200C378(struct UnkStruct2 *param0, u32 param1);
+u32 FUN_0200C388(struct UnkStruct2 *param0, u32 param1);
+void FUN_0200C398(struct UnkStruct1 *param0, struct UnkStruct2 *param1);
 void FUN_0200C3DC(u32 *param0);
 u32 FUN_0200C404(
-    u32 *param0, u32 *param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6);
+    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6);
 u32 FUN_0200C474(u32 *param0, u32 param1);
 u32 FUN_0200C4A8(u32 param0, u32 *param1, u32 param2);
 u32 FUN_0200C4F4(u32 param0, u32 *param1, u32 param2);
@@ -173,9 +197,9 @@ void FUN_0200C8F8(u32 *param0, u32 param1);
 void FUN_0200C904(u32 param0, u32 param1);
 void FUN_0200C90C(u32 *param0, u32 param1);
 u32 FUN_0200C918(
-    u32 *param0, u32 *param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6);
+    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6);
 u32 FUN_0200C978(
-    u32 *param0, u32 *param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6);
+    u32 *param0, struct UnkStruct2 *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6);
 void FUN_0200C9D8(u32 *param0, u32 *param1, u32 param2, u32 param3, u32 param4, u32 param5);
 void FUN_0200CA0C(u32 *param0, u32 *param1, u32 param2, u32 param3, u32 param4, u32 param5);
 u32 FUN_0200CA40(u32 *param0);
