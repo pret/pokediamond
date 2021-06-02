@@ -6,10 +6,8 @@
 
 struct Unk0202A1F0
 {
-    u8 b0;
-    u8 b1;
-    u8 b2;
-    u8 b3;
+    u8 filler[3];
+    u8 u_3;
 };
 
 struct UnkMailStruct
@@ -70,6 +68,12 @@ struct Unk0202A4B8
     u16 u_18; // used
 };
 
+struct Unk0202A578
+{
+    u8 filler[8];
+    u16 u_8;
+};
+
 struct Unk0202A5CC
 {
     u32 filler;
@@ -86,18 +90,21 @@ struct UnkSaveStruct_0202A5D4
     u32 u_1C4;
 };
 
-struct Unk0202A670
+typedef struct Unk0202A670
 {
-    u32 b0;
-    u8 b4; // used
-};
+    u32 u_0; // used
+    u8 u_4[250]; // used
+} 
+Unk0202A670;
 
-struct Unk0202A68C
+typedef struct Unk0202A68C
 {
-    u32 b0; // used
-    u32 b4; // used
-    u32 b8; // used
-};
+    u32 u_0; // used
+    u32 u_4; // used
+    u32 u_8; // used
+    u32 u_C; // used
+} 
+Unk0202A68C; // total size 0x10 (16)
 
 struct Unk0202A744_substruct1
 {
@@ -106,7 +113,7 @@ struct Unk0202A744_substruct1
 
 struct Unk0202A744_substruct2
 {
-    u8 data[0x3fc];
+    u8 data[1020];
 }; // total size 0x3FC (1020)
 
 struct Unk0202A744
@@ -128,6 +135,44 @@ struct Unk0202A784
     u8 u_1;
 };
 
+struct Unk0202A798_substruct1
+{
+    u8 u_0[168];
+    u8 u_A8[16];
+    u16 filler_2[8];
+    u8 u_C8_0:1;
+    u8 u_C8_1:1;
+    u8 u_C8_filler:6;
+    u8 u_C9;
+    u16 u_CA[4];
+    u16 u_D2[4];
+    u16 u_DA[4];
+    u8 filler_3[2];
+}; // total size 0xE4 (228)
+
+struct Unk0202A798_1
+{
+    u8 filler[260];
+    struct Unk0202A798_substruct1 u_104[4];
+};
+
+struct Unk0202A798_substruct2
+{
+    u32 u_0;
+    u16 u_4;
+    u8 filler_1[2];
+    u16 u_8[8];
+    u16 u_18[4];
+    u16 u_20[4];
+    u16 u_28[4];
+}; // total size 0x30 (48)
+
+struct Unk0202A798_2
+{
+    struct Unk0202A798_substruct2 u_0;
+    u8 u_30[168];
+};
+
 s32 FUN_0202A1E0();
 void FUN_0202A1E4(void *dst);
 void FUN_0202A1F0(struct Unk0202A1F0 *unk);
@@ -143,17 +188,19 @@ u8 FUN_0202A40C(struct Unk0202A40C *unk, s32 arg1);
 u8 FUN_0202A444(struct Unk0202A444 *unk, s32 arg1);
 void FUN_0202A474(void *dst, s32 arg1, const void *src);
 void FUN_0202A498(const void *src, s32 arg1, void *dst);
-void FUN_0202A4B8(struct Unk0202A4B8 *arg0, struct Unk0202A4B8 *arg1);
+u16 FUN_0202A4B8(struct Unk0202A4B8 *arg0, struct Unk0202A4B8 *arg1);
 u16 FUN_0202A520(struct Unk0202A4B8 *unk);
 u8 FUN_0202A524(struct Unk0202A4B8 *unk);
 u16 FUN_0202A538(struct Unk0202A4B8 *unk, s32 arg1, s32 arg2);
+BOOL FUN_0202A578(struct Unk0202A578 *arg0, u16 arg1, u32 arg2);
 void FUN_0202A5CC(struct Unk0202A5CC *unk, u32 arg1);
 u32 FUN_0202A5D0(struct Unk0202A5CC *unk);
 void FUN_0202A5D4(struct SaveBlock2 *sav2, u32 arg1, struct MailMessage *arg2);
 struct MailMessage *FUN_0202A5F4(struct SaveBlock2 *sav2, u32 arg1);
-void FUN_0202A60C(u32 arg0, u32 arg1, u32 arg2, u32 arg3);
+void FUN_0202A60C(struct Unk0202A670 *arg0, u8 arg1, u8 arg2, struct Unk0202A68C *arg3);
 void FUN_0202A670(struct Unk0202A670 *arg0);
-u32 FUN_0202A68C(struct Unk0202A68C *arg0, struct Unk0202A68C *arg1);
+BOOL FUN_0202A68C(struct Unk0202A68C *arg0, struct Unk0202A68C *arg1);
+BOOL FUN_0202A6B4(struct Unk0202A670 *arg0, u8 arg1, u8 arg2, struct Unk0202A68C *arg3);
 u8 FUN_0202A744(struct Unk0202A744 *unk);
 u8 FUN_0202A74C(struct Unk0202A744 *unk);
 void FUN_0202A754(struct Unk0202A744 *dest, void *src, u8 arg2, u8 arg3);
@@ -165,7 +212,7 @@ struct Unk0202A744_substruct2 *FUN_0202A878(struct Unk0202A744 *src, u32 head_id
 s32 FUN_0202A89C();
 void FUN_0202A8A4(struct UnkSaveStruct_0202A5D4 *savStruct);
 struct UnkSaveStruct_0202A5D4 *FUN_0202A8CC(struct SaveBlock2* sav2);
-void *FUN_0202A8D8(struct SaveBlock2* sav2);
+struct Unk0202A1F0 *FUN_0202A8D8(struct SaveBlock2* sav2);
 void *FUN_0202A8E4(struct SaveBlock2* sav2);
 
 #endif //POKEDIAMOND_UNK_0202A1E0_H

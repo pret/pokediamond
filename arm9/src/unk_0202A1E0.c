@@ -6,36 +6,36 @@
 
 THUMB_FUNC s32 FUN_0202A1E0()
 {
-    return 0xe4; // 228
+    return 228;
 }
 
 THUMB_FUNC void FUN_0202A1E4(void *dest)
 {
-    MI_CpuFill8(dest, 0, 0x3c); // 60
+    MI_CpuFill8(dest, 0, 60);
 }
 
-THUMB_FUNC void FUN_0202A1F0(struct Unk0202A1F0 *unk)
+THUMB_FUNC void FUN_0202A1F0(struct Unk0202A1F0 *arg0)
 {
-    MI_CpuFill8(unk, 0, 0x168); // 360
-    unk->b3 = 1;
+    MI_CpuFill8(arg0, 0, 360);
+    arg0->u_3 = 1;
 }
 
-THUMB_FUNC void FUN_0202A204(struct UnkMailStruct *unk)
+THUMB_FUNC void FUN_0202A204(struct UnkMailStruct *arg0)
 {
-    MailMsg_init_fromTemplate(&unk->messages[0], 0);
-    MailMsg_init_fromTemplate(&unk->messages[1], 1);
-    MailMsg_init_fromTemplate(&unk->messages[2], 2);
-    MailMsg_init_fromTemplate(&unk->messages[3], 3);
+    MailMsg_init_fromTemplate(&arg0->messages[0], 0);
+    MailMsg_init_fromTemplate(&arg0->messages[1], 1);
+    MailMsg_init_fromTemplate(&arg0->messages[2], 2);
+    MailMsg_init_fromTemplate(&arg0->messages[3], 3);
 }
 
 THUMB_FUNC void FUN_0202A230(void *dst)
 {
-    MI_CpuFill8(dst, 0, 0xB3C); // 2876
+    MI_CpuFill8(dst, 0, 2876);
 }
 
-THUMB_FUNC u32 FUN_0202A240(struct Unk0202A240 *unk, u32 controlVariable, void *dst)
+THUMB_FUNC u32 FUN_0202A240(struct Unk0202A240 *unk, u32 mode, void *dst)
 {
-    switch (controlVariable)
+    switch (mode)
     {
         case 0:
             return unk->u_0_2;
@@ -67,9 +67,9 @@ THUMB_FUNC u32 FUN_0202A240(struct Unk0202A240 *unk, u32 controlVariable, void *
     };
 }
 
-THUMB_FUNC void FUN_0202A2C4(struct Unk0202A240 *dst, u32 controlVariable, void *src)
+THUMB_FUNC void FUN_0202A2C4(struct Unk0202A240 *dst, u32 mode, void *src)
 {
-    switch (controlVariable)
+    switch (mode)
     {
         case 0:
             dst->u_0_2 = *(u8 *)src;
@@ -249,33 +249,35 @@ THUMB_FUNC void FUN_0202A498(const void *src, s32 arg1, void *dst)
     }
 }
 
-THUMB_FUNC void FUN_0202A4B8(struct Unk0202A4B8 *arg0, struct Unk0202A4B8 *arg1) 
+THUMB_FUNC u16 FUN_0202A4B8(struct Unk0202A4B8 *arg0, struct Unk0202A4B8 *arg1) 
 {
-    u16 part1 = (arg1->u_2 - 1) * 1000;
+    u16 var1, var2, var3, var4, var5, total;
+
+    var1 = (u16) ((arg1->u_2 - 1) * 1000);
+    var2 = (u16) (arg1->u_4 * 10);
+    var3 = (u16) (arg1->u_3 * 20);
     
-    s32 value = (u16) (arg1->u_4 * 10) + (u16) (arg1->u_3 * 20);
-    u16 part2;
-    if (value > 950)
+    if (var2 + var3 > 950)
     {
-        part2 = 0;
+        var4 = 0;
     }
     else
     {
-        part2 = 950 - value;
+        var4 = (u16) (950 - (var2 + var3));
     }
 
-    u16 part3;
     if (arg1->u_6 > 970)
     {
-        part3 = 0;
+        var5 = 0;
     }
     else
     {
-        part3 = (970 + 30 - arg1->u_6) / 30;
+        var5 = (u16) ((1000 - arg1->u_6) / 30);
     }
 
-    // Can't seem to get these shifts to happen with a cast
-    arg0->u_16 = (u32) ((part1 + part2 + part3) << 16) >> 16;
+    total = (u16) (var1 + var4 + var5);
+    arg0->u_16 = total;
+    return total;
 }
 
 THUMB_FUNC u16 FUN_0202A520(struct Unk0202A4B8 *unk)
@@ -308,56 +310,30 @@ THUMB_FUNC u16 FUN_0202A538(struct Unk0202A4B8 *unk, s32 arg1, s32 arg2)
     return unk->u_array_C[arg1];    
 }
 
-THUMB_FUNC u16 FUN_0202A578(struct Unk0202A578 *arg0, u16 arg1, u32 arg2) {
-    asm{
-    //push {r3-r4}
-	mov r3, #0x1
-	mov r4, #0x0
-	cmp r1, #0x0
-	bls _0202A590
-    _0202A582:
-	add r4, r4, #0x1
-	lsl r4, r4, #0x10
-	lsl r3, r3, #0x11
-	lsr r4, r4, #0x10
-	lsr r3, r3, #0x10
-	cmp r4, r1
-	blo _0202A582
-    _0202A590:
-	cmp r2, #0x0
-	beq _0202A5B4
-	cmp r2, #0x1
-	beq _0202A5AC
-	cmp r2, #0x2
-	bne _0202A5C2
-	ldr r1, =0x0000FFFF
-	eor r1, r3
-	lsl r1, r1, #0x10
-	lsr r2, r1, #0x10
-	ldrh r1, [r0, #0x8]
-	and r1, r2
-	strh r1, [r0, #0x8]
-	b _0202A5C2
-    _0202A5AC:
-	ldrh r1, [r0, #0x8]
-	orr r1, r3
-	strh r1, [r0, #0x8]
-	b _0202A5C2
-    _0202A5B4:
-	ldrh r0, [r0, #0x8]
-	add r2, r0, #0x0
-	asr r2, r1
-	mov r0, #0x1
-	and r0, r2
-	pop {r3-r4}
-	bx lr
-    _0202A5C2:
-	mov r0, #0x0
-	// pop {r3-r4}
-	// bx lr
-	// .balign 4
-    // _0202A5C8: .word 0x0000FFFF
+THUMB_FUNC BOOL FUN_0202A578(struct Unk0202A578 *arg0, u16 arg1, u32 arg2) 
+{
+    u16 i;
+    u16 flag = 1;
+
+    for (i = 0; i < arg1 ; i++)
+    {
+        flag <<= 1;
     }
+
+    switch (arg2)
+    {
+        case 2:
+            flag = (u16) (flag ^ 0xffff);
+            arg0->u_8 &= flag;
+            break;
+        case 1:
+            arg0->u_8 |= flag;
+            break;
+        case 0:
+            return (BOOL) ((arg0->u_8 >> arg1) & 1);
+    }
+
+    return 0;
 }
 
 
@@ -384,159 +360,81 @@ THUMB_FUNC struct MailMessage *FUN_0202A5F4(struct SaveBlock2 *sav2, u32 arg1)
     return &data->messages.messages[arg1];
 }
 
-THUMB_FUNC void FUN_0202A60C(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
-    asm {
-    // push {r3-r6}
-	add r4, r3, #0x0
-	mov r3, #0x1
-	cmp r2, #0x0
-	beq _0202A66C
-	cmp r2, #0xc8
-	bhi _0202A66C
-	cmp r1, #0x0
-	beq _0202A66C
-	cmp r1, #0xa
-	bhi _0202A66C
-	sub r5, r2, #0x1
-	sub r2, r1, #0x1
-	mov r1, #0xc8
-	mul r1, r2
-	add r1, r5, r1
-	lsl r1, r1, #0x10
-	lsr r1, r1, #0x10
-	lsr r6, r1, #0x1f
-	lsl r5, r1, #0x1d
-	sub r5, r5, r6
-	mov r2, #0x1d
-	ror r5, r2
-	add r2, r6, r5
-	lsl r2, r2, #0x18
-	lsr r2, r2, #0x18
-	lsl r3, r2
-	lsl r2, r3, #0x18
-	lsl r1, r1, #0x15
-	lsr r5, r2, #0x18
-	add r3, r0, #0x4
-	lsr r2, r1, #0x18
-	ldrb r1, [r3, r2]
-	orr r1, r5
-	strb r1, [r3, r2]
-	ldr r3, [r4, #0x0]
-	ldr r1, [r4, #0x8]
-	lsl r5, r3, #0x18
-	ldr r3, [r4, #0x4]
-	lsl r1, r1, #0x18
-	lsl r3, r3, #0x18
-	lsr r3, r3, #0x8
-	ldr r2, [r4, #0xc]
-	lsr r1, r1, #0x10
-	orr r3, r5
-	orr r1, r3
-	orr r1, r2
-	str r1, [r0, #0x0]
-    _0202A66C:
-	// pop {r3-r6}
-	// bx lr
+THUMB_FUNC void FUN_0202A60C(struct Unk0202A670 *arg0, u8 arg1, u8 arg2, struct Unk0202A68C *arg3) {
+
+    u8 bitmask = 1;
+
+    if (arg2 == 0 || arg2 > 200)
+    {
+        return;
     }
+
+    if (arg1 == 0 || arg1 > 10)
+    {
+        return;
+    }
+
+    u16 var2 = (u16) ((arg1 - 1) * 200 + (arg2 - 1));
+    u8 index = (u8) (var2 / 8);
+    u8 remainder = (u8) (var2 % 8);
+    bitmask <<= remainder;
+
+    arg0->u_4[index] |= bitmask;
+    arg0->u_0 = (arg3->u_0 << 24) | ((arg3->u_4 & 0xff) << 16) | ((arg3->u_8 & 0xff) << 8) | arg3->u_C;
 }
 
 THUMB_FUNC void FUN_0202A670(struct Unk0202A670 *arg0)
 {
 
-    MI_CpuFill8(&(arg0->b4), 0, 0xfa);
+    MI_CpuFill8(&(arg0->u_4), 0, 250);
     MI_CpuFill8(arg0, 0, 4);
 }
 
-THUMB_FUNC u32 FUN_0202A68C(struct Unk0202A68C *arg0, struct Unk0202A68C *arg1)
+THUMB_FUNC BOOL FUN_0202A68C(struct Unk0202A68C *arg0, struct Unk0202A68C *arg1)
 {
-    if (arg0->b0 > arg1->b0) {
-        return 1;
-    } else if (arg0->b4 > arg1->b4) {
-        return 1;
-    } else if (arg0->b8 > arg1->b8) {
-        return 1;
+    if (arg0->u_0 > arg1->u_0) {
+        return TRUE;
+    } else if (arg0->u_4 > arg1->u_4) {
+        return TRUE;
+    } else if (arg0->u_8 > arg1->u_8) {
+        return TRUE;
     }
-    return 0;
+    return FALSE;
 }
 
-THUMB_FUNC void FUN_0202A6B4(u32 arg0, u32 arg1, u32 arg2) 
-{
-    asm {
-    // push {r3-r7, lr}
-	sub sp, #0x10
-	add r6, r2, #0x0
-	add r5, r0, #0x0
-	add r4, r1, #0x0
-	mov r7, #0x1
-	cmp r6, #0xc8
-	bhi _0202A6C8
-	cmp r4, #0xa
-	bls _0202A6CE
-    _0202A6C8:
-	add sp, #0x10
-	mov r0, #0x0
-	pop {r3-r7, pc}
-    _0202A6CE:
-	ldr r0, [r5, #0x0]
-	lsr r1, r0, #0x18
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x18
-	str r1, [sp, #0x0]
-	lsr r1, r0, #0x10
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x18
-	str r1, [sp, #0x4]
-	lsr r1, r0, #0x8
-	lsl r1, r1, #0x18
-	lsl r0, r0, #0x18
-	lsr r1, r1, #0x18
-	lsr r0, r0, #0x18
-	str r1, [sp, #0x8]
-	str r0, [sp, #0xc]
-	add r0, r3, #0x0
-	add r1, sp, #0x0
-	bl FUN_0202A68C
-	cmp r0, #0x0
-	beq _0202A706
-	add r0, r5, #0x0
-	bl FUN_0202A670
-	add sp, #0x10
-	mov r0, #0x0
-	pop {r3-r7, pc}
-    _0202A706:
-	sub r1, r4, #0x1
-	mov r0, #0xc8
-	mul r0, r1
-	sub r2, r6, #0x1
-	add r0, r2, r0
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	lsr r3, r0, #0x1f
-	lsl r2, r0, #0x1d
-	lsl r0, r0, #0x15
-	lsr r0, r0, #0x18
-	add r0, r5, r0
-	sub r2, r2, r3
-	mov r1, #0x1d
-	ror r2, r1
-	add r1, r3, r2
-	lsl r1, r1, #0x18
-	lsr r1, r1, #0x18
-	add r2, r7, #0x0
-	lsl r2, r1
-	lsl r1, r2, #0x18
-	ldrb r0, [r0, #0x4]
-	lsr r1, r1, #0x18
-	tst r0, r1
-	beq _0202A73E
-	add sp, #0x10
-	add r0, r7, #0x0
-	pop {r3-r7, pc}
-    _0202A73E:
-	mov r0, #0x0
-	add sp, #0x10
-	// pop {r3-r7, pc}
+THUMB_FUNC BOOL FUN_0202A6B4(struct Unk0202A670 *arg0, u8 arg1, u8 arg2, struct Unk0202A68C *arg3) 
+{    
+    u8 bitmask = 1;
+
+    if (arg2 > 200 || arg1 > 10)
+    {
+        return FALSE;
     }
+
+    u32 var0 = arg0->u_0;
+
+    Unk0202A68C var1;
+    var1.u_0 = var0 >> 24 & 0xff;
+    var1.u_4 = var0 >> 16 & 0xff;
+    var1.u_8 = var0 >> 8 & 0xff;
+    var1.u_C = var0 & 0xff;
+
+    if (FUN_0202A68C(arg3, &var1))
+    {
+        FUN_0202A670(arg0);
+        return FALSE;
+    }
+
+    u16 var2 = (u16) ((arg1 - 1) * 200 + (arg2 - 1));
+    u8 index = (u8) (var2 / 8);
+    u8 remainder = (u8) (var2 % 8);
+    bitmask <<= remainder;
+
+    if (arg0->u_4[index] & bitmask)
+    {
+        return 1;
+    }
+    return FALSE;
 }
 
 
@@ -564,82 +462,31 @@ THUMB_FUNC void FUN_0202A784(struct Unk0202A744 *src, struct Unk0202A784 *dest)
     dest->u_1 = src->u_100;
 }
 
-THUMB_FUNC void FUN_0202A798()
+THUMB_FUNC void FUN_0202A798(struct Unk0202A798_1 *arg0, struct Unk0202A798_2 *arg1, u32 arg2)
 {
-    asm {
-    //push {r3-r7, lr}
-	add r6, r1, #0x0
-	mov r1, #0x41
-	lsl r1, r1, #0x2
-	add r5, r0, r1
-	mov r0, #0xe4
-	add r4, r2, #0x0
-	mul r4, r0
-	ldr r0, =0x00002710
-	add r7, r6, #0x0
-	str r0, [r6, #0x0]
-	add r0, r5, r4
-	add r0, #0xc9
-	ldrb r0, [r0, #0x0]
-	add r7, #0x30
-	strh r0, [r6, #0x4]
-	add r0, r5, r4
-	add r0, #0xc8
-	ldrb r0, [r0, #0x0]
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x1f
-	beq _0202A7EE
-	mov r0, #0x0
-	mov r1, #0x1a
-	mov r2, #0x11
-	mov r3, #0xb
-	bl NewMsgDataFromNarc
-	add r1, r5, r4
-	add r1, #0xc8
-	ldrb r1, [r1, #0x0]
-	add r2, r6, #0x0
-	str r0, [sp, #0x0]
-	lsl r1, r1, #0x1e
-	lsr r1, r1, #0x1f
-	add r1, #0x16
-	add r2, #0x8
-	bl ReadMsgDataIntoU16Array
-	ldr r0, [sp, #0x0]
-	bl DestroyMsgData
-	b _0202A7FC
-    _0202A7EE:
-	add r0, r5, r4
-	add r1, r6, #0x0
-	add r0, #0xa8
-	add r1, #0x8
-	mov r2, #0x10
-	bl MI_CpuCopy8
-    _0202A7FC:
-	add r0, r5, r4
-	add r1, r6, #0x0
-	add r0, #0xca
-	add r1, #0x18
-	mov r2, #0x8
-	bl MI_CpuCopy8
-	add r0, r5, r4
-	add r1, r6, #0x0
-	add r0, #0xd2
-	add r1, #0x20
-	mov r2, #0x8
-	bl MI_CpuCopy8
-	add r0, r5, r4
-	add r6, #0x28
-	add r0, #0xda
-	add r1, r6, #0x0
-	mov r2, #0x8
-	bl MI_CpuCopy8
-	add r0, r5, r4
-	add r1, r7, #0x0
-	mov r2, #0xa8
-	bl MI_CpuCopy8
-	//pop {r3-r7, pc}
-	//nop
+    struct Unk0202A798_substruct2 *var0 = &arg1->u_0;
+    u8 *var1 = arg1->u_30;
+    struct Unk0202A798_substruct1 *src = &arg0->u_104[arg2];
+    struct MsgData *message;
+
+    var0->u_0 = 10000;
+    var0->u_4 = src->u_C9;
+
+    if(src->u_C8_0)
+    {
+        message = NewMsgDataFromNarc(0, NARC_MSGDATA_MSG, 17, 11);
+        ReadMsgDataIntoU16Array(message, (u32) (22 + src->u_C8_1), var0->u_8);
+        DestroyMsgData(message);
     }
+    else
+    {
+        MI_CpuCopy8(src->u_A8, var0->u_8, 16);
+    }
+
+    MI_CpuCopy8(src->u_CA, var0->u_18, 8);
+    MI_CpuCopy8(src->u_D2, var0->u_20, 8);
+    MI_CpuCopy8(src->u_DA, var0->u_28, 8);
+    MI_CpuCopy8(src->u_0, var1, 168);
 }
 
 THUMB_FUNC void FUN_0202A838(struct Unk0202A744 *dest, void *src, u8 arg2, u8 arg3)
@@ -659,7 +506,7 @@ THUMB_FUNC void FUN_0202A864(struct Unk0202A744 *src, struct Unk0202A784 *dest)
 THUMB_FUNC struct Unk0202A744_substruct2 *FUN_0202A878(struct Unk0202A744 *src, u32 heap_id)
 {
     struct Unk0202A744_substruct2 *dstp = AllocFromHeap(heap_id, sizeof(struct Unk0202A744_substruct2) /* 1020 */);
-    MI_CpuCopy8(&src->u_740, dstp, 0x3fc);
+    MI_CpuCopy8(&src->u_740, dstp, sizeof(struct Unk0202A744_substruct2));
     return dstp;
 }
 
@@ -681,7 +528,7 @@ THUMB_FUNC struct UnkSaveStruct_0202A5D4 *FUN_0202A8CC(struct SaveBlock2* sav2)
     return SavArray_get(sav2, 23);
 }
 
-THUMB_FUNC void *FUN_0202A8D8(struct SaveBlock2* sav2)
+THUMB_FUNC struct Unk0202A1F0 *FUN_0202A8D8(struct SaveBlock2* sav2)
 {
     struct UnkSaveStruct_0202A5D4 *data = SavArray_get(sav2, 23);
     return &data->u_3C;
