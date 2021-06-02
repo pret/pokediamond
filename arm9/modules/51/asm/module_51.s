@@ -120,7 +120,7 @@ MOD51_022548F0: ; 0x022548F0
 	mov r1, #3
 	mov r2, #1
 	add r3, #0x24
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	str r0, [r4, #0x20]
 	add sp, #4
 	pop {r3, r4, pc}
@@ -165,7 +165,7 @@ _02254960:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	bl CopyWindowToVram
 	ldr r0, [sp, #0x18]
@@ -193,7 +193,7 @@ _02254960:
 	add r0, r5, #0
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x10
 	bl CopyWindowToVram
@@ -221,7 +221,7 @@ _02254960:
 	add r0, r5, #0
 	add r0, #0x20
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x20
 	bl CopyWindowToVram
@@ -477,7 +477,7 @@ MOD51_02254B54: ; 0x02254B54
 	mov r0, #0x4a
 	add r3, r1, #0
 	str r2, [sp, #4]
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #5
@@ -491,7 +491,7 @@ MOD51_02254B54: ; 0x02254B54
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #7
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -504,7 +504,7 @@ MOD51_02254B54: ; 0x02254B54
 	add r2, r4, #0
 	mov r3, #7
 	str r1, [sp, #0xc]
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #4
 	mov r1, #0
 	bl FUN_02054590
@@ -792,20 +792,20 @@ MOD51_02254E48: ; 0x02254E48
 	add r7, r5, r0
 	add r0, r7, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x76
 	lsl r0, r0, #2
 	add r0, r5, r0
 	str r0, [sp, #0x1c]
 	add r0, r0, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x7a
 	lsl r0, r0, #2
 	add r5, r5, r0
 	add r0, r5, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #0xff

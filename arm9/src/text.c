@@ -2,27 +2,26 @@
 #include "heap.h"
 #include "string16.h"
 #include "MI_memory.h"
+#include "filesystem.h"
+#include "script_buffers.h"
+#include "unk_0200CA44.h"
 
 const struct FontInfo *gFonts = NULL;
 
 u16 UNK_021C5734[0x100];
-u32 UNK_021C5714[8];
-u8 UNK_021C570C[8];
-
-extern u32 FUN_0200CA7C(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2);
+BOOL UNK_021C5714[8];
+u16 UNK_021C570E;
+u16 UNK_021C5710;
+u16 UNK_021C5712;
+u8 UNK_021C570C;
 
 extern struct TextPrinter *FUN_0201B6C8(void);
-extern void FUN_0200CAB4(u32 param0);
 
 extern void FUN_0201C1A8(struct TextPrinter *printer);
-extern void CopyWindowToVram(u32 windowId);
 
 extern u32 FontFunc(u8 fontId, struct TextPrinter *printer);
 
-extern void *FUN_02006BB0(u32 param0, u32 param1, u32 param2, struct TextPrinter **param3, u32 param4);
-
-extern u32 FUN_0201AB0C(u32 windowId);
-extern void FUN_02019658(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7, u32 param8, u32 param9);
+extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 
 
 THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
@@ -96,12 +95,12 @@ THUMB_FUNC void FUN_0201BD7C(u32 param0)
     FUN_0201BCFC(param0);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
-    printerTemplate.windowId = windowId;
-    printerTemplate.currentChar = str;
+    printerTemplate.window = window;
+    printerTemplate.currentChar.wrapped = str;
     printerTemplate.fontId = fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
@@ -119,12 +118,12 @@ THUMB_FUNC u16 AddTextPrinterParameterized(u32 windowId, u8 fontId, const u16 *s
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
-    printerTemplate.windowId = windowId;
-    printerTemplate.currentChar = str;
+    printerTemplate.window = window;
+    printerTemplate.currentChar.wrapped = str;
     printerTemplate.fontId = fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
@@ -142,13 +141,13 @@ THUMB_FUNC u16 AddTextPrinterParameterized2(u32 windowId, u8 fontId, const u16 *
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized3(u32 windowId, u8 fontId, const u16 *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
+THUMB_FUNC u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
-    printerTemplate.windowId = windowId;
-    printerTemplate.currentChar = str;
-    printerTemplate.fontId = fontId;
+    printerTemplate.window = window;
+    printerTemplate.currentChar.wrapped = str;
+    printerTemplate.fontId = (u8)fontId;
     printerTemplate.x = (u8)x;
     printerTemplate.y = (u8)y;
     printerTemplate.currentX = (u8)x;
@@ -185,13 +184,13 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
     }
 
     printer->printerTemplate = *printerTemplate;
-    printer->printerTemplate.currentChar = String_c_str((struct String *)printer->printerTemplate.currentChar); //TODO clean up
+    printer->printerTemplate.currentChar.raw = String_c_str(printer->printerTemplate.currentChar.wrapped);
     printer->callback = callback;
-    UNK_021C570C[0] = 0;
+    UNK_021C570C = 0;
     FUN_0201C1A8(printer);
     if (speed != 0xff && speed != 0)
     {
-        printer->textSpeedBottom += 0xff;
+        printer->textSpeedBottom--;
         printer->textSpeedTop = 1;
         printer->minLetterSpacing = FUN_0201BCC8(RunTextPrinter, printer, 1);
         return printer->minLetterSpacing;
@@ -211,7 +210,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
         }
         if (speed != 0xff)
         {
-            CopyWindowToVram(printer->printerTemplate.windowId); // CopyWindowToVram?
+            CopyWindowToVram(printer->printerTemplate.window);
         }
         FUN_0201C238(printer);
         FreeToHeap((void *)printer);
@@ -222,7 +221,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
 THUMB_FUNC void RunTextPrinter(u32 param0, struct TextPrinter *printer)
 {
 #pragma unused(param0)
-    if (UNK_021C570C[0] == 0)
+    if (UNK_021C570C == 0)
     {
         if (printer->Unk29 == 0)
         {
@@ -232,7 +231,7 @@ THUMB_FUNC void RunTextPrinter(u32 param0, struct TextPrinter *printer)
             switch (temp)
             {
                 case 0:
-                    CopyWindowToVram(printer->printerTemplate.windowId);
+                    CopyWindowToVram(printer->printerTemplate.window);
                     //fallthrough
                 case 3:
                     if (printer->callback == NULL)
@@ -268,156 +267,39 @@ THUMB_FUNC u32 RenderFont(struct TextPrinter *printer)
     }
 }
 
-#ifdef NONMATCHING
 THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor)
 {
-    u32 fg12, bg12, shadow12;
-    u32 temp;
+    s32 r5 = 0;
+    u32 sp20[4];
+    s32 i; // sp14
+    s32 j; // sp10
+    s32 k; // spC
+    s32 l; // r3
 
-    u16 *current = UNK_021C570C;
+    sp20[0] = 0;
+    sp20[1] = fgColor;
+    sp20[2] = shadowColor;
+    sp20[3] = bgColor;
 
-    bg12 = bgColor << 12;
-    fg12 = fgColor << 12;
-    shadow12 = shadowColor << 12;
+    // FIXME: Need these to be accessed by a pointer to UNK_021C570C
+    UNK_021C5712 = bgColor;
+    UNK_021C570E = fgColor;
+    UNK_021C5710 = shadowColor;
 
-    temp = (bgColor << 8) | (bgColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (bgColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (bgColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (bgColor << 8) | (fgColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (fgColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (fgColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (bgColor << 8) | (shadowColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (shadowColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (shadowColor << 4) | bgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (bgColor << 8) | (bgColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (bgColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (bgColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (bgColor << 8) | (fgColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (fgColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (fgColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (bgColor << 8) | (shadowColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (shadowColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (shadowColor << 4) | fgColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (bgColor << 8) | (bgColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (bgColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (bgColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (bgColor << 8) | (fgColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (fgColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (fgColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (bgColor << 8) | (shadowColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (fgColor << 8) | (shadowColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
-
-    temp = (shadowColor << 8) | (shadowColor << 4) | shadowColor;
-    *(current++) = (bg12) | temp;
-    *(current++) = (fg12) | temp;
-    *(current++) = (shadow12) | temp;
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            for (k = 0; k < 4; k++)
+            {
+                for (l = 0; l < 4; l++)
+                {
+                    UNK_021C5734[r5++] = (u16)((sp20[l] << 12) | (sp20[k] << 8) | (sp20[j] << 4) | (sp20[i] << 0));
+                }
+            }
+        }
+    }
 }
-#else
-GLOBAL_ASM("asm/nonmatchings/GenerateFontHalfRowLookupTable.s")
-#endif
 
 THUMB_FUNC void DecompressGlyphTile(const u16 *src, u16 *dst)
 {
@@ -444,12 +326,12 @@ THUMB_FUNC void FUN_0201C1A8(struct TextPrinter *printer)
     printer->Unk2C = NULL;
 }
 
-THUMB_FUNC void *FUN_0201C1B0(void)
+THUMB_FUNC u16 *FUN_0201C1B0(void)
 {
-    void *res = AllocFromHeap(0, sizeof(struct TextPrinter) * 32);
-    struct TextPrinter *var;
-    void *tmp = FUN_02006BB0(14, 5, 0, &var, 0);
-    MIi_CpuCopy32((void *)var->printerTemplate.Unk20, res, sizeof(struct TextPrinter) * 32); //todo Unk20 can't be right here
+    void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
+    struct UnkStruct_0200B870_sub * var;
+    void *tmp = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, 5, 0, &var, 0);
+    MI_CpuCopy32(var->unk_14, res, 32 * 24 * sizeof(u16));
     FreeToHeap(tmp);
     return res;
 }
@@ -457,14 +339,14 @@ THUMB_FUNC void *FUN_0201C1B0(void)
 THUMB_FUNC void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2, u32 param3)
 {
 #pragma unused (param1, param2)
-    u32 windowId = printer->printerTemplate.windowId;
+    struct Window * window = printer->printerTemplate.window;
     if (printer->Unk2C == NULL)
     {
         printer->Unk2C = FUN_0201C1B0();
     }
-    u32 r6 = (u32)printer->Unk2C + param3 * (sizeof(struct TextPrinter) * 8);
-    u32 r2 = ((FUN_0201AB0C(windowId) - 3) << 0x13) >> 0x10;
-    FUN_02019658(windowId, r6, 0, 0, 24, 32, r2, 0, 24, 32);
+    u16 * r6 = printer->Unk2C + param3 * 24 * 8;
+    u16 r2 = (u16)((GetWindowWidth(window) - 3) * 8);
+    BlitBitmapRectToWindow(window, r6, 0, 0, 24, 32, r2, 0, 24, 32);
 }
 
 THUMB_FUNC void FUN_0201C238(struct TextPrinter *printer)

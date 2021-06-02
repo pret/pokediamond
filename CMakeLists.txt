@@ -1,4 +1,6 @@
-cmake_minimum_required (VERSION 2.8.11)
+cmake_minimum_required (VERSION 3.15)
+set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
 project(PokeDiamond)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 11)
@@ -13,10 +15,7 @@ endif(APPLE)
 
 add_compile_options(-fms-extensions)
 
-file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c" "*.cpp")
-
-add_executable(PokeDiamond ${SOURCES})
-target_include_directories(PokeDiamond PRIVATE include include-mw arm9/lib/include arm7/lib/include arm9/modules/05/include arm9/modules/21/include arm9/modules/59/include arm9/modules/63/include)
+add_subdirectory(arm9)
 
 add_executable(calcrom .github/calcrom/calcrom.cpp)
 target_include_directories(calcrom PRIVATE /usr/local/include)

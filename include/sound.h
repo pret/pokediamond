@@ -2,15 +2,18 @@
 #define POKEDIAMOND_SOUND_H
 
 #include "FS_file.h"
-#include "sdat.h"
+#include "NNS_SND_arc.h"
+#include "NNS_SND_heap.h"
+#include "NNS_SND_arc_loader.h"
 #include "player_data.h"
+#include "sav_chatot.h"
 
 struct SoundData
 {
-    struct SDATFileMgr header;
-    void * unk_00090;
-    u8 unk_00094[0xBBC00];
-    u32 unk_BBC94[9];
+    NNSSndArc header;
+    NNSSndHeapHandle * heap; // 0x00090
+    u8 heapBuffer[0xBBC00];
+    u32 players[9];
     u32 unk_BBCB8;
     u32 unk_BBCBC;
     u8 unk_BBCC0[0x20];
@@ -42,7 +45,7 @@ struct SoundData
     u32 unk_BCD3C;
     u64 unk_BCD40;
     u32 unk_BCD48;
-    void * unk_BCD4C;
+    struct SaveChatotSoundClip * chatot;
     u32 unk_BCD50;
     u32 unk_BCD54;
     u32 unk_BCD58;
@@ -50,16 +53,16 @@ struct SoundData
 };
 
 struct SoundData * GetSoundDataPointer(void);
-void InitSoundData(void * a0, struct Options * a1);
+void InitSoundData(struct SaveChatotSoundClip * chatot, struct Options * options);
 void * FUN_02003D38(u32 a0);
-int FUN_02003F3C(int * a0);
-void FUN_02003F64(int a0);
-BOOL FUN_02003F78(u32 * a0);
-BOOL FUN_02003F90(u32 * a0);
-BOOL FUN_02003FA8(u32 * a0, u32 * a1);
-BOOL FUN_02003FC4(u32 * a0);
-BOOL FUN_02003FDC(u32 * a0);
-u32 * FUN_02003FF4(int a0);
+int GF_Snd_SaveState(int * level_p);
+void GF_Snd_RestoreState(int level);
+BOOL GF_Snd_LoadGroup(int groupNo);
+BOOL GF_Snd_LoadSeq(int seqNo);
+BOOL GF_Snd_LoadSeqEx(int seqNo, u32 loadFlag);
+BOOL GF_Snd_LoadWaveArc(int waveArcNo);
+BOOL GF_Snd_LoadBank(int bankNo);
+u32 * FUN_02003FF4(int playerNo);
 u32 FUN_02004018(u32 a0);
 void DoSoundUpdateFrame(void);
 

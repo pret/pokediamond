@@ -1,9 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_020FFA38
-	.extern UNK_021064B8
-	.extern UNK_021064C0
+	.extern FX_SinCosTable_
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncAllocPlttVram
 
 	.section .data
 	.global UNK_02106158
@@ -773,7 +773,7 @@ _0208B60C:
 FUN_0208B630: ; 0x0208B630
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r3, _0208B660 ; =UNK_021064C0
+	ldr r3, _0208B660 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -784,14 +784,14 @@ FUN_0208B630: ; 0x0208B630
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_0208B660: .word UNK_021064C0
+_0208B660: .word NNS_GfdDefaultFuncAllocPlttVram
 _0208B664: .word 0x0000FFFF
 
 	arm_func_start FUN_0208B668
 FUN_0208B668: ; 0x0208B668
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r3, _0208B698 ; =UNK_021064B8
+	ldr r3, _0208B698 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -802,7 +802,7 @@ FUN_0208B668: ; 0x0208B668
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_0208B698: .word UNK_021064B8
+_0208B698: .word NNS_GfdDefaultFuncAllocTexVram
 _0208B69C: .word 0x0000FFFF
 
 	arm_func_start FUN_0208B6A0
@@ -1823,7 +1823,7 @@ FUN_0208C4F4: ; 0x0208C4F4
 	ldr r0, [r5, #0x40]
 	ldrh r1, [r4, #0x20]
 	ldr r0, [r0, #0x20]
-	ldr r6, _0208C954 ; =UNK_020FFA38
+	ldr r6, _0208C954 ; =FX_SinCosTable_
 	ldr r0, [r0, #0x14]
 	mov r1, r1, asr #0x4
 	ldrh r0, [r0, #0x0]
@@ -2087,7 +2087,7 @@ _0208C8BC:
 	bx lr
 	.balign 4
 _0208C950: .word 0x040004A4
-_0208C954: .word UNK_020FFA38
+_0208C954: .word FX_SinCosTable_
 _0208C958: .word UNK_02106160
 _0208C95C: .word 0x00000CCD
 _0208C960: .word 0xFFFFF333
@@ -2125,7 +2125,7 @@ FUN_0208C974: ; 0x0208C974
 	ldr r0, [r5, #0x40]
 	ldrh r1, [r4, #0x20]
 	ldr r0, [r0, #0x20]
-	ldr r6, _0208CDD0 ; =UNK_020FFA38
+	ldr r6, _0208CDD0 ; =FX_SinCosTable_
 	ldr r0, [r0, #0x0]
 	mov r1, r1, asr #0x4
 	mov r2, r1, lsl #0x1
@@ -2388,7 +2388,7 @@ _0208CD38:
 	bx lr
 	.balign 4
 _0208CDCC: .word 0x040004A4
-_0208CDD0: .word UNK_020FFA38
+_0208CDD0: .word FX_SinCosTable_
 _0208CDD4: .word UNK_02106160
 _0208CDD8: .word 0x00000CCD
 _0208CDDC: .word 0xFFFFF333
@@ -2426,7 +2426,7 @@ FUN_0208CDF0: ; 0x0208CDF0
 	ldr r0, [r5, #0x40]
 	ldrh r1, [r4, #0x20]
 	ldr r0, [r0, #0x20]
-	ldr r6, _0208D128 ; =UNK_020FFA38
+	ldr r6, _0208D128 ; =FX_SinCosTable_
 	ldr r0, [r0, #0x14]
 	mov r1, r1, asr #0x4
 	ldrh r0, [r0, #0x0]
@@ -2612,7 +2612,7 @@ _0208D090:
 	bx lr
 	.balign 4
 _0208D124: .word 0x040004A4
-_0208D128: .word UNK_020FFA38
+_0208D128: .word FX_SinCosTable_
 _0208D12C: .word UNK_02106160
 _0208D130: .word 0x04000454
 _0208D134: .word 0x04000470
@@ -2648,7 +2648,7 @@ FUN_0208D140: ; 0x0208D140
 	ldr r0, [r5, #0x40]
 	ldrh r1, [r4, #0x20]
 	ldr r0, [r0, #0x20]
-	ldr r6, _0208D478 ; =UNK_020FFA38
+	ldr r6, _0208D478 ; =FX_SinCosTable_
 	ldr r0, [r0, #0x0]
 	mov r1, r1, asr #0x4
 	mov r2, r1, lsl #0x1
@@ -2834,7 +2834,7 @@ _0208D3E0:
 	bx lr
 	.balign 4
 _0208D474: .word 0x040004A4
-_0208D478: .word UNK_020FFA38
+_0208D478: .word FX_SinCosTable_
 _0208D47C: .word UNK_02106160
 _0208D480: .word 0x04000454
 _0208D484: .word 0x04000470
@@ -3854,7 +3854,7 @@ _0208E39C:
 	str r3, [sp, #0x8]
 	bl MTX_MultVec43
 	ldrh r0, [r6, #0x20]
-	ldr r2, _0208E69C ; =UNK_020FFA38
+	ldr r2, _0208E69C ; =FX_SinCosTable_
 	mov r9, #0x0
 	mov r0, r0, asr #0x4
 	mov r3, r0, lsl #0x1
@@ -3935,7 +3935,7 @@ _0208E4BC:
 	str r3, [sp, #0x8]
 	bl MTX_MultVec43
 	ldrh r0, [r6, #0x20]
-	ldr r2, _0208E69C ; =UNK_020FFA38
+	ldr r2, _0208E69C ; =FX_SinCosTable_
 	mov lr, #0x0
 	mov r0, r0, asr #0x4
 	mov r3, r0, lsl #0x1
@@ -4029,7 +4029,7 @@ _0208E620:
 	bx lr
 	.balign 4
 _0208E698: .word 0x040004A4
-_0208E69C: .word UNK_020FFA38
+_0208E69C: .word FX_SinCosTable_
 _0208E6A0: .word 0x04000454
 _0208E6A4: .word 0x04000470
 _0208E6A8: .word 0x04000480
@@ -4139,7 +4139,7 @@ _0208E7E0:
 	str r3, [sp, #0x8]
 	bl MTX_MultVec43
 	ldrh r0, [r8, #0x20]
-	ldr r2, _0208EAE8 ; =UNK_020FFA38
+	ldr r2, _0208EAE8 ; =FX_SinCosTable_
 	ldr r12, [sp, #0x0]
 	mov r0, r0, asr #0x4
 	mov r3, r0, lsl #0x1
@@ -4220,7 +4220,7 @@ _0208E90C:
 	str r3, [sp, #0x8]
 	bl MTX_MultVec43
 	ldrh r0, [r8, #0x20]
-	ldr r2, _0208EAE8 ; =UNK_020FFA38
+	ldr r2, _0208EAE8 ; =FX_SinCosTable_
 	mov r8, #0x0
 	mov r0, r0, asr #0x4
 	mov r3, r0, lsl #0x1
@@ -4313,7 +4313,7 @@ _0208EA70:
 	bx lr
 	.balign 4
 _0208EAE4: .word 0x040004A4
-_0208EAE8: .word UNK_020FFA38
+_0208EAE8: .word FX_SinCosTable_
 _0208EAEC: .word 0x04000454
 _0208EAF0: .word 0x04000470
 _0208EAF4: .word 0x04000480
@@ -4846,12 +4846,12 @@ _0208F294:
 	add r1, r1, #0x10000
 	mov r2, r0, lsl #0x1
 	str r1, [sp, #0x18]
-	ldr r0, _0208FD98 ; =UNK_020FFA38
+	ldr r0, _0208FD98 ; =FX_SinCosTable_
 	mov r1, r2, lsl #0x1
 	ldrsh r0, [r0, r1]
 	add r1, r2, #0x1
 	mov r2, r1, lsl #0x1
-	ldr r1, _0208FD98 ; =UNK_020FFA38
+	ldr r1, _0208FD98 ; =FX_SinCosTable_
 	ldrsh r3, [r1, r2]
 	ldr r2, [r9, #0x5c]
 	mov r1, #0x800
@@ -5562,7 +5562,7 @@ _0208FD88: .word 0x00000FFF
 _0208FD8C: .word UNK_021C8C5C
 _0208FD90: .word 0x5EEDF715
 _0208FD94: .word 0x1B0CB173
-_0208FD98: .word UNK_020FFA38
+_0208FD98: .word FX_SinCosTable_
 _0208FD9C: .word 0x00000003
 _0208FDA0: .word 0xAAAAAAAB
 _0208FDA4: .word 0x0000FFFF
@@ -6265,7 +6265,7 @@ FUN_02090780: ; 0x02090780
 	b _02090838
 _020907AC:
 	ldrh r1, [r0, #0x0]
-	ldr r3, _02090854 ; =UNK_020FFA38
+	ldr r3, _02090854 ; =FX_SinCosTable_
 	add r0, sp, #0x0
 	mov r1, r1, asr #0x4
 	mov r2, r1, lsl #0x1
@@ -6278,7 +6278,7 @@ _020907AC:
 	b _02090838
 _020907DC:
 	ldrh r1, [r0, #0x0]
-	ldr r3, _02090854 ; =UNK_020FFA38
+	ldr r3, _02090854 ; =FX_SinCosTable_
 	add r0, sp, #0x0
 	mov r1, r1, asr #0x4
 	mov r2, r1, lsl #0x1
@@ -6291,7 +6291,7 @@ _020907DC:
 	b _02090838
 _0209080C:
 	ldrh r1, [r0, #0x0]
-	ldr r3, _02090854 ; =UNK_020FFA38
+	ldr r3, _02090854 ; =FX_SinCosTable_
 	add r0, sp, #0x0
 	mov r1, r1, asr #0x4
 	mov r2, r1, lsl #0x1
@@ -6310,7 +6310,7 @@ _02090838:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_02090854: .word UNK_020FFA38
+_02090854: .word FX_SinCosTable_
 
 	arm_func_start FUN_02090858
 FUN_02090858: ; 0x02090858

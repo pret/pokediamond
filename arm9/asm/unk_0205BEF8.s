@@ -530,7 +530,7 @@ _0205C266:
 _0205C276:
 	cmp r5, #0x4
 	blt _0205C27E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205C27E:
 	add r0, r5, #0x1
 	lsr r2, r0, #0x1f

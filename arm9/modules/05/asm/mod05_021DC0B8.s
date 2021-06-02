@@ -68,7 +68,7 @@ MOD05_021DC124: ; 0x021DC124
 	add r4, r1, #0
 	cmp r0, #6
 	beq _021DC134
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC134:
 	ldr r2, [r5, #4]
 	cmp r2, r4
@@ -78,7 +78,7 @@ _021DC134:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC14A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC14A:
 	ldr r0, [r5]
 	mov r1, #0
@@ -86,7 +86,7 @@ _021DC14A:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC15C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC15C:
 	ldr r0, [r5]
 	mov r1, #3
@@ -94,7 +94,7 @@ _021DC15C:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC16E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC16E:
 	str r4, [r5, #4]
 _021DC170:
@@ -122,7 +122,7 @@ _021DC190:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
 	beq _021DC19A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC19A:
 	str r4, [r5, #8]
 	ldr r0, [r5, #4]
@@ -182,7 +182,7 @@ _021DC1F6:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC208
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC208:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -200,7 +200,7 @@ _021DC210:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC22E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC22E:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -213,7 +213,7 @@ _021DC236:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC248
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC248:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -236,7 +236,7 @@ _021DC264:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC276
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC276:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -288,7 +288,7 @@ _021DC2C4:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC2D6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC2D6:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -311,7 +311,7 @@ _021DC2F2:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC304
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC304:
 	ldr r0, [r4]
 	ldr r2, [r4, #8]
@@ -319,7 +319,7 @@ _021DC304:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC316
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC316:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -337,7 +337,7 @@ _021DC31E:
 	bl MOD05_021DC608
 	cmp r0, #0
 	bne _021DC33C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC33C:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -520,7 +520,7 @@ MOD05_021DC480: ; 0x021DC480
 	add r1, r5, #0
 	mov r2, #0
 	mov r3, #4
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r5, r0, #0
 	add r1, r4, #0
 	mov r2, #4
@@ -692,7 +692,7 @@ _021DC5A2:
 	bl NARC_dtor
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 _021DC5FE:
@@ -1220,7 +1220,7 @@ _021DC998:
 	str r2, [r1, r0]
 	ldr r1, [r4, #0xc]
 	add r0, r3, #4
-	ldr r6, _021DCA38 ; =UNK_021CEF70
+	ldr r6, _021DCA38 ; =NNS_G3dGlb + 0x258
 	add r5, r1, r0
 	ldmia r6!, {r0, r1}
 	stmia r5!, {r0, r1}
@@ -1271,7 +1271,7 @@ _021DCA30:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 _021DCA34: .word 0x00000F48
-_021DCA38: .word UNK_021CEF70
+_021DCA38: .word NNS_G3dGlb + 0x258
 _021DCA3C: .word 0x00000F58
 _021DCA40: .word 0x0400000C
 
@@ -1362,7 +1362,7 @@ _021DCAD2:
 	bl MOD05_021DC880
 	ldr r1, [r4, #0x10]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #0x1c]
@@ -1390,7 +1390,7 @@ _021DCB14:
 	cmp r1, #0
 	beq _021DCB2C
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r1, [r4, #0xc]
 	ldr r0, _021DCB64 ; =0x00000F58
 	mov r2, #0
@@ -1414,7 +1414,7 @@ _021DCB3E:
 _021DCB4C:
 	ldr r1, [r4, #0xc]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4, #0xc]
 _021DCB58:
@@ -1559,7 +1559,7 @@ _021DCC66:
 	bl MOD05_021DCD68
 	cmp r0, #0
 	bne _021DCC74
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCC74:
 	ldr r0, [r4, #0x18]
 	add r0, r0, #1
@@ -1897,7 +1897,7 @@ MOD05_021DCECC: ; 0x021DCECC
 	bl NARC_AllocAndReadWholeMember
 	add r1, sp, #0x14
 	str r0, [sp]
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, [sp, #0x14]
 	mov r0, #2
 	ldr r1, [r1, #0xc]
@@ -1934,7 +1934,7 @@ MOD05_021DCF14: ; 0x021DCF14
 	bl NARC_AllocAndReadWholeMember
 	add r1, sp, #0x14
 	str r0, [sp, #8]
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r3, [sp, #0x14]
 	mov r0, #0
 	str r0, [sp]
@@ -1981,11 +1981,11 @@ MOD05_021DCF68: ; 0x021DCF68
 	str r0, [sp, #0x14]
 	cmp r0, #0
 	bne _021DCFA0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCFA0:
 	ldr r0, [sp, #0x14]
 	add r1, sp, #0x18
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r3, [sp, #0x18]
 	mov r0, #0
 	str r0, [sp]
@@ -2043,15 +2043,15 @@ MOD05_021DD010: ; 0x021DD010
 	add r4, r1, #0
 	cmp r0, #0
 	beq _021DD020
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DD020:
 	cmp r4, #0
 	bgt _021DD028
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DD028:
 	cmp r4, #0x28
 	bls _021DD030
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DD030:
 	add r0, r5, #0
 	add r0, #0xc
@@ -2285,7 +2285,7 @@ MOD05_021DD180: ; 0x021DD180
 	ldr r0, [sp, #0xc]
 	lsl r1, r1, #0x12
 	bl FX_Div
-	ldr r3, _021DD2B0 ; =UNK_021CEF70
+	ldr r3, _021DD2B0 ; =NNS_G3dGlb + 0x258
 	str r0, [sp, #0xc]
 	ldmia r3!, {r0, r1}
 	add r2, sp, #0x14
@@ -2391,7 +2391,7 @@ _021DD2A4:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-_021DD2B0: .word UNK_021CEF70
+_021DD2B0: .word NNS_G3dGlb + 0x258
 _021DD2B4: .word 0x00000F4C
 _021DD2B8: .word 0xFFFFF000
 
@@ -10147,7 +10147,7 @@ MOD05_021E0FA4: ; 0x021E0FA4
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021E0FB6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E0FB6:
 	ldr r1, _021E0FCC ; =0x00000F5C
 	mov r0, #1

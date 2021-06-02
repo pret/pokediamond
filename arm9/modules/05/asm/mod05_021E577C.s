@@ -134,7 +134,7 @@ MOD05_021E585C: ; 0x021E585C
 	bl FUN_020582A8
 	cmp r0, #0
 	bne _021E5878
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E5878:
 	add r0, r5, #0
 	add r1, sp, #0
@@ -186,7 +186,7 @@ _021E58B2:
 	lsl r0, r0, #0xc
 	sub r0, r1, r0
 	str r0, [sp, #0x5c]
-	bl FUN_020B8344
+	bl NNS_G3dGlbGetInvV
 	mov r2, #0
 	add r5, r0, #0
 	add r0, sp, #0x24

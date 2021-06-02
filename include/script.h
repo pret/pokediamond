@@ -4,6 +4,8 @@
 #include "global.h"
 #include "msgdata.h"
 #include "save_block_2.h"
+#include "unk_02016B94.h"
+
 
 struct ScriptContext;
 
@@ -26,9 +28,10 @@ struct UnkStruct_02046444
 struct UnkSavStruct80
 {
     u8 padding[0x8];
-    u32 unk08;
+    struct UnkStruct_02016B94_2 *unk08;
     struct SaveBlock2 *saveBlock2; //0xC
-    u8 padding2[0xC];
+    struct UnkStruct_0204639C *unk10;
+    u8 padding2[0x8];
     u32 *mapId; //0x1C
     u8 padding3[0x18];
     u32 unk38;
@@ -36,7 +39,9 @@ struct UnkSavStruct80
     u32 unk60;
     u8 padding5[0x14];
     u32 unk78;
-    u8 padding6[0x2C];
+    u8 padding6[0x1C];
+    void *unk98;
+    u8 padding7[0xC];
     struct UnkStruct_02046444 * unkA8;
 };
 

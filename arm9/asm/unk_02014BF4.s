@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 
 	.section .rodata
 
@@ -116,7 +116,7 @@ FUN_02014C3C: ; 0x02014C3C
 	add r4, r0, #0x0
 	cmp r4, #0x19
 	blo _02014C48
-	bl ErrorHandling
+	bl GF_AssertFail
 _02014C48:
 	ldr r0, _02014C50 ; =UNK_020ED64C
 	ldrb r0, [r0, r4]
@@ -140,7 +140,7 @@ FUN_02014C54: ; 0x02014C54
 	str r2, [sp, #0x0]
 	cmp r0, r1
 	blo _02014C74
-	bl ErrorHandling
+	bl GF_AssertFail
 _02014C74:
 	ldr r0, [sp, #0x4]
 	mov r1, #0x1d
@@ -152,7 +152,7 @@ _02014C74:
 	ldr r0, [r0, #0x10]
 	cmp r0, #0x0
 	beq _02014C8C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02014C8C:
 	ldr r0, [r5, #0x0]
 	mov r2, #0x1d
@@ -280,7 +280,7 @@ FUN_02014D7C: ; 0x02014D7C
 	add r4, r1, #0x0
 	cmp r4, r0
 	blo _02014D8C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02014D8C:
 	mov r0, #0x1d
 	lsl r0, r0, #0x4
@@ -440,7 +440,7 @@ _02014EA0:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x22
 	blo _02014EB2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02014EB2:
 	ldr r1, [r5, #0xc]
 	add r0, r5, #0x0
@@ -472,7 +472,7 @@ _02014EE6:
 	lsl r0, r0, #0x8
 	cmp r1, r0
 	blt _02014EA0
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x1
 	str r0, [r5, #0x1c]
 _02014EF8:
@@ -489,7 +489,7 @@ FUN_02014F08: ; 0x02014F08
 	ldr r4, [r0, r1]
 	cmp r2, #0x1
 	beq _02014F16
-	bl ErrorHandling
+	bl GF_AssertFail
 _02014F16:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -546,7 +546,7 @@ _02014F68:
 	lsr r3, r1, #0x18
 	cmp r3, #0x4
 	blo _02014F3E
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	nop
@@ -589,7 +589,7 @@ FUN_02014FA8: ; 0x02014FA8
 	ldrb r0, [r4, #0x0]
 	cmp r0, #0x8
 	blo _02014FC4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02014FC4:
 	pop {r4, pc}
 	.balign 4
@@ -658,7 +658,7 @@ _0201501C:
 	str r0, [r6, #0x0]
 	pop {r3-r6, pc}
 _02015048:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x4
 	pop {r3-r6, pc}
 
@@ -700,7 +700,7 @@ _02015082:
 	str r0, [r4, #0x0]
 	b _020150A2
 _0201509E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020150A2:
 	add r0, sp, #0x0
 	ldrb r0, [r0, #0x0]
@@ -727,7 +727,7 @@ _020150B6:
 	str r0, [r6, #0x0]
 	pop {r3-r6, pc}
 _020150D4:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x4
 	pop {r3-r6, pc}
 
@@ -772,7 +772,7 @@ _02015112:
 	str r0, [r6, #0x0]
 	b _02015132
 _0201512E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015132:
 	add r0, r5, #0x0
 	add r1, sp, #0x0
@@ -800,7 +800,7 @@ _0201514C:
 	str r0, [sp, #0x4]
 	b _0201516C
 _02015168:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201516C:
 	ldr r0, [sp, #0x4]
 	add r0, r7, r0
@@ -1071,7 +1071,7 @@ _02015334:
 	str r0, [sp, #0x8]
 	b _02015362
 _0201535E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015362:
 	add r1, sp, #0x0
 	add r0, r5, #0x0
@@ -1081,7 +1081,7 @@ _02015362:
 	ldrb r0, [r0, #0x1]
 	cmp r0, #0x11
 	bls _02015378
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015378:
 	add r0, sp, #0xc
 	add r1, sp, #0x8
@@ -1119,7 +1119,7 @@ _020153A6:
 	str r0, [sp, #0x4]
 	b _020153CA
 _020153C6:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020153CA:
 	add r0, sp, #0x0
 	ldrb r1, [r0, #0x1]
@@ -1160,7 +1160,7 @@ FUN_02015404: ; 0x02015404
 	ldr r0, [r4, #0x50]
 	cmp r0, #0x0
 	beq _02015412
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015412:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #0x4
@@ -1269,7 +1269,7 @@ _020154C4:
 	str r0, [sp, #0x4]
 	b _020154E4
 _020154E0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020154E4:
 	add r0, r4, #0x0
 	add r1, sp, #0x0
@@ -1294,7 +1294,7 @@ _02015502:
 	add sp, #0xc
 	pop {r3-r4, pc}
 _02015514:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xc
 	pop {r3-r4, pc}
 
@@ -1311,7 +1311,7 @@ FUN_0201551C: ; 0x0201551C
 	ldr r2, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _0201554C ; =UNK_020FFA38
+	ldr r0, _0201554C ; =FX_SinCosTable_
 	ldrsh r0, [r0, r1]
 	mul r0, r2
 	asr r1, r0, #0xc
@@ -1323,7 +1323,7 @@ FUN_0201551C: ; 0x0201551C
 	add sp, #0xc
 	pop {r3-r4, pc}
 	nop
-_0201554C: .word UNK_020FFA38
+_0201554C: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02015550
 FUN_02015550: ; 0x02015550
@@ -1340,7 +1340,7 @@ FUN_02015550: ; 0x02015550
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015584 ; =UNK_020FFA38
+	ldr r1, _02015584 ; =FX_SinCosTable_
 	ldrsh r1, [r1, r2]
 	mul r1, r0
 	add r0, sp, #0x0
@@ -1352,7 +1352,7 @@ FUN_02015550: ; 0x02015550
 	add sp, #0xc
 	pop {r3-r4, pc}
 	nop
-_02015584: .word UNK_020FFA38
+_02015584: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02015588
 FUN_02015588: ; 0x02015588
@@ -1387,7 +1387,7 @@ _020155B4:
 	str r0, [r4, #0x64]
 	pop {r3-r4, pc}
 _020155C6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4
@@ -1429,7 +1429,7 @@ _02015600:
 	str r0, [r4, #0x64]
 	pop {r3-r4, pc}
 _02015616:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4
@@ -1486,7 +1486,7 @@ _0201566E:
 	add r4, #0x78
 	b _0201567C
 _02015678:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201567C:
 	add r1, sp, #0x0
 	add r0, r5, #0x0
@@ -1515,7 +1515,7 @@ _02015698:
 	str r0, [sp, #0x4]
 	b _020156B8
 _020156B4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020156B8:
 	add r0, r5, #0x0
 	add r1, sp, #0x0
@@ -1538,7 +1538,7 @@ _020156D0:
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
 _020156E0:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x8
 	pop {r3-r5, pc}
 
@@ -1626,7 +1626,7 @@ _02015778:
 _0201578A:
 	cmp r0, #0x1c
 	beq _02015792
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015792:
 	pop {r4, pc}
 	.balign 4
@@ -1673,7 +1673,7 @@ _020157D2:
 	str r0, [r4, #0x6c]
 	pop {r3-r4, pc}
 _020157E2:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4
@@ -1771,7 +1771,7 @@ _02015886:
 _02015890:
 	cmp r1, #0x0
 	bne _02015898
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015898:
 	pop {r4, pc}
 	nop
@@ -1842,7 +1842,7 @@ _020158F6:
 	str r0, [r3, #0x0]
 	pop {r3, pc}
 _02015904:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, pc}
 	.balign 4
 
@@ -1915,7 +1915,7 @@ _02015972:
 	str r0, [r1, #0x30]
 	pop {r3, pc}
 _02015984:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, pc}
 	.balign 4
 
@@ -2032,7 +2032,7 @@ _02015A5C: ; jump table (using 16-bit offset)
 _02015A64:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015AE8 ; =UNK_020FFA38
+	ldr r0, _02015AE8 ; =FX_SinCosTable_
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2045,7 +2045,7 @@ _02015A78:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015AE8 ; =UNK_020FFA38
+	ldr r1, _02015AE8 ; =FX_SinCosTable_
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2056,7 +2056,7 @@ _02015A78:
 _02015A90:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015AE8 ; =UNK_020FFA38
+	ldr r0, _02015AE8 ; =FX_SinCosTable_
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2070,7 +2070,7 @@ _02015AA6:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015AE8 ; =UNK_020FFA38
+	ldr r1, _02015AE8 ; =FX_SinCosTable_
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2080,7 +2080,7 @@ _02015AA6:
 	str r1, [r0, #0x0]
 	b _02015AC4
 _02015AC0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015AC4:
 	add r0, r4, #0x0
 	add r0, #0x2c
@@ -2101,7 +2101,7 @@ _02015AC4:
 _02015AE6:
 	pop {r4, pc}
 	.balign 4
-_02015AE8: .word UNK_020FFA38
+_02015AE8: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02015AEC
 FUN_02015AEC: ; 0x02015AEC
@@ -2135,7 +2135,7 @@ _02015B1A: ; jump table (using 16-bit offset)
 _02015B22:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015BA8 ; =UNK_020FFA38
+	ldr r0, _02015BA8 ; =FX_SinCosTable_
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2148,7 +2148,7 @@ _02015B36:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015BA8 ; =UNK_020FFA38
+	ldr r1, _02015BA8 ; =FX_SinCosTable_
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2159,7 +2159,7 @@ _02015B36:
 _02015B4E:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015BA8 ; =UNK_020FFA38
+	ldr r0, _02015BA8 ; =FX_SinCosTable_
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2173,7 +2173,7 @@ _02015B64:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015BA8 ; =UNK_020FFA38
+	ldr r1, _02015BA8 ; =FX_SinCosTable_
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2183,7 +2183,7 @@ _02015B64:
 	str r1, [r0, #0x0]
 	b _02015B82
 _02015B7E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015B82:
 	add r0, r4, #0x0
 	add r0, #0x2c
@@ -2204,7 +2204,7 @@ _02015B82:
 _02015BA4:
 	pop {r4, pc}
 	nop
-_02015BA8: .word UNK_020FFA38
+_02015BA8: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02015BAC
 FUN_02015BAC: ; 0x02015BAC
@@ -2340,7 +2340,7 @@ _02015C90:
 	str r0, [r4, #0x0]
 	b _02015CA4
 _02015CA0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02015CA4:
 	add r0, r4, #0x0
 	add r0, #0x2c

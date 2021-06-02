@@ -1255,7 +1255,7 @@ _02051836:
 	bl FUN_02019178
 	add r0, r5, #0x0
 	add r0, #0x14
-	bl FUN_0201901C
+	bl InitWindow
 _02051846:
 	add r0, r5, #0x0
 	add r0, #0x54
@@ -1267,7 +1267,7 @@ _02051846:
 	bl FUN_02019178
 	add r0, r5, #0x0
 	add r0, #0x54
-	bl FUN_0201901C
+	bl InitWindow
 _02051862:
 	add r0, r5, #0x0
 	add r0, #0x64
@@ -1279,7 +1279,7 @@ _02051862:
 	bl FUN_02019178
 	add r5, #0x64
 	add r0, r5, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 _0205187E:
 	pop {r3-r5, pc}
 
@@ -1325,15 +1325,15 @@ _0205188E:
 	str r0, [r4, #0x10]
 	add r0, r4, #0x0
 	add r0, #0x14
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r4, #0x0
 	add r0, #0x54
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r4, #0x0
 	add r0, #0x64
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0xb
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	str r0, [r4, #0x78]
 	bl FUN_02033534
 	add r1, r4, #0x0
@@ -1442,7 +1442,7 @@ _020519BA:
 	ldr r0, [r4, #0x10]
 	bl String_dtor
 	ldr r0, [r4, #0x78]
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 	add r0, r4, #0x0
 	mov r1, #0x1
 	bl FUN_02051810
@@ -1711,7 +1711,7 @@ FUN_02051B68: ; 0x02051B68
 	bl FUN_0200CB00
 	ldr r0, [sp, #0x20]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r7, #0x0
 	add r6, r7, #0x0
 	add r4, r7, #0x0
@@ -1769,14 +1769,14 @@ _02051C34:
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x20]
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r3, [sp, #0x14]
 	add r1, r5, #0x0
 	ldr r0, [r5, #0x78]
 	add r1, #0x54
 	mov r2, #0x0
 	lsl r3, r3, #0x4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	add r0, r5, #0x0
 	add r0, #0x54
 	mov r1, #0x0
@@ -1837,7 +1837,7 @@ FUN_02051C88: ; 0x02051C88
 	bl FUN_0200CB00
 	add r0, r7, #0x0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r6, #0x0
 	add r4, r6, #0x0
 _02051CE0:
@@ -1880,13 +1880,13 @@ _02051D0A:
 	str r0, [sp, #0x4]
 	add r0, r7, #0x0
 	add r3, r2, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r3, [sp, #0x14]
 	ldr r0, [r5, #0x78]
 	ldr r1, [r5, #0x7c]
 	mov r2, #0x0
 	lsl r3, r3, #0x4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	ldr r0, [r5, #0x7c]
 	mov r1, #0x0
 	mov r2, #0x1
@@ -1987,14 +1987,14 @@ _02051DE0:
 	lsr r1, r1, #0x10
 	str r1, [sp, #0x4]
 	mov r1, #0xf
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r3, #0x81
 	ldrsb r3, [r4, r3]
 	ldr r0, [r4, #0x78]
 	ldr r1, [r4, #0x7c]
 	mov r2, #0x0
 	lsl r3, r3, #0x4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	ldr r0, [r4, #0x7c]
 	bl FUN_02019548
 	mov r0, #0x0

@@ -1,8 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021064B8
-	.extern UNK_021064C0
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncAllocPlttVram
 
 	.section .rodata
 
@@ -217,14 +217,14 @@ _02086508: .word 0x04000580
 	thumb_func_start FUN_0208650C
 FUN_0208650C: ; 0x0208650C
 	push {r3-r5, lr}
-	ldr r3, _02086544 ; =UNK_021064B8
+	ldr r3, _02086544 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #0x2
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	lsl r0, r0, #0xe
 	add r2, r1, #0x0
 	blx r3
-	ldr r3, _02086548 ; =UNK_021064C0
+	ldr r3, _02086548 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x0
 	add r4, r0, #0x0
 	ldr r3, [r3, #0x0]
@@ -234,17 +234,17 @@ FUN_0208650C: ; 0x0208650C
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	bne _02086534
-	bl ErrorHandling
+	bl GF_AssertFail
 _02086534:
 	cmp r5, #0x0
 	bne _0208653C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0208653C:
 	bl FUN_02012CC8
 	pop {r3-r5, pc}
 	nop
-_02086544: .word UNK_021064B8
-_02086548: .word UNK_021064C0
+_02086544: .word NNS_GfdDefaultFuncAllocTexVram
+_02086548: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_0208654C
 FUN_0208654C: ; 0x0208654C
@@ -400,7 +400,7 @@ FUN_02086698: ; 0x02086698
 	cmp r0, #0x0
 	ble _020866AE
 	bl FUN_020222AC
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 _020866AE:
 	bl FUN_02013388
 	mov r0, #0x1
@@ -517,7 +517,7 @@ FUN_02086784: ; 0x02086784
 	add r0, r5, #0x0
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x28]
 	lsl r2, r4, #0x18
 	lsl r0, r0, #0x18
@@ -552,7 +552,7 @@ FUN_02086784: ; 0x02086784
 	bl FUN_0200D0BC
 	add r0, r5, #0x0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0x0
 	bl CopyWindowToVram
 	add sp, #0x14
@@ -567,7 +567,7 @@ FUN_020867EC: ; 0x020867EC
 	str r0, [sp, #0xc]
 	str r2, [sp, #0x10]
 	add r6, r3, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r2, _02086874 ; =0x0000013F
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -627,7 +627,7 @@ FUN_02086878: ; 0x02086878
 	add r6, r1, #0x0
 	str r2, [sp, #0x14]
 	add r4, r3, #0x0
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [sp, #0x3c]
 	ldr r3, [sp, #0x38]
 	lsl r0, r0, #0x18
@@ -658,7 +658,7 @@ FUN_02086878: ; 0x02086878
 	bl FUN_02019064
 	mov r0, #0x2
 	mov r1, #0x47
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x44]
 	ldr r2, _0208695C ; =0x0000013F
 	mov r0, #0x0
@@ -675,7 +675,7 @@ _020868DE:
 	ldr r0, [r5, #0x44]
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r6, #0x0
 	bl String_dtor
 	add r4, r4, #0x1
@@ -744,7 +744,7 @@ FUN_02086960: ; 0x02086960
 	mov r1, #0x0
 	bl FUN_02001C5C
 	ldr r0, [r4, #0x44]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	pop {r4, pc}
 
 	thumb_func_start FUN_0208698C
@@ -772,7 +772,7 @@ FUN_0208699C: ; 0x0208699C
 	mov r0, #0x76
 	add r2, r5, #0x0
 	mov r3, #0x3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -783,7 +783,7 @@ FUN_0208699C: ; 0x0208699C
 	mov r0, #0x76
 	add r2, r5, #0x0
 	mov r3, #0x3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	mov r0, #0x40
@@ -815,7 +815,7 @@ FUN_020869F0: ; 0x020869F0
 	mov r1, #0xa
 	add r2, r5, #0x0
 	mov r3, #0x4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -827,7 +827,7 @@ FUN_020869F0: ; 0x020869F0
 	mov r1, #0xb
 	add r2, r5, #0x0
 	mov r3, #0x4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r0, #0x20
@@ -845,7 +845,7 @@ FUN_020869F0: ; 0x020869F0
 	thumb_func_start FUN_02086A48
 FUN_02086A48: ; 0x02086A48
 	push {r4, lr}
-	ldr r3, _02086A60 ; =UNK_021064B8
+	ldr r3, _02086A60 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -855,12 +855,12 @@ FUN_02086A48: ; 0x02086A48
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02086A60: .word UNK_021064B8
+_02086A60: .word NNS_GfdDefaultFuncAllocTexVram
 
 	thumb_func_start FUN_02086A64
 FUN_02086A64: ; 0x02086A64
 	push {r4, lr}
-	ldr r3, _02086A7C ; =UNK_021064C0
+	ldr r3, _02086A7C ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -870,7 +870,7 @@ FUN_02086A64: ; 0x02086A64
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02086A7C: .word UNK_021064C0
+_02086A7C: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_02086A80
 FUN_02086A80: ; 0x02086A80
@@ -978,7 +978,7 @@ FUN_02086B40: ; 0x02086B40
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02086B54
-	bl ErrorHandling
+	bl GF_AssertFail
 _02086B54:
 	ldr r0, [r5, #0x0]
 	ldr r2, [r5, #0x4]
@@ -1403,7 +1403,7 @@ FUN_02086E48: ; 0x02086E48
 	bl FUN_0200BBF0
 	cmp r0, #0x0
 	bne _02086EB2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02086EB2:
 	ldr r0, [r4, #0x4c]
 	ldr r1, [r4, #0x48]
@@ -1411,7 +1411,7 @@ _02086EB2:
 	bl FUN_0200BF60
 	cmp r0, #0x0
 	bne _02086EC4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02086EC4:
 	add sp, #0x4c
 	pop {r3-r6, pc}

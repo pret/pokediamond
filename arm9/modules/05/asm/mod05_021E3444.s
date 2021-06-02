@@ -495,7 +495,7 @@ MOD05_021E37CC: ; 0x021E37CC
 	ldr r4, [sp, #0x20]
 	cmp r0, #0
 	beq _021E37E4
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E37E4:
 	mov r0, #0
 	str r0, [r6, #0x18]
@@ -587,7 +587,7 @@ MOD05_021E3888: ; 0x021E3888
 	bl MOD05_021E35AC
 	cmp r0, #0
 	beq _021E389E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E389E:
 	str r4, [r5, #0x18]
 	mov r0, #0
@@ -837,7 +837,7 @@ MOD05_021E3A70: ; 0x021E3A70
 	add r7, r3, #0
 	cmp r0, #0
 	beq _021E3A84
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E3A84:
 	mov r1, #0
 	str r1, [r5, #0x18]
@@ -1170,7 +1170,7 @@ MOD05_021E3D20: ; 0x021E3D20
 	str r0, [sp, #4]
 	mov r0, #0x70
 	add r2, r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1181,7 +1181,7 @@ MOD05_021E3D20: ; 0x021E3D20
 	add r1, r6, #0
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1192,7 +1192,7 @@ MOD05_021E3D20: ; 0x021E3D20
 	add r1, r5, #0
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 
@@ -1232,7 +1232,7 @@ MOD05_021E3DA0: ; 0x021E3DA0
 	bl MTX_Identity22_
 	add r0, sp, #8
 	ldrh r0, [r0, #0x14]
-	ldr r3, _021E3E0C ; =UNK_020FFA38
+	ldr r3, _021E3E0C ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1271,7 +1271,7 @@ MOD05_021E3DA0: ; 0x021E3DA0
 	bl FUN_0200CA98
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021E3E0C: .word UNK_020FFA38
+_021E3E0C: .word FX_SinCosTable_
 _021E3E10: .word MOD05_021E3D70
 
 	thumb_func_start MOD05_021E3E14
@@ -1464,7 +1464,7 @@ MOD05_021E3F68: ; 0x021E3F68
 	ldrh r1, [r1, #8]
 	add r2, sp, #4
 	add r3, r4, #0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0
 	add r0, sp, #0x20
 	ldrh r0, [r0, #0x10]
@@ -1508,7 +1508,7 @@ MOD05_021E3FC4: ; 0x021E3FC4
 	bl FUN_0201FF84
 	add r4, r0, #0
 	bne _021E3FF2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E3FF2:
 	add r0, r4, #0
 	add sp, #0x20
@@ -1549,7 +1549,7 @@ MOD05_021E4014: ; 0x021E4014
 	ldrh r1, [r1, #0xa]
 	mov r2, #0
 	add r3, sp, #0xc
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #4]
 	ldr r0, [sp, #0xc]
 	ldr r0, [r0, #0x14]
@@ -1652,7 +1652,7 @@ MOD05_021E40F0: ; 0x021E40F0
 	bl DC_FlushRange
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -1671,7 +1671,7 @@ MOD05_021E4118: ; 0x021E4118
 	bl DC_FlushRange
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -1709,7 +1709,7 @@ MOD05_021E4160: ; 0x021E4160
 	add r7, r3, #0
 	cmp r0, #0
 	beq _021E4176
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E4176:
 	ldr r3, [sp, #0x1c]
 	add r0, r5, #0
@@ -1827,7 +1827,7 @@ MOD05_021E4240: ; 0x021E4240
 	add r7, r3, #0
 	cmp r0, #0
 	beq _021E4256
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E4256:
 	ldr r3, [sp, #0x1c]
 	add r0, r5, #0
@@ -1989,7 +1989,7 @@ _021E4370:
 	ldrb r1, [r1, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _021E4390:
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -2286,7 +2286,7 @@ MOD05_021E45A0: ; 0x021E45A0
 	add r4, r1, #0
 	lsl r1, r0, #1
 	lsl r0, r1, #1
-	ldr r2, _021E4680 ; =UNK_020FFA38
+	ldr r2, _021E4680 ; =FX_SinCosTable_
 	add r1, r1, #1
 	lsl r1, r1, #1
 	ldrsh r0, [r2, r0]
@@ -2297,7 +2297,7 @@ MOD05_021E45A0: ; 0x021E45A0
 	asr r0, r4, #4
 	lsl r1, r0, #1
 	lsl r0, r1, #1
-	ldr r2, _021E4680 ; =UNK_020FFA38
+	ldr r2, _021E4680 ; =FX_SinCosTable_
 	add r1, r1, #1
 	lsl r1, r1, #1
 	ldrsh r0, [r2, r0]
@@ -2389,7 +2389,7 @@ _021E464C:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-_021E4680: .word UNK_020FFA38
+_021E4680: .word FX_SinCosTable_
 _021E4684: .word 0x00000000
 
 	thumb_func_start MOD05_021E4688
@@ -2569,7 +2569,7 @@ MOD05_021E47BC: ; 0x021E47BC
 	add r5, r3, #0
 	cmp r0, #0
 	beq _021E47D8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E47D8:
 	mov r1, #0
 	str r1, [r4, #0x18]
@@ -2787,7 +2787,7 @@ _021E4976:
 	mov r6, #0
 	b _021E4980
 _021E497A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r6, #0
 _021E4980:
 	ldr r0, [r5, #4]

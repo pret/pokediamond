@@ -726,7 +726,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r0, #0x59
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x34
@@ -734,7 +734,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r0, #0x59
 	mov r1, #3
 	mov r2, #4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x1a
 	mov r0, #0
 	lsl r1, r1, #4
@@ -762,7 +762,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r0, #0x59
 	mov r1, #2
 	add r2, r4, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -772,7 +772,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r0, #0x59
 	mov r1, #8
 	add r2, r4, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -783,7 +783,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r0, #0x59
 	mov r1, #4
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -794,7 +794,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r1, #0xa
 	add r2, r4, #0
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -805,7 +805,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r1, #0xb
 	add r2, r4, #0
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r5, #8]
 	bl Sav2_PlayerData_GetOptionsAddr
 	bl Options_GetFrame
@@ -865,7 +865,7 @@ MOD55_021D7C20: ; 0x021D7C20
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -1238,7 +1238,7 @@ _021D7F02:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r2, r5, #0
 	add r2, #0xc0
 	ldr r0, [r5, #0x10]
@@ -1305,7 +1305,7 @@ _021D7F86:
 	bl FUN_02019064
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r6, #2
 	bne _021D7FF4
 	ldr r0, [r5, #8]
@@ -2618,7 +2618,7 @@ _021D89AE:
 	add r7, r0, #0
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0xff
@@ -2723,7 +2723,7 @@ MOD55_021D8A7C: ; 0x021D8A7C
 	ldr r2, [r5, #4]
 	mov r0, #0x59
 	mov r1, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -2733,7 +2733,7 @@ MOD55_021D8A7C: ; 0x021D8A7C
 	ldr r2, [r5, #4]
 	mov r0, #0x59
 	mov r1, #8
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2744,7 +2744,7 @@ MOD55_021D8A7C: ; 0x021D8A7C
 	mov r0, #0x59
 	mov r1, #5
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2775,7 +2775,7 @@ _021D8AEE:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r2, r5, #0
 	add r2, #0xc0
 	ldr r0, [r5, #0x10]
@@ -2834,7 +2834,7 @@ _021D8B6C:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r2, r5, #0
 	add r2, #0xd0
 	ldr r0, [r5, #0x10]
@@ -2917,7 +2917,7 @@ _021D8C02:
 	bl FUN_02019064
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl FUN_02019220
 	add r6, r6, #1
@@ -3213,7 +3213,7 @@ MOD55_021D8E6C: ; 0x021D8E6C
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
 	mov r1, #0x34
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r4, _021D8FD0 ; =0x021DA3D8
 	str r0, [r5, #0x14]
 	mov r6, #0
@@ -3222,7 +3222,7 @@ _021D8EB6:
 	ldr r1, [r5, #0x10]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, #4
@@ -3241,7 +3241,7 @@ _021D8ECC:
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
 	mov r1, #0x34
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r4, _021D8FD8 ; =0x021DA438
 	str r0, [r5, #0x14]
 	mov r6, #0
@@ -3250,7 +3250,7 @@ _021D8EEE:
 	ldr r1, [r5, #0x10]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, #4
@@ -3306,7 +3306,7 @@ _021D8F1A:
 	add r0, sp, #0x1c
 	add r2, r1, #0
 	mov r3, #0x34
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0xea
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -3374,7 +3374,7 @@ _021D9002:
 	mov r0, #0xea
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r1, _021D90D0 ; =0x00000418
 	add r4, r0, #0
 	add r0, r1, #0
@@ -3382,7 +3382,7 @@ _021D9002:
 	ldrh r7, [r5, r1]
 	ldr r0, [r5, r0]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _021D90D0 ; =0x00000418
 	ldrh r0, [r5, r0]
 	cmp r7, r0
@@ -3458,9 +3458,9 @@ _021D9098:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r5, #0x14]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r6, #0
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -3573,7 +3573,7 @@ MOD55_021D9184: ; 0x021D9184
 	mov r0, #0x59
 	mov r1, #7
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3605,7 +3605,7 @@ _021D91D6:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #8]
 	bl Sav2_PlayerData_GetProfileAddr
 	add r2, r0, #0
@@ -3677,7 +3677,7 @@ _021D9278:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	mov r0, #0
 	eor r1, r4
@@ -3781,7 +3781,7 @@ _021D9338:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r1, r5, #0
 	add r1, #0xbc
 	mov r0, #0
@@ -4013,7 +4013,7 @@ _021D9570: .word MOD55_021DA314
 	thumb_func_start MOD55_021D9574
 MOD55_021D9574: ; 0x021D9574
 	push {r3, lr}
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	mov r0, #1
 	add r1, r0, #0
@@ -4110,7 +4110,7 @@ _021D9618:
 	mov r0, #0x59
 	mov r1, #2
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -4121,7 +4121,7 @@ _021D9618:
 	mov r0, #0x59
 	mov r1, #8
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -4132,7 +4132,7 @@ _021D9618:
 	mov r0, #0x59
 	mov r1, #6
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -4164,7 +4164,7 @@ _021D969A:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x34
 	bl PlayerProfile_new
 	str r0, [sp, #0x20]
@@ -4243,7 +4243,7 @@ _021D974E:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0xc]
 	ldr r2, [sp, #0x20]
 	mov r1, #0
@@ -4382,7 +4382,7 @@ _021D987C:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r2, r4, #0
 	add r2, #0xc4
 	ldr r0, [r4, #0x10]
@@ -4807,7 +4807,7 @@ MOD55_021D9C50: ; 0x021D9C50
 	add r4, r1, #0
 	bl G3X_ResetMtxStack
 	bl G3X_ResetMtxStack_2
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	add r0, r5, #0
 	add r0, #0xdc
 	ldr r0, [r0]
@@ -4862,7 +4862,7 @@ MOD55_021D9CC4: ; 0x021D9CC4
 	add r4, r1, #0
 	bl G3X_ResetMtxStack
 	bl G3X_ResetMtxStack_2
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	add r0, r5, #0
 	add r0, #0xdc
 	ldr r0, [r0]
@@ -4910,7 +4910,7 @@ _021D9D16:
 	mov r0, #0x59
 	mov r1, #0xa
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -4921,7 +4921,7 @@ _021D9D16:
 	mov r0, #0x59
 	mov r1, #0xb
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #3
 	str r0, [sp]
 	mov r1, #1
@@ -4961,7 +4961,7 @@ MOD55_021D9D88: ; 0x021D9D88
 	ldr r2, [r6, #4]
 	mov r0, #0x59
 	mov r1, #8
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -4972,7 +4972,7 @@ MOD55_021D9D88: ; 0x021D9D88
 	mov r0, #0x59
 	mov r1, #4
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r7, #0x29
 	mov r4, #0
 	add r5, r6, #0
@@ -5397,7 +5397,7 @@ _021DA0D0:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xce
 	lsl r0, r0, #2
 	ldr r2, _021DA158 ; =0x000001E2
@@ -5478,7 +5478,7 @@ _021DA17C:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xce
 	lsl r0, r0, #2
 	ldr r2, _021DA210 ; =0x000001E2

@@ -1788,7 +1788,7 @@ MOD18_0223A3D4: ; 0x0223A3D4
 	mov r0, #0x34
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -1798,7 +1798,7 @@ MOD18_0223A3D4: ; 0x0223A3D4
 	mov r0, #0x34
 	add r2, r4, #0
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -1809,7 +1809,7 @@ MOD18_0223A3D4: ; 0x0223A3D4
 	mov r0, #0x34
 	mov r1, #2
 	add r2, r4, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r3, #0x80
 	str r3, [sp]
 	mov r0, #0x1d
@@ -1818,7 +1818,7 @@ MOD18_0223A3D4: ; 0x0223A3D4
 	mov r1, #0x34
 	mov r2, #0
 	add r3, #0xc0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add r0, r4, #0
 	add r1, r6, #0
 	add r2, r5, #0
@@ -1861,7 +1861,7 @@ MOD18_0223A4D8: ; 0x0223A4D8
 	mov r1, #9
 	ldr r2, [r2, #4]
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	ldr r0, _0223A55C ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0, #4]
@@ -2500,7 +2500,7 @@ _0223AA5C:
 	mov r1, #0x34
 	mov r2, #0
 	add r3, #0xc0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #4
@@ -2808,7 +2808,7 @@ _0223AD00:
 	add r5, #0xc
 	cmp r1, #8
 	blt _0223ACB6
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3116,7 +3116,7 @@ _0223AF18:
 	cmp r4, #0x55
 	blo _0223AF04
 _0223AF20:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3495,7 +3495,7 @@ _0223B1FC:
 	mov r0, #0x37
 	mov r2, #0
 	lsl r3, r3, #5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	b _0223B248
 _0223B218:
 	ldr r5, [sp, #0x18]
@@ -3505,7 +3505,7 @@ _0223B218:
 	mov r0, #0x37
 	add r2, r5, r4
 	mov r3, #0x1d
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	ldr r1, [sp, #0x18]
 	add r1, r1, r4
 	str r0, [r1, #0x18]
@@ -3533,7 +3533,7 @@ _0223B248:
 	ldrh r1, [r1, #0x10]
 	mov r0, #0x37
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x30]
 	str r0, [sp, #0x24]
@@ -5780,7 +5780,7 @@ MOD18_0223C37C: ; 0x0223C37C
 	ldr r1, [r0]
 	ldr r0, _0223C56C ; =0x000009EB
 	strb r2, [r1, r0]
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7c
@@ -6327,7 +6327,7 @@ MOD18_0223C7D4: ; 0x0223C7D4
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223C7E6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C7E6:
 	ldr r0, _0223C834 ; =0x02251380
 	ldr r1, [r0]
@@ -6335,7 +6335,7 @@ _0223C7E6:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223C7F6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C7F6:
 	mov r1, #0x5e
 	mov r0, #0xb
@@ -7102,7 +7102,7 @@ MOD18_0223CD74: ; 0x0223CD74
 	add r4, r0, #0
 	cmp r4, #0x64
 	blt _0223CD9E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CD9E:
 	mov r5, #0x63
 	cmp r4, #0x63
@@ -7552,7 +7552,7 @@ _0223D106:
 	mvn r0, r0
 	cmp r1, r0
 	bne _0223D112
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D112:
 	cmp r4, #0x63
 	bge _0223D132
@@ -7602,7 +7602,7 @@ MOD18_0223D14C: ; 0x0223D14C
 	bl MOD18_0223CE14
 	add r5, r0, #0
 	bne _0223D178
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D178:
 	add r0, r4, #0
 	add r1, r5, #0
@@ -7830,7 +7830,7 @@ MOD18_0223D30C: ; 0x0223D30C
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223D31E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D31E:
 	ldr r0, _0223D364 ; =0x02251384
 	ldr r1, [r0]
@@ -7839,7 +7839,7 @@ _0223D31E:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0223D330
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D330:
 	mov r0, #0xb
 	mov r1, #4
@@ -8073,7 +8073,7 @@ MOD18_0223D414: ; 0x0223D414
 	mov r1, #0x34
 	mov r2, #0
 	add r3, #0xc0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #4
@@ -10255,7 +10255,7 @@ _0223E5DE:
 	add r2, #8
 	cmp r6, #0x14
 	blt _0223E5BC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E5EA:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -10464,7 +10464,7 @@ _0223E746:
 	ldr r0, [r1, r0]
 	cmp r0, #0x64
 	ble _0223E764
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223E764:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
@@ -12184,7 +12184,7 @@ MOD18_0223F428: ; 0x0223F428
 	bne _0223F49E
 	cmp r4, #0x60
 	beq _0223F456
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223F456:
 	mov r0, #0
 	add r4, r0, #0
@@ -12402,7 +12402,7 @@ MOD18_0223F5CC: ; 0x0223F5CC
 	lsr r0, r0, #0x1c
 	cmp r0, #8
 	blo _0223F5DE
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223F5DE:
 	ldrb r3, [r4, #7]
 	lsl r0, r3, #0x19
@@ -12543,7 +12543,7 @@ _0223F714:
 	add r1, r1, #6
 	cmp r3, #0xc0
 	blt _0223F706
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	.align 2, 0
@@ -14057,7 +14057,7 @@ MOD18_02240210: ; 0x02240210
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0224023E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224023E:
 	ldr r0, _02240268 ; =0x022513A0
 	mov r2, #0x64
@@ -14679,7 +14679,7 @@ _022406A4:
 	mov r0, #0x32
 	mov r1, #9
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	ldr r0, [r4]
 	add sp, #0x1c
 	add r0, r0, #1
@@ -14694,7 +14694,7 @@ _022406D8:
 	mov r0, #0x32
 	mov r1, #0xa
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r0, [r4]
 	add sp, #0x1c
 	add r0, r0, #1
@@ -14725,7 +14725,7 @@ _022406F6:
 	mov r0, #0x32
 	mov r1, #8
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	b _02240774
 _0224072E:
 	ldr r1, _0224088C ; =0x022500A8
@@ -14760,7 +14760,7 @@ _0224072E:
 	ldr r2, [r4, #0x10]
 	mov r0, #0x32
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 _02240774:
 	mov r0, #0
 	mov r1, #3
@@ -17178,7 +17178,7 @@ _02241A30:
 	lsl r2, r2, #0xa
 	asr r0, r0, #4
 	lsl r6, r0, #1
-	ldr r0, _02241AAC ; =UNK_020FFA38
+	ldr r0, _02241AAC ; =FX_SinCosTable_
 	lsl r1, r6, #1
 	ldrsh r0, [r0, r1]
 	mov r3, #0
@@ -17194,7 +17194,7 @@ _02241A30:
 	orr r4, r0
 	add r0, r6, #1
 	lsl r1, r0, #1
-	ldr r0, _02241AAC ; =UNK_020FFA38
+	ldr r0, _02241AAC ; =FX_SinCosTable_
 	mov r2, #0xa
 	ldrsh r0, [r0, r1]
 	lsl r2, r2, #0xa
@@ -17233,7 +17233,7 @@ _02241AA8:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_02241AAC: .word UNK_020FFA38
+_02241AAC: .word FX_SinCosTable_
 _02241AB0: .word MOD18_022513A0
 	thumb_func_end MOD18_02241A04
 
@@ -17478,7 +17478,7 @@ _02241C70:
 	ldr r2, [sp]
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _02241D34 ; =UNK_020FFA38
+	ldr r0, _02241D34 ; =FX_SinCosTable_
 	asr r3, r2, #0x1f
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -17504,7 +17504,7 @@ _02241C70:
 	lsl r0, r0, #1
 	add r0, r0, #1
 	lsl r1, r0, #1
-	ldr r0, _02241D34 ; =UNK_020FFA38
+	ldr r0, _02241D34 ; =FX_SinCosTable_
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
 	bl _ll_mul
@@ -17561,7 +17561,7 @@ _02241D24: .word MOD18_02241AB4
 _02241D28: .word MOD18_022513A0
 _02241D2C: .word 0x00000B3B
 _02241D30: .word 0x00000000
-_02241D34: .word UNK_020FFA38
+_02241D34: .word FX_SinCosTable_
 	thumb_func_end MOD18_02241AD0
 
 	thumb_func_start MOD18_02241D38
@@ -18343,7 +18343,7 @@ MOD18_02242320: ; 0x02242320
 	ldrh r0, [r2, r1]
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _022423AC ; =UNK_020FFA38
+	ldr r0, _022423AC ; =FX_SinCosTable_
 	ldrsh r1, [r0, r1]
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -18373,7 +18373,7 @@ _022423A4:
 	pop {r4, r5, pc}
 	.align 2, 0
 _022423A8: .word MOD18_022513A0
-_022423AC: .word UNK_020FFA38
+_022423AC: .word FX_SinCosTable_
 	thumb_func_end MOD18_02242320
 
 	thumb_func_start MOD18_022423B0
@@ -18529,7 +18529,7 @@ _022424D4:
 	ldrh r0, [r4, #0x1c]
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _02242594 ; =UNK_020FFA38
+	ldr r0, _02242594 ; =FX_SinCosTable_
 	ldrsh r1, [r0, r1]
 	ldr r0, [r5, #0x48]
 	sub r0, r0, r1
@@ -18538,7 +18538,7 @@ _022424D4:
 	ldr r0, [r5, #0x44]
 	asr r1, r1, #4
 	lsl r2, r1, #2
-	ldr r1, _02242594 ; =UNK_020FFA38
+	ldr r1, _02242594 ; =FX_SinCosTable_
 	add r2, r1, r2
 	mov r1, #2
 	ldrsh r1, [r2, r1]
@@ -18616,7 +18616,7 @@ _02242584: .word 0x00000000
 _02242588: .word MOD18_022500C0
 _0224258C: .word 0x00000626
 _02242590: .word MOD18_022513A0
-_02242594: .word UNK_020FFA38
+_02242594: .word FX_SinCosTable_
 _02242598: .word 0x0000FFFF
 	thumb_func_end MOD18_022423B0
 
@@ -21387,7 +21387,7 @@ _02243B16:
 	str r0, [sp, #0x24]
 	add r0, sp, #0x1c
 	add r1, sp, #0x18
-	bl FUN_020BB408
+	bl NNS_G3dWorldPosToScrPos
 	ldr r0, [sp, #0x18]
 	lsl r0, r0, #0xc
 	str r0, [sp, #0x1c]
@@ -22033,18 +22033,18 @@ MOD18_02244028: ; 0x02244028
 	ldr r1, [sp, #0x30]
 	strb r1, [r0, #0x1e]
 	ldr r0, [sp, #8]
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	ldr r1, [sp, #0xc]
 	str r0, [r1, #0x10]
 	ldr r1, _022440C0 ; =0x0008090F
-	bl FUN_020136E0
+	bl ListMenuCursorSetColor
 	ldr r1, [sp, #8]
 	ldr r0, [sp, #0xc]
 	strb r1, [r0, #0x1d]
 	ldr r1, [sp, #0xc]
 	ldrh r0, [r5, #0x10]
 	ldrb r1, [r1, #0x1d]
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	add r7, r0, #0
 	ldrh r0, [r5, #0x10]
 	mov r6, #0
@@ -22055,7 +22055,7 @@ _02244084:
 	ldr r1, [r5]
 	add r0, r7, #0
 	add r1, r1, r4
-	bl ListMenu_CopyItem
+	bl ListMenuItems_CopyItem
 	ldrh r0, [r5, #0x10]
 	add r6, r6, #1
 	add r4, #8
@@ -22075,7 +22075,7 @@ _0224409E:
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
 	add r0, r5, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	ldr r1, [sp, #0xc]
 	str r0, [r1, #0xc]
 	add r0, r1, #0
@@ -22099,7 +22099,7 @@ MOD18_022440C4: ; 0x022440C4
 	lsr r6, r0, #0x10
 	ldr r0, [r4, #0xc]
 	mov r1, #3
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	ldrh r0, [r4, #0x18]
@@ -22118,29 +22118,29 @@ _022440F0:
 	bhi _0224413A
 	ldr r0, [r4, #0xc]
 	mov r1, #7
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	str r0, [sp]
 	ldr r0, [r4, #0xc]
 	mov r1, #9
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
 	ldr r0, [r4, #0xc]
 	mov r1, #8
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	str r0, [sp, #4]
 	sub r0, r6, r5
 	add r5, r7, #0
 	mul r5, r0
 	ldr r0, [r4, #0xc]
 	mov r1, #0x12
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	ldr r3, [sp, #4]
 	add r1, r0, #0
 	ldr r0, [r4, #0x10]
 	ldr r2, [sp]
 	add r3, r5, r3
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 _0224413A:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -22159,13 +22159,13 @@ MOD18_02244140: ; 0x02244140
 	beq _0224418A
 	ldr r0, [sp, #4]
 	mov r1, #2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r7, r0, #0
 	add r1, sp, #0xc
 	ldr r0, [sp, #4]
 	add r1, #2
 	add r2, sp, #0xc
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldrb r0, [r5, #0x1c]
 	cmp r0, #0
 	bne _0224416E
@@ -22216,7 +22216,7 @@ _022441BA:
 	blx r3
 	ldrb r1, [r5, #0x1d]
 	add r0, r7, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r4, #0
 	add r6, r4, #0
 	str r0, [sp]
@@ -22234,7 +22234,7 @@ _022441DE:
 	lsl r1, r4, #3
 	ldr r0, [sp]
 	add r1, r2, r1
-	bl ListMenu_CopyItem
+	bl ListMenuItems_CopyItem
 _022441EA:
 	add r0, sp, #0xc
 	ldrh r1, [r0, #2]
@@ -22250,7 +22250,7 @@ _022441EA:
 	add r1, r2, r1
 	lsl r1, r1, #3
 	add r1, r3, r1
-	bl ListMenu_CopyItem
+	bl ListMenuItems_CopyItem
 _0224420A:
 	add r6, r6, #1
 	cmp r6, r7
@@ -22312,11 +22312,11 @@ _02244268:
 	ldr r1, [sp]
 	str r0, [r5, #8]
 	ldr r0, [sp, #4]
-	bl FUN_02001658
+	bl ListMenuGetItemStr
 	mov r0, #0
 	strb r0, [r5, #0x1c]
 	ldr r0, [sp, #4]
-	bl FUN_02001328
+	bl RedrawListMenu
 	mov r0, #0
 	add sp, #0x10
 	mvn r0, r0
@@ -22355,13 +22355,13 @@ _022442B2:
 	pop {r3, r4, r5, r6, r7, pc}
 _022442CA:
 	ldr r0, [sp, #4]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r1, r5, #0
 	ldr r0, [sp, #4]
 	add r1, #0x20
 	ldrh r6, [r5, #0x20]
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldrh r0, [r5, #0x20]
 	cmp r6, r0
 	beq _022442EA
@@ -22397,12 +22397,12 @@ MOD18_02244318: ; 0x02244318
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02244334
 	ldr r0, [r4, #0x10]
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 	ldr r0, [r4, #8]
 	bl FreeToHeap
 _02244334:
@@ -23148,7 +23148,7 @@ MOD18_0224486C: ; 0x0224486C
 	mov r0, #0x1c
 	add r3, r1, #0
 	str r2, [sp, #4]
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0
 	mov r0, #5
 	str r1, [sp]
@@ -23160,7 +23160,7 @@ MOD18_0224486C: ; 0x0224486C
 	mov r1, #1
 	add r2, r5, #0
 	str r3, [sp, #0xc]
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	mov r0, #6
 	str r1, [sp]
@@ -23172,7 +23172,7 @@ MOD18_0224486C: ; 0x0224486C
 	mov r1, #2
 	add r2, r5, #0
 	str r3, [sp, #0xc]
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #4
 	mov r1, #0
 	bl FUN_02054590
@@ -23187,7 +23187,7 @@ MOD18_0224486C: ; 0x0224486C
 	bl FUN_020545B8
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0x80
 	str r3, [sp]
 	mov r2, #4
@@ -23195,7 +23195,7 @@ MOD18_0224486C: ; 0x0224486C
 	mov r1, #0x34
 	add r3, #0xc0
 	str r2, [sp, #4]
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #1
 	bl FUN_0200E394
 	add sp, #0x64
@@ -23388,7 +23388,7 @@ _02244AF8:
 	ldr r0, [sp, #0xc]
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	ldr r0, [sp, #0xc]
 	bl CopyWindowToVram
 	ldr r0, [r5]
@@ -23521,7 +23521,7 @@ _02244BEC:
 _02244BFA:
 	cmp r4, #2
 	blt _02244C02
-	bl ErrorHandling
+	bl GF_AssertFail
 _02244C02:
 	cmp r4, #0
 	bne _02244C14
@@ -23720,7 +23720,7 @@ MOD18_02244D40: ; 0x02244D40
 	add r5, r0, #0
 	cmp r4, #8
 	blt _02244D4E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02244D4E:
 	mov r0, #0xc
 	add r5, #0x18
@@ -23978,7 +23978,7 @@ _02244EE0:
 	bl FUN_0202595C
 	cmp r0, #0x94
 	beq _02244EEC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02244EEC:
 	ldr r0, _02245000 ; =0x022513EC
 	ldr r2, _02245004 ; =0x000013E8
@@ -24736,7 +24736,7 @@ MOD18_022454BC: ; 0x022454BC
 	bl FUN_02031190
 	cmp r0, #0
 	beq _022454D4
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, pc}
 _022454D4:
 	ldrb r0, [r4, #1]
@@ -25463,7 +25463,7 @@ MOD18_02245A50: ; 0x02245A50
 	ldr r0, [r0]
 	cmp r0, #2
 	beq _02245A9A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02245A9A:
 	mov r0, #2
 	str r0, [r4, #0x14]
@@ -25548,21 +25548,21 @@ MOD18_02245B1C: ; 0x02245B1C
 	add r5, r0, #0
 	ldr r1, [sp, #0x30]
 	mov r0, #2
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	add r4, r0, #0
 	add r1, r5, #0
 	mov r2, #0x26
 	mov r3, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r4, #0
 	add r1, r5, #0
 	mov r2, #0x27
 	mov r3, #1
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, [sp, #0x30]
 	mov r1, #1
 	str r4, [sp, #0x10]
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r1, r0, #0
 	str r1, [sp, #0x14]
 	mov r0, #0
@@ -26171,7 +26171,7 @@ _02246020:
 	ldrb r5, [r6]
 	cmp r5, #0x11
 	blt _02246034
-	bl ErrorHandling
+	bl GF_AssertFail
 _02246034:
 	ldr r0, _022460EC ; =0x022513EC
 	mov r2, #0x96
@@ -26973,7 +26973,7 @@ _02246668:
 	mov r1, #0x34
 	mov r2, #0
 	add r3, #0xc0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #4
@@ -29117,7 +29117,7 @@ _02247774:
 	cmp r4, #0
 	bne _022477A6
 _022477A2:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022477A6:
 	add r0, r7, #0
 	bl FUN_02059BF4
@@ -29532,7 +29532,7 @@ MOD18_02247AA8: ; 0x02247AA8
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -29569,7 +29569,7 @@ _02247AFA:
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
 	add r1, r7, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, #4
@@ -29593,7 +29593,7 @@ _02247AFA:
 	strh r1, [r5, #0x3a]
 	add r0, sp, #0x14
 	add r2, r1, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
@@ -29658,7 +29658,7 @@ MOD18_02247BB8: ; 0x02247BB8
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -29714,7 +29714,7 @@ _02247C2C:
 	ldr r0, [r5, #0x1c]
 	add r1, r6, #0
 	add r3, r2, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _02247C40
 _02247C3E:
 	sub r4, r4, #1
@@ -29745,7 +29745,7 @@ _02247C40:
 	strh r1, [r5, #0x3a]
 	add r2, r1, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
@@ -29766,7 +29766,7 @@ MOD18_02247C98: ; 0x02247C98
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0x20]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD18_02248FEC
@@ -29831,7 +29831,7 @@ MOD18_02247D1C: ; 0x02247D1C
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -29871,7 +29871,7 @@ _02247D6C:
 	lsl r2, r2, #2
 	add r2, r4, r2
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	cmp r4, #4
 	blt _02247D6C
@@ -29898,7 +29898,7 @@ _02247D6C:
 	strh r1, [r5, #0x3a]
 	add r2, r1, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x20]
 	add r5, #0xc
 	add r0, r5, #0
@@ -29919,7 +29919,7 @@ MOD18_02247DD8: ; 0x02247DD8
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0x20]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD18_02248FEC
@@ -30102,7 +30102,7 @@ MOD18_02247F5C: ; 0x02247F5C
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0x20]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD18_02248FEC
@@ -30159,7 +30159,7 @@ MOD18_02247FC0: ; 0x02247FC0
 	mov r1, #0
 	ldr r0, [r4, #0x20]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #0xc
 	bl FUN_02019570
@@ -30167,7 +30167,7 @@ MOD18_02247FC0: ; 0x02247FC0
 	add r0, #0xc
 	bl FUN_02019178
 	ldr r0, [r4, #0x1c]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0
 	str r0, [r4, #0x1c]
 _02247FF8:
@@ -31135,7 +31135,7 @@ MOD18_02248784: ; 0x02248784
 	mov r1, #0
 	ldr r0, [r4, #0x1c]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #8
 	bl FUN_02019570
@@ -31143,7 +31143,7 @@ MOD18_02248784: ; 0x02248784
 	add r0, #8
 	bl FUN_02019178
 	ldr r0, [r4, #0x18]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0
 	str r0, [r4, #0x18]
 _022487BC:
@@ -31202,7 +31202,7 @@ MOD18_02248820: ; 0x02248820
 	add r5, r0, #0
 	mov r0, #5
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x18]
 	mov r3, #1
 	add r1, r5, #0
@@ -31242,7 +31242,7 @@ _02248870:
 	lsl r2, r2, #2
 	add r2, r4, r2
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	cmp r4, #4
 	blt _02248870
@@ -31250,7 +31250,7 @@ _02248870:
 	add r1, r6, #0
 	mov r2, #0x30
 	mov r3, #0x33
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r4, _022488EC ; =0x02250528
@@ -31278,7 +31278,7 @@ _02248870:
 	strh r1, [r5, #0x36]
 	add r2, r1, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x1c]
 	add r5, #8
 	add r0, r5, #0
@@ -31298,13 +31298,13 @@ MOD18_022488F0: ; 0x022488F0
 	add r5, r1, #0
 	add r7, r0, #0
 	ldr r0, [r5, #0x1c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r1, r5, #0
 	ldr r0, [r5, #0x1c]
 	add r1, #0x36
 	ldrh r6, [r5, #0x36]
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldrh r0, [r5, #0x36]
 	cmp r6, r0
 	beq _02248916
@@ -31922,7 +31922,7 @@ MOD18_02248DF8: ; 0x02248DF8
 	add r6, r2, #0
 	cmp r0, #0
 	beq _02248E0C
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 _02248E0C:
 	mov r0, #0x21
@@ -32001,7 +32001,7 @@ MOD18_02248E84: ; 0x02248E84
 	beq _02248EAE
 	cmp r5, #2
 	beq _02248EA4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02248EA4:
 	ldr r0, _02248EB0 ; =0x022513F0
 	ldrb r1, [r4, #1]
@@ -32029,13 +32029,13 @@ MOD18_02248EB4: ; 0x02248EB4
 	beq _02248EEA
 	cmp r5, #2
 	beq _02248ED4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02248ED4:
 	ldr r0, _02248EEC ; =0x022513F0
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _02248EE0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02248EE0:
 	ldr r0, _02248EEC ; =0x022513F0
 	ldrb r1, [r4, #1]
@@ -32078,7 +32078,7 @@ MOD18_02248F00: ; 0x02248F00
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _02248F1E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02248F1E:
 	add r0, r4, #0
 	add r0, #0x34
@@ -32213,7 +32213,7 @@ MOD18_02248FEC: ; 0x02248FEC
 	ldr r0, [r5, #0x20]
 	add r1, #0x3a
 	ldrh r4, [r5, #0x3a]
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldrh r0, [r5, #0x3a]
 	cmp r4, r0
 	beq _02249008
@@ -32703,7 +32703,7 @@ MOD18_022493A4: ; 0x022493A4
 	ldrb r1, [r1, #5]
 	cmp r1, r0
 	beq _022493B4
-	bl ErrorHandling
+	bl GF_AssertFail
 _022493B4:
 	ldr r0, _022493C4 ; =0x022513F8
 	ldr r1, [r0]
@@ -32796,7 +32796,7 @@ MOD18_02249450: ; 0x02249450
 	add r4, r1, #0
 	cmp r5, #0xb
 	blt _0224945E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224945E:
 	cmp r5, #6
 	blt _02249464
@@ -32823,7 +32823,7 @@ MOD18_02249480: ; 0x02249480
 	add r4, r0, #0
 	cmp r4, #0x3c
 	blt _0224948C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224948C:
 	ldr r0, _0224949C ; =0x022513F8
 	add r1, r4, #0
@@ -32943,7 +32943,7 @@ MOD18_02249564: ; 0x02249564
 	bl MOD18_02249544
 	mov r0, #7
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r0, #1
 	str r0, [sp]
@@ -32985,7 +32985,7 @@ _022495BA:
 	ldr r0, [r5, #0x40]
 	ldr r2, [r4, #4]
 	add r1, r7, #0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r7, #0
 	bl String_dtor
 	b _022495EE
@@ -32994,7 +32994,7 @@ _022495E2:
 	ldr r1, [sp, #0x14]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 _022495EE:
 	add r6, r6, #1
 	add r4, #8
@@ -33377,7 +33377,7 @@ _02249902:
 	beq _02249916
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0
 	str r0, [r4, #0x48]
 	b _02249936
@@ -33413,7 +33413,7 @@ _02249936:
 	add r0, #0x10
 	bl FUN_02019178
 	ldr r0, [r4, #0x40]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r4, #0
 	bl MOD18_0224CBAC
 _02249968:
@@ -33456,7 +33456,7 @@ _02249998:
 _022499A2:
 	add r0, r6, #0
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x44]
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
@@ -33498,7 +33498,7 @@ _022499FA:
 	ldr r1, [sp, #0x14]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r7, r7, #1
 	add r4, #8
 	cmp r7, r6
@@ -33530,7 +33530,7 @@ _02249A0E:
 	add r2, r1, #0
 	mov r3, #4
 	str r5, [sp, #0x3c]
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x50]
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
@@ -33552,14 +33552,14 @@ MOD18_02249A64: ; 0x02249A64
 	beq _02249A8C
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r1, r4, #0
 	add r1, #0x24
 	ldrb r1, [r1]
 	ldr r0, [r4, #0x20]
 	bl FUN_0201AC68
 	ldr r0, [r4, #0x44]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0
 	str r0, [r4, #0x50]
 _02249A8C:
@@ -33623,7 +33623,7 @@ MOD18_02249AF4: ; 0x02249AF4
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r2, #0x81
 	add r1, r0, #0
 	lsl r2, r2, #2
@@ -33727,10 +33727,10 @@ MOD18_02249BA8: ; 0x02249BA8
 	bl MOD18_0223D678
 	ldr r1, _02249CB0 ; =0x0000023B
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -33767,7 +33767,7 @@ _02249C18:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	cmp r4, r6
 	blt _02249C18
@@ -33777,7 +33777,7 @@ _02249C30:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	sub r3, #0x24
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r3, _02249CBC ; =0x02250598
 	add r2, sp, #0x1c
 	ldmia r3!, {r0, r1}
@@ -33853,7 +33853,7 @@ MOD18_02249CC8: ; 0x02249CC8
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -33862,7 +33862,7 @@ MOD18_02249CC8: ; 0x02249CC8
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -33957,14 +33957,14 @@ MOD18_02249DB8: ; 0x02249DB8
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x50]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0x93
 	add r4, r0, #0
 	lsl r1, r1, #2
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, #0x50]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0x93
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -34060,7 +34060,7 @@ MOD18_02249E98: ; 0x02249E98
 	ldrb r1, [r1, #5]
 	cmp r1, r0
 	beq _02249EA8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02249EA8:
 	ldr r0, _02249EB8 ; =0x022513F8
 	ldr r1, [r0]
@@ -34077,7 +34077,7 @@ MOD18_02249EBC: ; 0x02249EBC
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r2, #0x81
 	add r1, r0, #0
 	lsl r2, r2, #2
@@ -34194,10 +34194,10 @@ MOD18_02249F8C: ; 0x02249F8C
 	bl MOD18_0223D678
 	ldr r1, _0224A0D4 ; =0x00000239
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -34259,7 +34259,7 @@ _0224A002:
 	ldr r0, [r5, #0x40]
 	ldr r1, [r5, #0x68]
 	add r2, r4, #0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r4, r4, #1
 	cmp r4, r6
 	blt _0224A002
@@ -34269,7 +34269,7 @@ _0224A058:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	sub r3, #0x3e
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r3, _0224A0E0 ; =0x02250598
 	add r2, sp, #0x20
 	ldmia r3!, {r0, r1}
@@ -34343,7 +34343,7 @@ MOD18_0224A0EC: ; 0x0224A0EC
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -34352,7 +34352,7 @@ MOD18_0224A0EC: ; 0x0224A0EC
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -34434,14 +34434,14 @@ MOD18_0224A1C0: ; 0x0224A1C0
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x50]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0x93
 	add r4, r0, #0
 	lsl r1, r1, #2
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, #0x50]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0x93
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -34542,7 +34542,7 @@ MOD18_0224A2B4: ; 0x0224A2B4
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r2, #0x81
 	add r1, r0, #0
 	lsl r2, r2, #2
@@ -34643,10 +34643,10 @@ MOD18_0224A360: ; 0x0224A360
 	bl MOD18_0223D678
 	ldr r1, _0224A464 ; =0x00000239
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -34683,7 +34683,7 @@ _0224A3D0:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	cmp r4, r6
 	blt _0224A3D0
@@ -34693,7 +34693,7 @@ _0224A3E8:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	sub r3, #0x3e
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r3, _0224A470 ; =0x02250598
 	add r2, sp, #0x1c
 	ldmia r3!, {r0, r1}
@@ -34767,7 +34767,7 @@ MOD18_0224A47C: ; 0x0224A47C
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -34776,7 +34776,7 @@ MOD18_0224A47C: ; 0x0224A47C
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -34858,14 +34858,14 @@ MOD18_0224A550: ; 0x0224A550
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x50]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0x93
 	add r4, r0, #0
 	lsl r1, r1, #2
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, #0x50]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0x93
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -35399,7 +35399,7 @@ MOD18_0224A9B4: ; 0x0224A9B4
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r2, #0x81
 	add r1, r0, #0
 	lsl r2, r2, #2
@@ -35431,7 +35431,7 @@ MOD18_0224A9EC: ; 0x0224A9EC
 	add r4, r1, #0
 	mov r1, #0x13
 	add r5, r0, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	ldr r0, [r0, #0xc]
 	bl ScriptEnvironment_GetSav2Ptr
 	bl FUN_02026CC4
@@ -35443,14 +35443,14 @@ MOD18_0224A9EC: ; 0x0224A9EC
 	mov r1, #1
 	mov r2, #0xf
 	mov r3, #2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, r4, r5, pc}
 _0224AA1A:
 	mov r1, #2
 	add r0, r5, #0
 	mov r2, #0xf
 	add r3, r1, #0
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD18_0224A9EC
 
@@ -35581,10 +35581,10 @@ MOD18_0224AB08: ; 0x0224AB08
 	bl MOD18_0223D678
 	ldr r1, _0224AC0C ; =0x00000237
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -35621,7 +35621,7 @@ _0224AB78:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	cmp r4, r6
 	blt _0224AB78
@@ -35630,7 +35630,7 @@ _0224AB90:
 	ldr r0, [r5, #0x40]
 	ldr r1, [sp, #0x18]
 	sub r3, r2, #2
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r3, _0224AC18 ; =0x02250598
 	add r2, sp, #0x1c
 	ldmia r3!, {r0, r1}
@@ -35706,7 +35706,7 @@ MOD18_0224AC24: ; 0x0224AC24
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -35715,7 +35715,7 @@ MOD18_0224AC24: ; 0x0224AC24
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -35800,14 +35800,14 @@ MOD18_0224AD04: ; 0x0224AD04
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x50]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0x93
 	add r4, r0, #0
 	lsl r1, r1, #2
 	ldrh r6, [r5, r1]
 	ldr r0, [r5, #0x50]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r0, #0x93
 	lsl r0, r0, #2
 	ldrh r0, [r5, r0]
@@ -36444,7 +36444,7 @@ MOD18_0224B204: ; 0x0224B204
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r0, #1
 	mvn r0, r0
 	cmp r4, r0
@@ -36464,7 +36464,7 @@ MOD18_0224B228: ; 0x0224B228
 	push {r4, lr}
 	add r4, r1, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r0, #1
 	mvn r0, r0
 	cmp r4, r0
@@ -36486,13 +36486,13 @@ MOD18_0224B250: ; 0x0224B250
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
 	ldr r0, [r4, #0x48]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r5, r0, #0
 	add r1, sp, #0
 	ldr r0, [r4, #0x48]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -36627,7 +36627,7 @@ _0224B374:
 	bl MOD18_022498EC
 	ldr r0, [sp, #0x18]
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	str r2, [sp]
@@ -36675,13 +36675,13 @@ _0224B3D4:
 	add r1, r7, #0
 	add r2, r6, #5
 	mvn r3, r3
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _0224B3F4
 _0224B3EA:
 	add r1, r7, #0
 	add r2, r6, r4
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 _0224B3F4:
 	ldr r0, [sp, #0x18]
 	add r4, r4, #1
@@ -36727,7 +36727,7 @@ _0224B42C:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x48]
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
@@ -36750,7 +36750,7 @@ MOD18_0224B464: ; 0x0224B464
 	bl MOD18_022498EC
 	ldr r0, [sp, #0x1c]
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -36796,13 +36796,13 @@ _0224B4D0:
 	add r1, r7, #0
 	add r2, r6, r4
 	mvn r3, r3
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _0224B4F0
 _0224B4E6:
 	add r1, r7, #0
 	add r2, r6, r4
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 _0224B4F0:
 	ldr r0, [sp, #0x1c]
 	add r4, r4, #1
@@ -36848,7 +36848,7 @@ _0224B528:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x48]
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
@@ -36862,13 +36862,13 @@ MOD18_0224B560: ; 0x0224B560
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	ldr r0, [r5, #0x48]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r1, sp, #0
 	ldr r0, [r5, #0x48]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -36964,7 +36964,7 @@ MOD18_0224B614: ; 0x0224B614
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -36973,7 +36973,7 @@ MOD18_0224B614: ; 0x0224B614
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -37057,7 +37057,7 @@ MOD18_0224B6E0: ; 0x0224B6E0
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -37066,7 +37066,7 @@ MOD18_0224B6E0: ; 0x0224B6E0
 	ldr r0, [r5, #0x4c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r1, sp, #0
 	add r2, r0, #0
 	ldrh r1, [r1, #2]
@@ -37823,7 +37823,7 @@ MOD18_0224BD54: ; 0x0224BD54
 	mov r1, #0x91
 	lsl r1, r1, #2
 	mov r2, #1
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	ldr r0, _0224BDE4 ; =0x00000246
 	mov r1, #0
 	strb r1, [r4, r0]
@@ -38067,7 +38067,7 @@ MOD18_0224BF84: ; 0x0224BF84
 	ldr r0, [r5, #0x48]
 	ldrh r4, [r5, r1]
 	add r1, r5, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _0224BFA4 ; =0x0000024A
 	ldrh r0, [r5, r0]
 	cmp r4, r0
@@ -38462,7 +38462,7 @@ _0224C288:
 	bl MOD18_022498EC
 	add r0, r4, #0
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -38502,14 +38502,14 @@ _0224C288:
 	ldr r0, [r5, #0x40]
 	mov r2, #0xd
 	mov r3, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	add r1, r0, #0
 	ldr r0, [r5, #0x40]
 	mov r2, #0xe
 	mov r3, #1
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	mov r2, #0xf
@@ -38517,7 +38517,7 @@ _0224C288:
 	add r3, r2, #0
 	ldr r0, [r5, #0x40]
 	sub r3, #0x11
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _0224C396
 _0224C31E:
 	cmp r0, #0
@@ -38532,14 +38532,14 @@ _0224C31E:
 	ldr r0, [r5, #0x40]
 	mov r2, #0x10
 	mov r3, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	add r1, r0, #0
 	ldr r0, [r5, #0x40]
 	mov r2, #0x11
 	mov r3, #1
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	mov r2, #0x12
@@ -38547,7 +38547,7 @@ _0224C31E:
 	add r3, r2, #0
 	ldr r0, [r5, #0x40]
 	sub r3, #0x14
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _0224C396
 _0224C36C:
 	bl MOD18_0223D658
@@ -38556,7 +38556,7 @@ _0224C36C:
 	ldr r0, [r5, #0x40]
 	mov r2, #0x1c
 	mov r3, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	mov r2, #0x16
@@ -38564,7 +38564,7 @@ _0224C36C:
 	add r3, r2, #0
 	ldr r0, [r5, #0x40]
 	sub r3, #0x18
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 _0224C396:
 	bl MOD18_0224DAD8
 	add r1, sp, #0x14
@@ -38606,7 +38606,7 @@ _0224C396:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x48]
 	mov r0, #0x8b
 	lsl r0, r0, #2
@@ -38632,17 +38632,17 @@ MOD18_0224C418: ; 0x0224C418
 	mov r1, #0x13
 	add r7, r0, #0
 	add r6, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	cmp r6, #0
 	beq _0224C434
 	add r0, r7, #0
-	bl FUN_02001B80
+	bl ListMenuCopyToVram
 _0224C434:
 	add r0, r4, #0
 	add r0, #0x20
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	bl MOD18_0223D658
 	bl MOD18_0224DBB4
 	ldr r1, _0224C504 ; =0x00000247
@@ -38746,7 +38746,7 @@ MOD18_0224C510: ; 0x0224C510
 	mov r1, #0x13
 	str r0, [sp, #0xc]
 	str r2, [sp, #0x10]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	bl ScriptEnvironment_GetSav2Ptr
@@ -38756,12 +38756,12 @@ MOD18_0224C510: ; 0x0224C510
 	add r0, #0x20
 	mov r1, #0xf
 	mov r5, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
 	beq _0224C546
 	ldr r0, [sp, #0xc]
-	bl FUN_02001B80
+	bl ListMenuCopyToVram
 _0224C546:
 	mov r0, #1
 	mvn r0, r0
@@ -39086,7 +39086,7 @@ MOD18_0224C7D4: ; 0x0224C7D4
 	bl MOD18_022498EC
 	mov r0, #6
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -39123,7 +39123,7 @@ MOD18_0224C7D4: ; 0x0224C7D4
 	bl MOD18_0223D678
 	ldr r1, _0224C938 ; =0x0000023B
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	b _0224C876
 _0224C83C:
 	cmp r0, #0
@@ -39137,7 +39137,7 @@ _0224C83C:
 	bl MOD18_0223D678
 	ldr r1, _0224C93C ; =0x00000237
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	b _0224C876
 _0224C85C:
 	mov r0, #0
@@ -39149,7 +39149,7 @@ _0224C85C:
 	bl MOD18_0223D678
 	ldr r1, _0224C940 ; =0x00000239
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 _0224C876:
 	mov r7, #0x21
 	mov r4, #0
@@ -39160,7 +39160,7 @@ _0224C87C:
 	ldr r0, [r5, #0x40]
 	add r1, r6, #0
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r4, r4, #1
 	cmp r4, #5
 	blt _0224C87C
@@ -39168,7 +39168,7 @@ _0224C87C:
 	ldr r0, [r5, #0x40]
 	add r1, r6, #0
 	sub r3, r2, #2
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r6, #0
 	bl DestroyMsgData
 	bl MOD18_0224DAD8
@@ -39228,7 +39228,7 @@ _0224C87C:
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x48]
 	add r5, #0x10
 	add r0, r5, #0
@@ -39394,7 +39394,7 @@ MOD18_0224CA58: ; 0x0224CA58
 	bl MOD18_0223D658
 	ldr r1, _0224CA90 ; =0x00000241
 	mov r2, #1
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	bl MOD18_0223D658
 	add r4, r0, #0
 	bl FUN_02031190
@@ -39490,7 +39490,7 @@ _0224CB1A:
 	add r0, r4, #0
 	add r0, #0x20
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0x20
 	add r0, r4, #0
 	bl CopyWindowToVram
@@ -39531,7 +39531,7 @@ MOD18_0224CB34: ; 0x0224CB34
 	add r0, r5, #0
 	add r0, #0x30
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x30
 	bl CopyWindowToVram
@@ -39599,7 +39599,7 @@ _0224CBF0:
 	add r5, r5, #6
 	cmp r3, #0x14
 	blt _0224CBD6
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -39680,13 +39680,13 @@ _0224CC7E:
 	pop {r4, r5, r6, pc}
 _0224CC8E:
 	ldr r0, [r4, #0x48]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r5, r0, #0
 	add r1, sp, #4
 	ldr r0, [r4, #0x48]
 	add r1, #2
 	add r2, sp, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #4
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -39696,7 +39696,7 @@ _0224CC8E:
 	ldr r0, [r4, #0x48]
 	ldrh r6, [r4, r1]
 	add r1, r4, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _0224CF54 ; =0x0000024A
 	ldrh r0, [r4, r0]
 	cmp r6, r0
@@ -39771,13 +39771,13 @@ _0224CD32:
 	pop {r4, r5, r6, pc}
 _0224CD48:
 	ldr r0, [r4, #0x48]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r5, r0, #0
 	add r1, sp, #4
 	ldr r0, [r4, #0x48]
 	add r1, #2
 	add r2, sp, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	mov r0, #0x92
 	lsl r0, r0, #2
 	ldrb r0, [r4, r0]
@@ -39792,7 +39792,7 @@ _0224CD48:
 	ldr r0, [r4, #0x48]
 	ldrh r6, [r4, r1]
 	add r1, r4, r1
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	ldr r0, _0224CF54 ; =0x0000024A
 	ldrh r0, [r4, r0]
 	cmp r6, r0
@@ -39916,7 +39916,7 @@ _0224CE68:
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #4
 	ldrh r1, [r2]
 	ldrh r2, [r2, #2]
@@ -40138,7 +40138,7 @@ _0224D046:
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #4
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	mov r0, #0x92
 	lsl r0, r0, #2
 	ldrb r0, [r4, r0]
@@ -40827,7 +40827,7 @@ MOD18_0224D5CC: ; 0x0224D5CC
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x30]
 	cmp r0, #0
 	beq _0224D644
@@ -41024,17 +41024,17 @@ MOD18_0224D79C: ; 0x0224D79C
 	cmp r5, #0x20
 	ldr r4, [r0, r1]
 	bge _0224D7B4
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224D7B4:
 	cmp r5, #0x2d
 	ble _0224D7BC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224D7BC:
 	bl FUN_0204F7E4
 	bl MOD18_0223D658
 	ldr r1, _0224D80C ; =0x00000245
 	mov r2, #1
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	mov r0, #4
 	bl FUN_02025964
 	add r6, r0, #0
@@ -41332,7 +41332,7 @@ MOD18_0224DA00: ; 0x0224DA00
 	add r0, r5, #0
 	add r0, #8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	ldr r3, _0224DAA0 ; =0x022513FC
 	str r6, [sp]
@@ -41435,7 +41435,7 @@ _0224DB08:
 	add r0, r4, #0
 	str r7, [r4, #0x18]
 	add r0, #8
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r1, [r4, #0x40]
 	mov r0, #1
 	bic r1, r0
@@ -41468,8 +41468,9 @@ MOD18_0224DB5C: ; 0x0224DB5C
 	pop {r4, pc}
 	thumb_func_end MOD18_0224DB5C
 
-	thumb_func_start MOD18_0224DB80
-MOD18_0224DB80: ; 0x0224DB80
+	thumb_func_start MOD18_LoadMsgBank
+MOD18_LoadMsgBank: ; 0x0224DB80
+    ; void MOD18_LoadMsgBank(struct MOD18Work * work, s32 bank, u32 async)
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0x2c]
@@ -41488,11 +41489,11 @@ MOD18_0224DB80: ; 0x0224DB80
 	str r0, [r5, #0x24]
 	cmp r0, #0
 	bne _0224DBAC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224DBAC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-	thumb_func_end MOD18_0224DB80
+	thumb_func_end MOD18_LoadMsgBank
 
 	thumb_func_start MOD18_0224DBB0
 MOD18_0224DBB0: ; 0x0224DBB0
@@ -41590,7 +41591,7 @@ _0224DC4C:
 	add r0, r5, #0
 	add r0, #8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	ldr r2, _0224DCB0 ; =0x000001E2
 	add r0, #8
@@ -42286,7 +42287,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x24]
 	mov r2, #3
 	str r2, [sp]
@@ -42345,7 +42346,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	add r0, r5, #0
 	add r0, #0x14
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r7, #0
 	mov r1, #0
 	bl NewString_ReadMsgData
@@ -42369,7 +42370,7 @@ _0224E186:
 	ldr r2, [r4]
 	add r1, r7, #0
 	add r3, r6, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r6, r6, #1
 	add r4, r4, #4
 	cmp r6, #4
@@ -42402,7 +42403,7 @@ _0224E186:
 	ldr r2, [r5, #0x34]
 	ldrh r1, [r1]
 	ldrh r2, [r2]
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x28]
 	add r0, r5, #4
 	bl CopyWindowToVram
@@ -42429,7 +42430,7 @@ MOD18_0224E210: ; 0x0224E210
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0x28]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD18_0224E73C
@@ -42483,7 +42484,7 @@ MOD18_0224E26C: ; 0x0224E26C
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x34]
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #4
 	mov r1, #1
 	bl FUN_0200CCF8
@@ -42496,7 +42497,7 @@ MOD18_0224E26C: ; 0x0224E26C
 	add r0, #0x14
 	bl FUN_02019178
 	ldr r0, [r4, #0x24]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD18_0224E26C
@@ -42512,13 +42513,13 @@ MOD18_0224E2B4: ; 0x0224E2B4
 	add r1, r2, #0
 	mov r2, #0xf
 	mov r3, #2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 _0224E2CC:
 	mov r1, #2
 	mov r2, #0xf
 	add r3, r1, #0
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 	thumb_func_end MOD18_0224E2B4
 
@@ -42639,16 +42640,16 @@ _0224E384:
 	ldr r0, [r0, #0xc]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldr r0, [r5, #0x2c]
 	mov r1, #2
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r7, r0, #0
 	ldr r0, [r5, #0x2c]
 	mov r1, #3
 	ldr r0, [r0, #0xc]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r3, r0, #0
 	add r1, sp, #0
 	lsl r2, r7, #0x10
@@ -42692,11 +42693,11 @@ MOD18_0224E3F0: ; 0x0224E3F0
 	add r4, r1, #0
 	add r5, r0, #0
 	mov r1, #0x13
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	lsr r1, r4, #1
 	sub r0, r0, #1
 	cmp r1, r0
@@ -42741,7 +42742,7 @@ _0224E454:
 	ldr r0, [sp, #0x20]
 	mov r1, #4
 	add r0, r0, #1
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x28]
 	mov r2, #3
 	str r2, [sp]
@@ -42804,7 +42805,7 @@ _0224E454:
 	add r0, r5, #0
 	add r0, #0x18
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x24]
 	mov r1, #9
 	bl NewString_ReadMsgData
@@ -42899,7 +42900,7 @@ _0224E5B4:
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x14]
 	add r3, r6, r3
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, [sp, #0x20]
 	add r4, r4, #1
 	add r6, r6, #2
@@ -42911,13 +42912,13 @@ _0224E5CE:
 	ldr r1, [sp, #0x18]
 	ldr r2, _0224E694 ; =0x00000115
 	add r3, r3, #1
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 	bl MOD18_0223D678
 	ldr r1, _0224E68C ; =0x00000237
 	mov r2, #0
-	bl MOD18_0224DB80
+	bl MOD18_LoadMsgBank
 	ldr r4, _0224E698 ; =0x022507D0
 	add r3, sp, #0x30
 	add r2, r3, #0
@@ -43025,7 +43026,7 @@ MOD18_0224E6A8: ; 0x0224E6A8
 	add r0, #0x18
 	bl FUN_02019178
 	ldr r0, [r4, #0x28]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r0, [r4, #4]
 	bl FUN_0205EBEC
 	pop {r4, pc}
@@ -43078,7 +43079,7 @@ MOD18_0224E73C: ; 0x0224E73C
 	add r1, r5, #0
 	ldr r0, [r5, #0x28]
 	add r1, #0x40
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r5, #0x40
 	ldrh r0, [r5]
 	cmp r4, r0
@@ -43100,7 +43101,7 @@ MOD18_0224E764: ; 0x0224E764
 	add r7, r2, #0
 	cmp r5, #0
 	bne _0224E776
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224E776:
 	add r4, r7, #0
 	add r4, #0x3c
@@ -43178,7 +43179,7 @@ MOD18_0224E7F4: ; 0x0224E7F4
 	ldr r0, [r0, #0x5c]
 	cmp r0, #0
 	bne _0224E80A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224E80A:
 	add r2, r5, r4
 	add r2, #0x60
@@ -43592,7 +43593,7 @@ _0224EB6C:
 	str r0, [r4, #4]
 	b _0224EDBA
 _0224EB82:
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0224EDBA
 _0224EB88:
 	ldr r0, _0224EDC4 ; =0x000004DC
@@ -44132,14 +44133,14 @@ _0224EFD6:
 	ldr r0, [r0, #0x64]
 	cmp r0, #0x20
 	blt _0224EFEA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224EFEA:
 	ldr r0, _0224F14C ; =0x000004FC
 	ldr r0, [r4, r0]
 	ldr r0, [r0, #0x68]
 	cmp r0, #0x20
 	blt _0224EFF8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224EFF8:
 	ldr r0, _0224F14C ; =0x000004FC
 	add r2, r4, #0
@@ -44210,7 +44211,7 @@ _0224F06E:
 	ldrb r0, [r4, r0]
 	cmp r0, #0
 	bne _0224F08A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F08A:
 	ldr r0, _0224F158 ; =0x00000522
 	ldrb r1, [r4, r0]
@@ -44241,7 +44242,7 @@ _0224F09E:
 	ldrb r0, [r4, r0]
 	cmp r0, #0
 	bne _0224F0CE
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F0CE:
 	ldr r0, _0224F160 ; =0x00000521
 	ldrb r1, [r4, r0]
@@ -44317,7 +44318,7 @@ _0224F164:
 	ldrb r0, [r4, r0]
 	sub r5, r1, r0
 	bpl _0224F172
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F172:
 	cmp r5, #0
 	bne _0224F184
@@ -44679,14 +44680,14 @@ _0224F442:
 	ldr r0, [r0, #0x64]
 	cmp r0, #0x20
 	blt _0224F456
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F456:
 	ldr r0, _0224F51C ; =0x000004FC
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0x68]
 	cmp r0, #0x20
 	blt _0224F464
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F464:
 	ldr r0, _0224F51C ; =0x000004FC
 	add r2, r5, #0
@@ -45216,7 +45217,7 @@ _0224F880:
 	add r4, #0x24
 	cmp r2, #0x20
 	blt _0224F858
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r4, pc}
 	thumb_func_end MOD18_0224F850
@@ -45229,7 +45230,7 @@ MOD18_0224F890: ; 0x0224F890
 	add r4, r2, #0
 	cmp r7, #0x20
 	blt _0224F8A0
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F8A0:
 	mov r0, #0x24
 	add r6, r7, #0
@@ -45237,7 +45238,7 @@ _0224F8A0:
 	ldr r0, [r4, r6]
 	cmp r0, #0
 	beq _0224F8B0
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F8B0:
 	mov r0, #1
 	str r0, [r4, r6]
@@ -45262,11 +45263,11 @@ MOD18_0224F8CC: ; 0x0224F8CC
 	add r4, r1, #0
 	cmp r5, #0x20
 	blt _0224F8DA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F8DA:
 	cmp r5, #0
 	bne _0224F8E2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F8E2:
 	mov r0, #0x24
 	add r6, r5, #0
@@ -45274,7 +45275,7 @@ _0224F8E2:
 	ldr r0, [r4, r6]
 	cmp r0, #0
 	bne _0224F8F2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224F8F2:
 	mov r1, #0
 	add r0, r4, r6
@@ -45555,7 +45556,7 @@ MOD18_0224FAEC: ; 0x0224FAEC
 	add r5, r0, #0
 	add r4, r1, #0
 	bne _0224FAF8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224FAF8:
 	ldr r0, [r5, #0x2c]
 	add r1, r4, #0
@@ -45577,7 +45578,7 @@ MOD18_0224FB04: ; 0x0224FB04
 	ldr r0, [r0, #0x5c]
 	cmp r0, #0
 	bne _0224FB1E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224FB1E:
 	add r0, r5, #0
 	add r0, #0x60
@@ -45625,7 +45626,7 @@ MOD18_0224FB64: ; 0x0224FB64
 	ldr r0, [r0, #0x5c]
 	cmp r0, #0
 	bne _0224FB7A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224FB7A:
 	mov r0, #5
 	lsl r0, r0, #8

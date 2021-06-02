@@ -127,7 +127,7 @@ FUN_02064D88: ; 0x02064D88
 	add r7, r0, #0x0
 	cmp r5, #0x3
 	blo _02064D96
-	bl ErrorHandling
+	bl GF_AssertFail
 _02064D96:
 	add r0, r7, #0x0
 	bl ScriptEnvironment_GetSav2Ptr
@@ -163,7 +163,7 @@ _02064DD2:
 	mov r6, #0x19
 	b _02064DDE
 _02064DDA:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02064DDE:
 	ldr r0, [r7, #0x1c]
 	ldr r0, [r0, #0xc]
@@ -182,7 +182,7 @@ FUN_02064DEC: ; 0x02064DEC
 	add r6, r2, #0x0
 	cmp r4, #0x1
 	bls _02064DFC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02064DFC:
 	mov r0, #0x0
 	mvn r0, r0

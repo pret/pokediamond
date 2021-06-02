@@ -1,8 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021064C0
-	.extern UNK_021064B8
+	.extern NNS_GfdDefaultFuncAllocPlttVram
+	.extern NNS_GfdDefaultFuncAllocTexVram
 
 	.text
 
@@ -128,14 +128,14 @@ _0206DF14: .word 0x04000580
 	thumb_func_start FUN_0206DF18
 FUN_0206DF18: ; 0x0206DF18
 	push {r3-r5, lr}
-	ldr r3, _0206DF50 ; =UNK_021064B8
+	ldr r3, _0206DF50 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #0x2
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	lsl r0, r0, #0xe
 	add r2, r1, #0x0
 	blx r3
-	ldr r3, _0206DF54 ; =UNK_021064C0
+	ldr r3, _0206DF54 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x0
 	add r4, r0, #0x0
 	ldr r3, [r3, #0x0]
@@ -145,17 +145,17 @@ FUN_0206DF18: ; 0x0206DF18
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	bne _0206DF40
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206DF40:
 	cmp r5, #0x0
 	bne _0206DF48
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206DF48:
 	bl FUN_02012CC8
 	pop {r3-r5, pc}
 	nop
-_0206DF50: .word UNK_021064B8
-_0206DF54: .word UNK_021064C0
+_0206DF50: .word NNS_GfdDefaultFuncAllocTexVram
+_0206DF54: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_0206DF58
 FUN_0206DF58: ; 0x0206DF58
@@ -165,7 +165,7 @@ FUN_0206DF58: ; 0x0206DF58
 	cmp r0, #0x0
 	ble _0206DF6E
 	bl FUN_020222AC
-	bl FUN_020B02C8
+	bl NNS_G2dSetupSoftwareSpriteCamera
 _0206DF6E:
 	bl FUN_02013388
 	mov r0, #0x1
@@ -176,7 +176,7 @@ _0206DF6E:
 	thumb_func_start FUN_0206DF7C
 FUN_0206DF7C: ; 0x0206DF7C
 	push {r4, lr}
-	ldr r3, _0206DF94 ; =UNK_021064B8
+	ldr r3, _0206DF94 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -186,12 +186,12 @@ FUN_0206DF7C: ; 0x0206DF7C
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_0206DF94: .word UNK_021064B8
+_0206DF94: .word NNS_GfdDefaultFuncAllocTexVram
 
 	thumb_func_start FUN_0206DF98
 FUN_0206DF98: ; 0x0206DF98
 	push {r4, lr}
-	ldr r3, _0206DFB0 ; =UNK_021064C0
+	ldr r3, _0206DFB0 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #0x0
 	ldr r3, [r3, #0x0]
 	blx r3
@@ -201,7 +201,7 @@ FUN_0206DF98: ; 0x0206DF98
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_0206DFB0: .word UNK_021064C0
+_0206DFB0: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_0206DFB4
 FUN_0206DFB4: ; 0x0206DFB4
@@ -313,7 +313,7 @@ FUN_0206E07C: ; 0x0206E07C
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0206E090
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206E090:
 	ldr r0, [r5, #0x0]
 	ldr r2, [r5, #0x4]

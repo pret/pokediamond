@@ -334,7 +334,7 @@ MOD44_02254A90: ; 0x02254A90
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x45
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #8
 	str r0, [sp]
 	add r0, r5, #0
@@ -468,7 +468,7 @@ MOD44_02254B64: ; 0x02254B64
 	mov r0, #0xc
 	mov r1, #0x42
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -480,7 +480,7 @@ MOD44_02254B64: ; 0x02254B64
 	mov r0, #0xc
 	mov r1, #0x41
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C

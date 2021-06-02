@@ -403,7 +403,7 @@ MOD60_021D77D4: ; 0x021D77D4
 	str r0, [r4, #0x10]
 _021D7804:
 	bl FUN_0200BC30
-	bl FUN_020AEEB8
+	bl NNS_GfdDoVramTransfer
 	ldr r0, [r4, #0x14]
 	bl FUN_0201AB60
 	ldr r3, _021D782C ; =0x027E0000
@@ -688,7 +688,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	bl NARC_ReadWholeMember
 	add r0, r6, #0
 	add r1, sp, #0x20
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r3, [sp, #0x20]
 	mov r1, #0
 	str r1, [sp]
@@ -719,7 +719,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	bl NARC_ReadWholeMember
 	add r0, r6, #0
 	add r1, sp, #0x1c
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, [sp, #0x1c]
 	mov r0, #0
 	ldr r1, [r1, #0xc]
@@ -748,7 +748,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	add r1, r5, #0
 	ldr r0, [r5, #0x24]
 	add r1, #0x28
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	add r0, r4, #0
 	bl NARC_dtor
 	mov r3, #0
@@ -922,15 +922,15 @@ MOD60_021D7BA4: ; 0x021D7BA4
 	add r0, r4, #0
 	add r0, #0x2c
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x3c
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x4c
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x4c
 	bl FUN_020192B8
@@ -980,7 +980,7 @@ _021D7CF0:
 	bl FUN_02019570
 	add r0, r5, r4
 	add r1, r7, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	bl FUN_020192B8
 	add r0, r5, r4
@@ -1209,7 +1209,7 @@ MOD60_021D7EA4: ; 0x021D7EA4
 	mov r1, #0xff
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, [sp, #0x14]
 	cmp r0, #5
 	bne _021D7F26

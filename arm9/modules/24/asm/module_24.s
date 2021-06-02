@@ -624,7 +624,7 @@ MOD24_02254CA0: ; 0x02254CA0
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254CC0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254CC0:
 	add r0, r4, #0
 	add r0, #8
@@ -634,7 +634,7 @@ _02254CC0:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254CD8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254CD8:
 	str r6, [r4]
 	bl MOD20_02252D34
@@ -645,7 +645,7 @@ _02254CD8:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254CF4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254CF4:
 	str r4, [r5]
 	mov r0, #1
@@ -662,7 +662,7 @@ MOD24_02254D00: ; 0x02254D00
 	add r4, r0, #0
 	mov r0, #8
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x70]
 	add r1, r0, #0
 	beq _02254D3C
@@ -681,7 +681,7 @@ MOD24_02254D00: ; 0x02254D00
 	bne _02254D38
 	ldr r0, [r4, #0x70]
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 _02254D38:
 	mov r0, #1
 	pop {r4, pc}
@@ -702,7 +702,7 @@ MOD24_02254D48: ; 0x02254D48
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254D5C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254D5C:
 	ldr r2, [r4, #0x70]
 	cmp r2, #0
@@ -786,7 +786,7 @@ MOD24_02254DDC: ; 0x02254DDC
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254DF0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254DF0:
 	add r0, r4, #0
 	bl MOD20_022538A0
@@ -805,7 +805,7 @@ _02254DF0:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254E1E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254E1E:
 	mov r0, #0
 	str r0, [sp]
@@ -818,7 +818,7 @@ _02254E1E:
 	mov r0, #0xc
 	mov r1, #0x1e
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -830,7 +830,7 @@ _02254E1E:
 	mov r0, #0xc
 	mov r1, #0x1f
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C
@@ -838,7 +838,7 @@ _02254E1E:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254E68
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254E68:
 	add r0, r5, #0
 	bl MOD24_02254D00
@@ -848,7 +848,7 @@ _02254E68:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254E82
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254E82:
 	add r0, r5, #0
 	bl MOD24_02255078
@@ -856,7 +856,7 @@ _02254E82:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254E96
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254E96:
 	ldr r0, [r5, #4]
 	mov r1, #7
@@ -880,7 +880,7 @@ _02254E96:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254ECC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254ECC:
 	add sp, #0x14
 	pop {r4, r5, pc}
@@ -987,7 +987,7 @@ _02254F80:
 	mov r1, #4
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	asr r1, r5, #3
 	mov r2, #0x14
 	asr r0, r6, #3
@@ -1048,7 +1048,7 @@ _02254FF2:
 	mov r1, #1
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, [r7, #0x70]
 	mov r2, #0x20
 	ldr r1, [r0, #0xc]
@@ -1110,7 +1110,7 @@ MOD24_02255078: ; 0x02255078
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x20
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #8
 	str r0, [sp]
 	add r0, r7, #0

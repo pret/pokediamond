@@ -275,10 +275,13 @@ endif
 HOSTFS_FILES := $(NITROFS_FILES:%=files/%)
 
 %.narc:
-	$(KNARC) -d $(basename $@)/ -p $@
+	$(KNARC) -d $(basename $@)/ -p $@ -i
 
 %.arc:
-	$(KNARC) -d $(basename $@)/ -p $@
+	$(KNARC) -d $(basename $@)/ -p $@ -i
+
+%.naix: %.narc
+files/wazaeffect/we.naix: %.naix: %.arc
 
 O2NARC_TARGETS := \
 	files/poketool/personal/personal.narc \
@@ -295,8 +298,9 @@ O2NARC_TARGETS := \
 ALL_O2NARC_TARGETS := $(O2NARC_TARGETS) \
 	files/poketool/trainer/trpoke.narc
 
+O2NARCFLAGS := -i
 files/poketool/personal/pms.narc: O2NARCFLAGS = -f
-files/itemtool/itemdata/item_data.narc: O2NARCFLAGS = -p 0xFF
+files/itemtool/itemdata/item_data.narc: O2NARCFLAGS += -p 0xFF
 
 ifeq (,$(NODEP))
 $(ALL_O2NARC_TARGETS): dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(patsubst %.narc,%.json.txt,$@))
@@ -1742,7 +1746,17 @@ files/itemtool/itemdata/item_icon.narc: \
         files/itemtool/itemdata/item_icon/narc_0162.NCGR \
         files/itemtool/itemdata/item_icon/narc_0162.NCLR \
         files/itemtool/itemdata/item_icon/narc_0164.NCGR \
-        files/itemtool/itemdata/item_icon/narc_0164.NCLR
+        files/itemtool/itemdata/item_icon/narc_0164.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0166.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0166.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0168.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0168.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0170.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0170.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0172.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0172.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0174.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0174.NCLR
 
 
 files/application/custom_ball/data/cb_data.narc: \
@@ -2589,6 +2603,7 @@ files/poketool/icongra/poke_icon.narc: \
         files/poketool/icongra/poke_icon/narc_0000.NCLR \
         files/poketool/icongra/poke_icon/narc_0002.NCER \
         files/poketool/icongra/poke_icon/narc_0004.NCER \
+        files/poketool/icongra/poke_icon/narc_0006.NCER \
         files/poketool/icongra/poke_icon/narc_0007.NCGR \
         files/poketool/icongra/poke_icon/narc_0008.NCGR \
         files/poketool/icongra/poke_icon/narc_0009.NCGR \
@@ -2599,6 +2614,26 @@ files/poketool/icongra/poke_icon.narc: \
         files/poketool/icongra/poke_icon/narc_0014.NCGR \
         files/poketool/icongra/poke_icon/narc_0015.NCGR \
         files/poketool/icongra/poke_icon/narc_0016.NCGR \
+        files/poketool/icongra/poke_icon/narc_0017.NCGR \
+        files/poketool/icongra/poke_icon/narc_0018.NCGR \
+        files/poketool/icongra/poke_icon/narc_0019.NCGR \
+        files/poketool/icongra/poke_icon/narc_0020.NCGR \
+        files/poketool/icongra/poke_icon/narc_0021.NCGR \
+        files/poketool/icongra/poke_icon/narc_0022.NCGR \
+        files/poketool/icongra/poke_icon/narc_0023.NCGR \
+        files/poketool/icongra/poke_icon/narc_0024.NCGR \
+        files/poketool/icongra/poke_icon/narc_0025.NCGR \
+        files/poketool/icongra/poke_icon/narc_0026.NCGR \
+        files/poketool/icongra/poke_icon/narc_0027.NCGR \
+        files/poketool/icongra/poke_icon/narc_0028.NCGR \
+        files/poketool/icongra/poke_icon/narc_0029.NCGR \
+        files/poketool/icongra/poke_icon/narc_0030.NCGR \
+        files/poketool/icongra/poke_icon/narc_0031.NCGR \
+        files/poketool/icongra/poke_icon/narc_0032.NCGR \
+        files/poketool/icongra/poke_icon/narc_0033.NCGR \
+        files/poketool/icongra/poke_icon/narc_0034.NCGR \
+        files/poketool/icongra/poke_icon/narc_0035.NCGR \
+        files/poketool/icongra/poke_icon/narc_0036.NCGR \
         files/poketool/icongra/poke_icon/narc_0402.NCGR
 
 files/msgdata/msg.narc: \

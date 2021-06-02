@@ -115,7 +115,7 @@ _021DA606:
 	bl MOD05_021DA464
 	b _021DA692
 _021DA688:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x84
 	mov r0, #1
 	pop {r4, r5, r6, r7, pc}
@@ -156,7 +156,7 @@ _021DA6CC:
 	mov r2, #0
 	b _021DA6DA
 _021DA6D4:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r2, #0
 _021DA6DA:
 	ldr r0, [r5, #0x50]
@@ -220,7 +220,7 @@ _021DA752:
 	mov r2, #1
 	b _021DA760
 _021DA75A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r2, #1
 _021DA760:
 	ldr r0, [r5, #0x50]
@@ -350,7 +350,7 @@ _021DA7E4:
 	bl MOD05_021DA464
 	b _021DA878
 _021DA864:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #1
 	bl MOD05_021D7CA4
 	mov r0, #6
@@ -412,7 +412,7 @@ _021DA8D6:
 	mov r2, #2
 	b _021DA8E4
 _021DA8DE:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r2, #0
 _021DA8E4:
 	ldr r0, [r5, #0x50]
@@ -477,7 +477,7 @@ _021DA960:
 	mov r2, #3
 	b _021DA96E
 _021DA968:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r2, #1
 _021DA96E:
 	ldr r0, [r5, #0x50]
@@ -737,7 +737,7 @@ _021DAB10:
 	bl MOD05_021DA464
 	b _021DAB68
 _021DAB5E:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x40
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -753,7 +753,7 @@ _021DAB68:
 	bl FUN_0205ADDC
 	b _021DAB86
 _021DAB82:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAB86:
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -784,7 +784,7 @@ _021DABBA:
 	bl FUN_0205ADDC
 	b _021DABC6
 _021DABC2:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DABC6:
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -958,7 +958,7 @@ _021DACDA:
 	bl MOD05_021DA464
 	b _021DAD34
 _021DAD2A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x40
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -974,7 +974,7 @@ _021DAD34:
 	bl FUN_0205ADDC
 	b _021DAD52
 _021DAD4E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAD52:
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -1003,7 +1003,7 @@ _021DAD80:
 	bl FUN_0205ADDC
 	b _021DAD8C
 _021DAD88:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAD8C:
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -1152,7 +1152,7 @@ _021DAE50:
 	add sp, #0x84
 	pop {r4, r5, r6, r7, pc}
 _021DAEC8:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x84
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -1189,7 +1189,7 @@ _021DAF04:
 	mov r2, #0
 	b _021DAF12
 _021DAF0C:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r2, #0
 _021DAF12:
 	ldr r0, [r5, #0x50]
@@ -1232,7 +1232,7 @@ _021DAF58:
 	mov r2, #1
 	b _021DAF66
 _021DAF60:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r2, #1
 _021DAF66:
 	ldr r0, [r5, #0x50]
@@ -1302,7 +1302,7 @@ MOD05_021DAFA8: ; 0x021DAFA8
 	bl FUN_0204A94C
 	cmp r0, #0
 	bne _021DAFEA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAFEA:
 	ldr r0, [sp, #0x18]
 	bl MOD05_021E7EC8
@@ -1315,7 +1315,7 @@ _021DAFEA:
 	bl MOD05_021D9DC0
 	cmp r0, #0
 	bne _021DB008
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB008:
 	ldr r0, [sp, #0x14]
 	ldr r2, [r4, #0x4c]
@@ -1675,7 +1675,7 @@ _021DB2E6:
 	mov r6, #0x27
 	b _021DB2EE
 _021DB2EA:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB2EE:
 	mov r1, #0
 	str r1, [sp]

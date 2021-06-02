@@ -55,7 +55,7 @@ _021D7516:
 	str r0, [r4, #0x18]
 	mov r0, #0
 	str r0, [r4, #0x1c]
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -596,7 +596,7 @@ MOD84_021D7968: ; 0x021D7968
 	mov r0, #0x7f
 	mov r1, #0x42
 	add r3, r2, #0
-	bl FUN_02006948
+	bl GfGfxLoader_GXLoadPalWithSrcOffset
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20
@@ -606,7 +606,7 @@ MOD84_021D7968: ; 0x021D7968
 	mov r0, #0x7f
 	mov r1, #0x42
 	mov r2, #4
-	bl FUN_02006948
+	bl GfGfxLoader_GXLoadPalWithSrcOffset
 	ldr r2, _021D7A74 ; =0x04000050
 	mov r0, #0
 	add r3, r2, #0
@@ -727,7 +727,7 @@ MOD84_021D7AB8: ; 0x021D7AB8
 	thumb_func_start MOD84_021D7AC8
 MOD84_021D7AC8: ; 0x021D7AC8
 	push {r3, lr}
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _021D7B3C ; =0x04000060
 	ldr r2, _021D7B40 ; =0xFFFFCFFD
@@ -761,11 +761,11 @@ MOD84_021D7AC8: ; 0x021D7AC8
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -859,7 +859,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	mov r1, #1
 	mov r3, #0x4b
 	add r4, #0x38
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [r5, #0x38]
 	ldr r1, [sp, #8]
 	bl DC_FlushRange
@@ -899,7 +899,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	add r0, #0x98
 	strh r1, [r0]
 	ldr r0, [r4]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	str r0, [r4, #0x5c]
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
@@ -907,7 +907,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	add r0, r0, r1
 	str r0, [r4, #0x60]
 	ldr r0, [r4]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r4, #0x64]
 	bl FUN_0201B3C4
 	ldr r0, [r4]
@@ -916,7 +916,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	add r0, r4, #0
 	ldr r1, [r4, #0x60]
 	add r0, #8
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	mov r2, #0
 	str r2, [sp]
 	add r0, sp, #8
@@ -924,7 +924,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	mov r0, #0x7f
 	mov r1, #3
 	mov r3, #0x4b
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [r4, #4]
 	cmp r0, #0
 	beq _021D7CCC
@@ -937,22 +937,22 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	bl FUN_02016B20
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	add r5, r0, #0
 	add r0, r4, #0
 	ldr r2, [r4, #0x60]
 	add r0, #0x6c
 	add r1, r5, #0
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4, #0x68]
 	ldr r2, [r4, #0x60]
 	ldr r3, [r4, #0x64]
 	add r1, r5, #0
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	add r0, r4, #0
 	ldr r1, [r4, #0x68]
 	add r0, #8
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r4, #0
 	mov r1, #0
 	add r0, #0x9c
@@ -981,7 +981,7 @@ MOD84_021D7CD4: ; 0x021D7CD4
 	add r0, r4, #0
 	ldr r1, [r4, #0x68]
 	add r0, #0x6c
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 _021D7CF0:
@@ -1002,7 +1002,7 @@ MOD84_021D7CFC: ; 0x021D7CFC
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	bl FUN_0201EBA4
 	add r4, #0x38
 	add r0, sp, #0x28
@@ -1010,7 +1010,7 @@ MOD84_021D7CFC: ; 0x021D7CFC
 	add r0, r4, #0
 	add r0, #0x94
 	ldrh r0, [r0]
-	ldr r3, _021D7DF0 ; =UNK_020FFA38
+	ldr r3, _021D7DF0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1027,7 +1027,7 @@ MOD84_021D7CFC: ; 0x021D7CFC
 	add r0, r4, #0
 	add r0, #0x96
 	ldrh r0, [r0]
-	ldr r3, _021D7DF0 ; =UNK_020FFA38
+	ldr r3, _021D7DF0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1044,7 +1044,7 @@ MOD84_021D7CFC: ; 0x021D7CFC
 	add r0, r4, #0
 	add r0, #0x98
 	ldrh r0, [r0]
-	ldr r3, _021D7DF0 ; =UNK_020FFA38
+	ldr r3, _021D7DF0 ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1098,14 +1098,14 @@ _021D7DBA:
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r0, #0
 	mov r1, #1
 	bl FUN_020222B4
 	add sp, #0x4c
 	pop {r3, r4, pc}
 	nop
-_021D7DF0: .word UNK_020FFA38
+_021D7DF0: .word FX_SinCosTable_
 	thumb_func_end MOD84_021D7CFC
 
 	thumb_func_start MOD84_021D7DF4
@@ -1129,7 +1129,7 @@ _021D7E08:
 	str r0, [sp, #4]
 	mov r0, #0x7f
 	mov r3, #0x4b
-	bl FUN_02006D18
+	bl GfGfxLoader_LoadFromNarc_GetSizeOut
 	str r0, [r4]
 	cmp r0, #0
 	beq _021D7E9A
@@ -1168,7 +1168,7 @@ _021D7E08:
 	add r0, #0x98
 	strh r1, [r0]
 	ldr r0, [r4]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	str r0, [r4, #0x5c]
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
@@ -1176,7 +1176,7 @@ _021D7E08:
 	add r0, r0, r1
 	str r0, [r4, #0x60]
 	ldr r0, [r4]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r4, #0x64]
 	bl FUN_0201B3C4
 	ldr r0, [r4]
@@ -1185,22 +1185,22 @@ _021D7E08:
 	add r0, r4, #0
 	ldr r1, [r4, #0x60]
 	add r0, #8
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 _021D7E9A:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _021D7ED0
 	mov r1, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	add r1, r0, #0
 	ldr r0, [r4, #0x68]
 	ldr r2, [r4, #0x60]
 	ldr r3, [r4, #0x64]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	add r0, r4, #0
 	ldr r1, [r4, #0x68]
 	add r0, #8
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r4, #0
 	mov r1, #0
 	add r0, #0x9c
@@ -1227,27 +1227,27 @@ MOD84_021D7EDC: ; 0x021D7EDC
 	mov r0, #0x82
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r0, #0x8b
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r0, #0x25
 	lsl r0, r0, #4
 	add r0, r5, r0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r0, #0x9d
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0xa2
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0xa7
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0]
 	cmp r0, #1
@@ -1274,7 +1274,7 @@ _021D7F2C:
 	ldrh r1, [r1, r4]
 	mov r0, #0x7f
 	add r3, r2, #0
-	bl FUN_02006AE4
+	bl GfGfxLoader_LoadImageMapping
 	mov r0, #0x4b
 	ldr r1, _021D7F88 ; =0x021DA662
 	str r0, [sp]
@@ -1286,7 +1286,7 @@ _021D7F2C:
 	mov r0, #0x7f
 	mov r2, #1
 	mov r3, #0
-	bl FUN_02006A8C
+	bl GfGfxLoader_PartiallyLoadPalette
 	ldr r1, _021D7F8C ; =0x021DA664
 	ldr r2, _021D7F90 ; =0x021DA666
 	ldrh r1, [r1, r4]

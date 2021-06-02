@@ -335,7 +335,7 @@ _021D7762:
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	b _021D7796
 _021D7784:
@@ -425,7 +425,7 @@ MOD65_021D7818: ; 0x021D7818
 	add r5, r0, #0
 	add r0, #0xc8
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	ldr r0, _021D78A4 ; =gMain
 	ldr r1, [r0, #0x48]
@@ -998,7 +998,7 @@ _021D7C68:
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r7, r7, #1
 	add r4, #8
 	add r5, #0x10
@@ -1404,7 +1404,7 @@ _021D7FCA:
 	add r0, r5, r0
 	mov r1, #0xff
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r0, #1
 	bl FUN_02002B60
 	mov r0, #0
@@ -1542,7 +1542,7 @@ MOD65_021D80C8: ; 0x021D80C8
 	strb r0, [r5, #0x1c]
 	ldrb r0, [r5, #0x1c]
 	ldr r1, [r5]
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	add r1, r5, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -1585,7 +1585,7 @@ _021D80EE:
 	ldrb r2, [r6, #5]
 	ldr r0, [r0]
 	ldr r1, [r5, #0x34]
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	cmp r4, #0xff
 	bne _021D80EE
 _021D8142:
@@ -1594,7 +1594,7 @@ _021D8142:
 	ldr r0, [r0]
 	ldr r1, [r5, #0x38]
 	mov r2, #0xff
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r1, r5, #0
 	ldr r0, _021D8210 ; =0x021DA2E0
 	add r1, #0x84
@@ -1684,7 +1684,7 @@ _021D81C0:
 	ldrh r2, [r2]
 	add r0, #0x84
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r1, r5, #0
 	add r1, #0xc4
 	str r0, [r1]
@@ -1711,7 +1711,7 @@ MOD65_021D8214: ; 0x021D8214
 	add r0, #0xe8
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r4, #0
 	beq _021D823E
 	add r0, r5, #0
@@ -1725,11 +1725,11 @@ _021D823E:
 	ldr r0, [r0]
 	add r1, #0x80
 	add r2, #0x82
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r5, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r5, #0
 	add r0, #0x80
 	ldrh r1, [r0]
@@ -1792,7 +1792,7 @@ _021D82A2:
 	mov r1, #1
 	mov r2, #2
 	mov r3, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	b _021D8392
 _021D82D2:
 	mov r0, #0x1e
@@ -1812,7 +1812,7 @@ _021D82D2:
 	mov r1, #0
 	mov r2, #4
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r0, #1
 	strh r0, [r4, #0x14]
 	b _021D8392
@@ -1834,7 +1834,7 @@ _021D8302:
 	mov r1, #1
 	mov r2, #2
 	mov r3, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r0, #0
 	strh r0, [r4, #0x14]
 	b _021D8392
@@ -1856,7 +1856,7 @@ _021D8330:
 	mov r1, #0
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r0, #1
 	strh r0, [r4, #0x14]
 	b _021D8392
@@ -1881,7 +1881,7 @@ _021D835E:
 	mov r1, #0
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_0201A8C8
+	bl ScrollWindow
 	mov r0, #0
 	strh r0, [r4, #0x14]
 _021D8392:
@@ -1953,7 +1953,7 @@ _021D83D2:
 	mov r1, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldrb r1, [r4, #0x1b]
 	cmp r1, #5
 	bne _021D8434
@@ -2057,11 +2057,11 @@ _021D84E0: .word 0x00000001
 
 	thumb_func_start MOD65_021D84E4
 MOD65_021D84E4: ; 0x021D84E4
-	ldr r3, _021D84EC ; =FUN_02001470
+	ldr r3, _021D84EC ; =ListMenuGetTemplateField
 	mov r1, #0x13
 	bx r3
 	nop
-_021D84EC: .word FUN_02001470
+_021D84EC: .word ListMenuGetTemplateField
 	thumb_func_end MOD65_021D84E4
 
 	thumb_func_start MOD65_021D84F0
@@ -2072,7 +2072,7 @@ MOD65_021D84F0: ; 0x021D84F0
 	mov r1, #0x13
 	add r7, r0, #0
 	add r6, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	cmp r6, #0
 	bne _021D850C
@@ -2083,7 +2083,7 @@ _021D850C:
 	add r0, r7, #0
 	add r1, #2
 	add r2, sp, #0x10
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r2, sp, #0x10
 	ldrh r2, [r2]
 	mov r0, #7
@@ -2140,7 +2140,7 @@ _021D8578:
 	add r0, #0xf8
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r5, #0xff
 	bne _021D85B4
 	add r0, r4, #0
@@ -2223,7 +2223,7 @@ MOD65_021D8634: ; 0x021D8634
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #3
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	add r1, r5, #0
 	add r1, #0xd0
 	str r0, [r1]
@@ -2235,7 +2235,7 @@ _021D8648:
 	ldr r1, [r5, #0x2c]
 	add r2, r4, #1
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -2276,7 +2276,7 @@ _021D8648:
 	add r0, #0xa4
 	add r2, r1, #0
 	lsr r3, r3, #0x18
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r5, #0xc8
 	str r0, [r5]
 	pop {r3, r4, r5, pc}
@@ -2304,11 +2304,11 @@ MOD65_021D86BC: ; 0x021D86BC
 	ldr r0, [r0]
 	add r1, sp, #0
 	add r2, #2
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r4, #0
 	mov r1, #0
 	add r0, #0xc8
@@ -3269,7 +3269,7 @@ MOD65_021D8E68: ; 0x021D8E68
 	add r0, r4, #0
 	add r0, #0x6c
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	ldrb r0, [r0, #0xb]
@@ -3842,7 +3842,7 @@ MOD65_021D92C4: ; 0x021D92C4
 	add r0, r4, #0
 	add r0, #0x6c
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x20]
 	bl StringSetEmpty
 	mov r0, #1
@@ -5301,7 +5301,7 @@ MOD65_021D9E98: ; 0x021D9E98
 	mov r2, #0x1c
 	add r5, r0, #0
 	bl MI_CpuFill8
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_Init
 	bl G3X_InitMtxStack
 	ldr r0, _021D9F34 ; =0x04000060
@@ -5388,8 +5388,8 @@ MOD65_021D9F50: ; 0x021D9F50
 	mov r0, #2
 	str r0, [r2]
 	str r3, [r1]
-	bl FUN_020B849C
-	bl FUN_020B02C8
+	bl NNS_G3dGlbFlushP
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	ldr r0, [r4, #4]
 	bl FUN_02006ED4
 	ldr r0, _021D9F88 ; =0x04000540

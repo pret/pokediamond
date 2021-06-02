@@ -2010,7 +2010,7 @@ MOD07_02212E90: ; 0x02212E90
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #0xc]
 	mov r0, #0x6c
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2022,7 +2022,7 @@ MOD07_02212E90: ; 0x02212E90
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #0xc]
 	mov r0, #0x6c
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2034,7 +2034,7 @@ MOD07_02212E90: ; 0x02212E90
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #0xc]
 	mov r0, #0x6c
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2046,7 +2046,7 @@ MOD07_02212E90: ; 0x02212E90
 	str r0, [sp, #0xc]
 	ldr r2, [r4, #0xc]
 	mov r0, #0x6c
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	ldr r0, [r4]
@@ -2055,7 +2055,7 @@ MOD07_02212E90: ; 0x02212E90
 	add r3, r2, #0
 	str r0, [sp, #4]
 	mov r0, #0x6c
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0
 	ldr r0, [r4, #8]
 	add r2, r1, #0
@@ -3155,7 +3155,7 @@ _0221380C: .word 0x00000B58
 	thumb_func_start MOD07_02213810
 MOD07_02213810: ; 0x02213810
 	push {r4, lr}
-	ldr r3, _02213830 ; =UNK_021064B8
+	ldr r3, _02213830 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0
 	ldr r3, [r3]
 	blx r3
@@ -3163,18 +3163,18 @@ MOD07_02213810: ; 0x02213810
 	bl FUN_0201327C
 	cmp r4, #0
 	bne _02213828
-	bl ErrorHandling
+	bl GF_AssertFail
 _02213828:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02213830: .word UNK_021064B8
+_02213830: .word NNS_GfdDefaultFuncAllocTexVram
 
 	thumb_func_start MOD07_02213834
 MOD07_02213834: ; 0x02213834
 	push {r4, lr}
-	ldr r3, _02213854 ; =UNK_021064C0
+	ldr r3, _02213854 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #1
 	ldr r3, [r3]
 	blx r3
@@ -3182,13 +3182,13 @@ MOD07_02213834: ; 0x02213834
 	bl FUN_020132BC
 	cmp r4, #0
 	bne _0221384C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0221384C:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02213854: .word UNK_021064C0
+_02213854: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start MOD07_02213858
 MOD07_02213858: ; 0x02213858
@@ -3299,7 +3299,7 @@ MOD07_02213924: ; 0x02213924
 	str r0, [sp, #0xc]
 	ldr r2, [r5, #0xc]
 	mov r0, #0x14
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3311,7 +3311,7 @@ MOD07_02213924: ; 0x02213924
 	str r0, [sp, #0xc]
 	ldr r2, [r5, #0xc]
 	mov r0, #0x14
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r2, [r5]
 	mov r0, #0x14
 	ldr r2, [r2, #0x24]
@@ -3319,7 +3319,7 @@ MOD07_02213924: ; 0x02213924
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r2, [sp, #0x10]
 	mov r0, #3
 	ldr r1, [r2, #0xc]
@@ -4858,7 +4858,7 @@ _0221459E:
 	mov r1, #0xa
 	mov r2, #0
 	mov r3, #2
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp]
@@ -4868,7 +4868,7 @@ _0221459E:
 	mov r1, #9
 	mov r2, #0
 	mov r3, #3
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp]
@@ -4878,7 +4878,7 @@ _0221459E:
 	mov r1, #0xa
 	mov r2, #0
 	mov r3, #5
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -4900,19 +4900,19 @@ MOD07_02214600: ; 0x02214600
 	mov r1, #0
 	str r2, [sp, #0xc]
 	str r3, [sp, #0x10]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #0x20
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #0x30
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x28]
 	ldr r1, [sp, #8]
 	str r0, [sp]

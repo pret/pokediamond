@@ -321,7 +321,7 @@ FUN_0201C578: ; 0x0201C578
 	add r0, r4, #0x0
 	add r0, #0x3c
 	add r1, sp, #0x0
-	bl FUN_020BC2A0
+	bl NNS_G3dGetResDataByName
 	add r1, r0, #0x0
 	bne _0201C598
 	add sp, #0x10
@@ -397,7 +397,7 @@ FUN_0201C5FC: ; 0x0201C5FC
 	add r0, r4, #0x0
 	add r0, #0x3c
 	add r1, sp, #0x0
-	bl FUN_020BC2A0
+	bl NNS_G3dGetResDataByName
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0201C5A4

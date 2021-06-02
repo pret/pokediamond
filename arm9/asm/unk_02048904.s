@@ -140,7 +140,7 @@ FUN_020489DC: ; 0x020489DC
 	ldr r0, [r4, #0x6c]
 	cmp r0, #0x5
 	blt _020489EA
-	bl ErrorHandling
+	bl GF_AssertFail
 _020489EA:
 	ldr r0, [r4, #0x70]
 	ldr r0, [r0, #0x0]
@@ -226,7 +226,7 @@ _02048A82:
 	bl MapHeader_GetCameraType
 	cmp r6, r0
 	beq _02048AB4
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _02048AB4
 _02048AA6:
 	add r0, r7, #0x0
@@ -341,7 +341,7 @@ FUN_02048B90: ; 0x02048B90
 	ldr r0, [r4, #0x58]
 	cmp r0, #0x0
 	beq _02048BA2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02048BA2:
 	ldr r0, [r4, #0x1c]
 	ldr r1, [r4, #0x28]
@@ -368,7 +368,7 @@ _02048BD8:
 	ldr r0, [r4, #0x6c]
 	cmp r0, #0x5
 	blt _02048BE2
-	bl ErrorHandling
+	bl GF_AssertFail
 _02048BE2:
 	ldr r0, [r4, #0x6c]
 	ldr r1, _02048C28 ; =UNK_020F46E0
@@ -413,7 +413,7 @@ FUN_02048C2C: ; 0x02048C2C
 	ldr r0, [r4, #0x58]
 	cmp r0, #0x0
 	bne _02048C3A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02048C3A:
 	mov r0, #0x0
 	str r0, [r4, #0x58]
@@ -1064,7 +1064,7 @@ FUN_02049160: ; 0x02049160
 	bl FUN_0203739C
 	cmp r0, #0x0
 	beq _02049186
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3-r7, pc}
 _02049186:
 	mov r0, #0x0
@@ -1431,7 +1431,7 @@ FUN_02049430: ; 0x02049430
 	bl FUN_0203739C
 	cmp r0, #0x0
 	bne _02049452
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4-r6, pc}
 _02049452:
 	ldr r0, [r5, #0x38]
@@ -1561,7 +1561,7 @@ _0204954A:
 	bl FUN_020637E0
 	b _0204955A
 _02049556:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204955A:
 	add r0, r7, #0x0
 	bl FUN_020495B0
@@ -1682,7 +1682,7 @@ FUN_0204961C: ; 0x0204961C
 	bl FUN_0203739C
 	cmp r0, #0x0
 	bne _0204963E
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4-r6, pc}
 _0204963E:
 	ldr r2, [r6, #0x4]
@@ -1883,11 +1883,11 @@ _020497A4:
 	sub r4, r0, #0x6
 	cmp r6, #0x0
 	bge _020497D4
-	bl ErrorHandling
+	bl GF_AssertFail
 _020497D4:
 	cmp r4, #0x0
 	bge _020497DC
-	bl ErrorHandling
+	bl GF_AssertFail
 _020497DC:
 	lsr r2, r6, #0x1f
 	lsl r1, r6, #0x1f
@@ -2395,7 +2395,7 @@ _02049BF4:
 	ldr r0, _02049C08 ; =FUN_02049ACC
 	pop {r3, pc}
 _02049BFC:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
@@ -2502,7 +2502,7 @@ FUN_02049CB0: ; 0x02049CB0
 	bl FUN_0203739C
 	cmp r0, #0x0
 	beq _02049CD6
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3-r7, pc}
 _02049CD6:
 	mov r0, #0x0

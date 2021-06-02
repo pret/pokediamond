@@ -15,7 +15,7 @@ MOD05_021D9A48: ; 0x021D9A48
 	add r4, r3, #0
 	cmp r1, r0
 	bne _021D9A60
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9A60:
 	mov r0, #0
 	add r1, r6, #0
@@ -70,7 +70,7 @@ MOD05_021D9AA8: ; 0x021D9AA8
 	add r5, r3, #0
 	cmp r4, r0
 	bne _021D9ABE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9ABE:
 	add r0, r6, #0
 	add r1, r4, #0
@@ -78,29 +78,29 @@ _021D9ABE:
 	bl NARC_AllocAndReadWholeMember
 	add r4, r0, #0
 	bne _021D9AD0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9AD0:
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	add r6, r0, #0
 	bne _021D9AE0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9AE0:
 	ldr r0, [sp, #0x1c]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r5]
 	cmp r5, #0
 	bne _021D9AF4
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9AF4:
 	ldr r0, [r5]
 	ldr r3, [sp, #0x18]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -117,7 +117,7 @@ _021D9B0E:
 	mov r0, #0
 	pop {r3, pc}
 _021D9B16:
-	bl FUN_020B7E28
+	bl NNS_G3dRenderObjRemoveAnmObj
 	mov r0, #1
 	pop {r3, pc}
 	.balign 4, 0
@@ -257,7 +257,7 @@ MOD05_021D9C00: ; 0x021D9C00
 	ldr r0, [r4, #4]
 	cmp r0, #1
 	beq _021D9C0E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9C0E:
 	ldr r0, [r4, #0x1c]
 	pop {r4, pc}
@@ -280,7 +280,7 @@ MOD05_021D9C14: ; 0x021D9C14
 	bl NARC_ReadWholeMember
 	cmp r4, #4
 	blt _021D9C38
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9C38:
 	lsl r1, r4, #2
 	add r0, sp, #0x14
@@ -312,7 +312,7 @@ _021D9C66:
 	ldr r0, [r4, #0x34]
 	cmp r5, r0
 	bne _021D9C74
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9C74:
 	add r6, r6, #1
 	add r4, #0x28
@@ -368,7 +368,7 @@ _021D9CD8:
 	add r1, #0x28
 	cmp r2, #0x10
 	blt _021D9C80
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
@@ -470,7 +470,7 @@ _021D9D9C:
 _021D9DA4:
 	cmp r4, #0x10
 	bne _021D9DAC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9DAC:
 	ldr r0, [sp, #0x10]
 	add r0, r0, #4
@@ -495,7 +495,7 @@ MOD05_021D9DC0: ; 0x021D9DC0
 	str r3, [sp]
 	cmp r6, #0
 	bne _021D9DDC
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x18
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -516,7 +516,7 @@ _021D9DEC:
 	bl NARC_ReadWholeMember
 	cmp r4, #4
 	blt _021D9E02
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9E02:
 	lsl r1, r4, #2
 	add r0, sp, #8
@@ -571,7 +571,7 @@ _021D9E58:
 	add r1, r6, r1
 	ldr r0, [sp]
 	ldr r1, [r1, #0x10]
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 _021D9E6A:
 	add sp, #0x18
 	mov r0, #1
@@ -596,7 +596,7 @@ MOD05_021D9E80: ; 0x021D9E80
 	add r4, r2, #0
 	str r0, [sp]
 	bne _021D9E94
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9E94:
 	add r0, r4, #0
 	bl MOD05_021DA220
@@ -671,7 +671,7 @@ _021D9F12:
 	add r1, r4, r1
 	ldr r0, [sp, #0xc]
 	ldr r1, [r1, #0x10]
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	mov r0, #1
 	str r0, [sp]
 	b _021D9F32
@@ -709,7 +709,7 @@ _021D9F54:
 	bne _021D9F6E
 	ldr r1, [r5, #0x10]
 	add r0, r6, #0
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	str r7, [r5, #0x10]
 	ldr r0, [r5, #0x24]
 	bl FreeToHeap
@@ -734,7 +734,7 @@ MOD05_021D9F80: ; 0x021D9F80
 	beq _021D9FB2
 	cmp r5, #0
 	bne _021D9F90
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9F90:
 	ldr r0, [r5, #4]
 	cmp r0, #0
@@ -743,7 +743,7 @@ _021D9F90:
 	bne _021D9FAC
 	ldr r1, [r5]
 	add r0, r4, #0
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	mov r0, #0
 	str r0, [r5]
 	ldr r0, [r5, #0x14]
@@ -770,7 +770,7 @@ MOD05_021D9FB4: ; 0x021D9FB4
 	bl NARC_ReadWholeMember
 	cmp r5, #4
 	blt _021D9FD4
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9FD4:
 	lsl r1, r5, #2
 	add r0, sp, #4
@@ -779,7 +779,7 @@ _021D9FD4:
 	mvn r0, r0
 	cmp r5, r0
 	bne _021D9FE6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9FE6:
 	mov r0, #0
 	mov r2, #0x28
@@ -834,7 +834,7 @@ MOD05_021DA03C: ; 0x021DA03C
 	add r4, r1, #0
 	cmp r5, #0
 	bne _021DA04A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA04A:
 	mov r6, #0
 	add r1, r6, #0
@@ -850,7 +850,7 @@ _021DA050:
 	ldr r0, [r6, #4]
 	cmp r0, #0
 	bne _021DA072
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _021DA072
 _021DA06A:
 	add r1, r1, #1
@@ -860,7 +860,7 @@ _021DA06A:
 _021DA072:
 	cmp r6, #0
 	bne _021DA07A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA07A:
 	add r0, r6, #0
 	pop {r4, r5, r6, pc}
@@ -881,7 +881,7 @@ MOD05_021DA080: ; 0x021DA080
 	bl NARC_ReadWholeMember
 	cmp r4, #4
 	blt _021DA0A0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA0A0:
 	lsl r1, r4, #2
 	add r0, sp, #4
@@ -900,7 +900,7 @@ _021DA0AC:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _021DA0CE
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _021DA0CE
 _021DA0C6:
 	add r2, r2, #1
@@ -910,7 +910,7 @@ _021DA0C6:
 _021DA0CE:
 	cmp r4, #0
 	bne _021DA0D6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA0D6:
 	add r0, r4, #0
 	add sp, #0x14
@@ -1171,7 +1171,7 @@ MOD05_021DA26C: ; 0x021DA26C
 	add r5, r0, #0
 	add r4, r1, #0
 	bne _021DA278
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA278:
 	mov r1, #0x10
 	mov r0, #0
@@ -1203,7 +1203,7 @@ _021DA292:
 	strb r4, [r0]
 	b _021DA2B6
 _021DA2AE:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 _021DA2B6:
@@ -1265,7 +1265,7 @@ MOD05_021DA304: ; 0x021DA304
 	add r6, r2, #0
 	cmp r4, #4
 	ble _021DA314
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA314:
 	cmp r5, #0
 	beq _021DA31A
@@ -1284,7 +1284,7 @@ MOD05_021DA320: ; 0x021DA320
 	add r6, r2, #0
 	cmp r4, r0
 	blt _021DA332
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA332:
 	lsl r0, r4, #2
 	str r6, [r5, r0]
@@ -1299,7 +1299,7 @@ MOD05_021DA338: ; 0x021DA338
 	add r4, r1, #0
 	cmp r4, r0
 	blt _021DA34A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA34A:
 	lsl r0, r4, #2
 	ldr r0, [r5, r0]
@@ -1320,7 +1320,7 @@ _021DA360:
 	bl MOD05_021D9B04
 	ldr r0, [r6, #0x14]
 	ldr r1, [sp]
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 _021DA378:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -1368,7 +1368,7 @@ _021DA3AC:
 	bl MOD05_021D9C14
 	add r4, r0, #0
 	bne _021DA3D2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA3D2:
 	ldr r0, [sp, #0x4c]
 	add r1, r5, #0
@@ -1464,7 +1464,7 @@ MOD05_021DA464: ; 0x021DA464
 	bl MOD05_021DA26C
 	add r5, r0, #0
 	bne _021DA482
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 _021DA482:
@@ -1476,7 +1476,7 @@ _021DA482:
 	ldrb r4, [r0]
 	cmp r4, #0
 	bne _021DA498
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA498:
 	cmp r4, #0
 	bne _021DA49E
@@ -1506,7 +1506,7 @@ MOD05_021DA4BC: ; 0x021DA4BC
 	add r6, r3, #0
 	cmp r4, #6
 	blo _021DA4CE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA4CE:
 	add r0, r5, #0
 	add r1, r7, #0
@@ -1517,7 +1517,7 @@ _021DA4CE:
 	ldr r0, [r5, r4]
 	cmp r0, #0
 	beq _021DA4E6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA4E6:
 	str r6, [r5, r4]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1531,7 +1531,7 @@ MOD05_021DA4EC: ; 0x021DA4EC
 	add r6, r2, #0
 	cmp r4, #0
 	bne _021DA4FC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA4FC:
 	add r0, r5, #0
 	add r1, r4, #0
@@ -1552,7 +1552,7 @@ MOD05_021DA514: ; 0x021DA514
 	add r4, r3, #0
 	cmp r5, #0
 	bne _021DA526
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA526:
 	add r0, r6, #0
 	add r1, r5, #0
@@ -1578,7 +1578,7 @@ MOD05_021DA54C: ; 0x021DA54C
 	add r4, r1, #0
 	add r6, r2, #0
 	bne _021DA55A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA55A:
 	add r0, r4, #0
 	add r1, r6, #0
@@ -1597,7 +1597,7 @@ MOD05_021DA574: ; 0x021DA574
 	add r5, r0, #0
 	add r4, r1, #0
 	bne _021DA580
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA580:
 	add r0, r5, #0
 	add r1, r4, #0
@@ -1611,7 +1611,7 @@ MOD05_021DA58C: ; 0x021DA58C
 	bl MOD05_021DA574
 	add r4, r0, #0
 	bne _021DA59A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA59A:
 	add r0, r4, #0
 	bl MOD05_021DA20C

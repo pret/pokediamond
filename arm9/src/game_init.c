@@ -141,7 +141,7 @@ void FUN_02015FC8(void)
     {
         csum++;
     }
-    FUN_020166C8((u32 *)UNK_020EDB10, 4, 92, (int)csum);
+    FUN_020166C8((u32 *)UNK_020EDB10, 4, 92, csum);
 }
 
 void InitSystemForTheGame(void)
@@ -181,12 +181,12 @@ void InitSystemForTheGame(void)
 void InitGraphicMemory(void)
 {
     GX_SetBankForLCDC(0x1FF);
-    MIi_CpuClearFast(0, (void *)HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE);
+    MI_CpuClearFast((void *)HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE);
     GX_DisableBankForLCDC();
-    MIi_CpuClearFast(0xC0, (void *)HW_OAM, HW_OAM_SIZE);
-    MIi_CpuClearFast(0xC0, (void *)HW_DB_OAM, HW_DB_OAM_SIZE);
-    MIi_CpuClearFast(0, (void *)HW_PLTT, HW_PLTT_SIZE);
-    MIi_CpuClearFast(0, (void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
+    MI_CpuFillFast((void *)HW_OAM, 0xC0, HW_OAM_SIZE);
+    MI_CpuFillFast((void *)HW_DB_OAM, 0xC0, HW_DB_OAM_SIZE);
+    MI_CpuClearFast((void *)HW_PLTT, HW_PLTT_SIZE);
+    MI_CpuClearFast((void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
 }
 
 void * FUN_020161A4(u32 heap_id, const char * path)
@@ -203,7 +203,7 @@ void * FUN_020161A4(u32 heap_id, const char * path)
         {
             if (size != FS_ReadFile(&file, ret, (s32)size))
             {
-                FUN_02016A8C(heap_id, ret);
+                FreeToHeapExplicit(heap_id, ret);
                 ret = NULL;
             }
         }
@@ -344,8 +344,8 @@ void FUN_020163BC(void)
     gMain.unk3C = 0;
     gMain.unk40 = 0;
     gMain.unk44 = 0;
-    gMain.unk48 = 0;
-    gMain.unk4C = 0;
+    gMain.newKeys = 0;
+    gMain.newAndRepeatedKeys = 0;
     gMain.unk50 = 0;
     gMain.unk54 = 8;
     gMain.unk58 = 15;
@@ -387,9 +387,9 @@ void FUN_02016464(void)
     TPData raw, calib;
     if (PAD_DetectFold())
     {
-        gMain.unk48 = 0;
+        gMain.newKeys = 0;
         gMain.unk44 = 0;
-        gMain.unk4C = 0;
+        gMain.newAndRepeatedKeys = 0;
         gMain.unk60 = 0;
         gMain.unk62 = 0;
         return;
@@ -409,9 +409,9 @@ void FUN_02016464(void)
         gMain.unk50 = gMain.unk58;
     }
     gMain.unk38 = r0;
-    gMain.unk48 = gMain.unk3C;
+    gMain.newKeys = gMain.unk3C;
     gMain.unk44 = r0;
-    gMain.unk4C = gMain.unk40;
+    gMain.newAndRepeatedKeys = gMain.unk40;
     FUN_02016568();
     if (gMain.unk64 == 0)
     {
@@ -453,26 +453,26 @@ void FUN_02016568(void)
     case 0: // Normal
         break;
     case 1: // Start = X
-        if (gMain.unk48 & PAD_BUTTON_START)
-            gMain.unk48 |= PAD_BUTTON_X;
+        if (gMain.newKeys & PAD_BUTTON_START)
+            gMain.newKeys |= PAD_BUTTON_X;
         if (gMain.unk44 & PAD_BUTTON_START)
             gMain.unk44 |= PAD_BUTTON_X;
-        if (gMain.unk4C & PAD_BUTTON_START)
-            gMain.unk4C |= PAD_BUTTON_X;
+        if (gMain.newAndRepeatedKeys & PAD_BUTTON_START)
+            gMain.newAndRepeatedKeys |= PAD_BUTTON_X;
         break;
     case 2: // Swap X and Y; unused in the retail game
         {
             u32 r1 = 0;
-            if (gMain.unk48 & PAD_BUTTON_X)
+            if (gMain.newKeys & PAD_BUTTON_X)
             {
                 r1 |= PAD_BUTTON_Y;
             }
-            if (gMain.unk48 & PAD_BUTTON_Y)
+            if (gMain.newKeys & PAD_BUTTON_Y)
             {
                 r1 |= PAD_BUTTON_X;
             }
-            gMain.unk48 &= 0xF3FF;
-            gMain.unk48 |= r1;
+            gMain.newKeys &= 0xF3FF;
+            gMain.newKeys |= r1;
         }
         {
             u32 r1 = 0;
@@ -489,28 +489,28 @@ void FUN_02016568(void)
         }
         {
             u32 r1 = 0;
-            if (gMain.unk4C & PAD_BUTTON_X)
+            if (gMain.newAndRepeatedKeys & PAD_BUTTON_X)
             {
                 r1 |= PAD_BUTTON_Y;
             }
-            if (gMain.unk4C & PAD_BUTTON_Y)
+            if (gMain.newAndRepeatedKeys & PAD_BUTTON_Y)
             {
                 r1 |= PAD_BUTTON_X;
             }
-            gMain.unk4C &= 0xF3FF;
-            gMain.unk4C |= r1;
+            gMain.newAndRepeatedKeys &= 0xF3FF;
+            gMain.newAndRepeatedKeys |= r1;
         }
         break;
     case 3: // L = A
-        if (gMain.unk48 & PAD_BUTTON_L)
-            gMain.unk48 |= PAD_BUTTON_A;
+        if (gMain.newKeys & PAD_BUTTON_L)
+            gMain.newKeys |= PAD_BUTTON_A;
         if (gMain.unk44 & PAD_BUTTON_L)
             gMain.unk44 |= PAD_BUTTON_A;
-        if (gMain.unk4C & PAD_BUTTON_L)
-            gMain.unk4C |= PAD_BUTTON_A;
-        gMain.unk48 &= 0xFCFF;
+        if (gMain.newAndRepeatedKeys & PAD_BUTTON_L)
+            gMain.newAndRepeatedKeys |= PAD_BUTTON_A;
+        gMain.newKeys &= 0xFCFF;
         gMain.unk44 &= 0xFCFF;
-        gMain.unk4C &= 0xFCFF;
+        gMain.newAndRepeatedKeys &= 0xFCFF;
     }
 }
 

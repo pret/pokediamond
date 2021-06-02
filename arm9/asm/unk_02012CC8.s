@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021CED64
+	.extern NNS_G3dGlb
 
 	.section .rodata
 
@@ -96,7 +96,7 @@ _02012D04:
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02012D14
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012D14:
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -205,7 +205,7 @@ FUN_02012DE4: ; 0x02012DE4
 	beq _02012E02
 	add r0, r5, #0x0
 	add r0, #0x58
-	bl FUN_020AE8CC
+	bl NNS_GfdSetFrmTexVramState
 	b _02012E22
 _02012E02:
 	mov r0, #0x2
@@ -218,7 +218,7 @@ _02012E0E:
 	ldr r0, [r4, #0x58]
 	cmp r0, #0x0
 	beq _02012E1A
-	bl FUN_020AF894
+	bl NNS_GfdFreeLnkTexVram
 	str r7, [r4, #0x58]
 _02012E1A:
 	add r6, r6, #0x1
@@ -234,7 +234,7 @@ _02012E22:
 	beq _02012E38
 	add r0, r5, #0x0
 	add r0, #0x98
-	bl FUN_020AEC7C
+	bl NNS_GfdSetFrmPlttVramState
 	b _02012E60
 _02012E38:
 	mov r0, #0x8
@@ -249,7 +249,7 @@ _02012E44:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _02012E58
-	bl FUN_020AFA80
+	bl NNS_GfdFreeLnkPlttVram
 	add r0, r4, #0x0
 	add r0, #0x98
 	str r7, [r0, #0x0]
@@ -337,7 +337,7 @@ _02012EE4:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012EF0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012EF0:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -363,7 +363,7 @@ _02012F10:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012F1C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012F1C:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -389,7 +389,7 @@ _02012F3C:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012F48
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012F48:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -415,7 +415,7 @@ _02012F68:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012F74
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012F74:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -441,7 +441,7 @@ _02012F94:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012FA0
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012FA0:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -467,7 +467,7 @@ _02012FC0:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012FCC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012FCC:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -493,7 +493,7 @@ _02012FEC:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02012FF8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02012FF8:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -519,7 +519,7 @@ _02013018:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013024
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013024:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -545,7 +545,7 @@ _02013044:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013050
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013050:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -571,7 +571,7 @@ _02013070:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _0201307C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201307C:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -597,7 +597,7 @@ _0201309C:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _020130A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _020130A8:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -623,7 +623,7 @@ _020130C8:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _020130D4
-	bl ErrorHandling
+	bl GF_AssertFail
 _020130D4:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -649,7 +649,7 @@ _020130F4:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013100
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013100:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -675,7 +675,7 @@ _02013120:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _0201312C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201312C:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -701,7 +701,7 @@ _0201314C:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013158
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013158:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -727,7 +727,7 @@ _02013178:
 	ldr r1, [r1, #0x14]
 	cmp r0, r1
 	blo _02013184
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013184:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -751,12 +751,12 @@ FUN_02013194: ; 0x02013194
 	add r7, r3, #0x0
 	cmp r0, #0x0
 	bne _020131A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _020131A8:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	beq _020131B2
-	bl ErrorHandling
+	bl GF_AssertFail
 _020131B2:
 	add r0, r5, #0x0
 	add r0, #0xd8
@@ -766,7 +766,7 @@ _020131B2:
 	beq _020131C8
 	add r0, r5, #0x0
 	add r0, #0x58
-	bl FUN_020AE918
+	bl NNS_GfdGetFrmTexVramState
 	b _020131DE
 _020131C8:
 	mov r0, #0x2
@@ -787,7 +787,7 @@ _020131DE:
 	beq _020131EE
 	add r0, r5, #0x0
 	add r0, #0x98
-	bl FUN_020AEC98
+	bl NNS_GfdGetFrmPlttVramState
 	b _02013208
 _020131EE:
 	mov r0, #0x8
@@ -870,13 +870,13 @@ FUN_0201327C: ; 0x0201327C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02013286
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013286:
 	ldr r0, _020132B8 ; =UNK_021C4850
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02013292
-	bl ErrorHandling
+	bl GF_AssertFail
 _02013292:
 	ldr r0, _020132B8 ; =UNK_021C4850
 	mov r1, #0x0
@@ -895,7 +895,7 @@ _020132A8:
 	add r2, r2, #0x4
 	cmp r1, #0x10
 	blt _0201329A
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	nop
 _020132B8: .word UNK_021C4850
@@ -905,13 +905,13 @@ FUN_020132BC: ; 0x020132BC
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020132C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020132C6:
 	ldr r0, _020132FC ; =UNK_021C4850
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _020132D2
-	bl ErrorHandling
+	bl GF_AssertFail
 _020132D2:
 	ldr r0, _020132FC ; =UNK_021C4850
 	mov r1, #0x0
@@ -933,7 +933,7 @@ _020132EE:
 	add r2, r2, #0x4
 	cmp r1, #0x10
 	blt _020132DA
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	.balign 4
 _020132FC: .word UNK_021C4850
@@ -952,19 +952,19 @@ FUN_02013300: ; 0x02013300
 	bl FUN_0201EB8C
 	bl FUN_0201EBA4
 _0201331C:
-	bl FUN_020B849C
+	bl NNS_G3dGlbFlushP
 	ldr r0, [r4, #0x0]
-	ldr r1, _02013338 ; =UNK_021CED64
+	ldr r1, _02013338 ; =NNS_G3dGlb + 0x4C
 	bl FUN_0208AD80
 	ldr r0, [r4, #0x20]
 	cmp r0, #0x0
 	beq _02013332
 	bl FUN_0201EB98
 _02013332:
-	bl FUN_020B849C
+	bl NNS_G3dGlbFlushP
 	pop {r4, pc}
 	.balign 4
-_02013338: .word UNK_021CED64
+_02013338: .word NNS_G3dGlb + 0x4C
 
 	thumb_func_start FUN_0201333C
 FUN_0201333C: ; 0x0201333C
@@ -1488,8 +1488,8 @@ _02013688:
 	strh r0, [r4, #0x0]
 	pop {r4, pc}
 
-	thumb_func_start FUN_02013690
-FUN_02013690: ; 0x02013690
+	thumb_func_start ListMenuCursorNew
+ListMenuCursorNew: ; 0x02013690
 	push {r3-r5, lr}
 	mov r1, #0x8
 	add r5, r0, #0x0
@@ -1511,12 +1511,12 @@ _020136B2:
 _020136B8: .word 0x0001020F
 _020136BC: .word UNK_020ED548
 
-	thumb_func_start FUN_020136C0
-FUN_020136C0: ; 0x020136C0
+	thumb_func_start DestroyListMenuCursorObj
+DestroyListMenuCursorObj: ; 0x020136C0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020136CA
-	bl ErrorHandling
+	bl GF_AssertFail
 _020136CA:
 	cmp r4, #0x0
 	beq _020136DE
@@ -1530,14 +1530,14 @@ _020136D8:
 _020136DE:
 	pop {r4, pc}
 
-	thumb_func_start FUN_020136E0
-FUN_020136E0: ; 0x020136E0
+	thumb_func_start ListMenuCursorSetColor
+ListMenuCursorSetColor: ; 0x020136E0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _020136EE
-	bl ErrorHandling
+	bl GF_AssertFail
 _020136EE:
 	cmp r5, #0x0
 	beq _020136F4
@@ -1546,8 +1546,8 @@ _020136F4:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020136F8
-FUN_020136F8: ; 0x020136F8
+	thumb_func_start ListMenuUpdateCursorObj
+ListMenuUpdateCursorObj: ; 0x020136F8
 	push {r4-r6, lr}
 	sub sp, #0x10
 	add r6, r0, #0x0

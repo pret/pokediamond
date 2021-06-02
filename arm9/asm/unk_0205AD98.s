@@ -54,7 +54,7 @@ FUN_0205ADDC: ; 0x0205ADDC
 	add r5, r0, #0x0
 	cmp r4, #0x69
 	blt _0205ADEA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205ADEA:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -160,7 +160,7 @@ FUN_0205AEA4: ; 0x0205AEA4
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	bne _0205AEBA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205AEBA:
 	add r2, r4, #0x0
 	mov r1, #0x14
@@ -179,7 +179,7 @@ _0205AEC0:
 	bl FUN_0200CA44
 	add r7, r0, #0x0
 	bne _0205AEE4
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205AEE4:
 	str r5, [r4, #0xc]
 	str r6, [r4, #0x10]
@@ -206,13 +206,13 @@ FUN_0205AEFC: ; 0x0205AEFC
 	bl FUN_0205AE28
 	cmp r0, #0x1
 	beq _0205AF14
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205AF14:
 	ldr r0, [r4, #0xc]
 	bl FUN_0205AE50
 	mov r0, #0x4
 	add r1, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, r5, #0x0
 	bl FUN_0200CAB4
 	pop {r3-r5, pc}
@@ -335,7 +335,7 @@ FUN_0205AFDC: ; 0x0205AFDC
 	add r4, r1, #0x0
 	cmp r7, #0x4
 	blt _0205AFEA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0205AFEA:
 	ldr r3, _0205B01C ; =UNK_020F6308
 	ldr r6, [r3, #0x0]
@@ -362,7 +362,7 @@ _0205B004:
 	cmp r6, #0x0
 	bne _0205AFF4
 _0205B014:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 	.balign 4

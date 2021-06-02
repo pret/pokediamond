@@ -73,7 +73,7 @@ _021D7564:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _021D757A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D757A:
 	mov r0, #4
 	mov r1, #0x28
@@ -250,7 +250,7 @@ _021D76E2:
 	ldr r0, [r4, #0x4c]
 	cmp r0, #0
 	bne _021D7720
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7720:
 	ldr r0, [r4, #0x24]
 	bl MOD05_021EF514
@@ -727,7 +727,7 @@ MOD05_021D7B10: ; 0x021D7B10
 MOD05_021D7B38: ; 0x021D7B38
 	push {lr}
 	sub sp, #0x14
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7c
@@ -826,7 +826,7 @@ MOD05_021D7BE0: ; 0x021D7BE0
 	ldr r0, [r0]
 	ldr r1, [r4, #0x2c]
 	bl MOD05_021E805C
-	ldr r5, _021D7C98 ; =UNK_021CED20
+	ldr r5, _021D7C98 ; =NNS_G3dGlb + 0x8
 	add r3, sp, #0x40
 	mov r2, #8
 _021D7C0E:
@@ -859,29 +859,29 @@ _021D7C1C:
 	orr r2, r0
 	add r0, r1, r2
 	str r0, [sp, #0x38]
-	ldr r1, _021D7C98 ; =UNK_021CED20
+	ldr r1, _021D7C98 ; =NNS_G3dGlb + 0x8
 	add r0, sp, #0
 	mov r2, #0x40
 	bl MIi_CpuCopyFast
-	ldr r1, _021D7C9C ; =UNK_021CED98
+	ldr r1, _021D7C9C ; =NNS_G3dGlb + 0x80
 	mov r0, #0x50
 	ldr r2, [r1, #0x7c]
 	bic r2, r0
 	str r2, [r1, #0x7c]
-	bl FUN_020B849C
+	bl NNS_G3dGlbFlushP
 	ldr r0, [r4, #0x3c]
 	bl MOD05_021E4BA0
 	bl FUN_0201F178
-	ldr r1, _021D7C98 ; =UNK_021CED20
+	ldr r1, _021D7C98 ; =NNS_G3dGlb + 0x8
 	add r0, sp, #0x40
 	mov r2, #0x40
 	bl MIi_CpuCopyFast
-	ldr r1, _021D7C9C ; =UNK_021CED98
+	ldr r1, _021D7C9C ; =NNS_G3dGlb + 0x80
 	mov r0, #0x50
 	ldr r2, [r1, #0x7c]
 	bic r2, r0
 	str r2, [r1, #0x7c]
-	bl FUN_020B849C
+	bl NNS_G3dGlbFlushP
 	ldr r0, [r4, #4]
 	ldr r0, [r0, #4]
 	bl MOD05_021D7FD0
@@ -892,8 +892,8 @@ _021D7C1C:
 	add sp, #0x80
 	pop {r3, r4, r5, pc}
 	nop
-_021D7C98: .word UNK_021CED20
-_021D7C9C: .word UNK_021CED98
+_021D7C98: .word NNS_G3dGlb + 0x8
+_021D7C9C: .word NNS_G3dGlb + 0x80
 _021D7CA0: .word UNK_02105BB8
 
 	thumb_func_start MOD05_021D7CA4
@@ -931,7 +931,7 @@ _021D7CC6:
 	add sp, #0xc
 	pop {pc}
 _021D7CE6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xc
 	pop {pc}
 	.balign 4, 0
@@ -965,7 +965,7 @@ MOD05_021D7CF0: ; 0x021D7CF0
 	ldr r0, [r5, #0x30]
 	cmp r0, #0
 	beq _021D7D36
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7D36:
 	mov r0, #4
 	add r1, r4, #0

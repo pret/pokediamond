@@ -1,8 +1,9 @@
 #include "global.h"
 #include "poke_overlay.h"
 #include "FS_overlay.h"
+#include "unk_02031734.h"
 
-extern u32 FUN_02033590(void);
+
 FS_EXTERN_OVERLAY(MODULE_16);
 
 THUMB_FUNC static void MOD11_0222F284(void)

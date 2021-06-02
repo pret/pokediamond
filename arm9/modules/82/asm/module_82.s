@@ -715,7 +715,7 @@ _0222DA48:
 	mov r1, #2
 	lsl r1, r1, #0x10
 	mov r2, #0
-	bl tempName_NNS_FndCreateExpHeapEx
+	bl NNS_FndCreateExpHeapEx
 	str r0, [r4, #0x28]
 	mov r0, #1
 	str r0, [r5]
@@ -984,7 +984,7 @@ MOD82_0222DD54: ; 0x0222DD54
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r6, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -1256,7 +1256,7 @@ MOD82_0222DF74: ; 0x0222DF74
 	add r1, r5, #0
 	ldr r0, [r0, #4]
 	add r2, r4, #0
-	bl tempName_NNS_FndAllocFromExpHeapEx
+	bl NNS_FndAllocFromExpHeapEx
 	add r4, r0, #0
 	add r0, r6, #0
 	bl OS_RestoreInterrupts
@@ -1276,7 +1276,7 @@ MOD82_0222DF9C: ; 0x0222DF9C
 	ldr r0, _0222DFBC ; =0x0222FC0C
 	add r1, r5, #0
 	ldr r0, [r0, #4]
-	bl FUN_020ADDF0
+	bl NNS_FndFreeToExpHeap
 	add r0, r4, #0
 	bl OS_RestoreInterrupts
 _0222DFB8:
@@ -1617,7 +1617,7 @@ MOD82_0222E264: ; 0x0222E264
 	mov r0, #0x5c
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x44
@@ -1625,7 +1625,7 @@ MOD82_0222E264: ; 0x0222E264
 	mov r0, #0x5c
 	mov r1, #3
 	mov r2, #4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x1a
 	mov r0, #0
 	lsl r1, r1, #4
@@ -1669,7 +1669,7 @@ MOD82_0222E264: ; 0x0222E264
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	mov r0, #6
 	str r1, [sp]
@@ -1682,7 +1682,7 @@ MOD82_0222E264: ; 0x0222E264
 	mov r1, #4
 	add r2, r4, #0
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r1, #0
 	mov r0, #0x36
 	str r1, [sp]
@@ -1695,7 +1695,7 @@ MOD82_0222E264: ; 0x0222E264
 	mov r1, #9
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	mov r0, #6
 	str r1, [sp]
@@ -1708,7 +1708,7 @@ MOD82_0222E264: ; 0x0222E264
 	mov r1, #0xa
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02017FE4
@@ -1744,7 +1744,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	lsl r0, r0, #6
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xe
 	str r0, [sp]
 	mov r0, #4
@@ -1766,7 +1766,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	lsl r0, r0, #4
 	add r0, r4, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xe
 	str r0, [sp]
 	mov r0, #4
@@ -1788,7 +1788,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	lsl r0, r0, #4
 	add r0, r4, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #1
 	mov r1, #0xdb
 	lsl r1, r1, #4
@@ -1810,7 +1810,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	lsl r0, r0, #4
 	add r0, r4, r0
 	mov r1, #6
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #1
 	ldr r0, _0222E46C ; =0x00010406
 	str r3, [sp]
@@ -1842,7 +1842,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	lsl r0, r0, #6
 	add r0, r4, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add sp, #0x14
 	pop {r3, r4, pc}
 	nop
@@ -4037,7 +4037,7 @@ MOD82_0222F4D8: ; 0x0222F4D8
 	lsl r0, r0, #6
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x36
 	lsl r0, r0, #6
 	add r0, r5, r0
@@ -4132,7 +4132,7 @@ MOD82_0222F59C: ; 0x0222F59C
 	lsl r0, r0, #6
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x36
 	lsl r0, r0, #6
 	add r0, r5, r0
@@ -4258,7 +4258,7 @@ MOD82_0222F694: ; 0x0222F694
 	add r5, r0, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #1
 	str r0, [sp]
 	add r0, r4, #0
@@ -4375,7 +4375,7 @@ MOD82_0222F740: ; 0x0222F740
 	lsl r0, r0, #6
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x37
 	lsl r0, r0, #6
 	add r0, r5, r0

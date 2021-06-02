@@ -6,7 +6,7 @@ Static arm9
 {
 	Address 0x02000000
 	Object main.o
-	Object unk_020010A8.o
+	Object list_menu.o
 	Object unk_02001B80.o
 	Object string_util.o
 	Object unk_020023C0.o
@@ -21,7 +21,7 @@ Static arm9
 	Object unk_020061E8.o
 	Object overlay_manager.o
 	Object filesystem.o
-	Object unk_02006864.o
+	Object gf_gfx_loader.o
 	Object unk_02006D98.o
 	Object unk_02008AA4.o
 	Object unk_02008DEC.o
@@ -36,6 +36,10 @@ Static arm9
 	Object unk_0200E850.o
 	Object unk_0201137C.o
 	Object unk_02011744.o
+	Object unk_02012004.o
+	Object gf_rtc.o
+	Object list_menu_items.o
+	Object unk_02012944.o
 	Object unk_02012CC8.o
 	Object mail_message.o
 	Object unk_020139D8.o
@@ -107,7 +111,7 @@ Static arm9
 	Object seal_case.o
 	Object unk_02029CEC.o
 	Object igt.o
-	Object unk_02029EC4.o
+	Object sav_chatot.o
 	Object unk_02029FB0.o
 	Object unk_0202A1E0.o
 	Object unk_0202A8F4.o
@@ -153,16 +157,16 @@ Static arm9
 	Object unk_02038C78.o
 	Object scrcmd.o
 	Object scrcmd_asm.o
-	Object scrcmd_2.o
+	Object scrcmd_mart.o
 	Object scrcmd_3.o
 	Object scrcmd_names.o
 	Object scrcmd_5.o
-	Object scrcmd_6.o
+	Object scrcmd_sound.o
 	Object scrcmd_7.o
 	Object scrcmd_8.o
 	Object scrcmd_9.o
 	Object scrcmd_10.o
-	Object scrcmd_11.o
+	Object scrcmd_berry_trees.o
 	Object scrcmd_12.o
 	Object scrcmd_13.o
 	Object scrcmd_coins.o
@@ -171,11 +175,11 @@ Static arm9
 	Object scrcmd_17.o
 	Object scrcmd_18_c.o
 	Object scrcmd_18.o
-	Object scrcmd_19.o
-	Object scrcmd_20.o
-	Object scrcmd_21.o
+	Object scrcmd_fossils.o
+	Object scrcmd_prizes.o
+	Object scrcmd_flags.o
 	Object scrcmd_items.o
-	Object scrcmd_23.o
+	Object scrcmd_underground.o
 	Object scrcmd_24.o
 	Object scrcmd_25.o
 	Object unk_02046030.o
@@ -352,8 +356,81 @@ Static arm9
 	Object WCM_util.o
 	Object WIFI_stubsmd5_dummy.o
 	Object libVCT.o
-	Object unk_020ADA84.o
-	Object sndlib.o
+	### Nitro System SDK ###
+	Object NNS_FND_list.o
+	Object NNS_FND_heapcommon.o
+	Object NNS_FND_expheap.o
+	Object NNS_FND_frameheap.o
+	Object NNS_FND_allocator.o
+	Object NNS_GFD_gfd_texvramman.o
+    Object NNS_GFD_gfd_plttvramman.o
+    Object NNS_GFD_gfd_frametexvra.o
+    Object NNS_GFD_gfd_frameplttvr.o
+    Object NNS_GFD_gfd_vramtransfe.o
+    Object NNS_GFD_gfdi_linkedlist.o
+    Object NNS_GFD_gfd_linkedlistt.o
+    Object NNS_GFD_gfd_linkedlistp.o
+    Object NNS_G2D_g2d_nan_load.o
+    Object NNS_G2D_g2d_nob_load.o
+    Object NNS_G2D_g2d_nmc_load.o
+    Object NNS_G2D_g2d_ncg_load.o
+    Object NNS_G2D_g2d_ncl_load.o
+    Object NNS_G2D_g2d_nsc_load.o
+    Object NNS_G2D_g2d_load.o
+    Object NNS_G2D_g2d_softsprite.o
+    Object NNS_G2D_g2d_animation.o
+    Object NNS_G2D_g2d_oam.o
+    Object NNS_G2D_g2d_palettetabl.o
+    Object NNS_G2D_g2d_image.o
+    Object NNS_G2D_g2d_srtcontrol.o
+    Object NNS_G2D_g2d_node.o
+    Object NNS_G2D_g2d_cellanimati.o
+    Object NNS_G2D_g2d_multicellan.o
+    Object NNS_G2D_g2d_renderer.o
+    Object NNS_G2D_g2di_mtx32.o
+    Object NNS_G2D_g2d_celltransfe.o
+    Object NNS_G2D_g2d_oamsoftware.o
+    Object NNS_G2D_g2d_renderercor.o
+    Object NNS_G2D_g2d_font.o
+    Object NNS_G2D_g2d_charcanvas.o
+    Object NNS_G2D_g2d_textcanvas.o
+    Object NNS_G2D_g2d_nft_load.o
+    Object NNS_G2D_g2di_bitreader.o
+    Object NNS_G2D_g2di_splitchar.o
+    Object NNS_G3D_kernel.o
+    Object NNS_G3D_glbstate.o
+    Object NNS_G3D_anm.o
+    Object NNS_G3D_cgtool.o
+    Object NNS_G3D_sbc.o
+    Object NNS_G3D_1mat1shp.o
+    Object NNS_G3D_gecom.o
+    Object NNS_G3D_util.o
+    Object NNS_G3D_mem.o
+    Object NNS_G3D_model.o
+    Object NNS_G3D_res_struct_acce.o
+    Object NNS_G3D_nsbca.o
+    Object NNS_G3D_nsbma.o
+    Object NNS_G3D_nsbta.o
+    Object NNS_G3D_nsbtp.o
+    Object NNS_G3D_nsbva.o
+    Object NNS_G3D_basic.o
+    Object NNS_G3D_maya.o
+    Object NNS_G3D_si3d.o
+    Object NNS_G3D_3dsmax.o
+    Object NNS_G3D_xsi.o
+    Object NNS_SND_main.o
+    Object NNS_SND_resource_mgr.o
+    Object NNS_SND_waveout.o
+    Object NNS_SND_player.o
+    Object NNS_SND_stream.o
+    Object NNS_SND_capture.o
+    Object NNS_SND_sndarc.o
+    Object NNS_SND_heap.o
+    Object NNS_SND_sndarc_loader.o
+    Object NNS_SND_sndarc_player.o
+    Object NNS_SND_sndarc_stream.o
+    Object NNS_SND_seqdata.o
+    Object NNS_SND_fader.o
 	### Nitro SDK ###
 	Object FX_mtx22.o
 	Object FX_mtx33.o
@@ -361,6 +438,7 @@ Static arm9
 	Object FX_mtx44.o
 	Object FX_cp.o
 	Object FX_vec.o
+	Object FX_sincos.o
 	Object FX_atan.o
 	Object FX.o
 	Object GX.o

@@ -75,7 +75,7 @@ MOD06_02239714: ; 0x02239714
 	ldr r0, [r4, #0x38]
 	cmp r0, #2
 	beq _02239722
-	bl ErrorHandling
+	bl GF_AssertFail
 _02239722:
 	mov r0, #3
 	str r0, [r4, #0x38]
@@ -1124,7 +1124,7 @@ MOD06_02239F04: ; 0x02239F04
 	bl FUN_02058060
 	add r5, r0, #0
 	bne _02239F18
-	bl ErrorHandling
+	bl GF_AssertFail
 _02239F18:
 	add r0, r5, #0
 	bl FUN_02058B2C
@@ -2298,7 +2298,7 @@ MOD06_0223A790: ; 0x0223A790
 	ldr r0, [r4, r0]
 	cmp r0, #5
 	beq _0223A7A2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223A7A2:
 	add r0, r4, #0
 	bl FreeToHeap
@@ -2339,7 +2339,7 @@ MOD06_0223A7DC: ; 0x0223A7DC
 	ldr r0, [r4, r0]
 	cmp r0, #2
 	beq _0223A7EE
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223A7EE:
 	mov r0, #0x4b
 	mov r1, #3
@@ -2393,7 +2393,7 @@ MOD06_0223A828: ; 0x0223A828
 	str r1, [r0]
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	add r4, #0x40
 	add r0, r4, #0
 	bl MOD06_0223A400
@@ -2401,7 +2401,7 @@ MOD06_0223A828: ; 0x0223A828
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 _0223A860:
 	add sp, #4
 	pop {r3, r4, pc}
@@ -3119,7 +3119,7 @@ MOD06_0223ADB4: ; 0x0223ADB4
 	str r0, [r4]
 	cmp r0, #0
 	bne _0223ADCA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223ADCA:
 	mov r0, #0
 	str r0, [r4, #0x24]
@@ -3693,7 +3693,7 @@ MOD06_0223B20C: ; 0x0223B20C
 	add r7, r3, #0
 	cmp r0, #0
 	beq _0223B224
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223B224:
 	mov r0, #0x71
 	mov r1, #0
@@ -3749,7 +3749,7 @@ MOD06_0223B268: ; 0x0223B268
 	bl MOD06_0223B438
 	add r4, r0, #0
 	bne _0223B290
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223B290:
 	mov r1, #0x73
 	lsl r1, r1, #2
@@ -3897,7 +3897,7 @@ MOD06_0223B378: ; 0x0223B378
 	add r7, r3, #0
 	cmp r0, #0
 	beq _0223B38C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223B38C:
 	add r0, r5, #0
 	add r0, #0x7c
@@ -4562,7 +4562,7 @@ MOD06_0223B814: ; 0x0223B814
 	ldr r0, [r4, #0x14]
 	cmp r0, #2
 	beq _0223B822
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223B822:
 	mov r0, #3
 	str r0, [r4, #0x14]
@@ -5133,7 +5133,7 @@ _0223BC90:
 	bl MOD06_0223C438
 	b _0223BCCC
 _0223BCBC:
-	bl ErrorHandling
+	bl GF_AssertFail
 	ldr r0, [sp, #0x2c]
 	bl FUN_02047964
 	add sp, #0xb4
@@ -5154,13 +5154,13 @@ _0223BCDE:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _0223BCEC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223BCEC:
 	mov r0, #0xb
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _0223BCFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223BCFA:
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
@@ -5222,7 +5222,7 @@ _0223BD2E:
 	lsr r5, r0, #0x10
 	cmp r5, #0x64
 	blo _0223BD80
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223BD80:
 	cmp r5, r6
 	blt _0223BD8A
@@ -5570,7 +5570,7 @@ _0223C034:
 	bl MOD06_0223C438
 	b _0223C06A
 _0223C060:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xac
 	mov r0, #0
 	pop {r4, r5, r6, r7, pc}
@@ -5583,7 +5583,7 @@ _0223C06A:
 	bl FUN_02046A20
 	b _0223C07E
 _0223C07A:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C07E:
 	mov r0, #0
 	add r5, #0x74
@@ -5851,7 +5851,7 @@ _0223C2A2:
 	bl MOD06_0223C3F4
 	b _0223C2DC
 _0223C2CC:
-	bl ErrorHandling
+	bl GF_AssertFail
 	ldr r0, [r4]
 	bl FUN_02047964
 	add sp, #0xac
@@ -5867,13 +5867,13 @@ _0223C2E4:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _0223C2F2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C2F2:
 	mov r0, #0xb
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _0223C300
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C300:
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
@@ -6089,7 +6089,7 @@ MOD06_0223C470: ; 0x0223C470
 	lsr r4, r0, #0x10
 	cmp r4, #0x64
 	blo _0223C4A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C4A8:
 	cmp r4, #5
 	blo _0223C4B0
@@ -6133,7 +6133,7 @@ _0223C4EC:
 	lsr r6, r0, #0x10
 	cmp r6, #0x64
 	blo _0223C504
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C504:
 	cmp r6, r4
 	bge _0223C518
@@ -6217,7 +6217,7 @@ MOD06_0223C584: ; 0x0223C584
 	lsr r5, r0, #0x10
 	cmp r5, #0x64
 	blo _0223C5A0
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C5A0:
 	cmp r5, r4
 	blo _0223C5A8
@@ -6238,7 +6238,7 @@ MOD06_0223C5AC: ; 0x0223C5AC
 	lsr r4, r0, #0x10
 	cmp r4, #0x64
 	blo _0223C5C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C5C6:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
@@ -6328,7 +6328,7 @@ MOD06_0223C648: ; 0x0223C648
 	lsr r4, r0, #0x10
 	cmp r4, #0x64
 	blo _0223C662
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C662:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
@@ -6373,7 +6373,7 @@ MOD06_0223C694: ; 0x0223C694
 	lsr r6, r0, #0x10
 	cmp r6, #0x64
 	blo _0223C6B2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C6B2:
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
@@ -6454,7 +6454,7 @@ _0223C72C:
 	mov r4, #4
 	b _0223C734
 _0223C730:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C734:
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
@@ -6522,7 +6522,7 @@ MOD06_0223C78C: ; 0x0223C78C
 	lsr r5, r0, #0x10
 	cmp r5, #2
 	blo _0223C7AC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C7AC:
 	cmp r5, #0
 	bne _0223C7C6
@@ -6543,7 +6543,7 @@ _0223C7C6:
 	lsr r4, r0, #0x10
 	cmp r4, #0x19
 	blo _0223C7DC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C7DC:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
@@ -6593,7 +6593,7 @@ _0223C82C:
 	lsr r7, r0, #0x10
 	cmp r7, #2
 	blo _0223C83C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C83C:
 	cmp r7, #0
 	bne _0223C848
@@ -6646,7 +6646,7 @@ MOD06_0223C854: ; 0x0223C854
 	lsr r4, r0, #0x10
 	cmp r4, #3
 	blo _0223C8A6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C8A6:
 	cmp r4, #0
 	beq _0223C8E0
@@ -6667,7 +6667,7 @@ _0223C8BE:
 	lsr r4, r0, #0x10
 	cmp r4, #2
 	blo _0223C8D2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C8D2:
 	cmp r4, #0
 	bne _0223C8E0
@@ -6691,7 +6691,7 @@ _0223C8EC:
 	add r7, r0, #0
 	cmp r7, #2
 	bne _0223C904
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C904:
 	ldr r0, [sp, #0x24]
 	cmp r7, r0
@@ -6731,7 +6731,7 @@ _0223C92E:
 	bl MOD06_0223D1BC
 	cmp r0, #0
 	bne _0223C95A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C95A:
 	ldr r0, [sp, #0x1c]
 	bl FreeToHeap
@@ -6780,7 +6780,7 @@ _0223C998:
 	lsr r6, r0, #0x10
 	cmp r6, #3
 	blo _0223C9BE
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C9BE:
 	cmp r6, #0
 	beq _0223CA28
@@ -6800,7 +6800,7 @@ _0223C9D8:
 	mov r6, #1
 	b _0223C9E4
 _0223C9E0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223C9E4:
 	ldr r0, [sp, #0x28]
 	add r1, r5, #0
@@ -6825,7 +6825,7 @@ _0223C9E4:
 	bl MOD06_0223D1BC
 	cmp r0, #0
 	bne _0223CA1E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CA1E:
 	add r0, r4, #0
 	bl FreeToHeap
@@ -6852,7 +6852,7 @@ _0223CA28:
 	bl MOD06_0223D1BC
 	cmp r0, #0
 	bne _0223CA5C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CA5C:
 	add r0, r4, #0
 	bl FreeToHeap
@@ -6999,7 +6999,7 @@ _0223CB74:
 	add r7, r0, #0
 	b _0223CB8A
 _0223CB86:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CB8A:
 	add r0, r5, #0
 	add r1, r6, #0
@@ -7048,7 +7048,7 @@ MOD06_0223CBD4: ; 0x0223CBD4
 	add r7, r3, #0
 	cmp r5, #0
 	bne _0223CBE8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CBE8:
 	lsl r0, r4, #0x18
 	lsr r1, r0, #0x18
@@ -7197,7 +7197,7 @@ MOD06_0223CCDC: ; 0x0223CCDC
 	lsr r6, r0, #0x10
 	cmp r6, #0xb
 	blo _0223CD1A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CD1A:
 	add r0, r6, #5
 	lsl r0, r0, #0x18
@@ -7219,7 +7219,7 @@ _0223CD36:
 	lsr r6, r0, #0x10
 	cmp r6, #2
 	blo _0223CD46
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CD46:
 	cmp r6, #0
 	beq _0223CD4C
@@ -7353,7 +7353,7 @@ _0223CE32:
 	ldr r0, [r0, r1]
 	pop {r4, pc}
 _0223CE3A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r4, pc}
 	.align 2, 0
@@ -7454,7 +7454,7 @@ MOD06_0223CED4: ; 0x0223CED4
 	lsr r4, r0, #0x10
 	cmp r4, #2
 	blo _0223CEFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CEFA:
 	cmp r4, #0
 	bne _0223CF0E
@@ -7569,7 +7569,7 @@ _0223CFAC:
 	lsr r4, r0, #0x10
 	cmp r4, #2
 	blo _0223CFC2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223CFC2:
 	cmp r4, #0
 	bne _0223CFCA
@@ -7705,7 +7705,7 @@ MOD06_0223D044: ; 0x0223D044
 	bl AddMonToParty
 	cmp r0, #0
 	bne _0223D0D8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D0D8:
 	add r0, r4, #0
 	bl FreeToHeap
@@ -7768,7 +7768,7 @@ _0223D148:
 	lsr r4, r0, #0x10
 	cmp r4, #2
 	blo _0223D158
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D158:
 	cmp r4, #0
 	bne _0223D162
@@ -7780,7 +7780,7 @@ _0223D162:
 	bls _0223D1AA
 	cmp r5, #0
 	bne _0223D16E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D16E:
 	cmp r5, #1
 	bhi _0223D176
@@ -7802,7 +7802,7 @@ _0223D176:
 	lsr r4, r0, #0x10
 	cmp r4, r5
 	blo _0223D19E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D19E:
 	lsl r1, r4, #2
 	add r0, sp, #8
@@ -7940,7 +7940,7 @@ _0223D296:
 	lsr r6, r0, #0x10
 	cmp r6, #2
 	blo _0223D2A6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D2A6:
 	cmp r6, #0
 	bne _0223D2AE
@@ -8020,7 +8020,7 @@ _0223D308:
 	beq _0223D342
 	cmp r1, #8
 	ble _0223D338
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223D338:
 	add r5, #0xa0
 	ldr r0, [r5]
@@ -8427,7 +8427,7 @@ MOD06_0223D63C: ; 0x0223D63C
 	mov r4, #3
 	add r0, r4, #0
 	mov r1, #0xb
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	add r1, r5, #0
 	add r1, #0x84
 	str r0, [r1]
@@ -8439,7 +8439,7 @@ MOD06_0223D63C: ; 0x0223D63C
 	ldr r1, [r1]
 	mov r2, #0xf
 	mov r3, #2
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r5, #0
 	add r1, r5, #0
 	add r0, #0x84
@@ -8448,7 +8448,7 @@ MOD06_0223D63C: ; 0x0223D63C
 	ldr r1, [r1]
 	mov r2, #0x10
 	mov r3, #0xe
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r5, #0
 	add r1, r5, #0
 	add r0, #0x84
@@ -8458,7 +8458,7 @@ MOD06_0223D63C: ; 0x0223D63C
 	ldr r0, [r0]
 	ldr r1, [r1]
 	sub r3, #0x13
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	mov r3, #1
 	str r3, [sp]
 	mov r1, #0xd
@@ -8478,7 +8478,7 @@ _0223D6B8:
 	mov r4, #2
 	add r0, r4, #0
 	mov r1, #0xb
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	add r1, r5, #0
 	add r1, #0x84
 	str r0, [r1]
@@ -8490,7 +8490,7 @@ _0223D6B8:
 	ldr r1, [r1]
 	mov r2, #0xf
 	add r3, r4, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r5, #0
 	add r1, r5, #0
 	add r0, #0x84
@@ -8500,7 +8500,7 @@ _0223D6B8:
 	ldr r0, [r0]
 	ldr r1, [r1]
 	sub r3, #0x13
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	mov r3, #1
 	str r3, [sp]
 	mov r1, #0xd
@@ -8618,7 +8618,7 @@ MOD06_0223D7B8: ; 0x0223D7B8
 	add r0, r4, #0
 	add r0, #0x84
 	ldr r0, [r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r4, #8
 	add r0, r4, #0
 	bl FUN_02019178
@@ -8879,7 +8879,7 @@ MOD06_0223D9E8: ; 0x0223D9E8
 	ldr r2, [r4]
 	mov r0, #0x3e
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	ldr r0, _0223DA88 ; =0x00000241
 	ldrb r0, [r4, r0]
 	cmp r0, #0
@@ -8894,7 +8894,7 @@ MOD06_0223D9E8: ; 0x0223D9E8
 	mov r0, #0x3e
 	mov r1, #2
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	b _0223DA3E
 _0223DA26:
 	mov r0, #0
@@ -8907,7 +8907,7 @@ _0223DA26:
 	mov r0, #0x3e
 	mov r1, #3
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 _0223DA3E:
 	mov r0, #0x20
 	str r0, [sp]
@@ -8917,7 +8917,7 @@ _0223DA3E:
 	mov r0, #0x3e
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	mov r3, #0xb
@@ -9146,7 +9146,7 @@ _0223DC34:
 	ldrb r0, [r5, r0]
 	mov r1, #0xb
 	add r0, r0, #1
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0x7c]
 	mov r0, #0x8b
 	lsl r0, r0, #2
@@ -9172,7 +9172,7 @@ _0223DC52:
 	ldr r0, [r5, #0x7c]
 	ldrh r2, [r2, r4]
 	add r1, r7, #0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r0, r7, #0
 	bl String_dtor
 	mov r0, #0x8b
@@ -9190,7 +9190,7 @@ _0223DC8E:
 	ldr r0, [r5, #0x7c]
 	ldr r1, [r1]
 	sub r3, #0xa
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, [sp]
 	bl DestroyMsgData
 	ldr r4, _0223DCEC ; =0x0224F38C
@@ -9220,7 +9220,7 @@ _0223DC8E:
 	add r0, r2, #0
 	add r2, r1, #0
 	str r5, [sp, #0x20]
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #0x78]
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
@@ -9236,7 +9236,7 @@ MOD06_0223DCF0: ; 0x0223DCF0
 	mov r1, #0x13
 	str r0, [sp, #0x10]
 	add r6, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	cmp r6, #1
 	beq _0223DD0C
@@ -9246,7 +9246,7 @@ _0223DD0C:
 	add r0, r4, #0
 	add r0, #0x18
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #1
 	mvn r1, r1
 	cmp r5, r1
@@ -9328,7 +9328,7 @@ _0223DDBA:
 	ldr r0, [sp, #0x10]
 	add r1, #2
 	add r2, sp, #0x14
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0x14
 	ldrh r0, [r0, #2]
 	cmp r0, #0
@@ -9348,7 +9348,7 @@ _0223DDE4:
 _0223DDF0:
 	ldr r0, [sp, #0x10]
 	mov r1, #2
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r0, #7
 	bls _0223DE16
 	add r1, sp, #0x14
@@ -9383,7 +9383,7 @@ MOD06_0223DE34: ; 0x0223DE34
 	add r4, r1, #0
 	mov r1, #0x13
 	add r7, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	mov r1, #1
 	mvn r1, r1
 	add r5, r0, #0
@@ -9456,7 +9456,7 @@ MOD06_0223DED0: ; 0x0223DED0
 	bne _0223DF1C
 	add r0, #0x28
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x28
 	mov r1, #1
@@ -9491,7 +9491,7 @@ _0223DF1C:
 	mov r1, #0xf
 	mov r2, #0
 	str r3, [sp, #4]
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _0223DF30:
 	mov r0, #0x10
 	mov r1, #0xb
@@ -9558,14 +9558,14 @@ MOD06_0223DFB4: ; 0x0223DFB4
 	ldr r0, [r5, #0x78]
 	mov r1, #0
 	add r2, #2
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldr r0, [r5, #0x78]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	ldr r0, [r5, #0x78]
 	mov r1, #0
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0
 	ldrh r2, [r0]
 	ldrh r0, [r0, #2]
@@ -9595,9 +9595,9 @@ _0223E006:
 	mov r1, #0
 	ldr r0, [r5, #0x78]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r5, #0x7c]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add r0, r5, #0
 	bl MOD06_0223D9C0
 	add r0, r5, #0
@@ -9637,7 +9637,7 @@ _0223E034:
 	add r0, r5, #0
 	add r0, #0x58
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x18
 	bl FUN_02019570
@@ -9832,7 +9832,7 @@ _0223E214:
 	add r0, r5, #0
 	add r0, #0x48
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x48
 	mov r1, #1
@@ -9934,7 +9934,7 @@ _0223E2C4:
 	add r0, r4, #0
 	add r0, #0x58
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0223E380 ; =0x000005DC
 	bl FUN_020054C8
 	add r0, r4, #0
@@ -10167,7 +10167,7 @@ MOD06_0223E4E8: ; 0x0223E4E8
 	add r4, r1, #0
 	add r0, #0x38
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r4, #0
 	bne _0223E50A
 	add r0, r5, #0
@@ -10429,7 +10429,7 @@ _0223E704:
 	add r0, r5, #0
 	add r0, #0x58
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r5, r2]
@@ -10644,7 +10644,7 @@ _0223E88A:
 	add r0, r5, #0
 	add r0, #0x58
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #0x23
 	lsl r2, r2, #4
 	ldr r1, [r5, r2]
@@ -11388,7 +11388,7 @@ _0223EEB8:
 	mov r1, #0
 	add r0, r2, #0
 	add r2, r1, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	ldr r1, _0223EF10 ; =0x02252420
 	ldr r2, [r1]
 	str r0, [r2, #0x5c]
@@ -11412,7 +11412,7 @@ MOD06_0223EF18: ; 0x0223EF18
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0223EF28
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223EF28:
 	mov r0, #4
 	mov r1, #0x9c
@@ -11454,15 +11454,15 @@ _0223EF28:
 	str r0, [r2, #0x7c]
 	ldr r0, [r1]
 	add r0, #0x20
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, _0223EFF4 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, _0223EFF4 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x40
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #4
 	bl ScrStrBufs_new
 	ldr r1, _0223EFF4 ; =0x02252420
@@ -11619,7 +11619,7 @@ MOD06_0223F0C8: ; 0x0223F0C8
 	mov r1, #3
 	add r5, r0, #0
 	mov r4, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r0, #0
 	bls _0223F0F6
 	add r6, r4, #0
@@ -11633,7 +11633,7 @@ _0223F0DC:
 	add r0, r5, #0
 	add r1, r7, #0
 	add r4, r4, #1
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r4, r0
 	blo _0223F0DC
 _0223F0F6:
@@ -11655,7 +11655,7 @@ MOD06_0223F0F8: ; 0x0223F0F8
 	cmp r0, #0
 	beq _0223F11A
 	add r1, sp, #0xc
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 _0223F11A:
 	add r0, sp, #0xc
 	ldrh r1, [r0]
@@ -11665,7 +11665,7 @@ _0223F11A:
 	lsl r5, r5, #4
 	ldr r0, [r0]
 	add r0, #0x20
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #3
 	sub r0, #8
 	lsl r0, r0, #0x10
@@ -11680,7 +11680,7 @@ _0223F11A:
 	add r0, #0x20
 	mov r2, #8
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, sp, #0xc
 	ldrh r2, [r0]
 	cmp r2, r4
@@ -11853,7 +11853,7 @@ _0223F2AA:
 	mov r1, #0xf
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0223F330 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
@@ -11977,7 +11977,7 @@ MOD06_0223F3B8: ; 0x0223F3B8
 	beq _0223F450
 	mov r0, #0x10
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r4, _0223F454 ; =0x02252420
 	mov r5, #0
 	ldr r1, [r4]
@@ -12006,7 +12006,7 @@ _0223F3E0:
 	mov r2, #0
 	ldr r0, [r1, #0x64]
 	ldr r1, [r1]
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r5, r5, #1
 	cmp r5, #0x10
 	blt _0223F3E0
@@ -12074,7 +12074,7 @@ _0223F49A:
 	ldr r0, _0223F518 ; =0x02252420
 	ldr r0, [r0]
 	ldr r0, [r0, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 _0223F4A4:
 	mov r1, #1
 	mvn r1, r1
@@ -12105,7 +12105,7 @@ _0223F4D8:
 	add r1, r4, #0
 	ldr r0, [r4, #0x5c]
 	add r1, #0x8e
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, r4, #0
 	add r0, #0x8e
 	ldrh r5, [r0]
@@ -12160,7 +12160,7 @@ _0223F53C:
 	mov r2, #8
 	add r0, #0x20
 	mov r3, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, _0223F580 ; =0x02252420
 	mov r1, #0
 	ldr r0, [r0]
@@ -12451,7 +12451,7 @@ MOD06_0223F7C4: ; 0x0223F7C4
 	cmp r0, #0
 	beq _0223F7E0
 	add r1, sp, #0xc
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 _0223F7E0:
 	add r0, sp, #0xc
 	ldrh r1, [r0]
@@ -12611,7 +12611,7 @@ _0223F910:
 	mov r1, #0xf
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0223F950 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
@@ -12651,7 +12651,7 @@ _0223F966:
 	ldrb r0, [r0]
 	cmp r0, #0x11
 	blo _0223F982
-	bl ErrorHandling
+	bl GF_AssertFail
 _0223F982:
 	ldr r0, _0223F9D4 ; =0x02252420
 	ldr r0, [r0]
@@ -12727,7 +12727,7 @@ _0223FA02:
 	mov r1, #0xf
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _0223FA5C ; =0x02252420
 	add r1, r4, #0
 	ldr r2, [r0]
@@ -12821,7 +12821,7 @@ MOD06_0223FAB8: ; 0x0223FAB8
 	beq _0223FB4C
 	mov r0, #5
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r4, _0223FB50 ; =0x02252420
 	mov r5, #0
 	ldr r1, [r4]
@@ -12834,7 +12834,7 @@ _0223FAE6:
 	ldr r0, [r1, #0x64]
 	ldr r1, [r1, #0x74]
 	add r3, r7, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r5, r5, #1
 	cmp r5, #5
 	blt _0223FAE6
@@ -12966,13 +12966,13 @@ _0223FBDA:
 	strb r0, [r2]
 	ldr r0, [r1]
 	ldr r0, [r0, #0x5c]
-	bl FUN_02001328
+	bl RedrawListMenu
 	ldr r0, _0223FCF0 ; =0x02252420
 	mov r1, #3
 	ldr r0, [r0]
 	mov r5, #0
 	ldr r0, [r0, #0x5c]
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r0, #0
 	bls _0223FC32
 	ldr r4, _0223FCF0 ; =0x02252420
@@ -12989,13 +12989,13 @@ _0223FC14:
 	add r1, r7, #0
 	ldr r0, [r0, #0x5c]
 	add r5, r5, #1
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	cmp r5, r0
 	blo _0223FC14
 _0223FC32:
 	ldr r0, [sp, #4]
 	ldr r0, [r0, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	bl FUN_0202DF08
 	cmp r0, #0xff
@@ -13094,7 +13094,7 @@ MOD06_0223FD08: ; 0x0223FD08
 	add r0, r4, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, [r4, #0x60]
 	mov r1, #4
 	bl FUN_020021AC
@@ -13421,7 +13421,7 @@ MOD06_0223FFD4: ; 0x0223FFD4
 	mov r0, #0
 	bl FUN_02031A24
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, _02240020 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x94
@@ -13459,7 +13459,7 @@ MOD06_02240030: ; 0x02240030
 	add r0, r5, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r5, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, [r5, #0x60]
 	mov r1, #4
 	bl FUN_020021AC
@@ -13681,7 +13681,7 @@ MOD06_02240204: ; 0x02240204
 	add r0, r4, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, _02240248 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x94
@@ -13719,7 +13719,7 @@ MOD06_02240258: ; 0x02240258
 	add r0, r5, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r5, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, [r5, #0x60]
 	mov r1, #4
 	bl FUN_020021AC
@@ -13778,7 +13778,7 @@ _022402DC:
 	add r0, r4, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r0, #0xa
 	bl FUN_020315D8
 	cmp r0, #0
@@ -13804,7 +13804,7 @@ MOD06_02240310: ; 0x02240310
 	add r0, r4, #0
 	bl MOD06_0223F9D8
 	ldr r0, [r4, #0x5c]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	ldr r0, _02240354 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x94
@@ -13843,17 +13843,17 @@ MOD06_02240364: ; 0x02240364
 	ldr r0, [r0]
 	mov r1, #0xf
 	add r0, #0x40
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x20
 	mov r1, #0
 	bl FUN_0200CCF8
 	ldr r0, [r4, #0x64]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r1, #0
 	ldr r0, [r4, #0x5c]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #0x20
 	bl FUN_02019570
@@ -14473,7 +14473,7 @@ MOD06_02240864: ; 0x02240864
 	bne _0224089E
 	add r0, r5, #0
 	add r0, #0x54
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [r5, #0x10]
 	add r1, r5, #0
 	ldr r0, [r0, #8]
@@ -14577,7 +14577,7 @@ _02240940:
 	bne _022409D2
 	add r0, r6, #2
 	mov r1, #4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #8]
 	mov r3, #1
 	str r3, [sp]
@@ -14605,7 +14605,7 @@ _02240940:
 	ldr r1, [r5, #0x68]
 	mov r2, #0x7b
 	mov r3, #0xc
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	mov r4, #0
 	cmp r6, #0
 	ble _022409C4
@@ -14625,7 +14625,7 @@ _02240998:
 	ldr r0, [r5, #8]
 	ldr r1, [r5, #0x20]
 	add r2, r4, #0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 	add r4, r4, #1
 	cmp r4, r6
 	blt _02240998
@@ -14635,7 +14635,7 @@ _022409C4:
 	ldr r0, [r5, #8]
 	ldr r1, [r5, #0x68]
 	sub r3, #0x74
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 _022409D2:
 	ldr r4, _02240A24 ; =0x0224F704
 	add r3, sp, #0x14
@@ -14666,7 +14666,7 @@ _022409D2:
 	add r2, #0x78
 	ldrh r2, [r2]
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5]
 	add r5, #0x34
 	add r0, r5, #0
@@ -14686,7 +14686,7 @@ MOD06_02240A28: ; 0x02240A28
 	beq _02240A62
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r4, #0
 	add r0, #0x34
 	mov r1, #1
@@ -14700,7 +14700,7 @@ MOD06_02240A28: ; 0x02240A28
 	add r0, #0x34
 	bl FUN_02019178
 	ldr r0, [r4, #8]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0
 	str r0, [r4]
 _02240A62:
@@ -14711,20 +14711,20 @@ MOD06_02240A64: ; 0x02240A64
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r2, r5, #0
 	ldr r0, [r5]
 	mov r1, #0
 	add r2, #0x78
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, r5, #0
 	add r0, #0x80
 	ldrh r6, [r0]
 	add r1, r5, #0
 	ldr r0, [r5]
 	add r1, #0x80
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, r5, #0
 	add r0, #0x80
 	ldrh r0, [r0]
@@ -14792,7 +14792,7 @@ MOD06_02240B04: ; 0x02240B04
 	mov r0, #3
 	mov r1, #4
 	ldr r4, _02240BA8 ; =MOD6_022522E4
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	str r0, [r5, #0xc]
 	mov r0, #0xa
 	str r0, [sp]
@@ -14823,7 +14823,7 @@ _02240B4A:
 	ldr r1, [r5, #0x68]
 	ldr r2, [r4]
 	ldr r3, [r4, #4]
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r6, r6, #1
 	add r4, #8
 	cmp r6, #3
@@ -14855,7 +14855,7 @@ _02240B4A:
 	add r2, #0x7a
 	ldrh r2, [r2]
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #4]
 	add r5, #0x44
 	add r0, r5, #0
@@ -14873,20 +14873,20 @@ MOD06_02240BB8: ; 0x02240BB8
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #4]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	add r2, r5, #0
 	ldr r0, [r5, #4]
 	mov r1, #0
 	add r2, #0x7a
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, r5, #0
 	add r0, #0x82
 	ldrh r6, [r0]
 	add r1, r5, #0
 	ldr r0, [r5, #4]
 	add r1, #0x82
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	add r0, r5, #0
 	add r0, #0x82
 	ldrh r0, [r0]
@@ -14921,7 +14921,7 @@ _02240C1A:
 	beq _02240C50
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	add r0, r5, #0
 	add r0, #0x44
 	mov r1, #1
@@ -14935,7 +14935,7 @@ _02240C1A:
 	add r0, #0x44
 	bl FUN_02019178
 	ldr r0, [r5, #0xc]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0
 	str r0, [r5, #4]
 _02240C50:
@@ -14992,7 +14992,7 @@ MOD06_02240C58: ; 0x02240C58
 	bl FUN_0200CCA4
 	ldr r0, [sp, #0x24]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x14]
 	add r1, r0, #0
 	add r1, #0x78
@@ -15741,7 +15741,7 @@ _022412C8:
 	strb r0, [r5]
 	pop {r4, r5, pc}
 _022412DC:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022412E0:
 	add sp, #0x2c
 	pop {r4, r5, pc}
@@ -15994,7 +15994,7 @@ _022414DA:
 	str r0, [r5]
 	b _02241580
 _022414E6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _02241580
 _022414EC:
 	add r4, #0xa0
@@ -16251,7 +16251,7 @@ _022416EA:
 	str r7, [sp, #0xc]
 	b _02241702
 _022416F6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r5, #0
 	mov r6, #1
 	add r7, r6, #0
@@ -16360,7 +16360,7 @@ _022417E4:
 	mov r5, #2
 	b _022417F4
 _022417F0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022417F4:
 	add r0, r6, #0
 	add r1, r7, #0
@@ -16460,7 +16460,7 @@ _022418D0:
 	lsl r4, r4, #0x10
 	b _022418DC
 _022418D6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r4, #0
 _022418DC:
 	add r0, r5, #0
@@ -17241,7 +17241,7 @@ _02241F00:
 	str r0, [r4]
 	b _02241F2E
 _02241F2A:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02241F2E:
 	ldr r0, [r6, #0x38]
 	ldr r1, [sp, #4]
@@ -17393,7 +17393,7 @@ _0224205A:
 	bl FUN_0205ADDC
 	b _02242072
 _0224206E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02242072:
 	ldr r0, [sp]
 	add r1, sp, #0x10
@@ -17553,7 +17553,7 @@ _022421AA:
 	bl FUN_0205ADDC
 	b _022421C2
 _022421BE:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022421C2:
 	ldr r0, [sp]
 	add r1, sp, #0x10
@@ -17886,7 +17886,7 @@ MOD06_02242458: ; 0x02242458
 	lsr r5, r0, #0x18
 	cmp r5, #3
 	bls _02242478
-	bl ErrorHandling
+	bl GF_AssertFail
 _02242478:
 	ldr r1, _02242498 ; =0x0224FC00
 	lsl r0, r5, #0xa
@@ -17897,7 +17897,7 @@ _02242478:
 	lsl r0, r0, #0xa
 	cmp r4, r0
 	blt _0224248E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224248E:
 	ldrb r1, [r5, r4]
 	ldr r0, [sp, #0x10]
@@ -18344,7 +18344,7 @@ _022427DC:
 	str r0, [r4]
 	b _022427FE
 _022427FA:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022427FE:
 	add r0, r6, #0
 	add r1, sp, #0
@@ -18399,7 +18399,7 @@ _0224285C:
 	mov r0, #0xd
 	pop {r3, pc}
 _02242860:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 
@@ -18423,7 +18423,7 @@ _02242882:
 	add r7, r2, #0
 	b _0224288A
 _02242886:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224288A:
 	ldrb r0, [r5, #7]
 	mov r4, #0
@@ -18431,7 +18431,7 @@ _0224288A:
 	lsr r0, r0, #0x1e
 	cmp r0, #3
 	bls _0224289A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224289A:
 	ldrb r0, [r5, #7]
 	lsl r0, r0, #0x1e
@@ -18442,7 +18442,7 @@ _0224289A:
 	asr r4, r0, #0x10
 	cmp r6, #3
 	bls _022428B0
-	bl ErrorHandling
+	bl GF_AssertFail
 _022428B0:
 	lsl r0, r6, #0x1e
 	asr r1, r0, #0x10
@@ -18462,7 +18462,7 @@ _022428C4:
 	asr r4, r0, #0x10
 	b _022428D4
 _022428D0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022428D4:
 	str r4, [r7]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -18719,7 +18719,7 @@ _02242AAA:
 	asr r0, r0, #0x18
 	b _02242ACE
 _02242AC8:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, r6, r7, pc}
 _02242ACE:
 	str r0, [r6]
@@ -18829,7 +18829,7 @@ _02242B96:
 	add r6, r0, #0
 	b _02242B9E
 _02242B9A:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02242B9E:
 	ldr r0, [r6]
 	lsl r0, r0, #0x10
@@ -18885,7 +18885,7 @@ MOD06_02242BE0: ; 0x02242BE0
 	bl AllocFromHeap
 	add r4, r0, #0
 	bne _02242C0E
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 _02242C0E:
@@ -19028,7 +19028,7 @@ MOD06_02242CDC: ; 0x02242CDC
 	mov r1, #0
 	add r2, r5, #0
 	mov r3, #4
-	bl FUN_020010A8
+	bl ListMenuInit
 	add r4, #0x88
 	str r0, [r4]
 	add sp, #0x14
@@ -19219,13 +19219,13 @@ MOD06_02242E9C: ; 0x02242E9C
 	mov r1, #3
 	mov r2, #0xf
 	mov r3, #4
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 _02242EB2:
 	mov r1, #1
 	mov r2, #0xf
 	mov r3, #2
-	bl FUN_020013E8
+	bl ListMenuOverrideSetColors
 	pop {r3, pc}
 	.align 2, 0
 
@@ -19287,7 +19287,7 @@ MOD06_02242F1C: ; 0x02242F1C
 	add r4, r0, #0
 	add r0, #0x88
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #1
 	mvn r1, r1
 	cmp r0, r1
@@ -19331,7 +19331,7 @@ _02242F6E:
 	add r0, r4, #0
 	add r0, #0x88
 	ldr r0, [r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #1
 	mvn r1, r1
 	cmp r0, r1
@@ -19439,7 +19439,7 @@ MOD06_02243024: ; 0x02243024
 	mov r1, #0
 	ldr r0, [r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r6, #0x74]
 	mov r1, #0
 	bl FUN_0200CCF8
@@ -19480,7 +19480,7 @@ MOD06_02243080: ; 0x02243080
 	add r0, r5, #0
 	add r0, #0x14
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #0x54]
 	ldr r1, [sp, #0xc]
 	add r2, r4, #0
@@ -20044,7 +20044,7 @@ MOD06_022434BC: ; 0x022434BC
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _022434CA
-	bl ErrorHandling
+	bl GF_AssertFail
 _022434CA:
 	mov r0, #0
 	str r0, [r4]
@@ -20265,7 +20265,7 @@ MOD06_02243694: ; 0x02243694
 	ldr r0, _022436C0 ; =0x12345678
 	cmp r1, r0
 	beq _022436A6
-	bl ErrorHandling
+	bl GF_AssertFail
 _022436A6:
 	ldr r2, _022436C4 ; =0x000008CC
 	ldr r5, [r4, #4]
@@ -22907,7 +22907,7 @@ MOD06_02244AEC: ; 0x02244AEC
 	ldrb r0, [r0, #0x10]
 	cmp r0, #4
 	bls _02244B18
-	bl ErrorHandling
+	bl GF_AssertFail
 _02244B18:
 	add r0, sp, #0x80
 	ldrb r6, [r0, #0x10]
@@ -23537,11 +23537,11 @@ MOD06_02244F84: ; 0x02244F84
 	add r7, r0, #0
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	str r0, [sp]
 	add r0, r7, #0
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	mov r1, #0x32
 	add r5, r0, #0
 	add r0, r4, #0
@@ -23683,7 +23683,7 @@ _02245098:
 	lsr r4, r0, #0x10
 	cmp r4, #0xc
 	blo _02245104
-	bl ErrorHandling
+	bl GF_AssertFail
 _02245104:
 	lsl r1, r4, #2
 	add r0, sp, #4
@@ -23716,7 +23716,7 @@ _02245132:
 	lsr r6, r0, #0x10
 	cmp r6, #0x24
 	blo _02245148
-	bl ErrorHandling
+	bl GF_AssertFail
 _02245148:
 	lsl r0, r6, #0x18
 	lsr r2, r0, #0x16
@@ -23962,7 +23962,7 @@ _02245302:
 	str r0, [r5, #0x10]
 	b _02245316
 _02245312:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02245316:
 	ldr r0, [sp]
 	str r0, [r5, #8]
@@ -24040,7 +24040,7 @@ _02245392:
 	ldr r1, [r5, #0x2c]
 	bl MOD05_021F4BD0
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -24454,7 +24454,7 @@ _022456DC:
 	mov r4, #5
 	b _022456E4
 _022456E0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022456E4:
 	add r0, r4, #0
 	pop {r4, pc}
@@ -24553,7 +24553,7 @@ _02245790:
 	str r0, [r1]
 	b _022457A0
 _0224579C:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022457A0:
 	mov r0, #0
 	pop {r3, pc}
@@ -24589,7 +24589,7 @@ MOD06_022457CC: ; 0x022457CC
 	add r5, r0, #0
 	cmp r4, #3
 	blo _022457DC
-	bl ErrorHandling
+	bl GF_AssertFail
 _022457DC:
 	ldr r0, [r5, #0xc]
 	bl FUN_0202A9B0
@@ -24611,7 +24611,7 @@ MOD06_022457F8: ; 0x022457F8
 	add r5, r0, #0
 	cmp r4, #3
 	blo _02245808
-	bl ErrorHandling
+	bl GF_AssertFail
 _02245808:
 	ldr r0, [r5, #0xc]
 	bl FUN_0202A9B0
@@ -25141,7 +25141,7 @@ _02245BF2:
 	cmp r2, r5
 	blt _02245BB6
 _02245BFA:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -25173,7 +25173,7 @@ _02245C2A:
 	cmp r2, r3
 	blt _02245C18
 _02245C32:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start MOD06_02245C38
@@ -25203,7 +25203,7 @@ _02245C5E:
 	cmp r2, r3
 	blt _02245C4C
 _02245C66:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start MOD06_02245C6C
@@ -25262,7 +25262,7 @@ _02245CCC:
 	cmp r2, r5
 	blt _02245C8E
 _02245CD4:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -25293,7 +25293,7 @@ _02245D02:
 	cmp r2, r3
 	blt _02245CF0
 _02245D0A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start MOD06_02245D10
@@ -25323,7 +25323,7 @@ _02245D36:
 	cmp r2, r3
 	blt _02245D24
 _02245D3E:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start MOD06_02245D44
@@ -25381,7 +25381,7 @@ _02245DA2:
 	cmp r2, r5
 	blt _02245D66
 _02245DAA:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -25441,7 +25441,7 @@ _02245E12:
 	cmp r2, r5
 	blt _02245DD6
 _02245E1A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -25510,7 +25510,7 @@ _02245E3E:
 	bl FUN_0201FF84
 	add r4, r0, #0
 	bne _02245EA6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02245EA6:
 	add r0, r4, #0
 	add sp, #0x70
@@ -28280,7 +28280,7 @@ _02247392:
 	bl FUN_0201FF84
 	add r4, r0, #0
 	bne _022473BE
-	bl ErrorHandling
+	bl GF_AssertFail
 _022473BE:
 	add r0, r4, #0
 	add sp, #0x70
@@ -28438,7 +28438,7 @@ _022474E4:
 _022474EC:
 	cmp r5, #4
 	blt _022474F4
-	bl ErrorHandling
+	bl GF_AssertFail
 _022474F4:
 	mov r0, #0x72
 	mov r5, #0
@@ -28474,7 +28474,7 @@ _02247528:
 _02247530:
 	cmp r5, #4
 	blt _02247538
-	bl ErrorHandling
+	bl GF_AssertFail
 _02247538:
 	add r0, r6, #0
 	bl NARC_dtor
@@ -28490,7 +28490,7 @@ MOD06_02247544: ; 0x02247544
 	bl NARC_AllocAndReadWholeMember
 	add r1, r5, #0
 	add r4, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, [r5]
 	mov r0, #3
 	ldr r1, [r1, #0xc]
@@ -28513,7 +28513,7 @@ MOD06_0224756C: ; 0x0224756C
 	bl NARC_AllocAndReadWholeMember
 	add r1, r4, #0
 	add r6, r0, #0
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r3, [r4]
 	mov r0, #0
 	str r0, [sp]
@@ -28551,7 +28551,7 @@ MOD06_022475A4: ; 0x022475A4
 	bl NARC_AllocAndReadWholeMember
 	add r1, r4, #0
 	add r6, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	ldr r3, [r4]
 	add r0, r5, #0
 	add r2, r3, #0
@@ -28656,7 +28656,7 @@ MOD06_0224767C: ; 0x0224767C
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _0224768E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224768E:
 	ldr r0, _022476A0 ; =MOD06_022476D4
 	add r1, r4, #0
@@ -28678,7 +28678,7 @@ MOD06_022476A4: ; 0x022476A4
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	bne _022476B6
-	bl ErrorHandling
+	bl GF_AssertFail
 _022476B6:
 	mov r0, #0x86
 	lsl r0, r0, #2
@@ -28805,7 +28805,7 @@ MOD06_0224778C: ; 0x0224778C
 	bl AllocFromHeap
 	add r4, r0, #0
 	bne _022477A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _022477A8:
 	mov r1, #0
 	add r0, r6, #0
@@ -28870,7 +28870,7 @@ MOD06_02247808: ; 0x02247808
 	bl FUN_020094F0
 	bl FUN_02009C5C
 	mov r1, #1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	mov r1, #0x32
 	add r5, r0, #0
 	add r0, r4, #0
@@ -28923,7 +28923,7 @@ MOD06_02247860: ; 0x02247860
 	add r1, r6, #0
 	bl FUN_02009E54
 	mov r1, #1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0x20
@@ -28974,7 +28974,7 @@ _022478E6:
 _022478EE:
 	cmp r0, #4
 	blt _022478F6
-	bl ErrorHandling
+	bl GF_AssertFail
 _022478F6:
 	mov r0, #0x1a
 	lsl r0, r0, #4
@@ -29011,7 +29011,7 @@ _02247930:
 _02247938:
 	cmp r0, #3
 	blt _02247940
-	bl ErrorHandling
+	bl GF_AssertFail
 _02247940:
 	mov r0, #0x69
 	lsl r0, r0, #2
@@ -29048,7 +29048,7 @@ _0224797A:
 _02247982:
 	cmp r0, #4
 	blt _0224798A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224798A:
 	pop {r3, r4, r5, pc}
 
@@ -30697,7 +30697,7 @@ MOD06_02248634: ; 0x02248634
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	bne _02248644
-	bl ErrorHandling
+	bl GF_AssertFail
 _02248644:
 	add r0, r4, #0
 	mov r1, #0
@@ -30891,7 +30891,7 @@ _022487AC:
 	lsr r4, r0, #0x10
 	cmp r4, #0x64
 	blo _022487C4
-	bl ErrorHandling
+	bl GF_AssertFail
 _022487C4:
 	cmp r4, #0x1e
 	bhs _022487D2
@@ -30973,7 +30973,7 @@ MOD06_0224884C: ; 0x0224884C
 	add r5, r0, #0
 	cmp r6, #4
 	blo _0224885C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224885C:
 	add r0, r5, #0
 	mov r1, #0x14
@@ -30992,7 +30992,7 @@ _0224886C:
 	mov r0, #0x73
 	add r1, r6, #0
 	add r3, r5, #0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r4]
 	str r5, [r4, #0x10]
 	str r6, [r4, #0xc]
@@ -31284,7 +31284,7 @@ CreateInGameTradeMon: ; 0x022489D4
 	bl MonIsShiny
 	cmp r0, #0
 	beq _02248B08
-	bl ErrorHandling
+	bl GF_AssertFail
 _02248B08:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -31596,7 +31596,7 @@ MOD06_02248D00: ; 0x02248D00
 	cmp r4, #9
 	blo _02248D5A
 _02248D56:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02248D5A:
 	add r0, r4, #0
 	add sp, #0xc
@@ -31619,7 +31619,7 @@ MOD06_02248D60: ; 0x02248D60
 	ldrb r0, [r0]
 	cmp r0, #5
 	blo _02248D84
-	bl ErrorHandling
+	bl GF_AssertFail
 _02248D84:
 	add r0, sp, #4
 	ldrb r0, [r0]
@@ -31983,7 +31983,7 @@ MOD06_02249018: ; 0x02249018
 	add r4, r0, #0
 	cmp r4, #8
 	bls _02249028
-	bl ErrorHandling
+	bl GF_AssertFail
 _02249028:
 	ldr r2, _02249034 ; =0x02251738
 	sub r1, r4, #1
@@ -32019,7 +32019,7 @@ _0224905E: ; jump table
 	.short _02249096 - _0224905E - 2 ; case 2
 	.short _0224909A - _0224905E - 2 ; case 3
 _02249066:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224906A:
 	bl GF_RTC_GetTimeOfDay
 	cmp r0, #0
@@ -32286,12 +32286,12 @@ _02249244:
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	bne _02249254
-	bl ErrorHandling
+	bl GF_AssertFail
 _02249254:
 	ldr r0, [sp, #4]
 	cmp r0, #0xc
 	bls _0224925E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224925E:
 	ldr r0, [sp, #4]
 	ldr r3, _022492A8 ; =0x0225181C
@@ -32641,12 +32641,12 @@ MOD06_022494E4: ; 0x022494E4
 	ldr r0, [r5, r0]
 	mov r1, #1
 	lsl r2, r2, #0x10
-	bl FUN_020BC02C
+	bl NNSi_G3dModifyPolygonAttrMask
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	add r1, r4, #0
-	bl FUN_020BBA34
+	bl NNS_G3dMdlSetMdlAlphaAll
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD06_02249508
@@ -33786,7 +33786,7 @@ _02249DD6:
 _02249DEC:
 	cmp r4, #0
 	bne _02249DF4
-	bl ErrorHandling
+	bl GF_AssertFail
 _02249DF4:
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
@@ -33846,7 +33846,7 @@ _02249E40:
 _02249E52:
 	cmp r4, #0
 	bne _02249E5A
-	bl ErrorHandling
+	bl GF_AssertFail
 _02249E5A:
 	add r0, r4, #0
 	pop {r4, pc}
@@ -34087,10 +34087,10 @@ _0224A000:
 	ldr r0, [r4, #0x18]
 	mov r1, #1
 	lsl r2, r2, #0x10
-	bl FUN_020BC02C
+	bl NNSi_G3dModifyPolygonAttrMask
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0xc]
-	bl FUN_020BBA34
+	bl NNS_G3dMdlSetMdlAlphaAll
 	ldr r0, [r4, #0x14]
 	add r1, sp, #0x30
 	add r2, sp, #0
@@ -34240,7 +34240,7 @@ _0224A124:
 	mov r0, #5
 	pop {r3, pc}
 _0224A128:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 
@@ -34683,7 +34683,7 @@ MOD06_0224A478: ; 0x0224A478
 	sub r1, r1, #1
 	str r1, [r0]
 	bpl _0224A486
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224A486:
 	pop {r3, pc}
 
@@ -35048,13 +35048,13 @@ MOD06_0224A710: ; 0x0224A710
 	add r0, r4, #4
 	ldr r1, [r2, #0x18]
 	ldr r2, [r2, #0xc]
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4]
 	ldr r3, [r5, #0x14]
 	ldr r1, [r3, #0x18]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r5, #0x14]
 	add r0, r4, #0
 	add r0, #0x18
@@ -35063,7 +35063,7 @@ MOD06_0224A710: ; 0x0224A710
 	add r0, r4, #0
 	ldr r1, [r4]
 	add r0, #0x18
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	ldr r0, [r5, #0x18]
 	bl FUN_02058448
 	str r0, [r5, #4]
@@ -35108,7 +35108,7 @@ MOD06_0224A7C8: ; 0x0224A7C8
 	ldr r4, [r1, #0x1c]
 	ldr r1, [r4]
 	add r0, r4, #4
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	add r0, r4, #0
 	bl MOD05_021E4C00
 	pop {r4, pc}
@@ -35970,7 +35970,7 @@ MOD06_0224AE3C: ; 0x0224AE3C
 	sub r1, r1, #1
 	str r1, [r0]
 	bpl _0224AE4A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224AE4A:
 	pop {r3, pc}
 
@@ -36429,13 +36429,13 @@ MOD06_0224B188: ; 0x0224B188
 	add r0, r4, #4
 	ldr r1, [r2, #0x18]
 	ldr r2, [r2, #0xc]
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4]
 	ldr r3, [r5, #8]
 	ldr r1, [r3, #0x18]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r5, #8]
 	add r0, r4, #0
 	add r0, #0x18
@@ -36444,7 +36444,7 @@ MOD06_0224B188: ; 0x0224B188
 	add r0, r4, #0
 	ldr r1, [r4]
 	add r0, #0x18
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r6, #0
 	add r1, sp, #0
 	bl FUN_0206477C
@@ -36464,7 +36464,7 @@ MOD06_0224B200: ; 0x0224B200
 	ldr r4, [r1]
 	ldr r1, [r4]
 	add r0, r4, #4
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	add r0, r4, #0
 	bl MOD05_021E4C00
 	pop {r4, pc}
@@ -36635,13 +36635,13 @@ MOD06_0224B324: ; 0x0224B324
 	add r0, r4, #4
 	ldr r1, [r2, #0x18]
 	ldr r2, [r2, #0xc]
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4]
 	ldr r3, [r5, #8]
 	ldr r1, [r3, #0x18]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r5, #8]
 	add r0, r4, #0
 	add r0, #0x18
@@ -36650,7 +36650,7 @@ MOD06_0224B324: ; 0x0224B324
 	add r0, r4, #0
 	ldr r1, [r4]
 	add r0, #0x18
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r6, #0
 	add r1, sp, #0
 	bl FUN_0206477C
@@ -36670,7 +36670,7 @@ MOD06_0224B39C: ; 0x0224B39C
 	ldr r4, [r1]
 	ldr r1, [r4]
 	add r0, r4, #4
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	add r0, r4, #0
 	bl MOD05_021E4C00
 	pop {r4, pc}
@@ -38573,7 +38573,7 @@ MOD06_0224C27C: ; 0x0224C27C
 	add sp, #0x20
 	pop {r4, r5, r6, pc}
 _0224C2E8:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x20
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -38617,14 +38617,14 @@ _0224C328:
 	bl MOD05_021F4BD0
 	str r0, [sp, #0x18]
 	ldr r0, [r6]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
 	add r7, r0, r1
 	ldr r0, [sp, #0x18]
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -38651,7 +38651,7 @@ _0224C328:
 	bl FUN_0204A9F0
 	cmp r0, #0
 	bne _0224C390
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224C390:
 	ldr r0, [sp, #0x1c]
 	bl MOD05_021E7EC8
@@ -38774,7 +38774,7 @@ _0224C476:
 	mov r2, #0
 	bl MOD05_021DA4EC
 	ldr r0, _0224C51C ; =0x0000048E
-	bl PlayBGM
+	bl PlaySound
 	ldrb r0, [r4, #0xf]
 	add r0, r0, #1
 	strb r0, [r4, #0xf]
@@ -38865,7 +38865,7 @@ MOD06_0224C520: ; 0x0224C520
 	bl FUN_0204640C
 	pop {r4, r5, r6, pc}
 _0224C552:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0224C558: .word 0x000001F2
@@ -38901,7 +38901,7 @@ _0224C590:
 	ldr r1, [r5, #0x2c]
 	bl MOD05_021F4BD0
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r2, sp, #0x18
 	mov r3, #0
@@ -38913,7 +38913,7 @@ _0224C590:
 	bl FUN_0204A9F0
 	cmp r0, #0
 	bne _0224C5BA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224C5BA:
 	ldr r0, [sp, #0x18]
 	bl MOD05_021E7EC8
@@ -38949,7 +38949,7 @@ _0224C5EE:
 _0224C5FC:
 	cmp r1, #0
 	bne _0224C604
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224C604:
 	ldrb r2, [r4, #1]
 	ldr r0, [r5, #0x50]
@@ -39050,7 +39050,7 @@ MOD06_0224C678: ; 0x0224C678
 	add sp, #0x30
 	pop {r3, r4, r5, r6, r7, pc}
 _0224C6DA:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x30
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -39670,7 +39670,7 @@ MOD06_0224CB90: ; 0x0224CB90
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	bne _0224CBA0
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224CBA0:
 	add r0, r4, #0
 	mov r1, #0
@@ -39722,7 +39722,7 @@ _0224CBF2:
 	lsr r5, r0, #0x10
 	cmp r5, #0x10
 	blo _0224CC02
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224CC02:
 	lsl r0, r5, #2
 	ldr r0, [r4, r0]
@@ -39753,7 +39753,7 @@ MOD06_0224CC24: ; 0x0224CC24
 	ldr r0, _0224CC5C ; =0x0000FFFF
 	cmp r1, r0
 	bne _0224CC40
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224CC40:
 	mov r0, #0x6a
 	mov r1, #8
@@ -39780,7 +39780,7 @@ MOD06_0224CC60: ; 0x0224CC60
 	lsr r4, r0, #0x10
 	cmp r4, #2
 	blo _0224CC76
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224CC76:
 	cmp r4, #0
 	bne _0224CC80
@@ -39853,7 +39853,7 @@ _0224CCEA:
 	str r0, [sp, #0x10]
 	cmp r0, r1
 	blt _0224CD0C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224CD0C:
 	lsr r2, r4, #0x1f
 	lsl r1, r4, #0x1e
@@ -40892,7 +40892,7 @@ MOD06_0224D46C: ; 0x0224D46C
 	bl FUN_0200CCA4
 	add r0, r4, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x64
 	mov r1, #0xb
 	bl String_ctor
@@ -41135,7 +41135,7 @@ _0224D6FE:
 	sub r0, r4, r0
 	pop {r4, r5, r6, pc}
 _0224D702:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -41794,7 +41794,7 @@ MOD06_0224DC5C: ; 0x0224DC5C
 	str r3, [r5, #8]
 	add r0, r2, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #4]
 	mov r0, #0x13
 	str r0, [sp]
@@ -41813,7 +41813,7 @@ MOD06_0224DC5C: ; 0x0224DC5C
 	bl FUN_02019064
 	ldr r0, [r5, #4]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #4]
 	mov r1, #0
 	mov r2, #1
@@ -41855,11 +41855,11 @@ MOD06_0224DCD8: ; 0x0224DCD8
 	add r6, r2, #0
 	cmp r0, #0
 	beq _0224DCEC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224DCEC:
 	ldr r0, [r5, #4]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r1, r6, #0
 	bl StringDup
@@ -42039,7 +42039,7 @@ MOD06_0224DE60: ; 0x0224DE60
 	beq _0224DED2
 	add r0, r3, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r6, #4]
 	mov r0, #0xb
 	str r0, [sp]
@@ -42077,7 +42077,7 @@ _0224DEA8:
 	str r0, [r6, #0xc]
 	ldr r0, [r6, #4]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #1
 	str r0, [r6]
 _0224DED2:
@@ -42148,7 +42148,7 @@ MOD06_0224DF1C: ; 0x0224DF1C
 	bl BufferIntegerAsString
 	ldr r0, [r5, #4]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r7, #0
 	add r6, r5, #0
 	add r4, r7, #0
@@ -42214,7 +42214,7 @@ _0224DFC0:
 	add r2, #0x14
 	str r0, [r5, r2]
 	ldr r0, [sp, #0x14]
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r5, #4]
 	mov r0, #1
 	str r0, [sp]
@@ -42332,7 +42332,7 @@ _0224E084:
 	mov r1, #0
 	ldr r0, _0224E16C ; =MOD6_022523A0
 	add r2, r1, #0
-	bl FUN_020010A8
+	bl ListMenuInit
 	str r0, [r5, #8]
 	ldr r0, [r5, #4]
 	mov r1, #0
@@ -42445,7 +42445,7 @@ _0224E1C0:
 	mov r1, #0
 	ldr r0, [r6, #8]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, [r6, #4]
 	bl FUN_02019570
 	ldr r0, [r6, #4]
@@ -42463,7 +42463,7 @@ MOD06_0224E1E4: ; 0x0224E1E4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #8]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	mov r1, #0
 	add r4, r0, #0
 	mvn r1, r1
@@ -42471,7 +42471,7 @@ MOD06_0224E1E4: ; 0x0224E1E4
 	bne _0224E22A
 	ldr r0, [r5, #8]
 	add r1, sp, #0
-	bl FUN_0200143C
+	bl ListMenuGetCurrentItemArrayId
 	mov r2, #0x4b
 	add r0, sp, #0
 	lsl r2, r2, #2
@@ -42685,7 +42685,7 @@ MOD06_0224E39C: ; 0x0224E39C
 	ldr r0, [r4, #8]
 	add r1, sp, #0
 	mov r2, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	add r0, sp, #0
 	ldrh r0, [r0]
 	cmp r0, #0
@@ -42916,7 +42916,7 @@ MOD06_0224E520: ; 0x0224E520
 	bl Bag_TakeItem
 	cmp r0, #1
 	beq _0224E550
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224E550:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -42972,7 +42972,7 @@ MOD06_0224E554: ; 0x0224E554
 	add sp, #0x20
 	pop {r4, r5, r6, pc}
 _0224E5C0:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x20
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -43012,7 +43012,7 @@ _0224E604:
 	ldr r1, [r6, #0x2c]
 	bl MOD05_021F4BD0
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
@@ -43336,7 +43336,7 @@ _0224E8A4:
 	add r5, r5, #1
 	b _0224E8AC
 _0224E8A8:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224E8AC:
 	mov r3, #2
 	lsl r1, r5, #0x10
@@ -43392,7 +43392,7 @@ _0224E90C:
 	add r5, r5, #1
 	b _0224E914
 _0224E910:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224E914:
 	mov r3, #2
 	lsl r1, r5, #0x10
@@ -44042,7 +44042,7 @@ MOD06_0224EDB0: ; 0x0224EDB0
 	add r5, r3, #0
 	cmp r0, #0
 	beq _0224EDC8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0224EDC8:
 	add r0, r6, #0
 	add r1, sp, #0
@@ -44265,7 +44265,7 @@ _0224EF70:
 	add r1, #0xcc
 	cmp r2, #0x10
 	blt _0224EF44
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	.align 2, 0
 
@@ -44316,7 +44316,7 @@ _0224EFCC:
 	add r1, r4, #4
 	mov r2, #0
 	mov r3, #4
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r6, r7]
 	add r4, r4, #1
 	add r6, r6, #4

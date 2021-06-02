@@ -1,10 +1,11 @@
 #include "global.h"
 #include "error_handling.h"
 #include "error_message_reset.h"
+#include "unk_02031734.h"
 
-extern u32 FUN_02031810(void);
 
-THUMB_FUNC void ErrorHandling(void)
+
+THUMB_FUNC void GF_AssertFail(void)
 {
     if (FUN_02031810())
     {

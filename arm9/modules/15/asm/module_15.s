@@ -2592,7 +2592,7 @@ MOD15_021D87F8: ; 0x021D87F8
 	bl FUN_02015F1C
 	str r5, [r4, #0x18]
 	str r6, [r4, #0x1c]
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -2745,7 +2745,7 @@ _021D8944:
 	blt _021D8928
 	pop {r4, r5, r6, pc}
 _021D894E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8952:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2925,19 +2925,19 @@ MOD15_021D8AB4: ; 0x021D8AB4
 	mov r0, #0x66
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0x6b
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0x15
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0
 	str r3, [sp]
 	mov r2, #1
@@ -2951,7 +2951,7 @@ MOD15_021D8AB4: ; 0x021D8AB4
 	str r0, [sp, #0x10]
 	mov r0, #0x4c
 	mov r1, #9
-	bl FUN_02006AE4
+	bl GfGfxLoader_LoadImageMapping
 	mov r0, #0x23
 	str r0, [sp]
 	mov r0, #0x66
@@ -2962,7 +2962,7 @@ MOD15_021D8AB4: ; 0x021D8AB4
 	mov r1, #0xa
 	mov r2, #1
 	mov r3, #0
-	bl FUN_02006A8C
+	bl GfGfxLoader_PartiallyLoadPalette
 	mov r1, #7
 	mov r0, #0x23
 	lsl r3, r1, #6
@@ -2970,7 +2970,7 @@ MOD15_021D8AB4: ; 0x021D8AB4
 	mov r0, #0x4c
 	mov r2, #1
 	add r3, r4, r3
-	bl FUN_02006C30
+	bl GfGfxLoader_GetCellBank
 	mov r3, #0x1d
 	lsl r3, r3, #4
 	str r0, [r4, r3]
@@ -2981,7 +2981,7 @@ MOD15_021D8AB4: ; 0x021D8AB4
 	mov r1, #8
 	mov r2, #1
 	add r3, r4, r3
-	bl FUN_02006C5C
+	bl GfGfxLoader_GetAnimBank
 	mov r1, #0x76
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -4345,7 +4345,7 @@ MOD15_021D95E8: ; 0x021D95E8
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x48]
 	mov r0, #0x23
-	bl FUN_02013690
+	bl ListMenuCursorNew
 	str r0, [r4, #0x50]
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -4359,7 +4359,7 @@ MOD15_021D9634: ; 0x021D9634
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _021D9642
-	bl FUN_020136C0
+	bl DestroyListMenuCursorObj
 _021D9642:
 	ldr r0, [r4, #0x3c]
 	cmp r0, #0
@@ -4419,7 +4419,7 @@ MOD15_021D9694: ; 0x021D9694
 	mov r0, #0x4c
 	add r2, r6, #0
 	add r3, r1, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -4429,7 +4429,7 @@ MOD15_021D9694: ; 0x021D9694
 	str r0, [sp, #0xc]
 	mov r0, #0x4c
 	add r2, r6, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	lsr r4, r0, #5
 	mov r0, #1
 	str r0, [sp]
@@ -4495,7 +4495,7 @@ MOD15_021D9694: ; 0x021D9694
 	mov r0, #0x26
 	add r2, r6, #0
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r0, r4, #0
 	add r0, #0xc2
 	str r0, [r5, #0x60]
@@ -4508,7 +4508,7 @@ MOD15_021D9694: ; 0x021D9694
 	mov r1, #0x18
 	mov r2, #0
 	lsl r3, r3, #6
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r0, [r5, #4]
 	bl MOD15_021D87E0
 	lsl r0, r0, #0x18
@@ -4565,12 +4565,12 @@ MOD15_021D97E4: ; 0x021D97E4
 	mov r0, #0x4c
 	mov r1, #6
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x4c
 	mov r1, #6
 	add r2, sp, #8
 	mov r3, #0x23
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0
 	ldr r0, [sp, #8]
 	add r1, r5, #0
@@ -4749,7 +4749,7 @@ MOD15_021D9964: ; 0x021D9964
 	add r0, r4, #0
 	add r0, #0xc
 	mov r1, #0xd
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #4]
 	bl MOD15_021D86E4
 	cmp r0, #0
@@ -5135,7 +5135,7 @@ MOD15_021D9C30: ; 0x021D9C30
 	ldrh r3, [r3, #2]
 	add r0, r4, #0
 	mov r1, #0xe
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #0xc
 	pop {r3, r4, pc}
 
@@ -5194,7 +5194,7 @@ MOD15_021D9CB4: ; 0x021D9CB4
 	add r5, r1, #0
 	add r0, #0x1c
 	mov r1, #9
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r5, #3
 	bhi _021D9DB0
 	add r0, r5, r5
@@ -5462,7 +5462,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	add r4, r1, #0
 	add r0, #0x2c
 	mov r1, #9
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #0x48]
 	ldr r2, [r5, #0x4c]
 	mov r1, #9
@@ -5509,7 +5509,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	add r1, #0x2c
 	mov r2, #0
 	lsl r3, r4, #4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	add r5, #0x2c
 	add r0, r5, #0
 	bl CopyWindowToVram
@@ -5533,13 +5533,13 @@ MOD15_021D9F58: ; 0x021D9F58
 	add r0, #0x2c
 	mov r1, #9
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r0, [r5, #0x50]
 	add r5, #0x2c
 	add r1, r5, #0
 	mov r2, #0
 	lsl r3, r4, #4
-	bl FUN_020136F8
+	bl ListMenuUpdateCursorObj
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -5605,7 +5605,7 @@ MOD15_021D9FD4: ; 0x021D9FD4
 	mov r1, #4
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -5617,7 +5617,7 @@ MOD15_021D9FD4: ; 0x021D9FD4
 	mov r1, #5
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	ldr r1, _021DA03C ; =0x021DBA00
 	add r0, r4, #0
 	mov r2, #0
@@ -5650,7 +5650,7 @@ MOD15_021DA044: ; 0x021DA044
 	bl FUN_02019270
 	add r0, sp, #0x10
 	mov r1, #0xe
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, _021DA0B0 ; =0x00000183
 	mov r0, #0x1a
 	add r2, r4, #0
@@ -5863,7 +5863,7 @@ MOD15_021DA1D0: ; 0x021DA1D0
 	mov r0, #0x4c
 	mov r1, #2
 	add r2, r4, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -5874,7 +5874,7 @@ MOD15_021DA1D0: ; 0x021DA1D0
 	mov r0, #0x4c
 	mov r1, #3
 	add r2, r4, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
@@ -5998,7 +5998,7 @@ _021DA310:
 	ldr r0, _021DA3B0 ; =0x000003EE
 	cmp r6, r0
 	blo _021DA31A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA31A:
 	ldr r0, [sp, #0x24]
 	lsl r3, r7, #0x18
@@ -6021,7 +6021,7 @@ _021DA31A:
 	bl FUN_02019064
 	add r0, sp, #0x28
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	add r1, r5, #0
 	add r2, r0, #0
@@ -6077,7 +6077,7 @@ MOD15_021DA3B4: ; 0x021DA3B4
 	str r2, [sp, #0x14]
 	cmp r0, r1
 	blo _021DA3CC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA3CC:
 	mov r0, #0xa
 	str r0, [sp]
@@ -6102,7 +6102,7 @@ _021DA3CC:
 	add r4, r0, #0
 	add r0, sp, #0x20
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	bl MOD15_021DB770
 	add r7, r0, #0
 	ldr r5, _021DA474 ; =0x00000000
@@ -6191,7 +6191,7 @@ _021DA4B6:
 	lsl r0, r0, #4
 	cmp r5, r0
 	blo _021DA4C2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA4C2:
 	ldrh r0, [r4, #2]
 	add r1, r6, #0
@@ -6215,7 +6215,7 @@ _021DA4C2:
 	bl FUN_02019064
 	add r0, r6, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xff
@@ -6769,7 +6769,7 @@ MOD15_021DA8E8: ; 0x021DA8E8
 	add r0, r5, #0
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x10
 	bl FUN_02019270
@@ -6853,7 +6853,7 @@ MOD15_021DA9D4: ; 0x021DA9D4
 	add r6, r0, #0
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r6, #0
 	bl MOD15_021DAD78
 	ldr r0, [r6, #4]
@@ -7291,7 +7291,7 @@ _021DAD1A:
 	add r0, r5, #0
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #8
 	pop {r3, r4, r5, pc}
 _021DAD3E:
@@ -7308,7 +7308,7 @@ _021DAD3E:
 	add r0, #0x10
 	add r2, r1, #0
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	mov r1, #0
 	mov r0, #0xd0
 	str r0, [sp]
@@ -7319,7 +7319,7 @@ _021DAD3E:
 	add r0, r5, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -7378,7 +7378,7 @@ _021DADD4:
 	add r0, r5, #0
 	add r0, #0x20
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -7416,7 +7416,7 @@ _021DADD4:
 	ldr r1, [r5, #0x2c]
 	add r0, #0x10
 	add r3, r2, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r1, #0x60
 	lsl r2, r7, #0x10
 	lsl r3, r6, #0x10
@@ -7436,7 +7436,7 @@ _021DADD4:
 	ldr r1, [r5, #0x2c]
 	add r0, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -7494,7 +7494,7 @@ MOD15_021DAEB4: ; 0x021DAEB4
 	mov r1, #0x15
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -7506,7 +7506,7 @@ MOD15_021DAEB4: ; 0x021DAEB4
 	mov r0, #0x4c
 	mov r1, #0xb
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	add r0, r4, #0
 	bl MOD15_021DAFAC
 	add r0, r4, #0
@@ -7613,7 +7613,7 @@ _021DAFB8:
 	mov r0, #0x4c
 	mov r2, #1
 	add r3, sp, #4
-	bl FUN_02006BDC
+	bl GfGfxLoader_GetScrnData
 	add r7, r0, #0
 	beq _021DAFE6
 	ldr r0, [sp, #4]
@@ -7675,12 +7675,12 @@ MOD15_021DAFF8: ; 0x021DAFF8
 	mov r1, #0x14
 	mov r2, #1
 	add r3, sp, #0xc
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #8]
 	cmp r0, #0
 	beq _021DB0D4
 	add r0, sp, #0x10
-	bl FUN_0201901C
+	bl InitWindow
 	ldr r0, [r5, #0xc]
 	add r1, sp, #0xc
 	str r0, [sp, #0x10]
@@ -7801,9 +7801,9 @@ MOD15_021DB154: ; 0x021DB154
 	sub sp, #0x4c
 	add r4, r0, #0
 	add r0, sp, #0x38
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	add r0, sp, #0x14
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r0, #0x23
 	str r0, [sp]
 	add r0, sp, #0x38
@@ -7812,7 +7812,7 @@ MOD15_021DB154: ; 0x021DB154
 	mov r1, #0x19
 	mov r2, #2
 	mov r3, #0
-	bl FUN_02006A8C
+	bl GfGfxLoader_PartiallyLoadPalette
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #2
@@ -7825,7 +7825,7 @@ MOD15_021DB154: ; 0x021DB154
 	mov r0, #0x4c
 	mov r1, #0x18
 	mov r2, #1
-	bl FUN_02006AE4
+	bl GfGfxLoader_LoadImageMapping
 	add r0, r4, #0
 	add r0, #0x1c
 	mov r1, #0x4c
@@ -7906,7 +7906,7 @@ MOD15_021DB224: ; 0x021DB224
 	add r0, r4, #0
 	mov r2, #1
 	add r3, r5, #4
-	bl FUN_02006C30
+	bl GfGfxLoader_GetCellBank
 	str r0, [r5]
 	mov r0, #0x23
 	add r3, r5, #0
@@ -7915,7 +7915,7 @@ MOD15_021DB224: ; 0x021DB224
 	add r1, r6, #0
 	mov r2, #1
 	add r3, #0xc
-	bl FUN_02006C5C
+	bl GfGfxLoader_GetAnimBank
 	str r0, [r5, #8]
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
@@ -8609,7 +8609,7 @@ MOD15_021DB774: ; 0x021DB774
 	add r5, r1, #0
 	cmp r4, #0x1b
 	blo _021DB782
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB782:
 	mov r1, #0xa
 	ldr r2, _021DB794 ; =0x021DBA4C
@@ -8630,7 +8630,7 @@ MOD15_021DB798: ; 0x021DB798
 	add r6, r2, #0
 	cmp r5, #0x1b
 	blo _021DB7A8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB7A8:
 	mov r0, #0xa
 	add r1, r5, #0
@@ -8652,7 +8652,7 @@ MOD15_021DB7C4: ; 0x021DB7C4
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB7D0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB7D0:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8669,7 +8669,7 @@ MOD15_021DB7E0: ; 0x021DB7E0
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB7EC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB7EC:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8686,7 +8686,7 @@ MOD15_021DB7FC: ; 0x021DB7FC
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB808
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB808:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8703,7 +8703,7 @@ MOD15_021DB818: ; 0x021DB818
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB824
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB824:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8720,7 +8720,7 @@ MOD15_021DB834: ; 0x021DB834
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB840
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB840:
 	mov r0, #0xa
 	add r1, r4, #0
@@ -8737,7 +8737,7 @@ MOD15_021DB850: ; 0x021DB850
 	add r4, r0, #0
 	cmp r4, #0x1b
 	blo _021DB85C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB85C:
 	mov r0, #0xa
 	add r1, r4, #0

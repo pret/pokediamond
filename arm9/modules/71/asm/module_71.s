@@ -756,7 +756,7 @@ _0222DC0C:
 	mov r0, #0x13
 	mov r2, #0
 	add r3, r6, r3
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	mov r1, #0x79
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -964,7 +964,7 @@ _0222DDD8:
 	lsr r5, r0, #0x10
 	cmp r5, #0x3c
 	blo _0222DDF8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222DDF8:
 	bl FUN_02031190
 	mov r1, #0x1f
@@ -1161,7 +1161,7 @@ _0222DF74:
 	b _0222E0E8
 _0222DF80:
 	ldr r0, [r4, #4]
-	bl FUN_02029EF8
+	bl Sav2_Chatot_get
 	bl MOD71_0222F528
 	ldr r0, [r4, #0x4c]
 	add r0, r0, #1
@@ -1750,7 +1750,7 @@ MOD71_0222E438: ; 0x0222E438
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r0, #0x1a
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1821,7 +1821,7 @@ MOD71_0222E4DC: ; 0x0222E4DC
 	ldrh r1, [r2, r1]
 	mov r2, #5
 	lsl r3, r3, #5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r0, _0222E548 ; =0x00002110
 	mov r1, #0
 	str r1, [r5, r0]
@@ -2220,11 +2220,11 @@ MOD71_0222E884: ; 0x0222E884
 	str r2, [sp]
 	ldr r2, [sp, #0x20]
 	ldr r3, [sp, #0x24]
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	add r6, r0, #0
 	beq _0222E8D6
 	add r1, sp, #4
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	cmp r0, #0
 	beq _0222E8D0
 	ldr r0, [sp, #0x1c]
@@ -2291,7 +2291,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	mov r2, #4
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0
 	mov r0, #0x12
 	lsl r0, r0, #4
@@ -2301,7 +2301,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02017FE4
@@ -2325,7 +2325,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -2353,7 +2353,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r1, #4
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	mov r1, #0x40
 	mov r2, #0x1a
@@ -2375,7 +2375,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -2389,7 +2389,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	add r2, r4, #0
 	add r3, r1, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -2403,7 +2403,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0x36
 	add r2, r4, #0
 	add r3, r1, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #4
 	mov r1, #0x40
 	mov r2, #0x1a
@@ -2449,7 +2449,7 @@ MOD71_0222EA68: ; 0x0222EA68
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7f
@@ -2628,7 +2628,7 @@ _0222EAA6:
 	mov r0, #0x13
 	mov r2, #1
 	add r3, #0xc0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD71_0222EA68
@@ -2700,7 +2700,7 @@ MOD71_0222EC5C: ; 0x0222EC5C
 	bl GetMonData
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x20]
 	ldr r2, [sp, #8]
 	str r0, [sp]
@@ -2910,7 +2910,7 @@ _0222EE14:
 	str r0, [sp, #0x30]
 	add r0, r6, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -2985,7 +2985,7 @@ _0222EEA6:
 	lsr r7, r0, #0x10
 	add r0, r6, r4
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x14
 	mov r1, #0x1a
 	bl String_ctor
@@ -3446,7 +3446,7 @@ MOD71_0222F264: ; 0x0222F264
 	cmp r0, r1
 	bne _0222F2AE
 	ldr r0, [r4, #4]
-	bl FUN_02029EF8
+	bl Sav2_Chatot_get
 	mov r1, #0
 	mov r2, #0x64
 	add r3, r1, #0
@@ -3551,7 +3551,7 @@ MOD71_0222F350: ; 0x0222F350
 	add r4, r2, #0
 	cmp r5, #0xd
 	blt _0222F362
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F362:
 	ldr r1, _0222F3C8 ; =0x02231220
 	lsl r0, r5, #3
@@ -4313,7 +4313,7 @@ MOD71_0222F954: ; 0x0222F954
 	mov r0, #0xda
 	lsl r0, r0, #6
 	ldr r0, [r5, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	mov r0, #1
 	mvn r0, r0
@@ -4383,10 +4383,10 @@ _0222F9E4:
 	mov r1, #0
 	ldr r0, [r5, r0]
 	add r2, r1, #0
-	bl FUN_02001300
+	bl DestroyListMenu
 	ldr r0, _0222FA34 ; =0x0000367C
 	ldr r0, [r5, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4412,7 +4412,7 @@ MOD71_0222FA38: ; 0x0222FA38
 	str r0, [sp]
 	add r0, r0, #1
 	mov r1, #0x1a
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, _0222FAD0 ; =0x0000367C
 	str r0, [r5, r1]
 	mov r0, #0x64
@@ -4438,7 +4438,7 @@ _0222FA60:
 	add r1, r6, #0
 	ldr r0, [r5, r0]
 	add r2, r4, #0
-	bl ListMenu_AddItem
+	bl ListMenuItems_AddItem
 _0222FA8A:
 	add r4, r4, #1
 	cmp r4, #0x20
@@ -4450,7 +4450,7 @@ _0222FA8A:
 	add r3, r2, #0
 	ldr r1, [r5, r1]
 	sub r3, #0xd
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	add r0, r6, #0
 	bl String_dtor
 	ldr r2, _0222FAD0 ; =0x0000367C
@@ -4909,7 +4909,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	bl MOD71_02230F40
 	mov r0, #3
 	mov r1, #0x1a
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, _0222FED8 ; =0x0000065C
 	mov r2, #0x11
 	str r0, [r4, r1]
@@ -4918,7 +4918,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r3, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -4926,7 +4926,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	ldr r1, [r4, r1]
 	mov r2, #0x12
 	mov r3, #1
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -4934,7 +4934,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	ldr r1, [r4, r1]
 	mov r2, #0x13
 	mov r3, #2
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _0222FED8 ; =0x0000065C
 	ldr r1, [r4, r0]
 	str r1, [sp, #0x10]
@@ -5024,7 +5024,7 @@ _0222FF10:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r1, _02230010 ; =MOD71_0222F538
 	ldr r0, _02230014 ; =0x00002214
 	add sp, #0x10
@@ -5063,7 +5063,7 @@ _0222FF64:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r1, _0223001C ; =MOD71_02230020
 	ldr r0, _02230014 ; =0x00002214
 	str r1, [r4, r0]
@@ -5100,7 +5100,7 @@ _0222FFB4:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r1, _02230010 ; =MOD71_0222F538
 	ldr r0, _02230014 ; =0x00002214
 	str r1, [r4, r0]
@@ -6155,7 +6155,7 @@ MOD71_02230810: ; 0x02230810
 	bl MOD71_02230F40
 	mov r0, #2
 	mov r1, #0x1a
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	ldr r1, _02230900 ; =0x0000065C
 	mov r2, #0x11
 	str r0, [r4, r1]
@@ -6164,7 +6164,7 @@ MOD71_02230810: ; 0x02230810
 	lsl r1, r1, #2
 	ldr r1, [r4, r1]
 	mov r3, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _02230900 ; =0x0000065C
 	mov r1, #0x61
 	lsl r1, r1, #2
@@ -6172,7 +6172,7 @@ MOD71_02230810: ; 0x02230810
 	ldr r1, [r4, r1]
 	mov r2, #0x13
 	mov r3, #1
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	ldr r0, _02230900 ; =0x0000065C
 	ldr r1, [r4, r0]
 	sub r0, #0x94
@@ -6259,7 +6259,7 @@ _0223092E:
 	bl FUN_02001C5C
 	ldr r0, _022309E4 ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	add sp, #0x10
 	mov r0, #3
 	pop {r4, pc}
@@ -6295,7 +6295,7 @@ _02230982:
 	bl FUN_02001C5C
 	ldr r0, _022309E4 ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	ldr r1, _022309DC ; =MOD71_0222F538
 	ldr r0, _022309E0 ; =0x00002214
 	str r1, [r4, r0]
@@ -6379,8 +6379,8 @@ _02230A40:
 	cmp r0, #0
 	bne _02230A98
 	ldr r0, [r5, #0x10]
-	bl FUN_02029EF8
-	bl FUN_02029F08
+	bl Sav2_Chatot_get
+	bl Chatot_invalidate
 _02230A98:
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0
@@ -6627,7 +6627,7 @@ MOD71_02230C48: ; 0x02230C48
 	bl FUN_02019064
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #1
 	add r1, r5, #0
 	str r2, [sp]
@@ -6646,7 +6646,7 @@ MOD71_02230C48: ; 0x02230C48
 	add r0, r5, #0
 	add r0, #0x10
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x15
 	str r0, [sp]
 	mov r0, #5
@@ -6666,7 +6666,7 @@ MOD71_02230C48: ; 0x02230C48
 	add r0, r5, #0
 	add r0, #0x60
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
@@ -6706,7 +6706,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #4
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0xe
@@ -6728,7 +6728,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #4
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -6750,7 +6750,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #4
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x11
 	str r0, [sp]
 	mov r0, #0xb
@@ -6771,7 +6771,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #6
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0xb
@@ -6792,7 +6792,7 @@ MOD71_02230C48: ; 0x02230C48
 	lsl r0, r0, #4
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r4, _02230E80 ; =0x022313F4
 	mov r7, #0
 	mov r6, #0x33
@@ -6824,7 +6824,7 @@ _02230DE2:
 	ldr r0, [sp, #0x18]
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r7, r7, #1
 	add r6, #0x10
 	add r4, r4, #4
@@ -6861,7 +6861,7 @@ _02230E2C:
 	bl FUN_02019064
 	add r0, r5, r7
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r6, r6, #1
 	add r4, #0xa
 	cmp r6, #8
@@ -6995,7 +6995,7 @@ _02230F6A:
 _02230F76:
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	str r3, [sp]
 	ldr r0, _02230FAC ; =0x0001020F
@@ -7127,7 +7127,7 @@ MOD71_02231018: ; 0x02231018
 	mov r3, #0x1a
 	str r5, [sp, #0x14]
 	str r4, [sp, #0x20]
-	bl FUN_020010A8
+	bl ListMenuInit
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	nop

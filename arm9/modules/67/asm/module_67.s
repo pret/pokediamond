@@ -327,7 +327,7 @@ MOD67_021D777C: ; 0x021D777C
 	bl FUN_020178A0
 	mov r0, #0x2a
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD67_021D777C
@@ -351,7 +351,7 @@ MOD67_021D77B0: ; 0x021D77B0
 	ldr r2, [r4]
 	mov r0, #0x50
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -361,7 +361,7 @@ MOD67_021D77B0: ; 0x021D77B0
 	ldr r2, [r4]
 	mov r0, #0x50
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x2a
@@ -369,7 +369,7 @@ MOD67_021D77B0: ; 0x021D77B0
 	mov r0, #0x50
 	mov r1, #4
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	b _021D7844
 _021D7802:
 	mov r0, #0
@@ -382,7 +382,7 @@ _021D7802:
 	mov r0, #0x50
 	mov r1, #3
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -393,7 +393,7 @@ _021D7802:
 	mov r0, #0x50
 	mov r1, #1
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x2a
@@ -401,7 +401,7 @@ _021D7802:
 	mov r0, #0x50
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 _021D7844:
 	ldr r0, [r4]
 	mov r1, #2
@@ -1122,10 +1122,10 @@ _021D7DAC:
 _021D7DB4:
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r4, #0

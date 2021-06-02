@@ -49,7 +49,7 @@ FUN_02048120: ; 0x02048120
 	mov r1, #0x6
 	mov r2, #0x0
 	lsl r3, r3, #0x4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x8
 	pop {r4, pc}
 	.balign 4
@@ -67,7 +67,7 @@ FUN_02048164: ; 0x02048164
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0204817A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0204817A:
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -209,7 +209,7 @@ _02048298:
 	add r0, r4, #0x0
 	add r0, #0xc
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -263,7 +263,7 @@ FUN_020482F4: ; 0x020482F4
 	add r0, r5, #0x0
 	add r0, #0xc
 	mov r1, #0x0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #0x1c]
 	ldr r1, [sp, #0x10]
 	add r2, r6, #0x0

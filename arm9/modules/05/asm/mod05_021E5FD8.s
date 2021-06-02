@@ -825,7 +825,7 @@ MOD05_021E6638: ; 0x021E6638
 	str r0, [r4, #0x14]
 	cmp r0, #0
 	bne _021E6666
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E6666:
 	ldr r1, _021E6674 ; =MOD05_021E6678
 	add r0, r5, #0
@@ -1685,13 +1685,13 @@ MOD05_021E6CC4: ; 0x021E6CC4
 	ldr r0, [r5, #0x30]
 	cmp r1, r0
 	bgt _021E6D2A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E6D2A:
 	ldr r1, [sp, #0x10]
 	ldr r0, [r5, #0x2c]
 	cmp r1, r0
 	blt _021E6D36
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E6D36:
 	mov r0, #0
 	str r0, [sp]
@@ -1807,13 +1807,13 @@ _021E6E06:
 	ldr r0, [r4, #0x30]
 	cmp r1, r0
 	beq _021E6E12
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E6E12:
 	ldr r1, [sp, #4]
 	ldr r0, [r4, #0x2c]
 	cmp r1, r0
 	beq _021E6E1E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E6E1E:
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0xc]
@@ -1918,13 +1918,13 @@ MOD05_021E6E90: ; 0x021E6E90
 	ldr r0, [r5, #0x30]
 	cmp r1, r0
 	blt _021E6EFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E6EFA:
 	ldr r1, [sp, #0x10]
 	ldr r0, [r5, #0x2c]
 	cmp r1, r0
 	bgt _021E6F06
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E6F06:
 	mov r0, #0
 	str r0, [sp]
@@ -2053,13 +2053,13 @@ _021E6FEC:
 	ldr r0, [r4, #0x30]
 	cmp r1, r0
 	beq _021E6FF8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E6FF8:
 	ldr r1, [sp, #4]
 	ldr r0, [r4, #0x2c]
 	cmp r1, r0
 	beq _021E7004
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E7004:
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0xc]
@@ -2274,7 +2274,7 @@ _021E7198:
 	bl FUN_0200CA44
 	add r4, r0, #0
 	bne _021E71DA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E71DA:
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -2397,7 +2397,7 @@ MOD05_021E72B8: ; 0x021E72B8
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	bne _021E72CC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E72CC:
 	add r0, r4, #0
 	mov r1, #0
@@ -2409,12 +2409,12 @@ _021E72CC:
 
 	thumb_func_start MOD05_021E72DC
 MOD05_021E72DC: ; 0x021E72DC
-	ldr r3, _021E72E4 ; =FUN_02016A8C
+	ldr r3, _021E72E4 ; =FreeToHeapExplicit
 	add r1, r0, #0
 	mov r0, #4
 	bx r3
 	.balign 4, 0
-_021E72E4: .word FUN_02016A8C
+_021E72E4: .word FreeToHeapExplicit
 
 	thumb_func_start MOD05_021E72E8
 MOD05_021E72E8: ; 0x021E72E8

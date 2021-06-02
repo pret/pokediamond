@@ -1,11 +1,11 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020FFA38
-	.extern UNK_021064C0
-	.extern UNK_021064B8
-	.extern UNK_021064BC
-	.extern UNK_021064C4
+	.extern FX_SinCosTable_
+	.extern NNS_GfdDefaultFuncAllocPlttVram
+	.extern NNS_GfdDefaultFuncAllocTexVram
+	.extern NNS_GfdDefaultFuncFreeTexVram
+	.extern NNS_GfdDefaultFuncFreePlttVram
 
 	.section .rodata
 
@@ -121,7 +121,7 @@ FUN_0201F100: ; 0x0201F100
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _0201F112
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F112:
 	mov r1, #0xd4
 	add r0, r4, #0x0
@@ -219,7 +219,7 @@ FUN_0201F1B4: ; 0x0201F1B4
 	bl FUN_0201F2E4
 	add r4, r0, #0x0
 	bne _0201F1C8
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0201F1C8:
@@ -280,7 +280,7 @@ FUN_0201F23C: ; 0x0201F23C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201F24A
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r4, pc}
 _0201F24A:
@@ -315,7 +315,7 @@ FUN_0201F284: ; 0x0201F284
 	cmp r0, #0x0
 	bne _0201F294
 	bne _0201F290
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F290:
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -349,7 +349,7 @@ FUN_0201F2C0: ; 0x0201F2C0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201F2CA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F2CA:
 	ldrb r0, [r4, #0x3]
 	cmp r0, #0x0
@@ -407,7 +407,7 @@ FUN_0201F318: ; 0x0201F318
 	sub sp, #0x24
 	add r5, r0, #0x0
 	bne _0201F324
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F324:
 	add r0, sp, #0x0
 	bl MTX_Identity33_
@@ -569,18 +569,18 @@ FUN_0201F454: ; 0x0201F454
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	str r0, [sp, #0x0]
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	beq _0201F492
-	ldr r3, _0201F4E4 ; =UNK_021064B8
+	ldr r3, _0201F4E4 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	add r2, r1, #0x0
@@ -588,7 +588,7 @@ FUN_0201F454: ; 0x0201F454
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _0201F496
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0201F496
 _0201F492:
 	mov r0, #0x0
@@ -597,7 +597,7 @@ _0201F496:
 	ldr r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _0201F4B2
-	ldr r3, _0201F4E4 ; =UNK_021064B8
+	ldr r3, _0201F4E4 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0x1
 	ldr r3, [r3, #0x0]
 	mov r2, #0x0
@@ -605,7 +605,7 @@ _0201F496:
 	str r0, [r6, #0x0]
 	cmp r0, #0x0
 	bne _0201F4B6
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _0201F4B6
 _0201F4B2:
 	mov r0, #0x0
@@ -614,7 +614,7 @@ _0201F4B6:
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x0
 	beq _0201F4DA
-	ldr r3, _0201F4E8 ; =UNK_021064C0
+	ldr r3, _0201F4E8 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0x2
 	ldrh r2, [r5, #0x20]
 	lsl r1, r1, #0xe
@@ -625,7 +625,7 @@ _0201F4B6:
 	str r0, [r7, #0x0]
 	cmp r0, #0x0
 	bne _0201F4DE
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0xc
 	pop {r4-r7, pc}
 _0201F4DA:
@@ -635,17 +635,17 @@ _0201F4DE:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	nop
-_0201F4E4: .word UNK_021064B8
-_0201F4E8: .word UNK_021064C0
+_0201F4E4: .word NNS_GfdDefaultFuncAllocTexVram
+_0201F4E8: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start FUN_0201F4EC
 FUN_0201F4EC: ; 0x0201F4EC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r3, #0x0
-	bl FUN_020B7CF0
+	bl NNS_G3dTexReleaseTexKey
 	add r0, r5, #0x0
-	bl FUN_020B7C58
+	bl NNS_G3dPlttReleasePlttKey
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
 
@@ -656,14 +656,14 @@ FUN_0201F500: ; 0x0201F500
 	ldr r1, [r2, #0x0]
 	ldr r2, [r3, #0x0]
 	add r5, r0, #0x0
-	bl FUN_020B7DFC
+	bl NNS_G3dTexSetTexKey
 	ldr r1, [sp, #0x10]
 	add r0, r5, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_020B7CDC
+	bl NNS_G3dPlttSetPlttKey
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_020B7790
+	bl NNS_G3dBindMdlSet
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -675,28 +675,28 @@ FUN_0201F524: ; 0x0201F524
 	add r4, r2, #0x0
 	cmp r0, #0x0
 	beq _0201F536
-	ldr r1, _0201F550 ; =UNK_021064BC
+	ldr r1, _0201F550 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r1, [r1, #0x0]
 	blx r1
 _0201F536:
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x0
 	beq _0201F542
-	ldr r1, _0201F550 ; =UNK_021064BC
+	ldr r1, _0201F550 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r1, [r1, #0x0]
 	blx r1
 _0201F542:
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _0201F54E
-	ldr r1, _0201F554 ; =UNK_021064C4
+	ldr r1, _0201F554 ; =NNS_GfdDefaultFuncFreePlttVram
 	ldr r1, [r1, #0x0]
 	blx r1
 _0201F54E:
 	pop {r3-r5, pc}
 	.balign 4
-_0201F550: .word UNK_021064BC
-_0201F554: .word UNK_021064C4
+_0201F550: .word NNS_GfdDefaultFuncFreeTexVram
+_0201F554: .word NNS_GfdDefaultFuncFreePlttVram
 
 	thumb_func_start FUN_0201F558
 FUN_0201F558: ; 0x0201F558
@@ -713,22 +713,22 @@ _0201F568:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 _0201F56E:
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7E1C
+	bl NNS_G3dTexGetRequiredSize
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7E10
+	bl NNS_G3dTex4x4GetRequiredSize
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020B7CE4
+	bl NNS_G3dPlttGetRequiredSize
 	ldr r1, [sp, #0x0]
 	cmp r1, r6
 	bne _0201F5AA
@@ -780,7 +780,7 @@ FUN_0201F5D4: ; 0x0201F5D4
 	add r0, r5, #0x0
 	ldr r1, [r5, #0x7c]
 	add r0, #0x24
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add r0, r5, #0x0
 	add r0, #0xa8
 	ldrb r0, [r0, #0x0]
@@ -882,7 +882,7 @@ FUN_0201F69C: ; 0x0201F69C
 	add r0, r5, #0x0
 	ldr r1, [r5, #0x7c]
 	add r0, #0x24
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add r0, r4, #0x0
 	bl FUN_0201FBCC
 	add r5, #0x84
@@ -962,14 +962,14 @@ FUN_0201F744: ; 0x0201F744
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bne _0201F74E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F74E:
 	add r0, r5, #0x0
 	add r0, #0xa8
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x1
 	bne _0201F75C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F75C:
 	add r0, r5, #0x0
 	add r0, #0xa8
@@ -1034,7 +1034,7 @@ FUN_0201F7C8: ; 0x0201F7C8
 	add r5, r1, #0x0
 	cmp r4, #0x0
 	bne _0201F7D6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F7D6:
 	ldmia r5!, {r0-r1}
 	stmia r4!, {r0-r1}
@@ -1047,7 +1047,7 @@ FUN_0201F7E0: ; 0x0201F7E0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201F7EA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F7EA:
 	add r0, r4, #0x0
 	pop {r4, pc}
@@ -1060,7 +1060,7 @@ FUN_0201F7F0: ; 0x0201F7F0
 	add r5, r1, #0x0
 	cmp r4, #0x0
 	bne _0201F7FE
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F7FE:
 	ldmia r5!, {r0-r1}
 	add r4, #0xc
@@ -1077,7 +1077,7 @@ FUN_0201F80C: ; 0x0201F80C
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _0201F81A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F81A:
 	strb r4, [r5, #0x18]
 	pop {r3-r5, pc}
@@ -1088,7 +1088,7 @@ FUN_0201F820: ; 0x0201F820
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201F82A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F82A:
 	ldrb r0, [r4, #0x18]
 	pop {r4, pc}
@@ -1101,7 +1101,7 @@ FUN_0201F830: ; 0x0201F830
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _0201F83E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F83E:
 	add r5, #0xaa
 	strh r4, [r5, #0x0]
@@ -1112,7 +1112,7 @@ FUN_0201F844: ; 0x0201F844
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201F84E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F84E:
 	add r4, #0xaa
 	ldrh r0, [r4, #0x0]
@@ -1125,7 +1125,7 @@ FUN_0201F854: ; 0x0201F854
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _0201F862
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F862:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1139,7 +1139,7 @@ FUN_0201F86C: ; 0x0201F86C
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _0201F87A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F87A:
 	add r5, #0xac
 	str r4, [r5, #0x0]
@@ -1150,7 +1150,7 @@ FUN_0201F880: ; 0x0201F880
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201F88A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F88A:
 	add r4, #0xac
 	ldr r0, [r4, #0x0]
@@ -1163,7 +1163,7 @@ FUN_0201F890: ; 0x0201F890
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _0201F89E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F89E:
 	add r1, r5, #0x0
 	add r1, #0xaa
@@ -1187,7 +1187,7 @@ FUN_0201F8C0: ; 0x0201F8C0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201F8CA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F8CA:
 	add r1, r4, #0x0
 	add r1, #0xaa
@@ -1205,7 +1205,7 @@ FUN_0201F8E0: ; 0x0201F8E0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0201F8EA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F8EA:
 	ldr r0, [r4, #0x7c]
 	pop {r4, pc}
@@ -1346,7 +1346,7 @@ _0201F9C4:
 	ldr r0, _0201FA00 ; =0x0000FFFF
 	cmp r1, r0
 	bls _0201F9EC
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201F9EC:
 	ldr r0, [r5, #0x14]
 	add r4, r4, #0x1
@@ -1449,7 +1449,7 @@ _0201FA7C:
 	ldr r0, _0201FAB8 ; =0x00001FFF
 	cmp r1, r0
 	bls _0201FAA4
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201FAA4:
 	ldrh r0, [r5, #0x1c]
 	add r4, r4, #0x1
@@ -1602,7 +1602,7 @@ FUN_0201FB9C: ; 0x0201FB9C
 	add r5, r2, #0x0
 	bl FUN_0201FC90
 	add r7, r0, #0x0
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	add r4, r0, #0x0
 	ldrh r0, [r4, #0xe]
 	add r0, r4, r0
@@ -1612,7 +1612,7 @@ FUN_0201FB9C: ; 0x0201FB9C
 	cmp r5, #0x0
 	beq _0201FBC6
 	add r0, r7, #0x0
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r5, #0x0]
 _0201FBC6:
 	add r0, r4, #0x0
@@ -1724,7 +1724,7 @@ FUN_0201FC70: ; 0x0201FC70
 	sub sp, #0xc
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x78]
-	bl FUN_020B772C
+	bl NNS_G3dReleaseMdlSet
 	add r4, #0x80
 	ldr r0, [r4, #0x0]
 	add r1, sp, #0x4
@@ -1765,12 +1765,12 @@ FUN_0201FCB0: ; 0x0201FCB0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bne _0201FCBA
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201FCBA:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	bne _0201FCC4
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201FCC4:
 	mov r1, #0x49
 	ldr r0, [r5, #0x8]
@@ -1778,7 +1778,7 @@ _0201FCC4:
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0201FCD6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201FCD6:
 	add r0, r4, #0x0
 	bl FUN_0201FE44
@@ -1791,7 +1791,7 @@ _0201FCD6:
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _0201FCF4
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201FCF4:
 	ldr r0, [r5, #0x0]
 	str r0, [r4, #0x4]
@@ -1802,7 +1802,7 @@ _0201FCF4:
 	str r0, [r4, #0x8]
 	cmp r0, #0x0
 	bne _0201FD0C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201FD0C:
 	add r0, r4, #0x0
 	bl FUN_0202083C
@@ -1828,7 +1828,7 @@ _0201FD0C:
 	ldr r0, [r4, r1]
 	add r1, r1, #0x4
 	add r1, r4, r1
-	bl thunk_FUN_020afda0_2
+	bl NNS_G2dGetUnpackedAnimBank
 	mov r0, #0x12
 	mov r1, #0x1
 	lsl r0, r0, #0x4
@@ -1927,7 +1927,7 @@ FUN_0201FDEC: ; 0x0201FDEC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bne _0201FDF6
-	bl ErrorHandling
+	bl GF_AssertFail
 _0201FDF6:
 	mov r0, #0x12
 	lsl r0, r0, #0x4
@@ -2002,10 +2002,10 @@ FUN_0201FE6C: ; 0x0201FE6C
 	bl memset
 	add r0, r4, #0x0
 	add r0, #0xb4
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, r4, #0x0
 	add r0, #0xd8
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r0, #0x0
 	str r0, [r4, #0x30]
 	pop {r4, pc}
@@ -2072,7 +2072,7 @@ _0201FEA6:
 	add r1, r4, #0x0
 	add r1, #0x26
 	ldrb r1, [r1, #0x0]
-	bl FUN_020B502C
+	bl NNS_G2dSetRndCoreAffineOverwriteMode
 	add r0, r4, #0x0
 	add r0, #0x27
 	ldrb r2, [r0, #0x0]
@@ -2084,7 +2084,7 @@ _0201FEA6:
 	mov r3, #0x2
 	and r1, r2
 	and r2, r3
-	bl FUN_020B4F38
+	bl NNS_G2dSetRndCoreFlipMode
 	add r0, r4, #0x0
 	mov r2, #0x1
 	add r0, #0x34
@@ -2193,13 +2193,13 @@ _0201FFE4:
 	ldr r1, [r1, #0x0]
 	add r0, #0xb4
 	add r4, #0x40
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	mov r1, #0x0
 	mvn r1, r1
 	cmp r0, r1
 	beq _0202000E
 	ldr r0, [r4, #0x5c]
-	bl FUN_020B4358
+	bl NNS_G2dFreeCellTransferStateHandle
 _0202000E:
 	add r0, r5, #0x0
 	add r0, #0xec
@@ -2296,11 +2296,11 @@ FUN_020200A0: ; 0x020200A0
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _020200AE
-	bl ErrorHandling
+	bl GF_AssertFail
 _020200AE:
 	cmp r4, #0x2
 	blt _020200B6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020200B6:
 	add r5, #0x34
 	strb r4, [r5, #0x0]
@@ -2313,11 +2313,11 @@ FUN_020200BC: ; 0x020200BC
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _020200CA
-	bl ErrorHandling
+	bl GF_AssertFail
 _020200CA:
 	cmp r4, #0x2
 	blt _020200D2
-	bl ErrorHandling
+	bl GF_AssertFail
 _020200D2:
 	add r5, #0x35
 	strb r4, [r5, #0x0]
@@ -2330,7 +2330,7 @@ FUN_020200D8: ; 0x020200D8
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _020200E6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020200E6:
 	str r4, [r5, #0x38]
 	pop {r3-r5, pc}
@@ -2343,7 +2343,7 @@ FUN_020200EC: ; 0x020200EC
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _020200FA
-	bl ErrorHandling
+	bl GF_AssertFail
 _020200FA:
 	add r5, #0x26
 	strb r4, [r5, #0x0]
@@ -2356,7 +2356,7 @@ FUN_02020100: ; 0x02020100
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _0202010E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202010E:
 	add r0, r5, #0x0
 	add r0, #0x27
@@ -2409,11 +2409,11 @@ _0202014A:
 	lsl r1, r1, #0x10
 	ldr r0, [r4, #0x4]
 	lsr r1, r1, #0x10
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x8
-	bl FUN_020B1EE4
+	bl NNS_G2dSetCellAnimationSequence
 	mov r0, #0x1
 	str r0, [r4, #0x10]
 	pop {r4, pc}
@@ -2422,11 +2422,11 @@ _02020168:
 	add r4, #0x40
 	ldr r0, [r4, #0x6c]
 	add r1, r3, #0x0
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x8
-	bl FUN_020B242C
+	bl NNS_G2dSetAnimSequenceToMCAnimation
 	mov r0, #0x1
 	str r0, [r4, #0x10]
 	pop {r4, pc}
@@ -2459,7 +2459,7 @@ _020201A8:
 	add r5, #0x40
 	add r0, r5, #0x0
 	add r0, #0x8
-	bl FUN_020B0448
+	bl NNS_G2dResetAnimCtrlState
 	mov r0, #0x1
 	str r0, [r5, #0x10]
 	add r0, r4, #0x0
@@ -2471,7 +2471,7 @@ _020201C2:
 	add r5, #0x40
 	add r0, r5, #0x0
 	add r0, #0x8
-	bl FUN_020B0448
+	bl NNS_G2dResetAnimCtrlState
 	mov r0, #0x1
 	str r0, [r5, #0x10]
 	add r0, r4, #0x0
@@ -2499,12 +2499,12 @@ FUN_020201E4: ; 0x020201E4
 _020201F4:
 	add r0, #0x40
 	add r0, #0x8
-	bl FUN_020B1EC4
+	bl NNS_G2dTickCellAnimation
 	pop {r3, pc}
 _020201FE:
 	add r0, #0x40
 	add r0, #0x8
-	bl FUN_020B224C
+	bl NNS_G2dTickMCAnimation
 	pop {r3, pc}
 
 	thumb_func_start FUN_02020208
@@ -2520,22 +2520,22 @@ FUN_02020208: ; 0x02020208
 _02020218:
 	add r0, #0x40
 	add r0, #0x8
-	bl FUN_020B1EA4
+	bl NNS_G2dSetCellAnimationCurrentFrame
 	pop {r3, pc}
 _02020222:
 	add r0, #0x40
 	add r0, #0x8
-	bl FUN_020B2194
+	bl NNS_G2dSetMCAnimationCurrentFrame
 	pop {r3, pc}
 
 	thumb_func_start FUN_0202022C
 FUN_0202022C: ; 0x0202022C
-	ldr r3, _02020234 ; =FUN_020B04FC
+	ldr r3, _02020234 ; =NNS_G2dGetAnimCtrlCurrentFrame
 	add r0, #0x40
 	add r0, #0x8
 	bx r3
 	.balign 4
-_02020234: .word FUN_020B04FC
+_02020234: .word NNS_G2dGetAnimCtrlCurrentFrame
 
 	thumb_func_start FUN_02020238
 FUN_02020238: ; 0x02020238
@@ -2558,7 +2558,7 @@ FUN_02020248: ; 0x02020248
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _02020256
-	bl ErrorHandling
+	bl GF_AssertFail
 _02020256:
 	add r0, r5, #0x0
 	add r0, #0x29
@@ -2613,7 +2613,7 @@ FUN_020202A8: ; 0x020202A8
 	add r4, r1, #0x0
 	cmp r5, #0x0
 	bne _020202B6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020202B6:
 	add r0, r5, #0x0
 	add r0, #0x2a
@@ -2659,7 +2659,7 @@ FUN_02020300: ; 0x02020300
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0202030A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202030A:
 	add r4, #0x2a
 	ldrb r0, [r4, #0x0]
@@ -2751,7 +2751,7 @@ FUN_02020388: ; 0x02020388
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02020392
-	bl ErrorHandling
+	bl GF_AssertFail
 _02020392:
 	ldr r0, [r4, #0x50]
 	pop {r4, pc}
@@ -2764,7 +2764,7 @@ FUN_02020398: ; 0x02020398
 	add r5, r1, #0x0
 	cmp r4, #0x0
 	bne _020203A6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020203A6:
 	str r5, [r4, #0x30]
 	cmp r5, #0x0
@@ -2969,12 +2969,12 @@ FUN_0202050C: ; 0x0202050C
 	add r4, #0x40
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r4, #0x8
 	add r1, r0, #0x0
 	ldr r2, [r5, #0x40]
 	add r0, r4, #0x0
-	bl FUN_020B1F80
+	bl NNS_G2dInitCellAnimation
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -2986,22 +2986,22 @@ FUN_0202052C: ; 0x0202052C
 	add r4, r6, #0x0
 	add r4, #0x40
 	add r5, r0, #0x0
-	bl FUN_020B43A4
+	bl NNS_G2dGetNewCellTransferStateHandle
 	str r0, [r4, #0x5c]
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
 	ldr r5, [r5, #0x4]
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	str r0, [sp, #0x18]
 	add r0, r6, #0x0
 	add r0, #0xb4
 	mov r1, #0x1
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	add r0, #0xb4
 	mov r1, #0x2
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	mov r1, #0x0
 	mvn r1, r1
 	str r1, [sp, #0x0]
@@ -3018,7 +3018,7 @@ FUN_0202052C: ; 0x0202052C
 	ldr r2, [r6, #0x40]
 	ldr r3, [r4, #0x5c]
 	add r0, #0x8
-	bl FUN_020B1EFC
+	bl NNS_G2dInitCellAnimationVramTransfered
 	add sp, #0x1c
 	pop {r4-r7, pc}
 
@@ -3032,10 +3032,10 @@ FUN_02020588: ; 0x02020588
 	ldr r0, [r4, #0x6c]
 	add r7, r1, #0x0
 	mov r1, #0x0
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0x68]
-	bl FUN_020B23D8
+	bl NNS_G2dGetMCBankNumNodesRequired
 	add r6, r0, #0x0
 	mov r1, #0x28
 	add r0, r7, #0x0
@@ -3058,11 +3058,11 @@ FUN_02020588: ; 0x02020588
 	ldr r1, [r4, #0x70]
 	ldr r2, [r4, #0x74]
 	add r0, #0x8
-	bl FUN_020B20C8
+	bl NNS_G2dInitMCAnimation
 	add r4, #0x8
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0x0
-	bl FUN_020B242C
+	bl NNS_G2dSetAnimSequenceToMCAnimation
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -3087,7 +3087,7 @@ _02020600:
 _02020602:
 	cmp r4, #0x0
 	beq _02020612
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r1, r4, #0x0
 	bl _u32_div_f
 	pop {r4, pc}
@@ -3115,19 +3115,19 @@ FUN_02020618: ; 0x02020618
 	ldr r0, [r5, r0]
 	add r1, #0xb4
 	add r2, #0xd8
-	bl thunk_FUN_020b5040
+	bl NNS_G2dSetRendererImageProxy
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_020B326C
-	bl FUN_020B2B58
+	bl NNS_G2dBeginRendering
+	bl NNS_G2dPushMtx
 	add r1, r4, #0x0
 	mov r0, #0x45
 	add r1, #0x26
 	lsl r0, r0, #0x2
 	ldrb r1, [r1, #0x0]
 	ldr r0, [r5, r0]
-	bl FUN_020B502C
+	bl NNS_G2dSetRndCoreAffineOverwriteMode
 	add r0, r4, #0x0
 	add r0, #0x26
 	ldrb r0, [r0, #0x0]
@@ -3143,7 +3143,7 @@ FUN_02020618: ; 0x02020618
 	mov r3, #0x2
 	and r1, r2
 	and r2, r3
-	bl FUN_020B4F38
+	bl NNS_G2dSetRndCoreFlipMode
 	b _0202068E
 _02020680:
 	mov r0, #0x45
@@ -3151,12 +3151,12 @@ _02020680:
 	mov r1, #0x0
 	ldr r0, [r5, r0]
 	add r2, r1, #0x0
-	bl FUN_020B4F38
+	bl NNS_G2dSetRndCoreFlipMode
 _0202068E:
 	ldr r0, [sp, #0x0]
 	ldr r1, [sp, #0x4]
 	ldr r2, [sp, #0x8]
-	bl FUN_020B2A08
+	bl NNS_G2dTranslate
 	add r0, r4, #0x0
 	add r0, #0x26
 	ldrb r0, [r0, #0x0]
@@ -3165,13 +3165,13 @@ _0202068E:
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0x14]
-	bl FUN_020B2A08
+	bl NNS_G2dTranslate
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x20]
-	bl FUN_020B28B4
+	bl NNS_G2dScale
 	ldrh r0, [r4, #0x24]
-	ldr r2, _02020770 ; =UNK_020FFA38
+	ldr r2, _02020770 ; =FX_SinCosTable_
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x1
 	lsl r0, r1, #0x1
@@ -3179,14 +3179,14 @@ _0202068E:
 	lsl r1, r1, #0x1
 	ldrsh r0, [r2, r0]
 	ldrsh r1, [r2, r1]
-	bl FUN_020B2794
+	bl NNS_G2dRotZ
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0x14]
 	neg r0, r0
 	neg r1, r1
 	neg r2, r2
-	bl FUN_020B2A08
+	bl NNS_G2dTranslate
 _020206DC:
 	add r0, r4, #0x0
 	add r0, #0x28
@@ -3249,20 +3249,20 @@ _0202074E:
 	add r4, #0x40
 	add r4, #0x8
 	add r0, r4, #0x0
-	bl FUN_020B317C
+	bl NNS_G2dDrawCellAnimation
 	b _02020764
 _0202075A:
 	add r4, #0x40
 	add r4, #0x8
 	add r0, r4, #0x0
-	bl FUN_020B2D9C
+	bl NNS_G2dDrawMultiCellAnimation
 _02020764:
-	bl FUN_020B2B08
-	bl FUN_020B31F0
+	bl NNS_G2dPopMtx
+	bl NNS_G2dEndRendering
 	add sp, #0xc
 	pop {r3-r6, pc}
 	.balign 4
-_02020770: .word UNK_020FFA38
+_02020770: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02020774
 FUN_02020774: ; 0x02020774

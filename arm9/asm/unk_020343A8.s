@@ -53,7 +53,7 @@ _020343D8:
 	ldrb r7, [r6, #0x4]
 	cmp r7, #0x10
 	bls _0203440A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203440A:
 	ldr r1, _02034490 ; =0x00001196
 	add r0, r5, #0x0
@@ -170,7 +170,7 @@ FUN_020344D8: ; 0x020344D8
 	mul r0, r1
 	cmp r5, r0
 	blt _020344EC
-	bl ErrorHandling
+	bl GF_AssertFail
 _020344EC:
 	lsl r0, r5, #0x1
 	add r1, r4, r0
@@ -185,7 +185,7 @@ FUN_020344FC: ; 0x020344FC
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02034506
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034506:
 	ldrb r0, [r4, #0x0]
 	pop {r4, pc}
@@ -196,7 +196,7 @@ FUN_0203450C: ; 0x0203450C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02034516
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034516:
 	ldrb r0, [r4, #0x1]
 	pop {r4, pc}
@@ -216,7 +216,7 @@ FUN_0203451C: ; 0x0203451C
 	cmp r5, r6
 	blt _02034536
 _02034532:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034536:
 	cmp r4, #0x0
 	blt _02034540
@@ -224,7 +224,7 @@ _02034536:
 	cmp r4, r0
 	blt _02034544
 _02034540:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02034544:
 	add r0, r4, #0x0
 	mul r0, r6
@@ -248,7 +248,7 @@ FUN_02034554: ; 0x02034554
 	cmp r4, r0
 	blt _0203456C
 _02034568:
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203456C:
 	lsl r0, r4, #0x1
 	add r0, r5, r0
@@ -269,7 +269,7 @@ FUN_02034578: ; 0x02034578
 	add r6, r3, #0x0
 	cmp r4, r0
 	blt _0203458A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203458A:
 	ldr r0, [sp, #0x10]
 	mul r0, r6
@@ -278,7 +278,7 @@ _0203458A:
 	lsl r0, r0, #0x2
 	cmp r4, r0
 	blt _0203459C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203459C:
 	ldr r0, _020345A4 ; =0x0000070E
 	add r1, r5, r4
@@ -317,7 +317,7 @@ FUN_020345DC: ; 0x020345DC
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020345E6
-	bl ErrorHandling
+	bl GF_AssertFail
 _020345E6:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -357,13 +357,13 @@ FUN_020345FC: ; 0x020345FC
 	ldrb r0, [r0, #0x1]
 	cmp r5, r0
 	blt _0203462E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203462E:
 	add r0, sp, #0x0
 	ldrb r0, [r0, #0x0]
 	cmp r4, r0
 	blt _0203463A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203463A:
 	add r0, sp, #0x0
 	ldrb r0, [r0, #0x1]
@@ -391,7 +391,7 @@ FUN_02034660: ; 0x02034660
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	bne _0203466C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0203466C:
 	add r0, r5, #0x0
 	add r1, r4, #0x0

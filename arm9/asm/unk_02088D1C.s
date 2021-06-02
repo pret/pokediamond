@@ -209,7 +209,7 @@ FUN_02088D4C: ; 0x02088D4C
 	add r4, r0, #0x0
 	cmp r4, #0x13
 	blo _02088D58
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088D58:
 	mov r0, #0xc
 	add r1, r4, #0x0
@@ -226,7 +226,7 @@ FUN_02088D68: ; 0x02088D68
 	add r4, r0, #0x0
 	cmp r4, #0x13
 	blo _02088D74
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088D74:
 	mov r0, #0xc
 	add r1, r4, #0x0
@@ -243,7 +243,7 @@ FUN_02088D84: ; 0x02088D84
 	add r4, r0, #0x0
 	cmp r4, #0x13
 	blo _02088D90
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088D90:
 	mov r0, #0xc
 	add r1, r4, #0x0
@@ -260,7 +260,7 @@ FUN_02088DA0: ; 0x02088DA0
 	add r4, r0, #0x0
 	cmp r4, #0x13
 	blo _02088DAC
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088DAC:
 	mov r0, #0xc
 	add r1, r4, #0x0
@@ -277,7 +277,7 @@ FUN_02088DBC: ; 0x02088DBC
 	add r4, r0, #0x0
 	cmp r4, #0x13
 	blo _02088DC8
-	bl ErrorHandling
+	bl GF_AssertFail
 _02088DC8:
 	mov r0, #0xc
 	add r1, r4, #0x0

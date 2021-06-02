@@ -942,7 +942,7 @@ _0202E1EE:
 	ldr r0, [sp, #0x8]
 	cmp r0, #0x0
 	bge _0202E1F8
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202E1F8:
 	ldr r0, _0202E254 ; =UNK_021C59E4
 	mov r2, #0xda

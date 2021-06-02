@@ -109,31 +109,31 @@ struct String * StringDup(struct String * src, u32 heap_id)
     return dest;
 }
 
-static const u16 sCharset_JP[10] = {
-    0xA2, 0xA3, 0xA4, 0xA5, 0xA6,
-    0xA7, 0xA8, 0xA9, 0xAA, 0xAB
-};
-
-static const u16 sCharset_EN[10] = {
-    0x121, 0x122, 0x123, 0x124, 0x125,
-    0x126, 0x127, 0x128, 0x129, 0x12A
-};
-
-static const u32 sPowersOfTen[10] = {
-             1,
-            10,
-           100,
-          1000,
-         10000,
-        100000,
-       1000000,
-      10000000,
-     100000000,
-    1000000000
-};
-
 void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strConvMode, BOOL whichCharset)
 {
+    static const u16 sCharset_EN[10] = {
+        0x121, 0x122, 0x123, 0x124, 0x125,
+        0x126, 0x127, 0x128, 0x129, 0x12A
+    };
+
+    static const u16 sCharset_JP[10] = {
+        0xA2, 0xA3, 0xA4, 0xA5, 0xA6,
+        0xA7, 0xA8, 0xA9, 0xAA, 0xAB
+    };
+
+    static const u32 sPowersOfTen[10] = {
+        1,
+        10,
+        100,
+        1000,
+        10000,
+        100000,
+        1000000,
+        10000000,
+        100000000,
+        1000000000
+    };
+
     ASSERT_STR16(str);
 
     const u16 * charbase;

@@ -612,7 +612,7 @@ _021D79A6:
 	mov r1, #1
 	add r2, #0x1c
 	mov r3, #0x33
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [r7, #0x18]
 	mov r1, #0x32
 	ldr r0, _021D7A30 ; =0x00004A44
@@ -694,7 +694,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r0, #0x56
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x33
@@ -703,7 +703,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	add r1, r0, #0
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x1a
 	mov r0, #0
 	lsl r1, r1, #4
@@ -725,7 +725,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r1, #0xa
 	add r2, r4, #0
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -737,7 +737,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r1, #0xb
 	add r2, r4, #0
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -750,7 +750,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r0, #0x56
 	mov r1, #2
 	add r2, r4, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -763,7 +763,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r0, #0x56
 	mov r1, #3
 	add r2, r4, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r5, #8]
 	ldr r0, [r0, #8]
 	bl Options_GetFrame
@@ -819,7 +819,7 @@ MOD54_021D7BBC: ; 0x021D7BBC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r6, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -1081,7 +1081,7 @@ MOD54_021D7DB4: ; 0x021D7DB4
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -1103,7 +1103,7 @@ MOD54_021D7DB4: ; 0x021D7DB4
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x1a
@@ -1148,7 +1148,7 @@ MOD54_021D7DB4: ; 0x021D7DB4
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xa6
 	lsl r0, r0, #2
 	ldr r2, _021D7E94 ; =0x00010300
@@ -1176,7 +1176,7 @@ MOD54_021D7E98: ; 0x021D7E98
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #1
 	str r1, [sp]
 	mov r0, #0x41
@@ -1848,7 +1848,7 @@ _021D83DE:
 	strb r0, [r5, r1]
 	b _021D83FC
 _021D83F8:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D83FC:
 	mov r0, #0x32
 	mov r1, #0
@@ -2688,7 +2688,7 @@ _021D8A5A:
 	str r4, [r5, r0]
 	pop {r3, r4, r5, r6, pc}
 _021D8A64:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 _021D8A6C:
@@ -2787,7 +2787,7 @@ MOD54_021D8AF8: ; 0x021D8AF8
 _021D8B18:
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r7, [sp, #0x14]
 	mov r0, #0
 	str r0, [sp, #0x20]
@@ -3013,7 +3013,7 @@ MOD54_021D8C90: ; 0x021D8C90
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xba
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3131,7 +3131,7 @@ _021D8D90:
 	ldr r0, [r6, r0]
 	cmp r0, #0
 	bne _021D8D9E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8D9E:
 	mov r0, #0xd9
 	lsl r0, r0, #2
@@ -3240,7 +3240,7 @@ MOD54_021D8E64: ; 0x021D8E64
 	mov r1, #8
 	add r2, r4, r2
 	mov r3, #0x33
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	mov r2, #0xcd
 	lsl r2, r2, #2
 	str r0, [r4, r2]
@@ -3249,7 +3249,7 @@ MOD54_021D8E64: ; 0x021D8E64
 	mov r1, #7
 	add r2, r4, r2
 	mov r3, #0x33
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	mov r3, #0xce
 	lsl r3, r3, #2
 	str r0, [r4, r3]
@@ -3260,7 +3260,7 @@ MOD54_021D8E64: ; 0x021D8E64
 	mov r1, #0x20
 	mov r2, #1
 	add r3, r4, r3
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	mov r1, #0xc9
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -3271,7 +3271,7 @@ MOD54_021D8E64: ; 0x021D8E64
 	mov r1, #9
 	mov r2, #1
 	add r3, r4, r3
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	mov r1, #0xca
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -3583,7 +3583,7 @@ MOD54_021D90E0: ; 0x021D90E0
 	cmp r5, #5
 	ble _021D90F2
 _021D90EE:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D90F2:
 	add r2, r5, #1
 	cmp r2, #5
@@ -3786,7 +3786,7 @@ MOD54_021D9238: ; 0x021D9238
 	bl MOD54_021D91AC
 	cmp r4, r0
 	beq _021D925E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D925E:
 	mov r2, #0x63
 	lsl r2, r2, #2
@@ -3816,7 +3816,7 @@ MOD54_021D9274: ; 0x021D9274
 	bl MOD54_021D91B4
 	cmp r4, r0
 	beq _021D929A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D929A:
 	add r6, #0xc
 	add r0, r5, #0
@@ -3844,7 +3844,7 @@ MOD54_021D92AC: ; 0x021D92AC
 	bl MOD54_021D91BC
 	cmp r4, r0
 	beq _021D92D2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D92D2:
 	add r6, #0xcc
 	add r0, r5, #0
@@ -4260,7 +4260,7 @@ _021D9580:
 	add r7, r0, #0
 	cmp r6, r4
 	bhi _021D959C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D959C:
 	ldr r1, [sp, #4]
 	add r0, r7, #0
@@ -4317,7 +4317,7 @@ _021D95F8:
 	str r0, [sp, #0x14]
 	cmp r1, r0
 	bhi _021D960C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D960C:
 	mov r6, #0
 	ldr r4, [sp, #4]

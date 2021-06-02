@@ -533,7 +533,7 @@ _0222DA0E:
 	ldr r2, [r4, #0x10]
 	mov r0, #0x69
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -686,7 +686,7 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, _0222DB98 ; =0x00001B38
 	ldr r0, [r4, r0]
 	bl MOD69_0222F11C
@@ -694,11 +694,11 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	mov r0, #0x12
 	add r1, sp, #4
 	str r2, [sp, #4]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, _0222DB9C ; =0x00001B3C
 	ldr r0, [r4, r0]
 	bl MOD69_0222F63C
@@ -706,7 +706,7 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, _0222DBA0 ; =0x04000540
 	mov r1, #1
 	str r1, [r0]
@@ -793,7 +793,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x14
 	bl FUN_02019548
@@ -811,7 +811,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	ldr r2, [r4, #0x10]
 	mov r0, #0x69
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -822,7 +822,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	ldr r2, [r4, #0x10]
 	mov r0, #0x69
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x60
 	str r0, [sp]
 	mov r0, #0x3f
@@ -831,7 +831,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	mov r0, #0x69
 	mov r1, #4
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -843,7 +843,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	ldr r2, [r4, #0x10]
 	mov r0, #0x69
 	add r3, r1, #0
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	bl FUN_02017CD0
@@ -921,7 +921,7 @@ MOD69_0222DD54: ; 0x0222DD54
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _0222DDE4 ; =0x04000060
 	ldr r2, _0222DDE8 ; =0xFFFFCFFD
@@ -957,11 +957,11 @@ MOD69_0222DD54: ; 0x0222DD54
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -1071,7 +1071,7 @@ MOD69_0222DE98: ; 0x0222DE98
 	push {r3, r4, lr}
 	sub sp, #0x1c
 	add r4, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -1095,7 +1095,7 @@ MOD69_0222DE98: ; 0x0222DE98
 	mov r1, #0x29
 	mov r2, #0
 	add r3, sp, #0x18
-	bl FUN_02006C30
+	bl GfGfxLoader_GetCellBank
 	mov r1, #0x5b
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1105,7 +1105,7 @@ MOD69_0222DE98: ; 0x0222DE98
 	mov r1, #0x2a
 	mov r2, #0
 	add r3, sp, #0x14
-	bl FUN_02006C5C
+	bl GfGfxLoader_GetAnimBank
 	mov r1, #0x17
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -1156,13 +1156,13 @@ MOD69_0222DF0C: ; 0x0222DF0C
 	str r0, [sp]
 	mov r0, #0x1b
 	add r3, sp, #0x44
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0x28]
 	mov r0, #0x1b
 	mov r1, #0x27
 	add r2, sp, #0x40
 	mov r3, #0x3f
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [sp, #0x24]
 	mov r0, #0
 	str r0, [sp, #0x20]
@@ -1193,19 +1193,19 @@ _0222DF72:
 	str r0, [sp, #0x34]
 _0222DF98:
 	add r0, sp, #0x5c
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, sp, #0x48
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	ldr r0, [sp, #0x44]
 	add r1, r7, #0
 	mov r2, #1
 	add r3, sp, #0x5c
-	bl FUN_020B1768
+	bl NNS_G2dLoadImage1DMapping
 	ldr r0, [sp, #0x40]
 	add r1, r6, #0
 	mov r2, #1
 	add r3, sp, #0x48
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 	ldr r0, [sp, #0x20]
 	add r0, r0, #1
 	str r0, [sp, #0x94]
@@ -1303,7 +1303,7 @@ _0222DF98:
 	ldrh r1, [r1, #4]
 	mov r2, #1
 	add r3, r6, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x81
 	lsl r1, r1, #2
 	ldr r1, [r5, r1]
@@ -1333,20 +1333,20 @@ _0222DF98:
 	b _0222DF98
 _0222E0D4:
 	add r0, sp, #0x5c
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, sp, #0x48
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	mov r1, #0x96
 	ldr r0, [sp, #0x44]
 	lsl r1, r1, #8
 	mov r2, #1
 	add r3, sp, #0x5c
-	bl FUN_020B1768
+	bl NNS_G2dLoadImage1DMapping
 	ldr r0, [sp, #0x40]
 	mov r1, #0xc0
 	mov r2, #1
 	add r3, sp, #0x48
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0]
@@ -1398,7 +1398,7 @@ _0222E10E:
 	ldrh r1, [r1, #4]
 	mov r2, #1
 	mov r3, #0xc0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp, #0x94]
 	add r0, sp, #0x80
@@ -2169,7 +2169,7 @@ _0222E77E:
 	str r0, [r3]
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	mov r3, #0x19
 	add r0, r4, #0
 	lsl r3, r3, #8
@@ -2179,7 +2179,7 @@ _0222E77E:
 	add r0, #0x48
 	mov r1, #1
 	add r2, r2, r3
-	bl FUN_020B1A1C
+	bl NNS_G2dSetImageLocation
 	ldr r0, _0222E7BC ; =MOD69_0222E7C0
 	add r1, r4, #0
 	mov r2, #0
@@ -2608,7 +2608,7 @@ _0222EAEA:
 _0222EB16:
 	ldr r0, [r4, #0x10]
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x10]
 	bl FUN_02019548
 	ldr r0, [r4, #0x28]
@@ -3795,10 +3795,10 @@ _0222F408:
 	mov r1, #1
 	bl G3B_LightVector
 	ldrh r0, [r4, #0x28]
-	ldr r3, _0222F62C ; =UNK_020FFA38
+	ldr r3, _0222F62C ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _0222F62C ; =UNK_020FFA38
+	ldr r0, _0222F62C ; =FX_SinCosTable_
 	add r2, r0, r1
 	ldrsh r1, [r3, r1]
 	mov r3, #2
@@ -3810,10 +3810,10 @@ _0222F408:
 	add r1, r5, #0
 	bl MTX_Concat44
 	ldrh r0, [r4, #0x2a]
-	ldr r3, _0222F62C ; =UNK_020FFA38
+	ldr r3, _0222F62C ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _0222F62C ; =UNK_020FFA38
+	ldr r0, _0222F62C ; =FX_SinCosTable_
 	add r2, r0, r1
 	ldrsh r1, [r3, r1]
 	mov r3, #2
@@ -3825,10 +3825,10 @@ _0222F408:
 	add r1, r5, #0
 	bl MTX_Concat44
 	ldrh r0, [r4, #0x2c]
-	ldr r3, _0222F62C ; =UNK_020FFA38
+	ldr r3, _0222F62C ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _0222F62C ; =UNK_020FFA38
+	ldr r0, _0222F62C ; =FX_SinCosTable_
 	add r2, r0, r1
 	ldrsh r1, [r3, r1]
 	mov r3, #2
@@ -3935,7 +3935,7 @@ _0222F5E2:
 	lsl r0, r0, #0xa
 	cmp r1, r0
 	blo _0222F608
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F608:
 	mov r0, #1
 	str r0, [r7, #4]
@@ -3950,7 +3950,7 @@ _0222F61C: .word 0x0000019A
 _0222F620: .word 0x00002D6B
 _0222F624: .word 0x00000FFF
 _0222F628: .word 0xFFFFF001
-_0222F62C: .word UNK_020FFA38
+_0222F62C: .word FX_SinCosTable_
 _0222F630: .word 0x00007FFF
 _0222F634: .word 0x00008D1C
 _0222F638: .word 0x0000151C

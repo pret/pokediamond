@@ -1,15 +1,16 @@
 #include "heap.h"
 #include "error_message_reset.h"
+#include "unk_02031734.h"
 
-extern void *tempName_NNS_FndCreateExpHeapEx(void *param0, u32 param1, u32 param2);
-extern void *tempName_NNS_FndAllocFromExpHeapEx(void *param0, u32 param1, s32 param2);
-extern void thunk_FUN_020adc8c();
-extern void FUN_020ADDF0(void *ptr1, void *ptr2);
-extern u32 FUN_02031810(void);
-extern u32 FUN_020ADDC8(void *param0);
-extern void FUN_020AE82C(u32 param0, void *param1, u32 param2);
-extern u32 FUN_020ADDC0(void *param0);
-extern void FUN_020ADE2C(void *ptr1, void *ptr2, u32 param2);
+
+extern void *NNS_FndCreateExpHeapEx(void *param0, u32 param1, u32 param2);
+extern void *NNS_FndAllocFromExpHeapEx(void *param0, u32 param1, s32 param2);
+extern void NNS_FndDestroyExpHeap();
+extern void NNS_FndFreeToExpHeap(void *ptr1, void *ptr2);
+extern u32 NNS_FndGetTotalFreeSizeForExpHeap(void *param0);
+extern void NNS_FndInitAllocatorForExpHeap(u32 param0, void *param1, u32 param2);
+extern u32 NNS_FndGetSizeForMBlockExpHeap(void *param0);
+extern void NNS_FndResizeForMBlockExpHeap(void *ptr1, void *ptr2, u32 param2);
 
 
 struct UnkStruct_020166C8 UNK_021C4D28;
@@ -67,12 +68,12 @@ THUMB_FUNC void FUN_020166C8(u32 *param0, u32 param1, u32 param2, u32 pre_size)
         if (ptr != 0)
         {
 
-            UNK_021C4D28.unk00[r7] = tempName_NNS_FndCreateExpHeapEx(ptr, param0[0], 0);
+            UNK_021C4D28.unk00[r7] = NNS_FndCreateExpHeapEx(ptr, param0[0], 0);
             UNK_021C4D28.unk10[r7] = (u8)r7;
         }
         else
         {
-            ErrorHandling();
+            GF_AssertFail();
         }
 
         param0 += 2;
@@ -142,13 +143,13 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
         void *ptr2 = UNK_021C4D28.unk00[ptr[param0]];
         if (ptr2 != 0)
         {
-            void *ptr3 = tempName_NNS_FndAllocFromExpHeapEx(ptr2, param2, param3);
+            void *ptr3 = NNS_FndAllocFromExpHeapEx(ptr2, param2, param3);
             if (ptr3 != 0)
             {
                 param3 = FUN_020167F4();
                 if (param3 >= 0)
                 {
-                    UNK_021C4D28.unk00[param3] = tempName_NNS_FndCreateExpHeapEx(ptr3, param2, 0);
+                    UNK_021C4D28.unk00[param3] = NNS_FndCreateExpHeapEx(ptr3, param2, 0);
 
 
                     if (UNK_021C4D28.unk00[param3] != 0)
@@ -161,27 +162,27 @@ THUMB_FUNC u32 FUN_02016834(u32 param0, u32 param1, u32 param2, s32 param3)
                     }
                     else
                     {
-                        ErrorHandling();
+                        GF_AssertFail();
                     }
                 }
                 else
                 {
-                    ErrorHandling();
+                    GF_AssertFail();
                 }
             }
             else
             {
-                ErrorHandling();
+                GF_AssertFail();
             }
         }
         else
         {
-            ErrorHandling();
+            GF_AssertFail();
         }
     }
     else
     {
-        ErrorHandling();
+        GF_AssertFail();
     }
     return 0;
 }
@@ -192,18 +193,18 @@ THUMB_FUNC void FUN_020168D0(u32 heap_id)
 
     if (UNK_021C4D28.unk00[UNK_021C4D28.unk10[heap_id]] != 0)
     {
-        thunk_FUN_020adc8c();
+        NNS_FndDestroyExpHeap();
 
         u8 index = UNK_021C4D28.unk10[heap_id];
         void *ptr1 = UNK_021C4D28.unk04[index];
         void *ptr2 = UNK_021C4D28.unk08[index];
         if (ptr1 != 0 && ptr2 != 0)
         {
-            FUN_020ADDF0(ptr1, ptr2);
+            NNS_FndFreeToExpHeap(ptr1, ptr2);
         }
         else
         {
-            ErrorHandling();
+            GF_AssertFail();
         }
 
         UNK_021C4D28.unk00[UNK_021C4D28.unk10[heap_id]] = 0;
@@ -220,7 +221,7 @@ THUMB_FUNC u32 *FUN_02016944(void *param0, u32 param1, s32 param2, u32 param3)
 
     OSIntrMode intr_mode = OS_DisableInterrupts();
     param1 += 16;
-    u32 *ptr = (u32 *)tempName_NNS_FndAllocFromExpHeapEx(param0, param1, param2);
+    u32 *ptr = (u32 *)NNS_FndAllocFromExpHeapEx(param0, param1, param2);
 
     OS_RestoreInterrupts(intr_mode);
     if (ptr != 0)
@@ -300,15 +301,15 @@ void FreeToHeap(void *ptr)
 
         UNK_021C4D28.unk0c[heap_id]--;
         OSIntrMode intr_mode = OS_DisableInterrupts();
-        FUN_020ADDF0(ptr2, ptr - 16);
+        NNS_FndFreeToExpHeap(ptr2, ptr - 16);
         OS_RestoreInterrupts(intr_mode);
         return;
     }
 
-    ErrorHandling();
+    GF_AssertFail();
 }
 
-void FUN_02016A8C(u32 param0, void *param1)
+void FreeToHeapExplicit(u32 param0, void *param1)
 {
     GF_ASSERT (OS_GetProcMode() != OS_PROCMODE_IRQ);
 
@@ -321,14 +322,14 @@ void FUN_02016A8C(u32 param0, void *param1)
         u8 heap_id = (u8)((u32 *)param1)[-1];
         GF_ASSERT (heap_id == param0);
 
-        FUN_020ADDF0(ptr, param1 - 16);
+        NNS_FndFreeToExpHeap(ptr, param1 - 16);
         GF_ASSERT (UNK_021C4D28.unk0c[param0]);
 
         UNK_021C4D28.unk0c[param0]--;
         return;
     }
 
-    ErrorHandling();
+    GF_AssertFail();
 }
 
 THUMB_FUNC u32 FUN_02016AF8(u32 param0)
@@ -336,10 +337,10 @@ THUMB_FUNC u32 FUN_02016AF8(u32 param0)
     if (param0 < UNK_021C4D28.unk14)
     {
         u8 index = UNK_021C4D28.unk10[param0];
-        return FUN_020ADDC8(UNK_021C4D28.unk00[index]);
+        return NNS_FndGetTotalFreeSizeForExpHeap(UNK_021C4D28.unk00[index]);
     }
 
-    ErrorHandling();
+    GF_AssertFail();
     return 0;
 }
 
@@ -349,11 +350,11 @@ THUMB_FUNC void FUN_02016B20(u32 param0, u32 param1, u32 param2)
     {
 
         u8 index = UNK_021C4D28.unk10[param1];
-        FUN_020AE82C(param0, UNK_021C4D28.unk00[index], param2);
+        NNS_FndInitAllocatorForExpHeap(param0, UNK_021C4D28.unk00[index], param2);
         return;
     }
 
-    ErrorHandling();
+    GF_AssertFail();
 }
 
 THUMB_FUNC void FUN_02016B44(void *ptr, u32 param1)
@@ -361,16 +362,16 @@ THUMB_FUNC void FUN_02016B44(void *ptr, u32 param1)
     GF_ASSERT (OS_GetProcMode() != OS_PROCMODE_IRQ);
 
     param1 += 16;
-    if (FUN_020ADDC0(ptr - 16) >= param1)
+    if (NNS_FndGetSizeForMBlockExpHeap(ptr - 16) >= param1)
     {
         u8 heap_id = (u8)((u32 *)ptr)[-1];
 
         u8 index = UNK_021C4D28.unk10[heap_id];
 
-        FUN_020ADE2C(UNK_021C4D28.unk00[index], ptr - 16, param1);
+        NNS_FndResizeForMBlockExpHeap(UNK_021C4D28.unk00[index], ptr - 16, param1);
         return;
     }
-    ErrorHandling();
+    GF_AssertFail();
 }
 
 THUMB_FUNC u32 FUN_02016B90(u32 param0)

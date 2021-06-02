@@ -117,7 +117,7 @@ FUN_0206C700: ; 0x0206C700
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_02018FF4
+	bl AllocWindows
 	str r0, [r4, #0x4]
 	ldr r0, [sp, #0x18]
 	str r0, [r4, #0x2c]
@@ -147,7 +147,7 @@ FUN_0206C700: ; 0x0206C700
 	bl FUN_02019064
 	ldr r0, [r4, #0x4]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
 	mov r2, #0x1
@@ -743,7 +743,7 @@ _0206CCCE:
 	lsl r1, r1, #0xe
 	cmp r0, r1
 	bhi _0206CD16
-	bl ErrorHandling
+	bl GF_AssertFail
 _0206CD16:
 	ldr r0, _0206CE24 ; =0x000005F9
 	bl FUN_020054C8
@@ -2365,7 +2365,7 @@ _0206DA26:
 	str r0, [sp, #0xc]
 	mov r0, #0x76
 	mov r3, #0x3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -2376,7 +2376,7 @@ _0206DA26:
 	str r0, [sp, #0xc]
 	mov r0, #0x76
 	mov r3, #0x3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	mov r0, #0x40
@@ -2441,7 +2441,7 @@ _0206DA26:
 	mov r0, #0xc
 	add r2, r4, #0x0
 	mov r3, #0x4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -2453,7 +2453,7 @@ _0206DA26:
 	mov r0, #0xc
 	add r2, r4, #0x0
 	mov r3, #0x4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r0, #0x20
@@ -2673,7 +2673,7 @@ FUN_0206DD6C: ; 0x0206DD6C
 	bl FreeToHeap
 	ldr r0, [r4, #0x4]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x2c]
 	bl Options_GetTextFrameDelay
 	mov r3, #0x0
@@ -2719,7 +2719,7 @@ _0206DDDC:
 	b _0206DDFA
 _0206DDE4:
 	ldr r0, _0206DE00 ; =0x00000484
-	bl PlayBGM
+	bl PlaySound
 	b _0206DDFA
 _0206DDEC:
 	ldr r0, _0206DE04 ; =0x000005E6
@@ -2727,7 +2727,7 @@ _0206DDEC:
 	b _0206DDFA
 _0206DDF4:
 	ldr r0, _0206DE08 ; =0x00000483
-	bl PlayBGM
+	bl PlaySound
 _0206DDFA:
 	add r0, r4, #0x0
 	pop {r4, pc}

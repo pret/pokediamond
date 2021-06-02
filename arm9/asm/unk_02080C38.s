@@ -246,7 +246,7 @@ _02080DD4:
 	str r0, [r4, #0x4]
 	b _02080DF2
 _02080DE2:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02080DE6:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -497,7 +497,7 @@ _02080FC0:
 	str r0, [r4, #0x4]
 	b _02080FDC
 _02080FCE:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02080FD2:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -747,7 +747,7 @@ _02081196:
 	str r0, [r4, #0x4]
 	b _020811B4
 _020811A4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020811A8:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -916,7 +916,7 @@ _020812F2:
 	add r5, r4, #0x0
 _02081304:
 	mov r0, #0x14
-	bl FUN_02029EE4
+	bl Chatot_new
 	mov r1, #0x57
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -927,7 +927,7 @@ _02081304:
 	add r0, r1, #0x0
 	ldr r0, [r4, r0]
 	ldr r1, [r6, #0x20]
-	bl FUN_02029F9C
+	bl Chatot_copy
 	ldr r0, [r6, #0x8]
 	ldr r1, [r4, #0x0]
 	bl CopyPokemonToPokemon
@@ -1259,7 +1259,7 @@ _020815A6:
 	add r6, r0, #0x0
 	b _020815BA
 _020815B6:
-	bl ErrorHandling
+	bl GF_AssertFail
 _020815BA:
 	cmp r6, #0x0
 	beq _020815CA
@@ -1900,7 +1900,7 @@ _02081A7C:
 	strb r0, [r4, r2]
 	pop {r3-r7, pc}
 _02081A8A:
-	bl FUN_02029EC4
+	bl Sav2_Chatot_sizeof
 	add r2, r0, #0x0
 	mov r0, #0x57
 	lsl r0, r0, #0x2
@@ -2347,7 +2347,7 @@ _02081DEC:
 	bl FUN_0202DFA4
 	add r7, r0, #0x0
 	bne _02081DFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _02081DFA:
 	add r0, r7, #0x0
 	bl PlayerProfile_GetGameClearFlag
@@ -2374,7 +2374,7 @@ _02081E1E:
 	bl FUN_0202DFA4
 	add r7, r0, #0x0
 	bne _02081E2C
-	bl ErrorHandling
+	bl GF_AssertFail
 _02081E2C:
 	add r0, r7, #0x0
 	bl PlayerProfile_GetNatDexFlag
@@ -2471,7 +2471,7 @@ FUN_02081ED4: ; 0x02081ED4
 	ldr r0, [r4, r0]
 	cmp r0, #0x0
 	beq _02081EE6
-	bl ErrorHandling
+	bl GF_AssertFail
 _02081EE6:
 	ldr r0, _02081F00 ; =0x00000176
 	mov r1, #0x0
@@ -3031,7 +3031,7 @@ _020822C8:
 	add r0, #0x31
 	b _020822D6
 _020822D0:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3-r5, pc}
 _020822D6:
 	lsl r0, r0, #0x18
@@ -3229,7 +3229,7 @@ _02082412:
 _02082414:
 	cmp r4, #0x64
 	bne _0208241C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0208241C:
 	ldr r0, _02082440 ; =0x0000198C
 	ldr r0, [r5, r0]
@@ -3258,7 +3258,7 @@ FUN_02082444: ; 0x02082444
 	ldr r0, [r5, r0]
 	cmp r0, #0x0
 	beq _02082456
-	bl ErrorHandling
+	bl GF_AssertFail
 _02082456:
 	mov r0, #0x4
 	mov r1, #0x10

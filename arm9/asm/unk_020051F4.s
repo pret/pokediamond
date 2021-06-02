@@ -12,7 +12,7 @@ FUN_020051F4: ; 0x020051F4
 	add r4, r0, #0x0
 	bl FUN_02003FF4
 	add r1, r5, #0x0
-	bl FUN_020C3980
+	bl NNS_SndArcPlayerStartSeq
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -47,7 +47,7 @@ _0200523E:
 	add r4, r0, #0x0
 	b _02005258
 _02005250:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _02005258:
@@ -81,16 +81,16 @@ FUN_02005288: ; 0x02005288
 	mov r0, #0x3
 	add r4, r2, #0x0
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	add r0, r5, #0x0
-	bl FUN_02003F90
+	bl GF_Snd_LoadSeq
 	mov r0, #0x1a
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	add r0, r4, #0x0
 	bl FUN_02003FF4
 	add r1, r5, #0x0
-	bl FUN_020C3980
+	bl NNS_SndArcPlayerStartSeq
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -123,7 +123,7 @@ FUN_020052B8: ; 0x020052B8
 	add r0, r6, #0x0
 	add r3, r1, #0x0
 	str r5, [sp, #0x0]
-	bl FUN_020C3910
+	bl NNS_SndArcPlayerStartSeqEx
 	add sp, #0x4
 	pop {r3-r6, pc}
 	.balign 4
@@ -134,7 +134,7 @@ FUN_02005308: ; 0x02005308
 	add r5, r1, #0x0
 	cmp r0, #0x4
 	beq _02005318
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02005318:
@@ -142,17 +142,17 @@ _02005318:
 	bl FUN_020048D0
 	cmp r0, #0x7
 	beq _0200532A
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0200532A:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 	mov r0, #0x7
 	bl FUN_02003FF4
 	add r1, r5, #0x0
-	bl FUN_020C3980
+	bl NNS_SndArcPlayerStartSeq
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02004110
@@ -165,14 +165,14 @@ _0200532A:
 FUN_02005350: ; 0x02005350
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_020C0FDC
+	bl NNS_SndPlayerStopSeqBySeqNo
 	add r0, r4, #0x0
 	bl FUN_020048D0
 	cmp r0, #0xff
 	beq _0200536E
 	bl FUN_02004018
 	bl FUN_02003FF4
-	bl FUN_020C0F68
+	bl NNS_SndHandleReleaseSeq
 _0200536E:
 	bl FUN_02005374
 	pop {r4, pc}
@@ -270,7 +270,7 @@ FUN_0200541C: ; 0x0200541C
 	bl FUN_02003D38
 	add r4, r0, #0x0
 	mov r0, #0x0
-	bl FUN_020C0F9C
+	bl NNS_SndPlayerStopSeqAll
 	ldrb r0, [r5, #0x0]
 	cmp r0, #0x1
 	bne _02005440
@@ -299,7 +299,7 @@ FUN_02005454: ; 0x02005454
 	mov r0, #0x7
 	bl FUN_02003FF4
 	mov r1, #0x0
-	bl FUN_020C10A4
+	bl NNS_SndPlayerStopSeq
 	bl FUN_02005374
 	mov r5, #0x0
 	add r4, r5, #0x0
@@ -351,7 +351,7 @@ FUN_020054C8: ; 0x020054C8
 	add r4, r0, #0x0
 	bl FUN_02003FF4
 	add r1, r5, #0x0
-	bl FUN_020C3980
+	bl NNS_SndArcPlayerStartSeq
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -362,10 +362,10 @@ FUN_020054C8: ; 0x020054C8
 
 	thumb_func_start FUN_020054F0
 FUN_020054F0: ; 0x020054F0
-	ldr r3, _020054F4 ; =FUN_020C0FDC
+	ldr r3, _020054F4 ; =NNS_SndPlayerStopSeqBySeqNo
 	bx r3
 	.balign 4
-_020054F4: .word FUN_020C0FDC
+_020054F4: .word NNS_SndPlayerStopSeqBySeqNo
 
 	thumb_func_start FUN_020054F8
 FUN_020054F8: ; 0x020054F8
@@ -373,7 +373,7 @@ FUN_020054F8: ; 0x020054F8
 	add r4, r1, #0x0
 	bl FUN_02003FF4
 	add r1, r4, #0x0
-	bl FUN_020C10A4
+	bl NNS_SndPlayerStopSeq
 	pop {r4, pc}
 
 	thumb_func_start FUN_02005508
@@ -411,7 +411,7 @@ FUN_02005530: ; 0x02005530
 	bl FUN_02003FF4
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_020C0E7C
+	bl NNS_SndPlayerSetTrackPan
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0200554C
@@ -428,7 +428,7 @@ _0200555C:
 	bl FUN_02003FF4
 	add r1, r7, #0x0
 	add r2, r6, #0x0
-	bl FUN_020C0E7C
+	bl NNS_SndPlayerSetTrackPan
 	add r5, r5, #0x1
 	cmp r5, #0x4
 	blt _0200555C
@@ -483,7 +483,7 @@ _020055BC:
 	sub r1, r1, #0x3
 	add r2, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_020C3910
+	bl NNS_SndArcPlayerStartSeqEx
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x1
@@ -497,7 +497,7 @@ _020055E8:
 	sub r1, r1, #0x3
 	add r2, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_020C3910
+	bl NNS_SndArcPlayerStartSeqEx
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x8
@@ -525,11 +525,11 @@ FUN_02005614: ; 0x02005614
 	mov r0, #0x1
 	bl FUN_02003FF4
 	add r1, r5, #0x0
-	bl FUN_020C10A4
+	bl NNS_SndPlayerStopSeq
 	mov r0, #0x8
 	bl FUN_02003FF4
 	add r1, r5, #0x0
-	bl FUN_020C10A4
+	bl NNS_SndPlayerStopSeq
 	ldrb r0, [r6, #0x0]
 	cmp r0, #0x1
 	bne _02005658
@@ -1072,7 +1072,7 @@ FUN_02005AE0: ; 0x02005AE0
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02005B04
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4-r6, pc}
 _02005B04:
 	mov r2, #0x0
@@ -1216,8 +1216,8 @@ FUN_02005BF8: ; 0x02005BF8
 	pop {r3-r6, pc}
 	.balign 4
 
-	thumb_func_start PlayBGM
-PlayBGM: ; 0x02005C28
+	thumb_func_start PlaySound
+PlaySound: ; 0x02005C28
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl FUN_020048F4
@@ -1232,14 +1232,14 @@ PlayBGM: ; 0x02005C28
 _02005C48:
 	mov r0, #0x1c
 	bl FUN_02003D38
-	bl FUN_02003F3C
+	bl GF_Snd_SaveState
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl FUN_02003FA8
+	bl GF_Snd_LoadSeqEx
 	mov r0, #0x2
 	bl FUN_02003FF4
 	add r1, r5, #0x0
-	bl FUN_020C3980
+	bl NNS_SndArcPlayerStartSeq
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x2
@@ -1279,10 +1279,10 @@ FUN_02005CA0: ; 0x02005CA0
 	mov r0, #0x2
 	bl FUN_02003FF4
 	add r1, r4, #0x0
-	bl FUN_020C10A4
+	bl NNS_SndPlayerStopSeq
 	mov r0, #0x6
 	bl FUN_02004748
-	bl FUN_02003F64
+	bl GF_Snd_RestoreState
 	pop {r4, pc}
 
 	thumb_func_start FUN_02005CBC

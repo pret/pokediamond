@@ -109,7 +109,7 @@ struct Pokemon * GetFirstAliveMonInParty_CrashIfNone(struct PlayerParty * party)
         if(MonNotFaintedOrEgg(mon))
             return mon;
     }
-    ErrorHandling();
+    GF_AssertFail();
     return 0;
 }
 

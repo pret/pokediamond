@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 	.section .rodata
 
 	.global UNK_020F5C04
@@ -1222,7 +1222,7 @@ FUN_02054008: ; 0x02054008
 	bl FUN_0201FE94
 	add r4, r0, #0x0
 	bne _02054064
-	bl ErrorHandling
+	bl GF_AssertFail
 _02054064:
 	add r0, r4, #0x0
 	add sp, #0x30
@@ -1291,7 +1291,7 @@ FUN_020540C8: ; 0x020540C8
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _020540E4:
@@ -1320,7 +1320,7 @@ FUN_020540E8: ; 0x020540E8
 	ldr r1, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r5, r0, #0x2
-	ldr r0, _02054164 ; =UNK_020FFA38
+	ldr r0, _02054164 ; =FX_SinCosTable_
 	ldrsh r5, [r0, r5]
 	asr r0, r5, #0x1f
 	lsr r6, r5, #0x10
@@ -1363,7 +1363,7 @@ _0205415E:
 	add sp, #0xc
 	pop {r3-r6, pc}
 	.balign 4
-_02054164: .word UNK_020FFA38
+_02054164: .word FX_SinCosTable_
 
 	thumb_func_start FUN_02054168
 FUN_02054168: ; 0x02054168
@@ -1408,7 +1408,7 @@ FUN_020541A4: ; 0x020541A4
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _020541C0:
@@ -1481,7 +1481,7 @@ FUN_02054228: ; 0x02054228
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02054244:
@@ -1581,7 +1581,7 @@ FUN_020542E8: ; 0x020542E8
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02054304:
@@ -1749,7 +1749,7 @@ FUN_0205442C: ; 0x0205442C
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02054448:
@@ -1801,7 +1801,7 @@ _0205447E:
 	ldr r6, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02054500 ; =UNK_020FFA38
+	ldr r0, _02054500 ; =FX_SinCosTable_
 	ldrsh r0, [r0, r1]
 	asr r3, r0, #0x1f
 	lsr r1, r0, #0xf
@@ -1851,7 +1851,7 @@ _020544F8:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	nop
-_02054500: .word UNK_020FFA38
+_02054500: .word FX_SinCosTable_
 _02054504: .word 0x00000666
 
 	thumb_func_start FUN_02054508
@@ -1900,7 +1900,7 @@ FUN_0205454C: ; 0x0205454C
 	bl FUN_0201FFC8
 	ldr r1, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02054568:

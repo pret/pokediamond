@@ -74,6 +74,7 @@ struct Cell {
 struct JsonToCellOptions {
     bool labelEnabled;
     bool extended;
+    int mappingType;
     int imageHeight;
     int imageWidth;
     int cellCount;

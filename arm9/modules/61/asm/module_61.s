@@ -305,7 +305,7 @@ _021D7702:
 	add r0, r5, #0
 	add r0, #0x94
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, [r5]
 	mov r0, #0x4c
 	bl String_ctor
@@ -432,7 +432,7 @@ _021D77F2:
 	add r0, r5, #0
 	add r0, #0x94
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r1, [r5]
 	mov r0, #0x4c
 	bl String_ctor
@@ -737,7 +737,7 @@ _021D7A7A:
 	beq _021D7A88
 	bl FUN_0200BC30
 _021D7A88:
-	bl FUN_020AEEB8
+	bl NNS_GfdDoVramTransfer
 	ldr r0, [r4, #0x18]
 	bl FUN_0201AB60
 	ldr r3, _021D7AA0 ; =0x027E0000
@@ -1087,7 +1087,7 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	bl NARC_ReadWholeMember
 	add r0, r7, #0
 	add r1, sp, #0x28
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r3, [sp, #0x28]
 	mov r0, #0
 	str r0, [sp]
@@ -1119,7 +1119,7 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	bl NARC_ReadWholeMember
 	add r0, r4, #0
 	add r1, sp, #0x24
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r2, [sp, #0x24]
 	mov r0, #4
 	ldr r1, [r2, #0xc]
@@ -1253,7 +1253,7 @@ _021D7E00:
 	add r1, r5, #0
 	ldr r0, [r5, #0x34]
 	add r1, #0x3c
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r0, #0x4f
 	mov r1, #0x24
 	bl GetNarcMemberSizeByIdPair
@@ -1268,7 +1268,7 @@ _021D7E00:
 	add r1, r5, #0
 	ldr r0, [r5, #0x38]
 	add r1, #0x40
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	add r0, r6, #0
 	bl NARC_dtor
 	mov r3, #0
@@ -1484,7 +1484,7 @@ MOD61_021D7FF4: ; 0x021D7FF4
 _021D80BE:
 	add r0, r5, #0
 	add r1, r6, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r4, #5
 	bge _021D80D0
 	add r0, r5, #0

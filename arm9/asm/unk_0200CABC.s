@@ -42,7 +42,7 @@ FUN_0200CABC: ; 0x0200CABC
 	mov r0, #0x26
 	add r2, r5, #0x0
 	add r3, r4, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add sp, #0x10
 	pop {r3-r5, pc}
 _0200CAE2:
@@ -55,7 +55,7 @@ _0200CAE2:
 	mov r0, #0x26
 	add r2, r5, #0x0
 	add r3, r4, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add sp, #0x10
 	pop {r3-r5, pc}
 
@@ -89,7 +89,7 @@ _0200CB18:
 	str r0, [sp, #0xc]
 	mov r0, #0x26
 	add r3, r5, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r0, sp, #0x10
 	ldrb r0, [r0, #0x10]
 	cmp r0, #0x2
@@ -108,7 +108,7 @@ _0200CB3C:
 	str r0, [sp, #0x4]
 	mov r0, #0x26
 	lsl r3, r4, #0x5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x10
 	pop {r4-r6, pc}
 _0200CB56:
@@ -119,7 +119,7 @@ _0200CB56:
 	str r0, [sp, #0x4]
 	mov r0, #0x26
 	lsl r3, r4, #0x5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x10
 	pop {r4-r6, pc}
 
@@ -291,10 +291,10 @@ FUN_0200CCA4: ; 0x0200CCA4
 	bl FUN_0201AB18
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x1c]
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	ldr r1, [sp, #0x1c]
 	ldr r2, [sp, #0x14]
 	str r1, [sp, #0x0]
@@ -328,10 +328,10 @@ FUN_0200CCF8: ; 0x0200CCF8
 	bl FUN_0201AB18
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	sub r1, r7, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
@@ -394,7 +394,7 @@ FUN_0200CD68: ; 0x0200CD68
 	str r0, [sp, #0xc]
 	mov r0, #0x26
 	add r3, r5, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	cmp r5, #0x4
 	bhs _0200CDB8
 	add r0, r7, #0x0
@@ -407,7 +407,7 @@ FUN_0200CD68: ; 0x0200CD68
 	str r0, [sp, #0x4]
 	mov r0, #0x26
 	lsl r3, r4, #0x5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x14
 	pop {r4-r7, pc}
 _0200CDB8:
@@ -421,7 +421,7 @@ _0200CDB8:
 	str r0, [sp, #0x4]
 	mov r0, #0x26
 	lsl r3, r4, #0x5
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4
@@ -758,10 +758,10 @@ FUN_0200D06C: ; 0x0200D06C
 	bl FUN_0201AB18
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r7, [sp, #0x0]
 	str r0, [sp, #0x4]
 	lsl r0, r6, #0x18
@@ -813,10 +813,10 @@ FUN_0200D0E0: ; 0x0200D0E0
 	bl FUN_0201AB18
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	sub r1, r7, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
@@ -879,7 +879,7 @@ FUN_0200D148: ; 0x0200D148
 	mov r0, #0x0
 	str r0, [sp, #0x10]
 	add r0, sp, #0x1c
-	bl FUN_02018A60
+	bl BlitBitmapRect4Bit
 	add sp, #0x24
 	pop {r4-r5, pc}
 
@@ -908,7 +908,7 @@ FUN_0200D18C: ; 0x0200D18C
 	mov r1, #0x16
 	mov r2, #0x0
 	add r3, sp, #0x3c
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0x2c]
 	ldr r0, [sp, #0x3c]
 	mov r7, #0x0
@@ -1006,7 +1006,7 @@ FUN_0200D274: ; 0x0200D274
 	str r0, [sp, #0x0]
 	mov r0, #0x26
 	add r3, sp, #0x10
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0xc]
 	mov r1, #0x9
 	ldr r0, [sp, #0x2c]
@@ -1077,14 +1077,14 @@ FUN_0200D300: ; 0x0200D300
 	mov r0, #0x24
 	add r3, r6, #0x0
 	str r4, [sp, #0xc]
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x24 ; NARC_GRAPHIC_FIELD_BOARD
 	mov r1, #0x1
 	add r2, r4, #0x0
 	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x14]
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	add r2, sp, #0x20
 	ldr r1, [sp, #0x18]
 	ldrb r2, [r2, #0x10]
@@ -1098,7 +1098,7 @@ FUN_0200D300: ; 0x0200D300
 	bl FUN_02017FB4
 	ldr r1, [sp, #0x14]
 	add r0, r4, #0x0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	add r0, sp, #0x20
 	ldrb r3, [r0, #0x10]
 	cmp r3, #0x1
@@ -1144,7 +1144,7 @@ _0200D390:
 	str r0, [sp, #0xc]
 	mov r0, #0x24
 	add r3, r4, #0x0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add sp, #0x10
 	pop {r3-r5, pc}
 
@@ -1575,10 +1575,10 @@ FUN_0200D6F8: ; 0x0200D6F8
 	bl FUN_0201AB18
 	str r0, [sp, #0x1c]
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r7, [sp, #0x0]
 	str r0, [sp, #0x4]
 	str r6, [sp, #0x8]
@@ -1604,10 +1604,10 @@ _0200D756:
 	bl FUN_0201AB18
 	str r0, [sp, #0x24]
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	str r7, [sp, #0x0]
 	str r0, [sp, #0x4]
 	str r6, [sp, #0x8]
@@ -1648,10 +1648,10 @@ FUN_0200D7A0: ; 0x0200D7A0
 	bl FUN_0201AB18
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	sub r1, r7, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
@@ -1681,10 +1681,10 @@ _0200D7FE:
 	bl FUN_0201AB18
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB10
+	bl GetWindowHeight
 	sub r1, r6, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
@@ -1792,7 +1792,7 @@ _0200D8DA:
 	mov r0, #0x26
 	mov r2, #0x0
 	add r3, sp, #0x30
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	mov r2, #0x80
 	add r5, r0, #0x0
 	str r2, [sp, #0x0]
@@ -1863,7 +1863,7 @@ FUN_0200D980: ; 0x0200D980
 	bl FUN_0201AB18
 	str r0, [sp, #0x1c]
 	ldr r0, [r5, #0x0]
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	str r0, [sp, #0x20]
 	cmp r6, #0x2
 	bne _0200DA8A
@@ -2574,7 +2574,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	bl FUN_02009C5C
 	mov r1, #0x1
 	str r0, [sp, #0x4]
-	bl FUN_020B1A14
+	bl NNS_G2dGetImageLocation
 	mov r1, #0x19
 	add r7, r0, #0x0
 	add r0, r4, #0x0
@@ -2601,7 +2601,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	ldr r1, [sp, #0x4]
 	bl FUN_02009E54
 	mov r1, #0x1
-	bl FUN_020B19C4
+	bl NNS_G2dGetImagePaletteLocation
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x20

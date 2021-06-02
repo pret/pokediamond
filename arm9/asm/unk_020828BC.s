@@ -177,7 +177,7 @@ _0208292A:
 	mov r0, #0x5a
 	add r2, r1, #0x0
 	add r3, r5, #0x0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [sp, #0x14]
 	mov r0, #0x5a
 	mov r1, #0x0
@@ -311,7 +311,7 @@ _02082A26:
 	ldr r0, [sp, #0x8]
 	cmp r6, r0
 	bge _02082A30
-	bl ErrorHandling
+	bl GF_AssertFail
 _02082A30:
 	mov r0, #0x0
 	str r0, [sp, #0x10]
@@ -469,7 +469,7 @@ _02082B44:
 _02082B4E:
 	cmp r6, #0x4
 	bhs _02082B56
-	bl ErrorHandling
+	bl GF_AssertFail
 _02082B56:
 	mov r6, #0x0
 	mov r7, #0x30
@@ -513,7 +513,7 @@ FUN_02082B90: ; 0x02082B90
 	mov r0, #0x5a
 	mov r1, #0x2
 	mov r2, #0x0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [sp, #0x14]
 	ldr r1, _02082D10 ; =0x00000121
 	ldr r0, [sp, #0x8]
@@ -633,7 +633,7 @@ _02082C66:
 	ldrb r2, [r0, #0x0]
 	b _02082C74
 _02082C6E:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r2, #0x0
 _02082C74:
 	mov r0, #0x54
@@ -891,7 +891,7 @@ FUN_02082E64: ; 0x02082E64
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02082E98
-	bl ErrorHandling
+	bl GF_AssertFail
 _02082E98:
 	add r1, sp, #0x14
 	ldrh r0, [r1, #0x0]
@@ -938,7 +938,7 @@ FUN_02082ED0: ; 0x02082ED0
 	add r2, r5, #0x0
 	add r4, r5, #0x0
 	str r1, [sp, #0x0]
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [sp, #0x14]
 	mov r0, #0x5a
 	mov r1, #0x1
@@ -1094,7 +1094,7 @@ _0208300A:
 	strb r1, [r0, r4]
 	cmp r5, #0x2
 	bhs _0208301A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0208301A:
 	ldr r2, [sp, #0x4]
 	mov r3, #0x0
@@ -1126,7 +1126,7 @@ _0208301E:
 	blt _0208301E
 	cmp r4, #0x1
 	bhs _02083058
-	bl ErrorHandling
+	bl GF_AssertFail
 _02083058:
 	ldr r0, [sp, #0x4]
 	bl FUN_02082878
@@ -1224,7 +1224,7 @@ FUN_02083114: ; 0x02083114
 	add r4, r0, #0x0
 	cmp r4, #0x18
 	blo _02083120
-	bl ErrorHandling
+	bl GF_AssertFail
 _02083120:
 	mov r0, #0x1a
 	add r1, r4, #0x0
@@ -1243,7 +1243,7 @@ FUN_02083130: ; 0x02083130
 	add r6, r2, #0x0
 	cmp r5, #0x18
 	blo _02083140
-	bl ErrorHandling
+	bl GF_AssertFail
 _02083140:
 	mov r0, #0x1a
 	add r1, r5, #0x0
@@ -1265,7 +1265,7 @@ FUN_0208315C: ; 0x0208315C
 	add r4, r0, #0x0
 	cmp r4, #0x18
 	blo _02083168
-	bl ErrorHandling
+	bl GF_AssertFail
 _02083168:
 	add r4, #0x2d
 	add r0, r4, #0x0
@@ -1281,7 +1281,7 @@ FUN_02083170: ; 0x02083170
 	add r6, r3, #0x0
 	cmp r4, #0x18
 	blo _02083182
-	bl ErrorHandling
+	bl GF_AssertFail
 _02083182:
 	cmp r7, #0x4
 	bhi _0208319C
@@ -1702,7 +1702,7 @@ _02083448:
 	add r0, #0x8a
 	pop {r3, pc}
 _0208344C:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x7a
 	pop {r3, pc}
 

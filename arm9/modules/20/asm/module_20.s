@@ -226,7 +226,7 @@ _022525B2:
 	pop {r3, r4, r5, pc}
 _022525C0:
 	beq _022525C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _022525C6:
 	ldr r0, [r4, #0x34]
 	mov r1, #0
@@ -629,7 +629,7 @@ LoadPoketchApp: ; 0x022528B0
 	cmp r4, #0x19
 	blo _022528C0
 _022528BC:
-	bl ErrorHandling
+	bl GF_AssertFail
 _022528C0:
 	mov r0, #0
 	ldr r1, [r5, #0x14]
@@ -688,7 +688,7 @@ MOD20_02252918: ; 0x02252918
 	ldrb r0, [r4, #2]
 	cmp r0, #0
 	beq _02252926
-	bl ErrorHandling
+	bl GF_AssertFail
 _02252926:
 	add r0, r4, #0
 	ldr r2, [r4, #0x4c]
@@ -723,7 +723,7 @@ MOD20_0225294C: ; 0x0225294C
 	ldrb r0, [r4, #2]
 	cmp r0, #2
 	beq _0225295A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0225295A:
 	ldr r0, [r4, #0x24]
 	ldr r1, [r4, #0x40]
@@ -767,7 +767,7 @@ MOD20_0225298C: ; 0x0225298C
 	ldrb r0, [r4, #2]
 	cmp r0, #1
 	beq _0225299A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0225299A:
 	mov r0, #2
 	strb r0, [r4, #2]
@@ -781,7 +781,7 @@ MOD20_022529A0: ; 0x022529A0
 	ldrb r0, [r4, #2]
 	cmp r0, #3
 	beq _022529AE
-	bl ErrorHandling
+	bl GF_AssertFail
 _022529AE:
 	mov r0, #0
 	strb r0, [r4, #2]
@@ -1223,7 +1223,7 @@ MOD20_02252C5C: ; 0x02252C5C
 	lsl r0, r0, #4
 	str r7, [r4, r0]
 	ldr r0, [r4, r0]
-	bl FUN_020B0888
+	bl NNS_G2dResetOamManagerBuffer
 	mov r0, #0x15
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -1331,7 +1331,7 @@ MOD20_02252D44: ; 0x02252D44
 	mov r1, #0
 	add r2, sp, #0
 	mov r3, #7
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0
 	beq _02252D7A
 	ldr r0, [sp]
@@ -1591,7 +1591,7 @@ MOD20_02252ED0: ; 0x02252ED0
 	ldr r2, [r4, r2]
 	mov r1, #0xe
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1604,7 +1604,7 @@ MOD20_02252ED0: ; 0x02252ED0
 	ldr r2, [r4, r2]
 	mov r1, #0xf
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1621,7 +1621,7 @@ MOD20_02252ED0: ; 0x02252ED0
 	mov r1, #0xd
 	mov r2, #4
 	lsl r3, r3, #5
-	bl FUN_02006948
+	bl GfGfxLoader_GXLoadPalWithSrcOffset
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20
@@ -2232,7 +2232,7 @@ MOD20_02253430: ; 0x02253430
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #2
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #0x60
 	str r0, [sp]
 	mov r0, #7
@@ -2241,7 +2241,7 @@ MOD20_02253430: ; 0x02253430
 	mov r0, #0xc
 	mov r2, #5
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add r0, r5, #0
 	mov r1, #0xf
 	bl MOD20_022534D4
@@ -2587,7 +2587,7 @@ MOD20_02253714: ; 0x02253714
 	ldr r0, _02253750 ; =0x12345678
 	cmp r1, r0
 	beq _02253726
-	bl ErrorHandling
+	bl GF_AssertFail
 _02253726:
 	ldr r6, [r5]
 	mov r2, #0
@@ -2625,7 +2625,7 @@ MOD20_02253754: ; 0x02253754
 	ldr r0, _02253790 ; =0x12345678
 	cmp r1, r0
 	beq _02253766
-	bl ErrorHandling
+	bl GF_AssertFail
 _02253766:
 	ldr r3, [r5]
 	mov r2, #0
@@ -2648,7 +2648,7 @@ _02253782:
 	cmp r2, r3
 	blo _02253770
 _0225378A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02253790: .word 0x12345678
@@ -2781,7 +2781,7 @@ _02253866:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 _02253870:
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _02253880
 _02253876:
 	add r3, #0xc
@@ -2790,7 +2790,7 @@ _02253876:
 	cmp r2, r1
 	bne _022537FA
 _02253880:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02253884:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -2994,7 +2994,7 @@ MOD20_022539C4: ; 0x022539C4
 	mov r0, #0x13
 	add r2, sp, #0
 	mov r3, #8
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0
 	beq _02253A02
 	ldr r0, [sp]
@@ -3062,7 +3062,7 @@ _02253A4E:
 	bl NARC_ReadFromMember
 	add r0, r7, #0
 	add r1, sp, #0x20
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0x20]
 	add r1, r5, #0
 	ldr r0, [r0, #0x14]
@@ -3239,7 +3239,7 @@ MOD20_02253BA4: ; 0x02253BA4
 	str r7, [r4]
 	str r5, [r4, #0x18]
 	add r0, r7, #0
-	bl FUN_020B0830
+	bl NNS_G2dGetOamManagerOamCapacity
 	strh r0, [r4, #0x10]
 	ldrh r1, [r4, #0x10]
 	add r0, r5, #0
@@ -3279,23 +3279,23 @@ _02253C0E:
 	cmp r1, #0
 	beq _02253C22
 	add r0, r5, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02253C22:
 	ldr r1, [r4, #0xc]
 	cmp r1, #0
 	beq _02253C2E
 	add r0, r5, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02253C2E:
 	ldr r1, [r4, #4]
 	cmp r1, #0
 	beq _02253C3A
 	add r0, r5, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02253C3A:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 _02253C42:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -3354,7 +3354,7 @@ _02253C96:
 	mov r1, #2
 	add r0, #8
 	lsl r1, r1, #0xc
-	bl FUN_020B1EC4
+	bl NNS_G2dTickCellAnimation
 	add r0, r4, #0
 	add r0, #0x86
 	ldrb r0, [r0]
@@ -3391,7 +3391,7 @@ _02253CAE:
 	ldr r2, [r4, #0x34]
 	add r0, r5, #0
 	lsr r1, r1, #0x10
-	bl FUN_020B1AF8
+	bl NNS_G2dMakeCellToOams
 	b _02253D86
 _02253CEE:
 	ldr r0, [r4, #0x6c]
@@ -3404,7 +3404,7 @@ _02253CEE:
 	add r0, #0x8c
 	ldrh r2, [r6, #0x10]
 	ldrh r0, [r0]
-	ldr r1, _02253E58 ; =UNK_020FFA38
+	ldr r1, _02253E58 ; =FX_SinCosTable_
 	add r0, r2, r0
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -3425,7 +3425,7 @@ _02253D20:
 	beq _02253D3E
 	asr r0, r0, #4
 	lsl r3, r0, #2
-	ldr r1, _02253E58 ; =UNK_020FFA38
+	ldr r1, _02253E58 ; =FX_SinCosTable_
 	ldr r0, [r4, #0x6c]
 	add r2, r1, r3
 	ldrsh r1, [r1, r3]
@@ -3452,7 +3452,7 @@ _02253D62:
 	ldr r0, [sp, #0xc]
 	ldr r1, [r4, #0x6c]
 	ldr r0, [r0]
-	bl FUN_020B0BB0
+	bl NNS_G2dEntryOamManagerAffine
 	add r1, sp, #0x18
 	str r1, [sp]
 	str r0, [sp, #4]
@@ -3464,7 +3464,7 @@ _02253D62:
 	ldr r3, [r4, #0x6c]
 	add r0, r5, #0
 	lsr r1, r1, #0x10
-	bl FUN_020B1AF8
+	bl NNS_G2dMakeCellToOams
 _02253D86:
 	ldr r1, [sp, #0x10]
 	sub r1, r1, r0
@@ -3569,12 +3569,12 @@ _02253E38:
 	lsl r2, r2, #0xd
 	ldr r0, [r0]
 	lsr r2, r2, #0x10
-	bl FUN_020B0D58
+	bl NNS_G2dEntryOamManagerOam
 _02253E52:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02253E58: .word UNK_020FFA38
+_02253E58: .word FX_SinCosTable_
 _02253E5C: .word 0xDFFFFFFF
 _02253E60: .word 0xFFFFF3FF
 _02253E64: .word 0xFFFF0FFF
@@ -3607,12 +3607,12 @@ MOD20_02253E74: ; 0x02253E74
 	ldr r0, [r6, #0xc]
 	str r0, [r4, #4]
 	ldrh r1, [r5, #8]
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r1, r0, #0
 	add r0, r4, #0
 	ldr r2, [r4]
 	add r0, #8
-	bl FUN_020B1F80
+	bl NNS_G2dInitCellAnimation
 	ldr r1, [r5]
 	ldr r0, [r5, #4]
 	str r1, [r4, #0x64]
@@ -3686,12 +3686,12 @@ MOD20_02253F28: ; 0x02253F28
 	lsl r1, r1, #0x10
 	ldr r0, [r4, #4]
 	lsr r1, r1, #0x10
-	bl FUN_020AFC04
+	bl NNS_G2dGetAnimSequenceByIdx
 	add r1, r0, #0
 	add r0, r4, #0
 	ldr r2, [r4]
 	add r0, #8
-	bl FUN_020B1F80
+	bl NNS_G2dInitCellAnimation
 	pop {r4, pc}
 	thumb_func_end MOD20_02253F28
 
@@ -3805,12 +3805,12 @@ MOD20_02253FBC: ; 0x02253FBC
 	str r4, [r5, #0x10]
 	add r0, r6, #0
 	add r2, r4, #0
-	bl FUN_02006C88
+	bl GfGfxLoader_UncompressFromNarc
 	str r0, [r5]
 	add r0, r6, #0
 	add r1, r7, #0
 	add r2, r4, #0
-	bl FUN_02006C88
+	bl GfGfxLoader_UncompressFromNarc
 	str r0, [r5, #4]
 	ldr r0, [r5]
 	cmp r0, #0
@@ -3820,7 +3820,7 @@ MOD20_02253FBC: ; 0x02253FBC
 	beq _0225400E
 	add r1, r5, #0
 	add r1, #8
-	bl FUN_020AFEB8
+	bl NNS_G2dGetUnpackedCellBank
 	cmp r0, #0
 	bne _02253FFC
 	mov r0, #0
@@ -3829,7 +3829,7 @@ _02253FFC:
 	ldr r0, [r5, #4]
 	add r5, #0xc
 	add r1, r5, #0
-	bl thunk_FUN_020afda0
+	bl NNS_G2dGetUnpackedMCAnimBank
 	cmp r0, #0
 	bne _0225400E
 	mov r0, #0
@@ -3848,7 +3848,7 @@ MOD20_02254014: ; 0x02254014
 	cmp r1, #0
 	beq _02254028
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 _02254028:
@@ -3856,7 +3856,7 @@ _02254028:
 	cmp r1, #0
 	beq _02254038
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4, #4]
 _02254038:
@@ -4035,7 +4035,7 @@ MOD20_02254130: ; 0x02254130
 	str r3, [sp, #4]
 	ldr r5, [sp, #0x20]
 	bne _02254144
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254144:
 	add r0, r5, #0
 	mov r1, #0x18
@@ -4072,7 +4072,7 @@ _02254176:
 _02254188:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r4, #0
 _02254192:
 	add r0, r4, #0
@@ -4085,14 +4085,14 @@ MOD20_02254198: ; 0x02254198
 	push {r4, lr}
 	add r4, r0, #0
 	bne _022541A2
-	bl ErrorHandling
+	bl GF_AssertFail
 _022541A2:
 	ldr r0, [r4, #8]
 	ldr r1, [r4, #0x14]
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [r4, #8]
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	thumb_func_end MOD20_02254198
 
@@ -4481,11 +4481,11 @@ MOD20_02254420: ; 0x02254420
 	add r7, r3, #0
 	cmp r5, #0x1e
 	blo _02254432
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254432:
 	cmp r4, #0x21
 	blo _0225443A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0225443A:
 	cmp r5, #0x1e
 	blo _02254440
@@ -4517,7 +4517,7 @@ MOD20_02254460: ; 0x02254460
 	add r6, r2, #0
 	cmp r5, #4
 	blo _02254470
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254470:
 	ldr r0, _02254480 ; =MOD20_02254724
 	lsl r1, r5, #3

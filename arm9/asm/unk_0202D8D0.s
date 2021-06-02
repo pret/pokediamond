@@ -110,7 +110,7 @@ _0202D94C:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _0202D958
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202D958:
 	ldr r0, _0202D99C ; =UNK_021C59E0
 	ldr r1, [r0, #0x0]
@@ -169,7 +169,7 @@ _0202D9B6:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _0202D9C2
-	bl ErrorHandling
+	bl GF_AssertFail
 _0202D9C2:
 	ldr r0, _0202DA00 ; =UNK_021C59E0
 	ldr r1, [r0, #0x0]

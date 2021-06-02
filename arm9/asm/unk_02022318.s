@@ -15,7 +15,7 @@ FUN_02022318: ; 0x02022318
 	bl AllocFromHeap
 	add r4, r0, #0x0
 	str r6, [r4, #0x0]
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	mov r1, #0x2
 	ldr r0, _020223B8 ; =0x04000540
@@ -23,7 +23,7 @@ FUN_02022318: ; 0x02022318
 	str r1, [r0, #0x0]
 	bne _02022364
 	lsl r0, r5, #0x7
-	bl FUN_020AFA28
+	bl NNS_GfdGetLnkTexVramManagerWorkSize
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x0]
 	add r1, r6, #0x0
@@ -35,20 +35,20 @@ FUN_02022318: ; 0x02022318
 	lsl r0, r5, #0x11
 	mov r1, #0x0
 	add r3, r6, #0x0
-	bl FUN_020AF9C4
+	bl NNS_GfdInitLnkTexVramManager
 	b _0202236E
 _02022364:
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x1
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 _0202236E:
 	ldr r0, [sp, #0x4]
 	cmp r0, #0x0
 	bne _02022398
 	ldr r0, [sp, #0x20]
 	lsl r0, r0, #0x8
-	bl FUN_020AFBFC
+	bl NNS_GfdGetLnkPlttVramManagerWorkSize
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	add r1, r5, #0x0
@@ -59,14 +59,14 @@ _0202236E:
 	lsl r0, r0, #0xd
 	add r2, r5, #0x0
 	mov r3, #0x1
-	bl FUN_020AFBA8
+	bl NNS_GfdInitLnkPlttVramManager
 	b _020223A4
 _02022398:
 	ldr r0, [sp, #0x20]
 	mov r1, #0x1
 	lsl r0, r0, #0x1d
 	lsr r0, r0, #0x10
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 _020223A4:
 	ldr r0, [sp, #0x24]
 	cmp r0, #0x0

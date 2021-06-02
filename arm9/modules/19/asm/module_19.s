@@ -42,7 +42,7 @@ MOD19_02252440: ; 0x02252440
 	mov r1, #0xa
 	add r2, r4, #0
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -54,7 +54,7 @@ MOD19_02252440: ; 0x02252440
 	mov r1, #0xb
 	add r2, r4, #0
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #8
@@ -63,7 +63,7 @@ MOD19_02252440: ; 0x02252440
 	add r1, r0, #0
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r2, _022524E0 ; =0x04001000
 	ldr r0, _022524EC ; =0xFFFF1FFF
 	ldr r1, [r2]

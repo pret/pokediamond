@@ -165,13 +165,13 @@ MOD05_021E5F18: ; 0x021E5F18
 	add r0, r4, #4
 	ldr r1, [r2, #0x18]
 	ldr r2, [r2, #0xc]
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4]
 	ldr r3, [r5, #8]
 	ldr r1, [r3, #0x18]
 	ldr r2, [r3, #0xc]
 	ldr r3, [r3, #0x10]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r5, #8]
 	add r0, r4, #0
 	add r0, #0x18
@@ -180,7 +180,7 @@ MOD05_021E5F18: ; 0x021E5F18
 	add r0, r4, #0
 	ldr r1, [r4]
 	add r0, #0x18
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add r0, r6, #0
 	add r1, sp, #0
 	bl FUN_0206477C
@@ -200,7 +200,7 @@ MOD05_021E5F90: ; 0x021E5F90
 	ldr r4, [r1]
 	ldr r1, [r4]
 	add r0, r4, #4
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	add r0, r4, #0
 	bl MOD05_021E4C00
 	pop {r4, pc}

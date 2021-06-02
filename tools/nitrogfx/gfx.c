@@ -774,8 +774,9 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
 	KBECHeader[4] = (size + 0x20) & 0xFF; //size
 	KBECHeader[5] = (size + 0x20) >> 8; //unlikely to be more than 16 bits, but there are 32 allocated, change if necessary
 
-	fwrite(KBECHeader, 1, 0x20, fp);
+	KBECHeader[16] = (options->mappingType & 0xFF); //not possible to be more than 8 bits, though 32 are allocated
 
+	fwrite(KBECHeader, 1, 0x20, fp);
 
 	unsigned char *KBECContents = malloc(size);
 

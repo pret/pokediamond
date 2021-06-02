@@ -382,7 +382,7 @@ MOD76_021D77E4: ; 0x021D77E4
 	bl FUN_020178A0
 	mov r0, #0x43
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D77E4
@@ -402,7 +402,7 @@ MOD76_021D7814: ; 0x021D7814
 	mov r0, #0x71
 	mov r1, #0xa
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -413,7 +413,7 @@ MOD76_021D7814: ; 0x021D7814
 	mov r0, #0x71
 	mov r1, #0xb
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x43
@@ -421,7 +421,7 @@ MOD76_021D7814: ; 0x021D7814
 	mov r0, #0x71
 	mov r1, #0xc
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #7
 	mov r0, #0
 	lsl r1, r1, #6
@@ -467,7 +467,7 @@ _021D78A8:
 	bl FUN_02019150
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r6, r6, #1
 	add r4, #8
 	add r5, #0x10
@@ -478,7 +478,7 @@ _021D78A8:
 	add r0, r7, #0
 	add r0, #0xc8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r7, #0xc8
 	add r0, r7, #0
 	mov r1, #0
@@ -596,11 +596,11 @@ _021D799C:
 	ldr r0, [r5, r0]
 	add r1, #2
 	add r2, sp, #0
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	mov r0, #0x41
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_02001204
+	bl ListMenu_ProcessInput
 	add r4, r0, #0
 	ldr r2, [r5]
 	mov r0, #0x41
@@ -609,7 +609,7 @@ _021D799C:
 	ldr r0, [r5, r0]
 	add r1, #0x12
 	add r2, #0x10
-	bl FUN_02001448
+	bl ListMenuGetScrollAndRow
 	ldr r2, [r5]
 	add r1, sp, #0
 	ldrh r1, [r1, #2]
@@ -1021,7 +1021,7 @@ _021D7CE8:
 	add r1, #8
 	lsl r0, r4, #4
 	add r0, r1, r0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #0x1b
 	lsr r0, r0, #0x18
 	sub r0, r0, r6
@@ -1041,7 +1041,7 @@ _021D7D12:
 	add r1, #8
 	lsl r0, r4, #4
 	add r0, r1, r0
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	lsl r0, r0, #0x1b
 	lsr r0, r0, #0x18
 	sub r1, r0, r6
@@ -1257,7 +1257,7 @@ MOD76_021D7ECC: ; 0x021D7ECC
 	strb r1, [r5, r0]
 	ldrb r0, [r5, r0]
 	mov r1, #0x43
-	bl ListMenu_ctor
+	bl ListMenuItems_ctor
 	mov r1, #0x42
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -1287,7 +1287,7 @@ _021D7F0E:
 	ldr r0, [r5, r0]
 	add r1, r7, #0
 	add r3, r2, #0
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _021D7F42
 _021D7F2A:
 	mov r0, #0x42
@@ -1299,7 +1299,7 @@ _021D7F2A:
 	ldr r0, [r5, r0]
 	ldr r1, [r1]
 	sub r3, #0x22
-	bl ListMenu_ItemFromMsgData
+	bl ListMenuItems_AppendFromMsgData
 	b _021D7F50
 _021D7F42:
 	mov r0, #0x61
@@ -1340,7 +1340,7 @@ _021D7F50:
 	ldrh r1, [r3, #0x12]
 	ldrh r2, [r3, #0x10]
 	mov r3, #0x43
-	bl FUN_020010A8
+	bl ListMenuInit
 	mov r1, #0x41
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -1365,11 +1365,11 @@ MOD76_021D7FAC: ; 0x021D7FAC
 	ldr r0, [r4, r0]
 	add r1, #0x12
 	add r2, #0x10
-	bl FUN_02001300
+	bl DestroyListMenu
 	mov r0, #0x42
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ListMenu_dtor
+	bl ListMenuItems_dtor
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D7FAC
@@ -1380,7 +1380,7 @@ MOD76_021D7FD0: ; 0x021D7FD0
 	add r5, r1, #0
 	mov r1, #0x13
 	add r6, r2, #0
-	bl FUN_02001470
+	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	cmp r6, #1
 	beq _021D7FE8
@@ -1418,19 +1418,19 @@ MOD76_021D800C: ; 0x021D800C
 	add r4, r1, #0
 	add r0, #0xa8
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x78
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x88
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x98
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -1601,7 +1601,7 @@ MOD76_021D81AC: ; 0x021D81AC
 	add r4, r1, #0
 	add r0, #0xb8
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #1
 	mvn r1, r1
 	cmp r4, r1
@@ -2043,7 +2043,7 @@ MOD76_021D853C: ; 0x021D853C
 	add r5, r1, #0
 	add r0, #0xc8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r1, r5, #0
 	bl MOD76_021D8354
@@ -2105,7 +2105,7 @@ _021D85BE:
 	b _021D85D6
 _021D85C6:
 	ldr r0, _021D85E0 ; =0x00000483
-	bl PlayBGM
+	bl PlaySound
 	b _021D85D6
 _021D85CE:
 	ldr r0, _021D85DC ; =0x000005E6
@@ -2169,7 +2169,7 @@ MOD76_021D862C: ; 0x021D862C
 	add r4, r0, #0
 	add r0, #0xc8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	mov r1, #0
 	bl MOD76_021D8354
@@ -2217,7 +2217,7 @@ MOD76_021D8688: ; 0x021D8688
 	add r4, r0, #0
 	add r0, #0xc8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	mov r1, #0
 	bl MOD76_021D8354

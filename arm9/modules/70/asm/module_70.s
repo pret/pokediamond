@@ -407,7 +407,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	mov r0, #0x3d
 	bl FUN_02016B94
 	str r0, [r4, #0x10]
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -831,7 +831,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	ldr r2, [r5, #0x10]
 	mov r0, #0x65
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -842,7 +842,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	ldr r2, [r5, #0x10]
 	mov r0, #0x65
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x40
 	str r0, [sp]
 	mov r0, #0x3d
@@ -851,7 +851,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	mov r0, #0x65
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r2, #0
 	str r2, [sp]
 	mov r1, #1
@@ -1022,11 +1022,11 @@ MOD70_021D7CC0: ; 0x021D7CC0
 	add r4, r0, #0
 	add r0, #0x14
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x24
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x14
 	bl FUN_02019548
@@ -1102,7 +1102,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	bl StringExpandPlaceholders
 	add r0, r6, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r2, #0xff
@@ -1136,7 +1136,7 @@ MOD70_021D7D98: ; 0x021D7D98
 	add r0, #0x24
 	mov r1, #0xf
 	str r0, [sp, #0xc]
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	beq _021D7DC8
@@ -1357,7 +1357,7 @@ MOD70_021D7F70: ; 0x021D7F70
 	mov r1, #0x29
 	mov r2, #0
 	add r3, sp, #8
-	bl FUN_02006C30
+	bl GfGfxLoader_GetCellBank
 	mov r1, #0x5e
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1367,7 +1367,7 @@ MOD70_021D7F70: ; 0x021D7F70
 	mov r1, #0x2a
 	mov r2, #0
 	add r3, sp, #4
-	bl FUN_02006C5C
+	bl GfGfxLoader_GetAnimBank
 	mov r1, #0x5f
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1448,13 +1448,13 @@ MOD70_021D7FF8: ; 0x021D7FF8
 	add r2, r3, #0
 	mov r0, #0x1b
 	add r3, sp, #0x14
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	str r0, [sp, #0xc]
 	mov r0, #0x1b
 	mov r1, #0x27
 	add r2, sp, #0x10
 	mov r3, #0x3d
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	mov r4, #0
 	ldr r6, _021D80C4 ; =0x021D82AC
 	str r0, [sp, #8]
@@ -1462,19 +1462,19 @@ MOD70_021D7FF8: ; 0x021D7FF8
 	add r7, r4, #0
 _021D8050:
 	add r0, sp, #0x2c
-	bl FUN_020B1A24
+	bl NNS_G2dInitImageProxy
 	add r0, sp, #0x18
-	bl FUN_020B19DC
+	bl NNS_G2dInitImagePaletteProxy
 	ldr r0, [sp, #0x14]
 	add r1, r4, #0
 	mov r2, #1
 	add r3, sp, #0x2c
-	bl FUN_020B1768
+	bl NNS_G2dLoadImage1DMapping
 	ldr r0, [sp, #0x10]
 	add r1, r7, #0
 	mov r2, #1
 	add r3, sp, #0x18
-	bl FUN_020B1240
+	bl NNS_G2dLoadPalette
 	ldr r0, [r6]
 	lsl r0, r0, #0xc
 	str r0, [sp, #0x58]
@@ -1605,7 +1605,7 @@ _021D80F4:
 	ldrh r1, [r1, #4]
 	ldr r3, [sp, #0x14]
 	mov r2, #1
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r0, [sp, #0x20]
 	ldr r0, [r0, #0x18]
 	cmp r4, r0

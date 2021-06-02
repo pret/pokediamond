@@ -559,7 +559,7 @@ MOD38_02254C38: ; 0x02254C38
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x40
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #8
 	str r0, [sp]
 	add r0, r6, #0
@@ -753,7 +753,7 @@ MOD38_02254D84: ; 0x02254D84
 	mov r0, #0xc
 	mov r1, #0x3d
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r4, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -766,7 +766,7 @@ MOD38_02254D84: ; 0x02254D84
 	mov r0, #0xc
 	mov r1, #0x3c
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C
@@ -1046,7 +1046,7 @@ MOD38_0225500C: ; 0x0225500C
 	add r0, r4, #0
 	mov r1, #4
 	add r6, r2, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	cmp r6, #0x12
 	bne _02255036
 	add r0, r5, #0
@@ -1106,7 +1106,7 @@ MOD38_02255084: ; 0x02255084
 	add r0, r4, #0
 	mov r1, #4
 	add r6, r2, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r2, r5, #0
 	add r0, #0xb8

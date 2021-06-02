@@ -299,7 +299,7 @@ FUN_02089B80: ; 0x02089B80
 	add r0, r4, #0x0
 	mov r1, #0xf
 	add r3, r2, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add sp, #0x8
 	pop {r4, pc}
 	nop
@@ -466,7 +466,7 @@ _02089CE8:
 	mov r1, #0xf
 	add r2, r6, #0x0
 	add r3, r6, #0x0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	add r0, r5, #0x0
 	ldr r2, _02089D88 ; =0x000001E2
 	add r0, #0x20

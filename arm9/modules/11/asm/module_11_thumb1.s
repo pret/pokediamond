@@ -527,7 +527,7 @@ _0222D99A:
 	mov r0, #7
 	add r1, r1, #3
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r0, r5, #0
 	bl MOD11_02230C68
 	add r2, r0, #0
@@ -581,7 +581,7 @@ _0222D99A:
 	mov r0, #7
 	mov r1, #2
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #1
 	lsl r0, r0, #0x1a
 	ldr r2, [r0]
@@ -633,7 +633,7 @@ _0222D99A:
 	bl FUN_02019064
 	ldr r0, [r5, #8]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r5, #8]
 	mov r1, #0
 	mov r2, #1
@@ -746,7 +746,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	str r0, [r4, #4]
 	mov r0, #5
 	mov r1, #3
-	bl FUN_02018FF4
+	bl AllocWindows
 	mov r7, #0x73
 	str r0, [r4, #8]
 	mov r6, #0
@@ -795,7 +795,7 @@ _0222DC42:
 	bl FUN_02019064
 	ldr r0, [r4, #8]
 	mov r1, #0xff
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [r4, #8]
 	mov r1, #0
 	mov r2, #1
@@ -1547,7 +1547,7 @@ _0222E2F0:
 	add r1, r1, #3
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r0, r5, #0
 	bl MOD11_02230C68
 	add r6, r0, #0
@@ -1601,7 +1601,7 @@ _0222E2F0:
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #1
 	lsl r0, r0, #0x1a
 	ldr r2, [r0]
@@ -1898,7 +1898,7 @@ _0222E532:
 	ldr r0, [r0, r1]
 	cmp r0, #0
 	bne _0222E67E
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222E67E:
 	ldr r5, [sp, #4]
 	mov r0, #0
@@ -3061,14 +3061,14 @@ _0222EFD8: .word FUN_020223BC
 	thumb_func_start MOD11_0222EFDC
 MOD11_0222EFDC: ; 0x0222EFDC
 	push {r3, r4, r5, lr}
-	ldr r3, _0222F014 ; =UNK_021064B8
+	ldr r3, _0222F014 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #2
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _0222F018 ; =UNK_021064C0
+	ldr r3, _0222F018 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r1, #0
 	add r4, r0, #0
 	ldr r3, [r3]
@@ -3078,17 +3078,17 @@ MOD11_0222EFDC: ; 0x0222EFDC
 	add r5, r0, #0
 	cmp r4, #0
 	bne _0222F004
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F004:
 	cmp r5, #0
 	bne _0222F00C
-	bl ErrorHandling
+	bl GF_AssertFail
 _0222F00C:
 	bl FUN_02012CC8
 	pop {r3, r4, r5, pc}
 	nop
-_0222F014: .word UNK_021064B8
-_0222F018: .word UNK_021064C0
+_0222F014: .word NNS_GfdDefaultFuncAllocTexVram
+_0222F018: .word NNS_GfdDefaultFuncAllocPlttVram
 
 	thumb_func_start MOD11_0222F01C
 MOD11_0222F01C: ; 0x0222F01C

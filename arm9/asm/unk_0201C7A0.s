@@ -2,7 +2,7 @@
     .include "global.inc"
 
 	.extern gSineTable
-	.extern UNK_020FFA38
+	.extern FX_SinCosTable_
 
 	.text
 
@@ -401,7 +401,7 @@ FUN_0201CAA8: ; 0x0201CAA8
 	sub sp, #0x24
 	add r4, r1, #0x0
 	ldr r1, [r4, #0x0]
-	ldr r3, _0201CB1C ; =UNK_020FFA38
+	ldr r3, _0201CB1C ; =FX_SinCosTable_
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	asr r1, r1, #0x4
@@ -414,7 +414,7 @@ FUN_0201CAA8: ; 0x0201CAA8
 	add r5, r0, #0x0
 	bl MTX_RotX33_
 	ldr r0, [r4, #0x4]
-	ldr r3, _0201CB1C ; =UNK_020FFA38
+	ldr r3, _0201CB1C ; =FX_SinCosTable_
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	asr r0, r0, #0x4
@@ -431,7 +431,7 @@ FUN_0201CAA8: ; 0x0201CAA8
 	add r2, r5, #0x0
 	bl MTX_Concat33
 	ldr r0, [r4, #0x8]
-	ldr r3, _0201CB1C ; =UNK_020FFA38
+	ldr r3, _0201CB1C ; =FX_SinCosTable_
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	asr r0, r0, #0x4
@@ -450,7 +450,7 @@ FUN_0201CAA8: ; 0x0201CAA8
 	add sp, #0x24
 	pop {r4-r5, pc}
 	nop
-_0201CB1C: .word UNK_020FFA38
+_0201CB1C: .word FX_SinCosTable_
 
 	thumb_func_start FUN_0201CB20
 FUN_0201CB20: ; 0x0201CB20
@@ -504,7 +504,7 @@ FUN_0201CB7C: ; 0x0201CB7C
 	lsl r2, r0, #0x1
 	add r6, r1, #0x0
 	lsl r0, r2, #0x1
-	ldr r1, _0201CBE8 ; =UNK_020FFA38
+	ldr r1, _0201CBE8 ; =FX_SinCosTable_
 	add r2, r2, #0x1
 	lsl r2, r2, #0x1
 	ldrsh r0, [r1, r0]
@@ -550,4 +550,4 @@ FUN_0201CB7C: ; 0x0201CB7C
 	str r1, [r5, #0x0]
 	pop {r3-r7, pc}
 	.balign 4
-_0201CBE8: .word UNK_020FFA38
+_0201CBE8: .word FX_SinCosTable_

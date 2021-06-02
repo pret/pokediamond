@@ -559,7 +559,7 @@ MOD28_02254C18: ; 0x02254C18
 	mov r0, #0xc
 	mov r1, #7
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -623,7 +623,7 @@ MOD28_02254CB4: ; 0x02254CB4
 	mov r0, #0xc
 	mov r1, #0x23
 	lsl r3, r0, #9
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #0x13
 	mov r1, #8
 	bl NARC_ctor
@@ -670,7 +670,7 @@ _02254D24:
 	bl NARC_AllocAndReadWholeMember
 	add r1, sp, #0x2c
 	str r0, [sp, #0x20]
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0x2c]
 	mov r1, #1
 	ldr r0, [r0, #0x14]
@@ -744,7 +744,7 @@ _02254D24:
 	bl MOD20_02253F9C
 	b _02254DE0
 _02254DDC:
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254DE0:
 	ldrh r0, [r4, #8]
 	mov r1, #0x1c ; BASE_FLIP

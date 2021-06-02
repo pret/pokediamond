@@ -417,14 +417,14 @@ MOD63_021D8BD8: ; 0x021D8BD8
 	add r3, r1, #0
 	bl FUN_02022318
 	str r0, [r4, #0x10]
-	ldr r3, _021D8C18 ; =UNK_021064B8
+	ldr r3, _021D8C18 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r0, #2
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D8C1C ; =UNK_021064C0
+	ldr r3, _021D8C1C ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r0, #0x80
 	ldr r3, [r3]
 	mov r1, #0
@@ -434,8 +434,8 @@ MOD63_021D8BD8: ; 0x021D8BD8
 	pop {r4, pc}
 	nop
 _021D8C14: .word MOD63_021D8C20
-_021D8C18: .word UNK_021064B8
-_021D8C1C: .word UNK_021064C0
+_021D8C18: .word NNS_GfdDefaultFuncAllocTexVram
+_021D8C1C: .word NNS_GfdDefaultFuncAllocPlttVram
 	thumb_func_end MOD63_021D8BD8
 
 	thumb_func_start MOD63_021D8C20
@@ -708,7 +708,7 @@ _021D8E36:
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021D8E42:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8E46:
 	ldr r0, [r5, #8]
 	cmp r0, #0
@@ -849,7 +849,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x13
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -860,7 +860,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x13
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -871,7 +871,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x14
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -882,7 +882,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x15
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x4c
@@ -890,7 +890,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x12
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x4c
@@ -898,7 +898,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x12
 	mov r2, #4
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -909,7 +909,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	ldr r2, [r4, #0xc]
 	mov r0, #0x80
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -920,7 +920,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #2
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r1, #0
 	mov r0, #0x20
 	str r0, [sp]
@@ -929,7 +929,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -940,7 +940,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x16
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -951,7 +951,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x16
 	mov r3, #7
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -962,7 +962,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x48
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -973,7 +973,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r0, #0x80
 	mov r1, #0x49
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x4c
@@ -982,7 +982,7 @@ MOD63_021D8F38: ; 0x021D8F38
 	mov r1, #0x47
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #4
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -1227,7 +1227,7 @@ _021D9286:
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	bne _021D9296
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9296:
 	ldr r0, [r4, #0x28]
 	bl FUN_0200CAB4
@@ -1565,11 +1565,11 @@ _021D950C:
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	asr r3, r3, #0x10
-	bl FUN_020B8418
+	bl NNS_G3dGlbLightVector
 	lsl r1, r4, #1
 	ldrh r1, [r7, r1]
 	add r0, r4, #0
-	bl FUN_020B8404
+	bl NNS_G3dGlbLightColor
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -1578,11 +1578,11 @@ _021D950C:
 	ldr r0, _021D9594 ; =0x00004210
 	ldr r1, _021D9598 ; =0x0000318A
 	mov r2, #0
-	bl FUN_020B83E0
+	bl NNS_G3dGlbMaterialColorDiffAmb
 	ldr r0, _021D959C ; =0x00004A52
 	ldr r1, _021D95A0 ; =0x000039CE
 	mov r2, #0
-	bl FUN_020B83BC
+	bl NNS_G3dGlbMaterialColorSpecEmi
 	mov r0, #0x1f
 	str r0, [sp]
 	mov r0, #2
@@ -1592,7 +1592,7 @@ _021D950C:
 	mov r0, #0xd
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_020B8390
+	bl NNS_G3dGlbPolygonAttr
 	ldr r0, _021D95A4 ; =MOD63_021D8CB0
 	add r1, r5, #0
 	bl Main_SetVBlankIntrCB
@@ -1767,15 +1767,15 @@ _021D96C6:
 	beq _021D96F4
 	ldr r1, [sp, #0x14]
 	add r1, r1, r7
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0
 	bne _021D96F8
 	ldr r0, [r6, #0x2c]
 	bl FreeToHeap
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _021D96F8
 _021D96F4:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D96F8:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -1794,7 +1794,7 @@ _021D96F8:
 	mov r0, #0x80
 	mov r1, #0x1c
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1805,7 +1805,7 @@ _021D96F8:
 	mov r0, #0x80
 	mov r1, #0x1a
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r1, #0
 	str r1, [sp]
 	ldr r0, [r5, #0x2c]
@@ -1822,7 +1822,7 @@ _021D96F8:
 	mov r0, #0x80
 	mov r1, #0x11
 	mov r3, #4
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1833,7 +1833,7 @@ _021D96F8:
 	mov r0, #0x80
 	mov r1, #0xf
 	mov r3, #4
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #1
 	lsl r0, r0, #8
 	str r0, [sp]
@@ -1843,7 +1843,7 @@ _021D96F8:
 	mov r1, #0x10
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1854,7 +1854,7 @@ _021D96F8:
 	mov r0, #0x80
 	mov r1, #0x1b
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1865,7 +1865,7 @@ _021D96F8:
 	mov r0, #0x80
 	mov r1, #0x19
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1876,7 +1876,7 @@ _021D96F8:
 	mov r0, #0x80
 	mov r1, #0x18
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r5, #0x10]
 	bl MOD63_021DA6E8
 	ldr r0, [r5, #0x10]
@@ -1912,18 +1912,18 @@ MOD63_021D9810: ; 0x021D9810
 	mov r2, #0x4c
 	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [r5, #0x3c]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r5, #0x40]
 	bl FUN_0201B3C4
 	cmp r0, #0
 	bne _021D9834
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9834:
 	ldr r0, [r5, #0x40]
 	ldr r0, [r0, #0x14]
 	cmp r0, #0
 	bne _021D9840
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9840:
 	ldr r2, [r5, #0x40]
 	ldr r0, [r5, #0x3c]
@@ -1960,54 +1960,54 @@ _021D9862:
 	bl FUN_0201B3A8
 	cmp r0, #0
 	bne _021D9890
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9890:
 	add r0, r5, r6
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrb r0, [r0, #9]
 	cmp r0, #1
 	beq _021D98A4
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D98A4:
 	add r0, r5, r6
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
 	add r4, r0, r1
 	bne _021D98BC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D98BC:
 	ldr r0, [sp, #0x10]
 	add r1, r4, #0
 	add r0, r0, r6
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x40
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x80
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #2
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #8
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #1
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #0xa
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0xf
-	bl FUN_020BC02C
+	bl NNSi_G3dModifyPolygonAttrMask
 	add r0, r7, #1
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
@@ -3038,15 +3038,15 @@ MOD63_021DA158: ; 0x021DA158
 	beq _021DA18E
 	add r1, r4, #0
 	add r1, #0x14
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	cmp r0, #0
 	bne _021DA192
 	ldr r0, [r4, #0x14]
 	bl FreeToHeap
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _021DA192
 _021DA18E:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA192:
 	add r0, r5, #0
 	bl NARC_dtor
@@ -3072,7 +3072,7 @@ _021DA192:
 	mov r0, #0x80
 	mov r1, #0x36
 	mov r3, #1
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3083,7 +3083,7 @@ _021DA192:
 	mov r0, #0x80
 	mov r1, #0x3b
 	mov r3, #1
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3094,7 +3094,7 @@ _021DA192:
 	mov r0, #0x80
 	mov r1, #0x38
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3105,7 +3105,7 @@ _021DA192:
 	mov r0, #0x80
 	mov r1, #0x3d
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3116,7 +3116,7 @@ _021DA192:
 	mov r0, #0x80
 	mov r1, #0x39
 	mov r3, #3
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3127,7 +3127,7 @@ _021DA192:
 	mov r0, #0x80
 	mov r1, #0x3e
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -3137,7 +3137,7 @@ _021DA192:
 	ldr r2, [r4, #0xc]
 	mov r0, #0x80
 	mov r1, #0x3a
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -3147,7 +3147,7 @@ _021DA192:
 	ldr r2, [r4, #0xc]
 	mov r0, #0x80
 	mov r1, #0x3f
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3158,7 +3158,7 @@ _021DA192:
 	mov r0, #0x80
 	mov r1, #0x37
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3169,7 +3169,7 @@ _021DA192:
 	mov r0, #0x80
 	mov r1, #0x3c
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0xe
 	mov r1, #1
 	bl GX_EngineAToggleLayers

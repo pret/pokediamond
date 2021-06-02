@@ -19,7 +19,7 @@ MOD64_021D74E0: ; 0x021D74E0
 	bl OverlayManager_CreateAndGetData
 	add r5, r0, #0
 	bne _021D7504
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7504:
 	ldr r2, _021D7630 ; =0x000006B4
 	add r0, r5, #0
@@ -54,7 +54,7 @@ _021D7504:
 	bl FUN_0201CC24
 	cmp r0, #1
 	beq _021D755E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D755E:
 	add r0, r5, #0
 	mov r1, #0x2f
@@ -254,7 +254,7 @@ MOD64_021D76F4: ; 0x021D76F4
 	bl FUN_0201CD04
 	cmp r0, #1
 	beq _021D7726
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D7726:
 	mov r0, #0x65
 	lsl r0, r0, #4
@@ -416,7 +416,7 @@ MOD64_021D785C: ; 0x021D785C
 	push {r4, r5, lr}
 	sub sp, #0x24
 	add r4, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -456,7 +456,7 @@ MOD64_021D78B4: ; 0x021D78B4
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	bl FUN_020BB7F4
+	bl NNS_G3dInit
 	bl G3X_InitMtxStack
 	ldr r0, _021D7940 ; =0x04000060
 	ldr r1, _021D7944 ; =0xFFFFCFFD
@@ -511,11 +511,11 @@ _021D7900:
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020AEB70
+	bl NNS_GfdInitFrmTexVramManager
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	bl FUN_020AEDF4
+	bl NNS_GfdInitFrmPlttVramManager
 	add sp, #4
 	pop {r3, r4, pc}
 	.align 2, 0
@@ -533,8 +533,8 @@ _021D7960: .word 0xBFFF0000
 	thumb_func_start MOD64_021D7964
 MOD64_021D7964: ; 0x021D7964
 	push {r3, lr}
-	bl FUN_020AEAF4
-	bl FUN_020AEC60
+	bl NNS_GfdResetFrmTexVramState
+	bl NNS_GfdResetFrmPlttVramState
 	pop {r3, pc}
 	thumb_func_end MOD64_021D7964
 
@@ -653,14 +653,14 @@ MOD64_021D7A54: ; 0x021D7A54
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r1, r5, #0
 	add r1, #0x98
 	str r0, [r1]
 	add r0, r5, #0
 	add r0, #0x98
 	ldr r0, [r0]
-	bl FUN_0201901C
+	bl InitWindow
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x17
@@ -683,7 +683,7 @@ MOD64_021D7A54: ; 0x021D7A54
 	add r0, #0x98
 	ldr r0, [r0]
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _021D7AE8 ; =0x000006A8
 	mov r1, #1
 	ldr r0, [r5, r0]
@@ -704,7 +704,7 @@ MOD64_021D7A54: ; 0x021D7A54
 	mov r2, #0
 	mov r3, #0x40
 	str r4, [sp, #4]
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add r5, #0x98
 	mov r1, #0
 	mov r2, #2
@@ -741,13 +741,13 @@ MOD64_021D7B04: ; 0x021D7B04
 	mov r1, #2
 	lsl r1, r1, #8
 	str r0, [r5, r1]
-	ldr r3, _021D7BA4 ; =UNK_021064B8
+	ldr r3, _021D7BA4 ; =NNS_GfdDefaultFuncAllocTexVram
 	lsl r0, r1, #6
 	mov r1, #0
 	ldr r3, [r3]
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D7BA8 ; =UNK_021064C0
+	ldr r3, _021D7BA8 ; =NNS_GfdDefaultFuncAllocPlttVram
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -808,8 +808,8 @@ _021D7B8E:
 	blt _021D7B8E
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021D7BA4: .word UNK_021064B8
-_021D7BA8: .word UNK_021064C0
+_021D7BA4: .word NNS_GfdDefaultFuncAllocTexVram
+_021D7BA8: .word NNS_GfdDefaultFuncAllocPlttVram
 _021D7BAC: .word 0x7FFF0000
 _021D7BB0: .word 0xFFFF0000
 	thumb_func_end MOD64_021D7B04
@@ -1057,9 +1057,9 @@ MOD64_021D7D7C: ; 0x021D7D7C
 	add r4, r0, #0
 	str r2, [sp]
 	mov r0, #0x52
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r4, #0x54]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	str r0, [r4, #0x58]
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
@@ -1067,7 +1067,7 @@ MOD64_021D7D7C: ; 0x021D7D7C
 	add r0, r0, r1
 	str r0, [r4, #0x5c]
 	ldr r0, [r4, #0x54]
-	bl FUN_020BC0FC
+	bl NNS_G3dGetTex
 	str r0, [r4, #0x60]
 	bl FUN_0201B3C4
 	ldr r0, [r4, #0x54]
@@ -1075,7 +1075,7 @@ MOD64_021D7D7C: ; 0x021D7D7C
 	bl FUN_0201B3A8
 	ldr r1, [r4, #0x5c]
 	add r0, r4, #0
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	add sp, #4
 	pop {r3, r4, pc}
 	thumb_func_end MOD64_021D7D7C
@@ -1091,23 +1091,23 @@ MOD64_021D7DC0: ; 0x021D7DC0
 	str r2, [sp]
 	mov r0, #0x52
 	add r3, r6, #0
-	bl UncompressFromNarc
+	bl GfGfxLoader_LoadFromNarc
 	str r0, [r4, #0x64]
 	mov r1, #0
-	bl FUN_020BC4C8
+	bl NNS_G3dGetAnmByIdx
 	str r0, [r4, #0x68]
 	ldr r1, [r4, #0x68]
 	ldr r2, [r4, #0x5c]
 	add r0, r5, #0
-	bl FUN_020BB8D0
+	bl NNS_G3dAllocAnmObj
 	str r0, [r4, #0x6c]
 	ldr r1, [r4, #0x68]
 	ldr r2, [r4, #0x5c]
 	ldr r3, [r4, #0x60]
-	bl FUN_020B8110
+	bl NNS_G3dAnmObjInit
 	ldr r1, [r4, #0x6c]
 	add r0, r4, #0
-	bl FUN_020B7EFC
+	bl NNS_G3dRenderObjAddAnmObj
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -1128,7 +1128,7 @@ _021D7E14:
 	beq _021D7E28
 	ldr r1, [r5, #0x6c]
 	add r0, r4, #0
-	bl thunk_FUN_020ae84c
+	bl NNS_G3dFreeAnmObj
 	ldr r0, [r5, #0x64]
 	bl FreeToHeap
 _021D7E28:
@@ -1149,7 +1149,7 @@ MOD64_021D7E34: ; 0x021D7E34
 	add r0, r4, #0
 	add r0, #0x90
 	ldrh r0, [r0]
-	ldr r3, _021D7ECC ; =UNK_020FFA38
+	ldr r3, _021D7ECC ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1166,7 +1166,7 @@ MOD64_021D7E34: ; 0x021D7E34
 	add r0, r4, #0
 	add r0, #0x92
 	ldrh r0, [r0]
-	ldr r3, _021D7ECC ; =UNK_020FFA38
+	ldr r3, _021D7ECC ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1183,7 +1183,7 @@ MOD64_021D7E34: ; 0x021D7E34
 	add r0, r4, #0
 	add r0, #0x94
 	ldrh r0, [r0]
-	ldr r3, _021D7ECC ; =UNK_020FFA38
+	ldr r3, _021D7ECC ; =FX_SinCosTable_
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1211,7 +1211,7 @@ _021D7EC8:
 	add sp, #0x48
 	pop {r4, pc}
 	.align 2, 0
-_021D7ECC: .word UNK_020FFA38
+_021D7ECC: .word FX_SinCosTable_
 	thumb_func_end MOD64_021D7E34
 
 	thumb_func_start MOD64_021D7ED0
@@ -1442,18 +1442,18 @@ MOD64_021D8058: ; 0x021D8058
 	ldr r2, _021D809C ; =0xFFFFF000
 	add r1, r0, #0
 	add r3, r0, #0
-	bl FUN_020B8418
+	bl NNS_G3dGlbLightVector
 	ldr r1, _021D80A0 ; =0x00007FFF
 	mov r0, #0
-	bl FUN_020B8404
+	bl NNS_G3dGlbLightColor
 	ldr r0, _021D80A0 ; =0x00007FFF
 	mov r2, #0
 	add r1, r0, #0
-	bl FUN_020B83E0
+	bl NNS_G3dGlbMaterialColorDiffAmb
 	ldr r0, _021D80A0 ; =0x00007FFF
 	mov r2, #0
 	add r1, r0, #0
-	bl FUN_020B83BC
+	bl NNS_G3dGlbMaterialColorSpecEmi
 	mov r0, #0x26
 	lsl r0, r0, #4
 	mov r4, #0
@@ -1634,9 +1634,9 @@ MOD64_021D81D8: ; 0x021D81D8
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
-	bl FUN_020BB394
-	bl FUN_020B02C8
+	bl NNS_G3dGeBufferOP_N
+	bl NNS_G3dGeFlushBuffer
+	bl NNS_G2dSetupSoftwareSpriteCamera
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
@@ -1648,11 +1648,11 @@ MOD64_021D81D8: ; 0x021D81D8
 	mov r0, #0x12
 	add r1, sp, #4
 	str r2, [sp, #4]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	bl FUN_0201EBA4
 	add r0, r4, #0
 	bl MOD64_021D8058
@@ -1660,7 +1660,7 @@ MOD64_021D81D8: ; 0x021D81D8
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	bl FUN_020BB1C0
+	bl NNS_G3dGeBufferOP_N
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_020222B4
@@ -2310,7 +2310,7 @@ MOD64_021D86DC: ; 0x021D86DC
 	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	bne _021D86F8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D86F8:
 	add r0, r4, #0
 	add r1, r6, #0
@@ -2318,7 +2318,7 @@ _021D86F8:
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	ldr r0, [sp, #0x2c]
 	str r3, [sp]
@@ -2358,7 +2358,7 @@ MOD64_021D8744: ; 0x021D8744
 	str r3, [sp, #0x10]
 	cmp r0, #0
 	beq _021D875C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D875C:
 	mov r0, #0
 	mov r1, #0x1a
@@ -2367,7 +2367,7 @@ _021D875C:
 	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	bne _021D8770
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8770:
 	ldr r1, [sp, #0x10]
 	add r0, r6, #0
@@ -2375,7 +2375,7 @@ _021D8770:
 	str r0, [r4]
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r3, #0
 	ldr r0, [sp, #0x2c]
 	str r3, [sp]
@@ -2510,7 +2510,7 @@ MOD64_021D8864: ; 0x021D8864
 	add r6, r2, #0
 	cmp r0, #0
 	beq _021D8876
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8876:
 	ldr r1, _021D88B8 ; =0xFFFFEAAB
 	ldr r2, _021D88BC ; =0xFFFFDC72
@@ -2795,7 +2795,7 @@ MOD64_021D8A90: ; 0x021D8A90
 	lsr r0, r0, #0x10
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _021D8ADC ; =UNK_020FFA38
+	ldr r0, _021D8ADC ; =FX_SinCosTable_
 	ldr r2, [r4, #4]
 	ldrsh r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -2818,7 +2818,7 @@ MOD64_021D8A90: ; 0x021D8A90
 	pop {r4, pc}
 	nop
 _021D8AD8: .word 0x0000FFFF
-_021D8ADC: .word UNK_020FFA38
+_021D8ADC: .word FX_SinCosTable_
 	thumb_func_end MOD64_021D8A90
 
 	thumb_func_start MOD64_021D8AE0
@@ -2828,7 +2828,7 @@ MOD64_021D8AE0: ; 0x021D8AE0
 	ldr r0, [r4, #0x28]
 	cmp r0, #0
 	beq _021D8AEE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8AEE:
 	add r0, r4, #0
 	mov r1, #2
@@ -2920,14 +2920,14 @@ MOD64_021D8B70: ; 0x021D8B70
 	mov r2, #0
 	add r3, #0x14
 	str r6, [sp]
-	bl FUN_02006BB0
+	bl GfGfxLoader_GetCharData
 	add r2, r5, #0
 	str r0, [r5, #0xc]
 	mov r0, #0x52
 	mov r1, #0xf
 	add r2, #0x18
 	add r3, r6, #0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	str r0, [r5, #0x10]
 	ldr r0, _021D8C04 ; =0x0000064C
 	ldr r0, [r4, r0]
@@ -3016,7 +3016,7 @@ MOD64_021D8C3C: ; 0x021D8C3C
 	str r3, [sp]
 	cmp r0, #0
 	beq _021D8C50
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8C50:
 	ldr r4, [sp, #0x24]
 	add r0, r5, #0
@@ -3057,7 +3057,7 @@ MOD64_021D8C94: ; 0x021D8C94
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
 	beq _021D8CA2
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8CA2:
 	mov r0, #1
 	mvn r0, r0
@@ -3240,7 +3240,7 @@ MOD64_021D8DDC: ; 0x021D8DDC
 	str r3, [sp]
 	cmp r0, #0
 	beq _021D8DF0
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8DF0:
 	ldr r4, [sp, #0x28]
 	ldr r2, [sp]
@@ -3281,7 +3281,7 @@ MOD64_021D8E34: ; 0x021D8E34
 	ldr r0, [r4, #0x3c]
 	cmp r0, #0
 	beq _021D8E42
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8E42:
 	mov r0, #1
 	mvn r0, r0
@@ -3386,21 +3386,21 @@ MOD64_021D8EF4: ; 0x021D8EF4
 	mov r1, #0x11
 	mov r2, #0
 	mov r3, #0xa0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	ldr r5, [sp, #0x14]
 	mov r4, #0
 	mov r6, #1
 _021D8F16:
 	ldr r0, [sp, #0x18]
 	mov r1, #1
-	bl FUN_02018FF4
+	bl AllocWindows
 	add r1, r5, #0
 	add r1, #0x9c
 	str r0, [r1]
 	add r0, r5, #0
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FUN_0201901C
+	bl InitWindow
 	cmp r4, #0
 	beq _021D8F3C
 	cmp r4, #1
@@ -3501,7 +3501,7 @@ MOD64_021D8FD0: ; 0x021D8FD0
 	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	bne _021D8FEC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8FEC:
 	add r0, r4, #0
 	add r1, r6, #0
@@ -3511,7 +3511,7 @@ _021D8FEC:
 	lsl r1, r1, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -3567,7 +3567,7 @@ _021D905C:
 	ldr r0, _021D9070 ; =0x00000189
 	pop {r3, pc}
 _021D9060:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	.align 2, 0

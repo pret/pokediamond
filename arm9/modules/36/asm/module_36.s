@@ -868,7 +868,7 @@ MOD36_02254E8C: ; 0x02254E8C
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x59
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r0, #8
 	str r0, [sp]
 	add r0, r7, #0
@@ -984,7 +984,7 @@ MOD36_02254F5C: ; 0x02254F5C
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254F70
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254F70:
 	add r0, r5, #0
 	bl MOD20_022538A0
@@ -1003,7 +1003,7 @@ _02254F70:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254F9E
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254F9E:
 	mov r0, #0
 	str r0, [sp]
@@ -1016,7 +1016,7 @@ _02254F9E:
 	mov r0, #0xc
 	mov r1, #0x56
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	add r6, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -1029,7 +1029,7 @@ _02254F9E:
 	mov r0, #0xc
 	mov r1, #0x55
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C
@@ -1037,7 +1037,7 @@ _02254F9E:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02254FEA
-	bl ErrorHandling
+	bl GF_AssertFail
 _02254FEA:
 	add r0, r4, #0
 	lsr r1, r6, #5
@@ -1064,7 +1064,7 @@ _02254FEA:
 	bl FUN_02016B90
 	cmp r0, #0
 	bne _02255028
-	bl ErrorHandling
+	bl GF_AssertFail
 _02255028:
 	add sp, #0x14
 	pop {r3, r4, r5, r6, pc}
@@ -1108,7 +1108,7 @@ MOD36_0225503C: ; 0x0225503C
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 _02255082:
 	add r0, r4, #0
 	add r0, #0x48
@@ -1205,7 +1205,7 @@ MOD36_0225510C: ; 0x0225510C
 	mov r1, #1
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	ldr r1, [r4, #0x54]
 	lsl r0, r5, #5
 	add r0, r1, r0
@@ -1298,7 +1298,7 @@ MOD36_022551E0: ; 0x022551E0
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0x48
 	add r0, r4, #0
 	bl FUN_02019548

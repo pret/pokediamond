@@ -10,14 +10,14 @@ THUMB_FUNC u32 FUN_02024E64()
 
 THUMB_FUNC void FUN_02024E6C(struct UnkStruct_02024E64 *param0)
 {
-    MIi_CpuClearFast(0, param0, sizeof(struct UnkStruct_02024E64));
+    MI_CpuClearFast(param0, sizeof(struct UnkStruct_02024E64));
 
     FUN_020250A4(param0->unk0);
 
     FUN_02025484(param0->unk700);
 
-    MIi_CpuClear16(0xFFFF, param0->rival_name_buf, sizeof(param0->rival_name_buf) / sizeof(u16));
-    MIi_CpuClear16(0xFFFF, param0->unk734, sizeof(param0->unk734) / sizeof(u16));
+    MI_CpuFill16(param0->rival_name_buf, EOS, sizeof(param0->rival_name_buf) / sizeof(u16));
+    MI_CpuFill16(param0->unk734, EOS, sizeof(param0->unk734) / sizeof(u16));
 }
 
 THUMB_FUNC struct UnkStruct_02024E64 *FUN_02024EB4(struct SaveBlock2 *sav2)

@@ -146,7 +146,7 @@ _021E2F92:
 	add r0, r5, #0
 	add r0, #0x20
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r2, #8
 	str r2, [sp]
 	add r0, r5, #0
@@ -159,7 +159,7 @@ _021E2F92:
 	ldr r1, [r5, #0x34]
 	add r0, #0x20
 	ldr r1, [r1, #0x14]
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	ldr r0, [sp, #0x18]
 	mov r1, #8
 	add r0, r0, #1
@@ -178,7 +178,7 @@ _021E2F92:
 	ldr r1, [r1, #0x14]
 	add r0, #0x20
 	mov r2, #0x18
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r0, #8
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -192,7 +192,7 @@ _021E2F92:
 	ldr r1, [r1, #0x14]
 	add r0, #0x20
 	mov r2, #0x38
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r1, #8
 	str r1, [sp]
 	lsl r0, r4, #0x10
@@ -208,7 +208,7 @@ _021E2F92:
 	add r0, #0x20
 	mov r2, #0x40
 	mov r3, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r1, #8
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -223,7 +223,7 @@ _021E2F92:
 	ldr r1, [r1, #0x14]
 	add r0, #0x20
 	mov r2, #0x20
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r1, #8
 	str r1, [sp]
 	lsl r0, r4, #0x10
@@ -240,7 +240,7 @@ _021E2F92:
 	add r0, #0x20
 	mov r2, #0x30
 	mov r3, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	ldr r0, [sp, #0x18]
 	mov r7, #0
 	cmp r0, #0
@@ -266,7 +266,7 @@ _021E3078:
 	ldr r1, [r1, #0x14]
 	mov r2, #0x10
 	mov r3, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r0, #8
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -282,7 +282,7 @@ _021E3078:
 	ldr r1, [r1, #0x14]
 	mov r2, #0x48
 	mov r3, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	mov r0, #8
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -299,7 +299,7 @@ _021E3078:
 	ldr r1, [r1, #0x14]
 	mov r2, #0x28
 	mov r3, #0
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add r0, r7, #1
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
@@ -568,7 +568,7 @@ _021E32E0:
 	str r0, [r4, #0x14]
 	pop {r4, pc}
 _021E32E6:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, pc}
 	.balign 4, 0
 _021E32EC: .word MOD05_021E3124

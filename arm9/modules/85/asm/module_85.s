@@ -570,7 +570,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B1C ; =0x00000448
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, _021D7B1C ; =0x00000448
 	mov r2, #0x1a
 	ldr r1, [r4, r1]
@@ -588,7 +588,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B20 ; =0x00000444
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, _021D7B20 ; =0x00000444
 	mov r1, #0
 	ldr r3, [r4, r0]
@@ -609,7 +609,7 @@ MOD85_021D797C: ; 0x021D797C
 	lsl r1, r1, #6
 	add r1, r4, r1
 	add r5, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r0, #0x11
 	lsl r0, r0, #6
 	ldr r3, [r4, r0]
@@ -633,7 +633,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B20 ; =0x00000444
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, _021D7B20 ; =0x00000444
 	mov r1, #0
 	ldr r3, [r4, r0]
@@ -654,7 +654,7 @@ MOD85_021D797C: ; 0x021D797C
 	lsl r1, r1, #6
 	add r1, r4, r1
 	add r5, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r0, #0x11
 	lsl r0, r0, #6
 	ldr r3, [r4, r0]
@@ -678,7 +678,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B1C ; =0x00000448
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r1, _021D7B1C ; =0x00000448
 	mov r2, #0x1a
 	ldr r1, [r4, r1]
@@ -696,7 +696,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, _021D7B20 ; =0x00000444
 	add r5, r0, #0
 	add r1, r4, r1
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, _021D7B20 ; =0x00000444
 	mov r1, #0
 	ldr r3, [r4, r0]
@@ -717,7 +717,7 @@ MOD85_021D797C: ; 0x021D797C
 	lsl r1, r1, #6
 	add r1, r4, r1
 	add r5, r0, #0
-	bl FUN_020B0180
+	bl NNS_G2dGetUnpackedScreenData
 	mov r0, #0x11
 	lsl r0, r0, #6
 	ldr r3, [r4, r0]
@@ -847,7 +847,7 @@ MOD85_021D7BEC: ; 0x021D7BEC
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _021D7C40 ; =0x00000408
 	ldr r2, [r4, #0x18]
 	ldr r0, [r5, r0]
@@ -884,7 +884,7 @@ MOD85_021D7C44: ; 0x021D7C44
 	add r0, r5, r4
 	add r0, #8
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #8
 	bl FUN_02019220
@@ -933,7 +933,7 @@ MOD85_021D7CB0: ; 0x021D7CB0
 	push {r3, r4, lr}
 	sub sp, #0x1c
 	add r4, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -1477,7 +1477,7 @@ MOD85_021D80F8: ; 0x021D80F8
 	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021D810C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D810C:
 	add r0, r4, #0
 	mov r1, #0
@@ -1535,7 +1535,7 @@ _021D8168:
 	add r5, r0, #0
 	cmp r5, #0
 	bne _021D8172
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8172:
 	ldr r0, _021D8184 ; =0x00000438
 	add r1, r6, #0
@@ -2477,7 +2477,7 @@ MOD85_021D885C: ; 0x021D885C
 	ldr r0, [r4, #0x50]
 	cmp r0, #6
 	blt _021D886A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D886A:
 	mov r0, #0x19
 	str r0, [r4]
@@ -2493,7 +2493,7 @@ MOD85_021D8874: ; 0x021D8874
 	ldr r0, [r4, #0x50]
 	cmp r0, #6
 	blt _021D8882
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8882:
 	mov r0, #0x1c
 	str r0, [r4]
@@ -3175,7 +3175,7 @@ MOD85_021D8D88: ; 0x021D8D88
 	str r0, [r4, #0x10]
 	cmp r0, #1
 	bge _021D8D9A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D8D9A:
 	add r0, r4, #0
 	mov r1, #0
@@ -3715,7 +3715,7 @@ MOD85_021D91A4: ; 0x021D91A4
 	sub r0, r0, #1
 	str r0, [r4, #0x10]
 	beq _021D91B4
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D91B4:
 	ldr r0, [r4, #0x2c]
 	cmp r0, #1
@@ -4226,7 +4226,7 @@ _021D950C:
 	bl MOD85_021D95B4
 	pop {r3, pc}
 _021D9512:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, pc}
 	.align 2, 0
@@ -5579,7 +5579,7 @@ _021D9F0C:
 	add r5, r5, #1
 	cmp r5, #0x15
 	ble _021D9EFC
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 _021D9F18:
 	cmp r1, #0
@@ -5604,7 +5604,7 @@ _021D9F3A:
 	add r5, r5, #1
 	cmp r5, #0x15
 	ble _021D9F28
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r4, r5, r6, pc}
 _021D9F46:
 	mov r5, #1
@@ -5621,7 +5621,7 @@ _021D9F5A:
 	add r5, r5, #1
 	cmp r5, #0x15
 	ble _021D9F48
-	bl ErrorHandling
+	bl GF_AssertFail
 	b _021D9F84
 _021D9F66:
 	mov r5, #1
@@ -5638,9 +5638,9 @@ _021D9F7A:
 	add r5, r5, #1
 	cmp r5, #0x15
 	ble _021D9F68
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9F84:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9F88:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -5678,7 +5678,7 @@ _021D9FC0:
 	add r5, r5, #1
 	cmp r5, #0x15
 	blt _021D9FAE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021D9FCA:
 	ldr r0, [r6, #0x10]
 	cmp r0, #0
@@ -5703,7 +5703,7 @@ _021D9FEE:
 	add r5, r5, #1
 	cmp r5, #0x15
 	blt _021D9FDC
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, r6, r7, pc}
 _021D9FFA:
 	mov r5, #0
@@ -5720,7 +5720,7 @@ _021DA00E:
 	add r5, r5, #1
 	cmp r5, #0x15
 	ble _021D9FFC
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, r6, r7, pc}
 _021DA01A:
 	mov r5, #0
@@ -5737,9 +5737,9 @@ _021DA02E:
 	add r5, r5, #1
 	cmp r5, #0x15
 	ble _021DA01C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA038:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DA03C:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -6044,7 +6044,7 @@ _021DA238:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _021DA240:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -7075,7 +7075,7 @@ _021DA9EE:
 	ldr r0, _021DAA20 ; =0x021DFCC4
 	ldr r0, [r0, r1]
 	str r0, [r5, #0x18]
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -7158,7 +7158,7 @@ _021DAAA4:
 	mov r1, #1
 	lsl r0, r0, #2
 	str r1, [r6, r0]
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -7254,7 +7254,7 @@ _021DAB52:
 	str r1, [r4, r0]
 	pop {r3, r4, r5, pc}
 _021DAB6A:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #2
 	ldr r1, [r4, #0x74]
 	lsl r0, r0, #8
@@ -7470,7 +7470,7 @@ _021DACF8:
 	add r2, #0x10
 	cmp r1, #9
 	blt _021DACC8
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -7686,7 +7686,7 @@ MOD85_021DAE70: ; 0x021DAE70
 	ldr r6, [r7, #0x48]
 	cmp r6, #0
 	bne _021DAE80
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAE80:
 	mov r4, #0
 _021DAE82:
@@ -7713,7 +7713,7 @@ _021DAE9C:
 	str r0, [r5, #0x18]
 	b _021DAEB4
 _021DAEB0:
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAEB4:
 	add r4, r4, #1
 	lsr r6, r6, #1
@@ -8587,7 +8587,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	ldr r0, [sp]
 	mov r1, #1
 	add r2, r4, #4
@@ -8627,7 +8627,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	add r2, r4, #0
 	ldr r0, [sp]
 	mov r1, #0
@@ -8641,7 +8641,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	add r2, r4, #0
 	ldr r0, [sp]
 	mov r1, #0
@@ -8655,7 +8655,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	add r2, r4, #0
 	ldr r0, [sp]
 	mov r1, #0
@@ -8669,7 +8669,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	mov r2, #0x51
 	lsl r2, r2, #2
 	ldr r0, [sp]
@@ -8684,7 +8684,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r6, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	mov r2, #0x59
 	lsl r2, r2, #2
 	ldr r0, [sp]
@@ -8705,7 +8705,7 @@ MOD85_021DB494: ; 0x021DB494
 	bl MOD85_021D8144
 	add r1, sp, #0
 	add r5, r0, #0
-	bl FUN_020B0138
+	bl NNS_G2dGetUnpackedPaletteData
 	mov r2, #0x69
 	lsl r2, r2, #2
 	ldr r0, [sp]
@@ -9228,7 +9228,7 @@ MOD85_021DB95C: ; 0x021DB95C
 	ldr r0, [r4, r0]
 	cmp r0, #0
 	beq _021DB97A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB97A:
 	str r4, [sp]
 	mov r0, #0x8f
@@ -10066,7 +10066,7 @@ MOD85_021DBF48: ; 0x021DBF48
 	beq _021DBF6A
 	cmp r4, #2
 	beq _021DBF62
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DBF62:
 	ldr r1, [r5]
 	mov r0, #1
@@ -10106,7 +10106,7 @@ _021DBF92:
 	add r0, r2, #0
 	pop {r3, pc}
 _021DBF9C:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #4
 	pop {r3, pc}
 	thumb_func_end MOD85_021DBF70
@@ -10142,7 +10142,7 @@ _021DBFBE:
 _021DBFCC:
 	cmp r4, #3
 	blt _021DBFD4
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DBFD4:
 	lsl r0, r4, #2
 	add r0, r5, r0
@@ -10297,7 +10297,7 @@ MOD85_021DC0D8: ; 0x021DC0D8
 	ldr r5, [r0, #0x48]
 	cmp r4, #6
 	bne _021DC0E6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DC0E6:
 	ldr r3, _021DC104 ; =0x021DFCAC
 	lsl r2, r4, #2
@@ -11585,7 +11585,7 @@ MOD85_021DCA68: ; 0x021DCA68
 	ldr r4, [r6, #0x38]
 	cmp r5, #5
 	blt _021DCA78
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCA78:
 	mov r1, #2
 	mov r2, #0x45
@@ -11630,7 +11630,7 @@ _021DCA78:
 	bl FUN_0200CA60
 	cmp r0, #0
 	bne _021DCADC
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCADC:
 	ldr r0, _021DCAFC ; =MOD85_021DCB44
 	ldr r2, _021DCAF8 ; =0x00000101
@@ -11638,7 +11638,7 @@ _021DCADC:
 	bl FUN_0200CA98
 	cmp r0, #0
 	bne _021DCAEE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCAEE:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -12012,7 +12012,7 @@ MOD85_021DCD50: ; 0x021DCD50
 	bl FUN_0200CA60
 	cmp r0, #0
 	bne _021DCDB8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCDB8:
 	ldr r0, _021DCDD4 ; =MOD85_021DCD28
 	ldr r2, _021DCDD0 ; =0x00000101
@@ -12020,7 +12020,7 @@ _021DCDB8:
 	bl FUN_0200CA98
 	cmp r0, #0
 	bne _021DCDCA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCDCA:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -12126,7 +12126,7 @@ MOD85_021DCE2C: ; 0x021DCE2C
 	bl FUN_0200CA60
 	cmp r0, #0
 	bne _021DCE9C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCE9C:
 	ldr r0, _021DCEBC ; =MOD85_021DCE04
 	ldr r2, _021DCEB8 ; =0x00000101
@@ -12134,7 +12134,7 @@ _021DCE9C:
 	bl FUN_0200CA98
 	cmp r0, #0
 	bne _021DCEAE
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DCEAE:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -12967,7 +12967,7 @@ MOD85_021DD4C4: ; 0x021DD4C4
 	bl FUN_0200CA60
 	cmp r0, #0
 	bne _021DD52C
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DD52C:
 	ldr r0, _021DD548 ; =MOD85_021DD498
 	ldr r2, _021DD544 ; =0x00000101
@@ -12975,7 +12975,7 @@ _021DD52C:
 	bl FUN_0200CA98
 	cmp r0, #0
 	bne _021DD53E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DD53E:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -14780,7 +14780,7 @@ _021DE2BC:
 	ldr r0, [r4, #0x1c]
 	cmp r0, #5
 	blt _021DE2C6
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DE2C6:
 	add r0, r4, #0
 	bl MOD85_021DE4F0
@@ -15154,7 +15154,7 @@ _021DE572:
 	bl FUN_0200CA60
 	cmp r0, #0
 	bne _021DE584
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DE584:
 	ldr r0, _021DE5A0 ; =MOD85_021DE4C8
 	ldr r2, _021DE59C ; =0x00000101
@@ -15162,7 +15162,7 @@ _021DE584:
 	bl FUN_0200CA98
 	cmp r0, #0
 	bne _021DE596
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DE596:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -15188,7 +15188,7 @@ MOD85_021DE5A4: ; 0x021DE5A4
 	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021DE5C8
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DE5C8:
 	ldr r0, [sp]
 	add r1, r4, #0
@@ -15558,7 +15558,7 @@ _021DE898:
 	cmp r1, r5
 	blo _021DE85E
 _021DE8A0:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD85_021DE840
@@ -15589,7 +15589,7 @@ _021DE8CC:
 	cmp r4, r2
 	blo _021DE8BA
 _021DE8D4:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD85_021DE8A8
@@ -15620,7 +15620,7 @@ _021DE900:
 	cmp r4, r2
 	blo _021DE8EE
 _021DE908:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD85_021DE8DC
@@ -15679,7 +15679,7 @@ _021DE96C:
 	cmp r1, r5
 	blo _021DE92E
 _021DE974:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD85_021DE910
@@ -15710,7 +15710,7 @@ _021DE9A0:
 	cmp r4, r2
 	blo _021DE98E
 _021DE9A8:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD85_021DE97C
@@ -15741,7 +15741,7 @@ _021DE9D4:
 	cmp r4, r2
 	blo _021DE9C2
 _021DE9DC:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD85_021DE9B0
@@ -15798,7 +15798,7 @@ _021DEA3C:
 	cmp r1, r5
 	blo _021DEA02
 _021DEA44:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD85_021DE9E4
@@ -15855,7 +15855,7 @@ _021DEAA4:
 	cmp r1, r5
 	blo _021DEA6A
 _021DEAAC:
-	bl ErrorHandling
+	bl GF_AssertFail
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD85_021DEA4C
@@ -16112,7 +16112,7 @@ _021DEC6C:
 	str r0, [r4, #4]
 	cmp r0, #0
 	bne _021DEC9A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DEC9A:
 	add sp, #0x70
 	pop {r3, r4, r5, r6, r7, pc}

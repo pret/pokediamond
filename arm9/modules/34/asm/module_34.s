@@ -407,7 +407,7 @@ MOD34_02254AE8: ; 0x02254AE8
 	mov r0, #0xc
 	mov r1, #0x3b
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -419,7 +419,7 @@ MOD34_02254AE8: ; 0x02254AE8
 	mov r0, #0xc
 	mov r1, #0x3a
 	mov r3, #6
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C

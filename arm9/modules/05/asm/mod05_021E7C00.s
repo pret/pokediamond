@@ -83,7 +83,7 @@ MOD05_021E7C80: ; 0x021E7C80
 	add r4, r1, #0
 	cmp r5, #0x20
 	blt _021E7C90
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E7C90:
 	add r6, sp, #0
 	mov r3, #0
@@ -427,7 +427,7 @@ MOD05_021E7EEC: ; 0x021E7EEC
 	add r5, r0, #0
 	cmp r4, #0x20
 	blt _021E7EFA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E7EFA:
 	mov r0, #0x8c
 	mul r0, r4
@@ -435,7 +435,7 @@ _021E7EFA:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _021E7F0A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021E7F0A:
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
@@ -448,14 +448,14 @@ MOD05_021E7F10: ; 0x021E7F10
 	add r4, r3, #0
 	bl MOD05_021F4BD0
 	ldr r0, [r0]
-	bl FUN_020BC13C
+	bl NNS_G3dGetMdlSet
 	ldrh r1, [r0, #0xe]
 	add r1, r0, r1
 	ldr r1, [r1, #0xc]
 	add r1, r0, r1
 	add r0, r5, #0
 	str r1, [r4]
-	bl FUN_020B80B4
+	bl NNS_G3dRenderObjInit
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 
@@ -466,18 +466,18 @@ MOD05_021E7F34: ; 0x021E7F34
 	add r0, r1, #0
 	add r4, r2, #0
 	add r5, r3, #0
-	bl FUN_020B8474
-	ldr r1, _021E7FB4 ; =UNK_021CEDD4
+	bl NNS_G3dGlbSetBaseTrans
+	ldr r1, _021E7FB4 ; =NNS_G3dGlb + 0xBC
 	add r0, r4, #0
 	bl MI_Copy36B
-	ldr r1, _021E7FB8 ; =UNK_021CED98
+	ldr r1, _021E7FB8 ; =NNS_G3dGlb + 0x80
 	mov r0, #0xa4
 	ldr r2, [r1, #0x7c]
 	bic r2, r0
 	add r0, r5, #0
 	str r2, [r1, #0x7c]
-	bl FUN_020B844C
-	bl FUN_020B849C
+	bl NNS_G3dGlbSetBaseScale
+	bl NNS_G3dGlbFlushP
 	add r2, sp, #0
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
@@ -511,7 +511,7 @@ _021E7F98:
 	ldrh r2, [r2, #2]
 	add r0, r7, #0
 	add r1, r5, #0
-	bl FUN_020BAFB8
+	bl NNS_G3dDraw1Mat1Shp
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -522,8 +522,8 @@ _021E7F98:
 _021E7FB0:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021E7FB4: .word UNK_021CEDD4
-_021E7FB8: .word UNK_021CED98
+_021E7FB4: .word NNS_G3dGlb + 0xBC
+_021E7FB8: .word NNS_G3dGlb + 0x80
 
 	thumb_func_start MOD05_021E7FBC
 MOD05_021E7FBC: ; 0x021E7FBC
@@ -602,7 +602,7 @@ _021E8044:
 	lsr r4, r1, #0x18
 	cmp r4, #0x20
 	blo _021E7FD4
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x20
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}

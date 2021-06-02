@@ -18,7 +18,7 @@ FUN_02003108: ; 0x02003108
 	add r0, r7, r0
 	cmp r0, r1
 	bls _02003126
-	bl ErrorHandling
+	bl GF_AssertFail
 _02003126:
 	cmp r4, #0x3
 	bhi _0200315E
@@ -50,7 +50,7 @@ _02003156:
 	add r1, r0, #0x0
 	b _02003164
 _0200315E:
-	bl ErrorHandling
+	bl GF_AssertFail
 	pop {r3-r7, pc}
 _02003164:
 	lsl r0, r7, #0x10
@@ -72,10 +72,10 @@ FUN_0200317C: ; 0x0200317C
 	add r5, r3, #0x0
 	add r2, sp, #0x0
 	add r3, r4, #0x0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0x0
 	bne _02003192
-	bl ErrorHandling
+	bl GF_AssertFail
 _02003192:
 	cmp r5, #0x0
 	bne _0200319A
@@ -1089,7 +1089,7 @@ FUN_02003914: ; 0x02003914
 	ldr r0, [r0, #0x8]
 	cmp r1, r0
 	bls _0200393A
-	bl ErrorHandling
+	bl GF_AssertFail
 _0200393A:
 	sub r0, r7, #0x1
 	cmp r0, #0x1
@@ -1207,7 +1207,7 @@ FUN_020039E8: ; 0x020039E8
 _02003A0A:
 	cmp r0, #0x0
 	bne _02003A12
-	bl ErrorHandling
+	bl GF_AssertFail
 _02003A12:
 	add r3, sp, #0x10
 	ldrh r0, [r3, #0x14]
@@ -1281,7 +1281,7 @@ FUN_02003A64: ; 0x02003A64
 _02003A8E:
 	cmp r0, #0x0
 	bne _02003A96
-	bl ErrorHandling
+	bl GF_AssertFail
 _02003A96:
 	cmp r5, #0x0
 	beq _02003AC0
@@ -1387,10 +1387,10 @@ FUN_02003B40: ; 0x02003B40
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	add r2, sp, #0x4
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	add r4, r0, #0x0
 	bne _02003B58
-	bl ErrorHandling
+	bl GF_AssertFail
 _02003B58:
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0x0

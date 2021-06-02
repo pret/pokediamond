@@ -10,7 +10,7 @@ MOD05_021DB44C: ; 0x021DB44C
 	add r5, r0, #0
 	cmp r6, #3
 	blo _021DB45A
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB45A:
 	mov r0, #4
 	mov r1, #0x14
@@ -60,14 +60,14 @@ MOD05_021DB4B0: ; 0x021DB4B0
 	push {r4, lr}
 	add r4, r0, #0
 	bne _021DB4BA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB4BA:
 	ldr r0, [r4]
 	add r0, r0, #4
 	bl MOD05_021DB7A0
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}
@@ -77,7 +77,7 @@ MOD05_021DB4D0: ; 0x021DB4D0
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	bne _021DB4DA
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DB4DA:
 	bl GF_RTC_TimeToSec
 	lsr r1, r0, #0x1f
@@ -229,21 +229,21 @@ MOD05_021DB5EC: ; 0x021DB5EC
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x40
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x80
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #2
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #8
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	mov r2, #1
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #0xa
-	bl FUN_020BC094
+	bl NNSi_G3dModifyMatFlag
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021DB61C
@@ -419,7 +419,7 @@ _021DB73E:
 _021DB78A:
 	ldr r1, [sp, #0x14]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	ldr r0, [sp, #8]
 	add sp, #0x1fc
 	add sp, #0x20
@@ -433,7 +433,7 @@ MOD05_021DB7A0: ; 0x021DB7A0
 	add r4, r0, #0
 	ldr r1, [r4]
 	mov r0, #4
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}

@@ -389,7 +389,7 @@ MOD27_02254AF0: ; 0x02254AF0
 	add r7, r6, #0
 _02254B36:
 	add r0, r4, #0
-	bl FUN_0201901C
+	bl InitWindow
 	add r0, r5, #0
 	add r0, #0x9c
 	str r7, [r0]
@@ -528,7 +528,7 @@ MOD27_02254C08: ; 0x02254C08
 	mov r0, #0xc
 	mov r1, #0x6a
 	mov r3, #6
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r3, #0
 	lsr r5, r0, #5
 	str r3, [sp]
@@ -608,7 +608,7 @@ MOD27_02254CC8: ; 0x02254CC8
 	add r4, #0x3c
 _02254CE8:
 	add r0, r4, #0
-	bl FUN_0201901C
+	bl InitWindow
 	ldrh r0, [r5, #2]
 	add r1, r4, #0
 	mov r2, #6
@@ -834,7 +834,7 @@ MOD27_02254EAC: ; 0x02254EAC
 	mov r1, #4
 	add r3, r2, #0
 	add r5, r0, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 	cmp r4, #0
 	beq _02254EE0
 	lsl r0, r4, #0x10
@@ -846,7 +846,7 @@ MOD27_02254EAC: ; 0x02254EAC
 	add r0, r5, #0
 	mov r1, #0xf
 	add r3, r2, #0
-	bl FUN_020196F4
+	bl FillWindowPixelRect
 _02254EE0:
 	add r0, r5, #0
 	bl FUN_02019548
@@ -898,7 +898,7 @@ MOD27_02254F18: ; 0x02254F18
 	str r0, [sp, #8]
 	mov r0, #0xc
 	mov r1, #0x6d
-	bl FUN_02006A34
+	bl GfGfxLoader_LoadWholePalette
 	mov r4, #0
 	add r0, sp, #0x18
 	strb r4, [r0, #0xa]
@@ -1015,7 +1015,7 @@ _02254FFC:
 	bl NARC_ReadFromMember
 	ldr r0, [sp, #0x18]
 	add r1, sp, #0x20
-	bl FUN_020B0088
+	bl NNS_G2dGetUnpackedCharacterData
 	ldr r0, [sp, #0x20]
 	mov r1, #2
 	ldr r0, [r0, #0x14]

@@ -163,10 +163,10 @@ _02028A30:
 	lsr r0, r0, #0x1d
 	str r0, [sp, #0x1c]
 	add r0, sp, #0x0
-	bl FUN_02012710
+	bl GF_RTC_GetDayOfYear
 	add r4, r0, #0x0
 	add r0, sp, #0x10
-	bl FUN_02012710
+	bl GF_RTC_GetDayOfYear
 	ldr r2, [sp, #0x4]
 	sub r0, r4, r0
 	cmp r2, #0xc

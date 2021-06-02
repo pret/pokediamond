@@ -320,7 +320,7 @@ MOD68_021D7774: ; 0x021D7774
 	bl FUN_020178A0
 	mov r0, #0x24
 	add r1, r4, #0
-	bl FUN_02016A8C
+	bl FreeToHeapExplicit
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD68_021D7774
@@ -340,7 +340,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	ldr r2, [r5]
 	mov r0, #0x35
 	add r3, r1, #0
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -350,7 +350,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	ldr r2, [r5]
 	mov r0, #0x35
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -361,7 +361,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	mov r0, #0x35
 	mov r1, #1
 	mov r3, #3
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x24
@@ -369,7 +369,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	mov r0, #0x35
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x24
 	mov r1, #0x80
 	bl AllocFromHeap
@@ -527,7 +527,7 @@ MOD68_021D7904: ; 0x021D7904
 	bl FUN_02002E14
 	add r7, r0, #0
 	add r0, r5, r4
-	bl FUN_0201AB0C
+	bl GetWindowWidth
 	add r3, r0, #0
 	mov r1, #0
 	lsl r3, r3, #3
@@ -555,7 +555,7 @@ MOD68_021D7958: ; 0x021D7958
 	add r4, r0, #0
 	add r0, r4, #4
 	mov r1, #4
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	ldr r3, _021D7974 ; =0x00010204
 	add r0, r4, #0
@@ -572,7 +572,7 @@ MOD68_021D7978: ; 0x021D7978
 	add r4, r0, #0
 	add r0, #0x24
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D7994 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #2
@@ -589,7 +589,7 @@ MOD68_021D7998: ; 0x021D7998
 	add r4, r0, #0
 	add r0, #0x34
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D79B4 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #3
@@ -606,7 +606,7 @@ MOD68_021D79B8: ; 0x021D79B8
 	add r4, r0, #0
 	add r0, #0x44
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D79D4 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #4
@@ -623,7 +623,7 @@ MOD68_021D79D8: ; 0x021D79D8
 	add r4, r0, #0
 	add r0, #0x54
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D79F4 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #5
@@ -640,7 +640,7 @@ MOD68_021D79F8: ; 0x021D79F8
 	add r4, r0, #0
 	add r0, #0x64
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r3, _021D7A14 ; =0x000F0200
 	add r0, r4, #0
 	mov r1, #6
@@ -660,7 +660,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	add r4, #0x14
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #5
 	str r0, [sp]
 	add r0, r5, #0
@@ -752,7 +752,7 @@ MOD68_021D7AE4: ; 0x021D7AE4
 	add r5, #0xb4
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x7e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -790,7 +790,7 @@ MOD68_021D7B34: ; 0x021D7B34
 	add r5, #0x94
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0xc4
 	ldr r0, [r4]
 	mov r1, #0xa
@@ -826,7 +826,7 @@ MOD68_021D7B80: ; 0x021D7B80
 	add r5, #0xa4
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -871,7 +871,7 @@ MOD68_021D7BDC: ; 0x021D7BDC
 	add r5, #0x74
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	add r4, #0xc4
 	ldr r0, [r4]
 	mov r1, #8
@@ -907,7 +907,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	add r6, #0x84
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -1286,7 +1286,7 @@ MOD68_021D7EEC: ; 0x021D7EEC
 	str r0, [sp, #0xc]
 	ldr r2, [r4]
 	mov r0, #0x35
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0x7e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1300,7 +1300,7 @@ MOD68_021D7EEC: ; 0x021D7EEC
 	mov r0, #0x35
 	mov r2, #0
 	mov r3, #0x60
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0

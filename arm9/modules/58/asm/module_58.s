@@ -580,7 +580,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r0, #0x5f
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x40
 	str r0, [sp]
 	mov r0, #0x27
@@ -589,7 +589,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #2
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006930
+	bl GfGfxLoader_GXLoadPal
 	mov r1, #0x1a
 	mov r0, #0
 	lsl r1, r1, #4
@@ -618,7 +618,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #3
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -632,7 +632,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #5
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -646,7 +646,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #4
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_0200687C
+	bl GfGfxLoader_LoadCharData
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #6
@@ -660,7 +660,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #6
 	add r2, r4, #0
 	mov r3, #5
-	bl FUN_020068C8
+	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r5, #0xc]
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
@@ -715,7 +715,7 @@ MOD58_021DA044: ; 0x021DA044
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0
-	bl FUN_020B0FC0
+	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x7e
@@ -1077,7 +1077,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #9
 	str r0, [sp]
 	mov r0, #0x18
@@ -1097,7 +1097,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #2
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0x15
 	str r0, [sp]
 	mov r0, #8
@@ -1118,7 +1118,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, _021DA4BC ; =0x000E0702
 	mov r2, #1
 	str r0, [sp]
@@ -1189,7 +1189,7 @@ _021DA3C2:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r1, #0
 	str r1, [sp]
 	mov r3, #0xe0
@@ -1234,7 +1234,7 @@ _021DA46A:
 	bl FUN_02019064
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	ldr r0, [sp, #0x14]
 	add r7, #0x14
 	add r0, r0, #1
@@ -1646,7 +1646,7 @@ _021DA7A4:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #2
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xb1
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1780,7 +1780,7 @@ _021DA888:
 	mov r1, ip
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02019658
+	bl BlitBitmapRectToWindow
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD58_021DA844
@@ -2217,7 +2217,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0xf
-	bl FUN_02019620
+	bl FillWindowPixelBuffer
 	mov r0, #0xb5
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2306,7 +2306,7 @@ _021DAC62:
 	lsl r0, r0, #0xa
 	cmp r7, r0
 	blt _021DAC6E
-	bl ErrorHandling
+	bl GF_AssertFail
 _021DAC6E:
 	mov r0, #6
 	add r6, r6, #1

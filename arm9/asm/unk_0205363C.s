@@ -148,7 +148,7 @@ _020536EE:
 	ldr r0, [r0, r1]
 	pop {r4, pc}
 _020536F8:
-	bl ErrorHandling
+	bl GF_AssertFail
 	mov r0, #0x0
 _020536FE:
 	pop {r4, pc}
@@ -165,7 +165,7 @@ FUN_02053708: ; 0x02053708
 	mov r1, #0x7
 	add r2, sp, #0x0
 	add r3, r5, #0x0
-	bl FUN_02006C08
+	bl GfGfxLoader_GetPlttData
 	mov r1, #0x9
 	add r4, r0, #0x0
 	add r0, r5, #0x0
