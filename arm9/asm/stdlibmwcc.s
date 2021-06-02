@@ -3160,7 +3160,6 @@ _020EC70C: .word sys_exit
 
 	.section .exceptix,4
 
-	.word 0x00200100
 	.word __read_console
 	.short 81
 	.word 0x00300F00

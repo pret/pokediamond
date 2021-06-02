@@ -546,34 +546,43 @@ Static arm9
 	Object STD_string.o
 	### Standard libraries ###
 	### Bundled with CodeWarrior, so probably compiled with 2.0sp1 ###
-	Object MSL_abort_exit.o
-	Object MSL_critical_regions_NITRO.o
+	Object MSL_ARM_abort_exit.o
+	Object MSL_ARM_critical_regions_NITRO.o
+	Object MSL_ARM_math.o
+	Object MSL_Common_ansi_files.o
+	Object MSL_Common_arith.o
+	Object MSL_Common_assert.o
+	Object MSL_Common_buffer_io.o
+	Object MSL_Common_ctype.o
+	Object MSL_Common_direct_io.o
+	Object MSL_Common_errno.o
+	Object MSL_Common_file_io.o
+	Object MSL_Common_file_pos.o
+	Object MSL_Common_float.o
+	Object MSL_Common_mbstring.o
+	Object MSL_Common_mem.o
+	Object MSL_Common_mem_funcs.o
+	Object MSL_Common_printf.o
+	Object MSL_Common_qsort.o
+	Object MSL_Common_rand.o
+	Object MSL_Common_scanf.o
+	Object MSL_Common_signal.o
+	Object MSL_Common_string.o
+	Object MSL_Common_strtold.o
+	Object MSL_Common_strtoul.o
+	Object MSL_Common_wchar_io.o
+	Object MSL_Common_wctype.o
+	Object MSL_Common_wmem.o
+	Object MSL_Common_wprintf.o
+	Object MSL_Common_wstring.o
+	Object MSL_DPMath_e_pow.o
+	Object MSL_DPMath_s_copysign.o
+	Object MSL_DPMath_s_fabs.o
+	Object MSL_DPMath_s_frexp.o
+	Object MSL_DPMath_s_ldexp.o
+	Object MSL_DPMath_w_pow.o
+	Object MSL_fp_ansi.o
 	Object MSL_math.o
-	Object MSL_ansi_files.o
-	Object MSL_arith.o
-	Object MSL_assert.o
-	Object MSL_buffer_io.o
-	Object MSL_ctype.o
-	Object MSL_direct_io.o
-	Object MSL_errno.o
-	Object MSL_file_io.o
-	Object MSL_file_pos.o
-	Object MSL_float.o
-	Object MSL_mbstring.o
-	Object MSL_mem.o
-	Object MSL_mem_funcs.o
-	Object MSL_printf.o
-	Object MSL_qsort.o
-	Object MSL_rand.o
-	Object MSL_scanf.o
-	Object MSL_signal.o
-	Object MSL_string.o
-	Object MSL_strtold.o
-	Object MSL_strtoul.o
-	Object MSL_wchar_io.o
-	Object MSL_wctype.o
-	Object MSL_wmem.o
-	Object MSL_wprintf.o
 	Object libc.o
 	Object stdlibmwcc.o
 }
