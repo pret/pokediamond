@@ -571,7 +571,9 @@ Static arm9
 	Object MSL_strtold.o
 	Object MSL_strtoul.o
 	Object MSL_wchar_io.o
+	Object MSL_wctype.o
 	Object MSL_wmem.o
+	Object MSL_wprintf.o
 	Object libc.o
 	Object stdlibmwcc.o
 }

@@ -724,3 +724,21 @@ atol: ; 0x020E4FE0
 	.balign 4
 _020E4FF0: .word strtol
     arm_func_end atol
+
+    .section .exceptix,4
+
+	.word __strtoul
+	.short 1001
+	.word 0x0060FF00
+	.word __strtoull
+	.short 1101
+	.word 0x0080FF00
+	.word strtoul
+	.short 153
+	.word 0x00600300
+	.word strtol
+	.short 201
+	.word 0x00600300
+	.word atol
+	.short 21
+	.word 0x00000000

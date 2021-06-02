@@ -230,3 +230,18 @@ _020DF430:
 	mov r0, r7
 	ldmia sp!, {r3-r9,pc}
     arm_func_end wcstombs
+
+    .section .exceptix,4
+
+	.word mbtowc
+	.short 29
+	.word 0x00100000
+	.word wctomb
+	.short 29
+	.word 0x00100000
+	.word mbstowcs
+	.short 137
+	.word 0x00301F00
+	.word wcstombs
+	.short 121
+	.word 0x00403F00

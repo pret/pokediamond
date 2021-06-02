@@ -140,3 +140,12 @@ _020DE3DC:
 	.balign 4
 _020DE3EC: .word __files
     arm_func_end __flush_all
+
+    .section .exceptix,4
+
+	.word __flush_line_buffered_output_files
+	.short 141
+	.word 0x00403F00
+	.word __flush_all
+	.short 105
+	.word 0x00403F00

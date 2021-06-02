@@ -158,3 +158,15 @@ _020DE2D8: .word __cs_ref
 _020DE2DC: .word __console_exit
 _020DE2E0: .word __atexit_funcs
     arm_func_end __exit
+
+    .section .exceptix,4
+
+	.word abort
+	.short 37
+	.word 0x00100000
+	.word exit
+	.short 77
+	.word 0x00100100
+	.word __exit
+	.short 297
+	.word 0x00200300

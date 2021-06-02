@@ -108,3 +108,9 @@ _020DF548:
 	mov r0, #0x0
 	bx lr
     arm_func_end memcmp
+
+    .section .exceptix,4
+
+	.word memset
+	.short 21
+	.word 0x00100100

@@ -1420,3 +1420,21 @@ atod: ; 0x020E463C
 	.balign 4
 _020E4648: .word strtold
     arm_func_end atod
+
+    .section .exceptix,4
+
+	.word __strtold
+	.short 4684
+	.word UNK_020EC720
+	.word strtold
+	.short 225
+	.word 0x00500F00
+	.word atod
+	.short 17
+	.word 0x00000000
+
+    .section .exception,8
+
+UNK_020EC720: ; 0x020EC720
+	.byte 0x00, 0xFF, 0x01, 0xD0
+	.balign 8

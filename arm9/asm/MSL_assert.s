@@ -29,3 +29,9 @@ __msl_assertion_failed: ; 0x020DE3FC
 	.balign 4
 _020DE434: .word __local_str__msl_assertion_failed
     arm_func_end __msl_assertion_failed
+
+    .section .exceptix,4
+
+	.word __msl_assertion_failed
+	.short 61
+	.word 0x00200100

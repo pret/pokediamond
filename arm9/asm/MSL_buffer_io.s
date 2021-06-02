@@ -108,3 +108,12 @@ _020DE574:
 	mov r0, #0x0
 	ldmia sp!, {r3-r5,pc}
 	arm_func_end __flush_buffer
+
+    .section .exceptix,4
+
+	.word __load_buffer
+	.short 141
+	.word 0x00200700
+	.word __flush_buffer
+	.short 137
+	.word 0x00200300

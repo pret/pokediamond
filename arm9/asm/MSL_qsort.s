@@ -104,3 +104,9 @@ _020E19D8:
 	add sp, sp, #0x10
 	ldmia sp!, {r3-r11,pc}
     arm_func_end qsort
+
+    .section .exceptix,4
+
+	.word qsort
+	.short 357
+	.word 0x0070FF00

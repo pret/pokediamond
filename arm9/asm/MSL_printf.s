@@ -76,7 +76,7 @@ UNK_02106DDC: ; 0x02106DDC
 
     .text
 
-	local_arm_func_start parse_format
+	arm_func_start parse_format
 parse_format: ; 0x020DF600
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0x10
@@ -2571,3 +2571,45 @@ sprintf: ; 0x020E185C
 	add sp, sp, #0x10
 	bx lr
     arm_func_end sprintf
+
+    .section .exceptix,4
+
+	.word long2str
+	.short 589
+	.word 0x0090FF20
+	.word longlong2str
+	.short 737
+	.word 0x00A0FF20
+	.word double2hex
+	.short 1245
+	.word 0x00F07F20
+	.word float2str
+	.short 1893
+	.word 0x00C0FF20
+	.word __pformatter
+	.short 2084
+	.word UNK_020EC710
+	.word __FileWrite
+	.short 45
+	.word 0x00200300
+	.word __StringWrite
+	.short 69
+	.word 0x00200300
+	.word printf
+	.short 281
+	.word 0x00300120
+	.word vsnprintf
+	.short 105
+	.word 0x00300300
+	.word snprintf
+	.short 41
+	.word 0x00300020
+	.word sprintf
+	.short 45
+	.word 0x00300020
+
+    .section .exception,8
+
+UNK_020EC710: ; 0x020EC710
+	.byte 0x20, 0xFF, 0x09, 0x60
+	.balign 8

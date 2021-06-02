@@ -3156,7 +3156,10 @@ _ExitProcess: ; 0x020EC704
 	.balign 4
 _020EC70C: .word sys_exit
 
-	.section .exception
+	.section .exception,8
+
+	.section .exceptix,4
+
 	.word 0x00200100
 	.word __read_console
 	.short 81

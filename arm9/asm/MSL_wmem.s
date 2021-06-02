@@ -27,3 +27,9 @@ _020E5098:
 	mov r0, #0x0
 	bx lr
     arm_func_end wmemchr
+
+    .section .exceptix,4
+
+	.word wmemcpy
+	.short 17
+	.word 0x00000000

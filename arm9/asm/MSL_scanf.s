@@ -1448,3 +1448,21 @@ sscanf: ; 0x020E2D54
 	add sp, sp, #0x10
 	bx lr
     arm_func_end sscanf
+
+    .section .exceptix,4
+
+	.word __sformatter
+	.short 3412
+	.word UNK_020EC718
+	.word vsscanf
+	.short 85
+	.word 0x00200000
+	.word sscanf
+	.short 41
+	.word 0x00300020
+
+    .section .exception,8
+
+UNK_020EC718: ; 0x020EC718
+	.byte 0x00, 0xFF, 0x01, 0xB0
+	.balign 8
