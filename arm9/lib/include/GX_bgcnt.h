@@ -384,12 +384,12 @@ static inline void G2S_SetBG2ControlText(GXBGScrSizeText screenSize, GXBGColorMo
 
 static inline void G2_SetBG2ControlAffine(GXBGScrSizeAffine screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
 {
-    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & ((REG_G2_BG2CNT_PRIORITY_MASK | REG_G2_BG2CNT_MOSAIC_MASK))) | (screenSize << REG_G2_BG2CNT_SCREENSIZE_SHIFT) | (areaOver << REG_G2_BG2CNT_AREAOVER_SHIFT) | (screenBase << REG_G2_BG2CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG2CNT_CHARBASE_SHIFT));
+    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & ((REG_G2_BG2CNT_PRIORITY_MASK | REG_G2_BG2CNT_MOSAIC_MASK))) | (screenSize << REG_G2_BG2CNT_SCREENSIZE_SHIFT) | (screenBase << REG_G2_BG2CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG2CNT_CHARBASE_SHIFT) | (areaOver << REG_G2_BG2CNT_AREAOVER_SHIFT));
 }
 
 static inline void G2S_SetBG2ControlAffine(GXBGScrSizeAffine screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
 {
-    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & ((REG_G2S_DB_BG2CNT_PRIORITY_MASK | REG_G2S_DB_BG2CNT_MOSAIC_MASK))) | (screenSize << REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT) | (areaOver << REG_G2S_DB_BG2CNT_AREAOVER_SHIFT) | (screenBase << REG_G2S_DB_BG2CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG2CNT_CHARBASE_SHIFT));
+    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & ((REG_G2S_DB_BG2CNT_PRIORITY_MASK | REG_G2S_DB_BG2CNT_MOSAIC_MASK))) | (screenSize << REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT) | (screenBase << REG_G2S_DB_BG2CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG2CNT_CHARBASE_SHIFT) | (areaOver << REG_G2S_DB_BG2CNT_AREAOVER_SHIFT));
 }
 
 static inline void G2_SetBG2Control256x16Pltt(GXBGScrSize256x16Pltt screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
@@ -444,12 +444,12 @@ static inline void G2S_SetBG3ControlText(GXBGScrSizeText screenSize, GXBGColorMo
 
 static inline void G2_SetBG3ControlAffine(GXBGScrSizeAffine screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
 {
-    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & ((REG_G2_BG3CNT_PRIORITY_MASK | REG_G2_BG3CNT_MOSAIC_MASK))) | (screenSize << REG_G2_BG3CNT_SCREENSIZE_SHIFT) | (areaOver << REG_G2_BG3CNT_AREAOVER_SHIFT) | (screenBase << REG_G2_BG3CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG3CNT_CHARBASE_SHIFT));
+    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & ((REG_G2_BG3CNT_PRIORITY_MASK | REG_G2_BG3CNT_MOSAIC_MASK))) | (screenSize << REG_G2_BG3CNT_SCREENSIZE_SHIFT) | (screenBase << REG_G2_BG3CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG3CNT_CHARBASE_SHIFT) | (areaOver << REG_G2_BG3CNT_AREAOVER_SHIFT));
 }
 
 static inline void G2S_SetBG3ControlAffine(GXBGScrSizeAffine screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
 {
-    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & ((REG_G2S_DB_BG3CNT_PRIORITY_MASK | REG_G2S_DB_BG3CNT_MOSAIC_MASK))) | (screenSize << REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT) | (areaOver << REG_G2S_DB_BG3CNT_AREAOVER_SHIFT) | (screenBase << REG_G2S_DB_BG3CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG3CNT_CHARBASE_SHIFT));
+    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & ((REG_G2S_DB_BG3CNT_PRIORITY_MASK | REG_G2S_DB_BG3CNT_MOSAIC_MASK))) | (screenSize << REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT) | (screenBase << REG_G2S_DB_BG3CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG3CNT_CHARBASE_SHIFT) | (areaOver << REG_G2S_DB_BG3CNT_AREAOVER_SHIFT));
 }
 
 static inline void G2_SetBG3Control256x16Pltt(GXBGScrSize256x16Pltt screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)

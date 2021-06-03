@@ -15,7 +15,7 @@ const struct HeapParam UNK_020FF4A4[] = {
 
 const struct GraphicsModes UNK_020FF4AC = { dispMode : GX_DISPMODE_GRAPHICS };
 
-const struct UnkStruct_02016B94_1 UNK_020FF4BC = { 0, 0, 0x800, 0, 1, 0, 0, 6, 0, 1, 0, 0, 0 };
+const struct BgTemplate UNK_020FF4BC = { 0, 0, 0x800, 0, 1, 0, 0, 6, 0, 1, 0, 0, 0 };
 
 const struct GraphicsBanks UNK_020FF4D8 = { bg : 3 };
 

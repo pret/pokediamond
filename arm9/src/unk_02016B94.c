@@ -96,46 +96,24 @@ THUMB_FUNC void FUN_02016BF4(const struct GraphicsModes *param0, u32 param1)
     }
 }
 
-#ifdef NONMATCHING
 THUMB_FUNC void FUN_02016C18(
-    struct BgConfig *param0, u8 param1, const struct UnkStruct_02016B94_1 *param2, u8 param3)
+    struct BgConfig *param0, u8 param1, const struct BgTemplate *param2, u8 param3)
 {
-    u8 res = FUN_020177DC(param2->unk10, param3);
+    u8 screenSize = FUN_020177DC(param2->unk10, param3);
     switch (param1)
     {
     case 0:
         GX_EngineAToggleLayers(1, GX_LAYER_TOGGLE_ON);
-
-        reg_G2_BG0CNT = (reg_G2_BG0CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                        (param2->unk11 << 7) | (param2->unk14 << 13) | (param2->unk13 << 2);
-        reg_G2_BG0CNT = (reg_G2_BG0CNT & ~3) | (param2->unk15);
-
-        if (param2->unk18 != 0)
-        {
-            reg_G2_BG0CNT |= 0x40;
-        }
-        else
-        {
-            reg_G2_BG0CNT &= ~0x40;
-        }
-
+        G2_SetBG0Control(screenSize, param2->colorMode, param2->screenBase, param2->charBase, param2->bgExtPltt);
+        G2_SetBG0Priority(param2->priority);
+        G2_BG0Mosaic(param2->mosaic);
         break;
 
     case 1:
         GX_EngineAToggleLayers(2, GX_LAYER_TOGGLE_ON);
-        reg_G2_BG1CNT = (reg_G2_BG1CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                        (param2->unk11 << 7) | (param2->unk14 << 13) | (param2->unk13 << 2);
-        reg_G2_BG1CNT = (reg_G2_BG1CNT & ~3) | (param2->unk15);
-
-        if (param2->unk18 != 0)
-        {
-            reg_G2_BG1CNT |= 0x40;
-        }
-        else
-        {
-            reg_G2_BG1CNT &= ~0x40;
-        }
-
+        G2_SetBG1Control(screenSize, param2->colorMode, param2->screenBase, param2->charBase, param2->bgExtPltt);
+        G2_SetBG1Priority(param2->priority);
+        G2_BG1Mosaic(param2->mosaic);
         break;
 
     case 2:
@@ -144,850 +122,129 @@ THUMB_FUNC void FUN_02016C18(
         {
         default:
         case 0:
-            reg_G2_BG2CNT = (reg_G2_BG2CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                            (param2->unk11 << 7) | (param2->unk13 << 2);
+            G2_SetBG2ControlText(screenSize, param2->colorMode, param2->screenBase, param2->charBase);
             break;
         case 1:
-            reg_G2_BG2CNT = (reg_G2_BG2CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                            (param2->unk16 << 13) | (param2->unk13 << 2);
+            G2_SetBG2ControlAffine(screenSize, param2->areaOver, param2->screenBase, param2->charBase);
             break;
         case 2:
-            reg_G2_BG2CNT = (reg_G2_BG2CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                            (param2->unk16 << 13) | (param2->unk13 << 2);
+            G2_SetBG2Control256x16Pltt(screenSize, param2->areaOver, param2->screenBase, param2->charBase);
             break;
         }
-
-        reg_G2_BG2CNT = (reg_G2_BG2CNT & ~3) | (param2->unk15);
-
-        if (param2->unk18 != 0)
-        {
-            reg_G2_BG2CNT |= 0x40;
-        }
-        else
-        {
-            reg_G2_BG2CNT &= ~0x40;
-        }
-
+        G2_SetBG2Priority(param2->priority);
+        G2_BG2Mosaic(param2->mosaic);
         break;
 
     case 3:
         GX_EngineAToggleLayers(8, GX_LAYER_TOGGLE_ON);
-
         switch (param3)
         {
         default:
         case 0:
-            reg_G2_BG3CNT = (reg_G2_BG3CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                            (param2->unk11 << 7) | (param2->unk13 << 2);
+            G2_SetBG3ControlText(screenSize, param2->colorMode, param2->screenBase, param2->charBase);
             break;
         case 1:
-            reg_G2_BG3CNT = (reg_G2_BG3CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                            (param2->unk16 << 13) | (param2->unk13 << 2);
+            G2_SetBG3ControlAffine(screenSize, param2->areaOver, param2->screenBase, param2->charBase);
             break;
         case 2:
-            reg_G2_BG3CNT = (reg_G2_BG3CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                            (param2->unk16 << 13) | (param2->unk13 << 2);
+            G2_SetBG3Control256x16Pltt(screenSize, param2->areaOver, param2->screenBase, param2->charBase);
             break;
         }
-
-        reg_G2_BG3CNT = (reg_G2_BG3CNT & ~3) | (param2->unk15);
-        if (param2->unk18 != 0)
-        {
-            reg_G2_BG3CNT |= 0x40;
-        }
-        else
-        {
-            reg_G2_BG3CNT &= ~0x40;
-        }
+        G2_SetBG3Priority(param2->priority);
+        G2_BG3Mosaic(param2->mosaic);
         break;
 
     case 4:
         GX_EngineBToggleLayers(1, GX_LAYER_TOGGLE_ON);
-
-        reg_G2S_DB_BG0CNT = (reg_G2S_DB_BG0CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                            (param2->unk11 << 7) | (param2->unk14 << 13) | (param2->unk13 << 2);
-
-        reg_G2S_DB_BG0CNT = (reg_G2S_DB_BG0CNT & ~3) | (param2->unk15);
-
-        if (param2->unk18 != 0)
-        {
-            reg_G2S_DB_BG0CNT |= 0x40;
-        }
-        else
-        {
-            reg_G2S_DB_BG0CNT &= ~0x40;
-        }
-
+        G2S_SetBG0Control(screenSize, param2->colorMode, param2->screenBase, param2->charBase, param2->bgExtPltt);
+        G2S_SetBG0Priority(param2->priority);
+        G2S_BG0Mosaic(param2->mosaic);
         break;
 
     case 5:
         GX_EngineBToggleLayers(2, GX_LAYER_TOGGLE_ON);
-
-        reg_G2S_DB_BG1CNT = (reg_G2S_DB_BG1CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                            (param2->unk11 << 7) | (param2->unk14 << 13) | (param2->unk13 << 2);
-
-        reg_G2S_DB_BG1CNT = (reg_G2S_DB_BG1CNT & ~3) | (param2->unk15);
-
-        if (param2->unk18 != 0)
-        {
-            reg_G2S_DB_BG1CNT |= 0x40;
-        }
-        else
-        {
-            reg_G2S_DB_BG1CNT &= ~0x40;
-        }
-
+        G2S_SetBG1Control(screenSize, param2->colorMode, param2->screenBase, param2->charBase, param2->bgExtPltt);
+        G2S_SetBG1Priority(param2->priority);
+        G2S_BG1Mosaic(param2->mosaic);
         break;
 
     case 6:
         GX_EngineBToggleLayers(4, GX_LAYER_TOGGLE_ON);
-
         switch (param3)
         {
         default:
         case 0:
-            reg_G2S_DB_BG2CNT = (reg_G2S_DB_BG2CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                                (param2->unk11 << 7) | (param2->unk13 << 2);
+            G2S_SetBG2ControlText(screenSize, param2->colorMode, param2->screenBase, param2->charBase);
             break;
         case 1:
-            reg_G2S_DB_BG2CNT = (reg_G2S_DB_BG2CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                                (param2->unk16 << 13) | (param2->unk13 << 2);
+            G2S_SetBG2ControlAffine(screenSize, param2->areaOver, param2->screenBase, param2->charBase);
             break;
         case 2:
-            reg_G2S_DB_BG2CNT = (reg_G2S_DB_BG2CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                                (param2->unk16 << 13) | (param2->unk13 << 2);
+            G2S_SetBG2Control256x16Pltt(screenSize, param2->areaOver, param2->screenBase, param2->charBase);
             break;
         }
-
-        reg_G2S_DB_BG2CNT = (reg_G2S_DB_BG2CNT & ~3) | (param2->unk15);
-
-        if (param2->unk18 != 0)
-        {
-            reg_G2S_DB_BG2CNT |= 0x40;
-        }
-        else
-        {
-            reg_G2S_DB_BG2CNT &= ~0x40;
-        }
-
+        G2S_SetBG2Priority(param2->priority);
+        G2S_BG2Mosaic(param2->mosaic);
         break;
+
     case 7:
         GX_EngineBToggleLayers(8, GX_LAYER_TOGGLE_ON);
         switch (param3)
         {
         default:
         case 0:
-            reg_G2S_DB_BG3CNT = (reg_G2S_DB_BG3CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                                (param2->unk11 << 7) | (param2->unk13 << 2);
+            G2S_SetBG3ControlText(screenSize, param2->colorMode, param2->screenBase, param2->charBase);
             break;
         case 1:
-            reg_G2S_DB_BG3CNT = (reg_G2S_DB_BG3CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                                (param2->unk16 << 13) | (param2->unk13 << 2);
+            G2S_SetBG3ControlAffine(screenSize, param2->areaOver, param2->screenBase, param2->charBase);
             break;
         case 2:
-            reg_G2S_DB_BG3CNT = (reg_G2S_DB_BG3CNT & 0x43) | (res << 14) | (param2->unk12 << 8) |
-                                (param2->unk16 << 13) | (param2->unk13 << 2);
+            G2S_SetBG3Control256x16Pltt(screenSize, param2->areaOver, param2->screenBase, param2->charBase);
             break;
         }
-
-        reg_G2S_DB_BG3CNT = (reg_G2S_DB_BG3CNT & ~3) | (param2->unk15);
-        if (param2->unk18 != 0)
-        {
-            reg_G2S_DB_BG3CNT |= 0x40;
-        }
-        else
-        {
-            reg_G2S_DB_BG3CNT &= ~0x40;
-        }
+        G2S_SetBG3Priority(param2->priority);
+        G2S_BG3Mosaic(param2->mosaic);
         break;
     }
 
-    param0->unk08[param1].unk20 = 0;
-    param0->unk08[param1].unk24 = 0x1000;
-    param0->unk08[param1].unk28 = 0x1000;
-    param0->unk08[param1].unk2c = 0;
-    param0->unk08[param1].unk30 = 0;
+    param0->bgs[param1].unk20 = 0;
+    param0->bgs[param1].unk24 = FX32_ONE;
+    param0->bgs[param1].unk28 = FX32_ONE;
+    param0->bgs[param1].unk2c = 0;
+    param0->bgs[param1].unk30 = 0;
 
     if (param2->unk08 != 0)
     {
-        param0->unk08[param1].unk08 = AllocFromHeap(param0->unk00, param2->unk08);
+        param0->bgs[param1].unk08 = AllocFromHeap(param0->heap_id, param2->unk08);
 
-        MI_CpuClear16(param0->unk08[param1].unk08, param2->unk08);
+        MI_CpuClear16(param0->bgs[param1].unk08, param2->unk08);
 
-        param0->unk08[param1].unk0c = param2->unk08;
-        param0->unk08[param1].unk10 = param2->unk0c;
+        param0->bgs[param1].unk0c = param2->unk08;
+        param0->bgs[param1].unk10 = param2->unk0c;
     }
     else
     {
-        param0->unk08[param1].unk08 = 0;
-        param0->unk08[param1].unk0c = 0;
-        param0->unk08[param1].unk10 = 0;
+        param0->bgs[param1].unk08 = 0;
+        param0->bgs[param1].unk0c = 0;
+        param0->bgs[param1].unk10 = 0;
     }
 
-    param0->unk08[param1].unk1d = param2->unk10;
-    param0->unk08[param1].unk1c = param3;
-    param0->unk08[param1].unk1e = param2->unk11;
+    param0->bgs[param1].unk1d = param2->unk10;
+    param0->bgs[param1].mode = param3;
+    param0->bgs[param1].unk1e = param2->colorMode;
 
-    if (param3 == 0 && param2->unk11 == 0)
+    if (param3 == 0 && param2->colorMode == 0)
     {
-        param0->unk08[param1].unk1f = 0x20;
+        param0->bgs[param1].tileSize = 0x20;
     }
     else
     {
-        param0->unk08[param1].unk1f = 0x40;
+        param0->bgs[param1].tileSize = 0x40;
     }
 
     FUN_020179E0(param0, param1, 0, param2->unk00);
     FUN_020179E0(param0, param1, 3, param2->unk04);
 }
-#else
-THUMB_FUNC asm void FUN_02016C18(
-    struct BgConfig *param0, u8 param1, const struct UnkStruct_02016B94_1 *param2, u8 param3)
-{
-    // clang-format off
-    push {r3-r7, lr}
-	sub sp, #0x18
-	str r1, [sp, #0x4]
-	str r3, [sp, #0x8]
-	add r4, r2, #0x0
-	str r0, [sp, #0x0]
-	ldrb r0, [r4, #0x10]
-	ldr r1, [sp, #0x8]
-	bl FUN_020177DC
-	add r5, r0, #0x0
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x7
-	bls _02016C36
-	b _0201705A
-_02016C36:
-	add r0, r0, r0
-	add r0, pc
-	ldrh r0, [r0, #0x6]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	add pc, r0
-_02016C42:
-    // jump table (using 16-bit offset)
-	// .short _02016C52 - _02016C42 - 2; case 0
-	// .short _02016CAA - _02016C42 - 2; case 1
-	// .short _02016D02 - _02016C42 - 2; case 2
-	// .short _02016DA4 - _02016C42 - 2; case 3
-	// .short _02016E46 - _02016C42 - 2; case 4
-	// .short _02016E9E - _02016C42 - 2; case 5
-	// .short _02016EF6 - _02016C42 - 2; case 6
-	// .short _02016F98 - _02016C42 - 2; case 7
-
-    lsl r6, r1, #0
-    lsl r6, r4, #1
-    lsl r6, r7, #2
-    lsl r0, r4, #5
-    lsl r2, r0, #8
-    lsl r2, r3, #9
-    lsl r2, r6, #10
-    lsl r4, r2, #13
-_02016C52:
-	mov r0, #0x1
-	add r1, r0, #0x0
-	bl GX_EngineAToggleLayers
-	ldrb r3, [r4, #0x14]
-	ldrb r1, [r4, #0x12]
-	ldrb r0, [r4, #0x11]
-	ldrb r2, [r4, #0x13]
-	lsl r6, r3, #0xd
-	lsl r0, r0, #0x7
-	lsl r3, r2, #0x2
-	str r0, [sp, #0xc]
-	ldr r2, =0x04000008
-	lsl r7, r1, #0x8
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r1, r0
-	ldr r0, [sp, #0xc]
-	orr r0, r1
-	orr r0, r7
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r2, #0x0]
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x3
-	bic r1, r0
-	ldrb r0, [r4, #0x15]
-	orr r0, r1
-	strh r0, [r2, #0x0]
-	ldr r0, [r4, #0x18]
-	cmp r0, #0x0
-	beq _02016CA0
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x40
-	orr r0, r1
-	strh r0, [r2, #0x0]
-	b _0201705A
-_02016CA0:
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x40
-	bic r1, r0
-	strh r1, [r2, #0x0]
-	b _0201705A
-_02016CAA:
-	mov r0, #0x2
-	mov r1, #0x1
-	bl GX_EngineAToggleLayers
-	ldrb r3, [r4, #0x14]
-	ldrb r1, [r4, #0x12]
-	ldrb r0, [r4, #0x11]
-	ldrb r2, [r4, #0x13]
-	lsl r6, r3, #0xd
-	lsl r0, r0, #0x7
-	lsl r3, r2, #0x2
-	str r0, [sp, #0x10]
-	ldr r2, =0x0400000A
-	lsl r7, r1, #0x8
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r1, r0
-	ldr r0, [sp, #0x10]
-	orr r0, r1
-	orr r0, r7
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r2, #0x0]
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x3
-	bic r1, r0
-	ldrb r0, [r4, #0x15]
-	orr r0, r1
-	strh r0, [r2, #0x0]
-	ldr r0, [r4, #0x18]
-	cmp r0, #0x0
-	beq _02016CF8
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x40
-	orr r0, r1
-	strh r0, [r2, #0x0]
-	b _0201705A
-_02016CF8:
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x40
-	bic r1, r0
-	strh r1, [r2, #0x0]
-	b _0201705A
-_02016D02:
-	mov r0, #0x4
-	mov r1, #0x1
-	bl GX_EngineAToggleLayers
-	ldr r0, [sp, #0x8]
-	cmp r0, #0x0
-	beq _02016D18
-	cmp r0, #0x1
-	beq _02016D3A
-	cmp r0, #0x2
-	beq _02016D5C
-_02016D18:
-	ldrb r1, [r4, #0x12]
-	ldr r7, =0x0400000C
-	ldrb r2, [r4, #0x13]
-	lsl r3, r1, #0x8
-	ldrb r0, [r4, #0x11]
-	lsl r6, r2, #0x2
-	ldrh r1, [r7, #0x0]
-	lsl r2, r0, #0x7
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-	b _02016D7C
-_02016D3A:
-	ldrb r2, [r4, #0x13]
-	ldrb r1, [r4, #0x12]
-	ldrb r0, [r4, #0x16]
-	lsl r3, r2, #0x2
-	ldr r7, =0x0400000C
-	lsl r2, r1, #0x8
-	lsl r6, r0, #0xd
-	ldrh r1, [r7, #0x0]
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-	b _02016D7C
-_02016D5C:
-	ldrb r1, [r4, #0x12]
-	ldr r7, =0x0400000C
-	ldrb r0, [r4, #0x16]
-	lsl r3, r1, #0x8
-	ldrb r2, [r4, #0x13]
-	lsl r6, r0, #0xd
-	ldrh r1, [r7, #0x0]
-	mov r0, #0x43
-	lsl r2, r2, #0x2
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-_02016D7C:
-	ldr r0, =0x0400000C
-	mov r1, #0x3
-	ldrh r2, [r0, #0x0]
-	bic r2, r1
-	ldrb r1, [r4, #0x15]
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	ldr r1, [r4, #0x18]
-	cmp r1, #0x0
-	beq _02016D9A
-	ldrh r2, [r0, #0x0]
-	mov r1, #0x40
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	b _0201705A
-_02016D9A:
-	ldrh r2, [r0, #0x0]
-	mov r1, #0x40
-	bic r2, r1
-	strh r2, [r0, #0x0]
-	b _0201705A
-_02016DA4:
-	mov r0, #0x8
-	mov r1, #0x1
-	bl GX_EngineAToggleLayers
-	ldr r0, [sp, #0x8]
-	cmp r0, #0x0
-	beq _02016DBA
-	cmp r0, #0x1
-	beq _02016DDC
-	cmp r0, #0x2
-	beq _02016DFE
-_02016DBA:
-	ldrb r1, [r4, #0x12]
-	ldr r7, =0x0400000E
-	ldrb r2, [r4, #0x13]
-	lsl r3, r1, #0x8
-	ldrb r0, [r4, #0x11]
-	lsl r6, r2, #0x2
-	ldrh r1, [r7, #0x0]
-	lsl r2, r0, #0x7
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-	b _02016E1E
-_02016DDC:
-	ldrb r2, [r4, #0x13]
-	ldrb r1, [r4, #0x12]
-	ldrb r0, [r4, #0x16]
-	lsl r3, r2, #0x2
-	ldr r7, =0x0400000E
-	lsl r2, r1, #0x8
-	lsl r6, r0, #0xd
-	ldrh r1, [r7, #0x0]
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-	b _02016E1E
-_02016DFE:
-	ldrb r1, [r4, #0x12]
-	ldr r7, =0x0400000E
-	ldrb r0, [r4, #0x16]
-	lsl r3, r1, #0x8
-	ldrb r2, [r4, #0x13]
-	lsl r6, r0, #0xd
-	ldrh r1, [r7, #0x0]
-	mov r0, #0x43
-	lsl r2, r2, #0x2
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-_02016E1E:
-	ldr r0, =0x0400000E
-	mov r1, #0x3
-	ldrh r2, [r0, #0x0]
-	bic r2, r1
-	ldrb r1, [r4, #0x15]
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	ldr r1, [r4, #0x18]
-	cmp r1, #0x0
-	beq _02016E3C
-	ldrh r2, [r0, #0x0]
-	mov r1, #0x40
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	b _0201705A
-_02016E3C:
-	ldrh r2, [r0, #0x0]
-	mov r1, #0x40
-	bic r2, r1
-	strh r2, [r0, #0x0]
-	b _0201705A
-_02016E46:
-	mov r0, #0x1
-	add r1, r0, #0x0
-	bl GX_EngineBToggleLayers
-	ldrb r3, [r4, #0x14]
-	ldrb r1, [r4, #0x12]
-	ldrb r0, [r4, #0x11]
-	ldrb r2, [r4, #0x13]
-	lsl r6, r3, #0xd
-	lsl r0, r0, #0x7
-	lsl r3, r2, #0x2
-	str r0, [sp, #0x14]
-	ldr r2, =0x04001008
-	lsl r7, r1, #0x8
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r1, r0
-	ldr r0, [sp, #0x14]
-	orr r0, r1
-	orr r0, r7
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r2, #0x0]
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x3
-	bic r1, r0
-	ldrb r0, [r4, #0x15]
-	orr r0, r1
-	strh r0, [r2, #0x0]
-	ldr r0, [r4, #0x18]
-	cmp r0, #0x0
-	beq _02016E94
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x40
-	orr r0, r1
-	strh r0, [r2, #0x0]
-	b _0201705A
-_02016E94:
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x40
-	bic r1, r0
-	strh r1, [r2, #0x0]
-	b _0201705A
-_02016E9E:
-	mov r0, #0x2
-	mov r1, #0x1
-	bl GX_EngineBToggleLayers
-	ldrb r2, [r4, #0x13]
-	ldrb r1, [r4, #0x12]
-	ldrb r0, [r4, #0x11]
-	lsl r6, r2, #0x2
-	ldrb r3, [r4, #0x14]
-	lsl r0, r0, #0x7
-	mov r12, r0
-	ldr r2, =0x0400100A
-	lsl r7, r1, #0x8
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x43
-	lsl r3, r3, #0xd
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	mov r1, r12
-	orr r0, r1
-	orr r0, r7
-	orr r0, r6
-	orr r0, r3
-	strh r0, [r2, #0x0]
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x3
-	bic r1, r0
-	ldrb r0, [r4, #0x15]
-	orr r0, r1
-	strh r0, [r2, #0x0]
-	ldr r0, [r4, #0x18]
-	cmp r0, #0x0
-	beq _02016EEC
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x40
-	orr r0, r1
-	strh r0, [r2, #0x0]
-	b _0201705A
-_02016EEC:
-	ldrh r1, [r2, #0x0]
-	mov r0, #0x40
-	bic r1, r0
-	strh r1, [r2, #0x0]
-	b _0201705A
-_02016EF6:
-	mov r0, #0x4
-	mov r1, #0x1
-	bl GX_EngineBToggleLayers
-	ldr r0, [sp, #0x8]
-	cmp r0, #0x0
-	beq _02016F0C
-	cmp r0, #0x1
-	beq _02016F2E
-	cmp r0, #0x2
-	beq _02016F50
-_02016F0C:
-	ldrb r1, [r4, #0x12]
-	ldr r7, =0x0400100C
-	ldrb r2, [r4, #0x13]
-	lsl r3, r1, #0x8
-	ldrb r0, [r4, #0x11]
-	lsl r6, r2, #0x2
-	ldrh r1, [r7, #0x0]
-	lsl r2, r0, #0x7
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-	b _02016F70
-_02016F2E:
-	ldrb r2, [r4, #0x13]
-	ldrb r1, [r4, #0x12]
-	ldrb r0, [r4, #0x16]
-	lsl r3, r2, #0x2
-	ldr r7, =0x0400100C
-	lsl r2, r1, #0x8
-	lsl r6, r0, #0xd
-	ldrh r1, [r7, #0x0]
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-	b _02016F70
-_02016F50:
-	ldrb r1, [r4, #0x12]
-	ldr r7, =0x0400100C
-	ldrb r0, [r4, #0x16]
-	lsl r3, r1, #0x8
-	ldrb r2, [r4, #0x13]
-	lsl r6, r0, #0xd
-	ldrh r1, [r7, #0x0]
-	mov r0, #0x43
-	lsl r2, r2, #0x2
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-_02016F70:
-	ldr r0, =0x0400100C
-	mov r1, #0x3
-	ldrh r2, [r0, #0x0]
-	bic r2, r1
-	ldrb r1, [r4, #0x15]
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	ldr r1, [r4, #0x18]
-	cmp r1, #0x0
-	beq _02016F8E
-	ldrh r2, [r0, #0x0]
-	mov r1, #0x40
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	b _0201705A
-_02016F8E:
-	ldrh r2, [r0, #0x0]
-	mov r1, #0x40
-	bic r2, r1
-	strh r2, [r0, #0x0]
-	b _0201705A
-_02016F98:
-	mov r0, #0x8
-	mov r1, #0x1
-	bl GX_EngineBToggleLayers
-	ldr r0, [sp, #0x8]
-	cmp r0, #0x0
-	beq _02016FAE
-	cmp r0, #0x1
-	beq _02016FF2
-	cmp r0, #0x2
-	beq _02017014
-_02016FAE:
-	ldrb r1, [r4, #0x12]
-	ldr r7, =0x0400100E
-	b _02016FD4
-_02016FD4:
-	ldrb r2, [r4, #0x13]
-	lsl r3, r1, #0x8
-	ldrb r0, [r4, #0x11]
-	lsl r6, r2, #0x2
-	ldrh r1, [r7, #0x0]
-	lsl r2, r0, #0x7
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-	b _02017034
-_02016FF2:
-	ldrb r2, [r4, #0x13]
-	ldrb r1, [r4, #0x12]
-	ldrb r0, [r4, #0x16]
-	lsl r3, r2, #0x2
-	ldr r7, =0x0400100E
-	lsl r2, r1, #0x8
-	lsl r6, r0, #0xd
-	ldrh r1, [r7, #0x0]
-	mov r0, #0x43
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-	b _02017034
-_02017014:
-	ldrb r1, [r4, #0x12]
-	ldr r7, =0x0400100E
-	ldrb r0, [r4, #0x16]
-	lsl r3, r1, #0x8
-	ldrb r2, [r4, #0x13]
-	lsl r6, r0, #0xd
-	ldrh r1, [r7, #0x0]
-	mov r0, #0x43
-	lsl r2, r2, #0x2
-	and r0, r1
-	lsl r1, r5, #0xe
-	orr r0, r1
-	orr r0, r2
-	orr r0, r3
-	orr r0, r6
-	strh r0, [r7, #0x0]
-_02017034:
-	ldr r0, =0x0400100E
-	mov r1, #0x3
-	ldrh r2, [r0, #0x0]
-	bic r2, r1
-	ldrb r1, [r4, #0x15]
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	ldr r1, [r4, #0x18]
-	cmp r1, #0x0
-	beq _02017052
-	ldrh r2, [r0, #0x0]
-	mov r1, #0x40
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	b _0201705A
-_02017052:
-	ldrh r2, [r0, #0x0]
-	mov r1, #0x40
-	bic r2, r1
-	strh r2, [r0, #0x0]
-_0201705A:
-	ldr r0, [sp, #0x4]
-	mov r1, #0x2c
-	add r5, r0, #0x0
-	ldr r0, [sp, #0x0]
-	mul r5, r1
-	add r2, r0, r5
-	mov r3, #0x0
-	mov r0, #0x1
-	strh r3, [r2, #0x20]
-	lsl r0, r0, #0xc
-	str r0, [r2, #0x24]
-	str r0, [r2, #0x28]
-	str r3, [r2, #0x2c]
-	str r3, [r2, #0x30]
-	ldr r1, [r4, #0x8]
-	cmp r1, #0x0
-	beq _020170A2
-	ldr r0, [sp, #0x0]
-	ldr r6, [sp, #0x0]
-	ldr r0, [r0, #0x0]
-	add r6, #0x8
-	bl AllocFromHeap
-	str r0, [r6, r5]
-	ldr r1, [r6, r5]
-	ldr r2, [r4, #0x8]
-	mov r0, #0x0
-	bl MIi_CpuClear16
-	ldr r0, [sp, #0x0]
-	ldr r2, [r4, #0x8]
-	add r1, r0, r5
-	str r2, [r1, #0xc]
-	ldr r0, [r4, #0xc]
-	str r0, [r1, #0x10]
-	b _020170A8
-_020170A2:
-	str r3, [r2, #0x8]
-	str r3, [r2, #0xc]
-	str r3, [r2, #0x10]
-_020170A8:
-	ldr r0, [sp, #0x0]
-	ldrb r1, [r4, #0x10]
-	add r0, r0, r5
-	strb r1, [r0, #0x1d]
-	ldr r1, [sp, #0x8]
-	strb r1, [r0, #0x1c]
-	ldrb r1, [r4, #0x11]
-	strb r1, [r0, #0x1e]
-	ldr r1, [sp, #0x8]
-	cmp r1, #0x0
-	bne _020170CA
-	ldrb r1, [r4, #0x11]
-	cmp r1, #0x0
-	bne _020170CA
-	mov r1, #0x20
-	strb r1, [r0, #0x1f]
-	b _020170D2
-_020170CA:
-	ldr r0, [sp, #0x0]
-	mov r1, #0x40
-	add r0, r0, r5
-	strb r1, [r0, #0x1f]
-_020170D2:
-	ldr r0, [sp, #0x0]
-	ldr r1, [sp, #0x4]
-	ldr r3, [r4, #0x0]
-	mov r2, #0x0
-	bl FUN_020179E0
-	ldr r0, [sp, #0x0]
-	ldr r1, [sp, #0x4]
-	ldr r3, [r4, #0x4]
-	mov r2, #0x3
-	bl FUN_020179E0
-	add sp, #0x18
-	pop {r3-r7, pc}
-    // clang-format on
-}
-#endif
 
 #ifdef NONMATCHING
 THUMB_FUNC void FUN_020170F4(struct BgConfig *param0, u8 param1, u32 param2, u8 param3)

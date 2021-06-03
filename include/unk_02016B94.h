@@ -13,7 +13,7 @@
 #define reg_G2_BG3P (u32 *)0x4000030
 #define reg_G2S_DB_BG2P (u32 *)0x4001020
 #define reg_G2S_DB_BG3P (u32 *)0x4001030
-struct UnkStruct_02016B94_1
+struct BgTemplate
 {
     u32 unk00;
     u32 unk04;
@@ -21,14 +21,14 @@ struct UnkStruct_02016B94_1
     u32 unk0c;
 
     u8 unk10;
-    u8 unk11;
-    u8 unk12;
-    u8 unk13;
-    u8 unk14;
-    u8 unk15;
-    u8 unk16;
+    u8 colorMode;
+    u8 screenBase;
+    u8 charBase;
+    u8 bgExtPltt;
+    u8 priority;
+    u8 areaOver;
     u8 unk17; // probably paddding
-    u32 unk18;
+    u32 mosaic;
 };
 
 struct Bg
@@ -97,7 +97,7 @@ u32 FUN_02016BB8(u32 *param0);
 void FUN_02016BBC(const struct GraphicsModes *modes);
 void FUN_02016BF4(const struct GraphicsModes *param0, u32 param1);
 void FUN_02016C18(
-    struct BgConfig *param0, u8 param1, const struct UnkStruct_02016B94_1 *param2, u8 param3);
+    struct BgConfig *param0, u8 param1, const struct BgTemplate *param2, u8 param3);
 void FUN_020170F4(struct BgConfig *param0, u8 param1, u32 param2, u8 param3);
 u8 FUN_020177DC(u8 param0, u32 param1);
 void FUN_02017850(u32 param0, u8 *param1, u8 *param2);
