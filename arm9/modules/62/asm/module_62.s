@@ -1162,7 +1162,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	add r1, sp, #0x1c
 	mov r2, #0xa
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -1238,7 +1238,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
 	add r0, sp, #0x1c
-	bl FUN_02019178
+	bl RemoveWindow
 	add sp, #0x5c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -1954,7 +1954,7 @@ _0222E442:
 	ldr r1, [sp, #0x18]
 	lsr r2, r2, #0x18
 	mov r3, #0x15
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r7, #0
 	mov r1, #0x35
 	bl ListMenuItems_ctor
@@ -3323,7 +3323,7 @@ MOD62_0222EEE0: ; 0x0222EEE0
 	str r0, [sp, #0x10]
 	add r0, r7, #0
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r1, #1
 	add r0, r5, #0
 	add r2, r1, #0
@@ -3374,7 +3374,7 @@ MOD62_0222EF44: ; 0x0222EF44
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x10]
 	add r0, r7, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -3675,7 +3675,7 @@ _0222F1F2:
 	add r0, r5, #0
 	bl FUN_02019570
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #0xb
@@ -4615,7 +4615,7 @@ MOD62_0222F904: ; 0x0222F904
 	bl ListMenuItems_dtor
 	add r4, #0xfc
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -5105,7 +5105,7 @@ _0222FD10:
 	bne _0222FD4C
 	add r0, r4, #0
 	add r0, #0xec
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	bl MOD62_0222ED04
 	add r0, r4, #0
@@ -6701,7 +6701,7 @@ _022309DC:
 	mov r0, #0x43
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xf7
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -7036,7 +7036,7 @@ _02230CEC:
 	bne _02230D26
 	add r0, r4, #0
 	add r0, #0xec
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	bl MOD62_0222ED04
 	add r0, r4, #0

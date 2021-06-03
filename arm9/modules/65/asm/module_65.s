@@ -995,7 +995,7 @@ _021D7C68:
 	ldrb r2, [r4]
 	ldrb r3, [r4, #1]
 	ldr r0, [r6, #0x24]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -1022,7 +1022,7 @@ _021D7CB0:
 	add r0, r5, #0
 	bl FUN_02019570
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #0xd
@@ -3265,7 +3265,7 @@ MOD65_021D8E68: ; 0x021D8E68
 	ldr r0, [r4, #0x68]
 	ldr r2, _021D8EAC ; =0x021DA354
 	add r1, #0x6c
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r4, #0
 	add r0, #0x6c
 	mov r1, #0
@@ -3299,7 +3299,7 @@ MOD65_021D8EB0: ; 0x021D8EB0
 	bl FUN_02019570
 	add r4, #0x6c
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	thumb_func_end MOD65_021D8EB0
 

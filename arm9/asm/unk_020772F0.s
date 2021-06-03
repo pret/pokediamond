@@ -2231,7 +2231,7 @@ FUN_02077FA8: ; 0x02077FA8
 	mov r4, #0x0
 _02077FB0:
 	add r0, r5, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #0x1
 	add r5, #0x10
 	cmp r4, #0xa
@@ -3400,7 +3400,7 @@ FUN_0207890C: ; 0x0207890C
 	add r1, r5, r1
 	mov r2, #0x0
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r2, #0x1
 	mov r1, #0xf2
 	lsl r1, r1, #0x2
@@ -3417,7 +3417,7 @@ FUN_0207890C: ; 0x0207890C
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x4
 	bne _020789AE
@@ -3491,7 +3491,7 @@ _020789D8:
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	mov r3, #0x7
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r1, [r5, #0xc]
 	mov r0, #0xc
 	add r2, r1, #0x0
@@ -3519,7 +3519,7 @@ _020789D8:
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	mov r3, #0xa
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xfa
 	lsl r0, r0, #0x2
 	add r0, r5, r0
@@ -3544,7 +3544,7 @@ _020789D8:
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _02078B74 ; =0x00000438
 	mov r1, #0x1
 	add r0, r5, r0
@@ -3577,7 +3577,7 @@ _02078A90:
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _02078B78 ; =0x00000448
 	mov r1, #0xf
 	add r0, r5, r0
@@ -3637,7 +3637,7 @@ _02078B0E:
 	add r1, r7, r6
 	mov r2, #0x2
 	mov r3, #0x0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r7, r6
 	mov r1, #0x0
 	bl FillWindowPixelBuffer
@@ -3657,7 +3657,7 @@ _02078B0E:
 	add r0, #0xdc
 	ldr r0, [r5, r0]
 	add r1, r5, r1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _02078B84 ; =0x00000428
 	mov r1, #0x0
 	add r0, r5, r0

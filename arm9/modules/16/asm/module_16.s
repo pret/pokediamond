@@ -3515,7 +3515,7 @@ MOD16_021D8F60: ; 0x021D8F60
 	ldr r0, [r4]
 	add r1, r4, #4
 	mov r2, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #4
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -3531,7 +3531,7 @@ MOD16_021D8F90: ; 0x021D8F90
 	add r0, r0, #4
 	bx r3
 	nop
-_021D8F98: .word FUN_02019178
+_021D8F98: .word RemoveWindow
 	thumb_func_end MOD16_021D8F90
 
 	thumb_func_start MOD16_021D8F9C
@@ -8445,7 +8445,7 @@ MOD16_021DB388: ; 0x021DB388
 	add r1, r7, #0
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	add r0, r7, #0
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
@@ -51470,7 +51470,7 @@ MOD16_021EF318: ; 0x021EF318
 	add r1, r4, #0
 	mov r2, #1
 	str r3, [sp, #0x10]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -51488,7 +51488,7 @@ MOD16_021EF358: ; 0x021EF358
 	add r4, r0, #0
 	bl FUN_02019570
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	mov r1, #1
 	bl WindowArray_dtor

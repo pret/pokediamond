@@ -22711,7 +22711,7 @@ _02244588:
 	mov r0, #0x39
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [sp, #0x2c]
 	mov r1, #7
 	bl FUN_020178A0
@@ -25585,7 +25585,7 @@ MOD18_02245B1C: ; 0x02245B1C
 	strb r0, [r3, #0xb]
 	add r0, r6, #0
 	add r2, r7, #0
-	bl FUN_02019150
+	bl AddWindow
 	ldr r0, [sp, #0x14]
 	ldr r2, [sp, #8]
 	ldr r3, [sp, #0xc]
@@ -29549,7 +29549,7 @@ MOD18_02247AA8: ; 0x02247AA8
 	add r1, #0xc
 	ldr r0, [r0, #8]
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _02247B54 ; =0x000003D9
 	add r0, #0xc
@@ -29675,7 +29675,7 @@ MOD18_02247BB8: ; 0x02247BB8
 	add r1, #0xc
 	ldr r0, [r0, #8]
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _02247C8C ; =0x000003D9
 	add r0, #0xc
@@ -29848,7 +29848,7 @@ MOD18_02247D1C: ; 0x02247D1C
 	add r1, #0xc
 	ldr r0, [r0, #8]
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _02247DCC ; =0x000003D9
 	add r0, #0xc
@@ -30165,7 +30165,7 @@ MOD18_02247FC0: ; 0x02247FC0
 	bl FUN_02019570
 	add r0, r4, #0
 	add r0, #0xc
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x1c]
 	bl ListMenuItems_dtor
 	mov r0, #0
@@ -31141,7 +31141,7 @@ MOD18_02248784: ; 0x02248784
 	bl FUN_02019570
 	add r0, r4, #0
 	add r0, #8
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x18]
 	bl ListMenuItems_dtor
 	mov r0, #0
@@ -31219,7 +31219,7 @@ MOD18_02248820: ; 0x02248820
 	ldr r0, [r5, #4]
 	mov r2, #3
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _022488E4 ; =0x000003D9
 	add r0, #8
@@ -32961,7 +32961,7 @@ MOD18_02249564: ; 0x02249564
 	ldr r0, [r0, #8]
 	mov r2, #3
 	mov r3, #0x14
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _02249678 ; =0x000003D9
 	add r0, #0x10
@@ -33399,7 +33399,7 @@ _02249916:
 _02249936:
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _02249968
 	add r0, r4, #0
@@ -33411,7 +33411,7 @@ _02249936:
 	bl FUN_0201AC68
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x40]
 	bl ListMenuItems_dtor
 	add r0, r4, #0
@@ -33480,7 +33480,7 @@ _022499A2:
 	add r1, #0x20
 	mov r2, #3
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _02249A5C ; =0x000003D9
 	add r0, #0x20
@@ -33565,7 +33565,7 @@ MOD18_02249A64: ; 0x02249A64
 _02249A8C:
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _02249AAA
 	add r0, r4, #0
@@ -33574,7 +33574,7 @@ _02249A8C:
 	bl FUN_0200CCF8
 	add r4, #0x20
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _02249AAA:
 	pop {r4, pc}
 	thumb_func_end MOD18_02249A64
@@ -33746,7 +33746,7 @@ MOD18_02249BA8: ; 0x02249BA8
 	ldr r0, [r5, #0xc]
 	mov r3, #0x13
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _02249CB8 ; =0x000003D9
 	add r0, #0x10
@@ -34213,7 +34213,7 @@ MOD18_02249F8C: ; 0x02249F8C
 	ldr r0, [r5, #0xc]
 	mov r3, #0x13
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224A0DC ; =0x000003D9
 	add r0, #0x10
@@ -34662,7 +34662,7 @@ MOD18_0224A360: ; 0x0224A360
 	ldr r0, [r5, #0xc]
 	mov r3, #0x13
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224A46C ; =0x000003D9
 	add r0, #0x10
@@ -35600,7 +35600,7 @@ MOD18_0224AB08: ; 0x0224AB08
 	ldr r0, [r5, #0xc]
 	mov r3, #0x13
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224AC14 ; =0x000003D9
 	add r0, #0x10
@@ -36646,7 +36646,7 @@ _0224B374:
 	ldr r0, [r5, #0xc]
 	mov r3, #0x11
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224B460 ; =0x000003D9
 	add r0, #0x10
@@ -36769,7 +36769,7 @@ MOD18_0224B464: ; 0x0224B464
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224B55C ; =0x000003D9
 	add r0, #0x10
@@ -38480,7 +38480,7 @@ _0224C288:
 	ldr r0, [r5, #0xc]
 	mov r3, #0x13
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224C414 ; =0x000003D9
 	add r0, #0x10
@@ -39102,7 +39102,7 @@ MOD18_0224C7D4: ; 0x0224C7D4
 	ldr r0, [r5, #0xc]
 	mov r3, #0x13
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224C934 ; =0x000003D9
 	add r0, #0x10
@@ -39250,7 +39250,7 @@ MOD18_0224C94C: ; 0x0224C94C
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, #0x20
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _0224C96C
 	add r0, r4, #0
@@ -39259,7 +39259,7 @@ MOD18_0224C94C: ; 0x0224C94C
 	bl FUN_0200CCF8
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 _0224C96C:
 	add r0, r4, #0
 	bl MOD18_022498EC
@@ -39462,7 +39462,7 @@ MOD18_0224CADC: ; 0x0224CADC
 	sub sp, #0x14
 	add r4, r0, #0
 	add r0, #0x20
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	bne _0224CB1A
 	mov r0, #0xc
@@ -39479,7 +39479,7 @@ MOD18_0224CADC: ; 0x0224CADC
 	ldr r0, [r0, #8]
 	add r1, #0x20
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	ldr r2, _0224CB30 ; =0x000003D9
 	add r0, #0x20
@@ -39521,7 +39521,7 @@ MOD18_0224CB34: ; 0x0224CB34
 	ldr r0, [r0, #8]
 	add r1, #0x30
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224CBA8 ; =0x000003D9
 	add r0, #0x30
@@ -39560,7 +39560,7 @@ MOD18_0224CBAC: ; 0x0224CBAC
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, #0x30
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _0224CBCC
 	add r0, r4, #0
@@ -39569,7 +39569,7 @@ MOD18_0224CBAC: ; 0x0224CBAC
 	bl FUN_0200CCF8
 	add r4, #0x30
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _0224CBCC:
 	pop {r4, pc}
 	.align 2, 0
@@ -40742,7 +40742,7 @@ MOD18_0224D56C: ; 0x0224D56C
 	bl FUN_02019570
 	add r0, r4, #0
 	add r0, #8
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r1, [r4]
 	cmp r1, #0
 	beq _0224D596
@@ -40811,7 +40811,7 @@ MOD18_0224D5CC: ; 0x0224D5CC
 	add r1, #8
 	mov r2, #3
 	mov r3, #4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	ldr r2, _0224D684 ; =0x000003D9
 	add r0, #8
@@ -41315,7 +41315,7 @@ MOD18_0224DA00: ; 0x0224DA00
 	add r1, #8
 	mov r2, #3
 	mov r3, #4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224DA9C ; =0x000003D9
 	add r0, #8
@@ -41370,7 +41370,7 @@ MOD18_0224DAA8: ; 0x0224DAA8
 	bl FUN_02019570
 	add r0, r4, #0
 	add r0, #8
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r1, [r4]
 	cmp r1, #0
 	beq _0224DACE
@@ -41568,7 +41568,7 @@ MOD18_0224DC08: ; 0x0224DC08
 	bl MOD18_0223D688
 	add r0, r5, #0
 	add r0, #8
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	bne _0224DC4C
 	mov r0, #0x13
@@ -41586,7 +41586,7 @@ MOD18_0224DC08: ; 0x0224DC08
 	add r1, #8
 	mov r2, #3
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 _0224DC4C:
 	add r0, r5, #0
 	add r0, #8
@@ -41735,7 +41735,7 @@ _0224DD4C:
 	bl FUN_02019570
 	add r0, r5, #0
 	add r0, #8
-	bl FUN_02019178
+	bl RemoveWindow
 	b _0224DD76
 _0224DD6C:
 	add r0, r5, #0
@@ -42303,7 +42303,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	ldr r0, [r5]
 	mov r3, #0x13
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r3, #1
 	add r1, r5, #0
 	str r3, [sp]
@@ -42319,7 +42319,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	ldr r0, [r5]
 	mov r2, #3
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r2, _0224E1FC ; =0x000003D9
 	add r0, r5, #4
 	mov r1, #1
@@ -42492,10 +42492,10 @@ MOD18_0224E26C: ; 0x0224E26C
 	ldr r0, [r4, #4]
 	bl FUN_0201AC68
 	add r0, r4, #4
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x24]
 	bl ListMenuItems_dtor
 	pop {r4, pc}
@@ -42761,7 +42761,7 @@ _0224E454:
 	ldr r0, [r5]
 	mov r3, #0x13
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r3, #1
 	add r1, r5, #0
 	str r3, [sp]
@@ -42777,7 +42777,7 @@ _0224E454:
 	ldr r0, [r5]
 	mov r2, #3
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _0224E688 ; =0x000003D9
 	add r0, #8
@@ -43021,10 +43021,10 @@ MOD18_0224E6A8: ; 0x0224E6A8
 	bl FUN_0201AC68
 	add r0, r4, #0
 	add r0, #8
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x18
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x28]
 	bl ListMenuItems_dtor
 	ldr r0, [r4, #4]

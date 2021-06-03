@@ -552,7 +552,7 @@ _02035440:
 	mov r1, #0x1
 	bl FUN_0200CCF8
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r6, #0x0
 	bl FUN_020358A0
 	ldr r0, [r5, #0x8]
@@ -616,7 +616,7 @@ FUN_0203549C: ; 0x0203549C
 	ldr r0, [sp, #0x1c]
 	mov r3, #0x14
 	ldr r0, [r0, #0x8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r3, #0xb
@@ -948,7 +948,7 @@ _0203576C:
 	ldr r0, [r4, #0x8]
 	add r1, #0x10
 	mov r2, #0x3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r3, #0xb
@@ -1093,7 +1093,7 @@ _020358CE:
 	bl FUN_0200CCF8
 	add r5, #0x10
 	add r0, r5, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 _020358E0:
 	pop {r3-r5, pc}
 	.balign 4
@@ -1587,7 +1587,7 @@ FUN_02035CA0: ; 0x02035CA0
 	add r4, r0, #0x0
 	bl FUN_02035718
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x0
 	bl FUN_020358A0
 	mov r1, #0x72
@@ -2659,7 +2659,7 @@ FUN_020365BC: ; 0x020365BC
 	ldr r0, [r4, #0x0]
 	bl FUN_0201AC68
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x0
 	bl FUN_020358A0
 	mov r0, #0x4
@@ -2929,7 +2929,7 @@ FUN_020367E8: ; 0x020367E8
 	ldr r0, [r4, #0x0]
 	bl FUN_0201AC68
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x0
 	bl FUN_020358A0
 	ldr r0, [r6, #0xc]

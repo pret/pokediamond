@@ -668,7 +668,7 @@ MOD24_02254D00: ; 0x02254D00
 	beq _02254D3C
 	ldr r0, [r4, #4]
 	ldr r2, _02254D40 ; =MOD24_0225510C
-	bl FUN_02019150
+	bl AddWindow
 	mov r2, #0xbe
 	ldr r1, [r4]
 	ldr r0, _02254D44 ; =0x000016E8
@@ -715,7 +715,7 @@ _02254D5C:
 	lsl r2, r2, #6
 	bl FUN_02089444
 	ldr r0, [r4, #0x70]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x70]
 	bl FreeToHeap
 _02254D7E:

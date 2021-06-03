@@ -4388,13 +4388,13 @@ _021D966A:
 _021D9674:
 	add r0, r4, #0
 	add r0, #0xc
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x1c
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x2c
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -4446,7 +4446,7 @@ MOD15_021D9694: ; 0x021D9694
 	add r0, r6, #0
 	add r1, #0xc
 	mov r3, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x15
 	str r0, [sp]
 	mov r0, #0x1b
@@ -4464,7 +4464,7 @@ MOD15_021D9694: ; 0x021D9694
 	add r0, r6, #0
 	add r1, #0x1c
 	mov r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xf
 	str r0, [sp]
 	mov r0, #8
@@ -4483,7 +4483,7 @@ MOD15_021D9694: ; 0x021D9694
 	add r1, #0x2c
 	mov r2, #0
 	mov r3, #0x17
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	add r0, #0xc2
 	str r0, [sp]
@@ -5645,7 +5645,7 @@ MOD15_021DA044: ; 0x021DA044
 	add r4, r2, #0
 	add r1, sp, #0x10
 	add r2, r5, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r0, sp, #0x10
 	bl PutWindowTilemap
 	add r0, sp, #0x10
@@ -5680,7 +5680,7 @@ MOD15_021DA044: ; 0x021DA044
 	add r0, r4, #0
 	bl String_dtor
 	add r0, sp, #0x10
-	bl FUN_02019178
+	bl RemoveWindow
 	add sp, #0x20
 	pop {r3, r4, r5, pc}
 	nop
@@ -6018,7 +6018,7 @@ _021DA31A:
 	add r1, sp, #0x28
 	mov r2, #1
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, sp, #0x28
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -6048,7 +6048,7 @@ _021DA31A:
 	add r0, r5, #0
 	bl String_dtor
 	add r0, sp, #0x28
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r6, #0x12
 	add r7, #0xa
@@ -6095,7 +6095,7 @@ _021DA3CC:
 	add r0, r4, #0
 	mov r2, #1
 	mov r3, #0x22
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #4
 	mov r1, #0x23
 	bl String_ctor
@@ -6149,7 +6149,7 @@ _021DA452:
 	add r0, r4, #0
 	bl String_dtor
 	add r0, sp, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [sp, #0x14]
 	add r0, #0xc8
 	str r0, [sp, #0x14]
@@ -6212,7 +6212,7 @@ _021DA4C2:
 	ldr r0, [sp, #0x14]
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r6, #0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -6234,7 +6234,7 @@ _021DA4C2:
 	add r0, r6, #0
 	bl FUN_02019548
 	add r0, r6, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r7, r7, #1
 	add r5, #0x10
 	add r4, r4, #4
@@ -6684,7 +6684,7 @@ MOD15_021DA828: ; 0x021DA828
 	add r1, #0x10
 	mov r2, #2
 	mov r3, #4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r3, #0
 	str r3, [sp]
 	mov r1, #0xc
@@ -6698,7 +6698,7 @@ MOD15_021DA828: ; 0x021DA828
 	ldr r0, [r4, #0xc]
 	add r1, #0x20
 	mov r2, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [r4, #0x30]
 	str r0, [r4, #0x34]
@@ -6734,10 +6734,10 @@ _021DA8C6:
 _021DA8D0:
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}

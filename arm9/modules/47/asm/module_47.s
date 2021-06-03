@@ -921,7 +921,7 @@ MOD47_02254E74: ; 0x02254E74
 	ldr r0, [r5, #4]
 	add r1, #0x20
 	mov r2, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x20
 	bl PutWindowTilemap
@@ -961,7 +961,7 @@ MOD47_02254F34: ; 0x02254F34
 	bl MOD20_022538A0
 	add r4, r0, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #4]
 	mov r1, #6
 	bl FUN_020178A0

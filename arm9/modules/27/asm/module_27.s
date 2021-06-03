@@ -631,7 +631,7 @@ _02254CE8:
 	lsl r3, r3, #0x18
 	ldr r0, [r0, #4]
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	bl PutWindowTilemap
 	ldr r1, [sp, #0x14]
@@ -1361,7 +1361,7 @@ _02255288:
 	add r4, #0x3c
 _0225529C:
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r5, #0x38]
 	add r6, r6, #1
 	add r4, #0x10

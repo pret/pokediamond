@@ -94,7 +94,7 @@ _0204817A:
 	ldr r0, [r4, #0x8]
 	ldr r2, _02048208 ; =UNK_020F4628
 	add r1, #0xc
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r5, #0x0
 	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
@@ -221,7 +221,7 @@ _020482B2:
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0xc
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x20]
 	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x1c]

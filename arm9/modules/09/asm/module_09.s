@@ -3825,7 +3825,7 @@ _02213CC4:
 	ldr r0, [r7, r0]
 	add r1, r5, #0
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r6, r6, #1
 	add r4, #8
 	add r5, #0x10
@@ -3941,7 +3941,7 @@ _02213D90:
 	lsl r2, r5, #3
 	ldr r0, [r4, r0]
 	add r2, r6, r2
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r5, #1
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
@@ -3990,7 +3990,7 @@ MOD09_02213DF8: ; 0x02213DF8
 	add r5, r5, r0
 _02213E0E:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #2
@@ -14311,7 +14311,7 @@ MOD09_02219474: ; 0x02219474
 	ldr r0, [r4, #4]
 	ldr r2, _02219490 ; =0x0221BC2C
 	add r1, #0x1c
-	bl FUN_02019150
+	bl AddWindow
 	ldr r1, _02219494 ; =0x0000114C
 	add r0, r4, #0
 	ldrb r1, [r4, r1]
@@ -14370,7 +14370,7 @@ _022194E2:
 	lsl r2, r4, #3
 	ldr r0, [r5, #4]
 	add r2, r6, r2
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -14408,7 +14408,7 @@ MOD09_02219520: ; 0x02219520
 	bl WindowArray_dtor
 	add r4, #0x1c
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	.align 2, 0
 

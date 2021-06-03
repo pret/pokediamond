@@ -81,31 +81,31 @@ FUN_02072548: ; 0x02072548
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	add r6, r0, #0x0
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	add r0, r6, #0x0
 	add r1, #0x10
 	add r2, #0x8
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	add r0, r6, #0x0
 	add r1, #0x20
 	add r2, #0x10
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	add r0, r6, #0x0
 	add r1, #0x30
 	add r2, #0x18
-	bl FUN_02019150
+	bl AddWindow
 	add r5, #0x40
 	add r4, #0x20
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_02019150
+	bl AddWindow
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -203,7 +203,7 @@ _02072632:
 	lsl r1, r1, #0x2
 	ldr r0, [r5, #0x0]
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	b _02072668
 _0207265A:
 	mov r1, #0x7d
@@ -211,44 +211,44 @@ _0207265A:
 	ldr r0, [r5, #0x0]
 	ldr r2, _020726D4 ; =UNK_020F9724
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 _02072668:
 	mov r1, #0x79
 	lsl r1, r1, #0x2
 	ldr r0, [r5, #0x0]
 	ldr r2, _020726D8 ; =UNK_020F972C
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0x81
 	lsl r1, r1, #0x2
 	ldr r0, [r5, #0x0]
 	ldr r2, _020726DC ; =UNK_020F9734
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0x85
 	lsl r1, r1, #0x2
 	ldr r0, [r5, #0x0]
 	ldr r2, _020726E0 ; =UNK_020F973C
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0x89
 	lsl r1, r1, #0x2
 	ldr r0, [r5, #0x0]
 	ldr r2, _020726E4 ; =UNK_020F9744
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0x8d
 	lsl r1, r1, #0x2
 	ldr r0, [r5, #0x0]
 	ldr r2, _020726E8 ; =UNK_020F974C
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r0, [r5, #0x0]
 	ldr r2, _020726EC ; =UNK_020F9754
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	add sp, #0x8
 	pop {r3-r5, pc}
 	.balign 4
@@ -274,7 +274,7 @@ FUN_020726F0: ; 0x020726F0
 _020726F8:
 	lsl r0, r5, #0x4
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -283,11 +283,11 @@ _020726F8:
 	mov r4, #0x95
 	lsl r4, r4, #0x2
 	add r0, r6, r4
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x1
 	bne _0207271E
 	add r0, r6, r4
-	bl FUN_02019178
+	bl RemoveWindow
 _0207271E:
 	pop {r4-r6, pc}
 
@@ -450,7 +450,7 @@ FUN_02072844: ; 0x02072844
 	ldr r0, [r5, #0x0]
 	add r1, r5, r1
 	mov r3, #0x13
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [sp, #0x14]
 	mov r1, #0xc
 	bl ListMenuItems_ctor
@@ -2034,7 +2034,7 @@ FUN_020734C0: ; 0x020734C0
 	add r1, #0x14
 	ldr r0, [r5, #0x0]
 	add r1, r5, r1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	mov r1, #0x1
@@ -2240,5 +2240,5 @@ FUN_020736F4: ; 0x020736F4
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}

@@ -445,7 +445,7 @@ MOD12_0222D9B0: ; 0x0222D9B0
 	bl MOD12_0222E0FC
 	add r0, r4, #0
 	add r0, #0x34
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -737,7 +737,7 @@ MOD12_0222DC80: ; 0x0222DC80
 	add r1, #0x34
 	mov r2, #1
 	mov r3, #0xb
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add sp, #0x14
 	pop {pc}
 
@@ -3601,7 +3601,7 @@ MOD12_0222F324: ; 0x0222F324
 	bl MOD12_0222F98C
 	add r0, r4, #0
 	add r0, #0x34
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -3991,7 +3991,7 @@ MOD12_0222F6B4: ; 0x0222F6B4
 	add r1, #0x34
 	mov r2, #1
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add sp, #0x14
 	pop {pc}
 	.align 2, 0
@@ -5435,7 +5435,7 @@ _02230254:
 	add r5, #0x78
 _02230296:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r6, r6, #1
 	add r5, #0x10
 	cmp r6, #2
@@ -5912,7 +5912,7 @@ MOD12_022306A4: ; 0x022306A4
 	add r1, #0x78
 	mov r2, #1
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb
 	str r0, [sp]
 	mov r0, #0x1b
@@ -5927,7 +5927,7 @@ MOD12_022306A4: ; 0x022306A4
 	add r4, #0x88
 	add r1, r4, #0
 	mov r2, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add sp, #0x14
 	pop {r3, r4, pc}
 
@@ -7577,7 +7577,7 @@ _022313B0:
 	add r1, sp, #0x34
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -7648,7 +7648,7 @@ _02231454:
 	sub r2, #8
 	bl FUN_020118C4
 	add r0, sp, #0x34
-	bl FUN_02019178
+	bl RemoveWindow
 	str r6, [r5]
 	add r3, sp, #0x28
 	ldmia r3!, {r0, r1}
@@ -9550,7 +9550,7 @@ _022322FE:
 	add r1, sp, #0x3c
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -9633,7 +9633,7 @@ _0223236C:
 	cmp r4, #0
 	bne _022323D0
 	add r0, sp, #0x3c
-	bl FUN_02019178
+	bl RemoveWindow
 _022323D0:
 	str r7, [r5]
 	add r3, sp, #0x30
@@ -10680,7 +10680,7 @@ _02232B9A:
 	cmp r0, #0
 	beq _02232BAA
 	ldr r0, [sp]
-	bl FUN_02019178
+	bl RemoveWindow
 _02232BAA:
 	mov r0, #2
 	lsl r0, r0, #8
@@ -10688,7 +10688,7 @@ _02232BAA:
 	cmp r0, #0
 	beq _02232BBA
 	add r0, r7, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _02232BBA:
 	mov r0, #0x25
 	lsl r0, r0, #4
@@ -10696,7 +10696,7 @@ _02232BBA:
 	cmp r0, #0
 	beq _02232BCA
 	add r0, r6, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _02232BCA:
 	ldr r0, [sp]
 	add r4, #0x14
@@ -10720,7 +10720,7 @@ _02232BEC:
 	cmp r0, #0
 	beq _02232BF8
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _02232BF8:
 	add r6, r6, #1
 	add r5, #0x14
@@ -10925,7 +10925,7 @@ MOD12_02232D7C: ; 0x02232D7C
 	cmp r0, #0
 	beq _02232DA8
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _02232DA8:
 	add r0, r4, #0
 	bl InitWindow
@@ -10939,7 +10939,7 @@ _02232DA8:
 	add r1, r4, #0
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -29914,7 +29914,7 @@ _0223BD1C:
 	add r1, sp, #0x38
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -29982,7 +29982,7 @@ _0223BD74:
 	add r2, #0xf8
 	bl FUN_020118C4
 	add r0, sp, #0x38
-	bl FUN_02019178
+	bl RemoveWindow
 	str r6, [r5]
 	add r3, sp, #0x2c
 	ldmia r3!, {r0, r1}
@@ -41472,7 +41472,7 @@ MOD12_022415A8: ; 0x022415A8
 	add r5, #0x34
 _022415D4:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r6, r6, #1
 	add r5, #0x10
 	cmp r6, #9
@@ -41928,7 +41928,7 @@ MOD12_022419D0: ; 0x022419D0
 	add r1, #0x34
 	mov r2, #1
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r2, #1
 	add r1, r4, #0
 	str r2, [sp]
@@ -41943,7 +41943,7 @@ MOD12_022419D0: ; 0x022419D0
 	ldr r0, [r4, #0x30]
 	add r1, #0x44
 	mov r3, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #5
 	str r0, [sp]
 	mov r0, #8
@@ -41959,7 +41959,7 @@ MOD12_022419D0: ; 0x022419D0
 	add r1, #0x54
 	mov r2, #1
 	mov r3, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #9
 	str r0, [sp]
 	mov r0, #8
@@ -41975,7 +41975,7 @@ MOD12_022419D0: ; 0x022419D0
 	add r1, #0x64
 	mov r2, #1
 	mov r3, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r1, #0xd
 	str r1, [sp]
 	mov r0, #8
@@ -41990,7 +41990,7 @@ MOD12_022419D0: ; 0x022419D0
 	add r1, #0x74
 	mov r2, #1
 	mov r3, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r2, #1
 	add r1, r4, #0
 	str r2, [sp]
@@ -42005,7 +42005,7 @@ MOD12_022419D0: ; 0x022419D0
 	ldr r0, [r4, #0x30]
 	add r1, #0x84
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #5
 	str r0, [sp]
 	mov r0, #8
@@ -42021,7 +42021,7 @@ MOD12_022419D0: ; 0x022419D0
 	add r1, #0x94
 	mov r2, #1
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #9
 	str r0, [sp]
 	mov r0, #8
@@ -42037,7 +42037,7 @@ MOD12_022419D0: ; 0x022419D0
 	add r1, #0xa4
 	mov r2, #1
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r1, #0xd
 	str r1, [sp]
 	mov r0, #8
@@ -42052,7 +42052,7 @@ MOD12_022419D0: ; 0x022419D0
 	add r1, r4, #0
 	mov r2, #1
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add sp, #0x14
 	pop {r3, r4, pc}
 	.align 2, 0

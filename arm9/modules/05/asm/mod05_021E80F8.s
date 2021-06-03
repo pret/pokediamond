@@ -26,7 +26,7 @@ MOD05_021E8110: ; 0x021E8110
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x1f
 	beq _021E8120
-	bl FUN_02019178
+	bl RemoveWindow
 _021E8120:
 	add r0, r4, #0
 	bl FreeToHeap
@@ -179,7 +179,7 @@ MOD05_021E820C: ; 0x021E820C
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x1f
 	beq _021E825A
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x12
 	str r0, [sp]
 	mov r0, #0x20

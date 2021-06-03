@@ -2068,7 +2068,7 @@ MOD81_02238D64: ; 0x02238D64
 	bl FUN_020178A0
 	add r0, r4, #0
 	add r0, #0x44
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
 	beq _02238DB6
@@ -2225,7 +2225,7 @@ MOD81_02238E44: ; 0x02238E44
 	ldr r0, [r4, #0x40]
 	add r1, #0x44
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	add r0, #0x44
 	mov r1, #0xf
@@ -9122,7 +9122,7 @@ _0223C5AC:
 	bl FUN_020178A0
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	beq _0223C5C6
@@ -9277,7 +9277,7 @@ MOD81_0223C658: ; 0x0223C658
 	ldr r0, [r4, #0x44]
 	add r1, #0x48
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #0xf

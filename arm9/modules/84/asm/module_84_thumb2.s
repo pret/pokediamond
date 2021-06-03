@@ -574,7 +574,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	ldr r1, [r4, #0x24]
 	add r0, r6, #0
 	lsr r2, r2, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r4, #0x24]
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -600,7 +600,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	ldr r1, [r4, #0x28]
 	add r0, r6, #0
 	lsr r2, r2, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _021D85B4 ; =MOD84_021D8784
 	add r1, r4, #0
 	mov r2, #0
@@ -626,9 +626,9 @@ _021D85C6:
 	ldr r0, [r4, #0x30]
 	bl String_dtor
 	ldr r0, [r4, #0x24]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x28]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x24]
 	bl FreeToHeap
 	ldr r0, [r4, #0x28]

@@ -325,7 +325,7 @@ MOD11_0222D840: ; 0x0222D840
 	ldr r0, [r4, r0]
 	bl MOD11_02258658
 	ldr r0, [r4, #8]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #4]
 	bl MOD11_0222E4E8
 	add r0, r4, #0
@@ -424,7 +424,7 @@ MOD11_0222D944: ; 0x0222D944
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -630,7 +630,7 @@ _0222D99A:
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #4]
 	ldr r1, [r5, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r5, #8]
 	mov r1, #0xff
 	bl FillWindowPixelBuffer
@@ -792,7 +792,7 @@ _0222DC42:
 	ldr r1, [r4, #8]
 	mov r2, #1
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r4, #8]
 	mov r1, #0xff
 	bl FillWindowPixelBuffer

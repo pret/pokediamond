@@ -4687,7 +4687,7 @@ MOD17_021D9918: ; 0x021D9918
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0x38]
 	ldr r1, [r5, r1]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _021D99D4 ; =0x000006A8
 	mov r1, #0xf
 	ldr r0, [r5, r0]
@@ -4906,7 +4906,7 @@ MOD17_021D9B30: ; 0x021D9B30
 	bl FUN_02019570
 	ldr r0, _021D9B48 ; =0x000006A8
 	ldr r0, [r4, r0]
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	nop
 _021D9B48: .word 0x000006A8
@@ -11279,7 +11279,7 @@ _021DC898:
 	add r1, r4, #0
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -11814,7 +11814,7 @@ MOD17_021DCC68: ; 0x021DCC68
 	str r0, [sp, #0x10]
 	ldr r1, [r5]
 	add r0, r7, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r5]
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -14260,7 +14260,7 @@ MOD17_021DDF1C: ; 0x021DDF1C
 	ldr r1, [r4, r1]
 	mov r2, #3
 	mov r3, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	mov r1, #0xa0
 	mov r2, #0xe
@@ -14295,7 +14295,7 @@ MOD17_021DDF84: ; 0x021DDF84
 	mov r0, #0x19
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x19
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]

@@ -514,12 +514,12 @@ FUN_020488D4: ; 0x020488D4
 _020488E4:
 	add r0, r4, #0x0
 	add r0, #0x1c
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	beq _020488F8
 	add r4, #0x1c
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 _020488F8:
 	ldr r0, [r5, #0x8]
 	mov r1, #0x3

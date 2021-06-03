@@ -525,7 +525,7 @@ _021D9C9A:
 	ldr r0, [r4, #4]
 	ldr r2, _021D9D6C ; =0x021DA04C
 	add r1, #0x10
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0
 	mov r0, #1
 	lsl r0, r0, #8
@@ -597,7 +597,7 @@ _021D9D4A:
 _021D9D50:
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #4]
 	mov r1, #2
 	bl FUN_02018744

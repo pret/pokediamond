@@ -28,7 +28,7 @@ struct UnkStruct_02046444
 struct UnkSavStruct80
 {
     u8 padding[0x8];
-    struct UnkStruct_02016B94_2 *unk08;
+    struct BgConfig *unk08;
     struct SaveBlock2 *saveBlock2; //0xC
     struct UnkStruct_0204639C *unk10;
     u8 padding2[0x8];

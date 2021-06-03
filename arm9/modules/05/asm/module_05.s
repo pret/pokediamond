@@ -2753,7 +2753,7 @@ _021E9C02:
 	ldr r0, [r0, #0x10]
 	mov r2, #3
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r1, #0
 	add r0, sp, #0x28
 	strh r1, [r0]
@@ -3164,7 +3164,7 @@ _021E9FA4:
 	mov r0, #0x83
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x83
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -3725,7 +3725,7 @@ _021EA430:
 	ldr r0, [r0, #0x10]
 	mov r2, #3
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r1, #0
 	add r0, sp, #0x28
 	strh r1, [r0]
@@ -4097,7 +4097,7 @@ _021EA76C:
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
@@ -5393,7 +5393,7 @@ _021EB18E:
 	ldr r1, [r4]
 	ldr r0, [r0, #8]
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r1, #0
 	add r0, sp, #0x14
 	strh r1, [r0]
@@ -5568,7 +5568,7 @@ _021EB394:
 	ldr r0, [r4]
 	bl FUN_02019570
 	ldr r0, [r4]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4]
 	mov r1, #1
 	bl WindowArray_dtor
@@ -15215,7 +15215,7 @@ MOD05_021EFEDC: ; 0x021EFEDC
 	ldr r0, [r0, #8]
 	mov r2, #3
 	mov r3, #0x13
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _021EFFBC ; =0x000003D9
 	add r0, #0x20
@@ -15362,7 +15362,7 @@ _021F0056:
 	bl FUN_0200CCF8
 	add r0, r5, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r1, #0
 	ldr r0, [r5, #4]
 	add r2, r1, #0
@@ -15565,12 +15565,12 @@ MOD05_021F01EC: ; 0x021F01EC
 	add r4, r0, #0
 	add r0, #0x10
 	add r5, r1, #0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021F0204
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_02019178
+	bl RemoveWindow
 _021F0204:
 	ldr r0, [r4, #0x3c]
 	ldr r2, [r4, #8]
@@ -15648,12 +15648,12 @@ MOD05_021F0290: ; 0x021F0290
 	bl String_dtor
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021F02C0
 	add r4, #0x10
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _021F02C0:
 	pop {r4, pc}
 	.balign 4, 0
@@ -28181,7 +28181,7 @@ MOD05_021F617C: ; 0x021F617C
 	bl FUN_0200D0E0
 	add r4, #0x38
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #1
 	pop {r4, pc}
 _021F61AA:

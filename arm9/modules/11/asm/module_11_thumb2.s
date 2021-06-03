@@ -183,7 +183,7 @@ _0222F30E:
 	ldr r1, [r5, #8]
 	mov r2, #1
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r5, #8]
 	mov r1, #0xff
 	bl FillWindowPixelBuffer
@@ -23859,7 +23859,7 @@ _0223AC50:
 	add r1, r5, #0
 	mov r2, #2
 	mov r3, #0x11
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	mov r1, #0xff
 	bl FillWindowPixelBuffer
@@ -24055,7 +24055,7 @@ _0223AE5E:
 	mov r1, #0
 	bl FUN_0200CCF8
 	add r0, r6, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r1, _0223AF50 ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]
@@ -28107,7 +28107,7 @@ _0223CF5C:
 	add r1, sp, #0x68
 	mov r2, #0xc
 	mov r3, #4
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -28167,7 +28167,7 @@ _0223CF5C:
 	ldr r0, [r5, #0x14]
 	bl FUN_02011AC0
 	add r0, sp, #0x68
-	bl FUN_02019178
+	bl RemoveWindow
 	add sp, #0x78
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -82482,7 +82482,7 @@ MOD11_022574F0: ; 0x022574F0
 	add r1, sp, #0x24
 	mov r2, #8
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -82570,7 +82570,7 @@ MOD11_022574F0: ; 0x022574F0
 	ldrh r2, [r3, r2]
 	bl MIi_CpuCopy16
 	add r0, sp, #0x24
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [sp, #0x18]
 	bl String_dtor
 	ldr r0, [sp, #0x1c]
@@ -83055,7 +83055,7 @@ _02257A26:
 	add r1, sp, #0x18
 	mov r2, #0xd
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -83116,7 +83116,7 @@ _02257A26:
 	mov r2, #0xe0
 	bl MIi_CpuCopy16
 	add r0, sp, #0x18
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r7, #0
 	bl String_dtor
 	add sp, #0x28
@@ -83181,7 +83181,7 @@ _02257B1E:
 	add r1, sp, #0x24
 	mov r2, #0xd
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -83241,7 +83241,7 @@ _02257B1E:
 	mov r2, #0xe0
 	bl MIi_CpuCopy16
 	add r0, sp, #0x24
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r6, #0
 	bl String_dtor
 	ldr r0, [sp, #0x18]
@@ -88290,7 +88290,7 @@ _0225A49C:
 	add r1, sp, #0x3c
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -88374,7 +88374,7 @@ _0225A50A:
 	cmp r4, #0
 	bne _0225A570
 	add r0, sp, #0x3c
-	bl FUN_02019178
+	bl RemoveWindow
 _0225A570:
 	str r7, [r5]
 	add r3, sp, #0x30
@@ -88591,7 +88591,7 @@ _0225A6E4:
 	cmp r0, #0
 	beq _0225A6FE
 	add r0, r7, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _0225A6FE:
 	add r0, r4, #0
 	add r0, #0xec
@@ -88599,7 +88599,7 @@ _0225A6FE:
 	cmp r0, #0
 	beq _0225A70E
 	add r0, r6, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _0225A70E:
 	mov r0, #0x4f
 	lsl r0, r0, #2
@@ -88607,7 +88607,7 @@ _0225A70E:
 	cmp r0, #0
 	beq _0225A71E
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _0225A71E:
 	ldr r0, [sp, #4]
 	add r4, #0x14
@@ -88911,7 +88911,7 @@ MOD11_0225A968: ; 0x0225A968
 	cmp r0, #0
 	beq _0225A994
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _0225A994:
 	add r0, r4, #0
 	bl InitWindow
@@ -88925,7 +88925,7 @@ _0225A994:
 	lsl r2, r2, #0x18
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff

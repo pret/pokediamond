@@ -678,7 +678,7 @@ MOD64_021D7A54: ; 0x021D7A54
 	ldr r0, [r0]
 	ldr r1, [r1]
 	mov r2, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x98
 	ldr r0, [r0]
@@ -724,7 +724,7 @@ MOD64_021D7AEC: ; 0x021D7AEC
 	add r4, r0, #0
 	add r0, #0x98
 	ldr r0, [r0]
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, #0x98
 	ldr r0, [r4]
 	bl FreeToHeap
@@ -3445,7 +3445,7 @@ _021D8F52:
 	ldr r1, [r1]
 	mov r2, #3
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _021D8FA8 ; =0x0001020A
 	mov r2, #5
 	str r0, [sp]
@@ -3476,7 +3476,7 @@ _021D8FB2:
 	add r0, r5, #0
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0
 	add r0, #0x9c
 	ldr r0, [r0]

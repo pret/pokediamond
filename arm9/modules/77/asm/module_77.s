@@ -1422,7 +1422,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	ldr r0, [r5, r1]
 	add r1, r1, #4
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x20
@@ -1555,7 +1555,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	ldr r0, [r5, r1]
 	add r1, #0x24
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x20
@@ -1618,10 +1618,10 @@ MOD77_021D8248: ; 0x021D8248
 	add r4, r0, #0
 	ldr r0, _021D8288 ; =0x0000C034
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, _021D828C ; =0x0000C014
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #2
 	ldr r0, [r4, r0]
@@ -1764,7 +1764,7 @@ MOD77_021D8370: ; 0x021D8370
 	add r6, r3, #0
 	ldr r0, [r5, r0]
 	str r1, [sp]
-	bl FUN_02019150
+	bl AddWindow
 	ldrh r0, [r6, #0x10]
 	ldr r1, [r5]
 	bl ListMenuItems_ctor
@@ -1844,7 +1844,7 @@ MOD77_021D8418: ; 0x021D8418
 	str r3, [sp, #4]
 	ldr r7, [sp, #0x44]
 	ldr r6, [sp, #0x48]
-	bl FUN_02019150
+	bl AddWindow
 	ldr r2, [sp, #0x40]
 	ldr r3, [r5]
 	mov r0, #0
@@ -1932,7 +1932,7 @@ MOD77_021D84D8: ; 0x021D84D8
 	bl FUN_0200CCF8
 	ldr r0, _021D8504 ; =0x0000C024
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, _021D8508 ; =0x0000C054
 	mov r1, #0
 	ldr r0, [r4, r0]
@@ -1968,7 +1968,7 @@ MOD77_021D8510: ; 0x021D8510
 	add r1, #0x34
 	ldr r2, _021D85C8 ; =0x021D8F28
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x30
@@ -2057,7 +2057,7 @@ MOD77_021D85E0: ; 0x021D85E0
 	add r1, #0x34
 	ldr r2, _021D868C ; =0x021D8F28
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x30
@@ -2130,7 +2130,7 @@ MOD77_021D8698: ; 0x021D8698
 	bl FUN_0200CCF8
 	ldr r0, _021D86B0 ; =0x0000C044
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	.align 2, 0
 _021D86B0: .word 0x0000C044

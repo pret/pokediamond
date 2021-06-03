@@ -804,7 +804,7 @@ CreateYesNoMenu: ; 0x020020EC
 	strb r0, [r3, #0xb]
 	ldr r2, [sp, #0x8]
 	add r0, r7, #0x0
-	bl FUN_02019150
+	bl AddWindow
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0xc]
 	ldr r3, [sp, #0x10]
@@ -883,7 +883,7 @@ FUN_020021EC: ; 0x020021EC
 	mov r1, #0x0
 	bl FUN_0200CCF8
 	ldr r0, [r5, #0x4]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r1, [r5, #0x4]
 	add r0, r4, #0x0
 	bl FreeToHeapExplicit

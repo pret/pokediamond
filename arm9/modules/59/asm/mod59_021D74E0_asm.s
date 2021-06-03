@@ -873,7 +873,7 @@ _021D7C5E:
 	ldr r0, [r5, #0x18]
 	ldr r2, _021D7D5C ; =0x021D9DB8
 	add r1, #0x1c
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x20
@@ -974,7 +974,7 @@ _021D7D36:
 _021D7D46:
 	add r0, r5, #0
 	add r0, #0x1c
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0
 	str r0, [r5, #0x50]
 	mov r4, #1
@@ -1048,7 +1048,7 @@ _021D7DC4:
 	add r1, r5, #0
 	ldr r0, [r5, #0x18]
 	add r1, #0x30
-	bl FUN_02019150
+	bl AddWindow
 	ldr r1, [r5]
 	add r0, r6, #0
 	bl ListMenuItems_ctor
@@ -1129,7 +1129,7 @@ _021D7E66:
 	bl FUN_0200CCF8
 	add r0, r5, #0
 	add r0, #0x30
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r1, #0
 	ldr r0, [r5, #0x40]
 	add r2, r1, #0
@@ -1225,7 +1225,7 @@ _021D7EFA:
 	ldr r0, [r4, #0x18]
 	add r1, #0x1c
 	add r2, sp, #0x14
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0
 	mov r0, #0xc0
 	str r0, [sp]
@@ -1264,7 +1264,7 @@ _021D7F7C:
 	add r1, r4, #0
 	ldr r0, [r4, #0x18]
 	add r1, #0x1c
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0
 	mov r0, #0xc0
 	str r0, [sp]
@@ -1334,7 +1334,7 @@ _021D8016:
 	b _021D803C
 _021D8028:
 	add r0, #0x1c
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
 	bl FUN_02018744

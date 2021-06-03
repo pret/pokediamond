@@ -2641,7 +2641,7 @@ _021D89A6:
 	add r0, r5, #0
 	add r1, r6, r1
 	add r2, r7, r2
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -2666,7 +2666,7 @@ MOD57_021D89D4: ; 0x021D89D4
 _021D89DA:
 	lsl r0, r4, #4
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10

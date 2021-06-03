@@ -7,7 +7,7 @@
 #include "PAD_pad.h"
 
 
-const struct UnkStruct_02016B94_4 UNK_020FF49C = { 0, 3, 3, 0x1a, 0x12, 1, 0x23 };
+const struct WindowTemplate UNK_020FF49C = {0, 3, 3, 0x1a, 0x12, 1, 0x23 };
 
 const struct HeapParam UNK_020FF4A4[] = {
     {0x00020000, OS_ARENA_MAIN}
@@ -22,7 +22,7 @@ const struct GraphicsBanks UNK_020FF4D8 = { bg : 3 };
 u32 sErrorMessagePrinterLock;
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
-extern void FUN_0200CB00(struct UnkStruct_02016B94_2 *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
+extern void FUN_0200CB00(struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
 extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);
 extern void FUN_0200CCA4(struct Window *param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_0200E394(u32 param0);
@@ -38,7 +38,7 @@ THUMB_FUNC void VBlankHandler()
 THUMB_FUNC void PrintErrorMessageAndReset()
 {
 
-    struct UnkStruct_02016B94_2 *ptr;
+    struct BgConfig *ptr;
     struct Window buf;
 
     if (sErrorMessagePrinterLock != 1)
@@ -92,7 +92,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         struct String *str = String_ctor(6 << 6, 0);
 
         FUN_0201BD5C();
-        FUN_02019150(ptr, &buf, &UNK_020FF49C);
+        AddWindow(ptr, &buf, &UNK_020FF49C);
         FillWindowPixelRect(&buf, 15, 0, 0, 0xd0, 0x90);
         FUN_0200CCA4(&buf, 0, 0x1f7, 2);
 
@@ -126,7 +126,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FUN_0200E3A0(PM_LCD_TOP, 0x7FFF);
         FUN_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
 
-        FUN_02019178(&buf);
+        RemoveWindow(&buf);
 
         DestroyMsgData(msg_data);
         FreeToHeap(ptr);

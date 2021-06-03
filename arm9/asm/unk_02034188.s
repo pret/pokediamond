@@ -129,7 +129,7 @@ FUN_02034188: ; 0x02034188
 	ldr r0, [sp, #0x10]
 	ldr r2, _02034398 ; =UNK_020EECF8
 	add r1, sp, #0x14
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd0
 	str r0, [sp, #0x0]
 	mov r0, #0x90
@@ -189,7 +189,7 @@ _020342E4:
 	b _020342E4
 _02034308:
 	add r0, sp, #0x14
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [sp, #0xc]
 	bl DestroyMsgData
 	mov r0, #0x0

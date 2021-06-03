@@ -3,8 +3,8 @@
 
 #include "unk_02016B94.h"
 
-u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct UnkStruct_02016B94_2 * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id);
-void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct UnkStruct_02016B94_2 * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id);
+u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id);
+void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id);
 void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, u32 whichRoutine, u32 baseAddr, u32 szByte, u32 heap_id);
 void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, u32 whichRoutine, u32 srcOffset, u32 baseAddr, u32 szByte, u32 heap_id);
 u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 whichRoutine, u32 baseAddr, u32 szByte, BOOL isCompressed, u32 heap_id);

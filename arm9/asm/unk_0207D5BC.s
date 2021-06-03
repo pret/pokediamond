@@ -79,7 +79,7 @@ _0207D5C4:
 	ldr r0, [r7, #0x0]
 	add r1, r4, r6
 	add r2, r2, r3
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r4, r6
 	mov r1, #0x0
 	bl FillWindowPixelBuffer
@@ -207,7 +207,7 @@ _0207D6B4:
 	ldr r0, [r4, #0x0]
 	add r1, r1, r7
 	add r2, r5, #0x0
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0x92
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -284,7 +284,7 @@ FUN_0207D74C: ; 0x0207D74C
 	add r5, r5, #0x4
 _0207D758:
 	add r0, r5, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #0x1
 	add r5, #0x10
 	cmp r4, #0x24

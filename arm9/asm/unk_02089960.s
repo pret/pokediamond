@@ -289,7 +289,7 @@ FUN_02089B80: ; 0x02089B80
 	ldr r0, [r4, #0x18]
 	ldr r2, _02089BC8 ; =UNK_020FF378
 	add r1, #0x20
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp, #0x0]
 	mov r0, #0x20
@@ -311,7 +311,7 @@ FUN_02089BCC: ; 0x02089BCC
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	pop {r4, pc}

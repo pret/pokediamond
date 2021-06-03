@@ -3,7 +3,7 @@
 #include "NNS_g2d.h"
 #include "gf_gfx_loader.h"
 
-THUMB_FUNC u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct UnkStruct_02016B94_2 * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id)
+THUMB_FUNC u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id)
 {
     NNSG2dCharacterData * pCharData;
     void * pFile = GfGfxLoader_LoadFromNarc(narcId, memberNo, isCompressed, heap_id, FALSE);
@@ -20,7 +20,7 @@ THUMB_FUNC u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct UnkS
     return szByte;
 }
 
-THUMB_FUNC void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct UnkStruct_02016B94_2 * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id)
+THUMB_FUNC void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id)
 {
     NNSG2dScreenData * pScreenData;
     void * pFile = GfGfxLoader_LoadFromNarc(narcId, memberNo, isCompressed, heap_id, TRUE);

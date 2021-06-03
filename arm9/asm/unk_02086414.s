@@ -544,7 +544,7 @@ FUN_02086784: ; 0x02086784
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x10]
 	add r0, r7, #0x0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0x0
 	mov r1, #0x1
 	mov r2, #0x14
@@ -655,7 +655,7 @@ FUN_02086878: ; 0x02086878
 	str r0, [sp, #0x10]
 	add r0, r6, #0x0
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x2
 	mov r1, #0x47
 	bl ListMenuItems_ctor
@@ -739,7 +739,7 @@ FUN_02086960: ; 0x02086960
 	bl FUN_02019570
 	add r0, r4, #0x0
 	add r0, #0x28
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x48]
 	mov r1, #0x0
 	bl FUN_02001C5C
@@ -753,7 +753,7 @@ FUN_0208698C: ; 0x0208698C
 	add r4, r0, #0x0
 	bl FUN_02019570
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 
 	thumb_func_start FUN_0208699C

@@ -822,7 +822,7 @@ MOD38_02254E28: ; 0x02254E28
 	ldr r0, [r5, #4]
 	add r1, #0x74
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #4
 	str r0, [sp]
 	mov r2, #6
@@ -840,7 +840,7 @@ MOD38_02254E28: ; 0x02254E28
 	ldr r0, [r5, #4]
 	add r1, #0x84
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #8
 	str r0, [sp]
 	mov r2, #6
@@ -858,7 +858,7 @@ MOD38_02254E28: ; 0x02254E28
 	ldr r0, [r5, #4]
 	add r1, #0x94
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x16
@@ -876,7 +876,7 @@ MOD38_02254E28: ; 0x02254E28
 	add r1, #0xa4
 	mov r2, #6
 	mov r3, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x74
 	bl PutWindowTilemap
@@ -902,16 +902,16 @@ MOD38_02254EF4: ; 0x02254EF4
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, #0x74
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x84
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x94
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, #0xa4
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	thumb_func_end MOD38_02254EF4
 

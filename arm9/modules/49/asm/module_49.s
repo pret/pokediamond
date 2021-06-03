@@ -418,7 +418,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	ldr r0, [r5, #4]
 	add r1, sp, #0x1c
 	mov r2, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, sp, #0x1c
 	mov r1, #4
 	bl FillWindowPixelBuffer
@@ -455,7 +455,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	bl String_dtor
 _02254B94:
 	add r0, sp, #0x1c
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r5, #4]
 	mov r1, #6
 	bl FUN_02017CD0

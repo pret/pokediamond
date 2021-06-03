@@ -1402,7 +1402,7 @@ MOD61_021D7FF4: ; 0x021D7FF4
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0x18]
 	add r1, #0x44
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #8
 	str r0, [sp]
 	mov r0, #0x1a
@@ -1417,7 +1417,7 @@ MOD61_021D7FF4: ; 0x021D7FF4
 	ldr r0, [r5, #0x18]
 	add r1, #0x54
 	mov r3, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xd
 	str r0, [sp]
 	mov r0, #0x1a
@@ -1432,7 +1432,7 @@ MOD61_021D7FF4: ; 0x021D7FF4
 	ldr r0, [r5, #0x18]
 	add r1, #0x64
 	mov r3, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x14
 	str r0, [sp]
 	mov r0, #8
@@ -1447,7 +1447,7 @@ MOD61_021D7FF4: ; 0x021D7FF4
 	ldr r0, [r5, #0x18]
 	add r1, #0x74
 	mov r3, #0x15
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x14
 	str r0, [sp]
 	mov r0, #8
@@ -1462,7 +1462,7 @@ MOD61_021D7FF4: ; 0x021D7FF4
 	ldr r0, [r5, #0x18]
 	add r1, #0x84
 	mov r3, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -1477,7 +1477,7 @@ MOD61_021D7FF4: ; 0x021D7FF4
 	add r1, #0x94
 	mov r2, #0
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r4, #0
 	add r5, #0x44
 	add r6, r4, #0
@@ -1515,7 +1515,7 @@ _021D80FC:
 	add r0, r5, #0
 	bl FUN_02019570
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #6

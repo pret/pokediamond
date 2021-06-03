@@ -8472,7 +8472,7 @@ MOD06_0223D63C: ; 0x0223D63C
 	ldr r0, [r5]
 	add r1, #8
 	add r2, r4, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	b _0223D710
 _0223D6B8:
 	mov r4, #2
@@ -8514,7 +8514,7 @@ _0223D6B8:
 	ldr r0, [r5]
 	add r1, #8
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 _0223D710:
 	add r0, r5, #0
 	add r0, #0x84
@@ -8621,7 +8621,7 @@ MOD06_0223D7B8: ; 0x0223D7B8
 	bl ListMenuItems_dtor
 	add r4, #8
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 
 	thumb_func_start MOD06_0223D7EC
@@ -8649,7 +8649,7 @@ _0223D804:
 	bl FUN_0200D0E0
 	add r0, r4, #0
 	add r0, #0x18
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x88
 	ldr r0, [r0]
@@ -8825,13 +8825,13 @@ _0223D984:
 	ldr r0, [r5]
 	ldr r2, _0223D9BC ; =0x0224F350
 	add r1, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	b _0223D9A6
 _0223D99C:
 	ldr r0, [r5]
 	add r1, r4, #0
 	add r2, r7, #0
-	bl FUN_02019150
+	bl AddWindow
 _0223D9A6:
 	add r6, r6, #1
 	add r4, #0x10
@@ -8857,7 +8857,7 @@ _0223D9D0:
 	add r0, r5, #0
 	bl FUN_02019570
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #6
@@ -10917,7 +10917,7 @@ MOD06_0223EB04: ; 0x0223EB04
 _0223EB1A:
 	add r0, r4, #0
 	add r0, #0x18
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	bl MOD06_0223D63C
 	mov r0, #1
@@ -11285,7 +11285,7 @@ _0223EE16:
 	ldr r0, _0223EE70 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x40
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	bne _0223EE34
 	ldr r0, _0223EE70 ; =0x02252420
@@ -11333,7 +11333,7 @@ MOD06_0223EE74: ; 0x0223EE74
 	ldr r0, _0223EF10 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x20
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	bne _0223EEB8
 	ldr r0, _0223EF10 ; =0x02252420
@@ -11358,7 +11358,7 @@ MOD06_0223EE74: ; 0x0223EE74
 	ldr r0, [r1, #0x68]
 	add r1, #0x20
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 _0223EEB8:
 	ldr r0, _0223EF10 ; =0x02252420
 	ldr r2, _0223EF14 ; =0x000003D9
@@ -11570,7 +11570,7 @@ _0223F060:
 	cmp r1, #0
 	beq _0223F07A
 	add r0, #0x40
-	bl FUN_02019178
+	bl RemoveWindow
 _0223F07A:
 	ldr r0, _0223F08C ; =0x02252420
 	ldr r0, [r0]
@@ -11820,7 +11820,7 @@ MOD06_0223F270: ; 0x0223F270
 	ldr r0, _0223F330 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	bne _0223F2AA
 	ldr r0, _0223F330 ; =0x02252420
@@ -11840,7 +11840,7 @@ MOD06_0223F270: ; 0x0223F270
 	add r1, #0x30
 	ldr r0, [r0, #8]
 	mov r3, #0x17
-	bl FUN_02019064
+	bl AddWindowParameterized
 _0223F2AA:
 	ldr r0, _0223F330 ; =0x02252420
 	ldr r2, _0223F334 ; =0x000003D9
@@ -12578,7 +12578,7 @@ MOD06_0223F8C8: ; 0x0223F8C8
 	ldr r0, _0223F950 ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	bne _0223F910
 	ldr r0, _0223F950 ; =0x02252420
@@ -12598,7 +12598,7 @@ MOD06_0223F8C8: ; 0x0223F8C8
 	add r1, #0x30
 	ldr r0, [r0, #8]
 	mov r3, #0x16
-	bl FUN_02019064
+	bl AddWindowParameterized
 _0223F910:
 	ldr r0, _0223F950 ; =0x02252420
 	ldr r2, _0223F954 ; =0x000003D9
@@ -13859,7 +13859,7 @@ MOD06_02240364: ; 0x02240364
 	bl FUN_02019570
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x97
 	ldrb r0, [r0]
@@ -13877,7 +13877,7 @@ MOD06_02240364: ; 0x02240364
 	ldr r0, _022403DC ; =0x02252420
 	ldr r0, [r0]
 	add r0, #0x30
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0
 	add r4, #0x97
 	strb r0, [r4]
@@ -14468,7 +14468,7 @@ MOD06_02240864: ; 0x02240864
 	add r5, r0, #0
 	add r0, #0x54
 	add r4, r1, #0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	bne _0224089E
 	add r0, r5, #0
@@ -14528,7 +14528,7 @@ MOD06_022408D4: ; 0x022408D4
 _022408EC:
 	add r4, #0x54
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	.align 2, 0
 
@@ -14572,7 +14572,7 @@ MOD06_02240924: ; 0x02240924
 	add r6, r6, #1
 _02240940:
 	add r0, r4, #0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	bne _022409D2
 	add r0, r6, #2
@@ -14594,7 +14594,7 @@ _02240940:
 	add r1, r4, #0
 	ldr r0, [r0, #8]
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _02240A20 ; =0x000003D9
 	add r0, #0x34
@@ -14698,7 +14698,7 @@ MOD06_02240A28: ; 0x02240A28
 	bl FUN_0201AC68
 	add r0, r4, #0
 	add r0, #0x34
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #8]
 	bl ListMenuItems_dtor
 	mov r0, #0
@@ -14810,7 +14810,7 @@ MOD06_02240B04: ; 0x02240B04
 	ldr r0, [r0, #8]
 	mov r2, #3
 	mov r3, #0x16
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	ldr r2, _02240BB0 ; =0x000003D9
 	add r0, #0x44
@@ -14933,7 +14933,7 @@ _02240C1A:
 	bl FUN_0201AC68
 	add r0, r5, #0
 	add r0, #0x44
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r5, #0xc]
 	bl ListMenuItems_dtor
 	mov r0, #0
@@ -14984,7 +14984,7 @@ MOD06_02240C58: ; 0x02240C58
 	ldr r0, [r0, #0x10]
 	mov r3, #4
 	ldr r0, [r0, #8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [sp, #0x24]
 	ldr r2, _02240F00 ; =0x000003D9
 	mov r1, #1
@@ -15289,7 +15289,7 @@ MOD06_02240F1C: ; 0x02240F1C
 	bl FUN_0201AC68
 	add r4, #0x24
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	.align 2, 0
 
@@ -19005,7 +19005,7 @@ MOD06_02242CDC: ; 0x02242CDC
 	add r1, r4, #4
 	mov r2, #3
 	add r3, r6, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #4
@@ -19433,7 +19433,7 @@ MOD06_02243024: ; 0x02243024
 	bl FUN_0200D0E0
 	add r0, r6, #0
 	add r0, #0x14
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r6, #0
 	add r0, #0x88
 	mov r1, #0
@@ -19444,7 +19444,7 @@ MOD06_02243024: ; 0x02243024
 	mov r1, #0
 	bl FUN_0200CCF8
 	add r0, r6, #4
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r4, #0
 	add r5, r6, #0
 _02243060:
@@ -40876,7 +40876,7 @@ MOD06_0224D46C: ; 0x0224D46C
 	add r0, r5, #0
 	add r1, r4, #0
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	mov r3, #0xb
@@ -41095,7 +41095,7 @@ MOD06_0224D6A4: ; 0x0224D6A4
 	add r0, r4, #0
 	bl FUN_02019570
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
@@ -41810,7 +41810,7 @@ MOD06_0224DC5C: ; 0x0224DC5C
 	add r0, r4, #0
 	mov r2, #3
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r5, #4]
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -41836,7 +41836,7 @@ MOD06_0224DCB4: ; 0x0224DCB4
 	ldr r0, [r4, #4]
 	bl FUN_02019570
 	ldr r0, [r4, #4]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #4]
 	mov r1, #1
 	bl WindowArray_dtor
@@ -42055,7 +42055,7 @@ MOD06_0224DE60: ; 0x0224DE60
 	add r0, r4, #0
 	mov r2, #3
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [sp, #0x14]
 	bl ScrStrBufs_new
 	str r0, [r6, #8]
@@ -42108,7 +42108,7 @@ _0224DEE6:
 	ldr r0, [r6, #4]
 	bl FUN_02019570
 	ldr r0, [r6, #4]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r6, #4]
 	mov r1, #1
 	bl WindowArray_dtor
@@ -42230,7 +42230,7 @@ _0224DFC0:
 	add r0, r4, #0
 	mov r2, #3
 	mov r3, #0x11
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [sp, #0x14]
 	bl ScrStrBufs_new
 	mov r1, #0x49
@@ -42449,7 +42449,7 @@ _0224E1C0:
 	ldr r0, [r6, #4]
 	bl FUN_02019570
 	ldr r0, [r6, #4]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r6, #4]
 	mov r1, #1
 	bl WindowArray_dtor

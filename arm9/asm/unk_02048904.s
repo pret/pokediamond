@@ -2064,7 +2064,7 @@ _0204992E:
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0x24
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x3
 	str r0, [r4, #0x0]
 	b _02049AB2
@@ -2075,7 +2075,7 @@ _02049946:
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0x24
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x5
 	str r0, [r4, #0x0]
 	b _02049AB2

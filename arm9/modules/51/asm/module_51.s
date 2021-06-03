@@ -162,7 +162,7 @@ _02254960:
 	add r1, r5, #0
 	lsr r2, r2, #0x18
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -189,7 +189,7 @@ _02254960:
 	add r1, #0x10
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x10
 	mov r1, #0
@@ -217,7 +217,7 @@ _02254960:
 	add r1, #0x20
 	lsr r2, r2, #0x18
 	mov r3, #0xc
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x20
 	mov r1, #0
@@ -256,12 +256,12 @@ MOD51_02254A40: ; 0x02254A40
 _02254A46:
 	add r0, r5, #0
 	add r0, #0x10
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x38
 	cmp r4, #3

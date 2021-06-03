@@ -1096,7 +1096,7 @@ MOD36_0225503C: ; 0x0225503C
 	add r1, r4, #0
 	ldr r0, [r4, #4]
 	add r1, #0x48
-	bl FUN_02019150
+	bl AddWindow
 	ldr r0, [r4]
 	mov r2, #0xbe
 	ldr r0, [r0, #8]
@@ -1151,7 +1151,7 @@ _022550C4:
 	bl FUN_02089444
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #4]
 	mov r1, #6
 	bl FUN_020178A0

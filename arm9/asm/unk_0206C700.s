@@ -144,7 +144,7 @@ FUN_0206C700: ; 0x0206C700
 	ldr r1, [r4, #0x4]
 	mov r2, #0x1
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r4, #0x4]
 	mov r1, #0xff
 	bl FillWindowPixelBuffer

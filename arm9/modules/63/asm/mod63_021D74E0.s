@@ -2054,7 +2054,7 @@ _021D844C:
 	ldr r2, _021D85D0 ; =MOD63_021DB9A0
 	add r0, r5, #0
 	add r1, #0xac
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0
 	mov r0, #0xe0
 	str r0, [sp]
@@ -2183,7 +2183,7 @@ MOD63_021D8644: ; 0x021D8644
 	add r0, r2, #0
 	bx r3
 	.align 2, 0
-_021D864C: .word FUN_02019178
+_021D864C: .word RemoveWindow
 	thumb_func_end MOD63_021D8644
 
 	thumb_func_start MOD63_021D8650

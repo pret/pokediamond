@@ -1077,7 +1077,7 @@ _021D7D6A:
 	ldr r0, [r7]
 	add r1, r5, #0
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r6, r6, #1
 	add r4, #8
 	add r5, #0x10
@@ -1095,7 +1095,7 @@ MOD67_021D7D84: ; 0x021D7D84
 	add r5, r0, #4
 _021D7D8A:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #4

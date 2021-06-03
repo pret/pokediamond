@@ -1211,13 +1211,13 @@ MOD55_021D7EE4: ; 0x021D7EE4
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D7F02
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D7F02:
 	mov r0, #0
 	str r0, [sp]
@@ -1233,7 +1233,7 @@ _021D7F02:
 	ldr r0, [r5, #4]
 	add r1, r5, r1
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1274,11 +1274,11 @@ _021D7F02:
 	add r7, r5, #0
 _021D7F76:
 	add r0, r4, #0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D7F86
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D7F86:
 	ldr r0, [sp, #0x14]
 	ldr r1, [sp, #0x18]
@@ -1302,7 +1302,7 @@ _021D7F86:
 	add r1, r4, #0
 	mov r2, #3
 	mov r3, #7
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -1512,11 +1512,11 @@ MOD55_021D8140: ; 0x021D8140
 	add r5, r6, r0
 _021D814C:
 	add r0, r5, #0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D815C
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D815C:
 	add r4, r4, #1
 	add r5, #0x10
@@ -1528,11 +1528,11 @@ _021D815C:
 	add r4, r6, r0
 _021D816C:
 	add r0, r4, #0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D817C
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D817C:
 	add r5, r5, #1
 	add r4, #0x10
@@ -1541,35 +1541,35 @@ _021D817C:
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D819C
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D819C:
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D81B4
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D81B4:
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D81CC
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D81CC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2748,13 +2748,13 @@ MOD55_021D8A7C: ; 0x021D8A7C
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D8AEE
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D8AEE:
 	mov r0, #0
 	str r0, [sp]
@@ -2770,7 +2770,7 @@ _021D8AEE:
 	ldr r0, [r5, #4]
 	add r1, r5, r1
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2805,13 +2805,13 @@ _021D8AEE:
 	mov r0, #0xde
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D8B6C
 	mov r0, #0xde
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D8B6C:
 	mov r0, #0x15
 	str r0, [sp]
@@ -2829,7 +2829,7 @@ _021D8B6C:
 	add r1, r5, r1
 	mov r2, #3
 	mov r3, #0xf
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xde
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2878,11 +2878,11 @@ _021D8BEE:
 	str r0, [sp, #0x18]
 _021D8BF2:
 	add r0, r4, #0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D8C02
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D8C02:
 	lsr r2, r6, #0x1f
 	lsl r1, r6, #0x1e
@@ -2914,7 +2914,7 @@ _021D8C02:
 	add r1, r4, #0
 	mov r2, #3
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -3259,13 +3259,13 @@ _021D8F02:
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D8F1A
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D8F1A:
 	mov r1, #9
 	str r1, [sp]
@@ -3288,7 +3288,7 @@ _021D8F1A:
 	add r1, r5, r1
 	mov r2, #2
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	ldr r2, _021D8FDC ; =0x000001D9
@@ -3452,7 +3452,7 @@ _021D9098:
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xea
 	lsl r0, r0, #2
 	mov r1, #0
@@ -3577,13 +3577,13 @@ MOD55_021D9184: ; 0x021D9184
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D91D6
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D91D6:
 	mov r0, #0
 	str r0, [sp]
@@ -3600,7 +3600,7 @@ _021D91D6:
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #4]
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3649,13 +3649,13 @@ _021D91D6:
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D9278
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D9278:
 	mov r1, #0xd
 	str r1, [sp]
@@ -3672,7 +3672,7 @@ _021D9278:
 	add r1, r5, r1
 	mov r2, #3
 	mov r3, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3738,13 +3738,13 @@ _021D92CE:
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D9338
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D9338:
 	mov r0, #8
 	str r0, [sp]
@@ -3762,7 +3762,7 @@ _021D9338:
 	add r1, r5, r1
 	mov r2, #3
 	mov r3, #9
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r2, r5, #0
 	add r2, #0xb8
 	ldr r0, [r5, #0x10]
@@ -4136,13 +4136,13 @@ _021D9618:
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D969A
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D969A:
 	mov r0, #0
 	str r0, [sp]
@@ -4159,7 +4159,7 @@ _021D969A:
 	str r0, [sp, #0x10]
 	ldr r0, [r4, #4]
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xe6
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -4215,13 +4215,13 @@ _021D969A:
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D974E
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D974E:
 	mov r0, #0x12
 	str r0, [sp]
@@ -4238,7 +4238,7 @@ _021D974E:
 	str r0, [sp, #0x10]
 	ldr r0, [r4, #4]
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -4353,13 +4353,13 @@ _021D9864:
 	mov r0, #0xd2
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021D987C
 	mov r0, #0xd2
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021D987C:
 	mov r0, #4
 	str r0, [sp]
@@ -4377,7 +4377,7 @@ _021D987C:
 	add r1, r4, r1
 	mov r2, #3
 	mov r3, #0xf
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xd2
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -5354,13 +5354,13 @@ MOD55_021DA0A4: ; 0x021DA0A4
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021DA0D0
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021DA0D0:
 	mov r0, #0x13
 	str r0, [sp]
@@ -5378,7 +5378,7 @@ _021DA0D0:
 	ldr r0, [r5, #4]
 	add r1, r5, r1
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r2, r5, #0
 	add r2, #0xb8
 	ldr r0, [r5, #0x10]
@@ -5435,13 +5435,13 @@ MOD55_021DA15C: ; 0x021DA15C
 	lsl r0, r0, #2
 	add r0, r5, r0
 	add r4, r1, #0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0
 	beq _021DA17C
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 _021DA17C:
 	mov r0, #0x13
 	str r0, [sp]
@@ -5459,7 +5459,7 @@ _021DA17C:
 	ldr r0, [r5, #4]
 	add r1, r5, r1
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r2, r5, #0
 	add r2, #0xb8
 	ldr r0, [r5, #0x10]

@@ -790,7 +790,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	ldr r0, [r5, r0]
 	ldr r2, _021D7BB4 ; =0x021DECE4
 	add r1, #8
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0x4f
@@ -817,7 +817,7 @@ MOD85_021D7BB8: ; 0x021D7BB8
 	add r0, r6, #0
 	bl FUN_02019570
 	add r0, r6, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, _021D7BE8 ; =0x00000408
 	ldr r0, [r5, r0]
 	bl DestroyMsgData

@@ -7424,7 +7424,7 @@ MOD75_021EA604: ; 0x021EA604
 	add r1, r4, #4
 	mov r2, #2
 	mov r3, #0xe
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x12
 	str r0, [sp]
 	mov r0, #0x20
@@ -7440,7 +7440,7 @@ MOD75_021EA604: ; 0x021EA604
 	ldr r0, [r4]
 	add r1, #0x14
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xd
 	str r0, [sp]
 	mov r0, #0x24
@@ -7455,7 +7455,7 @@ MOD75_021EA604: ; 0x021EA604
 	add r1, #0x24
 	mov r2, #2
 	mov r3, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0xe
@@ -7471,7 +7471,7 @@ MOD75_021EA604: ; 0x021EA604
 	add r1, #0x34
 	mov r2, #0
 	mov r3, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0xd
@@ -7487,7 +7487,7 @@ MOD75_021EA604: ; 0x021EA604
 	add r1, #0x44
 	mov r2, #0
 	mov r3, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb
 	str r0, [sp]
 	mov r0, #0xc
@@ -7503,7 +7503,7 @@ MOD75_021EA604: ; 0x021EA604
 	ldr r0, [r4]
 	add r1, #0x54
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1b
@@ -7519,7 +7519,7 @@ MOD75_021EA604: ; 0x021EA604
 	add r1, #0x64
 	mov r2, #0
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xd
 	str r0, [sp]
 	mov r0, #0xc
@@ -7535,7 +7535,7 @@ MOD75_021EA604: ; 0x021EA604
 	add r1, #0x74
 	mov r2, #0
 	mov r3, #0x13
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r3, #1
 	add r1, r4, #0
 	str r3, [sp]
@@ -7550,7 +7550,7 @@ MOD75_021EA604: ; 0x021EA604
 	str r0, [sp, #0x10]
 	ldr r0, [r4]
 	mov r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #7
@@ -7566,7 +7566,7 @@ MOD75_021EA604: ; 0x021EA604
 	add r1, #0x94
 	mov r2, #0
 	mov r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xc
 	str r0, [sp]
 	mov r0, #0xb
@@ -7582,7 +7582,7 @@ MOD75_021EA604: ; 0x021EA604
 	add r4, #0xa4
 	add r1, r4, #0
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add sp, #0x14
 	pop {r3, r4, pc}
 	nop
@@ -7604,7 +7604,7 @@ MOD75_021EA7A0: ; 0x021EA7A0
 _021EA7A6:
 	lsl r0, r4, #4
 	add r0, r5, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -8850,7 +8850,7 @@ MOD75_021EB130: ; 0x021EB130
 	ldr r0, [r5]
 	add r1, #0xb4
 	mov r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #4
 	str r0, [sp, #0x14]
 	b _021EB1B0
@@ -8875,7 +8875,7 @@ _021EB180:
 	add r1, #0xb4
 	mov r2, #0
 	mov r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #3
 	str r0, [sp, #0x14]
 _021EB1B0:
@@ -9115,7 +9115,7 @@ _021EB37A:
 	bl ListMenuItems_dtor
 	add r0, r5, #0
 	add r0, #0xb4
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0
 	add r0, #0x14
 	mov r1, #0

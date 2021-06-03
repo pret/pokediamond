@@ -1320,7 +1320,7 @@ MOD53_021D7FDC: ; 0x021D7FDC
 	add r1, r7, r1
 	mov r2, #0
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb6
 	lsl r0, r0, #2
 	add r0, r7, r0
@@ -1341,7 +1341,7 @@ MOD53_021D7FDC: ; 0x021D7FDC
 	ldr r0, [r7]
 	add r1, r7, r1
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb2
 	lsl r0, r0, #2
 	add r0, r7, r0
@@ -1363,7 +1363,7 @@ MOD53_021D7FDC: ; 0x021D7FDC
 	add r1, r7, r1
 	mov r2, #1
 	mov r3, #0x19
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xba
 	lsl r0, r0, #2
 	add r0, r7, r0
@@ -1412,7 +1412,7 @@ _021D80A8:
 	add r1, r5, #0
 	mov r2, #4
 	mov r3, #5
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -1449,7 +1449,7 @@ MOD53_021D8104: ; 0x021D8104
 	add r5, r6, r0
 _021D8110:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #5
@@ -1457,15 +1457,15 @@ _021D8110:
 	mov r0, #0xba
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xb2
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xb6
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end MOD53_021D8104

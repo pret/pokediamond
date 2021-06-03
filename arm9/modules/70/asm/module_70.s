@@ -957,7 +957,7 @@ MOD70_021D7C2C: ; 0x021D7C2C
 	ldr r0, [r5, #0x10]
 	add r1, #0x14
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x1e
@@ -976,7 +976,7 @@ MOD70_021D7C2C: ; 0x021D7C2C
 	ldr r0, [r5, #0x10]
 	add r1, #0x24
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x14
 	bl PutWindowTilemap
@@ -998,7 +998,7 @@ MOD70_021D7C98: ; 0x021D7C98
 	add r5, #0x14
 _021D7CA0:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #2

@@ -482,7 +482,7 @@ _021D78D2:
 	ldr r0, [r7]
 	add r1, r5, #0
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r6, r6, #1
 	add r4, #8
 	add r5, #0x10
@@ -500,7 +500,7 @@ MOD68_021D78EC: ; 0x021D78EC
 	mov r4, #0
 _021D78F2:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #0xc

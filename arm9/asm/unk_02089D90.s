@@ -128,7 +128,7 @@ FUN_02089D90: ; 0x02089D90
 	ldr r2, _02089F20 ; =UNK_020FF3E4
 	add r0, r5, #0x0
 	add r1, sp, #0xc
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd0
 	str r0, [sp, #0x0]
 	mov r0, #0x90

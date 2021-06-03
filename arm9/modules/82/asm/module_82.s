@@ -1739,7 +1739,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	ldr r0, [r4, #4]
 	add r1, r4, r1
 	mov r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x37
 	lsl r0, r0, #6
 	add r0, r4, r0
@@ -1761,7 +1761,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	add r1, r4, r1
 	mov r2, #0
 	mov r3, #0x1a
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xda
 	lsl r0, r0, #4
 	add r0, r4, r0
@@ -1783,7 +1783,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	add r1, r4, r1
 	mov r2, #0
 	mov r3, #0x1a
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xd9
 	lsl r0, r0, #4
 	add r0, r4, r0
@@ -1805,7 +1805,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	ldr r0, [r4, #4]
 	add r1, r4, r1
 	mov r3, #4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xdb
 	lsl r0, r0, #4
 	add r0, r4, r0
@@ -1837,7 +1837,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	add r1, r4, r1
 	mov r2, #0
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x36
 	lsl r0, r0, #6
 	add r0, r4, r0
@@ -1857,23 +1857,23 @@ MOD82_0222E474: ; 0x0222E474
 	mov r0, #0x36
 	lsl r0, r0, #6
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xdb
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xd9
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xda
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x37
 	lsl r0, r0, #6
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	thumb_func_end MOD82_0222E474
 

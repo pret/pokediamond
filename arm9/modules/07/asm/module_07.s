@@ -2452,7 +2452,7 @@ MOD07_02213220: ; 0x02213220
 	add r1, r5, #0
 	mov r2, #8
 	mov r3, #2
-	bl FUN_020190EC
+	bl AddTextWindowTopLeftCorner
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -2508,7 +2508,7 @@ MOD07_02213220: ; 0x02213220
 	mov r1, #0
 	bl FUN_02011A60
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4445,7 +4445,7 @@ _02214258:
 	ldr r0, [r7, #0xc]
 	add r1, r5, #0
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r6, r6, #1
 	add r4, #8
 	add r5, #0x10
@@ -4463,7 +4463,7 @@ MOD07_02214274: ; 0x02214274
 	add r5, #0x10
 _0221427C:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #0x18

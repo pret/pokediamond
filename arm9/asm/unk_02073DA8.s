@@ -50,7 +50,7 @@ FUN_02073DB4: ; 0x02073DB4
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	.balign 4
 _02073DEC: .word 0x000006FC

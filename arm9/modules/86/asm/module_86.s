@@ -493,7 +493,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	ldr r0, [r4, #0x10]
 	add r1, #0x14
 	add r2, sp, #8
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #8
@@ -512,7 +512,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	ldr r0, [r4, #0x10]
 	add r1, #0x24
 	add r2, sp, #8
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #8
@@ -535,10 +535,10 @@ MOD86_021D7964: ; 0x021D7964
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, #0x24
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x38]
 	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x34]

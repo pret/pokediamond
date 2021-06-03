@@ -36,7 +36,7 @@ MOD05_021E2EA4: ; 0x021E2EA4
 	add r1, #0x20
 	str r0, [sp, #0x10]
 	ldr r0, [r4, #0x1c]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	ldr r2, _021E2EE0 ; =0x000003CF
@@ -498,7 +498,7 @@ MOD05_021E3248: ; 0x021E3248
 	bl DestroyMsgData
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x40]
 	bl String_dtor
 	ldr r0, [r4, #0x38]

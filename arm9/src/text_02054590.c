@@ -7,14 +7,14 @@ extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);
 extern void FUN_02002EEC(u32 param0, u32 param1, u32 param2);
 
 extern void FUN_0200CD68(
-    struct UnkStruct_02016B94_2 *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
+    struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
 extern void FUN_0200D0BC(struct Window *param0, u32 param1, u32 param2, u32 param3);
 
 extern void FUN_02002B60(u8 param0);
 extern void FUN_02002B7C(u32 param0);
 extern void FUN_02002BB8(u32 param0);
 
-extern void FUN_0200D300(struct UnkStruct_02016B94_2 *param0,
+extern void FUN_0200D300(struct BgConfig *param0,
     u32 param1,
     u32 param2,
     u32 param3,
@@ -33,21 +33,21 @@ THUMB_FUNC void FUN_02054590(u32 param0, u32 param1)
     FUN_02002EEC(param0, 384, 4);
 }
 
-THUMB_FUNC void FUN_020545B8(struct UnkStruct_02016B94_2 *param0, struct Window *param1, u32 param2)
+THUMB_FUNC void FUN_020545B8(struct BgConfig *param0, struct Window *param1, u32 param2)
 {
     if (param2 == 3)
     {
-        FUN_02019064(param0, param1, 3, 2, 19, 27, 4, 12, 813);
+        AddWindowParameterized(param0, param1, 3, 2, 19, 27, 4, 12, 813);
     }
     else
     {
-        FUN_02019064(param0, param1, 7, 2, 19, 27, 4, 12, 404);
+        AddWindowParameterized(param0, param1, 7, 2, 19, 27, 4, 12, 404);
     }
 }
 
 THUMB_FUNC void FUN_02054608(struct Window *param0, struct Options *options)
 {
-    FUN_0200CD68(param0->unk00, FUN_0201AB08(param0), 994, 10, (u8)Options_GetFrame(options), 4);
+    FUN_0200CD68(param0->bgConfig, FUN_0201AB08(param0), 994, 10, (u8)Options_GetFrame(options), 4);
     FUN_0205464C(param0);
     FUN_0200D0BC(param0, 0, 994, 10);
 }
@@ -79,7 +79,7 @@ THUMB_FUNC u8 FUN_020546C8(u32 param0) // bool8?
 }
 
 THUMB_FUNC void FUN_020546E0(
-    struct UnkStruct_02016B94_2 *param0, struct Window *param1, u32 param2, u32 param3)
+    struct BgConfig *param0, struct Window *param1, u32 param2, u32 param3)
 {
     u32 r4 = 0;
     u32 r5 = 0;
@@ -95,17 +95,17 @@ THUMB_FUNC void FUN_020546E0(
     }
     if (param3 == 3)
     {
-        FUN_02019064(param0, param1, 3, (u8)r4, 19, (u8)r5, 4, 9, 813);
+        AddWindowParameterized(param0, param1, 3, (u8) r4, 19, (u8) r5, 4, 9, 813);
     }
     else
     {
-        FUN_02019064(param0, param1, 7, (u8)r4, 19, (u8)r5, 4, 9, 404);
+        AddWindowParameterized(param0, param1, 7, (u8) r4, 19, (u8) r5, 4, 9, 404);
     }
 }
 
 THUMB_FUNC void FUN_02054744(struct Window *param0, u32 param1, u32 param2)
 {
-    FUN_0200D300(param0->unk00, FUN_0201AB08(param0), 0x399, 9, (u8)param1, param2, 4);
+    FUN_0200D300(param0->bgConfig, FUN_0201AB08(param0), 0x399, 9, (u8)param1, param2, 4);
     FillWindowPixelBuffer(param0, 15);
     FUN_0200D6F8(param0, 0, 0x399, 9, (u8)param1);
 }

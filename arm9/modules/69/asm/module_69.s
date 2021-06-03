@@ -789,7 +789,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	str r2, [sp, #0x10]
 	ldr r0, [r4, #0x10]
 	add r1, #0x14
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #0
@@ -900,7 +900,7 @@ MOD69_0222DD18: ; 0x0222DD18
 	str r0, [r2]
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	bl FUN_020178A0

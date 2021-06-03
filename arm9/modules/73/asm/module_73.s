@@ -4966,7 +4966,7 @@ MOD73_021D9BE0: ; 0x021D9BE0
 	ldr r0, [r5, #4]
 	ldr r1, [r5, #8]
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xd
 	str r0, [sp]
 	mov r0, #0x14
@@ -4981,7 +4981,7 @@ MOD73_021D9BE0: ; 0x021D9BE0
 	ldr r1, [r5, #0xc]
 	mov r2, #4
 	mov r3, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r5, #8]
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -5017,12 +5017,12 @@ MOD73_021D9C7C: ; 0x021D9C7C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #8]
 	mov r1, #1
 	bl WindowArray_dtor
 	ldr r0, [r4, #0xc]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0xc]
 	mov r1, #1
 	bl WindowArray_dtor
@@ -5950,7 +5950,7 @@ _021DA2FA:
 	ldr r1, [r4, #8]
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r4, #8]
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -5973,7 +5973,7 @@ MOD73_021DA354: ; 0x021DA354
 	mov r6, #1
 _021DA35C:
 	ldr r0, [r5, #8]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r5, #8]
 	add r1, r6, #0
 	bl WindowArray_dtor

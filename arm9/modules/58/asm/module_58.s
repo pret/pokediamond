@@ -1072,7 +1072,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	add r1, r5, r1
 	mov r2, #0
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb5
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1092,7 +1092,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	ldr r0, [r5]
 	add r1, r5, r1
 	mov r3, #4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb1
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1113,7 +1113,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	add r1, r5, r1
 	mov r2, #1
 	mov r3, #0x1a
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb9
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1179,7 +1179,7 @@ _021DA3C2:
 	ldr r0, [r5]
 	add r1, r5, r1
 	mov r2, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r1, [r5, #0x30]
 	mov r0, #1
 	mov r2, #0
@@ -1231,7 +1231,7 @@ _021DA46A:
 	add r1, r4, #0
 	mov r2, #4
 	mov r3, #5
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -1269,7 +1269,7 @@ MOD58_021DA4CC: ; 0x021DA4CC
 	add r5, r6, r0
 _021DA4D8:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #5
@@ -1277,19 +1277,19 @@ _021DA4D8:
 	mov r0, #0xbd
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xb9
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xb1
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xb5
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD58_021DA4CC
 

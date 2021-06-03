@@ -1471,7 +1471,7 @@ _0205D984:
 	ldr r0, [r5, #0x34]
 	bl FUN_020587B0
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x10]
 	bl String_dtor
 	add r0, r4, #0x0

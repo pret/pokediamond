@@ -19503,7 +19503,7 @@ MOD14_021E0E44: ; 0x021E0E44
 _021E0E58:
 	ldr r0, [r5, #4]
 	add r0, r0, r4
-	bl FUN_02019178
+	bl RemoveWindow
 	add r6, r6, #1
 	add r4, #0x10
 	cmp r6, #4
@@ -19646,7 +19646,7 @@ _021E0F5E:
 	ldr r0, [r5, #8]
 	add r1, r1, r4
 	add r2, r6, #0
-	bl FUN_02019150
+	bl AddWindow
 	cmp r7, #3
 	ldr r0, [r5, #4]
 	beq _021E0F78
@@ -20711,7 +20711,7 @@ MOD14_021E17C4: ; 0x021E17C4
 _021E17D2:
 	ldr r0, [r5, #0x18]
 	add r0, r0, r4
-	bl FUN_02019178
+	bl RemoveWindow
 	add r6, r6, #1
 	add r4, #0x10
 	cmp r6, #2
@@ -20763,7 +20763,7 @@ _021E1832:
 	ldr r0, [r6]
 	add r1, r1, r5
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r7, r7, #1
 	add r4, #8
 	add r5, #0x10
@@ -21643,7 +21643,7 @@ _021E1F04:
 	ldr r0, [r7, #4]
 	add r1, r1, r5
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r6, r6, #1
 	add r4, #8
 	add r5, #0x10
@@ -21703,7 +21703,7 @@ _021E1F6E:
 _021E1F78:
 	ldr r0, [r5, #0x10]
 	add r0, r0, r4
-	bl FUN_02019178
+	bl RemoveWindow
 	add r6, r6, #1
 	add r4, #0x10
 	cmp r6, #3
@@ -24509,7 +24509,7 @@ MOD14_021E34C0: ; 0x021E34C0
 	add r6, r0, #0
 	beq _021E3558
 	add r0, #0x88
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r6, #0
 	add r0, #0x98
 	ldr r0, [r0]
@@ -24680,7 +24680,7 @@ MOD14_021E355C: ; 0x021E355C
 	ldr r0, [r4, #8]
 	add r1, #0x88
 	mov r2, #4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	add r0, #0x88
 	mov r1, #0
@@ -28640,7 +28640,7 @@ _021E541E:
 	ldr r0, [r7, #0xc]
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r4, #0
 	bl PutWindowTilemap
 	add r5, r5, #1
@@ -28688,7 +28688,7 @@ _021E547E:
 	cmp r0, #0
 	beq _021E548E
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 _021E548E:
 	add r6, r6, #1
 	add r5, #0x10
@@ -28792,7 +28792,7 @@ _021E554C:
 	add r1, r5, r4
 	ldr r0, [r0, #0xc]
 	add r2, r7, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r5, r4
 	bl PutWindowTilemap
 	add r0, r5, r4
@@ -28825,7 +28825,7 @@ _021E5588:
 	add r0, r5, #0
 	bl FUN_020192B8
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x84
 	str r7, [r0]
@@ -28978,7 +28978,7 @@ _021E56B4:
 	add r1, r5, r4
 	ldr r0, [r0, #0xc]
 	add r2, r7, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r5, r4
 	bl PutWindowTilemap
 	add r0, r5, r4
@@ -29011,7 +29011,7 @@ _021E56F0:
 	add r0, r5, #0
 	bl FUN_020192B8
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x84
 	str r7, [r0]
