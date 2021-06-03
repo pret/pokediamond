@@ -608,7 +608,9 @@ Static arm9
 	Object RUNTIME_u32_div_f.o
 	Object RUNTIME_d_div.o
 	Object RUNTIME_ieee_status.o
-	Object stdlibmwcc.o
+	Object RUNTIME_ARM_semihosted_console_io.o
+	Object RUNTIME_CPLUS_StaticInitializers.o
+	Object RUNTIME_NITRO_eabi_init.o
 }
 
 Autoload ITCM
