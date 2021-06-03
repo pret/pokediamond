@@ -3,26 +3,10 @@
 #include "constants/items.h"
 #include "heap.h"
 
-static inline void _clear(u8 *ptr)
-{
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-    *ptr++ = 0;
-}
-
 THUMB_FUNC struct UnkStruct_020851B8 *FUN_020851B8(u32 heap_id)
 {
     struct UnkStruct_020851B8 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_020851B8));
-    _clear((u8 *)ptr);
+    __builtin__clear(ptr, sizeof(struct UnkStruct_020851B8));
     return ptr;
 }
 
