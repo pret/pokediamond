@@ -1,27 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.extern OSi_ThreadInfo
-	.extern __console_exit
-    .extern __stdio_exit
-    .extern __cs_id
-    .extern __cs_ref
-    .extern __cs
-    .extern __files
-    .extern __prep_buffer
-    .extern __float_nan
-    .extern __float_huge
-    .extern __double_huge
-    .extern memchr
-    .extern __StringRead
-    .extern wmemchr
-    .extern copysign
 
-	.section .data
-
-	.balign 4, 0
-
-	.section .text
-	.balign 4, 0
+	.text
 
 	arm_func_start stricmp
 stricmp: ; 0x020E9AD0
@@ -55,6 +35,7 @@ _020E9B0C:
 	ldmia sp!, {r3,pc}
 	.balign 4
 _020E9B34: .word __lower_mapC
+    arm_func_end stricmp
 
 	arm_func_start strnicmp
 strnicmp: ; 0x020E9B38
@@ -62,3 +43,4 @@ strnicmp: ; 0x020E9B38
 	bx r12
 	.balign 4
 _020E9B40: .word stricmp
+    arm_func_end strnicmp

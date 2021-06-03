@@ -1,9 +1,5 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.extern OSi_ThreadInfo
-	.extern __cs
-	.extern __cs_id
-	.extern __cs_ref
 
     .bss
 

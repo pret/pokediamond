@@ -1,11 +1,5 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.extern memchr
-	.extern wmemchr
-	.extern wcschr
-	.extern __wctype_mapC
-	.extern wcscpy
-	.extern fabs
 
     .data
 

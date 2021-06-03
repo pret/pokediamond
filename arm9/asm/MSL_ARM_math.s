@@ -1,6 +1,5 @@
     .include "global.inc"
     .include "asm/macros.inc"
-    .extern __float_nan
 
     .text
 

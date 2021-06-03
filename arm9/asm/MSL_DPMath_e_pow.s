@@ -1,7 +1,5 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.extern __float_nan
-	.extern fabs
 
     .rodata
 

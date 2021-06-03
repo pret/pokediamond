@@ -1,16 +1,8 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.extern OSi_ThreadInfo
-    .extern __cs_id
-    .extern __cs_ref
-    .extern __cs
-    .extern __files
-    .extern memchr
-    .extern fwide
-    .extern fabs
-    .extern __msl_digit
 
     .data
+
 	.global UNK_02106DA0
 UNK_02106DA0: ; 0x02106DA0
 	.byte 0x30, 0x78, 0x30, 0x70, 0x30, 0x00, 0x00, 0x00

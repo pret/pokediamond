@@ -583,7 +583,31 @@ Static arm9
 	Object MSL_DPMath_w_pow.o
 	Object MSL_fp_ansi.o
 	Object MSL_math.o
-	Object libc.o
+	Object MSL_string_extras.o
+	Object RUNTIME_d_add.o
+	Object RUNTIME_d_dtof.o
+	Object RUNTIME_d_dtoi.o
+	Object RUNTIME_d_dtoull.o
+	Object RUNTIME_d_itod.o
+	Object RUNTIME_d_mul.o
+	Object RUNTIME_d_sqrt.o
+	Object RUNTIME_d_sub.o
+	Object RUNTIME_f_add.o
+	Object RUNTIME_f_cmp.o
+	Object RUNTIME_f_div.o
+	Object RUNTIME_f_ftod.o
+	Object RUNTIME_f_ftoi.o
+	Object RUNTIME_f_ftou.o
+	Object RUNTIME_f_itof.o
+	Object RUNTIME_f_mul.o
+	Object RUNTIME_f_sub.o
+	Object RUNTIME_ll_div.o
+	Object RUNTIME_ll_mul.o
+	Object RUNTIME_ll_sll.o
+	Object RUNTIME_s32_div_f.o
+	Object RUNTIME_u32_div_f.o
+	Object RUNTIME_d_div.o
+	Object RUNTIME_ieee_status.o
 	Object stdlibmwcc.o
 }
 

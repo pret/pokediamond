@@ -1,7 +1,5 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.extern copysign
-	.extern __fpclassifyf
 
     .text
 

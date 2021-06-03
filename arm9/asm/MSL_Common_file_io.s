@@ -1,7 +1,5 @@
     .include "asm/macros.inc"
     .include "global.inc"
-    .extern __flush_all
-    .extern __flush_buffer
 
     .text
 

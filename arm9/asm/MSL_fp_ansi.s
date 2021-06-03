@@ -1,10 +1,5 @@
     .include "global.inc"
     .include "asm/macros.inc"
-    .extern __float_huge
-    .extern __fpclassifyf
-    .extern __msl_generic_count_bits64
-    .extern __signbitf
-    .extern copysign
 
     .data
 

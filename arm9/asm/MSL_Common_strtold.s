@@ -1,9 +1,5 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.extern fabs
-	.extern __StringRead
-	.extern __double_huge
-	.extern __float_huge
 
     .rodata
 

@@ -1,13 +1,5 @@
     .include "asm/macros.inc"
     .include "global.inc"
-    .extern __files
-    .extern OSi_ThreadInfo
-    .extern __cs
-    .extern __cs_id
-    .extern __cs_ref
-    .extern __prep_buffer
-    .extern __memrchr
-    .extern fwide
 
     .text
 
