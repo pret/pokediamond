@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start wcslen
 wcslen: ; 0x020E701C

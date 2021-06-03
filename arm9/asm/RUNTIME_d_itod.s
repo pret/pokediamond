@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start _dflt
 _dflt: ; 0x020EA038
@@ -45,4 +45,4 @@ _020EA09C:
 	mov r1, r1, lsr #0xc
 	orr r1, r1, r3, lsl #0x14
 	bx lr
-    arm_func_end _dfltu
+	arm_func_end _dfltu

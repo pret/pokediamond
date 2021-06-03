@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start _dsqrt
 _dsqrt: ; 0x020EA418
@@ -120,4 +120,4 @@ _020EA58C:
 _020EA5A8: .word 0x7FF00000
 _020EA5AC: .word 0x7FF80000
 _020EA5B0: .word errno
-    arm_func_end _dsqrt
+	arm_func_end _dsqrt

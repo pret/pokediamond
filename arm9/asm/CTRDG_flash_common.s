@@ -67,7 +67,7 @@ UNK_021D6B44: ; 0x021D6B44
 ctrdgi_sram_lock_id: ; 0x021D6B4C
 	.space 0x4
 
-    .text
+	.text
 
 	arm_func_start CTRDG_WriteAndVerifyAgbFlashAsync
 CTRDG_WriteAndVerifyAgbFlashAsync: ; 0x020DBF14

@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .rodata
+	.rodata
 
 	.global UNK_02104744
 UNK_02104744: ; 0x02104744
@@ -21,7 +21,7 @@ UNK_02104764: ; 0x02104764
 	.word 0x43CFD006, 0x3E4CFDEB
 	.size UNK_02104764,.-UNK_02104764
 
-    .text
+	.text
 
 	arm_func_start __ieee754_pow
 __ieee754_pow: ; 0x020E708C
@@ -1180,7 +1180,7 @@ _020E81F0:
 	bx lr
 	arm_func_end __ieee754_pow
 
-    .section .exceptix,4
+	.section .exceptix,4
 	.word __ieee754_pow
 	.short 4488
 	.word UNK_020EC738

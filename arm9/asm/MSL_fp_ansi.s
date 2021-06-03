@@ -1,7 +1,7 @@
-    .include "global.inc"
-    .include "asm/macros.inc"
+	.include "global.inc"
+	.include "asm/macros.inc"
 
-    .data
+	.data
 
 	.global UNK_02106E48
 UNK_02106E48: ; 0x02106E48
@@ -123,7 +123,7 @@ UNK_02106F58: ; 0x02106F58
 UNK_02106F5C: ; 0x02106F5C
 	.asciz "179769313486231580793728714053034151"
 
-    .text
+	.text
 
 	arm_func_start __must_round
 __must_round: ; 0x020E8570
@@ -156,7 +156,7 @@ _020E85C0:
 	movne r0, #0x1
 	mvneq r0, #0x0
 	bx lr
-    arm_func_end __must_round
+	arm_func_end __must_round
 
 	arm_func_start __dorounddecup
 __dorounddecup: ; 0x020E85DC
@@ -182,7 +182,7 @@ _020E8620:
 	strb r1, [r12], #-0x1
 	b _020E85EC
 	bx lr
-    arm_func_end __dorounddecup
+	arm_func_end __dorounddecup
 
 	arm_func_start __rounddec
 __rounddec: ; 0x020E862C
@@ -202,7 +202,7 @@ __rounddec: ; 0x020E862C
 	mov r1, r4
 	bl __dorounddecup
 	ldmia sp!, {r3-r5,pc}
-    arm_func_end __rounddec
+	arm_func_end __rounddec
 
 	arm_func_start __ull2dec
 __ull2dec: ; 0x020E866C
@@ -261,7 +261,7 @@ _020E8728:
 	sub r0, r0, #0x1
 	strh r0, [r10, #0x2]
 	ldmia sp!, {r3-r11,pc}
-    arm_func_end __ull2dec
+	arm_func_end __ull2dec
 
 	arm_func_start __timesdec
 __timesdec: ; 0x020E8738
@@ -374,7 +374,7 @@ _020E88A8:
 	ldmia sp!, {r3-r11,pc}
 	.balign 4
 _020E88B8: .word 0xCCCCCCCD
-    arm_func_end __timesdec
+	arm_func_end __timesdec
 
 	arm_func_start __str2dec
 __str2dec: ; 0x020E88BC
@@ -423,7 +423,7 @@ _020E894C:
 	ldrb r1, [r0, #0x4]
 	bl __dorounddecup
 	ldmia sp!, {r3,pc}
-    arm_func_end __str2dec
+	arm_func_end __str2dec
 
 	arm_func_start __two_exp
 __two_exp: ; 0x020E8958
@@ -679,7 +679,7 @@ _020E8CCC: .word UNK_02106F4C
 _020E8CD0: .word UNK_02106F50
 _020E8CD4: .word UNK_02106F54
 _020E8CD8: .word UNK_02106F58
-    arm_func_end __two_exp
+	arm_func_end __two_exp
 
 	arm_func_start __equals_dec
 __equals_dec:
@@ -746,7 +746,7 @@ _020E8DAC:
 _020E8DB4:
 	mov r0, #0x0
 	ldmia sp!, {r4,pc}
-    arm_func_end __equals_dec
+	arm_func_end __equals_dec
 
 	arm_func_start __less_dec
 __less_dec:
@@ -812,7 +812,7 @@ _020E8E90:
 	movlt r0, #0x1
 	movge r0, #0x0
 	ldmia sp!, {r3-r5,pc}
-    arm_func_end __less_dec
+	arm_func_end __less_dec
 
 	arm_func_start __minus_dec
 __minus_dec: ; 0x020E8E9C
@@ -1009,7 +1009,7 @@ _020E9130:
 	add r1, r1, #0x1
 	strb r1, [r0, #0x4]
 	ldmia sp!, {r3-r7,pc}
-    arm_func_end __minus_dec
+	arm_func_end __minus_dec
 
 	arm_func_start __num2dec_internal
 __num2dec_internal:
@@ -1112,7 +1112,7 @@ _020E921C:
 	strb r5, [r7, #0x0]
 	add sp, sp, #0x58
 	ldmia sp!, {r4-r8,pc}
-    arm_func_end __num2dec_internal
+	arm_func_end __num2dec_internal
 
 	arm_func_start __num2dec_internal2
 __num2dec_internal2: ; 0x020E92C0
@@ -1161,7 +1161,7 @@ _020E9344:
 	cmp r2, r0
 	blt _020E9344
 	ldmia sp!, {r3-r5,pc}
-    arm_func_end __num2dec_internal2
+	arm_func_end __num2dec_internal2
 
 	arm_func_start __dec2num
 __dec2num: ; 0x020E9368
@@ -1590,7 +1590,7 @@ _020E997C: .word UNK_02106F5C
 _020E9980: .word UNK_02106E48
 _020E9984: .word 0x40140000
 _020E9988: .word 0x7FEFFFFF
-    arm_func_end __dec2num
+	arm_func_end __dec2num
 
 	.section .exception,8
 
@@ -1599,7 +1599,7 @@ UNK_020EC740: ; 0x020EC740
 	.byte 0x00, 0xFF, 0x05, 0x20
 	.balign 8
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word __rounddec
 	.short 65

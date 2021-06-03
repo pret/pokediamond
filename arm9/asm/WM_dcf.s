@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start WM_EndDCF
 WM_EndDCF: ; 0x020D9DDC

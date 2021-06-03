@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start qsort
 qsort: ; 0x020E1888
@@ -103,9 +103,9 @@ _020E19D8:
 	b _020E18E0
 	add sp, sp, #0x10
 	ldmia sp!, {r3-r11,pc}
-    arm_func_end qsort
+	arm_func_end qsort
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word qsort
 	.short 357

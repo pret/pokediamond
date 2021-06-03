@@ -1,7 +1,7 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start fclose
 fclose: ; 0x020DEC88
@@ -101,9 +101,9 @@ _020DEDCC:
 	str r0, [r4, #0x18]
 	str r0, [r4, #0x28]
 	ldmia sp!, {r4,pc}
-    arm_func_end fflush
+	arm_func_end fflush
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word fclose
 	.short 117

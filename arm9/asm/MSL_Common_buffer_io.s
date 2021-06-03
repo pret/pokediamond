@@ -1,7 +1,7 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start __convert_from_newlines
 __convert_from_newlines:
@@ -109,7 +109,7 @@ _020DE574:
 	ldmia sp!, {r3-r5,pc}
 	arm_func_end __flush_buffer
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word __load_buffer
 	.short 141

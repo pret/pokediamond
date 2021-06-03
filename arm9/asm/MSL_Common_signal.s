@@ -1,14 +1,14 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .bss
+	.bss
 
 	.global signal_funcs
 signal_funcs: ; 0x021D74AC
 	.space 0x1c
 	.size signal_funcs,.-signal_funcs
 
-    .text
+	.text
 
 	arm_func_start raise
 raise: ; 0x020E2D7C
@@ -98,9 +98,9 @@ _020E2E9C: .word OSi_ThreadInfo
 _020E2EA0: .word __cs_id
 _020E2EA4: .word __cs_ref
 _020E2EA8: .word signal_funcs
-    arm_func_end raise
+	arm_func_end raise
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word raise
 	.short 305

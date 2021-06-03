@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start __strtoul
 __strtoul:
@@ -293,7 +293,7 @@ _020E4A10:
 	.balign 4
 _020E4A2C: .word __msl_digit
 _020E4A30: .word __upper_mapC
-    arm_func_end __strtoul
+	arm_func_end __strtoul
 
 	arm_func_start __strtoull
 __strtoull: ; 0x020E4A34
@@ -610,7 +610,7 @@ _020E4E58:
 	.balign 4
 _020E4E78: .word __msl_digit
 _020E4E7C: .word __upper_mapC
-    arm_func_end __strtoull
+	arm_func_end __strtoull
 
 	arm_func_start strtoul
 strtoul: ; 0x020E4E80
@@ -654,7 +654,7 @@ _020E4EFC:
 	.balign 4
 _020E4F10: .word __StringRead
 _020E4F14: .word errno
-    arm_func_end strtoul
+	arm_func_end strtoul
 
 	arm_func_start strtol
 strtol: ; 0x020E4F18
@@ -712,7 +712,7 @@ _020E4FC8:
 	.balign 4
 _020E4FD8: .word __StringRead
 _020E4FDC: .word errno
-    arm_func_end strtol
+	arm_func_end strtol
 
 	arm_func_start atol
 atol: ; 0x020E4FE0
@@ -722,9 +722,9 @@ atol: ; 0x020E4FE0
 	bx r12
 	.balign 4
 _020E4FF0: .word strtol
-    arm_func_end atol
+	arm_func_end atol
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word __strtoul
 	.short 1001

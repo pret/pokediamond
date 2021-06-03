@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start _dmul
 _dmul: ; 0x020EA0B4
@@ -243,4 +243,4 @@ _020EA404:
 	bx lr
 	.balign 4
 _020EA414: .word 0x7FF00000
-    arm_func_end _dmul
+	arm_func_end _dmul

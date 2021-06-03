@@ -1,9 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .extern __fadd_start
+	.extern __fadd_start
 
-    .text
+	.text
 
 	arm_func_start _frsb
 _frsb: ; 0x020EB7A4

@@ -1,5 +1,5 @@
 	.include "asm/macros.inc"
-    .include "global.inc"
+	.include "global.inc"
 
 	.extern UNK_020F96DC
 	.section .rodata

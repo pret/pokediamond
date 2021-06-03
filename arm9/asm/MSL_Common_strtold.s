@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .rodata
+	.rodata
 
 model$4434: ; 0x02104434
 	.asciz "NAN("
@@ -11,7 +11,7 @@ model$4439: ; 0x02104439
 	.asciz "INFINITY"
 	.size model$4439,.-model$4439
 
-    .text
+	.text
 
 	arm_func_start __strtold
 __strtold: ; 0x020E3310
@@ -1343,7 +1343,7 @@ _020E4530:
 	ldmia r4, {r0-r1}
 	add sp, sp, #0xa8
 	ldmia sp!, {r3-r11,pc}
-    arm_func_end __strtold
+	arm_func_end __strtold
 
 	arm_func_start strtold
 strtold: ; 0x020E455C
@@ -1406,7 +1406,7 @@ _020E4620:
 _020E4630: .word __StringRead
 _020E4634: .word 0x7FEFFFFF
 _020E4638: .word errno
-    arm_func_end strtold
+	arm_func_end strtold
 
 	arm_func_start atod
 atod: ; 0x020E463C
@@ -1415,9 +1415,9 @@ atod: ; 0x020E463C
 	bx r12
 	.balign 4
 _020E4648: .word strtold
-    arm_func_end atod
+	arm_func_end atod
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word __strtold
 	.short 4684
@@ -1429,7 +1429,7 @@ _020E4648: .word strtold
 	.short 17
 	.word 0x00000000
 
-    .section .exception,8
+	.section .exception,8
 
 UNK_020EC720: ; 0x020EC720
 	.byte 0x00, 0xFF, 0x01, 0xD0

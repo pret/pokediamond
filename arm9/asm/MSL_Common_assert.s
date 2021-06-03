@@ -1,14 +1,14 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
-    .data
+	.data
 
 __local_str__msl_assertion_failed: ; 0x02106B3C
 	.asciz "Assertion (%s) failed in \"%s\", function \"%s\", line %d\n"
-    .size __local_str__msl_assertion_failed,.-__local_str__msl_assertion_failed
-    .balign 4, 0
+	.size __local_str__msl_assertion_failed,.-__local_str__msl_assertion_failed
+	.balign 4, 0
 
-    .text
+	.text
 
 	arm_func_start __msl_assertion_failed
 __msl_assertion_failed: ; 0x020DE3FC
@@ -28,9 +28,9 @@ __msl_assertion_failed: ; 0x020DE3FC
 	ldmia sp!, {r3-r4,pc}
 	.balign 4
 _020DE434: .word __local_str__msl_assertion_failed
-    arm_func_end __msl_assertion_failed
+	arm_func_end __msl_assertion_failed
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word __msl_assertion_failed
 	.short 61

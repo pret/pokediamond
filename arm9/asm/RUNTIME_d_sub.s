@@ -1,9 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .extern __dadd_start
+	.extern __dadd_start
 
-    .text
+	.text
 
 	arm_func_start _drsb
 _drsb: ; 0x020EA5B4

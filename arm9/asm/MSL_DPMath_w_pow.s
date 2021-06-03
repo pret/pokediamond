@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start pow
 pow: ; 0x020E8564
@@ -9,9 +9,9 @@ pow: ; 0x020E8564
 	bx r12
 	.balign 4
 _020E856C: .word __ieee754_pow
-    arm_func_end pow
+	arm_func_end pow
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word pow
 	.short 13

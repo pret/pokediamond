@@ -1,7 +1,7 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start _ftell
 _ftell: ; 0x020DEDE4
@@ -39,7 +39,7 @@ _020DEE24:
 	bx lr
 	.balign 4
 _020DEE5C: .word errno
-    arm_func_end _ftell
+	arm_func_end _ftell
 
 	arm_func_start ftell
 ftell: ; 0x020DEE60
@@ -120,7 +120,7 @@ _020DEF6C: .word __cs
 _020DEF70: .word OSi_ThreadInfo
 _020DEF74: .word __cs_id
 _020DEF78: .word __cs_ref
-    arm_func_end ftell
+	arm_func_end ftell
 
 	arm_func_start _fseek
 _fseek: ; 0x020DEF7C
@@ -256,7 +256,7 @@ _020DF150:
 	bx lr
 	.balign 4
 _020DF160: .word errno
-    arm_func_end _fseek
+	arm_func_end _fseek
 
 	arm_func_start fseek
 fseek:
@@ -341,7 +341,7 @@ _020DF280: .word __cs
 _020DF284: .word OSi_ThreadInfo
 _020DF288: .word __cs_id
 _020DF28C: .word __cs_ref
-    arm_func_end fseek
+	arm_func_end fseek
 
 	arm_func_start rewind
 rewind: ; 0x020DF290
@@ -354,9 +354,9 @@ rewind: ; 0x020DF290
 	mov r0, #0x0
 	strb r0, [r4, #0xd]
 	ldmia sp!, {r4,pc}
-    arm_func_end rewind
+	arm_func_end rewind
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word ftell
 	.short 285

@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start __fill_mem
 __fill_mem: ; 0x020DF550
@@ -58,4 +58,4 @@ _020DF5F0:
 	subs r2, r2, #0x1
 	bne _020DF5F0
 	bx lr
-    arm_func_end __fill_mem
+	arm_func_end __fill_mem

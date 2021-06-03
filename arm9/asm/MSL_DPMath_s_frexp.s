@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start frexp
 frexp: ; 0x020E825C
@@ -56,9 +56,9 @@ _020E8308: .word 0x7FF00000
 _020E830C: .word 0x43500000
 _020E8310: .word 0x800FFFFF
 _020E8314: .word 0xFFFFFC02
-    arm_func_end frexp
+	arm_func_end frexp
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word frexp
 	.short 189

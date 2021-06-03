@@ -35,7 +35,7 @@ _020E9B0C:
 	ldmia sp!, {r3,pc}
 	.balign 4
 _020E9B34: .word __lower_mapC
-    arm_func_end stricmp
+	arm_func_end stricmp
 
 	arm_func_start strnicmp
 strnicmp: ; 0x020E9B38
@@ -43,4 +43,4 @@ strnicmp: ; 0x020E9B38
 	bx r12
 	.balign 4
 _020E9B40: .word stricmp
-    arm_func_end strnicmp
+	arm_func_end strnicmp

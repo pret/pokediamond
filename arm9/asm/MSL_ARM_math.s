@@ -1,7 +1,7 @@
-    .include "global.inc"
-    .include "asm/macros.inc"
+	.include "global.inc"
+	.include "asm/macros.inc"
 
-    .text
+	.text
 
 	arm_func_start nan
 nan: ; 0x020DE2E4
@@ -12,9 +12,9 @@ nan: ; 0x020DE2E4
 	.balign 4
 _020DE2F4: .word __float_nan
 _020DE2F8: .word _f2d
-    arm_func_end nan
+	arm_func_end nan
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word nan
 	.short 25

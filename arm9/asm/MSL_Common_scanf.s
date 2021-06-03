@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .rodata
+	.rodata
 
 parse_format$f: ; 0x0210440C
 	.byte 0x00, 0x00, 0x00, 0x00
@@ -16,7 +16,7 @@ parse_format$f: ; 0x0210440C
 	.word 0x00000000
 	.size parse_format$f,.-parse_format$f
 
-    .text
+	.text
 
 	local_arm_func_start parse_format
 parse_format: ; 0x020E1A30
@@ -382,7 +382,7 @@ _020E1EF8:
 	.balign 4
 _020E1F20: .word parse_format$f
 _020E1F24: .word __msl_digit
-    arm_func_end parse_format
+	arm_func_end parse_format
 
 	arm_func_start __sformatter
 __sformatter: ; 0x020E1F28
@@ -1362,7 +1362,7 @@ _020E2C68:
 	.balign 4
 _020E2C74: .word __msl_digit
 _020E2C78: .word __float_nan
-    arm_func_end __sformatter
+	arm_func_end __sformatter
 
 	arm_func_start __StringRead
 __StringRead: ; 0x020E2C7C
@@ -1405,7 +1405,7 @@ _020E2CF0:
 _020E2CF8:
 	mov r0, #0x0
 	bx lr
-    arm_func_end __StringRead
+	arm_func_end __StringRead
 
 	arm_func_start vsscanf
 vsscanf: ; 0x020E2D00
@@ -1431,7 +1431,7 @@ vsscanf: ; 0x020E2D00
 	ldmia sp!, {pc}
 	.balign 4
 _020E2D50: .word __StringRead
-    arm_func_end vsscanf
+	arm_func_end vsscanf
 
 	arm_func_start sscanf
 sscanf: ; 0x020E2D54
@@ -1445,9 +1445,9 @@ sscanf: ; 0x020E2D54
 	ldmia sp!, {r3,lr}
 	add sp, sp, #0x10
 	bx lr
-    arm_func_end sscanf
+	arm_func_end sscanf
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word __sformatter
 	.short 3412
@@ -1459,7 +1459,7 @@ sscanf: ; 0x020E2D54
 	.short 41
 	.word 0x00300020
 
-    .section .exception,8
+	.section .exception,8
 
 UNK_020EC718: ; 0x020EC718
 	.byte 0x00, 0xFF, 0x01, 0xB0

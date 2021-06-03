@@ -1,21 +1,21 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .data
+	.data
 
-    .balign 4
+	.balign 4
 	.global _loc_tim_C$timezone
 _loc_tim_C$timezone: ; 0x02106B84
-    .asciz ""
-    .size _loc_tim_C$timezone,.-_loc_tim_C$timezone
+	.asciz ""
+	.size _loc_tim_C$timezone,.-_loc_tim_C$timezone
 
-    .balign 4
+	.balign 4
 	.global _loc_tim_C$timefmt2
 _loc_tim_C$timefmt2: ; 0x02106B88
-    .asciz "%T"
-    .size _loc_tim_C$timefmt2,.-_loc_tim_C$timefmt2
+	.asciz "%T"
+	.size _loc_tim_C$timefmt2,.-_loc_tim_C$timefmt2
 
-    .balign 4
+	.balign 4
 	.global _loc_tim_C$AMPM
 _loc_tim_C$AMPM: ; 0x02106B8C
 	.asciz "AM|PM"
@@ -100,7 +100,7 @@ _loc_tim_C$monthnames: ; 0x02106D18
 	.asciz "Jan|January|Feb|February|Mar|March|Apr|April|May|May|Jun|June|Jul|July|Aug|August|Sep|September|Oct|October|Nov|November|Dec|December"
 	.size _loc_tim_C$monthnames,.-_loc_tim_C$monthnames
 
-    .text
+	.text
 
 	arm_func_start mbtowc
 mbtowc:
@@ -112,7 +112,7 @@ mbtowc:
 	ldmia sp!, {r3,pc}
 	.balign 4
 _020DF2CC: .word _current_locale
-    arm_func_end mbtowc
+	arm_func_end mbtowc
 
 	arm_func_start __mbtowc_noconv
 __mbtowc_noconv: ; 0x020DF2D0
@@ -130,7 +130,7 @@ __mbtowc_noconv: ; 0x020DF2D0
 	moveq r0, #0x0
 	movne r0, #0x1
 	bx lr
-    arm_func_end __mbtowc_noconv
+	arm_func_end __mbtowc_noconv
 
 	arm_func_start __wctomb_noconv
 __wctomb_noconv: ; 0x020DF308
@@ -139,7 +139,7 @@ __wctomb_noconv: ; 0x020DF308
 	strneb r1, [r0, #0x0]
 	movne r0, #0x1
 	bx lr
-    arm_func_end __wctomb_noconv
+	arm_func_end __wctomb_noconv
 
 	arm_func_start wctomb
 wctomb: ; 0x020DF31C
@@ -151,7 +151,7 @@ wctomb: ; 0x020DF31C
 	ldmia sp!, {r3,pc}
 	.balign 4
 _020DF334: .word _current_locale
-    arm_func_end wctomb
+	arm_func_end wctomb
 
 	arm_func_start mbstowcs
 mbstowcs: ; 0x020DF338
@@ -193,7 +193,7 @@ _020DF3AC:
 _020DF3B8:
 	mov r0, r4
 	ldmia sp!, {r4-r8,pc}
-    arm_func_end mbstowcs
+	arm_func_end mbstowcs
 
 	arm_func_start wcstombs
 wcstombs:
@@ -229,9 +229,9 @@ _020DF3E4:
 _020DF430:
 	mov r0, r7
 	ldmia sp!, {r3-r9,pc}
-    arm_func_end wcstombs
+	arm_func_end wcstombs
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word mbtowc
 	.short 29

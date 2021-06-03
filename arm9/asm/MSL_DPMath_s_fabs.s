@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start fabs
 fabs: ; 0x020E823C
@@ -13,4 +13,4 @@ fabs: ; 0x020E823C
 	str r1, [r2, #0x4]
 	add sp, sp, #0x10
 	bx lr
-    arm_func_end fabs
+	arm_func_end fabs

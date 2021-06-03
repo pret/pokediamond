@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .bss
+	.bss
 
 	.global __cs_id
 __cs_id: ; 0x021D7088

@@ -3,7 +3,7 @@
 
 	.extern __dsub_start
 
-    .text
+	.text
 
 	arm_func_start _dadd
 _dadd:
@@ -228,4 +228,4 @@ _020E9E38:
 	bx lr
 	.balign 4
 _020E9E58: .word 0x7FF00000
-    arm_func_end _dadd
+	arm_func_end _dadd

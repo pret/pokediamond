@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start memcpy
 memcpy: ; 0x020DF438
@@ -14,7 +14,7 @@ _020DF444:
 	strb r3, [r12], #0x1
 	bne _020DF444
 	bx lr
-    arm_func_end memcpy
+	arm_func_end memcpy
 
 	arm_func_start memmove
 memmove: ; 0x020DF458
@@ -40,7 +40,7 @@ _020DF490:
 	strb r1, [r12, #-0x1]!
 	bne _020DF490
 	bx lr
-    arm_func_end memmove
+	arm_func_end memmove
 
 	arm_func_start memset
 memset: ; 0x020DF4A4
@@ -49,7 +49,7 @@ memset: ; 0x020DF4A4
 	bl __fill_mem
 	mov r0, r4
 	ldmia sp!, {r4,pc}
-    arm_func_end memset
+	arm_func_end memset
 
 	arm_func_start memchr
 memchr:
@@ -66,7 +66,7 @@ _020DF4C4:
 _020DF4DC:
 	mov r0, #0x0
 	bx lr
-    arm_func_end memchr
+	arm_func_end memchr
 
 	arm_func_start __memrchr
 __memrchr: ; 0x020DF4E4
@@ -83,7 +83,7 @@ _020DF4F4:
 _020DF508:
 	mov r0, #0x0
 	bx lr
-    arm_func_end __memrchr
+	arm_func_end __memrchr
 
 	arm_func_start memcmp
 memcmp: ; 0x020DF510
@@ -106,9 +106,9 @@ _020DF540:
 _020DF548:
 	mov r0, #0x0
 	bx lr
-    arm_func_end memcmp
+	arm_func_end memcmp
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word memset
 	.short 21

@@ -1,34 +1,34 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .bss
+	.bss
 
 	.global __console_exit
 __console_exit: ; 0x021D6F78
 	.space 0x4
 	.size __console_exit,.-__console_exit
 
-    .global __stdio_exit
+	.global __stdio_exit
 __stdio_exit: ; 0x021D6F7C
-    .space 0x4
-    .size __stdio_exit,.-__stdio_exit
+	.space 0x4
+	.size __stdio_exit,.-__stdio_exit
 
-    .global __atexit_curr_func
+	.global __atexit_curr_func
 __atexit_curr_func: ; 0x021D6F80
-    .space 0x4
-    .size __atexit_curr_func,.-__atexit_curr_func
+	.space 0x4
+	.size __atexit_curr_func,.-__atexit_curr_func
 
-    .global __aborting
+	.global __aborting
 __aborting: ; 0x021D6F84
-    .space 0x4
-    .size __aborting,.-__aborting
+	.space 0x4
+	.size __aborting,.-__aborting
 
 	.global __atexit_funcs
 __atexit_funcs: ; 0x021D6F88
 	.space 0x100
 	.size __atexit_funcs,.-__atexit_funcs
 
-    .text
+	.text
 
 	arm_func_start abort
 abort: ; 0x020DE14C
@@ -42,7 +42,7 @@ abort: ; 0x020DE14C
 	ldmia sp!, {r3,pc}
 	.balign 4
 _020DE16C: .word __aborting - 0xC
-    arm_func_end abort
+	arm_func_end abort
 
 	arm_func_start exit
 exit: ; 0x020DE170
@@ -67,7 +67,7 @@ _020DE1AC:
 	ldmia sp!, {r4,pc}
 	.balign 4
 _020DE1B8: .word __console_exit
-    arm_func_end exit
+	arm_func_end exit
 
 	arm_func_start __exit
 __exit: ; 0x020DE1BC
@@ -153,9 +153,9 @@ _020DE2D4: .word __cs_id
 _020DE2D8: .word __cs_ref
 _020DE2DC: .word __console_exit
 _020DE2E0: .word __atexit_funcs
-    arm_func_end __exit
+	arm_func_end __exit
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word abort
 	.short 37

@@ -1,14 +1,14 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .data
+	.data
 
-    .global random_next
+	.global random_next
 random_next: ; 0x02106DE0
-    .word 0x00000001
-    .size random_next,.-random_next
+	.word 0x00000001
+	.size random_next,.-random_next
 
-    .text
+	.text
 
 	arm_func_start rand
 rand: ; 0x020E19EC
@@ -26,7 +26,7 @@ rand: ; 0x020E19EC
 _020E1A14: .word random_next
 _020E1A18: .word 0x41C64E6D
 _020E1A1C: .word 0x00007FFF
-    arm_func_end rand
+	arm_func_end rand
 
 	arm_func_start srand
 srand: ; 0x020E1A20
@@ -35,4 +35,4 @@ srand: ; 0x020E1A20
 	bx lr
 	.balign 4
 _020E1A2C: .word random_next
-    arm_func_end srand
+	arm_func_end srand

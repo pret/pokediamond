@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .data
+	.data
 
 	.global UNK_02106DA0
 UNK_02106DA0: ; 0x02106DA0
@@ -66,7 +66,7 @@ UNK_02106DDC: ; 0x02106DDC
 	.byte 0x00, 0x00, 0x00, 0x00
 	.size UNK_02106DDC,.-UNK_02106DDC
 
-    .text
+	.text
 
 	arm_func_start parse_format
 parse_format: ; 0x020DF600
@@ -478,7 +478,7 @@ _020DFB70:
 	.balign 4
 _020DFB88: .word __msl_digit
 _020DFB8C: .word 0x000001FD
-    arm_func_end parse_format
+	arm_func_end parse_format
 
 	arm_func_start long2str
 long2str: ; 0x020DFB90
@@ -646,7 +646,7 @@ _020DFDC4:
 	bx lr
 	.balign 4
 _020DFDD8: .word 0x000001FD
-    arm_func_end long2str
+	arm_func_end long2str
 
 	arm_func_start longlong2str
 longlong2str: ; 0x020DFDDC
@@ -853,7 +853,7 @@ _020E00A4:
 	bx lr
 	.balign 4
 _020E00B8: .word 0x000001FD
-    arm_func_end longlong2str
+	arm_func_end longlong2str
 
 	arm_func_start double2hex
 double2hex: ; 0x020E00BC
@@ -1184,7 +1184,7 @@ _020E0588: .word UNK_02106DC8
 _020E058C: .word UNK_02106DD0
 _020E0590: .word UNK_02106DD4
 _020E0594: .word 0x000007FF
-    arm_func_end double2hex
+	arm_func_end double2hex
 
 	arm_func_start round_decimal
 round_decimal: ; 0x020E0598
@@ -1273,7 +1273,7 @@ _020E06AC:
 	beq _020E05A4
 	strb r1, [r0, #0x4]
 	ldmia sp!, {r4,pc}
-    arm_func_end round_decimal
+	arm_func_end round_decimal
 
 	arm_func_start float2str
 float2str: ; 0x020E06BC
@@ -1804,7 +1804,7 @@ _020E0E10: .word UNK_02106DC8
 _020E0E14: .word UNK_02106DD0
 _020E0E18: .word UNK_02106DD4
 _020E0E1C: .word 0x66666667
-    arm_func_end float2str
+	arm_func_end float2str
 
 	arm_func_start __pformatter
 __pformatter:
@@ -2387,7 +2387,7 @@ _020E1628:
 	.balign 4
 _020E163C: .word UNK_02106DD8
 _020E1640: .word UNK_02106DDC
-    arm_func_end __pformatter
+	arm_func_end __pformatter
 
 	arm_func_start __FileWrite
 __FileWrite: ; 0x020E1644
@@ -2402,7 +2402,7 @@ __FileWrite: ; 0x020E1644
 	movne r5, #0x0
 	mov r0, r5
 	ldmia sp!, {r3-r5,pc}
-    arm_func_end __FileWrite
+	arm_func_end __FileWrite
 
 	arm_func_start __StringWrite
 __StringWrite: ; 0x020E1670
@@ -2423,7 +2423,7 @@ __StringWrite: ; 0x020E1670
 	add r1, r1, r5
 	str r1, [r4, #0x8]
 	ldmia sp!, {r3-r5,pc}
-    arm_func_end __StringWrite
+	arm_func_end __StringWrite
 
 	arm_func_start printf
 printf: ; 0x020E16B4
@@ -2502,7 +2502,7 @@ _020E17BC: .word OSi_ThreadInfo
 _020E17C0: .word __cs_id
 _020E17C4: .word __cs_ref
 _020E17C8: .word __FileWrite
-    arm_func_end printf
+	arm_func_end printf
 
 	arm_func_start vsnprintf
 vsnprintf: ; 0x020E17CC
@@ -2533,7 +2533,7 @@ vsnprintf: ; 0x020E17CC
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020E1830: .word __StringWrite
-    arm_func_end vsnprintf
+	arm_func_end vsnprintf
 
 	arm_func_start snprintf
 snprintf: ; 0x020E1834
@@ -2547,7 +2547,7 @@ snprintf: ; 0x020E1834
 	ldmia sp!, {r3,lr}
 	add sp, sp, #0x10
 	bx lr
-    arm_func_end snprintf
+	arm_func_end snprintf
 
 	arm_func_start sprintf
 sprintf: ; 0x020E185C
@@ -2562,9 +2562,9 @@ sprintf: ; 0x020E185C
 	ldmia sp!, {r3,lr}
 	add sp, sp, #0x10
 	bx lr
-    arm_func_end sprintf
+	arm_func_end sprintf
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word long2str
 	.short 589
@@ -2600,7 +2600,7 @@ sprintf: ; 0x020E185C
 	.short 45
 	.word 0x00300020
 
-    .section .exception,8
+	.section .exception,8
 
 UNK_020EC710: ; 0x020EC710
 	.byte 0x20, 0xFF, 0x09, 0x60

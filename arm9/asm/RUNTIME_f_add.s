@@ -1,9 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .extern __fsub_start
+	.extern __fsub_start
 
-    .text
+	.text
 
 	arm_func_start _fadd
 _fadd: ; 0x020EA980

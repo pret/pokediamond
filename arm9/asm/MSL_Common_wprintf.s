@@ -1,42 +1,42 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .data
+	.data
 
 wstr$6DE4: ; 0x02106DE4
-    ; L"0x0p0"
+	; L"0x0p0"
 	.short 0x0030, 0x0078, 0x0030, 0x0070, 0x0030, 0x0000
 
 wstr$6DF0: ; 0x02106DF0
-    ; L"-INF"
+	; L"-INF"
 	.short 0x002D, 0x0049, 0x004E, 0x0046, 0x0000, 0x0000
 
 wstr$6DFC: ; 0x02106DFC
-    ; L"-inf"
+	; L"-inf"
 	.short 0x002D, 0x0069, 0x006E, 0x0066, 0x0000, 0x0000
 
 wstr$6E08: ; 0x02106E08
-    ; L"INF"
+	; L"INF"
 	.short 0x0049, 0x004E, 0x0046, 0x0000
 
 wstr$6E10: ; 0x02106E10
-    ; L"inf"
+	; L"inf"
 	.short 0x0069, 0x006E, 0x0066, 0x0000
 
 wstr$6E18: ; 0x02106E18
-    ; L"-NAN"
+	; L"-NAN"
 	.short 0x002D, 0x004E, 0x0041, 0x004E, 0x0000, 0x0000
 
 wstr$6E24: ; 0x02106E24
-    ; L"-nan"
+	; L"-nan"
 	.short 0x002D, 0x006E, 0x0061, 0x006E, 0x0000, 0x0000
 
 wstr$6E30: ; 0x02106E30
-    ; L"NAN"
+	; L"NAN"
 	.short 0x004E, 0x0041, 0x004E, 0x0000
 
 wstr$6E38: ; 0x02106E38
-    ; L"nan"
+	; L"nan"
 	.short 0x006E, 0x0061, 0x006E, 0x0000
 
 buff_ptr$6E40: ; 0x02106E40
@@ -45,7 +45,7 @@ buff_ptr$6E40: ; 0x02106E40
 strptr$6E44: ; 0x02106E44
 	.asciz ""
 
-    .text
+	.text
 
 	arm_func_start parse_format__wide
 parse_format__wide: ; 0x020E50A0
@@ -447,7 +447,7 @@ _020E55F4:
 _020E560C: .word __wctype_mapC
 _020E5610: .word 0x000001FD
 _020E5614: .word 0x0000FFFF
-    arm_func_end parse_format__wide
+	arm_func_end parse_format__wide
 
 	arm_func_start long2str__wide
 long2str__wide: ; 0x020E5618
@@ -616,7 +616,7 @@ _020E5850:
 	bx lr
 	.balign 4
 _020E5864: .word 0x000001FD
-    ; arm_func_end long2str__wide
+	; arm_func_end long2str__wide
 
 	arm_func_start longlong2str__wide
 longlong2str__wide: ; 0x020E5868
@@ -824,7 +824,7 @@ _020E5B34:
 	bx lr
 	.balign 4
 _020E5B48: .word 0x000001FD
-    ; arm_func_end longlong2str__wide
+	; arm_func_end longlong2str__wide
 
 	arm_func_start double2hex__wide
 double2hex__wide: ; 0x020E5B4C
@@ -1076,7 +1076,7 @@ _020E5ED4: .word wstr$6E24
 _020E5ED8: .word wstr$6E30
 _020E5EDC: .word wstr$6E38
 _020E5EE0: .word 0x000007FF
-    ; arm_func_end double2hex__wide
+	; arm_func_end double2hex__wide
 
 	arm_func_start round_decimal__wide
 round_decimal__wide: ; 0x020E5EE4
@@ -1165,7 +1165,7 @@ _020E5FF8:
 	beq _020E5EF0
 	strb r1, [r0, #0x4]
 	ldmia sp!, {r4,pc}
-    arm_func_end round_decimal__wide
+	arm_func_end round_decimal__wide
 
 	arm_func_start float2str__wide
 float2str__wide: ; 0x020E6008
@@ -1620,7 +1620,7 @@ _020E6644: .word wstr$6E24
 _020E6648: .word wstr$6E30
 _020E664C: .word wstr$6E38
 _020E6650: .word 0x66666667
-    ; arm_func_end float2str__wide
+	; arm_func_end float2str__wide
 
 	arm_func_start __wpformatter
 __wpformatter:
@@ -2257,7 +2257,7 @@ _020E6F24:
 _020E6F38: .word 0x0000FFFF
 _020E6F3C: .word buff_ptr$6E40
 _020E6F40: .word strptr$6E44
-    arm_func_end __wpformatter
+	arm_func_end __wpformatter
 
 	arm_func_start __wStringWrite
 __wStringWrite: ; 0x020E6F44
@@ -2277,7 +2277,7 @@ __wStringWrite: ; 0x020E6F44
 	add r1, r1, r5
 	str r1, [r4, #0x8]
 	ldmia sp!, {r3-r5,pc}
-    arm_func_end __wStringWrite
+	arm_func_end __wStringWrite
 
 	arm_func_start swprintf
 swprintf: ; 0x020E6F84
@@ -2291,7 +2291,7 @@ swprintf: ; 0x020E6F84
 	ldmia sp!, {r3,lr}
 	add sp, sp, #0x10
 	bx lr
-    arm_func_end swprintf
+	arm_func_end swprintf
 
 	arm_func_start vswprintf
 vswprintf: ; 0x020E6FAC
@@ -2325,9 +2325,9 @@ _020E7000:
 	ldmia sp!, {r4-r5,pc}
 	.balign 4
 _020E7018: .word __wStringWrite
-    arm_func_end vswprintf
+	arm_func_end vswprintf
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word long2str__wide
 	.short 593
@@ -2354,13 +2354,13 @@ _020E7018: .word __wStringWrite
 	.short 113
 	.word 0x00300300
 
-    .section .exception,8
+	.section .exception,8
 
 UNK_020EC728: ; 0x020EC728
 	.byte 0x20, 0xFF, 0x09, 0x60
 	.balign 8
 
-    .section .exception,8
+	.section .exception,8
 
 UNK_020EC730: ; 0x020EC730
 	.byte 0x20, 0xFF, 0x11, 0x68

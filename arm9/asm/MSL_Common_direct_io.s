@@ -1,7 +1,7 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start fread
 fread: ; 0x020DE584
@@ -77,7 +77,7 @@ _020DE680: .word __cs
 _020DE684: .word OSi_ThreadInfo
 _020DE688: .word __cs_id
 _020DE68C: .word __cs_ref
-    arm_func_end fread
+	arm_func_end fread
 
 	arm_func_start __fread
 __fread: ; 0x020DE690
@@ -309,7 +309,7 @@ _020DE9C4:
 	bl _u32_div_f
 	add sp, sp, #0x4
 	ldmia sp!, {r3-r10,pc}
-    arm_func_end __fread
+	arm_func_end __fread
 
 	arm_func_start __fwrite
 __fwrite:
@@ -498,9 +498,9 @@ _020DEC5C:
 	bl _u32_div_f
 	add sp, sp, #0x8
 	ldmia sp!, {r3-r11,pc}
-    arm_func_end __fwrite
+	arm_func_end __fwrite
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word fread
 	.short 269

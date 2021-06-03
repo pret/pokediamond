@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start _ll_ufrom_d
 _ll_ufrom_d: ; 0x020E9FAC
@@ -45,4 +45,4 @@ _020EA028:
 	bx lr
 	.balign 4
 _020EA034: .word 0x0000043E
-    arm_func_end _ll_ufrom_d
+	arm_func_end _ll_ufrom_d

@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start strlen
 strlen: ; 0x020E2EAC
@@ -13,7 +13,7 @@ _020E2EB0:
 	bne _020E2EB0
 	mov r0, r2
 	bx lr
-    arm_func_end strlen
+	arm_func_end strlen
 
 	arm_func_start strcpy
 strcpy: ; 0x020E2EC8
@@ -74,7 +74,7 @@ _020E2F74:
 	.balign 4
 _020E2F88: .word 0xFEFEFEFF
 _020E2F8C: .word 0x80808080
-    arm_func_end strcpy
+	arm_func_end strcpy
 
 	arm_func_start strncpy
 strncpy: ; 0x020E2F90
@@ -101,7 +101,7 @@ _020E2FD4:
 	subs r2, r2, #0x1
 	bne _020E2FA0
 	ldmia sp!, {r3,pc}
-    arm_func_end strncpy
+	arm_func_end strncpy
 
 	arm_func_start strcat
 strcat: ; 0x020E2FE0
@@ -119,7 +119,7 @@ _020E2FF4:
 	cmp r2, #0x0
 	bne _020E2FF4
 	bx lr
-    arm_func_end strcat
+	arm_func_end strcat
 
 	arm_func_start strncat
 strncat: ; 0x020E3010
@@ -146,7 +146,7 @@ _020E3054:
 	mov r1, #0x0
 	strb r1, [r12, #0x0]
 	ldmia sp!, {r3,pc}
-    arm_func_end strncat
+	arm_func_end strncat
 
 	arm_func_start strcmp
 strcmp: ; 0x020E3060
@@ -228,7 +228,7 @@ _020E3148:
 	.balign 4
 _020E316C: .word 0xFEFEFEFF
 _020E3170: .word 0x80808080
-    arm_func_end strcmp
+	arm_func_end strcmp
 
 	arm_func_start strncmp
 strncmp: ; 0x020E3174
@@ -247,7 +247,7 @@ _020E317C:
 _020E31A0:
 	mov r0, #0x0
 	bx lr
-    arm_func_end strncmp
+	arm_func_end strncmp
 
 	arm_func_start strchr
 strchr: ; 0x020E31A8
@@ -268,7 +268,7 @@ _020E31D4:
 	movne r0, #0x0
 	subeq r0, r0, #0x1
 	bx lr
-    arm_func_end strchr
+	arm_func_end strchr
 
 	arm_func_start strspn
 strspn: ; 0x020E31E4
@@ -325,7 +325,7 @@ _020E3294:
 	sub r0, r0, #0x1
 	add sp, sp, #0x20
 	ldmia sp!, {r4,pc}
-    arm_func_end strspn
+	arm_func_end strspn
 
 	arm_func_start strstr
 strstr: ; 0x020E32A4
@@ -361,4 +361,4 @@ _020E32FC:
 _020E3308:
 	mov r0, #0x0
 	ldmia sp!, {r4,pc}
-    arm_func_end strstr
+	arm_func_end strstr

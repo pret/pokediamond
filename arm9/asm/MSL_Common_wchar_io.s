@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start fwide
 fwide:
@@ -40,4 +40,4 @@ _020E505C:
 _020E5060:
 	mov r0, r1
 	bx lr
-    arm_func_end fwide
+	arm_func_end fwide

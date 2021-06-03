@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start _fmul
 _fmul: ; 0x020EB5C4
@@ -117,16 +117,16 @@ _020EB70C:
 _020EB754:
 	mov r0, r0, lsl #0x1
 	b _020EB784
-    .global __f_result_INF
+	.global __f_result_INF
 __f_result_INF:
 	mov r0, #0xff000000
 	orr r0, r2, r0, lsr #0x1
 	bx lr
-    .global __f_result_x_NaN
+	.global __f_result_x_NaN
 __f_result_x_NaN:
 	mvn r0, #0x80000000
 	bx lr
-    .global __f_result_invalid
+	.global __f_result_invalid
 __f_result_invalid:
 	mvn r0, #0x80000000
 	bx lr

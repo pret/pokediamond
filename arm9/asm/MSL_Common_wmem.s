@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start wmemcpy
 wmemcpy: ; 0x020E5068
@@ -10,7 +10,7 @@ wmemcpy: ; 0x020E5068
 	bx r12
 	.balign 4
 _020E5074: .word memcpy
-    arm_func_end wmemcpy
+	arm_func_end wmemcpy
 
 	arm_func_start wmemchr
 wmemchr:
@@ -26,9 +26,9 @@ _020E5080:
 _020E5098:
 	mov r0, #0x0
 	bx lr
-    arm_func_end wmemchr
+	arm_func_end wmemchr
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word wmemcpy
 	.short 17

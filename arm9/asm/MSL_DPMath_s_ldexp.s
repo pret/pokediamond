@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start ldexp
 ldexp: ; 0x020E8318
@@ -161,9 +161,9 @@ _020E8554: .word 0x7E37E43C
 _020E8558: .word 0x800FFFFF
 _020E855C: .word 0x0000C350
 _020E8560: .word 0x3C900000
-    arm_func_end ldexp
+	arm_func_end ldexp
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word ldexp
 	.short 589

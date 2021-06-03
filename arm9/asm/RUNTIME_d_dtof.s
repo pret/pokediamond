@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start _d2f
 _d2f:
@@ -68,7 +68,7 @@ _020E9EE4:
 	bx lr
 _020E9F38:
 	orr r0, r0, r1, lsl #0xc
-    .global __f_very_tiny_result
+	.global __f_very_tiny_result
 __f_very_tiny_result:
 	movs r1, r0
 	mov r0, r2

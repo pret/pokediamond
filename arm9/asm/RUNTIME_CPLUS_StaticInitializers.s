@@ -50,7 +50,7 @@ _020EC6D8:
 	.balign 4
 _020EC700: .word __global_destructor_chain
 
-    .section .exceptix,4
+	.section .exceptix,4
 
 	.word __call_static_initializers
 	.short 45
