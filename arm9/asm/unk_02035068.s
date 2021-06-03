@@ -1,5 +1,5 @@
 	.include "asm/macros.inc"
-    .include "global.inc"
+	.include "global.inc"
 
 	.extern UNK_020F96DC
 	.section .rodata
@@ -3649,7 +3649,7 @@ FUN_02036E08: ; 0x02036E08
 	mov r0, #0x3
 	mov r1, #0x49
 	lsl r2, r0, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r0, [r4, #0xc]
 	bl SavArray_PlayerParty_get
 	ldrb r1, [r5, #0x0]
@@ -3773,7 +3773,7 @@ FUN_02036F1C: ; 0x02036F1C
 	ldr r0, [r4, r0]
 	bl FUN_0206C92C
 	mov r0, #0x49
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _02036F9C ; =0x00000475
 	mov r1, #0x0
 	bl FUN_02005350

@@ -15,7 +15,7 @@ UNK_021D5474: ; 0x021D5474
 UNK_021D548C: ; 0x021D548C
 	.space 0x20
 
-    .text
+	.text
 
 	arm_func_start TP_CheckError
 TP_CheckError: ; 0x020D36C4

@@ -23,12 +23,12 @@ _021D74F2:
 	mov r0, #3
 	mov r1, #0x22
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r2, #0xa
 	mov r0, #3
 	mov r1, #0x23
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0
 	bl MOD15_021D7628
 	ldr r0, [r0, #0x14]
@@ -170,9 +170,9 @@ MOD15_021D7608: ; 0x021D7608
 	add r1, r4, #0
 	bl MOD15_021D7774
 	mov r0, #0x22
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x23
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0

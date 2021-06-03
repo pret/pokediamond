@@ -53,7 +53,7 @@ _021D9374:
 	str r0, [sp, #0x20]
 	ldr r1, [r6]
 	add r0, r4, #0
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	ldr r1, [sp, #0x20]
 	str r0, [sp, #0x24]
 	add r2, r4, #0
@@ -161,7 +161,7 @@ _021D944A:
 	ldr r1, [sp, #0x10]
 	add r0, r4, #0
 	ldr r1, [r1, #0x18]
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	mov r3, #0x4e
 	lsl r3, r3, #2
 	ldr r1, [r5, r3]

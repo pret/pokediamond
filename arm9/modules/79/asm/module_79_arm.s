@@ -3438,7 +3438,7 @@ _022152DC:
 	cmp r0, #0
 	beq _02215448
 	add r4, r0, #9
-	ldr r1, _0221562C ; =UNK_0210430C
+	ldr r1, _0221562C ; =__msl_digit
 	mov r2, #0
 	b _02215330
 _0221532C:
@@ -3460,7 +3460,7 @@ _02215358:
 	cmp r0, #0
 	bne _0221532C
 	mov r3, r4
-	ldr r1, _0221562C ; =UNK_0210430C
+	ldr r1, _0221562C ; =__msl_digit
 	mov r2, #0
 	b _02215374
 _02215370:
@@ -3655,7 +3655,7 @@ _0221561C: .word MOD79_02216F64
 _02215620: .word MOD79_02216F6C
 _02215624: .word 0x51EB851F
 _02215628: .word MOD79_02216F70
-_0221562C: .word UNK_0210430C
+_0221562C: .word __msl_digit
 _02215630: .word MOD79_02216F7C
 _02215634: .word MOD79_02216F8C
 _02215638: .word MOD79_0221673C
@@ -4101,7 +4101,7 @@ _02215C1C:
 	bl sscanf
 	mov r3, #0
 	mov ip, #1
-	ldr r2, _02215D24 ; =UNK_0210430C
+	ldr r2, _02215D24 ; =__msl_digit
 	b _02215C5C
 _02215C50:
 	ldr r1, [sp, #0x14]
@@ -4163,7 +4163,7 @@ _02215D14: .word 0x0000024E
 _02215D18: .word MOD79_02217000
 _02215D1C: .word 0x0000024F
 _02215D20: .word MOD79_02217020
-_02215D24: .word UNK_0210430C
+_02215D24: .word __msl_digit
 	arm_func_end MOD79_02215BD8
 
 	arm_func_start MOD79_02215D28

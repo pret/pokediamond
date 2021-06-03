@@ -35,7 +35,7 @@ UNK_021D5E9C: ; 0x021D5E9C
 UNK_021D5EC0: ; 0x021D5EC0
 	.space 0xa00
 
-    .text
+	.text
 
 	arm_func_start WMi_GetMPReadyAIDs
 WMi_GetMPReadyAIDs: ; 0x020D7DE0

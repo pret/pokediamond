@@ -38,7 +38,7 @@ _021D74F6:
 	mov r0, #3
 	mov r1, #0x33
 	lsl r2, r2, #0xc
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D7638 ; =0x00004A60
 	add r0, r6, #0
 	mov r2, #0x33
@@ -67,7 +67,7 @@ _021D74F6:
 	str r0, [r4, #0x28]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl MOD54_021D7874
 	ldr r0, [r4]
 	bl MOD54_021D7894
@@ -333,7 +333,7 @@ _021D776C:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x33
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0

@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern UNK_020F96DC
 
@@ -184,7 +184,7 @@ FUN_020859C0: ; 0x020859C0
 	mov r0, #0x3
 	mov r1, #0x35
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #0x35
 	bl MOD62_02230F3C
 	bl MOD62_0222F7E0
@@ -570,7 +570,7 @@ FUN_02085C08: ; 0x02085C08
 	bl OverlayManager_FreeData
 	bl FUN_0201CD04
 	mov r0, #0x35
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _02085D68 ; =SDK_OVERLAY_MODULE_08_ID
 	bl UnloadOverlayByID
 	mov r0, #0x1

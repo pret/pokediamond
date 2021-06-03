@@ -41,7 +41,7 @@ Unk_02106900: ; 0x02106900
 	.word 0x6FA87E4F, 0xFE2CE6E0, 0xA3014314, 0x4E0811A1
 	.word 0xF7537E82, 0xBD3AF235, 0x2AD7D2BB, 0xEB86D391
 
-    .text
+	.text
 
 	arm_func_start ProcessBlock
 ProcessBlock: ; 0x020D2798

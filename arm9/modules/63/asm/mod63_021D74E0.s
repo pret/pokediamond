@@ -37,12 +37,12 @@ MOD63_021D74E0: ; 0x021D74E0
 	str r0, [r2]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #1
 	mov r0, #3
 	mov r1, #0x1e
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x79
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -363,7 +363,7 @@ MOD63_021D77B4: ; 0x021D77B4
 	add r0, r7, #0
 	bl OverlayManager_FreeData
 	add r0, r4, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	cmp r5, #1
 	beq _021D77F2
 	cmp r5, #2
@@ -500,7 +500,7 @@ MOD63_021D78BC: ; 0x021D78BC
 	add r0, #0x68
 	add r1, r4, #0
 	mov r2, #4
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	mov r0, #0x30
 	add r1, r6, #0
 	add r2, r4, #0

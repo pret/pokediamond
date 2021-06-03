@@ -120,7 +120,7 @@ _021DBFA8:
 	add r7, #0x10
 	mov r0, #4
 	add r1, sp, #0xc
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	str r0, [r7, r5]
 	add r0, r6, #0
 	str r0, [sp, #8]
@@ -128,7 +128,7 @@ _021DBFA8:
 	str r0, [sp, #8]
 	ldr r0, [r7, r5]
 	mov r1, #4
-	bl FUN_02016324
+	bl OpenFileCached
 	ldr r1, [sp, #8]
 	str r0, [r1, r5]
 	add r0, r1, #0

@@ -7,7 +7,7 @@
 UNK_02106A54: ; 0x02106A54
 	.word 0x00010000
 
-    .text
+	.text
 
 	arm_func_start WM_GetNextTgid
 WM_GetNextTgid: ; 0x020D8868

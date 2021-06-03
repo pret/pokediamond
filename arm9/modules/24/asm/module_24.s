@@ -621,7 +621,7 @@ MOD24_02254CA0: ; 0x02254CA0
 	add r4, r0, #0
 	beq _02254CFA
 	mov r0, #7
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254CC0
 	bl GF_AssertFail
@@ -631,7 +631,7 @@ _02254CC0:
 	mov r1, #0x10
 	bl MOD20_022536F4
 	mov r0, #7
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254CD8
 	bl GF_AssertFail
@@ -642,7 +642,7 @@ _02254CD8:
 	bl MOD20_02252D24
 	str r0, [r4, #0x50]
 	mov r0, #7
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254CF4
 	bl GF_AssertFail
@@ -699,7 +699,7 @@ MOD24_02254D48: ; 0x02254D48
 	add r4, r0, #0
 	beq _02254D84
 	mov r0, #7
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254D5C
 	bl GF_AssertFail
@@ -783,7 +783,7 @@ MOD24_02254DDC: ; 0x02254DDC
 	sub sp, #0x14
 	mov r0, #8
 	add r4, r1, #0
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254DF0
 	bl GF_AssertFail
@@ -802,7 +802,7 @@ _02254DF0:
 	mov r3, #0
 	bl FUN_02016C18
 	mov r0, #8
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254E1E
 	bl GF_AssertFail
@@ -835,7 +835,7 @@ _02254E1E:
 	add r1, r0, #0
 	bl MOD20_02252D7C
 	mov r0, #8
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254E68
 	bl GF_AssertFail
@@ -845,7 +845,7 @@ _02254E68:
 	ldr r0, [r5, #0x70]
 	bl CopyWindowToVram
 	mov r0, #8
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254E82
 	bl GF_AssertFail
@@ -853,7 +853,7 @@ _02254E82:
 	add r0, r5, #0
 	bl MOD24_02255078
 	mov r0, #8
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254E96
 	bl GF_AssertFail
@@ -877,7 +877,7 @@ _02254E96:
 	add r0, r4, #0
 	bl MOD24_02254DC8
 	mov r0, #8
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254ECC
 	bl GF_AssertFail

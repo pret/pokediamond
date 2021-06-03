@@ -21,11 +21,11 @@ MOD20_02252448: ; 0x02252448
 	mov r1, #7
 	lsl r2, r0, #0xe
 	add r7, r3, #0
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #3
 	mov r1, #8
 	lsl r2, r0, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #7
 	mov r1, #0x60
 	bl AllocFromHeap
@@ -238,9 +238,9 @@ _022525C6:
 	add r0, r5, #0
 	bl FUN_0200CAB4
 	mov r0, #7
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #8
-	bl FUN_020168D0
+	bl DestroyHeap
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _022525EC: .word MOD20_022544CC

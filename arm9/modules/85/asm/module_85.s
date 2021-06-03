@@ -18,7 +18,7 @@ MOD85_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x4f
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0
 	mov r1, #8
 	mov r2, #0x4f
@@ -193,7 +193,7 @@ MOD85_021D7644: ; 0x021D7644
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4f
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 	.align 2, 0

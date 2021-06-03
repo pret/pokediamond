@@ -10,6 +10,7 @@
 #include "game_init.h"
 #include "registers.h"
 #include "heap.h"
+#include "OS_interrupt.h"
 
 #pragma thumb on
 
@@ -30,11 +31,11 @@ OS_DTCM;
 static struct {
     void * contents;
     u32 name_hash;
-} UNK_021C4928[128];
+} sFileCache[128];
 
 struct Main gMain;
 
-void Main_HBlankIntr(BOOL);
+void Main_ToggleHBlankInterrupt(BOOL enableFlag);
 void FUN_0201B5CC(void *);
 
 void FUN_02015EA0(void)
@@ -66,7 +67,7 @@ void Main_SetVBlankIntrCB(void (*a0)(void *), void * a1)
 
 void FUN_02015F1C(void)
 {
-    Main_HBlankIntr(FALSE);
+    Main_ToggleHBlankInterrupt(FALSE);
     gMain.hBlankIntr = NULL;
     gMain.hBlankIntrArg = NULL;
 }
@@ -75,7 +76,7 @@ BOOL FUN_02015F34(void (*a0)(void *), void * a1)
 {
     if (a0 == 0)
     {
-        Main_HBlankIntr(FALSE);
+        Main_ToggleHBlankInterrupt(FALSE);
         gMain.hBlankIntr = NULL;
         gMain.hBlankIntrArg = NULL;
         return TRUE;
@@ -84,7 +85,7 @@ BOOL FUN_02015F34(void (*a0)(void *), void * a1)
     {
         gMain.hBlankIntrArg = a1;
         gMain.hBlankIntr = a0;
-        Main_HBlankIntr(TRUE);
+        Main_ToggleHBlankInterrupt(TRUE);
         return TRUE;
     }
     else
@@ -93,36 +94,36 @@ BOOL FUN_02015F34(void (*a0)(void *), void * a1)
     }
 }
 
-void FUN_02015F6C(void)
+void Main_CallHBlankCallback(void)
 {
     if (gMain.hBlankIntr != NULL)
         gMain.hBlankIntr(gMain.hBlankIntrArg);
 }
 
-void Main_HBlankIntr(BOOL a0)
+void Main_ToggleHBlankInterrupt(BOOL enableFlag)
 {
     (void)OS_DisableIrq();
-    if (!a0)
+    if (!enableFlag)
     {
         (void)OS_GetIrqMask();
-        OS_DisableIrqMask(2);
+        OS_DisableIrqMask(OS_IE_H_BLANK);
         GX_HBlankIntr(FALSE);
     }
     else
     {
         (void)OS_GetIrqMask();
-        OS_SetIrqFunction(2, FUN_02015F6C);
-        OS_EnableIrqMask(2);
+        OS_SetIrqFunction(OS_IE_H_BLANK, Main_CallHBlankCallback);
+        OS_EnableIrqMask(OS_IE_H_BLANK);
         GX_HBlankIntr(TRUE);
     }
     (void)OS_EnableIrq();
 }
 
-const u32 UNK_020EDB10[][2] = {
-    { 0x0000D000, 0x00000000 },
-    { 0x00021000, 0x00000000 },
-    { 0x00001000, 0x00000000 },
-    { 0x0010D800, 0x00000000 }
+const struct HeapParam UNK_020EDB10[] = {
+    { 0x00D000, OS_ARENA_MAIN },
+    { 0x021000, OS_ARENA_MAIN },
+    { 0x001000, OS_ARENA_MAIN },
+    { 0x10D800, OS_ARENA_MAIN }
 };
 
 void FUN_02015FC8(void)
@@ -136,12 +137,12 @@ void FUN_02015FC8(void)
     {
         csum += digest[i];
     }
-    csum = (csum << 24) >> 24;
+    csum %= 256;
     while (csum & 3)
     {
         csum++;
     }
-    FUN_020166C8((u32 *)UNK_020EDB10, 4, 92, csum);
+    InitHeapSystem(UNK_020EDB10, NELEMS(UNK_020EDB10), 92, csum);
 }
 
 void InitSystemForTheGame(void)
@@ -189,7 +190,7 @@ void InitGraphicMemory(void)
     MI_CpuClearFast((void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
 }
 
-void * FUN_020161A4(u32 heap_id, const char * path)
+void * AllocAndReadFile(u32 heap_id, const char * path)
 {
     void * ret;
 
@@ -214,7 +215,7 @@ void * FUN_020161A4(u32 heap_id, const char * path)
     return ret;
 }
 
-void FUN_020161F8(const char * path, void ** ptr)
+void OpenAndReadWholeFile(const char * path, void ** ptr)
 {
     FSFile file;
     FS_InitFile(&file);
@@ -227,94 +228,94 @@ void FUN_020161F8(const char * path, void ** ptr)
     }
 }
 
-u32 FUN_02016230(const s8 * str)
+u32 GetFilenameHash(const s8 * str)
 {
     u16 len = (u16)strlen(str);
-    u16 sp4;
+    u16 numWords;
     if ((len % 4) != 0)
-        sp4 = (u16)((len / 4) + 1);
+        numWords = (u16)((len / 4) + 1);
     else
-        sp4 = (u16)(len / 4);
-    u32 r7 = 0;
+        numWords = (u16)(len / 4);
+    u32 hash = 0;
     s32 i, j;
-    for (i = 0; i < sp4; i++)
+    for (i = 0; i < numWords; i++)
     {
-        u32 r1 = 0;
+        u32 curWord = 0;
         for (j = 0; j < 4; j++)
         {
-            int r5 = str[4 * i + j];
-            if (r5 == 0)
+            int curChar = str[4 * i + j];
+            if (curChar == 0)
                 break;
-            r1 |= r5 << (8 * j);
+            curWord |= curChar << (8 * j);
         }
-        r7 ^= r1;
+        hash ^= curWord;
     }
-    return r7;
+    return hash;
 }
 
-int FUN_020162A0(u32 a0)
+int GetFileCacheId(u32 hash)
 {
     for (int i = 0; i < 128; i++)
     {
-        if (UNK_021C4928[i].name_hash == a0 && UNK_021C4928[i].contents != NULL)
+        if (sFileCache[i].name_hash == hash && sFileCache[i].contents != NULL)
             return i;
     }
     return -1;
 }
 
-int FUN_020162C8(void * a0, u32 a1)
+int AddFileToCache(void * contents, u32 hash)
 {
     for (int i = 0; i < 128; i++)
     {
-        if (UNK_021C4928[i].contents == NULL)
+        if (sFileCache[i].contents == NULL)
         {
-            UNK_021C4928[i].contents = a0;
-            UNK_021C4928[i].name_hash = a1;
+            sFileCache[i].contents = contents;
+            sFileCache[i].name_hash = hash;
             return i;
         }
     }
     return -1;
 }
 
-void FUN_020162FC(void)
+void ClearFileCache(void)
 {
     for (int i = 127; i > -1; i--)
     {
-        if (UNK_021C4928[i].contents != NULL)
+        if (sFileCache[i].contents != NULL)
         {
-            FreeToHeap(UNK_021C4928[i].contents);
-            UNK_021C4928[i].contents = NULL;
-            UNK_021C4928[i].name_hash = 0;
+            FreeToHeap(sFileCache[i].contents);
+            sFileCache[i].contents = NULL;
+            sFileCache[i].name_hash = 0;
         }
     }
 }
 
-void * FUN_02016324(const s8 * str, u32 heap_id)
+void * OpenFileCached(const s8 * str, u32 heap_id)
 {
-    s8 sp0[32];
+    s8 filenameBuf[32];
     FSFile file;
     void * ret;
-    int r5 = 0;
+    int skipCache = 0;
 
     if (str[0] == '!')
     {
-        strcpy(sp0, str + 1);
-        r5 = 1;
+        strcpy(filenameBuf, str + 1);
+        skipCache = 1;
     }
     else
     {
-        strcpy(sp0, str);
+        strcpy(filenameBuf, str);
     }
-    u32 r7 = FUN_02016230(sp0);
-    s32 r0 = FUN_020162A0(r7);
-    if (r0 >= 0 && r5 == 0)
+    u32 hash = GetFilenameHash(filenameBuf);
+    s32 cacheId = GetFileCacheId(hash);
+    if (cacheId >= 0 && skipCache == 0)
     {
-        ret = UNK_021C4928[r0].contents;
+        ret = sFileCache[cacheId].contents;
     }
     else
     {
         FS_InitFile(&file);
-        if (FS_OpenFile(&file, (const char *)sp0))
+        if (FS_OpenFile(&file, (const char *)filenameBuf))
         {
             u32 size = file.prop.file.bottom - file.prop.file.top;
             ret = AllocFromHeap(heap_id, size);
@@ -327,8 +328,8 @@ void * FUN_02016324(const s8 * str, u32 heap_id)
                 }
             }
             FS_CloseFile(&file);
-            if (r5 == 0)
-                FUN_020162C8(ret, r7);
+            if (skipCache == 0)
+                AddFileToCache(ret, hash);
         }
         else
             ret = NULL;
@@ -336,24 +337,24 @@ void * FUN_02016324(const s8 * str, u32 heap_id)
     return ret;
 }
 
-void FUN_020163BC(void)
+void InitKeypadAndTouchpad(void)
 {
     TPCalibrateParam tp;
-    gMain.unk34 = 0;
-    gMain.unk38 = 0;
-    gMain.unk3C = 0;
-    gMain.unk40 = 0;
-    gMain.unk44 = 0;
+    gMain.buttonMode = 0;
+    gMain.heldKeysRaw = 0;
+    gMain.newKeysRaw = 0;
+    gMain.newAndRepeatedKeysRaw = 0;
+    gMain.heldKeys = 0;
     gMain.newKeys = 0;
     gMain.newAndRepeatedKeys = 0;
-    gMain.unk50 = 0;
-    gMain.unk54 = 8;
-    gMain.unk58 = 15;
-    gMain.unk5C = 0;
-    gMain.unk5E = 0;
-    gMain.unk60 = 0;
-    gMain.unk62 = 0;
-    gMain.unk64 = 0;
+    gMain.keyRepeatCounter = 0;
+    gMain.keyRepeatContinueDelay = 8;
+    gMain.keyRepeatStartDelay = 15;
+    gMain.touchX = 0;
+    gMain.touchY = 0;
+    gMain.touchNew = 0;
+    gMain.touchHeld = 0;
+    gMain.touchpadReadAuto = 0;
     TP_Init();
     if (TP_GetUserInfo(&tp) == TRUE)
         TP_SetCalibrateParam(&tp);
@@ -382,38 +383,53 @@ void FUN_02016454(u8 a0)
     gMain.unk67 &= ~a0;
 }
 
-void FUN_02016464(void)
+void ReadKeypadAndTocuhpad(void)
 {
     TPData raw, calib;
     if (PAD_DetectFold())
     {
+        // Can't press any buttons while the lid is closed.
         gMain.newKeys = 0;
-        gMain.unk44 = 0;
+        gMain.heldKeys = 0;
         gMain.newAndRepeatedKeys = 0;
-        gMain.unk60 = 0;
-        gMain.unk62 = 0;
+        gMain.touchNew = 0;
+        gMain.touchHeld = 0;
         return;
     }
-    u32 r0 = PAD_Read();
-    gMain.unk40 = gMain.unk3C = (r0 ^ gMain.unk38) & r0;
-    if (r0 != 0 && gMain.unk38 == r0)
+
+    u32 padRead = PAD_Read();
+
+    // newKeys is all keys that were pressed on this frame but
+    // not the last frame.
+    gMain.newAndRepeatedKeysRaw = gMain.newKeysRaw = (padRead ^ gMain.heldKeysRaw) & padRead;
+
+    // If you are holding down buttons, indicate them "repeated" every few frames
+    // as defined by .keyRepeatStartDelay and .keyRepeatContinueDelay.
+    // Same logic as gen3, but fixes the bug where the
+    // remapped keys are incorrectly used here.
+    // See also: pokeemerald/src/main.c:ReadKeys
+    if (padRead != 0 && gMain.heldKeysRaw == padRead)
     {
-        if (--gMain.unk50 == 0)
+        if (--gMain.keyRepeatCounter == 0)
         {
-            gMain.unk40 = r0;
-            gMain.unk50 = gMain.unk54;
+            gMain.newAndRepeatedKeysRaw = padRead;
+            gMain.keyRepeatCounter = gMain.keyRepeatContinueDelay;
         }
     }
     else
     {
-        gMain.unk50 = gMain.unk58;
+        gMain.keyRepeatCounter = gMain.keyRepeatStartDelay;
     }
-    gMain.unk38 = r0;
-    gMain.newKeys = gMain.unk3C;
-    gMain.unk44 = r0;
-    gMain.newAndRepeatedKeys = gMain.unk40;
-    FUN_02016568();
-    if (gMain.unk64 == 0)
+    gMain.heldKeysRaw = padRead;
+
+    // Apply the button mode option to the read key input
+    gMain.newKeys = gMain.newKeysRaw;
+    gMain.heldKeys = padRead;
+    gMain.newAndRepeatedKeys = gMain.newAndRepeatedKeysRaw;
+    ApplyButtonModeToInput();
+
+    // Read the touchpad. New to gen 4.
+    if (gMain.touchpadReadAuto == 0)
     {
         while (TP_RequestRawSampling(&raw))
             ;
@@ -421,111 +437,117 @@ void FUN_02016464(void)
     else
         TP_GetLatestRawPointInAuto(&raw);
     TP_GetCalibratedPoint(&calib, &raw);
-    if (calib.validity == 0)
+
+    // If the touchpad is valid, we gucci.
+    if (calib.validity == TP_VALIDITY_VALID)
     {
-        gMain.unk5C = calib.x;
-        gMain.unk5E = calib.y;
+        gMain.touchX = calib.x;
+        gMain.touchY = calib.y;
     }
-    else if (gMain.unk62)
+
+    // If the touchpad was used last frame, salvage what we can.
+    else if (gMain.touchHeld)
     {
         switch (calib.validity)
         {
-        case 1:
-            gMain.unk5E = calib.y;
+        case TP_VALIDITY_INVALID_X:
+            gMain.touchY = calib.y;
             break;
-        case 2:
-            gMain.unk5C = calib.x;
+        case TP_VALIDITY_INVALID_Y:
+            gMain.touchX = calib.x;
             break;
-        case 3:
+        case TP_VALIDITY_INVALID_XY:
             break;
         }
     }
+    // What was read from the touchpad was not salvageable.
+    // Ignore touch input.
     else
         calib.touch = 0;
-    gMain.unk60 = (u16)((gMain.unk62 ^ calib.touch) & calib.touch);
-    gMain.unk62 = calib.touch;
+    gMain.touchNew = (u16)((gMain.touchHeld ^ calib.touch) & calib.touch);
+    gMain.touchHeld = calib.touch;
 }
 
-void FUN_02016568(void)
+void ApplyButtonModeToInput(void)
 {
-    switch (gMain.unk34)
+    switch (gMain.buttonMode)
     {
     case 0: // Normal
         break;
     case 1: // Start = X
         if (gMain.newKeys & PAD_BUTTON_START)
             gMain.newKeys |= PAD_BUTTON_X;
-        if (gMain.unk44 & PAD_BUTTON_START)
-            gMain.unk44 |= PAD_BUTTON_X;
+        if (gMain.heldKeys & PAD_BUTTON_START)
+            gMain.heldKeys |= PAD_BUTTON_X;
         if (gMain.newAndRepeatedKeys & PAD_BUTTON_START)
             gMain.newAndRepeatedKeys |= PAD_BUTTON_X;
         break;
     case 2: // Swap X and Y; unused in the retail game
         {
-            u32 r1 = 0;
+            u32 swapMask = 0;
             if (gMain.newKeys & PAD_BUTTON_X)
             {
-                r1 |= PAD_BUTTON_Y;
+                swapMask |= PAD_BUTTON_Y;
             }
             if (gMain.newKeys & PAD_BUTTON_Y)
             {
-                r1 |= PAD_BUTTON_X;
+                swapMask |= PAD_BUTTON_X;
             }
-            gMain.newKeys &= 0xF3FF;
-            gMain.newKeys |= r1;
+            gMain.newKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);;
+            gMain.newKeys |= swapMask;
         }
         {
-            u32 r1 = 0;
-            if (gMain.unk44 & PAD_BUTTON_X)
+            u32 swapMask = 0;
+            if (gMain.heldKeys & PAD_BUTTON_X)
             {
-                r1 |= PAD_BUTTON_Y;
+                swapMask |= PAD_BUTTON_Y;
             }
-            if (gMain.unk44 & PAD_BUTTON_Y)
+            if (gMain.heldKeys & PAD_BUTTON_Y)
             {
-                r1 |= PAD_BUTTON_X;
+                swapMask |= PAD_BUTTON_X;
             }
-            gMain.unk44 &= 0xF3FF;
-            gMain.unk44 |= r1;
+            gMain.heldKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);
+            gMain.heldKeys |= swapMask;
         }
         {
-            u32 r1 = 0;
+            u32 swapMask = 0;
             if (gMain.newAndRepeatedKeys & PAD_BUTTON_X)
             {
-                r1 |= PAD_BUTTON_Y;
+                swapMask |= PAD_BUTTON_Y;
             }
             if (gMain.newAndRepeatedKeys & PAD_BUTTON_Y)
             {
-                r1 |= PAD_BUTTON_X;
+                swapMask |= PAD_BUTTON_X;
             }
-            gMain.newAndRepeatedKeys &= 0xF3FF;
-            gMain.newAndRepeatedKeys |= r1;
+            gMain.newAndRepeatedKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);
+            gMain.newAndRepeatedKeys |= swapMask;
         }
         break;
     case 3: // L = A
         if (gMain.newKeys & PAD_BUTTON_L)
             gMain.newKeys |= PAD_BUTTON_A;
-        if (gMain.unk44 & PAD_BUTTON_L)
-            gMain.unk44 |= PAD_BUTTON_A;
+        if (gMain.heldKeys & PAD_BUTTON_L)
+            gMain.heldKeys |= PAD_BUTTON_A;
         if (gMain.newAndRepeatedKeys & PAD_BUTTON_L)
             gMain.newAndRepeatedKeys |= PAD_BUTTON_A;
-        gMain.newKeys &= 0xFCFF;
-        gMain.unk44 &= 0xFCFF;
-        gMain.newAndRepeatedKeys &= 0xFCFF;
+        gMain.newKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
+        gMain.heldKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
+        gMain.newAndRepeatedKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
     }
 }
 
-void FUN_0201669C(int x, int y)
+void SetKeyRepeatTimers(int continueDelay, int startDelay)
 {
-    gMain.unk54 = x;
-    gMain.unk58 = y;
+    gMain.keyRepeatContinueDelay = continueDelay;
+    gMain.keyRepeatStartDelay = startDelay;
 }
 
-void FUN_020166A8(u8 a0)
+void SetSoftResetDisableMask(u8 a0)
 {
-    gMain.unk68 |= a0;
+    gMain.softResetDisabled |= a0;
 }
 
-void FUN_020166B8(u8 a0)
+void ClearSoftResetDisableMask(u8 a0)
 {
-    gMain.unk68 &= ~a0;
+    gMain.softResetDisabled &= ~a0;
 }

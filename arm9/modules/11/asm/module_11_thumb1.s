@@ -42,7 +42,7 @@ _0222D600:
 	mov r0, #3
 	mov r1, #5
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, [r5]
 	mov r0, #4
 	tst r0, r1
@@ -175,7 +175,7 @@ _0222D704:
 	b _0222D7EA
 _0222D714:
 	mov r0, #5
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0xd
 	str r0, [r4]
 	b _0222D7EA
@@ -187,7 +187,7 @@ _0222D720:
 	ldr r0, _0222D7F0 ; =SDK_OVERLAY_MODULE_07_ID
 	bl UnloadOverlayByID
 	mov r0, #5
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x3e
 	bl FUN_02031588
 	mov r0, #0xc
@@ -210,7 +210,7 @@ _0222D752:
 	mov r0, #3
 	mov r1, #0x49
 	lsl r2, r0, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r0, [r5, #4]
 	ldr r1, [sp, #0x24]
 	bl GetPartyMonByIndex
@@ -266,7 +266,7 @@ _0222D7C2:
 	add r0, r5, #0
 	bl FUN_0206C92C
 	mov r0, #0x49
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0xd
 	str r0, [r4]
 	b _0222D7EA

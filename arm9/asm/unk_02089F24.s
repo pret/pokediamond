@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 	.extern UNK_020FF3E4
@@ -61,7 +61,7 @@ FUN_02089F24: ; 0x02089F24
 	str r0, [r2, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, _0208A090 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
@@ -230,7 +230,7 @@ _0208A0C8:
 	str r0, [r2, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, _0208A230 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]

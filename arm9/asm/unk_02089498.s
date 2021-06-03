@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 
@@ -42,7 +42,7 @@ FUN_02089498: ; 0x02089498
 	mov r0, #0x3
 	mov r1, #0x58
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0x0
 	mov r1, #0x38
 	mov r2, #0x58
@@ -119,7 +119,7 @@ _020894FC:
 	str r0, [r2, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r4, #0x0
 	bl FUN_0208961C
 	add r0, r4, #0x0
@@ -197,7 +197,7 @@ FUN_020895F0: ; 0x020895F0
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	add r0, r4, #0x0
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x0
 	bl OS_ResetSystem
 	mov r0, #0x1

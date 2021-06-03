@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern NNS_G3dGlb
 	.extern NNS_G3dGlb
@@ -21,7 +21,7 @@ FUN_0201B1A8: ; 0x0201B1A8
 	push {r3-r5, lr}
 	add r5, r3, #0x0
 	add r4, r2, #0x0
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	str r0, [r5, #0x0]
 	bl NNS_G3dGetTex
 	cmp r0, #0x0

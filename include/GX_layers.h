@@ -3,6 +3,7 @@
 
 
 #include "global.h"
+#include "gx.h"
 
 struct GX_LayerData
 {
@@ -33,10 +34,10 @@ struct GraphicsBanks
 
 
 struct GraphicsModes {
-    u32 mode1;
-    u32 mode2;
-    u32 mode3;
-    u32 mode4;
+    GXDispMode dispMode;
+    GXBGMode bgMode;
+    GXBGMode subMode;
+    GXBG0As _2d3dMode;
 };
 
 

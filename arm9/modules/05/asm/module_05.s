@@ -13882,7 +13882,7 @@ MOD05_021EF4F8: ; 0x021EF4F8
 MOD05_021EF514: ; 0x021EF514
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl FUN_020162FC
+	bl ClearFileCache
 	bl NNS_GfdResetLnkTexVramState
 	bl NNS_GfdResetLnkPlttVramState
 	mov r4, #0
@@ -24929,7 +24929,7 @@ MOD05_021F4968: ; 0x021F4968
 	sub r1, r1, r0
 	bx r3
 	nop
-_021F4974: .word FUN_02016B44
+_021F4974: .word ReallocFromHeap
 
 	thumb_func_start MOD05_021F4978
 MOD05_021F4978: ; 0x021F4978
@@ -27084,7 +27084,7 @@ MOD05_021F5990: ; 0x021F5990
 	str r0, [sp]
 	add r7, r1, #0
 	str r3, [sp, #4]
-	bl FUN_0201681C
+	bl CreateHeap
 	cmp r0, #1
 	beq _021F59B2
 	bl GF_AssertFail
@@ -27142,7 +27142,7 @@ _021F5A0E:
 	add r0, r6, #0
 	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 

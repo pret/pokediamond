@@ -40,7 +40,7 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	mov r0, #3
 	mov r1, #0x15
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _0222D868 ; =0x00001658
 	add r0, r5, #0
 	mov r2, #0x15
@@ -102,7 +102,7 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	bl FUN_0201C24C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #0x23
 	add r1, r4, #0
 	lsl r2, r2, #4
@@ -521,7 +521,7 @@ MOD12_0222D9B0: ; 0x0222D9B0
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r0, #0x15
-	bl FUN_020168D0
+	bl DestroyHeap
 	bl FUN_02083404
 	bl FUN_02033ED0
 	ldr r0, _0222DADC ; =SDK_OVERLAY_MODULE_08_ID
@@ -3175,7 +3175,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	mov r0, #3
 	mov r1, #0x16
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _0222F168 ; =0x00000F68
 	add r0, r4, #0
 	mov r2, #0x16
@@ -3237,7 +3237,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	bl FUN_0201C24C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, [r5, #0x30]
 	bl MOD12_0222F548
 	bl FUN_0201CC08
@@ -3686,7 +3686,7 @@ _0222F3AE:
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r0, #0x16
-	bl FUN_020168D0
+	bl DestroyHeap
 	bl FUN_02083404
 	bl FUN_02033ED0
 	ldr r0, _0222F450 ; =SDK_OVERLAY_MODULE_08_ID
@@ -5015,7 +5015,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	mov r0, #3
 	mov r1, #0x17
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _022300EC ; =0x00001BF4
 	add r0, r4, #0
 	mov r2, #0x17
@@ -5099,7 +5099,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	bl FUN_0201C24C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r1, r5, #0
 	ldr r0, [r5]
 	add r1, #0x14
@@ -5530,7 +5530,7 @@ _02230296:
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r0, #0x17
-	bl FUN_020168D0
+	bl DestroyHeap
 	bl FUN_02083404
 	bl FUN_02033ED0
 	ldr r0, _022303B8 ; =SDK_OVERLAY_MODULE_08_ID
@@ -41102,7 +41102,7 @@ MOD12_02241210: ; 0x02241210
 	mov r0, #3
 	mov r1, #0x18
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x4a
 	add r0, r4, #0
 	lsl r1, r1, #6
@@ -41182,7 +41182,7 @@ MOD12_02241210: ; 0x02241210
 	bl FUN_0201C24C
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, [r5, #0x30]
 	bl MOD12_02241864
 	bl FUN_0201CC08
@@ -41577,7 +41577,7 @@ _022415D4:
 	bl Main_SetVBlankIntrCB
 	bl FUN_02015F1C
 	mov r0, #0x18
-	bl FUN_020168D0
+	bl DestroyHeap
 	bl FUN_02083404
 	mov r1, #5
 	mov r2, #2

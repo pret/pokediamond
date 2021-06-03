@@ -267,7 +267,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	str r0, [r2]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r0, #0x36
 	bl FUN_02016B94
 	add r1, r4, #0
@@ -340,14 +340,14 @@ _02212098:
 	mov r0, #3
 	mov r1, #0x36
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	b _022120BE
 _022120B2:
 	mov r2, #0xb
 	mov r0, #3
 	mov r1, #0x36
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 _022120BE:
 	mov r1, #0x3f
 	add r0, r4, #0
@@ -564,7 +564,7 @@ _02212274:
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x36
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 	.align 2, 0

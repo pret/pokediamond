@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 	.extern UNK_020F96DC
@@ -43,7 +43,7 @@ FUN_020653EC: ; 0x020653EC
 	mov r0, #0x3
 	mov r1, #0x2b
 	lsl r2, r2, #0xc
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x6e
 	mov r0, #0x2b
 	lsl r1, r1, #0x2
@@ -111,7 +111,7 @@ FUN_02065474: ; 0x02065474
 	add r0, r4, #0x0
 	bl FreeToHeap
 	ldr r0, [r4, #0x0]
-	bl FUN_020168D0
+	bl DestroyHeap
 	pop {r4, pc}
 	.balign 4
 

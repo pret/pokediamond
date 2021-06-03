@@ -1,5 +1,5 @@
 	.include "asm/macros.inc"
-    .include "global.inc"
+	.include "global.inc"
 
 	.extern gSineTable
 	.extern FX_SinCosTable_

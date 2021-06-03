@@ -94,9 +94,9 @@ struct Window
 struct UnkStruct_02016B94_2 *FUN_02016B94(u32 heap_id);
 u32 FUN_02016BB8(u32 *param0);
 void FUN_02016BBC(const struct GraphicsModes *modes);
-void FUN_02016BF4(u32 *param0, u32 param1);
+void FUN_02016BF4(const struct GraphicsModes *param0, u32 param1);
 void FUN_02016C18(
-    struct UnkStruct_02016B94_2 *param0, u8 param1, struct UnkStruct_02016B94_1 *param2, u8 param3);
+    struct UnkStruct_02016B94_2 *param0, u8 param1, const struct UnkStruct_02016B94_1 *param2, u8 param3);
 void FUN_020170F4(struct UnkStruct_02016B94_2 *param0, u8 param1, u32 param2, u8 param3);
 u8 FUN_020177DC(u8 param0, u32 param1);
 void FUN_02017850(u32 param0, u8 *param1, u8 *param2);
@@ -264,7 +264,7 @@ void FUN_020190EC(struct UnkStruct_02016B94_2 *param0,
     u8 param5);
 void FUN_02019150(struct UnkStruct_02016B94_2 *param0,
     struct Window *param1,
-    struct UnkStruct_02016B94_4 *param2);
+    const struct UnkStruct_02016B94_4 *param2);
 void FUN_02019178(struct Window *param0);
 void FUN_020191A4(struct Window *param0, int param1);
 void CopyWindowToVram(struct Window *param0);

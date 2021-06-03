@@ -659,4 +659,42 @@
 #define REG_GXS_DB_DISPCNT_EXOBJ_CH_SIZE                   2
 #define REG_GXS_DB_DISPCNT_EXOBJ_CH_MASK                   0x00300000
 
+// MASTER BRIGHT
+#define REG_GX_MASTER_BRIGHT_E_MOD_SHIFT                   14
+#define REG_GX_MASTER_BRIGHT_E_MOD_SIZE                    2
+#define REG_GX_MASTER_BRIGHT_E_MOD_MASK                    0xc000
+
+#define REG_GX_MASTER_BRIGHT_E_VALUE_SHIFT                 0
+#define REG_GX_MASTER_BRIGHT_E_VALUE_SIZE                  5
+#define REG_GX_MASTER_BRIGHT_E_VALUE_MASK                  0x001f
+
+// DISPSTAT
+#define REG_GX_DISPSTAT_VCOUNTER_SHIFT                     7
+#define REG_GX_DISPSTAT_VCOUNTER_SIZE                      9
+#define REG_GX_DISPSTAT_VCOUNTER_MASK                      0xff80
+
+#define REG_GX_DISPSTAT_VQI_SHIFT                          5
+#define REG_GX_DISPSTAT_VQI_SIZE                           1
+#define REG_GX_DISPSTAT_VQI_MASK                           0x0020
+
+#define REG_GX_DISPSTAT_HBI_SHIFT                          4
+#define REG_GX_DISPSTAT_HBI_SIZE                           1
+#define REG_GX_DISPSTAT_HBI_MASK                           0x0010
+
+#define REG_GX_DISPSTAT_VBI_SHIFT                          3
+#define REG_GX_DISPSTAT_VBI_SIZE                           1
+#define REG_GX_DISPSTAT_VBI_MASK                           0x0008
+
+#define REG_GX_DISPSTAT_LYC_SHIFT                          2
+#define REG_GX_DISPSTAT_LYC_SIZE                           1
+#define REG_GX_DISPSTAT_LYC_MASK                           0x0004
+
+#define REG_GX_DISPSTAT_HBLK_SHIFT                         1
+#define REG_GX_DISPSTAT_HBLK_SIZE                          1
+#define REG_GX_DISPSTAT_HBLK_MASK                          0x0002
+
+#define REG_GX_DISPSTAT_VBLK_SHIFT                         0
+#define REG_GX_DISPSTAT_VBLK_SIZE                          1
+#define REG_GX_DISPSTAT_VBLK_MASK                          0x0001
+
 #endif //POKEDIAMOND_ARM9_REGISTERS_H

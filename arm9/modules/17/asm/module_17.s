@@ -2042,12 +2042,12 @@ MOD17_021D83E4: ; 0x021D83E4
 	mov r0, #3
 	mov r1, #0xd
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r2, #1
 	mov r0, #3
 	mov r1, #0xe
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D84D8 ; =0x000006D8
 	add r0, r4, #0
 	mov r2, #0xd
@@ -2511,9 +2511,9 @@ _021D87F0:
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	mov r0, #0xd
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0xe
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 	nop
@@ -2532,12 +2532,12 @@ MOD17_021D8818: ; 0x021D8818
 	mov r0, #3
 	mov r1, #0xd
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r2, #1
 	mov r0, #3
 	mov r1, #0xe
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D897C ; =0x000006D8
 	add r0, r5, #0
 	mov r2, #0xd
@@ -3119,9 +3119,9 @@ _021D8D30:
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0xd
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0xe
-	bl FUN_020168D0
+	bl DestroyHeap
 	bl FUN_02083404
 	bl FUN_02033ED0
 	mov r0, #1
@@ -13780,12 +13780,12 @@ MOD17_021DDB58: ; 0x021DDB58
 	mov r0, #3
 	mov r1, #0xd
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r2, #1
 	mov r0, #3
 	mov r1, #0xe
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x65
 	add r0, r5, #0
 	lsl r1, r1, #2
@@ -13990,9 +13990,9 @@ MOD17_021DDCF4: ; 0x021DDCF4
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0xd
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0xe
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0

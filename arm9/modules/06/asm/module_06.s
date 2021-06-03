@@ -2285,7 +2285,7 @@ MOD06_0223A75C: ; 0x0223A75C
 	add r0, r4, r0
 	mov r1, #4
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 
@@ -2964,7 +2964,7 @@ MOD06_0223AC78: ; 0x0223AC78
 	add r0, r4, r0
 	add r1, r5, #0
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	mov r2, #0x4f
 	lsl r2, r2, #2
 	add r0, r4, #0
@@ -4020,7 +4020,7 @@ MOD06_0223B458: ; 0x0223B458
 	add r0, #0xc4
 	add r1, r7, #0
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r0, r6, #0
 	add r0, #0x78
 	mov r1, #0x62
@@ -4587,7 +4587,7 @@ MOD06_0223B828: ; 0x0223B828
 	add r0, #0xdc
 	add r1, r7, #0
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r0, r6, #0
 	add r0, #0x78
 	mov r1, #0x62
@@ -5151,13 +5151,13 @@ _0223BCDA:
 	str r0, [sp, #0x10]
 _0223BCDE:
 	mov r0, #4
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _0223BCEC
 	bl GF_AssertFail
 _0223BCEC:
 	mov r0, #0xb
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _0223BCFA
 	bl GF_AssertFail
@@ -5864,13 +5864,13 @@ _0223C2DC:
 	str r0, [sp, #0x10]
 _0223C2E4:
 	mov r0, #4
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _0223C2F2
 	bl GF_AssertFail
 _0223C2F2:
 	mov r0, #0xb
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _0223C300
 	bl GF_AssertFail
@@ -20061,7 +20061,7 @@ MOD06_022434D0: ; 0x022434D0
 	mov r0, #3
 	mov r1, #0x3b
 	lsl r2, r2, #0xe
-	bl FUN_02016828
+	bl CreateHeapAtEnd
 	ldr r1, _02243684 ; =0x000008CC
 	mov r0, #0x3b
 	bl AllocFromHeap
@@ -20275,7 +20275,7 @@ _022436A6:
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 _022436BE:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -43590,7 +43590,7 @@ MOD06_0224EA64: ; 0x0224EA64
 	add r0, #0xdc
 	mov r1, #4
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r0, r4, #0
 	add r0, #0xdc
 	mov r1, #3
@@ -43704,7 +43704,7 @@ MOD06_0224EB30: ; 0x0224EB30
 	add r0, #0xdc
 	mov r1, #4
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r0, r4, #0
 	add r0, #0xdc
 	mov r2, #4
@@ -43738,7 +43738,7 @@ MOD06_0224EB78: ; 0x0224EB78
 	add r0, #0xdc
 	mov r1, #4
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r0, r4, #0
 	add r0, #0xdc
 	mov r2, #4
@@ -43878,7 +43878,7 @@ MOD06_0224EC5C: ; 0x0224EC5C
 	add r0, r0, r1
 	mov r1, #4
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	ldr r5, [sp, #8]
 	mov r1, #0x6e
 	add r4, sp, #0x10
@@ -44299,7 +44299,7 @@ MOD06_0224EF98: ; 0x0224EF98
 	mov r1, #4
 	add r0, r5, r0
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r0, r5, #0
 	mov r1, #0x8d
 	mov r2, #8

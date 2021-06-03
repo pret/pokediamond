@@ -535,7 +535,7 @@ THUMB_FUNC BOOL FUN_0202FB80()
         {
             UNK_021C59F4.unk00 = 0;
             FUN_0202F984();
-            UNK_021C59F4.unk04->unk628 |= gMain.unk44 & 0x7FFF;
+            UNK_021C59F4.unk04->unk628 |= gMain.heldKeys & 0x7FFF;
             FUN_02030674();
             FUN_0202FCCC();
 

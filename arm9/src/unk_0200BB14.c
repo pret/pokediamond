@@ -323,7 +323,7 @@ THUMB_FUNC BOOL FUN_0200BD20(
     for (s32 i = 0; i < st14; i++)
     {
         u32 st18 = FUN_02009660(param1->unk08, i);
-        void *st1c = FUN_020161A4(param0->unk000, st10[i]);
+        void *st1c = AllocAndReadFile(param0->unk000, st10[i]);
 
         FUN_02009668(st1c, st18, param0->unk000);
         FreeToHeap(st1c);
@@ -344,7 +344,7 @@ THUMB_FUNC BOOL FUN_0200BD20(
 
     FUN_02009A90(param1->unk24[0]);
     FUN_02009D34(param1->unk24[1]);
-    void *r6 = FUN_020161A4(param0->unk000, st10[6]);
+    void *r6 = AllocAndReadFile(param0->unk000, st10[6]);
     param1->unk04 = FUN_02008BE0(r6,
         param0->unk000,
         param1->unk0c[0],
