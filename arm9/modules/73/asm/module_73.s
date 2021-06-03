@@ -5020,12 +5020,12 @@ MOD73_021D9C7C: ; 0x021D9C7C
 	bl FUN_02019178
 	ldr r0, [r4, #8]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	ldr r0, [r4, #0xc]
 	bl FUN_02019178
 	ldr r0, [r4, #0xc]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021D9C7C
@@ -5976,7 +5976,7 @@ _021DA35C:
 	bl FUN_02019178
 	ldr r0, [r5, #8]
 	add r1, r6, #0
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #4

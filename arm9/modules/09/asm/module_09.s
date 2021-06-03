@@ -3974,7 +3974,7 @@ MOD09_02213DE0: ; 0x02213DE0
 	bx r3
 	nop
 _02213DF0: .word 0x00002070
-_02213DF4: .word FUN_020191A4
+_02213DF4: .word WindowArray_dtor
 
 	thumb_func_start MOD09_02213DF8
 MOD09_02213DF8: ; 0x02213DF8
@@ -3984,7 +3984,7 @@ MOD09_02213DF8: ; 0x02213DF8
 	ldr r0, [r5, r1]
 	add r1, r1, #4
 	ldrb r1, [r5, r1]
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	ldr r0, _02213E24 ; =0x00002050
 	mov r4, #0
 	add r5, r5, r0
@@ -14395,7 +14395,7 @@ MOD09_02219510: ; 0x02219510
 	ldrb r1, [r1]
 	bx r3
 	.align 2, 0
-_0221951C: .word FUN_020191A4
+_0221951C: .word WindowArray_dtor
 
 	thumb_func_start MOD09_02219520
 MOD09_02219520: ; 0x02219520
@@ -14405,7 +14405,7 @@ MOD09_02219520: ; 0x02219520
 	add r1, #0x30
 	ldrb r1, [r1]
 	ldr r0, [r4, #0x2c]
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	add r4, #0x1c
 	add r0, r4, #0
 	bl FUN_02019178

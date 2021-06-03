@@ -667,7 +667,7 @@ MOD43_02254CD0: ; 0x02254CD0
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, sp, #0x14
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, sp, #0x14
 	bl FUN_02019548
 	add r0, sp, #0x14

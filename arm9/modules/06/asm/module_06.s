@@ -41839,7 +41839,7 @@ MOD06_0224DCB4: ; 0x0224DCB4
 	bl FUN_02019178
 	ldr r0, [r4, #4]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	mov r0, #0
 	str r0, [r4]
 _0224DCD6:
@@ -42111,7 +42111,7 @@ _0224DEE6:
 	bl FUN_02019178
 	ldr r0, [r6, #4]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	mov r0, #0
 	str r0, [r6]
 _0224DF18:
@@ -42452,7 +42452,7 @@ _0224E1C0:
 	bl FUN_02019178
 	ldr r0, [r6, #4]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	mov r0, #1
 	str r0, [r6]
 _0224E1E2:

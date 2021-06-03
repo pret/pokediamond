@@ -8457,7 +8457,7 @@ MOD16_021DB3BC: ; 0x021DB3BC
 	mov r1, #1
 	bx r3
 	nop
-_021DB3C4: .word FUN_020191A4
+_021DB3C4: .word WindowArray_dtor
 	thumb_func_end MOD16_021DB3BC
 
 	thumb_func_start MOD16_021DB3C8
@@ -51491,7 +51491,7 @@ MOD16_021EF358: ; 0x021EF358
 	bl FUN_02019178
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	pop {r4, pc}
 	thumb_func_end MOD16_021EF358
 

@@ -423,7 +423,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	mov r1, #4
 	bl FillWindowPixelBuffer
 	add r0, sp, #0x1c
-	bl FUN_02019270
+	bl PutWindowTilemap
 	ldr r1, _02254BD4 ; =0x00000197
 	mov r0, #0x1a
 	mov r2, #0

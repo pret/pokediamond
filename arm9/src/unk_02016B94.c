@@ -37,10 +37,10 @@ void (*const UNK_020EDB44[])(struct Window *) = {
     FUN_020195D0,
 };
 
-void (*const UNK_020EDB38[])(struct Window *) = {
-    FUN_020192D4,
-    FUN_02019358,
-    FUN_020192D4,
+void (*const sPutWindowTilemapFuncs[])(struct Window *) = {
+    PutWindowTilemap_TextMode,
+    PutWindowTilemap_AffineMode,
+    PutWindowTilemap_TextMode,
 };
 
 void (*const UNK_020EDB68[])(struct Window *) = {
@@ -59,7 +59,7 @@ THUMB_FUNC struct UnkStruct_02016B94_2 *FUN_02016B94(u32 heap_id)
 {
     struct UnkStruct_02016B94_2 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02016B94_2));
     memset(ptr, 0, sizeof(struct UnkStruct_02016B94_2));
-    ptr->unk00 = heap_id;
+    ptr->heap_id = heap_id;
     ptr->unk04 = 0;
     ptr->unk06 = 0;
 
@@ -2418,7 +2418,7 @@ THUMB_FUNC void FUN_020179E0(struct UnkStruct_02016B94_2 *param0, u32 param1, u3
         break;
 
     case 2:
-        if (param0->unk08[2].unk1c == 0)
+        if (param0->unk08[2].mode == 0)
         {
             reg_G2_BG2OFS = (r1 & 0x1FF) | ((r0 << 16) & 0x1FF0000);
         }
@@ -2430,7 +2430,7 @@ THUMB_FUNC void FUN_020179E0(struct UnkStruct_02016B94_2 *param0, u32 param1, u3
         break;
 
     case 3:
-        if (param0->unk08[3].unk1c == 0)
+        if (param0->unk08[3].mode == 0)
         {
             reg_G2_BG3OFS = (r1 & 0x1FF) | ((r0 << 16) & 0x1FF0000);
         }
@@ -2451,7 +2451,7 @@ THUMB_FUNC void FUN_020179E0(struct UnkStruct_02016B94_2 *param0, u32 param1, u3
         break;
 
     case 6:
-        if (param0->unk08[6].unk1c == 0)
+        if (param0->unk08[6].mode == 0)
         {
             reg_G2S_DB_BG2OFS = (r1 & 0x1FF) | ((r0 << 16) & 0x1FF0000);
         }
@@ -2463,7 +2463,7 @@ THUMB_FUNC void FUN_020179E0(struct UnkStruct_02016B94_2 *param0, u32 param1, u3
         break;
 
     case 7:
-        if (param0->unk08[7].unk1c == 0)
+        if (param0->unk08[7].mode == 0)
         {
             reg_G2S_DB_BG3OFS = (r1 & 0x1FF) | ((r0 << 16) & 0x1FF0000);
         }
@@ -2611,7 +2611,7 @@ THUMB_FUNC void FUN_02017CE8(
         }
 
         u32 r7 = param2[0] >> 8;
-        void *ptr = AllocFromHeapAtEnd(param0->unk00, r7);
+        void *ptr = AllocFromHeapAtEnd(param0->heap_id, r7);
         FUN_02017C98(param2, ptr, st0);
         FUN_02017D68(param1, ptr, param4 * 2, r7);
         FreeToHeap(ptr);
@@ -2679,7 +2679,7 @@ THUMB_FUNC void FUN_02017E40(
     {
 
         u32 r4 = param2[0] >> 8;
-        void *ptr = AllocFromHeapAtEnd(param0->unk00, r4);
+        void *ptr = AllocFromHeapAtEnd(param0->heap_id, r4);
         FUN_02017C98(param2, ptr, st0);
         FUN_02017E84(param1, ptr, param4, r4);
         FreeToHeap(ptr);
@@ -2737,7 +2737,7 @@ THUMB_FUNC void FUN_02017F48(
     void *st4;
     u32 st0 = param3 * param0->unk08[param1].unk1f;
     u32 r5 = param2;
-    st4 = AllocFromHeapAtEnd(param0->unk00, st0);
+    st4 = AllocFromHeapAtEnd(param0->heap_id, st0);
 
     if (param0->unk08[param1].unk1f == 0x20)
     {
@@ -2878,7 +2878,7 @@ THUMB_FUNC void FUN_02018170(struct UnkStruct_02016B94_2 *param0,
     u8 param9,
     u8 param10)
 {
-    if (param0->unk08[param1].unk1c != 1)
+    if (param0->unk08[param1].mode != 1)
     {
         FUN_02018268(&param0->unk08[param1],
             param2,
@@ -2920,7 +2920,7 @@ THUMB_FUNC void FUN_020181EC(struct UnkStruct_02016B94_2 *param0,
     u8 param9,
     u8 param10)
 {
-    if (param0->unk08[param1].unk1c != 1)
+    if (param0->unk08[param1].mode != 1)
     {
         FUN_02018268(&param0->unk08[param1],
             param2,
@@ -3145,7 +3145,7 @@ THUMB_FUNC void FUN_02018540(struct UnkStruct_02016B94_2 *param0,
     u8 param6,
     u8 param7)
 {
-    if (param0->unk08[param1].unk1c != 1)
+    if (param0->unk08[param1].mode != 1)
     {
 
         FUN_02018590(&param0->unk08[param1], param2, param3, param4, param5, param6, param7);
@@ -4503,22 +4503,22 @@ THUMB_FUNC void *AllocWindows(u32 heap_id, s32 size)
 THUMB_FUNC void InitWindow(struct Window *param0)
 {
     param0->unk00 = 0;
-    param0->unk04 = 0xff;
-    param0->unk05 = 0;
-    param0->unk06 = 0;
+    param0->bgId = 0xff;
+    param0->tilemapLeft = 0;
+    param0->tilemapTop = 0;
     param0->width = 0;
     param0->height = 0;
-    param0->unk09 = 0;
+    param0->paletteNum = 0;
 
-    param0->unk0a_0 = 0;
-    param0->unk0c = 0;
+    param0->baseTile = 0;
+    param0->pixelBuffer = 0;
 
     param0->unk0b_15 = 0;
 }
 
 THUMB_FUNC BOOL FUN_02019048(struct Window *param0)
 {
-    if (param0->unk00 == 0 || param0->unk04 == 0xff || param0->unk0c == 0)
+    if (param0->unk00 == 0 || param0->bgId == 0xff || param0->pixelBuffer == 0)
     {
         return FALSE;
     }
@@ -4547,22 +4547,22 @@ THUMB_FUNC void FUN_02019064(struct UnkStruct_02016B94_2 *param0,
         return;
     }
 
-    void *ptr = AllocFromHeap(param0->unk00, (u32)(param5 * param6 * param0->unk08[param2].unk1f));
+    void *ptr = AllocFromHeap(param0->heap_id, (u32)(param5 * param6 * param0->unk08[param2].unk1f));
 
     if (ptr == NULL)
     {
         return;
     }
     param1->unk00 = param0;
-    param1->unk04 = param2;
-    param1->unk05 = param3;
-    param1->unk06 = param4;
+    param1->bgId = param2;
+    param1->tilemapLeft = param3;
+    param1->tilemapTop = param4;
     param1->width = param5;
     param1->height = param6;
-    param1->unk09 = param7;
+    param1->paletteNum = param7;
 
-    param1->unk0a_0 = param8;
-    param1->unk0c = ptr;
+    param1->baseTile = param8;
+    param1->pixelBuffer = ptr;
 
     enum UnkEnum1 r2;
     if (param0->unk08[param2].unk1e == 0)
@@ -4586,7 +4586,7 @@ THUMB_FUNC void FUN_020190EC(struct UnkStruct_02016B94_2 *param0,
 {
     u32 size = (u32)(param2 * param3 * 32);
 
-    void *ptr = AllocFromHeap(param0->unk00, size);
+    void *ptr = AllocFromHeap(param0->heap_id, size);
 
     param5 |= (param5 * 16);
     memset(ptr, param5, size);
@@ -4596,8 +4596,8 @@ THUMB_FUNC void FUN_020190EC(struct UnkStruct_02016B94_2 *param0,
         param1->unk00 = param0;
         param1->width = param2;
         param1->height = param3;
-        param1->unk0a_0 = param4;
-        param1->unk0c = ptr;
+        param1->baseTile = param4;
+        param1->pixelBuffer = ptr;
         param1->unk0b_15 = 0;
     }
 }
@@ -4617,108 +4617,108 @@ THUMB_FUNC void FUN_02019150(
         param2->unk6);
 }
 
-THUMB_FUNC void FUN_02019178(struct Window *param0)
+THUMB_FUNC void FUN_02019178(struct Window *window)
 {
-    FreeToHeap(param0->unk0c);
+    FreeToHeap(window->pixelBuffer);
 
-    param0->unk00 = 0;
-    param0->unk04 = 0xff;
-    param0->unk05 = 0;
-    param0->unk06 = 0;
-    param0->width = 0;
-    param0->height = 0;
-    param0->unk09 = 0;
-    param0->unk0a_0 = 0;
-    param0->unk0c = 0;
+    window->unk00 = 0;
+    window->bgId = 0xff;
+    window->tilemapLeft = 0;
+    window->tilemapTop = 0;
+    window->width = 0;
+    window->height = 0;
+    window->paletteNum = 0;
+    window->baseTile = 0;
+    window->pixelBuffer = NULL;
 }
 
-THUMB_FUNC void FUN_020191A4(struct Window *param0, int param1)
+THUMB_FUNC void WindowArray_dtor(struct Window *windows, int count)
 {
-    for (u16 i = 0; i < param1; i++)
+    for (u16 i = 0; i < count; i++)
     {
-        if (param0[i].unk0c != NULL)
+        if (windows[i].pixelBuffer != NULL)
         {
-            FreeToHeap(param0[i].unk0c);
+            FreeToHeap(windows[i].pixelBuffer);
         }
     }
 
-    FreeToHeap(param0);
+    FreeToHeap(windows);
 }
 
-THUMB_FUNC void CopyWindowToVram(struct Window *param0)
+THUMB_FUNC void CopyWindowToVram(struct Window *window)
 {
 
-    GF_ASSERT(param0);
-    GF_ASSERT(param0->unk00);
-    GF_ASSERT(param0->unk04 < 8);
-    GF_ASSERT(param0->unk00->unk08[param0->unk04].unk1c < 3);
+    GF_ASSERT(window != NULL);
+    GF_ASSERT(window->unk00 != NULL);
+    GF_ASSERT(window->bgId < NELEMS(window->unk00->unk08));
+    GF_ASSERT(window->unk00->unk08[window->bgId].mode < NELEMS(UNK_020EDB68));
 
-    UNK_020EDB68[param0->unk00->unk08[param0->unk04].unk1c](param0);
+    UNK_020EDB68[window->unk00->unk08[window->bgId].mode](window);
 }
 
-THUMB_FUNC void FUN_02019220(struct Window *param0)
+THUMB_FUNC void FUN_02019220(struct Window *window)
 {
 
-    GF_ASSERT(param0);
-    GF_ASSERT(param0->unk00);
-    GF_ASSERT(param0->unk04 < 8);
-    GF_ASSERT(param0->unk00->unk08[param0->unk04].unk1c < 3);
+    GF_ASSERT(window);
+    GF_ASSERT(window->unk00);
+    GF_ASSERT(window->bgId < NELEMS(window->unk00->unk08));
+    GF_ASSERT(window->unk00->unk08[window->bgId].mode < NELEMS(UNK_020EDB5C));
 
-    UNK_020EDB5C[param0->unk00->unk08[param0->unk04].unk1c](param0);
+    UNK_020EDB5C[window->unk00->unk08[window->bgId].mode](window);
 }
 
-THUMB_FUNC void FUN_02019270(struct Window *param0)
+THUMB_FUNC void PutWindowTilemap(struct Window *window)
 {
-    UNK_020EDB38[param0->unk00->unk08[param0->unk04].unk1c](param0);
+    sPutWindowTilemapFuncs[window->unk00->unk08[window->bgId].mode](window);
 }
 
-THUMB_FUNC void FUN_0201928C(struct Window *param0, u8 param1, u8 param2)
+THUMB_FUNC void PutWindowTilemapRectAnchoredTopLeft(struct Window *window, u8 width, u8 height)
 {
-    u8 unk07 = param0->width;
-    u8 unk08 = param0->height;
+    u8 widthBak = window->width;
+    u8 heightBak = window->height;
 
-    param0->width = param1;
-    param0->height = param2;
-    UNK_020EDB38[param0->unk00->unk08[param0->unk04].unk1c](param0);
+    window->width = width;
+    window->height = height;
+    sPutWindowTilemapFuncs[window->unk00->unk08[window->bgId].mode](window);
 
-    param0->width = unk07;
-    param0->height = unk08;
+    window->width = widthBak;
+    window->height = heightBak;
 }
 
-THUMB_FUNC void FUN_020192B8(struct Window *param0)
+THUMB_FUNC void FUN_020192B8(struct Window *window)
 {
-    UNK_020EDB74[param0->unk00->unk08[param0->unk04].unk1c](param0);
+    UNK_020EDB74[window->unk00->unk08[window->bgId].mode](window);
 }
 
-THUMB_FUNC void FUN_020192D4(struct Window *param0)
+THUMB_FUNC void PutWindowTilemap_TextMode(struct Window *param0)
 {
     u32 i, j;
     u32 r3;
     u32 iCount, jCount;
-    u16 *st4 = param0->unk00->unk08[param0->unk04].unk08;
+    u16 *st4 = param0->unk00->unk08[param0->bgId].unk08;
 
     if (st4 == NULL)
     {
         return;
     }
 
-    r3 = param0->unk0a_0;
-    jCount = (u32)(param0->unk05 + param0->width);
-    iCount = (u32)(param0->unk06 + param0->height);
+    r3 = param0->baseTile;
+    jCount = (u32)(param0->tilemapLeft + param0->width);
+    iCount = (u32)(param0->tilemapTop + param0->height);
 
-    for (i = param0->unk06; i < iCount; i++)
+    for (i = param0->tilemapTop; i < iCount; i++)
     {
-        for (j = param0->unk05; j < jCount; j++)
+        for (j = param0->tilemapLeft; j < jCount; j++)
         {
             st4[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) << 5) + (j & 0x1f)] =
-                (u16)(r3 | (param0->unk09 << 12));
+                (u16)(r3 | (param0->paletteNum << 12));
 
             r3++;
         }
     }
 }
 
-THUMB_FUNC void FUN_02019358(struct Window *param0)
+THUMB_FUNC void PutWindowTilemap_AffineMode(struct Window *param0)
 {
     int j, i;
     u8 *r4;
@@ -4726,15 +4726,15 @@ THUMB_FUNC void FUN_02019358(struct Window *param0)
     int r5;
     int r6;
 
-    if (param0->unk00->unk08[param0->unk04].unk08 == NULL)
+    if (param0->unk00->unk08[param0->bgId].unk08 == NULL)
     {
         return;
     }
 
-    r6 = UNK_020EDB30[param0->unk00->unk08[param0->unk04].unk1d];
+    r6 = UNK_020EDB30[param0->unk00->unk08[param0->bgId].unk1d];
 
-    r4 = param0->unk00->unk08[param0->unk04].unk08 + param0->unk06 * r6 + param0->unk05;
-    r5 = param0->unk0a_0;
+    r4 = param0->unk00->unk08[param0->bgId].unk08 + param0->tilemapTop * r6 + param0->tilemapLeft;
+    r5 = param0->baseTile;
 
     for (i = 0; i < param0->height; i++)
     {
@@ -4757,19 +4757,19 @@ THUMB_FUNC void FUN_020193B4(struct Window *param0)
 
     u16 *st4;
 
-    if (param0->unk00->unk08[param0->unk04].unk08 == NULL)
+    if (param0->unk00->unk08[param0->bgId].unk08 == NULL)
     {
         return;
     }
-    st4 = param0->unk00->unk08[param0->unk04].unk08;
+    st4 = param0->unk00->unk08[param0->bgId].unk08;
 
-    st8 = UNK_020EDB30[param0->unk00->unk08[param0->unk04].unk1d];
-    jCount = (u32)(param0->unk05 + param0->width);
-    iCount = (u32)(param0->unk06 + param0->height);
+    st8 = UNK_020EDB30[param0->unk00->unk08[param0->bgId].unk1d];
+    jCount = (u32)(param0->tilemapLeft + param0->width);
+    iCount = (u32)(param0->tilemapTop + param0->height);
 
-    for (i = param0->unk06; i < iCount; i++)
+    for (i = param0->tilemapTop; i < iCount; i++)
     {
-        for (j = param0->unk05; j < jCount; j++)
+        for (j = param0->tilemapLeft; j < jCount; j++)
         {
             st4[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) * st8) + (j & 0x1f)] = 0;
         }
@@ -4784,13 +4784,13 @@ THUMB_FUNC void FUN_02019444(struct Window *param0)
 
     int r6;
 
-    if (param0->unk00->unk08[param0->unk04].unk08 == NULL)
+    if (param0->unk00->unk08[param0->bgId].unk08 == NULL)
     {
         return;
     }
 
-    r6 = UNK_020EDB30[param0->unk00->unk08[param0->unk04].unk1d];
-    r5 = param0->unk00->unk08[param0->unk04].unk08 + param0->unk06 * r6 + param0->unk05;
+    r6 = UNK_020EDB30[param0->unk00->unk08[param0->bgId].unk1d];
+    r5 = param0->unk00->unk08[param0->bgId].unk08 + param0->tilemapTop * r6 + param0->tilemapLeft;
 
     for (i = 0; i < param0->height; i++)
     {
@@ -4804,111 +4804,111 @@ THUMB_FUNC void FUN_02019444(struct Window *param0)
 
 THUMB_FUNC void FUN_0201949C(struct Window *window)
 {
-    FUN_020192D4(window);
+    PutWindowTilemap_TextMode(window);
     FUN_02019548(window);
     FUN_02017CE8(window->unk00,
-        window->unk04,
-        window->unk00->unk08[window->unk04].unk08,
-        window->unk00->unk08[window->unk04].unk0c,
-        window->unk00->unk08[window->unk04].unk10);
+        window->bgId,
+        window->unk00->unk08[window->bgId].unk08,
+        window->unk00->unk08[window->bgId].unk0c,
+        window->unk00->unk08[window->bgId].unk10);
 }
 
 THUMB_FUNC void FUN_020194C8(struct Window *window)
 {
-    FUN_020192D4(window);
-    FUN_0201AC68(window->unk00, window->unk04);
+    PutWindowTilemap_TextMode(window);
+    FUN_0201AC68(window->unk00, window->bgId);
     FUN_02019548(window);
 }
 
 THUMB_FUNC void FUN_020194E0(struct Window *window)
 {
-    FUN_02019358(window);
+    PutWindowTilemap_AffineMode(window);
     FUN_02017CE8(window->unk00,
-        window->unk04,
-        window->unk00->unk08[window->unk04].unk08,
-        window->unk00->unk08[window->unk04].unk0c,
-        window->unk00->unk08[window->unk04].unk10);
+        window->bgId,
+        window->unk00->unk08[window->bgId].unk08,
+        window->unk00->unk08[window->bgId].unk0c,
+        window->unk00->unk08[window->bgId].unk10);
 
     FUN_02017E14(window->unk00,
-        window->unk04,
-        window->unk0c,
+        window->bgId,
+        window->pixelBuffer,
         (u32)(window->width * window->height * 64),
-        window->unk0a_0);
+        window->baseTile);
 }
 
 THUMB_FUNC void FUN_0201951C(struct Window *window)
 {
-    FUN_02019358(window);
-    FUN_0201AC68(window->unk00, window->unk04);
+    PutWindowTilemap_AffineMode(window);
+    FUN_0201AC68(window->unk00, window->bgId);
     FUN_02017E14(window->unk00,
-        window->unk04,
-        window->unk0c,
+        window->bgId,
+        window->pixelBuffer,
         (u32)(window->width * window->height * 64),
-        window->unk0a_0);
+        window->baseTile);
 }
 
 THUMB_FUNC void FUN_02019548(struct Window *window)
 {
     FUN_02017E14(window->unk00,
-        window->unk04,
-        window->unk0c,
-        (u32)(window->width * window->height * window->unk00->unk08[window->unk04].unk1f),
-        window->unk0a_0);
+        window->bgId,
+        window->pixelBuffer,
+        (u32)(window->width * window->height * window->unk00->unk08[window->bgId].unk1f),
+        window->baseTile);
 }
 
 THUMB_FUNC void FUN_02019570(struct Window *window)
 {
-    UNK_020EDB50[window->unk00->unk08[window->unk04].unk1c](window);
+    UNK_020EDB50[window->unk00->unk08[window->bgId].mode](window);
 }
 
 THUMB_FUNC void FUN_0201958C(struct Window *window)
 {
-    UNK_020EDB44[window->unk00->unk08[window->unk04].unk1c](window);
+    UNK_020EDB44[window->unk00->unk08[window->bgId].mode](window);
 }
 
 THUMB_FUNC void FUN_020195A8(struct Window *window)
 {
     FUN_020193B4(window);
     FUN_02017CE8(window->unk00,
-        window->unk04,
-        window->unk00->unk08[window->unk04].unk08,
-        window->unk00->unk08[window->unk04].unk0c,
-        window->unk00->unk08[window->unk04].unk10);
+        window->bgId,
+        window->unk00->unk08[window->bgId].unk08,
+        window->unk00->unk08[window->bgId].unk0c,
+        window->unk00->unk08[window->bgId].unk10);
 }
 
 THUMB_FUNC void FUN_020195D0(struct Window *window)
 {
     FUN_020193B4(window);
-    FUN_0201AC68(window->unk00, window->unk04);
+    FUN_0201AC68(window->unk00, window->bgId);
 }
 
 THUMB_FUNC void FUN_020195E4(struct Window *window)
 {
     FUN_02019444(window);
     FUN_02017CE8(window->unk00,
-        window->unk04,
-        window->unk00->unk08[window->unk04].unk08,
-        window->unk00->unk08[window->unk04].unk0c,
-        window->unk00->unk08[window->unk04].unk10);
+        window->bgId,
+        window->unk00->unk08[window->bgId].unk08,
+        window->unk00->unk08[window->bgId].unk0c,
+        window->unk00->unk08[window->bgId].unk10);
 }
 
 THUMB_FUNC void FUN_0201960C(struct Window *window)
 {
     FUN_02019444(window);
-    FUN_0201AC68(window->unk00, window->unk04);
+    FUN_0201AC68(window->unk00, window->bgId);
 }
 
 THUMB_FUNC void FillWindowPixelBuffer(struct Window *window, u8 param1)
 {
-    if (window->unk00->unk08[window->unk04].unk1f == 0x20)
+    if (window->unk00->unk08[window->bgId].unk1f == 0x20)
     {
         param1 |= param1 << 4;
     }
 
     MI_CpuFillFast(
-        window->unk0c,
+        window->pixelBuffer,
         (u32)((param1 << 0x18) | (param1 << 0x10) | (param1 << 0x8) | param1),
-    (u32)(window->unk00->unk08[window->unk04].unk1f * window->width * window->height));
+    (u32)(window->unk00->unk08[window->bgId].unk1f * window->width * window->height));
 }
 
 THUMB_FUNC void BlitBitmapRectToWindow(struct Window *window,
@@ -4940,10 +4940,10 @@ THUMB_FUNC void BlitBitmapRect(struct Window *window,
 {
     struct UnkStruct_02016B94_3 st1c = { param1, param4, param5 };
     struct UnkStruct_02016B94_3 st14 = {
-        window->unk0c, (u16)(window->width << 3), (u16)(window->height << 3)
+        window->pixelBuffer, (u16)(window->width << 3), (u16)(window->height << 3)
     };
 
-    if (window->unk00->unk08[window->unk04].unk1e == 0)
+    if (window->unk00->unk08[window->bgId].unk1e == 0)
     {
         BlitBitmapRect4Bit(&st1c, &st14, param2, param3, param6, param7, param8, param9, param10);
     }
@@ -4957,10 +4957,10 @@ THUMB_FUNC void FillWindowPixelRect(
     struct Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height)
 {
     struct UnkStruct_02016B94_3 st8 = {
-        window->unk0c, (u16)(window->width << 3), (u16)(window->height << 3)
+        window->pixelBuffer, (u16)(window->width << 3), (u16)(window->height << 3)
     };
 
-    if (window->unk00->unk08[window->unk04].unk1e == 0)
+    if (window->unk00->unk08[window->bgId].unk1e == 0)
     {
         FUN_02018E88(&st8, x, y, width, height, fillValue);
     }
@@ -7540,7 +7540,7 @@ FUN_0201A8BC: // 0x0201A8BC
 
 THUMB_FUNC void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3)
 {
-    if (window->unk00->unk08[window->unk04].unk1e == 0)
+    if (window->unk00->unk08[window->bgId].unk1e == 0)
     {
         FUN_0201A8E8(window, param1, param2, param3);
     }
@@ -7558,7 +7558,7 @@ THUMB_FUNC void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 pa
     u32 st8;
     int i, j;
 
-    r2 = window->unk0c;
+    r2 = window->pixelBuffer;
     st4 = (param3 << 0x18) | (param3 << 0x10) | (param3 << 0x8) | param3;
     stc = window->height * window->width * 32;
     st8 = window->width;
@@ -7627,7 +7627,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
     u32 st8;
     int i, j;
 
-    r2 = (u8 *)window->unk0c;
+    r2 = (u8 *)window->pixelBuffer;
     st4 = (param3 << 0x18) | (param3 << 0x10) | (param3 << 0x8) | param3;
     stc = window->height * window->width * 64;
     st8 = window->width;
@@ -7711,7 +7711,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
 
 THUMB_FUNC u8 FUN_0201AB08(struct Window *window)
 {
-    return window->unk04;
+    return window->bgId;
 }
 
 THUMB_FUNC u8 GetWindowWidth(struct Window *window)
@@ -7724,23 +7724,23 @@ THUMB_FUNC u8 GetWindowHeight(struct Window *window)
 }
 THUMB_FUNC u8 FUN_0201AB14(struct Window *window)
 {
-    return window->unk05;
+    return window->tilemapLeft;
 }
 THUMB_FUNC u8 FUN_0201AB18(struct Window *window)
 {
-    return window->unk06;
+    return window->tilemapTop;
 }
 THUMB_FUNC void FUN_0201AB1C(struct Window *window, u8 param1)
 {
-    window->unk05 = param1;
+    window->tilemapLeft = param1;
 }
 THUMB_FUNC void FUN_0201AB20(struct Window *window, u8 param1)
 {
-    window->unk06 = param1;
+    window->tilemapTop = param1;
 }
 THUMB_FUNC void FUN_0201AB24(struct Window *window, u8 param1)
 {
-    window->unk09 = param1;
+    window->paletteNum = param1;
 }
 
 THUMB_FUNC u32 FUN_0201AB28(struct Window *window, u32 heap_id, const char *path)
@@ -7836,7 +7836,7 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct_02016B94_2 *param0)
 
     if ((param0->unk04 & 4) != 0)
     {
-        if (param0->unk08[2].unk1c == 0)
+        if (param0->unk08[2].mode == 0)
         {
             reg_G2_BG2OFS = (u32)(
                 (param0->unk08[2].unk14 & 0x1ff) | ((param0->unk08[2].unk18 << 0x10) & 0x1ff0000));
@@ -7857,7 +7857,7 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct_02016B94_2 *param0)
 
     if ((param0->unk04 & 8) != 0)
     {
-        if (param0->unk08[3].unk1c == 0)
+        if (param0->unk08[3].mode == 0)
         {
             reg_G2_BG3OFS = (u32)(
                 (param0->unk08[3].unk14 & 0x1ff) | ((param0->unk08[3].unk18 << 0x10) & 0x1ff0000));
@@ -7890,7 +7890,7 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct_02016B94_2 *param0)
 
     if ((param0->unk04 & 0x40) != 0)
     {
-        if (param0->unk08[6].unk1c == 0)
+        if (param0->unk08[6].mode == 0)
         {
             reg_G2S_DB_BG2OFS = (u32)(
                 (param0->unk08[6].unk14 & 0x1ff) | ((param0->unk08[6].unk18 << 0x10) & 0x1ff0000));
@@ -7911,7 +7911,7 @@ THUMB_FUNC void FUN_0201AC78(struct UnkStruct_02016B94_2 *param0)
 
     if ((param0->unk04 & 0x80) != 0)
     {
-        if (param0->unk08[7].unk1c == 0)
+        if (param0->unk08[7].mode == 0)
         {
             reg_G2S_DB_BG3OFS = (u32)(
                 (param0->unk08[7].unk14 & 0x1ff) | ((param0->unk08[7].unk18 << 0x10) & 0x1ff0000));
@@ -8017,7 +8017,7 @@ THUMB_FUNC u32 FUN_0201AFBC(
     if (param0->unk08[param1].unk1e == 0)
     {
         u16 *stc = param0->unk08[param1].unk08;
-        u8 *ptr = AllocFromHeapAtEnd(param0->unk00, 0x40);
+        u8 *ptr = AllocFromHeapAtEnd(param0->heap_id, 0x40);
 
         st18 += ((stc[r6] & 0x3ff) << 5);
         for (i = 0; i < 0x20; i++)
@@ -8038,10 +8038,10 @@ THUMB_FUNC u32 FUN_0201AFBC(
     }
     else
     {
-        if (param0->unk08[param1].unk1c != 1)
+        if (param0->unk08[param1].mode != 1)
         {
             u16 *r4 = param0->unk08[param1].unk08;
-            u8 *ptr = AllocFromHeapAtEnd(param0->unk00, 0x40);
+            u8 *ptr = AllocFromHeapAtEnd(param0->heap_id, 0x40);
 
             memcpy(ptr, st18 + ((r4[r6] & 0x3ff) << 6), 0x40);
 
@@ -8075,7 +8075,7 @@ THUMB_FUNC void FUN_0201B118(struct UnkStruct_02016B94_2 *param0, u8 param1, u8 
     u8 i, j;
     if (param1 != 0)
     {
-        u8 *ptr = AllocFromHeapAtEnd(param0->unk00, 0x40);
+        u8 *ptr = AllocFromHeapAtEnd(param0->heap_id, 0x40);
 
         if ((param1 & 1) != 0)
         {

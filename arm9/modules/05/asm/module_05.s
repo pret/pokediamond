@@ -3169,7 +3169,7 @@ _021E9FA4:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
@@ -4102,7 +4102,7 @@ _021EA76C:
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
@@ -5571,7 +5571,7 @@ _021EB394:
 	bl FUN_02019178
 	ldr r0, [r4]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0

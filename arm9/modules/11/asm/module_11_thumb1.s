@@ -1355,7 +1355,7 @@ _0222E1AC:
 	bl FUN_02002BB8
 	ldr r0, [r4, #8]
 	mov r1, #3
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	mov r0, #0x87

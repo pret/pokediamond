@@ -633,7 +633,7 @@ _02254CE8:
 	lsr r3, r3, #0x18
 	bl FUN_02019064
 	add r0, r4, #0
-	bl FUN_02019270
+	bl PutWindowTilemap
 	ldr r1, [sp, #0x14]
 	add r0, r4, #0
 	bl MOD27_02254D60

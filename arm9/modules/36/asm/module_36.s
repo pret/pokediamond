@@ -1112,7 +1112,7 @@ MOD36_0225503C: ; 0x0225503C
 _02255082:
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r4, #0x48
 	add r0, r4, #0
 	bl FUN_02019548

@@ -269,7 +269,7 @@ _0207D732:
 	ldr r1, [r1, r2]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020191A4
+	bl WindowArray_dtor
 _0207D744:
 	pop {r3, pc}
 	nop

@@ -810,7 +810,7 @@ MOD11_0222F93C: ; 0x0222F93C
 	bl FUN_02002FEC
 	ldr r0, [r4, #8]
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineAToggleLayers

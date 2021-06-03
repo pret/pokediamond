@@ -19651,13 +19651,13 @@ _021E0F5E:
 	ldr r0, [r5, #4]
 	beq _021E0F78
 	add r0, r0, r4
-	bl FUN_02019270
+	bl PutWindowTilemap
 	b _021E0F82
 _021E0F78:
 	add r0, r0, r4
 	mov r1, #0xc
 	mov r2, #2
-	bl FUN_0201928C
+	bl PutWindowTilemapRectAnchoredTopLeft
 _021E0F82:
 	add r7, r7, #1
 	add r6, #8
@@ -20815,7 +20815,7 @@ MOD14_021E189C: ; 0x021E189C
 	add r5, r0, #0
 	ldr r0, [r5, #0x18]
 	add r4, r1, #0
-	bl FUN_02019270
+	bl PutWindowTilemap
 	ldr r3, [r5, #0x18]
 	ldrb r0, [r3, #7]
 	str r0, [sp]
@@ -22538,10 +22538,10 @@ _021E25C2:
 	cmp r0, #0
 	bne _021E260E
 	ldr r0, [r5, #0x10]
-	bl FUN_02019270
+	bl PutWindowTilemap
 	ldr r0, [r5, #0x10]
 	add r0, #0x10
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	bl MOD14_021E2394
 	add r0, r5, #0
@@ -28642,7 +28642,7 @@ _021E541E:
 	add r2, r6, #0
 	bl FUN_02019150
 	add r0, r4, #0
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r5, r5, #1
 	add r6, #8
 	add r4, #0x10
@@ -28794,7 +28794,7 @@ _021E554C:
 	add r2, r7, #0
 	bl FUN_02019150
 	add r0, r5, r4
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, r4
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -28980,7 +28980,7 @@ _021E56B4:
 	add r2, r7, #0
 	bl FUN_02019150
 	add r0, r5, r4
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, r4
 	mov r1, #0
 	bl FillWindowPixelBuffer

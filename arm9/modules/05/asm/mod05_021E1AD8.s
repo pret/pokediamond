@@ -1791,7 +1791,7 @@ MOD05_021E288C: ; 0x021E288C
 	bl FUN_0200CCF8
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E28A0
@@ -1925,7 +1925,7 @@ MOD05_021E29B4: ; 0x021E29B4
 	bl FUN_0200CCF8
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E29C8

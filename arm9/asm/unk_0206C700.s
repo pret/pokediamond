@@ -297,7 +297,7 @@ FUN_0206C92C: ; 0x0206C92C
 	bl Main_SetVBlankIntrCB
 	ldr r0, [r4, #0x4]
 	mov r1, #0x1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	ldr r0, [r4, #0x14]
 	mov r1, #0x0
 	bl FUN_02003038

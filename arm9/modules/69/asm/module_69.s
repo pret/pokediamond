@@ -799,7 +799,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	bl FUN_02019548
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02019270
+	bl PutWindowTilemap
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]

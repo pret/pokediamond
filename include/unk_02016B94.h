@@ -31,32 +31,33 @@ struct UnkStruct_02016B94_1
     u32 unk18;
 };
 
+struct UnkStruct_02016B94_2_sub
+{
+    void *unk08;
+    u32 unk0c;
+    u32 unk10;
+
+    fx32 unk14;
+    fx32 unk18;
+
+    u8 mode;
+    u8 unk1d;
+    u8 unk1e;
+    u8 unk1f;
+    u16 unk20;
+    u16 unk22; // probably padding
+    fx32 unk24;
+    fx32 unk28;
+    fx32 unk2c;
+    fx32 unk30;
+};
+
 struct UnkStruct_02016B94_2
 {
-    u32 unk00;
+    u32 heap_id;
     u16 unk04;
     u16 unk06;
-
-    struct UnkStruct_02016B94_2_sub
-    {
-        void *unk08;
-        u32 unk0c;
-        u32 unk10;
-
-        fx32 unk14;
-        fx32 unk18;
-
-        u8 unk1c;
-        u8 unk1d;
-        u8 unk1e;
-        u8 unk1f;
-        u16 unk20;
-        u16 unk22; // probably padding
-        fx32 unk24;
-        fx32 unk28;
-        fx32 unk2c;
-        fx32 unk30;
-    } unk08[8];
+    struct UnkStruct_02016B94_2_sub unk08[8];
 };
 
 struct UnkStruct_02016B94_3
@@ -80,15 +81,15 @@ struct UnkStruct_02016B94_4
 struct Window
 {
     struct UnkStruct_02016B94_2 *unk00;
-    u8 unk04;
-    u8 unk05;
-    u8 unk06;
+    u8 bgId;
+    u8 tilemapLeft;
+    u8 tilemapTop;
     u8 width;
     u8 height;
-    u8 unk09;
-    u16 unk0a_0 : 15;
+    u8 paletteNum;
+    u16 baseTile : 15;
     u16 unk0b_15 : 1;
-    void *unk0c;
+    void *pixelBuffer;
 };
 
 struct UnkStruct_02016B94_2 *FUN_02016B94(u32 heap_id);
@@ -265,15 +266,15 @@ void FUN_020190EC(struct UnkStruct_02016B94_2 *param0,
 void FUN_02019150(struct UnkStruct_02016B94_2 *param0,
     struct Window *param1,
     const struct UnkStruct_02016B94_4 *param2);
-void FUN_02019178(struct Window *param0);
-void FUN_020191A4(struct Window *param0, int param1);
-void CopyWindowToVram(struct Window *param0);
-void FUN_02019220(struct Window *param0);
-void FUN_02019270(struct Window *param0);
-void FUN_0201928C(struct Window *param0, u8 param1, u8 param2);
-void FUN_020192B8(struct Window *param0);
-void FUN_020192D4(struct Window *param0);
-void FUN_02019358(struct Window *param0);
+void FUN_02019178(struct Window *window);
+void WindowArray_dtor(struct Window *windows, int count);
+void CopyWindowToVram(struct Window *window);
+void FUN_02019220(struct Window *window);
+void PutWindowTilemap(struct Window *window);
+void PutWindowTilemapRectAnchoredTopLeft(struct Window *window, u8 width, u8 height);
+void FUN_020192B8(struct Window *window);
+void PutWindowTilemap_TextMode(struct Window *param0);
+void PutWindowTilemap_AffineMode(struct Window *param0);
 void FUN_020193B4(struct Window *param0);
 void FUN_02019444(struct Window *param0);
 void FUN_0201949C(struct Window *window);

@@ -979,10 +979,10 @@ MOD70_021D7C2C: ; 0x021D7C2C
 	bl FUN_02019064
 	add r0, r5, #0
 	add r0, #0x14
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r5, #0x24
 	add r0, r5, #0
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r4, #0xb4
 	add r0, r4, #0
 	add sp, #0x14

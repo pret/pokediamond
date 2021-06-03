@@ -579,7 +579,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	mov r1, #0
 	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x24]
-	bl FUN_02019270
+	bl PutWindowTilemap
 	ldr r0, [r4, #0x24]
 	bl CopyWindowToVram
 	mov r0, #0x4b

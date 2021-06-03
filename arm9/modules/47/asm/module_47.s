@@ -924,7 +924,7 @@ MOD47_02254E74: ; 0x02254E74
 	bl FUN_02019064
 	add r0, r5, #0
 	add r0, #0x20
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	bl MOD47_022550FC
 	ldr r0, [r5, #4]

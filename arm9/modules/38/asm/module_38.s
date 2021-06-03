@@ -879,16 +879,16 @@ MOD38_02254E28: ; 0x02254E28
 	bl FUN_02019064
 	add r0, r5, #0
 	add r0, #0x74
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0x84
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0x94
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0xa4
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r1, r6, #0
 	bl MOD38_02254FCC

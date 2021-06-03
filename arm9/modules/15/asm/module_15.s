@@ -4532,10 +4532,10 @@ MOD15_021D9694: ; 0x021D9694
 	bl FUN_0200D06C
 	add r0, r5, #0
 	add r0, #0xc
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0x1c
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	bl MOD15_021D9868
 	add r0, r5, #0
@@ -5647,7 +5647,7 @@ MOD15_021DA044: ; 0x021DA044
 	add r2, r5, #0
 	bl FUN_02019150
 	add r0, sp, #0x10
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, sp, #0x10
 	mov r1, #0xe
 	bl FillWindowPixelBuffer
@@ -6042,7 +6042,7 @@ _021DA31A:
 	add r2, r5, #0
 	bl AddTextPrinterParameterized2
 	add r0, sp, #0x28
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, sp, #0x28
 	bl FUN_02019548
 	add r0, r5, #0
@@ -6145,7 +6145,7 @@ _021DA452:
 	add r0, sp, #0x20
 	bl FUN_02019548
 	add r0, sp, #0x20
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r4, #0
 	bl String_dtor
 	add r0, sp, #0x20
@@ -6230,7 +6230,7 @@ _021DA4C2:
 	mov r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r6, #0
 	bl FUN_02019548
 	add r0, r6, #0
@@ -6772,7 +6772,7 @@ MOD15_021DA8E8: ; 0x021DA8E8
 	bl FillWindowPixelBuffer
 	add r0, r5, #0
 	add r0, #0x10
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0x10
 	bl FUN_02019548
