@@ -17,7 +17,7 @@ struct BgTemplate
 {
     u32 unk00;
     u32 unk04;
-    u32 unk08;
+    u32 bufferSize;
     u32 unk0c;
 
     u8 unk10;
@@ -33,7 +33,7 @@ struct BgTemplate
 
 struct Bg
 {
-    void *unk08;
+    void *tilemapBuffer;
     u32 unk0c;
     u32 unk10;
 
@@ -42,7 +42,7 @@ struct Bg
 
     u8 mode;
     u8 unk1d;
-    u8 unk1e;
+    u8 colorMode;
     u8 tileSize;
     u16 unk20;
     u16 unk22; // probably padding
@@ -97,8 +97,8 @@ u32 FUN_02016BB8(u32 *param0);
 void FUN_02016BBC(const struct GraphicsModes *modes);
 void FUN_02016BF4(const struct GraphicsModes *param0, u32 param1);
 void FUN_02016C18(
-    struct BgConfig *param0, u8 param1, const struct BgTemplate *param2, u8 param3);
-void FUN_020170F4(struct BgConfig *param0, u8 param1, u32 param2, u8 param3);
+    struct BgConfig *param0, u8 param1, const struct BgTemplate *template, u8 bgMode);
+void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 value);
 u8 FUN_020177DC(u8 param0, u32 param1);
 void FUN_02017850(u32 param0, u8 *param1, u8 *param2);
 void FUN_020178A0(struct BgConfig *param0, u32 param1);
