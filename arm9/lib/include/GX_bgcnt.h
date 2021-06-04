@@ -628,4 +628,134 @@ static inline void G2S_SetBG3Priority(int priority)
     reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & ~REG_G2S_DB_BG3CNT_PRIORITY_MASK) | (priority << REG_G2S_DB_BG3CNT_PRIORITY_SHIFT));
 }
 
+static inline GXBg01Control G2_GetBG0Control(void)
+{
+    return *(volatile GXBg01Control *)&reg_G2_BG0CNT;
+}
+
+static inline GXBg01Control G2S_GetBG0Control(void)
+{
+    return *(volatile GXBg01Control *)&reg_G2S_DB_BG0CNT;
+}
+
+static inline GXBg01Control G2_GetBG1Control(void)
+{
+    return *(volatile GXBg01Control *)&reg_G2_BG1CNT;
+}
+
+static inline GXBg01Control G2S_GetBG1Control(void)
+{
+    return *(volatile GXBg01Control *)&reg_G2S_DB_BG1CNT;
+}
+
+static inline GXBg23ControlText G2_GetBG2ControlText(void)
+{
+    return *(volatile GXBg23ControlText *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23ControlText G2S_GetBG2ControlText(void)
+{
+    return *(volatile GXBg23ControlText *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23ControlAffine G2_GetBG2ControlAffine(void)
+{
+    return *(volatile GXBg23ControlAffine *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23ControlAffine G2S_GetBG2ControlAffine(void)
+{
+    return *(volatile GXBg23ControlAffine *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23Control256x16Pltt G2_GetBG2Control256x16Pltt(void)
+{
+    return *(volatile GXBg23Control256x16Pltt *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23Control256x16Pltt G2S_GetBG2Control256x16Pltt(void)
+{
+    return *(volatile GXBg23Control256x16Pltt *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23Control256Bmp G2_GetBG2Control256Bmp(void)
+{
+    return *(volatile GXBg23Control256Bmp *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23Control256Bmp G2S_GetBG2Control256Bmp(void)
+{
+    return *(volatile GXBg23Control256Bmp *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23ControlDCBmp G2_GetBG2ControlDCBmp(void)
+{
+    return *(volatile GXBg23ControlDCBmp *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23ControlDCBmp G2S_GetBG2ControlDCBmp(void)
+{
+    return *(volatile GXBg23ControlDCBmp *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg2ControlLargeBmp G2_GetBG2ControlLargeBmp(void)
+{
+    return *(volatile GXBg2ControlLargeBmp *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg2ControlLargeBmp G2S_GetBG2ControlLargeBmp(void)
+{
+    return *(volatile GXBg2ControlLargeBmp *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23ControlText G2_GetBG3ControlText(void)
+{
+    return *(volatile GXBg23ControlText *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23ControlText G2S_GetBG3ControlText(void)
+{
+    return *(volatile GXBg23ControlText *)&reg_G2S_DB_BG3CNT;
+}
+
+static inline GXBg23ControlAffine G2_GetBG3ControlAffine(void)
+{
+    return *(volatile GXBg23ControlAffine *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23ControlAffine G2S_GetBG3ControlAffine(void)
+{
+    return *(volatile GXBg23ControlAffine *)&reg_G2S_DB_BG3CNT;
+}
+
+static inline GXBg23Control256x16Pltt G2_GetBG3Control256x16Pltt(void)
+{
+    return *(volatile GXBg23Control256x16Pltt *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23Control256x16Pltt G2S_GetBG3Control256x16Pltt(void)
+{
+    return *(volatile GXBg23Control256x16Pltt *)&reg_G2S_DB_BG3CNT;
+}
+
+static inline GXBg23Control256Bmp G2_GetBG3Control256Bmp(void)
+{
+    return *(volatile GXBg23Control256Bmp *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23Control256Bmp G2S_GetBG3Control256Bmp(void)
+{
+    return *(volatile GXBg23Control256Bmp *)&reg_G2S_DB_BG3CNT;
+}
+
+static inline GXBg23ControlDCBmp G2_GetBG3ControlDCBmp(void)
+{
+    return *(volatile GXBg23ControlDCBmp *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23ControlDCBmp G2S_GetBG3ControlDCBmp(void)
+{
+    return *(volatile GXBg23ControlDCBmp *)&reg_G2S_DB_BG3CNT;
+}
+
 #endif //GUARD_GX_BGCNT_H
