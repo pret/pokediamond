@@ -3215,7 +3215,7 @@ MOD75_021E84E4: ; 0x021E84E4
 	add r5, r1, #0
 	mov r1, #4
 	add r6, r2, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r7, r0, #0
 	ldr r0, _021E856C ; =0x00000424
 	ldrb r0, [r4, r0]
@@ -3289,7 +3289,7 @@ MOD75_021E8574: ; 0x021E8574
 	add r4, r1, #0
 	ldr r0, [r0]
 	mov r1, #4
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	add r1, r4, #0
 	mov r0, #6

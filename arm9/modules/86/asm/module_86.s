@@ -106,22 +106,22 @@ _021D75B8:
 	bl MOD86_021D7B80
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #1
 	str r0, [sp]
@@ -380,28 +380,28 @@ _021D76F8:
 	bl FUN_02018744
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add sp, #0x54
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -416,28 +416,28 @@ MOD86_021D7858: ; 0x021D7858
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x10]
 	mov r1, #0
 	bl FUN_020178A0

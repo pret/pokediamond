@@ -14405,10 +14405,10 @@ MOD80_022348CC: ; 0x022348CC
 	bne _02234944
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #0
 	bl GX_EngineBToggleLayers

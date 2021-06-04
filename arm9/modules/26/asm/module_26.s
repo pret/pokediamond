@@ -748,7 +748,7 @@ MOD26_02254DAC: ; 0x02254DAC
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r1, #0
 	mov r1, #6
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r5, #0
 	ldr r1, _02254DE0 ; =MOD26_02254FD0
 	add r0, #0x84

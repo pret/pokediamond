@@ -1088,18 +1088,18 @@ FUN_02062DB0: ; 0x02062DB0
 	bl FUN_0201AC68
 	mov r0, #0x1
 	add r1, r0, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0x0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x0
-	bl FUN_02018884
+	bl GetBgPriority
 	strh r0, [r4, #0x10]
 	add r0, r4, #0x0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	bl FUN_02018884
+	bl GetBgPriority
 	strh r0, [r4, #0x12]
 	mov r0, #0x0
 	mov r1, #0x2
@@ -1221,7 +1221,7 @@ FUN_02062EC4: ; 0x02062EC4
 	bl FUN_0201AC68
 	mov r0, #0x1
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldrh r1, [r4, #0x10]
 	mov r0, #0x0
 	lsl r1, r1, #0x18

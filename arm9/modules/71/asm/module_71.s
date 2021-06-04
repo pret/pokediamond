@@ -128,7 +128,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	bl FUN_02083B84
 	mov r0, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -314,28 +314,28 @@ MOD71_0222D820: ; 0x0222D820
 	bl MOD71_02230F40
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineBToggleLayers
 	mov r0, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -1211,13 +1211,13 @@ _0222DFD6:
 	bl FUN_0200A208
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -1267,13 +1267,13 @@ _0222E054:
 	bl FUN_0200A208
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineBToggleLayers
@@ -2044,25 +2044,25 @@ _0222E6BC:
 	blt _0222E6BC
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -2237,7 +2237,7 @@ _0222E8B2:
 	lsl r1, r4, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	cmp r0, #0
 	beq _0222E8D0
 	ldr r2, [sp, #4]
@@ -2262,7 +2262,7 @@ MOD71_0222E8DC: ; 0x0222E8DC
 	sub sp, #4
 	mov r1, #2
 	add r4, r0, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r2, r0, #0
 	mov r0, #0
 	mov r3, #6

@@ -405,7 +405,7 @@ _021D7802:
 _021D7844:
 	ldr r0, [r4]
 	mov r1, #2
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r1, r4, #0
 	mov r2, #2
 	add r1, #0x5c
@@ -841,7 +841,7 @@ MOD67_021D7B84: ; 0x021D7B84
 	add r4, r0, #0
 	ldr r0, [r4]
 	mov r1, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r2, _021D7B9C ; =0x0000085C
 	add r1, r4, r2
 	sub r2, #0x5c
@@ -863,7 +863,7 @@ MOD67_021D7BA0: ; 0x021D7BA0
 	ldr r0, [r7]
 	lsr r1, r1, #0x18
 	add r5, r3, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	str r0, [sp, #0x14]
 	ldr r1, _021D7C2C ; =0x021D97D8
 	lsl r0, r5, #5

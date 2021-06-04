@@ -435,28 +435,28 @@ _021D7798:
 	bl FUN_02018744
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	bl MOD59_021D8058
 	mov r0, #0
@@ -478,28 +478,28 @@ MOD59_021D796C: ; 0x021D796C
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x18]
 	mov r1, #0
 	bl FUN_020178A0
@@ -690,7 +690,7 @@ _021D7B0E:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _021D7BDE
 _021D7B1A:
 	mov r0, #0x10
@@ -783,7 +783,7 @@ _021D7BC0:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _021D7BDE
 _021D7BD0:
 	ldr r0, _021D7BE4 ; =0x04000050
@@ -1191,7 +1191,7 @@ _021D7EEE: ; jump table
 _021D7EFA:
 	add r0, r5, #0
 	add r1, r5, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	ldr r1, [r4]
 	lsl r0, r0, #0xa
@@ -2218,7 +2218,7 @@ _021D86E4:
 	bl FUN_020178BC
 	mov r0, #5
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	add r2, r7, #0
 	add r0, #0xa8
@@ -2284,7 +2284,7 @@ _021D8728:
 _021D8792:
 	mov r0, #5
 	add r1, r7, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x1e
 	add r4, #0xb0
 	str r0, [r4]
@@ -2307,7 +2307,7 @@ _021D87A6:
 _021D87BE:
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	add r2, r7, #0
 	add r0, #0xa8
@@ -2619,10 +2619,10 @@ _021D8A1A:
 	bl FUN_02005350
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #1
 	str r0, [sp]
@@ -2675,10 +2675,10 @@ _021D8A92:
 	bl MOD59_021D8140
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #4
@@ -2778,7 +2778,7 @@ _021D8B80:
 	bl FUN_02018744
 	mov r0, #1
 	add r1, r5, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x10]
 	str r0, [r4, #0xc]
 	bl _021D985C
@@ -2898,7 +2898,7 @@ _021D8C88:
 _021D8C98:
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x14
 	str r0, [r4, #0xc]
 	bl _021D985C
@@ -2928,7 +2928,7 @@ _021D8CBC:
 	bl FUN_020145C8
 	mov r0, #6
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	mov r1, #3
 	add r0, #0x8b
@@ -3058,7 +3058,7 @@ _021D8DEA:
 	bl MOD59_021D8234
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r2, r5, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #1
@@ -3223,7 +3223,7 @@ _021D8F5E:
 	bl FUN_02018744
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x1c
 	str r0, [r4, #0xc]
 	bl _021D985C
@@ -3277,7 +3277,7 @@ _021D8FD2:
 	bl MOD59_021D8234
 	mov r0, #6
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #1
 	str r0, [sp]
@@ -3482,7 +3482,7 @@ _021D9192:
 	bl MOD59_021D82A0
 	mov r0, #6
 	add r1, r5, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	add r1, r5, #0
 	add r0, #0x94
@@ -3848,13 +3848,13 @@ _021D945C:
 _021D9476:
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	add r0, #0x84
 	ldr r0, [r0]
@@ -3862,7 +3862,7 @@ _021D9476:
 	bne _021D94AE
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r2, r5, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #1
@@ -3872,7 +3872,7 @@ _021D9476:
 _021D94AE:
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r2, r5, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #2
@@ -4124,16 +4124,16 @@ _021D9684:
 _021D9696:
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r2, r5, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #1

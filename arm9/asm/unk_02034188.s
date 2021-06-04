@@ -194,28 +194,28 @@ _02034308:
 	bl DestroyMsgData
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x1
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x3
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x5
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x6
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x7
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [sp, #0x10]
 	mov r1, #0x0
 	bl FUN_020178A0

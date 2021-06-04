@@ -1216,7 +1216,7 @@ MOD23_02255124: ; 0x02255124
 	add r6, r0, #0
 	ldr r0, [r6, #4]
 	mov r1, #6
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r0, #0
 	ldr r3, _022551A0 ; =MOD23_02255FB8
@@ -1572,7 +1572,7 @@ MOD23_02255410: ; 0x02255410
 	add r5, r1, #0
 	mov r1, #6
 	add r4, r0, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldrh r1, [r5, #2]
 	cmp r1, #0x11
 	bne _0225542E
@@ -1602,7 +1602,7 @@ MOD23_0225544C: ; 0x0225544C
 	push {lr}
 	sub sp, #0xc
 	mov r1, #6
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r1, #0x29
 	str r1, [sp]
 	mov r1, #0x28
@@ -1638,7 +1638,7 @@ MOD23_0225548C: ; 0x0225548C
 	sub sp, #0x14
 	add r6, r1, #0
 	mov r1, #6
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r7, r0, #0
 	ldrh r0, [r6]
 	mov r1, #0

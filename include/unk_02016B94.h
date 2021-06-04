@@ -34,28 +34,28 @@ struct BgTemplate
 struct Bg
 {
     void *tilemapBuffer;
-    u32 unk0c;
+    u32 bufferSize;
     u32 unk10;
 
-    fx32 unk14;
-    fx32 unk18;
+    fx32 hOffset;
+    fx32 vOffset;
 
     u8 mode;
     u8 unk1d;
     u8 colorMode;
     u8 tileSize;
-    u16 unk20;
+    u16 rotation;
     u16 unk22; // probably padding
-    fx32 unk24;
-    fx32 unk28;
-    fx32 unk2c;
-    fx32 unk30;
+    fx32 xScale;
+    fx32 yScale;
+    fx32 centerX;
+    fx32 centerY;
 };
 
 struct BgConfig
 {
     u32 heap_id;
-    u16 unk04;
+    u16 scrollScheduled;
     u16 unk06;
     struct Bg bgs[8];
 };
@@ -101,10 +101,10 @@ void FUN_02016C18(
 void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 value);
 u8 FUN_020177DC(u8 param0, u32 param1);
 void FUN_02017850(u32 param0, u8 *param1, u8 *param2);
-void FUN_020178A0(struct BgConfig *param0, u32 param1);
-void FUN_020178BC(u32 param0, u16 param1);
-void FUN_0201797C(u32 param0, GX_LayerToggle toggle);
-void FUN_020179E0(struct BgConfig *param0, u32 param1, u32 param2, fx32 val);
+void FUN_020178A0(struct BgConfig *bgConfig, u32 bgId);
+void FUN_020178BC(u32 bgId, u16 priority);
+void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle);
+void FUN_020179E0(struct BgConfig *bgConfig, u32 bgId, u32 param2, fx32 val);
 fx32 FUN_02017B48(struct BgConfig *param0, u32 param1);
 fx32 FUN_02017B54(struct BgConfig *param0, u32 param1);
 void FUN_02017B60(struct BgConfig *param0,
@@ -220,9 +220,9 @@ void FUN_0201878C(struct BgConfig *param0, u32 param1, u16 param2);
 void *FUN_020187B0(u32 param0);
 void FUN_02018808(u8 *param0, u32 param1, u8 (*param2)[2], u8 param3);
 u8 (*FUN_02018848(u8 *param0, u32 param1, u8 param2, u32 heap_id))[2];
-void *FUN_0201886C(struct BgConfig *param0, u8 param1);
+void *GetBgTilemapBuffer(struct BgConfig *bgConfig, u8 bgId);
 u16 FUN_02018878(struct BgConfig *param0, u32 param1);
-u8 FUN_02018884(struct BgConfig *param0, u32 param1);
+u8 GetBgPriority(struct BgConfig *bgConfig, u32 bgId);
 void BlitBitmapRect4Bit(const struct Bitmap *src,
                         const struct Bitmap *dst,
                         u16 srcX,
@@ -241,10 +241,10 @@ void BlitBitmapRect8Bit(const struct Bitmap *src,
                         u16 width,
                         u16 height,
                         u16 colorKey);
-void FUN_02018E88(
-    struct Bitmap *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
-void FUN_02018F4C(
-    struct Bitmap *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
+void FillBitmapRect4Bit(
+    struct Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue);
+void FillBitmapRect8Bit(
+    struct Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue);
 struct Window *AllocWindows(u32 heap_id, s32 size);
 void InitWindow(struct Window *window);
 BOOL WindowIsInUse(struct Window *window);

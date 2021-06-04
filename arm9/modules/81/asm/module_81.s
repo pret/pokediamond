@@ -3869,7 +3869,7 @@ _02239C02:
 	bl FUN_020179E0
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -4281,10 +4281,10 @@ MOD81_02239F58: ; 0x02239F58
 	bl FUN_020179E0
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r2, _02239FB0 ; =0x04000304
 	ldrh r1, [r2]
 	lsr r0, r2, #0xb
@@ -8593,7 +8593,7 @@ _0223C14A:
 	bl FUN_020179E0
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers

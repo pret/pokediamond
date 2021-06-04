@@ -3253,7 +3253,7 @@ MOD56_0221375C: ; 0x0221375C
 	strh r1, [r2, #6]
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r1, r0, #0
 	mov r2, #0
 	cmp r4, #0x11
@@ -3371,7 +3371,7 @@ MOD56_022138A4: ; 0x022138A4
 	add r7, r1, #0
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r6, #0
 	mov r4, #5
 _022138BA:

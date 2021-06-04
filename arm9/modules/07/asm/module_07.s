@@ -3478,7 +3478,7 @@ MOD07_02213AA0: ; 0x02213AA0
 	ldr r0, [r4, #0xc]
 	str r1, [sp]
 	add r1, r2, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r6, r0, #0
 	ldr r0, [r4]
 	add r0, #0x29

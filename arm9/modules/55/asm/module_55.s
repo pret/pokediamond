@@ -1385,7 +1385,7 @@ MOD55_021D8044: ; 0x021D8044
 	ldr r0, [sp]
 	mov r1, #1
 	ldr r0, [r0, #4]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r1, #0xf2
 	ldr r0, [sp]
@@ -2245,7 +2245,7 @@ MOD55_021D86D4: ; 0x021D86D4
 	ldr r0, [sp]
 	mov r1, #1
 	ldr r0, [r0, #4]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	str r0, [sp, #0x24]
 	mov r1, #0xf2
 	ldr r0, [sp]
@@ -4322,7 +4322,7 @@ _021D974E:
 	bne _021D9864
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r2, _021D9A5C ; =0x00000FFF
 	mov r7, #0x10
 	mov ip, r0

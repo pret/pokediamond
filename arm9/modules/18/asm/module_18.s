@@ -3460,7 +3460,7 @@ MOD18_0223B1A8: ; 0x0223B1A8
 	mov r1, #1
 	str r2, [sp, #0x14]
 	str r3, [sp, #0x18]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r1, [r5, r6]
 	str r0, [sp, #0x34]
 	ldr r0, [sp, #0x38]
@@ -4109,7 +4109,7 @@ MOD18_0223B6A4: ; 0x0223B6A4
 	sub sp, #0xc
 	mov r1, #2
 	str r0, [sp]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	str r0, [sp, #8]
 	mov r2, #0
 	mov r0, #4
@@ -4536,7 +4536,7 @@ MOD18_0223B9BC: ; 0x0223B9BC
 	ldr r3, [r3]
 	sub r2, r2, #2
 	strb r1, [r3, r2]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r1, _0223B9E8 ; =0x02250874
 	mov r2, #0x30
 	mov r3, #0x36
@@ -4593,7 +4593,7 @@ _0223BA26:
 _0223BA36:
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r1, _0223BB40 ; =0x02251380
 	add r6, r0, #0
 	ldr r2, [r1]
@@ -4757,7 +4757,7 @@ MOD18_0223BB7C: ; 0x0223BB7C
 	ldr r1, _0223BC48 ; =0x000009E7
 	ldrb r4, [r2, r1]
 	mov r1, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r5, r0, #0
 	asr r0, r4, #1
 	lsr r0, r0, #0x1e
@@ -14378,7 +14378,7 @@ _02240480:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #8]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r3, #0
 	mov r1, #2
 	add r2, r3, #0
@@ -14430,7 +14430,7 @@ MOD18_022404F4: ; 0x022404F4
 	mov r1, #2
 	add r6, r2, #0
 	mov r4, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r5, r0, #0
 	bne _02240512
 	add sp, #8

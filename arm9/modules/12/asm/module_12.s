@@ -3619,7 +3619,7 @@ MOD12_0222F324: ; 0x0222F324
 	bl FUN_020178A0
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x30]
 	mov r1, #4
 	bl FUN_020178A0
@@ -8394,7 +8394,7 @@ _02231A04:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	add r1, r6, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	add r0, r5, #0
@@ -9846,7 +9846,7 @@ MOD12_02232538: ; 0x02232538
 	mov r1, #4
 	add r4, r2, #0
 	str r0, [sp, #4]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	lsl r0, r7, #2
 	add r0, r5, r0
@@ -11774,14 +11774,14 @@ _022333C0:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	add r1, r7, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _022333E0
 _022333D4:
 	add r0, r4, #4
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 _022333E0:
 	add r4, r4, #1
 	add r5, r5, #2
@@ -11991,7 +11991,7 @@ MOD12_0223356C: ; 0x0223356C
 	add r5, r1, #0
 	mov r1, #2
 	add r4, r2, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r1, #0xc0
 	mul r1, r5
 	lsl r1, r1, #1
@@ -26691,7 +26691,7 @@ _0223A418:
 	ldr r0, [r0]
 	mov r1, #2
 	ldr r0, [r0, #0x30]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r0, #0
 	str r0, [sp, #8]
@@ -26921,7 +26921,7 @@ _0223A5CC:
 	ldr r0, [r0]
 	mov r1, #2
 	ldr r0, [r0, #0x30]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r0, #0
 	str r0, [sp, #8]
@@ -28480,7 +28480,7 @@ _0223B1DE:
 	mov r1, #2
 	ldr r0, [r0]
 	ldr r0, [r0, #0x30]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r0, #0
 	str r0, [sp, #8]
@@ -28818,7 +28818,7 @@ _0223B47C:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	add r1, r6, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	add r0, r5, #0
@@ -30475,14 +30475,14 @@ _0223C162:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	add r1, r7, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _0223C182
 _0223C176:
 	add r0, r4, #4
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 _0223C182:
 	add r4, r4, #1
 	add r5, r5, #2
@@ -30738,7 +30738,7 @@ _0223C338:
 	ldr r0, [sp]
 	mov r1, #3
 	ldr r0, [r0, #0x60]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r2, r0, #0
 	mov r1, #0
 	cmp r4, #0
@@ -36487,7 +36487,7 @@ _0223EF78:
 	ldr r0, [r0]
 	mov r1, #2
 	ldr r0, [r0, #0x74]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r0, #0
 	str r0, [sp, #8]
@@ -36724,7 +36724,7 @@ _0223F140:
 	ldr r0, [r0]
 	mov r1, #2
 	ldr r0, [r0, #0x74]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r0, #0
 	str r0, [sp, #8]
@@ -41494,7 +41494,7 @@ _022415D4:
 	bl FUN_020178A0
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x30]
 	mov r1, #4
 	bl FUN_020178A0
@@ -46285,7 +46285,7 @@ _02243B98:
 	ldr r0, [r0]
 	mov r1, #2
 	ldr r0, [r0, #0x30]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r0, #0
 	str r0, [sp, #8]
@@ -46515,7 +46515,7 @@ _02243D4C:
 	ldr r0, [r0]
 	mov r1, #2
 	ldr r0, [r0, #0x30]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	mov r0, #0
 	str r0, [sp, #8]

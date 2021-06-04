@@ -1722,7 +1722,7 @@ MOD22_02255544: ; 0x02255544
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r1, #0
 	mov r1, #6
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r1, _022555A0 ; =0x00000252
 	mov r7, #1
 	add r1, r0, r1

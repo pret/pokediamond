@@ -927,13 +927,13 @@ _02254F88:
 _02254FB0:
 	ldr r0, [r5, #0x14]
 	mov r1, #7
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r1, #6
 	lsl r1, r1, #8
 	bl DC_FlushRange
 	ldr r0, [r5, #0x14]
 	mov r1, #7
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -1507,13 +1507,13 @@ _022553BE:
 _02255422:
 	ldr r0, [sp, #0x1c]
 	mov r1, #7
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r1, #6
 	lsl r1, r1, #8
 	bl DC_FlushRange
 	ldr r0, [sp, #0x1c]
 	mov r1, #7
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]

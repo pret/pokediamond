@@ -929,4 +929,76 @@
 #define REG_G2S_DB_BG3CNT_PRIORITY_SIZE                    2
 #define REG_G2S_DB_BG3CNT_PRIORITY_MASK                    0x0003
 
+// G2_BG0OFS
+#define REG_G2_BG0OFS_VOFFSET_SHIFT                        16
+#define REG_G2_BG0OFS_VOFFSET_SIZE                         9
+#define REG_G2_BG0OFS_VOFFSET_MASK                         0x01ff0000
+
+#define REG_G2_BG0OFS_HOFFSET_SHIFT                        0
+#define REG_G2_BG0OFS_HOFFSET_SIZE                         9
+#define REG_G2_BG0OFS_HOFFSET_MASK                         0x000001ff
+
+// G2_BG1OFS
+#define REG_G2_BG1OFS_VOFFSET_SHIFT                        16
+#define REG_G2_BG1OFS_VOFFSET_SIZE                         9
+#define REG_G2_BG1OFS_VOFFSET_MASK                         0x01ff0000
+
+#define REG_G2_BG1OFS_HOFFSET_SHIFT                        0
+#define REG_G2_BG1OFS_HOFFSET_SIZE                         9
+#define REG_G2_BG1OFS_HOFFSET_MASK                         0x000001ff
+
+// G2_BG2OFS
+#define REG_G2_BG2OFS_VOFFSET_SHIFT                        16
+#define REG_G2_BG2OFS_VOFFSET_SIZE                         9
+#define REG_G2_BG2OFS_VOFFSET_MASK                         0x01ff0000
+
+#define REG_G2_BG2OFS_HOFFSET_SHIFT                        0
+#define REG_G2_BG2OFS_HOFFSET_SIZE                         9
+#define REG_G2_BG2OFS_HOFFSET_MASK                         0x000001ff
+
+// G2_BG3OFS
+#define REG_G2_BG3OFS_VOFFSET_SHIFT                        16
+#define REG_G2_BG3OFS_VOFFSET_SIZE                         9
+#define REG_G2_BG3OFS_VOFFSET_MASK                         0x01ff0000
+
+#define REG_G2_BG3OFS_HOFFSET_SHIFT                        0
+#define REG_G2_BG3OFS_HOFFSET_SIZE                         9
+#define REG_G2_BG3OFS_HOFFSET_MASK                         0x000001ff
+
+// G2S_DB_BG0OFS
+#define REG_G2S_DB_BG0OFS_VOFFSET_SHIFT                    16
+#define REG_G2S_DB_BG0OFS_VOFFSET_SIZE                     9
+#define REG_G2S_DB_BG0OFS_VOFFSET_MASK                     0x01ff0000
+
+#define REG_G2S_DB_BG0OFS_HOFFSET_SHIFT                    0
+#define REG_G2S_DB_BG0OFS_HOFFSET_SIZE                     9
+#define REG_G2S_DB_BG0OFS_HOFFSET_MASK                     0x000001ff
+
+// G2S_DB_BG1OFS
+#define REG_G2S_DB_BG1OFS_VOFFSET_SHIFT                    16
+#define REG_G2S_DB_BG1OFS_VOFFSET_SIZE                     9
+#define REG_G2S_DB_BG1OFS_VOFFSET_MASK                     0x01ff0000
+
+#define REG_G2S_DB_BG1OFS_HOFFSET_SHIFT                    0
+#define REG_G2S_DB_BG1OFS_HOFFSET_SIZE                     9
+#define REG_G2S_DB_BG1OFS_HOFFSET_MASK                     0x000001ff
+
+// G2S_DB_BG2OFS
+#define REG_G2S_DB_BG2OFS_VOFFSET_SHIFT                    16
+#define REG_G2S_DB_BG2OFS_VOFFSET_SIZE                     9
+#define REG_G2S_DB_BG2OFS_VOFFSET_MASK                     0x01ff0000
+
+#define REG_G2S_DB_BG2OFS_HOFFSET_SHIFT                    0
+#define REG_G2S_DB_BG2OFS_HOFFSET_SIZE                     9
+#define REG_G2S_DB_BG2OFS_HOFFSET_MASK                     0x000001ff
+
+// G2S_DB_BG3OFS
+#define REG_G2S_DB_BG3OFS_VOFFSET_SHIFT                    16
+#define REG_G2S_DB_BG3OFS_VOFFSET_SIZE                     9
+#define REG_G2S_DB_BG3OFS_VOFFSET_MASK                     0x01ff0000
+
+#define REG_G2S_DB_BG3OFS_HOFFSET_SHIFT                    0
+#define REG_G2S_DB_BG3OFS_HOFFSET_SIZE                     9
+#define REG_G2S_DB_BG3OFS_HOFFSET_MASK                     0x000001ff
+
 #endif //POKEDIAMOND_ARM9_REGISTERS_H

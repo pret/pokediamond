@@ -4602,7 +4602,7 @@ FUN_020717E8: ; 0x020717E8
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	mov r1, #0x4
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	lsl r1, r5, #0x1
 	mov r3, #0x19
 	add r5, r4, #0x0

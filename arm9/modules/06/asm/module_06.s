@@ -8955,23 +8955,23 @@ MOD06_0223DA8C: ; 0x0223DA8C
 	str r0, [r4, r1]
 	ldr r0, [r4]
 	mov r1, #0
-	bl FUN_02018884
+	bl GetBgPriority
 	mov r1, #0x8d
 	lsl r1, r1, #2
 	strb r0, [r4, r1]
 	ldr r0, [r4]
 	mov r1, #1
-	bl FUN_02018884
+	bl GetBgPriority
 	ldr r1, _0223DB10 ; =0x00000235
 	strb r0, [r4, r1]
 	ldr r0, [r4]
 	mov r1, #2
-	bl FUN_02018884
+	bl GetBgPriority
 	ldr r1, _0223DB14 ; =0x00000236
 	strb r0, [r4, r1]
 	ldr r0, [r4]
 	mov r1, #3
-	bl FUN_02018884
+	bl GetBgPriority
 	ldr r1, _0223DB18 ; =0x00000237
 	strb r0, [r4, r1]
 	mov r0, #0
@@ -27719,12 +27719,12 @@ MOD06_02246F0C: ; 0x02246F0C
 	ldr r0, [r5, #0x60]
 	mov r1, #0
 	ldr r0, [r0, #8]
-	bl FUN_02018884
+	bl GetBgPriority
 	strh r0, [r5, #0x24]
 	ldr r0, [r5, #0x60]
 	mov r1, #3
 	ldr r0, [r0, #8]
-	bl FUN_02018884
+	bl GetBgPriority
 	strh r0, [r5, #0x26]
 	ldr r2, _02246FB4 ; =0x0400000A
 	mov r1, #3

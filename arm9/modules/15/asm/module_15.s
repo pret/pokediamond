@@ -6545,7 +6545,7 @@ MOD15_021DA760: ; 0x021DA760
 	beq _021DA778
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	pop {r3, pc}
 _021DA778:
@@ -6566,7 +6566,7 @@ MOD15_021DA77C: ; 0x021DA77C
 	bl G2x_SetBlendAlpha_
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x7c
 	str r0, [sp]
 	mov r0, #0xc
@@ -6783,7 +6783,7 @@ MOD15_021DA8E8: ; 0x021DA8E8
 	bl MOD15_021DA950
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -6903,7 +6903,7 @@ MOD15_021DAA24: ; 0x021DAA24
 	bl G2x_SetBlendAlpha_
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r1, _021DAAC0 ; =0x04000048
 	ldr r0, _021DAAC4 ; =0xFFFFC0FF
 	ldrh r2, [r1]
@@ -7027,7 +7027,7 @@ MOD15_021DAB18: ; 0x021DAB18
 	beq _021DAB74
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, _021DAB78 ; =0x0400004A
 	ldrh r2, [r0]
 	mov r0, #0x3f

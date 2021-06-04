@@ -1042,7 +1042,7 @@
 .extern FUN_020170F4
 .extern FUN_020178A0
 .extern FUN_020178BC
-.extern FUN_0201797C
+.extern ToggleBgLayer
 .extern FUN_020179E0
 .extern FUN_02017B48
 .extern FUN_02017B54
@@ -1065,11 +1065,11 @@
 .extern FUN_02018768
 .extern FUN_0201878C
 .extern FUN_020187B0
-.extern FUN_0201886C
+.extern GetBgTilemapBuffer
 .extern FUN_02018878
-.extern FUN_02018884
+.extern GetBgPriority
 .extern BlitBitmapRect4Bit
-.extern FUN_02018F4C
+.extern FillBitmapRect8Bit
 .extern AllocWindows
 .extern InitWindow
 .extern WindowIsInUse

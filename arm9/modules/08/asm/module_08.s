@@ -616,7 +616,7 @@ _022122C6:
 	add r0, #0xc4
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_02018884
+	bl GetBgPriority
 	mov r1, #0x1a
 	lsl r1, r1, #4
 	strb r0, [r4, r1]
@@ -624,21 +624,21 @@ _022122C6:
 	add r0, #0xc4
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_02018884
+	bl GetBgPriority
 	ldr r1, _02212374 ; =0x000001A1
 	strb r0, [r4, r1]
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
 	mov r1, #2
-	bl FUN_02018884
+	bl GetBgPriority
 	ldr r1, _02212378 ; =0x000001A2
 	strb r0, [r4, r1]
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
 	mov r1, #3
-	bl FUN_02018884
+	bl GetBgPriority
 	ldr r1, _0221237C ; =0x000001A3
 	mov r3, #0
 	strb r0, [r4, r1]
@@ -1830,7 +1830,7 @@ _02212AE8:
 	bl FUN_02018744
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _02212B40
 _02212B3C:
 	bl MOD12_02233560
@@ -3163,7 +3163,7 @@ _02213500:
 	bl MI_CpuFill8
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0
 	str r0, [sp]
 	add r0, r5, #0
@@ -3273,7 +3273,7 @@ _022135AC:
 	bl FUN_020179E0
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r5, #0
 	bl MOD08_02215574
 	add r1, r0, #0
@@ -4371,7 +4371,7 @@ _02213E50:
 	bl FUN_020178BC
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldrb r0, [r5, #5]
 	add r0, r0, #1
 	strb r0, [r5, #5]
@@ -4491,7 +4491,7 @@ _02213F56: ; jump table
 _02213F60:
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldrb r0, [r4, #5]
 	add r0, r0, #1
 	strb r0, [r4, #5]
@@ -4981,7 +4981,7 @@ _02214324:
 _02214338:
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x48]
 	bl MOD08_02212004
 	cmp r0, #0
@@ -5060,7 +5060,7 @@ _022143BE:
 	bl GfGfxLoader_LoadScrnData
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldrb r0, [r4, #5]
 	add r0, r0, #1
 	strb r0, [r4, #5]
@@ -5550,7 +5550,7 @@ MOD08_0221477C: ; 0x0221477C
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r5, #0
 	bl MOD08_02212004
 	cmp r0, #1
@@ -15287,7 +15287,7 @@ _02219008:
 	bl G2x_SetBlendAlpha_
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldrb r0, [r4, #0x1c]
 	add r0, r0, #1
 	strb r0, [r4, #0x1c]
@@ -15377,7 +15377,7 @@ _022190A4:
 _022190B2:
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x20]
 	add r1, r5, #0
 	bl MOD08_02212438
@@ -15565,7 +15565,7 @@ _02219228:
 	strh r0, [r4, #0x18]
 	mov r0, #2
 	str r1, [r4, #4]
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r5, #0
 	mov r1, #0
 	bl MOD08_02212498
@@ -15690,7 +15690,7 @@ _02219334:
 	bl G2x_SetBlendAlpha_
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldrb r0, [r4, #0x1c]
 	add r0, r0, #1
 	strb r0, [r4, #0x1c]
@@ -15778,7 +15778,7 @@ _022193CC:
 _022193DA:
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x20]
 	add r1, r5, #0
 	bl MOD08_02212438
@@ -15969,7 +15969,7 @@ _02219550:
 	strh r0, [r4, #0x18]
 	mov r0, #2
 	str r1, [r4, #4]
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r5, #0
 	mov r1, #0
 	bl MOD08_02212498
@@ -29589,7 +29589,7 @@ MOD08_0222042C: ; 0x0222042C
 	bl MOD08_0221477C
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #8]
 	ldr r1, _022204C8 ; =MOD08_02220304
 	add r2, r4, #0

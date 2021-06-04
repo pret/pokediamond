@@ -186,4 +186,34 @@ static inline void GX_SetMasterBrightness(int brightness)
     GXx_SetMasterBrightness_(&reg_GX_MASTER_BRIGHT, brightness);
 }
 
+static inline void GX_SetVisiblePlane(int plane)
+{
+    reg_GX_DISPCNT = (u32)((reg_GX_DISPCNT & ~REG_GX_DISPCNT_DISPLAY_MASK) | (plane << REG_GX_DISPCNT_DISPLAY_SHIFT));
+}
+
+static inline void GXS_SetVisiblePlane(int plane)
+{
+    reg_GXS_DB_DISPCNT = (u32)((reg_GXS_DB_DISPCNT & ~REG_GXS_DB_DISPCNT_DISPLAY_MASK) | (plane << REG_GXS_DB_DISPCNT_DISPLAY_SHIFT));
+}
+
+static inline void GXS_DispOn(void)
+{
+    reg_GXS_DB_DISPCNT |= REG_GXS_DB_DISPCNT_MODE_MASK;
+}
+
+static inline void GX_SetDispSelect(GXDispSelect sel)
+{
+    reg_GX_POWCNT = (u16)((reg_GX_POWCNT & ~REG_GX_POWCNT_DSEL_MASK) | (sel << REG_GX_POWCNT_DSEL_SHIFT));
+}
+
+static inline void GX_SetBGScrOffset(GXBGScrOffset offset)
+{
+    reg_GX_DISPCNT = (u32)((reg_GX_DISPCNT & ~REG_GX_DISPCNT_BGSCREENOFFSET_MASK) | (offset << REG_GX_DISPCNT_BGSCREENOFFSET_SHIFT));
+}
+
+static inline void GX_SetBGCharOffset(GXBGCharOffset offset)
+{
+    reg_GX_DISPCNT = (u32)((reg_GX_DISPCNT & ~REG_GX_DISPCNT_BGCHAROFFSET_MASK) | (offset << REG_GX_DISPCNT_BGCHAROFFSET_SHIFT));
+}
+
 #endif //GUARD_GX_H

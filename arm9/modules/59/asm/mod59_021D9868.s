@@ -415,28 +415,28 @@ MOD59_021D9BD0: ; 0x021D9BD0
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, _021D9C44 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -511,7 +511,7 @@ _021D9C92: ; jump table
 _021D9C9A:
 	mov r0, #2
 	add r1, r5, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	ldr r1, [r4]
 	lsl r0, r0, #0xa
@@ -562,7 +562,7 @@ _021D9C9A:
 	bl CopyWindowToVram
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0xf0
 	str r0, [r4, #0x24]
 	mov r0, #1

@@ -303,28 +303,28 @@ FUN_020896E0: ; 0x020896E0
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x1
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x3
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x5
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x6
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x7
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x14]
 	mov r1, #0x0
 	bl FUN_020178A0

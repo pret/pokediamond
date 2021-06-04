@@ -84439,7 +84439,7 @@ _022584B4:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	add r1, r6, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	add r0, r5, #0
@@ -85979,7 +85979,7 @@ _0225910E:
 	bl FUN_02018768
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
 	bl FUN_020178BC
@@ -88427,7 +88427,7 @@ MOD11_0225A5C0: ; 0x0225A5C0
 	ldr r0, [r7]
 	bl MOD11_0222FF68
 	mov r1, #5
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r4, r0, #0
 	add r0, r7, #0
 	add r1, sp, #4
@@ -89269,13 +89269,13 @@ _0225AC68:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	add r1, r4, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _0225AC84
 _0225AC7A:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	add r1, r6, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 _0225AC84:
 	add r5, r5, #1
 	cmp r5, #4
@@ -89482,7 +89482,7 @@ MOD11_0225ADD8: ; 0x0225ADD8
 	bl MOD11_0222FF68
 	mov r1, #4
 	str r0, [sp, #4]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	lsl r0, r7, #2
 	add r0, r5, r0
@@ -90650,14 +90650,14 @@ _0225B716:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _0225B736
 _0225B72A:
 	add r0, r4, #4
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 _0225B736:
 	add r4, r4, #1
 	add r5, r5, #2

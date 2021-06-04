@@ -13899,7 +13899,7 @@ MOD14_021DE278: ; 0x021DE278
 	ldr r0, _021DE2E4 ; =0x00005984
 	mov r1, #3
 	ldr r0, [r5, r0]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r7, r0, #0
 	beq _021DE2C2
 	ldr r1, [sp, #0x20]
@@ -20555,7 +20555,7 @@ MOD14_021E16A0: ; 0x021E16A0
 	add r4, r1, #0
 	ldr r0, [r0, #8]
 	mov r1, #2
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov ip, r0
 	add r2, r0, #0
 	mov r0, #1
@@ -20866,7 +20866,7 @@ MOD14_021E1908: ; 0x021E1908
 	add r6, r2, #0
 	ldr r4, [sp, #0x18]
 	ldr r5, [sp, #0x1c]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	sub r1, r7, #1
 	sub r2, r6, #2
 	lsl r1, r1, #5
@@ -21100,7 +21100,7 @@ MOD14_021E1AD8: ; 0x021E1AD8
 	add r5, r1, #0
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r2, #8
 	sub r2, r2, r5
 	mov ip, r2
@@ -21267,7 +21267,7 @@ MOD14_021E1C10: ; 0x021E1C10
 	add r6, r2, #0
 	ldr r5, [sp, #0x18]
 	ldr r4, [sp, #0x1c]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	sub r1, r7, #1
 	sub r2, r6, #1
 	lsl r1, r1, #5
@@ -21339,7 +21339,7 @@ MOD14_021E1CA0: ; 0x021E1CA0
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r1, #0
 	ldrb r1, [r4, #4]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldrb r1, [r4, #5]
 	mov r5, #0
 	sub r2, r1, #1
@@ -21383,7 +21383,7 @@ MOD14_021E1CEC: ; 0x021E1CEC
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r1, #0
 	ldrb r1, [r4, #4]
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldrb r1, [r4, #5]
 	mov r5, #0
 	sub r2, r1, #2
@@ -21795,7 +21795,7 @@ MOD14_021E1FF8: ; 0x021E1FF8
 	mov r1, #9
 	mov r2, #0xa
 	mov r3, #0xe
-	bl FUN_02018F4C
+	bl FillBitmapRect8Bit
 	mov r4, #0
 	mov r0, #0xc
 	str r4, [sp, #0x20]
@@ -21872,7 +21872,7 @@ _021E20AA:
 	lsl r1, r6, #0x10
 	ldr r0, [sp, #0x2c]
 	lsr r1, r1, #0x10
-	bl FUN_02018F4C
+	bl FillBitmapRect8Bit
 _021E20C8:
 	ldr r1, [sp, #0x1c]
 	add r0, r5, #0
@@ -27001,12 +27001,12 @@ _021E4762:
 
 	thumb_func_start MOD14_021E4764
 MOD14_021E4764: ; 0x021E4764
-	ldr r3, _021E476C ; =FUN_0201797C
+	ldr r3, _021E476C ; =ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021E476C: .word FUN_0201797C
+_021E476C: .word ToggleBgLayer
 
 	thumb_func_start MOD14_021E4770
 MOD14_021E4770: ; 0x021E4770
@@ -27020,7 +27020,7 @@ MOD14_021E4770: ; 0x021E4770
 	bl G2x_SetBlendAlpha_
 	mov r0, #4
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	pop {r3, pc}
 	.align 2, 0
 _021E478C: .word 0x04001050
@@ -28587,35 +28587,35 @@ MOD14_021E539C: ; 0x021E539C
 _021E53B2:
 	mov r0, #5
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	pop {r3, pc}
 _021E53CC:
 	mov r0, #6
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	pop {r3, pc}
 _021E53E6:
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	pop {r3, pc}
 
 	thumb_func_start MOD14_021E5400

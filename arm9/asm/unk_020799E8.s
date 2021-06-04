@@ -297,7 +297,7 @@ _02079BDA:
 	lsl r1, r5, #0x18
 	add r0, r6, #0x0
 	lsr r1, r1, #0x18
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	cmp r0, #0x0
 	beq _02079BF8
 	ldr r2, [sp, #0xc]

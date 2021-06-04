@@ -54,13 +54,13 @@ THUMB_FUNC void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_togg
         }
     }
 
-    reg_GX_DISPCNT = (reg_GX_DISPCNT & 0xFFFFE0FF) | (layer_data.EngineA_DISPCNT_LayerMask ^= layer_mask) << 8;
+    GX_SetVisiblePlane(layer_data.EngineA_DISPCNT_LayerMask ^= layer_mask);
 }
 
 THUMB_FUNC void GX_SetEngineALayers(u32 layer_mask)
 {
     layer_data.EngineA_DISPCNT_LayerMask = layer_mask;
-    reg_GX_DISPCNT = (reg_GX_DISPCNT & 0xFFFFE0FF) | layer_mask << 8;
+    GX_SetVisiblePlane(layer_mask);
 }
 
 THUMB_FUNC void GX_DisableEngineBLayers()
@@ -85,25 +85,24 @@ THUMB_FUNC void GX_EngineBToggleLayers(u32 layer_mask, GX_LayerToggle layer_togg
         }
     }
 
-    reg_GXS_DB_DISPCNT = (reg_GXS_DB_DISPCNT & 0xFFFFE0FF) | (layer_data.EngineB_DISPCNT_LayerMask ^= layer_mask) << 8;
+    GXS_SetVisiblePlane(layer_data.EngineB_DISPCNT_LayerMask ^= layer_mask);
 }
 
 THUMB_FUNC void GX_BothDispOn()
 {
     GX_DispOn();
-
-    reg_GXS_DB_DISPCNT |= 0x10000;
+    GXS_DispOn();
 }
 
 THUMB_FUNC void GX_SwapDisplay()
 {
     if (gMain.unk65 == 0)
     {
-        reg_GX_POWCNT |= 0x8000; //send display A to lower screen
+        GX_SetDispSelect(GX_DISP_SELECT_MAIN_SUB);
     }
     else
     {
-        reg_GX_POWCNT &= 0xFFFF7FFF; // sned display A to upper screen
+        GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
     }
 }
 

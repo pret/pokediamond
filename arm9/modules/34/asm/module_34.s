@@ -535,7 +535,7 @@ MOD34_02254C1C: ; 0x02254C1C
 	mov r1, #6
 	add r4, r2, #0
 	add r6, r3, #0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r1, _02254C6C ; =MOD34_02254C94
 	lsl r2, r5, #1
 	ldrh r1, [r1, r2]

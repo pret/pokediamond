@@ -994,11 +994,11 @@ _020745DA:
 	strb r1, [r6, r0]
 	ldr r0, [r6, #0x0]
 	mov r1, #0x2
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	str r0, [sp, #0x14]
 	ldr r0, [r6, #0x0]
 	mov r1, #0x1
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r1, _020746B4 ; =0x00000B0C
 	str r0, [sp, #0x10]
 	ldrb r3, [r6, r1]
