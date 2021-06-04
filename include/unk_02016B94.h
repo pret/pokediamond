@@ -60,11 +60,11 @@ struct BgConfig
     struct Bg bgs[8];
 };
 
-struct UnkStruct_02016B94_3
+struct Bitmap
 {
-    void *unk00;
-    u16 unk04;
-    u16 unk06;
+    const u8 *pixels;
+    u16 width;
+    u16 height;
 };
 
 struct WindowTemplate
@@ -223,17 +223,17 @@ u8 (*FUN_02018848(u8 *param0, u32 param1, u8 param2, u32 heap_id))[2];
 void *FUN_0201886C(struct BgConfig *param0, u8 param1);
 u16 FUN_02018878(struct BgConfig *param0, u32 param1);
 u8 FUN_02018884(struct BgConfig *param0, u32 param1);
-void BlitBitmapRect4Bit(struct UnkStruct_02016B94_3 *param0,
-    struct UnkStruct_02016B94_3 *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8);
-void BlitBitmapRect8Bit(struct UnkStruct_02016B94_3 *param0,
-    struct UnkStruct_02016B94_3 *param1,
+void BlitBitmapRect4Bit(const struct Bitmap *src,
+                        const struct Bitmap *dst,
+                        u16 srcX,
+                        u16 srcY,
+                        u16 dstX,
+                        u16 dstY,
+                        u16 width,
+                        u16 height,
+                        u16 colorKey);
+void BlitBitmapRect8Bit(struct Bitmap *param0,
+    struct Bitmap *param1,
     u16 param2,
     u16 param3,
     u16 param4,
@@ -242,9 +242,9 @@ void BlitBitmapRect8Bit(struct UnkStruct_02016B94_3 *param0,
     u16 param7,
     u16 param8);
 void FUN_02018E88(
-    struct UnkStruct_02016B94_3 *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
+    struct Bitmap *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
 void FUN_02018F4C(
-    struct UnkStruct_02016B94_3 *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
+    struct Bitmap *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
 struct Window *AllocWindows(u32 heap_id, s32 size);
 void InitWindow(struct Window *window);
 BOOL WindowIsInUse(struct Window *window);

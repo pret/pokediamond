@@ -1706,420 +1706,72 @@ THUMB_FUNC u8 FUN_02018884(struct BgConfig *param0, u32 param1)
     return 0;
 }
 
-#ifdef NONMATCHING
-THUMB_FUNC void BlitBitmapRect4Bit(struct UnkStruct_02016B94_3 *param0,
-    struct UnkStruct_02016B94_3 *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8)
+THUMB_FUNC void BlitBitmapRect4Bit(const struct Bitmap *src,
+                                   const struct Bitmap *dst,
+                                   u16 srcX,
+                                   u16 srcY,
+                                   u16 dstX,
+                                   u16 dstY,
+                                   u16 width,
+                                   u16 height,
+                                   u16 colorKey)
 {
+    int xEnd, yEnd;
+    int multiplierSrcY, multiplierDstY;
+    int loopSrcY, loopDstY;
+    int loopSrcX, loopDstX;
+    int toOrr, toShift;
+    u8 * pixelsSrc, * pixelsDst;
 
-    u8 *unk1;
-    u8 *unk2;
-
-    int st50;
-    if (param1->unk04 - param4 < param6)
-    {
-        st50 = param2 + param1->unk04 - param4;
-    }
+    if (dst->width - dstX < width)
+        xEnd = dst->width - dstX + srcX;
     else
-    {
-        st50 = param2 + param6;
-    }
-
-    int st4c;
-    if (param1->unk06 - param5 < param7)
-    {
-        st4c = param3 + param1->unk06 - param5;
-    }
+        xEnd = width + srcX;
+    if (dst->height - dstY < height)
+        yEnd = dst->height - dstY + srcY;
     else
+        yEnd = height + srcY;
+    multiplierSrcY = (src->width + (src->width & 7)) >> 3;
+    multiplierDstY = (dst->width + (dst->width & 7)) >> 3;
+
+    if (colorKey == 0xFFFF)
     {
-        st4c = param3 + param7;
-    }
-
-    int st48 = (param0->unk04 + (param0->unk04 & 7)) >> 3;
-
-    int st44 = (param1->unk04 + (param1->unk04 & 7)) >> 3;
-
-    u32 i, i1;
-    u32 j, j1;
-    if (param8 == 0xFFFF)
-    {
-        i1 = param5;
-        for (i = param3; i < st4c; i++)
+        for (loopSrcY = srcY, loopDstY = dstY; loopSrcY < yEnd; loopSrcY++, loopDstY++)
         {
-            j1 = param4;
-            for (j = param2; j < st50; j++)
+            for (loopSrcX = srcX, loopDstX = dstX; loopSrcX < xEnd; loopSrcX++, loopDstX++)
             {
+                pixelsSrc = (u8 *)(src->pixels + ((loopSrcX >> 1) & 3) + ((loopSrcX << 2) & 0x3FE0) + (((loopSrcY << 2) & 0x3FE0) * multiplierSrcY) + (((loopSrcY << 2) & 0x1C)));
+                pixelsDst = (u8 *)(dst->pixels + ((loopDstX >> 1) & 3) + ((loopDstX << 2) & 0x3FE0) + (((loopDstY << 2) & 0x3FE0) * multiplierDstY) + (((loopDstY << 2) & 0x1C)));
 
-                unk1 =
-                    (u32)(param1->unk00) + (j1 >> 1) &
-                    0x3 + ((j1 << 2) & 0x3fe0) + st44 * ((i1 << 2) & 0x3fe0) + ((i1 << 2) & 0x1c);
-                unk2 = (u32)(param0->unk00) + (j >> 1) &
-                       0x3 + ((j << 2) & 0x3fe0) + st48 * ((i << 2) & 0x3FE0) + ((i << 2) & 0x1c);
-
-                u8 r1 = *unk2;
-
-                u32 r2 = (j1 << 0x1f) >> 0x1d;
-                u32 r7 = ((r1 >> ((j << 0x1f) >> 0x1d)) & 0xf) << r2;
-
-                *unk1 = r7 | (*unk1 & (0xf0 >> r2));
-
-                j1++;
+                toOrr = (*pixelsSrc >> ((loopSrcX & 1) * 4)) & 0xF;
+                toShift = (loopDstX & 1) * 4;
+                *pixelsDst = ((toOrr << toShift) | (*pixelsDst & (0xF0 >> toShift)));
             }
-            i1++;
         }
     }
     else
     {
-
-        i1 = param5;
-        for (i = param3; i < st4c; i++)
+        for (loopSrcY = srcY, loopDstY = dstY; loopSrcY < yEnd; loopSrcY++, loopDstY++)
         {
-            j1 = param4;
-            for (j = param2; j < st50; j++)
+            for (loopSrcX = srcX, loopDstX = dstX; loopSrcX < xEnd; loopSrcX++, loopDstX++)
             {
+                pixelsSrc = (u8 *)(src->pixels + ((loopSrcX >> 1) & 3) + ((loopSrcX << 2) & 0x3FE0) + (((loopSrcY << 2) & 0x3FE0) * multiplierSrcY) + ((u32)((loopSrcY << 2) & 0x1C)));
+                pixelsDst = (u8 *)(dst->pixels + ((loopDstX >> 1) & 3) + ((loopDstX << 2) & 0x3FE0) + (((loopDstY << 2) & 0x3FE0) * multiplierDstY) + ((u32)((loopDstY << 2) & 0x1C)));
 
-                unk1 = (u32)param1->unk00 + ((j1 >> 1) & 3) + ((j1 << 2) & 0x3fe0) +
-                           st44 * ((i1 << 2) & 0x3fe0) + (i1 << 2) &
-                       0x1c;
-                unk2 = (u32)param0->unk00 + ((j >> 1) & 3) + ((j << 2) & 0x3fe0) +
-                       st48 * ((i << 2) & 0x3fe0) + ((i << 2) & 0x1c);
-                u8 r0 = ((*unk2) >> ((j << 0x1f) >> 0x1d)) & 0xf;
-
-                if (r0 != param8)
+                toOrr = (*pixelsSrc >> ((loopSrcX & 1) * 4)) & 0xF;
+                if (toOrr != colorKey)
                 {
-                    u32 r7 = ((j1 << 0x1f) >> 0x1d);
-                    *unk1 = (r0 << r7) | (*unk1 & (0xf0 >> r7));
+                    toShift = (loopDstX & 1) * 4;
+                    *pixelsDst = (u8) ((toOrr << toShift) | (*pixelsDst & (0xF0 >> toShift)));
                 }
-
-                j1++;
             }
-            i1++;
         }
     }
 }
-#else
-THUMB_FUNC asm void BlitBitmapRect4Bit(struct UnkStruct_02016B94_3 *param0,
-    struct UnkStruct_02016B94_3 *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8)
-{
-    // clang-format off
-	push {r3-r7, lr}
-	sub sp, #0x68
-	str r2, [sp, #0x8]
-	str r3, [sp, #0xc]
-	add r2, sp, #0x70
-	str r0, [sp, #0x0]
-	ldrh r0, [r2, #0x10]
-	str r1, [sp, #0x4]
-	ldrh r2, [r2, #0x18]
-	str r0, [sp, #0x10]
-	add r0, r1, #0x0
-	ldrh r1, [r0, #0x4]
-	ldr r0, [sp, #0x10]
-	sub r3, r1, r0
-	cmp r3, r2
-	bge _02018A88
-	ldr r0, [sp, #0x8]
-	add r0, r0, r3
-	str r0, [sp, #0x50]
-	b _02018A8E
-_02018A88:
-	ldr r0, [sp, #0x8]
-	add r0, r2, r0
-	str r0, [sp, #0x50]
-_02018A8E:
-	ldr r2, [sp, #0x4]
-	add r3, sp, #0x70
-	ldrh r0, [r3, #0x14]
-	ldrh r2, [r2, #0x6]
-	ldrh r3, [r3, #0x1c]
-	sub r4, r2, r0
-	cmp r4, r3
-	bge _02018AA6
-	ldr r2, [sp, #0xc]
-	add r2, r2, r4
-	str r2, [sp, #0x4c]
-	b _02018AAC
-_02018AA6:
-	ldr r2, [sp, #0xc]
-	add r2, r3, r2
-	str r2, [sp, #0x4c]
-_02018AAC:
-	ldr r2, [sp, #0x0]
-	mov r3, #0x7
-	ldrh r4, [r2, #0x4]
-	add r2, r4, #0x0
-	and r2, r3
-	add r2, r4, r2
-	asr r2, r2, #0x3
-	str r2, [sp, #0x48]
-	add r2, r1, #0x0
-	and r2, r3
-	add r1, r1, r2
-	asr r1, r1, #0x3
-	str r1, [sp, #0x44]
-	add r1, sp, #0x70
-	ldrh r1, [r1, #0x20]
-	ldr r2, =0x0000FFFF
-	str r1, [sp, #0x38]
-	cmp r1, r2
-	bne _02018BB4
-	ldr r2, [sp, #0xc]
-	ldr r1, [sp, #0x4c]
-	cmp r2, r1
-	bge _02018ADE
-	cmp r2, r1
-	blt _02018AE0
-_02018ADE:
-	b _02018C92
-_02018AE0:
-	add r1, r2, #0x0
-	lsl r1, r1, #0x2
-	lsl r0, r0, #0x2
-	str r1, [sp, #0x28]
-	str r0, [sp, #0x24]
-_02018AEA:
-	ldr r3, [sp, #0x8]
-	ldr r0, [sp, #0x50]
-	add r1, r3, #0x0
-	ldr r4, [sp, #0x10]
-	cmp r1, r0
-	bge _02018B96
-	cmp r1, r0
-	bge _02018B96
-	add r0, r3, #0x0
-	lsl r5, r0, #0x2
-	add r0, r4, #0x0
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r1, [sp, #0x28]
-	ldr r2, [sp, #0x48]
-	and r1, r0
-	mul r2, r1
-	str r2, [sp, #0x20]
-	ldr r2, [sp, #0x28]
-	mov r1, #0x1c
-	and r2, r1
-	str r2, [sp, #0x1c]
-	ldr r2, [sp, #0x24]
-	and r0, r2
-	ldr r2, [sp, #0x44]
-	mul r2, r0
-	ldr r0, [sp, #0x24]
-	str r2, [sp, #0x18]
-	and r0, r1
-	str r0, [sp, #0x14]
-_02018B26:
-	ldr r0, [sp, #0x4]
-	asr r2, r4, #0x1
-	mov r1, #0x3
-	ldr r0, [r0, #0x0]
-	and r1, r2
-	add r1, r0, r1
-	ldr r0, =0x00003FE0
-	and r0, r6
-	add r1, r1, r0
-	ldr r0, [sp, #0x18]
-	add r6, r6, #0x4
-	add r0, r1, r0
-	str r0, [sp, #0x64]
-	lsl r0, r4, #0x1f
-	lsr r2, r0, #0x1d
-	ldr r0, [sp, #0x0]
-	asr r1, r3, #0x1
-	ldr r7, [r0, #0x0]
-	mov r0, #0x3
-	and r0, r1
-	ldr r1, =0x00003FE0
-	add r4, r4, #0x1
-	and r1, r5
-	str r1, [sp, #0x54]
-	add r1, r7, r0
-	ldr r0, [sp, #0x54]
-	add r5, r5, #0x4
-	add r1, r0, r1
-	ldr r0, [sp, #0x20]
-	add r1, r0, r1
-	ldr r0, [sp, #0x1c]
-	ldrb r1, [r0, r1]
-	lsl r0, r3, #0x1f
-	lsr r0, r0, #0x1d
-	asr r1, r0
-	mov r0, #0xf
-	and r0, r1
-	add r7, r0, #0x0
-	ldr r1, [sp, #0x14]
-	ldr r0, [sp, #0x64]
-	lsl r7, r2
-	ldrb r0, [r0, r1]
-	add r3, r3, #0x1
-	str r0, [sp, #0x58]
-	mov r0, #0xf0
-	asr r0, r2
-	ldr r1, [sp, #0x58]
-	add r2, r7, #0x0
-	and r0, r1
-	orr r2, r0
-	ldr r1, [sp, #0x14]
-	ldr r0, [sp, #0x64]
-	strb r2, [r0, r1]
-	ldr r0, [sp, #0x50]
-	cmp r3, r0
-	blt _02018B26
-_02018B96:
-	ldr r0, [sp, #0x28]
-	add r0, r0, #0x4
-	str r0, [sp, #0x28]
-	ldr r0, [sp, #0xc]
-	add r0, r0, #0x1
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #0x24]
-	ldr r1, [sp, #0xc]
-	add r0, r0, #0x4
-	str r0, [sp, #0x24]
-	ldr r0, [sp, #0x4c]
-	cmp r1, r0
-	blt _02018AEA
-	add sp, #0x68
-	pop {r3-r7, pc}
-_02018BB4:
-	ldr r2, [sp, #0xc]
-	ldr r1, [sp, #0x4c]
-	cmp r2, r1
-	bge _02018C92
-	cmp r2, r1
-	bge _02018C92
-	add r1, r2, #0x0
-	lsl r1, r1, #0x2
-	lsl r0, r0, #0x2
-	str r1, [sp, #0x40]
-	str r0, [sp, #0x3c]
-_02018BCA:
-	ldr r3, [sp, #0x8]
-	ldr r0, [sp, #0x50]
-	add r1, r3, #0x0
-	ldr r4, [sp, #0x10]
-	cmp r1, r0
-	bge _02018C78
-	cmp r1, r0
-	bge _02018C78
-	add r0, r3, #0x0
-	lsl r1, r0, #0x2
-	add r0, r4, #0x0
-	lsl r2, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x40]
-	ldr r6, [sp, #0x48]
-	and r5, r0
-	mul r6, r5
-	str r6, [sp, #0x34]
-	ldr r6, [sp, #0x40]
-	mov r5, #0x1c
-	and r6, r5
-	str r6, [sp, #0x30]
-	ldr r6, [sp, #0x3c]
-	and r0, r6
-	ldr r6, [sp, #0x44]
-	mul r6, r0
-	ldr r0, [sp, #0x3c]
-	str r6, [sp, #0x2c]
-	and r0, r5
-	str r0, [sp, #0x60]
-_02018C06:
-	ldr r0, [sp, #0x4]
-	asr r6, r4, #0x1
-	mov r5, #0x3
-	and r5, r6
-	ldr r0, [r0, #0x0]
-	asr r6, r3, #0x1
-	add r5, r0, r5
-	ldr r0, =0x00003FE0
-	and r0, r2
-	add r5, r5, r0
-	ldr r0, [sp, #0x2c]
-	add r5, r5, r0
-	ldr r0, [sp, #0x0]
-	ldr r7, [r0, #0x0]
-	mov r0, #0x3
-	and r0, r6
-	ldr r6, =0x00003FE0
-	and r6, r1
-	str r6, [sp, #0x5c]
-	add r6, r7, r0
-	ldr r0, [sp, #0x5c]
-	add r6, r0, r6
-	ldr r0, [sp, #0x34]
-	add r6, r0, r6
-	ldr r0, [sp, #0x30]
-	ldrb r6, [r0, r6]
-	lsl r0, r3, #0x1f
-	lsr r0, r0, #0x1d
-	asr r6, r0
-	mov r0, #0xf
-	and r0, r6
-	ldr r6, [sp, #0x38]
-	cmp r0, r6
-	beq _02018C6A
-	lsl r6, r4, #0x1f
-	lsr r7, r6, #0x1d
-	lsl r0, r7
-	mov lr, r0
-	ldr r0, [sp, #0x60]
-	ldrb r0, [r5, r0]
-	mov r12, r0
-	mov r0, #0xf0
-	add r6, r0, #0x0
-	asr r6, r7
-	mov r0, r12
-	and r0, r6
-	mov r6, lr
-	orr r6, r0
-	ldr r0, [sp, #0x60]
-	strb r6, [r5, r0]
-_02018C6A:
-	ldr r0, [sp, #0x50]
-	add r3, r3, #0x1
-	add r1, r1, #0x4
-	add r2, r2, #0x4
-	add r4, r4, #0x1
-	cmp r3, r0
-	blt _02018C06
-_02018C78:
-	ldr r0, [sp, #0x40]
-	add r0, r0, #0x4
-	str r0, [sp, #0x40]
-	ldr r0, [sp, #0xc]
-	add r0, r0, #0x1
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #0x3c]
-	ldr r1, [sp, #0xc]
-	add r0, r0, #0x4
-	str r0, [sp, #0x3c]
-	ldr r0, [sp, #0x4c]
-	cmp r1, r0
-	blt _02018BCA
-_02018C92:
-	add sp, #0x68
-	pop {r3-r7, pc}
-    // clang-format on
-}
-#endif
 
 #ifdef NONMATCHING
-THUMB_FUNC void BlitBitmapRect8Bit(struct UnkStruct_02016B94_3 *param0,
-    struct UnkStruct_02016B94_3 *param1,
+THUMB_FUNC void BlitBitmapRect8Bit(struct Bitmap *param0,
+    struct Bitmap *param1,
     u16 param2,
     u16 param3,
     u16 param4,
@@ -2131,8 +1783,8 @@ THUMB_FUNC void BlitBitmapRect8Bit(struct UnkStruct_02016B94_3 *param0,
     // horrible for loops like the one above
 }
 #else
-THUMB_FUNC asm void BlitBitmapRect8Bit(struct UnkStruct_02016B94_3 *param0,
-    struct UnkStruct_02016B94_3 *param1,
+THUMB_FUNC asm void BlitBitmapRect8Bit(struct Bitmap *param0,
+    struct Bitmap *param1,
     u16 param2,
     u16 param3,
     u16 param4,
@@ -2402,22 +2054,22 @@ _02018E7C:
 #endif
 
 THUMB_FUNC void FUN_02018E88(
-    struct UnkStruct_02016B94_3 *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5)
+    struct Bitmap *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5)
 {
 
     int r6 = param1 + param3;
-    if (r6 > param0->unk04)
+    if (r6 > param0->width)
     {
-        r6 = param0->unk04;
+        r6 = param0->width;
     }
 
     int r12 = param2 + param4;
-    if (r12 > param0->unk06)
+    if (r12 > param0->height)
     {
-        r12 = param0->unk06;
+        r12 = param0->height;
     }
 
-    int lr = (((param0->unk04) + (param0->unk04 & 7)) >> 3);
+    int lr = (((param0->width) + (param0->width & 7)) >> 3);
 
     for (int i = param2; i < r12; i++)
     {
@@ -2425,7 +2077,7 @@ THUMB_FUNC void FUN_02018E88(
         for (int j = param1; j < r6; j++)
         {
 
-            u8 *unk = (u8 *)((u8 *)param0->unk00 + ((j >> 1) & 3) + ((j << 2) & 0x3fe0) +
+            u8 *unk = (u8 *)((u8 *)param0->pixels + ((j >> 1) & 3) + ((j << 2) & 0x3fe0) +
                              (((i << 2) & 0x3fe0) * lr) + ((i << 2) & 0x1c));
 
             if ((j & 1) != 0)
@@ -2443,22 +2095,22 @@ THUMB_FUNC void FUN_02018E88(
 }
 
 THUMB_FUNC void FUN_02018F4C(
-    struct UnkStruct_02016B94_3 *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5)
+    struct Bitmap *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5)
 {
 
     int r6 = param1 + param3;
-    if (r6 > param0->unk04)
+    if (r6 > param0->width)
     {
-        r6 = param0->unk04;
+        r6 = param0->width;
     }
 
     int r12 = param2 + param4;
-    if (r12 > param0->unk06)
+    if (r12 > param0->height)
     {
-        r12 = param0->unk06;
+        r12 = param0->height;
     }
 
-    int lr = (((param0->unk04) + (param0->unk04 & 7)) >> 3);
+    int lr = (((param0->width) + (param0->width & 7)) >> 3);
 
     for (int i = param2; i < r12; i++)
     {
@@ -2466,7 +2118,7 @@ THUMB_FUNC void FUN_02018F4C(
         for (int j = param1; j < r6; j++)
         {
 
-            u8 *unk = (u8 *)((u8 *)param0->unk00 + (j & 7) + ((j << 3) & 0x7fc0) +
+            u8 *unk = (u8 *)((u8 *)param0->pixels + (j & 7) + ((j << 3) & 0x7fc0) +
                              (((i << 3) & 0x7fc0) * lr) + ((i << 3) & 0x38));
 
             *unk = param5;
@@ -2924,8 +2576,8 @@ THUMB_FUNC void BlitBitmapRect(struct Window *window,
     u16 param9,
     u16 param10)
 {
-    struct UnkStruct_02016B94_3 st1c = { param1, param4, param5 };
-    struct UnkStruct_02016B94_3 st14 = {
+    struct Bitmap st1c = { param1, param4, param5 };
+    struct Bitmap st14 = {
         window->pixelBuffer, (u16)(window->width << 3), (u16)(window->height << 3)
     };
 
@@ -2942,7 +2594,7 @@ THUMB_FUNC void BlitBitmapRect(struct Window *window,
 THUMB_FUNC void FillWindowPixelRect(
     struct Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height)
 {
-    struct UnkStruct_02016B94_3 st8 = {
+    struct Bitmap st8 = {
         window->pixelBuffer, (u16)(window->width << 3), (u16)(window->height << 3)
     };
 
