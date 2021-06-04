@@ -1769,289 +1769,61 @@ THUMB_FUNC void BlitBitmapRect4Bit(const struct Bitmap *src,
     }
 }
 
-#ifdef NONMATCHING
-THUMB_FUNC void BlitBitmapRect8Bit(struct Bitmap *param0,
-    struct Bitmap *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8)
+THUMB_FUNC void BlitBitmapRect8Bit(const struct Bitmap *src,
+                                   const struct Bitmap *dst,
+                                   u16 srcX,
+                                   u16 srcY,
+                                   u16 dstX,
+                                   u16 dstY,
+                                   u16 width,
+                                   u16 height,
+                                   u16 colorKey)
 {
-    // horrible for loops like the one above
+    int xEnd, yEnd;
+    int multiplierSrcY, multiplierDstY;
+    int loopSrcY, loopDstY;
+    int loopSrcX, loopDstX;
+    u8 * pixelsSrc, * pixelsDst;
+
+    if (dst->width - dstX < width)
+        xEnd = dst->width - dstX + srcX;
+    else
+        xEnd = width + srcX;
+    if (dst->height - dstY < height)
+        yEnd = dst->height - dstY + srcY;
+    else
+        yEnd = height + srcY;
+    multiplierSrcY = (src->width + (src->width & 7)) >> 3;
+    multiplierDstY = (dst->width + (dst->width & 7)) >> 3;
+
+    if (colorKey == 0xFFFF)
+    {
+        for (loopSrcY = srcY, loopDstY = dstY; loopSrcY < yEnd; loopSrcY++, loopDstY++)
+        {
+            for (loopSrcX = srcX, loopDstX = dstX; loopSrcX < xEnd; loopSrcX++, loopDstX++)
+            {
+                pixelsSrc = (u8 *)(src->pixels + ((loopSrcX >> 0) & 7) + ((loopSrcX << 3) & 0x7FC0) + (((loopSrcY << 3) & 0x7FC0) * multiplierSrcY) + (((loopSrcY << 3) & 0x38)));
+                pixelsDst = (u8 *)(dst->pixels + ((loopDstX >> 0) & 7) + ((loopDstX << 3) & 0x7FC0) + (((loopDstY << 3) & 0x7FC0) * multiplierDstY) + (((loopDstY << 3) & 0x38)));
+
+                *pixelsDst = *pixelsSrc;
+            }
+        }
+    }
+    else
+    {
+        for (loopSrcY = srcY, loopDstY = dstY; loopSrcY < yEnd; loopSrcY++, loopDstY++)
+        {
+            for (loopSrcX = srcX, loopDstX = dstX; loopSrcX < xEnd; loopSrcX++, loopDstX++)
+            {
+                pixelsSrc = (u8 *)(src->pixels + ((loopSrcX >> 0) & 7) + ((loopSrcX << 3) & 0x7FC0) + (((loopSrcY << 3) & 0x7FC0) * multiplierSrcY) + (((loopSrcY << 3) & 0x38)));
+                pixelsDst = (u8 *)(dst->pixels + ((loopDstX >> 0) & 7) + ((loopDstX << 3) & 0x7FC0) + (((loopDstY << 3) & 0x7FC0) * multiplierDstY) + (((loopDstY << 3) & 0x38)));
+
+                if (*pixelsSrc != colorKey)
+                    *pixelsDst = *pixelsSrc;
+            }
+        }
+    }
 }
-#else
-THUMB_FUNC asm void BlitBitmapRect8Bit(struct Bitmap *param0,
-    struct Bitmap *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8)
-{
-    // clang-format off
-	push {r3-r7, lr}
-	sub sp, #0x50
-	str r2, [sp, #0x8]
-	str r3, [sp, #0xc]
-	add r2, sp, #0x58
-	str r0, [sp, #0x0]
-	ldrh r0, [r2, #0x10]
-	str r1, [sp, #0x4]
-	ldrh r2, [r2, #0x18]
-	str r0, [sp, #0x10]
-	add r0, r1, #0x0
-	ldrh r1, [r0, #0x4]
-	ldr r0, [sp, #0x10]
-	sub r3, r1, r0
-	cmp r3, r2
-	bge _02018CC6
-	ldr r0, [sp, #0x8]
-	add r0, r0, r3
-	b _02018CCA
-_02018CC6:
-	ldr r0, [sp, #0x8]
-	add r0, r2, r0
-_02018CCA:
-	ldr r2, [sp, #0x4]
-	add r3, sp, #0x58
-	mov r12, r0
-	ldrh r0, [r3, #0x14]
-	ldrh r2, [r2, #0x6]
-	ldrh r3, [r3, #0x1c]
-	sub r4, r2, r0
-	cmp r4, r3
-	bge _02018CE2
-	ldr r2, [sp, #0xc]
-	add r2, r2, r4
-	b _02018CE6
-_02018CE2:
-	ldr r2, [sp, #0xc]
-	add r2, r3, r2
-_02018CE6:
-	mov lr, r2
-	ldr r2, [sp, #0x0]
-	mov r3, #0x7
-	ldrh r4, [r2, #0x4]
-	add r2, r4, #0x0
-	and r2, r3
-	add r2, r4, r2
-	asr r2, r2, #0x3
-	str r2, [sp, #0x4c]
-	add r2, r1, #0x0
-	and r2, r3
-	add r1, r1, r2
-	asr r1, r1, #0x3
-	str r1, [sp, #0x48]
-	add r1, sp, #0x58
-	ldrh r1, [r1, #0x20]
-	ldr r2, =0x0000FFFF
-	str r1, [sp, #0x3c]
-	cmp r1, r2
-	bne _02018DC6
-	ldr r2, [sp, #0xc]
-	mov r1, lr
-	cmp r2, r1
-	bge _02018D1C
-	mov r1, lr
-	cmp r2, r1
-	blt _02018D1E
-_02018D1C:
-	b _02018E7C
-_02018D1E:
-	add r1, r2, #0x0
-	lsl r1, r1, #0x3
-	lsl r0, r0, #0x3
-	str r1, [sp, #0x28]
-	str r0, [sp, #0x24]
-_02018D28:
-	ldr r1, [sp, #0x8]
-	mov r0, r12
-	add r2, r1, #0x0
-	ldr r7, [sp, #0x10]
-	cmp r2, r0
-	bge _02018DA8
-	mov r0, r12
-	cmp r2, r0
-	bge _02018DA8
-	add r0, r1, #0x0
-	lsl r2, r0, #0x3
-	add r0, r7, #0x0
-	lsl r3, r0, #0x3
-	ldr r6, =0x00007FC0
-	ldr r0, [sp, #0x28]
-	ldr r4, [sp, #0x4c]
-	and r0, r6
-	mul r4, r0
-	str r4, [sp, #0x20]
-	ldr r0, [sp, #0x28]
-	mov r5, #0x38
-	and r0, r5
-	str r0, [sp, #0x1c]
-	ldr r0, [sp, #0x24]
-	ldr r4, [sp, #0x48]
-	and r0, r6
-	mul r4, r0
-	ldr r0, [sp, #0x24]
-	str r4, [sp, #0x18]
-	and r0, r5
-	str r0, [sp, #0x14]
-_02018D66:
-	ldr r0, [sp, #0x0]
-	add r5, r1, #0x0
-	mov r4, #0x7
-	and r5, r4
-	ldr r0, [r0, #0x0]
-	ldr r4, =0x00007FC0
-	add r0, r0, r5
-	and r4, r2
-	add r4, r4, r0
-	ldr r0, [sp, #0x20]
-	add r5, r7, #0x0
-	add r4, r0, r4
-	ldr r0, [sp, #0x1c]
-	add r1, r1, #0x1
-	ldrb r6, [r0, r4]
-	ldr r0, [sp, #0x4]
-	mov r4, #0x7
-	and r5, r4
-	ldr r0, [r0, #0x0]
-	ldr r4, =0x00007FC0
-	add r0, r0, r5
-	and r4, r3
-	add r4, r4, r0
-	ldr r0, [sp, #0x18]
-	add r2, #0x8
-	add r4, r0, r4
-	ldr r0, [sp, #0x14]
-	add r3, #0x8
-	strb r6, [r0, r4]
-	mov r0, r12
-	add r7, r7, #0x1
-	cmp r1, r0
-	blt _02018D66
-_02018DA8:
-	ldr r0, [sp, #0x28]
-	add r0, #0x8
-	str r0, [sp, #0x28]
-	ldr r0, [sp, #0xc]
-	add r0, r0, #0x1
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #0x24]
-	ldr r1, [sp, #0xc]
-	add r0, #0x8
-	str r0, [sp, #0x24]
-	mov r0, lr
-	cmp r1, r0
-	blt _02018D28
-	add sp, #0x50
-	pop {r3-r7, pc}
-_02018DC6:
-	ldr r2, [sp, #0xc]
-	mov r1, lr
-	cmp r2, r1
-	bge _02018E7C
-	mov r1, lr
-	cmp r2, r1
-	bge _02018E7C
-	add r1, r2, #0x0
-	lsl r1, r1, #0x3
-	lsl r0, r0, #0x3
-	str r1, [sp, #0x44]
-	str r0, [sp, #0x40]
-_02018DDE:
-	ldr r2, [sp, #0x8]
-	mov r0, r12
-	add r1, r2, #0x0
-	ldr r3, [sp, #0x10]
-	cmp r1, r0
-	bge _02018E62
-	mov r0, r12
-	cmp r1, r0
-	bge _02018E62
-	add r0, r2, #0x0
-	lsl r6, r0, #0x3
-	add r0, r3, #0x0
-	lsl r1, r0, #0x3
-	ldr r7, =0x00007FC0
-	ldr r0, [sp, #0x44]
-	ldr r4, [sp, #0x4c]
-	and r0, r7
-	mul r4, r0
-	str r4, [sp, #0x38]
-	ldr r0, [sp, #0x44]
-	mov r5, #0x38
-	and r0, r5
-	str r0, [sp, #0x34]
-	ldr r0, [sp, #0x40]
-	ldr r4, [sp, #0x48]
-	and r0, r7
-	mul r4, r0
-	ldr r0, [sp, #0x40]
-	str r4, [sp, #0x30]
-	and r0, r5
-	str r0, [sp, #0x2c]
-_02018E1C:
-	ldr r0, [sp, #0x4]
-	mov r4, #0x7
-	ldr r0, [r0, #0x0]
-	and r4, r3
-	add r0, r0, r4
-	ldr r4, =0x00007FC0
-	add r5, r2, #0x0
-	and r4, r1
-	add r4, r0, r4
-	ldr r0, [sp, #0x30]
-	add r7, r4, r0
-	ldr r0, [sp, #0x0]
-	mov r4, #0x7
-	and r5, r4
-	ldr r0, [r0, #0x0]
-	ldr r4, =0x00007FC0
-	add r0, r0, r5
-	and r4, r6
-	add r4, r4, r0
-	ldr r0, [sp, #0x38]
-	add r4, r0, r4
-	ldr r0, [sp, #0x34]
-	ldrb r0, [r0, r4]
-	ldr r4, [sp, #0x3c]
-	cmp r0, r4
-	beq _02018E54
-	ldr r4, [sp, #0x2c]
-	strb r0, [r7, r4]
-_02018E54:
-	add r2, r2, #0x1
-	mov r0, r12
-	add r6, #0x8
-	add r1, #0x8
-	add r3, r3, #0x1
-	cmp r2, r0
-	blt _02018E1C
-_02018E62:
-	ldr r0, [sp, #0x44]
-	add r0, #0x8
-	str r0, [sp, #0x44]
-	ldr r0, [sp, #0xc]
-	add r0, r0, #0x1
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #0x40]
-	ldr r1, [sp, #0xc]
-	add r0, #0x8
-	str r0, [sp, #0x40]
-	mov r0, lr
-	cmp r1, r0
-	blt _02018DDE
-_02018E7C:
-	add sp, #0x50
-	pop {r3-r7, pc}
-    // clang-format on
-}
-#endif
 
 THUMB_FUNC void FUN_02018E88(
     struct Bitmap *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5)

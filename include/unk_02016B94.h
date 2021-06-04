@@ -232,15 +232,15 @@ void BlitBitmapRect4Bit(const struct Bitmap *src,
                         u16 width,
                         u16 height,
                         u16 colorKey);
-void BlitBitmapRect8Bit(struct Bitmap *param0,
-    struct Bitmap *param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u16 param5,
-    u16 param6,
-    u16 param7,
-    u16 param8);
+void BlitBitmapRect8Bit(const struct Bitmap *src,
+                        const struct Bitmap *dst,
+                        u16 srcX,
+                        u16 srcY,
+                        u16 dstX,
+                        u16 dstY,
+                        u16 width,
+                        u16 height,
+                        u16 colorKey);
 void FUN_02018E88(
     struct Bitmap *param0, u16 param1, u16 param2, u16 param3, u16 param4, u8 param5);
 void FUN_02018F4C(
