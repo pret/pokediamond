@@ -111,6 +111,16 @@ static inline void G2S_SetBG3Affine(const struct Mtx22 *mtx, int centerX, int ce
     G2x_SetBGyAffine_((u32)&reg_G2S_DB_BG3PA, mtx, centerX, centerY, x1, y1);
 }
 
+static inline void G2_BlendNone(void)
+{
+    reg_G2_BLDCNT = 0;
+}
+
+static inline void G2S_BlendNone(void)
+{
+    reg_G2S_DB_BLDCNT = 0;
+}
+
 //The g2 and g2_oam headers contain a lot of inline functions and enums that may want to be ported over at some point
 
 #endif //GUARD_GX_G2_H

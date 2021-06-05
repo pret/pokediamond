@@ -12,10 +12,10 @@
 
 struct BgTemplate
 {
-    u32 unk00;
-    u32 unk04;
+    u32 x;
+    u32 y;
     u32 bufferSize;
-    u32 unk0c;
+    u32 baseTile;
 
     u8 size;
     u8 colorMode;
@@ -85,8 +85,14 @@ struct Window
     u8 height;
     u8 paletteNum;
     u16 baseTile : 15;
-    u16 unk0b_15 : 1;
+    u16 colorMode : 1;
     void *pixelBuffer;
+};
+
+enum GFBppMode
+{
+    GF_BG_CLR_4BPP = 0,
+    GF_BG_CLR_8BPP,
 };
 
 enum GFBgLayer
@@ -112,6 +118,8 @@ enum GFBgLayer
     GF_BG_LYR_SUB_1_F = 1 << (GF_BG_LYR_SUB_1 - GF_BG_LYR_SUB_FIRST),
     GF_BG_LYR_SUB_2_F = 1 << (GF_BG_LYR_SUB_2 - GF_BG_LYR_SUB_FIRST),
     GF_BG_LYR_SUB_3_F = 1 << (GF_BG_LYR_SUB_3 - GF_BG_LYR_SUB_FIRST),
+
+    GF_BG_LYR_UNALLOC = 0xFF,
 };
 
 enum GFBgType

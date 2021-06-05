@@ -3,19 +3,19 @@
 #include "gx.h"
 #include "main.h"
 
-
-struct GX_LayerData layer_data;
+static u32 EngineA_DISPCNT_LayerMask;
+static u32 EngineB_DISPCNT_LayerMask;
 
 THUMB_FUNC void GX_SetBanks(const struct GraphicsBanks *banks)
 {
     GX_ResetBankForBG();
     GX_ResetBankForBGExtPltt();
     GX_ResetBankForSubBG();
-    FUN_020C6034();
+    GX_ResetBankForSubBGExtPltt();
     GX_ResetBankForOBJ();
     GX_ResetBankForOBJExtPltt();
-    FUN_020C605C();
     GX_ResetBankForSubOBJ();
+    GX_ResetBankForSubOBJExtPltt();
     GX_ResetBankForTex();
     GX_ResetBankForTexPltt();
 
@@ -34,58 +34,58 @@ THUMB_FUNC void GX_SetBanks(const struct GraphicsBanks *banks)
 
 THUMB_FUNC void GX_DisableEngineALayers()
 {
-    layer_data.EngineA_DISPCNT_LayerMask = 0;
+    EngineA_DISPCNT_LayerMask = 0;
 }
 
 THUMB_FUNC void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle)
 {
     if (layer_toggle == GX_LAYER_TOGGLE_ON)
     {
-        if ((layer_data.EngineA_DISPCNT_LayerMask & layer_mask) != 0)
+        if ((EngineA_DISPCNT_LayerMask & layer_mask) != 0)
         {
             return;
         }
     }
     else
     {
-        if ((layer_data.EngineA_DISPCNT_LayerMask & layer_mask) == 0)
+        if ((EngineA_DISPCNT_LayerMask & layer_mask) == 0)
         {
             return;
         }
     }
 
-    GX_SetVisiblePlane(layer_data.EngineA_DISPCNT_LayerMask ^= layer_mask);
+    GX_SetVisiblePlane(EngineA_DISPCNT_LayerMask ^= layer_mask);
 }
 
 THUMB_FUNC void GX_SetEngineALayers(u32 layer_mask)
 {
-    layer_data.EngineA_DISPCNT_LayerMask = layer_mask;
+    EngineA_DISPCNT_LayerMask = layer_mask;
     GX_SetVisiblePlane(layer_mask);
 }
 
 THUMB_FUNC void GX_DisableEngineBLayers()
 {
-    layer_data.EngineB_DISPCNT_LayerMask = 0;
+    EngineB_DISPCNT_LayerMask = 0;
 }
 
 THUMB_FUNC void GX_EngineBToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle)
 {
     if (layer_toggle == GX_LAYER_TOGGLE_ON)
     {
-        if ((layer_data.EngineB_DISPCNT_LayerMask & layer_mask) != 0)
+        if ((EngineB_DISPCNT_LayerMask & layer_mask) != 0)
         {
             return;
         }
     }
     else
     {
-        if ((layer_data.EngineB_DISPCNT_LayerMask & layer_mask) == 0)
+        if ((EngineB_DISPCNT_LayerMask & layer_mask) == 0)
         {
             return;
         }
     }
 
-    GXS_SetVisiblePlane(layer_data.EngineB_DISPCNT_LayerMask ^= layer_mask);
+    GXS_SetVisiblePlane(EngineB_DISPCNT_LayerMask ^= layer_mask);
 }
 
 THUMB_FUNC void GX_BothDispOn()
@@ -108,5 +108,5 @@ THUMB_FUNC void GX_SwapDisplay()
 
 THUMB_FUNC u32 GX_GetEngineALayers()
 {
-    return layer_data.EngineA_DISPCNT_LayerMask;
+    return EngineA_DISPCNT_LayerMask;
 }

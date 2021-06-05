@@ -35163,10 +35163,10 @@ _0223BEA4: .word 0x05000400
 MOD13_0223BEA8: ; 0x0223BEA8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl disableBankForX_
-	bl GX_DisableBankForOBJExtPltt_2
-	bl GX_DisableBankForSubBGExtPltt
-	bl GX_DisableBankForSubOBJExtPltt_2
+	bl GX_DisableBankForBG
+	bl GX_DisableBankForOBJ
+	bl GX_DisableBankForSubBG
+	bl GX_DisableBankForSubOBJ
 	bl MOD13_0223BE1C
 	ldr r0, _0223BFB8 ; =0x022431D8
 	ldr r0, [r0]
@@ -35246,10 +35246,10 @@ _0223BFE0: .word 0x0400101C
 MOD13_0223BFE4: ; 0x0223BFE4
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl disableBankForX_
+	bl GX_DisableBankForBG
 	ldr r1, _0223C09C ; =0x022431D8
 	str r0, [r1]
-	bl GX_DisableBankForOBJExtPltt_2
+	bl GX_DisableBankForOBJ
 	ldr r1, _0223C09C ; =0x022431D8
 	str r0, [r1, #4]
 	bl GX_DisableBankForBGExtPltt
@@ -35258,7 +35258,7 @@ MOD13_0223BFE4: ; 0x0223BFE4
 	bl GX_DisableBankForOBJExtPltt
 	ldr r1, _0223C09C ; =0x022431D8
 	str r0, [r1, #0xc]
-	bl GX_DisableBankForTexPltt_2
+	bl GX_DisableBankForTex
 	ldr r1, _0223C09C ; =0x022431D8
 	str r0, [r1, #0x10]
 	bl GX_DisableBankForTexPltt
@@ -35267,13 +35267,13 @@ MOD13_0223BFE4: ; 0x0223BFE4
 	bl GX_DisableBankForClearImage
 	ldr r1, _0223C09C ; =0x022431D8
 	str r0, [r1, #0x18]
-	bl GX_DisableBankForSubBGExtPltt
+	bl GX_DisableBankForSubBG
 	ldr r1, _0223C09C ; =0x022431D8
 	str r0, [r1, #0x1c]
-	bl GX_DisableBankForSubOBJExtPltt_2
+	bl GX_DisableBankForSubOBJ
 	ldr r1, _0223C09C ; =0x022431D8
 	str r0, [r1, #0x20]
-	bl FUN_020C5E04
+	bl GX_DisableBankForSubBGExtPltt
 	ldr r1, _0223C09C ; =0x022431D8
 	str r0, [r1, #0x24]
 	bl GX_DisableBankForSubOBJExtPltt

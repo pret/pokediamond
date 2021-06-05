@@ -350,11 +350,10 @@
 #define REG_OS_IE_VE_SHIFT                                 2
 #define REG_OS_IE_T0_SHIFT                                 3
 #define REG_OS_IE_T1_SHIFT                                 4
+#define REG_OS_IE_T2_SHIFT                                 5
+#define REG_OS_IE_T3_SHIFT                                 6
 #define REG_OS_IE_IFN_SHIFT                                18
 #define REG_OS_IE_MC_SHIFT                                 19
-
-#define REG_OS_TM0CNT_H_I_MASK                             0x0040
-#define REG_OS_TM0CNT_H_E_MASK                             0x0080
 
 #define REG_PAD_KEYINPUT_L_SHIFT                           9
 #define REG_PAD_KEYINPUT_L_SIZE                            1
@@ -1000,5 +999,71 @@
 #define REG_G2S_DB_BG3OFS_HOFFSET_SHIFT                    0
 #define REG_G2S_DB_BG3OFS_HOFFSET_SIZE                     9
 #define REG_G2S_DB_BG3OFS_HOFFSET_MASK                     0x000001ff
+
+// Timer control
+
+#define REG_OS_TM0CNT_L_TIMER0CNT_SHIFT                    0
+#define REG_OS_TM0CNT_L_TIMER0CNT_SIZE                     16
+#define REG_OS_TM0CNT_L_TIMER0CNT_MASK                     0xffff
+
+#define REG_OS_TM0CNT_H_E_SHIFT                            7
+#define REG_OS_TM0CNT_H_E_SIZE                             1
+#define REG_OS_TM0CNT_H_E_MASK                             0x0080
+
+#define REG_OS_TM0CNT_H_I_SHIFT                            6
+#define REG_OS_TM0CNT_H_I_SIZE                             1
+#define REG_OS_TM0CNT_H_I_MASK                             0x0040
+
+#define REG_OS_TM0CNT_H_PS_SHIFT                           0
+#define REG_OS_TM0CNT_H_PS_SIZE                            2
+#define REG_OS_TM0CNT_H_PS_MASK                            0x0003
+
+#define REG_OS_TM1CNT_L_TIMER0CNT_SHIFT                    0
+#define REG_OS_TM1CNT_L_TIMER0CNT_SIZE                     16
+#define REG_OS_TM1CNT_L_TIMER0CNT_MASK                     0xffff
+
+#define REG_OS_TM1CNT_H_E_SHIFT                            7
+#define REG_OS_TM1CNT_H_E_SIZE                             1
+#define REG_OS_TM1CNT_H_E_MASK                             0x0080
+
+#define REG_OS_TM1CNT_H_I_SHIFT                            6
+#define REG_OS_TM1CNT_H_I_SIZE                             1
+#define REG_OS_TM1CNT_H_I_MASK                             0x0040
+
+#define REG_OS_TM1CNT_H_PS_SHIFT                           0
+#define REG_OS_TM1CNT_H_PS_SIZE                            2
+#define REG_OS_TM1CNT_H_PS_MASK                            0x0003
+
+#define REG_OS_TM2CNT_L_TIMER0CNT_SHIFT                    0
+#define REG_OS_TM2CNT_L_TIMER0CNT_SIZE                     16
+#define REG_OS_TM2CNT_L_TIMER0CNT_MASK                     0xffff
+
+#define REG_OS_TM2CNT_H_E_SHIFT                            7
+#define REG_OS_TM2CNT_H_E_SIZE                             1
+#define REG_OS_TM2CNT_H_E_MASK                             0x0080
+
+#define REG_OS_TM2CNT_H_I_SHIFT                            6
+#define REG_OS_TM2CNT_H_I_SIZE                             1
+#define REG_OS_TM2CNT_H_I_MASK                             0x0040
+
+#define REG_OS_TM2CNT_H_PS_SHIFT                           0
+#define REG_OS_TM2CNT_H_PS_SIZE                            2
+#define REG_OS_TM2CNT_H_PS_MASK                            0x0003
+
+#define REG_OS_TM3CNT_L_TIMER0CNT_SHIFT                    0
+#define REG_OS_TM3CNT_L_TIMER0CNT_SIZE                     16
+#define REG_OS_TM3CNT_L_TIMER0CNT_MASK                     0xffff
+
+#define REG_OS_TM3CNT_H_E_SHIFT                            7
+#define REG_OS_TM3CNT_H_E_SIZE                             1
+#define REG_OS_TM3CNT_H_E_MASK                             0x0080
+
+#define REG_OS_TM3CNT_H_I_SHIFT                            6
+#define REG_OS_TM3CNT_H_I_SIZE                             1
+#define REG_OS_TM3CNT_H_I_MASK                             0x0040
+
+#define REG_OS_TM3CNT_H_PS_SHIFT                           0
+#define REG_OS_TM3CNT_H_PS_SIZE                            2
+#define REG_OS_TM3CNT_H_PS_MASK                            0x0003
 
 #endif //POKEDIAMOND_ARM9_REGISTERS_H

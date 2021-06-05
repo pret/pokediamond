@@ -90,11 +90,11 @@ MOD06_02239728: ; 0x02239728
 MOD06_0223972C: ; 0x0223972C
 	push {r4, lr}
 	add r4, r0, #0
-	bl GX_GetBankForBGExtPltt_2
+	bl GX_GetBankForBG
 	str r0, [r4]
 	bl GX_GetBankForBGExtPltt
 	str r0, [r4, #4]
-	bl GX_GetBankForSubBGExtPltt_2
+	bl GX_GetBankForSubBG
 	str r0, [r4, #8]
 	bl GX_GetBankForSubBGExtPltt
 	str r0, [r4, #0xc]
@@ -106,7 +106,7 @@ MOD06_0223972C: ; 0x0223972C
 	str r0, [r4, #0x18]
 	bl GX_GetBankForSubOBJExtPltt
 	str r0, [r4, #0x1c]
-	bl FUN_020C5D8C
+	bl GX_GetBankForTex
 	str r0, [r4, #0x20]
 	bl GX_GetBankForTexPltt
 	str r0, [r4, #0x24]

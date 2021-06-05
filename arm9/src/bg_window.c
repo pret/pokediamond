@@ -215,7 +215,7 @@ THUMB_FUNC void InitBgFromTemplate(
         MI_CpuClear16(bgConfig->bgs[bgId].tilemapBuffer, template->bufferSize);
 
         bgConfig->bgs[bgId].bufferSize = template->bufferSize;
-        bgConfig->bgs[bgId].baseTile = template->unk0c;
+        bgConfig->bgs[bgId].baseTile = template->baseTile;
     }
     else
     {
@@ -228,7 +228,7 @@ THUMB_FUNC void InitBgFromTemplate(
     bgConfig->bgs[bgId].mode = bgMode;
     bgConfig->bgs[bgId].colorMode = template->colorMode;
 
-    if (bgMode == GF_BG_TYPE_TEXT && template->colorMode == 0)
+    if (bgMode == GF_BG_TYPE_TEXT && template->colorMode == GX_BG_COLORMODE_16)
     {
         bgConfig->bgs[bgId].tileSize = 0x20;
     }
@@ -237,8 +237,8 @@ THUMB_FUNC void InitBgFromTemplate(
         bgConfig->bgs[bgId].tileSize = 0x40;
     }
 
-    BgSetPosTextAndCommit(bgConfig, bgId, BG_POS_OP_SET_X, template->unk00);
-    BgSetPosTextAndCommit(bgConfig, bgId, BG_POS_OP_SET_Y, template->unk04);
+    BgSetPosTextAndCommit(bgConfig, bgId, BG_POS_OP_SET_X, template->x);
+    BgSetPosTextAndCommit(bgConfig, bgId, BG_POS_OP_SET_Y, template->y);
 }
 
 THUMB_FUNC void SetBgControlParam(struct BgConfig *config, u8 bgId, u32 attr, u8 value)
@@ -893,7 +893,7 @@ THUMB_FUNC void BG_LoadScreenTilemapData(
 THUMB_FUNC void BG_LoadCharTilesData(
     struct BgConfig *bgConfig, u32 bgId, u32 *charData, u32 offset, u32 numTiles)
 {
-    if (bgConfig->bgs[bgId].colorMode == 0)
+    if (bgConfig->bgs[bgId].colorMode == GX_BG_COLORMODE_16)
     {
         BG_LoadCharPixelData(bgConfig, bgId, charData, offset, numTiles << 5);
         return;
@@ -1874,7 +1874,7 @@ THUMB_FUNC struct Window *AllocWindows(u32 heap_id, s32 size)
 THUMB_FUNC void InitWindow(struct Window *window)
 {
     window->bgConfig = NULL;
-    window->bgId = 0xff;
+    window->bgId = GF_BG_LYR_UNALLOC;
     window->tilemapLeft = 0;
     window->tilemapTop = 0;
     window->width = 0;
@@ -1884,7 +1884,7 @@ THUMB_FUNC void InitWindow(struct Window *window)
     window->baseTile = 0;
     window->pixelBuffer = NULL;
 
-    window->unk0b_15 = 0;
+    window->colorMode = GF_BG_CLR_4BPP;
 }
 
 THUMB_FUNC BOOL WindowIsInUse(struct Window *window)
@@ -1896,12 +1896,6 @@ THUMB_FUNC BOOL WindowIsInUse(struct Window *window)
 
     return TRUE;
 }
-
-enum UnkEnum1
-{
-    UnkEnum1_0 = 0,
-    UnkEnum1_1 = 1
-};
 
 THUMB_FUNC void AddWindowParameterized(struct BgConfig *param0,
                                        struct Window *window,
@@ -1935,17 +1929,7 @@ THUMB_FUNC void AddWindowParameterized(struct BgConfig *param0,
     window->baseTile = baseTile;
     window->pixelBuffer = ptr;
 
-    enum UnkEnum1 r2;
-    if (param0->bgs[bgId].colorMode == 0)
-    {
-        r2 = UnkEnum1_0;
-    }
-    else
-    {
-        r2 = UnkEnum1_1;
-    }
-
-    window->unk0b_15 = r2;
+    window->colorMode = param0->bgs[bgId].colorMode == GX_BG_COLORMODE_16 ? GF_BG_CLR_4BPP : GF_BG_CLR_8BPP;
 }
 
 THUMB_FUNC void AddTextWindowTopLeftCorner(struct BgConfig *param0,
@@ -1969,7 +1953,7 @@ THUMB_FUNC void AddTextWindowTopLeftCorner(struct BgConfig *param0,
         window->height = height;
         window->baseTile = baseTile;
         window->pixelBuffer = ptr;
-        window->unk0b_15 = 0;
+        window->colorMode = GF_BG_CLR_4BPP;
     }
 }
 
@@ -2314,7 +2298,7 @@ THUMB_FUNC void BlitBitmapRect(struct Window *window,
         window->pixelBuffer, (u16)(window->width << 3), (u16)(window->height << 3)
     };
 
-    if (window->bgConfig->bgs[window->bgId].colorMode == 0)
+    if (window->bgConfig->bgs[window->bgId].colorMode == GX_BG_COLORMODE_16)
     {
         BlitBitmapRect4Bit(&st1c, &st14, param2, param3, param6, param7, param8, param9, param10);
     }
@@ -2331,7 +2315,7 @@ THUMB_FUNC void FillWindowPixelRect(
         window->pixelBuffer, (u16)(window->width << 3), (u16)(window->height << 3)
     };
 
-    if (window->bgConfig->bgs[window->bgId].colorMode == 0)
+    if (window->bgConfig->bgs[window->bgId].colorMode == GX_BG_COLORMODE_16)
     {
         FillBitmapRect4Bit(&st8, x, y, width, height, fillValue);
     }
@@ -4909,7 +4893,7 @@ _0201A8BC: // 0x0201A8BC
 
 THUMB_FUNC void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3)
 {
-    if (window->bgConfig->bgs[window->bgId].colorMode == 0)
+    if (window->bgConfig->bgs[window->bgId].colorMode == GX_BG_COLORMODE_16)
     {
         ScrollWindow4bpp(window, param1, param2, param3);
     }
@@ -5375,7 +5359,7 @@ THUMB_FUNC u32 DoesPixelAtScreenXYMatchPtrVal(
     xPixOffs = (u8)(x & 7);
     yPixOffs = (u8)(y & 7);
 
-    if (bgConfig->bgs[bgId].colorMode == 0)
+    if (bgConfig->bgs[bgId].colorMode == GX_BG_COLORMODE_16)
     {
         u16 *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
         u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);

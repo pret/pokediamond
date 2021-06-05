@@ -7,17 +7,37 @@
 #include "PAD_pad.h"
 
 
-const struct WindowTemplate UNK_020FF49C = {0, 3, 3, 0x1a, 0x12, 1, 0x23 };
+const struct WindowTemplate UNK_020FF49C = {
+    .bgId = GF_BG_LYR_MAIN_0,
+    .tilemapLeft = 3,
+    .tilemapTop = 3,
+    .width = 26,
+    .height = 18,
+    .paletteNum = 1,
+    .baseTile = 0x23
+};
 
 const struct HeapParam UNK_020FF4A4[] = {
     {0x00020000, OS_ARENA_MAIN}
 };
 
-const struct GraphicsModes UNK_020FF4AC = { dispMode : GX_DISPMODE_GRAPHICS };
+const struct GraphicsModes UNK_020FF4AC = { .dispMode = GX_DISPMODE_GRAPHICS };
 
-const struct BgTemplate UNK_020FF4BC = { 0, 0, 0x800, 0, 1, 0, 0, 6, 0, 1, 0, 0, 0 };
+const struct BgTemplate UNK_020FF4BC = {
+    .x = 0,
+    .y = 0,
+    .bufferSize = 0x800,
+    .baseTile = 0,
+    .size = GF_BG_SCR_SIZE_256x256,
+    .colorMode = GX_BG_COLORMODE_16,
+    .screenBase = GX_BG_SCRBASE_0x0000, .charBase = GX_BG_CHARBASE_0x18000,
+    .bgExtPltt = GX_BG_EXTPLTT_01,
+    .priority = 1,
+    .areaOver = 0,
+    .mosaic = FALSE
+};
 
-const struct GraphicsBanks UNK_020FF4D8 = { bg : 3 };
+const struct GraphicsBanks UNK_020FF4D8 = { .bg = 3 };
 
 u32 sErrorMessagePrinterLock;
 
@@ -30,8 +50,7 @@ extern void FUN_0200A274(u32 param0, u32 param1, u32 param2);
 
 THUMB_FUNC void VBlankHandler()
 {
-    *(vu32 *)HW_INTR_CHECK_BUF |= 1;
-
+    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
     MI_WaitDma(3);
 }
 
@@ -61,18 +80,19 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         GX_DisableEngineALayers();
         GX_DisableEngineBLayers();
 
-        reg_GX_DISPCNT &= ~REG_GX_DISPCNT_DISPLAY_MASK;
-        reg_GXS_DB_DISPCNT &= ~REG_GXS_DB_DISPCNT_DISPLAY_MASK;
+        GX_SetVisiblePlane(0);
+        GXS_SetVisiblePlane(0);
 
         SetKeyRepeatTimers(4, 8);
 
         gMain.unk65 = 0;
         GX_SwapDisplay();
 
-        reg_G2_BLDCNT = 0;
-        reg_G2S_DB_BLDCNT = 0;
-        reg_GX_DISPCNT &= ~(REG_GX_DISPCNT_OW_MASK | REG_GX_DISPCNT_W1_MASK | REG_GX_DISPCNT_W0_MASK);
-        reg_GXS_DB_DISPCNT &= ~(REG_GXS_DB_DISPCNT_OW_MASK | REG_GXS_DB_DISPCNT_W1_MASK | REG_GXS_DB_DISPCNT_W0_MASK);
+        G2_BlendNone();
+        G2S_BlendNone();
+
+        GX_SetVisibleWnd(0);
+        GXS_SetVisibleWnd(0);
 
         GX_SetBanks(&UNK_020FF4D8);
         ptr = BgConfig_Alloc(0);
