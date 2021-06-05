@@ -3157,7 +3157,7 @@ _0222F088:
 	ldr r0, [r4, #0x28]
 	bl FUN_0200372C
 	ldr r0, [r4, #4]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _0222F0CC ; =0x027E0000
 	ldr r1, _0222F0D0 ; =0x00003FF8
 	mov r0, #1
@@ -3183,7 +3183,7 @@ MOD11_0222F0D4: ; 0x0222F0D4
 	bl FUN_0200372C
 	bl FUN_0201C30C
 	ldr r0, [r4, #4]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _0222F0F8 ; =0x027E0000
 	ldr r1, _0222F0FC ; =0x00003FF8
 	mov r0, #1

@@ -405,7 +405,7 @@ _021D7804:
 	bl FUN_0200BC30
 	bl NNS_GfdDoVramTransfer
 	ldr r0, [r4, #0x14]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D782C ; =0x027E0000
 	ldr r1, _021D7830 ; =0x00003FF8
 	mov r0, #1
@@ -631,12 +631,12 @@ _021D79C6:
 	ldr r3, [r6]
 	mov r1, #0x20
 	add r2, r0, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r3, [r6]
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x80
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -695,7 +695,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	ldr r2, [r3, #0x14]
 	ldr r0, [r5, #0x14]
 	ldr r3, [r3, #0x10]
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r3, [sp, #0x20]
 	mov r0, #0
 	str r0, [sp]
@@ -703,7 +703,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	ldr r0, [r5, #0x14]
 	ldr r3, [r3, #0x10]
 	mov r1, #4
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	add r0, r6, #0
 	bl FreeToHeap
 	mov r0, #0x49
@@ -725,13 +725,13 @@ MOD60_021D7A40: ; 0x021D7A40
 	ldr r1, [r1, #0xc]
 	mov r2, #0x20
 	add r3, r0, #0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r1, [sp, #0x1c]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
 	mov r2, #0x20
 	mov r3, #0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	add r0, r6, #0
 	bl FreeToHeap
 	mov r0, #0x49
@@ -804,13 +804,13 @@ MOD60_021D7A40: ; 0x021D7A40
 	bl FUN_020179E0
 	ldr r0, [r5, #0x14]
 	mov r1, #2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r5, #0x14]
 	mov r1, #0
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r5, #0x14]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x24
 	pop {r3, r4, r5, r6, pc}
 	thumb_func_end MOD60_021D7A40
@@ -1451,7 +1451,7 @@ _021D8080:
 	mov r1, #0
 	mov r2, #3
 	neg r3, r3
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	pop {r3, r4, r5, pc}
 _021D80BE:
 	mov r0, #0x80
@@ -1479,7 +1479,7 @@ _021D80BE:
 	mov r1, #0
 	mov r2, #3
 	neg r3, r3
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 _021D80F6:
 	pop {r3, r4, r5, pc}
 	.align 2, 0

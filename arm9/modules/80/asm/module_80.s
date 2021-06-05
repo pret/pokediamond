@@ -2717,12 +2717,12 @@ MOD80_0222EA04: ; 0x0222EA04
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -4030,12 +4030,12 @@ MOD80_0222F494: ; 0x0222F494
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x8c
 	pop {r4, r5, pc}
 	nop
@@ -5342,12 +5342,12 @@ MOD80_0222FF6C: ; 0x0222FF6C
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x70
 	pop {r3, r4, r5, pc}
 	nop
@@ -6323,17 +6323,17 @@ MOD80_02230760: ; 0x02230760
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x54
 	pop {r4, r5, pc}
 	nop
@@ -8731,12 +8731,12 @@ MOD80_02231AB0: ; 0x02231AB0
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -11777,12 +11777,12 @@ MOD80_02233358: ; 0x02233358
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x8c
 	pop {r4, r5, pc}
 	nop
@@ -14314,12 +14314,12 @@ MOD80_02234780: ; 0x02234780
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -17954,12 +17954,12 @@ MOD80_02236378: ; 0x02236378
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x3e
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x10
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -18097,10 +18097,10 @@ MOD80_02236488: ; 0x02236488
 	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD80_02236488

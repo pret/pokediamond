@@ -84,9 +84,9 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FUN_0200CB00(ptr, 0, 503, 2, 0, 0);
 
         FUN_02002ED0(0, 0x20, 0);
-        FUN_02017F18(0, 0x20, 0, 0);
-        FUN_02017FE4(0, 0x6C21);
-        FUN_02017FE4(4, 0x6C21);
+        BG_ClearCharDataRange(0, 0x20, 0, 0);
+        BG_SetMaskColor(0, 0x6C21);
+        BG_SetMaskColor(4, 0x6C21);
 
         struct MsgData *msg_data = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 0xc8, 0);
         struct String *str = String_ctor(6 << 6, 0);

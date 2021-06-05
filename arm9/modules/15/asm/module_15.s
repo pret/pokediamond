@@ -6754,7 +6754,7 @@ MOD15_021DA8E8: ; 0x021DA8E8
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x23
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -7732,7 +7732,7 @@ MOD15_021DAFF8: ; 0x021DAFF8
 	ldr r0, [r5, #0xc]
 	ldr r3, [r3, #0x10]
 	mov r1, #4
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #8]
 	bl FreeToHeap
 _021DB0D4:

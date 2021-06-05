@@ -557,7 +557,7 @@ _02035440:
 	bl FUN_020358A0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0x34]
@@ -2657,7 +2657,7 @@ FUN_020365BC: ; 0x020365BC
 	bl FUN_0200CCF8
 	ldrb r1, [r4, #0x4]
 	ldr r0, [r4, #0x0]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0x0
 	bl RemoveWindow
 	add r0, r5, #0x0
@@ -2927,7 +2927,7 @@ FUN_020367E8: ; 0x020367E8
 	bl FUN_0200CCF8
 	ldrb r1, [r4, #0x4]
 	ldr r0, [r4, #0x0]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0x0
 	bl RemoveWindow
 	add r0, r5, #0x0

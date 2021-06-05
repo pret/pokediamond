@@ -1048,7 +1048,7 @@ _02238648:
 	lsr r1, r1, #0x18
 	add r2, r7, #0
 	add r3, r6, #0
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r1, [sp, #0x20]
 	add r0, r4, #0
 	bl ReleaseBoxMonLock
@@ -2189,7 +2189,7 @@ MOD81_02238E44: ; 0x02238E44
 	str r2, [sp]
 	ldr r0, [r4, #0x40]
 	add r3, r1, #0
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -6830,21 +6830,21 @@ MOD81_0223B264: ; 0x0223B264
 	ldr r0, [r4, #0xc]
 	mov r2, #0
 	add r3, r1, #0
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r0, #0xc8
 	str r0, [sp]
 	ldr r0, [r4, #0xc]
 	mov r1, #5
 	mov r2, #0
 	mov r3, #1
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r0, #0xc8
 	str r0, [sp]
 	ldr r0, [r4, #0xc]
 	mov r1, #2
 	mov r2, #0
 	mov r3, #1
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r1, #0
 	str r1, [sp]
 	ldr r0, [r4]
@@ -9241,7 +9241,7 @@ MOD81_0223C658: ; 0x0223C658
 	str r2, [sp]
 	ldr r0, [r4, #0x44]
 	add r3, r1, #0
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20

@@ -702,7 +702,7 @@ _02254CEC:
 	ldr r2, [sp, #0x1c]
 	mov r1, #6
 	lsl r3, r3, #8
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0x1c]
 	bl FreeToHeap
 _02254D68:

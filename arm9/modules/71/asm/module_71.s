@@ -1793,7 +1793,7 @@ MOD71_0222E4DC: ; 0x0222E4DC
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r0, _0222E548 ; =0x00002110
 	ldr r0, [r5, r0]
 	cmp r0, #0
@@ -1998,17 +1998,17 @@ MOD71_0222E578: ; 0x0222E578
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x1a
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #1
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x1a
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x1a
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r4, #0
 	mov r6, #3
 	add r7, r4, #0
@@ -2304,10 +2304,10 @@ MOD71_0222E900: ; 0x0222E900
 	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r1, #0x1a
 	mov r0, #0
 	lsl r1, r1, #4

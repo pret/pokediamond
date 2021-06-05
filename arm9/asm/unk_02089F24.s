@@ -110,13 +110,13 @@ FUN_02089F24: ; 0x02089F24
 	mov r1, #0x20
 	add r2, r0, #0x0
 	add r3, r4, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _0208A0B0 ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _0208A0B0 ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0x5
@@ -279,13 +279,13 @@ _0208A0C8:
 	mov r1, #0x20
 	add r2, r0, #0x0
 	add r3, r4, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _0208A250 ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _0208A250 ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0x6

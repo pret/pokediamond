@@ -172,10 +172,10 @@ MOD63_021D88F0: ; 0x021D88F0
 	bl FUN_02016C18
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0xb8
 	pop {r3, r4, r5, pc}
 	nop
@@ -275,7 +275,7 @@ MOD63_021D8A04: ; 0x021D8A04
 	bl FUN_02016C18
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x80
 	pop {r3, r4, r5, pc}
 	nop
@@ -389,7 +389,7 @@ MOD63_021D8ADC: ; 0x021D8ADC
 	bl FUN_02016C18
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x9c
 	pop {r4, r5, pc}
 	nop

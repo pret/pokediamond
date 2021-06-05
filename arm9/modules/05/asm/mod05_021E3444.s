@@ -1081,7 +1081,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #1
 	bl FUN_02018744
@@ -1110,7 +1110,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #2
 	bl FUN_02018744
@@ -1139,7 +1139,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #3
 	bl FUN_02018744

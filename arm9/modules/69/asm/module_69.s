@@ -766,7 +766,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	mov r1, #1
 	ldr r0, [r4, #0x10]
 	add r3, r1, #0
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20

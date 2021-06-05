@@ -212,7 +212,7 @@ MOD59_021D9A14: ; 0x021D9A14
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D9A1C: .word FUN_0201AB60
+_021D9A1C: .word DoScheduledBgGpuUpdates
 	thumb_func_end MOD59_021D9A14
 
 	thumb_func_start MOD59_021D9A20
@@ -261,7 +261,7 @@ _021D9A2C:
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r0, [r4, #4]
 	mov r1, #2
 	bl FUN_02018744
@@ -387,10 +387,10 @@ _021D9A2C:
 	bl FUN_02002ED0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r2, #0xc
 	ldr r0, _021D9BCC ; =0x04000050
 	mov r1, #2

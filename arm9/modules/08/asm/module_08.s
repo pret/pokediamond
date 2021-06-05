@@ -1816,7 +1816,7 @@ _02212AE8:
 	lsr r0, r0, #0x18
 	lsl r1, r1, #0xe
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r5, #0
 	bl MOD08_02212490
 	add r4, r0, #0
@@ -3173,7 +3173,7 @@ _02213500:
 	ldr r2, [sp, #0x18]
 	mov r1, #2
 	lsl r3, r3, #6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -7555,7 +7555,7 @@ MOD08_02215638: ; 0x02215638
 	ldr r0, [r0]
 	lsr r1, r1, #0x18
 	lsl r3, r3, #0x10
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	pop {r3, pc}
 	.align 2, 0
 
@@ -33598,7 +33598,7 @@ _022225CE:
 	lsr r0, r0, #0x18
 	lsl r1, r1, #0xe
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r0, [r4]
 	bl MOD08_02212490
 	add r5, r0, #0
@@ -34362,7 +34362,7 @@ _02222C3E:
 	lsr r0, r0, #0x18
 	lsl r1, r1, #0xe
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r0, [r4]
 	bl MOD08_02212490
 	add r5, r0, #0
@@ -40547,7 +40547,7 @@ _02225E68:
 	lsr r0, r0, #0x18
 	lsl r1, r1, #0xe
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r0, [r4]
 	bl MOD08_02212490
 	add r5, r0, #0

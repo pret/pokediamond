@@ -2761,7 +2761,7 @@ _021E9C02:
 	add r1, sp, #0x28
 	mov r2, #2
 	mov r3, #0x1e
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #0x83
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -3174,7 +3174,7 @@ _021E9FA4:
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r0, [sp, #0x1c]
 	mov r1, #3
 	ldr r0, [r0, #0x10]
@@ -3733,7 +3733,7 @@ _021EA430:
 	add r1, sp, #0x28
 	mov r2, #2
 	mov r3, #0x1e
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
@@ -4107,7 +4107,7 @@ _021EA76C:
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r0, [sp, #0x18]
 	mov r1, #3
 	ldr r0, [r0, #0x10]
@@ -5401,7 +5401,7 @@ _021EB18E:
 	add r1, sp, #0x14
 	mov r2, #2
 	mov r3, #0x1e
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r0, [r4]
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -5576,7 +5576,7 @@ _021EB394:
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r0, [r5, #0x10]
 	mov r1, #3
 	ldr r0, [r0, #8]
@@ -26629,7 +26629,7 @@ MOD05_021F5608: ; 0x021F5608
 	add r1, sp, #4
 	add r2, r0, #0
 	mov r3, #0xc2
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #4
 	mov r1, #0x20
 	bl AllocFromHeap
@@ -26643,7 +26643,7 @@ MOD05_021F5608: ; 0x021F5608
 	mov r1, #2
 	add r2, r4, #0
 	mov r3, #0x20
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r2, _021F565C ; =0x00006001
@@ -26694,21 +26694,21 @@ _021F5696:
 
 	thumb_func_start MOD05_021F569C
 MOD05_021F569C: ; 0x021F569C
-	ldr r3, _021F56A4 ; =FUN_02017FE4
+	ldr r3, _021F56A4 ; =BG_SetMaskColor
 	mov r0, #2
 	mov r1, #0
 	bx r3
 	.balign 4, 0
-_021F56A4: .word FUN_02017FE4
+_021F56A4: .word BG_SetMaskColor
 
 	thumb_func_start MOD05_021F56A8
 MOD05_021F56A8: ; 0x021F56A8
-	ldr r3, _021F56B0 ; =FUN_02017FE4
+	ldr r3, _021F56B0 ; =BG_SetMaskColor
 	mov r0, #2
 	ldr r1, _021F56B4 ; =0x00007FFF
 	bx r3
 	.balign 4, 0
-_021F56B0: .word FUN_02017FE4
+_021F56B0: .word BG_SetMaskColor
 _021F56B4: .word 0x00007FFF
 
 	thumb_func_start MOD05_021F56B8
@@ -26733,13 +26733,13 @@ MOD05_021F56B8: ; 0x021F56B8
 	mov r0, #2
 	add r1, sp, #4
 	add r2, r0, #0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r1, #2
 	str r1, [sp]
 	ldr r0, [r4, #8]
 	add r2, r1, #0
 	mov r3, #1
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	ldr r0, [r4, #8]
 	ldr r2, _021F5718 ; =0x00006002
 	mov r1, #2
@@ -26777,13 +26777,13 @@ MOD05_021F571C: ; 0x021F571C
 	strh r2, [r1]
 	add r1, sp, #4
 	mov r2, #2
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r2, #2
 	str r2, [sp]
 	ldr r0, [r4, #8]
 	mov r1, #3
 	mov r3, #1
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	ldr r0, [r4, #8]
 	ldr r2, _021F577C ; =0x00006002
 	mov r1, #3

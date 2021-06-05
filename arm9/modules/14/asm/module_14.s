@@ -13862,7 +13862,7 @@ _021DE250:
 	ldr r0, [r6, r0]
 	ldr r3, [r3, #0x10]
 	mov r1, #3
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 _021DE262:
 	ldr r0, [sp, #0x10]
 	bl FreeToHeap
@@ -24644,7 +24644,7 @@ MOD14_021E355C: ; 0x021E355C
 	ldr r0, [r4, #8]
 	mov r1, #4
 	mov r3, #1
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -28336,7 +28336,7 @@ MOD14_021E5128: ; 0x021E5128
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0xa
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20

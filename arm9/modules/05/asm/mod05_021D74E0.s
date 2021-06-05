@@ -8,7 +8,7 @@ MOD05_021D74E0: ; 0x021D74E0
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
 	bl FUN_02009F80
 	ldr r0, [r4, #0x34]
@@ -637,7 +637,7 @@ MOD05_021D7A30: ; 0x021D7A30
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #1
 	bl FUN_02018744
@@ -660,7 +660,7 @@ MOD05_021D7A30: ; 0x021D7A30
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #2
 	bl FUN_02018744
@@ -683,7 +683,7 @@ MOD05_021D7A30: ; 0x021D7A30
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #3
 	bl FUN_02018744

@@ -5,9 +5,6 @@
 #include "gx.h"
 #include "heap.h"
 
-extern void NNS_G2dGetUnpackedBGCharacterData(void *param0, u32 *param1);
-extern void NNS_G2dGetUnpackedPaletteData(void *param0, u32 *param1);
-
 const u8 UNK_020EDB30[] = {
     0x10,
     0x20,
@@ -59,7 +56,7 @@ THUMB_FUNC struct BgConfig *FUN_02016B94(u32 heap_id)
     memset(ptr, 0, sizeof(struct BgConfig));
     ptr->heap_id = heap_id;
     ptr->scrollScheduled = 0;
-    ptr->unk06 = 0;
+    ptr->bufferTransferScheduled = 0;
 
     return ptr;
 }
@@ -564,33 +561,33 @@ THUMB_FUNC u8 FUN_020177DC(u8 param0, u32 param1)
     return 0;
 }
 
-THUMB_FUNC void FUN_02017850(u32 param0, u8 *param1, u8 *param2)
+THUMB_FUNC void GetBgScreenDimensions(u32 screenSize, u8 *width_p, u8 *height_p)
 {
-    switch (param0)
+    switch (screenSize)
     {
     case 0:
-        *param1 = 0x10;
-        *param2 = 0x10;
+        *width_p = 0x10;
+        *height_p = 0x10;
         break;
     case 1:
-        *param1 = 0x20;
-        *param2 = 0x20;
+        *width_p = 0x20;
+        *height_p = 0x20;
         break;
     case 2:
-        *param1 = 0x20;
-        *param2 = 0x40;
+        *width_p = 0x20;
+        *height_p = 0x40;
         break;
     case 3:
-        *param1 = 0x40;
-        *param2 = 0x20;
+        *width_p = 0x40;
+        *height_p = 0x20;
         break;
     case 4:
-        *param1 = 0x40;
-        *param2 = 0x40;
+        *width_p = 0x40;
+        *height_p = 0x40;
         break;
     case 5:
-        *param1 = 0x80;
-        *param2 = 0x80;
+        *width_p = 0x80;
+        *height_p = 0x80;
         break;
     }
 }
@@ -668,7 +665,7 @@ THUMB_FUNC void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle)
 
 THUMB_FUNC void FUN_020179E0(struct BgConfig *bgConfig, u32 bgId, u32 param2, fx32 val)
 {
-    FUN_02017B8C(&bgConfig->bgs[bgId], param2, val);
+    Bg_SetPosText(&bgConfig->bgs[bgId], param2, val);
 
     u32 x = (u32)bgConfig->bgs[bgId].hOffset;
     u32 y = (u32)bgConfig->bgs[bgId].vOffset;
@@ -748,31 +745,31 @@ THUMB_FUNC void FUN_02017B60(struct BgConfig *param0,
     fx32 param5,
     fx32 param6)
 {
-    FUN_02017B8C(&param0->bgs[param1], param2, param3);
+    Bg_SetPosText(&param0->bgs[param1], param2, param3);
     FUN_02017BD0(param0, param1, param4, param5, param6);
 }
 
-THUMB_FUNC void FUN_02017B8C(struct Bg *param0, u32 param1, fx32 val)
+THUMB_FUNC void Bg_SetPosText(struct Bg *bg, u32 op, fx32 val)
 {
-    switch (param1)
+    switch (op)
     {
     case 0:
-        param0->hOffset = val;
+        bg->hOffset = val;
         break;
     case 1:
-        param0->hOffset += val;
+        bg->hOffset += val;
         break;
     case 2:
-        param0->hOffset -= val;
+        bg->hOffset -= val;
         break;
     case 3:
-        param0->vOffset = val;
+        bg->vOffset = val;
         break;
     case 4:
-        param0->vOffset += val;
+        bg->vOffset += val;
         break;
     case 5:
-        param0->vOffset -= val;
+        bg->vOffset -= val;
         break;
     }
 }
@@ -840,50 +837,50 @@ THUMB_FUNC void FUN_02017CE8(
         if (st4 != 0)
         {
             FUN_02017C98(param2, st4, param3);
-            FUN_02017D68(param1, st4, param0->bgs[param1].unk10 * 2, param0->bgs[param1].bufferSize);
+            LoadBgVramScr(param1, st4, param0->bgs[param1].unk10 * 2, param0->bgs[param1].bufferSize);
             return;
         }
 
         u32 r7 = param2[0] >> 8;
         void *ptr = AllocFromHeapAtEnd(param0->heap_id, r7);
         FUN_02017C98(param2, ptr, st0);
-        FUN_02017D68(param1, ptr, param4 * 2, r7);
+        LoadBgVramScr(param1, ptr, param4 * 2, r7);
         FreeToHeap(ptr);
         return;
     }
 
-    FUN_02017D68(param1, param2, param4 * 2, param3);
+    LoadBgVramScr(param1, param2, param4 * 2, param3);
 }
 
-THUMB_FUNC void FUN_02017D68(u32 param0, void *param1, u32 offset, u32 size)
+THUMB_FUNC void LoadBgVramScr(u32 bgId, void *buffer_p, u32 offset, u32 size)
 {
-    DC_FlushRange(param1, size);
+    DC_FlushRange(buffer_p, size);
 
-    switch (param0)
+    switch (bgId)
     {
     case 0:
-        GX_LoadBG0Scr(param1, offset, size);
+        GX_LoadBG0Scr(buffer_p, offset, size);
         break;
     case 1:
-        GX_LoadBG1Scr(param1, offset, size);
+        GX_LoadBG1Scr(buffer_p, offset, size);
         break;
     case 2:
-        GX_LoadBG2Scr(param1, offset, size);
+        GX_LoadBG2Scr(buffer_p, offset, size);
         break;
     case 3:
-        GX_LoadBG3Scr(param1, offset, size);
+        GX_LoadBG3Scr(buffer_p, offset, size);
         break;
     case 4:
-        GXS_LoadBG0Scr(param1, offset, size);
+        GXS_LoadBG0Scr(buffer_p, offset, size);
         break;
     case 5:
-        GXS_LoadBG1Scr(param1, offset, size);
+        GXS_LoadBG1Scr(buffer_p, offset, size);
         break;
     case 6:
-        GXS_LoadBG2Scr(param1, offset, size);
+        GXS_LoadBG2Scr(buffer_p, offset, size);
         break;
     case 7:
-        GXS_LoadBG3Scr(param1, offset, size);
+        GXS_LoadBG3Scr(buffer_p, offset, size);
         break;
     }
 }
@@ -894,86 +891,85 @@ THUMB_FUNC void FUN_02017DFC(
     FUN_02017C98(param2, param0->bgs[param1].tilemapBuffer, param3);
 }
 
-THUMB_FUNC void FUN_02017E14(
-    struct BgConfig *param0, u32 param1, u32 *param2, u32 param3, u32 param4)
+THUMB_FUNC void BG_LoadCharTilesData(
+    struct BgConfig *bgConfig, u32 bgId, u32 *charData, u32 offset, u32 numTiles)
 {
-    if (param0->bgs[param1].colorMode == 0)
+    if (bgConfig->bgs[bgId].colorMode == 0)
     {
-        FUN_02017E40(param0, param1, param2, param3, param4 << 5);
+        BG_LoadCharPixelData(bgConfig, bgId, charData, offset, numTiles << 5);
         return;
     }
-    FUN_02017E40(param0, param1, param2, param3, param4 << 6);
+    BG_LoadCharPixelData(bgConfig, bgId, charData, offset, numTiles << 6);
 }
 
-THUMB_FUNC void FUN_02017E40(
-    struct BgConfig *param0, u32 param1, u32 *param2, u32 param3, u32 param4)
+THUMB_FUNC void BG_LoadCharPixelData(
+    struct BgConfig *bgConfig, u32 bgId, u32 *charData, u32 size, u32 offset)
 {
-    u32 st0 = param3;
-    if (param3 == 0)
+    if (size == 0)
     {
 
-        u32 r4 = param2[0] >> 8;
-        void *ptr = AllocFromHeapAtEnd(param0->heap_id, r4);
-        FUN_02017C98(param2, ptr, st0);
-        FUN_02017E84(param1, ptr, param4, r4);
+        u32 uncompressedSize = charData[0] >> 8;
+        void *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, uncompressedSize);
+        FUN_02017C98(charData, ptr, size);
+        LoadBgVramChar(bgId, ptr, offset, uncompressedSize);
         FreeToHeap(ptr);
         return;
     }
 
-    FUN_02017E84(param1, param2, param4, param3);
+    LoadBgVramChar(bgId, charData, offset, size);
 }
 
-THUMB_FUNC void FUN_02017E84(u32 param0, void *param1, u32 offset, u32 size)
+THUMB_FUNC void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size)
 {
-    DC_FlushRange(param1, size);
+    DC_FlushRange(buffer_p, size);
 
-    switch (param0)
+    switch (bgId)
     {
     case 0:
-        GX_LoadBG0Char(param1, offset, size);
+        GX_LoadBG0Char(buffer_p, offset, size);
         break;
     case 1:
-        GX_LoadBG1Char(param1, offset, size);
+        GX_LoadBG1Char(buffer_p, offset, size);
         break;
     case 2:
-        GX_LoadBG2Char(param1, offset, size);
+        GX_LoadBG2Char(buffer_p, offset, size);
         break;
     case 3:
-        GX_LoadBG3Char(param1, offset, size);
+        GX_LoadBG3Char(buffer_p, offset, size);
         break;
     case 4:
-        GXS_LoadBG0Char(param1, offset, size);
+        GXS_LoadBG0Char(buffer_p, offset, size);
         break;
     case 5:
-        GXS_LoadBG1Char(param1, offset, size);
+        GXS_LoadBG1Char(buffer_p, offset, size);
         break;
     case 6:
-        GXS_LoadBG2Char(param1, offset, size);
+        GXS_LoadBG2Char(buffer_p, offset, size);
         break;
     case 7:
-        GXS_LoadBG3Char(param1, offset, size);
+        GXS_LoadBG3Char(buffer_p, offset, size);
         break;
     }
 }
 
-THUMB_FUNC void FUN_02017F18(u32 param0, u32 size, u32 offset, u32 heap_id)
+THUMB_FUNC void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, u32 heap_id)
 {
     void *ptr = AllocFromHeapAtEnd(heap_id, size);
     memset(ptr, 0, size);
 
-    FUN_02017E84(param0, ptr, offset, size);
+    LoadBgVramChar(bgId, ptr, offset, size);
     FreeToHeapExplicit(heap_id, ptr);
 }
 
-THUMB_FUNC void FUN_02017F48(
-    struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u32 param4)
+THUMB_FUNC void BG_FillCharDataRange(
+    struct BgConfig *param0, u32 bgId, u32 fillValue, u32 count, u32 offset)
 {
     void *st4;
-    u32 st0 = param3 * param0->bgs[param1].tileSize;
-    u32 r5 = param2;
-    st4 = AllocFromHeapAtEnd(param0->heap_id, st0);
+    u32 size = count * param0->bgs[bgId].tileSize;
+    u32 r5 = fillValue;
+    st4 = AllocFromHeapAtEnd(param0->heap_id, size);
 
-    if (param0->bgs[param1].tileSize == 0x20)
+    if (param0->bgs[bgId].tileSize == 0x20)
     {
         r5 = (r5 << 0xc | r5 << 0x8 | r5 << 0x4 | r5);
         r5 |= r5 << 0x10;
@@ -983,64 +979,64 @@ THUMB_FUNC void FUN_02017F48(
         r5 = r5 << 0x18 | r5 << 0x10 | r5 << 8 | r5;
     }
 
-    MI_CpuFillFast(st4, r5, st0);
+    MI_CpuFillFast(st4, r5, size);
 
-    FUN_02017E84((u8)param1, st4, param0->bgs[param1].tileSize * param4, st0);
+    LoadBgVramChar((u8)bgId, st4, param0->bgs[bgId].tileSize * offset, size);
     FreeToHeap(st4);
 }
 
-THUMB_FUNC void FUN_02017FB4(u32 param0, void *param1, u32 offset, u32 size)
+THUMB_FUNC void BG_LoadPlttData(u32 bgId, void *plttData, u32 size, u32 offset)
 {
-    DC_FlushRange(param1, offset);
-    if (param0 < 4)
+    DC_FlushRange(plttData, size);
+    if (bgId < 4)
     {
-        GX_LoadBGPltt(param1, size, offset);
+        GX_LoadBGPltt(plttData, offset, size);
         return;
     }
 
-    GXS_LoadBGPltt(param1, size, offset);
+    GXS_LoadBGPltt(plttData, offset, size);
 }
 
-THUMB_FUNC void FUN_02017FE4(u32 param0, u32 param1)
+THUMB_FUNC void BG_SetMaskColor(u32 bgId, u32 value)
 {
-    FUN_02017FB4(param0, &param1, 2, 0);
+    BG_LoadPlttData(bgId, &value, 2, 0);
 }
 
-THUMB_FUNC u16 FUN_02017FFC(u8 param0, u8 param1, u8 param2)
+THUMB_FUNC u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize)
 {
-    switch (param2)
+    switch (screenSize)
     {
     case 0:
-        return (u16)(param0 + (param1 << 4));
+        return (u16)(x + (y << 4));
     case 1:
     case 2:
-        return (u16)(param0 + (param1 << 5));
+        return (u16)(x + (y << 5));
     case 3:
-        return (u16)((param0 & 0x1f) + ((param1 + (param0 & ~0x1f)) << 5));
+        return (u16)((x & 0x1f) + ((y + (x & ~0x1f)) << 5));
     case 4:
-        u16 res = (u16)(((u16)((param0 >> 5) + (param1 >> 5) * 2)) << 10);
-        res += (param0 & 0x1f) + ((param1 & 0x1f) << 5);
+        u16 res = (u16)(((u16)((x >> 5) + (y >> 5) * 2)) << 10);
+        res += (x & 0x1f) + ((y & 0x1f) << 5);
         return res;
     case 5:
         return 0;
     }
 
-    return param0;
+    return x;
 }
 
-THUMB_FUNC u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3)
+THUMB_FUNC u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height)
 {
     u8 r2 = 0;
     u16 r3 = 0;
-    s16 r4 = (s16)(param2 - 32);
-    s16 r5 = (s16)(param3 - 32);
+    s16 r4 = (s16)(width - 32);
+    s16 r5 = (s16)(height - 32);
 
-    if (((u32)param0 >> 5) != 0)
+    if (((u32)x >> 5) != 0)
     {
         r2++;
     }
 
-    if (((u32)param1 >> 5) != 0)
+    if (((u32)y >> 5) != 0)
     {
         r2 += 2;
     }
@@ -1050,11 +1046,11 @@ THUMB_FUNC u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3)
     case 0:
         if (r4 >= 0)
         {
-            r3 += param0 + (param1 << 5);
+            r3 += x + (y << 5);
         }
         else
         {
-            r3 += param0 + param1 * param2;
+            r3 += x + y * width;
         }
         break;
     case 1:
@@ -1064,25 +1060,25 @@ THUMB_FUNC u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3)
         }
         else
         {
-            r3 += (param3 << 5);
+            r3 += (height << 5);
         }
 
-        r3 += (param0 & 0x1f) + param1 * r4;
+        r3 += (x & 0x1f) + y * r4;
         break;
     case 2:
-        r3 += param2 << 5;
+        r3 += width << 5;
         if (r4 >= 0)
         {
-            r3 += param0 + ((param1 & 0x1f) << 5);
+            r3 += x + ((y & 0x1f) << 5);
         }
         else
         {
-            r3 += param0 + (param1 & 0x1f) * param2;
+            r3 += x + (y & 0x1f) * width;
         }
         break;
     case 3:
-        r3 += (param2 + r5) << 5;
-        r3 += (param0 & 0x1f) + (param1 & 0x1f) * r4;
+        r3 += (width + r5) << 5;
+        r3 += (x & 0x1f) + (y & 0x1f) * r4;
         break;
     }
 
@@ -1184,94 +1180,94 @@ THUMB_FUNC void FUN_020181EC(struct BgConfig *param0,
     }
 }
 
-THUMB_FUNC void FUN_02018268(struct Bg *param0,
-    u8 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u16 *param5,
-    u8 param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
+THUMB_FUNC void FUN_02018268(struct Bg *bg,
+    u8 dstX,
+    u8 dstY,
+    u8 width,
+    u8 height,
+    u16 *src,
+    u8 srcX,
+    u8 srcY,
+    u8 srcWidth,
+    u8 srcHeight,
     u8 param10)
 {
-    void *st2c = param0->tilemapBuffer;
+    u16 *tilemapBuffer = bg->tilemapBuffer;
 
-    if (st2c == 0)
+    if (tilemapBuffer == 0)
     {
         return;
     }
 
-    u8 st41;
-    u8 st40;
-    FUN_02017850(param0->unk1d, &st41, &st40);
+    u8 dstWidth;
+    u8 dstHeight;
+    GetBgScreenDimensions(bg->unk1d, &dstWidth, &dstHeight);
 
     u8 i;
     u8 j;
     if (param10 == 0)
     {
-        for (i = 0; i < param4; i++)
+        for (i = 0; i < height; i++)
         {
 
-            if (param2 + i >= st40)
+            if (dstY + i >= dstHeight)
             {
                 break;
             }
 
-            if (param7 + i >= param9)
+            if (srcY + i >= srcHeight)
             {
                 break;
             }
 
-            for (j = 0; j < param3; j++)
+            for (j = 0; j < width; j++)
             {
 
-                if (param1 + j >= st41)
+                if (dstX + j >= dstWidth)
                 {
                     break;
                 }
 
-                if (param6 + j >= param8)
+                if (srcX + j >= srcWidth)
                 {
                     break;
                 }
 
-                ((u16 *)st2c)[FUN_02017FFC((u8)(param1 + j), (u8)(param2 + i), param0->unk1d)] =
-                    param5[param6 + param8 * (param7 + i) + j];
+                ((u16 *)tilemapBuffer)[GetTileMapIndexFromCoords((u8) (dstX + j), (u8) (dstY + i), bg->unk1d)] =
+                    src[srcX + srcWidth * (srcY + i) + j];
             }
         }
     }
     else
     {
-        for (i = 0; i < param4; i++)
+        for (i = 0; i < height; i++)
         {
 
-            if (param2 + i >= st40)
+            if (dstY + i >= dstHeight)
             {
                 break;
             }
 
-            if (param7 + i >= param9)
+            if (srcY + i >= srcHeight)
             {
                 break;
             }
 
-            for (j = 0; j < param3; j++)
+            for (j = 0; j < width; j++)
             {
 
-                if (param1 + j >= st41)
+                if (dstX + j >= dstWidth)
                 {
                     break;
                 }
 
-                if (param6 + j >= param8)
+                if (srcX + j >= srcWidth)
                 {
                     break;
                 }
 
-                ((u16 *)st2c)[FUN_02017FFC((u8)(param1 + j), (u8)(param2 + i), param0->unk1d)] =
-                    param5[FUN_02018068((u8)(param6 + j), (u8)(param7 + i), param8, param9)];
+                ((u16 *)tilemapBuffer)[GetTileMapIndexFromCoords((u8) (dstX + j), (u8) (dstY + i), bg->unk1d)] =
+                    src[GetSrcTileMapIndexFromCoords((u8) (srcX + j), (u8) (srcY + i), srcWidth, srcHeight)];
             }
         }
     }
@@ -1298,7 +1294,7 @@ THUMB_FUNC void FUN_020183DC(struct Bg *param0,
 
     u8 st41;
     u8 st40;
-    FUN_02017850(param0->unk1d, &st41, &st40);
+    GetBgScreenDimensions(param0->unk1d, &st41, &st40);
 
     u8 i;
     u8 j;
@@ -1330,7 +1326,7 @@ THUMB_FUNC void FUN_020183DC(struct Bg *param0,
                     break;
                 }
 
-                ((u8 *)st2c)[FUN_02017FFC((u8)(param1 + j), (u8)(param2 + i), param0->unk1d)] =
+                ((u8 *)st2c)[GetTileMapIndexFromCoords((u8) (param1 + j), (u8) (param2 + i), param0->unk1d)] =
                     param5[param6 + param8 * (param7 + i) + j];
             }
         }
@@ -1363,8 +1359,8 @@ THUMB_FUNC void FUN_020183DC(struct Bg *param0,
                     break;
                 }
 
-                ((u8 *)st2c)[FUN_02017FFC((u8)(param1 + j), (u8)(param2 + i), param0->unk1d)] =
-                    param5[FUN_02018068((u8)(param6 + j), (u8)(param7 + i), param8, param9)];
+                ((u8 *)st2c)[GetTileMapIndexFromCoords((u8) (param1 + j), (u8) (param2 + i), param0->unk1d)] =
+                    param5[GetSrcTileMapIndexFromCoords((u8) (param6 + j), (u8) (param7 + i), param8, param9)];
             }
         }
     }
@@ -1405,7 +1401,7 @@ THUMB_FUNC void FUN_02018590(struct Bg *param0,
 
         u8 st19;
         u8 st18;
-        FUN_02017850(param0->unk1d, &st19, &st18);
+        GetBgScreenDimensions(param0->unk1d, &st19, &st18);
 
         u8 i;
         u8 j;
@@ -1423,7 +1419,7 @@ THUMB_FUNC void FUN_02018590(struct Bg *param0,
                     break;
                 }
 
-                u16 idx = FUN_02017FFC(j, i, param0->unk1d);
+                u16 idx = GetTileMapIndexFromCoords(j, i, param0->unk1d);
 
                 if (param6 == 0x11)
                 {
@@ -1452,7 +1448,7 @@ THUMB_FUNC void FUN_02018640(
 
         u8 st19;
         u8 st18;
-        FUN_02017850(param0->unk1d, &st19, &st18);
+        GetBgScreenDimensions(param0->unk1d, &st19, &st18);
 
         u8 i;
         u8 j;
@@ -1470,7 +1466,7 @@ THUMB_FUNC void FUN_02018640(
                     break;
                 }
 
-                ((u8 *)r4)[FUN_02017FFC(j, i, param0->unk1d)] = param1;
+                ((u8 *)r4)[GetTileMapIndexFromCoords(j, i, param0->unk1d)] = param1;
             }
         }
     }
@@ -1490,7 +1486,7 @@ THUMB_FUNC void FUN_020186B4(struct BgConfig *param0,
     {
         u8 st11;
         u8 st10;
-        FUN_02017850(param0->bgs[param1].unk1d, &st11, &st10);
+        GetBgScreenDimensions(param0->bgs[param1].unk1d, &st11, &st10);
 
         u8 i;
         u8 j;
@@ -1508,7 +1504,7 @@ THUMB_FUNC void FUN_020186B4(struct BgConfig *param0,
                     break;
                 }
 
-                u16 idx = FUN_02017FFC(j, i, param0->bgs[param1].unk1d);
+                u16 idx = GetTileMapIndexFromCoords(j, i, param0->bgs[param1].unk1d);
                 ((u16 *)r4)[idx] = (u16)((((u16 *)r4)[idx] & 0xfff) | (param6 << 0xc));
             }
         }
@@ -1538,7 +1534,7 @@ THUMB_FUNC void FUN_0201878C(struct BgConfig *param0, u32 param1, u16 param2)
     if (param0->bgs[param1].tilemapBuffer != NULL)
     {
         MI_CpuFill16(param0->bgs[param1].tilemapBuffer, param2, param0->bgs[param1].bufferSize);
-        FUN_0201AC68(param0, param1);
+        ScheduleBgTilemapBufferTransfer(param0, param1);
     }
 }
 
@@ -2192,7 +2188,7 @@ THUMB_FUNC void CopyWindowToVram_TextMode(struct Window *window)
 THUMB_FUNC void FUN_020194C8(struct Window *window)
 {
     PutWindowTilemap_TextMode(window);
-    FUN_0201AC68(window->bgConfig, window->bgId);
+    ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
     FUN_02019548(window);
 }
 
@@ -2205,7 +2201,7 @@ THUMB_FUNC void CopyWindowToVram_AffineMode(struct Window *window)
         window->bgConfig->bgs[window->bgId].bufferSize,
         window->bgConfig->bgs[window->bgId].unk10);
 
-    FUN_02017E14(window->bgConfig,
+    BG_LoadCharTilesData(window->bgConfig,
         window->bgId,
         window->pixelBuffer,
         (u32)(window->width * window->height * 64),
@@ -2215,8 +2211,8 @@ THUMB_FUNC void CopyWindowToVram_AffineMode(struct Window *window)
 THUMB_FUNC void FUN_0201951C(struct Window *window)
 {
     PutWindowTilemap_AffineMode(window);
-    FUN_0201AC68(window->bgConfig, window->bgId);
-    FUN_02017E14(window->bgConfig,
+    ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
+    BG_LoadCharTilesData(window->bgConfig,
         window->bgId,
         window->pixelBuffer,
         (u32)(window->width * window->height * 64),
@@ -2225,7 +2221,7 @@ THUMB_FUNC void FUN_0201951C(struct Window *window)
 
 THUMB_FUNC void FUN_02019548(struct Window *window)
 {
-    FUN_02017E14(window->bgConfig,
+    BG_LoadCharTilesData(window->bgConfig,
         window->bgId,
         window->pixelBuffer,
         (u32)(window->width * window->height * window->bgConfig->bgs[window->bgId].tileSize),
@@ -2255,7 +2251,7 @@ THUMB_FUNC void FUN_020195A8(struct Window *window)
 THUMB_FUNC void FUN_020195D0(struct Window *window)
 {
     FUN_020193B4(window);
-    FUN_0201AC68(window->bgConfig, window->bgId);
+    ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
 THUMB_FUNC void FUN_020195E4(struct Window *window)
@@ -2271,7 +2267,7 @@ THUMB_FUNC void FUN_020195E4(struct Window *window)
 THUMB_FUNC void FUN_0201960C(struct Window *window)
 {
     FUN_02019444(window);
-    FUN_0201AC68(window->bgConfig, window->bgId);
+    ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
 THUMB_FUNC void FillWindowPixelBuffer(struct Window *window, u8 param1)
@@ -4918,15 +4914,15 @@ THUMB_FUNC void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 pa
 {
     if (window->bgConfig->bgs[window->bgId].colorMode == 0)
     {
-        FUN_0201A8E8(window, param1, param2, param3);
+        ScrollWindow4bpp(window, param1, param2, param3);
     }
     else
     {
-        FUN_0201A9D4(window, param1, param2, param3);
+        ScrollWindow8bpp(window, param1, param2, param3);
     }
 }
 
-THUMB_FUNC void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 param3)
+THUMB_FUNC void ScrollWindow4bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue)
 {
     void *r2;
     int r5, r1, r3;
@@ -4935,7 +4931,7 @@ THUMB_FUNC void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 pa
     int i, j;
 
     r2 = window->pixelBuffer;
-    st4 = (param3 << 0x18) | (param3 << 0x10) | (param3 << 0x8) | param3;
+    st4 = (fillValue << 0x18) | (fillValue << 0x10) | (fillValue << 0x8) | fillValue;
     stc = window->height * window->width * 32;
     st8 = window->width;
 
@@ -4994,49 +4990,49 @@ THUMB_FUNC void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 pa
     }
 }
 
-THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 param3)
+THUMB_FUNC void ScrollWindow8bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue)
 {
 
-    void *r2;
-    int r5, r1, r3;
-    int st4, stc;
-    u32 st8;
+    void *pixelBuffer;
+    int dstOffs, srcOffs, r3;
+    int st4, size;
+    u32 srcWidth;
     int i, j;
 
-    r2 = (u8 *)window->pixelBuffer;
-    st4 = (param3 << 0x18) | (param3 << 0x10) | (param3 << 0x8) | param3;
-    stc = window->height * window->width * 64;
-    st8 = window->width;
+    pixelBuffer = (u8 *)window->pixelBuffer;
+    st4 = (fillValue << 0x18) | (fillValue << 0x10) | (fillValue << 0x8) | fillValue;
+    size = window->height * window->width * 64;
+    srcWidth = window->width;
 
     switch (param1)
     {
     case 0:
-        for (i = 0; i < stc; i += 64)
+        for (i = 0; i < size; i += 64)
         {
             r3 = param2;
             for (j = 0; j < 8; j++)
             {
-                r5 = i + (j << 3);
-                r1 = i + (int)(((st8 * (r3 & ~7)) | (r3 & 7)) << 3);
+                dstOffs = i + (j << 3);
+                srcOffs = i + (int)(((srcWidth * (r3 & ~7)) | (r3 & 7)) << 3);
 
-                if (r1 < stc)
+                if (srcOffs < size)
                 {
-                    *(u32 *)(r2 + r5) = *(u32 *)(r2 + r1);
+                    *(u32 *)(pixelBuffer + dstOffs) = *(u32 *)(pixelBuffer + srcOffs);
                 }
                 else
                 {
-                    *(u32 *)(r2 + r5) = (u32)st4;
+                    *(u32 *)(pixelBuffer + dstOffs) = (u32)st4;
                 }
 
-                r5 += 4;
-                r1 += 4;
-                if (r1 < stc + 4)
+                dstOffs += 4;
+                srcOffs += 4;
+                if (srcOffs < size + 4)
                 {
-                    *(u32 *)(r2 + r5) = *(u32 *)(r2 + r1);
+                    *(u32 *)(pixelBuffer + dstOffs) = *(u32 *)(pixelBuffer + srcOffs);
                 }
                 else
                 {
-                    *(u32 *)(r2 + r5) = (u32)st4;
+                    *(u32 *)(pixelBuffer + dstOffs) = (u32)st4;
                 }
 
                 r3++;
@@ -5045,33 +5041,33 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
 
         break;
     case 1:
-        r2 += stc - 8;
-        for (i = 0; i < stc; i += 64)
+        pixelBuffer += size - 8;
+        for (i = 0; i < size; i += 64)
         {
             r3 = param2;
             for (j = 0; j < 8; j++)
             {
-                r5 = i + (j << 3);
-                r1 = i + (int)(((st8 * (r3 & ~7)) | (r3 & 7)) << 3);
+                dstOffs = i + (j << 3);
+                srcOffs = i + (int)(((srcWidth * (r3 & ~7)) | (r3 & 7)) << 3);
 
-                if (r1 < stc)
+                if (srcOffs < size)
                 {
-                    *(u32 *)(r2 - r5) = *(u32 *)(r2 - r1);
+                    *(u32 *)(pixelBuffer - dstOffs) = *(u32 *)(pixelBuffer - srcOffs);
                 }
                 else
                 {
-                    *(u32 *)(r2 - r5) = (u32)st4;
+                    *(u32 *)(pixelBuffer - dstOffs) = (u32)st4;
                 }
 
-                r5 -= 4;
-                r1 -= 4;
-                if (r1 < stc - 4)
+                dstOffs -= 4;
+                srcOffs -= 4;
+                if (srcOffs < size - 4)
                 {
-                    *(u32 *)(r2 - r5) = *(u32 *)(r2 - r1);
+                    *(u32 *)(pixelBuffer - dstOffs) = *(u32 *)(pixelBuffer - srcOffs);
                 }
                 else
                 {
-                    *(u32 *)(r2 - r5) = (u32)st4;
+                    *(u32 *)(pixelBuffer - dstOffs) = (u32)st4;
                 }
 
                 r3++;
@@ -5085,7 +5081,7 @@ THUMB_FUNC void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 pa
     }
 }
 
-THUMB_FUNC u8 FUN_0201AB08(struct Window *window)
+THUMB_FUNC u8 GetWindowBgId(struct Window *window)
 {
     return window->bgId;
 }
@@ -5098,271 +5094,271 @@ THUMB_FUNC u8 GetWindowHeight(struct Window *window)
 {
     return window->height;
 }
-THUMB_FUNC u8 FUN_0201AB14(struct Window *window)
+THUMB_FUNC u8 GetWindowX(struct Window *window)
 {
     return window->tilemapLeft;
 }
-THUMB_FUNC u8 FUN_0201AB18(struct Window *window)
+THUMB_FUNC u8 GetWindowY(struct Window *window)
 {
     return window->tilemapTop;
 }
-THUMB_FUNC void FUN_0201AB1C(struct Window *window, u8 param1)
+THUMB_FUNC void MoveWindowX(struct Window *window, u8 x)
 {
-    window->tilemapLeft = param1;
+    window->tilemapLeft = x;
 }
-THUMB_FUNC void FUN_0201AB20(struct Window *window, u8 param1)
+THUMB_FUNC void MoveWindowY(struct Window *window, u8 y)
 {
-    window->tilemapTop = param1;
+    window->tilemapTop = y;
 }
-THUMB_FUNC void FUN_0201AB24(struct Window *window, u8 param1)
+THUMB_FUNC void SetWindowPaletteNum(struct Window *window, u8 paletteNum)
 {
-    window->paletteNum = param1;
+    window->paletteNum = paletteNum;
 }
 
-THUMB_FUNC u32 FUN_0201AB28(struct Window *window, u32 heap_id, const char *path)
+THUMB_FUNC NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, u32 heap_id, const char *path)
 {
     void *ptr = AllocAndReadFile(heap_id, path);
-    window->bgConfig = ptr;
-    u32 st0;
+    *char_ret = ptr;
+    NNSG2dCharacterData *st0;
     NNS_G2dGetUnpackedBGCharacterData(ptr, &st0);
 
     return st0;
 }
 
-THUMB_FUNC u32 FUN_0201AB44(struct Window *window, u32 heap_id, const char *path)
+THUMB_FUNC NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, u32 heap_id, const char *path)
 {
     void *ptr = AllocAndReadFile(heap_id, path);
-    window->bgConfig = ptr;
-    u32 st0;
+    *pltt_ret = ptr;
+    NNSG2dPaletteData *st0;
     NNS_G2dGetUnpackedPaletteData(ptr, &st0);
 
     return st0;
 }
 
-THUMB_FUNC void FUN_0201AB60(struct BgConfig *param0)
+THUMB_FUNC void DoScheduledBgGpuUpdates(struct BgConfig *bgConfig)
 {
-    FUN_0201AC78(param0);
-    FUN_0201AB78(param0);
+    ApplyScheduledBgPosUpdate(bgConfig);
+    DoScheduledBgTilemapBufferTransfers(bgConfig);
 
-    param0->scrollScheduled = 0;
-    param0->unk06 = 0;
+    bgConfig->scrollScheduled = 0;
+    bgConfig->bufferTransferScheduled = 0;
 }
 
-THUMB_FUNC void FUN_0201AB78(struct BgConfig *param0)
+THUMB_FUNC void DoScheduledBgTilemapBufferTransfers(struct BgConfig *bgConfig)
 {
-    if ((param0->unk06 & 1) != 0)
+    if ((bgConfig->bufferTransferScheduled & 1) != 0)
     {
-        FUN_02017D68(0, param0->bgs[0].tilemapBuffer, param0->bgs[0].unk10 * 2, param0->bgs[0].bufferSize);
+        LoadBgVramScr(0, bgConfig->bgs[0].tilemapBuffer, bgConfig->bgs[0].unk10 * 2, bgConfig->bgs[0].bufferSize);
     }
 
-    if ((param0->unk06 & 2) != 0)
+    if ((bgConfig->bufferTransferScheduled & 2) != 0)
     {
-        FUN_02017D68(1, param0->bgs[1].tilemapBuffer, param0->bgs[1].unk10 * 2, param0->bgs[1].bufferSize);
+        LoadBgVramScr(1, bgConfig->bgs[1].tilemapBuffer, bgConfig->bgs[1].unk10 * 2, bgConfig->bgs[1].bufferSize);
     }
 
-    if ((param0->unk06 & 4) != 0)
+    if ((bgConfig->bufferTransferScheduled & 4) != 0)
     {
-        FUN_02017D68(2, param0->bgs[2].tilemapBuffer, param0->bgs[2].unk10 * 2, param0->bgs[2].bufferSize);
+        LoadBgVramScr(2, bgConfig->bgs[2].tilemapBuffer, bgConfig->bgs[2].unk10 * 2, bgConfig->bgs[2].bufferSize);
     }
 
-    if ((param0->unk06 & 8) != 0)
+    if ((bgConfig->bufferTransferScheduled & 8) != 0)
     {
-        FUN_02017D68(3, param0->bgs[3].tilemapBuffer, param0->bgs[3].unk10 * 2, param0->bgs[3].bufferSize);
+        LoadBgVramScr(3, bgConfig->bgs[3].tilemapBuffer, bgConfig->bgs[3].unk10 * 2, bgConfig->bgs[3].bufferSize);
     }
 
-    if ((param0->unk06 & 0x10) != 0)
+    if ((bgConfig->bufferTransferScheduled & 0x10) != 0)
     {
-        FUN_02017D68(4, param0->bgs[4].tilemapBuffer, param0->bgs[4].unk10 * 2, param0->bgs[4].bufferSize);
+        LoadBgVramScr(4, bgConfig->bgs[4].tilemapBuffer, bgConfig->bgs[4].unk10 * 2, bgConfig->bgs[4].bufferSize);
     }
 
-    if ((param0->unk06 & 0x20) != 0)
+    if ((bgConfig->bufferTransferScheduled & 0x20) != 0)
     {
-        FUN_02017D68(5, param0->bgs[5].tilemapBuffer, param0->bgs[5].unk10 * 2, param0->bgs[5].bufferSize);
+        LoadBgVramScr(5, bgConfig->bgs[5].tilemapBuffer, bgConfig->bgs[5].unk10 * 2, bgConfig->bgs[5].bufferSize);
     }
 
-    if ((param0->unk06 & 0x40) != 0)
+    if ((bgConfig->bufferTransferScheduled & 0x40) != 0)
     {
-        FUN_02017D68(6, param0->bgs[6].tilemapBuffer, param0->bgs[6].unk10 * 2, param0->bgs[6].bufferSize);
+        LoadBgVramScr(6, bgConfig->bgs[6].tilemapBuffer, bgConfig->bgs[6].unk10 * 2, bgConfig->bgs[6].bufferSize);
     }
 
-    if ((param0->unk06 & 0x80) != 0)
+    if ((bgConfig->bufferTransferScheduled & 0x80) != 0)
     {
-        FUN_02017D68(7, param0->bgs[7].tilemapBuffer, param0->bgs[7].unk10 * 2, param0->bgs[7].bufferSize);
+        LoadBgVramScr(7, bgConfig->bgs[7].tilemapBuffer, bgConfig->bgs[7].unk10 * 2, bgConfig->bgs[7].bufferSize);
     }
 }
 
-THUMB_FUNC void FUN_0201AC68(struct BgConfig *param0, u32 param1)
+THUMB_FUNC void ScheduleBgTilemapBufferTransfer(struct BgConfig *bgConfig, u32 bgId)
 {
-    param0->unk06 |= 1 << param1;
+    bgConfig->bufferTransferScheduled |= 1 << bgId;
 }
 
-THUMB_FUNC void FUN_0201AC78(struct BgConfig *param0)
+THUMB_FUNC void ApplyScheduledBgPosUpdate(struct BgConfig *bgConfig)
 {
-    if ((param0->scrollScheduled & 1) != 0)
+    if ((bgConfig->scrollScheduled & 1) != 0)
     {
-        G2_SetBG0Offset(param0->bgs[0].hOffset, param0->bgs[0].vOffset);
+        G2_SetBG0Offset(bgConfig->bgs[0].hOffset, bgConfig->bgs[0].vOffset);
     }
 
-    if ((param0->scrollScheduled & 2) != 0)
+    if ((bgConfig->scrollScheduled & 2) != 0)
     {
-        G2_SetBG1Offset(param0->bgs[1].hOffset, param0->bgs[1].vOffset);
+        G2_SetBG1Offset(bgConfig->bgs[1].hOffset, bgConfig->bgs[1].vOffset);
     }
 
-    if ((param0->scrollScheduled & 4) != 0)
+    if ((bgConfig->scrollScheduled & 4) != 0)
     {
-        if (param0->bgs[2].mode == 0)
+        if (bgConfig->bgs[2].mode == 0)
         {
-            G2_SetBG2Offset(param0->bgs[2].hOffset, param0->bgs[2].vOffset);
+            G2_SetBG2Offset(bgConfig->bgs[2].hOffset, bgConfig->bgs[2].vOffset);
         }
         else
         {
             struct Mtx22 st38;
             MTX22_2DAffine(
-                &st38, param0->bgs[2].rotation, param0->bgs[2].xScale, param0->bgs[2].yScale, 2);
+                &st38, bgConfig->bgs[2].rotation, bgConfig->bgs[2].xScale, bgConfig->bgs[2].yScale, 2);
             G2_SetBG2Affine(
                 &st38,
-                param0->bgs[2].centerX,
-                param0->bgs[2].centerY,
-                param0->bgs[2].hOffset,
-                param0->bgs[2].vOffset);
+                bgConfig->bgs[2].centerX,
+                bgConfig->bgs[2].centerY,
+                bgConfig->bgs[2].hOffset,
+                bgConfig->bgs[2].vOffset);
         }
     }
 
-    if ((param0->scrollScheduled & 8) != 0)
+    if ((bgConfig->scrollScheduled & 8) != 0)
     {
-        if (param0->bgs[3].mode == 0)
+        if (bgConfig->bgs[3].mode == 0)
         {
-            G2_SetBG3Offset(param0->bgs[3].hOffset, param0->bgs[3].vOffset);
+            G2_SetBG3Offset(bgConfig->bgs[3].hOffset, bgConfig->bgs[3].vOffset);
         }
         else
         {
             struct Mtx22 st28;
             MTX22_2DAffine(
-                &st28, param0->bgs[3].rotation, param0->bgs[3].xScale, param0->bgs[3].yScale, 2);
+                &st28, bgConfig->bgs[3].rotation, bgConfig->bgs[3].xScale, bgConfig->bgs[3].yScale, 2);
             G2_SetBG3Affine(
                 &st28,
-                param0->bgs[3].centerX,
-                param0->bgs[3].centerY,
-                param0->bgs[3].hOffset,
-                param0->bgs[3].vOffset);
+                bgConfig->bgs[3].centerX,
+                bgConfig->bgs[3].centerY,
+                bgConfig->bgs[3].hOffset,
+                bgConfig->bgs[3].vOffset);
         }
     }
 
-    if ((param0->scrollScheduled & 0x10) != 0)
+    if ((bgConfig->scrollScheduled & 0x10) != 0)
     {
-        G2S_SetBG0Offset(param0->bgs[4].hOffset, param0->bgs[4].vOffset);
+        G2S_SetBG0Offset(bgConfig->bgs[4].hOffset, bgConfig->bgs[4].vOffset);
     }
 
-    if ((param0->scrollScheduled & 0x20) != 0)
+    if ((bgConfig->scrollScheduled & 0x20) != 0)
     {
-        G2S_SetBG1Offset(param0->bgs[5].hOffset, param0->bgs[5].vOffset);
+        G2S_SetBG1Offset(bgConfig->bgs[5].hOffset, bgConfig->bgs[5].vOffset);
     }
 
-    if ((param0->scrollScheduled & 0x40) != 0)
+    if ((bgConfig->scrollScheduled & 0x40) != 0)
     {
-        if (param0->bgs[6].mode == 0)
+        if (bgConfig->bgs[6].mode == 0)
         {
-            G2S_SetBG2Offset(param0->bgs[6].hOffset, param0->bgs[6].vOffset);
+            G2S_SetBG2Offset(bgConfig->bgs[6].hOffset, bgConfig->bgs[6].vOffset);
         }
         else
         {
             struct Mtx22 st18;
             MTX22_2DAffine(
-                &st18, param0->bgs[6].rotation, param0->bgs[6].xScale, param0->bgs[6].yScale, 2);
+                &st18, bgConfig->bgs[6].rotation, bgConfig->bgs[6].xScale, bgConfig->bgs[6].yScale, 2);
             G2S_SetBG2Affine(
                 &st18,
-                param0->bgs[6].centerX,
-                param0->bgs[6].centerY,
-                param0->bgs[6].hOffset,
-                param0->bgs[6].vOffset);
+                bgConfig->bgs[6].centerX,
+                bgConfig->bgs[6].centerY,
+                bgConfig->bgs[6].hOffset,
+                bgConfig->bgs[6].vOffset);
         }
     }
 
-    if ((param0->scrollScheduled & 0x80) != 0)
+    if ((bgConfig->scrollScheduled & 0x80) != 0)
     {
-        if (param0->bgs[7].mode == 0)
+        if (bgConfig->bgs[7].mode == 0)
         {
-            G2S_SetBG3Offset(param0->bgs[7].hOffset, param0->bgs[7].vOffset);
+            G2S_SetBG3Offset(bgConfig->bgs[7].hOffset, bgConfig->bgs[7].vOffset);
         }
         else
         {
             struct Mtx22 st08;
             MTX22_2DAffine(
-                &st08, param0->bgs[7].rotation, param0->bgs[7].xScale, param0->bgs[7].yScale, 2);
+                &st08, bgConfig->bgs[7].rotation, bgConfig->bgs[7].xScale, bgConfig->bgs[7].yScale, 2);
             G2S_SetBG3Affine(
                 &st08,
-                param0->bgs[7].centerX,
-                param0->bgs[7].centerY,
-                param0->bgs[7].hOffset,
-                param0->bgs[7].vOffset);
+                bgConfig->bgs[7].centerX,
+                bgConfig->bgs[7].centerY,
+                bgConfig->bgs[7].hOffset,
+                bgConfig->bgs[7].vOffset);
         }
     }
 }
 
-THUMB_FUNC void FUN_0201AEE4(
-    struct BgConfig *param0, u32 param1, u32 param2, fx32 param3)
+THUMB_FUNC void ScheduleSetBgPosText(
+    struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 value)
 {
-    FUN_02017B8C(&param0->bgs[param1], param2, param3);
-    param0->scrollScheduled |= 1 << param1;
+    Bg_SetPosText(&bgConfig->bgs[bgId], op, value);
+    bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-THUMB_FUNC void FUN_0201AF08(
-    struct BgConfig *param0, u32 param1, u32 param2, u16 param3)
+THUMB_FUNC void ScheduleSetBgAffineRotation(
+    struct BgConfig *bgConfig, u32 bgId, u32 op, u16 value)
 {
-    FUN_0201AF2C(&param0->bgs[param1], param2, param3);
-    param0->scrollScheduled |= 1 << param1;
+    Bg_SetAffineRotation(&bgConfig->bgs[bgId], op, value);
+    bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-THUMB_FUNC void FUN_0201AF2C(struct Bg *param0, u32 param1, u16 val)
+THUMB_FUNC void Bg_SetAffineRotation(struct Bg *bg, u32 op, u16 val)
 {
-    switch (param1)
+    switch (op)
     {
     case 0:
-        param0->rotation = val;
+        bg->rotation = val;
         break;
     case 1:
-        param0->rotation += val;
+        bg->rotation += val;
         break;
     case 2:
-        param0->rotation -= val;
+        bg->rotation -= val;
         break;
     }
 }
 
-THUMB_FUNC void FUN_0201AF50(
-    struct BgConfig *param0, u32 param1, u32 param2, fx32 param3)
+THUMB_FUNC void ScheduleSetBgAffinePos(
+    struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 value)
 {
-    FUN_0201AF74(&param0->bgs[param1], param2, param3);
-    param0->scrollScheduled |= 1 << param1;
+    Bg_SetAffinePos(&bgConfig->bgs[bgId], op, value);
+    bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-THUMB_FUNC void FUN_0201AF74(struct Bg *param0, u32 param1, fx32 val)
+THUMB_FUNC void Bg_SetAffinePos(struct Bg *bg, u32 op, fx32 val)
 {
-    switch (param1 - 9)
+    switch (op)
     {
-    case 0:
-        param0->centerX = val;
+    case 9:
+        bg->centerX = val;
         break;
-    case 1:
-        param0->centerX += val;
+    case 10:
+        bg->centerX += val;
         break;
-    case 2:
-        param0->centerX -= val;
+    case 11:
+        bg->centerX -= val;
         break;
-    case 3:
-        param0->centerY = val;
+    case 12:
+        bg->centerY = val;
         break;
-    case 4:
-        param0->centerY += val;
+    case 13:
+        bg->centerY += val;
         break;
-    case 5:
-        param0->centerY -= val;
+    case 14:
+        bg->centerY -= val;
         break;
     }
 }
 
 THUMB_FUNC u32 FUN_0201AFBC(
-    struct BgConfig *param0, u8 param1, u8 param2, u8 param3, u16 *param4)
+    struct BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src)
 {
     void *st18;
     u16 r6;
@@ -5371,21 +5367,21 @@ THUMB_FUNC u32 FUN_0201AFBC(
     u8 r5;
     u8 i;
 
-    if (param0->bgs[param1].tilemapBuffer == NULL)
+    if (bgConfig->bgs[bgId].tilemapBuffer == NULL)
     {
         return 0;
     }
 
-    r6 = FUN_02017FFC((u8)(param2 >> 3), (u8)(param3 >> 3), param0->bgs[param1].unk1d);
-    st18 = FUN_020187B0(param1);
+    r6 = GetTileMapIndexFromCoords((u8) (x >> 3), (u8) (y >> 3), bgConfig->bgs[bgId].unk1d);
+    st18 = FUN_020187B0(bgId);
 
-    st14 = (u8)(param2 & 7);
-    st10 = (u8)(param3 & 7);
+    st14 = (u8)(x & 7);
+    st10 = (u8)(y & 7);
 
-    if (param0->bgs[param1].colorMode == 0)
+    if (bgConfig->bgs[bgId].colorMode == 0)
     {
-        u16 *stc = param0->bgs[param1].tilemapBuffer;
-        u8 *ptr = AllocFromHeapAtEnd(param0->heap_id, 0x40);
+        u16 *stc = bgConfig->bgs[bgId].tilemapBuffer;
+        u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);
 
         st18 += ((stc[r6] & 0x3ff) << 5);
         for (i = 0; i < 0x20; i++)
@@ -5394,42 +5390,42 @@ THUMB_FUNC u32 FUN_0201AFBC(
             ptr[(i << 1) + 1] = (u8)(((u8 *)st18)[i] >> 4);
         }
 
-        FUN_0201B118(param0, (u8)((stc[r6] >> 0xa) & 3), ptr);
+        FUN_0201B118(bgConfig, (u8)((stc[r6] >> 0xa) & 3), ptr);
 
         r5 = ptr[st14 + (st10 << 3)];
         FreeToHeap(ptr);
 
-        if ((param4[0] & (1 << r5)) != 0)
+        if ((src[0] & (1 << r5)) != 0)
         {
             return 1;
         }
     }
     else
     {
-        if (param0->bgs[param1].mode != 1)
+        if (bgConfig->bgs[bgId].mode != 1)
         {
-            u16 *r4 = param0->bgs[param1].tilemapBuffer;
-            u8 *ptr = AllocFromHeapAtEnd(param0->heap_id, 0x40);
+            u16 *r4 = bgConfig->bgs[bgId].tilemapBuffer;
+            u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);
 
             memcpy(ptr, st18 + ((r4[r6] & 0x3ff) << 6), 0x40);
 
-            FUN_0201B118(param0, (u8)((r4[r6] >> 0xa) & 3), ptr);
+            FUN_0201B118(bgConfig, (u8)((r4[r6] >> 0xa) & 3), ptr);
 
             r5 = ptr[st14 + (st10 << 3)];
             FreeToHeap(ptr);
         }
         else
         {
-            r5 = ((u8 *)st18)[(((u8 *)param0->bgs[param1].tilemapBuffer)[r6] << 6) + st14 + (st10 << 3)];
+            r5 = ((u8 *)st18)[(((u8 *)bgConfig->bgs[bgId].tilemapBuffer)[r6] << 6) + st14 + (st10 << 3)];
         }
 
         while (TRUE)
         {
-            if (param4[0] == 0xffff)
+            if (src[0] == 0xffff)
             {
                 break;
             }
-            if (r5 == (u8)(param4[0]))
+            if (r5 == (u8)(src[0]))
             {
                 return 1;
             }

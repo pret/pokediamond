@@ -575,7 +575,7 @@ MOD56_0221228C: ; 0x0221228C
 	push {r3, lr}
 	add r0, #0xc0
 	ldr r0, [r0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
 	bl FUN_02009F80
 	ldr r3, _022122AC ; =0x027E0000
@@ -643,7 +643,7 @@ MOD56_022122D4: ; 0x022122D4
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x36
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #0
 	bl FUN_02018744
@@ -666,7 +666,7 @@ MOD56_022122D4: ; 0x022122D4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x36
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #1
 	bl FUN_02018744
@@ -689,7 +689,7 @@ MOD56_022122D4: ; 0x022122D4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x36
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #2
 	bl FUN_02018744
@@ -712,7 +712,7 @@ MOD56_022122D4: ; 0x022122D4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x36
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #3
 	bl FUN_02018744
@@ -738,12 +738,12 @@ MOD56_022122D4: ; 0x022122D4
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x36
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x36
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0
 	mov r1, #3
 	bl FUN_020178BC

@@ -391,7 +391,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	mov r1, #6
 	mov r2, #4
 	mov r3, #1
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20

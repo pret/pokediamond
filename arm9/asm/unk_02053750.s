@@ -305,7 +305,7 @@ _02053912:
 	add r1, sp, #0xc
 	mov r2, #0x2
 	mov r3, #0x0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #0x1
 	mov r1, #0x0
 	bl GX_EngineBToggleLayers

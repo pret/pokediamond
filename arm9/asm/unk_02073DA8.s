@@ -1155,10 +1155,10 @@ _0207470C:
 	bl FUN_0207499C
 	ldr r0, [r5, #0x0]
 	mov r1, #0x2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r5, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, _02074838 ; =0x00000306
 	ldrb r1, [r4, r0]
 	cmp r1, #0x10
@@ -1206,10 +1206,10 @@ _02074770:
 	bl FUN_0207499C
 	ldr r0, [r5, #0x0]
 	mov r1, #0x2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r5, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, _02074838 ; =0x00000306
 	ldrb r1, [r4, r0]
 	cmp r1, #0x0

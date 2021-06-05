@@ -428,10 +428,10 @@ _0222D8B2:
 	ldr r3, [r5, #4]
 	bl MOD83_02238A38
 	ldr r0, [sp, #0x1c]
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r6, r0, #0
 	ldr r0, [sp, #0x1c]
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r7, r0, #0
 	ldr r0, [sp, #0x1c]
 	bl GetWindowWidth
@@ -586,7 +586,7 @@ _0222DA18:
 	mov r1, #0
 	mov r2, #3
 	asr r3, r3, #0xc
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	mov r3, #0x41
 	lsl r3, r3, #2
 	ldr r0, [r4]
@@ -597,7 +597,7 @@ _0222DA18:
 	add r3, r4, r3
 	mov r2, #3
 	asr r3, r3, #0xc
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 _0222DA48:
 	pop {r3, r4, r5, pc}
 	nop
@@ -645,7 +645,7 @@ _0222DA5C:
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #2
 	lsl r0, r0, #0xe
 	str r0, [sp]
@@ -665,7 +665,7 @@ _0222DA5C:
 	strh r2, [r1]
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #2
@@ -683,7 +683,7 @@ _0222DA5C:
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	bl FUN_0201BD5C
 	mov r0, #0
 	mov r1, #0x20
@@ -1477,11 +1477,11 @@ _0222E104:
 	beq _0222E188
 	ldr r0, [sp, #0x2c]
 	mov r1, #3
-	bl FUN_0201AB1C
+	bl MoveWindowX
 	lsl r1, r5, #0x18
 	ldr r0, [sp, #0x2c]
 	lsr r1, r1, #0x18
-	bl FUN_0201AB20
+	bl MoveWindowY
 	ldr r2, [sp, #0x54]
 	ldr r3, [sp, #0x58]
 	lsl r2, r2, #0x10
@@ -1595,10 +1595,10 @@ _0222E206:
 	mov r3, #3
 	bl FUN_0200CCA4
 	add r0, r5, #0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x10]
 	add r0, r5, #0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	bl GetWindowWidth
@@ -1622,10 +1622,10 @@ _0222E256:
 	mov r3, #2
 	bl FUN_0200CCA4
 	add r0, r5, #0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x1c]
 	add r0, r5, #0
 	bl GetWindowWidth
@@ -1699,7 +1699,7 @@ MOD83_0222E2E4: ; 0x0222E2E4
 	add r1, #0x5c
 	lsl r0, r0, #4
 	add r0, r1, r0
-	bl FUN_0201AB18
+	bl GetWindowY
 	sub r0, r0, #1
 	lsl r4, r0, #3
 	ldr r0, [r5, #0x54]
@@ -1765,7 +1765,7 @@ _0222E362:
 	cmp r0, #0
 	beq _0222E38E
 	add r0, r5, #0
-	bl FUN_0201AB18
+	bl GetWindowY
 	sub r0, r0, #1
 	lsl r4, r0, #3
 	add r0, r5, #0
@@ -1895,7 +1895,7 @@ MOD83_0222E464: ; 0x0222E464
 	bl FUN_0201C30C
 	bl FUN_02009F80
 	add r0, r4, #0
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _0222E484 ; =MOD83_027E0000
 	ldr r1, _0222E488 ; =0x00003FF8
 	mov r0, #1
@@ -18219,7 +18219,7 @@ _02236520:
 	bl FUN_0201C30C
 	bl FUN_02009F80
 	ldr r0, [r4, #0x20]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _02236540 ; =MOD83_027E0000
 	ldr r1, _02236544 ; =0x00003FF8
 	mov r0, #1
@@ -23228,7 +23228,7 @@ _02238A8A:
 	add r0, r1, #0
 	lsl r1, r6, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_0201AB1C
+	bl MoveWindowX
 _02238A9C:
 	mov r0, #0
 	mvn r0, r0
@@ -23237,7 +23237,7 @@ _02238A9C:
 	lsl r1, r5, #0x18
 	ldr r0, [r4, #0x10]
 	lsr r1, r1, #0x18
-	bl FUN_0201AB20
+	bl MoveWindowY
 _02238AAE:
 	ldr r1, [sp, #0x28]
 	add r0, r4, #0

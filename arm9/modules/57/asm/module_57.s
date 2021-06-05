@@ -2212,7 +2212,7 @@ MOD57_021D8690: ; 0x021D8690
 	ldr r2, [r3, #0x14]
 	ldr r0, [r5]
 	ldr r3, [r3, #0x10]
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [r5]
 	mov r1, #7
 	bl GetBgTilemapBuffer
@@ -2444,7 +2444,7 @@ MOD57_021D8830: ; 0x021D8830
 	str r0, [sp, #4]
 	lsr r1, r1, #0x18
 	lsl r3, r3, #0xc
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	lsl r1, r7, #0x18
 	ldr r0, [sp, #4]
 	lsr r1, r1, #0x18
@@ -2652,7 +2652,7 @@ _021D89A6:
 	mov r1, #7
 	mov r3, #1
 	str r2, [sp]
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021D89D0: .word MOD57_021D98F4

@@ -281,7 +281,7 @@ _02079BAE:
 	add r0, r6, #0x0
 	ldr r2, [r2, #0x14]
 	add r3, r4, #0x0
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	b _02079C36
 _02079BC6:
 	add r0, r7, #0x0
@@ -337,7 +337,7 @@ _02079C24:
 	ldr r1, [r1, #0xc]
 	lsr r0, r0, #0x18
 	add r2, r4, #0x0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 _02079C36:
 	add r0, r7, #0x0
 	bl FreeToHeap

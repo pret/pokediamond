@@ -355,7 +355,7 @@ FUN_02048764: ; 0x02048764
 	bl FUN_02016BBC
 	mov r0, #0x3
 	mov r1, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r0, [r4, #0x8]
 	ldr r2, _020487E0 ; =UNK_020F4694
 	mov r1, #0x3
@@ -365,7 +365,7 @@ FUN_02048764: ; 0x02048764
 	mov r0, #0x3
 	mov r2, #0x0
 	add r3, r1, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	mov r0, #0x20

@@ -677,13 +677,13 @@ _0200288E:
 	pop {r4-r7, pc}
 _020028AC:
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x20]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x24]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x28]
 	ldr r0, [r5, #0x4]
 	bl GetWindowWidth
@@ -844,13 +844,13 @@ FUN_02002A00: ; 0x02002A00
 	sub sp, #0x18
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x14]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x4]
 	bl GetWindowWidth

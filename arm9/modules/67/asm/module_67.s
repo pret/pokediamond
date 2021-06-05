@@ -175,7 +175,7 @@ MOD67_021D7624: ; 0x021D7624
 MOD67_021D7660: ; 0x021D7660
 	push {r3, lr}
 	ldr r0, [r0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D7678 ; =0x027E0000
 	ldr r1, _021D767C ; =0x00003FF8
 	mov r0, #1
@@ -292,12 +292,12 @@ MOD67_021D76A0: ; 0x021D76A0
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x2a
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #1
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x2a
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x80
 	pop {r3, r4, r5, pc}
 	nop
@@ -425,7 +425,7 @@ _021D7844:
 	bl FUN_02002ED0
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x10
 	pop {r4, pc}
 	thumb_func_end MOD67_021D77B0
@@ -628,11 +628,11 @@ _021D79AC:
 	ldr r1, _021D7A34 ; =0x00001062
 	ldr r0, [r4]
 	ldrb r1, [r4, r1]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r1, _021D7A30 ; =0x00001061
 	ldr r0, [r4]
 	ldrb r1, [r4, r1]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0xc
 	mov r0, #1
 	pop {r3, r4, pc}
@@ -829,7 +829,7 @@ MOD67_021D7B5C: ; 0x021D7B5C
 	bl FUN_020186B4
 	ldr r0, [r5]
 	add r1, r4, #0
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0xc
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -920,7 +920,7 @@ _021D7C10:
 	ldr r0, [r7]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	nop

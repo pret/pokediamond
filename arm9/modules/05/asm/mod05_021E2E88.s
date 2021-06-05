@@ -61,7 +61,7 @@ MOD05_021E2EE4: ; 0x021E2EE4
 	add r0, #0x38
 	mov r1, #4
 	add r7, r3, #0
-	bl FUN_0201AB28
+	bl LoadCharacterDataFromFile
 	str r0, [r5, #0x34]
 	add r3, r0, #0
 	str r4, [sp]
@@ -69,11 +69,11 @@ MOD05_021E2EE4: ; 0x021E2EE4
 	ldr r0, [r5, #0x1c]
 	ldr r3, [r3, #0x10]
 	add r1, r6, #0
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r2, _021E2F30 ; =UNK05_021FD62C
 	add r0, sp, #4
 	mov r1, #4
-	bl FUN_0201AB44
+	bl LoadPaletteDataFromFile
 	ldr r0, [r0, #0xc]
 	mov r1, #1
 	add r2, r7, #0

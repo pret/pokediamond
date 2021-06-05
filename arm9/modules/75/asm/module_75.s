@@ -530,7 +530,7 @@ MOD75_021E6FFC: ; 0x021E6FFC
 MOD75_021E700C: ; 0x021E700C
 	push {r3, lr}
 	ldr r0, [r0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
 	bl FUN_0200BC30
 	ldr r3, _021E702C ; =0x027E0000
@@ -697,22 +697,22 @@ MOD75_021E7054: ; 0x021E7054
 	mov r1, #7
 	mov r2, #9
 	mov r3, #0x80
-	bl FUN_0201AF50
+	bl ScheduleSetBgAffinePos
 	add r0, r4, #0
 	mov r1, #7
 	mov r2, #0xc
 	mov r3, #0x50
-	bl FUN_0201AF50
+	bl ScheduleSetBgAffinePos
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #6
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #6
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0xd4
 	pop {r4, r5, pc}
 	nop
@@ -2259,7 +2259,7 @@ _021E7D68:
 	bl MOD75_021E7E0C
 	ldr r0, [r4]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #1
 	pop {r4, pc}
 _021E7D88:
@@ -2312,7 +2312,7 @@ _021E7DD4:
 	bl MOD75_021E7E0C
 	ldr r0, [r4]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #1
 	pop {r4, pc}
 _021E7DF2:
@@ -2574,7 +2574,7 @@ _021E7FB6:
 	bl MOD75_021E84E4
 	ldr r0, [r5]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 _021E8004:
 	add r5, #0xfc
 	ldr r0, [r5]
@@ -2628,7 +2628,7 @@ _021E803E:
 	bl MOD75_021E84E4
 	ldr r0, [r5]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -2714,7 +2714,7 @@ _021E80EA:
 	bl MOD75_021E84E4
 	ldr r0, [r5]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
@@ -3153,7 +3153,7 @@ _021E8460:
 	bl MOD75_021E84E4
 	ldr r0, [r5]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldrb r0, [r4, #6]
 	lsl r3, r0, #1
 	ldr r0, _021E84DC ; =0x00000424
@@ -3329,7 +3329,7 @@ _021E85A8:
 	ldr r0, [sp]
 	mov r1, #4
 	ldr r0, [r0]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021E85D4: .word 0x00000276
@@ -3452,7 +3452,7 @@ _021E869C:
 _021E86B2:
 	ldr r0, [r5]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _021E86BC: .word 0x00000424
@@ -4392,7 +4392,7 @@ _021E8DDA:
 _021E8DFC:
 	ldr r0, [r4]
 	mov r1, #1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0xc
 	pop {r3, r4, pc}
 	.align 2, 0
@@ -6733,7 +6733,7 @@ _021EA0FE:
 	mov r1, #7
 	mov r2, #0
 	lsr r3, r3, #0x10
-	bl FUN_0201AF08
+	bl ScheduleSetBgAffineRotation
 	ldr r0, _021EA114 ; =0x0000049A
 	strh r5, [r4, r0]
 	pop {r3, r4, r5, pc}
@@ -6862,7 +6862,7 @@ _021EA1EC:
 	ldrh r3, [r5, r3]
 	mov r1, #7
 	mov r2, #0
-	bl FUN_0201AF08
+	bl ScheduleSetBgAffineRotation
 	ldr r0, _021EA2CC ; =0x000001F6
 	add r1, r6, #0
 	bl _s32_div_f

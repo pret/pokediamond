@@ -1571,12 +1571,12 @@ MOD82_0222E15C: ; 0x0222E15C
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x44
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x44
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x70
 	pop {r3, r4, r5, pc}
 	nop
@@ -1711,10 +1711,10 @@ MOD82_0222E264: ; 0x0222E264
 	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD82_0222E264

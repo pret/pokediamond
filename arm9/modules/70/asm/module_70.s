@@ -857,7 +857,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	mov r1, #1
 	ldr r0, [r5, #0x10]
 	add r3, r1, #0
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20

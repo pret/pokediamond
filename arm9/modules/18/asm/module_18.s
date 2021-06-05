@@ -1496,7 +1496,7 @@ _0223A194:
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x1d
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #0
 	bl FUN_02018744
@@ -1519,7 +1519,7 @@ _0223A194:
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #1
 	bl FUN_02018744
@@ -1542,7 +1542,7 @@ _0223A194:
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #2
 	bl FUN_02018744
@@ -1565,7 +1565,7 @@ _0223A194:
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #3
 	bl FUN_02018744
@@ -1573,12 +1573,12 @@ _0223A194:
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x1d
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0xa8
 	pop {r3, r4, r5, pc}
 	nop
@@ -6173,7 +6173,7 @@ MOD18_0223C6CC: ; 0x0223C6CC
 	add r4, r0, #0
 	bl MOD18_0223C188
 	add r0, r4, #0
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
 	bl FUN_02009F80
 	pop {r4, pc}
@@ -22606,7 +22606,7 @@ _022444AC:
 	bl GX_EngineBToggleLayers
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r0, [r4]
 	add sp, #0x60
 	add r0, r0, #1
@@ -23180,7 +23180,7 @@ MOD18_0224486C: ; 0x0224486C
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r5, #0
 	add r1, r4, #0
 	mov r2, #7
@@ -33408,7 +33408,7 @@ _02249936:
 	bl FUN_0200CCF8
 	ldrb r1, [r4, #0x14]
 	ldr r0, [r4, #0x10]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0
 	add r0, #0x10
 	bl RemoveWindow
@@ -33557,7 +33557,7 @@ MOD18_02249A64: ; 0x02249A64
 	add r1, #0x24
 	ldrb r1, [r1]
 	ldr r0, [r4, #0x20]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r4, #0x44]
 	bl ListMenuItems_dtor
 	mov r0, #0
@@ -42490,7 +42490,7 @@ MOD18_0224E26C: ; 0x0224E26C
 	bl FUN_0200CCF8
 	ldrb r1, [r4, #8]
 	ldr r0, [r4, #4]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #4
 	bl RemoveWindow
 	add r0, r4, #0
@@ -43018,7 +43018,7 @@ MOD18_0224E6A8: ; 0x0224E6A8
 	bl FUN_0200CCF8
 	ldrb r1, [r4, #0xc]
 	ldr r0, [r4, #8]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0
 	add r0, #8
 	bl RemoveWindow

@@ -436,7 +436,7 @@ MOD53_021D78A8: ; 0x021D78A8
 	bl FUN_0201C30C
 	bl FUN_02009F80
 	add r0, r4, #0
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D78C8 ; =0x027E0000
 	ldr r1, _021D78CC ; =0x00003FF8
 	mov r0, #1
@@ -571,12 +571,12 @@ MOD53_021D78F0: ; 0x021D78F0
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x27
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x27
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x9c
 	pop {r4, r5, pc}
 	nop

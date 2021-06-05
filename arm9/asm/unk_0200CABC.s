@@ -282,13 +282,13 @@ FUN_0200CCA4: ; 0x0200CCA4
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -319,13 +319,13 @@ FUN_0200CCF8: ; 0x0200CCF8
 	sub sp, #0x18
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -749,13 +749,13 @@ FUN_0200D06C: ; 0x0200D06C
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -804,13 +804,13 @@ FUN_0200D0E0: ; 0x0200D0E0
 	sub sp, #0x18
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -893,7 +893,7 @@ FUN_0200D18C: ; 0x0200D18C
 	bl FUN_02016BB8
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x20]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	mov r1, #0x6
 	str r0, [sp, #0x28]
 	add r0, r6, #0x0
@@ -978,7 +978,7 @@ _0200D1E0:
 	ldr r0, [r0, #0x0]
 	add r2, r5, #0x0
 	lsl r3, r3, #0x6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0x24]
 	bl FUN_02002840
 	ldr r0, [sp, #0x2c]
@@ -1049,7 +1049,7 @@ _0200D2D2:
 	ldr r1, [sp, #0x8]
 	add r2, r4, #0x0
 	lsl r3, r3, #0x6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0xc]
 	bl FreeToHeap
 	add r0, r4, #0x0
@@ -1095,7 +1095,7 @@ FUN_0200D300: ; 0x0200D300
 	add r0, r6, #0x0
 	mov r2, #0x20
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r1, [sp, #0x14]
 	add r0, r4, #0x0
 	bl FreeToHeapExplicit
@@ -1496,16 +1496,16 @@ FUN_0200D678: ; 0x0200D678
 	str r1, [sp, #0x10]
 	add r7, r0, #0x0
 	str r2, [sp, #0x14]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x20]
 	add r0, r7, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	sub r0, r0, #0x7
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x18]
 	add r0, r7, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x1c]
 	mov r0, #0x0
 	str r0, [sp, #0x24]
@@ -1562,17 +1562,17 @@ FUN_0200D6F8: ; 0x0200D6F8
 	str r1, [sp, #0x10]
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x14]
 	add r0, sp, #0x30
 	ldrb r0, [r0, #0x10]
 	cmp r0, #0x1
 	bhi _0200D756
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x1c]
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -1598,10 +1598,10 @@ FUN_0200D6F8: ; 0x0200D6F8
 	b _0200D788
 _0200D756:
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x20]
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x24]
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -1637,15 +1637,15 @@ FUN_0200D7A0: ; 0x0200D7A0
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	str r2, [sp, #0x10]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x14]
 	cmp r4, #0x1
 	bhi _0200D7FE
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -1675,10 +1675,10 @@ FUN_0200D7A0: ; 0x0200D7A0
 	b _0200D846
 _0200D7FE:
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -1726,7 +1726,7 @@ FUN_0200D858: ; 0x0200D858
 	bl FUN_02016BB8
 	str r0, [sp, #0x28]
 	ldr r0, [sp, #0x20]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	bl FUN_020187B0
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
@@ -1854,13 +1854,13 @@ FUN_0200D980: ; 0x0200D980
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x18]
 	ldr r0, [r5, #0x0]
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x1c]
 	ldr r0, [r5, #0x0]
 	bl GetWindowWidth
@@ -1877,7 +1877,7 @@ FUN_0200D980: ; 0x0200D980
 	ldr r0, [r5, #0x0]
 	mov r3, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
 	add r7, r0, #0x2
@@ -1988,7 +1988,7 @@ _0200DA8A:
 	add r2, r2, r3
 	ldr r0, [r0, #0x0]
 	mov r3, #0x80
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	cmp r6, #0x0
 	beq _0200DB72
 	ldr r0, [sp, #0x1c]
@@ -2822,7 +2822,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	ldr r0, [r5, r1]
 	add r1, r1, #0x4
 	ldrb r1, [r5, r1]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x10
 	pop {r4-r6, pc}
 	nop
@@ -2859,7 +2859,7 @@ FUN_0200E188: ; 0x0200E188
 	ldr r0, [r4, r1]
 	add r1, r1, #0x4
 	ldrb r1, [r4, r1]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x10
 	pop {r4, pc}
 	.balign 4

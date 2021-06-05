@@ -1037,7 +1037,7 @@ _0206FB54: .word 0x00000B34
 FUN_0206FB58: ; 0x0206FB58
 	push {r3, lr}
 	ldr r0, [r0, #0x0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
 	bl FUN_0200BC30
 	ldr r3, _0206FB78 ; =0x027E0000
@@ -1190,12 +1190,12 @@ FUN_0206FBA0: ; 0x0206FBA0
 	mov r1, #0x20
 	add r2, r0, #0x0
 	mov r3, #0xc
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x4
 	mov r1, #0x20
 	mov r2, #0x0
 	mov r3, #0xc
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0xb8
 	pop {r3-r5, pc}
 	nop
@@ -1282,7 +1282,7 @@ FUN_0206FD24: ; 0x0206FD24
 	mov r3, #0x0
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r1, [sp, #0x10]
 	ldr r0, _0206FE6C ; =0x000004A4
 	ldr r1, [r1, #0xc]
@@ -1382,10 +1382,10 @@ FUN_0206FD24: ; 0x0206FD24
 	bl FUN_020724D4
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x14
 	pop {r4-r5, pc}
 	.balign 4
@@ -2185,10 +2185,10 @@ _020704CC:
 _020704D2:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r4, pc}
 	.balign 4
 _020704E4: .word 0x000005A4
@@ -2868,7 +2868,7 @@ _02070A60:
 	mov r0, #0x2
 	mov r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	pop {r4-r6, pc}
 	.balign 4
 _02070A78: .word 0x000005A4
@@ -3147,7 +3147,7 @@ _02070C6E:
 	bl FUN_020717E8
 	ldr r0, [r5, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 _02070CA6:
 	cmp r4, #0x6
 	beq _02070CB2
@@ -3433,7 +3433,7 @@ _02070ECC:
 	bl FUN_020717E8
 	ldr r0, [r5, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 _02070EFE:
 	add sp, #0x10
 	pop {r4-r6, pc}
@@ -3480,7 +3480,7 @@ _02070F30:
 	bl FUN_020717E8
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0xb2
 	lsl r0, r0, #0x4
 	ldrb r1, [r4, r0]
@@ -3495,7 +3495,7 @@ _02070F70:
 	bl FUN_020717E8
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0xb2
 	mov r1, #0x0
 	lsl r0, r0, #0x4

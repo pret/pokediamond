@@ -1,6 +1,7 @@
 #ifndef POKEDIAMOND_UNK_02016B94_H
 #define POKEDIAMOND_UNK_02016B94_H
 
+#include "NNS_g2d.h"
 #include "global.h"
 #include "GX_layers.h"
 #include "MI_uncompress.h"
@@ -9,10 +10,6 @@
 #include "heap.h"
 #include "math_util.h"
 
-#define reg_G2_BG2P (u32 *)0x4000020
-#define reg_G2_BG3P (u32 *)0x4000030
-#define reg_G2S_DB_BG2P (u32 *)0x4001020
-#define reg_G2S_DB_BG3P (u32 *)0x4001030
 struct BgTemplate
 {
     u32 unk00;
@@ -56,7 +53,7 @@ struct BgConfig
 {
     u32 heap_id;
     u16 scrollScheduled;
-    u16 unk06;
+    u16 bufferTransferScheduled;
     struct Bg bgs[8];
 };
 
@@ -100,7 +97,7 @@ void FUN_02016C18(
     struct BgConfig *param0, u8 param1, const struct BgTemplate *template, u8 bgMode);
 void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 value);
 u8 FUN_020177DC(u8 param0, u32 param1);
-void FUN_02017850(u32 param0, u8 *param1, u8 *param2);
+void GetBgScreenDimensions(u32 screenSize, u8 *width_p, u8 *height_p);
 void FUN_020178A0(struct BgConfig *bgConfig, u32 bgId);
 void FUN_020178BC(u32 bgId, u16 priority);
 void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle);
@@ -114,7 +111,7 @@ void FUN_02017B60(struct BgConfig *param0,
     struct Mtx22 *param4,
     fx32 param5,
     fx32 param6);
-void FUN_02017B8C(struct Bg *param0, u32 param1, fx32 val);
+void Bg_SetPosText(struct Bg *bg, u32 op, fx32 val);
 void FUN_02017BD0(struct BgConfig *param0,
     u32 param1,
     struct Mtx22 *param2,
@@ -125,20 +122,20 @@ void FUN_02017C98(const void *param0, void *param1, u32 param2);
 void FUN_02017CD0(struct BgConfig *param0, u32 param1);
 void FUN_02017CE8(
     struct BgConfig *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
-void FUN_02017D68(u32 param0, void *param1, u32 offset, u32 size);
+void LoadBgVramScr(u32 bgId, void *buffer_p, u32 offset, u32 size);
 void FUN_02017DFC(struct BgConfig *param0, u32 param1, void *param2, u32 param3);
-void FUN_02017E14(
-    struct BgConfig *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
-void FUN_02017E40(
-    struct BgConfig *param0, u32 param1, u32 *param2, u32 param3, u32 param4);
-void FUN_02017E84(u32 param0, void *param1, u32 offset, u32 size);
-void FUN_02017F18(u32 param0, u32 size, u32 offset, u32 heap_id);
-void FUN_02017F48(
-    struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u32 param4);
-void FUN_02017FB4(u32 param0, void *param1, u32 offset, u32 size);
-void FUN_02017FE4(u32 param0, u32 param1);
-u16 FUN_02017FFC(u8 param0, u8 param1, u8 param2);
-u16 FUN_02018068(u8 param0, u8 param1, u8 param2, u8 param3);
+void BG_LoadCharTilesData(
+    struct BgConfig *bgConfig, u32 bgId, u32 *charData, u32 offset, u32 numTiles);
+void BG_LoadCharPixelData(
+    struct BgConfig *bgConfig, u32 bgId, u32 *charData, u32 size, u32 offset);
+void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size);
+void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, u32 heap_id);
+void BG_FillCharDataRange(
+    struct BgConfig *param0, u32 bgId, u32 fillValue, u32 count, u32 offset);
+void BG_LoadPlttData(u32 bgId, void *plttData, u32 size, u32 offset);
+void BG_SetMaskColor(u32 bgId, u32 value);
+u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize);
+u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height);
 void FUN_02018148(struct BgConfig *param0,
     u32 param1,
     void *param2,
@@ -168,16 +165,16 @@ void FUN_020181EC(struct BgConfig *param0,
     u8 param8,
     u8 param9,
     u8 param10);
-void FUN_02018268(struct Bg *param0,
-    u8 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u16 *param5,
-    u8 param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
+void FUN_02018268(struct Bg *bg,
+    u8 dstX,
+    u8 dstY,
+    u8 width,
+    u8 height,
+    u16 *src,
+    u8 srcX,
+    u8 srcY,
+    u8 srcWidth,
+    u8 srcHeight,
     u8 param10);
 void FUN_020183DC(struct Bg *param0,
     u8 param1,
@@ -314,28 +311,28 @@ void FillWindowPixelRect(struct Window *window, u8 fillValue, u16 x, u16 y, u16 
 void FUN_0201974C(
     struct Window *window, u32 *param1, u32 param2, u32 param3, u16 param4, u16 param5, u32 param6);
 void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3);
-void FUN_0201A8E8(struct Window *window, u32 param1, u8 param2, u8 param3);
-void FUN_0201A9D4(struct Window *window, u32 param1, u8 param2, u8 param3);
-u8 FUN_0201AB08(struct Window *window);
+void ScrollWindow4bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue);
+void ScrollWindow8bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue);
+u8 GetWindowBgId(struct Window *window);
 u8 GetWindowWidth(struct Window *window);
 u8 GetWindowHeight(struct Window *window);
-u8 FUN_0201AB14(struct Window *window);
-u8 FUN_0201AB18(struct Window *window);
-void FUN_0201AB1C(struct Window *window, u8 param1);
-void FUN_0201AB20(struct Window *window, u8 param1);
-void FUN_0201AB24(struct Window *window, u8 param1);
-u32 FUN_0201AB28(struct Window *window, u32 heap_id, const char *path);
-u32 FUN_0201AB44(struct Window *window, u32 heap_id, const char *path);
-void FUN_0201AB60(struct BgConfig *param0);
-void FUN_0201AB78(struct BgConfig *param0);
-void FUN_0201AC68(struct BgConfig *param0, u32 param1);
-void FUN_0201AC78(struct BgConfig *param0);
-void FUN_0201AEE4(struct BgConfig *param0, u32 param1, u32 param2, fx32 param3);
-void FUN_0201AF08(struct BgConfig *param0, u32 param1, u32 param2, u16 param3);
-void FUN_0201AF2C(struct Bg *param0, u32 param1, u16 val);
-void FUN_0201AF50(struct BgConfig *param0, u32 param1, u32 param2, fx32 param3);
-void FUN_0201AF74(struct Bg *param0, u32 param1, fx32 val);
-u32 FUN_0201AFBC(struct BgConfig *param0, u8 param1, u8 param2, u8 param3, u16 *param4);
+u8 GetWindowX(struct Window *window);
+u8 GetWindowY(struct Window *window);
+void MoveWindowX(struct Window *window, u8 x);
+void MoveWindowY(struct Window *window, u8 y);
+void SetWindowPaletteNum(struct Window *window, u8 paletteNum);
+NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, u32 heap_id, const char *path);
+NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, u32 heap_id, const char *path);
+void DoScheduledBgGpuUpdates(struct BgConfig *bgConfig);
+void DoScheduledBgTilemapBufferTransfers(struct BgConfig *bgConfig);
+void ScheduleBgTilemapBufferTransfer(struct BgConfig *bgConfig, u32 bgId);
+void ApplyScheduledBgPosUpdate(struct BgConfig *bgConfig);
+void ScheduleSetBgPosText(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 value);
+void ScheduleSetBgAffineRotation(struct BgConfig *bgConfig, u32 bgId, u32 op, u16 value);
+void Bg_SetAffineRotation(struct Bg *bg, u32 op, u16 val);
+void ScheduleSetBgAffinePos(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 value);
+void Bg_SetAffinePos(struct Bg *bg, u32 op, fx32 val);
+u32 FUN_0201AFBC(struct BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src);
 void FUN_0201B118(struct BgConfig *param0, u8 param1, u8 *param2);
 
 #endif // POKEDIAMOND_UNK_02016B94_H

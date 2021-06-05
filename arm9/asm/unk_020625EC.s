@@ -1067,7 +1067,7 @@ FUN_02062DB0: ; 0x02062DB0
 	mov r0, #0x1
 	lsl r1, r1, #0x6
 	mov r2, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	mov r0, #0x20
@@ -1085,7 +1085,7 @@ FUN_02062DB0: ; 0x02062DB0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0x1
 	add r1, r0, #0x0
 	bl ToggleBgLayer
@@ -1200,7 +1200,7 @@ FUN_02062EC4: ; 0x02062EC4
 	mov r0, #0x1
 	lsl r1, r1, #0x6
 	mov r2, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	mov r0, #0x20
@@ -1218,7 +1218,7 @@ FUN_02062EC4: ; 0x02062EC4
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0x1
 	mov r1, #0x0
 	bl ToggleBgLayer
@@ -1494,7 +1494,7 @@ _02063094:
 	add r5, #0xd0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x1c
 	pop {r4-r7, pc}
 	.balign 4
@@ -1538,7 +1538,7 @@ FUN_02063178: ; 0x02063178
 	add r4, #0xd0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r4, pc}
 
 	thumb_func_start FUN_020631C8
@@ -1916,7 +1916,7 @@ FUN_02063430: ; 0x02063430
 	add r4, #0xd0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x14
 	pop {r3-r4, pc}
 	nop

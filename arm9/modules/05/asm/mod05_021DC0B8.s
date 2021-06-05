@@ -1903,7 +1903,7 @@ MOD05_021DCECC: ; 0x021DCECC
 	ldr r1, [r1, #0xc]
 	mov r2, #0x20
 	mov r3, #0xc0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r0, [sp]
 	bl FreeToHeap
 	mov r0, #0
@@ -1945,7 +1945,7 @@ MOD05_021DCF14: ; 0x021DCF14
 	ldr r0, [r0, #8]
 	ldr r3, [r3, #0x10]
 	mov r1, #2
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #8]
 	bl FreeToHeap
 	mov r0, #0

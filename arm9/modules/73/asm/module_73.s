@@ -2407,7 +2407,7 @@ MOD73_021D88B0: ; 0x021D88B0
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	beq _021D88C2
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 _021D88C2:
 	pop {r4, pc}
 	thumb_func_end MOD73_021D88B0
@@ -2491,7 +2491,7 @@ _021D8944:
 	ldr r3, [sp]
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r7, r7, #1
 	add r4, #0x1c
 	add r5, r5, #1
@@ -4933,7 +4933,7 @@ _021D9BCE:
 	bl FUN_02019220
 	ldr r0, [r5, #4]
 	mov r1, #5
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 _021D9BDC:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
@@ -5108,7 +5108,7 @@ _021D9CD8:
 	str r0, [r5, #0x28]
 	ldr r0, [r5, #4]
 	mov r1, #5
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD73_021D9CA0
@@ -6050,7 +6050,7 @@ MOD73_021DA374: ; 0x021DA374
 	bl FreeToHeap
 	ldr r0, [r4, #4]
 	mov r1, #1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x14
 	pop {r4, r5, pc}
 	thumb_func_end MOD73_021DA374

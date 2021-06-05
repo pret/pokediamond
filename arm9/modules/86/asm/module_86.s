@@ -245,7 +245,7 @@ MOD86_021D76E0: ; 0x021D76E0
 	ldr r0, [r0, #0x10]
 	bx r3
 	nop
-_021D76E8: .word FUN_0201AB60
+_021D76E8: .word DoScheduledBgGpuUpdates
 	thumb_func_end MOD86_021D76E0
 
 	thumb_func_start MOD86_021D76EC
@@ -772,12 +772,12 @@ _021D7A06:
 	ldr r3, [r5]
 	mov r1, #0x20
 	add r2, r0, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r3, [r5]
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r2, [r5]
 	mov r0, #0
 	mov r1, #0x40

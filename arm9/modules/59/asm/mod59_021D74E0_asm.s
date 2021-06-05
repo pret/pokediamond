@@ -206,7 +206,7 @@ MOD59_021D7724: ; 0x021D7724
 	ldr r0, [r0, #0x18]
 	bx r3
 	nop
-_021D772C: .word FUN_0201AB60
+_021D772C: .word DoScheduledBgGpuUpdates
 	thumb_func_end MOD59_021D7724
 
 	thumb_func_start MOD59_021D7730
@@ -1372,7 +1372,7 @@ MOD59_021D8058: ; 0x021D8058
 	ldr r3, [r5]
 	mov r1, #0x20
 	add r2, r0, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1420,10 +1420,10 @@ _021D80AA:
 	bl MOD59_021D8234
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop
@@ -1714,7 +1714,7 @@ _021D82C8:
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #1
 	str r0, [sp]
 	mov r3, #0x32
@@ -1722,19 +1722,19 @@ _021D82C8:
 	mov r1, #2
 	add r2, r4, #0
 	lsl r3, r3, #6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	mov r3, #0x20
 	add r2, r3, #0
 	mov r0, #2
 	add r1, r6, #0
 	add r3, #0xe0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r3, #0x12
 	ldr r1, _021D83F4 ; =0x021D9ED8
 	mov r0, #2
 	mov r2, #0x20
 	lsl r3, r3, #4
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -1765,7 +1765,7 @@ _021D82C8:
 	mov r0, #5
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #1
 	str r0, [sp]
 	mov r3, #0x32
@@ -1773,17 +1773,17 @@ _021D82C8:
 	mov r1, #5
 	add r2, r4, #0
 	lsl r3, r3, #6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	mov r0, #5
 	add r1, r6, #0
 	mov r2, #0x20
 	lsl r3, r0, #6
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #5
 	ldr r1, _021D83F4 ; =0x021D9ED8
 	mov r2, #0x20
 	lsl r3, r0, #6
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	add r0, r6, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -1831,7 +1831,7 @@ MOD59_021D83F8: ; 0x021D83F8
 	mov r0, #6
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0

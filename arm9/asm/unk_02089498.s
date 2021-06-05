@@ -209,7 +209,7 @@ FUN_02089610: ; 0x02089610
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_02089618: .word FUN_0201AB60
+_02089618: .word DoScheduledBgGpuUpdates
 
 	thumb_func_start FUN_0208961C
 FUN_0208961C: ; 0x0208961C
@@ -280,13 +280,13 @@ _02089628:
 	ldr r3, [r4, #0x0]
 	mov r1, #0x20
 	add r2, r0, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _020896DC ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _020896DC ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x5c
 	pop {r4-r5, pc}
 	.balign 4

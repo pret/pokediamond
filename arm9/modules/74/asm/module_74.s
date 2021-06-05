@@ -343,7 +343,7 @@ MOD74_021D7784: ; 0x021D7784
 	bl MOD74_021D82E8
 	bl NNS_GfdDoVramTransfer
 	ldr r0, [r4, #0x10]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D77A4 ; =0x027E0000
 	ldr r1, _021D77A8 ; =0x00003FF8
 	mov r0, #1
@@ -635,7 +635,7 @@ _021D799C:
 	ldr r3, [r5]
 	mov r1, #0x20
 	add r2, r0, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldrh r0, [r5, #8]
 	cmp r0, #0
 	beq _021D79BA
@@ -643,7 +643,7 @@ _021D799C:
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 _021D79BA:
 	add sp, #0x64
 	pop {r4, r5, r6, r7, pc}
@@ -747,7 +747,7 @@ _021D7A5A:
 	bl NARC_dtor
 	ldr r0, [r5, #0x10]
 	mov r1, #1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x14
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -13,7 +13,7 @@ THUMB_FUNC u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgCo
         {
             if (szByte == 0)
                 szByte = pCharData->szByte;
-            FUN_02017E14(unkStruct02016B94_2, (u8)a3, pCharData->pRawData, szByte, a4);
+            BG_LoadCharTilesData(unkStruct02016B94_2, (u8)a3, pCharData->pRawData, szByte, a4);
         }
         FreeToHeap(pFile);
     }

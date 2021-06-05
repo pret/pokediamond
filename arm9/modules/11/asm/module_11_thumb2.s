@@ -4128,7 +4128,7 @@ _022311D0:
 	ldr r2, [r4, r2]
 	mov r1, #3
 	lsl r3, r3, #5
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -84910,7 +84910,7 @@ _022588AE:
 	lsl r1, r1, #0x18
 	ldr r0, [sp, #0x28]
 	lsr r1, r1, #0x18
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 _022588D0:
 	add r4, r4, #1
 	add r6, r6, #2
@@ -86411,7 +86411,7 @@ MOD11_022594DC: ; 0x022594DC
 	bl FUN_02018540
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0x4e
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
@@ -86479,7 +86479,7 @@ MOD11_02259554: ; 0x02259554
 	bl FUN_02018540
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0x4e
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
@@ -87848,7 +87848,7 @@ _0225A116:
 	bl FUN_02018768
 	add r0, r6, #0
 	mov r1, #5
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0
 	add r1, r5, #0
 	bl MOD11_0225ADD0
@@ -89218,7 +89218,7 @@ MOD11_0225ABA4: ; 0x0225ABA4
 	bl FUN_02003054
 	add r0, r6, #0
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, _0225AC58 ; =MOD11_0225F71C
 	lsl r1, r4, #2
 	ldrb r2, [r0, r1]
@@ -89247,7 +89247,7 @@ MOD11_0225ABA4: ; 0x0225ABA4
 	bl FUN_02018540
 	add r0, r6, #0
 	mov r1, #5
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -89528,7 +89528,7 @@ _0225AE36:
 _0225AE40:
 	ldr r0, [sp, #4]
 	mov r1, #4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 

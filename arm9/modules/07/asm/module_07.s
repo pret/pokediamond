@@ -437,13 +437,13 @@ MOD07_022121AC: ; 0x022121AC
 	ldr r0, [r4, #0xc]
 	mov r1, #3
 	mov r3, #0x18
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	mov r2, #0
 	add r3, r2, #0
 	ldr r0, [r4, #0xc]
 	mov r1, #2
 	sub r3, #0x18
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	mov r1, #0
 	add r0, r4, #0
 	add r2, r1, #0
@@ -492,13 +492,13 @@ _02212248:
 	ldr r3, [r4, r3]
 	mov r1, #3
 	mov r2, #2
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r3, _02212374 ; =0x00000B74
 	ldr r0, [r4, #0xc]
 	ldr r3, [r4, r3]
 	mov r1, #2
 	mov r2, #1
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r3, _02212370 ; =0x00000B82
 	mov r1, #0
 	ldrb r0, [r4, r3]
@@ -669,23 +669,23 @@ _022123B4:
 	mov r1, #3
 	mov r2, #0
 	mov r3, #0x18
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	mov r2, #0
 	add r3, r2, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #2
 	sub r3, #0x18
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	mov r1, #3
 	ldr r0, [r5, #0xc]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r0, [r5, #0xc]
 	mov r1, #2
 	mov r2, #3
 	mov r3, #0
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	mov r1, #0
 	add r0, r5, #0
 	add r2, r1, #0
@@ -798,23 +798,23 @@ _022124CC:
 	mov r1, #3
 	mov r2, #0
 	add r3, #0x18
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	add r3, r6, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #2
 	mov r2, #0
 	sub r3, #0x18
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	mov r1, #3
 	ldr r0, [r5, #0xc]
 	add r2, r1, #0
 	add r3, r4, #0
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r0, [r5, #0xc]
 	mov r1, #2
 	mov r2, #3
 	add r3, r4, #0
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	add r0, r5, #0
 	mov r1, #0
 	add r2, r6, #0
@@ -921,12 +921,12 @@ _022125DE:
 	mov r1, #3
 	mov r2, #1
 	mov r3, #0x10
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	mov r1, #2
 	ldr r0, [r4, #0xc]
 	add r2, r1, #0
 	mov r3, #0x10
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r2, _022126A4 ; =0x00000B82
 	mov r1, #0
 	ldrb r0, [r4, r2]
@@ -1086,7 +1086,7 @@ MOD07_02212720: ; 0x02212720
 	ldr r3, _02212818 ; =0x02214960
 	add r2, r1, #0
 	ldrb r3, [r3, r5]
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r3, _02212814 ; =0x00000B82
 	ldr r0, [r4, #0xc]
 	ldrb r3, [r4, r3]
@@ -1095,7 +1095,7 @@ MOD07_02212720: ; 0x02212720
 	lsl r5, r3, #1
 	ldr r3, _02212818 ; =0x02214960
 	ldrb r3, [r3, r5]
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r2, _02212814 ; =0x00000B82
 	mov r1, #0
 	ldrb r2, [r4, r2]
@@ -1206,7 +1206,7 @@ MOD07_02212824: ; 0x02212824
 	ldr r3, _0221294C ; =0x02214960
 	mov r2, #1
 	ldrb r3, [r3, r5]
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r3, _02212948 ; =0x00000B82
 	ldr r0, [r4, #0xc]
 	ldrb r3, [r4, r3]
@@ -1215,7 +1215,7 @@ MOD07_02212824: ; 0x02212824
 	lsl r5, r3, #1
 	ldr r3, _0221294C ; =0x02214960
 	ldrb r3, [r3, r5]
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r2, _02212948 ; =0x00000B82
 	mov r1, #0
 	ldrb r2, [r4, r2]
@@ -1868,7 +1868,7 @@ MOD07_02212D68: ; 0x02212D68
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r0, [r4, #8]
 	bl FUN_0200372C
 	bl FUN_0201C30C
@@ -1921,7 +1921,7 @@ MOD07_02212D98: ; 0x02212D98
 	ldr r0, [r4, #0xc]
 	mov r2, #0
 	add r3, #0xfd
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r5, _02212E5C ; =0x02214A48
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -1945,7 +1945,7 @@ MOD07_02212D98: ; 0x02212D98
 	mov r1, #2
 	mov r2, #0
 	mvn r3, r3
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r5, _02212E60 ; =0x02214A64
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -2063,7 +2063,7 @@ MOD07_02212E90: ; 0x02212E90
 	bl FUN_02003108
 	ldr r1, _02212F28 ; =0x000018C6
 	mov r0, #1
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -3327,7 +3327,7 @@ MOD07_02213924: ; 0x02213924
 	mov r3, #0
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r1, [sp, #0x10]
 	ldr r0, _022139B4 ; =0x000004E4
 	ldr r1, [r1, #0xc]
@@ -3443,7 +3443,7 @@ _02213A54:
 	add r1, r5, r1
 	mov r2, #0x20
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	b _02213A7A
 _02213A68:
 	ldr r1, _02213A9C ; =0x000004E4
@@ -3453,7 +3453,7 @@ _02213A68:
 	add r1, r5, r1
 	mov r2, #0x20
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 _02213A7A:
 	add r4, r4, #1
 	add r7, #0x18
@@ -3462,7 +3462,7 @@ _02213A7A:
 	blo _022139C8
 	ldr r0, [r5, #0xc]
 	mov r1, #2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3527,10 +3527,10 @@ MOD07_02213AEC: ; 0x02213AEC
 	bl MOD07_02213AA0
 	ldr r0, [r4, #0xc]
 	mov r1, #1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r4, #0xc]
 	mov r1, #2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r4, pc}
 	.align 2, 0
 _02213B18: .word 0x00000544
@@ -3625,10 +3625,10 @@ _02213B80:
 _02213BCE:
 	ldr r0, [r5, #0xc]
 	mov r1, #1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r5, #0xc]
 	mov r1, #2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -4817,7 +4817,7 @@ _02214558:
 	add r1, r5, r1
 	mov r2, #4
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	b _0221459E
 _02214570:
 	ldrb r3, [r4, #9]
@@ -4829,7 +4829,7 @@ _02214570:
 	add r1, r5, r1
 	mov r2, #4
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	b _0221459E
 _02214588:
 	ldrb r3, [r4, #9]
@@ -4841,7 +4841,7 @@ _02214588:
 	add r1, r5, r1
 	mov r2, #4
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 _0221459E:
 	ldr r0, [sp, #8]
 	ldrh r1, [r7, r6]

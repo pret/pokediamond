@@ -247,7 +247,7 @@ MOD76_021D76B8: ; 0x021D76B8
 MOD76_021D76E8: ; 0x021D76E8
 	push {r3, lr}
 	ldr r0, [r0, #4]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
 	bl FUN_0200BC30
 	ldr r3, _021D7708 ; =0x027E0000
@@ -354,7 +354,7 @@ MOD76_021D7730: ; 0x021D7730
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x43
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x64
 	pop {r4, r5, pc}
 	nop
@@ -901,7 +901,7 @@ MOD76_021D7BE0: ; 0x021D7BE0
 	mov r2, #0
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	add r0, r5, #0
 	add r0, #0x18
 	bl FUN_0201958C
@@ -932,7 +932,7 @@ _021D7C3A:
 	add r3, r1, #0
 	mov r2, #0
 	add r3, #0xfe
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	add r0, r5, #0
 	add r0, #8
 	bl FUN_0201958C
@@ -1755,7 +1755,7 @@ _021D82E0:
 	blo _021D82E0
 	ldr r0, [r5, #4]
 	mov r1, #2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD76_021D82D8
 
@@ -1794,7 +1794,7 @@ _021D832E:
 _021D8344:
 	ldr r0, [r5, #4]
 	mov r1, #2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021D8350: .word 0x0000FFFF

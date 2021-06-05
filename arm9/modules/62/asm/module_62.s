@@ -7511,7 +7511,7 @@ MOD62_022310CC: ; 0x022310CC
 	bl FUN_0200372C
 	add r4, #0xe4
 	ldr r0, [r4]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _02231104 ; =0x027E0000
 	ldr r1, _02231108 ; =0x00003FF8
 	mov r0, #1

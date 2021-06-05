@@ -404,7 +404,7 @@ MOD63_021D782C: ; 0x021D782C
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D7834: .word FUN_0201AB60
+_021D7834: .word DoScheduledBgGpuUpdates
 	thumb_func_end MOD63_021D782C
 
 	thumb_func_start MOD63_021D7838
@@ -819,10 +819,10 @@ MOD63_021D7A48: ; 0x021D7A48
 	bl GX_EngineBToggleLayers
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0xb8
 	pop {r3, r4, r5, pc}
 	nop
@@ -2031,15 +2031,15 @@ _021D844C:
 	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	add r3, r4, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r2, _021D85CC ; =0x00000227
 	mov r0, #1
 	mov r1, #0x1a
@@ -2104,12 +2104,12 @@ _021D844C:
 	add r1, #2
 	mov r2, #2
 	mov r3, #0x42
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #4
 	add r1, sp, #0x1c
 	mov r2, #2
 	mov r3, #0x44
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

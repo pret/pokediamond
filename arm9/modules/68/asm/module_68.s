@@ -187,7 +187,7 @@ _021D767C: .word 0x04000050
 MOD68_021D7680: ; 0x021D7680
 	push {r3, lr}
 	ldr r0, [r0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D7698 ; =0x027E0000
 	ldr r1, _021D769C ; =0x00003FF8
 	mov r0, #1
@@ -272,7 +272,7 @@ MOD68_021D76C0: ; 0x021D76C0
 	mov r1, #2
 	mov r2, #3
 	mov r3, #8
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r5, _021D7770 ; =0x021D88F4
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -292,7 +292,7 @@ MOD68_021D76C0: ; 0x021D76C0
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x24
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x64
 	pop {r4, r5, pc}
 	nop

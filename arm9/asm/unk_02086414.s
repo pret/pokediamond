@@ -380,7 +380,7 @@ FUN_02086664: ; 0x02086664
 	ldr r0, [r4, #0x8]
 	bl FUN_0200372C
 	ldr r0, [r4, #0x4]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _02086690 ; =0x027E0000
 	ldr r1, _02086694 ; =0x00003FF8
 	mov r0, #0x1

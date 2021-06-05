@@ -1413,10 +1413,10 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #6
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _021D821C ; =0x00004753
 	mov r0, #6
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _021D8208 ; =0x0000C010
 	ldr r2, _021D8220 ; =0x021D8F40
 	ldr r0, [r5, r1]
@@ -1508,10 +1508,10 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #2
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, [r5]
 	mov r0, #0x10
 	bl String_ctor
@@ -1533,23 +1533,23 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	add r1, sp, #0x14
 	add r1, #2
 	add r2, r0, #0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #2
 	add r1, sp, #0x14
 	add r2, r0, #0
 	mov r3, #0x84
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #2
 	add r1, sp, #0x10
 	add r1, #2
 	add r2, r0, #0
 	mov r3, #0x86
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #2
 	add r1, sp, #0x10
 	add r2, r0, #0
 	mov r3, #0x9e
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r1, _021D8208 ; =0x0000C010
 	ldr r2, _021D823C ; =0x021D8F30
 	ldr r0, [r5, r1]

@@ -107,13 +107,13 @@ FUN_02034188: ; 0x02034188
 	mov r1, #0x20
 	add r2, r0, #0x0
 	add r3, r4, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _02034390 ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _02034390 ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r2, _02034394 ; =0x00000265
 	mov r0, #0x1
 	mov r1, #0x1a

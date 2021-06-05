@@ -1144,7 +1144,7 @@ _02065C64:
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r1, _02065CF0 ; =0x0000013B
 	mov r0, #0xf
 	ldrb r2, [r5, r1]
@@ -1376,7 +1376,7 @@ _02065E14:
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r1, _02065EE0 ; =0x0000013B
 	mov r0, #0xf
 	ldrb r2, [r5, r1]
@@ -1471,7 +1471,7 @@ _02065F7C:
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x4
 	pop {r3-r4, pc}
 
@@ -1510,7 +1510,7 @@ FUN_02065F8C: ; 0x02065F8C
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4

@@ -220,13 +220,13 @@ _02089A78:
 	ldr r3, [r4, #0x0]
 	mov r1, #0x20
 	add r2, r0, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x5c
 	pop {r4-r5, pc}
 	.balign 4
@@ -373,10 +373,10 @@ _02089C34:
 _02089C3C:
 	ldr r1, _02089CC8 ; =0x00006C21
 	add r0, r5, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _02089CC8 ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x6
 	mov r1, #0x1
 	str r0, [sp, #0x0]
@@ -424,10 +424,10 @@ _02089CA2:
 	bne _02089CC2
 	add r0, r5, #0x0
 	add r1, r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x4
 	add r1, r5, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x5
 	str r0, [r4, #0x4]
 	b _02089CC2

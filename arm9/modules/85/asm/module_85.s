@@ -431,7 +431,7 @@ MOD85_021D7818: ; 0x021D7818
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x4f
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r5, _021D78F8 ; =0x021DED44
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -578,7 +578,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, [r1, #0xc]
 	lsl r2, r2, #4
 	mov r3, #0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	add r0, r5, #0
 	bl FreeToHeap
 	mov r1, #0
@@ -598,7 +598,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r0, [r4, r0]
 	ldr r3, [r3, #0x10]
 	mov r1, #1
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -643,7 +643,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r0, [r4, r0]
 	ldr r3, [r3, #0x10]
 	mov r1, #2
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -686,7 +686,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r1, [r1, #0xc]
 	lsl r2, r2, #4
 	mov r3, #0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -706,7 +706,7 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r0, [r4, r0]
 	ldr r3, [r3, #0x10]
 	mov r1, #7
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -1462,7 +1462,7 @@ MOD85_021D80DC: ; 0x021D80DC
 	bl FUN_02009F80
 	ldr r0, _021D80F4 ; =0x0000043C
 	ldr r0, [r4, r0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	pop {r4, pc}
 	nop
 _021D80F4: .word 0x0000043C
@@ -8830,7 +8830,7 @@ MOD85_021DB69C: ; 0x021DB69C
 	lsr r0, r0, #0x18
 	mov r2, #0x20
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD85_021DB69C
@@ -10247,7 +10247,7 @@ MOD85_021DC050: ; 0x021DC050
 	ldr r0, _021DC090 ; =0x0000043C
 	mov r1, #1
 	ldr r0, [r4, r0]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0xc
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -10282,7 +10282,7 @@ MOD85_021DC094: ; 0x021DC094
 	ldr r0, _021DC0D4 ; =0x0000043C
 	mov r1, #1
 	ldr r0, [r4, r0]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0xc
 	pop {r4, r5, pc}
 	.align 2, 0

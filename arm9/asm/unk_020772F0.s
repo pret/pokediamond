@@ -1795,12 +1795,12 @@ FUN_02077B44: ; 0x02077B44
 	mov r1, #0x20
 	add r2, r0, #0x0
 	mov r3, #0x12
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x4
 	mov r1, #0x20
 	mov r2, #0x0
 	mov r3, #0x12
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x1
 	lsl r0, r0, #0x1a
 	add r4, r0, #0x0
@@ -2281,7 +2281,7 @@ FUN_02077FE8: ; 0x02077FE8
 	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x2

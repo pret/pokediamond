@@ -312,7 +312,7 @@ MOD64_021D77A4: ; 0x021D77A4
 	add r0, r4, #0
 	add r0, #0x94
 	ldr r0, [r0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
@@ -571,7 +571,7 @@ MOD64_021D7970: ; 0x021D7970
 	mov r1, #0x20
 	mov r2, #0
 	add r3, r4, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r5, #0
 	add r1, r7, #0
 	bl FUN_02018744
@@ -594,7 +594,7 @@ MOD64_021D7970: ; 0x021D7970
 	mov r1, #0x20
 	mov r2, #0
 	add r3, r4, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r5, #0
 	mov r1, #2
 	bl FUN_02018744
@@ -617,7 +617,7 @@ MOD64_021D7970: ; 0x021D7970
 	mov r1, #0x20
 	mov r2, #0
 	add r3, r4, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r5, #0
 	mov r1, #3
 	bl FUN_02018744

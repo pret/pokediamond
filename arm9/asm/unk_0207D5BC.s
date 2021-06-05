@@ -2845,7 +2845,7 @@ FUN_0207ED18: ; 0x0207ED18
 	bl FUN_0201958C
 	ldr r0, [r4, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r4, pc}
 
 	thumb_func_start FUN_0207ED30

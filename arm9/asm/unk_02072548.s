@@ -961,7 +961,7 @@ _02072C78:
 	add r1, r5, r1
 	mov r2, #0x4
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	b _02072CBE
 _02072C90:
 	ldrb r3, [r4, #0x9]
@@ -973,7 +973,7 @@ _02072C90:
 	add r1, r5, r1
 	mov r2, #0x4
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	b _02072CBE
 _02072CA8:
 	ldrb r3, [r4, #0x9]
@@ -985,7 +985,7 @@ _02072CA8:
 	add r1, r5, r1
 	mov r2, #0x4
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 _02072CBE:
 	ldr r0, [sp, #0x8]
 	ldrh r1, [r7, r6]

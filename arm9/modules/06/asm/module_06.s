@@ -168,7 +168,7 @@ MOD06_02239790: ; 0x02239790
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #3
 	bl FUN_02018744
@@ -14695,7 +14695,7 @@ MOD06_02240A28: ; 0x02240A28
 	add r1, #0x38
 	ldrb r1, [r1]
 	ldr r0, [r4, #0x34]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0
 	add r0, #0x34
 	bl RemoveWindow
@@ -14930,7 +14930,7 @@ _02240C1A:
 	add r1, #0x48
 	ldrb r1, [r1]
 	ldr r0, [r5, #0x44]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r5, #0
 	add r0, #0x44
 	bl RemoveWindow
@@ -15286,7 +15286,7 @@ MOD06_02240F1C: ; 0x02240F1C
 	add r1, #0x28
 	ldrb r1, [r1]
 	ldr r0, [r4, #0x24]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r4, #0x24
 	add r0, r4, #0
 	bl RemoveWindow
@@ -28496,7 +28496,7 @@ MOD06_02247544: ; 0x02247544
 	ldr r1, [r1, #0xc]
 	mov r2, #0x20
 	lsl r3, r0, #7
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r3, r4, r5, pc}
@@ -28521,7 +28521,7 @@ MOD06_0224756C: ; 0x0224756C
 	ldr r3, [r3, #0x10]
 	add r0, r5, #0
 	mov r1, #3
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	add r0, r6, #0
 	bl FreeToHeap
 	add sp, #4

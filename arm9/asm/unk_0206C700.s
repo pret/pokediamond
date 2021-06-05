@@ -2644,7 +2644,7 @@ FUN_0206DD08: ; 0x0206DD08
 	ldr r0, [r4, #0x14]
 	bl FUN_0200372C
 	ldr r0, [r4, #0x0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _0206DD64 ; =0x027E0000
 	ldr r1, _0206DD68 ; =0x00003FF8
 	mov r0, #0x1
