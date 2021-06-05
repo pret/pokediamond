@@ -776,7 +776,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0
 	add r1, r4, #0
 	str r3, [sp]

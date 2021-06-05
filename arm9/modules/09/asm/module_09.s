@@ -3181,7 +3181,7 @@ MOD09_02213790: ; 0x02213790
 	mov r1, #7
 	add r2, r5, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -3208,7 +3208,7 @@ MOD09_022137C0: ; 0x022137C0
 	mov r1, #7
 	add r2, r4, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0xe
 	str r0, [sp]
 	mov r0, #1
@@ -3226,7 +3226,7 @@ MOD09_022137C0: ; 0x022137C0
 	mov r1, #7
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0xf
 	str r0, [sp]
 	mov r0, #1
@@ -3244,7 +3244,7 @@ MOD09_022137C0: ; 0x022137C0
 	mov r1, #7
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0xf
 	str r0, [sp]
 	mov r0, #1
@@ -3261,7 +3261,7 @@ MOD09_022137C0: ; 0x022137C0
 	mov r1, #7
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -3425,7 +3425,7 @@ _02213976:
 	lsr r1, r1, #0x18
 	add r2, #0xc
 	mov r3, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	mov r0, #0x79
 	lsl r0, r0, #2
 	add r1, r4, #6
@@ -11750,7 +11750,7 @@ MOD09_02217F88: ; 0x02217F88
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #6
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	mov r0, #0x79
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -14196,7 +14196,7 @@ MOD09_02219368: ; 0x02219368
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [r4, #4]
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	mov r0, #0x1c
 	str r0, [sp]
 	mov r0, #8
@@ -14211,7 +14211,7 @@ MOD09_02219368: ; 0x02219368
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [r4, #4]
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 _022193B2:
 	add sp, #0xc
 	pop {r3, r4, pc}
@@ -14795,7 +14795,7 @@ MOD09_0221983C: ; 0x0221983C
 	ldr r0, [r4, #4]
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r5, #0
 _0221985E:
 	add r0, r4, #0
@@ -16848,7 +16848,7 @@ MOD09_0221A884: ; 0x0221A884
 	str r7, [sp, #8]
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r0, [r5, #4]
 	mov r1, #6
 	bl ScheduleBgTilemapBufferTransfer

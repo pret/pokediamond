@@ -1065,7 +1065,7 @@ MOD16_021D7CC8: ; 0x021D7CC8
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r1, [r5, #0x14]
 	ldr r6, [r5, #0x1c]
 	add r0, r1, #0
@@ -1106,7 +1106,7 @@ MOD16_021D7CC8: ; 0x021D7CC8
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 _021D7D4C:
 	mov r0, #0x20
 	sub r3, r0, r4
@@ -1130,7 +1130,7 @@ _021D7D4C:
 	ldr r0, [r5]
 	lsr r1, r1, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 _021D7D7C:
 	ldr r1, [r5, #8]
 	ldr r0, [r5]
@@ -11429,7 +11429,7 @@ MOD16_021DC860: ; 0x021DC860
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [r5]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -11454,7 +11454,7 @@ MOD16_021DC860: ; 0x021DC860
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [r5]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]
@@ -14854,7 +14854,7 @@ _021DE2AC:
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	add r0, r6, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r6, #0
@@ -15438,7 +15438,7 @@ MOD16_021DE788: ; 0x021DE788
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	add r0, r4, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -17304,7 +17304,7 @@ MOD16_021DF514: ; 0x021DF514
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r0, [sp, #0x10]
 	bl FreeToHeap
 	cmp r7, #3
@@ -17361,7 +17361,7 @@ _021DF584:
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -18761,7 +18761,7 @@ MOD16_021DFFE0: ; 0x021DFFE0
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -25958,7 +25958,7 @@ MOD16_021E3348: ; 0x021E3348
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r7, #0
 	bl FreeToHeap
 	ldr r1, [r6]
@@ -25989,7 +25989,7 @@ MOD16_021E3348: ; 0x021E3348
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r7, #0
 	bl FreeToHeap
 _021E33E6:
@@ -26021,7 +26021,7 @@ _021E33E6:
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r7, #0
 	bl FreeToHeap
 _021E342A:
@@ -26053,7 +26053,7 @@ _021E342A:
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r7, #0
 	bl FreeToHeap
 _021E346E:
@@ -26085,7 +26085,7 @@ _021E346E:
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 _021E34B2:
@@ -28428,7 +28428,7 @@ MOD16_021E4634: ; 0x021E4634
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -29649,7 +29649,7 @@ MOD16_021E4F1C: ; 0x021E4F1C
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -29674,7 +29674,7 @@ MOD16_021E4F1C: ; 0x021E4F1C
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -29700,7 +29700,7 @@ MOD16_021E4F1C: ; 0x021E4F1C
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -29726,7 +29726,7 @@ MOD16_021E4F1C: ; 0x021E4F1C
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]
@@ -31837,7 +31837,7 @@ MOD16_021E5FA4: ; 0x021E5FA4
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -34357,7 +34357,7 @@ MOD16_021E71D0: ; 0x021E71D0
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -34382,7 +34382,7 @@ MOD16_021E71D0: ; 0x021E71D0
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -34408,7 +34408,7 @@ MOD16_021E71D0: ; 0x021E71D0
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -34434,7 +34434,7 @@ MOD16_021E71D0: ; 0x021E71D0
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]
@@ -36577,7 +36577,7 @@ MOD16_021E82B8: ; 0x021E82B8
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -36603,7 +36603,7 @@ MOD16_021E82B8: ; 0x021E82B8
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -36629,7 +36629,7 @@ MOD16_021E82B8: ; 0x021E82B8
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]
@@ -38728,7 +38728,7 @@ _021E932E:
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]
@@ -39868,7 +39868,7 @@ _021E9B9E:
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]
@@ -41560,7 +41560,7 @@ MOD16_021EA7F0: ; 0x021EA7F0
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -43594,7 +43594,7 @@ MOD16_021EB724: ; 0x021EB724
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	ldr r0, [r5]
@@ -43634,7 +43634,7 @@ MOD16_021EB724: ; 0x021EB724
 	str r0, [sp, #8]
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]
@@ -45562,7 +45562,7 @@ MOD16_021EC5A8: ; 0x021EC5A8
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -47021,7 +47021,7 @@ MOD16_021ED0D0: ; 0x021ED0D0
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -48319,7 +48319,7 @@ MOD16_021EDA7C: ; 0x021EDA7C
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -50510,7 +50510,7 @@ MOD16_021EEB50: ; 0x021EEB50
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -52092,7 +52092,7 @@ MOD16_021EF790: ; 0x021EF790
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -52116,7 +52116,7 @@ MOD16_021EF790: ; 0x021EF790
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -52141,7 +52141,7 @@ MOD16_021EF790: ; 0x021EF790
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r6, #0
 	bl FreeToHeap
 	str r4, [sp]
@@ -52166,7 +52166,7 @@ MOD16_021EF790: ; 0x021EF790
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	add r0, r5, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
@@ -52214,7 +52214,7 @@ MOD16_021EF8A8: ; 0x021EF8A8
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	add r0, r4, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0

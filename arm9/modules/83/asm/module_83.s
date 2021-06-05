@@ -446,7 +446,7 @@ _0222D8B2:
 	mov r1, #1
 	add r2, r6, #0
 	add r3, r7, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -1613,7 +1613,7 @@ _0222E206:
 	ldr r2, [sp, #0x10]
 	ldr r3, [sp, #0x14]
 	mov r1, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	b _0222E294
 _0222E256:
 	mov r1, #1
@@ -1640,7 +1640,7 @@ _0222E256:
 	ldr r2, [sp, #0x18]
 	ldr r3, [sp, #0x1c]
 	mov r1, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 _0222E294:
 	add r4, r4, #1
 	add r5, #0x10
@@ -2618,7 +2618,7 @@ _0222E960:
 	ldr r0, [r4, #4]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, [r4, #4]
 	mov r1, #1
 	bl FUN_02017CD0
@@ -2683,7 +2683,7 @@ MOD83_0222EA88: ; 0x0222EA88
 	ldr r0, [r4, #4]
 	mov r1, #4
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, [r4, #4]
 	mov r1, #4
 	bl FUN_02017CD0
@@ -5728,7 +5728,7 @@ MOD83_022302B4: ; 0x022302B4
 	add r0, r4, #0
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r4, #0
 	mov r1, #5
 	bl FUN_02017CD0
@@ -5788,7 +5788,7 @@ MOD83_02230330: ; 0x02230330
 	add r0, r4, #0
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r4, #0
 	mov r1, #1
 	bl FUN_02017CD0
@@ -8332,7 +8332,7 @@ MOD83_02231820: ; 0x02231820
 	add r0, r4, #0
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r4, #0
 	mov r1, #1
 	bl FUN_02017CD0
@@ -9509,7 +9509,7 @@ _0223219C:
 	ldr r0, [r5, r0]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, _02232204 ; =0x0000299C
 	mov r1, #3
 	ldr r0, [r5, r0]
@@ -17601,7 +17601,7 @@ MOD83_02235FBC: ; 0x02235FBC
 	mov r1, #2
 	str r0, [sp, #8]
 	ldr r0, [r4, #0x20]
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, [r4, #0x20]
 	mov r1, #2
 	bl FUN_02017CD0
@@ -17859,7 +17859,7 @@ _02236148:
 	mov r1, #2
 	str r0, [sp, #8]
 	ldr r0, [r6, #0x20]
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, [r6, #0x20]
 	mov r1, #2
 	bl FUN_02017CD0
@@ -24245,7 +24245,7 @@ MOD83_022391EC: ; 0x022391EC
 	add r0, r5, #0
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r5, #0
 	mov r1, #5
 	bl FUN_02017CD0

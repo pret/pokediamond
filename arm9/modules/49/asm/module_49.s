@@ -402,7 +402,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	ldr r0, [r5, #4]
 	mov r1, #6
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C

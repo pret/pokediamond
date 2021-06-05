@@ -10243,7 +10243,7 @@ MOD85_021DC050: ; 0x021DC050
 	mov r1, #1
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, _021DC090 ; =0x0000043C
 	mov r1, #1
 	ldr r0, [r4, r0]
@@ -10278,7 +10278,7 @@ MOD85_021DC094: ; 0x021DC094
 	mov r1, #1
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, _021DC0D4 ; =0x0000043C
 	mov r1, #1
 	ldr r0, [r4, r0]

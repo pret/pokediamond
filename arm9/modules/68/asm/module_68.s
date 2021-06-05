@@ -393,7 +393,7 @@ _021D7812:
 	mov r1, #1
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]

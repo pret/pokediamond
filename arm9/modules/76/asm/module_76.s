@@ -1683,7 +1683,7 @@ MOD76_021D8244: ; 0x021D8244
 	mov r1, #2
 	add r2, r4, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #5
 	str r0, [sp]
 	mov r0, #1
@@ -1699,7 +1699,7 @@ MOD76_021D8244: ; 0x021D8244
 	mov r1, #2
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #1
@@ -1715,7 +1715,7 @@ MOD76_021D8244: ; 0x021D8244
 	mov r1, #2
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #1
@@ -1730,7 +1730,7 @@ MOD76_021D8244: ; 0x021D8244
 	mov r1, #2
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0

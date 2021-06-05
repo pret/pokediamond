@@ -1039,7 +1039,7 @@ FUN_0207DD88: ; 0x0207DD88
 	ldr r0, [r4, #0x0]
 	mov r1, #0x1
 	add r3, r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	mov r0, #0x12
@@ -1052,7 +1052,7 @@ FUN_0207DD88: ; 0x0207DD88
 	mov r1, #0x1
 	mov r2, #0x0
 	mov r3, #0xe
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, _0207DE38 ; =0x0000068C
 	ldrsb r0, [r4, r0]
 	cmp r0, #0x7

@@ -8780,7 +8780,7 @@ MOD06_0223D918: ; 0x0223D918
 	ldr r0, [r4]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #0
 	bl MOD06_0223D7B8
 	add r0, r4, #0
@@ -28568,7 +28568,7 @@ MOD06_022475A4: ; 0x022475A4
 	add r0, r5, #0
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r5, #0
 	mov r1, #3
 	bl FUN_02017CD0
@@ -41381,7 +41381,7 @@ _0224D8DC:
 	ldr r0, [r4, #0x14]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0x61
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -42780,7 +42780,7 @@ _0224E448:
 	ldr r0, [r5, #4]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #4]
 	mov r1, #3
 	bl FUN_02017CD0

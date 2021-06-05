@@ -2256,7 +2256,7 @@ MOD57_021D86E8: ; 0x021D86E8
 	mov r1, #7
 	mov r2, #0
 	mov r3, #0x14
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x10
 	pop {r3, pc}
 	.align 2, 0

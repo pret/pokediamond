@@ -4874,7 +4874,7 @@ _021D9B02:
 	mov r1, #5
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	mov r0, #0xa
 	ldr r3, [sp, #0x1c]
 	str r0, [sp]
@@ -4890,7 +4890,7 @@ _021D9B02:
 	mov r1, #5
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r7, [r5, #0x1c]
 	mov r2, #0x13
 	ldr r0, [r5, #0x18]
@@ -5081,7 +5081,7 @@ _021D9CD8:
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [r5, #4]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r1, [r5, #0x24]
 	mov r2, #0
 	ldrh r0, [r1]
@@ -5097,7 +5097,7 @@ _021D9CD8:
 	mov r0, #3
 	str r0, [sp, #8]
 	ldr r0, [r5, #4]
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r3, r5, #0
 	str r4, [sp]
 	mov r0, #0x7a
@@ -6029,7 +6029,7 @@ MOD73_021DA374: ; 0x021DA374
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [r4, #4]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r1, [sp, #0x10]
 	mov r2, #0
 	ldrh r0, [r1]
@@ -6045,7 +6045,7 @@ MOD73_021DA374: ; 0x021DA374
 	mov r0, #4
 	str r0, [sp, #8]
 	ldr r0, [r4, #4]
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r5, #0
 	bl FreeToHeap
 	ldr r0, [r4, #4]

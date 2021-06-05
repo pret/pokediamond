@@ -2090,7 +2090,7 @@ MOD66_021D84C8: ; 0x021D84C8
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x28]
-	bl FUN_020181EC
+	bl CopyRectToBgTilemapRect
 	add r4, #0x84
 	ldr r0, [r4]
 	mov r1, #1
@@ -2302,7 +2302,7 @@ MOD66_021D868C: ; 0x021D868C
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r5, #0x28]
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 _021D86CA:
 	add r0, r5, #0
 	add r0, #0xcc
@@ -2333,7 +2333,7 @@ _021D86CA:
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r5, #0x28]
-	bl FUN_020181EC
+	bl CopyRectToBgTilemapRect
 	add sp, #0x1c
 	pop {r4, r5, pc}
 	thumb_func_end MOD66_021D868C
@@ -2394,7 +2394,7 @@ MOD66_021D870C: ; 0x021D870C
 	ldrb r2, [r3, #2]
 	ldrb r3, [r3, #3]
 	ldr r0, [r5, #0x28]
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	add r0, r5, #0
 	add r0, #0xd4
 	ldrb r1, [r7, #4]
@@ -2423,7 +2423,7 @@ MOD66_021D870C: ; 0x021D870C
 	ldrb r2, [r7, #2]
 	ldrb r3, [r7, #3]
 	ldr r0, [r5, #0x28]
-	bl FUN_020181EC
+	bl CopyRectToBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	cmp r0, #2
 	beq _021D882E
@@ -2453,7 +2453,7 @@ MOD66_021D870C: ; 0x021D870C
 	ldrb r2, [r6, #2]
 	ldrb r3, [r6, #3]
 	ldr r0, [r5, #0x28]
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	add r0, r5, #0
 	add r0, #0xd4
 	ldrb r1, [r4, #4]
@@ -2480,7 +2480,7 @@ MOD66_021D870C: ; 0x021D870C
 	ldrb r2, [r4, #2]
 	ldrb r3, [r4, #3]
 	ldr r0, [r5, #0x28]
-	bl FUN_020181EC
+	bl CopyRectToBgTilemapRect
 _021D882E:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
@@ -2516,7 +2516,7 @@ MOD66_021D8838: ; 0x021D8838
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x28]
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	add r0, r4, #0
 	add r0, #0xbc
 	mov r2, #0
@@ -2541,7 +2541,7 @@ MOD66_021D8838: ; 0x021D8838
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x28]
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldrb r0, [r4]
 	cmp r0, #1
 	beq _021D88DE
@@ -2569,7 +2569,7 @@ MOD66_021D8838: ; 0x021D8838
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x28]
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 _021D88DE:
 	add r0, r4, #0
 	mov r1, #0
@@ -2598,7 +2598,7 @@ _021D88DE:
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x28]
-	bl FUN_020181EC
+	bl CopyRectToBgTilemapRect
 	add r0, r4, #0
 	add r0, #0xc4
 	mov r2, #0
@@ -2622,7 +2622,7 @@ _021D88DE:
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r4, #0x28]
-	bl FUN_020181EC
+	bl CopyRectToBgTilemapRect
 	ldrh r1, [r4, #2]
 	mov r0, #1
 	tst r0, r1
@@ -2709,7 +2709,7 @@ MOD66_021D89B8: ; 0x021D89B8
 	ldr r0, [r4, #0x28]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -2720,7 +2720,7 @@ MOD66_021D89B8: ; 0x021D89B8
 	ldr r0, [r4, #0x28]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -2731,7 +2731,7 @@ MOD66_021D89B8: ; 0x021D89B8
 	ldr r0, [r4, #0x28]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -2742,7 +2742,7 @@ MOD66_021D89B8: ; 0x021D89B8
 	ldr r0, [r4, #0x28]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -2753,7 +2753,7 @@ MOD66_021D89B8: ; 0x021D89B8
 	ldr r0, [r4, #0x28]
 	mov r1, #4
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -2764,7 +2764,7 @@ MOD66_021D89B8: ; 0x021D89B8
 	ldr r0, [r4, #0x28]
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -2775,7 +2775,7 @@ MOD66_021D89B8: ; 0x021D89B8
 	ldr r0, [r4, #0x28]
 	mov r1, #6
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -2786,7 +2786,7 @@ MOD66_021D89B8: ; 0x021D89B8
 	ldr r0, [r4, #0x28]
 	mov r1, #7
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r4, #0x28]
 	mov r1, #0
 	bl ScheduleBgTilemapBufferTransfer
@@ -3416,7 +3416,7 @@ _021D8F7C:
 	ldr r0, [r5, #0x28]
 	mov r1, #4
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -3427,7 +3427,7 @@ _021D8F7C:
 	ldr r0, [r5, #0x28]
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r1, r4, #0
 	add r0, r5, #0
 	add r1, #0x68
@@ -3527,7 +3527,7 @@ _021D9066:
 	ldr r0, [r5, #0x28]
 	mov r1, #4
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r5, #0
 	mov r1, #0
 	mov r2, #1

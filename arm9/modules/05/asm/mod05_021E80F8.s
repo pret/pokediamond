@@ -192,7 +192,7 @@ MOD05_021E820C: ; 0x021E820C
 	ldr r0, [r4, #8]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r4, #8]
 	mov r1, #3
 	bl FUN_02017CD0
@@ -270,7 +270,7 @@ MOD05_021E82A0: ; 0x021E82A0
 	ldr r0, [r4, #8]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r4, #8]
 	mov r1, #3
 	bl FUN_02017CD0

@@ -843,7 +843,7 @@ MOD59_021D7C10: ; 0x021D7C10
 	ldr r0, [r5, #0x18]
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	lsl r1, r4, #0x18
 	ldr r0, [r5, #0x18]
 	lsr r1, r1, #0x18
@@ -1696,7 +1696,7 @@ _021D82C8:
 	ldr r0, [r5, #0x18]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0xb
 	str r3, [sp]
 	mov r0, #0xa
@@ -1705,7 +1705,7 @@ _021D82C8:
 	ldr r0, [r5, #0x18]
 	mov r1, #2
 	add r2, r7, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	mov r1, #2
 	mov r2, #9
@@ -1746,7 +1746,7 @@ _021D82C8:
 	ldr r0, [r5, #0x18]
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #7
 	str r0, [sp]
 	mov r0, #0xa
@@ -1756,7 +1756,7 @@ _021D82C8:
 	mov r1, #5
 	add r2, r7, #0
 	mov r3, #0xb
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0xa

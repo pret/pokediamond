@@ -32,7 +32,7 @@ extern void MOD20_02252D7C(u32 param0, u32 param1);
 extern void FUN_02017CD0(u32 param0, u32 param1);
 extern void FUN_020178A0(u32 param0, u32 param1);
 
-extern void FUN_02018170(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 *param6, u8 param7, u32 param8, u32 param9, u32 param10);
+extern void CopyToBgTilemapRect(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 *param6, u8 param7, u32 param8, u32 param9, u32 param10);
 
 extern void MOD11_02252DB4(u32 param0, u32 param1);
 
@@ -168,8 +168,8 @@ THUMB_FUNC void MOD21_02254C5C(UnkStruct02254A6C *param0)
     while (reg_CP_DIVCNT & (regaddr >> 0xb)) { }
 
     u32 divRemRes = reg_CP_DIVREM_RESULT_L;
-    FUN_02018170(param0->Unk04, 6, 3, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
-    FUN_02018170(param0->Unk04, 6, 8, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
+    CopyToBgTilemapRect(param0->Unk04, 6, 3, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
+    CopyToBgTilemapRect(param0->Unk04, 6, 8, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
 
     tmp = param0->Unk00->Unk04;
     reg_CP_DIVCNT = 0;
@@ -182,6 +182,6 @@ THUMB_FUNC void MOD21_02254C5C(UnkStruct02254A6C *param0)
     while (reg_CP_DIVCNT & (regaddr >> 0xb)) { }
 
     divRemRes = reg_CP_DIVREM_RESULT_L;
-    FUN_02018170(param0->Unk04, 6, 15, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
-    FUN_02018170(param0->Unk04, 6, 20, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
+    CopyToBgTilemapRect(param0->Unk04, 6, 15, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
+    CopyToBgTilemapRect(param0->Unk04, 6, 20, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
 }

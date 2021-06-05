@@ -540,7 +540,7 @@ MOD27_02254C08: ; 0x02254C08
 	ldr r0, [r4, #4]
 	mov r1, #6
 	mov r2, #5
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0
 	add r1, r0, #0
 	bl MOD20_02252D7C
@@ -686,7 +686,7 @@ MOD27_02254D60: ; 0x02254D60
 	sub r3, r3, #1
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldrb r0, [r5, #6]
 	mov r1, #6
 	mov r2, #2
@@ -702,7 +702,7 @@ MOD27_02254D60: ; 0x02254D60
 	str r0, [sp, #0xc]
 	ldrb r3, [r5, #5]
 	ldr r0, [r4, #4]
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldrb r0, [r5, #6]
 	ldr r2, _02254E98 ; =0x00000401
 	mov r1, #6
@@ -721,7 +721,7 @@ MOD27_02254D60: ; 0x02254D60
 	add r3, r6, r3
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldrb r0, [r5, #6]
 	mov r1, #6
 	add r2, r1, #0
@@ -737,7 +737,7 @@ MOD27_02254D60: ; 0x02254D60
 	sub r3, r3, #1
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldrb r0, [r5, #6]
 	ldr r2, _02254E9C ; =0x00000406
 	mov r1, #6
@@ -754,7 +754,7 @@ MOD27_02254D60: ; 0x02254D60
 	add r3, r6, r3
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldrb r1, [r5, #6]
 	ldrb r0, [r5, #8]
 	ldr r2, _02254EA0 ; =0x00000801
@@ -773,7 +773,7 @@ MOD27_02254D60: ; 0x02254D60
 	sub r3, r3, #1
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldrb r1, [r5, #6]
 	ldrb r0, [r5, #8]
 	ldr r2, _02254EA4 ; =0x00000802
@@ -790,7 +790,7 @@ MOD27_02254D60: ; 0x02254D60
 	str r0, [sp, #0xc]
 	ldrb r3, [r5, #5]
 	ldr r0, [r4, #4]
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldrb r1, [r5, #6]
 	ldrb r0, [r5, #8]
 	ldr r2, _02254EA8 ; =0x00000C01
@@ -810,7 +810,7 @@ MOD27_02254D60: ; 0x02254D60
 	add r3, r4, r3
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	nop
@@ -1412,7 +1412,7 @@ MOD27_022552D0: ; 0x022552D0
 	ldr r0, [r5, #4]
 	mov r1, #6
 	mov r2, #5
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD27_02254F18

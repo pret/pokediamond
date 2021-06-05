@@ -1281,7 +1281,7 @@ _021D7E00:
 	ldr r0, [r5, #0x18]
 	ldr r2, _021D7FAC ; =0x00002001
 	mov r1, #4
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r2, #0
 	ldr r0, [r5, #0x3c]
 	mov r1, #0x20
@@ -1304,7 +1304,7 @@ _021D7E00:
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r5, #0x18]
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldr r0, [r5, #0x18]
 	mov r1, #3
 	bl ScheduleBgTilemapBufferTransfer
@@ -1336,7 +1336,7 @@ _021D7E00:
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r5, #0x18]
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldr r0, [r5, #0x18]
 	mov r1, #2
 	bl ScheduleBgTilemapBufferTransfer

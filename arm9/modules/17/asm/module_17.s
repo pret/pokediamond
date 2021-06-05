@@ -10150,7 +10150,7 @@ MOD17_021DC004: ; 0x021DC004
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]
@@ -10171,7 +10171,7 @@ MOD17_021DC004: ; 0x021DC004
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	lsl r1, r5, #0x18
 	add r0, r7, #0
 	lsr r1, r1, #0x18
@@ -14066,7 +14066,7 @@ _021DDD96:
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [r5, #0x4c]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r1, [sp, #0x10]
 	mov r2, #0
 	ldrh r0, [r1]
@@ -14083,7 +14083,7 @@ _021DDD96:
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [r5, #0x4c]
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r6, #0
 	bl FreeToHeap
 	ldr r0, [r5, #0x4c]

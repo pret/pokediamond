@@ -468,7 +468,7 @@ _02002700:
 	ldrb r2, [r2, #0x0]
 	ldrb r3, [r3, #0x0]
 	ldr r0, [r4, #0x4]
-	bl FUN_0201974C
+	bl CopyGlyphToWindow
 	add r5, #0x80
 	ldrb r1, [r5, #0x0]
 	ldrb r0, [r4, #0xe]
@@ -723,7 +723,7 @@ _020028AC:
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x20]
 	add r0, r0, #0x2
@@ -752,7 +752,7 @@ _020028AC:
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x28]
 	add r7, r6, #0x0
 	add r0, r0, #0x3
@@ -781,7 +781,7 @@ _020028AC:
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x14]
 	add r6, #0x15
 	lsl r0, r0, #0x18
@@ -807,7 +807,7 @@ _020028AC:
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #0x4]
 	ldr r1, [sp, #0x20]
 	ldr r0, [r0, #0x0]
@@ -878,7 +878,7 @@ FUN_02002A00: ; 0x02002A00
 	ldr r1, [sp, #0x10]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -897,7 +897,7 @@ FUN_02002A00: ; 0x02002A00
 	ldr r1, [sp, #0x10]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #0x4]
 	ldr r1, [sp, #0x10]
 	ldr r0, [r0, #0x0]

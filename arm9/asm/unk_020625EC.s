@@ -1080,7 +1080,7 @@ FUN_02062DB0: ; 0x02062DB0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
 	add r3, r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #0x0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
@@ -1213,7 +1213,7 @@ FUN_02062EC4: ; 0x02062EC4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
 	add r3, r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #0x0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]

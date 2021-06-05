@@ -4366,7 +4366,7 @@ MOD75_021E8DAC: ; 0x021E8DAC
 	ldr r2, _021E8E08 ; =0x021EC5C0
 	mov r1, #1
 	mov r3, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	add r0, #0xfc
 	ldr r0, [r0]
@@ -4383,7 +4383,7 @@ _021E8DDA:
 	ldr r2, _021E8E0C ; =0x021EC5F2
 	mov r1, #1
 	mov r3, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	add r0, #0xfc
 	ldr r0, [r0]
@@ -7689,7 +7689,7 @@ _021EA828:
 	mov r1, #2
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0xe
 	str r0, [sp]
 	mov r0, #1
@@ -7705,7 +7705,7 @@ _021EA828:
 	mov r1, #2
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10

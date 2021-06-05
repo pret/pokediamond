@@ -701,7 +701,7 @@ _021D7A06:
 	mov r2, #0
 	ldr r0, [r5, #0x10]
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, [r5, #0x10]
 	mov r1, #1
 	bl FUN_02017CD0
@@ -745,7 +745,7 @@ _021D7A06:
 	ldr r0, [r5, #0x10]
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, [r5, #0x10]
 	mov r1, #5
 	bl FUN_02017CD0

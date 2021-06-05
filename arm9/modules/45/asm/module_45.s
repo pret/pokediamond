@@ -825,7 +825,7 @@ MOD45_02254E28: ; 0x02254E28
 	mov r1, #7
 	add r2, r6, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -846,7 +846,7 @@ MOD45_02254E74: ; 0x02254E74
 	ldr r0, [r7, #4]
 	mov r1, #6
 	mov r2, #0x82
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r7, #4]
 	ldr r1, [r6]
 	bl MOD45_02254EBC
@@ -902,7 +902,7 @@ _02254ED6:
 	mov r1, #6
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r5, r5, #1
 	cmp r5, #4
 	blt _02254ED6
@@ -975,7 +975,7 @@ _02254F46:
 	mov r1, #6
 	add r2, r7, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r5, #1
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -992,7 +992,7 @@ _02254F46:
 	mov r1, #6
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 _02254FAE:
 	mov r0, #0x14
 	add r3, r6, #0
@@ -1016,7 +1016,7 @@ _02254FAE:
 	mov r1, #6
 	add r2, r6, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r5, #1
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -1034,7 +1034,7 @@ _02254FAE:
 	mov r1, #6
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

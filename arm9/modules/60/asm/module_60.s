@@ -761,7 +761,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	ldr r0, [r5, #0x14]
 	mov r1, #2
 	mov r2, #1
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20
@@ -772,7 +772,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	ldr r0, [r5, #0x14]
 	mov r1, #4
 	mov r2, #1
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #0x28]
 	mov r1, #0x20
 	str r1, [sp]
@@ -795,7 +795,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x18]
 	ldr r0, [r5, #0x14]
-	bl FUN_020181EC
+	bl CopyRectToBgTilemapRect
 	mov r2, #3
 	add r3, r2, #0
 	ldr r0, [r5, #0x14]

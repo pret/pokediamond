@@ -613,7 +613,7 @@ _021D79AC:
 	ldrb r1, [r4, r1]
 	ldr r0, [r4]
 	add r2, r4, r2
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	mov r3, #0
 	add r2, r4, #0
 	str r3, [sp]
@@ -624,7 +624,7 @@ _021D79AC:
 	ldr r0, [r4]
 	ldrb r1, [r4, r1]
 	add r2, #0x5c
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r1, _021D7A34 ; =0x00001062
 	ldr r0, [r4]
 	ldrb r1, [r4, r1]
@@ -826,7 +826,7 @@ MOD67_021D7B5C: ; 0x021D7B5C
 	ldr r0, [r5]
 	add r3, r2, #0
 	add r4, r1, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	ldr r0, [r5]
 	add r1, r4, #0
 	bl ScheduleBgTilemapBufferTransfer
@@ -890,7 +890,7 @@ _021D7BCA:
 	ldr r1, [sp, #0x18]
 	mov r2, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	b _021D7C10
 _021D7BF0:
 	ldr r0, [sp, #0x14]

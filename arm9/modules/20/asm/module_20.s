@@ -1634,7 +1634,7 @@ MOD20_02252ED0: ; 0x02252ED0
 	ldr r0, [r4, r0]
 	mov r1, #5
 	mov r2, #0xd8
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
@@ -1738,7 +1738,7 @@ _02253048:
 	mov r1, #5
 	mov r2, #0x40
 	mov r3, #2
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	cmp r7, #0
 	beq _022530DA
 	sub r0, r6, #1
@@ -1759,7 +1759,7 @@ _02253048:
 	mov r1, #5
 	lsr r2, r2, #0x10
 	mov r3, #2
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x14]
 	mov r2, #0xd8
 	add r0, r6, r0
@@ -1779,7 +1779,7 @@ _02253048:
 	mov r1, #5
 	lsr r2, r2, #0x10
 	mov r3, #2
-	bl FUN_02018540
+	bl FillBgTilemapRect
 _022530DA:
 	mov r0, #6
 	lsl r0, r0, #6
@@ -1870,7 +1870,7 @@ _02253158:
 	ldr r0, [r5, r0]
 	mov r1, #5
 	mov r2, #0xd8
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x14]
 	lsl r1, r7, #0x18
 	lsl r0, r0, #0x18
@@ -1887,7 +1887,7 @@ _02253158:
 	mov r1, #5
 	mov r2, #0xd8
 	mov r3, #2
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	cmp r6, #0
 	beq _02253202
 	mov r0, #0
@@ -1907,7 +1907,7 @@ _02253158:
 	mov r1, #5
 	lsr r2, r2, #0x10
 	mov r3, #2
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x14]
 	add r6, #0xd4
 	sub r0, r0, #1
@@ -1926,7 +1926,7 @@ _02253158:
 	mov r1, #5
 	lsr r2, r2, #0x10
 	mov r3, #2
-	bl FUN_02018540
+	bl FillBgTilemapRect
 _02253202:
 	mov r0, #6
 	lsl r0, r0, #6
@@ -1978,7 +1978,7 @@ MOD20_02253228: ; 0x02253228
 	ldr r0, [r4, r0]
 	mov r1, #5
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r6, #0
 	add r0, #0xa9
 	ldr r0, [r4, r0]
@@ -2026,7 +2026,7 @@ MOD20_0225328C: ; 0x0225328C
 	ldr r0, [r4, r0]
 	mov r1, #5
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r6, #0
 	add r0, #0xa5
 	ldr r0, [r4, r0]
@@ -2063,7 +2063,7 @@ MOD20_022532F0: ; 0x022532F0
 	ldr r0, [r4, r0]
 	add r2, #0x84
 	mov r3, #0x1b
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
@@ -2098,7 +2098,7 @@ MOD20_02253338: ; 0x02253338
 	ldr r0, [r4, r0]
 	add r2, #0x2c
 	mov r3, #0x1b
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
@@ -2130,7 +2130,7 @@ MOD20_02253378: ; 0x02253378
 	ldr r0, [r4, r0]
 	add r2, #0xdc
 	mov r3, #0x1b
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
@@ -2468,7 +2468,7 @@ _0225361C:
 	ldr r0, [r4, r0]
 	mov r1, #5
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
@@ -2510,7 +2510,7 @@ MOD20_02253668: ; 0x02253668
 	ldr r0, [r4, r0]
 	mov r1, #5
 	mov r2, #0x40
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
@@ -3118,7 +3118,7 @@ MOD20_02253AA4: ; 0x02253AA4
 	add r2, sp, #0xc
 	mov r3, #9
 	add r6, r0, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	mov r1, #4
 	add r0, sp, #0xc
 	strh r1, [r0]
@@ -3137,7 +3137,7 @@ MOD20_02253AA4: ; 0x02253AA4
 	add r0, r6, #0
 	lsr r1, r1, #0x18
 	add r2, sp, #0xc
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	mov r1, #6
 	add r0, sp, #0xc
 	strh r1, [r0]
@@ -3157,7 +3157,7 @@ MOD20_02253AA4: ; 0x02253AA4
 	lsr r1, r1, #0x18
 	add r2, sp, #0xc
 	mov r3, #0xd
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	mov r1, #0xa
 	bl _u32_div_f
@@ -3189,7 +3189,7 @@ MOD20_02253AA4: ; 0x02253AA4
 	lsr r1, r1, #0x18
 	add r2, sp, #0xc
 	mov r3, #0xf
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #4
 	lsr r1, r0, #2
 	lsl r0, r0, #0x1e
@@ -3215,7 +3215,7 @@ MOD20_02253AA4: ; 0x02253AA4
 	lsr r1, r1, #0x18
 	add r2, sp, #0xc
 	mov r3, #0x11
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add sp, #0x14
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0

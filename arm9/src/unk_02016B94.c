@@ -45,9 +45,9 @@ void (*const sCopyWindowToVramFuncs[])(struct Window *) = {
 };
 
 void (*const UNK_020EDB74[])(struct Window *) = {
-    FUN_020193B4,
-    FUN_02019444,
-    FUN_020193B4,
+    ClearWindowTilemapText,
+    ClearWindowTilemapAffine,
+    ClearWindowTilemapText,
 };
 
 THUMB_FUNC struct BgConfig *FUN_02016B94(u32 heap_id)
@@ -224,7 +224,7 @@ THUMB_FUNC void FUN_02016C18(
         param0->bgs[param1].unk10 = 0;
     }
 
-    param0->bgs[param1].unk1d = template->unk10;
+    param0->bgs[param1].size = template->unk10;
     param0->bgs[param1].mode = bgMode;
     param0->bgs[param1].colorMode = template->colorMode;
 
@@ -501,19 +501,19 @@ THUMB_FUNC u8 FUN_020177DC(u8 param0, u32 param1)
 
         if (param0 == 1)
         {
-            return 0;
+            return GX_BG_SCRSIZE_TEXT_256x256;
         }
         else if (param0 == 2)
         {
-            return 2;
+            return GX_BG_SCRSIZE_TEXT_256x512;
         }
         else if (param0 == 3)
         {
-            return 1;
+            return GX_BG_SCRSIZE_TEXT_512x256;
         }
         else if (param0 == 4)
         {
-            return 3;
+            return GX_BG_SCRSIZE_TEXT_512x512;
         }
         break;
 
@@ -521,19 +521,19 @@ THUMB_FUNC u8 FUN_020177DC(u8 param0, u32 param1)
 
         if (param0 == 0)
         {
-            return 0;
+            return GX_BG_SCRSIZE_TEXT_256x256;
         }
         else if (param0 == 1)
         {
-            return 1;
+            return GX_BG_SCRSIZE_TEXT_512x256;
         }
         else if (param0 == 4)
         {
-            return 2;
+            return GX_BG_SCRSIZE_TEXT_256x512;
         }
         else if (param0 == 5)
         {
-            return 3;
+            return GX_BG_SCRSIZE_TEXT_512x512;
         }
         break;
 
@@ -541,24 +541,24 @@ THUMB_FUNC u8 FUN_020177DC(u8 param0, u32 param1)
 
         if (param0 == 0)
         {
-            return 0;
+            return GX_BG_SCRSIZE_TEXT_256x256;
         }
         else if (param0 == 1)
         {
-            return 1;
+            return GX_BG_SCRSIZE_TEXT_512x256;
         }
         else if (param0 == 4)
         {
-            return 2;
+            return GX_BG_SCRSIZE_TEXT_256x512;
         }
         else if (param0 == 5)
         {
-            return 3;
+            return GX_BG_SCRSIZE_TEXT_512x512;
         }
         break;
     }
 
-    return 0;
+    return GX_BG_SCRSIZE_TEXT_256x256;
 }
 
 THUMB_FUNC void GetBgScreenDimensions(u32 screenSize, u8 *width_p, u8 *height_p)
@@ -1026,22 +1026,22 @@ THUMB_FUNC u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize)
 
 THUMB_FUNC u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height)
 {
-    u8 r2 = 0;
+    u8 coordType = 0;
     u16 r3 = 0;
     s16 r4 = (s16)(width - 32);
     s16 r5 = (s16)(height - 32);
 
     if (((u32)x >> 5) != 0)
     {
-        r2++;
+        coordType++;
     }
 
     if (((u32)y >> 5) != 0)
     {
-        r2 += 2;
+        coordType += 2;
     }
 
-    switch (r2)
+    switch (coordType)
     {
     case 0:
         if (r4 >= 0)
@@ -1085,112 +1085,112 @@ THUMB_FUNC u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height)
     return r3;
 }
 
-THUMB_FUNC void FUN_02018148(struct BgConfig *param0,
-    u32 param1,
-    void *param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6)
+THUMB_FUNC void LoadRectToBgTilemapRect(struct BgConfig *bgConfig,
+                                        u32 bgId,
+                                        void *src,
+                                        u8 dstX,
+                                        u8 dstY,
+                                        u8 width,
+                                        u8 height)
 {
-    FUN_02018170(param0, param1, param3, param4, param5, param6, param2, 0, 0, param5, param6);
+    CopyToBgTilemapRect(bgConfig, bgId, dstX, dstY, width, height, src, 0, 0, width, height);
 }
 
-THUMB_FUNC void FUN_02018170(struct BgConfig *param0,
-    u32 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    void *param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10)
+THUMB_FUNC void CopyToBgTilemapRect(struct BgConfig *bgConfig,
+                                    u32 bgId,
+                                    u8 dstX,
+                                    u8 dstY,
+                                    u8 dstWidth,
+                                    u8 dstHeight,
+                                    void *src,
+                                    u8 srcX,
+                                    u8 srcY,
+                                    u8 srcWidth,
+                                    u8 srcHeight)
 {
-    if (param0->bgs[param1].mode != 1)
+    if (bgConfig->bgs[bgId].mode != 1)
     {
-        FUN_02018268(&param0->bgs[param1],
-            param2,
-            param3,
-            param4,
-            param5,
-            (u16 *)param6,
-            param7,
-            param8,
-            param9,
-            param10,
-            0);
+        CopyBgTilemapRectText(&bgConfig->bgs[bgId],
+                              dstX,
+                              dstY,
+                              dstWidth,
+                              dstHeight,
+                              (u16 *) src,
+                              srcX,
+                              srcY,
+                              srcWidth,
+                              srcHeight,
+                              0);
     }
     else
     {
-        FUN_020183DC(&param0->bgs[param1],
-            param2,
-            param3,
-            param4,
-            param5,
-            (u8 *)param6,
-            param7,
-            param8,
-            param9,
-            param10,
-            0);
+        CopyBgTilemapRectAffine(&bgConfig->bgs[bgId],
+                                dstX,
+                                dstY,
+                                dstWidth,
+                                dstHeight,
+                                (u8 *) src,
+                                srcX,
+                                srcY,
+                                srcWidth,
+                                srcHeight,
+                                0);
     }
 }
 
-THUMB_FUNC void FUN_020181EC(struct BgConfig *param0,
-    u32 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    void *param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10)
+THUMB_FUNC void CopyRectToBgTilemapRect(struct BgConfig *bgConfig,
+                                    u32 bgId,
+                                    u8 dstX,
+                                    u8 dstY,
+                                    u8 dstWidth,
+                                    u8 dstHeight,
+                                    void *src,
+                                    u8 srcX,
+                                    u8 srcY,
+                                    u8 srcWidth,
+                                    u8 srcHeight)
 {
-    if (param0->bgs[param1].mode != 1)
+    if (bgConfig->bgs[bgId].mode != 1)
     {
-        FUN_02018268(&param0->bgs[param1],
-            param2,
-            param3,
-            param4,
-            param5,
-            (u16 *)param6,
-            param7,
-            param8,
-            param9,
-            param10,
-            1);
+        CopyBgTilemapRectText(&bgConfig->bgs[bgId],
+                              dstX,
+                              dstY,
+                              dstWidth,
+                              dstHeight,
+                              (u16 *) src,
+                              srcX,
+                              srcY,
+                              srcWidth,
+                              srcHeight,
+                              TRUE);
     }
     else
     {
-        FUN_020183DC(&param0->bgs[param1],
-            param2,
-            param3,
-            param4,
-            param5,
-            (u8 *)param6,
-            param7,
-            param8,
-            param9,
-            param10,
-            1);
+        CopyBgTilemapRectAffine(&bgConfig->bgs[bgId],
+                                dstX,
+                                dstY,
+                                dstWidth,
+                                dstHeight,
+                                (u8 *) src,
+                                srcX,
+                                srcY,
+                                srcWidth,
+                                srcHeight,
+                                TRUE);
     }
 }
 
-THUMB_FUNC void FUN_02018268(struct Bg *bg,
-    u8 dstX,
-    u8 dstY,
-    u8 width,
-    u8 height,
-    u16 *src,
-    u8 srcX,
-    u8 srcY,
-    u8 srcWidth,
-    u8 srcHeight,
-    u8 param10)
+THUMB_FUNC void CopyBgTilemapRectText(struct Bg *bg,
+                                      u8 dstX,
+                                      u8 dstY,
+                                      u8 dstWidth,
+                                      u8 dstHeight,
+                                      u16 *src,
+                                      u8 srcX,
+                                      u8 srcY,
+                                      u8 srcWidth,
+                                      u8 srcHeight,
+                                      u8 adjustForSrcDims)
 {
     u16 *tilemapBuffer = bg->tilemapBuffer;
 
@@ -1199,18 +1199,18 @@ THUMB_FUNC void FUN_02018268(struct Bg *bg,
         return;
     }
 
-    u8 dstWidth;
-    u8 dstHeight;
-    GetBgScreenDimensions(bg->unk1d, &dstWidth, &dstHeight);
+    u8 screenWidth;
+    u8 screenHeight;
+    GetBgScreenDimensions(bg->size, &screenWidth, &screenHeight);
 
     u8 i;
     u8 j;
-    if (param10 == 0)
+    if (adjustForSrcDims == 0)
     {
-        for (i = 0; i < height; i++)
+        for (i = 0; i < dstHeight; i++)
         {
 
-            if (dstY + i >= dstHeight)
+            if (dstY + i >= screenHeight)
             {
                 break;
             }
@@ -1220,10 +1220,10 @@ THUMB_FUNC void FUN_02018268(struct Bg *bg,
                 break;
             }
 
-            for (j = 0; j < width; j++)
+            for (j = 0; j < dstWidth; j++)
             {
 
-                if (dstX + j >= dstWidth)
+                if (dstX + j >= screenWidth)
                 {
                     break;
                 }
@@ -1233,17 +1233,17 @@ THUMB_FUNC void FUN_02018268(struct Bg *bg,
                     break;
                 }
 
-                ((u16 *)tilemapBuffer)[GetTileMapIndexFromCoords((u8) (dstX + j), (u8) (dstY + i), bg->unk1d)] =
+                ((u16 *)tilemapBuffer)[GetTileMapIndexFromCoords((u8) (dstX + j), (u8) (dstY + i), bg->size)] =
                     src[srcX + srcWidth * (srcY + i) + j];
             }
         }
     }
     else
     {
-        for (i = 0; i < height; i++)
+        for (i = 0; i < dstHeight; i++)
         {
 
-            if (dstY + i >= dstHeight)
+            if (dstY + i >= screenHeight)
             {
                 break;
             }
@@ -1253,10 +1253,10 @@ THUMB_FUNC void FUN_02018268(struct Bg *bg,
                 break;
             }
 
-            for (j = 0; j < width; j++)
+            for (j = 0; j < dstWidth; j++)
             {
 
-                if (dstX + j >= dstWidth)
+                if (dstX + j >= screenWidth)
                 {
                     break;
                 }
@@ -1266,246 +1266,246 @@ THUMB_FUNC void FUN_02018268(struct Bg *bg,
                     break;
                 }
 
-                ((u16 *)tilemapBuffer)[GetTileMapIndexFromCoords((u8) (dstX + j), (u8) (dstY + i), bg->unk1d)] =
+                ((u16 *)tilemapBuffer)[GetTileMapIndexFromCoords((u8) (dstX + j), (u8) (dstY + i), bg->size)] =
                     src[GetSrcTileMapIndexFromCoords((u8) (srcX + j), (u8) (srcY + i), srcWidth, srcHeight)];
             }
         }
     }
 }
 
-THUMB_FUNC void FUN_020183DC(struct Bg *param0,
-    u8 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 *param5,
-    u8 param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10)
+THUMB_FUNC void CopyBgTilemapRectAffine(struct Bg *bg,
+                                        u8 dstX,
+                                        u8 dstY,
+                                        u8 dstWidth,
+                                        u8 dstHeight,
+                                        u8 *src,
+                                        u8 srcX,
+                                        u8 srcY,
+                                        u8 srcWidth,
+                                        u8 srcHeight,
+                                        u8 adjustForSrcDims)
 {
-    void *st2c = param0->tilemapBuffer;
+    void *tilemapBuffer = bg->tilemapBuffer;
 
-    if (st2c == 0)
+    if (tilemapBuffer == 0)
     {
         return;
     }
 
-    u8 st41;
-    u8 st40;
-    GetBgScreenDimensions(param0->unk1d, &st41, &st40);
+    u8 screenWidth;
+    u8 screenHeight;
+    GetBgScreenDimensions(bg->size, &screenWidth, &screenHeight);
 
     u8 i;
     u8 j;
-    if (param10 == 0)
+    if (adjustForSrcDims == 0)
     {
-        for (i = 0; i < param4; i++)
+        for (i = 0; i < dstHeight; i++)
         {
 
-            if (param2 + i >= st40)
+            if (dstY + i >= screenHeight)
             {
                 break;
             }
 
-            if (param7 + i >= param9)
+            if (srcY + i >= srcHeight)
             {
                 break;
             }
 
-            for (j = 0; j < param3; j++)
+            for (j = 0; j < dstWidth; j++)
             {
 
-                if (param1 + j >= st41)
+                if (dstX + j >= screenWidth)
                 {
                     break;
                 }
 
-                if (param6 + j >= param8)
+                if (srcX + j >= srcWidth)
                 {
                     break;
                 }
 
-                ((u8 *)st2c)[GetTileMapIndexFromCoords((u8) (param1 + j), (u8) (param2 + i), param0->unk1d)] =
-                    param5[param6 + param8 * (param7 + i) + j];
+                ((u8 *)tilemapBuffer)[GetTileMapIndexFromCoords((u8) (dstX + j), (u8) (dstY + i), bg->size)] =
+                    src[srcX + srcWidth * (srcY + i) + j];
             }
         }
     }
     else
     {
-        for (i = 0; i < param4; i++)
+        for (i = 0; i < dstHeight; i++)
         {
 
-            if (param2 + i >= st40)
+            if (dstY + i >= screenHeight)
             {
                 break;
             }
 
-            if (param7 + i >= param9)
+            if (srcY + i >= srcHeight)
             {
                 break;
             }
 
-            for (j = 0; j < param3; j++)
+            for (j = 0; j < dstWidth; j++)
             {
 
-                if (param1 + j >= st41)
+                if (dstX + j >= screenWidth)
                 {
                     break;
                 }
 
-                if (param6 + j >= param8)
+                if (srcX + j >= srcWidth)
                 {
                     break;
                 }
 
-                ((u8 *)st2c)[GetTileMapIndexFromCoords((u8) (param1 + j), (u8) (param2 + i), param0->unk1d)] =
-                    param5[GetSrcTileMapIndexFromCoords((u8) (param6 + j), (u8) (param7 + i), param8, param9)];
+                ((u8 *)tilemapBuffer)[GetTileMapIndexFromCoords((u8) (dstX + j), (u8) (dstY + i), bg->size)] =
+                    src[GetSrcTileMapIndexFromCoords((u8) (srcX + j), (u8) (srcY + i), srcWidth, srcHeight)];
             }
         }
     }
 }
 
-THUMB_FUNC void FUN_02018540(struct BgConfig *param0,
-    u32 param1,
-    u16 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6,
-    u8 param7)
+THUMB_FUNC void FillBgTilemapRect(struct BgConfig *bgConfig,
+                                  u32 bgId,
+                                  u16 fillValue,
+                                  u8 x,
+                                  u8 y,
+                                  u8 width,
+                                  u8 height,
+                                  u8 paletteNum)
 {
-    if (param0->bgs[param1].mode != 1)
+    if (bgConfig->bgs[bgId].mode != 1)
     {
 
-        FUN_02018590(&param0->bgs[param1], param2, param3, param4, param5, param6, param7);
+        FillBgTilemapRectText(&bgConfig->bgs[bgId], fillValue, x, y, width, height, paletteNum);
     }
     else
     {
-        FUN_02018640(&param0->bgs[param1], (u8)param2, param3, param4, param5, param6);
+        FillBgTilemapRectAffine(&bgConfig->bgs[bgId], (u8) fillValue, x, y, width, height);
     }
 }
 
-THUMB_FUNC void FUN_02018590(struct Bg *param0,
-    u16 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6)
+THUMB_FUNC void FillBgTilemapRectText(struct Bg *bg,
+                                                u16 fillValue,
+                                                u8 x,
+                                                u8 y,
+                                                u8 width,
+                                                u8 height,
+                                                u8 paletteNum)
 {
-    void *r4 = param0->tilemapBuffer;
+    void *tilemapBuffer = bg->tilemapBuffer;
 
-    if (r4 != 0)
+    if (tilemapBuffer != 0)
     {
 
-        u8 st19;
-        u8 st18;
-        GetBgScreenDimensions(param0->unk1d, &st19, &st18);
+        u8 screenWidth;
+        u8 screenHeight;
+        GetBgScreenDimensions(bg->size, &screenWidth, &screenHeight);
 
         u8 i;
         u8 j;
-        for (i = param3; i < param3 + param5; i++)
+        for (i = y; i < y + height; i++)
         {
-            if (i >= st18)
+            if (i >= screenHeight)
             {
                 break;
             }
 
-            for (j = param2; j < param2 + param4; j++)
+            for (j = x; j < x + width; j++)
             {
-                if (j >= st19)
+                if (j >= screenWidth)
                 {
                     break;
                 }
 
-                u16 idx = GetTileMapIndexFromCoords(j, i, param0->unk1d);
+                u16 idx = GetTileMapIndexFromCoords(j, i, bg->size);
 
-                if (param6 == 0x11)
+                if (paletteNum == 0x11)
                 {
-                    ((u16 *)r4)[idx] = param1;
+                    ((u16 *)tilemapBuffer)[idx] = fillValue;
                 }
-                else if (param6 == 0x10)
+                else if (paletteNum == 0x10)
                 {
-                    ((u16 *)r4)[idx] = (u16)((((u16 *)r4)[idx] & 0xF000) + param1);
+                    ((u16 *)tilemapBuffer)[idx] = (u16)((((u16 *)tilemapBuffer)[idx] & 0xF000) + fillValue);
                 }
                 else
                 {
-                    ((u16 *)r4)[idx] = (u16)((param6 << 0xc) + param1);
+                    ((u16 *)tilemapBuffer)[idx] = (u16)((paletteNum << 0xc) + fillValue);
                 }
             }
         }
     }
 }
 
-THUMB_FUNC void FUN_02018640(
-    struct Bg *param0, u8 param1, u8 param2, u8 param3, u8 param4, u8 param5)
+THUMB_FUNC void FillBgTilemapRectAffine(
+    struct Bg *bg, u8 fillValue, u8 x, u8 y, u8 width, u8 height)
 {
-    void *r4 = param0->tilemapBuffer;
+    void *tilemapBuffer = bg->tilemapBuffer;
 
-    if (r4 != 0)
+    if (tilemapBuffer != 0)
     {
 
-        u8 st19;
-        u8 st18;
-        GetBgScreenDimensions(param0->unk1d, &st19, &st18);
+        u8 screenWidth;
+        u8 screenHeight;
+        GetBgScreenDimensions(bg->size, &screenWidth, &screenHeight);
 
         u8 i;
         u8 j;
-        for (i = param3; i < param3 + param5; i++)
+        for (i = y; i < y + height; i++)
         {
-            if (i >= st18)
+            if (i >= screenHeight)
             {
                 break;
             }
 
-            for (j = param2; j < param2 + param4; j++)
+            for (j = x; j < x + width; j++)
             {
-                if (j >= st19)
+                if (j >= screenWidth)
                 {
                     break;
                 }
 
-                ((u8 *)r4)[GetTileMapIndexFromCoords(j, i, param0->unk1d)] = param1;
+                ((u8 *)tilemapBuffer)[GetTileMapIndexFromCoords(j, i, bg->size)] = fillValue;
             }
         }
     }
 }
 
-THUMB_FUNC void FUN_020186B4(struct BgConfig *param0,
-    u32 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6)
+THUMB_FUNC void BgTilemapRectChangePalette(struct BgConfig *bgConfig,
+                                           u32 bgId,
+                                           u8 x,
+                                           u8 y,
+                                           u8 width,
+                                           u8 height,
+                                           u8 paletteNum)
 {
-    void *r4 = param0->bgs[param1].tilemapBuffer;
+    void *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
 
-    if (r4 != NULL)
+    if (tilemapBuffer != NULL)
     {
-        u8 st11;
-        u8 st10;
-        GetBgScreenDimensions(param0->bgs[param1].unk1d, &st11, &st10);
+        u8 screenWidth;
+        u8 screenHeight;
+        GetBgScreenDimensions(bgConfig->bgs[bgId].size, &screenWidth, &screenHeight);
 
         u8 i;
         u8 j;
-        for (i = param3; i < param3 + param5; i++)
+        for (i = y; i < y + height; i++)
         {
-            if (i >= st10)
+            if (i >= screenHeight)
             {
                 break;
             }
 
-            for (j = param2; j < param2 + param4; j++)
+            for (j = x; j < x + width; j++)
             {
-                if (j >= st11)
+                if (j >= screenWidth)
                 {
                     break;
                 }
 
-                u16 idx = GetTileMapIndexFromCoords(j, i, param0->bgs[param1].unk1d);
-                ((u16 *)r4)[idx] = (u16)((((u16 *)r4)[idx] & 0xfff) | (param6 << 0xc));
+                u16 idx = GetTileMapIndexFromCoords(j, i, bgConfig->bgs[bgId].size);
+                ((u16 *)tilemapBuffer)[idx] = (u16)((((u16 *)tilemapBuffer)[idx] & 0xfff) | (paletteNum << 0xc));
             }
         }
     }
@@ -2090,87 +2090,87 @@ THUMB_FUNC void PutWindowTilemap_TextMode(struct Window *param0)
     }
 }
 
-THUMB_FUNC void PutWindowTilemap_AffineMode(struct Window *param0)
+THUMB_FUNC void PutWindowTilemap_AffineMode(struct Window *window)
 {
     int j, i;
-    u8 *r4;
+    u8 *dst;
 
-    int r5;
-    int r6;
+    int tileId;
+    int tilemapWidth;
 
-    if (param0->bgConfig->bgs[param0->bgId].tilemapBuffer == NULL)
+    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL)
     {
         return;
     }
 
-    r6 = UNK_020EDB30[param0->bgConfig->bgs[param0->bgId].unk1d];
+    tilemapWidth = UNK_020EDB30[window->bgConfig->bgs[window->bgId].size];
 
-    r4 = param0->bgConfig->bgs[param0->bgId].tilemapBuffer + param0->tilemapTop * r6 + param0->tilemapLeft;
-    r5 = param0->baseTile;
+    dst = window->bgConfig->bgs[window->bgId].tilemapBuffer + window->tilemapTop * tilemapWidth + window->tilemapLeft;
+    tileId = window->baseTile;
 
-    for (i = 0; i < param0->height; i++)
+    for (i = 0; i < window->height; i++)
     {
-        for (j = 0; j < param0->width; j++)
+        for (j = 0; j < window->width; j++)
         {
-            r4[j] = (u8)r5;
-            r5++;
+            dst[j] = (u8)tileId;
+            tileId++;
         }
-        r4 += r6;
+        dst += tilemapWidth;
     }
 }
 
-THUMB_FUNC void FUN_020193B4(struct Window *param0)
+THUMB_FUNC void ClearWindowTilemapText(struct Window *window)
 {
 
     u32 i, j;
 
-    u32 iCount, jCount;
-    u32 st8;
+    u32 yEnd, xEnd;
+    u32 tilemapWidth;
 
-    u16 *st4;
+    u16 *dst;
 
-    if (param0->bgConfig->bgs[param0->bgId].tilemapBuffer == NULL)
+    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL)
     {
         return;
     }
-    st4 = param0->bgConfig->bgs[param0->bgId].tilemapBuffer;
+    dst = window->bgConfig->bgs[window->bgId].tilemapBuffer;
 
-    st8 = UNK_020EDB30[param0->bgConfig->bgs[param0->bgId].unk1d];
-    jCount = (u32)(param0->tilemapLeft + param0->width);
-    iCount = (u32)(param0->tilemapTop + param0->height);
+    tilemapWidth = UNK_020EDB30[window->bgConfig->bgs[window->bgId].size];
+    xEnd = (u32)(window->tilemapLeft + window->width);
+    yEnd = (u32)(window->tilemapTop + window->height);
 
-    for (i = param0->tilemapTop; i < iCount; i++)
+    for (i = window->tilemapTop; i < yEnd; i++)
     {
-        for (j = param0->tilemapLeft; j < jCount; j++)
+        for (j = window->tilemapLeft; j < xEnd; j++)
         {
-            st4[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) * st8) + (j & 0x1f)] = 0;
+            dst[((i & 0x20) * 32) + ((j & 0x20) * 32) + ((i & 0x1f) * tilemapWidth) + (j & 0x1f)] = 0;
         }
     }
 }
 
-THUMB_FUNC void FUN_02019444(struct Window *param0)
+THUMB_FUNC void ClearWindowTilemapAffine(struct Window *window)
 {
 
     int j, i;
-    u8 *r5;
+    u8 *dstPos;
 
-    int r6;
+    int tilemapWidth;
 
-    if (param0->bgConfig->bgs[param0->bgId].tilemapBuffer == NULL)
+    if (window->bgConfig->bgs[window->bgId].tilemapBuffer == NULL)
     {
         return;
     }
 
-    r6 = UNK_020EDB30[param0->bgConfig->bgs[param0->bgId].unk1d];
-    r5 = param0->bgConfig->bgs[param0->bgId].tilemapBuffer + param0->tilemapTop * r6 + param0->tilemapLeft;
+    tilemapWidth = UNK_020EDB30[window->bgConfig->bgs[window->bgId].size];
+    dstPos = window->bgConfig->bgs[window->bgId].tilemapBuffer + window->tilemapTop * tilemapWidth + window->tilemapLeft;
 
-    for (i = 0; i < param0->height; i++)
+    for (i = 0; i < window->height; i++)
     {
-        for (j = 0; j < param0->width; j++)
+        for (j = 0; j < window->width; j++)
         {
-            r5[j] = 0;
+            dstPos[j] = 0;
         }
-        r5 += r6;
+        dstPos += tilemapWidth;
     }
 }
 
@@ -2240,7 +2240,7 @@ THUMB_FUNC void FUN_0201958C(struct Window *window)
 
 THUMB_FUNC void FUN_020195A8(struct Window *window)
 {
-    FUN_020193B4(window);
+    ClearWindowTilemapText(window);
     FUN_02017CE8(window->bgConfig,
         window->bgId,
         window->bgConfig->bgs[window->bgId].tilemapBuffer,
@@ -2250,13 +2250,13 @@ THUMB_FUNC void FUN_020195A8(struct Window *window)
 
 THUMB_FUNC void FUN_020195D0(struct Window *window)
 {
-    FUN_020193B4(window);
+    ClearWindowTilemapText(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
 THUMB_FUNC void FUN_020195E4(struct Window *window)
 {
-    FUN_02019444(window);
+    ClearWindowTilemapAffine(window);
     FUN_02017CE8(window->bgConfig,
         window->bgId,
         window->bgConfig->bgs[window->bgId].tilemapBuffer,
@@ -2266,7 +2266,7 @@ THUMB_FUNC void FUN_020195E4(struct Window *window)
 
 THUMB_FUNC void FUN_0201960C(struct Window *window)
 {
-    FUN_02019444(window);
+    ClearWindowTilemapAffine(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
@@ -2343,7 +2343,7 @@ THUMB_FUNC void FillWindowPixelRect(
 }
 
 #ifdef NONMATCHING
-THUMB_FUNC void FUN_0201974C(
+THUMB_FUNC void CopyGlyphToWindow(
     struct Window *window, u32 *param1, u32 param2, u32 param3, u16 param4, u16 param5, u32 param6)
 {
     u32 str330 = param6;
@@ -2517,12 +2517,12 @@ THUMB_FUNC void FUN_0201974C(
     }
     else
     {
-        // TODO: FUN_0201A12C
+        // TODO: _0201A12C
     }
 }
 #else
-asm void FUN_0201974C(
-    struct Window *window, u32 *param1, u32 param2, u32 param3, u16 param4, u16 param5, u32 param6)
+asm void CopyGlyphToWindow(
+    struct Window *window, const char *param1, u16 param2, u16 param3, u16 param4, u16 param5, u16 param6)
 {
     // clang-format off
 	push {r4-r7, lr}
@@ -2581,11 +2581,11 @@ _020197AC:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x1f
 	beq _020197B8
-	bl FUN_0201A12C
+	bl _0201A12C
 _020197B8:
 	cmp r4, #0x3
 	bls _020197C0
-	bl FUN_0201A8BC
+	bl _0201A8BC
 _020197C0:
 	add r0, r4, r4
 	add r0, pc
@@ -2613,7 +2613,7 @@ _020197D4:
 	ldr r0, [sp, #0x4]
 	cmp r0, #0x0
 	bgt _020197EA
-	bl FUN_0201A8BC
+	bl _0201A8BC
 _020197EA:
 	ldr r0, [sp, #0x58]
 	mov r1, #0x7
@@ -2884,7 +2884,7 @@ _020199D2:
 	ldr r0, [sp, #0x4]
 	cmp r0, #0x0
 	bgt _020199EE
-	bl FUN_0201A8BC
+	bl _0201A8BC
 _020199EE:
 	ldr r0, [sp, #0x5c]
 	mov r1, #0x7
@@ -3182,7 +3182,7 @@ _02019C04:
 	sub r0, #0x8
 	cmp r0, #0x0
 	bgt _02019C24
-	bl FUN_0201A8BC
+	bl _0201A8BC
 _02019C24:
 	ldr r0, [sp, #0x0]
 	ldr r1, [sp, #0xb8]
@@ -3734,7 +3734,7 @@ _0201A020:
 	sub r0, #0x8
 	cmp r0, #0x0
 	bgt _0201A03E
-	bl FUN_0201A8BC
+	bl _0201A8BC
 _0201A03E:
 	ldr r0, [sp, #0x5c]
 	add r0, #0x8
@@ -3861,8 +3861,7 @@ _0201A112:
 	add sp, #0x1fc
 	add sp, #0x118
 	pop {r4-r7, pc}
-
-FUN_0201A12C: // 0x0201A12C
+_0201A12C: // 0x0201A12C
 	lsl r1, r2, #0x2
 	mul r1, r3
 	ldr r3, [r5, #0x0]
@@ -4901,8 +4900,7 @@ _0201A8A2:
 _0201A8B6:
 	ldr r0, [sp, #0x1ec]
 	bl FreeToHeap
-
-FUN_0201A8BC: // 0x0201A8BC
+_0201A8BC: // 0x0201A8BC
 	add sp, #0x1fc
 	add sp, #0x118
 	pop {r4-r7, pc}
@@ -5372,7 +5370,7 @@ THUMB_FUNC u32 FUN_0201AFBC(
         return 0;
     }
 
-    r6 = GetTileMapIndexFromCoords((u8) (x >> 3), (u8) (y >> 3), bgConfig->bgs[bgId].unk1d);
+    r6 = GetTileMapIndexFromCoords((u8) (x >> 3), (u8) (y >> 3), bgConfig->bgs[bgId].size);
     st18 = FUN_020187B0(bgId);
 
     st14 = (u8)(x & 7);

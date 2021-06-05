@@ -86408,7 +86408,7 @@ MOD11_022594DC: ; 0x022594DC
 	add r4, r0, #0
 	mov r1, #4
 	mov r3, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #0
 	mov r1, #5
 	bl ScheduleBgTilemapBufferTransfer
@@ -86463,7 +86463,7 @@ MOD11_02259554: ; 0x02259554
 	mov r1, #4
 	mov r3, #0
 	add r4, r0, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #0xa
@@ -86476,7 +86476,7 @@ MOD11_02259554: ; 0x02259554
 	add r0, r4, #0
 	mov r1, #4
 	mov r3, #0x16
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #0
 	mov r1, #5
 	bl ScheduleBgTilemapBufferTransfer
@@ -89244,7 +89244,7 @@ MOD11_0225ABA4: ; 0x0225ABA4
 	ldrb r3, [r3, #2]
 	ldr r2, _0225AC5C ; =0x000002FF
 	add r0, r6, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r6, #0
 	mov r1, #5
 	bl ScheduleBgTilemapBufferTransfer

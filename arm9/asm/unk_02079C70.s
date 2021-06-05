@@ -2600,7 +2600,7 @@ _0207B0EC:
 	ldr r0, [r5, #0x0]
 	mov r1, #0x1
 	mov r3, #0xe
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #0x0]
 	mov r1, #0x1
 	bl FUN_02017CD0
@@ -2760,7 +2760,7 @@ _0207B256:
 	ldr r0, [r5, #0x0]
 	mov r1, #0x3
 	add r2, #0xc
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r0, [r5, #0x0]
 	mov r1, #0x3
 	bl ScheduleBgTilemapBufferTransfer
@@ -2858,7 +2858,7 @@ _0207B318:
 	ldr r0, [r6, #0x0]
 	mov r1, #0x3
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	cmp r4, #0x8
 	bhs _0207B33E
 	mov r4, #0x0
@@ -2936,7 +2936,7 @@ _0207B3AC:
 	ldr r0, [r6, #0x0]
 	mov r1, #0x3
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	cmp r4, #0x8
 	bhs _0207B3D0
 	mov r4, #0x0
@@ -4066,7 +4066,7 @@ FUN_0207BCC8: ; 0x0207BCC8
 	mov r1, #0x2
 	add r2, r4, #0x0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0x2f
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -4082,7 +4082,7 @@ FUN_0207BCC8: ; 0x0207BCC8
 	mov r1, #0x2
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0x30
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -4098,7 +4098,7 @@ FUN_0207BCC8: ; 0x0207BCC8
 	mov r1, #0x2
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0x30
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -4113,7 +4113,7 @@ FUN_0207BCC8: ; 0x0207BCC8
 	mov r1, #0x2
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x10
 	pop {r3-r7, pc}
 

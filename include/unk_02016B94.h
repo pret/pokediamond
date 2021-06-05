@@ -38,7 +38,7 @@ struct Bg
     fx32 vOffset;
 
     u8 mode;
-    u8 unk1d;
+    u8 size;
     u8 colorMode;
     u8 tileSize;
     u16 rotation;
@@ -136,81 +136,81 @@ void BG_LoadPlttData(u32 bgId, void *plttData, u32 size, u32 offset);
 void BG_SetMaskColor(u32 bgId, u32 value);
 u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize);
 u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height);
-void FUN_02018148(struct BgConfig *param0,
-    u32 param1,
-    void *param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6);
-void FUN_02018170(struct BgConfig *param0,
-    u32 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    void *param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10);
-void FUN_020181EC(struct BgConfig *param0,
-    u32 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    void *param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10);
-void FUN_02018268(struct Bg *bg,
-    u8 dstX,
-    u8 dstY,
-    u8 width,
-    u8 height,
-    u16 *src,
-    u8 srcX,
-    u8 srcY,
-    u8 srcWidth,
-    u8 srcHeight,
-    u8 param10);
-void FUN_020183DC(struct Bg *param0,
-    u8 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 *param5,
-    u8 param6,
-    u8 param7,
-    u8 param8,
-    u8 param9,
-    u8 param10);
-void FUN_02018540(struct BgConfig *param0,
-    u32 param1,
-    u16 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6,
-    u8 param7);
-void FUN_02018590(struct Bg *param0,
-    u16 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6);
-void FUN_02018640(
-    struct Bg *param0, u8 param1, u8 param2, u8 param3, u8 param4, u8 param5);
-void FUN_020186B4(struct BgConfig *param0,
-    u32 param1,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6);
+void LoadRectToBgTilemapRect(struct BgConfig *bgConfig,
+                             u32 bgId,
+                             void *src,
+                             u8 dstX,
+                             u8 dstY,
+                             u8 width,
+                             u8 height);
+void CopyToBgTilemapRect(struct BgConfig *bgConfig,
+                         u32 bgId,
+                         u8 dstX,
+                         u8 dstY,
+                         u8 dstWidth,
+                         u8 dstHeight,
+                         void *src,
+                         u8 srcX,
+                         u8 srcY,
+                         u8 srcWidth,
+                         u8 srcHeight);
+void CopyRectToBgTilemapRect(struct BgConfig *bgConfig,
+                         u32 bgId,
+                         u8 dstX,
+                         u8 dstY,
+                         u8 dstWidth,
+                         u8 dstHeight,
+                         void *src,
+                         u8 srcX,
+                         u8 srcY,
+                         u8 srcWidth,
+                         u8 srcHeight);
+void CopyBgTilemapRectText(struct Bg *bg,
+                           u8 dstX,
+                           u8 dstY,
+                           u8 dstWidth,
+                           u8 dstHeight,
+                           u16 *src,
+                           u8 srcX,
+                           u8 srcY,
+                           u8 srcWidth,
+                           u8 srcHeight,
+                           u8 adjustForSrcDims);
+void CopyBgTilemapRectAffine(struct Bg *bg,
+                             u8 dstX,
+                             u8 dstY,
+                             u8 dstWidth,
+                             u8 dstHeight,
+                             u8 *src,
+                             u8 srcX,
+                             u8 srcY,
+                             u8 srcWidth,
+                             u8 srcHeight,
+                             u8 adjustForSrcDims);
+void FillBgTilemapRect(struct BgConfig *bgConfig,
+                       u32 bgId,
+                       u16 fillValue,
+                       u8 x,
+                       u8 y,
+                       u8 width,
+                       u8 height,
+                       u8 paletteNum);
+void FillBgTilemapRectText(struct Bg *bg,
+                                     u16 fillValue,
+                                     u8 x,
+                                     u8 y,
+                                     u8 width,
+                                     u8 height,
+                                     u8 paletteNum);
+void FillBgTilemapRectAffine(
+    struct Bg *bg, u8 fillValue, u8 x, u8 y, u8 width, u8 height);
+void BgTilemapRectChangePalette(struct BgConfig *bgConfig,
+                                u32 bgId,
+                                u8 x,
+                                u8 y,
+                                u8 width,
+                                u8 height,
+                                u8 paletteNum);
 void FUN_02018744(struct BgConfig *param0, u32 param1);
 void FUN_02018768(struct BgConfig *param0, u32 param1, u16 param2);
 void FUN_0201878C(struct BgConfig *param0, u32 param1, u16 param2);
@@ -271,9 +271,9 @@ void PutWindowTilemap(struct Window *window);
 void PutWindowTilemapRectAnchoredTopLeft(struct Window *window, u8 width, u8 height);
 void FUN_020192B8(struct Window *window);
 void PutWindowTilemap_TextMode(struct Window *param0);
-void PutWindowTilemap_AffineMode(struct Window *param0);
-void FUN_020193B4(struct Window *param0);
-void FUN_02019444(struct Window *param0);
+void PutWindowTilemap_AffineMode(struct Window *window);
+void ClearWindowTilemapText(struct Window *window);
+void ClearWindowTilemapAffine(struct Window *window);
 void CopyWindowToVram_TextMode(struct Window *window);
 void FUN_020194C8(struct Window *window);
 void CopyWindowToVram_AffineMode(struct Window *window);
@@ -308,8 +308,15 @@ void BlitBitmapRect(struct Window *window,
     u16 param9,
     u16 param10);
 void FillWindowPixelRect(struct Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height);
-void FUN_0201974C(
-    struct Window *window, u32 *param1, u32 param2, u32 param3, u16 param4, u16 param5, u32 param6);
+void CopyGlyphToWindow(
+    struct Window * window,
+    const char * src,
+    u16 srcWidth,
+    u16 srcHeight,
+    u16 width,
+    u16 height,
+    u16 glyph
+);
 void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3);
 void ScrollWindow4bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue);
 void ScrollWindow8bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue);

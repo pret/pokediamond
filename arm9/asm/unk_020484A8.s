@@ -376,7 +376,7 @@ FUN_02048764: ; 0x02048764
 	ldr r0, [r4, #0x8]
 	mov r1, #0x3
 	add r3, r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r4, #0x8]
 	mov r1, #0x3
 	bl FUN_02017CD0

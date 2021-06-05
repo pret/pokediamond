@@ -786,7 +786,7 @@ MOD51_02254E48: ; 0x02254E48
 	mov r1, #7
 	add r2, r7, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	mov r0, #0x72
 	lsl r0, r0, #2
 	add r7, r5, r0
@@ -1487,7 +1487,7 @@ _022553BE:
 	ldr r0, [sp, #0x1c]
 	mov r1, #7
 	mov r2, #0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldr r3, [sp, #0x24]
 	add r1, r4, #4
 	lsl r6, r3, #2

@@ -333,7 +333,7 @@ MOD50_02254A48: ; 0x02254A48
 	ldr r0, [r5, #4]
 	mov r1, #6
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #8

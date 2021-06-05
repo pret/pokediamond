@@ -3401,7 +3401,7 @@ _022139EE:
 	ldrb r3, [r6, #1]
 	ldr r0, [r5, #0xc]
 	mov r1, #2
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	mov r0, #0x86
 	lsl r0, r0, #2
 	ldrh r0, [r7, r0]
@@ -3419,7 +3419,7 @@ _022139EE:
 	ldrb r3, [r6, #1]
 	ldr r0, [r5, #0xc]
 	mov r1, #2
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	cmp r4, #3
 	bhs _02213A46
 	ldr r0, [r5]
@@ -3565,7 +3565,7 @@ MOD07_02213B20: ; 0x02213B20
 	ldr r0, [r5, #0xc]
 	mov r1, #1
 	lsr r2, r2, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldr r0, _02213BE8 ; =0x00000844
 	lsl r2, r6, #0x18
 	str r4, [sp]
@@ -3582,7 +3582,7 @@ MOD07_02213B20: ; 0x02213B20
 	ldr r0, [r5, #0xc]
 	mov r1, #2
 	lsr r2, r2, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	b _02213BCE
 _02213B80:
 	ldr r2, _02213BE4 ; =0x00000544
@@ -3603,7 +3603,7 @@ _02213B80:
 	ldr r0, [r5, #0xc]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldr r1, _02213BE8 ; =0x00000844
 	mov r2, #0
 	str r4, [sp]
@@ -3621,7 +3621,7 @@ _02213B80:
 	ldr r0, [r5, #0xc]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 _02213BCE:
 	ldr r0, [r5, #0xc]
 	mov r1, #1

@@ -2090,7 +2090,7 @@ _020703F2:
 	mov r1, #0x2
 	add r2, r6, #0x0
 	add r3, r7, #0x0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	add r0, sp, #0x20
 	ldrb r0, [r0, #0x10]
 	cmp r0, #0x0
@@ -2111,7 +2111,7 @@ _020703F2:
 	mov r1, #0x2
 	mov r2, #0x17
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 _0207044C:
 	mov r0, #0x10
 	str r0, [sp, #0x0]
@@ -2125,7 +2125,7 @@ _0207044C:
 	mov r1, #0x2
 	add r2, r6, #0x0
 	add r3, r7, #0x0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl FUN_020709FC
@@ -2775,7 +2775,7 @@ FUN_02070988: ; 0x02070988
 	mov r1, #0x2
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	mov r0, #0x10
 	str r0, [sp, #0x0]
 	mov r0, #0x6
@@ -2788,7 +2788,7 @@ FUN_02070988: ; 0x02070988
 	mov r1, #0x2
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x7

@@ -1304,7 +1304,7 @@ _0222E094:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -3966,7 +3966,7 @@ MOD71_0222F674: ; 0x0222F674
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -4023,7 +4023,7 @@ _0222F6EE:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -4058,7 +4058,7 @@ _0222F738:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -4103,7 +4103,7 @@ MOD71_0222F790: ; 0x0222F790
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -4149,7 +4149,7 @@ MOD71_0222F7E4: ; 0x0222F7E4
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -4895,7 +4895,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5f
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5005,7 +5005,7 @@ _0222FF10:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5044,7 +5044,7 @@ _0222FF64:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5081,7 +5081,7 @@ _0222FFB4:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5134,7 +5134,7 @@ MOD71_02230020: ; 0x02230020
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5688,7 +5688,7 @@ MOD71_022304AC: ; 0x022304AC
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, _02230534 ; =0x00002218
 	add r1, r4, #0
 	add r1, #0x88
@@ -5787,7 +5787,7 @@ _0223056E:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5836,7 +5836,7 @@ _022305EE:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5885,7 +5885,7 @@ MOD71_02230650: ; 0x02230650
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5f
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5942,7 +5942,7 @@ _022306CA:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -5977,7 +5977,7 @@ _02230714:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -6141,7 +6141,7 @@ MOD71_02230810: ; 0x02230810
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5f
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -6237,7 +6237,7 @@ _0223092E:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -6276,7 +6276,7 @@ _02230982:
 	ldr r0, [r4, r0]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]

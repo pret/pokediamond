@@ -1310,7 +1310,7 @@ MOD23_022551A4: ; 0x022551A4
 	ldrb r3, [r5, r3]
 	str r0, [sp, #8]
 	ldr r0, [r4, #4]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r0, [r4, #4]
 	mov r1, #6
 	bl FUN_02017CD0
@@ -1356,7 +1356,7 @@ MOD23_02255210: ; 0x02255210
 	ldrb r3, [r5, r3]
 	str r0, [sp, #8]
 	ldr r0, [r4, #4]
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	ldr r0, [r4, #4]
 	mov r1, #6
 	bl FUN_02017CD0

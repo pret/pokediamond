@@ -1056,11 +1056,11 @@
 .extern BG_FillCharDataRange
 .extern BG_LoadPlttData
 .extern BG_SetMaskColor
-.extern FUN_02018148
-.extern FUN_02018170
-.extern FUN_020181EC
-.extern FUN_02018540
-.extern FUN_020186B4
+.extern LoadRectToBgTilemapRect
+.extern CopyToBgTilemapRect
+.extern CopyRectToBgTilemapRect
+.extern FillBgTilemapRect
+.extern BgTilemapRectChangePalette
 .extern FUN_02018744
 .extern FUN_02018768
 .extern FUN_0201878C
@@ -1085,8 +1085,8 @@
 .extern FUN_020192B8
 .extern PutWindowTilemap_TextMode
 .extern PutWindowTilemap_AffineMode
-.extern FUN_020193B4
-.extern FUN_02019444
+.extern ClearWindowTilemapText
+.extern ClearWindowTilemapAffine
 .extern CopyWindowToVram_TextMode
 .extern FUN_020194C8
 .extern CopyWindowToVram_AffineMode
@@ -1102,7 +1102,7 @@
 .extern BlitBitmapRectToWindow
 .extern BlitBitmapRect
 .extern FillWindowPixelRect
-.extern FUN_0201974C
+.extern CopyGlyphToWindow
 .extern ScrollWindow
 .extern GetWindowBgId
 .extern GetWindowWidth

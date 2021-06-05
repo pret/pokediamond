@@ -867,7 +867,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	ldr r0, [r5, #0x10]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r5, #0
 	mov r1, #1
 	bl MOD70_021D7C2C

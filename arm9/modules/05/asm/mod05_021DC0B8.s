@@ -2019,7 +2019,7 @@ _021DCFA0:
 	ldr r0, [r0, #8]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	mov r0, #0x41
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
