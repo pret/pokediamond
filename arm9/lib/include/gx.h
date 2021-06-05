@@ -27,15 +27,6 @@ void GXi_NopClearFifo128_(void *);
 #include "GX_g3imm.h"
 #include "GX_dma.h"
 
-void GX_Init();
-u32 GX_HBlankIntr(u32 enable);
-u32 GX_VBlankIntr(u32 enable);
-void GX_DispOff();
-void GX_DispOn();
-void GX_SetGraphicsMode(u32 mode1, u32 mode2, u32 mode3);
-void GXS_SetGraphicsMode(u32 mode);
-void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness);
-
 typedef union
 {
     u32     raw;
@@ -180,5 +171,19 @@ typedef enum
     (1 << REG_GX_DISPCNT_OBJMAP_SHIFT) | (3 << REG_GX_DISPCNT_EXOBJ_SHIFT)
 }
     GXOBJVRamModeChar;
+
+void GX_Init();
+u32 GX_HBlankIntr(u32 enable);
+u32 GX_VBlankIntr(u32 enable);
+void GX_DispOff();
+void GX_DispOn();
+void GX_SetGraphicsMode(GXDispMode dispMode, GXBGMode bgMode, GXBG0As bg0_2d3d);
+void GXS_SetGraphicsMode(GXBGMode mode);
+void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness);
+
+static inline void GX_SetMasterBrightness(int brightness)
+{
+    GXx_SetMasterBrightness_(&reg_GX_MASTER_BRIGHT, brightness);
+}
 
 #endif //GUARD_GX_H

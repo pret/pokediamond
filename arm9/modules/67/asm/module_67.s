@@ -30,12 +30,12 @@ MOD67_021D74E0: ; 0x021D74E0
 	strh r1, [r3]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #2
 	mov r0, #3
 	mov r1, #0x2a
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r4, #0
 	bl OverlayManager_GetField18
 	add r5, r0, #0
@@ -165,7 +165,7 @@ MOD67_021D7624: ; 0x021D7624
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x2a
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0

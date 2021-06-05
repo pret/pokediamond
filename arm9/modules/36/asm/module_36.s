@@ -981,7 +981,7 @@ MOD36_02254F5C: ; 0x02254F5C
 	sub sp, #0x14
 	mov r0, #8
 	add r5, r1, #0
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254F70
 	bl GF_AssertFail
@@ -1000,7 +1000,7 @@ _02254F70:
 	mov r3, #0
 	bl FUN_02016C18
 	mov r0, #8
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254F9E
 	bl GF_AssertFail
@@ -1034,7 +1034,7 @@ _02254F9E:
 	add r1, r0, #0
 	bl MOD20_02252D7C
 	mov r0, #8
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02254FEA
 	bl GF_AssertFail
@@ -1061,7 +1061,7 @@ _02254FEA:
 	add r0, r5, #0
 	bl MOD36_02254F48
 	mov r0, #8
-	bl FUN_02016B90
+	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
 	bne _02255028
 	bl GF_AssertFail

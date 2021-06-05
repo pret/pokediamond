@@ -1916,7 +1916,7 @@ MOD83_0222E48C: ; 0x0222E48C
 	mov r0, #3
 	mov r1, #0x51
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x57
 	add r0, r5, #0
 	lsl r1, r1, #2
@@ -2372,7 +2372,7 @@ MOD83_0222E850: ; 0x0222E850
 	add r0, r4, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x51
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0
 	bl MOD83_02239450
 	mov r0, #1
@@ -3085,7 +3085,7 @@ MOD83_0222EDF8: ; 0x0222EDF8
 	mov r2, #3
 	mov r1, #0x5b
 	lsl r2, r2, #8
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _0222EE88 ; =0x00000496
 	mov r0, #9
 	mov r2, #1
@@ -3312,14 +3312,14 @@ MOD83_0222F048: ; 0x0222F048
 	push {r4, lr}
 	add r4, r0, #0
 	mov r0, #0x5b
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _0222F06C ; =SDK_OVERLAY_MODULE_63_ID
 	ldr r1, _0222F070 ; =MOD63_021DBAB8
 	bl RegisterMainOverlay
 	add r0, r4, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x55
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, pc}
 	nop
@@ -6505,7 +6505,7 @@ MOD83_02230954: ; 0x02230954
 	mov r0, #3
 	mov r1, #0x56
 	lsl r2, r0, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _022309FC ; =0x00002998
 	add r0, r5, #0
 	mov r2, #0x56
@@ -6561,7 +6561,7 @@ _022309D0:
 	mov r0, #0
 	mov r1, #0x5b
 	lsl r2, r2, #8
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop
@@ -7695,11 +7695,11 @@ _0223139A:
 	bl RegisterMainOverlay
 _022313A6:
 	mov r0, #0x5b
-	bl FUN_020168D0
+	bl DestroyHeap
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x56
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _022313E0 ; =0x000015D4
 	ldr r0, [r4, r0]
 	cmp r0, #2
@@ -9726,7 +9726,7 @@ MOD83_022323A8: ; 0x022323A8
 	mov r0, #3
 	mov r1, #0x57
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _0223240C ; =0x00003CF4
 	add r0, r4, #0
 	mov r2, #0x57
@@ -9759,7 +9759,7 @@ MOD83_022323A8: ; 0x022323A8
 	mov r0, #0
 	mov r1, #0x5b
 	lsl r2, r2, #8
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -11366,11 +11366,11 @@ _02233104:
 	ldr r1, _02233164 ; =MOD83_0223A434
 	bl RegisterMainOverlay
 	mov r0, #0x5b
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, [sp]
 	bl OverlayManager_FreeData
 	mov r0, #0x57
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -15353,11 +15353,11 @@ MOD83_02234E40: ; 0x02234E40
 	add r0, r4, #0
 	bl FUN_0202BF90
 	mov r0, #4
-	bl FUN_020166A8
+	bl SetSoftResetDisableMask
 	ldr r0, [r5, #0x10]
 	bl FUN_02022720
 	mov r0, #4
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD83_02234E40
 
@@ -18509,7 +18509,7 @@ MOD83_02236764: ; 0x02236764
 	mov r0, #3
 	mov r1, #0x4e
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _022367F0 ; =0x00012608
 	add r0, r5, #0
 	mov r2, #0x4e
@@ -19168,7 +19168,7 @@ _02236CAE:
 	mov r0, #0x15
 	str r0, [r5]
 	mov r0, #4
-	bl FUN_020166A8
+	bl SetSoftResetDisableMask
 	b _02236D90
 _02236CF0:
 	ldr r0, _02236DB0 ; =0x0000E88C
@@ -19219,7 +19219,7 @@ _02236D36:
 	mov r0, #0x16
 	str r0, [r5]
 	mov r0, #4
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 	b _02236D90
 _02236D54:
 	ldr r0, _02236DC8 ; =gMain + 0x40
@@ -19287,7 +19287,7 @@ MOD83_02236DD0: ; 0x02236DD0
 	add r0, r4, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4e
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0
 	bl MOD83_02239450
 	mov r0, #1
@@ -22827,7 +22827,7 @@ MOD83_022387A0: ; 0x022387A0
 	add r6, r1, #0
 	mov r0, #3
 	add r2, r3, #0
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
@@ -24577,7 +24577,7 @@ _022394E4: ; jump table
 	.short _02239538 - _022394E4 - 2 ; case 4
 _022394EE:
 	mov r0, #4
-	bl FUN_020166A8
+	bl SetSoftResetDisableMask
 	ldr r0, [r4, #0x14]
 	mov r1, #2
 	bl FUN_02022840
@@ -24610,7 +24610,7 @@ _02239528:
 	cmp r0, #1
 	bhi _02239534
 	mov r0, #4
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 _02239534:
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
@@ -24645,7 +24645,7 @@ MOD83_0223955C: ; 0x0223955C
 	ldr r0, [r0, #0x14]
 	bl FUN_0202287C
 	mov r0, #4
-	bl FUN_020166B8
+	bl ClearSoftResetDisableMask
 	pop {r3, pc}
 	nop
 _02239570: .word MOD83_0223BC30

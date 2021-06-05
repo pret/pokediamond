@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 	.extern UNK_020FA6E8
@@ -738,7 +738,7 @@ _0206CCCE:
 	mov r3, #0x4
 	bl FUN_02007E68
 	ldr r0, [r4, #0x5c]
-	bl FUN_02016AF8
+	bl GF_ExpHeap_FndGetTotalFreeSize
 	mov r1, #0x2
 	lsl r1, r1, #0xe
 	cmp r0, r1

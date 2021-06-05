@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.section .rodata
 
@@ -137,7 +137,7 @@ _020520C0:
 	mov r0, #0x3
 	mov r1, #0x1f
 	lsl r2, r2, #0x6
-	bl FUN_02016828
+	bl CreateHeapAtEnd
 	add r0, r4, #0x0
 	bl FUN_02052110
 	add r5, r0, #0x0
@@ -625,7 +625,7 @@ FUN_020524A0: ; 0x020524A0
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x1f
-	bl FUN_020168D0
+	bl DestroyHeap
 _020524B8:
 	pop {r4, pc}
 	.balign 4

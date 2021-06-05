@@ -69,7 +69,7 @@ _021D7564:
 	mov r0, #3
 	ldr r2, [r2, #4]
 	mov r1, #4
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _021D757A
@@ -361,7 +361,7 @@ _021D7806:
 	mov r0, #0
 	str r0, [r4, #4]
 	mov r0, #4
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, [r4, #0x70]
 	ldr r0, [r0]
 	lsl r0, r0, #8

@@ -1,5 +1,5 @@
 	.include "asm/macros.inc"
-    .include "global.inc"
+	.include "global.inc"
 
 	.extern FX_SinCosTable_
 	.extern NNS_GfdDefaultFuncAllocPlttVram
@@ -265,7 +265,7 @@ _0201F1C8:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r5, #0x4]
 	mov r2, #0x4
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	ldr r0, [r5, #0x0]
 	ldr r1, [r5, #0x4]
 	bl FUN_0201C360
@@ -1821,7 +1821,7 @@ _0201FD0C:
 	str r0, [r4, r1]
 	ldr r0, [r5, #0x8]
 	ldr r1, _0201FD54 ; =UNK_02105BBC
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	mov r1, #0x46
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]

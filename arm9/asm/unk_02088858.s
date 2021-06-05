@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.section .rodata
 
@@ -89,14 +89,14 @@ FUN_020888DC: ; 0x020888DC
 	mov r0, #0x3
 	mov r1, #0x31
 	lsl r2, r2, #0xc
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r4, #0x0
 	bl OverlayManager_GetField18
 	ldr r0, [r0, #0x8]
 	mov r1, #0x31
 	bl FUN_02088898
 	mov r0, #0x31
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x0
 	bl OS_ResetSystem
 	mov r0, #0x1

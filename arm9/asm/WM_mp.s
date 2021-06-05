@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start WM_EndMP
 WM_EndMP: ; 0x020D9960

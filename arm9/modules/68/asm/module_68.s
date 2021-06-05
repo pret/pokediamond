@@ -32,7 +32,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x24
 	lsr r2, r2, #9
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x81
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -73,7 +73,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	bl MOD68_021D7870
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl FUN_0201CC08
 	mov r0, #4
 	bl FUN_0201CC24
@@ -173,7 +173,7 @@ MOD68_021D762C: ; 0x021D762C
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x24
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _021D767C ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]

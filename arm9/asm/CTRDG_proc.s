@@ -37,7 +37,7 @@ UNK_021D6964: ; 0x021D6964
 UNK_021D6A20: ; 0x021D6A20
 	.space 0xe8
 
-    .text
+	.text
 
 	arm_func_start CTRDGi_CallbackForSetPhi
 CTRDGi_CallbackForSetPhi: ; 0x020DB978

@@ -16,11 +16,11 @@ _02237E50:
 	mov r0, #3
 	mov r1, #0x39
 	lsl r2, r0, #0xf
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #3
 	mov r1, #0x3a
 	lsl r2, r0, #0xf
-	bl FUN_0201681C
+	bl CreateHeap
 	bl MOD81_02238858
 	ldr r1, _02237FD0 ; =0x00000492
 	mov r0, #3
@@ -237,9 +237,9 @@ MOD81_02238004: ; 0x02238004
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x39
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x3a
-	bl FUN_020168D0
+	bl DestroyHeap
 	add r0, r6, #0
 	bl OS_RestoreInterrupts
 	mov r0, #1

@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern UNK_02105FBC
 

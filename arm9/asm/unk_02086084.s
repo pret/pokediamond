@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern UNK_020FA5FC
 
@@ -23,7 +23,7 @@ FUN_02086084: ; 0x02086084
 	mov r0, #0x3
 	mov r1, #0x47
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0x0
 	mov r1, #0x80
 	mov r2, #0x47
@@ -219,7 +219,7 @@ FUN_020861DC: ; 0x020861DC
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	mov r0, #0x47
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x1
 	pop {r3-r5, pc}
 	.balign 4

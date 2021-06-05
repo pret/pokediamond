@@ -28,7 +28,7 @@ MOD77_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x32
 	lsl r2, r2, #7
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D75DC ; =0x0000C32C
 	add r0, r4, #0
 	mov r2, #0x32
@@ -100,7 +100,7 @@ _021D7540:
 	bl GX_SwapDisplay
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r5, #0
 	bl MOD77_021D7C64
 	mov r0, #1
@@ -831,7 +831,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	add r0, r5, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _021D7C20 ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]

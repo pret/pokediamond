@@ -97,14 +97,14 @@ THUMB_FUNC void FUN_020317C0()
 
         if (UNK_021C5A00->unk3F >= 0x13)
         {
-            FUN_020168D0(0x31);
+            DestroyHeap(0x31);
         }
 
         FUN_02033ED0();
         FUN_0202E4F0();
 
         FreeToHeap(UNK_021C5A00);
-        FUN_020168D0(0xf);
+        DestroyHeap(0xf);
 
         UNK_021C5A00 = NULL;
     }
@@ -123,7 +123,7 @@ THUMB_FUNC void FUN_02031824(struct SaveBlock2 *sav2)
 {
     if (UNK_021C5A00 == NULL)
     {
-        FUN_02016828(3, 0xf, 0xe000);
+        CreateHeapAtEnd(3, 0xf, 0xe000);
         FUN_02031734(sav2, 0xa);
 
         UNK_021C5A00->unk40 = 0;
@@ -201,7 +201,7 @@ THUMB_FUNC void FUN_02031948(struct SaveBlock2 *sav2, u8 param1, u8 param2, u32 
 {
     if (FUN_02030F40() == 0)
     {
-        FUN_02016828(3, 0xf, 0x7080);
+        CreateHeapAtEnd(3, 0xf, 0x7080);
         FUN_02031734(sav2, param1);
         UNK_021C5A00->unk40 = param2;
         UNK_021C5A00->unk30 = param3;
@@ -213,7 +213,7 @@ THUMB_FUNC void FUN_02031990(struct SaveBlock2 *sav2, u8 param1, u8 param2, u32 
 {
     if (FUN_02030F40() == 0)
     {
-        FUN_02016828(3, 0xf, 0x7080);
+        CreateHeapAtEnd(3, 0xf, 0x7080);
         FUN_02031734(sav2, param1);
         UNK_021C5A00->unk40 = param2;
         UNK_021C5A00->unk30 = param3;
@@ -273,7 +273,7 @@ THUMB_FUNC void FUN_02031A7C(struct SaveBlock2 *sav2)
 {
     if (UNK_021C5A00 == NULL)
     {
-        if (FUN_02016828(3, 0xf, 0x7080) == 0)
+        if (CreateHeapAtEnd(3, 0xf, 0x7080) == 0)
         {
             FUN_020335E0();
         }
@@ -406,7 +406,7 @@ THUMB_FUNC void FUN_02031C74(struct SaveBlock2 *sav2, u8 param1)
 {
     if (FUN_02030F40() == 0)
     {
-        FUN_02016828(3, 0xf, 0x7080);
+        CreateHeapAtEnd(3, 0xf, 0x7080);
         FUN_02031734(sav2, param1);
         FUN_02031D20(FUN_02032E00, 0);
     }
@@ -416,7 +416,7 @@ THUMB_FUNC void FUN_02031CA8(struct SaveBlock2 *sav2, u8 param1)
 {
     if (FUN_02030F40() == 0)
     {
-        FUN_02016828(3, 0xf, 0x7080);
+        CreateHeapAtEnd(3, 0xf, 0x7080);
         FUN_02031734(sav2, param1);
         FUN_02031D20(FUN_02032E48, 0);
     }
@@ -1393,7 +1393,7 @@ THUMB_FUNC void FUN_02032BD0(struct SaveBlock2 *sav2)
 {
     if (FUN_02030F40() == 0)
     {
-        FUN_02016828(3, 0xf, 0x7000);
+        CreateHeapAtEnd(3, 0xf, 0x7000);
         FUN_02031734(sav2, 0xe);
         UNK_021C5A00->unk40 = 0;
         FUN_02031D20(FUN_02032B8C, 0);
@@ -1479,7 +1479,7 @@ THUMB_FUNC void FUN_02032D44(struct SaveBlock2 *sav2)
 {
     if (FUN_02030F40() == 0)
     {
-        FUN_02016828(3, 0xf, 0x7000);
+        CreateHeapAtEnd(3, 0xf, 0x7000);
         FUN_02031734(sav2, 0x11);
         UNK_021C5A00->unk40 = 0;
         FUN_02031D20(FUN_02032CF4, 0);
@@ -1807,7 +1807,7 @@ THUMB_FUNC void FUN_020331C4()
 {
     if (UNK_021C5A00 != NULL)
     {
-        FUN_020166B8(1);
+        ClearSoftResetDisableMask(1);
         FUN_02031D20(FUN_02032440, 5);
     }
 }
@@ -1866,7 +1866,7 @@ THUMB_FUNC void FUN_02033288(struct SaveBlock2 *sav2)
 {
     if (UNK_021C5A00 == NULL)
     {
-        FUN_02016828(3, 0xf, 0x100);
+        CreateHeapAtEnd(3, 0xf, 0x100);
         UNK_021C5A00 =
             (struct UnkStruct_02031734 *)AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
         MI_CpuFill8(UNK_021C5A00, 0, sizeof(struct UnkStruct_02031734));
@@ -1875,7 +1875,7 @@ THUMB_FUNC void FUN_02033288(struct SaveBlock2 *sav2)
         UNK_021C5A00->unk46 = 1;
         UNK_021C5A00->unk28 = sav2;
         FUN_020334E8(0, 1);
-        FUN_020166A8(1);
+        SetSoftResetDisableMask(1);
     }
 }
 
@@ -1883,11 +1883,11 @@ THUMB_FUNC void FUN_020332DC()
 {
     if (UNK_021C5A00 != 0)
     {
-        FUN_020166B8(1);
+        ClearSoftResetDisableMask(1);
         FUN_020334E8(0, 0);
         FreeToHeap(UNK_021C5A00);
         UNK_021C5A00 = NULL;
-        FUN_020168D0(0xf);
+        DestroyHeap(0xf);
     }
 }
 
@@ -1895,7 +1895,7 @@ THUMB_FUNC void FUN_02033310(struct SaveBlock2 *sav2)
 {
     if (UNK_021C5A00 == NULL)
     {
-        FUN_02016828(3, 0xf, 0x100);
+        CreateHeapAtEnd(3, 0xf, 0x100);
         UNK_021C5A00 =
             (struct UnkStruct_02031734 *)AllocFromHeap(0xf, sizeof(struct UnkStruct_02031734));
         MI_CpuFill8(UNK_021C5A00, 0, sizeof(struct UnkStruct_02031734));
@@ -1903,7 +1903,7 @@ THUMB_FUNC void FUN_02033310(struct SaveBlock2 *sav2)
         UNK_021C5A00->unk46 = 1;
         UNK_021C5A00->unk28 = sav2;
         FUN_020334E8(0, 1);
-        FUN_020166A8(1);
+        SetSoftResetDisableMask(1);
     }
 }
 
@@ -1911,11 +1911,11 @@ THUMB_FUNC void FUN_02033364()
 {
     if (UNK_021C5A00 != 0)
     {
-        FUN_020166B8(1);
+        ClearSoftResetDisableMask(1);
         FUN_020334E8(0, 0);
         FreeToHeap(UNK_021C5A00);
         UNK_021C5A00 = NULL;
-        FUN_020168D0(0xf);
+        DestroyHeap(0xf);
     }
 }
 
@@ -1966,7 +1966,7 @@ THUMB_FUNC void FUN_0203341C()
 {
     if (FUN_0202E4C8())
     {
-        FUN_02016828(3, 0x31, 0x31000);
+        CreateHeapAtEnd(3, 0x31, 0x31000);
         if (FUN_0202F918(1, 1, 0x200, 1) != 0)
         {
             MOD05_021D74E0(UNK_021C5A00->unk28, 0x31);
@@ -1985,8 +1985,8 @@ THUMB_FUNC void *FUN_0203346C(struct SaveBlock2 *sav2, u32 param1)
         return 0;
     }
 
-    FUN_020166A8(1);
-    FUN_02016828(3, 0xf, 0x7080);
+    SetSoftResetDisableMask(1);
+    CreateHeapAtEnd(3, 0xf, 0x7080);
     FUN_02031734(sav2, 0x17);
     UNK_021C5A00->unk00 = AllocFromHeap(0xf, param1);
     MI_CpuFill8(UNK_021C5A00->unk00, 0, param1);
@@ -2127,7 +2127,7 @@ THUMB_FUNC void FUN_020335F4()
 
         FUN_0200541C();
         FUN_0202287C(UNK_021C5A00->unk28);
-        gMain.unk64 = 1;
+        gMain.touchpadReadAuto = 1;
         if (UNK_021C5A00->unk4E == 3)
         {
             FUN_020335A4(3);
