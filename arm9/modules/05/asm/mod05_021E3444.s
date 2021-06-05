@@ -1055,7 +1055,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	ldmia r6!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -1071,12 +1071,12 @@ MOD05_021E3C14: ; 0x021E3C14
 	mov r1, #1
 	str r0, [r2]
 	add r0, r4, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
 	add r2, sp, #0x38
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0x20
 	mov r2, #0
@@ -1084,7 +1084,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -1100,12 +1100,12 @@ MOD05_021E3C14: ; 0x021E3C14
 	mov r1, #2
 	str r0, [r2]
 	add r0, r4, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
 	add r2, sp, #0x1c
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
@@ -1113,7 +1113,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #4
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -1129,12 +1129,12 @@ MOD05_021E3C14: ; 0x021E3C14
 	str r0, [r2]
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
 	add r2, sp, #0
 	mov r3, #1
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
@@ -1142,7 +1142,7 @@ MOD05_021E3C14: ; 0x021E3C14
 	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #8
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -1214,7 +1214,7 @@ MOD05_021E3D70: ; 0x021E3D70
 	lsl r1, r1, #0x18
 	ldr r3, [r3, #0x20]
 	lsr r1, r1, #0x18
-	bl FUN_02017B60
+	bl Bg_SetTextDimAndAffineParams
 	add r0, r4, #0
 	bl FUN_0200CAB4
 	add sp, #0xc

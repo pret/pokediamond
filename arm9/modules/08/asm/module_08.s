@@ -1827,7 +1827,7 @@ _02212AE8:
 	lsl r1, r1, #0x18
 	add r0, r4, #0
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #2
 	mov r1, #1
 	bl ToggleBgLayer
@@ -1839,47 +1839,47 @@ _02212B40:
 	lsl r1, r1, #4
 	ldrb r1, [r5, r1]
 	mov r0, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r1, _02212BB8 ; =0x000001A1
 	mov r0, #1
 	ldrb r1, [r5, r1]
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r1, _02212BBC ; =0x000001A2
 	mov r0, #2
 	ldrb r1, [r5, r1]
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r1, _02212BC0 ; =0x000001A3
 	mov r0, #3
 	ldrb r1, [r5, r1]
-	bl FUN_020178BC
+	bl SetBgPriority
 	add r0, r5, #0
 	add r0, #0xc4
 	mov r2, #0
 	ldr r0, [r0]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
 	mov r1, #2
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r5, #0
 	add r0, #0xc4
 	mov r2, #0
 	ldr r0, [r0]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r5, #0
 	add r0, #0xc4
 	mov r1, #3
 	ldr r0, [r0]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0
 	str r0, [r5, #0x10]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -3052,13 +3052,13 @@ _02213410:
 	mov r1, #2
 	mov r2, #0
 	neg r3, r6
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	sub r4, #0x28
 	ldr r0, [r5]
 	mov r1, #2
 	mov r2, #3
 	neg r3, r4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _02213452:
 	pop {r4, r5, r6, pc}
 
@@ -3156,7 +3156,7 @@ _022134FE:
 	mov r7, #0xc8
 _02213500:
 	mov r0, #2
-	bl FUN_020187B0
+	bl BgGetCharPtr
 	mov r2, #0x19
 	mov r1, #0
 	lsl r2, r2, #8
@@ -3262,7 +3262,7 @@ _022135AC:
 	mov r1, #2
 	mov r2, #0
 	neg r3, r7
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r5, #0
 	add r0, #0xc4
 	sub r4, #0x28
@@ -3270,7 +3270,7 @@ _022135AC:
 	mov r1, #2
 	mov r2, #3
 	neg r3, r4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #2
 	mov r1, #1
 	bl ToggleBgLayer
@@ -3280,7 +3280,7 @@ _022135AC:
 	lsl r1, r1, #0x18
 	mov r0, #2
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3296,7 +3296,7 @@ MOD08_02213630: ; 0x02213630
 	add r0, r0, #4
 	str r0, [r4, #0x18]
 	mov r0, #2
-	bl FUN_020187B0
+	bl BgGetCharPtr
 	mov r2, #0x19
 	mov r1, #0
 	lsl r2, r2, #8
@@ -4166,7 +4166,7 @@ MOD08_02213C94: ; 0x02213C94
 	lsl r1, r4, #0x18
 	ldr r0, [r0]
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	mov r6, #2
 	bl MOD08_02212004
@@ -4364,11 +4364,11 @@ _02213E50:
 	lsl r1, r4, #0x18
 	mov r0, #3
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	lsl r1, r4, #0x18
 	mov r0, #2
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #2
 	mov r1, #1
 	bl ToggleBgLayer
@@ -4383,7 +4383,7 @@ _02213E8E:
 	ldr r0, [r0]
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_020170F4
+	bl SetBgControlParam
 	ldr r0, [r5, #0x48]
 	bl MOD08_02212004
 	cmp r0, #1
@@ -4394,7 +4394,7 @@ _02213E8E:
 	ldr r0, [r0]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_020170F4
+	bl SetBgControlParam
 _02213EB8:
 	ldr r1, [r5, #0x48]
 	ldr r3, [r5, #0x10]
@@ -4506,11 +4506,11 @@ _02213F6E:
 	lsl r1, r5, #0x18
 	mov r0, #3
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	lsl r1, r5, #0x18
 	mov r0, #2
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldrb r0, [r4, #0xa]
 	mov r1, #4
 	mov r2, #8
@@ -4591,21 +4591,21 @@ _0221401E:
 	ldr r0, [r0]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x48]
 	mov r1, #3
 	add r0, #0xc4
 	ldr r0, [r0]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x48]
 	mov r1, #3
 	add r0, #0xc4
 	ldr r0, [r0]
 	mov r2, #2
 	mov r3, #4
-	bl FUN_020170F4
+	bl SetBgControlParam
 	ldr r0, [r4, #0x48]
 	bl MOD08_02212004
 	cmp r0, #0
@@ -4616,7 +4616,7 @@ _0221401E:
 	ldr r0, [r0]
 	mov r2, #0
 	mov r3, #1
-	bl FUN_020170F4
+	bl SetBgControlParam
 	ldr r0, [r4, #0x48]
 	mov r1, #3
 	bl MOD08_02215638
@@ -4800,7 +4800,7 @@ _022141BE:
 	ldr r0, [r0]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_020170F4
+	bl SetBgControlParam
 	ldr r1, [r4, #0x48]
 	ldr r3, [r4, #0x10]
 	add r0, r4, #0
@@ -4992,7 +4992,7 @@ _02214338:
 	ldr r0, [r0]
 	mov r2, #0
 	mov r3, #1
-	bl FUN_020170F4
+	bl SetBgControlParam
 	ldr r0, [r4, #0x48]
 	mov r1, #3
 	bl MOD08_02215638
@@ -5071,14 +5071,14 @@ _022143F0:
 	ldr r0, [r0]
 	mov r1, #3
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x48]
 	mov r1, #3
 	add r0, #0xc4
 	ldr r0, [r0]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldrb r0, [r4, #0xd]
 	ldr r2, [r4, #0x48]
 	cmp r0, #0
@@ -5208,7 +5208,7 @@ _022144DA:
 	ldr r0, [r4]
 	lsr r1, r1, #0x18
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _02214508:
 	mov r0, #0xa
 	ldrsh r0, [r4, r0]
@@ -5221,7 +5221,7 @@ _02214508:
 	ldr r0, [r4]
 	lsr r1, r1, #0x18
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _02214522:
 	pop {r3, r4, r5, pc}
 
@@ -5546,7 +5546,7 @@ MOD08_0221477C: ; 0x0221477C
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #0
@@ -5562,7 +5562,7 @@ MOD08_0221477C: ; 0x0221477C
 	lsr r1, r1, #0x18
 	mov r2, #2
 	mov r3, #4
-	bl FUN_020170F4
+	bl SetBgControlParam
 	b _022147E4
 _022147C0:
 	add r0, r5, #0
@@ -5572,7 +5572,7 @@ _022147C0:
 	lsr r1, r1, #0x18
 	mov r2, #0
 	mov r3, #1
-	bl FUN_020170F4
+	bl SetBgControlParam
 	add r0, r5, #0
 	add r0, #0xc4
 	lsl r1, r4, #0x18
@@ -5580,14 +5580,14 @@ _022147C0:
 	lsr r1, r1, #0x18
 	mov r2, #2
 	mov r3, #4
-	bl FUN_020170F4
+	bl SetBgControlParam
 _022147E4:
 	add r0, r5, #0
 	add r0, #0xc4
 	lsl r1, r4, #0x18
 	ldr r0, [r0]
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	bl MOD08_02212004
 	cmp r0, #1
@@ -5646,7 +5646,7 @@ MOD08_02214850: ; 0x02214850
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	add r0, r5, #0
 	bl MOD08_02212004
 	cmp r0, #1
@@ -5658,7 +5658,7 @@ MOD08_02214850: ; 0x02214850
 	lsr r1, r1, #0x18
 	mov r2, #2
 	mov r3, #3
-	bl FUN_020170F4
+	bl SetBgControlParam
 	b _022148AC
 _02214888:
 	add r0, r5, #0
@@ -5668,7 +5668,7 @@ _02214888:
 	ldr r0, [r0]
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_020170F4
+	bl SetBgControlParam
 	add r0, r5, #0
 	add r0, #0xc4
 	lsl r1, r4, #0x18
@@ -5676,13 +5676,13 @@ _02214888:
 	lsr r1, r1, #0x18
 	mov r2, #2
 	mov r3, #3
-	bl FUN_020170F4
+	bl SetBgControlParam
 _022148AC:
 	add r5, #0xc4
 	lsl r1, r4, #0x18
 	ldr r0, [r5]
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -15184,7 +15184,7 @@ _02218F32:
 	ldr r0, [r5, #0x18]
 	mov r1, #3
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, r4, r5, r6, r7, pc}
 _02218F4E:
 	ldr r0, [r5, #8]
@@ -15453,13 +15453,13 @@ _02219136:
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0xc
 	ldrsh r3, [r4, r3]
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02219154: .word 0x04000050
@@ -15605,7 +15605,7 @@ _02219228:
 	bl FUN_020030E8
 	ldr r0, [r4, #0x30]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	mov r6, #2
 	bl MOD08_02212004
@@ -15645,13 +15645,13 @@ _022192BC:
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0xc
 	ldrsh r3, [r4, r3]
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x20]
 	ldr r1, _02219310 ; =MOD08_02218FE8
 	add r2, r4, #0
@@ -15854,13 +15854,13 @@ _0221945E:
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0xc
 	ldrsh r3, [r4, r3]
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _0221947C: .word 0x04000050
@@ -16009,7 +16009,7 @@ _02219550:
 	bl FUN_020030E8
 	ldr r0, [r4, #0x30]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	mov r6, #2
 	bl MOD08_02212004
@@ -16049,13 +16049,13 @@ _022195EA:
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0xc
 	ldrsh r3, [r4, r3]
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x20]
 	ldr r1, _0221963C ; =MOD08_02219314
 	add r2, r4, #0
@@ -20509,7 +20509,7 @@ _0221BA38:
 	ldr r0, [r4, #0x28]
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _0221BA50:
 	ldr r0, [r4, #0x24]
 	cmp r0, #0
@@ -20520,7 +20520,7 @@ _0221BA50:
 	lsr r1, r1, #0x18
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _0221BA66:
 	ldrb r0, [r4, #1]
 	add sp, #4
@@ -20540,7 +20540,7 @@ _0221BA70:
 	ldr r0, [r4, #0x28]
 	lsr r1, r1, #0x18
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _0221BA8C:
 	mov r3, #0xd6
 	ldrsh r0, [r4, r3]
@@ -20554,7 +20554,7 @@ _0221BA8C:
 	ldr r0, [r4, #0x28]
 	lsr r1, r1, #0x18
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add sp, #4
 	pop {r3, r4, pc}
 _0221BAAC:
@@ -26110,7 +26110,7 @@ _0221E84C:
 	ldr r0, [r4, #8]
 	mov r1, #3
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 _0221E866:
@@ -26622,13 +26622,13 @@ _0221EC7A:
 	ldr r0, [r5, #0x14]
 	mov r1, #3
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0x4e
 	mov r1, #3
 	ldrsh r3, [r5, r3]
 	ldr r0, [r5, #0x14]
 	add r2, r1, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, r4, r5, r6, r7, pc}
 _0221ECA0:
 	ldr r0, [r5, #4]
@@ -31969,7 +31969,7 @@ _022218B0:
 	lsl r1, r1, #0x18
 	mov r0, #2
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 _022218C4:
 	ldr r0, [r4, #0x1c]
 	mov r1, #0
@@ -33520,7 +33520,7 @@ _0222255E:
 	mov r1, #2
 	mov r2, #0
 	neg r3, r3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4]
 	bl MOD08_02212490
 	mov r3, #0x12
@@ -33528,7 +33528,7 @@ _0222255E:
 	mov r1, #2
 	mov r2, #3
 	neg r3, r3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #8]
 	add r0, r0, #1
 	str r0, [r4, #8]
@@ -33578,14 +33578,14 @@ _022225CE:
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	bl MOD08_02215574
 	add r1, r0, #0
 	lsl r1, r1, #0x18
 	mov r0, #0
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	mov r1, #1
 	bl MOD08_02215588
@@ -33609,7 +33609,7 @@ _022225CE:
 	lsl r1, r1, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, [r4]
 	add r1, r6, #0
 	bl MOD08_02212438
@@ -33762,7 +33762,7 @@ _022226FC:
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	bl MOD08_02215574
 	add r1, r0, #0
@@ -33770,7 +33770,7 @@ _022226FC:
 	lsl r1, r1, #0x18
 	mov r0, #0
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 _022227AE:
 	ldr r0, [sp, #0x14]
 	add r1, r4, #0
@@ -34338,14 +34338,14 @@ _02222C3E:
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	bl MOD08_02215574
 	add r1, r0, #0
 	lsl r1, r1, #0x18
 	mov r0, #0
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4, #0x10]
 	mov r1, #6
 	mov r2, #0
@@ -34373,7 +34373,7 @@ _02222C3E:
 	lsl r1, r1, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, [r4]
 	add r1, r6, #0
 	bl MOD08_02212438
@@ -34466,7 +34466,7 @@ _02222D6A:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	bl MOD08_02215574
 	add r1, r0, #0
@@ -34474,7 +34474,7 @@ _02222D6A:
 	lsl r1, r1, #0x18
 	mov r0, #0
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4, #0x48]
 	mov r1, #0
 	bl FUN_0200C644
@@ -40527,14 +40527,14 @@ _02225E68:
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	bl MOD08_02215574
 	add r1, r0, #0
 	lsl r1, r1, #0x18
 	mov r0, #0
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	mov r1, #1
 	bl MOD08_02215588
@@ -40558,7 +40558,7 @@ _02225E68:
 	lsl r1, r1, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r4]
@@ -40647,7 +40647,7 @@ MOD08_02225EFC: ; 0x02225EFC
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	bl MOD08_02215574
 	add r1, r0, #0
@@ -40655,7 +40655,7 @@ MOD08_02225EFC: ; 0x02225EFC
 	lsl r1, r1, #0x18
 	mov r0, #0
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 _02225FD0:
 	ldr r0, [r4]
 	ldr r1, _02225FDC ; =MOD08_02225E14
@@ -42728,7 +42728,7 @@ MOD08_02227068: ; 0x02227068
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -42760,7 +42760,7 @@ MOD08_02227068: ; 0x02227068
 	lsl r1, r4, #0x18
 	ldr r0, [r5, #0x2c]
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -42860,7 +42860,7 @@ _02227180:
 	bne _022271B2
 	ldr r0, [r4, #0x2c]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, [r4, #0x34]
 	mov r1, #0
 	bl FUN_0200C644
@@ -42899,12 +42899,12 @@ _022271C0:
 	ldr r0, [r4, #0x2c]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x2c]
 	mov r1, #2
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -42934,13 +42934,13 @@ _0222720E:
 	ldrsh r3, [r4, r3]
 	ldr r0, [r4, #0x2c]
 	mov r1, #2
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0x12
 	ldrsh r3, [r4, r3]
 	ldr r0, [r4, #0x2c]
 	mov r1, #2
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x34]
 	bl FUN_0200C5A8
 	ldr r0, [r4, #0x38]

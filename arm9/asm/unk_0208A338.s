@@ -779,7 +779,7 @@ _0208A954:
 	lsl r3, r3, #0x4
 	bl ListMenuUpdateCursorObj
 	ldr r0, [r4, #0x68]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	ldr r0, _0208A994 ; =0x000005DC
 	bl FUN_020054C8
 	mov r0, #0x0

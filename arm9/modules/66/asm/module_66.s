@@ -269,7 +269,7 @@ _021D7694:
 _021D76E4:
 	bl MOD66_021D7608
 	ldr r0, [r4, #4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #0x28]
 	ldr r1, [r4, #0x28]
 	add r0, r4, #0
@@ -336,7 +336,7 @@ _021D7782:
 	lsl r1, r4, #0x18
 	ldr r0, [r5, #0x28]
 	lsr r1, r1, #0x18
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r4, r4, #1
 	cmp r4, #8
 	blt _021D7782
@@ -393,7 +393,7 @@ MOD66_021D77E4: ; 0x021D77E4
 	ldmia r4!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r4, _021D78B0 ; =0x021D9634
 	add r3, sp, #0x14
 	mov r2, #0x1c
@@ -411,12 +411,12 @@ _021D7814:
 	lsr r1, r1, #0x18
 	add r2, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	lsl r1, r4, #0x18
 	add r0, r6, #0
 	lsr r1, r1, #0x18
 	add r4, r4, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r7, r7, #1
 	add r5, #0x1c
 	cmp r7, #8
@@ -1407,7 +1407,7 @@ _021D7FCE:
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
 	mov r1, #5
-	bl FUN_0201AFBC
+	bl DoesPixelAtScreenXYMatchPtrVal
 	cmp r0, #0
 	beq _021D7FEE
 	mov r4, #0
@@ -1805,7 +1805,7 @@ MOD66_021D82B8: ; 0x021D82B8
 	add r0, r6, #0
 	bl CopyWindowToVram
 	add r0, r6, #0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 _021D82DC:
@@ -2046,7 +2046,7 @@ MOD66_021D8494: ; 0x021D8494
 	add r0, r5, #0
 	bl FillWindowPixelBuffer
 	add r0, r5, #0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	ldrb r1, [r4, #0x15]
 	add r0, r5, #0
 	mov r2, #0
@@ -2234,16 +2234,16 @@ MOD66_021D8554: ; 0x021D8554
 	bl CopyWindowToVram
 	add r0, r4, #0
 	add r0, #0x38
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0
 	add r0, #0x58
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r4, #0x68
 	add r0, r4, #0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add sp, #0x14
 	pop {r4, r5, pc}
 	nop
@@ -2683,22 +2683,22 @@ MOD66_021D89B8: ; 0x021D89B8
 	mov r1, #6
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x28]
 	mov r1, #7
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r2, #0
 	ldr r0, [r4, #0x28]
 	mov r1, #6
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r2, #0
 	ldr r0, [r4, #0x28]
 	mov r1, #7
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0x20

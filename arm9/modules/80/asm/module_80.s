@@ -1401,7 +1401,7 @@ _0222DFE4:
 	add r4, r0, #0
 	bl memset
 	mov r0, #0x3e
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #4]
 	ldr r0, _0222E10C ; =0x02237E24
 	add r2, sp, #0
@@ -1413,7 +1413,7 @@ _0222DFE4:
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r0, #0xb
 	mov r1, #0x40
 	mov r2, #0x3e
@@ -2631,7 +2631,7 @@ MOD80_0222EA04: ; 0x0222EA04
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _0222EB00 ; =0x02236F04
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -2646,10 +2646,10 @@ MOD80_0222EA04: ; 0x0222EA04
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0222EB04 ; =0x02236EE8
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -2664,7 +2664,7 @@ MOD80_0222EA04: ; 0x0222EA04
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _0222EB08 ; =0x02236F20
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -2679,7 +2679,7 @@ MOD80_0222EA04: ; 0x0222EA04
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _0222EB0C ; =0x02236F3C
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -2694,10 +2694,10 @@ MOD80_0222EA04: ; 0x0222EA04
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0222EB10 ; =0x02236ECC
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -2712,7 +2712,7 @@ MOD80_0222EA04: ; 0x0222EA04
 	add r0, r4, #0
 	mov r1, #5
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -2745,19 +2745,19 @@ MOD80_0222EB14: ; 0x0222EB14
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD80_0222EB14
 
@@ -3550,7 +3550,7 @@ MOD80_0222F14C: ; 0x0222F14C
 	bl FUN_0200D0E0
 	ldr r0, _0222F1B0 ; =0x00000FB8
 	add r0, r4, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	ldr r0, _0222F1B4 ; =0x00000D5C
 	mov r1, #1
 	ldr r0, [r4, r0]
@@ -3564,7 +3564,7 @@ _0222F18A:
 	bl FUN_0200D0E0
 	ldr r0, _0222F1B0 ; =0x00000FB8
 	add r0, r4, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r1, #0
 	add r0, r4, #0
 	add r2, r1, #0
@@ -3959,10 +3959,10 @@ MOD80_0222F494: ; 0x0222F494
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0222F56C ; =0x02236FAC
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -3977,7 +3977,7 @@ MOD80_0222F494: ; 0x0222F494
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _0222F570 ; =0x02236F90
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -3992,7 +3992,7 @@ MOD80_0222F494: ; 0x0222F494
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _0222F574 ; =0x02236F74
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -4007,10 +4007,10 @@ MOD80_0222F494: ; 0x0222F494
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0222F578 ; =0x02236F58
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -4025,7 +4025,7 @@ MOD80_0222F494: ; 0x0222F494
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -4051,19 +4051,19 @@ MOD80_0222F57C: ; 0x0222F57C
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD80_0222F57C
 
@@ -5286,10 +5286,10 @@ MOD80_0222FF6C: ; 0x0222FF6C
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02230024 ; =0x022370BC
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -5304,7 +5304,7 @@ MOD80_0222FF6C: ; 0x0222FF6C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _02230028 ; =0x022370A0
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -5319,10 +5319,10 @@ MOD80_0222FF6C: ; 0x0222FF6C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0223002C ; =0x02237084
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -5337,7 +5337,7 @@ MOD80_0222FF6C: ; 0x0222FF6C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -5362,16 +5362,16 @@ MOD80_02230030: ; 0x02230030
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD80_02230030
 
@@ -6279,10 +6279,10 @@ MOD80_02230760: ; 0x02230760
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0223080C ; =0x022371EC
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -6297,10 +6297,10 @@ MOD80_02230760: ; 0x02230760
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02230810 ; =0x022371B4
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -6315,10 +6315,10 @@ MOD80_02230760: ; 0x02230760
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
@@ -6347,19 +6347,19 @@ MOD80_02230814: ; 0x02230814
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD80_02230814
 
@@ -8642,7 +8642,7 @@ MOD80_02231AB0: ; 0x02231AB0
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _02231BB4 ; =0x02237288
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -8657,10 +8657,10 @@ MOD80_02231AB0: ; 0x02231AB0
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02231BB8 ; =0x022372A4
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -8675,7 +8675,7 @@ MOD80_02231AB0: ; 0x02231AB0
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _02231BBC ; =0x0223726C
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -8690,10 +8690,10 @@ MOD80_02231AB0: ; 0x02231AB0
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02231BC0 ; =0x02237234
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -8708,10 +8708,10 @@ MOD80_02231AB0: ; 0x02231AB0
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02231BC4 ; =0x02237250
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -8726,7 +8726,7 @@ MOD80_02231AB0: ; 0x02231AB0
 	add r0, r4, #0
 	mov r1, #5
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -8759,19 +8759,19 @@ MOD80_02231BC8: ; 0x02231BC8
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD80_02231BC8
 
@@ -11706,10 +11706,10 @@ MOD80_02233358: ; 0x02233358
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02233430 ; =0x0223743C
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -11724,7 +11724,7 @@ MOD80_02233358: ; 0x02233358
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _02233434 ; =0x02237458
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -11739,7 +11739,7 @@ MOD80_02233358: ; 0x02233358
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _02233438 ; =0x02237404
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -11754,10 +11754,10 @@ MOD80_02233358: ; 0x02233358
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0223343C ; =0x022373E8
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -11772,7 +11772,7 @@ MOD80_02233358: ; 0x02233358
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -11798,19 +11798,19 @@ MOD80_02233440: ; 0x02233440
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD80_02233440
 
@@ -14222,7 +14222,7 @@ MOD80_02234780: ; 0x02234780
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _0223488C ; =0x02237544
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -14237,10 +14237,10 @@ MOD80_02234780: ; 0x02234780
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02234890 ; =0x02237528
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -14255,10 +14255,10 @@ MOD80_02234780: ; 0x02234780
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02234894 ; =0x0223757C
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -14273,10 +14273,10 @@ MOD80_02234780: ; 0x02234780
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02234898 ; =0x02237560
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -14291,10 +14291,10 @@ MOD80_02234780: ; 0x02234780
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0223489C ; =0x0223750C
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -14309,7 +14309,7 @@ MOD80_02234780: ; 0x02234780
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -14342,19 +14342,19 @@ MOD80_022348A0: ; 0x022348A0
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD80_022348A0
 
@@ -17886,13 +17886,13 @@ MOD80_02236378: ; 0x02236378
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02236458 ; =0x0223761C
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -17907,7 +17907,7 @@ MOD80_02236378: ; 0x02236378
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -17925,13 +17925,13 @@ MOD80_02236378: ; 0x02236378
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineBToggleLayers
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02236460 ; =0x02237600
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -17946,7 +17946,7 @@ MOD80_02236378: ; 0x02236378
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -17977,16 +17977,16 @@ MOD80_02236464: ; 0x02236464
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD80_02236464
 

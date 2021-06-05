@@ -3,7 +3,7 @@
 
 #include "global.h"
 #include "options.h"
-#include "unk_02016B94.h"
+#include "bg_window.h"
 #include "string16.h"
 
 

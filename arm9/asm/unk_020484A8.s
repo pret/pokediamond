@@ -352,7 +352,7 @@ FUN_02048764: ; 0x02048764
 	orr r0, r1
 	strh r0, [r2, #0x0]
 	ldr r0, _020487DC ; =UNK_020F4684
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r0, #0x3
 	mov r1, #0x0
 	bl BG_SetMaskColor
@@ -360,7 +360,7 @@ FUN_02048764: ; 0x02048764
 	ldr r2, _020487E0 ; =UNK_020F4694
 	mov r1, #0x3
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r1, #0x20
 	mov r0, #0x3
 	mov r2, #0x0
@@ -379,7 +379,7 @@ FUN_02048764: ; 0x02048764
 	bl FillBgTilemapRect
 	ldr r0, [r4, #0x8]
 	mov r1, #0x3
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x10
 	pop {r4, pc}
 	nop
@@ -523,6 +523,6 @@ _020488E4:
 _020488F8:
 	ldr r0, [r5, #0x8]
 	mov r1, #0x3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r3-r5, pc}
 	.balign 4

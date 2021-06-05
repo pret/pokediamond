@@ -384,7 +384,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	ldr r2, _02254BD0 ; =MOD49_02254D20
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r5, #4]
@@ -450,7 +450,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, sp, #0x1c
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
 	bl String_dtor
 _02254B94:
@@ -458,7 +458,7 @@ _02254B94:
 	bl RemoveWindow
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, [sp, #0x14]
 	add r0, r5, #0
 	bl MOD49_02254C04
@@ -497,7 +497,7 @@ MOD49_02254BE4: ; 0x02254BE4
 	bl MOD49_02254CB8
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD49_02254AC0
 	pop {r3, r4, r5, pc}

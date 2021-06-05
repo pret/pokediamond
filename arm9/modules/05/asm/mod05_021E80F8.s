@@ -147,7 +147,7 @@ MOD05_021E81D0: ; 0x021E81D0
 	ldr r0, [r4, #8]
 	add r2, r1, #0
 	sub r3, #0x33
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r1, [r4, #0x60]
 	ldrb r0, [r1, #0x13]
 	lsl r0, r0, #0x18
@@ -195,12 +195,12 @@ MOD05_021E820C: ; 0x021E820C
 	bl FillBgTilemapRect
 	ldr r0, [r4, #8]
 	mov r1, #3
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	mov r1, #3
 	ldr r0, [r4, #8]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r2, [r4, #0x60]
 	mov r0, #0x80
 	ldrb r1, [r2, #0x13]
@@ -217,7 +217,7 @@ MOD05_021E8260: ; 0x021E8260
 	add r4, r0, #0
 	ldr r0, [r4, #8]
 	mov r1, #3
-	bl FUN_02017B54
+	bl Bg_GetYpos
 	cmp r0, #0
 	bne _021E8274
 	mov r0, #1
@@ -235,13 +235,13 @@ _021E8280:
 	ldr r0, [r4, #8]
 	add r2, r1, #0
 	sub r3, #0x33
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _021E828E:
 	ldr r0, [r4, #8]
 	mov r1, #3
 	mov r2, #4
 	mov r3, #0x10
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0
 	pop {r4, pc}
 	.balign 4, 0
@@ -253,7 +253,7 @@ MOD05_021E82A0: ; 0x021E82A0
 	add r4, r0, #0
 	ldr r0, [r4, #8]
 	mov r1, #3
-	bl FUN_02017B54
+	bl Bg_GetYpos
 	mov r1, #0x2f
 	mvn r1, r1
 	cmp r0, r1
@@ -273,12 +273,12 @@ MOD05_021E82A0: ; 0x021E82A0
 	bl FillBgTilemapRect
 	ldr r0, [r4, #8]
 	mov r1, #3
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	mov r1, #3
 	ldr r0, [r4, #8]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add sp, #0x10
 	mov r0, #1
 	pop {r4, pc}
@@ -291,13 +291,13 @@ _021E82F2:
 	ldr r0, [r4, #8]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _021E82FE:
 	ldr r0, [r4, #8]
 	mov r1, #3
 	mov r2, #5
 	mov r3, #0x10
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0
 	add sp, #0x10
 	pop {r4, pc}

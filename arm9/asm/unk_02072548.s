@@ -708,7 +708,7 @@ FUN_02072A54: ; 0x02072A54
 	cmp r0, #0x1
 	bne _02072A9C
 	add r0, r4, r6
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3-r7, pc}
 _02072A9C:
@@ -766,7 +766,7 @@ _02072ADC:
 	bl AddTextPrinterParameterized2
 _02072B0A:
 	add r0, r4, r6
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -794,7 +794,7 @@ FUN_02072B20: ; 0x02072B20
 	cmp r1, #0x7
 	beq _02072B4C
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r4, pc}
 _02072B4C:
@@ -814,7 +814,7 @@ _02072B4C:
 	mov r3, #0x3
 	bl FUN_0200BA78
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r4, pc}
 	nop
@@ -847,7 +847,7 @@ FUN_02072B7C: ; 0x02072B7C
 	mov r3, #0x1
 	bl FUN_0200B9EC
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0xc
 	pop {r4-r5, pc}
 	.balign 4
@@ -872,7 +872,7 @@ FUN_02072BBC: ; 0x02072BBC
 	add r3, r1, #0x0
 	bl FillWindowPixelRect
 	add r0, r5, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x8
 	pop {r3-r5, pc}
 
@@ -903,7 +903,7 @@ FUN_02072BE8: ; 0x02072BE8
 	mov r3, #0x0
 	bl FUN_0200B9EC
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0xc
 	pop {r4-r5, pc}
 	.balign 4
@@ -948,7 +948,7 @@ _02072C64: ; jump table (using 16-bit offset)
 	.short _02072C78 - _02072C64 - 2; case 4
 _02072C6E:
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0xc
 	pop {r4-r7, pc}
 _02072C78:
@@ -1018,7 +1018,7 @@ _02072CBE:
 	mov r3, #0x5
 	bl FillWindowPixelRect
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -1081,17 +1081,17 @@ FUN_02072D1C: ; 0x02072D1C
 	ldr r1, [sp, #0x0]
 	ldr r0, [sp, #0x4]
 	add r0, r1, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x8]
 	add r0, r7, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r1, [sp, #0xc]
 	ldr r0, [sp, #0x10]
 	add r0, r1, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x14]
 	add r0, r0, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x18
 	pop {r3-r7, pc}
 _02072DB0:
@@ -1122,22 +1122,22 @@ FUN_02072DDC: ; 0x02072DDC
 	add r1, r5, #0x4
 	lsl r0, r4, #0x4
 	add r0, r1, r0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0x1
 	add r1, r5, #0x4
 	lsl r0, r0, #0x4
 	add r0, r1, r0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0x2
 	add r1, r5, #0x4
 	lsl r0, r0, #0x4
 	add r0, r1, r0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0x3
 	add r1, r5, #0x4
 	lsl r0, r0, #0x4
 	add r0, r1, r0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02072E14
@@ -1149,22 +1149,22 @@ FUN_02072E14: ; 0x02072E14
 	add r1, r5, #0x4
 	lsl r0, r4, #0x4
 	add r0, r1, r0
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	add r0, r4, #0x1
 	add r1, r5, #0x4
 	lsl r0, r0, #0x4
 	add r0, r1, r0
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	add r0, r4, #0x2
 	add r1, r5, #0x4
 	lsl r0, r0, #0x4
 	add r0, r1, r0
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	add r0, r4, #0x3
 	add r1, r5, #0x4
 	lsl r0, r0, #0x4
 	add r0, r1, r0
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02072E4C
@@ -1501,7 +1501,7 @@ FUN_02073094: ; 0x02073094
 	mov r0, #0x79
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 _020730FE:
 	mov r0, #0x2
 	tst r0, r4
@@ -1535,7 +1535,7 @@ _020730FE:
 	mov r0, #0x7d
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 _02073148:
 	add sp, #0x10
 	pop {r3-r5, pc}
@@ -1586,7 +1586,7 @@ _02073198:
 	mov r1, #0x1
 	bl AddTextPrinterParameterized
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0xc
 	pop {r3-r6, pc}
 	.balign 4
@@ -1797,7 +1797,7 @@ _02073332:
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, r6
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4-r7, pc}
 	nop
@@ -1860,7 +1860,7 @@ _020733B4:
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, r7
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4
@@ -1908,7 +1908,7 @@ _02073416:
 	add r0, r5, #0x0
 	bl String_dtor
 	add r0, r4, r6
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -1966,7 +1966,7 @@ _02073490:
 	add r0, r5, #0x0
 	bl String_dtor
 	add r0, r4, r7
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -2133,7 +2133,7 @@ _0207356C:
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x2c
 	pop {r4-r7, pc}
 	.balign 4
@@ -2220,7 +2220,7 @@ _0207366E:
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4-r7, pc}
 	nop

@@ -30,7 +30,7 @@ MOD19_02252440: ; 0x02252440
 	ldr r2, _022524E8 ; =0x02252508
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -89,7 +89,7 @@ _022524F0: .word 0xFFFFE0FF
 MOD19_022524F4: ; 0x022524F4
 	push {r3, lr}
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	mov r0, #8
 	bl DestroyHeap
 	pop {r3, pc}

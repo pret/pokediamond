@@ -4,7 +4,7 @@
 #include "global.h"
 #include "msgdata.h"
 #include "save_block_2.h"
-#include "unk_02016B94.h"
+#include "bg_window.h"
 
 
 struct ScriptContext;

@@ -2770,7 +2770,7 @@ _021E9C02:
 	mov r0, #0x83
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0]
 	add r1, r0, #1
@@ -3160,7 +3160,7 @@ _021E9FA4:
 	mov r0, #0x83
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r0, #0x83
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -3179,7 +3179,7 @@ _021E9FA4:
 	mov r1, #3
 	ldr r0, [r0, #0x10]
 	ldr r0, [r0, #8]
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r1, [sp, #0x1c]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
@@ -3275,7 +3275,7 @@ _021EA0B0:
 	mov r0, #0x83
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0]
 	cmp r0, #7
@@ -3742,7 +3742,7 @@ _021EA430:
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	mov r0, #4
 	bl MOD05_021E4394
 	mov r1, #0x81
@@ -4030,7 +4030,7 @@ _021EA6FA:
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	mov r0, #0x83
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -4093,7 +4093,7 @@ _021EA76C:
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r0, #2
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
@@ -4112,7 +4112,7 @@ _021EA76C:
 	mov r1, #3
 	ldr r0, [r0, #0x10]
 	ldr r0, [r0, #8]
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r1, [sp, #0x18]
 	mov r0, #4
 	ldr r1, [r1, #0xc]
@@ -5406,7 +5406,7 @@ _021EB18E:
 	mov r1, #0
 	bl FillWindowPixelBuffer
 	ldr r0, [r4]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -5535,7 +5535,7 @@ _021EB344:
 	str r0, [r5]
 _021EB36C:
 	ldr r0, [r4]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	b _021EB3F2
 _021EB374:
 	mov r0, #0
@@ -5566,7 +5566,7 @@ _021EB394:
 	add r0, #8
 	bl MOD05_021E3E44
 	ldr r0, [r4]
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	ldr r0, [r4]
 	bl RemoveWindow
 	ldr r0, [r4]
@@ -5580,7 +5580,7 @@ _021EB394:
 	ldr r0, [r5, #0x10]
 	mov r1, #3
 	ldr r0, [r0, #8]
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, _021EB410 ; =0x0400004D
 	mov r1, #0
 	strb r1, [r0]
@@ -26506,7 +26506,7 @@ MOD05_021F5518: ; 0x021F5518
 	bl G2x_SetBlendAlpha_
 	mov r0, #2
 	mov r1, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #4
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -26649,7 +26649,7 @@ MOD05_021F5608: ; 0x021F5608
 	ldr r2, _021F565C ; =0x00006001
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_02018768
+	bl BgFillTilemapBufferAndCommit
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	nop
@@ -26743,7 +26743,7 @@ MOD05_021F56B8: ; 0x021F56B8
 	ldr r0, [r4, #8]
 	ldr r2, _021F5718 ; =0x00006002
 	mov r1, #2
-	bl FUN_02018768
+	bl BgFillTilemapBufferAndCommit
 	mov r0, #4
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -26787,7 +26787,7 @@ MOD05_021F571C: ; 0x021F571C
 	ldr r0, [r4, #8]
 	ldr r2, _021F577C ; =0x00006002
 	mov r1, #3
-	bl FUN_02018768
+	bl BgFillTilemapBufferAndCommit
 	mov r0, #8
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -26928,7 +26928,7 @@ _021F5856:
 	mov r0, #2
 	mov r1, #0
 	strh r0, [r4, #8]
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #4
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -27007,7 +27007,7 @@ _021F58EE:
 	strh r1, [r0]
 	mov r0, #2
 	mov r1, #3
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #8
 	strh r0, [r4, #8]
 	b _021F5980

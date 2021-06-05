@@ -39,7 +39,7 @@ FUN_02073DB4: ; 0x02073DB4
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	ldr r0, _02073DEC ; =0x000006FC
 	mov r1, #0x0
 	ldr r0, [r4, r0]

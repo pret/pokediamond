@@ -561,7 +561,7 @@ MOD43_02254C28: ; 0x02254C28
 	ldr r0, [r5, #4]
 	ldr r2, _02254CC4 ; =MOD43_022551A0
 	mov r1, #6
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -595,7 +595,7 @@ MOD43_02254C28: ; 0x02254C28
 	bl MOD43_02254CD0
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254CC8 ; =0x04001000
 	ldr r0, _02254CCC ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -669,7 +669,7 @@ MOD43_02254CD0: ; 0x02254CD0
 	add r0, sp, #0x14
 	bl PutWindowTilemap
 	add r0, sp, #0x14
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, sp, #0x14
 	bl RemoveWindow
 	add r0, r6, #0
@@ -717,7 +717,7 @@ _02254D78:
 	strb r1, [r0, #1]
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD43_02254C14
 _02254DA0:

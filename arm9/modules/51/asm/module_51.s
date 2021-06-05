@@ -370,16 +370,16 @@ MOD51_02254B30: ; 0x02254B30
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD51_02254B30
 
@@ -403,10 +403,10 @@ MOD51_02254B54: ; 0x02254B54
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -424,10 +424,10 @@ MOD51_02254B54: ; 0x02254B54
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -445,10 +445,10 @@ MOD51_02254B54: ; 0x02254B54
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #6
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #4
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -466,7 +466,7 @@ MOD51_02254B54: ; 0x02254B54
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #8
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -832,10 +832,10 @@ MOD51_02254E48: ; 0x02254E48
 	mov r1, #1
 	bl AddTextPrinterParameterized2
 	add r0, r7, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x1c]
 	add r0, r0, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r2, [r6, #8]
 	cmp r2, #0
 	beq _02254F22
@@ -852,7 +852,7 @@ MOD51_02254E48: ; 0x02254E48
 	bl AddTextPrinterParameterized2
 _02254F22:
 	add r0, r5, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -941,7 +941,7 @@ _02254FB0:
 	ldr r0, [r5, #0x14]
 	mov r1, #7
 	lsl r3, r3, #8
-	bl FUN_02017CE8
+	bl BgCopyOrUncompressTilemapBufferRangeToVram
 	mov r0, #0xa1
 	mov r1, #0
 	lsl r0, r0, #2
@@ -1497,7 +1497,7 @@ _022553BE:
 	ldr r3, [r3, r6]
 	lsr r1, r1, #0x18
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [sp, #0x40]
 	add r4, r4, #1
 	add r5, #0x38
@@ -1521,7 +1521,7 @@ _02255422:
 	ldr r0, [sp, #0x1c]
 	mov r1, #7
 	lsl r3, r3, #8
-	bl FUN_02017CE8
+	bl BgCopyOrUncompressTilemapBufferRangeToVram
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0

@@ -1153,7 +1153,7 @@ MOD23_02255088: ; 0x02255088
 	ldr r2, _02255118 ; =MOD23_02255D1C
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1185,7 +1185,7 @@ MOD23_02255088: ; 0x02255088
 	bl MOD20_02252D7C
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _0225511C ; =0x04001000
 	ldr r0, _02255120 ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -1313,7 +1313,7 @@ MOD23_022551A4: ; 0x022551A4
 	bl LoadRectToBgTilemapRect
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r6, #0
 	bl MOD23_02255074
 	add sp, #0xc
@@ -1359,7 +1359,7 @@ MOD23_02255210: ; 0x02255210
 	bl LoadRectToBgTilemapRect
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r6, #0
 	bl MOD23_02255074
 	add sp, #0xc
@@ -1391,7 +1391,7 @@ MOD23_02255270: ; 0x02255270
 	bl MOD23_0225548C
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r6, #0
 	bl MOD23_02255074
 	pop {r4, r5, r6, pc}
@@ -1419,7 +1419,7 @@ MOD23_022552A8: ; 0x022552A8
 	bl MOD23_0225544C
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r6, #0
 	bl MOD23_02255074
 	pop {r4, r5, r6, pc}
@@ -1446,7 +1446,7 @@ MOD23_022552E8: ; 0x022552E8
 	bl MOD23_0225548C
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r6, #0
 	bl MOD23_02255074
 	pop {r4, r5, r6, pc}
@@ -1474,7 +1474,7 @@ MOD23_02255320: ; 0x02255320
 	bl MOD23_0225544C
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r6, #0
 	bl MOD23_02255074
 	pop {r4, r5, r6, pc}
@@ -1504,7 +1504,7 @@ MOD23_02255360: ; 0x02255360
 	bl MOD23_02255410
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r6, #0
 	bl MOD23_02255074
 	pop {r4, r5, r6, pc}
@@ -1538,7 +1538,7 @@ _022553B2:
 	bl MOD23_0225544C
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD23_02255074
 	pop {r3, r4, r5, pc}
@@ -1558,7 +1558,7 @@ MOD23_022553E4: ; 0x022553E4
 	bl MOD23_02255410
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD23_02255074
 	pop {r3, r4, r5, pc}
@@ -1625,7 +1625,7 @@ MOD23_02255470: ; 0x02255470
 	bl MOD20_022538A0
 	ldr r0, [r0, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD23_02255074
 	pop {r4, pc}

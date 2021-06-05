@@ -405,7 +405,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	str r5, [r4]
 	str r6, [r4, #4]
 	mov r0, #0x3d
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #0x10]
 	bl NNS_G2dInitOamManagerModule
 	mov r0, #0
@@ -810,17 +810,17 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	orr r0, r1
 	strh r0, [r2]
 	ldr r0, _021D7C00 ; =0x021D823C
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r0, [r5, #0x10]
 	ldr r2, _021D7C04 ; =0x021D8268
 	mov r1, #1
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r5, #0x10]
 	ldr r2, _021D7C08 ; =0x021D824C
 	mov r1, #2
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -900,7 +900,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	bl FUN_0200CCA4
 	ldr r0, [r5, #0x10]
 	mov r1, #1
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	mov r3, #8
 	ldr r0, _021D7C0C ; =0x04000050
 	mov r1, #0
@@ -927,10 +927,10 @@ MOD70_021D7C10: ; 0x021D7C10
 	add r4, r0, #0
 	ldr r0, [r4, #0x10]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x10]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD70_021D7C98
 	pop {r4, pc}
@@ -1029,10 +1029,10 @@ MOD70_021D7CC0: ; 0x021D7CC0
 	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r4, #0x24
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	pop {r4, pc}
 	thumb_func_end MOD70_021D7CC0
 
@@ -1114,7 +1114,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	add r3, r1, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	thumb_func_end MOD70_021D7CE8
@@ -1341,7 +1341,7 @@ _021D7F1E:
 	blt _021D7F1E
 _021D7F66:
 	ldr r0, [sp, #0xc]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD70_021D7D98

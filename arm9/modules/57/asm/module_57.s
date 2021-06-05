@@ -48,7 +48,7 @@ MOD57_021D74E0: ; 0x021D74E0
 	add r1, #0xb4
 	str r0, [r1]
 	mov r0, #0x19
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4]
 	add r0, r4, #0
 	bl MOD57_021D79AC
@@ -124,7 +124,7 @@ _021D75E4:
 	blo _021D75CE
 	ldr r0, [r4]
 	mov r1, #3
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r1, r4, #0
 	add r1, #0xb4
 	ldr r1, [r1]
@@ -839,7 +839,7 @@ MOD57_021D7B94: ; 0x021D7B94
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D7C90 ; =0x021D9774
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -854,10 +854,10 @@ MOD57_021D7B94: ; 0x021D7B94
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #2
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #7
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D7C94 ; =0x021D9790
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -872,10 +872,10 @@ MOD57_021D7B94: ; 0x021D7B94
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D7C98 ; =0x021D97C8
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -890,10 +890,10 @@ MOD57_021D7B94: ; 0x021D7B94
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #1
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #6
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D7C9C ; =0x021D97E4
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -908,10 +908,10 @@ MOD57_021D7B94: ; 0x021D7B94
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D7CA0 ; =0x021D97AC
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -926,10 +926,10 @@ MOD57_021D7B94: ; 0x021D7B94
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #1
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add sp, #0x9c
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1214,19 +1214,19 @@ MOD57_021D7EDC: ; 0x021D7EDC
 	bl GX_EngineBToggleLayers
 	add r0, r4, #0
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -1336,7 +1336,7 @@ _021D7FB0:
 	bl MOD57_021D86E8
 	ldr r0, [r4]
 	mov r1, #7
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r1, r4, #0
 	add r1, #0xb4
 	ldr r1, [r1]
@@ -1366,7 +1366,7 @@ _021D8006:
 	bl MOD57_021D8FB8
 	ldr r0, [r4]
 	mov r1, #7
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0
 	bl MOD57_021D8690
 	add r1, r4, #0
@@ -1878,7 +1878,7 @@ _021D8400:
 	ldr r0, [sp]
 	mov r1, #2
 	ldr r0, [r0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD57_021D83D8
 
@@ -2224,7 +2224,7 @@ MOD57_021D8690: ; 0x021D8690
 	mov r1, #7
 	add r2, #0xc
 	add r3, r4, #0
-	bl FUN_02017DFC
+	bl BG_LoadScreenTilemapData
 _021D86CA:
 	mov r0, #0
 	str r0, [sp]
@@ -2234,7 +2234,7 @@ _021D86CA:
 	mov r1, #7
 	add r2, #0xc
 	add r3, r4, #0
-	bl FUN_02017CE8
+	bl BgCopyOrUncompressTilemapBufferRangeToVram
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021D86E0: .word 0x000032FC
@@ -2479,7 +2479,7 @@ _021D8864:
 	lsl r1, r7, #0x18
 	ldr r0, [sp, #4]
 	lsr r1, r1, #0x18
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2572,7 +2572,7 @@ MOD57_021D890C: ; 0x021D890C
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
 	mov r1, #2
-	bl FUN_0201AFBC
+	bl DoesPixelAtScreenXYMatchPtrVal
 	cmp r0, #0
 	bne _021D894A
 	mov r0, #0
@@ -2612,7 +2612,7 @@ MOD57_021D8954: ; 0x021D8954
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
 	mov r1, #2
-	bl FUN_0201AFBC
+	bl DoesPixelAtScreenXYMatchPtrVal
 	cmp r0, #0
 	bne _021D8992
 	mov r0, #0
@@ -3355,7 +3355,7 @@ MOD57_021D8FB8: ; 0x021D8FB8
 _021D8FC4:
 	lsl r0, r4, #4
 	add r0, r5, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18

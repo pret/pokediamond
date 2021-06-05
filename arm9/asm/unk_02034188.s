@@ -80,18 +80,18 @@ FUN_02034188: ; 0x02034188
 	ldr r0, _02034380 ; =UNK_020EED2C
 	bl GX_SetBanks
 	add r0, r4, #0x0
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [sp, #0x10]
 	ldr r0, _02034384 ; =UNK_020EED00
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r1, #0x0
 	ldr r0, [sp, #0x10]
 	ldr r2, _02034388 ; =UNK_020EED10
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [sp, #0x10]
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r0, [sp, #0x10]
@@ -218,7 +218,7 @@ _02034308:
 	bl ToggleBgLayer
 	ldr r0, [sp, #0x10]
 	mov r1, #0x0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [sp, #0x10]
 	bl FreeToHeap
 	add sp, #0x24

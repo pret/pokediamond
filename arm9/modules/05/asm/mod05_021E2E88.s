@@ -367,7 +367,7 @@ _021E314E:
 	ldr r0, [r4, #0x1c]
 	ldr r3, [r4, #0xc]
 	add r2, r1, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	bne _021E31D0
@@ -401,7 +401,7 @@ _021E318E:
 	ldr r0, [r4, #0x1c]
 	ldr r3, [r4, #0xc]
 	add r2, r1, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0xc]
 	cmp r0, #0x26
 	bne _021E31D0
@@ -522,7 +522,7 @@ MOD05_021E3270: ; 0x021E3270
 	ldr r0, [r4, #0x1c]
 	add r2, r1, #0
 	mov r3, #0x26
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0x26
 	str r0, [r4, #0xc]
 	ldr r0, _021E32EC ; =MOD05_021E3124
@@ -584,12 +584,12 @@ MOD05_021E32F0: ; 0x021E32F0
 _021E32FE:
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r1, #3
 	ldr r0, [r4, #0x1c]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r1, [r4, #0x1c]
 	add r0, r4, #0
 	bl MOD05_021E3114

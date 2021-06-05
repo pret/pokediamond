@@ -227,7 +227,7 @@ _02089628:
 	add r0, sp, #0x34
 	bl GX_SetBanks
 	ldr r0, [r4, #0x0]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0x24
 	ldr r5, _020896CC ; =UNK_020FF314
 	str r0, [r4, #0x14]
@@ -237,7 +237,7 @@ _02089628:
 	ldmia r5!, {r0-r1}
 	stmia r3!, {r0-r1}
 	add r0, r2, #0x0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _020896D0 ; =UNK_020FF324
 	add r3, sp, #0x8
 	ldmia r5!, {r0-r1}
@@ -252,10 +252,10 @@ _02089628:
 	str r0, [r3, #0x0]
 	ldr r0, [r4, #0x14]
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x14]
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r0, [r4, #0x0]
@@ -327,7 +327,7 @@ FUN_020896E0: ; 0x020896E0
 	bl ToggleBgLayer
 	ldr r0, [r4, #0x14]
 	mov r1, #0x0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x14]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -502,7 +502,7 @@ _0208986C:
 _0208987E:
 	ldr r0, [r4, #0x14]
 	add r1, r5, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r5, #0x1
 _02089888:
 	add r0, r5, #0x0

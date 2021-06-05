@@ -637,12 +637,12 @@ MOD45_02254CCC: ; 0x02254CCC
 	ldr r2, _02254D60 ; =MOD45_022550FC
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r5, #4]
 	ldr r2, _02254D64 ; =MOD45_022550E0
 	mov r1, #7
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD45_02254DDC
@@ -666,10 +666,10 @@ MOD45_02254CCC: ; 0x02254CCC
 	bl MOD20_02252D7C
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, [r5, #4]
 	mov r1, #7
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254D68 ; =0x04001000
 	ldr r0, _02254D6C ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -703,10 +703,10 @@ MOD45_02254D70: ; 0x02254D70
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD45_02254CB8
 	pop {r3, r4, r5, pc}
@@ -742,7 +742,7 @@ _02254DBC:
 	bl MOD45_02254E28
 	ldr r0, [r5, #4]
 	mov r1, #7
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r4, #0
 	bl MOD45_02254CB8
 	pop {r3, r4, r5, pc}

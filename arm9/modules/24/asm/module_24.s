@@ -795,12 +795,12 @@ _02254DF0:
 	ldr r2, _02254ED0 ; =MOD24_02255114
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r5, #4]
 	ldr r2, _02254ED4 ; =MOD24_02255130
 	mov r1, #7
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #8
 	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
@@ -860,7 +860,7 @@ _02254E82:
 _02254E96:
 	ldr r0, [r5, #4]
 	mov r1, #7
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254ED8 ; =0x04001000
 	ldr r0, _02254EDC ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -932,7 +932,7 @@ MOD24_02254F28: ; 0x02254F28
 	add r0, r4, #0
 	bl MOD20_022538A0
 	ldr r0, [r0, #0x70]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
 	bl MOD24_02254DC8
 	pop {r4, pc}
@@ -1072,7 +1072,7 @@ MOD24_02255038: ; 0x02255038
 	add r0, r4, #0
 	bl MOD20_022538A0
 	ldr r0, [r0, #0x70]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
 	bl MOD24_02254DC8
 	pop {r4, pc}
@@ -1088,10 +1088,10 @@ MOD24_02255050: ; 0x02255050
 	bl MOD24_022550D4
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD24_02254DC8
 	pop {r3, r4, r5, pc}

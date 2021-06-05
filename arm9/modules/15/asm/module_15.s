@@ -2611,7 +2611,7 @@ MOD15_021D87F8: ; 0x021D87F8
 	bl FUN_02008C9C
 	str r0, [r4, #0x24]
 	mov r0, #0x23
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #0x20]
 	ldr r0, _021D8880 ; =MOD15_021D88D8
 	add r1, r4, #0
@@ -3076,19 +3076,19 @@ _021D8BF4:
 	blt _021D8BD8
 	ldr r0, [r7, #0x20]
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r7, #0x20]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r7, #0x20]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r7, #0x20]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r7, #0x20]
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r6, #0
 	bl MOD15_021D8998
 _021D8C2A:
@@ -3112,32 +3112,32 @@ MOD15_021D8C30: ; 0x021D8C30
 	ldr r0, _021D8C98 ; =0x021DB964
 	bl GX_SetBanks
 	ldr r0, _021D8C9C ; =0x021DB8C8
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r1, #0
 	ldr r0, [r4, #0x20]
 	ldr r2, _021D8CA0 ; =0x021DB910
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x20]
 	ldr r2, _021D8CA4 ; =0x021DB8D8
 	mov r1, #1
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x20]
 	ldr r2, _021D8CA8 ; =0x021DB948
 	mov r1, #2
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x20]
 	ldr r2, _021D8CAC ; =0x021DB8F4
 	mov r1, #3
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x20]
 	ldr r2, _021D8CB0 ; =0x021DB92C
 	mov r1, #4
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	pop {r4, pc}
 	nop
 _021D8C94: .word 0x04000304
@@ -4547,7 +4547,7 @@ MOD15_021D9694: ; 0x021D9694
 	bl MOD15_021D98C0
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x14
 	pop {r3, r4, r5, r6, pc}
 
@@ -4815,7 +4815,7 @@ _021D99FA:
 _021D9A02:
 	add r4, #0xc
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	pop {r4, pc}
 
 	thumb_func_start MOD15_021D9A0C
@@ -5306,7 +5306,7 @@ _021D9D8C:
 _021D9DB0:
 	add r4, #0x1c
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -5552,7 +5552,7 @@ MOD15_021D9F88: ; 0x021D9F88
 	bl FUN_0200CCF8
 	add r4, #0x2c
 	add r0, r4, #0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	pop {r4, pc}
 	.align 2, 0
 
@@ -5630,7 +5630,7 @@ MOD15_021D9FD4: ; 0x021D9FD4
 	bl MOD15_021DA0B8
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -5676,7 +5676,7 @@ MOD15_021DA044: ; 0x021DA044
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, sp, #0x10
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
 	bl String_dtor
 	add r0, sp, #0x10
@@ -5794,7 +5794,7 @@ MOD15_021DA164: ; 0x021DA164
 	mov r1, #3
 	add r2, r1, #0
 	mov r3, #0x40
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, pc}
 
 	thumb_func_start MOD15_021DA178
@@ -5805,7 +5805,7 @@ MOD15_021DA178: ; 0x021DA178
 	mov r1, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, pc}
 
 	thumb_func_start MOD15_021DA18C
@@ -5892,12 +5892,12 @@ MOD15_021DA1D0: ; 0x021DA1D0
 	add r0, r4, #0
 	mov r1, #1
 	sub r3, r2, #4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r4, #0
 	mov r1, #1
 	mov r2, #3
 	mov r3, #2
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r5, #0
 	bl MOD15_021DA54C
 	mov r1, #2
@@ -5936,7 +5936,7 @@ MOD15_021DA1D0: ; 0x021DA1D0
 	str r0, [r3]
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop
@@ -6044,7 +6044,7 @@ _021DA31A:
 	add r0, sp, #0x28
 	bl PutWindowTilemap
 	add r0, sp, #0x28
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r5, #0
 	bl String_dtor
 	add r0, sp, #0x28
@@ -6143,7 +6143,7 @@ _021DA430:
 	blo _021DA40C
 _021DA452:
 	add r0, sp, #0x20
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, sp, #0x20
 	bl PutWindowTilemap
 	add r0, r4, #0
@@ -6232,7 +6232,7 @@ _021DA4C2:
 	add r0, r6, #0
 	bl PutWindowTilemap
 	add r0, r6, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r6, #0
 	bl RemoveWindow
 	add r7, r7, #1
@@ -6495,7 +6495,7 @@ MOD15_021DA710: ; 0x021DA710
 	mov r1, #1
 	mov r2, #3
 	mov r3, #2
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, pc}
 
 	thumb_func_start MOD15_021DA720
@@ -6607,7 +6607,7 @@ _021DA7DA:
 	ldr r0, [r4, #0xc]
 	mov r1, #1
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r4, pc}
 	.align 2, 0
 
@@ -6775,10 +6775,10 @@ MOD15_021DA8E8: ; 0x021DA8E8
 	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0x10
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD15_021DA950
 	mov r0, #2
@@ -6885,7 +6885,7 @@ _021DAA12:
 _021DAA18:
 	add r6, #0x10
 	add r0, r6, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 
@@ -7210,7 +7210,7 @@ _021DAC84:
 	str r0, [r1]
 	add r0, r7, #0
 	add r0, #0x10
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	ldr r0, [sp, #8]
 	mov r2, #2
 	str r0, [sp]
@@ -7337,7 +7337,7 @@ MOD15_021DAD78: ; 0x021DAD78
 	ldr r0, [r0, #0xc]
 	mov r1, #2
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, pc}
 	.align 2, 0
 
@@ -7591,7 +7591,7 @@ _021DAF92:
 	bl MOD15_021DB154
 	ldr r0, [r4, #0xc]
 	mov r1, #4
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x1c
 	pop {r3, r4, pc}
 	.align 2, 0
@@ -8135,7 +8135,7 @@ _021DB390:
 	ldr r0, [r4]
 	mov r1, #4
 	ldr r0, [r0, #0xc]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldrh r0, [r4, #0xa]
 	add sp, #0x1c
 	add r0, r0, #1
@@ -8180,7 +8180,7 @@ _021DB416:
 	ldr r0, [r4]
 	mov r1, #4
 	ldr r0, [r0, #0xc]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	mov r0, #0
 	strh r0, [r4, #8]
 	ldrh r0, [r4, #0xa]
@@ -8227,7 +8227,7 @@ _021DB476:
 	ldr r0, [r4]
 	mov r1, #4
 	ldr r0, [r0, #0xc]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, [r4, #4]
 	add sp, #0x1c
 	add r0, r0, #1
@@ -8322,14 +8322,14 @@ MOD15_021DB564: ; 0x021DB564
 	bne _021DB57E
 	add r0, r1, #0
 	add r1, r2, #0
-	bl FUN_02017B48
+	bl Bg_GetXpos
 	str r0, [r4, #0xc]
 	mov r0, #0
 	b _021DB58A
 _021DB57E:
 	add r0, r1, #0
 	add r1, r2, #0
-	bl FUN_02017B54
+	bl Bg_GetYpos
 	str r0, [r4, #0xc]
 	mov r0, #3
 _021DB58A:
@@ -8416,7 +8416,7 @@ MOD15_021DB604: ; 0x021DB604
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
 	asr r3, r3, #0xc
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldrh r0, [r4, #0x18]
 	sub r0, r0, #1
 	strh r0, [r4, #0x18]
@@ -8430,7 +8430,7 @@ _021DB632:
 	ldr r3, [r4, #0x10]
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r4, pc}
 
 	thumb_func_start MOD15_021DB648

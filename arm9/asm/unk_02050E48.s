@@ -1248,7 +1248,7 @@ FUN_02051810: ; 0x02051810
 	bl FUN_0200D0E0
 	add r0, r5, #0x0
 	add r0, #0x14
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _02051836:
 	add r0, r5, #0x0
 	add r0, #0x14
@@ -1996,7 +1996,7 @@ _02051DE0:
 	lsl r3, r3, #0x4
 	bl ListMenuUpdateCursorObj
 	ldr r0, [r4, #0x7c]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r4, pc}

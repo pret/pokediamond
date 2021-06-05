@@ -1865,7 +1865,7 @@ MOD05_021E28A0: ; 0x021E28A0
 	ldr r0, [sp, #0xc]
 	bl DestroyMsgData
 	add r0, r5, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 
@@ -1992,7 +1992,7 @@ MOD05_021E29C8: ; 0x021E29C8
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2112,7 +2112,7 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

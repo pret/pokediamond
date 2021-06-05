@@ -60,7 +60,7 @@ _021D755E:
 	mov r1, #0x2f
 	bl MOD64_021D7810
 	mov r0, #0x2f
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r1, r5, #0
 	add r1, #0x94
 	str r0, [r1]
@@ -71,7 +71,7 @@ _021D755E:
 	str r1, [sp]
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	add r0, r5, #0
 	add r0, #0x94
 	ldr r0, [r0]
@@ -566,7 +566,7 @@ MOD64_021D7970: ; 0x021D7970
 	str r0, [r3]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r7, #0
 	mov r1, #0x20
 	mov r2, #0
@@ -574,7 +574,7 @@ MOD64_021D7970: ; 0x021D7970
 	bl BG_ClearCharDataRange
 	add r0, r5, #0
 	add r1, r7, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r6, _021D7A30 ; =0x021D9094
 	add r3, sp, #0x1c
 	ldmia r6!, {r0, r1}
@@ -589,7 +589,7 @@ MOD64_021D7970: ; 0x021D7970
 	str r0, [r3]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
@@ -597,7 +597,7 @@ MOD64_021D7970: ; 0x021D7970
 	bl BG_ClearCharDataRange
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r6, _021D7A34 ; =0x021D90CC
 	add r3, sp, #0
 	ldmia r6!, {r0, r1}
@@ -612,7 +612,7 @@ MOD64_021D7970: ; 0x021D7970
 	str r0, [r3]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
@@ -620,7 +620,7 @@ MOD64_021D7970: ; 0x021D7970
 	bl BG_ClearCharDataRange
 	add r0, r5, #0
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add sp, #0x54
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -635,13 +635,13 @@ MOD64_021D7A38: ; 0x021D7A38
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD64_021D7A38
 
@@ -3537,14 +3537,14 @@ MOD64_021D902C: ; 0x021D902C
 	add r1, r0, #0
 	add r1, #0xa8
 	ldr r1, [r1]
-	ldr r3, _021D9040 ; =FUN_02019570
+	ldr r3, _021D9040 ; =ClearWindowTilemapAndCopyToVram
 	lsl r1, r1, #2
 	add r0, r0, r1
 	add r0, #0x9c
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9040: .word FUN_02019570
+_021D9040: .word ClearWindowTilemapAndCopyToVram
 	thumb_func_end MOD64_021D902C
 
 	thumb_func_start MOD64_021D9044

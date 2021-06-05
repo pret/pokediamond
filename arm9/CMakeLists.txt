@@ -11,7 +11,7 @@ enable_language(ASM)
 
 add_compile_options(-fms-extensions)
 
-file(GLOB_RECURSE SOURCES "*.c" "*.cpp")
+file(GLOB_RECURSE SOURCES "*.c" "*.cpp" "*.s")
 file(GLOB MODULE_INC modules/*/include)
 
 add_executable(DP_Arm9 ${SOURCES})

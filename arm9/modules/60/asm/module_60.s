@@ -587,7 +587,7 @@ MOD60_021D7990: ; 0x021D7990
 	sub sp, #0x80
 	add r6, r0, #0
 	ldr r0, [r6]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0
 	ldr r4, _021D7A08 ; =0x021D8114
 	str r0, [r6, #0x14]
@@ -597,7 +597,7 @@ MOD60_021D7990: ; 0x021D7990
 	ldmia r4!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r4, _021D7A0C ; =0x021D8168
 	add r3, sp, #0x10
 	mov r2, #0xe
@@ -616,12 +616,12 @@ _021D79C6:
 	lsr r1, r1, #0x18
 	add r2, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r1, [r5]
 	ldr r0, [r6, #0x14]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r7, r7, #1
 	add r4, #0x1c
 	add r5, r5, #4
@@ -651,16 +651,16 @@ MOD60_021D7A14: ; 0x021D7A14
 	add r4, r0, #0
 	ldr r0, [r4, #0x14]
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x14]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x14]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x14]
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x14]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -801,7 +801,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	ldr r0, [r5, #0x14]
 	mov r1, #0
 	sub r3, #0x1b
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r5, #0x14]
 	mov r1, #2
 	bl ScheduleBgTilemapBufferTransfer
@@ -933,13 +933,13 @@ MOD60_021D7BA4: ; 0x021D7BA4
 	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x4c
-	bl FUN_020192B8
+	bl ClearWindowTilemap
 	add r0, r4, #0
 	add r0, #0x3c
-	bl FUN_020192B8
+	bl ClearWindowTilemap
 	add r0, r4, #0
 	add r0, #0x2c
-	bl FUN_020192B8
+	bl ClearWindowTilemap
 	add r0, r4, #0
 	ldr r2, _021D7CCC ; =0x00000232
 	add r0, #0x3c
@@ -977,12 +977,12 @@ MOD60_021D7CD4: ; 0x021D7CD4
 _021D7CF0:
 	lsl r4, r6, #4
 	add r0, r5, r4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r5, r4
 	add r1, r7, #0
 	bl FillWindowPixelBuffer
 	add r0, r5, r4
-	bl FUN_020192B8
+	bl ClearWindowTilemap
 	add r0, r5, r4
 	bl RemoveWindow
 	add r0, r6, #1

@@ -395,7 +395,7 @@ MOD34_02254AE8: ; 0x02254AE8
 	ldr r2, _02254B8C ; =MOD34_02254CA0
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -437,7 +437,7 @@ _02254B4A:
 	blt _02254B4A
 	ldr r0, [r6, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _02254B90 ; =0x04001000
 	ldr r1, _02254B94 ; =0xFFFFE0FF
 	ldr r2, [r0]
@@ -470,7 +470,7 @@ MOD34_02254B98: ; 0x02254B98
 	bl MOD20_022538A0
 	ldr r0, [r0, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD34_02254AD4
 	pop {r4, pc}
@@ -496,7 +496,7 @@ MOD34_02254BB4: ; 0x02254BB4
 	bl MOD34_02254C1C
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD34_02254AD4
 	pop {r3, r4, r5, pc}
@@ -521,7 +521,7 @@ MOD34_02254BE8: ; 0x02254BE8
 	bl MOD34_02254C1C
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD34_02254AD4
 	pop {r3, r4, r5, pc}

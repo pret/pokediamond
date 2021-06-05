@@ -433,13 +433,13 @@ MOD11_0222D944: ; 0x0222D944
 	bl GX_EngineAToggleLayers
 	ldr r0, [r4, #4]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD11_02231410
 	pop {r4, pc}
@@ -471,26 +471,26 @@ _0222D99A:
 	ldr r0, [r5, #4]
 	add r2, sp, #0x14
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r5, #4]
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, [r5, #4]
 	mov r1, #2
 	add r2, sp, #0x30
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r5, #4]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, [r5, #4]
 	mov r1, #3
 	add r2, sp, #0x4c
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r5, #4]
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r1, _0222DB40 ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]
@@ -742,7 +742,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	mov r3, #5
 	bl FUN_02003008
 	mov r0, #5
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #4]
 	mov r0, #5
 	mov r1, #3
@@ -1467,7 +1467,7 @@ _0222E282:
 	ldmia r6!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r1, _0222E458 ; =0x000023FB
 	mov r0, #1
 	ldrb r2, [r5, r1]
@@ -1489,26 +1489,26 @@ _0222E2F0:
 	add r0, r4, #0
 	add r2, sp, #0x48
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0
 	mov r1, #2
 	add r2, sp, #0x64
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0
 	mov r1, #3
 	add r2, sp, #0x80
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r1, _0222E460 ; =0x04000008
 	mov r0, #3
 	ldrh r2, [r1]
@@ -1712,13 +1712,13 @@ MOD11_0222E4E8: ; 0x0222E4E8
 	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD11_022584AC
 	pop {r4, pc}
@@ -3366,7 +3366,7 @@ MOD11_0222F254: ; 0x0222F254
 	ldr r0, [r4, #4]
 	ldr r3, [r4, r3]
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, _0222F280 ; =0x00002434
 	ldr r0, [r4, r0]
 	cmp r0, #0

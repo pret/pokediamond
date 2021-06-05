@@ -811,7 +811,7 @@ _020028AC:
 	ldr r0, [r5, #0x4]
 	ldr r1, [sp, #0x20]
 	ldr r0, [r0, #0x0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldrb r1, [r4, #0x1]
 	mov r0, #0x1f
 	bic r1, r0
@@ -901,7 +901,7 @@ FUN_02002A00: ; 0x02002A00
 	ldr r0, [r5, #0x4]
 	ldr r1, [sp, #0x10]
 	ldr r0, [r0, #0x0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x18
 	pop {r3-r7, pc}
 	nop

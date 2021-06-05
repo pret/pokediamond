@@ -1243,7 +1243,7 @@ MOD20_02252C5C: ; 0x02252C5C
 _02252CA6:
 	mov r0, #7
 	str r6, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r4, r1]
@@ -1570,14 +1570,14 @@ MOD20_02252ED0: ; 0x02252ED0
 	ldr r2, _02252FE0 ; =MOD20_022545B4
 	mov r1, #4
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	ldr r2, _02252FE4 ; =MOD20_022545D0
 	mov r1, #5
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0x40
 	str r0, [sp]
 	mov r0, #0
@@ -1639,7 +1639,7 @@ MOD20_02252ED0: ; 0x02252ED0
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #5
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _02252FD8 ; =0x04001000
 	ldr r1, _02252FE8 ; =0xFFFFE0FF
 	ldr r2, [r0]
@@ -1785,7 +1785,7 @@ _022530DA:
 	lsl r0, r0, #6
 	ldr r0, [r5, r0]
 	mov r1, #5
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldrh r0, [r4, #2]
 	cmp r0, #0x28
 	bne _022530FC
@@ -1932,7 +1932,7 @@ _02253202:
 	lsl r0, r0, #6
 	ldr r0, [r5, r0]
 	mov r1, #5
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldrh r0, [r4, #2]
 	cmp r0, #0x28
 	bne _02253224
@@ -1983,7 +1983,7 @@ MOD20_02253228: ; 0x02253228
 	add r0, #0xa9
 	ldr r0, [r4, r0]
 	mov r1, #5
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD20_022538B0
 	add sp, #0x10
@@ -2031,7 +2031,7 @@ MOD20_0225328C: ; 0x0225328C
 	add r0, #0xa5
 	ldr r0, [r4, r0]
 	mov r1, #5
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD20_022538B0
 	add sp, #0x10
@@ -2068,7 +2068,7 @@ MOD20_022532F0: ; 0x022532F0
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #4
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _02253334 ; =0x00000671
 	bl FUN_020054C8
 	add r0, r5, #0
@@ -2103,7 +2103,7 @@ MOD20_02253338: ; 0x02253338
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #4
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD20_02252EBC
 	add sp, #0xc
@@ -2135,7 +2135,7 @@ MOD20_02253378: ; 0x02253378
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #4
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _022533BC ; =0x0000066F
 	bl FUN_020054C8
 	add r0, r5, #0
@@ -2451,7 +2451,7 @@ _02253600:
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #4
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 _0225361C:
 	mov r3, #2
 	str r3, [sp]
@@ -2473,7 +2473,7 @@ _0225361C:
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #5
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	cmp r5, #3
 	bne _02253658
 	add r0, r6, #0
@@ -2515,12 +2515,12 @@ MOD20_02253668: ; 0x02253668
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #4
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #5
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	mov r1, #0
 	ldr r0, _022536C4 ; =0x04001050
 	add r2, r1, #0
@@ -2546,12 +2546,12 @@ MOD20_022536C8: ; 0x022536C8
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD20_02252EBC
 	pop {r3, r4, r5, pc}

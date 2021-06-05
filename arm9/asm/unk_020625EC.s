@@ -1103,10 +1103,10 @@ FUN_02062DB0: ; 0x02062DB0
 	strh r0, [r4, #0x12]
 	mov r0, #0x0
 	mov r1, #0x2
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #0x1
 	add r1, r0, #0x0
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldrh r0, [r4, #0x1c]
 	ldr r2, _02062EB8 ; =0x000003E2
 	mov r1, #0x3
@@ -1191,7 +1191,7 @@ FUN_02062EC4: ; 0x02062EC4
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0xe4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0xe4
 	bl RemoveWindow
@@ -1226,12 +1226,12 @@ FUN_02062EC4: ; 0x02062EC4
 	mov r0, #0x0
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldrh r1, [r4, #0x12]
 	mov r0, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	add sp, #0x10
 	pop {r4, pc}
 
@@ -1522,7 +1522,7 @@ FUN_02063178: ; 0x02063178
 	bl ListMenuItems_dtor
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0xd4
 	mov r1, #0x0
@@ -1929,7 +1929,7 @@ FUN_020634DC: ; 0x020634DC
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0xd4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0xd4
 	mov r1, #0x0
@@ -1939,7 +1939,7 @@ FUN_020634DC: ; 0x020634DC
 	bl RemoveWindow
 	add r0, r4, #0x0
 	add r0, #0xf4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0xf4
 	bl RemoveWindow

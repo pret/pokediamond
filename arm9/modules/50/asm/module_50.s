@@ -221,7 +221,7 @@ MOD50_022549AC: ; 0x022549AC
 	bl MOD20_022536F4
 	mov r0, #8
 	str r6, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #4]
 	cmp r0, #0
 	beq _022549DA
@@ -312,7 +312,7 @@ MOD50_02254A48: ; 0x02254A48
 	ldr r2, _02254ADC ; =MOD50_02254B10
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -350,7 +350,7 @@ MOD50_02254A48: ; 0x02254A48
 	bl MOD20_02253AA4
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254AE0 ; =0x04001000
 	ldr r0, _02254AE4 ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -382,7 +382,7 @@ MOD50_02254AE8: ; 0x02254AE8
 	bl MOD20_022538A0
 	ldr r0, [r0, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD50_02254A34
 	pop {r4, pc}

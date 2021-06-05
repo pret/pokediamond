@@ -1,6 +1,6 @@
 #include "text_02054590.h"
 #include "text.h"
-#include "unk_02016B94.h"
+#include "bg_window.h"
 
 extern void FUN_0201BD5C(void);
 extern void FUN_02002ED0(u32 param0, u32 param1, u32 param2);

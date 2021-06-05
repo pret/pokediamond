@@ -53,7 +53,7 @@ _021D9A36:
 	add r4, r0, #0
 	bl memset
 	mov r0, #0x27
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4]
 	mov r0, #0x27
 	bl ScrStrBufs_new
@@ -335,7 +335,7 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D9DF0 ; =0x021DAE18
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -350,10 +350,10 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D9DF4 ; =0x021DAE34
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -368,10 +368,10 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D9DF8 ; =0x021DAE50
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -386,7 +386,7 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D9DFC ; =0x021DADE0
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -401,10 +401,10 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D9E00 ; =0x021DADFC
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -419,7 +419,7 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	add r0, r4, #0
 	mov r1, #5
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -544,22 +544,22 @@ MOD58_021D9ED8: ; 0x021D9ED8
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}

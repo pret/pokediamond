@@ -773,7 +773,7 @@ _02035614:
 	bl FUN_02001B8C
 	str r0, [r4, #0x20]
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0, #0xc]
 	bl Sav2_PlayerData_GetProfileAddr
@@ -1058,7 +1058,7 @@ _0203584C:
 	bl DestroyMsgData
 	add r5, #0x10
 	add r0, r5, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 _0203588E:
 	add sp, #0x20
 	pop {r3-r7, pc}

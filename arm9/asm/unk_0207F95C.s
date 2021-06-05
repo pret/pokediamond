@@ -279,7 +279,7 @@ _0207FADA:
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
 	mov r1, #0x4
-	bl FUN_0201AFBC
+	bl DoesPixelAtScreenXYMatchPtrVal
 	cmp r0, #0x0
 	bne _0207FB12
 	mov r0, #0x0

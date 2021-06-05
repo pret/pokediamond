@@ -38,7 +38,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	add r1, r4, #0
 	bl MIi_CpuClearFast
 	mov r0, #0x1a
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	mov r1, #0x5d
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1876,7 +1876,7 @@ MOD71_0222E578: ; 0x0222E578
 	ldmia r4!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r4, _0222E74C ; =0x0223115C
 	add r3, sp, #0xa8
 	ldmia r4!, {r0, r1}
@@ -1891,10 +1891,10 @@ MOD71_0222E578: ; 0x0222E578
 	str r0, [r3]
 	add r0, r5, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r4, _0222E750 ; =0x02231124
 	add r3, sp, #0x8c
 	ldmia r4!, {r0, r1}
@@ -1909,10 +1909,10 @@ MOD71_0222E578: ; 0x0222E578
 	str r0, [r3]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r4, _0222E754 ; =0x02231178
 	add r3, sp, #0x70
 	ldmia r4!, {r0, r1}
@@ -1927,10 +1927,10 @@ MOD71_0222E578: ; 0x0222E578
 	str r0, [r3]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r4, _0222E758 ; =0x02231194
 	add r3, sp, #0x54
 	ldmia r4!, {r0, r1}
@@ -1945,7 +1945,7 @@ MOD71_0222E578: ; 0x0222E578
 	str r0, [r3]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r4, _0222E75C ; =0x022310EC
 	add r3, sp, #0x38
 	ldmia r4!, {r0, r1}
@@ -1960,10 +1960,10 @@ MOD71_0222E578: ; 0x0222E578
 	add r0, r5, #0
 	mov r1, #4
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r5, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r4, _0222E760 ; =0x02231108
 	add r3, sp, #0x1c
 	ldmia r4!, {r0, r1}
@@ -1978,7 +1978,7 @@ MOD71_0222E578: ; 0x0222E578
 	str r0, [r3]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r4, _0222E764 ; =0x02231140
 	add r3, sp, #0
 	ldmia r4!, {r0, r1}
@@ -1993,7 +1993,7 @@ MOD71_0222E578: ; 0x0222E578
 	str r0, [r3]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -2018,27 +2018,27 @@ _0222E6BC:
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	lsl r1, r4, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	add r2, r6, #0
 	add r3, r7, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	mov r2, #0
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r4, r4, #1
 	cmp r4, #4
 	blt _0222E6BC
@@ -2188,25 +2188,25 @@ MOD71_0222E848: ; 0x0222E848
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD71_0222E848
 
@@ -2246,7 +2246,7 @@ _0222E8B2:
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	add r2, #0xc
-	bl FUN_02017DFC
+	bl BG_LoadScreenTilemapData
 _0222E8D0:
 	add r0, r6, #0
 	bl FreeToHeap
@@ -2270,7 +2270,7 @@ MOD71_0222E8DC: ; 0x0222E8DC
 	add r0, r4, #0
 	mov r1, #2
 	lsl r3, r3, #8
-	bl FUN_02017CE8
+	bl BgCopyOrUncompressTilemapBufferRangeToVram
 	add sp, #4
 	pop {r3, r4, pc}
 	.align 2, 0
@@ -2414,7 +2414,7 @@ MOD71_0222E900: ; 0x0222E900
 	bl FUN_02002ED0
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -2958,7 +2958,7 @@ _0222EE9A:
 	add r0, #0x1c
 	lsl r0, r0, #4
 	add r0, r6, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _0222EEA6:
 	mov r0, #3
 	str r0, [sp]
@@ -3046,21 +3046,21 @@ MOD71_0222EF24: ; 0x0222EF24
 	add r0, #0x1a
 	lsl r0, r0, #4
 	add r0, r5, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0
 	add r0, #0x1c
 	lsl r0, r0, #4
 	add r0, r5, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0
 	add r0, #0x1e
 	lsl r0, r0, #4
 	add r0, r5, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r4, #0x20
 	lsl r0, r4, #4
 	add r0, r5, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD71_0222EF24
 
@@ -5243,7 +5243,7 @@ _02230108:
 	lsl r1, r0, #4
 	ldr r0, [sp, #4]
 	add r0, r0, r1
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	add r0, r7, #0
 	add r0, #0x8c
 	ldr r0, [r0]
@@ -5280,7 +5280,7 @@ _02230154:
 	lsl r1, r0, #4
 	ldr r0, [sp, #4]
 	add r0, r0, r1
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	add r6, r6, #1
 	add r4, r4, #4
 	add r5, #0x10
@@ -5550,11 +5550,11 @@ MOD71_02230390: ; 0x02230390
 	ldr r1, _0223048C ; =0x00000568
 	str r0, [sp]
 	add r0, r0, r1
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	ldr r1, _02230490 ; =0x00000578
 	ldr r0, [sp]
 	add r0, r0, r1
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	ldr r6, [sp]
 	ldr r1, _02230494 ; =0x00000438
 	add r0, r6, #0
@@ -5622,7 +5622,7 @@ _0223042C:
 	lsl r1, r0, #4
 	ldr r0, [sp, #4]
 	add r0, r0, r1
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 _02230438:
 	add r7, r7, #1
 	add r6, #0x10
@@ -6467,7 +6467,7 @@ MOD71_02230B3C: ; 0x02230B3C
 	ldr r0, [r4, r0]
 	ldr r3, [r4, r3]
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0x5d
 	ldr r3, _02230B6C ; =0x000022B8
 	lsl r0, r0, #2
@@ -6475,7 +6475,7 @@ MOD71_02230B3C: ; 0x02230B3C
 	ldr r3, [r4, r3]
 	mov r1, #3
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r4, pc}
 	.align 2, 0
 _02230B6C: .word 0x000022B8

@@ -547,7 +547,7 @@ MOD28_02254C18: ; 0x02254C18
 	ldr r2, _02254CA8 ; =MOD28_02255ED8
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -576,7 +576,7 @@ MOD28_02254C18: ; 0x02254C18
 	bl MOD20_02252D7C
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, [r5]
 	add r0, r5, #0
 	bl MOD28_02254CB4
@@ -915,7 +915,7 @@ MOD28_02254F18: ; 0x02254F18
 	bl MOD20_022538A0
 	ldr r0, [r0, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD28_02254C04
 	pop {r4, pc}

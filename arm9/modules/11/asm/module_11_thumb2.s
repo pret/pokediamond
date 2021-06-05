@@ -41,7 +41,7 @@ MOD11_0222F29C: ; 0x0222F29C
 	add r3, r1, #0
 	bl FUN_02003914
 	mov r0, #5
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r5, #4]
 	mov r0, #5
 	mov r1, #1
@@ -98,7 +98,7 @@ _0222F30E:
 	ldmia r6!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r6, _0222F4D0 ; =MOD11_0225DA04
 	add r3, sp, #0x14
 	ldmia r6!, {r0, r1}
@@ -113,10 +113,10 @@ _0222F30E:
 	str r0, [r3]
 	ldr r0, [r5, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r5, #4]
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x13
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -816,7 +816,7 @@ MOD11_0222F93C: ; 0x0222F93C
 	bl GX_EngineAToggleLayers
 	ldr r0, [r4, #4]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	add r0, r4, #0
@@ -23819,10 +23819,10 @@ _0223AC50:
 	strh r1, [r0]
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #2
 	mov r1, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	mov r1, #2
 	bl MOD11_02231564
@@ -24064,10 +24064,10 @@ _0223AE5E:
 	orr r2, r0
 	strh r2, [r1]
 	mov r1, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #2
 	mov r1, #1
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, [r4]
 	mov r1, #0
 	bl MOD11_02231564
@@ -62296,7 +62296,7 @@ MOD11_0224D518: ; 0x0224D518
 	mov r1, #0xff
 	bl FillWindowPixelBuffer
 	add r0, r6, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	mov r1, #0x65
 	lsl r1, r1, #2
 	ldrb r1, [r4, r1]
@@ -63233,7 +63233,7 @@ _0224DCAE:
 	mov r1, #3
 	mov r2, #2
 	mov r3, #0x84
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _0224DCBE:
 	ldr r0, _0224DCE0 ; =MOD11_02250060
 	add r1, r4, #0
@@ -67678,7 +67678,7 @@ _02250086:
 	mov r1, #3
 	mov r2, #1
 	mov r3, #4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x20]
 	add r0, r0, #1
 	str r0, [r4, #0x20]
@@ -71659,7 +71659,7 @@ _022520D2:
 	mov r1, #0xff
 	bl FillWindowPixelBuffer
 	add r0, r6, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	ldr r0, [r4]
 	bl MOD11_02230094
 	bl MOD11_0225C76C
@@ -84398,27 +84398,27 @@ _0225845A:
 	lsr r1, r1, #0x18
 	add r2, r6, #0
 	add r3, r7, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	ldr r2, _022584A8 ; =0x000002FF
 	add r0, r5, #0
 	lsr r1, r1, #0x18
-	bl FUN_02018768
+	bl BgFillTilemapBufferAndCommit
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	mov r2, #0
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r4, r4, #1
 	add r6, #0x1c
 	cmp r4, #4
@@ -84444,7 +84444,7 @@ _022584B4:
 	lsl r1, r1, #0x18
 	add r0, r5, #0
 	lsr r1, r1, #0x18
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r4, r4, #1
 	cmp r4, #4
 	blo _022584B4
@@ -84905,7 +84905,7 @@ _022588AE:
 	ldr r2, [r2, #0x3c]
 	lsr r1, r1, #0x18
 	lsl r3, r3, #0xa
-	bl FUN_02017DFC
+	bl BG_LoadScreenTilemapData
 	add r1, r4, #4
 	lsl r1, r1, #0x18
 	ldr r0, [sp, #0x28]
@@ -85968,7 +85968,7 @@ _0225910E:
 	mov r1, #6
 	mov r2, #0
 	asr r3, r6, #8
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r5, #0
 	bl MOD11_0225902C
 	cmp r4, #1
@@ -85976,13 +85976,13 @@ _0225910E:
 	ldr r2, _02259160 ; =0x000002FF
 	add r0, r7, #0
 	mov r1, #7
-	bl FUN_02018768
+	bl BgFillTilemapBufferAndCommit
 	mov r0, #7
 	mov r1, #0
 	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r2, _02259164 ; =0x04001000
 	ldr r0, _02259168 ; =0xFFFF1FFF
 	ldr r1, [r2]
@@ -87845,7 +87845,7 @@ _0225A116:
 	ldr r2, _0225A15C ; =0x000002FF
 	add r6, r0, #0
 	mov r1, #5
-	bl FUN_02018768
+	bl BgFillTilemapBufferAndCommit
 	add r0, r6, #0
 	mov r1, #5
 	bl ScheduleBgTilemapBufferTransfer
@@ -90373,22 +90373,22 @@ _0225B4D6:
 	add r0, r4, #0
 	mov r1, #4
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r4, #0
 	mov r1, #4
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r2, #0
 	add r0, r4, #0
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r5]
 	mov r1, #1
 	ldr r0, [r0]
@@ -90427,7 +90427,7 @@ _0225B55A:
 	add r0, r6, #0
 	mov r1, #4
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0xc
 	ldrsh r4, [r5, r3]
 	mov r3, #0xff
@@ -90435,7 +90435,7 @@ _0225B55A:
 	mov r1, #5
 	mov r2, #0
 	sub r3, r3, r4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #8
 	ldrsh r0, [r5, r0]
 	mov r1, #0x64
@@ -90453,13 +90453,13 @@ _0225B590:
 	add r0, r6, #0
 	mov r1, #4
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0xc
 	ldrsh r3, [r5, r3]
 	add r0, r6, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #8
 	ldrsh r0, [r5, r0]
 	mov r1, #0x64
@@ -90471,12 +90471,12 @@ _0225B5B6:
 	mov r1, #4
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r6, #0
 	mov r1, #5
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0xa
 	ldrsh r0, [r5, r0]
 	mov r1, #0x64
@@ -90556,24 +90556,24 @@ MOD11_0225B644: ; 0x0225B644
 	mov r1, #4
 	add r3, r2, #0
 	add r5, r0, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0x10
 	ldrsh r3, [r4, r3]
 	add r0, r5, #0
 	mov r1, #4
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r2, #0
 	add r0, r5, #0
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0x10
 	ldrsh r3, [r4, r3]
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r4, r5, r6, pc}
 _0225B68E:
 	cmp r0, #0xc0
@@ -90591,7 +90591,7 @@ _0225B68E:
 	mov r1, #4
 	mov r2, #0
 	sub r3, r3, r6
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0xc
 	ldrsh r4, [r4, r3]
 	mov r3, #0xff
@@ -90599,31 +90599,31 @@ _0225B68E:
 	mov r1, #5
 	mov r2, #0
 	sub r3, r3, r4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	b _0225B6E0
 _0225B6C6:
 	mov r3, #0xc
 	ldrsh r3, [r4, r3]
 	mov r1, #4
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r3, #0xc
 	ldrsh r3, [r4, r3]
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _0225B6E0:
 	add r0, r5, #0
 	mov r1, #4
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _0225B6F8:
 	pop {r4, r5, r6, pc}
 	nop
@@ -90671,7 +90671,7 @@ _0225B740:
 	lsl r1, r1, #0x18
 	lsr r0, r0, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	add r4, r4, #1
 	add r6, r6, #2
 	cmp r4, #4

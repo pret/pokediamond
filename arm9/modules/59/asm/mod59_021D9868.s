@@ -231,7 +231,7 @@ _021D9A2C:
 	add r0, sp, #0x90
 	bl GX_SetBanks
 	ldr r0, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0x80
 	ldr r5, _021D9BB8 ; =0x021DA054
 	str r0, [r4, #4]
@@ -241,7 +241,7 @@ _021D9A2C:
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D9BBC ; =0x021DA080
 	add r3, sp, #0x64
 	ldmia r5!, {r0, r1}
@@ -256,7 +256,7 @@ _021D9A2C:
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r3, [r4]
 	mov r0, #2
 	mov r1, #0x20
@@ -264,7 +264,7 @@ _021D9A2C:
 	bl BG_ClearCharDataRange
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D9BC0 ; =0x021DA09C
 	add r3, sp, #0x48
 	ldmia r5!, {r0, r1}
@@ -279,7 +279,7 @@ _021D9A2C:
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -314,7 +314,7 @@ _021D9A2C:
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -351,7 +351,7 @@ _021D9A2C:
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -442,16 +442,16 @@ MOD59_021D9BD0: ; 0x021D9BD0
 	strh r1, [r0]
 	ldr r0, [r4, #4]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -600,7 +600,7 @@ _021D9D50:
 	bl RemoveWindow
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	str r0, [r4, #0xc]
 	mov r5, #1
@@ -624,7 +624,7 @@ MOD59_021D9D78: ; 0x021D9D78
 	ldr r0, [r0, #4]
 	mov r1, #1
 	asr r3, r3, #4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, pc}
 	.align 2, 0
 	thumb_func_end MOD59_021D9D78

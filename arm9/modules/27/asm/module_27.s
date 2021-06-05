@@ -516,7 +516,7 @@ MOD27_02254C08: ; 0x02254C08
 	ldr r2, _02254CBC ; =MOD27_02255378
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -551,7 +551,7 @@ MOD27_02254C08: ; 0x02254C08
 	bl MOD27_02254CC8
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	mov r0, #0xf
 	mov r1, #1
 	bl MOD20_0225396C
@@ -849,7 +849,7 @@ MOD27_02254EAC: ; 0x02254EAC
 	bl FillWindowPixelRect
 _02254EE0:
 	add r0, r5, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -1382,7 +1382,7 @@ MOD27_022552B4: ; 0x022552B4
 	bl MOD20_022538A0
 	ldr r0, [r0, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD27_02254BF4
 	pop {r4, pc}
@@ -1425,7 +1425,7 @@ MOD27_022552D0: ; 0x022552D0
 	bl MOD27_02254CC8
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _02255338 ; =0x00000669
 	bl MOD20_02252B28
 	add r0, r6, #0

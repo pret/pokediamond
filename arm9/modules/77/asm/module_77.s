@@ -76,7 +76,7 @@ _021D7540:
 	lsr r0, r0, #0x18
 	bl FUN_0201B2EC
 	ldr r0, [r5]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	ldr r1, _021D75F4 ; =0x0000C010
 	str r0, [r5, r1]
 	bl GX_BothDispOn
@@ -876,7 +876,7 @@ MOD77_021D7C44: ; 0x021D7C44
 	ldmia r4!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -1338,17 +1338,17 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	ldr r0, [r5, r0]
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, _021D8208 ; =0x0000C010
 	mov r1, #6
 	ldr r0, [r5, r0]
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, _021D8208 ; =0x0000C010
 	ldr r2, _021D8210 ; =0x021D8F98
 	ldr r0, [r5, r0]
 	mov r1, #7
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1446,17 +1446,17 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	ldr r0, [r5, r0]
 	ldr r2, _021D820C ; =0x021D8F7C
 	mov r1, #2
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, _021D8208 ; =0x0000C010
 	mov r1, #2
 	ldr r0, [r5, r0]
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, _021D8208 ; =0x0000C010
 	ldr r2, _021D8210 ; =0x021D8F98
 	ldr r0, [r5, r0]
 	mov r1, #3
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1625,19 +1625,19 @@ MOD77_021D8248: ; 0x021D8248
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #2
 	ldr r0, [r4, r0]
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #6
 	ldr r0, [r4, r0]
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #3
 	ldr r0, [r4, r0]
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #7
 	ldr r0, [r4, r0]
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	nop
 _021D8288: .word 0x0000C034

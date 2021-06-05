@@ -31,8 +31,8 @@ THUMB_FUNC void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgC
             if (szByte == 0)
                 szByte = pScreenData->szByte;
             if (GetBgTilemapBuffer(unkStruct02016B94_2, (u8) a3) != NULL)
-                FUN_02017DFC(unkStruct02016B94_2, (u8)a3, pScreenData->rawData, szByte);
-            FUN_02017CE8(unkStruct02016B94_2, (u8)a3, pScreenData->rawData, szByte, a4);
+                BG_LoadScreenTilemapData(unkStruct02016B94_2, (u8) a3, pScreenData->rawData, szByte);
+            BgCopyOrUncompressTilemapBufferRangeToVram(unkStruct02016B94_2, (u8) a3, pScreenData->rawData, szByte, a4);
         }
         FreeToHeap(pFile);
     }

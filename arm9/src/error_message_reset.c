@@ -3,7 +3,7 @@
 #include "gx.h"
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
-#include "unk_02016B94.h"
+#include "bg_window.h"
 #include "PAD_pad.h"
 
 
@@ -75,11 +75,11 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         reg_GXS_DB_DISPCNT &= ~(REG_GXS_DB_DISPCNT_OW_MASK | REG_GXS_DB_DISPCNT_W1_MASK | REG_GXS_DB_DISPCNT_W0_MASK);
 
         GX_SetBanks(&UNK_020FF4D8);
-        ptr = FUN_02016B94(0);
-        FUN_02016BBC(&UNK_020FF4AC);
+        ptr = BgConfig_Alloc(0);
+        SetBothScreensModesAndDisable(&UNK_020FF4AC);
 
-        FUN_02016C18(ptr, 0, &UNK_020FF4BC, 0);
-        FUN_02018744(ptr, 0);
+        InitBgFromTemplate(ptr, 0, &UNK_020FF4BC, 0);
+        BgClearTilemapBufferAndCommit(ptr, 0);
 
         FUN_0200CB00(ptr, 0, 503, 2, 0, 0);
 

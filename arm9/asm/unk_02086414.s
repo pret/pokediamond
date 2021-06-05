@@ -294,7 +294,7 @@ _0208655C:
 	ldmia r5!, {r0-r1}
 	stmia r3!, {r0-r1}
 	add r0, r2, #0x0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _02086658 ; =UNK_020FCF84
 	add r3, sp, #0x54
 	mov r2, #0xa
@@ -309,26 +309,26 @@ _020865BC:
 	add r0, r4, #0x0
 	add r2, sp, #0x54
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x2
 	add r2, sp, #0x70
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x3
 	add r2, sp, #0x8c
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r1, _0208665C ; =0x04000008
 	mov r0, #0x3
 	ldrh r2, [r1, #0x0]
@@ -356,10 +356,10 @@ _020865BC:
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add sp, #0xa8
 	pop {r3-r5, pc}
 	.balign 4
@@ -736,7 +736,7 @@ FUN_02086960: ; 0x02086960
 	bl FUN_0200CCF8
 	add r0, r4, #0x0
 	add r0, #0x28
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0x28
 	bl RemoveWindow
@@ -751,7 +751,7 @@ FUN_02086960: ; 0x02086960
 FUN_0208698C: ; 0x0208698C
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	bl RemoveWindow
 	pop {r4, pc}

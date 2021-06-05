@@ -269,7 +269,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	mov r1, #8
 	bl SetKeyRepeatTimers
 	mov r0, #0x36
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r1, r4, #0
 	add r1, #0xc0
 	str r0, [r1]
@@ -623,7 +623,7 @@ MOD56_022122D4: ; 0x022122D4
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _02212430 ; =0x02216368
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -638,7 +638,7 @@ MOD56_022122D4: ; 0x022122D4
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -646,7 +646,7 @@ MOD56_022122D4: ; 0x022122D4
 	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02212434 ; =0x02216384
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -661,7 +661,7 @@ MOD56_022122D4: ; 0x022122D4
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0x20
 	mov r2, #0
@@ -669,7 +669,7 @@ MOD56_022122D4: ; 0x022122D4
 	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02212438 ; =0x022163A0
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -684,7 +684,7 @@ MOD56_022122D4: ; 0x022122D4
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
@@ -692,7 +692,7 @@ MOD56_022122D4: ; 0x022122D4
 	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0221243C ; =0x022163BC
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -707,7 +707,7 @@ MOD56_022122D4: ; 0x022122D4
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
@@ -715,7 +715,7 @@ MOD56_022122D4: ; 0x022122D4
 	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02212440 ; =0x022163D8
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -730,10 +730,10 @@ MOD56_022122D4: ; 0x022122D4
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -746,16 +746,16 @@ MOD56_022122D4: ; 0x022122D4
 	bl BG_ClearCharDataRange
 	mov r0, #0
 	mov r1, #3
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #1
 	mov r1, #2
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #3
 	mov r1, #1
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #2
 	mov r1, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldr r0, _02212444 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -899,22 +899,22 @@ MOD56_02212540: ; 0x02212540
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -1376,7 +1376,7 @@ _022128CE:
 	mov r0, #0xd7
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r3, r4, pc}
 	nop
@@ -1544,16 +1544,16 @@ _02212A9A:
 	bne _02212AFA
 	mov r0, #0
 	mov r1, #3
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #3
 	mov r1, #2
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #2
 	mov r1, #1
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #1
 	mov r1, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	add r0, r5, #0
 	mov r1, #0x11
 	bl MOD56_02215FF4
@@ -1709,16 +1709,16 @@ MOD56_02212BE8: ; 0x02212BE8
 	bl MOD56_02215FF4
 	mov r0, #0
 	mov r1, #3
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #3
 	mov r1, #2
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #2
 	mov r1, #1
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #1
 	mov r1, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #0x36
 	str r0, [sp]
 	add r0, r5, #0
@@ -1947,16 +1947,16 @@ MOD56_02212DD8: ; 0x02212DD8
 	add r4, r1, #0
 	mov r0, #0
 	mov r1, #3
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #1
 	mov r1, #2
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #3
 	mov r1, #1
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #2
 	mov r1, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #0x3b
 	mov r1, #0xf
 	lsl r0, r0, #4
@@ -2452,7 +2452,7 @@ MOD56_02213194: ; 0x02213194
 	add r0, #0xc0
 	ldr r0, [r0]
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -3004,7 +3004,7 @@ _022135DC:
 	mov r0, #0xd3
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 _02213614:
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
@@ -3139,7 +3139,7 @@ _022136B8:
 	mov r0, #0xdf
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 _02213706:
 	ldr r0, [r4]
 	add r1, r5, #0
@@ -3174,7 +3174,7 @@ _02213722:
 	mov r0, #0xdf
 	lsl r0, r0, #2
 	add r0, r4, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 _0221374C:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -3426,7 +3426,7 @@ _02213906:
 	add r5, #0xc0
 	ldr r0, [r5]
 	mov r1, #0
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD56_022138A4
@@ -3632,7 +3632,7 @@ MOD56_02213A94: ; 0x02213A94
 	add r0, #0xc0
 	ldr r0, [r0]
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -3738,7 +3738,7 @@ _02213B2C:
 	mov r0, #0xd7
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add r0, r5, #0
 	bl MOD56_02216120
 	add r0, r5, #0
@@ -5141,7 +5141,7 @@ _02214642:
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
@@ -5432,7 +5432,7 @@ _0221488C:
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	mov r0, #1
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
@@ -5724,7 +5724,7 @@ _02214ADC:
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r1, [sp, #0x18]
 	add r0, r5, #0
 	bl MOD56_022160E4
@@ -6917,7 +6917,7 @@ MOD56_0221547C: ; 0x0221547C
 	add r4, r1, #0
 	ldr r0, [r0]
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -6951,7 +6951,7 @@ MOD56_022154BC: ; 0x022154BC
 	add r7, r1, #0
 	ldr r0, [r0]
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -7069,7 +7069,7 @@ _02215532:
 	mov r0, #0xe7
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add r0, r5, #0
 	mov r1, #0x29
 	mov r2, #0
@@ -7473,7 +7473,7 @@ _0221594C:
 	mov r0, #0xe7
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	mov r0, #0x3b
 	mov r1, #0x36
 	lsl r0, r0, #4
@@ -7545,12 +7545,12 @@ MOD56_022159B0: ; 0x022159B0
 	add r0, #0xc0
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	add r0, #0xc0
 	ldr r0, [r0]
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	bl MOD56_02216120
 	mov r3, #0
@@ -7595,7 +7595,7 @@ MOD56_022159B0: ; 0x022159B0
 	mov r0, #0xd7
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add r0, r5, #0
 	bl MOD56_02212EFC
 	add r0, r5, #0
@@ -8302,7 +8302,7 @@ _02215F82:
 	mov r0, #0xcf
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -8414,7 +8414,7 @@ _02216048:
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, pc}
 	nop

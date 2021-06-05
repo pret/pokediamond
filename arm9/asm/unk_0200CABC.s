@@ -356,7 +356,7 @@ FUN_0200CCF8: ; 0x0200CCF8
 	cmp r4, #0x0
 	bne _0200CD5A
 	add r0, r5, #0x0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _0200CD5A:
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -841,7 +841,7 @@ FUN_0200D0E0: ; 0x0200D0E0
 	cmp r4, #0x0
 	bne _0200D142
 	add r0, r5, #0x0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _0200D142:
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -890,7 +890,7 @@ FUN_0200D18C: ; 0x0200D18C
 	str r1, [sp, #0x24]
 	str r0, [sp, #0x20]
 	ldr r0, [r0, #0x0]
-	bl FUN_02016BB8
+	bl BgConfig_GetHeapId
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x20]
 	bl GetWindowBgId
@@ -901,7 +901,7 @@ FUN_0200D18C: ; 0x0200D18C
 	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
-	bl FUN_020187B0
+	bl BgGetCharPtr
 	add r4, r0, #0x0
 	str r6, [sp, #0x0]
 	mov r0, #0x26
@@ -1710,7 +1710,7 @@ _0200D846:
 	cmp r0, #0x0
 	bne _0200D852
 	add r0, r5, #0x0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _0200D852:
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -1723,11 +1723,11 @@ FUN_0200D858: ; 0x0200D858
 	str r0, [sp, #0x20]
 	ldr r0, [r0, #0x0]
 	str r1, [sp, #0x24]
-	bl FUN_02016BB8
+	bl BgConfig_GetHeapId
 	str r0, [sp, #0x28]
 	ldr r0, [sp, #0x20]
 	bl GetWindowBgId
-	bl FUN_020187B0
+	bl BgGetCharPtr
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
 	ldr r1, _0200D970 ; =0x0000048C
@@ -1969,7 +1969,7 @@ FUN_0200D980: ; 0x0200D980
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x24
 	pop {r4-r7, pc}
 _0200DA8A:
@@ -2082,7 +2082,7 @@ _0200DA8A:
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 _0200DB72:
 	add sp, #0x24
 	pop {r4-r7, pc}
@@ -2228,7 +2228,7 @@ FUN_0200DC4C: ; 0x0200DC4C
 	bl FUN_0200DFD8
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _0200DCA0 ; =0x0000016F
 	add r0, r4, r0
 	add sp, #0xc
@@ -2266,7 +2266,7 @@ FUN_0200DCA4: ; 0x0200DCA4
 	bl FUN_0200DFD8
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _0200DCF4 ; =0x0000016F
 	add r0, r4, r0
 	add sp, #0xc

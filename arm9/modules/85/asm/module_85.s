@@ -263,7 +263,7 @@ MOD85_021D76FC: ; 0x021D76FC
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r0, #0
 	mov r0, #0x4f
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	ldr r1, _021D77CC ; =0x0000043C
 	str r0, [r4, r1]
 	bl MOD85_021D77F8
@@ -408,7 +408,7 @@ MOD85_021D7818: ; 0x021D7818
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D78F4 ; =0x021DED28
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -423,10 +423,10 @@ MOD85_021D7818: ; 0x021D7818
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
@@ -446,10 +446,10 @@ MOD85_021D7818: ; 0x021D7818
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D78FC ; =0x021DED60
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -464,10 +464,10 @@ MOD85_021D7818: ; 0x021D7818
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D7900 ; =0x021DED0C
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -482,10 +482,10 @@ MOD85_021D7818: ; 0x021D7818
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #7
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add sp, #0x80
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -502,16 +502,16 @@ MOD85_021D7904: ; 0x021D7904
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -619,11 +619,11 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r3, [r3, #8]
 	mov r1, #1
 	add r2, #0xc
-	bl FUN_02017DFC
+	bl BG_LoadScreenTilemapData
 	ldr r0, _021D7B24 ; =0x0000043C
 	mov r1, #1
 	ldr r0, [r4, r0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -664,11 +664,11 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r3, [r3, #8]
 	mov r1, #2
 	add r2, #0xc
-	bl FUN_02017DFC
+	bl BG_LoadScreenTilemapData
 	ldr r0, _021D7B24 ; =0x0000043C
 	mov r1, #2
 	ldr r0, [r4, r0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -727,11 +727,11 @@ MOD85_021D797C: ; 0x021D797C
 	ldr r3, [r3, #8]
 	mov r1, #7
 	add r2, #0xc
-	bl FUN_02017DFC
+	bl BG_LoadScreenTilemapData
 	ldr r0, _021D7B24 ; =0x0000043C
 	mov r1, #7
 	ldr r0, [r4, r0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl FreeToHeap
 	pop {r3, r4, r5, pc}
@@ -815,7 +815,7 @@ MOD85_021D7BB8: ; 0x021D7BB8
 	add r6, r4, #0
 	add r6, #8
 	add r0, r6, #0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r6, #0
 	bl RemoveWindow
 	ldr r0, _021D7BE8 ; =0x00000408
@@ -865,7 +865,7 @@ MOD85_021D7BEC: ; 0x021D7BEC
 	bl AddTextPrinterParameterized
 	add r4, #8
 	add r0, r4, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -887,7 +887,7 @@ MOD85_021D7C44: ; 0x021D7C44
 	bl FillWindowPixelBuffer
 	add r0, r5, r4
 	add r0, #8
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021D7C68: .word 0x00000408

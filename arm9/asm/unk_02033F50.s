@@ -132,18 +132,18 @@ _02033FA4:
 	ldr r0, _02034170 ; =UNK_020EECD0
 	bl GX_SetBanks
 	add r0, r4, #0x0
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r6, r0, #0x0
 	ldr r0, _02034174 ; =UNK_020EECA4
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r1, #0x0
 	ldr r2, _02034178 ; =UNK_020EECB4
 	add r0, r6, #0x0
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r2, _0203417C ; =0x000001F7

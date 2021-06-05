@@ -1426,7 +1426,7 @@ FUN_02065EF8: ; 0x02065EF8
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1439,7 +1439,7 @@ FUN_02065EF8: ; 0x02065EF8
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1483,7 +1483,7 @@ FUN_02065F8C: ; 0x02065F8C
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -2021,7 +2021,7 @@ FUN_020663D4: ; 0x020663D4
 	mov r0, #0x61
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r0, #0x61
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -2151,7 +2151,7 @@ FUN_020664D8: ; 0x020664D8
 	mov r0, #0x61
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	pop {r4, pc}
 
 	thumb_func_start FUN_020664F4

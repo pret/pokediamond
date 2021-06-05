@@ -651,7 +651,7 @@ _0222DA48:
 	add r4, r0, #0
 	bl memset
 	mov r0, #0x44
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #4]
 	ldr r0, _0222DB5C ; =0x0222FC0C
 	add r2, sp, #0
@@ -663,7 +663,7 @@ _0222DA48:
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r0, #0xb
 	mov r1, #0x20
 	mov r2, #0x44
@@ -1503,13 +1503,13 @@ MOD82_0222E15C: ; 0x0222E15C
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0222E234 ; =0x0222F878
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -1524,7 +1524,7 @@ MOD82_0222E15C: ; 0x0222E15C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -1542,13 +1542,13 @@ MOD82_0222E15C: ; 0x0222E15C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineBToggleLayers
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0222E23C ; =0x0222F85C
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -1563,7 +1563,7 @@ MOD82_0222E15C: ; 0x0222E15C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -1591,16 +1591,16 @@ MOD82_0222E240: ; 0x0222E240
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD82_0222E240
 

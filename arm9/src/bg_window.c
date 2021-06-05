@@ -1,35 +1,35 @@
 #include "global.h"
-#include "unk_02016B94.h"
+#include "bg_window.h"
 #include "GX_layers.h"
 #include "game_init.h"
 #include "gx.h"
 #include "heap.h"
 
-const u8 UNK_020EDB30[] = {
-    0x10,
-    0x20,
-    0x20,
-    0x20,
-    0x20,
-    0x20,
+const u8 sTilemapWidthByBufferSize[] = {
+    [GF_BG_SCR_SIZE_128x128]   = 0x10,
+    [GF_BG_SCR_SIZE_256x256]   = 0x20,
+    [GF_BG_SCR_SIZE_256x512]   = 0x20,
+    [GF_BG_SCR_SIZE_512x256]   = 0x20,
+    [GF_BG_SCR_SIZE_512x512]   = 0x20,
+    [GF_BG_SCR_SIZE_1024x1024] = 0x20,
 };
 
-void (*const UNK_020EDB5C[])(struct Window *) = {
-    FUN_020194C8,
-    FUN_0201951C,
-    FUN_020194C8,
+void (*const sScheduleWindowCopyToVramFuncs[])(struct Window *) = {
+    ScheduleWindowCopyToVram_TextMode,
+    ScheduleWindowCopyToVram_AffineMode,
+    ScheduleWindowCopyToVram_TextMode,
 };
 
-void (*const UNK_020EDB50[])(struct Window *) = {
-    FUN_020195A8,
-    FUN_020195E4,
-    FUN_020195A8,
+void (*const sClearWindowTilemapAndCopyToVramFuncs[])(struct Window *) = {
+    ClearWindowTilemapAndCopyToVram_TextMode,
+    ClearWindowTilemapAndCopyToVram_AffineMode,
+    ClearWindowTilemapAndCopyToVram_TextMode,
 };
 
-void (*const UNK_020EDB44[])(struct Window *) = {
-    FUN_020195D0,
-    FUN_0201960C,
-    FUN_020195D0,
+void (*const sClearWindowTilemapAndScheduleTransferFuncs[])(struct Window *) = {
+    ClearWindowTilemapAndScheduleTransfer_TextMode,
+    ClearWindowTilemapAndScheduleTransfer_AffineMode,
+    ClearWindowTilemapAndScheduleTransfer_TextMode,
 };
 
 void (*const sPutWindowTilemapFuncs[])(struct Window *) = {
@@ -44,13 +44,13 @@ void (*const sCopyWindowToVramFuncs[])(struct Window *) = {
     CopyWindowToVram_TextMode,
 };
 
-void (*const UNK_020EDB74[])(struct Window *) = {
+void (*const sClearWindowTilemapFuncs[])(struct Window *) = {
     ClearWindowTilemapText,
     ClearWindowTilemapAffine,
     ClearWindowTilemapText,
 };
 
-THUMB_FUNC struct BgConfig *FUN_02016B94(u32 heap_id)
+THUMB_FUNC struct BgConfig *BgConfig_Alloc(u32 heap_id)
 {
     struct BgConfig *ptr = AllocFromHeap(heap_id, sizeof(struct BgConfig));
     memset(ptr, 0, sizeof(struct BgConfig));
@@ -61,12 +61,12 @@ THUMB_FUNC struct BgConfig *FUN_02016B94(u32 heap_id)
     return ptr;
 }
 
-THUMB_FUNC u32 FUN_02016BB8(u32 *param0)
+THUMB_FUNC u32 BgConfig_GetHeapId(struct BgConfig *bgConfig)
 {
-    return *param0;
+    return bgConfig->heap_id;
 }
 
-THUMB_FUNC void FUN_02016BBC(const struct GraphicsModes *modes)
+THUMB_FUNC void SetBothScreensModesAndDisable(const struct GraphicsModes *modes)
 {
     GX_SetGraphicsMode(modes->dispMode, modes->bgMode, modes->_2d3dMode);
     GXS_SetGraphicsMode(modes->subMode);
@@ -77,52 +77,52 @@ THUMB_FUNC void FUN_02016BBC(const struct GraphicsModes *modes)
     GX_DisableEngineBLayers();
 }
 
-THUMB_FUNC void FUN_02016BF4(const struct GraphicsModes *param0, u32 param1)
+THUMB_FUNC void SetScreenModeAndDisable(const struct GraphicsModes *gfxModes, u32 whichScreen)
 {
-    if (param1 == 0)
+    if (whichScreen == 0)
     {
-        GX_SetGraphicsMode(param0->dispMode, param0->bgMode, param0->_2d3dMode);
+        GX_SetGraphicsMode(gfxModes->dispMode, gfxModes->bgMode, gfxModes->_2d3dMode);
         GX_DisableEngineALayers();
     }
     else
     {
-        GXS_SetGraphicsMode(param0->subMode);
+        GXS_SetGraphicsMode(gfxModes->subMode);
         GX_DisableEngineBLayers();
     }
 }
 
-THUMB_FUNC void FUN_02016C18(
-    struct BgConfig *param0, u8 param1, const struct BgTemplate *template, u8 bgMode)
+THUMB_FUNC void InitBgFromTemplate(
+    struct BgConfig *bgConfig, u8 bgId, const struct BgTemplate *template, u8 bgMode)
 {
-    u8 screenSize = FUN_020177DC(template->unk10, bgMode);
-    switch (param1)
+    u8 screenSize = TranslateGFBgModePairToGXScreenSize(template->size, bgMode);
+    switch (bgId)
     {
-    case 0:
-        GX_EngineAToggleLayers(1, GX_LAYER_TOGGLE_ON);
+    case GF_BG_LYR_MAIN_0:
+        GX_EngineAToggleLayers(GF_BG_LYR_MAIN_0_F, GX_LAYER_TOGGLE_ON);
         G2_SetBG0Control(screenSize, template->colorMode, template->screenBase, template->charBase, template->bgExtPltt);
         G2_SetBG0Priority(template->priority);
         G2_BG0Mosaic(template->mosaic);
         break;
 
-    case 1:
-        GX_EngineAToggleLayers(2, GX_LAYER_TOGGLE_ON);
+    case GF_BG_LYR_MAIN_1:
+        GX_EngineAToggleLayers(GF_BG_LYR_MAIN_1_F, GX_LAYER_TOGGLE_ON);
         G2_SetBG1Control(screenSize, template->colorMode, template->screenBase, template->charBase, template->bgExtPltt);
         G2_SetBG1Priority(template->priority);
         G2_BG1Mosaic(template->mosaic);
         break;
 
-    case 2:
-        GX_EngineAToggleLayers(4, GX_LAYER_TOGGLE_ON);
+    case GF_BG_LYR_MAIN_2:
+        GX_EngineAToggleLayers(GF_BG_LYR_MAIN_2_F, GX_LAYER_TOGGLE_ON);
         switch (bgMode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             G2_SetBG2ControlText(screenSize, template->colorMode, template->screenBase, template->charBase);
             break;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             G2_SetBG2ControlAffine(screenSize, template->areaOver, template->screenBase, template->charBase);
             break;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             G2_SetBG2Control256x16Pltt(screenSize, template->areaOver, template->screenBase, template->charBase);
             break;
         }
@@ -130,18 +130,18 @@ THUMB_FUNC void FUN_02016C18(
         G2_BG2Mosaic(template->mosaic);
         break;
 
-    case 3:
-        GX_EngineAToggleLayers(8, GX_LAYER_TOGGLE_ON);
+    case GF_BG_LYR_MAIN_3:
+        GX_EngineAToggleLayers(GF_BG_LYR_MAIN_3_F, GX_LAYER_TOGGLE_ON);
         switch (bgMode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             G2_SetBG3ControlText(screenSize, template->colorMode, template->screenBase, template->charBase);
             break;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             G2_SetBG3ControlAffine(screenSize, template->areaOver, template->screenBase, template->charBase);
             break;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             G2_SetBG3Control256x16Pltt(screenSize, template->areaOver, template->screenBase, template->charBase);
             break;
         }
@@ -149,32 +149,32 @@ THUMB_FUNC void FUN_02016C18(
         G2_BG3Mosaic(template->mosaic);
         break;
 
-    case 4:
-        GX_EngineBToggleLayers(1, GX_LAYER_TOGGLE_ON);
+    case GF_BG_LYR_SUB_0:
+        GX_EngineBToggleLayers(GF_BG_LYR_SUB_0_F, GX_LAYER_TOGGLE_ON);
         G2S_SetBG0Control(screenSize, template->colorMode, template->screenBase, template->charBase, template->bgExtPltt);
         G2S_SetBG0Priority(template->priority);
         G2S_BG0Mosaic(template->mosaic);
         break;
 
-    case 5:
-        GX_EngineBToggleLayers(2, GX_LAYER_TOGGLE_ON);
+    case GF_BG_LYR_SUB_1:
+        GX_EngineBToggleLayers(GF_BG_LYR_SUB_1_F, GX_LAYER_TOGGLE_ON);
         G2S_SetBG1Control(screenSize, template->colorMode, template->screenBase, template->charBase, template->bgExtPltt);
         G2S_SetBG1Priority(template->priority);
         G2S_BG1Mosaic(template->mosaic);
         break;
 
-    case 6:
-        GX_EngineBToggleLayers(4, GX_LAYER_TOGGLE_ON);
+    case GF_BG_LYR_SUB_2:
+        GX_EngineBToggleLayers(GF_BG_LYR_SUB_2_F, GX_LAYER_TOGGLE_ON);
         switch (bgMode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             G2S_SetBG2ControlText(screenSize, template->colorMode, template->screenBase, template->charBase);
             break;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             G2S_SetBG2ControlAffine(screenSize, template->areaOver, template->screenBase, template->charBase);
             break;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             G2S_SetBG2Control256x16Pltt(screenSize, template->areaOver, template->screenBase, template->charBase);
             break;
         }
@@ -182,18 +182,18 @@ THUMB_FUNC void FUN_02016C18(
         G2S_BG2Mosaic(template->mosaic);
         break;
 
-    case 7:
-        GX_EngineBToggleLayers(8, GX_LAYER_TOGGLE_ON);
+    case GF_BG_LYR_SUB_3:
+        GX_EngineBToggleLayers(GF_BG_LYR_SUB_3_F, GX_LAYER_TOGGLE_ON);
         switch (bgMode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             G2S_SetBG3ControlText(screenSize, template->colorMode, template->screenBase, template->charBase);
             break;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             G2S_SetBG3ControlAffine(screenSize, template->areaOver, template->screenBase, template->charBase);
             break;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             G2S_SetBG3Control256x16Pltt(screenSize, template->areaOver, template->screenBase, template->charBase);
             break;
         }
@@ -202,104 +202,104 @@ THUMB_FUNC void FUN_02016C18(
         break;
     }
 
-    param0->bgs[param1].rotation = 0;
-    param0->bgs[param1].xScale = FX32_ONE;
-    param0->bgs[param1].yScale = FX32_ONE;
-    param0->bgs[param1].centerX = 0;
-    param0->bgs[param1].centerY = 0;
+    bgConfig->bgs[bgId].rotation = 0;
+    bgConfig->bgs[bgId].xScale = FX32_ONE;
+    bgConfig->bgs[bgId].yScale = FX32_ONE;
+    bgConfig->bgs[bgId].centerX = 0;
+    bgConfig->bgs[bgId].centerY = 0;
 
     if (template->bufferSize != 0)
     {
-        param0->bgs[param1].tilemapBuffer = AllocFromHeap(param0->heap_id, template->bufferSize);
+        bgConfig->bgs[bgId].tilemapBuffer = AllocFromHeap(bgConfig->heap_id, template->bufferSize);
 
-        MI_CpuClear16(param0->bgs[param1].tilemapBuffer, template->bufferSize);
+        MI_CpuClear16(bgConfig->bgs[bgId].tilemapBuffer, template->bufferSize);
 
-        param0->bgs[param1].bufferSize = template->bufferSize;
-        param0->bgs[param1].unk10 = template->unk0c;
+        bgConfig->bgs[bgId].bufferSize = template->bufferSize;
+        bgConfig->bgs[bgId].baseTile = template->unk0c;
     }
     else
     {
-        param0->bgs[param1].tilemapBuffer = NULL;
-        param0->bgs[param1].bufferSize = 0;
-        param0->bgs[param1].unk10 = 0;
+        bgConfig->bgs[bgId].tilemapBuffer = NULL;
+        bgConfig->bgs[bgId].bufferSize = 0;
+        bgConfig->bgs[bgId].baseTile = 0;
     }
 
-    param0->bgs[param1].size = template->unk10;
-    param0->bgs[param1].mode = bgMode;
-    param0->bgs[param1].colorMode = template->colorMode;
+    bgConfig->bgs[bgId].size = template->size;
+    bgConfig->bgs[bgId].mode = bgMode;
+    bgConfig->bgs[bgId].colorMode = template->colorMode;
 
-    if (bgMode == 0 && template->colorMode == 0)
+    if (bgMode == GF_BG_TYPE_TEXT && template->colorMode == 0)
     {
-        param0->bgs[param1].tileSize = 0x20;
+        bgConfig->bgs[bgId].tileSize = 0x20;
     }
     else
     {
-        param0->bgs[param1].tileSize = 0x40;
+        bgConfig->bgs[bgId].tileSize = 0x40;
     }
 
-    FUN_020179E0(param0, param1, 0, template->unk00);
-    FUN_020179E0(param0, param1, 3, template->unk04);
+    BgSetPosTextAndCommit(bgConfig, bgId, BG_POS_OP_SET_X, template->unk00);
+    BgSetPosTextAndCommit(bgConfig, bgId, BG_POS_OP_SET_Y, template->unk04);
 }
 
-THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 value)
+THUMB_FUNC void SetBgControlParam(struct BgConfig *config, u8 bgId, u32 attr, u8 value)
 {
-    if (attr == 0)
+    if (attr == GF_BG_CNT_SET_COLOR_MODE)
     {
         config->bgs[bgId].colorMode = value;
     }
 
     switch (bgId)
     {
-    case 0:
+    case GF_BG_LYR_MAIN_0:
         GXBg01Control bg0cnt = G2_GetBG0Control();
-        if (attr == 1)
+        if (attr == GF_BG_CNT_SET_SCREEN_BASE)
         {
             bg0cnt.screenBase = value;
         }
-        else if (attr == 2)
+        else if (attr == GF_BG_CNT_SET_CHAR_BASE)
         {
             bg0cnt.charBase = value;
         }
 
         G2_SetBG0Control(bg0cnt.screenSize, config->bgs[bgId].colorMode, bg0cnt.screenBase, bg0cnt.charBase, bg0cnt.bgExtPltt);
         break;
-    case 1:
+    case GF_BG_LYR_MAIN_1:
         GXBg01Control bg1cnt = G2_GetBG1Control();
-        if (attr == 1)
+        if (attr == GF_BG_CNT_SET_SCREEN_BASE)
         {
             bg1cnt.screenBase = value;
         }
-        else if (attr == 2)
+        else if (attr == GF_BG_CNT_SET_CHAR_BASE)
         {
             bg1cnt.charBase = value;
         }
 
         G2_SetBG1Control(bg1cnt.screenSize, config->bgs[bgId].colorMode, bg1cnt.screenBase, bg1cnt.charBase, bg1cnt.bgExtPltt);
         break;
-    case 2:
+    case GF_BG_LYR_MAIN_2:
         switch (config->bgs[bgId].mode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             GXBg23ControlText bg2cnt_tx = G2_GetBG2ControlText();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg2cnt_tx.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg2cnt_tx.charBase = value;
             }
 
             G2_SetBG2ControlText(bg2cnt_tx.screenSize, config->bgs[bgId].colorMode, bg2cnt_tx.screenBase, bg2cnt_tx.charBase);
             break;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             GXBg23ControlAffine bg2cnt_aff = G2_GetBG2ControlAffine();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg2cnt_aff.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg2cnt_aff.charBase = value;
             }
@@ -307,13 +307,13 @@ THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 valu
             G2_SetBG2ControlAffine(bg2cnt_aff.screenSize, bg2cnt_aff.areaOver, bg2cnt_aff.screenBase,
                                    bg2cnt_aff.charBase);
             break;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             GXBg23Control256x16Pltt bg2cnt_256x16pltt = G2_GetBG2Control256x16Pltt();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg2cnt_256x16pltt.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg2cnt_256x16pltt.charBase = value;
             }
@@ -323,30 +323,30 @@ THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 valu
             break;
         }
         break;
-    case 3:
+    case GF_BG_LYR_MAIN_3:
         switch (config->bgs[bgId].mode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             GXBg23ControlText bg3cnt_tx = G2_GetBG3ControlText();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg3cnt_tx.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg3cnt_tx.charBase = value;
             }
 
             G2_SetBG3ControlText(bg3cnt_tx.screenSize, config->bgs[bgId].colorMode, bg3cnt_tx.screenBase, bg3cnt_tx.charBase);
             break;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             GXBg23ControlAffine bg3cnt_aff = G2_GetBG3ControlAffine();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg3cnt_aff.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg3cnt_aff.charBase = value;
             }
@@ -354,13 +354,13 @@ THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 valu
             G2_SetBG3ControlAffine(bg3cnt_aff.screenSize, bg3cnt_aff.areaOver, bg3cnt_aff.screenBase,
                                    bg3cnt_aff.charBase);
             break;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             GXBg23Control256x16Pltt bg3cnt_256x16pltt = G2_GetBG3Control256x16Pltt();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg3cnt_256x16pltt.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg3cnt_256x16pltt.charBase = value;
             }
@@ -370,56 +370,56 @@ THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 valu
             break;
         }
         break;
-    case 4:
+    case GF_BG_LYR_SUB_0:
         GXBg01Control bg0cntsub = G2S_GetBG0Control();
-        if (attr == 1)
+        if (attr == GF_BG_CNT_SET_SCREEN_BASE)
         {
             bg0cntsub.screenBase = value;
         }
-        else if (attr == 2)
+        else if (attr == GF_BG_CNT_SET_CHAR_BASE)
         {
             bg0cntsub.charBase = value;
         }
 
         G2S_SetBG0Control(bg0cntsub.screenSize, config->bgs[bgId].colorMode, bg0cntsub.screenBase, bg0cntsub.charBase, bg0cntsub.bgExtPltt);
         break;
-    case 5:
+    case GF_BG_LYR_SUB_1:
         GXBg01Control bg1cntsub = G2S_GetBG1Control();
-        if (attr == 1)
+        if (attr == GF_BG_CNT_SET_SCREEN_BASE)
         {
             bg1cntsub.screenBase = value;
         }
-        else if (attr == 2)
+        else if (attr == GF_BG_CNT_SET_CHAR_BASE)
         {
             bg1cntsub.charBase = value;
         }
 
         G2S_SetBG1Control(bg1cntsub.screenSize, config->bgs[bgId].colorMode, bg1cntsub.screenBase, bg1cntsub.charBase, bg1cntsub.bgExtPltt);
         break;
-    case 6:
+    case GF_BG_LYR_SUB_2:
         switch (config->bgs[bgId].mode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             GXBg23ControlText bg2cntsub_tx = G2S_GetBG2ControlText();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg2cntsub_tx.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg2cntsub_tx.charBase = value;
             }
 
             G2S_SetBG2ControlText(bg2cntsub_tx.screenSize, config->bgs[bgId].colorMode, bg2cntsub_tx.screenBase, bg2cntsub_tx.charBase);
             break;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             GXBg23ControlAffine bg2cntsub_aff = G2S_GetBG2ControlAffine();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg2cntsub_aff.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg2cntsub_aff.charBase = value;
             }
@@ -427,13 +427,13 @@ THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 valu
             G2S_SetBG2ControlAffine(bg2cntsub_aff.screenSize, bg2cntsub_aff.areaOver, bg2cntsub_aff.screenBase,
                                    bg2cntsub_aff.charBase);
             break;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             GXBg23Control256x16Pltt bg2cntsub_256x16pltt = G2S_GetBG2Control256x16Pltt();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg2cntsub_256x16pltt.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg2cntsub_256x16pltt.charBase = value;
             }
@@ -443,30 +443,30 @@ THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 valu
             break;
         }
         break;
-    case 7:
+    case GF_BG_LYR_SUB_3:
         switch (config->bgs[bgId].mode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             GXBg23ControlText bg3cntsub_tx = G2S_GetBG3ControlText();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg3cntsub_tx.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg3cntsub_tx.charBase = value;
             }
 
             G2S_SetBG3ControlText(bg3cntsub_tx.screenSize, config->bgs[bgId].colorMode, bg3cntsub_tx.screenBase, bg3cntsub_tx.charBase);
             break;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             GXBg23ControlAffine bg3cntsub_aff = G2S_GetBG3ControlAffine();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg3cntsub_aff.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg3cntsub_aff.charBase = value;
             }
@@ -474,13 +474,13 @@ THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 valu
             G2S_SetBG3ControlAffine(bg3cntsub_aff.screenSize, bg3cntsub_aff.areaOver, bg3cntsub_aff.screenBase,
                                    bg3cntsub_aff.charBase);
             break;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             GXBg23Control256x16Pltt bg3cntsub_256x16pltt = G2S_GetBG3Control256x16Pltt();
-            if (attr == 1)
+            if (attr == GF_BG_CNT_SET_SCREEN_BASE)
             {
                 bg3cntsub_256x16pltt.screenBase = value;
             }
-            else if (attr == 2)
+            else if (attr == GF_BG_CNT_SET_CHAR_BASE)
             {
                 bg3cntsub_256x16pltt.charBase = value;
             }
@@ -493,106 +493,106 @@ THUMB_FUNC void FUN_020170F4(struct BgConfig *config, u8 bgId, u32 attr, u8 valu
     }
 }
 
-THUMB_FUNC u8 FUN_020177DC(u8 param0, u32 param1)
+THUMB_FUNC u8 TranslateGFBgModePairToGXScreenSize(u8 size, u32 bgMode)
 {
-    switch (param1)
+    switch (bgMode)
     {
-    case 0:
+    case GF_BG_TYPE_TEXT:
 
-        if (param0 == 1)
+        if (size == GF_BG_SCR_SIZE_256x256)
         {
             return GX_BG_SCRSIZE_TEXT_256x256;
         }
-        else if (param0 == 2)
+        else if (size == GF_BG_SCR_SIZE_256x512)
         {
             return GX_BG_SCRSIZE_TEXT_256x512;
         }
-        else if (param0 == 3)
+        else if (size == GF_BG_SCR_SIZE_512x256)
         {
             return GX_BG_SCRSIZE_TEXT_512x256;
         }
-        else if (param0 == 4)
+        else if (size == GF_BG_SCR_SIZE_512x512)
         {
             return GX_BG_SCRSIZE_TEXT_512x512;
         }
         break;
 
-    case 1:
+    case GF_BG_TYPE_AFFINE:
 
-        if (param0 == 0)
+        if (size == GF_BG_SCR_SIZE_128x128)
         {
-            return GX_BG_SCRSIZE_TEXT_256x256;
+            return GX_BG_SCRSIZE_AFFINE_128x128;
         }
-        else if (param0 == 1)
+        else if (size == GF_BG_SCR_SIZE_256x256)
         {
-            return GX_BG_SCRSIZE_TEXT_512x256;
+            return GX_BG_SCRSIZE_AFFINE_256x256;
         }
-        else if (param0 == 4)
+        else if (size == GF_BG_SCR_SIZE_512x512)
         {
-            return GX_BG_SCRSIZE_TEXT_256x512;
+            return GX_BG_SCRSIZE_AFFINE_512x512;
         }
-        else if (param0 == 5)
+        else if (size == GF_BG_SCR_SIZE_1024x1024)
         {
-            return GX_BG_SCRSIZE_TEXT_512x512;
+            return GX_BG_SCRSIZE_AFFINE_1024x1024;
         }
         break;
 
-    case 2:
+    case GF_BG_TYPE_256x16PLTT:
 
-        if (param0 == 0)
+        if (size == GF_BG_SCR_SIZE_128x128)
         {
-            return GX_BG_SCRSIZE_TEXT_256x256;
+            return GX_BG_SCRSIZE_256x16PLTT_128x128;
         }
-        else if (param0 == 1)
+        else if (size == GF_BG_SCR_SIZE_256x256)
         {
-            return GX_BG_SCRSIZE_TEXT_512x256;
+            return GX_BG_SCRSIZE_256x16PLTT_256x256;
         }
-        else if (param0 == 4)
+        else if (size == GF_BG_SCR_SIZE_512x512)
         {
-            return GX_BG_SCRSIZE_TEXT_256x512;
+            return GX_BG_SCRSIZE_256x16PLTT_512x512;
         }
-        else if (param0 == 5)
+        else if (size == GF_BG_SCR_SIZE_1024x1024)
         {
-            return GX_BG_SCRSIZE_TEXT_512x512;
+            return GX_BG_SCRSIZE_256x16PLTT_1024x1024;
         }
         break;
     }
 
-    return GX_BG_SCRSIZE_TEXT_256x256;
+    return GX_BG_SCRSIZE_TEXT_256x256; // GX_BG_SCRSIZE_AFFINE_128x128; GX_BG_SCRSIZE_256x16PLTT_128x128;
 }
 
 THUMB_FUNC void GetBgScreenDimensions(u32 screenSize, u8 *width_p, u8 *height_p)
 {
     switch (screenSize)
     {
-    case 0:
+    case GF_BG_SCR_SIZE_128x128:
         *width_p = 0x10;
         *height_p = 0x10;
         break;
-    case 1:
+    case GF_BG_SCR_SIZE_256x256:
         *width_p = 0x20;
         *height_p = 0x20;
         break;
-    case 2:
+    case GF_BG_SCR_SIZE_256x512:
         *width_p = 0x20;
         *height_p = 0x40;
         break;
-    case 3:
+    case GF_BG_SCR_SIZE_512x256:
         *width_p = 0x40;
         *height_p = 0x20;
         break;
-    case 4:
+    case GF_BG_SCR_SIZE_512x512:
         *width_p = 0x40;
         *height_p = 0x40;
         break;
-    case 5:
+    case GF_BG_SCR_SIZE_1024x1024:
         *width_p = 0x80;
         *height_p = 0x80;
         break;
     }
 }
 
-THUMB_FUNC void FUN_020178A0(struct BgConfig *bgConfig, u32 bgId)
+THUMB_FUNC void FreeBgTilemapBuffer(struct BgConfig *bgConfig, u32 bgId)
 {
     if (bgConfig->bgs[bgId].tilemapBuffer != NULL)
     {
@@ -601,32 +601,32 @@ THUMB_FUNC void FUN_020178A0(struct BgConfig *bgConfig, u32 bgId)
     }
 }
 
-THUMB_FUNC void FUN_020178BC(u32 bgId, u16 priority)
+THUMB_FUNC void SetBgPriority(u32 bgId, u16 priority)
 {
     switch (bgId)
     {
-    case 0:
+    case GF_BG_LYR_MAIN_0:
         G2_SetBG0Priority(priority);
         break;
-    case 1:
+    case GF_BG_LYR_MAIN_1:
         G2_SetBG1Priority(priority);
         break;
-    case 2:
+    case GF_BG_LYR_MAIN_2:
         G2_SetBG2Priority(priority);
         break;
-    case 3:
+    case GF_BG_LYR_MAIN_3:
         G2_SetBG3Priority(priority);
         break;
-    case 4:
+    case GF_BG_LYR_SUB_0:
         G2S_SetBG0Priority(priority);
         break;
-    case 5:
+    case GF_BG_LYR_SUB_1:
         G2S_SetBG1Priority(priority);
         break;
-    case 6:
+    case GF_BG_LYR_SUB_2:
         G2S_SetBG2Priority(priority);
         break;
-    case 7:
+    case GF_BG_LYR_SUB_3:
         G2S_SetBG3Priority(priority);
         break;
     }
@@ -636,220 +636,219 @@ THUMB_FUNC void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle)
 {
     switch (bgId)
     {
-    case 0:
-        GX_EngineAToggleLayers(1, toggle);
+    case GF_BG_LYR_MAIN_0:
+        GX_EngineAToggleLayers(GF_BG_LYR_MAIN_0_F, toggle);
         break;
-    case 1:
-        GX_EngineAToggleLayers(2, toggle);
+    case GF_BG_LYR_MAIN_1:
+        GX_EngineAToggleLayers(GF_BG_LYR_MAIN_1_F, toggle);
         break;
-    case 2:
-        GX_EngineAToggleLayers(4, toggle);
+    case GF_BG_LYR_MAIN_2:
+        GX_EngineAToggleLayers(GF_BG_LYR_MAIN_2_F, toggle);
         break;
-    case 3:
-        GX_EngineAToggleLayers(8, toggle);
+    case GF_BG_LYR_MAIN_3:
+        GX_EngineAToggleLayers(GF_BG_LYR_MAIN_3_F, toggle);
         break;
-    case 4:
-        GX_EngineBToggleLayers(1, toggle);
+    case GF_BG_LYR_SUB_0:
+        GX_EngineBToggleLayers(GF_BG_LYR_SUB_0_F, toggle);
         break;
-    case 5:
-        GX_EngineBToggleLayers(2, toggle);
+    case GF_BG_LYR_SUB_1:
+        GX_EngineBToggleLayers(GF_BG_LYR_SUB_1_F, toggle);
         break;
-    case 6:
-        GX_EngineBToggleLayers(4, toggle);
+    case GF_BG_LYR_SUB_2:
+        GX_EngineBToggleLayers(GF_BG_LYR_SUB_2_F, toggle);
         break;
-    case 7:
-        GX_EngineBToggleLayers(8, toggle);
+    case GF_BG_LYR_SUB_3:
+        GX_EngineBToggleLayers(GF_BG_LYR_SUB_3_F, toggle);
         break;
     }
 }
 
-THUMB_FUNC void FUN_020179E0(struct BgConfig *bgConfig, u32 bgId, u32 param2, fx32 val)
+THUMB_FUNC void BgSetPosTextAndCommit(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 val)
 {
-    Bg_SetPosText(&bgConfig->bgs[bgId], param2, val);
+    Bg_SetPosText(&bgConfig->bgs[bgId], op, val);
 
     u32 x = (u32)bgConfig->bgs[bgId].hOffset;
     u32 y = (u32)bgConfig->bgs[bgId].vOffset;
     switch (bgId)
     {
-    case 0:
+    case GF_BG_LYR_MAIN_0:
         G2_SetBG0Offset(x, y);
         break;
-    case 1:
+    case GF_BG_LYR_MAIN_1:
         G2_SetBG1Offset(x, y);
         break;
-    case 2:
-        if (bgConfig->bgs[2].mode == 0)
+    case GF_BG_LYR_MAIN_2:
+        if (bgConfig->bgs[GF_BG_LYR_MAIN_2].mode == 0)
         {
             G2_SetBG2Offset(x, y);
         }
         else
         {
-            FUN_02017C6C(bgConfig, 2);
+            BgAffineReset(bgConfig, GF_BG_LYR_MAIN_2);
         }
 
         break;
-    case 3:
-        if (bgConfig->bgs[3].mode == 0)
+    case GF_BG_LYR_MAIN_3:
+        if (bgConfig->bgs[GF_BG_LYR_MAIN_3].mode == 0)
         {
             G2_SetBG3Offset(x, y);
         }
         else
         {
-            FUN_02017C6C(bgConfig, 3);
+            BgAffineReset(bgConfig, GF_BG_LYR_MAIN_3);
         }
         break;
-    case 4:
+    case GF_BG_LYR_SUB_0:
         G2S_SetBG0Offset(x, y);
         break;
-    case 5:
+    case GF_BG_LYR_SUB_1:
         G2S_SetBG1Offset(x, y);
         break;
-    case 6:
-        if (bgConfig->bgs[6].mode == 0)
+    case GF_BG_LYR_SUB_2:
+        if (bgConfig->bgs[GF_BG_LYR_SUB_2].mode == 0)
         {
             G2S_SetBG2Offset(x, y);
         }
         else
         {
-            FUN_02017C6C(bgConfig, 6);
+            BgAffineReset(bgConfig, GF_BG_LYR_SUB_2);
         }
         break;
-    case 7:
-        if (bgConfig->bgs[7].mode == 0)
+    case GF_BG_LYR_SUB_3:
+        if (bgConfig->bgs[GF_BG_LYR_SUB_3].mode == 0)
         {
             G2S_SetBG3Offset(x, y);
         }
         else
         {
-            FUN_02017C6C(bgConfig, 7);
+            BgAffineReset(bgConfig, GF_BG_LYR_SUB_3);
         }
         break;
     }
 }
 
-THUMB_FUNC fx32 FUN_02017B48(struct BgConfig *param0, u32 param1)
+THUMB_FUNC fx32 Bg_GetXpos(struct BgConfig *bgConfig, u32 bgId)
 {
-    return param0->bgs[param1].hOffset;
+    return bgConfig->bgs[bgId].hOffset;
 }
 
-THUMB_FUNC fx32 FUN_02017B54(struct BgConfig *param0, u32 param1)
+THUMB_FUNC fx32 Bg_GetYpos(struct BgConfig *bgConfig, u32 bgId)
 {
-    return param0->bgs[param1].vOffset;
+    return bgConfig->bgs[bgId].vOffset;
 }
 
-THUMB_FUNC void FUN_02017B60(struct BgConfig *param0,
-    u32 param1,
-    u32 param2,
-    fx32 param3,
-    struct Mtx22 *param4,
-    fx32 param5,
-    fx32 param6)
+THUMB_FUNC void Bg_SetTextDimAndAffineParams(struct BgConfig *bgConfig,
+                                             u32 bgId,
+                                             u32 txOp,
+                                             fx32 txVal,
+                                             struct Mtx22 *mtx,
+                                             fx32 centerX,
+                                             fx32 centerY)
 {
-    Bg_SetPosText(&param0->bgs[param1], param2, param3);
-    FUN_02017BD0(param0, param1, param4, param5, param6);
+    Bg_SetPosText(&bgConfig->bgs[bgId], txOp, txVal);
+    SetBgAffine(bgConfig, bgId, mtx, centerX, centerY);
 }
 
 THUMB_FUNC void Bg_SetPosText(struct Bg *bg, u32 op, fx32 val)
 {
     switch (op)
     {
-    case 0:
+    case BG_POS_OP_SET_X:
         bg->hOffset = val;
         break;
-    case 1:
+    case BG_POS_OP_ADD_X:
         bg->hOffset += val;
         break;
-    case 2:
+    case BG_POS_OP_SUB_X:
         bg->hOffset -= val;
         break;
-    case 3:
+    case BG_POS_OP_SET_Y:
         bg->vOffset = val;
         break;
-    case 4:
+    case BG_POS_OP_ADD_Y:
         bg->vOffset += val;
         break;
-    case 5:
+    case BG_POS_OP_SUB_Y:
         bg->vOffset -= val;
         break;
     }
 }
 
-THUMB_FUNC void FUN_02017BD0(
-    struct BgConfig *param0, u32 param1, struct Mtx22 *param2, fx32 param3, fx32 param4)
+THUMB_FUNC void SetBgAffine(
+    struct BgConfig *bgConfig, u32 bgId, struct Mtx22 *mtx, fx32 centerX, fx32 centerY)
 {
-    switch (param1)
+    switch (bgId)
     {
-    case 2:
-        G2_SetBG2Affine(param2, param3, param4, param0->bgs[param1].hOffset, param0->bgs[param1].vOffset);
+    case GF_BG_LYR_MAIN_2:
+        G2_SetBG2Affine(mtx, centerX, centerY, bgConfig->bgs[bgId].hOffset, bgConfig->bgs[bgId].vOffset);
         break;
-    case 3:
-        G2_SetBG3Affine(param2, param3, param4, param0->bgs[param1].hOffset, param0->bgs[param1].vOffset);
+    case GF_BG_LYR_MAIN_3:
+        G2_SetBG3Affine(mtx, centerX, centerY, bgConfig->bgs[bgId].hOffset, bgConfig->bgs[bgId].vOffset);
         break;
-    case 6:
-        G2S_SetBG2Affine(param2, param3, param4, param0->bgs[param1].hOffset, param0->bgs[param1].vOffset);
+    case GF_BG_LYR_SUB_2:
+        G2S_SetBG2Affine(mtx, centerX, centerY, bgConfig->bgs[bgId].hOffset, bgConfig->bgs[bgId].vOffset);
         break;
-    case 7:
-        G2S_SetBG3Affine(param2, param3, param4, param0->bgs[param1].hOffset, param0->bgs[param1].vOffset);
+    case GF_BG_LYR_SUB_3:
+        G2S_SetBG3Affine(mtx, centerX, centerY, bgConfig->bgs[bgId].hOffset, bgConfig->bgs[bgId].vOffset);
         break;
     }
 }
 
-THUMB_FUNC void FUN_02017C6C(struct BgConfig *param0, u32 param1)
+THUMB_FUNC void BgAffineReset(struct BgConfig *bgConfig, u32 bgId)
 {
     struct Mtx22 mtx;
-    MTX22_2DAffine(&mtx, 0, 0x1000, 0x1000, 0);
-    FUN_02017BD0(param0, param1, &mtx, 0, 0);
+    MTX22_2DAffine(&mtx, 0, FX32_ONE, FX32_ONE, 0);
+    SetBgAffine(bgConfig, bgId, &mtx, 0, 0);
 }
 
-THUMB_FUNC void FUN_02017C98(const void *param0, void *param1, u32 param2)
+THUMB_FUNC void CopyOrUncompressTilemapData(const void *src, void *dest, u32 size)
 {
-    if (param2 == 0)
+    if (size == 0)
     {
-        MI_UncompressLZ8(param0, param1);
+        MI_UncompressLZ8(src, dest);
         return;
     }
 
-    if (((u32)param0 % 4) == 0 && ((u32)param1 % 4) == 0 && ((u16)param2 % 4) == 0)
+    if (((u32)src % 4) == 0 && ((u32)dest % 4) == 0 && ((u16)size % 4) == 0)
     {
-        MI_CpuCopy32(param0, param1, param2);
+        MI_CpuCopy32(src, dest, size);
         return;
     }
 
-    MI_CpuCopy16(param0, param1, param2);
+    MI_CpuCopy16(src, dest, size);
 }
 
-THUMB_FUNC void FUN_02017CD0(struct BgConfig *param0, u32 param1)
+THUMB_FUNC void BgCommitTilemapBufferToVram(struct BgConfig *bgConfig, u32 bgId)
 {
-    FUN_02017CE8(param0,
-        param1,
-        param0->bgs[param1].tilemapBuffer,
-        param0->bgs[param1].bufferSize,
-        param0->bgs[param1].unk10);
+    BgCopyOrUncompressTilemapBufferRangeToVram(bgConfig,
+                                               bgId,
+                                               bgConfig->bgs[bgId].tilemapBuffer,
+                                               bgConfig->bgs[bgId].bufferSize,
+                                               bgConfig->bgs[bgId].baseTile);
 }
 
-THUMB_FUNC void FUN_02017CE8(
-    struct BgConfig *param0, u32 param1, u32 *param2, u32 param3, u32 param4)
+THUMB_FUNC void BgCopyOrUncompressTilemapBufferRangeToVram(
+    struct BgConfig *bgConfig, u32 bgId, u32 *src, u32 size, u32 tileOffset)
 {
-    u32 st0 = param3;
-    if (param3 == 0)
+    if (size == 0)
     {
-        void *st4 = param0->bgs[param1].tilemapBuffer;
-        if (st4 != 0)
+        void *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
+        if (tilemapBuffer != 0)
         {
-            FUN_02017C98(param2, st4, param3);
-            LoadBgVramScr(param1, st4, param0->bgs[param1].unk10 * 2, param0->bgs[param1].bufferSize);
+            CopyOrUncompressTilemapData(src, tilemapBuffer, size);
+            LoadBgVramScr(bgId, tilemapBuffer, bgConfig->bgs[bgId].baseTile * 2, bgConfig->bgs[bgId].bufferSize);
             return;
         }
 
-        u32 r7 = param2[0] >> 8;
-        void *ptr = AllocFromHeapAtEnd(param0->heap_id, r7);
-        FUN_02017C98(param2, ptr, st0);
-        LoadBgVramScr(param1, ptr, param4 * 2, r7);
+        u32 uncompSize = src[0] >> 8;
+        void *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, uncompSize);
+        CopyOrUncompressTilemapData(src, ptr, size);
+        LoadBgVramScr(bgId, ptr, tileOffset * 2, uncompSize);
         FreeToHeap(ptr);
         return;
     }
 
-    LoadBgVramScr(param1, param2, param4 * 2, param3);
+    LoadBgVramScr(bgId, src, tileOffset * 2, size);
 }
 
 THUMB_FUNC void LoadBgVramScr(u32 bgId, void *buffer_p, u32 offset, u32 size)
@@ -885,10 +884,10 @@ THUMB_FUNC void LoadBgVramScr(u32 bgId, void *buffer_p, u32 offset, u32 size)
     }
 }
 
-THUMB_FUNC void FUN_02017DFC(
-    struct BgConfig *param0, u32 param1, void *param2, u32 param3)
+THUMB_FUNC void BG_LoadScreenTilemapData(
+    struct BgConfig *bgConfig, u32 bgId, void *src, u32 numTiles)
 {
-    FUN_02017C98(param2, param0->bgs[param1].tilemapBuffer, param3);
+    CopyOrUncompressTilemapData(src, bgConfig->bgs[bgId].tilemapBuffer, numTiles);
 }
 
 THUMB_FUNC void BG_LoadCharTilesData(
@@ -910,7 +909,7 @@ THUMB_FUNC void BG_LoadCharPixelData(
 
         u32 uncompressedSize = charData[0] >> 8;
         void *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, uncompressedSize);
-        FUN_02017C98(charData, ptr, size);
+        CopyOrUncompressTilemapData(charData, ptr, size);
         LoadBgVramChar(bgId, ptr, offset, uncompressedSize);
         FreeToHeap(ptr);
         return;
@@ -925,28 +924,28 @@ THUMB_FUNC void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size)
 
     switch (bgId)
     {
-    case 0:
+    case GF_BG_LYR_MAIN_0:
         GX_LoadBG0Char(buffer_p, offset, size);
         break;
-    case 1:
+    case GF_BG_LYR_MAIN_1:
         GX_LoadBG1Char(buffer_p, offset, size);
         break;
-    case 2:
+    case GF_BG_LYR_MAIN_2:
         GX_LoadBG2Char(buffer_p, offset, size);
         break;
-    case 3:
+    case GF_BG_LYR_MAIN_3:
         GX_LoadBG3Char(buffer_p, offset, size);
         break;
-    case 4:
+    case GF_BG_LYR_SUB_0:
         GXS_LoadBG0Char(buffer_p, offset, size);
         break;
-    case 5:
+    case GF_BG_LYR_SUB_1:
         GXS_LoadBG1Char(buffer_p, offset, size);
         break;
-    case 6:
+    case GF_BG_LYR_SUB_2:
         GXS_LoadBG2Char(buffer_p, offset, size);
         break;
-    case 7:
+    case GF_BG_LYR_SUB_3:
         GXS_LoadBG3Char(buffer_p, offset, size);
         break;
     }
@@ -988,7 +987,7 @@ THUMB_FUNC void BG_FillCharDataRange(
 THUMB_FUNC void BG_LoadPlttData(u32 bgId, void *plttData, u32 size, u32 offset)
 {
     DC_FlushRange(plttData, size);
-    if (bgId < 4)
+    if (bgId < GF_BG_LYR_MAIN_CNT)
     {
         GX_LoadBGPltt(plttData, offset, size);
         return;
@@ -1006,18 +1005,18 @@ THUMB_FUNC u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize)
 {
     switch (screenSize)
     {
-    case 0:
+    case GF_BG_SCR_SIZE_128x128:
         return (u16)(x + (y << 4));
-    case 1:
-    case 2:
+    case GF_BG_SCR_SIZE_256x256:
+    case GF_BG_SCR_SIZE_256x512:
         return (u16)(x + (y << 5));
-    case 3:
+    case GF_BG_SCR_SIZE_512x256:
         return (u16)((x & 0x1f) + ((y + (x & ~0x1f)) << 5));
-    case 4:
+    case GF_BG_SCR_SIZE_512x512:
         u16 res = (u16)(((u16)((x >> 5) + (y >> 5) * 2)) << 10);
         res += (x & 0x1f) + ((y & 0x1f) << 5);
         return res;
-    case 5:
+    case GF_BG_SCR_SIZE_1024x1024:
         return 0;
     }
 
@@ -1511,82 +1510,82 @@ THUMB_FUNC void BgTilemapRectChangePalette(struct BgConfig *bgConfig,
     }
 }
 
-THUMB_FUNC void FUN_02018744(struct BgConfig *param0, u32 param1)
+THUMB_FUNC void BgClearTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgId)
 {
-    if (param0->bgs[param1].tilemapBuffer != NULL)
+    if (bgConfig->bgs[bgId].tilemapBuffer != NULL)
     {
-        MI_CpuClear16(param0->bgs[param1].tilemapBuffer, param0->bgs[param1].bufferSize);
-        FUN_02017CD0(param0, param1);
+        MI_CpuClear16(bgConfig->bgs[bgId].tilemapBuffer, bgConfig->bgs[bgId].bufferSize);
+        BgCommitTilemapBufferToVram(bgConfig, bgId);
     }
 }
 
-THUMB_FUNC void FUN_02018768(struct BgConfig *param0, u32 param1, u16 param2)
+THUMB_FUNC void BgFillTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgId, u16 fillValue)
 {
-    if (param0->bgs[param1].tilemapBuffer != NULL)
+    if (bgConfig->bgs[bgId].tilemapBuffer != NULL)
     {
-        MI_CpuFill16(param0->bgs[param1].tilemapBuffer, param2, param0->bgs[param1].bufferSize);
-        FUN_02017CD0(param0, param1);
+        MI_CpuFill16(bgConfig->bgs[bgId].tilemapBuffer, fillValue, bgConfig->bgs[bgId].bufferSize);
+        BgCommitTilemapBufferToVram(bgConfig, bgId);
     }
 }
 
-THUMB_FUNC void FUN_0201878C(struct BgConfig *param0, u32 param1, u16 param2)
+THUMB_FUNC void BgFillTilemapBufferAndSchedule(struct BgConfig *bgConfig, u32 bgId, u16 fillValue)
 {
-    if (param0->bgs[param1].tilemapBuffer != NULL)
+    if (bgConfig->bgs[bgId].tilemapBuffer != NULL)
     {
-        MI_CpuFill16(param0->bgs[param1].tilemapBuffer, param2, param0->bgs[param1].bufferSize);
-        ScheduleBgTilemapBufferTransfer(param0, param1);
+        MI_CpuFill16(bgConfig->bgs[bgId].tilemapBuffer, fillValue, bgConfig->bgs[bgId].bufferSize);
+        ScheduleBgTilemapBufferTransfer(bgConfig, bgId);
     }
 }
 
-THUMB_FUNC void *FUN_020187B0(u32 param0)
+THUMB_FUNC void *BgGetCharPtr(u32 bgId)
 {
-    switch (param0)
+    switch (bgId)
     {
-    case 0:
+    case GF_BG_LYR_MAIN_0:
         return G2_GetBG0CharPtr();
-    case 1:
+    case GF_BG_LYR_MAIN_1:
         return G2_GetBG1CharPtr();
-    case 2:
+    case GF_BG_LYR_MAIN_2:
         return G2_GetBG2CharPtr();
-    case 3:
+    case GF_BG_LYR_MAIN_3:
         return G2_GetBG3CharPtr();
-    case 4:
+    case GF_BG_LYR_SUB_0:
         return G2S_GetBG0CharPtr();
-    case 5:
+    case GF_BG_LYR_SUB_1:
         return G2S_GetBG1CharPtr();
-    case 6:
+    case GF_BG_LYR_SUB_2:
         return G2S_GetBG2CharPtr();
-    case 7:
+    case GF_BG_LYR_SUB_3:
         return G2S_GetBG3CharPtr();
     }
 
     return NULL;
 }
 
-THUMB_FUNC void FUN_02018808(u8 *param0, u32 param1, u8 (*param2)[2], u8 param3)
+THUMB_FUNC void Convert4bppTo8bppInternal(u8 *src4bpp, u32 size, u8 (*dest8bpp), u8 paletteNum)
 {
-    param3 <<= 4;
-    for (int i = 0; i < param1; i++)
+    paletteNum <<= 4;
+    for (u32 i = 0; i < size; i++)
     {
-        param2[i][0] = (u8)(param0[i] & 0xf);
-        if (param2[i][0] != 0)
+        dest8bpp[i * 2 + 0] = (u8)(src4bpp[i] & 0xf);
+        if (dest8bpp[i * 2 + 0] != 0)
         {
-            param2[i][0] += param3;
+            dest8bpp[i * 2 + 0] += paletteNum;
         }
 
-        param2[i][1] = (u8)((param0[i] >> 4) & 0xf);
-        if (param2[i][1] != 0)
+        dest8bpp[i * 2 + 1] = (u8)((src4bpp[i] >> 4) & 0xf);
+        if (dest8bpp[i * 2 + 1] != 0)
         {
-            param2[i][1] += param3;
+            dest8bpp[i * 2 + 1] += paletteNum;
         }
     }
 }
 
-THUMB_FUNC u8 (*FUN_02018848(u8 *param0, u32 param1, u8 param2, u32 heap_id))[2]
+THUMB_FUNC u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, u32 heap_id)
 {
-    u8(*ptr)[2] = (u8(*)[2])AllocFromHeap(heap_id, param1 * 2);
+    u8 *ptr = (u8*)AllocFromHeap(heap_id, size * 2);
 
-    FUN_02018808(param0, param1, ptr, param2);
+    Convert4bppTo8bppInternal(src4Bpp, size, ptr, paletteNum);
 
     return ptr;
 }
@@ -1596,70 +1595,70 @@ THUMB_FUNC void *GetBgTilemapBuffer(struct BgConfig *bgConfig, u8 bgId)
     return bgConfig->bgs[bgId].tilemapBuffer;
 }
 
-THUMB_FUNC u16 FUN_02018878(struct BgConfig *param0, u32 param1)
+THUMB_FUNC u16 GetBgAffineRotation(struct BgConfig *bgConfig, u32 bgId)
 {
-    return param0->bgs[param1].rotation;
+    return bgConfig->bgs[bgId].rotation;
 }
 
 THUMB_FUNC u8 GetBgPriority(struct BgConfig *bgConfig, u32 bgId)
 {
     switch (bgId)
     {
-    case 0:
+    case GF_BG_LYR_MAIN_0:
         return G2_GetBG0Control().priority;
-    case 1:
+    case GF_BG_LYR_MAIN_1:
         return G2_GetBG1Control().priority;
-    case 2:
+    case GF_BG_LYR_MAIN_2:
         switch (bgConfig->bgs[bgId].mode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             return G2_GetBG2ControlText().priority;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             return G2_GetBG2ControlAffine().priority;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             return G2_GetBG2Control256x16Pltt().priority;
         }
         break;
-    case 3:
+    case GF_BG_LYR_MAIN_3:
         switch (bgConfig->bgs[bgId].mode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             return G2_GetBG3ControlText().priority;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             return G2_GetBG3ControlAffine().priority;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             return G2_GetBG3Control256x16Pltt().priority;
         }
         break;
 
-    case 4:
+    case GF_BG_LYR_SUB_0:
         return G2S_GetBG0Control().priority;
-    case 5:
+    case GF_BG_LYR_SUB_1:
         return G2S_GetBG1Control().priority;
 
-    case 6:
+    case GF_BG_LYR_SUB_2:
         switch (bgConfig->bgs[bgId].mode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             return G2S_GetBG2ControlText().priority;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             return G2S_GetBG2ControlAffine().priority;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             return G2S_GetBG2Control256x16Pltt().priority;
         }
         break;
-    case 7:
+    case GF_BG_LYR_SUB_3:
         switch (bgConfig->bgs[bgId].mode)
         {
         default:
-        case 0:
+        case GF_BG_TYPE_TEXT:
             return G2S_GetBG3ControlText().priority;
-        case 1:
+        case GF_BG_TYPE_AFFINE:
             return G2S_GetBG3ControlAffine().priority;
-        case 2:
+        case GF_BG_TYPE_256x16PLTT:
             return G2S_GetBG3Control256x16Pltt().priority;
         }
         break;
@@ -2028,15 +2027,15 @@ THUMB_FUNC void CopyWindowToVram(struct Window *window)
     sCopyWindowToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void FUN_02019220(struct Window *window)
+THUMB_FUNC void ScheduleWindowCopyToVram(struct Window *window)
 {
 
     GF_ASSERT(window);
     GF_ASSERT(window->bgConfig);
     GF_ASSERT(window->bgId < NELEMS(window->bgConfig->bgs));
-    GF_ASSERT(window->bgConfig->bgs[window->bgId].mode < NELEMS(UNK_020EDB5C));
+    GF_ASSERT(window->bgConfig->bgs[window->bgId].mode < NELEMS(sScheduleWindowCopyToVramFuncs));
 
-    UNK_020EDB5C[window->bgConfig->bgs[window->bgId].mode](window);
+    sScheduleWindowCopyToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
 THUMB_FUNC void PutWindowTilemap(struct Window *window)
@@ -2057,9 +2056,9 @@ THUMB_FUNC void PutWindowTilemapRectAnchoredTopLeft(struct Window *window, u8 wi
     window->height = heightBak;
 }
 
-THUMB_FUNC void FUN_020192B8(struct Window *window)
+THUMB_FUNC void ClearWindowTilemap(struct Window *window)
 {
-    UNK_020EDB74[window->bgConfig->bgs[window->bgId].mode](window);
+    sClearWindowTilemapFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
 THUMB_FUNC void PutWindowTilemap_TextMode(struct Window *param0)
@@ -2103,7 +2102,7 @@ THUMB_FUNC void PutWindowTilemap_AffineMode(struct Window *window)
         return;
     }
 
-    tilemapWidth = UNK_020EDB30[window->bgConfig->bgs[window->bgId].size];
+    tilemapWidth = sTilemapWidthByBufferSize[window->bgConfig->bgs[window->bgId].size];
 
     dst = window->bgConfig->bgs[window->bgId].tilemapBuffer + window->tilemapTop * tilemapWidth + window->tilemapLeft;
     tileId = window->baseTile;
@@ -2135,7 +2134,7 @@ THUMB_FUNC void ClearWindowTilemapText(struct Window *window)
     }
     dst = window->bgConfig->bgs[window->bgId].tilemapBuffer;
 
-    tilemapWidth = UNK_020EDB30[window->bgConfig->bgs[window->bgId].size];
+    tilemapWidth = sTilemapWidthByBufferSize[window->bgConfig->bgs[window->bgId].size];
     xEnd = (u32)(window->tilemapLeft + window->width);
     yEnd = (u32)(window->tilemapTop + window->height);
 
@@ -2161,7 +2160,7 @@ THUMB_FUNC void ClearWindowTilemapAffine(struct Window *window)
         return;
     }
 
-    tilemapWidth = UNK_020EDB30[window->bgConfig->bgs[window->bgId].size];
+    tilemapWidth = sTilemapWidthByBufferSize[window->bgConfig->bgs[window->bgId].size];
     dstPos = window->bgConfig->bgs[window->bgId].tilemapBuffer + window->tilemapTop * tilemapWidth + window->tilemapLeft;
 
     for (i = 0; i < window->height; i++)
@@ -2177,29 +2176,29 @@ THUMB_FUNC void ClearWindowTilemapAffine(struct Window *window)
 THUMB_FUNC void CopyWindowToVram_TextMode(struct Window *window)
 {
     PutWindowTilemap_TextMode(window);
-    FUN_02019548(window);
-    FUN_02017CE8(window->bgConfig,
-        window->bgId,
-        window->bgConfig->bgs[window->bgId].tilemapBuffer,
-        window->bgConfig->bgs[window->bgId].bufferSize,
-        window->bgConfig->bgs[window->bgId].unk10);
+    CopyWindowPixelsToVram_TextMode(window);
+    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
+                                               window->bgId,
+                                               window->bgConfig->bgs[window->bgId].tilemapBuffer,
+                                               window->bgConfig->bgs[window->bgId].bufferSize,
+                                               window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-THUMB_FUNC void FUN_020194C8(struct Window *window)
+THUMB_FUNC void ScheduleWindowCopyToVram_TextMode(struct Window *window)
 {
     PutWindowTilemap_TextMode(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
-    FUN_02019548(window);
+    CopyWindowPixelsToVram_TextMode(window);
 }
 
 THUMB_FUNC void CopyWindowToVram_AffineMode(struct Window *window)
 {
     PutWindowTilemap_AffineMode(window);
-    FUN_02017CE8(window->bgConfig,
-        window->bgId,
-        window->bgConfig->bgs[window->bgId].tilemapBuffer,
-        window->bgConfig->bgs[window->bgId].bufferSize,
-        window->bgConfig->bgs[window->bgId].unk10);
+    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
+                                               window->bgId,
+                                               window->bgConfig->bgs[window->bgId].tilemapBuffer,
+                                               window->bgConfig->bgs[window->bgId].bufferSize,
+                                               window->bgConfig->bgs[window->bgId].baseTile);
 
     BG_LoadCharTilesData(window->bgConfig,
         window->bgId,
@@ -2208,7 +2207,7 @@ THUMB_FUNC void CopyWindowToVram_AffineMode(struct Window *window)
         window->baseTile);
 }
 
-THUMB_FUNC void FUN_0201951C(struct Window *window)
+THUMB_FUNC void ScheduleWindowCopyToVram_AffineMode(struct Window *window)
 {
     PutWindowTilemap_AffineMode(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
@@ -2219,7 +2218,7 @@ THUMB_FUNC void FUN_0201951C(struct Window *window)
         window->baseTile);
 }
 
-THUMB_FUNC void FUN_02019548(struct Window *window)
+THUMB_FUNC void CopyWindowPixelsToVram_TextMode(struct Window *window)
 {
     BG_LoadCharTilesData(window->bgConfig,
         window->bgId,
@@ -2228,43 +2227,43 @@ THUMB_FUNC void FUN_02019548(struct Window *window)
         window->baseTile);
 }
 
-THUMB_FUNC void FUN_02019570(struct Window *window)
+THUMB_FUNC void ClearWindowTilemapAndCopyToVram(struct Window *window)
 {
-    UNK_020EDB50[window->bgConfig->bgs[window->bgId].mode](window);
+    sClearWindowTilemapAndCopyToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void FUN_0201958C(struct Window *window)
+THUMB_FUNC void ClearWindowTilemapAndScheduleTransfer(struct Window *window)
 {
-    UNK_020EDB44[window->bgConfig->bgs[window->bgId].mode](window);
+    sClearWindowTilemapAndScheduleTransferFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void FUN_020195A8(struct Window *window)
+THUMB_FUNC void ClearWindowTilemapAndCopyToVram_TextMode(struct Window *window)
 {
     ClearWindowTilemapText(window);
-    FUN_02017CE8(window->bgConfig,
-        window->bgId,
-        window->bgConfig->bgs[window->bgId].tilemapBuffer,
-        window->bgConfig->bgs[window->bgId].bufferSize,
-        window->bgConfig->bgs[window->bgId].unk10);
+    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
+                                               window->bgId,
+                                               window->bgConfig->bgs[window->bgId].tilemapBuffer,
+                                               window->bgConfig->bgs[window->bgId].bufferSize,
+                                               window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-THUMB_FUNC void FUN_020195D0(struct Window *window)
+THUMB_FUNC void ClearWindowTilemapAndScheduleTransfer_TextMode(struct Window *window)
 {
     ClearWindowTilemapText(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
-THUMB_FUNC void FUN_020195E4(struct Window *window)
+THUMB_FUNC void ClearWindowTilemapAndCopyToVram_AffineMode(struct Window *window)
 {
     ClearWindowTilemapAffine(window);
-    FUN_02017CE8(window->bgConfig,
-        window->bgId,
-        window->bgConfig->bgs[window->bgId].tilemapBuffer,
-        window->bgConfig->bgs[window->bgId].bufferSize,
-        window->bgConfig->bgs[window->bgId].unk10);
+    BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
+                                               window->bgId,
+                                               window->bgConfig->bgs[window->bgId].tilemapBuffer,
+                                               window->bgConfig->bgs[window->bgId].bufferSize,
+                                               window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-THUMB_FUNC void FUN_0201960C(struct Window *window)
+THUMB_FUNC void ClearWindowTilemapAndScheduleTransfer_AffineMode(struct Window *window)
 {
     ClearWindowTilemapAffine(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
@@ -3869,7 +3868,7 @@ _0201A12C: // 0x0201A12C
 	ldr r0, [sp, #0x0]
 	ldr r3, [r3, #0x0]
 	lsl r1, r1, #0x3
-	bl FUN_02018848
+	bl Convert4bppTo8bpp
 	str r0, [sp, #0x1ec]
 	cmp r4, #0x3
 	bhi _0201A21E
@@ -5144,44 +5143,44 @@ THUMB_FUNC void DoScheduledBgGpuUpdates(struct BgConfig *bgConfig)
 
 THUMB_FUNC void DoScheduledBgTilemapBufferTransfers(struct BgConfig *bgConfig)
 {
-    if ((bgConfig->bufferTransferScheduled & 1) != 0)
+    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_0)) != 0)
     {
-        LoadBgVramScr(0, bgConfig->bgs[0].tilemapBuffer, bgConfig->bgs[0].unk10 * 2, bgConfig->bgs[0].bufferSize);
+        LoadBgVramScr(GF_BG_LYR_MAIN_0, bgConfig->bgs[GF_BG_LYR_MAIN_0].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_MAIN_0].baseTile * 2, bgConfig->bgs[GF_BG_LYR_MAIN_0].bufferSize);
     }
 
-    if ((bgConfig->bufferTransferScheduled & 2) != 0)
+    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_1)) != 0)
     {
-        LoadBgVramScr(1, bgConfig->bgs[1].tilemapBuffer, bgConfig->bgs[1].unk10 * 2, bgConfig->bgs[1].bufferSize);
+        LoadBgVramScr(GF_BG_LYR_MAIN_1, bgConfig->bgs[GF_BG_LYR_MAIN_1].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_MAIN_1].baseTile * 2, bgConfig->bgs[GF_BG_LYR_MAIN_1].bufferSize);
     }
 
-    if ((bgConfig->bufferTransferScheduled & 4) != 0)
+    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_2)) != 0)
     {
-        LoadBgVramScr(2, bgConfig->bgs[2].tilemapBuffer, bgConfig->bgs[2].unk10 * 2, bgConfig->bgs[2].bufferSize);
+        LoadBgVramScr(GF_BG_LYR_MAIN_2, bgConfig->bgs[GF_BG_LYR_MAIN_2].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_MAIN_2].baseTile * 2, bgConfig->bgs[GF_BG_LYR_MAIN_2].bufferSize);
     }
 
-    if ((bgConfig->bufferTransferScheduled & 8) != 0)
+    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_3)) != 0)
     {
-        LoadBgVramScr(3, bgConfig->bgs[3].tilemapBuffer, bgConfig->bgs[3].unk10 * 2, bgConfig->bgs[3].bufferSize);
+        LoadBgVramScr(GF_BG_LYR_MAIN_3, bgConfig->bgs[GF_BG_LYR_MAIN_3].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_MAIN_3].baseTile * 2, bgConfig->bgs[GF_BG_LYR_MAIN_3].bufferSize);
     }
 
-    if ((bgConfig->bufferTransferScheduled & 0x10) != 0)
+    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_0)) != 0)
     {
-        LoadBgVramScr(4, bgConfig->bgs[4].tilemapBuffer, bgConfig->bgs[4].unk10 * 2, bgConfig->bgs[4].bufferSize);
+        LoadBgVramScr(GF_BG_LYR_SUB_0, bgConfig->bgs[GF_BG_LYR_SUB_0].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_SUB_0].baseTile * 2, bgConfig->bgs[GF_BG_LYR_SUB_0].bufferSize);
     }
 
-    if ((bgConfig->bufferTransferScheduled & 0x20) != 0)
+    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_1)) != 0)
     {
-        LoadBgVramScr(5, bgConfig->bgs[5].tilemapBuffer, bgConfig->bgs[5].unk10 * 2, bgConfig->bgs[5].bufferSize);
+        LoadBgVramScr(GF_BG_LYR_SUB_1, bgConfig->bgs[GF_BG_LYR_SUB_1].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_SUB_1].baseTile * 2, bgConfig->bgs[GF_BG_LYR_SUB_1].bufferSize);
     }
 
-    if ((bgConfig->bufferTransferScheduled & 0x40) != 0)
+    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_2)) != 0)
     {
-        LoadBgVramScr(6, bgConfig->bgs[6].tilemapBuffer, bgConfig->bgs[6].unk10 * 2, bgConfig->bgs[6].bufferSize);
+        LoadBgVramScr(GF_BG_LYR_SUB_2, bgConfig->bgs[GF_BG_LYR_SUB_2].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_SUB_2].baseTile * 2, bgConfig->bgs[GF_BG_LYR_SUB_2].bufferSize);
     }
 
-    if ((bgConfig->bufferTransferScheduled & 0x80) != 0)
+    if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_SUB_3)) != 0)
     {
-        LoadBgVramScr(7, bgConfig->bgs[7].tilemapBuffer, bgConfig->bgs[7].unk10 * 2, bgConfig->bgs[7].bufferSize);
+        LoadBgVramScr(GF_BG_LYR_SUB_3, bgConfig->bgs[GF_BG_LYR_SUB_3].tilemapBuffer, bgConfig->bgs[GF_BG_LYR_SUB_3].baseTile * 2, bgConfig->bgs[GF_BG_LYR_SUB_3].bufferSize);
     }
 }
 
@@ -5192,103 +5191,103 @@ THUMB_FUNC void ScheduleBgTilemapBufferTransfer(struct BgConfig *bgConfig, u32 b
 
 THUMB_FUNC void ApplyScheduledBgPosUpdate(struct BgConfig *bgConfig)
 {
-    if ((bgConfig->scrollScheduled & 1) != 0)
+    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_0)) != 0)
     {
-        G2_SetBG0Offset(bgConfig->bgs[0].hOffset, bgConfig->bgs[0].vOffset);
+        G2_SetBG0Offset(bgConfig->bgs[GF_BG_LYR_MAIN_0].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_0].vOffset);
     }
 
-    if ((bgConfig->scrollScheduled & 2) != 0)
+    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_1)) != 0)
     {
-        G2_SetBG1Offset(bgConfig->bgs[1].hOffset, bgConfig->bgs[1].vOffset);
+        G2_SetBG1Offset(bgConfig->bgs[GF_BG_LYR_MAIN_1].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_1].vOffset);
     }
 
-    if ((bgConfig->scrollScheduled & 4) != 0)
+    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_2)) != 0)
     {
-        if (bgConfig->bgs[2].mode == 0)
+        if (bgConfig->bgs[GF_BG_LYR_MAIN_2].mode == 0)
         {
-            G2_SetBG2Offset(bgConfig->bgs[2].hOffset, bgConfig->bgs[2].vOffset);
+            G2_SetBG2Offset(bgConfig->bgs[GF_BG_LYR_MAIN_2].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_2].vOffset);
         }
         else
         {
             struct Mtx22 st38;
             MTX22_2DAffine(
-                &st38, bgConfig->bgs[2].rotation, bgConfig->bgs[2].xScale, bgConfig->bgs[2].yScale, 2);
+                &st38, bgConfig->bgs[GF_BG_LYR_MAIN_2].rotation, bgConfig->bgs[GF_BG_LYR_MAIN_2].xScale, bgConfig->bgs[GF_BG_LYR_MAIN_2].yScale, 2);
             G2_SetBG2Affine(
                 &st38,
-                bgConfig->bgs[2].centerX,
-                bgConfig->bgs[2].centerY,
-                bgConfig->bgs[2].hOffset,
-                bgConfig->bgs[2].vOffset);
+                bgConfig->bgs[GF_BG_LYR_MAIN_2].centerX,
+                bgConfig->bgs[GF_BG_LYR_MAIN_2].centerY,
+                bgConfig->bgs[GF_BG_LYR_MAIN_2].hOffset,
+                bgConfig->bgs[GF_BG_LYR_MAIN_2].vOffset);
         }
     }
 
-    if ((bgConfig->scrollScheduled & 8) != 0)
+    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_3)) != 0)
     {
-        if (bgConfig->bgs[3].mode == 0)
+        if (bgConfig->bgs[GF_BG_LYR_MAIN_3].mode == 0)
         {
-            G2_SetBG3Offset(bgConfig->bgs[3].hOffset, bgConfig->bgs[3].vOffset);
+            G2_SetBG3Offset(bgConfig->bgs[GF_BG_LYR_MAIN_3].hOffset, bgConfig->bgs[GF_BG_LYR_MAIN_3].vOffset);
         }
         else
         {
             struct Mtx22 st28;
             MTX22_2DAffine(
-                &st28, bgConfig->bgs[3].rotation, bgConfig->bgs[3].xScale, bgConfig->bgs[3].yScale, 2);
+                &st28, bgConfig->bgs[GF_BG_LYR_MAIN_3].rotation, bgConfig->bgs[GF_BG_LYR_MAIN_3].xScale, bgConfig->bgs[GF_BG_LYR_MAIN_3].yScale, 2);
             G2_SetBG3Affine(
                 &st28,
-                bgConfig->bgs[3].centerX,
-                bgConfig->bgs[3].centerY,
-                bgConfig->bgs[3].hOffset,
-                bgConfig->bgs[3].vOffset);
+                bgConfig->bgs[GF_BG_LYR_MAIN_3].centerX,
+                bgConfig->bgs[GF_BG_LYR_MAIN_3].centerY,
+                bgConfig->bgs[GF_BG_LYR_MAIN_3].hOffset,
+                bgConfig->bgs[GF_BG_LYR_MAIN_3].vOffset);
         }
     }
 
-    if ((bgConfig->scrollScheduled & 0x10) != 0)
+    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_0)) != 0)
     {
-        G2S_SetBG0Offset(bgConfig->bgs[4].hOffset, bgConfig->bgs[4].vOffset);
+        G2S_SetBG0Offset(bgConfig->bgs[GF_BG_LYR_SUB_0].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_0].vOffset);
     }
 
-    if ((bgConfig->scrollScheduled & 0x20) != 0)
+    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_1)) != 0)
     {
-        G2S_SetBG1Offset(bgConfig->bgs[5].hOffset, bgConfig->bgs[5].vOffset);
+        G2S_SetBG1Offset(bgConfig->bgs[GF_BG_LYR_SUB_1].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_1].vOffset);
     }
 
-    if ((bgConfig->scrollScheduled & 0x40) != 0)
+    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_2)) != 0)
     {
-        if (bgConfig->bgs[6].mode == 0)
+        if (bgConfig->bgs[GF_BG_LYR_SUB_2].mode == 0)
         {
-            G2S_SetBG2Offset(bgConfig->bgs[6].hOffset, bgConfig->bgs[6].vOffset);
+            G2S_SetBG2Offset(bgConfig->bgs[GF_BG_LYR_SUB_2].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_2].vOffset);
         }
         else
         {
             struct Mtx22 st18;
             MTX22_2DAffine(
-                &st18, bgConfig->bgs[6].rotation, bgConfig->bgs[6].xScale, bgConfig->bgs[6].yScale, 2);
+                &st18, bgConfig->bgs[GF_BG_LYR_SUB_2].rotation, bgConfig->bgs[GF_BG_LYR_SUB_2].xScale, bgConfig->bgs[GF_BG_LYR_SUB_2].yScale, 2);
             G2S_SetBG2Affine(
                 &st18,
-                bgConfig->bgs[6].centerX,
-                bgConfig->bgs[6].centerY,
-                bgConfig->bgs[6].hOffset,
-                bgConfig->bgs[6].vOffset);
+                bgConfig->bgs[GF_BG_LYR_SUB_2].centerX,
+                bgConfig->bgs[GF_BG_LYR_SUB_2].centerY,
+                bgConfig->bgs[GF_BG_LYR_SUB_2].hOffset,
+                bgConfig->bgs[GF_BG_LYR_SUB_2].vOffset);
         }
     }
 
-    if ((bgConfig->scrollScheduled & 0x80) != 0)
+    if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_SUB_3)) != 0)
     {
-        if (bgConfig->bgs[7].mode == 0)
+        if (bgConfig->bgs[GF_BG_LYR_SUB_3].mode == 0)
         {
-            G2S_SetBG3Offset(bgConfig->bgs[7].hOffset, bgConfig->bgs[7].vOffset);
+            G2S_SetBG3Offset(bgConfig->bgs[GF_BG_LYR_SUB_3].hOffset, bgConfig->bgs[GF_BG_LYR_SUB_3].vOffset);
         }
         else
         {
             struct Mtx22 st08;
             MTX22_2DAffine(
-                &st08, bgConfig->bgs[7].rotation, bgConfig->bgs[7].xScale, bgConfig->bgs[7].yScale, 2);
+                &st08, bgConfig->bgs[GF_BG_LYR_SUB_3].rotation, bgConfig->bgs[GF_BG_LYR_SUB_3].xScale, bgConfig->bgs[GF_BG_LYR_SUB_3].yScale, 2);
             G2S_SetBG3Affine(
                 &st08,
-                bgConfig->bgs[7].centerX,
-                bgConfig->bgs[7].centerY,
-                bgConfig->bgs[7].hOffset,
-                bgConfig->bgs[7].vOffset);
+                bgConfig->bgs[GF_BG_LYR_SUB_3].centerX,
+                bgConfig->bgs[GF_BG_LYR_SUB_3].centerY,
+                bgConfig->bgs[GF_BG_LYR_SUB_3].hOffset,
+                bgConfig->bgs[GF_BG_LYR_SUB_3].vOffset);
         }
     }
 }
@@ -5311,13 +5310,13 @@ THUMB_FUNC void Bg_SetAffineRotation(struct Bg *bg, u32 op, u16 val)
 {
     switch (op)
     {
-    case 0:
+    case BG_POS_OP_SET_ROT:
         bg->rotation = val;
         break;
-    case 1:
+    case BG_POS_OP_ADD_ROT:
         bg->rotation += val;
         break;
-    case 2:
+    case BG_POS_OP_SUB_ROT:
         bg->rotation -= val;
         break;
     }
@@ -5334,35 +5333,35 @@ THUMB_FUNC void Bg_SetAffinePos(struct Bg *bg, u32 op, fx32 val)
 {
     switch (op)
     {
-    case 9:
+    case BG_POS_OP_SET_CENTERX:
         bg->centerX = val;
         break;
-    case 10:
+    case BG_POS_OP_ADD_CENTERX:
         bg->centerX += val;
         break;
-    case 11:
+    case BG_POS_OP_SUB_CENTERX:
         bg->centerX -= val;
         break;
-    case 12:
+    case BG_POS_OP_SET_CENTERY:
         bg->centerY = val;
         break;
-    case 13:
+    case BG_POS_OP_ADD_CENTERY:
         bg->centerY += val;
         break;
-    case 14:
+    case BG_POS_OP_SUB_CENTERY:
         bg->centerY -= val;
         break;
     }
 }
 
-THUMB_FUNC u32 FUN_0201AFBC(
+THUMB_FUNC u32 DoesPixelAtScreenXYMatchPtrVal(
     struct BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src)
 {
-    void *st18;
-    u16 r6;
-    u8 st14;
-    u8 st10;
-    u8 r5;
+    void *bgCharPtr;
+    u16 tilemapIdx;
+    u8 xPixOffs;
+    u8 yPixOffs;
+    u8 pixelValue;
     u8 i;
 
     if (bgConfig->bgs[bgId].tilemapBuffer == NULL)
@@ -5370,60 +5369,61 @@ THUMB_FUNC u32 FUN_0201AFBC(
         return 0;
     }
 
-    r6 = GetTileMapIndexFromCoords((u8) (x >> 3), (u8) (y >> 3), bgConfig->bgs[bgId].size);
-    st18 = FUN_020187B0(bgId);
+    tilemapIdx = GetTileMapIndexFromCoords((u8) (x >> 3), (u8) (y >> 3), bgConfig->bgs[bgId].size);
+    bgCharPtr = BgGetCharPtr(bgId);
 
-    st14 = (u8)(x & 7);
-    st10 = (u8)(y & 7);
+    xPixOffs = (u8)(x & 7);
+    yPixOffs = (u8)(y & 7);
 
     if (bgConfig->bgs[bgId].colorMode == 0)
     {
-        u16 *stc = bgConfig->bgs[bgId].tilemapBuffer;
+        u16 *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
         u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);
 
-        st18 += ((stc[r6] & 0x3ff) << 5);
+        bgCharPtr += ((tilemapBuffer[tilemapIdx] & 0x3ff) << 5);
         for (i = 0; i < 0x20; i++)
         {
-            ptr[(i << 1)] = (u8)(((u8 *)st18)[i] & 0xf);
-            ptr[(i << 1) + 1] = (u8)(((u8 *)st18)[i] >> 4);
+            ptr[(i << 1)] = (u8)(((u8 *)bgCharPtr)[i] & 0xf);
+            ptr[(i << 1) + 1] = (u8)(((u8 *)bgCharPtr)[i] >> 4);
         }
 
-        FUN_0201B118(bgConfig, (u8)((stc[r6] >> 0xa) & 3), ptr);
+        ApplyFlipFlagsToTile(bgConfig, (u8)((tilemapBuffer[tilemapIdx] >> 0xa) & 3), ptr);
 
-        r5 = ptr[st14 + (st10 << 3)];
+        pixelValue = ptr[xPixOffs + (yPixOffs << 3)];
         FreeToHeap(ptr);
 
-        if ((src[0] & (1 << r5)) != 0)
+        if ((src[0] & (1 << pixelValue)) != 0)
         {
             return 1;
         }
     }
     else
     {
-        if (bgConfig->bgs[bgId].mode != 1)
+        if (bgConfig->bgs[bgId].mode != GF_BG_TYPE_AFFINE)
         {
-            u16 *r4 = bgConfig->bgs[bgId].tilemapBuffer;
+            u16 *tilemapBuffer = bgConfig->bgs[bgId].tilemapBuffer;
             u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);
 
-            memcpy(ptr, st18 + ((r4[r6] & 0x3ff) << 6), 0x40);
+            memcpy(ptr, bgCharPtr + ((tilemapBuffer[tilemapIdx] & 0x3ff) << 6), 0x40);
 
-            FUN_0201B118(bgConfig, (u8)((r4[r6] >> 0xa) & 3), ptr);
+            ApplyFlipFlagsToTile(bgConfig, (u8)((tilemapBuffer[tilemapIdx] >> 0xa) & 3), ptr);
 
-            r5 = ptr[st14 + (st10 << 3)];
+            pixelValue = ptr[xPixOffs + (yPixOffs << 3)];
             FreeToHeap(ptr);
         }
         else
         {
-            r5 = ((u8 *)st18)[(((u8 *)bgConfig->bgs[bgId].tilemapBuffer)[r6] << 6) + st14 + (st10 << 3)];
+            pixelValue = ((u8 *)bgCharPtr)[(((u8 *)bgConfig->bgs[bgId].tilemapBuffer)[tilemapIdx] << 6) + xPixOffs + (yPixOffs << 3)];
         }
 
+        // BUG: Infinite loop
         while (TRUE)
         {
             if (src[0] == 0xffff)
             {
                 break;
             }
-            if (r5 == (u8)(src[0]))
+            if (pixelValue == (u8)(src[0]))
             {
                 return 1;
             }
@@ -5432,39 +5432,39 @@ THUMB_FUNC u32 FUN_0201AFBC(
     return 0;
 }
 
-THUMB_FUNC void FUN_0201B118(struct BgConfig *param0, u8 param1, u8 *param2)
+THUMB_FUNC void ApplyFlipFlagsToTile(struct BgConfig *bgConfig, u8 flag, u8 *src)
 {
     u8 i, j;
-    if (param1 != 0)
+    if (flag != 0)
     {
-        u8 *ptr = AllocFromHeapAtEnd(param0->heap_id, 0x40);
+        u8 *ptr = AllocFromHeapAtEnd(bgConfig->heap_id, 0x40);
 
-        if ((param1 & 1) != 0)
+        if ((flag & 1) != 0)
         {
             for (i = 0; i < 8; i++)
             {
                 for (j = 0; j < 8; j++)
                 {
-                    ptr[i * 8 + j] = param2[i * 8 + (7 - j)];
+                    ptr[i * 8 + j] = src[i * 8 + (7 - j)];
                 }
             }
 
-            memcpy(param2, ptr, 0x40);
+            memcpy(src, ptr, 0x40);
         }
 
-        if ((param1 & 2) != 0)
+        if ((flag & 2) != 0)
         {
             for (i = 0; i < 8; i++)
             {
                 u8 *r3 = &ptr[i * 8];
-                u8 *r2 = &param2[(7 - i) * 8];
+                u8 *r2 = &src[(7 - i) * 8];
                 for (u32 j = 8; j > 0; j--)
                 {
                     *r3++ = *r2++;
                 }
             }
 
-            memcpy(param2, ptr, 0x40);
+            memcpy(src, ptr, 0x40);
         }
 
         FreeToHeap(ptr);
