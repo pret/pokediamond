@@ -25,11 +25,13 @@ THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx)
     return TRUE;
 }
 
-#ifdef NONMATCHING
 THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx)
 {
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    struct UnkStruct_02037CF0** unk_ptr = FUN_02039438(ctx->unk80, 19);
+    struct UnkStruct_02037CF0** unk_ptr;
+    u16* ret_ptr;
+
+    ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
+    unk_ptr = FUN_02039438(ctx->unk80, 19);
     GF_ASSERT(*unk_ptr != NULL);
 
     *ret_ptr = FUN_02037D5C(*unk_ptr);
@@ -42,44 +44,6 @@ THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx)
     *unk_ptr = NULL;
     return FALSE;
 }
-#else
-THUMB_FUNC asm BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx)
-{
-    push {r3-r5, lr}
-    add r4, r0, #0x0
-    bl ScriptReadHalfword
-    add r1, r0, #0x0
-    add r0, r4, #0x0
-    add r0, #0x80
-    ldr r0, [r0, #0x0]
-    bl GetVarPointer
-    add r4, #0x80
-    add r5, r0, #0x0
-    ldr r0, [r4, #0x0]
-    mov r1, #0x13
-    bl FUN_02039438
-    add r4, r0, #0x0
-    ldr r0, [r4, #0x0]
-    cmp r0, #0x0
-    bne _02045DFC
-    bl GF_AssertFail
-_02045DFC:
-    ldr r0, [r4, #0x0]
-    bl FUN_02037D5C
-    strh r0, [r5, #0x0]
-    ldrh r0, [r5, #0x0]
-    cmp r0, #0x4
-    bne _02045E0E
-    mov r0, #0xff
-    strh r0, [r5, #0x0]
-_02045E0E:
-    ldr r0, [r4, #0x0]
-    bl FreeToHeap
-    mov r0, #0x0
-    str r0, [r4, #0x0]
-    pop {r3-r5, pc}
-}
-#endif
 
 THUMB_FUNC BOOL ScrCmd_Unk021E(struct ScriptContext* ctx)
 {
