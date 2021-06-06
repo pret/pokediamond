@@ -111,7 +111,7 @@ u16 PlayerProfile_GetTrainerID_VisibleHalf(struct PlayerData * data)
     return (u16)data->playerId;
 }
 
-void PlayerProfile_SetTrainerGender(struct PlayerData * data, u8 gender)
+void PlayerProfile_SetTrainerGender(struct PlayerData * data, u32 gender)
 {
     data->gender = gender;
 }

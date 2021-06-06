@@ -6,6 +6,14 @@
 #include "save_block_2.h"
 #include "main.h"
 
+struct MOD59_UnkPlayerStruct
+{
+    u8 padding[0x4];
+    u32 gender;
+    u8 padding2[0x10];
+    struct String *name;
+};
+
 typedef struct MOD59_OverlayData
 {
     u32 heap_id;
@@ -13,10 +21,10 @@ typedef struct MOD59_OverlayData
     struct Options *options;
     u32 Unk0C;
     u32 Unk10;
-    u32 Unk14;
+    struct UnkStruct_02006234 *Unk14;
     u8 padding[0x58];
-    u32 Unk70;
-    u32 Unk74;
+    struct MOD59_UnkPlayerStruct *playerStruct;
+    struct MOD59_UnkPlayerStruct *rivalStruct;
     u8 padding2[0x10];
     u8 Unk88;
     u8 Unk89;
@@ -28,5 +36,7 @@ typedef struct MOD59_OverlayData
 } MOD59_OverlayData;
 
 BOOL MOD59_Init(struct UnkStruct_02006234 *param0);
+BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1);
+BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H

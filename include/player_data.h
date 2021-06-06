@@ -51,7 +51,7 @@ struct String * PlayerProfile_GetPlayerName_NewString(struct PlayerData * data, 
 void PlayerProfile_SetTrainerID(struct PlayerData * data, u32 otid);
 u32 PlayerProfile_GetTrainerID(struct PlayerData * data);
 u16 PlayerProfile_GetTrainerID_VisibleHalf(struct PlayerData * data);
-void PlayerProfile_SetTrainerGender(struct PlayerData * data, u8 gender);
+void PlayerProfile_SetTrainerGender(struct PlayerData * data, u32 gender);
 u32 PlayerProfile_GetTrainerGender(struct PlayerData * data);
 BOOL PlayerProfile_TestBadgeFlag(struct PlayerData * data, u32 badgeno);
 void PlayerProfile_SetBadgeFlag(struct PlayerData * data, u32 badgeno);
