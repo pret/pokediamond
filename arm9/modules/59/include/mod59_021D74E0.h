@@ -5,11 +5,12 @@
 #include "options.h"
 #include "save_block_2.h"
 #include "main.h"
+#include "player_data.h"
 
 struct MOD59_UnkPlayerStruct
 {
     u8 padding[0x4];
-    u32 gender;
+    GenderEnum gender;
     u8 padding2[0x10];
     struct String *name;
 };
@@ -22,7 +23,8 @@ typedef struct MOD59_OverlayData
     u32 Unk0C;
     u32 Unk10;
     struct UnkStruct_02006234 *Unk14;
-    u8 padding[0x58];
+    struct UnkStruct_02016B94_2 *Unk18;
+    u8 padding[0x54];
     struct MOD59_UnkPlayerStruct *playerStruct;
     struct MOD59_UnkPlayerStruct *rivalStruct;
     u8 padding2[0x10];
