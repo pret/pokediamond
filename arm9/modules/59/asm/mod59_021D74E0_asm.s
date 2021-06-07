@@ -3,69 +3,7 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD59_021D7724
-MOD59_021D7724: ; 0x021D7724
-	ldr r3, _021D772C ; =FUN_0201AB60
-	ldr r0, [r0, #0x18]
-	bx r3
-	nop
-_021D772C: .word FUN_0201AB60
-	thumb_func_end MOD59_021D7724
-
-	thumb_func_start MOD59_021D7730
-MOD59_021D7730: ; 0x021D7730
-	push {r3, r4}
-	ldr r2, _021D7788 ; =gMain + 0x40
-	mov r0, #0
-	ldrh r1, [r2, #0x20]
-	cmp r1, #0
-	beq _021D7784
-	ldrh r3, [r2, #0x1c]
-	mov r1, #1
-	lsl r1, r1, #8
-	cmp r3, r1
-	bhs _021D7784
-	ldrh r2, [r2, #0x1e]
-	cmp r2, #0xc0
-	bhs _021D7784
-	cmp r3, #0x80
-	bhs _021D7758
-	mov r1, #0x80
-	sub r1, r1, r3
-	lsl r1, r1, #0x10
-	b _021D775C
-_021D7758:
-	sub r3, #0x80
-	lsl r1, r3, #0x10
-_021D775C:
-	lsr r3, r1, #0x10
-	cmp r2, #0x64
-	bhs _021D776A
-	mov r1, #0x64
-	sub r1, r1, r2
-	lsl r1, r1, #0x10
-	b _021D776E
-_021D776A:
-	sub r2, #0x64
-	lsl r1, r2, #0x10
-_021D776E:
-	lsr r4, r1, #0x10
-	add r2, r3, #0
-	add r1, r4, #0
-	mul r2, r3
-	mul r1, r4
-	add r2, r2, r1
-	mov r1, #1
-	lsl r1, r1, #8
-	cmp r2, r1
-	bgt _021D7784
-	mov r0, #1
-_021D7784:
-	pop {r3, r4}
-	bx lr
-	.align 2, 0
-_021D7788: .word gMain + 0x40
-	thumb_func_end MOD59_021D7730
+	.extern MOD59_021D7730
 
 	thumb_func_start MOD59_021D778C
 MOD59_021D778C: ; 0x021D778C
