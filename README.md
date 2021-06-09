@@ -1,6 +1,6 @@
 # Pokémon Diamond
 
-[![Build Status](https://travis-ci.com/pret/pokediamond.svg?branch=master)](https://travis-ci.com/pret/pokediamond)
+[![build](https://github.com/pret/pokediamond/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/pret/pokediamond/actions/workflows/build.yml)
 
 This is a decompilation of Pokémon Diamond.
 
