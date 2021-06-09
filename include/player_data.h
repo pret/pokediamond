@@ -7,6 +7,12 @@
 
 struct SaveBlock2;
 
+typedef enum
+{
+    Male = 0,
+    Female = 1
+} GenderEnum;
+
 struct PlayerData
 {
     /* 0x00 */ u16 playerName[OT_NAME_LENGTH + 1];
@@ -51,8 +57,8 @@ struct String * PlayerProfile_GetPlayerName_NewString(struct PlayerData * data, 
 void PlayerProfile_SetTrainerID(struct PlayerData * data, u32 otid);
 u32 PlayerProfile_GetTrainerID(struct PlayerData * data);
 u16 PlayerProfile_GetTrainerID_VisibleHalf(struct PlayerData * data);
-void PlayerProfile_SetTrainerGender(struct PlayerData * data, u8 gender);
-u32 PlayerProfile_GetTrainerGender(struct PlayerData * data);
+void PlayerProfile_SetTrainerGender(struct PlayerData * data, GenderEnum gender);
+GenderEnum PlayerProfile_GetTrainerGender(struct PlayerData * data);
 BOOL PlayerProfile_TestBadgeFlag(struct PlayerData * data, u32 badgeno);
 void PlayerProfile_SetBadgeFlag(struct PlayerData * data, u32 badgeno);
 u32 PlayerProfile_CountBadges(struct PlayerData * data);
