@@ -48,7 +48,7 @@ FUN_02086084: ; 0x02086084
 	bl FUN_02006D98
 	str r0, [r4, #0x3c]
 	mov r0, #0x47
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #0x4]
 	mov r0, #0x40
 	mov r1, #0x47
@@ -197,16 +197,16 @@ FUN_020861DC: ; 0x020861DC
 	bl FUN_02002FEC
 	ldr r0, [r4, #0x4]
 	mov r1, #0x1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x4]
 	mov r1, #0x2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x4]
 	mov r1, #0x3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x4]
 	mov r1, #0x4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x4]
 	bl FreeToHeap
 	bl FUN_0201C29C

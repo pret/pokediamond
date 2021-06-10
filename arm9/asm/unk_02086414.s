@@ -294,7 +294,7 @@ _0208655C:
 	ldmia r5!, {r0-r1}
 	stmia r3!, {r0-r1}
 	add r0, r2, #0x0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _02086658 ; =UNK_020FCF84
 	add r3, sp, #0x54
 	mov r2, #0xa
@@ -309,26 +309,26 @@ _020865BC:
 	add r0, r4, #0x0
 	add r2, sp, #0x54
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x2
 	add r2, sp, #0x70
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x3
 	add r2, sp, #0x8c
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r1, _0208665C ; =0x04000008
 	mov r0, #0x3
 	ldrh r2, [r1, #0x0]
@@ -356,10 +356,10 @@ _020865BC:
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add sp, #0xa8
 	pop {r3-r5, pc}
 	.balign 4
@@ -380,7 +380,7 @@ FUN_02086664: ; 0x02086664
 	ldr r0, [r4, #0x8]
 	bl FUN_0200372C
 	ldr r0, [r4, #0x4]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _02086690 ; =0x027E0000
 	ldr r1, _02086694 ; =0x00003FF8
 	mov r0, #0x1
@@ -544,7 +544,7 @@ FUN_02086784: ; 0x02086784
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x10]
 	add r0, r7, #0x0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0x0
 	mov r1, #0x1
 	mov r2, #0x14
@@ -655,7 +655,7 @@ FUN_02086878: ; 0x02086878
 	str r0, [sp, #0x10]
 	add r0, r6, #0x0
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x2
 	mov r1, #0x47
 	bl ListMenuItems_ctor
@@ -736,10 +736,10 @@ FUN_02086960: ; 0x02086960
 	bl FUN_0200CCF8
 	add r0, r4, #0x0
 	add r0, #0x28
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0x28
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x48]
 	mov r1, #0x0
 	bl FUN_02001C5C
@@ -751,9 +751,9 @@ FUN_02086960: ; 0x02086960
 FUN_0208698C: ; 0x0208698C
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 
 	thumb_func_start FUN_0208699C

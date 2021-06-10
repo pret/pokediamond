@@ -1903,7 +1903,7 @@ MOD05_021DCECC: ; 0x021DCECC
 	ldr r1, [r1, #0xc]
 	mov r2, #0x20
 	mov r3, #0xc0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r0, [sp]
 	bl FreeToHeap
 	mov r0, #0
@@ -1945,7 +1945,7 @@ MOD05_021DCF14: ; 0x021DCF14
 	ldr r0, [r0, #8]
 	ldr r3, [r3, #0x10]
 	mov r1, #2
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #8]
 	bl FreeToHeap
 	mov r0, #0
@@ -1997,7 +1997,7 @@ _021DCFA0:
 	ldr r0, [r0, #8]
 	mov r1, #2
 	add r2, #0xc
-	bl FUN_02017CE8
+	bl BgCopyOrUncompressTilemapBufferRangeToVram
 	mov r0, #0x41
 	lsl r0, r0, #2
 	ldr r3, [sp, #0x18]
@@ -2007,7 +2007,7 @@ _021DCFA0:
 	ldr r3, [r3, #8]
 	mov r1, #2
 	add r2, #0xc
-	bl FUN_02017DFC
+	bl BG_LoadScreenTilemapData
 	mov r0, #0x20
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2019,13 +2019,13 @@ _021DCFA0:
 	ldr r0, [r0, #8]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	mov r0, #0x41
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #2
 	ldr r0, [r0, #8]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, [sp, #0x14]
 	bl FreeToHeap
 	mov r0, #0

@@ -6,7 +6,7 @@
 #include "game_init.h"
 #include "GX_layers.h"
 #include "unk_02024E64.h"
-#include "unk_02016B94.h"
+#include "bg_window.h"
 #include "module_52.h"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
@@ -177,7 +177,7 @@ THUMB_FUNC BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0)
 
 THUMB_FUNC void MOD59_021D7724(MOD59_OverlayData *data)
 {
-    FUN_0201AB60(data->Unk18);
+    DoScheduledBgGpuUpdates(data->Unk18);
 }
 
 THUMB_FUNC BOOL MOD59_021D7730(void)

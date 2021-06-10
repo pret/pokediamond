@@ -79,18 +79,18 @@ FUN_02089D90: ; 0x02089D90
 	ldr r0, _02089F0C ; =UNK_020FF418
 	bl GX_SetBanks
 	add r0, r4, #0x0
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r5, r0, #0x0
 	ldr r0, _02089F10 ; =UNK_020FF3EC
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r1, #0x0
 	ldr r2, _02089F14 ; =UNK_020FF3FC
 	add r0, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r2, _02089F18 ; =0x000001F7
@@ -106,13 +106,13 @@ FUN_02089D90: ; 0x02089D90
 	mov r1, #0x20
 	add r2, r0, #0x0
 	add r3, r4, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _02089F1C ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _02089F1C ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0x5
@@ -128,7 +128,7 @@ FUN_02089D90: ; 0x02089D90
 	ldr r2, _02089F20 ; =UNK_020FF3E4
 	add r0, r5, #0x0
 	add r1, sp, #0xc
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd0
 	str r0, [sp, #0x0]
 	mov r0, #0x90

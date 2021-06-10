@@ -741,7 +741,7 @@ MOD38_02254D84: ; 0x02254D84
 	ldr r2, _02254E1C ; =MOD38_0225529C
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -776,7 +776,7 @@ MOD38_02254D84: ; 0x02254D84
 	bl MOD38_02254E28
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254E20 ; =0x04001000
 	ldr r0, _02254E24 ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -822,7 +822,7 @@ MOD38_02254E28: ; 0x02254E28
 	ldr r0, [r5, #4]
 	add r1, #0x74
 	add r3, r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #4
 	str r0, [sp]
 	mov r2, #6
@@ -840,7 +840,7 @@ MOD38_02254E28: ; 0x02254E28
 	ldr r0, [r5, #4]
 	add r1, #0x84
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #8
 	str r0, [sp]
 	mov r2, #6
@@ -858,7 +858,7 @@ MOD38_02254E28: ; 0x02254E28
 	ldr r0, [r5, #4]
 	add r1, #0x94
 	mov r3, #0x10
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x13
 	str r0, [sp]
 	mov r0, #0x16
@@ -876,19 +876,19 @@ MOD38_02254E28: ; 0x02254E28
 	add r1, #0xa4
 	mov r2, #6
 	mov r3, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x74
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0x84
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0x94
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r0, #0xa4
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	add r1, r6, #0
 	bl MOD38_02254FCC
@@ -902,16 +902,16 @@ MOD38_02254EF4: ; 0x02254EF4
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, #0x74
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x84
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0
 	add r0, #0x94
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, #0xa4
 	add r0, r4, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	thumb_func_end MOD38_02254EF4
 
@@ -925,7 +925,7 @@ MOD38_02254F18: ; 0x02254F18
 	bl MOD38_02254EF4
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD38_02254D70
 	pop {r3, r4, r5, pc}
@@ -1090,7 +1090,7 @@ _02255048:
 	lsr r3, r3, #1
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1128,7 +1128,7 @@ MOD38_02255084: ; 0x02255084
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0

@@ -993,12 +993,12 @@ _02254F70:
 	ldr r2, _0225502C ; =MOD36_02255408
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #4]
 	ldr r2, _02255030 ; =MOD36_02255424
 	mov r1, #7
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #8
 	bl GF_heap_c_dummy_return_true
 	cmp r0, #0
@@ -1044,7 +1044,7 @@ _02254FEA:
 	bl MOD36_0225503C
 	ldr r0, [r4, #4]
 	mov r1, #7
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02255034 ; =0x04001000
 	ldr r0, _02255038 ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -1096,7 +1096,7 @@ MOD36_0225503C: ; 0x0225503C
 	add r1, r4, #0
 	ldr r0, [r4, #4]
 	add r1, #0x48
-	bl FUN_02019150
+	bl AddWindow
 	ldr r0, [r4]
 	mov r2, #0xbe
 	ldr r0, [r0, #8]
@@ -1112,10 +1112,10 @@ MOD36_0225503C: ; 0x0225503C
 _02255082:
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r4, #0x48
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	nop
@@ -1151,13 +1151,13 @@ _022550C4:
 	bl FUN_02089444
 	add r0, r4, #0
 	add r0, #0x48
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD36_02254F48
 	pop {r3, r4, r5, pc}
@@ -1171,7 +1171,7 @@ MOD36_022550F4: ; 0x022550F4
 	add r0, r4, #0
 	bl MOD20_022538A0
 	add r0, #0x48
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
 	bl MOD36_02254F48
 	pop {r4, pc}
@@ -1228,7 +1228,7 @@ MOD36_02255164: ; 0x02255164
 	add r0, r4, #0
 	bl MOD20_022538A0
 	add r0, #0x48
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
 	bl MOD36_02254F48
 	pop {r4, pc}
@@ -1301,7 +1301,7 @@ MOD36_022551E0: ; 0x022551E0
 	bl FillWindowPixelBuffer
 	add r4, #0x48
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r5, #0
 	bl MOD36_02254F48
 	pop {r3, r4, r5, pc}

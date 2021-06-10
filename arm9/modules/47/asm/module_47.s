@@ -877,7 +877,7 @@ MOD47_02254E74: ; 0x02254E74
 	ldr r2, _02254F28 ; =MOD47_022553F4
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -921,15 +921,15 @@ MOD47_02254E74: ; 0x02254E74
 	ldr r0, [r5, #4]
 	add r1, #0x20
 	mov r2, #6
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x20
-	bl FUN_02019270
+	bl PutWindowTilemap
 	add r0, r5, #0
 	bl MOD47_022550FC
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254F2C ; =0x04001000
 	ldr r0, _02254F30 ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -961,10 +961,10 @@ MOD47_02254F34: ; 0x02254F34
 	bl MOD20_022538A0
 	add r4, r0, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD47_02254E60
 	pop {r3, r4, r5, pc}
@@ -1211,7 +1211,7 @@ MOD47_022550FC: ; 0x022550FC
 	bl AddTextPrinterParameterized2
 	add r4, #0x20
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r4, pc}
 	nop
@@ -1251,7 +1251,7 @@ MOD47_02255184: ; 0x02255184
 	bl AddTextPrinterParameterized2
 	add r4, #0x20
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r4, pc}
 	nop
@@ -1308,7 +1308,7 @@ MOD47_022551D8: ; 0x022551D8
 	bl AddTextPrinterParameterized2
 	add r4, #0x20
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -1371,7 +1371,7 @@ MOD47_02255250: ; 0x02255250
 	bl AddTextPrinterParameterized2
 	add r4, #0x20
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r4, pc}
 	nop
@@ -1464,7 +1464,7 @@ _0225532C:
 	blt _0225532C
 	add r5, #0x20
 	add r0, r5, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

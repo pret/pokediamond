@@ -285,6 +285,14 @@ typedef enum
 }
 GXBGExtPltt;
 
+typedef enum
+{
+    GX_BG_EXTMODE_256x16PLTT = (0 << REG_G2_BG2CNT_CHARBASE_SHIFT) | (0 << REG_G2_BG2CNT_COLORMODE_SHIFT),
+    GX_BG_EXTMODE_256BITMAP  = (0 << REG_G2_BG2CNT_CHARBASE_SHIFT) | (1 << REG_G2_BG2CNT_COLORMODE_SHIFT),
+    GX_BG_EXTMODE_DCBITMAP   = (1 << REG_G2_BG2CNT_CHARBASE_SHIFT) | (1 << REG_G2_BG2CNT_COLORMODE_SHIFT)
+}
+GXBGExtMode;
+
 //GX_capture
 typedef enum
 {
@@ -343,5 +351,411 @@ typedef enum
     GX_CAPTURE_MODE_AB = 2
 }
 GXCaptureMode;
+
+static inline void G2_SetBG0Control(GXBGScrSizeText screenSize, GXBGColorMode colorMode, GXBGScrBase screenBase, GXBGCharBase charBase, GXBGExtPltt bgExtPltt)
+{
+    reg_G2_BG0CNT = (u16)((reg_G2_BG0CNT & (REG_G2_BG0CNT_PRIORITY_MASK | REG_G2_BG0CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG0CNT_SCREENSIZE_SHIFT) | (colorMode << REG_G2_BG0CNT_COLORMODE_SHIFT) | (screenBase << REG_G2_BG0CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG0CNT_CHARBASE_SHIFT) | (bgExtPltt << REG_G2_BG0CNT_BGPLTTSLOT_SHIFT));
+}
+
+static inline void G2S_SetBG0Control(GXBGScrSizeText screenSize, GXBGColorMode colorMode, GXBGScrBase screenBase, GXBGCharBase charBase, GXBGExtPltt bgExtPltt)
+{
+    reg_G2S_DB_BG0CNT = (u16)((reg_G2S_DB_BG0CNT & (REG_G2S_DB_BG0CNT_PRIORITY_MASK | REG_G2S_DB_BG0CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG0CNT_SCREENSIZE_SHIFT) | (colorMode << REG_G2S_DB_BG0CNT_COLORMODE_SHIFT) | (screenBase << REG_G2S_DB_BG0CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG0CNT_CHARBASE_SHIFT) | (bgExtPltt << REG_G2S_DB_BG0CNT_BGPLTTSLOT_SHIFT));
+}
+
+static inline void G2_SetBG1Control(GXBGScrSizeText screenSize, GXBGColorMode colorMode, GXBGScrBase screenBase, GXBGCharBase charBase, GXBGExtPltt bgExtPltt)
+{
+    reg_G2_BG1CNT = (u16)((reg_G2_BG1CNT & (REG_G2_BG1CNT_PRIORITY_MASK | REG_G2_BG1CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG1CNT_SCREENSIZE_SHIFT) | (colorMode << REG_G2_BG1CNT_COLORMODE_SHIFT) | (screenBase << REG_G2_BG1CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG1CNT_CHARBASE_SHIFT) | (bgExtPltt << REG_G2_BG1CNT_BGPLTTSLOT_SHIFT));
+}
+
+static inline void G2S_SetBG1Control(GXBGScrSizeText screenSize, GXBGColorMode colorMode, GXBGScrBase screenBase, GXBGCharBase charBase, GXBGExtPltt bgExtPltt)
+{
+    reg_G2S_DB_BG1CNT = (u16)((reg_G2S_DB_BG1CNT & (REG_G2S_DB_BG1CNT_PRIORITY_MASK | REG_G2S_DB_BG1CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG1CNT_SCREENSIZE_SHIFT) | (colorMode << REG_G2S_DB_BG1CNT_COLORMODE_SHIFT) | (screenBase << REG_G2S_DB_BG1CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG1CNT_CHARBASE_SHIFT) | (bgExtPltt << REG_G2S_DB_BG1CNT_BGPLTTSLOT_SHIFT));
+}
+
+static inline void G2_SetBG2ControlText(GXBGScrSizeText screenSize, GXBGColorMode colorMode, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & ((REG_G2_BG2CNT_PRIORITY_MASK | REG_G2_BG2CNT_MOSAIC_MASK))) | (screenSize << REG_G2_BG2CNT_SCREENSIZE_SHIFT) | (colorMode << REG_G2_BG2CNT_COLORMODE_SHIFT) | (screenBase << REG_G2_BG2CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG2CNT_CHARBASE_SHIFT));
+}
+
+static inline void G2S_SetBG2ControlText(GXBGScrSizeText screenSize, GXBGColorMode colorMode, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & ((REG_G2S_DB_BG2CNT_PRIORITY_MASK | REG_G2S_DB_BG2CNT_MOSAIC_MASK))) | (screenSize << REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT) | (colorMode << REG_G2S_DB_BG2CNT_COLORMODE_SHIFT) | (screenBase << REG_G2S_DB_BG2CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG2CNT_CHARBASE_SHIFT));
+}
+
+static inline void G2_SetBG2ControlAffine(GXBGScrSizeAffine screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & ((REG_G2_BG2CNT_PRIORITY_MASK | REG_G2_BG2CNT_MOSAIC_MASK))) | (screenSize << REG_G2_BG2CNT_SCREENSIZE_SHIFT) | (screenBase << REG_G2_BG2CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG2CNT_CHARBASE_SHIFT) | (areaOver << REG_G2_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG2ControlAffine(GXBGScrSizeAffine screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & ((REG_G2S_DB_BG2CNT_PRIORITY_MASK | REG_G2S_DB_BG2CNT_MOSAIC_MASK))) | (screenSize << REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT) | (screenBase << REG_G2S_DB_BG2CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG2CNT_CHARBASE_SHIFT) | (areaOver << REG_G2S_DB_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG2Control256x16Pltt(GXBGScrSize256x16Pltt screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & (REG_G2_BG2CNT_PRIORITY_MASK | REG_G2_BG2CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG2CNT_SCREENSIZE_SHIFT) | (charBase << REG_G2_BG2CNT_CHARBASE_SHIFT) | GX_BG_EXTMODE_256x16PLTT | (screenBase << REG_G2_BG2CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG2Control256x16Pltt(GXBGScrSize256x16Pltt screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & (REG_G2S_DB_BG2CNT_PRIORITY_MASK | REG_G2S_DB_BG2CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT) | (charBase << REG_G2S_DB_BG2CNT_CHARBASE_SHIFT) | GX_BG_EXTMODE_256x16PLTT | (screenBase << REG_G2S_DB_BG2CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2S_DB_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG2Control256Bmp(GXBGScrSize256Bmp screenSize, GXBGAreaOver areaOver, GXBGBmpScrBase screenBase)
+{
+    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & (REG_G2_BG2CNT_PRIORITY_MASK | REG_G2_BG2CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG2CNT_SCREENSIZE_SHIFT) | GX_BG_EXTMODE_256BITMAP | (screenBase << REG_G2_BG2CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG2Control256Bmp(GXBGScrSize256Bmp screenSize, GXBGAreaOver areaOver, GXBGBmpScrBase screenBase)
+{
+    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & (REG_G2S_DB_BG2CNT_PRIORITY_MASK | REG_G2S_DB_BG2CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT) | GX_BG_EXTMODE_256BITMAP | (screenBase << REG_G2S_DB_BG2CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2S_DB_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG2ControlDCBmp(GXBGScrSizeDcBmp screenSize, GXBGAreaOver areaOver, GXBGBmpScrBase screenBase)
+{
+    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & (REG_G2_BG2CNT_PRIORITY_MASK | REG_G2_BG2CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG2CNT_SCREENSIZE_SHIFT) | GX_BG_EXTMODE_DCBITMAP | (screenBase << REG_G2_BG2CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG2ControlDCBmp(GXBGScrSizeDcBmp screenSize, GXBGAreaOver areaOver, GXBGBmpScrBase screenBase)
+{
+    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & (REG_G2S_DB_BG2CNT_PRIORITY_MASK | REG_G2S_DB_BG2CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT) | GX_BG_EXTMODE_DCBITMAP | (screenBase << REG_G2S_DB_BG2CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2S_DB_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG2ControlLargeBmp(GXBGScrSizeLargeBmp screenSize, GXBGAreaOver areaOver)
+{
+    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & (REG_G2_BG2CNT_PRIORITY_MASK | REG_G2_BG2CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG2CNT_SCREENSIZE_SHIFT) | (areaOver << REG_G2_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG2ControlLargeBmp(GXBGScrSizeLargeBmp screenSize, GXBGAreaOver areaOver)
+{
+    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & (REG_G2S_DB_BG2CNT_PRIORITY_MASK | REG_G2S_DB_BG2CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT) | (areaOver << REG_G2S_DB_BG2CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG3ControlText(GXBGScrSizeText screenSize, GXBGColorMode colorMode, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & ((REG_G2_BG3CNT_PRIORITY_MASK | REG_G2_BG3CNT_MOSAIC_MASK))) | (screenSize << REG_G2_BG3CNT_SCREENSIZE_SHIFT) | (colorMode << REG_G2_BG3CNT_COLORMODE_SHIFT) | (screenBase << REG_G2_BG3CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG3CNT_CHARBASE_SHIFT));
+}
+
+static inline void G2S_SetBG3ControlText(GXBGScrSizeText screenSize, GXBGColorMode colorMode, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & ((REG_G2S_DB_BG3CNT_PRIORITY_MASK | REG_G2S_DB_BG3CNT_MOSAIC_MASK))) | (screenSize << REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT) | (colorMode << REG_G2S_DB_BG3CNT_COLORMODE_SHIFT) | (screenBase << REG_G2S_DB_BG3CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG3CNT_CHARBASE_SHIFT));
+}
+
+static inline void G2_SetBG3ControlAffine(GXBGScrSizeAffine screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & ((REG_G2_BG3CNT_PRIORITY_MASK | REG_G2_BG3CNT_MOSAIC_MASK))) | (screenSize << REG_G2_BG3CNT_SCREENSIZE_SHIFT) | (screenBase << REG_G2_BG3CNT_SCREENBASE_SHIFT) | (charBase << REG_G2_BG3CNT_CHARBASE_SHIFT) | (areaOver << REG_G2_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG3ControlAffine(GXBGScrSizeAffine screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & ((REG_G2S_DB_BG3CNT_PRIORITY_MASK | REG_G2S_DB_BG3CNT_MOSAIC_MASK))) | (screenSize << REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT) | (screenBase << REG_G2S_DB_BG3CNT_SCREENBASE_SHIFT) | (charBase << REG_G2S_DB_BG3CNT_CHARBASE_SHIFT) | (areaOver << REG_G2S_DB_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG3Control256x16Pltt(GXBGScrSize256x16Pltt screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & (REG_G2_BG3CNT_PRIORITY_MASK | REG_G2_BG3CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG3CNT_SCREENSIZE_SHIFT) | (charBase << REG_G2_BG3CNT_CHARBASE_SHIFT) | GX_BG_EXTMODE_256x16PLTT | (screenBase << REG_G2_BG3CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG3Control256x16Pltt(GXBGScrSize256x16Pltt screenSize, GXBGAreaOver areaOver, GXBGScrBase screenBase, GXBGCharBase charBase)
+{
+    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & (REG_G2S_DB_BG3CNT_PRIORITY_MASK | REG_G2S_DB_BG3CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT) | (charBase << REG_G2S_DB_BG3CNT_CHARBASE_SHIFT) | GX_BG_EXTMODE_256x16PLTT | (screenBase << REG_G2S_DB_BG3CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2S_DB_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG3Control256Bmp(GXBGScrSize256Bmp screenSize, GXBGAreaOver areaOver, GXBGBmpScrBase screenBase)
+{
+    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & (REG_G2_BG3CNT_PRIORITY_MASK | REG_G2_BG3CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG3CNT_SCREENSIZE_SHIFT) | GX_BG_EXTMODE_256BITMAP | (screenBase << REG_G2_BG3CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG3Control256Bmp(GXBGScrSize256Bmp screenSize, GXBGAreaOver areaOver, GXBGBmpScrBase screenBase)
+{
+    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & (REG_G2S_DB_BG3CNT_PRIORITY_MASK | REG_G2S_DB_BG3CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT) | GX_BG_EXTMODE_256BITMAP | (screenBase << REG_G2S_DB_BG3CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2S_DB_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG3ControlDCBmp(GXBGScrSizeDcBmp screenSize, GXBGAreaOver areaOver, GXBGBmpScrBase screenBase)
+{
+    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & (REG_G2_BG3CNT_PRIORITY_MASK | REG_G2_BG3CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG3CNT_SCREENSIZE_SHIFT) | GX_BG_EXTMODE_DCBITMAP | (screenBase << REG_G2_BG3CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG3ControlDCBmp(GXBGScrSizeDcBmp screenSize, GXBGAreaOver areaOver, GXBGBmpScrBase screenBase)
+{
+    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & (REG_G2S_DB_BG3CNT_PRIORITY_MASK | REG_G2S_DB_BG3CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT) | GX_BG_EXTMODE_DCBITMAP | (screenBase << REG_G2S_DB_BG3CNT_SCREENBASE_SHIFT) | (areaOver << REG_G2S_DB_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_SetBG3ControlLargeBmp(GXBGScrSizeLargeBmp screenSize, GXBGAreaOver areaOver)
+{
+    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & (REG_G2_BG3CNT_PRIORITY_MASK | REG_G2_BG3CNT_MOSAIC_MASK)) | (screenSize << REG_G2_BG3CNT_SCREENSIZE_SHIFT) | (areaOver << REG_G2_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2S_SetBG3ControlLargeBmp(GXBGScrSizeLargeBmp screenSize, GXBGAreaOver areaOver)
+{
+    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & (REG_G2S_DB_BG3CNT_PRIORITY_MASK | REG_G2S_DB_BG3CNT_MOSAIC_MASK)) | (screenSize << REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT) | (areaOver << REG_G2S_DB_BG3CNT_AREAOVER_SHIFT));
+}
+
+static inline void G2_BG0Mosaic(BOOL enable)
+{
+    if (enable)
+    {
+        reg_G2_BG0CNT |= REG_G2_BG0CNT_MOSAIC_MASK;
+    }
+    else
+    {
+        reg_G2_BG0CNT &= ~REG_G2_BG0CNT_MOSAIC_MASK;
+    }
+}
+
+static inline void G2S_BG0Mosaic(BOOL enable)
+{
+    if (enable)
+    {
+        reg_G2S_DB_BG0CNT |= REG_G2S_DB_BG0CNT_MOSAIC_MASK;
+    }
+    else
+    {
+        reg_G2S_DB_BG0CNT &= ~REG_G2S_DB_BG0CNT_MOSAIC_MASK;
+    }
+}
+
+static inline void G2_BG1Mosaic(BOOL enable)
+{
+    if (enable)
+    {
+        reg_G2_BG1CNT |= REG_G2_BG1CNT_MOSAIC_MASK;
+    }
+    else
+    {
+        reg_G2_BG1CNT &= ~REG_G2_BG1CNT_MOSAIC_MASK;
+    }
+}
+
+static inline void G2S_BG1Mosaic(BOOL enable)
+{
+    if (enable)
+    {
+        reg_G2S_DB_BG1CNT |= REG_G2S_DB_BG1CNT_MOSAIC_MASK;
+    }
+    else
+    {
+        reg_G2S_DB_BG1CNT &= ~REG_G2S_DB_BG1CNT_MOSAIC_MASK;
+    }
+}
+
+static inline void G2_BG2Mosaic(BOOL enable)
+{
+    if (enable)
+    {
+        reg_G2_BG2CNT |= REG_G2_BG2CNT_MOSAIC_MASK;
+    }
+    else
+    {
+        reg_G2_BG2CNT &= ~REG_G2_BG2CNT_MOSAIC_MASK;
+    }
+}
+
+static inline void G2S_BG2Mosaic(BOOL enable)
+{
+    if (enable)
+    {
+        reg_G2S_DB_BG2CNT |= REG_G2S_DB_BG2CNT_MOSAIC_MASK;
+    }
+    else
+    {
+        reg_G2S_DB_BG2CNT &= ~REG_G2S_DB_BG2CNT_MOSAIC_MASK;
+    }
+}
+
+static inline void G2_BG3Mosaic(BOOL enable)
+{
+    if (enable)
+    {
+        reg_G2_BG3CNT |= REG_G2_BG3CNT_MOSAIC_MASK;
+    }
+    else
+    {
+        reg_G2_BG3CNT &= ~REG_G2_BG3CNT_MOSAIC_MASK;
+    }
+}
+
+static inline void G2S_BG3Mosaic(BOOL enable)
+{
+    if (enable)
+    {
+        reg_G2S_DB_BG3CNT |= REG_G2S_DB_BG3CNT_MOSAIC_MASK;
+    }
+    else
+    {
+        reg_G2S_DB_BG3CNT &= ~REG_G2S_DB_BG3CNT_MOSAIC_MASK;
+    }
+}
+
+static inline void G2_SetBG0Priority(int priority)
+{
+    reg_G2_BG0CNT = (u16)((reg_G2_BG0CNT & ~REG_G2_BG0CNT_PRIORITY_MASK) | (priority << REG_G2_BG0CNT_PRIORITY_SHIFT));
+}
+
+static inline void G2S_SetBG0Priority(int priority)
+{
+    reg_G2S_DB_BG0CNT = (u16)((reg_G2S_DB_BG0CNT & ~REG_G2S_DB_BG0CNT_PRIORITY_MASK) | (priority << REG_G2S_DB_BG0CNT_PRIORITY_SHIFT));
+}
+
+static inline void G2_SetBG1Priority(int priority)
+{
+    reg_G2_BG1CNT = (u16)((reg_G2_BG1CNT & ~REG_G2_BG1CNT_PRIORITY_MASK) | (priority << REG_G2_BG1CNT_PRIORITY_SHIFT));
+}
+
+static inline void G2S_SetBG1Priority(int priority)
+{
+    reg_G2S_DB_BG1CNT = (u16)((reg_G2S_DB_BG1CNT & ~REG_G2S_DB_BG1CNT_PRIORITY_MASK) | (priority << REG_G2S_DB_BG1CNT_PRIORITY_SHIFT));
+}
+
+static inline void G2_SetBG2Priority(int priority)
+{
+    reg_G2_BG2CNT = (u16)((reg_G2_BG2CNT & ~REG_G2_BG2CNT_PRIORITY_MASK) | (priority << REG_G2_BG2CNT_PRIORITY_SHIFT));
+}
+
+static inline void G2S_SetBG2Priority(int priority)
+{
+    reg_G2S_DB_BG2CNT = (u16)((reg_G2S_DB_BG2CNT & ~REG_G2S_DB_BG2CNT_PRIORITY_MASK) | (priority << REG_G2S_DB_BG2CNT_PRIORITY_SHIFT));
+}
+
+static inline void G2_SetBG3Priority(int priority)
+{
+    reg_G2_BG3CNT = (u16)((reg_G2_BG3CNT & ~REG_G2_BG3CNT_PRIORITY_MASK) | (priority << REG_G2_BG3CNT_PRIORITY_SHIFT));
+}
+
+static inline void G2S_SetBG3Priority(int priority)
+{
+    reg_G2S_DB_BG3CNT = (u16)((reg_G2S_DB_BG3CNT & ~REG_G2S_DB_BG3CNT_PRIORITY_MASK) | (priority << REG_G2S_DB_BG3CNT_PRIORITY_SHIFT));
+}
+
+static inline GXBg01Control G2_GetBG0Control(void)
+{
+    return *(volatile GXBg01Control *)&reg_G2_BG0CNT;
+}
+
+static inline GXBg01Control G2S_GetBG0Control(void)
+{
+    return *(volatile GXBg01Control *)&reg_G2S_DB_BG0CNT;
+}
+
+static inline GXBg01Control G2_GetBG1Control(void)
+{
+    return *(volatile GXBg01Control *)&reg_G2_BG1CNT;
+}
+
+static inline GXBg01Control G2S_GetBG1Control(void)
+{
+    return *(volatile GXBg01Control *)&reg_G2S_DB_BG1CNT;
+}
+
+static inline GXBg23ControlText G2_GetBG2ControlText(void)
+{
+    return *(volatile GXBg23ControlText *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23ControlText G2S_GetBG2ControlText(void)
+{
+    return *(volatile GXBg23ControlText *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23ControlAffine G2_GetBG2ControlAffine(void)
+{
+    return *(volatile GXBg23ControlAffine *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23ControlAffine G2S_GetBG2ControlAffine(void)
+{
+    return *(volatile GXBg23ControlAffine *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23Control256x16Pltt G2_GetBG2Control256x16Pltt(void)
+{
+    return *(volatile GXBg23Control256x16Pltt *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23Control256x16Pltt G2S_GetBG2Control256x16Pltt(void)
+{
+    return *(volatile GXBg23Control256x16Pltt *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23Control256Bmp G2_GetBG2Control256Bmp(void)
+{
+    return *(volatile GXBg23Control256Bmp *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23Control256Bmp G2S_GetBG2Control256Bmp(void)
+{
+    return *(volatile GXBg23Control256Bmp *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23ControlDCBmp G2_GetBG2ControlDCBmp(void)
+{
+    return *(volatile GXBg23ControlDCBmp *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg23ControlDCBmp G2S_GetBG2ControlDCBmp(void)
+{
+    return *(volatile GXBg23ControlDCBmp *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg2ControlLargeBmp G2_GetBG2ControlLargeBmp(void)
+{
+    return *(volatile GXBg2ControlLargeBmp *)&reg_G2_BG2CNT;
+}
+
+static inline GXBg2ControlLargeBmp G2S_GetBG2ControlLargeBmp(void)
+{
+    return *(volatile GXBg2ControlLargeBmp *)&reg_G2S_DB_BG2CNT;
+}
+
+static inline GXBg23ControlText G2_GetBG3ControlText(void)
+{
+    return *(volatile GXBg23ControlText *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23ControlText G2S_GetBG3ControlText(void)
+{
+    return *(volatile GXBg23ControlText *)&reg_G2S_DB_BG3CNT;
+}
+
+static inline GXBg23ControlAffine G2_GetBG3ControlAffine(void)
+{
+    return *(volatile GXBg23ControlAffine *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23ControlAffine G2S_GetBG3ControlAffine(void)
+{
+    return *(volatile GXBg23ControlAffine *)&reg_G2S_DB_BG3CNT;
+}
+
+static inline GXBg23Control256x16Pltt G2_GetBG3Control256x16Pltt(void)
+{
+    return *(volatile GXBg23Control256x16Pltt *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23Control256x16Pltt G2S_GetBG3Control256x16Pltt(void)
+{
+    return *(volatile GXBg23Control256x16Pltt *)&reg_G2S_DB_BG3CNT;
+}
+
+static inline GXBg23Control256Bmp G2_GetBG3Control256Bmp(void)
+{
+    return *(volatile GXBg23Control256Bmp *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23Control256Bmp G2S_GetBG3Control256Bmp(void)
+{
+    return *(volatile GXBg23Control256Bmp *)&reg_G2S_DB_BG3CNT;
+}
+
+static inline GXBg23ControlDCBmp G2_GetBG3ControlDCBmp(void)
+{
+    return *(volatile GXBg23ControlDCBmp *)&reg_G2_BG3CNT;
+}
+
+static inline GXBg23ControlDCBmp G2S_GetBG3ControlDCBmp(void)
+{
+    return *(volatile GXBg23ControlDCBmp *)&reg_G2S_DB_BG3CNT;
+}
 
 #endif //GUARD_GX_BGCNT_H

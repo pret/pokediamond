@@ -4,7 +4,7 @@
 #include "options.h"
 #include "player_data.h"
 #include "text.h"
-#include "unk_02016B94.h"
+#include "bg_window.h"
 
 extern void *FUN_02039438(struct UnkSavStruct80* arg, u32 id);
 extern void *CreateScriptContext(struct UnkSavStruct80* arg, u16 id);
@@ -779,7 +779,7 @@ THUMB_FUNC BOOL ScrCmd_CloseMessageBox(struct ScriptContext* ctx)
     struct Window *unk = FUN_02039438(unk80, 0x1);
     u8 *unk2 = FUN_02039438(unk80, 0x6);
     FUN_0200D0E0(unk, 0);  //clear window?
-    FUN_02019178(unk);
+    RemoveWindow(unk);
     *unk2 = 0;
     return FALSE;
 }
@@ -789,7 +789,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0035(struct ScriptContext* ctx)
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     struct Window *unk = FUN_02039438(unk80, 0x1);
     u8 *unk2 = FUN_02039438(unk80, 0x6);
-    FUN_02019178(unk);
+    RemoveWindow(unk);
     *unk2 = 0;
     return FALSE;
 }
@@ -834,11 +834,11 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
     {
         if (*xdir == 0)
         {
-            FUN_020179E0(unk80->unk08, 3, 1, *xval);
+            BgSetPosTextAndCommit(unk80->unk08, 3, 1, *xval);
         }
         else
         {
-            FUN_020179E0(unk80->unk08, 3, 2, *xval);
+            BgSetPosTextAndCommit(unk80->unk08, 3, 2, *xval);
         }
     }
 
@@ -846,11 +846,11 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
     {
         if (*ydir == 0)
         {
-            FUN_020179E0(unk80->unk08, 3, 4, *yval);
+            BgSetPosTextAndCommit(unk80->unk08, 3, 4, *yval);
         }
         else
         {
-            FUN_020179E0(unk80->unk08, 3, 5, *yval);
+            BgSetPosTextAndCommit(unk80->unk08, 3, 5, *yval);
         }
     }
 

@@ -672,7 +672,7 @@ MOD29_02254D10: ; 0x02254D10
 	ldr r2, _02254DE8 ; =MOD29_022550E0
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -737,7 +737,7 @@ MOD29_02254D10: ; 0x02254D10
 	bl GXS_LoadOBJPltt
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254DEC ; =0x04001000
 	ldr r0, _02254DF0 ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -771,7 +771,7 @@ MOD29_02254DF4: ; 0x02254DF4
 	bl MOD20_022538A0
 	ldr r0, [r0, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD29_02254CFC
 	pop {r4, pc}

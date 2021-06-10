@@ -65,6 +65,9 @@ typedef s64 fx64c;
 #define FX16_CONST(x) FX_F32_TO_FX16(x)
 #define FX32_CONST(x) FX_F32_TO_FX32(x)
 
+#define FX16_ONE ((fx16)0x1000)
+#define FX32_ONE ((fx32)0x00001000L)
+
 struct Vecx32
 {
     fx32 x;

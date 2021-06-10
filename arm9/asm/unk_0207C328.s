@@ -1826,7 +1826,7 @@ FUN_0207CFAC: ; 0x0207CFAC
 	pop {r4, pc}
 _0207CFC0:
 	add r0, r1, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r1, r0, #0x0
 	ldr r0, _0207CFE8 ; =0x000004C4
 	lsl r1, r1, #0x3

@@ -1067,7 +1067,7 @@ FUN_02062DB0: ; 0x02062DB0
 	mov r0, #0x1
 	lsl r1, r1, #0x6
 	mov r2, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	mov r0, #0x20
@@ -1080,33 +1080,33 @@ FUN_02062DB0: ; 0x02062DB0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
 	add r3, r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #0x0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0x1
 	add r1, r0, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0x0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x0
-	bl FUN_02018884
+	bl GetBgPriority
 	strh r0, [r4, #0x10]
 	add r0, r4, #0x0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	bl FUN_02018884
+	bl GetBgPriority
 	strh r0, [r4, #0x12]
 	mov r0, #0x0
 	mov r1, #0x2
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #0x1
 	add r1, r0, #0x0
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldrh r0, [r4, #0x1c]
 	ldr r2, _02062EB8 ; =0x000003E2
 	mov r1, #0x3
@@ -1169,7 +1169,7 @@ FUN_02062DB0: ; 0x02062DB0
 	add r1, #0xe4
 	mov r2, #0x3
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r4, #0xe4
 	add r0, r4, #0x0
 	mov r1, #0xff
@@ -1191,16 +1191,16 @@ FUN_02062EC4: ; 0x02062EC4
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0xe4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0xe4
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r1, #0xad
 	ldr r3, [r4, #0x0]
 	mov r0, #0x1
 	lsl r1, r1, #0x6
 	mov r2, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r2, #0x0
 	str r2, [sp, #0x0]
 	mov r0, #0x20
@@ -1213,25 +1213,25 @@ FUN_02062EC4: ; 0x02062EC4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
 	add r3, r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #0x0
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0x1
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldrh r1, [r4, #0x10]
 	mov r0, #0x0
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	ldrh r1, [r4, #0x12]
 	mov r0, #0x1
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_020178BC
+	bl SetBgPriority
 	add sp, #0x10
 	pop {r4, pc}
 
@@ -1381,7 +1381,7 @@ FUN_02063028: ; 0x02063028
 	ldr r0, [r0, #0x0]
 	add r1, #0xd4
 	mov r3, #0x4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0x0
 	add r0, #0xd4
 	mov r1, #0xff
@@ -1494,7 +1494,7 @@ _02063094:
 	add r5, #0xd0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x1c
 	pop {r4-r7, pc}
 	.balign 4
@@ -1522,14 +1522,14 @@ FUN_02063178: ; 0x02063178
 	bl ListMenuItems_dtor
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0xd4
 	mov r1, #0x0
 	bl FUN_0200CCF8
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xa6
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1538,7 +1538,7 @@ FUN_02063178: ; 0x02063178
 	add r4, #0xd0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r4, pc}
 
 	thumb_func_start FUN_020631C8
@@ -1866,7 +1866,7 @@ FUN_02063430: ; 0x02063430
 	ldr r0, [r0, #0x0]
 	add r1, #0xd4
 	mov r3, #0x4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0x0
 	ldr r2, _020634D0 ; =0x000003D9
 	add r0, #0xd4
@@ -1897,7 +1897,7 @@ FUN_02063430: ; 0x02063430
 	add r0, #0xd0
 	ldr r0, [r0, #0x0]
 	mov r2, #0x3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0x0
 	add r0, #0xf4
 	mov r1, #0x0
@@ -1916,7 +1916,7 @@ FUN_02063430: ; 0x02063430
 	add r4, #0xd0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x14
 	pop {r3-r4, pc}
 	nop
@@ -1929,20 +1929,20 @@ FUN_020634DC: ; 0x020634DC
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0xd4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0xd4
 	mov r1, #0x0
 	bl FUN_0200CCF8
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0x0
 	add r0, #0xf4
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0x0
 	add r0, #0xf4
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xa6
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]

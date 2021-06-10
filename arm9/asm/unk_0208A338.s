@@ -94,36 +94,36 @@ FUN_0208A400: ; 0x0208A400
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x18
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	beq _0208A41E
 	add r0, r4, #0x0
 	add r0, #0x18
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0x0
 	add r0, #0x18
 	bl InitWindow
 _0208A41E:
 	add r0, r4, #0x0
 	add r0, #0x28
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	beq _0208A43A
 	add r0, r4, #0x0
 	add r0, #0x28
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r4, #0x0
 	add r0, #0x28
 	bl InitWindow
 _0208A43A:
 	add r0, r4, #0x0
 	add r0, #0x38
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	beq _0208A456
 	add r0, r4, #0x0
 	add r0, #0x38
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, #0x38
 	add r0, r4, #0x0
 	bl InitWindow
@@ -455,7 +455,7 @@ _0208A6F4:
 	bl ReadMsgDataIntoString
 _0208A6FA:
 	add r0, r4, #0x0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	bne _0208A722
 	ldr r0, [r5, #0x0]
@@ -508,7 +508,7 @@ FUN_0208A760: ; 0x0208A760
 	add r4, r0, #0x0
 	add r4, #0x18
 	add r0, r4, #0x0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	beq _0208A778
 	add r0, r4, #0x0
@@ -526,7 +526,7 @@ FUN_0208A77C: ; 0x0208A77C
 	add r7, r5, #0x0
 	add r7, #0x28
 	add r0, r7, #0x0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	bne _0208A808
 	mov r0, #0x0
@@ -553,7 +553,7 @@ FUN_0208A77C: ; 0x0208A77C
 	ldr r0, [r0, #0x8]
 	mov r2, #0x3
 	mov r3, #0x11
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r7, #0x0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -614,7 +614,7 @@ FUN_0208A82C: ; 0x0208A82C
 	add r7, r5, #0x0
 	add r7, #0x38
 	add r0, r7, #0x0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	bne _0208A8B8
 	mov r0, #0x0
@@ -641,7 +641,7 @@ FUN_0208A82C: ; 0x0208A82C
 	ldr r0, [r0, #0x8]
 	mov r2, #0x3
 	mov r3, #0x19
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r7, #0x0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -779,7 +779,7 @@ _0208A954:
 	lsl r3, r3, #0x4
 	bl ListMenuUpdateCursorObj
 	ldr r0, [r4, #0x68]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	ldr r0, _0208A994 ; =0x000005DC
 	bl FUN_020054C8
 	mov r0, #0x0

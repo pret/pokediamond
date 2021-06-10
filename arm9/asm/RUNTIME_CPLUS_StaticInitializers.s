@@ -5,7 +5,7 @@
 
 	.global __global_destructor_chain
 __global_destructor_chain: ; 0x021D74C8
-	.space 0x18
+	.space 0xC
 
 	.text
 

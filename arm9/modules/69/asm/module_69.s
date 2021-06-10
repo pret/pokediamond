@@ -735,7 +735,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	sub sp, #0x14
 	add r4, r0, #0
 	mov r0, #0x3f
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #0x10]
 	ldr r0, _0222DCF4 ; =0x0222F8CC
 	bl GX_SetBanks
@@ -745,28 +745,28 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	and r0, r1
 	strh r0, [r2]
 	ldr r0, _0222DD00 ; =0x0222F7C4
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r0, [r4, #0x10]
 	ldr r2, _0222DD04 ; =0x0222F850
 	mov r1, #1
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x10]
 	ldr r2, _0222DD08 ; =0x0222F818
 	mov r1, #2
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x10]
 	ldr r2, _0222DD0C ; =0x0222F834
 	mov r1, #3
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r2, #0
 	str r2, [sp]
 	mov r1, #1
 	ldr r0, [r4, #0x10]
 	add r3, r1, #0
-	bl FUN_02017F48
+	bl BG_FillCharDataRange
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -776,7 +776,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	ldr r0, [r4, #0x10]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0
 	add r1, r4, #0
 	str r3, [sp]
@@ -789,17 +789,17 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	str r2, [sp, #0x10]
 	ldr r0, [r4, #0x10]
 	add r1, #0x14
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #0
 	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02019270
+	bl PutWindowTilemap
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -846,7 +846,7 @@ MOD69_0222DBAC: ; 0x0222DBAC
 	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r4, #0x10]
 	mov r1, #1
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _0222DD10 ; =0x04000040
 	mov r1, #0
 	strh r1, [r0]
@@ -900,16 +900,16 @@ MOD69_0222DD18: ; 0x0222DD18
 	str r0, [r2]
 	add r0, r4, #0
 	add r0, #0x14
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x10]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x10]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x10]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x10]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -2469,7 +2469,7 @@ _0222E9D8:
 	mov r1, #0x18
 	bl MOD69_0222E89C
 	ldr r0, [r4, #0x10]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	mov r0, #0x14
 	str r0, [r4, #0x30]
 	ldr r0, [r4, #0x34]
@@ -2490,7 +2490,7 @@ _0222E9FC:
 	mov r1, #0x58
 	bl MOD69_0222E89C
 	ldr r0, [r4, #0x10]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	mov r0, #0x14
 	str r0, [r4, #0x30]
 	ldr r0, [r4, #0x34]
@@ -2521,7 +2521,7 @@ _0222EA2E:
 	mov r1, #0x88
 	bl MOD69_0222E89C
 	ldr r0, [r4, #0x10]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	ldr r0, [r4, #0x34]
 	add r0, r0, #1
 	str r0, [r4, #0x34]
@@ -2595,7 +2595,7 @@ _0222EAEA:
 	ldr r0, [r4, #0xc]
 	lsr r1, r1, #0x18
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r4, #0
 	add r0, #0x14
 	bl MOD69_0222F6C0
@@ -2610,7 +2610,7 @@ _0222EB16:
 	mov r1, #0
 	bl FillWindowPixelBuffer
 	ldr r0, [r4, #0x10]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	ldr r0, [r4, #0x28]
 	add r0, r0, #1
 	str r0, [r4, #0x28]
@@ -2622,7 +2622,7 @@ _0222EB2C:
 	lsr r1, r1, #0x18
 	mov r2, #3
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r4, #0
 	bl MOD69_0222E204
 	add r0, r5, #0
@@ -2744,7 +2744,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	bl AddTextPrinterParameterized2
 	add r4, #0x14
 	add r0, r4, #0
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	add sp, #0x10
 	pop {r4, pc}
 	nop

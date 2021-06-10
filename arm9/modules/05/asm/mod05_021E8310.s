@@ -264,7 +264,7 @@ MOD05_021E84F4: ; 0x021E84F4
 	ldrb r2, [r4, #8]
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r4, #4]
@@ -301,7 +301,7 @@ MOD05_021E856C: ; 0x021E856C
 	mov r1, #0
 	bl FUN_0200CCF8
 	ldr r0, [r4, #0x10]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x10]
 	bl FreeToHeap
 	pop {r4, pc}
