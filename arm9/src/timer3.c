@@ -1,37 +1,37 @@
 #include "timer3.h"
 
-struct Timer3Data timer3_data;
+static BOOL timer3_needReset;
+static vu64 timer3_counter;
 
 
 THUMB_FUNC void Init_Timer3()
 {
-    timer3_data.Timer3Counter = 0;
-    timer3_data.NeedReset = FALSE;
+    timer3_counter = 0;
+    timer3_needReset = FALSE;
 
-    reg_OS_TM3CNT_H = 0;
-    reg_OS_TM3CNT_L = 0;
-    reg_OS_TM3CNT_H = 0xc1; // start timer3 with f/64 and irq enable
+    OS_SetTimerControl(OS_TIMER_3, 0);
+    OS_SetTimerCount(OS_TIMER_3, 0);
+    OS_SetTimerControl(OS_TIMER_3, REG_OS_TM3CNT_H_E_MASK | REG_OS_TM3CNT_H_I_MASK | OS_TIMER_PRESCALER_64); // start timer3 with f/64 and irq enable
 
-    OS_SetIrqFunction(0x40, &CountUpTimer3);
-    OS_EnableIrqMask(0x40); // irq on timer3 overflow
+    OS_SetIrqFunction(OS_IE_TIMER3, &CountUpTimer3);
+    OS_EnableIrqMask(OS_IE_TIMER3); // irq on timer3 overflow
 }
 
 
 THUMB_FUNC void CountUpTimer3()
 {
-    timer3_data.Timer3Counter++;
+    timer3_counter++;
 
-    if (timer3_data.NeedReset)
+    if (timer3_needReset)
     {
-        reg_OS_TM3CNT_H = 0;
-        reg_OS_TM3CNT_L = 0;
-        reg_OS_TM3CNT_H = 0xc1;
-        timer3_data.NeedReset = FALSE;
+        OS_SetTimerControl(OS_TIMER_3, 0);
+        OS_SetTimerCount(OS_TIMER_3, 0);
+        OS_SetTimerControl(OS_TIMER_3, REG_OS_TM3CNT_H_E_MASK | REG_OS_TM3CNT_H_I_MASK | OS_TIMER_PRESCALER_64);
+        timer3_needReset = FALSE;
     }
 
-    *(vu32 *)HW_INTR_CHECK_BUF |= 0x40;
-
-    OS_SetIrqFunction(0x40, &CountUpTimer3);
+    OS_SetIrqCheckFlag(OS_IE_TIMER3);
+    OS_SetIrqFunction(OS_IE_TIMER3, &CountUpTimer3);
 }
 
 THUMB_FUNC u64 internal_GetTimer3Count()
@@ -39,15 +39,15 @@ THUMB_FUNC u64 internal_GetTimer3Count()
     OSIntrMode intr_mode = OS_DisableInterrupts();
 
     vu16 timer3 = reg_OS_TM3CNT_L;
-    vu64 timer3_counter = timer3_data.Timer3Counter & 0x0000ffffffffffff;
+    vu64 counter = timer3_counter & 0x0000ffffffffffff;
 
-    if (reg_OS_IF & 0x40 && !(timer3 & 0x8000))
+    if (reg_OS_IF & OS_IE_TIMER3 && !(timer3 & 0x8000))
     {
-        timer3_counter++;
+        counter++;
     }
 
     OS_RestoreInterrupts(intr_mode);
-    return (timer3_counter << 16) | timer3;
+    return (counter << 16) | timer3;
 }
 
 THUMB_FUNC u64 GetTimer3Count()
@@ -57,10 +57,10 @@ THUMB_FUNC u64 GetTimer3Count()
 
 THUMB_FUNC u64 Timer3CountToMilliSeconds(u64 count)
 {
-    return (count *64) / 33514;
+    return (count * 64) / (HW_SYSTEM_CLOCK / 1000);
 }
 
 THUMB_FUNC u64 Timer3CountToSeconds(u64 count)
 {
-    return (count *64) / HW_SYSTEM_CLOCK;
+    return (count * 64) / HW_SYSTEM_CLOCK;
 }

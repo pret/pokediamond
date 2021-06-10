@@ -274,7 +274,7 @@ _021E1CA8:
 	ldr r0, [r0, #8]
 	add r1, #8
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #4
@@ -545,7 +545,7 @@ MOD05_021E1ECC: ; 0x021E1ECC
 	add r0, r6, #0
 	add r0, #0xa8
 	ldr r0, [r0]
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r4, #0
 	add r5, r6, #0
 _021E1EFC:
@@ -685,7 +685,7 @@ _021E1FC8:
 	ldr r0, [r0, #8]
 	add r1, #8
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	b _021E2032
 _021E2002:
 	add r1, r4, #0
@@ -710,7 +710,7 @@ _021E2002:
 	ldr r0, [r0, #8]
 	add r1, #8
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 _021E2032:
 	mov r0, #0
 	str r0, [sp]
@@ -1142,7 +1142,7 @@ MOD05_021E2368: ; 0x021E2368
 	bl FUN_0200CCF8
 	add r0, r6, #0
 	add r0, #8
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r4, #0
 	add r5, r6, #0
 _021E2398:
@@ -1291,7 +1291,7 @@ _021E2496:
 	ldr r0, [r0, #8]
 	add r1, #8
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #4
@@ -1411,7 +1411,7 @@ MOD05_021E25A4: ; 0x021E25A4
 	add r0, r6, #0
 	add r0, #0xa8
 	ldr r0, [r0]
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r4, #0
 	add r5, r6, #0
 _021E25D0:
@@ -1626,7 +1626,7 @@ _021E270A:
 	ldr r0, [r0, #8]
 	add r1, #8
 	mov r2, #3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #4
@@ -1733,7 +1733,7 @@ MOD05_021E27E8: ; 0x021E27E8
 	add r1, r4, #0
 	mov r2, #3
 	add r3, r7, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #4
@@ -1791,7 +1791,7 @@ MOD05_021E288C: ; 0x021E288C
 	bl FUN_0200CCF8
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E28A0
@@ -1865,7 +1865,7 @@ MOD05_021E28A0: ; 0x021E28A0
 	ldr r0, [sp, #0xc]
 	bl DestroyMsgData
 	add r0, r5, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 
@@ -1893,7 +1893,7 @@ MOD05_021E2950: ; 0x021E2950
 	add r1, r4, #0
 	mov r2, #3
 	add r3, r7, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #4
@@ -1925,7 +1925,7 @@ MOD05_021E29B4: ; 0x021E29B4
 	bl FUN_0200CCF8
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E29C8
@@ -1992,7 +1992,7 @@ MOD05_021E29C8: ; 0x021E29C8
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2022,7 +2022,7 @@ MOD05_021E2A70: ; 0x021E2A70
 	add r1, r4, #0
 	mov r2, #3
 	add r3, r7, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #4
@@ -2112,7 +2112,7 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

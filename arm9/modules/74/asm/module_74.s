@@ -343,7 +343,7 @@ MOD74_021D7784: ; 0x021D7784
 	bl MOD74_021D82E8
 	bl NNS_GfdDoVramTransfer
 	ldr r0, [r4, #0x10]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D77A4 ; =0x027E0000
 	ldr r1, _021D77A8 ; =0x00003FF8
 	mov r0, #1
@@ -584,7 +584,7 @@ MOD74_021D7934: ; 0x021D7934
 	sub sp, #0x64
 	add r5, r0, #0
 	ldr r0, [r5]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0
 	ldr r4, _021D79C0 ; =0x021D84A0
 	str r0, [r5, #0x10]
@@ -594,7 +594,7 @@ MOD74_021D7934: ; 0x021D7934
 	ldmia r4!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r4, _021D79C4 ; =0x021D8570
 	add r3, sp, #0x10
 	mov r2, #0xa
@@ -618,11 +618,11 @@ _021D7976:
 	lsr r1, r1, #0x18
 	add r2, r6, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	lsl r1, r4, #0x18
 	ldr r0, [r5, #0x10]
 	lsr r1, r1, #0x18
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldrh r0, [r5, #8]
 	add r7, r7, #1
 	add r4, r4, #1
@@ -635,7 +635,7 @@ _021D799C:
 	ldr r3, [r5]
 	mov r1, #0x20
 	add r2, r0, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldrh r0, [r5, #8]
 	cmp r0, #0
 	beq _021D79BA
@@ -643,7 +643,7 @@ _021D799C:
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 _021D79BA:
 	add sp, #0x64
 	pop {r4, r5, r6, r7, pc}
@@ -667,7 +667,7 @@ _021D79D8:
 	ldr r0, [r6, #0x10]
 	lsr r1, r1, #0x18
 	add r5, r5, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldrh r0, [r6, #8]
 	add r4, r4, #1
 	add r0, r0, #2
@@ -747,7 +747,7 @@ _021D7A5A:
 	bl NARC_dtor
 	ldr r0, [r5, #0x10]
 	mov r1, #1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x14
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -768,7 +768,7 @@ _021D7A9A:
 	ldr r0, [r6, #0x10]
 	add r1, r5, #0
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r5, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -787,7 +787,7 @@ _021D7AC0:
 	ldr r0, [r6, #0x10]
 	add r1, r5, #0
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r5, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -825,9 +825,9 @@ _021D7AFE:
 	add r5, #0x6c
 _021D7B08:
 	add r0, r5, #0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, r6
@@ -1667,7 +1667,7 @@ MOD74_021D81E0: ; 0x021D81E0
 	bl FillWindowPixelBuffer
 	add r0, r4, #0
 	add r0, #0x8c
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0
 	mov r1, #1
 	bl MOD74_021D8388

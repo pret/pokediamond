@@ -76,7 +76,7 @@ THUMB_FUNC u8 RunScriptCommand(struct ScriptContext *ctx)
             cmdCode = ScriptReadHalfword(ctx);
             if (cmdCode >= ctx->cmdCount)
             {
-                GF_AssertFail();
+                GF_ASSERT(0);
                 ctx->mode = 0;
                 return FALSE;
             }

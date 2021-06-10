@@ -517,13 +517,8 @@ THUMB_FUNC BOOL FUN_0200C00C(u32 *param0,
         return TRUE;
     }
 
-    GF_AssertFail();
-    if (r5 != 0)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+    GF_ASSERT(0);
+    return r5 != 0 ? TRUE : FALSE;
 }
 
 THUMB_FUNC s32 FUN_0200C06C(u32 *param0,
@@ -549,7 +544,7 @@ THUMB_FUNC s32 FUN_0200C06C(u32 *param0,
         return (s8)FUN_02009E88(r5, param6);
     }
 
-    GF_AssertFail();
+    GF_ASSERT(0);
     return -1;
 }
 
@@ -721,7 +716,7 @@ THUMB_FUNC struct UnkStruct_0200BB14_5 *FUN_0200C154(
     }
     else
     {
-        GF_AssertFail();
+        GF_ASSERT(0);
     }
 
     return ptr;
@@ -805,13 +800,8 @@ THUMB_FUNC BOOL FUN_0200C404(u32 *param0,
         GF_ASSERT(r4 == 1);
         return r4;
     }
-    GF_AssertFail();
-    if (r5 != 0)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+    GF_ASSERT(0);
+    return r5 != 0 ? TRUE : FALSE;
 }
 
 THUMB_FUNC BOOL FUN_0200C474(u32 *param0, u32 param1)
@@ -1259,13 +1249,8 @@ THUMB_FUNC BOOL FUN_0200C918(u32 *param0,
         return TRUE;
     }
 
-    GF_AssertFail();
-    if (r5 != 0)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+    GF_ASSERT(0);
+    return r5 != 0 ? TRUE : FALSE;
 }
 
 THUMB_FUNC BOOL FUN_0200C978(u32 *param0,
@@ -1290,13 +1275,8 @@ THUMB_FUNC BOOL FUN_0200C978(u32 *param0,
         return TRUE;
     }
 
-    GF_AssertFail();
-    if (r5 != 0)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+    GF_ASSERT(0);
+    return r5 != 0 ? TRUE : FALSE;
 }
 
 THUMB_FUNC void FUN_0200C9D8(

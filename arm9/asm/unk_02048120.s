@@ -34,12 +34,12 @@ FUN_02048120: ; 0x02048120
 	ldr r0, _02048158 ; =UNK_020F465C
 	bl GX_SetBanks
 	ldr r0, _0204815C ; =UNK_020F4630
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r2, _02048160 ; =UNK_020F4640
 	add r0, r4, #0x0
 	mov r1, #0x3
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0x20
 	str r0, [sp, #0x0]
 	mov r0, #0xb
@@ -77,7 +77,7 @@ _0204817A:
 	str r0, [r4, #0x0]
 	str r5, [r4, #0x4]
 	mov r0, #0xb
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #0x8]
 	bl FUN_02048120
 	mov r2, #0x52
@@ -94,7 +94,7 @@ _0204817A:
 	ldr r0, [r4, #0x8]
 	ldr r2, _02048208 ; =UNK_020F4628
 	add r1, #0xc
-	bl FUN_02019150
+	bl AddWindow
 	add r0, r5, #0x0
 	bl ScriptEnvironment_GetSav2Ptr
 	bl Sav2_PlayerData_GetProfileAddr
@@ -221,14 +221,14 @@ _020482B2:
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0xc
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x20]
 	bl ScrStrBufs_delete
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x8]
 	mov r1, #0x3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x8]
 	bl FreeToHeap
 	add r0, r4, #0x0

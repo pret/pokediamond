@@ -5,12 +5,6 @@
 #include "global.h"
 #include "gx.h"
 
-struct GX_LayerData
-{
-    u32 EngineB_DISPCNT_LayerMask;
-    u32 EngineA_DISPCNT_LayerMask;
-};
-
 
 typedef enum {
     GX_LAYER_TOGGLE_OFF,

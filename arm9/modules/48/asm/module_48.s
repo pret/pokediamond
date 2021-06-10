@@ -426,7 +426,7 @@ MOD48_02254B30: ; 0x02254B30
 	ldr r2, _02254BBC ; =MOD48_02254F78
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -490,7 +490,7 @@ MOD48_02254BC8: ; 0x02254BC8
 	bl MOD48_02254EC0
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD48_02254B1C
 	pop {r3, r4, r5, pc}

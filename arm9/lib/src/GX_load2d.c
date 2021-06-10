@@ -195,7 +195,7 @@ ARM_FUNC void GX_EndLoadOBJExtPltt(){
 }
 
 ARM_FUNC void GXS_BeginLoadBGExtPltt(){
-    sSubBGExtPltt = (s32)FUN_020C6034();
+    sSubBGExtPltt = (s32)GX_ResetBankForSubBGExtPltt();
 }
 
 ARM_FUNC void GXS_LoadBGExtPltt(void *src, u32 offset, u32 size){
@@ -209,7 +209,7 @@ ARM_FUNC void GXS_EndLoadBGExtPltt(){
 }
 
 ARM_FUNC void GXS_BeginLoadOBJExtPltt(){
-    sSubOBJExtPltt = (s32)GX_ResetBankForSubOBJ();
+    sSubOBJExtPltt = (s32)GX_ResetBankForSubOBJExtPltt();
 }
 
 ARM_FUNC void GXS_LoadOBJExtPltt(void *src, u32 offset, u32 size){

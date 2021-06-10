@@ -432,7 +432,7 @@ THUMB_FUNC s32 FUN_0202E844(u32 param0)
         count++;
     }
 
-    GF_AssertFail();
+    GF_ASSERT(0);
     return 0;
 }
 

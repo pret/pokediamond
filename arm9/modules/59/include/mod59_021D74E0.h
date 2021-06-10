@@ -23,7 +23,7 @@ typedef struct MOD59_OverlayData
     u32 Unk0C;
     u32 Unk10;
     struct UnkStruct_02006234 *Unk14;
-    struct UnkStruct_02016B94_2 *Unk18;
+    struct BgConfig *Unk18;
     u8 padding[0x54];
     struct MOD59_UnkPlayerStruct *playerStruct;
     struct MOD59_UnkPlayerStruct *rivalStruct;

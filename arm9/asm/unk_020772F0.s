@@ -742,7 +742,7 @@ _020772FE:
 	add r4, r0, #0x0
 	bl memset
 	mov r0, #0x12
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	mov r1, #0x16
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
@@ -1526,7 +1526,7 @@ _020779C2:
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	mov r1, #0x7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	mov r0, #0x16
@@ -1716,7 +1716,7 @@ FUN_02077B44: ; 0x02077B44
 	ldmia r5!, {r0-r1}
 	stmia r3!, {r0-r1}
 	add r0, r2, #0x0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _02077C6C ; =UNK_020F9EC0
 	add r3, sp, #0x54
 	ldmia r5!, {r0-r1}
@@ -1731,10 +1731,10 @@ FUN_02077B44: ; 0x02077B44
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02077C70 ; =UNK_020F9FA0
 	add r3, sp, #0x38
 	ldmia r5!, {r0-r1}
@@ -1749,10 +1749,10 @@ FUN_02077B44: ; 0x02077B44
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02077C74 ; =UNK_020FA064
 	add r3, sp, #0x1c
 	ldmia r5!, {r0-r1}
@@ -1767,10 +1767,10 @@ FUN_02077B44: ; 0x02077B44
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _02077C78 ; =UNK_020F9DFC
 	add r3, sp, #0x0
 	ldmia r5!, {r0-r1}
@@ -1785,22 +1785,22 @@ FUN_02077B44: ; 0x02077B44
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x0
 	bl FUN_02077C84
 	mov r0, #0x0
 	mov r1, #0x20
 	add r2, r0, #0x0
 	mov r3, #0x12
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x4
 	mov r1, #0x20
 	mov r2, #0x0
 	mov r3, #0x12
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x1
 	lsl r0, r0, #0x1a
 	add r4, r0, #0x0
@@ -1911,7 +1911,7 @@ FUN_02077CD4: ; 0x02077CD4
 	ldr r3, [r3, r5]
 	lsr r1, r1, #0x18
 	mov r2, #0x0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r3, [r4, r6]
 	mov r5, #0xc
 	mov r0, #0x16
@@ -1924,7 +1924,7 @@ FUN_02077CD4: ; 0x02077CD4
 	ldr r3, [r3, r6]
 	lsr r1, r1, #0x18
 	mov r2, #0x3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r6, _02077E80 ; =0x00000464
 	mov r0, #0x1
 	ldr r1, [r4, r6]
@@ -1941,7 +1941,7 @@ FUN_02077CD4: ; 0x02077CD4
 	ldr r3, [r3, r5]
 	lsr r1, r1, #0x18
 	mov r2, #0x0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r1, [r4, r6]
 	mov r0, #0x1
 	add r3, r1, #0x0
@@ -1957,7 +1957,7 @@ FUN_02077CD4: ; 0x02077CD4
 	ldr r3, [r3, r6]
 	lsr r1, r1, #0x18
 	mov r2, #0x3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r1, #0x46
 	ldr r0, _02077E84 ; =0x0000FFFF
 	lsl r1, r1, #0x2
@@ -2231,23 +2231,23 @@ FUN_02077FA8: ; 0x02077FA8
 	mov r4, #0x0
 _02077FB0:
 	add r0, r5, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #0x1
 	add r5, #0x10
 	cmp r4, #0xa
 	blt _02077FB0
 	add r0, r6, #0x0
 	mov r1, #0x4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r6, #0x0
 	mov r1, #0x2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r6, #0x0
 	mov r1, #0x1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	mov r0, #0x12
 	add r1, r6, #0x0
 	bl FreeToHeapExplicit
@@ -2281,7 +2281,7 @@ FUN_02077FE8: ; 0x02077FE8
 	bl GfGfxLoader_GXLoadPal
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x2
@@ -3159,14 +3159,14 @@ _0207873C:
 	lsr r1, r1, #0x18
 	mov r2, #0x0
 	mov r3, #0xee
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r2, #0x3
 	lsl r1, r6, #0x18
 	add r3, r2, #0x0
 	ldr r0, [sp, #0x10]
 	lsr r1, r1, #0x18
 	sub r3, #0x53
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r5, #0x0]
 	add sp, #0x28
 	add r0, r0, #0x1
@@ -3236,14 +3236,14 @@ _020787D8:
 	ldr r3, [r4, r3]
 	lsr r1, r1, #0x18
 	mov r2, #0x0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r1, [sp, #0x18]
 	ldr r0, [sp, #0x10]
 	lsl r1, r1, #0x18
 	ldr r3, [r5, r7]
 	lsr r1, r1, #0x18
 	mov r2, #0x3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add sp, #0x28
 	pop {r3-r7, pc}
 _020787FC:
@@ -3275,7 +3275,7 @@ _02078820:
 	ldr r3, [r4, r3]
 	lsr r1, r1, #0x18
 	mov r2, #0x0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r1, [sp, #0x18]
 	ldr r3, [sp, #0x20]
 	lsl r1, r1, #0x18
@@ -3283,7 +3283,7 @@ _02078820:
 	ldr r3, [r7, r3]
 	lsr r1, r1, #0x18
 	mov r2, #0x3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [sp, #0x24]
 	mov r1, #0xa
 	ldr r0, [r4, r0]
@@ -3400,7 +3400,7 @@ FUN_0207890C: ; 0x0207890C
 	add r1, r5, r1
 	mov r2, #0x0
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r2, #0x1
 	mov r1, #0xf2
 	lsl r1, r1, #0x2
@@ -3417,7 +3417,7 @@ FUN_0207890C: ; 0x0207890C
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x4
 	bne _020789AE
@@ -3491,7 +3491,7 @@ _020789D8:
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	mov r3, #0x7
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r1, [r5, #0xc]
 	mov r0, #0xc
 	add r2, r1, #0x0
@@ -3519,7 +3519,7 @@ _020789D8:
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	mov r3, #0xa
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xfa
 	lsl r0, r0, #0x2
 	add r0, r5, r0
@@ -3544,7 +3544,7 @@ _020789D8:
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	lsr r3, r3, #0x18
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _02078B74 ; =0x00000438
 	mov r1, #0x1
 	add r0, r5, r0
@@ -3577,7 +3577,7 @@ _02078A90:
 	ldr r0, [r5, r0]
 	add r1, r5, r1
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _02078B78 ; =0x00000448
 	mov r1, #0xf
 	add r0, r5, r0
@@ -3637,7 +3637,7 @@ _02078B0E:
 	add r1, r7, r6
 	mov r2, #0x2
 	mov r3, #0x0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r7, r6
 	mov r1, #0x0
 	bl FillWindowPixelBuffer
@@ -3657,7 +3657,7 @@ _02078B0E:
 	add r0, #0xdc
 	ldr r0, [r5, r0]
 	add r1, r5, r1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, _02078B84 ; =0x00000428
 	mov r1, #0x0
 	add r0, r5, r0
@@ -3680,13 +3680,13 @@ FUN_02078B88: ; 0x02078B88
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #0x1
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #0x1
 	eor r0, r4
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #0x2
-	bl FUN_020178BC
+	bl SetBgPriority
 	pop {r4, pc}
 	.balign 4
 

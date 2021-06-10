@@ -590,7 +590,7 @@ MOD26_02254C60: ; 0x02254C60
 	ldr r2, _02254CB8 ; =MOD26_02254FD4
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r5, #4]
 	bl MOD26_02254CC4
 	ldr r0, [r5, #4]
@@ -601,7 +601,7 @@ MOD26_02254C60: ; 0x02254C60
 	bl MOD20_02252D7C
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254CBC ; =0x04001000
 	ldr r0, _02254CC0 ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -702,7 +702,7 @@ _02254CEC:
 	ldr r2, [sp, #0x1c]
 	mov r1, #6
 	lsl r3, r3, #8
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0x1c]
 	bl FreeToHeap
 _02254D68:
@@ -722,7 +722,7 @@ MOD26_02254D6C: ; 0x02254D6C
 	bl MOD26_02254DAC
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD26_02254C4C
 	pop {r3, r4, r5, pc}
@@ -736,7 +736,7 @@ MOD26_02254D90: ; 0x02254D90
 	bl MOD20_022538A0
 	ldr r0, [r0, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl MOD26_02254C4C
 	pop {r4, pc}
@@ -748,7 +748,7 @@ MOD26_02254DAC: ; 0x02254DAC
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r1, #0
 	mov r1, #6
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r5, #0
 	ldr r1, _02254DE0 ; =MOD26_02254FD0
 	add r0, #0x84

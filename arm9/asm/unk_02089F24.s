@@ -83,18 +83,18 @@ FUN_02089F24: ; 0x02089F24
 	ldr r0, _0208A0A0 ; =UNK_020FF418
 	bl GX_SetBanks
 	add r0, r4, #0x0
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r5, r0, #0x0
 	ldr r0, _0208A0A4 ; =UNK_020FF3EC
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r1, #0x0
 	ldr r2, _0208A0A8 ; =UNK_020FF3FC
 	add r0, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r2, _0208A0AC ; =0x000001F7
@@ -110,13 +110,13 @@ FUN_02089F24: ; 0x02089F24
 	mov r1, #0x20
 	add r2, r0, #0x0
 	add r3, r4, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _0208A0B0 ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _0208A0B0 ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0x5
@@ -132,7 +132,7 @@ FUN_02089F24: ; 0x02089F24
 	ldr r2, _0208A0B4 ; =UNK_020FF3E4
 	add r0, r5, #0x0
 	add r1, sp, #0xc
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd0
 	str r0, [sp, #0x0]
 	mov r0, #0x90
@@ -252,18 +252,18 @@ _0208A0C8:
 	ldr r0, _0208A240 ; =UNK_020FF474
 	bl GX_SetBanks
 	add r0, r4, #0x0
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r5, r0, #0x0
 	ldr r0, _0208A244 ; =UNK_020FF448
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r1, #0x0
 	ldr r2, _0208A248 ; =UNK_020FF458
 	add r0, r5, #0x0
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r2, _0208A24C ; =0x000001F7
@@ -279,13 +279,13 @@ _0208A0C8:
 	mov r1, #0x20
 	add r2, r0, #0x0
 	add r3, r4, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _0208A250 ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _0208A250 ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0x6
@@ -301,7 +301,7 @@ _0208A0C8:
 	ldr r2, _0208A254 ; =UNK_020FF440
 	add r0, r5, #0x0
 	add r1, sp, #0xc
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd0
 	str r0, [sp, #0x0]
 	mov r0, #0x90

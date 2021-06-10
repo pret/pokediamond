@@ -258,7 +258,7 @@ FUN_020144B0: ; 0x020144B0
 	mov r2, #0x20
 	lsl r3, r3, #0x15
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	pop {r3, pc}
 	.balign 4
 
@@ -272,7 +272,7 @@ FUN_020144C8: ; 0x020144C8
 	mov r2, #0x20
 	lsl r3, r3, #0x15
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	pop {r3, pc}
 	.balign 4
 

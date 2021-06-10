@@ -468,7 +468,7 @@ _02002700:
 	ldrb r2, [r2, #0x0]
 	ldrb r3, [r3, #0x0]
 	ldr r0, [r4, #0x4]
-	bl FUN_0201974C
+	bl CopyGlyphToWindow
 	add r5, #0x80
 	ldrb r1, [r5, #0x0]
 	ldrb r0, [r4, #0xe]
@@ -677,13 +677,13 @@ _0200288E:
 	pop {r4-r7, pc}
 _020028AC:
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x20]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x24]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x28]
 	ldr r0, [r5, #0x4]
 	bl GetWindowWidth
@@ -723,7 +723,7 @@ _020028AC:
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x20]
 	add r0, r0, #0x2
@@ -752,7 +752,7 @@ _020028AC:
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x28]
 	add r7, r6, #0x0
 	add r0, r0, #0x3
@@ -781,7 +781,7 @@ _020028AC:
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x14]
 	add r6, #0x15
 	lsl r0, r0, #0x18
@@ -807,11 +807,11 @@ _020028AC:
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #0x4]
 	ldr r1, [sp, #0x20]
 	ldr r0, [r0, #0x0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldrb r1, [r4, #0x1]
 	mov r0, #0x1f
 	bic r1, r0
@@ -844,13 +844,13 @@ FUN_02002A00: ; 0x02002A00
 	sub sp, #0x18
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x14]
 	ldr r0, [r5, #0x4]
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x4]
 	bl GetWindowWidth
@@ -878,7 +878,7 @@ FUN_02002A00: ; 0x02002A00
 	ldr r1, [sp, #0x10]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -897,11 +897,11 @@ FUN_02002A00: ; 0x02002A00
 	ldr r1, [sp, #0x10]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #0x4]
 	ldr r1, [sp, #0x10]
 	ldr r0, [r0, #0x0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x18
 	pop {r3-r7, pc}
 	nop

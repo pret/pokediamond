@@ -875,7 +875,7 @@ MOD22_02254E8C: ; 0x02254E8C
 	bl MOD20_02252D24
 	str r0, [r4, #0x5c]
 	mov r0, #8
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #4]
 	cmp r0, #0
 	bne _02254EBA
@@ -1152,7 +1152,7 @@ MOD22_02255098: ; 0x02255098
 	ldr r2, _0225515C ; =MOD22_02255654
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1182,7 +1182,7 @@ MOD22_02255098: ; 0x02255098
 	bl MOD20_02252D7C
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r7, #0
 	bl MOD20_022538A0
 	add r4, r0, #0
@@ -1356,7 +1356,7 @@ MOD22_02255230: ; 0x02255230
 	bl MOD22_02255544
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD22_02255084
 	pop {r3, r4, r5, pc}
@@ -1384,7 +1384,7 @@ MOD22_02255268: ; 0x02255268
 	bl MOD22_02255544
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _022552A8 ; =0x00000669
 	bl MOD20_02252B28
 	add r0, r5, #0
@@ -1428,7 +1428,7 @@ _022552DC:
 	bl MOD22_02255544
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD20_022538B0
 	pop {r4, r5, r6, pc}
@@ -1488,7 +1488,7 @@ _02255358:
 	bl MOD22_02255544
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 _0225537A:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1549,7 +1549,7 @@ _022553D8:
 	bl MOD22_02255544
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 _022553FA:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1597,7 +1597,7 @@ _0225543A:
 	bl MOD22_02255544
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _02255498 ; =0x00000666
 	bl MOD20_02252B28
 	add r0, r6, #0
@@ -1623,7 +1623,7 @@ _02255468:
 	bl MOD22_02255544
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 _02255496:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1668,7 +1668,7 @@ _022554D6:
 	bl MOD22_02255544
 	ldr r0, [r6, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add r0, r5, #0
 	bl MOD20_022538B0
 	mov r0, #0
@@ -1722,7 +1722,7 @@ MOD22_02255544: ; 0x02255544
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r1, #0
 	mov r1, #6
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r1, _022555A0 ; =0x00000252
 	mov r7, #1
 	add r1, r0, r1
@@ -1797,7 +1797,7 @@ _022555CC:
 	bl MOD20_02254014
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	add r0, #0x84
 	ldr r0, [r0]

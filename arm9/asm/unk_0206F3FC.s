@@ -774,7 +774,7 @@ _0206F914:
 	mov r0, #0x8d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	ldr r0, _0206F974 ; =0x000006FC
 	mov r1, #0x0
 	ldr r0, [r4, r0]
@@ -1037,7 +1037,7 @@ _0206FB54: .word 0x00000B34
 FUN_0206FB58: ; 0x0206FB58
 	push {r3, lr}
 	ldr r0, [r0, #0x0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
 	bl FUN_0200BC30
 	ldr r3, _0206FB78 ; =0x027E0000
@@ -1083,7 +1083,7 @@ FUN_0206FBA0: ; 0x0206FBA0
 	ldmia r5!, {r0-r1}
 	stmia r3!, {r0-r1}
 	add r0, r2, #0x0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _0206FCBC ; =UNK_020F94D4
 	add r3, sp, #0x8c
 	ldmia r5!, {r0-r1}
@@ -1098,10 +1098,10 @@ FUN_0206FBA0: ; 0x0206FBA0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0206FCC0 ; =UNK_020F94F0
 	add r3, sp, #0x70
 	ldmia r5!, {r0-r1}
@@ -1116,10 +1116,10 @@ FUN_0206FBA0: ; 0x0206FBA0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0206FCC4 ; =UNK_020F949C
 	add r3, sp, #0x54
 	ldmia r5!, {r0-r1}
@@ -1134,10 +1134,10 @@ FUN_0206FBA0: ; 0x0206FBA0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0206FCC8 ; =UNK_020F9480
 	add r3, sp, #0x38
 	ldmia r5!, {r0-r1}
@@ -1152,7 +1152,7 @@ FUN_0206FBA0: ; 0x0206FBA0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _0206FCCC ; =UNK_020F950C
 	add r3, sp, #0x1c
 	ldmia r5!, {r0-r1}
@@ -1167,10 +1167,10 @@ FUN_0206FBA0: ; 0x0206FBA0
 	add r0, r4, #0x0
 	mov r1, #0x4
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0206FCD0 ; =UNK_020F9528
 	add r3, sp, #0x0
 	ldmia r5!, {r0-r1}
@@ -1185,17 +1185,17 @@ FUN_0206FBA0: ; 0x0206FBA0
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0x0
 	mov r1, #0x20
 	add r2, r0, #0x0
 	mov r3, #0xc
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x4
 	mov r1, #0x20
 	mov r2, #0x0
 	mov r3, #0xc
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0xb8
 	pop {r3-r5, pc}
 	nop
@@ -1219,22 +1219,22 @@ FUN_0206FCD4: ; 0x0206FCD4
 	bl GX_EngineBToggleLayers
 	add r0, r4, #0x0
 	mov r1, #0x5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	mov r0, #0xc
 	add r1, r4, #0x0
 	bl FreeToHeapExplicit
@@ -1282,7 +1282,7 @@ FUN_0206FD24: ; 0x0206FD24
 	mov r3, #0x0
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r1, [sp, #0x10]
 	ldr r0, _0206FE6C ; =0x000004A4
 	ldr r1, [r1, #0xc]
@@ -1382,10 +1382,10 @@ FUN_0206FD24: ; 0x0206FD24
 	bl FUN_020724D4
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x14
 	pop {r4-r5, pc}
 	.balign 4
@@ -1408,7 +1408,7 @@ FUN_0206FE74: ; 0x0206FE74
 	ldr r1, _0206FF54 ; =0x000005A4
 	str r0, [r6, r1]
 	mov r0, #0xc
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r6, #0x0]
 	ldr r0, _0206FF54 ; =0x000005A4
 	ldr r1, [r6, r0]
@@ -2090,7 +2090,7 @@ _020703F2:
 	mov r1, #0x2
 	add r2, r6, #0x0
 	add r3, r7, #0x0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	add r0, sp, #0x20
 	ldrb r0, [r0, #0x10]
 	cmp r0, #0x0
@@ -2111,7 +2111,7 @@ _020703F2:
 	mov r1, #0x2
 	mov r2, #0x17
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 _0207044C:
 	mov r0, #0x10
 	str r0, [sp, #0x0]
@@ -2125,7 +2125,7 @@ _0207044C:
 	mov r1, #0x2
 	add r2, r6, #0x0
 	add r3, r7, #0x0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl FUN_020709FC
@@ -2185,10 +2185,10 @@ _020704CC:
 _020704D2:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	pop {r4, pc}
 	.balign 4
 _020704E4: .word 0x000005A4
@@ -2775,7 +2775,7 @@ FUN_02070988: ; 0x02070988
 	mov r1, #0x2
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	mov r0, #0x10
 	str r0, [sp, #0x0]
 	mov r0, #0x6
@@ -2788,7 +2788,7 @@ FUN_02070988: ; 0x02070988
 	mov r1, #0x2
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x7
@@ -2868,7 +2868,7 @@ _02070A60:
 	mov r0, #0x2
 	mov r2, #0x10
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	pop {r4-r6, pc}
 	.balign 4
 _02070A78: .word 0x000005A4
@@ -3147,7 +3147,7 @@ _02070C6E:
 	bl FUN_020717E8
 	ldr r0, [r5, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 _02070CA6:
 	cmp r4, #0x6
 	beq _02070CB2
@@ -3433,7 +3433,7 @@ _02070ECC:
 	bl FUN_020717E8
 	ldr r0, [r5, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 _02070EFE:
 	add sp, #0x10
 	pop {r4-r6, pc}
@@ -3480,7 +3480,7 @@ _02070F30:
 	bl FUN_020717E8
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0xb2
 	lsl r0, r0, #0x4
 	ldrb r1, [r4, r0]
@@ -3495,7 +3495,7 @@ _02070F70:
 	bl FUN_020717E8
 	ldr r0, [r4, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0xb2
 	mov r1, #0x0
 	lsl r0, r0, #0x4
@@ -4602,7 +4602,7 @@ FUN_020717E8: ; 0x020717E8
 	add r5, r1, #0x0
 	add r4, r2, #0x0
 	mov r1, #0x4
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	lsl r1, r5, #0x1
 	mov r3, #0x19
 	add r5, r4, #0x0
@@ -4696,7 +4696,7 @@ _02071886:
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
 	mov r1, #0x4
-	bl FUN_0201AFBC
+	bl DoesPixelAtScreenXYMatchPtrVal
 	cmp r0, #0x0
 	bne _020718BA
 	mov r0, #0x0

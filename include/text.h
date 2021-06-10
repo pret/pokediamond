@@ -3,7 +3,7 @@
 
 #include "global.h"
 #include "font.h"
-#include "unk_02016B94.h"
+#include "bg_window.h"
 
 
 #define CHAR_0        0x00A2
