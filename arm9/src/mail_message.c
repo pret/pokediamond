@@ -3,6 +3,7 @@
 #include "script_buffers.h"
 #include "unk_0201B8B8.h"
 #include "mail_message.h"
+#include "msgdata/msg.naix"
 
 #pragma thumb on
 
@@ -19,11 +20,11 @@ struct UnkStruct_020ED556
 extern u16 GetECWordIndexByPair(s16 bank, u16 num);
 
 const u16 UNK_020ED54C[] = {
-    397,
-    399,
-    395,
-    396,
-    398
+    NARC_msg_narc_0397_bin,
+    NARC_msg_narc_0399_bin,
+    NARC_msg_narc_0395_bin,
+    NARC_msg_narc_0396_bin,
+    NARC_msg_narc_0398_bin
 };
 
 const struct UnkStruct_020ED556 UNK_020ED556[] = {
@@ -155,7 +156,7 @@ u16 MailMsg_GetMsgNo(struct MailMessage * mailMsg)
     return mailMsg->msg_no;
 }
 
-BOOL MailMsg_compare(struct MailMessage * mailMsg, struct MailMessage * a1)
+BOOL MailMsg_compare(const struct MailMessage *mailMsg, const struct MailMessage *a1)
 {
     s32 i;
     if (mailMsg->msg_bank != a1->msg_bank || mailMsg->msg_no != a1->msg_no)

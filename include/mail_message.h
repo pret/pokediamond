@@ -20,7 +20,7 @@ u32 MailMsg_NumFields(u16 bank, u16 num);
 u16 MailMsg_GetFieldI(struct MailMessage * mailMsg, u32 a1);
 u16 MailMsg_GetMsgBank(struct MailMessage * mailMsg);
 u16 MailMsg_GetMsgNo(struct MailMessage * mailMsg);
-BOOL MailMsg_compare(struct MailMessage * mailMsg, struct MailMessage * a1);
+BOOL MailMsg_compare(const struct MailMessage *mailMsg, const struct MailMessage *a1);
 void MailMsg_copy(struct MailMessage * mailMsg, const struct MailMessage * a1);
 u32 MailMsg_NumMsgsInBank(u16 bank);
 void MailMsg_SetMsgBankAndNum(struct MailMessage * mailMsg, u16 bank, u16 num);
