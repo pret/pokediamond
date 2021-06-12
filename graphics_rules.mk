@@ -156,7 +156,8 @@ VERSION101_SOPC_8BPP_NCGR_FILES := files/demo/title/titledemo/narc_0001.NCGR \
 VERSION101_SOPC_NCGR_FILES := files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
                               files/demo/title/titledemo/narc_0007.NCGR \
                               files/demo/title/titledemo/narc_0011.NCGR \
-                              files/demo/title/titledemo/narc_0015.NCGR
+                              files/demo/title/titledemo/narc_0015.NCGR \
+                              files/graphic/poketch/narc_0010.NCGR
 
 8BPP_COMP10_NOPAD_NCLR_PNG_FILES := files/poketool/trgra/trbgra/narc_0000.NCLR \
                                     files/poketool/trgra/trbgra/narc_0002.NCLR \
