@@ -3262,6 +3262,10 @@ files/msgdata/msg.narc: \
         files/msgdata/msg/narc_0622.bin \
         files/msgdata/msg/narc_0623.bin
 
+files/graphic/poketch.narc: \
+	files/graphic/poketch/narc_0010.NCGR.lz \
+	files/graphic/poketch/narc_0011.NSCR.lz
+
 ## Trainer names
 files/msgdata/msg/narc_0559.txt: files/poketool/trainer/trdata.json
 	(echo " -"; $(GREP) -w '"name":' $< | cut -d'"' -f4) | $(SED) 's/^(.+)$$/{TRNAME}\1\r/g' > $@

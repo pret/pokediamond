@@ -2,15 +2,16 @@
 #define POKEDIAMOND_GF_GFX_LOADER_H
 
 #include "bg_window.h"
+#include "filesystem.h"
 
-u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id);
-void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id);
-void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, u32 whichRoutine, u32 baseAddr, u32 szByte, u32 heap_id);
-void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, u32 whichRoutine, u32 srcOffset, u32 baseAddr, u32 szByte, u32 heap_id);
-u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 whichRoutine, u32 baseAddr, u32 szByte, BOOL isCompressed, u32 heap_id);
+u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 layer, u32 numTiles, u32 szByte, BOOL isCompressed, u32 heap_id);
+void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 layer, u32 tileOffset, u32 szByte, BOOL isCompressed, u32 heap_id);
+void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, u32 layer, u32 baseAddr, u32 szByte, u32 heap_id);
+void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, u32 layer, u32 srcOffset, u32 baseAddr, u32 szByte, u32 heap_id);
+u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 layer, u32 baseAddr, u32 szByte, BOOL isCompressed, u32 heap_id);
 void GfGfxLoader_PartiallyLoadPalette(NarcId narcId, s32 memberId, NNS_G2D_VRAM_TYPE vramType, u32 baseAddr, u32 heap_id, NNSG2dImagePaletteProxy * pPltProxy);
-u32 GfGfxLoader_LoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 whichRoutine, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy *pImgProxy);
-void GfGfxLoader_SetObjCntFlagsAndLoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 whichRoutine, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy * pImageProxy);
+u32 GfGfxLoader_LoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 layer, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy *pImgProxy);
+void GfGfxLoader_SetObjCntFlagsAndLoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 layer, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy * pImageProxy);
 void * GfGfxLoader_GetCharData(NarcId narcId, s32 memberId, BOOL isCompressed, NNSG2dCharacterData ** ppCharData, u32 heap_id);
 void * GfGfxLoader_GetScrnData(NarcId narcId, s32 memberId, BOOL isCompressed, NNSG2dScreenData ** ppScrData, u32 heap_id);
 void * GfGfxLoader_GetPlttData(NarcId narcId, s32 memberId, NNSG2dPaletteData ** ppPltData, u32 heap_id);

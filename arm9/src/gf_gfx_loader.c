@@ -3,7 +3,7 @@
 #include "NNS_g2d.h"
 #include "gf_gfx_loader.h"
 
-THUMB_FUNC u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id)
+THUMB_FUNC u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 layer, u32 numTiles, u32 szByte, BOOL isCompressed, u32 heap_id)
 {
     NNSG2dCharacterData * pCharData;
     void * pFile = GfGfxLoader_LoadFromNarc(narcId, memberNo, isCompressed, heap_id, FALSE);
@@ -13,14 +13,14 @@ THUMB_FUNC u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgCo
         {
             if (szByte == 0)
                 szByte = pCharData->szByte;
-            BG_LoadCharTilesData(unkStruct02016B94_2, (u8)a3, pCharData->pRawData, szByte, a4);
+            BG_LoadCharTilesData(unkStruct02016B94_2, (u8)layer, pCharData->pRawData, szByte, numTiles);
         }
         FreeToHeap(pFile);
     }
     return szByte;
 }
 
-THUMB_FUNC void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 a3, u32 a4, u32 szByte, BOOL isCompressed, u32 heap_id)
+THUMB_FUNC void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 layer, u32 tileOffset, u32 szByte, BOOL isCompressed, u32 heap_id)
 {
     NNSG2dScreenData * pScreenData;
     void * pFile = GfGfxLoader_LoadFromNarc(narcId, memberNo, isCompressed, heap_id, TRUE);
@@ -30,20 +30,20 @@ THUMB_FUNC void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgC
         {
             if (szByte == 0)
                 szByte = pScreenData->szByte;
-            if (GetBgTilemapBuffer(unkStruct02016B94_2, (u8) a3) != NULL)
-                BG_LoadScreenTilemapData(unkStruct02016B94_2, (u8) a3, pScreenData->rawData, szByte);
-            BgCopyOrUncompressTilemapBufferRangeToVram(unkStruct02016B94_2, (u8) a3, pScreenData->rawData, szByte, a4);
+            if (GetBgTilemapBuffer(unkStruct02016B94_2, (u8) layer) != NULL)
+                BG_LoadScreenTilemapData(unkStruct02016B94_2, (u8) layer, pScreenData->rawData, szByte);
+            BgCopyOrUncompressTilemapBufferRangeToVram(unkStruct02016B94_2, (u8) layer, pScreenData->rawData, szByte, tileOffset);
         }
         FreeToHeap(pFile);
     }
 }
 
-THUMB_FUNC void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, u32 whichRoutine, u32 baseAddr, u32 szByte, u32 heap_id)
+THUMB_FUNC void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, u32 layer, u32 baseAddr, u32 szByte, u32 heap_id)
 {
-    GfGfxLoader_GXLoadPalWithSrcOffset(narcId, memberNo, whichRoutine, 0, baseAddr, szByte, heap_id);
+    GfGfxLoader_GXLoadPalWithSrcOffset(narcId, memberNo, layer, 0, baseAddr, szByte, heap_id);
 }
 
-THUMB_FUNC void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, u32 whichRoutine, u32 srcOffset, u32 baseAddr, u32 szByte, u32 heap_id)
+THUMB_FUNC void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, u32 layer, u32 srcOffset, u32 baseAddr, u32 szByte, u32 heap_id)
 {
     static void (*const load_funcs[])(void *, u32, u32) = {
         GX_LoadBGPltt,
@@ -65,30 +65,30 @@ THUMB_FUNC void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, 
             if (szByte == 0)
                 szByte = pPltData->szByte - srcOffset;
             DC_FlushRange(pPltData->pRawData, szByte);
-            switch (whichRoutine)
+            switch (layer)
             {
             case 2:
                 GX_BeginLoadBGExtPltt();
-                load_funcs[whichRoutine](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
                 GX_EndLoadBGExtPltt();
                 break;
             case 6:
                 GXS_BeginLoadBGExtPltt();
-                load_funcs[whichRoutine](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
                 GXS_EndLoadBGExtPltt();
                 break;
             case 3:
                 GX_BeginLoadOBJExtPltt();
-                load_funcs[whichRoutine](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
                 GX_EndLoadOBJExtPltt();
                 break;
             case 7:
                 GXS_BeginLoadOBJExtPltt();
-                load_funcs[whichRoutine](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
                 GXS_EndLoadOBJExtPltt();
                 break;
             default:
-                load_funcs[whichRoutine](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
                 break;
             }
         }
@@ -96,7 +96,7 @@ THUMB_FUNC void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, 
     }
 }
 
-THUMB_FUNC u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 whichRoutine, u32 baseAddr, u32 szByte, BOOL isCompressed, u32 heap_id)
+THUMB_FUNC u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 layer, u32 baseAddr, u32 szByte, BOOL isCompressed, u32 heap_id)
 {
     static void (*const load_funcs[])(void *, u32, u32) = {
         GX_LoadOBJ,
@@ -112,7 +112,7 @@ THUMB_FUNC u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 whi
             if (szByte == 0)
                 szByte = pCharData->szByte;
             DC_FlushRange(pCharData->pRawData, szByte);
-            load_funcs[whichRoutine](pCharData->pRawData, baseAddr, szByte);
+            load_funcs[layer](pCharData->pRawData, baseAddr, szByte);
         }
         FreeToHeap(pFile);
     }
@@ -142,7 +142,7 @@ THUMB_FUNC void GfGfxLoader_PartiallyLoadPalette(NarcId narcId, s32 memberId, NN
     }
 }
 
-THUMB_FUNC u32 GfGfxLoader_LoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 whichRoutine, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy *pImgProxy)
+THUMB_FUNC u32 GfGfxLoader_LoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 layer, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy *pImgProxy)
 {
     static void (*const load_funcs[])(const NNSG2dCharacterData *, u32, NNS_G2D_VRAM_TYPE, NNSG2dImageProxy *) = {
         NNS_G2dLoadImage1DMapping,
@@ -158,7 +158,7 @@ THUMB_FUNC u32 GfGfxLoader_LoadImageMapping(NarcId narcId, s32 memberId, BOOL is
         {
             if (szByte != 0)
                 pSrcData->szByte = szByte;
-            load_funcs[whichRoutine](pSrcData, baseAddr, type, pImgProxy);
+            load_funcs[layer](pSrcData, baseAddr, type, pImgProxy);
             retSize = pSrcData->szByte;
         }
         FreeToHeap(pFile);
@@ -166,7 +166,7 @@ THUMB_FUNC u32 GfGfxLoader_LoadImageMapping(NarcId narcId, s32 memberId, BOOL is
     return retSize;
 }
 
-THUMB_FUNC void GfGfxLoader_SetObjCntFlagsAndLoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 whichRoutine, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy * pImageProxy)
+THUMB_FUNC void GfGfxLoader_SetObjCntFlagsAndLoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 layer, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy * pImageProxy)
 {
     static void (*const load_funcs[])(const NNSG2dCharacterData *, u32, NNS_G2D_VRAM_TYPE, NNSG2dImageProxy *) = {
         NNS_G2dLoadImage1DMapping,
@@ -191,7 +191,7 @@ THUMB_FUNC void GfGfxLoader_SetObjCntFlagsAndLoadImageMapping(NarcId narcId, s32
             default:
                 ;
             }
-            load_funcs[whichRoutine](pCharacterData, baseAddr, type, pImageProxy);
+            load_funcs[layer](pCharacterData, baseAddr, type, pImageProxy);
         }
         FreeToHeap(pFile);
     }

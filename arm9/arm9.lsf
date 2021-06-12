@@ -794,7 +794,7 @@ Overlay MODULE_18
 
 Overlay MODULE_19
 {
-	##Overworld (models?)##
+	##Bottom screen before Pokétch##
 	After MODULE_06
 	Object module_19.o
 }
