@@ -173,8 +173,7 @@ Static arm9
 	Object scrcmd_money.o
 	Object scrcmd_daycare.o
 	Object scrcmd_17.o
-	Object scrcmd_18_c.o
-	Object scrcmd_18.o
+	Object scrcmd_party.o
 	Object scrcmd_fossils.o
 	Object scrcmd_prizes.o
 	Object scrcmd_flags.o
