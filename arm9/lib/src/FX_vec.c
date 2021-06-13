@@ -19,7 +19,7 @@ ARM_FUNC void VEC_Fx16Add(struct Vecx16 *a, struct Vecx16 *b, struct Vecx16 *dst
     dst->z = (s16)(a->z + b->z);
 }
 
-ARM_FUNC fx32 VEC_DotProduct(struct Vecx32 *a, struct Vecx32 *b){
+ARM_FUNC fx32 VEC_DotProduct(const struct Vecx32 *a, const struct Vecx32 *b){
     return (fx32)(((fx64)a->x * b->x + (fx64)a->y * b->y + (fx64)a->z * b->z + (1 << (FX64_INT_SHIFT - 1))) >> FX64_INT_SHIFT);
 }
 
@@ -30,7 +30,7 @@ ARM_FUNC fx32 VEC_Fx16DotProduct(struct Vecx16 *a, struct Vecx16 *b){
     return (fx32)(((fx64)temp1 + temp2) >> FX64_INT_SHIFT);
 }
 
-ARM_FUNC void VEC_CrossProduct(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *dst){
+ARM_FUNC void VEC_CrossProduct(const struct Vecx32 *a, const struct Vecx32 *b, struct Vecx32 *dst){
     fx32 x, y, z;
     x = (fx32)(((fx64)a->y * b->z - (fx64)a->z * b->y + (1 << (FX64_INT_SHIFT - 1))) >> FX64_INT_SHIFT);
     y = (fx32)(((fx64)a->z * b->x - (fx64)a->x * b->z + (1 << (FX64_INT_SHIFT - 1))) >> FX64_INT_SHIFT);

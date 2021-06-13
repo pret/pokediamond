@@ -1,107 +1,8 @@
 #ifndef GUARD_FX_H
 #define GUARD_FX_H
 
-typedef s16 fx16;
-typedef s32 fx32;
-typedef s64 fx64;
-typedef s64 fx64c;
-
-#define FX16_INT_MASK              0xF000
-#define FX16_INT_ABS_MASK          0x7000
-#define FX16_FRAC_MASK             0x0FFF
-#define FX16_INT_SHIFT             0xC
-
-#define FX32_INT_MASK              0xFFFFF000
-#define FX32_INT_ABS_MASK          0x7FFFF000
-#define FX32_FRAC_MASK             0x00000FFF
-#define FX32_INT_SHIFT             0xC
-
-#define FX64_INT_MASK              0xFFFFFFFFFFFFF000
-#define FX64_INT_ABS_MASK          0x7FFFFFFFFFFFF000
-#define FX64_FRAC_MASK             0x0000000000000FFF
-#define FX64_INT_SHIFT             0xC
-
-#define FX64C_INT_MASK             0xFFFFFFFF00000000
-#define FX64C_INT_ABS_MASK         0x7FFFFFFF00000000
-#define FX64C_FRAC_MASK            0x00000000FFFFFFFF
-#define FX64C_INT_SHIFT            0x20
-
-#define FX_INT(TYPE, x)            (((x) & TYPE ## _INT_MASK) >> TYPE ## _INT_SHIFT)
-#define FX_INT_ABS(TYPE, x)        (((x) & TYPE ## _INT_ABS_MASK) >> TYPE ## _INT_SHIFT)
-#define FX_FRAC(TYPE, x)           ((x) & TYPE ## _FRAC_MASK)
-
-#define FX16_INT(x)                FX_INT(FX16, x)
-#define FX16_INT_ABS(x)            FX_INT_ABS(FX16, x)
-#define FX16_FRAC(x)               FX_FRAC(FX16, x)
-
-#define FX32_INT(x)                FX_INT(FX32, x)
-#define FX32_INT_ABS(x)            FX_INT_ABS(FX32, x)
-#define FX32_FRAC(x)               FX_FRAC(FX32, x)
-
-#define FX64_INT(x)                FX_INT(FX64, x)
-#define FX64_INT_ABS(x)            FX_INT_ABS(FX64, x)
-#define FX64_FRAC(x)               FX_FRAC(FX64, x)
-
-#define FX64C_INT(x)               FX_INT(FX64C, x)
-#define FX64C_INT_ABS(x)           FX_INT_ABS(FX64C, x)
-#define FX64C_FRAC(x)              FX_FRAC(FX64C, x)
-
-//TODO: clean up these macros
-#define FX32_MUL_NO_ROUND(a, b)      ((fx32)(((fx64)(a) * (b)) >> FX32_INT_SHIFT))
-#define FX32_MUL(a, b)               ((fx32)((((fx64)(a) * (b) + (1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT)))
-#define FX32_MUL_ADD_MUL(a, b, c, d) ((fx32)(((fx64)(a) * (b) + (fx64)c * d) >> FX32_INT_SHIFT))
-//the extra term here is for rounding
-#define FX32_MUL_SUB_MUL(a, b, c, d) ((fx32)(((fx64)(a) * (b) - (fx64)c * d + (1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT))
-
-#define FX_MUL_FX32_FX64C(a, b)      ((fx32)((((a) * (b) + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT)))
-
-#define FX_FX16_TO_F32(x) ((f32)((x) / (f32)(1 << FX16_SHIFT)))
-#define FX_F32_TO_FX16(x) ((fx16)(((x) > 0) ? \
-                                     (fx16)((x) * (1 << FX16_INT_SHIFT) + 0.5f ) : \
-                                     (fx16)((x) * (1 << FX16_INT_SHIFT) - 0.5f )))
-#define FX_F32_TO_FX32(x) ((fx32)(((x) > 0) ? \
-                                     (fx32)((x) * (1 << FX32_INT_SHIFT) + 0.5f ) : \
-                                     (fx32)((x) * (1 << FX32_INT_SHIFT) - 0.5f )))
-#define FX16_CONST(x) FX_F32_TO_FX16(x)
-#define FX32_CONST(x) FX_F32_TO_FX32(x)
-
-#define FX16_ONE ((fx16)0x1000)
-#define FX32_ONE ((fx32)0x00001000L)
-
-struct Vecx32
-{
-    fx32 x;
-    fx32 y;
-    fx32 z;
-};
-
-struct Vecx16
-{
-    fx16 x;
-    fx16 y;
-    fx16 z;
-};
-
-//Matrices are indexed as [column][row]
-struct Mtx44
-{
-    fx32 _[16];
-};
-
-struct Mtx43
-{
-    fx32 _[12];
-};
-
-struct Mtx33
-{
-    fx32 _[9];
-};
-
-struct Mtx22
-{
-    fx32 _[4];
-};
+#include "FX_types.h"
+#include "GX_g3_util.h"
 
 //FX
 void FX_Init();
@@ -115,9 +16,9 @@ u16 FX_Atan2(fx32 x, fx32 y);
 void VEC_Add(struct Vecx32 *x, struct Vecx32 *y, struct Vecx32 *dst);
 void VEC_Subtract(struct Vecx32 *x, struct Vecx32 *y, struct Vecx32 *dst);
 void VEC_Fx16Add(struct Vecx16 *x, struct Vecx16 *y, struct Vecx16 *dst);
-fx32 VEC_DotProduct(struct Vecx32 *x, struct Vecx32 *y);
+fx32 VEC_DotProduct(const struct Vecx32 *a, const struct Vecx32 *b);
 fx32 VEC_Fx16DotProduct(struct Vecx16 *a, struct Vecx16 *b);
-void VEC_CrossProduct(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *dst);
+void VEC_CrossProduct(const struct Vecx32 *a, const struct Vecx32 *b, struct Vecx32 *dst);
 void VEC_Fx16CrossProduct(struct Vecx16 *a, struct Vecx16 *b, struct Vecx16 *dst);
 fx32 VEC_Mag(struct Vecx32 *a);
 void VEC_Normalize(struct Vecx32 *a, struct Vecx32 *dst);
@@ -196,5 +97,17 @@ static inline fx32 FX_MulInline(fx32 v1, fx32 v2)
 }
 
 #define FX_Mul(v1, v2) FX_MulInline(v1, v2)
+
+static inline void VEC_Set(struct Vecx32 * vec, fx32 x, fx32 y, fx32 z)
+{
+    vec->x = x;
+    vec->y = y;
+    vec->z = z;
+}
+
+static inline void MTX_LookAt(const VecFx32 * camPos, const VecFx32 * camUp, const VecFx32 * target, MtxFx43 * mtx)
+{
+    G3i_LookAt_(camPos, camUp, target, FALSE, mtx);
+}
 
 #endif //GUARD_FX_H
