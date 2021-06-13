@@ -561,7 +561,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_CheckPartyMonOTID
 	.word ScrCmd_CountPartyMons_OmitEggs
 	.word ScrCmd_CountAvailablePartyMons_IgnoreSlot
-	.word ScrCmd_CountAvailablePartyMonsAndPCMons
+	.word ScrCmd_CountAvailablePartyAndPCMons
 	.word ScrCmd_GetPartyEggCount
 	.word ScrCmd_Unk019E
 	.word ScrCmd_Unk019F
@@ -592,7 +592,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01B8
 	.word ScrCmd_GetPartyMonFriendship
 	.word ScrCmd_AddPartyMonFriendship
-	.word ScrCmd_DepletePartyMonFriendship
+	.word ScrCmd_SubtractPartyMonFriendship
 	.word ScrCmd_Unk01BC
 	.word ScrCmd_Unk01BD
 	.word ScrCmd_Unk01BE
@@ -708,7 +708,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk022C
 	.word ScrCmd_Unk022D
 	.word ScrCmd_CountPartyMonRibbons
-	.word ScrCmd_Unk022F
+	.word ScrCmd_CountTotalPartyRibbons
 	.word ScrCmd_PartyMonHasRibbon
 	.word ScrCmd_GivePartyMonRibbon
 	.word ScrCmd_GetRibbonName

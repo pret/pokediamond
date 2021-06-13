@@ -3329,14 +3329,14 @@
 .extern ScrCmd_FindPartyMonWithNature
 .extern ScrCmd_GetPartyMonFriendship
 .extern ScrCmd_AddPartyMonFriendship
-.extern ScrCmd_DepletePartyMonFriendship
+.extern ScrCmd_SubtractPartyMonFriendship
 .extern ScrCmd_GetPartyMonContestCondition
 .extern ScrCmd_GetLeadingPartyMonSlot
 .extern ScrCmd_GetPartyMonTypes
 .extern ScrCmd_CountPartyMons
 .extern ScrCmd_CountPartyMons_OmitEggs
 .extern ScrCmd_CountAvailablePartyMons_IgnoreSlot
-.extern ScrCmd_CountAvailablePartyMonsAndPCMons
+.extern ScrCmd_CountAvailablePartyAndPCMons
 .extern ScrCmd_GetPartyEggCount
 .extern ScrCmd_CheckPartyForPokerus
 .extern ScrCmd_GetPartyMonGender
@@ -3347,7 +3347,7 @@
 .extern ScrCmd_ResetPartyMonHeldItem
 .extern ScrCmd_CheckPartyForSpecies
 .extern ScrCmd_CountPartyMonRibbons
-.extern ScrCmd_Unk022F
+.extern ScrCmd_CountTotalPartyRibbons
 .extern ScrCmd_PartyMonHasRibbon
 .extern ScrCmd_GivePartyMonRibbon
 .extern ScrCmd_CheckPartyForBadEgg

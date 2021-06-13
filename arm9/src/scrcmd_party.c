@@ -343,7 +343,7 @@ THUMB_FUNC BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_DepletePartyMonFriendship(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_SubtractPartyMonFriendship(struct ScriptContext* ctx)
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     u16 friendship_to_deplete = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -471,7 +471,7 @@ THUMB_FUNC BOOL ScrCmd_CountAvailablePartyMons_IgnoreSlot(struct ScriptContext* 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountAvailablePartyMonsAndPCMons(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx)
 {
     s32 party_count;
     struct PCStorage* pc;
@@ -714,7 +714,7 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMonRibbons(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk022F(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx)
 {
     struct PlayerParty* party;
     u16 ribbon_idx;
@@ -733,6 +733,8 @@ THUMB_FUNC BOOL ScrCmd_Unk022F(struct ScriptContext* ctx)
             BOOL party_mon_is_egg = (BOOL)GetMonData(party_mon, MON_DATA_IS_EGG, NULL);
             if (party_mon_is_egg)
             {
+                // BUG: This `break` should be a `continue`, as any party mons after a detected
+                //      egg would have their ribbons ignored.
                 break;
             }
 
