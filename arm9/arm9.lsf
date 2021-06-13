@@ -71,6 +71,7 @@ Static arm9
 	Object unk_0201E00C.o
 	Object GX_layers.o
 	Object unk_0201E7D8.o
+	Object unk_0201E7D8_s.o
 	Object unk_0201F06C.o
 	Object unk_020208B8.o
 	Object timer3.o

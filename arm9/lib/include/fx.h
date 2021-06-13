@@ -172,4 +172,29 @@ void MTX_ScaleApply22(struct Mtx22 *mtx, struct Mtx22 *dst, fx32 x, fx32 y);
 void MTX_Identity22_(struct Mtx22 *mtx);
 void MTX_Rot22_(struct Mtx22 *mtx, fx32 sinphi, fx32 cosphi);
 
+// Trig
+extern const fx16 FX_SinCosTable_[];
+
+static inline fx16 FX_SinIdx(int idx)
+{
+    return FX_SinCosTable_[((idx >> 4) << 1)];
+}
+
+static inline fx16 FX_CosIdx(int idx)
+{
+    return FX_SinCosTable_[((idx >> 4) << 1) + 1];
+}
+
+static inline fx32 FX32_CAST(s64 res)
+{
+    return (fx32)res;
+}
+
+static inline fx32 FX_MulInline(fx32 v1, fx32 v2)
+{
+    return FX32_CAST(((s64)v1 * v2 + 0x800LL) >> FX32_INT_SHIFT);
+}
+
+#define FX_Mul(v1, v2) FX_MulInline(v1, v2)
+
 #endif //GUARD_FX_H
