@@ -124,11 +124,11 @@ _02060892:
 	add r1, #0x24
 	bl FUN_02055350
 	ldr r0, [r5, #0x20]
-	bl FUN_0201EC88
+	bl Camera_ClearFixedTarget
 	add r0, r4, #0x0
 	ldr r1, [r5, #0x20]
 	add r0, #0x24
-	bl FUN_0201EC68
+	bl Camera_SetFixedTarget
 	mov r0, #0x0
 	ldr r1, [r4, #0x10]
 	mvn r0, r0

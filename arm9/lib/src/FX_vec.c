@@ -1,13 +1,13 @@
 #include "global.h"
 #include "fx.h"
 
-ARM_FUNC void VEC_Add(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *dst){
+ARM_FUNC void VEC_Add(const struct Vecx32 *a, const struct Vecx32 *b, struct Vecx32 *dst){
     dst->x = a->x + b->x;
     dst->y = a->y + b->y;
     dst->z = a->z + b->z;
 }
 
-ARM_FUNC void VEC_Subtract(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *dst){
+ARM_FUNC void VEC_Subtract(const struct Vecx32 *a, const struct Vecx32 *b, struct Vecx32 *dst){
     dst->x = a->x - b->x;
     dst->y = a->y - b->y;
     dst->z = a->z - b->z;
@@ -60,7 +60,7 @@ ARM_FUNC fx32 VEC_Mag(struct Vecx32 *a){
     return ((fx32)reg_CP_SQRT_RESULT + 1) >> 1;
 }
 
-ARM_FUNC void VEC_Normalize(struct Vecx32 *a, struct Vecx32 *dst){
+ARM_FUNC void VEC_Normalize(const struct Vecx32 *a, struct Vecx32 *dst){
     fx64 l2 = (fx64)a->x * a->x;
     l2 += (fx64)a->y * a->y;
     l2 += (fx64)a->z * a->z;

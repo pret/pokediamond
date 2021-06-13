@@ -13,15 +13,15 @@ u16 FX_Atan(fx32 x);
 u16 FX_Atan2(fx32 x, fx32 y);
 
 //Vec
-void VEC_Add(struct Vecx32 *x, struct Vecx32 *y, struct Vecx32 *dst);
-void VEC_Subtract(struct Vecx32 *x, struct Vecx32 *y, struct Vecx32 *dst);
+void VEC_Add(const struct Vecx32 *a, const struct Vecx32 *b, struct Vecx32 *dst);
+void VEC_Subtract(const struct Vecx32 *a, const struct Vecx32 *b, struct Vecx32 *dst);
 void VEC_Fx16Add(struct Vecx16 *x, struct Vecx16 *y, struct Vecx16 *dst);
 fx32 VEC_DotProduct(const struct Vecx32 *a, const struct Vecx32 *b);
 fx32 VEC_Fx16DotProduct(struct Vecx16 *a, struct Vecx16 *b);
 void VEC_CrossProduct(const struct Vecx32 *a, const struct Vecx32 *b, struct Vecx32 *dst);
 void VEC_Fx16CrossProduct(struct Vecx16 *a, struct Vecx16 *b, struct Vecx16 *dst);
 fx32 VEC_Mag(struct Vecx32 *a);
-void VEC_Normalize(struct Vecx32 *a, struct Vecx32 *dst);
+void VEC_Normalize(const struct Vecx32 *a, struct Vecx32 *dst);
 void VEC_Fx16Normalize(struct Vecx16 *a, struct Vecx16 *dst);
 void VEC_MultAdd(fx32 factor, struct Vecx32  *a, struct Vecx32 *b, struct Vecx32 *dst);
 
@@ -108,6 +108,16 @@ static inline void VEC_Set(struct Vecx32 * vec, fx32 x, fx32 y, fx32 z)
 static inline void MTX_LookAt(const VecFx32 * camPos, const VecFx32 * camUp, const VecFx32 * target, MtxFx43 * mtx)
 {
     G3i_LookAt_(camPos, camUp, target, FALSE, mtx);
+}
+
+static inline void MTX_Perspective(fx32 fovySin, fx32 fovyCos, fx32 aspect, fx32 n, fx32 f, MtxFx44 * mtx)
+{
+    G3i_PerspectiveW_(fovySin, fovyCos, aspect, n, f, FX32_ONE, FALSE, mtx);
+}
+
+static inline void MTX_Ortho(fx32 t, fx32 b, fx32 l, fx32 r, fx32 n, fx32 f, MtxFx44 * mtx)
+{
+    G3i_OrthoW_(t, b, l, r, n, f, FX32_ONE, FALSE, mtx);
 }
 
 #endif //GUARD_FX_H

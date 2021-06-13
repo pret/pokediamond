@@ -251,10 +251,10 @@ FUN_02046224: ; 0x02046224
 	add r4, r0, #0x0
 	ldr r0, _02046278 ; =0x000008C1
 	ldr r1, [r4, #0x20]
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 	ldr r0, _0204627C ; =0x000F81B8
 	ldr r1, [r4, #0x20]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	ldr r0, _02046280 ; =0x0350523D
 	str r0, [sp, #0x8]
 	ldr r0, _02046284 ; =0x0015EDB7
@@ -263,7 +263,7 @@ FUN_02046224: ; 0x02046224
 	str r0, [sp, #0x10]
 	ldr r1, [r4, #0x20]
 	add r0, sp, #0x8
-	bl FUN_0201F04C
+	bl Camera_SetLookAtCamTarget
 	ldr r1, _0204628C ; =0x00000823
 	add r0, sp, #0x0
 	strh r1, [r0, #0x0]
@@ -274,12 +274,12 @@ FUN_02046224: ; 0x02046224
 	strh r1, [r0, #0x4]
 	ldr r1, [r4, #0x20]
 	add r0, sp, #0x0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #0x3
 	ldr r1, _02046290 ; =0x0061C000
 	ldr r2, [r4, #0x20]
 	lsl r0, r0, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	add sp, #0x14
 	pop {r3-r4, pc}
 	nop

@@ -33,7 +33,7 @@ MOD78_021D74E0: ; 0x021D74E0
 	add r0, #0x9d
 	strb r1, [r0]
 	mov r0, #0x48
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	str r0, [r4]
 	bl MOD78_021D7708
 	add r0, r4, #0
@@ -50,9 +50,9 @@ MOD78_021D74E0: ; 0x021D74E0
 	str r1, [sp, #8]
 	ldr r1, _021D75C8 ; =0x0029AEC1
 	ldr r3, _021D75CC ; =0x000005C1
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	ldr r0, [r4]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	mov r4, #0
 	mov r7, #2
 	mov r6, #4
@@ -209,7 +209,7 @@ _021D7680:
 	cmp r2, #4
 	blo _021D7668
 	bl FUN_020222AC
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	add r0, r4, #4
 	add r1, sp, #0
 	add r2, sp, #0x18
@@ -254,7 +254,7 @@ _021D76C8:
 	ldr r0, [r6, #0x5c]
 	bl FreeToHeap
 	ldr r0, [r6]
-	bl FUN_0201EB70
+	bl Camera_Free
 	ldr r0, [sp]
 	bl OverlayManager_FreeData
 	bl FUN_0201B398

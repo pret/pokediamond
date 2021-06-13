@@ -7997,7 +7997,7 @@ MOD08_0221599C: ; 0x0221599C
 	mov r1, #0xe1
 	lsl r0, r0, #0xc
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 _022159D4:
 	add r0, r4, #0
 	add sp, #8
@@ -8031,7 +8031,7 @@ MOD08_022159E4: ; 0x022159E4
 	mov r1, #0xe1
 	lsl r0, r0, #0xc
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 _02215A1C:
 	add r0, r4, #0
 	add sp, #8
@@ -8309,10 +8309,10 @@ _02215BFA:
 	add r4, r0, #0
 	add r0, sp, #8
 	add r1, r4, #0
-	bl FUN_0201F014
+	bl Camera_GetAngle
 	add r0, sp, #8
 	add r1, r4, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -12154,7 +12154,7 @@ MOD08_02217904: ; 0x02217904
 	bl FUN_0201343C
 	add r1, r0, #0
 	add r0, sp, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #1
 	add sp, #8
 	pop {r3, pc}
@@ -12182,7 +12182,7 @@ MOD08_02217928: ; 0x02217928
 	bl FUN_02013440
 	add r0, sp, #0
 	add r1, r5, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #1
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -12214,7 +12214,7 @@ MOD08_02217964: ; 0x02217964
 	bl FUN_0201343C
 	add r1, r0, #0
 	add r0, sp, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #1
 	add sp, #0x18
 	pop {r4, pc}
@@ -12242,7 +12242,7 @@ MOD08_022179A0: ; 0x022179A0
 	bl FUN_02013440
 	add r0, sp, #0
 	add r1, r5, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #1
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -12284,12 +12284,12 @@ MOD08_022179DC: ; 0x022179DC
 	bne _02217A2A
 	add r0, sp, #8
 	add r1, r5, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	b _02217A32
 _02217A2A:
 	add r0, sp, #0
 	add r1, r5, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 _02217A32:
 	mov r0, #1
 	add sp, #0x10
@@ -12320,7 +12320,7 @@ MOD08_02217A3C: ; 0x02217A3C
 	bl FUN_02013440
 	add r0, sp, #0
 	add r1, r5, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #1
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -12350,7 +12350,7 @@ MOD08_02217A78: ; 0x02217A78
 	bl FUN_02013440
 	add r0, sp, #0
 	add r1, r5, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #1
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -12371,7 +12371,7 @@ MOD08_02217AB4: ; 0x02217AB4
 	bl MOD08_022278FC
 	add r0, sp, #0
 	add r1, r4, #0
-	bl FUN_0201F04C
+	bl Camera_SetLookAtCamTarget
 	mov r0, #1
 	add sp, #0xc
 	pop {r4, r5, pc}
@@ -12391,7 +12391,7 @@ MOD08_02217ADC: ; 0x02217ADC
 	bl MOD08_022278FC
 	add r0, sp, #0
 	add r1, r4, #0
-	bl FUN_0201F04C
+	bl Camera_SetLookAtCamTarget
 	mov r0, #1
 	add sp, #0xc
 	pop {r4, r5, pc}

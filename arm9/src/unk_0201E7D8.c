@@ -2,233 +2,382 @@
 #include "fx.h"
 #include "heap.h"
 #include "NNS_g3d.h"
+#include "unk_0201E7D8.h"
+#include "GX_g3.h"
 
-struct UnkStruct_0201E7D8_64
+extern fx16 CalcAngleBetweenVecs(VecFx32 * a, VecFx32 * b);
+
+GXBufferMode g3dDepthBufferingMode = GX_BUFFERMODE_W;
+static struct CameraWork * sCameraWorkPtr;
+
+void Camera_OffsetLookAtPosAndTarget(const VecFx32 *delta, struct CameraWork * camera);
+void ApplyPerspectiveType(u8 perspectiveType, struct CameraWork * camera);
+
+THUMB_FUNC void Camera_CalcLookAtPosFromTargetAndAngle(struct CameraWork * camera)
 {
-    s32 unk_00;
-    s32 unk_04;
-    s32 unk_08;
-    s32 unk_0C;
-    s32 unk_10;
-    s32 unk_14;
-    s32 unk_18;
-    s32 unk_1C;
-    VecFx32 * unk_20;
-};
-
-struct UnkStruct_0201E7D8
-{
-    fx32 unk_00;
-    fx32 unk_04;
-    fx32 unk_08;
-    fx32 unk_0C;
-    fx32 unk_10;
-    VecFx32 unk_14;
-    VecFx32 unk_20;
-    VecFx32 unk_2C;
-    fx32 unk_38;
-    u16 unk_3C;
-    u16 unk_3E;
-    u8 filler_40[6];
-    u16 unk_46;
-    VecFx32 unk_48;
-    VecFx32 * unk_54;
-    u32 unk_58;
-    u32 unk_5C;
-    u32 unk_60;
-    struct UnkStruct_0201E7D8_64 * unk_64;
-};
-
-BOOL UNK_02105BB8 = TRUE;
-struct UnkStruct_0201E7D8 * UNK_021C59A4;
-
-void FUN_0201EF70(VecFx32 * a0, struct UnkStruct_0201E7D8 * a1);
-
-THUMB_FUNC void FUN_0201E7D8(struct UnkStruct_0201E7D8 * a0)
-{
-    u16 r4 = -a0->unk_3C;
-    a0->unk_14.x = FX_Mul(FX_Mul(FX_SinIdx(a0->unk_3E), a0->unk_38), FX_CosIdx(a0->unk_3C));
-    a0->unk_14.z = FX_Mul(FX_Mul(FX_CosIdx(a0->unk_3E), a0->unk_38), FX_CosIdx(a0->unk_3C));
-    a0->unk_14.y = FX_Mul(FX_SinIdx(r4), a0->unk_38);
-    VEC_Add(&a0->unk_14, &a0->unk_20, &a0->unk_14);
+    u16 negx = -camera->angle.x;
+    camera->lookAt.camPos.x = FX_Mul(FX_Mul(FX_SinIdx(camera->angle.y), camera->distance), FX_CosIdx(camera->angle.x));
+    camera->lookAt.camPos.z = FX_Mul(FX_Mul(FX_CosIdx(camera->angle.y), camera->distance), FX_CosIdx(camera->angle.x));
+    camera->lookAt.camPos.y = FX_Mul(FX_SinIdx(negx), camera->distance);
+    VEC_Add(&camera->lookAt.camPos, &camera->lookAt.camTarget, &camera->lookAt.camPos);
 }
 
-THUMB_FUNC void FUN_0201E8B8(struct UnkStruct_0201E7D8 * a0)
+THUMB_FUNC void Camera_CalcLookAtTargetFromPosAndAngle(struct CameraWork * camera)
 {
-    u16 r4 = -a0->unk_3C;
-    a0->unk_20.x = -FX_Mul(FX_Mul(FX_SinIdx(a0->unk_3E), a0->unk_38), FX_CosIdx(a0->unk_3C));
-    a0->unk_20.z = -FX_Mul(FX_Mul(FX_CosIdx(a0->unk_3E), a0->unk_38), FX_CosIdx(a0->unk_3C));
-    a0->unk_20.y = -FX_Mul(FX_SinIdx(r4), a0->unk_38);
-    VEC_Add(&a0->unk_20, &a0->unk_14, &a0->unk_20);
+    u16 negx = -camera->angle.x;
+    camera->lookAt.camTarget.x = -FX_Mul(FX_Mul(FX_SinIdx(camera->angle.y), camera->distance), FX_CosIdx(camera->angle.x));
+    camera->lookAt.camTarget.z = -FX_Mul(FX_Mul(FX_CosIdx(camera->angle.y), camera->distance), FX_CosIdx(camera->angle.x));
+    camera->lookAt.camTarget.y = -FX_Mul(FX_SinIdx(negx), camera->distance);
+    VEC_Add(&camera->lookAt.camTarget, &camera->lookAt.camPos, &camera->lookAt.camTarget);
 }
 
-THUMB_FUNC void FUN_0201E99C(u16 a0, struct UnkStruct_0201E7D8 * a1)
+THUMB_FUNC void Camera_InitInternal(u16 perspectiveAngle, struct CameraWork * camera)
 {
-    a1->unk_46 = a0;
-    a1->unk_00 = FX_SinIdx(a0);
-    a1->unk_04 = FX_CosIdx(a0);
-    a1->unk_08 = FX32_CONST(1.33333333);
-    a1->unk_0C = FX32_CONST(150);
-    a1->unk_10 = FX32_CONST(900);
-    a1->unk_2C.x = 0;
-    a1->unk_2C.y = FX32_ONE;
-    a1->unk_2C.z = 0;
-    a1->unk_54 = 0;
-    a1->unk_58 = 0;
-    a1->unk_5C = 0;
-    a1->unk_60 = 0;
-    a1->unk_64 = NULL;
+    camera->perspectiveAngle = perspectiveAngle;
+    camera->perspective.fovySin = FX_SinIdx(perspectiveAngle);
+    camera->perspective.fovyCos = FX_CosIdx(perspectiveAngle);
+    camera->perspective.aspect = FX32_CONST(1.33333333); // 4x3
+    camera->perspective.n = FX32_CONST(150);
+    camera->perspective.f = FX32_CONST(900);
+    camera->lookAt.camUp.x = 0;
+    camera->lookAt.camUp.y = FX32_ONE;
+    camera->lookAt.camUp.z = 0;
+    camera->currTarget_p = NULL;
+    camera->enableOffsetX = FALSE;
+    camera->enableOffsetY = FALSE;
+    camera->enableOffsetZ = FALSE;
+    camera->history = NULL;
 }
 
-THUMB_FUNC void FUN_0201E9E8(struct UnkStruct_0201E7D8 * a0, VecFx32 * a1)
+THUMB_FUNC void Camera_VecResetCoordsIfOffsetComponentNotEnabled(struct CameraWork * camera, VecFx32 * vec)
 {
-    if (a0->unk_58 == 0)
-        a1->x = 0;
-    if (a0->unk_5C == 0)
-        a1->y = 0;
-    if (a0->unk_60 == 0)
-        a1->z = 0;
+    if (!camera->enableOffsetX)
+        vec->x = 0;
+    if (!camera->enableOffsetY)
+        vec->y = 0;
+    if (!camera->enableOffsetZ)
+        vec->z = 0;
 }
 
-THUMB_FUNC void FUN_0201EA08(struct UnkStruct_0201E7D8 * a0, VecFx32 * a1, VecFx32 * a2)
+THUMB_FUNC void Camera_GetVecFromSomeRingBufferMaybe(struct CameraWork * camera, const VecFx32 * vecDefault, VecFx32 * vecDst)
 {
-    s32 * r7;
-    s32 * sp0;
-    if (a0->unk_64 == NULL)
+    s32 * idx_p;
+    s32 * idx2_p;
+    if (camera->history == NULL)
     {
-        *a2 = *a1;
+        *vecDst = *vecDefault;
     }
     else
     {
-        r7 = &a0->unk_64->unk_04;
-        sp0 = &a0->unk_64->unk_08;
-        if (a0->unk_64->unk_10 == 0)
+        idx_p = &camera->history->readIdx;
+        idx2_p = &camera->history->writeIdx;
+        if (camera->history->overrideEnabled == 0)
         {
-            *a2 = *a1;
-            if (*r7 == a0->unk_64->unk_0C)
-                a0->unk_64->unk_10 = 1;
+            *vecDst = *vecDefault;
+            if (*idx_p == camera->history->writeIdxInit)
+                camera->history->overrideEnabled = 1;
         }
         else
         {
-            *a2 = a0->unk_64->unk_20[a0->unk_64->unk_04];
+            *vecDst = camera->history->vecs[camera->history->readIdx];
         }
-        *r7 = (*r7 + 1) % a0->unk_64->unk_00;
-        a0->unk_64->unk_20[*sp0] = *a1;
-        *sp0 = (*sp0 + 1) % a0->unk_64->unk_00;
-        if (a0->unk_64->unk_14 == 0)
-            a2->x = a1->x;
-        if (a0->unk_64->unk_18 == 0)
-            a2->y = a1->y;
-        if (a0->unk_64->unk_1C == 0)
-            a2->z = a1->z;
+        *idx_p = (*idx_p + 1) % camera->history->count;
+        camera->history->vecs[*idx2_p] = *vecDefault;
+        *idx2_p = (*idx2_p + 1) % camera->history->count;
+        if (!camera->history->enableUpdateX)
+            vecDst->x = vecDefault->x;
+        if (!camera->history->enableUpdateY)
+            vecDst->y = vecDefault->y;
+        if (!camera->history->enableUpdateZ)
+            vecDst->z = vecDefault->z;
     }
 }
 
-THUMB_FUNC void FUN_0201EABC(s32 r5, s32 r7, s32 r6, s32 sp0, struct UnkStruct_0201E7D8 * sp18)
+THUMB_FUNC void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEnableFlags, s32 heap_id, struct CameraWork * camera)
 {
     s32 i;
-    struct UnkStruct_0201E7D8_64 * r4;
+    struct CameraHistory * history;
 
-    if (sp18->unk_54 != 0)
+    if (camera->currTarget_p != NULL)
     {
-        GF_ASSERT(r7 + 1 <= r5);
-        r4 = AllocFromHeap(sp0, sizeof(struct UnkStruct_0201E7D8_64));
-        r4->unk_20 = AllocFromHeap(sp0, sizeof(VecFx32) * r5);
-        for (i = 0; i < r5; i++)
+        GF_ASSERT(initialWriteIdx + 1 <= count);
+        history = AllocFromHeap(heap_id, sizeof(struct CameraHistory));
+        history->vecs = AllocFromHeap(heap_id, sizeof(VecFx32) * count);
+        for (i = 0; i < count; i++)
         {
-            r4->unk_20[i].x = 0;
-            r4->unk_20[i].y = 0;
-            r4->unk_20[i].z = 0;
+            history->vecs[i].x = 0;
+            history->vecs[i].y = 0;
+            history->vecs[i].z = 0;
         }
-        r4->unk_00 = r5;
-        r4->unk_04 = 0;
-        r4->unk_08 = r7;
-        r4->unk_0C = r7;
-        r4->unk_10 = 0;
-        r4->unk_14 = 0;
-        r4->unk_18 = 0;
-        r4->unk_1C = 0;
-        if (r6 & 1)
-            r4->unk_14 = 1;
-        if (r6 & 2)
-            r4->unk_18 = 1;
-        if (r6 & 4)
-            r4->unk_1C = 1;
-        sp18->unk_64 = r4;
+        history->count = count;
+        history->readIdx = 0;
+        history->writeIdx = initialWriteIdx;
+        history->writeIdxInit = initialWriteIdx;
+        history->overrideEnabled = FALSE;
+        history->enableUpdateX = FALSE;
+        history->enableUpdateY = FALSE;
+        history->enableUpdateZ = FALSE;
+        if (updateEnableFlags & 1)
+            history->enableUpdateX = TRUE;
+        if (updateEnableFlags & 2)
+            history->enableUpdateY = TRUE;
+        if (updateEnableFlags & 4)
+            history->enableUpdateZ = TRUE;
+        camera->history = history;
     }
 }
 
-THUMB_FUNC void FUN_0201EB48(struct UnkStruct_0201E7D8 * a0)
+THUMB_FUNC void Camera_FreeHistory(struct CameraWork * camera)
 {
-    if (a0->unk_64 != NULL)
+    if (camera->history != NULL)
     {
-        FreeToHeap(a0->unk_64->unk_20);
-        FreeToHeap(a0->unk_64);
-        a0->unk_64 = NULL;
+        FreeToHeap(camera->history->vecs);
+        FreeToHeap(camera->history);
+        camera->history = NULL;
     }
 }
 
-THUMB_FUNC struct UnkStruct_0201E7D8 * FUN_0201EB64(u32 heap_id)
+THUMB_FUNC struct CameraWork * Camera_Alloc(u32 heap_id)
 {
-    return AllocFromHeap(heap_id, sizeof(struct UnkStruct_0201E7D8));
+    return AllocFromHeap(heap_id, sizeof(struct CameraWork));
 }
 
-THUMB_FUNC void FUN_0201EB70(struct UnkStruct_0201E7D8 * a0)
+THUMB_FUNC void Camera_Free(struct CameraWork * camera)
 {
-    FreeToHeap(a0);
+    FreeToHeap(camera);
 }
 
-THUMB_FUNC void FUN_0201EB78(struct UnkStruct_0201E7D8 * a0, struct UnkStruct_0201E7D8 * a1)
+THUMB_FUNC void Camera_Copy(struct CameraWork * src, struct CameraWork * dest)
 {
-    *a1 = *a0;
+    *dest = *src;
 }
 
-THUMB_FUNC void FUN_0201EB8C(struct UnkStruct_0201E7D8 * a0)
+THUMB_FUNC void Camera_SetWorkPtr(struct CameraWork * camera)
 {
-    UNK_021C59A4 = a0;
+    sCameraWorkPtr = camera;
 }
 
-THUMB_FUNC void FUN_0201EB98(void)
+THUMB_FUNC void Camera_UnsetWorkPtr(void)
 {
-    UNK_021C59A4 = NULL;
+    sCameraWorkPtr = NULL;
 }
 
-THUMB_FUNC void FUN_0201EBA4(void)
+THUMB_FUNC void Camera_PushLookAtToNNSGlb(void)
 {
-    VecFx32 sp10;
-    VecFx32 sp4;
-    if (UNK_021C59A4 != NULL)
+    VecFx32 diff;
+    VecFx32 offset;
+    if (sCameraWorkPtr != NULL)
     {
-        if (UNK_021C59A4->unk_54 != NULL)
+        if (sCameraWorkPtr->currTarget_p != NULL)
         {
-            VEC_Subtract(UNK_021C59A4->unk_54, &UNK_021C59A4->unk_48, &sp10);
-            FUN_0201E9E8(UNK_021C59A4, &sp10);
-            FUN_0201EA08(UNK_021C59A4, &sp10, &sp4);
-            FUN_0201EF70(&sp4, UNK_021C59A4);
-            UNK_021C59A4->unk_48 = *UNK_021C59A4->unk_54;
+            VEC_Subtract(sCameraWorkPtr->currTarget_p, &sCameraWorkPtr->lastTarget, &diff);
+            Camera_VecResetCoordsIfOffsetComponentNotEnabled(sCameraWorkPtr, &diff);
+            Camera_GetVecFromSomeRingBufferMaybe(sCameraWorkPtr, &diff, &offset);
+            Camera_OffsetLookAtPosAndTarget(&offset, sCameraWorkPtr);
+            sCameraWorkPtr->lastTarget = *sCameraWorkPtr->currTarget_p;
         }
-        NNS_G3dGlbLookAt(&UNK_021C59A4->unk_14, &UNK_021C59A4->unk_2C, &UNK_021C59A4->unk_20);
+        NNS_G3dGlbLookAt(&sCameraWorkPtr->lookAt.camPos, &sCameraWorkPtr->lookAt.camUp, &sCameraWorkPtr->lookAt.camTarget);
     }
 }
 
-THUMB_FUNC void FUN_0201EC58(VecFx32 * a, struct UnkStruct_0201E7D8 * b)
+THUMB_FUNC void Camera_SetLookAtCamUp(VecFx32 * camUp, struct CameraWork * camera)
 {
-    b->unk_2C = *a;
+    camera->lookAt.camUp = *camUp;
 }
 
-THUMB_FUNC void FUN_0201EC68(VecFx32 * a, struct UnkStruct_0201E7D8 * b)
+THUMB_FUNC void Camera_SetFixedTarget(VecFx32 * target, struct CameraWork * camera)
 {
-    b->unk_54 = a;
-    b->unk_48 = *a;
-    b->unk_58 = 1;
-    b->unk_5C = 1;
-    b->unk_60 = 1;
+    camera->currTarget_p = target;
+    camera->lastTarget = *target;
+    camera->enableOffsetX = TRUE;
+    camera->enableOffsetY = TRUE;
+    camera->enableOffsetZ = TRUE;
 }
 
-THUMB_FUNC void FUN_0201EC88(struct UnkStruct_0201E7D8 * a0)
+THUMB_FUNC void Camera_ClearFixedTarget(struct CameraWork * camera)
 {
-    a0->unk_54 = NULL;
-    a0->unk_58 = 0;
-    a0->unk_5C = 0;
-    a0->unk_60 = 0;
+    camera->currTarget_p = NULL;
+    camera->enableOffsetX = FALSE;
+    camera->enableOffsetY = FALSE;
+    camera->enableOffsetZ = FALSE;
+}
+
+THUMB_FUNC void Camera_SetPerspectiveClippingPlane(s32 n, s32 f, struct CameraWork * camera)
+{
+    camera->perspective.n = n;
+    camera->perspective.f = f,
+        ApplyPerspectiveType(camera->perspectiveType, camera);
+}
+
+THUMB_FUNC void Camera_InitWithTargetAndAngle(VecFx32 * target, fx32 distance, struct CameraAngle * angle, u16 perspectiveAngle, u8 perspectiveType, BOOL fixReference, struct CameraWork * camera)
+{
+    Camera_InitInternal(perspectiveAngle, camera);
+    camera->lookAt.camTarget = *target;
+    camera->distance = distance;
+    camera->angle = *angle;
+    Camera_CalcLookAtPosFromTargetAndAngle(camera);
+    ApplyPerspectiveType(perspectiveType, camera);
+    if (fixReference)
+    {
+        camera->currTarget_p = target;
+        camera->lastTarget = *target;
+        camera->enableOffsetX = TRUE;
+        camera->enableOffsetY = TRUE;
+        camera->enableOffsetZ = TRUE;
+    }
+}
+
+THUMB_FUNC void Camera_InitWithPosAndAngle(VecFx32 * pos, fx32 distance, struct CameraAngle * angle, u16 perspectiveAngle, u8 sp18, struct CameraWork * camera)
+{
+    Camera_InitInternal(perspectiveAngle, camera);
+    camera->lookAt.camPos = *pos;
+    camera->distance = distance;
+    camera->angle = *angle;
+    Camera_CalcLookAtTargetFromPosAndAngle(camera);
+    ApplyPerspectiveType(sp18, camera);
+}
+
+THUMB_FUNC void Camera_InitWithPosAndTarget(const VecFx32 *target, const VecFx32 *pos, u16 perspectiveAngle, u8 perspectiveType, BOOL setReference, struct CameraWork * camera)
+{
+    VecFx32 vec_from_pos_to_target;
+    Camera_InitInternal(perspectiveAngle, camera);
+
+    camera->lookAt.camTarget = *target;
+    camera->lookAt.camPos = *pos;
+
+    VEC_Subtract(pos, target, &vec_from_pos_to_target);
+    camera->distance = VEC_Mag(&vec_from_pos_to_target);
+    {
+        VecFx32 sp24 = {0, 0, 0}; // unused
+        VecFx32 sp18 = {0, 0, 0}; // unused
+        VecFx32 sp0C = {0, 0, 0};
+        VecFx32 sp00;
+
+        sp00.x = 0;
+        sp00.y = 0;
+        sp00.z = FX32_ONE;
+        sp0C = vec_from_pos_to_target;
+        sp0C.y = 0;
+        camera->angle.y = CalcAngleBetweenVecs(&sp00, &sp0C);
+
+        sp00.x = FX32_ONE;
+        sp00.y = 0;
+        sp00.z = 0;
+        sp0C.x = vec_from_pos_to_target.z;
+        sp0C.z = vec_from_pos_to_target.y;
+        sp0C.y = 0;
+        camera->angle.x = CalcAngleBetweenVecs(&sp00, &sp0C);
+
+        camera->angle.z = 0;
+    }
+    ApplyPerspectiveType(perspectiveType, camera);
+
+    if (setReference)
+    {
+        camera->currTarget_p = target;
+        camera->lastTarget = *target;
+        camera->enableOffsetX = TRUE;
+        camera->enableOffsetY = TRUE;
+        camera->enableOffsetZ = TRUE;
+    }
+}
+
+THUMB_FUNC void ApplyPerspectiveType(u8 perspectiveType, struct CameraWork * camera)
+{
+    if (perspectiveType == 0)
+    {
+        NNS_G3dGlbPerspective(camera->perspective.fovySin, camera->perspective.fovyCos, camera->perspective.aspect, camera->perspective.n, camera->perspective.f);
+        camera->perspectiveType = 0;
+        g3dDepthBufferingMode = GX_BUFFERMODE_Z;
+    }
+    else
+    {
+        fx32 y = FX_Mul(FX_Div(camera->perspective.fovySin, camera->perspective.fovyCos), camera->distance);
+        fx32 x = FX_Mul(y, camera->perspective.aspect);
+        NNS_G3dGlbOrtho(y, -y, -x, x, camera->perspective.n, camera->perspective.f);
+        camera->perspectiveType = 1;
+        g3dDepthBufferingMode = GX_BUFFERMODE_Z;
+    }
+}
+
+THUMB_FUNC void Camera_SetPerspectiveAngle(u16 perspectiveAngle, struct CameraWork * camera)
+{
+    camera->perspectiveAngle = perspectiveAngle;
+    camera->perspective.fovySin = FX_SinIdx(camera->perspectiveAngle);
+    camera->perspective.fovyCos = FX_CosIdx(camera->perspectiveAngle);
+    ApplyPerspectiveType(camera->perspectiveType, camera);
+}
+
+THUMB_FUNC void Camera_AdjustPerspectiveAngle(u16 rotation, struct CameraWork * camera)
+{
+    camera->perspectiveAngle += rotation;
+    camera->perspective.fovySin = FX_SinIdx(camera->perspectiveAngle);
+    camera->perspective.fovyCos = FX_CosIdx(camera->perspectiveAngle);
+    ApplyPerspectiveType(camera->perspectiveType, camera);
+}
+
+THUMB_FUNC void Camera_OffsetLookAtPosAndTarget(const VecFx32 *delta, struct CameraWork * camera)
+{
+    VEC_Add(&camera->lookAt.camPos, delta, &camera->lookAt.camPos);
+    VEC_Add(&camera->lookAt.camTarget, delta, &camera->lookAt.camTarget);
+}
+
+THUMB_FUNC void Camera_SetAngle(const struct CameraAngle * angle, struct CameraWork * camera)
+{
+    camera->angle = *angle;
+    Camera_CalcLookAtPosFromTargetAndAngle(camera);
+}
+
+THUMB_FUNC void Camera_AdjustAngle(const struct CameraAngle * delta, struct CameraWork * camera)
+{
+    camera->angle.x += delta->x;
+    camera->angle.y += delta->y;
+    camera->angle.z += delta->z;
+    Camera_CalcLookAtTargetFromPosAndAngle(camera);
+}
+
+THUMB_FUNC void Camera_SetDistance(fx32 distance, struct CameraWork * camera)
+{
+    camera->distance = distance;
+    Camera_CalcLookAtPosFromTargetAndAngle(camera);
+}
+
+THUMB_FUNC void Camera_SetLookAtTargetAndRecalcPos(const VecFx32 * target, struct CameraWork * camera)
+{
+    camera->lookAt.camTarget = *target;
+    Camera_CalcLookAtPosFromTargetAndAngle(camera);
+}
+
+THUMB_FUNC u16 Camera_GetPerspectiveAngle(struct CameraWork * camera)
+{
+    return camera->perspectiveAngle;
+}
+
+THUMB_FUNC fx32 Camera_GetDistance(struct CameraWork * camera)
+{
+    return camera->distance;
+}
+
+THUMB_FUNC void Camera_GetAngle(struct CameraAngle * dest, struct CameraWork * camera)
+{
+    *dest = camera->angle;
+}
+
+THUMB_FUNC void Camera_GetLookAtCamTarget(VecFx32 * dest, const struct CameraWork * camera)
+{
+    *dest = camera->lookAt.camTarget;
+}
+THUMB_FUNC void Camera_GetLookAtCamPos(VecFx32 * dest, const struct CameraWork * camera)
+{
+    *dest = camera->lookAt.camPos;
+}
+
+THUMB_FUNC void Camera_SetLookAtCamTarget(const VecFx32 * target, struct CameraWork * camera)
+{
+    camera->lookAt.camTarget = *target;
+}
+
+THUMB_FUNC void Camera_SetLookAtCamPos(const VecFx32 * pos, struct CameraWork * camera)
+{
+    camera->lookAt.camPos = *pos;
 }

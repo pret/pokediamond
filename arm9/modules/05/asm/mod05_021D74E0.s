@@ -815,7 +815,7 @@ MOD05_021D7BE0: ; 0x021D7BE0
 	sub sp, #0x80
 	add r4, r0, #0
 	bl FUN_020222AC
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	add r0, r4, #0
 	bl FUN_0205E0A8
 	ldr r0, [r4, #0x24]
@@ -885,7 +885,7 @@ _021D7C1C:
 	ldr r0, [r4, #4]
 	ldr r0, [r0, #4]
 	bl MOD05_021D7FD0
-	ldr r1, _021D7CA0 ; =UNK_02105BB8
+	ldr r1, _021D7CA0 ; =g3dDepthBufferingMode
 	mov r0, #0
 	ldr r1, [r1]
 	bl FUN_020222B4
@@ -894,7 +894,7 @@ _021D7C1C:
 	nop
 _021D7C98: .word NNS_G3dGlb + 0x8
 _021D7C9C: .word NNS_G3dGlb + 0x80
-_021D7CA0: .word UNK_02105BB8
+_021D7CA0: .word g3dDepthBufferingMode
 
 	thumb_func_start MOD05_021D7CA4
 MOD05_021D7CA4: ; 0x021D7CA4
@@ -943,7 +943,7 @@ MOD05_021D7CF0: ; 0x021D7CF0
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
-	ldr r0, _021D7D44 ; =UNK_02105BB8
+	ldr r0, _021D7D44 ; =g3dDepthBufferingMode
 	ldr r0, [r0]
 	lsl r1, r0, #1
 	ldr r0, _021D7D48 ; =0x04000540
@@ -973,7 +973,7 @@ _021D7D36:
 	str r0, [r5, #0x30]
 	pop {r3, r4, r5, pc}
 	nop
-_021D7D44: .word UNK_02105BB8
+_021D7D44: .word g3dDepthBufferingMode
 _021D7D48: .word 0x04000540
 
 	thumb_func_start MOD05_021D7D4C

@@ -2261,14 +2261,14 @@ MOD05_021DD180: ; 0x021DD180
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	ldr r0, [r0, #0x20]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	add r6, r0, #0
 	mov r0, #0x41
 	ldr r1, [r5]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	ldr r0, [r0, #0x20]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	add r1, r0, #0
 	add r0, sp, #0xc
 	str r0, [sp]
