@@ -296,40 +296,37 @@ void SortPocket(struct ItemSlot * slots, u32 count)
     }
 }
 
-extern struct BagView * BagView_new(u8 heap_id);
-extern void BagView_setitem(struct BagView * view, struct ItemSlot * slot, u8 pocket, u8 idx);
-
 struct BagView * CreateBagView(struct Bag * bag, const u8 * pockets, u32 heap_id)
 {
-    struct BagView * view = BagView_new((u8)heap_id);
-    int i;
-    for (i = 0; pockets[i] != 0xFF; i++)
+    struct BagView * view = BagView_New((u8)heap_id);
+
+    for (u32 i = 0; pockets[i] != 0xFF; i++)
     {
         switch (pockets[i])
         {
         case POCKET_KEY_ITEMS:
-            BagView_setitem(view, bag->keyItems, POCKET_KEY_ITEMS, (u8)i);
+            BagView_SetItem(view, bag->keyItems, POCKET_KEY_ITEMS, (u8)i);
             break;
         case POCKET_ITEMS:
-            BagView_setitem(view, bag->items, POCKET_ITEMS, (u8)i);
+            BagView_SetItem(view, bag->items, POCKET_ITEMS, (u8)i);
             break;
         case POCKET_BERRIES:
-            BagView_setitem(view, bag->berries, POCKET_BERRIES, (u8)i);
+            BagView_SetItem(view, bag->berries, POCKET_BERRIES, (u8)i);
             break;
         case POCKET_MEDICINE:
-            BagView_setitem(view, bag->medicine, POCKET_MEDICINE, (u8)i);
+            BagView_SetItem(view, bag->medicine, POCKET_MEDICINE, (u8)i);
             break;
         case POCKET_BALLS:
-            BagView_setitem(view, bag->balls, POCKET_BALLS, (u8)i);
+            BagView_SetItem(view, bag->balls, POCKET_BALLS, (u8)i);
             break;
         case POCKET_BATTLE_ITEMS:
-            BagView_setitem(view, bag->battleItems, POCKET_BATTLE_ITEMS, (u8)i);
+            BagView_SetItem(view, bag->battleItems, POCKET_BATTLE_ITEMS, (u8)i);
             break;
         case POCKET_MAIL:
-            BagView_setitem(view, bag->mail, POCKET_MAIL, (u8)i);
+            BagView_SetItem(view, bag->mail, POCKET_MAIL, (u8)i);
             break;
         case POCKET_TMHMS:
-            BagView_setitem(view, bag->TMsHMs, POCKET_TMHMS, (u8)i);
+            BagView_SetItem(view, bag->TMsHMs, POCKET_TMHMS, (u8)i);
             break;
         }
     }

@@ -264,7 +264,7 @@ Static arm9
 	Object unk_0206C700.o
 	Object unk_0206DE24.o
 	Object unk_0206E0F0.o
-	Object unk_0206E2F0.o
+	Object bag_view.o
 
 	##itemtool##
 	Object itemtool.o
