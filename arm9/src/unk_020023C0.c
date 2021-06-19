@@ -1,4 +1,5 @@
 #include "global.h"
+#include "unk_020023C0.h"
 #include "game_init.h"
 #include "string_util.h"
 #include "text.h"
@@ -6,39 +7,11 @@
 
 u16 unk00;
 
-typedef struct
-{
-    u8 canABSpeedUpPrint : 1;
-    u8 useAlternateDownArrow : 1;
-    u8 autoScroll : 1;
-    u8 forceMidTextSpeed : 1;
-    u8 unk0_4 : 1;
-    u8 unk0_5 : 1;
-    u8 unk0_6 : 1;
-    u8 unk0_7 : 1;
-    u8 unk1;
-} TextFlags;
-
 TextFlags gTextFlags;
 
-const u8 UNK_020ECB50[] = { 0x00, 0x01, 0x02, 0x01 };
+const u8 UNK_020ECB50[] = { 0, 1, 2, 1 };
 
-struct TextPrinterSubStruct
-{
-    u8 glyphId : 4; // 0x14
-    u8 hasPrintBeenSpedUp : 1;
-    u8 unk : 3;
-    u8 downArrowDelay : 5;
-    u8 downArrowYPosIdx : 2;
-    u8 hasGlyphIdBeenSet : 1;
-    u8 autoScrollDelay : 8;
-};
-
-extern void FUN_0200284C(struct TextPrinter *printer);
 extern const char *FUN_02002D94(u8, u16);
-extern u8 FUN_02002B3C(struct TextPrinter *printer);
-extern void FUN_02002A00(struct TextPrinter *printer);
-extern u32 FUN_02002B18(struct TextPrinter *printer);
 
 THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
 {
@@ -46,7 +19,6 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
     struct TextPrinterSubStruct *subStruct =
         (struct TextPrinterSubStruct *)(&printer->subStructFields);
     u16 currentChar;
-    u16 field;
 
     switch (printer->state)
     {
@@ -105,31 +77,31 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
             {
             case 0xFF00:
                 u16 field =
-                    MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
                 if (field == 0xff)
                 {
                     u8 r2 = printer->printerTemplate.unk4;
                     printer->printerTemplate.unk4 =
-                        (printer->printerTemplate.fgColor - 1) / 2 + 0x64;
+                        (u8)((printer->printerTemplate.fgColor - 1) / 2 + 100);
 
-                    if (!(r2 >= 0x64 && r2 < 0x6b))
+                    if (!(r2 >= 100 && r2 < 107))
                     {
                         break;
                     }
 
-                    field = r2 - 0x64;
+                    field = (u16)(r2 - 100);
                 }
                 else
                 {
                     if (field >= 0x64)
                     {
-                        printer->printerTemplate.unk4 = field;
+                        printer->printerTemplate.unk4 = (u8)field;
                         break;
                     }
                 }
 
-                printer->printerTemplate.fgColor = field * 2 + 1;
-                printer->printerTemplate.shadowColor = field * 2 + 2;
+                printer->printerTemplate.fgColor = (u8)(field * 2 + 1);
+                printer->printerTemplate.shadowColor = (u8)(field * 2 + 2);
 
                 GenerateFontHalfRowLookupTable(printer->printerTemplate.fgColor,
                     printer->printerTemplate.bgColor,
@@ -138,7 +110,7 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 break;
 
             case 0x200:
-                field = MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                field = (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
 
                 FUN_0201C1EC(printer,
                     printer->printerTemplate.currentX,
@@ -152,7 +124,7 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 break;
             case 0x201:
                 printer->delayCounter =
-                    MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                    (u8)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
                 printer->printerTemplate.currentChar.raw =
                     MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
                 printer->state = 6;
@@ -160,22 +132,22 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 return 3;
             case 0x202:
                 printer->Unk2A =
-                    MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
                 printer->printerTemplate.currentChar.raw =
                     MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
 
                 return 3;
             case 0x203:
                 printer->printerTemplate.currentX =
-                    MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                    (u8)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
                 break;
             case 0x204:
                 printer->printerTemplate.currentY =
-                    MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                    (u8)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
                 break;
 
             case 0xFF01:
-                field = MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                field = (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
 
                 switch (field)
                 {
@@ -192,7 +164,7 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 break;
 
             case 0xFE06:
-                field = MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                field = (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
                 if (field != 0xFE00)
                 {
                     if (field != 0xFE01)
@@ -268,8 +240,8 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
         if (FUN_02002B18(printer) != 0)
         {
             FUN_02002A00(printer);
-            printer->scrollDistance = GetFontAttribute(printer->printerTemplate.fontId, 1) +
-                                      printer->printerTemplate.lineSpacing;
+            printer->scrollDistance = (u8)(GetFontAttribute(printer->printerTemplate.fontId, 1) +
+                                      printer->printerTemplate.lineSpacing);
             printer->printerTemplate.currentX = printer->printerTemplate.x;
             printer->state = 4;
         }
@@ -278,13 +250,12 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
     case 4:
         if (printer->scrollDistance != 0)
         {
-            printer->printerTemplate.bgColor;
             if ((int)printer->scrollDistance < 4)
             {
                 ScrollWindow(printer->printerTemplate.window,
                     0,
                     printer->scrollDistance,
-                    (printer->printerTemplate.bgColor | (printer->printerTemplate.bgColor << 4)));
+                    (u8)(printer->printerTemplate.bgColor | (printer->printerTemplate.bgColor << 4)));
                 printer->scrollDistance = 0;
             }
             else
@@ -292,7 +263,7 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 ScrollWindow(printer->printerTemplate.window,
                     0,
                     4,
-                    (printer->printerTemplate.bgColor | (printer->printerTemplate.bgColor << 4)));
+                    (u8)(printer->printerTemplate.bgColor | (printer->printerTemplate.bgColor << 4)));
 
                 printer->scrollDistance -= 4;
             }
@@ -368,34 +339,34 @@ THUMB_FUNC void FUN_02002878(struct TextPrinter *printer)
 
     FillBgTilemapRect(printer->printerTemplate.window->bgConfig,
         bg_id,
-        r6 + 18 + UNK_020ECB50[subStruct->downArrowYPosIdx] * 4,
-        x + width + 1,
-        y + 2,
+        (u16)(r6 + 18 + UNK_020ECB50[subStruct->downArrowYPosIdx] * 4),
+        (u8)(x + width + 1),
+        (u8)(y + 2),
         1,
         1,
         0x10);
 
     FillBgTilemapRect(printer->printerTemplate.window->bgConfig,
         bg_id,
-        r6 + 19 + UNK_020ECB50[subStruct->downArrowYPosIdx] * 4,
-        x + width + 2,
-        y + 2,
+        (u16)(r6 + 19 + UNK_020ECB50[subStruct->downArrowYPosIdx] * 4),
+        (u8)(x + width + 2),
+        (u8)(y + 2),
         1,
         1,
         0x10);
     FillBgTilemapRect(printer->printerTemplate.window->bgConfig,
         bg_id,
-        r6 + 20 + UNK_020ECB50[subStruct->downArrowYPosIdx] * 4,
-        x + width + 1,
-        y + 3,
+        (u16)(r6 + 20 + UNK_020ECB50[subStruct->downArrowYPosIdx] * 4),
+        (u8)(x + width + 1),
+        (u8)(y + 3),
         1,
         1,
         0x10);
     FillBgTilemapRect(printer->printerTemplate.window->bgConfig,
         bg_id,
-        r6 + 21 + UNK_020ECB50[subStruct->downArrowYPosIdx] * 4,
-        x + width + 2,
-        y + 3,
+        (u16)(r6 + 21 + UNK_020ECB50[subStruct->downArrowYPosIdx] * 4),
+        (u8)(x + width + 2),
+        (u8)(y + 3),
         1,
         1,
         0x10);
@@ -415,17 +386,17 @@ THUMB_FUNC void FUN_02002A00(struct TextPrinter *printer)
 
     FillBgTilemapRect(printer->printerTemplate.window->bgConfig,
         bg_id,
-        r6 + 10,
-        x + width + 1,
-        y + 2,
+        (u16)(r6 + 10),
+        (u8)(x + width + 1),
+        (u8)(y + 2),
         1,
         2,
         0x10);
     FillBgTilemapRect(printer->printerTemplate.window->bgConfig,
         bg_id,
-        r6 + 11,
-        x + width + 2,
-        y + 2,
+        (u16)(r6 + 11),
+        (u8)(x + width + 2),
+        (u8)(y + 2),
         1,
         2,
         0x10);
@@ -436,6 +407,7 @@ extern void FUN_020054C8(u16);
 
 THUMB_FUNC u32 FUN_02002A94(struct TextPrinter *printer)
 {
+    #pragma unused(printer)
     if ((gMain.newKeys & 3) != 0 || (gMain.touchNew != 0 && gTextFlags.unk0_4 != 0))
     {
         FUN_020054C8(0x5DC);
@@ -482,10 +454,10 @@ THUMB_FUNC u8 FUN_02002B3C(struct TextPrinter *printer)
 {
     if (gTextFlags.autoScroll)
     {
-        return FUN_02002ADC(printer);
+        return (u8)FUN_02002ADC(printer);
     }
 
-    return FUN_02002A94(printer);
+    return (u8)FUN_02002A94(printer);
 }
 
 THUMB_FUNC void FUN_02002B60(u32 param0)
