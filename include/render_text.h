@@ -1,3 +1,6 @@
+#ifndef POKEDIAMOND_RENDER_TEXT_H
+#define POKEDIAMOND_RENDER_TEXT_H
+
 #include "global.h"
 #include "text.h"
 
@@ -41,3 +44,5 @@ u8 FUN_02002BD4();
 void FUN_02002BE4();
 u8 FUN_02002BF4();
 void FUN_02002C04();
+
+#endif // POKEDIAMOND_RENDER_TEXT_H
