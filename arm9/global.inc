@@ -4971,10 +4971,10 @@
 .extern FUN_0206E2AC
 .extern FUN_0206E2E0
 .extern FUN_0206E2E8
-.extern BagView_new
-.extern FUN_0206E308
+.extern BagView_New
+.extern BagView_sizeof
 .extern FUN_0206E314
-.extern BagView_setitem
+.extern BagView_SetItem
 .extern FUN_0206E340
 .extern FUN_0206E354
 .extern FUN_0206E358

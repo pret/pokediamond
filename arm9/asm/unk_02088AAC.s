@@ -177,9 +177,9 @@ _02088BBA:
 	ldr r0, [r4, #0x0]
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl BagView_new
+	bl BagView_New
 	add r5, r0, #0x0
-	bl FUN_0206E308
+	bl BagView_sizeof
 	add r2, r0, #0x0
 	ldr r1, [r4, #0x18]
 	add r0, r5, #0x0
