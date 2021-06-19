@@ -520,7 +520,7 @@ MOD81_02238248: ; 0x02238248
 	cmp r0, #0
 	bgt _02238284
 	ldr r0, _0223832C ; =0x000006AE
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0x1e
 	add r0, #0xf0
@@ -2601,7 +2601,7 @@ _0223920E: ; jump table
 	.short _022392B6 - _0223920E - 2 ; case 4
 _02239218:
 	ldr r0, _022392D4 ; =0x000006A8
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	mov r1, #0
 	mov r2, #0x10
@@ -3143,7 +3143,7 @@ _0223962A:
 	str r0, [r4, #0x24]
 _02239658:
 	ldr r0, _022396E4 ; =0x000005E6
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x20]
 	add r0, r0, #1
 	str r0, [r4, #0x20]
@@ -3590,7 +3590,7 @@ _022399A0:
 	bne _022399B6
 	mov r0, #0x6b
 	lsl r0, r0, #4
-	bl FUN_020054C8
+	bl PlaySE
 _022399B6:
 	mov r0, #0x16
 	lsl r0, r0, #4
@@ -5630,7 +5630,7 @@ _0223A9C8:
 	cmp r0, #0xa
 	ble _0223AA54
 	ldr r0, _0223AA5C ; =0x000006AC
-	bl FUN_020054C8
+	bl PlaySE
 	add r1, r5, #0
 	add r0, r5, #0
 	add r1, #0x34
@@ -5649,7 +5649,7 @@ _0223A9F2:
 	cmp r0, #0
 	beq _0223AA54
 	ldr r0, _0223AA60 ; =0x000006AD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r5, #0x20]
 	mov r1, #3
 	bl FUN_02020130
@@ -6645,7 +6645,7 @@ _0223B1C2:
 	cmp r0, #0
 	beq _0223B1FC
 	ldr r0, _0223B214 ; =0x000006A9
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #1
@@ -7157,7 +7157,7 @@ _0223B5FE:
 	cmp r0, #0
 	bne _0223B662
 	ldr r0, _0223B668 ; =0x000006AB
-	bl FUN_020054C8
+	bl PlaySE
 	add r1, r5, #0
 	add r0, r5, #0
 	add r1, #0x34
@@ -10287,7 +10287,7 @@ _0223CEDC:
 	cmp r1, r0
 	bge _0223CF62
 	ldr r0, _0223CF68 ; =0x000005E6
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0
 	ldr r1, [r4, #0x30]
 	mvn r0, r0
@@ -10580,4 +10580,3 @@ MOD81_0223D448: ; 0x0223D448
 	.global MOD81_0223D450
 MOD81_0223D450: ; 0x0223D450
 	.space 0x10
-

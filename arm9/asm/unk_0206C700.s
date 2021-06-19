@@ -238,7 +238,7 @@ FUN_0206C700: ; 0x0206C700
 	mov r2, #0x0
 	bl FUN_0200CA44
 	mov r0, #0x1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	bl FUN_02033E74
 	add r0, r4, #0x0
 	add sp, #0x24
@@ -335,7 +335,7 @@ FUN_0206C92C: ; 0x0206C92C
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x0
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	pop {r4, pc}
 
 	thumb_func_start FUN_0206C9C0
@@ -746,7 +746,7 @@ _0206CCCE:
 	bl GF_AssertFail
 _0206CD16:
 	ldr r0, _0206CE24 ; =0x000005F9
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	mov r1, #0x28
 	add r0, #0x66
@@ -811,7 +811,7 @@ _0206CD5A:
 	mov r1, #0xb
 	bl FUN_0206E0AC
 	ldr r0, _0206CE28 ; =0x000005FA
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	mov r1, #0x10
 	add r0, #0x70
@@ -892,7 +892,7 @@ _0206CE2C:
 	add r2, #0xf3
 	bl FUN_02007558
 	ldr r0, _0206D1C8 ; =0x000005FB
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	mov r1, #0x0
 	add r0, #0x70
@@ -968,7 +968,7 @@ _0206CEB0:
 	mov r3, #0x3
 	bl FUN_02007E98
 	ldr r0, _0206D1D4 ; =0x000005FC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	add r0, #0x64
 	ldrb r0, [r0, #0x0]
@@ -2723,7 +2723,7 @@ _0206DDE4:
 	b _0206DDFA
 _0206DDEC:
 	ldr r0, _0206DE04 ; =0x000005E6
-	bl FUN_020054C8
+	bl PlaySE
 	b _0206DDFA
 _0206DDF4:
 	ldr r0, _0206DE08 ; =0x00000483

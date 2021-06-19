@@ -175,7 +175,7 @@ FUN_020840CC: ; 0x020840CC
 	add r1, r0, #0x0
 	bl FUN_020334E8
 	ldr r0, _02084110 ; =0x00000658
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3-r5, pc}
 	.balign 4
 _0208410C: .word 0x00004A34

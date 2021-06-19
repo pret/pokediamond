@@ -1564,7 +1564,7 @@ _021DA526:
 	beq _021DA542
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020054C8
+	bl PlaySE
 _021DA542:
 	add r0, r5, #0
 	mov r1, #0

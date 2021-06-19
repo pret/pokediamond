@@ -519,7 +519,7 @@ _02064B2E:
 	mov r1, #0x1
 	bl FUN_0205557C
 	ldr r0, _02064B6C ; =0x0000061A
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -636,7 +636,7 @@ _02064C24:
 	mov r1, #0x1
 	bl FUN_0205557C
 	ldr r0, _02064C60 ; =0x0000061A
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -661,11 +661,11 @@ FUN_02064C64: ; 0x02064C64
 	cmp r0, #0x0
 	bne _02064C72
 	ldr r0, _02064C7C ; =0x00000611
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3, pc}
 _02064C72:
 	ldr r0, _02064C80 ; =0x00000614
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3, pc}
 	nop
 _02064C7C: .word 0x00000611

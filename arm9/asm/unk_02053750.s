@@ -329,7 +329,7 @@ _02053912:
 	add r3, r0, #0x0
 	bl FUN_0200E1D0
 	ldr r0, _020539F0 ; =0x0000062F
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x5f
 	mov r1, #0x1
 	lsl r0, r0, #0x2
@@ -354,7 +354,7 @@ _0205396E:
 	cmp r0, #0x0
 	beq _020539EA
 	ldr r0, _020539F4 ; =0x00000631
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	ldr r1, [r4, r0]
@@ -464,7 +464,7 @@ _02053A4E:
 	bl FUN_02053F38
 	mov r0, #0x63
 	lsl r0, r0, #0x4
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x5f
 	mov r1, #0x1
 	lsl r0, r0, #0x2
@@ -660,7 +660,7 @@ _02053BD6:
 	cmp r0, #0x0
 	beq _02053C8C
 	ldr r0, _02053C94 ; =0x00000632
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	ldr r1, [r4, r0]

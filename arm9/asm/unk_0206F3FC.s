@@ -837,7 +837,7 @@ FUN_0206F9A4: ; 0x0206F9A4
 	tst r0, r1
 	beq _0206F9BA
 	ldr r0, _0206F9C4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x1b
 	pop {r3, pc}
 _0206F9BA:
@@ -3138,7 +3138,7 @@ _02070C6E:
 	mov r2, #0x1
 	bl FUN_020713EC
 	ldr r0, _02070CD8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	cmp r4, #0x6
 	bhs _02070CA6
 	add r0, r5, #0x0
@@ -3338,7 +3338,7 @@ _02070DCC:
 	add r0, r0, #0x1
 	strb r1, [r5, r0]
 	ldr r0, _02070E58 ; =0x000005E4
-	bl FUN_020054C8
+	bl PlaySE
 	cmp r4, #0x6
 	beq _02070E3C
 	cmp r4, #0x7
@@ -3525,7 +3525,7 @@ _02070FAE:
 	cmp r1, #0x7
 	bne _02070FC6
 	ldr r0, _020710B4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _020710B8 ; =0x00000B23
 	ldrb r0, [r4, r0]
 	lsl r0, r0, #0x18
@@ -3544,7 +3544,7 @@ _02070FC6:
 	bne _02070FE0
 _02070FD6:
 	ldr r0, _020710B4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x0
 	pop {r4, pc}
 _02070FE0:
@@ -3562,12 +3562,12 @@ _02070FE8:
 	cmp r0, #0x0
 	bne _02071002
 	ldr r0, _020710B4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x0
 	pop {r4, pc}
 _02071002:
 	ldr r0, _020710C0 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x5
 	pop {r4, pc}
 _0207100C:
@@ -3582,19 +3582,19 @@ _0207100C:
 	cmp r1, #0x0
 	bne _02071030
 	add r0, #0x38
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_020710C4
 	mov r0, #0x0
 	pop {r4, pc}
 _02071030:
 	add r0, #0x4e
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x5
 	pop {r4, pc}
 _0207103A:
 	add r0, #0x38
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_020710C4
 	mov r0, #0x0
@@ -3611,7 +3611,7 @@ _0207104A:
 	lsr r0, r0, #0x1f
 	bne _0207106E
 	ldr r0, _020710B4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _020710B0 ; =0x00000B25
 	mov r1, #0x7
 	strb r1, [r4, r0]
@@ -3645,7 +3645,7 @@ _0207108E:
 	cmp r1, #0x0
 	beq _020710AA
 	ldr r0, _020710C0 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x5
 _020710AA:
 	pop {r4, pc}
@@ -4210,7 +4210,7 @@ FUN_020714D0: ; 0x020714D0
 	tst r1, r2
 	beq _0207150C
 	ldr r0, _02071554 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02071558 ; =0x00000B25
 	ldrb r1, [r4, r0]
 	cmp r1, #0x6
@@ -4236,7 +4236,7 @@ _0207150C:
 	tst r1, r2
 	beq _02071522
 	ldr r0, _02071554 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_02074538
 	mov r0, #0x3
@@ -4348,7 +4348,7 @@ _020715EA:
 	mov r1, #0x13
 	strb r1, [r4, r0]
 	ldr r0, _02071740 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x14
 	pop {r3-r5, pc}
@@ -4419,7 +4419,7 @@ _02071630:
 	mov r1, #0x13
 	strb r1, [r4, r0]
 	ldr r0, _02071740 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x14
 	pop {r3-r5, pc}
@@ -4432,7 +4432,7 @@ _02071692:
 	mov r1, #0x13
 	strb r1, [r4, r0]
 	ldr r0, _02071740 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x14
 	pop {r3-r5, pc}
@@ -4445,7 +4445,7 @@ _020716AE:
 	mov r1, #0x13
 	strb r1, [r4, r0]
 	ldr r0, _02071740 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x14
 	pop {r3-r5, pc}
@@ -4474,7 +4474,7 @@ _020716EA:
 	mov r1, #0x13
 	strb r1, [r4, r0]
 	ldr r0, _02071740 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x14
 	pop {r3-r5, pc}
@@ -4487,7 +4487,7 @@ _02071706:
 	mov r1, #0x13
 	strb r1, [r4, r0]
 	ldr r0, _02071740 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x14
 	pop {r3-r5, pc}
@@ -4498,7 +4498,7 @@ _02071722:
 	add r0, #0x38
 	add r1, #0x23
 	strb r2, [r1, #0x0]
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x1b
 	add sp, #0x8
 	pop {r3-r5, pc}
@@ -4831,7 +4831,7 @@ _02071994:
 	cmp r1, #0x6
 	blo _020719B8
 	ldr r0, _02071C20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_02074538
 	add sp, #0x8
@@ -4848,7 +4848,7 @@ _020719B8:
 	b _02071A26
 _020719CA:
 	ldr r0, _02071C24 ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02071C28 ; =0x000005C8
 	mov r1, #0x1
 	ldr r0, [r4, r0]
@@ -4879,7 +4879,7 @@ _020719FA:
 	b _02071A26
 _02071A08:
 	ldr r0, _02071C20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02071C18 ; =0x00000B2A
 	mov r1, #0x1
 	strh r1, [r4, r0]
@@ -4888,7 +4888,7 @@ _02071A08:
 	pop {r4-r6, pc}
 _02071A1A:
 	ldr r0, _02071C34 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x1a
 	pop {r4-r6, pc}
@@ -4899,7 +4899,7 @@ _02071A26:
 	tst r0, r1
 	beq _02071A42
 	ldr r0, _02071C20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_02074538
 	add sp, #0x8
@@ -4936,7 +4936,7 @@ _02071A7A:
 	b _02071C12
 _02071A7C:
 	ldr r0, _02071C24 ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02071C28 ; =0x000005C8
 	mov r1, #0x1
 	ldr r0, [r4, r0]
@@ -4974,7 +4974,7 @@ _02071ABA:
 	pop {r4-r6, pc}
 _02071AC6:
 	ldr r0, _02071C34 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x1a
 	pop {r4-r6, pc}
@@ -4987,7 +4987,7 @@ _02071AD2:
 	b _02071C12
 _02071ADE:
 	ldr r0, _02071C20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x89
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -5016,7 +5016,7 @@ _02071B0C:
 	cmp r0, #0x1
 	bne _02071C12
 	ldr r0, _02071C24 ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02071C18 ; =0x00000B2A
 	mov r1, #0x3
 	strh r1, [r4, r0]
@@ -5107,7 +5107,7 @@ _02071BE0:
 	tst r0, r1
 	beq _02071C12
 	ldr r0, _02071C20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x89
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -5284,7 +5284,7 @@ FUN_02071D48: ; 0x02071D48
 	lsr r0, r0, #0x1f
 	bne _02071D92
 	ldr r0, _02071DE8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x3
 	pop {r4, pc}
 _02071D72:
@@ -5297,12 +5297,12 @@ _02071D72:
 	cmp r0, #0x0
 	bne _02071D8C
 	ldr r0, _02071DE8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x0
 	pop {r4, pc}
 _02071D8C:
 	ldr r0, _02071DEC ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 _02071D92:
 	mov r0, #0x5
 	pop {r4, pc}
@@ -5316,7 +5316,7 @@ _02071D96:
 	lsr r0, r0, #0x1f
 	bne _02071DB6
 	ldr r0, _02071DE8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02071DE4 ; =0x00000B25
 	mov r1, #0x7
 	strb r1, [r4, r0]
@@ -5340,7 +5340,7 @@ _02071DBA:
 	cmp r1, #0x0
 	beq _02071DDE
 	ldr r0, _02071DEC ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x5
 _02071DDE:
 	pop {r4, pc}

@@ -1658,7 +1658,7 @@ FUN_0207322C: ; 0x0207322C
 	sub sp, #0xc
 	add r4, r0, #0x0
 	mov r0, #0x1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0x0
 	bl FUN_02002B7C
 	ldr r0, _0207326C ; =0x000005A4
@@ -1713,7 +1713,7 @@ _020732A0:
 	pop {r3, pc}
 _020732A6:
 	ldr r0, _020732C4 ; =0x000005E6
-	bl FUN_020054C8
+	bl PlaySE
 	b _020732BE
 _020732AE:
 	ldr r0, _020732C8 ; =0x00000483

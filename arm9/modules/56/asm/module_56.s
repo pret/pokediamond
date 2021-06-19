@@ -3437,7 +3437,7 @@ MOD56_02213924: ; 0x02213924
 	cmp r2, #0
 	bne _02213930
 	ldr r0, _02213934 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _02213930:
 	pop {r3, pc}
 	nop
@@ -4020,7 +4020,7 @@ _02213DD2:
 	bl MOD56_02215EA4
 _02213DDC:
 	ldr r0, _02213F88 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x3b
 	mov r1, #0x14
 	lsl r0, r0, #4
@@ -4041,7 +4041,7 @@ _02213E00:
 	cmp r0, #0
 	beq _02213E1C
 	ldr r0, _02213F8C ; =0x00000624
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x3b
 	mov r1, #0x2f
 	lsl r0, r0, #4
@@ -4153,7 +4153,7 @@ _02213EE8:
 	pop {r4, r5, r6, pc}
 _02213EFA:
 	ldr r0, _02213F88 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r5, #4]
 	ldrb r0, [r0, #0x1b]
 	bl MOD56_02211E88
@@ -4181,7 +4181,7 @@ _02213F2E:
 	pop {r4, r5, r6, pc}
 _02213F32:
 	ldr r0, _02213F88 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r5, #4]
 	ldrb r0, [r0, #0x1b]
 	bl MOD56_02211E88
@@ -5206,11 +5206,11 @@ _0221471A:
 	add r0, r5, #0
 	bl MOD56_02216120
 	ldr r0, _02214804 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	b _022147CE
 _02214730:
 	ldr r0, _02214804 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	cmp r4, #0xf
 	bne _02214752
 	cmp r7, #2
@@ -5483,7 +5483,7 @@ _02214956:
 	pop {r4, r5, r6, pc}
 _02214968:
 	ldr r0, _022149D0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x3b
 	mov r1, #0x24
 	lsl r0, r0, #4
@@ -5491,7 +5491,7 @@ _02214968:
 	b _02214994
 _02214978:
 	ldr r0, _022149D0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD56_0221617C
@@ -5857,7 +5857,7 @@ _02214C36:
 	pop {r3, r4, r5, r6, r7, pc}
 _02214C4A:
 	ldr r0, _02214E20 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x3b
 	mov r1, #0x13
 	lsl r0, r0, #4
@@ -5865,7 +5865,7 @@ _02214C4A:
 	b _02214DE2
 _02214C5A:
 	ldr r0, _02214E20 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	cmp r5, #1
 	beq _02214C66
 	b _02214DD6
@@ -8281,7 +8281,7 @@ _02215F82:
 	mov r3, #0xa
 	bl FUN_0200D0BC
 	mov r0, #1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0
 	bl FUN_02002B7C
 	mov r3, #0

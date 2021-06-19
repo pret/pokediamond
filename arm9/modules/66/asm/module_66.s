@@ -1001,7 +1001,7 @@ MOD66_021D7CAC: ; 0x021D7CAC
 	mov r1, #0x11
 	bl FUN_0200E1D0
 	ldr r0, _021D7CF0 ; =0x0000068F
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0
 	bl FUN_0200E394
 	mov r0, #1
@@ -1038,7 +1038,7 @@ MOD66_021D7CF8: ; 0x021D7CF8
 	bl FUN_0200E1D0
 	mov r0, #0x69
 	lsl r0, r0, #4
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0
 	add sp, #0xc
 	pop {pc}
@@ -1061,7 +1061,7 @@ MOD66_021D7D24: ; 0x021D7D24
 	add r2, r1, #0
 	bl FUN_0200E1D0
 	ldr r0, _021D7D64 ; =0x0000068F
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0
 	bl FUN_0200E394
 	mov r1, #4
@@ -1096,7 +1096,7 @@ MOD66_021D7D6C: ; 0x021D7D6C
 	bl FUN_0200E1D0
 	mov r0, #0x69
 	lsl r0, r0, #4
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0
 	add sp, #0xc
 	pop {pc}
@@ -1115,7 +1115,7 @@ MOD66_021D7D98: ; 0x021D7D98
 	tst r1, r2
 	beq _021D7DB6
 	ldr r0, _021D7DD0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #1
 	pop {r3, pc}
 _021D7DB6:
@@ -1150,7 +1150,7 @@ MOD66_021D7DD4: ; 0x021D7DD4
 	cmp r0, #0
 	beq _021D7DFA
 	ldr r0, _021D7E28 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #1
 	pop {r3, pc}
 _021D7DFA:
@@ -1161,7 +1161,7 @@ _021D7DFE:
 	tst r2, r3
 	beq _021D7E0E
 	ldr r0, _021D7E28 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #1
 	pop {r3, pc}
 _021D7E0E:
@@ -1189,7 +1189,7 @@ MOD66_021D7E2C: ; 0x021D7E2C
 	tst r1, r3
 	beq _021D7E42
 	ldr r0, _021D7E50 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #1
 	pop {r3, pc}
 _021D7E42:
@@ -3336,7 +3336,7 @@ _021D8ED0:
 	mov r1, #1
 	bl FUN_02020208
 	ldr r0, _021D9018 ; =0x000005E4
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #4]
 	add sp, #0x10
 	add r0, r0, #1
@@ -3507,7 +3507,7 @@ _021D903C:
 	mov r2, #2
 	bl FUN_0200E1D0
 	ldr r0, _021D90EC ; =0x00000691
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #4]
 	add sp, #0x10
 	add r0, r0, #1

@@ -425,7 +425,7 @@ _022121B6:
 	cmp r0, #1
 	beq _0221220E
 	ldr r0, _02212214 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #6
 	bl MOD09_022181C8
@@ -433,7 +433,7 @@ _022121B6:
 	pop {r4, pc}
 _022121E2:
 	ldr r0, _02212214 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, [r4]
 	add r0, r4, #0
 	ldrb r1, [r1, #0x11]
@@ -642,7 +642,7 @@ _02212384: ; jump table
 	.short _022123F6 - _02212384 - 2 ; case 3
 _0221238C:
 	ldr r0, _02212414 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #7
 	bl MOD09_022181C8
@@ -664,7 +664,7 @@ _022123B2:
 	cmp r0, #1
 	beq _0221240E
 	ldr r0, _02212414 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #8
 	bl MOD09_022181C8
@@ -679,7 +679,7 @@ _022123D4:
 	cmp r0, #1
 	beq _0221240E
 	ldr r0, _02212414 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0xa
 	bl MOD09_022181C8
@@ -690,7 +690,7 @@ _022123D4:
 	pop {r4, pc}
 _022123F6:
 	ldr r0, _02212414 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #6
 	bl MOD09_022181C8
@@ -736,7 +736,7 @@ _0221243C:
 	ldr r1, [r4]
 	strb r0, [r1, #0x11]
 	ldr r0, _022124D0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0xc
 	bl MOD09_022181C8
@@ -756,7 +756,7 @@ _0221246A:
 	ldr r1, [r4]
 	strb r0, [r1, #0x11]
 	ldr r0, _022124D0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0xd
 	bl MOD09_022181C8
@@ -767,7 +767,7 @@ _0221246A:
 	pop {r4, pc}
 _02212496:
 	ldr r0, _022124D0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0xb
 	bl MOD09_022181C8
@@ -778,7 +778,7 @@ _02212496:
 	pop {r4, pc}
 _022124AE:
 	ldr r0, _022124D0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #6
 	bl MOD09_022181C8
@@ -833,7 +833,7 @@ _02212506:
 	cmp r0, #0
 	beq _022125CE
 	ldr r0, _022125D4 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r1, r5, #0
 	add r1, #0xe
 	lsl r1, r1, #0x18
@@ -860,7 +860,7 @@ _0221253E:
 	ldr r1, [r4]
 	strb r0, [r1, #0x11]
 	ldr r0, _022125D4 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0xc
 	bl MOD09_022181C8
@@ -880,7 +880,7 @@ _0221256C:
 	ldr r1, [r4]
 	strb r0, [r1, #0x11]
 	ldr r0, _022125D4 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0xd
 	bl MOD09_022181C8
@@ -891,7 +891,7 @@ _0221256C:
 	pop {r3, r4, r5, pc}
 _02212598:
 	ldr r0, _022125D4 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #9
 	bl MOD09_022181C8
@@ -902,7 +902,7 @@ _02212598:
 	pop {r3, r4, r5, pc}
 _022125B0:
 	ldr r0, _022125D4 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #6
 	bl MOD09_022181C8
@@ -960,7 +960,7 @@ _02212604:
 	beq _0221264A
 _02212622:
 	ldr r0, _02212650 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4]
 	add r0, #0x34
 	strb r5, [r0]
@@ -968,7 +968,7 @@ _02212622:
 	pop {r3, r4, r5, pc}
 _02212632:
 	ldr r0, _02212650 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #6
 	bl MOD09_022181C8
@@ -1034,7 +1034,7 @@ _022126A6:
 	ldr r0, _0221273C ; =0x0000208D
 	strb r1, [r4, r0]
 	ldr r0, _02212740 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r5, #0x17
 	lsl r1, r5, #0x18
 	add r0, r4, #0
@@ -1067,7 +1067,7 @@ _022126D0:
 	add r0, #0x16
 	strb r5, [r4, r0]
 	ldr r0, _02212740 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0x12
 	bl MOD09_022181C8
@@ -1082,7 +1082,7 @@ _02212710:
 	add r0, #0x34
 	strb r1, [r0]
 	ldr r0, _02212740 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #6
 	bl MOD09_022181C8
@@ -1136,7 +1136,7 @@ _0221277C:
 	b _0221284A
 _0221278A:
 	ldr r0, _02212858 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0221285C ; =0x00002077
 	ldrb r0, [r5, r0]
 	lsl r0, r0, #0x1c
@@ -1187,7 +1187,7 @@ _022127E6:
 	lsr r0, r0, #0x1c
 	beq _0221284A
 	ldr r0, _02212858 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	mov r1, #0x12
 	bl MOD09_022181C8
@@ -1216,7 +1216,7 @@ _022127E6:
 	pop {r3, r4, r5, pc}
 _0221282C:
 	ldr r0, _02212858 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	mov r1, #6
 	bl MOD09_022181C8
@@ -1294,7 +1294,7 @@ _022128B6:
 	add r0, #0x34
 	strb r5, [r0]
 	ldr r0, _0221295C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r1, r5, #0
 	add r1, #0x13
 	lsl r1, r1, #0x18
@@ -1342,7 +1342,7 @@ _0221290E:
 	pop {r3, r4, r5, r6, pc}
 _02212934:
 	ldr r0, _0221295C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #6
 	bl MOD09_022181C8
@@ -1694,7 +1694,7 @@ _02212BAA:
 	strb r2, [r4, r0]
 _02212BC6:
 	ldr r0, _02212C88 ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	b _02212C78
 _02212BCE:
 	ldrb r1, [r5, #0x11]
@@ -1854,7 +1854,7 @@ _02212CF4:
 	add r0, r5, #0
 	bl MOD09_02216378
 	ldr r0, _02212DB0 ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02212DAC ; =0x0000207C
 	mov r1, #1
 	strb r1, [r5, r0]
@@ -8288,7 +8288,7 @@ MOD09_0221633C: ; 0x0221633C
 	sub sp, #0xc
 	add r4, r0, #0
 	mov r0, #1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
 	bl MOD11_02230E54
@@ -12988,7 +12988,7 @@ _022189AA: ; jump table
 	.short _02218A06 - _022189AA - 2 ; case 5
 _022189B6:
 	ldr r0, _02218A2C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	lsl r0, r5, #0x18
 	lsr r1, r0, #0x18
 	ldr r0, _02218A30 ; =0x0000114D
@@ -13007,7 +13007,7 @@ _022189D6:
 	cmp r0, #0
 	beq _02218A24
 	ldr r0, _02218A2C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4]
 	ldrb r1, [r0, #0x1f]
 	ldr r0, _02218A30 ; =0x0000114D
@@ -13025,7 +13025,7 @@ _022189D6:
 	pop {r3, r4, r5, pc}
 _02218A06:
 	ldr r0, _02218A2C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4]
 	mov r2, #0
 	strh r2, [r0, #0x1c]
@@ -13094,7 +13094,7 @@ _02218A84:
 	cmp r0, #0
 	beq _02218B30
 	ldr r0, _02218B38 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02218B3C ; =0x0000114D
 	ldr r2, [r4]
 	ldrb r1, [r4, r0]
@@ -13121,7 +13121,7 @@ _02218ABA:
 	cmp r0, #0
 	beq _02218B30
 	ldr r0, _02218B38 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02218B40 ; =0x0000114B
 	mov r1, #7
 	strb r1, [r4, r0]
@@ -13143,7 +13143,7 @@ _02218AE8:
 	cmp r0, #0
 	beq _02218B30
 	ldr r0, _02218B38 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02218B40 ; =0x0000114B
 	mov r1, #7
 	strb r1, [r4, r0]
@@ -13158,7 +13158,7 @@ _02218AE8:
 	pop {r3, r4, r5, pc}
 _02218B16:
 	ldr r0, _02218B38 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02218B40 ; =0x0000114B
 	mov r1, #4
 	strb r1, [r4, r0]
@@ -13268,7 +13268,7 @@ _02218BEA:
 	b _02218C44
 _02218BF4:
 	ldr r0, _02218C4C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, _02218C50 ; =0x0000114D
 	ldr r2, [r5]
 	ldrb r1, [r5, r1]
@@ -13292,7 +13292,7 @@ _02218BF4:
 	pop {r3, r4, r5, pc}
 _02218C2A:
 	ldr r0, _02218C4C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02218C54 ; =0x0000114B
 	mov r1, #5
 	strb r1, [r5, r0]
@@ -13744,7 +13744,7 @@ _02218FC2:
 	cmp r0, #1
 	bne _02218FFA
 	ldr r0, _022190C0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _022190C4 ; =0x0000114D
 	mov r1, #2
 	strb r1, [r4, r0]
@@ -13784,7 +13784,7 @@ _02219014:
 	cmp r0, #1
 	bne _02219054
 	ldr r0, _022190C0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _022190C4 ; =0x0000114D
 	ldr r3, [r4]
 	ldrb r1, [r4, r0]
@@ -13828,7 +13828,7 @@ _0221906E:
 	cmp r0, #1
 	bne _022190AE
 	ldr r0, _022190C0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, _022190C4 ; =0x0000114D
 	ldr r2, [r4]
 	ldrb r1, [r4, r1]
@@ -15243,7 +15243,7 @@ MOD09_02219C08: ; 0x02219C08
 	sub sp, #0xc
 	add r4, r0, #0
 	mov r0, #1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	ldr r0, [r4]
 	ldr r0, [r0]
 	bl MOD11_02230E54
@@ -17391,7 +17391,7 @@ _0221ACA8:
 	ldr r0, [r0]
 	bl MOD11_0225D5DC
 	ldr r0, _0221ACE0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0221ACD4:
 	mov r0, #0
 	add sp, #4
@@ -17624,7 +17624,7 @@ _0221AE70:
 	ldr r0, [r5]
 	bl MOD11_0225D5DC
 	ldr r0, _0221AEC0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0221AE8A:
 	mov r0, #0
 	add sp, #0x14
@@ -17644,7 +17644,7 @@ _0221AEA2:
 	tst r1, r0
 	beq _0221AEB6
 	ldr r0, _0221AEC4 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #1
 	add sp, #0x14
 	mvn r0, r0

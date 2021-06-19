@@ -531,7 +531,7 @@ MOD05_021E1ECC: ; 0x021E1ECC
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
 	ldr r0, _021E1F30 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r6, #0
 	add r0, #0xb0
 	ldr r0, [r0]
@@ -1061,7 +1061,7 @@ _021E22B8:
 	cmp r6, r0
 	beq _021E22EE
 	ldr r0, _021E235C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021E22EE:
 	ldr r0, _021E2360 ; =gMain
 	mov r1, #0x40
@@ -1098,7 +1098,7 @@ _021E2320:
 	cmp r0, #1
 	bne _021E235A
 	ldr r0, _021E235C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	add r0, #0xa0
 	ldr r1, _021E2364 ; =0x0000FFFE
@@ -1109,7 +1109,7 @@ _021E2320:
 	pop {r4, r5, r6, pc}
 _021E2346:
 	ldr r0, _021E235C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	add r0, #0xa0
 	ldr r0, [r0]
@@ -1128,7 +1128,7 @@ MOD05_021E2368: ; 0x021E2368
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
 	ldr r0, _021E23CC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x6d
 	lsl r0, r0, #2
 	mov r1, #0

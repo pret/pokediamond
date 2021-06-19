@@ -424,7 +424,7 @@ FUN_02014878: ; 0x02014878
 	add r2, #0x9a
 	strb r0, [r2, #0x0]
 	ldr r0, _020148A4 ; =0x000005E4
-	bl FUN_020054C8
+	bl PlaySE
 _020148A2:
 	pop {r4, pc}
 	.balign 4

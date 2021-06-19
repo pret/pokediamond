@@ -15311,7 +15311,7 @@ MOD05_021EFFC8: ; 0x021EFFC8
 	pop {r3, r4, r5, r6, r7, pc}
 _021EFFE6:
 	ldr r0, _021F007C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	add r0, #0x8c
 	ldr r0, [r0]
@@ -15328,7 +15328,7 @@ _021EFFE6:
 	b _021F0056
 _021F000E:
 	ldr r0, _021F007C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	add r0, #0x90
 	str r4, [r0]
@@ -15695,7 +15695,7 @@ MOD05_021F0304: ; 0x021F0304
 	cmp r2, #0
 	bne _021F0310
 	ldr r0, _021F0314 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021F0310:
 	pop {r3, pc}
 	nop
@@ -24673,7 +24673,7 @@ _021F4732:
 	str r0, [r4, #8]
 	mov r0, #0x61
 	lsl r0, r0, #4
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r4, pc}
 	.balign 4, 0
 _021F47A4: .word MOD05_021F48CC
@@ -26511,7 +26511,7 @@ MOD05_021F5518: ; 0x021F5518
 	mov r1, #1
 	bl GX_EngineAToggleLayers
 	ldr r0, _021F5560 ; =0x00000648
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #4
 	pop {r3, r4, pc}
 	.balign 4, 0
@@ -27686,7 +27686,7 @@ MOD05_021F5DF8: ; 0x021F5DF8
 	bne _021F5E0E
 	mov r0, #0x65
 	lsl r0, r0, #4
-	bl FUN_020054C8
+	bl PlaySE
 _021F5E0E:
 	ldr r0, [r4, #0x10]
 	cmp r0, #0x22

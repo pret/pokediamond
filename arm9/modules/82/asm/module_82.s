@@ -2586,7 +2586,7 @@ _0222E9EC:
 	mov r3, #3
 	bl MOD82_0222F694
 	ldr r0, _0222EAA0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EA94
 _0222EA08:
 	mov r1, #0x80
@@ -2610,7 +2610,7 @@ _0222EA1C:
 	mov r3, #3
 	bl MOD82_0222F694
 	ldr r0, _0222EAA0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EA94
 _0222EA38:
 	ldr r2, [r2, #0x48]
@@ -2643,7 +2643,7 @@ _0222EA68:
 	add r2, r1, #0
 	bl MOD82_0222F6D8
 	ldr r0, _0222EAA0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EA94
 _0222EA7C:
 	mov r1, #2
@@ -2655,7 +2655,7 @@ _0222EA7C:
 	mov r0, #0x13
 	str r0, [r4, #0x1c]
 	ldr r0, _0222EAA0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0222EA94:
 	mov r0, #3
 	add sp, #0x1c
@@ -3176,7 +3176,7 @@ _0222EE90:
 	mov r3, #2
 	bl MOD82_0222F694
 	ldr r0, _0222EF20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EF12
 _0222EEAA:
 	mov r1, #0x80
@@ -3199,7 +3199,7 @@ _0222EEBE:
 	mov r3, #2
 	bl MOD82_0222F694
 	ldr r0, _0222EF20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EF12
 _0222EED8:
 	ldr r2, [r2, #0x48]
@@ -3214,7 +3214,7 @@ _0222EED8:
 	mov r2, #0x1e
 	bl MOD82_0222DF6C
 	ldr r0, _0222EF20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EF12
 _0222EEFA:
 	mov r1, #2
@@ -3226,7 +3226,7 @@ _0222EEFA:
 	mov r0, #0x15
 	str r0, [r4, #0x1c]
 	ldr r0, _0222EF20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0222EF12:
 	mov r0, #3
 	pop {r4, pc}
@@ -3325,7 +3325,7 @@ _0222EFBC:
 	mov r3, #3
 	bl MOD82_0222F694
 	ldr r0, _0222F044 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222F03C
 _0222EFD8:
 	mov r1, #0x80
@@ -3349,7 +3349,7 @@ _0222EFEC:
 	mov r3, #3
 	bl MOD82_0222F694
 	ldr r0, _0222F044 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222F03C
 _0222F008:
 	ldr r2, [r2, #0x48]
@@ -3362,7 +3362,7 @@ _0222F008:
 	mov r0, #0x21
 	str r0, [r4, #0x1c]
 	ldr r0, _0222F044 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222F03C
 _0222F024:
 	mov r1, #2
@@ -3374,7 +3374,7 @@ _0222F024:
 	mov r0, #0x1b
 	str r0, [r4, #0x1c]
 	ldr r0, _0222F044 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0222F03C:
 	mov r0, #3
 	pop {r4, pc}
@@ -4580,4 +4580,3 @@ MOD82_0222FC03: ; 0x0222FC03
 	.global MOD82_0222FC0C
 MOD82_0222FC0C: ; 0x0222FC0C
 	.space 0x14
-

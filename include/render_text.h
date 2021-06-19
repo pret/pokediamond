@@ -27,14 +27,14 @@ struct TextPrinterSubStruct
 
 u32 RenderText(struct TextPrinter *printer);
 void FUN_02002840(u16 flag);
-void FUN_0200284C(struct TextPrinter *printer);
-void FUN_02002878(struct TextPrinter *printer);
-void FUN_02002A00(struct TextPrinter *printer);
-u32 FUN_02002A94(struct TextPrinter *printer);
-u32 FUN_02002ADC(struct TextPrinter *printer);
-u32 FUN_02002B18(struct TextPrinter *printer);
-u8 FUN_02002B3C(struct TextPrinter *printer);
-void FUN_02002B60(u32 param0);
+void TextPrinterInitDownArrowCounters(struct TextPrinter *printer);
+void TextPrinterDrawDownArrow(struct TextPrinter *printer);
+void TextPrinterClearDownArrow(struct TextPrinter *printer);
+BOOL TextPrinterContinue(struct TextPrinter *printer);
+BOOL TextPrinterWaitAutoMode(struct TextPrinter *printer);
+BOOL TextPrinterWaitWithDownArrow(struct TextPrinter *printer);
+u8 TextPrinterWait(struct TextPrinter *printer);
+void TextFlags_SetCanABSpeedUpPrint(BOOL param0);
 void FUN_02002B7C(s32 param0);
 void FUN_02002BB8(u32 param0);
 u8 FUN_02002BD4();

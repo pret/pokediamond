@@ -5002,7 +5002,7 @@ _0222FBF0:
 	add r0, r4, #0
 	bl MOD62_0222D654
 	ldr r0, _0222FD64 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222FD4C
 _0222FC4C:
 	ldr r0, _0222FD68 ; =gMain
@@ -5033,7 +5033,7 @@ _0222FC4C:
 	add r3, r4, #0
 	bl MOD62_0222E3C4
 	ldr r0, _0222FD64 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222FD4C
 _0222FC8E:
 	mov r0, #2
@@ -5043,7 +5043,7 @@ _0222FC8E:
 	add r1, #0x10
 	str r0, [r4, r1]
 	ldr r0, _0222FD6C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222FD4C
 _0222FCA2:
 	mov r0, #0x1a
@@ -5335,7 +5335,7 @@ _0222FEBA:
 	add r0, r4, #0
 	bl MOD62_0222F0D4
 	ldr r0, _022300B0 ; =0x000006C5
-	bl FUN_020054C8
+	bl PlaySE
 _0222FEE6:
 	ldr r0, _022300B4 ; =0x00000404
 	add r1, r6, #0
@@ -5368,7 +5368,7 @@ _0222FEF2:
 	add r0, r4, #0
 	bl MOD62_0222F0D4
 	ldr r0, _022300B0 ; =0x000006C5
-	bl FUN_020054C8
+	bl PlaySE
 _0222FF34:
 	ldr r0, _022300B8 ; =0x00000408
 	add r1, r6, #0
@@ -5386,7 +5386,7 @@ _0222FF40:
 	mov r1, #5
 	str r1, [r4, r0]
 	ldr r0, _022300BC ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 _0222FF58:
 	ldr r0, _022300C0 ; =0x0000040C
 	mov r1, #0
@@ -5412,7 +5412,7 @@ _0222FF6E:
 	mov r1, #0
 	bl MOD62_022300DC
 	ldr r0, _022300C4 ; =0x000005E2
-	bl FUN_020054C8
+	bl PlaySE
 _0222FF8E:
 	mov r0, #0x41
 	mov r1, #0x8e
@@ -5442,7 +5442,7 @@ _0222FFAC:
 	mov r1, #0
 	bl MOD62_022300DC
 	ldr r0, _022300BC ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 _0222FFCC:
 	ldr r0, _022300C8 ; =0x00000414
 	mov r1, #0x8f
@@ -5464,7 +5464,7 @@ _0222FFE6:
 	cmp r0, #0
 	bne _02230006
 	ldr r0, _022300CC ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add r4, #0xec
 	add r0, r4, #0
 	mov r1, #0xf
@@ -5505,14 +5505,14 @@ _02230006:
 	add r1, r5, #0
 	bl MOD62_0222F168
 	ldr r0, _022300D0 ; =0x000005EB
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r4, r5, r6, pc}
 _0223005C:
 	ldrb r0, [r6, r5]
 	cmp r0, #0
 	beq _022300A8
 	ldr r0, _022300CC ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	add r4, #0xec
 	add r0, r4, #0
 	mov r1, #0x10
@@ -5537,7 +5537,7 @@ _02230074:
 	add r0, r4, #0
 	bl MOD62_0222F208
 	ldr r0, _022300D0 ; =0x000005EB
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r4, r5, r6, pc}
 _022300A4:
 	bl GF_AssertFail
@@ -6272,7 +6272,7 @@ _02230646:
 	add r0, r4, #0
 	bl MOD62_0223026C
 	ldr r0, _02230728 ; =0x000006C6
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0xf7
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -6979,7 +6979,7 @@ _02230C3E:
 	bl MOD62_0222DB78
 _02230C80:
 	ldr r0, _02230CB8 ; =0x000005EA
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	mov r1, #0xff
 	add r0, #0xd4
@@ -7212,7 +7212,7 @@ _02230E46:
 	mov r2, #0
 	bl MOD62_0222FA40
 	ldr r0, _02230F28 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _02230F18
 _02230E66:
 	ldr r0, _02230F2C ; =gMain
@@ -7240,7 +7240,7 @@ _02230E66:
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	ldr r0, _02230F28 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _02230F18
 _02230EA4:
 	mov r0, #2
@@ -7260,7 +7260,7 @@ _02230EA4:
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	ldr r0, _02230F30 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	b _02230F18
 _02230ED0:
 	ldr r1, _02230F2C ; =gMain

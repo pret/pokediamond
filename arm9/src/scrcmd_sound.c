@@ -18,7 +18,7 @@ extern void FUN_0200538C(u32, u16, u32);
 extern void FUN_020053CC(u16, u16);
 extern BOOL FUN_02005404(void);
 extern u16 FUN_02005410(u16);
-extern void FUN_020054C8(u16);
+extern void PlaySE(u16);
 extern void FUN_020054F0(u16, u32);
 extern void FUN_020047C8(u8, u8);
 extern void FUN_020040F4(u8);
@@ -123,7 +123,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0058(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_PlayFanfare(struct ScriptContext* ctx)
 {
     u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    FUN_020054C8(unk);
+    PlaySE(unk);
     return FALSE;
 }
 
@@ -263,4 +263,3 @@ THUMB_FUNC BOOL ScrCmd_SetVolume(struct ScriptContext* ctx)
 
     return FALSE;
 }
-

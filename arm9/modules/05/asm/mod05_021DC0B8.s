@@ -8960,13 +8960,13 @@ _021E060E:
 	mov r0, #0x24
 	str r0, [r4, #8]
 	ldr r0, _021E06F4 ; =0x0000063D
-	bl FUN_020054C8
+	bl PlaySE
 	b _021E06CC
 _021E0644:
 	mov r0, #0xc8
 	str r0, [r4, #8]
 	ldr r0, _021E06F8 ; =0x0000063C
-	bl FUN_020054C8
+	bl PlaySE
 	b _021E06CC
 _021E0650:
 	ldr r0, [r4, #0x14]
@@ -10156,7 +10156,7 @@ _021E0FB6:
 	lsr r0, r0, #0x10
 	add r1, r1, #4
 	strh r0, [r5, r1]
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3, r4, r5, pc}
 	nop
 _021E0FCC: .word 0x00000F5C

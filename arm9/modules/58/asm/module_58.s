@@ -1330,7 +1330,7 @@ MOD58_021DA514: ; 0x021DA514
 	mov r1, #1
 	bl MOD58_021DA614
 	ldr r0, _021DA5E0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	b _021DA568
 _021DA55A:
 	ldr r0, _021DA5E4 ; =0x0000431A
@@ -2435,7 +2435,7 @@ MOD58_021DAD3C: ; 0x021DAD3C
 	cmp r0, #0
 	bne _021DAD60
 	ldr r0, _021DAD9C ; =0x0000069A
-	bl FUN_020054C8
+	bl PlaySE
 _021DAD60:
 	mov r0, #0
 	ldrsb r1, [r4, r0]
@@ -2455,7 +2455,7 @@ _021DAD78:
 	cmp r0, #0
 	bne _021DAD88
 	ldr r0, _021DAD9C ; =0x0000069A
-	bl FUN_020054C8
+	bl PlaySE
 _021DAD88:
 	mov r0, #2
 	ldrsb r0, [r4, r0]

@@ -220,7 +220,7 @@
 .extern FUN_02002218
 .extern RenderText
 .extern FUN_02002840
-.extern FUN_02002B60
+.extern TextFlags_SetCanABSpeedUpPrint
 .extern FUN_02002B7C
 .extern FUN_02002BB8
 .extern FUN_02002BD4
@@ -350,7 +350,7 @@
 .extern FUN_0200541C
 .extern FUN_02005454
 .extern FUN_020054A8
-.extern FUN_020054C8
+.extern PlaySE
 .extern FUN_020054F0
 .extern FUN_02005508
 .extern FUN_02005514

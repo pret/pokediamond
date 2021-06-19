@@ -864,7 +864,7 @@ _0207A376:
 	beq _0207A394
 	sub r3, #0xb2
 	add r0, r3, #0x0
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x93
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -888,7 +888,7 @@ _0207A394:
 	bne _0207A3BE
 	sub r3, #0xb2
 	add r0, r3, #0x0
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207C23C
 	pop {r4-r6, pc}
@@ -898,7 +898,7 @@ _0207A3BE:
 	cmp r1, #0x3
 	bne _0207A3D6
 	add r0, #0x10
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207A444 ; =0x0000068E
 	mov r1, #0x0
 	strb r1, [r4, r0]
@@ -908,7 +908,7 @@ _0207A3D6:
 	cmp r1, #0x5
 	bne _0207A3EA
 	add r0, #0x10
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207A444 ; =0x0000068E
 	mov r1, #0x0
 	strb r1, [r4, r0]
@@ -923,7 +923,7 @@ _0207A3EA:
 	cmp r1, #0x0
 	beq _0207A420
 	sub r0, #0xaf
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207A444 ; =0x0000068E
 	mov r1, #0x0
 	strb r1, [r4, r0]
@@ -933,7 +933,7 @@ _0207A408:
 	cmp r1, #0x7
 	bne _0207A420
 	sub r0, #0xaf
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x93
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1027,7 +1027,7 @@ FUN_0207A498: ; 0x0207A498
 	cmp r0, #0x1
 	bne _0207A4BE
 	ldr r0, _0207A56C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207B8D8
 _0207A4BE:
@@ -1042,7 +1042,7 @@ _0207A4C2:
 	cmp r0, #0x1
 	bne _0207A4DE
 	ldr r0, _0207A56C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207B8D8
 _0207A4DE:
@@ -1059,7 +1059,7 @@ _0207A4E2:
 	cmp r1, #0x4
 	bne _0207A510
 	add r0, #0xf
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207A574 ; =0x0000068E
 	mov r1, #0x0
 	strb r1, [r4, r0]
@@ -1080,7 +1080,7 @@ _0207A510:
 	cmp r1, #0x1
 	beq _0207A542
 	sub r0, #0xb0
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207CBE8
 	ldr r2, _0207A570 ; =0x0000068D
@@ -1101,7 +1101,7 @@ _0207A542:
 	tst r0, r2
 	beq _0207A564
 	ldr r0, _0207A578 ; =0x0000069C
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207A574 ; =0x0000068E
 	mov r1, #0x0
 	strb r1, [r4, r0]
@@ -1139,7 +1139,7 @@ FUN_0207A57C: ; 0x0207A57C
 	cmp r0, #0x1
 	bne _0207A5A2
 	ldr r0, _0207A648 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207B8D8
 _0207A5A2:
@@ -1154,7 +1154,7 @@ _0207A5A6:
 	cmp r0, #0x1
 	bne _0207A5C2
 	ldr r0, _0207A648 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207B8D8
 _0207A5C2:
@@ -1180,7 +1180,7 @@ _0207A5C6:
 	cmp r2, r1
 	beq _0207A618
 	sub r0, #0xb0
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207B9C0
 	ldr r1, _0207A64C ; =0x0000068D
@@ -1198,7 +1198,7 @@ _0207A5C6:
 	b _0207A61E
 _0207A618:
 	ldr r0, _0207A650 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 _0207A61E:
 	mov r0, #0x7
 	pop {r4, pc}
@@ -1207,7 +1207,7 @@ _0207A622:
 	tst r0, r2
 	beq _0207A63E
 	ldr r0, _0207A650 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x43
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
@@ -1256,7 +1256,7 @@ _0207A67E:
 	cmp r0, #0x1
 	bne _0207A69C
 	ldr r0, _0207A754 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207B8D8
 _0207A69C:
@@ -1271,7 +1271,7 @@ _0207A6A0:
 	cmp r0, #0x1
 	bne _0207A6BC
 	ldr r0, _0207A754 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207B8D8
 _0207A6BC:
@@ -1282,7 +1282,7 @@ _0207A6C0:
 	tst r0, r2
 	beq _0207A72C
 	ldr r0, _0207A758 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207A75C ; =0x0000068D
 	ldrb r0, [r4, r0]
 	lsl r0, r0, #0x1c
@@ -1333,7 +1333,7 @@ _0207A72C:
 	tst r0, r2
 	beq _0207A74C
 	ldr r0, _0207A758 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x93
 	lsl r0, r0, #0x2
 	ldr r1, [r4, r0]
@@ -1441,7 +1441,7 @@ _0207A7F0:
 	tst r0, r1
 	beq _0207A808
 	ldr r0, _0207A810 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207A814 ; =0x0000068E
 	mov r1, #0x0
 	strb r1, [r4, r0]
@@ -2679,7 +2679,7 @@ _0207B1D0:
 	cmp r4, r0
 	beq _0207B1F4
 	ldr r0, _0207B1FC ; =0x000005E1
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0x0
 	bl FUN_0207FA38
 	add r0, r5, #0x0
@@ -4611,7 +4611,7 @@ _0207C14A:
 	beq _0207C160
 _0207C15A:
 	ldr r0, _0207C1D4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0207C160:
 	ldr r1, _0207C1D0 ; =0x00000697
 	add r0, r5, #0x0

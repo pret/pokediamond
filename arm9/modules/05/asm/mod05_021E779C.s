@@ -340,7 +340,7 @@ MOD05_021E79A8: ; 0x021E79A8
 	cmp r0, #1
 	bne _021E79FC
 	ldr r0, _021E7A04 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 _021E79FC:
 	mov r0, #1
 	add sp, #0xc
@@ -523,7 +523,7 @@ MOD05_021E7B08: ; 0x021E7B08
 	cmp r0, #1
 	bne _021E7B6C
 	ldr r0, _021E7B74 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 _021E7B6C:
 	mov r0, #1
 	add sp, #0xc
