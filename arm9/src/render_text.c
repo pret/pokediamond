@@ -1,5 +1,5 @@
 #include "global.h"
-#include "unk_020023C0.h"
+#include "render_text.h"
 #include "game_init.h"
 #include "string_util.h"
 #include "text.h"
