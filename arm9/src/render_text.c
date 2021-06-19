@@ -12,6 +12,7 @@ TextFlags gTextFlags;
 const u8 UNK_020ECB50[] = { 0, 1, 2, 1 };
 
 extern const char *FUN_02002D94(u8, u16);
+extern void PlaySE(u16);
 
 THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
 {
@@ -110,7 +111,8 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 break;
 
             case 0x200:
-                field = (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                field =
+                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
 
                 FUN_0201C1EC(printer,
                     printer->printerTemplate.currentX,
@@ -147,7 +149,8 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 break;
 
             case 0xFF01:
-                field = (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                field =
+                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
 
                 switch (field)
                 {
@@ -164,7 +167,8 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 break;
 
             case 0xFE06:
-                field = (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
+                field =
+                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
                 if (field != 0xFE00)
                 {
                     if (field != 0xFE01)
@@ -241,7 +245,7 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
         {
             TextPrinterClearDownArrow(printer);
             printer->scrollDistance = (u8)(GetFontAttribute(printer->printerTemplate.fontId, 1) +
-                                      printer->printerTemplate.lineSpacing);
+                                           printer->printerTemplate.lineSpacing);
             printer->printerTemplate.currentX = printer->printerTemplate.x;
             printer->state = 4;
         }
@@ -255,7 +259,8 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 ScrollWindow(printer->printerTemplate.window,
                     0,
                     printer->scrollDistance,
-                    (u8)(printer->printerTemplate.bgColor | (printer->printerTemplate.bgColor << 4)));
+                    (u8)(printer->printerTemplate.bgColor |
+                         (printer->printerTemplate.bgColor << 4)));
                 printer->scrollDistance = 0;
             }
             else
@@ -263,7 +268,8 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                 ScrollWindow(printer->printerTemplate.window,
                     0,
                     4,
-                    (u8)(printer->printerTemplate.bgColor | (printer->printerTemplate.bgColor << 4)));
+                    (u8)(printer->printerTemplate.bgColor |
+                         (printer->printerTemplate.bgColor << 4)));
 
                 printer->scrollDistance -= 4;
             }
@@ -403,11 +409,9 @@ THUMB_FUNC void TextPrinterClearDownArrow(struct TextPrinter *printer)
     BgCommitTilemapBufferToVram(printer->printerTemplate.window->bgConfig, bg_id);
 }
 
-extern void PlaySE(u16);
-
 THUMB_FUNC BOOL TextPrinterContinue(struct TextPrinter *printer)
 {
-    #pragma unused(printer)
+#pragma unused(printer)
     if ((gMain.newKeys & 3) != 0 || (gMain.touchNew != 0 && gTextFlags.unk0_4 != 0))
     {
         PlaySE(0x5DC);
