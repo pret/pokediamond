@@ -1,8 +1,8 @@
 #include "global.h"
+#include "gf_gfx_loader.h"
 #include "render_text.h"
 #include "string16.h"
 #include "text.h"
-#include "gf_gfx_loader.h"
 
 struct UnkStruct *UNK_02106FC8;
 
@@ -25,6 +25,12 @@ const struct FontInfo UNK_020ECB64[5] = {
     { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
 };
 
+extern u32 FUN_02021590(u32, u16, u32, u16, u32);
+extern void FUN_020215E0(u32, u32, u32);
+extern void FUN_020215C8(u32 param0);
+extern void FUN_02021750(void *, u32);
+extern u32 FUN_020218D8(void *, u16 *str, u32);
+
 THUMB_FUNC void FUN_02002C14()
 {
     UNK_02106FC8 = &UNK_02106FCC;
@@ -38,15 +44,11 @@ THUMB_FUNC void FUN_02002C14()
     SetFontsPointer(&UNK_020ECB64[0]);
 }
 
-extern u32 FUN_02021590(u32, u16, u32, u16, u32);
-
 THUMB_FUNC void FUN_02002C50(u32 param0, u32 param1)
 {
     UNK_02106FC8->unk94[param0] =
         FUN_02021590(14, UNK_020ECB54[param0 * 2], 1, UNK_020ECB54[param0 * 2 + 1], param1);
 }
-
-extern void FUN_020215E0(u32, u32, u32);
 
 THUMB_FUNC void FUN_02002C84(s32 param0, u32 param1)
 {
@@ -63,8 +65,6 @@ THUMB_FUNC void FUN_02002CC0(s32 param0)
 
     FUN_020215E0(UNK_02106FC8->unk94[param0], 1, 0);
 }
-
-extern void FUN_020215C8(u32 param0);
 
 #ifdef NONMATCHING
 THUMB_FUNC void FUN_02002CF8(s32 param0)
@@ -192,7 +192,6 @@ _02002D88:
 }
 #endif
 
-extern void FUN_02021750(void *, u32);
 THUMB_FUNC struct UnkStruct *FUN_02002D94(u32 param0, u32 param1)
 {
     FUN_02021750(UNK_02106FC8->unk94[param0], param1);
@@ -213,8 +212,6 @@ THUMB_FUNC u32 FontFunc(u32 fontId, struct TextPrinter *printer)
 
     return RenderText(printer);
 }
-
-extern u32 FUN_020218D8(void *, u16 *str, u32);
 
 THUMB_FUNC u32 FUN_02002DE0(u32 param0, u16 *str, u32 param2)
 {
@@ -264,12 +261,12 @@ THUMB_FUNC s32 GetFontAttribute(u8 fontId, s32 attr)
     return ret;
 }
 
-
-THUMB_FUNC void FUN_02002ED0(u32 layer, u32 baseAddr, u32 heap_id) {
+THUMB_FUNC void FUN_02002ED0(u32 layer, u32 baseAddr, u32 heap_id)
+{
     GfGfxLoader_GXLoadPal(14, 6, layer, baseAddr, 0x20, heap_id);
 }
 
-
-THUMB_FUNC void FUN_02002EEC(u32 layer, u32 baseAddr, u32 heap_id) {
+THUMB_FUNC void FUN_02002EEC(u32 layer, u32 baseAddr, u32 heap_id)
+{
     GfGfxLoader_GXLoadPal(14, 7, layer, baseAddr, 0x20, heap_id);
 }
