@@ -8,7 +8,7 @@ TabWidth: 4
 AlignAfterOpenBracket: DontAlign
 Cpp11BracedListStyle: false
 BreakStringLiterals: false
-IndentCaseLabels: false
+IndentCaseLabels: true
 BinPackArguments: false
 BinPackParameters: false
 AlignTrailingComments: false

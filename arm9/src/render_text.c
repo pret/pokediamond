@@ -23,279 +23,280 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
 
     switch (printer->state)
     {
-    case 0:
-        if (((gMain.heldKeys & 3) != 0 && subStruct->hasPrintBeenSpedUp != 0) ||
-            (gMain.touchHeld != 0 && gTextFlags.unk0_4 != 0))
-        {
-            printer->delayCounter = 0;
-            if (printer->textSpeedBottom != 0)
+        case 0:
+            if (((gMain.heldKeys & 3) != 0 && subStruct->hasPrintBeenSpedUp != 0) ||
+                (gMain.touchHeld != 0 && gTextFlags.unk0_4 != 0))
             {
-                gTextFlags.unk0_6 = 1;
-            }
-        }
-
-        if (printer->delayCounter && printer->textSpeedBottom)
-        {
-            printer->delayCounter--;
-
-            if (gTextFlags.canABSpeedUpPrint != 0)
-            {
-                if ((gMain.newKeys & 3) || (gMain.touchNew != 0 && gTextFlags.unk0_4))
+                printer->delayCounter = 0;
+                if (printer->textSpeedBottom != 0)
                 {
-                    subStruct->hasPrintBeenSpedUp = 1;
-                    printer->delayCounter = 0;
+                    gTextFlags.unk0_6 = 1;
                 }
             }
 
-            return 3;
-        }
-
-        printer->delayCounter = printer->textSpeedBottom;
-        currentChar = *printer->printerTemplate.currentChar.raw;
-        printer->printerTemplate.currentChar.raw++;
-
-        GF_ASSERT(currentChar != 0xF100);
-
-        switch (currentChar)
-        {
-        case EOS:
-            return 1;
-        case 0xE000:
-            printer->printerTemplate.currentX = printer->printerTemplate.x;
-            s32 fontAttribute = GetFontAttribute(printer->printerTemplate.fontId, 1);
-
-            printer->printerTemplate.currentY +=
-                printer->printerTemplate.lineSpacing + fontAttribute;
-
-            return 2;
-
-        case 0xF0FD:
-            printer->printerTemplate.currentChar.raw++;
-            return 2;
-        case 0xFFFE:
-            printer->printerTemplate.currentChar.raw--;
-            switch ((u16)MsgArray_GetControlCode(printer->printerTemplate.currentChar.raw))
+            if (printer->delayCounter && printer->textSpeedBottom)
             {
-            case 0xFF00:
-                u16 field =
-                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
-                if (field == 0xff)
-                {
-                    u8 r2 = printer->printerTemplate.unk4;
-                    printer->printerTemplate.unk4 =
-                        (u8)((printer->printerTemplate.fgColor - 1) / 2 + 100);
+                printer->delayCounter--;
 
-                    if (!(r2 >= 100 && r2 < 107))
+                if (gTextFlags.canABSpeedUpPrint != 0)
+                {
+                    if ((gMain.newKeys & 3) || (gMain.touchNew != 0 && gTextFlags.unk0_4))
                     {
-                        break;
+                        subStruct->hasPrintBeenSpedUp = 1;
+                        printer->delayCounter = 0;
+                    }
+                }
+
+                return 3;
+            }
+
+            printer->delayCounter = printer->textSpeedBottom;
+            currentChar = *printer->printerTemplate.currentChar.raw;
+            printer->printerTemplate.currentChar.raw++;
+
+            GF_ASSERT(currentChar != 0xF100);
+
+            switch (currentChar)
+            {
+                case EOS:
+                    return 1;
+                case 0xE000:
+                    printer->printerTemplate.currentX = printer->printerTemplate.x;
+                    s32 fontAttribute = GetFontAttribute(printer->printerTemplate.fontId, 1);
+
+                    printer->printerTemplate.currentY +=
+                        printer->printerTemplate.lineSpacing + fontAttribute;
+
+                    return 2;
+
+                case 0xF0FD:
+                    printer->printerTemplate.currentChar.raw++;
+                    return 2;
+                case 0xFFFE:
+                    printer->printerTemplate.currentChar.raw--;
+                    switch ((u16)MsgArray_GetControlCode(printer->printerTemplate.currentChar.raw))
+                    {
+                        case 0xFF00:
+                            u16 field = (u16)MsgArray_ControlCodeGetField(
+                                printer->printerTemplate.currentChar.raw, 0);
+                            if (field == 0xff)
+                            {
+                                u8 r2 = printer->printerTemplate.unk4;
+                                printer->printerTemplate.unk4 =
+                                    (u8)((printer->printerTemplate.fgColor - 1) / 2 + 100);
+
+                                if (!(r2 >= 100 && r2 < 107))
+                                {
+                                    break;
+                                }
+
+                                field = (u16)(r2 - 100);
+                            }
+                            else
+                            {
+                                if (field >= 0x64)
+                                {
+                                    printer->printerTemplate.unk4 = (u8)field;
+                                    break;
+                                }
+                            }
+
+                            printer->printerTemplate.fgColor = (u8)(field * 2 + 1);
+                            printer->printerTemplate.shadowColor = (u8)(field * 2 + 2);
+
+                            GenerateFontHalfRowLookupTable(printer->printerTemplate.fgColor,
+                                printer->printerTemplate.bgColor,
+                                printer->printerTemplate.shadowColor);
+
+                            break;
+
+                        case 0x200:
+                            field = (u16)MsgArray_ControlCodeGetField(
+                                printer->printerTemplate.currentChar.raw, 0);
+
+                            FUN_0201C1EC(printer,
+                                printer->printerTemplate.currentX,
+                                printer->printerTemplate.currentY,
+                                field);
+                            if (printer->textSpeedTop != 0)
+                            {
+                                CopyWindowToVram(printer->printerTemplate.window);
+                            }
+
+                            break;
+                        case 0x201:
+                            printer->delayCounter = (u8)MsgArray_ControlCodeGetField(
+                                printer->printerTemplate.currentChar.raw, 0);
+                            printer->printerTemplate.currentChar.raw =
+                                MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
+                            printer->state = 6;
+
+                            return 3;
+                        case 0x202:
+                            printer->Unk2A = (u16)MsgArray_ControlCodeGetField(
+                                printer->printerTemplate.currentChar.raw, 0);
+                            printer->printerTemplate.currentChar.raw =
+                                MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
+
+                            return 3;
+                        case 0x203:
+                            printer->printerTemplate.currentX = (u8)MsgArray_ControlCodeGetField(
+                                printer->printerTemplate.currentChar.raw, 0);
+                            break;
+                        case 0x204:
+                            printer->printerTemplate.currentY = (u8)MsgArray_ControlCodeGetField(
+                                printer->printerTemplate.currentChar.raw, 0);
+                            break;
+
+                        case 0xFF01:
+                            field = (u16)MsgArray_ControlCodeGetField(
+                                printer->printerTemplate.currentChar.raw, 0);
+
+                            switch (field)
+                            {
+                                case 100:
+                                    printer->printerTemplate.unk2 = 0;
+                                    printer->printerTemplate.unk3 = 0;
+                                    break;
+                                case 200:
+                                    printer->printerTemplate.unk2 = 0xFFFC;
+                                    printer->printerTemplate.unk3 = 0;
+                                    break;
+                            }
+
+                            break;
+
+                        case 0xFE06:
+                            field = (u16)MsgArray_ControlCodeGetField(
+                                printer->printerTemplate.currentChar.raw, 0);
+                            if (field != 0xFE00)
+                            {
+                                if (field != 0xFE01)
+                                {
+                                    break;
+                                }
+
+                                printer->state = 2;
+                                TextPrinterInitDownArrowCounters(printer);
+                                printer->printerTemplate.currentChar.raw = MsgArray_SkipControlCode(
+                                    printer->printerTemplate.currentChar.raw);
+
+                                return 3;
+                            }
+
+                            printer->state = 3;
+                            TextPrinterInitDownArrowCounters(printer);
+                            printer->printerTemplate.currentChar.raw =
+                                MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
+
+                            return 3;
                     }
 
-                    field = (u16)(r2 - 100);
+                    printer->printerTemplate.currentChar.raw =
+                        MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
+                    return 2;
+
+                case 0x25BC:
+                    printer->state = 2;
+                    TextPrinterInitDownArrowCounters(printer);
+                    return 3;
+
+                case 0x25BD:
+                    printer->state = 3;
+                    TextPrinterInitDownArrowCounters(printer);
+                    return 3;
+            }
+
+            const char *r5 = FUN_02002D94(subStruct->glyphId, currentChar);
+            CopyGlyphToWindow(printer->printerTemplate.window,
+                r5,
+                r5[0x80],
+                r5[0x81],
+                printer->printerTemplate.currentX,
+                printer->printerTemplate.currentY,
+                printer->printerTemplate.unk2);
+
+            printer->printerTemplate.currentX += r5[0x80] + printer->printerTemplate.letterSpacing;
+
+            return 0;
+        case 1:
+            if (TextPrinterWait(printer) != 0)
+            {
+                TextPrinterClearDownArrow(printer);
+
+                printer->state = 0;
+            }
+
+            return 3;
+        case 2:
+            if (TextPrinterWaitWithDownArrow(printer) != 0)
+            {
+                TextPrinterClearDownArrow(printer);
+                FillWindowPixelBuffer(
+                    printer->printerTemplate.window, printer->printerTemplate.bgColor);
+                printer->printerTemplate.currentX = printer->printerTemplate.x;
+                printer->printerTemplate.currentY = printer->printerTemplate.y;
+                printer->state = 0;
+            }
+
+            return 3;
+        case 3:
+            if (TextPrinterWaitWithDownArrow(printer) != 0)
+            {
+                TextPrinterClearDownArrow(printer);
+                printer->scrollDistance =
+                    (u8)(GetFontAttribute(printer->printerTemplate.fontId, 1) +
+                         printer->printerTemplate.lineSpacing);
+                printer->printerTemplate.currentX = printer->printerTemplate.x;
+                printer->state = 4;
+            }
+
+            return 3;
+        case 4:
+            if (printer->scrollDistance != 0)
+            {
+                if ((int)printer->scrollDistance < 4)
+                {
+                    ScrollWindow(printer->printerTemplate.window,
+                        0,
+                        printer->scrollDistance,
+                        (u8)(printer->printerTemplate.bgColor |
+                             (printer->printerTemplate.bgColor << 4)));
+                    printer->scrollDistance = 0;
                 }
                 else
                 {
-                    if (field >= 0x64)
-                    {
-                        printer->printerTemplate.unk4 = (u8)field;
-                        break;
-                    }
+                    ScrollWindow(printer->printerTemplate.window,
+                        0,
+                        4,
+                        (u8)(printer->printerTemplate.bgColor |
+                             (printer->printerTemplate.bgColor << 4)));
+
+                    printer->scrollDistance -= 4;
                 }
 
-                printer->printerTemplate.fgColor = (u8)(field * 2 + 1);
-                printer->printerTemplate.shadowColor = (u8)(field * 2 + 2);
-
-                GenerateFontHalfRowLookupTable(printer->printerTemplate.fgColor,
-                    printer->printerTemplate.bgColor,
-                    printer->printerTemplate.shadowColor);
-
-                break;
-
-            case 0x200:
-                field =
-                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
-
-                FUN_0201C1EC(printer,
-                    printer->printerTemplate.currentX,
-                    printer->printerTemplate.currentY,
-                    field);
-                if (printer->textSpeedTop != 0)
-                {
-                    CopyWindowToVram(printer->printerTemplate.window);
-                }
-
-                break;
-            case 0x201:
-                printer->delayCounter =
-                    (u8)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
-                printer->printerTemplate.currentChar.raw =
-                    MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
-                printer->state = 6;
-
-                return 3;
-            case 0x202:
-                printer->Unk2A =
-                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
-                printer->printerTemplate.currentChar.raw =
-                    MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
-
-                return 3;
-            case 0x203:
-                printer->printerTemplate.currentX =
-                    (u8)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
-                break;
-            case 0x204:
-                printer->printerTemplate.currentY =
-                    (u8)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
-                break;
-
-            case 0xFF01:
-                field =
-                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
-
-                switch (field)
-                {
-                case 100:
-                    printer->printerTemplate.unk2 = 0;
-                    printer->printerTemplate.unk3 = 0;
-                    break;
-                case 200:
-                    printer->printerTemplate.unk2 = 0xFFFC;
-                    printer->printerTemplate.unk3 = 0;
-                    break;
-                }
-
-                break;
-
-            case 0xFE06:
-                field =
-                    (u16)MsgArray_ControlCodeGetField(printer->printerTemplate.currentChar.raw, 0);
-                if (field != 0xFE00)
-                {
-                    if (field != 0xFE01)
-                    {
-                        break;
-                    }
-
-                    printer->state = 2;
-                    TextPrinterInitDownArrowCounters(printer);
-                    printer->printerTemplate.currentChar.raw =
-                        MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
-
-                    return 3;
-                }
-
-                printer->state = 3;
-                TextPrinterInitDownArrowCounters(printer);
-                printer->printerTemplate.currentChar.raw =
-                    MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
-
-                return 3;
-            }
-
-            printer->printerTemplate.currentChar.raw =
-                MsgArray_SkipControlCode(printer->printerTemplate.currentChar.raw);
-            return 2;
-
-        case 0x25BC:
-            printer->state = 2;
-            TextPrinterInitDownArrowCounters(printer);
-            return 3;
-
-        case 0x25BD:
-            printer->state = 3;
-            TextPrinterInitDownArrowCounters(printer);
-            return 3;
-        }
-
-        const char *r5 = FUN_02002D94(subStruct->glyphId, currentChar);
-        CopyGlyphToWindow(printer->printerTemplate.window,
-            r5,
-            r5[0x80],
-            r5[0x81],
-            printer->printerTemplate.currentX,
-            printer->printerTemplate.currentY,
-            printer->printerTemplate.unk2);
-
-        printer->printerTemplate.currentX += r5[0x80] + printer->printerTemplate.letterSpacing;
-
-        return 0;
-    case 1:
-        if (TextPrinterWait(printer) != 0)
-        {
-            TextPrinterClearDownArrow(printer);
-
-            printer->state = 0;
-        }
-
-        return 3;
-    case 2:
-        if (TextPrinterWaitWithDownArrow(printer) != 0)
-        {
-            TextPrinterClearDownArrow(printer);
-            FillWindowPixelBuffer(
-                printer->printerTemplate.window, printer->printerTemplate.bgColor);
-            printer->printerTemplate.currentX = printer->printerTemplate.x;
-            printer->printerTemplate.currentY = printer->printerTemplate.y;
-            printer->state = 0;
-        }
-
-        return 3;
-    case 3:
-        if (TextPrinterWaitWithDownArrow(printer) != 0)
-        {
-            TextPrinterClearDownArrow(printer);
-            printer->scrollDistance = (u8)(GetFontAttribute(printer->printerTemplate.fontId, 1) +
-                                           printer->printerTemplate.lineSpacing);
-            printer->printerTemplate.currentX = printer->printerTemplate.x;
-            printer->state = 4;
-        }
-
-        return 3;
-    case 4:
-        if (printer->scrollDistance != 0)
-        {
-            if ((int)printer->scrollDistance < 4)
-            {
-                ScrollWindow(printer->printerTemplate.window,
-                    0,
-                    printer->scrollDistance,
-                    (u8)(printer->printerTemplate.bgColor |
-                         (printer->printerTemplate.bgColor << 4)));
-                printer->scrollDistance = 0;
+                CopyWindowToVram(printer->printerTemplate.window);
             }
             else
             {
-                ScrollWindow(printer->printerTemplate.window,
-                    0,
-                    4,
-                    (u8)(printer->printerTemplate.bgColor |
-                         (printer->printerTemplate.bgColor << 4)));
-
-                printer->scrollDistance -= 4;
+                printer->state = 0;
             }
 
-            CopyWindowToVram(printer->printerTemplate.window);
-        }
-        else
-        {
+            return 3;
+        case 5:
             printer->state = 0;
-        }
+            return 3;
+        case 6:
+            if (printer->delayCounter != 0)
+            {
+                printer->delayCounter--;
+            }
+            else
+            {
+                printer->state = 0;
+            }
 
-        return 3;
-    case 5:
-        printer->state = 0;
-        return 3;
-    case 6:
-        if (printer->delayCounter != 0)
-        {
-            printer->delayCounter--;
-        }
-        else
-        {
-            printer->state = 0;
-        }
-
-        return 3;
+            return 3;
     }
 
     return 1;
