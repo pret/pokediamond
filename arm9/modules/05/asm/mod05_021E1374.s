@@ -118,7 +118,7 @@ _021E1442:
 _021E1456:
 	mov r0, #0x62
 	lsl r0, r0, #4
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #8]
 	mov r1, #0
 	bl FUN_0205F42C

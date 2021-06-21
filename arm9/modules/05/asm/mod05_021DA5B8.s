@@ -1489,7 +1489,7 @@ _021DB164:
 	str r0, [r5, #8]
 	strb r0, [r5, #4]
 	ldr r0, _021DB1C8 ; =0x00000603
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #1
@@ -1552,7 +1552,7 @@ _021DB1F0:
 	str r0, [r4, #8]
 	strb r0, [r4, #4]
 	ldr r0, _021DB24C ; =0x00000603
-	bl FUN_020054C8
+	bl PlaySE
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #6

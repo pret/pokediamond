@@ -580,7 +580,7 @@ MOD76_021D7974: ; 0x021D7974
 	tst r1, r0
 	beq _021D799C
 	ldr r0, _021D7A8C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r2, [r5]
 	mov r0, #1
 	ldrb r1, [r2, #0x14]
@@ -640,7 +640,7 @@ _021D79EE:
 	b _021D7A38
 _021D7A04:
 	ldr r0, _021D7A8C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, [r5]
 	add r0, r5, #0
 	ldrh r1, [r1, #0x10]
@@ -663,7 +663,7 @@ _021D7A04:
 	pop {r3, r4, r5, pc}
 _021D7A38:
 	ldr r0, _021D7A8C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, [r5]
 	add r0, r5, #0
 	ldrh r1, [r1, #0x10]
@@ -1385,7 +1385,7 @@ MOD76_021D7FD0: ; 0x021D7FD0
 	cmp r6, #1
 	beq _021D7FE8
 	ldr r0, _021D8004 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 _021D7FE8:
 	ldr r0, [r4]
 	ldrb r0, [r0, #0x14]
@@ -2048,7 +2048,7 @@ MOD76_021D853C: ; 0x021D853C
 	add r1, r5, #0
 	bl MOD76_021D8354
 	mov r0, #1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0
 	bl FUN_02002B7C
 	ldr r0, [r4]
@@ -2101,7 +2101,7 @@ _021D85B8:
 	pop {r3, pc}
 _021D85BE:
 	ldr r0, _021D85DC ; =0x000005E6
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D85D6
 _021D85C6:
 	ldr r0, _021D85E0 ; =0x00000483

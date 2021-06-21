@@ -284,7 +284,7 @@ _021D7714:
 	cmp r1, #6
 	bne _021D773C
 	ldr r0, _021D77B0 ; =0x0000061B
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, [r4, #0x10]
 	mov r0, #3
 	bic r1, r0

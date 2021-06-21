@@ -742,7 +742,7 @@ _0208A928:
 	tst r1, r0
 	beq _0208A93A
 	ldr r0, _0208A994 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	ldr r0, [r4, #0x5c]
 	pop {r4, pc}
@@ -751,7 +751,7 @@ _0208A93A:
 	tst r0, r1
 	beq _0208A94E
 	ldr r0, _0208A994 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x60]
 	add sp, #0x8
 	sub r0, r0, #0x1
@@ -781,7 +781,7 @@ _0208A954:
 	ldr r0, [r4, #0x68]
 	bl CopyWindowPixelsToVram_TextMode
 	ldr r0, _0208A994 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x0
 	mvn r0, r0
 	add sp, #0x8

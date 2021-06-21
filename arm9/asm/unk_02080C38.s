@@ -3394,7 +3394,7 @@ FUN_0208251C: ; 0x0208251C
 	mov r3, #0x3f
 	bl FUN_0200A208
 	ldr r0, _0208259C ; =0x000005F8
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0xa]
 	add r0, r0, #0x1
 	strb r0, [r4, #0xa]

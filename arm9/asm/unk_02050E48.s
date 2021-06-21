@@ -1946,7 +1946,7 @@ _02051DA2:
 	tst r1, r0
 	beq _02051DC8
 	ldr r0, _02051E20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x81
 	ldrsb r1, [r4, r0]
 	add r4, #0x80
@@ -1966,7 +1966,7 @@ _02051DC8:
 	tst r0, r1
 	beq _02051DDA
 	ldr r0, _02051E20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x2
 	pop {r4, pc}
@@ -1976,7 +1976,7 @@ _02051DDA:
 	pop {r4, pc}
 _02051DE0:
 	ldr r0, _02051E20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x7c]
 	mov r1, #0x10
 	str r1, [sp, #0x0]

@@ -215,7 +215,7 @@ FUN_020351A0: ; 0x020351A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, _0203524C ; =0x000005FD
-	bl FUN_020054C8
+	bl PlaySE
 	bl FUN_02035254
 	add r4, r0, #0x0
 	mov r0, #0x71

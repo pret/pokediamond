@@ -362,7 +362,7 @@ _021D77A2:
 	tst r0, r1
 	beq _021D77BE
 	ldr r0, _021D77FC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0xff
 	strb r0, [r5, #0x1a]
 	mov r0, #0
@@ -374,7 +374,7 @@ _021D77BE:
 	tst r0, r1
 	beq _021D77F2
 	ldr r0, _021D77FC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	cmp r4, #0xff
 	beq _021D77DC
 	mov r0, #1
@@ -433,7 +433,7 @@ MOD65_021D7818: ; 0x021D7818
 	tst r0, r1
 	beq _021D784A
 	ldr r0, _021D78A8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	bl MOD65_021D86BC
 	add r0, r5, #0
@@ -447,7 +447,7 @@ _021D784A:
 	tst r0, r1
 	beq _021D789E
 	ldr r0, _021D78A8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #1
 	mvn r0, r0
 	cmp r4, r0
@@ -528,7 +528,7 @@ MOD65_021D78CC: ; 0x021D78CC
 	b _021D7916
 _021D78E8:
 	ldr r0, _021D791C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	bl MOD65_021D8764
 	mov r0, #5
@@ -537,7 +537,7 @@ _021D78E8:
 	pop {r4, pc}
 _021D78FC:
 	ldr r0, _021D791C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x42
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -1406,7 +1406,7 @@ _021D7FCA:
 	add r3, r2, #0
 	bl FillWindowPixelRect
 	mov r0, #1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0
 	bl FUN_02002B7C
 	mov r3, #0
@@ -1900,7 +1900,7 @@ MOD65_021D83A0: ; 0x021D83A0
 	add r4, r0, #0
 	ldr r0, _021D8470 ; =0x000005E4
 	add r5, r1, #0
-	bl FUN_020054C8
+	bl PlaySE
 	ldrh r1, [r4, #0x14]
 	ldr r0, _021D8474 ; =0x0000FFFF
 	cmp r1, r0
@@ -2077,7 +2077,7 @@ MOD65_021D84F0: ; 0x021D84F0
 	cmp r6, #0
 	bne _021D850C
 	ldr r0, _021D862C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D850C:
 	add r1, sp, #0x10
 	add r0, r7, #0
@@ -2326,7 +2326,7 @@ MOD65_021D8704: ; 0x021D8704
 	cmp r2, #0
 	bne _021D8710
 	ldr r0, _021D8714 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D8710:
 	pop {r3, pc}
 	nop

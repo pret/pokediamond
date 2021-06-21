@@ -1602,7 +1602,7 @@ _021D81EE:
 	tst r1, r0
 	beq _021D824C
 	ldr r0, _021D82BC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0xf2
 	lsl r0, r0, #2
 	ldrb r1, [r4, r0]
@@ -1652,7 +1652,7 @@ _021D824C:
 	tst r0, r1
 	beq _021D8262
 	ldr r0, _021D82BC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x3b
 	mov r1, #0x11
 	lsl r0, r0, #4
@@ -1669,7 +1669,7 @@ _021D8262:
 	cmp r0, #0
 	beq _021D82B2
 	ldr r0, _021D82BC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0xf2
 	lsl r0, r0, #2
 	ldrb r1, [r4, r0]
@@ -1688,7 +1688,7 @@ _021D828C:
 	cmp r0, #3
 	bhs _021D82B2
 	ldr r0, _021D82BC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0xf2
 	lsl r0, r0, #2
 	ldrb r1, [r4, r0]
@@ -3052,7 +3052,7 @@ _021D8D52:
 	tst r1, r0
 	beq _021D8D88
 	ldr r0, _021D8E60 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, _021D8E64 ; =0x000003CB
 	ldrb r0, [r5, r1]
 	cmp r0, #0
@@ -3077,7 +3077,7 @@ _021D8D88:
 	tst r1, r3
 	beq _021D8D9E
 	ldr r0, _021D8E60 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x3b
 	mov r1, #6
 	lsl r0, r0, #4
@@ -3095,7 +3095,7 @@ _021D8D9E:
 	sub r1, r1, #1
 	strb r1, [r5, r0]
 	ldr r0, _021D8E60 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r1, #0
 	add r0, r5, #0
 	mvn r1, r1
@@ -3112,7 +3112,7 @@ _021D8DC4:
 	add r1, r1, #1
 	strb r1, [r5, r0]
 	ldr r0, _021D8E60 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	mov r1, #1
 	bl MOD55_021D8CBC
@@ -3131,7 +3131,7 @@ _021D8DE6:
 	sub r0, r2, #1
 	strb r1, [r5, r0]
 	ldr r0, _021D8E60 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r1, #3
 	add r0, r5, #0
 	mvn r1, r1
@@ -3151,7 +3151,7 @@ _021D8E10:
 	sub r0, r2, #1
 	strb r1, [r5, r0]
 	ldr r0, _021D8E60 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	mov r1, #4
 	bl MOD55_021D8CBC
@@ -3388,7 +3388,7 @@ _021D9002:
 	cmp r7, r0
 	beq _021D902C
 	ldr r0, _021D90D4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D902C:
 	mov r0, #1
 	mvn r0, r0
@@ -3402,7 +3402,7 @@ _021D902C:
 	pop {r4, r5, r6, r7, pc}
 _021D9040:
 	ldr r0, _021D90D4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x2b
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
@@ -3420,7 +3420,7 @@ _021D9040:
 	b _021D9098
 _021D9068:
 	ldr r0, _021D90D4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	cmp r4, #0x14
 	bne _021D9092
 	ldr r0, [r5, #4]
@@ -3518,7 +3518,7 @@ MOD55_021D90D8: ; 0x021D90D8
 	add r0, r6, #0
 	bl CopyPlayerName
 	ldr r0, _021D9180 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r2, [sp, #4]
 	add r0, r5, #0
 	add r1, r4, #0
@@ -4828,7 +4828,7 @@ _021D9C82:
 	tst r0, r1
 	beq _021D9CB2
 	ldr r0, _021D9CC0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #1

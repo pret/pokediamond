@@ -5212,7 +5212,7 @@ _0204F2AA:
 	str r3, [sp, #0x4]
 	bl FUN_02004DCC
 	ldr r0, _0204F2D4 ; =0x000005F6
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	pop {r4-r6, pc}
 	nop
@@ -5356,7 +5356,7 @@ _0204F3AC:
 	mov r2, #0x1
 	bl MOD18_0224DCB8
 	ldr r0, _0204F5F0 ; =0x00000625
-	bl FUN_020054C8
+	bl PlaySE
 	b _0204F410
 _0204F3FC:
 	bl FUN_02031190
@@ -5401,7 +5401,7 @@ _0204F41A:
 	ldr r0, _0204F5F8 ; =0x00000425
 	bl FUN_0200521C
 	ldr r0, _0204F5F0 ; =0x00000625
-	bl FUN_020054C8
+	bl PlaySE
 	b _0204F480
 _0204F46C:
 	bl FUN_02031190
@@ -5504,7 +5504,7 @@ _0204F4D2:
 _0204F54A:
 	bl FUN_0204F7E4
 	ldr r0, _0204F60C ; =0x0000062B
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_020269A0
 	add r1, sp, #0x8

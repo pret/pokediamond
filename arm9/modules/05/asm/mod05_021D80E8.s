@@ -575,7 +575,7 @@ _021D856A:
 	cmp r0, #1
 	bne _021D858E
 	ldr r0, _021D8598 ; =0x000005FD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	bl FUN_02035080
 	add sp, #8
@@ -770,7 +770,7 @@ _021D8710:
 	lsr r0, r0, #0x1f
 	beq _021D8726
 	ldr r0, _021D8730 ; =0x000005FD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	bl FUN_0203515C
 	mov r0, #1
@@ -881,7 +881,7 @@ _021D87F4:
 	lsr r0, r0, #0x1f
 	beq _021D8816
 	ldr r0, _021D881C ; =0x000005FD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	bl FUN_02035118
 	mov r0, #4
@@ -1027,7 +1027,7 @@ _021D892C:
 	lsr r0, r0, #0x1f
 	beq _021D8946
 	ldr r0, _021D8950 ; =0x000005FD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	bl FUN_02035080
 	add sp, #4

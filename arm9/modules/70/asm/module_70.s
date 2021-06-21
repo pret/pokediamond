@@ -647,7 +647,7 @@ MOD70_021D79C0: ; 0x021D79C0
 	b _021D7A14
 _021D79D4:
 	ldr r0, _021D7A1C ; =0x0000060E
-	bl FUN_020054C8
+	bl PlaySE
 	mov r1, #0
 	mov r0, #6
 	str r0, [sp]
@@ -788,7 +788,7 @@ MOD70_021D7ADC: ; 0x021D7ADC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, _021D7AF0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	bl MOD70_021D7D98
 	mov r0, #1

@@ -318,7 +318,7 @@ FUN_0207FB28: ; 0x0207FB28
 _0207FB4A:
 	sub r1, #0xab
 	add r0, r1, #0x0
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0x0
 	bl FUN_0207FA38
 	ldr r1, _0207FBFC ; =0x00000696

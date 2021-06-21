@@ -1020,7 +1020,7 @@ FUN_02075D20: ; 0x02075D20
 	mov r2, #0x1
 	bl FUN_020731E8
 	ldr r0, _02075DB4 ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, _02075DB8 ; =FUN_02075CE4
 	ldr r0, _02075DBC ; =0x00000B14
 	str r1, [r5, r0]
@@ -1349,7 +1349,7 @@ _02076062:
 	ldr r0, _02076098 ; =0x00000B14
 	str r1, [r5, r0]
 	ldr r0, _0207609C ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x5
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -1634,7 +1634,7 @@ _02076212:
 	mov r2, #0x1
 	bl FUN_02073CB4
 	ldr r0, _020763FC ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	sub r0, r7, #0x3
 	ldrb r1, [r4, r0]
 	add r1, r1, #0x1
@@ -1712,7 +1712,7 @@ _02076360:
 	tst r0, r1
 	beq _020763D6
 	ldr r0, _02076408 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _020763E0 ; =0x00000B25
 	ldrb r5, [r4, r0]
 	add r0, r4, #0x0
@@ -2011,7 +2011,7 @@ _02076612:
 	tst r0, r1
 	beq _020766A8
 	ldr r0, _02076874 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_020734C0
 	ldr r0, _0207686C ; =0x00000B27
@@ -2025,7 +2025,7 @@ _0207663C:
 	tst r0, r1
 	beq _020766A8
 	ldr r0, _02076874 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_0207363C
 	ldr r0, _0207686C ; =0x00000B27
@@ -2039,7 +2039,7 @@ _0207665A:
 	tst r0, r1
 	beq _020766A8
 	ldr r0, _02076874 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	bl FUN_020736F4
 	ldr r0, _0207686C ; =0x00000B27
@@ -2180,7 +2180,7 @@ _02076780:
 	tst r0, r1
 	beq _02076868
 	ldr r0, _02076874 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207686C ; =0x00000B27
 	mov r1, #0x3
 	strb r1, [r4, r0]
@@ -3394,7 +3394,7 @@ _0207716A:
 	ldrh r1, [r1, #0x24]
 	bl Bag_TakeItem
 	ldr r0, _0207723C ; =0x000005EC
-	bl FUN_020054C8
+	bl PlaySE
 	b _02077204
 _020771F6:
 	ldr r2, _02077240 ; =0x0000069C

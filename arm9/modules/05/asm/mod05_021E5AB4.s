@@ -99,7 +99,7 @@ MOD05_021E5B30: ; 0x021E5B30
 	mov r3, #0
 	bl MOD05_021E4DC4
 	ldr r0, _021E5B7C ; =0x00000609
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x1c
 	pop {r4, r5, pc}
 	nop

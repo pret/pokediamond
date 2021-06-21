@@ -1577,7 +1577,7 @@ _021D8200:
 	ldr r1, [sp, #8]
 	bl MOD53_021D83DC
 	ldr r0, _021D83B4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D8316
 _021D821A:
 	mov r1, #0xc1
@@ -1597,7 +1597,7 @@ _021D821A:
 	cmp r1, r0
 	beq _021D8246
 	ldr r0, _021D83B8 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D8316
 _021D8246:
 	bl FUN_02030F20
@@ -1621,7 +1621,7 @@ _021D8246:
 	mov r0, #1
 	str r0, [sp, #4]
 	ldr r0, _021D83B4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D8316
 _021D8280:
 	ldr r1, _021D83C0 ; =0x0000438B
@@ -1630,7 +1630,7 @@ _021D8280:
 	cmp r0, #2
 	bne _021D8292
 	ldr r0, _021D83B8 ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D8316
 _021D8292:
 	mov r1, #1
@@ -1649,7 +1649,7 @@ _021D8292:
 	mov r0, #1
 	str r0, [sp, #4]
 	ldr r0, _021D83B4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D8316
 _021D82BE:
 	ldr r0, [sp, #8]
@@ -1695,7 +1695,7 @@ _021D82EE:
 	ldr r0, [sp]
 	strb r1, [r0, r2]
 	ldr r0, _021D83C8 ; =0x000005E5
-	bl FUN_020054C8
+	bl PlaySE
 _021D8316:
 	ldr r0, _021D83CC ; =0x021D94F0
 	bl FUN_02020968
@@ -1904,7 +1904,7 @@ _021D84BE:
 	mov r1, #2
 	bl MOD53_021D93E0
 	ldr r0, _021D84E4 ; =0x000005E4
-	bl FUN_020054C8
+	bl PlaySE
 	mov r1, #0x1e
 	add r2, r1, #0
 	ldr r0, _021D84E8 ; =0x04000050
@@ -2019,7 +2019,7 @@ MOD53_021D857C: ; 0x021D857C
 	cmp r0, #0
 	beq _021D85B4
 	ldr r0, _021D86CC ; =0x000005F2
-	bl FUN_020054C8
+	bl PlaySE
 _021D85B4:
 	add sp, #4
 	add r0, r4, #0
@@ -2616,7 +2616,7 @@ _021D8A6E:
 	mov r1, #0x16
 	bl MOD53_021D93E0
 	ldr r0, _021D8AA8 ; =0x000005E4
-	bl FUN_020054C8
+	bl PlaySE
 	bl FUN_02031190
 	cmp r0, #0
 	bne _021D8A96

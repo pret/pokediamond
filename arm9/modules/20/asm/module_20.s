@@ -889,7 +889,7 @@ _02252A50:
 	cmp r7, #1
 	bne _02252AEA
 	ldr r0, _02252AEC ; =0x0000066E
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3, r4, r5, r6, r7, pc}
 _02252A6A:
 	mov r4, #0
@@ -1017,7 +1017,7 @@ MOD20_02252B28: ; 0x02252B28
 	bne _02252B46
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020054C8
+	bl PlaySE
 _02252B46:
 	pop {r4, pc}
 	thumb_func_end MOD20_02252B28
@@ -2070,7 +2070,7 @@ MOD20_022532F0: ; 0x022532F0
 	mov r1, #4
 	bl BgCommitTilemapBufferToVram
 	ldr r0, _02253334 ; =0x00000671
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	bl MOD20_02252EBC
 	add sp, #0xc
@@ -2137,7 +2137,7 @@ MOD20_02253378: ; 0x02253378
 	mov r1, #4
 	bl BgCommitTilemapBufferToVram
 	ldr r0, _022533BC ; =0x0000066F
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0
 	bl MOD20_02252EBC
 	add sp, #0xc
