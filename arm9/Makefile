@@ -74,6 +74,7 @@ GLOBAL_ASM_O_FILES = $(addprefix $(BUILD_DIR)/,$(GLOBAL_ASM_C_FILES:.c=.o))
 
 # Overlay modules
 OVERLAYS := $(shell grep -oE "Overlay \w+" $(LD_SPEC) | cut -d' ' -f2)
+AUTOLOADS := $(shell grep -oE "Autoload \w+" $(LD_SPEC) | cut -d' ' -f2)
 
 .SECONDARY:
 .DELETE_ON_ERROR:
@@ -223,7 +224,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
 
 $(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
 	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) $(O_FILES:$(BUILD_DIR)/%=%)
-	$(OBJCOPY) $(foreach ov,arm9 $(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
+	$(OBJCOPY) $(foreach ov,arm9 $(AUTOLOADS) $(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 ifeq ($(SHIFTED),0)
 SYSCALL_OBJS := $(BUILD_DIR)/lib/syscall/secure.o
