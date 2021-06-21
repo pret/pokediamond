@@ -4,6 +4,7 @@
 #include "render_text.h"
 #include "string16.h"
 #include "text.h"
+#include "graphic/font.naix"
 
 struct UnkStruct_02002C14 *UNK_02106FC8;
 
@@ -262,10 +263,10 @@ THUMB_FUNC s32 GetFontAttribute(u8 fontId, s32 attr)
 
 THUMB_FUNC void FUN_02002ED0(u32 layer, u32 baseAddr, u32 heap_id)
 {
-    GfGfxLoader_GXLoadPal(14, 6, layer, baseAddr, 0x20, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0006_NCLR, layer, baseAddr, 0x20, heap_id);
 }
 
 THUMB_FUNC void FUN_02002EEC(u32 layer, u32 baseAddr, u32 heap_id)
 {
-    GfGfxLoader_GXLoadPal(14, 7, layer, baseAddr, 0x20, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_FONT, NARC_font_narc_0007_NCLR, layer, baseAddr, 0x20, heap_id);
 }
