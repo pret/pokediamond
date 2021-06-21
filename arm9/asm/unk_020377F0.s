@@ -2193,10 +2193,10 @@ FUN_02038790: ; 0x02038790
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A8E4
+	bl SaveStruct23_GetSubstruct4
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0xc]
 	bl Sav2_SysInfo_get

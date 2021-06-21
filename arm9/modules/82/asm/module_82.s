@@ -1400,7 +1400,7 @@ MOD82_0222E050: ; 0x0222E050
 	ldr r0, [r4]
 	mov r1, #0
 	ldr r0, [r0]
-	bl FUN_0202A444
+	bl SaveStruct23_Substruct2_SetField_0x3
 	str r0, [r4, #0x38]
 	str r0, [r4, #0x3c]
 	mov r0, #1
@@ -2629,7 +2629,7 @@ _0222EA38:
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
 	add r3, sp, #0
-	bl FUN_0202A6B4
+	bl SaveStruct23_Substruct4_GetArrayFlag
 	cmp r0, #0
 	beq _0222EA66
 	mov r0, #0x12
@@ -2795,7 +2795,7 @@ _0222EB94:
 	add r1, #0x48
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_0202A754
+	bl SaveStruct23_Substruct4_SetSubstruct1
 	add r0, r4, #0
 	mov r1, #0x25
 	mov r2, #0x11
@@ -2812,7 +2812,7 @@ _0222EB94:
 	lsr r1, r1, #0x18
 	lsr r2, r2, #0x18
 	add r3, sp, #0
-	bl FUN_0202A60C
+	bl SaveStruct23_Substruct4_SetArrayFlag
 	b _0222EC44
 _0222EBD6:
 	mov r1, #0x3b
@@ -2995,7 +2995,7 @@ _0222ED32:
 	mov r1, #5
 	ldr r0, [r0]
 	mov r2, #2
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	add r0, r4, #0
 	mov r1, #0x25
 	mov r2, #0x1a

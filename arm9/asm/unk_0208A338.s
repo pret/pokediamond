@@ -208,7 +208,7 @@ _0208A4E8:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A5F4
+	bl SaveStruct23_GetMessage
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
@@ -220,7 +220,7 @@ _0208A502:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x1
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A5F4
+	bl SaveStruct23_GetMessage
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
@@ -232,7 +232,7 @@ _0208A51C:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x2
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A5F4
+	bl SaveStruct23_GetMessage
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
@@ -244,7 +244,7 @@ _0208A536:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x3
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A5F4
+	bl SaveStruct23_GetMessage
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
@@ -335,7 +335,7 @@ _0208A5EC:
 	ldr r0, [r0, #0xc]
 	ldr r1, [r4, #0x64]
 	add r2, #0x48
-	bl FUN_0202A5D4
+	bl SaveStruct23_SetMessage
 	add r0, r4, #0x0
 	mov r1, #0x6
 	mov r2, #0x0

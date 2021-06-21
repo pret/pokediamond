@@ -168,10 +168,10 @@ FUN_0206E3D8: ; 0x0206E3D8
 	thumb_func_start FUN_0206E3E8
 FUN_0206E3E8: ; 0x0206E3E8
 	push {r3, lr}
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	mov r1, #0x0
 	add r2, r1, #0x0
-	bl FUN_0202A3B4
+	bl SaveStruct23_Substruct2_SetField_0x0
 	pop {r3, pc}
 
 	thumb_func_start FUN_0206E3F8

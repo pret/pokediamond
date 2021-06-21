@@ -4,215 +4,206 @@
 #include "mail_message.h"
 #include "save_block_2.h"
 
-struct Unk0202A1F0
+typedef enum
 {
-    u8 filler[3];
-    u8 u_3;
+    DATA_GET = 0,
+    DATA_SET,
+    DATA_RESET,
+    DATA_INCREMENT,
+    DATA_DECREMENT,
+    DATA_ADD,
+    DATA_SUBSTRACT
+}
+DataSetMode;
+
+typedef enum
+{
+    FIELD_0x0_2 = 0,
+    FIELD_0x2,
+    FIELD_0x3,
+    FIELD_0x4,
+    FIELD_0x6,
+    FIELD_0x8,
+    FIELD_0x2C,
+    FIELD_flag0,
+    FIELD_0xC,
+    FIELD_0x0_5,
+    FIELD_0x28,    
+} 
+SaveStruct23_Substruct1_Field;
+
+struct SaveStruct23_Substruct1
+{
+    /* 0x000 */ u8 flag0 : 1;
+                u8 flag1 : 1;
+                u8 u_0_2 : 3;
+                u8 u_0_5 : 3;
+    /* 0x001 */ u8 u_1;
+    /* 0x002 */ u8 u_2;
+    /* 0x003 */ u8 u_3;
+    /* 0x004 */ u16 u_4;
+    /* 0x006 */ u16 u_6;
+    /* 0x008 */ s32 u_8;
+    /* 0x00C */ s32 u_C[7];
+    /* 0x028 */ u32 u_28;
+    /* 0x02C */ s32 u_2C[4];
+}; // total size = 0x3C (60)
+
+struct SaveStruct23_Substruct2
+{
+    /* 0x000 */ u16 u_0;
+    /* 0x002 */ u8 u_2;
+    /* 0x003 */ u8 u_3;
+    /* 0x004 */ u32 u_4;
+
+    union 
+    {
+        struct 
+        {
+    /* 0x008 */ u16 flag0:1;
+                u16 flag1:1;
+                u16 flag2:1;
+                u16 flag3:1;
+                u16 flag4:1;
+                u16 filler_1:11;
+        };
+    /* 0x008 */ u16 flags;
+    };
+    /* 0x00A */ u8 filler_2[2];
+    /* 0x00C */ u16 u_C[5];
+    /* 0x016 */ u16 u_16;
+    /* 0x018 */ u8 u_18[168];
+    /* 0x0C0 */ u8 u_C0[168];
+}; // total size 0x168 (360)
+
+struct SaveStruct23_Messages
+{
+    /* 0x000 */ struct MailMessage messages[4];
+}; // total size 0x020 (32)
+
+struct SaveStruct23_Substruct4_Substruct1
+{
+    /* 0x000 */ u8 u_0[168];
+    /* 0x0A8 */ u8 u_A8[16];
+    /* 0x0B8 */ u8 filler_1[16];
+    /* 0x0C8 */ u8 u_C8_0:1;
+                u8 u_C8_1:1;
+                u8 filler_2:6;
+    /* 0x0C8 */ u8 u_C9;
+    /* 0x0CA */ u16 u_CA[4];
+    /* 0x0D2 */ u16 u_D2[4];
+    /* 0x0DA */ u16 u_DA[4];
+    /* 0x0E2 */ u8 filler_3[2];
+}; // total size 0xE4 (228)
+
+struct SaveStruct23_Substruct4_Substruct2
+{
+    /* 0x00 */ u8 u_0[1020];
 };
 
-struct UnkMailStruct
+struct SaveStruct23_Substruct4
 {
-    struct MailMessage messages[4];
-};
+    /* 0x000 */ u32 u_0;
+    /* 0x004 */ u8 flags[250];
+    /* 0x0FE */ u8 u_FE;
+    /* 0x0FF */ u8 u_FF;
+    /* 0x100 */ u8 u_100;
+    /* 0x101 */ u8 u_101;
+    /* 0x102 */ u8 u_102;
+    /* 0x103 */ u8 u_103;
+    /* 0x104 */ struct SaveStruct23_Substruct4_Substruct1 substruct1[7];
+    /* 0x740 */ struct SaveStruct23_Substruct4_Substruct2 substruct2;
+}; // total size 0xB3C (2876)
 
-struct Unk0202A240
+struct SaveStruct23 // Struct fetched with SavArray_get(sav2, 23)
 {
-    u8 u_0_0 : 1; // used
-    u8 u_0_1 : 1; // used
-    u8 u_0_2 : 3; // used
-    u8 u_0_5 : 3; // used
-    u8 u_1;
-    u8 u_2; // used
-    u8 u_3; // used
-    u16 u_4; // used
-    u16 u_6; // used
-    s32 u_8; // used, cpu copy 4 bytes
-    s32 u_C[7]; // used, cpu copy 28 bytes
-    u32 u_28; // used
-    s32 u_2C[4]; // used, cpu copy 16 bytes
-};
-
-struct Unk0202A3B4
-{
-    u16 u_0; // used
-    u8 filler_0[6];
-    u16 filler_1 : 4;
-    u16 u_8_4 : 1; // used
-};
-
-struct Unk0202A40C
-{
-    u16 filler_0;
-    u8 u_2; // used
-    u8 filler_1[5];
-    u16 filler_2 : 4;
-    u16 u_8_4 : 1; // used
-};
-
-struct Unk0202A444
-{
-    u8 filler_0[3];
-    u8 u_3; // used
-};
+    /* 0x000 */ struct SaveStruct23_Substruct1 substruct1;
+    /* 0x03C */ struct SaveStruct23_Substruct2 substruct2;
+    /* 0x1A4 */ struct SaveStruct23_Messages messages;
+    /* 0x1C4 */ struct SaveStruct23_Substruct4 substruct4;
+}; // total size = 0xD00 (3328)
 
 struct Unk0202A4B8
 {
-    u8 filler[2];
-    u8 u_2; // used
-    u8 u_3; // used
-    u16 u_4; // used
-    u16 u_6; // used
-    u16 filler_1[2];
-    u16 u_array_C[5]; // used
-    u16 u_16; // used
-    u16 u_18; // used
+    /* 0x000 */ u8 filler_1[2];
+    /* 0x002 */ u8 u_2;
+    /* 0x003 */ u8 u_3;
+    /* 0x004 */ u16 u_4;
+    /* 0x006 */ u16 u_6;
 };
-
-struct Unk0202A578
-{
-    u8 filler[8];
-    u16 u_8;
-};
-
-struct Unk0202A5CC
-{
-    u32 filler;
-    u32 u_4;
-};
-
-
-struct UnkSaveStruct_0202A5D4
-{
-    u32 filler[15];
-    struct Unk0202A1F0 u_3C;
-    u32 filler1[89];
-    struct UnkMailStruct messages;
-    u32 u_1C4;
-};
-
-typedef struct Unk0202A670
-{
-    u32 u_0; // used
-    u8 u_4[250]; // used
-} 
-Unk0202A670;
 
 typedef struct Unk0202A68C
 {
-    u32 u_0; // used
-    u32 u_4; // used
-    u32 u_8; // used
-    u32 u_C; // used
-} 
+    /* 0x000 */ u32 u_0;
+    /* 0x004 */ u32 u_4;
+    /* 0x008 */ u32 u_8;
+    /* 0x00C */ u32 u_C;
+}
 Unk0202A68C; // total size 0x10 (16)
-
-struct Unk0202A744_substruct1
-{
-    u8 data[0x63c];
-}; // total size 0x63C (1596)
-
-struct Unk0202A744_substruct2
-{
-    u8 data[1020];
-}; // total size 0x3FC (1020)
-
-struct Unk0202A744
-{
-    u8 filler[254];
-    u8 u_FE;
-    u8 u_FF;
-    u8 u_100;
-    u8 u_101;
-    u8 u_102;
-    u8 u_103;
-    struct Unk0202A744_substruct1 u_104;
-    struct Unk0202A744_substruct2 u_740;
-};
 
 struct Unk0202A784
 {
-    u8 u_0;
-    u8 u_1;
+    /* 0x000 */ u8 u_0;
+    /* 0x001 */ u8 u_1;
 };
 
-struct Unk0202A798_substruct1
+struct Unk0202A798_substruct
 {
-    u8 u_0[168];
-    u8 u_A8[16];
-    u16 filler_2[8];
-    u8 u_C8_0:1;
-    u8 u_C8_1:1;
-    u8 u_C8_filler:6;
-    u8 u_C9;
-    u16 u_CA[4];
-    u16 u_D2[4];
-    u16 u_DA[4];
-    u8 filler_3[2];
-}; // total size 0xE4 (228)
-
-struct Unk0202A798_1
-{
-    u8 filler[260];
-    struct Unk0202A798_substruct1 u_104[4];
-};
-
-struct Unk0202A798_substruct2
-{
-    u32 u_0;
-    u16 u_4;
-    u8 filler_1[2];
-    u16 u_8[8];
-    u16 u_18[4];
-    u16 u_20[4];
-    u16 u_28[4];
+    /* 0x000 */ u32 u_0;
+    /* 0x004 */ u16 u_4;
+    /* 0x006 */ u8 filler_1[2];
+    /* 0x008 */ u16 u_8[8];
+    /* 0x018 */ u16 u_18[4];
+    /* 0x020 */ u16 u_20[4];
+    /* 0x028 */ u16 u_28[4];
 }; // total size 0x30 (48)
 
-struct Unk0202A798_2
+struct Unk0202A798
 {
-    struct Unk0202A798_substruct2 u_0;
-    u8 u_30[168];
+    /* 0x000 */ struct Unk0202A798_substruct u_0;
+    /* 0x030 */ u8 u_30[168];
 };
 
-s32 FUN_0202A1E0();
-void FUN_0202A1E4(void *dst);
-void FUN_0202A1F0(struct Unk0202A1F0 *unk);
-void FUN_0202A204(struct UnkMailStruct *unk);
-void FUN_0202A230(void *dst);
-u32 FUN_0202A240(struct Unk0202A240 *unk, u32 arg1, void *dst);
-void FUN_0202A2C4(struct Unk0202A240 *dst, u32 arg1, void *src);
-void FUN_0202A36C(struct Unk0202A240 *unk, s32 arg1, s32 arg2, s32 arg3);
-u8 FUN_0202A398(struct Unk0202A240 *unk);
-void FUN_0202A3A0(struct Unk0202A240 *unk, u16 arg1);
-u16 FUN_0202A3B4(struct Unk0202A3B4 *unk, u16 arg1, s32 arg2);
-u8 FUN_0202A40C(struct Unk0202A40C *unk, s32 arg1);
-u8 FUN_0202A444(struct Unk0202A444 *unk, s32 arg1);
-void FUN_0202A474(void *dst, s32 arg1, const void *src);
-void FUN_0202A498(const void *src, s32 arg1, void *dst);
-u16 FUN_0202A4B8(struct Unk0202A4B8 *arg0, struct Unk0202A4B8 *arg1);
-u16 FUN_0202A520(struct Unk0202A4B8 *unk);
-u8 FUN_0202A524(struct Unk0202A4B8 *unk);
-u16 FUN_0202A538(struct Unk0202A4B8 *unk, s32 arg1, s32 arg2);
-BOOL FUN_0202A578(struct Unk0202A578 *arg0, u16 arg1, u32 arg2);
-void FUN_0202A5CC(struct Unk0202A5CC *unk, u32 arg1);
-u32 FUN_0202A5D0(struct Unk0202A5CC *unk);
-void FUN_0202A5D4(struct SaveBlock2 *sav2, u32 arg1, struct MailMessage *arg2);
-struct MailMessage *FUN_0202A5F4(struct SaveBlock2 *sav2, u32 arg1);
-void FUN_0202A60C(struct Unk0202A670 *arg0, u8 arg1, u8 arg2, struct Unk0202A68C *arg3);
-void FUN_0202A670(struct Unk0202A670 *arg0);
-BOOL FUN_0202A68C(struct Unk0202A68C *arg0, struct Unk0202A68C *arg1);
-BOOL FUN_0202A6B4(struct Unk0202A670 *arg0, u8 arg1, u8 arg2, struct Unk0202A68C *arg3);
-u8 FUN_0202A744(struct Unk0202A744 *unk);
-u8 FUN_0202A74C(struct Unk0202A744 *unk);
-void FUN_0202A754(struct Unk0202A744 *dest, void *src, u8 arg2, u8 arg3);
-void FUN_0202A784(struct Unk0202A744 *src, struct Unk0202A784 *ptr1);
-void FUN_0202A798();
-void FUN_0202A838(struct Unk0202A744 *dest, void *src, u8 arg2, u8 arg3);
-void FUN_0202A864(struct Unk0202A744 *src, struct Unk0202A784 *dest);
-struct Unk0202A744_substruct2 *FUN_0202A878(struct Unk0202A744 *src, u32 head_id);
-s32 FUN_0202A89C();
-void FUN_0202A8A4(struct UnkSaveStruct_0202A5D4 *savStruct);
-struct UnkSaveStruct_0202A5D4 *FUN_0202A8CC(struct SaveBlock2* sav2);
-struct Unk0202A1F0 *FUN_0202A8D8(struct SaveBlock2* sav2);
-void *FUN_0202A8E4(struct SaveBlock2* sav2);
+s32 SaveStruct23_Substruct4_Substruct1_sizeof();
+void SaveStruct23_Substruct1_Init(struct SaveStruct23_Substruct1 *substruct1);
+void SaveStruct23_Substruct2_Init(struct SaveStruct23_Substruct2 *substruct2);
+void SaveStruct23_Messages_Init(struct SaveStruct23_Messages *mailStruct);
+void SaveStruct23_Substruct4_Init(struct SaveStruct23_Substruct4 *substruct4);
+u32 SaveStruct23_Substruct1_GetField(struct SaveStruct23_Substruct1 *substruct1, SaveStruct23_Substruct1_Field field, void *dst);
+void SaveStruct23_Substruct1_SetField(struct SaveStruct23_Substruct1 *substruct1, SaveStruct23_Substruct1_Field field, void *value);
+void FUN_0202A36C(struct SaveStruct23_Substruct1 *substruct1, s32 arg1, s32 arg2, s32 arg3);
+BOOL SaveStruct23_Substruct1_GetFlag1(struct SaveStruct23_Substruct1 *substruct1);
+void SaveStruct23_Substruct1_SetFlag1(struct SaveStruct23_Substruct1 *substruct1, BOOL arg1);
+u16 SaveStruct23_Substruct2_SetField_0x0(struct SaveStruct23_Substruct2 *substruct2, u16 value, DataSetMode mode);
+u8 SaveStruct23_Substruct2_SetField_0x2(struct SaveStruct23_Substruct2 *substruct2, DataSetMode mode);
+u8 SaveStruct23_Substruct2_SetField_0x3(struct SaveStruct23_Substruct2 *substruct2, DataSetMode mode);
+void SaveStruct23_Substruct2_SetArray(struct SaveStruct23_Substruct2 *substruct2, s32 mode, void *src);
+void SaveStruct23_Substruct2_GetArray(struct SaveStruct23_Substruct2 *substruct2, s32 mode, void *dst);
+u16 SaveStruct23_Substruct2_SetField_0x16(struct SaveStruct23_Substruct2 *substruct2, struct Unk0202A4B8 *arg1);
+u16 SaveStruct23_Substruct2_GetField_0x16(struct SaveStruct23_Substruct2 *substruct2);
+u8 FUN_0202A524(struct SaveStruct23_Substruct2 *substruct2);
+u16 SaveStruct23_Substruct2_SetField_0xC(struct SaveStruct23_Substruct2 *substruct2, u16 arg1, DataSetMode mode);
+BOOL SaveStruct23_Substruct2_SetFlag(struct SaveStruct23_Substruct2 *substruct2, u16 flagNumber, DataSetMode mode);
+void SaveStruct23_Substruct2_SetField_0x4(struct SaveStruct23_Substruct2 *substruct2, u32 arg1);
+u32 SaveStruct23_Substruct2_GetField_0x4(struct SaveStruct23_Substruct2 *substruct2);
+void SaveStruct23_SetMessage(struct SaveBlock2 *sav2, u32 index, struct MailMessage *message);
+struct MailMessage *SaveStruct23_GetMessage(struct SaveBlock2 *sav2, u32 index);
+void SaveStruct23_Substruct4_SetArrayFlag(struct SaveStruct23_Substruct4 *substruct4, u8 arg1, u8 arg2, struct Unk0202A68C *arg3);
+void SaveStruct23_Substruct4_ClearArrayFlags(struct SaveStruct23_Substruct4 *substruct4);
+BOOL StructUnk0202A68C_Compare(struct Unk0202A68C *struct1, struct Unk0202A68C *struct2);
+BOOL SaveStruct23_Substruct4_GetArrayFlag(struct SaveStruct23_Substruct4 *substruct4, u8 arg1, u8 arg2, struct Unk0202A68C *arg3);
+u8 SaveStruct23_Substruct4_GetField_0xFE(struct SaveStruct23_Substruct4 *substruct4);
+u8 SaveStruct23_Substruct4_GetField_0xFF(struct SaveStruct23_Substruct4 *substruct4);
+void SaveStruct23_Substruct4_SetSubstruct1(struct SaveStruct23_Substruct4 *substruct4, struct SaveStruct23_Substruct4_Substruct1 *substruct4_substruct1, u8 arg2, u8 arg3);
+void FUN_0202A784(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dest);
+void FUN_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A798 *arg1, u32 arg2);
+void FUN_0202A838(struct SaveStruct23_Substruct4 *substruct4, struct SaveStruct23_Substruct4_Substruct2 *substruct4_substruct2, u8 arg2, u8 arg3);
+void FUN_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784 *dest);
+struct SaveStruct23_Substruct4_Substruct2 *FUN_0202A878(struct SaveStruct23_Substruct4 *substruct4, u32 heap_id);
+s32 SaveStruct23_sizeof();
+void SaveStruct23_Init(struct SaveStruct23 *saveStruct23);
+struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveBlock2* sav2);
+struct SaveStruct23_Substruct2 *SaveStruct23_GetSubstruct2(struct SaveBlock2* sav2);
+struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveBlock2* sav2);
 
 #endif //POKEDIAMOND_UNK_0202A1E0_H

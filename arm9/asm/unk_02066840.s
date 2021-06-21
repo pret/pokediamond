@@ -19,7 +19,7 @@ FUN_02066840: ; 0x02066840
 	bl FUN_02029AFC
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	str r0, [sp, #0x4]
 	add r0, r7, #0x0
 	mov r1, #0x0
@@ -93,7 +93,7 @@ FUN_02066840: ; 0x02066840
 _020668FC:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_0202A5F4
+	bl SaveStruct23_GetMessage
 	ldr r1, [sp, #0x8]
 	mov r2, #0x8
 	add r1, r1, r5
@@ -104,7 +104,7 @@ _020668FC:
 	blt _020668FC
 	add r0, r6, #0x0
 	mov r1, #0x3
-	bl FUN_0202A5F4
+	bl SaveStruct23_GetMessage
 	add r1, r7, #0x0
 	add r1, #0xc0
 	mov r2, #0x8
@@ -115,7 +115,7 @@ _020668FC:
 	ldr r0, [sp, #0x4]
 	mov r1, #0x7
 	mov r2, #0x0
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	add r1, r7, #0x0
 	add r1, #0xe2
 	strh r0, [r1, #0x0]
@@ -127,19 +127,19 @@ _020668FC:
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x0]
 	add r2, r7, #0x0
-	bl FUN_0202A498
+	bl SaveStruct23_Substruct2_GetArray
 	add sp, #0xc
 	pop {r4-r7, pc}
 _02066956:
 	ldr r0, [sp, #0x4]
-	bl FUN_0202A520
+	bl SaveStruct23_Substruct2_GetField_0x16
 	add r1, r7, #0x0
 	add r1, #0xe2
 	strh r0, [r1, #0x0]
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x0]
 	add r2, r7, #0x0
-	bl FUN_0202A498
+	bl SaveStruct23_Substruct2_GetArray
 _0206696C:
 	add sp, #0xc
 	pop {r4-r7, pc}

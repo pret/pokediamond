@@ -19893,17 +19893,17 @@ _022433A4: .word OS_ResetSystem
 
 	thumb_func_start MOD06_022433A8
 MOD06_022433A8: ; 0x022433A8
-	ldr r3, _022433AC ; =FUN_0202A1E4
+	ldr r3, _022433AC ; =SaveStruct23_Substruct1_Init
 	bx r3
 	.align 2, 0
-_022433AC: .word FUN_0202A1E4
+_022433AC: .word SaveStruct23_Substruct1_Init
 
 	thumb_func_start MOD06_022433B0
 MOD06_022433B0: ; 0x022433B0
-	ldr r3, _022433B4 ; =FUN_0202A398
+	ldr r3, _022433B4 ; =SaveStruct23_Substruct1_GetFlag1
 	bx r3
 	.align 2, 0
-_022433B4: .word FUN_0202A398
+_022433B4: .word SaveStruct23_Substruct1_GetFlag1
 
 	thumb_func_start MOD06_022433B8
 MOD06_022433B8: ; 0x022433B8
@@ -19965,26 +19965,26 @@ _02243414:
 MOD06_02243428: ; 0x02243428
 	push {r4, lr}
 	add r4, r1, #0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	cmp r4, #0
 	bne _0224343E
 	mov r1, #5
 	mov r2, #2
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	pop {r4, pc}
 _0224343E:
 	mov r1, #5
 	mov r2, #1
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	pop {r4, pc}
 
 	thumb_func_start MOD06_02243448
 MOD06_02243448: ; 0x02243448
 	push {r3, lr}
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	mov r1, #5
 	mov r2, #0
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	pop {r3, pc}
@@ -19993,15 +19993,15 @@ MOD06_02243448: ; 0x02243448
 MOD06_0224345C: ; 0x0224345C
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
-	bl FUN_0202A8CC
+	bl SaveStruct23_GetSubstruct1
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	mov r1, #0
 	add r6, r0, #0
 	add r0, r4, #0
 	add r2, r1, #0
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	cmp r4, #5
@@ -20015,11 +20015,11 @@ _02243484:
 	add r0, r6, #0
 	lsr r1, r1, #0x10
 	mov r2, #2
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	add r0, r6, #0
 	add r1, r4, #0
 	mov r2, #2
-	bl FUN_0202A538
+	bl SaveStruct23_Substruct2_SetField_0xC
 	cmp r4, #4
 	beq _022434A8
 	add r0, r5, #0
@@ -20031,8 +20031,8 @@ _022434A8:
 	thumb_func_start MOD06_022434AC
 MOD06_022434AC: ; 0x022434AC
 	push {r3, lr}
-	bl FUN_0202A8E4
-	bl FUN_0202A744
+	bl SaveStruct23_GetSubstruct4
+	bl SaveStruct23_Substruct4_GetField_0xFE
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	pop {r3, pc}
@@ -20072,16 +20072,16 @@ MOD06_022434D0: ; 0x022434D0
 	mov r0, #0x3b
 	str r0, [r4, #4]
 	add r0, r6, #0
-	bl FUN_0202A8CC
+	bl SaveStruct23_GetSubstruct1
 	str r0, [r4, #0x70]
 	add r0, r6, #0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	str r0, [r4, #0x74]
 	ldr r0, _02243688 ; =0x12345678
 	mov r1, #0
 	str r0, [r4]
 	ldr r0, [r4, #0x70]
-	bl FUN_0202A3A0
+	bl SaveStruct23_Substruct1_SetFlag1
 	cmp r5, #0
 	bne _0224356C
 	strb r7, [r4, #0xf]
@@ -20114,25 +20114,25 @@ _02243544:
 	cmp r2, #0xe
 	blo _02243544
 	ldr r0, [r4, #0x70]
-	bl FUN_0202A1E4
+	bl SaveStruct23_Substruct1_Init
 	ldrb r1, [r4, #0xf]
 	add r0, sp, #8
 	add r2, sp, #8
 	strb r1, [r0]
 	ldr r0, [r4, #0x70]
 	mov r1, #0
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	b _0224362A
 _0224356C:
 	mov r1, #0
 	ldr r0, [r4, #0x70]
 	add r2, r1, #0
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	strb r0, [r4, #0xf]
 	ldr r0, [r4, #0x70]
 	mov r1, #1
 	mov r2, #0
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	strb r0, [r4, #0xc]
 	ldrb r0, [r4, #0xc]
 	sub r0, r0, #1
@@ -20144,16 +20144,16 @@ _0224356C:
 	ldr r0, [r4, #0x70]
 	mov r1, #5
 	add r2, #0x2a
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	add r2, r4, #0
 	ldr r0, [r4, #0x70]
 	mov r1, #8
 	add r2, #0x3e
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	ldr r0, [r4, #0x70]
 	mov r1, #0xa
 	mov r2, #0
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	str r0, [r4, #8]
 	ldrb r0, [r4, #0xf]
 	cmp r0, #2
@@ -20161,7 +20161,7 @@ _0224356C:
 	ldr r0, [r4, #0x70]
 	mov r1, #9
 	mov r2, #0
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsl r0, r0, #0x1d
@@ -20180,14 +20180,14 @@ _0224356C:
 	lsl r3, r3, #4
 	mov r1, #6
 	add r2, r2, r3
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	ldrb r0, [r4, #0x10]
 	mov r1, #7
 	mov r2, #0
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x1d
 	ldr r0, [r4, #0x70]
-	bl FUN_0202A240
+	bl SaveStruct23_Substruct1_GetField
 	add r3, r0, #0
 	ldr r0, _02243690 ; =0x000007E8
 	mov r1, #0xa6
@@ -20226,7 +20226,7 @@ _0224362A:
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	beq _02243668
@@ -20244,7 +20244,7 @@ _02243668:
 	ldrb r1, [r4, #0xf]
 	ldr r0, [r4, #0x74]
 	mov r2, #0
-	bl FUN_0202A538
+	bl SaveStruct23_Substruct2_SetField_0xC
 	strh r0, [r4, #0x1c]
 _0224367E:
 	add r0, r4, #0
@@ -20707,17 +20707,17 @@ _022439B8:
 	strb r1, [r0]
 	ldr r0, [r5, #0x70]
 	mov r1, #0
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	ldrb r1, [r5, #0xc]
 	add r0, sp, #0
 	add r2, sp, #0
 	strb r1, [r0]
 	ldr r0, [r5, #0x70]
 	mov r1, #1
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	ldr r0, [r5, #0x74]
 	ldr r1, [r5, #0x70]
-	bl FUN_0202A4B8
+	bl SaveStruct23_Substruct2_SetField_0x16
 _022439F6:
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -20771,7 +20771,7 @@ _02243A52:
 	add r1, #8
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	beq _02243A74
@@ -20793,7 +20793,7 @@ _02243A7E:
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	mov r2, #2
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	ldrb r2, [r5, #0xd]
 	ldr r0, [sp, #4]
 	mov r1, #0x1d
@@ -20801,7 +20801,7 @@ _02243A7E:
 	ldrb r1, [r5, #0xf]
 	ldr r0, [r5, #0x74]
 	mov r2, #2
-	bl FUN_0202A538
+	bl SaveStruct23_Substruct2_SetField_0xC
 	ldr r0, [sp, #8]
 	bl FUN_02029FC8
 	mov r1, #0xf
@@ -20849,7 +20849,7 @@ MOD06_02243AD8: ; 0x02243AD8
 	lsr r1, r1, #0x10
 	mov r2, #0
 	add r4, #0x35
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	beq _02243B1A
@@ -20872,7 +20872,7 @@ _02243B26:
 	add r1, #8
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	add r0, r6, #0
 	add r1, r4, #0
 	bl FUN_0202A150
@@ -20887,7 +20887,7 @@ _02243B26:
 	ldrb r1, [r5, #0xf]
 	ldr r0, [r5, #0x74]
 	mov r2, #3
-	bl FUN_0202A538
+	bl SaveStruct23_Substruct2_SetField_0xC
 	add r0, r6, #0
 	mov r1, #0xf
 	mov r2, #1
@@ -20933,19 +20933,19 @@ MOD06_02243BA8: ; 0x02243BA8
 	strb r1, [r0]
 	ldr r0, [r4, #0x70]
 	mov r1, #0
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	ldrb r1, [r4, #0xc]
 	add r0, sp, #0
 	add r2, sp, #0
 	strb r1, [r0]
 	ldr r0, [r4, #0x70]
 	mov r1, #1
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	add r2, r4, #0
 	ldr r0, [r4, #0x70]
 	mov r1, #5
 	add r2, #0x2a
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	ldrh r1, [r4, #0x28]
 	ldrh r2, [r4, #0x24]
 	ldrh r3, [r4, #0x26]
@@ -20957,15 +20957,15 @@ MOD06_02243BA8: ; 0x02243BA8
 	ldr r0, [r4, #0x70]
 	mov r1, #8
 	add r2, #0x3e
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	add r2, r4, #0
 	ldr r0, [r4, #0x70]
 	mov r1, #0xa
 	add r2, #8
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	ldr r0, [r4, #0x70]
 	mov r1, #1
-	bl FUN_0202A3A0
+	bl SaveStruct23_Substruct1_SetFlag1
 	ldrb r0, [r4, #0xf]
 	cmp r0, #2
 	bne _02243C4E
@@ -20977,7 +20977,7 @@ MOD06_02243BA8: ; 0x02243BA8
 	strb r1, [r0]
 	ldr r0, [r4, #0x70]
 	mov r1, #9
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	ldrb r3, [r4, #0x10]
 	ldr r2, _02243C54 ; =0x000007E8
 	ldr r0, [r4, #0x70]
@@ -20987,7 +20987,7 @@ MOD06_02243BA8: ; 0x02243BA8
 	lsl r3, r3, #4
 	mov r1, #6
 	add r2, r2, r3
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 	ldr r2, _02243C58 ; =0x00000838
 	ldr r0, [r4, #0x70]
 	add r3, r4, r2
@@ -20996,7 +20996,7 @@ MOD06_02243BA8: ; 0x02243BA8
 	lsl r2, r2, #0x18
 	lsr r2, r2, #0x1d
 	add r2, r3, r2
-	bl FUN_0202A2C4
+	bl SaveStruct23_Substruct1_SetField
 _02243C4E:
 	add sp, #4
 	pop {r3, r4, pc}
@@ -21234,13 +21234,13 @@ _02243DEE:
 	ldr r0, [r4, #0x74]
 	bne _02243E00
 	mov r1, #0
-	bl FUN_0202A444
+	bl SaveStruct23_Substruct2_SetField_0x3
 	ldr r1, _02243E2C ; =0x02250C5C
 	ldrb r5, [r1, r0]
 	b _02243E1E
 _02243E00:
 	mov r2, #0
-	bl FUN_0202A538
+	bl SaveStruct23_Substruct2_SetField_0xC
 	ldrb r1, [r4, #0x10]
 	lsl r1, r1, #0x1d
 	lsr r1, r1, #0x1e
@@ -21259,7 +21259,7 @@ _02243E1E:
 	ldr r0, [r4, #0x74]
 	add r1, r5, #0
 	mov r2, #5
-	bl FUN_0202A3B4
+	bl SaveStruct23_Substruct2_SetField_0x0
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -21283,7 +21283,7 @@ _02243E48:
 	blo _02243E5E
 	mov r1, #1
 	mov r2, #0
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	cmp r0, #0
 	beq _02243E6E
 	mov r0, #0
@@ -21291,7 +21291,7 @@ _02243E48:
 _02243E5E:
 	mov r1, #0
 	add r2, r1, #0
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	cmp r0, #0
 	beq _02243E6E
 	mov r0, #0
@@ -21307,7 +21307,7 @@ MOD06_02243E74: ; 0x02243E74
 	add r6, r0, #0
 	add r0, r1, #0
 	add r5, r2, #0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	add r4, r0, #0
 	cmp r5, #0
 	beq _02243E90
@@ -21318,15 +21318,15 @@ MOD06_02243E74: ; 0x02243E74
 	b _02243F10
 _02243E90:
 	mov r1, #0
-	bl FUN_0202A444
+	bl SaveStruct23_Substruct2_SetField_0x3
 	pop {r4, r5, r6, pc}
 _02243E98:
 	mov r1, #4
 	mov r2, #2
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_0202A444
+	bl SaveStruct23_Substruct2_SetField_0x3
 	add r5, r0, #0
 	cmp r5, #0xa
 	bne _02243EB2
@@ -21335,7 +21335,7 @@ _02243E98:
 _02243EB2:
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_0202A444
+	bl SaveStruct23_Substruct2_SetField_0x3
 	add r0, r5, #1
 	cmp r0, #5
 	blt _02243EC8
@@ -21348,11 +21348,11 @@ _02243EC8:
 	pop {r4, r5, r6, pc}
 _02243ECC:
 	mov r1, #3
-	bl FUN_0202A40C
+	bl SaveStruct23_Substruct2_SetField_0x2
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_0202A444
+	bl SaveStruct23_Substruct2_SetField_0x3
 	cmp r0, #1
 	bne _02243EE4
 	mov r0, #0
@@ -21365,14 +21365,14 @@ _02243EE4:
 	blo _02243F0C
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_0202A444
+	bl SaveStruct23_Substruct2_SetField_0x3
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_0202A40C
+	bl SaveStruct23_Substruct2_SetField_0x2
 	add r0, r4, #0
 	mov r1, #4
 	mov r2, #2
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _02243F0C:
@@ -21476,7 +21476,7 @@ MOD06_02243F9C: ; 0x02243F9C
 	add r1, #8
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	bne _02243FC0
@@ -21749,7 +21749,7 @@ _022441B8:
 	ldr r0, [r6, #0x74]
 	ldr r1, [sp]
 	ldr r2, [sp, #4]
-	bl FUN_0202A474
+	bl SaveStruct23_Substruct2_SetArray
 	ldr r0, [sp, #4]
 	mov r1, #0
 	mov r2, #0xa8
@@ -21939,9 +21939,9 @@ MOD06_0224434C: ; 0x0224434C
 	lsl r2, r2, #4
 	bl MI_CpuFill8
 	add r0, r6, #0
-	bl FUN_0202A8E4
+	bl SaveStruct23_GetSubstruct4
 	add r6, r0, #0
-	bl FUN_0202A744
+	bl SaveStruct23_Substruct4_GetField_0xFE
 	cmp r0, #0
 	bne _0224437A
 	add r0, r5, #0
@@ -22424,7 +22424,7 @@ _0224471C:
 	ldr r0, [r6, #0x74]
 	mov r1, #3
 	mov r2, #0
-	bl FUN_0202A538
+	bl SaveStruct23_Substruct2_SetField_0xC
 	ldr r1, _02244754 ; =0x00000844
 	strh r0, [r6, r1]
 	pop {r3, r4, r5, r6, r7, pc}
