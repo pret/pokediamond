@@ -65,7 +65,7 @@ THUMB_FUNC void FUN_02002CF8(s32 param0)
 {
     /*
     param0 is used as a index to a u32[]. The original assembly computes param0<<2 several times
-    in the function where the present attempt compute it once and keep it r6.
+    in the function where the present attempt computes it once and keep it r6.
     */
 
     GF_ASSERT(param0 < 4);
