@@ -17,7 +17,7 @@ void FUN_02002C14();
 void FUN_02002C50(u32 param0, u32 param1);
 void FUN_02002C84(s32 param0, u32 param1);
 void FUN_02002CC0(s32 param0);
-void FUN_02002CF8(s32 param0);
+void FUN_02002CF8(int param0);
 struct UnkStruct_02002C14 *FUN_02002D94(u32 param0, u32 param1);
 u32 FontFunc(u32 fontId, struct TextPrinter *printer);
 u32 FUN_02002DE0(u32 param0, u16 *str, u32 param2);
