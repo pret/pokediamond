@@ -10,7 +10,7 @@ Static arm9
 	Object unk_02001B80.o
 	Object string_util.o
 	Object render_text.o
-	Object unk_02002C14.o
+	Object font.o
 	Object unk_02002F08.o
 	Object unk_020030E8.o
 	Object sound.o

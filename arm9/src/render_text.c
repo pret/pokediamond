@@ -4,6 +4,7 @@
 #include "string_util.h"
 #include "text.h"
 #include "unk_0201B8B8.h"
+#include "font.h"
 
 u16 unk00;
 
@@ -11,7 +12,6 @@ TextFlags gTextFlags;
 
 const u8 UNK_020ECB50[] = { 0, 1, 2, 1 };
 
-extern const char *FUN_02002D94(u8, u16);
 extern void PlaySE(u16);
 
 THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
@@ -207,16 +207,16 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                     return 3;
             }
 
-            const char *r5 = FUN_02002D94(subStruct->glyphId, currentChar);
+            struct UnkStruct_02002C14 *r5 = FUN_02002D94(subStruct->glyphId, currentChar);
             CopyGlyphToWindow(printer->printerTemplate.window,
-                r5,
-                r5[0x80],
-                r5[0x81],
+                r5->buf,
+                r5->width,
+                r5->height,
                 printer->printerTemplate.currentX,
                 printer->printerTemplate.currentY,
                 printer->printerTemplate.unk2);
 
-            printer->printerTemplate.currentX += r5[0x80] + printer->printerTemplate.letterSpacing;
+            printer->printerTemplate.currentX += r5->width + printer->printerTemplate.letterSpacing;
 
             return 0;
         case 1:

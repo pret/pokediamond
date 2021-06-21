@@ -1,23 +1,17 @@
 #include "global.h"
+#include "font.h"
 #include "gf_gfx_loader.h"
 #include "render_text.h"
 #include "string16.h"
 #include "text.h"
 
-struct UnkStruct *UNK_02106FC8;
+struct UnkStruct_02002C14 *UNK_02106FC8;
 
-struct UnkStruct
-{
-    u8 unk00[0x84];
-    void *unk84[4];
-    void *unk94[4];
-};
-
-struct UnkStruct UNK_02106FCC;
+struct UnkStruct_02002C14 UNK_02106FCC;
 
 const u16 UNK_020ECB54[] = { 0, 0, 1, 0, 2, 0, 3, 0 };
 
-const struct FontInfo UNK_020ECB64[5] = {
+const struct FontInfo gFontInfos[5] = {
     { 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02 },
     { 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02 },
     { 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02 },
@@ -41,7 +35,7 @@ THUMB_FUNC void FUN_02002C14()
         UNK_02106FC8->unk94[i] = NULL;
     }
 
-    SetFontsPointer(&UNK_020ECB64[0]);
+    SetFontsPointer(&gFontInfos[0]);
 }
 
 THUMB_FUNC void FUN_02002C50(u32 param0, u32 param1)
@@ -192,7 +186,7 @@ _02002D88:
 }
 #endif
 
-THUMB_FUNC struct UnkStruct *FUN_02002D94(u32 param0, u32 param1)
+THUMB_FUNC struct UnkStruct_02002C14 *FUN_02002D94(u32 param0, u32 param1)
 {
     FUN_02021750(UNK_02106FC8->unk94[param0], param1);
 
@@ -233,28 +227,28 @@ THUMB_FUNC s32 GetFontAttribute(u8 fontId, s32 attr)
     switch (attr)
     {
         case 0:
-            ret = UNK_020ECB64[fontId].maxLetterWidth;
+            ret = gFontInfos[fontId].maxLetterWidth;
             break;
         case 1:
-            ret = UNK_020ECB64[fontId].maxLetterHeight;
+            ret = gFontInfos[fontId].maxLetterHeight;
             break;
         case 2:
-            ret = UNK_020ECB64[fontId].letterSpacing;
+            ret = gFontInfos[fontId].letterSpacing;
             break;
         case 3:
-            ret = UNK_020ECB64[fontId].lineSpacing;
+            ret = gFontInfos[fontId].lineSpacing;
             break;
         case 4:
-            ret = UNK_020ECB64[fontId].unk;
+            ret = gFontInfos[fontId].unk;
             break;
         case 5:
-            ret = UNK_020ECB64[fontId].fgColor;
+            ret = gFontInfos[fontId].fgColor;
             break;
         case 6:
-            ret = UNK_020ECB64[fontId].bgColor;
+            ret = gFontInfos[fontId].bgColor;
             break;
         case 7:
-            ret = UNK_020ECB64[fontId].shadowColor;
+            ret = gFontInfos[fontId].shadowColor;
             break;
     }
 

@@ -1,11 +1,10 @@
 #include "global.h"
 #include "map_header.h"
 #include "unk_02064E4C.h"
+#include "font.h"
 
 #pragma thumb on
 
-// TODO: types of a0 and a2 aren't known yet
-extern void FUN_02002E14(void * a0, struct String * str, void * a2);
 
 void FUN_02064E4C(struct MsgData * msgData, u16 map_sec, struct String * dest)
 {
