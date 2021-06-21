@@ -2,16 +2,13 @@
 #include "text.h"
 #include "bg_window.h"
 #include "font.h"
+#include "render_text.h"
 
 extern void FUN_0201BD5C(void);
 
 extern void FUN_0200CD68(
     struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
 extern void FUN_0200D0BC(struct Window *param0, u32 param1, u32 param2, u32 param3);
-
-extern void TextFlags_SetCanABSpeedUpPrint(u8 param0);
-extern void FUN_02002B7C(u32 param0);
-extern void FUN_02002BB8(u32 param0);
 
 extern void FUN_0200D300(struct BgConfig *param0,
     u32 param1,
@@ -64,7 +61,7 @@ THUMB_FUNC u16 FUN_02054658(struct Window * window, struct String *str, struct O
     return AddTextPrinterParameterized(window, 1, str, 0, 0, (u32)Options_GetTextFrameDelay(options), NULL);
 }
 
-THUMB_FUNC u16 DrawFieldMessage(struct Window * window, struct String *str, u8 fontId, u32 speed, u8 a4, u32 a5)
+THUMB_FUNC u16 DrawFieldMessage(struct Window * window, struct String *str, u8 fontId, u32 speed, u8 a4, s32 a5)
 {
     TextFlags_SetCanABSpeedUpPrint(a4);
     FUN_02002B7C(a5);
