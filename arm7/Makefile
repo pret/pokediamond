@@ -59,6 +59,10 @@ S_OBJS = $(S_FILES:%.s=$(BUILD_DIR)/%.o)
 # Object files
 O_FILES := $(C_OBJS) $(S_OBJS)
 
+# Overlays
+OVERLAYS := $(shell grep -oE "Overlay \w+" $(LD_SPEC) | cut -d' ' -f2)
+AUTOLOADS := $(shell grep -oE "Autoload \w+" $(LD_SPEC) | cut -d' ' -f2)
+
 .SECONDARY:
 .DELETE_ON_ERROR:
 .SECONDEXPANSION:
@@ -181,7 +185,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
 
 $(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
 	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
-	$(OBJCOPY) --update-section arm7=$@ -j arm7 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
+	$(OBJCOPY) --update-section arm7=$@ -j arm7 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(foreach al,$(AUTOLOADS),--update-section $(al)=$(BUILD_DIR)/$(al).sbin -j $(al)) $(ELF) 2>/dev/null
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
