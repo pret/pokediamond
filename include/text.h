@@ -2,7 +2,6 @@
 #define POKEDIAMOND_TEXT_H
 
 #include "global.h"
-#include "font.h"
 #include "bg_window.h"
 
 
