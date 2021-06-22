@@ -162,7 +162,7 @@ _02254960:
 	add r1, r5, #0
 	lsr r2, r2, #0x18
 	mov r3, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -189,7 +189,7 @@ _02254960:
 	add r1, #0x10
 	lsr r2, r2, #0x18
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x10
 	mov r1, #0
@@ -217,7 +217,7 @@ _02254960:
 	add r1, #0x20
 	lsr r2, r2, #0x18
 	mov r3, #0xc
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r5, #0
 	add r0, #0x20
 	mov r1, #0
@@ -256,12 +256,12 @@ MOD51_02254A40: ; 0x02254A40
 _02254A46:
 	add r0, r5, #0
 	add r0, #0x10
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x38
 	cmp r4, #3
@@ -370,16 +370,16 @@ MOD51_02254B30: ; 0x02254B30
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD51_02254B30
 
@@ -403,10 +403,10 @@ MOD51_02254B54: ; 0x02254B54
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -424,10 +424,10 @@ MOD51_02254B54: ; 0x02254B54
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #5
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -445,10 +445,10 @@ MOD51_02254B54: ; 0x02254B54
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #6
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #4
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -466,7 +466,7 @@ MOD51_02254B54: ; 0x02254B54
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #8
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -786,7 +786,7 @@ MOD51_02254E48: ; 0x02254E48
 	mov r1, #7
 	add r2, r7, #0
 	lsr r3, r3, #0x18
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	mov r0, #0x72
 	lsl r0, r0, #2
 	add r7, r5, r0
@@ -832,10 +832,10 @@ MOD51_02254E48: ; 0x02254E48
 	mov r1, #1
 	bl AddTextPrinterParameterized2
 	add r0, r7, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x1c]
 	add r0, r0, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r2, [r6, #8]
 	cmp r2, #0
 	beq _02254F22
@@ -852,7 +852,7 @@ MOD51_02254E48: ; 0x02254E48
 	bl AddTextPrinterParameterized2
 _02254F22:
 	add r0, r5, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -927,13 +927,13 @@ _02254F88:
 _02254FB0:
 	ldr r0, [r5, #0x14]
 	mov r1, #7
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r1, #6
 	lsl r1, r1, #8
 	bl DC_FlushRange
 	ldr r0, [r5, #0x14]
 	mov r1, #7
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -941,7 +941,7 @@ _02254FB0:
 	ldr r0, [r5, #0x14]
 	mov r1, #7
 	lsl r3, r3, #8
-	bl FUN_02017CE8
+	bl BgCopyOrUncompressTilemapBufferRangeToVram
 	mov r0, #0xa1
 	mov r1, #0
 	lsl r0, r0, #2
@@ -1088,7 +1088,7 @@ _022550D4:
 	cmp r0, #0
 	beq _022551CA
 	ldr r0, _022551DC ; =0x000005E5
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x9e
 	lsl r0, r0, #2
 	ldrh r1, [r5, r0]
@@ -1112,7 +1112,7 @@ _02255100:
 	cmp r1, r0
 	bge _022551CA
 	ldr r0, _022551DC ; =0x000005E5
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x9e
 	lsl r0, r0, #2
 	ldrh r1, [r5, r0]
@@ -1163,7 +1163,7 @@ _02255160:
 	cmp r0, r1
 	bne _0225519C
 	ldr r0, _022551DC ; =0x000005E5
-	bl FUN_020054C8
+	bl PlaySE
 	mov r1, #0x18
 	ldr r2, [r5, #4]
 	mul r1, r4
@@ -1188,7 +1188,7 @@ _022551A4:
 	cmp r1, r0
 	bne _022551CA
 	ldr r0, _022551DC ; =0x000005E5
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, [r5, #4]
 	ldr r0, _022551E0 ; =0x000004BF
 	mov r2, #1
@@ -1322,7 +1322,7 @@ MOD51_02255294: ; 0x02255294
 	sub r1, r1, #1
 	strh r1, [r4, r0]
 	ldr r0, _022552F8 ; =0x000005E5
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r4, pc}
 _022552C6:
 	lsr r0, r1, #1
@@ -1343,7 +1343,7 @@ _022552C6:
 	add r1, r2, #1
 	strh r1, [r4, r0]
 	ldr r0, _022552F8 ; =0x000005E5
-	bl FUN_020054C8
+	bl PlaySE
 _022552F0:
 	pop {r4, pc}
 	nop
@@ -1487,7 +1487,7 @@ _022553BE:
 	ldr r0, [sp, #0x1c]
 	mov r1, #7
 	mov r2, #0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldr r3, [sp, #0x24]
 	add r1, r4, #4
 	lsl r6, r3, #2
@@ -1497,7 +1497,7 @@ _022553BE:
 	ldr r3, [r3, r6]
 	lsr r1, r1, #0x18
 	mov r2, #3
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [sp, #0x40]
 	add r4, r4, #1
 	add r5, #0x38
@@ -1507,13 +1507,13 @@ _022553BE:
 _02255422:
 	ldr r0, [sp, #0x1c]
 	mov r1, #7
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	mov r1, #6
 	lsl r1, r1, #8
 	bl DC_FlushRange
 	ldr r0, [sp, #0x1c]
 	mov r1, #7
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -1521,7 +1521,7 @@ _02255422:
 	ldr r0, [sp, #0x1c]
 	mov r1, #7
 	lsl r3, r3, #8
-	bl FUN_02017CE8
+	bl BgCopyOrUncompressTilemapBufferRangeToVram
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1946,4 +1946,3 @@ MOD51_022557C4: ; 0x022557C4
 	.global MOD51_02255800
 MOD51_02255800: ; 0x02255800
 	.space 0x4
-

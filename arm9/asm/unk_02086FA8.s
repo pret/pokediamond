@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.section .rodata
 
@@ -644,7 +644,7 @@ _020874BC:
 	cmp r0, #0x19
 	blt _020874DC
 	ldr r0, _020874E0 ; =0x00000714
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x64]
 	add r0, r0, #0x1
 	str r0, [r4, #0x64]
@@ -688,7 +688,7 @@ _0208750E:
 	cmp r0, #0x2
 	bne _0208754C
 	ldr r0, _02087550 ; =0x00000714
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x6c]
 	mov r1, #0x2
 	bl FUN_0200C61C
@@ -737,7 +737,7 @@ _0208756A:
 	cmp r5, #0x1
 	bne _0208758C
 	ldr r0, _020875A8 ; =0x00000714
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x6c]
 	mov r1, #0x3
 	bl FUN_0200C61C
@@ -790,7 +790,7 @@ _020875CE:
 	cmp r5, #0x1
 	bne _020875F0
 	ldr r0, _0208760C ; =0x00000714
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x6c]
 	mov r1, #0x4
 	bl FUN_0200C61C
@@ -865,7 +865,7 @@ _02087658:
 	mov r1, #0x5
 	bl FUN_0200C61C
 	ldr r0, _02087818 ; =0x00000707
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x40]
 	mov r1, #0x2
 	bl FUN_02086B70
@@ -1121,15 +1121,15 @@ _02087874:
 	b _0208789A
 _02087884:
 	ldr r0, _02087A0C ; =0x00000806
-	bl FUN_020054C8
+	bl PlaySE
 	b _0208789A
 _0208788C:
 	ldr r0, _02087A10 ; =0x000007AA
-	bl FUN_020054C8
+	bl PlaySE
 	b _0208789A
 _02087894:
 	ldr r0, _02087A14 ; =0x00000815
-	bl FUN_020054C8
+	bl PlaySE
 _0208789A:
 	ldr r0, [r4, #0x60]
 	add r0, r0, #0x1

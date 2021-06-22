@@ -641,7 +641,7 @@ _0222DA48:
 	mov r0, #3
 	mov r1, #0x44
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _0222DB58 ; =0x00000EC8
 	add r0, r6, #0
 	mov r2, #0x44
@@ -651,7 +651,7 @@ _0222DA48:
 	add r4, r0, #0
 	bl memset
 	mov r0, #0x44
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #4]
 	ldr r0, _0222DB5C ; =0x0222FC0C
 	add r2, sp, #0
@@ -663,7 +663,7 @@ _0222DA48:
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r0, #0xb
 	mov r1, #0x20
 	mov r2, #0x44
@@ -695,7 +695,7 @@ _0222DA48:
 	str r0, [r4, r1]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r4, #0
 	add r1, r6, #0
 	bl MOD82_0222DD04
@@ -887,7 +887,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x44
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -1503,13 +1503,13 @@ MOD82_0222E15C: ; 0x0222E15C
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0222E234 ; =0x0222F878
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -1524,7 +1524,7 @@ MOD82_0222E15C: ; 0x0222E15C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -1542,13 +1542,13 @@ MOD82_0222E15C: ; 0x0222E15C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineBToggleLayers
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _0222E23C ; =0x0222F85C
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -1563,7 +1563,7 @@ MOD82_0222E15C: ; 0x0222E15C
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineBToggleLayers
@@ -1571,12 +1571,12 @@ MOD82_0222E15C: ; 0x0222E15C
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x44
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x44
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x70
 	pop {r3, r4, r5, pc}
 	nop
@@ -1591,16 +1591,16 @@ MOD82_0222E240: ; 0x0222E240
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	thumb_func_end MOD82_0222E240
 
@@ -1711,10 +1711,10 @@ MOD82_0222E264: ; 0x0222E264
 	bl GfGfxLoader_LoadScrnData
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD82_0222E264
@@ -1739,7 +1739,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	ldr r0, [r4, #4]
 	add r1, r4, r1
 	mov r2, #0
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x37
 	lsl r0, r0, #6
 	add r0, r4, r0
@@ -1761,7 +1761,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	add r1, r4, r1
 	mov r2, #0
 	mov r3, #0x1a
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xda
 	lsl r0, r0, #4
 	add r0, r4, r0
@@ -1783,7 +1783,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	add r1, r4, r1
 	mov r2, #0
 	mov r3, #0x1a
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xd9
 	lsl r0, r0, #4
 	add r0, r4, r0
@@ -1805,7 +1805,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	ldr r0, [r4, #4]
 	add r1, r4, r1
 	mov r3, #4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xdb
 	lsl r0, r0, #4
 	add r0, r4, r0
@@ -1837,7 +1837,7 @@ MOD82_0222E35C: ; 0x0222E35C
 	add r1, r4, r1
 	mov r2, #0
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x36
 	lsl r0, r0, #6
 	add r0, r4, r0
@@ -1857,23 +1857,23 @@ MOD82_0222E474: ; 0x0222E474
 	mov r0, #0x36
 	lsl r0, r0, #6
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xdb
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xd9
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xda
 	lsl r0, r0, #4
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x37
 	lsl r0, r0, #6
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	thumb_func_end MOD82_0222E474
 
@@ -2586,7 +2586,7 @@ _0222E9EC:
 	mov r3, #3
 	bl MOD82_0222F694
 	ldr r0, _0222EAA0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EA94
 _0222EA08:
 	mov r1, #0x80
@@ -2610,7 +2610,7 @@ _0222EA1C:
 	mov r3, #3
 	bl MOD82_0222F694
 	ldr r0, _0222EAA0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EA94
 _0222EA38:
 	ldr r2, [r2, #0x48]
@@ -2643,7 +2643,7 @@ _0222EA68:
 	add r2, r1, #0
 	bl MOD82_0222F6D8
 	ldr r0, _0222EAA0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EA94
 _0222EA7C:
 	mov r1, #2
@@ -2655,7 +2655,7 @@ _0222EA7C:
 	mov r0, #0x13
 	str r0, [r4, #0x1c]
 	ldr r0, _0222EAA0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0222EA94:
 	mov r0, #3
 	add sp, #0x1c
@@ -3176,7 +3176,7 @@ _0222EE90:
 	mov r3, #2
 	bl MOD82_0222F694
 	ldr r0, _0222EF20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EF12
 _0222EEAA:
 	mov r1, #0x80
@@ -3199,7 +3199,7 @@ _0222EEBE:
 	mov r3, #2
 	bl MOD82_0222F694
 	ldr r0, _0222EF20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EF12
 _0222EED8:
 	ldr r2, [r2, #0x48]
@@ -3214,7 +3214,7 @@ _0222EED8:
 	mov r2, #0x1e
 	bl MOD82_0222DF6C
 	ldr r0, _0222EF20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222EF12
 _0222EEFA:
 	mov r1, #2
@@ -3226,7 +3226,7 @@ _0222EEFA:
 	mov r0, #0x15
 	str r0, [r4, #0x1c]
 	ldr r0, _0222EF20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0222EF12:
 	mov r0, #3
 	pop {r4, pc}
@@ -3325,7 +3325,7 @@ _0222EFBC:
 	mov r3, #3
 	bl MOD82_0222F694
 	ldr r0, _0222F044 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222F03C
 _0222EFD8:
 	mov r1, #0x80
@@ -3349,7 +3349,7 @@ _0222EFEC:
 	mov r3, #3
 	bl MOD82_0222F694
 	ldr r0, _0222F044 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222F03C
 _0222F008:
 	ldr r2, [r2, #0x48]
@@ -3362,7 +3362,7 @@ _0222F008:
 	mov r0, #0x21
 	str r0, [r4, #0x1c]
 	ldr r0, _0222F044 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0222F03C
 _0222F024:
 	mov r1, #2
@@ -3374,7 +3374,7 @@ _0222F024:
 	mov r0, #0x1b
 	str r0, [r4, #0x1c]
 	ldr r0, _0222F044 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0222F03C:
 	mov r0, #3
 	pop {r4, pc}
@@ -4580,4 +4580,3 @@ MOD82_0222FC03: ; 0x0222FC03
 	.global MOD82_0222FC0C
 MOD82_0222FC0C: ; 0x0222FC0C
 	.space 0x14
-

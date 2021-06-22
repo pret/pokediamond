@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start WM_EndKeySharing
 WM_EndKeySharing: ; 0x020DAD3C

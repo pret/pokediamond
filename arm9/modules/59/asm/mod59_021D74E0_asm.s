@@ -3,266 +3,7 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD59_021D7564
-MOD59_021D7564: ; 0x021D7564
-	push {r3, r4, r5, r6, lr}
-	sub sp, #0xc
-	add r5, r1, #0
-	bl OverlayManager_GetData
-	ldr r1, [r5]
-	add r4, r0, #0
-	mov r6, #0
-	cmp r1, #5
-	bls _021D757A
-	b _021D76AC
-_021D757A:
-	add r1, r1, r1
-	add r1, pc
-	ldrh r1, [r1, #6]
-	lsl r1, r1, #0x10
-	asr r1, r1, #0x10
-	add pc, r1
-_021D7586: ; jump table
-	.short _021D7592 - _021D7586 - 2 ; case 0
-	.short _021D75FA - _021D7586 - 2 ; case 1
-	.short _021D7642 - _021D7586 - 2 ; case 2
-	.short _021D7668 - _021D7586 - 2 ; case 3
-	.short _021D7690 - _021D7586 - 2 ; case 4
-	.short _021D76AA - _021D7586 - 2 ; case 5
-_021D7592:
-	add r0, r6, #0
-	add r1, r6, #0
-	bl FUN_0200E3A0
-	mov r0, #1
-	add r1, r6, #0
-	bl FUN_0200E3A0
-	add r0, r6, #0
-	add r1, r0, #0
-	bl Main_SetVBlankIntrCB
-	add r0, r6, #0
-	add r1, r0, #0
-	bl FUN_02015F34
-	bl GX_DisableEngineALayers
-	bl GX_DisableEngineBLayers
-	mov r2, #1
-	lsl r2, r2, #0x1a
-	ldr r1, [r2]
-	ldr r0, _021D76B4 ; =0xFFFFE0FF
-	and r1, r0
-	str r1, [r2]
-	ldr r2, _021D76B8 ; =0x04001000
-	ldr r1, [r2]
-	and r0, r1
-	str r0, [r2]
-	mov r0, #4
-	mov r1, #8
-	bl FUN_0201669C
-	add r0, r4, #0
-	bl MOD59_021D778C
-	add r0, r4, #0
-	bl MOD59_021D79F8
-	add r0, r4, #0
-	bl MOD59_021D7A4C
-	ldr r0, _021D76BC ; =MOD59_021D7724
-	add r1, r4, #0
-	bl Main_SetVBlankIntrCB
-	bl GX_BothDispOn
-	mov r0, #1
-	str r0, [r5]
-	b _021D76AC
-_021D75FA:
-	bl MOD59_021D8920
-	cmp r0, #1
-	bne _021D761E
-	mov r0, #6
-	str r0, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	ldr r0, [r4]
-	str r0, [sp, #8]
-	add r0, r6, #0
-	add r1, r0, #0
-	add r2, r0, #0
-	add r3, r0, #0
-	bl FUN_0200E1D0
-	mov r0, #2
-	str r0, [r5]
-_021D761E:
-	ldr r0, [r4, #0x14]
-	cmp r0, #0
-	beq _021D76AC
-	mov r0, #6
-	str r0, [sp]
-	mov r0, #1
-	str r0, [sp, #4]
-	ldr r0, [r4]
-	str r0, [sp, #8]
-	mov r0, #0
-	add r1, r0, #0
-	add r2, r0, #0
-	add r3, r0, #0
-	bl FUN_0200E1D0
-	mov r0, #3
-	str r0, [r5]
-	b _021D76AC
-_021D7642:
-	bl FUN_0200E308
-	cmp r0, #1
-	bne _021D76AC
-	add r0, r4, #0
-	bl MOD59_021D7A34
-	add r0, r4, #0
-	bl MOD59_021D796C
-	add r0, r4, #0
-	bl MOD59_021D7A5C
-	add r0, r6, #0
-	add r1, r0, #0
-	bl Main_SetVBlankIntrCB
-	mov r6, #1
-	b _021D76AC
-_021D7668:
-	bl FUN_0200E308
-	cmp r0, #1
-	bne _021D76AC
-	add r0, r4, #0
-	bl MOD59_021D7A34
-	add r0, r4, #0
-	bl MOD59_021D796C
-	add r0, r4, #0
-	bl MOD59_021D7A5C
-	add r0, r6, #0
-	add r1, r0, #0
-	bl Main_SetVBlankIntrCB
-	mov r0, #4
-	str r0, [r5]
-	b _021D76AC
-_021D7690:
-	ldr r0, [r4, #0x14]
-	bl OverlayManager_Run
-	cmp r0, #1
-	bne _021D76AC
-	ldr r0, [r4, #0x14]
-	bl OverlayManager_delete
-	add r0, r6, #0
-	str r0, [r4, #0x14]
-	mov r0, #5
-	str r0, [r5]
-	b _021D76AC
-_021D76AA:
-	str r6, [r5]
-_021D76AC:
-	add r0, r6, #0
-	add sp, #0xc
-	pop {r3, r4, r5, r6, pc}
-	nop
-_021D76B4: .word 0xFFFFE0FF
-_021D76B8: .word 0x04001000
-_021D76BC: .word MOD59_021D7724
-	thumb_func_end MOD59_021D7564
-
-	thumb_func_start MOD59_021D76C0
-MOD59_021D76C0: ; 0x021D76C0
-	push {r4, r5, r6, lr}
-	add r6, r0, #0
-	bl OverlayManager_GetData
-	add r4, r0, #0
-	ldr r0, [r4, #4]
-	ldr r5, [r4]
-	bl Sav2_PlayerData_GetProfileAddr
-	ldr r1, [r4, #0x70]
-	ldr r1, [r1, #0x18]
-	bl PlayerName_StringToFlat
-	ldr r0, [r4, #4]
-	bl Sav2_PlayerData_GetProfileAddr
-	ldr r1, [r4, #0x70]
-	ldr r1, [r1, #4]
-	bl PlayerProfile_SetTrainerGender
-	ldr r0, [r4, #4]
-	bl FUN_02024EB4
-	ldr r1, [r4, #0x74]
-	ldr r1, [r1, #0x18]
-	bl RivalsNameToU16Array
-	ldr r0, [r4, #0x70]
-	bl FUN_02077AC4
-	ldr r0, [r4, #0x74]
-	bl FUN_02077AC4
-	add r0, r6, #0
-	bl OverlayManager_FreeData
-	add r0, r5, #0
-	bl FUN_020168D0
-	ldr r0, _021D771C ; =SDK_OVERLAY_MODULE_52_ID
-	ldr r1, _021D7720 ; =MOD52_021D76D8
-	bl RegisterMainOverlay
-	mov r0, #1
-	pop {r4, r5, r6, pc}
-	nop
-_021D771C: .word SDK_OVERLAY_MODULE_52_ID
-_021D7720: .word MOD52_021D76D8
-	thumb_func_end MOD59_021D76C0
-
-	thumb_func_start MOD59_021D7724
-MOD59_021D7724: ; 0x021D7724
-	ldr r3, _021D772C ; =FUN_0201AB60
-	ldr r0, [r0, #0x18]
-	bx r3
-	nop
-_021D772C: .word FUN_0201AB60
-	thumb_func_end MOD59_021D7724
-
-	thumb_func_start MOD59_021D7730
-MOD59_021D7730: ; 0x021D7730
-	push {r3, r4}
-	ldr r2, _021D7788 ; =gMain + 0x40
-	mov r0, #0
-	ldrh r1, [r2, #0x20]
-	cmp r1, #0
-	beq _021D7784
-	ldrh r3, [r2, #0x1c]
-	mov r1, #1
-	lsl r1, r1, #8
-	cmp r3, r1
-	bhs _021D7784
-	ldrh r2, [r2, #0x1e]
-	cmp r2, #0xc0
-	bhs _021D7784
-	cmp r3, #0x80
-	bhs _021D7758
-	mov r1, #0x80
-	sub r1, r1, r3
-	lsl r1, r1, #0x10
-	b _021D775C
-_021D7758:
-	sub r3, #0x80
-	lsl r1, r3, #0x10
-_021D775C:
-	lsr r3, r1, #0x10
-	cmp r2, #0x64
-	bhs _021D776A
-	mov r1, #0x64
-	sub r1, r1, r2
-	lsl r1, r1, #0x10
-	b _021D776E
-_021D776A:
-	sub r2, #0x64
-	lsl r1, r2, #0x10
-_021D776E:
-	lsr r4, r1, #0x10
-	add r2, r3, #0
-	add r1, r4, #0
-	mul r2, r3
-	mul r1, r4
-	add r2, r2, r1
-	mov r1, #1
-	lsl r1, r1, #8
-	cmp r2, r1
-	bgt _021D7784
-	mov r0, #1
-_021D7784:
-	pop {r3, r4}
-	bx lr
-	.align 2, 0
-_021D7788: .word gMain + 0x40
-	thumb_func_end MOD59_021D7730
+	.extern MOD59_021D7730
 
 	thumb_func_start MOD59_021D778C
 MOD59_021D778C: ; 0x021D778C
@@ -280,7 +21,7 @@ _021D7798:
 	add r0, sp, #0x50
 	bl GX_SetBanks
 	ldr r0, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0x40
 	ldr r5, _021D7958 ; =0x021D9DCC
 	str r0, [r4, #0x18]
@@ -290,7 +31,7 @@ _021D7798:
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D795C ; =0x021D9EA0
 	add r3, sp, #0x24
 	ldmia r5!, {r0, r1}
@@ -309,10 +50,10 @@ _021D7798:
 	strb r0, [r2, #0x13]
 	ldr r0, [r4, #0x18]
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x18]
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0xe
 	add r2, sp, #0x24
 	strb r0, [r2, #0x12]
@@ -321,10 +62,10 @@ _021D7798:
 	ldr r0, [r4, #0x18]
 	mov r1, #1
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x18]
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0xd
 	add r2, sp, #0x24
 	strb r0, [r2, #0x12]
@@ -333,10 +74,10 @@ _021D7798:
 	ldr r0, [r4, #0x18]
 	mov r1, #2
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x18]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0xc
 	add r2, sp, #0x24
 	strb r0, [r2, #0x12]
@@ -344,10 +85,10 @@ _021D7798:
 	strb r1, [r2, #0x13]
 	ldr r0, [r4, #0x18]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x18]
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0
 	str r1, [sp]
 	ldr r0, [r4]
@@ -391,10 +132,10 @@ _021D7798:
 	ldr r0, [r4, #0x18]
 	mov r1, #4
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x18]
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0xe
 	add r0, sp, #8
 	strb r1, [r0, #0x12]
@@ -403,10 +144,10 @@ _021D7798:
 	ldr r0, [r4, #0x18]
 	add r2, sp, #8
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x18]
 	mov r1, #5
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0xd
 	add r0, sp, #8
 	strb r1, [r0, #0x12]
@@ -416,10 +157,10 @@ _021D7798:
 	mov r1, #6
 	add r2, sp, #8
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x18]
 	mov r1, #6
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0xc
 	add r0, sp, #8
 	strb r1, [r0, #0x12]
@@ -429,34 +170,34 @@ _021D7798:
 	mov r1, #7
 	add r2, sp, #8
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x18]
 	mov r1, #7
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	bl MOD59_021D8058
 	mov r0, #0
@@ -478,52 +219,52 @@ MOD59_021D796C: ; 0x021D796C
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x18]
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x18]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -690,7 +431,7 @@ _021D7B0E:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _021D7BDE
 _021D7B1A:
 	mov r0, #0x10
@@ -783,7 +524,7 @@ _021D7BC0:
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	b _021D7BDE
 _021D7BD0:
 	ldr r0, _021D7BE4 ; =0x04000050
@@ -843,11 +584,11 @@ MOD59_021D7C10: ; 0x021D7C10
 	ldr r0, [r5, #0x18]
 	lsr r1, r1, #0x18
 	add r3, r2, #0
-	bl FUN_020186B4
+	bl BgTilemapRectChangePalette
 	lsl r1, r4, #0x18
 	ldr r0, [r5, #0x18]
 	lsr r1, r1, #0x18
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0xc
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -873,7 +614,7 @@ _021D7C5E:
 	ldr r0, [r5, #0x18]
 	ldr r2, _021D7D5C ; =0x021D9DB8
 	add r1, #0x1c
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x20
@@ -891,7 +632,7 @@ _021D7C5E:
 	mov r3, #4
 	bl FUN_0200D0BC
 	mov r0, #1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	add r0, r4, #0
 	bl FUN_02002B7C
 	mov r0, #1
@@ -974,7 +715,7 @@ _021D7D36:
 _021D7D46:
 	add r0, r5, #0
 	add r0, #0x1c
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0
 	str r0, [r5, #0x50]
 	mov r4, #1
@@ -994,7 +735,7 @@ MOD59_021D7D68: ; 0x021D7D68
 	cmp r2, #0
 	bne _021D7D74
 	ldr r0, _021D7D78 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D7D74:
 	pop {r3, pc}
 	nop
@@ -1048,7 +789,7 @@ _021D7DC4:
 	add r1, r5, #0
 	ldr r0, [r5, #0x18]
 	add r1, #0x30
-	bl FUN_02019150
+	bl AddWindow
 	ldr r1, [r5]
 	add r0, r6, #0
 	bl ListMenuItems_ctor
@@ -1129,7 +870,7 @@ _021D7E66:
 	bl FUN_0200CCF8
 	add r0, r5, #0
 	add r0, #0x30
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r1, #0
 	ldr r0, [r5, #0x40]
 	add r2, r1, #0
@@ -1137,7 +878,7 @@ _021D7E66:
 	ldr r0, [r5, #0x44]
 	bl ListMenuItems_dtor
 	ldr r0, _021D7EC8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0
 	str r0, [r5, #0x2c]
 	mov r0, #1
@@ -1191,7 +932,7 @@ _021D7EEE: ; jump table
 _021D7EFA:
 	add r0, r5, #0
 	add r1, r5, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	ldr r1, [r4]
 	lsl r0, r0, #0xa
@@ -1225,7 +966,7 @@ _021D7EFA:
 	ldr r0, [r4, #0x18]
 	add r1, #0x1c
 	add r2, sp, #0x14
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0
 	mov r0, #0xc0
 	str r0, [sp]
@@ -1264,7 +1005,7 @@ _021D7F7C:
 	add r1, r4, #0
 	ldr r0, [r4, #0x18]
 	add r1, #0x1c
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0
 	mov r0, #0xc0
 	str r0, [sp]
@@ -1319,7 +1060,7 @@ _021D7FF6:
 	bne _021D803C
 _021D800A:
 	ldr r0, _021D8054 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #4
 	str r0, [r4, #0x54]
 	b _021D803C
@@ -1334,10 +1075,10 @@ _021D8016:
 	b _021D803C
 _021D8028:
 	add r0, #0x1c
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	str r0, [r4, #0x54]
 	mov r5, #1
@@ -1372,7 +1113,7 @@ MOD59_021D8058: ; 0x021D8058
 	ldr r3, [r5]
 	mov r1, #0x20
 	add r2, r0, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1420,10 +1161,10 @@ _021D80AA:
 	bl MOD59_021D8234
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop
@@ -1696,7 +1437,7 @@ _021D82C8:
 	ldr r0, [r5, #0x18]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r3, #0xb
 	str r3, [sp]
 	mov r0, #0xa
@@ -1705,7 +1446,7 @@ _021D82C8:
 	ldr r0, [r5, #0x18]
 	mov r1, #2
 	add r2, r7, #0
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	mov r1, #2
 	mov r2, #9
@@ -1714,7 +1455,7 @@ _021D82C8:
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #1
 	str r0, [sp]
 	mov r3, #0x32
@@ -1722,19 +1463,19 @@ _021D82C8:
 	mov r1, #2
 	add r2, r4, #0
 	lsl r3, r3, #6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	mov r3, #0x20
 	add r2, r3, #0
 	mov r0, #2
 	add r1, r6, #0
 	add r3, #0xe0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r3, #0x12
 	ldr r1, _021D83F4 ; =0x021D9ED8
 	mov r0, #2
 	mov r2, #0x20
 	lsl r3, r3, #4
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -1746,7 +1487,7 @@ _021D82C8:
 	ldr r0, [r5, #0x18]
 	mov r1, #5
 	add r3, r2, #0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r0, #7
 	str r0, [sp]
 	mov r0, #0xa
@@ -1756,7 +1497,7 @@ _021D82C8:
 	mov r1, #5
 	add r2, r7, #0
 	mov r3, #0xb
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0xa
@@ -1765,7 +1506,7 @@ _021D82C8:
 	mov r0, #5
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #1
 	str r0, [sp]
 	mov r3, #0x32
@@ -1773,17 +1514,17 @@ _021D82C8:
 	mov r1, #5
 	add r2, r4, #0
 	lsl r3, r3, #6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	mov r0, #5
 	add r1, r6, #0
 	mov r2, #0x20
 	lsl r3, r0, #6
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #5
 	ldr r1, _021D83F4 ; =0x021D9ED8
 	mov r2, #0x20
 	lsl r3, r0, #6
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	add r0, r6, #0
 	bl FreeToHeap
 	add r0, r4, #0
@@ -1831,7 +1572,7 @@ MOD59_021D83F8: ; 0x021D83F8
 	mov r0, #6
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0
@@ -1858,7 +1599,7 @@ MOD59_021D8460: ; 0x021D8460
 	cmp r2, #0
 	bne _021D849C
 	ldr r0, [r5, #0x18]
-	bl FUN_02017B48
+	bl Bg_GetXpos
 	cmp r0, #0
 	beq _021D8498
 	cmp r0, #0
@@ -1868,14 +1609,14 @@ MOD59_021D8460: ; 0x021D8460
 	lsr r1, r1, #0x18
 	mov r2, #2
 	mov r3, #4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	b _021D84E2
 _021D848A:
 	lsl r1, r4, #0x18
 	lsr r1, r1, #0x18
 	mov r2, #1
 	mov r3, #4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	b _021D84E2
 _021D8498:
 	mov r6, #1
@@ -1884,7 +1625,7 @@ _021D849C:
 	cmp r2, #1
 	bne _021D84C2
 	ldr r0, [r5, #0x18]
-	bl FUN_02017B48
+	bl Bg_GetXpos
 	add r1, r6, #0
 	sub r1, #0x30
 	cmp r0, r1
@@ -1894,7 +1635,7 @@ _021D849C:
 	lsr r1, r1, #0x18
 	mov r2, #2
 	mov r3, #4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	b _021D84E2
 _021D84BE:
 	mov r6, #1
@@ -1903,7 +1644,7 @@ _021D84C2:
 	cmp r2, #2
 	bne _021D84E2
 	ldr r0, [r5, #0x18]
-	bl FUN_02017B48
+	bl Bg_GetXpos
 	cmp r0, #0
 	beq _021D84E0
 	lsl r1, r4, #0x18
@@ -1911,7 +1652,7 @@ _021D84C2:
 	lsr r1, r1, #0x18
 	mov r2, #1
 	mov r3, #4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	b _021D84E2
 _021D84E0:
 	mov r6, #1
@@ -2206,19 +1947,19 @@ _021D86E4:
 	mov r1, #2
 	add r2, r7, #0
 	add r3, r7, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r2, #3
 	add r3, r2, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #2
 	sub r3, #0x6b
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #2
 	add r1, r7, #0
-	bl FUN_020178BC
+	bl SetBgPriority
 	mov r0, #5
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	add r2, r7, #0
 	add r0, #0xa8
@@ -2235,10 +1976,10 @@ _021D86E4:
 _021D8728:
 	ldr r0, [r4, #0x18]
 	mov r1, #2
-	bl FUN_02017B48
+	bl Bg_GetXpos
 	ldr r0, [r4, #0x18]
 	mov r1, #5
-	bl FUN_02017B54
+	bl Bg_GetYpos
 	add r1, r4, #0
 	add r1, #0xb0
 	ldr r3, [r1]
@@ -2269,22 +2010,22 @@ _021D8728:
 	mov r1, #2
 	ldr r0, [r4, #0x18]
 	add r3, r1, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x18]
 	mov r1, #5
 	mov r2, #1
 	mov r3, #2
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x18]
 	mov r1, #5
 	mov r2, #3
 	add r3, r5, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	b _021D890A
 _021D8792:
 	mov r0, #5
 	add r1, r7, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x1e
 	add r4, #0xb0
 	str r0, [r4]
@@ -2307,7 +2048,7 @@ _021D87A6:
 _021D87BE:
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	add r2, r7, #0
 	add r0, #0xa8
@@ -2324,10 +2065,10 @@ _021D87BE:
 _021D87E0:
 	ldr r0, [r4, #0x18]
 	mov r1, #2
-	bl FUN_02017B48
+	bl Bg_GetXpos
 	ldr r0, [r4, #0x18]
 	mov r1, #2
-	bl FUN_02017B54
+	bl Bg_GetYpos
 	add r0, r4, #0
 	add r0, #0xb0
 	ldr r1, [r0]
@@ -2356,7 +2097,7 @@ _021D87E0:
 	mov r1, #2
 	mov r2, #3
 	add r3, r7, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r0, r4, #0
 	add r2, r7, #0
 	add r0, #0xa8
@@ -2385,7 +2126,7 @@ _021D8846:
 	ldr r0, [r4, #0x18]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	asr r5, r5, #1
 	cmp r5, #0x90
 	ble _021D886E
@@ -2395,15 +2136,15 @@ _021D886E:
 	mov r1, #2
 	mov r2, #3
 	add r3, r5, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	b _021D890A
 _021D887C:
 	ldr r0, [r4, #0x18]
 	mov r1, #2
-	bl FUN_02017B48
+	bl Bg_GetXpos
 	ldr r0, [r4, #0x18]
 	mov r1, #2
-	bl FUN_02017B54
+	bl Bg_GetYpos
 	add r0, r4, #0
 	add r0, #0xb0
 	ldr r1, [r0]
@@ -2431,7 +2172,7 @@ _021D887C:
 	mov r1, #2
 	mov r2, #3
 	add r3, r7, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #5
 	str r0, [r6]
 	b _021D890A
@@ -2447,12 +2188,12 @@ _021D88CC:
 	mov r1, #2
 	ldr r0, [r4, #0x18]
 	add r3, r1, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x18]
 	mov r1, #2
 	mov r2, #3
 	add r3, r5, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	add r4, #0xa8
 	str r5, [r4]
 	b _021D890A
@@ -2478,7 +2219,7 @@ MOD59_021D8914: ; 0x021D8914
 	mov r1, #1
 	bx r3
 	.align 2, 0
-_021D891C: .word FUN_020178BC
+_021D891C: .word SetBgPriority
 	thumb_func_end MOD59_021D8914
 
 	thumb_func_start MOD59_021D8920
@@ -2619,10 +2360,10 @@ _021D8A1A:
 	bl FUN_02005350
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #1
 	str r0, [sp]
@@ -2658,7 +2399,7 @@ _021D8A76:
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	bl _021D985C
 _021D8A92:
 	ldr r0, _021D8D70 ; =0x00000405
@@ -2675,10 +2416,10 @@ _021D8A92:
 	bl MOD59_021D8140
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #4
@@ -2748,7 +2489,7 @@ _021D8B44:
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	bl _021D985C
 _021D8B58:
 	mov r0, #0x29
@@ -2775,10 +2516,10 @@ _021D8B80:
 	bne _021D8C84
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #1
 	add r1, r5, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x10]
 	str r0, [r4, #0xc]
 	bl _021D985C
@@ -2893,12 +2634,12 @@ _021D8C88:
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	bl _021D985C
 _021D8C98:
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x14
 	str r0, [r4, #0xc]
 	bl _021D985C
@@ -2928,7 +2669,7 @@ _021D8CBC:
 	bl FUN_020145C8
 	mov r0, #6
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	mov r1, #3
 	add r0, #0x8b
@@ -3003,7 +2744,7 @@ _021D8D7C:
 	bne _021D8DA0
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x1c
 	str r0, [r4, #0xc]
 	bl _021D985C
@@ -3018,7 +2759,7 @@ _021D8DA0:
 _021D8DA4:
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, [r4, #0x68]
 	bl FUN_020146C4
 	add r0, r4, #0
@@ -3058,12 +2799,12 @@ _021D8DEA:
 	bl MOD59_021D8234
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r2, r5, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #6
 	mov r1, #1
 	str r0, [sp]
@@ -3220,10 +2961,10 @@ _021D8F5E:
 	bne _021D8FCE
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x1c
 	str r0, [r4, #0xc]
 	bl _021D985C
@@ -3277,7 +3018,7 @@ _021D8FD2:
 	bl MOD59_021D8234
 	mov r0, #6
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #1
 	str r0, [sp]
@@ -3319,7 +3060,7 @@ _021D9030:
 	add r0, #0x98
 	str r1, [r0]
 	ldr r0, [r4, #0x18]
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x30
 	str r0, [r4, #0xc]
 	bl _021D985C
@@ -3360,7 +3101,7 @@ _021D9078:
 	cmp r1, r0
 	bne _021D90A2
 	ldr r0, _021D937C ; =0x00000706
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x32
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -3482,7 +3223,7 @@ _021D9192:
 	bl MOD59_021D82A0
 	mov r0, #6
 	add r1, r5, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	add r1, r5, #0
 	add r0, #0x94
@@ -3557,7 +3298,7 @@ _021D922A:
 	bne _021D92FA
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x3b
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -3615,12 +3356,12 @@ _021D9290:
 	ldr r0, [r4, #0x18]
 	mov r1, #1
 	sub r3, #0x30
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0x18]
 	mov r1, #2
 	add r2, r5, #0
 	mov r3, #0x30
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0x40
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -3709,7 +3450,7 @@ _021D935C:
 	add r0, #0x84
 	str r1, [r0]
 	ldr r0, _021D9380 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D9368:
 	add r0, r4, #0
 	bl MOD59_021D8504
@@ -3801,7 +3542,7 @@ _021D9416:
 _021D941C:
 	ldr r0, [r4, #0x18]
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x4a
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -3848,13 +3589,13 @@ _021D945C:
 _021D9476:
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r0, r4, #0
 	add r0, #0x84
 	ldr r0, [r0]
@@ -3862,22 +3603,22 @@ _021D9476:
 	bne _021D94AE
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r2, r5, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	b _021D94C2
 _021D94AE:
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r2, r5, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 _021D94C2:
 	mov r0, #6
 	mov r1, #1
@@ -3925,7 +3666,7 @@ _021D950C:
 	bne _021D9530
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r1, [r4, #0x48]
 	sub r0, r5, #2
 	cmp r1, r0
@@ -4124,21 +3865,21 @@ _021D9684:
 _021D9696:
 	add r0, r5, #0
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	add r2, r5, #0
 	ldr r0, [r4, #0x18]
 	mov r1, #1
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #6
 	mov r1, #1
 	str r0, [sp]
@@ -4187,7 +3928,7 @@ _021D971A:
 _021D971C:
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x61
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -4263,7 +4004,7 @@ _021D97B2:
 	bne _021D985C
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x67
 	str r0, [r4, #0xc]
 	b _021D985C

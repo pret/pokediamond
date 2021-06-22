@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.section .rodata
 
@@ -1641,7 +1641,7 @@ FUN_020833D4: ; 0x020833D4
 	cmp r0, #0x0
 	bne _020833EE
 	mov r0, #0x1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0x3
 	bl FUN_02002B7C
 	mov r0, #0x1
@@ -1651,7 +1651,7 @@ _020833EE:
 	mov r0, #0x1
 	bl FUN_02002B7C
 	mov r0, #0x0
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0x0
 	bl FUN_02002BB8
 	pop {r3, pc}
@@ -1661,7 +1661,7 @@ _020833EE:
 FUN_02083404: ; 0x02083404
 	push {r3, lr}
 	mov r0, #0x0
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0x0
 	bl FUN_02002B7C
 	mov r0, #0x0

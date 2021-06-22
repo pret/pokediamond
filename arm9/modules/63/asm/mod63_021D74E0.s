@@ -37,12 +37,12 @@ MOD63_021D74E0: ; 0x021D74E0
 	str r0, [r2]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r2, #1
 	mov r0, #3
 	mov r1, #0x1e
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x79
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -214,7 +214,7 @@ _021D768C:
 	mov r1, #0x3c
 	bl FUN_020053CC
 	ldr r0, _021D77AC ; =0x000005F4
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #4
 	str r0, [r5]
 	b _021D779C
@@ -363,7 +363,7 @@ MOD63_021D77B4: ; 0x021D77B4
 	add r0, r7, #0
 	bl OverlayManager_FreeData
 	add r0, r4, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	cmp r5, #1
 	beq _021D77F2
 	cmp r5, #2
@@ -404,7 +404,7 @@ MOD63_021D782C: ; 0x021D782C
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D7834: .word FUN_0201AB60
+_021D7834: .word DoScheduledBgGpuUpdates
 	thumb_func_end MOD63_021D782C
 
 	thumb_func_start MOD63_021D7838
@@ -500,7 +500,7 @@ MOD63_021D78BC: ; 0x021D78BC
 	add r0, #0x68
 	add r1, r4, #0
 	mov r2, #4
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	mov r0, #0x30
 	add r1, r6, #0
 	add r2, r4, #0
@@ -692,7 +692,7 @@ MOD63_021D7A48: ; 0x021D7A48
 	sub sp, #0xb8
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0xa8
 	ldr r5, _021D7B80 ; =MOD63_021DB9B4
 	str r0, [r4, #4]
@@ -702,7 +702,7 @@ MOD63_021D7A48: ; 0x021D7A48
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D7B84 ; =MOD63_021DB9E0
 	add r3, sp, #0x8c
 	ldmia r5!, {r0, r1}
@@ -717,7 +717,7 @@ MOD63_021D7A48: ; 0x021D7A48
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D7B88 ; =MOD63_021DB9C4
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -732,7 +732,7 @@ MOD63_021D7A48: ; 0x021D7A48
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D7B8C ; =MOD63_021DBA50
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -747,7 +747,7 @@ MOD63_021D7A48: ; 0x021D7A48
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D7B90 ; =MOD63_021DBA34
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -762,7 +762,7 @@ MOD63_021D7A48: ; 0x021D7A48
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D7B94 ; =MOD63_021DB9FC
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -777,7 +777,7 @@ MOD63_021D7A48: ; 0x021D7A48
 	ldr r0, [r4, #4]
 	mov r1, #3
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D7B98 ; =MOD63_021DBA18
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -792,7 +792,7 @@ MOD63_021D7A48: ; 0x021D7A48
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0
 	bl GX_EngineAToggleLayers
@@ -819,10 +819,10 @@ MOD63_021D7A48: ; 0x021D7A48
 	bl GX_EngineBToggleLayers
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0xb8
 	pop {r3, r4, r5, pc}
 	nop
@@ -865,22 +865,22 @@ MOD63_021D7B9C: ; 0x021D7B9C
 	bl GX_EngineBToggleLayers
 	ldr r0, [r4, #4]
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -2031,15 +2031,15 @@ _021D844C:
 	bl GfGfxLoader_GXLoadPal
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	add r3, r4, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r2, _021D85CC ; =0x00000227
 	mov r0, #1
 	mov r1, #0x1a
@@ -2054,7 +2054,7 @@ _021D844C:
 	ldr r2, _021D85D0 ; =MOD63_021DB9A0
 	add r0, r5, #0
 	add r1, #0xac
-	bl FUN_02019150
+	bl AddWindow
 	mov r1, #0
 	mov r0, #0xe0
 	str r0, [sp]
@@ -2104,12 +2104,12 @@ _021D844C:
 	add r1, #2
 	mov r2, #2
 	mov r3, #0x42
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #4
 	add r1, sp, #0x1c
 	mov r2, #2
 	mov r3, #0x44
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -2183,7 +2183,7 @@ MOD63_021D8644: ; 0x021D8644
 	add r0, r2, #0
 	bx r3
 	.align 2, 0
-_021D864C: .word FUN_02019178
+_021D864C: .word RemoveWindow
 	thumb_func_end MOD63_021D8644
 
 	thumb_func_start MOD63_021D8650

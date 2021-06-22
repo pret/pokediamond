@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_021D6F78
+	.extern __console_exit
 
 	.section .bss
 
@@ -177,7 +177,7 @@ _020DDC04: ; 0x020DDC04
 	str r0, [r5, #0xc0]
 	mov r2, #0x400
 	ldr r1, _020DDC54 ; =CTRDGi_TaskThread
-	ldr r3, _020DDC58 ; =UNK_021D6F78
+	ldr r3, _020DDC58 ; =__console_exit
 	mov r0, r5
 	str r2, [sp, #0x0]
 	mov r2, #0x14
@@ -196,4 +196,4 @@ _020DDC38:
 _020DDC4C: .word UNK_021D6B50
 _020DDC50: .word UNK_021D6B54
 _020DDC54: .word CTRDGi_TaskThread
-_020DDC58: .word UNK_021D6F78
+_020DDC58: .word __console_exit

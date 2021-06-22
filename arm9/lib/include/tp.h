@@ -1,6 +1,14 @@
 #ifndef NITRO_TP_H_
 #define NITRO_TP_H_
 
+#define     TP_TOUCH_OFF                0       // Not being touched
+#define     TP_TOUCH_ON                 1       // Being touched
+
+#define     TP_VALIDITY_VALID           0       // Valid
+#define     TP_VALIDITY_INVALID_X       1       // Data with invalid X coordinate
+#define     TP_VALIDITY_INVALID_Y       2       // Data with invalid Y coordinate
+#define     TP_VALIDITY_INVALID_XY      (TP_VALIDITY_INVALID_X | TP_VALIDITY_INVALID_Y) // Data with invalid X and Y coordinates
+
 // Touch panel input structure
 typedef struct
 {

@@ -43,7 +43,7 @@ _021D9A36:
 	mov r0, #3
 	mov r1, #0x27
 	lsl r2, r2, #6
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D9B74 ; =0x00005CB0
 	add r0, r6, #0
 	mov r2, #0x27
@@ -53,7 +53,7 @@ _021D9A36:
 	add r4, r0, #0
 	bl memset
 	mov r0, #0x27
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4]
 	mov r0, #0x27
 	bl ScrStrBufs_new
@@ -66,7 +66,7 @@ _021D9A36:
 	str r0, [r4, #0x14]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl MOD58_021D9CDC
 	ldr r0, [r4]
 	bl MOD58_021D9CFC
@@ -274,7 +274,7 @@ _021D9C40:
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x27
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -289,7 +289,7 @@ MOD58_021D9CB4: ; 0x021D9CB4
 	bl FUN_0201C30C
 	bl FUN_02009F80
 	add r0, r4, #0
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D9CD4 ; =0x027E0000
 	ldr r1, _021D9CD8 ; =0x00003FF8
 	mov r0, #1
@@ -335,7 +335,7 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D9DF0 ; =0x021DAE18
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -350,10 +350,10 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	str r0, [r3]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D9DF4 ; =0x021DAE34
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -368,10 +368,10 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D9DF8 ; =0x021DAE50
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -386,7 +386,7 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D9DFC ; =0x021DADE0
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -401,10 +401,10 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D9E00 ; =0x021DADFC
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -419,17 +419,17 @@ MOD58_021D9CFC: ; 0x021D9CFC
 	add r0, r4, #0
 	mov r1, #5
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	mov r1, #0x20
 	add r2, r0, #0
 	mov r3, #0x27
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #4
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x27
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x9c
 	pop {r4, r5, pc}
 	nop
@@ -544,22 +544,22 @@ MOD58_021D9ED8: ; 0x021D9ED8
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -604,7 +604,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x27
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -1072,7 +1072,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	add r1, r5, r1
 	mov r2, #0
 	mov r3, #2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb5
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1092,7 +1092,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	ldr r0, [r5]
 	add r1, r5, r1
 	mov r3, #4
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb1
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1113,7 +1113,7 @@ MOD58_021DA30C: ; 0x021DA30C
 	add r1, r5, r1
 	mov r2, #1
 	mov r3, #0x1a
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0xb9
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1179,7 +1179,7 @@ _021DA3C2:
 	ldr r0, [r5]
 	add r1, r5, r1
 	mov r2, #1
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r1, [r5, #0x30]
 	mov r0, #1
 	mov r2, #0
@@ -1231,7 +1231,7 @@ _021DA46A:
 	add r1, r4, #0
 	mov r2, #4
 	mov r3, #5
-	bl FUN_02019064
+	bl AddWindowParameterized
 	add r0, r4, #0
 	mov r1, #0
 	bl FillWindowPixelBuffer
@@ -1269,7 +1269,7 @@ MOD58_021DA4CC: ; 0x021DA4CC
 	add r5, r6, r0
 _021DA4D8:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #5
@@ -1277,19 +1277,19 @@ _021DA4D8:
 	mov r0, #0xbd
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xb9
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xb1
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0xb5
 	lsl r0, r0, #2
 	add r0, r6, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD58_021DA4CC
 
@@ -1330,7 +1330,7 @@ MOD58_021DA514: ; 0x021DA514
 	mov r1, #1
 	bl MOD58_021DA614
 	ldr r0, _021DA5E0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	b _021DA568
 _021DA55A:
 	ldr r0, _021DA5E4 ; =0x0000431A
@@ -2435,7 +2435,7 @@ MOD58_021DAD3C: ; 0x021DAD3C
 	cmp r0, #0
 	bne _021DAD60
 	ldr r0, _021DAD9C ; =0x0000069A
-	bl FUN_020054C8
+	bl PlaySE
 _021DAD60:
 	mov r0, #0
 	ldrsb r1, [r4, r0]
@@ -2455,7 +2455,7 @@ _021DAD78:
 	cmp r0, #0
 	bne _021DAD88
 	ldr r0, _021DAD9C ; =0x0000069A
-	bl FUN_020054C8
+	bl PlaySE
 _021DAD88:
 	mov r0, #2
 	ldrsb r0, [r4, r0]

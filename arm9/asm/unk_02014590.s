@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.text
 
@@ -424,7 +424,7 @@ FUN_02014878: ; 0x02014878
 	add r2, #0x9a
 	strb r0, [r2, #0x0]
 	ldr r0, _020148A4 ; =0x000005E4
-	bl FUN_020054C8
+	bl PlaySE
 _020148A2:
 	pop {r4, pc}
 	.balign 4
@@ -557,12 +557,12 @@ FUN_02014970: ; 0x02014970
 	lsl r1, r1, #0x18
 	ldr r0, [r6, #0x0]
 	lsr r1, r1, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r1, [r6, #0x4]
 	ldr r0, [r6, #0x0]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r4, #0x0
 	add r5, r6, #0x0
 _020149B4:
@@ -742,7 +742,7 @@ FUN_02014AD4: ; 0x02014AD4
 	ldr r0, [r4, #0x0]
 	ldr r3, [r3, #0x10]
 	lsr r1, r1, #0x18
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	add r0, r5, #0x0
 	bl FUN_0200CAB4
 	ldr r0, [r4, #0x8]
@@ -817,11 +817,11 @@ FUN_02014B58: ; 0x02014B58
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
 	add r5, r0, #0x0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	lsl r1, r4, #0x18
 	add r0, r5, #0x0
 	lsr r1, r1, #0x18
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x1c
 	pop {r3-r6, pc}
 	.balign 4

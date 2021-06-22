@@ -69,7 +69,7 @@ MOD63_021D88F0: ; 0x021D88F0
 	sub sp, #0xb8
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0xa8
 	ldr r5, _021D89E8 ; =MOD63_021DBB4C
 	str r0, [r4, #0xc]
@@ -79,7 +79,7 @@ MOD63_021D88F0: ; 0x021D88F0
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D89EC ; =MOD63_021DBC88
 	add r3, sp, #0x8c
 	ldmia r5!, {r0, r1}
@@ -94,7 +94,7 @@ MOD63_021D88F0: ; 0x021D88F0
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D89F0 ; =MOD63_021DBC6C
 	add r3, sp, #0x70
 	ldmia r5!, {r0, r1}
@@ -109,7 +109,7 @@ MOD63_021D88F0: ; 0x021D88F0
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D89F4 ; =MOD63_021DBBC4
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -124,7 +124,7 @@ MOD63_021D88F0: ; 0x021D88F0
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D89F8 ; =MOD63_021DBBFC
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -139,7 +139,7 @@ MOD63_021D88F0: ; 0x021D88F0
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D89FC ; =MOD63_021DBC18
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -154,7 +154,7 @@ MOD63_021D88F0: ; 0x021D88F0
 	ldr r0, [r4, #0xc]
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D8A00 ; =MOD63_021DBC34
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -169,13 +169,13 @@ MOD63_021D88F0: ; 0x021D88F0
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0xb8
 	pop {r3, r4, r5, pc}
 	nop
@@ -194,7 +194,7 @@ MOD63_021D8A04: ; 0x021D8A04
 	sub sp, #0x80
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0x70
 	ldr r5, _021D8AC4 ; =MOD63_021DBB3C
 	str r0, [r4, #0xc]
@@ -204,7 +204,7 @@ MOD63_021D8A04: ; 0x021D8A04
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -227,7 +227,7 @@ MOD63_021D8A04: ; 0x021D8A04
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D8AD0 ; =MOD63_021DBCA4
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -242,7 +242,7 @@ MOD63_021D8A04: ; 0x021D8A04
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D8AD4 ; =MOD63_021DBCC0
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -257,7 +257,7 @@ MOD63_021D8A04: ; 0x021D8A04
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D8AD8 ; =MOD63_021DBCDC
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -272,10 +272,10 @@ MOD63_021D8A04: ; 0x021D8A04
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x80
 	pop {r3, r4, r5, pc}
 	nop
@@ -293,7 +293,7 @@ MOD63_021D8ADC: ; 0x021D8ADC
 	sub sp, #0x9c
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0x8c
 	ldr r5, _021D8BBC ; =MOD63_021DBB6C
 	str r0, [r4, #0xc]
@@ -303,7 +303,7 @@ MOD63_021D8ADC: ; 0x021D8ADC
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r2, #1
 	lsl r2, r2, #0x1a
 	ldr r1, [r2]
@@ -326,7 +326,7 @@ MOD63_021D8ADC: ; 0x021D8ADC
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D8BC8 ; =MOD63_021DBD14
 	add r3, sp, #0x54
 	ldmia r5!, {r0, r1}
@@ -341,7 +341,7 @@ MOD63_021D8ADC: ; 0x021D8ADC
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #1
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D8BCC ; =MOD63_021DBD30
 	add r3, sp, #0x38
 	ldmia r5!, {r0, r1}
@@ -356,7 +356,7 @@ MOD63_021D8ADC: ; 0x021D8ADC
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #1
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D8BD0 ; =MOD63_021DBBA8
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -371,7 +371,7 @@ MOD63_021D8ADC: ; 0x021D8ADC
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r5, _021D8BD4 ; =MOD63_021DBBE0
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -386,10 +386,10 @@ MOD63_021D8ADC: ; 0x021D8ADC
 	str r0, [r3]
 	ldr r0, [r4, #0xc]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x9c
 	pop {r4, r5, pc}
 	nop
@@ -582,11 +582,11 @@ MOD63_021D8D10: ; 0x021D8D10
 	bl GX_DisableEngineBLayers
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	mov r0, #3
 	mov r1, #0x4c
 	lsl r2, r0, #0x11
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0xab
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -739,7 +739,7 @@ MOD63_021D8E68: ; 0x021D8E68
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4c
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _021D8E94 ; =SDK_OVERLAY_MODULE_63_ID
 	ldr r1, _021D8E98 ; =MOD63_021DBAB8
 	bl RegisterMainOverlay
@@ -1200,22 +1200,22 @@ MOD63_021D9234: ; 0x021D9234
 	bl MOD63_021DAF9C
 	ldr r0, [r4, #0xc]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	bl FreeToHeap
 	mov r0, #0
@@ -1708,16 +1708,16 @@ _021D964A:
 _021D965E:
 	ldr r0, [r5, #0xc]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r5, #0xc]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r5, #0xc]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r5, #0xc]
 	mov r1, #4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r5, #0xc]
 	bl FreeToHeap
 	ldr r0, [r5, #0x10]
@@ -1930,7 +1930,7 @@ _021D9840:
 	ldr r1, [r2, #0x14]
 	add r1, r2, r1
 	sub r1, r1, r0
-	bl FUN_02016B44
+	bl ReallocFromHeap
 	mov r0, #0x80
 	mov r1, #0x4c
 	bl NARC_ctor
@@ -2716,7 +2716,7 @@ MOD63_021D9EE0: ; 0x021D9EE0
 	ldr r0, [r4, #0xc]
 	mov r1, #1
 	sub r3, r2, #5
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0
 	str r0, [r4, #8]
 _021D9EFE:
@@ -2736,7 +2736,7 @@ MOD63_021D9F00: ; 0x021D9F00
 	ldr r0, [r4, #0xc]
 	mov r1, #2
 	add r3, r2, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0
 	str r0, [r4, #8]
 _021D9F1E:
@@ -2752,7 +2752,7 @@ MOD63_021D9F20: ; 0x021D9F20
 	ldr r0, [r4, #0xc]
 	mov r1, #3
 	sub r3, #0x11
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0
 	str r0, [r4, #8]
 	pop {r4, pc}
@@ -3183,7 +3183,7 @@ _021DA192:
 	mov r1, #3
 	mov r2, #1
 	mov r3, #0x40
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #1
 	lsl r0, r0, #0xc
 	bl FX_Inv
@@ -3203,14 +3203,14 @@ _021DA192:
 	mov r1, #2
 	add r2, sp, #0x10
 	mov r3, #0x80
-	bl FUN_02017BD0
+	bl SetBgAffine
 	mov r0, #0x60
 	str r0, [sp]
 	ldr r0, [r4, #0xc]
 	mov r1, #3
 	add r2, sp, #0x10
 	mov r3, #0xc0
-	bl FUN_02017BD0
+	bl SetBgAffine
 	mov r0, #1
 	strb r0, [r4, #3]
 	add sp, #0x20
@@ -3357,19 +3357,19 @@ MOD63_021DA418: ; 0x021DA418
 	beq _021DA458
 	ldr r0, [r4, #0xc]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0xc]
 	bl FreeToHeap
 	ldr r0, _021DA470 ; =0x0000028E
@@ -3438,7 +3438,7 @@ MOD63_021DA478: ; 0x021DA478
 	mov r1, #2
 	mov r2, #4
 	mov r3, #1
-	bl FUN_02017B60
+	bl Bg_SetTextDimAndAffineParams
 	mov r0, #1
 	ldr r1, [r4, #8]
 	lsl r0, r0, #0xa
@@ -3454,7 +3454,7 @@ MOD63_021DA478: ; 0x021DA478
 	mov r1, #3
 	mov r2, #4
 	mov r3, #1
-	bl FUN_02017B60
+	bl Bg_SetTextDimAndAffineParams
 _021DA4FE:
 	add sp, #0x2c
 	pop {r4, r5, pc}
@@ -3502,7 +3502,7 @@ MOD63_021DA504: ; 0x021DA504
 	mov r1, #2
 	mov r2, #4
 	mov r3, #1
-	bl FUN_02017B60
+	bl Bg_SetTextDimAndAffineParams
 	mov r0, #2
 	ldr r1, [r4, #8]
 	lsl r0, r0, #0xa
@@ -3518,7 +3518,7 @@ MOD63_021DA504: ; 0x021DA504
 	mov r1, #3
 	mov r2, #4
 	mov r3, #1
-	bl FUN_02017B60
+	bl Bg_SetTextDimAndAffineParams
 	add sp, #0x2c
 	pop {r4, r5, pc}
 	.align 2, 0

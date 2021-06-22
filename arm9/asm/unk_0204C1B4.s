@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.section .rodata
 
@@ -375,7 +375,7 @@ FUN_0204C468: ; 0x0204C468
 	b _0204C49C
 _0204C484:
 	ldr r0, _0204C4A0 ; =0x00000603
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0x0
 	bl FUN_0204AFC8
 	ldr r0, [r4, #0x4]
@@ -577,7 +577,7 @@ _0204C5FE:
 	b _0204C63C
 _0204C61C:
 	ldr r0, _0204C640 ; =0x00000603
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x0
 	bl MOD05_021D7CA4
 	ldr r0, [r4, #0x4]

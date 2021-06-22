@@ -11,7 +11,7 @@ MOD59_021D9868: ; 0x021D9868
 	mov r0, #3
 	mov r1, #0x53
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r4, #0
 	mov r1, #0x28
 	mov r2, #0x53
@@ -81,7 +81,7 @@ _021D98C6:
 	str r0, [r2]
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r4, #0
 	bl MOD59_021D9A20
 	add r0, r4, #0
@@ -200,7 +200,7 @@ MOD59_021D99F8: ; 0x021D99F8
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	add r0, r4, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -212,7 +212,7 @@ MOD59_021D9A14: ; 0x021D9A14
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D9A1C: .word FUN_0201AB60
+_021D9A1C: .word DoScheduledBgGpuUpdates
 	thumb_func_end MOD59_021D9A14
 
 	thumb_func_start MOD59_021D9A20
@@ -231,7 +231,7 @@ _021D9A2C:
 	add r0, sp, #0x90
 	bl GX_SetBanks
 	ldr r0, [r4]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0x80
 	ldr r5, _021D9BB8 ; =0x021DA054
 	str r0, [r4, #4]
@@ -241,7 +241,7 @@ _021D9A2C:
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D9BBC ; =0x021DA080
 	add r3, sp, #0x64
 	ldmia r5!, {r0, r1}
@@ -256,15 +256,15 @@ _021D9A2C:
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r3, [r4]
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D9BC0 ; =0x021DA09C
 	add r3, sp, #0x48
 	ldmia r5!, {r0, r1}
@@ -279,7 +279,7 @@ _021D9A2C:
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	add r3, r1, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -314,7 +314,7 @@ _021D9A2C:
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -351,7 +351,7 @@ _021D9A2C:
 	str r0, [r3]
 	ldr r0, [r4, #4]
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r1, #0
 	str r1, [sp]
 	str r1, [sp, #4]
@@ -387,10 +387,10 @@ _021D9A2C:
 	bl FUN_02002ED0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #4
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r2, #0xc
 	ldr r0, _021D9BCC ; =0x04000050
 	mov r1, #2
@@ -415,43 +415,43 @@ MOD59_021D9BD0: ; 0x021D9BD0
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #2
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #3
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #4
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #5
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #6
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #7
 	mov r1, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, _021D9C44 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
 	ldr r0, [r4, #4]
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -511,7 +511,7 @@ _021D9C92: ; jump table
 _021D9C9A:
 	mov r0, #2
 	add r1, r5, #0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #1
 	ldr r1, [r4]
 	lsl r0, r0, #0xa
@@ -525,7 +525,7 @@ _021D9C9A:
 	ldr r0, [r4, #4]
 	ldr r2, _021D9D6C ; =0x021DA04C
 	add r1, #0x10
-	bl FUN_02019150
+	bl AddWindow
 	add r1, r5, #0
 	mov r0, #1
 	lsl r0, r0, #8
@@ -562,7 +562,7 @@ _021D9C9A:
 	bl CopyWindowToVram
 	mov r0, #2
 	mov r1, #1
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0xf0
 	str r0, [r4, #0x24]
 	mov r0, #1
@@ -597,10 +597,10 @@ _021D9D4A:
 _021D9D50:
 	add r0, r4, #0
 	add r0, #0x10
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r5, #0
 	str r0, [r4, #0xc]
 	mov r5, #1
@@ -624,7 +624,7 @@ MOD59_021D9D78: ; 0x021D9D78
 	ldr r0, [r0, #4]
 	mov r1, #1
 	asr r3, r3, #4
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	pop {r3, pc}
 	.align 2, 0
 	thumb_func_end MOD59_021D9D78

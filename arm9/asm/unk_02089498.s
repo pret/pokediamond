@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 
@@ -42,7 +42,7 @@ FUN_02089498: ; 0x02089498
 	mov r0, #0x3
 	mov r1, #0x58
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0x0
 	mov r1, #0x38
 	mov r2, #0x58
@@ -119,7 +119,7 @@ _020894FC:
 	str r0, [r2, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r4, #0x0
 	bl FUN_0208961C
 	add r0, r4, #0x0
@@ -197,7 +197,7 @@ FUN_020895F0: ; 0x020895F0
 	add r0, r5, #0x0
 	bl OverlayManager_FreeData
 	add r0, r4, #0x0
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #0x0
 	bl OS_ResetSystem
 	mov r0, #0x1
@@ -209,7 +209,7 @@ FUN_02089610: ; 0x02089610
 	ldr r0, [r0, #0x14]
 	bx r3
 	nop
-_02089618: .word FUN_0201AB60
+_02089618: .word DoScheduledBgGpuUpdates
 
 	thumb_func_start FUN_0208961C
 FUN_0208961C: ; 0x0208961C
@@ -227,7 +227,7 @@ _02089628:
 	add r0, sp, #0x34
 	bl GX_SetBanks
 	ldr r0, [r4, #0x0]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r3, sp, #0x24
 	ldr r5, _020896CC ; =UNK_020FF314
 	str r0, [r4, #0x14]
@@ -237,7 +237,7 @@ _02089628:
 	ldmia r5!, {r0-r1}
 	stmia r3!, {r0-r1}
 	add r0, r2, #0x0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _020896D0 ; =UNK_020FF324
 	add r3, sp, #0x8
 	ldmia r5!, {r0-r1}
@@ -252,10 +252,10 @@ _02089628:
 	str r0, [r3, #0x0]
 	ldr r0, [r4, #0x14]
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #0x14]
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r0, [r4, #0x0]
@@ -280,13 +280,13 @@ _02089628:
 	ldr r3, [r4, #0x0]
 	mov r1, #0x20
 	add r2, r0, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _020896DC ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _020896DC ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	add sp, #0x5c
 	pop {r4-r5, pc}
 	.balign 4
@@ -303,31 +303,31 @@ FUN_020896E0: ; 0x020896E0
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x1
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x3
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x5
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x6
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x7
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [r4, #0x14]
 	mov r1, #0x0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #0x14]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -350,7 +350,7 @@ FUN_02089734: ; 0x02089734
 	ldr r0, [r4, #0x14]
 	ldr r2, _02089778 ; =UNK_020FF304
 	add r1, #0x1c
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp, #0x0]
 	mov r0, #0x20
@@ -371,7 +371,7 @@ FUN_0208977C: ; 0x0208977C
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x1c
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x18]
 	bl DestroyMsgData
 	pop {r4, pc}
@@ -502,7 +502,7 @@ _0208986C:
 _0208987E:
 	ldr r0, [r4, #0x14]
 	add r1, r5, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r5, #0x1
 _02089888:
 	add r0, r5, #0x0

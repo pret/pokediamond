@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.section .rodata
 
@@ -236,21 +236,21 @@ _020559A6:
 	cmp r0, #0x1
 	bne _020559B8
 	ldr r0, _02055A24 ; =0x0000061F
-	bl FUN_020054C8
+	bl PlaySE
 _020559B8:
 	add r0, r5, #0x0
 	bl FUN_02054AF0
 	cmp r0, #0x1
 	bne _020559C8
 	ldr r0, _02055A28 ; =0x00000641
-	bl FUN_020054C8
+	bl PlaySE
 _020559C8:
 	add r0, r5, #0x0
 	bl FUN_0205483C
 	cmp r0, #0x1
 	bne _020559D8
 	ldr r0, _02055A2C ; =0x00000642
-	bl FUN_020054C8
+	bl PlaySE
 _020559D8:
 	add r0, r5, #0x0
 	bl FUN_02054830
@@ -263,7 +263,7 @@ _020559D8:
 	cmp r0, #0x1
 	beq _020559F8
 	ldr r0, _02055A30 ; =0x00000655
-	bl FUN_020054C8
+	bl PlaySE
 _020559F8:
 	add r0, r4, #0x0
 	bl FUN_020586F0
@@ -280,7 +280,7 @@ _020559F8:
 	bne _02055A20
 _02055A1A:
 	ldr r0, _02055A34 ; =0x00000653
-	bl FUN_020054C8
+	bl PlaySE
 _02055A20:
 	pop {r4-r6, pc}
 	nop
@@ -723,7 +723,7 @@ FUN_02055DAC: ; 0x02055DAC
 	bl FUN_020584D4
 	add r4, r0, #0x0
 	ldr r0, _02055EF4 ; =0x00000654
-	bl FUN_020054C8
+	bl PlaySE
 	cmp r4, #0x0
 	bne _02055E62
 	add r0, r5, #0x0
@@ -868,7 +868,7 @@ FUN_02055EF8: ; 0x02055EF8
 	cmp r0, #0x1
 	bne _02055F22
 	ldr r0, _02055F40 ; =0x00000656
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x5f
@@ -903,7 +903,7 @@ FUN_02055F44: ; 0x02055F44
 	cmp r0, #0x1
 	bne _02055F6E
 	ldr r0, _02055F8C ; =0x00000656
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x5e
@@ -1356,7 +1356,7 @@ _020562CA:
 	tst r0, r4
 	bne _020562DC
 	ldr r0, _02056380 ; =0x00000601
-	bl FUN_020054C8
+	bl PlaySE
 _020562DC:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
@@ -1417,7 +1417,7 @@ _02056356:
 	tst r0, r4
 	bne _02056364
 	ldr r0, _02056380 ; =0x00000601
-	bl FUN_020054C8
+	bl PlaySE
 _02056364:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
@@ -1513,11 +1513,11 @@ _02056412:
 	cmp r4, #0x0
 	bne _02056426
 	ldr r0, _02056430 ; =0x0000061C
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3-r5, pc}
 _02056426:
 	ldr r0, _02056434 ; =0x00000619
-	bl FUN_020054C8
+	bl PlaySE
 _0205642C:
 	pop {r3-r5, pc}
 	nop
@@ -1841,7 +1841,7 @@ _02056680:
 	tst r0, r4
 	bne _020566A0
 	ldr r0, _02056700 ; =0x00000601
-	bl FUN_020054C8
+	bl PlaySE
 _020566A0:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
@@ -1961,7 +1961,7 @@ _0205678C:
 	tst r0, r4
 	bne _020567AA
 	ldr r0, _020567E0 ; =0x00000601
-	bl FUN_020054C8
+	bl PlaySE
 _020567AA:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
@@ -2220,7 +2220,7 @@ _02056994:
 	tst r0, r4
 	bne _020569AA
 	ldr r0, _02056A78 ; =0x00000601
-	bl FUN_020054C8
+	bl PlaySE
 _020569AA:
 	add r0, r6, #0x0
 	add r1, r7, #0x0
@@ -2266,7 +2266,7 @@ _020569EC:
 	tst r0, r4
 	bne _02056A14
 	ldr r0, _02056A78 ; =0x00000601
-	bl FUN_020054C8
+	bl PlaySE
 _02056A14:
 	add r0, r6, #0x0
 	add r1, r7, #0x0
@@ -2388,7 +2388,7 @@ _02056B04:
 	tst r0, r4
 	bne _02056B22
 	ldr r0, _02056B58 ; =0x00000601
-	bl FUN_020054C8
+	bl PlaySE
 _02056B22:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
@@ -3280,7 +3280,7 @@ _020571E8:
 	tst r0, r1
 	bne _02057244
 	ldr r0, _02057250 ; =0x00000601
-	bl FUN_020054C8
+	bl PlaySE
 	b _02057244
 _020571FC:
 	cmp r6, #0x5

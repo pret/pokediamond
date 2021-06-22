@@ -1,6 +1,7 @@
 #ifndef POKEDIAMOND_BAG_H
 #define POKEDIAMOND_BAG_H
 
+#include "bag_view.h"
 #include "itemtool.h"
 #include "save_block_2.h"
 
@@ -15,13 +16,6 @@ struct Bag
     struct ItemSlot balls[NUM_BAG_BALLS];
     struct ItemSlot battleItems[NUM_BAG_BATTLE_ITEMS];
     u32 registeredItem;
-};
-
-struct BagView
-{
-    struct ItemSlot * slots;
-    u32 count;
-    u8 pocket;
 };
 
 struct UnkStruct_0206F164

@@ -159,7 +159,7 @@ THUMB_FUNC BOOL MOD52_021D74E0(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    FUN_0201681C(3, 0x4d, 2 << 16);
+    CreateHeap(3, 0x4d, 2 << 16);
     InitializeMainRNG();
 
     return 1;
@@ -179,7 +179,7 @@ THUMB_FUNC BOOL MOD52_021D750C(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    FUN_020168D0(0x4d);
+    DestroyHeap(0x4d);
     RegisterMainOverlay(0XFFFFFFFF, &UNK_020FD144);
 
     return 1;
@@ -189,7 +189,7 @@ THUMB_FUNC BOOL MOD52_021D7528(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    FUN_0201681C(3, 0x4d, 2 << 16);
+    CreateHeap(3, 0x4d, 2 << 16);
     InitializeMainRNG();
 
     return 1;
@@ -211,7 +211,7 @@ THUMB_FUNC BOOL MOD52_021D7560(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    FUN_020168D0(0x4d);
+    DestroyHeap(0x4d);
     RegisterMainOverlay(0xFFFFFFFF, &UNK_020F2B7C);
 
     return 1;
@@ -221,7 +221,7 @@ THUMB_FUNC BOOL MOD52_021D757C(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    FUN_0201681C(3, 0x4d, 2 << 16);
+    CreateHeap(3, 0x4d, 2 << 16);
     InitializeMainRNG();
 
     return 1;
@@ -252,7 +252,7 @@ THUMB_FUNC BOOL MOD52_021D75E8(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    FUN_020168D0(0x4d);
+    DestroyHeap(0x4d);
     RegisterMainOverlay(0XFFFFFFFF, &UNK_020F2B8C);
 
     return 1;

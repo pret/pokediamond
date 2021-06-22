@@ -459,7 +459,7 @@ MOD37_02254B70: ; 0x02254B70
 	ldr r2, _02254BF4 ; =MOD37_02254D44
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -489,7 +489,7 @@ MOD37_02254B70: ; 0x02254B70
 	bl MOD20_02252D7C
 	ldr r0, [r5, #4]
 	mov r1, #6
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r1, _02254BF8 ; =0x04001000
 	ldr r0, _02254BFC ; =0xFFFFE0FF
 	ldr r3, [r1]
@@ -540,7 +540,7 @@ _02254C26:
 	beq _02254C40
 	ldr r0, [r4, #4]
 	mov r1, #6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r5, #0
 	bl MOD37_02254B5C
 _02254C40:

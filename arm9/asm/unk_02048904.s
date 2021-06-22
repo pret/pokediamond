@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 
@@ -930,7 +930,7 @@ _0204905C: ; jump table (using 16-bit offset)
 	.short _020490AE - _0204905C - 2; case 3
 _02049064:
 	ldr r0, _020490BC ; =0x00000603
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, [r4, #0x4]
 	add r0, r6, #0x0
 	bl FUN_0204AD60
@@ -2064,7 +2064,7 @@ _0204992E:
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0x24
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x3
 	str r0, [r4, #0x0]
 	b _02049AB2
@@ -2075,7 +2075,7 @@ _02049946:
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0x24
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x5
 	str r0, [r4, #0x0]
 	b _02049AB2
@@ -2806,7 +2806,7 @@ _02049F34: ; jump table (using 16-bit offset)
 	.short _02049F86 - _02049F34 - 2; case 3
 _02049F3C:
 	ldr r0, _02049F94 ; =0x00000603
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, [r4, #0x4]
 	add r0, r6, #0x0
 	bl FUN_0204AD60

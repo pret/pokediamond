@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 
@@ -281,7 +281,7 @@ _02079BAE:
 	add r0, r6, #0x0
 	ldr r2, [r2, #0x14]
 	add r3, r4, #0x0
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	b _02079C36
 _02079BC6:
 	add r0, r7, #0x0
@@ -297,7 +297,7 @@ _02079BDA:
 	lsl r1, r5, #0x18
 	add r0, r6, #0x0
 	lsr r1, r1, #0x18
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	cmp r0, #0x0
 	beq _02079BF8
 	ldr r2, [sp, #0xc]
@@ -306,7 +306,7 @@ _02079BDA:
 	lsr r1, r1, #0x18
 	add r2, #0xc
 	add r3, r4, #0x0
-	bl FUN_02017DFC
+	bl BG_LoadScreenTilemapData
 _02079BF8:
 	add r0, sp, #0x18
 	ldrh r0, [r0, #0x20]
@@ -317,7 +317,7 @@ _02079BF8:
 	add r0, r6, #0x0
 	add r2, #0xc
 	add r3, r4, #0x0
-	bl FUN_02017CE8
+	bl BgCopyOrUncompressTilemapBufferRangeToVram
 	b _02079C36
 _02079C10:
 	add r0, r7, #0x0
@@ -337,7 +337,7 @@ _02079C24:
 	ldr r1, [r1, #0xc]
 	lsr r0, r0, #0x18
 	add r2, r4, #0x0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 _02079C36:
 	add r0, r7, #0x0
 	bl FreeToHeap

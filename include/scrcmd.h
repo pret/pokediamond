@@ -249,6 +249,42 @@ BOOL ScrCmd_Unk01AD(struct ScriptContext* ctx);
 
 //scrcmd_18.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx);
+BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx);
+BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx);
+BOOL ScrCmd_SetPartyMonMove(struct ScriptContext* ctx);
+BOOL ScrCmd_PartyMonHasMove(struct ScriptContext* ctx);
+BOOL ScrCmd_FindPartyMonWithMove(struct ScriptContext* ctx);
+BOOL ScrCmd_SurvivePsn(struct ScriptContext* ctx);
+BOOL ScrCmd_CountPartyMonsAtOrBelowLevel(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonLevel(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonNature(struct ScriptContext* ctx);
+BOOL ScrCmd_FindPartyMonWithNature(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonFriendship(struct ScriptContext* ctx);
+BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx);
+BOOL ScrCmd_SubtractPartyMonFriendship(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonContestCondition(struct ScriptContext* ctx);
+BOOL ScrCmd_GetLeadingPartyMonSlot(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonTypes(struct ScriptContext* ctx);
+BOOL ScrCmd_CountPartyMons(struct ScriptContext* ctx);
+BOOL ScrCmd_CountPartyMons_OmitEggs(struct ScriptContext* ctx);
+BOOL ScrCmd_CountAvailablePartyMons_IgnoreSlot(struct ScriptContext* ctx);
+BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyEggCount(struct ScriptContext* ctx);
+BOOL ScrCmd_CheckPartyForPokerus(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonGender(struct ScriptContext* ctx);
+BOOL ScrCmd_CountPartyMonMoves(struct ScriptContext* ctx);
+BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonMove(struct ScriptContext* ctx);
+BOOL ScrCmd_GetPartyMonHeldItem(struct ScriptContext* ctx);
+BOOL ScrCmd_ResetPartyMonHeldItem(struct ScriptContext* ctx);
+BOOL ScrCmd_CheckPartyForSpecies(struct ScriptContext* ctx);
+BOOL ScrCmd_CountPartyMonRibbons(struct ScriptContext* ctx);
+BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx);
+BOOL ScrCmd_PartyMonHasRibbon(struct ScriptContext* ctx);
+BOOL ScrCmd_GivePartyMonRibbon(struct ScriptContext* ctx);
+BOOL ScrCmd_CheckPartyForBadEgg(struct ScriptContext* ctx);
+BOOL ScrCmd_Unk00A0(struct ScriptContext* ctx);
 
 //scrcmd_fossils.c
 BOOL ScrCmd_CountFossils(struct ScriptContext* ctx);

@@ -323,7 +323,7 @@ THUMB_FUNC BOOL FUN_0200BD20(
     for (s32 i = 0; i < st14; i++)
     {
         u32 st18 = FUN_02009660(param1->unk08, i);
-        void *st1c = FUN_020161A4(param0->unk000, st10[i]);
+        void *st1c = AllocAndReadFile(param0->unk000, st10[i]);
 
         FUN_02009668(st1c, st18, param0->unk000);
         FreeToHeap(st1c);
@@ -344,7 +344,7 @@ THUMB_FUNC BOOL FUN_0200BD20(
 
     FUN_02009A90(param1->unk24[0]);
     FUN_02009D34(param1->unk24[1]);
-    void *r6 = FUN_020161A4(param0->unk000, st10[6]);
+    void *r6 = AllocAndReadFile(param0->unk000, st10[6]);
     param1->unk04 = FUN_02008BE0(r6,
         param0->unk000,
         param1->unk0c[0],
@@ -517,13 +517,8 @@ THUMB_FUNC BOOL FUN_0200C00C(u32 *param0,
         return TRUE;
     }
 
-    GF_AssertFail();
-    if (r5 != 0)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+    GF_ASSERT(0);
+    return r5 != 0 ? TRUE : FALSE;
 }
 
 THUMB_FUNC s32 FUN_0200C06C(u32 *param0,
@@ -549,7 +544,7 @@ THUMB_FUNC s32 FUN_0200C06C(u32 *param0,
         return (s8)FUN_02009E88(r5, param6);
     }
 
-    GF_AssertFail();
+    GF_ASSERT(0);
     return -1;
 }
 
@@ -721,7 +716,7 @@ THUMB_FUNC struct UnkStruct_0200BB14_5 *FUN_0200C154(
     }
     else
     {
-        GF_AssertFail();
+        GF_ASSERT(0);
     }
 
     return ptr;
@@ -805,13 +800,8 @@ THUMB_FUNC BOOL FUN_0200C404(u32 *param0,
         GF_ASSERT(r4 == 1);
         return r4;
     }
-    GF_AssertFail();
-    if (r5 != 0)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+    GF_ASSERT(0);
+    return r5 != 0 ? TRUE : FALSE;
 }
 
 THUMB_FUNC BOOL FUN_0200C474(u32 *param0, u32 param1)
@@ -1259,13 +1249,8 @@ THUMB_FUNC BOOL FUN_0200C918(u32 *param0,
         return TRUE;
     }
 
-    GF_AssertFail();
-    if (r5 != 0)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+    GF_ASSERT(0);
+    return r5 != 0 ? TRUE : FALSE;
 }
 
 THUMB_FUNC BOOL FUN_0200C978(u32 *param0,
@@ -1290,13 +1275,8 @@ THUMB_FUNC BOOL FUN_0200C978(u32 *param0,
         return TRUE;
     }
 
-    GF_AssertFail();
-    if (r5 != 0)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
+    GF_ASSERT(0);
+    return r5 != 0 ? TRUE : FALSE;
 }
 
 THUMB_FUNC void FUN_0200C9D8(

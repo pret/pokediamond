@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.text
 
@@ -331,7 +331,7 @@ FUN_020054A8: ; 0x020054A8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020054C8
+	bl PlaySE
 	add r6, r0, #0x0
 	ldr r1, _020054C4 ; =0x0000FFFF
 	add r0, r5, #0x0
@@ -342,8 +342,8 @@ FUN_020054A8: ; 0x020054A8
 	nop
 _020054C4: .word 0x0000FFFF
 
-	thumb_func_start FUN_020054C8
-FUN_020054C8: ; 0x020054C8
+	thumb_func_start PlaySE
+PlaySE: ; 0x020054C8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl FUN_020048D0

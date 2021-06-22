@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.section .rodata
 
@@ -147,7 +147,7 @@ FUN_0200CB6C: ; 0x0200CB6C
 	add r2, sp, #0x28
 	ldrh r2, [r2, #0x1c]
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r1, sp, #0x28
 	ldrh r4, [r1, #0x1c]
 	lsl r0, r7, #0x18
@@ -164,7 +164,7 @@ FUN_0200CB6C: ; 0x0200CB6C
 	ldr r1, [sp, #0x14]
 	ldr r3, [sp, #0x18]
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, sp, #0x28
 	ldrb r1, [r0, #0x10]
 	ldr r0, [sp, #0x18]
@@ -185,7 +185,7 @@ FUN_0200CB6C: ; 0x0200CB6C
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	add r2, r4, #0x3
 	str r0, [sp, #0x0]
@@ -201,7 +201,7 @@ FUN_0200CB6C: ; 0x0200CB6C
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	ldr r3, [sp, #0x20]
 	str r0, [sp, #0x0]
@@ -218,7 +218,7 @@ FUN_0200CB6C: ; 0x0200CB6C
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, sp, #0x28
 	ldrb r1, [r0, #0x14]
 	ldr r0, [sp, #0x1c]
@@ -237,7 +237,7 @@ FUN_0200CB6C: ; 0x0200CB6C
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -253,7 +253,7 @@ FUN_0200CB6C: ; 0x0200CB6C
 	ldr r1, [sp, #0x14]
 	ldr r3, [sp, #0x18]
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -269,7 +269,7 @@ FUN_0200CB6C: ; 0x0200CB6C
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x24
 	pop {r4-r7, pc}
 	.balign 4
@@ -282,13 +282,13 @@ FUN_0200CCA4: ; 0x0200CCA4
 	add r4, r1, #0x0
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -319,13 +319,13 @@ FUN_0200CCF8: ; 0x0200CCF8
 	sub sp, #0x18
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -352,11 +352,11 @@ FUN_0200CCF8: ; 0x0200CCF8
 	ldr r0, [r5, #0x0]
 	ldr r1, [sp, #0x10]
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	cmp r4, #0x0
 	bne _0200CD5A
 	add r0, r5, #0x0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _0200CD5A:
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -454,7 +454,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	lsl r3, r3, #0x18
 	ldrh r2, [r2, #0x1c]
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x14]
 	sub r0, r0, #0x1
 	str r0, [sp, #0x24]
@@ -475,7 +475,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -491,7 +491,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	ldr r3, [sp, #0x14]
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, sp, #0x38
 	ldrb r1, [r0, #0x10]
 	ldr r0, [sp, #0x14]
@@ -512,7 +512,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x2c]
 	add r2, r4, #0x4
 	add r0, r0, #0x1
@@ -531,7 +531,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x2c]
 	add r2, r4, #0x5
 	add r0, r0, #0x2
@@ -550,7 +550,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x18]
 	ldr r3, [sp, #0x28]
 	str r0, [sp, #0x0]
@@ -566,7 +566,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x18]
 	ldr r3, [sp, #0x24]
 	str r0, [sp, #0x0]
@@ -582,7 +582,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x18]
 	add r2, r4, #0x0
 	str r0, [sp, #0x0]
@@ -599,7 +599,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x18]
 	add r2, r4, #0x0
 	str r0, [sp, #0x0]
@@ -616,7 +616,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x18]
 	add r2, r4, #0x0
 	str r0, [sp, #0x0]
@@ -633,7 +633,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r2, r4, #0x0
 	ldr r3, [sp, #0x28]
 	add r2, #0xc
@@ -653,7 +653,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	ldr r1, [sp, #0x10]
 	add r0, r7, #0x0
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -670,7 +670,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -687,7 +687,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	ldr r3, [sp, #0x14]
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -704,7 +704,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -721,7 +721,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -737,7 +737,7 @@ FUN_0200CDD8: ; 0x0200CDD8
 	add r0, r7, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x30
 	pop {r3-r7, pc}
 	.balign 4
@@ -749,13 +749,13 @@ FUN_0200D06C: ; 0x0200D06C
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -804,13 +804,13 @@ FUN_0200D0E0: ; 0x0200D0E0
 	sub sp, #0x18
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -837,11 +837,11 @@ FUN_0200D0E0: ; 0x0200D0E0
 	ldr r0, [r5, #0x0]
 	ldr r1, [sp, #0x10]
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	cmp r4, #0x0
 	bne _0200D142
 	add r0, r5, #0x0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _0200D142:
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -890,10 +890,10 @@ FUN_0200D18C: ; 0x0200D18C
 	str r1, [sp, #0x24]
 	str r0, [sp, #0x20]
 	ldr r0, [r0, #0x0]
-	bl FUN_02016BB8
+	bl BgConfig_GetHeapId
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x20]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	mov r1, #0x6
 	str r0, [sp, #0x28]
 	add r0, r6, #0x0
@@ -901,7 +901,7 @@ FUN_0200D18C: ; 0x0200D18C
 	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
-	bl FUN_020187B0
+	bl BgGetCharPtr
 	add r4, r0, #0x0
 	str r6, [sp, #0x0]
 	mov r0, #0x26
@@ -978,7 +978,7 @@ _0200D1E0:
 	ldr r0, [r0, #0x0]
 	add r2, r5, #0x0
 	lsl r3, r3, #0x6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0x24]
 	bl FUN_02002840
 	ldr r0, [sp, #0x2c]
@@ -1049,7 +1049,7 @@ _0200D2D2:
 	ldr r1, [sp, #0x8]
 	add r2, r4, #0x0
 	lsl r3, r3, #0x6
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0xc]
 	bl FreeToHeap
 	add r0, r4, #0x0
@@ -1095,7 +1095,7 @@ FUN_0200D300: ; 0x0200D300
 	add r0, r6, #0x0
 	mov r2, #0x20
 	lsr r3, r3, #0x10
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r1, [sp, #0x14]
 	add r0, r4, #0x0
 	bl FreeToHeapExplicit
@@ -1176,7 +1176,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldrh r2, [r2, #0x1c]
 	lsr r3, r3, #0x18
 	str r0, [sp, #0x10]
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x18]
 	str r0, [sp, #0x30]
 	sub r0, #0x8
@@ -1198,7 +1198,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, sp, #0x48
 	ldrb r0, [r0, #0x10]
 	add r2, r4, #0x2
@@ -1225,7 +1225,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0x14]
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r2, r4, #0x3
 	lsl r2, r2, #0x10
 	ldr r1, [sp, #0x18]
@@ -1245,7 +1245,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0x14]
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x38]
 	add r2, r4, #0x4
 	add r0, r0, #0x1
@@ -1264,7 +1264,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x38]
 	add r0, r0, #0x2
 	str r0, [sp, #0x28]
@@ -1283,7 +1283,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	ldr r3, [sp, #0x34]
 	str r0, [sp, #0x0]
@@ -1298,7 +1298,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	ldr r3, [sp, #0x30]
 	str r0, [sp, #0x0]
@@ -1313,7 +1313,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	add r2, r4, #0x0
 	str r0, [sp, #0x0]
@@ -1330,7 +1330,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	add r2, r4, #0x0
 	str r0, [sp, #0x0]
@@ -1346,7 +1346,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	add r2, r4, #0x0
 	str r0, [sp, #0x0]
@@ -1362,7 +1362,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	add r2, r4, #0x0
 	str r0, [sp, #0x0]
@@ -1378,7 +1378,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	add r2, r4, #0x0
 	add r6, r0, r6
@@ -1397,7 +1397,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -1414,7 +1414,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -1434,7 +1434,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -1451,7 +1451,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -1468,7 +1468,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r6, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -1484,7 +1484,7 @@ FUN_0200D3B0: ; 0x0200D3B0
 	ldr r1, [sp, #0x14]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add sp, #0x40
 	pop {r3-r7, pc}
 	.balign 4
@@ -1496,16 +1496,16 @@ FUN_0200D678: ; 0x0200D678
 	str r1, [sp, #0x10]
 	add r7, r0, #0x0
 	str r2, [sp, #0x14]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x20]
 	add r0, r7, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	sub r0, r0, #0x7
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x18]
 	add r0, r7, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x1c]
 	mov r0, #0x0
 	str r0, [sp, #0x24]
@@ -1538,7 +1538,7 @@ _0200D6BA:
 	ldr r1, [sp, #0x20]
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	add r0, r4, #0x1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -1562,17 +1562,17 @@ FUN_0200D6F8: ; 0x0200D6F8
 	str r1, [sp, #0x10]
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x14]
 	add r0, sp, #0x30
 	ldrb r0, [r0, #0x10]
 	cmp r0, #0x1
 	bhi _0200D756
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x1c]
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -1598,10 +1598,10 @@ FUN_0200D6F8: ; 0x0200D6F8
 	b _0200D788
 _0200D756:
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x20]
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x24]
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -1637,15 +1637,15 @@ FUN_0200D7A0: ; 0x0200D7A0
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	str r2, [sp, #0x10]
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	str r0, [sp, #0x14]
 	cmp r4, #0x1
 	bhi _0200D7FE
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -1671,14 +1671,14 @@ FUN_0200D7A0: ; 0x0200D7A0
 	ldr r0, [r5, #0x0]
 	ldr r1, [sp, #0x14]
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	b _0200D846
 _0200D7FE:
 	add r0, r5, #0x0
-	bl FUN_0201AB14
+	bl GetWindowX
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0201AB18
+	bl GetWindowY
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl GetWindowWidth
@@ -1704,13 +1704,13 @@ _0200D7FE:
 	ldr r0, [r5, #0x0]
 	ldr r1, [sp, #0x14]
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 _0200D846:
 	ldr r0, [sp, #0x10]
 	cmp r0, #0x0
 	bne _0200D852
 	add r0, r5, #0x0
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _0200D852:
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -1723,11 +1723,11 @@ FUN_0200D858: ; 0x0200D858
 	str r0, [sp, #0x20]
 	ldr r0, [r0, #0x0]
 	str r1, [sp, #0x24]
-	bl FUN_02016BB8
+	bl BgConfig_GetHeapId
 	str r0, [sp, #0x28]
 	ldr r0, [sp, #0x20]
-	bl FUN_0201AB08
-	bl FUN_020187B0
+	bl GetWindowBgId
+	bl BgGetCharPtr
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
 	ldr r1, _0200D970 ; =0x0000048C
@@ -1854,13 +1854,13 @@ FUN_0200D980: ; 0x0200D980
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	add r6, r1, #0x0
-	bl FUN_0201AB08
+	bl GetWindowBgId
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
-	bl FUN_0201AB14
+	bl GetWindowX
 	str r0, [sp, #0x18]
 	ldr r0, [r5, #0x0]
-	bl FUN_0201AB18
+	bl GetWindowY
 	str r0, [sp, #0x1c]
 	ldr r0, [r5, #0x0]
 	bl GetWindowWidth
@@ -1877,7 +1877,7 @@ FUN_0200D980: ; 0x0200D980
 	ldr r0, [r5, #0x0]
 	mov r3, #0x80
 	ldr r0, [r0, #0x0]
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
 	add r7, r0, #0x2
@@ -1904,7 +1904,7 @@ FUN_0200D980: ; 0x0200D980
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -1924,7 +1924,7 @@ FUN_0200D980: ; 0x0200D980
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	ldr r3, [sp, #0x14]
 	add r7, r0, #0x3
@@ -1946,7 +1946,7 @@ FUN_0200D980: ; 0x0200D980
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -1965,11 +1965,11 @@ FUN_0200D980: ; 0x0200D980
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	add sp, #0x24
 	pop {r4-r7, pc}
 _0200DA8A:
@@ -1988,7 +1988,7 @@ _0200DA8A:
 	add r2, r2, r3
 	ldr r0, [r0, #0x0]
 	mov r3, #0x80
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	cmp r6, #0x0
 	beq _0200DB72
 	ldr r0, [sp, #0x1c]
@@ -2017,7 +2017,7 @@ _0200DA8A:
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -2037,7 +2037,7 @@ _0200DA8A:
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	ldr r3, [sp, #0x10]
 	add r7, r0, #0x3
@@ -2059,7 +2059,7 @@ _0200DA8A:
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -2078,11 +2078,11 @@ _0200DA8A:
 	add r1, r4, #0x0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [r5, #0x0]
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x0]
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 _0200DB72:
 	add sp, #0x24
 	pop {r4-r7, pc}
@@ -2228,7 +2228,7 @@ FUN_0200DC4C: ; 0x0200DC4C
 	bl FUN_0200DFD8
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _0200DCA0 ; =0x0000016F
 	add r0, r4, r0
 	add sp, #0xc
@@ -2266,7 +2266,7 @@ FUN_0200DCA4: ; 0x0200DCA4
 	bl FUN_0200DFD8
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	ldr r0, _0200DCF4 ; =0x0000016F
 	add r0, r4, r0
 	add sp, #0xc
@@ -2646,7 +2646,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
 	add r6, r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r3, _0200E184 ; =0x0000016E
 	add r2, r6, #0x1
 	ldrb r0, [r5, r3]
@@ -2667,7 +2667,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	ldrb r3, [r5, r3]
 	ldr r0, [r5, r0]
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r3, _0200E184 ; =0x0000016E
 	add r2, r6, #0x2
 	ldrb r0, [r5, r3]
@@ -2690,7 +2690,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r3, _0200E184 ; =0x0000016E
 	add r2, r6, #0x4
 	ldrb r0, [r5, r3]
@@ -2707,7 +2707,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	ldrb r3, [r5, r3]
 	ldr r0, [r5, r0]
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r3, _0200E184 ; =0x0000016E
 	add r2, r6, #0x3
 	ldrb r0, [r5, r3]
@@ -2728,7 +2728,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r3, _0200E184 ; =0x0000016E
 	add r2, r6, #0x5
 	ldrb r0, [r5, r3]
@@ -2749,7 +2749,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r3, _0200E184 ; =0x0000016E
 	add r2, r6, #0x6
 	ldrb r0, [r5, r3]
@@ -2772,7 +2772,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r3, _0200E184 ; =0x0000016E
 	add r2, r6, #0x7
 	ldrb r0, [r5, r3]
@@ -2793,7 +2793,7 @@ FUN_0200DFD8: ; 0x0200DFD8
 	ldrb r3, [r5, r3]
 	ldr r0, [r5, r0]
 	lsr r2, r2, #0x10
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r3, _0200E184 ; =0x0000016E
 	add r6, #0x8
 	ldrb r0, [r5, r3]
@@ -2816,13 +2816,13 @@ FUN_0200DFD8: ; 0x0200DFD8
 	lsl r3, r3, #0x18
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r1, #0x5a
 	lsl r1, r1, #0x2
 	ldr r0, [r5, r1]
 	add r1, r1, #0x4
 	ldrb r1, [r5, r1]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x10
 	pop {r4-r6, pc}
 	nop
@@ -2853,13 +2853,13 @@ FUN_0200E188: ; 0x0200E188
 	sub r3, r3, #0x1
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	mov r1, #0x5a
 	lsl r1, r1, #0x2
 	ldr r0, [r4, r1]
 	add r1, r1, #0x4
 	ldrb r1, [r4, r1]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add sp, #0x10
 	pop {r4, pc}
 	.balign 4

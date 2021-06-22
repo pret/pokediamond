@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 
@@ -39,7 +39,7 @@ FUN_02073DB4: ; 0x02073DB4
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_0201958C
+	bl ClearWindowTilemapAndScheduleTransfer
 	ldr r0, _02073DEC ; =0x000006FC
 	mov r1, #0x0
 	ldr r0, [r4, r0]
@@ -50,7 +50,7 @@ FUN_02073DB4: ; 0x02073DB4
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	.balign 4
 _02073DEC: .word 0x000006FC
@@ -994,11 +994,11 @@ _020745DA:
 	strb r1, [r6, r0]
 	ldr r0, [r6, #0x0]
 	mov r1, #0x2
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	str r0, [sp, #0x14]
 	ldr r0, [r6, #0x0]
 	mov r1, #0x1
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	ldr r1, _020746B4 ; =0x00000B0C
 	str r0, [sp, #0x10]
 	ldrb r3, [r6, r1]
@@ -1127,7 +1127,7 @@ _020746F2: ; jump table (using 16-bit offset)
 _020746FC:
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207482C ; =0x00000305
 	mov r1, #0x1
 	strb r1, [r4, r0]
@@ -1155,10 +1155,10 @@ _0207470C:
 	bl FUN_0207499C
 	ldr r0, [r5, #0x0]
 	mov r1, #0x2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r5, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, _02074838 ; =0x00000306
 	ldrb r1, [r4, r0]
 	cmp r1, #0x10
@@ -1171,7 +1171,7 @@ _0207475C:
 	bl FUN_02074AF4
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207482C ; =0x00000305
 	mov r1, #0x3
 	strb r1, [r4, r0]
@@ -1206,10 +1206,10 @@ _02074770:
 	bl FUN_0207499C
 	ldr r0, [r5, #0x0]
 	mov r1, #0x2
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r5, #0x0]
 	mov r1, #0x1
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, _02074838 ; =0x00000306
 	ldrb r1, [r4, r0]
 	cmp r1, #0x0
@@ -1303,7 +1303,7 @@ FUN_02074848: ; 0x02074848
 	ldr r3, [sp, #0x20]
 	mov r1, #0x2
 	mov r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	str r6, [sp, #0x0]
 	mov r1, #0x10
 	str r1, [sp, #0x4]
@@ -1314,7 +1314,7 @@ FUN_02074848: ; 0x02074848
 	ldr r3, [sp, #0x20]
 	mov r1, #0x1
 	mov r2, #0x0
-	bl FUN_02018540
+	bl FillBgTilemapRect
 	ldr r0, [sp, #0x1c]
 	add r1, r4, r0
 	ldr r0, _02074994 ; =0x00000302
@@ -1345,7 +1345,7 @@ FUN_02074848: ; 0x02074848
 	ldr r2, [sp, #0x20]
 	mov r1, #0x2
 	add r3, r6, #0x0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldr r0, _02074998 ; =0x00000306
 	mov r3, #0x10
 	ldrb r2, [r4, r0]
@@ -1368,7 +1368,7 @@ FUN_02074848: ; 0x02074848
 	ldr r2, [sp, #0x20]
 	mov r1, #0x1
 	add r3, r6, #0x0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	add sp, #0x28
 	pop {r3-r7, pc}
 _02074918:
@@ -1399,7 +1399,7 @@ _02074918:
 	mov r1, #0x2
 	lsr r2, r2, #0x18
 	add r3, r6, #0x0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	ldr r0, _02074998 ; =0x00000306
 	ldrb r2, [r4, r0]
 	mov r0, #0x10
@@ -1426,7 +1426,7 @@ _02074918:
 	mov r1, #0x1
 	lsr r2, r2, #0x18
 	add r3, r6, #0x0
-	bl FUN_02018170
+	bl CopyToBgTilemapRect
 	add sp, #0x28
 	pop {r3-r7, pc}
 	nop

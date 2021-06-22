@@ -28,7 +28,7 @@ MOD77_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x32
 	lsl r2, r2, #7
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D75DC ; =0x0000C32C
 	add r0, r4, #0
 	mov r2, #0x32
@@ -76,7 +76,7 @@ _021D7540:
 	lsr r0, r0, #0x18
 	bl FUN_0201B2EC
 	ldr r0, [r5]
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	ldr r1, _021D75F4 ; =0x0000C010
 	str r0, [r5, r1]
 	bl GX_BothDispOn
@@ -100,7 +100,7 @@ _021D7540:
 	bl GX_SwapDisplay
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	add r0, r5, #0
 	bl MOD77_021D7C64
 	mov r0, #1
@@ -250,7 +250,7 @@ _021D76FA:
 	add r0, r4, #0
 	bl MOD77_021D84D8
 	ldr r0, _021D798C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r6, #2
 	cmp r0, #4
 	bhi _021D7732
@@ -369,7 +369,7 @@ _021D77F0:
 	add r0, r4, #0
 	bl MOD77_021D84D8
 	ldr r0, _021D798C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	sub r0, r7, #2
 	cmp r6, r0
 	beq _021D780A
@@ -446,7 +446,7 @@ _021D7886:
 	add r0, r4, #0
 	bl MOD77_021D84D8
 	ldr r0, _021D798C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	sub r0, r7, #2
 	cmp r6, r0
 	beq _021D78B6
@@ -646,7 +646,7 @@ _021D7A4E:
 	add r0, r4, r0
 	bl FUN_0200CCF8
 	ldr r0, _021D7B98 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x20
@@ -692,7 +692,7 @@ _021D7A94:
 	cmp r0, #1
 	bne _021D7B66
 	ldr r0, _021D7B98 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D7B66
 _021D7AC0:
 	ldr r0, _021D7B9C ; =0x00000403
@@ -730,7 +730,7 @@ _021D7AFA:
 	mov r0, #0x10
 	str r0, [r5]
 	ldr r0, _021D7B98 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D7B66
 _021D7B0E:
 	bl MOD77_021D8CF8
@@ -831,7 +831,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	add r0, r5, #0
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _021D7C20 ; =gMain + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
@@ -876,7 +876,7 @@ MOD77_021D7C44: ; 0x021D7C44
 	ldmia r4!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -1338,17 +1338,17 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	ldr r0, [r5, r0]
 	mov r1, #6
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, _021D8208 ; =0x0000C010
 	mov r1, #6
 	ldr r0, [r5, r0]
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, _021D8208 ; =0x0000C010
 	ldr r2, _021D8210 ; =0x021D8F98
 	ldr r0, [r5, r0]
 	mov r1, #7
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1413,16 +1413,16 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #6
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _021D821C ; =0x00004753
 	mov r0, #6
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _021D8208 ; =0x0000C010
 	ldr r2, _021D8220 ; =0x021D8F40
 	ldr r0, [r5, r1]
 	add r1, r1, #4
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x20
@@ -1446,17 +1446,17 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	ldr r0, [r5, r0]
 	ldr r2, _021D820C ; =0x021D8F7C
 	mov r1, #2
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, _021D8208 ; =0x0000C010
 	mov r1, #2
 	ldr r0, [r5, r0]
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, _021D8208 ; =0x0000C010
 	ldr r2, _021D8210 ; =0x021D8F98
 	ldr r0, [r5, r0]
 	mov r1, #3
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1508,10 +1508,10 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	mov r0, #2
 	mov r1, #0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, [r5]
 	mov r0, #0x10
 	bl String_ctor
@@ -1533,29 +1533,29 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	add r1, sp, #0x14
 	add r1, #2
 	add r2, r0, #0
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #2
 	add r1, sp, #0x14
 	add r2, r0, #0
 	mov r3, #0x84
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #2
 	add r1, sp, #0x10
 	add r1, #2
 	add r2, r0, #0
 	mov r3, #0x86
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	mov r0, #2
 	add r1, sp, #0x10
 	add r2, r0, #0
 	mov r3, #0x9e
-	bl FUN_02017FB4
+	bl BG_LoadPlttData
 	ldr r1, _021D8208 ; =0x0000C010
 	ldr r2, _021D823C ; =0x021D8F30
 	ldr r0, [r5, r1]
 	add r1, #0x24
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x20
@@ -1618,26 +1618,26 @@ MOD77_021D8248: ; 0x021D8248
 	add r4, r0, #0
 	ldr r0, _021D8288 ; =0x0000C034
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, _021D828C ; =0x0000C014
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #2
 	ldr r0, [r4, r0]
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #6
 	ldr r0, [r4, r0]
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #3
 	ldr r0, [r4, r0]
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, _021D8290 ; =0x0000C010
 	mov r1, #7
 	ldr r0, [r4, r0]
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	nop
 _021D8288: .word 0x0000C034
@@ -1748,7 +1748,7 @@ MOD77_021D835C: ; 0x021D835C
 	cmp r2, #0
 	bne _021D8368
 	ldr r0, _021D836C ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D8368:
 	pop {r3, pc}
 	nop
@@ -1764,7 +1764,7 @@ MOD77_021D8370: ; 0x021D8370
 	add r6, r3, #0
 	ldr r0, [r5, r0]
 	str r1, [sp]
-	bl FUN_02019150
+	bl AddWindow
 	ldrh r0, [r6, #0x10]
 	ldr r1, [r5]
 	bl ListMenuItems_ctor
@@ -1844,7 +1844,7 @@ MOD77_021D8418: ; 0x021D8418
 	str r3, [sp, #4]
 	ldr r7, [sp, #0x44]
 	ldr r6, [sp, #0x48]
-	bl FUN_02019150
+	bl AddWindow
 	ldr r2, [sp, #0x40]
 	ldr r3, [r5]
 	mov r0, #0
@@ -1932,7 +1932,7 @@ MOD77_021D84D8: ; 0x021D84D8
 	bl FUN_0200CCF8
 	ldr r0, _021D8504 ; =0x0000C024
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, _021D8508 ; =0x0000C054
 	mov r1, #0
 	ldr r0, [r4, r0]
@@ -1968,7 +1968,7 @@ MOD77_021D8510: ; 0x021D8510
 	add r1, #0x34
 	ldr r2, _021D85C8 ; =0x021D8F28
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x30
@@ -2057,7 +2057,7 @@ MOD77_021D85E0: ; 0x021D85E0
 	add r1, #0x34
 	ldr r2, _021D868C ; =0x021D8F28
 	add r1, r5, r1
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd8
 	str r0, [sp]
 	mov r0, #0x30
@@ -2130,7 +2130,7 @@ MOD77_021D8698: ; 0x021D8698
 	bl FUN_0200CCF8
 	ldr r0, _021D86B0 ; =0x0000C044
 	add r0, r4, r0
-	bl FUN_02019178
+	bl RemoveWindow
 	pop {r4, pc}
 	.align 2, 0
 _021D86B0: .word 0x0000C044

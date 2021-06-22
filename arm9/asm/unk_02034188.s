@@ -1,5 +1,5 @@
 	.include "asm/macros.inc"
-    .include "global.inc"
+	.include "global.inc"
 
 	.extern gMain
 
@@ -58,7 +58,7 @@ FUN_02034188: ; 0x02034188
 	str r0, [r2, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, _02034370 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
@@ -80,18 +80,18 @@ FUN_02034188: ; 0x02034188
 	ldr r0, _02034380 ; =UNK_020EED2C
 	bl GX_SetBanks
 	add r0, r4, #0x0
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [sp, #0x10]
 	ldr r0, _02034384 ; =UNK_020EED00
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r1, #0x0
 	ldr r0, [sp, #0x10]
 	ldr r2, _02034388 ; =UNK_020EED10
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [sp, #0x10]
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r0, [sp, #0x10]
@@ -107,13 +107,13 @@ FUN_02034188: ; 0x02034188
 	mov r1, #0x20
 	add r2, r0, #0x0
 	add r3, r4, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _02034390 ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _02034390 ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r2, _02034394 ; =0x00000265
 	mov r0, #0x1
 	mov r1, #0x1a
@@ -129,7 +129,7 @@ FUN_02034188: ; 0x02034188
 	ldr r0, [sp, #0x10]
 	ldr r2, _02034398 ; =UNK_020EECF8
 	add r1, sp, #0x14
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd0
 	str r0, [sp, #0x0]
 	mov r0, #0x90
@@ -189,36 +189,36 @@ _020342E4:
 	b _020342E4
 _02034308:
 	add r0, sp, #0x14
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [sp, #0xc]
 	bl DestroyMsgData
 	mov r0, #0x0
 	add r1, r0, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x1
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x3
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x4
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x5
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x6
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	mov r0, #0x7
 	mov r1, #0x0
-	bl FUN_0201797C
+	bl ToggleBgLayer
 	ldr r0, [sp, #0x10]
 	mov r1, #0x0
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [sp, #0x10]
 	bl FreeToHeap
 	add sp, #0x24

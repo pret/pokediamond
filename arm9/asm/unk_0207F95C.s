@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 	.section .rodata
@@ -92,7 +92,7 @@ _0207F992:
 	ldr r0, [r4, #0x0]
 	mov r2, #0x0
 	add r3, r1, #0x0
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	b _0207F9BA
 _0207F9AC:
 	ldr r1, _0207F9C4 ; =0x0000068F
@@ -116,7 +116,7 @@ FUN_0207F9C8: ; 0x0207F9C8
 	add r4, r1, #0x0
 	mov r1, #0x4
 	add r5, r2, #0x0
-	bl FUN_0201886C
+	bl GetBgTilemapBuffer
 	add r7, r0, #0x0
 	lsl r0, r5, #0x2
 	add r1, r5, r0
@@ -200,7 +200,7 @@ _0207FA52:
 _0207FA6C:
 	ldr r0, [r6, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 _0207FA74:
 	pop {r3-r7, pc}
 	nop
@@ -279,7 +279,7 @@ _0207FADA:
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
 	mov r1, #0x4
-	bl FUN_0201AFBC
+	bl DoesPixelAtScreenXYMatchPtrVal
 	cmp r0, #0x0
 	bne _0207FB12
 	mov r0, #0x0
@@ -318,7 +318,7 @@ FUN_0207FB28: ; 0x0207FB28
 _0207FB4A:
 	sub r1, #0xab
 	add r0, r1, #0x0
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r5, #0x0
 	bl FUN_0207FA38
 	ldr r1, _0207FBFC ; =0x00000696
@@ -330,7 +330,7 @@ _0207FB4A:
 	bl FUN_0207F9C8
 	ldr r0, [r5, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r5, #0x0
 	bl FUN_0207CEDC
 	ldr r0, _0207FC00 ; =0x00000694
@@ -390,7 +390,7 @@ _0207FBD6:
 _0207FBE2:
 	ldr r0, [r5, #0x0]
 	mov r1, #0x4
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	mov r0, #0x1
 	pop {r4-r6, pc}
 _0207FBEE:

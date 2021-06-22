@@ -65,7 +65,7 @@ _021E7564:
 	mov r0, #1
 	str r0, [r5, #8]
 	ldr r0, _021E760C ; =0x0000064F
-	bl FUN_020054C8
+	bl PlaySE
 _021E756E:
 	ldr r0, [r5, #0xc]
 	lsr r2, r0, #0x1f
@@ -192,7 +192,7 @@ _021E763C:
 	add r0, r4, #0
 	bl MOD05_021F1D8C
 	ldr r0, _021E774C ; =0x0000064F
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #1
 	str r0, [r5, #8]
 _021E7694:

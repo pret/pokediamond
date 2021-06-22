@@ -255,7 +255,7 @@ MOD05_021DB61C: ; 0x021DB61C
 	str r1, [sp]
 	mov r0, #4
 	add r1, r2, #0
-	bl FUN_020161A4
+	bl AllocAndReadFile
 	mov r1, #0
 	str r0, [sp, #0x14]
 	str r1, [sp, #8]

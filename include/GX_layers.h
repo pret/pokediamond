@@ -3,12 +3,7 @@
 
 
 #include "global.h"
-
-struct GX_LayerData
-{
-    u32 EngineB_DISPCNT_LayerMask;
-    u32 EngineA_DISPCNT_LayerMask;
-};
+#include "gx.h"
 
 
 typedef enum {
@@ -33,10 +28,10 @@ struct GraphicsBanks
 
 
 struct GraphicsModes {
-    u32 mode1;
-    u32 mode2;
-    u32 mode3;
-    u32 mode4;
+    GXDispMode dispMode;
+    GXBGMode bgMode;
+    GXBGMode subMode;
+    GXBG0As _2d3dMode;
 };
 
 

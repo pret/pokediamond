@@ -199,7 +199,7 @@ _021D9B98:
 	mov r1, #4
 	add r0, r7, #0
 	add r2, r1, #0
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	mov r0, #0x6e
 	mov r1, #4
 	bl NARC_ctor
@@ -1564,7 +1564,7 @@ _021DA526:
 	beq _021DA542
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020054C8
+	bl PlaySE
 _021DA542:
 	add r0, r5, #0
 	mov r1, #0

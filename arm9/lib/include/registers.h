@@ -350,11 +350,10 @@
 #define REG_OS_IE_VE_SHIFT                                 2
 #define REG_OS_IE_T0_SHIFT                                 3
 #define REG_OS_IE_T1_SHIFT                                 4
+#define REG_OS_IE_T2_SHIFT                                 5
+#define REG_OS_IE_T3_SHIFT                                 6
 #define REG_OS_IE_IFN_SHIFT                                18
 #define REG_OS_IE_MC_SHIFT                                 19
-
-#define REG_OS_TM0CNT_H_I_MASK                             0x0040
-#define REG_OS_TM0CNT_H_E_MASK                             0x0080
 
 #define REG_PAD_KEYINPUT_L_SHIFT                           9
 #define REG_PAD_KEYINPUT_L_SIZE                            1
@@ -658,5 +657,413 @@
 #define REG_GXS_DB_DISPCNT_EXOBJ_CH_SHIFT                  20
 #define REG_GXS_DB_DISPCNT_EXOBJ_CH_SIZE                   2
 #define REG_GXS_DB_DISPCNT_EXOBJ_CH_MASK                   0x00300000
+
+// MASTER BRIGHT
+#define REG_GX_MASTER_BRIGHT_E_MOD_SHIFT                   14
+#define REG_GX_MASTER_BRIGHT_E_MOD_SIZE                    2
+#define REG_GX_MASTER_BRIGHT_E_MOD_MASK                    0xc000
+
+#define REG_GX_MASTER_BRIGHT_E_VALUE_SHIFT                 0
+#define REG_GX_MASTER_BRIGHT_E_VALUE_SIZE                  5
+#define REG_GX_MASTER_BRIGHT_E_VALUE_MASK                  0x001f
+
+// DISPSTAT
+#define REG_GX_DISPSTAT_VCOUNTER_SHIFT                     7
+#define REG_GX_DISPSTAT_VCOUNTER_SIZE                      9
+#define REG_GX_DISPSTAT_VCOUNTER_MASK                      0xff80
+
+#define REG_GX_DISPSTAT_VQI_SHIFT                          5
+#define REG_GX_DISPSTAT_VQI_SIZE                           1
+#define REG_GX_DISPSTAT_VQI_MASK                           0x0020
+
+#define REG_GX_DISPSTAT_HBI_SHIFT                          4
+#define REG_GX_DISPSTAT_HBI_SIZE                           1
+#define REG_GX_DISPSTAT_HBI_MASK                           0x0010
+
+#define REG_GX_DISPSTAT_VBI_SHIFT                          3
+#define REG_GX_DISPSTAT_VBI_SIZE                           1
+#define REG_GX_DISPSTAT_VBI_MASK                           0x0008
+
+#define REG_GX_DISPSTAT_LYC_SHIFT                          2
+#define REG_GX_DISPSTAT_LYC_SIZE                           1
+#define REG_GX_DISPSTAT_LYC_MASK                           0x0004
+
+#define REG_GX_DISPSTAT_HBLK_SHIFT                         1
+#define REG_GX_DISPSTAT_HBLK_SIZE                          1
+#define REG_GX_DISPSTAT_HBLK_MASK                          0x0002
+
+#define REG_GX_DISPSTAT_VBLK_SHIFT                         0
+#define REG_GX_DISPSTAT_VBLK_SIZE                          1
+#define REG_GX_DISPSTAT_VBLK_MASK                          0x0001
+
+// G2_BG0CNT
+#define REG_G2_BG0CNT_SCREENSIZE_SHIFT                     14
+#define REG_G2_BG0CNT_SCREENSIZE_SIZE                      2
+#define REG_G2_BG0CNT_SCREENSIZE_MASK                      0xc000
+
+#define REG_G2_BG0CNT_BGPLTTSLOT_SHIFT                     13
+#define REG_G2_BG0CNT_BGPLTTSLOT_SIZE                      1
+#define REG_G2_BG0CNT_BGPLTTSLOT_MASK                      0x2000
+
+#define REG_G2_BG0CNT_SCREENBASE_SHIFT                     8
+#define REG_G2_BG0CNT_SCREENBASE_SIZE                      5
+#define REG_G2_BG0CNT_SCREENBASE_MASK                      0x1f00
+
+#define REG_G2_BG0CNT_COLORMODE_SHIFT                      7
+#define REG_G2_BG0CNT_COLORMODE_SIZE                       1
+#define REG_G2_BG0CNT_COLORMODE_MASK                       0x0080
+
+#define REG_G2_BG0CNT_MOSAIC_SHIFT                         6
+#define REG_G2_BG0CNT_MOSAIC_SIZE                          1
+#define REG_G2_BG0CNT_MOSAIC_MASK                          0x0040
+
+#define REG_G2_BG0CNT_CHARBASE_SHIFT                       2
+#define REG_G2_BG0CNT_CHARBASE_SIZE                        4
+#define REG_G2_BG0CNT_CHARBASE_MASK                        0x003c
+
+#define REG_G2_BG0CNT_PRIORITY_SHIFT                       0
+#define REG_G2_BG0CNT_PRIORITY_SIZE                        2
+#define REG_G2_BG0CNT_PRIORITY_MASK                        0x0003
+
+// G2_BG1CNT
+#define REG_G2_BG1CNT_SCREENSIZE_SHIFT                     14
+#define REG_G2_BG1CNT_SCREENSIZE_SIZE                      2
+#define REG_G2_BG1CNT_SCREENSIZE_MASK                      0xc000
+
+#define REG_G2_BG1CNT_BGPLTTSLOT_SHIFT                     13
+#define REG_G2_BG1CNT_BGPLTTSLOT_SIZE                      1
+#define REG_G2_BG1CNT_BGPLTTSLOT_MASK                      0x2000
+
+#define REG_G2_BG1CNT_SCREENBASE_SHIFT                     8
+#define REG_G2_BG1CNT_SCREENBASE_SIZE                      5
+#define REG_G2_BG1CNT_SCREENBASE_MASK                      0x1f00
+
+#define REG_G2_BG1CNT_COLORMODE_SHIFT                      7
+#define REG_G2_BG1CNT_COLORMODE_SIZE                       1
+#define REG_G2_BG1CNT_COLORMODE_MASK                       0x0080
+
+#define REG_G2_BG1CNT_MOSAIC_SHIFT                         6
+#define REG_G2_BG1CNT_MOSAIC_SIZE                          1
+#define REG_G2_BG1CNT_MOSAIC_MASK                          0x0040
+
+#define REG_G2_BG1CNT_CHARBASE_SHIFT                       2
+#define REG_G2_BG1CNT_CHARBASE_SIZE                        4
+#define REG_G2_BG1CNT_CHARBASE_MASK                        0x003c
+
+#define REG_G2_BG1CNT_PRIORITY_SHIFT                       0
+#define REG_G2_BG1CNT_PRIORITY_SIZE                        2
+#define REG_G2_BG1CNT_PRIORITY_MASK                        0x0003
+
+// G2_BG2CNT
+#define REG_G2_BG2CNT_SCREENSIZE_SHIFT                     14
+#define REG_G2_BG2CNT_SCREENSIZE_SIZE                      2
+#define REG_G2_BG2CNT_SCREENSIZE_MASK                      0xc000
+
+#define REG_G2_BG2CNT_AREAOVER_SHIFT                       13
+#define REG_G2_BG2CNT_AREAOVER_SIZE                        1
+#define REG_G2_BG2CNT_AREAOVER_MASK                        0x2000
+
+#define REG_G2_BG2CNT_SCREENBASE_SHIFT                     8
+#define REG_G2_BG2CNT_SCREENBASE_SIZE                      5
+#define REG_G2_BG2CNT_SCREENBASE_MASK                      0x1f00
+
+#define REG_G2_BG2CNT_COLORMODE_SHIFT                      7
+#define REG_G2_BG2CNT_COLORMODE_SIZE                       1
+#define REG_G2_BG2CNT_COLORMODE_MASK                       0x0080
+
+#define REG_G2_BG2CNT_MOSAIC_SHIFT                         6
+#define REG_G2_BG2CNT_MOSAIC_SIZE                          1
+#define REG_G2_BG2CNT_MOSAIC_MASK                          0x0040
+
+#define REG_G2_BG2CNT_CHARBASE_SHIFT                       2
+#define REG_G2_BG2CNT_CHARBASE_SIZE                        4
+#define REG_G2_BG2CNT_CHARBASE_MASK                        0x003c
+
+#define REG_G2_BG2CNT_PRIORITY_SHIFT                       0
+#define REG_G2_BG2CNT_PRIORITY_SIZE                        2
+#define REG_G2_BG2CNT_PRIORITY_MASK                        0x0003
+
+// G2_BG3CNT
+#define REG_G2_BG3CNT_SCREENSIZE_SHIFT                     14
+#define REG_G2_BG3CNT_SCREENSIZE_SIZE                      2
+#define REG_G2_BG3CNT_SCREENSIZE_MASK                      0xc000
+
+#define REG_G2_BG3CNT_AREAOVER_SHIFT                       13
+#define REG_G2_BG3CNT_AREAOVER_SIZE                        1
+#define REG_G2_BG3CNT_AREAOVER_MASK                        0x2000
+
+#define REG_G2_BG3CNT_SCREENBASE_SHIFT                     8
+#define REG_G2_BG3CNT_SCREENBASE_SIZE                      5
+#define REG_G2_BG3CNT_SCREENBASE_MASK                      0x1f00
+
+#define REG_G2_BG3CNT_COLORMODE_SHIFT                      7
+#define REG_G2_BG3CNT_COLORMODE_SIZE                       1
+#define REG_G2_BG3CNT_COLORMODE_MASK                       0x0080
+
+#define REG_G2_BG3CNT_MOSAIC_SHIFT                         6
+#define REG_G2_BG3CNT_MOSAIC_SIZE                          1
+#define REG_G2_BG3CNT_MOSAIC_MASK                          0x0040
+
+#define REG_G2_BG3CNT_CHARBASE_SHIFT                       2
+#define REG_G2_BG3CNT_CHARBASE_SIZE                        4
+#define REG_G2_BG3CNT_CHARBASE_MASK                        0x003c
+
+#define REG_G2_BG3CNT_PRIORITY_SHIFT                       0
+#define REG_G2_BG3CNT_PRIORITY_SIZE                        2
+#define REG_G2_BG3CNT_PRIORITY_MASK                        0x0003
+
+// G2S_DB_BG0CNT
+#define REG_G2S_DB_BG0CNT_SCREENSIZE_SHIFT                 14
+#define REG_G2S_DB_BG0CNT_SCREENSIZE_SIZE                  2
+#define REG_G2S_DB_BG0CNT_SCREENSIZE_MASK                  0xc000
+
+#define REG_G2S_DB_BG0CNT_BGPLTTSLOT_SHIFT                 13
+#define REG_G2S_DB_BG0CNT_BGPLTTSLOT_SIZE                  1
+#define REG_G2S_DB_BG0CNT_BGPLTTSLOT_MASK                  0x2000
+
+#define REG_G2S_DB_BG0CNT_SCREENBASE_SHIFT                 8
+#define REG_G2S_DB_BG0CNT_SCREENBASE_SIZE                  5
+#define REG_G2S_DB_BG0CNT_SCREENBASE_MASK                  0x1f00
+
+#define REG_G2S_DB_BG0CNT_COLORMODE_SHIFT                  7
+#define REG_G2S_DB_BG0CNT_COLORMODE_SIZE                   1
+#define REG_G2S_DB_BG0CNT_COLORMODE_MASK                   0x0080
+
+#define REG_G2S_DB_BG0CNT_MOSAIC_SHIFT                     6
+#define REG_G2S_DB_BG0CNT_MOSAIC_SIZE                      1
+#define REG_G2S_DB_BG0CNT_MOSAIC_MASK                      0x0040
+
+#define REG_G2S_DB_BG0CNT_CHARBASE_SHIFT                   2
+#define REG_G2S_DB_BG0CNT_CHARBASE_SIZE                    4
+#define REG_G2S_DB_BG0CNT_CHARBASE_MASK                    0x003c
+
+#define REG_G2S_DB_BG0CNT_PRIORITY_SHIFT                   0
+#define REG_G2S_DB_BG0CNT_PRIORITY_SIZE                    2
+#define REG_G2S_DB_BG0CNT_PRIORITY_MASK                    0x0003
+
+// G2S_DB_BG1CNT
+#define REG_G2S_DB_BG1CNT_SCREENSIZE_SHIFT                 14
+#define REG_G2S_DB_BG1CNT_SCREENSIZE_SIZE                  2
+#define REG_G2S_DB_BG1CNT_SCREENSIZE_MASK                  0xc000
+
+#define REG_G2S_DB_BG1CNT_BGPLTTSLOT_SHIFT                 13
+#define REG_G2S_DB_BG1CNT_BGPLTTSLOT_SIZE                  1
+#define REG_G2S_DB_BG1CNT_BGPLTTSLOT_MASK                  0x2000
+
+#define REG_G2S_DB_BG1CNT_SCREENBASE_SHIFT                 8
+#define REG_G2S_DB_BG1CNT_SCREENBASE_SIZE                  5
+#define REG_G2S_DB_BG1CNT_SCREENBASE_MASK                  0x1f00
+
+#define REG_G2S_DB_BG1CNT_COLORMODE_SHIFT                  7
+#define REG_G2S_DB_BG1CNT_COLORMODE_SIZE                   1
+#define REG_G2S_DB_BG1CNT_COLORMODE_MASK                   0x0080
+
+#define REG_G2S_DB_BG1CNT_MOSAIC_SHIFT                     6
+#define REG_G2S_DB_BG1CNT_MOSAIC_SIZE                      1
+#define REG_G2S_DB_BG1CNT_MOSAIC_MASK                      0x0040
+
+#define REG_G2S_DB_BG1CNT_CHARBASE_SHIFT                   2
+#define REG_G2S_DB_BG1CNT_CHARBASE_SIZE                    4
+#define REG_G2S_DB_BG1CNT_CHARBASE_MASK                    0x003c
+
+#define REG_G2S_DB_BG1CNT_PRIORITY_SHIFT                   0
+#define REG_G2S_DB_BG1CNT_PRIORITY_SIZE                    2
+#define REG_G2S_DB_BG1CNT_PRIORITY_MASK                    0x0003
+
+// G2S_DB_BG2CNT
+#define REG_G2S_DB_BG2CNT_SCREENSIZE_SHIFT                 14
+#define REG_G2S_DB_BG2CNT_SCREENSIZE_SIZE                  2
+#define REG_G2S_DB_BG2CNT_SCREENSIZE_MASK                  0xc000
+
+#define REG_G2S_DB_BG2CNT_AREAOVER_SHIFT                   13
+#define REG_G2S_DB_BG2CNT_AREAOVER_SIZE                    1
+#define REG_G2S_DB_BG2CNT_AREAOVER_MASK                    0x2000
+
+#define REG_G2S_DB_BG2CNT_SCREENBASE_SHIFT                 8
+#define REG_G2S_DB_BG2CNT_SCREENBASE_SIZE                  5
+#define REG_G2S_DB_BG2CNT_SCREENBASE_MASK                  0x1f00
+
+#define REG_G2S_DB_BG2CNT_COLORMODE_SHIFT                  7
+#define REG_G2S_DB_BG2CNT_COLORMODE_SIZE                   1
+#define REG_G2S_DB_BG2CNT_COLORMODE_MASK                   0x0080
+
+#define REG_G2S_DB_BG2CNT_MOSAIC_SHIFT                     6
+#define REG_G2S_DB_BG2CNT_MOSAIC_SIZE                      1
+#define REG_G2S_DB_BG2CNT_MOSAIC_MASK                      0x0040
+
+#define REG_G2S_DB_BG2CNT_CHARBASE_SHIFT                   2
+#define REG_G2S_DB_BG2CNT_CHARBASE_SIZE                    4
+#define REG_G2S_DB_BG2CNT_CHARBASE_MASK                    0x003c
+
+#define REG_G2S_DB_BG2CNT_PRIORITY_SHIFT                   0
+#define REG_G2S_DB_BG2CNT_PRIORITY_SIZE                    2
+#define REG_G2S_DB_BG2CNT_PRIORITY_MASK                    0x0003
+
+// G2S_DB_BG3CNT
+#define REG_G2S_DB_BG3CNT_SCREENSIZE_SHIFT                 14
+#define REG_G2S_DB_BG3CNT_SCREENSIZE_SIZE                  2
+#define REG_G2S_DB_BG3CNT_SCREENSIZE_MASK                  0xc000
+
+#define REG_G2S_DB_BG3CNT_AREAOVER_SHIFT                   13
+#define REG_G2S_DB_BG3CNT_AREAOVER_SIZE                    1
+#define REG_G2S_DB_BG3CNT_AREAOVER_MASK                    0x2000
+
+#define REG_G2S_DB_BG3CNT_SCREENBASE_SHIFT                 8
+#define REG_G2S_DB_BG3CNT_SCREENBASE_SIZE                  5
+#define REG_G2S_DB_BG3CNT_SCREENBASE_MASK                  0x1f00
+
+#define REG_G2S_DB_BG3CNT_COLORMODE_SHIFT                  7
+#define REG_G2S_DB_BG3CNT_COLORMODE_SIZE                   1
+#define REG_G2S_DB_BG3CNT_COLORMODE_MASK                   0x0080
+
+#define REG_G2S_DB_BG3CNT_MOSAIC_SHIFT                     6
+#define REG_G2S_DB_BG3CNT_MOSAIC_SIZE                      1
+#define REG_G2S_DB_BG3CNT_MOSAIC_MASK                      0x0040
+
+#define REG_G2S_DB_BG3CNT_CHARBASE_SHIFT                   2
+#define REG_G2S_DB_BG3CNT_CHARBASE_SIZE                    4
+#define REG_G2S_DB_BG3CNT_CHARBASE_MASK                    0x003c
+
+#define REG_G2S_DB_BG3CNT_PRIORITY_SHIFT                   0
+#define REG_G2S_DB_BG3CNT_PRIORITY_SIZE                    2
+#define REG_G2S_DB_BG3CNT_PRIORITY_MASK                    0x0003
+
+// G2_BG0OFS
+#define REG_G2_BG0OFS_VOFFSET_SHIFT                        16
+#define REG_G2_BG0OFS_VOFFSET_SIZE                         9
+#define REG_G2_BG0OFS_VOFFSET_MASK                         0x01ff0000
+
+#define REG_G2_BG0OFS_HOFFSET_SHIFT                        0
+#define REG_G2_BG0OFS_HOFFSET_SIZE                         9
+#define REG_G2_BG0OFS_HOFFSET_MASK                         0x000001ff
+
+// G2_BG1OFS
+#define REG_G2_BG1OFS_VOFFSET_SHIFT                        16
+#define REG_G2_BG1OFS_VOFFSET_SIZE                         9
+#define REG_G2_BG1OFS_VOFFSET_MASK                         0x01ff0000
+
+#define REG_G2_BG1OFS_HOFFSET_SHIFT                        0
+#define REG_G2_BG1OFS_HOFFSET_SIZE                         9
+#define REG_G2_BG1OFS_HOFFSET_MASK                         0x000001ff
+
+// G2_BG2OFS
+#define REG_G2_BG2OFS_VOFFSET_SHIFT                        16
+#define REG_G2_BG2OFS_VOFFSET_SIZE                         9
+#define REG_G2_BG2OFS_VOFFSET_MASK                         0x01ff0000
+
+#define REG_G2_BG2OFS_HOFFSET_SHIFT                        0
+#define REG_G2_BG2OFS_HOFFSET_SIZE                         9
+#define REG_G2_BG2OFS_HOFFSET_MASK                         0x000001ff
+
+// G2_BG3OFS
+#define REG_G2_BG3OFS_VOFFSET_SHIFT                        16
+#define REG_G2_BG3OFS_VOFFSET_SIZE                         9
+#define REG_G2_BG3OFS_VOFFSET_MASK                         0x01ff0000
+
+#define REG_G2_BG3OFS_HOFFSET_SHIFT                        0
+#define REG_G2_BG3OFS_HOFFSET_SIZE                         9
+#define REG_G2_BG3OFS_HOFFSET_MASK                         0x000001ff
+
+// G2S_DB_BG0OFS
+#define REG_G2S_DB_BG0OFS_VOFFSET_SHIFT                    16
+#define REG_G2S_DB_BG0OFS_VOFFSET_SIZE                     9
+#define REG_G2S_DB_BG0OFS_VOFFSET_MASK                     0x01ff0000
+
+#define REG_G2S_DB_BG0OFS_HOFFSET_SHIFT                    0
+#define REG_G2S_DB_BG0OFS_HOFFSET_SIZE                     9
+#define REG_G2S_DB_BG0OFS_HOFFSET_MASK                     0x000001ff
+
+// G2S_DB_BG1OFS
+#define REG_G2S_DB_BG1OFS_VOFFSET_SHIFT                    16
+#define REG_G2S_DB_BG1OFS_VOFFSET_SIZE                     9
+#define REG_G2S_DB_BG1OFS_VOFFSET_MASK                     0x01ff0000
+
+#define REG_G2S_DB_BG1OFS_HOFFSET_SHIFT                    0
+#define REG_G2S_DB_BG1OFS_HOFFSET_SIZE                     9
+#define REG_G2S_DB_BG1OFS_HOFFSET_MASK                     0x000001ff
+
+// G2S_DB_BG2OFS
+#define REG_G2S_DB_BG2OFS_VOFFSET_SHIFT                    16
+#define REG_G2S_DB_BG2OFS_VOFFSET_SIZE                     9
+#define REG_G2S_DB_BG2OFS_VOFFSET_MASK                     0x01ff0000
+
+#define REG_G2S_DB_BG2OFS_HOFFSET_SHIFT                    0
+#define REG_G2S_DB_BG2OFS_HOFFSET_SIZE                     9
+#define REG_G2S_DB_BG2OFS_HOFFSET_MASK                     0x000001ff
+
+// G2S_DB_BG3OFS
+#define REG_G2S_DB_BG3OFS_VOFFSET_SHIFT                    16
+#define REG_G2S_DB_BG3OFS_VOFFSET_SIZE                     9
+#define REG_G2S_DB_BG3OFS_VOFFSET_MASK                     0x01ff0000
+
+#define REG_G2S_DB_BG3OFS_HOFFSET_SHIFT                    0
+#define REG_G2S_DB_BG3OFS_HOFFSET_SIZE                     9
+#define REG_G2S_DB_BG3OFS_HOFFSET_MASK                     0x000001ff
+
+// Timer control
+
+#define REG_OS_TM0CNT_L_TIMER0CNT_SHIFT                    0
+#define REG_OS_TM0CNT_L_TIMER0CNT_SIZE                     16
+#define REG_OS_TM0CNT_L_TIMER0CNT_MASK                     0xffff
+
+#define REG_OS_TM0CNT_H_E_SHIFT                            7
+#define REG_OS_TM0CNT_H_E_SIZE                             1
+#define REG_OS_TM0CNT_H_E_MASK                             0x0080
+
+#define REG_OS_TM0CNT_H_I_SHIFT                            6
+#define REG_OS_TM0CNT_H_I_SIZE                             1
+#define REG_OS_TM0CNT_H_I_MASK                             0x0040
+
+#define REG_OS_TM0CNT_H_PS_SHIFT                           0
+#define REG_OS_TM0CNT_H_PS_SIZE                            2
+#define REG_OS_TM0CNT_H_PS_MASK                            0x0003
+
+#define REG_OS_TM1CNT_L_TIMER0CNT_SHIFT                    0
+#define REG_OS_TM1CNT_L_TIMER0CNT_SIZE                     16
+#define REG_OS_TM1CNT_L_TIMER0CNT_MASK                     0xffff
+
+#define REG_OS_TM1CNT_H_E_SHIFT                            7
+#define REG_OS_TM1CNT_H_E_SIZE                             1
+#define REG_OS_TM1CNT_H_E_MASK                             0x0080
+
+#define REG_OS_TM1CNT_H_I_SHIFT                            6
+#define REG_OS_TM1CNT_H_I_SIZE                             1
+#define REG_OS_TM1CNT_H_I_MASK                             0x0040
+
+#define REG_OS_TM1CNT_H_PS_SHIFT                           0
+#define REG_OS_TM1CNT_H_PS_SIZE                            2
+#define REG_OS_TM1CNT_H_PS_MASK                            0x0003
+
+#define REG_OS_TM2CNT_L_TIMER0CNT_SHIFT                    0
+#define REG_OS_TM2CNT_L_TIMER0CNT_SIZE                     16
+#define REG_OS_TM2CNT_L_TIMER0CNT_MASK                     0xffff
+
+#define REG_OS_TM2CNT_H_E_SHIFT                            7
+#define REG_OS_TM2CNT_H_E_SIZE                             1
+#define REG_OS_TM2CNT_H_E_MASK                             0x0080
+
+#define REG_OS_TM2CNT_H_I_SHIFT                            6
+#define REG_OS_TM2CNT_H_I_SIZE                             1
+#define REG_OS_TM2CNT_H_I_MASK                             0x0040
+
+#define REG_OS_TM2CNT_H_PS_SHIFT                           0
+#define REG_OS_TM2CNT_H_PS_SIZE                            2
+#define REG_OS_TM2CNT_H_PS_MASK                            0x0003
+
+#define REG_OS_TM3CNT_L_TIMER0CNT_SHIFT                    0
+#define REG_OS_TM3CNT_L_TIMER0CNT_SIZE                     16
+#define REG_OS_TM3CNT_L_TIMER0CNT_MASK                     0xffff
+
+#define REG_OS_TM3CNT_H_E_SHIFT                            7
+#define REG_OS_TM3CNT_H_E_SIZE                             1
+#define REG_OS_TM3CNT_H_E_MASK                             0x0080
+
+#define REG_OS_TM3CNT_H_I_SHIFT                            6
+#define REG_OS_TM3CNT_H_I_SIZE                             1
+#define REG_OS_TM3CNT_H_I_MASK                             0x0040
+
+#define REG_OS_TM3CNT_H_PS_SHIFT                           0
+#define REG_OS_TM3CNT_H_PS_SIZE                            2
+#define REG_OS_TM3CNT_H_PS_MASK                            0x0003
 
 #endif //POKEDIAMOND_ARM9_REGISTERS_H

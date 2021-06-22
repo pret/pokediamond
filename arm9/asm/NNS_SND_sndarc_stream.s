@@ -10,8 +10,8 @@ sPrepareThread: ; 0x021D2900
 	.global sFreeCommandList
 sFreeCommandList: ; 0x021D2904
 	.space 0xC
-    ; sStrmThread
-    .global sStrmThread
+	; sStrmThread
+	.global sStrmThread
 sStrmThread: ; 0x021D2910
 	.space 0x4EC
 

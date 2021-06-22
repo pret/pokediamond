@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern UNK_02105F9C
 	.extern UNK_020F6C84
@@ -1229,7 +1229,7 @@ _0205B5EA:
 	add r0, r5, #0x0
 	bl FUN_02058700
 	ldr r0, _0205B618 ; =0x0000060B
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3-r7, pc}
 	nop
 _0205B614: .word 0x00010004
@@ -1334,7 +1334,7 @@ _0205B6B8:
 	add r0, r5, #0x0
 	bl FUN_02058700
 	ldr r0, _0205B700 ; =0x00000647
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x1
 	add sp, #0x18
 	pop {r3-r5, pc}

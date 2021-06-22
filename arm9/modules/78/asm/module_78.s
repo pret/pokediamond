@@ -12,7 +12,7 @@ MOD78_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x48
 	lsl r2, r2, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	add r0, r5, #0
 	mov r1, #0xa0
 	mov r2, #0x48
@@ -148,7 +148,7 @@ _021D75DE:
 	b _021D7662
 _021D7614:
 	ldr r0, _021D76B4 ; =0x000006DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -259,7 +259,7 @@ _021D76C8:
 	bl OverlayManager_FreeData
 	bl FUN_0201B398
 	mov r0, #0x48
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD78_021D76B8
@@ -338,7 +338,7 @@ MOD78_021D778C: ; 0x021D778C
 	add r0, #0x70
 	mov r1, #0x48
 	mov r2, #4
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	add r1, r5, #0
 	add r1, #0x9c
 	ldrb r2, [r1]

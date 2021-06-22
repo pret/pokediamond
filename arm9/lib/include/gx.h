@@ -27,15 +27,6 @@ void GXi_NopClearFifo128_(void *);
 #include "GX_g3imm.h"
 #include "GX_dma.h"
 
-void GX_Init();
-u32 GX_HBlankIntr(u32 enable);
-u32 GX_VBlankIntr(u32 enable);
-void GX_DispOff();
-void GX_DispOn();
-void GX_SetGraphicsMode(u32 mode1, u32 mode2, u32 mode3);
-void GXS_SetGraphicsMode(u32 mode);
-void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness);
-
 typedef union
 {
     u32     raw;
@@ -180,5 +171,64 @@ typedef enum
     (1 << REG_GX_DISPCNT_OBJMAP_SHIFT) | (3 << REG_GX_DISPCNT_EXOBJ_SHIFT)
 }
     GXOBJVRamModeChar;
+
+void GX_Init();
+u32 GX_HBlankIntr(u32 enable);
+u32 GX_VBlankIntr(u32 enable);
+void GX_DispOff();
+void GX_DispOn();
+void GX_SetGraphicsMode(GXDispMode dispMode, GXBGMode bgMode, GXBG0As bg0_2d3d);
+void GXS_SetGraphicsMode(GXBGMode mode);
+void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness);
+
+static inline void GX_SetMasterBrightness(int brightness)
+{
+    GXx_SetMasterBrightness_(&reg_GX_MASTER_BRIGHT, brightness);
+}
+
+static inline void GX_SetVisiblePlane(int plane)
+{
+    reg_GX_DISPCNT = (u32)((reg_GX_DISPCNT & ~REG_GX_DISPCNT_DISPLAY_MASK) | (plane << REG_GX_DISPCNT_DISPLAY_SHIFT));
+}
+
+static inline void GXS_SetVisiblePlane(int plane)
+{
+    reg_GXS_DB_DISPCNT = (u32)((reg_GXS_DB_DISPCNT & ~REG_GXS_DB_DISPCNT_DISPLAY_MASK) | (plane << REG_GXS_DB_DISPCNT_DISPLAY_SHIFT));
+}
+
+static inline void GXS_DispOn(void)
+{
+    reg_GXS_DB_DISPCNT |= REG_GXS_DB_DISPCNT_MODE_MASK;
+}
+
+static inline void GX_SetDispSelect(GXDispSelect sel)
+{
+    reg_GX_POWCNT = (u16)((reg_GX_POWCNT & ~REG_GX_POWCNT_DSEL_MASK) | (sel << REG_GX_POWCNT_DSEL_SHIFT));
+}
+
+static inline void GX_SetBGScrOffset(GXBGScrOffset offset)
+{
+    reg_GX_DISPCNT = (u32)((reg_GX_DISPCNT & ~REG_GX_DISPCNT_BGSCREENOFFSET_MASK) | (offset << REG_GX_DISPCNT_BGSCREENOFFSET_SHIFT));
+}
+
+static inline void GX_SetBGCharOffset(GXBGCharOffset offset)
+{
+    reg_GX_DISPCNT = (u32)((reg_GX_DISPCNT & ~REG_GX_DISPCNT_BGCHAROFFSET_MASK) | (offset << REG_GX_DISPCNT_BGCHAROFFSET_SHIFT));
+}
+
+static inline void GX_SetVisibleWnd(int window)
+{
+    reg_GX_DISPCNT = (u32)((reg_GX_DISPCNT & ~(REG_GX_DISPCNT_W0_MASK | REG_GX_DISPCNT_W1_MASK | REG_GX_DISPCNT_OW_MASK)) | (window << REG_GX_DISPCNT_W0_SHIFT));
+}
+
+static inline void GXS_SetVisibleWnd(int window)
+{
+    reg_GXS_DB_DISPCNT = (u32)((reg_GXS_DB_DISPCNT & ~(REG_GXS_DB_DISPCNT_W0_MASK | REG_GXS_DB_DISPCNT_W1_MASK | REG_GXS_DB_DISPCNT_OW_MASK)) | (window << REG_GXS_DB_DISPCNT_W0_SHIFT));
+}
+
+static inline void GXS_SetOBJVRamModeChar(GXOBJVRamModeChar mode)
+{
+    reg_GXS_DB_DISPCNT = (u32)(reg_GXS_DB_DISPCNT & ~(REG_GXS_DB_DISPCNT_EXOBJ_CH_MASK | REG_GXS_DB_DISPCNT_OBJMAP_CH_MASK) | mode);
+}
 
 #endif //GUARD_GX_H

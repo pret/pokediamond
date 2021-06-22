@@ -93,10 +93,7 @@ THUMB_FUNC u32 FUN_0202F150(u32 param0, u32 param1)
     {
 
         r4 = 1;
-        if (UNK_021C59F4.unk04 == 0)
-        {
-            GF_AssertFail();
-        }
+        GF_ASSERT(UNK_021C59F4.unk04 != 0);
     }
 
     UNK_021C59F4.unk04->unk65C = 0;
@@ -535,7 +532,7 @@ THUMB_FUNC BOOL FUN_0202FB80()
         {
             UNK_021C59F4.unk00 = 0;
             FUN_0202F984();
-            UNK_021C59F4.unk04->unk628 |= gMain.unk44 & 0x7FFF;
+            UNK_021C59F4.unk04->unk628 |= gMain.heldKeys & 0x7FFF;
             FUN_02030674();
             FUN_0202FCCC();
 
@@ -1191,7 +1188,7 @@ THUMB_FUNC void FUN_020304D4(u32 param0)
         return;
     }
 
-    GF_AssertFail();
+    GF_ASSERT(0);
 }
 
 THUMB_FUNC void FUN_020304F0(u32 param0)
@@ -1202,7 +1199,7 @@ THUMB_FUNC void FUN_020304F0(u32 param0)
         return;
     }
 
-    GF_AssertFail();
+    GF_ASSERT(0);
 }
 
 THUMB_FUNC void FUN_0203050C()
@@ -1741,7 +1738,7 @@ THUMB_FUNC u32 FUN_02030B3C(u32 param0, u8 *param1, u32 param2)
 {
     if (FUN_02031190() != 0)
     {
-        GF_AssertFail();
+        GF_ASSERT(0);
         return 0;
     }
 

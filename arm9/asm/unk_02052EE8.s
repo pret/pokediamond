@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern UNK_020F58D4
 
@@ -50,7 +50,7 @@ FUN_02052EE8: ; 0x02052EE8
 	ldr r0, [r0, #0x38]
 	str r0, [r4, #0x8]
 	mov r0, #0xb
-	bl FUN_02016828
+	bl CreateHeapAtEnd
 	mov r0, #0x59
 	bl FUN_02053618
 	ldr r1, _02052F6C ; =0x000004DC
@@ -113,7 +113,7 @@ FUN_02052FA4: ; 0x02052FA4
 	ldr r0, [r4, r0]
 	bl FUN_0205362C
 	mov r0, #0x59
-	bl FUN_020168D0
+	bl DestroyHeap
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -646,7 +646,7 @@ FUN_0205339C: ; 0x0205339C
 	beq _0205343C
 _020533CC:
 	ldr r0, _02053440 ; =0x0000064F
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r1, [r5, #0x8]
 	add r0, r4, #0x0
 	bl FUN_02057634

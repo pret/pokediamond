@@ -1,5 +1,5 @@
 	.include "asm/macros.inc"
-    .include "global.inc"
+	.include "global.inc"
 
 	.extern gMain
 
@@ -110,7 +110,7 @@ _02033FA4:
 	str r0, [r2, #0x0]
 	mov r0, #0x4
 	mov r1, #0x8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	ldr r0, _02034160 ; =gMain + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
@@ -132,18 +132,18 @@ _02033FA4:
 	ldr r0, _02034170 ; =UNK_020EECD0
 	bl GX_SetBanks
 	add r0, r4, #0x0
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r6, r0, #0x0
 	ldr r0, _02034174 ; =UNK_020EECA4
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	mov r1, #0x0
 	ldr r2, _02034178 ; =UNK_020EECB4
 	add r0, r6, #0x0
 	add r3, r1, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	ldr r2, _0203417C ; =0x000001F7
@@ -159,13 +159,13 @@ _02033FA4:
 	mov r1, #0x20
 	add r2, r0, #0x0
 	add r3, r4, #0x0
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	ldr r1, _02034180 ; =0x00006C21
 	mov r0, #0x0
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	ldr r1, _02034180 ; =0x00006C21
 	mov r0, #0x4
-	bl FUN_02017FE4
+	bl BG_SetMaskColor
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xc8
@@ -189,7 +189,7 @@ _02033FA4:
 	ldr r2, _02034184 ; =UNK_020EEC9C
 	add r0, r6, #0x0
 	add r1, sp, #0x18
-	bl FUN_02019150
+	bl AddWindow
 	mov r0, #0xd0
 	str r0, [sp, #0x0]
 	mov r0, #0x90
@@ -241,7 +241,7 @@ _02033FA4:
 	mov r2, #0x3
 	bl FUN_0200A274
 	add r0, sp, #0x18
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r4, #0x0

@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.section .rodata
 
@@ -807,7 +807,7 @@ FUN_02081214: ; 0x02081214
 	mov r0, #0xb
 	mov r1, #0x14
 	lsl r2, r2, #0xe
-	bl FUN_0201681C
+	bl CreateHeap
 	bl FUN_020811D8
 	add r4, r0, #0x0
 	bl GetLCRNGSeed
@@ -1191,7 +1191,7 @@ _020814FE:
 	add r0, r7, #0x0
 	bl FUN_0208120C
 	mov r0, #0x14
-	bl FUN_020168D0
+	bl DestroyHeap
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -3394,7 +3394,7 @@ FUN_0208251C: ; 0x0208251C
 	mov r3, #0x3f
 	bl FUN_0200A208
 	ldr r0, _0208259C ; =0x000005F8
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0xa]
 	add r0, r0, #0x1
 	strb r0, [r4, #0xa]

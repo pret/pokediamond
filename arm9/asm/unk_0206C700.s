@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 	.extern UNK_020FA6E8
@@ -113,7 +113,7 @@ FUN_0206C700: ; 0x0206C700
 	add r3, r5, #0x0
 	bl FUN_02003008
 	add r0, r5, #0x0
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x1
@@ -144,7 +144,7 @@ FUN_0206C700: ; 0x0206C700
 	ldr r1, [r4, #0x4]
 	mov r2, #0x1
 	mov r3, #0x2
-	bl FUN_02019064
+	bl AddWindowParameterized
 	ldr r0, [r4, #0x4]
 	mov r1, #0xff
 	bl FillWindowPixelBuffer
@@ -238,7 +238,7 @@ FUN_0206C700: ; 0x0206C700
 	mov r2, #0x0
 	bl FUN_0200CA44
 	mov r0, #0x1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	bl FUN_02033E74
 	add r0, r4, #0x0
 	add sp, #0x24
@@ -297,7 +297,7 @@ FUN_0206C92C: ; 0x0206C92C
 	bl Main_SetVBlankIntrCB
 	ldr r0, [r4, #0x4]
 	mov r1, #0x1
-	bl FUN_020191A4
+	bl WindowArray_dtor
 	ldr r0, [r4, #0x14]
 	mov r1, #0x0
 	bl FUN_02003038
@@ -335,7 +335,7 @@ FUN_0206C92C: ; 0x0206C92C
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x0
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	pop {r4, pc}
 
 	thumb_func_start FUN_0206C9C0
@@ -738,7 +738,7 @@ _0206CCCE:
 	mov r3, #0x4
 	bl FUN_02007E68
 	ldr r0, [r4, #0x5c]
-	bl FUN_02016AF8
+	bl GF_ExpHeap_FndGetTotalFreeSize
 	mov r1, #0x2
 	lsl r1, r1, #0xe
 	cmp r0, r1
@@ -746,7 +746,7 @@ _0206CCCE:
 	bl GF_AssertFail
 _0206CD16:
 	ldr r0, _0206CE24 ; =0x000005F9
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	mov r1, #0x28
 	add r0, #0x66
@@ -811,7 +811,7 @@ _0206CD5A:
 	mov r1, #0xb
 	bl FUN_0206E0AC
 	ldr r0, _0206CE28 ; =0x000005FA
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	mov r1, #0x10
 	add r0, #0x70
@@ -892,7 +892,7 @@ _0206CE2C:
 	add r2, #0xf3
 	bl FUN_02007558
 	ldr r0, _0206D1C8 ; =0x000005FB
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	mov r1, #0x0
 	add r0, #0x70
@@ -968,7 +968,7 @@ _0206CEB0:
 	mov r3, #0x3
 	bl FUN_02007E98
 	ldr r0, _0206D1D4 ; =0x000005FC
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0x0
 	add r0, #0x64
 	ldrb r0, [r0, #0x0]
@@ -2280,7 +2280,7 @@ _0206D9C6:
 	ldmia r6!, {r0-r1}
 	stmia r3!, {r0-r1}
 	add r0, r2, #0x0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r6, _0206DC30 ; =UNK_020F837C
 	add r3, sp, #0x64
 	mov r2, #0xa
@@ -2295,26 +2295,26 @@ _0206DA26:
 	add r0, r4, #0x0
 	add r2, sp, #0x64
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0x0
 	mov r1, #0x2
 	add r2, sp, #0x80
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	add r0, r4, #0x0
 	mov r1, #0x3
 	add r2, sp, #0x9c
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r1, _0206DC34 ; =0x04000008
 	mov r0, #0x3
 	ldrh r2, [r1, #0x0]
@@ -2338,10 +2338,10 @@ _0206DA26:
 	str r0, [r3, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r0, [r5, #0x2c]
 	bl Options_GetFrame
 	add r6, r0, #0x0
@@ -2538,16 +2538,16 @@ FUN_0206DC48: ; 0x0206DC48
 	bl GX_EngineAToggleLayers
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	.balign 4
 
@@ -2644,7 +2644,7 @@ FUN_0206DD08: ; 0x0206DD08
 	ldr r0, [r4, #0x14]
 	bl FUN_0200372C
 	ldr r0, [r4, #0x0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _0206DD64 ; =0x027E0000
 	ldr r1, _0206DD68 ; =0x00003FF8
 	mov r0, #0x1
@@ -2723,7 +2723,7 @@ _0206DDE4:
 	b _0206DDFA
 _0206DDEC:
 	ldr r0, _0206DE04 ; =0x000005E6
-	bl FUN_020054C8
+	bl PlaySE
 	b _0206DDFA
 _0206DDF4:
 	ldr r0, _0206DE08 ; =0x00000483

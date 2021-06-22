@@ -7,16 +7,18 @@ vu16 GXi_VRamLockId = 0;
 static u16 sDispMode = 0;
 static u16 sIsDispOn = TRUE;
 
+#define _powcnt_init_mask (REG_GX_POWCNT_E2DGB_MASK | REG_GX_POWCNT_E2DG_MASK | REG_GX_POWCNT_RE_MASK | REG_GX_POWCNT_GE_MASK)
+
 ARM_FUNC void GX_Init(){
-    reg_GX_POWCNT |= 0x8000;
-    reg_GX_POWCNT = (u16)((reg_GX_POWCNT & ~0x20E) | 0x20E);
-    reg_GX_POWCNT = (u16)(reg_GX_POWCNT | 0x1);
+    reg_GX_POWCNT |= REG_GX_POWCNT_DSEL_MASK;
+    reg_GX_POWCNT = (u16)((reg_GX_POWCNT & ~_powcnt_init_mask) | _powcnt_init_mask);
+    reg_GX_POWCNT = (u16)(reg_GX_POWCNT | REG_GX_POWCNT_LCD_MASK);
     GX_InitGXState();
     s32 temp;
     while (GXi_VRamLockId == 0)
     {
         temp = OS_GetLockID();
-        if (temp == -3)
+        if (temp == OS_LOCK_ID_ERROR)
         {
             OS_Terminate();
         }
@@ -47,62 +49,62 @@ ARM_FUNC void GX_Init(){
 }
 
 ARM_FUNC u32 GX_HBlankIntr(u32 enable){
-    u32 temp = (u32)(reg_GX_DISPSTAT & 0x10);
+    u32 temp = (u32)(reg_GX_DISPSTAT & REG_GX_DISPSTAT_HBI_MASK);
     if (enable)
     {
-        reg_GX_DISPSTAT |= 0x10;
+        reg_GX_DISPSTAT |= REG_GX_DISPSTAT_HBI_MASK;
     }
     else
     {
-        reg_GX_DISPSTAT &= ~0x10;
+        reg_GX_DISPSTAT &= ~REG_GX_DISPSTAT_HBI_MASK;
     }
     return temp;
 }
 
 ARM_FUNC u32 GX_VBlankIntr(u32 enable){
-    u32 temp = (u32)(reg_GX_DISPSTAT & 0x8);
+    u32 temp = (u32)(reg_GX_DISPSTAT & REG_GX_DISPSTAT_VBI_MASK);
     if (enable)
     {
-        reg_GX_DISPSTAT |= 0x8;
+        reg_GX_DISPSTAT |= REG_GX_DISPSTAT_VBI_MASK;
     }
     else
     {
-        reg_GX_DISPSTAT &= ~0x8;
+        reg_GX_DISPSTAT &= ~REG_GX_DISPSTAT_VBI_MASK;
     }
     return temp;
 }
 
 ARM_FUNC void GX_DispOff(){
     u32 temp = reg_GX_DISPCNT;
-    sIsDispOn = 0x0;
-    sDispMode = (u16)((temp & 0x30000) >> 0x10);
-    reg_GX_DISPCNT = temp & ~0x30000;
+    sIsDispOn = FALSE;
+    sDispMode = (u16)((temp & REG_GX_DISPCNT_MODE_MASK) >> REG_GX_DISPCNT_MODE_SHIFT);
+    reg_GX_DISPCNT = temp & ~REG_GX_DISPCNT_MODE_MASK;
 }
 
 ARM_FUNC void GX_DispOn(){
-    sIsDispOn = 0x1;
+    sIsDispOn = TRUE;
     if (sDispMode)
     {
-        reg_GX_DISPCNT = (reg_GX_DISPCNT & ~0x30000) | (sDispMode << 0x10);
+        reg_GX_DISPCNT = (reg_GX_DISPCNT & ~REG_GX_DISPCNT_MODE_MASK) | (sDispMode << REG_GX_DISPCNT_MODE_SHIFT);
     }
     else
     {
-        reg_GX_DISPCNT = reg_GX_DISPCNT | 0x10000;
+        reg_GX_DISPCNT = reg_GX_DISPCNT | (GX_DISPMODE_GRAPHICS << REG_GX_DISPCNT_MODE_SHIFT);
     }
 }
 
-ARM_FUNC void GX_SetGraphicsMode(u32 mode1, u32 mode2, u32 mode3){
+ARM_FUNC void GX_SetGraphicsMode(GXDispMode dispMode, GXBGMode bgMode, GXBG0As bg0_2d3d){
     u32 temp2 = reg_GX_DISPCNT;
-    sDispMode = (u16)mode1;
+    sDispMode = (u16)dispMode;
     if (!sIsDispOn)
-        mode1 = 0;
-    reg_GX_DISPCNT = (mode2 | ((temp2 & 0xFFF0FFF0) | (mode1 << 0x10))) | (mode3 << 0x3);
+        dispMode = 0;
+    reg_GX_DISPCNT = ((bgMode << REG_GX_DISPCNT_BGMODE_SHIFT) | ((temp2 & ~(REG_GX_DISPCNT_BGMODE_MASK | REG_GX_DISPCNT_MODE_MASK | REG_GX_DISPCNT_BG02D3D_MASK | REG_GX_DISPCNT_VRAM_MASK)) | (dispMode << REG_GX_DISPCNT_MODE_SHIFT))) | (bg0_2d3d << REG_GX_DISPCNT_BG02D3D_SHIFT);
     if (!sDispMode)
-        sIsDispOn = 0x0;
+        sIsDispOn = FALSE;
 }
 
-ARM_FUNC void GXS_SetGraphicsMode(u32 mode){
-    reg_GXS_DB_DISPCNT = (reg_GXS_DB_DISPCNT & ~0x7) | mode;
+ARM_FUNC void GXS_SetGraphicsMode(GXBGMode mode){
+    reg_GXS_DB_DISPCNT = (reg_GXS_DB_DISPCNT & ~REG_GXS_DB_DISPCNT_BGMODE_MASK) | mode;
 }
 
 ARM_FUNC void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness){
@@ -112,10 +114,10 @@ ARM_FUNC void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness){
     }
     else if (brightness > 0)
     {
-        *dst = (u16)(0x4000 | brightness);
+        *dst = (u16)((1 << REG_GX_MASTER_BRIGHT_E_MOD_SHIFT) | brightness);
     }
     else
     {
-        *dst = (u16)(0x8000 | -brightness);
+        *dst = (u16)((2 << REG_GX_MASTER_BRIGHT_E_MOD_SHIFT) | -brightness);
     }
 }

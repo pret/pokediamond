@@ -25,14 +25,14 @@ extern BOOL MOD20_02253888(void *param0, void *param1);
 u8 const MOD21_02254D90[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00,
                               0x00, 0x01, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
-extern void FUN_02016C18(u32 param0, u32 param1, void *param2, u32 param3);
+extern void InitBgFromTemplate(u32 param0, u32 param1, void *param2, u32 param3);
 extern void GfGfxLoader_LoadCharData(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
 extern void GfGfxLoader_LoadScrnData(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7);
 extern void MOD20_02252D7C(u32 param0, u32 param1);
-extern void FUN_02017CD0(u32 param0, u32 param1);
-extern void FUN_020178A0(u32 param0, u32 param1);
+extern void BgCommitTilemapBufferToVram(u32 param0, u32 param1);
+extern void FreeBgTilemapBuffer(u32 param0, u32 param1);
 
-extern void FUN_02018170(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 *param6, u8 param7, u32 param8, u32 param9, u32 param10);
+extern void CopyToBgTilemapRect(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 *param6, u8 param7, u32 param8, u32 param9, u32 param10);
 
 extern void MOD11_02252DB4(u32 param0, u32 param1);
 
@@ -104,12 +104,12 @@ THUMB_FUNC BOOL MOD21_02254B60(u32 param0, void *param1)
 {
 #pragma unused (param0)
     UnkStruct02254A6C *strct = MOD20_022538A0(param1);
-    FUN_02016C18(strct->Unk04, 6, MOD21_02254D90, 0);
+    InitBgFromTemplate(strct->Unk04, 6, MOD21_02254D90, 0);
     GfGfxLoader_LoadCharData(12, 23, strct->Unk04, 6, 0, 0, 1, 8);
     GfGfxLoader_LoadScrnData(12, 24, strct->Unk04, 6, 0, 0, 1, 8);
     MOD20_02252D7C(0, 0);
     MOD21_02254C5C(strct);
-    FUN_02017CD0(strct->Unk04, 6);
+    BgCommitTilemapBufferToVram(strct->Unk04, 6);
     u32 r3 = reg_GXS_DB_DISPCNT;
     u32 r2 = reg_GXS_DB_DISPCNT;
     vu32 tmp = r3; //unused? wtf
@@ -128,7 +128,7 @@ THUMB_FUNC BOOL MOD21_02254BF4(u32 param0, void *param1)
 #pragma unused (param0)
     UnkStruct02254A6C *strct = MOD20_022538A0(param1);
     MOD21_02254C5C(strct);
-    FUN_02017CD0(strct->Unk04, 6);
+    BgCommitTilemapBufferToVram(strct->Unk04, 6);
     return MOD21_02254B4C(param1);
 }
 
@@ -151,7 +151,7 @@ THUMB_FUNC BOOL MOD21_02254C40(u32 param0, void *param1)
 {
 #pragma unused (param0)
     UnkStruct02254A6C *strct = MOD20_022538A0(param1);
-    FUN_020178A0(strct->Unk04, 6);
+    FreeBgTilemapBuffer(strct->Unk04, 6);
     return MOD21_02254B4C(param1);
 }
 
@@ -168,8 +168,8 @@ THUMB_FUNC void MOD21_02254C5C(UnkStruct02254A6C *param0)
     while (reg_CP_DIVCNT & (regaddr >> 0xb)) { }
 
     u32 divRemRes = reg_CP_DIVREM_RESULT_L;
-    FUN_02018170(param0->Unk04, 6, 3, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
-    FUN_02018170(param0->Unk04, 6, 8, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
+    CopyToBgTilemapRect(param0->Unk04, 6, 3, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
+    CopyToBgTilemapRect(param0->Unk04, 6, 8, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
 
     tmp = param0->Unk00->Unk04;
     reg_CP_DIVCNT = 0;
@@ -182,6 +182,6 @@ THUMB_FUNC void MOD21_02254C5C(UnkStruct02254A6C *param0)
     while (reg_CP_DIVCNT & (regaddr >> 0xb)) { }
 
     divRemRes = reg_CP_DIVREM_RESULT_L;
-    FUN_02018170(param0->Unk04, 6, 15, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
-    FUN_02018170(param0->Unk04, 6, 20, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
+    CopyToBgTilemapRect(param0->Unk04, 6, 15, 7, 4, 9, param0->Unk30, (u8)(divResult << 2), 0, 40, 9);
+    CopyToBgTilemapRect(param0->Unk04, 6, 20, 7, 4, 9, param0->Unk30, (u8)(divRemRes << 2), 0, 40, 9);
 }

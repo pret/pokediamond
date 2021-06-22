@@ -8,7 +8,7 @@ MOD05_021D74E0: ; 0x021D74E0
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #8]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
 	bl FUN_02009F80
 	ldr r0, [r4, #0x34]
@@ -69,7 +69,7 @@ _021D7564:
 	mov r0, #3
 	ldr r2, [r2, #4]
 	mov r1, #4
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _021D757A
@@ -101,7 +101,7 @@ _021D757A:
 	bl MOD05_021D7B38
 	bl GX_SwapDisplay
 	mov r0, #4
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #8]
 	bl MOD05_021D7A30
 	mov r0, #0
@@ -361,7 +361,7 @@ _021D7806:
 	mov r0, #0
 	str r0, [r4, #4]
 	mov r0, #4
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, [r4, #0x70]
 	ldr r0, [r0]
 	lsl r0, r0, #8
@@ -617,7 +617,7 @@ MOD05_021D7A30: ; 0x021D7A30
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r5, _021D7B04 ; =UNK05_021F6468
 	add r3, sp, #0x3c
 	ldmia r5!, {r0, r1}
@@ -632,15 +632,15 @@ MOD05_021D7A30: ; 0x021D7A30
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D7B08 ; =UNK05_021F644C
 	add r3, sp, #0x20
 	ldmia r5!, {r0, r1}
@@ -655,15 +655,15 @@ MOD05_021D7A30: ; 0x021D7A30
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D7B0C ; =UNK05_021F6484
 	add r3, sp, #4
 	ldmia r5!, {r0, r1}
@@ -678,15 +678,15 @@ MOD05_021D7A30: ; 0x021D7A30
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #4
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	mov r0, #0
 	add r1, sp, #0
 	strh r0, [r1]
@@ -713,13 +713,13 @@ MOD05_021D7B10: ; 0x021D7B10
 	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	pop {r4, pc}
 	.balign 4, 0
 

@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern gMain
 
@@ -141,7 +141,7 @@ FUN_02001C78: ; 0x02001C78
 	tst r3, r5
 	beq _02001C9E
 	ldr r0, _02001D28 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0x15]
 	ldr r1, [r4, #0x0]
 	lsl r0, r0, #0x3
@@ -153,7 +153,7 @@ _02001C9E:
 	tst r3, r2
 	beq _02001CAE
 	ldr r0, _02001D28 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	sub r0, r5, #0x3
 	pop {r3-r5, pc}
 _02001CAE:
@@ -237,7 +237,7 @@ FUN_02001D2C: ; 0x02001D2C
 	tst r6, r3
 	beq _02001D54
 	ldr r0, _02001DD8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0x15]
 	ldr r1, [r4, #0x0]
 	lsl r0, r0, #0x3
@@ -249,7 +249,7 @@ _02001D54:
 	tst r6, r5
 	beq _02001D66
 	ldr r0, _02001DD8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x1
 	mvn r0, r0
 	pop {r4-r6, pc}
@@ -338,7 +338,7 @@ _02001DF0: ; jump table (using 16-bit offset)
 	.short _02001E44 - _02001DF0 - 2; case 5
 _02001DFC:
 	ldr r0, _02001E58 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0x15]
 	ldr r1, [r4, #0x0]
 	lsl r0, r0, #0x3
@@ -347,7 +347,7 @@ _02001DFC:
 	pop {r4, pc}
 _02001E0E:
 	ldr r0, _02001E58 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x1
 	mvn r0, r0
 	pop {r4, pc}
@@ -433,7 +433,7 @@ _02001E7C:
 	add r0, r5, #0x0
 	bl FUN_02002080
 	add r0, r6, #0x0
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x1
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -804,7 +804,7 @@ CreateYesNoMenu: ; 0x020020EC
 	strb r0, [r3, #0xb]
 	ldr r2, [sp, #0x8]
 	add r0, r7, #0x0
-	bl FUN_02019150
+	bl AddWindow
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0xc]
 	ldr r3, [sp, #0x10]
@@ -883,7 +883,7 @@ FUN_020021EC: ; 0x020021EC
 	mov r1, #0x0
 	bl FUN_0200CCF8
 	ldr r0, [r5, #0x4]
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r1, [r5, #0x4]
 	add r0, r4, #0x0
 	bl FreeToHeapExplicit

@@ -53,10 +53,10 @@ THUMB_FUNC void NitroMain(void)
 {
     InitSystemForTheGame();
     InitGraphicMemory();
-    FUN_020163BC();
+    InitKeypadAndTouchpad();
     FUN_02016438(0);
 
-    PM_GetBackLight((PMBackLightSwitch *)SDK_STATIC_BSS_START, NULL);
+    PM_GetBackLight(&gBacklightTop, NULL);
 
     FUN_02022294();
     GF_InitRTCWork();
@@ -104,8 +104,8 @@ THUMB_FUNC void NitroMain(void)
     {
         FUN_02000EE8();
         HandleDSLidAction();
-        FUN_02016464();
-        if ((gMain.unk38 & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gMain.unk68) // soft reset?
+        ReadKeypadAndTocuhpad();
+        if ((gMain.heldKeysRaw & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gMain.softResetDisabled) // soft reset?
         {
             DoSoftReset(0); // soft reset?
         }
@@ -168,8 +168,7 @@ THUMB_FUNC void Main_RunOverlayManager(void)
 
 THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, const struct Unk21DBE18 * arg1)
 {
-    if (UNK_02016FA8.unkC != NULL)
-        GF_AssertFail();
+    GF_ASSERT(UNK_02016FA8.unkC == NULL);
     UNK_02016FA8.unk8 = id;
     UNK_02016FA8.unkC = arg1;
 }
@@ -248,7 +247,7 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
     while (1)
     {
         HandleDSLidAction();
-        FUN_02016464();
+        ReadKeypadAndTocuhpad();
         if (gMain.newKeys & 1)
             break;
         FUN_02000E9C();

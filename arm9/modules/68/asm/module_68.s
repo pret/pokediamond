@@ -32,7 +32,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	mov r0, #3
 	mov r1, #0x24
 	lsr r2, r2, #9
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r1, #0x81
 	add r0, r4, #0
 	lsl r1, r1, #2
@@ -49,7 +49,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	mov r0, #0x24
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r5]
 	mov r0, #0x7e
 	lsl r0, r0, #2
@@ -73,7 +73,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	bl MOD68_021D7870
 	mov r0, #4
 	mov r1, #8
-	bl FUN_0201669C
+	bl SetKeyRepeatTimers
 	bl FUN_0201CC08
 	mov r0, #4
 	bl FUN_0201CC24
@@ -173,7 +173,7 @@ MOD68_021D762C: ; 0x021D762C
 	add r1, r0, #0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x24
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _021D767C ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -187,7 +187,7 @@ _021D767C: .word 0x04000050
 MOD68_021D7680: ; 0x021D7680
 	push {r3, lr}
 	ldr r0, [r0]
-	bl FUN_0201AB60
+	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D7698 ; =0x027E0000
 	ldr r1, _021D769C ; =0x00003FF8
 	mov r0, #1
@@ -233,7 +233,7 @@ MOD68_021D76C0: ; 0x021D76C0
 	ldmia r5!, {r0, r1}
 	stmia r3!, {r0, r1}
 	add r0, r2, #0
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	bl MOD68_021D7FD8
 	ldr r5, _021D7768 ; =0x021D8910
 	add r3, sp, #0x38
@@ -249,10 +249,10 @@ MOD68_021D76C0: ; 0x021D76C0
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02018744
+	bl BgClearTilemapBufferAndCommit
 	ldr r5, _021D776C ; =0x021D88D8
 	add r3, sp, #0x1c
 	ldmia r5!, {r0, r1}
@@ -267,12 +267,12 @@ MOD68_021D76C0: ; 0x021D76C0
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	add r0, r4, #0
 	mov r1, #2
 	mov r2, #3
 	mov r3, #8
-	bl FUN_0201AEE4
+	bl ScheduleSetBgPosText
 	ldr r5, _021D7770 ; =0x021D88F4
 	add r3, sp, #0
 	ldmia r5!, {r0, r1}
@@ -287,12 +287,12 @@ MOD68_021D76C0: ; 0x021D76C0
 	str r0, [r3]
 	add r0, r4, #0
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r0, #1
 	mov r1, #0x20
 	mov r2, #0
 	mov r3, #0x24
-	bl FUN_02017F18
+	bl BG_ClearCharDataRange
 	add sp, #0x64
 	pop {r4, r5, pc}
 	nop
@@ -311,13 +311,13 @@ MOD68_021D7774: ; 0x021D7774
 	bl GX_EngineAToggleLayers
 	add r0, r4, #0
 	mov r1, #3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	mov r0, #0x24
 	add r1, r4, #0
 	bl FreeToHeapExplicit
@@ -393,12 +393,12 @@ _021D7812:
 	mov r1, #1
 	add r2, r4, #0
 	mov r3, #2
-	bl FUN_02018148
+	bl LoadRectToBgTilemapRect
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, [r5]
 	mov r1, #1
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	mov r1, #0x1e
 	mov r0, #0
 	lsl r1, r1, #4
@@ -482,7 +482,7 @@ _021D78D2:
 	ldr r0, [r7]
 	add r1, r5, #0
 	add r2, r4, #0
-	bl FUN_02019150
+	bl AddWindow
 	add r6, r6, #1
 	add r4, #8
 	add r5, #0x10
@@ -500,7 +500,7 @@ MOD68_021D78EC: ; 0x021D78EC
 	mov r4, #0
 _021D78F2:
 	add r0, r5, #0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #0xc
@@ -544,7 +544,7 @@ MOD68_021D7904: ; 0x021D7904
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r5, r4
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD68_021D7904
@@ -736,7 +736,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	add r0, r5, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -774,7 +774,7 @@ MOD68_021D7AE4: ; 0x021D7AE4
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop
@@ -810,7 +810,7 @@ MOD68_021D7B34: ; 0x021D7B34
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop
@@ -855,7 +855,7 @@ _021D7BA4:
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -891,7 +891,7 @@ MOD68_021D7BDC: ; 0x021D7BDC
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop
@@ -980,7 +980,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r6, #0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1393,7 +1393,7 @@ MOD68_021D7F98: ; 0x021D7F98
 	bl MOD68_021D85F4
 	ldr r0, [r4]
 	mov r1, #1
-	bl FUN_02017CD0
+	bl BgCommitTilemapBufferToVram
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD68_021D7F98

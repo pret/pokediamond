@@ -36,7 +36,7 @@ MOD05_021E2EA4: ; 0x021E2EA4
 	add r1, #0x20
 	str r0, [sp, #0x10]
 	ldr r0, [r4, #0x1c]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0
 	str r0, [sp]
 	ldr r2, _021E2EE0 ; =0x000003CF
@@ -61,7 +61,7 @@ MOD05_021E2EE4: ; 0x021E2EE4
 	add r0, #0x38
 	mov r1, #4
 	add r7, r3, #0
-	bl FUN_0201AB28
+	bl LoadCharacterDataFromFile
 	str r0, [r5, #0x34]
 	add r3, r0, #0
 	str r4, [sp]
@@ -69,11 +69,11 @@ MOD05_021E2EE4: ; 0x021E2EE4
 	ldr r0, [r5, #0x1c]
 	ldr r3, [r3, #0x10]
 	add r1, r6, #0
-	bl FUN_02017E14
+	bl BG_LoadCharTilesData
 	ldr r2, _021E2F30 ; =UNK05_021FD62C
 	add r0, sp, #4
 	mov r1, #4
-	bl FUN_0201AB44
+	bl LoadPaletteDataFromFile
 	ldr r0, [r0, #0xc]
 	mov r1, #1
 	add r2, r7, #0
@@ -367,7 +367,7 @@ _021E314E:
 	ldr r0, [r4, #0x1c]
 	ldr r3, [r4, #0xc]
 	add r2, r1, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	bne _021E31D0
@@ -401,7 +401,7 @@ _021E318E:
 	ldr r0, [r4, #0x1c]
 	ldr r3, [r4, #0xc]
 	add r2, r1, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r0, [r4, #0xc]
 	cmp r0, #0x26
 	bne _021E31D0
@@ -498,7 +498,7 @@ MOD05_021E3248: ; 0x021E3248
 	bl DestroyMsgData
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02019178
+	bl RemoveWindow
 	ldr r0, [r4, #0x40]
 	bl String_dtor
 	ldr r0, [r4, #0x38]
@@ -522,7 +522,7 @@ MOD05_021E3270: ; 0x021E3270
 	ldr r0, [r4, #0x1c]
 	add r2, r1, #0
 	mov r3, #0x26
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	mov r0, #0x26
 	str r0, [r4, #0xc]
 	ldr r0, _021E32EC ; =MOD05_021E3124
@@ -584,12 +584,12 @@ MOD05_021E32F0: ; 0x021E32F0
 _021E32FE:
 	add r0, r4, #0
 	add r0, #0x20
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 	mov r1, #3
 	ldr r0, [r4, #0x1c]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_020179E0
+	bl BgSetPosTextAndCommit
 	ldr r1, [r4, #0x1c]
 	add r0, r4, #0
 	bl MOD05_021E3114

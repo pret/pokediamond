@@ -25,7 +25,7 @@ _021D74FC:
 	mov r0, #3
 	mov r1, #0x4b
 	lsl r2, r0, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r1, _021D7670 ; =0x00001244
 	add r0, r6, #0
 	mov r2, #0x4b
@@ -269,7 +269,7 @@ _021D772E:
 	add r0, r6, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x4b
-	bl FUN_020168D0
+	bl DestroyHeap
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _021D773E:
@@ -562,7 +562,7 @@ MOD84_021D7968: ; 0x021D7968
 	sub sp, #0xc
 	add r4, r0, #0
 	mov r0, #0x4b
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	str r0, [r4, #4]
 	ldr r0, _021D7A60 ; =0x021DA68C
 	bl GX_SetBanks
@@ -576,17 +576,17 @@ MOD84_021D7968: ; 0x021D7968
 	add r2, r0, #0
 	bl GX_SetGraphicsMode
 	ldr r0, _021D7A6C ; =0x021DA650
-	bl FUN_02016BBC
+	bl SetBothScreensModesAndDisable
 	ldr r0, [r4, #4]
 	ldr r2, _021D7A70 ; =0x021DA670
 	mov r1, #1
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	ldr r0, [r4, #4]
 	ldr r2, _021D7A70 ; =0x021DA670
 	mov r1, #5
 	mov r3, #0
-	bl FUN_02016C18
+	bl InitBgFromTemplate
 	mov r2, #0
 	str r2, [sp]
 	mov r0, #0x20
@@ -692,10 +692,10 @@ MOD84_021D7A84: ; 0x021D7A84
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	mov r1, #1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	mov r1, #5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	pop {r4, pc}
@@ -934,7 +934,7 @@ MOD84_021D7BC8: ; 0x021D7BC8
 	add r0, #0x6c
 	mov r1, #0x4b
 	mov r2, #0x20
-	bl FUN_02016B20
+	bl GF_ExpHeap_FndInitAllocator
 	ldr r0, [r4, #4]
 	mov r1, #0
 	bl NNS_G3dGetAnmByIdx

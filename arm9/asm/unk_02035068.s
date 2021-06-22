@@ -1,5 +1,5 @@
 	.include "asm/macros.inc"
-    .include "global.inc"
+	.include "global.inc"
 
 	.extern UNK_020F96DC
 	.section .rodata
@@ -215,7 +215,7 @@ FUN_020351A0: ; 0x020351A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, _0203524C ; =0x000005FD
-	bl FUN_020054C8
+	bl PlaySE
 	bl FUN_02035254
 	add r4, r0, #0x0
 	mov r0, #0x71
@@ -552,12 +552,12 @@ _02035440:
 	mov r1, #0x1
 	bl FUN_0200CCF8
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r6, #0x0
 	bl FUN_020358A0
 	ldr r0, [r5, #0x8]
 	mov r1, #0x3
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0x0
 	bl FreeToHeap
 	ldr r0, [r5, #0x34]
@@ -616,7 +616,7 @@ FUN_0203549C: ; 0x0203549C
 	ldr r0, [sp, #0x1c]
 	mov r3, #0x14
 	ldr r0, [r0, #0x8]
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r3, #0xb
@@ -773,7 +773,7 @@ _02035614:
 	bl FUN_02001B8C
 	str r0, [r4, #0x20]
 	add r0, r4, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0, #0xc]
 	bl Sav2_PlayerData_GetProfileAddr
@@ -948,7 +948,7 @@ _0203576C:
 	ldr r0, [r4, #0x8]
 	add r1, #0x10
 	mov r2, #0x3
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r3, #0xb
@@ -1058,7 +1058,7 @@ _0203584C:
 	bl DestroyMsgData
 	add r5, #0x10
 	add r0, r5, #0x0
-	bl FUN_02019220
+	bl ScheduleWindowCopyToVram
 _0203588E:
 	add sp, #0x20
 	pop {r3-r7, pc}
@@ -1093,7 +1093,7 @@ _020358CE:
 	bl FUN_0200CCF8
 	add r5, #0x10
 	add r0, r5, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 _020358E0:
 	pop {r3-r5, pc}
 	.balign 4
@@ -1587,7 +1587,7 @@ FUN_02035CA0: ; 0x02035CA0
 	add r4, r0, #0x0
 	bl FUN_02035718
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x0
 	bl FUN_020358A0
 	mov r1, #0x72
@@ -2326,9 +2326,9 @@ FUN_020362E4: ; 0x020362E4
 	bl FUN_0204652C
 	add r4, r0, #0x0
 	mov r0, #0xb
-	bl BagView_new
+	bl BagView_New
 	str r0, [sp, #0x8]
-	bl FUN_0206E308
+	bl BagView_sizeof
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	add r2, r0, #0x0
@@ -2657,9 +2657,9 @@ FUN_020365BC: ; 0x020365BC
 	bl FUN_0200CCF8
 	ldrb r1, [r4, #0x4]
 	ldr r0, [r4, #0x0]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x0
 	bl FUN_020358A0
 	mov r0, #0x4
@@ -2927,9 +2927,9 @@ FUN_020367E8: ; 0x020367E8
 	bl FUN_0200CCF8
 	ldrb r1, [r4, #0x4]
 	ldr r0, [r4, #0x0]
-	bl FUN_0201AC68
+	bl ScheduleBgTilemapBufferTransfer
 	add r0, r4, #0x0
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x0
 	bl FUN_020358A0
 	ldr r0, [r6, #0xc]
@@ -3649,7 +3649,7 @@ FUN_02036E08: ; 0x02036E08
 	mov r0, #0x3
 	mov r1, #0x49
 	lsl r2, r0, #0x10
-	bl FUN_0201681C
+	bl CreateHeap
 	ldr r0, [r4, #0xc]
 	bl SavArray_PlayerParty_get
 	ldrb r1, [r5, #0x0]
@@ -3773,7 +3773,7 @@ FUN_02036F1C: ; 0x02036F1C
 	ldr r0, [r4, r0]
 	bl FUN_0206C92C
 	mov r0, #0x49
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _02036F9C ; =0x00000475
 	mov r1, #0x0
 	bl FUN_02005350

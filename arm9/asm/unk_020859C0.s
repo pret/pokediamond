@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern UNK_020F96DC
 
@@ -184,7 +184,7 @@ FUN_020859C0: ; 0x020859C0
 	mov r0, #0x3
 	mov r1, #0x35
 	lsl r2, r2, #0x12
-	bl FUN_0201681C
+	bl CreateHeap
 	mov r0, #0x35
 	bl MOD62_02230F3C
 	bl MOD62_0222F7E0
@@ -282,7 +282,7 @@ _02085A9A:
 	cmp r5, #0x6
 	blt _02085A7C
 	mov r0, #0x35
-	bl FUN_02016B94
+	bl BgConfig_Alloc
 	add r1, r4, #0x0
 	add r1, #0xe4
 	str r0, [r1, #0x0]
@@ -471,37 +471,37 @@ FUN_02085C08: ; 0x02085C08
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x2
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x3
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x4
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x5
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x6
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
 	mov r1, #0x7
-	bl FUN_020178A0
+	bl FreeBgTilemapBuffer
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
@@ -570,7 +570,7 @@ FUN_02085C08: ; 0x02085C08
 	bl OverlayManager_FreeData
 	bl FUN_0201CD04
 	mov r0, #0x35
-	bl FUN_020168D0
+	bl DestroyHeap
 	ldr r0, _02085D68 ; =SDK_OVERLAY_MODULE_08_ID
 	bl UnloadOverlayByID
 	mov r0, #0x1

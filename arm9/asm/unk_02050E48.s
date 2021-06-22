@@ -1,5 +1,5 @@
-    .include "asm/macros.inc"
-    .include "global.inc"
+	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.extern UNK_020F96DC
 	.extern gMain
@@ -1201,7 +1201,7 @@ FUN_020517C0: ; 0x020517C0
 	add r4, #0x14
 	add r0, r4, #0x0
 	add r6, r1, #0x0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	bne _020517F2
 	ldr r0, [r5, #0x24]
@@ -1237,7 +1237,7 @@ FUN_02051810: ; 0x02051810
 	add r5, r0, #0x0
 	add r0, #0x14
 	add r4, r1, #0x0
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	beq _02051846
 	cmp r4, #0x0
@@ -1248,35 +1248,35 @@ FUN_02051810: ; 0x02051810
 	bl FUN_0200D0E0
 	add r0, r5, #0x0
 	add r0, #0x14
-	bl FUN_02019570
+	bl ClearWindowTilemapAndCopyToVram
 _02051836:
 	add r0, r5, #0x0
 	add r0, #0x14
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x0
 	add r0, #0x14
 	bl InitWindow
 _02051846:
 	add r0, r5, #0x0
 	add r0, #0x54
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	beq _02051862
 	add r0, r5, #0x0
 	add r0, #0x54
-	bl FUN_02019178
+	bl RemoveWindow
 	add r0, r5, #0x0
 	add r0, #0x54
 	bl InitWindow
 _02051862:
 	add r0, r5, #0x0
 	add r0, #0x64
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	beq _0205187E
 	add r0, r5, #0x0
 	add r0, #0x64
-	bl FUN_02019178
+	bl RemoveWindow
 	add r5, #0x64
 	add r0, r5, #0x0
 	bl InitWindow
@@ -1673,7 +1673,7 @@ FUN_02051B68: ; 0x02051B68
 	add r0, #0x54
 	str r1, [sp, #0x14]
 	str r0, [sp, #0x20]
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	bne _02051C34
 	ldr r2, _02051C84 ; =0x0000016A
@@ -1698,7 +1698,7 @@ FUN_02051B68: ; 0x02051B68
 	ldr r0, [r0, #0x8]
 	mov r2, #0x3
 	mov r3, #0x15
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x4
@@ -1807,7 +1807,7 @@ FUN_02051C88: ; 0x02051C88
 	add r7, #0x64
 	add r0, r7, #0x0
 	str r1, [sp, #0x14]
-	bl FUN_02019048
+	bl WindowIsInUse
 	cmp r0, #0x0
 	bne _02051D0A
 	mov r0, #0xb
@@ -1824,7 +1824,7 @@ FUN_02051C88: ; 0x02051C88
 	ldr r0, [r0, #0x8]
 	mov r2, #0x3
 	mov r3, #0x14
-	bl FUN_02019064
+	bl AddWindowParameterized
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x4
@@ -1946,7 +1946,7 @@ _02051DA2:
 	tst r1, r0
 	beq _02051DC8
 	ldr r0, _02051E20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x81
 	ldrsb r1, [r4, r0]
 	add r4, #0x80
@@ -1966,7 +1966,7 @@ _02051DC8:
 	tst r0, r1
 	beq _02051DDA
 	ldr r0, _02051E20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	add sp, #0x8
 	mov r0, #0x2
 	pop {r4, pc}
@@ -1976,7 +1976,7 @@ _02051DDA:
 	pop {r4, pc}
 _02051DE0:
 	ldr r0, _02051E20 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x7c]
 	mov r1, #0x10
 	str r1, [sp, #0x0]
@@ -1996,7 +1996,7 @@ _02051DE0:
 	lsl r3, r3, #0x4
 	bl ListMenuUpdateCursorObj
 	ldr r0, [r4, #0x7c]
-	bl FUN_02019548
+	bl CopyWindowPixelsToVram_TextMode
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r4, pc}
@@ -2205,7 +2205,7 @@ _02051F7C:
 	bl FUN_0200D0E0
 	add r0, r4, #0x0
 	add r0, #0x8
-	bl FUN_02019178
+	bl RemoveWindow
 	mov r0, #0x0
 	bl MOD05_021D7CA4
 	ldr r0, [r4, #0x28]
