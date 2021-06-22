@@ -15,6 +15,7 @@
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
 #include "module_52.h"
+#include "font.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
@@ -27,8 +28,6 @@ struct UnkStruct_02016FA8 UNK_02016FA8;
 
 extern void FUN_02022294(void);
 extern void GF_InitRTCWork(void);
-extern void FUN_02002C14(void);
-extern void FUN_02002C50(int, int);
 extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
 extern void FUN_02089D90(int);

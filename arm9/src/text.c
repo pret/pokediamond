@@ -5,6 +5,7 @@
 #include "filesystem.h"
 #include "script_buffers.h"
 #include "unk_0200CA44.h"
+#include "font.h"
 
 const struct FontInfo *gFonts = NULL;
 
@@ -19,7 +20,6 @@ extern struct TextPrinter *FUN_0201B6C8(void);
 
 extern void FUN_0201C1A8(struct TextPrinter *printer);
 
-extern u32 FontFunc(u8 fontId, struct TextPrinter *printer);
 
 extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 
