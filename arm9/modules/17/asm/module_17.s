@@ -2878,7 +2878,7 @@ _021D8B04:
 _021D8B0A:
 	bl MOD17_021D9800
 	ldr r0, _021D8C7C ; =0x00000643
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -2947,7 +2947,7 @@ _021D8B86:
 	str r0, [r4]
 	mov r0, #0x1a
 	lsl r0, r0, #6
-	bl FUN_020054C8
+	bl PlaySE
 _021D8B9E:
 	ldr r0, _021D8C90 ; =0x0000048C
 	add r0, r5, r0
@@ -2970,7 +2970,7 @@ _021D8BBC:
 	str r0, [r4]
 	mov r0, #0x1a
 	lsl r0, r0, #6
-	bl FUN_020054C8
+	bl PlaySE
 _021D8BD4:
 	add r0, r5, #0
 	bl MOD17_021D9BE8
@@ -3009,7 +3009,7 @@ _021D8C04:
 	add r3, r6, #0
 	bl FUN_0200E1D0
 	ldr r0, _021D8C94 ; =0x00000684
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -8146,7 +8146,7 @@ _021DB192:
 _021DB19A:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	bl MOD17_021DB680
 _021DB1A8:
@@ -8257,7 +8257,7 @@ _021DB220:
 	ldrsh r0, [r4, r0]
 	str r0, [sp, #8]
 	ldr r0, _021DB394 ; =0x00000683
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0xc]
 	ldr r2, _021DB398 ; =0x00000151
 	mov r1, #0x1a
@@ -8283,7 +8283,7 @@ _021DB2AC:
 	mov r0, #0
 	str r0, [r4, #0x30]
 	ldr r0, _021DB39C ; =0x000005EA
-	bl FUN_020054C8
+	bl PlaySE
 	b _021DB388
 _021DB2C2:
 	ldr r0, [r4, #0x10]
@@ -8340,7 +8340,7 @@ _021DB32C:
 	str r0, [sp, #8]
 _021DB338:
 	ldr r0, _021DB394 ; =0x00000683
-	bl FUN_020054C8
+	bl PlaySE
 	b _021DB350
 _021DB340:
 	ldr r0, [r4, #0x10]
@@ -8348,7 +8348,7 @@ _021DB340:
 	add r2, sp, #8
 	bl MOD17_021DBBB8
 	ldr r0, _021DB3A0 ; =0x000005EB
-	bl FUN_020054C8
+	bl PlaySE
 _021DB350:
 	add r0, r4, #0
 	add r0, #0x20
@@ -8431,7 +8431,7 @@ MOD17_021DB3D4: ; 0x021DB3D4
 	mov r0, #0
 	str r0, [r4, #0x30]
 	ldr r0, _021DB400 ; =0x000005EB
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	bl MOD17_021DB534
 _021DB3FE:
@@ -10466,7 +10466,7 @@ _021DC28C:
 	add r0, r5, #0
 	bl MOD17_021DC2F8
 	ldr r0, _021DC2BC ; =0x0000067D
-	bl FUN_020054C8
+	bl PlaySE
 	b _021DC2B0
 _021DC29E:
 	cmp r6, #2
@@ -11241,7 +11241,7 @@ MOD17_021DC870: ; 0x021DC870
 	bne _021DC87E
 	lsl r0, r1, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020054C8
+	bl PlaySE
 _021DC87E:
 	pop {r3, pc}
 	thumb_func_end MOD17_021DC870
@@ -12495,7 +12495,7 @@ MOD17_021DD1DC: ; 0x021DD1DC
 	add r1, #0x30
 	bl MOD17_021DD2E0
 	ldr r0, _021DD200 ; =0x00000683
-	bl FUN_020054C8
+	bl PlaySE
 _021DD1FC:
 	pop {r3, pc}
 	nop

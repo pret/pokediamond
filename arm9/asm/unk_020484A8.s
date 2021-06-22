@@ -183,7 +183,7 @@ _020485F6:
 	cmp r0, #0x0
 	beq _02048688
 	ldr r0, _02048690 ; =0x0000061B
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x12
 	str r0, [r5, #0x38]
 	ldr r0, [r4, #0x0]

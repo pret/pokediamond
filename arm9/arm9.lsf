@@ -9,7 +9,7 @@ Static arm9
 	Object list_menu.o
 	Object unk_02001B80.o
 	Object string_util.o
-	Object unk_020023C0.o
+	Object render_text.o
 	Object unk_02002C14.o
 	Object unk_02002F08.o
 	Object unk_020030E8.o
@@ -173,8 +173,7 @@ Static arm9
 	Object scrcmd_money.o
 	Object scrcmd_daycare.o
 	Object scrcmd_17.o
-	Object scrcmd_18_c.o
-	Object scrcmd_18.o
+	Object scrcmd_party.o
 	Object scrcmd_fossils.o
 	Object scrcmd_prizes.o
 	Object scrcmd_flags.o
@@ -265,7 +264,7 @@ Static arm9
 	Object unk_0206C700.o
 	Object unk_0206DE24.o
 	Object unk_0206E0F0.o
-	Object unk_0206E2F0.o
+	Object bag_view.o
 
 	##itemtool##
 	Object itemtool.o

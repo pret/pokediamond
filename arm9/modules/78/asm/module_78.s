@@ -148,7 +148,7 @@ _021D75DE:
 	b _021D7662
 _021D7614:
 	ldr r0, _021D76B4 ; =0x000006DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]

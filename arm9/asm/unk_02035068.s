@@ -215,7 +215,7 @@ FUN_020351A0: ; 0x020351A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, _0203524C ; =0x000005FD
-	bl FUN_020054C8
+	bl PlaySE
 	bl FUN_02035254
 	add r4, r0, #0x0
 	mov r0, #0x71
@@ -2326,9 +2326,9 @@ FUN_020362E4: ; 0x020362E4
 	bl FUN_0204652C
 	add r4, r0, #0x0
 	mov r0, #0xb
-	bl BagView_new
+	bl BagView_New
 	str r0, [sp, #0x8]
-	bl FUN_0206E308
+	bl BagView_sizeof
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	add r2, r0, #0x0

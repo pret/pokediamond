@@ -3,7 +3,7 @@
 #include "heap.h"
 
 
-extern void FUN_020054C8(u32 param0);
+extern void PlaySE(u32 param0);
 extern void FUN_020463CC(u32 param0, void *func, UnkStruct021E7358 *param2);
 extern u32 FUN_020553A0(u32 param0);
 extern u32 FUN_02058720(u32 param0);
@@ -57,7 +57,7 @@ THUMB_FUNC void MOD05_021E7358(u32 param0, u32 param1, u32 param2)
     res->Unk0C = param0;
     res->Unk10 = param1;
     res->Unk00 = param2;
-    FUN_020054C8(1624);
+    PlaySE(1624);
     FUN_020463CC(param0, MOD05_021E73B4, res);
 }
 

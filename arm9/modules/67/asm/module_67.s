@@ -587,7 +587,7 @@ _021D7970:
 	mov r1, #1
 	strb r1, [r4, r0]
 	ldr r0, _021D7A24 ; =0x00000691
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D7A12
 _021D79AC:
 	bl MOD67_021D7C30
@@ -678,7 +678,7 @@ _021D7A4A:
 	mov r1, #1
 	strb r1, [r4, r0]
 	ldr r0, _021D7AA0 ; =0x00000691
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D7A92
 _021D7A72:
 	bl MOD67_021D7CBC

@@ -10,7 +10,7 @@ THUMB_FUNC struct UnkStruct_020851B8 *FUN_020851B8(u32 heap_id)
     return ptr;
 }
 
-THUMB_FUNC void FUN_020851DC(struct UnkStruct_020851B8 *param0, u32 item_id, BOOL param2)
+THUMB_FUNC void FUN_020851DC(struct UnkStruct_020851B8 *param0, u16 item_id, BOOL param2)
 {
     u16 berry_id = item_id - FIRST_BERRY_IDX;
     FUN_02085200(param0, berry_id);

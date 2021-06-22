@@ -1508,7 +1508,7 @@ _021D80D2:
 	add r0, r4, #0
 	bl MOD64_021D83C4
 	ldr r0, _021D80FC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _021D80F4
 _021D80F0:
 	mov r0, #1
@@ -1566,7 +1566,7 @@ _021D8146:
 	mov r1, #1
 	bl MOD64_021D83C4
 	ldr r0, _021D81D0 ; =0x000006CA
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3, r4, r5, pc}
 _021D815E:
 	mov r0, #0x26
@@ -1867,7 +1867,7 @@ MOD64_021D8384: ; 0x021D8384
 	bmi _021D83A0
 	str r0, [r4, #0x54]
 	ldr r0, _021D83C0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D83A0:
 	ldr r0, _021D83BC ; =gMain
 	ldr r1, [r0, #0x48]
@@ -1880,7 +1880,7 @@ _021D83A0:
 	bge _021D83BA
 	str r0, [r4, #0x54]
 	ldr r0, _021D83C0 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D83BA:
 	pop {r4, pc}
 	.align 2, 0

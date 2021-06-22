@@ -430,8 +430,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0116
 	.word ScrCmd_Unk0117
 	.word ScrCmd_Unk0118
-	.word ScrCmd_Unk0119
-	.word ScrCmd_Unk011A
+	.word ScrCmd_CheckPartyForPokerus
+	.word ScrCmd_GetPartyMonGender
 	.word ScrCmd_Unk011B
 	.word ScrCmd_Unk011C
 	.word ScrCmd_Unk011D
@@ -524,7 +524,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0174
 	.word ScrCmd_Unk0175
 	.word ScrCmd_Unk0176
-	.word ScrCmd_Unk0177
+	.word ScrCmd_CountPartyMons
 	.word ScrCmd_Unk0178
 	.word ScrCmd_Unk0179
 	.word ScrCmd_Unk017A
@@ -557,12 +557,12 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0195
 	.word ScrCmd_Unk0196
 	.word ScrCmd_Unk0197
-	.word ScrCmd_GetPartySpecies
+	.word ScrCmd_GetPartyMonSpecies
 	.word ScrCmd_CheckPartyMonOTID
-	.word ScrCmd_Unk019A
-	.word ScrCmd_Unk019B
-	.word ScrCmd_Unk019C
-	.word ScrCmd_Unk019D
+	.word ScrCmd_CountPartyMons_OmitEggs
+	.word ScrCmd_CountAvailablePartyMons_IgnoreSlot
+	.word ScrCmd_CountAvailablePartyAndPCMons
+	.word ScrCmd_GetPartyEggCount
 	.word ScrCmd_Unk019E
 	.word ScrCmd_Unk019F
 	.word ScrCmd_Unk01A0
@@ -591,13 +591,13 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01B7
 	.word ScrCmd_Unk01B8
 	.word ScrCmd_GetPartyMonFriendship
-	.word ScrCmd_Unk01BA
-	.word ScrCmd_Unk01BB
+	.word ScrCmd_AddPartyMonFriendship
+	.word ScrCmd_SubtractPartyMonFriendship
 	.word ScrCmd_Unk01BC
 	.word ScrCmd_Unk01BD
 	.word ScrCmd_Unk01BE
 	.word ScrCmd_Unk01BF
-	.word ScrCmd_Unk01C0
+	.word ScrCmd_CheckPartyForSpecies
 	.word ScrCmd_Unk01C1
 	.word ScrCmd_Unk01C2
 	.word ScrCmd_Unk01C3
@@ -605,9 +605,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01C5
 	.word ScrCmd_Unk01C6
 	.word ScrCmd_Unk01C7
-	.word ScrCmd_Unk01C8
-	.word ScrCmd_Unk01C9
-	.word ScrCmd_Unk01CA
+	.word ScrCmd_CountPartyMonMoves
+	.word ScrCmd_ForgetPartyMonMove
+	.word ScrCmd_GetPartyMonMove
 	.word ScrCmd_GetPokemonMoveName
 	.word ScrCmd_Unk01CC
 	.word ScrCmd_Unk01CD
@@ -643,9 +643,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01EB
 	.word ScrCmd_Unk01EC
 	.word ScrCmd_Unk01ED
-	.word ScrCmd_Unk01EE
+	.word ScrCmd_GetPartyMonHeldItem
 	.word ScrCmd_Unk01EF
-	.word ScrCmd_Unk01F0
+	.word ScrCmd_ResetPartyMonHeldItem
 	.word ScrCmd_CountFossils
 	.word ScrCmd_Unk01F2
 	.word ScrCmd_Unk01F3
@@ -707,10 +707,10 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk022B
 	.word ScrCmd_Unk022C
 	.word ScrCmd_Unk022D
-	.word ScrCmd_Unk022E
-	.word ScrCmd_Unk022F
-	.word ScrCmd_Unk0230
-	.word ScrCmd_Unk0231
+	.word ScrCmd_CountPartyMonRibbons
+	.word ScrCmd_CountTotalPartyRibbons
+	.word ScrCmd_PartyMonHasRibbon
+	.word ScrCmd_GivePartyMonRibbon
 	.word ScrCmd_GetRibbonName
 	.word ScrCmd_Unk0233
 	.word ScrCmd_Unk0234
@@ -732,8 +732,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0244
 	.word ScrCmd_Unk0245
 	.word ScrCmd_GameVersion
-	.word ScrCmd_Unk0247
-	.word ScrCmd_Unk0248
+	.word ScrCmd_GetLeadingPartyMonSlot
+	.word ScrCmd_GetPartyMonTypes
 	.word ScrCmd_GiveWallpaper
 	.word ScrCmd_Unk024A
 	.word ScrCmd_Unk024B
@@ -790,7 +790,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk027E
 	.word ScrCmd_Unk027F
 	.word ScrCmd_Unk0280
-	.word ScrCmd_Unk0281
+	.word ScrCmd_GetPartyMonContestCondition
 	.word ScrCmd_Unk0282
 	.word ScrCmd_SetVolume
 	.word ScrCmd_Unk0284
@@ -844,7 +844,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02B4
 	.word ScrCmd_Unk02B5
 	.word ScrCmd_Unk02B6
-	.word ScrCmd_Unk02B7
+	.word ScrCmd_CheckPartyForBadEgg
 	.word ScrCmd_Unk02B8
 	.word ScrCmd_Unk02B9
 	.word ScrCmd_Unk02BA

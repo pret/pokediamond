@@ -1127,7 +1127,7 @@ _020746F2: ; jump table (using 16-bit offset)
 _020746FC:
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207482C ; =0x00000305
 	mov r1, #0x1
 	strb r1, [r4, r0]
@@ -1171,7 +1171,7 @@ _0207475C:
 	bl FUN_02074AF4
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0207482C ; =0x00000305
 	mov r1, #0x3
 	strb r1, [r4, r0]

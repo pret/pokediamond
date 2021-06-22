@@ -1478,7 +1478,7 @@ _0222FEA6:
 	mov r0, #3
 	bl FUN_02002B7C
 	mov r0, #1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #1
 	bl FUN_02002BB8
 	pop {r3, pc}
@@ -6262,7 +6262,7 @@ _0223223C:
 	b _02232252
 _02232244:
 	ldr r0, _0223225C ; =0x000005E6
-	bl FUN_020054C8
+	bl PlaySE
 	b _02232252
 _0223224C:
 	ldr r0, _02232260 ; =0x00000483
@@ -24041,7 +24041,7 @@ _0223AE3C:
 	beq _0223AEDC
 _0223AE4E:
 	ldr r0, _0223AF70 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, [r4, #0x28]
 	add sp, #0xd4
 	add r0, r0, #1
@@ -24931,7 +24931,7 @@ _0223B57C:
 	mov r0, #1
 	str r0, [r4, #0x28]
 	ldr r0, _0223B7F8 ; =0x0000070A
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r2, [r4]
 	ldr r0, _0223B7FC ; =0x0000241E
 	ldrh r1, [r2, r0]
@@ -24962,7 +24962,7 @@ _0223B5A4:
 	mov r0, #1
 	str r0, [r4, #0x28]
 	ldr r0, _0223B7F8 ; =0x0000070A
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r2, [r4]
 	ldr r0, _0223B7FC ; =0x0000241E
 	ldrh r1, [r2, r0]
@@ -25410,7 +25410,7 @@ _0223B9AA:
 	cmp r0, #0
 	beq _0223B9BC
 	ldr r0, _0223BBE4 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0xe
 	str r0, [r4, #0x28]
 _0223B9BC:
@@ -68574,7 +68574,7 @@ _0225073C:
 	cmp r0, #3
 	beq _022507E2
 	ldr r0, _022508A0 ; =0x0000070A
-	bl FUN_020054C8
+	bl PlaySE
 _022507E2:
 	cmp r5, #4
 	bne _0225088A
@@ -69325,7 +69325,7 @@ _02250DD0:
 	mov r0, #0xa
 	strb r0, [r4, #0xb]
 	ldr r0, _02250E9C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #6
 	add sp, #0x4c
 	strb r0, [r4, #0xa]
@@ -69707,7 +69707,7 @@ _02251114:
 	cmp r0, r1
 	beq _022511B6
 	ldr r0, _022511C0 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	add r0, #0x20
 	ldrb r0, [r0]
@@ -69990,7 +69990,7 @@ _02251366:
 	cmp r0, r1
 	beq _02251418
 	ldr r0, _0225141C ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0xf]
 	add sp, #0x2c
 	add r0, r0, #1
@@ -72355,7 +72355,7 @@ _0225267E:
 	cmp r0, r1
 	beq _0225270A
 	ldr r0, _02252710 ; =0x000005DD
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #3
 	add sp, #0x2c
 	strb r0, [r4, #0xe]
@@ -72853,7 +72853,7 @@ _02252A86:
 	add r0, #0x4e
 	strb r1, [r0]
 	ldr r0, _02252B2C ; =0x0000070B
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r1, [r4, #0x40]
 	add r0, r4, #0
 	bl MOD11_022571B8
@@ -73522,7 +73522,7 @@ _02252FCE:
 	add r1, #0xb
 	bl MOD11_0225805C
 	ldr r0, _02253004 ; =0x0000070C
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0xa]
 	add r0, r0, #1
 	strb r0, [r4, #0xa]
@@ -73694,7 +73694,7 @@ _02253104:
 	ldr r0, [r4, #8]
 	bl MOD08_0222A1DC
 	ldr r0, _022533E0 ; =0x0000084F
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0x14]
 	add sp, #0x18
 	add r0, r0, #1
@@ -73738,7 +73738,7 @@ _0225318C:
 	bne _0225319A
 	mov r0, #0x85
 	lsl r0, r0, #4
-	bl FUN_020054C8
+	bl PlaySE
 _0225319A:
 	ldrb r0, [r4, #0x15]
 	cmp r0, #0x1c
@@ -86080,7 +86080,7 @@ MOD11_0225916C: ; 0x0225916C
 	bl _s32_div_f
 	strh r0, [r4, #0xe]
 	ldr r0, _0225925C ; =0x0000070E
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _02259260 ; =MOD11_0225B438
 	ldr r2, _02259264 ; =0x000004BA
 	add r1, r4, #0
@@ -90888,7 +90888,7 @@ _0225B8EC:
 	cmp r0, #0
 	bne _0225B8F6
 	ldr r0, _0225B920 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _0225B8F6:
 	mov r1, #1
 	ldr r0, _0225B924 ; =0x000006F4
@@ -91032,7 +91032,7 @@ _0225B9EC:
 	mov r0, #1
 	strb r0, [r4, #1]
 	ldr r0, _0225BAFC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r5, #0x20
 	b _0225BA34
 _0225BA1E:
@@ -91044,7 +91044,7 @@ _0225BA1E:
 	mov r0, #1
 	strb r0, [r4, #1]
 	ldr r0, _0225BAFC ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r5, #0x10
 _0225BA34:
 	cmp r5, #0x20
@@ -92834,7 +92834,7 @@ _0225C738:
 	beq _0225C754
 _0225C74C:
 	ldr r0, _0225C768 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	b _0225C75E
 _0225C754:
 	mov r0, #0xf0
@@ -93398,7 +93398,7 @@ _0225CB80:
 	bl FUN_0200CA44
 	str r0, [r5, #4]
 	ldr r0, _0225CBB8 ; =0x00000711
-	bl FUN_020054C8
+	bl PlaySE
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0225CBA8: .word MOD11_0225FE48
@@ -93863,7 +93863,7 @@ _0225CF22:
 	bgt _0225CF50
 	str r0, [r4, #0x1c]
 	ldrh r0, [r4, #0x2a]
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r4, #0
 	add r0, #0x2c
 	ldrb r0, [r0]

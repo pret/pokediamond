@@ -138,7 +138,7 @@ _02046118:
 	mov r2, #0x11
 	bl FUN_0204C1B4
 	ldr r0, _0204620C ; =0x00000679
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0x8]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x8]
@@ -167,7 +167,7 @@ _02046160:
 	mov r2, #0x10
 	bl FUN_0204C1B4
 	ldr r0, _0204620C ; =0x00000679
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r0, [r4, #0x8]
 	add r0, r0, #0x1
 	strb r0, [r4, #0x8]

@@ -646,7 +646,7 @@ FUN_0205339C: ; 0x0205339C
 	beq _0205343C
 _020533CC:
 	ldr r0, _02053440 ; =0x0000064F
-	bl FUN_020054C8
+	bl PlaySE
 	ldrb r1, [r5, #0x8]
 	add r0, r4, #0x0
 	bl FUN_02057634

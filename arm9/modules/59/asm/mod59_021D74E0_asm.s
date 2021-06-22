@@ -632,7 +632,7 @@ _021D7C5E:
 	mov r3, #4
 	bl FUN_0200D0BC
 	mov r0, #1
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	add r0, r4, #0
 	bl FUN_02002B7C
 	mov r0, #1
@@ -735,7 +735,7 @@ MOD59_021D7D68: ; 0x021D7D68
 	cmp r2, #0
 	bne _021D7D74
 	ldr r0, _021D7D78 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D7D74:
 	pop {r3, pc}
 	nop
@@ -878,7 +878,7 @@ _021D7E66:
 	ldr r0, [r5, #0x44]
 	bl ListMenuItems_dtor
 	ldr r0, _021D7EC8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0
 	str r0, [r5, #0x2c]
 	mov r0, #1
@@ -1060,7 +1060,7 @@ _021D7FF6:
 	bne _021D803C
 _021D800A:
 	ldr r0, _021D8054 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #4
 	str r0, [r4, #0x54]
 	b _021D803C
@@ -3101,7 +3101,7 @@ _021D9078:
 	cmp r1, r0
 	bne _021D90A2
 	ldr r0, _021D937C ; =0x00000706
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #0x32
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -3450,7 +3450,7 @@ _021D935C:
 	add r0, #0x84
 	str r1, [r0]
 	ldr r0, _021D9380 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _021D9368:
 	add r0, r4, #0
 	bl MOD59_021D8504

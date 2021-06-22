@@ -214,7 +214,7 @@ _021D768C:
 	mov r1, #0x3c
 	bl FUN_020053CC
 	ldr r0, _021D77AC ; =0x000005F4
-	bl FUN_020054C8
+	bl PlaySE
 	mov r0, #4
 	str r0, [r5]
 	b _021D779C

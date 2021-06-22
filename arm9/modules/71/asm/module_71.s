@@ -3633,7 +3633,7 @@ MOD71_0222F3DC: ; 0x0222F3DC
 	cmp r0, r6
 	beq _0222F416
 	ldr r0, _0222F428 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	str r6, [r4]
 	mov r7, #1
 _0222F416:
@@ -4326,7 +4326,7 @@ MOD71_0222F954: ; 0x0222F954
 	pop {r4, r5, r6, pc}
 _0222F976:
 	ldr r0, _0222FA10 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0222FA14 ; =0x0000366C
 	ldr r0, [r5, r0]
 	bl FUN_0202DFA4
@@ -4344,7 +4344,7 @@ _0222F976:
 	b _0222F9E4
 _0222F9A0:
 	ldr r0, _0222FA10 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 	ldr r0, _0222FA24 ; =0x00003670
 	str r4, [r5, r0]
 	mov r0, #0x1a
@@ -7143,7 +7143,7 @@ MOD71_02231098: ; 0x02231098
 	cmp r2, #0
 	bne _022310A4
 	ldr r0, _022310A8 ; =0x000005DC
-	bl FUN_020054C8
+	bl PlaySE
 _022310A4:
 	pop {r3, pc}
 	nop

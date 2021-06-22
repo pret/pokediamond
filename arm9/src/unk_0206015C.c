@@ -21,7 +21,7 @@ extern THUMB_FUNC void  MOD06_02245190(u32);
 extern THUMB_FUNC void  MOD06_02245198(u8, u32);
 extern THUMB_FUNC u32   MOD06_022451F0(u32);
 
-extern THUMB_FUNC void  FUN_020054C8(u32);
+extern THUMB_FUNC void  PlaySE(u32);
 extern THUMB_FUNC void  FUN_02049160(struct UnkStruct_0204639C*, u32);
 extern THUMB_FUNC void  FUN_0204AF84(struct UnkStruct_0204639C*);
 extern THUMB_FUNC void  FUN_0204AF3C(struct UnkStruct_0204639C *);
@@ -97,7 +97,7 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
             MOD06_02244DC4(unkStruct1->unk0, unkAddr);
             MOD06_02244EF8(unkStruct1->unk0);
             unkStruct1->unkE = 0;
-            FUN_020054C8(1657);
+            PlaySE(1657);
             FUN_0204C1B4(unkStruct0, 0x3, 0x11, 0x0000FFFF, 0, 6, 1, 0xb);
             unkStruct1->action = 5;
         }
@@ -117,7 +117,7 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
         MOD06_02245198(unkStruct1->unkD, unkStruct1->unk4);
         unkStruct1->unk8 = MOD06_022451F0(unkStruct1->unk4);
 
-        FUN_020054C8(1657);
+        PlaySE(1657);
         FUN_0204C1B4(unkStruct0, 0x3, 0x10, 0x0000FFFF, 0, 6, 1, 0xb);
         unkStruct1->action = 6;
         break;

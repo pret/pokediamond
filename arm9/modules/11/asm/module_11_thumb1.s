@@ -1348,7 +1348,7 @@ _0222E194:
 	bl MOD11_0222D840
 _0222E1AC:
 	mov r0, #0
-	bl FUN_02002B60
+	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0
 	bl FUN_02002B7C
 	mov r0, #0
@@ -3302,7 +3302,7 @@ _0222F1D0:
 	cmp r0, #0
 	bne _0222F1F6
 	ldr r0, _0222F250 ; =0x00000704
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r6, #0
 	mov r1, #1
 	bl MOD11_02231484
@@ -3338,7 +3338,7 @@ _0222F214:
 	sub r1, r4, #1
 	bne _0222F244
 	ldr r0, _0222F250 ; =0x00000704
-	bl FUN_020054C8
+	bl PlaySE
 	add r0, r6, #0
 	mov r1, #4
 	bl MOD11_022314B0
