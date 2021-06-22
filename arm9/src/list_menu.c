@@ -3,6 +3,7 @@
 #include "main.h"
 #include "list_menu.h"
 #include "text.h"
+#include "font.h"
 
 void ListMenuPrintEntries(struct ListMenu * list, u16 startIndex, u16 yOffset, u16 count);
 void ListMenuDrawCursor(struct ListMenu * list);
