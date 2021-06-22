@@ -10,8 +10,10 @@ struct UnkStruct_02002C14
     u8 width;
     u8 height;
     void *unk84[4];
-    void *unk94[4];
+    struct UnkStruct_0202199C *unk94[4];
 };
+
+extern struct UnkStruct_02002C14 *UNK_02106FC8;
 
 void FUN_02002C14();
 void FUN_02002C50(u32 param0, u32 param1);
