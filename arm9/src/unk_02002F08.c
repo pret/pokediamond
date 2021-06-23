@@ -56,10 +56,9 @@ THUMB_FUNC int FUN_02002F9C(u32 param0, struct String *str)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
-    return StringGetWidth_SingleLine_HandleClearToControlCode(UNK_02106FC8->unk94[param0], String_c_str(str));
+    return StringGetWidth_SingleLine_HandleClearToControlCode(
+        UNK_02106FC8->unk94[param0], String_c_str(str));
 }
-
-
 
 THUMB_FUNC struct UnkStruct_02002F08 *FUN_02002FD0(u32 heap_id)
 {
@@ -74,7 +73,8 @@ THUMB_FUNC void FUN_02002FEC(struct UnkStruct_02002F08 *ptr)
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void FUN_02002FF4(struct UnkStruct_02002F08 *param0, u32 param1, void *param2, void *param3, u32 size)
+THUMB_FUNC void FUN_02002FF4(
+    struct UnkStruct_02002F08 *param0, u32 param1, void *param2, void *param3, u32 size)
 {
     param0->unk000[param1].unk00 = param2;
     param0->unk000[param1].unk04 = param3;
@@ -95,13 +95,21 @@ THUMB_FUNC void FUN_02003038(struct UnkStruct_02002F08 *param0, u32 param1)
     FreeToHeap(param0->unk000[param1].unk04);
 }
 
-THUMB_FUNC void FUN_02003054(struct UnkStruct_02002F08 *param0, const void *param1, u32 param2, u32 offset, u16 size)
+THUMB_FUNC void FUN_02003054(
+    struct UnkStruct_02002F08 *param0, const void *param1, u32 param2, u32 offset, u16 size)
 {
     MIi_CpuCopy16(param1, param0->unk000[param2].unk00 + offset, size);
     MIi_CpuCopy16(param1, param0->unk000[param2].unk04 + offset, size);
 }
 
-THUMB_FUNC void FUN_02003084(struct UnkStruct_02002F08 *param0, NarcId narcId, s32 memberId, u32 heap_id, u32 param4, u32 size, u16 offset, u16 param7)
+THUMB_FUNC void FUN_02003084(struct UnkStruct_02002F08 *param0,
+    NarcId narcId,
+    s32 memberId,
+    u32 heap_id,
+    u32 param4,
+    u32 size,
+    u16 offset,
+    u16 param7)
 {
     NNSG2dPaletteData *pltData;
     void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heap_id);
@@ -119,7 +127,13 @@ THUMB_FUNC void FUN_02003084(struct UnkStruct_02002F08 *param0, NarcId narcId, s
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void FUN_020030E8(struct UnkStruct_02002F08 *param0, NarcId narcId, s32 memberId, u32 heap_id, u32 param4, u32 size, u16 offset)
+THUMB_FUNC void FUN_020030E8(struct UnkStruct_02002F08 *param0,
+    NarcId narcId,
+    s32 memberId,
+    u32 heap_id,
+    u32 param4,
+    u32 size,
+    u16 offset)
 {
     FUN_02003084(param0, narcId, memberId, heap_id, param4, size, offset, 0);
 }

@@ -1,5 +1,5 @@
-#ifndef POKEDIAMON_UNK_02002F08_H
-#define POKEDIAMON_UNK_02002F08_H
+#ifndef POKEDIAMOND_UNK_02002F08_H
+#define POKEDIAMOND_UNK_02002F08_H
 
 #include "global.h"
 #include "gf_gfx_loader.h"
@@ -35,4 +35,4 @@ void FUN_02003054(struct UnkStruct_02002F08 *param0, const void *param1, u32 par
 void FUN_02003084(struct UnkStruct_02002F08 *param0, NarcId narcId, s32 memberId, u32 heap_id, u32 param4, u32 size, u16 offset, u16 param7);
 void FUN_020030E8(struct UnkStruct_02002F08 *param0, NarcId narcId, s32 memberId, u32 heap_id, u32 param4, u32 size, u16 offset);
 
-#endif //POKEDIAMON_UNK_02002F08_H
+#endif //POKEDIAMOND_UNK_02002F08_H
