@@ -5,7 +5,7 @@
 #include "string16.h"
 #include "unk_0201B8B8.h"
 
-THUMB_FUNC int FUN_02002F08(u32 param0, struct String *str, u32 param2)
+THUMB_FUNC s32 FUN_02002F08(u32 param0, struct String *str, u32 param2)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
@@ -52,7 +52,7 @@ THUMB_FUNC u32 FUN_02002F90(struct String *str)
     return FUN_02002F58(String_c_str(str));
 }
 
-THUMB_FUNC int FUN_02002F9C(u32 param0, struct String *str)
+THUMB_FUNC s32 FUN_02002F9C(u32 param0, struct String *str)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
