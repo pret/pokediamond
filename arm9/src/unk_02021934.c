@@ -10,9 +10,9 @@
 
 void StrAddChar(struct String * str, u16 val);
 
-int StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6)
+s32 StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6)
 {
-    int ret = 0;
+    s32 ret = 0;
     u32 r4 = 0;
     while (*arr != 0xFFFF)
     {
@@ -38,9 +38,9 @@ int StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6)
     return ret;
 }
 
-int StringGetWidth_SingleLine_HandleClearToControlCode(struct UnkStruct_0202199C * r6, const u16 * arr)
+s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct UnkStruct_0202199C * r6, const u16 * arr)
 {
-    int ret = 0;
+    s32 ret = 0;
     while (*arr != 0xFFFF)
     {
         if (*arr == 0xFFFE)

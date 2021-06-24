@@ -20,11 +20,11 @@ const struct FontInfo gFontInfos[5] = {
     { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
 };
 
-extern u32 FUN_02021590(u32, u16, u32, u16, u32);
-extern void FUN_020215E0(u32, u32, u32);
-extern void FUN_020215C8(u32 param0);
-extern void FUN_02021750(void *, u32);
-extern u32 FUN_020218D8(void *, u16 *str, u32);
+extern struct UnkStruct_0202199C *FUN_02021590(u32, u16, u32, u16, u32);
+extern void FUN_020215E0(struct UnkStruct_0202199C *, u32, u32);
+extern void FUN_020215C8(struct UnkStruct_0202199C *param0);
+extern void FUN_02021750(struct UnkStruct_0202199C *, u32);
+extern u32 FUN_020218D8(struct UnkStruct_0202199C *, u16 *str, u32);
 
 THUMB_FUNC void FUN_02002C14()
 {
