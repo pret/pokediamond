@@ -1,6 +1,8 @@
+#include "mod21_02254A6C.h"
+
 #include "global.h"
 #include "heap.h"
-#include "mod21_02254A6C.h"
+#include "registers.h"
 #include "MI_memory.h"
 
 extern void MOD20_022536F4(u32 *param0, u32 param1);

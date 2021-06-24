@@ -1,6 +1,8 @@
-#include "consts.h"
-#include "function_target.h"
 #include "OS_interrupt.h"
+
+#include "global.h"
+#include "registers.h"
+#include "mmap.h"
 #include "OS_thread.h"
 
 #pragma optimize_for_size on

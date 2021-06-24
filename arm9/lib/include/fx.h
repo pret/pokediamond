@@ -1,6 +1,8 @@
 #ifndef GUARD_FX_H
 #define GUARD_FX_H
 
+#include "nitro/types.h"
+
 typedef s16 fx16;
 typedef s32 fx32;
 typedef s64 fx64;

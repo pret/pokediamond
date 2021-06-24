@@ -1,5 +1,7 @@
-#include "global.h"
 #include "fx.h"
+
+#include "global.h"
+#include "registers.h"
 
 
 ARM_FUNC fx32 FX_Div(fx32 numerator, fx32 denominator){

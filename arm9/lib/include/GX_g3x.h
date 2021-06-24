@@ -3,6 +3,8 @@
 
 #include "fx.h"
 
+#include "registers.h"
+
 void GXi_NopClearFifo128_(void *reg);
 void G3X_Init();
 void G3X_ResetMtxStack();

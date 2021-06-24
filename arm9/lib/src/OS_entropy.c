@@ -2,9 +2,12 @@
 // Created by red031000 on 2020-05-03.
 //
 
-#include "function_target.h"
-#include "consts.h"
 #include "OS_entropy.h"
+
+#include "global.h"
+#include "registers.h"
+#include "systemWork.h"
+#include "userInfo.h"
 
 ARM_FUNC void OS_GetLowEntropyData(u32 * arr)
 {
