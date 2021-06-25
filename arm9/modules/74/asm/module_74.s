@@ -35,10 +35,10 @@ MOD74_021D74E0: ; 0x021D74E0
 	bl FUN_02029FC8
 	str r0, [r4, #0x1c]
 	ldr r0, [r5]
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	str r0, [r4, #0x20]
 	ldr r0, [r5]
-	bl FUN_0202A8E4
+	bl SaveStruct23_GetSubstruct4
 	str r0, [r4, #0x24]
 	mov r0, #0x4a
 	str r0, [r4]
@@ -967,7 +967,7 @@ MOD74_021D7C10: ; 0x021D7C10
 	ldr r0, [r5, #0x20]
 	lsr r1, r1, #0x10
 	mov r2, #0
-	bl FUN_0202A578
+	bl SaveStruct23_Substruct2_SetFlag
 	lsl r2, r0, #0x10
 	add r0, sp, #0x18
 	ldrb r6, [r0, #0x10]
@@ -1195,7 +1195,7 @@ _021D7E04:
 	bl AddTextPrinterParameterized2
 	ldr r0, [r4, #0x20]
 	mov r1, #0
-	bl FUN_0202A444
+	bl SaveStruct23_Substruct2_SetField_0x3
 	mov r1, #0
 	add r2, r0, #0
 	str r1, [sp]

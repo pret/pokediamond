@@ -5,7 +5,7 @@
 
 #include "MWC_string.h"
 #include "function_target.h"
-#include "nitro.h"
+#include "nitro/types.h"
 #include "constants/global.h"
 #include "error_handling.h"
 

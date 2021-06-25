@@ -1,5 +1,7 @@
-#include "global.h"
 #include "custom_allocator.h"
+
+#include "global.h"
+#include "OS_alloc.h"
 
 static FreeFunc sDestructor;
 static AllocFunc sAllocator;

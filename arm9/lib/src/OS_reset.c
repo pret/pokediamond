@@ -1,5 +1,6 @@
-#include "function_target.h"
 #include "OS_reset.h"
+
+#include "global.h"
 #include "MB_mb.h"
 #include "OS_terminate_proc.h"
 #include "OS_interrupt.h"

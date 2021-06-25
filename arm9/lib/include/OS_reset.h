@@ -1,9 +1,8 @@
 #ifndef POKEDIAMOND_ARM9_OS_RESET_H
 #define POKEDIAMOND_ARM9_OS_RESET_H
 
-#include "consts.h"
 #include "nitro/OS_reset_shared.h"
-#include "PXI_fifo.h"
+#include "mmap.h"
 
 void OS_InitReset(void);
 void OS_ResetSystem(u32 parameter);

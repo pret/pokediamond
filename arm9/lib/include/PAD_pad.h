@@ -1,7 +1,7 @@
 #ifndef NITRO_PAD_PAD_H_
 #define NITRO_PAD_PAD_H_
 
-#include "consts.h"
+#include "registers.h"
 
 //================================================================================
 //    BUTTONS

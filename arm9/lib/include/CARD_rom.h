@@ -6,6 +6,7 @@
 #include "MI_dma.h"
 #include "CARD_common.h"
 #include "OS_tcm.h"
+#include "mmap.h"
 
 #define CARD_ROM_PAGE_SIZE	512
 

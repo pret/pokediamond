@@ -1,5 +1,7 @@
-#include "function_target.h"
 #include "OS_ownerInfo.h"
+
+#include "global.h"
+#include "systemWork.h"
 #include "MI_memory.h"
 
 ARM_FUNC void OS_GetMacAddress(u8 *macAddress)

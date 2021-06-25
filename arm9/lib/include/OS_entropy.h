@@ -5,8 +5,7 @@
 #ifndef POKEDIAMOND_OS_ENTROPY_H
 #define POKEDIAMOND_OS_ENTROPY_H
 
-#include "consts.h"
-#include "userInfo.h"
+#include "registers.h"
 
 void OS_GetLowEntropyData(u32 * arr);
 

@@ -16,6 +16,7 @@
 #include "unk_020139D8.h"
 #include "unk_02024E64.h"
 #include "sav_chatot.h"
+#include "unk_0202A1E0.h"
 
 extern u32 FUN_0202AC20(void);
 extern u32 FUN_02034D7C(void);
@@ -28,7 +29,6 @@ extern u32 FUN_02028980(void);
 extern u32 FUN_02029A84(void);
 extern u32 FUN_02029FB0(void);
 extern u32 Sav2_Chatot_sizeof(void);
-extern u32 FUN_0202A89C(void);
 extern u32 FUN_0202A8F4(void);
 extern u32 FUN_0202A924(void);
 extern u32 FUN_0202ABC8(void);
@@ -48,7 +48,6 @@ extern void FUN_0202805C(void *);
 extern void FUN_02028994(void *);
 extern void FUN_02029A8C(void *);
 extern void FUN_02029FB8(void *);
-extern void FUN_0202A8A4(void *);
 extern void FUN_0202A8F8(void *);
 extern void FUN_0202A92C(void *);
 extern void FUN_0202ABCC(void *);
@@ -88,7 +87,7 @@ const struct SaveChunkHeader UNK_020EE700[] = {
     { 20, 0, (SAVSIZEFN)FUN_02029FB0, (SAVINITFN)FUN_02029FB8 },
     { 21, 0, (SAVSIZEFN)Sav2_SealCase_sizeof, (SAVINITFN)Sav2_SealCase_init },
     { 22, 0, (SAVSIZEFN)Sav2_Chatot_sizeof, (SAVINITFN)Sav2_Chatot_init },
-    { 23, 0, (SAVSIZEFN)FUN_0202A89C, (SAVINITFN)FUN_0202A8A4 },
+    { 23, 0, (SAVSIZEFN)SaveStruct23_sizeof, (SAVINITFN)SaveStruct23_Init },
     { 24, 0, (SAVSIZEFN)FUN_0202A8F4, (SAVINITFN)FUN_0202A8F8 },
     { 25, 0, (SAVSIZEFN)FUN_0202A924, (SAVINITFN)FUN_0202A92C },
     { 26, 0, (SAVSIZEFN)FUN_0202ABC8, (SAVINITFN)FUN_0202ABCC },

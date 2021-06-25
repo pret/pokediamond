@@ -8,6 +8,7 @@
 #include "OS_cache.h"
 #include "MB_mb.h"
 #include "PXI_fifo.h"
+#include "mmap.h"
 
 CARDiCommon cardi_common ALIGN(32);
 static CARDiCommandArg cardi_arg ALIGN(32);
