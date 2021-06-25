@@ -1,5 +1,6 @@
 #include "unk_0205FA2C.h"
 #include "unk_020337E8.h"
+#include "unk_0202A1E0.h"
 
 extern void *UNK_020F96DC;
 extern void *UNK_020FA6E8;
@@ -11,17 +12,9 @@ extern u16 *GetVarPointer(struct UnkSavStruct80 *arg, u16);
 extern u16 MOD06_02244660(struct UnkSavStruct80 *param0, u8 *param1);
 extern u16 MOD06_022446BC(struct UnkSavStruct80 *param0, u8 *param1);
 extern u16 MOD06_022446E0(struct UnkSavStruct80 *param0, u8 *param1);
-extern void FUN_0202A5CC(u32 param0, u32 param1);
-extern u32 FUN_0202A5D0(u32 param0);
 extern u32 FUN_0202A150(struct UnkStruct_02029FB0 *param0, u32 param1);
-extern u32 FUN_0202A8D8(struct SaveBlock2 *sav2);
-extern u32 FUN_0202A578(u32 param0, u32 param1, u32 param2);
 extern u32 FUN_02026CC4(struct SaveBlock2 *sav2);
 extern u32 FUN_02025D94(u32 param0, u32 param1);
-extern u32 FUN_0202A8CC(struct SaveBlock2 *sav2);
-extern void FUN_0202A2C4(u32 param0, u32 param1, u32 *param2);
-extern u32 FUN_0202A240(u32 param0, u32 param1, u32 param2);
-extern int FUN_0202A538(u32 param0, u16 param1, u32 param2);
 
 const u8 UNK_020F7454[] = {
     0x00,
@@ -327,33 +320,33 @@ THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)
         return 0;
     }
 
-    u32 res2 = FUN_0202A8D8(sav2);
+    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
 
-    u8 res3 = (u8)FUN_0202A578(res2, 0xd, 0);
-    u8 res4 = (u8)FUN_0202A578(res2, 0, 0);
-    u8 res5 = (u8)FUN_0202A578(res2, 1, 0);
+    BOOL flagD = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_GET);
+    BOOL flag0 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_GET);
+    BOOL flag1 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 1, DATA_GET);
 
-    u8 res6 = (u8)FUN_0202A578(res2, 0xe, 0);
-    u8 res7 = (u8)FUN_0202A578(res2, 2, 0);
-    u8 res8 = (u8)FUN_0202A578(res2, 3, 0);
+    BOOL flagE = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xe, DATA_GET);
+    BOOL flag2 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 2, DATA_GET);
+    BOOL flag3 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 3, DATA_GET);
 
-    if (res3 != 0 && res4 != 0 && res5 != 0)
+    if (flagD && flag0 && flag1)
     {
         return 0;
     }
 
     u32 res9 = FUN_02026CC4(sav2);
-    if (res3 == 0)
+    if (!flagD)
     {
         if (FUN_02025D94(res9, 0x55) != 0)
         {
-            FUN_0202A578(res2, 0xd, 1);
+            SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_SET);
             return 1;
         }
 
-        if (res6 == 0)
+        if (!flagE)
         {
-            FUN_0202A578(res2, 0xe, 1);
+            SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xe, DATA_SET);
         }
 
         return 4;
@@ -364,36 +357,36 @@ THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)
         return 0;
     }
 
-    if (res4 == 0)
+    if (!flag0)
     {
         if (FUN_02025D94(res9, 0x56) != 0)
         {
-            FUN_0202A578(res2, 0, 1);
+            SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_SET);
             return 2;
         }
 
-        if (res7 == 0)
+        if (!flag2)
         {
-            FUN_0202A578(res2, 2, 1);
+            SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 2, DATA_SET);
         }
 
         return 4;
     }
 
-    if (res < 100 || res5 != 0)
+    if (res < 100 || flag1)
     {
         return 0;
     }
 
     if (FUN_02025D94(res9, 0x57) != 0)
     {
-        FUN_0202A578(res2, 1, 1);
+        SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 1, DATA_SET);
         return 3;
     }
 
-    if (res8 == 0)
+    if (!flag3)
     {
-        FUN_0202A578(res2, 3, 1);
+        SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 3, DATA_SET);
     }
 
     return 4;
@@ -407,24 +400,24 @@ THUMB_FUNC u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
         return 0;
     }
 
-    u32 res2 = FUN_0202A8D8(sav2);
+    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
 
-    u8 res3 = (u8)FUN_0202A578(res2, 0xd, 0);
-    u8 res4 = (u8)FUN_0202A578(res2, 0, 0);
-    u8 res5 = (u8)FUN_0202A578(res2, 1, 0);
+    BOOL flagD = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_GET);
+    BOOL flag0 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_GET);
+    BOOL flag1 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 1, DATA_GET);
 
-    u8 res6 = (u8)FUN_0202A578(res2, 0xe, 0);
-    u8 res7 = (u8)FUN_0202A578(res2, 2, 0);
-    u8 res8 = (u8)FUN_0202A578(res2, 3, 0);
+    BOOL flagE = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xe, DATA_GET);
+    BOOL flag2 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 2, DATA_GET);
+    BOOL flag3 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 3, DATA_GET);
 
-    if (res3 != 0 && res4 != 0 && res5 != 0)
+    if (flagD && flag0 && flag1)
     {
         return 0;
     }
 
-    if (res3 == 0)
+    if (!flagD)
     {
-        if (res6 != 0)
+        if (flagE)
         {
             return 4;
         }
@@ -437,9 +430,9 @@ THUMB_FUNC u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
         return 0;
     }
 
-    if (res4 == 0)
+    if (!flag0)
     {
-        if (res7 != 0)
+        if (flag2)
         {
             return 5;
         }
@@ -452,12 +445,12 @@ THUMB_FUNC u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
         return 0;
     }
 
-    if (res5 != 0)
+    if (flag1)
     {
         return 0;
     }
 
-    if (res8 != 0)
+    if (flag3)
     {
         return 6;
     }
@@ -488,42 +481,42 @@ THUMB_FUNC u32 FUN_0206007C(struct SaveBlock2 *sav2)
 {
     u32 res = FUN_02060070(FUN_020287A4(FUN_0202881C(sav2)));
 
-    FUN_0202A5CC(FUN_0202A8D8(sav2), res);
+    SaveStruct23_Substruct2_SetField_0x4(SaveStruct23_GetSubstruct2(sav2), res);
 
     return res;
 }
 
 THUMB_FUNC u32 FUN_020600A0(struct SaveBlock2 *sav2)
 {
-    u32 res = FUN_0202A8D8(sav2);
+    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
 
-    u32 res2 = FUN_02060070(FUN_0202A5D0(res));
+    u32 res2 = FUN_02060070(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
 
-    FUN_0202A5CC(res, res2);
+    SaveStruct23_Substruct2_SetField_0x4(saveStruct23_substruct2, res2);
     u32 res3 = FUN_02060064(res2);
 
-    FUN_0202A2C4(FUN_0202A8CC(sav2), 0xa, &res3);
+    SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(sav2), FIELD_0x28, &res3);
 
     return res3;
 }
 
 THUMB_FUNC u32 FUN_020600DC(struct SaveBlock2 *sav2)
 {
-    u32 res = FUN_0202A8D8(sav2);
+    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
 
-    u32 res2 = FUN_0202A8CC(sav2);
+    struct SaveStruct23_Substruct1 *saveStruct23_substruct1 = SaveStruct23_GetSubstruct1(sav2);
 
-    u32 res3 = FUN_02060064(FUN_0202A5D0(res));
+    u32 res3 = FUN_02060064(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
 
     int i = 0;
-    int res4 = FUN_0202A538(res, (u16)FUN_0202A240(res2, 0, 0), 0) * 0x18;
+    int res4 = SaveStruct23_Substruct2_SetField_0xC(saveStruct23_substruct2, (u16)SaveStruct23_Substruct1_GetField(saveStruct23_substruct1, FIELD_0x0_2, 0), DATA_GET) * 0x18;
 
     for (i = 0; i < res4; i++)
     {
         res3 = FUN_02060064(res3);
     }
 
-    FUN_0202A2C4(FUN_0202A8CC(sav2), 0xa, &res3);
+    SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(sav2), FIELD_0x28, &res3);
 
     return res3;
 }

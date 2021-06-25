@@ -7,14 +7,13 @@
 #include "player_data.h"
 #include "script_buffers.h"
 #include "seal.h"
+#include "unk_0202A1E0.h"
 
 extern u32 *FUN_0202708C(u32 *);
 extern u32 FUN_02027168(u32 *);
 extern u16 FUN_02027184(u32 *);
 extern u32 *FUN_02027E24(struct SaveBlock2 *sav2);
 extern u8 FUN_02029E2C(struct SealCase *, u32);
-extern u32 FUN_0202A8D8(struct SaveBlock2 *);
-extern u16 FUN_0202A3B4(u32, u32, u32);
 
 THUMB_FUNC struct BagView *BagView_New(u8 heap_id)
 {
@@ -122,7 +121,7 @@ THUMB_FUNC u32 FUN_0206E3D8(struct SaveBlock2 *sav2)
 
 THUMB_FUNC u32 FUN_0206E3E8(struct SaveBlock2 *sav2)
 {
-    return FUN_0202A3B4(FUN_0202A8D8(sav2), 0, 0);
+    return SaveStruct23_Substruct2_SetField_0x0(SaveStruct23_GetSubstruct2(sav2), 0, DATA_GET);
 }
 
 THUMB_FUNC BOOL FUN_0206E3F8(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id)
