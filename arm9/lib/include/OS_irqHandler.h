@@ -1,8 +1,8 @@
 #ifndef POKEDIAMOND_OS_IRQHANDLER_H
 #define POKEDIAMOND_OS_IRQHANDLER_H
 
-#include "consts.h"
 #include "OS_interrupt.h"
+#include "mmap.h"
 
 static inline void OS_ClearIrqCheckFlag(OSIrqMask intr)
 {

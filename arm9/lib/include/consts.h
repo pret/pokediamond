@@ -2,9 +2,6 @@
 #define POKEDIAMOND_ARM9_CONSTS_H
 
 #include "nitro/consts_shared.h"
-#include "mmap.h"
-#include "registers.h"
-#include "systemWork.h"
 
 #define HW_C5_PERMIT_MASK          0xf
 

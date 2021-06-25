@@ -1,5 +1,11 @@
 #include "timer3.h"
 
+#include "OS_interrupt.h"
+#include "OS_irqTable.h"
+#include "OS_timer.h"
+#include "OS_system.h"
+#include "registers.h"
+
 static BOOL timer3_needReset;
 static vu64 timer3_counter;
 

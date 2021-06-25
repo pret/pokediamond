@@ -8,6 +8,7 @@
 #include "PAD_pad.h"
 #include "SPI_pm.h"
 #include "syscall.h"
+#include "mmap.h"
 
 static CARDPulledOutCallback CARD_UserCallback;
 static BOOL CARDi_IsPulledOutFlag = FALSE;

@@ -3,9 +3,10 @@
 //
 
 #include "OS_spinLock.h"
+
 #include "OS_system.h"
 #include "function_target.h"
-#include "consts.h"
+#include "mmap.h"
 #include "MI_exMemory.h"
 
 extern void MIi_CpuClear32(u32 param1, void * addr, u32 length); //not too sure about names

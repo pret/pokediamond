@@ -6,7 +6,8 @@
 #include "OS_system.h"
 #include "OS_context.h"
 #include "OS_terminate_proc.h"
-#include "consts.h"
+#include "systemWork.h"
+#include "mmap.h"
 
 extern void SDK_SYS_STACKSIZE(void);
 extern void SDK_IRQ_STACKSIZE(void);

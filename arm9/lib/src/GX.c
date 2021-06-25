@@ -1,5 +1,8 @@
-#include "global.h"
 #include "gx.h"
+
+#include "global.h"
+#include "OS_spinLock.h"
+#include "OS_terminate_proc.h"
 
 u32 GXi_DmaId = 3;
 vu16 GXi_VRamLockId = 0;

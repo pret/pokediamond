@@ -1,7 +1,10 @@
+#include "SND_alarm.h"
 #include "SND_command.h"
 #include "SND_work.h"
+#include "OS_emulator.h"
 #include "OS_system.h"
 #include "OS_cache.h"
+#include "PXI_fifo.h"
 
 #define SND_CMD_WAIT_QUEUE_COUNT 8
 

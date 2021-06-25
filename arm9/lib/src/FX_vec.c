@@ -1,5 +1,7 @@
-#include "global.h"
 #include "fx.h"
+
+#include "global.h"
+#include "registers.h"
 
 ARM_FUNC void VEC_Add(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *dst){
     dst->x = a->x + b->x;

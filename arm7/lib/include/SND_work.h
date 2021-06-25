@@ -1,0 +1,4 @@
+#ifndef GUARD_SND_WORK_H
+#define GUARD_SND_WORK_H
+
+#endif //GUARD_SND_WORK_H

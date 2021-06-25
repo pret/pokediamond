@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_ARM9_OS_IRQTABLE_H
 #define POKEDIAMOND_ARM9_OS_IRQTABLE_H
 
-#include "consts.h"
+#include "mmap.h"
 #include "OS_interrupt.h"
 
 void OS_IrqDummy(void);

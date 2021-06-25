@@ -1,8 +1,9 @@
-#include "function_target.h"
-#include "consts.h"
 #include "OS_arena.h"
+
+#include "global.h"
 #include "OS_protectionRegion.h"
 #include "OS_emulator.h"
+#include "mmap.h"
 
 static BOOL OSi_Initialized = FALSE;
 static BOOL OSi_MainExArenaEnabled = FALSE;

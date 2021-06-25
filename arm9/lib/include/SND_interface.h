@@ -4,6 +4,7 @@
 #include "global.h"
 #include "SND_bank.h"
 #include "SND_work.h"
+#include "SND_alarm.h"
 
 void SND_StartSeq(s32 player, const void *seqBasePtr, u32 seqOffset, struct SNDBankData *bankData);
 void SND_StopSeq(s32 player);
