@@ -897,7 +897,7 @@ FUN_02086A80: ; 0x02086A80
 	mov r1, #0xe1
 	lsl r0, r0, #0xc
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 _02086AB8:
 	add r0, r4, #0x0
 	add sp, #0x8

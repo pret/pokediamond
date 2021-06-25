@@ -18,7 +18,7 @@ extern struct UnkStruct63_021DB450 * FUN_02006D98(u32);
 extern void FUN_02068C00(struct UnkStruct63_021DB49C*, u16, u32, u32, u32, u32, u32);
 extern void FUN_02012CC8(void);
 extern void FUN_02007558(u32, u32, u32);
-extern void FUN_0201EC94(u32, u32, u32);
+extern void Camera_SetPerspectiveClippingPlane(u32, u32, u32);
 extern u32 FUN_0201343C(void);
 extern void FUN_02013194(void *, u32, u32, u32);
 extern u32 FUN_0201318C(u32, u32, u32);
@@ -87,7 +87,7 @@ THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg
     FUN_02012CC8();
     arg0->field_14 = AllocFromHeap(0x4C, 0x4800);
     arg0->field_18 = FUN_02012CDC(MOD63_021DB450, MOD63_021DB474, arg0->field_14, 0x4800, 1, 0x4C);
-    FUN_0201EC94(0x1000, 0x384000, FUN_0201343C());
+    Camera_SetPerspectiveClippingPlane(0x1000, 0x384000, FUN_0201343C());
     FUN_02013194(arg0->field_18, FUN_0201318C(0x3D, 4, 0x4C), 10, 1);
 }
 

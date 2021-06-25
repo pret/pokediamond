@@ -37211,7 +37211,7 @@ MOD18_0224B804: ; 0x0224B804
 _0224B83E:
 	ldr r1, [r4, #0x20]
 	add r0, sp, #0
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	add sp, #0xc
 	pop {r4, r5, pc}
 	.align 2, 0

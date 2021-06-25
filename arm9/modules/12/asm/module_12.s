@@ -6315,7 +6315,7 @@ _022309E8:
 	mov r1, #0xe1
 	lsl r0, r0, #0xc
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	mov r0, #0x3d
 	mov r1, #3
 	mov r2, #0x17

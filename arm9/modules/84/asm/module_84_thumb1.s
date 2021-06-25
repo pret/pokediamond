@@ -792,7 +792,7 @@ MOD84_021D7B54: ; 0x021D7B54
 	sub sp, #0x18
 	add r4, r0, #0
 	mov r0, #0x4b
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	str r0, [r4, #0x20]
 	mov r0, #0
 	str r0, [r4, #0x24]
@@ -813,7 +813,7 @@ MOD84_021D7B54: ; 0x021D7B54
 	add r0, #0x24
 	lsl r1, r1, #0xe
 	add r2, #0x30
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -822,14 +822,14 @@ MOD84_021D7B54: ; 0x021D7B54
 	str r1, [sp, #0x14]
 	ldr r1, [r4, #0x20]
 	add r0, sp, #0xc
-	bl FUN_0201EC58
+	bl Camera_SetLookAtCamUp
 	ldr r0, [r4, #0x20]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	mov r1, #0xfa
 	ldr r2, [r4, #0x20]
 	mov r0, #0
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	add sp, #0x18
 	pop {r4, pc}
 	nop
@@ -842,7 +842,7 @@ MOD84_021D7BBC: ; 0x021D7BBC
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
-_021D7BC4: .word FUN_0201EB70
+_021D7BC4: .word Camera_Free
 	thumb_func_end MOD84_021D7BBC
 
 	thumb_func_start MOD84_021D7BC8
@@ -1003,7 +1003,7 @@ MOD84_021D7CFC: ; 0x021D7CFC
 	mov r0, #0x11
 	add r2, r1, #0
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	add r4, #0x38
 	add r0, sp, #0x28
 	bl MTX_Identity33_

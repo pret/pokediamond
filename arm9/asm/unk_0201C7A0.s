@@ -22,8 +22,8 @@ FUN_0201C7A8: ; 0x0201C7A8
 _0201C7AE:
 	bx lr
 
-	thumb_func_start FUN_0201C7B0
-FUN_0201C7B0: ; 0x0201C7B0
+	thumb_func_start CalcAngleBetweenVecs
+CalcAngleBetweenVecs: ; 0x0201C7B0
 	push {r3-r7, lr}
 	sub sp, #0x30
 	add r4, r1, #0x0

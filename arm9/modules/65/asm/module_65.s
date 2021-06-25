@@ -5378,7 +5378,7 @@ MOD65_021D9F50: ; 0x021D9F50
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_020222AC
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	ldr r2, _021D9F84 ; =0x04000440
 	mov r3, #0
 	add r1, r2, #0
@@ -5406,7 +5406,7 @@ MOD65_021D9F8C: ; 0x021D9F8C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FUN_0201EB70
+	bl Camera_Free
 	ldr r0, [r4, #4]
 	bl FUN_020072E8
 	pop {r4, pc}
@@ -5432,7 +5432,7 @@ MOD65_021D9FA0: ; 0x021D9FA0
 	strh r0, [r1, #4]
 	strh r0, [r1, #6]
 	add r0, r2, #0
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	str r0, [r4]
 	mov r1, #1
 	str r1, [sp]
@@ -5442,16 +5442,16 @@ MOD65_021D9FA0: ; 0x021D9FA0
 	add r0, sp, #0x10
 	lsl r1, r1, #0x10
 	add r2, sp, #8
-	bl FUN_0201ED10
+	bl Camera_InitWithPosAndAngle
 	mov r1, #0x19
 	ldr r2, [r4]
 	mov r0, #0
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	ldr r0, [r4]
-	bl FUN_0201EC88
+	bl Camera_ClearFixedTarget
 	ldr r0, [r4]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	add sp, #0x1c
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -1631,9 +1631,9 @@ MOD63_021D95A8: ; 0x021D95A8
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _021D95F6
-	bl FUN_0201EB98
+	bl Camera_UnsetWorkPtr
 	ldr r0, [r5, #0x78]
-	bl FUN_0201EB70
+	bl Camera_Free
 	mov r4, #0
 	mov r6, #0x58
 _021D95D0:
@@ -2016,7 +2016,7 @@ _021D98BC:
 	ldr r0, [sp, #0xc]
 	bl NARC_dtor
 	mov r0, #0x4c
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	add r3, sp, #0x20
 	ldr r4, _021D9968 ; =MOD63_021DBAE4
 	str r0, [r5, #0x44]
@@ -2034,10 +2034,10 @@ _021D98BC:
 	str r0, [sp, #8]
 	add r0, r2, #0
 	ldr r2, _021D9974 ; =MOD63_021DBB80
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	ldr r0, _021D9978 ; =0x00000981
 	ldr r1, [r5, #0x44]
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 	ldr r4, _021D997C ; =MOD63_021DBB08
 	add r3, sp, #0x14
 	ldmia r4!, {r0, r1}
@@ -2047,9 +2047,9 @@ _021D98BC:
 	str r0, [r3]
 	ldr r1, [r5, #0x44]
 	add r0, r2, #0
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	ldr r0, [r5, #0x44]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	mov r0, #1
 	strb r0, [r5, #4]
 	add sp, #0x2c
@@ -2091,7 +2091,7 @@ _021D998C:
 	str r0, [r1, #4]
 	str r0, [r1, #8]
 	bl FUN_020222AC
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	mov r4, #0
 	add r5, #0x48
 	add r7, sp, #0
@@ -2773,19 +2773,19 @@ MOD63_021D9F38: ; 0x021D9F38
 	cmp r5, r1
 	bgt _021D9FE2
 	ldr r0, [r4, #0x44]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	ldr r1, _021DA07C ; =0x000005C1
 	sub r0, #0x20
 	cmp r0, r1
 	ble _021D9F68
 	ldr r0, _021DA080 ; =0x0000FFE0
 	ldr r1, [r4, #0x44]
-	bl FUN_0201EF2C
+	bl Camera_AdjustPerspectiveAngle
 	b _021D9F70
 _021D9F68:
 	add r0, r1, #0
 	ldr r1, [r4, #0x44]
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 _021D9F70:
 	mov r0, #2
 	ldr r1, [sp, #0x4c]
@@ -2794,7 +2794,7 @@ _021D9F70:
 	str r0, [sp, #0x4c]
 	ldr r1, [r4, #0x44]
 	add r0, sp, #0x44
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	ldr r0, _021DA078 ; =0x000004AB
 	cmp r5, r0
 	bne _021DA074
@@ -2814,7 +2814,7 @@ _021D9F70:
 	str r0, [sp, #8]
 	add r0, r2, #0
 	ldr r2, _021DA08C ; =MOD63_021DBB80
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	ldr r5, _021DA090 ; =MOD63_021DBB20
 	add r3, sp, #0x2c
 	ldmia r5!, {r0, r1}
@@ -2824,7 +2824,7 @@ _021D9F70:
 	str r0, [r3]
 	ldr r1, [r4, #0x44]
 	add r0, r2, #0
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	ldr r2, _021DA094 ; =MOD63_021DBAC8
 	add r1, sp, #0xc
 	ldrh r3, [r2]
@@ -2837,7 +2837,7 @@ _021D9F70:
 	strh r3, [r1, #4]
 	strh r2, [r1, #6]
 	ldr r1, [r4, #0x44]
-	bl FUN_0201EFB4
+	bl Camera_AdjustAngle
 	add sp, #0x50
 	pop {r4, r5, r6, pc}
 _021D9FE2:
@@ -2850,7 +2850,7 @@ _021D9FE2:
 	add r1, r2, r1
 	str r1, [sp, #0x44]
 	ldr r1, [r4, #0x44]
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	ldr r3, _021DA098 ; =0x0000057D
 	cmp r5, r3
 	bne _021DA074
@@ -2870,10 +2870,10 @@ _021D9FE2:
 	str r0, [sp, #8]
 	add r0, r2, #0
 	ldr r2, _021DA08C ; =MOD63_021DBB80
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	ldr r0, _021DA07C ; =0x000005C1
 	ldr r1, [r4, #0x44]
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 	ldr r5, _021DA0A0 ; =MOD63_021DBAF0
 	add r3, sp, #0x14
 	ldmia r5!, {r0, r1}
@@ -2883,7 +2883,7 @@ _021D9FE2:
 	str r0, [r3]
 	ldr r1, [r4, #0x44]
 	add r0, r2, #0
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	add sp, #0x50
 	pop {r4, r5, r6, pc}
 _021DA044:
@@ -2891,7 +2891,7 @@ _021DA044:
 	cmp r5, r0
 	blt _021DA062
 	ldr r0, [r4, #0x44]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	mov r1, #1
 	add r0, #0x20
 	lsl r1, r1, #0xe
@@ -2899,7 +2899,7 @@ _021DA044:
 	bge _021DA062
 	ldr r1, [r4, #0x44]
 	mov r0, #0x20
-	bl FUN_0201EF2C
+	bl Camera_AdjustPerspectiveAngle
 _021DA062:
 	mov r0, #1
 	ldr r1, [sp, #0x4c]
@@ -2908,7 +2908,7 @@ _021DA062:
 	str r0, [sp, #0x4c]
 	ldr r1, [r4, #0x44]
 	add r0, sp, #0x44
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 _021DA074:
 	add sp, #0x50
 	pop {r4, r5, r6, pc}

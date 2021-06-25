@@ -132,7 +132,7 @@ _021DA69A:
 	cmp r6, #0x4b
 	beq _021DA6B2
 	ldr r0, [r5, #0x20]
-	bl FUN_0201EC88
+	bl Camera_ClearFixedTarget
 	mov r0, #1
 	str r0, [r4, #0x20]
 _021DA6B2:
@@ -360,14 +360,14 @@ _021DA864:
 	pop {r4, r5, r6, r7, pc}
 _021DA878:
 	ldr r0, [r5, #0x20]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	strh r0, [r4, #0x24]
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0x4b
 	beq _021DA88E
 	ldr r0, _021DA9D8 ; =0x0000FFA0
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EF2C
+	bl Camera_AdjustPerspectiveAngle
 _021DA88E:
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -498,7 +498,7 @@ _021DA980:
 	cmp r0, #0
 	beq _021DA9BE
 	ldr r0, [r5, #0x20]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	ldrh r1, [r4, #0x24]
 	cmp r1, r0
 	bne _021DA9BE
@@ -555,7 +555,7 @@ MOD05_021DA9E8: ; 0x021DA9E8
 	lsr r4, r0, #0x18
 _021DAA08:
 	add r0, r6, #0
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	sub r0, r0, r4
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -564,7 +564,7 @@ _021DAA08:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	add r1, r6, #0
-	bl FUN_0201EF2C
+	bl Camera_AdjustPerspectiveAngle
 _021DAA22:
 	ldrb r0, [r5]
 	add r0, r0, #1
@@ -594,14 +594,14 @@ _021DAA4A:
 	mov r4, #0x10
 _021DAA4C:
 	add r0, r6, #0
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	add r0, r0, r4
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	beq _021DAA62
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_0201EF2C
+	bl Camera_AdjustPerspectiveAngle
 _021DAA62:
 	ldrb r0, [r5]
 	add r0, r0, #1
@@ -1391,11 +1391,11 @@ _021DB096:
 	str r0, [r4, #8]
 	strb r0, [r4, #4]
 	ldr r0, [r5, #0x20]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	strh r0, [r4, #0xc]
 	ldr r0, _021DB13C ; =0x0000FFA0
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EF2C
+	bl Camera_AdjustPerspectiveAngle
 	mov r0, #6
 	str r0, [sp]
 	mov r1, #1
@@ -1440,7 +1440,7 @@ _021DB106:
 	cmp r0, #0
 	beq _021DB126
 	ldr r0, [r5, #0x20]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	ldrh r1, [r4, #0xc]
 	cmp r1, r0
 	bne _021DB126
@@ -1644,11 +1644,11 @@ _021DB2AA:
 	str r0, [r4, #8]
 	strb r0, [r4, #4]
 	ldr r0, [r5, #0x20]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	strh r0, [r4, #0xc]
 	ldr r0, _021DB37C ; =0x0000FFA0
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EF2C
+	bl Camera_AdjustPerspectiveAngle
 	cmp r7, #3
 	bhi _021DB2EA
 	add r0, r7, r7
@@ -1722,7 +1722,7 @@ _021DB348:
 	cmp r0, #0
 	beq _021DB368
 	ldr r0, [r5, #0x20]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	ldrh r1, [r4, #0xc]
 	cmp r1, r0
 	bne _021DB368

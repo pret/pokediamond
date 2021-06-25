@@ -419,7 +419,7 @@ _021E8952:
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
 	str r0, [r5]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	mov r2, #0x32
 	add r1, r0, #0
 	mov r0, #6
@@ -438,7 +438,7 @@ _021E899C:
 	add r6, r0, #0
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	cmp r6, #1
 	bne _021E8A56
 	ldr r0, [r4]
@@ -460,7 +460,7 @@ _021E899C:
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
 	str r0, [r5]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	mov r2, #0x32
 	add r1, r0, #0
 	mov r0, #6
@@ -478,7 +478,7 @@ _021E89F4:
 	add r6, r0, #0
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	cmp r6, #1
 	bne _021E8A56
 	add r0, r4, #0
@@ -601,7 +601,7 @@ _021E8AD2:
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
 	str r0, [r5]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	mov r2, #0x32
 	add r1, r0, #0
 	mov r0, #6
@@ -620,7 +620,7 @@ _021E8B1C:
 	add r6, r0, #0
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	cmp r6, #1
 	bne _021E8BD6
 	ldr r0, [r4]
@@ -642,7 +642,7 @@ _021E8B1C:
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
 	str r0, [r5]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	mov r2, #0x1e
 	add r1, r0, #0
 	mov r0, #6
@@ -660,7 +660,7 @@ _021E8B74:
 	add r6, r0, #0
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	cmp r6, #1
 	bne _021E8BD6
 	add r0, r4, #0
@@ -1214,7 +1214,7 @@ _021E8F92:
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
 	str r0, [r5]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	mov r2, #0x19
 	add r1, r0, #0
 	mov r0, #0xc
@@ -1234,7 +1234,7 @@ _021E8FDC:
 	bl MOD05_021E36A4
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	bl FUN_0200E308
 	cmp r0, #0
 	beq _021E9026
@@ -1349,7 +1349,7 @@ _021E90A2:
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
 	str r0, [r5]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	mov r2, #0x32
 	add r1, r0, #0
 	mov r0, #0xc
@@ -1369,7 +1369,7 @@ _021E90EC:
 	bl MOD05_021E36A4
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	bl FUN_0200E308
 	cmp r0, #0
 	beq _021E9136
@@ -1669,7 +1669,7 @@ _021E931A:
 	mov r0, #7
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	add r1, r0, #0
 	mov r0, #6
 	str r0, [sp]
@@ -1748,7 +1748,7 @@ _021E93A6:
 	ldr r0, [r4, r1]
 	sub r1, r1, #4
 	ldr r1, [r4, r1]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	add r0, r7, #0
 	bl MOD05_021E35AC
 	cmp r0, #0
@@ -2079,7 +2079,7 @@ _021E96C8:
 	mov r0, #0x69
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	add r1, r0, #0
 	mov r0, #8
 	str r0, [sp]
@@ -2105,7 +2105,7 @@ _021E9702:
 	ldr r0, [r4, r1]
 	sub r1, r1, #4
 	ldr r1, [r4, r1]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	add r0, r6, #0
 	bl MOD05_021E35AC
 	cmp r0, #1
@@ -2483,7 +2483,7 @@ _021E9A12:
 	mov r0, #0x72
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	add r1, r0, #0
 	mov r0, #8
 	str r0, [sp]
@@ -2547,7 +2547,7 @@ _021E9A8E:
 	ldr r0, [r4, r1]
 	sub r1, r1, #4
 	ldr r1, [r4, r1]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	ldr r0, [sp, #0x18]
 	cmp r0, #1
 	bne _021E9B2A
@@ -2853,7 +2853,7 @@ _021E9D34:
 _021E9D36:
 	sub r0, #0x1c
 	ldr r0, [r4, r0]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	add r1, r0, #0
 	mov r0, #0x10
 	str r0, [sp]
@@ -3088,7 +3088,7 @@ _021E9F1C:
 	ldr r0, [r4, r1]
 	sub r1, r1, #4
 	ldr r1, [r4, r1]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	mov r1, #2
 	lsl r1, r1, #8
 	ldr r0, [r4, r1]
@@ -3519,7 +3519,7 @@ _021EA2C2:
 	mov r0, #0x1d
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	add r1, r0, #0
 	mov r0, #8
 	str r0, [sp]
@@ -3557,7 +3557,7 @@ _021EA310:
 	ldr r0, [r4, r1]
 	sub r1, r1, #4
 	ldr r1, [r4, r1]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	bl FUN_0200E308
 	cmp r0, #0
 	beq _021EA382
@@ -4002,7 +4002,7 @@ _021EA6B4:
 	mov r0, #0x82
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	add r1, r0, #0
 	mov r0, #0x40
 	str r0, [sp]
@@ -4040,7 +4040,7 @@ _021EA6FA:
 	ldr r0, [r4, r1]
 	sub r1, r1, #4
 	ldr r1, [r4, r1]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	cmp r5, #1
 	bne _021EA7DE
 	ldr r0, [sp, #0x18]
@@ -5612,10 +5612,10 @@ MOD05_021EB414: ; 0x021EB414
 	add r5, r0, #0
 	ldrh r0, [r4, #8]
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 	ldr r0, [r4]
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	ldrh r1, [r4, #4]
 	add r0, sp, #0
 	strh r1, [r0]
@@ -5625,7 +5625,7 @@ MOD05_021EB414: ; 0x021EB414
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -5891,7 +5891,7 @@ _021EB640:
 	str r0, [r5]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	mov r2, #1
 	add r1, r0, #0
 	add r5, #8
@@ -5915,7 +5915,7 @@ _021EB66E:
 	lsl r0, r0, #0x10
 	ldr r1, [r1, #0x20]
 	lsr r0, r0, #0x10
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 	cmp r6, #1
 	bne _021EB754
 	ldr r0, [r4]
@@ -5932,7 +5932,7 @@ _021EB698:
 	bpl _021EB754
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	mov r3, #8
 	str r3, [sp]
 	ldr r2, _021EB758 ; =0x0092E000
@@ -5955,7 +5955,7 @@ _021EB6C6:
 	add r6, r0, #0
 	ldr r0, [r5, #0x1c]
 	ldr r1, [r1, #0x20]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	cmp r6, #1
 	bne _021EB754
 	ldr r0, [r4]
@@ -7284,7 +7284,7 @@ _021EC19E:
 	str r0, [r4, r1]
 	ldr r1, [r4, r1]
 	add r0, sp, #0x2c
-	bl FUN_0201F014
+	bl Camera_GetAngle
 	add r1, sp, #0x2c
 	mov r2, #0x92
 	ldrh r0, [r1]
@@ -7329,7 +7329,7 @@ _021EC1E8:
 	sub r0, #8
 	ldr r1, [r4, r1]
 	add r0, r4, r0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	cmp r6, #1
 	beq _021EC214
 _021EC212:
@@ -7343,7 +7343,7 @@ _021EC21C:
 	mov r0, #0x8b
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	add r1, r0, #0
 	mov r0, #0x1e
 	str r0, [sp]
@@ -7402,7 +7402,7 @@ _021EC284:
 	ldr r0, [r4, r1]
 	sub r1, r1, #4
 	ldr r1, [r4, r1]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	mov r1, #0x2e
 	ldr r2, [r4]
 	lsl r1, r1, #0xc
@@ -15713,7 +15713,7 @@ MOD05_021F0318: ; 0x021F0318
 	ldr r1, [r4, #0x50]
 	add r0, sp, #0x60
 	add r6, r2, #0
-	bl FUN_0201F02C
+	bl Camera_GetLookAtCamTarget
 	ldr r3, _021F0434 ; =UNK05_021F8B6C
 	add r2, sp, #0xc
 	ldmia r3!, {r0, r1}
@@ -15861,9 +15861,9 @@ MOD05_021F0454: ; 0x021F0454
 	add r5, r0, #0
 	add r4, r1, #0
 	add r0, sp, #0
-	bl FUN_0201F014
+	bl Camera_GetAngle
 	add r0, r4, #0
-	bl FUN_0201F008
+	bl Camera_GetPerspectiveAngle
 	strh r0, [r5]
 	ldrh r0, [r5]
 	ldr r2, _021F04F0 ; =FX_SinCosTable_
@@ -15888,10 +15888,10 @@ MOD05_021F0454: ; 0x021F0454
 	add r1, r4, #0
 	str r0, [r2]
 	add r0, sp, #0x14
-	bl FUN_0201F03C
+	bl Camera_GetLookAtCamPos
 	add r0, sp, #8
 	add r1, r4, #0
-	bl FUN_0201F02C
+	bl Camera_GetLookAtCamTarget
 	add r0, sp, #0x14
 	add r1, sp, #8
 	add r2, r5, #4
@@ -28249,7 +28249,7 @@ MOD05_021F61F4: ; 0x021F61F4
 	str r5, [r4, #0x2c]
 	ldr r0, [r5, #0x20]
 	str r0, [r4, #0x30]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	str r0, [r4, #0x10]
 	str r0, [r4, #0x20]
 	ldr r0, _021F622C ; =MOD05_021F6270
@@ -28385,7 +28385,7 @@ MOD05_021F62FC: ; 0x021F62FC
 	ldr r1, [r1, #0x30]
 	bx r3
 	nop
-_021F6308: .word FUN_0201EFE0
+_021F6308: .word Camera_SetDistance
 
 	thumb_func_start MOD05_021F630C
 MOD05_021F630C: ; 0x021F630C

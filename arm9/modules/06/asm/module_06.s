@@ -1193,10 +1193,10 @@ MOD06_02239F80: ; 0x02239F80
 	ldr r0, _0223A008 ; =0x00001701
 	ldr r1, [r5, #0x20]
 	add r4, r2, #0
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 	ldr r0, _0223A00C ; =0x000C8A55
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	ldr r0, _0223A010 ; =0x002280EF
 	str r0, [sp, #8]
 	ldr r0, _0223A014 ; =0x000CA424
@@ -1205,7 +1205,7 @@ MOD06_02239F80: ; 0x02239F80
 	str r0, [sp, #0x10]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #8
-	bl FUN_0201F04C
+	bl Camera_SetLookAtCamTarget
 	ldr r1, _0223A01C ; =0x000022A2
 	add r0, sp, #0
 	strh r1, [r0]
@@ -1220,7 +1220,7 @@ MOD06_02239F80: ; 0x02239F80
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	.ifdef DIAMOND
 	mov r0, #2
 	mov r1, #0x7d
@@ -1233,7 +1233,7 @@ MOD06_02239F80: ; 0x02239F80
 	.ifdef DIAMOND
 	lsl r1, r1, #0x10
 	.endif
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	mov r0, #4
 	bl MOD06_0223B574
 	str r0, [r4, #4]
@@ -1242,7 +1242,7 @@ MOD06_02239F80: ; 0x02239F80
 	str r0, [r4, #8]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #8
-	bl FUN_0201F02C
+	bl Camera_GetLookAtCamTarget
 	ldr r0, [r4, #4]
 	ldr r1, [sp, #8]
 	ldr r2, [sp, #0xc]
@@ -1282,10 +1282,10 @@ MOD06_0223A020: ; 0x0223A020
 	ldr r0, _0223A0B8 ; =0x00000F81
 	ldr r1, [r5, #0x20]
 	add r4, r2, #0
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 	ldr r0, _0223A0BC ; =0x0017E532
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	ldr r0, _0223A0C0 ; =0x00F99D58
 	str r0, [sp, #8]
 	ldr r0, _0223A0C4 ; =0x000C5502
@@ -1294,7 +1294,7 @@ MOD06_0223A020: ; 0x0223A020
 	str r0, [sp, #0x10]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #8
-	bl FUN_0201F04C
+	bl Camera_SetLookAtCamTarget
 	ldr r1, _0223A0CC ; =0x00000642
 	add r0, sp, #0
 	strh r1, [r0]
@@ -1304,13 +1304,13 @@ MOD06_0223A020: ; 0x0223A020
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #0x16
 	mov r1, #0x7d
 	ldr r2, [r5, #0x20]
 	lsl r0, r0, #0xe
 	lsl r1, r1, #0x10
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	add r0, r5, #0
 	add r0, #0x48
 	bl MOD05_021DB4B0
@@ -1326,7 +1326,7 @@ MOD06_0223A020: ; 0x0223A020
 	str r0, [r4, #8]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #8
-	bl FUN_0201F02C
+	bl Camera_GetLookAtCamTarget
 	ldr r0, [r4, #4]
 	ldr r1, [sp, #8]
 	ldr r2, [sp, #0xc]
@@ -1356,10 +1356,10 @@ MOD06_0223A0D4: ; 0x0223A0D4
 	ldr r0, _0223A16C ; =0x000004C1
 	ldr r1, [r5, #0x20]
 	add r4, r2, #0
-	bl FUN_0201EEF0
+	bl Camera_SetPerspectiveAngle
 	ldr r0, _0223A170 ; =0x0026BEC1
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	ldr r0, _0223A174 ; =0x01DF5DFD
 	str r0, [sp, #8]
 	ldr r0, _0223A178 ; =0x00073A0C
@@ -1368,7 +1368,7 @@ MOD06_0223A0D4: ; 0x0223A0D4
 	str r0, [sp, #0x10]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #8
-	bl FUN_0201F04C
+	bl Camera_SetLookAtCamTarget
 	ldr r1, _0223A180 ; =0x000004C2
 	add r0, sp, #0
 	strh r1, [r0]
@@ -1379,12 +1379,12 @@ MOD06_0223A0D4: ; 0x0223A0D4
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	mov r0, #0xb
 	ldr r1, _0223A184 ; =0x005C8000
 	ldr r2, [r5, #0x20]
 	lsl r0, r0, #0x10
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	add r0, r5, #0
 	add r0, #0x48
 	bl MOD05_021DB4B0
@@ -1400,7 +1400,7 @@ MOD06_0223A0D4: ; 0x0223A0D4
 	str r0, [r4, #8]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #8
-	bl FUN_0201F02C
+	bl Camera_GetLookAtCamTarget
 	ldr r0, [r4, #4]
 	ldr r1, [sp, #8]
 	ldr r2, [sp, #0xc]
@@ -1526,7 +1526,7 @@ _0223A234: ; jump table
 _0223A242:
 	ldr r1, [r1, #0x20]
 	add r0, sp, #0
-	bl FUN_0201F02C
+	bl Camera_GetLookAtCamTarget
 	mov r2, #2
 	ldr r3, [sp, #4]
 	lsl r2, r2, #0xc
@@ -1837,7 +1837,7 @@ MOD06_0223A428: ; 0x0223A428
 	add r4, r0, #0
 	bl memset
 	add r0, r5, #0
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	str r0, [r4]
 	mov r0, #5
 	str r0, [r4, #0x40]
@@ -1849,7 +1849,7 @@ MOD06_0223A44C: ; 0x0223A44C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FUN_0201EB70
+	bl Camera_Free
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -1866,10 +1866,10 @@ MOD06_0223A460: ; 0x0223A460
 	bl MOD06_0223A5C0
 	ldr r0, [sp, #0x2c]
 	ldr r1, [r5]
-	bl FUN_0201EB78
+	bl Camera_Copy
 	ldr r1, [sp, #0x2c]
 	add r0, sp, #4
-	bl FUN_0201F02C
+	bl Camera_GetLookAtCamTarget
 	add r3, sp, #4
 	add r2, r5, #0
 	add r2, #0x28
@@ -1887,9 +1887,9 @@ MOD06_0223A460: ; 0x0223A460
 	str r0, [r2]
 	ldr r1, [r5]
 	add r0, r6, #0
-	bl FUN_0201EC68
+	bl Camera_SetFixedTarget
 	ldr r0, [r5]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	ldr r0, [sp, #0x2c]
 	mov r1, #0
 	str r0, [r5, #4]
@@ -2011,7 +2011,7 @@ _0223A598:
 	pop {r3, r4, r5, pc}
 _0223A5A0:
 	ldr r0, [r4, #4]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	ldr r0, [r4, #0x40]
 	add r0, r0, #1
 	str r0, [r4, #0x40]
@@ -8786,7 +8786,7 @@ MOD06_0223D918: ; 0x0223D918
 	add r0, r4, #0
 	bl MOD06_0223D978
 	mov r0, #0xb
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	add r1, r4, #0
 	add r1, #0x90
 	str r0, [r1]
@@ -8794,11 +8794,11 @@ MOD06_0223D918: ; 0x0223D918
 	add r1, #0x90
 	ldr r0, [r5, #0x20]
 	ldr r1, [r1]
-	bl FUN_0201EB78
+	bl Camera_Copy
 	add r0, r4, #0
 	add r0, #0x90
 	ldr r0, [r0]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	ldr r0, _0223D974 ; =0x0000023D
 	mov r1, #0
 	strb r1, [r4, r0]
@@ -9057,7 +9057,7 @@ MOD06_0223DB64: ; 0x0223DB64
 	add r1, #0x90
 	ldr r1, [r1]
 	add r0, r2, #0
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	ldr r0, _0223DBC8 ; =0x0000023D
 	add sp, #0xc
 	ldrb r1, [r4, r0]
@@ -10832,7 +10832,7 @@ MOD06_0223EA38: ; 0x0223EA38
 	add r1, #0x90
 	ldr r1, [r1]
 	add r0, r2, #0
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	ldr r0, _0223EAFC ; =0x0000023D
 	add sp, #0xc
 	ldrb r1, [r5, r0]
@@ -10847,13 +10847,13 @@ _0223EA74:
 	add r0, #0x90
 	ldr r0, [r0]
 	ldr r1, [r4, #0x20]
-	bl FUN_0201EB78
+	bl Camera_Copy
 	add r0, r5, #0
 	add r0, #0x90
 	ldr r0, [r0]
-	bl FUN_0201EB70
+	bl Camera_Free
 	ldr r0, [r4, #0x20]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	add r0, r5, #0
 	bl MOD06_0223EBD4
 	add r1, r5, #0
@@ -17787,7 +17787,7 @@ _02242342:
 	ldr r1, _022423FC ; =0x006A4000
 	ldr r2, [r6, #0x20]
 	lsl r0, r0, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	mov r1, #6
 	str r1, [sp]
 	ldr r0, _02242400 ; =0x000076A0

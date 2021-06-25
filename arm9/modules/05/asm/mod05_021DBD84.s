@@ -19,7 +19,7 @@ MOD05_021DBD84: ; 0x021DBD84
 	bl GF_AssertFail
 _021DBD9E:
 	mov r0, #4
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	str r0, [r5, #0x20]
 	ldrb r0, [r4, #0xc]
 	add r2, r4, #4
@@ -31,13 +31,13 @@ _021DBD9E:
 	ldrh r3, [r4, #0xe]
 	ldr r1, [r4]
 	add r0, r7, #0
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	ldr r0, [r5, #0x20]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	ldr r0, [r4, #0x10]
 	ldr r1, [r4, #0x14]
 	ldr r2, [r5, #0x20]
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	cmp r6, #0
 	beq _021DBDE2
 	ldr r0, [r5, #0x20]
@@ -46,7 +46,7 @@ _021DBD9E:
 	mov r0, #7
 	mov r2, #2
 	mov r3, #4
-	bl FUN_0201EABC
+	bl Camera_AllocHistory
 _021DBDE2:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -57,11 +57,11 @@ _021DBDE8: .word UNK05_021F6608
 MOD05_021DBDEC: ; 0x021DBDEC
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0201EB98
+	bl Camera_UnsetWorkPtr
 	ldr r0, [r4, #0x20]
-	bl FUN_0201EB48
+	bl Camera_FreeHistory
 	ldr r0, [r4, #0x20]
-	bl FUN_0201EB70
+	bl Camera_Free
 	pop {r4, pc}
 	.balign 4, 0
 

@@ -996,7 +996,7 @@ MOD69_0222DDFC: ; 0x0222DDFC
 	sub sp, #0x18
 	add r4, r0, #0
 	mov r0, #0x3f
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	ldr r2, _0222DE80 ; =0x00001B1C
 	ldr r3, _0222DE84 ; =0x00000FA4
 	str r0, [r4, r2]
@@ -1029,7 +1029,7 @@ MOD69_0222DDFC: ; 0x0222DDFC
 	add r0, r4, r0
 	lsl r1, r1, #0xc
 	add r2, r4, r2
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -1039,17 +1039,17 @@ MOD69_0222DDFC: ; 0x0222DDFC
 	ldr r1, _0222DE80 ; =0x00001B1C
 	add r0, sp, #0xc
 	ldr r1, [r4, r1]
-	bl FUN_0201EC58
+	bl Camera_SetLookAtCamUp
 	ldr r0, _0222DE80 ; =0x00001B1C
 	ldr r0, [r4, r0]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	ldr r2, _0222DE80 ; =0x00001B1C
 	mov r0, #1
 	mov r1, #0x7d
 	ldr r2, [r4, r2]
 	lsl r0, r0, #0xc
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	add sp, #0x18
 	pop {r4, pc}
 	nop
@@ -1064,7 +1064,7 @@ MOD69_0222DE88: ; 0x0222DE88
 	bx r3
 	.align 2, 0
 _0222DE90: .word 0x00001B1C
-_0222DE94: .word FUN_0201EB70
+_0222DE94: .word Camera_Free
 
 	thumb_func_start MOD69_0222DE98
 MOD69_0222DE98: ; 0x0222DE98
