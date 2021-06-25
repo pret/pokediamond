@@ -51,7 +51,7 @@ _037FEA88:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
-_037FEA94:	.word	_038084AC
+_037FEA94:	.word	(SNDi_Work + 0x540)
 
 	arm_func_start SNDi_SetPlayerParam
 SNDi_SetPlayerParam: ; 0x037FEA98
@@ -76,7 +76,7 @@ _037FEAD4:
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
 	bx	lr
-_037FEAE0:	.word	_038084AC
+_037FEAE0:	.word	(SNDi_Work + 0x540)
 
 	arm_func_start SND_InvalidateBank
 SND_InvalidateBank: ; 0x037FEAE4
@@ -105,7 +105,7 @@ _037FEB2C:
 	blt	_037FEAFC
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
-_037FEB40:	.word	_038084AC
+_037FEB40:	.word	(SNDi_Work + 0x540)
 
 	arm_func_start SND_InvalidateSeq
 SND_InvalidateSeq: ; 0x037FEB44
@@ -152,7 +152,7 @@ _037FEBC4:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
-_037FEBDC:	.word	_038084AC
+_037FEBDC:	.word	(SNDi_Work + 0x540)
 
 	arm_func_start SND_SetTrackAllocatableChannel
 SND_SetTrackAllocatableChannel: ; 0x037FEBE0
@@ -189,7 +189,7 @@ _037FEC48:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
-_037FEC54:	.word	_038084AC
+_037FEC54:	.word	(SNDi_Work + 0x540)
 
 	arm_func_start SND_SetTrackMute
 SND_SetTrackMute: ; 0x037FEC58
@@ -225,7 +225,7 @@ _037FECBC:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
-_037FECC8:	.word	_038084AC
+_037FECC8:	.word	(SNDi_Work + 0x540)
 
 	arm_func_start SND_SkipSeq
 SND_SkipSeq: ; 0x037FECCC
@@ -285,7 +285,7 @@ _037FED58:
 _037FED88:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
-_037FED90:	.word	_038084AC
+_037FED90:	.word	(SNDi_Work + 0x540)
 _037FED94:	.word	SNDi_SharedWork
 
 	arm_func_start SND_PauseSeq
@@ -325,7 +325,7 @@ _037FEE0C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
-_037FEE18:	.word	_038084AC
+_037FEE18:	.word	(SNDi_Work + 0x540)
 
 	arm_func_start SND_StopSeq
 SND_StopSeq: ; 0x037FEE1C
@@ -351,7 +351,7 @@ SND_StopSeq: ; 0x037FEE1C
 _037FEE68:
 	ldmia	sp!, {r4, lr}
 	bx	lr
-_037FEE70:	.word	_038084AC
+_037FEE70:	.word	(SNDi_Work + 0x540)
 _037FEE74:	.word	SNDi_SharedWork
 
 	arm_func_start SND_StartSeq
@@ -373,7 +373,7 @@ SND_StartPreparedSeq: ; 0x037FEE94
 	orr	r0, r0, #2
 	strb	r0, [r2, r1]
 	bx	lr
-_037FEEB0:	.word	_038084AC
+_037FEEB0:	.word	(SNDi_Work + 0x540)
 
 	arm_func_start SND_PrepareSeq
 SND_PrepareSeq: ; 0x037FEEB4
@@ -465,8 +465,8 @@ _037FEFF0:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	bx	lr
-_037FEFFC:	.word	_038084AC
-_037FF000:	.word	_038086EC
+_037FEFFC:	.word	(SNDi_Work + 0x540)
+_037FF000:	.word	(SNDi_Work + 0x780)
 _037FF004:	.word	SNDi_SharedWork
 
 	arm_func_start SND_SeqMain
@@ -513,7 +513,7 @@ _037FF07C:
 	strne	r5, [r0, #4]
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	bx	lr
-_037FF0A0:	.word	_038084AC
+_037FF0A0:	.word	(SNDi_Work + 0x540)
 _037FF0A4:	.word	SNDi_SharedWork
 
 	arm_func_start SND_SeqInit
@@ -545,5 +545,5 @@ _037FF0E8:
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
 	bx	lr
-_037FF10C:	.word	_038084AC
-_037FF110:	.word	_038086EC
+_037FF10C:	.word	(SNDi_Work + 0x540)
+_037FF110:	.word	(SNDi_Work + 0x780)

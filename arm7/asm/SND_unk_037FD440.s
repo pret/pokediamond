@@ -16,10 +16,6 @@ _03807F50: ;0x03807F50
 _03807F58: ;0x03807F58
 	.space 0x03807F68 - 0x03807F58
 
-	.global SNDi_SharedWork
-SNDi_SharedWork: ;0x03807F68
-	.space 0x03807F6C - 0x03807F68
-
     .section .text
 
 	arm_func_start FUN_037FD440
@@ -82,7 +78,7 @@ _037FD4F0:
 	blt	_037FD4CC
 	mvn	r0, #0
 	bx	lr
-_037FD500:	.word	_038086EC
+_037FD500:	.word	(SNDi_Work + 0x780)
 
 	arm_func_start FUN_037FD504
 FUN_037FD504: ; 0x037FD504
@@ -1186,7 +1182,7 @@ _037FE430:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
-_037FE43C:	.word	_038086EC
+_037FE43C:	.word	(SNDi_Work + 0x780)
 
 	arm_func_start FUN_037FE440
 FUN_037FE440: ; 0x037FE440
@@ -1211,7 +1207,7 @@ FUN_037FE460: ; 0x037FE460
 	ldrne	r0, _037FE488	; =_038086EC
 	addne	r0, r0, r1, lsl #6
 	bx	lr
-_037FE488:	.word	_038086EC
+_037FE488:	.word	(SNDi_Work + 0x780)
 
 	arm_func_start FUN_037FE48C
 FUN_037FE48C: ; 0x037FE48C

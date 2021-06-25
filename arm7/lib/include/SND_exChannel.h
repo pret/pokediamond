@@ -3,6 +3,6 @@
 
 #include "global.h"
 
-bool SND_IsChannelActive(u32 idx);
+BOOL SND_IsChannelActive(s32 idx);
 
 #endif //GUARD_SND_EXCHANNEL_H
