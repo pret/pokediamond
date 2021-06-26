@@ -4,6 +4,7 @@
 #include "global.h"
 
 #include "SND_main.h"
+#include "nitro/SND_bank_shared.h"
 
 #define SND_INST_ILLEGAL    0
 #define SND_INST_PCM        1
@@ -15,7 +16,6 @@
 #define SND_INST_KEY_SPLIT  17
 
 #define SND_BANK_MAX_WAVEARC 4
-#define SND_INST_MAX_KEYSPLIT 8
 
 #define SND_INST_OFFSET_TYPE(off) ((u8)off)
 #define SND_INST_OFFSET_NORMAL(bank, off) ((struct SNDInstParam *)((u8 *)bank + (u32)(off >> 8)))
@@ -45,33 +45,6 @@ struct SNDWaveArc {
     u32 waveCount;                              // 0x38
     u32 waveOffsets[];                          // 0x3C
 };  // size = 0x3C
-
-struct SNDInstParam {
-    u16 wave[2];    // 0x0
-    u8 rootKey;     // 0x4
-    u8 envAttack;   // 0x5
-    u8 envDecay;    // 0x6
-    u8 envSustain;  // 0x7
-    u8 envRelease;  // 0x8
-    u8 pan;         // 0x9
-};  // size = 0xA
-
-struct SNDInstData {
-    u8 type;                    // 0x0
-    u8 unk_1;                   // 0x1
-    struct SNDInstParam param;  // 0x2
-};  // size = 0xC
-
-struct SNDKeySplit {
-    u8 key[SND_INST_MAX_KEYSPLIT];      // 0x0
-    struct SNDInstData instruments[];   // 0x8
-};  // size = 0x8
-
-struct SNDDrumSet {
-    u8 minKey;
-    u8 maxKey;
-    struct SNDInstData instruments[];
-};  // size = 0x2
 
 struct SNDInstPos {
     u32 program;    // 0x0
