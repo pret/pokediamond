@@ -427,8 +427,8 @@
 .extern _03807A54
 .extern _03807A74
 .extern _03807AA0
-.extern _03807F44
-.extern _03807F48
+.extern sLockedChannelMask
+.extern sUnlockedChannelMask
 .extern _03807F4C
 .extern _03807F50
 .extern _03807F58

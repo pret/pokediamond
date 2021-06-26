@@ -18,12 +18,12 @@ SND_AllocExChannel: ; 0x037FCB94
 	mov	sl, r0
 	mov	r9, r1
 	mov	fp, r3
-	ldr	r0, _037FCCBC	; =_03807F48
+	ldr	r0, _037FCCBC	; =sUnlockedChannelMask
 	ldr	r0, [r0]
 	mvn	r0, r0
 	and	sl, sl, r0
 	cmp	r2, #0
-	ldreq	r0, _037FCCC0	; =_03807F44
+	ldreq	r0, _037FCCC0	; =sLockedChannelMask
 	ldreq	r0, [r0]
 	mvneq	r0, r0
 	andeq	sl, sl, r0
@@ -92,8 +92,8 @@ _037FCCB0:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
-_037FCCBC:	.word	_03807F48
-_037FCCC0:	.word	_03807F44
+_037FCCBC:	.word	sUnlockedChannelMask
+_037FCCC0:	.word	sLockedChannelMask
 _037FCCC4:	.word	_03807298
 _037FCCC8:	.word	SNDi_Work
 
@@ -635,11 +635,11 @@ _037FD3EC:
 	cmp	ip, #16
 	blt	_037FD3EC
 	mov	r1, #0
-	ldr	r0, _037FD438	; =_03807F48
+	ldr	r0, _037FD438	; =sUnlockedChannelMask
 	str	r1, [r0]
-	ldr	r0, _037FD43C	; =_03807F44
+	ldr	r0, _037FD43C	; =sLockedCHannelMask
 	str	r1, [r0]
 	bx	lr
 _037FD434:	.word	SNDi_Work
-_037FD438:	.word	_03807F48
-_037FD43C:	.word	_03807F44
+_037FD438:	.word	sUnlockedChannelMask
+_037FD43C:	.word	sLockedChannelMask
