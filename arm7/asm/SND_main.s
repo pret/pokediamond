@@ -23,10 +23,6 @@ _03807A74: ;0x03807A74
 _03807AA0: ;0x03807AA0
 	.space 0x03807F44 - 0x03807AA0
 
-	.global _03807F44
-_03807F44: ;0x03807F44
-	.space 0x03807F48 - 0x03807F44
-
     .section .text
 
 	arm_func_start SndThread

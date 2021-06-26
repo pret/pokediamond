@@ -3,6 +3,10 @@
 
     .section .bss
 
+	.global _03807F44
+_03807F44: ;0x03807F44
+	.space 0x03807F48 - 0x03807F44
+
 	.global _03807F48
 _03807F48: ;0x03807F48
 	.space 0x03807F4C - 0x03807F48
