@@ -13,17 +13,17 @@ THUMB_FUNC s32 FUN_0201C6B4(s8 * r0)
 
 THUMB_FUNC s8 * FUN_0201C6C8(s8 * r0, s8 * r1, s8 r2)
 {
-    for(int r3 = 0; r3 < 256; r3++)
+    for(int r3 = 0; r3 < 0x100; r3++)
     {
         r1[r3] = r0[r3];
         if(r2 == r0[r3] || r0[r3] == 0)
         {
             r1[r3] = 0;
-            if(r2 == 13 && r0[r3 + 1] == 10)
+            if(r2 == 0xd && r0[r3 + 1] == 0xa)
             {
-                return (s8 *)((s32)(r0) + (r3 + 2));
+                return &r0[r3 + 2];
             }
-            return (s8 *)((s32)(r0) + (r3 + 1));
+            return &r0[r3 + 1];
         }
     }
     return NULL;
@@ -39,7 +39,7 @@ THUMB_FUNC s32 FUN_0201C70C(s8 * r4)
     {
         if(r4[r3] >= 0x30 && r4[r3] <= 0x39)
         {
-            r6 += ((r4[r3] - 0x30) * r5);
+            r6 += (r4[r3] - 0x30) * r5;
         }
         else
         {
@@ -55,7 +55,7 @@ THUMB_FUNC s32 FUN_0201C70C(s8 * r4)
                 return -1;
             }
         }
-        r5 *= 10;
+        r5 *= 0xa;
     }
     return r6;
 }
@@ -64,7 +64,8 @@ THUMB_FUNC void FUN_0201C750(s8 * r5, s8 * r4)
 {
     for(u8 r2 = 0; r2 < 4; r2++)
     {
-        ((s32*)(r5))[r2] = 0;
+        s32 * unk5 = (s32 *)r5;
+        unk5[r2] = 0;
     }
     u8 r0 = (u8)(FUN_0201C6B4(r4));
     for(u8 r2 = 0; r2 < r0; r2++)
@@ -75,5 +76,5 @@ THUMB_FUNC void FUN_0201C750(s8 * r5, s8 * r4)
 
 THUMB_FUNC BOOL FUN_0201C78C(u32 r0)
 {
-    return r0 < 289;
+    return r0 < 0x121;
 }
