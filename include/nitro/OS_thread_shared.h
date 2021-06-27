@@ -15,6 +15,9 @@
 
 #include "nitro/types.h"
 
+/* UGLY HACK: include proc specific header for OSContext */
+#include "OS_context.h"
+
 typedef struct OSiAlarm OSAlarm;
 
 typedef struct _OSThread OSThread;

@@ -3,6 +3,7 @@
 #include "save_block_2.h"
 #include "heap.h"
 #include "CARD_backup.h"
+#include "OS_spinLock.h"
 
 #pragma thumb on
 

@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_ARM9_OS_INTERRUPT_H
 #define POKEDIAMOND_ARM9_OS_INTERRUPT_H
 
-#include "consts.h"
+#include "registers.h"
 #include "nitro/OS_interrupt_shared.h"
 
 #define REG_OS_IME_IME_SHIFT                               0

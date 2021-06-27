@@ -1,6 +1,6 @@
 #include "CP_context.h"
 #include "function_target.h"
-#include "consts.h"
+#include "registers.h"
 
 ARM_FUNC asm void CP_SaveContext(register CPContext *context)
 {

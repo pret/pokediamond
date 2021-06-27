@@ -243,12 +243,12 @@ _020424F6:
 	b _020426FA
 _020424FC:
 	ldr r0, [r1, #0xc]
-	bl FUN_0202A8CC
+	bl SaveStruct23_GetSubstruct1
 	bl MOD06_022433A8
 	b _020426FA
 _02042508:
 	ldr r0, [r1, #0xc]
-	bl FUN_0202A8CC
+	bl SaveStruct23_GetSubstruct1
 	bl MOD06_022433B0
 	strh r0, [r4, #0x0]
 	b _020426FA
@@ -717,7 +717,7 @@ ScrCmd_Unk01E3: ; 0x02042894
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A8E4
+	bl SaveStruct23_GetSubstruct4
 	add r1, sp, #0x0
 	bl FUN_0202A864
 	add r0, sp, #0x0
@@ -743,8 +743,8 @@ ScrCmd_Unk01E4: ; 0x020428E0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A8E4
-	bl FUN_0202A74C
+	bl SaveStruct23_GetSubstruct4
+	bl SaveStruct23_Substruct4_GetField_0xFF
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -862,10 +862,10 @@ ScrCmd_Unk0297: ; 0x020429B8
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	mov r1, #0x0
 	add r2, r1, #0x0
-	bl FUN_0202A3B4
+	bl SaveStruct23_Substruct2_SetField_0x0
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -885,10 +885,10 @@ ScrCmd_Unk0298: ; 0x020429E8
 	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	add r1, r5, #0x0
 	mov r2, #0x5
-	bl FUN_0202A3B4
+	bl SaveStruct23_Substruct2_SetField_0x0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -908,10 +908,10 @@ ScrCmd_Unk0299: ; 0x02042A18
 	bl VarGet
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	add r1, r5, #0x0
 	mov r2, #0x6
-	bl FUN_0202A3B4
+	bl SaveStruct23_Substruct2_SetField_0x0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -939,10 +939,10 @@ ScrCmd_Unk029A: ; 0x02042A48
 	bl GetVarPointer
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0202A8D8
+	bl SaveStruct23_GetSubstruct2
 	mov r1, #0x0
 	add r2, r1, #0x0
-	bl FUN_0202A3B4
+	bl SaveStruct23_Substruct2_SetField_0x0
 	cmp r0, r6
 	bhs _02042A8E
 	mov r0, #0x0

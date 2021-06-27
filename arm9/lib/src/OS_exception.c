@@ -1,6 +1,8 @@
 #include "OS_exception.h"
-#include "function_target.h"
+
+#include "global.h"
 #include "OS_protectionUnit.h"
+#include "mmap.h"
 
 static OSiExContext OSi_ExContext;
 

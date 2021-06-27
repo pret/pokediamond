@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_MI_EXMEMORY_H
 #define POKEDIAMOND_MI_EXMEMORY_H
 
-#include "consts.h"
+#include "registers.h"
 
 typedef enum {
     MI_PROCESSOR_ARM9 = 0,

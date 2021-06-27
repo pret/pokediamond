@@ -7,6 +7,7 @@
 #include "PXI_fifo.h"
 #include "MI_dma.h"
 #include "MI_memory.h"
+#include "mmap.h"
 
 CTRDGWork CTRDGi_Work;
 
