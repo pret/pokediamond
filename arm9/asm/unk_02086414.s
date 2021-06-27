@@ -472,7 +472,7 @@ FUN_020866FC: ; 0x020866FC
 	add r0, r4, #0x0
 	mov r1, #0x26
 	mov r3, #0x47
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x47
@@ -493,7 +493,7 @@ FUN_020866FC: ; 0x020866FC
 	add r0, r4, #0x0
 	mov r1, #0x26
 	mov r3, #0x47
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r0, #0x20
@@ -504,7 +504,7 @@ FUN_020866FC: ; 0x020866FC
 	mov r1, #0xe
 	mov r2, #0x7
 	mov r3, #0x47
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0xc
 	pop {r3-r6, pc}
 
@@ -793,7 +793,7 @@ FUN_0208699C: ; 0x0208699C
 	mov r1, #0x76
 	mov r2, #0x8
 	mov r3, #0x47
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0x10
 	pop {r3-r5, pc}
 	.balign 4
@@ -838,7 +838,7 @@ FUN_020869F0: ; 0x020869F0
 	add r0, r4, #0x0
 	add r2, r1, #0x0
 	mov r3, #0x47
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0x10
 	pop {r3-r5, pc}
 

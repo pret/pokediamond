@@ -35,7 +35,7 @@ MOD08_02211E7C: ; 0x02211E7C
 	add r0, r5, #0
 	add r2, r4, #0
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -3185,7 +3185,7 @@ _02213500:
 	ldr r1, [sp, #0x14]
 	ldr r2, [sp, #0x10]
 	ldr r3, [r5]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3650,7 +3650,7 @@ _022138F0:
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x14]
 	ldr r3, [r4]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 _02213926:
 	ldr r0, [sp, #0xc]
 	lsl r5, r0, #2
@@ -4160,7 +4160,7 @@ MOD08_02213C94: ; 0x02213C94
 	ldr r0, [r0]
 	ldr r3, [r5]
 	mov r1, #7
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add r0, r5, #0
 	add r0, #0xc4
 	lsl r1, r4, #0x18
@@ -4663,7 +4663,7 @@ _02214078:
 	ldr r1, [r3, r1]
 	ldr r2, [r3, r2]
 	ldr r3, [r3]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 _022140CC:
 	ldr r2, [r4, #0x48]
 	mov r0, #0
@@ -4754,7 +4754,7 @@ _02214142:
 	ldr r0, [r0]
 	add r2, #0x64
 	mov r3, #0x10
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	b _022141B8
 _02214180:
 	mov r3, #0
@@ -4782,7 +4782,7 @@ _02214180:
 	ldr r0, [r0]
 	add r2, #0x64
 	mov r3, #0x10
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 _022141B8:
 	ldrb r0, [r4, #5]
 	add r0, r0, #1
@@ -4917,7 +4917,7 @@ _02214286:
 	ldr r0, [r0]
 	lsr r2, r2, #0x10
 	mov r3, #0x10
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	b _022142FA
 _022142C2:
 	mov r3, #0
@@ -4945,7 +4945,7 @@ _022142C2:
 	mov r1, #0
 	lsr r2, r2, #0x10
 	mov r3, #0x10
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 _022142FA:
 	ldrb r0, [r4, #5]
 	add r0, r0, #1
@@ -5039,7 +5039,7 @@ _0221436A:
 	ldr r1, [r3, r1]
 	ldr r2, [r3, r2]
 	ldr r3, [r3]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 _022143BE:
 	ldr r2, [r4, #0x48]
 	mov r0, #0
@@ -7574,7 +7574,7 @@ MOD08_02215660: ; 0x02215660
 	mov r2, #0
 	ldr r0, [r0]
 	add r3, r2, #0
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	pop {r3, pc}
 
 	thumb_func_start MOD08_02215680
@@ -7875,7 +7875,7 @@ _022158C2:
 	ldr r1, [sp, #0x20]
 	ldr r2, [sp, #0x1c]
 	ldr r3, [r4]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 _022158EC:
 	ldr r0, [sp, #0x24]
 	add r7, r7, #4
@@ -14563,7 +14563,7 @@ MOD08_02218A84: ; 0x02218A84
 	ldrh r3, [r4, #0xe]
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #8]
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldrb r3, [r4, #0x13]
 	ldrb r1, [r4, #0x14]
 	cmp r1, r3
@@ -14728,7 +14728,7 @@ MOD08_02218BD4: ; 0x02218BD4
 	add r5, r0, #0
 	bl MOD08_02215504
 	mov r1, #0
-	bl FUN_02003204
+	bl PaletteData_GetFadedBuf
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD08_02212004
@@ -14763,7 +14763,7 @@ MOD08_02218C04: ; 0x02218C04
 	add r0, r4, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020031B8
+	bl PaletteData_CopyPalette
 	add sp, #8
 	pop {r3, r4, r5, pc}
 _02218C30:
@@ -14775,7 +14775,7 @@ _02218C30:
 	add r0, r4, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020031B8
+	bl PaletteData_CopyPalette
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -15602,7 +15602,7 @@ _02219228:
 	ldr r0, [r4, #0x34]
 	mov r1, #7
 	add r2, r6, #0
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	bl BgClearTilemapBufferAndCommit
@@ -16006,7 +16006,7 @@ _02219550:
 	ldr r0, [r4, #0x34]
 	mov r1, #7
 	add r2, r6, #0
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	bl BgClearTilemapBufferAndCommit
@@ -26031,7 +26031,7 @@ _0221E796:
 	mov r2, #0xff
 	mov r3, #0xa
 	str r1, [sp]
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	b _0221E7DA
 _0221E7C8:
 	bl MOD08_02215504
@@ -26040,7 +26040,7 @@ _0221E7C8:
 	str r1, [sp]
 	mov r1, #0
 	mov r3, #0xa
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 _0221E7DA:
 	mov r0, #3
 	strb r0, [r4, #3]
@@ -26085,7 +26085,7 @@ _0221E810:
 	mov r2, #0xff
 	add r3, r1, #0
 	str r1, [sp]
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 _0221E832:
 	mov r6, #0
 	add r5, r4, #0
@@ -34520,7 +34520,7 @@ _02222DA6:
 	ldr r0, [r4, #0x18]
 	lsl r2, r2, #8
 	mov r3, #8
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	ldr r0, [r4]
 	ldr r1, _02222E18 ; =MOD08_02222BF4
 	add r2, r4, #0
@@ -38691,7 +38691,7 @@ MOD08_02224F74: ; 0x02224F74
 	mov r1, #2
 	lsr r2, r2, #0x10
 	mov r3, #8
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	add sp, #4
 	pop {r3, r4, pc}
 	.align 2, 0
@@ -42756,7 +42756,7 @@ MOD08_02227068: ; 0x02227068
 	ldr r1, [r5]
 	ldr r2, [r2, r3]
 	add r3, r6, #0
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	lsl r1, r4, #0x18
 	ldr r0, [r5, #0x2c]
 	lsr r1, r1, #0x18

@@ -30,7 +30,7 @@ MOD11_0222F29C: ; 0x0222F29C
 	mov r1, #0
 	lsl r2, r2, #8
 	mov r3, #5
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r1, #0
 	mov r0, #1
 	str r1, [sp]
@@ -39,7 +39,7 @@ MOD11_0222F29C: ; 0x0222F29C
 	ldr r0, [r5, #0xc]
 	mov r2, #2
 	add r3, r1, #0
-	bl FUN_02003914
+	bl PaletteData_FillPalette
 	mov r0, #5
 	bl BgConfig_Alloc
 	str r0, [r5, #4]
@@ -142,7 +142,7 @@ _0222F30E:
 	mov r1, #0xe
 	mov r2, #7
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add r0, r4, #0
 	bl FUN_0200CD64
 	add r2, r0, #0
@@ -155,7 +155,7 @@ _0222F30E:
 	ldr r0, [r5, #0xc]
 	mov r1, #0x26
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r1, #0
 	mov r0, #1
 	str r1, [sp]
@@ -164,7 +164,7 @@ _0222F30E:
 	ldr r0, [r5, #0xc]
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_02003914
+	bl PaletteData_FillPalette
 	bl GX_BothDispOn
 	mov r0, #0x10
 	mov r1, #1
@@ -805,7 +805,7 @@ MOD11_0222F93C: ; 0x0222F93C
 	bl FUN_0200E3A0
 	ldr r0, [r4, #0xc]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0xc]
 	bl FUN_02002FEC
 	ldr r0, [r4, #8]
@@ -3859,7 +3859,7 @@ MOD11_02230FCC: ; 0x02230FCC
 	ldr r5, [r4, r0]
 	ldr r0, [r4, #0x28]
 	mov r1, #0
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	mov r2, #2
 	add r1, r5, #0
 	lsl r2, r2, #8
@@ -23844,7 +23844,7 @@ _0223AC50:
 	add r0, r7, #0
 	mov r1, #0x26
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #7
 	str r0, [sp]
 	mov r0, #0xe
@@ -73745,7 +73745,7 @@ _0225319A:
 	bne _02253286
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r7, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231244
@@ -73758,7 +73758,7 @@ _0225319A:
 	bne _022531DC
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r7, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231250
@@ -73773,7 +73773,7 @@ _022531DC:
 	tst r0, r1
 	beq _02253200
 	add r0, r5, #0
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r7, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231250
@@ -73789,7 +73789,7 @@ _02253200:
 	beq _02253226
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r7, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231250
@@ -73800,7 +73800,7 @@ _02253200:
 _02253226:
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r7, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231250
@@ -73897,7 +73897,7 @@ _022532E4:
 _022532F6:
 	add r0, r5, #0
 	mov r1, #0
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r6, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231244
@@ -73910,7 +73910,7 @@ _022532F6:
 	bne _02253332
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r6, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231250
@@ -73925,7 +73925,7 @@ _02253332:
 	tst r0, r1
 	beq _02253356
 	add r0, r5, #0
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r6, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231250
@@ -73941,7 +73941,7 @@ _02253356:
 	beq _0225337C
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r6, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231250
@@ -73952,7 +73952,7 @@ _02253356:
 _0225337C:
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r6, r0, #0
 	ldr r0, [r4]
 	bl MOD11_02231250
@@ -83966,7 +83966,7 @@ _022580F2:
 	add r2, #0xf
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 _02258112:
@@ -83995,7 +83995,7 @@ _0225812A:
 	add r2, #0xf
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 _0225814A:
@@ -84214,7 +84214,7 @@ _02258288:
 	add r2, r2, r3
 	ldrh r2, [r5, r2]
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #1
 	str r0, [sp]
 	ldr r0, [sp, #0x20]
@@ -84523,10 +84523,10 @@ _0225854E:
 	mov r1, #7
 	mov r2, #0xc3
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r0, [sp, #0x10]
 	mov r1, #1
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	mov r2, #2
 	ldr r1, [r6, #0x58]
 	lsl r2, r2, #8
@@ -84881,7 +84881,7 @@ _02258874:
 	ldr r1, [r7, #0x58]
 	mov r2, #1
 	mov r3, #0
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	ldr r6, [sp, #0x2c]
 	mov r4, #0
 _0225889A:
@@ -89160,7 +89160,7 @@ _0225AB62:
 	add r0, r6, #0
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	add r4, r4, #1
 _0225AB96:
 	cmp r4, #4
@@ -89215,7 +89215,7 @@ MOD11_0225ABA4: ; 0x0225ABA4
 	add r0, r7, #0
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	add r0, r6, #0
 	mov r1, #4
 	bl ScheduleBgTilemapBufferTransfer
@@ -90735,7 +90735,7 @@ MOD11_0225B794: ; 0x0225B794
 	ldr r0, _0225B81C ; =0x00007FFF
 	str r0, [sp, #4]
 	add r0, r4, #0
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldr r1, _0225B820 ; =0x000006A8
 _0225B7C8:
 	ldrb r0, [r5, r1]
@@ -90805,7 +90805,7 @@ MOD11_0225B824: ; 0x0225B824
 	bne _0225B8A8
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_02003204
+	bl PaletteData_GetFadedBuf
 	add r4, r0, #0
 	ldr r0, _0225B8AC ; =gMain + 0x40
 	ldrh r0, [r0, #0x22]

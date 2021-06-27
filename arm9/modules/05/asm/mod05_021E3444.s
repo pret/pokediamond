@@ -1474,7 +1474,7 @@ MOD05_021E3F68: ; 0x021E3F68
 	ldr r0, [sp, #4]
 	add r3, r7, #0
 	ldr r0, [r0, #0xc]
-	bl FUN_02003974
+	bl BlendPalette
 	add r0, r6, #0
 	add r1, r5, #0
 	mov r2, #0x20

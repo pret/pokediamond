@@ -3115,7 +3115,7 @@ MOD62_0222ED34: ; 0x0222ED34
 	add r0, r4, #0
 	mov r1, #0x26
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x35
@@ -3136,7 +3136,7 @@ MOD62_0222ED34: ; 0x0222ED34
 	add r0, r4, #0
 	mov r1, #0x26
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -3147,7 +3147,7 @@ MOD62_0222ED34: ; 0x0222ED34
 	mov r1, #0xe
 	mov r2, #7
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	thumb_func_end MOD62_0222ED34
@@ -3180,7 +3180,7 @@ MOD62_0222EDBC: ; 0x0222EDBC
 	add r0, r4, #0
 	mov r1, #0x26
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x35
@@ -3201,7 +3201,7 @@ MOD62_0222EDBC: ; 0x0222EDBC
 	add r0, r4, #0
 	mov r1, #0x26
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x20
@@ -3212,7 +3212,7 @@ MOD62_0222EDBC: ; 0x0222EDBC
 	mov r1, #0xe
 	mov r2, #7
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x20
@@ -3223,7 +3223,7 @@ MOD62_0222EDBC: ; 0x0222EDBC
 	mov r1, #0xe
 	mov r2, #7
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x20
@@ -3235,7 +3235,7 @@ MOD62_0222EDBC: ; 0x0222EDBC
 	add r0, r4, #0
 	add r2, #0xcb
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -3829,7 +3829,7 @@ MOD62_0222F2C8: ; 0x0222F2C8
 	ldr r0, [r0]
 	add r2, #0xc5
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3910,7 +3910,7 @@ MOD62_0222F36C: ; 0x0222F36C
 	ldr r0, [r4]
 	add r2, #0xc4
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -3963,7 +3963,7 @@ MOD62_0222F3D4: ; 0x0222F3D4
 	ldr r0, [r4]
 	add r2, #0xc4
 	mov r3, #0x35
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0

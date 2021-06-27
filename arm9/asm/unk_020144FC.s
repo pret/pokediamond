@@ -15,7 +15,7 @@ FUN_020144FC: ; 0x020144FC
 	mov r2, #0x1
 	lsl r3, r3, #0x14
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	pop {r3, pc}
 	.balign 4
 

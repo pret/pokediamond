@@ -156,7 +156,7 @@ MOD07_02211F34: ; 0x02211F34
 	mov r1, #0
 	ldr r3, [r3, #0x24]
 	mov r2, #0x60
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	ldr r0, _02211FEC ; =0x00000B82
 	mov r3, #0
 	strb r3, [r4, r0]
@@ -1641,7 +1641,7 @@ _02212BA8:
 	bl FUN_0201C29C
 	ldr r0, [r4, #8]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #8]
 	bl FUN_02002FEC
 	ldr r0, [r4]
