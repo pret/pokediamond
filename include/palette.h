@@ -1,3 +1,6 @@
+#ifndef POKEDIAMOND_PALETTE_H
+#define POKEDIAMOND_PALETTE_H
+
 #include "global.h"
 #include "filesystem.h"
 #include "unk_02002F08.h"
@@ -66,3 +69,5 @@ void FUN_02003B40(struct PaletteData *paletteData,
     u32 rTone,
     u32 gTone,
     u32 bTone);
+
+#endif // POKEDIAMOND_PALETTE_H
