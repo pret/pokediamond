@@ -1,7 +1,7 @@
 #include "global.h"
 #include "palette.h"
 #include "MI_memory.h"
-#include "unk_02002F08.h"
+#include "gf_gfx_loader.h"
 #include "unk_0200CA44.h"
 
 extern void *FUN_020222E8();
@@ -9,6 +9,85 @@ extern void *FUN_020222F8();
 extern void *FUN_02022308();
 extern void *FUN_02022310();
 extern int abs(int);
+
+THUMB_FUNC struct PaletteData *FUN_02002FD0(u32 heap_id)
+{
+    struct PaletteData *ptr = AllocFromHeap(heap_id, sizeof(struct PaletteData));
+    MI_CpuFill8(ptr, 0, sizeof(struct PaletteData));
+
+    return ptr;
+}
+
+THUMB_FUNC void FUN_02002FEC(struct PaletteData *ptr)
+{
+    FreeToHeap(ptr);
+}
+
+THUMB_FUNC void PaletteData_SetBuffers(
+    struct PaletteData *paletteData, u32 index, void *unfadedBuf, void *fadedBuf, u32 size)
+{
+    paletteData->pltt[index].unfadedBuf = unfadedBuf;
+    paletteData->pltt[index].fadedBuf = fadedBuf;
+    paletteData->pltt[index].bufSize = size;
+}
+
+THUMB_FUNC void PaletteData_AllocBuffers(
+    struct PaletteData *paletteData, u32 index, u32 size, u32 heap_id)
+{
+    void *ptr = AllocFromHeap(heap_id, size);
+    void *ptr2 = AllocFromHeap(heap_id, size);
+
+    PaletteData_SetBuffers(paletteData, index, ptr, ptr2, size);
+}
+
+THUMB_FUNC void PaletteData_FreeBuffers(struct PaletteData *paletteData, u32 index)
+{
+    FreeToHeap(paletteData->pltt[index].unfadedBuf);
+    FreeToHeap(paletteData->pltt[index].fadedBuf);
+}
+
+THUMB_FUNC void PaletteData_LoadPalette(
+    struct PaletteData *paletteData, const void *src, u32 index, u32 offset, u16 size)
+{
+    MIi_CpuCopy16(src, paletteData->pltt[index].unfadedBuf + offset, size);
+    MIi_CpuCopy16(src, paletteData->pltt[index].fadedBuf + offset, size);
+}
+
+THUMB_FUNC void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
+    NarcId narcId,
+    s32 memberId,
+    u32 heap_id,
+    u32 index,
+    u32 size,
+    u16 offset,
+    u16 param7)
+{
+    NNSG2dPaletteData *pltData;
+    void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heap_id);
+
+    GF_ASSERT(ptr != NULL);
+
+    if (size == 0)
+    {
+        size = pltData->szByte;
+    }
+
+    GF_ASSERT(size + offset * 2 <= paletteData->pltt[index].bufSize);
+
+    PaletteData_LoadPalette(paletteData, pltData->pRawData + param7 * 2, index, offset, (u16)size);
+    FreeToHeap(ptr);
+}
+
+THUMB_FUNC void PaletteData_LoadNarc(struct PaletteData *paletteData,
+    NarcId narcId,
+    s32 memberId,
+    u32 heap_id,
+    u32 index,
+    u32 size,
+    u16 offset)
+{
+    PaletteData_LoadFromNarc(paletteData, narcId, memberId, heap_id, index, size, offset, 0);
+}
 
 THUMB_FUNC void FUN_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 size)
 {
@@ -496,7 +575,8 @@ THUMB_FUNC void BlendPalette(u16 *src, u16 *dest, u16 numEntries, u8 coeff, u16 
         s32 g = ((struct PlttData *)&src[i])->g;
         s32 b = ((struct PlttData *)&src[i])->b;
 
-        dest[i] = (u16)(((r + (((r2 - r) * coeff) >> 4)) << 0) | ((g + (((g2 - g) * coeff) >> 4)) << 5) |
+        dest[i] =
+            (u16)(((r + (((r2 - r) * coeff) >> 4)) << 0) | ((g + (((g2 - g) * coeff) >> 4)) << 5) |
                   ((b + (((b2 - b) * coeff) >> 4)) << 10));
     }
 }

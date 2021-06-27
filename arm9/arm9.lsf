@@ -11,7 +11,6 @@ Static arm9
 	Object string_util.o
 	Object render_text.o
 	Object font.o
-	Object unk_02002F08.o
 	Object palette.o
 	Object sound.o
 	Object unk_020040F4.o
