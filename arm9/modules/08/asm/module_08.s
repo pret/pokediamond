@@ -4754,7 +4754,7 @@ _02214142:
 	ldr r0, [r0]
 	add r2, #0x64
 	mov r3, #0x10
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	b _022141B8
 _02214180:
 	mov r3, #0
@@ -4782,7 +4782,7 @@ _02214180:
 	ldr r0, [r0]
 	add r2, #0x64
 	mov r3, #0x10
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 _022141B8:
 	ldrb r0, [r4, #5]
 	add r0, r0, #1
@@ -4917,7 +4917,7 @@ _02214286:
 	ldr r0, [r0]
 	lsr r2, r2, #0x10
 	mov r3, #0x10
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	b _022142FA
 _022142C2:
 	mov r3, #0
@@ -4945,7 +4945,7 @@ _022142C2:
 	mov r1, #0
 	lsr r2, r2, #0x10
 	mov r3, #0x10
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 _022142FA:
 	ldrb r0, [r4, #5]
 	add r0, r0, #1
@@ -14563,7 +14563,7 @@ MOD08_02218A84: ; 0x02218A84
 	ldrh r3, [r4, #0xe]
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #8]
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldrb r3, [r4, #0x13]
 	ldrb r1, [r4, #0x14]
 	cmp r1, r3
@@ -14728,7 +14728,7 @@ MOD08_02218BD4: ; 0x02218BD4
 	add r5, r0, #0
 	bl MOD08_02215504
 	mov r1, #0
-	bl FUN_02003204
+	bl PaletteData_GetFadedBuf
 	add r4, r0, #0
 	add r0, r5, #0
 	bl MOD08_02212004
@@ -14763,7 +14763,7 @@ MOD08_02218C04: ; 0x02218C04
 	add r0, r4, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020031B8
+	bl PaletteData_CopyPalette
 	add sp, #8
 	pop {r3, r4, r5, pc}
 _02218C30:
@@ -14775,7 +14775,7 @@ _02218C30:
 	add r0, r4, #0
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_020031B8
+	bl PaletteData_CopyPalette
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -26031,7 +26031,7 @@ _0221E796:
 	mov r2, #0xff
 	mov r3, #0xa
 	str r1, [sp]
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	b _0221E7DA
 _0221E7C8:
 	bl MOD08_02215504
@@ -26040,7 +26040,7 @@ _0221E7C8:
 	str r1, [sp]
 	mov r1, #0
 	mov r3, #0xa
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 _0221E7DA:
 	mov r0, #3
 	strb r0, [r4, #3]
@@ -26085,7 +26085,7 @@ _0221E810:
 	mov r2, #0xff
 	add r3, r1, #0
 	str r1, [sp]
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 _0221E832:
 	mov r6, #0
 	add r5, r4, #0
@@ -34520,7 +34520,7 @@ _02222DA6:
 	ldr r0, [r4, #0x18]
 	lsl r2, r2, #8
 	mov r3, #8
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	ldr r0, [r4]
 	ldr r1, _02222E18 ; =MOD08_02222BF4
 	add r2, r4, #0
@@ -38691,7 +38691,7 @@ MOD08_02224F74: ; 0x02224F74
 	mov r1, #2
 	lsr r2, r2, #0x10
 	mov r3, #8
-	bl FUN_02003A64
+	bl BlendPalettesUnfaded
 	add sp, #4
 	pop {r3, r4, pc}
 	.align 2, 0

@@ -23,7 +23,7 @@ FUN_020142EC: ; 0x020142EC
 	bne _02014320
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	str r0, [sp, #0x0]
 	ldr r0, _02014398 ; =FUN_020144E0
 	str r0, [r4, #0x4]
@@ -31,7 +31,7 @@ FUN_020142EC: ; 0x020142EC
 _02014320:
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	str r0, [sp, #0x0]
 	ldr r0, _0201439C ; =FUN_020144FC
 	str r0, [r4, #0x4]

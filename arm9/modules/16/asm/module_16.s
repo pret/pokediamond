@@ -49734,7 +49734,7 @@ MOD16_021EE5D0: ; 0x021EE5D0
 	ldr r1, [r1]
 	mov r2, #0x30
 	add r3, r7, #0
-	bl FUN_02003974
+	bl BlendPalette
 	ldr r0, [sp, #4]
 	mov r1, #1
 	bl NNS_G2dGetImagePaletteLocation
@@ -49759,7 +49759,7 @@ MOD16_021EE5D0: ; 0x021EE5D0
 	ldr r1, [r1]
 	mov r2, #0x50
 	add r3, r7, #0
-	bl FUN_02003974
+	bl BlendPalette
 	ldr r0, [sp, #8]
 	mov r1, #1
 	bl NNS_G2dGetImagePaletteLocation

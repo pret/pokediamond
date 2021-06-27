@@ -466,7 +466,7 @@ _021D77F2:
 	add r2, #0x22
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldrb r0, [r5, #0x16]
 	strb r0, [r5, #0x17]
 	mov r0, #0
@@ -780,7 +780,7 @@ _021D7ABC:
 	lsl r2, r3, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #1
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldrb r0, [r4, #0x16]
 	strb r0, [r4, #0x17]
 	mov r0, #0
@@ -798,7 +798,7 @@ _021D7AEA:
 	add r2, #0x22
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldrb r0, [r4, #0x15]
 	ldrb r1, [r4, #0x14]
 	cmp r0, #0
@@ -1223,7 +1223,7 @@ _021D7E00:
 	ldr r0, [r5, #0x30]
 	add r2, r1, #0
 	mov r3, #0x70
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	mov r0, #0x10
 	str r0, [sp]
 	mov r2, #0
@@ -1231,7 +1231,7 @@ _021D7E00:
 	ldr r0, [r5, #0x30]
 	mov r1, #2
 	mov r3, #0x30
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldr r0, [r5, #0x30]
 	mov r1, #1
 	bl FUN_020038F0

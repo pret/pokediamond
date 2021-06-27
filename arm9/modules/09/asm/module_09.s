@@ -2224,7 +2224,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #1
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r2, r0, #0
 	ldr r0, _02213134 ; =0x00001F60
 	mov r1, #6
@@ -2300,7 +2300,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #1
-	bl FUN_020031FC
+	bl PaletteData_GetUnfadedBuf
 	add r6, r0, #0
 	ldr r0, [r5]
 	mov r1, #0x20

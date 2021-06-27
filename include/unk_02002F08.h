@@ -5,19 +5,28 @@
 #include "gf_gfx_loader.h"
 #include "string16.h"
 
-struct PaletteControl
+
+struct PlttData
 {
-    u16 unk00;
+    u16 r:5; // red
+    u16 g:5; // green
+    u16 b:5; // blue
+    u16 unused_15:1;
+};
 
-    u16 unk02_0 : 6;
-    u16 unk02_6 : 5;
-    u16 unk02_b : 5;
+struct PaletteFadeControl
+{
+    u16 selectedPalettes;
 
-    u16 unk04_0 : 15;
-    u16 unk04_f : 1;
+    u16 delay : 6;
+    u16 y : 5;
+    u16 targetY : 5;
 
-    u16 unk06_0 : 4;
-    u16 unk06_4 : 6;
+    u16 blendColor : 15;
+    u16 yDec : 1;
+
+    u16 deltaY : 4;
+    u16 delayCounter : 6;
     u16 unk06_a : 6;
 };
 
@@ -26,7 +35,7 @@ struct Palette
     u16 *unfadedBuf;
     u16 *fadedBuf;
     u32 bufSize;
-    struct PaletteControl unk0c;
+    struct PaletteFadeControl fadeCtrl;
 };
 
 struct PaletteData
@@ -34,7 +43,7 @@ struct PaletteData
     struct Palette pltt[14];
 
     u16 unk118_0 : 2;
-    u16 unk118_2 : 14;
+    u16 activeFadePalettes : 14;
     u16 unk11a_0 : 14;
     u16 unk11a_e : 1;
     u16 unk11a_f : 1;
