@@ -485,90 +485,21 @@ THUMB_FUNC void PaletteData_FillPalette(struct PaletteData *paletteData,
     }
 }
 
-#ifdef NONMATCHING
 THUMB_FUNC void BlendPalette(u16 *src, u16 *dest, u16 numEntries, u8 coeff, u16 blendColor)
 {
-    s32 r12 = ((u32)(blendColor << 0x1b)) >> 0x1b;
-    s32 lr = ((u32)(blendColor << 0x16)) >> 0x1b;
-    s32 st8 = ((u32)(blendColor << 0x11)) >> 0x1b;
-    s32 lo, mid, hi;
-
+    s32 r2 = ((struct PlttData *)&blendColor)->r;
+    s32 g2 = ((struct PlttData *)&blendColor)->g;
+    s32 b2 = ((struct PlttData *)&blendColor)->b;
     for (u16 i = 0; i < numEntries; i++)
     {
-        lo = (((u32)(src[i] << 0x1b)) >> 0x1b);
-        mid = (((u32)(src[i] << 0x16)) >> 0x1b);
-        hi = (((u32)(src[i] << 0x11)) >> 0x1b);
+        s32 r = ((struct PlttData *)&src[i])->r;
+        s32 g = ((struct PlttData *)&src[i])->g;
+        s32 b = ((struct PlttData *)&src[i])->b;
 
-        dest[i] = (lo + ((r12 - lo) * coeff) >> 4) | (mid + ((lr - mid) * coeff) >> 4) << 5 |
-                  (hi + ((st8 - hi) * coeff) >> 4) << 10;
+        dest[i] = ((r + (((r2 - r) * coeff) >> 4)) << 0) | ((g + (((g2 - g) * coeff) >> 4)) << 5) |
+                  ((b + (((b2 - b) * coeff) >> 4)) << 10);
     }
 }
-#else
-asm void BlendPalette(u16 *param0, u16 *param1, u16 param2, u8 param3, u16 param4)
-{
-    // clang-format off
-	push {r4-r7, lr}
-	sub sp, #0xc
-	str r0, [sp, #0x0]
-	add r0, sp, #0x10
-	ldrh r0, [r0, #0x10]
-	str r1, [sp, #0x4]
-	add r7, r2, #0x0
-	lsl r1, r0, #0x1b
-	lsr r1, r1, #0x1b
-	mov r12, r1
-	lsl r1, r0, #0x16
-	lsl r0, r0, #0x11
-	lsr r1, r1, #0x1b
-	lsr r0, r0, #0x1b
-	mov r2, #0x0
-	mov lr, r1
-	str r0, [sp, #0x8]
-	cmp r7, #0x0
-	bls _020039E2
-_0200399A:
-	ldr r0, [sp, #0x0]
-	lsl r6, r2, #0x1
-	ldrh r4, [r0, r6]
-	lsl r0, r4, #0x1b
-	lsr r1, r0, #0x1b
-	lsl r0, r4, #0x16
-	lsl r4, r4, #0x11
-	lsr r5, r4, #0x1b
-	ldr r4, [sp, #0x8]
-	lsr r0, r0, #0x1b
-	sub r4, r4, r5
-	mul r4, r3
-	asr r4, r4, #0x4
-	add r4, r5, r4
-	lsl r5, r4, #0xa
-	mov r4, r12
-	sub r4, r4, r1
-	mul r4, r3
-	asr r4, r4, #0x4
-	add r1, r1, r4
-	mov r4, lr
-	sub r4, r4, r0
-	mul r4, r3
-	asr r4, r4, #0x4
-	add r0, r0, r4
-	lsl r0, r0, #0x5
-	orr r0, r1
-	add r1, r5, #0x0
-	orr r1, r0
-	ldr r0, [sp, #0x4]
-	strh r1, [r0, r6]
-	add r0, r2, #0x1
-	lsl r0, r0, #0x10
-	lsr r2, r0, #0x10
-	cmp r2, r7
-	blo _0200399A
-_020039E2:
-	add sp, #0xc
-	pop {r4-r7, pc}
-    // clang-format on
-}
-#endif
 
 THUMB_FUNC void BlendPaletteUnfaded(struct PaletteData *paletteData,
     u32 index,
