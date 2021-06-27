@@ -562,8 +562,7 @@ THUMB_FUNC void BlendPalettesUnfaded(
     }
 }
 
-#ifdef NONMATCHING
-THUMB_FUNC void TintPalette_CustomTone(u16 *palette, u32 count, u32 rTone, u32 gTone, u32 bTone)
+THUMB_FUNC void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 gTone, s32 bTone)
 {
     s32 r, g, b, i;
     u32 gray;
@@ -590,79 +589,6 @@ THUMB_FUNC void TintPalette_CustomTone(u16 *palette, u32 count, u32 rTone, u32 g
         *palette++ = (b << 10) | (g << 5) | (r << 0);
     }
 }
-#else
-asm void TintPalette_CustomTone(u16 *palette, u32 count, u32 rTone, u32 gTone, u32 bTone)
-{
-    // clang-format off
-	push {r3-r7, lr}
-	mov lr, r1
-	mov r12, r2
-	add r7, r3, #0x0
-	mov r4, #0x0
-	cmp r1, #0x0
-	ble _02003B3C
-	ldr r6, [sp, #0x18]
-_02003AD4:
-	ldrh r3, [r0, #0x0]
-	mov r1, #0x1f
-	add r2, r3, #0x0
-	asr r5, r3, #0xa
-	and r2, r1
-	and r5, r1
-	mov r1, #0x1d
-	mul r1, r5
-	mov r5, #0x4c
-	mul r5, r2
-	asr r3, r3, #0x5
-	mov r2, #0x1f
-	and r3, r2
-	mov r2, #0x97
-	mul r2, r3
-	add r2, r5, r2
-	add r1, r1, r2
-	asr r3, r1, #0x8
-	mov r1, r12
-	add r2, r1, #0x0
-	mul r2, r3
-	lsl r1, r2, #0x10
-	lsr r1, r1, #0x10
-	asr r2, r1, #0x8
-	add r1, r7, #0x0
-	mul r1, r3
-	mul r3, r6
-	lsl r1, r1, #0x10
-	lsl r3, r3, #0x10
-	lsr r1, r1, #0x10
-	lsr r3, r3, #0x10
-	asr r1, r1, #0x8
-	asr r3, r3, #0x8
-	cmp r2, #0x1f
-	ble _02003B1C
-	mov r2, #0x1f
-_02003B1C:
-	cmp r1, #0x1f
-	ble _02003B22
-	mov r1, #0x1f
-_02003B22:
-	cmp r3, #0x1f
-	ble _02003B28
-	mov r3, #0x1f
-_02003B28:
-	lsl r3, r3, #0xa
-	lsl r1, r1, #0x5
-	orr r1, r3
-	orr r1, r2
-	strh r1, [r0, #0x0]
-	add r4, r4, #0x1
-	mov r1, lr
-	add r0, r0, #0x2
-	cmp r4, r1
-	blt _02003AD4
-_02003B3C:
-	pop {r3-r7, pc}
-    // clang-format on
-}
-#endif
 
 THUMB_FUNC void FUN_02003B40(struct PaletteData *paletteData,
     NarcId narcId,

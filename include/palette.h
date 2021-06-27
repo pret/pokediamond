@@ -58,7 +58,7 @@ void BlendPaletteUnfaded(struct PaletteData *paletteData,
 void BlendPalettes(u16 *src, u16 *dest, u16 selectedPalettes, u8 coeff, u16 blendColor);
 void BlendPalettesUnfaded(
     struct PaletteData *paletteData, u32 index, u16 selectedPalettes, u8 coeff, u16 blendColor);
-void TintPalette_CustomTone(u16 *palette, u32 count, u32 rTone, u32 gTone, u32 bTone);
+void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 gTone, s32 bTone);
 void FUN_02003B40(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
