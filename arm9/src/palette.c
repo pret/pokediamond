@@ -496,8 +496,8 @@ THUMB_FUNC void BlendPalette(u16 *src, u16 *dest, u16 numEntries, u8 coeff, u16 
         s32 g = ((struct PlttData *)&src[i])->g;
         s32 b = ((struct PlttData *)&src[i])->b;
 
-        dest[i] = ((r + (((r2 - r) * coeff) >> 4)) << 0) | ((g + (((g2 - g) * coeff) >> 4)) << 5) |
-                  ((b + (((b2 - b) * coeff) >> 4)) << 10);
+        dest[i] = (u16)(((r + (((r2 - r) * coeff) >> 4)) << 0) | ((g + (((g2 - g) * coeff) >> 4)) << 5) |
+                  ((b + (((b2 - b) * coeff) >> 4)) << 10));
     }
 }
 
@@ -573,7 +573,7 @@ THUMB_FUNC void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 g
         g = (*palette >> 5) & 0x1F;
         b = (*palette >> 10) & 0x1F;
 
-        gray = (r * 76 + g * 151 + b * 29) >> 8;
+        gray = (u32)((r * 76 + g * 151 + b * 29) >> 8);
 
         r = (u16)((rTone * gray)) >> 8;
         g = (u16)((gTone * gray)) >> 8;
@@ -586,7 +586,7 @@ THUMB_FUNC void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 g
         if (b > 31)
             b = 31;
 
-        *palette++ = (b << 10) | (g << 5) | (r << 0);
+        *palette++ = (u16)((b << 10) | (g << 5) | (r << 0));
     }
 }
 
@@ -597,9 +597,9 @@ THUMB_FUNC void FUN_02003B40(struct PaletteData *paletteData,
     u32 index,
     u32 size,
     u16 offset,
-    u32 rTone,
-    u32 gTone,
-    u32 bTone)
+    s32 rTone,
+    s32 gTone,
+    s32 bTone)
 {
     NNSG2dPaletteData *pltData;
     void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heap_id);

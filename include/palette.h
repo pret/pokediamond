@@ -66,8 +66,8 @@ void FUN_02003B40(struct PaletteData *paletteData,
     u32 index,
     u32 size,
     u16 offset,
-    u32 rTone,
-    u32 gTone,
-    u32 bTone);
+    s32 rTone,
+    s32 gTone,
+    s32 bTone);
 
 #endif // POKEDIAMOND_PALETTE_H
