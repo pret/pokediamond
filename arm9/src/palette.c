@@ -37,7 +37,8 @@ THUMB_FUNC void FUN_02003108(struct PaletteData *paletteData, u32 index, u16 off
     PaletteData_LoadPalette(paletteData, ptr + offset, index, offset, (u16)size);
 }
 
-THUMB_FUNC void CopyPaletteFromNarc(NarcId narcId, s32 memberId, u32 heap_id, u32 size, u16 offset, void *dest)
+THUMB_FUNC void CopyPaletteFromNarc(
+    NarcId narcId, s32 memberId, u32 heap_id, u32 size, u16 offset, void *dest)
 {
     NNSG2dPaletteData *pltData;
 
@@ -54,11 +55,20 @@ THUMB_FUNC void CopyPaletteFromNarc(NarcId narcId, s32 memberId, u32 heap_id, u3
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void PaletteData_CopyPalette(struct PaletteData *paletteData, u32 srcIdx, u16 srcOffset, u32 destIdx, u16 destOffset, u16 size)
+THUMB_FUNC void PaletteData_CopyPalette(struct PaletteData *paletteData,
+    u32 srcIdx,
+    u16 srcOffset,
+    u32 destIdx,
+    u16 destOffset,
+    u16 size)
 {
 
-    MI_CpuCopy16(paletteData->pltt[srcIdx].unfadedBuf + srcOffset, paletteData->pltt[destIdx].unfadedBuf + destOffset, size);
-    MI_CpuCopy16(paletteData->pltt[srcIdx].unfadedBuf + srcOffset, paletteData->pltt[destIdx].fadedBuf + destOffset, size);
+    MI_CpuCopy16(paletteData->pltt[srcIdx].unfadedBuf + srcOffset,
+        paletteData->pltt[destIdx].unfadedBuf + destOffset,
+        size);
+    MI_CpuCopy16(paletteData->pltt[srcIdx].unfadedBuf + srcOffset,
+        paletteData->pltt[destIdx].fadedBuf + destOffset,
+        size);
 }
 
 THUMB_FUNC u16 *PaletteData_GetUnfadedBuf(struct PaletteData *paletteData, u32 index)
@@ -71,7 +81,13 @@ THUMB_FUNC u16 *PaletteData_GetFadedBuf(struct PaletteData *paletteData, u32 ind
     return paletteData->pltt[index].fadedBuf;
 }
 
-THUMB_FUNC u32 FUN_02003210(struct PaletteData *paletteData, u16 param1, u16 param2, s16 delay, u8 startY, u8 targetY, u16 color)
+THUMB_FUNC u32 FUN_02003210(struct PaletteData *paletteData,
+    u16 param1,
+    u16 param2,
+    s16 delay,
+    u8 startY,
+    u8 targetY,
+    u16 color)
 {
 
     u16 stc = param2;
@@ -119,7 +135,9 @@ THUMB_FUNC u32 FUN_02003210(struct PaletteData *paletteData, u16 param1, u16 par
             paletteData->unk11c = 0;
 
             // wtf is that?
-            FUN_0200CA44((void (*)(u32, struct TextPrinter *))FUN_02003464, (struct TextPrinter *)paletteData, (u32)(-2));
+            FUN_0200CA44((void (*)(u32, struct TextPrinter *))FUN_02003464,
+                (struct TextPrinter *)paletteData,
+                (u32)(-2));
         }
     }
 
@@ -166,7 +184,12 @@ THUMB_FUNC void FUN_02003368(s32 param0, struct Palette *param1, u16 *param2)
     *param2 &= r4;
 }
 
-THUMB_FUNC void FUN_020033A4(struct PaletteFadeControl *paletteFade, u16 selectedPalettes, s16 delay, u8 startY, u8 targetY, u16 color)
+THUMB_FUNC void FUN_020033A4(struct PaletteFadeControl *paletteFade,
+    u16 selectedPalettes,
+    s16 delay,
+    u8 startY,
+    u8 targetY,
+    u16 color)
 {
     if (delay < 0)
     {
@@ -240,7 +263,8 @@ THUMB_FUNC void FUN_02003540(struct PaletteData *paletteData, u8 index, u32 para
 {
     if (IsPaletteSelected(paletteData->activeFadePalettes, index) != 0)
     {
-        if (paletteData->pltt[index].fadeCtrl.delayCounter < paletteData->pltt[index].fadeCtrl.delay)
+        if (paletteData->pltt[index].fadeCtrl.delayCounter <
+            paletteData->pltt[index].fadeCtrl.delay)
         {
             paletteData->pltt[index].fadeCtrl.delayCounter++;
             return;
@@ -258,27 +282,39 @@ THUMB_FUNC void FUN_0200359C(struct PaletteData *paletteData, u32 index, u32 par
     {
         if (IsPaletteSelected(paletteData->pltt[index].fadeCtrl.selectedPalettes, (u16)i) != 0)
         {
-            FUN_020035F8(paletteData->pltt[index].unfadedBuf + param2 * i, paletteData->pltt[index].fadedBuf + param2 * i, &paletteData->pltt[index].fadeCtrl, param2);
+            FUN_020035F8(paletteData->pltt[index].unfadedBuf + param2 * i,
+                paletteData->pltt[index].fadedBuf + param2 * i,
+                &paletteData->pltt[index].fadeCtrl,
+                param2);
         }
     }
 
     FUN_02003684(paletteData, (u8)index, &paletteData->pltt[index].fadeCtrl);
 }
 
-THUMB_FUNC void FUN_020035F8(u16 *src, u16 *dest, struct PaletteFadeControl *fadeCtrl, u32 numEntries)
+THUMB_FUNC void FUN_020035F8(
+    u16 *src, u16 *dest, struct PaletteFadeControl *fadeCtrl, u32 numEntries)
 {
     for (u32 i = 0; i < numEntries; i++)
     {
-        u8 lo = (u8)((src[i] & 0x1f) + ((((fadeCtrl->blendColor & 0x1f) - (src[i] & 0x1f)) * fadeCtrl->y) >> 4));
+        u8 lo = (u8)((src[i] & 0x1f) +
+                     ((((fadeCtrl->blendColor & 0x1f) - (src[i] & 0x1f)) * fadeCtrl->y) >> 4));
 
-        u8 hi = (u8)(((src[i] >> 10) & 0x1f) + (((((fadeCtrl->blendColor >> 10) & 0x1f) - ((src[i] >> 10) & 0x1f)) * fadeCtrl->y) >> 4));
-        u8 mid = (u8)(((src[i] >> 5) & 0x1f) + (((((fadeCtrl->blendColor >> 5) & 0x1f) - ((src[i] >> 5) & 0x1f)) * fadeCtrl->y) >> 4));
+        u8 hi = (u8)(((src[i] >> 10) & 0x1f) +
+                     (((((fadeCtrl->blendColor >> 10) & 0x1f) - ((src[i] >> 10) & 0x1f)) *
+                          fadeCtrl->y) >>
+                         4));
+        u8 mid =
+            (u8)(((src[i] >> 5) & 0x1f) +
+                 (((((fadeCtrl->blendColor >> 5) & 0x1f) - ((src[i] >> 5) & 0x1f)) * fadeCtrl->y) >>
+                     4));
 
         dest[i] = (u16)((hi << 10) | (mid << 5) | lo);
     }
 }
 
-THUMB_FUNC void FUN_02003684(struct PaletteData *paletteData, u8 index, struct PaletteFadeControl *fadeCtrl)
+THUMB_FUNC void FUN_02003684(
+    struct PaletteData *paletteData, u8 index, struct PaletteFadeControl *fadeCtrl)
 {
     if (fadeCtrl->y == fadeCtrl->targetY)
     {
@@ -325,7 +361,9 @@ THUMB_FUNC void FUN_0200372C(struct PaletteData *paletteData)
 
     for (s32 i = 0; i < 14; i++)
     {
-        if (paletteData->unk11a_f != 0 || (paletteData->pltt[i].fadedBuf != 0 && IsPaletteSelected(paletteData->unk11a_0, (u16)i) != 0))
+        if (paletteData->unk11a_f != 0 ||
+            (paletteData->pltt[i].fadedBuf != 0 &&
+                IsPaletteSelected(paletteData->unk11a_0, (u16)i) != 0))
         {
             DC_FlushRange(paletteData->pltt[i].fadedBuf, paletteData->pltt[i].bufSize);
 
@@ -345,52 +383,62 @@ THUMB_FUNC void FUN_0200372C(struct PaletteData *paletteData)
                     break;
                 case 4:
                     GX_BeginLoadBGExtPltt();
-                    GX_LoadBGExtPltt(paletteData->pltt[i].fadedBuf, 0, paletteData->pltt[i].bufSize);
+                    GX_LoadBGExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0, paletteData->pltt[i].bufSize);
                     GX_EndLoadBGExtPltt();
                     break;
                 case 5:
                     GX_BeginLoadBGExtPltt();
-                    GX_LoadBGExtPltt(paletteData->pltt[i].fadedBuf, 0x2000, paletteData->pltt[i].bufSize);
+                    GX_LoadBGExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0x2000, paletteData->pltt[i].bufSize);
                     GX_EndLoadBGExtPltt();
                     break;
                 case 6:
                     GX_BeginLoadBGExtPltt();
-                    GX_LoadBGExtPltt(paletteData->pltt[i].fadedBuf, 0x4000, paletteData->pltt[i].bufSize);
+                    GX_LoadBGExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0x4000, paletteData->pltt[i].bufSize);
                     GX_EndLoadBGExtPltt();
                     break;
                 case 7:
                     GX_BeginLoadBGExtPltt();
-                    GX_LoadBGExtPltt(paletteData->pltt[i].fadedBuf, 0x6000, paletteData->pltt[i].bufSize);
+                    GX_LoadBGExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0x6000, paletteData->pltt[i].bufSize);
                     GX_EndLoadBGExtPltt();
                     break;
                 case 8:
                     GXS_BeginLoadBGExtPltt();
-                    GXS_LoadBGExtPltt(paletteData->pltt[i].fadedBuf, 0, paletteData->pltt[i].bufSize);
+                    GXS_LoadBGExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0, paletteData->pltt[i].bufSize);
                     GXS_EndLoadBGExtPltt();
                     break;
                 case 9:
                     GXS_BeginLoadBGExtPltt();
-                    GXS_LoadBGExtPltt(paletteData->pltt[i].fadedBuf, 0x2000, paletteData->pltt[i].bufSize);
+                    GXS_LoadBGExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0x2000, paletteData->pltt[i].bufSize);
                     GXS_EndLoadBGExtPltt();
                     break;
                 case 10:
                     GXS_BeginLoadBGExtPltt();
-                    GXS_LoadBGExtPltt(paletteData->pltt[i].fadedBuf, 0x4000, paletteData->pltt[i].bufSize);
+                    GXS_LoadBGExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0x4000, paletteData->pltt[i].bufSize);
                     GXS_EndLoadBGExtPltt();
                     break;
                 case 11:
                     GXS_BeginLoadBGExtPltt();
-                    GXS_LoadBGExtPltt(paletteData->pltt[i].fadedBuf, 0x6000, paletteData->pltt[i].bufSize);
+                    GXS_LoadBGExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0x6000, paletteData->pltt[i].bufSize);
                     GXS_EndLoadBGExtPltt();
                     break;
                 case 12:
                     GX_BeginLoadOBJExtPltt();
-                    GX_LoadOBJExtPltt(paletteData->pltt[i].fadedBuf, 0, paletteData->pltt[i].bufSize);
+                    GX_LoadOBJExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0, paletteData->pltt[i].bufSize);
                     GX_EndLoadOBJExtPltt();
                     break;
                 case 13:
                     GXS_BeginLoadOBJExtPltt();
-                    GXS_LoadOBJExtPltt(paletteData->pltt[i].fadedBuf, 0, paletteData->pltt[i].bufSize);
+                    GXS_LoadOBJExtPltt(
+                        paletteData->pltt[i].fadedBuf, 0, paletteData->pltt[i].bufSize);
                     GXS_EndLoadOBJExtPltt();
                     break;
             }
@@ -414,17 +462,26 @@ THUMB_FUNC void FUN_020038F0(struct PaletteData *paletteData, u32 param1)
     paletteData->unk11a_f = param1;
 }
 
-THUMB_FUNC void PaletteData_FillPalette(struct PaletteData *paletteData, u32 index, u32 selection, u16 value, u16 startOffset, u16 endOffset)
+THUMB_FUNC void PaletteData_FillPalette(struct PaletteData *paletteData,
+    u32 index,
+    u32 selection,
+    u16 value,
+    u16 startOffset,
+    u16 endOffset)
 {
     GF_ASSERT(endOffset * 2 <= paletteData->pltt[index].bufSize);
     if (selection == 1 || selection == 2)
     {
-        MI_CpuFill16(&paletteData->pltt[index].unfadedBuf[startOffset], value, (u32)((endOffset - startOffset) * 2));
+        MI_CpuFill16(&paletteData->pltt[index].unfadedBuf[startOffset],
+            value,
+            (u32)((endOffset - startOffset) * 2));
     }
 
     if (selection == 0 || selection == 2)
     {
-        MI_CpuFill16(&paletteData->pltt[index].fadedBuf[startOffset], value, (u32)((endOffset - startOffset) * 2));
+        MI_CpuFill16(&paletteData->pltt[index].fadedBuf[startOffset],
+            value,
+            (u32)((endOffset - startOffset) * 2));
     }
 }
 
@@ -442,7 +499,8 @@ THUMB_FUNC void BlendPalette(u16 *src, u16 *dest, u16 numEntries, u8 coeff, u16 
         mid = (((u32)(src[i] << 0x16)) >> 0x1b);
         hi = (((u32)(src[i] << 0x11)) >> 0x1b);
 
-        dest[i] = (lo + ((r12 - lo) * coeff) >> 4) | (mid + ((lr - mid) * coeff) >> 4) << 5 | (hi + ((st8 - hi) * coeff) >> 4) << 10;
+        dest[i] = (lo + ((r12 - lo) * coeff) >> 4) | (mid + ((lr - mid) * coeff) >> 4) << 5 |
+                  (hi + ((st8 - hi) * coeff) >> 4) << 10;
     }
 }
 #else
@@ -512,7 +570,12 @@ _020039E2:
 }
 #endif
 
-THUMB_FUNC void BlendPaletteUnfaded(struct PaletteData *paletteData, u32 index, u16 offset, u16 numEntries, u8 coeff, u16 blendColor)
+THUMB_FUNC void BlendPaletteUnfaded(struct PaletteData *paletteData,
+    u32 index,
+    u16 offset,
+    u16 numEntries,
+    u8 coeff,
+    u16 blendColor)
 {
     BOOL r0 = FALSE;
     if (paletteData->pltt[index].unfadedBuf != 0 && paletteData->pltt[index].fadedBuf != 0)
@@ -522,7 +585,11 @@ THUMB_FUNC void BlendPaletteUnfaded(struct PaletteData *paletteData, u32 index, 
 
     GF_ASSERT(r0);
 
-    BlendPalette(paletteData->pltt[index].unfadedBuf + offset, paletteData->pltt[index].fadedBuf + offset, numEntries, coeff, blendColor);
+    BlendPalette(paletteData->pltt[index].unfadedBuf + offset,
+        paletteData->pltt[index].fadedBuf + offset,
+        numEntries,
+        coeff,
+        blendColor);
 }
 
 THUMB_FUNC void BlendPalettes(u16 *src, u16 *dest, u16 selectedPalettes, u8 coeff, u16 blendColor)
@@ -540,7 +607,8 @@ THUMB_FUNC void BlendPalettes(u16 *src, u16 *dest, u16 selectedPalettes, u8 coef
     }
 }
 
-THUMB_FUNC void BlendPalettesUnfaded(struct PaletteData *paletteData, u32 index, u16 selectedPalettes, u8 coeff, u16 blendColor)
+THUMB_FUNC void BlendPalettesUnfaded(
+    struct PaletteData *paletteData, u32 index, u16 selectedPalettes, u8 coeff, u16 blendColor)
 {
     u32 r4 = 0;
     BOOL r0 = FALSE;
@@ -665,7 +733,16 @@ _02003B3C:
 }
 #endif
 
-THUMB_FUNC void FUN_02003B40(struct PaletteData *paletteData, NarcId narcId, s32 memberId, u32 heap_id, u32 index, u32 size, u16 offset, u32 rTone, u32 gTone, u32 bTone)
+THUMB_FUNC void FUN_02003B40(struct PaletteData *paletteData,
+    NarcId narcId,
+    s32 memberId,
+    u32 heap_id,
+    u32 index,
+    u32 size,
+    u16 offset,
+    u32 rTone,
+    u32 gTone,
+    u32 bTone)
 {
     NNSG2dPaletteData *pltData;
     void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heap_id);
