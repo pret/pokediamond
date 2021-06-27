@@ -10,10 +10,6 @@ extern struct UnkStruct_02037CF0* FUN_02037CF0(u32 heap_id, struct UnkSavStruct8
 extern u8 FUN_02037D5C(struct UnkStruct_02037CF0*);
 extern void FUN_02038864(struct UnkSavStruct80*, struct UnkStruct_02088DD8*);
 extern BOOL FUN_0203BC04(struct ScriptContext* ctx);
-extern struct UnkStruct_02088DD8* FUN_02088DD8(u32 heap_id);
-extern void FUN_02088DF0(struct UnkStruct_02037CF0*);
-extern void* FUN_02088DF8(struct Pokemon* pokemon, u32 heap_id);
-extern BOOL FUN_02088EF8(void*);
 
 THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx)
 {
@@ -57,7 +53,7 @@ THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx)
     u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->unk80->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
-    void* unk_ptr = FUN_02088DF8(pokemon, 32);
+    void* unk_ptr = Maybe_GetEligibleLevelUpMoves(pokemon, 32);
 
     *ret_ptr = (u16)FUN_02088EF8(unk_ptr);
     FreeToHeap(unk_ptr);
@@ -96,7 +92,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx)
     u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->unk80->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
-    void* unk_ptr = FUN_02088DF8(pokemon, 32);
+    void* unk_ptr = Maybe_GetEligibleLevelUpMoves(pokemon, 32);
 
     FUN_02045E74(ctx, 1, pokemon, unk_ptr);
     return TRUE;
