@@ -35,7 +35,7 @@ MOD08_02211E7C: ; 0x02211E7C
 	add r0, r5, #0
 	add r2, r4, #0
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 
@@ -3185,7 +3185,7 @@ _02213500:
 	ldr r1, [sp, #0x14]
 	ldr r2, [sp, #0x10]
 	ldr r3, [r5]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3650,7 +3650,7 @@ _022138F0:
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x14]
 	ldr r3, [r4]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 _02213926:
 	ldr r0, [sp, #0xc]
 	lsl r5, r0, #2
@@ -4160,7 +4160,7 @@ MOD08_02213C94: ; 0x02213C94
 	ldr r0, [r0]
 	ldr r3, [r5]
 	mov r1, #7
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add r0, r5, #0
 	add r0, #0xc4
 	lsl r1, r4, #0x18
@@ -4663,7 +4663,7 @@ _02214078:
 	ldr r1, [r3, r1]
 	ldr r2, [r3, r2]
 	ldr r3, [r3]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 _022140CC:
 	ldr r2, [r4, #0x48]
 	mov r0, #0
@@ -5039,7 +5039,7 @@ _0221436A:
 	ldr r1, [r3, r1]
 	ldr r2, [r3, r2]
 	ldr r3, [r3]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 _022143BE:
 	ldr r2, [r4, #0x48]
 	mov r0, #0
@@ -7574,7 +7574,7 @@ MOD08_02215660: ; 0x02215660
 	mov r2, #0
 	ldr r0, [r0]
 	add r3, r2, #0
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	pop {r3, pc}
 
 	thumb_func_start MOD08_02215680
@@ -7875,7 +7875,7 @@ _022158C2:
 	ldr r1, [sp, #0x20]
 	ldr r2, [sp, #0x1c]
 	ldr r3, [r4]
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 _022158EC:
 	ldr r0, [sp, #0x24]
 	add r7, r7, #4
@@ -15602,7 +15602,7 @@ _02219228:
 	ldr r0, [r4, #0x34]
 	mov r1, #7
 	add r2, r6, #0
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	bl BgClearTilemapBufferAndCommit
@@ -16006,7 +16006,7 @@ _02219550:
 	ldr r0, [r4, #0x34]
 	mov r1, #7
 	add r2, r6, #0
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	bl BgClearTilemapBufferAndCommit
@@ -42756,7 +42756,7 @@ MOD08_02227068: ; 0x02227068
 	ldr r1, [r5]
 	ldr r2, [r2, r3]
 	add r3, r6, #0
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	lsl r1, r4, #0x18
 	ldr r0, [r5, #0x2c]
 	lsr r1, r1, #0x18

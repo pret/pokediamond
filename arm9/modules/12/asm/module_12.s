@@ -76,24 +76,24 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	mov r1, #0
 	lsl r2, r2, #8
 	mov r3, #0x15
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r1, #1
 	ldr r0, [r4, #0x5c]
 	lsl r2, r1, #9
 	mov r3, #0x15
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r2, #7
 	ldr r0, [r4, #0x5c]
 	mov r1, #2
 	lsl r2, r2, #6
 	mov r3, #0x15
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r2, #2
 	ldr r0, [r4, #0x5c]
 	mov r1, #3
 	lsl r2, r2, #8
 	mov r3, #0x15
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r0, #0x15
 	bl BgConfig_Alloc
 	str r0, [r4, #0x30]
@@ -483,16 +483,16 @@ MOD12_0222D9B0: ; 0x0222D9B0
 	bl FUN_020117BC
 	ldr r0, [r4, #0x5c]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x5c]
 	mov r1, #1
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x5c]
 	mov r1, #2
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x5c]
 	mov r1, #3
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x5c]
 	bl FUN_02002FEC
 	ldr r0, [r4, #0x58]
@@ -1164,7 +1164,7 @@ MOD12_0222DFC4: ; 0x0222DFC4
 	mov r1, #0x2d
 	mov r2, #0x1d
 	mov r3, #0x15
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0x15
 	mov r1, #0x20
 	bl AllocFromHeap
@@ -3211,24 +3211,24 @@ MOD12_0222EF04: ; 0x0222EF04
 	mov r1, #0
 	lsl r2, r2, #8
 	mov r3, #0x16
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r1, #1
 	ldr r0, [r5, #0x50]
 	lsl r2, r1, #9
 	mov r3, #0x16
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r2, #7
 	ldr r0, [r5, #0x50]
 	mov r1, #2
 	lsl r2, r2, #6
 	mov r3, #0x16
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r2, #2
 	ldr r0, [r5, #0x50]
 	mov r1, #3
 	lsl r2, r2, #8
 	mov r3, #0x16
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r0, #0x16
 	bl BgConfig_Alloc
 	str r0, [r5, #0x30]
@@ -3654,16 +3654,16 @@ _0222F3AE:
 	bl FUN_02002CF8
 	ldr r0, [r4, #0x50]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x50]
 	mov r1, #1
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x50]
 	mov r1, #2
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x50]
 	mov r1, #3
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x50]
 	bl FUN_02002FEC
 	ldr r0, [r4, #0x48]
@@ -4209,7 +4209,7 @@ MOD12_0222F834: ; 0x0222F834
 	mov r1, #0x2d
 	mov r2, #0x22
 	mov r3, #0x16
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -4220,7 +4220,7 @@ MOD12_0222F834: ; 0x0222F834
 	mov r1, #0x2d
 	mov r2, #0x23
 	mov r3, #0x16
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r1, [r5]
 	ldr r0, _0222F930 ; =0x00001988
 	ldr r0, [r1, r0]
@@ -4248,7 +4248,7 @@ MOD12_0222F834: ; 0x0222F834
 	ldr r0, [r5, #0x50]
 	mov r1, #0x26
 	mov r3, #0x16
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -4283,7 +4283,7 @@ MOD12_0222F834: ; 0x0222F834
 	mov r1, #0x2d
 	mov r2, #0x24
 	mov r3, #0x16
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -4332,7 +4332,7 @@ MOD12_0222F938: ; 0x0222F938
 	mov r1, #0x2d
 	mov r2, #0x21
 	mov r3, #0x16
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0x10
 	pop {r4, pc}
 
@@ -5058,14 +5058,14 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	mov r1, #0
 	lsl r2, r2, #8
 	mov r3, #0x17
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r5, #0
 	add r0, #0xa4
 	mov r1, #1
 	ldr r0, [r0]
 	lsl r2, r1, #9
 	mov r3, #0x17
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r5, #0
 	add r0, #0xa4
 	mov r2, #7
@@ -5073,7 +5073,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	mov r1, #2
 	lsl r2, r2, #6
 	mov r3, #0x17
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r5, #0
 	add r0, #0xa4
 	mov r2, #2
@@ -5081,7 +5081,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	mov r1, #3
 	lsl r2, r2, #8
 	mov r3, #0x17
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r1, #2
 	mov r0, #0x17
 	lsl r1, r1, #8
@@ -5484,22 +5484,22 @@ _02230296:
 	add r0, #0xa4
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0
 	add r0, #0xa4
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0
 	add r0, #0xa4
 	ldr r0, [r0]
 	mov r1, #2
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0
 	add r0, #0xa4
 	ldr r0, [r0]
 	mov r1, #3
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0
 	add r0, #0xa4
 	ldr r0, [r0]
@@ -6207,7 +6207,7 @@ MOD12_022308F0: ; 0x022308F0
 	mov r1, #0x2d
 	mov r2, #0x1f
 	mov r3, #0x17
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -6220,7 +6220,7 @@ MOD12_022308F0: ; 0x022308F0
 	mov r1, #0x2d
 	mov r2, #0x23
 	mov r3, #0x17
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r1, [r5]
 	ldr r0, _022309C4 ; =0x00001988
 	ldr r0, [r1, r0]
@@ -6250,7 +6250,7 @@ MOD12_022308F0: ; 0x022308F0
 	ldr r0, [r0]
 	mov r1, #0x26
 	mov r3, #0x17
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add r0, r5, #0
 	bl MOD12_0223E734
 	add r0, r5, #0
@@ -8479,7 +8479,7 @@ _02231A98:
 	add r0, r6, #0
 	mov r1, #0x2d
 	mov r3, #0x15
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add r0, r6, #0
 	mov r1, #1
 	bl FUN_020031FC
@@ -8607,7 +8607,7 @@ _02231B90:
 	add r1, r7, r1
 	ldr r1, [r1, #0x34]
 	mov r3, #0
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	ldr r6, [sp, #0x14]
 	ldr r4, [sp, #0x10]
 	mov r5, #0
@@ -8910,7 +8910,7 @@ MOD12_02231D5C: ; 0x02231D5C
 	str r0, [sp, #0xc]
 	ldr r0, [r2, #0x50]
 	mov r2, #0x25
-	bl FUN_02003084
+	bl PaletteData_LoadFromNarc
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -9143,7 +9143,7 @@ _02231FC0:
 	ldr r0, [r0, #0x50]
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	ldr r0, _022320A0 ; =0x000002E1
 	ldrb r0, [r6, r0]
 	cmp r0, #0xff
@@ -9927,7 +9927,7 @@ MOD12_022325AC: ; 0x022325AC
 	ldr r1, [r7, r1]
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 _022325EC:
@@ -9953,7 +9953,7 @@ _022325EC:
 	ldr r0, [r0, #0x50]
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -29230,7 +29230,7 @@ _0223B7D6:
 	ldr r1, [r1]
 	mov r2, #1
 	mov r3, #0
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 _0223B7F2:
 	ldr r4, [sp, #0x10]
 	mov r5, #0
@@ -41150,14 +41150,14 @@ MOD12_02241210: ; 0x02241210
 	mov r1, #0
 	lsl r2, r2, #8
 	mov r3, #0x18
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r5, #0
 	add r0, #0xd0
 	mov r1, #1
 	ldr r0, [r0]
 	lsl r2, r1, #9
 	mov r3, #0x18
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r5, #0
 	add r0, #0xd0
 	mov r2, #7
@@ -41165,7 +41165,7 @@ MOD12_02241210: ; 0x02241210
 	mov r1, #2
 	lsl r2, r2, #6
 	mov r3, #0x18
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r5, #0
 	add r0, #0xd0
 	mov r2, #2
@@ -41173,7 +41173,7 @@ MOD12_02241210: ; 0x02241210
 	mov r1, #3
 	lsl r2, r2, #8
 	mov r3, #0x18
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r0, #0x18
 	bl BgConfig_Alloc
 	str r0, [r5, #0x30]
@@ -41519,22 +41519,22 @@ _022415D4:
 	add r0, #0xd0
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
 	mov r1, #1
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
 	mov r1, #2
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
 	mov r1, #3
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
@@ -42193,7 +42193,7 @@ MOD12_02241BA0: ; 0x02241BA0
 	mov r1, #0x2d
 	mov r2, #0x21
 	mov r3, #0x18
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add sp, #0x10
 	pop {r4, pc}
 	.align 2, 0
@@ -43656,7 +43656,7 @@ MOD12_022426BC: ; 0x022426BC
 	mov r1, #0x2d
 	mov r2, #0x22
 	mov r3, #0x18
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -43669,7 +43669,7 @@ MOD12_022426BC: ; 0x022426BC
 	mov r1, #0x2d
 	mov r2, #0x23
 	mov r3, #0x18
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r1, [r5]
 	ldr r0, _02242784 ; =0x00001988
 	ldr r0, [r1, r0]
@@ -43699,7 +43699,7 @@ MOD12_022426BC: ; 0x022426BC
 	ldr r0, [r0]
 	mov r1, #0x26
 	mov r3, #0x18
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r0, [r5, #0x30]
 	mov r1, #2
 	bl BgClearTilemapBufferAndCommit
@@ -43826,7 +43826,7 @@ MOD12_02242804: ; 0x02242804
 	mov r1, #0x2d
 	mov r2, #0x26
 	mov r3, #0x18
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -43839,7 +43839,7 @@ MOD12_02242804: ; 0x02242804
 	mov r1, #0x2d
 	mov r2, #0x23
 	mov r3, #0x18
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r1, [r6]
 	ldr r0, _022429D0 ; =0x00001988
 	ldr r0, [r1, r0]
@@ -43869,7 +43869,7 @@ MOD12_02242804: ; 0x02242804
 	ldr r0, [r0]
 	mov r1, #0x26
 	mov r3, #0x18
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0xc
 	mov r1, #0x18
 	bl String_ctor

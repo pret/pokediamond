@@ -306,21 +306,21 @@ _02085A9A:
 	mov r1, #0x0
 	lsl r2, r2, #0x8
 	mov r3, #0x35
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r4, #0x0
 	add r0, #0xe8
 	mov r1, #0x1
 	ldr r0, [r0, #0x0]
 	lsl r2, r1, #0x9
 	mov r3, #0x35
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r4, #0x0
 	add r0, #0xe8
 	mov r1, #0x2
 	ldr r0, [r0, #0x0]
 	lsl r2, r1, #0x8
 	mov r3, #0x35
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r4, #0x0
 	add r0, #0xe8
 	mov r2, #0x2
@@ -328,7 +328,7 @@ _02085A9A:
 	mov r1, #0x3
 	lsl r2, r2, #0x8
 	mov r3, #0x35
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
@@ -510,22 +510,22 @@ FUN_02085C08: ; 0x02085C08
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
 	mov r1, #0x0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
 	mov r1, #0x2
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
 	mov r1, #0x3
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	add r0, r4, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]

@@ -288,6 +288,6 @@ FUN_020144E0: ; 0x020144E0
 	mov r2, #0x0
 	lsl r3, r3, #0x14
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	pop {r3, pc}
 	.balign 4

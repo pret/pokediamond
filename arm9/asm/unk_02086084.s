@@ -68,23 +68,23 @@ FUN_02086084: ; 0x02086084
 	mov r1, #0x0
 	lsl r2, r2, #0x8
 	mov r3, #0x47
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r1, #0x2
 	ldr r0, [r4, #0x8]
 	lsl r2, r1, #0x8
 	mov r3, #0x47
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r1, #0x1
 	ldr r0, [r4, #0x8]
 	lsl r2, r1, #0x9
 	mov r3, #0x47
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r2, #0x2
 	ldr r0, [r4, #0x8]
 	mov r1, #0x3
 	lsl r2, r2, #0x8
 	mov r3, #0x47
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	bl FUN_02086414
 	bl FUN_0208643C
 	bl FUN_0208650C
@@ -183,16 +183,16 @@ FUN_020861DC: ; 0x020861DC
 	bl GX_EngineBToggleLayers
 	ldr r0, [r4, #0x8]
 	mov r1, #0x0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x8]
 	mov r1, #0x2
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x8]
 	mov r1, #0x1
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x8]
 	mov r1, #0x3
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x8]
 	bl FUN_02002FEC
 	ldr r0, [r4, #0x4]

@@ -10,9 +10,9 @@ extern void *FUN_02022308();
 extern void *FUN_02022310();
 extern int abs(int);
 
-THUMB_FUNC void FUN_02003108(struct UnkStruct_02002F08 *param0, u32 param1, u16 param2, u32 param3)
+THUMB_FUNC void FUN_02003108(struct PaletteData *param0, u32 param1, u16 param2, u32 param3)
 {
-    GF_ASSERT(param2 * 2 + param3 <= param0->unk000[param1].unk08);
+    GF_ASSERT(param2 * 2 + param3 <= param0->pltt[param1].bufSize);
 
     u16 *r1;
     switch (param1)
@@ -34,7 +34,7 @@ THUMB_FUNC void FUN_02003108(struct UnkStruct_02002F08 *param0, u32 param1, u16 
             return;
     }
 
-    FUN_02003054(param0, r1 + param2, param1, param2, (u16)param3);
+    PaletteData_LoadPalette(param0, r1 + param2, param1, param2, (u16)param3);
 }
 
 THUMB_FUNC void FUN_0200317C(
@@ -56,26 +56,26 @@ THUMB_FUNC void FUN_0200317C(
 }
 
 THUMB_FUNC void FUN_020031B8(
-    struct UnkStruct_02002F08 *param0, u32 param1, u16 param2, u32 param3, u16 param4, u16 param5)
+    struct PaletteData *param0, u32 param1, u16 param2, u32 param3, u16 param4, u16 param5)
 {
 
     MI_CpuCopy16(
-        param0->unk000[param1].unk00 + param2, param0->unk000[param3].unk00 + param4, param5);
+        param0->pltt[param1].unfadedBuf + param2, param0->pltt[param3].unfadedBuf + param4, param5);
     MI_CpuCopy16(
-        param0->unk000[param1].unk00 + param2, param0->unk000[param3].unk04 + param4, param5);
+        param0->pltt[param1].unfadedBuf + param2, param0->pltt[param3].fadedBuf + param4, param5);
 }
 
-THUMB_FUNC u16 *FUN_020031FC(struct UnkStruct_02002F08 *param0, u32 param1)
+THUMB_FUNC u16 *FUN_020031FC(struct PaletteData *param0, u32 param1)
 {
-    return param0->unk000[param1].unk00;
+    return param0->pltt[param1].unfadedBuf;
 }
 
-THUMB_FUNC u16 *FUN_02003204(struct UnkStruct_02002F08 *param0, u32 param1)
+THUMB_FUNC u16 *FUN_02003204(struct PaletteData *param0, u32 param1)
 {
-    return param0->unk000[param1].unk04;
+    return param0->pltt[param1].fadedBuf;
 }
 
-THUMB_FUNC u32 FUN_02003210(struct UnkStruct_02002F08 *param0,
+THUMB_FUNC u32 FUN_02003210(struct PaletteData *param0,
     u16 param1,
     u16 param2,
     s16 param3,
@@ -99,9 +99,9 @@ THUMB_FUNC u32 FUN_02003210(struct UnkStruct_02002F08 *param0,
             continue;
         }
 
-        FUN_02003368(r4, &param0->unk000[r4], &param2);
+        FUN_02003368(r4, &param0->pltt[r4], &param2);
 
-        FUN_020033A4(&param0->unk000[r4].unk0c, param2, param3, param6, param7, param8);
+        FUN_020033A4(&param0->pltt[r4].unk0c, param2, param3, param6, param7, param8);
 
         FUN_02003328(param0, r4);
 
@@ -149,7 +149,7 @@ THUMB_FUNC u8 FUN_02003314(u16 param0, u16 param1)
     return (u8)r3;
 }
 
-THUMB_FUNC void FUN_02003328(struct UnkStruct_02002F08 *param0, u16 param1)
+THUMB_FUNC void FUN_02003328(struct PaletteData *param0, u16 param1)
 {
     if (FUN_02003314(param0->unk11a_0, param1) != 1)
     {
@@ -157,16 +157,16 @@ THUMB_FUNC void FUN_02003328(struct UnkStruct_02002F08 *param0, u16 param1)
     }
 }
 
-THUMB_FUNC void FUN_02003368(s32 param0, struct UnkStruct_02002F08_sub *param1, u16 *param2)
+THUMB_FUNC void FUN_02003368(s32 param0, struct Palette *param1, u16 *param2)
 {
     u8 r0;
     if (param0 < 4)
     {
-        r0 = (u8)(param1->unk08 >> 5);
+        r0 = (u8)(param1->bufSize >> 5);
     }
     else
     {
-        r0 = (u8)(param1->unk08 >> 9);
+        r0 = (u8)(param1->bufSize >> 9);
     }
 
     u16 r4 = 0;
@@ -178,7 +178,7 @@ THUMB_FUNC void FUN_02003368(s32 param0, struct UnkStruct_02002F08_sub *param1, 
     *param2 &= r4;
 }
 
-THUMB_FUNC void FUN_020033A4(struct UnkStruct_02002F08_sub_sub *param0,
+THUMB_FUNC void FUN_020033A4(struct PaletteControl *param0,
     u16 param1,
     s16 param2,
     u8 param3,
@@ -211,7 +211,7 @@ THUMB_FUNC void FUN_020033A4(struct UnkStruct_02002F08_sub_sub *param0,
     param0->unk04_f = 1;
 }
 
-THUMB_FUNC void FUN_02003464(u32 param0, struct UnkStruct_02002F08 *param1)
+THUMB_FUNC void FUN_02003464(u32 param0, struct PaletteData *param1)
 {
     if (param1->unk11c == 1)
     {
@@ -237,7 +237,7 @@ THUMB_FUNC void FUN_02003464(u32 param0, struct UnkStruct_02002F08 *param1)
     }
 }
 
-THUMB_FUNC void FUN_02003500(struct UnkStruct_02002F08 *param0)
+THUMB_FUNC void FUN_02003500(struct PaletteData *param0)
 {
     for (u8 i = 0; i < 4; i++)
     {
@@ -245,7 +245,7 @@ THUMB_FUNC void FUN_02003500(struct UnkStruct_02002F08 *param0)
     }
 }
 
-THUMB_FUNC void FUN_02003520(struct UnkStruct_02002F08 *param0)
+THUMB_FUNC void FUN_02003520(struct PaletteData *param0)
 {
     for (u8 i = 4; i < 14; i++)
     {
@@ -253,40 +253,40 @@ THUMB_FUNC void FUN_02003520(struct UnkStruct_02002F08 *param0)
     }
 }
 
-THUMB_FUNC void FUN_02003540(struct UnkStruct_02002F08 *param0, u8 param1, u32 param2)
+THUMB_FUNC void FUN_02003540(struct PaletteData *param0, u8 param1, u32 param2)
 {
     if (FUN_02003314(param0->unk118_2, param1) != 0)
     {
-        if (param0->unk000[param1].unk0c.unk06_4 < param0->unk000[param1].unk0c.unk02_0)
+        if (param0->pltt[param1].unk0c.unk06_4 < param0->pltt[param1].unk0c.unk02_0)
         {
-            param0->unk000[param1].unk0c.unk06_4++;
+            param0->pltt[param1].unk0c.unk06_4++;
             return;
         }
 
-        param0->unk000[param1].unk0c.unk06_4 = 0;
+        param0->pltt[param1].unk0c.unk06_4 = 0;
         FUN_0200359C(param0, param1, param2);
     }
 }
 
-THUMB_FUNC void FUN_0200359C(struct UnkStruct_02002F08 *param0, u32 param1, u32 param2)
+THUMB_FUNC void FUN_0200359C(struct PaletteData *param0, u32 param1, u32 param2)
 {
 
     for (u32 r6 = 0; r6 < 0x10; r6++)
     {
-        if (FUN_02003314(param0->unk000[param1].unk0c.unk00, (u16)r6) != 0)
+        if (FUN_02003314(param0->pltt[param1].unk0c.unk00, (u16)r6) != 0)
         {
-            FUN_020035F8(param0->unk000[param1].unk00 + param2 * r6,
-                param0->unk000[param1].unk04 + param2 * r6,
-                &param0->unk000[param1].unk0c,
+            FUN_020035F8(param0->pltt[param1].unfadedBuf + param2 * r6,
+                param0->pltt[param1].fadedBuf + param2 * r6,
+                &param0->pltt[param1].unk0c,
                 param2);
         }
     }
 
-    FUN_02003684(param0, (u8)param1, &param0->unk000[param1].unk0c);
+    FUN_02003684(param0, (u8)param1, &param0->pltt[param1].unk0c);
 }
 
 THUMB_FUNC void FUN_020035F8(
-    u16 *param0, u16 *param1, struct UnkStruct_02002F08_sub_sub *param2, u32 param3)
+    u16 *param0, u16 *param1, struct PaletteControl *param2, u32 param3)
 {
     for (u32 i = 0; i < param3; i++)
     {
@@ -307,7 +307,7 @@ THUMB_FUNC void FUN_020035F8(
 }
 
 THUMB_FUNC void FUN_02003684(
-    struct UnkStruct_02002F08 *param0, u8 param1, struct UnkStruct_02002F08_sub_sub *param2)
+    struct PaletteData *param0, u8 param1, struct PaletteControl *param2)
 {
     s16 r4;
     if (param2->unk02_6 == param2->unk02_b)
@@ -345,7 +345,7 @@ THUMB_FUNC void FUN_02003684(
     param2->unk02_6 = r4;
 }
 
-THUMB_FUNC void FUN_0200372C(struct UnkStruct_02002F08 *param0)
+THUMB_FUNC void FUN_0200372C(struct PaletteData *param0)
 {
     if (param0->unk11a_f == 0 && param0->unk118_0 != 1)
     {
@@ -355,72 +355,72 @@ THUMB_FUNC void FUN_0200372C(struct UnkStruct_02002F08 *param0)
     for (s32 r5 = 0; r5 < 14; r5++)
     {
         if (param0->unk11a_f != 0 ||
-            (param0->unk000[r5].unk04 != 0 && FUN_02003314(param0->unk11a_0, (u16)r5) != 0))
+            (param0->pltt[r5].fadedBuf != 0 && FUN_02003314(param0->unk11a_0, (u16)r5) != 0))
         {
-            DC_FlushRange(param0->unk000[r5].unk04, param0->unk000[r5].unk08);
+            DC_FlushRange(param0->pltt[r5].fadedBuf, param0->pltt[r5].bufSize);
 
             switch (r5)
             {
                 case 0:
-                    GX_LoadBGPltt(param0->unk000[r5].unk04, 0, param0->unk000[r5].unk08);
+                    GX_LoadBGPltt(param0->pltt[r5].fadedBuf, 0, param0->pltt[r5].bufSize);
                     break;
                 case 1:
-                    GXS_LoadBGPltt(param0->unk000[r5].unk04, 0, param0->unk000[r5].unk08);
+                    GXS_LoadBGPltt(param0->pltt[r5].fadedBuf, 0, param0->pltt[r5].bufSize);
                     break;
                 case 2:
-                    GX_LoadOBJPltt(param0->unk000[r5].unk04, 0, param0->unk000[r5].unk08);
+                    GX_LoadOBJPltt(param0->pltt[r5].fadedBuf, 0, param0->pltt[r5].bufSize);
                     break;
                 case 3:
-                    GXS_LoadOBJPltt(param0->unk000[r5].unk04, 0, param0->unk000[r5].unk08);
+                    GXS_LoadOBJPltt(param0->pltt[r5].fadedBuf, 0, param0->pltt[r5].bufSize);
                     break;
                 case 4:
                     GX_BeginLoadBGExtPltt();
-                    GX_LoadBGExtPltt(param0->unk000[r5].unk04, 0, param0->unk000[r5].unk08);
+                    GX_LoadBGExtPltt(param0->pltt[r5].fadedBuf, 0, param0->pltt[r5].bufSize);
                     GX_EndLoadBGExtPltt();
                     break;
                 case 5:
                     GX_BeginLoadBGExtPltt();
-                    GX_LoadBGExtPltt(param0->unk000[r5].unk04, 0x2000, param0->unk000[r5].unk08);
+                    GX_LoadBGExtPltt(param0->pltt[r5].fadedBuf, 0x2000, param0->pltt[r5].bufSize);
                     GX_EndLoadBGExtPltt();
                     break;
                 case 6:
                     GX_BeginLoadBGExtPltt();
-                    GX_LoadBGExtPltt(param0->unk000[r5].unk04, 0x4000, param0->unk000[r5].unk08);
+                    GX_LoadBGExtPltt(param0->pltt[r5].fadedBuf, 0x4000, param0->pltt[r5].bufSize);
                     GX_EndLoadBGExtPltt();
                     break;
                 case 7:
                     GX_BeginLoadBGExtPltt();
-                    GX_LoadBGExtPltt(param0->unk000[r5].unk04, 0x6000, param0->unk000[r5].unk08);
+                    GX_LoadBGExtPltt(param0->pltt[r5].fadedBuf, 0x6000, param0->pltt[r5].bufSize);
                     GX_EndLoadBGExtPltt();
                     break;
                 case 8:
                     GXS_BeginLoadBGExtPltt();
-                    GXS_LoadBGExtPltt(param0->unk000[r5].unk04, 0, param0->unk000[r5].unk08);
+                    GXS_LoadBGExtPltt(param0->pltt[r5].fadedBuf, 0, param0->pltt[r5].bufSize);
                     GXS_EndLoadBGExtPltt();
                     break;
                 case 9:
                     GXS_BeginLoadBGExtPltt();
-                    GXS_LoadBGExtPltt(param0->unk000[r5].unk04, 0x2000, param0->unk000[r5].unk08);
+                    GXS_LoadBGExtPltt(param0->pltt[r5].fadedBuf, 0x2000, param0->pltt[r5].bufSize);
                     GXS_EndLoadBGExtPltt();
                     break;
                 case 10:
                     GXS_BeginLoadBGExtPltt();
-                    GXS_LoadBGExtPltt(param0->unk000[r5].unk04, 0x4000, param0->unk000[r5].unk08);
+                    GXS_LoadBGExtPltt(param0->pltt[r5].fadedBuf, 0x4000, param0->pltt[r5].bufSize);
                     GXS_EndLoadBGExtPltt();
                     break;
                 case 11:
                     GXS_BeginLoadBGExtPltt();
-                    GXS_LoadBGExtPltt(param0->unk000[r5].unk04, 0x6000, param0->unk000[r5].unk08);
+                    GXS_LoadBGExtPltt(param0->pltt[r5].fadedBuf, 0x6000, param0->pltt[r5].bufSize);
                     GXS_EndLoadBGExtPltt();
                     break;
                 case 12:
                     GX_BeginLoadOBJExtPltt();
-                    GX_LoadOBJExtPltt(param0->unk000[r5].unk04, 0, param0->unk000[r5].unk08);
+                    GX_LoadOBJExtPltt(param0->pltt[r5].fadedBuf, 0, param0->pltt[r5].bufSize);
                     GX_EndLoadOBJExtPltt();
                     break;
                 case 13:
                     GXS_BeginLoadOBJExtPltt();
-                    GXS_LoadOBJExtPltt(param0->unk000[r5].unk04, 0, param0->unk000[r5].unk08);
+                    GXS_LoadOBJExtPltt(param0->pltt[r5].fadedBuf, 0, param0->pltt[r5].bufSize);
                     GXS_EndLoadOBJExtPltt();
                     break;
             }
@@ -434,28 +434,28 @@ THUMB_FUNC void FUN_0200372C(struct UnkStruct_02002F08 *param0)
     }
 }
 
-THUMB_FUNC u16 FUN_020038E4(struct UnkStruct_02002F08 *param0)
+THUMB_FUNC u16 FUN_020038E4(struct PaletteData *param0)
 {
     return param0->unk118_2;
 }
 
-THUMB_FUNC void FUN_020038F0(struct UnkStruct_02002F08 *param0, u32 param1)
+THUMB_FUNC void FUN_020038F0(struct PaletteData *param0, u32 param1)
 {
     param0->unk11a_f = param1;
 }
 
 THUMB_FUNC void FUN_02003914(
-    struct UnkStruct_02002F08 *param0, u32 param1, u32 param2, u16 param3, u16 param4, u16 param5)
+    struct PaletteData *param0, u32 param1, u32 param2, u16 param3, u16 param4, u16 param5)
 {
-    GF_ASSERT(param5 * 2 <= param0->unk000[param1].unk08);
+    GF_ASSERT(param5 * 2 <= param0->pltt[param1].bufSize);
     if (param2 - 1 <= 1)
     {
-        MI_CpuFill16(&param0->unk000[param1].unk00[param4], param3, (u32)((param5 - param4) * 2));
+        MI_CpuFill16(&param0->pltt[param1].unfadedBuf[param4], param3, (u32)((param5 - param4) * 2));
     }
 
     if (param2 == 0 || param2 == 2)
     {
-        MI_CpuFill16(&param0->unk000[param1].unk04[param4], param3, (u32)((param5 - param4) * 2));
+        MI_CpuFill16(&param0->pltt[param1].fadedBuf[param4], param3, (u32)((param5 - param4) * 2));
     }
 }
 
@@ -545,18 +545,18 @@ _020039E2:
 #endif
 
 THUMB_FUNC void FUN_020039E8(
-    struct UnkStruct_02002F08 *param0, u32 param1, u16 param2, u16 param3, u8 param4, u16 param5)
+    struct PaletteData *param0, u32 param1, u16 param2, u16 param3, u8 param4, u16 param5)
 {
     BOOL r0 = FALSE;
-    if (param0->unk000[param1].unk00 != 0 && param0->unk000[param1].unk04 != 0)
+    if (param0->pltt[param1].unfadedBuf != 0 && param0->pltt[param1].fadedBuf != 0)
     {
         r0 = TRUE;
     }
 
     GF_ASSERT(r0);
 
-    FUN_02003974(param0->unk000[param1].unk00 + param2,
-        param0->unk000[param1].unk04 + param2,
+    FUN_02003974(param0->pltt[param1].unfadedBuf + param2,
+        param0->pltt[param1].fadedBuf + param2,
         param3,
         param4,
         param5);
@@ -578,11 +578,11 @@ THUMB_FUNC void FUN_02003A30(u16 *param0, u16 *param1, u16 param2, u8 param3, u1
 }
 
 THUMB_FUNC void FUN_02003A64(
-    struct UnkStruct_02002F08 *param0, u32 param1, u16 param2, u8 param3, u16 param4)
+    struct PaletteData *param0, u32 param1, u16 param2, u8 param3, u16 param4)
 {
     u32 r4 = 0;
     BOOL r0 = FALSE;
-    if (param0->unk000[param1].unk00 != 0 && param0->unk000[param1].unk04 != 0)
+    if (param0->pltt[param1].unfadedBuf != 0 && param0->pltt[param1].fadedBuf != 0)
     {
         r0 = TRUE;
     }
@@ -602,7 +602,7 @@ THUMB_FUNC void FUN_02003A64(
 }
 
 #ifdef NONMATCHING
-THUMB_FUNC void FUN_02003AC4(u16 *param0, u16 param1, u32 param2, u32 param3, u32 param4)
+THUMB_FUNC void FUN_02003AC4(u16 *param0, u32 param1, u32 param2, u32 param3, u32 param4)
 {
     s32 r4, lo, mid, hi, add;
     for (r4 = 0; r4 < param1; r4++)
@@ -634,7 +634,7 @@ THUMB_FUNC void FUN_02003AC4(u16 *param0, u16 param1, u32 param2, u32 param3, u3
     }
 }
 #else
-asm void FUN_02003AC4(u16 *param0, u16 param1, u32 param2, u32 param3, u32 param4)
+asm void FUN_02003AC4(u16 *param0, u32 param1, u32 param2, u32 param3, u32 param4)
 {
     // clang-format off
 	push {r3-r7, lr}
@@ -707,7 +707,7 @@ _02003B3C:
 }
 #endif
 
-THUMB_FUNC void FUN_02003B40(struct UnkStruct_02002F08 *param0,
+THUMB_FUNC void FUN_02003B40(struct PaletteData *param0,
     NarcId narcId,
     s32 memberId,
     u32 heap_id,
@@ -728,7 +728,7 @@ THUMB_FUNC void FUN_02003B40(struct UnkStruct_02002F08 *param0,
     }
 
     FUN_02003AC4(pltData->pRawData, 0x10, param7, param8, param9);
-    FUN_02003054(param0, pltData->pRawData, param4, param6, (u16)param5);
+    PaletteData_LoadPalette(param0, pltData->pRawData, param4, param6, (u16)param5);
 
     FreeToHeap(ptr);
 }

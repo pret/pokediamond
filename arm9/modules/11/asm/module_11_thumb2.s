@@ -30,7 +30,7 @@ MOD11_0222F29C: ; 0x0222F29C
 	mov r1, #0
 	lsl r2, r2, #8
 	mov r3, #5
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r1, #0
 	mov r0, #1
 	str r1, [sp]
@@ -142,7 +142,7 @@ _0222F30E:
 	mov r1, #0xe
 	mov r2, #7
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add r0, r4, #0
 	bl FUN_0200CD64
 	add r2, r0, #0
@@ -155,7 +155,7 @@ _0222F30E:
 	ldr r0, [r5, #0xc]
 	mov r1, #0x26
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r1, #0
 	mov r0, #1
 	str r1, [sp]
@@ -805,7 +805,7 @@ MOD11_0222F93C: ; 0x0222F93C
 	bl FUN_0200E3A0
 	ldr r0, [r4, #0xc]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0xc]
 	bl FUN_02002FEC
 	ldr r0, [r4, #8]
@@ -23844,7 +23844,7 @@ _0223AC50:
 	add r0, r7, #0
 	mov r1, #0x26
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #7
 	str r0, [sp]
 	mov r0, #0xe
@@ -84214,7 +84214,7 @@ _02258288:
 	add r2, r2, r3
 	ldrh r2, [r5, r2]
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #1
 	str r0, [sp]
 	ldr r0, [sp, #0x20]
@@ -84523,7 +84523,7 @@ _0225854E:
 	mov r1, #7
 	mov r2, #0xc3
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	ldr r0, [sp, #0x10]
 	mov r1, #1
 	bl FUN_020031FC
@@ -84881,7 +84881,7 @@ _02258874:
 	ldr r1, [r7, #0x58]
 	mov r2, #1
 	mov r3, #0
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	ldr r6, [sp, #0x2c]
 	mov r4, #0
 _0225889A:
@@ -89160,7 +89160,7 @@ _0225AB62:
 	add r0, r6, #0
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	add r4, r4, #1
 _0225AB96:
 	cmp r4, #4
@@ -89215,7 +89215,7 @@ MOD11_0225ABA4: ; 0x0225ABA4
 	add r0, r7, #0
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	add r0, r6, #0
 	mov r1, #4
 	bl ScheduleBgTilemapBufferTransfer

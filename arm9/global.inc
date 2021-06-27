@@ -245,11 +245,11 @@
 .extern FUN_02002F9C
 .extern FUN_02002FD0
 .extern FUN_02002FEC
-.extern FUN_02003008
-.extern FUN_02003038
-.extern FUN_02003054
-.extern FUN_02003084
-.extern FUN_020030E8
+.extern PaletteData_AllocBuffers
+.extern PaletteData_FreeBuffers
+.extern PaletteData_LoadPalette
+.extern PaletteData_LoadFromNarc
+.extern PaletteData_LoadNarc
 .extern FUN_02003108
 .extern FUN_0200317C
 .extern FUN_020031B8

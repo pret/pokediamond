@@ -60,53 +60,53 @@ THUMB_FUNC s32 FUN_02002F9C(u32 param0, struct String *str)
         UNK_02106FC8->unk94[param0], String_c_str(str));
 }
 
-THUMB_FUNC struct UnkStruct_02002F08 *FUN_02002FD0(u32 heap_id)
+THUMB_FUNC struct PaletteData *FUN_02002FD0(u32 heap_id)
 {
-    struct UnkStruct_02002F08 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02002F08));
-    MI_CpuFill8(ptr, 0, sizeof(struct UnkStruct_02002F08));
+    struct PaletteData *ptr = AllocFromHeap(heap_id, sizeof(struct PaletteData));
+    MI_CpuFill8(ptr, 0, sizeof(struct PaletteData));
 
     return ptr;
 }
 
-THUMB_FUNC void FUN_02002FEC(struct UnkStruct_02002F08 *ptr)
+THUMB_FUNC void FUN_02002FEC(struct PaletteData *ptr)
 {
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void FUN_02002FF4(
-    struct UnkStruct_02002F08 *param0, u32 param1, void *param2, void *param3, u32 size)
+THUMB_FUNC void PaletteData_SetBuffers(
+    struct PaletteData *paletteData, u32 index, void *unfadedBuf, void *fadedBuf, u32 size)
 {
-    param0->unk000[param1].unk00 = param2;
-    param0->unk000[param1].unk04 = param3;
-    param0->unk000[param1].unk08 = size;
+    paletteData->pltt[index].unfadedBuf = unfadedBuf;
+    paletteData->pltt[index].fadedBuf = fadedBuf;
+    paletteData->pltt[index].bufSize = size;
 }
 
-THUMB_FUNC void FUN_02003008(struct UnkStruct_02002F08 *param0, u32 param1, u32 size, u32 heap_id)
+THUMB_FUNC void PaletteData_AllocBuffers(struct PaletteData *paletteData, u32 index, u32 size, u32 heap_id)
 {
     void *ptr = AllocFromHeap(heap_id, size);
     void *ptr2 = AllocFromHeap(heap_id, size);
 
-    FUN_02002FF4(param0, param1, ptr, ptr2, size);
+    PaletteData_SetBuffers(paletteData, index, ptr, ptr2, size);
 }
 
-THUMB_FUNC void FUN_02003038(struct UnkStruct_02002F08 *param0, u32 param1)
+THUMB_FUNC void PaletteData_FreeBuffers(struct PaletteData *paletteData, u32 index)
 {
-    FreeToHeap(param0->unk000[param1].unk00);
-    FreeToHeap(param0->unk000[param1].unk04);
+    FreeToHeap(paletteData->pltt[index].unfadedBuf);
+    FreeToHeap(paletteData->pltt[index].fadedBuf);
 }
 
-THUMB_FUNC void FUN_02003054(
-    struct UnkStruct_02002F08 *param0, const void *param1, u32 param2, u32 offset, u16 size)
+THUMB_FUNC void PaletteData_LoadPalette(
+    struct PaletteData *paletteData, const void *src, u32 index, u32 offset, u16 size)
 {
-    MIi_CpuCopy16(param1, param0->unk000[param2].unk00 + offset, size);
-    MIi_CpuCopy16(param1, param0->unk000[param2].unk04 + offset, size);
+    MIi_CpuCopy16(src, paletteData->pltt[index].unfadedBuf + offset, size);
+    MIi_CpuCopy16(src, paletteData->pltt[index].fadedBuf + offset, size);
 }
 
-THUMB_FUNC void FUN_02003084(struct UnkStruct_02002F08 *param0,
+THUMB_FUNC void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
     u32 heap_id,
-    u32 param4,
+    u32 index,
     u32 size,
     u16 offset,
     u16 param7)
@@ -121,19 +121,19 @@ THUMB_FUNC void FUN_02003084(struct UnkStruct_02002F08 *param0,
         size = pltData->szByte;
     }
 
-    GF_ASSERT(size + offset * 2 <= param0->unk000[param4].unk08);
+    GF_ASSERT(size + offset * 2 <= paletteData->pltt[index].bufSize);
 
-    FUN_02003054(param0, pltData->pRawData + param7 * 2, param4, offset, (u16)size);
+    PaletteData_LoadPalette(paletteData, pltData->pRawData + param7 * 2, index, offset, (u16)size);
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void FUN_020030E8(struct UnkStruct_02002F08 *param0,
+THUMB_FUNC void PaletteData_LoadNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
     u32 heap_id,
-    u32 param4,
+    u32 index,
     u32 size,
     u16 offset)
 {
-    FUN_02003084(param0, narcId, memberId, heap_id, param4, size, offset, 0);
+    PaletteData_LoadFromNarc(paletteData, narcId, memberId, heap_id, index, size, offset, 0);
 }

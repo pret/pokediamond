@@ -545,7 +545,7 @@ _0222D99A:
 	add r2, r3, r2
 	mov r1, #7
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add r0, r4, #0
 	bl FUN_0200CD64
 	add r2, r0, #0
@@ -558,7 +558,7 @@ _0222D99A:
 	ldr r0, [r5, #0x28]
 	mov r1, #0x26
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -569,7 +569,7 @@ _0222D99A:
 	mov r1, #0xe
 	mov r2, #7
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -723,24 +723,24 @@ MOD11_0222DB50: ; 0x0222DB50
 	mov r1, #0
 	lsl r2, r2, #8
 	mov r3, #5
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r1, #1
 	ldr r0, [r4, #0x28]
 	lsl r2, r1, #9
 	mov r3, #5
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r2, #7
 	ldr r0, [r4, #0x28]
 	mov r1, #2
 	lsl r2, r2, #6
 	mov r3, #5
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r2, #2
 	ldr r0, [r4, #0x28]
 	mov r1, #3
 	lsl r2, r2, #8
 	mov r3, #5
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r0, #5
 	bl BgConfig_Alloc
 	str r0, [r4, #4]
@@ -1290,16 +1290,16 @@ _0222E10A:
 	bl FreeToHeap
 	ldr r0, [r4, #0x28]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x28]
 	mov r1, #1
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x28]
 	mov r1, #2
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x28]
 	mov r1, #3
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x28]
 	bl FUN_02002FEC
 	ldr r0, [r4, #0xc]
@@ -1565,7 +1565,7 @@ _0222E2F0:
 	mov r1, #7
 	add r2, r2, r6
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	add r0, r7, #0
 	bl FUN_0200CD64
 	add r2, r0, #0
@@ -1578,7 +1578,7 @@ _0222E2F0:
 	ldr r0, [r5, #0x28]
 	mov r1, #0x26
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -1589,7 +1589,7 @@ _0222E2F0:
 	mov r1, #0xe
 	mov r2, #7
 	mov r3, #5
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
