@@ -5,20 +5,20 @@
 #include "gf_gfx_loader.h"
 #include "string16.h"
 
-
-struct UnkStruct_02002F08_sub_sub {
+struct UnkStruct_02002F08_sub_sub
+{
     u16 unk00;
 
-    u16 unk02_0: 6;
-    u16 unk02_6: 5;
-    u16 unk02_b: 5;
+    u16 unk02_0 : 6;
+    u16 unk02_6 : 5;
+    u16 unk02_b : 5;
 
-    u16 unk04_0: 15;
-    u16 unk04_f: 1;
+    u16 unk04_0 : 15;
+    u16 unk04_f : 1;
 
-    u16 unk06_0: 4;
-    u16 unk06_4: 6;
-    u16 unk06_a: 6;
+    u16 unk06_0 : 4;
+    u16 unk06_4 : 6;
+    u16 unk06_a : 6;
 };
 
 struct UnkStruct_02002F08_sub
