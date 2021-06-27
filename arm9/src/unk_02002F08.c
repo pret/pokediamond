@@ -56,8 +56,7 @@ THUMB_FUNC s32 FUN_02002F9C(u32 param0, struct String *str)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
-    return StringGetWidth_SingleLine_HandleClearToControlCode(
-        UNK_02106FC8->unk94[param0], String_c_str(str));
+    return StringGetWidth_SingleLine_HandleClearToControlCode(UNK_02106FC8->unk94[param0], String_c_str(str));
 }
 
 THUMB_FUNC struct PaletteData *FUN_02002FD0(u32 heap_id)
@@ -73,8 +72,7 @@ THUMB_FUNC void FUN_02002FEC(struct PaletteData *ptr)
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void PaletteData_SetBuffers(
-    struct PaletteData *paletteData, u32 index, void *unfadedBuf, void *fadedBuf, u32 size)
+THUMB_FUNC void PaletteData_SetBuffers(struct PaletteData *paletteData, u32 index, void *unfadedBuf, void *fadedBuf, u32 size)
 {
     paletteData->pltt[index].unfadedBuf = unfadedBuf;
     paletteData->pltt[index].fadedBuf = fadedBuf;
@@ -95,21 +93,13 @@ THUMB_FUNC void PaletteData_FreeBuffers(struct PaletteData *paletteData, u32 ind
     FreeToHeap(paletteData->pltt[index].fadedBuf);
 }
 
-THUMB_FUNC void PaletteData_LoadPalette(
-    struct PaletteData *paletteData, const void *src, u32 index, u32 offset, u16 size)
+THUMB_FUNC void PaletteData_LoadPalette(struct PaletteData *paletteData, const void *src, u32 index, u32 offset, u16 size)
 {
     MIi_CpuCopy16(src, paletteData->pltt[index].unfadedBuf + offset, size);
     MIi_CpuCopy16(src, paletteData->pltt[index].fadedBuf + offset, size);
 }
 
-THUMB_FUNC void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
-    NarcId narcId,
-    s32 memberId,
-    u32 heap_id,
-    u32 index,
-    u32 size,
-    u16 offset,
-    u16 param7)
+THUMB_FUNC void PaletteData_LoadFromNarc(struct PaletteData *paletteData, NarcId narcId, s32 memberId, u32 heap_id, u32 index, u32 size, u16 offset, u16 param7)
 {
     NNSG2dPaletteData *pltData;
     void *ptr = GfGfxLoader_GetPlttData(narcId, memberId, &pltData, heap_id);
@@ -127,13 +117,7 @@ THUMB_FUNC void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void PaletteData_LoadNarc(struct PaletteData *paletteData,
-    NarcId narcId,
-    s32 memberId,
-    u32 heap_id,
-    u32 index,
-    u32 size,
-    u16 offset)
+THUMB_FUNC void PaletteData_LoadNarc(struct PaletteData *paletteData, NarcId narcId, s32 memberId, u32 heap_id, u32 index, u32 size, u16 offset)
 {
     PaletteData_LoadFromNarc(paletteData, narcId, memberId, heap_id, index, size, offset, 0);
 }

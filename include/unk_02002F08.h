@@ -59,26 +59,11 @@ u32 FUN_02002F90(struct String *str);
 s32 FUN_02002F9C(u32 param0, struct String *str);
 struct PaletteData *FUN_02002FD0(u32 heap_id);
 void FUN_02002FEC(struct PaletteData *ptr);
-void PaletteData_SetBuffers(
-    struct PaletteData *param0, u32 param1, void *param2, void *param3, u32 size);
-void PaletteData_AllocBuffers(struct PaletteData *param0, u32 param1, u32 size, u32 heap_id);
-void PaletteData_FreeBuffers(struct PaletteData *param0, u32 param1);
-void PaletteData_LoadPalette(
-    struct PaletteData *param0, const void *param1, u32 param2, u32 offset, u16 size);
-void PaletteData_LoadFromNarc(struct PaletteData *param0,
-    NarcId narcId,
-    s32 memberId,
-    u32 heap_id,
-    u32 param4,
-    u32 size,
-    u16 offset,
-    u16 param7);
-void PaletteData_LoadNarc(struct PaletteData *param0,
-    NarcId narcId,
-    s32 memberId,
-    u32 heap_id,
-    u32 param4,
-    u32 size,
-    u16 offset);
+void PaletteData_SetBuffers(struct PaletteData *paletteData, u32 index, void *unfadedBuf, void *fadedBuf, u32 size);
+void PaletteData_AllocBuffers(struct PaletteData *paletteData, u32 index, u32 size, u32 heap_id);
+void PaletteData_FreeBuffers(struct PaletteData *paletteData, u32 index);
+void PaletteData_LoadPalette(struct PaletteData *paletteData, const void *src, u32 index, u32 offset, u16 size);
+void PaletteData_LoadFromNarc(struct PaletteData *paletteData, NarcId narcId, s32 memberId, u32 heap_id, u32 index, u32 size, u16 offset, u16 param7);
+void PaletteData_LoadNarc(struct PaletteData *paletteData, NarcId narcId, s32 memberId, u32 heap_id, u32 index, u32 size, u16 offset);
 
 #endif // POKEDIAMOND_UNK_02002F08_H
