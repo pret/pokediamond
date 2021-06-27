@@ -22,7 +22,7 @@ struct UnkStruct_02088DD8
 
 struct UnkStruct_02088DD8* FUN_02088DD8(u32 r0);
 void FUN_02088DF0(struct UnkStruct_02037CF0 *r0);
-void* Maybe_GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id);
+void* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id);
 BOOL FUN_02088EF8(u16 *r0);
 
 #endif

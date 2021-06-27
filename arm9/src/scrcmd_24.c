@@ -53,7 +53,7 @@ THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx)
     u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->unk80->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
-    void* unk_ptr = Maybe_GetEligibleLevelUpMoves(pokemon, 32);
+    void* unk_ptr = GetEligibleLevelUpMoves(pokemon, 32);
 
     *ret_ptr = (u16)FUN_02088EF8(unk_ptr);
     FreeToHeap(unk_ptr);
@@ -92,7 +92,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx)
     u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->unk80->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
-    void* unk_ptr = Maybe_GetEligibleLevelUpMoves(pokemon, 32);
+    void* unk_ptr = GetEligibleLevelUpMoves(pokemon, 32);
 
     FUN_02045E74(ctx, 1, pokemon, unk_ptr);
     return TRUE;

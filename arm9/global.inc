@@ -5450,7 +5450,7 @@
 .extern FUN_02088DBC
 .extern FUN_02088DD8
 .extern FUN_02088DF0
-.extern Maybe_GetEligibleLevelUpMoves
+.extern GetEligibleLevelUpMoves
 .extern FUN_02088EF8
 .extern FUN_02088F0C
 .extern FUN_02088F4C

@@ -22,7 +22,7 @@ THUMB_FUNC void FUN_02088DF0(struct UnkStruct_02037CF0 *r0) {
 #define WOTBL_LVL(x) (/*(u8)*/(((x) & WOTBL_LVL_MASK) >> WOTBL_LVL_SHIFT))
 // i don't know why either.
 
-THUMB_FUNC void* Maybe_GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id) {
+THUMB_FUNC void* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id) {
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, 0);
     u8 forme = (u8)GetMonData(pokemon, MON_DATA_FORME, 0);
     u8 level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, 0);
