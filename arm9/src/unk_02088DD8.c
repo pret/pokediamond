@@ -3,9 +3,9 @@
 #include "pokemon.h"
 #include "unk_02088DD8.h"
 
-THUMB_FUNC struct UnkStruct_02088DD8* FUN_02088DD8(u32 r0) {
-    struct UnkStruct_02088DD8 *returnPointer = AllocFromHeap(r0, 24);
-    __builtin__clear(returnPointer, 24);
+THUMB_FUNC struct UnkStruct_02088DD8* FUN_02088DD8(u32 heap_id) {
+    struct UnkStruct_02088DD8 *returnPointer = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02088DD8));
+    __builtin__clear(returnPointer, sizeof(struct UnkStruct_02088DD8));
     return returnPointer;
 }
 
