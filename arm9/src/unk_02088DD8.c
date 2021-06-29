@@ -3,6 +3,8 @@
 #include "pokemon.h"
 #include "unk_02088DD8.h"
 
+extern void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
+
 THUMB_FUNC struct UnkStruct_02088DD8* FUN_02088DD8(u32 heap_id) {
     struct UnkStruct_02088DD8 *returnPointer = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02088DD8));
     __builtin__clear(returnPointer, sizeof(struct UnkStruct_02088DD8));
@@ -22,7 +24,7 @@ THUMB_FUNC void FUN_02088DF0(struct UnkStruct_02037CF0 *r0) {
 #define WOTBL_LVL(x) (/*(u8)*/(((x) & WOTBL_LVL_MASK) >> WOTBL_LVL_SHIFT))
 // i don't know why either.
 
-THUMB_FUNC void* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id) {
+THUMB_FUNC u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id) {
     u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, 0);
     u8 forme = (u8)GetMonData(pokemon, MON_DATA_FORME, 0);
     u8 level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, 0);
@@ -47,16 +49,14 @@ THUMB_FUNC void* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id) {
 
             tableFromFile[i] = WOTBL_MOVE(tableFromFile[i]);
             
-            j = 0;
-            for (; j < 4; j++) {
+            for (j = 0; j < 4; j++) {
                 if (tableFromFile[i] == moves[j]) break;
             }
             if (j != 4) continue;
 
-            j = 0;
             if (k >= 0) {
                 // don't know when that would be false
-                for (; j < k; j++) {
+                for (j = 0; j < k; j++) {
                     if (returnTable[j] == tableFromFile[i]) break;
                 }
             }
