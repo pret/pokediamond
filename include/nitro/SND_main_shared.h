@@ -83,7 +83,7 @@ struct SNDExChannel {
 
     union {
         const void *waveDataPtr;
-        u32 dutyCycle;
+        s32 dutyCycle;
     };                  // 0x44
 
     void (*callback)(struct SNDExChannel *chn, u32 status, void *userData); // 0x48

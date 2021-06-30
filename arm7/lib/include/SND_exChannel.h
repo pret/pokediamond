@@ -11,4 +11,6 @@ void SND_UpdateExChannel(void);
 void SND_ExChannelMain(BOOL update);
 void SND_FreeExChannel(struct SNDExChannel *chn);
 
+typedef void (*SNDExChannelCallback)(struct SNDExChannel *chn, s32 status, void *userData);
+
 #endif //GUARD_SND_EXCHANNEL_H

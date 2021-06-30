@@ -1,0 +1,25 @@
+#ifndef GUARD_SND_EXCHANNEL_SHARED_H
+#define GUARD_SND_EXCHANNEL_SHARED_H
+
+#include "nitro/types.h"
+
+#define SND_ENV_ATTACK 0
+#define SND_ENV_DECAY 1
+#define SND_ENV_SUSTAIN 2
+#define SND_ENV_RELEASE 3
+
+#define SND_CHN_TYPE_PCM 0
+#define SND_CHN_TYPE_PSG 1
+#define SND_CHN_TYPE_NOISE 2
+
+#define SND_CHN_SYNC_START 0x1
+#define SND_CHN_SYNC_STOP 0x2
+#define SND_CHN_SYNC_TIMER 0x4
+#define SND_CHN_SYNC_VOLUME 0x8
+#define SND_CHN_SYNC_PAN 0x10
+
+#define SND_LFO_PITCH 0
+#define SND_LFO_VOLUME 1
+#define SND_LFO_PAN 2
+
+#endif //GUARD_SND_EXCHANNEL_SHARED_H
