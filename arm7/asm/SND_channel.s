@@ -3,8 +3,8 @@
 
     .text
 
-	arm_func_start FUN_037FC530
-FUN_037FC530: ; 0x037FC530
+	arm_func_start ExChannelLfoUpdate
+ExChannelLfoUpdate: ; 0x037FC530
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -50,8 +50,8 @@ _037FC5C0:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_037FC5CC
-FUN_037FC5CC: ; 0x037FC5CC
+	arm_func_start ExChannelSweepUpdate
+ExChannelSweepUpdate: ; 0x037FC5CC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -82,8 +82,8 @@ _037FC630:
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_037FC63C
-FUN_037FC63C: ; 0x037FC63C
+	arm_func_start ExChannelVolumeCmp
+ExChannelVolumeCmp: ; 0x037FC63C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldrh	lr, [r0, #36]	; 0x24
@@ -92,7 +92,7 @@ FUN_037FC63C: ; 0x037FC63C
 	and	r0, ip, #255	; 0xff
 	mov	r2, r2, lsl #4
 	mov	r3, r0, lsl #4
-	ldr	r1, _037FC698	; =_03807294
+	ldr	r1, _037FC698	; =sSampleDataShiftTable
 	ldrb	r0, [r1, lr, asr #8]
 	mov	r2, r2, asr r0
 	ldrb	r0, [r1, ip, asr #8]
@@ -109,10 +109,10 @@ _037FC68C:
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
 	bx	lr
-_037FC698:	.word	_03807294
+_037FC698:	.word	sSampleDataShiftTable
 
-	arm_func_start FUN_037FC69C
-FUN_037FC69C: ; 0x037FC69C
+	arm_func_start ExChannelStart
+ExChannelStart: ; 0x037FC69C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldr	r0, _037FC6E4	; =0xFFFE9680
@@ -133,8 +133,8 @@ FUN_037FC69C: ; 0x037FC69C
 	bx	lr
 _037FC6E4:	.word	0xFFFE9680
 
-	arm_func_start FUN_037FC6E8
-FUN_037FC6E8: ; 0x037FC6E8
+	arm_func_start ExChannelSetup
+ExChannelSetup: ; 0x037FC6E8
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	ip, #0
@@ -179,8 +179,8 @@ FUN_037FC6E8: ; 0x037FC6E8
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_037FC794
-FUN_037FC794: ; 0x037FC794
+	arm_func_start CalcDecayCoeff
+CalcDecayCoeff: ; 0x037FC794
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r1, r0

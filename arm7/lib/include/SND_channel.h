@@ -39,4 +39,7 @@ void SND_SetChannelVolume(s32 chnIdx, s32 volume, s32 volumeDiv);
 void SND_SetChannelPan(s32 chnIdx, s32 pan);
 void SND_SetChannelTimer(s32 chnIdx, s32 timer);
 
+// TODO move this function to SND_exChannel.c
+u16 CalcDecayCoeff(s32 value);
+
 #endif //GUARD_SND_CHANNEL_H

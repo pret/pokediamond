@@ -28,18 +28,18 @@ _037FC088:	.word	0x3C6EF35F
 	arm_func_start SND_SinIdx
 SND_SinIdx: ; 0x037FC08C
 	cmp	r0, #32
-	ldrlt	r1, _037FC0F4	; =_03807170
+	ldrlt	r1, _037FC0F4	; =sLfoSinTable
 	ldrltsb	r0, [r1, r0]
 	bxlt	lr
 	cmp	r0, #64	; 0x40
 	rsblt	r1, r0, #64	; 0x40
-	ldrlt	r0, _037FC0F4	; =_03807170
+	ldrlt	r0, _037FC0F4	; =sLfoSinTable
 	ldrltsb	r0, [r0, r1]
 	bxlt	lr
 	cmp	r0, #96	; 0x60
 	bge	_037FC0D4
 	sub	r1, r0, #64	; 0x40
-	ldr	r0, _037FC0F4	; =_03807170
+	ldr	r0, _037FC0F4	; =sLfoSinTable
 	ldrsb	r0, [r0, r1]
 	rsb	r0, r0, #0
 	mov	r0, r0, lsl #24
@@ -48,13 +48,13 @@ SND_SinIdx: ; 0x037FC08C
 _037FC0D4:
 	sub	r0, r0, #96	; 0x60
 	rsb	r1, r0, #32
-	ldr	r0, _037FC0F4	; =_03807170
+	ldr	r0, _037FC0F4	; =sLfoSinTable
 	ldrsb	r0, [r0, r1]
 	rsb	r0, r0, #0
 	mov	r0, r0, lsl #24
 	mov	r0, r0, asr #24
 	bx	lr
-_037FC0F4:	.word	_03807170
+_037FC0F4:	.word	sLfoSinTable
 
 	arm_func_start SND_CalcChannelVolume
 SND_CalcChannelVolume: ; 0x037FC0F8

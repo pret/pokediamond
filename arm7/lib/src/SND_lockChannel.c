@@ -5,8 +5,8 @@
 #include "SND.h"
 
 // TODO make these vars static after merging this file with exChannel
-u32 sUnlockedChannelMask;
 u32 sLockedChannelMask;
+u32 sWeakLockedChannelMask;
 
 void SND_StopUnlockedChannel(u32 channelMask) {
     struct SNDExChannel *chn;
@@ -17,7 +17,7 @@ void SND_StopUnlockedChannel(u32 channelMask) {
         
         chn = &SNDi_Work.channels[i];
 
-        if (sUnlockedChannelMask & (1 << i))
+        if (sLockedChannelMask & (1 << i))
             continue;
 
         if (chn->callback)
@@ -42,7 +42,7 @@ void SND_LockChannel(u32 channelMask, u32 locked) {
 
         chn = &SNDi_Work.channels[i];
 
-        if (sUnlockedChannelMask & (1 << i))
+        if (sLockedChannelMask & (1 << i))
             continue;
 
         if (chn->callback)
@@ -56,24 +56,24 @@ void SND_LockChannel(u32 channelMask, u32 locked) {
     }
 
     if (locked & 1) {
-        sLockedChannelMask |= channelMask;
+        sWeakLockedChannelMask |= channelMask;
     } else {
-        sUnlockedChannelMask |= channelMask;
+        sLockedChannelMask |= channelMask;
     }
 }
 
 void SND_UnlockChannel(u32 channelMask, u32 locked) {
     if (locked & 1) {
-        sLockedChannelMask &= ~channelMask;
+        sWeakLockedChannelMask &= ~channelMask;
     } else {
-        sUnlockedChannelMask &= ~channelMask;
+        sLockedChannelMask &= ~channelMask;
     }
 }
 
 u32 SND_GetLockedChannel(u32 locked) {
     if (locked & 1) {
-        return sLockedChannelMask;
+        return sWeakLockedChannelMask;
     } else {
-        return sUnlockedChannelMask;
+        return sLockedChannelMask;
     }
 }
