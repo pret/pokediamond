@@ -1,5 +1,4 @@
 #include "global.h"
-#include "script.h"
 #include "scrcmd.h"
 #include "unk_02025484.h"
 #include "unk_02024E64.h"
