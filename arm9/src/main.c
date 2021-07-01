@@ -14,7 +14,7 @@
 #include "timer3.h"
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
-#include "unk_02034188.h"
+#include "wfc_user_info_warning.h"
 #include "module_52.h"
 #include "font.h"
 

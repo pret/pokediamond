@@ -9,7 +9,7 @@
 #include "PAD_pad.h"
 #include "string16.h"
 #include "text.h"
-#include "unk_02034188.h"
+#include "wfc_user_info_warning.h"
 
 extern void FUN_02002ED0(enum GFBgLayer layer, u32 base_addr, u32 heap_id);
 extern void FUN_0200A274(fx32 brightness, fx32, u32);
