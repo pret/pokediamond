@@ -3,11 +3,8 @@
 #include "MI_memory.h"
 #include "gf_gfx_loader.h"
 #include "unk_0200CA44.h"
+#include "unk_020222E8.h"
 
-extern void *FUN_020222E8();
-extern void *FUN_020222F8();
-extern void *FUN_02022308();
-extern void *FUN_02022310();
 extern int abs(int);
 
 THUMB_FUNC struct PaletteData *FUN_02002FD0(u32 heap_id)
