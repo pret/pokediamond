@@ -5,7 +5,8 @@
 
 #define SND_DECIBEL_SQUARE_TABLE_COUNT 
 
-u32 SND_CalcRandom(void);
+u16 SND_CalcRandom(void);
+s8 SND_SinIdx(s32 index);
 
 u16 SND_CalcChannelVolume(s32 value);
 u16 SND_CalcTimer(s32 timer, s32 pitch);
