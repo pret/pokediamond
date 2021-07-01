@@ -14,13 +14,13 @@ THUMB_FUNC BOOL FUN_020061E8(void (*r0)(u32, struct TextPrinter *), u32 r1, u32 
         if(r4 == 0)
         {
             return FALSE;
-        } // _02006202
+        }
         memset(r4, 0, r1);
-    } // _0200620C
+    }
     else
     {
         r4 = NULL;
-    } // _0200620E
+    }
     return FUN_0200CA44(r0, r4, r2);
 }
 
