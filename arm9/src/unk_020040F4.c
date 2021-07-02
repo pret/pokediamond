@@ -1,4 +1,5 @@
 #include "global.h"
+#include "unk_020040F4.h"
 #include "OS_cache.h"
 #include "sound.h"
 #include "unk_0202F150.h"
@@ -8,6 +9,50 @@ u32 UNK_021C3DD8[2];
 u8 UNK_021C3DE0[0x7d0];
 
 const u8 UNK_020ECB8C[] = { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+extern void FUN_02005454();
+extern void FUN_0200541C();
+extern void FUN_0200521C(int);
+extern void FUN_0200538C(u32, u16, u32);
+extern void NNS_SndPlayerPause(u32 *, u8);
+extern void NNS_SndPlayerMoveVolume(u32 *, u32, u32);
+extern void NNS_SndPlayerSetInitialVolume(u32 *, s32);
+extern void *NNS_SndArcGetSeqParam(u32);
+extern void NNS_SndArcPlayerStartSeqEx(u32 *, u32, s32, s32, u32);
+extern BOOL NNS_SndPlayerCountPlayingSeqByPlayerNo(int);
+extern u32 NNS_SndPlayerGetSeqNo(u32 *);
+extern u32 NNS_SndArcGetBankInfo(u32);
+extern u32 MIC_StartAutoSampling(u32);
+extern u32 MIC_StopAutoSampling();
+extern u32 MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3);
+extern u32 NNS_SndWaveOutAllocChannel(u32);
+extern void NNS_SndWaveOutFreeChannel(u32);
+extern u32 NNS_SndWaveOutStart(u32, u32, u32, u32, u32, u32, u32, u32, u32, u32);
+extern void NNS_SndWaveOutStop(u32);
+extern void NNS_SndWaveOutIsPlaying(u32);
+extern void NNS_SndWaveOutSetPan(u32, u32);
+extern void NNS_SndWaveOutSetSpeed(u32, u32);
+extern void NNS_SndWaveOutSetVolume(u32, u32);
+extern struct WaveArcInfo *NNS_SndArcGetWaveArcInfo(u32);
+extern u32 NNS_SndArcGetFileSize(u32);
+extern s32 NNS_SndArcReadFile(u32, u32, u32, u32);
+extern BOOL NNS_SndCaptureIsActive();
+extern u32 NNS_SndCaptureStartReverb(u32, u32, u32, u32, u32);
+extern void NNS_SndCaptureStopReverb(u32);
+extern void NNS_SndCaptureSetReverbVolume();
+extern u32 NNS_SndCaptureStartEffect(u32, u32, u32, u32, u32, void (*)(), u32);
+extern void NNS_SndCaptureStopEffect();
+extern void NNS_SndPlayerSetTrackPitch(u32, u32, u32);
+extern void NNS_SndPlayerSetTrackPan(u32, u32, u32);
+extern void NNS_SndSetMonoFlag(u32 param0);
+extern void FUN_02003CE8(u32);
+extern void FUN_020053CC(u32, u32);
+extern u32 NNS_SndArcGetFileAddress(u32);
+extern u32 SND_GetWaveDataAddress(u32, u32);
+extern u32 NNS_SndPlayerGetTick(u32);
+extern void NNS_SndPlayerSetAllocatableChannel(u32, u32);
+extern BOOL FUN_02005404(void);
+extern void NNS_SndPlayerSetPlayerVolume(u32, u8);
 
 THUMB_FUNC void FUN_020040F4(u8 param0)
 {
@@ -21,8 +66,6 @@ THUMB_FUNC u8 FUN_02004104()
 
     return *ptr;
 }
-
-extern void FUN_02004130(u16 param0);
 
 THUMB_FUNC void FUN_02004110(u16 param0)
 {
@@ -168,15 +211,6 @@ THUMB_FUNC BOOL FUN_02004180(s32 param0)
     return res;
 }
 
-extern void FUN_0200516C(u32 param0);
-extern void FUN_020044D4(u32 param0, u32 param1);
-extern void FUN_02004648(u32 param0, u32 param1);
-extern void FUN_02004680(u32 param0, u32 param1);
-extern void FUN_020046A0(u32 param0, u32 param1);
-extern void FUN_020046C4(u32 param0, u32 param1);
-extern void FUN_020046E8(u32 param0);
-extern void FUN_02004704(u32 param0, u32 param1, u32 param2);
-
 THUMB_FUNC u32 FUN_0200433C(u8 param0, u32 param1, u32 param2)
 {
     u8 *st0 = FUN_02003D38(20);
@@ -277,16 +311,7 @@ THUMB_FUNC void FUN_020044A8(s32 param0)
     GF_Snd_SaveState(ptr3);
 }
 
-extern u32 FUN_020048EC(u32 *param0);
-extern void FUN_02004DBC(u8 param0);
-extern void FUN_02005454();
-extern void FUN_020047C8(u8, u8);
-extern void FUN_0200541C();
-extern u32 FUN_02004748(s32);
-extern void FUN_02004568(int, u16);
-extern void FUN_0200521C(int);
-
-THUMB_FUNC void FUN_020044D4(u32 param0, u32 param1)
+THUMB_FUNC void FUN_020044D4(int param0, u32 param1)
 {
     u8 *ptr = FUN_02003D38(11);
 
@@ -318,15 +343,12 @@ THUMB_FUNC void FUN_020044D4(u32 param0, u32 param1)
         {
             FUN_020047C8(1, 0);
         }
-        FUN_02004568(param0, r4);
+        FUN_02004568(param0, (u16)r4);
         return;
     }
 
     FUN_0200521C(param0);
 }
-
-extern u16 FUN_02004900(u16);
-extern void FUN_0200538C(u32, u16, u32);
 
 THUMB_FUNC void FUN_02004568(int seqNo, u16 param1)
 {
@@ -380,8 +402,6 @@ THUMB_FUNC void FUN_020045C4(u32 param0, u32 param1)
     GF_Snd_SaveState((int *)FUN_02003D38(26));
 }
 
-extern void FUN_020051AC();
-
 THUMB_FUNC void FUN_02004648(u32 param0, u32 param1)
 {
     FUN_02003D38(23);
@@ -393,8 +413,6 @@ THUMB_FUNC void FUN_02004648(u32 param0, u32 param1)
     FUN_02004DBC(1);
     FUN_0200521C(param0);
 }
-
-extern void FUN_02004810();
 
 THUMB_FUNC void FUN_02004680(u32 param0, u32 param1)
 {
@@ -423,8 +441,6 @@ THUMB_FUNC void FUN_020046C4(u32 param0, u32 param1)
     FUN_0200521C(param0);
 }
 
-extern void FUN_02004738();
-
 THUMB_FUNC void FUN_020046E8(u32 param0)
 {
     FUN_02004738();
@@ -452,7 +468,7 @@ THUMB_FUNC void FUN_02004738()
     GF_Snd_RestoreState(FUN_02004748(4));
 }
 
-THUMB_FUNC u32 FUN_02004748(s32 param0)
+THUMB_FUNC int FUN_02004748(s32 param0)
 {
     GetSoundDataPointer();
 
@@ -491,8 +507,6 @@ THUMB_FUNC u32 FUN_02004748(s32 param0)
     return *r5;
 }
 
-extern void NNS_SndPlayerPause(u32 *, u8);
-
 THUMB_FUNC void FUN_020047C8(u8 param0, u8 param1)
 {
     u8 *ptr;
@@ -530,14 +544,10 @@ THUMB_FUNC void FUN_02004810()
     *ptr2 = 0;
 }
 
-extern void NNS_SndPlayerMoveVolume(u32 *, u32, u32);
-
 THUMB_FUNC void FUN_02004828(u32 param0, u32 param1, u32 param2)
 {
     NNS_SndPlayerMoveVolume(FUN_02003FF4(param0), param1, param2);
 }
-
-extern void NNS_SndPlayerSetInitialVolume(u32 *, s32);
 
 THUMB_FUNC void FUN_0200483C(u32 param0, s32 param1)
 {
@@ -553,8 +563,6 @@ THUMB_FUNC void FUN_0200483C(u32 param0, s32 param1)
 
     NNS_SndPlayerSetInitialVolume(FUN_02003FF4(param0), param1);
 }
-
-extern void *NNS_SndArcGetSeqParam(u32);
 
 THUMB_FUNC void FUN_02004858(u32 param0, u32 param1)
 {
@@ -580,21 +588,15 @@ THUMB_FUNC void FUN_02004858(u32 param0, u32 param1)
     }
 }
 
-extern u8 FUN_020048D0(u16);
-
 THUMB_FUNC void FUN_0200488C(u16 param0, u16 param1)
 {
     FUN_0200483C(FUN_02004018(FUN_020048D0(param0)), param1);
 }
 
-extern void NNS_SndArcPlayerStartSeqEx(u32 *, u32, s32, s32, u32);
-
 THUMB_FUNC void FUN_020048A0(int param0, u32 param1, u32 param2)
 {
     NNS_SndArcPlayerStartSeqEx(FUN_02003FF4(param0), param1, -1, -1, param2);
 }
-
-extern BOOL NNS_SndPlayerCountPlayingSeqByPlayerNo(int);
 
 THUMB_FUNC BOOL FUN_020048BC(int param0)
 {
@@ -619,14 +621,10 @@ THUMB_FUNC u8 FUN_020048D0(u16 param0)
     return ptr[5];
 }
 
-extern u32 NNS_SndPlayerGetSeqNo(u32 *);
-
 THUMB_FUNC u32 FUN_020048EC(u32 *param0)
 {
     return NNS_SndPlayerGetSeqNo(param0);
 }
-
-extern u32 NNS_SndArcGetBankInfo(u32);
 
 THUMB_FUNC u32 FUN_020048F4(u16 param0)
 {
@@ -644,22 +642,16 @@ THUMB_FUNC u16 FUN_02004900(u16 param0)
     return *ptr;
 }
 
-extern u32 MIC_StartAutoSampling(u32);
-
 THUMB_FUNC u32 FUN_02004914(u32 param0)
 {
     return MIC_StartAutoSampling(param0);
 }
-
-extern u32 MIC_StopAutoSampling();
 
 THUMB_FUNC u32 FUN_0200491C(u32 param0)
 {
     GetSoundDataPointer();
     return MIC_StopAutoSampling();
 }
-
-extern u32 MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3);
 
 THUMB_FUNC u32 FUN_02004928(u32 param0, u32 param1, u32 param2, u32 param3)
 {
@@ -682,8 +674,6 @@ THUMB_FUNC void *FUN_02004930(u32 param0)
 
     return FUN_02003D38(1);
 }
-
-extern u32 NNS_SndWaveOutAllocChannel(u32);
 
 THUMB_FUNC u32 FUN_02004984(u32 param0)
 {
@@ -731,8 +721,6 @@ THUMB_FUNC u32 FUN_02004984(u32 param0)
     return 1;
 }
 
-extern void NNS_SndWaveOutFreeChannel(u32);
-
 THUMB_FUNC void FUN_02004A04(u32 param0)
 {
     GetSoundDataPointer();
@@ -771,8 +759,6 @@ THUMB_FUNC void FUN_02004A04(u32 param0)
     }
 }
 
-extern u32 NNS_SndWaveOutStart(u32, u32, u32, u32, u32, u32, u32, u32, u32, u32);
-
 THUMB_FUNC u32 FUN_02004A6C(u32 *param0, u32 param1)
 {
     u32 res = NNS_SndWaveOutStart(*(u32 *)param0[0],
@@ -793,21 +779,15 @@ THUMB_FUNC u32 FUN_02004A6C(u32 *param0, u32 param1)
     return res;
 }
 
-extern void NNS_SndWaveOutStop(u32);
-
 THUMB_FUNC void FUN_02004AAC(u32 param0)
 {
     NNS_SndWaveOutStop(*(u32 *)FUN_02004930(param0));
 }
 
-extern void NNS_SndWaveOutIsPlaying(u32);
-
 THUMB_FUNC void FUN_02004ABC(u32 param0)
 {
     NNS_SndWaveOutIsPlaying(*(u32 *)FUN_02004930(param0));
 }
-
-extern void NNS_SndWaveOutSetPan(u32, u32);
 
 THUMB_FUNC void FUN_02004ACC(u32 param0, u32 param1)
 {
@@ -819,14 +799,10 @@ THUMB_FUNC void FUN_02004ACC(u32 param0, u32 param1)
     NNS_SndWaveOutSetPan(*(u32 *)FUN_02004930(param0), param1);
 }
 
-extern void NNS_SndWaveOutSetSpeed(u32, u32);
-
 THUMB_FUNC void FUN_02004AE4(u32 param0, u32 param1)
 {
     NNS_SndWaveOutSetSpeed(*(u32 *)FUN_02004930(param0), param1);
 }
-
-extern void NNS_SndWaveOutSetVolume(u32, u32);
 
 THUMB_FUNC void FUN_02004AF8(u32 param0, s32 param1)
 {
@@ -843,11 +819,6 @@ struct WaveArcInfo
 {
     u32 unk00 : 24;
 };
-
-extern struct WaveArcInfo *NNS_SndArcGetWaveArcInfo(u32);
-extern u32 NNS_SndArcGetFileSize(u32);
-extern s32 NNS_SndArcReadFile(u32, u32, u32, u32);
-extern void FUN_02004C1C(u8 *, u32);
 
 THUMB_FUNC u32 FUN_02004B30(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4)
 {
@@ -940,14 +911,10 @@ THUMB_FUNC void FUN_02004C3C(u32 param0)
     }
 }
 
-extern BOOL NNS_SndCaptureIsActive();
-
 THUMB_FUNC BOOL FUN_02004C78()
 {
     return NNS_SndCaptureIsActive();
 }
-
-extern u32 NNS_SndCaptureStartReverb(u32, u32, u32, u32, u32);
 
 THUMB_FUNC u32 FUN_02004C80(u32 param0)
 {
@@ -956,22 +923,15 @@ THUMB_FUNC u32 FUN_02004C80(u32 param0)
     return NNS_SndCaptureStartReverb(FUN_02003D38(3), 0x1000, 0, 0x3E80, param0);
 }
 
-extern void NNS_SndCaptureStopReverb(u32);
-
 THUMB_FUNC void FUN_02004CA4(u32 param0)
 {
     NNS_SndCaptureStopReverb(param0);
 }
 
-extern void NNS_SndCaptureSetReverbVolume();
-
 THUMB_FUNC void FUN_02004CAC()
 {
     NNS_SndCaptureSetReverbVolume();
 }
-
-extern u32 NNS_SndCaptureStartEffect(u32, u32, u32, u32, u32, void (*)(), u32);
-extern void FUN_02005068();
 
 THUMB_FUNC void FUN_02004CB4()
 {
@@ -984,8 +944,6 @@ THUMB_FUNC void FUN_02004CB4()
 
     NNS_SndCaptureStartEffect(r4, 0x1000, 0, 0x55F0, 2, FUN_02005068, st8);
 }
-
-extern void NNS_SndCaptureStopEffect();
 
 THUMB_FUNC void FUN_02004CFC()
 {
@@ -1008,8 +966,6 @@ THUMB_FUNC void FUN_02004D04(s32 param0)
     *ptr = param0;
 }
 
-extern void NNS_SndPlayerSetTrackPitch(u32, u32, u32);
-
 THUMB_FUNC void FUN_02004D20(u32 param0, u32 param1, u32 param2)
 {
     NNS_SndPlayerSetTrackPitch(FUN_02003FF4(param0), param1, param2);
@@ -1020,14 +976,10 @@ THUMB_FUNC void FUN_02004D34(u16 param0, u32 param1, u32 param2)
     FUN_02004D20(FUN_02004018(FUN_020048D0(param0)), param1, param2);
 }
 
-extern void NNS_SndPlayerSetTrackPan(u32, u32, u32);
-
 THUMB_FUNC void FUN_02004D4C(u32 param0, u32 param1, u32 param2)
 {
     NNS_SndPlayerSetTrackPan(FUN_02003FF4(param0), param1, param2);
 }
-
-extern void NNS_SndSetMonoFlag(u32 param0);
 
 THUMB_FUNC void FUN_02004D60(u32 param0)
 {
@@ -1068,9 +1020,6 @@ THUMB_FUNC void FUN_02004DBC(u8 param0)
     *(u8 *)FUN_02003D38(18) = param0;
 }
 
-extern void FUN_02004E44(u32, u16, u32, u32, u8, u32);
-extern void FUN_02003CE8(u32);
-
 THUMB_FUNC u32 FUN_02004DCC(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
 {
     u8 *ptr = FUN_02003D38(21);
@@ -1093,8 +1042,6 @@ THUMB_FUNC u32 FUN_02004E08(
     FUN_02003CE8(6);
     return 1;
 }
-
-extern void FUN_020053CC(u32, u32);
 
 THUMB_FUNC void FUN_02004E44(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
 {
@@ -1129,8 +1076,6 @@ THUMB_FUNC u32 FUN_02004E8C(u32 *param0)
     return param0[2];
 }
 
-extern u32 FUN_02004ED0(s32);
-
 THUMB_FUNC u32 FUN_02004E98(s32 param0)
 {
     GF_Snd_RestoreState(FUN_02004748(5));
@@ -1145,9 +1090,6 @@ THUMB_FUNC u32 FUN_02004E98(s32 param0)
     GF_Snd_LoadWaveArc(r4);
     return FUN_02004ED0(r4);
 }
-
-extern u32 NNS_SndArcGetFileAddress(u32);
-extern u32 SND_GetWaveDataAddress(u32, u32);
 
 THUMB_FUNC u32 FUN_02004ED0(s32 param0)
 {
@@ -1178,8 +1120,6 @@ THUMB_FUNC u32 FUN_02004ED0(s32 param0)
     return *ptr;
 }
 
-extern u32 FUN_02004F64(int);
-
 THUMB_FUNC u32 FUN_02004F28(u32 param0, u32 *param1, s32 param2)
 {
     u32 r4 = FUN_02004F64(1);
@@ -1208,8 +1148,6 @@ THUMB_FUNC u32 FUN_02004F28(u32 param0, u32 *param1, s32 param2)
 
     return r0;
 }
-
-extern u32 NNS_SndPlayerGetTick(u32);
 
 THUMB_FUNC u32 FUN_02004F64(int param0)
 {
@@ -1373,8 +1311,6 @@ THUMB_FUNC void FUN_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, v
     DC_FlushRange(param1, param2);
 }
 
-extern void NNS_SndPlayerSetAllocatableChannel(u32, u32);
-
 THUMB_FUNC void FUN_02005160(u32 param0)
 {
     NNS_SndPlayerSetAllocatableChannel(7, param0);
@@ -1401,8 +1337,6 @@ THUMB_FUNC void FUN_0200516C(u32 param0)
     FUN_02004C78();
 }
 
-extern BOOL FUN_02005404(void);
-
 THUMB_FUNC void FUN_020051AC()
 {
     if (FUN_02005404() == FALSE && FUN_020048EC(FUN_02003FF4(0)) != -1 && FUN_02004124() != 0x47e)
@@ -1415,8 +1349,6 @@ THUMB_FUNC void FUN_020051AC()
 
     FUN_0200541C();
 }
-
-extern void NNS_SndPlayerSetPlayerVolume(u32, u8);
 
 THUMB_FUNC void FUN_020051EC(u32 param0, u8 param1)
 {
