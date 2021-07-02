@@ -2472,7 +2472,7 @@
 .extern FUN_02033F04
 .extern FUN_02033F20
 .extern FUN_02033F70
-.extern FUN_02034188
+.extern ShowWFCUserInfoWarning
 .extern FUN_02034494
 .extern FUN_020344AC
 .extern FUN_020344D0
@@ -5450,7 +5450,7 @@
 .extern FUN_02088DBC
 .extern FUN_02088DD8
 .extern FUN_02088DF0
-.extern FUN_02088DF8
+.extern GetEligibleLevelUpMoves
 .extern FUN_02088EF8
 .extern FUN_02088F0C
 .extern FUN_02088F4C

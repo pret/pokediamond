@@ -14,6 +14,7 @@
 #include "timer3.h"
 #include "unk_02031734.h"
 #include "unk_0202F150.h"
+#include "wfc_user_info_warning.h"
 #include "module_52.h"
 #include "font.h"
 
@@ -29,7 +30,6 @@ struct UnkStruct_02016FA8 UNK_02016FA8;
 extern void FUN_02022294(void);
 extern void GF_InitRTCWork(void);
 extern int FUN_020337E8(int);
-extern void FUN_02034188(int, int);
 extern void FUN_02089D90(int);
 extern void FUN_0200A2AC(void);
 extern void FUN_02015E30(void);
@@ -69,7 +69,7 @@ THUMB_FUNC void NitroMain(void)
     InitSoundData(Sav2_Chatot_get(UNK_02016FA8.unk18), Sav2_PlayerData_GetOptionsAddr(UNK_02016FA8.unk18));
     Init_Timer3();
     if (FUN_020337E8(3) == 3)
-        FUN_02034188(3, 0);
+        ShowWFCUserInfoWarning(3, 0);
     if (FUN_020227FC(UNK_02016FA8.unk18) == 0)
     {
         FUN_02089D90(0);
