@@ -346,7 +346,7 @@ _02048BA2:
 	ldr r0, [r4, #0x1c]
 	ldr r1, [r4, #0x28]
 	ldr r0, [r0, #0x0]
-	bl FUN_020344AC
+	bl MapMatrix_Load
 	ldr r0, [r4, #0xc]
 	bl SavArray_Flags_get
 	mov r1, #0x3
