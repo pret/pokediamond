@@ -3,7 +3,7 @@
 
 #include "nitro/types.h"
 
-#include "nitro/SND_main_shared.h"
+#include "nitro/SND_exChannel_shared.h"
 
 void SND_InitLfoParam(struct SNDLfoParam *lfoParam);
 void SND_StartLfo(struct SNDLfo *lfo);

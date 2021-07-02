@@ -13,8 +13,10 @@
 #ifndef POKEDIAMOND_SND_WORK_SHARED_H
 #define POKEDIAMOND_SND_WORK_SHARED_H
 
-#include "nitro/SND_alarm_shared.h"
 #include "nitro/SND_main_shared.h"
+#include "nitro/SND_alarm_shared.h"
+#include "nitro/SND_bank_shared.h"
+#include "nitro/SND_seq_shared.h"
  
 #define SND_PLAYER_COUNT 16
 #define SND_CHANNEL_COUNT 16
