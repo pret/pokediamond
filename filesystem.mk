@@ -3266,6 +3266,16 @@ files/graphic/poketch.narc: \
 	files/graphic/poketch/narc_0010.NCGR.lz \
 	files/graphic/poketch/narc_0011.NSCR.lz
 
+files/resource/eng/trial/trial.narc: \
+	files/resource/eng/trial/trial/narc_0000.NCLR \
+	files/resource/eng/trial/trial/narc_0001.NCGR \
+	files/resource/eng/trial/trial/narc_0002.NSCR \
+	files/resource/eng/trial/trial/narc_0003.NCLR \
+	files/resource/eng/trial/trial/narc_0004.NCGR \
+	files/resource/eng/trial/trial/narc_0005.NSCR \
+	files/resource/eng/trial/trial/narc_0006.NCLR \
+	files/resource/eng/trial/trial/narc_0007.NCGR
+
 ## Trainer names
 files/msgdata/msg/narc_0559.txt: files/poketool/trainer/trdata.json
 	(echo " -"; $(GREP) -w '"name":' $< | cut -d'"' -f4) | $(SED) 's/^(.+)$$/{TRNAME}\1\r/g' > $@
