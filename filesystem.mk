@@ -3276,6 +3276,60 @@ files/resource/eng/trial/trial.narc: \
 	files/resource/eng/trial/trial/narc_0006.NCLR \
 	files/resource/eng/trial/trial/narc_0007.NCGR
 
+files/graphic/field_board.narc: \
+	files/graphic/field_board/narc_0000.NCGR \
+	files/graphic/field_board/narc_0001.NCLR \
+	files/graphic/field_board/narc_0002.NCGR \
+	files/graphic/field_board/narc_0003.NCGR \
+	files/graphic/field_board/narc_0004.NCGR \
+	files/graphic/field_board/narc_0005.NCGR \
+	files/graphic/field_board/narc_0006.NCGR \
+	files/graphic/field_board/narc_0007.NCGR \
+	files/graphic/field_board/narc_0008.NCGR \
+	files/graphic/field_board/narc_0009.NCGR \
+	files/graphic/field_board/narc_0010.NCGR \
+	files/graphic/field_board/narc_0011.NCGR \
+	files/graphic/field_board/narc_0012.NCGR \
+	files/graphic/field_board/narc_0013.NCGR \
+	files/graphic/field_board/narc_0014.NCGR \
+	files/graphic/field_board/narc_0015.NCGR \
+	files/graphic/field_board/narc_0016.NCGR \
+	files/graphic/field_board/narc_0017.NCGR \
+	files/graphic/field_board/narc_0018.NCGR \
+	files/graphic/field_board/narc_0019.NCGR \
+	files/graphic/field_board/narc_0020.NCGR \
+	files/graphic/field_board/narc_0021.NCGR \
+	files/graphic/field_board/narc_0022.NCGR \
+	files/graphic/field_board/narc_0023.NCGR \
+	files/graphic/field_board/narc_0024.NCGR \
+	files/graphic/field_board/narc_0025.NCGR \
+	files/graphic/field_board/narc_0026.NCGR \
+	files/graphic/field_board/narc_0027.NCGR \
+	files/graphic/field_board/narc_0028.NCGR \
+	files/graphic/field_board/narc_0029.NCGR \
+	files/graphic/field_board/narc_0030.NCGR \
+	files/graphic/field_board/narc_0031.NCGR \
+	files/graphic/field_board/narc_0032.NCGR \
+	files/graphic/field_board/narc_0033.NCGR \
+	files/graphic/field_board/narc_0034.NCGR \
+	files/graphic/field_board/narc_0035.NCGR \
+	files/graphic/field_board/narc_0036.NCGR \
+	files/graphic/field_board/narc_0037.NCGR \
+	files/graphic/field_board/narc_0038.NCGR \
+	files/graphic/field_board/narc_0039.NCGR \
+	files/graphic/field_board/narc_0040.NCGR \
+	files/graphic/field_board/narc_0041.NCGR \
+	files/graphic/field_board/narc_0042.NCGR \
+	files/graphic/field_board/narc_0043.NCGR \
+	files/graphic/field_board/narc_0044.NCGR \
+	files/graphic/field_board/narc_0045.NCGR \
+	files/graphic/field_board/narc_0046.NCGR \
+	files/graphic/field_board/narc_0047.NCGR \
+	files/graphic/field_board/narc_0048.NCGR \
+	files/graphic/field_board/narc_0049.NCGR \
+	files/graphic/field_board/narc_0050.NCGR \
+	files/graphic/field_board/narc_0051.NCGR
+
 ## Trainer names
 files/msgdata/msg/narc_0559.txt: files/poketool/trainer/trdata.json
 	(echo " -"; $(GREP) -w '"name":' $< | cut -d'"' -f4) | $(SED) 's/^(.+)$$/{TRNAME}\1\r/g' > $@
