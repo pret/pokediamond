@@ -1,0 +1,14 @@
+{ "columns":32,
+ "image":"narc_0004.png",
+ "imageheight":192,
+ "imagewidth":256,
+ "margin":0,
+ "name":"narc_0004",
+ "spacing":0,
+ "tilecount":768,
+ "tiledversion":"1.7.0",
+ "tileheight":8,
+ "tilewidth":8,
+ "type":"tileset",
+ "version":"1.6"
+}
