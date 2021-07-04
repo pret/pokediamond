@@ -27,29 +27,29 @@ extern u32 MIC_StopAutoSampling();
 extern u32 MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3);
 extern u32 NNS_SndWaveOutAllocChannel(u32);
 extern void NNS_SndWaveOutFreeChannel(u32);
-extern u32 NNS_SndWaveOutStart(u32, u32, u32, u32, u32, u32, u32, u32, u32, u32);
+extern u32 NNS_SndWaveOutStart(u32, u32, void *, u32, u32, u32, u32, s32, u32, u32);
 extern void NNS_SndWaveOutStop(u32);
 extern void NNS_SndWaveOutIsPlaying(u32);
 extern void NNS_SndWaveOutSetPan(u32, u32);
 extern void NNS_SndWaveOutSetSpeed(u32, u32);
-extern void NNS_SndWaveOutSetVolume(u32, u32);
+extern void NNS_SndWaveOutSetVolume(u32, s32);
 extern struct WaveArcInfo *NNS_SndArcGetWaveArcInfo(u32);
 extern u32 NNS_SndArcGetFileSize(u32);
-extern s32 NNS_SndArcReadFile(u32, u32, u32, u32);
+extern s32 NNS_SndArcReadFile(u32, void *, u32, u32);
 extern BOOL NNS_SndCaptureIsActive();
-extern u32 NNS_SndCaptureStartReverb(u32, u32, u32, u32, u32);
+extern u32 NNS_SndCaptureStartReverb(void *, u32, u32, u32, u32);
 extern void NNS_SndCaptureStopReverb(u32);
 extern void NNS_SndCaptureSetReverbVolume();
-extern u32 NNS_SndCaptureStartEffect(u32, u32, u32, u32, u32, void (*)(), u32);
+extern u32 NNS_SndCaptureStartEffect(void *, u32, u32, u32, u32, void (*)(), void *);
 extern void NNS_SndCaptureStopEffect();
-extern void NNS_SndPlayerSetTrackPitch(u32, u32, u32);
-extern void NNS_SndPlayerSetTrackPan(u32, u32, u32);
+extern void NNS_SndPlayerSetTrackPitch(u32 *, u32, u32);
+extern void NNS_SndPlayerSetTrackPan(u32 *, u32, u32);
 extern void NNS_SndSetMonoFlag(u32 param0);
 extern void FUN_02003CE8(u32);
 extern void FUN_020053CC(u32, u32);
 extern u32 NNS_SndArcGetFileAddress(u32);
 extern u32 SND_GetWaveDataAddress(u32, u32);
-extern u32 NNS_SndPlayerGetTick(u32);
+extern u32 NNS_SndPlayerGetTick(u32 *);
 extern void NNS_SndPlayerSetAllocatableChannel(u32, u32);
 extern BOOL FUN_02005404(void);
 extern void NNS_SndPlayerSetPlayerVolume(u32, u8);
@@ -211,7 +211,7 @@ THUMB_FUNC BOOL FUN_02004180(s32 param0)
     return res;
 }
 
-THUMB_FUNC u32 FUN_0200433C(u8 param0, u32 param1, u32 param2)
+THUMB_FUNC u32 FUN_0200433C(u8 param0, int param1, u32 param2)
 {
     u8 *st0 = FUN_02003D38(20);
     u8 *st4 = FUN_02003D38(21);
@@ -313,6 +313,8 @@ THUMB_FUNC void FUN_020044A8(s32 param0)
 
 THUMB_FUNC void FUN_020044D4(int param0, u32 param1)
 {
+    #pragma unused(param1)
+
     u8 *ptr = FUN_02003D38(11);
 
     FUN_02003D38(23);
@@ -352,6 +354,8 @@ THUMB_FUNC void FUN_020044D4(int param0, u32 param1)
 
 THUMB_FUNC void FUN_02004568(int seqNo, u16 param1)
 {
+    #pragma unused(param1)
+
     u16 *ptr = FUN_02003D38(31);
 
     u32 r0 = FUN_02004900(*ptr);
@@ -371,7 +375,7 @@ THUMB_FUNC void FUN_02004568(int seqNo, u16 param1)
     FUN_02004DBC(0);
 }
 
-THUMB_FUNC void FUN_020045C4(u32 param0, u32 param1)
+THUMB_FUNC void FUN_020045C4(int param0, u32 param1)
 {
     u8 *ptr = FUN_02003D38(18);
     u16 *ptr2 = FUN_02003D38(31);
@@ -402,8 +406,9 @@ THUMB_FUNC void FUN_020045C4(u32 param0, u32 param1)
     GF_Snd_SaveState((int *)FUN_02003D38(26));
 }
 
-THUMB_FUNC void FUN_02004648(u32 param0, u32 param1)
+THUMB_FUNC void FUN_02004648(int param0, u32 param1)
 {
+    #pragma unused(param1)
     FUN_02003D38(23);
     FUN_020051AC();
 
@@ -414,8 +419,9 @@ THUMB_FUNC void FUN_02004648(u32 param0, u32 param1)
     FUN_0200521C(param0);
 }
 
-THUMB_FUNC void FUN_02004680(u32 param0, u32 param1)
+THUMB_FUNC void FUN_02004680(int param0, u32 param1)
 {
+    #pragma unused(param1)
     FUN_02003D38(23);
     FUN_0200541C();
     FUN_02004810();
@@ -423,8 +429,9 @@ THUMB_FUNC void FUN_02004680(u32 param0, u32 param1)
     FUN_0200521C(param0);
 }
 
-THUMB_FUNC void FUN_020046A0(u32 param0, u32 param1)
+THUMB_FUNC void FUN_020046A0(int param0, u32 param1)
 {
+    #pragma unused(param1)
     FUN_02003D38(23);
     FUN_0200541C();
     FUN_020044A8(6);
@@ -432,8 +439,9 @@ THUMB_FUNC void FUN_020046A0(u32 param0, u32 param1)
     FUN_0200521C(param0);
 }
 
-THUMB_FUNC void FUN_020046C4(u32 param0, u32 param1)
+THUMB_FUNC void FUN_020046C4(int param0, u32 param1)
 {
+    #pragma unused(param1)
     FUN_02003D38(23);
     FUN_0200541C();
     FUN_020044A8(7);
@@ -441,22 +449,23 @@ THUMB_FUNC void FUN_020046C4(u32 param0, u32 param1)
     FUN_0200521C(param0);
 }
 
-THUMB_FUNC void FUN_020046E8(u32 param0)
+THUMB_FUNC void FUN_020046E8(s32 param0)
 {
     FUN_02004738();
     FUN_02004180(param0);
     GF_Snd_SaveState((int *)FUN_02003D38(27));
 }
 
-THUMB_FUNC void FUN_02004704(u32 param0, u32 param1, u32 param2)
+THUMB_FUNC void FUN_02004704(s32 param0, int param1, u32 param2)
 {
+    #pragma unused(param2)
     FUN_02003D38(23);
     FUN_0200541C();
     FUN_020044A8(param0);
     FUN_0200521C(param1);
 }
 
-THUMB_FUNC void FUN_02004724(u32 param0)
+THUMB_FUNC void FUN_02004724(int param0)
 {
     GetSoundDataPointer();
     FUN_020051AC();
@@ -475,10 +484,10 @@ THUMB_FUNC int FUN_02004748(s32 param0)
     if (param0 >= 7)
     {
         GF_AssertFail();
-        return *(u32 *)FUN_02003D38(26);
+        return *(int *)FUN_02003D38(26);
     }
 
-    u32 *r5;
+    int *r5;
     switch (param0)
     {
         case 0:
@@ -510,7 +519,7 @@ THUMB_FUNC int FUN_02004748(s32 param0)
 THUMB_FUNC void FUN_020047C8(u8 param0, u8 param1)
 {
     u8 *ptr;
-    u32 r4;
+    int r4;
     if (param0 == 1)
     {
         ptr = FUN_02003D38(11);
@@ -529,7 +538,7 @@ THUMB_FUNC void FUN_020047C8(u8 param0, u8 param1)
 
     if (param1 == 0)
     {
-        FUN_02004110(FUN_020048EC(FUN_02003FF4(r4)));
+        FUN_02004110((u16)FUN_020048EC(FUN_02003FF4(r4)));
     }
 
     NNS_SndPlayerPause(FUN_02003FF4(r4), param1);
@@ -544,12 +553,12 @@ THUMB_FUNC void FUN_02004810()
     *ptr2 = 0;
 }
 
-THUMB_FUNC void FUN_02004828(u32 param0, u32 param1, u32 param2)
+THUMB_FUNC void FUN_02004828(int param0, u32 param1, u32 param2)
 {
     NNS_SndPlayerMoveVolume(FUN_02003FF4(param0), param1, param2);
 }
 
-THUMB_FUNC void FUN_0200483C(u32 param0, s32 param1)
+THUMB_FUNC void FUN_0200483C(int param0, s32 param1)
 {
     if (param1 < 0)
     {
@@ -564,7 +573,7 @@ THUMB_FUNC void FUN_0200483C(u32 param0, s32 param1)
     NNS_SndPlayerSetInitialVolume(FUN_02003FF4(param0), param1);
 }
 
-THUMB_FUNC void FUN_02004858(u32 param0, u32 param1)
+THUMB_FUNC void FUN_02004858(u32 param0, int param1)
 {
     u8 *ret = NNS_SndArcGetSeqParam(param0);
     u8 r4;
@@ -590,7 +599,7 @@ THUMB_FUNC void FUN_02004858(u32 param0, u32 param1)
 
 THUMB_FUNC void FUN_0200488C(u16 param0, u16 param1)
 {
-    FUN_0200483C(FUN_02004018(FUN_020048D0(param0)), param1);
+    FUN_0200483C((int)FUN_02004018(FUN_020048D0(param0)), param1);
 }
 
 THUMB_FUNC void FUN_020048A0(int param0, u32 param1, u32 param2)
@@ -628,7 +637,7 @@ THUMB_FUNC u32 FUN_020048EC(u32 *param0)
 
 THUMB_FUNC u32 FUN_020048F4(u16 param0)
 {
-    NNS_SndArcGetBankInfo(FUN_02004900(param0));
+    return NNS_SndArcGetBankInfo(FUN_02004900(param0));
 }
 
 THUMB_FUNC u16 FUN_02004900(u16 param0)
@@ -649,6 +658,7 @@ THUMB_FUNC u32 FUN_02004914(u32 param0)
 
 THUMB_FUNC u32 FUN_0200491C(u32 param0)
 {
+    #pragma unused(param0)
     GetSoundDataPointer();
     return MIC_StopAutoSampling();
 }
@@ -759,18 +769,18 @@ THUMB_FUNC void FUN_02004A04(u32 param0)
     }
 }
 
-THUMB_FUNC u32 FUN_02004A6C(u32 *param0, u32 param1)
+THUMB_FUNC u32 FUN_02004A6C(struct UnkStruct1 *param0, u32 param1)
 {
-    u32 res = NNS_SndWaveOutStart(*(u32 *)param0[0],
-        param0[1],
-        param0[2],
-        param0[3],
-        param0[4],
-        param0[5],
-        param0[6],
-        param0[7],
-        param0[8],
-        param0[9]);
+    u32 res = NNS_SndWaveOutStart(*(u32 *)param0->unk00,
+        param0->unk04,
+        param0->unk08,
+        param0->unk0c,
+        param0->unk10,
+        param0->unk14,
+        param0->unk18,
+        param0->unk1c,
+        param0->unk20,
+        param0->unk24);
     if (res == 0)
     {
         FUN_02004A04(param1);
@@ -815,16 +825,13 @@ THUMB_FUNC void FUN_02004AF8(u32 param0, s32 param1)
     NNS_SndWaveOutSetVolume(*(u32 *)FUN_02004930(param0), param1);
 }
 
-struct WaveArcInfo
-{
-    u32 unk00 : 24;
-};
 
-THUMB_FUNC u32 FUN_02004B30(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4)
+
+THUMB_FUNC u32 FUN_02004B30(u32 param0, s32 param1, u32 param2, u32 param3, u32 param4)
 {
     GetSoundDataPointer();
 
-    u32 *r4 = FUN_02003D38(33);
+    void **r4 = FUN_02003D38(33);
     GF_ASSERT(param3 == 14 || param3 == 15);
 
     struct WaveArcInfo *r7 = NNS_SndArcGetWaveArcInfo(param0);
@@ -863,20 +870,19 @@ THUMB_FUNC u32 FUN_02004B30(u32 param0, u32 param1, u32 param2, u32 param3, u32 
 
     void *res = FUN_02004930(param3);
 
-    u32 st8[10];
+    struct UnkStruct1 st8;
+    st8.unk04 = 0;
+    st8.unk00 = res;
+    st8.unk08 = *r4;
+    st8.unk0c = 0;
+    st8.unk18 = 0x3443;
+    st8.unk10 = 0;
+    st8.unk1c = param1;
+    st8.unk20 = 0x6000;
+    st8.unk24 = param2;
+    st8.unk14 = r6;
 
-    st8[1] = 0;
-    st8[0] = res;
-    st8[2] = *r4;
-    st8[3] = 0;
-    st8[6] = 0x3443;
-    st8[4] = 0;
-    st8[7] = param1;
-    st8[8] = 0x6000;
-    st8[9] = param2;
-    st8[5] = r6;
-
-    u32 ret = FUN_02004A6C(st8, param3);
+    u32 ret = FUN_02004A6C(&st8, param3);
     FUN_02004AF8(param3, param1);
     u8 *r0 = FUN_02003D38(14);
     *r0 = 1;
@@ -898,7 +904,7 @@ THUMB_FUNC void FUN_02004C3C(u32 param0)
 {
     GetSoundDataPointer();
     u8 *ptr = FUN_02003D38(14);
-    u32 *ptr2 = FUN_02003D38(33);
+    void **ptr2 = FUN_02003D38(33);
 
     GF_ASSERT(param0 == 14 || param0 == 15);
 
@@ -963,20 +969,20 @@ THUMB_FUNC void FUN_02004D04(s32 param0)
         param0 = 0;
     }
 
-    *ptr = param0;
+    *ptr = (u8)param0;
 }
 
-THUMB_FUNC void FUN_02004D20(u32 param0, u32 param1, u32 param2)
+THUMB_FUNC void FUN_02004D20(int param0, u32 param1, u32 param2)
 {
     NNS_SndPlayerSetTrackPitch(FUN_02003FF4(param0), param1, param2);
 }
 
 THUMB_FUNC void FUN_02004D34(u16 param0, u32 param1, u32 param2)
 {
-    FUN_02004D20(FUN_02004018(FUN_020048D0(param0)), param1, param2);
+    FUN_02004D20((int)FUN_02004018(FUN_020048D0(param0)), param1, param2);
 }
 
-THUMB_FUNC void FUN_02004D4C(u32 param0, u32 param1, u32 param2)
+THUMB_FUNC void FUN_02004D4C(int param0, u32 param1, u32 param2)
 {
     NNS_SndPlayerSetTrackPan(FUN_02003FF4(param0), param1, param2);
 }
@@ -1045,6 +1051,8 @@ THUMB_FUNC u32 FUN_02004E08(
 
 THUMB_FUNC void FUN_02004E44(u32 param0, u16 param1, u32 param2, u32 param3, u8 param4, u32 param5)
 {
+    #pragma unused(param0)
+    #pragma unused(param5)
     u32 *ptr = FUN_02003D38(2);
 
     FUN_020053CC(0, param2);
@@ -1120,10 +1128,11 @@ THUMB_FUNC u32 FUN_02004ED0(s32 param0)
     return *ptr;
 }
 
-THUMB_FUNC u32 FUN_02004F28(u32 param0, u32 *param1, s32 param2)
+THUMB_FUNC u32 FUN_02004F28(u32 param0, struct UnkStruct2 *param1, s32 param2)
 {
+    #pragma unused(param0)
     u32 r4 = FUN_02004F64(1);
-    u32 r5 = param1[2];
+    u32 r5 = param1->unk08;
 
     s32 r1 = (param2 / (3 * 0x100)) << 1;
     if (r1 < 0)
@@ -1154,12 +1163,17 @@ THUMB_FUNC u32 FUN_02004F64(int param0)
     return NNS_SndPlayerGetTick(FUN_02003FF4(param0));
 }
 
-THUMB_FUNC void FUN_02004F70(u8 *param0, u8 *param1, int param2, u32 param3)
+
+
+
+
+THUMB_FUNC void FUN_02004F70(struct UnkStruct2 *param0, u8 *param1, int param2, s32 param3)
 {
-    int r0, r1;
+    int r0;
+    s32 r1;
     int i, j;
     u32 r12 = FUN_02004F28(1, param0, param3);
-    r1 = r12 - 100;
+    r1 = (s32)r12 - 100;
     if (r1 < 0)
     {
         r1 = 0;
@@ -1168,7 +1182,7 @@ THUMB_FUNC void FUN_02004F70(u8 *param0, u8 *param1, int param2, u32 param3)
     int r3 = 0;
     int r7 = 0;
     s8 r5;
-    if ((param0 + 12)[r1] < 0x80)
+    if (param0->unk0c[r1] < 0x80)
     {
         r5 = 1;
     }
@@ -1183,7 +1197,7 @@ THUMB_FUNC void FUN_02004F70(u8 *param0, u8 *param1, int param2, u32 param3)
         r0 = 0;
         if (r5 > 0)
         {
-            if ((param0 + 12)[i] > 0x80)
+            if (param0->unk0c[i] > 0x80)
             {
                 r0 = 1;
             }
@@ -1194,7 +1208,7 @@ THUMB_FUNC void FUN_02004F70(u8 *param0, u8 *param1, int param2, u32 param3)
         }
         else
         {
-            if ((param0 + 12)[i] < 0x80)
+            if (param0->unk0c[i] < 0x80)
             {
                 r0 = 1;
             }
@@ -1227,7 +1241,7 @@ THUMB_FUNC void FUN_02004F70(u8 *param0, u8 *param1, int param2, u32 param3)
 
             r3 = 0;
             r0 = 0;
-            if ((param0 + 12)[i] < 0x80)
+            if (param0->unk0c[i] < 0x80)
             {
                 r5 = 1;
             }
@@ -1251,7 +1265,7 @@ THUMB_FUNC void FUN_02004F70(u8 *param0, u8 *param1, int param2, u32 param3)
     {
         if (param1[i] == 0 && param1[i + 1] != 0)
         {
-            param1[i] = param1[i + 1] / 2;
+            param1[i] = (u8)(param1[i + 1] / 2);
             return;
         }
     }
@@ -1282,7 +1296,7 @@ THUMB_FUNC void FUN_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, v
         st10[i][1] = param1[param2 - (*r7) + i];
     }
 
-    for (i = param2 - 1; i >= *r7 - 1; i--)
+    for (i = (int)param2 - 1; i >= *r7 - 1; i--)
     {
         r0 = 0;
         for (j = 0; j < *r7; j++)
@@ -1290,7 +1304,7 @@ THUMB_FUNC void FUN_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, v
             r0 += param0[i - j];
         }
 
-        param0[i] = r0 / (*r7);
+        param0[i] = (s16)(r0 / (*r7));
 
         r0 = 0;
         for (j = 0; j < *r7; j++)
@@ -1298,7 +1312,7 @@ THUMB_FUNC void FUN_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, v
             r0 += param1[i - j];
         }
 
-        param1[i] = r0 / (*r7);
+        param1[i] = (s16)(r0 / (*r7));
     }
 
     for (i = 0; i < *r7; i++)
