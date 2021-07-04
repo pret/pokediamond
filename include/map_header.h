@@ -17,10 +17,10 @@ struct MapHeader
     u8 weather_type;
     u8 camera_type;
     u8 unk16;
-    u8 unk17_0:4;
+    u8 battle_bg:4;
     u8 is_bike_allowed:1;
-    u8 unk17_5:1;
-    u8 unk17_6:1;
+    u8 is_running_allowed:1; // unused
+    u8 is_escape_rope_allowed:1;
     u8 is_fly_allowed:1;
 };
 
@@ -38,24 +38,24 @@ u16 MapHeader_GetEventsBank(u32 mapno);
 u16 MapHeader_GetMapSec(u32 mapno);
 u8 MapHeader_GetWeatherType(u32 mapno);
 u8 MapHeader_GetCameraType(u32 mapno);
-u8 MapHeader_GetField17_0(u32 mapno);
-u8 MapHeader_GetField17_6(u32 mapno);
+u8 MapHeader_GetBattleBg(u32 mapno);
+u8 MapHeader_IsEscapeRopeAllowed(u32 mapno);
 u8 MapHeader_IsFlyAllowed(u32 mapno);
 u8 MapHeader_IsBikeAllowed(u32 mapno);
 u8 MapHeader_GetField16(u32 mapno);
 BOOL FUN_020348E4(u32 mapno);
-BOOL MapHeader_MapIsOnOverworldMatrix(u32 mapno);
+BOOL MapHeader_MapIsOnMainMatrix(u32 mapno);
 BOOL FUN_0203491C(u32 mapno);
 BOOL FUN_02034930(u32 mapno);
 BOOL FUN_02034944(u32 mapno);
 BOOL FUN_02034964(u32 mapno);
 BOOL FUN_02034984(u32 mapno);
-BOOL FUN_02034998(u32 mapno);
-BOOL FUN_020349AC(u32 mapno);
-BOOL FUN_020349B8(u32 mapno);
-BOOL FUN_020349CC(u32 mapno);
-BOOL FUN_020349D8(u32 mapno);
-BOOL FUN_020349E4(u16 a0);
-u16 FUN_02034A04(u16 a0);
+BOOL MapHeader_MapIsUnionRoom(u32 mapno);
+BOOL MapHeader_MapIsMtCoronetFeebasRoom(u32 mapno);
+BOOL MapHeader_MapIsTrophyGarden(u32 mapno);
+BOOL MapHeader_MapIsAmitySquare(u32 mapno);
+BOOL MapHeader_MapIsSpearPillar(u32 mapno);
+BOOL MapHeader_MapIsPokemonCenterSecondFloor(u32 mapno);
+u16 MapHeader_GetMapEvolutionMethod(u32 mapno);
 
 #endif //POKEDIAMOND_MAP_HEADER_H

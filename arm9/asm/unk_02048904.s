@@ -506,7 +506,7 @@ FUN_02048CDC: ; 0x02048CDC
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_020349E4
+	bl MapHeader_MapIsPokemonCenterSecondFloor
 	cmp r0, #0x0
 	beq _02048CFE
 	ldr r1, [r4, #0x1c]
@@ -860,7 +860,7 @@ FUN_02048FC8: ; 0x02048FC8
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034998
+	bl MapHeader_MapIsUnionRoom
 	cmp r0, #0x0
 	bne _02049000
 	add r0, r4, #0x0

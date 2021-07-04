@@ -4775,7 +4775,7 @@ MOD06_0223B9A8: ; 0x0223B9A8
 	ldr r0, [r0]
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_020349B8
+	bl MapHeader_MapIsTrophyGarden
 	cmp r0, #0
 	beq _0223B9FC
 	add r1, sp, #0
@@ -5248,7 +5248,7 @@ _0223BD8A:
 	ldr r0, [sp, #8]
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0]
-	bl FUN_020349AC
+	bl MapHeader_MapIsMtCoronetFeebasRoom
 	cmp r0, #0
 	beq _0223BDFC
 	ldr r0, [sp, #8]
