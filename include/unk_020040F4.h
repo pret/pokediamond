@@ -1,12 +1,12 @@
 #include "global.h"
 
-
 struct WaveArcInfo
 {
     u32 unk00 : 24;
 };
 
-struct UnkStruct1 {
+struct UnkStruct_020040F4_1
+{
     void *unk00;
     u32 unk04;
     void *unk08;
@@ -19,14 +19,13 @@ struct UnkStruct1 {
     u32 unk24;
 };
 
-
-struct UnkStruct2 {
-     u32 unk00;
-     u32 unk04;
-     u32 unk08;
-     u8 unk0c[9];
+struct UnkStruct_020040F4_2
+{
+    u32 unk00;
+    u32 unk04;
+    u32 unk08;
+    u8 unk0c[9];
 };
-
 
 void FUN_020040F4(u8 param0);
 u8 FUN_02004104();
@@ -69,7 +68,7 @@ u32 FUN_02004928(u32 param0, u32 param1, u32 param2, u32 param3);
 void *FUN_02004930(u32 param0);
 u32 FUN_02004984(u32 param0);
 void FUN_02004A04(u32 param0);
-u32 FUN_02004A6C(struct UnkStruct1 *param0, u32 param1);
+u32 FUN_02004A6C(struct UnkStruct_020040F4_1 *param0, u32 param1);
 void FUN_02004AAC(u32 param0);
 void FUN_02004ABC(u32 param0);
 void FUN_02004ACC(u32 param0, u32 param1);
@@ -102,9 +101,9 @@ u32 FUN_02004E80(u32 param0);
 u32 FUN_02004E8C(u32 *param0);
 u32 FUN_02004E98(s32 param0);
 u32 FUN_02004ED0(s32 param0);
-u32 FUN_02004F28(u32 param0, struct UnkStruct2 *param1, s32 param2);
+u32 FUN_02004F28(u32 param0, struct UnkStruct_020040F4_2 *param1, s32 param2);
 u32 FUN_02004F64(int param0);
-void FUN_02004F70(struct UnkStruct2 *param0, u8 *param1, int param2, s32 param3);
+void FUN_02004F70(struct UnkStruct_020040F4_2 *param0, u8 *param1, int param2, s32 param3);
 void FUN_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, void *param4);
 void FUN_02005160(u32 param0);
 void FUN_0200516C(u32 param0);
