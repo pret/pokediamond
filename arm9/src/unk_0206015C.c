@@ -3,6 +3,7 @@
 #include "heap.h"
 #include "event_data.h"
 #include "main.h"
+#include "unk_0204AF24.h"
 
 /*  Note to future reader, there might be some errors
     in the return type / parameters. They are right for this code
@@ -23,10 +24,6 @@ extern THUMB_FUNC u32   MOD06_022451F0(u32);
 
 extern THUMB_FUNC void  PlaySE(u32);
 extern THUMB_FUNC void  FUN_02049160(struct UnkStruct_0204639C*, u32);
-extern THUMB_FUNC void  FUN_0204AF84(struct UnkStruct_0204639C*);
-extern THUMB_FUNC void  FUN_0204AF3C(struct UnkStruct_0204639C *);
-extern THUMB_FUNC void  FUN_0204AFC8(struct UnkStruct_0204639C *);
-extern THUMB_FUNC void  FUN_0204B00C(struct UnkStruct_0204639C *);
 extern THUMB_FUNC void  FUN_0204C1B4(struct UnkStruct_0204639C*, u32,u32,u32,u32,u32,u32,u32);
 extern THUMB_FUNC u32   FUN_020553A0(u32);
 extern THUMB_FUNC void  FUN_0205889C(u32, u32);
