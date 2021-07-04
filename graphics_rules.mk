@@ -111,11 +111,16 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                                       files/poketool/icongra/poke_icon/narc_0034.NCGR \
                                       files/poketool/icongra/poke_icon/narc_0035.NCGR \
                                       files/poketool/icongra/poke_icon/narc_0036.NCGR \
-                                      files/poketool/icongra/poke_icon/narc_0402.NCGR
+                                      files/poketool/icongra/poke_icon/narc_0402.NCGR \
+                                      files/resource/eng/trial/trial/narc_0007.NCGR
 
 4BPP_NCLR_FILES := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
                    files/demo/title/titledemo/narc_0016.NCLR \
-                   files/poketool/icongra/poke_icon/narc_0000.NCLR
+                   files/graphic/field_board/narc_0001.NCLR \
+                   files/poketool/icongra/poke_icon/narc_0000.NCLR \
+                   files/resource/eng/trial/trial/narc_0000.NCLR \
+                   files/resource/eng/trial/trial/narc_0003.NCLR \
+                   files/resource/eng/trial/trial/narc_0006.NCLR \
 
 8BPP_NSCR_FILES := files/demo/title/titledemo/narc_0000.NSCR
 
@@ -157,7 +162,60 @@ VERSION101_SOPC_NCGR_FILES := files/application/wifi_earth/wifi_earth/narc_0005.
                               files/demo/title/titledemo/narc_0007.NCGR \
                               files/demo/title/titledemo/narc_0011.NCGR \
                               files/demo/title/titledemo/narc_0015.NCGR \
-                              files/graphic/poketch/narc_0010.NCGR
+                              files/graphic/field_board/narc_0000.NCGR \
+                              files/graphic/field_board/narc_0002.NCGR \
+                              files/graphic/field_board/narc_0003.NCGR \
+                              files/graphic/field_board/narc_0004.NCGR \
+                              files/graphic/field_board/narc_0005.NCGR \
+                              files/graphic/field_board/narc_0006.NCGR \
+                              files/graphic/field_board/narc_0007.NCGR \
+                              files/graphic/field_board/narc_0008.NCGR \
+                              files/graphic/field_board/narc_0009.NCGR \
+                              files/graphic/field_board/narc_0010.NCGR \
+                              files/graphic/field_board/narc_0011.NCGR \
+                              files/graphic/field_board/narc_0012.NCGR \
+                              files/graphic/field_board/narc_0013.NCGR \
+                              files/graphic/field_board/narc_0014.NCGR \
+                              files/graphic/field_board/narc_0015.NCGR \
+                              files/graphic/field_board/narc_0016.NCGR \
+                              files/graphic/field_board/narc_0017.NCGR \
+                              files/graphic/field_board/narc_0018.NCGR \
+                              files/graphic/field_board/narc_0019.NCGR \
+                              files/graphic/field_board/narc_0020.NCGR \
+                              files/graphic/field_board/narc_0021.NCGR \
+                              files/graphic/field_board/narc_0022.NCGR \
+                              files/graphic/field_board/narc_0023.NCGR \
+                              files/graphic/field_board/narc_0024.NCGR \
+                              files/graphic/field_board/narc_0025.NCGR \
+                              files/graphic/field_board/narc_0026.NCGR \
+                              files/graphic/field_board/narc_0027.NCGR \
+                              files/graphic/field_board/narc_0028.NCGR \
+                              files/graphic/field_board/narc_0029.NCGR \
+                              files/graphic/field_board/narc_0030.NCGR \
+                              files/graphic/field_board/narc_0031.NCGR \
+                              files/graphic/field_board/narc_0032.NCGR \
+                              files/graphic/field_board/narc_0033.NCGR \
+                              files/graphic/field_board/narc_0034.NCGR \
+                              files/graphic/field_board/narc_0035.NCGR \
+                              files/graphic/field_board/narc_0036.NCGR \
+                              files/graphic/field_board/narc_0037.NCGR \
+                              files/graphic/field_board/narc_0038.NCGR \
+                              files/graphic/field_board/narc_0039.NCGR \
+                              files/graphic/field_board/narc_0040.NCGR \
+                              files/graphic/field_board/narc_0041.NCGR \
+                              files/graphic/field_board/narc_0042.NCGR \
+                              files/graphic/field_board/narc_0043.NCGR \
+                              files/graphic/field_board/narc_0044.NCGR \
+                              files/graphic/field_board/narc_0045.NCGR \
+                              files/graphic/field_board/narc_0046.NCGR \
+                              files/graphic/field_board/narc_0047.NCGR \
+                              files/graphic/field_board/narc_0048.NCGR \
+                              files/graphic/field_board/narc_0049.NCGR \
+                              files/graphic/field_board/narc_0050.NCGR \
+                              files/graphic/field_board/narc_0051.NCGR \
+                              files/graphic/poketch/narc_0010.NCGR \
+                              files/resource/eng/trial/trial/narc_0001.NCGR \
+                              files/resource/eng/trial/trial/narc_0004.NCGR
 
 8BPP_COMP10_NOPAD_NCLR_PNG_FILES := files/poketool/trgra/trbgra/narc_0000.NCLR \
                                     files/poketool/trgra/trbgra/narc_0002.NCLR \
@@ -444,6 +502,57 @@ NCGR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
                    files/graphic/bag_gra/narc_0002.NCGR \
                    files/graphic/bag_gra/narc_0006.NCGR \
                    files/graphic/bag_gra/narc_0034.NCGR \
+                   files/graphic/field_board/narc_0000.NCGR \
+                   files/graphic/field_board/narc_0002.NCGR \
+                   files/graphic/field_board/narc_0003.NCGR \
+                   files/graphic/field_board/narc_0004.NCGR \
+                   files/graphic/field_board/narc_0005.NCGR \
+                   files/graphic/field_board/narc_0006.NCGR \
+                   files/graphic/field_board/narc_0007.NCGR \
+                   files/graphic/field_board/narc_0008.NCGR \
+                   files/graphic/field_board/narc_0009.NCGR \
+                   files/graphic/field_board/narc_0010.NCGR \
+                   files/graphic/field_board/narc_0011.NCGR \
+                   files/graphic/field_board/narc_0012.NCGR \
+                   files/graphic/field_board/narc_0013.NCGR \
+                   files/graphic/field_board/narc_0014.NCGR \
+                   files/graphic/field_board/narc_0015.NCGR \
+                   files/graphic/field_board/narc_0016.NCGR \
+                   files/graphic/field_board/narc_0017.NCGR \
+                   files/graphic/field_board/narc_0018.NCGR \
+                   files/graphic/field_board/narc_0019.NCGR \
+                   files/graphic/field_board/narc_0020.NCGR \
+                   files/graphic/field_board/narc_0021.NCGR \
+                   files/graphic/field_board/narc_0022.NCGR \
+                   files/graphic/field_board/narc_0023.NCGR \
+                   files/graphic/field_board/narc_0024.NCGR \
+                   files/graphic/field_board/narc_0025.NCGR \
+                   files/graphic/field_board/narc_0026.NCGR \
+                   files/graphic/field_board/narc_0027.NCGR \
+                   files/graphic/field_board/narc_0028.NCGR \
+                   files/graphic/field_board/narc_0029.NCGR \
+                   files/graphic/field_board/narc_0030.NCGR \
+                   files/graphic/field_board/narc_0031.NCGR \
+                   files/graphic/field_board/narc_0032.NCGR \
+                   files/graphic/field_board/narc_0033.NCGR \
+                   files/graphic/field_board/narc_0034.NCGR \
+                   files/graphic/field_board/narc_0035.NCGR \
+                   files/graphic/field_board/narc_0036.NCGR \
+                   files/graphic/field_board/narc_0037.NCGR \
+                   files/graphic/field_board/narc_0038.NCGR \
+                   files/graphic/field_board/narc_0039.NCGR \
+                   files/graphic/field_board/narc_0040.NCGR \
+                   files/graphic/field_board/narc_0041.NCGR \
+                   files/graphic/field_board/narc_0042.NCGR \
+                   files/graphic/field_board/narc_0043.NCGR \
+                   files/graphic/field_board/narc_0044.NCGR \
+                   files/graphic/field_board/narc_0045.NCGR \
+                   files/graphic/field_board/narc_0046.NCGR \
+                   files/graphic/field_board/narc_0047.NCGR \
+                   files/graphic/field_board/narc_0048.NCGR \
+                   files/graphic/field_board/narc_0049.NCGR \
+                   files/graphic/field_board/narc_0050.NCGR \
+                   files/graphic/field_board/narc_0051.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0002.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0004.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0006.NCGR \
@@ -696,7 +805,9 @@ NCGR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
                    files/poketool/trgra/trfgra/narc_0190.NCGR \
                    files/poketool/trgra/trfgra/narc_0192.NCGR \
                    files/poketool/trgra/trfgra/narc_0194.NCGR \
-
+                   files/resource/eng/trial/trial/narc_0001.NCGR \
+                   files/resource/eng/trial/trial/narc_0004.NCGR \
+                   files/resource/eng/trial/trial/narc_0007.NCGR \
 
 NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
                    files/data/cell0.NCLR \
@@ -709,6 +820,7 @@ NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
                    files/demo/title/titledemo/narc_0016.NCLR \
                    files/graphic/bag_gra/narc_0003.NCLR \
                    files/graphic/bag_gra/narc_0034.NCLR \
+                   files/graphic/field_board/narc_0001.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0002.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0004.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0006.NCLR \
@@ -935,6 +1047,9 @@ NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
                    files/poketool/trgra/trfgra/narc_0190.NCLR \
                    files/poketool/trgra/trfgra/narc_0192.NCLR \
                    files/poketool/trgra/trfgra/narc_0194.NCLR \
+                   files/resource/eng/trial/trial/narc_0000.NCLR \
+                   files/resource/eng/trial/trial/narc_0003.NCLR \
+                   files/resource/eng/trial/trial/narc_0006.NCLR \
 
 NCER_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0002.NCER \
                    files/poketool/icongra/poke_icon/narc_0004.NCER \
@@ -943,4 +1058,6 @@ NCER_CLEAN_LIST := files/poketool/icongra/poke_icon/narc_0002.NCER \
 NSCR_CLEAN_LIST := files/demo/title/titledemo/narc_0000.NSCR \
                    files/demo/title/titledemo/narc_0008.NSCR \
                    files/demo/title/titledemo/narc_0012.NSCR \
-                   files/demo/title/titledemo/narc_0017.NSCR
+                   files/demo/title/titledemo/narc_0017.NSCR \
+                   files/resource/eng/trial/trial/narc_0002.NSCR \
+                   files/resource/eng/trial/trial/narc_0005.NSCR
