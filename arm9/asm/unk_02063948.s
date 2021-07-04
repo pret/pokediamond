@@ -1129,7 +1129,7 @@ _020641BE:
 	cmp r0, #0x1
 	bne _020641D2
 	ldr r0, [r4, #0x0]
-	bl MapHeader_GetField17_6
+	bl MapHeader_IsEscapeRopeAllowed
 	cmp r0, #0x1
 	beq _020641D6
 _020641D2:

@@ -536,7 +536,7 @@ FUN_02047A78: ; 0x02047A78
 	str r0, [r5, r1]
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034A04
+	bl MapHeader_GetMapEvolutionMethod
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -1161,7 +1161,7 @@ FUN_0204806C: ; 0x0204806C
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl MapHeader_GetField17_0
+	bl MapHeader_GetBattleBg
 	mov r1, #0x15
 	lsl r1, r1, #0x4
 	str r0, [r5, r1]
