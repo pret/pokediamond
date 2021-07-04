@@ -77,6 +77,7 @@ THUMB_FUNC void FUN_02004110(u16 param0)
 
 THUMB_FUNC u16 FUN_02004124()
 {
+    #pragma unused(param0)
     u16 *ptr = FUN_02003D38(9);
 
     return *ptr;

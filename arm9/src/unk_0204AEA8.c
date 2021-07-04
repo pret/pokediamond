@@ -2,9 +2,9 @@
 #include "heap.h"
 #include "unk_0204639C.h"
 #include "unk_0204AEA8.h"
+#include "unk_020040F4.h"
 
 extern void MOD05_021E3444(u32, struct UnkSavStruct80 *, u32);
-extern void FUN_0200433C(u32, u16, u32);
 
 THUMB_FUNC BOOL FUN_0204AEA8(struct UnkStruct_0204639C *a0)
 {
