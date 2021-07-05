@@ -11251,7 +11251,7 @@ MOD05_021EE114: ; 0x021EE114
 	cmp r0, r1
 	bge _021EE1D0
 	add r1, r2, #0
-	bl FUN_02034660
+	bl GetMapData
 	add r1, r0, #0
 	ldr r0, _021EE1D4 ; =0x0000FFFF
 	cmp r1, r0
@@ -11356,7 +11356,7 @@ MOD05_021EE1E4: ; 0x021EE1E4
 	mul r3, r2
 	cmp r0, r3
 	bge _021EE286
-	bl FUN_02034660
+	bl GetMapData
 	add r1, r0, #0
 	ldr r0, _021EE298 ; =0x0000FFFF
 	cmp r1, r0
@@ -11440,7 +11440,7 @@ MOD05_021EE2A4: ; 0x021EE2A4
 	cmp r1, r5
 	bge _021EE37A
 	add r1, r3, #0
-	bl FUN_02034660
+	bl GetMapData
 	add r1, r0, #0
 	ldr r0, _021EE380 ; =0x0000FFFF
 	cmp r1, r0
@@ -11556,7 +11556,7 @@ MOD05_021EE38C: ; 0x021EE38C
 	cmp r1, r2
 	bge _021EE43E
 	add r1, r3, #0
-	bl FUN_02034660
+	bl GetMapData
 	add r1, r0, #0
 	ldr r0, _021EE450 ; =0x0000FFFF
 	cmp r1, r0
@@ -13633,17 +13633,17 @@ MOD05_021EF300: ; 0x021EF300
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r7, #0
-	bl FUN_020344FC
+	bl MapMatrix_GetWidth
 	str r0, [sp, #8]
 	add r0, r7, #0
-	bl FUN_02034574
+	bl MapMatrix_GetMatrixID
 	add r1, r0, #0
 	ldr r0, [sp, #8]
 	add r2, r6, #0
 	str r0, [sp]
 	add r0, r7, #0
 	add r3, r4, #0
-	bl FUN_02034578
+	bl MapMatrix_GetMapAltitude
 	lsl r0, r0, #0xf
 	str r0, [r5, #4]
 	ldr r1, [r5]
@@ -13707,12 +13707,12 @@ _021EF3AE:
 	add r0, #0xbc
 	str r5, [r0]
 	add r0, r5, #0
-	bl FUN_020344FC
+	bl MapMatrix_GetWidth
 	add r1, r4, #0
 	add r1, #0xc0
 	str r0, [r1]
 	add r0, r5, #0
-	bl FUN_0203450C
+	bl MapMatrix_GetHeight
 	add r1, r4, #0
 	add r1, #0xc4
 	str r0, [r1]
@@ -25857,7 +25857,7 @@ MOD05_021F5068: ; 0x021F5068
 	ldr r0, [r5, #0x28]
 	add r7, r1, #0
 	add r1, r2, #0
-	bl FUN_02034554
+	bl MapMatrix_GetMapHeaderFromID
 	bl MOD05_021F50FC
 	add r4, r0, #0
 	cmp r4, #0x15
