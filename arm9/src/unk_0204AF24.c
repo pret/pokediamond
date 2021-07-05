@@ -1,10 +1,10 @@
 #include "global.h"
 #include "unk_0204AF24.h"
 
-extern THUMB_FUNC void FUN_02037394(struct UnkSavStruct80 *);
-extern THUMB_FUNC u32 FUN_0200E308(void);
-extern THUMB_FUNC void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
-extern THUMB_FUNC void MOD05_021E331C(struct UnkSavStruct80 *);
+extern void FUN_02037394(struct UnkSavStruct80 *);
+extern u32 FUN_0200E308(void);
+extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
+extern void MOD05_021E331C(struct UnkSavStruct80 *);
 
 THUMB_FUNC BOOL FUN_0204AF24(struct UnkStruct_0204639C * arg0)
 {
