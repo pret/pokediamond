@@ -440,7 +440,7 @@ FUN_0205D170: ; 0x0205D170
 	pop {r3-r5, pc}
 _0205D184:
 	ldr r0, [r5, #0x0]
-	bl MapHeader_MapIsOnOverworldMatrix
+	bl MapHeader_MapIsOnMainMatrix
 	cmp r0, #0x0
 	bne _0205D194
 	mov r0, #0x0
@@ -1178,7 +1178,7 @@ _0205D730: .word 0x000022F6
 FUN_0205D734: ; 0x0205D734
 	push {r3, lr}
 	ldr r0, [r0, #0x0]
-	bl MapHeader_MapIsOnOverworldMatrix
+	bl MapHeader_MapIsOnMainMatrix
 	cmp r0, #0x0
 	beq _0205D744
 	mov r0, #0x0
@@ -1595,7 +1595,7 @@ _0205DA8E:
 	cmp r0, #0x1
 	bne _0205DAA6
 	ldr r0, [r4, #0x0]
-	bl MapHeader_GetField17_6
+	bl MapHeader_IsEscapeRopeAllowed
 	cmp r0, #0x1
 	bne _0205DAA6
 	mov r0, #0x0
@@ -1675,7 +1675,7 @@ _0205DB1A:
 	pop {r3-r5, pc}
 _0205DB30:
 	ldr r0, [r4, #0x0]
-	bl FUN_020349D8
+	bl MapHeader_MapIsSpearPillar
 	cmp r0, #0x0
 	beq _0205DB3E
 	mov r0, #0x0

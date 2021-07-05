@@ -424,7 +424,7 @@ MOD05_021D7894: ; 0x021D7894
 	asr r2, r1, #5
 	ldr r0, [r5, #0x28]
 	add r1, r4, #0
-	bl FUN_0203451C
+	bl MapMatrix_GetMapHeader
 	add r4, r0, #0
 	ldr r0, [r5, #0x1c]
 	ldr r6, [r0]
@@ -542,7 +542,7 @@ MOD05_021D79B4: ; 0x021D79B4
 	add r5, r0, #0
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl MapHeader_MapIsOnOverworldMatrix
+	bl MapHeader_MapIsOnMainMatrix
 	cmp r0, #0
 	beq _021D79FE
 	ldr r0, [r5, #0xc]

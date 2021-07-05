@@ -227,7 +227,7 @@ FUN_02037400: ; 0x02037400
 	bl FUN_02034E30
 	bl FUN_02034DC0
 	str r0, [r4, #0x1c]
-	bl FUN_02034494
+	bl MapMatrix_New
 	str r0, [r4, #0x28]
 	add r0, r4, #0x0
 	mov r1, #0xb
@@ -262,7 +262,7 @@ FUN_020374B0: ; 0x020374B0
 	bl OverlayManager_GetData
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x28]
-	bl FUN_020344D0
+	bl MapMatrix_Free
 	add r0, r4, #0x0
 	bl FUN_02034A48
 	add r0, r4, #0x0

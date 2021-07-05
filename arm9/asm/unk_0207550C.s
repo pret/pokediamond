@@ -2248,7 +2248,7 @@ _02076814:
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034A04
+	bl MapHeader_GetMapEvolutionMethod
 	add r3, r0, #0x0
 	ldr r0, _02076878 ; =0x000005A4
 	lsl r3, r3, #0x10

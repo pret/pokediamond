@@ -122,7 +122,7 @@ _0206377C:
 _02063786:
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl MapHeader_MapIsOnOverworldMatrix
+	bl MapHeader_MapIsOnMainMatrix
 	cmp r0, #0x0
 	beq _020637A6
 	ldr r0, [r5, #0xc]

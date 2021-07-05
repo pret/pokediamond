@@ -259,7 +259,7 @@ _021D7694:
 	add r1, #0x88
 	str r0, [r1]
 	ldr r0, [r4, #4]
-	bl FUN_020345A8
+	bl MapMatrix_MapData_New
 	str r0, [r4, #0x30]
 	ldr r0, _021D7744 ; =0x021D9AA0
 	ldr r1, [r4, #4]
@@ -345,7 +345,7 @@ _021D7782:
 	ldr r0, [r5, #0x40]
 	bl MOD66_021D9544
 	ldr r0, [r5, #0x30]
-	bl FUN_020345DC
+	bl MapMatrix_MapData_Free
 	add r0, r5, #0
 	add r0, #0x88
 	ldr r0, [r0]
@@ -1648,7 +1648,7 @@ MOD66_021D818C: ; 0x021D818C
 	ldr r0, [r5, #0x30]
 	ldr r1, [r4, #0x18]
 	ldr r2, [r4, #0x1c]
-	bl FUN_020345F0
+	bl MapMatrix_MapData_GetData
 	str r0, [r4, #0x20]
 	ldrh r3, [r5, #2]
 	ldr r0, [r5, #0x40]
@@ -1932,7 +1932,7 @@ MOD66_021D8380: ; 0x021D8380
 	ldr r0, [r6, #0x30]
 	ldr r1, [sp, #4]
 	add r2, r7, #0
-	bl FUN_020345F0
+	bl MapMatrix_MapData_GetData
 	add r1, r5, #0
 	add r2, r0, #0
 	ldr r3, [sp, #4]
