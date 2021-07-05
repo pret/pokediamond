@@ -96,6 +96,7 @@ THUMB_FUNC BOOL FUN_0204B050(struct UnkStruct_0204639C * r5)
         case 2:
             return TRUE;
         default:
+            break;
     }
     return FALSE;
 }
@@ -123,6 +124,7 @@ THUMB_FUNC BOOL FUN_0204B0A0(struct UnkStruct_0204639C * r5)
         case 2:
             return TRUE;
         default:
+            break;
     }
     return FALSE;
 }
