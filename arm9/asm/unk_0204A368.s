@@ -56,10 +56,10 @@ FUN_0204A3B0: ; 0x0204A3B0
 	mov r2, #0x0
 	add r1, sp, #0x18
 	strb r2, [r1, #0x0]
-	bl FUN_020344FC
+	bl MapMatrix_GetWidth
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x4]
-	bl FUN_0203450C
+	bl MapMatrix_GetHeight
 	str r0, [sp, #0x10]
 	mov r0, #0x0
 	str r0, [sp, #0x14]
@@ -77,7 +77,7 @@ _0204A3E0:
 	lsr r4, r0, #0x10
 	ldr r1, [sp, #0x4]
 	add r0, r4, #0x0
-	bl FUN_020344D8
+	bl MapMatrix_GetMapData
 	add r1, sp, #0x18
 	add r1, #0x2
 	add r2, sp, #0x18
