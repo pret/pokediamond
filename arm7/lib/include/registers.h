@@ -12,6 +12,8 @@
 #define reg_SOUNDxPNT(x) (*((REGType16v *)0x400040A + ((int)x) * 0x10))
 #define reg_SOUNDxLEN(x) (*((REGType32v *)0x400040C + ((int)x) * 0x10))
 
+#define reg_SNDCAPxCNT(x) (*((REGType8v *)0x4000508 + ((int)(x))))
+
 #define EXTKEYIN_X (1<<0)
 #define EXTKEYIN_Y (1<<1)
 #define EXTKEYIN_DEBUG (1<<3)
