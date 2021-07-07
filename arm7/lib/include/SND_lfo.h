@@ -8,6 +8,6 @@
 void SND_InitLfoParam(struct SNDLfoParam *lfoParam);
 void SND_StartLfo(struct SNDLfo *lfo);
 void SND_UpdateLfo(struct SNDLfo *lfo);
-s32 SND_LfoGetValue(struct SNDLfo *lfo);
+int SND_GetLfoValue(struct SNDLfo *lfo);
 
 #endif //GUARD_SND_LFO_H

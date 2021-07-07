@@ -32,7 +32,7 @@ void SND_UpdateLfo(struct SNDLfo *lfo) {
     }
 }
 
-s32 SND_GetLfoValue(struct SNDLfo *lfo) {
+int SND_GetLfoValue(struct SNDLfo *lfo) {
     if (lfo->param.depth == 0) {
         return 0;
     } else if (lfo->delayCounter < lfo->param.delay) {

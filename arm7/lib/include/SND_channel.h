@@ -3,6 +3,8 @@
 
 #include "nitro/types.h"
 
+#include "SND_exChannel.h"
+
 void SND_SetupChannelPcm(
     s32 chnIdx,
     const void *data,
@@ -40,6 +42,6 @@ void SND_SetChannelPan(s32 chnIdx, s32 pan);
 void SND_SetChannelTimer(s32 chnIdx, s32 timer);
 
 // TODO move this function to SND_exChannel.c
-u16 CalcDecayCoeff(s32 value);
+u16 CalcDecayCoeff(int value);
 
 #endif //GUARD_SND_CHANNEL_H

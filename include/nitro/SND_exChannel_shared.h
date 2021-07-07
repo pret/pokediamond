@@ -45,6 +45,10 @@ struct SNDLfo {
     u16 counter;                // 0x8
 }; // size = 0xA
 
+struct SNDExChannel;
+
+typedef void (*SNDExChannelCallback)(struct SNDExChannel *chn, int status, void *userData);
+
 struct SNDExChannel {
     u8 id;              // 0x00
     u8 type;            // 0x01
@@ -95,7 +99,7 @@ struct SNDExChannel {
         s32 dutyCycle;
     };                  // 0x44
 
-    void (*callback)(struct SNDExChannel *chn, u32 status, void *userData); // 0x48
+    SNDExChannelCallback callback; // 0x48
     void *callbackUserData; // 0x4C
 
     struct SNDExChannel *channelLLNext; // 0x50

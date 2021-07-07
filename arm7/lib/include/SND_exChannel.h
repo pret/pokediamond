@@ -6,8 +6,6 @@
 #include "nitro/SND_exChannel_shared.h"
 #include "nitro/SND_main_shared.h"
 
-typedef void (*SNDExChannelCallback)(struct SNDExChannel *chn, s32 status, void *userData);
-
 void SND_ExChannelInit(void);
 void SND_UpdateExChannel(void);
 void SND_ExChannelMain(BOOL step);
@@ -26,10 +24,10 @@ void SND_FreeExChannel(struct SNDExChannel *chn);
 BOOL SND_IsChannelActive(s32 idx);
 
 // TODO internal functions, move these so exChannel
-s32 ExChannelSweepUpdate(struct SNDExChannel *chn, BOOL step);
-s32 ExChannelLfoUpdate(struct SNDExChannel *chn, BOOL step);
-void ExChannelStart(struct SNDExChannel *chn, s32);
-s32 ExChannelVolumeCmp(struct SNDExChannel *chn_a, struct SNDExChannel *chn_b);
-void ExChannelSetup(struct SNDExChannel *, SNDExChannelCallback callback, void *callbackUserData, s32 priority);
+int ExChannelSweepUpdate(struct SNDExChannel *chn, BOOL step);
+int ExChannelLfoUpdate(struct SNDExChannel *chn, BOOL step);
+void ExChannelStart(struct SNDExChannel *chn, int length);
+int ExChannelVolumeCmp(struct SNDExChannel *chn_a, struct SNDExChannel *chn_b);
+void ExChannelSetup(struct SNDExChannel *, SNDExChannelCallback callback, void *callbackUserData, int priority);
 
 #endif //GUARD_SND_EXCHANNEL_H
