@@ -22,4 +22,9 @@ static inline void MI_CpuClear32(void *dest, u32 size)
     MI_CpuFill32(dest, 0, size);
 }
 
+static inline void MI_CpuCopy32(void *src, void *dst, u32 size)
+{
+    MIi_CopyCopy32((u32 *)src, (u32 *)dst, size);
+}
+
 #endif //POKEDIAMOND_ARM7_MI_MEMORY_H
