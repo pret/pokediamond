@@ -1,3 +1,6 @@
+#ifndef POKEDIAMOND_UNK_020040F4_H
+#define POKEDIAMOND_UNK_020040F4_H
+
 #include "global.h"
 
 struct WaveArcInfo
@@ -38,9 +41,9 @@ void FUN_0200415C(u8 param0);
 BOOL FUN_02004180(s32 param0);
 u32 FUN_0200433C(u8 param0, int param1, u32 param2);
 void FUN_020044A8(s32 param0);
-void FUN_020044D4(int param0, u32 param1);
+void FUN_020044D4(int seqNo, u32 param1);
 void FUN_02004568(int seqNo, u16 param1);
-void FUN_020045C4(int param0, u32 param1);
+void FUN_020045C4(int seqNo, u32 param1);
 void FUN_02004648(int param0, u32 param1);
 void FUN_02004680(int param0, u32 param1);
 void FUN_020046A0(int param0, u32 param1);
@@ -52,14 +55,14 @@ void FUN_02004738();
 int FUN_02004748(s32 param0);
 void FUN_020047C8(u8 param0, u8 param1);
 void FUN_02004810();
-void GF_SndPlayerMoveVolume(int param0, u32 param1, u32 param2);
-void GF_SndPlayerSetInitialVolume(int param0, s32 param1);
-void FUN_02004858(u32 param0, int param1);
+void GF_SndPlayerMoveVolume(int playerNo, u32 param1, u32 param2);
+void GF_SndPlayerSetInitialVolume(int playerNo, s32 param1);
+void FUN_02004858(u32 param0, int playerNo);
 void FUN_0200488C(u16 param0, u16 param1);
-void GF_SndArcPlayerStartSeqEx(int param0, u32 param1, u32 param2);
-u16 GF_SndPlayerCountPlayingSeqByPlayerNo(int param0);
+void GF_SndArcPlayerStartSeqEx(int playerNo, u32 param1, u32 param2);
+u16 GF_SndPlayerCountPlayingSeqByPlayerNo(int playerNo);
 u8 FUN_020048D0(u16 param0);
-u32  GF_SndPlayerGetSeqNo(u32 *param0);
+u32 GF_SndPlayerGetSeqNo(u32 *param0);
 u32 FUN_020048F4(u16 param0);
 u16 FUN_02004900(u16 param0);
 u32 GF_MIC_StartAutoSampling(u32 param0);
@@ -84,9 +87,9 @@ void GF_SndCaptureSetReverbVolume(u32 param0, u32 param1);
 void FUN_02004CB4();
 void GF_SndCaptureStopEffect();
 void FUN_02004D04(s32 param0);
-void GF_SndPlayerSetTrackPitch(int param0, u32 param1, u32 param2);
+void GF_SndPlayerSetTrackPitch(int playerNo, u32 param1, u32 param2);
 void FUN_02004D34(u16 param0, u32 param1, u32 param2);
-void GF_SndPlayerSetTrackPan(int param0, u32 param1, u32 param2);
+void GF_SndPlayerSetTrackPan(int playerNo, u32 param1, u32 param2);
 void GF_SndSetMonoFlag(u32 param0);
 void FUN_02004D74(u32 param0);
 void FUN_02004D84(u32 param0);
@@ -102,10 +105,12 @@ u32 FUN_02004E8C(u32 *param0);
 u32 FUN_02004E98(s32 param0);
 u32 FUN_02004ED0(s32 param0);
 u32 FUN_02004F28(u32 param0, struct UnkStruct_020040F4_2 *param1, s32 param2);
-u32 GF_SndPlayerGetTick(int param0);
+u32 GF_SndPlayerGetTick(int playerNo);
 void FUN_02004F70(struct UnkStruct_020040F4_2 *param0, u8 *param1, int param2, s32 param3);
 void FUN_02005068(s16 *param0, s16 *param1, u32 param2, u32 param3, void *param4);
 void FUN_02005160(u32 param0);
 void FUN_0200516C(u32 param0);
 void FUN_020051AC();
 void GF_SndPlayerSetPlayerVolume(u32 param0, u8 param1);
+
+#endif // POKEDIAMOND_UNK_020040F4_H

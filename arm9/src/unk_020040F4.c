@@ -39,7 +39,7 @@ extern s32 NNS_SndArcReadFile(u32, void *, u32, u32);
 extern BOOL NNS_SndCaptureIsActive();
 extern u32 NNS_SndCaptureStartReverb(void *, u32, u32, u32, u32);
 extern void NNS_SndCaptureStopReverb(u32);
-extern void NNS_SndCaptureSetReverbVolume(u32,u32);
+extern void NNS_SndCaptureSetReverbVolume(u32, u32);
 extern u32 NNS_SndCaptureStartEffect(void *, u32, u32, u32, u32, void (*)(), void *);
 extern void NNS_SndCaptureStopEffect();
 extern void NNS_SndPlayerSetTrackPitch(u32 *, u32, u32);
@@ -319,7 +319,7 @@ THUMB_FUNC void FUN_020044D4(int seqNo, u32 param1)
 
     FUN_02003D38(23);
     FUN_02003D38(31);
-    u32 r4 =  GF_SndPlayerGetSeqNo(GetSoundPlayer(0));
+    u32 r4 = GF_SndPlayerGetSeqNo(GetSoundPlayer(0));
 
     if (*ptr == 0 && r4 == seqNo && FUN_02004140() != 1152)
     {
@@ -538,7 +538,7 @@ THUMB_FUNC void FUN_020047C8(u8 param0, u8 param1)
 
     if (param1 == 0)
     {
-        FUN_02004110((u16) GF_SndPlayerGetSeqNo(GetSoundPlayer(r4)));
+        FUN_02004110((u16)GF_SndPlayerGetSeqNo(GetSoundPlayer(r4)));
     }
 
     NNS_SndPlayerPause(GetSoundPlayer(r4), param1);
@@ -630,7 +630,7 @@ THUMB_FUNC u8 FUN_020048D0(u16 param0)
     return ptr[5];
 }
 
-THUMB_FUNC u32  GF_SndPlayerGetSeqNo(u32 *param0)
+THUMB_FUNC u32 GF_SndPlayerGetSeqNo(u32 *param0)
 {
     return NNS_SndPlayerGetSeqNo(param0);
 }
@@ -1348,7 +1348,8 @@ THUMB_FUNC void FUN_0200516C(u32 param0)
 
 THUMB_FUNC void FUN_020051AC()
 {
-    if (FUN_02005404() == FALSE &&  GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 && FUN_02004124() != 0x47e)
+    if (FUN_02005404() == FALSE && GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 &&
+        FUN_02004124() != 0x47e)
     {
 
         FUN_02005454();
