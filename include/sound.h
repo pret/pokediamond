@@ -62,7 +62,7 @@ BOOL GF_Snd_LoadSeq(int seqNo);
 BOOL GF_Snd_LoadSeqEx(int seqNo, u32 loadFlag);
 BOOL GF_Snd_LoadWaveArc(int waveArcNo);
 BOOL GF_Snd_LoadBank(int bankNo);
-u32 * FUN_02003FF4(int playerNo);
+u32 * GetSoundPlayer(int playerNo);
 u32 FUN_02004018(u32 a0);
 void DoSoundUpdateFrame(void);
 

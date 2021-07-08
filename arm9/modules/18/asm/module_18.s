@@ -17263,7 +17263,7 @@ MOD18_02241AD0: ; 0x02241AD0
 	ldr r2, _02241D24 ; =MOD18_02241AB4
 	mov r3, #0
 	mov r0, #2
-	bl FUN_02004928
+	bl GF_MIC_DoSamplingAsync
 	ldr r0, _02241D28 ; =0x022513A0
 	ldr r2, [r0, #4]
 	ldr r0, _02241D2C ; =0x00000B3B
@@ -20447,7 +20447,7 @@ _02243402:
 	ldr r2, _02243530 ; =MOD18_02241AB4
 	mov r0, #2
 	mov r3, #0
-	bl FUN_02004928
+	bl GF_MIC_DoSamplingAsync
 	ldr r0, [r5, #0x14]
 	add r0, r0, #1
 	str r0, [r5, #0x14]

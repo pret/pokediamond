@@ -172,7 +172,7 @@ _02005E48:
 	str r0, [sp, #0x14]
 	str r0, [sp, #0x18]
 	add r0, sp, #0x0
-	bl FUN_02004914
+	bl GF_MIC_StartAutoSampling
 	add sp, #0x1c
 	pop {pc}
 	nop
@@ -180,10 +180,10 @@ _02005E60: .word 0x00004174
 
 	thumb_func_start FUN_02005E64
 FUN_02005E64: ; 0x02005E64
-	ldr r3, _02005E68 ; =FUN_0200491C
+	ldr r3, _02005E68 ; =GF_MIC_StopAutoSampling
 	bx r3
 	.balign 4
-_02005E68: .word FUN_0200491C
+_02005E68: .word GF_MIC_StopAutoSampling
 
 	thumb_func_start FUN_02005E6C
 FUN_02005E6C: ; 0x02005E6C

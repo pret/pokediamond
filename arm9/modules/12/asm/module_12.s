@@ -5564,7 +5564,7 @@ MOD12_022303C0: ; 0x022303C0
 	str r2, [r4, r0]
 	mov r0, #7
 	str r1, [r3, #4]
-	bl FUN_02004F64
+	bl GF_SndPlayerGetTick
 	ldr r1, _02230498 ; =0x00000AF8
 	ldr r1, [r4, r1]
 	mul r0, r1
