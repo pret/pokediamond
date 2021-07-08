@@ -72,9 +72,9 @@ struct SNDTrack {
 
     s32 wait;                   // 0x20
 
-    const u8 *trackDataStart;   // 0x24
-    const u8 *trackDataPos;     // 0x28
-    const u8 *posCallStack[SND_TRACK_MAX_CALL]; // 0x34
+    const u8 *base;             // 0x24
+    const u8 *cur;              // 0x28
+    const u8 *posCallStack[SND_TRACK_MAX_CALL]; // 0x2C
     u8 loopCount[SND_TRACK_MAX_CALL];           // 0x38
     u8 callStackDepth;                          // 0x3B
 
