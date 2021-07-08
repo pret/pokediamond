@@ -1,11 +1,10 @@
 #include "global.h"
+#include "MSL.h"
 #include "palette.h"
 #include "MI_memory.h"
 #include "gf_gfx_loader.h"
 #include "unk_0200CA44.h"
 #include "unk_020222E8.h"
-
-extern int abs(int);
 
 THUMB_FUNC struct PaletteData *FUN_02002FD0(u32 heap_id)
 {
