@@ -211,7 +211,7 @@ THUMB_FUNC BOOL FUN_02004180(s32 param0)
     return res;
 }
 
-THUMB_FUNC u32 FUN_0200433C(u8 param0, int param1, u32 param2)
+THUMB_FUNC BOOL FUN_0200433C(u8 param0, int param1, u32 param2)
 {
     u8 *st0 = FUN_02003D38(20);
     u8 *st4 = FUN_02003D38(21);
@@ -221,14 +221,14 @@ THUMB_FUNC u32 FUN_0200433C(u8 param0, int param1, u32 param2)
     {
         if (*st0 == param0)
         {
-            return 0;
+            return FALSE;
         }
     }
     else
     {
         if (*st4 == param0)
         {
-            return 0;
+            return FALSE;
         }
     }
 
@@ -294,7 +294,7 @@ THUMB_FUNC u32 FUN_0200433C(u8 param0, int param1, u32 param2)
             break;
     }
 
-    return 1;
+    return TRUE;
 }
 
 THUMB_FUNC void FUN_020044A8(s32 param0)
@@ -685,7 +685,7 @@ THUMB_FUNC void *FUN_02004930(u32 param0)
     return FUN_02003D38(1);
 }
 
-THUMB_FUNC u32 FUN_02004984(u32 param0)
+THUMB_FUNC BOOL FUN_02004984(u32 param0)
 {
     GetSoundDataPointer();
     u8 *ptr = FUN_02003D38(15);
@@ -700,7 +700,7 @@ THUMB_FUNC u32 FUN_02004984(u32 param0)
             *r4 = NNS_SndWaveOutAllocChannel(param0);
             if (*r4 == 0)
             {
-                return 0;
+                return FALSE;
             }
             *ptr = 1;
         }
@@ -717,7 +717,7 @@ THUMB_FUNC u32 FUN_02004984(u32 param0)
             *r6 = NNS_SndWaveOutAllocChannel(param0);
             if (*r6 == 0)
             {
-                return 0;
+                return FALSE;
             }
 
             *ptr2 = 1;
@@ -728,7 +728,7 @@ THUMB_FUNC u32 FUN_02004984(u32 param0)
         }
     }
 
-    return 1;
+    return TRUE;
 }
 
 THUMB_FUNC void FUN_02004A04(u32 param0)
