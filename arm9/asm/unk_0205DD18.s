@@ -622,7 +622,7 @@ _0205E180:
 	ldr r0, [r7, #0x28]
 	asr r1, r1, #0x5
 	asr r2, r2, #0x5
-	bl FUN_0203451C
+	bl MapMatrix_GetMapHeader
 	ldr r1, [r7, #0x1c]
 	ldr r1, [r1, #0x0]
 	cmp r1, r0

@@ -405,7 +405,7 @@ MOD18_02239994: ; 0x02239994
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0x28]
-	bl FUN_020344FC
+	bl MapMatrix_GetWidth
 	sub r0, r0, #2
 	lsl r0, r0, #0x15
 	lsr r6, r0, #0x10
@@ -413,7 +413,7 @@ MOD18_02239994: ; 0x02239994
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0x28]
-	bl FUN_0203450C
+	bl MapMatrix_GetHeight
 	sub r0, r0, #2
 	lsl r0, r0, #0x15
 	lsr r4, r0, #0x10

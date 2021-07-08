@@ -4775,7 +4775,7 @@ MOD06_0223B9A8: ; 0x0223B9A8
 	ldr r0, [r0]
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_020349B8
+	bl MapHeader_MapIsTrophyGarden
 	cmp r0, #0
 	beq _0223B9FC
 	add r1, sp, #0
@@ -5248,7 +5248,7 @@ _0223BD8A:
 	ldr r0, [sp, #8]
 	ldr r0, [r0, #0x1c]
 	ldr r0, [r0]
-	bl FUN_020349AC
+	bl MapHeader_MapIsMtCoronetFeebasRoom
 	cmp r0, #0
 	beq _0223BDFC
 	ldr r0, [sp, #8]
@@ -23774,7 +23774,7 @@ MOD06_02245198: ; 0x02245198
 	lsl r2, r2, #0xb
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_020345FC
+	bl GetMapHeader
 	b _022451D6
 _022451BA:
 	cmp r5, #5
@@ -23790,7 +23790,7 @@ _022451C2:
 	ldr r0, [r0, #0x28]
 	lsr r1, r1, #5
 	lsr r2, r2, #5
-	bl FUN_0203451C
+	bl MapMatrix_GetMapHeader
 _022451D6:
 	lsl r3, r5, #2
 	add r1, r4, r3
@@ -38544,7 +38544,7 @@ MOD06_0224C27C: ; 0x0224C27C
 	strb r0, [r4, #0xe]
 	strb r0, [r4, #0xf]
 	ldr r0, [r5, #0x28]
-	bl FUN_020344FC
+	bl MapMatrix_GetWidth
 	add r1, r0, #0
 	ldr r0, [sp]
 	add r2, sp, #0x14
@@ -39797,7 +39797,7 @@ _0224CC80:
 	add r2, sp, #0x14
 	bl FUN_020572B8
 	ldr r0, [r5, #0x28]
-	bl FUN_020344FC
+	bl MapMatrix_GetWidth
 	str r0, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -42943,7 +42943,7 @@ MOD06_0224E554: ; 0x0224E554
 	strb r0, [r4, #0xe]
 	strb r0, [r4, #0xf]
 	ldr r0, [r5, #0x28]
-	bl FUN_020344FC
+	bl MapMatrix_GetWidth
 	add r1, r0, #0
 	ldr r0, [sp]
 	add r2, sp, #0x14

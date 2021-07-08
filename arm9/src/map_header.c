@@ -1,39 +1,55 @@
 #include "global.h"
 #include "map_header.h"
 #include "constants/map_sections.h"
+#include "pokemon.h"
 
 #pragma thumb on
 
 // Static decls
 u32 MapNumberBoundsCheck(u32 mapno);
 
-const u16 UNK_020EED54[] = {
-    0x01A5, 0x01AD, 0x01B4, 0x01BC, 0x01C5, 0x01CC, 0x0007, 0x0025,
-    0x0031, 0x01EF, 0x0046, 0x0066, 0x007C, 0x0087, 0x0098, 0x00A9,
-    0x00AE, 0x00BE
+static const u16 sPokemonCenterSecondFloorMaps[] = {
+    421,
+    429,
+    436,
+    444,
+    453,
+    460,
+    7,
+    37,
+    49,
+    495,
+    70,
+    102,
+    124,
+    135,
+    152,
+    169,
+    174,
+    190
 };
 
-const u16 UNK_020EED78[] = {
-    0x0181, 0x001A,
-    0x00CB, 0x0019,
-    0x00CF, 0x0018,
-    0x00D0, 0x0018,
-    0x00D1, 0x0018,
-    0x00D2, 0x0018,
-    0x00D3, 0x0018,
-    0x00D4, 0x0018,
-    0x00D5, 0x0018,
-    0x00D6, 0x0018,
-    0x00D7, 0x0018,
-    0x00D8, 0x0018,
-    0x00D9, 0x0018,
-    0x00DA, 0x0018,
-    0x00DB, 0x0018,
-    0x00DC, 0x0018,
-    0x00DD, 0x0018,
+static const u16 sMapEvolutionMethods[] = {
+    385, EVO_ROUTE217,
+    203, EVO_ETERNA,
+    207, EVO_CORONET,
+    208, EVO_CORONET,
+    209, EVO_CORONET,
+    210, EVO_CORONET,
+    211, EVO_CORONET,
+    212, EVO_CORONET,
+    213, EVO_CORONET,
+    214, EVO_CORONET,
+    215, EVO_CORONET,
+    216, EVO_CORONET,
+    217, EVO_CORONET,
+    218, EVO_CORONET,
+    219, EVO_CORONET,
+    220, EVO_CORONET,
+    221, EVO_CORONET,
 };
 
-const struct MapHeader sMapHeaders[] = {
+static const struct MapHeader sMapHeaders[] = {
     { 0x0, 0x0, 0x0, 0x170, 0x33b, 0x12, 0x3e8, 0x3e8, 0xffff, 0x0, MAPSEC_MYSTERY_ZONE, 0x0, 0x0, 0x2, 3, TRUE, TRUE, TRUE, FALSE },
     { 0x0, 0x0, 0x0, 0x170, 0x33b, 0x12, 0x3e8, 0x3e8, 0xffff, 0x0, MAPSEC_MYSTERY_ZONE, 0x0, 0x0, 0x0, 3, FALSE, FALSE, FALSE, FALSE },
     { 0x2, 0x2, 0x2, 0x413, 0x3ca, 0x236, 0x424, 0x424, 0xffff, 0x1, MAPSEC_MYSTERY_ZONE, 0x0, 0x0, 0x6, 3, FALSE, FALSE, FALSE, FALSE },
@@ -694,16 +710,16 @@ u8 MapHeader_GetCameraType(u32 mapno)
     return sMapHeaders[mapno].camera_type;
 }
 
-u8 MapHeader_GetField17_0(u32 mapno)
+u8 MapHeader_GetBattleBg(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk17_0;
+    return sMapHeaders[mapno].battle_bg;
 }
 
-u8 MapHeader_GetField17_6(u32 mapno)
+u8 MapHeader_IsEscapeRopeAllowed(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk17_6;
+    return sMapHeaders[mapno].is_escape_rope_allowed;
 }
 
 u8 MapHeader_IsFlyAllowed(u32 mapno)
@@ -733,7 +749,7 @@ BOOL FUN_020348E4(u32 mapno)
     return FALSE;
 }
 
-BOOL MapHeader_MapIsOnOverworldMatrix(u32 mapno)
+BOOL MapHeader_MapIsOnMainMatrix(u32 mapno)
 {
     return MapHeader_GetMatrixId(mapno) == 0;
 }
@@ -760,56 +776,56 @@ BOOL FUN_02034964(u32 mapno)
 
 BOOL FUN_02034984(u32 mapno)
 {
-    return !!FUN_0203491C(mapno);
+    return FUN_0203491C(mapno) != FALSE;
 }
 
-BOOL FUN_02034998(u32 mapno)
+BOOL MapHeader_MapIsUnionRoom(u32 mapno)
 {
     return mapno == 466;
 }
 
-BOOL FUN_020349AC(u32 mapno)
+BOOL MapHeader_MapIsMtCoronetFeebasRoom(u32 mapno)
 {
     return mapno == 219;
 }
 
-BOOL FUN_020349B8(u32 mapno)
+BOOL MapHeader_MapIsTrophyGarden(u32 mapno)
 {
     return mapno == 287;
 }
 
-BOOL FUN_020349CC(u32 mapno)
+BOOL MapHeader_MapIsAmitySquare(u32 mapno)
 {
     return mapno == 253;
 }
 
-BOOL FUN_020349D8(u32 mapno)
+BOOL MapHeader_MapIsSpearPillar(u32 mapno)
 {
     return mapno == 220;
 }
 
-BOOL FUN_020349E4(u16 a0)
+BOOL MapHeader_MapIsPokemonCenterSecondFloor(u32 mapno)
 {
     int i;
 
-    for (i = 0; i < NELEMS(UNK_020EED54); i++)
+    for (i = 0; i < NELEMS(sPokemonCenterSecondFloorMaps); i++)
     {
-        if (a0 == UNK_020EED54[i])
+        if (mapno == sPokemonCenterSecondFloorMaps[i])
             return TRUE;
     }
 
     return FALSE;
 }
 
-u16 FUN_02034A04(u16 a0)
+u16 MapHeader_GetMapEvolutionMethod(u32 mapno)
 {
     int i;
 
-    for (i = 0; i < NELEMS(UNK_020EED78); i += 2)
+    for (i = 0; i < NELEMS(sMapEvolutionMethods); i += 2)
     {
-        if (a0 == UNK_020EED78[i + 0])
-            return UNK_020EED78[i + 1];
+        if (mapno == sMapEvolutionMethods[i + 0])
+            return sMapEvolutionMethods[i + 1];
     }
 
-    return 0;
+    return EVO_NONE;
 }

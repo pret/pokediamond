@@ -5037,7 +5037,7 @@ MOD07_02214720: ; 0x02214720
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl FUN_02034998
+	bl MapHeader_MapIsUnionRoom
 	cmp r0, #1
 	bne _0221479C
 	mov r0, #1
