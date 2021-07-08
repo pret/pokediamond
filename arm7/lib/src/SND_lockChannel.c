@@ -8,7 +8,9 @@
 u32 sLockedChannelMask;
 u32 sWeakLockedChannelMask;
 
-void SND_StopUnlockedChannel(u32 channelMask) {
+void SND_StopUnlockedChannel(u32 channelMask, u32 weak) {
+    (void)weak;
+
     struct SNDExChannel *chn;
     
     for (int i = 0; i < SND_CHANNEL_COUNT && channelMask != 0; i++, channelMask >>= 1) {
@@ -31,7 +33,7 @@ void SND_StopUnlockedChannel(u32 channelMask) {
     }
 }
 
-void SND_LockChannel(u32 channelMask, u32 locked) {
+void SND_LockChannel(u32 channelMask, u32 weak) {
     struct SNDExChannel *chn;
     u32 j = channelMask;
     int i = 0;
@@ -55,23 +57,23 @@ void SND_LockChannel(u32 channelMask, u32 locked) {
         chn->flags.active = 0;
     }
 
-    if (locked & 1) {
+    if (weak & 1) {
         sWeakLockedChannelMask |= channelMask;
     } else {
         sLockedChannelMask |= channelMask;
     }
 }
 
-void SND_UnlockChannel(u32 channelMask, u32 locked) {
-    if (locked & 1) {
+void SND_UnlockChannel(u32 channelMask, u32 weak) {
+    if (weak & 1) {
         sWeakLockedChannelMask &= ~channelMask;
     } else {
         sLockedChannelMask &= ~channelMask;
     }
 }
 
-u32 SND_GetLockedChannel(u32 locked) {
-    if (locked & 1) {
+u32 SND_GetLockedChannel(u32 weak) {
+    if (weak & 1) {
         return sWeakLockedChannelMask;
     } else {
         return sLockedChannelMask;
