@@ -2,7 +2,7 @@
 
 #include "SND_work.h"
 #include "SND_exChannel.h"
-#include "SND.h"
+#include "SND_channel.h"
 
 // TODO make these vars static after merging this file with exChannel
 u32 sLockedChannelMask;

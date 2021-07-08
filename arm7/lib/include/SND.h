@@ -4,8 +4,6 @@
 #include "nitro/types.h"
 
 void SND_Enable(void);
-void SND_SetOutputSelector(u8 leftOutputFrom, u8 rightOutputFrom, u8 outputCh1ToMixer, u8 outputCh3ToMixer);
-void SND_SetMasterVolume(u8 vol);
-void SND_StopChannel(s32 idx, BOOL hold);
+void SND_SetOutputSelector(int leftOutputFrom, int rightOutputFrom, int outputCh1ToMixer, int outputCh3ToMixer);
 
 #endif //GUARD_SND_H

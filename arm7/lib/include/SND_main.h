@@ -12,5 +12,7 @@ u32 SND_WaitForIntervalTimer(void);
 void SND_SendWakeupMessage(void);
 void SNDi_LockMutex(void);
 void SNDi_UnlockMutex(void);
+void SND_SetMasterVolume(int vol);
+void SND_SetMasterPan(int pan);
 
 #endif //GUARD_SND_MAIN_H

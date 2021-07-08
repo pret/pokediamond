@@ -6,11 +6,11 @@
 struct SNDWork SNDi_Work;
 struct SNDSharedWork *SNDi_SharedWork;
 
-void SND_SetPlayerLocalVariable(u32 player, u32 var, s16 value) {
+void SND_SetPlayerLocalVariable(int player, int var, s16 value) {
     SNDi_SharedWork->players[player].localVars[var] = value;
 }
 
-void SND_SetPlayerGlobalVariable(u32 var, s16 value) {
+void SND_SetPlayerGlobalVariable(int var, s16 value) {
     SNDi_SharedWork->globalVars[var] = value;
 }
 
