@@ -18,8 +18,8 @@ _03807F58: ;0x03807F58
 
     .section .text
 
-	arm_func_start FUN_037FD440
-FUN_037FD440: ; 0x037FD440
+	arm_func_start TrackMute
+TrackMute: ; 0x037FD440
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	cmp	r2, #3
@@ -44,22 +44,22 @@ _037FD484:
 	orr	r2, r2, #4
 	strb	r2, [r4]
 	mvn	r2, #0
-	bl	FUN_037FE588
+	bl	TrackReleaseChannels
 	b	_037FD4B8
 _037FD49C:
 	ldrb	r2, [r4]
 	orr	r2, r2, #4
 	strb	r2, [r4]
 	mov	r2, #127	; 0x7f
-	bl	FUN_037FE588
+	bl	TrackReleaseChannels
 	mov	r0, r4
-	bl	FUN_037FE54C
+	bl	TrackFreeChannels
 _037FD4B8:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_037FD4C0
-FUN_037FD4C0: ; 0x037FD4C0
+	arm_func_start AllocateTrack
+AllocateTrack: ; 0x037FD4C0
 	mov	r0, #0
 	ldr	r3, _037FD500	; =_038086EC
 	b	_037FD4F0
@@ -100,8 +100,8 @@ FUN_037FD504: ; 0x037FD504
 	bx	lr
 _037FD544:	.word	SNDi_SharedWork
 
-	arm_func_start FUN_037FD548
-FUN_037FD548: ; 0x037FD548
+	arm_func_start PlayerStepTicks
+PlayerStepTicks: ; 0x037FD548
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r8, r0
 	mov	r7, r1
@@ -111,7 +111,7 @@ FUN_037FD548: ; 0x037FD548
 _037FD560:
 	mov	r0, r8
 	mov	r1, r5
-	bl	FUN_037FE460
+	bl	PlayerGetTrack
 	cmp	r0, #0
 	beq	_037FD5A8
 	ldr	r1, [r0, #40]	; 0x28
@@ -187,7 +187,7 @@ _037FD64C:
 	bgt	_037FDF84
 _037FD670:
 	ldr	r0, [r9, #40]	; 0x28
-	bl	FUN_037FE9B8
+	bl	SeqCacheFetch
 	add	r0, r9, #40	; 0x28
 	str	r0, [sp, #28]
 	mov	r0, #2
@@ -207,7 +207,7 @@ _037FD6B4:
 	mov	r4, fp
 	mov	r6, sl
 	ldr	r0, [r9, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r7, r0
 	ldr	r0, [r9, #40]	; 0x28
 	add	r0, r0, #1
@@ -215,7 +215,7 @@ _037FD6B4:
 	cmp	r7, #162	; 0xa2
 	bne	_037FD700
 	ldr	r0, [r9, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r7, r0
 	ldr	r0, [r9, #40]	; 0x28
 	add	r0, r0, #1
@@ -227,7 +227,7 @@ _037FD700:
 	cmp	r7, #160	; 0xa0
 	bne	_037FD72C
 	ldr	r0, [r9, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r7, r0
 	ldr	r0, [r9, #40]	; 0x28
 	add	r0, r0, #1
@@ -239,7 +239,7 @@ _037FD72C:
 	cmp	r7, #161	; 0xa1
 	bne	_037FD758
 	ldr	r0, [r9, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r7, r0
 	ldr	r0, [r9, #40]	; 0x28
 	add	r0, r0, #1
@@ -251,7 +251,7 @@ _037FD758:
 	ands	r0, r7, #128	; 0x80
 	bne	_037FD82C
 	ldr	r0, [r9, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	str	r0, [sp, #12]
 	ldr	r0, [sp, #28]
 	ldr	r0, [r0]
@@ -363,7 +363,7 @@ _037FD8D8:
 	b	_037FDF64
 _037FD8F4:
 	ldr	r0, [r9, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r4, r0
 	ldr	r0, [r9, #40]	; 0x28
 	add	r0, r0, #1
@@ -375,7 +375,7 @@ _037FD8F4:
 	beq	_037FDF64
 	mov	r0, r8
 	mov	r1, r4
-	bl	FUN_037FE460
+	bl	PlayerGetTrack
 	movs	r4, r0
 	beq	_037FDF64
 	cmp	r4, r9
@@ -385,7 +385,7 @@ _037FD8F4:
 	mov	r0, r4
 	ldr	r1, [r9, #36]	; 0x24
 	mov	r2, r5
-	bl	FUN_037FE6A8
+	bl	TrackSetSeq
 	b	_037FDF64
 _037FD958:
 	mov	r0, r9
@@ -540,15 +540,15 @@ _037FDB48:
 	mov	r0, r9
 	mov	r1, r8
 	ldr	r2, [sp, #40]	; 0x28
-	bl	FUN_037FE588
+	bl	TrackReleaseChannels
 	mov	r0, r9
-	bl	FUN_037FE54C
+	bl	TrackFreeChannels
 	b	_037FDF64
 _037FDB7C:
 	mov	r0, r9
 	mov	r1, r8
 	ldrb	r2, [sp, #44]	; 0x2c
-	bl	FUN_037FD440
+	bl	TrackMute
 	b	_037FDF64
 _037FDB90:
 	ldrb	r1, [sp, #44]	; 0x2c
@@ -615,7 +615,7 @@ _037FDC60:
 	b	_037FDF64
 _037FDC68:
 	ldr	r0, [r9, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	str	r0, [sp, #16]
 	ldr	r0, [r9, #40]	; 0x28
 	add	r0, r0, #1
@@ -989,8 +989,8 @@ _037FE18C:
 _037FE198:	.word	0x0000FFFF
 _037FE19C:	.word	FUN_037FE344
 
-	arm_func_start FUN_037FE1A0
-FUN_037FE1A0: ; 0x037FE1A0
+	arm_func_start PlayerUpdateChannelVolume
+PlayerUpdateChannelVolume: ; 0x037FE1A0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, #0
@@ -998,7 +998,7 @@ FUN_037FE1A0: ; 0x037FE1A0
 _037FE1B0:
 	mov	r0, r6
 	mov	r1, r5
-	bl	FUN_037FE460
+	bl	PlayerGetTrack
 	cmp	r0, #0
 	beq	_037FE1D0
 	mov	r1, r6
@@ -1139,8 +1139,8 @@ _037FE3A0:
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE3AC
-FUN_037FE3AC: ; 0x037FE3AC
+	arm_func_start PlayerStop
+PlayerStop: ; 0x037FE3AC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -1165,7 +1165,7 @@ FUN_037FE3EC: ; 0x037FE3EC
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUN_037FE460
+	bl	PlayerGetTrack
 	cmp	r0, #0
 	beq	_037FE430
 	mov	r1, r5
@@ -1189,14 +1189,14 @@ FUN_037FE440: ; 0x037FE440
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mvn	r2, #0
-	bl	FUN_037FE588
+	bl	TrackReleaseChannels
 	mov	r0, r4
-	bl	FUN_037FE54C
+	bl	TrackFreeChannels
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE460
-FUN_037FE460: ; 0x037FE460
+	arm_func_start PlayerGetTrack
+PlayerGetTrack: ; 0x037FE460
 	cmp	r1, #15
 	movgt	r0, #0
 	bxgt	lr
@@ -1209,8 +1209,8 @@ FUN_037FE460: ; 0x037FE460
 	bx	lr
 _037FE488:	.word	(SNDi_Work + 0x780)
 
-	arm_func_start FUN_037FE48C
-FUN_037FE48C: ; 0x037FE48C
+	arm_func_start PlayerSeqMain
+PlayerSeqMain: ; 0x037FE48C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r6, r0
@@ -1232,11 +1232,11 @@ _037FE4B4:
 _037FE4CC:
 	mov	r0, r6
 	mov	r1, r7
-	bl	FUN_037FD548
+	bl	PlayerStepTicks
 	cmp	r0, #0
 	beq	_037FE4EC
 	mov	r0, r6
-	bl	FUN_037FE3AC
+	bl	PlayerStop
 	b	_037FE4F8
 _037FE4EC:
 	add	r4, r4, #1
@@ -1267,8 +1267,8 @@ _037FE524:
 	bx	lr
 _037FE548:	.word	SNDi_SharedWork
 
-	arm_func_start FUN_037FE54C
-FUN_037FE54C: ; 0x037FE54C
+	arm_func_start TrackFreeChannels
+TrackFreeChannels: ; 0x037FE54C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -1287,8 +1287,8 @@ _037FE56C:
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE588
-FUN_037FE588: ; 0x037FE588
+	arm_func_start TrackReleaseChannels
+TrackReleaseChannels: ; 0x037FE588
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -1322,8 +1322,8 @@ _037FE5E4:
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE5F8
-FUN_037FE5F8: ; 0x037FE5F8
+	arm_func_start PlayerSetBank
+PlayerSetBank: ; 0x037FE5F8
 	stmdb	sp!, {r4, lr}
 	ldrb	r2, [r0]
 	bic	r2, r2, #4
@@ -1372,16 +1372,16 @@ _037FE69C:
 	bx	lr
 _037FE6A4:	.word	SNDi_SharedWork
 
-	arm_func_start FUN_037FE6A8
-FUN_037FE6A8: ; 0x037FE6A8
+	arm_func_start TrackSetSeq
+TrackSetSeq: ; 0x037FE6A8
 	str	r1, [r0, #36]	; 0x24
 	ldr	r1, [r0, #36]	; 0x24
 	add	r1, r1, r2
 	str	r1, [r0, #40]	; 0x28
 	bx	lr
 
-	arm_func_start FUN_037FE6BC
-FUN_037FE6BC: ; 0x037FE6BC
+	arm_func_start TrackInit
+TrackInit: ; 0x037FE6BC
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #0
@@ -1459,14 +1459,14 @@ FUN_037FE7B0: ; 0x037FE7B0
 	b	_037FE810
 _037FE7DC:
 	ldr	r0, [r4, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r5, r0
 	ldr	r0, [r4, #40]	; 0x28
 	add	r0, r0, #1
 	str	r0, [r4, #40]	; 0x28
 	b	_037FE86C
 _037FE7F8:
-	bl	FUN_037FE918
+	bl	TrackReadHword
 	mov	r5, r0
 	b	_037FE86C
 _037FE804:
@@ -1475,7 +1475,7 @@ _037FE804:
 	b	_037FE86C
 _037FE810:
 	ldr	r0, [r4, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r1, r0
 	ldr	r0, [r4, #40]	; 0x28
 	add	r0, r0, #1
@@ -1486,10 +1486,10 @@ _037FE810:
 	ldrnesh	r5, [r0]
 	b	_037FE86C
 _037FE83C:
-	bl	FUN_037FE918
+	bl	TrackReadHword
 	mov	r5, r0, lsl #16
 	mov	r0, r4
-	bl	FUN_037FE918
+	bl	TrackReadHword
 	mov	r0, r0, lsl #16
 	mov	r4, r0, asr #16
 	bl	SND_CalcRandom
@@ -1511,7 +1511,7 @@ FUN_037FE878: ; 0x037FE878
 	add	r4, r6, #40	; 0x28
 _037FE888:
 	ldr	r0, [r6, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	ldr	r1, [r4]
 	add	r1, r1, #1
 	str	r1, [r4]
@@ -1529,19 +1529,19 @@ FUN_037FE8B8: ; 0x037FE8B8
 	sub	sp, sp, #4
 	mov	r4, r0
 	ldr	r0, [r4, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r5, r0
 	ldr	r0, [r4, #40]	; 0x28
 	add	r0, r0, #1
 	str	r0, [r4, #40]	; 0x28
 	ldr	r0, [r4, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	ldr	r1, [r4, #40]	; 0x28
 	add	r1, r1, #1
 	str	r1, [r4, #40]	; 0x28
 	orr	r5, r5, r0, lsl #8
 	ldr	r0, [r4, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	ldr	r1, [r4, #40]	; 0x28
 	add	r1, r1, #1
 	str	r1, [r4, #40]	; 0x28
@@ -1550,19 +1550,19 @@ FUN_037FE8B8: ; 0x037FE8B8
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE918
-FUN_037FE918: ; 0x037FE918
+	arm_func_start TrackReadHword
+TrackReadHword: ; 0x037FE918
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	ldr	r0, [r5, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	mov	r4, r0
 	ldr	r0, [r5, #40]	; 0x28
 	add	r0, r0, #1
 	str	r0, [r5, #40]	; 0x28
 	ldr	r0, [r5, #40]	; 0x28
-	bl	FUN_037FE968
+	bl	SeqReadByte
 	ldr	r1, [r5, #40]	; 0x28
 	add	r1, r1, #1
 	str	r1, [r5, #40]	; 0x28
@@ -1573,8 +1573,8 @@ FUN_037FE918: ; 0x037FE918
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE968
-FUN_037FE968: ; 0x037FE968
+	arm_func_start SeqReadByte
+SeqReadByte: ; 0x037FE968
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldr	r0, _037FE9B0	; =_03807F50
@@ -1586,7 +1586,7 @@ FUN_037FE968: ; 0x037FE968
 	bcc	_037FE994
 _037FE98C:
 	mov	r0, r4
-	bl	FUN_037FE9B8
+	bl	SeqCacheFetch
 _037FE994:
 	ldr	r0, _037FE9B0	; =_03807F50
 	ldr	r0, [r0]
@@ -1598,8 +1598,8 @@ _037FE994:
 _037FE9B0:	.word	_03807F50
 _037FE9B4:	.word	_03807F58
 
-	arm_func_start FUN_037FE9B8
-FUN_037FE9B8: ; 0x037FE9B8
+	arm_func_start SeqCacheFetch
+SeqCacheFetch: ; 0x037FE9B8
 	bic	r2, r0, #3
 	ldr	r0, _037FE9F0	; =_03807F50
 	str	r2, [r0]
