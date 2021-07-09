@@ -13,14 +13,14 @@ THUMB_FUNC void FUN_02022450 () {
         OS_Terminate();
     }
     else {
+        u32 *r1 = (u32*)HW_MAIN_MEM_SHARED;
         if (!*(u32*)0x027FF00C) {
             CARD_Init();
-            MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)0x027FF000, 22 * 16);
+            MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)r1, 22 * 16);
             MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)HW_CARD_ROM_HEADER, 22 * 16);
             *(u32*)0x027FF00C = 0x4A414441;
         }
         FSArchive * const r0 = FS_FindArchive(string_saying_rom, 3);
-        u32 *r1 = (u32*)0x027FF000;
         r0->fat = r1[18];
         r0->fat_size = r1[19];
         r0->fnt = r1[16];
