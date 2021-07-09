@@ -4,16 +4,16 @@
 
     .section .bss
 
-	.global _03807F4C
-_03807F4C: ;0x03807F4C
+	.global sPrintEnabled
+sPrintEnabled: ;0x03807F4C
 	.space 0x03807F50 - 0x03807F4C
 
-	.global _03807F50
-_03807F50: ;0x03807F50
+	.global sSeqCacheRange
+sSeqCacheRange: ;0x03807F50
 	.space 0x03807F58 - 0x03807F50
 
-	.global _03807F58
-_03807F58: ;0x03807F58
+	.global sSeqCache
+sSeqCache: ;0x03807F58
 	.space 0x03807F68 - 0x03807F58
 
     .section .text
@@ -80,8 +80,8 @@ _037FD4F0:
 	bx	lr
 _037FD500:	.word	(SNDi_Work + 0x780)
 
-	arm_func_start FUN_037FD504
-FUN_037FD504: ; 0x037FD504
+	arm_func_start PlayerGetVariablePointer
+PlayerGetVariablePointer: ; 0x037FD504
 	ldr	r2, _037FD544	; =SNDi_SharedWork
 	ldr	r2, [r2]
 	cmp	r2, #0
@@ -120,13 +120,13 @@ _037FD560:
 	mov	r1, r8
 	mov	r2, r5
 	mov	r3, r7
-	bl	FUN_037FD5C8
+	bl	TrackStepTicks
 	cmp	r0, #0
 	moveq	r6, r4
 	beq	_037FD5A8
 	mov	r0, r8
 	mov	r1, r5
-	bl	FUN_037FE3EC
+	bl	PlayerStopTrack
 _037FD5A8:
 	add	r5, r5, #1
 	cmp	r5, #16
@@ -137,8 +137,8 @@ _037FD5A8:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 
-	arm_func_start FUN_037FD5C8
-FUN_037FD5C8: ; 0x037FD5C8
+	arm_func_start TrackStepTicks
+TrackStepTicks: ; 0x037FD5C8
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #52	; 0x34
 	mov	r9, r0
@@ -263,7 +263,7 @@ _037FD758:
 	ldreq	r2, [sp, #32]
 	mov	r0, r9
 	mov	r1, r8
-	bl	FUN_037FE7B0
+	bl	TrackParseValue
 	mov	r5, r0
 	ldrsb	r0, [r9, #19]
 	add	r4, r7, r0
@@ -290,7 +290,7 @@ _037FD7C0:
 	mov	r1, r8
 	mov	r2, r4
 	ldr	r3, [sp, #12]
-	bl	FUN_037FDF94
+	bl	TrackPlayNote
 _037FD800:
 	strb	r4, [r9, #20]
 	ldrb	r0, [r9]
@@ -338,7 +338,7 @@ _037FD890:
 	ldreq	r2, [sp, #32]
 	mov	r0, r9
 	mov	r1, r8
-	bl	FUN_037FE7B0
+	bl	TrackParseValue
 	cmp	r6, #0
 	beq	_037FDF64
 	cmp	r7, #128	; 0x80
@@ -369,7 +369,7 @@ _037FD8F4:
 	add	r0, r0, #1
 	str	r0, [r9, #40]	; 0x28
 	mov	r0, r9
-	bl	FUN_037FE8B8
+	bl	TrackReadU24
 	mov	r5, r0
 	cmp	r6, #0
 	beq	_037FDF64
@@ -381,7 +381,7 @@ _037FD8F4:
 	cmp	r4, r9
 	beq	_037FDF64
 	mov	r1, r8
-	bl	FUN_037FE440
+	bl	TrackStop
 	mov	r0, r4
 	ldr	r1, [r9, #36]	; 0x24
 	mov	r2, r5
@@ -389,7 +389,7 @@ _037FD8F4:
 	b	_037FDF64
 _037FD958:
 	mov	r0, r9
-	bl	FUN_037FE8B8
+	bl	TrackReadU24
 	cmp	r6, #0
 	ldrne	r1, [r9, #36]	; 0x24
 	addne	r0, r1, r0
@@ -397,7 +397,7 @@ _037FD958:
 	b	_037FDF64
 _037FD974:
 	mov	r0, r9
-	bl	FUN_037FE8B8
+	bl	TrackReadU24
 	cmp	r6, #0
 	beq	_037FDF64
 	ldrb	r1, [r9, #59]	; 0x3b
@@ -419,7 +419,7 @@ _037FD9B8:
 	moveq	r2, fp
 	mov	r0, r9
 	mov	r1, r8
-	bl	FUN_037FE7B0
+	bl	TrackParseValue
 	strb	r0, [sp, #44]	; 0x2c
 	cmp	r6, #0
 	beq	_037FDF64
@@ -581,13 +581,13 @@ _037FDBE4:
 	strb	r0, [r9, #8]
 	b	_037FDF64
 _037FDBF4:
-	ldr	r0, _037FDF90	; =_03807F4C
+	ldr	r0, _037FDF90	; =sPrintEnabled
 	ldr	r0, [r0]
 	cmp	r0, #0
 	beq	_037FDF64
 	mov	r0, r8
 	ldrb	r1, [sp, #44]	; 0x2c
-	bl	FUN_037FD504
+	bl	PlayerGetVariablePointer
 	b	_037FDF64
 _037FDC14:
 	cmp	r4, #0
@@ -595,7 +595,7 @@ _037FDC14:
 	moveq	r2, sl
 	mov	r0, r9
 	mov	r1, r8
-	bl	FUN_037FE7B0
+	bl	TrackParseValue
 	mov	r0, r0, lsl #16
 	mov	r0, r0, asr #16
 	cmp	r6, #0
@@ -625,12 +625,12 @@ _037FDC68:
 	moveq	r2, sl
 	mov	r0, r9
 	mov	r1, r8
-	bl	FUN_037FE7B0
+	bl	TrackParseValue
 	mov	r0, r0, lsl #16
 	mov	r5, r0, asr #16
 	mov	r0, r8
 	ldr	r1, [sp, #16]
-	bl	FUN_037FD504
+	bl	PlayerGetVariablePointer
 	mov	r4, r0
 	cmp	r6, #0
 	beq	_037FDF64
@@ -837,10 +837,10 @@ _037FDF84:
 	add	sp, sp, #52	; 0x34
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
-_037FDF90:	.word	_03807F4C
+_037FDF90:	.word	sPrintEnabled
 
-	arm_func_start FUN_037FDF94
-FUN_037FDF94: ; 0x037FDF94
+	arm_func_start TrackPlayNote
+TrackPlayNote: ; 0x037FDF94
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #24
 	mov	r8, r0
@@ -896,7 +896,7 @@ _037FE034:
 	ldrb	r2, [r8]
 	mov	r2, r2, lsl #24
 	mov	r2, r2, lsr #31
-	ldr	r3, _037FE19C	; =FUN_037FE344
+	ldr	r3, _037FE19C	; =ChannelCallback
 	bl	SND_AllocExChannel
 	movs	r4, r0
 	beq	_037FE18C
@@ -987,7 +987,7 @@ _037FE18C:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 _037FE198:	.word	0x0000FFFF
-_037FE19C:	.word	FUN_037FE344
+_037FE19C:	.word	ChannelCallback
 
 	arm_func_start PlayerUpdateChannelVolume
 PlayerUpdateChannelVolume: ; 0x037FE1A0
@@ -1003,7 +1003,7 @@ _037FE1B0:
 	beq	_037FE1D0
 	mov	r1, r6
 	mov	r2, r4
-	bl	FUN_037FE1E4
+	bl	TrackUpdateChannelVolume
 _037FE1D0:
 	add	r5, r5, #1
 	cmp	r5, #16
@@ -1011,8 +1011,8 @@ _037FE1D0:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE1E4
-FUN_037FE1E4: ; 0x037FE1E4
+	arm_func_start TrackUpdateChannelVolume
+TrackUpdateChannelVolume: ; 0x037FE1E4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -1106,8 +1106,8 @@ _037FE32C:
 	bx	lr
 _037FE340:	.word	SNDi_DecibelSquareTable
 
-	arm_func_start FUN_037FE344
-FUN_037FE344: ; 0x037FE344
+	arm_func_start ChannelCallback
+ChannelCallback: ; 0x037FE344
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -1148,7 +1148,7 @@ PlayerStop: ; 0x037FE3AC
 _037FE3BC:
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUN_037FE3EC
+	bl	PlayerStopTrack
 	add	r4, r4, #1
 	cmp	r4, #16
 	blt	_037FE3BC
@@ -1159,8 +1159,8 @@ _037FE3BC:
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE3EC
-FUN_037FE3EC: ; 0x037FE3EC
+	arm_func_start PlayerStopTrack
+PlayerStopTrack: ; 0x037FE3EC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -1169,7 +1169,7 @@ FUN_037FE3EC: ; 0x037FE3EC
 	cmp	r0, #0
 	beq	_037FE430
 	mov	r1, r5
-	bl	FUN_037FE440
+	bl	TrackStop
 	add	r3, r5, #8
 	ldr	r2, _037FE43C	; =_038086EC
 	ldrb	r1, [r3, r4]
@@ -1184,8 +1184,8 @@ _037FE430:
 	bx	lr
 _037FE43C:	.word	(SNDi_Work + 0x780)
 
-	arm_func_start FUN_037FE440
-FUN_037FE440: ; 0x037FE440
+	arm_func_start TrackStop
+TrackStop: ; 0x037FE440
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mvn	r2, #0
@@ -1294,7 +1294,7 @@ TrackReleaseChannels: ; 0x037FE588
 	mov	r4, r0
 	mov	r7, r2
 	mov	r2, #0
-	bl	FUN_037FE1E4
+	bl	TrackUpdateChannelVolume
 	ldr	r6, [r4, #60]	; 0x3c
 	and	r5, r7, #255	; 0xff
 	mov	r4, #1
@@ -1444,8 +1444,8 @@ TrackInit: ; 0x037FE6BC
 	bx	lr
 _037FE7AC:	.word	0x0000FFFF
 
-	arm_func_start FUN_037FE7B0
-FUN_037FE7B0: ; 0x037FE7B0
+	arm_func_start TrackParseValue
+TrackParseValue: ; 0x037FE7B0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	mov	r6, r1
@@ -1466,11 +1466,11 @@ _037FE7DC:
 	str	r0, [r4, #40]	; 0x28
 	b	_037FE86C
 _037FE7F8:
-	bl	TrackReadHword
+	bl	TrackReadU16
 	mov	r5, r0
 	b	_037FE86C
 _037FE804:
-	bl	FUN_037FE878
+	bl	TrackReadVLV
 	mov	r5, r0
 	b	_037FE86C
 _037FE810:
@@ -1481,15 +1481,15 @@ _037FE810:
 	add	r0, r0, #1
 	str	r0, [r4, #40]	; 0x28
 	mov	r0, r6
-	bl	FUN_037FD504
+	bl	PlayerGetVariablePointer
 	cmp	r0, #0
 	ldrnesh	r5, [r0]
 	b	_037FE86C
 _037FE83C:
-	bl	TrackReadHword
+	bl	TrackReadU16
 	mov	r5, r0, lsl #16
 	mov	r0, r4
-	bl	TrackReadHword
+	bl	TrackReadU16
 	mov	r0, r0, lsl #16
 	mov	r4, r0, asr #16
 	bl	SND_CalcRandom
@@ -1503,8 +1503,8 @@ _037FE86C:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE878
-FUN_037FE878: ; 0x037FE878
+	arm_func_start TrackReadVLV
+TrackReadVLV: ; 0x037FE878
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, #0
@@ -1523,8 +1523,8 @@ _037FE888:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_037FE8B8
-FUN_037FE8B8: ; 0x037FE8B8
+	arm_func_start TrackReadU24
+TrackReadU24: ; 0x037FE8B8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -1550,8 +1550,8 @@ FUN_037FE8B8: ; 0x037FE8B8
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start TrackReadHword
-TrackReadHword: ; 0x037FE918
+	arm_func_start TrackReadU16
+TrackReadU16: ; 0x037FE918
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -1577,7 +1577,7 @@ TrackReadHword: ; 0x037FE918
 SeqReadByte: ; 0x037FE968
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
-	ldr	r0, _037FE9B0	; =_03807F50
+	ldr	r0, _037FE9B0	; =sSeqCacheRange
 	ldr	r1, [r0]
 	cmp	r4, r1
 	bcc	_037FE98C
@@ -1588,20 +1588,20 @@ _037FE98C:
 	mov	r0, r4
 	bl	SeqCacheFetch
 _037FE994:
-	ldr	r0, _037FE9B0	; =_03807F50
+	ldr	r0, _037FE9B0	; =sSeqCacheRange
 	ldr	r0, [r0]
 	sub	r1, r4, r0
-	ldr	r0, _037FE9B4	; =_03807F58
+	ldr	r0, _037FE9B4	; =sSeqCache
 	ldrb	r0, [r0, r1]
 	ldmia	sp!, {r4, lr}
 	bx	lr
-_037FE9B0:	.word	_03807F50
-_037FE9B4:	.word	_03807F58
+_037FE9B0:	.word	sSeqCacheRange
+_037FE9B4:	.word	sSeqCache
 
 	arm_func_start SeqCacheFetch
 SeqCacheFetch: ; 0x037FE9B8
 	bic	r2, r0, #3
-	ldr	r0, _037FE9F0	; =_03807F50
+	ldr	r0, _037FE9F0	; =sSeqCacheRange
 	str	r2, [r0]
 	add	r1, r2, #16
 	str	r1, [r0, #4]
@@ -1614,4 +1614,4 @@ SeqCacheFetch: ; 0x037FE9B8
 	ldr	r1, [r2, #12]
 	str	r1, [r0, #20]
 	bx	lr
-_037FE9F0:	.word	_03807F50
+_037FE9F0:	.word	sSeqCacheRange

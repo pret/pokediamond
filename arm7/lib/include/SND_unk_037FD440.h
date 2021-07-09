@@ -15,7 +15,7 @@ void TrackInit(struct SNDTrack *track);
 void TrackSetSeq(struct SNDTrack *track, const void *seq, u32 offset);
 void SeqCacheFetch(const void *addr);
 u8 SeqReadByte(const void *addr);
-u16 TrackReadHword(struct SNDTrack *track);
+u16 TrackReadU16(struct SNDTrack *track);
 void PlayerSeqMain(struct SNDPlayer *player);
 void PlayerUpdateChannelVolume(struct SNDPlayer *player);
 

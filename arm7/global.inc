@@ -220,7 +220,7 @@
 .extern PlayerSetBank
 .extern TrackSetSeq
 .extern TrackInit
-.extern TrackReadHword
+.extern TrackReadU16
 .extern SeqReadByte
 .extern SeqCacheFetch
 .extern SPIi_CheckEntry

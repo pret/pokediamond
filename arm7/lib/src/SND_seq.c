@@ -73,7 +73,7 @@ void SND_PrepareSeq(int player, const void *seq, u32 offset, struct SNDBankData 
         int track;
         u16 trackMask;
 
-        for (trackMask = (u16)(TrackReadHword(trk) >> 1), track = 1; trackMask != 0; track++, trackMask >>= 1) {
+        for (trackMask = (u16)(TrackReadU16(trk) >> 1), track = 1; trackMask != 0; track++, trackMask >>= 1) {
             if (trackMask & 1) {
                 allocTrkIdx = AllocateTrack();
                 if (allocTrkIdx < 0)
