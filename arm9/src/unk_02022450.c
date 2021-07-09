@@ -15,8 +15,8 @@ THUMB_FUNC void FUN_02022450 () {
     else {
         if (!*(u32*)0x027FF00C) {
             CARD_Init();
-            MI_CpuCopy8((u8*)0x027FFE00, (u8*)0x027FF000, 22 * 16);
-            MI_CpuCopy8((u8*)0x027FFE00, (u8*)0x027FFA80, 22 * 16);
+            MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)0x027FF000, 22 * 16);
+            MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)HW_CARD_ROM_HEADER, 22 * 16);
             *(u32*)0x027FF00C = 0x4A414441;
         }
         FSArchive * const r0 = FS_FindArchive(string_saying_rom, 3);
