@@ -138,7 +138,7 @@ Static arm9
 	Object unk_020337E8.o
 	Object unk_02033874.o
 	Object unk_02033B68.o
-	Object unk_02033F50.o
+	Object communication_error.o
 	Object wfc_user_info_warning.o
 	Object map_matrix.o
 	Object map_header.o

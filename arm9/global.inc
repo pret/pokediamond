@@ -2471,7 +2471,7 @@
 .extern FUN_02033EEC
 .extern FUN_02033F04
 .extern FUN_02033F20
-.extern FUN_02033F70
+.extern ShowCommunicationError
 .extern ShowWFCUserInfoWarning
 .extern MapMatrix_New
 .extern MapMatrix_Load

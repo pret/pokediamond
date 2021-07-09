@@ -5,6 +5,7 @@
 #include "CARD_backup.h"
 #include "CARD_pullOut.h"
 #include "CTRDG_common.h"
+#include "communication_error.h"
 #include "PAD_pad.h"
 #include "main.h"
 #include "game_init.h"
@@ -226,21 +227,19 @@ THUMB_FUNC void DoSoftReset(u32 parameter)
     } while (1);
 }
 
-extern void FUN_02033F70(int, int, int);
-
 THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
 {
     if (arg1 == 3)
     {
-        FUN_02033F70(0, 3, 0);
+        ShowCommunicationError(0, 3, 0);
     }
     else if (arg0 == 0)
     {
-        FUN_02033F70(0, 2, 0);
+        ShowCommunicationError(0, 2, 0);
     }
     else
     {
-        FUN_02033F70(0, 0, 0);
+        ShowCommunicationError(0, 0, 0);
     }
     FUN_02032DAC();
     while (1)
