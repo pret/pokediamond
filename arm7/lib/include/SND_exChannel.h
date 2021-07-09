@@ -21,7 +21,7 @@ void SND_ReleaseExChannel(struct SNDExChannel *chn);
 BOOL SND_IsExChannelActive(struct SNDExChannel *chn);
 struct SNDExChannel *SND_AllocExChannel(u32 channelMask, int priority, u32 flags, SNDExChannelCallback callback, void *callbackUserData);
 void SND_FreeExChannel(struct SNDExChannel *chn);
-BOOL SND_IsChannelActive(s32 idx);
+BOOL SND_IsChannelActive(int idx);
 void SND_InvalidateWave(const void *start, const void *end);
 
 // TODO internal functions, move these so exChannel

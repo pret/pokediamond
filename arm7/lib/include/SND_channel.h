@@ -8,40 +8,40 @@
 void SNDi_SetSurroundDecay(int decay);
 
 void SND_SetupChannelPcm(
-    s32 chnIdx,
+    int chnIdx,
     const void *data,
-    s32 format,
-    s32 loop,
-    s32 loopStart,
-    s32 loopLen,
-    s32 volume,
-    s32 volumeDiv,
-    s32 timer,
-    s32 pan
+    int format,
+    int loop,
+    int loopStart,
+    int loopLen,
+    int volume,
+    int volumeDiv,
+    int timer,
+    int pan
 );
 
 void SND_SetupChannelPsg(
-    s32 chnIdx,
-    s32 waveDuty,
-    s32 volume,
-    s32 volumeDiv,
-    s32 timer,
-    s32 pan
+    int chnIdx,
+    int waveDuty,
+    int volume,
+    int volumeDiv,
+    int timer,
+    int pan
 );
 
 void SND_SetupChannelNoise(
-    s32 chnIdx,
-    s32 volume,
-    s32 volumeDiv,
-    s32 timer,
-    s32 pan
+    int chnIdx,
+    int volume,
+    int volumeDiv,
+    int timer,
+    int pan
 );
 
-void SND_StopChannel(s32 chnIdx, s32 hold);
+void SND_StopChannel(int chnIdx, int hold);
 
-void SND_SetChannelVolume(s32 chnIdx, s32 volume, s32 volumeDiv);
-void SND_SetChannelPan(s32 chnIdx, s32 pan);
-void SND_SetChannelTimer(s32 chnIdx, s32 timer);
+void SND_SetChannelVolume(int chnIdx, int volume, int volumeDiv);
+void SND_SetChannelPan(int chnIdx, int pan);
+void SND_SetChannelTimer(int chnIdx, int timer);
 
 u32 SND_GetChannelControl(int idx);
 
