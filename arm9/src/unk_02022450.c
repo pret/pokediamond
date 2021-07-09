@@ -8,24 +8,26 @@
 
 static const char string_saying_rom[] = "rom";
 
+/*Replacing (HW_MAIN_MEM_SHARED + 0xC) or (HW_MAIN_MEM_SHARED + 0x10) or defining ADAJ or 01 constants causes match failure*/
 THUMB_FUNC void FUN_02022450 () {
     if (!FS_IsAvailable()) {
         OS_Terminate();
     }
     else {
-        u32 *r1 = (u32*)HW_MAIN_MEM_SHARED;
-        if (!*(u32*)0x027FF00C) {
+        struct CARD_Header* card_header_buffer = (struct CARD_Header*)HW_MAIN_MEM_SHARED;
+        
+        if (!*(u32*)(HW_MAIN_MEM_SHARED + 0xC)) {
             CARD_Init();
-            MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)r1, 22 * 16);
-            MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)HW_CARD_ROM_HEADER, 22 * 16);
-            *(u32*)0x027FF00C = 0x4A414441;
+            MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)card_header_buffer, HW_CARD_ROM_HEADER_SIZE);
+            MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)HW_CARD_ROM_HEADER, HW_CARD_ROM_HEADER_SIZE);
+            *(u32*)(HW_MAIN_MEM_SHARED + 0xC) = 0x4A414441 /*"ADAJ" LE*/;
         }
         FSArchive * const r0 = FS_FindArchive(string_saying_rom, 3);
-        r0->fat = r1[18];
-        r0->fat_size = r1[19];
-        r0->fnt = r1[16];
-        r0->fnt_size = r1[17];
-        if (*(u32*)0x027FF00C != 0x4A414441 || *(u16*)0x027FF010 != 0x3130) {
+        r0->fat = card_header_buffer->header_48;
+        r0->fat_size = card_header_buffer->header_4C;
+        r0->fnt = card_header_buffer->header_40;
+        r0->fnt_size = card_header_buffer->header_44;
+        if (*(u32*)(HW_MAIN_MEM_SHARED + 0xC) != 0x4A414441 /*"ADAJ" LE*/ || *(u16*)(HW_MAIN_MEM_SHARED + 0x10) != 0x3130 /*"01" LE*/) {
             OS_Terminate();
         }
     }
