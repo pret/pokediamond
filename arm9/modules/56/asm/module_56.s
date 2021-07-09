@@ -8528,7 +8528,7 @@ _022161A8:
 	mov r0, #7
 	mov r1, #0x12
 	mov r2, #0
-	bl FUN_02004828
+	bl GF_SndPlayerMoveVolume
 	mov r0, #0x7f
 	mov r1, #0x1e
 	mov r2, #1
