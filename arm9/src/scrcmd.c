@@ -1381,7 +1381,7 @@ THUMB_FUNC static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1)
 {
     if (param1 == 242)
     {
-        return FUN_020580B4(arg->unk34, 48); //arg->unk34
+        return FUN_020580B4(arg->unk34, 48);
     }
     else if (param1 == 241)
     {
