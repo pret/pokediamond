@@ -1425,7 +1425,7 @@
 .extern FUN_02022318
 .extern FUN_020223BC
 .extern FUN_02022450
-.extern FUN_020224D8
+.extern Reset_To_File
 .extern FUN_02022504
 .extern GetStoragePCPointer
 .extern FUN_0202251C

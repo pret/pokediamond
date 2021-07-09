@@ -7,14 +7,13 @@
 #include "MWC_string.h"
 #include "tp.h"
 #include "unk_0201B4E8.h"
+#include "unk_02022450.h"
 #include "game_init.h"
 #include "registers.h"
 #include "heap.h"
 #include "OS_interrupt.h"
 
 #pragma thumb on
-
-extern void FUN_02022450(void);
 
 typedef volatile struct
 {
