@@ -1,14 +1,13 @@
 #include "scrcmd.h"
+#include "unk_020040F4.h"
 
 extern void* Sav2_Chatot_get(struct SaveBlock2* sav2);
 extern u32 FUN_02005D20(void *);
 extern void FUN_02005E6C(void *);
-extern void FUN_0200433C(u32, u32, u32);
 extern u32 FUN_02005E28(void);
 extern void FUN_02005E64(void);
 extern BOOL FUN_02005CBC(void);
 extern void PlaySound(u16);
-extern u32 FUN_02004124(u16);
 extern void FUN_0204AB20(struct UnkSavStruct80 *ctx, u16);
 extern u16 FUN_0204ABA8(struct UnkSavStruct80 *ctx, u32);
 extern void FUN_0200521C(u16);
@@ -20,13 +19,9 @@ extern BOOL FUN_02005404(void);
 extern u16 FUN_02005410(u16);
 extern void PlaySE(u16);
 extern void FUN_020054F0(u16, u32);
-extern void FUN_020047C8(u8, u8);
-extern void FUN_020040F4(u8);
 extern BOOL FUN_02005508(u16);
 extern void FUN_02005578(u16);
 extern BOOL FUN_02005670(void);
-extern void FUN_0200488C(u16, u16);
-
 
 THUMB_FUNC BOOL ScrCmd_Unk02AE(struct ScriptContext *ctx)
 {

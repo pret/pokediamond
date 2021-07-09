@@ -225,7 +225,7 @@ _021D76A8:
 	bl FUN_02033F20
 	mov r0, #1
 	mov r1, #0x2a
-	bl FUN_020051EC
+	bl GF_SndPlayerSetPlayerVolume
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #1
@@ -564,7 +564,7 @@ MOD57_021D7944: ; 0x021D7944
 	bl DestroyHeap
 	mov r0, #1
 	mov r1, #0x7f
-	bl FUN_020051EC
+	bl GF_SndPlayerSetPlayerVolume
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -4129,7 +4129,7 @@ _021D95FE:
 	beq _021D9612
 	ldrb r0, [r5]
 	add r0, r0, #3
-	bl FUN_020048BC
+	bl GF_SndPlayerCountPlayingSeqByPlayerNo
 	cmp r0, #0
 	bne _021D9612
 	strb r6, [r5, #1]
@@ -4279,7 +4279,7 @@ MOD57_021D96F4: ; 0x021D96F4
 	add r4, r1, #0
 	ldr r2, _021D9720 ; =0x00000694
 	add r1, r0, #0
-	bl FUN_020048A0
+	bl GF_SndArcPlayerStartSeqEx
 	ldr r2, _021D9724 ; =0x021D9A00
 	lsl r3, r4, #1
 	ldrh r2, [r2, r3]
@@ -4290,7 +4290,7 @@ MOD57_021D96F4: ; 0x021D96F4
 	ldr r1, _021D9728 ; =0x0000FFFF
 	add r0, r5, #3
 	sub r2, r2, r3
-	bl FUN_02004D20
+	bl GF_SndPlayerSetTrackPitch
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021D9720: .word 0x00000694

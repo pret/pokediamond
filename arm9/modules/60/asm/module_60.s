@@ -205,7 +205,7 @@ _021D7680:
 	ldrh r0, [r4, #0x18]
 	lsl r0, r0, #0x1a
 	lsr r0, r0, #0x1e
-	bl FUN_02004D60
+	bl GF_SndSetMonoFlag
 	ldrh r1, [r4, #0x18]
 	mov r0, #0
 	lsl r1, r1, #0x16
@@ -1257,7 +1257,7 @@ _021D7F26:
 	add r0, r0, r1
 	add r0, #0x5e
 	ldrh r0, [r0]
-	bl FUN_02004D60
+	bl GF_SndSetMonoFlag
 	b _021D7F54
 _021D7F3C:
 	cmp r0, #4
