@@ -1,6 +1,7 @@
 #include "global.h"
 #include "unk_02031734.h"
 #include "MI_memory.h"
+#include "communication_error.h"
 #include "game_init.h"
 #include "heap.h"
 #include "player_data.h"
@@ -52,7 +53,6 @@ extern void MOD04_021DD6F0();
 extern s32 MOD04_021D76AC();
 extern MOD05_021D74E0(struct SaveBlock2 *sav2, u32 param1);
 extern void MOD04_021D83A8(void (*param0)(s32));
-extern void FUN_02033F70(int, int, int);
 extern void FUN_0200541C();
 
 THUMB_FUNC void FUN_02031734(struct SaveBlock2 *sav2, u8 param1)
@@ -2090,7 +2090,7 @@ THUMB_FUNC u8 FUN_020335B8()
 
 THUMB_FUNC void FUN_020335D0(s32 param0)
 {
-    FUN_02033F70(0, 1, param0);
+    ShowCommunicationError(0, 1, param0);
     while (TRUE)
     {
     }
@@ -2098,7 +2098,7 @@ THUMB_FUNC void FUN_020335D0(s32 param0)
 
 THUMB_FUNC void FUN_020335E0()
 {
-    FUN_02033F70(0, 4, 0);
+    ShowCommunicationError(0, 4, 0);
     while (TRUE)
     {
     }
