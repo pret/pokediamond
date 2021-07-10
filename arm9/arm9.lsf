@@ -4,1264 +4,1264 @@
 
 Static arm9
 {
-    Address 0x02000000
-    Object main.o
-    Object list_menu.o
-    Object unk_02001B80.o
-    Object string_util.o
-    Object render_text.o
-    Object font.o
-    Object palette.o
-    Object sound.o
-    Object unk_020040F4.o
-    Object unk_020051F4.o
-    Object unk_02005CFC.o
-    Object poke_overlay.o
-    Object unk_020061E8.o
-    Object overlay_manager.o
-    Object filesystem.o
-    Object gf_gfx_loader.o
-    Object unk_02006D98.o
-    Object unk_02008AA4.o
-    Object unk_02008DEC.o
-    Object unk_02009EAC.o
-    Object msgdata.o
-    Object script_buffers.o
-    Object unk_0200BA78.o
-    Object unk_0200BB14.o
-    Object unk_0200CA44.o
-    Object unk_0200CABC.o
-    Object unk_0200E1D0.o
-    Object unk_0200E850.o
-    Object unk_0201137C.o
-    Object unk_02011744.o
-    Object unk_02012004.o
-    Object gf_rtc.o
-    Object list_menu_items.o
-    Object unk_02012944.o
-    Object unk_02012CC8.o
-    Object mail_message.o
-    Object unk_020139D8.o
-    Object unk_02013CD4.o
-    Object unk_020142EC.o
-    Object unk_020144FC.o
-    Object unk_02014590.o
-    Object unk_02014BF4.o
-    Object unk_02015CC0.o
-    Object unk_02015D14.o
-    Object unk_02015E30.o
-    Object game_init.o
-    Object heap.o
-    Object bg_window.o
-    Object unk_0201B1A8.o
-    Object unk_0201B4E8.o
-    Object unk_0201B6D0.o
-    Object unk_0201B8B8.o
-    Object math_util.o
-    Object text.o
-    Object unk_0201C24C.o
-    Object unk_0201C360.o
-    Object unk_0201C620.o
-    Object unk_0201C6B4.o
-    Object unk_0201C7A0.o
-    Object unk_0201CBEC.o
-    Object unk_0201CC08.o
-    Object unk_0201D040.o
-    Object unk_0201E00C.o
-    Object GX_layers.o
-    Object unk_0201E7D8.o
-    Object unk_0201F06C.o
-    Object unk_020208B8.o
-    Object timer3.o
-    Object error_handling.o
-    Object unk_02020C44.o
-    Object unk_0202134C.o
-    Object unk_02021590.o
-    Object unk_02021934.o
-    Object unk_02021FF8.o
-    Object unk_02022244.o
-    Object unk_02022294.o
-    Object unk_020222E8.o
-    Object unk_02022318.o
-    Object unk_02022450.o
-    Object unk_02022504.o
-    Object save.o
-    Object save_arrays.o
-    Object sav_system_info.o
-    Object player_data.o
-    Object unk_02023AC4.o
-    Object daycare.o
-    Object pokedex.o
-    Object unk_02024E64.o
-    Object options.o
-    Object unk_020250A4.o
-    Object unk_02025484.o
-    Object unk_020254B8.o
-    Object mail.o
-    Object unk_02025954.o
-    Object unk_02026CD0.o
-    Object unk_02027E30.o
-    Object unk_020281E0.o
-    Object unk_020286F8.o
-    Object coins.o
-    Object unk_02028980.o
-    Object unk_02029A84.o
-    Object unk_02029AE0.o
-    Object seal_case.o
-    Object unk_02029CEC.o
-    Object igt.o
-    Object sav_chatot.o
-    Object unk_02029FB0.o
-    Object unk_0202A1E0.o
-    Object unk_0202A8F4.o
-    Object unk_0202A924.o
-    Object unk_0202ABBC.o
-    Object unk_0202AC20.o
-    Object hall_of_fame.o
-    Object unk_0202B374.o
-    Object unk_0202B870.o
-    Object unk_0202BE98.o
-    Object unk_0202C0E0.o
-    Object unk_0202C144.o
-    Object unk_0202C198.o
-    Object unk_0202D394.o
-    Object unk_0202D4C4.o
-    Object unk_0202D858.o
-    Object unk_0202D8D0.o
-    Object unk_0202DB14.o
-    Object unk_0202E29C.o
-    Object unk_0202F150.o
-    Object unk_02031480.o
-    Object unk_02031734.o
-    Object unk_020336C0.o
-    Object unk_02033778.o
-    Object unk_020337E8.o
-    Object unk_02033874.o
-    Object unk_02033B68.o
-    Object unk_02033F50.o
-    Object wfc_user_info_warning.o
-    Object map_matrix.o
-    Object map_header.o
-    Object unk_02034A28.o
-    Object unk_02034D7C.o
-    Object unk_02034E84.o
-    Object unk_02034FE4.o
-    Object unk_02035068.o
-    Object unk_02036FA4.o
-    Object unk_02037024.o
-    Object unk_020372D4.o
-    Object unk_020377B0.o
-    Object unk_020377F0.o
-    Object script.o
-    Object unk_02038C78.o
-    Object scrcmd.o
-    Object scrcmd_asm.o
-    Object scrcmd_mart.o
-    Object scrcmd_3.o
-    Object scrcmd_names.o
-    Object scrcmd_5.o
-    Object scrcmd_sound.o
-    Object scrcmd_7.o
-    Object scrcmd_8.o
-    Object scrcmd_9.o
-    Object scrcmd_10.o
-    Object scrcmd_berry_trees.o
-    Object scrcmd_12.o
-    Object scrcmd_13.o
-    Object scrcmd_coins.o
-    Object scrcmd_money.o
-    Object scrcmd_daycare.o
-    Object scrcmd_17.o
-    Object scrcmd_party.o
-    Object scrcmd_fossils.o
-    Object scrcmd_prizes.o
-    Object scrcmd_flags.o
-    Object scrcmd_items.o
-    Object scrcmd_underground.o
-    Object scrcmd_24.o
-    Object scrcmd_25.o
-    Object unk_02046030.o
-    Object event_data.o
-    Object unk_0204639C.o
-    Object unk_0204653C.o
-    Object unk_02047500.o
-    Object unk_020476CC.o
-    Object unk_02048120.o
-    Object unk_020484A8.o
-    Object unk_02048904.o
-    Object script_pokemon_util.o
-    Object unk_0204A368.o
-    Object unk_0204A498.o
-    Object unk_0204AB0C.o
-    Object unk_0204ADE0.o
-    Object unk_0204AEA8.o
-    Object unk_0204AF24.o
-    Object unk_0204B0A0.o
-    Object unk_0204B34C.o
-    Object unk_0204B9EC.o
-    Object poketch.o
-    Object unk_0204C1B4.o
-    Object unk_0204CA80.o
-    Object unk_0204CB20.o
-    Object unk_0204FBA8.o
-    Object unk_02050E48.o
-    Object unk_020520AC.o
-    Object unk_02052EE8.o
-    Object unk_0205363C.o
-    Object unk_02053750.o
-    Object text_02054590.o
-    Object unk_0205478C.o
-    Object unk_02054C14.o
-    Object unk_02055068.o
-    Object unk_020557F4.o
-    Object unk_02057380.o
-    Object unk_02058EE8.o
-    Object unk_02059F04.o
-    Object unk_0205AD98.o
-    Object unk_0205BEF8.o
-    Object unk_0205C334.o
-    Object unk_0205C598.o
-    Object unk_0205CDB4.o
-    Object unk_0205CE48.o
-    Object unk_0205DD18.o
-    Object unk_0205E4EC.o
-    Object unk_0205EB38.o
-    Object unk_0205EC84.o
-    Object unk_0205F314.o
-    Object unk_0205F7A0.o
-    Object unk_0205FA2C.o
-    Object unk_0206015C.o
-    Object unk_02060344.o
-    Object unk_020603B0.o
-    Object unk_020606B0.o
-    Object unk_020607D4.o
-    Object unk_02060CCC.o
-    Object unk_020625EC.o
-    Object unk_0206367C.o
-    Object unk_02063888.o
-    Object unk_02063948.o
-    Object unk_0206439C.o
-    Object unk_020643C0.o
-    Object unk_020647A4.o
-    Object unk_02064CA8.o
-    Object unk_02064E20.o
-    Object unk_02064E4C.o
-    Object unk_02064E90.o
-    Object unk_020653EC.o
-    Object unk_02066840.o
+	Address 0x02000000
+	Object main.o
+	Object list_menu.o
+	Object unk_02001B80.o
+	Object string_util.o
+	Object render_text.o
+	Object font.o
+	Object palette.o
+	Object sound.o
+	Object unk_020040F4.o
+	Object unk_020051F4.o
+	Object unk_02005CFC.o
+	Object poke_overlay.o
+	Object unk_020061E8.o
+	Object overlay_manager.o
+	Object filesystem.o
+	Object gf_gfx_loader.o
+	Object unk_02006D98.o
+	Object unk_02008AA4.o
+	Object unk_02008DEC.o
+	Object unk_02009EAC.o
+	Object msgdata.o
+	Object script_buffers.o
+	Object unk_0200BA78.o
+	Object unk_0200BB14.o
+	Object unk_0200CA44.o
+	Object unk_0200CABC.o
+	Object unk_0200E1D0.o
+	Object unk_0200E850.o
+	Object unk_0201137C.o
+	Object unk_02011744.o
+	Object unk_02012004.o
+	Object gf_rtc.o
+	Object list_menu_items.o
+	Object unk_02012944.o
+	Object unk_02012CC8.o
+	Object mail_message.o
+	Object unk_020139D8.o
+	Object unk_02013CD4.o
+	Object unk_020142EC.o
+	Object unk_020144FC.o
+	Object unk_02014590.o
+	Object unk_02014BF4.o
+	Object unk_02015CC0.o
+	Object unk_02015D14.o
+	Object unk_02015E30.o
+	Object game_init.o
+	Object heap.o
+	Object bg_window.o
+	Object unk_0201B1A8.o
+	Object unk_0201B4E8.o
+	Object unk_0201B6D0.o
+	Object unk_0201B8B8.o
+	Object math_util.o
+	Object text.o
+	Object unk_0201C24C.o
+	Object unk_0201C360.o
+	Object unk_0201C620.o
+	Object unk_0201C6B4.o
+	Object unk_0201C7A0.o
+	Object unk_0201CBEC.o
+	Object unk_0201CC08.o
+	Object unk_0201D040.o
+	Object unk_0201E00C.o
+	Object GX_layers.o
+	Object unk_0201E7D8.o
+	Object unk_0201F06C.o
+	Object unk_020208B8.o
+	Object timer3.o
+	Object error_handling.o
+	Object unk_02020C44.o
+	Object unk_0202134C.o
+	Object unk_02021590.o
+	Object unk_02021934.o
+	Object unk_02021FF8.o
+	Object unk_02022244.o
+	Object unk_02022294.o
+	Object unk_020222E8.o
+	Object unk_02022318.o
+	Object unk_02022450.o
+	Object unk_02022504.o
+	Object save.o
+	Object save_arrays.o
+	Object sav_system_info.o
+	Object player_data.o
+	Object unk_02023AC4.o
+	Object daycare.o
+	Object pokedex.o
+	Object unk_02024E64.o
+	Object options.o
+	Object unk_020250A4.o
+	Object unk_02025484.o
+	Object unk_020254B8.o
+	Object mail.o
+	Object unk_02025954.o
+	Object unk_02026CD0.o
+	Object unk_02027E30.o
+	Object unk_020281E0.o
+	Object unk_020286F8.o
+	Object coins.o
+	Object unk_02028980.o
+	Object unk_02029A84.o
+	Object unk_02029AE0.o
+	Object seal_case.o
+	Object unk_02029CEC.o
+	Object igt.o
+	Object sav_chatot.o
+	Object unk_02029FB0.o
+	Object unk_0202A1E0.o
+	Object unk_0202A8F4.o
+	Object unk_0202A924.o
+	Object unk_0202ABBC.o
+	Object unk_0202AC20.o
+	Object hall_of_fame.o
+	Object unk_0202B374.o
+	Object unk_0202B870.o
+	Object unk_0202BE98.o
+	Object unk_0202C0E0.o
+	Object unk_0202C144.o
+	Object unk_0202C198.o
+	Object unk_0202D394.o
+	Object unk_0202D4C4.o
+	Object unk_0202D858.o
+	Object unk_0202D8D0.o
+	Object unk_0202DB14.o
+	Object unk_0202E29C.o
+	Object unk_0202F150.o
+	Object unk_02031480.o
+	Object unk_02031734.o
+	Object unk_020336C0.o
+	Object unk_02033778.o
+	Object unk_020337E8.o
+	Object unk_02033874.o
+	Object unk_02033B68.o
+	Object unk_02033F50.o
+	Object wfc_user_info_warning.o
+	Object map_matrix.o
+	Object map_header.o
+	Object unk_02034A28.o
+	Object unk_02034D7C.o
+	Object unk_02034E84.o
+	Object unk_02034FE4.o
+	Object unk_02035068.o
+	Object unk_02036FA4.o
+	Object unk_02037024.o
+	Object unk_020372D4.o
+	Object unk_020377B0.o
+	Object unk_020377F0.o
+	Object script.o
+	Object unk_02038C78.o
+	Object scrcmd.o
+	Object scrcmd_asm.o
+	Object scrcmd_mart.o
+	Object scrcmd_3.o
+	Object scrcmd_names.o
+	Object scrcmd_5.o
+	Object scrcmd_sound.o
+	Object scrcmd_7.o
+	Object scrcmd_8.o
+	Object scrcmd_9.o
+	Object scrcmd_10.o
+	Object scrcmd_berry_trees.o
+	Object scrcmd_12.o
+	Object scrcmd_13.o
+	Object scrcmd_coins.o
+	Object scrcmd_money.o
+	Object scrcmd_daycare.o
+	Object scrcmd_17.o
+	Object scrcmd_party.o
+	Object scrcmd_fossils.o
+	Object scrcmd_prizes.o
+	Object scrcmd_flags.o
+	Object scrcmd_items.o
+	Object scrcmd_underground.o
+	Object scrcmd_24.o
+	Object scrcmd_25.o
+	Object unk_02046030.o
+	Object event_data.o
+	Object unk_0204639C.o
+	Object unk_0204653C.o
+	Object unk_02047500.o
+	Object unk_020476CC.o
+	Object unk_02048120.o
+	Object unk_020484A8.o
+	Object unk_02048904.o
+	Object script_pokemon_util.o
+	Object unk_0204A368.o
+	Object unk_0204A498.o
+	Object unk_0204AB0C.o
+	Object unk_0204ADE0.o
+	Object unk_0204AEA8.o
+	Object unk_0204AF24.o
+	Object unk_0204B0A0.o
+	Object unk_0204B34C.o
+	Object unk_0204B9EC.o
+	Object poketch.o
+	Object unk_0204C1B4.o
+	Object unk_0204CA80.o
+	Object unk_0204CB20.o
+	Object unk_0204FBA8.o
+	Object unk_02050E48.o
+	Object unk_020520AC.o
+	Object unk_02052EE8.o
+	Object unk_0205363C.o
+	Object unk_02053750.o
+	Object text_02054590.o
+	Object unk_0205478C.o
+	Object unk_02054C14.o
+	Object unk_02055068.o
+	Object unk_020557F4.o
+	Object unk_02057380.o
+	Object unk_02058EE8.o
+	Object unk_02059F04.o
+	Object unk_0205AD98.o
+	Object unk_0205BEF8.o
+	Object unk_0205C334.o
+	Object unk_0205C598.o
+	Object unk_0205CDB4.o
+	Object unk_0205CE48.o
+	Object unk_0205DD18.o
+	Object unk_0205E4EC.o
+	Object unk_0205EB38.o
+	Object unk_0205EC84.o
+	Object unk_0205F314.o
+	Object unk_0205F7A0.o
+	Object unk_0205FA2C.o
+	Object unk_0206015C.o
+	Object unk_02060344.o
+	Object unk_020603B0.o
+	Object unk_020606B0.o
+	Object unk_020607D4.o
+	Object unk_02060CCC.o
+	Object unk_020625EC.o
+	Object unk_0206367C.o
+	Object unk_02063888.o
+	Object unk_02063948.o
+	Object unk_0206439C.o
+	Object unk_020643C0.o
+	Object unk_020647A4.o
+	Object unk_02064CA8.o
+	Object unk_02064E20.o
+	Object unk_02064E4C.o
+	Object unk_02064E90.o
+	Object unk_020653EC.o
+	Object unk_02066840.o
 
-    ##poketool##
-    Object pokemon.o
-    Object waza.o
-    Object trainer_data.o
-    Object pokemon_storage_system.o
-    Object unk_0206B688.o
-    Object party.o
-    Object unk_0206BB28.o
-    Object unk_0206BB5C.o
-    Object unk_0206BF90.o
-    Object unk_0206C700.o
-    Object unk_0206DE24.o
-    Object unk_0206E0F0.o
-    Object bag_view.o
+	##poketool##
+	Object pokemon.o
+	Object waza.o
+	Object trainer_data.o
+	Object pokemon_storage_system.o
+	Object unk_0206B688.o
+	Object party.o
+	Object unk_0206BB28.o
+	Object unk_0206BB5C.o
+	Object unk_0206BF90.o
+	Object unk_0206C700.o
+	Object unk_0206DE24.o
+	Object unk_0206E0F0.o
+	Object bag_view.o
 
-    ##itemtool##
-    Object itemtool.o
-    Object bag.o
-    Object unk_0206F1F0.o
-    Object unk_0206F3FC.o
-    Object unk_02072548.o
-    Object unk_02073710.o
-    Object unk_02073DA8.o
-    Object unk_0207550C.o
-    Object unk_020772F0.o
-    Object unk_020799E8.o
-    Object unk_02079C70.o
-    Object unk_0207C328.o
-    Object unk_0207D5BC.o
-    Object unk_0207EF6C.o
-    Object unk_0207F95C.o
-    Object unk_0207FC5C.o
-    Object unk_0207FD00.o
-    Object unk_02080C38.o
-    Object unk_020828BC.o
-    Object unk_020834D0.o
-    Object unk_02083B84.o
-    Object unk_02083D48.o
-    Object unk_02084098.o
-    Object unk_020842D0.o
-    Object use_item_on_mon.o
-    Object unk_020851B8.o
-    Object nutdata.o
-    Object unk_02085338.o
-    Object unk_020854E0.o
-    Object unk_020859C0.o
-    Object unk_02086084.o
-    Object unk_02086414.o
-    Object unk_02086FA8.o
-    Object unk_02087A1C.o
-    Object unk_02087A6C.o
-    Object unk_02087D00.o
-    Object unk_02088320.o
-    Object unk_02088814.o
-    Object unk_02088858.o
-    Object unk_0208890C.o
-    Object unk_0208898C.o
-    Object unk_02088AAC.o
-    Object unk_02088D1C.o
-    Object unk_02088DD8.o
-    Object unk_02088F0C.o
-    Object unk_020893E0.o
-    Object unk_02089498.o
-    Object unk_02089960.o
-    Object unk_02089D90.o
-    Object unk_02089F24.o
-    Object unk_0208A258.o
-    Object unk_0208A300.o
-    Object unk_0208A338.o
-    Object error_message_reset.o
-    ### Third-party libraries ###
-    Object unk_0208AC14.o
-    Object custom_allocator.o
-    Object unk_020910EC.o
-    Object DWC_backup.o
-    Object DWC_bm_init.o
-    Object DWC_util_wifiidtool.o
-    Object DWC_init.o
-    Object DWC_account.o
-    Object SOC_socl_startup.o
-    Object SOC_socl_command.o
-    Object SOC_socl_create.o
-    Object SOC_socl_bind.o
-    Object SOC_socl_read.o
-    Object SOC_socl_shutdown.o
-    Object SOC_socl_close.o
-    Object SOC_socl_cleanup.o
-    Object SOC_socl_poll.o
-    Object SOC_socl_misc.o
-    Object SOC_socl_list.o
-    Object SOC_soc.o
-    Object SOC_socl_ssl.o
-    Object CPS_network.o
-    Object SSL_ssl.o
-    Object SSL_md5.o
-    Object SSL_sha1.o
-    Object SSL_rca4.o
-    Object SSL_biginteger.o
-    Object WCM_system.o
-    Object WCM_aplist.o
-    Object WCM_cpsif.o
-    Object WCM_util.o
-    Object WIFI_stubsmd5_dummy.o
-    Object libVCT.o
-    ### Nitro System SDK ###
-    Object NNS_FND_list.o
-    Object NNS_FND_heapcommon.o
-    Object NNS_FND_expheap.o
-    Object NNS_FND_frameheap.o
-    Object NNS_FND_allocator.o
-    Object NNS_GFD_gfd_texvramman.o
-    Object NNS_GFD_gfd_plttvramman.o
-    Object NNS_GFD_gfd_frametexvra.o
-    Object NNS_GFD_gfd_frameplttvr.o
-    Object NNS_GFD_gfd_vramtransfe.o
-    Object NNS_GFD_gfdi_linkedlist.o
-    Object NNS_GFD_gfd_linkedlistt.o
-    Object NNS_GFD_gfd_linkedlistp.o
-    Object NNS_G2D_g2d_nan_load.o
-    Object NNS_G2D_g2d_nob_load.o
-    Object NNS_G2D_g2d_nmc_load.o
-    Object NNS_G2D_g2d_ncg_load.o
-    Object NNS_G2D_g2d_ncl_load.o
-    Object NNS_G2D_g2d_nsc_load.o
-    Object NNS_G2D_g2d_load.o
-    Object NNS_G2D_g2d_softsprite.o
-    Object NNS_G2D_g2d_animation.o
-    Object NNS_G2D_g2d_oam.o
-    Object NNS_G2D_g2d_palettetabl.o
-    Object NNS_G2D_g2d_image.o
-    Object NNS_G2D_g2d_srtcontrol.o
-    Object NNS_G2D_g2d_node.o
-    Object NNS_G2D_g2d_cellanimati.o
-    Object NNS_G2D_g2d_multicellan.o
-    Object NNS_G2D_g2d_renderer.o
-    Object NNS_G2D_g2di_mtx32.o
-    Object NNS_G2D_g2d_celltransfe.o
-    Object NNS_G2D_g2d_oamsoftware.o
-    Object NNS_G2D_g2d_renderercor.o
-    Object NNS_G2D_g2d_font.o
-    Object NNS_G2D_g2d_charcanvas.o
-    Object NNS_G2D_g2d_textcanvas.o
-    Object NNS_G2D_g2d_nft_load.o
-    Object NNS_G2D_g2di_bitreader.o
-    Object NNS_G2D_g2di_splitchar.o
-    Object NNS_G3D_kernel.o
-    Object NNS_G3D_glbstate.o
-    Object NNS_G3D_anm.o
-    Object NNS_G3D_cgtool.o
-    Object NNS_G3D_sbc.o
-    Object NNS_G3D_1mat1shp.o
-    Object NNS_G3D_gecom.o
-    Object NNS_G3D_util.o
-    Object NNS_G3D_mem.o
-    Object NNS_G3D_model.o
-    Object NNS_G3D_res_struct_acce.o
-    Object NNS_G3D_nsbca.o
-    Object NNS_G3D_nsbma.o
-    Object NNS_G3D_nsbta.o
-    Object NNS_G3D_nsbtp.o
-    Object NNS_G3D_nsbva.o
-    Object NNS_G3D_basic.o
-    Object NNS_G3D_maya.o
-    Object NNS_G3D_si3d.o
-    Object NNS_G3D_3dsmax.o
-    Object NNS_G3D_xsi.o
-    Object NNS_SND_main.o
-    Object NNS_SND_resource_mgr.o
-    Object NNS_SND_waveout.o
-    Object NNS_SND_player.o
-    Object NNS_SND_stream.o
-    Object NNS_SND_capture.o
-    Object NNS_SND_sndarc.o
-    Object NNS_SND_heap.o
-    Object NNS_SND_sndarc_loader.o
-    Object NNS_SND_sndarc_player.o
-    Object NNS_SND_sndarc_stream.o
-    Object NNS_SND_seqdata.o
-    Object NNS_SND_fader.o
-    ### Nitro SDK ###
-    Object FX_mtx22.o
-    Object FX_mtx33.o
-    Object FX_mtx43.o
-    Object FX_mtx44.o
-    Object FX_cp.o
-    Object FX_vec.o
-    Object FX_sincos.o
-    Object FX_atan.o
-    Object FX.o
-    Object GX.o
-    Object GX_state.o
-    Object GX_vramcnt.o
-    Object GX_bgcnt.o
-    Object GX_g2.o
-    Object GX_g3b.o
-    Object GX_g3imm.o
-    Object GX_g3x.o
-    Object GX_g3_util.o
-    Object GX_load2d.o
-    Object GX_load3d.o
-    Object GX_g3.o
-    Object GX_asm.o
-    Object OS_irqHandler.o (.text)
-    Object OS_irqTable.o
-    Object OS_interrupt.o
-    Object OS_spinLock.o
-    Object OS_printf.o
-    Object OS_thread.o
-    Object OS_context.o
-    Object OS_emulator.o
-    Object OS_message.o
-    Object OS_mutex.o
-    Object OS_cache.o
-    Object OS_init.o
-    Object OS_arena.o
-    Object OS_alloc.o
-    Object OS_tcm.o
-    Object OS_protectionUnit.o
-    Object OS_protectionRegion.o
-    Object OS_exception.o
-    Object OS_timer.o
-    Object OS_tick.o
-    Object OS_alarm.o
-    Object OS_valarm.o
-    Object OS_system.o
-    Object OS_reset.o
-    Object OS_ownerInfo.o
-    Object OS_vramExclusive.o
-    Object OS_entropy.o
-    Object OS_terminate_proc.o
-    Object MI_wram.o
-    Object MI_dma.o
-    Object MI_dma_hblank.o
-    Object MI_dma_gxcommand.o
-    Object MI_memory.o
-    Object MI_swap.o
-    Object MI_uncompress.o
-    Object MI_dma_card.o
-    Object MI_init.o
-    Object SND_interface.o
-    Object SND_main.o
-    Object SND_command.o
-    Object SND_alarm.o
-    Object SND_work.o
-    Object SND_util.o
-    Object SND_bank.o
-    Object PXI_init.o
-    Object PXI_fifo.o
-    Object FS_command.o
-    Object FS_command_default.o
-    Object FS_archive.o
-    Object FS_file.o
-    Object FS_rom.o
-    Object FS_overlay.o
-    Object DGT_hash1.o
-    Object DGT_hash2.o
-    Object DGT_sha1s_arm4cw.o
-    Object CP_context.o
-    Object SPI_tp.o
-    Object SPI_mic.o
-    Object SPI_pm.o
-    Object RTC_external.o
-    Object RTC_internal.o
-    Object RTC_convert.o
-    Object CARD_common.o
-    Object CARD_spi.o
-    Object CARD_backup.o
-    Object CARD_rom.o
-    Object CARD_request.o
-    Object CARD_pullOut.o
-    Object WM_system.o
-    Object WM_sync.o
-    Object WM_standard.o
-    Object WM_mp.o
-    Object WM_dcf.o
-    Object WM_ds.o
-    Object WM_ks.o
-    Object WM_etc.o
-    Object CTRDG_common.o
-    Object CTRDG_proc.o
-    Object CTRDG_backup.o
-    Object CTRDG_flash_common.o
-    Object CTRDG_flash_AT29LV512.o
-    Object CTRDG_flash_LE26FV10N1TS-10.o
-    Object CTRDG_flash_LE39FW512.o
-    Object CTRDG_flash_MX29L010.o
-    Object CTRDG_flash_MX29L512.o
-    Object CTRDG_task.o
-    Object MATH_pop.o
-    Object MATH_dgt.o
-    Object MATH_crc.o
-    Object STD_string.o
-    ### Standard libraries ###
-    ### Bundled with CodeWarrior, so probably compiled with 2.0sp1 ###
-    Object MSL_ARM_abort_exit.o
-    Object MSL_ARM_critical_regions_NITRO.o
-    Object MSL_ARM_math.o
-    Object MSL_Common_ansi_files.o
-    Object MSL_Common_arith.o
-    Object MSL_Common_assert.o
-    Object MSL_Common_buffer_io.o
-    Object MSL_Common_ctype.o
-    Object MSL_Common_direct_io.o
-    Object MSL_Common_errno.o
-    Object MSL_Common_file_io.o
-    Object MSL_Common_file_pos.o
-    Object MSL_Common_float.o
-    Object MSL_Common_mbstring.o
-    Object MSL_Common_mem.o
-    Object MSL_Common_mem_funcs.o
-    Object MSL_Common_printf.o
-    Object MSL_Common_qsort.o
-    Object MSL_Common_rand.o
-    Object MSL_Common_scanf.o
-    Object MSL_Common_signal.o
-    Object MSL_Common_string.o
-    Object MSL_Common_strtold.o
-    Object MSL_Common_strtoul.o
-    Object MSL_Common_wchar_io.o
-    Object MSL_Common_wctype.o
-    Object MSL_Common_wmem.o
-    Object MSL_Common_wprintf.o
-    Object MSL_Common_wstring.o
-    Object MSL_DPMath_e_pow.o
-    Object MSL_DPMath_s_copysign.o
-    Object MSL_DPMath_s_fabs.o
-    Object MSL_DPMath_s_frexp.o
-    Object MSL_DPMath_s_ldexp.o
-    Object MSL_DPMath_w_pow.o
-    Object MSL_fp_ansi.o
-    Object MSL_math.o
-    Object MSL_string_extras.o
-    Object RUNTIME_d_add.o
-    Object RUNTIME_d_dtof.o
-    Object RUNTIME_d_dtoi.o
-    Object RUNTIME_d_dtoull.o
-    Object RUNTIME_d_itod.o
-    Object RUNTIME_d_mul.o
-    Object RUNTIME_d_sqrt.o
-    Object RUNTIME_d_sub.o
-    Object RUNTIME_f_add.o
-    Object RUNTIME_f_cmp.o
-    Object RUNTIME_f_div.o
-    Object RUNTIME_f_ftod.o
-    Object RUNTIME_f_ftoi.o
-    Object RUNTIME_f_ftou.o
-    Object RUNTIME_f_itof.o
-    Object RUNTIME_f_mul.o
-    Object RUNTIME_f_sub.o
-    Object RUNTIME_ll_div.o
-    Object RUNTIME_ll_mul.o
-    Object RUNTIME_ll_sll.o
-    Object RUNTIME_s32_div_f.o
-    Object RUNTIME_u32_div_f.o
-    Object RUNTIME_d_div.o
-    Object RUNTIME_ieee_status.o
-    Object RUNTIME_ARM_semihosted_console_io.o
-    Object RUNTIME_CPLUS_StaticInitializers.o
-    Object RUNTIME_NITRO_eabi_init.o
+	##itemtool##
+	Object itemtool.o
+	Object bag.o
+	Object unk_0206F1F0.o
+	Object unk_0206F3FC.o
+	Object unk_02072548.o
+	Object unk_02073710.o
+	Object unk_02073DA8.o
+	Object unk_0207550C.o
+	Object unk_020772F0.o
+	Object unk_020799E8.o
+	Object unk_02079C70.o
+	Object unk_0207C328.o
+	Object unk_0207D5BC.o
+	Object unk_0207EF6C.o
+	Object unk_0207F95C.o
+	Object unk_0207FC5C.o
+	Object unk_0207FD00.o
+	Object unk_02080C38.o
+	Object unk_020828BC.o
+	Object unk_020834D0.o
+	Object unk_02083B84.o
+	Object unk_02083D48.o
+	Object unk_02084098.o
+	Object unk_020842D0.o
+	Object use_item_on_mon.o
+	Object unk_020851B8.o
+	Object nutdata.o
+	Object unk_02085338.o
+	Object unk_020854E0.o
+	Object unk_020859C0.o
+	Object unk_02086084.o
+	Object unk_02086414.o
+	Object unk_02086FA8.o
+	Object unk_02087A1C.o
+	Object unk_02087A6C.o
+	Object unk_02087D00.o
+	Object unk_02088320.o
+	Object unk_02088814.o
+	Object unk_02088858.o
+	Object unk_0208890C.o
+	Object unk_0208898C.o
+	Object unk_02088AAC.o
+	Object unk_02088D1C.o
+	Object unk_02088DD8.o
+	Object unk_02088F0C.o
+	Object unk_020893E0.o
+	Object unk_02089498.o
+	Object unk_02089960.o
+	Object unk_02089D90.o
+	Object unk_02089F24.o
+	Object unk_0208A258.o
+	Object unk_0208A300.o
+	Object unk_0208A338.o
+	Object error_message_reset.o
+	### Third-party libraries ###
+	Object unk_0208AC14.o
+	Object custom_allocator.o
+	Object unk_020910EC.o
+	Object DWC_backup.o
+	Object DWC_bm_init.o
+	Object DWC_util_wifiidtool.o
+	Object DWC_init.o
+	Object DWC_account.o
+	Object SOC_socl_startup.o
+	Object SOC_socl_command.o
+	Object SOC_socl_create.o
+	Object SOC_socl_bind.o
+	Object SOC_socl_read.o
+	Object SOC_socl_shutdown.o
+	Object SOC_socl_close.o
+	Object SOC_socl_cleanup.o
+	Object SOC_socl_poll.o
+	Object SOC_socl_misc.o
+	Object SOC_socl_list.o
+	Object SOC_soc.o
+	Object SOC_socl_ssl.o
+	Object CPS_network.o
+	Object SSL_ssl.o
+	Object SSL_md5.o
+	Object SSL_sha1.o
+	Object SSL_rca4.o
+	Object SSL_biginteger.o
+	Object WCM_system.o
+	Object WCM_aplist.o
+	Object WCM_cpsif.o
+	Object WCM_util.o
+	Object WIFI_stubsmd5_dummy.o
+	Object libVCT.o
+	### Nitro System SDK ###
+	Object NNS_FND_list.o
+	Object NNS_FND_heapcommon.o
+	Object NNS_FND_expheap.o
+	Object NNS_FND_frameheap.o
+	Object NNS_FND_allocator.o
+	Object NNS_GFD_gfd_texvramman.o
+	Object NNS_GFD_gfd_plttvramman.o
+	Object NNS_GFD_gfd_frametexvra.o
+	Object NNS_GFD_gfd_frameplttvr.o
+	Object NNS_GFD_gfd_vramtransfe.o
+	Object NNS_GFD_gfdi_linkedlist.o
+	Object NNS_GFD_gfd_linkedlistt.o
+	Object NNS_GFD_gfd_linkedlistp.o
+	Object NNS_G2D_g2d_nan_load.o
+	Object NNS_G2D_g2d_nob_load.o
+	Object NNS_G2D_g2d_nmc_load.o
+	Object NNS_G2D_g2d_ncg_load.o
+	Object NNS_G2D_g2d_ncl_load.o
+	Object NNS_G2D_g2d_nsc_load.o
+	Object NNS_G2D_g2d_load.o
+	Object NNS_G2D_g2d_softsprite.o
+	Object NNS_G2D_g2d_animation.o
+	Object NNS_G2D_g2d_oam.o
+	Object NNS_G2D_g2d_palettetabl.o
+	Object NNS_G2D_g2d_image.o
+	Object NNS_G2D_g2d_srtcontrol.o
+	Object NNS_G2D_g2d_node.o
+	Object NNS_G2D_g2d_cellanimati.o
+	Object NNS_G2D_g2d_multicellan.o
+	Object NNS_G2D_g2d_renderer.o
+	Object NNS_G2D_g2di_mtx32.o
+	Object NNS_G2D_g2d_celltransfe.o
+	Object NNS_G2D_g2d_oamsoftware.o
+	Object NNS_G2D_g2d_renderercor.o
+	Object NNS_G2D_g2d_font.o
+	Object NNS_G2D_g2d_charcanvas.o
+	Object NNS_G2D_g2d_textcanvas.o
+	Object NNS_G2D_g2d_nft_load.o
+	Object NNS_G2D_g2di_bitreader.o
+	Object NNS_G2D_g2di_splitchar.o
+	Object NNS_G3D_kernel.o
+	Object NNS_G3D_glbstate.o
+	Object NNS_G3D_anm.o
+	Object NNS_G3D_cgtool.o
+	Object NNS_G3D_sbc.o
+	Object NNS_G3D_1mat1shp.o
+	Object NNS_G3D_gecom.o
+	Object NNS_G3D_util.o
+	Object NNS_G3D_mem.o
+	Object NNS_G3D_model.o
+	Object NNS_G3D_res_struct_acce.o
+	Object NNS_G3D_nsbca.o
+	Object NNS_G3D_nsbma.o
+	Object NNS_G3D_nsbta.o
+	Object NNS_G3D_nsbtp.o
+	Object NNS_G3D_nsbva.o
+	Object NNS_G3D_basic.o
+	Object NNS_G3D_maya.o
+	Object NNS_G3D_si3d.o
+	Object NNS_G3D_3dsmax.o
+	Object NNS_G3D_xsi.o
+	Object NNS_SND_main.o
+	Object NNS_SND_resource_mgr.o
+	Object NNS_SND_waveout.o
+	Object NNS_SND_player.o
+	Object NNS_SND_stream.o
+	Object NNS_SND_capture.o
+	Object NNS_SND_sndarc.o
+	Object NNS_SND_heap.o
+	Object NNS_SND_sndarc_loader.o
+	Object NNS_SND_sndarc_player.o
+	Object NNS_SND_sndarc_stream.o
+	Object NNS_SND_seqdata.o
+	Object NNS_SND_fader.o
+	### Nitro SDK ###
+	Object FX_mtx22.o
+	Object FX_mtx33.o
+	Object FX_mtx43.o
+	Object FX_mtx44.o
+	Object FX_cp.o
+	Object FX_vec.o
+	Object FX_sincos.o
+	Object FX_atan.o
+	Object FX.o
+	Object GX.o
+	Object GX_state.o
+	Object GX_vramcnt.o
+	Object GX_bgcnt.o
+	Object GX_g2.o
+	Object GX_g3b.o
+	Object GX_g3imm.o
+	Object GX_g3x.o
+	Object GX_g3_util.o
+	Object GX_load2d.o
+	Object GX_load3d.o
+	Object GX_g3.o
+	Object GX_asm.o
+	Object OS_irqHandler.o (.text)
+	Object OS_irqTable.o
+	Object OS_interrupt.o
+	Object OS_spinLock.o
+	Object OS_printf.o
+	Object OS_thread.o
+	Object OS_context.o
+	Object OS_emulator.o
+	Object OS_message.o
+	Object OS_mutex.o
+	Object OS_cache.o
+	Object OS_init.o
+	Object OS_arena.o
+	Object OS_alloc.o
+	Object OS_tcm.o
+	Object OS_protectionUnit.o
+	Object OS_protectionRegion.o
+	Object OS_exception.o
+	Object OS_timer.o
+	Object OS_tick.o
+	Object OS_alarm.o
+	Object OS_valarm.o
+	Object OS_system.o
+	Object OS_reset.o
+	Object OS_ownerInfo.o
+	Object OS_vramExclusive.o
+	Object OS_entropy.o
+	Object OS_terminate_proc.o
+	Object MI_wram.o
+	Object MI_dma.o
+	Object MI_dma_hblank.o
+	Object MI_dma_gxcommand.o
+	Object MI_memory.o
+	Object MI_swap.o
+	Object MI_uncompress.o
+	Object MI_dma_card.o
+	Object MI_init.o
+	Object SND_interface.o
+	Object SND_main.o
+	Object SND_command.o
+	Object SND_alarm.o
+	Object SND_work.o
+	Object SND_util.o
+	Object SND_bank.o
+	Object PXI_init.o
+	Object PXI_fifo.o
+	Object FS_command.o
+	Object FS_command_default.o
+	Object FS_archive.o
+	Object FS_file.o
+	Object FS_rom.o
+	Object FS_overlay.o
+	Object DGT_hash1.o
+	Object DGT_hash2.o
+	Object DGT_sha1s_arm4cw.o
+	Object CP_context.o
+	Object SPI_tp.o
+	Object SPI_mic.o
+	Object SPI_pm.o
+	Object RTC_external.o
+	Object RTC_internal.o
+	Object RTC_convert.o
+	Object CARD_common.o
+	Object CARD_spi.o
+	Object CARD_backup.o
+	Object CARD_rom.o
+	Object CARD_request.o
+	Object CARD_pullOut.o
+	Object WM_system.o
+	Object WM_sync.o
+	Object WM_standard.o
+	Object WM_mp.o
+	Object WM_dcf.o
+	Object WM_ds.o
+	Object WM_ks.o
+	Object WM_etc.o
+	Object CTRDG_common.o
+	Object CTRDG_proc.o
+	Object CTRDG_backup.o
+	Object CTRDG_flash_common.o
+	Object CTRDG_flash_AT29LV512.o
+	Object CTRDG_flash_LE26FV10N1TS-10.o
+	Object CTRDG_flash_LE39FW512.o
+	Object CTRDG_flash_MX29L010.o
+	Object CTRDG_flash_MX29L512.o
+	Object CTRDG_task.o
+	Object MATH_pop.o
+	Object MATH_dgt.o
+	Object MATH_crc.o
+	Object STD_string.o
+	### Standard libraries ###
+	### Bundled with CodeWarrior, so probably compiled with 2.0sp1 ###
+	Object MSL_ARM_abort_exit.o
+	Object MSL_ARM_critical_regions_NITRO.o
+	Object MSL_ARM_math.o
+	Object MSL_Common_ansi_files.o
+	Object MSL_Common_arith.o
+	Object MSL_Common_assert.o
+	Object MSL_Common_buffer_io.o
+	Object MSL_Common_ctype.o
+	Object MSL_Common_direct_io.o
+	Object MSL_Common_errno.o
+	Object MSL_Common_file_io.o
+	Object MSL_Common_file_pos.o
+	Object MSL_Common_float.o
+	Object MSL_Common_mbstring.o
+	Object MSL_Common_mem.o
+	Object MSL_Common_mem_funcs.o
+	Object MSL_Common_printf.o
+	Object MSL_Common_qsort.o
+	Object MSL_Common_rand.o
+	Object MSL_Common_scanf.o
+	Object MSL_Common_signal.o
+	Object MSL_Common_string.o
+	Object MSL_Common_strtold.o
+	Object MSL_Common_strtoul.o
+	Object MSL_Common_wchar_io.o
+	Object MSL_Common_wctype.o
+	Object MSL_Common_wmem.o
+	Object MSL_Common_wprintf.o
+	Object MSL_Common_wstring.o
+	Object MSL_DPMath_e_pow.o
+	Object MSL_DPMath_s_copysign.o
+	Object MSL_DPMath_s_fabs.o
+	Object MSL_DPMath_s_frexp.o
+	Object MSL_DPMath_s_ldexp.o
+	Object MSL_DPMath_w_pow.o
+	Object MSL_fp_ansi.o
+	Object MSL_math.o
+	Object MSL_string_extras.o
+	Object RUNTIME_d_add.o
+	Object RUNTIME_d_dtof.o
+	Object RUNTIME_d_dtoi.o
+	Object RUNTIME_d_dtoull.o
+	Object RUNTIME_d_itod.o
+	Object RUNTIME_d_mul.o
+	Object RUNTIME_d_sqrt.o
+	Object RUNTIME_d_sub.o
+	Object RUNTIME_f_add.o
+	Object RUNTIME_f_cmp.o
+	Object RUNTIME_f_div.o
+	Object RUNTIME_f_ftod.o
+	Object RUNTIME_f_ftoi.o
+	Object RUNTIME_f_ftou.o
+	Object RUNTIME_f_itof.o
+	Object RUNTIME_f_mul.o
+	Object RUNTIME_f_sub.o
+	Object RUNTIME_ll_div.o
+	Object RUNTIME_ll_mul.o
+	Object RUNTIME_ll_sll.o
+	Object RUNTIME_s32_div_f.o
+	Object RUNTIME_u32_div_f.o
+	Object RUNTIME_d_div.o
+	Object RUNTIME_ieee_status.o
+	Object RUNTIME_ARM_semihosted_console_io.o
+	Object RUNTIME_CPLUS_StaticInitializers.o
+	Object RUNTIME_NITRO_eabi_init.o
 }
 
 Autoload ITCM
 {
-    Address 0x01FF8000
-    Object OS_irqHandler.o (.itcm)
-    Object OS_reset.o (.itcm)
-    Object MI_dma.o (.itcm)
-    Object MI_dma_gxcommand.o (.itcm)
+	Address 0x01FF8000
+	Object OS_irqHandler.o (.itcm)
+	Object OS_reset.o (.itcm)
+	Object MI_dma.o (.itcm)
+	Object MI_dma_gxcommand.o (.itcm)
 }
 
 Autoload DTCM
 {
-    Address 0x027E0000
-    Object OS_irqHandler.o (.bss)
-    Object OS_irqTable.o (.dtcm)
+	Address 0x027E0000
+	Object OS_irqHandler.o (.bss)
+	Object OS_irqTable.o (.dtcm)
 }
 
 Autoload EXT
 {
-    Address 0x02400000
+	Address 0x02400000
 }
 
 Overlay MODULE_00
 {
-    After arm9
+	After arm9
 }
 
 Overlay MODULE_01
 {
-    After arm9
-    Object module_01.o
+	After arm9
+	Object module_01.o
 }
 
 Overlay MODULE_02
 {
-    After MODULE_01
+	After MODULE_01
 }
 
 Overlay MODULE_03
 {
-    After ITCM
+	After ITCM
 }
 
 Overlay MODULE_04
 {
-    After arm9
-    Object thumb_04.o
-    Object arm_04.o
+	After arm9
+	Object thumb_04.o
+	Object arm_04.o
 }
 
 Overlay MODULE_05
 {
-    ##Overworld##
-    After arm9
-    Object mod05_021D74E0.o
-    Object mod05_021D7F4C.o
-    Object mod05_021D80E8.o
-    Object mod05_021D9320.o
-    Object mod05_021D9A48.o
-    Object mod05_021DA5B8.o
-    Object mod05_021DB44C.o
-    Object mod05_021DB900.o
-    Object mod05_021DBA00.o
-    Object mod05_021DBABC.o
-    Object mod05_021DBD84.o
-    Object mod05_021DBE04.o
-    Object mod05_021DBEF4.o
-    Object mod05_021DC0B8.o
-    Object mod05_021E1374.o
-    Object mod05_021E1AD8.o
-    Object mod05_021E2B80.o
-    Object mod05_021E2E88.o
-    Object mod05_021E3340.o
-    Object mod05_021E3444.o
-    Object mod05_021E4AE4.o
-    Object mod05_021E52A8.o
-    Object mod05_021E5300.o
-    Object mod05_021E5564.o
-    Object mod05_021E55BC.o
-    Object mod05_021E577C.o
-    Object mod05_021E5918.o
-    Object mod05_021E5AB4.o
-    Object mod05_021E5C8C.o
-    Object mod05_021E5E10.o
-    Object mod05_021E5FD8.o
-    Object mod05_021E72FC.o
-    Object mod05_021E7504.o
-    Object mod05_021E779C.o
-    Object mod05_021E7C00.o
-    Object mod05_021E80F8.o
-    Object mod05_021E8310.o
-    Object module_05.o
+	##Overworld##
+	After arm9
+	Object mod05_021D74E0.o
+	Object mod05_021D7F4C.o
+	Object mod05_021D80E8.o
+	Object mod05_021D9320.o
+	Object mod05_021D9A48.o
+	Object mod05_021DA5B8.o
+	Object mod05_021DB44C.o
+	Object mod05_021DB900.o
+	Object mod05_021DBA00.o
+	Object mod05_021DBABC.o
+	Object mod05_021DBD84.o
+	Object mod05_021DBE04.o
+	Object mod05_021DBEF4.o
+	Object mod05_021DC0B8.o
+	Object mod05_021E1374.o
+	Object mod05_021E1AD8.o
+	Object mod05_021E2B80.o
+	Object mod05_021E2E88.o
+	Object mod05_021E3340.o
+	Object mod05_021E3444.o
+	Object mod05_021E4AE4.o
+	Object mod05_021E52A8.o
+	Object mod05_021E5300.o
+	Object mod05_021E5564.o
+	Object mod05_021E55BC.o
+	Object mod05_021E577C.o
+	Object mod05_021E5918.o
+	Object mod05_021E5AB4.o
+	Object mod05_021E5C8C.o
+	Object mod05_021E5E10.o
+	Object mod05_021E5FD8.o
+	Object mod05_021E72FC.o
+	Object mod05_021E7504.o
+	Object mod05_021E779C.o
+	Object mod05_021E7C00.o
+	Object mod05_021E80F8.o
+	Object mod05_021E8310.o
+	Object module_05.o
 }
 
 Overlay MODULE_06
 {
-    ##Overworld##
-    After MODULE_05
-    Object module_06.o
+	##Overworld##
+	After MODULE_05
+	Object module_06.o
 }
 
 Overlay MODULE_07
 {
-    After MODULE_04
-    Object module_07.o
+	After MODULE_04
+	Object module_07.o
 }
 
 Overlay MODULE_08
 {
-    After MODULE_04
-    Object module_08.o
+	After MODULE_04
+	Object module_08.o
 }
 
 Overlay MODULE_09
 {
-    After MODULE_04
-    Object module_09.o
+	After MODULE_04
+	Object module_09.o
 }
 
 Overlay MODULE_10
 {
-    After arm9
+	After arm9
 }
 
 Overlay MODULE_11
 {
-    ##Battles##
-    After MODULE_08
-    Object module_11_thumb1.o
-    Object module_11_sinit.o
-    Object module_11_thumb2.o
+	##Battles##
+	After MODULE_08
+	Object module_11_thumb1.o
+	Object module_11_sinit.o
+	Object module_11_thumb2.o
 }
 
 Overlay MODULE_12
 {
-    After MODULE_08
-    Object module_12.o
+	After MODULE_08
+	Object module_12.o
 }
 
 Overlay MODULE_13
 {
-    After MODULE_04
-    Object module_13_init.o
-    Object module_13_arm1.o
-    Object module_13_thumb.o
-    Object module_13_arm2.o
+	After MODULE_04
+	Object module_13_init.o
+	Object module_13_arm1.o
+	Object module_13_thumb.o
+	Object module_13_arm2.o
 }
 
 Overlay MODULE_14
 {
-    ##PC##
-    After arm9
-    Object module_14.o
+	##PC##
+	After arm9
+	Object module_14.o
 }
 
 Overlay MODULE_15
 {
-    After arm9
-    Object module_15.o
+	After arm9
+	Object module_15.o
 }
 
 Overlay MODULE_16
 {
-    ##Pokedex/Battle Sprites##
-    After arm9
-    Object module_16.o
+	##Pokedex/Battle Sprites##
+	After arm9
+	Object module_16.o
 }
 
 Overlay MODULE_17
 {
-    After arm9
-    Object module_17.o
+	After arm9
+	Object module_17.o
 }
 
 Overlay MODULE_18
 {
-    After MODULE_05
-    Object module_18.o
+	After MODULE_05
+	Object module_18.o
 }
 
 Overlay MODULE_19
 {
-    ##Bottom screen before Pokétch##
-    After MODULE_06
-    Object module_19.o
+	##Bottom screen before Pokétch##
+	After MODULE_06
+	Object module_19.o
 }
 
 Overlay MODULE_20
 {
-    ##Pokétch##
-    After MODULE_06
-    Object module_20.o
+	##Pokétch##
+	After MODULE_06
+	Object module_20.o
 }
 
 Overlay MODULE_21
 {
-    ##Pokétch Clock##
-    After MODULE_20
-    Object mod21_02254854.o
-    Object mod21_02254A6C.o
+	##Pokétch Clock##
+	After MODULE_20
+	Object mod21_02254854.o
+	Object mod21_02254A6C.o
 }
 
 Overlay MODULE_22
 {
-    After MODULE_20
-    Object module_22_sinit.o
-    Object module_22.o
+	After MODULE_20
+	Object module_22_sinit.o
+	Object module_22.o
 }
 
 Overlay MODULE_23
 {
-    ##Pokétch Calculator##
-    After MODULE_20
-    Object module_23_sinit.o
-    Object module_23.o
+	##Pokétch Calculator##
+	After MODULE_20
+	Object module_23_sinit.o
+	Object module_23.o
 }
 
 Overlay MODULE_24
 {
-    ##Memo Pad##
-    After MODULE_20
-    Object module_24_sinit.o
-    Object module_24.o
+	##Memo Pad##
+	After MODULE_20
+	Object module_24_sinit.o
+	Object module_24.o
 }
 
 Overlay MODULE_25
 {
-    ##Analogue Watch##
-    After MODULE_20
-    Object module_25_sinit.o
-    Object module_25.o
+	##Analogue Watch##
+	After MODULE_20
+	Object module_25_sinit.o
+	Object module_25.o
 }
 
 Overlay MODULE_26
 {
-    ##Dot Artist##
-    After MODULE_20
-    Object module_26_sinit.o
-    Object module_26.o
+	##Dot Artist##
+	After MODULE_20
+	Object module_26_sinit.o
+	Object module_26.o
 }
 
 Overlay MODULE_27
 {
-    ##Pokétch Party##
-    After MODULE_20
-    Object module_27_sinit.o
-    Object module_27.o
+	##Pokétch Party##
+	After MODULE_20
+	Object module_27_sinit.o
+	Object module_27.o
 }
 
 Overlay MODULE_28
 {
-    ##Friendship Checker##
-    After MODULE_20
-    Object module_28_sinit.o
-    Object module_28.o
+	##Friendship Checker##
+	After MODULE_20
+	Object module_28_sinit.o
+	Object module_28.o
 }
 
 Overlay MODULE_29
 {
-    ##Dowsing Machine##
-    After MODULE_20
-    Object module_29_sinit.o
-    Object module_29.o
+	##Dowsing Machine##
+	After MODULE_20
+	Object module_29_sinit.o
+	Object module_29.o
 }
 
 Overlay MODULE_30
 {
-    After MODULE_20
-    Object module_30_sinit.o
-    Object module_30.o
+	After MODULE_20
+	Object module_30_sinit.o
+	Object module_30.o
 }
 
 Overlay MODULE_31
 {
-    ##Pokétch Counter##
-    After MODULE_20
-    Object module_31_sinit.o
-    Object module_31.o
+	##Pokétch Counter##
+	After MODULE_20
+	Object module_31_sinit.o
+	Object module_31.o
 }
 
 Overlay MODULE_32
 {
-    After MODULE_20
-    Object module_32_sinit.o
-    Object module_32.o
+	After MODULE_20
+	Object module_32_sinit.o
+	Object module_32.o
 }
 
 Overlay MODULE_33
 {
-    After MODULE_20
-    Object module_33_sinit.o
-    Object module_33.o
+	After MODULE_20
+	Object module_33_sinit.o
+	Object module_33.o
 }
 
 Overlay MODULE_34
 {
-    After MODULE_20
-    Object module_34_sinit.o
-    Object module_34.o
+	After MODULE_20
+	Object module_34_sinit.o
+	Object module_34.o
 }
 
 Overlay MODULE_35
 {
-    ##Daycare Checker##
-    After MODULE_20
-    Object module_35_sinit.o
-    Object module_35.o
+	##Daycare Checker##
+	After MODULE_20
+	Object module_35_sinit.o
+	Object module_35.o
 }
 
 Overlay MODULE_36
 {
-    After MODULE_20
-    Object module_36_sinit.o
-    Object module_36.o
+	After MODULE_20
+	Object module_36_sinit.o
+	Object module_36.o
 }
 
 Overlay MODULE_37
 {
-    ##Coin Toss##
-    After MODULE_20
-    Object module_37_sinit.o
-    Object module_37.o
+	##Coin Toss##
+	After MODULE_20
+	Object module_37_sinit.o
+	Object module_37.o
 }
 
 Overlay MODULE_38
 {
-    ##Move Checker##
-    After MODULE_20
-    Object module_38_sinit.o
-    Object module_38.o
+	##Move Checker##
+	After MODULE_20
+	Object module_38_sinit.o
+	Object module_38.o
 }
 
 Overlay MODULE_39
 {
-    After MODULE_20
-    Object module_39_sinit.o
-    Object module_39.o
+	After MODULE_20
+	Object module_39_sinit.o
+	Object module_39.o
 }
 
 Overlay MODULE_40
 {
-    After MODULE_20
-    Object module_40_sinit.o
-    Object module_40.o
+	After MODULE_20
+	Object module_40_sinit.o
+	Object module_40.o
 }
 
 Overlay MODULE_41
 {
-    After MODULE_20
-    Object module_41_sinit.o
-    Object module_41.o
+	After MODULE_20
+	Object module_41_sinit.o
+	Object module_41.o
 }
 
 Overlay MODULE_42
 {
-    ##Marking Map##
-    After MODULE_20
-    Object module_42_sinit.o
-    Object module_42.o
+	##Marking Map##
+	After MODULE_20
+	Object module_42_sinit.o
+	Object module_42.o
 }
 
 Overlay MODULE_43
 {
-    ##Berry Searcher##
-    After MODULE_20
-    Object module_43_sinit.o
-    Object module_43.o
+	##Berry Searcher##
+	After MODULE_20
+	Object module_43_sinit.o
+	Object module_43.o
 }
 
 Overlay MODULE_44
 {
-    After MODULE_20
-    Object module_44_sinit.o
-    Object module_44.o
+	After MODULE_20
+	Object module_44_sinit.o
+	Object module_44.o
 }
 
 Overlay MODULE_45
 {
-    After MODULE_20
-    Object module_45_sinit.o
-    Object module_45.o
+	After MODULE_20
+	Object module_45_sinit.o
+	Object module_45.o
 }
 
 Overlay MODULE_46
 {
-    After MODULE_20
-    Object module_46_sinit.o
-    Object module_46.o
+	After MODULE_20
+	Object module_46_sinit.o
+	Object module_46.o
 }
 
 Overlay MODULE_47
 {
-    ##Link Searcher##
-    After MODULE_20
-    Object module_47_sinit.o
-    Object module_47.o
+	##Link Searcher##
+	After MODULE_20
+	Object module_47_sinit.o
+	Object module_47.o
 }
 
 Overlay MODULE_48
 {
-    After MODULE_20
-    Object module_48_sinit.o
-    Object module_48.o
+	After MODULE_20
+	Object module_48_sinit.o
+	Object module_48.o
 }
 
 Overlay MODULE_49
 {
-    ##Pokemon History##
-    After MODULE_20
-    Object module_49_sinit.o
-    Object module_49.o
+	##Pokemon History##
+	After MODULE_20
+	Object module_49_sinit.o
+	Object module_49.o
 }
 
 Overlay MODULE_50
 {
-    After MODULE_20
-    Object module_50_sinit.o
-    Object module_50.o
+	After MODULE_20
+	Object module_50_sinit.o
+	Object module_50.o
 }
 
 Overlay MODULE_51
 {
-    After MODULE_20
-    Object module_51.o
+	After MODULE_20
+	Object module_51.o
 }
 
 Overlay MODULE_52
 {
-    ##Some kind of transition overlay for intro##
-    After arm9
-    Object module_52.o
+	##Some kind of transition overlay for intro##
+	After arm9
+	Object module_52.o
 }
 
 Overlay MODULE_53
 {
-    After arm9
-    Object module_53.o
+	After arm9
+	Object module_53.o
 }
 
 Overlay MODULE_54
 {
-    After arm9
-    Object module_54.o
+	After arm9
+	Object module_54.o
 }
 
 Overlay MODULE_55
 {
-    After arm9
-    Object module_55.o
+	After arm9
+	Object module_55.o
 }
 
 Overlay MODULE_56
 {
-    After MODULE_04
-    Object module_56.o
+	After MODULE_04
+	Object module_56.o
 }
 
 Overlay MODULE_57
 {
-    ##Trainer card##
-    After arm9
-    Object module_57.o
+	##Trainer card##
+	After arm9
+	Object module_57.o
 }
 
 Overlay MODULE_58
 {
-    After MODULE_57
-    Object module_58.o
+	After MODULE_57
+	Object module_58.o
 }
 
 Overlay MODULE_59
 {
-    ##Rowan's intro##
-    After arm9
-    Object mod59_021D74E0_src.o
-    Object mod59_021D74E0_asm.o
-    Object mod59_021D9868.o
+	##Rowan's intro##
+	After arm9
+	Object mod59_021D74E0_src.o
+	Object mod59_021D74E0_asm.o
+	Object mod59_021D9868.o
 }
 
 Overlay MODULE_60
 {
-    ##Options##
-    After arm9
-    Object module_60.o
+	##Options##
+	After arm9
+	Object module_60.o
 }
 
 Overlay MODULE_61
 {
-    After arm9
-    Object module_61.o
+	After arm9
+	Object module_61.o
 }
 
 Overlay MODULE_62
 {
-    After MODULE_08
-    Object module_62_sinit.o
-    Object module_62.o
+	After MODULE_08
+	Object module_62_sinit.o
+	Object module_62.o
 }
 
 Overlay MODULE_63
 {
-    ### Title Demo ###
-    After arm9
-    Object mod63_021D74E0.o
-    Object mod63_021D8890.o
-    Object mod63_021DA640.o
-    Object mod63_021DAE5C.o
-    Object mod63_021DB450.o
+	### Title Demo ###
+	After arm9
+	Object mod63_021D74E0.o
+	Object mod63_021D8890.o
+	Object mod63_021DA640.o
+	Object mod63_021DAE5C.o
+	Object mod63_021DB450.o
 }
 
 Overlay MODULE_64
 {
-    ##Pokemon Selection##
-    After arm9
-    Object module_64.o
+	##Pokemon Selection##
+	After arm9
+	Object module_64.o
 }
 
 Overlay MODULE_65
 {
-    After arm9
-    Object module_65.o
+	After arm9
+	Object module_65.o
 }
 
 Overlay MODULE_66
 {
-    ##Fly Map##
-    After arm9
-    Object module_66.o
+	##Fly Map##
+	After arm9
+	Object module_66.o
 }
 
 Overlay MODULE_67
 {
-    After arm9
-    Object module_67.o
+	After arm9
+	Object module_67.o
 }
 
 Overlay MODULE_68
 {
-    After arm9
-    Object module_68.o
+	After arm9
+	Object module_68.o
 }
 
 Overlay MODULE_69
 {
-    ##Hall of Fame##
-    After MODULE_08
-    Object module_69.o
+	##Hall of Fame##
+	After MODULE_08
+	Object module_69.o
 }
 
 Overlay MODULE_70
 {
-    After arm9
-    Object module_70.o
+	After arm9
+	Object module_70.o
 }
 
 Overlay MODULE_71
 {
-    After MODULE_08
-    Object module_71.o
+	After MODULE_08
+	Object module_71.o
 }
 
 Overlay MODULE_72
 {
-    After arm9
+	After arm9
 }
 
 Overlay MODULE_73
 {
-    After arm9
-    Object module_73.o
+	After arm9
+	Object module_73.o
 }
 
 Overlay MODULE_74
 {
-    After arm9
-    Object module_74.o
+	After arm9
+	Object module_74.o
 }
 
 Overlay MODULE_75
 {
-    ### Player's bag ###
-    After MODULE_14
-    Object module_75.o
+	### Player's bag ###
+	After MODULE_14
+	Object module_75.o
 }
 
 Overlay MODULE_76
 {
-    After arm9
-    Object module_76.o
+	After arm9
+	Object module_76.o
 }
 
 Overlay MODULE_77
 {
-    After arm9
-    Object module_77.o
+	After arm9
+	Object module_77.o
 }
 
 Overlay MODULE_78
 {
-    After arm9
-    Object module_78.o
+	After arm9
+	Object module_78.o
 }
 
 Overlay MODULE_79
 {
-    After MODULE_04
-    Object module_79_thumb.o
-    Object module_79_arm.o
+	After MODULE_04
+	Object module_79_thumb.o
+	Object module_79_arm.o
 }
 
 Overlay MODULE_80
 {
-    After MODULE_08
-    Object module_80.o
+	After MODULE_08
+	Object module_80.o
 }
 
 Overlay MODULE_81
 {
-    After MODULE_80
-    Object module_81.o
+	After MODULE_80
+	Object module_81.o
 }
 
 Overlay MODULE_82
 {
-    After MODULE_08
-    Object module_82.o
+	After MODULE_08
+	Object module_82.o
 }
 
 Overlay MODULE_83
 {
-    ##Load Screen##
-    After MODULE_08
-    Object module_83.o
+	##Load Screen##
+	After MODULE_08
+	Object module_83.o
 }
 
 Overlay MODULE_84
 {
-    ##Credits##
-    After arm9
-    Object module_84_thumb1.o
-    Object module_84_arm.o
-    Object module_84_thumb2.o
+	##Credits##
+	After arm9
+	Object module_84_thumb1.o
+	Object module_84_arm.o
+	Object module_84_thumb2.o
 }
 
 Overlay MODULE_85
 {
-    After arm9
-    Object module_85.o
+	After arm9
+	Object module_85.o
 }
 
 Overlay MODULE_86
 {
-    After arm9
-    Object module_86.o
+	After arm9
+	Object module_86.o
 }

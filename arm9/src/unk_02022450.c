@@ -35,11 +35,11 @@ THUMB_FUNC void FUN_02022450 () {
 }
 
 THUMB_FUNC void Reset_To_File (const char* path) {
-	FSFile file;
-	FS_InitFile(&file);
-	if (FS_OpenFile(&file, path)) {
-		*(u32*)HW_ROM_BASE_OFFSET_BUF = file.prop.file.top;
-		OS_ResetSystem(0);
-	}
-	return;
+    FSFile file;
+    FS_InitFile(&file);
+    if (FS_OpenFile(&file, path)) {
+        *(u32*)HW_ROM_BASE_OFFSET_BUF = file.prop.file.top;
+        OS_ResetSystem(0);
+    }
+    return;
 }
