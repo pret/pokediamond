@@ -16,7 +16,6 @@ void GF_InitMic(void);
 void GF_SoundDataInit(struct SoundData *);
 void FUN_02004088(struct SoundData *);
 void FUN_020040A4(struct SoundData *);
-void FUN_02003CE8(int);
 void FUN_020040DC(void);
 
 extern void FUN_0200521C(int);
@@ -315,6 +314,5 @@ void GF_InitMic(void)
 void FUN_020040DC(void)
 {
     NNS_SndPlayerStopSeqByPlayerNo(7, 0);
-    GetSoundPlayer(7);
-    NNS_SndHandleReleaseSeq();
+    NNS_SndHandleReleaseSeq(GetSoundPlayer(7));
 }

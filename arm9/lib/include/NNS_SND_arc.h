@@ -33,6 +33,6 @@ void NNS_SndArcPlayerSetup(void *);
 void NNS_SndMain(void);
 void NNS_SndHandleInit(u32 *);
 void NNS_SndPlayerStopSeqByPlayerNo(int playerNo, int fadeFrame);
-void NNS_SndHandleReleaseSeq(void);
+void NNS_SndHandleReleaseSeq(u32 *);
 
 #endif //GUARD_NNS_SND_ARC_H

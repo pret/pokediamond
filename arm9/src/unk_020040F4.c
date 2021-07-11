@@ -29,7 +29,7 @@ extern u32 NNS_SndWaveOutAllocChannel(u32);
 extern void NNS_SndWaveOutFreeChannel(u32);
 extern u32 NNS_SndWaveOutStart(u32, u32, void *, u32, u32, u32, u32, s32, u32, u32);
 extern void NNS_SndWaveOutStop(u32);
-extern void NNS_SndWaveOutIsPlaying(u32);
+extern BOOL NNS_SndWaveOutIsPlaying(u32);
 extern void NNS_SndWaveOutSetPan(u32, u32);
 extern void NNS_SndWaveOutSetSpeed(u32, u32);
 extern void NNS_SndWaveOutSetVolume(u32, s32);
@@ -45,7 +45,6 @@ extern void NNS_SndCaptureStopEffect();
 extern void NNS_SndPlayerSetTrackPitch(u32 *, u32, u32);
 extern void NNS_SndPlayerSetTrackPan(u32 *, u32, u32);
 extern void NNS_SndSetMonoFlag(u32 param0);
-extern void FUN_02003CE8(u32);
 extern void FUN_020053CC(u32, u32);
 extern u32 NNS_SndArcGetFileAddress(u32);
 extern u32 SND_GetWaveDataAddress(u32, u32);
@@ -640,7 +639,7 @@ THUMB_FUNC u32 FUN_020048F4(u16 param0)
     return NNS_SndArcGetBankInfo(FUN_02004900(param0));
 }
 
-THUMB_FUNC u16 FUN_02004900(u16 param0)
+THUMB_FUNC u16 FUN_02004900(int param0)
 {
     u16 *ptr = NNS_SndArcGetSeqParam(param0);
     if (ptr == NULL)
@@ -794,9 +793,9 @@ THUMB_FUNC void FUN_02004AAC(u32 param0)
     NNS_SndWaveOutStop(*(u32 *)FUN_02004930(param0));
 }
 
-THUMB_FUNC void FUN_02004ABC(u32 param0)
+THUMB_FUNC BOOL FUN_02004ABC(u32 param0)
 {
-    NNS_SndWaveOutIsPlaying(*(u32 *)FUN_02004930(param0));
+    return NNS_SndWaveOutIsPlaying(*(u32 *)FUN_02004930(param0));
 }
 
 THUMB_FUNC void FUN_02004ACC(u32 param0, u32 param1)
