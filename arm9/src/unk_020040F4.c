@@ -15,7 +15,7 @@ extern void FUN_0200541C();
 extern void FUN_0200521C(int);
 extern void FUN_0200538C(u32, u16, u32);
 extern void NNS_SndPlayerPause(u32 *, u8);
-extern void NNS_SndPlayerMoveVolume(u32 *, u32, u32);
+extern void NNS_SndPlayerMoveVolume(u32 *, s32, s32);
 extern void NNS_SndPlayerSetInitialVolume(u32 *, s32);
 extern void *NNS_SndArcGetSeqParam(u32);
 extern void NNS_SndArcPlayerStartSeqEx(u32 *, u32, s32, s32, u32);
@@ -27,9 +27,9 @@ extern u32 MIC_StopAutoSampling();
 extern u32 MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3);
 extern u32 NNS_SndWaveOutAllocChannel(u32);
 extern void NNS_SndWaveOutFreeChannel(u32);
-extern u32 NNS_SndWaveOutStart(u32, u32, void *, u32, u32, u32, u32, s32, u32, u32);
+extern u32 NNS_SndWaveOutStart(u32, u32, void *, u32, u32, u32, u32, s32, u32, s32);
 extern void NNS_SndWaveOutStop(u32);
-extern void NNS_SndWaveOutIsPlaying(u32);
+extern BOOL NNS_SndWaveOutIsPlaying(u32);
 extern void NNS_SndWaveOutSetPan(u32, u32);
 extern void NNS_SndWaveOutSetSpeed(u32, u32);
 extern void NNS_SndWaveOutSetVolume(u32, s32);
@@ -42,10 +42,9 @@ extern void NNS_SndCaptureStopReverb(u32);
 extern void NNS_SndCaptureSetReverbVolume(u32, u32);
 extern u32 NNS_SndCaptureStartEffect(void *, u32, u32, u32, u32, void (*)(), void *);
 extern void NNS_SndCaptureStopEffect();
-extern void NNS_SndPlayerSetTrackPitch(u32 *, u32, u32);
-extern void NNS_SndPlayerSetTrackPan(u32 *, u32, u32);
+extern void NNS_SndPlayerSetTrackPitch(u32 *, u32, s32);
+extern void NNS_SndPlayerSetTrackPan(u32 *, u32, s32);
 extern void NNS_SndSetMonoFlag(u32 param0);
-extern void FUN_02003CE8(u32);
 extern void FUN_020053CC(u32, u32);
 extern u32 NNS_SndArcGetFileAddress(u32);
 extern u32 SND_GetWaveDataAddress(u32, u32);
@@ -553,7 +552,7 @@ THUMB_FUNC void FUN_02004810()
     *ptr2 = 0;
 }
 
-THUMB_FUNC void GF_SndPlayerMoveVolume(int playerNo, u32 param1, u32 param2)
+THUMB_FUNC void GF_SndPlayerMoveVolume(int playerNo, s32 param1, s32 param2)
 {
     NNS_SndPlayerMoveVolume(GetSoundPlayer(playerNo), param1, param2);
 }
@@ -599,7 +598,7 @@ THUMB_FUNC void FUN_02004858(u32 param0, int playerNo)
 
 THUMB_FUNC void FUN_0200488C(u16 param0, u16 param1)
 {
-    GF_SndPlayerSetInitialVolume((int)FUN_02004018(FUN_020048D0(param0)), param1);
+    GF_SndPlayerSetInitialVolume(FUN_02004018(FUN_020048D0(param0)), param1);
 }
 
 THUMB_FUNC void GF_SndArcPlayerStartSeqEx(int playerNo, u32 param1, u32 param2)
@@ -640,7 +639,7 @@ THUMB_FUNC u32 FUN_020048F4(u16 param0)
     return NNS_SndArcGetBankInfo(FUN_02004900(param0));
 }
 
-THUMB_FUNC u16 FUN_02004900(u16 param0)
+THUMB_FUNC u16 FUN_02004900(u32 param0)
 {
     u16 *ptr = NNS_SndArcGetSeqParam(param0);
     if (ptr == NULL)
@@ -794,9 +793,9 @@ THUMB_FUNC void FUN_02004AAC(u32 param0)
     NNS_SndWaveOutStop(*(u32 *)FUN_02004930(param0));
 }
 
-THUMB_FUNC void FUN_02004ABC(u32 param0)
+THUMB_FUNC BOOL FUN_02004ABC(u32 param0)
 {
-    NNS_SndWaveOutIsPlaying(*(u32 *)FUN_02004930(param0));
+    return NNS_SndWaveOutIsPlaying(*(u32 *)FUN_02004930(param0));
 }
 
 THUMB_FUNC void FUN_02004ACC(u32 param0, u32 param1)
@@ -825,7 +824,7 @@ THUMB_FUNC void FUN_02004AF8(u32 param0, s32 param1)
     NNS_SndWaveOutSetVolume(*(u32 *)FUN_02004930(param0), param1);
 }
 
-THUMB_FUNC u32 FUN_02004B30(u32 param0, s32 param1, u32 param2, u32 param3, u32 param4)
+THUMB_FUNC u32 FUN_02004B30(u32 param0, s32 param1, s32 param2, u32 param3, u32 param4)
 {
     GetSoundDataPointer();
 
@@ -970,17 +969,17 @@ THUMB_FUNC void FUN_02004D04(s32 param0)
     *ptr = (u8)param0;
 }
 
-THUMB_FUNC void GF_SndPlayerSetTrackPitch(int playerNo, u32 param1, u32 param2)
+THUMB_FUNC void GF_SndPlayerSetTrackPitch(int playerNo, u32 param1, s32 param2)
 {
     NNS_SndPlayerSetTrackPitch(GetSoundPlayer(playerNo), param1, param2);
 }
 
-THUMB_FUNC void FUN_02004D34(u16 param0, u32 param1, u32 param2)
+THUMB_FUNC void FUN_02004D34(u16 param0, u32 param1, s32 param2)
 {
-    GF_SndPlayerSetTrackPitch((int)FUN_02004018(FUN_020048D0(param0)), param1, param2);
+    GF_SndPlayerSetTrackPitch(FUN_02004018(FUN_020048D0(param0)), param1, param2);
 }
 
-THUMB_FUNC void GF_SndPlayerSetTrackPan(int playerNo, u32 param1, u32 param2)
+THUMB_FUNC void GF_SndPlayerSetTrackPan(int playerNo, u32 param1, s32 param2)
 {
     NNS_SndPlayerSetTrackPan(GetSoundPlayer(playerNo), param1, param2);
 }
@@ -991,9 +990,9 @@ THUMB_FUNC void GF_SndSetMonoFlag(u32 param0)
     UNK_021C3DD8[0] = param0;
 }
 
-THUMB_FUNC void FUN_02004D74(u32 param0)
+THUMB_FUNC void FUN_02004D74(s32 param0)
 {
-    *(u32 *)FUN_02003D38(6) = param0;
+    *(s32 *)FUN_02003D38(6) = param0;
 }
 
 THUMB_FUNC void FUN_02004D84(u32 param0)
