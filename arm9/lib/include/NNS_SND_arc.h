@@ -2,6 +2,7 @@
 #define GUARD_NNS_SND_ARC_H
 
 #include "SND_main.h"
+#include "FS_file.h"
 
 typedef struct NNSSndArcHeader
 {

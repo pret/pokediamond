@@ -254,7 +254,7 @@ u32 * GetSoundPlayer(int playerNo)
     return &sdat->players[playerNo];
 }
 
-u32 FUN_02004018(u32 a0)
+int FUN_02004018(u32 a0)
 {
     switch (a0)
     {
