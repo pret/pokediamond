@@ -53,10 +53,12 @@ extern void MOD05_021E1F60(u32 param0);
 extern void MOD05_021E26CC(u32 param0, u8 param1);
 extern void MOD05_021E2B80(u32 param0, u8 param1);
 extern void MOD05_021E2B9C(u32 param0, u8 param1);
-
-extern u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
-extern u32 FUN_0205AEA4(u32 param0, const u8 *ptr);
-extern void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, u32 param2);
+extern u32 FUN_0205AEA4(u32 param0, const void *ptr);
+extern void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2);
+extern u32 FUN_02058B2C(u32 param0);
+extern u32 FUN_02058B4C(u32 param0);
+extern u32 FUN_020580B4(u32 param0, u32 param1);
+extern u32 FUN_02058060(u32 param0, u32 param1);
 
 extern u8 *UNK_020F34E0;
 
@@ -75,6 +77,8 @@ static BOOL FUN_0203AA0C(struct ScriptContext *ctx);
 static BOOL FUN_0203AB00(struct ScriptContext *ctx);
 static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
+static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
+static BOOL FUN_0203B158(struct ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -1314,6 +1318,90 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //ApplyMovement?
     u8 *unk5 = FUN_02039438(ctx->unk80, 4);
     (*unk5)++;
 
-    FUN_0203B174(ctx->unk80, unk4, 0);
+    FUN_0203B174(ctx->unk80, unk4, NULL);
     return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx)
+{
+    u32 unk3; //has to be defined first to match
+    u16 unk0 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 unk2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+
+    unk3 = FUN_0203B120(ctx->unk80, unk0);
+
+    GF_ASSERT(unk3 != 0);
+
+    u16 *unk4 = AllocFromHeap(4, 0x100);
+    u16 unk5 = (u16)FUN_02058B2C(unk3);
+    u16 unk6 = (u16)FUN_02058B4C(unk3);
+
+    u32 pos = 0;
+
+    if (unk5 < unk1)
+    {
+        unk4[0] = 15;
+        pos++;
+        unk4[1] = unk1 - unk5;
+    }
+    else if (unk5 > unk1)
+    {
+        unk4[0] = 14;
+        pos++;
+        unk4[1] = unk5 - unk1;
+    }
+
+    if (unk6 < unk2)
+    {
+        unk4[pos * 2] = 12;
+        unk4[pos * 2 + 1] = unk2 - unk6;
+        pos++;
+    }
+    else if (unk6 > unk2)
+    {
+        unk4[pos * 2] = 13;
+        unk4[pos * 2 + 1] = unk6 - unk2;
+        pos++;
+    }
+
+    unk4[pos * 2] = 254;
+    unk4[pos * 2 + 1] = 0;
+
+    u32 unk7 = FUN_0205AEA4(unk3, unk4);
+    u8 *unk8 = FUN_02039438(ctx->unk80, 4);
+
+    (*unk8)++;
+
+    FUN_0203B174(ctx->unk80, unk7, unk4);
+    return FALSE;
+}
+
+THUMB_FUNC static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1)
+{
+    if (param1 == 242)
+    {
+        return FUN_020580B4(arg->unk34, 48);
+    }
+    else if (param1 == 241)
+    {
+        u32 *res = FUN_02039438(arg, 11);
+        return *res;
+    }
+    else
+    {
+        return FUN_02058060(arg->unk34, param1);
+    }
+}
+
+THUMB_FUNC BOOL ScrCmd_WaitForMovement(struct ScriptContext *ctx)
+{
+    SetupNativeScript(ctx, FUN_0203B158);
+    return TRUE;
+}
+
+THUMB_FUNC static BOOL FUN_0203B158(struct ScriptContext *ctx)
+{
+    u8 *unk = FUN_02039438(ctx->unk80, 4);
+    return *unk == 0 ? TRUE : FALSE;
 }

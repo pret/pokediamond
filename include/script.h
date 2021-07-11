@@ -33,7 +33,8 @@ struct UnkSavStruct80
     struct UnkStruct_0204639C *unk10;
     u8 padding2[0x8];
     u32 *mapId; //0x1C
-    u8 padding3[0x18];
+    u8 padding3[0x14];
+    u32 unk34;
     u32 unk38;
     u8 padding4[0x24];
     u32 unk60;

@@ -106,6 +106,8 @@ BOOL ScrCmd_Unk0048(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02CF(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk005E(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx);
+BOOL ScrCmd_WaitForMovement(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
