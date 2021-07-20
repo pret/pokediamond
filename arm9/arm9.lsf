@@ -1029,7 +1029,8 @@ Overlay MODULE_50
 {
 	After MODULE_20
 	Object module_50_sinit.o
-	Object module_50.o
+	Object mod50_02254854.o
+	Object mod50_022549AC.o
 }
 
 Overlay MODULE_51
