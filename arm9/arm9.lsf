@@ -998,7 +998,8 @@ Overlay MODULE_46
 {
 	After MODULE_20
 	Object module_46_sinit.o
-	Object module_46.o
+	Object mod46_02254854.o
+	Object mod46_022549AC.o
 }
 
 Overlay MODULE_47
