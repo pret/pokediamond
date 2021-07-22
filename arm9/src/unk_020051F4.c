@@ -570,8 +570,7 @@ THUMB_FUNC void FUN_02005AE0(u32 param0, u32 param1)
     ((u8 *)ptr)[7] = 0;
 
     ptr[0] = param0;
-    u32 r0 = (u32)FUN_0200CA44(
-        (void (*)(u32, struct TextPrinter *))FUN_02005B2C, (struct TextPrinter *)ptr, 0);
+    u32 r0 = (u32)FUN_0200CA44((void (*)(u32, void *))FUN_02005B2C, (void *)ptr, 0);
     ptr[1] = r0;
     *r6 = r0;
 }
