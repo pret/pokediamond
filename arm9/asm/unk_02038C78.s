@@ -244,7 +244,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_SaveChatotCry
 	.word ScrCmd_Unk005D
 	.word ScrCmd_Unk005E
-	.word ScrCmd_Unk005F
+	.word ScrCmd_WaitForMovement
 	.word ScrCmd_Unk0060
 	.word ScrCmd_Unk0061
 	.word ScrCmd_Unk0062
