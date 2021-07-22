@@ -76,7 +76,7 @@ struct FontInfo
 };
 
 void SetFontsPointer(const struct FontInfo *fonts);
-u8 FUN_0201BCC8(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2);
+u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2);
 void FUN_0201BCFC(u32 param0);
 BOOL FUN_0201BD44(u32 param0);
 void FUN_0201BD5C(void);

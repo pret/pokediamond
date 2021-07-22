@@ -209,9 +209,8 @@ THUMB_FUNC u32 FUN_02003210(struct PaletteData *paletteData,
             paletteData->unk118_0 = 1;
             paletteData->unk11c = 0;
 
-            // wtf is that?
-            FUN_0200CA44((void (*)(u32, struct TextPrinter *))FUN_02003464,
-                (struct TextPrinter *)paletteData,
+            FUN_0200CA44((void (*)(u32, void *))FUN_02003464,
+                (void *)paletteData,
                 (u32)(-2));
         }
     }

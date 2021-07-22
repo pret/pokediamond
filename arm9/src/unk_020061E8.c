@@ -5,7 +5,7 @@
 
 extern struct TextPrinter *FUN_0201B6C8(void);
 
-THUMB_FUNC BOOL FUN_020061E8(void (*r0)(u32, struct TextPrinter *), u32 r1, u32 r2, u32 r3)
+THUMB_FUNC BOOL FUN_020061E8(void (*r0)(u32, void *), u32 r1, u32 r2, u32 r3)
 {
     void * r4;
     if(r1 != 0)

@@ -29,7 +29,7 @@ THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
     gFonts = fonts;
 }
 
-THUMB_FUNC u8 FUN_0201BCC8(void (*func)(u32, struct TextPrinter *), struct TextPrinter *printer, u32 param2)
+THUMB_FUNC u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
 {
     u32 *r4 = UNK_021C5714;
     s32 i;
@@ -192,7 +192,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
     {
         printer->textSpeedBottom--;
         printer->textSpeedTop = 1;
-        printer->minLetterSpacing = FUN_0201BCC8(RunTextPrinter, printer, 1);
+        printer->minLetterSpacing = FUN_0201BCC8((void (*)(u32, void *))RunTextPrinter, printer, 1);
         return printer->minLetterSpacing;
     }
     else
