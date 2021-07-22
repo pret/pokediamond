@@ -901,7 +901,8 @@ Overlay MODULE_33
 {
 	After MODULE_20
 	Object module_33_sinit.o
-	Object module_33.o
+	Object mod33_02254854.o
+	Object mod33_022549AC.o
 }
 
 Overlay MODULE_34
@@ -997,7 +998,8 @@ Overlay MODULE_46
 {
 	After MODULE_20
 	Object module_46_sinit.o
-	Object module_46.o
+	Object mod46_02254854.o
+	Object mod46_022549AC.o
 }
 
 Overlay MODULE_47
@@ -1027,7 +1029,8 @@ Overlay MODULE_50
 {
 	After MODULE_20
 	Object module_50_sinit.o
-	Object module_50.o
+	Object mod50_02254854.o
+	Object mod50_022549AC.o
 }
 
 Overlay MODULE_51
