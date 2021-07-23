@@ -984,7 +984,8 @@ Overlay MODULE_44
 {
 	After MODULE_20
 	Object module_44_sinit.o
-	Object module_44.o
+	Object mod44_02254854.o
+	Object mod44_02254A54.o
 }
 
 Overlay MODULE_45
