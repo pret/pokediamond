@@ -30,19 +30,19 @@ COMPARE ?= 1
 
 ##################### Compiler Options #######################
 
-MWCCVERSION = 1.2/sp2p3
+MWCCVERSION = 2.0/sp1
 
 CROSS   := arm-none-eabi-
 
-MWCCARM  = ../../tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
+MWCCARM  = ../../../tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
 # MWCC built objects and GNU built ones. mwldarm, however, doesn't care, so we
 # have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
-MWLDARM  = ../../tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
-MWASMARM = ../../tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
-SCANINC = ../../tools/scaninc/scaninc$(EXE)
+MWLDARM  = ../../../tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
+MWASMARM = ../../../tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
+SCANINC = ../../../tools/scaninc/scaninc$(EXE)
 
 AS      = $(WINE) $(MWASMARM)
 CC      = $(WINE) $(MWCCARM)
@@ -53,33 +53,22 @@ OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
-ASFLAGS = -proc arm5te -ir ../..
-CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/libc/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all
+ASFLAGS = -proc arm5te -ir ../../..
+CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -i include -ir include-mw -ir arm9/lib/libc/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all
 LDFLAGS = -library -nodead -w off -proc v5te -interworking -pic
 ARFLAGS = rcS
 
-export MWCIncludes := libc/include libnns/include NitroSDK/include
+export MWCIncludes := include
 
 ################ Targets #################
 
-LIBS := libsyscall.a
 .PHONY: all clean
 
-all: libs $(LIBS)
+all:
 	@:
 
-libs:
-	$(MAKE) -C libc
-	$(MAKE) -C libnns
-	$(MAKE) -C NitroSDK
-
 clean:
-	$(MAKE) clean -C libc
-	$(MAKE) clean -C libnns
-	$(MAKE) clean -C NitroSDK
-	$(RM) $(LIBS)
-
-libsyscall.a: syscall/_svc_mw.o
+	$(RM) $(%.a=%/*.o)
 
 %.a:
 	$(AR) $(ARFLAGS) -o $@ $^

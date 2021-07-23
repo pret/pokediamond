@@ -50,10 +50,10 @@ LD_TEMPLATE := ARM9-TS.lcf.template
 # Directories containing source files
 
 # sorting wildcards required for versions of make >= 3.8.2 and < 4.3 for consistent builds
-SRC_DIRS := src lib lib/src $(sort $(wildcard modules/*/src))
+SRC_DIRS := src lib lib/libnns/src lib/NitroSDK/src lib/libc/src $(sort $(wildcard modules/*/src))
 ASM_DIRS := asm data files $(sort $(wildcard modules/*/asm))
 LIBASM_DIRS := lib/syscall
-INCLUDE_RECURSIVE_DIRS := ../include-mw lib/include
+INCLUDE_RECURSIVE_DIRS := ../include-mw lib/libc/include lib/libnns/include lib/NitroSDK/include
 INCLUDE_DIRS := ../include $(sort $(wildcard modules/*/include)) ../files
 
 C_FILES    := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.c)))
@@ -140,7 +140,7 @@ TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
-export MWCIncludes := $(CURDIR)/lib/include
+export MWCIncludes := $(CURDIR)/lib/libc/include $(CURDIR)/lib/NitroSDK/include $(CURDIR)/lib/libnns/include
 export MWLibraries := $(CURDIR)/lib
 
 ######################### Targets ###########################
@@ -192,7 +192,7 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS) $(LIB
 
 # TODO: Move out to lib/Makefile
 $(BUILD_DIR)/lib/%.o: MWCCVERSION = 1.2/sp2p3
-$(BUILD_DIR)/lib/%.o: CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -interworking -DFS_IMPLEMENT -enum int -W all -i ../include -ir ../include-mw -ir lib/include
+$(BUILD_DIR)/lib/%.o: CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -interworking -DFS_IMPLEMENT -enum int -W all -i ../include -ir ../include-mw -ir lib/libc/include -ir lib/libnns/include -ir lib/NitroSDK/include
 
 # FIXME: Using -ipa file breaks .rodata alignment
 $(BUILD_DIR)/src/math_util.o: CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
@@ -200,7 +200,7 @@ $(BUILD_DIR)/src/math_util.o: CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
-$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)) $(filter $*.s,$(LIBS_FILES)))
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/libc/include -I lib/libnns/include -I lib/NitroSDK/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)) $(filter $*.s,$(LIBS_FILES)))
 else
 $(BUILD_DIR)/%.o: dep :=
 endif
