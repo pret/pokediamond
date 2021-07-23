@@ -64,7 +64,7 @@ void analyze(string basedir, string subdir, string version) {
     size_t shstrsz = 0;
     stringstream builddir;
     builddir << subdir << "/build/" << version;
-    pattern << basedir << "/" << subdir << "/{src,asm,lib/{src,asm},modules/*/{src,asm}}/*.{c,s,cpp}";
+    pattern << basedir << "/" << subdir << "/{src,asm,lib/src,lib/{libc,libnns,NitroSDK}/src,modules/*/{src,asm}}/*.{c,s,cpp}";
     for (char const * & fname : Glob(pattern.str()))
     {
         string fname_s(fname);
