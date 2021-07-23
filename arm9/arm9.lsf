@@ -848,7 +848,8 @@ Overlay MODULE_26
 	##Dot Artist##
 	After MODULE_20
 	Object module_26_sinit.o
-	Object module_26.o
+	Object mod26_02254854.o
+	Object mod26_02254BD4.o
 }
 
 Overlay MODULE_27
