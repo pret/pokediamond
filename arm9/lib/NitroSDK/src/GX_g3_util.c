@@ -165,7 +165,7 @@ ARM_FUNC void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 nea
     }
 }
 
-ARM_FUNC void G3i_LookAt_(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *c, u32 load, struct Mtx44 *mtx){
+ARM_FUNC void G3i_LookAt_(const struct Vecx32 *a, const struct Vecx32 *b, const struct Vecx32 *c, BOOL load, struct Mtx43 *mtx){
     struct Vecx32 temp, temp1, temp2;
     fx32 c1, c2, c3;
     vu32 *reg_ptr;

@@ -228,7 +228,7 @@ FUN_0206DFB4: ; 0x0206DFB4
 	mov r1, #0xe1
 	lsl r0, r0, #0xc
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 _0206DFEC:
 	add r0, r4, #0x0
 	add sp, #0x8

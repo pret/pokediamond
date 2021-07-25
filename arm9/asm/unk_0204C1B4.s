@@ -1038,11 +1038,11 @@ _0204C9B4:
 	ldr r0, [r5, #0x38]
 	bl FUN_02055360
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EFEC
+	bl Camera_SetLookAtTargetAndRecalcPos
 	ldr r0, [r5, #0x38]
 	bl FUN_02055360
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EC68
+	bl Camera_SetFixedTarget
 	add sp, #0x10
 	pop {r3-r5, pc}
 
@@ -1104,10 +1104,10 @@ _0204CA48:
 	ldr r0, [r5, #0x38]
 	bl FUN_02055360
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EFEC
+	bl Camera_SetLookAtTargetAndRecalcPos
 	ldr r0, [r5, #0x38]
 	bl FUN_02055360
 	ldr r1, [r5, #0x20]
-	bl FUN_0201EC68
+	bl Camera_SetFixedTarget
 	add sp, #0x10
 	pop {r4-r6, pc}
