@@ -3,10 +3,10 @@
 
 #include "global.h"
 
-typedef struct UnkStruct63_021DB450
+typedef struct UnkStruct63_021DB450 //intro base struct type
 {
-    struct UnkStruct63_021DB450 * field_00;
-    u32 field_04[3];
+    struct UnkStruct63_021DB450 * field_00; //oddly requires this to be set to progress past copyright/pokemon screen.
+    u32 field_04[3]; //mon animations?
     u32 field_10;
     void * field_14;
     void * field_18;

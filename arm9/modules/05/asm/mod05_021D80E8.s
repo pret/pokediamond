@@ -2216,11 +2216,11 @@ MOD05_021D9290: ; 0x021D9290
 	beq _021D92DA
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl MapHeader_MapIsOnOverworldMatrix
+	bl MapHeader_MapIsOnMainMatrix
 	cmp r0, #1
 	bne _021D931C
 	ldr r0, [sp, #8]
-	bl MapHeader_MapIsOnOverworldMatrix
+	bl MapHeader_MapIsOnMainMatrix
 	cmp r0, #0
 	bne _021D931C
 	ldr r0, [r4, #0x38]
@@ -2246,11 +2246,11 @@ _021D92DA:
 	beq _021D931C
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl MapHeader_MapIsOnOverworldMatrix
+	bl MapHeader_MapIsOnMainMatrix
 	cmp r0, #1
 	bne _021D931C
 	ldr r0, [sp, #8]
-	bl MapHeader_MapIsOnOverworldMatrix
+	bl MapHeader_MapIsOnMainMatrix
 	cmp r0, #0
 	bne _021D931C
 	ldr r0, [r4, #0x38]

@@ -1,7 +1,7 @@
 #include "global.h"
 #include "fx.h"
 #include "heap.h"
-#include "NNS_g3d.h"
+#include "nitro/NNS_g3d.h"
 #include "unk_0201E7D8.h"
 #include "GX_g3.h"
 

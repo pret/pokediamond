@@ -71,7 +71,7 @@ _021D7546:
 	str r0, [r4]
 	mov r0, #1
 	mov r1, #0x2a
-	bl FUN_020051EC
+	bl GF_SndPlayerSetPlayerVolume
 	mov r0, #1
 	add sp, #0x20
 	pop {r3, r4, r5, pc}
@@ -171,7 +171,7 @@ _021D7630:
 	bl DestroyHeap
 	mov r0, #1
 	mov r1, #0x7f
-	bl FUN_020051EC
+	bl GF_SndPlayerSetPlayerVolume
 	mov r0, #1
 	pop {r4, pc}
 	thumb_func_end MOD16_021D7614
@@ -44271,7 +44271,7 @@ _021EBCD4:
 	cmp r0, #1
 	bne _021EBCE6
 	mov r0, #0
-	bl FUN_02004CA4
+	bl GF_SndCaptureStopReverb
 _021EBCE6:
 	ldr r0, [r4, #0x50]
 	cmp r0, #2
@@ -44291,13 +44291,13 @@ _021EBD02:
 	ldr r0, [r4, #0x50]
 	cmp r0, #2
 	bne _021EBD0C
-	bl FUN_02004CFC
+	bl GF_SndCaptureStopEffect
 _021EBD0C:
 	ldr r0, [r4, #0x50]
 	cmp r0, #1
 	beq _021EBD1C
 	mov r0, #0
-	bl FUN_02004C80
+	bl GF_SndCaptureStartReverb
 	mov r0, #1
 	str r0, [r4, #0x50]
 _021EBD1C:
@@ -44316,7 +44316,7 @@ _021EBD26:
 	sub r0, r0, #1
 _021EBD34:
 	mov r1, #0
-	bl FUN_02004CAC
+	bl GF_SndCaptureSetReverbVolume
 	pop {r4, pc}
 	thumb_func_end MOD16_021EBCC4
 
@@ -44710,12 +44710,12 @@ MOD16_021EC010: ; 0x021EC010
 	cmp r0, #1
 	bne _021EC020
 	mov r0, #0
-	bl FUN_02004CA4
+	bl GF_SndCaptureStopReverb
 _021EC020:
 	ldr r0, [r4, #0x50]
 	cmp r0, #2
 	bne _021EC02A
-	bl FUN_02004CFC
+	bl GF_SndCaptureStopEffect
 _021EC02A:
 	mov r0, #0
 	str r0, [r4, #0x50]
@@ -44855,7 +44855,7 @@ MOD16_021EC0E8: ; 0x021EC0E8
 	ldr r1, _021EC10C ; =0x0000FFFF
 	ldr r2, [r4, #0x40]
 	mov r0, #1
-	bl FUN_02004D4C
+	bl GF_SndPlayerSetTrackPan
 	ldr r0, [r4, #0x44]
 	bl MOD16_021EC110
 _021EC108:
@@ -44866,13 +44866,13 @@ _021EC10C: .word 0x0000FFFF
 
 	thumb_func_start MOD16_021EC110
 MOD16_021EC110: ; 0x021EC110
-	ldr r3, _021EC11C ; =FUN_02004828
+	ldr r3, _021EC11C ; =GF_SndPlayerMoveVolume
 	add r1, r0, #0
 	mov r0, #8
 	mov r2, #0
 	bx r3
 	nop
-_021EC11C: .word FUN_02004828
+_021EC11C: .word GF_SndPlayerMoveVolume
 	thumb_func_end MOD16_021EC110
 
 	thumb_func_start MOD16_021EC120
@@ -44988,12 +44988,12 @@ MOD16_021EC1DC: ; 0x021EC1DC
 	ldr r1, _021EC1F8 ; =0x0000FFFF
 	mov r0, #1
 	add r2, r4, #0
-	bl FUN_02004D20
+	bl GF_SndPlayerSetTrackPitch
 	add r4, #0x14
 	ldr r1, _021EC1F8 ; =0x0000FFFF
 	mov r0, #8
 	add r2, r4, #0
-	bl FUN_02004D20
+	bl GF_SndPlayerSetTrackPitch
 	pop {r4, pc}
 	.align 2, 0
 _021EC1F8: .word 0x0000FFFF
@@ -49734,7 +49734,7 @@ MOD16_021EE5D0: ; 0x021EE5D0
 	ldr r1, [r1]
 	mov r2, #0x30
 	add r3, r7, #0
-	bl FUN_02003974
+	bl BlendPalette
 	ldr r0, [sp, #4]
 	mov r1, #1
 	bl NNS_G2dGetImagePaletteLocation
@@ -49759,7 +49759,7 @@ MOD16_021EE5D0: ; 0x021EE5D0
 	ldr r1, [r1]
 	mov r2, #0x50
 	add r3, r7, #0
-	bl FUN_02003974
+	bl BlendPalette
 	ldr r0, [sp, #8]
 	mov r1, #1
 	bl NNS_G2dGetImagePaletteLocation

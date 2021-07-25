@@ -3724,7 +3724,7 @@ _020087E0:
 	add r1, r2, r1
 	ldrb r3, [r3, #0x0]
 	mov r2, #0x10
-	bl FUN_02003974
+	bl BlendPalette
 	add r0, r4, #0x0
 	add r0, #0x6c
 	ldrh r0, [r0, #0x0]
@@ -3748,7 +3748,7 @@ _020087E0:
 	add r1, r2, r1
 	ldrb r3, [r3, #0x0]
 	mov r2, #0x10
-	bl FUN_02003974
+	bl BlendPalette
 _02008862:
 	add r0, r4, #0x0
 	add r0, #0x49

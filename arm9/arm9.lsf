@@ -11,8 +11,7 @@ Static arm9
 	Object string_util.o
 	Object render_text.o
 	Object font.o
-	Object unk_02002F08.o
-	Object unk_020030E8.o
+	Object palette.o
 	Object sound.o
 	Object unk_020040F4.o
 	Object unk_020051F4.o
@@ -139,9 +138,9 @@ Static arm9
 	Object unk_020337E8.o
 	Object unk_02033874.o
 	Object unk_02033B68.o
-	Object unk_02033F50.o
-	Object unk_02034188.o
-	Object unk_020343A8.o
+	Object communication_error.o
+	Object wfc_user_info_warning.o
+	Object map_matrix.o
 	Object map_header.o
 	Object unk_02034A28.o
 	Object unk_02034D7C.o
@@ -362,74 +361,74 @@ Static arm9
 	Object NNS_FND_frameheap.o
 	Object NNS_FND_allocator.o
 	Object NNS_GFD_gfd_texvramman.o
-    Object NNS_GFD_gfd_plttvramman.o
-    Object NNS_GFD_gfd_frametexvra.o
-    Object NNS_GFD_gfd_frameplttvr.o
-    Object NNS_GFD_gfd_vramtransfe.o
-    Object NNS_GFD_gfdi_linkedlist.o
-    Object NNS_GFD_gfd_linkedlistt.o
-    Object NNS_GFD_gfd_linkedlistp.o
-    Object NNS_G2D_g2d_nan_load.o
-    Object NNS_G2D_g2d_nob_load.o
-    Object NNS_G2D_g2d_nmc_load.o
-    Object NNS_G2D_g2d_ncg_load.o
-    Object NNS_G2D_g2d_ncl_load.o
-    Object NNS_G2D_g2d_nsc_load.o
-    Object NNS_G2D_g2d_load.o
-    Object NNS_G2D_g2d_softsprite.o
-    Object NNS_G2D_g2d_animation.o
-    Object NNS_G2D_g2d_oam.o
-    Object NNS_G2D_g2d_palettetabl.o
-    Object NNS_G2D_g2d_image.o
-    Object NNS_G2D_g2d_srtcontrol.o
-    Object NNS_G2D_g2d_node.o
-    Object NNS_G2D_g2d_cellanimati.o
-    Object NNS_G2D_g2d_multicellan.o
-    Object NNS_G2D_g2d_renderer.o
-    Object NNS_G2D_g2di_mtx32.o
-    Object NNS_G2D_g2d_celltransfe.o
-    Object NNS_G2D_g2d_oamsoftware.o
-    Object NNS_G2D_g2d_renderercor.o
-    Object NNS_G2D_g2d_font.o
-    Object NNS_G2D_g2d_charcanvas.o
-    Object NNS_G2D_g2d_textcanvas.o
-    Object NNS_G2D_g2d_nft_load.o
-    Object NNS_G2D_g2di_bitreader.o
-    Object NNS_G2D_g2di_splitchar.o
-    Object NNS_G3D_kernel.o
-    Object NNS_G3D_glbstate.o
-    Object NNS_G3D_anm.o
-    Object NNS_G3D_cgtool.o
-    Object NNS_G3D_sbc.o
-    Object NNS_G3D_1mat1shp.o
-    Object NNS_G3D_gecom.o
-    Object NNS_G3D_util.o
-    Object NNS_G3D_mem.o
-    Object NNS_G3D_model.o
-    Object NNS_G3D_res_struct_acce.o
-    Object NNS_G3D_nsbca.o
-    Object NNS_G3D_nsbma.o
-    Object NNS_G3D_nsbta.o
-    Object NNS_G3D_nsbtp.o
-    Object NNS_G3D_nsbva.o
-    Object NNS_G3D_basic.o
-    Object NNS_G3D_maya.o
-    Object NNS_G3D_si3d.o
-    Object NNS_G3D_3dsmax.o
-    Object NNS_G3D_xsi.o
-    Object NNS_SND_main.o
-    Object NNS_SND_resource_mgr.o
-    Object NNS_SND_waveout.o
-    Object NNS_SND_player.o
-    Object NNS_SND_stream.o
-    Object NNS_SND_capture.o
-    Object NNS_SND_sndarc.o
-    Object NNS_SND_heap.o
-    Object NNS_SND_sndarc_loader.o
-    Object NNS_SND_sndarc_player.o
-    Object NNS_SND_sndarc_stream.o
-    Object NNS_SND_seqdata.o
-    Object NNS_SND_fader.o
+	Object NNS_GFD_gfd_plttvramman.o
+	Object NNS_GFD_gfd_frametexvra.o
+	Object NNS_GFD_gfd_frameplttvr.o
+	Object NNS_GFD_gfd_vramtransfe.o
+	Object NNS_GFD_gfdi_linkedlist.o
+	Object NNS_GFD_gfd_linkedlistt.o
+	Object NNS_GFD_gfd_linkedlistp.o
+	Object NNS_G2D_g2d_nan_load.o
+	Object NNS_G2D_g2d_nob_load.o
+	Object NNS_G2D_g2d_nmc_load.o
+	Object NNS_G2D_g2d_ncg_load.o
+	Object NNS_G2D_g2d_ncl_load.o
+	Object NNS_G2D_g2d_nsc_load.o
+	Object NNS_G2D_g2d_load.o
+	Object NNS_G2D_g2d_softsprite.o
+	Object NNS_G2D_g2d_animation.o
+	Object NNS_G2D_g2d_oam.o
+	Object NNS_G2D_g2d_palettetabl.o
+	Object NNS_G2D_g2d_image.o
+	Object NNS_G2D_g2d_srtcontrol.o
+	Object NNS_G2D_g2d_node.o
+	Object NNS_G2D_g2d_cellanimati.o
+	Object NNS_G2D_g2d_multicellan.o
+	Object NNS_G2D_g2d_renderer.o
+	Object NNS_G2D_g2di_mtx32.o
+	Object NNS_G2D_g2d_celltransfe.o
+	Object NNS_G2D_g2d_oamsoftware.o
+	Object NNS_G2D_g2d_renderercor.o
+	Object NNS_G2D_g2d_font.o
+	Object NNS_G2D_g2d_charcanvas.o
+	Object NNS_G2D_g2d_textcanvas.o
+	Object NNS_G2D_g2d_nft_load.o
+	Object NNS_G2D_g2di_bitreader.o
+	Object NNS_G2D_g2di_splitchar.o
+	Object NNS_G3D_kernel.o
+	Object NNS_G3D_glbstate.o
+	Object NNS_G3D_anm.o
+	Object NNS_G3D_cgtool.o
+	Object NNS_G3D_sbc.o
+	Object NNS_G3D_1mat1shp.o
+	Object NNS_G3D_gecom.o
+	Object NNS_G3D_util.o
+	Object NNS_G3D_mem.o
+	Object NNS_G3D_model.o
+	Object NNS_G3D_res_struct_acce.o
+	Object NNS_G3D_nsbca.o
+	Object NNS_G3D_nsbma.o
+	Object NNS_G3D_nsbta.o
+	Object NNS_G3D_nsbtp.o
+	Object NNS_G3D_nsbva.o
+	Object NNS_G3D_basic.o
+	Object NNS_G3D_maya.o
+	Object NNS_G3D_si3d.o
+	Object NNS_G3D_3dsmax.o
+	Object NNS_G3D_xsi.o
+	Object NNS_SND_main.o
+	Object NNS_SND_resource_mgr.o
+	Object NNS_SND_waveout.o
+	Object NNS_SND_player.o
+	Object NNS_SND_stream.o
+	Object NNS_SND_capture.o
+	Object NNS_SND_sndarc.o
+	Object NNS_SND_heap.o
+	Object NNS_SND_sndarc_loader.o
+	Object NNS_SND_sndarc_player.o
+	Object NNS_SND_sndarc_stream.o
+	Object NNS_SND_seqdata.o
+	Object NNS_SND_fader.o
 	### Nitro SDK ###
 	Object FX_mtx22.o
 	Object FX_mtx33.o
@@ -849,7 +848,8 @@ Overlay MODULE_26
 	##Dot Artist##
 	After MODULE_20
 	Object module_26_sinit.o
-	Object module_26.o
+	Object mod26_02254854.o
+	Object mod26_02254BD4.o
 }
 
 Overlay MODULE_27
@@ -902,7 +902,8 @@ Overlay MODULE_33
 {
 	After MODULE_20
 	Object module_33_sinit.o
-	Object module_33.o
+	Object mod33_02254854.o
+	Object mod33_022549AC.o
 }
 
 Overlay MODULE_34
@@ -984,7 +985,8 @@ Overlay MODULE_44
 {
 	After MODULE_20
 	Object module_44_sinit.o
-	Object module_44.o
+	Object mod44_02254854.o
+	Object mod44_02254A54.o
 }
 
 Overlay MODULE_45
@@ -998,7 +1000,8 @@ Overlay MODULE_46
 {
 	After MODULE_20
 	Object module_46_sinit.o
-	Object module_46.o
+	Object mod46_02254854.o
+	Object mod46_022549AC.o
 }
 
 Overlay MODULE_47
@@ -1028,7 +1031,8 @@ Overlay MODULE_50
 {
 	After MODULE_20
 	Object module_50_sinit.o
-	Object module_50.o
+	Object mod50_02254854.o
+	Object mod50_022549AC.o
 }
 
 Overlay MODULE_51

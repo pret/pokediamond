@@ -1,5 +1,3 @@
-
-
 # Try to include devkitarm if installed
 TOOLCHAIN := $(DEVKITARM)
 
@@ -56,22 +54,30 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -ir ../..
-CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/include -W all
+CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/libc/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all
 LDFLAGS = -library -nodead -w off -proc v5te -interworking -pic
 ARFLAGS = rcS
 
-export MWCIncludes := include
+export MWCIncludes := libc/include libnns/include NitroSDK/include
 
 ################ Targets #################
 
 LIBS := libsyscall.a
 .PHONY: all clean
 
-all: $(LIBS)
+all: libs $(LIBS)
 	@:
 
+libs:
+	$(MAKE) -C libc
+	$(MAKE) -C libnns
+	$(MAKE) -C NitroSDK
+
 clean:
-	$(RM) $(LIBS) $(LIBS:%.a=%/*.o)
+	$(MAKE) clean -C libc
+	$(MAKE) clean -C libnns
+	$(MAKE) clean -C NitroSDK
+	$(RM) $(LIBS)
 
 libsyscall.a: syscall/_svc_mw.o
 

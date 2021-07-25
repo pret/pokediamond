@@ -69,12 +69,12 @@ THUMB_FUNC u32 MOD63_021DB498(void)
     return 32;
 }
 
-THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg0)
+THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg0) //TODO: this does a lot more than setup anim sprites
 {
     struct UnkStruct63_021DB49C sp1C;
     int introMonArray[3] = {SPECIES_TURTWIG, SPECIES_CHIMCHAR, SPECIES_PIPLUP};
 
-    arg0->field_00 = FUN_02006D98(76);
+    arg0->field_00 = FUN_02006D98(76); //this is needed to get into the world view, otherwise it is just black
 
     for (u8 i = 0; i < 3; i++) //some kind of animation assignment TODO: investigate further
     {

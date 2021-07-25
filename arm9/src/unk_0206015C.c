@@ -3,38 +3,33 @@
 #include "heap.h"
 #include "event_data.h"
 #include "main.h"
+#include "unk_0204AF24.h"
 
 /*  Note to future reader, there might be some errors
     in the return type / parameters. They are right for this code
     but they might not be for every code, please do not blindly
     trust these prototypes if you are decompiling these functions. */
-extern THUMB_FUNC u32   MOD06_02244DB0(u32);
-extern THUMB_FUNC void  MOD06_02244DBC(void*);
-extern THUMB_FUNC void  MOD06_02244DC4(void*, void*);
-extern THUMB_FUNC void  MOD06_02244EF8(void*);
-extern THUMB_FUNC void  MOD06_02244F18(void*);
-extern THUMB_FUNC BOOL  MOD06_02244F24(void*);
-extern THUMB_FUNC void  MOD06_02244F2C(void*);
-extern THUMB_FUNC void* MOD06_02245088(struct UnkSavStruct80 * savStruct);
-extern THUMB_FUNC u32   MOD06_02245114(u32, struct UnkSavStruct80*);
-extern THUMB_FUNC void  MOD06_02245190(u32);
-extern THUMB_FUNC void  MOD06_02245198(u8, u32);
-extern THUMB_FUNC u32   MOD06_022451F0(u32);
+extern u32  MOD06_02244DB0(u32);
+extern void MOD06_02244DBC(void*);
+extern void MOD06_02244DC4(void*, void*);
+extern void MOD06_02244EF8(void*);
+extern void MOD06_02244F18(void*);
+extern BOOL MOD06_02244F24(void*);
+extern void MOD06_02244F2C(void*);
+extern void * MOD06_02245088(struct UnkSavStruct80 * savStruct);
+extern u32  MOD06_02245114(u32, struct UnkSavStruct80*);
+extern void MOD06_02245190(u32);
+extern void MOD06_02245198(u8, u32);
+extern u32  MOD06_022451F0(u32);
 
-extern THUMB_FUNC void  PlaySE(u32);
-extern THUMB_FUNC void  FUN_02049160(struct UnkStruct_0204639C*, u32);
-extern THUMB_FUNC void  FUN_0204AF84(struct UnkStruct_0204639C*);
-extern THUMB_FUNC void  FUN_0204AF3C(struct UnkStruct_0204639C *);
-extern THUMB_FUNC void  FUN_0204AFC8(struct UnkStruct_0204639C *);
-extern THUMB_FUNC void  FUN_0204B00C(struct UnkStruct_0204639C *);
-extern THUMB_FUNC void  FUN_0204C1B4(struct UnkStruct_0204639C*, u32,u32,u32,u32,u32,u32,u32);
-extern THUMB_FUNC u32   FUN_020553A0(u32);
-extern THUMB_FUNC void  FUN_0205889C(u32, u32);
-extern THUMB_FUNC void  FUN_0205F1C4(struct ScriptState *);
-extern THUMB_FUNC void  FUN_0205F1D4(struct ScriptState *);
-extern THUMB_FUNC void  FUN_0206367C(struct UnkSavStruct80 *, u32);
-
-
+extern void PlaySE(u32);
+extern void FUN_02049160(struct UnkStruct_0204639C*, u32);
+extern void FUN_0204C1B4(struct UnkStruct_0204639C*, u32,u32,u32,u32,u32,u32,u32);
+extern u32  FUN_020553A0(u32);
+extern void FUN_0205889C(u32, u32);
+extern void FUN_0205F1C4(struct ScriptState *);
+extern void FUN_0205F1D4(struct ScriptState *);
+extern void FUN_0206367C(struct UnkSavStruct80 *, u32);
 
 THUMB_FUNC void FUN_0206015C(struct UnkSavStruct80 *savStruct)
 {

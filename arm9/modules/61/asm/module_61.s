@@ -466,7 +466,7 @@ _021D77F2:
 	add r2, #0x22
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldrb r0, [r5, #0x16]
 	strb r0, [r5, #0x17]
 	mov r0, #0
@@ -780,7 +780,7 @@ _021D7ABC:
 	lsl r2, r3, #0x10
 	lsr r2, r2, #0x10
 	mov r3, #1
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldrb r0, [r4, #0x16]
 	strb r0, [r4, #0x17]
 	mov r0, #0
@@ -798,7 +798,7 @@ _021D7AEA:
 	add r2, #0x22
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldrb r0, [r4, #0x15]
 	ldrb r1, [r4, #0x14]
 	cmp r0, #0
@@ -1134,12 +1134,12 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	ldr r3, [r5]
 	mov r1, #0
 	mov r2, #0xe0
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	ldr r0, [r5, #0x30]
 	ldr r3, [r5]
 	mov r1, #2
 	mov r2, #0x60
-	bl FUN_02003008
+	bl PaletteData_AllocBuffers
 	mov r0, #0x60
 	str r0, [sp]
 	ldr r1, [sp, #0x24]
@@ -1147,7 +1147,7 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	ldr r0, [r5, #0x30]
 	ldr r1, [r1, #0xc]
 	add r3, r2, #0
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 	ldrb r0, [r5, #0xc]
 	cmp r0, #1
 	bne _021D7E00
@@ -1159,7 +1159,7 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	mov r2, #0
 	add r1, #0x60
 	mov r3, #0x10
-	bl FUN_02003054
+	bl PaletteData_LoadPalette
 _021D7E00:
 	mov r0, #2
 	str r0, [sp]
@@ -1170,7 +1170,7 @@ _021D7E00:
 	ldr r0, [r5, #0x30]
 	ldr r3, [r5]
 	mov r1, #0x13
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -1181,7 +1181,7 @@ _021D7E00:
 	ldr r3, [r5]
 	mov r1, #0xe
 	mov r2, #6
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -1192,7 +1192,7 @@ _021D7E00:
 	ldr r3, [r5]
 	mov r1, #0xe
 	mov r2, #7
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -1203,7 +1203,7 @@ _021D7E00:
 	ldr r3, [r5]
 	mov r1, #0x26
 	mov r2, #0x18
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x20
@@ -1215,7 +1215,7 @@ _021D7E00:
 	ldr r3, [r5]
 	mov r1, #0x26
 	add r2, #0x19
-	bl FUN_020030E8
+	bl PaletteData_LoadNarc
 	mov r0, #0x10
 	mov r1, #0
 	str r0, [sp]
@@ -1223,7 +1223,7 @@ _021D7E00:
 	ldr r0, [r5, #0x30]
 	add r2, r1, #0
 	mov r3, #0x70
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	mov r0, #0x10
 	str r0, [sp]
 	mov r2, #0
@@ -1231,7 +1231,7 @@ _021D7E00:
 	ldr r0, [r5, #0x30]
 	mov r1, #2
 	mov r3, #0x30
-	bl FUN_020039E8
+	bl BlendPaletteUnfaded
 	ldr r0, [r5, #0x30]
 	mov r1, #1
 	bl FUN_020038F0
@@ -1365,10 +1365,10 @@ MOD61_021D7FB4: ; 0x021D7FB4
 	bl FreeToHeap
 	ldr r0, [r4, #0x30]
 	mov r1, #2
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x30]
 	mov r1, #0
-	bl FUN_02003038
+	bl PaletteData_FreeBuffers
 	ldr r0, [r4, #0x30]
 	bl FUN_02002FEC
 	mov r1, #0

@@ -15323,7 +15323,7 @@ _02234FFC:
 	mov r0, #3
 	mov r1, #1
 	mov r2, #0
-	bl FUN_02033F70
+	bl ShowCommunicationError
 _02235006:
 	mov r0, #3
 	pop {r3, r4, r5, pc}

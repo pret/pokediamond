@@ -2,6 +2,7 @@
 #define POKEDIAMOND_HEAP_H
 
 #include "global.h"
+#include "nitro/OS_arena_shared.h"
 #include "NNS_FND_expheap.h"
 #include "NNS_FND_allocator.h"
 

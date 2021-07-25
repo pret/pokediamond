@@ -7,26 +7,13 @@
 #include "MWC_string.h"
 #include "tp.h"
 #include "unk_0201B4E8.h"
+#include "unk_02022450.h"
 #include "game_init.h"
 #include "registers.h"
 #include "heap.h"
 #include "OS_interrupt.h"
 
 #pragma thumb on
-
-extern void FUN_02022450(void);
-
-typedef volatile struct
-{
-    u8 sys_and_irq_stack[0x3F80];
-    u8 svc_stack[0x40];
-    u8 reserved[0x38];
-    u32 intr_check;
-    void * intr_vector;
-}
-OS_DTCM;
-
-#define DTCM (*(OS_DTCM *)HW_DTCM)
 
 static struct {
     void * contents;

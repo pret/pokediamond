@@ -2,6 +2,7 @@
 #include "sound.h"
 #include "SPI_mic.h"
 #include "SPI_pm.h"
+#include "unk_020040F4.h"
 
 #pragma thumb on
 
@@ -15,12 +16,8 @@ void GF_InitMic(void);
 void GF_SoundDataInit(struct SoundData *);
 void FUN_02004088(struct SoundData *);
 void FUN_020040A4(struct SoundData *);
-void FUN_02003CE8(int);
 void FUN_020040DC(void);
 
-extern BOOL FUN_020048BC(int);
-extern void FUN_02004D60(u32);
-extern BOOL FUN_02004D94(void);
 extern void FUN_0200521C(int);
 extern void FUN_0200538C(int, int, int);
 extern BOOL FUN_02005404(void);
@@ -39,7 +36,7 @@ void InitSoundData(struct SaveChatotSoundClip * chatot, struct Options * options
     FUN_020040A4(sdat);
     UNK_02107074 = 0;
     sdat->chatot = chatot;
-    FUN_02004D60(options->soundMethod);
+    GF_SndSetMonoFlag(options->soundMethod);
 }
 
 void DoSoundUpdateFrame(void)
@@ -99,7 +96,7 @@ void FUN_02003CE8(int a0)
 BOOL FUN_02003D04(void)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    if (FUN_020048BC(2))
+    if (GF_SndPlayerCountPlayingSeqByPlayerNo(2))
         return TRUE;
     return sdat->unk_BCD12 != 0;
 }
@@ -246,7 +243,7 @@ BOOL GF_Snd_LoadBank(int bankNo)
     return NNS_SndArcLoadBank(bankNo, sdat->heap);
 }
 
-u32 * FUN_02003FF4(int playerNo)
+u32 * GetSoundPlayer(int playerNo)
 {
     struct SoundData * sdat = GetSoundDataPointer();
     if (playerNo >= (s32)NELEMS(sdat->players))
@@ -257,7 +254,7 @@ u32 * FUN_02003FF4(int playerNo)
     return &sdat->players[playerNo];
 }
 
-u32 FUN_02004018(u32 a0)
+int FUN_02004018(u32 a0)
 {
     switch (a0)
     {
@@ -317,6 +314,5 @@ void GF_InitMic(void)
 void FUN_020040DC(void)
 {
     NNS_SndPlayerStopSeqByPlayerNo(7, 0);
-    FUN_02003FF4(7);
-    NNS_SndHandleReleaseSeq();
+    NNS_SndHandleReleaseSeq(GetSoundPlayer(7));
 }

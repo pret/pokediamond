@@ -2334,7 +2334,7 @@ _0222E7F8:
 	pop {r3, pc}
 _0222E802:
 	ldr r0, _0222E840 ; =MOD83_0223A8C4
-	bl FUN_020224D8
+	bl Reset_To_File
 	pop {r3, pc}
 _0222E80A:
 	bl FUN_0200541C

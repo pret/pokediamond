@@ -341,7 +341,7 @@ _0203529A:
 _020352AC:
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_020349CC
+	bl MapHeader_MapIsAmitySquare
 	cmp r0, #0x1
 	bne _020352BC
 	mov r0, #0x6
@@ -2145,7 +2145,7 @@ _02036170:
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034A04
+	bl MapHeader_GetMapEvolutionMethod
 	strh r0, [r7, #0x2]
 	mov r0, #0x0
 	strb r0, [r7, #0x1]

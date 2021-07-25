@@ -62,8 +62,9 @@ BOOL GF_Snd_LoadSeq(int seqNo);
 BOOL GF_Snd_LoadSeqEx(int seqNo, u32 loadFlag);
 BOOL GF_Snd_LoadWaveArc(int waveArcNo);
 BOOL GF_Snd_LoadBank(int bankNo);
-u32 * FUN_02003FF4(int playerNo);
-u32 FUN_02004018(u32 a0);
+u32 * GetSoundPlayer(int playerNo);
+int FUN_02004018(u32 a0);
 void DoSoundUpdateFrame(void);
+void FUN_02003CE8(int);
 
 #endif //POKEDIAMOND_SOUND_H
