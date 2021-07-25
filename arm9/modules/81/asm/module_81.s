@@ -1928,7 +1928,7 @@ MOD81_02238C80: ; 0x02238C80
 	ldr r1, [r2]
 	bx r3
 	nop
-_02238C8C: .word ApplyPerspectiveType
+_02238C8C: .word Camera_ApplyPerspectiveType
 	thumb_func_end MOD81_02238C80
 
 	thumb_func_start MOD81_02238C90

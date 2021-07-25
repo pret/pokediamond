@@ -2500,7 +2500,7 @@ MOD77_021D8970: ; 0x021D8970
 	ldr r1, _021D89E8 ; =0x0000C2CC
 	mov r0, #0
 	ldr r1, [r4, r1]
-	bl ApplyPerspectiveType
+	bl Camera_ApplyPerspectiveType
 	ldr r0, _021D89E8 ; =0x0000C2CC
 	ldr r0, [r4, r0]
 	bl Camera_SetWorkPtr

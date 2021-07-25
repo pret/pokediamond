@@ -993,7 +993,7 @@ _021D7C52:
 	add r1, #0xa0
 	ldr r1, [r1]
 	mov r0, #0
-	bl ApplyPerspectiveType
+	bl Camera_ApplyPerspectiveType
 	add r0, r5, #0
 	add r0, #0xa0
 	ldr r0, [r0]

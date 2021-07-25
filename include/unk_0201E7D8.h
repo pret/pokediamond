@@ -22,7 +22,7 @@ struct CameraAngle
     u16 x;
     u16 y;
     u16 z;
-    u16 unk_06;
+    u16 unused;
 };
 
 struct CameraPerspective
@@ -30,8 +30,8 @@ struct CameraPerspective
     fx32 fovySin;
     fx32 fovyCos;
     fx32 aspect;
-    fx32 n;
-    fx32 f;
+    fx32 near;
+    fx32 far;
 };
 
 struct CameraLookAt

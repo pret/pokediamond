@@ -947,7 +947,7 @@ FUN_02013300: ; 0x02013300
 	beq _0201331C
 	add r0, #0xdb
 	ldrb r0, [r0, #0x0]
-	bl ApplyPerspectiveType
+	bl Camera_ApplyPerspectiveType
 	ldr r0, [r4, #0x20]
 	bl Camera_SetWorkPtr
 	bl Camera_PushLookAtToNNSGlb

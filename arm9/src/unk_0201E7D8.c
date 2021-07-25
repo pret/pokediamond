@@ -11,7 +11,7 @@ GXBufferMode g3dDepthBufferingMode = GX_BUFFERMODE_W;
 static struct CameraWork * sCameraWorkPtr;
 
 void Camera_OffsetLookAtPosAndTarget(const VecFx32 *delta, struct CameraWork * camera);
-void ApplyPerspectiveType(u8 perspectiveType, struct CameraWork * camera);
+void Camera_ApplyPerspectiveType(u8 perspectiveType, struct CameraWork * camera);
 
 THUMB_FUNC void Camera_CalcLookAtPosFromTargetAndAngle(struct CameraWork * camera)
 {
@@ -37,8 +37,8 @@ THUMB_FUNC void Camera_InitInternal(u16 perspectiveAngle, struct CameraWork * ca
     camera->perspective.fovySin = FX_SinIdx(perspectiveAngle);
     camera->perspective.fovyCos = FX_CosIdx(perspectiveAngle);
     camera->perspective.aspect = FX32_CONST(1.33333333); // 4x3
-    camera->perspective.n = FX32_CONST(150);
-    camera->perspective.f = FX32_CONST(900);
+    camera->perspective.near = FX32_CONST(150);
+    camera->perspective.far = FX32_CONST(900);
     camera->lookAt.camUp.x = 0;
     camera->lookAt.camUp.y = FX32_ONE;
     camera->lookAt.camUp.z = 0;
@@ -71,11 +71,11 @@ THUMB_FUNC void Camera_GetVecFromSomeRingBufferMaybe(struct CameraWork * camera,
     {
         idx_p = &camera->history->readIdx;
         idx2_p = &camera->history->writeIdx;
-        if (camera->history->overrideEnabled == 0)
+        if (!camera->history->overrideEnabled)
         {
             *vecDst = *vecDefault;
             if (*idx_p == camera->history->writeIdxInit)
-                camera->history->overrideEnabled = 1;
+                camera->history->overrideEnabled = TRUE;
         }
         else
         {
@@ -204,9 +204,9 @@ THUMB_FUNC void Camera_ClearFixedTarget(struct CameraWork * camera)
 
 THUMB_FUNC void Camera_SetPerspectiveClippingPlane(s32 n, s32 f, struct CameraWork * camera)
 {
-    camera->perspective.n = n;
-    camera->perspective.f = f,
-        ApplyPerspectiveType(camera->perspectiveType, camera);
+    camera->perspective.near = n;
+    camera->perspective.far = f,
+        Camera_ApplyPerspectiveType(camera->perspectiveType, camera);
 }
 
 THUMB_FUNC void Camera_InitWithTargetAndAngle(VecFx32 * target, fx32 distance, struct CameraAngle * angle, u16 perspectiveAngle, u8 perspectiveType, BOOL fixReference, struct CameraWork * camera)
@@ -216,7 +216,7 @@ THUMB_FUNC void Camera_InitWithTargetAndAngle(VecFx32 * target, fx32 distance, s
     camera->distance = distance;
     camera->angle = *angle;
     Camera_CalcLookAtPosFromTargetAndAngle(camera);
-    ApplyPerspectiveType(perspectiveType, camera);
+    Camera_ApplyPerspectiveType(perspectiveType, camera);
     if (fixReference)
     {
         camera->currTarget_p = target;
@@ -234,7 +234,7 @@ THUMB_FUNC void Camera_InitWithPosAndAngle(VecFx32 * pos, fx32 distance, struct 
     camera->distance = distance;
     camera->angle = *angle;
     Camera_CalcLookAtTargetFromPosAndAngle(camera);
-    ApplyPerspectiveType(sp18, camera);
+    Camera_ApplyPerspectiveType(sp18, camera);
 }
 
 THUMB_FUNC void Camera_InitWithPosAndTarget(const VecFx32 *target, const VecFx32 *pos, u16 perspectiveAngle, u8 perspectiveType, BOOL setReference, struct CameraWork * camera)
@@ -270,7 +270,7 @@ THUMB_FUNC void Camera_InitWithPosAndTarget(const VecFx32 *target, const VecFx32
 
         camera->angle.z = 0;
     }
-    ApplyPerspectiveType(perspectiveType, camera);
+    Camera_ApplyPerspectiveType(perspectiveType, camera);
 
     if (setReference)
     {
@@ -282,11 +282,11 @@ THUMB_FUNC void Camera_InitWithPosAndTarget(const VecFx32 *target, const VecFx32
     }
 }
 
-THUMB_FUNC void ApplyPerspectiveType(u8 perspectiveType, struct CameraWork * camera)
+THUMB_FUNC void Camera_ApplyPerspectiveType(u8 perspectiveType, struct CameraWork * camera)
 {
     if (perspectiveType == 0)
     {
-        NNS_G3dGlbPerspective(camera->perspective.fovySin, camera->perspective.fovyCos, camera->perspective.aspect, camera->perspective.n, camera->perspective.f);
+        NNS_G3dGlbPerspective(camera->perspective.fovySin, camera->perspective.fovyCos, camera->perspective.aspect, camera->perspective.near, camera->perspective.far);
         camera->perspectiveType = 0;
         g3dDepthBufferingMode = GX_BUFFERMODE_Z;
     }
@@ -294,7 +294,7 @@ THUMB_FUNC void ApplyPerspectiveType(u8 perspectiveType, struct CameraWork * cam
     {
         fx32 y = FX_Mul(FX_Div(camera->perspective.fovySin, camera->perspective.fovyCos), camera->distance);
         fx32 x = FX_Mul(y, camera->perspective.aspect);
-        NNS_G3dGlbOrtho(y, -y, -x, x, camera->perspective.n, camera->perspective.f);
+        NNS_G3dGlbOrtho(y, -y, -x, x, camera->perspective.near, camera->perspective.far);
         camera->perspectiveType = 1;
         g3dDepthBufferingMode = GX_BUFFERMODE_Z;
     }
@@ -305,7 +305,7 @@ THUMB_FUNC void Camera_SetPerspectiveAngle(u16 perspectiveAngle, struct CameraWo
     camera->perspectiveAngle = perspectiveAngle;
     camera->perspective.fovySin = FX_SinIdx(camera->perspectiveAngle);
     camera->perspective.fovyCos = FX_CosIdx(camera->perspectiveAngle);
-    ApplyPerspectiveType(camera->perspectiveType, camera);
+    Camera_ApplyPerspectiveType(camera->perspectiveType, camera);
 }
 
 THUMB_FUNC void Camera_AdjustPerspectiveAngle(u16 rotation, struct CameraWork * camera)
@@ -313,7 +313,7 @@ THUMB_FUNC void Camera_AdjustPerspectiveAngle(u16 rotation, struct CameraWork * 
     camera->perspectiveAngle += rotation;
     camera->perspective.fovySin = FX_SinIdx(camera->perspectiveAngle);
     camera->perspective.fovyCos = FX_CosIdx(camera->perspectiveAngle);
-    ApplyPerspectiveType(camera->perspectiveType, camera);
+    Camera_ApplyPerspectiveType(camera->perspectiveType, camera);
 }
 
 THUMB_FUNC void Camera_OffsetLookAtPosAndTarget(const VecFx32 *delta, struct CameraWork * camera)

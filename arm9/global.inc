@@ -1254,7 +1254,7 @@
 .extern Camera_InitWithTargetAndAngle
 .extern Camera_InitWithPosAndAngle
 .extern Camera_InitWithPosAndTarget
-.extern ApplyPerspectiveType
+.extern Camera_ApplyPerspectiveType
 .extern Camera_SetPerspectiveAngle
 .extern Camera_AdjustPerspectiveAngle
 .extern Camera_OffsetLookAtPosAndTarget
