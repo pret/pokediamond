@@ -682,9 +682,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetPartyMonNature
 	.word ScrCmd_FindPartyMonWithNature
 	.word ScrCmd_Unk0214
-	.word ScrCmd_Unk0215
-	.word ScrCmd_Unk0216
-	.word ScrCmd_Unk0217
+	.word ScrCmd_ClearAmitySquareSteps
+	.word ScrCmd_CheckAmitySquareSteps
+	.word ScrCmd_GetAmitySquareAccessory
 	.word ScrCmd_Unk0218
 	.word ScrCmd_Unk0219
 	.word ScrCmd_Unk021A
