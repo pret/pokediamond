@@ -1,4 +1,5 @@
 #include "scrcmd.h"
+#include "constants/accessories.h"
 #include "constants/pokemon.h"
 #include "event_data.h"
 
@@ -6,13 +7,95 @@ extern void FUN_0205F54C(struct ScriptState* state);
 extern u16 FUN_0205F55C(struct ScriptState* state);
 
 static const u16 sAmitySquarePossibleAccessoriesByPokemon[6][10] = {
-    // TODO: accessory constants
-    { 0, 5, 21, 11, 26, 13, 25, 31, 16, 33 }, // Clefairy and Skitty
-    { 2, 19, 20, 24, 17, 0, 23, 29, 28, 15 }, // Torchic and Drifloon
-    { 8, 9, 3, 11, 22, 30, 17, 6, 14, 32 },   // Psyduck and Pachirisu
-    { 12, 18, 21, 13, 31, 9, 25, 24, 27, 6 }, // Jigglypuff and Shroomish
-    { 5, 3, 26, 19, 20, 1, 7, 16, 22, 15 },   // Pikachu
-    { 12, 30, 2, 20, 29, 4, 8, 27, 14, 10 },  // Buneary and Happiny
+    { // Clefairy and Skitty
+        ACCESSORY_WHITE_FLUFF,
+        ACCESSORY_ORANGE_FLUFF,
+        ACCESSORY_WHITE_FEATHER,
+        ACCESSORY_MINI_PEBBLE,
+        ACCESSORY_SMALL_LEAF,
+        ACCESSORY_BLUE_SCALE,
+
+        ACCESSORY_WHITE_BEARD,
+        ACCESSORY_THIN_MUSHROOM,
+        ACCESSORY_BIG_SCALE,
+
+        ACCESSORY_STUMP
+    },
+
+    { // Torchic and Drifloon
+        ACCESSORY_PINK_FLUFF,
+        ACCESSORY_RED_FEATHER,
+        ACCESSORY_YELLOW_FEATHER,
+        ACCESSORY_BLACK_BEARD,
+        ACCESSORY_NARROW_SCALE,
+        ACCESSORY_WHITE_FLUFF,
+
+        ACCESSORY_WHITE_MOUSTACHE,
+        ACCESSORY_SHED_CLAW,
+        ACCESSORY_NARROW_LEAF,
+
+        ACCESSORY_PURPLE_SCALE
+    },
+
+    { // Psyduck and Pachirisu
+        ACCESSORY_SNAGGY_PEBBLE,
+        ACCESSORY_JAGGED_BOULDER,
+        ACCESSORY_BROWN_FLUFF,
+        ACCESSORY_MINI_PEBBLE,
+        ACCESSORY_BLACK_MOUSTACHE,
+        ACCESSORY_SHED_HORN,
+
+        ACCESSORY_NARROW_SCALE,
+        ACCESSORY_ROUND_PEBBLE,
+        ACCESSORY_GREEN_SCALE,
+
+        ACCESSORY_THICK_MUSHROOM
+    },
+
+    { // Jigglypuff and Shroomish
+        ACCESSORY_PINK_SCALE,
+        ACCESSORY_BLUE_FEATHER,
+        ACCESSORY_WHITE_FEATHER,
+        ACCESSORY_BLUE_SCALE,
+        ACCESSORY_THIN_MUSHROOM,
+        ACCESSORY_JAGGED_BOULDER,
+
+        ACCESSORY_WHITE_BEARD,
+        ACCESSORY_BLACK_BEARD,
+        ACCESSORY_BIG_LEAF,
+
+        ACCESSORY_ROUND_PEBBLE
+    },
+
+    { // Pikachu
+        ACCESSORY_ORANGE_FLUFF,
+        ACCESSORY_BROWN_FLUFF,
+        ACCESSORY_SMALL_LEAF,
+        ACCESSORY_RED_FEATHER,
+        ACCESSORY_YELLOW_FEATHER,
+        ACCESSORY_YELLOW_FLUFF,
+
+        ACCESSORY_GLITTER_BOULDER,
+        ACCESSORY_BIG_SCALE,
+        ACCESSORY_BLACK_MOUSTACHE,
+
+        ACCESSORY_PURPLE_SCALE
+    },
+
+    { // Buneary and Happiny
+        ACCESSORY_PINK_SCALE,
+        ACCESSORY_SHED_HORN,
+        ACCESSORY_PINK_FLUFF,
+        ACCESSORY_YELLOW_FEATHER,
+        ACCESSORY_SHED_CLAW,
+        ACCESSORY_BLACK_FLUFF,
+
+        ACCESSORY_SNAGGY_PEBBLE,
+        ACCESSORY_BIG_LEAF,
+        ACCESSORY_GREEN_SCALE,
+
+        ACCESSORY_BLACK_PEBBLE
+    },
 };
 
 THUMB_FUNC BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx)
