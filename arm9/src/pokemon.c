@@ -18,6 +18,12 @@
 #include "constants/moves.h"
 #include "constants/sinnoh_dex.h"
 #include "constants/trainer_classes.h"
+#include "unk_020051F4.h"
+
+extern void FUN_02005E80(u8);
+extern void FUN_02005E90(u32 param0, u32 param1, u32 param2, u32 param3);
+extern u32 FUN_02005F14(s32 param0);
+
 
 #pragma thumb on
 
@@ -3303,14 +3309,14 @@ void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl)
     ReadWholeNarcMemberByIdPair(wotbl, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForme(species, forme));
 }
 
-void FUN_02069FB0(u32 r7, u32 r5, u32 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20)
+void FUN_02069FB0(u32 r7, u32 r5, u16 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20)
 {
     if (r4 == SPECIES_CHATOT)
     {
         if (!FUN_02005F14((int)r5))
         {
             FUN_02005E80(1);
-            FUN_020056AC((int)r5, (int)r4, (int)r6, (int)sp18, (int)sp20);
+            FUN_020056AC(r5, r4, r6, sp18, sp20);
         }
         else
         {
@@ -3321,7 +3327,7 @@ void FUN_02069FB0(u32 r7, u32 r5, u32 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20)
     }
     else
     {
-        FUN_020056AC((int)r5, (int)r4, (int)r6, (int)sp18, (int)sp20);
+        FUN_020056AC(r5, r4, r6, sp18, sp20);
     }
 }
 

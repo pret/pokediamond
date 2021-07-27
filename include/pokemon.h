@@ -294,7 +294,7 @@ void Party_SpreadPokerus(struct PlayerParty * party);
 BOOL Pokemon_HasPokerus(struct Pokemon * pokemon);
 BOOL Pokemon_IsImmuneToPokerus(struct Pokemon * pokemon);
 void Pokemon_UpdateArceusForme(struct Pokemon * pokemon);
-void FUN_02069FB0(u32 r7, u32 r5, u32 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20);
+void FUN_02069FB0(u32 r7, u32 r5, u16 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20);
 void FUN_0206A014(struct Pokemon * pokemon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
 void FUN_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2);
 BOOL FUN_0206A13C(struct Pokemon * pokemon, u32 a1);

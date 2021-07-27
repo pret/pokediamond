@@ -3,6 +3,7 @@
 #include "OS_cache.h"
 #include "sound.h"
 #include "unk_0202F150.h"
+#include "SPI_mic.h"
 
 u32 UNK_021C3DD8[2];
 
@@ -22,9 +23,6 @@ extern void NNS_SndArcPlayerStartSeqEx(u32 *, u32, s32, s32, u32);
 extern u16 NNS_SndPlayerCountPlayingSeqByPlayerNo(int);
 extern u32 NNS_SndPlayerGetSeqNo(u32 *);
 extern u32 NNS_SndArcGetBankInfo(u32);
-extern u32 MIC_StartAutoSampling(u32);
-extern u32 MIC_StopAutoSampling();
-extern u32 MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3);
 extern u32 NNS_SndWaveOutAllocChannel(u32);
 extern void NNS_SndWaveOutFreeChannel(u32);
 extern u32 NNS_SndWaveOutStart(u32, u32, void *, u32, u32, u32, u32, s32, u32, s32);
@@ -650,14 +648,13 @@ THUMB_FUNC u16 FUN_02004900(u32 param0)
     return *ptr;
 }
 
-THUMB_FUNC u32 GF_MIC_StartAutoSampling(u32 param0)
+THUMB_FUNC u32 GF_MIC_StartAutoSampling(struct MIC_SamplingData *param0)
 {
     return MIC_StartAutoSampling(param0);
 }
 
-THUMB_FUNC u32 GF_MIC_StopAutoSampling(u32 param0)
+THUMB_FUNC u32 GF_MIC_StopAutoSampling()
 {
-#pragma unused(param0)
     GetSoundDataPointer();
     return MIC_StopAutoSampling();
 }

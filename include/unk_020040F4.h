@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_020040F4_H
 
 #include "global.h"
+#include "SPI_mic.h"
 
 struct WaveArcInfo
 {
@@ -65,8 +66,8 @@ u8 FUN_020048D0(u16 param0);
 u32 GF_SndPlayerGetSeqNo(u32 *param0);
 u32 FUN_020048F4(u16 param0);
 u16 FUN_02004900(u32 param0);
-u32 GF_MIC_StartAutoSampling(u32 param0);
-u32 GF_MIC_StopAutoSampling(u32 param0);
+u32 GF_MIC_StartAutoSampling(struct MIC_SamplingData *param0);
+u32 GF_MIC_StopAutoSampling();
 u32 GF_MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3);
 void *FUN_02004930(u32 param0);
 BOOL FUN_02004984(u32 param0);

@@ -14,7 +14,7 @@ extern void NNS_SndPlayerStopSeqAll(u32);
 extern void NNS_SndPlayerStopSeq(u32 *, u32);
 extern void NNS_SndPlayerSetTrackPan(u32 *, u32, u32);
 extern u32 FUN_02005D48(u32, u32, u32, u32);
-extern void FUN_02005E80(u32);
+extern void FUN_02005E80(u8);
 extern void FUN_02005DFC();
 extern void *FUN_0201B6C8(u32 *);
 
