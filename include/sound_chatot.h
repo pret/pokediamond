@@ -5,7 +5,7 @@
 #include "sav_chatot.h"
 
 BOOL FUN_02005CFC();
-BOOL FUN_02005D20(struct SaveChatotSoundClip *param0);
+BOOL Chatot_checkCry(struct SaveChatotSoundClip *param0);
 u32 FUN_02005D48(struct SaveChatotSoundClip *param0, u32 param1, s32 param2, s32 param3);
 void FUN_02005DFC();
 u32 Chatot_startRecording();

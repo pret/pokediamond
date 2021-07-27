@@ -20,7 +20,7 @@ THUMB_FUNC BOOL FUN_02005CFC()
     return FALSE;
 }
 
-THUMB_FUNC BOOL FUN_02005D20(struct SaveChatotSoundClip *param0)
+THUMB_FUNC BOOL Chatot_checkCry(struct SaveChatotSoundClip *param0)
 {
     u8 *r4 = FUN_02003D38(30);
 
@@ -44,7 +44,7 @@ THUMB_FUNC u32 FUN_02005D48(struct SaveChatotSoundClip *param0, u32 param1, s32 
     s8 *st0 = FUN_02004DB4();
     u8 *st4 = FUN_02003D38(29);
 
-    if (!FUN_02005D20(param0))
+    if (!Chatot_checkCry(param0))
     {
         return 0;
     }

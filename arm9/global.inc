@@ -363,7 +363,7 @@
 .extern PlaySound
 .extern FUN_02005CBC
 .extern FUN_02005CFC
-.extern FUN_02005D20
+.extern Chatot_checkCry
 .extern FUN_02005D48
 .extern FUN_02005DFC
 .extern Chatot_startRecording

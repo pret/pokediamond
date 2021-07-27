@@ -195,7 +195,7 @@ THUMB_FUNC BOOL ScrCmd_CheckChatotCry(struct ScriptContext* ctx)
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
 
     void* unk = Sav2_Chatot_get(ctx->unk80->saveBlock2);
-    if (FUN_02005D20(unk) == 1)
+    if (Chatot_checkCry(unk) == 1)
     {
         *ret_ptr = 1;
         return FALSE;
