@@ -366,9 +366,9 @@
 .extern FUN_02005D20
 .extern FUN_02005D48
 .extern FUN_02005DFC
-.extern FUN_02005E28
-.extern FUN_02005E64
-.extern FUN_02005E6C
+.extern Chatot_startRecording
+.extern Chatot_stopRecording
+.extern Chatot_saveRecording
 .extern FUN_02005E80
 .extern FUN_02005E90
 .extern FUN_02005EE0

@@ -91,7 +91,7 @@ THUMB_FUNC void FUN_02005DFC()
     *r4 = 0;
 }
 
-THUMB_FUNC u32 FUN_02005E28()
+THUMB_FUNC u32 Chatot_startRecording()
 {
     struct MIC_SamplingData st0;
 
@@ -110,12 +110,12 @@ THUMB_FUNC u32 FUN_02005E28()
     return GF_MIC_StartAutoSampling(&st0);
 }
 
-THUMB_FUNC void FUN_02005E64()
+THUMB_FUNC void Chatot_stopRecording()
 {
     GF_MIC_StopAutoSampling();
 }
 
-THUMB_FUNC void FUN_02005E6C(struct SaveChatotSoundClip *param0)
+THUMB_FUNC void Chatot_saveRecording(struct SaveChatotSoundClip *param0)
 {
     Chatot_Encode(param0, FUN_02004DB4());
 }

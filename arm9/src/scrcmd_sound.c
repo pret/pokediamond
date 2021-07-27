@@ -211,7 +211,7 @@ THUMB_FUNC BOOL ScrCmd_StartChatotRecord(struct ScriptContext* ctx)
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
 
-    if (FUN_02005E28() == 0)
+    if (Chatot_startRecording() == 0)
     {
         *ret_ptr = 1;
         return FALSE;
@@ -226,14 +226,14 @@ THUMB_FUNC BOOL ScrCmd_StartChatotRecord(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_StopChatotRecord(struct ScriptContext* ctx)
 {
 #pragma unused(ctx)
-    FUN_02005E64();
+    Chatot_stopRecording();
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_SaveChatotCry(struct ScriptContext* ctx)
 {
     void* unk = Sav2_Chatot_get(ctx->unk80->saveBlock2);
-    FUN_02005E6C(unk);
+    Chatot_saveRecording(unk);
 
     return TRUE;
 }
