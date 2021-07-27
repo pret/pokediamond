@@ -1,5 +1,5 @@
 #include "global.h"
-#include "unk_02005CFC.h"
+#include "sound_chatot.h"
 #include "SPI_mic.h"
 #include "math_util.h"
 #include "proto.h"

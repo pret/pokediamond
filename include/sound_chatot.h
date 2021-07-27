@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_UNK_02005CFC_H
-#define POKEDIAMOND_UNK_02005CFC_H
+#ifndef POKEDIAMOND_SOUND_CHATOT_H
+#define POKEDIAMOND_SOUND_CHATOT_H
 
 #include "global.h"
 #include "sav_chatot.h"

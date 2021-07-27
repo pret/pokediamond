@@ -1,11 +1,7 @@
 #include "scrcmd.h"
 #include "unk_020040F4.h"
+#include "sound_chatot.h"
 
-extern void* Sav2_Chatot_get(struct SaveBlock2* sav2);
-extern u32 FUN_02005D20(void *);
-extern void FUN_02005E6C(void *);
-extern u32 FUN_02005E28(void);
-extern void FUN_02005E64(void);
 extern BOOL FUN_02005CBC(void);
 extern void PlaySound(u16);
 extern void FUN_0204AB20(struct UnkSavStruct80 *ctx, u16);
