@@ -88,7 +88,7 @@ _021D7540:
 	ldr r1, _021D75F8 ; =0x0000C070
 	str r0, [r5, r1]
 	ldr r0, [r5]
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	ldr r1, _021D75FC ; =0x0000C2CC
 	str r0, [r5, r1]
 	mov r0, #0
@@ -817,7 +817,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	bl GX_EngineBToggleLayers
 	ldr r0, _021D7C14 ; =0x0000C2CC
 	ldr r0, [r4, r0]
-	bl FUN_0201EB70
+	bl Camera_Free
 	ldr r0, _021D7C18 ; =0x0000C070
 	ldr r0, [r4, r0]
 	bl ScrStrBufs_delete
@@ -2490,20 +2490,20 @@ MOD77_021D8970: ; 0x021D8970
 	ldr r2, _021D89EC ; =0x000005C1
 	str r0, [sp, #4]
 	add r0, r7, #0
-	bl FUN_0201ED5C
+	bl Camera_InitWithPosAndTarget
 	ldr r2, _021D89E8 ; =0x0000C2CC
 	mov r1, #0x19
 	ldr r2, [r4, r2]
 	mov r0, #0
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	ldr r1, _021D89E8 ; =0x0000C2CC
 	mov r0, #0
 	ldr r1, [r4, r1]
-	bl FUN_0201EE2C
+	bl Camera_ApplyPerspectiveType
 	ldr r0, _021D89E8 ; =0x0000C2CC
 	ldr r0, [r4, r0]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	ldr r0, _021D89F0 ; =0x0000C2F4
 	ldrh r1, [r4, r0]
 	cmp r1, #0
@@ -2944,7 +2944,7 @@ MOD77_021D8CF8: ; 0x021D8CF8
 	add r5, r0, #0
 	ldr r0, _021D8D7C ; =0x0000C2CC
 	ldr r0, [r5, r0]
-	bl FUN_0201F010
+	bl Camera_GetDistance
 	ldr r1, _021D8D80 ; =0x0000C2D8
 	mov r4, #0
 	ldrh r2, [r5, r1]
@@ -3005,7 +3005,7 @@ _021D8D6A:
 _021D8D70:
 	ldr r1, _021D8D7C ; =0x0000C2CC
 	ldr r1, [r5, r1]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
@@ -3047,7 +3047,7 @@ _021D8D90:
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8DC2:
 	bl FUN_020222AC
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	ldr r1, _021D8E7C ; =0x0000C2B4
 	add r0, sp, #0x4c
 	add r1, r5, r1

@@ -1653,7 +1653,7 @@ MOD64_021D81D8: ; 0x021D81D8
 	mov r0, #0x11
 	add r2, r1, #0
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	add r0, r4, #0
 	bl MOD64_021D8058
 	mov r2, #1
@@ -1679,7 +1679,7 @@ MOD64_021D824C: ; 0x021D824C
 	push {r4, lr}
 	add r4, r0, #0
 	add r0, r1, #0
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	mov r1, #0x5f
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -1713,7 +1713,7 @@ MOD64_021D8268: ; 0x021D8268
 	lsl r1, r1, #0xe
 	add r2, sp, #0xc
 	str r4, [sp, #8]
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -1722,9 +1722,9 @@ MOD64_021D8268: ; 0x021D8268
 	str r1, [sp, #0x1c]
 	add r0, sp, #0x14
 	add r1, r4, #0
-	bl FUN_0201EC58
+	bl Camera_SetLookAtCamUp
 	add r0, r4, #0
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	add sp, #0x20
 	pop {r4, pc}
 	.align 2, 0
@@ -1740,7 +1740,7 @@ MOD64_021D82BC: ; 0x021D82BC
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_021D82C8: .word FUN_0201EB70
+_021D82C8: .word Camera_Free
 	thumb_func_end MOD64_021D82BC
 
 	thumb_func_start MOD64_021D82CC
@@ -2573,10 +2573,10 @@ MOD64_021D88C4: ; 0x021D88C4
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x30]
 	add r0, sp, #0
-	bl FUN_0201EF90
+	bl Camera_SetAngle
 	ldr r0, [r5, #0x10]
 	ldr r1, [r5, #0x30]
-	bl FUN_0201EFE0
+	bl Camera_SetDistance
 	ldr r1, [r5, #0x20]
 	ldr r0, [r5, #0x34]
 	str r1, [r0, #8]

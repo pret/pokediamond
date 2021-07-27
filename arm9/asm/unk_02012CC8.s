@@ -145,7 +145,7 @@ _02012D14:
 	cmp r0, #0x1
 	bne _02012DA8
 	ldr r0, [sp, #0x2c]
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	str r0, [r4, #0x20]
 	mov r3, #0x0
 	str r3, [r4, #0x24]
@@ -160,13 +160,13 @@ _02012D14:
 	str r0, [sp, #0x4]
 	ldrh r2, [r4, #0x30]
 	ldr r0, _02012DDC ; =UNK_020ED4F0
-	bl FUN_0201ED5C
+	bl Camera_InitWithPosAndTarget
 	add r0, r4, #0x0
 	mov r1, #0x0
 	add r0, #0xdb
 	strb r1, [r0, #0x0]
 	ldr r0, [r4, #0x20]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 _02012DA8:
 	mov r0, #0x6
 	str r0, [sp, #0x0]
@@ -291,7 +291,7 @@ _02012E94:
 	ldr r0, [r5, #0x20]
 	cmp r0, #0x0
 	beq _02012E9E
-	bl FUN_0201EB70
+	bl Camera_Free
 _02012E9E:
 	add r0, r5, #0x0
 	bl FreeToHeap
@@ -947,10 +947,10 @@ FUN_02013300: ; 0x02013300
 	beq _0201331C
 	add r0, #0xdb
 	ldrb r0, [r0, #0x0]
-	bl FUN_0201EE2C
+	bl Camera_ApplyPerspectiveType
 	ldr r0, [r4, #0x20]
-	bl FUN_0201EB8C
-	bl FUN_0201EBA4
+	bl Camera_SetWorkPtr
+	bl Camera_PushLookAtToNNSGlb
 _0201331C:
 	bl NNS_G3dGlbFlushP
 	ldr r0, [r4, #0x0]
@@ -959,7 +959,7 @@ _0201331C:
 	ldr r0, [r4, #0x20]
 	cmp r0, #0x0
 	beq _02013332
-	bl FUN_0201EB98
+	bl Camera_UnsetWorkPtr
 _02013332:
 	bl NNS_G3dGlbFlushP
 	pop {r4, pc}
@@ -1106,7 +1106,7 @@ FUN_020133FC: ; 0x020133FC
 	str r0, [r2, #0x0]
 	ldr r1, [r5, #0x20]
 	add r0, r4, #0x0
-	bl FUN_0201EC58
+	bl Camera_SetLookAtCamUp
 	pop {r3-r5, pc}
 	.balign 4
 

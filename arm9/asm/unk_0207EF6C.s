@@ -173,7 +173,7 @@ FUN_0207F008: ; 0x0207F008
 	cmp r0, #0x4
 	bne _0207F046
 	bl FUN_020222AC
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	ldr r2, _0207F060 ; =0x04000440
 	mov r3, #0x0
 	add r1, r2, #0x0
@@ -213,7 +213,7 @@ FUN_0207F068: ; 0x0207F068
 	mov r0, #0xad
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_0201EB70
+	bl Camera_Free
 	mov r0, #0x2d
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
@@ -247,7 +247,7 @@ FUN_0207F098: ; 0x0207F098
 	strh r0, [r1, #0x4]
 	strh r0, [r1, #0x6]
 	mov r0, #0x13
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	mov r1, #0xad
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -259,22 +259,22 @@ FUN_0207F098: ; 0x0207F098
 	ldr r3, _0207F104 ; =0x000005C1
 	add r0, sp, #0x10
 	add r2, sp, #0x8
-	bl FUN_0201ED10
+	bl Camera_InitWithPosAndAngle
 	mov r2, #0xad
 	lsl r2, r2, #0x2
 	mov r1, #0x19
 	ldr r2, [r4, r2]
 	mov r0, #0x0
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	mov r0, #0xad
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_0201EC88
+	bl Camera_ClearFixedTarget
 	mov r0, #0xad
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	add sp, #0x1c
 	pop {r3-r4, pc}
 	nop

@@ -623,7 +623,7 @@ _021D79B6:
 	pop {r4, r5, pc}
 _021D79CA:
 	bl FUN_020222AC
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	add r1, r4, #0
 	add r0, sp, #0
 	add r1, #0x90
@@ -965,7 +965,7 @@ _021D7C52:
 	add r0, #0xd0
 	str r1, [r0]
 	add r0, r4, #0
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	add r1, r5, #0
 	add r1, #0xa0
 	str r0, [r1]
@@ -981,23 +981,23 @@ _021D7C52:
 	add r0, r5, #0
 	add r0, #0xbc
 	lsl r2, r2, #4
-	bl FUN_0201ED5C
+	bl Camera_InitWithPosAndTarget
 	add r2, r5, #0
 	add r2, #0xa0
 	mov r1, #0x19
 	ldr r2, [r2]
 	mov r0, #0
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	add r1, r5, #0
 	add r1, #0xa0
 	ldr r1, [r1]
 	mov r0, #0
-	bl FUN_0201EE2C
+	bl Camera_ApplyPerspectiveType
 	add r0, r5, #0
 	add r0, #0xa0
 	ldr r0, [r0]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	mov r3, #0x42
 	lsl r3, r3, #2
 	add r2, r3, #2
@@ -1652,13 +1652,13 @@ _021D81DC:
 	add r0, r4, #0
 	ldr r1, [r1]
 	add r0, #0xbc
-	bl FUN_0201F04C
+	bl Camera_SetLookAtCamTarget
 	add r1, r4, #0
 	add r1, #0xa0
 	add r0, r4, #0
 	ldr r1, [r1]
 	add r0, #0xc8
-	bl FUN_0201F05C
+	bl Camera_SetLookAtCamPos
 	cmp r5, #1
 	bne _021D824E
 	mov r0, #4
@@ -1727,13 +1727,13 @@ _021D8272:
 	add r0, r5, #0
 	ldr r1, [r1]
 	add r0, #0xfc
-	bl FUN_0201F04C
+	bl Camera_SetLookAtCamTarget
 	add r1, r5, #0
 	add r1, #0xa0
 	add r0, r5, #0
 	ldr r1, [r1]
 	add r0, #0xe4
-	bl FUN_0201F05C
+	bl Camera_SetLookAtCamPos
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -1838,7 +1838,7 @@ MOD63_021D8360: ; 0x021D8360
 	ldr r0, [r0]
 	add r4, r1, #0
 	add r6, r2, #0
-	bl FUN_0201EB70
+	bl Camera_Free
 	add r0, r5, #4
 	bl MOD63_021D7970
 	add r0, r4, #0

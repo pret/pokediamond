@@ -438,7 +438,7 @@ ScrCmd_Unk0066: ; 0x0203B468
 	ldr r1, [r5, #0x0]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x20]
-	bl FUN_0201EC68
+	bl Camera_SetFixedTarget
 	mov r0, #0x0
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -471,7 +471,7 @@ ScrCmd_Unk0067: ; 0x0203B500
 	ldr r1, [r5, #0x0]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x20]
-	bl FUN_0201EC68
+	bl Camera_SetFixedTarget
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -685,7 +685,7 @@ _0203B6F8:
 	ldr r1, [r5, #0x0]
 	add r0, sp, #0x0
 	ldr r1, [r1, #0x20]
-	bl FUN_0201EF70
+	bl Camera_OffsetLookAtPosAndTarget
 	mov r0, #0x0
 	add sp, #0xc
 	pop {r4-r7, pc}

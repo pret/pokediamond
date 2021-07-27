@@ -1480,7 +1480,7 @@ MOD81_02238940: ; 0x02238940
 	mov r0, #0x11
 	add r2, r1, #0
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	ldr r0, [r5, #0x1c]
 	mov r6, #0
 	cmp r0, #0
@@ -1858,7 +1858,7 @@ MOD81_02238B8C: ; 0x02238B8C
 	mov r0, #0x11
 	add r2, r1, #0
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_0201EBA4
+	bl Camera_PushLookAtToNNSGlb
 	add r1, r4, #0
 	ldr r0, [r4, #0x5c]
 	add r4, #0x74
@@ -1887,7 +1887,7 @@ MOD81_02238C40: ; 0x02238C40
 	add r4, r1, #0
 	ldr r1, [r2]
 	add r0, sp, #0
-	bl FUN_0201F03C
+	bl Camera_GetLookAtCamPos
 	add r2, sp, #0
 	ldmia r2!, {r0, r1}
 	stmia r4!, {r0, r1}
@@ -1906,7 +1906,7 @@ MOD81_02238C60: ; 0x02238C60
 	ldr r1, [r2]
 	bx r3
 	nop
-_02238C6C: .word FUN_0201EF90
+_02238C6C: .word Camera_SetAngle
 	thumb_func_end MOD81_02238C60
 
 	thumb_func_start MOD81_02238C70
@@ -1917,7 +1917,7 @@ MOD81_02238C70: ; 0x02238C70
 	ldr r1, [r2]
 	bx r3
 	nop
-_02238C7C: .word FUN_0201EFB4
+_02238C7C: .word Camera_AdjustAngle
 	thumb_func_end MOD81_02238C70
 
 	thumb_func_start MOD81_02238C80
@@ -1928,7 +1928,7 @@ MOD81_02238C80: ; 0x02238C80
 	ldr r1, [r2]
 	bx r3
 	nop
-_02238C8C: .word FUN_0201EE2C
+_02238C8C: .word Camera_ApplyPerspectiveType
 	thumb_func_end MOD81_02238C80
 
 	thumb_func_start MOD81_02238C90
@@ -1939,7 +1939,7 @@ MOD81_02238C90: ; 0x02238C90
 	ldr r1, [r2]
 	bx r3
 	nop
-_02238C9C: .word FUN_0201EEF0
+_02238C9C: .word Camera_SetPerspectiveAngle
 	thumb_func_end MOD81_02238C90
 
 	thumb_func_start MOD81_02238CA0
@@ -1951,7 +1951,7 @@ MOD81_02238CA0: ; 0x02238CA0
 	add r4, r1, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_0201EB64
+	bl Camera_Alloc
 	str r0, [r5]
 	str r4, [r5, #4]
 	str r6, [r5, #8]
@@ -1971,7 +1971,7 @@ MOD81_02238CA0: ; 0x02238CA0
 	add r0, r5, #4
 	lsl r1, r1, #0xe
 	add r2, #0x10
-	bl FUN_0201ECA8
+	bl Camera_InitWithTargetAndAngle
 	mov r1, #0
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -1980,14 +1980,14 @@ MOD81_02238CA0: ; 0x02238CA0
 	str r1, [sp, #0x14]
 	ldr r1, [r5]
 	add r0, sp, #0xc
-	bl FUN_0201EC58
+	bl Camera_SetLookAtCamUp
 	ldr r0, [r5]
-	bl FUN_0201EB8C
+	bl Camera_SetWorkPtr
 	mov r1, #0xfa
 	ldr r2, [r5]
 	mov r0, #0
 	lsl r1, r1, #0xe
-	bl FUN_0201EC94
+	bl Camera_SetPerspectiveClippingPlane
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -2000,7 +2000,7 @@ MOD81_02238D0C: ; 0x02238D0C
 	ldr r0, [r0]
 	bx r3
 	nop
-_02238D14: .word FUN_0201EB70
+_02238D14: .word Camera_Free
 	thumb_func_end MOD81_02238D0C
 
 	thumb_func_start MOD81_02238D18
