@@ -3315,9 +3315,9 @@
 .extern ScrCmd_Unk01A6
 .extern ScrCmd_Unk01A7
 .extern ScrCmd_Unk01AD
-.extern ScrCmd_Unk0215
-.extern ScrCmd_Unk0216
-.extern ScrCmd_Unk0217
+.extern ScrCmd_ClearAmitySquareSteps
+.extern ScrCmd_CheckAmitySquareSteps
+.extern ScrCmd_GetAmitySquareAccessory
 .extern ScrCmd_GiveMon
 .extern ScrCmd_GetPartyMonSpecies
 .extern ScrCmd_CheckPartyMonOTID
