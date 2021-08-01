@@ -7,7 +7,6 @@
 #include "PM.h"
 #include "SND_exChannel.h"
 #include "SND_work.h"
-#include "SND_channel.h"
 
 static int sMasterPan = -1;
 
