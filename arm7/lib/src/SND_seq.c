@@ -33,7 +33,7 @@ void SND_SeqMain(BOOL step) {
         if (ply->flags.prepared) {
             if (step && !ply->flags.paused)
                 PlayerSeqMain(ply);
-            PlayerUpdateChannelVolume(ply);
+            PlayerUpdateChannel(ply);
         }
 
         if (ply->flags.active)
@@ -50,7 +50,7 @@ void SND_PrepareSeq(int player, const void *seq, u32 offset, struct SNDBankData 
     if (ply->flags.active)
         PlayerStop(ply);
     
-    PlayerSetBank(ply, bankData);
+    PlayerInit(ply, bankData);
 
     int allocTrkIdx = AllocateTrack();
 
@@ -59,7 +59,7 @@ void SND_PrepareSeq(int player, const void *seq, u32 offset, struct SNDBankData 
     
     struct SNDTrack *trk = &SNDi_Work.tracks[allocTrkIdx];
     TrackInit(trk);
-    TrackSetSeq(trk, seq, offset);
+    TrackStart(trk, seq, offset);
     ply->tracks[0] = (u8)allocTrkIdx;
     SeqCacheFetch(trk->cur);
 

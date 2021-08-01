@@ -1,6 +1,8 @@
 #ifndef GUARD_SND_SEQ_SHARED_H
 #define GUARD_SND_SEQ_SHARED_H
 
+#include "nitro/SND_exChannel_shared.h"
+
 #define SND_TRACK_COUNT_PER_PLAYER 16
 #define SND_INVALID_TRACK_INDEX 0xFF
 
