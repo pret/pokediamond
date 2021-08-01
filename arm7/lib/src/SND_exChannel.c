@@ -1,5 +1,6 @@
 #include "SND_exChannel.h"
 
+#include "SND_channel.h"
 #include "SND_main.h"
 #include "SND_work.h"
 #include "SND_util.h"
@@ -15,6 +16,8 @@ static u32 sWeakLockedChannelMask;
 
 // TODO remove this extern once we actually know where this table is
 extern u8 sSampleDataShiftTable[4];
+
+static u16 CalcDecayCoeff(int vol);
 
 void SND_ExChannelInit(void) {
     struct SNDExChannel *chn;
@@ -471,7 +474,7 @@ int SND_GetLfoValue(struct SNDLfo *lfo) {
     }
 }
 
-u16 CalcDecayCoeff(int vol) {
+static u16 CalcDecayCoeff(int vol) {
     if (vol == 127)
         return 0xFFFF;
     else if (vol == 126)

@@ -40,7 +40,8 @@ Autoload WRAM
 	Object PXI_fifo.o
 	Object EXI_genPort.o
 	Object PAD_xyButton.o
-	Object SND.o
+	Object SND_global.o
+	Object SND_channel.o
 	Object SND_util.o
 	Object SND_main.o
 	Object SND_capture.o

@@ -2,11 +2,11 @@
 
 #include "global.h"
 
-#include "SND.h"
 #include "SND_alarm.h"
 #include "SND_capture.h"
 #include "SND_command.h"
 #include "SND_exChannel.h"
+#include "SND_global.h"
 #include "SND_seq.h"
 #include "SND_util.h"
 #include "SND_work.h"

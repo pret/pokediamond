@@ -21,7 +21,6 @@ void SND_ReleaseExChannel(struct SNDExChannel *chn);
 BOOL SND_IsExChannelActive(struct SNDExChannel *chn);
 struct SNDExChannel *SND_AllocExChannel(u32 channelMask, int priority, u32 flags, SNDExChannelCallback callback, void *callbackUserData);
 void SND_FreeExChannel(struct SNDExChannel *chn);
-BOOL SND_IsChannelActive(int idx);
 void SND_InvalidateWave(const void *start, const void *end);
 
 // TODO internal functions, move these so exChannel
@@ -42,47 +41,5 @@ void SND_InitLfoParam(struct SNDLfoParam *lfoParam);
 void SND_StartLfo(struct SNDLfo *lfo);
 void SND_UpdateLfo(struct SNDLfo *lfo);
 int SND_GetLfoValue(struct SNDLfo *lfo);
-void SNDi_SetSurroundDecay(int decay);
-
-void SND_SetupChannelPcm(
-    int chnIdx,
-    const void *data,
-    int format,
-    int loop,
-    int loopStart,
-    int loopLen,
-    int volume,
-    int volumeDiv,
-    int timer,
-    int pan
-);
-
-void SND_SetupChannelPsg(
-    int chnIdx,
-    int waveDuty,
-    int volume,
-    int volumeDiv,
-    int timer,
-    int pan
-);
-
-void SND_SetupChannelNoise(
-    int chnIdx,
-    int volume,
-    int volumeDiv,
-    int timer,
-    int pan
-);
-
-void SND_StopChannel(int chnIdx, int hold);
-
-void SND_SetChannelVolume(int chnIdx, int volume, int volumeDiv);
-void SND_SetChannelPan(int chnIdx, int pan);
-void SND_SetChannelTimer(int chnIdx, int timer);
-
-u32 SND_GetChannelControl(int idx);
-
-// TODO move this function to SND_exChannel.c
-u16 CalcDecayCoeff(int value);
 
 #endif //GUARD_SND_EXCHANNEL_H
