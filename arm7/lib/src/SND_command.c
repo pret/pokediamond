@@ -12,7 +12,6 @@
 #include "SND_capture.h"
 #include "SND_channel.h"
 #include "SND_exChannel.h"
-#include "SND_lockChannel.h"
 #include "SND_main.h"
 #include "SND_seq.h"
 #include "SND_work.h"

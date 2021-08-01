@@ -3,7 +3,6 @@
 #include "SND_channel.h"
 #include "SND_main.h"
 #include "SND_work.h"
-#include "SND_lockChannel.h"
 #include "SND_util.h"
 
 #include "registers.h"
@@ -11,6 +10,9 @@
 // TODO import these tables into here if they belong here
 extern u8 sChannelAllocationOrder[SND_CHANNEL_COUNT];
 extern u8 sAttackCoeffTable[19];
+
+static u32 sLockedChannelMask;
+static u32 sWeakLockedChannelMask;
 
 void SND_ExChannelInit(void) {
     struct SNDExChannel *chn;
@@ -342,5 +344,77 @@ void SND_FreeExChannel(struct SNDExChannel *chn) {
     if (chn) {
         chn->callback = NULL;
         chn->callbackUserData = NULL;
+    }
+}
+
+void SND_StopUnlockedChannel(u32 channelMask, u32 weak) {
+    (void)weak;
+
+    struct SNDExChannel *chn;
+    
+    for (int i = 0; i < SND_CHANNEL_COUNT && channelMask != 0; i++, channelMask >>= 1) {
+        if ((channelMask & 1) == 0)
+            continue;
+        
+        chn = &SNDi_Work.channels[i];
+
+        if (sLockedChannelMask & (1 << i))
+            continue;
+
+        if (chn->callback)
+            chn->callback(chn, 0, chn->callbackUserData);
+
+        SND_StopChannel(i, 0);
+        chn->priority = 0;
+        SND_FreeExChannel(chn);
+        chn->flags.syncFlag = 0;
+        chn->flags.active = 0;
+    }
+}
+
+void SND_LockChannel(u32 channelMask, u32 weak) {
+    struct SNDExChannel *chn;
+    u32 j = channelMask;
+    int i = 0;
+
+    for (; i < SND_CHANNEL_COUNT && j != 0; i++, j >>= 1) {
+        if ((j & 1) == 0)
+            continue;
+
+        chn = &SNDi_Work.channels[i];
+
+        if (sLockedChannelMask & (1 << i))
+            continue;
+
+        if (chn->callback)
+            chn->callback(chn, 0, chn->callbackUserData);
+
+        SND_StopChannel(i, 0);
+        chn->priority = 0;
+        SND_FreeExChannel(chn);
+        chn->flags.syncFlag = 0;
+        chn->flags.active = 0;
+    }
+
+    if (weak & 1) {
+        sWeakLockedChannelMask |= channelMask;
+    } else {
+        sLockedChannelMask |= channelMask;
+    }
+}
+
+void SND_UnlockChannel(u32 channelMask, u32 weak) {
+    if (weak & 1) {
+        sWeakLockedChannelMask &= ~channelMask;
+    } else {
+        sLockedChannelMask &= ~channelMask;
+    }
+}
+
+u32 SND_GetLockedChannel(u32 weak) {
+    if (weak & 1) {
+        return sWeakLockedChannelMask;
+    } else {
+        return sLockedChannelMask;
     }
 }

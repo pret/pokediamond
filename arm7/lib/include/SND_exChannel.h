@@ -31,4 +31,9 @@ void ExChannelStart(struct SNDExChannel *chn, int length);
 int ExChannelVolumeCmp(struct SNDExChannel *chn_a, struct SNDExChannel *chn_b);
 void ExChannelSetup(struct SNDExChannel *, SNDExChannelCallback callback, void *callbackUserData, int priority);
 
+void SND_StopUnlockedChannel(u32 channelMask, u32 weak);
+void SND_LockChannel(u32 channelMask, u32 weak);
+void SND_UnlockChannel(u32 channelMask, u32 weak);
+u32 SND_GetLockedChannel(u32 weak);
+
 #endif //GUARD_SND_EXCHANNEL_H
