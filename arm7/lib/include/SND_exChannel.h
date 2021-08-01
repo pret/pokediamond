@@ -36,4 +36,6 @@ void SND_LockChannel(u32 channelMask, u32 weak);
 void SND_UnlockChannel(u32 channelMask, u32 weak);
 u32 SND_GetLockedChannel(u32 weak);
 
+void SND_InvalidateWave(const void *begin, const void *end);
+
 #endif //GUARD_SND_EXCHANNEL_H

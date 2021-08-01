@@ -418,3 +418,14 @@ u32 SND_GetLockedChannel(u32 weak) {
         return sLockedChannelMask;
     }
 }
+
+void SND_InvalidateWave(const void *start, const void *end) {
+    for (u8 i = 0; i < SND_CHANNEL_COUNT; i++) {
+        struct SNDExChannel *chn = &SNDi_Work.channels[i];
+
+        if (chn->flags.active && chn->type == 0 && start <= chn->waveDataPtr && chn->waveDataPtr <= end) {
+            chn->flags.start = FALSE;
+            SND_StopChannel(i, 0);
+        }
+    }
+}
