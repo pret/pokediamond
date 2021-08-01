@@ -19,6 +19,12 @@ extern u8 sSampleDataShiftTable[4];
 
 static u16 CalcDecayCoeff(int vol);
 
+static int ExChannelSweepUpdate(struct SNDExChannel *chn, BOOL step);
+static int ExChannelLfoUpdate(struct SNDExChannel *chn, BOOL step);
+static void ExChannelStart(struct SNDExChannel *chn, int length);
+static int ExChannelVolumeCmp(struct SNDExChannel *chn_a, struct SNDExChannel *chn_b);
+static void ExChannelSetup(struct SNDExChannel *, SNDExChannelCallback callback, void *callbackUserData, int priority);
+
 void SND_ExChannelInit(void) {
     struct SNDExChannel *chn;
     s32 i;
@@ -485,7 +491,7 @@ static u16 CalcDecayCoeff(int vol) {
         return (u16)(0x1E00 / (126 - vol));
 }
 
-void ExChannelSetup(struct SNDExChannel *chn, SNDExChannelCallback callback, void *callbackUserData, int priority) {
+static void ExChannelSetup(struct SNDExChannel *chn, SNDExChannelCallback callback, void *callbackUserData, int priority) {
     chn->channelLLNext = NULL;
     chn->callback = callback;
     chn->callbackUserData = callbackUserData;
@@ -514,7 +520,7 @@ void ExChannelSetup(struct SNDExChannel *chn, SNDExChannelCallback callback, voi
     SND_InitLfoParam(&chn->lfo.param);
 }
 
-void ExChannelStart(struct SNDExChannel *chn, int length) {
+static void ExChannelStart(struct SNDExChannel *chn, int length) {
     chn->envAttenuation = -92544;
     chn->envStatus = 0;
     chn->length = length;
@@ -523,7 +529,7 @@ void ExChannelStart(struct SNDExChannel *chn, int length) {
     chn->flags.active = TRUE;
 }
 
-int ExChannelVolumeCmp(struct SNDExChannel *chn_a, struct SNDExChannel *chn_b) {
+static int ExChannelVolumeCmp(struct SNDExChannel *chn_a, struct SNDExChannel *chn_b) {
     int vol_a = chn_a->volume & 0xFF;
     int vol_b = chn_b->volume & 0xFF;
 
@@ -542,7 +548,7 @@ int ExChannelVolumeCmp(struct SNDExChannel *chn_a, struct SNDExChannel *chn_b) {
     return 0;
 }
 
-int ExChannelSweepUpdate(struct SNDExChannel *chn, BOOL step) {
+static int ExChannelSweepUpdate(struct SNDExChannel *chn, BOOL step) {
     s64 result;
 
     if (chn->sweepPitch == 0) {
@@ -559,7 +565,7 @@ int ExChannelSweepUpdate(struct SNDExChannel *chn, BOOL step) {
     return (int)result;
 }
 
-int ExChannelLfoUpdate(struct SNDExChannel *chn, BOOL step) {
+static int ExChannelLfoUpdate(struct SNDExChannel *chn, BOOL step) {
     s64 result = SND_GetLfoValue(&chn->lfo);
 
     if (result != 0) {

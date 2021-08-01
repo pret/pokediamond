@@ -23,13 +23,6 @@ struct SNDExChannel *SND_AllocExChannel(u32 channelMask, int priority, u32 flags
 void SND_FreeExChannel(struct SNDExChannel *chn);
 void SND_InvalidateWave(const void *start, const void *end);
 
-// TODO internal functions, move these so exChannel
-int ExChannelSweepUpdate(struct SNDExChannel *chn, BOOL step);
-int ExChannelLfoUpdate(struct SNDExChannel *chn, BOOL step);
-void ExChannelStart(struct SNDExChannel *chn, int length);
-int ExChannelVolumeCmp(struct SNDExChannel *chn_a, struct SNDExChannel *chn_b);
-void ExChannelSetup(struct SNDExChannel *, SNDExChannelCallback callback, void *callbackUserData, int priority);
-
 void SND_StopUnlockedChannel(u32 channelMask, u32 weak);
 void SND_LockChannel(u32 channelMask, u32 weak);
 void SND_UnlockChannel(u32 channelMask, u32 weak);
