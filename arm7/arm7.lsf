@@ -49,7 +49,6 @@ Autoload WRAM
 	Object SND_wave.o
 	Object SND_lockChannel.o
 	Object SND_exChannel.o
-	Object SND_unk_037FD440.o
 	Object SND_seq.o
 	Object SND_bank.o
 	Object SND_work.o
