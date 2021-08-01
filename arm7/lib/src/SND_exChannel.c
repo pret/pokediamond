@@ -7,15 +7,13 @@
 
 #include "registers.h"
 
-// TODO import these tables into here if they belong here
-extern u8 sChannelAllocationOrder[SND_CHANNEL_COUNT];
-extern u8 sAttackCoeffTable[19];
+// TODO import these tables into here if we have a working .rodata section
+extern const u8 sChannelAllocationOrder[SND_CHANNEL_COUNT];
+extern const u8 sAttackCoeffTable[19];
+extern const u8 sSampleDataShiftTable[4];
 
 static u32 sLockedChannelMask;
 static u32 sWeakLockedChannelMask;
-
-// TODO remove this extern once we actually know where this table is
-extern u8 sSampleDataShiftTable[4];
 
 static u16 CalcDecayCoeff(int vol);
 
