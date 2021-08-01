@@ -38,4 +38,9 @@ u32 SND_GetLockedChannel(u32 weak);
 
 void SND_InvalidateWave(const void *begin, const void *end);
 
+void SND_InitLfoParam(struct SNDLfoParam *lfoParam);
+void SND_StartLfo(struct SNDLfo *lfo);
+void SND_UpdateLfo(struct SNDLfo *lfo);
+int SND_GetLfoValue(struct SNDLfo *lfo);
+
 #endif //GUARD_SND_EXCHANNEL_H
