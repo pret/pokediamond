@@ -10,4 +10,4 @@ void SND_SetPlayerLocalVariable(int player, int var, s16 value);
 void SND_SetPlayerGlobalVariable(int var, s16 value);
 void SND_UpdateSharedWork(void);
 
-#endif //GUARD_SND_WORK_H
+#endif // GUARD_SND_WORK_H

@@ -21,4 +21,4 @@ void SND_SetTrackAllocatableChannel(int player, u32 trackMask, u32 channelMask);
 void SND_InvalidateSeq(const void *start, const void *end);
 void SND_InvalidateBank(const void *start, const void *end);
 
-#endif //GUARD_SND_SEQ_H
+#endif // GUARD_SND_SEQ_H

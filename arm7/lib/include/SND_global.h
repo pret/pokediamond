@@ -9,6 +9,7 @@ void SND_Shutdown(void);
 void SND_BeginSleep(void);
 void SND_EndSleep(void);
 void SND_SetMasterVolume(int vol);
-void SND_SetOutputSelector(int leftOutputFrom, int rightOutputFrom, int outputCh1ToMixer, int outputCh3ToMixer);
+void SND_SetOutputSelector(
+    int leftOutputFrom, int rightOutputFrom, int outputCh1ToMixer, int outputCh3ToMixer);
 
-#endif //GUARD_SND_GLOBAL_H
+#endif // GUARD_SND_GLOBAL_H

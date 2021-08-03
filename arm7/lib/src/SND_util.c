@@ -5,16 +5,19 @@
 // TODO remove this extern once the static const definition of it is here
 extern s8 sLfoSinTable[0x21];
 
-u16 SND_CalcTimer(int timer, int pitch) {
+u16 SND_CalcTimer(int timer, int pitch)
+{
     int octave = 0;
     int pitch_normalized = -pitch;
 
-    while (pitch_normalized < 0) {
+    while (pitch_normalized < 0)
+    {
         octave--;
         pitch_normalized += 768;
     }
 
-    while (pitch_normalized >= 768) {
+    while (pitch_normalized >= 768)
+    {
         octave++;
         pitch_normalized -= 768;
     }
@@ -23,19 +26,24 @@ u16 SND_CalcTimer(int timer, int pitch) {
 
     result += 0x10000;
     result *= timer;
-    
+
     int shift = octave - 16;
 
-    if (shift <= 0) {
+    if (shift <= 0)
+    {
         shift = -shift;
         result >>= shift;
-    } else if (shift < 32) {
+    }
+    else if (shift < 32)
+    {
         // what ???
         u64 tmp = result & ~0uLL << (32 - shift);
         if (tmp != 0)
             return 0xFFFF;
         result <<= shift;
-    } else {
+    }
+    else
+    {
         return 0xFFFF;
     }
 
@@ -47,7 +55,8 @@ u16 SND_CalcTimer(int timer, int pitch) {
     return (u16)result;
 }
 
-u16 SND_CalcChannelVolume(int value) {
+u16 SND_CalcChannelVolume(int value)
+{
     if (value < SND_VOL_DB_MIN)
         value = SND_VOL_DB_MIN;
     else if (value > 0)
@@ -68,21 +77,30 @@ u16 SND_CalcChannelVolume(int value) {
     return (u16)(result | (div << 8));
 }
 
-s8 SND_SinIdx(int x) {
+s8 SND_SinIdx(int x)
+{
     // BUG: UB for out of range values
-    
-    if (x < 0x20) {
+
+    if (x < 0x20)
+    {
         return sLfoSinTable[x];
-    } else if (x < 0x40) {
+    }
+    else if (x < 0x40)
+    {
         return sLfoSinTable[0x40 - x];
-    } else if (x < 0x60) {
+    }
+    else if (x < 0x60)
+    {
         return (s8)(-sLfoSinTable[x - 0x40]);
-    } else {
+    }
+    else
+    {
         return (s8)(-sLfoSinTable[0x20 - (x - 0x60)]);
     }
 }
 
-u16 SND_CalcRandom(void) {
+u16 SND_CalcRandom(void)
+{
     static u32 state = 0x12345678;
 
     // values from "Numerical Recipes"

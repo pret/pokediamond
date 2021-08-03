@@ -5,4 +5,4 @@
 
 #include "nitro/SND_exChannel_shared.h"
 
-#endif //GUARD_SND_LFO_H
+#endif // GUARD_SND_LFO_H

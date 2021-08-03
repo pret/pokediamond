@@ -9,7 +9,8 @@
 void SND_ExChannelInit(void);
 void SND_UpdateExChannel(void);
 void SND_ExChannelMain(BOOL step);
-BOOL SND_StartExChannelPcm(struct SNDExChannel *chn, const struct SNDWaveParam *wave, const void *data, s32 length);
+BOOL SND_StartExChannelPcm(
+    struct SNDExChannel *chn, const struct SNDWaveParam *wave, const void *data, s32 length);
 BOOL SND_StartExChannelPsg(struct SNDExChannel *chn, s32 duty, s32 length);
 BOOL SND_StartExChannelNoise(struct SNDExChannel *chn, s32 length);
 s32 SND_UpdateExChannelEnvelope(struct SNDExChannel *chn, BOOL step);
@@ -19,7 +20,11 @@ void SND_SetExChannelSustain(struct SNDExChannel *chn, s32 sustain);
 void SND_SetExChannelRelease(struct SNDExChannel *chn, s32 release);
 void SND_ReleaseExChannel(struct SNDExChannel *chn);
 BOOL SND_IsExChannelActive(struct SNDExChannel *chn);
-struct SNDExChannel *SND_AllocExChannel(u32 channelMask, int priority, u32 flags, SNDExChannelCallback callback, void *callbackUserData);
+struct SNDExChannel *SND_AllocExChannel(u32 channelMask,
+    int priority,
+    u32 flags,
+    SNDExChannelCallback callback,
+    void *callbackUserData);
 void SND_FreeExChannel(struct SNDExChannel *chn);
 void SND_InvalidateWave(const void *start, const void *end);
 
@@ -35,4 +40,4 @@ void SND_StartLfo(struct SNDLfo *lfo);
 void SND_UpdateLfo(struct SNDLfo *lfo);
 int SND_GetLfoValue(struct SNDLfo *lfo);
 
-#endif //GUARD_SND_EXCHANNEL_H
+#endif // GUARD_SND_EXCHANNEL_H

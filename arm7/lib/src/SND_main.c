@@ -12,8 +12,8 @@
 #include "SND_work.h"
 
 #include "OS_alarm.h"
-#include "OS_thread.h"
 #include "OS_message.h"
+#include "OS_thread.h"
 #include "OS_tick.h"
 
 static void FUN_037fc330(void *);
@@ -26,57 +26,74 @@ OSMessageQueue sMessageQueue;
 OSMessage sMessageArray[8];
 u32 sInitialized = 0;
 
-void SND_Init(u32 priority) {
-    if (sInitialized == 0) {
+void SND_Init(u32 priority)
+{
+    if (sInitialized == 0)
+    {
         sInitialized = 1;
         SND_CommandInit();
         SND_CreateThread(priority);
     }
 }
 
-void SND_CreateThread(u32 priority) {
-    OS_CreateThread(&sThread, SndThread, NULL, &sThreadStack[sizeof(sThreadStack)], sizeof(sThreadStack), priority);
+void SND_CreateThread(u32 priority)
+{
+    OS_CreateThread(&sThread,
+        SndThread,
+        NULL,
+        &sThreadStack[sizeof(sThreadStack)],
+        sizeof(sThreadStack),
+        priority);
     OS_WakeupThreadDirect(&sThread);
 }
 
-void SND_InitIntervalTimer(void) {
+void SND_InitIntervalTimer(void)
+{
     OS_InitMessageQueue(&sMessageQueue, sMessageArray, 8);
     OS_CreateAlarm(&sAlarm);
 }
 
-void SND_StartIntervalTimer(void) {
+void SND_StartIntervalTimer(void)
+{
     OSTick tick = OS_GetTick();
     OS_SetPeriodicAlarm(&sAlarm, tick + 0x10000, 2728, FUN_037fc330, NULL);
 }
 
-void SND_StopIntervalTimer(void) {
+void SND_StopIntervalTimer(void)
+{
     OS_CancelAlarm(&sAlarm);
 }
 
-u32 SND_WaitForIntervalTimer(void) {
+u32 SND_WaitForIntervalTimer(void)
+{
     OSMessage result;
     (void)OS_ReceiveMessage(&sMessageQueue, &result, 1);
     return (u32)result;
 }
 
-void SND_SendWakeupMessage(void) {
+void SND_SendWakeupMessage(void)
+{
     (void)OS_SendMessage(&sMessageQueue, (OSMessage)2, 0);
 }
 
-void SNDi_LockMutex(void) {
+void SNDi_LockMutex(void)
+{
     // nothing
 }
 
-void SNDi_UnlockMutex(void) {
+void SNDi_UnlockMutex(void)
+{
     // nothing
 }
 
-static void FUN_037fc330(void *arg) {
+static void FUN_037fc330(void *arg)
+{
     (void)arg;
     (void)OS_SendMessage(&sMessageQueue, (OSMessage)1, 0);
 }
 
-static void SndThread(void *arg) {
+static void SndThread(void *arg)
+{
     (void)arg;
 
     SND_InitIntervalTimer();
@@ -88,18 +105,20 @@ static void SndThread(void *arg) {
     SND_SetMasterVolume(0x7F);
     SND_StartIntervalTimer();
 
-    while (1) {
+    while (1)
+    {
         BOOL update = FALSE;
-        
+
         u32 result = SND_WaitForIntervalTimer();
 
-        switch (result) {
-        case 2:
-            update = FALSE;
-            break;
-        case 1:
-            update = TRUE;
-            break;
+        switch (result)
+        {
+            case 2:
+                update = FALSE;
+                break;
+            case 1:
+                update = TRUE;
+                break;
         }
 
         SND_UpdateExChannel();

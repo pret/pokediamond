@@ -13,4 +13,4 @@ u16 SND_CalcTimer(int timer, int pitch);
 
 extern const s16 SNDi_DecibelSquareTable[128];
 
-#endif //GUARD_SND_UTIL_H
+#endif // GUARD_SND_UTIL_H

@@ -3,8 +3,7 @@
 
 #include "nitro/types.h"
 
-void SND_SetupChannelPcm(
-    int chnIdx,
+void SND_SetupChannelPcm(int chnIdx,
     const void *data,
     int format,
     int loop,
@@ -13,25 +12,11 @@ void SND_SetupChannelPcm(
     int volume,
     int volumeDiv,
     int timer,
-    int pan
-);
+    int pan);
 
-void SND_SetupChannelPsg(
-    int chnIdx,
-    int waveDuty,
-    int volume,
-    int volumeDiv,
-    int timer,
-    int pan
-);
+void SND_SetupChannelPsg(int chnIdx, int waveDuty, int volume, int volumeDiv, int timer, int pan);
 
-void SND_SetupChannelNoise(
-    int chnIdx,
-    int volume,
-    int volumeDiv,
-    int timer,
-    int pan
-);
+void SND_SetupChannelNoise(int chnIdx, int volume, int volumeDiv, int timer, int pan);
 
 void SND_StopChannel(int chnIdx, int hold);
 
@@ -44,4 +29,4 @@ void SND_SetMasterPan(int pan);
 u32 SND_GetChannelControl(int idx);
 void SNDi_SetSurroundDecay(int decay);
 
-#endif //GUARD_SND_CHANNEL_H
+#endif // GUARD_SND_CHANNEL_H

@@ -13,4 +13,4 @@ void SND_SendWakeupMessage(void);
 void SNDi_LockMutex(void);
 void SNDi_UnlockMutex(void);
 
-#endif //GUARD_SND_MAIN_H
+#endif // GUARD_SND_MAIN_H
