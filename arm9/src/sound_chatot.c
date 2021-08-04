@@ -8,7 +8,7 @@
 #include "unk_020040F4.h"
 #include "unk_020051F4.h"
 
-THUMB_FUNC BOOL FUN_02005CFC()
+THUMB_FUNC BOOL FUN_02005CFC(void)
 {
     if (*(u8 *)FUN_02003D38(29) == 1 && FUN_02004ABC(14) == 0)
     {
@@ -77,7 +77,7 @@ THUMB_FUNC u32 FUN_02005D48(struct SaveChatotSoundClip *param0, u32 param1, s32 
     return res;
 }
 
-THUMB_FUNC void FUN_02005DFC()
+THUMB_FUNC void FUN_02005DFC(void)
 {
     u8 *r5 = FUN_02003D38(15);
     u8 *r4 = FUN_02003D38(29);
@@ -91,7 +91,7 @@ THUMB_FUNC void FUN_02005DFC()
     *r4 = 0;
 }
 
-THUMB_FUNC u32 Chatot_startRecording()
+THUMB_FUNC u32 Chatot_startRecording(void)
 {
     struct MIC_SamplingData st0;
 
@@ -110,7 +110,7 @@ THUMB_FUNC u32 Chatot_startRecording()
     return GF_MIC_StartAutoSampling(&st0);
 }
 
-THUMB_FUNC void Chatot_stopRecording()
+THUMB_FUNC void Chatot_stopRecording(void)
 {
     GF_MIC_StopAutoSampling();
 }

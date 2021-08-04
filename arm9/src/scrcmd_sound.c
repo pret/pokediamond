@@ -37,7 +37,8 @@ THUMB_FUNC BOOL ScrCmd_PlayBgm(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_StopBgm(struct ScriptContext *ctx)
 {
-    u32 unk0 = FUN_02004124(ScriptReadHalfword(ctx));
+    ScriptReadHalfword(ctx);
+    u32 unk0 = FUN_02004124();
     FUN_02005350(unk0, 0);
     return FALSE;
 }
