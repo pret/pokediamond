@@ -165,7 +165,7 @@ THUMB_FUNC u32 FUN_02005EE0(struct SaveChatotSoundClip *param0)
     return 0;
 }
 
-THUMB_FUNC u32 FUN_02005F14(s32 param0)
+THUMB_FUNC BOOL FUN_02005F14(s32 param0)
 {
     switch (param0)
     {
@@ -174,8 +174,8 @@ THUMB_FUNC u32 FUN_02005F14(s32 param0)
         case 5:
         case 11:
         case 12:
-            return 1;
+            return TRUE;
         default:
-            return 0;
+            return FALSE;
     }
 }

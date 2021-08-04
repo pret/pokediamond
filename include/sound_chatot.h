@@ -14,6 +14,6 @@ void Chatot_saveRecording(struct SaveChatotSoundClip *param0);
 void FUN_02005E80(u8 param0);
 void FUN_02005E90(struct SaveChatotSoundClip *param0, u32 param1, s32 param2, s32 param3);
 u32 FUN_02005EE0(struct SaveChatotSoundClip *param0);
-u32 FUN_02005F14(s32 param0);
+BOOL FUN_02005F14(s32 param0);
 
 #endif // POKEDIAMOND_UNK_02005CFC_H
