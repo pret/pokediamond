@@ -171,7 +171,7 @@ Static arm9
 	Object scrcmd_coins.o
 	Object scrcmd_money.o
 	Object scrcmd_daycare.o
-	Object scrcmd_17.o
+	Object scrcmd_amity_square.o
 	Object scrcmd_party.o
 	Object scrcmd_fossils.o
 	Object scrcmd_prizes.o
