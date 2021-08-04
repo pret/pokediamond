@@ -8729,3 +8729,9 @@
 .extern wcschr
 .extern wcscpy
 .extern wmemchr
+.extern UNK_020ECBD0
+.extern UNK_020ECC10
+.extern UNK_020ECC78
+.extern UNK_020ECCE2
+.extern UNK_020ECDCC
+.extern UNK_02105AE8
