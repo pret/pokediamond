@@ -3,6 +3,7 @@
 #include "SPI_mic.h"
 #include "SPI_pm.h"
 #include "unk_020040F4.h"
+#include "sound_chatot.h"
 
 #pragma thumb on
 
@@ -21,7 +22,6 @@ void FUN_020040DC(void);
 extern void FUN_0200521C(int);
 extern void FUN_0200538C(int, int, int);
 extern BOOL FUN_02005404(void);
-extern void FUN_02005CFC(void);
 
 void InitSoundData(struct SaveChatotSoundClip * chatot, struct Options * options)
 {

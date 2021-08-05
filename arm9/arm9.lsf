@@ -15,7 +15,7 @@ Static arm9
 	Object sound.o
 	Object unk_020040F4.o
 	Object unk_020051F4.o
-	Object unk_02005CFC.o
+	Object sound_chatot.o
 	Object poke_overlay.o
 	Object unk_020061E8.o
 	Object overlay_manager.o

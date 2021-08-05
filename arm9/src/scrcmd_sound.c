@@ -1,11 +1,7 @@
 #include "scrcmd.h"
 #include "unk_020040F4.h"
+#include "sound_chatot.h"
 
-extern void* Sav2_Chatot_get(struct SaveBlock2* sav2);
-extern u32 FUN_02005D20(void *);
-extern void FUN_02005E6C(void *);
-extern u32 FUN_02005E28(void);
-extern void FUN_02005E64(void);
 extern BOOL FUN_02005CBC(void);
 extern void PlaySound(u16);
 extern void FUN_0204AB20(struct UnkSavStruct80 *ctx, u16);
@@ -41,7 +37,8 @@ THUMB_FUNC BOOL ScrCmd_PlayBgm(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_StopBgm(struct ScriptContext *ctx)
 {
-    u32 unk0 = FUN_02004124(ScriptReadHalfword(ctx));
+    ScriptReadHalfword(ctx);
+    u32 unk0 = FUN_02004124();
     FUN_02005350(unk0, 0);
     return FALSE;
 }
@@ -199,7 +196,7 @@ THUMB_FUNC BOOL ScrCmd_CheckChatotCry(struct ScriptContext* ctx)
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
 
     void* unk = Sav2_Chatot_get(ctx->unk80->saveBlock2);
-    if (FUN_02005D20(unk) == 1)
+    if (Chatot_checkCry(unk) == 1)
     {
         *ret_ptr = 1;
         return FALSE;
@@ -215,7 +212,7 @@ THUMB_FUNC BOOL ScrCmd_StartChatotRecord(struct ScriptContext* ctx)
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
 
-    if (FUN_02005E28() == 0)
+    if (Chatot_startRecording() == 0)
     {
         *ret_ptr = 1;
         return FALSE;
@@ -230,14 +227,14 @@ THUMB_FUNC BOOL ScrCmd_StartChatotRecord(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_StopChatotRecord(struct ScriptContext* ctx)
 {
 #pragma unused(ctx)
-    FUN_02005E64();
+    Chatot_stopRecording();
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_SaveChatotCry(struct ScriptContext* ctx)
 {
     void* unk = Sav2_Chatot_get(ctx->unk80->saveBlock2);
-    FUN_02005E6C(unk);
+    Chatot_saveRecording(unk);
 
     return TRUE;
 }
