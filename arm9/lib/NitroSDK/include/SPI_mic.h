@@ -14,7 +14,7 @@ struct MIC_SamplingData
 
 void MIC_Init(void);
 int MIC_StartAutoSampling(struct MIC_SamplingData *data);
-int MIC_StopAutoSampling();
+int MIC_StopAutoSampling(void);
 int MIC_DoSamplingAsync(int param0, int param1, int param2, int param3);
 
 #endif //NITRO_SPI_MIC_H_
