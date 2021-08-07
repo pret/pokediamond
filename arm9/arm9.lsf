@@ -701,7 +701,39 @@ Overlay MODULE_05
 	Object mod05_021E7C00.o
 	Object mod05_021E80F8.o
 	Object mod05_021E8310.o
-	Object module_05.o
+	Object mod05_021E8648.o
+	Object mod05_021E8860.o
+	Object mod05_021E88E8.o
+	Object mod05_021EC458.o
+	Object mod05_021ED9C0.o
+	Object mod05_021EDB70.o
+	Object mod05_021EDE34.o
+	Object mod05_021EFA9C.o
+	Object mod05_021EFBF8.o
+	Object mod05_021F0318.o
+	Object mod05_021F0514.o
+	Object mod05_021F1B0C.o
+	Object mod05_021F1CB8.o
+	Object mod05_021F1F04.o
+	Object mod05_021F3780.o
+	Object mod05_021F3854.o
+	Object mod05_021F38CC.o
+	Object mod05_021F3BC0.o
+	Object mod05_021F3C98.o
+	Object mod05_021F3FE0.o
+	Object mod05_021F445C.o
+	Object mod05_021F45B4.o
+	Object mod05_021F46C8.o
+	Object mod05_021F4968.o
+	Object mod05_021F4CF8.o
+	Object mod05_021F5268.o
+	Object mod05_021F5518.o
+	Object mod05_021F5990.o
+	Object mod05_021F5B9C.o
+	Object mod05_021F5C44.o
+	Object mod05_021F61DC.o
+	Object mod05_021F61F4.o
+	Object mod05_021F6360.o
 }
 
 Overlay MODULE_06
