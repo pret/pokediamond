@@ -656,7 +656,10 @@ Overlay MODULE_03
 Overlay MODULE_04
 {
 	After arm9
-	Object thumb_04.o
+	Object mod04_021D74E0.o
+	Object mod04_021D868C.o
+	Object mod04_021D8D18.o
+	Object mod04_021D9C2C.o
 	Object arm_04.o
 }
 
