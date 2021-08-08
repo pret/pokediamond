@@ -542,7 +542,7 @@ UNK04_0220C0B8: ; 0x0220C0B8
 	.asciz "%02d%02d%02d%02d%02d%02d"
 
 	.balign 4, 0
-	.global UNK_0220C0D4
+	.global UNK04_0220C0D4
 UNK04_0220C0D4: ; 0x0220C0D4
 	.asciz "%02d:0000000-00"
 
