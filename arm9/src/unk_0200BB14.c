@@ -2,6 +2,7 @@
 #include "unk_0200BB14.h"
 #include "game_init.h"
 #include "heap.h"
+#include "unk_02008AA4.h"
 
 extern void FUN_0201D060(u32 *param0, u32 param1, u32 param2);
 extern void FUN_0201E00C(u32 param0, u32 param1);
@@ -18,13 +19,11 @@ extern void FUN_02009EAC(u32 param0,
 extern u32 FUN_0201C328(u32 param0, u32 param1);
 extern void FUN_0201D168();
 extern void FUN_0201E0BC();
-extern u32 FUN_02008C9C(u32 param0, void *param1, u32 param2);
 extern void FUN_0201FFC8(u32 param0);
 extern void FUN_0201FDEC(u32 param0);
 extern void FUN_02009F80();
 extern void FUN_0201C348();
 extern void FUN_0201FD58(u32 param0);
-extern void FUN_02008C80(u32 param0);
 extern u32 FUN_02009660(u32 *param0, s32 param1);
 extern void FUN_020096B4(u32 param0);
 extern void FUN_02009C30(u32 *param0);
@@ -43,14 +42,6 @@ extern u32 *FUN_02009424(u32 param0, u32 param1);
 extern u32 FUN_020093A8(u32 param0, u32 param1, u32 *param2, u32 param3);
 extern void FUN_02009A90(u32 *param0);
 extern void FUN_02009D34(u32 *param0);
-extern u32 FUN_02008BE0(void *param0,
-    u32 param1,
-    u32 param2,
-    u32 param3,
-    u32 param4,
-    u32 param5,
-    u32 param6,
-    u32 param7);
 extern u32 FUN_0201FE94(struct UnkStruct_0200BB14_4 *param0);
 extern void FUN_02020130(u32 param0, u32 param1);
 extern void FUN_02020248(u32 param0, u32 param1);
@@ -63,21 +54,6 @@ extern u32 FUN_02008FEC(
 extern u32 FUN_02009D68(u32 param0);
 extern u32 FUN_02009E88(u32 param0, u32 param1);
 extern void FUN_02003108(u32 param0, u32 param1, u16 param2, u32 param3);
-extern void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
-    s32 param1,
-    s32 param2,
-    s32 param3,
-    s32 param4,
-    s32 param5,
-    s32 param6,
-    u32 param7,
-    u32 param8,
-    u32 param9,
-    u32 param10,
-    u32 param11,
-    u32 param12,
-    u32 param13,
-    u32 param14);
 extern u8 FUN_020202A0(u32 param0);
 extern u32 FUN_020094F0(u32 param0, u32 param1);
 extern u32 FUN_02009E54(u32 param0, u32 param1);
@@ -344,7 +320,7 @@ THUMB_FUNC BOOL FUN_0200BD20(
 
     FUN_02009A90(param1->unk24[0]);
     FUN_02009D34(param1->unk24[1]);
-    void *r6 = AllocAndReadFile(param0->unk000, st10[6]);
+    struct UnkStruct_02008AA4_2 *r6 = AllocAndReadFile(param0->unk000, st10[6]);
     param1->unk04 = FUN_02008BE0(r6,
         param0->unk000,
         param1->unk0c[0],
@@ -568,7 +544,7 @@ THUMB_FUNC u8 FUN_0200C0DC(u32 param0,
     return (u8)r4;
 }
 
-THUMB_FUNC u32 FUN_0200C124(u32 *param0,
+THUMB_FUNC BOOL FUN_0200C124(u32 *param0,
     struct UnkStruct_0200BB14_2 *param1,
     u32 param2,
     u32 param3,
@@ -578,7 +554,7 @@ THUMB_FUNC u32 FUN_0200C124(u32 *param0,
     return FUN_0200C404(param0, param1, param2, param3, param4, 2, param5);
 }
 
-THUMB_FUNC u32 FUN_0200C13C(u32 *param0,
+THUMB_FUNC BOOL FUN_0200C13C(u32 *param0,
     struct UnkStruct_0200BB14_2 *param1,
     u32 param2,
     u32 param3,
@@ -732,22 +708,22 @@ THUMB_FUNC u32 FUN_0200C344(u32 *param0, u32 param1, u32 param2)
     return FUN_02009E88(FUN_020094F0(param0[4], param1), param2);
 }
 
-THUMB_FUNC u32 FUN_0200C358(struct UnkStruct_0200BB14_2 *param0, u32 param1)
+THUMB_FUNC BOOL FUN_0200C358(struct UnkStruct_0200BB14_2 *param0, u32 param1)
 {
     return FUN_0200C4F4(param0->unk0c[0], param0->unk24[0], param1);
 }
 
-THUMB_FUNC u32 FUN_0200C368(struct UnkStruct_0200BB14_2 *param0, u32 param1)
+THUMB_FUNC BOOL FUN_0200C368(struct UnkStruct_0200BB14_2 *param0, u32 param1)
 {
     return FUN_0200C548(param0->unk0c[1], param0->unk24[1], param1);
 }
 
-THUMB_FUNC u32 FUN_0200C378(struct UnkStruct_0200BB14_2 *param0, u32 param1)
+THUMB_FUNC BOOL FUN_0200C378(struct UnkStruct_0200BB14_2 *param0, u32 param1)
 {
     return FUN_0200C4A8(param0->unk0c[2], param0->unk24[2], param1);
 }
 
-THUMB_FUNC u32 FUN_0200C388(struct UnkStruct_0200BB14_2 *param0, u32 param1)
+THUMB_FUNC BOOL FUN_0200C388(struct UnkStruct_0200BB14_2 *param0, u32 param1)
 {
     return FUN_0200C4A8(param0->unk0c[3], param0->unk24[3], param1);
 }
@@ -796,8 +772,8 @@ THUMB_FUNC BOOL FUN_0200C404(u32 *param0,
     u32 r5 = FUN_020090AC(param1->unk0c[param5], param2, param3, param4, param6, param5, param0[0]);
     if (r5 != 0)
     {
-        u32 r4 = FUN_0200C474(param1->unk24[param5], r5);
-        GF_ASSERT(r4 == 1);
+        BOOL r4 = FUN_0200C474(param1->unk24[param5], r5);
+        GF_ASSERT(r4 == TRUE);
         return r4;
     }
     GF_ASSERT(0);
@@ -1085,18 +1061,18 @@ THUMB_FUNC void FUN_0200C75C(u32 param0, u16 *param1, u16 *param2)
 {
     s32 *r4 = FUN_0202011C(param0, param1, param2);
 
-    param1[0] = r4[0] / 0x1000;
+    param1[0] = (u16)(r4[0] / 0x1000);
 
     if (FUN_02020380(param0) == 2)
     {
         s32 r1 = r4[1] - 0xc0000;
 
-        param2[0] = r1 / 0x1000;
+        param2[0] = (u16)(r1 / 0x1000);
 
         return;
     }
 
-    param2[0] = r4[1] / 0x1000;
+    param2[0] = (u16)(r4[1] / 0x1000);
 }
 
 THUMB_FUNC void FUN_0200C7A0(u32 *param0, u16 *param1, u16 *param2)
@@ -1104,25 +1080,25 @@ THUMB_FUNC void FUN_0200C7A0(u32 *param0, u16 *param1, u16 *param2)
     FUN_0200C75C(*param0, param1, param2);
 }
 
-THUMB_FUNC void FUN_0200C7AC(u32 param0, u16 *param1, u16 *param2, u32 param3)
+THUMB_FUNC void FUN_0200C7AC(u32 param0, u16 *param1, u16 *param2, s32 param3)
 {
     s32 *r4 = FUN_0202011C(param0, param1, param2);
 
-    param1[0] = r4[0] / 0x1000;
+    param1[0] = (u16)(r4[0] / 0x1000);
 
     if (FUN_02020380(param0) == 2)
     {
         s32 r1 = r4[1] - param3;
 
-        param2[0] = r1 / 0x1000;
+        param2[0] = (u16)(r1 / 0x1000);
 
         return;
     }
 
-    param2[0] = r4[1] / 0x1000;
+    param2[0] = (u16)(r4[1] / 0x1000);
 }
 
-THUMB_FUNC void FUN_0200C7F0(u32 *param0, u16 *param1, u16 *param2, u32 param3)
+THUMB_FUNC void FUN_0200C7F0(u32 *param0, u16 *param1, u16 *param2, s32 param3)
 {
     FUN_0200C7AC(*param0, param1, param2, param3);
 }

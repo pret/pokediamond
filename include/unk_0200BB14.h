@@ -15,7 +15,7 @@ struct UnkStruct_0200BB14_1
 struct UnkStruct_0200BB14_2
 {
     u32 unk00;
-    u32 unk04;
+    struct UnkStruct_02008AA4_1 *unk04;
     u32 *unk08;
     u32 unk0c[6];
     u32 *unk24[6];
@@ -41,7 +41,16 @@ struct UnkStruct_0200BB14_3
 
 struct UnkStruct_0200BB14_sub
 {
-    u8 unk00[0x24];
+    u32 unk00;
+    u32 unk04;
+    u32 unk08;
+    u32 unk0C;
+    u32 unk10;
+    u32 unk14;
+    u32 unk18;
+    u32 unk1C;
+    u8 unk20;
+    u8 unk21[0x3];
 };
 
 struct UnkStruct_0200BB14_4
@@ -134,13 +143,13 @@ u8 FUN_0200C0DC(u32 param0,
     u32 param7,
     u32 param8,
     s32 param9);
-u32 FUN_0200C124(u32 *param0,
+BOOL FUN_0200C124(u32 *param0,
     struct UnkStruct_0200BB14_2 *param1,
     u32 param2,
     u32 param3,
     u32 param4,
     s32 param5);
-u32 FUN_0200C13C(u32 *param0,
+BOOL FUN_0200C13C(u32 *param0,
     struct UnkStruct_0200BB14_2 *param1,
     u32 param2,
     u32 param3,
@@ -150,10 +159,10 @@ struct UnkStruct_0200BB14_5 *FUN_0200C154(
     struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1, u32 *param2);
 u32 FUN_0200C334(u32 *param0, u32 param1);
 u32 FUN_0200C344(u32 *param0, u32 param1, u32 param2);
-u32 FUN_0200C358(struct UnkStruct_0200BB14_2 *param0, u32 param1);
-u32 FUN_0200C368(struct UnkStruct_0200BB14_2 *param0, u32 param1);
-u32 FUN_0200C378(struct UnkStruct_0200BB14_2 *param0, u32 param1);
-u32 FUN_0200C388(struct UnkStruct_0200BB14_2 *param0, u32 param1);
+BOOL FUN_0200C358(struct UnkStruct_0200BB14_2 *param0, u32 param1);
+BOOL FUN_0200C368(struct UnkStruct_0200BB14_2 *param0, u32 param1);
+BOOL FUN_0200C378(struct UnkStruct_0200BB14_2 *param0, u32 param1);
+BOOL FUN_0200C388(struct UnkStruct_0200BB14_2 *param0, u32 param1);
 void FUN_0200C398(struct UnkStruct_0200BB14_1 *param0, struct UnkStruct_0200BB14_2 *param1);
 void FUN_0200C3DC(u32 *param0);
 BOOL FUN_0200C404(u32 *param0,
@@ -204,8 +213,8 @@ void FUN_0200C720(u32 param0, u32 param1, u32 param2, u32 param3);
 void FUN_0200C750(u32 *param0, u32 param1, u32 param2, u32 param3);
 void FUN_0200C75C(u32 param0, u16 *param1, u16 *param2);
 void FUN_0200C7A0(u32 *param0, u16 *param1, u16 *param2);
-void FUN_0200C7AC(u32 param0, u16 *param1, u16 *param2, u32 param3);
-void FUN_0200C7F0(u32 *param0, u16 *param1, u16 *param2, u32 param3);
+void FUN_0200C7AC(u32 param0, u16 *param1, u16 *param2, s32 param3);
+void FUN_0200C7F0(u32 *param0, u16 *param1, u16 *param2, s32 param3);
 void FUN_0200C7FC(u32 param0, u16 *param1, u16 *param2);
 void FUN_0200C82C(u32 *param0, u16 *param1, u16 *param2);
 void FUN_0200C838(u32 param0, u32 param1);
