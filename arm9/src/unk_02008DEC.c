@@ -349,7 +349,7 @@ THUMB_FUNC struct UnkStruct1_sub *FUN_02009358(struct UnkStruct1 *param0,
 }
 
 THUMB_FUNC s32 FUN_020093A8(
-    struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2, u32 param3)
+    struct UnkStruct1 *param0, struct UnkStruct2 *param1, struct UnkStruct5 *param2, u32 param3)
 {
     GF_ASSERT(param0);
     GF_ASSERT(param1);
@@ -363,17 +363,17 @@ THUMB_FUNC void FUN_020093DC(struct UnkStruct1 *param0,
     struct UnkStruct2 *param1,
     s32 param2,
     s32 param3,
-    s32 *param4,
+    struct UnkStruct5 *param4,
     u32 param5)
 {
     for (int r5 = param2; r5 < param2 + param3; r5++)
     {
         struct UnkStruct1_sub *r0 = FUN_02008E6C(param0, param1, r5, param5);
 
-        if (param4 != NULL && param4[1] > param4[2])
+        if (param4 != NULL && param4->unk04 > param4->unk08)
         {
-            ((u32 *)param4[0])[param4[2]] = (u32)r0;
-            param4[2]++;
+            param4->unk00[param4->unk08] = r0;
+            param4->unk08++;
         }
     }
 }
@@ -430,7 +430,7 @@ THUMB_FUNC void FUN_020094C4(struct UnkStruct1 *param0)
     }
 }
 
-THUMB_FUNC struct UnkStruct1_sub *FUN_020094F0(struct UnkStruct1 *param0, u32 param1)
+THUMB_FUNC struct UnkStruct1_sub *FUN_020094F0(struct UnkStruct1 *param0, s32 param1)
 {
     GF_ASSERT(param0);
 
@@ -545,9 +545,9 @@ THUMB_FUNC u32 FUN_0200965C(void)
     return 16;
 }
 
-THUMB_FUNC u32 *FUN_02009660(u32 *param0, s32 param1)
+THUMB_FUNC struct UnkStruct2 *FUN_02009660(struct UnkStruct2 *param0, s32 param1)
 {
-    return &param0[param1 * 4];
+    return &param0[param1];
 }
 
 THUMB_FUNC void FUN_02009668(u32 *param0, struct UnkStruct2 *param1, u32 param2)
@@ -676,29 +676,6 @@ THUMB_FUNC struct UnkStruct1_sub *FUN_020097D0(struct UnkStruct1 *param0)
 
     return NULL;
 }
-
-struct CharacterData_02008DEC
-{
-    NNSG2dCharacterData *chData;
-    u32 unk04;
-};
-
-struct PaletteData_02008DEC
-{
-    NNSG2dPaletteData *plttData;
-    u32 unk04;
-    u32 unk08;
-};
-
-struct CellDataBank_02008DEC
-{
-    NNSG2dCellDataBank *cellBank;
-};
-
-struct AnimBank_02008DEC
-{
-    NNSG2dAnimBankData *bankData;
-};
 
 THUMB_FUNC void FUN_020097FC(
     struct UnkStruct1_sub *param0, u32 param1, u32 param2, u32 param3, u32 param4)
@@ -1015,7 +992,7 @@ THUMB_FUNC u32 FUN_02009C5C(struct UnkStruct1_sub *param0)
     return FUN_0201D3B0(FUN_02009530(param0));
 }
 
-THUMB_FUNC void FUN_02009C80(struct UnkStruct1_sub *param0, struct UnkStruct1_sub *param1)
+THUMB_FUNC u32 FUN_02009C80(struct UnkStruct1_sub *param0, struct UnkStruct1_sub *param1)
 {
     GF_ASSERT(param0);
     GF_ASSERT(FUN_020095D4(param0) == 0);
@@ -1025,7 +1002,7 @@ THUMB_FUNC void FUN_02009C80(struct UnkStruct1_sub *param0, struct UnkStruct1_su
     s32 r4 = FUN_02009530(param0);
     if (FUN_0201D3D4(r4, ((u32 **)FUN_02009574(param1))[3][0]) == 0)
     {
-        FUN_0201D458(FUN_0201D3B0(r4));
+        return FUN_0201D458(FUN_0201D3B0(r4));
     }
 }
 

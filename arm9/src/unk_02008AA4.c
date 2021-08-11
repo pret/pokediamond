@@ -3,16 +3,8 @@
 #include "GX_vramcnt.h"
 #include "heap.h"
 #include "unk_0200BB14.h"
+#include "unk_02008DEC.h"
 
-extern u32 FUN_020094F0(u32 param0, s32 param1);
-extern u32 FUN_02009C80(u32, u32);
-extern u32 FUN_02009544(u32);
-extern u32 FUN_02009E54(u32 param0, u32 param1);
-extern u32 FUN_02009C5C(u32);
-extern u32 FUN_02009574(u32);
-extern u32 FUN_0200958C(u32);
-extern u32 FUN_020095A4(u32);
-extern u32 FUN_020095BC(u32);
 extern void FUN_0202134C(void *, u32);
 extern void FUN_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3);
 extern u32 FUN_0201FCB0(u32 *);
@@ -29,20 +21,20 @@ THUMB_FUNC void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     s32 param6,
     u32 param7,
     u32 param8,
-    u32 param9,
-    u32 param10,
-    u32 param11,
-    u32 param12,
-    u32 param13,
-    u32 param14)
+    struct UnkStruct1 *param9,
+    struct UnkStruct1 *param10,
+    struct UnkStruct1 *param11,
+    struct UnkStruct1 *param12,
+    struct UnkStruct1 *param13,
+    struct UnkStruct1 *param14)
 {
-    u32 r7;
-    u32 st14;
-    u32 st10;
+    struct UnkStruct1_sub *r7;
+    struct UnkStruct1_sub *st14;
+    struct UnkStruct1_sub *st10;
 
-    u32 stc = 0;
-    u32 r4 = 0;
-    u32 st8 = 0;
+    struct UnkStruct1_sub *stc = NULL;
+    struct UnkStruct1_sub *r4 = NULL;
+    struct UnkStruct1_sub *st8 = NULL;
 
     GF_ASSERT(param9);
     GF_ASSERT(param10);
@@ -124,12 +116,12 @@ THUMB_FUNC void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
 
 THUMB_FUNC struct UnkStruct_02008AA4_1 *FUN_02008BE0(struct UnkStruct_02008AA4_2 *param0,
     u32 param1,
-    u32 param2,
-    u32 param3,
-    u32 param4,
-    u32 param5,
-    u32 param6,
-    u32 param7)
+    struct UnkStruct1 *param2,
+    struct UnkStruct1 *param3,
+    struct UnkStruct1 *param4,
+    struct UnkStruct1 *param5,
+    struct UnkStruct1 *param6,
+    struct UnkStruct1 *param7)
 {
 
     s32 r4 = 0;

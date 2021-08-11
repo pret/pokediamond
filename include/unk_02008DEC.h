@@ -1,4 +1,8 @@
+#ifndef POKEDIAMOND_UNK_02008DEC_H
+#define POKEDIAMOND_UNK_02008DEC_H
+
 #include "global.h"
+#include "NNS_g2d.h"
 #include "filesystem.h"
 
 struct UnkStruct1_sub
@@ -48,12 +52,36 @@ struct UnkStruct5
 {
     struct UnkStruct1_sub **unk00;
     s32 unk04;
+    s32 unk08;
+};
+
+struct CharacterData_02008DEC
+{
+    NNSG2dCharacterData *chData;
+    u32 unk04;
+};
+
+struct PaletteData_02008DEC
+{
+    NNSG2dPaletteData *plttData;
+    u32 unk04;
     u32 unk08;
+};
+
+struct CellDataBank_02008DEC
+{
+    NNSG2dCellDataBank *cellBank;
+};
+
+struct AnimBank_02008DEC
+{
+    NNSG2dAnimBankData *bankData;
 };
 
 struct UnkStruct1 *FUN_02008DEC(u32 param0, s32 param1, u32 param2);
 void FUN_02008E2C(struct UnkStruct1 *param0);
-struct UnkStruct1_sub *FUN_02008E6C(struct UnkStruct1 *param0, struct UnkStruct2 *param1, s32 param2, u32 param3);
+struct UnkStruct1_sub *FUN_02008E6C(
+    struct UnkStruct1 *param0, struct UnkStruct2 *param1, s32 param2, u32 param3);
 struct UnkStruct1_sub *FUN_02008F34(struct UnkStruct1 *param0,
     NarcId param1,
     s32 param2,
@@ -144,12 +172,12 @@ struct UnkStruct1_sub *FUN_02009358(struct UnkStruct1 *param0,
     s32 param4,
     u32 param5,
     u32 param6);
-s32 FUN_020093A8(struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2, u32 param3);
+s32 FUN_020093A8(struct UnkStruct1 *param0, struct UnkStruct2 *param1, struct UnkStruct5 *param2, u32 param3);
 void FUN_020093DC(struct UnkStruct1 *param0,
     struct UnkStruct2 *param1,
     s32 param2,
     s32 param3,
-    s32 *param4,
+    struct UnkStruct5 *param4,
     u32 param5);
 struct UnkStruct5 *FUN_02009424(s32 param0, u32 param1);
 void FUN_02009448(struct UnkStruct5 *param0);
@@ -157,7 +185,7 @@ u32 FUN_0200945C(struct UnkStruct1 *param0, s32 param1);
 void FUN_02009474(struct UnkStruct1_sub *param0);
 void FUN_02009490(struct UnkStruct1 *param0, struct UnkStruct1_sub *param1);
 void FUN_020094C4(struct UnkStruct1 *param0);
-struct UnkStruct1_sub *FUN_020094F0(struct UnkStruct1 *param0, u32 param1);
+struct UnkStruct1_sub *FUN_020094F0(struct UnkStruct1 *param0, s32 param1);
 s32 FUN_02009530(struct UnkStruct1_sub *param0);
 u32 FUN_02009544(struct UnkStruct1_sub *param0);
 u32 FUN_0200955C(struct UnkStruct1_sub *param0);
@@ -170,7 +198,7 @@ u32 FUN_020095E4(struct UnkStruct1_sub *param0);
 u32 FUN_02009610(struct UnkStruct1_sub *param0);
 void FUN_02009630(struct UnkStruct1_sub *param0, u32 param1);
 u32 FUN_0200965C(void);
-u32 *FUN_02009660(u32 *param0, s32 param1);
+struct UnkStruct2 *FUN_02009660(struct UnkStruct2 *param0, s32 param1);
 void FUN_02009668(u32 *param0, struct UnkStruct2 *param1, u32 param2);
 void FUN_020096B4(struct UnkStruct2 *param0);
 s32 FUN_020096CC(struct UnkStruct2 *param0);
@@ -232,7 +260,7 @@ void FUN_02009BE8(struct UnkStruct1_sub *param0);
 void FUN_02009C0C(struct UnkStruct1_sub *param0);
 void FUN_02009C30(struct UnkStruct5 *param0);
 u32 FUN_02009C5C(struct UnkStruct1_sub *param0);
-void FUN_02009C80(struct UnkStruct1_sub *param0, struct UnkStruct1_sub *param1);
+u32 FUN_02009C80(struct UnkStruct1_sub *param0, struct UnkStruct1_sub *param1);
 void FUN_02009CDC(u32 param0);
 u32 FUN_02009CF0(struct UnkStruct1_sub *param0);
 void FUN_02009D34(struct UnkStruct5 *param0);
@@ -243,3 +271,5 @@ void FUN_02009E04(struct UnkStruct1_sub *param0);
 void FUN_02009E28(struct UnkStruct5 *param0);
 u32 FUN_02009E54(struct UnkStruct1_sub *param0, u32 param1);
 s32 FUN_02009E88(struct UnkStruct1_sub *param0, u32 param1);
+
+#endif // POKEDIAMOND_UNK_02008DEC_H
