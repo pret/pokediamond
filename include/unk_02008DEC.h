@@ -46,7 +46,7 @@ struct UnkStruct4
 
 struct UnkStruct5
 {
-    u32 *unk00;
+    struct UnkStruct1_sub **unk00;
     s32 unk04;
     u32 unk08;
 };
@@ -105,31 +105,31 @@ void FUN_02009168(struct UnkStruct1 *param0,
     s32 param3,
     BOOL param4,
     u32 param5);
-u32 FUN_020091E0(struct UnkStruct1 *param0,
-    u32 param1,
+struct UnkStruct1_sub *FUN_020091E0(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
     u32 param5,
     u32 param6);
-u32 FUN_0200923C(struct UnkStruct1 *param0,
-    u32 param1,
+struct UnkStruct1_sub *FUN_0200923C(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
     u32 param5,
     u32 param6,
     u32 param7);
-u32 FUN_02009298(struct UnkStruct1 *param0,
-    u32 param1,
+struct UnkStruct1_sub *FUN_02009298(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
     u32 param5,
     u32 param6,
     u32 param7);
-u32 FUN_020092F8(struct UnkStruct1 *param0,
-    u32 param1,
+struct UnkStruct1_sub *FUN_020092F8(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
@@ -137,21 +137,21 @@ u32 FUN_020092F8(struct UnkStruct1 *param0,
     u32 param6,
     u32 param7,
     u32 param8);
-u32 FUN_02009358(struct UnkStruct1 *param0,
-    u32 param1,
+struct UnkStruct1_sub *FUN_02009358(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
     u32 param5,
     u32 param6);
-u32 FUN_020093A8(struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2, u32 param3);
+s32 FUN_020093A8(struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2, u32 param3);
 void FUN_020093DC(struct UnkStruct1 *param0,
     struct UnkStruct2 *param1,
     s32 param2,
     s32 param3,
     s32 *param4,
     u32 param5);
-struct UnkStruct5 *FUN_02009424(u32 param0, u32 param1);
+struct UnkStruct5 *FUN_02009424(s32 param0, u32 param1);
 void FUN_02009448(struct UnkStruct5 *param0);
 u32 FUN_0200945C(struct UnkStruct1 *param0, s32 param1);
 void FUN_02009474(struct UnkStruct1_sub *param0);
@@ -174,9 +174,9 @@ u32 *FUN_02009660(u32 *param0, s32 param1);
 void FUN_02009668(u32 *param0, struct UnkStruct2 *param1, u32 param2);
 void FUN_020096B4(struct UnkStruct2 *param0);
 s32 FUN_020096CC(struct UnkStruct2 *param0);
-u32 FUN_020096DC(struct UnkStruct2 *param0, s32 param1);
-u32 FUN_02009710(struct UnkStruct2 *param0, s32 param1);
-u32 FUN_0200973C(struct UnkStruct2 *param0, s32 param1);
+s32 FUN_020096DC(struct UnkStruct2 *param0, s32 param1);
+s32 FUN_02009710(struct UnkStruct2 *param0, s32 param1);
+BOOL FUN_0200973C(struct UnkStruct2 *param0, s32 param1);
 u32 FUN_02009768(struct UnkStruct2 *param0, s32 param1);
 u32 FUN_0200979C(struct UnkStruct2 *param0, s32 param1);
 struct UnkStruct1_sub *FUN_020097D0(struct UnkStruct1 *param0);
@@ -210,10 +210,10 @@ void FUN_02009978(struct UnkStruct1 *param0,
     BOOL param10);
 void FUN_020099B0(struct UnkStruct1 *param0,
     struct UnkStruct1_sub *param1,
-    u32 param2,
+    NARC *param2,
     u32 param3,
     u32 param4,
-    u32 param5,
+    s32 param5,
     u32 param6,
     u32 param7,
     u32 param8,

@@ -14,21 +14,21 @@ extern void *FUN_02020E0C(u32);
 extern BOOL NNS_G2dGetUnpackedMultiCellBank(void *, void *);
 extern BOOL NNS_G2dGetUnpackedMCAnimBank(void *, void *);
 extern u32 FUN_02020D10(u32, void *, s32, u32);
-extern u32 FUN_02020CD4(u32, void *, u32);
+extern u32 FUN_02020CD4(u32, void *, s32);
 extern u32 FUN_0201D1F8(u32 *param0);
 extern u32 FUN_0201D250(u32 *param0);
-extern void FUN_0201D2DC(u32, u32);
-extern void FUN_0201D324(u32 param0);
-extern u32 FUN_0201D3B0(u32);
-extern u32 FUN_0201D3D4(u32, u32);
+extern void FUN_0201D2DC(s32, u32);
+extern void FUN_0201D324(s32 param0);
+extern u32 FUN_0201D3B0(s32);
+extern u32 FUN_0201D3D4(s32, u32);
 extern u32 FUN_0201D458(u32);
 extern void FUN_0201D4F0(u32);
 extern u32 FUN_0201E0E4(u32 *param0);
 extern u32 FUN_0201E128(u32 *param0);
-extern void FUN_0201E168(u32, u32);
-extern void FUN_0201E1C8(u32);
-extern u32 FUN_0201E258(u32, u32);
-extern u32 FUN_0201E230(u32);
+extern void FUN_0201E168(s32, u32);
+extern void FUN_0201E1C8(s32);
+extern u32 FUN_0201E258(s32, u32);
+extern u32 FUN_0201E230(s32);
 extern s32 NNS_G2dGetImagePaletteLocation(u32, u32);
 
 THUMB_FUNC struct UnkStruct1 *FUN_02008DEC(u32 param0, s32 param1, u32 heap_id)
@@ -245,8 +245,8 @@ THUMB_FUNC void FUN_02009168(struct UnkStruct1 *param0,
     FUN_02009978(param0, param1, param2, param3, param4, r6, r7, st24, 1, param5, 0);
 }
 
-THUMB_FUNC u32 FUN_020091E0(struct UnkStruct1 *param0,
-    u32 param1,
+THUMB_FUNC struct UnkStruct1_sub *FUN_020091E0(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
@@ -256,7 +256,7 @@ THUMB_FUNC u32 FUN_020091E0(struct UnkStruct1 *param0,
     GF_ASSERT(param0);
     GF_ASSERT(param0->unk10 == 0);
 
-    u32 r6 = FUN_020097D0(param0);
+    struct UnkStruct1_sub *r6 = FUN_020097D0(param0);
     GF_ASSERT(r6);
 
     FUN_020099B0(param0, r6, param1, param2, param3, param4, param5, 0, 0, param6, 0);
@@ -265,8 +265,8 @@ THUMB_FUNC u32 FUN_020091E0(struct UnkStruct1 *param0,
     return r6;
 }
 
-THUMB_FUNC u32 FUN_0200923C(struct UnkStruct1 *param0,
-    u32 param1,
+THUMB_FUNC struct UnkStruct1_sub *FUN_0200923C(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
@@ -277,7 +277,7 @@ THUMB_FUNC u32 FUN_0200923C(struct UnkStruct1 *param0,
     GF_ASSERT(param0);
     GF_ASSERT(param0->unk10 == 0);
 
-    u32 r6 = FUN_020097D0(param0);
+    struct UnkStruct1_sub *r6 = FUN_020097D0(param0);
     GF_ASSERT(r6);
 
     FUN_020099B0(param0, r6, param1, param2, param3, param4, param5, 0, 0, param6, param7);
@@ -286,8 +286,8 @@ THUMB_FUNC u32 FUN_0200923C(struct UnkStruct1 *param0,
     return r6;
 }
 
-THUMB_FUNC u32 FUN_02009298(struct UnkStruct1 *param0,
-    u32 param1,
+THUMB_FUNC struct UnkStruct1_sub *FUN_02009298(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
@@ -298,7 +298,7 @@ THUMB_FUNC u32 FUN_02009298(struct UnkStruct1 *param0,
     GF_ASSERT(param0);
     GF_ASSERT(param0->unk10 == 1);
 
-    u32 r6 = FUN_020097D0(param0);
+    struct UnkStruct1_sub *r6 = FUN_020097D0(param0);
     GF_ASSERT(r6);
 
     FUN_020099B0(param0, r6, param1, param2, param3, param4, param5, param6, 1, param7, 0);
@@ -307,8 +307,8 @@ THUMB_FUNC u32 FUN_02009298(struct UnkStruct1 *param0,
     return r6;
 }
 
-THUMB_FUNC u32 FUN_020092F8(struct UnkStruct1 *param0,
-    u32 param1,
+THUMB_FUNC struct UnkStruct1_sub *FUN_020092F8(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
@@ -320,7 +320,7 @@ THUMB_FUNC u32 FUN_020092F8(struct UnkStruct1 *param0,
     GF_ASSERT(param0);
     GF_ASSERT(param0->unk10 == 1);
 
-    u32 r6 = FUN_020097D0(param0);
+    struct UnkStruct1_sub *r6 = FUN_020097D0(param0);
     GF_ASSERT(r6);
 
     FUN_020099B0(param0, r6, param1, param2, param3, param4, param5, param6, 1, param7, param8);
@@ -329,8 +329,8 @@ THUMB_FUNC u32 FUN_020092F8(struct UnkStruct1 *param0,
     return r6;
 }
 
-THUMB_FUNC u32 FUN_02009358(struct UnkStruct1 *param0,
-    u32 param1,
+THUMB_FUNC struct UnkStruct1_sub *FUN_02009358(struct UnkStruct1 *param0,
+    NARC *param1,
     u32 param2,
     u32 param3,
     s32 param4,
@@ -339,7 +339,7 @@ THUMB_FUNC u32 FUN_02009358(struct UnkStruct1 *param0,
 {
     GF_ASSERT(param0);
 
-    u32 r6 = FUN_020097D0(param0);
+    struct UnkStruct1_sub *r6 = FUN_020097D0(param0);
     GF_ASSERT(r6);
 
     FUN_020099B0(param0, r6, param1, param2, param3, param4, 0, 0, param5, param6, 0);
@@ -348,7 +348,7 @@ THUMB_FUNC u32 FUN_02009358(struct UnkStruct1 *param0,
     return r6;
 }
 
-THUMB_FUNC u32 FUN_020093A8(
+THUMB_FUNC s32 FUN_020093A8(
     struct UnkStruct1 *param0, struct UnkStruct2 *param1, u32 *param2, u32 param3)
 {
     GF_ASSERT(param0);
@@ -368,20 +368,20 @@ THUMB_FUNC void FUN_020093DC(struct UnkStruct1 *param0,
 {
     for (int r5 = param2; r5 < param2 + param3; r5++)
     {
-        u32 r0 = FUN_02008E6C(param0, param1, r5, param5);
+        struct UnkStruct1_sub *r0 = FUN_02008E6C(param0, param1, r5, param5);
 
         if (param4 != NULL && param4[1] > param4[2])
         {
-            ((u32 *)param4[0])[param4[2]] = r0;
+            ((u32 *)param4[0])[param4[2]] = (u32)r0;
             param4[2]++;
         }
     }
 }
 
-THUMB_FUNC struct UnkStruct5 *FUN_02009424(u32 param0, u32 param1)
+THUMB_FUNC struct UnkStruct5 *FUN_02009424(s32 param0, u32 param1)
 {
     struct UnkStruct5 *r4 = AllocFromHeap(param1, sizeof(struct UnkStruct5));
-    r4->unk00 = AllocFromHeap(param1, param0 * sizeof(u32));
+    r4->unk00 = AllocFromHeap(param1, param0 * sizeof(struct UnkStruct1_sub *));
     r4->unk04 = param0;
     r4->unk08 = 0;
 
@@ -438,7 +438,7 @@ THUMB_FUNC struct UnkStruct1_sub *FUN_020094F0(struct UnkStruct1 *param0, u32 pa
     {
         if (param0->unk04[i].unk00 != 0)
         {
-            u32 r0 = FUN_02020E38(param0->unk04[i].unk00);
+            s32 r0 = FUN_02020E38(param0->unk04[i].unk00);
             if (r0 == param1)
             {
                 return &param0->unk04[i];
@@ -595,7 +595,7 @@ THUMB_FUNC s32 FUN_020096CC(struct UnkStruct2 *param0)
     return param0->unk04;
 }
 
-THUMB_FUNC u32 FUN_020096DC(struct UnkStruct2 *param0, s32 param1)
+THUMB_FUNC s32 FUN_020096DC(struct UnkStruct2 *param0, s32 param1)
 {
     GF_ASSERT(param0);
     GF_ASSERT(param0->unk04 > param1);
@@ -608,12 +608,12 @@ THUMB_FUNC u32 FUN_020096DC(struct UnkStruct2 *param0, s32 param1)
     return ((struct UnkStruct4 *)param0->unk00)[param1].unk0C;
 }
 
-THUMB_FUNC u32 FUN_02009710(struct UnkStruct2 *param0, s32 param1)
+THUMB_FUNC s32 FUN_02009710(struct UnkStruct2 *param0, s32 param1)
 {
     GF_ASSERT(param0);
     GF_ASSERT(param0->unk04 > param1);
 
-    u32 r6;
+    s32 r6;
     if (param0->unk0C == 1)
     {
         r6 = ((struct UnkStruct4 *)param0->unk00)[param1].unk04;
@@ -623,12 +623,12 @@ THUMB_FUNC u32 FUN_02009710(struct UnkStruct2 *param0, s32 param1)
     return r6;
 }
 
-THUMB_FUNC u32 FUN_0200973C(struct UnkStruct2 *param0, s32 param1)
+THUMB_FUNC BOOL FUN_0200973C(struct UnkStruct2 *param0, s32 param1)
 {
     GF_ASSERT(param0);
     GF_ASSERT(param0->unk04 > param1);
 
-    u32 r6;
+    BOOL r6;
     if (param0->unk0C == 1)
     {
         r6 = ((struct UnkStruct4 *)param0->unk00)[param1].unk08;
@@ -840,10 +840,10 @@ THUMB_FUNC void FUN_02009978(struct UnkStruct1 *param0,
 
 THUMB_FUNC void FUN_020099B0(struct UnkStruct1 *param0,
     struct UnkStruct1_sub *param1,
-    u32 param2,
+    NARC *param2,
     u32 param3,
     u32 param4,
-    u32 param5,
+    s32 param5,
     u32 param6,
     u32 param7,
     u32 param8,
@@ -904,7 +904,7 @@ THUMB_FUNC u32 FUN_02009A50(struct UnkStruct1_sub *param0)
     u32 st0[4];
     st0[0] = FUN_02009544(param0);
     st0[1] = FUN_020095E4(param0);
-    st0[2] = FUN_02009530(param0);
+    st0[2] = (u32)FUN_02009530(param0);
     st0[3] = 0;
 
     return FUN_0201D1F8(st0);
@@ -916,7 +916,7 @@ THUMB_FUNC void FUN_02009A90(struct UnkStruct5 *param0)
 
     for (int i = 0; i < param0->unk04; i++)
     {
-        GF_ASSERT(param0->unk00[i] == 0 || FUN_02009A50(param0->unk00[i]) != 0);
+        GF_ASSERT(param0->unk00[i] == NULL || FUN_02009A50(param0->unk00[i]) != 0);
     }
 }
 
@@ -928,7 +928,7 @@ THUMB_FUNC u32 FUN_02009AC4(struct UnkStruct1_sub *param0)
     u32 st0[4];
     st0[0] = FUN_02009544(param0);
     st0[1] = FUN_020095E4(param0);
-    st0[2] = FUN_02009530(param0);
+    st0[2] = (u32)FUN_02009530(param0);
     st0[3] = 0;
 
     return FUN_0201D250(st0);
@@ -942,7 +942,7 @@ THUMB_FUNC u32 FUN_02009B04(struct UnkStruct1_sub *param0)
     u32 st0[4];
     st0[0] = FUN_02009544(param0);
     st0[1] = FUN_020095E4(param0);
-    st0[2] = FUN_02009530(param0);
+    st0[2] = (u32)FUN_02009530(param0);
     st0[3] = 1;
 
     return FUN_0201D1F8(st0);
@@ -954,7 +954,7 @@ THUMB_FUNC void FUN_02009B44(struct UnkStruct5 *param0)
 
     for (int i = 0; i < param0->unk04; i++)
     {
-        GF_ASSERT(param0->unk00[i] == 0 || FUN_02009B04(param0->unk00[i]) != 0);
+        GF_ASSERT(param0->unk00[i] == NULL || FUN_02009B04(param0->unk00[i]) != 0);
     }
 }
 
@@ -966,7 +966,7 @@ THUMB_FUNC u32 FUN_02009B78(struct UnkStruct1_sub *param0)
     u32 st0[4];
     st0[0] = FUN_02009544(param0);
     st0[1] = FUN_020095E4(param0);
-    st0[2] = FUN_02009530(param0);
+    st0[2] = (u32)FUN_02009530(param0);
     st0[3] = 1;
 
     return FUN_0201D250(st0);
@@ -1000,7 +1000,7 @@ THUMB_FUNC void FUN_02009C30(struct UnkStruct5 *param0)
     GF_ASSERT(param0);
     for (int i = 0; i < param0->unk04; i++)
     {
-        if (param0->unk00[i] != 0)
+        if (param0->unk00[i] != NULL)
         {
             FUN_02009C0C(param0->unk00[i]);
         }
@@ -1022,7 +1022,7 @@ THUMB_FUNC void FUN_02009C80(struct UnkStruct1_sub *param0, struct UnkStruct1_su
     GF_ASSERT(param1);
     GF_ASSERT(FUN_020095D4(param1) == 2);
 
-    u32 r4 = FUN_02009530(param0);
+    s32 r4 = FUN_02009530(param0);
     if (FUN_0201D3D4(r4, ((u32 **)FUN_02009574(param1))[3][0]) == 0)
     {
         FUN_0201D458(FUN_0201D3B0(r4));
@@ -1044,7 +1044,7 @@ THUMB_FUNC u32 FUN_02009CF0(struct UnkStruct1_sub *param0)
     u32 st0[4];
     st0[0] = FUN_0200955C(param0);
     st0[1] = FUN_020095E4(param0);
-    st0[3] = FUN_02009530(param0);
+    st0[3] = (u32)FUN_02009530(param0);
     st0[2] = FUN_02009610(param0);
 
     return FUN_0201E0E4(st0);
@@ -1055,7 +1055,7 @@ THUMB_FUNC void FUN_02009D34(struct UnkStruct5 *param0)
     GF_ASSERT(param0);
     for (int i = 0; i < param0->unk04; i++)
     {
-        if (param0->unk00[i] != 0)
+        if (param0->unk00[i] != NULL)
         {
             GF_ASSERT(FUN_02009CF0(param0->unk00[i]) != 0);
         }
@@ -1070,7 +1070,7 @@ THUMB_FUNC u32 FUN_02009D68(struct UnkStruct1_sub *param0)
     u32 st0[4];
     st0[0] = FUN_0200955C(param0);
     st0[1] = FUN_020095E4(param0);
-    st0[3] = FUN_02009530(param0);
+    st0[3] = (u32)FUN_02009530(param0);
     st0[2] = FUN_02009610(param0);
 
     return FUN_0201E128(st0);
@@ -1081,7 +1081,7 @@ THUMB_FUNC void FUN_02009DAC(struct UnkStruct5 *param0)
     GF_ASSERT(param0);
     for (int i = 0; i < param0->unk04; i++)
     {
-        if (param0->unk00[i] != 0)
+        if (param0->unk00[i] != NULL)
         {
             GF_ASSERT(FUN_02009D68(param0->unk00[i]) != 0);
         }
@@ -1108,7 +1108,7 @@ THUMB_FUNC void FUN_02009E28(struct UnkStruct5 *param0)
     GF_ASSERT(param0);
     for (int i = 0; i < param0->unk04; i++)
     {
-        if (param0->unk00[i] != 0)
+        if (param0->unk00[i] != NULL)
         {
             FUN_02009E04(param0->unk00[i]);
         }
@@ -1120,7 +1120,7 @@ THUMB_FUNC u32 FUN_02009E54(struct UnkStruct1_sub *param0, u32 param1)
     GF_ASSERT(param0);
     GF_ASSERT(FUN_020095D4(param0) == 1);
 
-    u32 r0 = FUN_02009530(param0);
+    s32 r0 = FUN_02009530(param0);
     if (param1 != 0)
     {
         return FUN_0201E258(r0, param1);
