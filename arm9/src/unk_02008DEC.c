@@ -1000,10 +1000,14 @@ THUMB_FUNC u32 FUN_02009C80(struct UnkStruct_02008DEC_sub *param0, struct UnkStr
     GF_ASSERT(FUN_020095D4(param1) == 2);
 
     s32 r4 = FUN_02009530(param0);
-    if (FUN_0201D3D4(r4, ((u32 **)FUN_02009574(param1))[3][0]) == 0)
+
+    u32 r0 = FUN_0201D3D4(r4, ((u32 **)FUN_02009574(param1))[3][0]);
+    if (r0 == 0)
     {
         return FUN_0201D458(FUN_0201D3B0(r4));
     }
+
+    return r0;
 }
 
 THUMB_FUNC void FUN_02009CDC(u32 param0)
