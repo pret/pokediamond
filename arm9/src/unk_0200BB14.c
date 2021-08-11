@@ -264,7 +264,7 @@ THUMB_FUNC BOOL FUN_0200BD20(
 
     for (s32 i = 0; i < st14; i++)
     {
-        struct UnkStruct2 *st18 = FUN_02009660(param1->unk08, i);
+        struct UnkStruct_02008DEC_2 *st18 = FUN_02009660(param1->unk08, i);
         void *st1c = AllocAndReadFile(param0->unk000, st10[i]);
 
         FUN_02009668(st1c, st18, param0->unk000);
@@ -279,7 +279,7 @@ THUMB_FUNC BOOL FUN_0200BD20(
 
     for (s32 i = 0; i < st14; i++)
     {
-        struct UnkStruct2 *st20 = FUN_02009660(param1->unk08, i);
+        struct UnkStruct_02008DEC_2 *st20 = FUN_02009660(param1->unk08, i);
         param1->unk24[i] = FUN_02009424(FUN_020096CC(st20), param0->unk000);
         param1->unk3c[i] = FUN_020093A8(param1->unk0c[i], st20, param1->unk24[i], param0->unk000);
     }
@@ -451,7 +451,7 @@ THUMB_FUNC BOOL FUN_0200C00C(u32 *param0,
         return FALSE;
     }
 
-    struct UnkStruct1_sub *r5 = FUN_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, param0[0]);
+    struct UnkStruct_02008DEC_sub *r5 = FUN_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, param0[0]);
     if (r5 != NULL)
     {
         FUN_02009B04(r5);
@@ -477,7 +477,7 @@ THUMB_FUNC s32 FUN_0200C06C(u32 *param0,
         return -1;
     }
 
-    struct UnkStruct1_sub * r5 =
+    struct UnkStruct_02008DEC_sub * r5 =
         FUN_02008FEC(param1->unk0c[1], param2, param3, param4, param7, param6, param5, param0[0]);
     if (r5 != NULL)
     {
@@ -664,12 +664,12 @@ THUMB_FUNC struct UnkStruct_0200BB14_5 *FUN_0200C154(
     return ptr;
 }
 
-THUMB_FUNC u32 FUN_0200C334(struct UnkStruct1 **param0, s32 param1)
+THUMB_FUNC u32 FUN_0200C334(struct UnkStruct_02008DEC_1 **param0, s32 param1)
 {
     return FUN_02009E54(FUN_020094F0(param0[4], param1), 0);
 }
 
-THUMB_FUNC s32 FUN_0200C344(struct UnkStruct1 **param0, s32 param1, u32 param2)
+THUMB_FUNC s32 FUN_0200C344(struct UnkStruct_02008DEC_1 **param0, s32 param1, u32 param2)
 {
     return FUN_02009E88(FUN_020094F0(param0[4], param1), param2);
 }
@@ -735,7 +735,7 @@ THUMB_FUNC BOOL FUN_0200C404(u32 *param0,
         return FALSE;
     }
 
-    struct UnkStruct1_sub *r5 = FUN_020090AC(param1->unk0c[param5], param2, param3, param4, param6, param5, param0[0]);
+    struct UnkStruct_02008DEC_sub *r5 = FUN_020090AC(param1->unk0c[param5], param2, param3, param4, param6, param5, param0[0]);
     if (r5 != NULL)
     {
         BOOL r4 = FUN_0200C474(param1->unk24[param5], r5);
@@ -746,7 +746,7 @@ THUMB_FUNC BOOL FUN_0200C404(u32 *param0,
     return r5 != NULL ? TRUE : FALSE;
 }
 
-THUMB_FUNC BOOL FUN_0200C474(struct UnkStruct5 *param0, struct UnkStruct1_sub *param1)
+THUMB_FUNC BOOL FUN_0200C474(struct UnkStruct_02008DEC_5 *param0, struct UnkStruct_02008DEC_sub *param1)
 {
     for (s32 i = 0; i < param0->unk04; i++)
     {
@@ -761,7 +761,7 @@ THUMB_FUNC BOOL FUN_0200C474(struct UnkStruct5 *param0, struct UnkStruct1_sub *p
     return FALSE;
 }
 
-THUMB_FUNC BOOL FUN_0200C4A8(struct UnkStruct1 *param0, struct UnkStruct5 *param1, u32 param2)
+THUMB_FUNC BOOL FUN_0200C4A8(struct UnkStruct_02008DEC_1 *param0, struct UnkStruct_02008DEC_5 *param1, u32 param2)
 {
     for (s32 i = 0; i < param1->unk04; i++)
     {
@@ -783,7 +783,7 @@ THUMB_FUNC BOOL FUN_0200C4A8(struct UnkStruct1 *param0, struct UnkStruct5 *param
     return FALSE;
 }
 
-THUMB_FUNC BOOL FUN_0200C4F4(struct UnkStruct1 *param0, struct UnkStruct5 *param1, u32 param2)
+THUMB_FUNC BOOL FUN_0200C4F4(struct UnkStruct_02008DEC_1 *param0, struct UnkStruct_02008DEC_5 *param1, u32 param2)
 {
     for (s32 i = 0; i < param1->unk04; i++)
     {
@@ -806,7 +806,7 @@ THUMB_FUNC BOOL FUN_0200C4F4(struct UnkStruct1 *param0, struct UnkStruct5 *param
     return FALSE;
 }
 
-THUMB_FUNC BOOL FUN_0200C548(struct UnkStruct1 *param0, struct UnkStruct5 *param1, u32 param2)
+THUMB_FUNC BOOL FUN_0200C548(struct UnkStruct_02008DEC_1 *param0, struct UnkStruct_02008DEC_5 *param1, u32 param2)
 {
     for (s32 i = 0; i < param1->unk04; i++)
     {
@@ -1182,7 +1182,7 @@ THUMB_FUNC BOOL FUN_0200C918(u32 *param0,
         return FALSE;
     }
 
-    struct UnkStruct1_sub *r5 = FUN_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, param0[0]);
+    struct UnkStruct_02008DEC_sub *r5 = FUN_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, param0[0]);
     if (r5 != NULL)
     {
         FUN_02009AC4(r5);
@@ -1208,7 +1208,7 @@ THUMB_FUNC BOOL FUN_0200C978(u32 *param0,
         return FALSE;
     }
 
-    struct UnkStruct1_sub *r5 = FUN_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, param0[0]);
+    struct UnkStruct_02008DEC_sub *r5 = FUN_02008F34(param1->unk0c[0], param2, param3, param4, param6, param5, param0[0]);
     if (r5 != NULL)
     {
         FUN_02009B78(r5);
@@ -1222,18 +1222,18 @@ THUMB_FUNC BOOL FUN_0200C978(u32 *param0,
 }
 
 THUMB_FUNC void FUN_0200C9D8(
-    u32 *param0, struct UnkStruct1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5)
+    u32 *param0, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5)
 {
-    struct UnkStruct1_sub *r6 = FUN_020094F0(param1[3], param5);
+    struct UnkStruct_02008DEC_sub *r6 = FUN_020094F0(param1[3], param5);
     FUN_020090FC(param1[3], r6, param2, param3, param4, param0[0]);
 
     FUN_02009BE8(r6);
 }
 
 THUMB_FUNC void FUN_0200CA0C(
-    u32 *param0, struct UnkStruct1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5)
+    u32 *param0, struct UnkStruct_02008DEC_1 **param1, NarcId param2, s32 param3, BOOL param4, s32 param5)
 {
-    struct UnkStruct1_sub *r6 = FUN_020094F0(param1[4], param5);
+    struct UnkStruct_02008DEC_sub *r6 = FUN_020094F0(param1[4], param5);
     FUN_02009168(param1[4], r6, param2, param3, param4, param0[0]);
 
     FUN_02009DE0(r6);

@@ -21,20 +21,20 @@ THUMB_FUNC void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     s32 param6,
     u32 param7,
     u32 param8,
-    struct UnkStruct1 *param9,
-    struct UnkStruct1 *param10,
-    struct UnkStruct1 *param11,
-    struct UnkStruct1 *param12,
-    struct UnkStruct1 *param13,
-    struct UnkStruct1 *param14)
+    struct UnkStruct_02008DEC_1 *param9,
+    struct UnkStruct_02008DEC_1 *param10,
+    struct UnkStruct_02008DEC_1 *param11,
+    struct UnkStruct_02008DEC_1 *param12,
+    struct UnkStruct_02008DEC_1 *param13,
+    struct UnkStruct_02008DEC_1 *param14)
 {
-    struct UnkStruct1_sub *r7;
-    struct UnkStruct1_sub *st14;
-    struct UnkStruct1_sub *st10;
+    struct UnkStruct_02008DEC_sub *r7;
+    struct UnkStruct_02008DEC_sub *st14;
+    struct UnkStruct_02008DEC_sub *st10;
 
-    struct UnkStruct1_sub *stc = NULL;
-    struct UnkStruct1_sub *r4 = NULL;
-    struct UnkStruct1_sub *st8 = NULL;
+    struct UnkStruct_02008DEC_sub *stc = NULL;
+    struct UnkStruct_02008DEC_sub *r4 = NULL;
+    struct UnkStruct_02008DEC_sub *st8 = NULL;
 
     GF_ASSERT(param9);
     GF_ASSERT(param10);
@@ -116,12 +116,12 @@ THUMB_FUNC void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
 
 THUMB_FUNC struct UnkStruct_02008AA4_1 *FUN_02008BE0(struct UnkStruct_02008AA4_2 *param0,
     u32 param1,
-    struct UnkStruct1 *param2,
-    struct UnkStruct1 *param3,
-    struct UnkStruct1 *param4,
-    struct UnkStruct1 *param5,
-    struct UnkStruct1 *param6,
-    struct UnkStruct1 *param7)
+    struct UnkStruct_02008DEC_1 *param2,
+    struct UnkStruct_02008DEC_1 *param3,
+    struct UnkStruct_02008DEC_1 *param4,
+    struct UnkStruct_02008DEC_1 *param5,
+    struct UnkStruct_02008DEC_1 *param6,
+    struct UnkStruct_02008DEC_1 *param7)
 {
 
     s32 r4 = 0;
