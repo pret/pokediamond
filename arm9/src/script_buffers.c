@@ -13,6 +13,7 @@
 #include "script_buffers.h"
 #include "unk_02024E64.h"
 #include "text.h"
+#include "msgdata/msg.naix"
 
 #pragma thumb on
 
@@ -34,9 +35,9 @@ const u16 UNK_020ECE6C[][2] = {
 };
 
 const u16 UNK_020ECE64[] = {
-    382,
-    384,
-    383,
+    NARC_msg_narc_0382_bin,
+    NARC_msg_narc_0384_bin,
+    NARC_msg_narc_0383_bin,
     0
 };
 
@@ -137,7 +138,7 @@ void BufferRivalsName(struct ScrStrBufs * mgr, u32 idx, struct SaveBlock2 * sav2
 void BufferFriendsName(struct ScrStrBufs * mgr, u32 idx, struct SaveBlock2 * sav2)
 {
     struct PlayerData * data = Sav2_PlayerData_GetProfileAddr(sav2);
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 497, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, mgr->heap_id);
     if (PlayerProfile_GetTrainerGender(data) == 0)
     {
         ReadMsgDataIntoString(msgData, 1, mgr->tmpbuf);
@@ -152,7 +153,7 @@ void BufferFriendsName(struct ScrStrBufs * mgr, u32 idx, struct SaveBlock2 * sav
 
 void BufferBoxMonSpeciesName(struct ScrStrBufs * mgr, u32 idx, struct BoxPokemon * mon)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 362, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, mgr->heap_id);
     ReadMsgDataIntoString(msgData, GetBoxMonData(mon, MON_DATA_SPECIES, NULL), mgr->tmpbuf);
     SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
     DestroyMsgData(msgData);
@@ -165,7 +166,7 @@ void BufferBoxMonSpeciesNameWithArticle(struct ScrStrBufs * mgr, u32 idx, struct
 
 void BufferSpeciesNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 species)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 363, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0363_bin, mgr->heap_id);
     ReadMsgDataIntoString(msgData, species, mgr->tmpbuf);
     SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
     DestroyMsgData(msgData);
@@ -191,7 +192,7 @@ void BufferIntegerAsString(struct ScrStrBufs * mgr, u32 idx, int num, u32 ndigit
 
 void BufferMoveName(struct ScrStrBufs * mgr, u32 idx, u32 move)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 588, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0588_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, move, mgr->tmpbuf);
@@ -202,7 +203,7 @@ void BufferMoveName(struct ScrStrBufs * mgr, u32 idx, u32 move)
 
 void BufferRibbonNameOrDesc(struct ScrStrBufs * mgr, u32 idx, u32 ribbon)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 484, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0484_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, ribbon, mgr->tmpbuf);
@@ -213,7 +214,7 @@ void BufferRibbonNameOrDesc(struct ScrStrBufs * mgr, u32 idx, u32 ribbon)
 
 void BufferAbilityName(struct ScrStrBufs * mgr, u32 idx, u32 ability)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 552, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0552_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, ability, mgr->tmpbuf);
@@ -224,7 +225,7 @@ void BufferAbilityName(struct ScrStrBufs * mgr, u32 idx, u32 ability)
 
 void BufferNatureName(struct ScrStrBufs * mgr, u32 idx, u32 nature)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 190, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0190_bin, mgr->heap_id);
     ReadMsgDataIntoString(msgData, nature, mgr->tmpbuf);
     SetStringAsPlaceholder(mgr, idx, mgr->tmpbuf, NULL);
     DestroyMsgData(msgData);
@@ -232,7 +233,7 @@ void BufferNatureName(struct ScrStrBufs * mgr, u32 idx, u32 nature)
 
 void BufferItemName(struct ScrStrBufs * mgr, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 344, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0344_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, mgr->tmpbuf);
@@ -243,7 +244,7 @@ void BufferItemName(struct ScrStrBufs * mgr, u32 idx, u32 item)
 
 void BufferItemNameWithIndefArticle(struct ScrStrBufs * mgr, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 346, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0346_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, mgr->tmpbuf);
@@ -254,7 +255,7 @@ void BufferItemNameWithIndefArticle(struct ScrStrBufs * mgr, u32 idx, u32 item)
 
 void BufferItemNamePlural(struct ScrStrBufs * mgr, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 347, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0347_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, mgr->tmpbuf);
@@ -265,7 +266,7 @@ void BufferItemNamePlural(struct ScrStrBufs * mgr, u32 idx, u32 item)
 
 void BufferPocketName(struct ScrStrBufs * mgr, u32 idx, u32 pocket)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 349, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0349_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, pocket, mgr->tmpbuf);
@@ -276,7 +277,7 @@ void BufferPocketName(struct ScrStrBufs * mgr, u32 idx, u32 pocket)
 
 void BufferTypeName(struct ScrStrBufs * mgr, u32 idx, u32 type)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 565, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0565_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, type, mgr->tmpbuf);
@@ -287,7 +288,7 @@ void BufferTypeName(struct ScrStrBufs * mgr, u32 idx, u32 type)
 
 void BufferStatName(struct ScrStrBufs * mgr, u32 idx, u32 stat)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 495, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0495_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, stat, mgr->tmpbuf);
@@ -298,7 +299,7 @@ void BufferStatName(struct ScrStrBufs * mgr, u32 idx, u32 stat)
 
 void BufferStatusName(struct ScrStrBufs * mgr, u32 idx, u32 status)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 205, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0205_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, status, mgr->tmpbuf);
@@ -309,7 +310,7 @@ void BufferStatusName(struct ScrStrBufs * mgr, u32 idx, u32 status)
 
 void BufferFlavorDislikeText(struct ScrStrBufs * mgr, u32 idx, u32 flavor)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 548, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0548_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, flavor, mgr->tmpbuf);
@@ -320,7 +321,7 @@ void BufferFlavorDislikeText(struct ScrStrBufs * mgr, u32 idx, u32 flavor)
 
 void BufferLandmarkName(struct ScrStrBufs * mgr, u32 idx, u32 landmark)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 382, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0382_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, landmark, mgr->tmpbuf);
@@ -331,7 +332,7 @@ void BufferLandmarkName(struct ScrStrBufs * mgr, u32 idx, u32 landmark)
 
 void BufferPoketchAppName(struct ScrStrBufs * mgr, u32 idx, u32 app)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 406, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0406_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, app, mgr->tmpbuf);
@@ -342,7 +343,7 @@ void BufferPoketchAppName(struct ScrStrBufs * mgr, u32 idx, u32 app)
 
 void BufferTrainerClassName(struct ScrStrBufs * mgr, u32 idx, u32 trclass)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 560, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0560_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, trclass, mgr->tmpbuf);
@@ -353,7 +354,7 @@ void BufferTrainerClassName(struct ScrStrBufs * mgr, u32 idx, u32 trclass)
 
 void BufferTrainerClassNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 trclass)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 561, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0561_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, trclass, mgr->tmpbuf);
@@ -364,7 +365,7 @@ void BufferTrainerClassNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 trc
 
 void BufferTrainerClassNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct TrainerDataLoaded * tr)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 560, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0560_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, tr->data.trainerClass, mgr->tmpbuf);
@@ -375,7 +376,7 @@ void BufferTrainerClassNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, stru
 
 void BufferTrainerName(struct ScrStrBufs * mgr, u32 idx, u32 msgno)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 559, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0559_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, msgno, mgr->tmpbuf);
@@ -392,7 +393,7 @@ void BufferTrainerNameFromDataStruct(struct ScrStrBufs * mgr, u32 idx, struct Tr
 
 void BufferUndergroundItemName(struct ScrStrBufs * mgr, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 569, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0569_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, mgr->tmpbuf);
@@ -403,7 +404,7 @@ void BufferUndergroundItemName(struct ScrStrBufs * mgr, u32 idx, u32 item)
 
 void BufferUndergroundItemNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 item)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 570, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0570_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, item, mgr->tmpbuf);
@@ -414,7 +415,7 @@ void BufferUndergroundItemNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 
 
 void BufferUndergroundTrapName(struct ScrStrBufs * mgr, u32 idx, u32 trap)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 571, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0571_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, trap, mgr->tmpbuf);
@@ -425,7 +426,7 @@ void BufferUndergroundTrapName(struct ScrStrBufs * mgr, u32 idx, u32 trap)
 
 void BufferUndergroundTrapNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 trap)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 572, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0572_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, trap, mgr->tmpbuf);
@@ -436,7 +437,7 @@ void BufferUndergroundTrapNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 
 
 void BufferContestJudgeName(struct ScrStrBufs * mgr, u32 idx, u32 judge)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 194, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0194_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, judge, mgr->tmpbuf);
@@ -447,7 +448,7 @@ void BufferContestJudgeName(struct ScrStrBufs * mgr, u32 idx, u32 judge)
 
 void BufferContestMessage(struct ScrStrBufs * mgr, u32 idx, u32 msg)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 191, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0191_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, msg, mgr->tmpbuf);
@@ -458,7 +459,7 @@ void BufferContestMessage(struct ScrStrBufs * mgr, u32 idx, u32 msg)
 
 void BufferContestMessage2(struct ScrStrBufs * mgr, u32 idx, u32 msg)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 191, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0191_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, msg, mgr->tmpbuf);
@@ -469,7 +470,7 @@ void BufferContestMessage2(struct ScrStrBufs * mgr, u32 idx, u32 msg)
 
 void BufferInterviewQuestion(struct ScrStrBufs * mgr, u32 idx, u32 question)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 574, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0574_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, question, mgr->tmpbuf);
@@ -480,7 +481,7 @@ void BufferInterviewQuestion(struct ScrStrBufs * mgr, u32 idx, u32 question)
 
 void BufferInterviewAnswer(struct ScrStrBufs * mgr, u32 idx, u32 answer)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 573, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0573_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, answer, mgr->tmpbuf);
@@ -491,7 +492,7 @@ void BufferInterviewAnswer(struct ScrStrBufs * mgr, u32 idx, u32 answer)
 
 void BufferDecorationName(struct ScrStrBufs * mgr, u32 idx, u32 decor)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 567, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0567_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, decor, mgr->tmpbuf);
@@ -502,7 +503,7 @@ void BufferDecorationName(struct ScrStrBufs * mgr, u32 idx, u32 decor)
 
 void BufferDecorationNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 decor)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 568, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0568_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, decor, mgr->tmpbuf);
@@ -513,7 +514,7 @@ void BufferDecorationNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 decor
 
 void BufferGenderSymbol(struct ScrStrBufs * mgr, u32 idx, u32 gender)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 199, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, mgr->heap_id);
     switch (gender)
     {
     case 0:
@@ -538,7 +539,7 @@ void BufferBoxName(struct ScrStrBufs * mgr, u32 idx, struct PCStorage * pc, int 
 
 void BufferGymName(struct ScrStrBufs * mgr, u32 idx, u32 gym)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 331, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0331_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, gym, mgr->tmpbuf);
@@ -549,7 +550,7 @@ void BufferGymName(struct ScrStrBufs * mgr, u32 idx, u32 gym)
 
 void BufferTimeOfDayName(struct ScrStrBufs * mgr, u32 idx, u32 time)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 550, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0550_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, time, mgr->tmpbuf);
@@ -560,7 +561,7 @@ void BufferTimeOfDayName(struct ScrStrBufs * mgr, u32 idx, u32 time)
 
 void BufferCountryName(struct ScrStrBufs * mgr, u32 idx, u32 country)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 612, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0612_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, country, mgr->tmpbuf);
@@ -592,7 +593,7 @@ void FUN_0200B518(struct ScrStrBufs * mgr, u32 idx, u32 a2)
 
 void BufferSealName(struct ScrStrBufs * mgr, u32 idx, u32 seal)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 10, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0010_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, seal, mgr->tmpbuf);
@@ -603,7 +604,7 @@ void BufferSealName(struct ScrStrBufs * mgr, u32 idx, u32 seal)
 
 void BufferSealNamePlural(struct ScrStrBufs * mgr, u32 idx, u32 seal)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 11, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0011_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, seal, mgr->tmpbuf);
@@ -629,7 +630,7 @@ void BufferLocationName(struct ScrStrBufs * mgr, u32 idx, u16 a2)
         // Location is invalid.
         // Fallback: Mystery Zone
         DestroyMsgData(msgData);
-        msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 382, mgr->heap_id);
+        msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0382_bin, mgr->heap_id);
         if (msgData != NULL)
         {
             ReadMsgDataIntoString(msgData, 0, mgr->tmpbuf);
@@ -641,7 +642,7 @@ void BufferLocationName(struct ScrStrBufs * mgr, u32 idx, u16 a2)
 
 void BufferPoffinName(struct ScrStrBufs * mgr, u32 idx, u32 poffin)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 414, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0414_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, poffin, mgr->tmpbuf);
@@ -652,7 +653,7 @@ void BufferPoffinName(struct ScrStrBufs * mgr, u32 idx, u32 poffin)
 
 void BufferFashionName(struct ScrStrBufs * mgr, u32 idx, u32 fashion)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 338, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0338_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, fashion, mgr->tmpbuf);
@@ -663,7 +664,7 @@ void BufferFashionName(struct ScrStrBufs * mgr, u32 idx, u32 fashion)
 
 void BufferFashionNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 fashion)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 339, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0339_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, fashion, mgr->tmpbuf);
@@ -674,7 +675,7 @@ void BufferFashionNameWithArticle(struct ScrStrBufs * mgr, u32 idx, u32 fashion)
 
 void BufferContestBackgroundName(struct ScrStrBufs * mgr, u32 idx, u32 bg)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 340, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0340_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         ReadMsgDataIntoString(msgData, bg, mgr->tmpbuf);
@@ -696,7 +697,7 @@ void BufferEasyChatWord(struct ScrStrBufs * mgr, struct SaveBlock2 * sav2, u32 r
 
 void BufferMonthNameAbbr(struct ScrStrBufs * mgr, u32 idx, u32 month)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 364, mgr->heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0364_bin, mgr->heap_id);
     if (msgData != NULL)
     {
         if (month < 1 || month > 12)
