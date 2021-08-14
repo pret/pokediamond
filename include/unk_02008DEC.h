@@ -24,7 +24,11 @@ struct UnkStruct_02008DEC_1
 
 struct UnkStruct_02008DEC_2
 {
-    void *unk00;
+    union
+    {
+        struct UnkStruct_02008DEC_3 *unk00_3;
+        struct UnkStruct_02008DEC_4 *unk00_4;
+    };
     s32 unk04;
     u32 unk08;
     u8 unk0C;
@@ -80,8 +84,10 @@ struct AnimBank_02008DEC
 
 struct UnkStruct_02008DEC_1 *FUN_02008DEC(u32 param0, s32 param1, u32 param2);
 void FUN_02008E2C(struct UnkStruct_02008DEC_1 *param0);
-struct UnkStruct_02008DEC_sub *FUN_02008E6C(
-    struct UnkStruct_02008DEC_1 *param0, struct UnkStruct_02008DEC_2 *param1, s32 param2, u32 param3);
+struct UnkStruct_02008DEC_sub *FUN_02008E6C(struct UnkStruct_02008DEC_1 *param0,
+    struct UnkStruct_02008DEC_2 *param1,
+    s32 param2,
+    u32 param3);
 struct UnkStruct_02008DEC_sub *FUN_02008F34(struct UnkStruct_02008DEC_1 *param0,
     NarcId param1,
     s32 param2,
@@ -172,7 +178,10 @@ struct UnkStruct_02008DEC_sub *FUN_02009358(struct UnkStruct_02008DEC_1 *param0,
     s32 param4,
     u32 param5,
     u32 param6);
-s32 FUN_020093A8(struct UnkStruct_02008DEC_1 *param0, struct UnkStruct_02008DEC_2 *param1, struct UnkStruct_02008DEC_5 *param2, u32 param3);
+s32 FUN_020093A8(struct UnkStruct_02008DEC_1 *param0,
+    struct UnkStruct_02008DEC_2 *param1,
+    struct UnkStruct_02008DEC_5 *param2,
+    u32 param3);
 void FUN_020093DC(struct UnkStruct_02008DEC_1 *param0,
     struct UnkStruct_02008DEC_2 *param1,
     s32 param2,
@@ -208,7 +217,8 @@ BOOL FUN_0200973C(struct UnkStruct_02008DEC_2 *param0, s32 param1);
 u32 FUN_02009768(struct UnkStruct_02008DEC_2 *param0, s32 param1);
 u32 FUN_0200979C(struct UnkStruct_02008DEC_2 *param0, s32 param1);
 struct UnkStruct_02008DEC_sub *FUN_020097D0(struct UnkStruct_02008DEC_1 *param0);
-void FUN_020097FC(struct UnkStruct_02008DEC_sub *param0, u32 param1, u32 param2, u32 param3, u32 param4);
+void FUN_020097FC(
+    struct UnkStruct_02008DEC_sub *param0, u32 param1, u32 param2, u32 param3, u32 param4);
 struct CharacterData_02008DEC *FUN_0200986C(void *param0, u32 param1, u32 param2);
 struct PaletteData_02008DEC *FUN_0200988C(void *param0, u32 param1, u32 param2, u32 param3);
 struct CellDataBank_02008DEC *FUN_020098B0(void *param0, u32 param1);

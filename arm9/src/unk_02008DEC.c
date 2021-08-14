@@ -74,7 +74,7 @@ THUMB_FUNC struct UnkStruct_02008DEC_sub *FUN_02008E6C(
 
     if (param1->unk0C == 0)
     {
-        struct UnkStruct_02008DEC_3 *r6 = &((struct UnkStruct_02008DEC_3 *)param1->unk00)[param2];
+        struct UnkStruct_02008DEC_3 *r6 = &param1->unk00_3[param2];
         GF_ASSERT(FUN_0200945C(param0, r6->unk00) == 1);
 
         FUN_0200994C(
@@ -82,7 +82,7 @@ THUMB_FUNC struct UnkStruct_02008DEC_sub *FUN_02008E6C(
     }
     else
     {
-        struct UnkStruct_02008DEC_4 *r6 = &((struct UnkStruct_02008DEC_4 *)param1->unk00)[param2];
+        struct UnkStruct_02008DEC_4 *r6 = &param1->unk00_4[param2];
         GF_ASSERT(FUN_0200945C(param0, r6->unk0C) == 1);
 
         FUN_02009978(param0,
@@ -561,26 +561,26 @@ THUMB_FUNC void FUN_02009668(u32 *param0, struct UnkStruct_02008DEC_2 *param1, u
 
     if (param1->unk04 > 0)
     {
-        param1->unk00 = AllocFromHeap(param2, param1->unk04 * sizeof(struct UnkStruct_02008DEC_4));
+        param1->unk00_4 = AllocFromHeap(param2, param1->unk04 * sizeof(struct UnkStruct_02008DEC_4));
     }
     else
     {
-        param1->unk00 = NULL;
+        param1->unk00_4 = NULL;
     }
 
-    if (param1->unk00 != NULL)
+    if (param1->unk00_4 != NULL)
     {
-        memcpy(param1->unk00, param0 + 1, param1->unk04 * sizeof(struct UnkStruct_02008DEC_4));
+        memcpy(param1->unk00_4, param0 + 1, param1->unk04 * sizeof(struct UnkStruct_02008DEC_4));
     }
 }
 
 THUMB_FUNC void FUN_020096B4(struct UnkStruct_02008DEC_2 *param0)
 {
-    if (param0->unk00)
+    if (param0->unk00_4)
     {
-        FreeToHeap(param0->unk00);
+        FreeToHeap(param0->unk00_4);
     }
-    param0->unk00 = NULL;
+    param0->unk00_4 = NULL;
     param0->unk04 = 0;
 }
 
@@ -598,10 +598,10 @@ THUMB_FUNC s32 FUN_020096DC(struct UnkStruct_02008DEC_2 *param0, s32 param1)
 
     if (param0->unk0C == 0)
     {
-        return ((struct UnkStruct_02008DEC_3 *)param0->unk00)[param1].unk00;
+        return param0->unk00_3[param1].unk00;
     }
 
-    return ((struct UnkStruct_02008DEC_4 *)param0->unk00)[param1].unk0C;
+    return param0->unk00_4[param1].unk0C;
 }
 
 THUMB_FUNC s32 FUN_02009710(struct UnkStruct_02008DEC_2 *param0, s32 param1)
@@ -612,7 +612,7 @@ THUMB_FUNC s32 FUN_02009710(struct UnkStruct_02008DEC_2 *param0, s32 param1)
     s32 r6;
     if (param0->unk0C == 1)
     {
-        r6 = ((struct UnkStruct_02008DEC_4 *)param0->unk00)[param1].unk04;
+        r6 = param0->unk00_4[param1].unk04;
     }
 
     // oops, UB here
@@ -627,7 +627,7 @@ THUMB_FUNC BOOL FUN_0200973C(struct UnkStruct_02008DEC_2 *param0, s32 param1)
     BOOL r6;
     if (param0->unk0C == 1)
     {
-        r6 = ((struct UnkStruct_02008DEC_4 *)param0->unk00)[param1].unk08;
+        r6 = param0->unk00_4[param1].unk08;
     }
 
     // oops, UB here
@@ -641,10 +641,10 @@ THUMB_FUNC u32 FUN_02009768(struct UnkStruct_02008DEC_2 *param0, s32 param1)
 
     if (param0->unk0C == 0)
     {
-        return ((struct UnkStruct_02008DEC_3 *)param0->unk00)[param1].unk44;
+        return param0->unk00_3[param1].unk44;
     }
 
-    return ((struct UnkStruct_02008DEC_4 *)param0->unk00)[param1].unk10;
+    return param0->unk00_4[param1].unk10;
 }
 
 THUMB_FUNC u32 FUN_0200979C(struct UnkStruct_02008DEC_2 *param0, s32 param1)
@@ -654,10 +654,10 @@ THUMB_FUNC u32 FUN_0200979C(struct UnkStruct_02008DEC_2 *param0, s32 param1)
 
     if (param0->unk0C == 0)
     {
-        return ((struct UnkStruct_02008DEC_3 *)param0->unk00)[param1].unk48;
+        return param0->unk00_3[param1].unk48;
     }
 
-    return ((struct UnkStruct_02008DEC_4 *)param0->unk00)[param1].unk14;
+    return param0->unk00_4[param1].unk14;
 }
 
 THUMB_FUNC struct UnkStruct_02008DEC_sub *FUN_020097D0(struct UnkStruct_02008DEC_1 *param0)
