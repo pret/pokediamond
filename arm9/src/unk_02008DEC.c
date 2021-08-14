@@ -559,22 +559,18 @@ THUMB_FUNC void FUN_02009668(u32 *param0, struct UnkStruct_02008DEC_2 *param1, u
 
     param1->unk04 = FUN_020099E8((struct UnkStruct_02008DEC_4 *)(param0 + 1));
 
-    void *ptr;
     if (param1->unk04 > 0)
     {
-        ptr = AllocFromHeap(param2, param1->unk04 * sizeof(struct UnkStruct_02008DEC_4));
+        param1->unk00 = AllocFromHeap(param2, param1->unk04 * sizeof(struct UnkStruct_02008DEC_4));
     }
     else
     {
-        ptr = NULL;
+        param1->unk00 = NULL;
     }
 
-    param1->unk00 = ptr;
-    // use volatile to force a reload here
-    void *r0 = *((void *volatile *)param1);
-    if (r0 != NULL)
+    if (param1->unk00 != NULL)
     {
-        memcpy(r0, param0 + 1, param1->unk04 * sizeof(struct UnkStruct_02008DEC_4));
+        memcpy(param1->unk00, param0 + 1, param1->unk04 * sizeof(struct UnkStruct_02008DEC_4));
     }
 }
 
