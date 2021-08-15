@@ -14,6 +14,7 @@
 #include "unk_02024E64.h"
 #include "text.h"
 #include "msgdata/msg.naix"
+#include "graphic/font.naix"
 
 #pragma thumb on
 
@@ -747,12 +748,12 @@ void ScrStrBufs_ResetBuffers(struct ScrStrBufs * mgr)
         StringSetEmpty(mgr->array[i].msg);
 }
 
-struct UnkStruct_0200B870 * MessagePrinter_new(u32 r5, u32 r6, u32 sp4, u32 r4)
+struct UnkStruct_0200B870 * MessagePrinter_new(u32 color1, u32 color2, u32 color3, u32 heap_id)
 {
-    struct UnkStruct_0200B870 * sp8 = AllocFromHeap(r4, sizeof(struct UnkStruct_0200B870));
+    struct UnkStruct_0200B870 * sp8 = AllocFromHeap(heap_id, sizeof(struct UnkStruct_0200B870));
     if (sp8 != NULL)
     {
-        sp8->unk_0 = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, 4, 1, &sp8->unk_4, r4);
+        sp8->unk_0 = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, NARC_font_narc_0004_NCGR_lz, 1, &sp8->unk_4, heap_id);
         int i;
         u8 * ptr = sp8->unk_4->unk_14;
         for (i = 0; i < sp8->unk_4->unk_10; i++)
@@ -760,35 +761,35 @@ struct UnkStruct_0200B870 * MessagePrinter_new(u32 r5, u32 r6, u32 sp4, u32 r4)
             switch (ptr[i])
             {
             case 0x00:
-                ptr[i] = (u8)((sp4 << 4) | sp4);
+                ptr[i] = (u8)((color3 << 4) | color3);
                 break;
             case 0x01:
-                ptr[i] = (u8)((sp4 << 4) | r5);
+                ptr[i] = (u8)((color3 << 4) | color1);
                 break;
             case 0x02:
-                ptr[i] = (u8)((sp4 << 4) | r6);
+                ptr[i] = (u8)((color3 << 4) | color2);
                 break;
             case 0x10:
-                ptr[i] = (u8)((r5 << 4) | sp4);
+                ptr[i] = (u8)((color1 << 4) | color3);
                 break;
             case 0x11:
-                ptr[i] = (u8)((r5 << 4) | r5);
+                ptr[i] = (u8)((color1 << 4) | color1);
                 break;
             case 0x12:
-                ptr[i] = (u8)((r5 << 4) | r6);
+                ptr[i] = (u8)((color1 << 4) | color2);
                 break;
             case 0x20:
-                ptr[i] = (u8)((r6 << 4) | sp4);
+                ptr[i] = (u8)((color2 << 4) | color3);
                 break;
             case 0x21:
-                ptr[i] = (u8)((r6 << 4) | r5);
+                ptr[i] = (u8)((color2 << 4) | color1);
                 break;
             case 0x22:
-                ptr[i] = (u8)((r6 << 4) | r6);
+                ptr[i] = (u8)((color2 << 4) | color2);
                 break;
             }
         }
-        sp8->unk_28 = sp4;
+        sp8->unk_28 = color3;
     }
     return sp8;
 }

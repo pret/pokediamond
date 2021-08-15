@@ -7,7 +7,6 @@
 #include "msgdata/msg.naix"
 #include "text.h"
 
-extern void FUN_02002ED0(enum GFBgLayer layer, u32 base_addr, u32 heap_id);
 extern void FUN_0200A274(fx32 brightness, fx32, u32);
 extern void FUN_0200CB00(struct BgConfig* bg_config, enum GFBgLayer layer, u32 num_tiles, u32, u8, u32 heap_id);
 extern void FUN_0200CCA4(struct Window* window, BOOL copy_to_vram, u16 fill_value, u32 palette_num);

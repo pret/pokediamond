@@ -104,7 +104,7 @@ void BufferMonthNameAbbr(struct ScrStrBufs * mgr, u32 idx, u32 month);
 void ScrStrBufs_UpperFirstChar(struct ScrStrBufs * mgr, u32 idx);
 void StringExpandPlaceholders(struct ScrStrBufs * mgr, struct String * dest, struct String * src);
 void ScrStrBufs_ResetBuffers(struct ScrStrBufs * mgr);
-struct UnkStruct_0200B870 * MessagePrinter_new(u32 r5, u32 r6, u32 sp4, u32 r4);
+struct UnkStruct_0200B870 * MessagePrinter_new(u32 color1, u32 color2, u32 color3, u32 heap_id);
 void MessagePrinter_delete(struct UnkStruct_0200B870 * a0);
 void FUN_0200B9A8(struct UnkStruct_0200B870 * a0, int a1, struct Window * a2, int a3, int a4);
 void FUN_0200B9EC(struct UnkStruct_0200B870 * string, u32 value, u32 n, enum PrintingMode mode, struct Window *window, int x, int y);
