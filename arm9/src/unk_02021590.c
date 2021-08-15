@@ -5,19 +5,6 @@
 #include "unk_0201B8B8.h"
 #include "string_util.h"
 
-void FontData_Init(struct FontData *ptr, NarcId narcId, s32 fileId, BOOL unk, u32 heap_id);
-void InitFontResources(struct FontData *ptr, u32 a1, u32 heap_id);
-void FontData_FreeWidthsAndNarc(struct FontData * ptr);
-void InitFontResources_FromPreloaded(struct FontData * ptr, u32 heap_id);
-void InitFontResources_LazyFromNarc(struct FontData * ptr, u32 heap_id);
-void FreeLoadedFontResources(struct FontData * ptr);
-void FreeLoadedFontResources_FromPreloaded(struct FontData * ptr);
-void FreeLoadedFontResources_LazyFromNarc(struct FontData * ptr);
-void DecompressGlyphTiles_FromPreloaded(struct FontData * ptr, u16 param1, struct UnkStruct_02002C14_sub * param2);
-void DecompressGlyphTiles_LazyFromNarc(struct FontData * ptr, u16 param1, struct UnkStruct_02002C14_sub * param2);
-int GetGlyphWidth_VariableWidth(struct FontData * ptr, int a1);
-int GetGlyphWidth_FixedWidth(struct FontData * ptr, int a1);
-
 static const u8 sGlyphShapes[][2] = {
     { 0, 1 },
     { 2, 3 },
