@@ -665,6 +665,7 @@ Overlay MODULE_04
 	Object mod04_021DC8A4.o
 	Object mod04_021DCCC8.o
 	Object mod04_021DD36C.o
+	Object mod04_0220C680_certs.o
 	Object mod04_021DD6B0.o
 	Object mod04_021DD82C.o
 	Object mod04_021DD984.o

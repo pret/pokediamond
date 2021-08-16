@@ -445,6 +445,23 @@ MOD04_021DDEE0: ; 0x021DDEE0
 _021DDF3C: .word UNK04_02210518
 	arm_func_end MOD04_021DDEE0
 
+	.section .data
+
+	.global UNK04_0220D280
+UNK04_0220D280: ; 0x0220D280
+	.asciz "https://nas.test.nintendowifi.net/ac"
+
+	.balign 4, 0
+	.global UNK04_0220D2A8
+UNK04_0220D2A8: ; 0x0220D2A8
+	.asciz "https://nas.dev.nintendowifi.net/ac"
+
+	.balign 4, 0
+	.global UNK04_0220D2CC
+UNK04_0220D2CC: ; 0x0220D2CC
+	.asciz "https://nas.nintendowifi.net/ac"
+
+	.balign 4, 0
 	.section .bss
 
 	.global UNK04_02210518
