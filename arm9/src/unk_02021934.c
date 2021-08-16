@@ -3,6 +3,7 @@
 #include "heap.h"
 #include "string_util.h"
 #include "unk_0201B8B8.h"
+#include "unk_02021590.h"
 
 #pragma thumb on
 
@@ -10,7 +11,7 @@
 
 void StrAddChar(struct String * str, u16 val);
 
-s32 StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6)
+s32 StringGetWidth(struct FontData * r7, const u16 * arr, u32 r6)
 {
     s32 ret = 0;
     u32 r4 = 0;
@@ -29,7 +30,7 @@ s32 StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6)
         }
         else
         {
-            r4 += (r6 + r7->unk_70(r7, *arr - 1));
+            r4 += (r6 + r7->glyphWidthFunc(r7, *arr - 1));
             arr++;
         }
     }
@@ -38,7 +39,7 @@ s32 StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6)
     return ret;
 }
 
-s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct UnkStruct_0202199C * r6, const u16 * arr)
+s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct FontData * r6, const u16 * arr)
 {
     s32 ret = 0;
     while (*arr != 0xFFFF)
@@ -53,7 +54,7 @@ s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct UnkStruct_0202199C
         }
         else
         {
-            ret += r6->unk_70(r6, *arr - 1);
+            ret += r6->glyphWidthFunc(r6, *arr - 1);
             arr++;
         }
     }

@@ -1381,11 +1381,11 @@
 .extern FUN_0202135C
 .extern FUN_02021390
 .extern FUN_020213A0
-.extern FUN_02021590
-.extern FUN_020215C8
-.extern FUN_020215E0
-.extern FUN_02021750
-.extern FUN_020218D8
+.extern FontData_new
+.extern FontData_delete
+.extern FontData_ModeSwitch
+.extern TryLoadGlyph
+.extern GetStringWidth
 .extern StringGetWidth
 .extern StringGetWidth_SingleLine_HandleClearToControlCode
 .extern String_ctor
