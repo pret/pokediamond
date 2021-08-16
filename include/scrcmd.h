@@ -15,6 +15,14 @@ struct UnkStruct_0203A288 {
     u8 padding[1];
 };
 
+typedef struct UnkStruct_0203B174
+{
+    BOOL Unk00;
+    u32 Unk04;
+    void *Unk08;
+    struct UnkSavStruct80 *Unk0C;
+} UnkStruct_0203B174;
+
 //scrcmd.c
 BOOL ScrCmd_Nop(struct ScriptContext* ctx);
 BOOL ScrCmd_Dummy(struct ScriptContext* ctx);
