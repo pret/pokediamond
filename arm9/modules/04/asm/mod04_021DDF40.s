@@ -275,11 +275,11 @@ _021DE2CC: .word 0xBC19137F
 
 	.section .data
 
-	.global UNK_0220D2EC
+	.global UNK04_0220D2EC
 UNK04_0220D2EC: ; 0x0220D2EC
 	.byte 0x00, 0x00, 0x00, 0x00
 
-	.global UNK_0220D2F0
+	.global UNK04_0220D2F0
 UNK04_0220D2F0: ; 0x0220D2F0
 	.asciz "0000"
 
