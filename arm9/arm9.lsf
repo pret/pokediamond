@@ -852,7 +852,12 @@ Overlay MODULE_20
 {
 	##Pokétch##
 	After MODULE_06
-	Object module_20.o
+	Object mod20_02252440.o
+	Object mod20_02252C5C.o
+	Object mod20_022536F4.o
+	Object mod20_02253BA4.o
+	Object mod20_02254130.o
+	Object mod20_02254420.o
 }
 
 Overlay MODULE_21
