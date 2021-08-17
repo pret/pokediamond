@@ -811,7 +811,7 @@ _021E10F4: .word UNK04_022106C8
 
 	.section .data
 
-	.global UNK_0220D34C
+	.global UNK04_0220D34C
 UNK04_0220D34C: ; 0x0220D34C
 	.byte 0x00, 0x00, 0x00, 0x00
 

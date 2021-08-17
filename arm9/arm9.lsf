@@ -674,6 +674,8 @@ Overlay MODULE_04
 	Object mod04_021DE89C.o
 	Object mod04_021DEB90.o
 	Object mod04_021E05FC.o
+	Object mod04_021E10F8.o
+	Object mod04_021E26D0.o
 	Object arm_04.o
 }
 
