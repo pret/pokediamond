@@ -14,32 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start FUN_0203B174
-FUN_0203B174: ; 0x0203B174
-	push {r3-r7, lr}
-	add r5, r0, #0x0
-	add r6, r1, #0x0
-	mov r0, #0x4
-	mov r1, #0x10
-	add r7, r2, #0x0
-	bl AllocFromHeap
-	add r4, r0, #0x0
-	bne _0203B18E
-	bl GF_AssertFail
-	pop {r3-r7, pc}
-_0203B18E:
-	str r5, [r4, #0xc]
-	str r6, [r4, #0x4]
-	ldr r0, _0203B1A4 ; =FUN_0203B1A8
-	add r1, r4, #0x0
-	mov r2, #0x0
-	str r7, [r4, #0x8]
-	bl FUN_0200CA44
-	str r0, [r4, #0x0]
-	pop {r3-r7, pc}
-	nop
-_0203B1A4: .word FUN_0203B1A8 
-
 	thumb_func_start FUN_0203B1A8
 FUN_0203B1A8: ; 0x0203B1A8
 	push {r3-r5, lr}

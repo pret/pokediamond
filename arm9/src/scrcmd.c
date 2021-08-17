@@ -1,4 +1,5 @@
 #include "scrcmd.h"
+#include "unk_0200CA44.h"
 #include "unk_0204639C.h"
 #include "main.h"
 #include "options.h"
@@ -54,11 +55,11 @@ extern void MOD05_021E26CC(u32 param0, u8 param1);
 extern void MOD05_021E2B80(u32 param0, u8 param1);
 extern void MOD05_021E2B9C(u32 param0, u8 param1);
 extern u32 FUN_0205AEA4(u32 param0, const void *ptr);
-extern void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2);
 extern u32 FUN_02058B2C(u32 param0);
 extern u32 FUN_02058B4C(u32 param0);
 extern u32 FUN_020580B4(u32 param0, u32 param1);
 extern u32 FUN_02058060(u32 param0, u32 param1);
+extern void FUN_0203B1A8(u32 param0, void *param1);
 
 extern u8 *UNK_020F34E0;
 
@@ -79,6 +80,7 @@ static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
 static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
 static BOOL FUN_0203B158(struct ScriptContext *ctx);
+static void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -1355,13 +1357,13 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx)
     if (unk6 < unk2)
     {
         unk4[pos * 2] = 12;
-        unk4[pos * 2 + 1] = unk2 - unk6;
+        unk4[pos * 2 + 1] = (u16)(unk2 - unk6);
         pos++;
     }
     else if (unk6 > unk2)
     {
         unk4[pos * 2] = 13;
-        unk4[pos * 2 + 1] = unk6 - unk2;
+        unk4[pos * 2 + 1] = (u16)(unk6 - unk2);
         pos++;
     }
 
@@ -1404,4 +1406,18 @@ THUMB_FUNC static BOOL FUN_0203B158(struct ScriptContext *ctx)
 {
     u8 *unk = FUN_02039438(ctx->unk80, 4);
     return *unk == 0 ? TRUE : FALSE;
+}
+
+THUMB_FUNC static void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2)
+{
+    UnkStruct_0203B174 *unkStruct = (UnkStruct_0203B174 *)AllocFromHeap(4, sizeof(UnkStruct_0203B174));
+    if (unkStruct == NULL)
+    {
+        GF_AssertFail();
+        return;
+    }
+    unkStruct->Unk0C = arg;
+    unkStruct->Unk04 = param1;
+    unkStruct->Unk08 = param2;
+    unkStruct->Unk00 = FUN_0200CA44(FUN_0203B1A8, unkStruct, 0);
 }
