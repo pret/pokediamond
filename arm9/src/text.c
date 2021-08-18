@@ -282,7 +282,7 @@ THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadow
     sp20[2] = shadowColor;
     sp20[3] = bgColor;
 
-    // FIXME: Need these to be accessed by a pointer to UNK_021C570C
+    // These are accessed by a pointer to UNK_021C570C due to -ipa file
     UNK_021C5712 = bgColor;
     UNK_021C570E = fgColor;
     UNK_021C5710 = shadowColor;
