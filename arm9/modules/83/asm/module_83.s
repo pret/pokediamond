@@ -1893,7 +1893,7 @@ MOD83_0222E464: ; 0x0222E464
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	add r0, r4, #0
 	bl DoScheduledBgGpuUpdates
 	ldr r3, _0222E484 ; =MOD83_027E0000
@@ -18085,7 +18085,7 @@ _022363E2:
 	bl FUN_0201FD58
 	mov r0, #0
 	str r0, [r6, #0x28]
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	ldr r0, _02236448 ; =0x0000E88C
@@ -18217,7 +18217,7 @@ MOD83_0223650C: ; 0x0223650C
 	str r1, [r4, r0]
 _02236520:
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r0, [r4, #0x20]
 	bl DoScheduledBgGpuUpdates
 	ldr r3, _02236540 ; =MOD83_027E0000
@@ -23784,7 +23784,7 @@ _02238EB0:
 	ldr r0, _02238EF0 ; =MOD83_0223BC60
 	mov r1, #0
 	str r1, [r0]
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	mov r0, #0
@@ -23826,7 +23826,7 @@ MOD83_02238F00: ; 0x02238F00
 	str r1, [r4, r0]
 _02238F1E:
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _02238F3C ; =MOD83_027E0000
 	ldr r1, _02238F40 ; =0x00003FF8
 	mov r0, #1

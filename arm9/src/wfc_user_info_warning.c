@@ -10,9 +10,9 @@
 #include "string16.h"
 #include "text.h"
 #include "wfc_user_info_warning.h"
+#include "brightness.h"
 
 extern void FUN_02002ED0(enum GFBgLayer layer, u32 base_addr, u32 heap_id);
-extern void FUN_0200A274(fx32 brightness, fx32, u32);
 extern void FUN_0200CB00(struct BgConfig* bg_config, enum GFBgLayer layer, u32 num_tiles, u32, u8, u32 heap_id);
 extern void FUN_0200CCA4(struct Window* window, BOOL copy_to_vram, u16 fill_value, u32 palette_num);
 extern void FUN_0200E394(BOOL set_brightness_on_bottom_screen);
@@ -118,7 +118,7 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     GX_BothDispOn();
     FUN_0200E394(0);
     FUN_0200E394(1);
-    FUN_0200A274(0, 0x3F, 3);
+    SetBrightness(0, 0x3F, 3);
 
     while (TRUE)
     {

@@ -10857,7 +10857,7 @@ MOD14_021DCA38: ; 0x021DCA38
 	bl FreeToHeap
 	add r0, r4, #0
 	bl FreeToHeap
-	bl FUN_02009FA0
+	bl DeinitOamData
 	pop {r4, pc}
 	.align 2, 0
 _021DCB08: .word 0x0000B3AC
@@ -10994,7 +10994,7 @@ MOD14_021DCBFC: ; 0x021DCBFC
 	bl MOD14_021E0EE4
 	ldr r0, [r4, #0x18]
 	bl FUN_0201FDEC
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _021DCC24 ; =0x027E0000
 	ldr r1, _021DCC28 ; =0x00003FF8
 	mov r0, #1

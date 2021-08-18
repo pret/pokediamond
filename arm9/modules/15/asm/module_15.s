@@ -2664,7 +2664,7 @@ _021D88A4:
 	bl FUN_0200CAB4
 	ldr r0, [r6, #4]
 	bl FUN_0200CAB4
-	bl FUN_02009FA0
+	bl DeinitOamData
 	ldr r0, [r6, #0x24]
 	bl FUN_0201FD58
 	ldr r0, [r6, #0x20]
@@ -2691,7 +2691,7 @@ MOD15_021D88DC: ; 0x021D88DC
 	push {r3, lr}
 	ldr r0, [r1, #0x24]
 	bl FUN_0201FDEC
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _021D88F8 ; =0x027E0000
 	ldr r1, _021D88FC ; =0x00003FF8
 	mov r0, #1

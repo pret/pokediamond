@@ -37,7 +37,7 @@ MOD05_021EFAAC: ; 0x021EFAAC
 	mov r1, #2
 	bl HandleLoadOverlay
 	mov r0, #1
-	bl FUN_0200A03C
+	bl GetOamManager
 	str r0, [sp]
 	ldr r1, [r5, #4]
 	ldr r2, [r5, #0xc]

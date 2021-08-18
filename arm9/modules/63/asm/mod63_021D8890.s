@@ -502,17 +502,17 @@ _021D8CA4: .word 0x04000580
 
 	thumb_func_start MOD63_021D8CA8
 MOD63_021D8CA8: ; 0x021D8CA8
-	ldr r3, _021D8CAC ; =FUN_02009F80
+	ldr r3, _021D8CAC ; =ApplyAndResetOamManagerBuffer
 	bx r3
 	.align 2, 0
-_021D8CAC: .word FUN_02009F80
+_021D8CAC: .word ApplyAndResetOamManagerBuffer
 	thumb_func_end MOD63_021D8CA8
 
 	thumb_func_start MOD63_021D8CB0
 MOD63_021D8CB0: ; 0x021D8CB0
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r0, [r4, #0x4c]
 	bl MOD63_021DB598
 	pop {r4, pc}
@@ -565,7 +565,7 @@ _021D8D0C: .word 0x0000209F
 MOD63_021D8D10: ; 0x021D8D10
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200A2AC
+	bl InitAllScreenBrightnessData
 	ldr r1, _021D8D90 ; =0x00007FFF
 	mov r0, #0
 	bl FUN_0200E3A0
@@ -1599,7 +1599,7 @@ _021D950C:
 	mov r0, #0x10
 	mov r1, #1
 	mov r2, #2
-	bl FUN_0200A274
+	bl SetBrightness
 	mov r0, #1
 	add r5, #0x36
 	strb r0, [r5]
@@ -2178,7 +2178,7 @@ _021D9A42:
 	mov r1, #0
 	mov r2, #0x10
 	mov r3, #1
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldrb r0, [r4, #1]
 	add r0, r0, #1
 	strb r0, [r4, #1]

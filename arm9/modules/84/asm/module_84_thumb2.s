@@ -1067,14 +1067,14 @@ _021D8914:
 	sub r1, #0x30
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021D8950
 _021D893A:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D8950
 	ldr r0, [r5, #8]
@@ -1322,14 +1322,14 @@ _021D8AF4:
 	mov r0, #0x20
 	sub r2, #0x10
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021D8B66
 _021D8B16:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D8B66
 	ldr r0, [r4]
@@ -1350,14 +1350,14 @@ _021D8B28:
 	sub r1, #0x30
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021D8B66
 _021D8B4E:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D8B66
 	mov r0, #1
@@ -1622,14 +1622,14 @@ _021D8D2C:
 	mov r0, #0x20
 	sub r2, #0x10
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
 	b _021D8DE6
 _021D8D56:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D8DE6
 	ldr r0, _021D8DEC ; =0x00000DF4
@@ -1680,14 +1680,14 @@ _021D8D9E:
 	sub r1, #0x30
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
 	b _021D8DE6
 _021D8DC8:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D8DE6
 	mov r0, #1
@@ -2481,14 +2481,14 @@ _021D93FC:
 	mov r0, #0x20
 	sub r2, #0x10
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021D946E
 _021D941E:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D946E
 	ldr r0, [r4]
@@ -2509,14 +2509,14 @@ _021D9430:
 	sub r1, #0x30
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021D946E
 _021D9456:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D946E
 	mov r0, #1
@@ -2790,14 +2790,14 @@ _021D9654:
 	mov r0, #0x10
 	sub r2, #0x10
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
 	b _021D97F0
 _021D966E:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D96D2
 	mov r1, #0
@@ -2960,14 +2960,14 @@ _021D97B0:
 	sub r1, #0x30
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
 	b _021D97F0
 _021D97D8:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D97F0
 	ldr r0, [r4, #0x4c]
@@ -3354,14 +3354,14 @@ _021D9ABC:
 	mov r0, #0x20
 	sub r2, #0x10
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021D9B2E
 _021D9ADE:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D9B2E
 	ldr r0, [r4]
@@ -3382,14 +3382,14 @@ _021D9AF0:
 	sub r1, #0x30
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021D9B2E
 _021D9B16:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D9B2E
 	mov r0, #1
@@ -3661,14 +3661,14 @@ _021D9D0E:
 	mov r0, #0x20
 	sub r2, #0x10
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
 	b _021DA068
 _021D9D28:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D9E16
 	mov r1, #0
@@ -3977,14 +3977,14 @@ _021D9F90:
 	sub r1, #0x30
 	mov r2, #0
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
 	b _021DA068
 _021D9FBE:
 	mov r0, #3
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021DA068
 	mov r0, #1
@@ -4049,14 +4049,14 @@ _021DA02A:
 	mov r0, #0x10
 	sub r2, #0x10
 	mov r3, #0x1d
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
 	b _021DA068
 _021DA058:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021DA068
 	add sp, #0x10

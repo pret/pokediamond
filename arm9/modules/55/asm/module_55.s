@@ -311,7 +311,7 @@ _021D7754:
 	mov r1, #0
 	add r0, #0xec
 	str r1, [r0]
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	mov r0, #0xeb
@@ -370,7 +370,7 @@ _021D77E6:
 	ldr r0, [r4, #4]
 	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _021D7804 ; =0x027E0000
 	ldr r1, _021D7808 ; =0x00003FF8
 	mov r0, #1

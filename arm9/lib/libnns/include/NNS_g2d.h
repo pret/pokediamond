@@ -200,6 +200,11 @@ typedef struct NNSG2dAnimBankData
 
 } NNSG2dAnimBankData;
 
+typedef struct NNSG2dOamManager
+{
+    u8 unk00[0x1c];
+} NNSG2dOamManager;
+
 BOOL NNS_G2dGetUnpackedBGCharacterData(void * pNcgrFile, NNSG2dCharacterData ** ppCharData);
 BOOL NNS_G2dGetUnpackedCharacterData(void * pNcgrFile, NNSG2dCharacterData ** ppCharData);
 BOOL NNS_G2dGetUnpackedScreenData(void * pNscrFile, NNSG2dScreenData ** ppScrData);
@@ -208,5 +213,12 @@ BOOL NNS_G2dGetUnpackedPaletteData(void * pNclrFile, NNSG2dPaletteData ** ppPltD
 BOOL NNS_G2dGetUnpackedPaletteCompressInfo(void * pNclrFile, NNSG2dPaletteCompressInfo ** ppPltCmpInfo);
 BOOL NNS_G2dGetUnpackedCellBank(void * pNcerFile, NNSG2dCellDataBank ** ppCellBank);
 BOOL NNS_G2dGetUnpackedAnimBank(void * pNanrFile, NNSG2dAnimBankData ** ppAnimBank);
+
+BOOL NNS_G2dGetNewOamManagerInstance(
+    NNSG2dOamManager *oamManager, u16 param1, u16 param2, u16 param3, u16 param4, u32 param5);
+void NNS_G2dApplyAndResetOamManagerBuffer(NNSG2dOamManager *oamManager);
+u32 NNS_G2dEntryOamManagerOamWithAffineIdx(
+    NNSG2dOamManager *oamManager, u32 param1, u32 param2);
+u32 NNS_G2dEntryOamManagerAffine(NNSG2dOamManager *oamManager, u32 param1);
 
 #endif //NNSYS_NNS_G2D_H

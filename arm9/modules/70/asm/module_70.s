@@ -524,7 +524,7 @@ MOD70_021D78A0: ; 0x021D78A0
 	bl DestroyMsgData
 	ldr r0, [r4, #0x34]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	ldr r0, [r4, #0x10]
 	bl FreeToHeap
 	add r0, r4, #0
@@ -538,7 +538,7 @@ MOD70_021D790C: ; 0x021D790C
 	push {r3, lr}
 	ldr r0, [r0, #0x34]
 	bl FUN_0201FDEC
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _021D7928 ; =0x027E0000
 	ldr r1, _021D792C ; =0x00003FF8
 	mov r0, #1

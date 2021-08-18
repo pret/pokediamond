@@ -1941,7 +1941,7 @@ _021D8470:
 MOD57_021D848C: ; 0x021D848C
 	push {r3, lr}
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _021D84A4 ; =0x027E0000
 	ldr r1, _021D84A8 ; =0x00003FF8
 	mov r0, #1
@@ -3996,7 +3996,7 @@ _021D94F4:
 	blo _021D94F4
 	ldr r0, [r5]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	pop {r4, r5, r6, pc}

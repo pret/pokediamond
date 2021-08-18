@@ -1505,7 +1505,7 @@ _02077982:
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	ldr r1, _02077A70 ; =0x000004AC
 	mov r0, #0x12
 	ldr r1, [r4, r1]
@@ -1655,7 +1655,7 @@ _02077ADA:
 FUN_02077AE8: ; 0x02077AE8
 	push {r3, lr}
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _02077B00 ; =0x027E0000
 	ldr r1, _02077B04 ; =0x00003FF8
 	mov r0, #0x1

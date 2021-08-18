@@ -863,7 +863,7 @@ MOD17_021D7AE4: ; 0x021D7AE4
 	bl DoScheduledBgGpuUpdates
 	ldr r0, [r4, #0x20]
 	bl FUN_020081C4
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD17_021D7AE4
@@ -1137,7 +1137,7 @@ MOD17_021D7CF0: ; 0x021D7CF0
 	push {r3, lr}
 	ldr r0, [r0, #0x38]
 	bl DoScheduledBgGpuUpdates
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	pop {r3, pc}
 	.align 2, 0
 	thumb_func_end MOD17_021D7CF0
@@ -1724,7 +1724,7 @@ _021D8178:
 	blt _021D8178
 	bl FUN_0201D12C
 	bl FUN_0201E08C
-	bl FUN_02009FA0
+	bl DeinitOamData
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD17_021D816C
 
@@ -3933,7 +3933,7 @@ _021D934E:
 	sub r1, #0x18
 	mov r2, #0
 	mov r3, #0xa
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0xc]
 	add sp, #4
 	add r0, r0, #1
@@ -3941,7 +3941,7 @@ _021D934E:
 	pop {r3, r4, pc}
 _021D936A:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D9424
 	ldr r0, [r4, #0xc]
@@ -4009,7 +4009,7 @@ _021D93EA:
 	mov r0, #8
 	sub r2, #0x10
 	mov r3, #0xa
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0xc]
 	add sp, #4
 	add r0, r0, #1
@@ -4017,7 +4017,7 @@ _021D93EA:
 	pop {r3, r4, pc}
 _021D9406:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D9424
 	ldr r0, [r4, #0xc]
@@ -4093,7 +4093,7 @@ _021D9482:
 	sub r1, #0x18
 	mov r2, #0
 	mov r3, #0xa
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0xc]
 	add sp, #4
 	add r0, r0, #1
@@ -4101,7 +4101,7 @@ _021D9482:
 	pop {r3, r4, pc}
 _021D949E:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D95A4
 	ldr r0, [r4, #0xc]
@@ -4175,7 +4175,7 @@ _021D952E:
 	mov r0, #8
 	sub r2, #0x10
 	mov r3, #0xa
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0xc]
 	add sp, #4
 	add r0, r0, #1
@@ -4183,7 +4183,7 @@ _021D952E:
 	pop {r3, r4, pc}
 _021D954A:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D95A4
 	ldr r0, [r4, #0xc]
