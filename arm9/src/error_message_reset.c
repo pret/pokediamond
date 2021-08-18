@@ -6,7 +6,7 @@
 #include "bg_window.h"
 #include "PAD_pad.h"
 #include "font.h"
-#include "unk_0200A104.h"
+#include "brightness.h"
 
 
 const struct WindowTemplate UNK_020FF49C = {
@@ -124,7 +124,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         GX_BothDispOn();
         FUN_0200E394(0);
         FUN_0200E394(1);
-        FUN_0200A274(0, 0x3f, 3);
+        SetBrightness(0, 0x3f, 3);
         FUN_02032DAC();
 
         while (1)

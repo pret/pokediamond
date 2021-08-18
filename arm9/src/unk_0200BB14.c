@@ -4,7 +4,7 @@
 #include "heap.h"
 #include "unk_02008AA4.h"
 #include "unk_02008DEC.h"
-#include "unk_02009EAC.h"
+#include "oam.h"
 
 extern void FUN_0201D060(u32 *param0, u32 param1, u32 param2);
 extern void FUN_0201E00C(u32 param0, u32 param1);
@@ -158,7 +158,7 @@ THUMB_FUNC void FUN_0200BC1C(u32 *param0)
 
 THUMB_FUNC void FUN_0200BC30()
 {
-    FUN_02009F80();
+    ApplyAndResetOamManagerBuffer();
 }
 
 THUMB_FUNC void FUN_0200BC38()
@@ -205,7 +205,7 @@ THUMB_FUNC void FUN_0200BCB0(u32 *param0)
 
     if (param0[2] == 1)
     {
-        FUN_02009FA0();
+        DeinitOamData();
     }
 }
 

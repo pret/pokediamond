@@ -2218,14 +2218,14 @@ _02049A64:
 	mov r0, #0x1e
 	sub r2, #0x10
 	mov r3, #0x19
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02049AB2
 _02049A96:
 	mov r0, #0x2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0x0
 	beq _02049AB2
 	mov r0, #0x1
@@ -2287,14 +2287,14 @@ _02049B02:
 	sub r1, #0x2e
 	mov r2, #0x0
 	mov r3, #0x1
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02049BDC
 _02049B2C:
 	mov r0, #0x2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0x0
 	beq _02049BDC
 	ldr r0, [r5, #0x68]

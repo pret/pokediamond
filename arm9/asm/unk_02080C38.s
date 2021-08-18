@@ -3370,7 +3370,7 @@ FUN_0208251C: ; 0x0208251C
 	add r5, r1, #0x0
 	ldr r4, [r5, r0]
 	mov r0, #0x1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0x0
 	beq _02082594
 	ldrb r0, [r4, #0xb]
@@ -3392,7 +3392,7 @@ FUN_0208251C: ; 0x0208251C
 	mov r1, #0x0
 	mov r2, #0x4
 	mov r3, #0x3f
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, _0208259C ; =0x000005F8
 	bl PlaySE
 	ldrb r0, [r4, #0xa]

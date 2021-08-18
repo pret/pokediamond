@@ -3145,24 +3145,24 @@ _021D90E2:
 	add r2, r5, #0
 	mov r3, #0xb
 	str r0, [sp]
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #1
 	mov r1, #0x10
 	add r2, r5, #0
 	mov r3, #0xd
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #0x33
 	str r0, [r4, #0xc]
 	b _021D985C
 _021D9106:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _021D91F6
 	mov r0, #2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _021D91F6
 	mov r0, #1
@@ -3170,24 +3170,24 @@ _021D9106:
 	mov r2, #0x10
 	mov r3, #0xb
 	str r0, [sp]
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #1
 	add r1, r5, #0
 	mov r2, #0x10
 	mov r3, #0xd
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #0x34
 	str r0, [r4, #0xc]
 	b _021D985C
 _021D913E:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _021D91F6
 	mov r0, #2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _021D91F6
 	mov r0, #1
@@ -3196,24 +3196,24 @@ _021D913E:
 	mov r1, #0x10
 	add r2, r5, #0
 	mov r3, #0xb
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #4
 	mov r1, #0x10
 	add r2, r5, #0
 	mov r3, #0xd
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #0x35
 	str r0, [r4, #0xc]
 	b _021D985C
 _021D9178:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _021D91F6
 	mov r0, #2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _021D91F6
 	mov r0, #0x36
@@ -3244,14 +3244,14 @@ _021D9192:
 	add r1, r5, #0
 	add r2, r0, #0
 	mov r3, #0xb
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #2
 	str r0, [sp]
 	mov r0, #0x10
 	add r1, r5, #0
 	add r2, r0, #0
 	mov r3, #0xd
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #0x37
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -3260,14 +3260,14 @@ _021D91E4:
 	add r1, #0x94
 	bl MOD59_021D86BC
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	beq _021D91F8
 _021D91F6:
 	b _021D985C
 _021D91F8:
 	mov r0, #2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #1
 	bne _021D92FA
 	mov r0, #0x38

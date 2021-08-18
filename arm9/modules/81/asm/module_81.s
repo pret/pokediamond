@@ -233,7 +233,7 @@ MOD81_02238004: ; 0x02238004
 	bl FreeToHeap
 	ldr r0, [r4, #0x18]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0x39
@@ -327,7 +327,7 @@ MOD81_022380F4: ; 0x022380F4
 	push {r3, lr}
 	ldr r0, [r1, #0x18]
 	bl FUN_0201FDEC
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _02238110 ; =0x027E0000
 	ldr r1, _02238114 ; =0x00003FF8
 	mov r0, #1

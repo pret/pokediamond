@@ -169,7 +169,7 @@ FUN_02089F24: ; 0x02089F24
 	mov r0, #0x0
 	mov r1, #0x3f
 	mov r2, #0x3
-	bl FUN_0200A274
+	bl SetBrightness
 	mov r4, #0x1
 _0208A078:
 	bl HandleDSLidAction
@@ -338,7 +338,7 @@ _0208A0C8:
 	mov r0, #0x0
 	mov r1, #0x3f
 	mov r2, #0x3
-	bl FUN_0200A274
+	bl SetBrightness
 	mov r4, #0x1
 	; Battery-saver trap
 _0208A21A:

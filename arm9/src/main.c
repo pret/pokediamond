@@ -18,7 +18,7 @@
 #include "wfc_user_info_warning.h"
 #include "module_52.h"
 #include "font.h"
-#include "unk_0200A104.h"
+#include "brightness.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
@@ -96,7 +96,7 @@ THUMB_FUNC void NitroMain(void)
     gMain.unk6C = 1;
     gMain.unk30 = 0;
     InitializeMainRNG();
-    FUN_0200A2AC();
+    InitAllScreenBrightnessData();
     FUN_02015E30();
     UNK_02016FA4 = 0;
     for (;;)
@@ -126,7 +126,7 @@ THUMB_FUNC void NitroMain(void)
         OS_WaitIrq(1, 1);
         gMain.unk2C++;
         gMain.unk30 = 0;
-        FUN_0200A318();
+        DoAllScreenBrightnessTransitionStep();
         FUN_0200E2D8();
         if (gMain.vBlankIntr)
             gMain.vBlankIntr(gMain.vBlankIntrArg);

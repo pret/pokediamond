@@ -165,7 +165,7 @@ FUN_02089D90: ; 0x02089D90
 	mov r0, #0x0
 	mov r1, #0x3f
 	mov r2, #0x3
-	bl FUN_0200A274
+	bl SetBrightness
 	mov r4, #0x1
 _02089EE4:
 	bl HandleDSLidAction

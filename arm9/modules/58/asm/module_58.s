@@ -247,7 +247,7 @@ _021D9C40:
 	blt _021D9C40
 	ldr r0, [r6, #0x3c]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	add r0, r6, #0
@@ -287,7 +287,7 @@ MOD58_021D9CB4: ; 0x021D9CB4
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	add r0, r4, #0
 	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D9CD4 ; =0x027E0000

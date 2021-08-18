@@ -1712,7 +1712,7 @@ MOD80_0222E2E0: ; 0x0222E2E0
 	str r1, [r4, r0]
 _0222E2F4:
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _0222E310 ; =0x027E0000
 	ldr r1, _0222E314 ; =0x00003FF8
 	mov r0, #1
@@ -2389,7 +2389,7 @@ _0222E824:
 	ldr r0, _0222E858 ; =0x00000B84
 	mov r1, #0
 	str r1, [r6, r0]
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	pop {r3, r4, r5, r6, r7, pc}

@@ -377,7 +377,7 @@ _021DB126:
 	blo _021DB126
 	ldr r0, [r5]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	pop {r4, r5, r6, pc}

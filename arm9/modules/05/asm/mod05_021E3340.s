@@ -35,14 +35,14 @@ _021E3370:
 	sub r1, #0x12
 	mov r2, #0
 	mov r3, #0x3f
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021E3414
 _021E3388:
 	mov r0, #2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021E3414
 	ldr r0, [r5, #8]
@@ -67,7 +67,7 @@ _021E33A0:
 	add r0, r6, #0
 	bl Sav2_Poketch_Give
 	mov r0, #1
-	bl FUN_0200A03C
+	bl GetOamManager
 	str r0, [sp]
 	ldr r1, [r5, #4]
 	ldr r2, [r5, #0xc]
@@ -87,14 +87,14 @@ _021E33E4:
 	mov r0, #4
 	sub r2, #0x10
 	mov r3, #0x3f
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021E3414
 _021E33FE:
 	mov r0, #2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021E3414
 	add r0, r4, #0

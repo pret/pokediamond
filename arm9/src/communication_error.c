@@ -6,7 +6,7 @@
 #include "msgdata.h"
 #include "msgdata/msg.naix"
 #include "text.h"
-#include "unk_0200A104.h"
+#include "brightness.h"
 
 extern void FUN_0200CB00(struct BgConfig* bg_config, enum GFBgLayer layer, u32 num_tiles, u32, u8, u32 heap_id);
 extern void FUN_0200CCA4(struct Window* window, BOOL copy_to_vram, u16 fill_value, u32 palette_num);
@@ -149,7 +149,7 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
     GX_BothDispOn();
     FUN_0200E394(PM_LCD_TOP);
     FUN_0200E394(PM_LCD_BOTTOM);
-    FUN_0200A274(0, 0x3F, 3);
+    SetBrightness(0, 0x3F, 3);
 
     RemoveWindow(&window);
     DestroyMsgData(error_message_data);

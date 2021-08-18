@@ -4,7 +4,7 @@
 #include "heap.h"
 #include "unk_0200BB14.h"
 #include "unk_02008DEC.h"
-#include "unk_02009EAC.h"
+#include "oam.h"
 
 extern void FUN_0202134C(void *, u32);
 extern u32 FUN_0201FCB0(u32 *);

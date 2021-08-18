@@ -10,7 +10,7 @@ MOD05_021D74E0: ; 0x021D74E0
 	ldr r0, [r4, #8]
 	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r0, [r4, #0x34]
 	bl FUN_020583A0
 	bl MOD05_021F2D48
@@ -744,10 +744,10 @@ MOD05_021D7B38: ; 0x021D7B38
 
 	thumb_func_start MOD05_021D7B5C
 MOD05_021D7B5C: ; 0x021D7B5C
-	ldr r3, _021D7B60 ; =FUN_02009FA0
+	ldr r3, _021D7B60 ; =DeinitOamData
 	bx r3
 	.balign 4, 0
-_021D7B60: .word FUN_02009FA0
+_021D7B60: .word DeinitOamData
 
 	thumb_func_start MOD05_021D7B64
 MOD05_021D7B64: ; 0x021D7B64

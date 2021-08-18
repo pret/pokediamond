@@ -509,7 +509,7 @@ _022121EC:
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	add r0, r6, #0
@@ -577,7 +577,7 @@ MOD56_0221228C: ; 0x0221228C
 	ldr r0, [r0]
 	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _022122AC ; =0x027E0000
 	ldr r1, _022122B0 ; =0x00003FF8
 	mov r0, #1

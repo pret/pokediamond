@@ -308,7 +308,7 @@ _021D7726:
 MOD64_021D77A4: ; 0x021D77A4
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	add r0, r4, #0
 	add r0, #0x94
 	ldr r0, [r0]
@@ -384,7 +384,7 @@ MOD64_021D7810: ; 0x021D7810
 	thumb_func_start MOD64_021D7828
 MOD64_021D7828: ; 0x021D7828
 	push {r3, lr}
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	bl MOD64_021D7964

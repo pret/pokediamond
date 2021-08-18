@@ -2403,7 +2403,7 @@ _021D88AA:
 MOD73_021D88B0: ; 0x021D88B0
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	beq _021D88C2
@@ -2635,7 +2635,7 @@ _021D8A70: .word 0x00200010
 	thumb_func_start MOD73_021D8A74
 MOD73_021D8A74: ; 0x021D8A74
 	push {r3, lr}
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	pop {r3, pc}
