@@ -1002,7 +1002,7 @@
 .extern FUN_02015CC0
 .extern FUN_02015CE0
 .extern FUN_02015CF8
-.extern FUN_02015D88
+.extern ConvertRSStringToDPStringInternational
 .extern FUN_02015E30
 .extern FUN_02015E3C
 .extern FUN_02015E60

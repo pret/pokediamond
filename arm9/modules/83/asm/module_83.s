@@ -17094,7 +17094,7 @@ _02235B7C:
 	add r0, r4, r0
 	add r0, r1, r0
 	add r1, sp, #0
-	bl FUN_02015D88
+	bl ConvertRSStringToDPStringInternational
 	add r0, sp, #0
 	str r0, [sp, #0x4c]
 	add r0, r5, #0
@@ -17237,7 +17237,7 @@ _02235CCA:
 	add r0, #2
 	add r1, sp, #8
 	mov r2, #0xb
-	bl FUN_02015D88
+	bl ConvertRSStringToDPStringInternational
 	add r0, sp, #8
 	str r0, [sp, #0x64]
 	mov r0, #0
@@ -18156,7 +18156,7 @@ MOD83_02236484: ; 0x02236484
 	add r0, r4, #0
 	add r1, sp, #8
 	mov r2, #8
-	bl FUN_02015D88
+	bl ConvertRSStringToDPStringInternational
 	mov r0, #0x4e
 	bl ScrStrBufs_new
 	add r4, r0, #0
@@ -22504,7 +22504,7 @@ _022384FE:
 	add r0, sp, #0x24
 	add r1, sp, #0xc
 	mov r2, #0xc
-	bl FUN_02015D88
+	bl ConvertRSStringToDPStringInternational
 	add r0, r4, #0
 	mov r1, #0x75
 	add r2, sp, #0xc
@@ -22541,7 +22541,7 @@ _0223853E:
 	add r0, sp, #0x24
 	add r1, sp, #0xc
 	mov r2, #8
-	bl FUN_02015D88
+	bl ConvertRSStringToDPStringInternational
 	add r0, r4, #0
 	mov r1, #0x8f
 	add r2, sp, #0xc

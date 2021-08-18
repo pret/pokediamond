@@ -49,7 +49,7 @@ Static arm9
 	Object unk_02014590.o
 	Object unk_02014BF4.o
 	Object unk_02015CC0.o
-	Object unk_02015D14.o
+	Object rs_migrate_string.o
 	Object unk_02015E30.o
 	Object game_init.o
 	Object heap.o
