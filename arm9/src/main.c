@@ -18,6 +18,7 @@
 #include "wfc_user_info_warning.h"
 #include "module_52.h"
 #include "font.h"
+#include "unk_0200A104.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
@@ -32,13 +33,11 @@ extern void FUN_02022294(void);
 extern void GF_InitRTCWork(void);
 extern int FUN_020337E8(int);
 extern void FUN_02089D90(int);
-extern void FUN_0200A2AC(void);
 extern void FUN_02015E30(void);
 extern void FUN_0201B5CC(void *);
 extern void GF_RTC_UpdateOnFrame(void);
 extern void FUN_02015E60(void);
 extern void FUN_020222C4(void);
-extern void FUN_0200A318(void);
 extern void FUN_0200E2D8(void);
 
 extern struct Unk21DBE18 MOD63_021DBE18;

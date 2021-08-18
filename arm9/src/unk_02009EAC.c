@@ -4,7 +4,6 @@
 #include "MI_memory.h"
 #include "heap.h"
 
-
 extern void FUN_020213A0(void);
 extern void FUN_0202135C(void *param0,
     u32 *param1,
@@ -59,26 +58,26 @@ THUMB_FUNC void FUN_02009EAC(s32 param0,
     FUN_02009EF0(r0, param1, r2, param3, param4, param5, param6, param7, param8);
 }
 
-THUMB_FUNC void FUN_02009EF0(u32 param0,
-    u32 param1,
-    u32 param2,
-    u32 param3,
+THUMB_FUNC void FUN_02009EF0(s32 param0,
+    s32 param1,
+    s32 param2,
+    s32 param3,
     u32 param4,
     u32 param5,
     u32 param6,
     u32 param7,
-    u32 param8)
+    u32 heap_id)
 {
     GF_ASSERT(UNK_021C4670 == NULL);
-    UNK_021C4670 = AllocFromHeap(param8, sizeof(struct UnkStruct_02009EAC));
+    UNK_021C4670 = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02009EAC));
     GF_ASSERT(UNK_021C4670);
 
-    UNK_021C4670->heap_id = param8;
+    UNK_021C4670->heap_id = heap_id;
 
     GF_ASSERT(NNS_G2dGetNewOamManagerInstance(
-        &UNK_021C4670->oamManagers[0], param0, param1, param2, param3, 0));
+        &UNK_021C4670->oamManagers[0], (u16)param0, (u16)param1, (u16)param2, (u16)param3, 0));
     GF_ASSERT(NNS_G2dGetNewOamManagerInstance(
-        &UNK_021C4670->oamManagers[1], param4, param5, param6, param7, 1));
+        &UNK_021C4670->oamManagers[1], (u16)param4, (u16)param5, (u16)param6, (u16)param7, 1));
 }
 
 THUMB_FUNC void FUN_02009F80(void)

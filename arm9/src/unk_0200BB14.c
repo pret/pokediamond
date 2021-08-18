@@ -4,31 +4,21 @@
 #include "heap.h"
 #include "unk_02008AA4.h"
 #include "unk_02008DEC.h"
+#include "unk_02009EAC.h"
 
 extern void FUN_0201D060(u32 *param0, u32 param1, u32 param2);
 extern void FUN_0201E00C(u32 param0, u32 param1);
 extern void NNS_G2dInitOamManagerModule();
-extern void FUN_02009EAC(u32 param0,
-    u32 param1,
-    u32 param2,
-    u32 param3,
-    u32 param4,
-    u32 param5,
-    u32 param6,
-    u32 param7,
-    u32 param8);
 extern u32 FUN_0201C328(u32 param0, u32 param1);
 extern void FUN_0201D168();
 extern void FUN_0201E0BC();
 extern void FUN_0201FFC8(u32 param0);
 extern void FUN_0201FDEC(u32 param0);
-extern void FUN_02009F80();
 extern void FUN_0201C348();
 extern void FUN_0201FD58(u32 param0);
 extern void FUN_0201C350(u32 param0);
 extern void FUN_0201D12C();
 extern void FUN_0201E08C();
-extern void FUN_02009FA0();
 extern u32 FUN_0201FE94(struct UnkStruct_0200BB14_4 *param0);
 extern void FUN_02020130(u32 param0, u32 param1);
 extern void FUN_02020248(u32 param0, u32 param1);

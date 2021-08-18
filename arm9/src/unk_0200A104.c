@@ -38,11 +38,11 @@ THUMB_FUNC void FUN_0200A104(struct UnkStruct_0200A104 *param0)
 
     if ((param0->unk04 & 1) != 0)
     {
-        G2x_SetBlendBrightness_(0x04000050, param0->unk00, param0->unk1a);
+        G2x_SetBlendBrightness_(reg_addr_G2_BLDCNT, param0->unk00, param0->unk1a);
     }
     else if ((param0->unk04 & 2) != 0)
     {
-        G2x_SetBlendBrightness_(0x04001050, param0->unk00, param0->unk1a);
+        G2x_SetBlendBrightness_(reg_addr_G2S_DB_BLDCNT, param0->unk00, param0->unk1a);
     }
 
     if (r4 == 1)
@@ -52,7 +52,7 @@ THUMB_FUNC void FUN_0200A104(struct UnkStruct_0200A104 *param0)
 }
 
 THUMB_FUNC void FUN_0200A1A0(
-    struct UnkStruct_0200A104 *param0, u16 param1, s16 param2, s16 param3, u32 param4, u32 param5)
+    struct UnkStruct_0200A104 *param0, u16 param1, s16 param2, s16 param3, fx32 param4, u32 param5)
 {
     GF_ASSERT(param0->unk1c == 0);
 
@@ -62,7 +62,7 @@ THUMB_FUNC void FUN_0200A1A0(
     param0->unk08 = param1;
     param0->unk0a = param2;
     param0->unk1a = param3;
-    param0->unk12 = param3 - param2;
+    param0->unk12 = (s16)(param3 - param2);
 
     if (param0->unk12 > 0)
     {
@@ -74,24 +74,24 @@ THUMB_FUNC void FUN_0200A1A0(
         param0->unk12 *= -1;
     }
 
-    param0->unk14 = param0->unk12 / param1;
-    param0->unk16 = param0->unk12 % param1;
+    param0->unk14 = (s16)(param0->unk12 / param1);
+    param0->unk16 = (u16)(param0->unk12 % param1);
     param0->unk18 = 0;
 }
 
-THUMB_FUNC void FUN_0200A208(u16 param0, s16 param1, s16 param2, u32 param3, u32 param4)
+THUMB_FUNC void FUN_0200A208(u16 param0, s16 param1, s16 param2, fx32 param3, u32 param4)
 {
     if (param0 != 0)
     {
         if ((param4 & 1) != 0)
         {
-            G2x_SetBlendBrightness_(0x04000050, param3, param2);
+            G2x_SetBlendBrightness_(reg_addr_G2_BLDCNT, param3, param2);
             FUN_0200A1A0(&UNK_021C4694, param0, param1, param2, param3, 1);
         }
 
         if ((param4 & 2) != 0)
         {
-            G2x_SetBlendBrightness_(0x04001050, param3, param2);
+            G2x_SetBlendBrightness_(reg_addr_G2S_DB_BLDCNT, param3, param2);
             FUN_0200A1A0(&UNK_021C4674, param0, param1, param2, param3, 2);
         }
     }
@@ -102,12 +102,12 @@ THUMB_FUNC void FUN_0200A274(fx32 brightness, fx32 param1, u32 param2)
 
     if ((param2 & 1) != 0)
     {
-        G2x_SetBlendBrightness_(0x04000050, param1, brightness);
+        G2x_SetBlendBrightness_(reg_addr_G2_BLDCNT, param1, brightness);
     }
 
     if ((param2 & 2) != 0)
     {
-        G2x_SetBlendBrightness_(0x04001050, param1, brightness);
+        G2x_SetBlendBrightness_(reg_addr_G2S_DB_BLDCNT, param1, brightness);
     }
 
     FUN_0200A2D8(param2);

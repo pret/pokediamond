@@ -6,6 +6,7 @@
 #include "bg_window.h"
 #include "PAD_pad.h"
 #include "font.h"
+#include "unk_0200A104.h"
 
 
 const struct WindowTemplate UNK_020FF49C = {
@@ -46,7 +47,6 @@ extern void FUN_0200E3A0(PMLCDTarget, int);
 extern void FUN_0200CB00(struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
 extern void FUN_0200CCA4(struct Window *param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_0200E394(u32 param0);
-extern void FUN_0200A274(u32 param0, u32 param1, u32 param2);
 
 THUMB_FUNC void VBlankHandler()
 {
