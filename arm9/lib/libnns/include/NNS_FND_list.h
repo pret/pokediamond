@@ -17,4 +17,19 @@ typedef struct
 
 } NNSFndList;
 
+void NNS_FndInitList(
+    NNSFndList *pList,
+    s32 alignment
+);
+
+void NNS_FndAppendListObject(
+    NNSFndList *pList,
+    void* object
+);
+
+void NNS_FndRemoveListObject(
+    NNSFndList *pList,
+    void* object
+);
+
 #endif //GUARD_NNS_FND_LIST_H
