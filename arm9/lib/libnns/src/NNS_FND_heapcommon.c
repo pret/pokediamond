@@ -13,7 +13,7 @@ static inline void NNSi_FndHeapHeadSetOptionFlag(NNSiFndHeapHead *pHead, u8 opti
 
 void *NNS_FndGetNextListObject(NNSFndList *, void *);
 
-NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBlock)
+static NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBlock)
 {
     NNSiFndHeapHead * pHead = NULL;
 
@@ -30,7 +30,7 @@ NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBlock)
     return NULL;
 }
 
-NNSFndList* FindListContainHeap(const void * memBlock)
+static NNSFndList* FindListContainHeap(const void * memBlock)
 {
     NNSFndList* ret = &sRootList;
     NNSiFndHeapHead* pHead = FindContainHeap(&sRootList, memBlock);
