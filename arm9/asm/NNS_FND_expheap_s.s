@@ -2,6 +2,10 @@
 	.include "global.inc"
 	.extern NNSi_FndInitHeapHead
 	.extern NNSi_FndFinalizeHeap
+	.extern GetRegionOfMBlock
+	.extern RemoveMBlock
+	.extern InsertMBlock
+	.extern InitMBlock
 	.text
 
 	arm_func_start NNS_FndGetSizeForMBlockExpHeap
@@ -520,64 +524,3 @@ InitExpHeap: ; 0x020AE420
 _020AE498: .word 0x45585048
 _020AE49C: .word 0x00004652
 	arm_func_end InitExpHeap
-
-	arm_func_start InitMBlock
-InitMBlock: ; 0x020AE4A0
-	ldr r3, [r0, #0x0]
-	mov r2, #0x0
-	strh r1, [r3, #0x0]
-	strh r2, [r3, #0x2]
-	ldr r1, [r0, #0x4]
-	add r0, r3, #0x10
-	sub r0, r1, r0
-	str r0, [r3, #0x4]
-	str r2, [r3, #0x8]
-	mov r0, r3
-	str r2, [r3, #0xc]
-	bx lr
-	arm_func_end InitMBlock
-
-	arm_func_start InsertMBlock
-InsertMBlock: ; 0x020AE4D0
-	str r2, [r1, #0x8]
-	cmp r2, #0x0
-	ldrne r3, [r2, #0xc]
-	strne r1, [r2, #0xc]
-	ldreq r3, [r0, #0x0]
-	streq r1, [r0, #0x0]
-	str r3, [r1, #0xc]
-	cmp r3, #0x0
-	strne r1, [r3, #0x8]
-	streq r1, [r0, #0x4]
-	mov r0, r1
-	bx lr
-	arm_func_end InsertMBlock
-
-	arm_func_start RemoveMBlock
-RemoveMBlock: ; 0x020AE500
-	ldr r2, [r1, #0x8]
-	ldr r1, [r1, #0xc]
-	cmp r2, #0x0
-	strne r1, [r2, #0xc]
-	streq r1, [r0, #0x0]
-	cmp r1, #0x0
-	strne r2, [r1, #0x8]
-	streq r2, [r0, #0x4]
-	mov r0, r2
-	bx lr
-	arm_func_end RemoveMBlock
-
-	arm_func_start GetRegionOfMBlock
-GetRegionOfMBlock: ; 0x020AE528
-	ldrh r2, [r1, #0x2]
-	add r3, r1, #0x10
-	mov r2, r2, asr #0x8
-	and r2, r2, #0x7f
-	mov r2, r2, lsl #0x10
-	sub r2, r1, r2, lsr #0x10
-	str r2, [r0, #0x0]
-	ldr r1, [r1, #0x4]
-	add r1, r1, r3
-	str r1, [r0, #0x4]
-	bx lr
-	arm_func_end GetRegionOfMBlock

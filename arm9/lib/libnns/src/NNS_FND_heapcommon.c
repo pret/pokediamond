@@ -5,12 +5,6 @@
 BOOL sRootListInitialized;
 NNSFndList sRootList;
 
-static inline void NNSi_FndHeapHeadSetOptionFlag(NNSiFndHeapHead *pHead, u8 option_flag)
-{
-    pHead->attribute &= ~0xFF;
-    pHead->attribute |= option_flag;
-}
-
 void *NNS_FndGetNextListObject(NNSFndList *, void *);
 
 static NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBlock)
@@ -45,7 +39,7 @@ void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart
     pHead->heapStart = heapStart;
     pHead->heapEnd = heapEnd;
     pHead->attribute = 0;
-    NNSi_FndHeapHeadSetOptionFlag(pHead, optionFlag);
+    SetOptForHeap(pHead, optionFlag);
     NNS_FndInitList(&pHead->childList, 4);
     if (!sRootListInitialized)
     {
