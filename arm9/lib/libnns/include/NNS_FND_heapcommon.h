@@ -2,8 +2,11 @@
 #define GUARD_NNS_FND_HEAPCOMMON_H
 
 #include "NNS_FND_list.h"
+#include "MI_memory.h"
 
 #define NNS_FND_HEAP_DEFAULT_ALIGNMENT          4
+
+#define NNS_FndGetFillValForHeap(type) (0)
 
 typedef struct NNSiFndHeapHead NNSiFndHeapHead;
 
@@ -85,6 +88,12 @@ static inline void SetOptForHeap(
     )
 {
     NNSi_FndSetBitValue(pHeapHd->attribute, 0, 8, optFlag);
+}
+
+static inline void FillAllocMemory(NNSiFndHeapHead* pHeapHd, void* address, u32 size)
+{
+    if (GetOptForHeap(pHeapHd) & 1)
+        MI_CpuFill32(address, NNS_FndGetFillValForHeap(0), size);
 }
 
 void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart, void* heapEnd, u16 optionFlag);

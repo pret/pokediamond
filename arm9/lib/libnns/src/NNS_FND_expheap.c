@@ -11,6 +11,21 @@ static inline u16 GetAlignmentForMBlock(NNSiFndExpHeapMBlockHead* block)
     return NNSi_FndGetBitValue(block->attribute, 8, 7);
 }
 
+static inline void SetAllocDirForMBlock(NNSiFndExpHeapMBlockHead* pEHMBHead, u16 direction)
+{
+    NNSi_FndSetBitValue(pEHMBHead->attribute, 15, 1, direction);
+}
+
+static inline void SetAlignmentForMBlock(NNSiFndExpHeapMBlockHead* pEHMBHead, u16 alignment)
+{
+    NNSi_FndSetBitValue(pEHMBHead->attribute, 8, 7, alignment);
+}
+
+static inline void SetGroupIDForMBlock(NNSiFndExpHeapMBlockHead* pEHMBHead, u16 groupID)
+{
+    NNSi_FndSetBitValue(pEHMBHead->attribute, 0, 8, groupID);
+}
+
 static inline void* GetMemPtrForMBlock(NNSiFndExpHeapMBlockHead* block)
 {
     return AddU32ToPtr(block, sizeof(NNSiFndExpHeapMBlockHead));
@@ -29,6 +44,11 @@ static inline void SetAllocMode(NNSiFndExpHeapHead* pExHeapHd, u16 mode)
 static inline NNSiFndExpHeapHead* GetExpHeapHeadPtrFromHeapHead(NNSiFndHeapHead* pHHead)
 {
     return AddU32ToPtr(pHHead, sizeof(NNSiFndHeapHead));
+}
+
+static inline NNSiFndHeapHead* GetHeapHeadPtrFromExpHeapHead(NNSiFndExpHeapHead* pEHHead)
+{
+    return SubU32ToPtr(pEHHead, sizeof(NNSiFndHeapHead));
 }
 
 void GetRegionOfMBlock(NNSiMemRegion* region, NNSiFndExpHeapMBlockHead* block)
@@ -128,4 +148,57 @@ NNSiFndHeapHead* InitExpHeap(void* startAddress, void* endAddress, u16 optFlag)
     pExpHeapHd->mbUsedList.tail = NULL;
 
     return pHeapHd;
+}
+
+static inline void AppendMBlock(NNSiFndExpMBlockList* list, NNSiFndExpHeapMBlockHead* block)
+{
+    (void) InsertMBlock(list, block, list->tail);
+}
+
+void* AllocUsedBlockFromFreeBlock(NNSiFndExpHeapHead* pEHHead, NNSiFndExpHeapMBlockHead* pMBHeadFree, void* mblock, u32 size, u16 direction)
+{
+    NNSiMemRegion freeRgnT;
+    NNSiMemRegion freeRgnB;
+    NNSiFndExpHeapMBlockHead* pMBHeadFreePrev;
+
+    GetRegionOfMBlock(&freeRgnT, pMBHeadFree);
+
+    freeRgnB.end = freeRgnT.end;
+    freeRgnB.start = AddU32ToPtr(mblock, size);
+    freeRgnT.end = SubU32ToPtr(mblock, sizeof(NNSiFndExpHeapMBlockHead));
+
+    pMBHeadFreePrev = RemoveMBlock(&pEHHead->mbFreeList, pMBHeadFree);
+
+    if (GetOffsetFromPtr(freeRgnT.start, freeRgnT.end) < sizeof(NNSiFndExpHeapMBlockHead))
+    {
+        freeRgnT.end = freeRgnT.start;
+    }
+    else
+    {
+        pMBHeadFreePrev = InsertMBlock(&pEHHead->mbFreeList, InitFreeMBlock(&freeRgnT), pMBHeadFreePrev);
+    }
+    if (GetOffsetFromPtr(freeRgnB.start, freeRgnB.end) < sizeof(NNSiFndExpHeapMBlockHead))
+    {
+        freeRgnB.start= freeRgnB.end;
+    }
+    else
+    {
+        (void)InsertMBlock(&pEHHead->mbFreeList, InitFreeMBlock(&freeRgnB), pMBHeadFreePrev);
+    }
+
+    FillAllocMemory(GetHeapHeadPtrFromExpHeapHead(pEHHead), freeRgnT.end, GetOffsetFromPtr(freeRgnT.end, freeRgnB.start));
+
+    NNSiFndExpHeapMBlockHead* pMBHeadNewUsed;
+    NNSiMemRegion region;
+
+    region.start = SubU32ToPtr(mblock, sizeof(NNSiFndExpHeapMBlockHead));
+    region.end = freeRgnB.start;
+
+    pMBHeadNewUsed = InitMBlock(&region, 0x5544);
+    SetAllocDirForMBlock(pMBHeadNewUsed, direction);
+    SetAlignmentForMBlock(pMBHeadNewUsed, (u16)GetOffsetFromPtr(freeRgnT.end, pMBHeadNewUsed));
+    SetGroupIDForMBlock(pMBHeadNewUsed, pEHHead->groupID);
+    AppendMBlock(&pEHHead->mbUsedList, pMBHeadNewUsed);
+
+    return mblock;
 }
