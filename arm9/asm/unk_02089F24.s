@@ -2,10 +2,10 @@
 	.include "global.inc"
 
 	.extern gMain
-	.extern UNK_020FF3E4
-	.extern UNK_020FF3EC
-	.extern UNK_020FF3FC
-	.extern UNK_020FF418
+	.extern gSaveDataReadErrorWindowTemplate
+	.extern gSaveDataReadErrorGraphicsModes
+	.extern gSaveDataReadErrorBgTemplate
+	.extern gSaveDataReadErrorGraphicsBanks
 
 	.section .rodata
 
@@ -80,15 +80,15 @@ FUN_02089F24: ; 0x02089F24
 	ldr r1, [r2, #0x0]
 	and r0, r1
 	str r0, [r2, #0x0]
-	ldr r0, _0208A0A0 ; =UNK_020FF418
+	ldr r0, _0208A0A0 ; =gSaveDataReadErrorGraphicsBanks
 	bl GX_SetBanks
 	add r0, r4, #0x0
 	bl BgConfig_Alloc
 	add r5, r0, #0x0
-	ldr r0, _0208A0A4 ; =UNK_020FF3EC
+	ldr r0, _0208A0A4 ; =gSaveDataReadErrorGraphicsModes
 	bl SetBothScreensModesAndDisable
 	mov r1, #0x0
-	ldr r2, _0208A0A8 ; =UNK_020FF3FC
+	ldr r2, _0208A0A8 ; =gSaveDataReadErrorBgTemplate
 	add r0, r5, #0x0
 	add r3, r1, #0x0
 	bl InitBgFromTemplate
@@ -129,7 +129,7 @@ FUN_02089F24: ; 0x02089F24
 	bl String_ctor
 	add r4, r0, #0x0
 	bl FUN_0201BD5C
-	ldr r2, _0208A0B4 ; =UNK_020FF3E4
+	ldr r2, _0208A0B4 ; =gSaveDataReadErrorWindowTemplate
 	add r0, r5, #0x0
 	add r1, sp, #0xc
 	bl AddWindow
@@ -184,12 +184,12 @@ _0208A090: .word gMain + 0x60
 _0208A094: .word 0x04000050
 _0208A098: .word 0x04001050
 _0208A09C: .word 0xFFFF1FFF
-_0208A0A0: .word UNK_020FF418
-_0208A0A4: .word UNK_020FF3EC
-_0208A0A8: .word UNK_020FF3FC
+_0208A0A0: .word gSaveDataReadErrorGraphicsBanks
+_0208A0A4: .word gSaveDataReadErrorGraphicsModes
+_0208A0A8: .word gSaveDataReadErrorBgTemplate
 _0208A0AC: .word 0x000001F7
 _0208A0B0: .word 0x00006C21
-_0208A0B4: .word UNK_020FF3E4
+_0208A0B4: .word gSaveDataReadErrorWindowTemplate
 
 	thumb_func_start FUN_0208A0B8
 FUN_0208A0B8: ; 0x0208A0B8

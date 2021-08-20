@@ -11,6 +11,7 @@
 #include "game_init.h"
 #include "poke_overlay.h"
 #include "player_data.h"
+#include "save_data_read_error.h"
 #include "sound.h"
 #include "timer3.h"
 #include "unk_02031734.h"
@@ -32,7 +33,6 @@ struct UnkStruct_02016FA8 UNK_02016FA8;
 extern void FUN_02022294(void);
 extern void GF_InitRTCWork(void);
 extern int FUN_020337E8(int);
-extern void FUN_02089D90(int);
 extern void FUN_02015E30(void);
 extern void FUN_0201B5CC(void *);
 extern void GF_RTC_UpdateOnFrame(void);
@@ -72,7 +72,7 @@ THUMB_FUNC void NitroMain(void)
         ShowWFCUserInfoWarning(3, 0);
     if (FUN_020227FC(UNK_02016FA8.unk18) == 0)
     {
-        FUN_02089D90(0);
+        ShowSaveDataReadError(0);
     }
     else
     {
