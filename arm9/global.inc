@@ -5467,7 +5467,7 @@
 .extern FUN_02089418
 .extern FUN_02089444
 .extern FUN_0208946C
-.extern FUN_02089D90
+.extern ShowSaveDataReadError
 .extern FUN_02089F24
 .extern FUN_0208A0B8
 .extern FUN_0208A258
