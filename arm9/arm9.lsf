@@ -315,7 +315,7 @@ Static arm9
 	Object unk_020893E0.o
 	Object unk_02089498.o
 	Object unk_02089960.o
-	Object unk_02089D90.o
+	Object save_data_read_error.o
 	Object unk_02089F24.o
 	Object unk_0208A258.o
 	Object unk_0208A300.o

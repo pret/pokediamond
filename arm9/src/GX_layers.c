@@ -96,7 +96,7 @@ THUMB_FUNC void GX_BothDispOn()
 
 THUMB_FUNC void GX_SwapDisplay()
 {
-    if (gMain.unk65 == 0)
+    if (gMain.screensFlipped == 0)
     {
         GX_SetDispSelect(GX_DISP_SELECT_MAIN_SUB);
     }
