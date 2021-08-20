@@ -94,7 +94,7 @@ struct Main
     u16 touchNew;
     u16 touchHeld;
     u8 touchpadReadAuto;
-    u8 unk65;
+    u8 screensFlipped;
     u8 unk66;
     u8 unk67;
     u8 softResetDisabled;

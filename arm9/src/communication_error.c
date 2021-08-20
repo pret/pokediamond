@@ -107,7 +107,7 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
 
     SetKeyRepeatTimers(4, 8);
 
-    gMain.unk65 = 0;
+    gMain.screensFlipped = 0;
 
     GX_SwapDisplay();
     reg_G2_BLDCNT = 0;
