@@ -87,4 +87,6 @@ static inline void SetOptForHeap(
     NNSi_FndSetBitValue(pHeapHd->attribute, 0, 8, optFlag);
 }
 
+void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart, void* heapEnd, u16 optionFlag);
+
 #endif //GUARD_NNS_FND_HEAPCOMMON_H

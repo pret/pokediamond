@@ -21,6 +21,16 @@ static inline void* GetMBlockEndAddr(NNSiFndExpHeapMBlockHead* block)
     return AddU32ToPtr(GetMemPtrForMBlock(block), block->blockSize);
 }
 
+static inline void SetAllocMode(NNSiFndExpHeapHead* pExHeapHd, u16 mode)
+{
+    NNSi_FndSetBitValue(pExHeapHd->feature, 0, 1, mode);
+}
+
+static inline NNSiFndExpHeapHead* GetExpHeapHeadPtrFromHeapHead(NNSiFndHeapHead* pHHead)
+{
+    return AddU32ToPtr(pHHead, sizeof(NNSiFndHeapHead));
+}
+
 void GetRegionOfMBlock(NNSiMemRegion* region, NNSiFndExpHeapMBlockHead* block)
 {
     region->start = SubU32ToPtr(block, GetAlignmentForMBlock(block));
@@ -89,4 +99,33 @@ NNSiFndExpHeapMBlockHead* InitMBlock(const NNSiMemRegion* pRegion, u16 signature
     block->pMBHeadPrev = NULL;
     block->pMBHeadNext = NULL;
     return block;
+}
+
+static inline NNSiFndExpHeapMBlockHead* InitFreeMBlock(const NNSiMemRegion* region)
+{
+    return InitMBlock(region, 0x4652);
+}
+
+NNSiFndHeapHead* InitExpHeap(void* startAddress, void* endAddress, u16 optFlag)
+{
+    NNSiFndHeapHead* pHeapHd = (NNSiFndHeapHead*)startAddress;
+    NNSiFndExpHeapHead* pExpHeapHd = GetExpHeapHeadPtrFromHeapHead(pHeapHd);
+    NNSi_FndInitHeapHead(pHeapHd, 0x45585048, AddU32ToPtr(pExpHeapHd, sizeof(NNSiFndExpHeapHead)), endAddress, optFlag);
+    pExpHeapHd->groupID = 0;
+    pExpHeapHd->feature = 0;
+    SetAllocMode(pExpHeapHd, 0);
+
+    NNSiFndExpHeapMBlockHead* pMBHead;
+    NNSiMemRegion region;
+
+    region.start = pHeapHd->heapStart;
+    region.end = pHeapHd->heapEnd;
+    pMBHead = InitFreeMBlock(&region);
+
+    pExpHeapHd->mbFreeList.head = pMBHead;
+    pExpHeapHd->mbFreeList.tail = pMBHead;
+    pExpHeapHd->mbUsedList.head = NULL;
+    pExpHeapHd->mbUsedList.tail = NULL;
+
+    return pHeapHd;
 }

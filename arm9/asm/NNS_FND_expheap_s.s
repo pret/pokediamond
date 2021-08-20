@@ -6,6 +6,7 @@
 	.extern RemoveMBlock
 	.extern InsertMBlock
 	.extern InitMBlock
+	.extern InitExpHeap
 	.text
 
 	arm_func_start NNS_FndGetSizeForMBlockExpHeap
@@ -487,40 +488,3 @@ _020AE378:
 _020AE418: .word 0x00004652
 _020AE41C: .word 0x00005544
 	arm_func_end AllocUsedBlockFromFreeBlock
-
-	arm_func_start InitExpHeap
-InitExpHeap: ; 0x020AE420
-	stmdb sp!, {r4-r5,lr}
-	sub sp, sp, #0xc
-	mov r5, r0
-	mov r3, r1
-	add r4, r5, #0x24
-	str r2, [sp, #0x0]
-	ldr r1, _020AE498 ; =0x45585048
-	add r2, r4, #0x14
-	bl NNSi_FndInitHeapHead
-	mov r0, #0x0
-	strh r0, [r4, #0x10]
-	strh r0, [r4, #0x12]
-	ldrh r2, [r4, #0x12]
-	ldr r1, _020AE49C ; =0x00004652
-	add r0, sp, #0x4
-	bic r2, r2, #0x1
-	strh r2, [r4, #0x12]
-	ldr r2, [r5, #0x18]
-	str r2, [sp, #0x4]
-	ldr r2, [r5, #0x1c]
-	str r2, [sp, #0x8]
-	bl InitMBlock
-	str r0, [r5, #0x24]
-	str r0, [r4, #0x4]
-	mov r1, #0x0
-	str r1, [r4, #0x8]
-	mov r0, r5
-	str r1, [r4, #0xc]
-	add sp, sp, #0xc
-	ldmia sp!, {r4-r5,pc}
-	.balign 4
-_020AE498: .word 0x45585048
-_020AE49C: .word 0x00004652
-	arm_func_end InitExpHeap
