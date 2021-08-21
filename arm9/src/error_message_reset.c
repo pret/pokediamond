@@ -85,7 +85,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
 
         SetKeyRepeatTimers(4, 8);
 
-        gMain.unk65 = 0;
+        gMain.screensFlipped = 0;
         GX_SwapDisplay();
 
         G2_BlendNone();

@@ -163,7 +163,7 @@ void InitSystemForTheGame(void)
     gMain.unk10 = 0;
     gMain.unk14 = 0;
     gMain.unk2C = 0;
-    gMain.unk65 = 0;
+    gMain.screensFlipped = 0;
 }
 
 void InitGraphicMemory(void)
