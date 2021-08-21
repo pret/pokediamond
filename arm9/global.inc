@@ -5468,8 +5468,8 @@
 .extern FUN_02089444
 .extern FUN_0208946C
 .extern ShowSaveDataReadError
-.extern FUN_02089F24
-.extern FUN_0208A0B8
+.extern ShowGBACartRemovedError
+.extern ShowSaveDataWriteError
 .extern FUN_0208A258
 .extern FUN_0208A300
 .extern FUN_0208A320

@@ -152,6 +152,6 @@ BOOL FlashLoadChunk(u32 src, void * dest, u32 size);
 void FlashWriteCommandCallback(void * arg);
 int FlashWriteChunkInternal(u32 dest, void * src, u32 size);
 BOOL WaitFlashWrite(int lock, BOOL * res);
-void SaveErrorHandling(int lock, int errno);
+void SaveErrorHandling(int lock, u32 errno);
 
 #endif //POKEDIAMOND_SAVE_BLOCK_2_H

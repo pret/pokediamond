@@ -2149,7 +2149,7 @@ _0222E656:
 	bl FUN_02032D80
 _0222E692:
 	mov r0, #0x51
-	bl FUN_02089F24
+	bl ShowGBACartRemovedError
 	b _0222E6A8
 _0222E69A:
 	bl PlaySE
@@ -18582,7 +18582,7 @@ MOD83_02236804: ; 0x02236804
 	beq _02236828
 _02236822:
 	mov r0, #0x4e
-	bl FUN_02089F24
+	bl ShowGBACartRemovedError
 _02236828:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
