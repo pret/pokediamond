@@ -31,6 +31,11 @@ static inline void* GetMemPtrForMBlock(NNSiFndExpHeapMBlockHead* block)
     return AddU32ToPtr(block, sizeof(NNSiFndExpHeapMBlockHead));
 }
 
+static inline void* GetMBlockHeadPtr(void* block)
+{
+    return SubU32ToPtr(block, sizeof(NNSiFndExpHeapMBlockHead));
+}
+
 static inline void* GetMBlockEndAddr(NNSiFndExpHeapMBlockHead* block)
 {
     return AddU32ToPtr(GetMemPtrForMBlock(block), block->blockSize);
@@ -49,6 +54,11 @@ static inline void SetAllocMode(NNSiFndExpHeapHead* pExHeapHd, u16 mode)
 static inline NNSiFndExpHeapHead* GetExpHeapHeadPtrFromHeapHead(NNSiFndHeapHead* pHHead)
 {
     return AddU32ToPtr(pHHead, sizeof(NNSiFndHeapHead));
+}
+
+static inline NNSiFndExpHeapHead* GetExpHeapHeadPtrFromHandle(NNSFndHeapHandle heap)
+{
+    return GetExpHeapHeadPtrFromHeapHead(heap);
 }
 
 static inline NNSiFndHeapHead* GetHeapHeadPtrFromExpHeapHead(NNSiFndExpHeapHead* pEHHead)
@@ -267,3 +277,109 @@ void* AllocFromTail(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
 
     return AllocUsedBlockFromFreeBlock(pExpHeapHd, pMBlkHdFound, foundMBlock, size, 1);
 }
+
+BOOL RecycleRegion(NNSiFndExpHeapHead* pEHHead, const NNSiMemRegion* pRegion)
+{
+    NNSiFndExpHeapMBlockHead* pBlkPtrFree = NULL;
+    NNSiMemRegion freeRgn = *pRegion;
+    NNSiFndExpHeapMBlockHead* pBlk;
+    for (pBlk = pEHHead->mbFreeList.head; pBlk; pBlk = pBlk->pMBHeadNext)
+    {
+        if (pBlk < (NNSiFndExpHeapMBlockHead*)pRegion->start)
+        {
+            pBlkPtrFree = pBlk;
+            continue;
+        }
+        if (pBlk == pRegion->end)
+        {
+            freeRgn.end = GetMBlockEndAddr(pBlk);
+            (void)RemoveMBlock(&pEHHead->mbFreeList, pBlk);
+        }
+        break;
+    }
+    if (pBlkPtrFree && GetMBlockEndAddr(pBlkPtrFree) == pRegion->start)
+    {
+        freeRgn.start = pBlkPtrFree;
+        pBlkPtrFree = RemoveMBlock(&pEHHead->mbFreeList, pBlkPtrFree);
+    }
+    if (GetOffsetFromPtr(freeRgn.start, freeRgn.end) < sizeof(NNSiFndExpHeapMBlockHead))
+        return FALSE;
+    InsertMBlock(&pEHHead->mbFreeList, InitFreeMBlock(&freeRgn), pBlkPtrFree);
+    return TRUE;
+}
+
+NNSFndHeapHandle NNS_FndCreateExpHeapEx(void *startAddress, u32 size, u16 optFlag)
+{
+    void* endAddress = NNSi_FndRoundDownPtr(AddU32ToPtr(startAddress, size), 4);
+    startAddress = NNSi_FndRoundUpPtr(startAddress, 4);
+    if (NNSiGetUIntPtr(startAddress) > NNSiGetUIntPtr(endAddress) || GetOffsetFromPtr(startAddress, endAddress) < sizeof(NNSiFndHeapHead) + sizeof(NNSiFndExpHeapHead) + sizeof(NNSiFndExpHeapMBlockHead) + 4)
+        return NULL;
+    return InitExpHeap(startAddress, endAddress, optFlag);
+}
+
+void NNS_FndDestroyExpHeap(NNSFndHeapHandle handle)
+{
+    NNSi_FndFinalizeHeap(handle);
+}
+
+void* NNS_FndAllocFromExpHeapEx(NNSFndHeapHandle handle, u32 size, int alignment)
+{
+    if (size == 0)
+        size = 1;
+    size = NNSi_FndRoundUp(size, 4);
+    if (alignment >= 0)
+        return AllocFromHead(handle, size, alignment);
+    else
+        return AllocFromTail(handle, size, -alignment);
+}
+
+/*
+u32 NNS_FndResizeForMBlockExpHeap(NNSFndHeapHandle heap, void *memBlock, u32 size)
+{
+    NNSiFndExpHeapHead* pEHHead;
+    NNSiFndExpHeapMBlockHead* pMBHead;
+    pEHHead = GetExpHeapHeadPtrFromHandle(heap);
+    pMBHead = GetMBlockHeadPtr(memBlock);
+    size = NNSi_FndRoundUp(size, 4);
+    if (size == pMBHead->blockSize)
+        return size;
+    if (size > pMBHead->blockSize)
+    {
+        void* crUsedEnd = GetMBlockEndAddr(pMBHead);
+        NNSiFndExpHeapMBlockHead* block;
+        for (block = pEHHead->mbFreeList.head; block; block = block->pMBHeadNext)
+        {
+            if (block == crUsedEnd)
+                break;
+        }
+        if (!block || size > pMBHead->blockSize + sizeof(NNSiFndExpHeapMBlockHead) + block->blockSize)
+            return 0;
+
+        NNSiMemRegion rgnNewFree;
+        void* oldFreeStart;
+        NNSiFndExpHeapMBlockHead* nextBlockPrev;
+
+        GetRegionOfMBlock(&rgnNewFree, block);
+        nextBlockPrev = RemoveMBlock(&pEHHead->mbFreeList, block);
+        oldFreeStart = rgnNewFree.start;
+        rgnNewFree.start = AddU32ToPtr(memBlock, size);
+        if (GetOffsetFromPtr(rgnNewFree.start, rgnNewFree.end) < sizeof(NNSiFndExpHeapMBlockHead))
+            rgnNewFree.start = rgnNewFree.end;
+        pMBHead->blockSize = GetOffsetFromPtr(memBlock, rgnNewFree.start);
+        if (GetOffsetFromPtr(rgnNewFree.start, rgnNewFree.end) >= sizeof(NNSiFndExpHeapMBlockHead))
+            (void)InsertMBlock(&pEHHead->mbFreeList, InitFreeMBlock(&rgnNewFree), nextBlockPrev);
+        FillAllocMemory(heap, oldFreeStart, GetOffsetFromPtr(oldFreeStart, rgnNewFree.start));
+    }
+    else
+    {
+        NNSiMemRegion rgnNewFree;
+        const u32 oldBlockSize = pMBHead->blockSize;
+        rgnNewFree.start = AddU32ToPtr(memBlock, size);
+        rgnNewFree.end = GetMBlockEndAddr(pMBHead);
+        pMBHead->blockSize = size;
+        if (!RecycleRegion(pEHHead, &rgnNewFree))
+            pMBHead->blockSize = oldBlockSize;
+    }
+    return pMBHead->blockSize;
+}
+*/
