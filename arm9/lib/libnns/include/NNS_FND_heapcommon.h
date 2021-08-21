@@ -98,4 +98,12 @@ static inline void FillAllocMemory(NNSiFndHeapHead* pHeapHd, void* address, u32 
 
 void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart, void* heapEnd, u16 optionFlag);
 
+#define NNSi_FndRoundUp(value, alignment) (((value) + (alignment - 1)) & ~(alignment - 1))
+
+#define NNSi_FndRoundUpPtr(ptr, alignment) ((void*)NNSi_FndRoundUp(NNSiGetUIntPtr(ptr), alignment))
+
+#define NNSi_FndRoundDown(value, alignment) ((value) & ~(alignment - 1))
+
+#define NNSi_FndRoundDownPtr(ptr, alignment) ((void*)NNSi_FndRoundDown(NNSiGetUIntPtr(ptr), alignment))
+
 #endif //GUARD_NNS_FND_HEAPCOMMON_H

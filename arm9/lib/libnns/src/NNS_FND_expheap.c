@@ -36,6 +36,11 @@ static inline void* GetMBlockEndAddr(NNSiFndExpHeapMBlockHead* block)
     return AddU32ToPtr(GetMemPtrForMBlock(block), block->blockSize);
 }
 
+static inline u16 GetAllocMode(NNSiFndExpHeapHead* pExHeapHd)
+{
+    return NNSi_FndGetBitValue(pExHeapHd->feature, 0, 1);
+}
+
 static inline void SetAllocMode(NNSiFndExpHeapHead* pExHeapHd, u16 mode)
 {
     NNSi_FndSetBitValue(pExHeapHd->feature, 0, 1, mode);
@@ -201,4 +206,64 @@ void* AllocUsedBlockFromFreeBlock(NNSiFndExpHeapHead* pEHHead, NNSiFndExpHeapMBl
     AppendMBlock(&pEHHead->mbUsedList, pMBHeadNewUsed);
 
     return mblock;
+}
+
+void* AllocFromHead(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
+{
+    NNSiFndExpHeapHead* pExpHeapHd = GetExpHeapHeadPtrFromHeapHead(pHeapHd);
+    const BOOL bAllocFirst = GetAllocMode(pExpHeapHd) == 0;
+    NNSiFndExpHeapMBlockHead* pMBlkHd = NULL;
+    NNSiFndExpHeapMBlockHead* pMBlkHdFound = NULL;
+    u32 foundSize = 0xFFFFFFFF;
+    void* foundMBlock = NULL;
+
+    for (pMBlkHd = pExpHeapHd->mbFreeList.head; pMBlkHd; pMBlkHd = pMBlkHd->pMBHeadNext)
+    {
+        void *const mblock = GetMemPtrForMBlock(pMBlkHd);
+        void *const reqMBlock = NNSi_FndRoundUpPtr(mblock, alignment);
+        const u32 offset = GetOffsetFromPtr(mblock, reqMBlock);
+        if (pMBlkHd->blockSize >= size + offset && foundSize > pMBlkHd->blockSize)
+        {
+            pMBlkHdFound = pMBlkHd;
+            foundSize = pMBlkHd->blockSize;
+            foundMBlock = reqMBlock;
+            if (bAllocFirst || foundSize == size)
+                break;
+        }
+    }
+
+    if (!pMBlkHdFound)
+        return NULL;
+
+    return AllocUsedBlockFromFreeBlock(pExpHeapHd, pMBlkHdFound, foundMBlock, size, 0);
+}
+
+void* AllocFromTail(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
+{
+    NNSiFndExpHeapHead* pExpHeapHd = GetExpHeapHeadPtrFromHeapHead(pHeapHd);
+    const BOOL bAllocFirst = GetAllocMode(pExpHeapHd) == 0;
+    NNSiFndExpHeapMBlockHead* pMBlkHd = NULL;
+    NNSiFndExpHeapMBlockHead* pMBlkHdFound = NULL;
+    u32 foundSize = 0xFFFFFFFF;
+    void* foundMBlock = NULL;
+
+    for (pMBlkHd = pExpHeapHd->mbFreeList.tail; pMBlkHd; pMBlkHd = pMBlkHd->pMBHeadPrev)
+    {
+        void *const mblock = GetMemPtrForMBlock(pMBlkHd);
+        void *const mBlockEnd = AddU32ToPtr(mblock, pMBlkHd->blockSize);
+        void *const reqMBlock = NNSi_FndRoundDownPtr(SubU32ToPtr(mBlockEnd, size), alignment);
+        if (ComparePtr(reqMBlock, mblock) >= 0 && foundSize > pMBlkHd->blockSize)
+        {
+            pMBlkHdFound = pMBlkHd;
+            foundSize = pMBlkHd->blockSize;
+            foundMBlock = reqMBlock;
+            if (bAllocFirst || foundSize == size)
+                break;
+        }
+    }
+
+    if (!pMBlkHdFound)
+        return NULL;
+
+    return AllocUsedBlockFromFreeBlock(pExpHeapHd, pMBlkHdFound, foundMBlock, size, 1);
 }

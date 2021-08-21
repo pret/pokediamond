@@ -8,6 +8,8 @@
 	.extern InitMBlock
 	.extern InitExpHeap
 	.extern AllocUsedBlockFromFreeBlock
+	.extern AllocFromHead
+	.extern AllocFromTail
 	.text
 
 	arm_func_start NNS_FndGetSizeForMBlockExpHeap
@@ -274,112 +276,3 @@ _020AE0D4:
 	.balign 4
 _020AE118: .word 0x00004652
 	arm_func_end RecycleRegion
-
-	local_arm_func_start AllocFromTail
-AllocFromTail: ; 0x020AE11C
-	stmdb sp!, {r4-r9,lr}
-	sub sp, sp, #0x4
-	add r0, r0, #0x24
-	ldrh r4, [r0, #0x12]
-	mov r3, r1
-	mvn lr, #0x0
-	and r1, r4, #0x1
-	mov r1, r1, lsl #0x10
-	movs r1, r1, lsr #0x10
-	moveq r5, #0x1
-	mov r1, #0x0
-	ldr r4, [r0, #0x4]
-	movne r5, #0x0
-	mov r12, r1
-	cmp r4, #0x0
-	beq _020AE1B0
-	sub r2, r2, #0x1
-	mvn r2, r2
-_020AE164:
-	ldr r8, [r4, #0x4]
-	add r9, r4, #0x10
-	add r6, r8, r9
-	sub r6, r6, r3
-	and r7, r2, r6
-	subs r6, r7, r9
-	bmi _020AE1A4
-	cmp lr, r8
-	bls _020AE1A4
-	mov r1, r4
-	mov lr, r8
-	mov r12, r7
-	cmp r5, #0x0
-	bne _020AE1B0
-	cmp r8, r3
-	beq _020AE1B0
-_020AE1A4:
-	ldr r4, [r4, #0x8]
-	cmp r4, #0x0
-	bne _020AE164
-_020AE1B0:
-	cmp r1, #0x0
-	addeq sp, sp, #0x4
-	moveq r0, #0x0
-	ldmeqia sp!, {r4-r9,pc}
-	mov r4, #0x1
-	mov r2, r12
-	str r4, [sp, #0x0]
-	bl AllocUsedBlockFromFreeBlock
-	add sp, sp, #0x4
-	ldmia sp!, {r4-r9,pc}
-	arm_func_end AllocFromTail
-
-	local_arm_func_start AllocFromHead
-AllocFromHead: ; 0x020AE1D8
-	stmdb sp!, {r4-r9,lr}
-	sub sp, sp, #0x4
-	add r0, r0, #0x24
-	ldrh r4, [r0, #0x12]
-	mov r3, r1
-	ldr r5, [r0, #0x0]
-	and r1, r4, #0x1
-	mov r1, r1, lsl #0x10
-	movs r1, r1, lsr #0x10
-	moveq r6, #0x1
-	mov r1, #0x0
-	movne r6, #0x0
-	mov lr, r1
-	cmp r5, #0x0
-	mvn r4, #0x0
-	beq _020AE270
-	sub r12, r2, #0x1
-	mvn r2, r12
-_020AE220:
-	add r8, r5, #0x10
-	add r7, r12, r8
-	and r9, r2, r7
-	sub r7, r9, r8
-	ldr r8, [r5, #0x4]
-	add r7, r3, r7
-	cmp r8, r7
-	blo _020AE264
-	cmp r4, r8
-	bls _020AE264
-	mov r1, r5
-	mov r4, r8
-	mov lr, r9
-	cmp r6, #0x0
-	bne _020AE270
-	cmp r8, r3
-	beq _020AE270
-_020AE264:
-	ldr r5, [r5, #0xc]
-	cmp r5, #0x0
-	bne _020AE220
-_020AE270:
-	cmp r1, #0x0
-	addeq sp, sp, #0x4
-	moveq r0, #0x0
-	ldmeqia sp!, {r4-r9,pc}
-	mov r4, #0x0
-	mov r2, lr
-	str r4, [sp, #0x0]
-	bl AllocUsedBlockFromFreeBlock
-	add sp, sp, #0x4
-	ldmia sp!, {r4-r9,pc}
-	arm_func_end AllocFromHead
