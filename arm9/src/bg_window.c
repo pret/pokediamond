@@ -1366,7 +1366,7 @@ THUMB_FUNC void CopyBgTilemapRectAffine(struct Bg *bg,
 }
 
 THUMB_FUNC void FillBgTilemapRect(struct BgConfig *bgConfig,
-                                  u32 bgId,
+                                  u8 bgId,
                                   u16 fillValue,
                                   u8 x,
                                   u8 y,
