@@ -29,7 +29,6 @@ extern u32 FUN_0202022C(u32 param0);
 extern void FUN_020201E4(u32 param0, u32 param1);
 extern void FUN_0201FDEC(u32 param0);
 extern void MOD05_021D99F8(struct UnkStruct_0200CABC_2 *param0);
-extern void FUN_0200E188(struct UnkStruct_0200CABC_2 *param0);
 extern void *FUN_0201B6C8(BOOL);
 extern void MOD05_021D959C(
     struct UnkStruct_0200CABC_2 *param0, void *param1, u32 param2, u32 param3);
