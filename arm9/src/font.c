@@ -169,7 +169,7 @@ THUMB_FUNC void FUN_02002ED0(enum GFBgLayer layer, u32 baseAddr, u32 heap_id)
         NARC_GRAPHIC_FONT, NARC_font_narc_0006_NCLR, layer, baseAddr, 0x20, heap_id);
 }
 
-THUMB_FUNC void FUN_02002EEC(u32 layer, u32 baseAddr, u32 heap_id)
+THUMB_FUNC void FUN_02002EEC(enum GFBgLayer layer, u32 baseAddr, u32 heap_id)
 {
     GfGfxLoader_GXLoadPal(
         NARC_GRAPHIC_FONT, NARC_font_narc_0007_NCLR, layer, baseAddr, 0x20, heap_id);
