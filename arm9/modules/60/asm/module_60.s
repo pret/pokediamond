@@ -945,13 +945,13 @@ MOD60_021D7BA4: ; 0x021D7BA4
 	add r0, #0x3c
 	mov r1, #1
 	mov r3, #0xe
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r4, #0x4c
 	ldr r2, _021D7CD0 ; =0x0000023B
 	add r0, r4, #0
 	mov r1, #1
 	mov r3, #0xf
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add sp, #0x14
 	pop {r3, r4, pc}
 	nop
@@ -966,11 +966,11 @@ MOD60_021D7CD4: ; 0x021D7CD4
 	add r5, r0, #0
 	add r0, #0x3c
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r5, #0
 	add r0, #0x4c
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r6, #0
 	add r5, #0x2c
 	add r7, r6, #0

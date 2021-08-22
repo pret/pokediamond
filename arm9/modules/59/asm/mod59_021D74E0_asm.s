@@ -422,7 +422,7 @@ _021D7C5E:
 	add r0, #0x1c
 	add r1, r4, #0
 	mov r3, #4
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r0, #1
 	bl TextFlags_SetCanABSpeedUpPrint
 	add r0, r4, #0
@@ -635,7 +635,7 @@ _021D7DF2:
 	ldr r2, _021D7EC4 ; =0x000003D9
 	mov r1, #1
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	add r0, #0x30
 	bl CopyWindowToVram
@@ -659,7 +659,7 @@ _021D7E66:
 	add r0, r5, #0
 	add r0, #0x30
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r5, #0
 	add r0, #0x30
 	bl RemoveWindow

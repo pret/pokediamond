@@ -3547,7 +3547,7 @@ MOD80_0222F14C: ; 0x0222F14C
 	bne _0222F18A
 	add r0, r4, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _0222F1B0 ; =0x00000FB8
 	add r0, r4, r0
 	bl ClearWindowTilemapAndCopyToVram
@@ -3561,7 +3561,7 @@ MOD80_0222F14C: ; 0x0222F14C
 _0222F18A:
 	add r0, r4, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _0222F1B0 ; =0x00000FB8
 	add r0, r4, r0
 	bl ClearWindowTilemapAndCopyToVram
@@ -3684,7 +3684,7 @@ MOD80_0222F250: ; 0x0222F250
 	add r0, r5, r0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -3726,7 +3726,7 @@ MOD80_0222F2A8: ; 0x0222F2A8
 	add r0, r5, r0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -4524,7 +4524,7 @@ MOD80_0222F918: ; 0x0222F918
 	mov r1, #0
 	add r0, r4, r0
 	str r1, [r4, #0x2c]
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	b _0222F956
 _0222F942:
 	mov r0, #2
@@ -4598,7 +4598,7 @@ MOD80_0222F96C: ; 0x0222F96C
 	mov r1, #0
 	mov r3, #0xb
 	str r0, [sp, #0xc]
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x3e
 	str r0, [sp]
 	mov r0, #2
@@ -4651,7 +4651,7 @@ _0222FA26:
 	ldr r0, _0222FAE0 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r4, r5, #0
 	add r4, #0xd4
 	add r0, r4, #0
@@ -4706,7 +4706,7 @@ _0222FAA4:
 	ldr r0, _0222FAE0 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #2
 	str r0, [r5, #0x2c]
 	add r0, r5, #0
@@ -4811,7 +4811,7 @@ MOD80_0222FB3C: ; 0x0222FB3C
 	add r0, r5, r0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -5989,7 +5989,7 @@ MOD80_022304F8: ; 0x022304F8
 	add r0, r5, r0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -7650,11 +7650,11 @@ _02231266:
 	ldr r0, _022312C0 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _022312C4 ; =0x00000E98
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _022312C0 ; =0x00000ED8
 	add r0, r4, r0
 	bl RemoveWindow
@@ -7754,7 +7754,7 @@ _02231342:
 	ldr r0, _0223146C ; =0x00000EE8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02231470 ; =0x000005DC
 	bl PlaySE
 	mov r0, #4
@@ -7787,11 +7787,11 @@ _0223138C:
 	ldr r0, _02231474 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _0223146C ; =0x00000EE8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02231474 ; =0x00000ED8
 	add r0, r4, r0
 	bl RemoveWindow
@@ -7987,11 +7987,11 @@ _0223154A:
 	ldr r0, _022315F8 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _022315FC ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _022315F8 ; =0x00000ED8
 	add r0, r5, r0
 	bl RemoveWindow
@@ -8012,7 +8012,7 @@ _0223158E:
 	ldr r0, _022315F8 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _022315F8 ; =0x00000ED8
 	add r0, r5, r0
 	bl RemoveWindow
@@ -8160,11 +8160,11 @@ _022316D0:
 	ldr r0, _02231774 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02231778 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _02231774 ; =0x00000ED8
 	add r0, r5, r0
 	bl RemoveWindow
@@ -8185,7 +8185,7 @@ _0223170C:
 	ldr r0, _02231774 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02231774 ; =0x00000ED8
 	add r0, r5, r0
 	bl RemoveWindow
@@ -8383,7 +8383,7 @@ MOD80_0223187C: ; 0x0223187C
 	add r0, r5, r0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -9855,7 +9855,7 @@ MOD80_02232470: ; 0x02232470
 	mov r1, #1
 	mov r3, #0xb
 	str r0, [sp, #0xc]
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x3e
 	str r0, [sp]
 	mov r0, #2
@@ -9916,7 +9916,7 @@ _02232546:
 	ldr r0, _02232664 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #2
 	str r0, [r5, #0x2c]
 	add r0, r5, #0
@@ -9936,7 +9936,7 @@ _02232574:
 	ldr r0, _02232664 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r2, r5, #0
 	add r3, r5, #0
 	ldr r1, [r5]
@@ -10020,11 +10020,11 @@ _0223262E:
 	ldr r0, _02232664 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _0223266C ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #1
 	str r0, [r5, #0x2c]
 _0223265A:
@@ -10095,7 +10095,7 @@ MOD80_02232670: ; 0x02232670
 	mov r1, #0
 	mov r3, #0xb
 	str r0, [sp, #0xc]
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x3e
 	str r0, [sp]
 	mov r0, #2
@@ -10156,7 +10156,7 @@ _02232746:
 	ldr r0, _02232840 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #2
 	str r0, [r5, #0x2c]
 	add r0, r5, #0
@@ -10176,7 +10176,7 @@ _02232774:
 	ldr r0, _02232840 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r2, r5, #0
 	add r3, r5, #0
 	ldr r1, [r5]
@@ -10243,11 +10243,11 @@ _0223280A:
 	ldr r0, _02232840 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02232848 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #1
 	str r0, [r5, #0x2c]
 _02232836:
@@ -10420,7 +10420,7 @@ MOD80_02232950: ; 0x02232950
 	ldr r0, _0223298C ; =0x00000FB8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #1
 	str r0, [r4, #0x2c]
 	b _02232982
@@ -10574,7 +10574,7 @@ MOD80_02232A84: ; 0x02232A84
 	ldr r0, _02232AE4 ; =0x00000FB8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #1
 	str r0, [r4, #0x2c]
 	b _02232ADA
@@ -10641,7 +10641,7 @@ MOD80_02232B08: ; 0x02232B08
 	ldr r0, _02232B30 ; =0x00000FB8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, [r4, #0x30]
 	str r0, [r4, #0x2c]
 _02232B2C:
@@ -10684,7 +10684,7 @@ _02232B62:
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r6, [sp, #4]
@@ -11663,7 +11663,7 @@ MOD80_022332EC: ; 0x022332EC
 	add r0, r5, r0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -12284,11 +12284,11 @@ _02233820:
 	ldr r0, _02233884 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02233888 ; =0x00000E98
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _02233884 ; =0x00000ED8
 	add r0, r4, r0
 	bl RemoveWindow
@@ -12422,7 +12422,7 @@ _02233932:
 	ldr r0, _02233A54 ; =0x00000EE8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02233A58 ; =0x00000ED8
 	add r0, r4, r0
 	bl RemoveWindow
@@ -12461,11 +12461,11 @@ _0223398C:
 	ldr r0, _02233A58 ; =0x00000ED8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02233A54 ; =0x00000EE8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02233A58 ; =0x00000ED8
 	add r0, r4, r0
 	bl RemoveWindow
@@ -12651,11 +12651,11 @@ _02233B26:
 	ldr r0, _02233BD4 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02233BD8 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _02233BD4 ; =0x00000ED8
 	add r0, r5, r0
 	bl RemoveWindow
@@ -12676,7 +12676,7 @@ _02233B6A:
 	ldr r0, _02233BD4 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02233BD4 ; =0x00000ED8
 	add r0, r5, r0
 	bl RemoveWindow
@@ -12823,11 +12823,11 @@ _02233CA4:
 	ldr r0, _02233D74 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02233D78 ; =0x00000E98
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _02233D74 ; =0x00000ED8
 	add r0, r5, r0
 	bl RemoveWindow
@@ -12863,7 +12863,7 @@ _02233CFA:
 	ldr r0, _02233D74 ; =0x00000ED8
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _02233D74 ; =0x00000ED8
 	add r0, r5, r0
 	bl RemoveWindow
@@ -13710,7 +13710,7 @@ _02234388:
 	mov r2, #0x1f
 	mov r3, #0xb
 	str r0, [sp, #0x10]
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0xfe
 	lsl r0, r0, #4
 	ldr r2, [r7, r0]
@@ -13903,7 +13903,7 @@ MOD80_022344DC: ; 0x022344DC
 	mov r2, #0x1f
 	mov r3, #0xb
 	str r0, [sp, #0x24]
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	lsl r1, r4, #1
 	ldr r2, _0223455C ; =0x0000101C
 	add r3, r7, r1
@@ -13963,7 +13963,7 @@ _02234578:
 	mov r2, #0x1f
 	mov r3, #0xb
 	str r0, [sp, #0x10]
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r1, #0
 	add r0, sp, #4
 	add r2, r1, #0
@@ -14019,7 +14019,7 @@ _022345E8:
 	mov r2, #0x1f
 	mov r3, #0xb
 	str r0, [sp, #0x10]
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r1, #0
 	add r0, sp, #4
 	add r2, r1, #0
@@ -18794,7 +18794,7 @@ _02236AC0:
 	ldr r0, _02236AD8 ; =0x00000EC8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0
 	str r0, [r4, #0x2c]
 _02236ACE:
@@ -19057,7 +19057,7 @@ MOD80_02236C70: ; 0x02236C70
 	add r0, r5, r0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -19212,7 +19212,7 @@ MOD80_02236D8C: ; 0x02236D8C
 	add r0, r5, r0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -19260,7 +19260,7 @@ _02236E16:
 	ldr r0, _02236E44 ; =0x00000E98
 	mov r1, #1
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD80_02236D8C

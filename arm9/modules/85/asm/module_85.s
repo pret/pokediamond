@@ -843,7 +843,7 @@ MOD85_021D7BEC: ; 0x021D7BEC
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #0xf
@@ -880,7 +880,7 @@ MOD85_021D7C44: ; 0x021D7C44
 	add r0, r5, r4
 	add r0, #8
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, r4
 	add r0, #8
 	mov r1, #0

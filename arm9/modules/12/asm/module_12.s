@@ -28090,7 +28090,7 @@ _0223AED6:
 	add r0, #0x34
 	add r2, r1, #0
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r4]
 	mov r1, #1
 	ldr r0, [r0, #0x30]
@@ -28136,7 +28136,7 @@ _0223AF34:
 	ldr r0, [r4]
 	mov r1, #1
 	add r0, #0x34
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, [r4]
 	mov r1, #1
 	ldr r0, [r0, #0x30]
@@ -35076,7 +35076,7 @@ _0223E49A:
 	add r0, #0x88
 	add r2, r1, #0
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r5, #0x74]
 	mov r1, #1
 	bl ScheduleBgTilemapBufferTransfer
@@ -35135,7 +35135,7 @@ MOD12_0223E528: ; 0x0223E528
 	add r4, r0, #0
 	add r0, #0x88
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, [r4, #0x74]
 	mov r1, #1
 	bl ScheduleBgTilemapBufferTransfer
@@ -39309,7 +39309,7 @@ _02240522:
 	add r0, #0x78
 	add r2, r1, #0
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r4]
 	mov r1, #1
 	ldr r0, [r0, #0x74]
@@ -39355,7 +39355,7 @@ _02240580:
 	ldr r0, [r4]
 	mov r1, #1
 	add r0, #0x78
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, [r4]
 	mov r1, #1
 	ldr r0, [r0, #0x74]
@@ -46795,7 +46795,7 @@ _02243F56:
 	add r0, #0x34
 	add r2, r1, #0
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r4]
 	mov r1, #1
 	ldr r0, [r0, #0x30]
@@ -46842,7 +46842,7 @@ _02243FBA:
 	ldr r0, [r4]
 	mov r1, #1
 	add r0, #0x34
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, [r4]
 	mov r1, #1
 	ldr r0, [r0, #0x30]
@@ -47010,7 +47010,7 @@ _022440EE:
 	add r0, #0x34
 	mov r2, #1
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r4]
 	mov r1, #0xff
 	add r0, #0x34

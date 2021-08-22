@@ -3020,7 +3020,7 @@ MOD54_021D8C90: ; 0x021D8C90
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	cmp r6, #0
 	bne _021D8D00
 	add r0, r5, #0
@@ -3082,11 +3082,11 @@ MOD54_021D8D40: ; 0x021D8D40
 	mov r1, #0xba
 	lsl r1, r1, #2
 	add r0, r0, r1
-	ldr r3, _021D8D4C ; =FUN_0200D0E0
+	ldr r3, _021D8D4C ; =ClearFrameAndWindow2
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021D8D4C: .word FUN_0200D0E0
+_021D8D4C: .word ClearFrameAndWindow2
 	thumb_func_end MOD54_021D8D40
 
 	thumb_func_start MOD54_021D8D50

@@ -290,7 +290,7 @@ _021E1CA8:
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r4, #0
 	bl MOD05_021E1DE4
 	add r1, r4, #0
@@ -541,7 +541,7 @@ MOD05_021E1ECC: ; 0x021E1ECC
 	add r0, #0xa8
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r6, #0
 	add r0, #0xa8
 	ldr r0, [r0]
@@ -727,7 +727,7 @@ _021E2032:
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r4, #0
 	bl MOD05_021E2170
 	add r2, r4, #0
@@ -1139,7 +1139,7 @@ MOD05_021E2368: ; 0x021E2368
 	lsl r0, r0, #4
 	ldr r0, [r6, r0]
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r6, #0
 	add r0, #8
 	bl RemoveWindow
@@ -1307,7 +1307,7 @@ _021E2496:
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	lsl r0, r4, #0x13
 	lsr r0, r0, #0x10
 	str r0, [sp]
@@ -1407,7 +1407,7 @@ MOD05_021E25A4: ; 0x021E25A4
 	add r0, #0xa8
 	ldr r0, [r0]
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r6, #0
 	add r0, #0xa8
 	ldr r0, [r0]
@@ -1642,7 +1642,7 @@ _021E270A:
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r4, #0
@@ -1747,7 +1747,7 @@ MOD05_021E27E8: ; 0x021E27E8
 	add r0, r4, #0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r4, #0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -1788,7 +1788,7 @@ MOD05_021E288C: ; 0x021E288C
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0
 	mov r1, #1
 	bl WindowArray_dtor
@@ -1907,7 +1907,7 @@ MOD05_021E2950: ; 0x021E2950
 	add r0, r4, #0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD05_021E29C8
@@ -1922,7 +1922,7 @@ MOD05_021E29B4: ; 0x021E29B4
 	push {r4, lr}
 	add r4, r0, #0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0
 	mov r1, #1
 	bl WindowArray_dtor
@@ -2036,7 +2036,7 @@ MOD05_021E2A70: ; 0x021E2A70
 	add r0, r4, #0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD05_021E2AD4

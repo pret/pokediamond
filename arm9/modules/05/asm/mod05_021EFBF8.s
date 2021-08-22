@@ -413,7 +413,7 @@ MOD05_021EFEDC: ; 0x021EFEDC
 	add r0, #0x20
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r4, #0
 _021EFF2E:
 	add r0, r6, #0
@@ -551,7 +551,7 @@ _021F0056:
 	add r0, r5, #0
 	add r0, #0x20
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r5, #0
 	add r0, #0x20
 	bl RemoveWindow
