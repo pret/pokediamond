@@ -286,7 +286,7 @@ MOD05_021E84F4: ; 0x021E84F4
 	ldr r2, _021E8568 ; =0x000003D9
 	mov r1, #0
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add sp, #0x14
 	pop {r3, r4, pc}
 	.balign 4, 0
@@ -299,7 +299,7 @@ MOD05_021E856C: ; 0x021E856C
 	add r4, r0, #0
 	ldr r0, [r4, #0x10]
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, [r4, #0x10]
 	bl RemoveWindow
 	ldr r0, [r4, #0x10]

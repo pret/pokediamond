@@ -2533,7 +2533,7 @@ MOD82_0222E988: ; 0x0222E988
 	mov r1, #0
 	mov r2, #0x1f
 	mov r3, #0xa
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r1, #0xb9
 	mov r0, #0xda
 	lsl r1, r1, #4
@@ -3125,7 +3125,7 @@ MOD82_0222EE28: ; 0x0222EE28
 	mov r1, #0
 	mov r2, #0x1f
 	mov r3, #0xa
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r1, _0222EE70 ; =0x00000B94
 	mov r0, #0xd9
 	lsl r0, r0, #4
@@ -3272,7 +3272,7 @@ MOD82_0222EF54: ; 0x0222EF54
 	mov r1, #0
 	mov r2, #0x1f
 	mov r3, #0xa
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r1, #0xb9
 	mov r0, #0xda
 	lsl r1, r1, #4
@@ -4044,7 +4044,7 @@ MOD82_0222F4D8: ; 0x0222F4D8
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -4107,7 +4107,7 @@ _0222F584:
 	lsl r0, r0, #6
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0
 	str r0, [r4, #0x1c]
 _0222F594:
@@ -4139,7 +4139,7 @@ MOD82_0222F59C: ; 0x0222F59C
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -4382,7 +4382,7 @@ MOD82_0222F740: ; 0x0222F740
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -4432,7 +4432,7 @@ _0222F7D2:
 	lsl r0, r0, #6
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD82_0222F740

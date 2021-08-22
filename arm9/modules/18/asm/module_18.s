@@ -22707,7 +22707,7 @@ _02244588:
 	lsl r0, r0, #4
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0x39
 	lsl r0, r0, #4
 	add r0, r4, r0
@@ -25590,7 +25590,7 @@ MOD18_02245B1C: ; 0x02245B1C
 	ldr r2, [sp, #8]
 	ldr r3, [sp, #0xc]
 	mov r1, #1
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [sp, #0x30]
 	mov r2, #0
 	lsl r0, r0, #0x18
@@ -29555,7 +29555,7 @@ MOD18_02247AA8: ; 0x02247AA8
 	add r0, #0xc
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r2, _02247B58 ; =0x0000023F
 	mov r0, #0
 	mov r1, #0x1a
@@ -29681,7 +29681,7 @@ MOD18_02247BB8: ; 0x02247BB8
 	add r0, #0xc
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r2, _02247C90 ; =0x0000023E
 	mov r0, #0
 	mov r1, #0x1a
@@ -29854,7 +29854,7 @@ MOD18_02247D1C: ; 0x02247D1C
 	add r0, #0xc
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r2, _02247DD0 ; =0x0000023D
 	mov r0, #0
 	mov r1, #0x1a
@@ -30155,7 +30155,7 @@ MOD18_02247FC0: ; 0x02247FC0
 	add r0, r4, #0
 	add r0, #0xc
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r1, #0
 	ldr r0, [r4, #0x20]
 	add r2, r1, #0
@@ -31131,7 +31131,7 @@ MOD18_02248784: ; 0x02248784
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r1, #0
 	ldr r0, [r4, #0x1c]
 	add r2, r1, #0
@@ -31225,7 +31225,7 @@ MOD18_02248820: ; 0x02248820
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r2, _022488E8 ; =0x0000023D
 	mov r0, #0
 	mov r1, #0x1a
@@ -32967,7 +32967,7 @@ MOD18_02249564: ; 0x02249564
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	ldr r4, _0224967C ; =0x022505B8
@@ -33405,7 +33405,7 @@ _02249936:
 	add r0, r4, #0
 	add r0, #0x10
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldrb r1, [r4, #0x14]
 	ldr r0, [r4, #0x10]
 	bl ScheduleBgTilemapBufferTransfer
@@ -33486,7 +33486,7 @@ _022499A2:
 	add r0, #0x20
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	mov r7, #0
@@ -33571,7 +33571,7 @@ _02249A8C:
 	add r0, r4, #0
 	add r0, #0x20
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r4, #0x20
 	add r0, r4, #0
 	bl RemoveWindow
@@ -33752,7 +33752,7 @@ MOD18_02249BA8: ; 0x02249BA8
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	bl MOD18_0223D678
 	bl MOD18_0224DBB4
 	mov r4, #0
@@ -34219,7 +34219,7 @@ MOD18_02249F8C: ; 0x02249F8C
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	bl MOD18_0223D678
 	bl MOD18_0224DBB4
 	mov r4, #0
@@ -34668,7 +34668,7 @@ MOD18_0224A360: ; 0x0224A360
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	bl MOD18_0223D678
 	bl MOD18_0224DBB4
 	mov r4, #0
@@ -35606,7 +35606,7 @@ MOD18_0224AB08: ; 0x0224AB08
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	bl MOD18_0223D678
 	bl MOD18_0224DBB4
 	mov r4, #0
@@ -36652,7 +36652,7 @@ _0224B374:
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r2, #0x91
 	mov r0, #0
 	mov r1, #0x1a
@@ -36775,7 +36775,7 @@ MOD18_0224B464: ; 0x0224B464
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r2, #0x91
 	mov r0, #0
 	mov r1, #0x1a
@@ -38486,7 +38486,7 @@ _0224C288:
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r1, #0x92
 	lsl r1, r1, #2
 	ldrb r0, [r5, r1]
@@ -39108,7 +39108,7 @@ MOD18_0224C7D4: ; 0x0224C7D4
 	add r0, #0x10
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r2, #0x92
 	lsl r2, r2, #2
 	ldrb r0, [r5, r2]
@@ -39256,7 +39256,7 @@ MOD18_0224C94C: ; 0x0224C94C
 	add r0, r4, #0
 	add r0, #0x20
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0
 	add r0, #0x20
 	bl RemoveWindow
@@ -39485,7 +39485,7 @@ MOD18_0224CADC: ; 0x0224CADC
 	add r0, #0x20
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 _0224CB1A:
 	add r0, r4, #0
 	add r0, #0x20
@@ -39527,7 +39527,7 @@ MOD18_0224CB34: ; 0x0224CB34
 	add r0, #0x30
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	add r0, #0x30
 	mov r1, #0xf
@@ -39566,7 +39566,7 @@ MOD18_0224CBAC: ; 0x0224CBAC
 	add r0, r4, #0
 	add r0, #0x30
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r4, #0x30
 	add r0, r4, #0
 	bl RemoveWindow
@@ -40736,7 +40736,7 @@ MOD18_0224D56C: ; 0x0224D56C
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0
 	add r0, #8
 	bl ClearWindowTilemapAndCopyToVram
@@ -40817,7 +40817,7 @@ MOD18_0224D5CC: ; 0x0224D5CC
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r2, _0224D688 ; =0x00000245
 	mov r0, #0
 	mov r1, #0x1a
@@ -41321,7 +41321,7 @@ MOD18_0224DA00: ; 0x0224DA00
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r2, #0x91
 	mov r0, #0
 	mov r1, #0x1a
@@ -41364,7 +41364,7 @@ MOD18_0224DAA8: ; 0x0224DAA8
 	add r4, r0, #0
 	add r0, #8
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0
 	add r0, #8
 	bl ClearWindowTilemapAndCopyToVram
@@ -41597,7 +41597,7 @@ _0224DC4C:
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	cmp r4, #0
 	beq _0224DC74
 	ldr r0, _0224DCB4 ; =MOD18_0224DBB8
@@ -41729,7 +41729,7 @@ _0224DD4C:
 	add r0, r5, #0
 	add r0, #8
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0
 	add r0, #8
 	bl ClearWindowTilemapAndCopyToVram
@@ -41741,7 +41741,7 @@ _0224DD6C:
 	add r0, r5, #0
 	add r0, #8
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 _0224DD76:
 	mov r0, #8
 	str r0, [r5, #0x30]
@@ -42324,13 +42324,13 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	add r0, r5, #4
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	ldr r2, _0224E1FC ; =0x000003D9
 	add r0, #0x14
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r3, _0224E200 ; =0x022507C0
 	add r2, sp, #0x14
 	ldmia r3!, {r0, r1}
@@ -42480,14 +42480,14 @@ MOD18_0224E26C: ; 0x0224E26C
 	add r0, r4, #0
 	add r0, #0x14
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x34]
 	bl DestroyListMenu
 	add r0, r4, #4
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldrb r1, [r4, #8]
 	ldr r0, [r4, #4]
 	bl ScheduleBgTilemapBufferTransfer
@@ -42783,13 +42783,13 @@ _0224E454:
 	add r0, #8
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	ldr r2, _0224E688 ; =0x000003D9
 	add r0, #0x18
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r2, _0224E68C ; =0x00000237
 	mov r0, #0
 	mov r1, #0x1a
@@ -43007,7 +43007,7 @@ MOD18_0224E6A8: ; 0x0224E6A8
 	add r0, r4, #0
 	add r0, #0x18
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x38]
 	ldr r2, [r4, #0x3c]
@@ -43015,7 +43015,7 @@ MOD18_0224E6A8: ; 0x0224E6A8
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldrb r1, [r4, #0xc]
 	ldr r0, [r4, #8]
 	bl ScheduleBgTilemapBufferTransfer

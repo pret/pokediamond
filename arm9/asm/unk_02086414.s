@@ -549,7 +549,7 @@ FUN_02086784: ; 0x02086784
 	mov r1, #0x1
 	mov r2, #0x14
 	mov r3, #0xc
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r5, #0x0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -711,7 +711,7 @@ _020868DE:
 	ldr r0, [sp, #0x14]
 	mov r2, #0x32
 	mov r3, #0xd
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x47
 	str r0, [sp, #0x0]
 	mov r0, #0x2
@@ -733,7 +733,7 @@ FUN_02086960: ; 0x02086960
 	add r4, r0, #0x0
 	add r0, #0x28
 	mov r1, #0x1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0x0
 	add r0, #0x28
 	bl ClearWindowTilemapAndCopyToVram

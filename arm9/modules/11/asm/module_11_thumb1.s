@@ -638,7 +638,7 @@ _0222D99A:
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r5, #0
 	bl MOD11_0222FE94
 	add sp, #0x68
@@ -800,7 +800,7 @@ _0222DC42:
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r0, #5
 	bl FUN_0200BB14
 	add r1, r4, #0

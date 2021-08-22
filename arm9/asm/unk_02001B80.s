@@ -809,7 +809,7 @@ CreateYesNoMenu: ; 0x020020EC
 	ldr r2, [sp, #0xc]
 	ldr r3, [sp, #0x10]
 	mov r1, #0x1
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	lsl r0, r5, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x0]
@@ -881,7 +881,7 @@ FUN_020021EC: ; 0x020021EC
 	ldr r0, [r5, #0x4]
 	add r4, r1, #0x0
 	mov r1, #0x0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, [r5, #0x4]
 	bl RemoveWindow
 	ldr r1, [r5, #0x4]

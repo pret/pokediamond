@@ -1180,7 +1180,7 @@ _02051798:
 	add r0, r4, #0x0
 	add r0, #0x14
 	mov r1, #0x0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0x0
 	ldr r2, [r4, #0x8]
 	add r1, r0, #0x0
@@ -1245,7 +1245,7 @@ FUN_02051810: ; 0x02051810
 	add r0, r5, #0x0
 	add r0, #0x14
 	mov r1, #0x0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0x0
 	add r0, #0x14
 	bl ClearWindowTilemapAndCopyToVram
@@ -1782,7 +1782,7 @@ _02051C34:
 	mov r1, #0x0
 	mov r2, #0x1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r1, r5, #0x0
 	ldr r0, [sp, #0x14]
 	add r1, #0x81
@@ -1891,7 +1891,7 @@ _02051D0A:
 	mov r1, #0x0
 	mov r2, #0x1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add sp, #0x18
 	pop {r3-r7, pc}
 	.balign 4
@@ -2006,12 +2006,12 @@ _02051E20: .word 0x000005DC
 
 	thumb_func_start FUN_02051E24
 FUN_02051E24: ; 0x02051E24
-	ldr r3, _02051E2C ; =FUN_0200CCF8
+	ldr r3, _02051E2C ; =ClearFrameAndWindow1
 	ldr r0, [r0, #0x7c]
 	mov r1, #0x1
 	bx r3
 	.balign 4
-_02051E2C: .word FUN_0200CCF8
+_02051E2C: .word ClearFrameAndWindow1
 
 	thumb_func_start FUN_02051E30
 FUN_02051E30: ; 0x02051E30
@@ -2202,7 +2202,7 @@ _02051F7C:
 	add r0, r4, #0x0
 	add r0, #0x8
 	mov r1, #0x0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r4, #0x0
 	add r0, #0x8
 	bl RemoveWindow

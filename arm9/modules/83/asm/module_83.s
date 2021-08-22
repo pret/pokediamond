@@ -82,7 +82,7 @@ _0222D63C:
 	lsl r0, r0, #6
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #5
 	lsl r0, r0, #6
 	add r0, r5, r0
@@ -1127,7 +1127,7 @@ _0222DE76:
 	mov r1, #0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r1, _0222DEC8 ; =MOD83_0223A854
 	ldr r0, [sp, #0x20]
 	ldr r2, [r1, r0]
@@ -1490,7 +1490,7 @@ _0222E104:
 	mov r1, #0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [sp, #0x18]
 	add r0, #0xe8
 	ldr r3, [r0]
@@ -1593,7 +1593,7 @@ _0222E206:
 	mov r1, #1
 	mov r2, #0xa
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	bl GetWindowX
 	str r0, [sp, #0x10]
@@ -1620,7 +1620,7 @@ _0222E256:
 	add r0, r5, #0
 	add r2, r1, #0
 	mov r3, #2
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	bl GetWindowX
 	str r0, [sp, #0x18]
@@ -2149,7 +2149,7 @@ _0222E656:
 	bl FUN_02032D80
 _0222E692:
 	mov r0, #0x51
-	bl FUN_02089F24
+	bl ShowGBACartRemovedError
 	b _0222E6A8
 _0222E69A:
 	bl PlaySE
@@ -2736,7 +2736,7 @@ _0222EB4E:
 	add r0, r4, #0
 	add r0, #0x18
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r4, #0x18
 	add r0, r4, #0
 	bl RemoveWindow
@@ -4731,7 +4731,7 @@ MOD83_0222FB44: ; 0x0222FB44
 	bne _0222FB5A
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 _0222FB5A:
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD83_0222FB44
@@ -5050,7 +5050,7 @@ _0222FDC6:
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r1, _0222FDE4 ; =MOD83_0223ADD8
 	add r0, r6, #0
 	mov r2, #2
@@ -5138,7 +5138,7 @@ _0222FE76:
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r2, #2
 	ldr r1, _0222FE9C ; =MOD83_0223ADC8
 	add r0, r6, #0
@@ -5192,7 +5192,7 @@ _0222FEE6:
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x4e
 	str r0, [sp]
 	ldr r1, _0222FF0C ; =MOD83_0223AD98
@@ -5247,7 +5247,7 @@ _0222FF56:
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x4d
 	str r0, [sp]
 	ldr r1, _0222FF7C ; =MOD83_0223ADA8
@@ -5294,7 +5294,7 @@ _0222FFB4:
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #4
 	str r0, [sp]
 	ldr r1, _0222FFD4 ; =MOD83_0223ADB8
@@ -5518,7 +5518,7 @@ _02230172:
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #1
 	str r0, [sp]
 	ldr r1, _02230198 ; =MOD83_0223AE20
@@ -5957,7 +5957,7 @@ _022304E6:
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [sp, #0x18]
 	add r1, sp, #0x20
 	str r0, [sp]
@@ -6026,7 +6026,7 @@ _0223057A:
 	mov r1, #0
 	mov r2, #1
 	mov r3, #2
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
@@ -6075,7 +6075,7 @@ MOD83_022305A4: ; 0x022305A4
 	mov r1, #0
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r4, #0
 	bl String_dtor
 	add sp, #0x10
@@ -8110,7 +8110,7 @@ MOD83_022316C0: ; 0x022316C0
 	bne _022316D6
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 _022316D6:
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD83_022316C0
@@ -8125,7 +8125,7 @@ MOD83_022316D8: ; 0x022316D8
 	bne _022316EE
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 _022316EE:
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD83_022316D8
@@ -9312,14 +9312,14 @@ _02232054:
 	mov r1, #0
 	mov r2, #0x13
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	b _02232076
 _0223206A:
 	add r0, r6, #0
 	mov r1, #0
 	mov r2, #0xa
 	mov r3, #0xe
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 _02232076:
 	ldr r1, [r4, #0xc]
 	ldr r0, [r4, #0x10]
@@ -10560,14 +10560,14 @@ _02232A56:
 	add r0, r4, r0
 	mov r2, #0x13
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r0, #0xae
 	lsl r0, r0, #6
 	add r0, r4, r0
 	mov r1, #0
 	mov r2, #0xa
 	mov r3, #0xe
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -15638,7 +15638,7 @@ _02235086:
 	ldr r2, _022350B8 ; =0x000003D2
 	mov r1, #0
 	mov r3, #0xd
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 _022350A2:
@@ -15646,7 +15646,7 @@ _022350A2:
 	mov r1, #0
 	lsl r2, r2, #4
 	mov r3, #0xe
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 _022350AE:
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
@@ -17919,7 +17919,7 @@ MOD83_02236298: ; 0x02236298
 	cmp r1, #0
 	beq _022362B4
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r4, #0
 	bl ClearWindowTilemapAndCopyToVram
 	add r0, r4, #0
@@ -18582,7 +18582,7 @@ MOD83_02236804: ; 0x02236804
 	beq _02236828
 _02236822:
 	mov r0, #0x4e
-	bl FUN_02089F24
+	bl ShowGBACartRemovedError
 _02236828:
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
@@ -23258,7 +23258,7 @@ _02238AB8:
 	mov r1, #0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	b _02238AEC
 _02238ADA:
 	ldr r2, [r4, #0x38]
@@ -23268,7 +23268,7 @@ _02238ADA:
 	mov r1, #0
 	lsr r2, r2, #0x10
 	lsr r3, r3, #0x18
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 _02238AEC:
 	add r0, r5, #0
 	add sp, #0x14

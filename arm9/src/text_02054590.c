@@ -3,21 +3,9 @@
 #include "bg_window.h"
 #include "font.h"
 #include "render_text.h"
+#include "render_window.h"
 
 extern void FUN_0201BD5C(void);
-
-extern void FUN_0200CD68(
-    struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
-extern void FUN_0200D0BC(struct Window *param0, u32 param1, u32 param2, u32 param3);
-
-extern void FUN_0200D300(struct BgConfig *param0,
-    u32 param1,
-    u32 param2,
-    u32 param3,
-    u8 param4,
-    u32 param5,
-    u32 param6);
-extern void FUN_0200D6F8(struct Window *param0, u32 param1, u32 param2, u32 param3, u8 param4);
 
 THUMB_FUNC void FUN_02054590(u32 param0, u32 param1)
 {
@@ -45,7 +33,7 @@ THUMB_FUNC void FUN_02054608(struct Window *param0, struct Options *options)
 {
     FUN_0200CD68(param0->bgConfig, GetWindowBgId(param0), 994, 10, (u8)Options_GetFrame(options), 4);
     FUN_0205464C(param0);
-    FUN_0200D0BC(param0, 0, 994, 10);
+    DrawFrameAndWindow2(param0, 0, 994, 10);
 }
 
 THUMB_FUNC void FUN_0205464C(struct Window *param0)
@@ -99,9 +87,9 @@ THUMB_FUNC void FUN_020546E0(
     }
 }
 
-THUMB_FUNC void FUN_02054744(struct Window *param0, u32 param1, u32 param2)
+THUMB_FUNC void FUN_02054744(struct Window *param0, u32 param1, u16 param2)
 {
     FUN_0200D300(param0->bgConfig, GetWindowBgId(param0), 0x399, 9, (u8)param1, param2, 4);
     FillWindowPixelBuffer(param0, 15);
-    FUN_0200D6F8(param0, 0, 0x399, 9, (u8)param1);
+    DrawFrameAndWindow3(param0, 0, 0x399, 9, (u8)param1);
 }

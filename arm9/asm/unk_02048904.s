@@ -2061,7 +2061,7 @@ _0204992E:
 	add r0, r4, #0x0
 	add r0, #0x24
 	mov r1, #0x0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r4, #0x0
 	add r0, #0x24
 	bl RemoveWindow
@@ -2072,7 +2072,7 @@ _02049946:
 	add r0, r4, #0x0
 	add r0, #0x24
 	mov r1, #0x0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r4, #0x0
 	add r0, #0x24
 	bl RemoveWindow
