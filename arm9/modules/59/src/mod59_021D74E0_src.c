@@ -8,6 +8,9 @@
 #include "unk_02024E64.h"
 #include "bg_window.h"
 #include "render_window.h"
+#include "msgdata.h"
+#include "text.h"
+#include "script_buffers.h"
 #include "module_52.h"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
@@ -20,9 +23,7 @@ extern struct GraphicsModes MOD59_021D9DCC;
 extern struct BgTemplate MOD59_021D9EA0;
 extern struct BgTemplate MOD59_021D9EBC;
 
-extern void MOD59_021D79F8(MOD59_OverlayData *data);
 extern void MOD59_021D7A34(MOD59_OverlayData *data);
-extern void MOD59_021D796C(MOD59_OverlayData *data);
 extern void MOD59_021D7A4C(MOD59_OverlayData *data);
 extern void MOD59_021D7A5C(MOD59_OverlayData *data);
 extern void MOD59_021D8058(MOD59_OverlayData *data);
@@ -30,6 +31,8 @@ extern u32 MOD59_021D8920(MOD59_OverlayData *data);
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
+
+extern u32 FUN_020142EC(u32 param0, u32 param1, u32 param2, u32 heap_id);
 
 extern void FUN_02077AC4(void *param0);
 
@@ -80,7 +83,7 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
             SetKeyRepeatTimers(4, 8);
 
             MOD59_SetupBg(data);
-            MOD59_021D79F8(data);
+            MOD59_SetupMsg(data);
             MOD59_021D7A4C(data);
 
             Main_SetVBlankIntrCB((void (*)(void *))MOD59_021D7724, data);
@@ -115,7 +118,7 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
             }
 
             MOD59_021D7A34(data);
-            MOD59_021D796C(data);
+            MOD59_DestroyBg(data);
             MOD59_021D7A5C(data);
 
             Main_SetVBlankIntrCB(NULL, NULL);
@@ -130,7 +133,7 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
             }
 
             MOD59_021D7A34(data);
-            MOD59_021D796C(data);
+            MOD59_DestroyBg(data);
             MOD59_021D7A5C(data);
 
             Main_SetVBlankIntrCB(NULL, NULL);
@@ -277,3 +280,44 @@ THUMB_FUNC void MOD59_SetupBg(MOD59_OverlayData *data)
     MOD59_021D8058(data);
     data->Unk78 = 0;
 }
+
+THUMB_FUNC void MOD59_DestroyBg(MOD59_OverlayData *data)
+{
+    ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_OFF);
+
+    ToggleBgLayer(GF_BG_LYR_SUB_0, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_1, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_OFF);
+
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_0);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_1);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_2);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_3);
+
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_SUB_0);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_SUB_1);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_SUB_2);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_SUB_3);
+
+    FreeToHeap(data->bgConfig);
+}
+
+THUMB_FUNC void MOD59_SetupMsg(MOD59_OverlayData *data)
+{
+    data->msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 0x155, data->heap_id);
+
+    FUN_0201BD5C();
+
+    data->Unk60 = FUN_020142EC(0, 0, 6, data->heap_id);
+
+    data->strBufs = ScrStrBufs_new(data->heap_id);
+
+    data->Unk50 = 0;
+    data->Unk54 = 0;
+    data->Unk2C = 0;
+}
+
