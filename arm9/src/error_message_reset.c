@@ -7,7 +7,7 @@
 #include "PAD_pad.h"
 #include "font.h"
 #include "brightness.h"
-#include "unk_0200CABC.h"
+#include "render_window.h"
 
 
 const struct WindowTemplate UNK_020FF49C = {

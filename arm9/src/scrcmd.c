@@ -6,7 +6,7 @@
 #include "player_data.h"
 #include "text.h"
 #include "bg_window.h"
-#include "unk_0200CABC.h"
+#include "render_window.h"
 #include "text_02054590.h"
 
 

@@ -1,5 +1,5 @@
 #include "global.h"
-#include "unk_0200CABC.h"
+#include "render_window.h"
 #include "filesystem.h"
 #include "gf_gfx_loader.h"
 #include "graphic/field_board.naix"
@@ -131,26 +131,18 @@ THUMB_FUNC void DrawFrame1(struct BgConfig *bgConfig,
     u16 fillValue)
 {
     FillBgTilemapRect(bgConfig, bgId, fillValue, (u8)(x - 1), (u8)(y - 1), 1, 1, paletteNum);
-    FillBgTilemapRect(
-        bgConfig, bgId, (u16)(fillValue + 1), x, (u8)(y - 1), width, 1, paletteNum);
+    FillBgTilemapRect(bgConfig, bgId, (u16)(fillValue + 1), x, (u8)(y - 1), width, 1, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 2), (u8)(x + width), (u8)(y - 1), 1, 1, paletteNum);
-    FillBgTilemapRect(
-        bgConfig, bgId, (u16)(fillValue + 3), (u8)(x - 1), y, 1, height, paletteNum);
+    FillBgTilemapRect(bgConfig, bgId, (u16)(fillValue + 3), (u8)(x - 1), y, 1, height, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 5), (u8)(x + width), y, 1, height, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 6), (u8)(x - 1), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 7), x, (u8)(y + height), width, 1, paletteNum);
-    FillBgTilemapRect(bgConfig,
-        bgId,
-        (u16)(fillValue + 8),
-        (u8)(x + width),
-        (u8)(y + height),
-        1,
-        1,
-        paletteNum);
+    FillBgTilemapRect(
+        bgConfig, bgId, (u16)(fillValue + 8), (u8)(x + width), (u8)(y + height), 1, 1, paletteNum);
 }
 
 THUMB_FUNC void DrawFrameAndWindow1(
@@ -228,30 +220,15 @@ THUMB_FUNC void DrawFrame2(struct BgConfig *bgConfig,
     FillBgTilemapRect(bgConfig, bgId, fillValue, (u8)(x - 2), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 1), (u8)(x - 1), (u8)(y - 1), 1, 1, paletteNum);
-    FillBgTilemapRect(
-        bgConfig, bgId, (u16)(fillValue + 2), x, (u8)(y - 1), width, 1, paletteNum);
+    FillBgTilemapRect(bgConfig, bgId, (u16)(fillValue + 2), x, (u8)(y - 1), width, 1, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 3), (u8)(x + width), (u8)(y - 1), 1, 1, paletteNum);
-    FillBgTilemapRect(bgConfig,
-        bgId,
-        (u16)(fillValue + 4),
-        (u8)(x + width + 1),
-        (u8)(y - 1),
-        1,
-        1,
-        paletteNum);
-    FillBgTilemapRect(bgConfig,
-        bgId,
-        (u16)(fillValue + 5),
-        (u8)(x + width + 2),
-        (u8)(y - 1),
-        1,
-        1,
-        paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(fillValue + 6), (u8)(x - 2), y, 1, height, paletteNum);
+        bgConfig, bgId, (u16)(fillValue + 4), (u8)(x + width + 1), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(fillValue + 7), (u8)(x - 1), y, 1, height, paletteNum);
+        bgConfig, bgId, (u16)(fillValue + 5), (u8)(x + width + 2), (u8)(y - 1), 1, 1, paletteNum);
+    FillBgTilemapRect(bgConfig, bgId, (u16)(fillValue + 6), (u8)(x - 2), y, 1, height, paletteNum);
+    FillBgTilemapRect(bgConfig, bgId, (u16)(fillValue + 7), (u8)(x - 1), y, 1, height, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 9), (u8)(x + width), y, 1, height, paletteNum);
     FillBgTilemapRect(
@@ -264,14 +241,8 @@ THUMB_FUNC void DrawFrame2(struct BgConfig *bgConfig,
         bgConfig, bgId, (u16)(fillValue + 13), (u8)(x - 1), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 14), x, (u8)(y + height), width, 1, paletteNum);
-    FillBgTilemapRect(bgConfig,
-        bgId,
-        (u16)(fillValue + 15),
-        (u8)(x + width),
-        (u8)(y + height),
-        1,
-        1,
-        paletteNum);
+    FillBgTilemapRect(
+        bgConfig, bgId, (u16)(fillValue + 15), (u8)(x + width), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
         (u16)(fillValue + 16),
@@ -487,28 +458,13 @@ THUMB_FUNC void DrawFrame3(struct BgConfig *bgConfig,
         paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 3), (u8)(x + width), (u8)(y - 1), 1, 1, paletteNum);
-    FillBgTilemapRect(bgConfig,
-        bgId,
-        (u16)(fillValue + 4),
-        (u8)(x + width + 1),
-        (u8)(y - 1),
-        1,
-        1,
-        paletteNum);
-    FillBgTilemapRect(bgConfig,
-        bgId,
-        (u16)(fillValue + 5),
-        (u8)(x + width + 2),
-        (u8)(y - 1),
-        1,
-        1,
-        paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(fillValue + 6), (u8)(x - 9), y, 1, height, paletteNum);
+        bgConfig, bgId, (u16)(fillValue + 4), (u8)(x + width + 1), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(fillValue + 7), (u8)(x - 8), y, 1, height, paletteNum);
-    FillBgTilemapRect(
-        bgConfig, bgId, (u16)(fillValue + 8), (u8)(x - 1), y, 1, height, paletteNum);
+        bgConfig, bgId, (u16)(fillValue + 5), (u8)(x + width + 2), (u8)(y - 1), 1, 1, paletteNum);
+    FillBgTilemapRect(bgConfig, bgId, (u16)(fillValue + 6), (u8)(x - 9), y, 1, height, paletteNum);
+    FillBgTilemapRect(bgConfig, bgId, (u16)(fillValue + 7), (u8)(x - 8), y, 1, height, paletteNum);
+    FillBgTilemapRect(bgConfig, bgId, (u16)(fillValue + 8), (u8)(x - 1), y, 1, height, paletteNum);
     FillBgTilemapRect(
         bgConfig, bgId, (u16)(fillValue + 9), (u8)(x + width), y, 1, height, paletteNum);
     FillBgTilemapRect(
@@ -527,14 +483,8 @@ THUMB_FUNC void DrawFrame3(struct BgConfig *bgConfig,
         (u8)(width + 7),
         1,
         paletteNum);
-    FillBgTilemapRect(bgConfig,
-        bgId,
-        (u16)(fillValue + 15),
-        (u8)(x + width),
-        (u8)(y + height),
-        1,
-        1,
-        paletteNum);
+    FillBgTilemapRect(
+        bgConfig, bgId, (u16)(fillValue + 15), (u8)(x + width), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
         (u16)(fillValue + 16),
@@ -579,7 +529,8 @@ THUMB_FUNC void DrawWindowCorner(struct Window *window, u16 fillValue, u8 palett
     }
 }
 
-THUMB_FUNC void DrawFrameAndWindow3(struct Window *window, BOOL copy_to_vram, u16 fillValue, u8 paletteNum, u8 param4)
+THUMB_FUNC void DrawFrameAndWindow3(
+    struct Window *window, BOOL copy_to_vram, u16 fillValue, u8 paletteNum, u8 param4)
 {
     u8 bg_id = GetWindowBgId(window);
     if (param4 <= 1)
@@ -989,7 +940,8 @@ THUMB_FUNC void FUN_0200DEF4(
     FreeToHeap(res);
 }
 
-THUMB_FUNC void DrawFramed10x10Square(struct UnkStruct_0200CABC_2 *param0, u8 paletteNum, u16 fillValue)
+THUMB_FUNC void DrawFramed10x10Square(
+    struct UnkStruct_0200CABC_2 *param0, u8 paletteNum, u16 fillValue)
 {
     FillBgTilemapRect(param0->bgConfig,
         param0->bgId,
@@ -1069,13 +1021,7 @@ THUMB_FUNC void DrawFramed10x10Square(struct UnkStruct_0200CABC_2 *param0, u8 pa
 
 THUMB_FUNC void ClearFramed10x10Square(struct UnkStruct_0200CABC_2 *param0)
 {
-    FillBgTilemapRect(param0->bgConfig,
-        param0->bgId,
-        0,
-        (u8)(param0->x - 1),
-        (u8)(param0->y - 1),
-        12,
-        12,
-        0);
+    FillBgTilemapRect(
+        param0->bgConfig, param0->bgId, 0, (u8)(param0->x - 1), (u8)(param0->y - 1), 12, 12, 0);
     ScheduleBgTilemapBufferTransfer(param0->bgConfig, param0->bgId);
 }

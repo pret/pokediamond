@@ -7,7 +7,7 @@
 #include "msgdata/msg.naix"
 #include "text.h"
 #include "brightness.h"
-#include "unk_0200CABC.h"
+#include "render_window.h"
 
 extern void FUN_0200E394(BOOL set_brightness_on_bottom_screen);
 extern void FUN_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);

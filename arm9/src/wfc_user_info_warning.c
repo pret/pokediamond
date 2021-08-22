@@ -11,7 +11,7 @@
 #include "text.h"
 #include "wfc_user_info_warning.h"
 #include "brightness.h"
-#include "unk_0200CABC.h"
+#include "render_window.h"
 
 extern void FUN_02002ED0(enum GFBgLayer layer, u32 base_addr, u32 heap_id);
 extern void FUN_0200E394(BOOL set_brightness_on_bottom_screen);

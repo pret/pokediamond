@@ -3,7 +3,7 @@
 #include "bg_window.h"
 #include "font.h"
 #include "render_text.h"
-#include "unk_0200CABC.h"
+#include "render_window.h"
 
 extern void FUN_0201BD5C(void);
 
