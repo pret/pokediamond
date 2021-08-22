@@ -843,7 +843,7 @@ MOD85_021D7BEC: ; 0x021D7BEC
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r4, #0
 	add r0, #8
 	mov r1, #0xf
@@ -880,7 +880,7 @@ MOD85_021D7C44: ; 0x021D7C44
 	add r0, r5, r4
 	add r0, #8
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, r4
 	add r0, #8
 	mov r1, #0
@@ -979,7 +979,7 @@ MOD85_021D7D04: ; 0x021D7D04
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
 	bl MOD85_021DE710
-	bl FUN_02009FA0
+	bl DeinitOamData
 	pop {r4, pc}
 	thumb_func_end MOD85_021D7D04
 
@@ -1459,7 +1459,7 @@ MOD85_021D80DC: ; 0x021D80DC
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r0, _021D80F4 ; =0x0000043C
 	ldr r0, [r4, r0]
 	bl DoScheduledBgGpuUpdates

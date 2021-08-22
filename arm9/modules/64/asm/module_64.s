@@ -308,7 +308,7 @@ _021D7726:
 MOD64_021D77A4: ; 0x021D77A4
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	add r0, r4, #0
 	add r0, #0x94
 	ldr r0, [r0]
@@ -384,7 +384,7 @@ MOD64_021D7810: ; 0x021D7810
 	thumb_func_start MOD64_021D7828
 MOD64_021D7828: ; 0x021D7828
 	push {r3, lr}
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	bl MOD64_021D7964
@@ -711,7 +711,7 @@ MOD64_021D7A54: ; 0x021D7A54
 	ldr r0, [r5]
 	lsl r2, r2, #8
 	add r3, r1, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add sp, #0x14
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -2336,7 +2336,7 @@ _021D86F8:
 	add r0, r5, #0
 	lsl r2, r2, #8
 	add r3, r1, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -2393,7 +2393,7 @@ _021D8770:
 	add r0, r5, #0
 	lsl r2, r2, #8
 	add r3, r1, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r6, #0
 	bl DestroyMsgData
 	add r0, r4, #0

@@ -509,7 +509,7 @@ _022121EC:
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	add r0, r6, #0
@@ -577,7 +577,7 @@ MOD56_0221228C: ; 0x0221228C
 	ldr r0, [r0]
 	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _022122AC ; =0x027E0000
 	ldr r1, _022122B0 ; =0x00003FF8
 	mov r0, #1
@@ -1313,7 +1313,7 @@ MOD56_022128A4: ; 0x022128A4
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xd7
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -1768,7 +1768,7 @@ _02212C74:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1828,7 +1828,7 @@ _02212CEC:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -1896,7 +1896,7 @@ _02212D74:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2279,7 +2279,7 @@ MOD56_02213048: ; 0x02213048
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2336,7 +2336,7 @@ MOD56_022130A4: ; 0x022130A4
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -2747,7 +2747,7 @@ _022133DA:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3515,7 +3515,7 @@ MOD56_02213990: ; 0x02213990
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdf
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3591,7 +3591,7 @@ MOD56_02213A40: ; 0x02213A40
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xd3
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -3655,7 +3655,7 @@ MOD56_02213A94: ; 0x02213A94
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xd7
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5089,7 +5089,7 @@ _02214602:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5120,7 +5120,7 @@ _02214642:
 	add r0, r5, r0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	add r0, #0xb8
 	ldr r0, [r0]
@@ -5245,7 +5245,7 @@ _0221476E:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5286,7 +5286,7 @@ _022147CE:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5370,7 +5370,7 @@ _02214868:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5406,7 +5406,7 @@ _0221488C:
 	add r0, r5, r0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	add r0, #0xb8
 	ldr r0, [r0]
@@ -5506,7 +5506,7 @@ _02214994:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5704,7 +5704,7 @@ _02214ADC:
 	add r0, r5, r0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	add r0, #0xb8
 	ldr r0, [r0]
@@ -6064,7 +6064,7 @@ _02214DEC:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe3
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -6990,7 +6990,7 @@ MOD56_022154BC: ; 0x022154BC
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe7
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -7536,7 +7536,7 @@ MOD56_022159B0: ; 0x022159B0
 	add r4, r1, #0
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe7
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -8176,7 +8176,7 @@ MOD56_02215EA4: ; 0x02215EA4
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -8192,7 +8192,7 @@ _02215EE0:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xcf
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -8279,7 +8279,7 @@ _02215F82:
 	add r0, r5, r0
 	mov r1, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r0, #1
 	bl TextFlags_SetCanABSpeedUpPrint
 	mov r0, #0
@@ -8327,7 +8327,7 @@ MOD56_02215FF4: ; 0x02215FF4
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xdb
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -8343,7 +8343,7 @@ _02216024:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xcf
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -8395,7 +8395,7 @@ _02216048:
 	add r0, r5, r0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r3, #0
 	mov r0, #0xdb
 	lsl r0, r0, #2
@@ -8487,7 +8487,7 @@ _02216154:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xcf
 	lsl r0, r0, #2
 	add r0, r4, r0
@@ -8670,7 +8670,7 @@ _022162B8:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xcf
 	lsl r0, r0, #2
 	add r0, r4, r0

@@ -712,7 +712,7 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	str r1, [r0]
 	ldr r0, [r4, #0x24]
 	bl FUN_0201FDEC
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 _0222DB8E:
 	add sp, #8
 	pop {r4, pc}
@@ -1451,7 +1451,7 @@ _0222E1C2:
 	bl FreeToHeap
 	ldr r0, [r6, #0x24]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 
@@ -4231,4 +4231,3 @@ MOD69_0222F940: ; 0x0222F940
 	.global MOD69_0222F960
 MOD69_0222F960: ; 0x0222F960
 	.space 0x20
-

@@ -15,6 +15,14 @@ struct UnkStruct_0203A288 {
     u8 padding[1];
 };
 
+typedef struct UnkStruct_0203B174
+{
+    BOOL Unk00;
+    u32 Unk04;
+    void *Unk08;
+    struct UnkSavStruct80 *Unk0C;
+} UnkStruct_0203B174;
+
 //scrcmd.c
 BOOL ScrCmd_Nop(struct ScriptContext* ctx);
 BOOL ScrCmd_Dummy(struct ScriptContext* ctx);
@@ -249,7 +257,12 @@ BOOL ScrCmd_Unk01A6(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01A7(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01AD(struct ScriptContext* ctx);
 
-//scrcmd_18.c
+//scrcmd_amity_square.c
+BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx);
+BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx);
+BOOL ScrCmd_GetAmitySquareAccessory(struct ScriptContext* ctx);
+
+//scrcmd_party.c
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx);
 BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx);
 BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx);

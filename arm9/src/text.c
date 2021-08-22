@@ -6,10 +6,11 @@
 #include "script_buffers.h"
 #include "unk_0200CA44.h"
 #include "font.h"
+#include "graphic/font.naix"
 
 const struct FontInfo *gFonts = NULL;
 
-u16 UNK_021C5734[0x100];
+u16 sFontHalfRowLookupTable[0x100];
 BOOL UNK_021C5714[8];
 u16 UNK_021C570E;
 u16 UNK_021C5710;
@@ -281,7 +282,7 @@ THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadow
     sp20[2] = shadowColor;
     sp20[3] = bgColor;
 
-    // FIXME: Need these to be accessed by a pointer to UNK_021C570C
+    // These are accessed by a pointer to UNK_021C570C due to -ipa file
     UNK_021C5712 = bgColor;
     UNK_021C570E = fgColor;
     UNK_021C5710 = shadowColor;
@@ -294,7 +295,7 @@ THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadow
             {
                 for (l = 0; l < 4; l++)
                 {
-                    UNK_021C5734[r5++] = (u16)((sp20[l] << 12) | (sp20[k] << 8) | (sp20[j] << 4) | (sp20[i] << 0));
+                    sFontHalfRowLookupTable[r5++] = (u16)((sp20[l] << 12) | (sp20[k] << 8) | (sp20[j] << 4) | (sp20[i] << 0));
                 }
             }
         }
@@ -303,22 +304,22 @@ THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadow
 
 THUMB_FUNC void DecompressGlyphTile(const u16 *src, u16 *dst)
 {
-    dst[0] = UNK_021C5734[(u32)src[0] >> 8];
-    dst[1] = UNK_021C5734[(u8)src[0]];
-    dst[2] = UNK_021C5734[(u32)src[1] >> 8];
-    dst[3] = UNK_021C5734[(u8)src[1]];
-    dst[4] = UNK_021C5734[(u32)src[2] >> 8];
-    dst[5] = UNK_021C5734[(u8)src[2]];
-    dst[6] = UNK_021C5734[(u32)src[3] >> 8];
-    dst[7] = UNK_021C5734[(u8)src[3]];
-    dst[8] = UNK_021C5734[(u32)src[4] >> 8];
-    dst[9] = UNK_021C5734[(u8)src[4]];
-    dst[10] = UNK_021C5734[(u32)src[5] >> 8];
-    dst[11] = UNK_021C5734[(u8)src[5]];
-    dst[12] = UNK_021C5734[(u32)src[6] >> 8];
-    dst[13] = UNK_021C5734[(u8)src[6]];
-    dst[14] = UNK_021C5734[(u32)src[7] >> 8];
-    dst[15] = UNK_021C5734[(u8)src[7]];
+    dst[0] = sFontHalfRowLookupTable[(u32)src[0] >> 8];
+    dst[1] = sFontHalfRowLookupTable[(u8)src[0]];
+    dst[2] = sFontHalfRowLookupTable[(u32)src[1] >> 8];
+    dst[3] = sFontHalfRowLookupTable[(u8)src[1]];
+    dst[4] = sFontHalfRowLookupTable[(u32)src[2] >> 8];
+    dst[5] = sFontHalfRowLookupTable[(u8)src[2]];
+    dst[6] = sFontHalfRowLookupTable[(u32)src[3] >> 8];
+    dst[7] = sFontHalfRowLookupTable[(u8)src[3]];
+    dst[8] = sFontHalfRowLookupTable[(u32)src[4] >> 8];
+    dst[9] = sFontHalfRowLookupTable[(u8)src[4]];
+    dst[10] = sFontHalfRowLookupTable[(u32)src[5] >> 8];
+    dst[11] = sFontHalfRowLookupTable[(u8)src[5]];
+    dst[12] = sFontHalfRowLookupTable[(u32)src[6] >> 8];
+    dst[13] = sFontHalfRowLookupTable[(u8)src[6]];
+    dst[14] = sFontHalfRowLookupTable[(u32)src[7] >> 8];
+    dst[15] = sFontHalfRowLookupTable[(u8)src[7]];
 }
 
 THUMB_FUNC void FUN_0201C1A8(struct TextPrinter *printer)
@@ -330,7 +331,7 @@ THUMB_FUNC u16 *FUN_0201C1B0(void)
 {
     void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
     struct UnkStruct_0200B870_sub * var;
-    void *tmp = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, 5, 0, &var, 0);
+    void *tmp = GfGfxLoader_GetCharData(NARC_GRAPHIC_FONT, NARC_font_narc_0005_NCGR, 0, &var, 0);
     MI_CpuCopy32(var->unk_14, res, 32 * 24 * sizeof(u16));
     FreeToHeap(tmp);
     return res;

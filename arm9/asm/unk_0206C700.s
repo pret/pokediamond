@@ -152,7 +152,7 @@ FUN_0206C700: ; 0x0206C700
 	mov r1, #0x0
 	mov r2, #0x1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r5, #0x0
 	bl FUN_02006D98
 	str r0, [r4, #0x18]
@@ -1440,7 +1440,7 @@ _0206D2EE:
 	mov r1, #0x0
 	mov r2, #0x1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r4, #0x1c]
 	mov r1, #0x6
 	mov r2, #0x0

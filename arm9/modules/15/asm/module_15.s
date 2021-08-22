@@ -2664,7 +2664,7 @@ _021D88A4:
 	bl FUN_0200CAB4
 	ldr r0, [r6, #4]
 	bl FUN_0200CAB4
-	bl FUN_02009FA0
+	bl DeinitOamData
 	ldr r0, [r6, #0x24]
 	bl FUN_0201FD58
 	ldr r0, [r6, #0x20]
@@ -2691,7 +2691,7 @@ MOD15_021D88DC: ; 0x021D88DC
 	push {r3, lr}
 	ldr r0, [r1, #0x24]
 	bl FUN_0201FDEC
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _021D88F8 ; =0x027E0000
 	ldr r1, _021D88FC ; =0x00003FF8
 	mov r0, #1
@@ -4529,7 +4529,7 @@ MOD15_021D9694: ; 0x021D9694
 	add r0, #0x1c
 	add r1, r4, #0
 	mov r2, #0xf
-	bl FUN_0200D06C
+	bl DrawWindowFrame2
 	add r0, r5, #0
 	add r0, #0xc
 	bl PutWindowTilemap
@@ -5503,7 +5503,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	mov r1, #0
 	lsr r2, r2, #0x10
 	mov r3, #0xe
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r1, r5, #0
 	ldr r0, [r5, #0x50]
 	add r1, #0x2c
@@ -5549,7 +5549,7 @@ MOD15_021D9F88: ; 0x021D9F88
 	add r4, r0, #0
 	add r0, #0x2c
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r4, #0x2c
 	add r0, r4, #0
 	bl ClearWindowTilemapAndCopyToVram

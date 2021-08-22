@@ -1208,7 +1208,7 @@ _0222DFD6:
 	mov r0, #8
 	sub r2, #0x10
 	mov r3, #0x1e
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #1
 	add r1, r0, #0
 	bl ToggleBgLayer
@@ -1227,7 +1227,7 @@ _0222DFD6:
 	b _0222E0E8
 _0222E010:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _0222E0E8
 	ldr r0, _0222E0F8 ; =0x00002218
@@ -1264,7 +1264,7 @@ _0222E054:
 	mov r0, #8
 	sub r2, #0x10
 	mov r3, #0x17
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	mov r0, #4
 	mov r1, #1
 	bl ToggleBgLayer
@@ -1285,13 +1285,13 @@ _0222E054:
 	b _0222E0E8
 _0222E094:
 	mov r0, #2
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _0222E0E8
 	ldr r0, _0222E110 ; =0x000005A8
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0x20
@@ -1661,7 +1661,7 @@ _0222E3AC:
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1827,7 +1827,7 @@ MOD71_0222E4DC: ; 0x0222E4DC
 	str r1, [r5, r0]
 _0222E52E:
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _0222E550 ; =0x027E0000
 	ldr r1, _0222E554 ; =0x00003FF8
 	mov r0, #1
@@ -4374,7 +4374,7 @@ _0222F9E4:
 	ldr r0, _0222FA30 ; =0x00003684
 	mov r1, #0
 	add r0, r5, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _0222FA30 ; =0x00003684
 	add r0, r5, r0
 	bl RemoveWindow
@@ -6984,14 +6984,14 @@ MOD71_02230F40: ; 0x02230F40
 	add r0, r5, #0
 	mov r1, #0
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	b _02230F76
 _02230F6A:
 	ldr r2, _02230FA8 ; =0x000001F7
 	add r0, r5, #0
 	mov r1, #0
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 _02230F76:
 	add r0, r5, #0
 	mov r1, #0xf
@@ -7070,7 +7070,7 @@ MOD71_02231004: ; 0x02231004
 	ldr r2, _02231014 ; =0x000001F7
 	mov r1, #0
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	pop {r3, pc}
 	nop
 _02231014: .word 0x000001F7
@@ -7102,7 +7102,7 @@ MOD71_02231018: ; 0x02231018
 	add r0, r4, #0
 	mov r1, #0
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r3, _02231090 ; =0x022313D4
 	add r2, sp, #0x14
 	add r7, r2, #0

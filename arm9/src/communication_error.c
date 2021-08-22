@@ -6,11 +6,9 @@
 #include "msgdata.h"
 #include "msgdata/msg.naix"
 #include "text.h"
+#include "brightness.h"
+#include "render_window.h"
 
-extern void FUN_02002ED0(enum GFBgLayer layer, u32 base_addr, u32 heap_id);
-extern void FUN_0200A274(fx32 brightness, fx32, u32);
-extern void FUN_0200CB00(struct BgConfig* bg_config, enum GFBgLayer layer, u32 num_tiles, u32, u8, u32 heap_id);
-extern void FUN_0200CCA4(struct Window* window, BOOL copy_to_vram, u16 fill_value, u32 palette_num);
 extern void FUN_0200E394(BOOL set_brightness_on_bottom_screen);
 extern void FUN_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
 
@@ -108,7 +106,7 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
 
     SetKeyRepeatTimers(4, 8);
 
-    gMain.unk65 = 0;
+    gMain.screensFlipped = 0;
 
     GX_SwapDisplay();
     reg_G2_BLDCNT = 0;
@@ -137,7 +135,7 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
 
     AddWindow(bg_config, &window, &sCommunicationErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
-    FUN_0200CCA4(&window, FALSE, 0x01F7, 2);
+    DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
     BufferIntegerAsString(mgr, 0, (s32)error_code, 5, 2, 1);
     ReadMsgDataIntoString(error_message_data, error_message_no, tmp_str);
@@ -150,7 +148,7 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
     GX_BothDispOn();
     FUN_0200E394(PM_LCD_TOP);
     FUN_0200E394(PM_LCD_BOTTOM);
-    FUN_0200A274(0, 0x3F, 3);
+    SetBrightness(0, 0x3F, 3);
 
     RemoveWindow(&window);
     DestroyMsgData(error_message_data);

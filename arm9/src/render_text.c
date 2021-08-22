@@ -207,7 +207,7 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
                     return 3;
             }
 
-            struct UnkStruct_02002C14 *r5 = FUN_02002D94(subStruct->glyphId, currentChar);
+            struct UnkStruct_02002C14_sub *r5 = FUN_02002D94(subStruct->glyphId, currentChar);
             CopyGlyphToWindow(printer->printerTemplate.window,
                 r5->buf,
                 r5->width,

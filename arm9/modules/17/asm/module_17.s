@@ -863,7 +863,7 @@ MOD17_021D7AE4: ; 0x021D7AE4
 	bl DoScheduledBgGpuUpdates
 	ldr r0, [r4, #0x20]
 	bl FUN_020081C4
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD17_021D7AE4
@@ -1137,7 +1137,7 @@ MOD17_021D7CF0: ; 0x021D7CF0
 	push {r3, lr}
 	ldr r0, [r0, #0x38]
 	bl DoScheduledBgGpuUpdates
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	pop {r3, pc}
 	.align 2, 0
 	thumb_func_end MOD17_021D7CF0
@@ -1724,7 +1724,7 @@ _021D8178:
 	blt _021D8178
 	bl FUN_0201D12C
 	bl FUN_0201E08C
-	bl FUN_02009FA0
+	bl DeinitOamData
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD17_021D816C
 
@@ -3933,7 +3933,7 @@ _021D934E:
 	sub r1, #0x18
 	mov r2, #0
 	mov r3, #0xa
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0xc]
 	add sp, #4
 	add r0, r0, #1
@@ -3941,7 +3941,7 @@ _021D934E:
 	pop {r3, r4, pc}
 _021D936A:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D9424
 	ldr r0, [r4, #0xc]
@@ -4009,7 +4009,7 @@ _021D93EA:
 	mov r0, #8
 	sub r2, #0x10
 	mov r3, #0xa
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0xc]
 	add sp, #4
 	add r0, r0, #1
@@ -4017,7 +4017,7 @@ _021D93EA:
 	pop {r3, r4, pc}
 _021D9406:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D9424
 	ldr r0, [r4, #0xc]
@@ -4093,7 +4093,7 @@ _021D9482:
 	sub r1, #0x18
 	mov r2, #0
 	mov r3, #0xa
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0xc]
 	add sp, #4
 	add r0, r0, #1
@@ -4101,7 +4101,7 @@ _021D9482:
 	pop {r3, r4, pc}
 _021D949E:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D95A4
 	ldr r0, [r4, #0xc]
@@ -4175,7 +4175,7 @@ _021D952E:
 	mov r0, #8
 	sub r2, #0x10
 	mov r3, #0xa
-	bl FUN_0200A208
+	bl StartBrightnessTransition
 	ldr r0, [r4, #0xc]
 	add sp, #4
 	add r0, r0, #1
@@ -4183,7 +4183,7 @@ _021D952E:
 	pop {r3, r4, pc}
 _021D954A:
 	mov r0, #1
-	bl FUN_0200A344
+	bl IsBrightnessTransitionActive
 	cmp r0, #0
 	beq _021D95A4
 	ldr r0, [r4, #0xc]
@@ -4707,7 +4707,7 @@ MOD17_021D9918: ; 0x021D9918
 	ldr r0, [r5, r0]
 	mov r2, #0x74
 	mov r3, #8
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r2, _021D99D8 ; =0x00000151
 	mov r0, #0
 	mov r1, #0x1a
@@ -11470,7 +11470,7 @@ _021DC9CC:
 	ldr r0, [r5, r0]
 	mov r1, #0
 	add r3, r2, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 _021DCA42:
 	ldr r0, [r4, #4]
 	str r0, [r5, #0x30]
@@ -11825,7 +11825,7 @@ MOD17_021DCC68: ; 0x021DCC68
 	ldr r0, [r5]
 	mov r1, #0
 	add r3, r2, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 _021DCCCC:
 	ldr r0, [r5]
 	bl CopyWindowToVram
@@ -11879,7 +11879,7 @@ MOD17_021DCCEC: ; 0x021DCCEC
 	add r0, r5, #0
 	mov r1, #0
 	add r3, r2, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r4, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -11917,7 +11917,7 @@ MOD17_021DCD34: ; 0x021DCD34
 	add r0, r5, #0
 	mov r1, #0
 	add r3, r2, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r4, #0
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}

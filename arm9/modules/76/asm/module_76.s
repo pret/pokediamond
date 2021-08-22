@@ -484,7 +484,7 @@ _021D78A8:
 	mov r1, #0
 	mov r2, #0xa
 	mov r3, #0xd
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _021D78E4: .word MOD76_021D8FC4

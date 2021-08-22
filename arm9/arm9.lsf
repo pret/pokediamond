@@ -15,7 +15,7 @@ Static arm9
 	Object sound.o
 	Object unk_020040F4.o
 	Object unk_020051F4.o
-	Object unk_02005CFC.o
+	Object sound_chatot.o
 	Object poke_overlay.o
 	Object unk_020061E8.o
 	Object overlay_manager.o
@@ -25,13 +25,14 @@ Static arm9
 	Object unk_02006D98.o
 	Object unk_02008AA4.o
 	Object unk_02008DEC.o
-	Object unk_02009EAC.o
+	Object oam.o
+	Object brightness.o
 	Object msgdata.o
 	Object script_buffers.o
 	Object unk_0200BA78.o
 	Object unk_0200BB14.o
 	Object unk_0200CA44.o
-	Object unk_0200CABC.o
+	Object render_window.o
 	Object unk_0200E1D0.o
 	Object unk_0200E850.o
 	Object unk_0201137C.o
@@ -49,7 +50,7 @@ Static arm9
 	Object unk_02014590.o
 	Object unk_02014BF4.o
 	Object unk_02015CC0.o
-	Object unk_02015D14.o
+	Object rs_migrate_string.o
 	Object unk_02015E30.o
 	Object game_init.o
 	Object heap.o
@@ -172,7 +173,7 @@ Static arm9
 	Object scrcmd_coins.o
 	Object scrcmd_money.o
 	Object scrcmd_daycare.o
-	Object scrcmd_17.o
+	Object scrcmd_amity_square.o
 	Object scrcmd_party.o
 	Object scrcmd_fossils.o
 	Object scrcmd_prizes.o
@@ -315,8 +316,8 @@ Static arm9
 	Object unk_020893E0.o
 	Object unk_02089498.o
 	Object unk_02089960.o
-	Object unk_02089D90.o
-	Object unk_02089F24.o
+	Object save_data_read_error.o
+	Object save_data_write_error.o
 	Object unk_0208A258.o
 	Object unk_0208A300.o
 	Object unk_0208A338.o
@@ -657,7 +658,26 @@ Overlay MODULE_03
 Overlay MODULE_04
 {
 	After arm9
-	Object thumb_04.o
+	Object mod04_021D74E0.o
+	Object mod04_021D868C.o
+	Object mod04_021D8D18.o
+	Object mod04_021D9C2C.o
+	Object mod04_021DA260.o
+	Object mod04_021DB730.o
+	Object mod04_021DC8A4.o
+	Object mod04_021DCCC8.o
+	Object mod04_021DD36C.o
+	Object mod04_0220C680_certs.o
+	Object mod04_021DD6B0.o
+	Object mod04_021DD82C.o
+	Object mod04_021DD984.o
+	Object mod04_021DDF40.o
+	Object mod04_021DE2D0.o
+	Object mod04_021DE89C.o
+	Object mod04_021DEB90.o
+	Object mod04_021E05FC.o
+	Object mod04_021E10F8.o
+	Object mod04_021E26D0.o
 	Object arm_04.o
 }
 
@@ -702,7 +722,39 @@ Overlay MODULE_05
 	Object mod05_021E7C00.o
 	Object mod05_021E80F8.o
 	Object mod05_021E8310.o
-	Object module_05.o
+	Object mod05_021E8648.o
+	Object mod05_021E8860.o
+	Object mod05_021E88E8.o
+	Object mod05_021EC458.o
+	Object mod05_021ED9C0.o
+	Object mod05_021EDB70.o
+	Object mod05_021EDE34.o
+	Object mod05_021EFA9C.o
+	Object mod05_021EFBF8.o
+	Object mod05_021F0318.o
+	Object mod05_021F0514.o
+	Object mod05_021F1B0C.o
+	Object mod05_021F1CB8.o
+	Object mod05_021F1F04.o
+	Object mod05_021F3780.o
+	Object mod05_021F3854.o
+	Object mod05_021F38CC.o
+	Object mod05_021F3BC0.o
+	Object mod05_021F3C98.o
+	Object mod05_021F3FE0.o
+	Object mod05_021F445C.o
+	Object mod05_021F45B4.o
+	Object mod05_021F46C8.o
+	Object mod05_021F4968.o
+	Object mod05_021F4CF8.o
+	Object mod05_021F5268.o
+	Object mod05_021F5518.o
+	Object mod05_021F5990.o
+	Object mod05_021F5B9C.o
+	Object mod05_021F5C44.o
+	Object mod05_021F61DC.o
+	Object mod05_021F61F4.o
+	Object mod05_021F6360.o
 }
 
 Overlay MODULE_06
@@ -802,7 +854,12 @@ Overlay MODULE_20
 {
 	##Pokétch##
 	After MODULE_06
-	Object module_20.o
+	Object mod20_02252440.o
+	Object mod20_02252C5C.o
+	Object mod20_022536F4.o
+	Object mod20_02253BA4.o
+	Object mod20_02254130.o
+	Object mod20_02254420.o
 }
 
 Overlay MODULE_21

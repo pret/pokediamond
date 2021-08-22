@@ -311,7 +311,7 @@ _021D7754:
 	mov r1, #0
 	add r0, #0xec
 	str r1, [r0]
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	mov r0, #0xeb
@@ -370,7 +370,7 @@ _021D77E6:
 	ldr r0, [r4, #4]
 	bl DoScheduledBgGpuUpdates
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	ldr r3, _021D7804 ; =0x027E0000
 	ldr r1, _021D7808 ; =0x00003FF8
 	mov r0, #1
@@ -2203,7 +2203,7 @@ MOD55_021D868C: ; 0x021D868C
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xce
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3295,7 +3295,7 @@ _021D8F1A:
 	add r0, r5, r0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [r5, #0x14]
 	mov r1, #0
 	str r0, [sp, #0x1c]
@@ -3448,7 +3448,7 @@ _021D9098:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0xe2
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -5404,7 +5404,7 @@ _021DA0D0:
 	add r0, r5, r0
 	mov r1, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	str r3, [sp]
 	str r4, [sp, #4]
@@ -5485,7 +5485,7 @@ _021DA17C:
 	add r0, r5, r0
 	mov r1, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0
 	add r2, r5, #0
 	str r3, [sp]
@@ -5518,11 +5518,11 @@ MOD55_021DA214: ; 0x021DA214
 	mov r1, #0xce
 	lsl r1, r1, #2
 	add r0, r0, r1
-	ldr r3, _021DA220 ; =FUN_0200D0E0
+	ldr r3, _021DA220 ; =ClearFrameAndWindow2
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021DA220: .word FUN_0200D0E0
+_021DA220: .word ClearFrameAndWindow2
 	thumb_func_end MOD55_021DA214
 
 	thumb_func_start MOD55_021DA224

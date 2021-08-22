@@ -2,6 +2,7 @@
 #define POKEDIAMOND_STRING16_H
 
 #include "string_util.h"
+#include "unk_02021590.h"
 
 struct String
 {
@@ -12,12 +13,6 @@ struct String
     u8 padding[2];
 };
 
-struct UnkStruct_0202199C
-{
-    u8 filler_00[0x70];
-    int (*unk_70)(struct UnkStruct_0202199C *, int);
-};
-
 #define STR16_MAGIC 0xB6F8D2EC
 
 struct String * String_ctor(u32 count, u32 heap_id);
@@ -25,8 +20,8 @@ BOOL StringCompare(struct String *, struct String *);
 void CopyU16ArrayToStringN(struct String *, u16 *, u32); // copy
 void StringSetEmpty(struct String *); // set empty
 struct String * StringDup(struct String *, u32 heap_id);
-s32 StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6);
-s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct UnkStruct_0202199C * r6, const u16 * arr);
+s32 StringGetWidth(struct FontData * r7, const u16 * arr, u32 r6);
+s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct FontData * r6, const u16 * arr);
 void String_dtor(struct String * str);
 void StringCopy(struct String * dest, struct String * src);
 void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strConvMode, BOOL whichCharset);

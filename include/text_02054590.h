@@ -15,6 +15,6 @@ u16 FUN_02054658(struct Window * window, struct String *str, struct Options *opt
 u16 DrawFieldMessage(struct Window * window, struct String *str, u8 fontId, u32 speed, u8 a4, s32 a5);
 u8 FUN_020546C8(u32 param0);
 void FUN_020546E0(struct BgConfig *param0, struct Window *param1, u32 param2, u32 param3);
-void FUN_02054744(struct Window *param0, u32 param1, u32 param2);
+void FUN_02054744(struct Window *param0, u32 param1, u16 param2);
 
 #endif // POKEDIAMOND_UNK_02054590_H

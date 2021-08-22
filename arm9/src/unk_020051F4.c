@@ -6,6 +6,7 @@
 #include "sound.h"
 #include "unk_020040F4.h"
 #include "unk_0200CA44.h"
+#include "sound_chatot.h"
 
 extern u32 NNS_SndArcPlayerStartSeq(u32 *, u32);
 extern u32 NNS_SndArcPlayerStartSeqEx(u32 *, s32, s32, s32, u32);
@@ -13,9 +14,6 @@ extern void NNS_SndPlayerStopSeqBySeqNo(u32, u32);
 extern void NNS_SndPlayerStopSeqAll(u32);
 extern void NNS_SndPlayerStopSeq(u32 *, u32);
 extern void NNS_SndPlayerSetTrackPan(u32 *, u32, u32);
-extern u32 FUN_02005D48(u32, u32, u32, u32);
-extern void FUN_02005E80(u32);
-extern void FUN_02005DFC();
 extern void *FUN_0201B6C8(u32 *);
 
 THUMB_FUNC u32 FUN_020051F4(u16 param0)
@@ -281,7 +279,7 @@ THUMB_FUNC void FUN_0200554C(u32 param0)
 THUMB_FUNC u32 FUN_02005578(u16 species)
 {
     u8 *r4 = FUN_02003D38(17);
-    u32 *r0 = FUN_02003D38(35);
+    struct SaveChatotSoundClip **r0 = FUN_02003D38(35);
 
     if (species != SPECIES_CHATOT)
     {

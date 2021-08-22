@@ -1518,7 +1518,7 @@ MOD09_02212A74: ; 0x02212A74
 	ldr r1, _02212A84 ; =0x00002060
 	add r0, r0, r1
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #2
 	pop {r3, pc}
 	.align 2, 0
@@ -4714,7 +4714,7 @@ MOD09_022143F8: ; 0x022143F8
 	add r0, r4, r0
 	add r2, r1, #0
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, _02214450 ; =0x00002050
 	mov r1, #0xf
 	add r0, r4, r0
@@ -8271,7 +8271,7 @@ MOD09_02216314: ; 0x02216314
 	add r0, r4, r0
 	add r2, r1, #0
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, _02216338 ; =0x00002060
 	mov r1, #0xf
 	add r0, r4, r0
@@ -13561,7 +13561,7 @@ MOD09_02218E68: ; 0x02218E68
 	push {r3, lr}
 	add r0, #0x1c
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #3
 	pop {r3, pc}
 	.align 2, 0
@@ -15226,7 +15226,7 @@ MOD09_02219BE0: ; 0x02219BE0
 	add r0, #0x1c
 	mov r1, #1
 	mov r3, #0xe
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r4, #0
 	add r0, #0x1c
 	mov r1, #0xf

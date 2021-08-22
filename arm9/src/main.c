@@ -11,6 +11,7 @@
 #include "game_init.h"
 #include "poke_overlay.h"
 #include "player_data.h"
+#include "save_data_read_error.h"
 #include "sound.h"
 #include "timer3.h"
 #include "unk_02031734.h"
@@ -18,6 +19,7 @@
 #include "wfc_user_info_warning.h"
 #include "module_52.h"
 #include "font.h"
+#include "brightness.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
@@ -31,14 +33,11 @@ struct UnkStruct_02016FA8 UNK_02016FA8;
 extern void FUN_02022294(void);
 extern void GF_InitRTCWork(void);
 extern int FUN_020337E8(int);
-extern void FUN_02089D90(int);
-extern void FUN_0200A2AC(void);
 extern void FUN_02015E30(void);
 extern void FUN_0201B5CC(void *);
 extern void GF_RTC_UpdateOnFrame(void);
 extern void FUN_02015E60(void);
 extern void FUN_020222C4(void);
-extern void FUN_0200A318(void);
 extern void FUN_0200E2D8(void);
 
 extern struct Unk21DBE18 MOD63_021DBE18;
@@ -73,7 +72,7 @@ THUMB_FUNC void NitroMain(void)
         ShowWFCUserInfoWarning(3, 0);
     if (FUN_020227FC(UNK_02016FA8.unk18) == 0)
     {
-        FUN_02089D90(0);
+        ShowSaveDataReadError(0);
     }
     else
     {
@@ -97,7 +96,7 @@ THUMB_FUNC void NitroMain(void)
     gMain.unk6C = 1;
     gMain.unk30 = 0;
     InitializeMainRNG();
-    FUN_0200A2AC();
+    InitAllScreenBrightnessData();
     FUN_02015E30();
     UNK_02016FA4 = 0;
     for (;;)
@@ -127,7 +126,7 @@ THUMB_FUNC void NitroMain(void)
         OS_WaitIrq(1, 1);
         gMain.unk2C++;
         gMain.unk30 = 0;
-        FUN_0200A318();
+        DoAllScreenBrightnessTransitionStep();
         FUN_0200E2D8();
         if (gMain.vBlankIntr)
             gMain.vBlankIntr(gMain.vBlankIntrArg);

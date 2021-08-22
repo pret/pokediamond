@@ -4,6 +4,8 @@
 #include "heap.h"
 #include "CARD_backup.h"
 #include "OS_spinLock.h"
+#include "save_data_read_error.h"
+#include "save_data_write_error.h"
 
 #pragma thumb on
 
@@ -12,12 +14,6 @@
 // unk_02015EA0.s
 extern void FUN_02016444(u8 mask);
 extern void FUN_02016454(u8 mask);
-
-// unk_02089D90.s
-extern void FUN_02089D90(int);
-
-// unk_02089F24.s
-extern void FUN_0208A0B8(int, int);
 
 struct {
     struct SaveBlock2 * ptr;
@@ -861,7 +857,7 @@ BOOL FlashLoadChunk(u32 src, void * dest, u32 size)
     if (!r5)
     {
         FreeToHeap(UNK_021C59C8.ptr);
-        FUN_02089D90(1);
+        ShowSaveDataReadError(1);
     }
     return r5;
 }
@@ -910,10 +906,10 @@ BOOL WaitFlashWrite(int lock, BOOL * res)
     return FALSE;
 }
 
-void SaveErrorHandling(int lock, int errno)
+void SaveErrorHandling(int lock, u32 errno)
 {
     CARD_UnlockBackup((u16)lock);
     OS_ReleaseLockID((u16)lock);
     FreeToHeap(UNK_021C59C8.ptr);
-    FUN_0208A0B8(1, errno);
+    ShowSaveDataWriteError(1, errno);
 }

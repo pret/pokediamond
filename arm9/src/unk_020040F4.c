@@ -3,6 +3,7 @@
 #include "OS_cache.h"
 #include "sound.h"
 #include "unk_0202F150.h"
+#include "SPI_mic.h"
 
 u32 UNK_021C3DD8[2];
 
@@ -22,9 +23,6 @@ extern void NNS_SndArcPlayerStartSeqEx(u32 *, u32, s32, s32, u32);
 extern u16 NNS_SndPlayerCountPlayingSeqByPlayerNo(int);
 extern u32 NNS_SndPlayerGetSeqNo(u32 *);
 extern u32 NNS_SndArcGetBankInfo(u32);
-extern u32 MIC_StartAutoSampling(u32);
-extern u32 MIC_StopAutoSampling();
-extern u32 MIC_DoSamplingAsync(u32 param0, u32 param1, u32 param2, u32 param3);
 extern u32 NNS_SndWaveOutAllocChannel(u32);
 extern void NNS_SndWaveOutFreeChannel(u32);
 extern u32 NNS_SndWaveOutStart(u32, u32, void *, u32, u32, u32, u32, s32, u32, s32);
@@ -59,7 +57,7 @@ THUMB_FUNC void FUN_020040F4(u8 param0)
     *ptr = param0;
 }
 
-THUMB_FUNC u8 FUN_02004104()
+THUMB_FUNC u8 FUN_02004104(void)
 {
     u8 *ptr = FUN_02003D38(5);
 
@@ -74,7 +72,7 @@ THUMB_FUNC void FUN_02004110(u16 param0)
     FUN_02004130(0);
 }
 
-THUMB_FUNC u16 FUN_02004124()
+THUMB_FUNC u16 FUN_02004124(void)
 {
     u16 *ptr = FUN_02003D38(9);
 
@@ -87,7 +85,7 @@ THUMB_FUNC void FUN_02004130(u16 param0)
     *ptr = param0;
 }
 
-THUMB_FUNC u16 FUN_02004140()
+THUMB_FUNC u16 FUN_02004140(void)
 {
     u16 *ptr = FUN_02003D38(10);
 
@@ -471,7 +469,7 @@ THUMB_FUNC void FUN_02004724(int param0)
     FUN_0200521C(param0);
 }
 
-THUMB_FUNC void FUN_02004738()
+THUMB_FUNC void FUN_02004738(void)
 {
     GF_Snd_RestoreState(FUN_02004748(4));
 }
@@ -544,7 +542,7 @@ THUMB_FUNC void FUN_020047C8(u8 param0, u8 param1)
     *ptr = param1;
 }
 
-THUMB_FUNC void FUN_02004810()
+THUMB_FUNC void FUN_02004810(void)
 {
     u8 *ptr = FUN_02003D38(11);
     u8 *ptr2 = FUN_02003D38(12);
@@ -650,14 +648,13 @@ THUMB_FUNC u16 FUN_02004900(u32 param0)
     return *ptr;
 }
 
-THUMB_FUNC u32 GF_MIC_StartAutoSampling(u32 param0)
+THUMB_FUNC u32 GF_MIC_StartAutoSampling(struct MIC_SamplingData *param0)
 {
     return MIC_StartAutoSampling(param0);
 }
 
-THUMB_FUNC u32 GF_MIC_StopAutoSampling(u32 param0)
+THUMB_FUNC u32 GF_MIC_StopAutoSampling(void)
 {
-#pragma unused(param0)
     GetSoundDataPointer();
     return MIC_StopAutoSampling();
 }
@@ -914,7 +911,7 @@ THUMB_FUNC void FUN_02004C3C(u32 param0)
     }
 }
 
-THUMB_FUNC BOOL GF_SndCaptureIsActive()
+THUMB_FUNC BOOL GF_SndCaptureIsActive(void)
 {
     return NNS_SndCaptureIsActive();
 }
@@ -936,7 +933,7 @@ THUMB_FUNC void GF_SndCaptureSetReverbVolume(u32 param0, u32 param1)
     NNS_SndCaptureSetReverbVolume(param0, param1);
 }
 
-THUMB_FUNC void FUN_02004CB4()
+THUMB_FUNC void FUN_02004CB4(void)
 {
     GetSoundDataPointer();
 
@@ -948,7 +945,7 @@ THUMB_FUNC void FUN_02004CB4()
     NNS_SndCaptureStartEffect(r4, 0x1000, 0, 0x55F0, 2, FUN_02005068, st8);
 }
 
-THUMB_FUNC void GF_SndCaptureStopEffect()
+THUMB_FUNC void GF_SndCaptureStopEffect(void)
 {
     NNS_SndCaptureStopEffect();
 }
@@ -1000,7 +997,7 @@ THUMB_FUNC void FUN_02004D84(u32 param0)
     *(u32 *)FUN_02003D38(7) = param0;
 }
 
-THUMB_FUNC u16 FUN_02004D94()
+THUMB_FUNC u16 FUN_02004D94(void)
 {
     u16 *ptr = FUN_02003D38(7);
 
@@ -1013,7 +1010,7 @@ THUMB_FUNC u16 FUN_02004D94()
     return --(*ptr);
 }
 
-THUMB_FUNC u8 *FUN_02004DB4()
+THUMB_FUNC u8 *FUN_02004DB4(void)
 {
     return UNK_021C3DE0;
 }
@@ -1345,7 +1342,7 @@ THUMB_FUNC void FUN_0200516C(u32 param0)
     GF_SndCaptureIsActive();
 }
 
-THUMB_FUNC void FUN_020051AC()
+THUMB_FUNC void FUN_020051AC(void)
 {
     if (FUN_02005404() == FALSE && GF_SndPlayerGetSeqNo(GetSoundPlayer(0)) != -1 &&
         FUN_02004124() != 0x47e)

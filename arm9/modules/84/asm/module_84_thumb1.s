@@ -260,7 +260,7 @@ _021D771A:
 	add r5, #0xdc
 	ldr r0, [r5]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -552,7 +552,7 @@ MOD84_021D7958: ; 0x021D7958
 	add r1, #0xdc
 	ldr r0, [r1]
 	bl FUN_0201FDEC
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	pop {r3, pc}
 	thumb_func_end MOD84_021D7958
 

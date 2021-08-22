@@ -1,10 +1,14 @@
 #include "scrcmd.h"
+#include "unk_0200CA44.h"
 #include "unk_0204639C.h"
 #include "main.h"
 #include "options.h"
 #include "player_data.h"
 #include "text.h"
 #include "bg_window.h"
+#include "render_window.h"
+#include "text_02054590.h"
+
 
 extern void *FUN_02039438(struct UnkSavStruct80* arg, u32 id);
 extern void *CreateScriptContext(struct UnkSavStruct80* arg, u16 id);
@@ -21,27 +25,19 @@ extern void MOD05_021E2C58(struct ScriptContext *ctx, u16 typ, u16 id, u16 word1
 extern struct ScrStrBufs *MOD06_02244210(struct SaveBlock2 *sav, u16 poke, u16 sex, u8 flag, u8 *unk);
 extern void MOD05_021E2CBC(struct ScriptContext *ctx, struct ScrStrBufs *str, u8 param2, u32 param3);
 extern void MOD05_021E2BB8(void *param0, struct ScriptContext *ctx);
-extern BOOL FUN_020546C8(u8 param0);
 extern u32 FUN_02058488(u32 param0);
 extern BOOL FUN_02030F40(void);
 extern void FUN_02055304(u32 param0, u32 param1);
 extern void FUN_02039460(struct UnkSavStruct80 *arg);
-extern void FUN_020545B8(u32 param0, u8 *param1, u32 param2);
-extern void FUN_02054608(u8 *param0, struct Options *options);
-extern void FUN_0200D0E0(struct Window *param0, u32 param1);
 extern u32 FUN_02058510(u32 param0, u32 param1);
 extern void MOD05_021E8128(u32 param0, u8 type, u16 map);
 extern void MOD05_021E8130(u32 param0, u32 param1);
 extern void MOD05_021E8158(struct UnkSavStruct80 *unk80);
 extern struct Window * MOD05_021E8140(u32 param0);
 extern BOOL MOD05_021E8148(u32 param0);
-extern u8 FUN_02054658(struct Window * param0, struct String *str, struct Options *opt, u32 param3);
 extern void MOD05_021E8144(u32 param0);
-extern void FUN_0200CB00(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5);
-extern u32 Std_CreateYesNoMenu(u32 param0, u8 **param1, u32 param2, u32 param3, u32 param4);
+extern u32 Std_CreateYesNoMenu(struct BgConfig *param0, u8 **param1, u32 param2, u32 param3, u32 param4);
 extern u32 FUN_020021AC(u32 param0, u32 param1);
-extern u32 FUN_0200D858(u32 *param0, u32 param1);
-extern void FUN_0200DBFC(u32 param0);
 extern u32 MOD05_021E1BF8(struct UnkSavStruct80 *arg, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, u32 param6, u32 *param7, struct MsgData *msgData);
 extern void MOD05_021E1C4C(u32 param0, u32 param1, u32 param2);
 extern void MOD05_021E1C54(u32 param0);
@@ -54,11 +50,11 @@ extern void MOD05_021E26CC(u32 param0, u8 param1);
 extern void MOD05_021E2B80(u32 param0, u8 param1);
 extern void MOD05_021E2B9C(u32 param0, u8 param1);
 extern u32 FUN_0205AEA4(u32 param0, const void *ptr);
-extern void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2);
 extern u32 FUN_02058B2C(u32 param0);
 extern u32 FUN_02058B4C(u32 param0);
 extern u32 FUN_020580B4(u32 param0, u32 param1);
 extern u32 FUN_02058060(u32 param0, u32 param1);
+extern void FUN_0203B1A8(u32 param0, void *param1);
 
 extern u8 *UNK_020F34E0;
 
@@ -79,6 +75,7 @@ static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
 static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
 static BOOL FUN_0203B158(struct ScriptContext *ctx);
+static void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -771,8 +768,8 @@ THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     u8 *unk = (u8 *)FUN_02039438(unk80, 6);
-    FUN_020545B8(unk80->unk08, FUN_02039438(unk80, 1), 3);
-    FUN_02054608(FUN_02039438(unk80, 1), Sav2_PlayerData_GetOptionsAddr(ctx->unk80->saveBlock2));
+    FUN_020545B8(unk80->unk08, (struct Window *)FUN_02039438(unk80, 1), 3);
+    FUN_02054608((struct Window *)FUN_02039438(unk80, 1), Sav2_PlayerData_GetOptionsAddr(ctx->unk80->saveBlock2));
     *unk = 1;
     return FALSE;
 }
@@ -782,7 +779,7 @@ THUMB_FUNC BOOL ScrCmd_CloseMessageBox(struct ScriptContext* ctx)
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     struct Window *unk = FUN_02039438(unk80, 0x1);
     u8 *unk2 = FUN_02039438(unk80, 0x6);
-    FUN_0200D0E0(unk, 0);  //clear window?
+    ClearFrameAndWindow2(unk, 0);  //clear window?
     RemoveWindow(unk);
     *unk2 = 0;
     return FALSE;
@@ -956,7 +953,7 @@ THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx)
     ReadMsgDataIntoString(ctx->msgData, msg, *unk2);
     StringExpandPlaceholders(*unk4, *unk3, *unk2);
 
-    *unk1 = FUN_02054658(MOD05_021E8140(unk80->unk60), *unk3, Sav2_PlayerData_GetOptionsAddr(ctx->unk80->saveBlock2), 1);
+    *unk1 = (u8)FUN_02054658(MOD05_021E8140(unk80->unk60), *unk3, Sav2_PlayerData_GetOptionsAddr(ctx->unk80->saveBlock2), 1);
     ctx->data[0] = wk;
     SetupNativeScript(ctx, FUN_0203A94C);
     return TRUE;
@@ -1110,15 +1107,16 @@ THUMB_FUNC static BOOL FUN_0203AB00(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_ShowSaveClock(struct ScriptContext *ctx)
 {
-    u32 *unk = FUN_02039438(ctx->unk80, 1);
-    u32 *unk2 = FUN_02039438(ctx->unk80, 18);
+    struct Window *unk = (struct Window *)FUN_02039438(ctx->unk80, 1);
+    struct UnkStruct_0200CABC_1 **unk2 = (struct UnkStruct_0200CABC_1 **)FUN_02039438(ctx->unk80, 18);
     *unk2 = FUN_0200D858(unk, 994);
     return FALSE;
 }
 
+
 THUMB_FUNC BOOL ScrCmd_HideSaveClock(struct ScriptContext *ctx)
 {
-    u32 *unk = FUN_02039438(ctx->unk80, 18);
+    struct UnkStruct_0200CABC_1 **unk = (struct UnkStruct_0200CABC_1 **)FUN_02039438(ctx->unk80, 18);
     FUN_0200DBFC(*unk);
     return FALSE;
 }
@@ -1343,25 +1341,25 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx)
     {
         unk4[0] = 15;
         pos++;
-        unk4[1] = unk1 - unk5;
+        unk4[1] = (u16)(unk1 - unk5);
     }
     else if (unk5 > unk1)
     {
         unk4[0] = 14;
         pos++;
-        unk4[1] = unk5 - unk1;
+        unk4[1] = (u16)(unk5 - unk1);
     }
 
     if (unk6 < unk2)
     {
         unk4[pos * 2] = 12;
-        unk4[pos * 2 + 1] = unk2 - unk6;
+        unk4[pos * 2 + 1] = (u16)(unk2 - unk6);
         pos++;
     }
     else if (unk6 > unk2)
     {
         unk4[pos * 2] = 13;
-        unk4[pos * 2 + 1] = unk6 - unk2;
+        unk4[pos * 2 + 1] = (u16)(unk6 - unk2);
         pos++;
     }
 
@@ -1404,4 +1402,18 @@ THUMB_FUNC static BOOL FUN_0203B158(struct ScriptContext *ctx)
 {
     u8 *unk = FUN_02039438(ctx->unk80, 4);
     return *unk == 0 ? TRUE : FALSE;
+}
+
+THUMB_FUNC static void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2)
+{
+    UnkStruct_0203B174 *unkStruct = (UnkStruct_0203B174 *)AllocFromHeap(4, sizeof(UnkStruct_0203B174));
+    if (unkStruct == NULL)
+    {
+        GF_AssertFail();
+        return;
+    }
+    unkStruct->Unk0C = arg;
+    unkStruct->Unk04 = param1;
+    unkStruct->Unk08 = param2;
+    unkStruct->Unk00 = FUN_0200CA44(FUN_0203B1A8, unkStruct, 0);
 }

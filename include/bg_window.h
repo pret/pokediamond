@@ -267,7 +267,7 @@ void CopyBgTilemapRectAffine(struct Bg *bg,
                              u8 srcHeight,
                              u8 adjustForSrcDims);
 void FillBgTilemapRect(struct BgConfig *bgConfig,
-                       u32 bgId,
+                       u8 bgId,
                        u16 fillValue,
                        u8 x,
                        u8 y,

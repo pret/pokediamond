@@ -247,7 +247,7 @@ _021D9C40:
 	blt _021D9C40
 	ldr r0, [r6, #0x3c]
 	bl FUN_0201FD58
-	bl FUN_02009FA0
+	bl DeinitOamData
 	bl FUN_0201D12C
 	bl FUN_0201E08C
 	add r0, r6, #0
@@ -287,7 +287,7 @@ MOD58_021D9CB4: ; 0x021D9CB4
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_0201C30C
-	bl FUN_02009F80
+	bl ApplyAndResetOamManagerBuffer
 	add r0, r4, #0
 	bl DoScheduledBgGpuUpdates
 	ldr r3, _021D9CD4 ; =0x027E0000
@@ -1567,7 +1567,7 @@ _021DA70E:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _021DA784 ; =0x00005C9C
 	ldr r0, [r5, r0]
 	bl FUN_020146C4
@@ -1598,7 +1598,7 @@ _021DA748:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _021DA784 ; =0x00005C9C
 	ldr r0, [r5, r0]
 	bl FUN_020146C4
@@ -1638,7 +1638,7 @@ _021DA7A4:
 	str r1, [r5, r0]
 	sub r0, #0x38
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _021DA7F0 ; =0x00005C9C
 	ldr r0, [r5, r0]
 	bl FUN_020146C4
@@ -1659,7 +1659,7 @@ _021DA7D4:
 	str r1, [r5, r0]
 	sub r0, #0x38
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _021DA7F0 ; =0x00005C9C
 	ldr r0, [r5, r0]
 	bl FUN_020146C4
@@ -2224,7 +2224,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r5, #0xc]
 	bl Options_GetTextFrameDelay
 	mov r3, #0
