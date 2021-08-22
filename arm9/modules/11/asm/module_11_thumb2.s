@@ -191,7 +191,7 @@ _0222F30E:
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r2, #0x51
 	mov r0, #1
 	mov r1, #0x1a
@@ -23867,7 +23867,7 @@ _0223AC50:
 	mov r1, #0
 	mov r2, #1
 	mov r3, #8
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0xa
 	add sp, #0xd4
 	str r0, [r4, #0x28]
@@ -24053,7 +24053,7 @@ _0223AE5E:
 	bl MOD11_0222FF6C
 	add r6, r0, #0
 	mov r1, #0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r6, #0
 	bl RemoveWindow
 	ldr r1, _0223AF50 ; =0x04000008

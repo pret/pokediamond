@@ -3095,7 +3095,7 @@ _0207EF10:
 	add r0, r6, #0x0
 	mov r1, #0x1
 	mov r3, #0xd
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r6, #0x0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer

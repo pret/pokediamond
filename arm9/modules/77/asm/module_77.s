@@ -607,7 +607,7 @@ _021D79D0:
 	add r0, r4, r0
 	mov r1, #0
 	mov r3, #7
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, _021D7B84 ; =0x0000C314
 	ldr r0, [r4, r0]
 	cmp r0, #0
@@ -644,7 +644,7 @@ _021D7A4E:
 	ldr r0, _021D7B7C ; =0x0000C034
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _021D7B98 ; =0x000005DD
 	bl PlaySE
 	mov r0, #0xd8
@@ -1438,7 +1438,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	add r0, r5, r0
 	mov r1, #0
 	mov r3, #6
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, _021D8228 ; =0x0000C064
 	mov r3, #0
 	str r3, [r5, r0]
@@ -1819,7 +1819,7 @@ _021D83B2:
 	ldr r0, [sp, #0x10]
 	mov r1, #1
 	mov r3, #7
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [sp]
 	bl CopyWindowToVram
 	add sp, #0x24
@@ -1909,7 +1909,7 @@ _021D8462:
 	ldr r0, [sp, #0x18]
 	mov r1, #1
 	mov r3, #7
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [sp]
 	bl CopyWindowToVram
 	add sp, #0x2c
@@ -1929,7 +1929,7 @@ MOD77_021D84D8: ; 0x021D84D8
 	ldr r0, _021D8504 ; =0x0000C024
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _021D8504 ; =0x0000C024
 	add r0, r4, r0
 	bl RemoveWindow
@@ -1984,7 +1984,7 @@ MOD77_021D8510: ; 0x021D8510
 	add r0, r5, r0
 	mov r1, #0
 	mov r3, #7
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, _021D85D4 ; =0x0000C070
 	ldr r2, _021D85D8 ; =0x0000C314
 	ldr r0, [r5, r0]
@@ -2073,7 +2073,7 @@ MOD77_021D85E0: ; 0x021D85E0
 	add r0, r5, r0
 	mov r1, #0
 	mov r3, #7
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [r5]
 	add r1, r4, #0
 	str r0, [sp]
@@ -2127,7 +2127,7 @@ MOD77_021D8698: ; 0x021D8698
 	ldr r0, _021D86B0 ; =0x0000C044
 	mov r1, #0
 	add r0, r4, r0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	ldr r0, _021D86B0 ; =0x0000C044
 	add r0, r4, r0
 	bl RemoveWindow

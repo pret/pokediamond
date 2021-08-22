@@ -4816,7 +4816,7 @@ MOD73_021D9AC8: ; 0x021D9AC8
 	ldr r0, [r4, #8]
 	mov r2, #1
 	add r3, r1, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	pop {r4, pc}
 	thumb_func_end MOD73_021D9AC8
 
@@ -5006,7 +5006,7 @@ MOD73_021D9BE0: ; 0x021D9BE0
 	ldr r0, [r5, #8]
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add sp, #0x14
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -6189,7 +6189,7 @@ MOD73_021DA4D4: ; 0x021DA4D4
 	mov r1, #0
 	mov r2, #0x1f
 	mov r3, #1
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [r4, #0x10]
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -6208,7 +6208,7 @@ MOD73_021DA4D4: ; 0x021DA4D4
 	mov r1, #0
 	mov r2, #0x1f
 	mov r3, #1
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [r4, #0xc]
 	bl ScheduleWindowCopyToVram
 	ldr r0, [r4, #0x10]
@@ -6570,7 +6570,7 @@ _021DA7EC:
 	ldr r0, [r4, #0x14]
 	mov r2, #1
 	add r3, r1, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r4, #0x14]
 	bl ScheduleWindowCopyToVram
 	add sp, #0x10

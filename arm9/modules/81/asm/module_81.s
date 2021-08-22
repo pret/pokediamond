@@ -2482,7 +2482,7 @@ _022390F4:
 	add r0, #0x44
 	mov r1, #0x6d
 	mov r2, #2
-	bl FUN_0200D06C
+	bl DrawWindowFrame2
 	add r0, r4, #0
 	add r0, #0x44
 	bl CopyWindowToVram
@@ -2556,7 +2556,7 @@ _022391BE:
 	add r0, r4, #0
 	add r0, #0x44
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r5]
@@ -9606,7 +9606,7 @@ _0223C982:
 	add r0, #0x48
 	mov r1, #0x6d
 	mov r2, #2
-	bl FUN_0200D06C
+	bl DrawWindowFrame2
 	add r0, r4, #0
 	add r0, #0x48
 	bl CopyWindowToVram
@@ -9668,7 +9668,7 @@ _0223CA32:
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0
 	str r0, [r4, #8]
 	ldr r0, [r5]

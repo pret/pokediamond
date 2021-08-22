@@ -7,6 +7,7 @@
 #include "PAD_pad.h"
 #include "font.h"
 #include "brightness.h"
+#include "render_window.h"
 
 
 const struct WindowTemplate UNK_020FF49C = {
@@ -44,8 +45,6 @@ const struct GraphicsBanks UNK_020FF4D8 = { .bg = 3 };
 u32 sErrorMessagePrinterLock;
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
-extern void FUN_0200CB00(struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
-extern void FUN_0200CCA4(struct Window *param0, u32 param1, u32 param2, u32 param3);
 extern void FUN_0200E394(u32 param0);
 
 THUMB_FUNC void VBlankHandler()
@@ -114,7 +113,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FUN_0201BD5C();
         AddWindow(ptr, &buf, &UNK_020FF49C);
         FillWindowPixelRect(&buf, 15, 0, 0, 0xd0, 0x90);
-        FUN_0200CCA4(&buf, 0, 0x1f7, 2);
+        DrawFrameAndWindow1(&buf, 0, 0x1f7, 2);
 
         ReadMsgDataIntoString(msg_data, 3, str);
 

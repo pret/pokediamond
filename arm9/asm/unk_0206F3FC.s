@@ -765,12 +765,12 @@ _0206F914:
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0x8d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0x8d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -3665,7 +3665,7 @@ FUN_020710C4: ; 0x020710C4
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0x1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0xc
 	mov r1, #0x8
 	bl AllocFromHeap
@@ -4734,7 +4734,7 @@ _020718EC:
 	lsl r0, r0, #0x2
 	add r0, r5, r0
 	mov r1, #0x1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0x0
 	bl FUN_02073DB4
 	ldr r0, _02071940 ; =0x000005A4
@@ -4992,7 +4992,7 @@ _02071ADE:
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _02071C28 ; =0x000005C8
 	mov r1, #0x0
 	ldr r0, [r4, r0]
@@ -5112,7 +5112,7 @@ _02071BE0:
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _02071C28 ; =0x000005C8
 	mov r1, #0x0
 	ldr r0, [r4, r0]
@@ -5642,7 +5642,7 @@ _02072054:
 	mov r1, #0x1
 	mov r2, #0xa
 	mov r3, #0xf
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r5, r7
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -5936,7 +5936,7 @@ FUN_020722B8: ; 0x020722B8
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r4, #0x0
 	mov r1, #0x1d
 	mov r2, #0x1
@@ -6061,7 +6061,7 @@ _020723D6:
 	mov r1, #0x1
 	mov r2, #0xa
 	mov r3, #0xf
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r0, #0x89
 	lsl r0, r0, #0x2
 	add r0, r5, r0
