@@ -31,7 +31,7 @@ u32 FUN_02002DE0(u32 param0, u16 *str, u32 param2);
 u32 FUN_02002E14(u32 param0, struct String *str, u32 param2);
 s32 GetFontAttribute(u8 fontId, s32 attr);
 void FUN_02002ED0(enum GFBgLayer layer, u32 baseAddr, u32 heap_id);
-void FUN_02002EEC(u32 layer, u32 baseAddr, u32 heap_id);
+void FUN_02002EEC(enum GFBgLayer layer, u32 baseAddr, u32 heap_id);
 s32 FUN_02002F08(u32 param0, struct String *str, u32 param2);
 u32 FUN_02002F40(u32 param0, struct String *str, u32 param2, u32 param3);
 u32 FUN_02002F58(const u16 *str);
