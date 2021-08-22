@@ -1188,7 +1188,7 @@ FUN_02062EC4: ; 0x02062EC4
 	add r4, r0, #0x0
 	add r0, #0xe4
 	mov r1, #0x1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r4, #0x0
 	add r0, #0xe4
 	bl ClearWindowTilemapAndCopyToVram
@@ -1464,13 +1464,13 @@ _02063094:
 	add r0, #0xd4
 	mov r1, #0x0
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0x0
 	ldr r2, _02063170 ; =0x000003E2
 	add r0, #0xe4
 	mov r1, #0x1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r5, #0x0
 	add r0, #0xe4
 	mov r1, #0xff
@@ -1526,7 +1526,7 @@ FUN_02063178: ; 0x02063178
 	add r0, r4, #0x0
 	add r0, #0xd4
 	mov r1, #0x0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0x0
 	add r0, #0xd4
 	bl RemoveWindow
@@ -1872,7 +1872,7 @@ FUN_02063430: ; 0x02063430
 	add r0, #0xd4
 	mov r1, #0x1
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r4, #0x0
 	mov r1, #0x0
 	bl FUN_020632A4
@@ -1933,7 +1933,7 @@ FUN_020634DC: ; 0x020634DC
 	add r0, r4, #0x0
 	add r0, #0xd4
 	mov r1, #0x0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0x0
 	add r0, #0xd4
 	bl RemoveWindow

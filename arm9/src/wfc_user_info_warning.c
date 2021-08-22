@@ -11,10 +11,9 @@
 #include "text.h"
 #include "wfc_user_info_warning.h"
 #include "brightness.h"
+#include "render_window.h"
 
 extern void FUN_02002ED0(enum GFBgLayer layer, u32 base_addr, u32 heap_id);
-extern void FUN_0200CB00(struct BgConfig* bg_config, enum GFBgLayer layer, u32 num_tiles, u32, u8, u32 heap_id);
-extern void FUN_0200CCA4(struct Window* window, BOOL copy_to_vram, u16 fill_value, u32 palette_num);
 extern void FUN_0200E394(BOOL set_brightness_on_bottom_screen);
 extern void FUN_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
 
@@ -109,7 +108,7 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     FUN_0201BD5C();
     AddWindow(bg_config, &window, &sWFCWarningMsgWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
-    FUN_0200CCA4(&window, FALSE, 0x01F7, 2);
+    DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
     ReadMsgDataIntoString(warning_messages_data, 15, warning_message);
     AddTextPrinterParameterized(&window, 0, warning_message, 0, 0, 0, 0);

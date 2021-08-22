@@ -1347,7 +1347,7 @@ _021D7F44:
 	lsr r0, r0, #0x18
 	str r0, [sp]
 	add r0, r7, #0
-	bl FUN_0200D6F8
+	bl DrawFrameAndWindow3
 	add r0, r7, #0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -2052,7 +2052,7 @@ MOD66_021D8494: ; 0x021D8494
 	mov r2, #0
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x1c
-	bl FUN_0200D7A0
+	bl ClearFrameAndWindow3
 	ldr r0, [r6, #0x28]
 	mov r1, #4
 	bl ScheduleBgTilemapBufferTransfer

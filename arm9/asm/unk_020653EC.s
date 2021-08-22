@@ -1119,7 +1119,7 @@ _02065C64:
 	ldr r2, _02065CF4 ; =0x000003D9
 	mov r1, #0x0
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	mov r2, #0x65
@@ -1139,7 +1139,7 @@ _02065C64:
 	add r0, r5, r0
 	mov r1, #0x0
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
@@ -1371,7 +1371,7 @@ _02065E14:
 	ldr r2, _02065EDC ; =0x000003D9
 	mov r1, #0x0
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
@@ -1431,7 +1431,7 @@ FUN_02065EF8: ; 0x02065EF8
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1444,7 +1444,7 @@ FUN_02065EF8: ; 0x02065EF8
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1488,7 +1488,7 @@ FUN_02065F8C: ; 0x02065F8C
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x0
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	mov r0, #0x16
 	lsl r0, r0, #0x4
 	add r1, sp, #0x0
@@ -2055,7 +2055,7 @@ FUN_02066404: ; 0x02066404
 	add r0, r5, r0
 	mov r1, #0x1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 _02066426:
 	mov r1, #0xd8
 	str r1, [sp, #0x0]
@@ -2147,7 +2147,7 @@ FUN_020664D8: ; 0x020664D8
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	mov r1, #0x1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0x61
 	lsl r0, r0, #0x2
 	add r0, r4, r0

@@ -301,7 +301,7 @@ _021D7702:
 	mov r1, #1
 	mov r2, #0xa
 	mov r3, #6
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r5, #0
 	add r0, #0x94
 	mov r1, #0xff
@@ -341,7 +341,7 @@ _021D775E:
 	add r0, r5, #0
 	add r0, #0x94
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0
 	add r0, #0x94
 	bl ClearWindowTilemapAndCopyToVram
@@ -428,7 +428,7 @@ _021D77F2:
 	mov r2, #0xa
 	mov r3, #6
 	strb r1, [r5, #0x13]
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r5, #0
 	add r0, #0x94
 	mov r1, #0xff
@@ -496,7 +496,7 @@ _021D788A:
 	add r0, r5, #0
 	add r0, #0x94
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0
 	add r0, #0x94
 	bl ClearWindowTilemapAndCopyToVram

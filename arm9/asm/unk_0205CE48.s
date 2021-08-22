@@ -1462,7 +1462,7 @@ _0205D95C:
 	beq _0205D9A0
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldrh r0, [r4, #0x16]
 	add r0, r0, #0x1
 	strh r0, [r4, #0x16]

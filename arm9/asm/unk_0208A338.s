@@ -477,7 +477,7 @@ _0208A722:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 _0208A734:
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
@@ -513,7 +513,7 @@ FUN_0208A760: ; 0x0208A760
 	beq _0208A778
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 _0208A778:
 	pop {r4, pc}
 	.balign 4
@@ -593,18 +593,18 @@ _0208A808:
 	add r0, r7, #0x0
 	mov r2, #0xa5
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add sp, #0x14
 	pop {r4-r7, pc}
 
 	thumb_func_start FUN_0208A820
 FUN_0208A820: ; 0x0208A820
-	ldr r3, _0208A828 ; =FUN_0200CCF8
+	ldr r3, _0208A828 ; =ClearFrameAndWindow1
 	add r0, #0x28
 	mov r1, #0x1
 	bx r3
 	.balign 4
-_0208A828: .word FUN_0200CCF8
+_0208A828: .word ClearFrameAndWindow1
 
 	thumb_func_start FUN_0208A82C
 FUN_0208A82C: ; 0x0208A82C
@@ -681,18 +681,18 @@ _0208A8B8:
 	add r0, r7, #0x0
 	mov r2, #0xa5
 	mov r3, #0xb
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add sp, #0x14
 	pop {r4-r7, pc}
 
 	thumb_func_start FUN_0208A8D0
 FUN_0208A8D0: ; 0x0208A8D0
-	ldr r3, _0208A8D8 ; =FUN_0200CCF8
+	ldr r3, _0208A8D8 ; =ClearFrameAndWindow1
 	add r0, #0x38
 	mov r1, #0x1
 	bx r3
 	.balign 4
-_0208A8D8: .word FUN_0200CCF8
+_0208A8D8: .word ClearFrameAndWindow1
 
 	thumb_func_start FUN_0208A8DC
 FUN_0208A8DC: ; 0x0208A8DC
