@@ -90,6 +90,7 @@ KNARC = tools/knarc/knarc$(EXE)
 MSGENC = tools/msgenc/msgenc$(EXE)
 MWLDARM  = tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
+NITROBANNER = tools/nitrobanner/nitrobanner$(EXE)
 SCANINC = tools/scaninc/scaninc$(EXE)
 
 AS      = $(WINE) $(MWASMARM)
@@ -119,7 +120,6 @@ JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
 O2NARC = $(TOOLS_DIR)/o2narc/o2narc$(EXE)
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
-MAKEBANNER = $(WINE) $(TOOLS_DIR)/bin/makebanner.exe
 MAKEROM    = $(WINE) $(TOOLS_DIR)/bin/makerom.exe
 FIXROM     = $(TOOLS_DIR)/fixrom/fixrom$(EXE)
 NTRCOMP    = $(WINE) $(TOOLS_DIR)/bin/ntrcomp.exe
@@ -286,7 +286,7 @@ $(8BPP_COMP10_NOPAD_NCLR_PAL_FILES): GFX_FLAGS = -bitdepth 8 -nopad -comp 10
 ######################## Misc #######################
 
 $(BNR): $(TARGET).bsf $(ICON_FILE:%.png=%.gbapal) $(ICON_FILE:%.png=%.4bpp)
-	$(MAKEBANNER) $< $@
+	$(NITROBANNER) $< $@
 
 symbols.csv: arm9 arm7
 	(echo "Name,Location"; $(GREP) " *[0-9A-F]{8} [0-9A-F]{8} \S+ +\w+\t\(\w+\.o\)" arm9/$(BUILD_DIR)/arm9.elf.xMAP arm7/build/arm7.elf.xMAP | $(SED) 's/ *([0-9A-F]{8}) [0-9A-F]{8} \S+ +(\w+)\t\(\w+\.o\)/\2,\1/g' | cut -d: -f2) > $@
