@@ -4707,7 +4707,7 @@ MOD17_021D9918: ; 0x021D9918
 	ldr r0, [r5, r0]
 	mov r2, #0x74
 	mov r3, #8
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r2, _021D99D8 ; =0x00000151
 	mov r0, #0
 	mov r1, #0x1a
@@ -11470,7 +11470,7 @@ _021DC9CC:
 	ldr r0, [r5, r0]
 	mov r1, #0
 	add r3, r2, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 _021DCA42:
 	ldr r0, [r4, #4]
 	str r0, [r5, #0x30]
@@ -11825,7 +11825,7 @@ MOD17_021DCC68: ; 0x021DCC68
 	ldr r0, [r5]
 	mov r1, #0
 	add r3, r2, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 _021DCCCC:
 	ldr r0, [r5]
 	bl CopyWindowToVram
@@ -11879,7 +11879,7 @@ MOD17_021DCCEC: ; 0x021DCCEC
 	add r0, r5, #0
 	mov r1, #0
 	add r3, r2, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r4, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -11917,7 +11917,7 @@ MOD17_021DCD34: ; 0x021DCD34
 	add r0, r5, #0
 	mov r1, #0
 	add r3, r2, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r4, #0
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}

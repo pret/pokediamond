@@ -724,7 +724,7 @@ MOD05_021F617C: ; 0x021F617C
 	add r0, r4, #0
 	add r0, #0x38
 	mov r1, #0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r4, #0x38
 	add r0, r4, #0
 	bl RemoveWindow

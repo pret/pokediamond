@@ -2030,7 +2030,7 @@ _0222E4D0:
 	ldr r0, [sp, #0x18]
 	mov r2, #0x1f
 	mov r3, #0xd
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	mov r0, #0x35
 	str r0, [sp]
 	mov r0, #2
@@ -3328,7 +3328,7 @@ MOD62_0222EEE0: ; 0x0222EEE0
 	add r0, r5, #0
 	add r2, r1, #0
 	mov r3, #0xc
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r5, #0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -4600,7 +4600,7 @@ MOD62_0222F904: ; 0x0222F904
 	add r4, r0, #0
 	add r0, #0xfc
 	mov r1, #1
-	bl FUN_0200CCF8
+	bl ClearFrameAndWindow1
 	add r0, r4, #0
 	add r0, #0xfc
 	bl ClearWindowTilemapAndCopyToVram
@@ -6693,7 +6693,7 @@ _022309DC:
 	lsl r0, r0, #2
 	add r0, r4, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	mov r0, #0x43
 	lsl r0, r0, #2
 	add r0, r4, r0

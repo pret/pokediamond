@@ -113,7 +113,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FUN_0201BD5C();
         AddWindow(ptr, &buf, &UNK_020FF49C);
         FillWindowPixelRect(&buf, 15, 0, 0, 0xd0, 0x90);
-        FUN_0200CCA4(&buf, 0, 0x1f7, 2);
+        DrawFrameAndWindow1(&buf, 0, 0x1f7, 2);
 
         ReadMsgDataIntoString(msg_data, 3, str);
 

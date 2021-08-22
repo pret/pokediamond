@@ -2097,7 +2097,7 @@ _021D861E:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 _021D8660:
 	add r0, r5, #0
 	bl MOD53_021D9440
@@ -2119,7 +2119,7 @@ _021D8672:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0
 	bl MOD53_021D9440
 	mov r0, #0xb2
@@ -2446,7 +2446,7 @@ _021D8916:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	add r0, r5, #0
 	bl MOD53_021D9440
 	bl FUN_02031190
@@ -3640,7 +3640,7 @@ MOD53_021D91C8: ; 0x021D91C8
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	cmp r4, #0
 	bne _021D9218
 	mov r4, #0
@@ -3691,11 +3691,11 @@ MOD53_021D925C: ; 0x021D925C
 	mov r1, #0xb6
 	lsl r1, r1, #2
 	add r0, r0, r1
-	ldr r3, _021D9268 ; =FUN_0200D0E0
+	ldr r3, _021D9268 ; =ClearFrameAndWindow2
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021D9268: .word FUN_0200D0E0
+_021D9268: .word ClearFrameAndWindow2
 	thumb_func_end MOD53_021D925C
 
 	thumb_func_start MOD53_021D926C

@@ -890,14 +890,14 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	mov r1, #0
 	lsr r2, r2, #0x10
 	mov r3, #2
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	add r0, r5, #0
 	lsl r2, r4, #0x10
 	add r0, #0x24
 	mov r1, #0
 	lsr r2, r2, #0x10
 	mov r3, #2
-	bl FUN_0200CCA4
+	bl DrawFrameAndWindow1
 	ldr r0, [r5, #0x10]
 	mov r1, #1
 	bl BgCommitTilemapBufferToVram

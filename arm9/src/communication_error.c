@@ -135,7 +135,7 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
 
     AddWindow(bg_config, &window, &sCommunicationErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
-    FUN_0200CCA4(&window, FALSE, 0x01F7, 2);
+    DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
     BufferIntegerAsString(mgr, 0, (s32)error_code, 5, 2, 1);
     ReadMsgDataIntoString(error_message_data, error_message_no, tmp_str);

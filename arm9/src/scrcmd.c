@@ -779,7 +779,7 @@ THUMB_FUNC BOOL ScrCmd_CloseMessageBox(struct ScriptContext* ctx)
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     struct Window *unk = FUN_02039438(unk80, 0x1);
     u8 *unk2 = FUN_02039438(unk80, 0x6);
-    FUN_0200D0E0(unk, 0);  //clear window?
+    ClearFrameAndWindow2(unk, 0);  //clear window?
     RemoveWindow(unk);
     *unk2 = 0;
     return FALSE;

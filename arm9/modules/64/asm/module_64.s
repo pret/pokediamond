@@ -711,7 +711,7 @@ MOD64_021D7A54: ; 0x021D7A54
 	ldr r0, [r5]
 	lsl r2, r2, #8
 	add r3, r1, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add sp, #0x14
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -2336,7 +2336,7 @@ _021D86F8:
 	add r0, r5, #0
 	lsl r2, r2, #8
 	add r3, r1, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -2393,7 +2393,7 @@ _021D8770:
 	add r0, r5, #0
 	lsl r2, r2, #8
 	add r3, r1, #0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	add r0, r6, #0
 	bl DestroyMsgData
 	add r0, r4, #0

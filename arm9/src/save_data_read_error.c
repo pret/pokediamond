@@ -103,7 +103,7 @@ THUMB_FUNC void ShowSaveDataReadError(u32 heap_id)
 
     AddWindow(bg_config, &window, &sSaveDataReadErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
-    FUN_0200CCA4(&window, FALSE, 0x01F7, 2);
+    DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
     ReadMsgDataIntoString(msg_data, 0, str);
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
@@ -166,7 +166,7 @@ THUMB_FUNC void ShowGBACartRemovedError(u32 heap_id)
 
     AddWindow(bg_config, &window, &sSaveDataReadErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
-    FUN_0200CCA4(&window, FALSE, 0x01F7, 2);
+    DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
     ReadMsgDataIntoString(msg_data, 1, str);
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);

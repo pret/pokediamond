@@ -33,7 +33,7 @@ THUMB_FUNC void FUN_02054608(struct Window *param0, struct Options *options)
 {
     FUN_0200CD68(param0->bgConfig, GetWindowBgId(param0), 994, 10, (u8)Options_GetFrame(options), 4);
     FUN_0205464C(param0);
-    FUN_0200D0BC(param0, 0, 994, 10);
+    DrawFrameAndWindow2(param0, 0, 994, 10);
 }
 
 THUMB_FUNC void FUN_0205464C(struct Window *param0)
@@ -91,5 +91,5 @@ THUMB_FUNC void FUN_02054744(struct Window *param0, u32 param1, u16 param2)
 {
     FUN_0200D300(param0->bgConfig, GetWindowBgId(param0), 0x399, 9, (u8)param1, param2, 4);
     FillWindowPixelBuffer(param0, 15);
-    FUN_0200D6F8(param0, 0, 0x399, 9, (u8)param1);
+    DrawFrameAndWindow3(param0, 0, 0x399, 9, (u8)param1);
 }

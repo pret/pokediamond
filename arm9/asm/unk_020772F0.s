@@ -1020,7 +1020,7 @@ _02077594:
 	mov r1, #0x0
 	lsl r2, r2, #0x8
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0x0
 	mov r2, #0x6
 	ldr r0, _020776B0 ; =0x00000448
@@ -3328,7 +3328,7 @@ FUN_02078894: ; 0x02078894
 	lsl r2, r2, #0x8
 	mov r3, #0xa
 	add r5, r0, #0x0
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	str r3, [sp, #0x4]

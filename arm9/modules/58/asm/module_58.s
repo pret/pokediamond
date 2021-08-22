@@ -1567,7 +1567,7 @@ _021DA70E:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _021DA784 ; =0x00005C9C
 	ldr r0, [r5, r0]
 	bl FUN_020146C4
@@ -1598,7 +1598,7 @@ _021DA748:
 	lsl r0, r0, #2
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _021DA784 ; =0x00005C9C
 	ldr r0, [r5, r0]
 	bl FUN_020146C4
@@ -1638,7 +1638,7 @@ _021DA7A4:
 	str r1, [r5, r0]
 	sub r0, #0x38
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _021DA7F0 ; =0x00005C9C
 	ldr r0, [r5, r0]
 	bl FUN_020146C4
@@ -1659,7 +1659,7 @@ _021DA7D4:
 	str r1, [r5, r0]
 	sub r0, #0x38
 	add r0, r5, r0
-	bl FUN_0200D0E0
+	bl ClearFrameAndWindow2
 	ldr r0, _021DA7F0 ; =0x00005C9C
 	ldr r0, [r5, r0]
 	bl FUN_020146C4
@@ -2224,7 +2224,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	mov r1, #0
 	mov r2, #1
 	mov r3, #0xa
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	ldr r0, [r5, #0xc]
 	bl Options_GetTextFrameDelay
 	mov r3, #0

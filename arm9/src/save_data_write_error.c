@@ -111,7 +111,7 @@ THUMB_FUNC void ShowSaveDataWriteError(u32 heap_id, u32 err_no)
 
     AddWindow(bg_config, &window, &sSaveDataWriteErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
-    FUN_0200CCA4(&window, FALSE, 0x01F7, 2);
+    DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
     ReadMsgDataIntoString(msg_data, msg_no, str);
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);

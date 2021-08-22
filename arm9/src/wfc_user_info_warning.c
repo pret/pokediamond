@@ -108,7 +108,7 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     FUN_0201BD5C();
     AddWindow(bg_config, &window, &sWFCWarningMsgWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
-    FUN_0200CCA4(&window, FALSE, 0x01F7, 2);
+    DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
     ReadMsgDataIntoString(warning_messages_data, 15, warning_message);
     AddTextPrinterParameterized(&window, 0, warning_message, 0, 0, 0, 0);

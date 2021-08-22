@@ -472,7 +472,7 @@ _02089CE8:
 	add r0, #0x20
 	add r1, r6, #0x0
 	mov r3, #0x2
-	bl FUN_0200D0BC
+	bl DrawFrameAndWindow2
 	mov r0, #0x1
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0xa

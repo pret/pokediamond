@@ -82,9 +82,9 @@ THUMB_FUNC u32 FUN_0200CABC(
         heap_id);
 }
 
-THUMB_FUNC u32 FUN_0200CAFC(void)
+THUMB_FUNC s32 FUN_0200CAFC(void)
 {
-    return 24;
+    return NARC_winframe_narc_0024_NCLR;
 }
 
 THUMB_FUNC void FUN_0200CB00(
@@ -121,42 +121,42 @@ THUMB_FUNC void FUN_0200CB00(
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, 4, param3 << 5, 32, heap_id);
 }
 
-THUMB_FUNC void FUN_0200CB6C(struct BgConfig *bgConfig,
+THUMB_FUNC void DrawFrame1(struct BgConfig *bgConfig,
     u8 bgId,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6,
-    u16 param7)
+    u8 x,
+    u8 y,
+    u8 width,
+    u8 height,
+    u8 paletteNum,
+    u16 fillValue)
 {
-    FillBgTilemapRect(bgConfig, bgId, param7, (u8)(param2 - 1), (u8)(param3 - 1), 1, 1, param6);
+    FillBgTilemapRect(bgConfig, bgId, fillValue, (u8)(x - 1), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 1), param2, (u8)(param3 - 1), param4, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 1), x, (u8)(y - 1), width, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 2), (u8)(param2 + param4), (u8)(param3 - 1), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 2), (u8)(x + width), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 3), (u8)(param2 - 1), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 3), (u8)(x - 1), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 5), (u8)(param2 + param4), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 5), (u8)(x + width), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 6), (u8)(param2 - 1), (u8)(param3 + param5), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 6), (u8)(x - 1), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 7), param2, (u8)(param3 + param5), param4, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 7), x, (u8)(y + height), width, 1, paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 8),
-        (u8)(param2 + param4),
-        (u8)(param3 + param5),
+        (u16)(fillValue + 8),
+        (u8)(x + width),
+        (u8)(y + height),
         1,
         1,
-        param6);
+        paletteNum);
 }
 
-THUMB_FUNC void FUN_0200CCA4(
+THUMB_FUNC void DrawFrameAndWindow1(
     struct Window *window, BOOL copy_to_vram, u16 fill_value, u8 palette_num)
 {
-    FUN_0200CB6C(window->bgConfig,
+    DrawFrame1(window->bgConfig,
         GetWindowBgId(window),
         GetWindowX(window),
         GetWindowY(window),
@@ -171,7 +171,7 @@ THUMB_FUNC void FUN_0200CCA4(
     }
 }
 
-THUMB_FUNC void FUN_0200CCF8(struct Window *window, BOOL copy_to_vram)
+THUMB_FUNC void ClearFrameAndWindow1(struct Window *window, BOOL copy_to_vram)
 {
 
     FillBgTilemapRect(window->bgConfig,
@@ -216,83 +216,83 @@ THUMB_FUNC void FUN_0200CD68(
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(param4), 4, param3 << 5, 32, param5);
 }
 
-THUMB_FUNC void FUN_0200CDD8(struct BgConfig *bgConfig,
+THUMB_FUNC void DrawFrame2(struct BgConfig *bgConfig,
     u8 bgId,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6,
-    u16 param7)
+    u8 x,
+    u8 y,
+    u8 width,
+    u8 height,
+    u8 paletteNum,
+    u16 fillValue)
 {
-    FillBgTilemapRect(bgConfig, bgId, param7, (u8)(param2 - 2), (u8)(param3 - 1), 1, 1, param6);
+    FillBgTilemapRect(bgConfig, bgId, fillValue, (u8)(x - 2), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 1), (u8)(param2 - 1), (u8)(param3 - 1), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 1), (u8)(x - 1), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 2), param2, (u8)(param3 - 1), param4, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 2), x, (u8)(y - 1), width, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 3), (u8)(param2 + param4), (u8)(param3 - 1), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 3), (u8)(x + width), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 4),
-        (u8)(param2 + param4 + 1),
-        (u8)(param3 - 1),
+        (u16)(fillValue + 4),
+        (u8)(x + width + 1),
+        (u8)(y - 1),
         1,
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 5),
-        (u8)(param2 + param4 + 2),
-        (u8)(param3 - 1),
+        (u16)(fillValue + 5),
+        (u8)(x + width + 2),
+        (u8)(y - 1),
         1,
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 6), (u8)(param2 - 2), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 6), (u8)(x - 2), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 7), (u8)(param2 - 1), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 7), (u8)(x - 1), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 9), (u8)(param2 + param4), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 9), (u8)(x + width), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 10), (u8)(param2 + param4 + 1), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 10), (u8)(x + width + 1), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 11), (u8)(param2 + param4 + 2), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 11), (u8)(x + width + 2), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 12), (u8)(param2 - 2), (u8)(param3 + param5), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 12), (u8)(x - 2), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 13), (u8)(param2 - 1), (u8)(param3 + param5), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 13), (u8)(x - 1), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 14), param2, (u8)(param3 + param5), param4, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 14), x, (u8)(y + height), width, 1, paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 15),
-        (u8)(param2 + param4),
-        (u8)(param3 + param5),
+        (u16)(fillValue + 15),
+        (u8)(x + width),
+        (u8)(y + height),
         1,
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 16),
-        (u8)(param2 + param4 + 1),
-        (u8)(param3 + param5),
+        (u16)(fillValue + 16),
+        (u8)(x + width + 1),
+        (u8)(y + height),
         1,
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 17),
-        (u8)(param2 + param4 + 2),
-        (u8)(param3 + param5),
+        (u16)(fillValue + 17),
+        (u8)(x + width + 2),
+        (u8)(y + height),
         1,
         1,
-        param6);
+        paletteNum);
 }
 
-THUMB_FUNC void FUN_0200D06C(struct Window *window, u32 fill_value, u32 palette_num)
+THUMB_FUNC void DrawWindowFrame2(struct Window *window, u32 fill_value, u32 palette_num)
 {
-    FUN_0200CDD8(window->bgConfig,
+    DrawFrame2(window->bgConfig,
         GetWindowBgId(window),
         GetWindowX(window),
         GetWindowY(window),
@@ -302,10 +302,10 @@ THUMB_FUNC void FUN_0200D06C(struct Window *window, u32 fill_value, u32 palette_
         (u16)fill_value);
 }
 
-THUMB_FUNC void FUN_0200D0BC(
+THUMB_FUNC void DrawFrameAndWindow2(
     struct Window *window, BOOL copy_to_vram, u16 fill_value, u8 palette_num)
 {
-    FUN_0200D06C(window, fill_value, palette_num);
+    DrawWindowFrame2(window, fill_value, palette_num);
     if (!copy_to_vram)
     {
         CopyWindowToVram(window);
@@ -314,7 +314,7 @@ THUMB_FUNC void FUN_0200D0BC(
     FUN_0200D18C(window, fill_value);
 }
 
-THUMB_FUNC void FUN_0200D0E0(struct Window *window, BOOL param1)
+THUMB_FUNC void ClearFrameAndWindow2(struct Window *window, BOOL param1)
 {
     FillBgTilemapRect(window->bgConfig,
         GetWindowBgId(window),
@@ -331,30 +331,30 @@ THUMB_FUNC void FUN_0200D0E0(struct Window *window, BOOL param1)
     }
 }
 
-THUMB_FUNC void FUN_0200D148(u8 *param0,
-    u16 param1,
-    u16 param2,
-    u16 param3,
-    u16 param4,
-    u8 *param5,
-    u16 param6,
-    u16 param7,
-    u16 param8,
-    u16 param9,
-    u16 param10,
-    u16 param11)
+THUMB_FUNC void BlitRect4Bit(u8 *srcPixels,
+    u16 srcX,
+    u16 srcY,
+    u16 srcWidth,
+    u16 srcHeight,
+    u8 *dstPixels,
+    u16 dstWidth,
+    u16 dstHeight,
+    u16 dstX,
+    u16 dstY,
+    u16 width,
+    u16 height)
 {
     struct Bitmap src;
-    src.pixels = param0;
-    src.width = param3;
-    src.height = param4;
+    src.pixels = srcPixels;
+    src.width = srcWidth;
+    src.height = srcHeight;
 
     struct Bitmap dst;
-    dst.pixels = param5;
-    dst.width = param6;
-    dst.height = param7;
+    dst.pixels = dstPixels;
+    dst.width = dstWidth;
+    dst.height = dstHeight;
 
-    BlitBitmapRect4Bit(&src, &dst, param1, param2, param8, param9, param10, param11, 0);
+    BlitBitmapRect4Bit(&src, &dst, srcX, srcY, dstX, dstY, width, height, 0);
 }
 
 THUMB_FUNC void FUN_0200D18C(struct Window *window, u16 fill_value)
@@ -380,7 +380,7 @@ THUMB_FUNC void FUN_0200D18C(struct Window *window, u16 fill_value)
         memcpy(ptr + ((i << 7) + 0x60), charptr + ((fill_value + 11) << 5), 0x20);
     }
 
-    FUN_0200D148(st30, 4, 0, 12, 0x30, ptr, 12, 0x30, 1, 0, 12, 0x30);
+    BlitRect4Bit(st30, 4, 0, 12, 0x30, ptr, 12, 0x30, 1, 0, 12, 0x30);
     BG_LoadCharTilesData(window->bgConfig, bg_id, ptr, 0x180, (u32)(fill_value + 18));
     FUN_02002840(fill_value);
     FreeToHeap(st2c);
@@ -465,95 +465,95 @@ THUMB_FUNC void FUN_0200D378(
         NARC_GRAPHIC_FIELD_BOARD, param4, bg_config, bg_id, numtiles, 0x300, FALSE, heap_id);
 }
 
-THUMB_FUNC void FUN_0200D3B0(struct BgConfig *bgConfig,
+THUMB_FUNC void DrawFrame3(struct BgConfig *bgConfig,
     u8 bgId,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u8 param5,
-    u8 param6,
-    u16 param7)
+    u8 x,
+    u8 y,
+    u8 width,
+    u8 height,
+    u8 paletteNum,
+    u16 fillValue)
 {
-    FillBgTilemapRect(bgConfig, bgId, param7, (u8)(param2 - 9), (u8)(param3 - 1), 1, 1, param6);
+    FillBgTilemapRect(bgConfig, bgId, fillValue, (u8)(x - 9), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 1), (u8)(param2 - 8), (u8)(param3 - 1), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 1), (u8)(x - 8), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 2),
-        (u8)(param2 - 7),
-        (u8)(param3 - 1),
-        (u8)(param4 + 7),
+        (u16)(fillValue + 2),
+        (u8)(x - 7),
+        (u8)(y - 1),
+        (u8)(width + 7),
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 3), (u8)(param2 + param4), (u8)(param3 - 1), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 3), (u8)(x + width), (u8)(y - 1), 1, 1, paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 4),
-        (u8)(param2 + param4 + 1),
-        (u8)(param3 - 1),
+        (u16)(fillValue + 4),
+        (u8)(x + width + 1),
+        (u8)(y - 1),
         1,
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 5),
-        (u8)(param2 + param4 + 2),
-        (u8)(param3 - 1),
+        (u16)(fillValue + 5),
+        (u8)(x + width + 2),
+        (u8)(y - 1),
         1,
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 6), (u8)(param2 - 9), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 6), (u8)(x - 9), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 7), (u8)(param2 - 8), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 7), (u8)(x - 8), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 8), (u8)(param2 - 1), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 8), (u8)(x - 1), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 9), (u8)(param2 + param4), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 9), (u8)(x + width), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 10), (u8)(param2 + param4 + 1), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 10), (u8)(x + width + 1), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 11), (u8)(param2 + param4 + 2), param3, 1, param5, param6);
+        bgConfig, bgId, (u16)(fillValue + 11), (u8)(x + width + 2), y, 1, height, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 12), (u8)(param2 - 9), (u8)(param3 + param5), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 12), (u8)(x - 9), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(
-        bgConfig, bgId, (u16)(param7 + 13), (u8)(param2 - 8), (u8)(param3 + param5), 1, 1, param6);
+        bgConfig, bgId, (u16)(fillValue + 13), (u8)(x - 8), (u8)(y + height), 1, 1, paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 14),
-        (u8)(param2 - 7),
-        (u8)(param3 + param5),
-        (u8)(param4 + 7),
+        (u16)(fillValue + 14),
+        (u8)(x - 7),
+        (u8)(y + height),
+        (u8)(width + 7),
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 15),
-        (u8)(param2 + param4),
-        (u8)(param3 + param5),
+        (u16)(fillValue + 15),
+        (u8)(x + width),
+        (u8)(y + height),
         1,
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 16),
-        (u8)(param2 + param4 + 1),
-        (u8)(param3 + param5),
+        (u16)(fillValue + 16),
+        (u8)(x + width + 1),
+        (u8)(y + height),
         1,
         1,
-        param6);
+        paletteNum);
     FillBgTilemapRect(bgConfig,
         bgId,
-        (u16)(param7 + 17),
-        (u8)(param2 + param4 + 2),
-        (u8)(param3 + param5),
+        (u16)(fillValue + 17),
+        (u8)(x + width + 2),
+        (u8)(y + height),
         1,
         1,
-        param6);
+        paletteNum);
 }
 
-THUMB_FUNC void FUN_0200D678(struct Window *window, u16 param1, u8 param2)
+THUMB_FUNC void DrawWindowCorner(struct Window *window, u16 fillValue, u8 paletteNum)
 {
     u16 i, j;
     u16 x, y;
@@ -569,52 +569,52 @@ THUMB_FUNC void FUN_0200D678(struct Window *window, u16 param1, u8 param2)
         {
             FillBgTilemapRect(window->bgConfig,
                 bg_id,
-                (u16)(param1 + 6 * i + j),
+                (u16)(fillValue + 6 * i + j),
                 (u8)(x + j),
                 (u8)(y + i),
                 1,
                 1,
-                param2);
+                paletteNum);
         }
     }
 }
 
-THUMB_FUNC void FUN_0200D6F8(struct Window *window, BOOL param1, u16 param2, u8 param3, u8 param4)
+THUMB_FUNC void DrawFrameAndWindow3(struct Window *window, BOOL copy_to_vram, u16 fillValue, u8 paletteNum, u8 param4)
 {
     u8 bg_id = GetWindowBgId(window);
     if (param4 <= 1)
     {
-        FUN_0200D3B0(window->bgConfig,
+        DrawFrame3(window->bgConfig,
             bg_id,
             GetWindowX(window),
             GetWindowY(window),
             GetWindowWidth(window),
             GetWindowHeight(window),
-            param3,
-            param2);
-        FUN_0200D678(window, (u16)(param2 + 30), param3);
+            paletteNum,
+            fillValue);
+        DrawWindowCorner(window, (u16)(fillValue + 30), paletteNum);
     }
     else
     {
-        FUN_0200CDD8(window->bgConfig,
+        DrawFrame2(window->bgConfig,
             bg_id,
             GetWindowX(window),
             GetWindowY(window),
             GetWindowWidth(window),
             GetWindowHeight(window),
-            param3,
-            param2);
+            paletteNum,
+            fillValue);
     }
 
-    if (!param1)
+    if (!copy_to_vram)
     {
         CopyWindowToVram(window);
     }
 
-    FUN_0200D18C(window, param2);
+    FUN_0200D18C(window, fillValue);
 }
 
-THUMB_FUNC void FUN_0200D7A0(struct Window *window, u32 param1, BOOL param2)
+THUMB_FUNC void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy_to_vram)
 {
     u8 bg_id = GetWindowBgId(window);
     if (param1 <= 1)
@@ -640,7 +640,7 @@ THUMB_FUNC void FUN_0200D7A0(struct Window *window, u32 param1, BOOL param2)
             0);
     }
 
-    if (!param2)
+    if (!copy_to_vram)
     {
         ClearWindowTilemapAndCopyToVram(window);
     }
@@ -668,12 +668,12 @@ THUMB_FUNC struct UnkStruct_0200CABC_1 *FUN_0200D858(struct Window *window, u32 
     NNSG2dCharacterData *pCharData;
     void *r5 = GfGfxLoader_GetCharData(
         NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0023_NCGR, FALSE, &pCharData, heap_id);
-    FUN_0200D148(
+    BlitRect4Bit(
         pCharData->pRawData, 0, 0, 0x10, 0x80, ptr->unk004[0], 0x10, 0x80, 0, 0, 0x10, 0x80);
     FreeToHeap(r5);
 
     ptr->unk000 = window;
-    ptr->unk484 = (u16)param1;
+    ptr->fillValue = (u16)param1;
     ptr->unk486 = 0;
     ptr->unk487 = 0;
     ptr->unk488 = 0;
@@ -697,10 +697,10 @@ THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
             bg_id,
             (u32 *)param0->unk004[8],
             0x80,
-            (u32)(param0->unk484 + 18));
+            (u32)(param0->fillValue + 18));
         FillBgTilemapRect(param0->unk000->bgConfig,
             bg_id,
-            (u16)(param0->unk484 + 10),
+            (u16)(param0->fillValue + 10),
             (u8)(x + width + 1),
             (u8)(y + 2),
             1,
@@ -708,7 +708,7 @@ THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
             0x10);
         FillBgTilemapRect(param0->unk000->bgConfig,
             bg_id,
-            (u16)(param0->unk484 + 11),
+            (u16)(param0->fillValue + 11),
             (u8)(x + width + 2),
             (u8)(y + 2),
             1,
@@ -716,7 +716,7 @@ THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
             0x10);
         FillBgTilemapRect(param0->unk000->bgConfig,
             bg_id,
-            (u16)(param0->unk484 + 10),
+            (u16)(param0->fillValue + 10),
             (u8)(x + width + 1),
             (u8)(y + 3),
             1,
@@ -724,7 +724,7 @@ THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
             0x10);
         FillBgTilemapRect(param0->unk000->bgConfig,
             bg_id,
-            (u16)(param0->unk484 + 11),
+            (u16)(param0->fillValue + 11),
             (u8)(x + width + 2),
             (u8)(y + 3),
             1,
@@ -738,12 +738,12 @@ THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
         bg_id,
         (u32 *)param0->unk004[param0->unk487],
         0x80,
-        (u32)(param0->unk484 + 18));
+        (u32)(param0->fillValue + 18));
     if (param1 != 0)
     {
         FillBgTilemapRect(param0->unk000->bgConfig,
             bg_id,
-            (u16)(param0->unk484 + 18),
+            (u16)(param0->fillValue + 18),
             (u8)(x + width + 1),
             (u8)(y + 2),
             1,
@@ -751,7 +751,7 @@ THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
             0x10);
         FillBgTilemapRect(param0->unk000->bgConfig,
             bg_id,
-            (u16)(param0->unk484 + 19),
+            (u16)(param0->fillValue + 19),
             (u8)(x + width + 2),
             (u8)(y + 2),
             1,
@@ -759,7 +759,7 @@ THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
             0x10);
         FillBgTilemapRect(param0->unk000->bgConfig,
             bg_id,
-            (u16)(param0->unk484 + 20),
+            (u16)(param0->fillValue + 20),
             (u8)(x + width + 1),
             (u8)(y + 3),
             1,
@@ -767,7 +767,7 @@ THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
             0x10);
         FillBgTilemapRect(param0->unk000->bgConfig,
             bg_id,
-            (u16)(param0->unk484 + 21),
+            (u16)(param0->fillValue + 21),
             (u8)(x + width + 2),
             (u8)(y + 3),
             1,
@@ -833,7 +833,7 @@ THUMB_FUNC u8 *FUN_0200DC4C(struct BgConfig *bg_config,
     FUN_0200DDD8(r4);
     FUN_0200DE30(r4, param2, param3);
     FUN_0200DE80(r4, param6, param7);
-    FUN_0200DFD8(r4, param4, param5);
+    DrawFramed10x10Square(r4, param4, param5);
     BgCommitTilemapBufferToVram(bg_config, bg_id);
 
     return &r4->unk16f;
@@ -853,7 +853,7 @@ THUMB_FUNC u8 *FUN_0200DCA4(struct BgConfig *bg_config,
     FUN_0200DDD8(r4);
     FUN_0200DE30(r4, param2, param3);
     FUN_0200DEC0(r4, param6);
-    FUN_0200DFD8(r4, param4, param5);
+    DrawFramed10x10Square(r4, param4, param5);
     BgCommitTilemapBufferToVram(bg_config, bg_id);
 
     return &r4->unk16f;
@@ -865,7 +865,7 @@ THUMB_FUNC void FUN_0200DCF8(u32 param0, void *param1)
     switch (unk->unk16f)
     {
         case 1:
-            FUN_0200E188(unk);
+            ClearFramed10x10Square(unk);
             FUN_0200C3DC(unk->unk164);
             MOD05_021D99F8(unk);
             FUN_0200621C((s32)param0);
@@ -891,10 +891,10 @@ THUMB_FUNC struct UnkStruct_0200CABC_2 *FUN_0200DD70(
     struct UnkStruct_0200CABC_2 *res = FUN_0201B6C8(FUN_020061E8(FUN_0200DCF8, 0x170, 0, param4));
 
     res->unk16f = 0;
-    res->unk168 = bg_config;
-    res->unk16c = bg_id;
-    res->unk16d = param2;
-    res->unk16e = param3;
+    res->bgConfig = bg_config;
+    res->bgId = bg_id;
+    res->x = param2;
+    res->y = param3;
 
     return res;
 }
@@ -989,93 +989,93 @@ THUMB_FUNC void FUN_0200DEF4(
     FreeToHeap(res);
 }
 
-THUMB_FUNC void FUN_0200DFD8(struct UnkStruct_0200CABC_2 *param0, u8 param1, u16 param2)
+THUMB_FUNC void DrawFramed10x10Square(struct UnkStruct_0200CABC_2 *param0, u8 paletteNum, u16 fillValue)
 {
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        param2,
-        (u8)(param0->unk16d - 1),
-        (u8)(param0->unk16e - 1),
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        fillValue,
+        (u8)(param0->x - 1),
+        (u8)(param0->y - 1),
         1,
         1,
-        param1);
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        (u16)(param2 + 1),
-        param0->unk16d,
-        (u8)(param0->unk16e - 1),
+        paletteNum);
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        (u16)(fillValue + 1),
+        param0->x,
+        (u8)(param0->y - 1),
         10,
         1,
-        param1);
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        (u16)(param2 + 2),
-        (u8)(param0->unk16d + 10),
-        (u8)(param0->unk16e - 1),
+        paletteNum);
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        (u16)(fillValue + 2),
+        (u8)(param0->x + 10),
+        (u8)(param0->y - 1),
         1,
         1,
-        param1);
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        (u16)(param2 + 4),
-        param0->unk16d,
-        param0->unk16e,
+        paletteNum);
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        (u16)(fillValue + 4),
+        param0->x,
+        param0->y,
         10,
         10,
-        param1);
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        (u16)(param2 + 3),
-        (u8)(param0->unk16d - 1),
-        param0->unk16e,
+        paletteNum);
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        (u16)(fillValue + 3),
+        (u8)(param0->x - 1),
+        param0->y,
         1,
         10,
-        param1);
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        (u16)(param2 + 5),
-        (u8)(param0->unk16d + 10),
-        param0->unk16e,
+        paletteNum);
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        (u16)(fillValue + 5),
+        (u8)(param0->x + 10),
+        param0->y,
         1,
         10,
-        param1);
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        (u16)(param2 + 6),
-        (u8)(param0->unk16d - 1),
-        (u8)(param0->unk16e + 10),
+        paletteNum);
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        (u16)(fillValue + 6),
+        (u8)(param0->x - 1),
+        (u8)(param0->y + 10),
         1,
         1,
-        param1);
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        (u16)(param2 + 7),
-        param0->unk16d,
-        (u8)(param0->unk16e + 10),
+        paletteNum);
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        (u16)(fillValue + 7),
+        param0->x,
+        (u8)(param0->y + 10),
         10,
         1,
-        param1);
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
-        (u16)(param2 + 8),
-        (u8)(param0->unk16d + 10),
-        (u8)(param0->unk16e + 10),
+        paletteNum);
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
+        (u16)(fillValue + 8),
+        (u8)(param0->x + 10),
+        (u8)(param0->y + 10),
         1,
         1,
-        param1);
+        paletteNum);
 
-    ScheduleBgTilemapBufferTransfer(param0->unk168, param0->unk16c);
+    ScheduleBgTilemapBufferTransfer(param0->bgConfig, param0->bgId);
 }
 
-THUMB_FUNC void FUN_0200E188(struct UnkStruct_0200CABC_2 *param0)
+THUMB_FUNC void ClearFramed10x10Square(struct UnkStruct_0200CABC_2 *param0)
 {
-    FillBgTilemapRect(param0->unk168,
-        param0->unk16c,
+    FillBgTilemapRect(param0->bgConfig,
+        param0->bgId,
         0,
-        (u8)(param0->unk16d - 1),
-        (u8)(param0->unk16e - 1),
+        (u8)(param0->x - 1),
+        (u8)(param0->y - 1),
         12,
         12,
         0);
-    ScheduleBgTilemapBufferTransfer(param0->unk168, param0->unk16c);
+    ScheduleBgTilemapBufferTransfer(param0->bgConfig, param0->bgId);
 }
