@@ -7,6 +7,7 @@
 #include "GX_layers.h"
 #include "unk_02024E64.h"
 #include "bg_window.h"
+#include "render_window.h"
 #include "module_52.h"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
@@ -31,10 +32,6 @@ extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 par
 extern u32 FUN_0200E308(void);
 
 extern void FUN_02077AC4(void *param0);
-
-extern void FUN_0200CD68(struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 frame_id, u32 heap_id);
-
-extern void FUN_0200CB00(struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 frame_id, u32 heap_id);
 
 FS_EXTERN_OVERLAY(MODULE_52);
 

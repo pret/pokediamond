@@ -43,7 +43,7 @@ struct UnkStruct_0200CABC_3
 u32 FUN_0200CABC(struct BgConfig *bgConfig, u32 layer, u32 numTiles, u32 param3, u32 heap_id);
 s32 FUN_0200CAFC(void);
 void FUN_0200CB00(
-    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 param3, u8 param4, u32 heap_id);
+    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 param3, u8 frame_id, u32 heap_id);
 void DrawFrame1(struct BgConfig *bgConfig,
     u8 bgId,
     u8 x,
@@ -57,7 +57,7 @@ void ClearFrameAndWindow1(struct Window *window, BOOL copy_to_vram);
 s32 FUN_0200CD60(s32 param0);
 s32 FUN_0200CD64(s32 param0);
 void FUN_0200CD68(
-    struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5);
+    struct BgConfig *bg_config, u32 layer, u32 param2, u32 param3, u8 frame_id, u32 heap_id);
 void DrawFrame2(struct BgConfig *bgConfig,
     u8 bgId,
     u8 x,
