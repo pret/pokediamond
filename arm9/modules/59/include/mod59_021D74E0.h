@@ -20,30 +20,30 @@ typedef struct MOD59_OverlayData
     u32 heap_id;
     struct SaveBlock2 *sav2;
     struct Options *options;
-    u32 Unk0C;
-    u32 Unk10;
-    struct UnkStruct_02006234 *Unk14;
+    u32 unk0C;
+    u32 unk10;
+    struct UnkStruct_02006234 *unk14;
     struct BgConfig *bgConfig;
     u8 padding[0x10];
-    u32 Unk2C;
+    u32 unk2C;
     u8 padding2[0x1C];
     struct MsgData *msgData;
-    u32 Unk50;
-    u32 Unk54;
+    u32 unk50;
+    u32 unk54;
     u8 padding3[0x8];
-    u32 Unk60; // unknown if this is the right type, possibly a pointer instead?
+    u32 unk60; // unknown if this is the right type, possibly a pointer instead?
     struct ScrStrBufs *strBufs;
     u8 padding4[0x8];
     struct MOD59_UnkPlayerStruct *playerStruct;
     struct MOD59_UnkPlayerStruct *rivalStruct;
-    u32 Unk78;
+    u32 unk78;
     u8 padding5[0xC];
-    u8 Unk88;
-    u8 Unk89;
-    u8 Unk8A;
-    u8 Unk8B;
+    u8 unk88;
+    u8 unk89;
+    u8 unk8A;
+    u8 unk8B;
     u8 padding6[4];
-    u32 Unk90;
+    u32 unk90;
     u8 padding7[32];
 } MOD59_OverlayData;
 

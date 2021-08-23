@@ -9,6 +9,7 @@
 #include "bg_window.h"
 #include "render_window.h"
 #include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "text.h"
 #include "script_buffers.h"
 #include "module_52.h"
@@ -48,15 +49,15 @@ THUMB_FUNC BOOL MOD59_Init(struct UnkStruct_02006234 *param0)
     s32 *field18 = OverlayManager_GetField18(param0);
     data->sav2 = (struct SaveBlock2 *)field18[2]; //?
     data->options = Sav2_PlayerData_GetOptionsAddr(data->sav2);
-    data->Unk10 = data->Unk0C = 0;
-    data->Unk14 = NULL;
+    data->unk10 = data->unk0C = 0;
+    data->unk14 = NULL;
     data->playerStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 0, 0, 7, data->options);
     data->rivalStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 3, 0, 7, data->options);
-    data->Unk88 = 0;
-    data->Unk89 = 0;
-    data->Unk8A = 0;
-    data->Unk8B = 0;
-    data->Unk90 = 0;
+    data->unk88 = 0;
+    data->unk89 = 0;
+    data->unk8A = 0;
+    data->unk8B = 0;
+    data->unk90 = 0;
     return TRUE;
 }
 
@@ -101,7 +102,7 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
                 *param1 = 2;
             }
 
-            if (data->Unk14 == NULL)
+            if (data->unk14 == NULL)
             {
                 break;
             }
@@ -143,13 +144,13 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
             break;
 
         case 4:
-            if (OverlayManager_Run(data->Unk14) != TRUE)
+            if (OverlayManager_Run(data->unk14) != TRUE)
             {
                 break;
             }
 
-            OverlayManager_delete(data->Unk14);
-            data->Unk14 = NULL;
+            OverlayManager_delete(data->unk14);
+            data->unk14 = NULL;
 
             *param1 = 5;
 
@@ -278,7 +279,7 @@ THUMB_FUNC void MOD59_SetupBg(MOD59_OverlayData *data)
     ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_OFF);
 
     MOD59_021D8058(data);
-    data->Unk78 = 0;
+    data->unk78 = 0;
 }
 
 THUMB_FUNC void MOD59_DestroyBg(MOD59_OverlayData *data)
@@ -308,16 +309,16 @@ THUMB_FUNC void MOD59_DestroyBg(MOD59_OverlayData *data)
 
 THUMB_FUNC void MOD59_SetupMsg(MOD59_OverlayData *data)
 {
-    data->msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 0x155, data->heap_id);
+    data->msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0341_bin, data->heap_id);
 
     FUN_0201BD5C();
 
-    data->Unk60 = FUN_020142EC(0, 0, 6, data->heap_id);
+    data->unk60 = FUN_020142EC(0, 0, 6, data->heap_id);
 
     data->strBufs = ScrStrBufs_new(data->heap_id);
 
-    data->Unk50 = 0;
-    data->Unk54 = 0;
-    data->Unk2C = 0;
+    data->unk50 = 0;
+    data->unk54 = 0;
+    data->unk2C = 0;
 }
 
