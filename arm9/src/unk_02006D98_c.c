@@ -117,7 +117,10 @@ const struct UnkStruct4 *UNK_02105AE8[] = {
 struct UnkStruct2 {
     u32 unk00_0:1;
     u32 unk00_1:6;
-    u8 unk04[0x20];
+    u32 unk00_7:1;
+    u32 unk00_8:1;
+    struct UnkStruct63_021DB49C unk04;
+    struct UnkStruct63_021DB49C unk14;
     s16 unk24;
     s16 unk26;
     u32 unk28;
@@ -136,7 +139,11 @@ struct UnkStruct2 {
     u8 unk45;
     u8 unk46;
     u8 unk47;
-    u8 unk48[0x8];
+    u8 unk48;
+    u8 unk49;
+    u8 unk4A;
+    u8 unk4B;
+    u32 unk4C;
     u32 unk50_0:5;
     u32 unk50_5:5;
     u32 unk50_a:5;
@@ -147,8 +154,12 @@ struct UnkStruct2 {
     u32 unk54_0:1;
     u32 unk54_1:1;
     u32 unk54_2:5;
-    u32 unk54_7:4;
+    u32 unk54_7:2;
+    u32 unk54_9:1;
+    u32 unk54_A:1;
     u32 unk54_B:1;
+    u32 unk54_C:1;
+    u32 unk54_D:4;
     u8 unk58;
     u8 unk59;
     u8 unk5A;
@@ -996,7 +1007,7 @@ THUMB_FUNC BOOL FUN_02007390(struct UnkStruct2 *param0) {
     return FALSE;
 }
 
-extern u32  FUN_020073E8(struct UnkStruct1 *param0, struct UnkStruct63_021DB49C *param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7, u32 param8);
+extern u32  FUN_020073E8(struct UnkStruct1 *param0, struct UnkStruct63_021DB49C *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6, u32 param7, u32 param8);
 
 THUMB_FUNC u32 FUN_020073A0(struct UnkStruct1 *param0, struct UnkStruct63_021DB49C *param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 param6, u32 param7) {
     s32 i;
@@ -1008,4 +1019,506 @@ THUMB_FUNC u32 FUN_020073A0(struct UnkStruct1 *param0, struct UnkStruct63_021DB4
     GF_ASSERT(i != 4);
 
     return FUN_020073E8(param0, param1, param2, param3, param4, param5, i, param6, param7);
+}
+
+
+THUMB_FUNC u32  FUN_020073E8(struct UnkStruct1 *param0, struct UnkStruct63_021DB49C *param1, u32 param2, u32 param3, u32 param4, u32 param5, s32 param6, u32 param7, u32 param8) {
+    GF_ASSERT(param0->unk000[param6].unk00_0 == 0);
+
+    MIi_CpuClearFast(0, &param0->unk000[param6], sizeof(struct UnkStruct2));
+    param0->unk000[param6].unk00_0 = 1;
+    param0->unk000[param6].unk00_7 = 1;
+    param0->unk000[param6].unk00_8 = 1;
+    param0->unk000[param6].unk00_1 = param5;
+
+    param0->unk000[param6].unk04 = *param1;
+    param0->unk000[param6].unk14 = *param1;
+    param0->unk000[param6].unk24 = (s16)param2;
+    param0->unk000[param6].unk26 = (s16)param3;
+    param0->unk000[param6].unk28 = param4;
+    param0->unk000[param6].unk34 = 0x100;
+    param0->unk000[param6].unk36 = 0x100;
+    param0->unk000[param6].unk54_2 = 0x1f;
+    param0->unk000[param6].unk50_0 = 0x1f;
+    param0->unk000[param6].unk50_5 = 0x1f;
+    param0->unk000[param6].unk50_a = 0x1f;
+    param0->unk000[param6].unk50_f = 0x10;
+    param0->unk000[param6].unk50_14 = 0x10;
+    param0->unk000[param6].unk50_19 = 0x10;
+    param0->unk000[param6].unk68 = param8;
+    param0->unk000[param6].unk70 = (s16)param2;
+    param0->unk000[param6].unk72 = (s16)param3;
+    param0->unk000[param6].unk6C_2 = 1;
+    param0->unk000[param6].unk6C_3 = 1;
+    param0->unk000[param6].unk6C_4 = 1;
+
+    if (param7 != 0) {
+        MI_CpuCopy8(param7, param0->unk000[param6].unk84, 0x14);
+    }
+
+    return &param0->unk000[param6];
+}
+
+
+THUMB_FUNC void FUN_02007534(struct UnkStruct2 *param0) {
+    param0->unk00_0 = 0;
+}
+
+
+THUMB_FUNC void FUN_02007540(struct UnkStruct1 *param0) {
+    for (s32 i = 0; i < 4; i++) {
+        FUN_02007534(&param0->unk000[i]);
+    }
+}
+
+
+THUMB_FUNC void FUN_02007558(struct UnkStruct2 *param0, u32 param1, u32 param2) {
+    switch (param1) {
+        case 0:
+            param0->unk24 = param2;
+            break;
+        case 1:
+            param0->unk26 = param2;
+            break;
+        case 2:
+            param0->unk28 = param2;
+            break;
+        case 3:
+            param0->unk2C = param2;
+            break;
+        case 4:
+            param0->unk2E = param2;
+            break;
+        case 5:
+            param0->unk30 = param2;
+            break;
+        case 6:
+            param0->unk54_0 = param2;
+            break;
+        case 7:
+            param0->unk38 = param2;
+            break;
+        case 8:
+            param0->unk3A = param2;
+            break;
+        case 9:
+            param0->unk3C = param2;
+            break;
+        case 10:
+            param0->unk40 = param2;
+            break;
+        case 11:
+            param0->unk42 = param2;
+            break;
+        case 12:
+            param0->unk34 = param2;
+            break;
+        case 13:
+            param0->unk36 = param2;
+            break;
+        case 14:
+            param0->unk54_1 = param2;
+            break;
+        case 15:
+            param0->unk44 = param2;
+            break;
+        case 16:
+            param0->unk45 = param2;
+            break;
+        case 17:
+            param0->unk46 = param2;
+            break;
+        case 18:
+            param0->unk47 = param2;
+            break;
+        case 19:
+            param0->unk70 = param2;
+            break;
+        case 20:
+            param0->unk72 = param2;
+            break;
+        case 21:
+            param0->unk74 = param2;
+            break;
+        case 22:
+            param0->unk76 = param2;
+            break;
+        case 23:
+            param0->unk54_2 = param2;
+            break;
+        case 24:
+            param0->unk50_0 = param2;
+            break;
+        case 25:
+            param0->unk50_5 = param2;
+            break;
+        case 26:
+            param0->unk50_a = param2;
+            break;
+        case 27:
+            param0->unk50_f = param2;
+            break;
+        case 28:
+            param0->unk50_14 = param2;
+            break;
+        case 29:
+            param0->unk50_19 = param2;
+            break;
+        case 30:
+            param0->unk54_C = param2;
+            param0->unk00_8 = 1;
+            break;
+        case 31:
+            param0->unk4C = param2;
+            param0->unk00_8 = 1;
+            break;
+        case 32:
+            param0->unk48 = param2;
+            param0->unk00_8 = 1;
+            break;
+        case 33:
+            param0->unk49 = param2;
+            param0->unk00_8 = 1;
+            break;
+        case 34:
+            param0->unk4A = param2;
+            break;
+        case 35:
+            param0->unk54_9 = param2;
+            param0->unk00_7 = 1;
+            break;
+        case 36:
+            param0->unk54_A = param2;
+            param0->unk00_7 = 1;
+            break;
+        case 37:
+            param0->unk54_B = param2;
+            break;
+        case 38:
+            param0->unk5B = param2;
+            break;
+        case 40:
+            param0->unk54_D = param2;
+            param0->unk00_7 = 1;
+            break;
+        case 41:
+            param0->unk6E = param2;
+            break;
+        case 42:
+            param0->unk6C_0 = param2;
+            param0->unk00_8 = 1;
+            break;
+        case 43:
+            param0->unk6C_2 = param2;
+            break;
+        case 44:
+            param0->unk6C_3 = param2;
+            break;
+        case 45:
+            param0->unk6C_4 = param2;
+            break;
+        case 46:
+            param0->unk6C_5 = param2;
+            break;
+    }
+}
+
+
+THUMB_FUNC u32 FUN_0200782C(struct UnkStruct2 *param0, u32 param1) {
+    switch (param1) {
+        case 0:
+            return param0->unk24;
+
+        case 1:
+            return param0->unk26;
+            
+        case 2:
+            return param0->unk28;
+            
+        case 3:
+            return param0->unk2C;
+            
+        case 4:
+            return param0->unk2E;
+            
+        case 5:
+            return param0->unk30;
+            
+        case 6:
+            return param0->unk54_0;
+            
+        case 7:
+            return param0->unk38;
+            
+        case 8:
+            return param0->unk3A;
+            
+        case 9:
+            return param0->unk3C;
+            
+        case 10:
+            return param0->unk40;
+            
+        case 11:
+            return param0->unk42;
+            
+        case 12:
+            return param0->unk34;
+            
+        case 13:
+            return param0->unk36;
+            
+        case 14:
+            return param0->unk54_1;
+            
+        case 15:
+            return param0->unk44;
+            
+        case 16:
+            return param0->unk45;
+            
+        case 17:
+            return param0->unk46;
+            
+        case 18:
+            return param0->unk47;
+            
+        case 19:
+            return param0->unk70;
+            
+        case 20:
+            return param0->unk72;
+            
+        case 21:
+            return param0->unk74;
+            
+        case 22:
+            return param0->unk76;
+            
+        case 23:
+            return param0->unk54_2;
+            
+        case 24:
+            return param0->unk50_0;
+            
+        case 25:
+            return param0->unk50_5;
+            
+        case 26:
+            return param0->unk50_a;
+            
+        case 27:
+            return param0->unk50_f;
+            
+        case 28:
+            return param0->unk50_14;
+            
+        case 29:
+            return param0->unk50_19;
+            
+        case 30:
+            return param0->unk54_C;
+            
+        case 31:
+            return param0->unk4C;
+            
+        case 32:
+            return param0->unk48;
+            
+        case 33:
+            return param0->unk49;
+            
+        case 34:
+            return param0->unk4A;
+            
+        case 35:
+            return param0->unk54_9;
+            
+        case 36:
+            return param0->unk54_A;
+            
+        case 37:
+            return param0->unk54_B;
+            
+        case 38:
+            return param0->unk5B;
+            
+        case 40:
+            return param0->unk54_D;
+            
+        case 41:
+            return param0->unk6E;
+            
+        case 42:
+            return param0->unk6C_0;
+            
+        case 43:
+            return param0->unk6C_2;
+            
+        case 44:
+            return param0->unk6C_3;
+            
+        case 45:
+            return param0->unk6C_4;
+            
+        case 46:
+            return param0->unk6C_5;
+            
+    }
+
+    GF_AssertFail();
+
+    return 0;
+}
+
+
+THUMB_FUNC void FUN_020079E0(struct UnkStruct2 *param0, u32 param1, u32 param2) {
+    switch (param1) {
+        case 0:
+            param0->unk24 += param2;
+            break;
+        case 1:
+            param0->unk26 += param2;
+            break;
+        case 2:
+            param0->unk28 += param2;
+            break;
+        case 3:
+            param0->unk2C += param2;
+            break;
+        case 4:
+            param0->unk2E += param2;
+            break;
+        case 5:
+            param0->unk30 += param2;
+            break;
+        case 6:
+            param0->unk54_0 += param2;
+            break;
+        case 7:
+            param0->unk38 += param2;
+            break;
+        case 8:
+            param0->unk3A += param2;
+            break;
+        case 9:
+            param0->unk3C += param2;
+            break;
+        case 10:
+            param0->unk40 += param2;
+            break;
+        case 11:
+            param0->unk42 += param2;
+            break;
+        case 12:
+            param0->unk34 += param2;
+            break;
+        case 13:
+            param0->unk36 += param2;
+            break;
+        case 14:
+            param0->unk54_1 += param2;
+            break;
+        case 15:
+            param0->unk44 += param2;
+            break;
+        case 16:
+            param0->unk45 += param2;
+            break;
+        case 17:
+            param0->unk46 += param2;
+            break;
+        case 18:
+            param0->unk47 += param2;
+            break;
+        case 19:
+            param0->unk70 += param2;
+            break;
+        case 20:
+            param0->unk72 += param2;
+            break;
+        case 21:
+            param0->unk74 += param2;
+            break;
+        case 22:
+            param0->unk76 += param2;
+            break;
+        case 23:
+            param0->unk54_2 += param2;
+            break;
+        case 24:
+            param0->unk50_0 += param2;
+            break;
+        case 25:
+            param0->unk50_5 += param2;
+            break;
+        case 26:
+            param0->unk50_a += param2;
+            break;
+        case 27:
+            param0->unk50_f += param2;
+            break;
+        case 28:
+            param0->unk50_14 += param2;
+            break;
+        case 29:
+            param0->unk50_19 += param2;
+            break;
+        case 30:
+            param0->unk54_C += param2;
+            param0->unk00_8 = 1;
+            break;
+        case 31:
+            param0->unk4C += param2;
+            param0->unk00_8 = 1;
+            break;
+        case 32:
+            param0->unk48 += param2;
+            param0->unk00_8 = 1;
+            break;
+        case 33:
+            param0->unk49 += param2;
+            param0->unk00_8 = 1;
+            break;
+        case 34:
+            param0->unk4A += param2;
+            break;
+        case 35:
+            param0->unk54_9 += param2;
+            param0->unk00_7 = 1;
+            break;
+        case 36:
+            param0->unk54_A += param2;
+            param0->unk00_7 = 1;
+            break;
+        case 37:
+            param0->unk54_B += param2;
+            break;
+        case 38:
+            param0->unk5B += param2;
+            break;
+        case 40:
+            param0->unk54_D += param2;
+            param0->unk00_7 = 1;
+            break;
+        case 41:
+            param0->unk6E += param2;
+            break;
+        case 42:
+            param0->unk6C_0 += param2;
+            param0->unk00_8 = 1;
+            break;
+        case 43:
+            param0->unk6C_2 += param2;
+            break;
+        case 44:
+            param0->unk6C_3 += param2;
+            break;
+        case 45:
+            param0->unk6C_4 += param2;
+            break;
+        case 46:
+            param0->unk6C_5 += param2;
+            break;
+    }
 }
