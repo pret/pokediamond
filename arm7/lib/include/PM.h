@@ -3,7 +3,7 @@
 
 #include "nitro/types.h"
 
-void PMi_SetControl(int ctrl);
-void PMi_ResetControl(int ctrl);
+void PMi_SetControl(u8 ctrl);
+void PMi_ResetControl(u8 ctrl);
 
 #endif //GUARD_PM_H
