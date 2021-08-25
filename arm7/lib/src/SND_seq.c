@@ -765,6 +765,7 @@ static void TrackPlayNote(
 
         u32 allowedChannels;
 
+        // get bitmask with allocatable channels based on channel type
         switch (inst.type)
         {
             case SND_INST_PCM:

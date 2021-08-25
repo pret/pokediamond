@@ -36,7 +36,7 @@ u16 SND_CalcTimer(int timer, int pitch)
     }
     else if (shift < 32)
     {
-        // what ???
+        // clamp in case timer value overflows
         u64 tmp = result & ~0uLL << (32 - shift);
         if (tmp != 0)
             return 0xFFFF;
