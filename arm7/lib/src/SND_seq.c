@@ -711,7 +711,7 @@ static void TrackUpdateChannel(struct SNDTrack *track, struct SNDPlayer *player,
 
     for (struct SNDExChannel *chn = track->channelLLHead; chn != NULL; chn = chn->channelLLNext)
     {
-        chn->userDecay2 = (short)fader;
+        chn->userDecay2 = (s16)fader;
 
         if (chn->envStatus == 3)
             continue;
@@ -820,7 +820,7 @@ static void TrackPlayNote(
 
     chn->sweepPitch = track->sweepPitch;
     if (track->flags.portamento)
-        chn->sweepPitch += (short)((track->portamentoKey - midiKey) << 6);
+        chn->sweepPitch += (s16)((track->portamentoKey - midiKey) << 6);
 
     if (track->portamentoTime == 0)
     {
