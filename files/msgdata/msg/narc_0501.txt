@@ -6,7 +6,7 @@ Mom: Oh, yes!\n{STRVAR_1 3, 0}!\rDon’t go into the tall grass.\nWild Pokémon 
 Mom: What is it, dear?\nIsn’t {STRVAR_1 3, 0} waiting for you?
 Mom: What’s up, dear?\r...\rWow.\nI can’t believe that happened to you.\rAm I ever glad that both you and\n{STRVAR_1 3, 0} are unharmed.\rThe professor you mentioned is\nmost likely Professor Rowan of\fSandgem Town.\rI’ve heard that he is well known for\nhis studies on Pokémon.\rI hear he’s also quite intimidating...\r{STRVAR_1 3, 1}, I think you need to\nvisit him in Sandgem Town.\rYou need to properly explain why you\nhad no choice but to use his Pokémon.\rDon’t worry!\nI’m sure he will understand.\r
 Oh, I know!\n{STRVAR_1 3, 0}, put these on.\r
-{STRVAR_1 3, 0} received a pair of\n{COLOR  1}Running Shoes{COLOR  0}!
+{STRVAR_1 3, 0} received a pair of\n{COLOR 1}Running Shoes{COLOR 0}!
 Going to Sandgem Town is like an\nadventure in itself, right?\rWith those Running Shoes, you can\nget to faraway places much faster.\rOK...\nLet me read the instructions...\r“Press the B Button and dash\nabout faster than ever before!\r“Put on the Running Shoes and\nblaze new trails of adventure!”\rWell, isn’t that just nifty!
 Mom: I’ll read you the instructions\nfor the Running Shoes...\r“Press the B Button and dash\nabout faster than ever before!\r“Put on the Running Shoes and\nblaze new trails of adventure!”\rWell, isn’t that just nifty!
 Mom: Welcome home, {STRVAR_1 3, 0}.\nAre you and your Pokémon healthy?\rIt’s still early in the morning.\nTake a quick rest, dear.\r

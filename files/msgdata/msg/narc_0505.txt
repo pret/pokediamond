@@ -2,7 +2,7 @@ Dawn: Oh! There you are!\nPlease, come with me!\fThe professor is waiting!\r
 This is it!\nOur Pokémon Research Lab!\rLet’s go...\r
 Lucas: Hi! I’ve been waiting for you!\nPlease, come with me.\fThe prof’s waiting to see you.\r
 See? This is our Pokémon Research\nLab.\rWe’ll just go ahead and...\r
-{SIZE  200}Thud!!{SIZE  100}\r
+{SIZE 200}Thud!!{SIZE 100}\r
 {STRVAR_1 3, 0}: What the...\rOh, it’s you, {STRVAR_1 3, 1}!\rThat old guy... He’s not scary so\nmuch as he is totally out there!\rAww, it doesn’t matter, {STRVAR_1 3, 1}.\nI’m out of here. See you later!\r
 Dawn: Wow, what was that?\rYour friend sure seems to be really\nimpatient.\rWell, anyway...\nLet’s go inside.\r
 Lucas: What was that?!\rYour friend always seems to be\nin such a rush.\rAnyway...\nLet’s go in.\r

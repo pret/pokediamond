@@ -77,9 +77,9 @@ Its size grew bigger by {STRVAR_1 51, 0} since\nit was buried!
 Blow the Trap away!
 Remove the Trap by touch!
 A Trap was found, but your Bag is\nfull. The Trap was left as is.
-The {STRVAR_1 25, 0} was placed in\nthe Bag’s {COLOR  2}♈{COLOR  0}ITEMS Pocket.
+The {STRVAR_1 25, 0} was placed in\nthe Bag’s {COLOR 2}♈{COLOR 0}ITEMS Pocket.
 Your Bag is full. The {STRVAR_1 25, 0}\ncouldn’t be put away.
-The {STRVAR_1 25, 0} was placed in the\nBag’s {COLOR  2}♌{COLOR  0}MEDICINE Pocket.
+The {STRVAR_1 25, 0} was placed in the\nBag’s {COLOR 2}♌{COLOR 0}MEDICINE Pocket.
                  
 A Sphere was found, but your Bag is\nfull. The Sphere was left as is.
 You can’t bury a Sphere inside\na Secret Base.

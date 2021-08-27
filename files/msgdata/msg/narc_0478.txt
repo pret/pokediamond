@@ -16,4 +16,4 @@ Is it OK to forget the\nmove {STRVAR_1 6, 1}?
 1, 2, and... ... ... Poof!\r{STRVAR_1 0, 0} forgot how to\nuse {STRVAR_1 6, 1}.\rAnd...\n{STRVAR_1 0, 0} learned {STRVAR_1 6, 2}.
 Stop trying to teach {STRVAR_1 6, 1}?
 {STRVAR_1 0, 0} did not learn\nthe move {STRVAR_1 6, 1}.
-To the Pokémon listed here,\nthe ultimate moves may be taught!\rThe blazing fire Pokémon\n{CURSOR_X  7}CHARIZARD TYPHLOSION\f{CURSOR_X  7}BLAZIKEN INFERNAPE\rThe restless water Pokémon\n{CURSOR_X  7}BLASTOISE FERALIGATR\f{CURSOR_X  7}SWAMPERT EMPOLEON\rThe quiet grass Pokémon\n{CURSOR_X  7}VENUSAUR MEGANIUM\f{CURSOR_X  7}SCEPTILE TORTERRA
+To the Pokémon listed here,\nthe ultimate moves may be taught!\rThe blazing fire Pokémon\n{CURSOR_X 7}CHARIZARD TYPHLOSION\f{CURSOR_X 7}BLAZIKEN INFERNAPE\rThe restless water Pokémon\n{CURSOR_X 7}BLASTOISE FERALIGATR\f{CURSOR_X 7}SWAMPERT EMPOLEON\rThe quiet grass Pokémon\n{CURSOR_X 7}VENUSAUR MEGANIUM\f{CURSOR_X 7}SCEPTILE TORTERRA

@@ -116,8 +116,8 @@ string MessagesDecoder::DecodeMessage(u16string &message, int &i) {
             decoded += command;
             int nargs = message[j++];
             debug_printf("%04X ", nargs);
-            decoded += ' ';
             if (is_strvar) {
+                decoded += ' ';
                 decoded += to_string(code & 0xFF);
                 if (nargs != 0)
                     decoded += ',';

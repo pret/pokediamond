@@ -1,7 +1,7 @@
 Look! These are Poké Balls!\nLet’s battle using these!\r
-{COLOR  3}Tiny Leaf Pokémon TURTWIG{COLOR  0}!\nWill you take this Pokémon?
-{COLOR  1}Chimp Pokémon CHIMCHAR{COLOR  0}!\nWill you take this Pokémon?
-{COLOR  2}Penguin Pokémon{COLOR  0} {COLOR  2}PIPLUP{COLOR  0}!\nWill you take this Pokémon?
+{COLOR 3}Tiny Leaf Pokémon TURTWIG{COLOR 0}!\nWill you take this Pokémon?
+{COLOR 1}Chimp Pokémon CHIMCHAR{COLOR 0}!\nWill you take this Pokémon?
+{COLOR 2}Penguin Pokémon{COLOR 0} {COLOR 2}PIPLUP{COLOR 0}!\nWill you take this Pokémon?
                         
                        
                          

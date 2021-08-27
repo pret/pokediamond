@@ -3,8 +3,8 @@ Teach the move\n{STRVAR_1 6, 1}?
 Give up trying to teach a new\nmove to {STRVAR_1 1, 0}?
 {STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}.\r
 {STRVAR_1 1, 0} is trying to learn\n{STRVAR_1 6, 1}.\rBut {STRVAR_1 1, 0} can’t learn more\nthan four moves.\rDelete an older move to make\nroom for {STRVAR_1 6, 1}?
-1{PAUSE  20}, 2{PAUSE  20}, and{PAUSE  20}... {PAUSE  20}... Poof!{WAIT  3}{WAIT  5}\r{STRVAR_1 1, 0} forgot\n{STRVAR_1 6, 1}.\rAnd...\r
-{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}.{WAIT  4}{WAIT  2}\r
+1{PAUSE 20}, 2{PAUSE 20}, and{PAUSE 20}... {PAUSE 20}... Poof!{WAIT 3}{WAIT 5}\r{STRVAR_1 1, 0} forgot\n{STRVAR_1 6, 1}.\rAnd...\r
+{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}.{WAIT 4}{WAIT 2}\r
 Stop trying to teach\n{STRVAR_1 6, 1}?
 {STRVAR_1 1, 0} did not learn the\nmove {STRVAR_1 6, 1}.\r
                              
@@ -14,8 +14,8 @@ Should the move {STRVAR_1 6, 1}\nbe remembered?
 Give up trying to make\n{STRVAR_1 1, 0} remember a move?
 {STRVAR_1 1, 0} remembered the move\n{STRVAR_1 6, 1} it had forgotten!\r
 {STRVAR_1 1, 0} wants to remember\nthe move {STRVAR_1 6, 1}.\rBut {STRVAR_1 1, 0} can’t learn more\nthan four moves.\rDelete an existing move to make\nroom for {STRVAR_1 6, 1}?
-1{PAUSE  20}, 2{PAUSE  20}, and{PAUSE  20}... {PAUSE  20}... Poof!{WAIT  3}{WAIT  5}\r{STRVAR_1 1, 0} forgot\n{STRVAR_1 6, 1}.\rAnd...\r
-{STRVAR_1 1, 0} remembered the move\n{STRVAR_1 6, 1}.{WAIT  4}{WAIT  2}\r
+1{PAUSE 20}, 2{PAUSE 20}, and{PAUSE 20}... {PAUSE 20}... Poof!{WAIT 3}{WAIT 5}\r{STRVAR_1 1, 0} forgot\n{STRVAR_1 6, 1}.\rAnd...\r
+{STRVAR_1 1, 0} remembered the move\n{STRVAR_1 6, 1}.{WAIT 4}{WAIT 2}\r
 Give up making the Pokémon\nremember {STRVAR_1 6, 1}?
 {STRVAR_1 1, 0} did not remember the\nmove {STRVAR_1 6, 1}.\r
 {STRVAR_1 3, 2} handed over one\nHeart Scale in exchange.\r

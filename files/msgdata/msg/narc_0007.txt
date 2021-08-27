@@ -56,8 +56,8 @@ Is it OK to throw away\n{STRVAR_1 52, 1} {STRVAR_1 8, 0}?
                                         
 You can’t dismount your Bike here.
 Your Coins: {STRVAR_1 54, 0}
-Booted up a TM.{WAIT  3}{WAIT  4}\n
-Booted up an HM.{WAIT  3}{WAIT  4}\n
+Booted up a TM.{WAIT 3}{WAIT 4}\n
+Booted up an HM.{WAIT 3}{WAIT 4}\n
 It contained\n{STRVAR_1 6, 0}.\rTeach {STRVAR_1 6, 0}\nto a Pokémon?
 {STRVAR_1 3, 0} used the\n{STRVAR_1 8, 1}.
 Since a Repel’s effects still linger,\nyou can’t use this now.

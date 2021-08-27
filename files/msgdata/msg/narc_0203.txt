@@ -129,8 +129,8 @@ DRESS-UP POINTS
     
 CANCEL
 Judging here is based on the visual\nappeal of Pokémon.\rScoring is based on voting by the\naudience.\rThe more popular the Pokémon, the\nhigher its score!\rThe Pokémon are scored in two\ncategories: Condition Points and\fDress-up Points.\r
-Condition Points are scored on\nthe Pokémon’s condition in one of\ffive categories.\rThe five conditions are: Cool, Beauty,\nCute, Smart, and Tough.\rThese conditions can be enhanced by\nfeeding Poffins to your Pokémon.\rIf the audience likes what they see,\n{COLOR  1}♡{COLOR  0} marks will appear.\rObviously, the more {COLOR  1}♡{COLOR  0} marks there\nare, the more popular the Pokémon.\r
-Dress-up Points are awarded for\nfashionably dressing up your Pokémon\fwith Accessories.\rBefore you begin, you will be given\na fashion theme.\rYour dressed-up Pokémon will be\nscored on how well it matches the\fassigned theme.\rThe audience’s approval will appear\nas pink {COLOR  1}♡{COLOR  0} marks.\rBe sure to position the Accessories\nproperly and attach them firmly.\fThey won’t stay on otherwise.\rThere is a time limit of 60 seconds.\rGet your Pokémon dressed up within\nthat time.\r
+Condition Points are scored on\nthe Pokémon’s condition in one of\ffive categories.\rThe five conditions are: Cool, Beauty,\nCute, Smart, and Tough.\rThese conditions can be enhanced by\nfeeding Poffins to your Pokémon.\rIf the audience likes what they see,\n{COLOR 1}♡{COLOR 0} marks will appear.\rObviously, the more {COLOR 1}♡{COLOR 0} marks there\nare, the more popular the Pokémon.\r
+Dress-up Points are awarded for\nfashionably dressing up your Pokémon\fwith Accessories.\rBefore you begin, you will be given\na fashion theme.\rYour dressed-up Pokémon will be\nscored on how well it matches the\fassigned theme.\rThe audience’s approval will appear\nas pink {COLOR 1}♡{COLOR 0} marks.\rBe sure to position the Accessories\nproperly and attach them firmly.\fThey won’t stay on otherwise.\rThere is a time limit of 60 seconds.\rGet your Pokémon dressed up within\nthat time.\r
     
 We look forward to your next visit!
 OVERALL FLOW
@@ -149,8 +149,8 @@ JUDGES
 VOLTAGE
 CANCEL
 In the Acting Competition, four\nPokémon will perform their moves for\four panel of Judges.\rThe more a Pokémon stands out, the\nhigher it scores.\rEach Pokémon will get the chance to\nperform four times.\r
-Every move has one or more {COLOR  1}♡{COLOR  0} marks\nthat indicate the acting score.\rThe more {COLOR  1}♡{COLOR  0} marks obtained, the\nhigher the Pokémon scores.\rHowever, Pokémon are not permitted\nto perform the same move two turns\fin a row.\r
-There are three Judges in all.\rYou get to choose which one you\nwant to judge your Pokémon.\rTry not to have your Pokémon scored\nby the same Judge as other Pokémon\fso it can stand out more.\rIf your Pokémon leaves a strong\nimpression, it will be rated highly,\fearning it more {COLOR  1}♡{COLOR  0} marks.\r
+Every move has one or more {COLOR 1}♡{COLOR 0} marks\nthat indicate the acting score.\rThe more {COLOR 1}♡{COLOR 0} marks obtained, the\nhigher the Pokémon scores.\rHowever, Pokémon are not permitted\nto perform the same move two turns\fin a row.\r
+There are three Judges in all.\rYou get to choose which one you\nwant to judge your Pokémon.\rTry not to have your Pokémon scored\nby the same Judge as other Pokémon\fso it can stand out more.\rIf your Pokémon leaves a strong\nimpression, it will be rated highly,\fearning it more {COLOR 1}♡{COLOR 0} marks.\r
 Voltage shows the excitement level\nof the Judges.\rIn a Cool Contest, if a Pokémon uses\na Cool move, Voltage goes up.\rHowever, if a Cute or Smart move is\nperformed, the Voltage goes down.\rIf the Voltage reaches 5 points, the\nPokémon earns bonus points.\rIf the Special Judge in the center\nwas chosen, 8 bonus points are\fawarded when the Voltage peaks.\rFor the other Judges, 5 bonus points\nare awarded.\r
 We look forward to your next visit!
 VISUAL PRACTICE

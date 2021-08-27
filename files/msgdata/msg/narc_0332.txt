@@ -5,17 +5,17 @@ I haven’t received any other gifts\nfor you.\rWe look forward to your next vis
 Your party is full, I’m afraid.\nI can’t give this to you yet.
 Another {STRVAR_1 8, 0}? You already\nhave too many to accept any more.
 To accept this, you need to make\nroom for decoration goods.
-{STRVAR_1 3, 0} received\n{COLOR  101}{STRVAR_1 0, 1}{COLOR  0}!\r
-{STRVAR_1 3, 0} received\na {COLOR  1}Pokémon Egg{COLOR  0}!\r
-{STRVAR_1 3, 0} received\nthe gift {COLOR  1}{STRVAR_1 8, 1}{COLOR  0}!\r
-{STRVAR_1 3, 0} received the\n{COLOR  1}{STRVAR_1 26, 1} Rules{COLOR  0}.\r
-{STRVAR_1 3, 0} received\nthe gift {COLOR  1}{STRVAR_1 10, 1}{COLOR  0}!\r
-{STRVAR_1 3, 0} received\nthe gift {COLOR  1}{STRVAR_1 31, 1}{COLOR  0}.\r
-{STRVAR_1 3, 0} received\nthe {COLOR  1}MANAPHY Egg{COLOR  0}!\r
-{STRVAR_1 3, 0} received\na {COLOR  1}Member’s Card{COLOR  0}.\r
-{STRVAR_1 3, 0} received\n{COLOR  1}Oak’s Letter{COLOR  0}!\r
-{STRVAR_1 3, 0} received\nan {COLOR  1}Azure Flute{COLOR  0}!\r
+{STRVAR_1 3, 0} received\n{COLOR 101}{STRVAR_1 0, 1}{COLOR 0}!\r
+{STRVAR_1 3, 0} received\na {COLOR 1}Pokémon Egg{COLOR 0}!\r
+{STRVAR_1 3, 0} received\nthe gift {COLOR 1}{STRVAR_1 8, 1}{COLOR 0}!\r
+{STRVAR_1 3, 0} received the\n{COLOR 1}{STRVAR_1 26, 1} Rules{COLOR 0}.\r
+{STRVAR_1 3, 0} received\nthe gift {COLOR 1}{STRVAR_1 10, 1}{COLOR 0}!\r
+{STRVAR_1 3, 0} received\nthe gift {COLOR 1}{STRVAR_1 31, 1}{COLOR 0}.\r
+{STRVAR_1 3, 0} received\nthe {COLOR 1}MANAPHY Egg{COLOR 0}!\r
+{STRVAR_1 3, 0} received\na {COLOR 1}Member’s Card{COLOR 0}.\r
+{STRVAR_1 3, 0} received\n{COLOR 1}Oak’s Letter{COLOR 0}!\r
+{STRVAR_1 3, 0} received\nan {COLOR 1}Azure Flute{COLOR 0}!\r
 We look forward to your next visit.
-{STRVAR_1 3, 0} received the Pokétch\napp {COLOR  1}{STRVAR_1 24, 1}{COLOR  0}!\r
+{STRVAR_1 3, 0} received the Pokétch\napp {COLOR 1}{STRVAR_1 24, 1}{COLOR 0}!\r
 ...Uh-oh. {STRVAR_1 3, 0}, you haven’t\nobtained a Pokétch yet.\rI can’t give you this app if you\ndon’t have a Pokétch.\r
-{STRVAR_1 3, 0} was awarded\nthe {COLOR  1}{STRVAR_1 39, 1}{COLOR  0}!\rThe {STRVAR_1 39, 1}\nwas given to {STRVAR_1 1, 2}.\r
+{STRVAR_1 3, 0} was awarded\nthe {COLOR 1}{STRVAR_1 39, 1}{COLOR 0}!\rThe {STRVAR_1 39, 1}\nwas given to {STRVAR_1 1, 2}.\r

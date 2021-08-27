@@ -1,7 +1,7 @@
-{COLOR  1}Status{COLOR  0}
-{COLOR  1}VS demo{COLOR  0}
-{COLOR  1}Move Tutor{COLOR  0}
-{COLOR  1}Journal{COLOR  0}
+{COLOR 1}Status{COLOR 0}
+{COLOR 1}VS demo{COLOR 0}
+{COLOR 1}Move Tutor{COLOR 0}
+{COLOR 1}Journal{COLOR 0}
 Sleep
 Touch screen
 msg location

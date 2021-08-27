@@ -1,21 +1,21 @@
-{COLOR  1}Pokémon Diamond{COLOR  0}
-{COLOR  1}Pokémon Pearl{COLOR  0}
-{COLOR  1}Credits{COLOR  0}
-{COLOR  2}Director{COLOR  0}
+{COLOR 1}Pokémon Diamond{COLOR 0}
+{COLOR 1}Pokémon Pearl{COLOR 0}
+{COLOR 1}Credits{COLOR 0}
+{COLOR 2}Director{COLOR 0}
     Junichi Masuda
-{COLOR  2}Art Director{COLOR  0}
+{COLOR 2}Art Director{COLOR 0}
     Ken Sugimori
-{COLOR  2}Battle Director{COLOR  0}
+{COLOR 2}Battle Director{COLOR 0}
     Shigeki Morimoto
-{COLOR  2}Program Leader{COLOR  0}
+{COLOR 2}Program Leader{COLOR 0}
     Tetsuya Watanabe
-{COLOR  2}Battle System Programmer{COLOR  0}
+{COLOR 2}Battle System Programmer{COLOR 0}
     Hisashi Sogabe
-{COLOR  2}Field System Programmer{COLOR  0}
+{COLOR 2}Field System Programmer{COLOR 0}
     Sousuke Tamada
-{COLOR  2}Communication System Programmer{COLOR  0}
+{COLOR 2}Communication System Programmer{COLOR 0}
     Akito Mori
-{COLOR  2}Programmers{COLOR  0}
+{COLOR 2}Programmers{COLOR 0}
     Yoshinori Matsuda
     Keita Kagaya
     Hiroyuki Nakamura
@@ -28,11 +28,11 @@
     Tomoya Takahashi
     Katsumi Ono
     Satoshi Mitsuhara
-{COLOR  2}Graphic Leader{COLOR  0}
+{COLOR 2}Graphic Leader{COLOR 0}
     Takao Unno
-{COLOR  2}Pokémon Designers{COLOR  0}
-{COLOR  2}{CURSOR_X  86}&{COLOR  0}
-{COLOR  2}{CURSOR_X  58}Graphic Designers{COLOR  0}
+{COLOR 2}Pokémon Designers{COLOR 0}
+{COLOR 2}{CURSOR_X 86}&{COLOR 0}
+{COLOR 2}{CURSOR_X 58}Graphic Designers{COLOR 0}
     Ken Sugimori
     Takao Unno
     Motofumi Fujiwara
@@ -45,22 +45,22 @@
     Emi Yoshida
     Yusuke Omura
     Hiroyuki Goto
-{COLOR  2}Pokémon Designer{COLOR  0}
+{COLOR 2}Pokémon Designer{COLOR 0}
     Atsuko Nishida
-{COLOR  2}Graphic Designer{COLOR  0}
+{COLOR 2}Graphic Designer{COLOR 0}
     Kei Hoshiba
-{COLOR  2}Music Leader{COLOR  0}
+{COLOR 2}Music Leader{COLOR 0}
     Go Ichinose
-{COLOR  2}Music Composition{COLOR  0}
+{COLOR 2}Music Composition{COLOR 0}
     Hitomi Sato
     Junichi Masuda
-{COLOR  2}Sound Effects{COLOR  0}
+{COLOR 2}Sound Effects{COLOR 0}
     Satoshi Nohara
-{COLOR  2}Pokémon Voices{COLOR  0}
+{COLOR 2}Pokémon Voices{COLOR 0}
     Go Ichinose
-{COLOR  2}Game Design Leader{COLOR  0}
+{COLOR 2}Game Design Leader{COLOR 0}
     Shigeru Ohmori
-{COLOR  2}Game Designers{COLOR  0}
+{COLOR 2}Game Designers{COLOR 0}
     Kouji Nishino
     Kenji Matsushima
     Tetsuji Ohta
@@ -71,17 +71,17 @@
     Akihito Tomisawa
     Suguru Nakatsui
     Hiro Nakamura
-{COLOR  2}Plot Scenario{COLOR  0}
+{COLOR 2}Plot Scenario{COLOR 0}
     Junichi Masuda
     Toshinobu Matsumiya
     Kouji Nishino
     Shigeru Ohmori
-{COLOR  2}Game Scenario{COLOR  0}
+{COLOR 2}Game Scenario{COLOR 0}
     Toshinobu Matsumiya
     Hitomi Sato
     Akihito Tomisawa
     Suguru Nakatsui
-{COLOR  2}Map Designers{COLOR  0}
+{COLOR 2}Map Designers{COLOR 0}
     Tadashi Takahashi
     Suguru Nakatsui
     Shigeru Ohmori
@@ -89,14 +89,14 @@
     Hiro Nakamura
     Kouji Nishino
     Teruyuki Shimoyamada
-{COLOR  2}Pokédex Text{COLOR  0}
+{COLOR 2}Pokédex Text{COLOR 0}
     Kenji Matsushima
-{COLOR  2}Parametric Designers{COLOR  0}
+{COLOR 2}Parametric Designers{COLOR 0}
     Kouji Nishino
     Tetsuji Ohta
     Teruyuki Shimoyamada
     Shigeki Morimoto
-{COLOR  2}Battle Tower Data{COLOR  0}
+{COLOR 2}Battle Tower Data{COLOR 0}
     Osamu Fujita
     Takeshi Saigo
     Yoshihito Tsuji
@@ -105,30 +105,30 @@
     Etsuko Fukushima
     Keisuke Fukushima
     Tetsuji Ohta
-{COLOR  2}Script Designers{COLOR  0}
+{COLOR 2}Script Designers{COLOR 0}
     Satoshi Nohara
     Tomomichi Ohta
     Miyuki Iwasawa
     Sousuke Tamada
-{COLOR  2}Environment & Tool Programmers{COLOR  0}
+{COLOR 2}Environment & Tool Programmers{COLOR 0}
     Hisashi Sogabe
     Sousuke Tamada
     Hiroyuki Nakamura
     Masao Taya
     Miyuki Iwasawa
-{COLOR  2}Nintendo Wi-Fi Connection{COLOR  0}
-  {COLOR  2}Server System Director{COLOR  0}
+{COLOR 2}Nintendo Wi-Fi Connection{COLOR 0}
+  {COLOR 2}Server System Director{COLOR 0}
     Mikihiro Ishikawa
-  {COLOR  2}Server System Programmers{COLOR  0}
+  {COLOR 2}Server System Programmers{COLOR 0}
     Daisuke Nakamura
     Shigetoshi Kitayama
     Yuuki Hayashi
-  {COLOR  2}Program Support{COLOR  0}
+  {COLOR 2}Program Support{COLOR 0}
     Kazuki Yoshihara
-{COLOR  2}NCL Product Testing{COLOR  0}
+{COLOR 2}NCL Product Testing{COLOR 0}
     Akira Yano
     Super Mario Club
-{COLOR  2}Special Thanks{COLOR  0}
+{COLOR 2}Special Thanks{COLOR 0}
     Kenji Tominaga
     Yoshio Tajiri
     Masafumi Saito
@@ -157,40 +157,40 @@
     Akira Kinashi
     Hiroshi Akune
     Takao Nakano
-{COLOR  2}Information Supervisors{COLOR  0}
+{COLOR 2}Information Supervisors{COLOR 0}
     Hiromi Sagawa
     Yuri Sakurai
     Naoko Yanase
-{COLOR  2}Artwork{COLOR  0}
+{COLOR 2}Artwork{COLOR 0}
     Sachiko Nakamichi
     Kiyomi Oe
     Yasuko Sugiyama
-{COLOR  2}Coordinators{COLOR  0}
+{COLOR 2}Coordinators{COLOR 0}
     Shusaku Egami
     Kazuki Yoshihara
     Kaori Ando
-{COLOR  2}English Version Coordinators{COLOR  0}
+{COLOR 2}English Version Coordinators{COLOR 0}
     Seth McMahill
     Keisuke Tominaga
-{COLOR  2}English Version Assistant Coordinator{COLOR  0}
+{COLOR 2}English Version Assistant Coordinator{COLOR 0}
     Joel Simon
-{COLOR  2}Translator{COLOR  0}
+{COLOR 2}Translator{COLOR 0}
     Nob Ogasawara
-{COLOR  2}Text Editors{COLOR  0}
+{COLOR 2}Text Editors{COLOR 0}
     Teresa Lillygren
     Seth McMahill
-{COLOR  2}NOA Product Testing{COLOR  0}
+{COLOR 2}NOA Product Testing{COLOR 0}
     Thomas Hertzog
     Leland Jones
     Patrick Taylor
     Mika Kurosawa
-{COLOR  2}NOA Special Thanks{COLOR  0}
+{COLOR 2}NOA Special Thanks{COLOR 0}
     Nicola Wright
     Devon Ryning
     Hitomi Ross
     Kyle Hudson
     Joshua Newman
-{COLOR  2}Localization{COLOR  0}
+{COLOR 2}Localization{COLOR 0}
     Teruki Murakawa
     Kimiko Nakamichi
     Souichi Yamamoto
@@ -204,12 +204,12 @@
     Kazuhiro Fujihara
     Yuuki Tanikawa
     Ryo Yamaguchi
-{COLOR  2}Producers{COLOR  0}
+{COLOR 2}Producers{COLOR 0}
     Hiroyuki Jinnai
     Hitoshi Yamagami
     Gakuji Nomoto
     Hiroaki Tsuru
-{COLOR  2}Executive Producers{COLOR  0}
+{COLOR 2}Executive Producers{COLOR 0}
     Satoshi Tajiri
     Satoru Iwata
     Tsunekaz Ishihara

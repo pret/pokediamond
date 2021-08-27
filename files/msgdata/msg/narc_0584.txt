@@ -5,4 +5,4 @@ Danke schon, arigato, gracias,\nand what-have-you!\rThat MAGIKARP, it accompanie
 Oh, non, non! That is no FINNEON!\nWhat I want is a FINNEON!\fYou have made the Meister melancholy!
 Oh! This is a tragedy!\nA tragedy, I tell you!\rBut one day, you will trade me\nthe Pokémon I want!\rThe Meister knows this because I have\ntraveled the world!
 Because there are Pokémon, I can\nmake friends anywhere in the world.\rIt so inspires me knowing that.\nIt’s so wonderful in a wonderful way!
-It’s a poster that lists the names\nof Pokémon.\rThe world-traveling Meister’s\nfavorite Pokémon list.\rEKANS{CURSOR_X  70}PIKACHU{CURSOR_X  140}PSYDUCK\nPONYTA{CURSOR_X  70}STARYU{CURSOR_X  140}MAGIKARP\fWOBBUFFET{CURSOR_X  70}HERACROSS{CURSOR_X  140}SNEASEL\fTEDDIURSA{CURSOR_X  70}HOUNDOUR{CURSOR_X  140}WINGULL\fSLAKOTH{CURSOR_X  70}ROSELIA
+It’s a poster that lists the names\nof Pokémon.\rThe world-traveling Meister’s\nfavorite Pokémon list.\rEKANS{CURSOR_X 70}PIKACHU{CURSOR_X 140}PSYDUCK\nPONYTA{CURSOR_X 70}STARYU{CURSOR_X 140}MAGIKARP\fWOBBUFFET{CURSOR_X 70}HERACROSS{CURSOR_X 140}SNEASEL\fTEDDIURSA{CURSOR_X 70}HOUNDOUR{CURSOR_X 140}WINGULL\fSLAKOTH{CURSOR_X 70}ROSELIA

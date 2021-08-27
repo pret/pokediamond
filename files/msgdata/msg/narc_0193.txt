@@ -7,8 +7,8 @@ Excellent!
 Good!
 Miss!
 The Dance Competition is ready to\nget under way!\rCan the backup dancers flawlessly\nfollow the main dancer’s steps?!\rOK! Everybody, let’s dance!\nStart the music!\r
-{COLOR  2}Perform {STRVAR_1 50, 0} steps as the main dancer!{COLOR  0}
-{COLOR  1}Copy the Pokémon before you!{COLOR  0}
+{COLOR 2}Perform {STRVAR_1 50, 0} steps as the main dancer!{COLOR 0}
+{COLOR 1}Copy the Pokémon before you!{COLOR 0}
                                 
                                                                                                                                                                                                                                                                  
                             
