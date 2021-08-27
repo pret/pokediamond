@@ -4,4 +4,4 @@ See you next week, same time,\nsame channel!
 The TV is showing the title screen\nof a video game.
 The X Button\nopens the menu!
 It’s a Wii!\nIt’s controlled by a Wii Remote!
-{STRVAR 3, 0} checked the PC.\rPokémon Basics...\rPeople live alongside Pokémon in\nthis world.\rThe people that battle Pokémon are\ncalled Pokémon Trainers.
+{STRVAR_1 3, 0} checked the PC.\rPokémon Basics...\rPeople live alongside Pokémon in\nthis world.\rThe people that battle Pokémon are\ncalled Pokémon Trainers.

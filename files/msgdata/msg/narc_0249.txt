@@ -1,1 +1,1 @@
-{STRVAR 51, 0}\n{STRVAR 51, 1}
+{STRVAR_1 51, 0}\n{STRVAR_1 51, 1}

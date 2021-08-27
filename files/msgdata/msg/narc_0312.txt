@@ -1,14 +1,14 @@
 Welcome to the\nHall of Fame!
-{STRVAR 0, 0} ♂ Lv.{STRVAR 52, 1}
-{STRVAR 0, 0} ♀ Lv.{STRVAR 52, 1}
-{STRVAR 0, 0} Lv.{STRVAR 52, 1}
-OT/{STRVAR 3, 0}
-Met at\n{STRVAR 4, 0}.
-Hatched at\n{STRVAR 4, 0}.
+{STRVAR_1 0, 0} ♂ Lv.{STRVAR_1 52, 1}
+{STRVAR_1 0, 0} ♀ Lv.{STRVAR_1 52, 1}
+{STRVAR_1 0, 0} Lv.{STRVAR_1 52, 1}
+OT/{STRVAR_1 3, 0}
+Met at\n{STRVAR_1 4, 0}.
+Hatched at\n{STRVAR_1 4, 0}.
 Obtained in a link\ntrade.
 Arrived from the Kanto\nregion.
 Arrived from the Hoenn\nregion.
 Arrived from a distant\nland.
 Obtained in a fateful\nencounter.
 League Champion! Congratulations!
-{STRVAR 3, 0} ID: {STRVAR 54, 1} Time: {STRVAR 52, 2}:{STRVAR 51, 3}
+{STRVAR_1 3, 0} ID: {STRVAR_1 54, 1} Time: {STRVAR_1 52, 2}:{STRVAR_1 51, 3}

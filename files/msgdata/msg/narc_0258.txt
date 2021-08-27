@@ -1,12 +1,12 @@
-...You are?\rOK, you’re {STRVAR 3, 0}.\nI’m Riley.\rI’m a Trainer, and yes, it is a bit\nodd that I would be training here.\rIf you’d like, we could team up.\nThe wild Pokémon here are restless.\r
-{STRVAR 3, 0} decided to go with\nRiley!
+...You are?\rOK, you’re {STRVAR_1 3, 0}.\nI’m Riley.\rI’m a Trainer, and yes, it is a bit\nodd that I would be training here.\rIf you’d like, we could team up.\nThe wild Pokémon here are restless.\r
+{STRVAR_1 3, 0} decided to go with\nRiley!
 Riley: If your Pokémon get hurt,\nI’ll heal them up.
-Riley: Hi, {STRVAR 3, 0}.\nLet’s team up.\fThe Pokémon seem to be restless.\r
+Riley: Hi, {STRVAR_1 3, 0}.\nLet’s team up.\fThe Pokémon seem to be restless.\r
 Riley: ...Are you going back?\rI’ll be hanging around here.\nIt would be good if you came back.\r
 Riley: I get it now. You’re\nresponsible for agitating the Pokémon.\rI don’t care what good reason you\nmay have, but I don’t want you\fbringing any trouble into my mine.\r
 Grunt 1: We’re Team Galactic!\nWe’ll take all the Pokémon we want!\fIsn’t that right, partner?\r
 Grunt 2: You said it, brother!\nSo that’s what we’re gonna do!\rWe’re abducting all the Pokémon from\nthis rusted-out Iron Island!\r
-Riley: To share in all the joys and\nall the sorrows...\rThat is how all the Trainers and\nPokémon live in Sinnoh!\rI won’t allow anyone to defy that\ncode of ethics!\rCome on, {STRVAR 3, 0}!\nThis is one battle we can’t lose!\r
+Riley: To share in all the joys and\nall the sorrows...\rThat is how all the Trainers and\nPokémon live in Sinnoh!\rI won’t allow anyone to defy that\ncode of ethics!\rCome on, {STRVAR_1 3, 0}!\nThis is one battle we can’t lose!\r
 Grunt 1: Stop! I said stop!\nYour combination is so sick!\fThe both of you, and your Pokémon...\rLet’s beat it, partner!\r
 Grunt 2: You said it, brother!\rWe don’t even know what Team \nGalactic’s big plan is anyway!\r
 Riley: Thanks.\nYou really helped me out.\rListen, I have a Pokémon Egg\nhere.\rWould you take it with you?

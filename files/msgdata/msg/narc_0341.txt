@@ -23,12 +23,12 @@ Are you a boy?\nOr are you a girl?\r
 All right, so you’re a boy?\r
 All right, so you’re a girl?\r
 Tell me, what is your name?\r
-Your name is {STRVAR 3, 0}?\r
-Your name is {STRVAR 3, 0}?\r
-OK...\nSo, you’re {STRVAR 3, 0}?\rA fine name that is!\rNow, this boy here...\nI believe he’s your friend.\r
+Your name is {STRVAR_1 3, 0}?\r
+Your name is {STRVAR_1 3, 0}?\r
+OK...\nSo, you’re {STRVAR_1 3, 0}?\rA fine name that is!\rNow, this boy here...\nI believe he’s your friend.\r
 What might his name be?\r
-{STRVAR 3, 1}, is it?\nThat’s your friend’s name?\r
-All right, {STRVAR 3, 0}, the time\nhas come.\rYour very own tale of grand\nadventure is about to unfold.\rOn your journey, you will meet\ncountless Pokémon and people.\rI’m sure that along the way you will\ndiscover many things, perhaps even\fsomething about yourself.\rNow, go on, leap into the world of\nPokémon!\r
+{STRVAR_1 3, 1}, is it?\nThat’s your friend’s name?\r
+All right, {STRVAR_1 3, 0}, the time\nhas come.\rYour very own tale of grand\nadventure is about to unfold.\rOn your journey, you will meet\ncountless Pokémon and people.\rI’m sure that along the way you will\ndiscover many things, perhaps even\fsomething about yourself.\rNow, go on, leap into the world of\nPokémon!\r
 CONTROL INFO
 ADVENTURE INFO
 NO INFO NEEDED

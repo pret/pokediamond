@@ -1,10 +1,10 @@
 {SIZE 200}Thud!!{SIZE 100}\r
 What the...\r
 Whoops, sorry about that!\nI was in a rush.\r
-Oh, wait a second...\nAren’t you...\rYou’re {STRVAR 3, 1} from Twinleaf!\nWow, that brings back memories!\rSo, if you’re here, he can’t be far\nbehind...\rThis should be fun.\nSee you!\r
+Oh, wait a second...\nAren’t you...\rYou’re {STRVAR_1 3, 1} from Twinleaf!\nWow, that brings back memories!\rSo, if you’re here, he can’t be far\nbehind...\rThis should be fun.\nSee you!\r
 {SIZE 200}Thud!!{SIZE 100}\r
-{STRVAR 3, 0}: What the...\rOh, hey, {STRVAR 3, 1}!\rYou came to the Battle Tower too,\nhuh?\rI decided I’ll see how I measure up\nbefore going to Stark Mountain.\rBut that guy you were just talking\nto...\r...Nah, it’s all right!\nI got here on my own power.\fIt won’t take long before I see him.\rSee ya, {STRVAR 3, 1}!\nI’m going to toughen up here!\r
-{STRVAR 3, 0}: What the...\rOh, hey, {STRVAR 3, 1}!\rYou came to the Battle Tower too,\nhuh?\rI decided I’ll see how I measure up\nfor my quest to be the greatest!\rBut that guy you were just talking\nto...\r...Nah, it’s all right!\nI got here on my own power.\fIt won’t take long before I see him.\rSee ya, {STRVAR 3, 1}!\nI’m going to toughen up here!\r
+{STRVAR_1 3, 0}: What the...\rOh, hey, {STRVAR_1 3, 1}!\rYou came to the Battle Tower too,\nhuh?\rI decided I’ll see how I measure up\nbefore going to Stark Mountain.\rBut that guy you were just talking\nto...\r...Nah, it’s all right!\nI got here on my own power.\fIt won’t take long before I see him.\rSee ya, {STRVAR_1 3, 1}!\nI’m going to toughen up here!\r
+{STRVAR_1 3, 0}: What the...\rOh, hey, {STRVAR_1 3, 1}!\rYou came to the Battle Tower too,\nhuh?\rI decided I’ll see how I measure up\nfor my quest to be the greatest!\rBut that guy you were just talking\nto...\r...Nah, it’s all right!\nI got here on my own power.\fIt won’t take long before I see him.\rSee ya, {STRVAR_1 3, 1}!\nI’m going to toughen up here!\r
 Exchange Service Corner\nA Cornucopia of Fabulous Prizes!
 Battle Tower\nGather, All Ye Greatest!
 In the Battle Rooms, the seventh\nTrainer you face is the room’s boss.\rYou’ll need to stay focused if you\nwant to win!
