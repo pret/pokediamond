@@ -11,7 +11,7 @@ Professor: Er-hem!\nLet’s move on to the main topic.\rThere is something I wan
 My name is Rowan.\nI study Pokémon.\rFirst of all, I want to know exactly\nwhat kinds of Pokémon live in the\fSinnoh region.\rTo do so, it is necessary to collect\ndata using the Pokédex.\rThis is what I wish to ask of you.\rI want to entrust you with this\nPokédex.\rWill you use it to record data on all\nthe Pokémon in Sinnoh for me?
 Rowan: ...\r...\r...\r...\rI can stand here without speaking for\nhours. I’m a very patient man.\rLet me ask you again, {STRVAR_1 3, 0}.\rI want to entrust you with this\nPokédex.\rWill you use it to record data on all\nthe Pokémon in Sinnoh for me?
 Rowan: Hm!\rGood answer!\r
-{STRVAR_1 3, 0} obtained\nthe {COLOR 1}Pokédex{COLOR 0}!
+{STRVAR_1 3, 0} obtained\nthe {COLOR  1}Pokédex{COLOR  0}!
 Rowan: That Pokédex is a very\nhigh-tech device.\rIt will automatically record data on\nevery kind of Pokémon you encounter.\r{STRVAR_1 3, 0}, I ask that you go\neverywhere and meet every kind of\fPokémon in this region!\r
 Dawn: I’ve got one, too!\r
 Lucas: I’ve got the same kind of\nPokédex as you.\r

@@ -20,4 +20,4 @@ Raises beauty.
 Raises cuteness.
 Raises smartness.
 Raises toughness.
-{STRVAR_1 9, 0}{CURSOR_X 138}Lv. {STRVAR_1 51, 1}
+{STRVAR_1 9, 0}{CURSOR_X  138}Lv. {STRVAR_1 51, 1}

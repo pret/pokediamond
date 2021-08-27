@@ -5,7 +5,7 @@
    
     
     
-{STRVAR_1 28, 2}{PAUSE 15}\r{STRVAR_1 3, 0}\nhas contacted you.
+{STRVAR_1 28, 2}{PAUSE  15}\r{STRVAR_1 3, 0}\nhas contacted you.
 The chat has been dropped.
 Awaiting a response from\n{STRVAR_1 3, 0}...
 The chat was ended.
@@ -35,7 +35,7 @@ You declined the invitation.
                    
 You declined the invitation.
                             
-{STRVAR_1 28, 2}{PAUSE 15}\rThis is {STRVAR_1 3, 0}! Is there\nsomething that you wanted to do?
+{STRVAR_1 28, 2}{PAUSE  15}\rThis is {STRVAR_1 3, 0}! Is there\nsomething that you wanted to do?
 Whoops! Sorry, but I have to do\nsomething else.\fAnother time, OK?
 Do you want to\ndo anything else?
 ... ...\nThe Trainer appears to be busy...
@@ -94,7 +94,7 @@ You should mix records, too!
              
               
                      
-{STRVAR_1 28, 2}{PAUSE 15}\rHello, it’s {STRVAR_1 3, 0}!\nWould you like to do something?
+{STRVAR_1 28, 2}{PAUSE  15}\rHello, it’s {STRVAR_1 3, 0}!\nWould you like to do something?
 Whoops! Sorry, but I have to do\nsomething else.\fAnother time, OK?
 Want to do\nsomething else?
 ... ...\nThe Trainer appears to be busy...

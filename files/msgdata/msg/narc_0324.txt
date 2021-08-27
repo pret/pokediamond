@@ -1,15 +1,15 @@
         
 {STRVAR_1 1, 0} gained\n{STRVAR_1 54, 1} Exp. Points!\r
 {STRVAR_1 1, 0} gained a boosted\n{STRVAR_1 54, 1} Exp. Points!\r
-{STRVAR_1 1, 0} grew to\nLv. {STRVAR_1 52, 1}!{WAIT 5}{WAIT 2}\r
-{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT 5}{WAIT 2}\r
+{STRVAR_1 1, 0} grew to\nLv. {STRVAR_1 52, 1}!{WAIT  5}{WAIT  2}\r
+{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT  5}{WAIT  2}\r
 {STRVAR_1 1, 0} is trying to\nlearn {STRVAR_1 6, 1}.\r
 But {STRVAR_1 1, 0} can’t learn\nmore than four moves.\r
 Delete a move to make\nroom for {STRVAR_1 6, 1}?\r
 {STRVAR_1 1, 0} forgot the move\n{STRVAR_1 6, 2}.\r
 Give up on learning the move\n{STRVAR_1 6, 1}?\r
 {STRVAR_1 1, 0} did not learn\n{STRVAR_1 6, 1}.\r
-Use next Pokémon?{YESNO 0}
+Use next Pokémon?{YESNO  0}
 {STRVAR_1 1, 0}’s\nattack missed!
 The wild {STRVAR_1 1, 0}’s\nattack missed!
 The attack of the foe’s\n{STRVAR_1 1, 0} missed!
@@ -833,7 +833,7 @@ But there was no PP left\nfor the move!
 {STRVAR_1 1, 0} is\nloafing around!
 The wild {STRVAR_1 1, 0} is\nloafing around!
 The foe’s {STRVAR_1 1, 0} is\nloafing around!
-{STRVAR_1 14, 0} {STRVAR_1 3, 1} is\nabout to send in {STRVAR_1 1, 2}.\rWill {STRVAR_1 3, 3} change\nPokémon?{YESNO 0}
+{STRVAR_1 14, 0} {STRVAR_1 3, 1} is\nabout to send in {STRVAR_1 1, 2}.\rWill {STRVAR_1 3, 3} change\nPokémon?{YESNO  0}
 {STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!
 The wild {STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!
 The foe’s {STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!
@@ -841,9 +841,9 @@ Player defeated\n{STRVAR_1 14, 0} {STRVAR_1 3, 1}!
 {STRVAR_1 3, 0} crept closer to\n{STRVAR_1 1, 1}!
 {STRVAR_1 3, 0} can’t get any closer!
 {STRVAR_1 1, 0} is watching\ncarefully!
-{STRVAR_1 1, 0} is curious about\nthe {STRVAR_1}!
-{STRVAR_1 1, 0} is enthralled by\nthe {STRVAR_1}!
-{STRVAR_1 1, 0} completely ignored\nthe {STRVAR_1}!
+{STRVAR_1 1, 0} is curious about\nthe {STRVAR_1 9}!
+{STRVAR_1 1, 0} is enthralled by\nthe {STRVAR_1 9}!
+{STRVAR_1 1, 0} completely ignored\nthe {STRVAR_1 9}!
 {STRVAR_1 3, 0} threw a Poffin\nat the {STRVAR_1 1, 1}!
 Announcer: You’re out of\nSafari Balls!\fGame over!\r
 {STRVAR_1 3, 0} threw\na Safari Ball!
@@ -865,8 +865,8 @@ Oh, no!\nThe Pokémon broke free!
 Aww!\nIt appeared to be caught!
 Aargh!\nAlmost had it!
 Shoot!\nIt was so close, too!
-{WAIT 3}Gotcha!\n{STRVAR_1 1, 0} was caught!{WAIT 2}\r
-Give a nickname to the\ncaught {STRVAR_1 1, 0}?{YESNO 0}
+{WAIT  3}Gotcha!\n{STRVAR_1 1, 0} was caught!{WAIT  2}\r
+Give a nickname to the\ncaught {STRVAR_1 1, 0}?{YESNO  0}
 {STRVAR_1 1, 0} was sent to\nsomeone’s PC.
 {STRVAR_1 1, 0} was sent to\nBebe’s PC!
 {STRVAR_1 1, 0}’s data was\nadded to the Pokédex.\r
@@ -914,13 +914,13 @@ The {STRVAR_1 8, 0} allows the\nuse of only {STRVAR_1 6, 1}!\r
 The wild {STRVAR_1 1, 0} hung on\nusing its {STRVAR_1 8, 1}!
 The foe’s {STRVAR_1 1, 0} hung on\nusing its {STRVAR_1 8, 1}!
 What?\n{STRVAR_1 1, 0} is evolving!
-What?{YESNO 2}\r
+What?{YESNO  2}\r
 {STRVAR_1 1, 0} is evolving!
-{WAIT 3}Congratulations! Your {STRVAR_1 1, 0}\nevolved into {STRVAR_1 1, 1}!{WAIT 2}\r
+{WAIT  3}Congratulations! Your {STRVAR_1 1, 0}\nevolved into {STRVAR_1 1, 1}!{WAIT  2}\r
 Huh? {STRVAR_1 1, 0}\nstopped evolving!\r
 ... ...?\r
-What will {STRVAR_1 1, 0} do?{YESNO 0}
-What will {STRVAR_1 3, 0} throw?{YESNO 0}
+What will {STRVAR_1 1, 0} do?{YESNO  0}
+What will {STRVAR_1 3, 0} throw?{YESNO  0}
 Communicating. Please standby...
 FIGHT
 BAG
@@ -941,9 +941,9 @@ Which move should\nbe forgotten?
 Yes
 No
                    
-Quit the battle?{YESNO 0}
-{STRVAR_1 1, 0}{COLOR 1}♂{COLOR 0}\nLv. {STRVAR_1 52, 1}
-{STRVAR_1 1, 0}{COLOR 2}♀{COLOR 0}\nLv. {STRVAR_1 52, 1}
+Quit the battle?{YESNO  0}
+{STRVAR_1 1, 0}{COLOR  1}♂{COLOR  0}\nLv. {STRVAR_1 52, 1}
+{STRVAR_1 1, 0}{COLOR  2}♀{COLOR  0}\nLv. {STRVAR_1 52, 1}
 {STRVAR_1 1, 0}\nLv. {STRVAR_1 52, 1}
 {STRVAR_1 13, 0}
 +{STRVAR_1 51, 0}
@@ -953,15 +953,15 @@ Left: {STRVAR_1 51, 0}
  
 Player beat\n{STRVAR_1 14, 0} {STRVAR_1 3, 1}\fand {STRVAR_1 14, 2} {STRVAR_1 3, 3}!\r
         
-Would you like to forfeit the match\nand quit now?{YESNO 0}
+Would you like to forfeit the match\nand quit now?{YESNO  0}
 {STRVAR_1 3, 0}\nforfeited the match!
         
         
 {STRVAR_1 14, 0} {STRVAR_1 3, 1} fled!
 Player lost against\n{STRVAR_1 14, 0} {STRVAR_1 3, 1}!
 Player battled to a draw against\n{STRVAR_1 14, 0} {STRVAR_1 3, 1}!
-{STRVAR_1 1, 0}{COLOR 3}♂{COLOR 0}
-{STRVAR_1 1, 0}{COLOR 4}♀{COLOR 0}
+{STRVAR_1 1, 0}{COLOR  3}♂{COLOR  0}
+{STRVAR_1 1, 0}{COLOR  4}♀{COLOR  0}
 {STRVAR_1 1, 0}
 A wild {STRVAR_1 1, 0} appeared!\r
 A wild {STRVAR_1 1, 0} appeared!\r
@@ -1178,29 +1178,29 @@ The foe’s {STRVAR_1 1, 0} got a burn\nfrom the {STRVAR_1 8, 1}!
 {STRVAR_1 11, 1} in Bebe’s PC is full.\r{STRVAR_1 1, 0} was transferred to\n{STRVAR_1 11, 2} instead!
 {STRVAR_1 1, 0} wants to learn the\nmove {STRVAR_1 6, 1}.\r
 But {STRVAR_1 1, 0} can’t learn\nmore than four moves.\r
-Make it forget\nanother move?{YESNO 0}
+Make it forget\nanother move?{YESNO  0}
 Forget a move!
 Keep old moves!
-Which move should\nbe forgotten?{YESNO 0}
+Which move should\nbe forgotten?{YESNO  0}
 Well, then...\r
-Should this Pokémon give up on\nlearning this new move?{YESNO 0}
+Should this Pokémon give up on\nlearning this new move?{YESNO  0}
 Give up on {STRVAR_1 6, 0}!
 Don’t give up on {STRVAR_1 6, 0}!
 {STRVAR_1 1, 0} did not learn\n{STRVAR_1 6, 1}.\r
-1, {PAUSE 20}2, and{PAUSE 20}... {PAUSE 20}... {PAUSE 20}{WAIT 4}Poof!\r
+1, {PAUSE  20}2, and{PAUSE  20}... {PAUSE  20}... {PAUSE  20}{WAIT  4}Poof!\r
 {STRVAR_1 1, 0} forgot how to\nuse {STRVAR_1 6, 1}.\r
 And...\r
-{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT 5}{WAIT 2}\r
+{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT  5}{WAIT  2}\r
 {STRVAR_1 1, 0} wants to learn\nthe move {STRVAR_1 6, 1}.\r
 However, {STRVAR_1 1, 0} already\nknows four moves.\r
 Should a move be deleted?
 Which move should be forgotten?\r
 Stop trying to teach\n{STRVAR_1 6, 0}?
 {STRVAR_1 1, 0} did not learn the\nmove {STRVAR_1 6, 1}.\r
-1, {PAUSE 20}2, and{PAUSE 20}... {PAUSE 20}... {PAUSE 20}{WAIT 4}Poof!\r
+1, {PAUSE  20}2, and{PAUSE  20}... {PAUSE  20}... {PAUSE  20}{WAIT  4}Poof!\r
 {STRVAR_1 1, 0} forgot how to\nuse {STRVAR_1 6, 1}.\r
 And...\r
-{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT 5}{WAIT 2}\r
+{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT  5}{WAIT  2}\r
 {STRVAR_1 1, 0}’s\n{STRVAR_1 13, 1} rose!
 Your team became shrouded in\na white fog!
 {STRVAR_1 1, 0} is getting\npumped!
@@ -1220,12 +1220,12 @@ Flee
 Wow! {STRVAR_1 3, 0}’s {STRVAR_1 1, 1}\nis drawing close!
 PARK BALLS
 Left: {STRVAR_1 51, 0}
-What will {STRVAR_1 3, 0} do?{YESNO 0}
+What will {STRVAR_1 3, 0} do?{YESNO  0}
 BALL
 RUN
 {STRVAR_1 1, 0}, come back!
-All right! I got its HP down!\nTime to throw a Poké Ball!{YESNO 0}
-OK! Its HP is down!\nIt’s ready for a Poké Ball!{YESNO 0}
+All right! I got its HP down!\nTime to throw a Poké Ball!{YESNO  0}
+OK! Its HP is down!\nIt’s ready for a Poké Ball!{YESNO  0}
 {STRVAR_1 3, 0} used\na Poké Ball!
 {STRVAR_1 1, 0} got over its status\ntrouble!
 The tailwind blew from behind\nyour team!

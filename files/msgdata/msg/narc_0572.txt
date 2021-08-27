@@ -1,34 +1,34 @@
 
-a {COLOR 255}Move Trap ↑{COLOR 0}
-a {COLOR 255}Move Trap →{COLOR 0}
-a {COLOR 255}Move Trap ↓{COLOR 0}
-a {COLOR 255}Move Trap ←{COLOR 0}
-a {COLOR 255}Hurl Trap ↑{COLOR 0}
-a {COLOR 255}Hurl Trap →{COLOR 0}
-a {COLOR 255}Hurl Trap ↓{COLOR 0}
-a {COLOR 255}Hurl Trap ←{COLOR 0}
-a {COLOR 255}Warp Trap{COLOR 0}
-a {COLOR 255}Hi-Warp Trap{COLOR 0}
-a {COLOR 255}Hole Trap{COLOR 0}
-a {COLOR 255}Pit Trap{COLOR 0}
-a {COLOR 255}Reverse Trap{COLOR 0}
-a {COLOR 255}Confuse Trap{COLOR 0}
-a {COLOR 255}Run Trap{COLOR 0}
-a {COLOR 255}Fade Trap{COLOR 0}
-a {COLOR 255}Slow Trap{COLOR 0}
-a {COLOR 255}Smoke Trap{COLOR 0}
-a {COLOR 255}Big Smoke Trap{COLOR 0}
-a {COLOR 255}Rock Trap{COLOR 0}
-a {COLOR 255}Rockfall Trap{COLOR 0}
-a {COLOR 255}Foam Trap{COLOR 0}
-a {COLOR 255}Bubble Trap{COLOR 0}
-an {COLOR 255}Alert Trap 1{COLOR 0}
-an {COLOR 255}Alert Trap 2{COLOR 0}
-an {COLOR 255}Alert Trap 3{COLOR 0}
-an {COLOR 255}Alert Trap 4{COLOR 0}
-a {COLOR 255}Leaf Trap{COLOR 0}
-a {COLOR 255}Flower Trap{COLOR 0}
-an {COLOR 255}Ember Trap{COLOR 0}
-a {COLOR 255}Fire Trap{COLOR 0}
-a {COLOR 255}Radar Trap{COLOR 0}
-a {COLOR 255}Digger Drill{COLOR 0}
+a {COLOR  255}Move Trap ↑{COLOR  0}
+a {COLOR  255}Move Trap →{COLOR  0}
+a {COLOR  255}Move Trap ↓{COLOR  0}
+a {COLOR  255}Move Trap ←{COLOR  0}
+a {COLOR  255}Hurl Trap ↑{COLOR  0}
+a {COLOR  255}Hurl Trap →{COLOR  0}
+a {COLOR  255}Hurl Trap ↓{COLOR  0}
+a {COLOR  255}Hurl Trap ←{COLOR  0}
+a {COLOR  255}Warp Trap{COLOR  0}
+a {COLOR  255}Hi-Warp Trap{COLOR  0}
+a {COLOR  255}Hole Trap{COLOR  0}
+a {COLOR  255}Pit Trap{COLOR  0}
+a {COLOR  255}Reverse Trap{COLOR  0}
+a {COLOR  255}Confuse Trap{COLOR  0}
+a {COLOR  255}Run Trap{COLOR  0}
+a {COLOR  255}Fade Trap{COLOR  0}
+a {COLOR  255}Slow Trap{COLOR  0}
+a {COLOR  255}Smoke Trap{COLOR  0}
+a {COLOR  255}Big Smoke Trap{COLOR  0}
+a {COLOR  255}Rock Trap{COLOR  0}
+a {COLOR  255}Rockfall Trap{COLOR  0}
+a {COLOR  255}Foam Trap{COLOR  0}
+a {COLOR  255}Bubble Trap{COLOR  0}
+an {COLOR  255}Alert Trap 1{COLOR  0}
+an {COLOR  255}Alert Trap 2{COLOR  0}
+an {COLOR  255}Alert Trap 3{COLOR  0}
+an {COLOR  255}Alert Trap 4{COLOR  0}
+a {COLOR  255}Leaf Trap{COLOR  0}
+a {COLOR  255}Flower Trap{COLOR  0}
+an {COLOR  255}Ember Trap{COLOR  0}
+a {COLOR  255}Fire Trap{COLOR  0}
+a {COLOR  255}Radar Trap{COLOR  0}
+a {COLOR  255}Digger Drill{COLOR  0}

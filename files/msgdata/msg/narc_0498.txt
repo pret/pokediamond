@@ -1,4 +1,4 @@
-{SIZE 200}Thud!!{SIZE 100}\r
+{SIZE  200}Thud!!{SIZE  100}\r
 {STRVAR_1 3, 0}: What was that about?!\rOh, hey, {STRVAR_1 3, 1}!\rHey! I’m going to the lake!\nYou come too! And be quick about it!\rOK, {STRVAR_1 3, 1}? I’m fining\nyou $1 million if you’re late!\r
 {STRVAR_1 3, 0}: Oh, jeez!\nForgot something!\r
 Hiya, {STRVAR_1 3, 0}.\n{STRVAR_1 3, 1} was looking for you.\rI think he’s home now.\nWhy don’t you go check it out?\r

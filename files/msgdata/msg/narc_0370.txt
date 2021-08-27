@@ -54,7 +54,7 @@ Pal Distribution Registration
 {STRVAR_1 3, 0}
 IDNo.{STRVAR_1 54, 0}
 Current\nentries
-{COLOR 1}{STRVAR_1 50, 0}{COLOR 0}/4
+{COLOR  1}{STRVAR_1 50, 0}{COLOR  0}/4
 SEND
 CANCEL
 Gift distribution under way...\nDon’t turn off the power.
@@ -64,7 +64,7 @@ Throw this card away?
 Discarding...\nDon’t turn off the power.
 YES
 NO
-{COLOR 3}{STRVAR_1 3, 0}{COLOR 2} {COLOR 0}IDNo.{STRVAR_1 54, 1}
+{COLOR  3}{STRVAR_1 3, 0}{COLOR  2} {COLOR  0}IDNo.{STRVAR_1 54, 1}
          
 Registration No.
 {STRVAR_1 53, 0}-{STRVAR_1 53, 1}

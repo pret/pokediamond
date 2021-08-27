@@ -26,8 +26,8 @@ Want to give a nickname to the\n{STRVAR_1 0, 0}?
 Obtained the {STRVAR_1 8, 0}!
 {STRVAR_1 3, 0} installed the app on\nthe Pokétch.\r
 Too bad!\nThe Bag is full...
-{STRVAR_1 3, 0} obtained\nthe {COLOR 2}{STRVAR_1 8, 1}{COLOR 0}!
-{STRVAR_1 3, 0} obtained\nthe {COLOR 1}{STRVAR_1 8, 1}{COLOR 0}!
+{STRVAR_1 3, 0} obtained\nthe {COLOR  2}{STRVAR_1 8, 1}{COLOR  0}!
+{STRVAR_1 3, 0} obtained\nthe {COLOR  1}{STRVAR_1 8, 1}{COLOR  0}!
 {STRVAR_1 3, 0} put the {STRVAR_1 8, 1}\nin the {STRVAR_1 31, 2} Pocket.
 {STRVAR_1 3, 0} put away the\n{STRVAR_1 31, 1} in the Fashion Case.
 {STRVAR_1 3, 0} booted up the PC.\r
@@ -81,31 +81,31 @@ Repel’s effect wore off...
 Obtained the {STRVAR_1 8, 0}!
 Obtained the {STRVAR_1 8, 0} {STRVAR_1 51, 1}!
 I’m very sorry.\rWe are working underground right now.\nIt’s off-limits to the public.\rPlease try later on.
-The {COLOR 2}Digital Watch{COLOR 0} app displays\nthe current time.\r
-The {COLOR 2}Calculator{COLOR 0} app can handle\ncalculations up to ten digits.\r
-The {COLOR 2}Memo Pad{COLOR 0} app can be used for\njotting down quick notes.\r
-The {COLOR 2}Pedometer{COLOR 0} app counts the number\nof steps you’ve walked.\r
-The {COLOR 2}Pokémon List{COLOR 0} app lets you\ncheck on the status of your team.\r
-The {COLOR 2}Friendship Checker{COLOR 0} app identifies\nthe Pokémon that like you.
-The {COLOR 2}Dowsing Machine{COLOR 0} app locates\nunseeable items.\r
-The {COLOR 2}Berry Searcher{COLOR 0} app indicates\nthe locations of ripe Berries.
-The {COLOR 2}Day-Care Checker{COLOR 0} app shows\nthe Pokémon left with the Day Care.
-The {COLOR 2}Pokémon History{COLOR 0} app shows\nthe most recently obtained Pokémon.
-The {COLOR 2}Counter{COLOR 0} app can be used\nto count up to 9,999.
-The {COLOR 2}Analog Watch{COLOR 0} app displays\nthe current time.
-The {COLOR 2}Marking Map{COLOR 0} app allows the\nplacement of markers.\r
-The {COLOR 2}Link Searcher{COLOR 0} app determines\nthe availability of wireless hot spots.\r
-The {COLOR 2}Coin Toss{COLOR 0} app can be used\nto make fair decisions.
-The {COLOR 2}Move Tester{COLOR 0} app is used to check\nhow moves match up.\r
-The {COLOR 2}Calendar{COLOR 0} app is a monthly\ncalendar with date reminders.
-The {COLOR 2}Dot Artist{COLOR 0} app gives players\nfree reign to their creativity.
-The {COLOR 2}Roulette{COLOR 0} app can be customized\nto make an original roulette.
-The {COLOR 2}Trainer Counter{COLOR 0} app tracks\nthe Pokémon Radar’s rankings.\r
-The {COLOR 2}Kitchen Timer{COLOR 0} app is a 99-minute\ntimer.
-The {COLOR 2}Color Changer{COLOR 0} app can change\nthe Pokétch display color.
-The {COLOR 2}Matchup Checker{COLOR 0} app shows the\naffinity of Pokémon to each other.\r
-The {COLOR 2}Stopwatch{COLOR 0} app keeps precise\ntime.\r
-The {COLOR 2}Alarm Clock{COLOR 0} app operates\non a 24-hour system.\r
+The {COLOR  2}Digital Watch{COLOR  0} app displays\nthe current time.\r
+The {COLOR  2}Calculator{COLOR  0} app can handle\ncalculations up to ten digits.\r
+The {COLOR  2}Memo Pad{COLOR  0} app can be used for\njotting down quick notes.\r
+The {COLOR  2}Pedometer{COLOR  0} app counts the number\nof steps you’ve walked.\r
+The {COLOR  2}Pokémon List{COLOR  0} app lets you\ncheck on the status of your team.\r
+The {COLOR  2}Friendship Checker{COLOR  0} app identifies\nthe Pokémon that like you.
+The {COLOR  2}Dowsing Machine{COLOR  0} app locates\nunseeable items.\r
+The {COLOR  2}Berry Searcher{COLOR  0} app indicates\nthe locations of ripe Berries.
+The {COLOR  2}Day-Care Checker{COLOR  0} app shows\nthe Pokémon left with the Day Care.
+The {COLOR  2}Pokémon History{COLOR  0} app shows\nthe most recently obtained Pokémon.
+The {COLOR  2}Counter{COLOR  0} app can be used\nto count up to 9,999.
+The {COLOR  2}Analog Watch{COLOR  0} app displays\nthe current time.
+The {COLOR  2}Marking Map{COLOR  0} app allows the\nplacement of markers.\r
+The {COLOR  2}Link Searcher{COLOR  0} app determines\nthe availability of wireless hot spots.\r
+The {COLOR  2}Coin Toss{COLOR  0} app can be used\nto make fair decisions.
+The {COLOR  2}Move Tester{COLOR  0} app is used to check\nhow moves match up.\r
+The {COLOR  2}Calendar{COLOR  0} app is a monthly\ncalendar with date reminders.
+The {COLOR  2}Dot Artist{COLOR  0} app gives players\nfree reign to their creativity.
+The {COLOR  2}Roulette{COLOR  0} app can be customized\nto make an original roulette.
+The {COLOR  2}Trainer Counter{COLOR  0} app tracks\nthe Pokémon Radar’s rankings.\r
+The {COLOR  2}Kitchen Timer{COLOR  0} app is a 99-minute\ntimer.
+The {COLOR  2}Color Changer{COLOR  0} app can change\nthe Pokétch display color.
+The {COLOR  2}Matchup Checker{COLOR  0} app shows the\naffinity of Pokémon to each other.\r
+The {COLOR  2}Stopwatch{COLOR  0} app keeps precise\ntime.\r
+The {COLOR  2}Alarm Clock{COLOR  0} app operates\non a 24-hour system.\r
 Obtained {STRVAR_1 25, 0}.
 The {STRVAR_1 25, 0} was sent to\nthe underground PC.
 There is text engraved in the back\nof the obtained Plate...\r“When the universe was created,\nits shards became this Plate.”\r
@@ -124,6 +124,6 @@ Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto 
 {STRVAR_1 3, 0} blew the Azure Flute.\r
 A glowing stairway appeared!
 The Azure Flute echoed hollowly...\rIt appears to be meaningless using\nthe Azure Flute here...
-{STRVAR_1 3, 0} put the {STRVAR_1 8, 1}\nin the {COLOR 2}{STRVAR_1 27, 2}{COLOR 0} Pocket.\r
+{STRVAR_1 3, 0} put the {STRVAR_1 8, 1}\nin the {COLOR  2}{STRVAR_1 27, 2}{COLOR  0} Pocket.\r
 {STRVAR_1 3, 0} put away the\n{STRVAR_1 31, 1} in the Fashion Case.\r
 The {STRVAR_1 25, 0} was sent to\nthe underground PC.\r

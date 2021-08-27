@@ -58,8 +58,8 @@ Yes
 No
 {STRVAR_1 1, 0} did not learn the\nmove {STRVAR_1 6, 1}.
 Which move should be\nforgotten?
-1, {PAUSE 20}2, and{PAUSE 20}... {PAUSE 20}... {PAUSE 20}... Poof!{WAIT 3}{WAIT 5}\r{STRVAR_1 1, 0} forgot how to\nuse {STRVAR_1 6, 1}.\rAnd...
-{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT 4}{WAIT 2}
+1, {PAUSE  20}2, and{PAUSE  20}... {PAUSE  20}... {PAUSE  20}... Poof!{WAIT  3}{WAIT  5}\r{STRVAR_1 1, 0} forgot how to\nuse {STRVAR_1 6, 1}.\rAnd...
+{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT  4}{WAIT  2}
 {STRVAR_1 1, 0} and {STRVAR_1 6, 1}\nare not compatible.\r{STRVAR_1 6, 1} can’t be learned.
 {STRVAR_1 1, 0} already knows\n{STRVAR_1 6, 1}.
 {STRVAR_1 1, 0}’s HP was restored\nby {STRVAR_1 52, 1} point(s).
@@ -154,10 +154,10 @@ CANCEL
      
 ENTER
 NO ENTRY
-{COLOR 1}{STRVAR_1 6, 0}{COLOR 0}
-{COLOR 1}{STRVAR_1 6, 0}{COLOR 0}
-{COLOR 1}{STRVAR_1 6, 0}{COLOR 0}
-{COLOR 1}{STRVAR_1 6, 0}{COLOR 0}
+{COLOR  1}{STRVAR_1 6, 0}{COLOR  0}
+{COLOR  1}{STRVAR_1 6, 0}{COLOR  0}
+{COLOR  1}{STRVAR_1 6, 0}{COLOR  0}
+{COLOR  1}{STRVAR_1 6, 0}{COLOR  0}
 GIVE
 TAKE
 {STRVAR_1 6, 0}
@@ -191,7 +191,7 @@ SP. DEF
 SPEED
 + {STRVAR_1 52, 0}
 {STRVAR_1 52, 0}
-{STRVAR_1 1, 0} was elevated to\nLv. {STRVAR_1 52, 1}.{WAIT 4}{WAIT 2}
-{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT 4}{WAIT 2}
+{STRVAR_1 1, 0} was elevated to\nLv. {STRVAR_1 52, 1}.{WAIT  4}{WAIT  2}
+{STRVAR_1 1, 0} learned\n{STRVAR_1 6, 1}!{WAIT  4}{WAIT  2}
 The Ball Capsule will be detached.\nWill that be OK?
 It can’t be used when you have\nsomeone with you.

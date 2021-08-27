@@ -23,7 +23,7 @@ Oh, oh, oh?\rYou call yourself a Pokémon Trainer?\nAnd yet you have no Pokétch
 You see, I invented, and now\nmanufacture, Pokétches.\rNot only that, I’m now conducting\nthe Pokétch promotional campaign!\rAll you have to do is find three\nclowns in Jubilife City.\rIf you can find them...\nI will gift you with a Pokétch!
 The three clowns will each ask you\na skill-testing question.\rThe questions will all have to do\nwith Pokémon.\rAfter all, a Pokétch is a tool for\nPokémon Trainers.\rCollect a Coupon from each clown,\nthen come see me, OK?
 OK, let me count your Coupons!\nI’ll use the Pokétch here...\rOne, two, three!\nBravo! I say, bravo!\rIn return for these Coupons,\nI present you this Pokémon Watch,\for Pokétch for short!\r
-{STRVAR_1 3, 0} received a {COLOR 1}Pokétch{COLOR 0}!{YESNO 1}
+{STRVAR_1 3, 0} received a {COLOR  1}Pokétch{COLOR  0}!{YESNO  1}
 You can add apps to your Pokétch\nto make it even more versatile!\rTouch the Pokétch screen and please\ndo try it out!\r
 Hi! I’m a Pokétch campaign clown!\nLet’s roll out my question!\rDoes a Pokémon grow by defeating\nothers and gaining Exp. Points?
 Ding-ding!\nYou’re absolutely correct!\r
