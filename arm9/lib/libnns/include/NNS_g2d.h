@@ -220,5 +220,7 @@ void NNS_G2dApplyAndResetOamManagerBuffer(NNSG2dOamManager *oamManager);
 u32 NNS_G2dEntryOamManagerOamWithAffineIdx(
     NNSG2dOamManager *oamManager, u32 param1, u32 param2);
 u32 NNS_G2dEntryOamManagerAffine(NNSG2dOamManager *oamManager, u32 param1);
+void NNS_G2dInitImageProxy(NNSG2dImageProxy *);
+void NNS_G2dInitImagePaletteProxy(NNSG2dImagePaletteProxy *);
 
 #endif //NNSYS_NNS_G2D_H

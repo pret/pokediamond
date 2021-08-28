@@ -6,10 +6,7 @@
 #include "poketool/pokegra/otherpoke.naix"
 #include "registers.h"
 #include "mod63_021DB450.h"
-
-struct UnkStruct3 {
-    u32 unk00[8];
-};
+#include "palette.h"
 
 struct UnkStruct4{
     u8 unk0;
@@ -18,7 +15,7 @@ struct UnkStruct4{
 
 
 
-static const u8 UNK_020ECCE0[] = {
+const u8 UNK_020ECCE0[] = {
 	0xFF, 0xFF, 0x1B, 0x0F, 0x1C, 0x0F, 0x1D, 0x0F, 0x1E, 0x0F, 0x1A, 0x10, 0x1B, 0x10, 0x1C, 0x10, 0x1D, 0x10,
 	0x1E, 0x10, 0x1F, 0x10, 0x19, 0x11, 0x1A, 0x11, 0x1B, 0x11, 0x1C, 0x11, 0x1D, 0x11, 0x1E, 0x11,
 	0x1F, 0x11, 0x20, 0x11, 0x19, 0x12, 0x1A, 0x12, 0x1B, 0x12, 0x1C, 0x12, 0x1D, 0x12, 0x1E, 0x12,
@@ -31,7 +28,7 @@ static const u8 UNK_020ECCE0[] = {
 
 
 
-static const u8 UNK_020ECC10[] = {
+const u8 UNK_020ECC10[] = {
 	0x1E, 0x21, 0x1F, 0x21, 0x20, 0x21, 0x1D, 0x22, 0x1E, 0x22, 0x1F, 0x22, 0x20, 0x22, 0x21, 0x22,
 	0x1C, 0x23, 0x1D, 0x23, 0x1E, 0x23, 0x1F, 0x23, 0x20, 0x23, 0x21, 0x23, 0x22, 0x23, 0x1C, 0x24,
 	0x1D, 0x24, 0x1E, 0x24, 0x1F, 0x24, 0x20, 0x24, 0x21, 0x24, 0x22, 0x24, 0x1C, 0x25, 0x1D, 0x25,
@@ -42,7 +39,7 @@ static const u8 UNK_020ECC10[] = {
 };
 
 
-static const u8 UNK_020ECC78[] = {
+const u8 UNK_020ECC78[] = {
 	0x33, 0x11, 0x34, 0x11, 0x35, 0x11, 0x36, 0x11, 0x32, 0x12, 0x33, 0x12, 0x34, 0x12, 0x35, 0x12,
 	0x36, 0x12, 0x37, 0x12, 0x31, 0x13, 0x32, 0x13, 0x33, 0x13, 0x34, 0x13, 0x35, 0x13, 0x36, 0x13,
 	0x37, 0x13, 0x38, 0x13, 0x31, 0x14, 0x32, 0x14, 0x33, 0x14, 0x34, 0x14, 0x35, 0x14, 0x36, 0x14,
@@ -52,7 +49,7 @@ static const u8 UNK_020ECC78[] = {
 	0x33, 0x18, 0x34, 0x18, 0x35, 0x18, 0x36, 0x18,
 };
 
-static const u8 UNK_020ECDCC[] = {
+const u8 UNK_020ECDCC[] = {
 	0x2B, 0x21, 0x2C, 0x21, 0x2D, 0x21, 0x29, 0x22, 0x2A, 0x22, 0x2B, 0x22, 0x2C, 0x22, 0x2D, 0x22,
 	0x2E, 0x22, 0x2F, 0x22, 0x28, 0x23, 0x29, 0x23, 0x2A, 0x23, 0x2B, 0x23, 0x2C, 0x23, 0x2D, 0x23,
 	0x2E, 0x23, 0x2F, 0x23, 0x30, 0x23, 0x28, 0x24, 0x29, 0x24, 0x2A, 0x24, 0x2B, 0x24, 0x2C, 0x24,
@@ -68,7 +65,7 @@ static const u8 UNK_020ECDCC[] = {
 
 
 
-static const int UNK_020ECBD0[4][4] = {
+const int UNK_020ECBD0[4][4] = {
     {160, 160, 224, 176}, {160, 160, 224, 176}, {160, 176, 224, 192}, {160, 192, 224, 208}
 };
 
@@ -107,11 +104,31 @@ const u8 UNK_020ECD4C[] = {
 
 
 
-const struct UnkStruct4 *UNK_02105AE8[] = {
+struct UnkStruct4 *UNK_02105AE8[] = {
+    // ugly hack to fix extra padding added by the compiler
     (struct UnkStruct4 *)(UNK_020ECCE0+2),
     (struct UnkStruct4 *)UNK_020ECC78,
     (struct UnkStruct4 *)UNK_020ECC10,
     (struct UnkStruct4 *)UNK_020ECDCC,
+};
+
+
+struct UnkStruct2_sub {
+    s8 unk0;
+    u8 unk1;
+};
+struct UnkStruct2_sub2 {
+    u16 unk0_0:2;
+    u16 unk0_2:1;
+    u16 unk0_3:1;
+    u16 unk0_4:1;
+    u16 unk0_5:2;
+    s8 unk2;
+    u8 unk3;
+    s16 unk4;
+    s16 unk6;
+    s16 unk8;
+    s16 unka;
 };
 
 struct UnkStruct2 {
@@ -166,48 +183,27 @@ struct UnkStruct2 {
     u8 unk5B;
     u8 unk5C[10];
     void (*unk68)(struct UnkStruct2 *, void *);
-    u16 unk6C_0:2;
-    u16 unk6C_2:1;
-    u16 unk6C_3:1;
-    u16 unk6C_4:1;
-    u16 unk6C_5:2;
-    s8 unk6E;
-    u8 unk6F;
-    s16 unk70;
-    s16 unk72;
-    s16 unk74;
-    s16 unk76;
-    u8 unk78[0xc];
-    struct UnkStruct2_sub {
-        s8 unk0;
-        u8 unk1;
-    } unk84[10];
+    struct UnkStruct2_sub2 unk6C;
+    struct UnkStruct2_sub2 unk78;
+    struct UnkStruct2_sub unk84[10];
 };
 
 
 struct UnkStruct1
 {
     struct UnkStruct2 unk000[4];
-    u8 unk260[0xc];
-    u32 unk26C;
-    u32 unk270;
-    u32 unk274;
-    u32 unk278;
-    u32 unk27C;
-    u8 unk280[0x18];
+    NNSG2dImageProxy unk260;
+    NNSG2dImagePaletteProxy unk284;
     u32 unk298;
     u32 unk29C;
     u32 unk2A0;
     u32 unk2A4;
     u32 unk2A8;
-    void *unk2AC;
-    void *unk2B0;
-    void *unk2B4;
-    u32 unk2B8;
-    u32 unk2BC;
-    u32 unk2C0;
-    u32 unk2C4;
-    u8 unk2C8[0x18];
+    u8 *unk2AC;
+    u16 *unk2B0;
+    u16 *unk2B4;
+    NNSG2dCharacterData unk2B8;
+    NNSG2dPaletteData unk2D0;
     u8 unk2E0;
     u8 unk2E1;
     u8 unk2E2;
@@ -216,7 +212,7 @@ struct UnkStruct1
 };
 
 extern void NNS_G2dSetupSoftwareSpriteCamera(void);
-extern void FUN_02008A74(void *);
+extern void FUN_02008A74(u8 *);
 
 THUMB_FUNC struct UnkStruct1 *FUN_02006D98(u32 heap_id)
 {
@@ -250,9 +246,9 @@ THUMB_FUNC struct UnkStruct1 *FUN_02006D98(u32 heap_id)
     NNSG2dCharacterData *stc;
     NNS_G2dGetUnpackedCharacterData(st4, &stc);
 
-    ptr->unk2BC = stc->pixelFmt;
-    ptr->unk2C0 = stc->mapingType;
-    ptr->unk2C4 = stc->characterFmt;
+    ptr->unk2B8.pixelFmt = stc->pixelFmt;
+    ptr->unk2B8.mapingType = stc->mapingType;
+    ptr->unk2B8.characterFmt = stc->characterFmt;
     st8 = stc->pRawData;
 
     FUN_02008A74(st8);
@@ -298,7 +294,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct1 *param0) {
     reg_G3_MTX_PUSH = 0;
 
     // this is all shuffled however I try
-    reg_G3_TEXIMAGE_PARAM = (param0->unk29C >> 3) | (param0->unk274 << 26) | (1 << 30) | (param0->unk26C << 20) | (param0->unk270 << 23) | (param0->unk27C << 29);
+    reg_G3_TEXIMAGE_PARAM = (param0->unk29C >> 3) | (param0->unk260.attr.fmt << 26) | (1 << 30) | (param0->unk260.attr.sizeS << 20) | (param0->unk260.attr.sizeT << 23) | (param0->unk260.attr.plttUse << 29);
 
     for (int st18 = 0; st18 < 4; st18++) {
         if (param0->unk000[st18].unk00_0 == 0 || param0->unk000[st18].unk54_0 != 0 || param0->unk000[st18].unk54_B != 0) {
@@ -318,7 +314,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct1 *param0) {
         FUN_02007F48(&param0->unk000[st18]);
         
         u32 shift;
-        if (param0->unk274 == 2) {
+        if (param0->unk260.attr.fmt == 2) {
             shift = 1;
         } else {
             shift = 0;
@@ -379,7 +375,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct1 *param0) {
 
             NNS_G2dDrawSpriteFast(
                 param0->unk000[st18].unk24-40 + param0->unk000[st18].unk44 + param0->unk000[st18].unk2C,
-                param0->unk000[st18].unk26-40 + param0->unk000[st18].unk45 + param0->unk000[st18].unk2E - param0->unk000[st18].unk6E,
+                param0->unk000[st18].unk26-40 + param0->unk000[st18].unk45 + param0->unk000[st18].unk2E - param0->unk000[st18].unk6C.unk2,
                 param0->unk000[st18].unk28 + param0->unk000[st18].unk30,
                 r12,
                 r7,
@@ -395,7 +391,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct1 *param0) {
 
             NNS_G2dDrawSpriteFast(
                 param0->unk000[st18].unk24-(arg3/2)+param0->unk000[st18].unk2C,
-                param0->unk000[st18].unk26-(arg4/2)+ param0->unk000[st18].unk2E - param0->unk000[st18].unk6E,
+                param0->unk000[st18].unk26-(arg4/2)+ param0->unk000[st18].unk2E - param0->unk000[st18].unk6C.unk2,
                 param0->unk000[st18].unk28 + param0->unk000[st18].unk30,
                 arg3,
                 arg4,
@@ -407,7 +403,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct1 *param0) {
         }
 
 
-        if (param0->unk000[st18].unk6C_0 == 0 || param0->unk000[st18].unk6C_5 == 0 || param0->unk000[st18].unk54_1 != 0 || (param0->unk2E4 & 1) != 0) {
+        if (param0->unk000[st18].unk6C.unk0_0 == 0 || param0->unk000[st18].unk6C.unk0_5 == 0 || param0->unk000[st18].unk54_1 != 0 || (param0->unk2E4 & 1) != 0) {
             continue;
         }
 
@@ -416,16 +412,16 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct1 *param0) {
         }
 
         u32 shift2;
-        if (param0->unk274 == 2) {
+        if (param0->unk260.attr.fmt == 2) {
             shift2 = 1;
         } else {
             shift2 = 0;
         }
-        reg_G3_TEXPLTT_BASE = (param0->unk2A4 + ((param0->unk000[st18].unk6C_0+3)<<5))>>(4-shift2);
+        reg_G3_TEXPLTT_BASE = (param0->unk2A4 + ((param0->unk000[st18].unk6C.unk0_0+3)<<5))>>(4-shift2);
 
 
 
-        if (param0->unk000[st18].unk6C_4 != 0) {
+        if (param0->unk000[st18].unk6C.unk0_4 != 0) {
             arg3 = (param0->unk000[st18].unk34*64)>>8;
             arg4 = (param0->unk000[st18].unk36*16)>>8;
         } else {
@@ -433,25 +429,25 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct1 *param0) {
             arg4 = 16;
         }
 
-        if (param0->unk000[st18].unk6C_2 != 0) {
-            param0->unk000[st18].unk70 = param0->unk000[st18].unk24+ param0->unk000[st18].unk2C + param0->unk000[st18].unk74;
+        if (param0->unk000[st18].unk6C.unk0_2 != 0) {
+            param0->unk000[st18].unk6C.unk4 = param0->unk000[st18].unk24+ param0->unk000[st18].unk2C + param0->unk000[st18].unk6C.unk8;
         }
 
-        if (param0->unk000[st18].unk6C_3 != 0) {
-            param0->unk000[st18].unk72 = param0->unk000[st18].unk26 + param0->unk000[st18].unk2E + param0->unk000[st18].unk76;
+        if (param0->unk000[st18].unk6C.unk0_3 != 0) {
+            param0->unk000[st18].unk6C.unk6 = param0->unk000[st18].unk26 + param0->unk000[st18].unk2E + param0->unk000[st18].unk6C.unka;
         }
 
 
         NNS_G2dDrawSpriteFast(
-            param0->unk000[st18].unk70 - (arg3/2),
-            param0->unk000[st18].unk72 - (arg4/2),
+            param0->unk000[st18].unk6C.unk4 - (arg3/2),
+            param0->unk000[st18].unk6C.unk4 - (arg4/2),
             0xFFFFFC18,
             arg3,
             arg4,
-            UNK_020ECBD0[param0->unk000[st18].unk6C_5][0],
-            UNK_020ECBD0[param0->unk000[st18].unk6C_5][1],
-            UNK_020ECBD0[param0->unk000[st18].unk6C_5][2],
-            UNK_020ECBD0[param0->unk000[st18].unk6C_5][3]
+            UNK_020ECBD0[param0->unk000[st18].unk6C.unk0_5][0],
+            UNK_020ECBD0[param0->unk000[st18].unk6C.unk0_5][1],
+            UNK_020ECBD0[param0->unk000[st18].unk6C.unk0_5][2],
+            UNK_020ECBD0[param0->unk000[st18].unk6C.unk0_5][3]
         );
 
     }
@@ -1046,11 +1042,11 @@ THUMB_FUNC u32  FUN_020073E8(struct UnkStruct1 *param0, struct UnkStruct63_021DB
     param0->unk000[param6].unk50_14 = 0x10;
     param0->unk000[param6].unk50_19 = 0x10;
     param0->unk000[param6].unk68 = param8;
-    param0->unk000[param6].unk70 = (s16)param2;
-    param0->unk000[param6].unk72 = (s16)param3;
-    param0->unk000[param6].unk6C_2 = 1;
-    param0->unk000[param6].unk6C_3 = 1;
-    param0->unk000[param6].unk6C_4 = 1;
+    param0->unk000[param6].unk6C.unk4 = (s16)param2;
+    param0->unk000[param6].unk6C.unk6 = (s16)param3;
+    param0->unk000[param6].unk6C.unk0_2 = 1;
+    param0->unk000[param6].unk6C.unk0_3 = 1;
+    param0->unk000[param6].unk6C.unk0_4 = 1;
 
     if (param7 != 0) {
         MI_CpuCopy8(param7, param0->unk000[param6].unk84, 0x14);
@@ -1132,16 +1128,16 @@ THUMB_FUNC void FUN_02007558(struct UnkStruct2 *param0, u32 param1, u32 param2) 
             param0->unk47 = param2;
             break;
         case 19:
-            param0->unk70 = param2;
+            param0->unk6C.unk4 = param2;
             break;
         case 20:
-            param0->unk72 = param2;
+            param0->unk6C.unk6 = param2;
             break;
         case 21:
-            param0->unk74 = param2;
+            param0->unk6C.unk8 = param2;
             break;
         case 22:
-            param0->unk76 = param2;
+            param0->unk6C.unka = param2;
             break;
         case 23:
             param0->unk54_2 = param2;
@@ -1202,23 +1198,23 @@ THUMB_FUNC void FUN_02007558(struct UnkStruct2 *param0, u32 param1, u32 param2) 
             param0->unk00_7 = 1;
             break;
         case 41:
-            param0->unk6E = param2;
+            param0->unk6C.unk2 = param2;
             break;
         case 42:
-            param0->unk6C_0 = param2;
+            param0->unk6C.unk0_0 = param2;
             param0->unk00_8 = 1;
             break;
         case 43:
-            param0->unk6C_2 = param2;
+            param0->unk6C.unk0_2 = param2;
             break;
         case 44:
-            param0->unk6C_3 = param2;
+            param0->unk6C.unk0_3 = param2;
             break;
         case 45:
-            param0->unk6C_4 = param2;
+            param0->unk6C.unk0_4 = param2;
             break;
         case 46:
-            param0->unk6C_5 = param2;
+            param0->unk6C.unk0_5 = param2;
             break;
     }
 }
@@ -1284,16 +1280,16 @@ THUMB_FUNC u32 FUN_0200782C(struct UnkStruct2 *param0, u32 param1) {
             return param0->unk47;
             
         case 19:
-            return param0->unk70;
+            return param0->unk6C.unk4;
             
         case 20:
-            return param0->unk72;
+            return param0->unk6C.unk6;
             
         case 21:
-            return param0->unk74;
+            return param0->unk6C.unk8;
             
         case 22:
-            return param0->unk76;
+            return param0->unk6C.unka;
             
         case 23:
             return param0->unk54_2;
@@ -1347,22 +1343,22 @@ THUMB_FUNC u32 FUN_0200782C(struct UnkStruct2 *param0, u32 param1) {
             return param0->unk54_D;
             
         case 41:
-            return param0->unk6E;
+            return param0->unk6C.unk2;
             
         case 42:
-            return param0->unk6C_0;
+            return param0->unk6C.unk0_0;
             
         case 43:
-            return param0->unk6C_2;
+            return param0->unk6C.unk0_2;
             
         case 44:
-            return param0->unk6C_3;
+            return param0->unk6C.unk0_3;
             
         case 45:
-            return param0->unk6C_4;
+            return param0->unk6C.unk0_4;
             
         case 46:
-            return param0->unk6C_5;
+            return param0->unk6C.unk0_5;
             
     }
 
@@ -1432,16 +1428,16 @@ THUMB_FUNC void FUN_020079E0(struct UnkStruct2 *param0, u32 param1, u32 param2) 
             param0->unk47 += param2;
             break;
         case 19:
-            param0->unk70 += param2;
+            param0->unk6C.unk4 += param2;
             break;
         case 20:
-            param0->unk72 += param2;
+            param0->unk6C.unk6 += param2;
             break;
         case 21:
-            param0->unk74 += param2;
+            param0->unk6C.unk8 += param2;
             break;
         case 22:
-            param0->unk76 += param2;
+            param0->unk6C.unka += param2;
             break;
         case 23:
             param0->unk54_2 += param2;
@@ -1502,23 +1498,727 @@ THUMB_FUNC void FUN_020079E0(struct UnkStruct2 *param0, u32 param1, u32 param2) 
             param0->unk00_7 = 1;
             break;
         case 41:
-            param0->unk6E += param2;
+            param0->unk6C.unk2 += param2;
             break;
         case 42:
-            param0->unk6C_0 += param2;
+            param0->unk6C.unk0_0 += param2;
             param0->unk00_8 = 1;
             break;
         case 43:
-            param0->unk6C_2 += param2;
+            param0->unk6C.unk0_2 += param2;
             break;
         case 44:
-            param0->unk6C_3 += param2;
+            param0->unk6C.unk0_3 += param2;
             break;
         case 45:
-            param0->unk6C_4 += param2;
+            param0->unk6C.unk0_4 += param2;
             break;
         case 46:
-            param0->unk6C_5 += param2;
+            param0->unk6C.unk0_5 += param2;
             break;
+    }
+}
+
+
+THUMB_FUNC void FUN_02007E40(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u32 param4) {
+    param0->unk54_1 = 1;
+    param0->unk44 = param1;
+    param0->unk45 = param2;
+    param0->unk46 = param3;
+    param0->unk47 = param4;
+}
+
+
+THUMB_FUNC void FUN_02007E68(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u32 param4) {
+    param0->unk54_C = 1;
+    param0->unk48 = param1;
+    param0->unk49 = param2;
+    param0->unk4A = 0;
+    param0->unk4B = param3;
+    param0->unk4C = param4;
+}
+
+
+THUMB_FUNC void FUN_02007E98(struct UnkStruct1 *param0, u32 param1, u32 param2, u32 param3, u32 param4) {
+    for (s32 i = 0; i < 4; i++) {
+        if (param0->unk000[i].unk00_0 == 0) {
+            continue;
+        }
+
+        param0->unk000[i].unk54_C = 1;
+        param0->unk000[i].unk48 = (u8)param1;
+        param0->unk000[i].unk49 = (u8)param2;
+        param0->unk000[i].unk4A = 0;
+        param0->unk000[i].unk4B = (u8)param3;
+        param0->unk000[i].unk4C = param4;
+    }
+}
+
+
+THUMB_FUNC void FUN_02007EEC(struct UnkStruct2 *param0) {
+    param0->unk54_C = 0;
+    param0->unk48 = 0;
+    param0->unk49 = 0;
+    param0->unk4A = 0;
+    param0->unk4B = 0;
+    param0->unk4C = 0;
+    param0->unk00_8 = 1;
+}
+
+
+
+THUMB_FUNC BOOL FUN_02007F20(struct UnkStruct2 *param0) {
+    return param0->unk54_C == 1;
+}
+
+
+THUMB_FUNC void FUN_02007F34(struct UnkStruct2 *param0, s32 param1) {
+    param0->unk2E = (40-param1) - (((40-param1)*param0->unk36)>>8);
+}
+
+
+#ifdef NONMATCHING
+THUMB_FUNC void FUN_02007F48(struct UnkStruct2 *param0) {
+    u8 *r6 = &param0->unk59;
+    if (param0->unk58 == 0) {
+        return;
+    }
+
+    if (param0->unk5A == 0) {
+        (*r6)++;
+
+        while (param0->unk84[*r6].unk0 < -1) {
+            param0->unk5C[*r6]++;
+
+            if (param0->unk84[*r6].unk1 == param0->unk5C[*r6] || param0->unk84[*r6].unk1 == 0) {
+                param0->unk5C[*r6] = 0;
+                r6++;
+            } else {
+                *r6 = -2-param0->unk84[*r6].unk0;
+            }
+        }
+
+        if (param0->unk84[*r6].unk0 == -1 || *r6 >= 10) {
+            param0->unk5B = 0;
+            param0->unk58 = 0;
+
+            return;
+        }
+
+        param0->unk5B = param0->unk84[*r6].unk0;
+        param0->unk5A = param0->unk84[*r6].unk1;
+
+    } else {
+        param0->unk5A--;
+    }
+}
+#else
+asm void FUN_02007F48(struct UnkStruct2 *param0) {
+    // clang-format off
+	push {r4-r7}
+	add r1, r0, #0x0
+	add r1, #0x58
+	ldrb r1, [r1, #0x0]
+	add r6, r0, #0x0
+	add r6, #0x59
+	cmp r1, #0x0
+	beq _0200800A
+	add r1, r0, #0x0
+	add r1, #0x5a
+	ldrb r1, [r1, #0x0]
+	cmp r1, #0x0
+	bne _02007FFE
+	ldrb r1, [r6, #0x0]
+	add r1, r1, #0x1
+	strb r1, [r6, #0x0]
+	ldrb r3, [r6, #0x0]
+	mov r1, #0x84
+	lsl r4, r3, #0x1
+	add r2, r0, r4
+	ldrsb r2, [r2, r1]
+	sub r1, #0x85
+	cmp r2, r1
+	bge _02007FC6
+	mov r2, #0x0
+	sub r1, r2, #0x2
+_02007F7C:
+	add r4, r0, r3
+	add r4, #0x5c
+	ldrb r4, [r4, #0x0]
+	add r3, r0, r3
+	add r3, #0x5c
+	add r4, r4, #0x1
+	strb r4, [r3, #0x0]
+	ldrb r5, [r6, #0x0]
+	lsl r3, r5, #0x1
+	add r4, r0, r3
+	add r3, r4, #0x0
+	add r7, r0, r5
+	add r3, #0x85
+	add r7, #0x5c
+	ldrb r3, [r3, #0x0]
+	ldrb r7, [r7, #0x0]
+	cmp r3, r7
+	beq _02007FA4
+	cmp r3, #0x0
+	bne _02007FAE
+_02007FA4:
+	add r3, r0, r5
+	add r3, #0x5c
+	strb r2, [r3, #0x0]
+	add r6, r6, #0x1
+	b _02007FB6
+_02007FAE:
+	mov r3, #0x84
+	ldrsb r3, [r4, r3]
+	sub r3, r1, r3
+	strb r3, [r6, #0x0]
+_02007FB6:
+	ldrb r3, [r6, #0x0]
+	mov r5, #0x84
+	lsl r4, r3, #0x1
+	add r7, r0, r4
+	ldrsb r7, [r7, r5]
+	sub r5, #0x85
+	cmp r7, r5
+	blt _02007F7C
+_02007FC6:
+	add r2, r0, r4
+	mov r1, #0x84
+	ldrsb r2, [r2, r1]
+	sub r1, #0x85
+	cmp r2, r1
+	beq _02007FD6
+	cmp r3, #0xa
+	blo _02007FE6
+_02007FD6:
+	add r1, r0, #0x0
+	mov r2, #0x0
+	add r1, #0x5b
+	strb r2, [r1, #0x0]
+	add r0, #0x58
+	strb r2, [r0, #0x0]
+	pop {r4-r7}
+	bx lr
+_02007FE6:
+	add r1, r0, #0x0
+	add r1, #0x5b
+	strb r2, [r1, #0x0]
+	ldrb r1, [r6, #0x0]
+	lsl r1, r1, #0x1
+	add r1, r0, r1
+	add r1, #0x85
+	ldrb r1, [r1, #0x0]
+	add r0, #0x5a
+	strb r1, [r0, #0x0]
+	pop {r4-r7}
+	bx lr
+_02007FFE:
+	add r1, r0, #0x0
+	add r1, #0x5a
+	ldrb r1, [r1, #0x0]
+	add r0, #0x5a
+	sub r1, r1, #0x1
+	strb r1, [r0, #0x0]
+_0200800A:
+	pop {r4-r7}
+	bx lr
+    // clang-format on
+}
+#endif
+
+
+THUMB_FUNC void FUN_02008010(u8 *param0, struct UnkStruct2_sub *param1) {
+    param0[0] = 1;
+    param0[2] = 0;
+    param0[1] = param1->unk0;
+    param0[3] = param1->unk1;
+    ((u32 *)param0)[4] = param1;
+
+    for (s32 i= 0; i<10;i++) {
+        param0[i+4]=0;
+    }
+}
+
+#ifdef NONMATCHING
+THUMB_FUNC s32 FUN_02008030(u8 *param0) {
+    if (*param0 != 0) {
+        u8 *r3 = param0+2;
+        struct UnkStruct2_sub *r4 = ((struct UnkStruct2_sub **)param0)[4];
+        if (*param0 != 0) {
+            if (param0[3] == 0) {
+                (*r3)++;
+
+                while (r4[*r3].unk0 < -1) {
+                    param0[*r3+4]++;
+                    if (r4[*r3].unk1 == param0[*r3+4] || r4[*r3].unk1 == 0) {
+                        param0[*r3+4] = 0;
+                        r3++;
+                    } else {
+                        *r3 = -2 - r4[*r3].unk0;
+                    }
+                }
+                
+                if (r4[*r3].unk0 == -1 || *r3 >= 10) {
+                    param0[0] = 0;
+                    param0[1] = 0;
+                } else {
+                    param0[1] = r4[*r3].unk0;
+                    param0[3] = r4[*r3].unk1;
+                }
+            } else {
+                param0[3]--;
+            }
+        }
+
+        return param0[1];
+
+    }
+
+    return -1;
+}
+#else
+asm s32 FUN_02008030(u8 *param0) {
+    // clang-format off
+	push {r4-r7}
+	ldrb r1, [r0, #0x0]
+	cmp r1, #0x0
+	beq _020080C6
+	add r3, r0, #0x2
+	ldr r4, [r0, #0x10]
+	cmp r1, #0x0
+	beq _020080C0
+	ldrb r1, [r0, #0x3]
+	cmp r1, #0x0
+	bne _020080BC
+	ldrb r1, [r3, #0x0]
+	add r1, r1, #0x1
+	strb r1, [r3, #0x0]
+	ldrb r2, [r3, #0x0]
+	mov r1, #0x0
+	mvn r1, r1
+	lsl r5, r2, #0x1
+	ldrsb r6, [r4, r5]
+	cmp r6, r1
+	bge _02008098
+	mov r1, #0x0
+_0200805C:
+	add r5, r0, r2
+	ldrb r2, [r5, #0x4]
+	add r2, r2, #0x1
+	strb r2, [r5, #0x4]
+	ldrb r2, [r3, #0x0]
+	add r5, r0, r2
+	lsl r2, r2, #0x1
+	add r2, r4, r2
+	ldrb r7, [r2, #0x1]
+	ldrb r6, [r5, #0x4]
+	cmp r7, r6
+	beq _02008078
+	cmp r7, #0x0
+	bne _0200807E
+_02008078:
+	strb r1, [r5, #0x4]
+	add r3, r3, #0x1
+	b _0200808A
+_0200807E:
+	mov r5, #0x0
+	ldrsb r5, [r2, r5]
+	mov r2, #0x1
+	mvn r2, r2
+	sub r2, r2, r5
+	strb r2, [r3, #0x0]
+_0200808A:
+	ldrb r2, [r3, #0x0]
+	mov r6, #0x0
+	mvn r6, r6
+	lsl r5, r2, #0x1
+	ldrsb r7, [r4, r5]
+	cmp r7, r6
+	blt _0200805C
+_02008098:
+	ldrsb r5, [r4, r5]
+	mov r1, #0x0
+	mvn r1, r1
+	cmp r5, r1
+	beq _020080A6
+	cmp r2, #0xa
+	blo _020080AE
+_020080A6:
+	mov r1, #0x0
+	strb r1, [r0, #0x1]
+	strb r1, [r0, #0x0]
+	b _020080C0
+_020080AE:
+	strb r5, [r0, #0x1]
+	ldrb r1, [r3, #0x0]
+	lsl r1, r1, #0x1
+	add r1, r4, r1
+	ldrb r1, [r1, #0x1]
+	strb r1, [r0, #0x3]
+	b _020080C0
+_020080BC:
+	sub r1, r1, #0x1
+	strb r1, [r0, #0x3]
+_020080C0:
+	ldrb r0, [r0, #0x1]
+	pop {r4-r7}
+	bx lr
+_020080C6:
+	mov r0, #0x0
+	mvn r0, r0
+	pop {r4-r7}
+	bx lr
+    // clang-format on
+}
+#endif
+
+
+THUMB_FUNC void FUN_020080D0(struct UnkStruct2 *param0) {
+    param0->unk00_7 = 1;
+    param0->unk00_8 = 1;
+}
+
+
+THUMB_FUNC void FUN_020080E0(struct UnkStruct2 *param0) {
+    param0->unk14 = param0->unk04;
+    param0->unk78 = param0->unk6C;
+}
+
+
+THUMB_FUNC void FUN_0200813C(struct UnkStruct2 *param0) {
+    param0->unk04 = param0->unk14;
+    param0->unk6C = param0->unk78;
+    param0->unk00_7 = 1;
+    param0->unk00_8 = 1;
+}
+
+
+THUMB_FUNC void FUN_020081A8(struct UnkStruct1 *param0, u32 param1, u32 param2) {
+    param0->unk29C = param1;
+    param0->unk2A0 = param2;
+}
+
+
+THUMB_FUNC void FUN_020081B4(struct UnkStruct1 *param0, u32 param1, u32 param2) {
+    param0->unk2A4 = param1;
+    param0->unk2A8 = param2;
+}
+
+
+THUMB_FUNC u32 FUN_020081C0(u32 param0) {
+    return param0+4;
+}
+
+THUMB_FUNC void FUN_020081C4(struct UnkStruct1 *param0) {
+    if (param0->unk2E1 != 0) {
+        param0->unk2E1 = 0;
+        NNS_G2dInitImageProxy(&param0->unk260);
+
+        param0->unk2B8.H = 0x20;
+        param0->unk2B8.W = 0x20;
+        param0->unk2B8.szByte = param0->unk2A0;
+        param0->unk2B8.pRawData = param0->unk2AC;
+
+        NNS_G2dLoadImage2DMapping(&param0->unk2B8, param0->unk29C, 0, &param0->unk260);
+
+    }
+
+    if (param0->unk2E2 != 0) {
+        param0->unk2E2 = 0;
+        NNS_G2dInitImagePaletteProxy(&param0->unk284);
+
+        param0->unk2D0.szByte = param0->unk2A8;
+        param0->unk2D0.pRawData = param0->unk2B0;
+
+        NNS_G2dLoadPalette(&param0->unk2D0, param0->unk2A4, 0, &param0->unk284);
+
+    }
+}
+
+
+THUMB_FUNC void FUN_0200825C(struct UnkStruct1 *param0, u8 param1) {
+    param0->unk2E3 = param1;
+}
+
+
+THUMB_FUNC BOOL FUN_02008268(struct UnkStruct2 *param0) {
+    GF_ASSERT(param0);
+    return param0->unk00_0 != 0;
+}
+
+
+THUMB_FUNC void FUN_02008284(struct UnkStruct1 *param0, u32 param1) {
+    param0->unk2E4 |= param1;
+}
+
+
+THUMB_FUNC void FUN_02008290(struct UnkStruct1 *param0, u32 param1) {
+    param0->unk2E4 &= (param1^~0);
+}
+
+
+extern void FUN_020088EC(struct UnkStruct2 *, u8 *);
+extern u8 FUN_020088D8(u8);
+
+THUMB_FUNC void FUN_020082A8(struct UnkStruct1 *param0) {
+    NNSG2dCharacterData *st58;
+    int st54;
+    int r4;
+    int st14;
+    u8 *st50;
+    void *st4c;
+    u8 st48 = 0;
+
+    for (st54 = 0; st54 < 4; st54++) {
+        if (param0->unk000[st54].unk00_0 != 0 && param0->unk000[st54].unk00_7 != 0) {
+            param0->unk000[st54].unk00_7 = 0;
+            st48 = 1;
+            st4c = AllocAndReadWholeNarcMemberByIdPair(param0->unk000[st54].unk04.field_00, param0->unk000[st54].unk04.field_02,  param0->unk298);
+            NNS_G2dGetUnpackedCharacterData(st4c, &st58);
+            param0->unk2B8.pixelFmt = st58->pixelFmt;
+            param0->unk2B8.mapingType = st58->mapingType;
+            param0->unk2B8.characterFmt = st58->characterFmt;
+
+            st50 = st58->pRawData;
+            FUN_02008A74(st50);
+            FUN_020088EC(&param0->unk000[st54], st50);
+
+            if (st54 == 3) {
+                for (st14 = 0; st14 < 0x50; st14++) {
+                    for (r4 = 0; r4 < 0x50; r4++) {
+                        if (r4 < 0x28) {
+                            if (param0->unk000[st54].unk54_9 != 0 && param0->unk000[st54].unk54_A != 0) {
+                                param0->unk2AC[st14*0x80+r4+0x50] = FUN_020088D8(st50[(0x4f-st14)*0x50+(0x27-r4)]);
+                            } else if (param0->unk000[st54].unk54_9 != 0) {
+                                param0->unk2AC[st14*0x80+r4+0x50] = FUN_020088D8(st50[st14*0x50+(0x27-r4)]);
+                            } else if (param0->unk000[st54].unk54_A != 0) {
+                                param0->unk2AC[st14*0x80+r4+0x50] = st50[(0x4f-st14)*0x50+r4];
+                            } else if (param0->unk000[st54].unk54_D != 0) {
+                                if (st14%(param0->unk000[st54].unk54_D*2) != 0) {
+                                    param0->unk2AC[st14*0x80+r4+0x50] = param0->unk2AC[(st14-1)*0x80+r4+0x50];
+                                } else if (r4%param0->unk000[st54].unk54_D != 0) {
+                                    param0->unk2AC[st14*0x80+r4+0x50] = param0->unk2AC[st14*0x80+r4+0x4f];
+                                } else {
+                                    param0->unk2AC[st14*0x80+r4+0x50] = ((st50[st14*0x50+r4]&0xf) |  ((st50[st14*0x50+r4]&0xf)<<4));
+                                }
+                            } else {
+                                param0->unk2AC[st14*0x80+r4+0x50] = st50[st14*0x50+r4];
+                            }
+                        } else {
+                            //_02008442
+                            if (param0->unk000[st54].unk54_9 != 0 && param0->unk000[st54].unk54_A != 0) {
+                                param0->unk2AC[st14*0x80+r4+0x2828] = FUN_020088D8(st50[(0x4f-st14)*0x50+(0x4f-(r4-0x28))]);
+                            } else if (param0->unk000[st54].unk54_9 != 0) {
+                                param0->unk2AC[st14*0x80+r4+0x2828] = FUN_020088D8(st50[st14*0x50+(0x4f-(r4-0x28))]);
+                            } else if (param0->unk000[st54].unk54_A != 0) {
+                                param0->unk2AC[st14*0x80+r4+0x2828] = st50[(0x4f-st14)*0x50+r4];
+                            } else if (param0->unk000[st54].unk54_D != 0) {
+                                if (st14%(param0->unk000[st54].unk54_D*2) != 0) {
+                                    param0->unk2AC[st14*0x80+r4+0x2828] = param0->unk2AC[(st14-1)*0x80+r4+0x2828];
+                                } else if (r4%param0->unk000[st54].unk54_D != 0) {
+                                    param0->unk2AC[st14*0x80+r4+0x2828] = param0->unk2AC[st14*0x80+(r4-1)+0x2828];
+                                } else {
+                                    param0->unk2AC[st14*0x80+r4+0x2828] = ((st50[st14*0x50+r4]&0xf) |  ((st50[st14*0x50+r4]&0xf)<<4));
+                                }
+                            } else {
+                                param0->unk2AC[st14*0x80+r4+0x2828] = st50[st14*0x50+r4];
+                            }
+                        }
+                    }
+                }
+
+            } else {
+                //_02008554
+                for (st14 = 0; st14 < 0x50; st14++) {
+                    for (r4 = 0; r4 < 0x50; r4++) {
+                        if (param0->unk000[st54].unk54_9 != 0 && param0->unk000[st54].unk54_A != 0) {
+                            if (r4 < 0x28) {
+                                param0->unk2AC[st14*0x80+r4+st54*0x2800] = FUN_020088D8(st50[(0x4f-st14)*0x50+(0x27-r4)]);
+                            } else {
+                                param0->unk2AC[st14*0x80+r4+st54*0x2800] = FUN_020088D8(st50[(0x4f-st14)*0x50+(0x4f-(r4-0x28))]);
+                            }
+                        } else if (param0->unk000[st54].unk54_9 != 0) {
+                            if (r4 < 0x28) {
+                                param0->unk2AC[st14*0x80+r4+st54*0x2800] = FUN_020088D8(st50[st14*0x50+(0x27-r4)]);
+                            } else {
+                                param0->unk2AC[st14*0x80+r4+st54*0x2800] = FUN_020088D8(st50[st14*0x50+(0x4f-(r4-0x28))]);
+                            }       
+                        } else if (param0->unk000[st54].unk54_A != 0) {
+                            param0->unk2AC[st14*0x80+r4+st54*0x2800] = st50[(0x4f-st14)*0x50+r4];
+                        } else if (param0->unk000[st54].unk54_D != 0) {
+                            if (st14%(param0->unk000[st54].unk54_D*2) != 0) {
+                                param0->unk2AC[st14*0x80+r4+st54*0x2800] = param0->unk2AC[(st14-1)*0x80+r4+st54*0x2800];
+                            } else if (r4%(param0->unk000[st54].unk54_D) != 0) {
+                                param0->unk2AC[st14*0x80+r4+st54*0x2800] = param0->unk2AC[st14*0x80+(r4-1)+st54*0x2800];
+                            } else {
+                                param0->unk2AC[st14*0x80+r4+st54*0x2800] = ((st50[st14*0x50+r4]&0xf) |  ((st50[st14*0x50+r4]&0xf)<<4));
+                            }
+                        } else {
+                            param0->unk2AC[st14*0x80+r4+st54*0x2800] = st50[st14*0x50+r4];
+                        }
+                    }
+                }
+
+            }
+
+            FreeToHeap(st4c);
+        }
+        //_020086C2
+    }
+
+    param0->unk2E1 = st48;
+}
+
+
+
+THUMB_FUNC void FUN_020086F4(struct UnkStruct1 *param0) {
+    NNSG2dPaletteData *st18;
+    int st14, r7;
+    u16 *r1;
+    void *st10;
+    u8 stc = 0;
+
+
+    for (st14 = 0 ; st14 < 4; st14++) {
+        if (param0->unk000[st14].unk00_0 != 0 && param0->unk000[st14].unk00_8 != 0) {
+            param0->unk000[st14].unk00_8 = 0;
+            stc = 1;
+            st10 = AllocAndReadWholeNarcMemberByIdPair(param0->unk000[st14].unk04.field_00, param0->unk000[st14].unk04.field_04, param0->unk298);
+            NNS_G2dGetUnpackedPaletteData(st10, &st18);
+            param0->unk2D0.fmt = st18->fmt;
+            r1 = st18->pRawData;
+            for (r7 = 0; r7 < 0x10; r7++) {
+                param0->unk2B0[st14*0x10+r7] = r1[r7];
+                param0->unk2B4[st14*0x10+r7] = r1[r7];
+            }
+            FreeToHeap(st10);
+
+            if (param0->unk000[st14].unk6C.unk0_0 != 0) {
+                st10 = AllocAndReadWholeNarcMemberByIdPair(NARC_POKETOOL_POKEGRA_OTHERPOKE, NARC_otherpoke_narc_0212_NCLR, param0->unk298);
+                NNS_G2dGetUnpackedPaletteData(st10, &st18);
+                r1 = st18->pRawData;
+                for (r7 = 0; r7 < 0x10; r7++) {
+                    param0->unk2B0[(param0->unk000[st14].unk6C.unk0_0+3)*0x10 + r7] = r1[r7];
+                    param0->unk2B4[(param0->unk000[st14].unk6C.unk0_0+3)*0x10 + r7] = r1[r7];
+                }
+                FreeToHeap(st10);
+            }
+        }
+        //_020087E0
+
+        if (param0->unk000[st14].unk00_0 != 0 && param0->unk000[st14].unk54_C != 0) {
+            if (param0->unk000[st14].unk4A == 0) {
+                stc = 1;
+                param0->unk000[st14].unk4A = param0->unk000[st14].unk4B;
+                BlendPalette(param0->unk2B4+st14*0x10, param0->unk2B0+st14*0x10, 0x10, param0->unk000[st14].unk48, (u16)param0->unk000[st14].unk4C);
+
+                if (param0->unk000[st14].unk6C.unk0_0 != 0) {
+                    BlendPalette(param0->unk2B4+(param0->unk000[st14].unk6C.unk0_0+3)*0x10, param0->unk2B0+(param0->unk000[st14].unk6C.unk0_0+3)*0x10, 0x10,  param0->unk000[st14].unk48, (u16)param0->unk000[st14].unk4C);
+                }
+
+                if (param0->unk000[st14].unk48 == param0->unk000[st14].unk49) {
+                    param0->unk000[st14].unk54_C = 0;
+                } else if (param0->unk000[st14].unk48 > param0->unk000[st14].unk49) {
+                    param0->unk000[st14].unk48--;
+                } else {
+                    param0->unk000[st14].unk48++;
+                }
+            } else {
+                param0->unk000[st14].unk4A--;
+            }
+        }
+    }
+
+    param0->unk2E2 = stc;
+
+}
+
+
+
+THUMB_FUNC u8 FUN_020088D8(u8 param0) {
+    return  ((u8)((param0&0xf0)>>4)) | ((u8)(param0<<4));
+}
+
+extern void FUN_02008904(u8 *param0, u32 param1, u32 param2);
+
+THUMB_FUNC void FUN_020088EC(struct UnkStruct2 *param0, u8 *param1) {
+    if (param0->unk04.field_06 != 0) {
+        FUN_02008904(param1, param0->unk04.field_0C,1);
+    }
+}
+
+
+THUMB_FUNC void FUN_02008904(u8 *param0, u32 param1, u32 param2) {
+    struct UnkStruct4 *st10;
+    s32 i;
+    u32 r2;
+    u8 r0;
+    u8 r4;
+    u8 r1;
+    u32 st0 = param1;
+
+    for (i = 0; i < 4; i++) {
+        st10 = UNK_02105AE8[i];
+        r1 = 0;
+        while (st10[r1].unk0 != 0xff) {
+            r0 = st10[r1].unk0+((param1&0xf) - 8);
+            r4 = st10[r1].unk1+(((param1&0xf0)>>4)-8);
+            r2 = r0/2 + r4*0x50;
+            if ((r0&1) != 0) {
+                if ((param0[r2]&0xf0) >= 0x10 && (param0[r2]&0xf0) <= 0x30) {
+                    param0[r2] += 0x50;
+                }
+            } else {
+                if ((param0[r2]&0xf) >= 1 && (param0[r2]&0xf) <= 3) {
+                    param0[r2]+= 5;
+                }
+            }
+
+            r1++;
+        }
+        param1 >>= 8;
+    }
+
+    param1 = st0;
+
+    if (param2 != 0) {
+        for (i = 0; i < 4; i++) {
+            st10 = UNK_02105AE8[i];
+            r1 = 0;
+            while (st10[r1].unk0 != 0xff) {
+                r0 = st10[r1].unk0-14+((param1&0xf)-8)+0x50;
+                r4 = st10[r1].unk1+(((param1&0xf0)>>4)-8);
+                r2 = r0/2 + r4*0x50;
+                if ((r0 &1) != 0) {
+                    if ((param0[r2]&0xf0) >= 0x10 && (param0[r2]&0xf0) <= 0x30) {
+                        param0[r2] += 0x50;
+                    }
+                } else {
+                    if ((param0[r2]&0xf) >= 1 && (param0[r2]&0xf) <= 3) {
+                        param0[r2]+= 5;
+                    }
+                }
+                r1++;
+            }
+            param1 >>= 8;
+        }
+    }
+}
+
+
+
+THUMB_FUNC u16 FUN_02008A54(u32 *param0) {
+    *param0 = (*param0)*0x41C64E6D+0x6073;
+
+    return *param0>>16;
+}
+
+
+THUMB_FUNC void FUN_02008A74(u8 *param0) {
+    u32 st0 = ((u16 *)param0)[0xc7f];
+    for (s32 r4 = 0xc7f; r4 > -1; r4--) {
+        ((u16 *)param0)[r4] ^= st0;
+        FUN_02008A54(&st0);
     }
 }

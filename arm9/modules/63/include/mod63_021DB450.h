@@ -23,8 +23,10 @@ typedef struct UnkStruct63_021DB450 //intro base struct type
 
 typedef struct UnkStruct63_021DB49C
 {
-    u32 field_00;
-    u32 field_04;
+    u16 field_00;
+    u16 field_02;
+    u16 field_04;
+    u16 field_06;
     u32 field_08;
     u32 field_0C;
 } UnkStruct63_021DB49C;
