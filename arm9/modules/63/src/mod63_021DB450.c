@@ -3,6 +3,7 @@
 #include "constants/species.h"
 #include "gx.h"
 #include "mod63_021DB450.h"
+#include "unk_02006D98.h"
 
 //todo resolve to static code
 extern u32 (*NNS_GfdDefaultFuncAllocTexVram)(u32 param0, u32 param1, u32 param2);
@@ -12,38 +13,30 @@ extern void FUN_0201327C(u32 param0);
 extern void FUN_020132BC(u32 param0);
 
 extern void * FUN_02012CDC(void *, void *, void *, u32, u32, u32);
-extern u32 FUN_020073A0(struct UnkStruct63_021DB450 *, struct UnkStruct63_021DB49C *, u32, u32, u32, u32, u32, u32);
 
-extern struct UnkStruct63_021DB450 * FUN_02006D98(u32);
 extern void FUN_02068C00(struct UnkStruct63_021DB49C*, u16, u32, u32, u32, u32, u32);
 extern void FUN_02012CC8(void);
-extern void FUN_02007558(u32, u32, u32);
 extern void Camera_SetPerspectiveClippingPlane(u32, u32, u32);
 extern u32 FUN_0201343C(void);
 extern void FUN_02013194(void *, u32, u32, u32);
 extern u32 FUN_0201318C(u32, u32, u32);
 
 extern void FUN_02012DE4(void *);
-extern void FUN_020072E8(struct UnkStruct63_021DB450 *);
 
-extern void FUN_020081C4(struct UnkStruct63_021DB450 *);
 
 extern void FUN_020222AC(void);
 extern void NNS_G2dSetupSoftwareSpriteCamera(void);
-extern u32 FUN_02006ED4(struct UnkStruct63_021DB450 *);
 extern void FUN_020222B4(u32, u32);
 
 extern void FUN_02013440(void *, u32);
-extern void FUN_020133AC(void *, u32, const void *, u32);
+extern void FUN_020133AC(void *, u32, const void *, struct UnkStruct_02006D98_2 *);
 extern BOOL FUN_020133C8(void *);
 
-extern void FUN_020079E0(u32, u32, s32);
 
 extern void FUN_02013364(void);
 extern void FUN_02013388(void);
 
-void * FUN_0201341C(struct UnkStruct63_021DB450 *);
-int FUN_0200782C(void *, int);
+struct UnkStruct_02006D98_2 * FUN_0201341C(struct UnkStruct63_021DB450 *);
 
 const s32 MOD63_021DBEC0[3] = {0x703, 0x7CE, 0x8A8};
 const struct UnkStruct63_021DBEF0 MOD63_021DBEF0[3];
@@ -115,7 +108,7 @@ THUMB_FUNC void MOD63_021DB5A8(UnkStruct63_021DB450 *param0)
     }
     FUN_020222AC();
     NNS_G2dSetupSoftwareSpriteCamera();
-    (void)FUN_02006ED4(param0->field_00);
+    FUN_02006ED4(param0->field_00);
     MOD63_021DB934();
     FUN_020222B4(1, 0);
 }
@@ -193,7 +186,7 @@ THUMB_FUNC BOOL MOD63_021DB5CC(UnkStruct63_021DB450 *param0, u32 param1, s32 par
 
 THUMB_FUNC BOOL MOD63_021DB720(UnkStruct63_021DB450 *param0, u32 param1)
 {
-    u32 field = param0->field_04[param1];
+    struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, 0x6);
     FUN_020079E0(field, 0x1, -0x10);
     FUN_020079E0(field, 0xC, -0x80);
@@ -210,7 +203,7 @@ THUMB_FUNC BOOL MOD63_021DB720(UnkStruct63_021DB450 *param0, u32 param1)
 
 THUMB_FUNC BOOL MOD63_021DB784(UnkStruct63_021DB450 *param0, u32 param1)
 {
-    u32 field = param0->field_04[param1];
+    struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, -0x3);
     FUN_020079E0(field, 0x1, -0x12);
     param0->field_1D++;
@@ -225,7 +218,7 @@ THUMB_FUNC BOOL MOD63_021DB784(UnkStruct63_021DB450 *param0, u32 param1)
 
 THUMB_FUNC BOOL MOD63_021DB7D0(UnkStruct63_021DB450 *param0, u32 param1)
 {
-    u32 field = param0->field_04[param1];
+    struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, -0x10);
     FUN_020079E0(field, 0x1, -0x10);
     FUN_020079E0(field, 0xC, -0x80);
@@ -242,7 +235,7 @@ THUMB_FUNC BOOL MOD63_021DB7D0(UnkStruct63_021DB450 *param0, u32 param1)
 
 THUMB_FUNC BOOL MOD63_021DB838(UnkStruct63_021DB450 *param0, u32 param1)
 {
-    u32 field = param0->field_04[param1];
+    struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0, -0x6);
     FUN_020079E0(field, 1, -0x10);
     param0->field_1D++;
@@ -257,7 +250,7 @@ THUMB_FUNC BOOL MOD63_021DB838(UnkStruct63_021DB450 *param0, u32 param1)
 
 THUMB_FUNC BOOL MOD63_021DB884(UnkStruct63_021DB450 *param0, u32 param1)
 {
-    u32 field = param0->field_04[param1];
+    struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0, 0x8);
     FUN_020079E0(field, 1, -0x10);
     FUN_020079E0(field, 0xC, -0x80);
@@ -274,7 +267,7 @@ THUMB_FUNC BOOL MOD63_021DB884(UnkStruct63_021DB450 *param0, u32 param1)
 
 THUMB_FUNC BOOL MOD63_021DB8E8(UnkStruct63_021DB450 *param0, u32 param1)
 {
-    u32 field = param0->field_04[param1];
+    struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0, 0x6);
     FUN_020079E0(field, 1, -0x14);
     param0->field_1D++;
@@ -295,7 +288,7 @@ THUMB_FUNC void MOD63_021DB934(void)
 
 THUMB_FUNC void MOD63_021DB940(struct UnkStruct63_021DB450 * a0)
 {
-    void * r4 = FUN_0201341C(a0);
+    struct UnkStruct_02006D98_2 * r4 = FUN_0201341C(a0);
     int sp0[3] = {0, 0, 0};
     sp0[0] = (FUN_0200782C(r4, 0) - 0x80) * 0xAC;
     sp0[1] = (FUN_0200782C(r4, 1) - 0x60) * 0xAC;

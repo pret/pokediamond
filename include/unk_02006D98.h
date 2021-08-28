@@ -1,13 +1,24 @@
+#ifndef POKEDIAMOND_UNK_02006D98_H
+#define POKEDIAMOND_UNK_02006D98_H
+
 #include "global.h"
 #include "NNS_g2d.h"
-#include "mod63_021DB450.h"
+struct UnkStruct63_021DB49C
+{
+    u16 field_00;
+    u16 field_02;
+    u16 field_04;
+    u16 field_06;
+    u32 field_08;
+    u32 field_0C;
+};
 
-struct UnkStruct2_sub
+struct UnkStruct_02006D98_sub
 {
     s8 unk0;
     u8 unk1;
 };
-struct UnkStruct2_sub2
+struct UnkStruct_02006D98_sub2
 {
     u16 unk0_0 : 2;
     u16 unk0_2 : 1;
@@ -22,7 +33,7 @@ struct UnkStruct2_sub2
     s16 unka;
 };
 
-struct UnkStruct2
+struct UnkStruct_02006D98_2
 {
     u32 unk00_0 : 1;
     u32 unk00_1 : 6;
@@ -74,15 +85,15 @@ struct UnkStruct2
     u8 unk5A;
     u8 unk5B;
     u8 unk5C[10];
-    void (*unk68)(struct UnkStruct2 *, void *);
-    struct UnkStruct2_sub2 unk6C;
-    struct UnkStruct2_sub2 unk78;
-    struct UnkStruct2_sub unk84[10];
+    void (*unk68)(struct UnkStruct_02006D98_2 *, void *);
+    struct UnkStruct_02006D98_sub2 unk6C;
+    struct UnkStruct_02006D98_sub2 unk78;
+    struct UnkStruct_02006D98_sub unk84[10];
 };
 
-struct UnkStruct1
+struct UnkStruct_02006D98
 {
-    struct UnkStruct2 unk000[4];
+    struct UnkStruct_02006D98_2 unk000[4];
     NNSG2dImageProxy unk260;
     NNSG2dImagePaletteProxy unk284;
     u32 unk298;
@@ -102,27 +113,27 @@ struct UnkStruct1
     u32 unk2E4;
 };
 
-struct UnkStruct4
+struct UnkStruct_02006D98_3
 {
     u8 unk0;
     u8 unk1;
 };
 
-struct UnkStruct1 *FUN_02006D98(u32 heap_id);
-void FUN_02006ED4(struct UnkStruct1 *param0);
-void FUN_020072E8(struct UnkStruct1 *param0);
-void FUN_02007314(struct UnkStruct2 *param0);
-void FUN_0200737C(struct UnkStruct2 *param0, struct UnkStruct2_sub *param1);
-BOOL FUN_02007390(struct UnkStruct2 *param0);
-struct UnkStruct2 *FUN_020073A0(struct UnkStruct1 *param0,
+struct UnkStruct_02006D98 *FUN_02006D98(u32 heap_id);
+void FUN_02006ED4(struct UnkStruct_02006D98 *param0);
+void FUN_020072E8(struct UnkStruct_02006D98 *param0);
+void FUN_02007314(struct UnkStruct_02006D98_2 *param0);
+void FUN_0200737C(struct UnkStruct_02006D98_2 *param0, struct UnkStruct_02006D98_sub *param1);
+BOOL FUN_02007390(struct UnkStruct_02006D98_2 *param0);
+struct UnkStruct_02006D98_2 *FUN_020073A0(struct UnkStruct_02006D98 *param0,
     struct UnkStruct63_021DB49C *param1,
     u32 param2,
     u32 param3,
     u32 param4,
     u32 param5,
     const void *param6,
-    void (*param7)(struct UnkStruct2 *, void *));
-struct UnkStruct2 *FUN_020073E8(struct UnkStruct1 *param0,
+    void (*param7)(struct UnkStruct_02006D98_2 *, void *));
+struct UnkStruct_02006D98_2 *FUN_020073E8(struct UnkStruct_02006D98 *param0,
     struct UnkStruct63_021DB49C *param1,
     u32 param2,
     u32 param3,
@@ -130,36 +141,39 @@ struct UnkStruct2 *FUN_020073E8(struct UnkStruct1 *param0,
     u32 param5,
     s32 param6,
     const void *param7,
-    void (*param8)(struct UnkStruct2 *, void *));
-void FUN_02007534(struct UnkStruct2 *param0);
-void FUN_02007540(struct UnkStruct1 *param0);
-void FUN_02007558(struct UnkStruct2 *param0, u32 param1, u32 param2);
-u32 FUN_0200782C(struct UnkStruct2 *param0, u32 param1);
-void FUN_020079E0(struct UnkStruct2 *param0, u32 param1, u32 param2);
-void FUN_02007E40(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
-void FUN_02007E68(struct UnkStruct2 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
-void FUN_02007E98(struct UnkStruct1 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
-void FUN_02007EEC(struct UnkStruct2 *param0);
-BOOL FUN_02007F20(struct UnkStruct2 *param0);
-void FUN_02007F34(struct UnkStruct2 *param0, s32 param1);
-void FUN_02007F48(struct UnkStruct2 *param0);
-void FUN_02008010(u8 *param0, struct UnkStruct2_sub *param1);
+    void (*param8)(struct UnkStruct_02006D98_2 *, void *));
+void FUN_02007534(struct UnkStruct_02006D98_2 *param0);
+void FUN_02007540(struct UnkStruct_02006D98 *param0);
+void FUN_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2);
+u32 FUN_0200782C(struct UnkStruct_02006D98_2 *param0, u32 param1);
+void FUN_020079E0(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2);
+void FUN_02007E40(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
+void FUN_02007E68(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
+void FUN_02007E98(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2, u32 param3, u32 param4);
+void FUN_02007EEC(struct UnkStruct_02006D98_2 *param0);
+BOOL FUN_02007F20(struct UnkStruct_02006D98_2 *param0);
+void FUN_02007F34(struct UnkStruct_02006D98_2 *param0, s32 param1);
+void FUN_02007F48(struct UnkStruct_02006D98_2 *param0);
+void FUN_02008010(u8 *param0, struct UnkStruct_02006D98_sub *param1);
 s32 FUN_02008030(u8 *param0);
-void FUN_020080D0(struct UnkStruct2 *param0);
-void FUN_020080E0(struct UnkStruct2 *param0);
-void FUN_0200813C(struct UnkStruct2 *param0);
-void FUN_020081A8(struct UnkStruct1 *param0, u32 param1, u32 param2);
-void FUN_020081B4(struct UnkStruct1 *param0, u32 param1, u32 param2);
+void FUN_020080D0(struct UnkStruct_02006D98_2 *param0);
+void FUN_020080E0(struct UnkStruct_02006D98_2 *param0);
+void FUN_0200813C(struct UnkStruct_02006D98_2 *param0);
+void FUN_020081A8(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2);
+void FUN_020081B4(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2);
 u32 FUN_020081C0(u32 param0);
-void FUN_020081C4(struct UnkStruct1 *param0);
-void FUN_0200825C(struct UnkStruct1 *param0, u8 param1);
-BOOL FUN_02008268(struct UnkStruct2 *param0);
-void FUN_02008284(struct UnkStruct1 *param0, u32 param1);
-void FUN_02008290(struct UnkStruct1 *param0, u32 param1);
-void FUN_020082A8(struct UnkStruct1 *param0);
-void FUN_020086F4(struct UnkStruct1 *param0);
+void FUN_020081C4(struct UnkStruct_02006D98 *param0);
+void FUN_0200825C(struct UnkStruct_02006D98 *param0, u8 param1);
+BOOL FUN_02008268(struct UnkStruct_02006D98_2 *param0);
+void FUN_02008284(struct UnkStruct_02006D98 *param0, u32 param1);
+void FUN_02008290(struct UnkStruct_02006D98 *param0, u32 param1);
+void FUN_020082A8(struct UnkStruct_02006D98 *param0);
+void FUN_020086F4(struct UnkStruct_02006D98 *param0);
 u8 FUN_020088D8(u8 param0);
-void FUN_020088EC(struct UnkStruct2 *param0, u8 *param1);
+void FUN_020088EC(struct UnkStruct_02006D98_2 *param0, u8 *param1);
 void FUN_02008904(u8 *param0, u32 param1, u32 param2);
 u16 FUN_02008A54(u32 *param0);
 void FUN_02008A74(u8 *param0);
+
+
+#endif // POKEDIAMOND_UNK_02006D98_H
