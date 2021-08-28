@@ -489,6 +489,9 @@ const int UNK_020ECBD0[4][4] = {
     { 160, 160, 224, 176 }, { 160, 160, 224, 176 }, { 160, 176, 224, 192 }, { 160, 192, 224, 208 }
 };
 
+
+// the structure should be something like that but the symbol order is all wrong this way. Let just dump the raw bytes for now.
+
 // const int UNK_020ECD4C[4][2][4] = {
 //     {
 //             {0, 0, 0x50, 0x50}, {0x50, 0, 0xA0, 0x50}
