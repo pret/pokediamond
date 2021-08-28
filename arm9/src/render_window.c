@@ -87,10 +87,10 @@ THUMB_FUNC s32 FUN_0200CAFC(void)
 }
 
 THUMB_FUNC void FUN_0200CB00(
-    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 param3, u8 param4, u32 heap_id)
+    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 param3, u8 frame_id, u32 heap_id)
 {
     s32 r1;
-    if (param4 != 0)
+    if (frame_id != 0)
     {
         r1 = NARC_winframe_narc_0001_NCGR;
     }
@@ -102,7 +102,7 @@ THUMB_FUNC void FUN_0200CB00(
     GfGfxLoader_LoadCharData(
         NARC_GRAPHIC_WINFRAME, r1, bg_config, layer, num_tiles, 0, FALSE, heap_id);
 
-    if (param4 == 2)
+    if (frame_id == 2)
     {
         r1 = NARC_winframe_narc_0045_NCLR;
     }
@@ -191,20 +191,20 @@ THUMB_FUNC s32 FUN_0200CD64(s32 param0)
 }
 
 THUMB_FUNC void FUN_0200CD68(
-    struct BgConfig *param0, u32 param1, u32 param2, u32 param3, u8 param4, u32 param5)
+    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 param3, u8 frame_id, u32 heap_id)
 {
 
     GfGfxLoader_LoadCharData(
-        NARC_GRAPHIC_WINFRAME, FUN_0200CD60(param4), param0, param1, param2, 0, FALSE, param5);
+        NARC_GRAPHIC_WINFRAME, FUN_0200CD60(frame_id), bg_config, layer, num_tiles, 0, FALSE, heap_id);
 
-    if (param1 < 4)
+    if (layer < 4)
     {
         GfGfxLoader_GXLoadPal(
-            NARC_GRAPHIC_WINFRAME, FUN_0200CD64(param4), 0, param3 << 5, 32, param5);
+            NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), 0, param3 << 5, 32, heap_id);
         return;
     }
 
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(param4), 4, param3 << 5, 32, param5);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), 4, param3 << 5, 32, heap_id);
 }
 
 THUMB_FUNC void DrawFrame2(struct BgConfig *bgConfig,

@@ -2,6 +2,7 @@
 #include "OS_reset.h"
 #include "OS_interrupt.h"
 #include "OS_terminate_proc.h"
+#include "PXI_fifo.h"
 
 static u16 OSi_IsInitReset = 0;
 vu16 OSi_IsResetOccurred = 0;
@@ -10,8 +11,6 @@ extern void MI_StopDma(u32 dma);
 extern OSIrqMask OS_SetIrqMask(OSIrqMask mask);
 extern OSIrqMask OS_ResetRequestIrqMask(OSIrqMask mask);
 extern void SND_Shutdown(void);
-extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
-extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 extern void FUN_038073EC(void); //OSi_DoResetSystem, in wram
 
 ARM_FUNC void OS_InitReset(void)
