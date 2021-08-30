@@ -101,7 +101,7 @@ static uint32_t ConvertFromScanned4Bpp(unsigned char *src, unsigned char *dest, 
         uint16_t val = (src[i - 1] << 8) | src[i - 2];
         val ^= (encValue & 0xFFFF);
         src[i - 1] = (val >> 8);
-        src[i - 2] = val;
+        src[i - 2] = (unsigned char)val;
         encValue = encValue * 1103515245;
         encValue = encValue + 24691;
     }
@@ -225,7 +225,7 @@ static void ConvertToScanned4Bpp(unsigned char *src, unsigned char *dest, int fi
         encValue = (encValue - 24691) * 4005161829;
         val ^= (encValue & 0xFFFF);
         dest[i] = (val >> 8);
-        dest[i - 1] = val;
+        dest[i - 1] = (unsigned char)val;
     }
 }
 
@@ -704,7 +704,7 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
 
     fwrite(palHeader, 1, 0x18, fp);
 
-    unsigned char colours[colourNum * 2];
+    unsigned char * colours = malloc(colourNum * 2);
     //palette data
     for (int i = 0; i < colourNum; i++)
     {
@@ -733,6 +733,7 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
     }
 
     fwrite(colours, 1, colourNum * 2, fp);
+    free(colours);
 
     fclose(fp);
 }
@@ -750,7 +751,7 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
     {
         for (int j = 0; j < options->labelCount; j++)
         {
-            totalSize += strlen(options->labels[j]) + 5; //strlen + terminator + pointer
+            totalSize += (unsigned)strlen(options->labels[j]) + 5; //strlen + terminator + pointer
         }
     }
 
@@ -865,7 +866,7 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
         unsigned int lablSize = 8;
         for (int j = 0; j < options->labelCount; j++)
         {
-            lablSize += strlen(options->labels[j]) + 5;
+            lablSize += (unsigned)strlen(options->labels[j]) + 5;
         }
 
         unsigned char *labl = malloc(lablSize);
@@ -884,14 +885,14 @@ void WriteNtrCell(char *path, struct JsonToCellOptions *options)
             labl[i + 8] = position & 0xff;
             labl[i + 9] = position >> 8;
 
-            position += strlen(options->labels[j]) + 1;
+            position += (unsigned)strlen(options->labels[j]) + 1;
             i += 4;
         }
 
         for (int j = 0; j < options->labelCount; j++)
         {
             strcpy((char *) (labl + (i + 8)), options->labels[j]);
-            i += strlen(options->labels[j]) + 1;
+            i += (int)strlen(options->labels[j]) + 1;
         }
 
         fwrite(labl, 1, lablSize, fp);
