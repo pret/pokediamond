@@ -13,7 +13,7 @@ arm*/build/**
 
 # CLion folders
 .idea/
-cmake-build-debug/
+cmake-build-*/
 
 # ROM
 *.srl

@@ -358,6 +358,7 @@ Static arm9
 	### Nitro System SDK ###
 	Object NNS_FND_list.o
 	Object NNS_FND_heapcommon.o
+	Object NNS_FND_expheap_s.o
 	Object NNS_FND_expheap.o
 	Object NNS_FND_frameheap.o
 	Object NNS_FND_allocator.o
