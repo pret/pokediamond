@@ -12,14 +12,14 @@ CONTEST WINS
 CONTEST WIN %
 RIBBONS
 EXIT
-{STRVAR 50, 0}. {STRVAR 3, 1}
-{STRVAR 53, 0} wins
-{STRVAR 50, 0} wins
-{STRVAR 54, 0}
-{STRVAR 55, 0}
-{STRVAR 55, 0}
-{STRVAR 52, 0}%
-{STRVAR 53, 0}
+{STRVAR_1 50, 0}. {STRVAR_1 3, 1}
+{STRVAR_1 53, 0} wins
+{STRVAR_1 50, 0} wins
+{STRVAR_1 54, 0}
+{STRVAR_1 55, 0}
+{STRVAR_1 55, 0}
+{STRVAR_1 52, 0}%
+{STRVAR_1 53, 0}
 Which record would you like to see?
 The Battle Tower’s win-streak record\nin Single Battles.
 The Battle Tower’s win-streak record\nin Double Battles.

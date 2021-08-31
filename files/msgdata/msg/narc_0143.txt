@@ -1,5 +1,5 @@
 Hello.\nMay I help you with anything?
-Hello, {STRVAR 3, 0}.\nMay I help you with anything?
+Hello, {STRVAR_1 3, 0}.\nMay I help you with anything?
 Please enjoy yourself.
 The Yellow Cushion is popular for its\nperfect balance of soft and firm.
 You would be surprised at how many\ncustomers buy Cupboards.

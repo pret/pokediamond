@@ -1,7 +1,7 @@
-{STRVAR 3, 0}: Hunh?\rOh, it’s you, {STRVAR 3, 1}!\nYou finally got here?\fYou’re slow like always.\rYou’re so slow, the Gym Leader’s\nlong gone now.\rHe said he had to go... Uh...\nOh, yeah, to Oreburgh Mine!\rI got my Badge already, so it’s no\nbig deal to me, but...
-{STRVAR 3, 0}: I told you, the Gym\nLeader isn’t here.\rIf you want to take the Gym\nchallenge, you’d better go down to\fthe mine and ask him.\rBut, boy, a Gym Leader is in a\ndifferent class of toughness.\rEven I’m feeling run down.
+{STRVAR_1 3, 0}: Hunh?\rOh, it’s you, {STRVAR_1 3, 1}!\nYou finally got here?\fYou’re slow like always.\rYou’re so slow, the Gym Leader’s\nlong gone now.\rHe said he had to go... Uh...\nOh, yeah, to Oreburgh Mine!\rI got my Badge already, so it’s no\nbig deal to me, but...
+{STRVAR_1 3, 0}: I told you, the Gym\nLeader isn’t here.\rIf you want to take the Gym\nchallenge, you’d better go down to\fthe mine and ask him.\rBut, boy, a Gym Leader is in a\ndifferent class of toughness.\rEven I’m feeling run down.
 {SIZE 200}Thud!!{SIZE 100}\r
-{STRVAR 3, 0}: Whoops! {STRVAR 3, 1}!\nYou got the Gym Badge, huh?\rEterna City is the next place with\na Gym that gives away Badges, right?\r
+{STRVAR_1 3, 0}: Whoops! {STRVAR_1 3, 1}!\nYou got the Gym Badge, huh?\rEterna City is the next place with\na Gym that gives away Badges, right?\r
 So, yeah, I went to Route 207, but\nyou can’t go there without a Bicycle.\rI made my team battle and toughened\nthem up, so it wasn’t a waste.\r
 So, I’m going back to Jubilife City.\nNext stop, the Eterna Gym Badge!\rTen seconds before I dash!\rNine...\rBah! Who’s got time to count?!\r
 Howdy, Trainer!\rIf you don’t have a single Gym Badge,\nother Trainers will look down on\fyou like you’re a total noob, right?\rSo, I’ll show you where the town’s\nPokémon Gym is.\r

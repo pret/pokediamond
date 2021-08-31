@@ -1,14 +1,14 @@
-{STRVAR 3, 0}: Hey, you saw that news\nreport that was on TV, right?\rYou know, “Search for the Red\nGYARADOS! The mysterious appearance\fof the furious Pokémon in a lake!”\rThat show got me to thinking.\rI’ll bet our local lake has a Pokémon\nlike that in it, too!\rSo, that’s what we’re gonna do.\nWe’ll go find a Pokémon like that!
-{STRVAR 3, 0}: Hey!\nWhere are you wandering off to?!\rThat mystery Pokémon on TV!\nIt’s calling out to me!\rForget about going back home!\r
-Remember what your mother said?\rMom: “{STRVAR 3, 0}!\nDon’t go into the tall grass!\r“Remember, wild Pokémon may attack\nyou if you’re walking in tall grass.\r“It would be OK if you had your\nown Pokémon, but...”
-{STRVAR 3, 0}: Hey, it’s those people!\nIs that old guy staring at us?\r
-Professor: Hmm...\rI heard from {STRVAR 3, 0} that\nyou used our Pokémon?\fLet me see them, please.\rHmm...\n{STRVAR 0, 1} and {STRVAR 0, 2}...\r...\rHmm...\fI see...\nThat’s how it is...\r
-{STRVAR 3, 0}!\nI’m going back to my lab!\r
+{STRVAR_1 3, 0}: Hey, you saw that news\nreport that was on TV, right?\rYou know, “Search for the Red\nGYARADOS! The mysterious appearance\fof the furious Pokémon in a lake!”\rThat show got me to thinking.\rI’ll bet our local lake has a Pokémon\nlike that in it, too!\rSo, that’s what we’re gonna do.\nWe’ll go find a Pokémon like that!
+{STRVAR_1 3, 0}: Hey!\nWhere are you wandering off to?!\rThat mystery Pokémon on TV!\nIt’s calling out to me!\rForget about going back home!\r
+Remember what your mother said?\rMom: “{STRVAR_1 3, 0}!\nDon’t go into the tall grass!\r“Remember, wild Pokémon may attack\nyou if you’re walking in tall grass.\r“It would be OK if you had your\nown Pokémon, but...”
+{STRVAR_1 3, 0}: Hey, it’s those people!\nIs that old guy staring at us?\r
+Professor: Hmm...\rI heard from {STRVAR_1 3, 0} that\nyou used our Pokémon?\fLet me see them, please.\rHmm...\n{STRVAR_1 0, 1} and {STRVAR_1 0, 2}...\r...\rHmm...\fI see...\nThat’s how it is...\r
+{STRVAR_1 3, 0}!\nI’m going back to my lab!\r
 Dawn: Um... Yes!\nProfessor, please wait for me!\r
 I think you should visit our lab\nlater.\rOK, see you!\r
 Lucas: Uh... Yeah, of course!\nProfessor, wait for me!\r
 You should visit us at our lab later,\nI think.\rWe’ll be seeing you!\r
-{STRVAR 3, 0}: What was all that\ncraziness about?\rI mean, if he was angry, he could’ve\njust yelled at us, or whatever...\rAnd didn’t he want their Pokémon\nback...?\r{STRVAR 3, 1}...\nWe should go home, too...\r
+{STRVAR_1 3, 0}: What was all that\ncraziness about?\rI mean, if he was angry, he could’ve\njust yelled at us, or whatever...\rAnd didn’t he want their Pokémon\nback...?\r{STRVAR_1 3, 1}...\nWe should go home, too...\r
 Wild Pokémon lurk in tall grass. They\ncan come bursting out at any time.\rSo, if you’re wanting to battle wild\nPokémon, just walk in tall grass.\rIf you want to avoid wild Pokémon,\nthen stay out of the tall grass.
 Hi!\nI work at a Pokémon Mart.\rDid you know that a Pokémon’s health\nis measured by Hit Points (HP)?\rIf a Pokémon runs out of HP, it\nfaints and can’t battle anymore.\rIf a Pokémon’s HP gets low, you\nshould heal it with a Potion.\rHere, let me give you a Potion as\na free sample. First one’s free!\rIt will automatically go in the\nMedicine Pocket of your Bag.\r
 You can find a Pokémon Mart in cities\nand most major towns.

@@ -1,22 +1,22 @@
 Julia: Oh, hello.\nYou’re quite the nifty Trainer.\rMy husband is a Sailor, and he’s off\nworking somewhere far away.\rI long for the day he comes back\nto me.\rAll that waiting gets to be very\nboring every day, though...\rI know! How about you visit me and\ntell me stories every so often?
 Starting tomorrow, please visit and\ntell me stories about your travels.
 Julia: Today is Monday!\rIt’s time to get going on a brand-new\nweek.\rIs there a story that might help\nme perk up?\rMaybe a story about getting splashed\nwith water...
-{STRVAR 28, 0} splashed with water...\n...\rThat sounds refreshing!\nIt’s made me feel awake!\r
+{STRVAR_1 28, 0} splashed with water...\n...\rThat sounds refreshing!\nIt’s made me feel awake!\r
 Thank you!\nPlease give this to your Pokémon.\r
-{STRVAR 3, 2} received\nthe {STRVAR 39, 3}.\r
-{STRVAR 3, 2} put\nthe {STRVAR 39, 3}\fon {STRVAR 0, 1}.\r
+{STRVAR_1 3, 2} received\nthe {STRVAR_1 39, 3}.\r
+{STRVAR_1 3, 2} put\nthe {STRVAR_1 39, 3}\fon {STRVAR_1 0, 1}.\r
 Julia: Please tell me another story\ntomorrow.
-Julia: Hello!\rOh, this is the {STRVAR 0, 1} I gave\na Ribbon to before.\rI’ve got lots of Ribbons--you should\nbring other Pokémon.
+Julia: Hello!\rOh, this is the {STRVAR_1 0, 1} I gave\na Ribbon to before.\rI’ve got lots of Ribbons--you should\nbring other Pokémon.
 Julia: Oh...\nYou couldn’t think up anything?
 Julia: Today is Tuesday!\rThe first date I went on with my\nhusband was on Tuesday, too.\rI remember my heart thumping like\nI was scared, and I guess I was.\rDo you know any story that would\nscare me like that?\rLike something that jumps out\nfrom hiding?
-One mean {STRVAR 28, 0} that bursts\nout from a closet?\f...\rYikes!\nThat would be scary!\r
+One mean {STRVAR_1 28, 0} that bursts\nout from a closet?\f...\rYikes!\nThat would be scary!\r
 Julia: Sigh...\nI gained a little weight...\rThis dress that my husband bought\nfor me is too tight now...\rThis makes me feel sad...\rMisery does love company.\nSomething that would make me cry?
-A tearful {STRVAR 28, 0}...\n...\rSniffle... That is so sad...\nI feel desolate, even!\r
+A tearful {STRVAR_1 28, 0}...\n...\rSniffle... That is so sad...\nI feel desolate, even!\r
 Julia: It’s Thursday already?\nI lost track of time!\rMy favorite magazine comes out today.\nI’d better go buy it quick!\rDo you know a story about being\nabsentminded?\rLike getting your shoes backward?
-The {STRVAR 28, 0} had shoes\non the wrong feet?\r...\nAhahaha! That is so silly!\rHow is it possible to be that\nabsentminded?\r
+The {STRVAR_1 28, 0} had shoes\non the wrong feet?\r...\nAhahaha! That is so silly!\rHow is it possible to be that\nabsentminded?\r
 Julia: Today is Friday!\rMy meager cooking repertoire is\nabout to run out!\rDo you know a story that would\nhelp me get my thoughts in order?\rLike a story about numbers adding\nup perfectly?
-You went {STRVAR 28, 0}\nshopping and paid $777 including tax?\rThat is a nice number to ring up.\nIt just has a good look to it.\rIt’s sure helped me clear my head!\r
+You went {STRVAR_1 28, 0}\nshopping and paid $777 including tax?\rThat is a nice number to ring up.\nIt just has a good look to it.\rIt’s sure helped me clear my head!\r
 Julia: Yawn...\nToday’s Saturday...\fI’m feeling lazy and sleepy...\rI wish I had a pillow...\nBut what kind of a pillow?
-{STRVAR 28, 0} snuggle pillow...\n...\rIt... It surprisingly may give me\na good night’s sleep!\rI wonder if I can buy one somewhere.\r
+{STRVAR_1 28, 0} snuggle pillow...\n...\rIt... It surprisingly may give me\na good night’s sleep!\rI wonder if I can buy one somewhere.\r
 Julia: Oh, hello! You’re on your\nadventure even though it’s Sunday!\rWhen I was younger, I remember that\nevery day was like an adventure.\rIt was always fun. I loved the people\naround me... I was happy.\rOh, but I’m happy now, too.\nI love my life with my husband.\fIt’s just a different kind of happy.\rSo, what makes you happy?
-You love {STRVAR 28, 0}?\n...\rUfufu... That says something about\nyou. It puts a smile on my face!\r
+You love {STRVAR_1 28, 0}?\n...\rUfufu... That says something about\nyou. It puts a smile on my face!\r

@@ -1,13 +1,13 @@
-Dawn: Hi, {STRVAR 3, 1}!\nAre you catching Pokémon?\r
-Wow! You’ve already got {STRVAR 50, 0} Pokémon\nwith you!\rAt that pace, your Pokédex should\nbe full in no time at all!\r
+Dawn: Hi, {STRVAR_1 3, 1}!\nAre you catching Pokémon?\r
+Wow! You’ve already got {STRVAR_1 50, 0} Pokémon\nwith you!\rAt that pace, your Pokédex should\nbe full in no time at all!\r
 ...Um...\rI think you’d feel a lot safer if you\nwere to catch some more.\r
                                                     
-In Jubilife City, there’s the Trainers’\nSchool, which... Well, you know.\r{STRVAR 3, 0}, you should visit it.\nYou’ll get some tips on Pokémon.\rOh yes, {STRVAR 3, 1} went to the\nTrainers’ School earlier.\rOK, bye now!\r
-Lucas: Hey, {STRVAR 3, 1}!\nHow many Pokémon have you caught?\r
-Whoa! You already have {STRVAR 50, 0} Pokémon\nwith you!\r
+In Jubilife City, there’s the Trainers’\nSchool, which... Well, you know.\r{STRVAR_1 3, 0}, you should visit it.\nYou’ll get some tips on Pokémon.\rOh yes, {STRVAR_1 3, 1} went to the\nTrainers’ School earlier.\rOK, bye now!\r
+Lucas: Hey, {STRVAR_1 3, 1}!\nHow many Pokémon have you caught?\r
+Whoa! You already have {STRVAR_1 50, 0} Pokémon\nwith you!\r
 Huh?\nI think you should catch some more.\rIt might be more of a challenge\nraising a lot of Pokémon...\rBut it’s worth it. The more Pokémon\nyou have, the happier you’ll be.\r
                                                          
-In Jubilife City, there’s the Trainers’\nSchool. Check it out, {STRVAR 3, 0}.\rOh yeah, {STRVAR 3, 1} went to the\nTrainers’ School earlier.\rOK, see you around!\nWork hard on your Pokédex!\r
+In Jubilife City, there’s the Trainers’\nSchool. Check it out, {STRVAR_1 3, 0}.\rOh yeah, {STRVAR_1 3, 1} went to the\nTrainers’ School earlier.\rOK, see you around!\nWork hard on your Pokédex!\r
 Jubilife City’s built on land they\ncarved out of a mountain.\rThe people and Pokémon of\nOreburgh City helped out with\fthat undertaking.
 Hello! Let me ask you, have you paid\na visit to the TV station?\rIf you’ve never been, you owe it to\nyourself to make the trip.\rAnd, if you’ve been there before,\nit never hurts to visit again.\rAfter all, you can be a star!\nOr at least dream of being one!
 Jubilife City is the love of my life.\nWords can’t do it justice.\r
@@ -23,7 +23,7 @@ Oh, oh, oh?\rYou call yourself a Pokémon Trainer?\nAnd yet you have no Pokétch
 You see, I invented, and now\nmanufacture, Pokétches.\rNot only that, I’m now conducting\nthe Pokétch promotional campaign!\rAll you have to do is find three\nclowns in Jubilife City.\rIf you can find them...\nI will gift you with a Pokétch!
 The three clowns will each ask you\na skill-testing question.\rThe questions will all have to do\nwith Pokémon.\rAfter all, a Pokétch is a tool for\nPokémon Trainers.\rCollect a Coupon from each clown,\nthen come see me, OK?
 OK, let me count your Coupons!\nI’ll use the Pokétch here...\rOne, two, three!\nBravo! I say, bravo!\rIn return for these Coupons,\nI present you this Pokémon Watch,\for Pokétch for short!\r
-{STRVAR 3, 0} received a {COLOR 1}Pokétch{COLOR 0}!{YESNO 1}
+{STRVAR_1 3, 0} received a {COLOR 1}Pokétch{COLOR 0}!{YESNO 1}
 You can add apps to your Pokétch\nto make it even more versatile!\rTouch the Pokétch screen and please\ndo try it out!\r
 Hi! I’m a Pokétch campaign clown!\nLet’s roll out my question!\rDoes a Pokémon grow by defeating\nothers and gaining Exp. Points?
 Ding-ding!\nYou’re absolutely correct!\r
@@ -44,17 +44,17 @@ A Pokémon may hold a single item.\rSome items become effective as soon\nas they
 Here you go!\nYour Pokétch Coupon!\r
 Hi, there. You should stick around.\nWe’re doing a Pokétch campaign soon.\rBefore it starts, I think you should\nbrush up at the Trainers’ School.
 A Pokémon may hold a single item.\rSome items become effective as soon\nas they are held by Pokémon.\rBerries are eaten by Pokémon as\nnecessary during battle.
-Rowan: Ah, {STRVAR 3, 0}.\nImpeccable timing as always.\rThese miscreants are babbling utter\nnonsense that I just can’t stomach.\rShow them some manners, if you will.\r
+Rowan: Ah, {STRVAR_1 3, 0}.\nImpeccable timing as always.\rThese miscreants are babbling utter\nnonsense that I just can’t stomach.\rShow them some manners, if you will.\r
 Mystery man: Oh, Professor Pokémon,\nmust you be so difficult?\rWe are approaching you strictly\nas businessmen.\rAll you must do is provide us with\nall your research findings.\rIn return, we’ll refrain from causing\nmassive damage to your assistant.\r
-Dawn: {STRVAR 3, 1}!\rLet’s battle together and teach\nthese horrible men a lesson!\r
-Lucas: {STRVAR 3, 1}!\nJoin me and battle these guys!\r
+Dawn: {STRVAR_1 3, 1}!\rLet’s battle together and teach\nthese horrible men a lesson!\r
+Lucas: {STRVAR_1 3, 1}!\nJoin me and battle these guys!\r
 Grunt: You leave us no option.\nWe will retreat for now.\rBecause Team Galactic is benevolent\nto all, we shall leave.\r
-Rowan: That lot...\nThey called themselves Team Galactic.\rWhen Pokémon evolve, they seem to\nrelease some type of energy...\rHowever, I believe that it’s a mystic\npower far beyond our control.\rBut Team Galactic seems to be trying\nto use that power for something...\rAnyway, {STRVAR 3, 0}, well done!\nYou battle quite capably.\rThe sight of you Trainers and Pokémon\nbattling together...\rI made the right decision in\nentrusting you with a Pokédex!\r
+Rowan: That lot...\nThey called themselves Team Galactic.\rWhen Pokémon evolve, they seem to\nrelease some type of energy...\rHowever, I believe that it’s a mystic\npower far beyond our control.\rBut Team Galactic seems to be trying\nto use that power for something...\rAnyway, {STRVAR_1 3, 0}, well done!\nYou battle quite capably.\rThe sight of you Trainers and Pokémon\nbattling together...\rI made the right decision in\nentrusting you with a Pokédex!\r
                                   
                          
                                                   
-Dawn: {STRVAR 3, 1}, did you know?\rThe professor studies the evolution\nof Pokémon, too.\rAccording to his research, 90% of\nall Pokémon are somehow tied\fto evolution!\rI guess that means some Pokémon\nmust undergo startling evolutions.\rSo, {STRVAR 3, 1}...\nLet’s keep working on our Pokédex\fproject for the professor!\r
-Lucas: {STRVAR 3, 1}, did you know\nabout this?\rThe professor studies about the\nevolution of Pokémon, too.\rAccording to his research, 90% of\nall Pokémon are somehow tied\fto evolution!\rI guess that means some Pokémon\nmust undergo weird evolutions.\rSo, {STRVAR 3, 1}...\nLet’s keep working on our Pokédex\fproject for the prof!\r
+Dawn: {STRVAR_1 3, 1}, did you know?\rThe professor studies the evolution\nof Pokémon, too.\rAccording to his research, 90% of\nall Pokémon are somehow tied\fto evolution!\rI guess that means some Pokémon\nmust undergo startling evolutions.\rSo, {STRVAR_1 3, 1}...\nLet’s keep working on our Pokédex\fproject for the professor!\r
+Lucas: {STRVAR_1 3, 1}, did you know\nabout this?\rThe professor studies about the\nevolution of Pokémon, too.\rAccording to his research, 90% of\nall Pokémon are somehow tied\fto evolution!\rI guess that means some Pokémon\nmust undergo weird evolutions.\rSo, {STRVAR_1 3, 1}...\nLet’s keep working on our Pokédex\fproject for the prof!\r
 Oh, that was very good!\nNicely done! Truly excellent!\rOh, I beg your pardon, I’m from\nJubilife TV!\rI’d like you to have something for\nletting me see that smashing battle!\r
 Contained within that Fashion Case...\rYou will find a whole spectrum of chic\nAccessories and tasteful Backdrops!\rDress up your Pokémon and watch\ntheir appeal grow!\rAnd, right now the TV station is\noffering its facilities so visitors\fcan dress up their Pokémon!\rThere are also prize giveaways, too!\nPlease do visit our TV station!\r
 The way you look...\nYou’re obviously a Trainer!\rCan you tell me what type of Pokémon\nyou like?

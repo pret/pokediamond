@@ -14,9 +14,9 @@ Confirm data
 Questionnaire (player)
 Observation (player)
 Records (player)
-Questionnaire {STRVAR 50, 0} (another player)
-Observation {STRVAR 50, 0} (another player)
-Records {STRVAR 50, 0} (another player)
-Id{STRVAR 51, 0}　Preview{STRVAR 50, 1} {STRVAR 51, 2}/{STRVAR 51, 3}/{STRVAR 51, 4} CRC {STRVAR 54, 5}
+Questionnaire {STRVAR_1 50, 0} (another player)
+Observation {STRVAR_1 50, 0} (another player)
+Records {STRVAR_1 50, 0} (another player)
+Id{STRVAR_1 51, 0}　Preview{STRVAR_1 50, 1} {STRVAR_1 51, 2}/{STRVAR_1 51, 3}/{STRVAR_1 51, 4} CRC {STRVAR_1 54, 5}
 No data
-ID: {STRVAR 54, 0} {STRVAR 3, 1} Country: {STRVAR 51, 2}
+ID: {STRVAR_1 54, 0} {STRVAR_1 3, 1} Country: {STRVAR_1 51, 2}
