@@ -32,8 +32,8 @@ Pokémon icon
 Item icon
 F Note Clear
 ｘ
-{STRVAR 8, 0}
-{STRVAR 52, 0}
+{STRVAR_1 8, 0}
+{STRVAR_1 52, 0}
 Class
 Level
 Exp. Points
@@ -96,12 +96,12 @@ None
 -
 ON
 OFF
-{STRVAR 59, 0}
-{STRVAR 0, 0}
-{STRVAR 6, 0}
-{STRVAR 8, 0}
-{STRVAR 5, 0}
-{STRVAR 7, 0}
+{STRVAR_1 59, 0}
+{STRVAR_1 0, 0}
+{STRVAR_1 6, 0}
+{STRVAR_1 8, 0}
+{STRVAR_1 5, 0}
+{STRVAR_1 7, 0}
 Added a Pokémon to your party.
 Added a Pokémon to the Box.
 Create Pokémon\n  LR: Switch   START: Add
@@ -112,5 +112,5 @@ Diamond
 Pearl
 Emerald
 Sapphire
-{STRVAR 0, 0}
-{STRVAR 8, 0}
+{STRVAR_1 0, 0}
+{STRVAR_1 8, 0}

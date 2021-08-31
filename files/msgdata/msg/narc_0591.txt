@@ -1,10 +1,10 @@
           
                              
-{STRVAR 1, 0} was not traded.\r
-{STRVAR 1, 0} appears to have\nfled...\r
+{STRVAR_1 1, 0} was not traded.\r
+{STRVAR_1 1, 0} appears to have\nfled...\r
 Are you seeking or offering a Pokémon?
-Do what with this {STRVAR 1, 0}?
-Will you take this {STRVAR 1, 0}?
+Do what with this {STRVAR_1 1, 0}?
+Will you take this {STRVAR_1 1, 0}?
 Is it OK to disconnect from\nNintendo Wi-Fi Connection?
 What kind of Pokémon are you seeking?
 Please choose the Pokémon you want.
@@ -16,11 +16,11 @@ None were found!
 Stop searching?
 Trade for this Pokémon?
 Choose the Pokémon you are trading.
-Do what with this {STRVAR 1, 0}?
+Do what with this {STRVAR_1 1, 0}?
                  
                  
 Choose the Pokémon you want to offer.
-Offer {STRVAR 1, 0}?
+Offer {STRVAR_1 1, 0}?
 Are these conditions OK?
 Checking GTS’s status...
 The Ball Capsule will be detached.\nIs that OK?
@@ -41,16 +41,16 @@ GLOBAL TRADE SYSTEM
 SUMMARY
 SEEK POKéMON
 EXIT
-{STRVAR 1, 0}
-{STRVAR 0, 1}
-Lv. {STRVAR 52, 2}
+{STRVAR_1 1, 0}
+{STRVAR_1 0, 1}
+Lv. {STRVAR_1 52, 2}
 ITEM
-{STRVAR 8, 3}
+{STRVAR_1 8, 3}
 OFFERER
-{STRVAR 3, 4}
+{STRVAR_1 3, 4}
 POKéMON WANTED
-{STRVAR 0, 5}
-Lv. {STRVAR 52, 6} and up
+{STRVAR_1 0, 5}
+Lv. {STRVAR_1 52, 6} and up
 Any level
 TAKE BACK
 LEAVE AS IS
@@ -58,11 +58,11 @@ Yes
 No
 SEARCH FOR POKéMON
 POKéMON
-{STRVAR 0, 0}
+{STRVAR_1 0, 0}
 GENDER
-{STRVAR 40, 0, 1}
+{STRVAR_1 40, 0, 1}
 LEVEL
-{STRVAR 41, 0, 2}
+{STRVAR_1 41, 0, 2}
 SEARCH
 BACK
     
@@ -77,8 +77,8 @@ WANTED
      
      
 OT’S LOCATION
-{STRVAR 36, 8}
-{STRVAR 37, 9}
+{STRVAR_1 36, 8}
+{STRVAR_1 37, 9}
         
    
     
@@ -100,7 +100,7 @@ WANTED
      
 OFFER POKéMON
     
-Lv. {STRVAR 52, 3}
+Lv. {STRVAR_1 52, 3}
 CANCEL
 ABC
 DEF

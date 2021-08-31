@@ -3334,14 +3334,7 @@ files/graphic/field_board.narc: \
 	files/graphic/field_board/narc_0050.NCGR \
 	files/graphic/field_board/narc_0051.NCGR
 
-## Trainer names
-files/msgdata/msg/narc_0559.txt: files/poketool/trainer/trdata.json
-	(echo " -"; $(GREP) -w '"name":' $< | cut -d'"' -f4) | $(SED) 's/^(.+)$$/{TRNAME}\1\r/g' > $@
-
-CHARMAP = charmap.txt
-
-files/msgdata/msg/%.bin: files/msgdata/msg/%.txt files/msgdata/msg/%.key $(CHARMAP)
-	$(MSGENC) $^ $@
+include files/msgdata/msg.mk
 
 .PHONY: filesystem
 

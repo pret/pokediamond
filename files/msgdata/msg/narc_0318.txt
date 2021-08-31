@@ -4,12 +4,12 @@ Here, you may register the location\nof where you live.\rThat information may be
 Please select the location in which\nyou live.
 Please select the area in which\nyou live.
 Once registered, you may not change\nyour registered location data.\rShould this location be registered\nas where you live?
-{STRVAR 36, 0}
-{STRVAR 37, 0}
+{STRVAR_1 36, 0}
+{STRVAR_1 37, 0}
 YES
 NO
 SEE LIST
 REGISTER
 EXIT
-Your registered location:\n{STRVAR 36, 0}\n{STRVAR 37, 1}
+Your registered location:\n{STRVAR_1 36, 0}\n{STRVAR_1 37, 1}
 To display registered locations, line up\nthe cursor, and press the X Button.

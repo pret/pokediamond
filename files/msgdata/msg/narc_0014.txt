@@ -3,7 +3,7 @@
     
     
     
-{STRVAR 11, 0}
+{STRVAR_1 11, 0}
 BOX 1
 BOX 2
 BOX 3

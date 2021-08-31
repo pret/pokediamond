@@ -1,5 +1,5 @@
-{STRVAR 3, 0}: Hey! {STRVAR 3, 1}!\nTell me you got a little tougher!\rMe? Do you even need to ask?\nOf course I got tougher!\rCome on!\nLet’s battle it out!\r
-{STRVAR 3, 0}: Waah!\nWhat do you mean I lost?!\rWell, that’s it!\nThat’s the last time I’ll ever lose!\rI’m going to be the world’s toughest\nTrainer, and you know it!\rThe first thing to do is take on\nthe Oreburgh City Pokémon Gym!\rI’m gonna toughen up for that,\ntotally!\r
+{STRVAR_1 3, 0}: Hey! {STRVAR_1 3, 1}!\nTell me you got a little tougher!\rMe? Do you even need to ask?\nOf course I got tougher!\rCome on!\nLet’s battle it out!\r
+{STRVAR_1 3, 0}: Waah!\nWhat do you mean I lost?!\rWell, that’s it!\nThat’s the last time I’ll ever lose!\rI’m going to be the world’s toughest\nTrainer, and you know it!\rThe first thing to do is take on\nthe Oreburgh City Pokémon Gym!\rI’m gonna toughen up for that,\ntotally!\r
 Did you know?\rThe first Pokémon to appear in\na battle is the one at the top left\fof your team list.
 Rt. 203\nJubilife City
 Rt. 203\nOreburgh City

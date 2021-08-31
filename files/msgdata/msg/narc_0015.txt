@@ -1,8 +1,8 @@
-{STRVAR 1, 0} is selected.
+{STRVAR_1 1, 0} is selected.
 Mark your Pokémon.
 Release this Pokémon?
-{STRVAR 1, 0} was released.
-Bye-bye, {STRVAR 1, 0}!
+{STRVAR_1 1, 0} was released.
+Bye-bye, {STRVAR_1 1, 0}!
 Your party’s full!
 That’s your last Pokémon!
 What do you want to do?
@@ -13,24 +13,24 @@ Exit from the Box?
 Continue Box operations?
 The Box is full.
 The Bag is full.
-Took the {STRVAR 8, 0}.
-{STRVAR 8, 0} is now being held.
+Took the {STRVAR_1 8, 0}.
+{STRVAR_1 8, 0} is now being held.
 You’re holding a Pokémon!
 Which one will you take?
 Deposit in which Box?
 No item
 ♂
 ♀
-Take this {STRVAR 8, 0}?
+Take this {STRVAR_1 8, 0}?
 Mail can’t be taken away.
-{STRVAR 8, 0} is selected.
-Put away {STRVAR 8, 0}?
-Placed {STRVAR 8, 0} in the Bag.
+{STRVAR_1 8, 0} is selected.
+Put away {STRVAR_1 8, 0}?
+Placed {STRVAR_1 8, 0} in the Bag.
 Give to a Pokémon?
 Please detach the Ball Capsule.
 Please remove the Mail.
 You can’t release an Egg.
-{STRVAR 1, 0} came back!
+{STRVAR_1 1, 0} came back!
 Was it worried about you?
 An Egg can’t hold an item.
 NATURE

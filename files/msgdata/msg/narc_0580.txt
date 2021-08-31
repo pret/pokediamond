@@ -10,12 +10,12 @@ Take out stored decoration goods\nfrom the PC.
 Check your collection of Flags.
 Search for hidden things in the\nunderground passages.
 Switch off the PC.
-{STRVAR 1, 1}’s Base
+{STRVAR_1 1, 1}’s Base
 Flags obtained:
-{STRVAR 55, 6}
+{STRVAR_1 55, 6}
 Most recent Flag:
-{STRVAR 1, 0}’s Flag
-ID: {STRVAR 54, 5}
+{STRVAR_1 1, 0}’s Flag
+ID: {STRVAR_1 54, 5}
          
          
         
@@ -34,8 +34,8 @@ Goods in\nPC
 Treasures\nin PC
 Traps in\nPC
 Spheres\nin PC
-The {STRVAR 25, 2} was withdrawn\nfrom the PC.
-The {STRVAR 25, 2} was stored\non the PC.
+The {STRVAR_1 25, 2} was withdrawn\nfrom the PC.
+The {STRVAR_1 25, 2} was stored\non the PC.
 Your PC is full.
 You can’t carry any more\ngoods with you.
 TREASURE SEARCH

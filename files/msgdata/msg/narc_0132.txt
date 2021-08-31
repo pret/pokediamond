@@ -14,4 +14,4 @@ Hunh?\rDon’t you think it’d be tough for\nan Egg to learn a move?
                        
                      
                                                                         
-{STRVAR 3, 3} handed over\n{STRVAR 8, 4} in exchange.
+{STRVAR_1 3, 3} handed over\n{STRVAR_1 8, 4} in exchange.

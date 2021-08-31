@@ -1,27 +1,27 @@
                                  
-{STRVAR 3, 0}: Hey, if we run into a\nPokémon, I’m gonna catch it somehow.\rBecause I’m gonna be a Pokémon\nTrainer.\rYou know what a Trainer does, right?\nMakes Pokémon battle and all that?
-{STRVAR 3, 0}: Pokémon all have\ndifferent moves, huh?\rA Trainer makes his Pokémon battle\nby ordering them to use moves.\rThat’s so awesomely cool.
-{STRVAR 3, 0}: I want Pokémon of my\nown, and not too soon, either.\rI’d be able to go everywhere with my\nPokémon that way.
-{STRVAR 3, 0}: That lake has a mirage\nPokémon living in it.\rEveryone says nothing lives there,\nbut I know I’m right.
-{STRVAR 3, 0}: I’m gonna become\na Pokémon Trainer for sure.\rNot just any Trainer either.\nI’m going to be the greatest ever.\fThat’s my dream.
-{STRVAR 3, 0}: Hey, that’s enough\ntalking already.\rI’m itching to get going to the lake.\nCome on, come on!
-{STRVAR 3, 0}: All right!\nLet’s move out! Hustle up!
-{STRVAR 3, 0}: We didn’t have any\nchoice in using those people’s\fPokémon, right?\rBut these Pokémon belong to them...\nThey’ll want them back, won’t they?\rBut this is the first Pokémon I’ve\never battled with...
-{STRVAR 3, 0}: I wish I could grow\ntougher with this little guy...
-{STRVAR 3, 0}: I don’t feel like\ntalking... Let’s go.\r...Are we maybe walking slower than\nwhen we went to the lake?
-Cheryl: Wait!\nPlease wait, {STRVAR 3, 0}!\rIf you use an Escape Rope now,\nyou know that you’ll leave me behind?
-Cheryl: Wait!\nPlease wait, {STRVAR 3, 0}!\rIf you use Teleport now, you know\nthat you’ll leave me behind?
+{STRVAR_1 3, 0}: Hey, if we run into a\nPokémon, I’m gonna catch it somehow.\rBecause I’m gonna be a Pokémon\nTrainer.\rYou know what a Trainer does, right?\nMakes Pokémon battle and all that?
+{STRVAR_1 3, 0}: Pokémon all have\ndifferent moves, huh?\rA Trainer makes his Pokémon battle\nby ordering them to use moves.\rThat’s so awesomely cool.
+{STRVAR_1 3, 0}: I want Pokémon of my\nown, and not too soon, either.\rI’d be able to go everywhere with my\nPokémon that way.
+{STRVAR_1 3, 0}: That lake has a mirage\nPokémon living in it.\rEveryone says nothing lives there,\nbut I know I’m right.
+{STRVAR_1 3, 0}: I’m gonna become\na Pokémon Trainer for sure.\rNot just any Trainer either.\nI’m going to be the greatest ever.\fThat’s my dream.
+{STRVAR_1 3, 0}: Hey, that’s enough\ntalking already.\rI’m itching to get going to the lake.\nCome on, come on!
+{STRVAR_1 3, 0}: All right!\nLet’s move out! Hustle up!
+{STRVAR_1 3, 0}: We didn’t have any\nchoice in using those people’s\fPokémon, right?\rBut these Pokémon belong to them...\nThey’ll want them back, won’t they?\rBut this is the first Pokémon I’ve\never battled with...
+{STRVAR_1 3, 0}: I wish I could grow\ntougher with this little guy...
+{STRVAR_1 3, 0}: I don’t feel like\ntalking... Let’s go.\r...Are we maybe walking slower than\nwhen we went to the lake?
+Cheryl: Wait!\nPlease wait, {STRVAR_1 3, 0}!\rIf you use an Escape Rope now,\nyou know that you’ll leave me behind?
+Cheryl: Wait!\nPlease wait, {STRVAR_1 3, 0}!\rIf you use Teleport now, you know\nthat you’ll leave me behind?
 Cheryl: This place...\nThey say it’s a haunted mansion...\rI’m sorry, but it’s too creepy.\nMay we go, please?
 Cheryl: It’s startling to see two wild\nPokémon appearing at the same time.
 Cheryl: My Pokémon is an excellent\nhealer.\rBut attacking isn’t its strong point.
-Cheryl: {STRVAR 3, 0}, battling with\nyou makes me feel elated.\rIf I could predict what you’re about\nto do, we would make a fierce combo!
+Cheryl: {STRVAR_1 3, 0}, battling with\nyou makes me feel elated.\rIf I could predict what you’re about\nto do, we would make a fierce combo!
 Cheryl: That’s some nice moss...
 Mira: Are you going to use that?\nI will be left all alone...
 Mira: Are you going to use that?\nI will be left all alone...
 Mira: That isn’t the right way.\nI’ll be lost if we go down...
 Mira: I like helpful Pokémon moves\nlike Growl and Minimize.\rThose kinds of moves are my\nfavorites.
 Mira: This cave...\nIt’s so easy to get confused here.\fDo you know where we are?
-Mira: {STRVAR 3, 0}, did you get to be\nso good because you’re always with\fyour Pokémon?\rYes! That has to be it!\nI will try like you!
+Mira: {STRVAR_1 3, 0}, did you get to be\nso good because you’re always with\fyour Pokémon?\rYes! That has to be it!\nI will try like you!
 Riley: If you use that, I’ll have to\nwave good-bye to you now.
 Riley: If you use that move, I’ll have\nto wave good-bye to you now.
 Riley: Haha, I’d have to agree.\rPeople training here would be those\nwith too much time on their hands.
@@ -40,8 +40,8 @@ Marley: ...Sorry, but I’m not\ngoing up.
 Marley: ...It isn’t that way.
 Marley: ...You’re very chatty...
 Marley: ...The Pokémon among\nflowers...
-Buck: Whoa, {STRVAR 3, 0}!\rIf you use that, me and my Pokémon\nwill be left behind. Don’t do it!
-Buck: Whoa, {STRVAR 3, 0}!\rIf you use that, me and my Pokémon\nwill be left behind. Don’t do it!
+Buck: Whoa, {STRVAR_1 3, 0}!\rIf you use that, me and my Pokémon\nwill be left behind. Don’t do it!
+Buck: Whoa, {STRVAR_1 3, 0}!\rIf you use that, me and my Pokémon\nwill be left behind. Don’t do it!
 Buck: Why do I like the volcano\nso much?\rI don’t really have a good reason\nfor it, but I don’t really need one.
 Buck: There’s no law that says\nI have to be tough or anything,\fbut losing isn’t fair to my Pokémon.\rAfter all, they try so hard for me.\rI think it’s my responsibility as a\nTrainer to recognize their hard work.
 Buck: My big brother’s one of the\nElite Four.\rSo, of course it’s only normal that\nI’d be better than ordinary folks.\rBut that’s not what I want.\nI want to be tough on my own terms.\rIt wouldn’t be fair to the Pokémon\nthat chose to be with me.

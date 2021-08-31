@@ -1,5 +1,5 @@
 Enter the Battle Room Number.\n...B Button: Cancel
-Downloading Rank {STRVAR 51, 1},\nRoom {STRVAR 52, 0} data...
+Downloading Rank {STRVAR_1 51, 1},\nRoom {STRVAR_1 52, 0} data...
 You may not challenge that Battle\nRoom until the next update.\r
 Data has been downloaded.\r
 Cancel your challenge?

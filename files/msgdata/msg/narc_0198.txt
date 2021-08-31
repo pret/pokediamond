@@ -1,34 +1,34 @@
-{STRVAR 1, 0} will perform\nfirst the next turn.
-{STRVAR 1, 0} will perform\nbefore {STRVAR 1, 1}.
-{STRVAR 1, 0} will perform\nlast in the next turn.
-{STRVAR 1, 0} will perform\nafter {STRVAR 1, 1}.
-{STRVAR 1, 0} didn’t choose\nthe same Judge as anyone\felse! {COLOR 1}+0{COLOR 0}!
-{STRVAR 1, 0} chose the same\nJudge as another Pokémon!\f{COLOR 1}+2{COLOR 0}!
-{STRVAR 1, 0} chose the same\nJudge as two other\fPokémon! {COLOR 1}+4{COLOR 0}!
-{STRVAR 1, 0} chose the same\nJudge as everyone else! {COLOR 1}+6{COLOR 0}!
-{STRVAR 1, 0} performed\n{STRVAR 6, 1}!\rIt excited the audience!\n{COLOR 1}+2{COLOR 0}!
-{STRVAR 1, 0} didn’t pick the\nsame Judge as anyone else!\rThe performance stood out!\n{COLOR 1}+3{COLOR 0}!
-{STRVAR 1, 0} chose the same\nJudge as another Pokémon!\rThe performance didn’t\nstand out! {COLOR 1}+0{COLOR 0}!\r
-If {STRVAR 1, 0}’s move\nstands out and doesn’t\rshare the same Judge with\nanother Pokémon: {COLOR 1}+3{COLOR 0}!\r
-{STRVAR 1, 0} can perform\nthe same move twice!
-The Voltage score is added\non! {COLOR 1}+{STRVAR 50, 0}{COLOR 0}!
-{STRVAR 1, 0} chose the same\nJudge as everyone! {COLOR 1}+15{COLOR 0}!
-{STRVAR 1, 0} didn’t choose\nthe same Judge as all the\fothers! {COLOR 1}+0{COLOR 0}!\r
-If {STRVAR 1, 0} chooses the\nsame Judge as everyone\felse: {COLOR 1}+15{COLOR 0}!\r
+{STRVAR_1 1, 0} will perform\nfirst the next turn.
+{STRVAR_1 1, 0} will perform\nbefore {STRVAR_1 1, 1}.
+{STRVAR_1 1, 0} will perform\nlast in the next turn.
+{STRVAR_1 1, 0} will perform\nafter {STRVAR_1 1, 1}.
+{STRVAR_1 1, 0} didn’t choose\nthe same Judge as anyone\felse! {COLOR 1}+0{COLOR 0}!
+{STRVAR_1 1, 0} chose the same\nJudge as another Pokémon!\f{COLOR 1}+2{COLOR 0}!
+{STRVAR_1 1, 0} chose the same\nJudge as two other\fPokémon! {COLOR 1}+4{COLOR 0}!
+{STRVAR_1 1, 0} chose the same\nJudge as everyone else! {COLOR 1}+6{COLOR 0}!
+{STRVAR_1 1, 0} performed\n{STRVAR_1 6, 1}!\rIt excited the audience!\n{COLOR 1}+2{COLOR 0}!
+{STRVAR_1 1, 0} didn’t pick the\nsame Judge as anyone else!\rThe performance stood out!\n{COLOR 1}+3{COLOR 0}!
+{STRVAR_1 1, 0} chose the same\nJudge as another Pokémon!\rThe performance didn’t\nstand out! {COLOR 1}+0{COLOR 0}!\r
+If {STRVAR_1 1, 0}’s move\nstands out and doesn’t\rshare the same Judge with\nanother Pokémon: {COLOR 1}+3{COLOR 0}!\r
+{STRVAR_1 1, 0} can perform\nthe same move twice!
+The Voltage score is added\non! {COLOR 1}+{STRVAR_1 50, 0}{COLOR 0}!
+{STRVAR_1 1, 0} chose the same\nJudge as everyone! {COLOR 1}+15{COLOR 0}!
+{STRVAR_1 1, 0} didn’t choose\nthe same Judge as all the\fothers! {COLOR 1}+0{COLOR 0}!\r
+If {STRVAR_1 1, 0} chooses the\nsame Judge as everyone\felse: {COLOR 1}+15{COLOR 0}!\r
 The Voltage of all the\nJudges went down!
-From the previous turn,\n{STRVAR 1, 0} gets {COLOR 1}+{STRVAR 50, 1}{COLOR 0}!
-{STRVAR 1, 0} got the same\nrating as {STRVAR 1, 1}, who\fwent before!
+From the previous turn,\n{STRVAR_1 1, 0} gets {COLOR 1}+{STRVAR_1 50, 1}{COLOR 0}!
+{STRVAR_1 1, 0} got the same\nrating as {STRVAR_1 1, 1}, who\fwent before!
 The Voltage is prevented\nfrom rising!
 The next turn’s order has\nbeen scrambled!
-{STRVAR 1, 0} performed\nlast! {COLOR 1}+{STRVAR 50, 1}{COLOR 0}!
-Higher score earned for low\nVoltage! {COLOR 1}+{STRVAR 50, 0}{COLOR 0}!
+{STRVAR_1 1, 0} performed\nlast! {COLOR 1}+{STRVAR_1 50, 1}{COLOR 0}!
+Higher score earned for low\nVoltage! {COLOR 1}+{STRVAR_1 50, 0}{COLOR 0}!
 First performance! {COLOR 1}+2{COLOR 0}!
 Last performance! {COLOR 1}+2{COLOR 0}!
 The Voltage is prevented\nfrom falling!
 The Voltage went up\nconsecutively! {COLOR 1}+3{COLOR 0}!
-{STRVAR 1, 0}’s performance\nis first! {COLOR 1}+1{COLOR 0}!
-{STRVAR 1, 0}’s performance\nis second! {COLOR 1}+2{COLOR 0}!
-{STRVAR 1, 0}’s performance\nis third! {COLOR 1}+3{COLOR 0}!
-{STRVAR 1, 0}’s performance\nis last! {COLOR 1}+4{COLOR 0}!
+{STRVAR_1 1, 0}’s performance\nis first! {COLOR 1}+1{COLOR 0}!
+{STRVAR_1 1, 0}’s performance\nis second! {COLOR 1}+2{COLOR 0}!
+{STRVAR_1 1, 0}’s performance\nis third! {COLOR 1}+3{COLOR 0}!
+{STRVAR_1 1, 0}’s performance\nis last! {COLOR 1}+4{COLOR 0}!
 The performance came after\nthe Voltage peaked! {COLOR 1}+3{COLOR 0}!
-{STRVAR 1, 0} has the lowest\nscore! {COLOR 1}+3{COLOR 0}!
+{STRVAR_1 1, 0} has the lowest\nscore! {COLOR 1}+3{COLOR 0}!
