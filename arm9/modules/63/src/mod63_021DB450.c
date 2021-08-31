@@ -14,7 +14,7 @@ extern void FUN_020132BC(u32 param0);
 
 extern void * FUN_02012CDC(void *, void *, void *, u32, u32, u32);
 
-extern void FUN_02068C00(struct UnkStruct63_021DB49C*, u16, u32, u32, u32, u32, u32);
+extern void FUN_02068C00(struct UnkStruct_02006D98_4*, u16, u32, u32, u32, u32, u32);
 extern void FUN_02012CC8(void);
 extern void Camera_SetPerspectiveClippingPlane(u32, u32, u32);
 extern u32 FUN_0201343C(void);
@@ -64,7 +64,7 @@ THUMB_FUNC u32 MOD63_021DB498(void)
 
 THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg0) //TODO: this does a lot more than setup anim sprites
 {
-    struct UnkStruct63_021DB49C sp1C;
+    struct UnkStruct_02006D98_4 sp1C;
     int introMonArray[3] = {SPECIES_TURTWIG, SPECIES_CHIMCHAR, SPECIES_PIPLUP};
 
     arg0->field_00 = FUN_02006D98(76); //this is needed to get into the world view, otherwise it is just black

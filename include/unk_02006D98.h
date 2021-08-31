@@ -1,10 +1,9 @@
 #ifndef POKEDIAMOND_UNK_02006D98_H
 #define POKEDIAMOND_UNK_02006D98_H
 
-#include "global.h"
 #include "NNS_g2d.h"
-struct UnkStruct63_021DB49C
-{
+#include "global.h"
+struct UnkStruct_02006D98_4 {
     u16 field_00;
     u16 field_02;
     u16 field_04;
@@ -13,13 +12,11 @@ struct UnkStruct63_021DB49C
     u32 field_0C;
 };
 
-struct UnkStruct_02006D98_sub
-{
+struct UnkStruct_02006D98_sub {
     s8 unk0;
     u8 unk1;
 };
-struct UnkStruct_02006D98_sub2
-{
+struct UnkStruct_02006D98_sub2 {
     u16 unk0_0 : 2;
     u16 unk0_2 : 1;
     u16 unk0_3 : 1;
@@ -33,14 +30,13 @@ struct UnkStruct_02006D98_sub2
     s16 unka;
 };
 
-struct UnkStruct_02006D98_2
-{
+struct UnkStruct_02006D98_2 {
     u32 unk00_0 : 1;
     u32 unk00_1 : 6;
     u32 unk00_7 : 1;
     u32 unk00_8 : 1;
-    struct UnkStruct63_021DB49C unk04;
-    struct UnkStruct63_021DB49C unk14;
+    struct UnkStruct_02006D98_4 unk04;
+    struct UnkStruct_02006D98_4 unk14;
     s16 unk24;
     s16 unk26;
     u32 unk28;
@@ -91,8 +87,7 @@ struct UnkStruct_02006D98_2
     struct UnkStruct_02006D98_sub unk84[10];
 };
 
-struct UnkStruct_02006D98
-{
+struct UnkStruct_02006D98 {
     struct UnkStruct_02006D98_2 unk000[4];
     NNSG2dImageProxy unk260;
     NNSG2dImagePaletteProxy unk284;
@@ -113,8 +108,7 @@ struct UnkStruct_02006D98
     u32 unk2E4;
 };
 
-struct UnkStruct_02006D98_3
-{
+struct UnkStruct_02006D98_3 {
     u8 unk0;
     u8 unk1;
 };
@@ -126,22 +120,22 @@ void FUN_02007314(struct UnkStruct_02006D98_2 *param0);
 void FUN_0200737C(struct UnkStruct_02006D98_2 *param0, struct UnkStruct_02006D98_sub *param1);
 BOOL FUN_02007390(struct UnkStruct_02006D98_2 *param0);
 struct UnkStruct_02006D98_2 *FUN_020073A0(struct UnkStruct_02006D98 *param0,
-    struct UnkStruct63_021DB49C *param1,
-    u32 param2,
-    u32 param3,
-    u32 param4,
-    u32 param5,
-    const void *param6,
-    void (*param7)(struct UnkStruct_02006D98_2 *, void *));
+                                          struct UnkStruct_02006D98_4 *param1,
+                                          u32 param2,
+                                          u32 param3,
+                                          u32 param4,
+                                          u32 param5,
+                                          const void *param6,
+                                          void (*param7)(struct UnkStruct_02006D98_2 *, void *));
 struct UnkStruct_02006D98_2 *FUN_020073E8(struct UnkStruct_02006D98 *param0,
-    struct UnkStruct63_021DB49C *param1,
-    u32 param2,
-    u32 param3,
-    u32 param4,
-    u32 param5,
-    s32 param6,
-    const void *param7,
-    void (*param8)(struct UnkStruct_02006D98_2 *, void *));
+                                          struct UnkStruct_02006D98_4 *param1,
+                                          u32 param2,
+                                          u32 param3,
+                                          u32 param4,
+                                          u32 param5,
+                                          s32 param6,
+                                          const void *param7,
+                                          void (*param8)(struct UnkStruct_02006D98_2 *, void *));
 void FUN_02007534(struct UnkStruct_02006D98_2 *param0);
 void FUN_02007540(struct UnkStruct_02006D98 *param0);
 void FUN_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2);
@@ -175,5 +169,4 @@ void FUN_02008904(u8 *param0, u32 param1, u32 param2);
 u16 FUN_02008A54(u32 *param0);
 void FUN_02008A74(u8 *param0);
 
-
-#endif // POKEDIAMOND_UNK_02006D98_H
+#endif  // POKEDIAMOND_UNK_02006D98_H
