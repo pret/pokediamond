@@ -1,5 +1,5 @@
-{STRVAR 3, 0}
-ID: {STRVAR 54, 0}
+{STRVAR_1 3, 0}
+ID: {STRVAR_1 54, 0}
 When the group is ready:\nA Button: Proceed   B Button: Cancel
 Are these members OK?
 Cancel record mixing?
@@ -13,8 +13,8 @@ Record mixing will be canceled.
 Mixing records...\nDon’t turn off the power!
 Record mixing completed!\nReturning to the Union Room.
 If the leader quits, the group will\ndisband. Is that OK?
-{STRVAR 3, 0} has left.
-{STRVAR 1, 0} the leader has left.\nThe group will disband.
+{STRVAR_1 3, 0} has left.
+{STRVAR_1 1, 0} the leader has left.\nThe group will disband.
 Seeking record-mixing friends!
 Record mixing under way!
 Yes

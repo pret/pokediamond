@@ -1,8 +1,8 @@
-Make Pokémon migrate from\n{STRVAR 3, 1}’s Ruby Game Pak?
-Make Pokémon migrate from\n{STRVAR 3, 1}’s Sapphire Game Pak?
-Make Pokémon migrate from\n{STRVAR 3, 1}’s Emerald Game Pak?
-Make Pokémon migrate from\n{STRVAR 3, 1}’s FireRed Game Pak?
-Make Pokémon migrate from\n{STRVAR 3, 1}’s LeafGreen Game Pak?
+Make Pokémon migrate from\n{STRVAR_1 3, 1}’s Ruby Game Pak?
+Make Pokémon migrate from\n{STRVAR_1 3, 1}’s Sapphire Game Pak?
+Make Pokémon migrate from\n{STRVAR_1 3, 1}’s Emerald Game Pak?
+Make Pokémon migrate from\n{STRVAR_1 3, 1}’s FireRed Game Pak?
+Make Pokémon migrate from\n{STRVAR_1 3, 1}’s LeafGreen Game Pak?
 There aren’t six Pokémon in\nthe PC Boxes.
 Please choose the six Pokémon\nthat will migrate.
 This Game Card has already been\nstocked with six migrated Pokémon.\rPlease participate in a Catching\nShow at Pal Park.

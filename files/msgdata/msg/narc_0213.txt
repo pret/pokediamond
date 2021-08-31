@@ -1,9 +1,9 @@
-Hello, my name’s Cheryl.\nAnd you are...?\rOK, so your name is {STRVAR 3, 0}.\nI’m sincerely glad to meet you.\r{STRVAR 3, 0}, may I ask a big favor\nof you?\rI want to get through this forest,\nbut I’m afraid of doing it alone.\rI’ve heard that there is a sinister\ngroup of people called Team Galactic\fabout.\rI think there’d be safety in numbers.\nPlease, may I go through with you?\r
-{STRVAR 3, 0} decided to go with\nCheryl!
+Hello, my name’s Cheryl.\nAnd you are...?\rOK, so your name is {STRVAR_1 3, 0}.\nI’m sincerely glad to meet you.\r{STRVAR_1 3, 0}, may I ask a big favor\nof you?\rI want to get through this forest,\nbut I’m afraid of doing it alone.\rI’ve heard that there is a sinister\ngroup of people called Team Galactic\fabout.\rI think there’d be safety in numbers.\nPlease, may I go through with you?\r
+{STRVAR_1 3, 0} decided to go with\nCheryl!
 Cheryl: I’ll keep your Pokémon\nin perfect health.
-Cheryl: Oh, hi, {STRVAR 3, 0}!\nI’ve been waiting like I said.\rLet’s get through this forest\ntogether.\r
+Cheryl: Oh, hi, {STRVAR_1 3, 0}!\nI’ve been waiting like I said.\rLet’s get through this forest\ntogether.\r
 Cheryl: Oh? Are you going back?\nI’ll wait here for you, then.\r
-Cheryl: Oh! There’s the exit!\nI’m so relieved... We finally got here.\rI would’ve never been able to get\nthrough this by myself.\rThank you so much, {STRVAR 3, 0}!\r
+Cheryl: Oh! There’s the exit!\nI’m so relieved... We finally got here.\rI would’ve never been able to get\nthrough this by myself.\rThank you so much, {STRVAR_1 3, 0}!\r
 I’m sure we’ll meet again somewhere!\nBye for now!\r
 My Pokémon got poisoned, and now\nit can’t battle.\rI knew I should’ve loaded up on\nAntidotes at the Poké Mart!
 The rock is covered in moss.\nIt feels pleasantly cool.

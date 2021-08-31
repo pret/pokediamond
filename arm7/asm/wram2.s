@@ -962,8 +962,8 @@ _u32_div_not_0_f: ;@ 0x03806F94
 	mov	r1, r3
 	bx	lr
 
-	.global _03807170
-_03807170:
+	.global sLfoSinTable
+sLfoSinTable:
 	.byte	0
 	.byte	6
 	.byte	12
@@ -1132,15 +1132,15 @@ SNDi_DecibelSquareTable:
 	.short	-1
 	.short	0
 
-	.global _03807294
-_03807294:
+	.global sSampleDataShiftTable
+sSampleDataShiftTable:
 	.byte	0
 	.byte	1
 	.byte	2
 	.byte	4
 
-	.global _03807298
-_03807298:
+	.global sChannelAllocationOrder
+sChannelAllocationOrder:
 	.byte	4
 	.byte	5
 	.byte	6
@@ -1158,8 +1158,8 @@ _03807298:
 	.byte	15
 	.byte	13
 
-	.global _038072A8
-_038072A8:
+	.global sAttackCoeffTable
+sAttackCoeffTable:
 	.byte	0
 	.byte	1
 	.byte	5

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <array>
-#include <filesystem>
 #include "types.h"
 
 constexpr int TITLE_LENGTH = 0x100 / sizeof(u16); // 128 UTF-16 characters
@@ -43,13 +42,13 @@ template <typename T>
 void SerializeData(std::ofstream& ostream, T data);
 
 void ProcessSpecFileCommand(SpecFileData& specfile_data, const std::wstring_view& command_name, const std::wstring_view& command_argument);
-SpecFileData ParseSpecFile(const std::filesystem::path& specfile_path);
+SpecFileData ParseSpecFile(const filesystem::path& specfile_path);
 
-IconBitmap GetIconBitmap(const std::filesystem::path& icon_bitmap_filename);
-IconPalette GetIconPalette(const std::filesystem::path& icon_palette_filename);
+IconBitmap GetIconBitmap(const filesystem::path& icon_bitmap_filename);
+IconPalette GetIconPalette(const filesystem::path& icon_palette_filename);
 
 void OutputBanner(std::ofstream& ostream, const Banner& banner);
-bool MakeBanner(const std::filesystem::path& specfile_path, const std::filesystem::path& outfile_path);
+bool MakeBanner(const filesystem::path& specfile_path, const filesystem::path& outfile_path);
 
 inline bool CommandIsForTitleAndDeveloper(const std::wstring& command_name) {
     return command_name == L"JP" ||

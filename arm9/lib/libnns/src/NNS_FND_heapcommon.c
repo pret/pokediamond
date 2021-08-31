@@ -5,9 +5,9 @@
 BOOL sRootListInitialized;
 NNSFndList sRootList;
 
-void *NNS_FndGetNextListObject(NNSFndList *, void *);
+ARM_FUNC void *NNS_FndGetNextListObject(NNSFndList *, void *);
 
-static NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBlock)
+ARM_FUNC static NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBlock)
 {
     NNSiFndHeapHead * pHead = NULL;
 
@@ -24,7 +24,7 @@ static NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBloc
     return NULL;
 }
 
-static NNSFndList* FindListContainHeap(const void * memBlock)
+ARM_FUNC static NNSFndList* FindListContainHeap(const void * memBlock)
 {
     NNSFndList* ret = &sRootList;
     NNSiFndHeapHead* pHead = FindContainHeap(&sRootList, memBlock);
@@ -33,7 +33,7 @@ static NNSFndList* FindListContainHeap(const void * memBlock)
     return ret;
 }
 
-void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart, void* heapEnd, u16 optionFlag)
+ARM_FUNC void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart, void* heapEnd, u16 optionFlag)
 {
     pHead->signature = signature;
     pHead->heapStart = heapStart;
@@ -49,7 +49,7 @@ void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart
     NNS_FndAppendListObject(FindListContainHeap(pHead), pHead);
 }
 
-void NNSi_FndFinalizeHeap(NNSiFndHeapHead *pHead)
+ARM_FUNC void NNSi_FndFinalizeHeap(NNSiFndHeapHead *pHead)
 {
     NNS_FndRemoveListObject(FindListContainHeap(pHead), pHead);
 }

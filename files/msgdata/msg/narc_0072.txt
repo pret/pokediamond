@@ -5,9 +5,9 @@ Which Fossil should I turn back\ninto a Pokémon? Choose! Now!
 OK, I will do that! Turn that Fossil\nback into a Pokémon, surely I will!
 You don’t wish that I extract any\nPokémon from a Fossil. Fine, then!
 I am in the process of extracting\nyour Pokémon from a Fossil.\rYou go outside, yes, please. Now!\nTime alone is what I now need. NOW!!!
-You were gone too long!\nYou kept us waiting! Unacceptable!\rThis is your {STRVAR 0, 0}!\nYou be good to it, OK!\r
-{STRVAR 3, 0} received\nthe {STRVAR 0, 1}!\r
-Give a nickname to the {STRVAR 0, 1}\nyou received?
+You were gone too long!\nYou kept us waiting! Unacceptable!\rThis is your {STRVAR_1 0, 0}!\nYou be good to it, OK!\r
+{STRVAR_1 3, 0} received\nthe {STRVAR_1 0, 1}!\r
+Give a nickname to the {STRVAR_1 0, 1}\nyou received?
 But, no, I cannot do this!\nYou have too many Pokémon with you!\rI must hold it for you, so come back,\nyou, and take it away, please.
 If it is a Fossil that you obtain,\nbring it to me if you must.
 On the verge of a breakthrough,\nI am, to achieve extraction from\fFossils.\rFrom Fossils I can extract Pokémon,\nbut not yet, not yet.

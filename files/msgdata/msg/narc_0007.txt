@@ -35,67 +35,67 @@ DESELECT
           
          
    
-{STRVAR 52, 0}
+{STRVAR_1 52, 0}
 x
   
       
 CLOSE BAG
-{STRVAR 8, 0} is\nselected.
+{STRVAR_1 8, 0} is\nselected.
                      
             
-Move the {STRVAR 8, 0} where?
-The {STRVAR 8, 0} can’t be held.
+Move the {STRVAR_1 8, 0} where?
+The {STRVAR_1 8, 0} can’t be held.
                          
                  
                   
                 
                              
-Toss out how many\n{STRVAR 8, 0}(s)?
-Threw away {STRVAR 51, 1} {STRVAR 8, 0}.
-Is it OK to throw away\n{STRVAR 52, 1} {STRVAR 8, 0}?
+Toss out how many\n{STRVAR_1 8, 0}(s)?
+Threw away {STRVAR_1 51, 1} {STRVAR_1 8, 0}.
+Is it OK to throw away\n{STRVAR_1 52, 1} {STRVAR_1 8, 0}?
                                         
 You can’t dismount your Bike here.
-Your Coins: {STRVAR 54, 0}
+Your Coins: {STRVAR_1 54, 0}
 Booted up a TM.{WAIT 3}{WAIT 4}\n
 Booted up an HM.{WAIT 3}{WAIT 4}\n
-It contained\n{STRVAR 6, 0}.\rTeach {STRVAR 6, 0}\nto a Pokémon?
-{STRVAR 3, 0} used the\n{STRVAR 8, 1}.
+It contained\n{STRVAR_1 6, 0}.\rTeach {STRVAR_1 6, 0}\nto a Pokémon?
+{STRVAR_1 3, 0} used the\n{STRVAR_1 8, 1}.
 Since a Repel’s effects still linger,\nyou can’t use this now.
-{STRVAR 3, 0} used the\n{STRVAR 8, 1}.\rWild Pokémon will be lured.
-{STRVAR 3, 0} used the\n{STRVAR 8, 1}.\rWild Pokémon will be repelled.
+{STRVAR_1 3, 0} used the\n{STRVAR_1 8, 1}.\rWild Pokémon will be lured.
+{STRVAR_1 3, 0} used the\n{STRVAR_1 8, 1}.\rWild Pokémon will be repelled.
 The Box is full.
             
-No.{STRVAR 51, 0}{STRVAR 6, 1}
-No.{STRVAR 51, 0}{STRVAR 6, 1}
-{STRVAR 51, 0}{STRVAR 6, 1}
+No.{STRVAR_1 51, 0}{STRVAR_1 6, 1}
+No.{STRVAR_1 51, 0}{STRVAR_1 6, 1}
+{STRVAR_1 51, 0}{STRVAR_1 6, 1}
       
                               
              
                        
-{STRVAR 8, 0}? Oh, no.\nI can’t buy that.
-{STRVAR 8, 0}?\nHow many would you like to sell?
-I can pay ${STRVAR 55, 0}.\nWould that be OK?
-Turned over the {STRVAR 8, 0}\nand received ${STRVAR 55, 1}.
+{STRVAR_1 8, 0}? Oh, no.\nI can’t buy that.
+{STRVAR_1 8, 0}?\nHow many would you like to sell?
+I can pay ${STRVAR_1 55, 0}.\nWould that be OK?
+Turned over the {STRVAR_1 8, 0}\nand received ${STRVAR_1 55, 1}.
 MONEY
-${STRVAR 55, 0}
-x{STRVAR 51, 0}
-${STRVAR 55, 0}
+${STRVAR_1 55, 0}
+x{STRVAR_1 51, 0}
+${STRVAR_1 55, 0}
 Yes
 No
-x{STRVAR 52, 0}
+x{STRVAR_1 52, 0}
     
 PP
 POWER
 ACCURACY
 CATEGORY
-{STRVAR 51, 0}
-{STRVAR 52, 0}
-Seals: {STRVAR 53, 0}
-Accessories: {STRVAR 52, 0}\nBackdrops: {STRVAR 51, 1}
+{STRVAR_1 51, 0}
+{STRVAR_1 52, 0}
+Seals: {STRVAR_1 53, 0}
+Accessories: {STRVAR_1 52, 0}\nBackdrops: {STRVAR_1 51, 1}
 Close Bag
 PLANT
 OPEN
-Saved Battle Points\n{STRVAR 53, 0}BP
+Saved Battle Points\n{STRVAR_1 53, 0}BP
 TYPE
 A Key Item in the Bag can be assigned\nto this button for instant use.
                   
@@ -104,9 +104,9 @@ A Key Item in the Bag can be assigned\nto this button for instant use.
           
                
                             
-The battery has run dry!\nFor it to recharge, you need to walk\fanother {STRVAR 51, 0} steps.
+The battery has run dry!\nFor it to recharge, you need to walk\fanother {STRVAR_1 51, 0} steps.
 The grassy patch remained quiet...
 No. of Poffins:
-{STRVAR 52, 0}/100
+{STRVAR_1 52, 0}/100
 Please choose the Berry you want to\ncook from your Bag.
 It can’t be used when you have\nsomeone with you.
