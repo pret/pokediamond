@@ -1,4 +1,4 @@
-// Character mapping for Pokémon HeartGold and SoulSilver
+// Character mapping for Pokémon Diamond and Pearl
 // Version 2021.08.17
 // Format is HEXCODE=<character> or HEXCODE={<command>}
 // Comments are preceded by double forward slashes as in C99 and C++.
