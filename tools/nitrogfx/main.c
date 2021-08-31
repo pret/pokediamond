@@ -63,13 +63,14 @@ void ConvertNtrToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
 
     if (key)
     {
-        char string[strlen(outputPath) + 5];
+        char* string = malloc(strlen(outputPath) + 5);
         sprintf(string, "%s.key", outputPath);
         FILE *fp = fopen(string, "wb");
         if (fp == NULL)
             FATAL_ERROR("Failed to open key file for writing.\n");
         fwrite(&key, 4, 1, fp);
         fclose(fp);
+        free(string);
     }
 
     image.hasTransparency = options->hasTransparency;
@@ -103,7 +104,7 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
     uint32_t key = 0;
     if (options->scanned)
     {
-        char string[strlen(inputPath) + 5];
+        char* string = malloc(strlen(inputPath) + 5);
         sprintf(string, "%s.key", inputPath);
         FILE *fp2 = fopen(string, "rb");
         if (fp2 == NULL)
@@ -112,6 +113,7 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
         if (count != 1)
             FATAL_ERROR("Not a valid key file.\n");
         fclose(fp2);
+        free(string);
     }
 
     WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101, options->sopc, options->scanned, key);

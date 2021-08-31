@@ -1,5 +1,5 @@
 Isn’t my Pokétch quite fetching?\rA Trainer would be simply lost without\na Pokétch, after all.
 PIKACHU: Piika pi!
 PACHIRISU: Pachipachii?
-Oh, your Pokémon is quite adorable!\rHere, try making it hold this\n{STRVAR 8, 0}.\r
+Oh, your Pokémon is quite adorable!\rHere, try making it hold this\n{STRVAR_1 8, 0}.\r
 A Pokémon holding that Quick Claw can\nsometimes attack first, even if it\fis normally a little bit slow.\rThere are other items that are only\nuseful when given to a Pokémon.\rTry finding other items that you can\nmake your Pokémon hold.\r...I sound like I’m a teacher or\nsomething.

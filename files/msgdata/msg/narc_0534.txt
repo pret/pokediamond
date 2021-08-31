@@ -1,4 +1,4 @@
-Buck: Yo, if it isn’t {STRVAR 3, 0}!\rDon’t tell me you’re going to Stark\nMountain, too?\rYou’re pretty wimpy...\nYou’re sure you’re going to be OK?\rHeh, why am I asking you that?\nIt’s not like I care.\rAnyways, if we see each other on\nStark Mountain, the race is on to\fsee who gets the Magma Stone first!\r
+Buck: Yo, if it isn’t {STRVAR_1 3, 0}!\rDon’t tell me you’re going to Stark\nMountain, too?\rYou’re pretty wimpy...\nYou’re sure you’re going to be OK?\rHeh, why am I asking you that?\nIt’s not like I care.\rAnyways, if we see each other on\nStark Mountain, the race is on to\fsee who gets the Magma Stone first!\r
 Hey, traveling Trainer.\nIs your Bag full of items?\fOr is it full of dreams?
 Trainers who lose at the Battle\nTower come here to train.
 I’ve been exploring a long time,\nbut I know when I’m beaten.\rIt takes a better Trainer than me\nto explore the volcano thoroughly!

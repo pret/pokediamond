@@ -1,11 +1,11 @@
 Welcome to the Exchange Service\nCorner!\rWe can exchange your BP\nfor fabulous items.\r
 Which prize would you like in\nexchange for your BP?
-You’ve chosen the {STRVAR 8, 0}.\nIs that correct?
+You’ve chosen the {STRVAR_1 8, 0}.\nIs that correct?
 Here is your prize!\r
 I’m so sorry...\nYou don’t have enough BP...\r
-Sorry, your Bag has no room for\nthis {STRVAR 8, 0}...\r
+Sorry, your Bag has no room for\nthis {STRVAR_1 8, 0}...\r
 Thank you for visiting.\rPlease visit us again when you have\nsaved up BP.
-You’ve chosen {STRVAR 8, 0},\n{STRVAR 6, 1}. Is that correct?
+You’ve chosen {STRVAR_1 8, 0},\n{STRVAR_1 6, 1}. Is that correct?
 What to get today...\nPerhaps a Technical Machine will do.
 What I most care about is the\ncrushing power of my darling Pokémon.\rAre there any prizes that would\nhelp them get more power?
 How’s it going?\rIf things aren’t going well, why not\ngrab some prizes here?\rIt might toughen up your Pokémon\njust enough to do better.

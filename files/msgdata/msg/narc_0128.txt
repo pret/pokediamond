@@ -1,7 +1,7 @@
 Welcome to the Great Marsh, the home\nof Pastoria’s Safari Game!\rAll you can catch for just $500!\nWould you like to play a Safari Game?
 That will be $500, please.\r
 Here are your Safari Balls.\r
-{STRVAR 3, 0} received\n30 Safari Balls.\r
+{STRVAR_1 3, 0} received\n30 Safari Balls.\r
 We’ll let you know when your game\nis over.\rUntil then, enjoy yourself, please!\nOff you go on your wild excursion!\r
 OK.\nPlease come again!\r
 You don’t have enough money.\nSorry.\r

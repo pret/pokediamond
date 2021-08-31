@@ -1,25 +1,25 @@
-{STRVAR 1, 0}
+{STRVAR_1 1, 0}
 ♂
 ♀
-{STRVAR 52, 0}
+{STRVAR_1 52, 0}
 Item
-{STRVAR 8, 0}
+{STRVAR_1 8, 0}
 None
 POKéMON INFO
 Pokédex No.
-{STRVAR 52, 0}
+{STRVAR_1 52, 0}
 Name
-{STRVAR 0, 0}
+{STRVAR_1 0, 0}
 Type
 OT
-{STRVAR 3, 0}
+{STRVAR_1 3, 0}
 ID No.
-{STRVAR 54, 0}
+{STRVAR_1 54, 0}
 Exp. Points
-{STRVAR 56, 0}
+{STRVAR_1 56, 0}
 To Next Lv.
   
-{STRVAR 55, 0}
+{STRVAR_1 55, 0}
 ???
 TRAINER MEMO
 {COLOR 2}Hardy{COLOR 0} nature.
@@ -47,22 +47,22 @@ TRAINER MEMO
 {COLOR 2}Sassy{COLOR 0} nature.
 {COLOR 2}Careful{COLOR 0} nature.
 {COLOR 2}Quirky{COLOR 0} nature.
-{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nMet at Lv. {STRVAR 52, 3}.
-{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nApparently met at\nLv. {STRVAR 52, 3}.
-{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nArrived at Lv. {STRVAR 52, 3}.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg hatched.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg apparently hatched.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg received.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg hatched.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg received.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg apparently hatched.
-{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nHad a fateful encounter\nat Lv. {STRVAR 52, 3}.
-{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nApparently had a\nfateful encounter at\nLv. {STRVAR 52, 3}.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg hatched.\nFateful encounter.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg apparently hatched.\nFateful encounter.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg arrived.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg hatched.\nFateful encounter.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg arrived.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg apparently hatched.\nFateful encounter.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg hatched.\nFateful encounter.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nEgg apparently hatched.\nFateful encounter.
-{STRVAR 74, 1} {STRVAR 51, 2}, 20{STRVAR 51, 0}\n{COLOR 2}{STRVAR 4, 4}{COLOR 0}\nArrived at Lv. {STRVAR 52, 3}.
+{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nMet at Lv. {STRVAR_1 52, 3}.
+{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nApparently met at\nLv. {STRVAR_1 52, 3}.
+{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nArrived at Lv. {STRVAR_1 52, 3}.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg hatched.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg apparently hatched.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg received.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg hatched.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg received.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg apparently hatched.
+{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nHad a fateful encounter\nat Lv. {STRVAR_1 52, 3}.
+{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nApparently had a\nfateful encounter at\nLv. {STRVAR_1 52, 3}.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg hatched.\nFateful encounter.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg apparently hatched.\nFateful encounter.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg arrived.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg hatched.\nFateful encounter.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg arrived.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg apparently hatched.\nFateful encounter.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg hatched.\nFateful encounter.
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}\nEgg obtained.\n{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nEgg apparently hatched.\nFateful encounter.
+{STRVAR_1 74, 1} {STRVAR_1 51, 2}, 20{STRVAR_1 51, 0}\n{COLOR 2}{STRVAR_1 4, 4}{COLOR 0}\nArrived at Lv. {STRVAR_1 52, 3}.
 Likes {COLOR 2}spicy{COLOR 0} food.
 Likes {COLOR 2}dry{COLOR 0} food.
 Likes {COLOR 2}sweet{COLOR 0} food.
@@ -99,10 +99,10 @@ Somewhat vain.
 Strongly defiant.
 Hates to lose.
 Somewhat stubborn.
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\nA mysterious Pokémon\nEgg received from\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}.\n
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\nA mysterious Pokémon\nEgg obtained in\n{COLOR 2}{STRVAR 4, 8}{COLOR 0}.\n
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\nA very mysterious\nPokémon Egg obtained\nat {COLOR 1}{STRVAR 4, 8}{COLOR 0}.\n
-{STRVAR 74, 6} {STRVAR 51, 7}, 20{STRVAR 51, 5}\nA very mysterious\nPokémon Egg that came\nfrom {COLOR 2}{STRVAR 4, 8}{COLOR 0}.\n
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\nA mysterious Pokémon\nEgg received from\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}.\n
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\nA mysterious Pokémon\nEgg obtained in\n{COLOR 2}{STRVAR_1 4, 8}{COLOR 0}.\n
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\nA very mysterious\nPokémon Egg obtained\nat {COLOR 1}{STRVAR_1 4, 8}{COLOR 0}.\n
+{STRVAR_1 74, 6} {STRVAR_1 51, 7}, 20{STRVAR_1 51, 5}\nA very mysterious\nPokémon Egg that came\nfrom {COLOR 2}{STRVAR_1 4, 8}{COLOR 0}.\n
 “The Egg Watch”\nSounds can be heard\ncoming from inside!\nIt will hatch soon!
 “The Egg Watch”\nIt appears to move\noccasionally. It may\nbe close to hatching.
 “The Egg Watch”\nWhat will hatch from\nthis? It doesn’t seem\nclose to hatching.
@@ -116,40 +116,40 @@ Sp. Def
 Speed
 Ability
 /
-{STRVAR 52, 0}
-{STRVAR 52, 0}
-{STRVAR 52, 0}
-{STRVAR 52, 0}
-{STRVAR 52, 0}
-{STRVAR 52, 0}
-{STRVAR 52, 0}
-{STRVAR 5, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 5, 0}
 CONDITION
 SHEEN
 BATTLE MOVES
 INFO
-{STRVAR 6, 0}
-{STRVAR 6, 0}
-{STRVAR 6, 0}
-{STRVAR 6, 0}
-{STRVAR 6, 0}
+{STRVAR_1 6, 0}
+{STRVAR_1 6, 0}
+{STRVAR_1 6, 0}
+{STRVAR_1 6, 0}
+{STRVAR_1 6, 0}
 PP
-{STRVAR 51, 0}
-{STRVAR 51, 0}
-{STRVAR 51, 0}
-{STRVAR 51, 0}
-{STRVAR 51, 0}
-{STRVAR 51, 0}
-{STRVAR 51, 0}
-{STRVAR 51, 0}
-{STRVAR 51, 0}
-{STRVAR 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
+{STRVAR_1 51, 0}
 CANCEL
 POWER
 ACCURACY
 CATEGORY
-{STRVAR 52, 0}
-{STRVAR 52, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 52, 0}
 SWITCH
 --
 ---
@@ -181,7 +181,7 @@ RIBBONS
 INFO
 CANCEL
 No. of Ribbons:
-{STRVAR 52, 0}
-{STRVAR 52, 0}
+{STRVAR_1 52, 0}
+{STRVAR_1 52, 0}
 /
-{STRVAR 52, 0}
+{STRVAR_1 52, 0}
