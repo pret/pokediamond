@@ -196,9 +196,6 @@ $(BUILD_DIR)/lib/%.o: CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99
 
 $(BUILD_DIR)/lib/libnns/%.o: MWCCVERSION = 1.2/sp3
 
-# FIXME: Using -ipa file breaks .rodata alignment
-$(BUILD_DIR)/src/math_util.o: CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
