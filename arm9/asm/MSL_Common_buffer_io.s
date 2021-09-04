@@ -109,11 +109,5 @@ _020DE574:
 	ldmia sp!, {r3-r5,pc}
 	arm_func_end __flush_buffer
 
-	.section .exceptix,4
-
-	.word __load_buffer
-	.short 141
-	.word 0x00200700
-	.word __flush_buffer
-	.short 137
-	.word 0x00200300
+	exception __load_buffer, 141, 0x00200700
+	exception __flush_buffer, 137, 0x00200300

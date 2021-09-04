@@ -1417,17 +1417,9 @@ atod: ; 0x020E463C
 _020E4648: .word strtold
 	arm_func_end atod
 
-	.section .exceptix,4
-
-	.word __strtold
-	.short 4684
-	.word UNK_020EC720
-	.word strtold
-	.short 225
-	.word 0x00500F00
-	.word atod
-	.short 17
-	.word 0x00000000
+	exception __strtold, 4684, UNK_020EC720
+	exception strtold, 225, 0x00500F00
+	exception atod, 17, 0x00000000
 
 	.section .exception,8
 

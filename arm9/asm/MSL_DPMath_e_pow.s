@@ -1180,10 +1180,7 @@ _020E81F0:
 	bx lr
 	arm_func_end __ieee754_pow
 
-	.section .exceptix,4
-	.word __ieee754_pow
-	.short 4488
-	.word UNK_020EC738
+	exception __ieee754_pow, 4488, UNK_020EC738
 
 	.section .exception,8
 

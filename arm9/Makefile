@@ -220,7 +220,10 @@ $(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
 $(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
+$(BUILD_DIR)/$(LD_TEMPLATE): $(BUILD_DIR)/%: %
+	(echo "KEEP_SECTION\n{\n\t.exceptix\n}\n"; cat $<) > $@
+
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(BUILD_DIR)/$(LD_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
 
 $(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)

@@ -14,8 +14,4 @@ _020DE2F4: .word __float_nan
 _020DE2F8: .word _f2d
 	arm_func_end nan
 
-	.section .exceptix,4
-
-	.word nan
-	.short 25
-	.word 0x00000000
+	exception nan, 25, 0x00000000

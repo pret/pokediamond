@@ -28,8 +28,4 @@ _020E5098:
 	bx lr
 	arm_func_end wmemchr
 
-	.section .exceptix,4
-
-	.word wmemcpy
-	.short 17
-	.word 0x00000000
+	exception wmemcpy, 17, 0x00000000

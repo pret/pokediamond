@@ -1447,17 +1447,9 @@ sscanf: ; 0x020E2D54
 	bx lr
 	arm_func_end sscanf
 
-	.section .exceptix,4
-
-	.word __sformatter
-	.short 3412
-	.word UNK_020EC718
-	.word vsscanf
-	.short 85
-	.word 0x00200000
-	.word sscanf
-	.short 41
-	.word 0x00300020
+	exception __sformatter, 3412, UNK_020EC718
+	exception vsscanf, 85, 0x00200000
+	exception sscanf, 41, 0x00300020
 
 	.section .exception,8
 

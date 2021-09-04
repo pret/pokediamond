@@ -2327,32 +2327,14 @@ _020E7000:
 _020E7018: .word __wStringWrite
 	arm_func_end vswprintf
 
-	.section .exceptix,4
-
-	.word long2str__wide
-	.short 593
-	.word 0x0090FF20
-	.word longlong2str__wide
-	.short 741
-	.word 0x00A0FF20
-	.word double2hex__wide
-	.short 921
-	.word 0x00F07F20
-	.word float2str__wide
-	.short 1612
-	.word UNK_020EC728
-	.word __wpformatter
-	.short 2288
-	.word UNK_020EC730
-	.word __wStringWrite
-	.short 65
-	.word 0x00200300
-	.word swprintf
-	.short 41
-	.word 0x00300020
-	.word vswprintf
-	.short 113
-	.word 0x00300300
+	exception long2str__wide, 593, 0x0090FF20
+	exception longlong2str__wide, 741, 0x00A0FF20
+	exception double2hex__wide, 921, 0x00F07F20
+	exception float2str__wide, 1612, UNK_020EC728
+	exception __wpformatter, 2288, UNK_020EC730
+	exception __wStringWrite, 65, 0x00200300
+	exception swprintf, 41, 0x00300020
+	exception vswprintf, 113, 0x00300300
 
 	.section .exception,8
 

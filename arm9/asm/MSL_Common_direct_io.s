@@ -500,14 +500,6 @@ _020DEC5C:
 	ldmia sp!, {r3-r11,pc}
 	arm_func_end __fwrite
 
-	.section .exceptix,4
-
-	.word fread
-	.short 269
-	.word 0x00407F00
-	.word __fread
-	.short 841
-	.word 0x00507F00
-	.word __fwrite
-	.short 689
-	.word 0x0060FF00
+	exception fread, 269, 0x00407F00
+	exception __fread, 841, 0x00507F00
+	exception __fwrite, 689, 0x0060FF00

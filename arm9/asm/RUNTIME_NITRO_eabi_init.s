@@ -10,8 +10,4 @@ _ExitProcess: ; 0x020EC704
 	.balign 4
 _020EC70C: .word sys_exit
 
-	.section .exceptix,4
-
-	.word _ExitProcess
-	.short 13
-	.word 0x00000000
+	exception _ExitProcess, 13, 0x00000000

@@ -58,8 +58,4 @@ _020E8310: .word 0x800FFFFF
 _020E8314: .word 0xFFFFFC02
 	arm_func_end frexp
 
-	.section .exceptix,4
-
-	.word frexp
-	.short 189
-	.word 0x00300120
+	exception frexp, 189, 0x00300120

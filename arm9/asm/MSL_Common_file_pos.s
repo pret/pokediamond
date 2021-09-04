@@ -356,17 +356,7 @@ rewind: ; 0x020DF290
 	ldmia sp!, {r4,pc}
 	arm_func_end rewind
 
-	.section .exceptix,4
-
-	.word ftell
-	.short 285
-	.word 0x00300F00
-	.word _fseek
-	.short 489
-	.word 0x00400320
-	.word fseek
-	.short 301
-	.word 0x00403F00
-	.word rewind
-	.short 37
-	.word 0x00100100
+	exception ftell, 285, 0x00300F00
+	exception _fseek, 489, 0x00400320
+	exception fseek, 301, 0x00403F00
+	exception rewind, 37, 0x00100100
