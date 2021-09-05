@@ -1,33 +1,34 @@
 #include "global.h"
 #include "unk_020222E8.h"
+#include "mmap.h"
 
 THUMB_FUNC void * FUN_020222E8()
 {
-    return 0x5 << 0x18;
+    return (void *)HW_BG_PLTT;
 }
 
-THUMB_FUNC void * FUN_020222F0()
+THUMB_FUNC u32 FUN_020222F0()
 {
-    return 0x2 << 0x8;
+    return HW_BG_PLTT_SIZE;
 }
 
 THUMB_FUNC void * FUN_020222F8()
 {
-    return 0x05000400;
+    return (void *)HW_DB_BG_PLTT;
 }
 
-THUMB_FUNC void * FUN_02022300()
+THUMB_FUNC u32 FUN_02022300()
 {
-    return 0x2 << 0x8;
+    return HW_DB_BG_PLTT_SIZE;
 }
 
 THUMB_FUNC void * FUN_02022308()
 {
-    return 0x05000200;
+    return (void *)HW_OBJ_PLTT;
 }
 
 THUMB_FUNC void * FUN_02022310()
 {
-    return 0x05000600;
+    return (void *)HW_DB_OBJ_PLTT;
 }
 
