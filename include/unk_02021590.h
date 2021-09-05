@@ -48,5 +48,7 @@ void DecompressGlyphTiles_LazyFromNarc(struct FontData * ptr, u16 param1, struct
 u32 GetStringWidth(struct FontData * ptr, const u16 * str, u32 letterSpacing);
 int GetGlyphWidth_VariableWidth(struct FontData * ptr, int a1);
 int GetGlyphWidth_FixedWidth(struct FontData * ptr, int a1);
+s32 GetStringWidthMultiline(struct FontData * r7, const u16 * arr, u32 r6);
+s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct FontData * r6, const u16 * arr);
 
 #endif //POKEDIAMOND_UNK_02021590_H

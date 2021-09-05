@@ -179,7 +179,7 @@ THUMB_FUNC s32 FUN_02002F08(u32 param0, struct String *str, u32 param2)
 {
     GF_ASSERT(UNK_02106FC8->unk94[param0] != NULL);
 
-    return StringGetWidth(UNK_02106FC8->unk94[param0], String_c_str(str), param2);
+    return GetStringWidthMultiline(UNK_02106FC8->unk94[param0], String_c_str(str), param2);
 }
 
 THUMB_FUNC u32 FUN_02002F40(u32 param0, struct String *str, u32 param2, u32 param3)

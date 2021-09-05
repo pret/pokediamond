@@ -2,64 +2,10 @@
 #include "string16.h"
 #include "heap.h"
 #include "string_util.h"
-#include "unk_0201B8B8.h"
-#include "unk_02021590.h"
 
 #pragma thumb on
 
 #define ASSERT_STR16(_str) ({ GF_ASSERT(_str != NULL); GF_ASSERT(_str->magic == STR16_MAGIC); })
-
-void StrAddChar(struct String * str, u16 val);
-
-s32 StringGetWidth(struct FontData * r7, const u16 * arr, u32 r6)
-{
-    s32 ret = 0;
-    u32 r4 = 0;
-    while (*arr != 0xFFFF)
-    {
-        if (*arr == 0xFFFE)
-        {
-            arr = MsgArray_SkipControlCode(arr);
-        }
-        else if (*arr == 0xE000) // newline
-        {
-            if (ret < r4 - r6)
-                ret = (int)(r4 - r6);
-            r4 = 0;
-            arr++;
-        }
-        else
-        {
-            r4 += (r6 + r7->glyphWidthFunc(r7, *arr - 1));
-            arr++;
-        }
-    }
-    if (ret < r4 - r6)
-        ret = (int)(r4 - r6);
-    return ret;
-}
-
-s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct FontData * r6, const u16 * arr)
-{
-    s32 ret = 0;
-    while (*arr != 0xFFFF)
-    {
-        if (*arr == 0xFFFE)
-        {
-            if (MsgArray_GetControlCode(arr) == 515)
-            {
-                ret = MsgArray_ControlCodeGetField(arr, 0) - 12;
-            }
-            arr = MsgArray_SkipControlCode(arr);
-        }
-        else
-        {
-            ret += r6->glyphWidthFunc(r6, *arr - 1);
-            arr++;
-        }
-    }
-    return ret;
-}
 
 struct String * String_ctor(u32 length, u32 heap_id)
 {
@@ -365,4 +311,44 @@ void StrUpperFirstChar(struct String * str)
             //              (a - A)
             str->data[0] -= 26;
     }
+}
+
+BOOL String_IsTrainerName(struct String * string)
+{
+    return string->size != 0 && string->data[0] == 0xF100;
+}
+
+void StringCat_HandleTrainerName(struct String * dest, struct String * src)
+{
+    if (String_IsTrainerName(src))
+    {
+        u16 * dest_p = &dest->data[dest->size];
+        u16 * src_p = &src->data[1];
+        s32 bit = 0;
+        u32 outsize = 0;
+        u16 cur_char = 0;
+
+        while (1)
+        {
+            cur_char = (u16)((*src_p >> bit) & 0x1FF);
+            bit += 9;
+            if (bit >= 15)
+            {
+                src_p++;
+                bit -= 15;
+                if (bit != 0)
+                {
+                    cur_char |= (*src_p << (9 - bit)) & 0x1FF;
+                }
+            }
+            if (cur_char == 0x1FF)
+                break;
+            *dest_p++ = cur_char;
+            outsize++;
+        }
+        *dest_p = EOS;
+        dest->size += outsize;
+    }
+    else
+        StringCat(dest, src);
 }

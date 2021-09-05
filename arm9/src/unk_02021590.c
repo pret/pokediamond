@@ -210,3 +210,53 @@ THUMB_FUNC int GetGlyphWidth_FixedWidth(struct FontData * ptr, int a1)
 #pragma unused(a1)
     return ptr->gfxHeader.fixedWidth;
 }
+
+THUMB_FUNC s32 GetStringWidthMultiline(struct FontData * r7, const u16 * arr, u32 r6)
+{
+    s32 ret = 0;
+    u32 r4 = 0;
+    while (*arr != 0xFFFF)
+    {
+        if (*arr == 0xFFFE)
+        {
+            arr = MsgArray_SkipControlCode(arr);
+        }
+        else if (*arr == 0xE000) // newline
+        {
+            if (ret < r4 - r6)
+                ret = (int)(r4 - r6);
+            r4 = 0;
+            arr++;
+        }
+        else
+        {
+            r4 += (r6 + r7->glyphWidthFunc(r7, *arr - 1));
+            arr++;
+        }
+    }
+    if (ret < r4 - r6)
+        ret = (int)(r4 - r6);
+    return ret;
+}
+
+THUMB_FUNC s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct FontData * r6, const u16 * arr)
+{
+    s32 ret = 0;
+    while (*arr != 0xFFFF)
+    {
+        if (*arr == 0xFFFE)
+        {
+            if (MsgArray_GetControlCode(arr) == 515)
+            {
+                ret = MsgArray_ControlCodeGetField(arr, 0) - 12;
+            }
+            arr = MsgArray_SkipControlCode(arr);
+        }
+        else
+        {
+            ret += r6->glyphWidthFunc(r6, *arr - 1);
+            arr++;
+        }
+    }
+    return ret;
+}

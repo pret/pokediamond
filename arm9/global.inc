@@ -1386,7 +1386,7 @@
 .extern FontData_ModeSwitch
 .extern TryLoadGlyph
 .extern GetStringWidth
-.extern StringGetWidth
+.extern GetStringWidthMultiline
 .extern StringGetWidth_SingleLine_HandleClearToControlCode
 .extern String_ctor
 .extern String_dtor
