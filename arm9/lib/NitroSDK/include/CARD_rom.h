@@ -35,6 +35,44 @@ typedef struct
 }
 CARDRomRegion;
 
+typedef struct CARDRomHeader
+{
+    char game_name[12];
+    u32 game_code;
+    u16 maker_code;
+    u8 product_id;
+    u8 device_type;
+    u8 device_size;
+    u8 reserved_A[9];
+    u8 game_version;
+    u8 property;
+    void *main_rom_offset;
+    void *main_entry_address;
+    void *main_ram_address;
+    u32 main_size;
+    void *sub_rom_offset;
+    void *sub_entry_address;
+    void *sub_ram_address;
+    u32 sub_size;
+    CARDRomRegion fnt;
+    CARDRomRegion fat;
+    CARDRomRegion main_ovt;
+    CARDRomRegion sub_ovt;
+    u8 rom_param_A[8];
+    u32 banner_offset;
+    u16 secure_crc;
+    u8 rom_param_B[2];
+    void *main_autoload_done;
+    void *sub_autoload_done;
+    u8 rom_param_C[8];
+    u32 rom_size;
+    u32 header_size;
+    u8 reserved_B[0x38];
+    u8 logo_data[0x9C];
+    u16 logo_crc;
+    u16 header_crc;
+} CARDRomHeader;
+
 typedef struct CARDRomStat
 {
     void (*read_func) (struct CARDRomStat *);
