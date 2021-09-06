@@ -23,7 +23,7 @@ static const char arc_name[] = "rom";
 // Multichar constants are encoded big-endian,
 // but this is a little-endian machine.
 #define ROM_CODE_ADAJ_BE     'JADA'
-#define MAKER_CODE_01_BE     '01'
+#define MAKER_CODE_01_BE     '10'
 
 /*Replacing (HW_MAIN_MEM_SHARED + 0xC) or (HW_MAIN_MEM_SHARED + 0x10) or defining ADAJ or 01 constants causes match failure*/
 THUMB_FUNC void FUN_02022450() {

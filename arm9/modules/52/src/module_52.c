@@ -159,7 +159,7 @@ THUMB_FUNC BOOL MOD52_021D74E0(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    CreateHeap(3, 0x4d, 2 << 16);
+    CreateHeap(3, 0x4d, 0x20000);
     InitializeMainRNG();
 
     return 1;
@@ -189,7 +189,7 @@ THUMB_FUNC BOOL MOD52_021D7528(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    CreateHeap(3, 0x4d, 2 << 16);
+    CreateHeap(3, 0x4d, 0x20000);
     InitializeMainRNG();
 
     return 1;
@@ -221,7 +221,7 @@ THUMB_FUNC BOOL MOD52_021D757C(struct UnkStruct_02006234 *arg1, u32 *arg2)
 {
 #pragma unused(arg1)
 #pragma unused(arg2)
-    CreateHeap(3, 0x4d, 2 << 16);
+    CreateHeap(3, 0x4d, 0x20000);
     InitializeMainRNG();
 
     return 1;

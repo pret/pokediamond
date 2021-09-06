@@ -4,6 +4,7 @@
 #include "save_block_2.h"
 #include "math_util.h"
 #include "unk_020139D8.h"
+#include "msgdata/msg.naix"
 
 #pragma thumb on
 
@@ -17,17 +18,17 @@ const u8 sNarcLanguages[][2] = {
 };
 
 const u16 sNarcMsgBanks[] = {
-    362, // Species names
-    589, // Move names
-    565, // Type names
-    553, // Ability names
-    388, // Trainer
-    389, // People
-    390, // Greetings
-    391, // Lifestyle
-    392, // Feelings
-    393, // Tough words
-    394  // Union
+    NARC_msg_narc_0362_bin, // Species names
+    NARC_msg_narc_0589_bin, // Move names
+    NARC_msg_narc_0565_bin, // Type names
+    NARC_msg_narc_0553_bin, // Ability names
+    NARC_msg_narc_0388_bin, // Trainer
+    NARC_msg_narc_0389_bin, // People
+    NARC_msg_narc_0390_bin, // Greetings
+    NARC_msg_narc_0391_bin, // Lifestyle
+    NARC_msg_narc_0392_bin, // Feelings
+    NARC_msg_narc_0393_bin, // Tough words
+    NARC_msg_narc_0394_bin  // Union
 };
 
 const u16 sNarcMsgCounts[] = {
