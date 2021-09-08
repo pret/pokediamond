@@ -531,9 +531,9 @@ _020858D2:
 	ldr r0, [r6, #0x14]
 	bl FUN_020857A4
 	ldr r0, [r6, #0x10]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x2
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	mov r0, #0x1
 	str r0, [r6, #0x4]
 	b _020858FC

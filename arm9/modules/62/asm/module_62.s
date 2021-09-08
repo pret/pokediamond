@@ -6497,9 +6497,9 @@ _02230860:
 	bl MOD62_0222EC28
 	ldr r0, [r4]
 	ldr r0, [r0, #0x28]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #6
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	mov r0, #0xf1
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]

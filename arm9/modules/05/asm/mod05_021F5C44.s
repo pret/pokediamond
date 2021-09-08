@@ -86,9 +86,9 @@ _021F5CBA:
 	lsr r2, r2, #0x10
 	bl FUN_02061208
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0xa
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	ldr r2, [r5, #0x10]
 	add r0, r4, #0
 	add r1, r6, #0
@@ -439,9 +439,9 @@ MOD05_021F5F5C: ; 0x021F5F5C
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x20]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x49
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	ldr r0, [r4, #0x1c]
 	bl MOD05_021F61B0
 	add r2, r0, #0

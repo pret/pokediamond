@@ -2342,9 +2342,9 @@ FUN_0204DCB4: ; 0x0204DCB4
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x25
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 _0204DD0C:
 	pop {r3-r5, pc}
 	nop
@@ -4606,9 +4606,9 @@ FUN_0204EDEC: ; 0x0204EDEC
 	beq _0204EE96
 	ldr r0, [r2, #0x54]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x1c
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	ldr r0, _0204EE98 ; =UNK_021C5A68
 	ldr r1, [r0, #0x0]
 	mov r0, #0xa3

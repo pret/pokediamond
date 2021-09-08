@@ -3408,9 +3408,9 @@ FUN_020572D4: ; 0x020572D4
 	bl FUN_020553A0
 	bl FUN_02058738
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x5
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	pop {r3, pc}
 
 	thumb_func_start FUN_020572EC

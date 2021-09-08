@@ -6368,9 +6368,9 @@ ScrCmd_Unk01E5: ; 0x0203E4F0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r1, r4, #0x0
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -6402,9 +6402,9 @@ ScrCmd_Unk01E6: ; 0x0203E510
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r1, r7, #0x0
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	ldr r1, _0203E564 ; =0xFFFF0000
 	and r1, r0
 	lsr r1, r1, #0x10
@@ -6444,28 +6444,28 @@ _0203E59C:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl FUN_0202A11C
+	bl GameStats_Add
 	b _0203E5D6
 _0203E5B0:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl FUN_0202A07C
+	bl GameStats_SetCapped
 	b _0203E5D6
 _0203E5C4:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	bl FUN_0202A0A8
+	bl GameStats_UpdateBounded
 _0203E5D6:
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -7563,9 +7563,9 @@ ScrCmd_Unk0260: ; 0x0203EE78
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r1, r4, #0x0
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4

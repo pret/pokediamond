@@ -88,7 +88,7 @@ _021D9A36:
 	str r0, [r4, r1]
 	add r0, r6, #0
 	bl OverlayManager_GetField18
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [r4, #8]
 	add r0, r6, #0
 	bl OverlayManager_GetField18
@@ -1562,7 +1562,7 @@ MOD58_021DA6F4: ; 0x021DA6F4
 _021DA70E:
 	ldr r0, [r5, #8]
 	mov r1, #4
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	mov r0, #0xb5
 	lsl r0, r0, #2
 	add r0, r5, r0

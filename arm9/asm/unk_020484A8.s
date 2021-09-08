@@ -321,9 +321,9 @@ _0204871E:
 	ldr r0, [sp, #0x0]
 	bl PlayerProfile_SetGameClearFlag
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x2e
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	ldr r1, _02048760 ; =FUN_020484F8
 	add r0, r7, #0x0
 	add r2, r5, #0x0

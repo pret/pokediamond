@@ -6402,7 +6402,7 @@ _02230A98:
 	bl MOD71_02230AE4
 	ldr r0, [r5, #0x20]
 	mov r1, #0x13
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r7, #0
 	bl FreeToHeap
 	add r0, r4, #0

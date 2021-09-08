@@ -180,9 +180,9 @@ FUN_0204FCA0: ; 0x0204FCA0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x24
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	ldr r0, _0204FCD0 ; =UNK_021C5A6C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]

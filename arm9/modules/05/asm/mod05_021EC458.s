@@ -150,9 +150,9 @@ MOD05_021EC57C: ; 0x021EC57C
 	add r0, r7, #0
 	add r6, r1, #0
 	add r4, r2, #0
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x28
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r4, #0
 	bl MOD05_021EC49C
 	add r1, r0, #0

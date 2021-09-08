@@ -1981,7 +1981,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	ldr r0, [r5, #8]
 	mov r1, #0x14
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	mov r0, #0x3a
 	lsl r0, r0, #4
 	add r0, r5, r0

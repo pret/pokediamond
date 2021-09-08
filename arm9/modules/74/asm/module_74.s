@@ -32,7 +32,7 @@ MOD74_021D74E0: ; 0x021D74E0
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x18]
 	ldr r0, [r5]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [r4, #0x1c]
 	ldr r0, [r5]
 	bl SaveStruct23_GetSubstruct2
@@ -953,13 +953,13 @@ MOD74_021D7C10: ; 0x021D7C10
 	ldr r0, [r5, #0x1c]
 	add r1, r7, #0
 	add r6, r2, #0
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x10]
 	ldr r0, [r5, #0x1c]
 	add r1, r7, #1
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	lsl r0, r0, #0x10
 	add r6, #8
 	lsr r7, r0, #0x10

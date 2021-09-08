@@ -1772,13 +1772,13 @@ MOD05_021D8F38: ; 0x021D8F38
 	cmp r0, #1
 	bne _021D8F7A
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r5, r0, #0
 	mov r1, #0xb
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r5, #0
 	mov r1, #0xf
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	ldr r1, _021D8F80 ; =0x000007EF
 	add r0, r4, #0
 	mov r2, #0

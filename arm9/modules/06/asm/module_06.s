@@ -8134,7 +8134,7 @@ MOD06_0223D3D0: ; 0x0223D3D0
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x87
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -10549,7 +10549,7 @@ _0223E7F6:
 	ldrsh r2, [r4, r3]
 	mov r1, #0x23
 	mul r2, r5
-	bl FUN_0202A11C
+	bl GameStats_Add
 	add r0, r4, #0
 	mov r1, #1
 	bl MOD06_0223DED0
@@ -19952,10 +19952,10 @@ MOD06_02243408: ; 0x02243408
 	mov r0, #0
 	pop {r4, pc}
 _02243414:
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	lsl r1, r4, #1
 	add r1, #0x36
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	pop {r4, pc}
@@ -20218,7 +20218,7 @@ _0224362A:
 	cmp r0, #5
 	beq _0224367E
 	add r0, r6, #0
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	ldrb r1, [r4, #0xf]
 	add r5, r0, #0
 	ldr r0, [r4, #0x74]
@@ -20234,12 +20234,12 @@ _0224362A:
 	add r0, r5, #0
 	lsl r1, r1, #1
 	add r1, #0x36
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	strh r0, [r4, #0x1a]
 _02243668:
 	add r0, r5, #0
 	mov r1, #0x1d
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [r4, #0x20]
 	ldrb r1, [r4, #0xf]
 	ldr r0, [r4, #0x74]
@@ -20729,7 +20729,7 @@ MOD06_022439F8: ; 0x022439F8
 	ldr r0, [r1, #0xc]
 	str r1, [sp]
 	str r0, [sp, #8]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	ldrb r1, [r5, #0xf]
 	str r0, [sp, #4]
 	cmp r1, #5
@@ -20737,7 +20737,7 @@ MOD06_022439F8: ; 0x022439F8
 	lsl r6, r1, #1
 	add r6, #0x35
 	add r1, r6, #0
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	lsl r0, r0, #0x10
 	lsr r7, r0, #0x10
 	ldrh r3, [r5, #0x1a]
@@ -20745,7 +20745,7 @@ MOD06_022439F8: ; 0x022439F8
 	ldr r0, [sp, #4]
 	add r1, r6, #0
 	add r2, r3, r2
-	bl FUN_0202A0A8
+	bl GameStats_UpdateBounded
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r4, #1
@@ -20778,13 +20778,13 @@ _02243A52:
 	ldrb r2, [r5, #0xd]
 	ldr r0, [sp, #4]
 	add r1, r6, #1
-	bl FUN_0202A11C
+	bl GameStats_Add
 	b _02243A7E
 _02243A74:
 	ldrb r2, [r5, #0xd]
 	ldr r0, [sp, #4]
 	add r1, r6, #1
-	bl FUN_0202A07C
+	bl GameStats_SetCapped
 _02243A7E:
 	ldrb r1, [r5, #0xf]
 	add r4, r0, #0
@@ -20797,16 +20797,16 @@ _02243A7E:
 	ldrb r2, [r5, #0xd]
 	ldr r0, [sp, #4]
 	mov r1, #0x1d
-	bl FUN_0202A11C
+	bl GameStats_Add
 	ldrb r1, [r5, #0xf]
 	ldr r0, [r5, #0x74]
 	mov r2, #2
 	bl SaveStruct23_Substruct2_SetField_0xC
 	ldr r0, [sp, #8]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0xf
 	mov r2, #1
-	bl FUN_0202A11C
+	bl GameStats_Add
 	add r0, r5, #0
 	bl MOD06_0224403C
 	ldr r0, _02243AD4 ; =0x0000270F
@@ -20839,7 +20839,7 @@ MOD06_02243AD8: ; 0x02243AD8
 	cmp r0, #5
 	beq _02243BA2
 	ldr r0, [sp, #4]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	ldrb r1, [r5, #0xf]
 	add r6, r0, #0
 	ldr r0, [r5, #0x74]
@@ -20856,14 +20856,14 @@ MOD06_02243AD8: ; 0x02243AD8
 	add r0, r6, #0
 	add r1, r4, #1
 	mov r2, #7
-	bl FUN_0202A11C
+	bl GameStats_Add
 	str r0, [sp]
 	b _02243B26
 _02243B1A:
 	add r0, r6, #0
 	add r1, r4, #1
 	mov r2, #7
-	bl FUN_0202A07C
+	bl GameStats_SetCapped
 	str r0, [sp]
 _02243B26:
 	ldrb r1, [r5, #0xf]
@@ -20875,15 +20875,15 @@ _02243B26:
 	bl SaveStruct23_Substruct2_SetFlag
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	ldr r2, [sp]
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_0202A0A8
+	bl GameStats_UpdateBounded
 	add r0, r6, #0
 	mov r1, #0x1d
 	mov r2, #7
-	bl FUN_0202A11C
+	bl GameStats_Add
 	ldrb r1, [r5, #0xf]
 	ldr r0, [r5, #0x74]
 	mov r2, #3
@@ -20891,10 +20891,10 @@ _02243B26:
 	add r0, r6, #0
 	mov r1, #0xf
 	mov r2, #1
-	bl FUN_0202A11C
+	bl GameStats_Add
 	add r0, r6, #0
 	mov r1, #0xe
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	add r0, r5, #0
 	bl MOD06_0224403C
 	ldr r3, [sp]

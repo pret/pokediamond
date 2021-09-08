@@ -295,7 +295,7 @@ FUN_02047814: ; 0x02047814
 	sub r1, #0x8
 	str r0, [r4, r1]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x51
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -572,7 +572,7 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x51
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -747,7 +747,7 @@ _02047C98:
 	str r0, [r6, r1]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x51
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
@@ -925,7 +925,7 @@ _02047E2C:
 	str r0, [r5, r1]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x51
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]

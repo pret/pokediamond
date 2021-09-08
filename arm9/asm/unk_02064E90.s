@@ -19,7 +19,7 @@ FUN_02064E90: ; 0x02064E90
 	bl Sav2_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x20]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x1c]
 	strb r0, [r5, #0x5]
@@ -56,7 +56,7 @@ FUN_02064E90: ; 0x02064E90
 	bl Pokedex_GetSinnohDexFlag
 	str r0, [sp, #0x3c]
 	add r0, r4, #0x0
-	bl FUN_0202A1B8
+	bl GameStats_GetStat0
 	ldr r1, [sp, #0x38]
 	ldr r2, [sp, #0x30]
 	str r1, [sp, #0x0]
@@ -100,27 +100,27 @@ FUN_02064E90: ; 0x02064E90
 	str r0, [sp, #0x44]
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x48]
 	add r0, r4, #0x0
 	mov r1, #0x19
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x4c]
 	add r0, r4, #0x0
 	mov r1, #0x14
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x50]
 	add r0, r4, #0x0
 	mov r1, #0x18
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x54]
 	add r0, r4, #0x0
 	mov r1, #0x40
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x58]
 	add r0, r4, #0x0
 	mov r1, #0x13
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	ldr r1, [sp, #0x58]
 	add r1, r1, r0
 	ldr r0, [sp, #0x54]
@@ -132,27 +132,27 @@ FUN_02064E90: ; 0x02064E90
 	str r0, [sp, #0x5c]
 	add r0, r4, #0x0
 	mov r1, #0x15
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x60]
 	add r0, r4, #0x0
 	mov r1, #0x1a
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x64]
 	add r0, r4, #0x0
 	mov r1, #0x16
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x68]
 	add r0, r4, #0x0
 	mov r1, #0x1b
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x6c]
 	add r0, r4, #0x0
 	mov r1, #0x13
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [sp, #0x70]
 	add r0, r4, #0x0
 	mov r1, #0x18
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x44]
 	bl FUN_02029AC8
@@ -220,7 +220,7 @@ FUN_02065078: ; 0x02065078
 	push {r3-r7, lr}
 	bl ScriptEnvironment_GetSav2Ptr
 	add r7, r0, #0x0
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl SavArray_Flags_get
@@ -248,27 +248,27 @@ _020650A8:
 _020650BC:
 	add r0, r6, #0x0
 	mov r1, #0x35
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	cmp r0, #0x64
 	bhs _020650F8
 	add r0, r6, #0x0
 	mov r1, #0x37
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	cmp r0, #0x64
 	bhs _020650F8
 	add r0, r6, #0x0
 	mov r1, #0x39
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	cmp r0, #0x64
 	bhs _020650F8
 	add r0, r6, #0x0
 	mov r1, #0x3b
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	cmp r0, #0x64
 	bhs _020650F8
 	add r0, r6, #0x0
 	mov r1, #0x3d
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	cmp r0, #0x64
 	blo _020650FE
 _020650F8:

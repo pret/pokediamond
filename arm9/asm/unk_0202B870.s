@@ -154,7 +154,7 @@ FUN_0202B93C: ; 0x0202B93C
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r1, #0x0
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x34
@@ -175,12 +175,12 @@ _0202B95A:
 _0202B968:
 	add r0, r4, #0x0
 	mov r1, #0xf
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	add r7, r0, #0x0
 	beq _0202B984
 	add r0, r4, #0x0
 	mov r1, #0x1d
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	add r1, r7, #0x0
 	bl _u32_div_f
 	add r7, r0, #0x0
@@ -190,22 +190,22 @@ _0202B984:
 _0202B988:
 	add r0, r4, #0x0
 	mov r1, #0x41
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x42
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	add r0, r7, r0
 	str r0, [r5, #0x0]
 	b _0202B9D4
 _0202B9A0:
 	add r0, r4, #0x0
 	mov r1, #0x3f
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x40
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	add r1, r7, r0
 	beq _0202B9C4
 	ldr r0, [sp, #0x4]
@@ -221,7 +221,7 @@ _0202B9C8:
 	ldr r1, [sp, #0x0]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0202A150
+	bl GameStats_GetCapped
 	str r0, [r5, #0x0]
 _0202B9D4:
 	ldr r0, [sp, #0x0]
