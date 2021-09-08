@@ -5,7 +5,8 @@ struct Pokedex;
 
 struct UnkStruct_02029FB0
 {
-    u8 unk[0x14C];
+    u32 unk_00[0x2C];
+    u16 unk_B0[0x4D];
 };
 
 struct UnkStruct_02029FB0 * FUN_02029FC8(struct SaveBlock2 * sav2);
