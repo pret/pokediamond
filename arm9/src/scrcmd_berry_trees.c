@@ -3,8 +3,6 @@
 
 extern void* FUN_02039438(struct UnkSavStruct80*, int idx);
 
-extern void FUN_0202A0E8(struct UnkStruct_02029FB0*, int);
-extern void FUN_0202A170(struct UnkStruct_02029FB0*, int);
 extern u8 FUN_0204B5FC(struct UnkSavStruct80*, void*);
 extern void FUN_0204B57C(struct UnkSavStruct80*, void*, int);
 extern u16 FUN_0204B63C(struct UnkSavStruct80*, void*);

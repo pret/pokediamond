@@ -12,7 +12,6 @@ extern u16 *GetVarPointer(struct UnkSavStruct80 *arg, u16);
 extern u16 MOD06_02244660(struct UnkSavStruct80 *param0, u8 *param1);
 extern u16 MOD06_022446BC(struct UnkSavStruct80 *param0, u8 *param1);
 extern u16 MOD06_022446E0(struct UnkSavStruct80 *param0, u8 *param1);
-extern u32 FUN_0202A150(struct UnkStruct_02029FB0 *param0, u32 param1);
 extern u32 FUN_02026CC4(struct SaveBlock2 *sav2);
 extern u32 FUN_02025D94(u32 param0, u32 param1);
 

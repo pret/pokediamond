@@ -267,3 +267,90 @@ THUMB_FUNC u32 FUN_0202A07C(struct UnkStruct_02029FB0 * ptr, s32 a1, u32 a2)
         return FUN_02029FF8(ptr, a1, r2);
     }
 }
+
+THUMB_FUNC u32 FUN_0202A0A8(struct UnkStruct_02029FB0 * ptr, s32 a1, u32 a2)
+{
+    u32 r4 = FUN_0202A028(a1);
+    u32 r0 = FUN_02029FD4(ptr, a1);
+    if (a2 > r4)
+    {
+        a2 = r4;
+    }
+    if (r0 < a2)
+    {
+        return FUN_02029FF8(ptr, a1, a2);
+    }
+    else if (r0 > r4)
+    {
+        return FUN_02029FF8(ptr, a1, r4);
+    }
+    else
+    {
+        return r0;
+    }
+}
+
+THUMB_FUNC u32 FUN_0202A0E8(struct UnkStruct_02029FB0 * ptr, s32 a1)
+{
+    u32 r4 = FUN_0202A028(a1);
+    u32 r2 = FUN_02029FD4(ptr, a1) + 1;
+    if (r2 < r4)
+    {
+        return FUN_02029FF8(ptr, a1, r2);
+    }
+    else
+    {
+        return FUN_02029FF8(ptr, a1, r4);
+    }
+}
+
+THUMB_FUNC u32 FUN_0202A11C(struct UnkStruct_02029FB0 * ptr, s32 a1, u32 a2)
+{
+    u32 r6 = FUN_0202A028(a1);
+    u32 r2 = FUN_02029FD4(ptr, a1);
+    r2 += a2;
+    if (r2 < r6)
+    {
+        return FUN_02029FF8(ptr, a1, r2);
+    }
+    else
+    {
+        return FUN_02029FF8(ptr, a1, r6);
+    }
+}
+
+THUMB_FUNC u32 FUN_0202A150(struct UnkStruct_02029FB0 * ptr, s32 a1)
+{
+    u32 r4 = FUN_0202A028(a1);
+    u32 r0 = FUN_02029FD4(ptr, a1);
+    if (r0 <= r4)
+        r4 = r0;
+    return r4;
+}
+
+THUMB_FUNC u32 FUN_0202A170(struct UnkStruct_02029FB0 * ptr, s32 a1)
+{
+    GF_ASSERT(a1 < 38);
+    u32 r0 = FUN_0202A150(ptr, 0) + FUN_0202A070(a1);
+    if (r0 > 99999999)
+    {
+        return FUN_0202A07C(ptr, 0, 99999999);
+    }
+    else
+    {
+        return FUN_0202A11C(ptr, 0, FUN_0202A070(a1));
+    }
+}
+
+THUMB_FUNC u32 FUN_0202A1B8(struct UnkStruct_02029FB0 * ptr)
+{
+    return FUN_0202A150(ptr, 0);
+}
+
+THUMB_FUNC void FUN_0202A1C4(struct UnkStruct_02029FB0 * ptr, struct Pokedex * pokedex, u16 species)
+{
+    if (!Pokedex_CheckMonCaughtFlag(pokedex, species))
+    {
+        FUN_0202A170(ptr, 22);
+    }
+}

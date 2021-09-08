@@ -114,7 +114,6 @@ Static arm9
 	Object igt.o
 	Object sav_chatot.o
 	Object unk_02029FB0.o
-	Object unk_02029FB0_s.o
 	Object unk_0202A1E0.o
 	Object unk_0202A8F4.o
 	Object unk_0202A924.o
