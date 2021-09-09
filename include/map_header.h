@@ -4,7 +4,7 @@
 struct MapHeader
 {
     u8 area_data_bank;
-    u8 unk1;
+    u8 move_model_bank;
     u16 matrix_id;
     u16 scripts_bank;
     u16 level_scripts_bank;
@@ -25,7 +25,7 @@ struct MapHeader
 };
 
 u8 MapHeader_GetAreaDataBank(u32 mapno);
-u8 MapHeader_GetField1(u32 mapno);
+u8 MapHeader_GetMoveModelBank(u32 mapno);
 u16 MapHeader_GetMatrixId(u32 mapno);
 u16 MapHeader_GetMsgBank(u32 mapno);
 u16 MapHeader_GetScriptsBank(u32 mapno);

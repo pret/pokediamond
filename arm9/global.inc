@@ -2491,7 +2491,7 @@
 .extern FUN_02034678
 .extern FUN_020346CC
 .extern MapHeader_GetAreaDataBank
-.extern MapHeader_GetField1
+.extern MapHeader_GetMoveModelBank
 .extern MapHeader_GetMatrixId
 .extern MapHeader_GetMsgBank
 .extern MapHeader_GetScriptsBank
