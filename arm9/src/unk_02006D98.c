@@ -276,7 +276,7 @@ const int UNK_020ECD4C[4][2][4] = { { { 0, 0, 0x50, 0x50 }, { 0x50, 0, 0xA0, 0x5
 
     } };
 
-struct UnkStruct_02006D98_3 *UNK_02105AE8[] = {
+const struct UnkStruct_02006D98_3 *UNK_02105AE8[] = {
     UNK_020ECCE2,
     UNK_020ECC78,
     UNK_020ECC10,
@@ -350,9 +350,6 @@ THUMB_FUNC struct UnkStruct_02006D98 *FUN_02006D98(u32 heap_id)
     return ptr;
 }
 
-#ifdef NONMATCHING
-
-// mostly matching, only 2 register writes messed up
 THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 {
     s32 arg3;
@@ -365,10 +362,14 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 
     reg_G3_MTX_PUSH = 0;
 
-    // this is all shuffled however I try
-    reg_G3_TEXIMAGE_PARAM = (param0->unk29C >> 3) | (param0->unk260.attr.fmt << 26) | (1 << 30) |
-                            (param0->unk260.attr.sizeS << 20) | (param0->unk260.attr.sizeT << 23) |
-                            (param0->unk260.attr.plttUse << 29);
+    G3_TexImageParam(param0->unk260.attr.fmt,
+        GX_TEXGEN_TEXCOORD,
+        param0->unk260.attr.sizeS,
+        param0->unk260.attr.sizeT,
+        GX_TEXREPEAT_NONE,
+        GX_TEXFLIP_NONE,
+        param0->unk260.attr.plttUse,
+        param0->unk29C);
 
     for (int st18 = 0; st18 < 4; st18++)
     {
@@ -405,8 +406,8 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
         reg_G3_TEXPLTT_BASE = (param0->unk2A4 + st18 * 0x20) >> (4 - shift);
 
         u32 r1 = param0->unk000[st18].unk28 << 0xc;
-        u32 r0 = (param0->unk000[st18].unk26 + param0->unk000[st18].unk42) << 0xc;
-        u32 r3 = (param0->unk000[st18].unk24 + param0->unk000[st18].unk40) << 0xc;
+        u32 r0 = (u32)((param0->unk000[st18].unk26 + param0->unk000[st18].unk42) << 0xc);
+        u32 r3 = (u32)((param0->unk000[st18].unk24 + param0->unk000[st18].unk40) << 0xc);
 
         reg_G3_MTX_TRANS = r3;
         reg_G3_MTX_TRANS = r0;
@@ -439,12 +440,12 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 
         reg_G3_SPE_EMI = 0x4210;
 
-        {
-            // shuffled there as well
-            u32 r1 = param0->unk000[st18].unk00_1;
-            u32 r0 = param0->unk000[st18].unk54_2;
-            reg_G3_POLYGON_ATTR = 0xc0 | (r1 << 24) | (r0 << 16);
-        }
+        G3_PolygonAttr(GX_LIGHTMASK_NONE,
+            GX_POLYGONMODE_MODULATE,
+            GX_CULL_NONE,
+            param0->unk000[st18].unk00_1,
+            param0->unk000[st18].unk54_2,
+            0);
 
         if (param0->unk000[st18].unk54_1 != 0)
         {
@@ -533,7 +534,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
         }
 
         NNS_G2dDrawSpriteFast(param0->unk000[st18].unk6C.unk4 - (arg3 / 2),
-            param0->unk000[st18].unk6C.unk4 - (arg4 / 2),
+            param0->unk000[st18].unk6C.unk6 - (arg4 / 2),
             0xFFFFFC18,
             arg3,
             arg4,
@@ -545,516 +546,6 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 
     reg_G3_MTX_POP = 1;
 }
-#else
-asm void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
-{
-    // clang-format off
-	push {r3-r7, lr}
-	sub sp, #0x20
-	add r5, r0, #0x0
-	bl FUN_020082A8
-	add r0, r5, #0x0
-	bl FUN_020086F4
-	bl NNS_G3dGeFlushBuffer
-	mov r6, #0x9f
-	mov r0, #0x0
-	ldr r4, =0x04000444
-	lsl r6, r6, #0x2
-	str r0, [r4, #0x0]
-	str r0, [sp, #0x18]
-	add r0, r6, #0x0
-	sub r0, #0xc
-	ldr r1, [r5, r0]
-	add r3, r6, #0x0
-	ldr r2, [r5, r6]
-	add r0, r6, #0x0
-	sub r3, #0x8
-	add r6, #0x20
-	ldr r3, [r5, r3]
-	ldr r6, [r5, r6]
-	sub r0, #0x10
-	ldr r0, [r5, r0]
-	lsr r6, r6, #0x3
-	lsl r3, r3, #0x1a
-	orr r6, r3
-	mov r3, #0x1
-	lsl r3, r3, #0x1e
-	lsl r0, r0, #0x14
-	orr r3, r6
-	lsl r1, r1, #0x17
-	orr r0, r3
-	lsl r2, r2, #0x1d
-	orr r0, r1
-	orr r0, r2
-	str r0, [r4, #0x64]
-	ldr r0, [sp, #0x18]
-	add r4, r5, #0x0
-	str r0, [sp, #0x14]
-	ldr r0, =UNK_020ECD4C
-	str r0, [sp, #0x1c]
-_02006F30:
-	ldr r0, [r4, #0x0]
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x1f
-	beq _02006F46
-	ldr r0, [r4, #0x54]
-	lsl r1, r0, #0x1f
-	lsr r1, r1, #0x1f
-	bne _02006F46
-	lsl r0, r0, #0x14
-	lsr r0, r0, #0x1f
-	beq _02006F48
-_02006F46:
-	b _020072BC
-_02006F48:
-	ldr r2, [r4, #0x68]
-	cmp r2, #0x0
-	beq _02006F56
-	add r1, r4, #0x0
-	add r0, r4, #0x0
-	add r1, #0x24
-	blx r2
-_02006F56:
-	bl NNS_G3dGeFlushBuffer
-	ldr r0, =0x000002E3
-	ldrb r0, [r5, r0]
-	cmp r0, #0x1
-	beq _02006F68
-	ldr r0, =0x04000454
-	mov r1, #0x0
-	str r1, [r0, #0x0]
-_02006F68:
-	add r0, r4, #0x0
-	bl FUN_02007F48
-	mov r0, #0x9d
-	lsl r0, r0, #0x2
-	ldr r0, [r5, r0]
-	cmp r0, #0x2
-	bne _02006F7C
-	mov r0, #0x1
-	b _02006F7E
-_02006F7C:
-	mov r0, #0x0
-_02006F7E:
-	mov r1, #0xa9
-	lsl r1, r1, #0x2
-	ldr r2, [r5, r1]
-	ldr r1, [sp, #0x14]
-	add r2, r2, r1
-	mov r1, #0x4
-	sub r0, r1, r0
-	add r1, r2, #0x0
-	lsr r1, r0
-	ldr r0, =0x040004AC
-	str r1, [r0, #0x0]
-	ldr r0, [r4, #0x28]
-	lsl r1, r0, #0xc
-	mov r0, #0x26
-	ldrsh r2, [r4, r0]
-	mov r0, #0x42
-	ldrsh r0, [r4, r0]
-	add r0, r2, r0
-	mov r2, #0x24
-	ldrsh r3, [r4, r2]
-	mov r2, #0x40
-	ldrsh r2, [r4, r2]
-	lsl r0, r0, #0xc
-	add r2, r3, r2
-	lsl r3, r2, #0xc
-	ldr r2, =0x04000470
-	str r3, [r2, #0x0]
-	str r0, [r2, #0x0]
-	add r0, r2, #0x0
-	str r1, [r0, #0x0]
-	ldrh r0, [r4, #0x38]
-	asr r0, r0, #0x4
-	lsl r1, r0, #0x2
-	ldr r0, =FX_SinCosTable_
-	add r2, r0, r1
-	ldrsh r0, [r0, r1]
-	mov r1, #0x2
-	ldrsh r1, [r2, r1]
-	bl G3_RotX
-	ldrh r0, [r4, #0x3a]
-	asr r0, r0, #0x4
-	lsl r1, r0, #0x2
-	ldr r0, =FX_SinCosTable_
-	add r2, r0, r1
-	ldrsh r0, [r0, r1]
-	mov r1, #0x2
-	ldrsh r1, [r2, r1]
-	bl G3_RotY
-	ldrh r0, [r4, #0x3c]
-	asr r0, r0, #0x4
-	lsl r1, r0, #0x2
-	ldr r0, =FX_SinCosTable_
-	add r2, r0, r1
-	ldrsh r0, [r0, r1]
-	mov r1, #0x2
-	ldrsh r1, [r2, r1]
-	bl G3_RotZ
-	ldr r0, [r4, #0x28]
-	lsl r0, r0, #0xc
-	neg r1, r0
-	mov r0, #0x26
-	ldrsh r2, [r4, r0]
-	mov r0, #0x42
-	ldrsh r0, [r4, r0]
-	add r0, r2, r0
-	mov r2, #0x24
-	ldrsh r3, [r4, r2]
-	mov r2, #0x40
-	ldrsh r2, [r4, r2]
-	lsl r0, r0, #0xc
-	neg r0, r0
-	add r2, r3, r2
-	lsl r2, r2, #0xc
-	neg r3, r2
-	ldr r2, =0x04000470
-	str r3, [r2, #0x0]
-	str r0, [r2, #0x0]
-	add r0, r2, #0x0
-	str r1, [r0, #0x0]
-	ldr r3, [r4, #0x50]
-	lsl r0, r3, #0x11
-	lsr r0, r0, #0x1b
-	lsl r2, r3, #0x16
-	lsl r1, r0, #0xa
-	lsl r0, r3, #0x1b
-	lsr r2, r2, #0x1b
-	lsr r0, r0, #0x1b
-	lsl r2, r2, #0x5
-	orr r0, r2
-	orr r0, r1
-	lsl r0, r0, #0x10
-	lsr r2, r0, #0x10
-	lsl r0, r3, #0x2
-	lsr r0, r0, #0x1b
-	lsl r1, r0, #0xa
-	lsl r0, r3, #0xc
-	lsl r3, r3, #0x7
-	lsr r3, r3, #0x1b
-	lsr r0, r0, #0x1b
-	lsl r3, r3, #0x5
-	orr r0, r3
-	orr r0, r1
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x10
-	lsl r0, r0, #0x10
-	add r1, r2, #0x0
-	orr r1, r0
-	mov r0, #0x2
-	lsl r0, r0, #0xe
-	orr r1, r0
-	ldr r0, =0x040004C0
-	str r1, [r0, #0x0]
-	ldr r1, =0x00004210
-	add r0, r0, #0x4
-	str r1, [r0, #0x0]
-	ldr r1, [r4, #0x0]
-	ldr r0, [r4, #0x54]
-	lsl r1, r1, #0x19
-	lsl r0, r0, #0x19
-	lsr r1, r1, #0x1a
-	lsr r0, r0, #0x1b
-	lsl r2, r1, #0x18
-	mov r1, #0xc0
-	lsl r0, r0, #0x10
-	orr r1, r2
-	orr r1, r0
-	ldr r0, =0x040004A4
-	str r1, [r0, #0x0]
-	ldr r0, [r4, #0x54]
-	lsl r0, r0, #0x1e
-	lsr r0, r0, #0x1f
-	beq _02007104
-	add r0, r4, #0x0
-	add r0, #0x5b
-	ldrb r0, [r0, #0x0]
-	add r2, r4, #0x0
-	add r2, #0x44
-	lsl r1, r0, #0x4
-	ldr r0, [sp, #0x1c]
-	ldrb r3, [r2, #0x0]
-	add r0, r0, r1
-	ldr r2, [sp, #0x1c]
-	ldr r0, [r0, #0x4]
-	ldr r1, [r2, r1]
-	add r6, r3, r1
-	add r1, r4, #0x0
-	add r1, #0x46
-	ldrb r1, [r1, #0x0]
-	mov r12, r1
-	add r1, r4, #0x0
-	add r1, #0x45
-	ldrb r2, [r1, #0x0]
-	add r1, r2, r0
-	add r0, r4, #0x0
-	add r0, #0x47
-	ldrb r7, [r0, #0x0]
-	mov r0, r12
-	add r0, r0, r6
-	str r7, [sp, #0x0]
-	str r6, [sp, #0x4]
-	str r1, [sp, #0x8]
-	str r0, [sp, #0xc]
-	add r0, r7, r1
-	str r0, [sp, #0x10]
-	mov r1, #0x24
-	ldrsh r1, [r4, r1]
-	mov r0, #0x2c
-	ldrsh r0, [r4, r0]
-	sub r1, #0x28
-	add r1, r1, r3
-	add r0, r0, r1
-	mov r3, #0x26
-	ldrsh r3, [r4, r3]
-	mov r1, #0x2e
-	lsl r0, r0, #0x10
-	sub r3, #0x28
-	add r2, r3, r2
-	ldrsh r1, [r4, r1]
-	ldr r3, [r4, #0x28]
-	asr r0, r0, #0x10
-	add r2, r1, r2
-	mov r1, #0x6e
-	ldrsb r1, [r4, r1]
-	sub r1, r2, r1
-	ldr r2, [r4, #0x30]
-	lsl r1, r1, #0x10
-	add r2, r3, r2
-	asr r1, r1, #0x10
-	mov r3, r12
-	bl NNS_G2dDrawSpriteFast
-	b _02007174
-_02007104:
-	mov r0, #0x34
-	ldrsh r1, [r4, r0]
-	mov r0, #0x50
-	ldr r2, [sp, #0x1c]
-	mul r0, r1
-	asr r3, r0, #0x8
-	mov r0, #0x36
-	ldrsh r1, [r4, r0]
-	mov r0, #0x50
-	ldr r6, [sp, #0x1c]
-	mul r0, r1
-	asr r1, r0, #0x8
-	add r0, r4, #0x0
-	add r0, #0x5b
-	ldrb r0, [r0, #0x0]
-	lsl r0, r0, #0x4
-	str r1, [sp, #0x0]
-	add r2, r2, r0
-	ldr r0, [r6, r0]
-	lsr r6, r1, #0x1f
-	str r0, [sp, #0x4]
-	ldr r0, [r2, #0x4]
-	add r6, r1, r6
-	str r0, [sp, #0x8]
-	ldr r0, [r2, #0x8]
-	asr r1, r6, #0x1
-	str r0, [sp, #0xc]
-	ldr r0, [r2, #0xc]
-	str r0, [sp, #0x10]
-	mov r0, #0x24
-	ldrsh r2, [r4, r0]
-	lsr r0, r3, #0x1f
-	add r0, r3, r0
-	asr r0, r0, #0x1
-	sub r2, r2, r0
-	mov r0, #0x2c
-	ldrsh r0, [r4, r0]
-	ldr r6, [r4, #0x28]
-	add r0, r2, r0
-	mov r2, #0x26
-	ldrsh r2, [r4, r2]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	sub r2, r2, r1
-	mov r1, #0x2e
-	ldrsh r1, [r4, r1]
-	add r2, r2, r1
-	mov r1, #0x6e
-	ldrsb r1, [r4, r1]
-	sub r1, r2, r1
-	ldr r2, [r4, #0x30]
-	lsl r1, r1, #0x10
-	asr r1, r1, #0x10
-	add r2, r6, r2
-	bl NNS_G2dDrawSpriteFast
-_02007174:
-	add r0, r4, #0x0
-	add r0, #0x6c
-	ldrh r0, [r0, #0x0]
-	lsl r1, r0, #0x1e
-	lsr r1, r1, #0x1e
-	beq _0200719A
-	lsl r0, r0, #0x19
-	lsr r0, r0, #0x1e
-	beq _0200719A
-	ldr r0, [r4, #0x54]
-	lsl r0, r0, #0x1e
-	lsr r0, r0, #0x1f
-	bne _0200719A
-	mov r0, #0xb9
-	lsl r0, r0, #0x2
-	ldr r1, [r5, r0]
-	mov r0, #0x1
-	tst r0, r1
-	beq _0200719C
-_0200719A:
-	b _020072BC
-_0200719C:
-	ldr r0, =0x000002E3
-	ldrb r0, [r5, r0]
-	cmp r0, #0x1
-	beq _020071AA
-	ldr r0, =0x04000454
-	mov r1, #0x0
-	str r1, [r0, #0x0]
-_020071AA:
-	mov r0, #0x9d
-	lsl r0, r0, #0x2
-	ldr r0, [r5, r0]
-	cmp r0, #0x2
-	bne _020071B8
-	mov r1, #0x1
-	b _020071BA
-_020071B8:
-	mov r1, #0x0
-_020071BA:
-	add r2, r4, #0x0
-	add r2, #0x6c
-	ldrh r2, [r2, #0x0]
-	mov r0, #0xa9
-	lsl r0, r0, #0x2
-	lsl r2, r2, #0x1e
-	lsr r2, r2, #0x1e
-	add r2, r2, #0x3
-	ldr r0, [r5, r0]
-	lsl r2, r2, #0x5
-	add r2, r0, r2
-	mov r0, #0x4
-	sub r0, r0, r1
-	add r1, r2, #0x0
-	lsr r1, r0
-	ldr r0, =0x040004AC
-	str r1, [r0, #0x0]
-	add r0, r4, #0x0
-	add r0, #0x6c
-	ldrh r0, [r0, #0x0]
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x1f
-	beq _020071FA
-	mov r0, #0x34
-	ldrsh r0, [r4, r0]
-	lsl r0, r0, #0x6
-	asr r3, r0, #0x8
-	mov r0, #0x36
-	ldrsh r0, [r4, r0]
-	lsl r0, r0, #0x4
-	asr r1, r0, #0x8
-	b _020071FE
-_020071FA:
-	mov r3, #0x40
-	mov r1, #0x10
-_020071FE:
-	add r0, r4, #0x0
-	add r0, #0x6c
-	ldrh r0, [r0, #0x0]
-	lsl r0, r0, #0x1d
-	lsr r0, r0, #0x1f
-	beq _02007220
-	mov r0, #0x74
-	ldrsh r2, [r4, r0]
-	mov r0, #0x24
-	mov r6, #0x2c
-	ldrsh r0, [r4, r0]
-	ldrsh r6, [r4, r6]
-	add r0, r0, r6
-	add r2, r2, r0
-	add r0, r4, #0x0
-	add r0, #0x70
-	strh r2, [r0, #0x0]
-_02007220:
-	add r0, r4, #0x0
-	add r0, #0x6c
-	ldrh r0, [r0, #0x0]
-	lsl r0, r0, #0x1c
-	lsr r0, r0, #0x1f
-	beq _02007242
-	mov r0, #0x76
-	ldrsh r2, [r4, r0]
-	mov r0, #0x26
-	mov r6, #0x2e
-	ldrsh r0, [r4, r0]
-	ldrsh r6, [r4, r6]
-	add r0, r0, r6
-	add r2, r2, r0
-	add r0, r4, #0x0
-	add r0, #0x72
-	strh r2, [r0, #0x0]
-_02007242:
-	add r0, r4, #0x0
-	add r0, #0x6c
-	ldrh r0, [r0, #0x0]
-	ldr r2, =UNK_020ECBD0
-	ldr r6, =UNK_020ECBD0
-	lsl r0, r0, #0x19
-	lsr r0, r0, #0x1e
-	lsl r0, r0, #0x4
-	str r1, [sp, #0x0]
-	add r2, r2, r0
-	ldr r0, [r6, r0]
-	lsr r6, r1, #0x1f
-	str r0, [sp, #0x4]
-	ldr r0, [r2, #0x4]
-	add r6, r1, r6
-	str r0, [sp, #0x8]
-	ldr r0, [r2, #0x8]
-	asr r1, r6, #0x1
-	str r0, [sp, #0xc]
-	ldr r0, [r2, #0xc]
-	str r0, [sp, #0x10]
-	mov r0, #0x70
-	ldrsh r2, [r4, r0]
-	lsr r0, r3, #0x1f
-	add r0, r3, r0
-	asr r0, r0, #0x1
-	sub r0, r2, r0
-	mov r2, #0x72
-	ldrsh r2, [r4, r2]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	sub r1, r2, r1
-	lsl r1, r1, #0x10
-	ldr r2, =0xFFFFFC18
-	asr r1, r1, #0x10
-	bl NNS_G2dDrawSpriteFast
-_020072BC:
-	ldr r0, [sp, #0x14]
-	add r4, #0x98
-	add r0, #0x20
-	str r0, [sp, #0x14]
-	ldr r0, [sp, #0x1c]
-	add r0, #0x20
-	str r0, [sp, #0x1c]
-	ldr r0, [sp, #0x18]
-	add r0, r0, #0x1
-	str r0, [sp, #0x18]
-	cmp r0, #0x4
-	bge _020072D6
-	b _02006F30
-_020072D6:
-	ldr r0, =0x04000448
-	mov r1, #0x1
-	str r1, [r0, #0x0]
-	add sp, #0x20
-	pop {r3-r7, pc}
-    // clang-format on
-}
-#endif
 
 THUMB_FUNC void FUN_020072E8(struct UnkStruct_02006D98 *param0)
 {

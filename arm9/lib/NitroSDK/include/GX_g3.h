@@ -181,4 +181,27 @@ typedef union
 }
 GXBoxTestParam;
 
+
+
+
+#define GX_PACK_TEXIMAGE_PARAM(texFmt, texGen, s, t, repeat, flip, pltt0, addr) \
+    ((u32)(((addr) >> 3) |                                                      \
+           ((texFmt) << REG_G3_TEXIMAGE_PARAM_TEXFMT_SHIFT) |                   \
+           ((texGen) << REG_G3_TEXIMAGE_PARAM_TGEN_SHIFT) |                     \
+           ((s) << REG_G3_TEXIMAGE_PARAM_V_SIZE_SHIFT) |                        \
+           ((t) << REG_G3_TEXIMAGE_PARAM_T_SIZE_SHIFT) |                        \
+           ((repeat) << REG_G3_TEXIMAGE_PARAM_RS_SHIFT) |                       \
+           ((flip) << REG_G3_TEXIMAGE_PARAM_FS_SHIFT) |                         \
+           ((pltt0) << REG_G3_TEXIMAGE_PARAM_TR_SHIFT)))
+
+#define GX_PACK_POLYGONATTR_PARAM(light, polyMode, cullMode, polygonID, alpha, misc) \
+    ((u32)(((light) << REG_G3_POLYGON_ATTR_LE_SHIFT) |                               \
+           ((polyMode) << REG_G3_POLYGON_ATTR_PM_SHIFT) |                            \
+           ((cullMode) << REG_G3_POLYGON_ATTR_BK_SHIFT) |                            \
+           (misc) |                                                                  \
+           ((polygonID) << REG_G3_POLYGON_ATTR_ID_SHIFT) |                           \
+           ((alpha) << REG_G3_POLYGON_ATTR_ALPHA_SHIFT)))
+
+
+
 #endif //GUARD_GX_G3_H
