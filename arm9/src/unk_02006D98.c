@@ -423,43 +423,43 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
         G3_RotZ(FX_SinCosTable_[idz * 2], FX_SinCosTable_[idz * 2 + 1]);
 
         r1 = -(param0->unk000[st18].unk28 << 0xc);
-        r0 = -((param0->unk000[st18].unk26 + param0->unk000[st18].unk42) << 0xc);
-        r3 = -((param0->unk000[st18].unk24 + param0->unk000[st18].unk40) << 0xc);
+        r0 = -(u32)((param0->unk000[st18].unk26 + param0->unk000[st18].unk42) << 0xc);
+        r3 = -(u32)((param0->unk000[st18].unk24 + param0->unk000[st18].unk40) << 0xc);
 
         reg_G3_MTX_TRANS = r3;
         reg_G3_MTX_TRANS = r0;
         reg_G3_MTX_TRANS = r1;
 
         reg_G3_DIF_AMB =
-            ((u16)(param0->unk000[st18].unk50_0 | (param0->unk000[st18].unk50_5 << 5) |
+            (u32)(((u16)(param0->unk000[st18].unk50_0 | (param0->unk000[st18].unk50_5 << 5) |
                    (param0->unk000[st18].unk50_a << 10))) |
             (((u16)(param0->unk000[st18].unk50_f | (param0->unk000[st18].unk50_14 << 5) |
                     (param0->unk000[st18].unk50_19 << 10)))
                 << 16) |
-            0x8000;
+            0x8000);
 
         reg_G3_SPE_EMI = 0x4210;
 
         G3_PolygonAttr(GX_LIGHTMASK_NONE,
             GX_POLYGONMODE_MODULATE,
             GX_CULL_NONE,
-            param0->unk000[st18].unk00_1,
-            param0->unk000[st18].unk54_2,
+            (int)param0->unk000[st18].unk00_1,
+            (int)param0->unk000[st18].unk54_2,
             0);
 
         if (param0->unk000[st18].unk54_1 != 0)
         {
-            u32 r6 = param0->unk000[st18].unk44 + UNK_020ECD4C[st18][param0->unk000[st18].unk5B][0];
-            u32 r12 = param0->unk000[st18].unk46;
-            u32 r1 = param0->unk000[st18].unk45 + UNK_020ECD4C[st18][param0->unk000[st18].unk5B][1];
-            u32 r7 = param0->unk000[st18].unk47;
-            u32 r0 = r12 + r6;
+            int r6 = param0->unk000[st18].unk44 + UNK_020ECD4C[st18][param0->unk000[st18].unk5B][0];
+            int r12 = param0->unk000[st18].unk46;
+            int r1 = param0->unk000[st18].unk45 + UNK_020ECD4C[st18][param0->unk000[st18].unk5B][1];
+            int r7 = param0->unk000[st18].unk47;
+            int r0 = r12 + r6;
 
-            NNS_G2dDrawSpriteFast(param0->unk000[st18].unk24 - 40 + param0->unk000[st18].unk44 +
-                                      param0->unk000[st18].unk2C,
-                param0->unk000[st18].unk26 - 40 + param0->unk000[st18].unk45 +
-                    param0->unk000[st18].unk2E - param0->unk000[st18].unk6C.unk2,
-                param0->unk000[st18].unk28 + param0->unk000[st18].unk30,
+            NNS_G2dDrawSpriteFast((s16)(param0->unk000[st18].unk24 - 40 + param0->unk000[st18].unk44 +
+                                      param0->unk000[st18].unk2C),
+                (s16)(param0->unk000[st18].unk26 - 40 + param0->unk000[st18].unk45 +
+                    param0->unk000[st18].unk2E - param0->unk000[st18].unk6C.unk2),
+                (int)(param0->unk000[st18].unk28 + param0->unk000[st18].unk30),
                 r12,
                 r7,
                 r6,
@@ -473,10 +473,10 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
             arg4 = (param0->unk000[st18].unk36 * 80) >> 8;
 
             NNS_G2dDrawSpriteFast(
-                param0->unk000[st18].unk24 - (arg3 / 2) + param0->unk000[st18].unk2C,
-                param0->unk000[st18].unk26 - (arg4 / 2) + param0->unk000[st18].unk2E -
-                    param0->unk000[st18].unk6C.unk2,
-                param0->unk000[st18].unk28 + param0->unk000[st18].unk30,
+                (s16)(param0->unk000[st18].unk24 - (arg3 / 2) + param0->unk000[st18].unk2C),
+                (s16)(param0->unk000[st18].unk26 - (arg4 / 2) + param0->unk000[st18].unk2E -
+                    param0->unk000[st18].unk6C.unk2),
+                (int)(param0->unk000[st18].unk28 + param0->unk000[st18].unk30),
                 arg3,
                 arg4,
                 UNK_020ECD4C[st18][param0->unk000[st18].unk5B][0],
@@ -521,20 +521,20 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 
         if (param0->unk000[st18].unk6C.unk0_2 != 0)
         {
-            param0->unk000[st18].unk6C.unk4 = param0->unk000[st18].unk24 +
+            param0->unk000[st18].unk6C.unk4 = (s16)(param0->unk000[st18].unk24 +
                                               param0->unk000[st18].unk2C +
-                                              param0->unk000[st18].unk6C.unk8;
+                                              param0->unk000[st18].unk6C.unk8);
         }
 
         if (param0->unk000[st18].unk6C.unk0_3 != 0)
         {
-            param0->unk000[st18].unk6C.unk6 = param0->unk000[st18].unk26 +
+            param0->unk000[st18].unk6C.unk6 = (s16)(param0->unk000[st18].unk26 +
                                               param0->unk000[st18].unk2E +
-                                              param0->unk000[st18].unk6C.unka;
+                                              param0->unk000[st18].unk6C.unka);
         }
 
-        NNS_G2dDrawSpriteFast(param0->unk000[st18].unk6C.unk4 - (arg3 / 2),
-            param0->unk000[st18].unk6C.unk6 - (arg4 / 2),
+        NNS_G2dDrawSpriteFast((s16)(param0->unk000[st18].unk6C.unk4 - (arg3 / 2)),
+            (s16)(param0->unk000[st18].unk6C.unk6 - (arg4 / 2)),
             0xFFFFFC18,
             arg3,
             arg4,
@@ -1185,7 +1185,7 @@ THUMB_FUNC void FUN_02007F34(struct UnkStruct_02006D98_2 *param0, s32 param1)
     param0->unk2E = (s16)((40 - param1) - (((40 - param1) * param0->unk36) >> 8));
 }
 
-static inline inlineLoop(u8 *unk58,
+static inline void inlineLoop(u8 *unk58,
     u8 *unk59,
     u8 *unk5A,
     u8 *unk5B,
@@ -1212,7 +1212,7 @@ static inline inlineLoop(u8 *unk58,
             }
             else
             {
-                *unk59 = -2 - unk84[*unk59].unk0;
+                *unk59 = (u8)(-2 - unk84[*unk59].unk0);
             }
         }
 
@@ -1224,7 +1224,7 @@ static inline inlineLoop(u8 *unk58,
             return;
         }
 
-        *unk5B = unk84[*unk59].unk0;
+        *unk5B = (u8)unk84[*unk59].unk0;
         *unk5A = unk84[*unk59].unk1;
     }
     else
@@ -1658,7 +1658,7 @@ THUMB_FUNC void FUN_020088EC(struct UnkStruct_02006D98_2 *param0, u8 *param1)
 
 THUMB_FUNC void FUN_02008904(u8 *param0, u32 param1, u32 param2)
 {
-    struct UnkStruct_02006D98_3 *st10;
+    const struct UnkStruct_02006D98_3 *st10;
     s32 i;
     u32 r2;
     u8 r0;
