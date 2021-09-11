@@ -119,6 +119,17 @@ struct UnkStruct_02006D98_3
     u8 unk1;
 };
 
+
+struct UnkStruct_02006D98_5
+{
+    u8 unk00;
+    u8 unk01;
+    u8 unk02;
+    u8 unk03;
+    u8 unk04[10];
+    struct UnkStruct_02006D98_sub *unk10;
+};
+
 struct UnkStruct_02006D98 *FUN_02006D98(u32 heap_id);
 void FUN_02006ED4(struct UnkStruct_02006D98 *param0);
 void FUN_020072E8(struct UnkStruct_02006D98 *param0);
@@ -157,8 +168,8 @@ void FUN_02007EEC(struct UnkStruct_02006D98_2 *param0);
 BOOL FUN_02007F20(struct UnkStruct_02006D98_2 *param0);
 void FUN_02007F34(struct UnkStruct_02006D98_2 *param0, s32 param1);
 void FUN_02007F48(struct UnkStruct_02006D98_2 *param0);
-void FUN_02008010(u8 *param0, struct UnkStruct_02006D98_sub *param1);
-s32 FUN_02008030(u8 *param0);
+void FUN_02008010(struct UnkStruct_02006D98_5 *param0, struct UnkStruct_02006D98_sub *param1);
+s32 FUN_02008030(struct UnkStruct_02006D98_5 *param0);
 void FUN_020080D0(struct UnkStruct_02006D98_2 *param0);
 void FUN_020080E0(struct UnkStruct_02006D98_2 *param0);
 void FUN_0200813C(struct UnkStruct_02006D98_2 *param0);

@@ -1185,325 +1185,93 @@ THUMB_FUNC void FUN_02007F34(struct UnkStruct_02006D98_2 *param0, s32 param1)
     param0->unk2E = (s16)((40 - param1) - (((40 - param1) * param0->unk36) >> 8));
 }
 
-#ifdef NONMATCHING
-THUMB_FUNC void FUN_02007F48(struct UnkStruct_02006D98_2 *param0)
+static inline inlineLoop(u8 *unk58,
+    u8 *unk59,
+    u8 *unk5A,
+    u8 *unk5B,
+    u8 *unk5C,
+    const struct UnkStruct_02006D98_sub *unk84)
 {
-    u8 *r6 = &param0->unk59;
-    if (param0->unk58 == 0)
+    if (*unk58 == 0)
     {
         return;
     }
 
-    if (param0->unk5A == 0)
+    if (*unk5A == 0)
     {
-        (*r6)++;
+        (*unk59)++;
 
-        while (param0->unk84[*r6].unk0 < -1)
+        while (unk84[*unk59].unk0 < -1)
         {
-            param0->unk5C[*r6]++;
+            unk5C[*unk59]++;
 
-            if (param0->unk84[*r6].unk1 == param0->unk5C[*r6] || param0->unk84[*r6].unk1 == 0)
+            if (unk84[*unk59].unk1 == unk5C[*unk59] || unk84[*unk59].unk1 == 0)
             {
-                param0->unk5C[*r6] = 0;
-                r6++;
+                unk5C[*unk59] = 0;
+                unk59++;
             }
             else
             {
-                *r6 = -2 - param0->unk84[*r6].unk0;
+                *unk59 = -2 - unk84[*unk59].unk0;
             }
         }
 
-        if (param0->unk84[*r6].unk0 == -1 || *r6 >= 10)
+        if (unk84[*unk59].unk0 == -1 || *unk59 >= 10)
         {
-            param0->unk5B = 0;
-            param0->unk58 = 0;
+            *unk5B = 0;
+            *unk58 = 0;
 
             return;
         }
 
-        param0->unk5B = param0->unk84[*r6].unk0;
-        param0->unk5A = param0->unk84[*r6].unk1;
+        *unk5B = unk84[*unk59].unk0;
+        *unk5A = unk84[*unk59].unk1;
     }
     else
     {
-        param0->unk5A--;
+        (*unk5A)--;
     }
 }
-#else
-asm void FUN_02007F48(struct UnkStruct_02006D98_2 *param0)
-{
-    // clang-format off
-	push {r4-r7}
-	add r1, r0, #0x0
-	add r1, #0x58
-	ldrb r1, [r1, #0x0]
-	add r6, r0, #0x0
-	add r6, #0x59
-	cmp r1, #0x0
-	beq _0200800A
-	add r1, r0, #0x0
-	add r1, #0x5a
-	ldrb r1, [r1, #0x0]
-	cmp r1, #0x0
-	bne _02007FFE
-	ldrb r1, [r6, #0x0]
-	add r1, r1, #0x1
-	strb r1, [r6, #0x0]
-	ldrb r3, [r6, #0x0]
-	mov r1, #0x84
-	lsl r4, r3, #0x1
-	add r2, r0, r4
-	ldrsb r2, [r2, r1]
-	sub r1, #0x85
-	cmp r2, r1
-	bge _02007FC6
-	mov r2, #0x0
-	sub r1, r2, #0x2
-_02007F7C:
-	add r4, r0, r3
-	add r4, #0x5c
-	ldrb r4, [r4, #0x0]
-	add r3, r0, r3
-	add r3, #0x5c
-	add r4, r4, #0x1
-	strb r4, [r3, #0x0]
-	ldrb r5, [r6, #0x0]
-	lsl r3, r5, #0x1
-	add r4, r0, r3
-	add r3, r4, #0x0
-	add r7, r0, r5
-	add r3, #0x85
-	add r7, #0x5c
-	ldrb r3, [r3, #0x0]
-	ldrb r7, [r7, #0x0]
-	cmp r3, r7
-	beq _02007FA4
-	cmp r3, #0x0
-	bne _02007FAE
-_02007FA4:
-	add r3, r0, r5
-	add r3, #0x5c
-	strb r2, [r3, #0x0]
-	add r6, r6, #0x1
-	b _02007FB6
-_02007FAE:
-	mov r3, #0x84
-	ldrsb r3, [r4, r3]
-	sub r3, r1, r3
-	strb r3, [r6, #0x0]
-_02007FB6:
-	ldrb r3, [r6, #0x0]
-	mov r5, #0x84
-	lsl r4, r3, #0x1
-	add r7, r0, r4
-	ldrsb r7, [r7, r5]
-	sub r5, #0x85
-	cmp r7, r5
-	blt _02007F7C
-_02007FC6:
-	add r2, r0, r4
-	mov r1, #0x84
-	ldrsb r2, [r2, r1]
-	sub r1, #0x85
-	cmp r2, r1
-	beq _02007FD6
-	cmp r3, #0xa
-	blo _02007FE6
-_02007FD6:
-	add r1, r0, #0x0
-	mov r2, #0x0
-	add r1, #0x5b
-	strb r2, [r1, #0x0]
-	add r0, #0x58
-	strb r2, [r0, #0x0]
-	pop {r4-r7}
-	bx lr
-_02007FE6:
-	add r1, r0, #0x0
-	add r1, #0x5b
-	strb r2, [r1, #0x0]
-	ldrb r1, [r6, #0x0]
-	lsl r1, r1, #0x1
-	add r1, r0, r1
-	add r1, #0x85
-	ldrb r1, [r1, #0x0]
-	add r0, #0x5a
-	strb r1, [r0, #0x0]
-	pop {r4-r7}
-	bx lr
-_02007FFE:
-	add r1, r0, #0x0
-	add r1, #0x5a
-	ldrb r1, [r1, #0x0]
-	add r0, #0x5a
-	sub r1, r1, #0x1
-	strb r1, [r0, #0x0]
-_0200800A:
-	pop {r4-r7}
-	bx lr
-    // clang-format on
-}
-#endif
 
-THUMB_FUNC void FUN_02008010(u8 *param0, struct UnkStruct_02006D98_sub *param1)
+THUMB_FUNC void FUN_02007F48(struct UnkStruct_02006D98_2 *param0)
 {
-    param0[0] = 1;
-    param0[2] = 0;
-    param0[1] = (u8)param1->unk0;
-    param0[3] = param1->unk1;
-    ((struct UnkStruct_02006D98_sub **)param0)[4] = param1;
+    inlineLoop(&param0->unk58,
+        &param0->unk59,
+        &param0->unk5A,
+        &param0->unk5B,
+        param0->unk5C,
+        param0->unk84);
+}
+
+THUMB_FUNC void FUN_02008010(struct UnkStruct_02006D98_5 *param0, struct UnkStruct_02006D98_sub *param1)
+{
+    param0->unk00 = 1;
+    param0->unk02 = 0;
+    param0->unk01 = (u8)param1->unk0;
+    param0->unk03 = param1->unk1;
+    param0->unk10 = param1;
 
     for (s32 i = 0; i < 10; i++)
     {
-        param0[i + 4] = 0;
+        param0->unk04[i] = 0;
     }
 }
 
-#ifdef NONMATCHING
-THUMB_FUNC s32 FUN_02008030(u8 *param0)
+THUMB_FUNC s32 FUN_02008030(struct UnkStruct_02006D98_5 *param0)
 {
-    if (*param0 != 0)
+    if (param0->unk00 != 0)
     {
-        u8 *r3 = param0 + 2;
-        struct UnkStruct_02006D98_sub *r4 = ((struct UnkStruct_02006D98_sub **)param0)[4];
-        if (*param0 != 0)
-        {
-            if (param0[3] == 0)
-            {
-                (*r3)++;
-
-                while (r4[*r3].unk0 < -1)
-                {
-                    param0[*r3 + 4]++;
-                    if (r4[*r3].unk1 == param0[*r3 + 4] || r4[*r3].unk1 == 0)
-                    {
-                        param0[*r3 + 4] = 0;
-                        r3++;
-                    }
-                    else
-                    {
-                        *r3 = -2 - r4[*r3].unk0;
-                    }
-                }
-
-                if (r4[*r3].unk0 == -1 || *r3 >= 10)
-                {
-                    param0[0] = 0;
-                    param0[1] = 0;
-                }
-                else
-                {
-                    param0[1] = r4[*r3].unk0;
-                    param0[3] = r4[*r3].unk1;
-                }
-            }
-            else
-            {
-                param0[3]--;
-            }
-        }
-
-        return param0[1];
+        inlineLoop(&param0->unk00,
+            &param0->unk02,
+            &param0->unk03,
+            &param0->unk01,
+            param0->unk04,
+            param0->unk10);
+        return param0->unk01;
     }
 
     return -1;
 }
-#else
-asm s32 FUN_02008030(u8 *param0)
-{
-    // clang-format off
-	push {r4-r7}
-	ldrb r1, [r0, #0x0]
-	cmp r1, #0x0
-	beq _020080C6
-	add r3, r0, #0x2
-	ldr r4, [r0, #0x10]
-	cmp r1, #0x0
-	beq _020080C0
-	ldrb r1, [r0, #0x3]
-	cmp r1, #0x0
-	bne _020080BC
-	ldrb r1, [r3, #0x0]
-	add r1, r1, #0x1
-	strb r1, [r3, #0x0]
-	ldrb r2, [r3, #0x0]
-	mov r1, #0x0
-	mvn r1, r1
-	lsl r5, r2, #0x1
-	ldrsb r6, [r4, r5]
-	cmp r6, r1
-	bge _02008098
-	mov r1, #0x0
-_0200805C:
-	add r5, r0, r2
-	ldrb r2, [r5, #0x4]
-	add r2, r2, #0x1
-	strb r2, [r5, #0x4]
-	ldrb r2, [r3, #0x0]
-	add r5, r0, r2
-	lsl r2, r2, #0x1
-	add r2, r4, r2
-	ldrb r7, [r2, #0x1]
-	ldrb r6, [r5, #0x4]
-	cmp r7, r6
-	beq _02008078
-	cmp r7, #0x0
-	bne _0200807E
-_02008078:
-	strb r1, [r5, #0x4]
-	add r3, r3, #0x1
-	b _0200808A
-_0200807E:
-	mov r5, #0x0
-	ldrsb r5, [r2, r5]
-	mov r2, #0x1
-	mvn r2, r2
-	sub r2, r2, r5
-	strb r2, [r3, #0x0]
-_0200808A:
-	ldrb r2, [r3, #0x0]
-	mov r6, #0x0
-	mvn r6, r6
-	lsl r5, r2, #0x1
-	ldrsb r7, [r4, r5]
-	cmp r7, r6
-	blt _0200805C
-_02008098:
-	ldrsb r5, [r4, r5]
-	mov r1, #0x0
-	mvn r1, r1
-	cmp r5, r1
-	beq _020080A6
-	cmp r2, #0xa
-	blo _020080AE
-_020080A6:
-	mov r1, #0x0
-	strb r1, [r0, #0x1]
-	strb r1, [r0, #0x0]
-	b _020080C0
-_020080AE:
-	strb r5, [r0, #0x1]
-	ldrb r1, [r3, #0x0]
-	lsl r1, r1, #0x1
-	add r1, r4, r1
-	ldrb r1, [r1, #0x1]
-	strb r1, [r0, #0x3]
-	b _020080C0
-_020080BC:
-	sub r1, r1, #0x1
-	strb r1, [r0, #0x3]
-_020080C0:
-	ldrb r0, [r0, #0x1]
-	pop {r4-r7}
-	bx lr
-_020080C6:
-	mov r0, #0x0
-	mvn r0, r0
-	pop {r4-r7}
-	bx lr
-    // clang-format on
-}
-#endif
 
 THUMB_FUNC void FUN_020080D0(struct UnkStruct_02006D98_2 *param0)
 {
