@@ -203,5 +203,18 @@ GXBoxTestParam;
            ((alpha) << REG_G3_POLYGON_ATTR_ALPHA_SHIFT)))
 
 
+#define GX_PACK_TEXPLTTBASE_PARAM(addr, texFmt) \
+    ((u32)((addr) >> (4 - ((texFmt) == GX_TEXFMT_PLTT4))))
+
+
+#define GX_PACK_DIFFAMB_PARAM(diffuse, ambient, IsSetVtxColor)   \
+    ((u32)((diffuse)                                           | \
+           ((ambient) << REG_G3_DIF_AMB_AMBIENT_RED_SHIFT)     | \
+           ((IsSetVtxColor != FALSE) << REG_G3_DIF_AMB_C_SHIFT)))
+
+#define GX_PACK_SPECEMI_PARAM(specular, emission, IsShininess)   \
+    ((u32)((specular)                                          | \
+           ((emission) << REG_G3_SPE_EMI_EMISSION_RED_SHIFT)   | \
+           ((IsShininess != FALSE) << REG_G3_SPE_EMI_S_SHIFT)))
 
 #endif //GUARD_GX_G3_H

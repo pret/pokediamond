@@ -1154,4 +1154,66 @@
 #define REG_G3_TEXIMAGE_PARAM_TEX_ADDR_SIZE                16
 #define REG_G3_TEXIMAGE_PARAM_TEX_ADDR_MASK                0x0000ffff
 
+
+// DIF_AMB
+
+#define REG_G3_DIF_AMB_AMBIENT_BLUE_SHIFT                  26
+#define REG_G3_DIF_AMB_AMBIENT_BLUE_SIZE                   5
+#define REG_G3_DIF_AMB_AMBIENT_BLUE_MASK                   0x7c000000
+
+#define REG_G3_DIF_AMB_AMBIENT_GREEN_SHIFT                 21
+#define REG_G3_DIF_AMB_AMBIENT_GREEN_SIZE                  5
+#define REG_G3_DIF_AMB_AMBIENT_GREEN_MASK                  0x03e00000
+
+#define REG_G3_DIF_AMB_AMBIENT_RED_SHIFT                   16
+#define REG_G3_DIF_AMB_AMBIENT_RED_SIZE                    5
+#define REG_G3_DIF_AMB_AMBIENT_RED_MASK                    0x001f0000
+
+#define REG_G3_DIF_AMB_C_SHIFT                             15
+#define REG_G3_DIF_AMB_C_SIZE                              1
+#define REG_G3_DIF_AMB_C_MASK                              0x00008000
+
+#define REG_G3_DIF_AMB_DIFFUSE_BLUE_SHIFT                  10
+#define REG_G3_DIF_AMB_DIFFUSE_BLUE_SIZE                   5
+#define REG_G3_DIF_AMB_DIFFUSE_BLUE_MASK                   0x00007c00
+
+#define REG_G3_DIF_AMB_DIFFUSE_GREEN_SHIFT                 5
+#define REG_G3_DIF_AMB_DIFFUSE_GREEN_SIZE                  5
+#define REG_G3_DIF_AMB_DIFFUSE_GREEN_MASK                  0x000003e0
+
+#define REG_G3_DIF_AMB_DIFFUSE_RED_SHIFT                   0
+#define REG_G3_DIF_AMB_DIFFUSE_RED_SIZE                    5
+#define REG_G3_DIF_AMB_DIFFUSE_RED_MASK                    0x0000001f
+
+
+// SPE_EMI
+
+#define REG_G3_SPE_EMI_EMISSION_BLUE_SHIFT                 26
+#define REG_G3_SPE_EMI_EMISSION_BLUE_SIZE                  5
+#define REG_G3_SPE_EMI_EMISSION_BLUE_MASK                  0x7c000000
+
+#define REG_G3_SPE_EMI_EMISSION_GREEN_SHIFT                21
+#define REG_G3_SPE_EMI_EMISSION_GREEN_SIZE                 5
+#define REG_G3_SPE_EMI_EMISSION_GREEN_MASK                 0x03e00000
+
+#define REG_G3_SPE_EMI_EMISSION_RED_SHIFT                  16
+#define REG_G3_SPE_EMI_EMISSION_RED_SIZE                   5
+#define REG_G3_SPE_EMI_EMISSION_RED_MASK                   0x001f0000
+
+#define REG_G3_SPE_EMI_S_SHIFT                             15
+#define REG_G3_SPE_EMI_S_SIZE                              1
+#define REG_G3_SPE_EMI_S_MASK                              0x00008000
+
+#define REG_G3_SPE_EMI_SPECULAR_BLUE_SHIFT                 10
+#define REG_G3_SPE_EMI_SPECULAR_BLUE_SIZE                  5
+#define REG_G3_SPE_EMI_SPECULAR_BLUE_MASK                  0x00007c00
+
+#define REG_G3_SPE_EMI_SPECULAR_GREEN_SHIFT                5
+#define REG_G3_SPE_EMI_SPECULAR_GREEN_SIZE                 5
+#define REG_G3_SPE_EMI_SPECULAR_GREEN_MASK                 0x000003e0
+
+#define REG_G3_SPE_EMI_SPECULAR_RED_SHIFT                  0
+#define REG_G3_SPE_EMI_SPECULAR_RED_SIZE                   5
+#define REG_G3_SPE_EMI_SPECULAR_RED_MASK                   0x0000001f
+
 #endif //POKEDIAMOND_ARM9_REGISTERS_H

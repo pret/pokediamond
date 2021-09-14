@@ -360,7 +360,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 
     NNS_G3dGeFlushBuffer();
 
-    reg_G3_MTX_PUSH = 0;
+    G3_PushMtx();
 
     G3_TexImageParam(param0->unk260.attr.fmt,
         GX_TEXGEN_TEXCOORD,
@@ -388,30 +388,15 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 
         if (param0->unk2E3 != 1)
         {
-            reg_G3_MTX_IDENTITY = 0;
+            G3_Identity();
         }
 
         FUN_02007F48(&param0->unk000[st18]);
 
-        u32 shift;
-        if (param0->unk260.attr.fmt == 2)
-        {
-            shift = 1;
-        }
-        else
-        {
-            shift = 0;
-        }
-
-        reg_G3_TEXPLTT_BASE = (param0->unk2A4 + st18 * 0x20) >> (4 - shift);
-
-        u32 r1 = param0->unk000[st18].unk28 << 0xc;
-        u32 r0 = (u32)((param0->unk000[st18].unk26 + param0->unk000[st18].unk42) << 0xc);
-        u32 r3 = (u32)((param0->unk000[st18].unk24 + param0->unk000[st18].unk40) << 0xc);
-
-        reg_G3_MTX_TRANS = r3;
-        reg_G3_MTX_TRANS = r0;
-        reg_G3_MTX_TRANS = r1;
+        G3_TexPlttBase(param0->unk2A4 + st18 * 0x20, param0->unk260.attr.fmt);
+        G3_Translate((fx32)((param0->unk000[st18].unk24 + param0->unk000[st18].unk40) << 0xc),
+            (fx32)((param0->unk000[st18].unk26 + param0->unk000[st18].unk42) << 0xc),
+            (fx32)(param0->unk000[st18].unk28 << 0xc));
 
         s32 idx = ((s32)param0->unk000[st18].unk38) >> 4;
         G3_RotX(FX_SinCosTable_[idx * 2], FX_SinCosTable_[idx * 2 + 1]);
@@ -422,23 +407,18 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
         s32 idz = ((s32)param0->unk000[st18].unk3C) >> 4;
         G3_RotZ(FX_SinCosTable_[idz * 2], FX_SinCosTable_[idz * 2 + 1]);
 
-        r1 = -(param0->unk000[st18].unk28 << 0xc);
-        r0 = -(u32)((param0->unk000[st18].unk26 + param0->unk000[st18].unk42) << 0xc);
-        r3 = -(u32)((param0->unk000[st18].unk24 + param0->unk000[st18].unk40) << 0xc);
+        G3_Translate(-(fx32)((param0->unk000[st18].unk24 + param0->unk000[st18].unk40) << 0xc),
+            -(fx32)((param0->unk000[st18].unk26 + param0->unk000[st18].unk42) << 0xc),
+            -(fx32)(param0->unk000[st18].unk28 << 0xc));
 
-        reg_G3_MTX_TRANS = r3;
-        reg_G3_MTX_TRANS = r0;
-        reg_G3_MTX_TRANS = r1;
+        G3_MaterialColorDiffAmb(
+            (GXRgb)(param0->unk000[st18].unk50_0 | (param0->unk000[st18].unk50_5 << 5) |
+                (param0->unk000[st18].unk50_a << 10)),
+            (GXRgb)(param0->unk000[st18].unk50_f | (param0->unk000[st18].unk50_14 << 5) |
+                (param0->unk000[st18].unk50_19 << 10)),
+            TRUE);
 
-        reg_G3_DIF_AMB =
-            (u32)(((u16)(param0->unk000[st18].unk50_0 | (param0->unk000[st18].unk50_5 << 5) |
-                   (param0->unk000[st18].unk50_a << 10))) |
-            (((u16)(param0->unk000[st18].unk50_f | (param0->unk000[st18].unk50_14 << 5) |
-                    (param0->unk000[st18].unk50_19 << 10)))
-                << 16) |
-            0x8000);
-
-        reg_G3_SPE_EMI = 0x4210;
+        G3_MaterialColorSpecEmi(0x4210, 0, FALSE);
 
         G3_PolygonAttr(GX_LIGHTMASK_NONE,
             GX_POLYGONMODE_MODULATE,
@@ -455,10 +435,10 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
             int r7 = param0->unk000[st18].unk47;
             int r0 = r12 + r6;
 
-            NNS_G2dDrawSpriteFast((s16)(param0->unk000[st18].unk24 - 40 + param0->unk000[st18].unk44 +
-                                      param0->unk000[st18].unk2C),
+            NNS_G2dDrawSpriteFast((s16)(param0->unk000[st18].unk24 - 40 +
+                                        param0->unk000[st18].unk44 + param0->unk000[st18].unk2C),
                 (s16)(param0->unk000[st18].unk26 - 40 + param0->unk000[st18].unk45 +
-                    param0->unk000[st18].unk2E - param0->unk000[st18].unk6C.unk2),
+                      param0->unk000[st18].unk2E - param0->unk000[st18].unk6C.unk2),
                 (int)(param0->unk000[st18].unk28 + param0->unk000[st18].unk30),
                 r12,
                 r7,
@@ -475,7 +455,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
             NNS_G2dDrawSpriteFast(
                 (s16)(param0->unk000[st18].unk24 - (arg3 / 2) + param0->unk000[st18].unk2C),
                 (s16)(param0->unk000[st18].unk26 - (arg4 / 2) + param0->unk000[st18].unk2E -
-                    param0->unk000[st18].unk6C.unk2),
+                      param0->unk000[st18].unk6C.unk2),
                 (int)(param0->unk000[st18].unk28 + param0->unk000[st18].unk30),
                 arg3,
                 arg4,
@@ -493,20 +473,11 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 
         if (param0->unk2E3 != 1)
         {
-            reg_G3_MTX_IDENTITY = 0;
+            G3_Identity();
         }
 
-        u32 shift2;
-        if (param0->unk260.attr.fmt == 2)
-        {
-            shift2 = 1;
-        }
-        else
-        {
-            shift2 = 0;
-        }
-        reg_G3_TEXPLTT_BASE =
-            (param0->unk2A4 + ((param0->unk000[st18].unk6C.unk0_0 + 3) << 5)) >> (4 - shift2);
+        G3_TexPlttBase((param0->unk2A4 + ((param0->unk000[st18].unk6C.unk0_0 + 3) << 5)),
+            param0->unk260.attr.fmt);
 
         if (param0->unk000[st18].unk6C.unk0_4 != 0)
         {
@@ -521,16 +492,16 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 
         if (param0->unk000[st18].unk6C.unk0_2 != 0)
         {
-            param0->unk000[st18].unk6C.unk4 = (s16)(param0->unk000[st18].unk24 +
-                                              param0->unk000[st18].unk2C +
-                                              param0->unk000[st18].unk6C.unk8);
+            param0->unk000[st18].unk6C.unk4 =
+                (s16)(param0->unk000[st18].unk24 + param0->unk000[st18].unk2C +
+                      param0->unk000[st18].unk6C.unk8);
         }
 
         if (param0->unk000[st18].unk6C.unk0_3 != 0)
         {
-            param0->unk000[st18].unk6C.unk6 = (s16)(param0->unk000[st18].unk26 +
-                                              param0->unk000[st18].unk2E +
-                                              param0->unk000[st18].unk6C.unka);
+            param0->unk000[st18].unk6C.unk6 =
+                (s16)(param0->unk000[st18].unk26 + param0->unk000[st18].unk2E +
+                      param0->unk000[st18].unk6C.unka);
         }
 
         NNS_G2dDrawSpriteFast((s16)(param0->unk000[st18].unk6C.unk4 - (arg3 / 2)),
@@ -544,7 +515,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
             UNK_020ECBD0[param0->unk000[st18].unk6C.unk0_5][3]);
     }
 
-    reg_G3_MTX_POP = 1;
+    G3_PopMtx(1);
 }
 
 THUMB_FUNC void FUN_020072E8(struct UnkStruct_02006D98 *param0)
@@ -1243,7 +1214,8 @@ THUMB_FUNC void FUN_02007F48(struct UnkStruct_02006D98_2 *param0)
         param0->unk84);
 }
 
-THUMB_FUNC void FUN_02008010(struct UnkStruct_02006D98_5 *param0, struct UnkStruct_02006D98_sub *param1)
+THUMB_FUNC void FUN_02008010(
+    struct UnkStruct_02006D98_5 *param0, struct UnkStruct_02006D98_sub *param1)
 {
     param0->unk00 = 1;
     param0->unk02 = 0;
