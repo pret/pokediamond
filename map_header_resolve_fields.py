@@ -40,10 +40,21 @@ class MapHeader(typing.NamedTuple):
 
 
 def read_sndseq_h():
+    i = 0
     with open('include/constants/sndseq.h') as fp:
         for line in fp:
             if line.startswith('#define SEQ_'):
-                yield line.split()[1]
+                name = line.split()[1]
+                if name.startswith('SEQ_SE_'):
+                    while i < 1500:
+                        yield str(i)
+                        i += 1
+                elif not name.startswith('SEQ_PV'):
+                    while i < 1000:
+                        yield str(i)
+                        i += 1
+                yield name
+                i += 1
 
 
 def read_mapsec_h():
@@ -89,8 +100,8 @@ def main():
                 scrseqnaix[header.scripts_bank],
                 scrseqnaix[header.level_scripts_bank],
                 msgnaix[header.msg_bank],
-                sndseqs[header.day_music_id - 1000],
-                sndseqs[header.night_music_id - 1000],
+                sndseqs[header.day_music_id],
+                sndseqs[header.night_music_id],
                 '0xFFFF' if header.wild_encounter_bank == 0xFFFF else 'ENCDATA({}, {})'.format(
                     d_encdatanaix[header.wild_encounter_bank],
                     p_encdatanaix[header.wild_encounter_bank],

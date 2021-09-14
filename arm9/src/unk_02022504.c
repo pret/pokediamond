@@ -11,7 +11,7 @@ THUMB_FUNC struct PCStorage *GetStoragePCPointer(struct SaveBlock2 *sav2)
     return SavArray_get(sav2, 35);
 }
 
-THUMB_FUNC void *FUN_0202251C(struct SaveBlock2 *sav2)
+THUMB_FUNC struct UnkStruct_0202AC20 * FUN_0202251C(struct SaveBlock2 *sav2)
 {
     return SavArray_get(sav2, 31);
 }
