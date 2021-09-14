@@ -88,7 +88,7 @@ _020636F8:
 	bl FUN_02060478
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
-	bl FUN_02034930
+	bl MapHeader_IsCave
 	cmp r0, #0x0
 	bne _02063758
 	ldr r0, [r5, #0xc]

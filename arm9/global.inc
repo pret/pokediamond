@@ -2508,12 +2508,12 @@
 .extern MapHeader_IsEscapeRopeAllowed
 .extern MapHeader_IsFlyAllowed
 .extern MapHeader_IsBikeAllowed
-.extern FUN_020348E4
+.extern MapHeader_IsOutdoorNotTown
 .extern MapHeader_MapIsOnMainMatrix
-.extern FUN_02034930
-.extern FUN_02034944
-.extern FUN_02034964
-.extern FUN_02034984
+.extern MapHeader_IsCave
+.extern MapHeader_IsBuilding
+.extern MapHeader_IsOutdoor
+.extern MapHeader_MapIsPokemonCenter
 .extern MapHeader_MapIsUnionRoom
 .extern MapHeader_MapIsMtCoronetFeebasRoom
 .extern MapHeader_MapIsTrophyGarden

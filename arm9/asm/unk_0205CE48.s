@@ -1591,7 +1591,7 @@ FUN_0205DA80: ; 0x0205DA80
 	pop {r4, pc}
 _0205DA8E:
 	ldr r0, [r4, #0x0]
-	bl FUN_02034930
+	bl MapHeader_IsCave
 	cmp r0, #0x1
 	bne _0205DAA6
 	ldr r0, [r4, #0x0]

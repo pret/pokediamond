@@ -746,17 +746,17 @@ u8 MapHeader_IsBikeAllowed(u32 mapno)
     return sMapHeaders[mapno].is_bike_allowed;
 }
 
-u8 MapHeader_GetField16(u32 mapno)
+u8 MapHeader_GetMapType(u32 mapno)
 {
     mapno = MapNumberBoundsCheck(mapno);
-    return sMapHeaders[mapno].unk16;
+    return sMapHeaders[mapno].map_type;
 }
 
-BOOL FUN_020348E4(u32 mapno)
+BOOL MapHeader_IsOutdoorNotTown(u32 mapno)
 {
     if (!MapHeader_IsFlyAllowed(mapno))
         return FALSE;
-    if (MapHeader_GetField16(mapno) != 1)
+    if (MapHeader_GetMapType(mapno) != 1)
         return TRUE;
     return FALSE;
 }
@@ -766,54 +766,54 @@ BOOL MapHeader_MapIsOnMainMatrix(u32 mapno)
     return MapHeader_GetMatrixId(mapno) == NARC_map_matrix_narc_0000_bin;
 }
 
-BOOL FUN_0203491C(u32 mapno)
+BOOL MapHeader_IsPokemonCenter(u32 mapno)
 {
-    return MapHeader_GetField16(mapno) == 5;
+    return MapHeader_GetMapType(mapno) == 5;
 }
 
-BOOL FUN_02034930(u32 mapno)
+BOOL MapHeader_IsCave(u32 mapno)
 {
-    return MapHeader_GetField16(mapno) == 3;
+    return MapHeader_GetMapType(mapno) == 3;
 }
 
-BOOL FUN_02034944(u32 mapno)
+BOOL MapHeader_IsBuilding(u32 mapno)
 {
-    return MapHeader_GetField16(mapno) == 4 || MapHeader_GetField16(mapno) == 5;
+    return MapHeader_GetMapType(mapno) == 4 || MapHeader_GetMapType(mapno) == 5;
 }
 
-BOOL FUN_02034964(u32 mapno)
+BOOL MapHeader_IsOutdoor(u32 mapno)
 {
-    return MapHeader_GetField16(mapno) == 1 || MapHeader_GetField16(mapno) == 2;
+    return MapHeader_GetMapType(mapno) == 1 || MapHeader_GetMapType(mapno) == 2;
 }
 
-BOOL FUN_02034984(u32 mapno)
+BOOL MapHeader_MapIsPokemonCenter(u32 mapno)
 {
-    return FUN_0203491C(mapno) != FALSE;
+    return MapHeader_IsPokemonCenter(mapno) != FALSE;
 }
 
 BOOL MapHeader_MapIsUnionRoom(u32 mapno)
 {
-    return mapno == 466;
+    return mapno == MAP_UNION;
 }
 
 BOOL MapHeader_MapIsMtCoronetFeebasRoom(u32 mapno)
 {
-    return mapno == 219;
+    return mapno == MAP_D05R0113;
 }
 
 BOOL MapHeader_MapIsTrophyGarden(u32 mapno)
 {
-    return mapno == 287;
+    return mapno == MAP_D23R0101;
 }
 
 BOOL MapHeader_MapIsAmitySquare(u32 mapno)
 {
-    return mapno == 253;
+    return mapno == MAP_D11R0101;
 }
 
 BOOL MapHeader_MapIsSpearPillar(u32 mapno)
 {
-    return mapno == 220;
+    return mapno == MAP_D05R0114;
 }
 
 BOOL MapHeader_MapIsPokemonCenterSecondFloor(u32 mapno)
