@@ -5,7 +5,8 @@ LDFLAGS += -lstdc++fs
 else
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
-LDFLAGS += -lstdc++ -lc++ -lc /usr/local/opt/llvm@8/lib/libc++fs.a
+CXXFLAGS += -D_LIBCPP_NO_EXPERIMENTAL_DEPRECATION_WARNING_FILESYSTEM
+LDFLAGS += -lstdc++ -lc++ -lc
 else
 LDFLAGS += -lstdc++fs
 endif

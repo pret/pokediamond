@@ -3,7 +3,7 @@
 #include <vector>
 #include <fstream>
 extern "C" {
-#include <elf.h>
+#include "elf.h"
 }
 
 enum Proc : unsigned char {
