@@ -50,3 +50,6 @@ symbols.csv
 files/**/*.c
 *.o
 *.naix
+
+# MacOS garbage
+.DS_Store
