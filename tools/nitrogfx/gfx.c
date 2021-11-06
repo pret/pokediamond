@@ -433,7 +433,9 @@ void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int m
 	free(buffer);
 }
 
-void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc, bool scanned, uint32_t key)
+void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image,
+                   bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc, bool scanned,
+                   uint32_t key, bool wrongSize)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -499,15 +501,15 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
         }
     }
 
-    WriteGenericNtrHeader(fp, "RGCN", bufferSize + (sopc ? 0x30 : 0x20), byteOrder, version101, sopc ? 2 : 1);
+    WriteGenericNtrHeader(fp, "RGCN", bufferSize + (sopc ? 0x30 : 0x20) + (wrongSize ? -8 : 0), byteOrder, version101, sopc ? 2 : 1);
 
     unsigned char charHeader[0x20] = { 0x52, 0x41, 0x48, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00 };
 
-    charHeader[4] = (bufferSize + 0x20) & 0xFF;
-    charHeader[5] = ((bufferSize + 0x20) >> 8) & 0xFF;
-    charHeader[6] = ((bufferSize + 0x20) >> 16) & 0xFF;
-    charHeader[7] = ((bufferSize + 0x20) >> 24) & 0xFF;
+    charHeader[4] = (bufferSize + 0x20 + (wrongSize ? -8 : 0)) & 0xFF;
+    charHeader[5] = ((bufferSize + 0x20 + (wrongSize ? -8 : 0)) >> 8) & 0xFF;
+    charHeader[6] = ((bufferSize + 0x20 + (wrongSize ? -8 : 0)) >> 16) & 0xFF;
+    charHeader[7] = ((bufferSize + 0x20 + (wrongSize ? -8 : 0)) >> 24) & 0xFF;
 
     if (!clobberSize)
     {

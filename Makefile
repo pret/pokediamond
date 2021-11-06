@@ -257,12 +257,15 @@ $(CLOBBER_SIZE_VERSION101_NCGR_FILES): GFX_FLAGS = -clobbersize -version101
 $(VERSION101_SOPC_8BPP_NCGR_FILES): GFX_FLAGS = -version101 -sopc -bitdepth 8
 $(VERSION101_SOPC_NCGR_FILES): GFX_FLAGS = -version101 -sopc
 $(SCANNED_NCGR_FILES): GFX_FLAGS = -scanned
+$(NOBYTEORDER_NCGR_FILES): GFX_FLAGS = -nobyteorder
+$(NOBYTEORDER_WRONGSIZE_NCGR_FILES): GFX_FLAGS = -nobyteorder -wrongsize
 
 $(IR_NCLR_FILES): GFX_FLAGS = -ir
 $(4BPP_NCLR_FILES): GFX_FLAGS = -bitdepth 4
 $(8BPP_NSCR_FILES): GFX_FLAGS = -bitdepth 8
 $(8BPP_COMP10_NOPAD_NCLR_PNG_FILES): GFX_FLAGS = -bitdepth 8 -nopad -comp 10
 $(8BPP_COMP10_NOPAD_NCLR_PAL_FILES): GFX_FLAGS = -bitdepth 8 -nopad -comp 10
+$(NCPR_NCLR_FILES): GFX_FLAGS = -ncpr
 
 %.NCGR: %.png
 	$(GFX) $< $@ $(GFX_FLAGS)
