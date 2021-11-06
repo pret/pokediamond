@@ -301,3 +301,4 @@ diamond:          ; @$(HOST_VARS) $(MAKE) GAME_VERSION=DIAMOND
 pearl:            ; @$(HOST_VARS) $(MAKE) GAME_VERSION=PEARL
 compare_diamond:  ; @$(HOST_VARS) $(MAKE) GAME_VERSION=DIAMOND COMPARE=1
 compare_pearl:    ; @$(HOST_VARS) $(MAKE) GAME_VERSION=PEARL COMPARE=1
+compare: compare_diamond
