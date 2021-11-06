@@ -41,7 +41,7 @@ WINE := wine
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 GREP := grep -E
-SED := perl -p -e
+SED := gsed -r
 else
 GREP := grep -P
 SED := sed -r
