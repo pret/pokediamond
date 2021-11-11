@@ -1,7 +1,7 @@
 #include "module_52.h"
 #include "heap.h"
 #include "unk_0205FA2C.h"
-#include "unk_02015E30.h"
+#include "play_timer.h"
 
 
 extern struct Unk21DBE18 UNK_020FD144;
@@ -202,7 +202,7 @@ THUMB_FUNC BOOL MOD52_021D7540(struct UnkStruct_02006234 *param0, u32 *unused)
 
     MOD52_021D7604(0x4d, sav2, 1);
     struct IGT *igt = Sav2_PlayerData_GetIGTAddr(sav2);
-    FUN_02015E3C(igt);
+    PlayTimerStart(igt);
 
     return 1;
 }
@@ -243,7 +243,7 @@ THUMB_FUNC BOOL MOD52_021D7594(struct UnkStruct_02006234 *param0, u32 *unused)
         Sav2_SysInfo_InitFromSystem(sav2_info);
     }
 
-    FUN_02015E3C(Sav2_PlayerData_GetIGTAddr(sav2));
+    PlayTimerStart(Sav2_PlayerData_GetIGTAddr(sav2));
 
     return 1;
 }

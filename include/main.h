@@ -26,19 +26,6 @@ struct UnkStruct_02006234
     u32 unk24;
 };
 
-struct Unk2106FA0
-{
-    PMBackLightSwitch unk0;
-    s32 unk4;
-    FSOverlayID unk8;
-    struct UnkStruct_02006234 *unkC;
-    FSOverlayID unk10;
-    const struct Unk21DBE18 * unk14;
-    s32 unk18;
-    s32 unk1C;
-    struct SaveBlock2 * unk20;
-};
-
 struct Unk21C4818
 {
     u32 unk0;

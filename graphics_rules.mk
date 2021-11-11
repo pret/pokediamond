@@ -1,4 +1,3 @@
-#todo data/dp_areawindow.NCGR (weirdness with size)
 #todo data/graphic/bag_gra/narc_0007.NCGR (SOPC section) (width 32, palette narc_0003.NCLR)
 
 CLOBBER_SIZE_NCGR_FILES := files/data/cell0.NCGR
@@ -122,7 +121,7 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                    files/poketool/icongra/poke_icon/narc_0000.NCLR \
                    files/resource/eng/trial/trial/narc_0000.NCLR \
                    files/resource/eng/trial/trial/narc_0003.NCLR \
-                   files/resource/eng/trial/trial/narc_0006.NCLR \
+                   files/resource/eng/trial/trial/narc_0006.NCLR
 
 8BPP_NSCR_FILES := files/demo/title/titledemo/narc_0000.NSCR
 
@@ -156,6 +155,9 @@ IR_NCLR_FILES := files/itemtool/itemdata/item_icon/narc_0028.NCLR \
                  files/itemtool/itemdata/item_icon/narc_0104.NCLR \
                  files/itemtool/itemdata/item_icon/narc_0111.NCLR \
                  files/itemtool/itemdata/item_icon/narc_0114.NCLR
+
+NCPR_NCLR_FILES := files/data/dp_areawindow.NCLR
+NOBYTEORDER_WRONGSIZE_NCGR_FILES := files/data/dp_areawindow.NCGR
 
 VERSION101_SOPC_8BPP_NCGR_FILES := files/demo/title/titledemo/narc_0001.NCGR \
                                    files/demo/title/titledemo/narc_0003.NCGR

@@ -33,10 +33,10 @@ struct UnkStruct_02016FA8 UNK_02016FA8;
 extern void FUN_02022294(void);
 extern void GF_InitRTCWork(void);
 extern int FUN_020337E8(int);
-extern void FUN_02015E30(void);
+extern void PlayTimerInit(void);
 extern void FUN_0201B5CC(void *);
 extern void GF_RTC_UpdateOnFrame(void);
-extern void FUN_02015E60(void);
+extern void PlayTimerUpdate(void);
 extern void FUN_020222C4(void);
 extern void FUN_0200E2D8(void);
 
@@ -97,7 +97,7 @@ THUMB_FUNC void NitroMain(void)
     gMain.unk30 = 0;
     InitializeMainRNG();
     InitAllScreenBrightnessData();
-    FUN_02015E30();
+    PlayTimerInit();
     UNK_02016FA4 = 0;
     for (;;)
     {
@@ -120,7 +120,7 @@ THUMB_FUNC void NitroMain(void)
             }
         }
         GF_RTC_UpdateOnFrame();
-        FUN_02015E60();
+        PlayTimerUpdate();
         FUN_020222C4();
         FUN_0201B5CC(gMain.unk24);
         OS_WaitIrq(1, 1);

@@ -116,7 +116,9 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
         free(string);
     }
 
-    WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101, options->sopc, options->scanned, key);
+    WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight,
+                  &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101,
+                  options->sopc, options->scanned, key, options->wrongSize);
 
     FreeImage(&image);
 }
@@ -441,6 +443,9 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
         else if (strcmp(option, "-scanned") == 0)
         {
             options.scanned = true;
+        }
+        else if (strcmp(option, "-wrongsize") == 0) {
+            options.wrongSize = true;
         }
         else
         {

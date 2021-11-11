@@ -1003,9 +1003,9 @@
 .extern FUN_02015CE0
 .extern FUN_02015CF8
 .extern ConvertRSStringToDPStringInternational
-.extern FUN_02015E30
-.extern FUN_02015E3C
-.extern FUN_02015E60
+.extern PlayTimerInit
+.extern PlayTimerStart
+.extern PlayTimerUpdate
 .extern FUN_02015EF4
 .extern Main_SetVBlankIntrCB
 .extern FUN_02015F1C
