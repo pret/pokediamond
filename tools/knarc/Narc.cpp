@@ -17,7 +17,7 @@
 
 #include "fnmatch.h"
 
-#if (__GNUC__ <= 7) && !defined _MSC_VER
+#if (__cplusplus < 201703L)
 #include <experimental/filesystem>
 namespace fs = std::experimental::filesystem;
 #else
@@ -340,7 +340,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
     FileImages fi
     {
         .Id = 0x46494D47, // GMIF
-        .ChunkSize = static_cast<uint32_t>(sizeof(FileImages) + fatEntries.back().End)
+        .ChunkSize = static_cast<uint32_t>(sizeof(FileImages) + (fatEntries.empty() ? 0 : fatEntries.back().End))
     };
 
     if ((fi.ChunkSize % 4) != 0)

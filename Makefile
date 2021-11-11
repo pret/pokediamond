@@ -3,11 +3,12 @@
 include config.mk
 include graphics_rules.mk
 
-HOSTCC = $(CC)
-HOSTCXX = $(CXX)
-HOSTCFLAGS = $(CFLAGS)
-HOSTCXXFLAGS = $(CXXFLAGS)
-HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)'
+HOSTCC := $(CC)
+HOSTCXX := $(CXX)
+HOSTCFLAGS := $(CFLAGS)
+HOSTCXXFLAGS := $(CXXFLAGS)
+HOSTPKGCONFIG := $(shell which pkg-config)
+HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)' PKGCONFIG='$(HOSTPKGCONFIG)'
 
 .PHONY: clean tidy all default patch_mwasmarm
 
@@ -124,7 +125,7 @@ MAKEROM    = $(WINE) $(TOOLS_DIR)/bin/makerom.exe
 FIXROM     = $(TOOLS_DIR)/fixrom/fixrom$(EXE)
 NTRCOMP    = $(WINE) $(TOOLS_DIR)/bin/ntrcomp.exe
 
-TOOLDIRS = $(filter-out $(TOOLS_DIR)/asm_processor $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
+TOOLDIRS = $(dir $(wildcard tools/*/Makefile))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 

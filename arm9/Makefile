@@ -135,7 +135,7 @@ GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)
 SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
-TOOLDIRS = $(filter-out $(TOOLS_DIR)/asm_processor $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
+TOOLDIRS = $(dir $(wildcard $(TOOLS_DIR)/*/Makefile))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
@@ -218,7 +218,7 @@ $(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/$(LD_TEMPLATE): $(BUILD_DIR)/%: %
-	(echo "KEEP_SECTION\n{\n\t.exceptix\n}\n"; cat $<) > $@
+	(echo -e "KEEP_SECTION\n{\n\t.exceptix\n}\n"; cat $<) > $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(BUILD_DIR)/$(LD_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@

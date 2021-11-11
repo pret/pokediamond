@@ -362,6 +362,7 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
     options.bitDepth = 4;
     options.metatileWidth = 1;
     options.metatileHeight = 1;
+    options.wrongSize = false;
     options.clobberSize = false;
     options.byteOrder = true;
     options.version101 = false;
