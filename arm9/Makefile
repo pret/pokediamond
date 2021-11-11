@@ -224,7 +224,8 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(BUILD_DIR)/$(LD_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
 
 $(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
-	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) $(O_FILES:$(BUILD_DIR)/%=%)
+	echo "$(O_FILES:$(BUILD_DIR)/%=%)" > $(ELF).objlist
+	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) @../../$(ELF).objlist
 	$(OBJCOPY) $(foreach ov,arm9 $(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 ifeq ($(SHIFTED),0)
