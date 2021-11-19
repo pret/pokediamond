@@ -54,7 +54,8 @@ extern u32 FUN_02058B2C(u32 param0);
 extern u32 FUN_02058B4C(u32 param0);
 extern u32 FUN_020580B4(u32 param0, u32 param1);
 extern u32 FUN_02058060(u32 param0, u32 param1);
-extern void FUN_0203B1A8(u32 param0, void *param1);
+extern BOOL FUN_0205AEF0(u32 param0);
+extern void FUN_0205AEFC(u32 param0);
 
 extern u8 *UNK_020F34E0;
 
@@ -76,6 +77,7 @@ static BOOL FUN_0203AD78(struct ScriptContext *ctx);
 static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
 static BOOL FUN_0203B158(struct ScriptContext *ctx);
 static void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2);
+static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -1415,5 +1417,34 @@ THUMB_FUNC static void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void
     unkStruct->Unk0C = arg;
     unkStruct->Unk04 = param1;
     unkStruct->Unk08 = param2;
-    unkStruct->Unk00 = FUN_0200CA44(FUN_0203B1A8, unkStruct, 0);
+    unkStruct->Unk00 = FUN_0200CA44((void (*)(u32, void *))FUN_0203B1A8, unkStruct, 0);
 }
+
+THUMB_FUNC void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1)
+{
+    u8 *res = (u8 *)FUN_02039438(param1->Unk0C, 4);
+
+    if (FUN_0205AEF0(param1->Unk04) != TRUE)
+    {
+        return;
+    }
+
+    FUN_0205AEFC(param1->Unk04);
+    FUN_0200CAB4((s32)param1->Unk00);
+
+    if (param1->Unk08 != NULL)
+    {
+        FreeToHeap(param1->Unk08);
+    }
+
+    FreeToHeap(param1);
+
+    u8 resVal = *res;
+    if (resVal == 0)
+    {
+        GF_AssertFail();
+        return;
+    }
+    *res = --resVal;
+}
+
