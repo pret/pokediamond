@@ -33,7 +33,8 @@ typedef struct MOD59_OverlayData
     u8 filler58[0x8];
     u32 unk60; // unknown if this is the right type, possibly a pointer instead?
     struct ScrStrBufs *strBufs;
-    u8 filler68[0x8];
+    u32 unk68;
+    u8 filler6C[0x4];
     struct MOD59_UnkPlayerStruct *playerStruct;
     struct MOD59_UnkPlayerStruct *rivalStruct;
     u32 unk78;
@@ -55,5 +56,8 @@ BOOL MOD59_021D7730(void);
 void MOD59_SetupBg(MOD59_OverlayData *data);
 void MOD59_DestroyBg(MOD59_OverlayData *data);
 void MOD59_SetupMsg(MOD59_OverlayData *data);
+void MOD59_DestroyMsg(MOD59_OverlayData *data);
+void MOD59_021D7A4C(MOD59_OverlayData *data);
+void MOD59_021D7A5C(MOD59_OverlayData *data);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H

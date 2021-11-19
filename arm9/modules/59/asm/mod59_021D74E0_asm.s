@@ -5,39 +5,6 @@
 
 	.extern MOD59_021D7730
 
-	thumb_func_start MOD59_021D7A34
-MOD59_021D7A34: ; 0x021D7A34
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4, #0x64]
-	bl ScrStrBufs_delete
-	ldr r0, [r4, #0x60]
-	bl FUN_020143D0
-	ldr r0, [r4, #0x4c]
-	bl DestroyMsgData
-	pop {r4, pc}
-	thumb_func_end MOD59_021D7A34
-
-	thumb_func_start MOD59_021D7A4C
-MOD59_021D7A4C: ; 0x021D7A4C
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4]
-	bl FUN_02014590
-	str r0, [r4, #0x68]
-	pop {r4, pc}
-	.align 2, 0
-	thumb_func_end MOD59_021D7A4C
-
-	thumb_func_start MOD59_021D7A5C
-MOD59_021D7A5C: ; 0x021D7A5C
-	ldr r3, _021D7A64 ; =FUN_020145A8
-	ldr r0, [r0, #0x68]
-	bx r3
-	nop
-_021D7A64: .word FUN_020145A8
-	thumb_func_end MOD59_021D7A5C
-
 	thumb_func_start MOD59_021D7A68
 MOD59_021D7A68: ; 0x021D7A68
 	push {r3, r4, r5, r6, lr}
