@@ -24,9 +24,6 @@ extern struct GraphicsModes MOD59_021D9DCC;
 extern struct BgTemplate MOD59_021D9EA0;
 extern struct BgTemplate MOD59_021D9EBC;
 
-extern void MOD59_021D7A34(MOD59_OverlayData *data);
-extern void MOD59_021D7A4C(MOD59_OverlayData *data);
-extern void MOD59_021D7A5C(MOD59_OverlayData *data);
 extern void MOD59_021D8058(MOD59_OverlayData *data);
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
 
@@ -36,6 +33,10 @@ extern u32 FUN_0200E308(void);
 extern u32 FUN_020142EC(u32 param0, u32 param1, u32 param2, u32 heap_id);
 
 extern void FUN_02077AC4(void *param0);
+
+extern void FUN_020143D0(u32 param0);
+extern u32 FUN_02014590(u32 heap_id);
+extern void FUN_020145A8(u32 param0);
 
 FS_EXTERN_OVERLAY(MODULE_52);
 
@@ -118,7 +119,7 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
                 break;
             }
 
-            MOD59_021D7A34(data);
+            MOD59_DestroyMsg(data);
             MOD59_DestroyBg(data);
             MOD59_021D7A5C(data);
 
@@ -133,7 +134,7 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
                 break;
             }
 
-            MOD59_021D7A34(data);
+            MOD59_DestroyMsg(data);
             MOD59_DestroyBg(data);
             MOD59_021D7A5C(data);
 
@@ -322,3 +323,19 @@ THUMB_FUNC void MOD59_SetupMsg(MOD59_OverlayData *data)
     data->unk2C = 0;
 }
 
+THUMB_FUNC void MOD59_DestroyMsg(MOD59_OverlayData *data)
+{
+    ScrStrBufs_delete(data->strBufs);
+    FUN_020143D0(data->unk60);
+    DestroyMsgData(data->msgData);
+}
+
+THUMB_FUNC void MOD59_021D7A4C(MOD59_OverlayData *data) //MOD59_Setup... something?
+{
+    data->unk68 = FUN_02014590(data->heap_id);
+}
+
+THUMB_FUNC void MOD59_021D7A5C(MOD59_OverlayData *data) //MOD59_Destroy... something?
+{
+    FUN_020145A8(data->unk68);
+}
