@@ -14,41 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start FUN_0203B1A8
-FUN_0203B1A8: ; 0x0203B1A8
-	push {r3-r5, lr}
-	add r5, r1, #0x0
-	ldr r0, [r5, #0xc]
-	mov r1, #0x4
-	bl FUN_02039438
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x4]
-	bl FUN_0205AEF0
-	cmp r0, #0x1
-	bne _0203B1EC
-	ldr r0, [r5, #0x4]
-	bl FUN_0205AEFC
-	ldr r0, [r5, #0x0]
-	bl FUN_0200CAB4
-	ldr r0, [r5, #0x8]
-	cmp r0, #0x0
-	beq _0203B1D6
-	bl FreeToHeap
-_0203B1D6:
-	add r0, r5, #0x0
-	bl FreeToHeap
-	ldrb r0, [r4, #0x0]
-	cmp r0, #0x0
-	bne _0203B1E8
-	bl GF_AssertFail
-	pop {r3-r5, pc}
-_0203B1E8:
-	sub r0, r0, #0x1
-	strb r0, [r4, #0x0]
-_0203B1EC:
-	pop {r3-r5, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk0060
 ScrCmd_Unk0060: ; 0x0203B1F0
 	push {r3-r5, lr}
