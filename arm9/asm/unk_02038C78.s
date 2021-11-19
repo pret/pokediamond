@@ -245,7 +245,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk005D
 	.word ScrCmd_Unk005E
 	.word ScrCmd_WaitForMovement
-	.word ScrCmd_Unk0060
+	.word ScrCmd_LockAllEvents
 	.word ScrCmd_Unk0061
 	.word ScrCmd_Unk0062
 	.word ScrCmd_Unk0063

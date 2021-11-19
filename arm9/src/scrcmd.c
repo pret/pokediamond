@@ -9,7 +9,6 @@
 #include "render_window.h"
 #include "text_02054590.h"
 
-
 extern void *FUN_02039438(struct UnkSavStruct80* arg, u32 id);
 extern void *CreateScriptContext(struct UnkSavStruct80* arg, u16 id);
 extern u8 FUN_02058448(u32 param0);
@@ -56,8 +55,11 @@ extern u32 FUN_020580B4(u32 param0, u32 param1);
 extern u32 FUN_02058060(u32 param0, u32 param1);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
+extern void FUN_02058780(u32 param0);
 
 extern u8 *UNK_020F34E0;
+
+extern BOOL ScrCmd_Unk02B4(struct ScriptContext *ctx);
 
 static BOOL RunPauseTimer(struct ScriptContext *ctx);
 static u32 Compare(u16 a, u16 b);
@@ -1448,3 +1450,18 @@ THUMB_FUNC void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1)
     *res = --resVal;
 }
 
+THUMB_FUNC BOOL ScrCmd_LockAllEvents(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u32 *res = (u32 *)FUN_02039438(unk80, 10);
+
+    if (*res == 0)
+    {
+        FUN_02058780(unk80->unk34);
+    }
+    else
+    {
+        ScrCmd_Unk02B4(ctx);
+    }
+    return TRUE;
+}
