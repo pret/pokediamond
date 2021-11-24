@@ -1066,4 +1066,154 @@
 #define REG_OS_TM3CNT_H_PS_SIZE                            2
 #define REG_OS_TM3CNT_H_PS_MASK                            0x0003
 
+// POLYGON_ATTR
+
+#define REG_G3_POLYGON_ATTR_ID_SHIFT                       24
+#define REG_G3_POLYGON_ATTR_ID_SIZE                        6
+#define REG_G3_POLYGON_ATTR_ID_MASK                        0x3f000000
+
+#define REG_G3_POLYGON_ATTR_ALPHA_SHIFT                    16
+#define REG_G3_POLYGON_ATTR_ALPHA_SIZE                     5
+#define REG_G3_POLYGON_ATTR_ALPHA_MASK                     0x001f0000
+
+#define REG_G3_POLYGON_ATTR_FE_SHIFT                       15
+#define REG_G3_POLYGON_ATTR_FE_SIZE                        1
+#define REG_G3_POLYGON_ATTR_FE_MASK                        0x00008000
+
+#define REG_G3_POLYGON_ATTR_DT_SHIFT                       14
+#define REG_G3_POLYGON_ATTR_DT_SIZE                        1
+#define REG_G3_POLYGON_ATTR_DT_MASK                        0x00004000
+
+#define REG_G3_POLYGON_ATTR_D1_SHIFT                       13
+#define REG_G3_POLYGON_ATTR_D1_SIZE                        1
+#define REG_G3_POLYGON_ATTR_D1_MASK                        0x00002000
+
+#define REG_G3_POLYGON_ATTR_FC_SHIFT                       12
+#define REG_G3_POLYGON_ATTR_FC_SIZE                        1
+#define REG_G3_POLYGON_ATTR_FC_MASK                        0x00001000
+
+#define REG_G3_POLYGON_ATTR_XL_SHIFT                       11
+#define REG_G3_POLYGON_ATTR_XL_SIZE                        1
+#define REG_G3_POLYGON_ATTR_XL_MASK                        0x00000800
+
+#define REG_G3_POLYGON_ATTR_FR_SHIFT                       7
+#define REG_G3_POLYGON_ATTR_FR_SIZE                        1
+#define REG_G3_POLYGON_ATTR_FR_MASK                        0x00000080
+
+#define REG_G3_POLYGON_ATTR_BK_SHIFT                       6
+#define REG_G3_POLYGON_ATTR_BK_SIZE                        1
+#define REG_G3_POLYGON_ATTR_BK_MASK                        0x00000040
+
+#define REG_G3_POLYGON_ATTR_PM_SHIFT                       4
+#define REG_G3_POLYGON_ATTR_PM_SIZE                        2
+#define REG_G3_POLYGON_ATTR_PM_MASK                        0x00000030
+
+#define REG_G3_POLYGON_ATTR_LE_SHIFT                       0
+#define REG_G3_POLYGON_ATTR_LE_SIZE                        4
+#define REG_G3_POLYGON_ATTR_LE_MASK                        0x0000000f
+
+// TEXIMAGE_PARAM
+
+#define REG_G3_TEXIMAGE_PARAM_TGEN_SHIFT                   30
+#define REG_G3_TEXIMAGE_PARAM_TGEN_SIZE                    2
+#define REG_G3_TEXIMAGE_PARAM_TGEN_MASK                    0xc0000000
+
+#define REG_G3_TEXIMAGE_PARAM_TR_SHIFT                     29
+#define REG_G3_TEXIMAGE_PARAM_TR_SIZE                      1
+#define REG_G3_TEXIMAGE_PARAM_TR_MASK                      0x20000000
+
+#define REG_G3_TEXIMAGE_PARAM_TEXFMT_SHIFT                 26
+#define REG_G3_TEXIMAGE_PARAM_TEXFMT_SIZE                  3
+#define REG_G3_TEXIMAGE_PARAM_TEXFMT_MASK                  0x1c000000
+
+#define REG_G3_TEXIMAGE_PARAM_T_SIZE_SHIFT                 23
+#define REG_G3_TEXIMAGE_PARAM_T_SIZE_SIZE                  3
+#define REG_G3_TEXIMAGE_PARAM_T_SIZE_MASK                  0x03800000
+
+#define REG_G3_TEXIMAGE_PARAM_V_SIZE_SHIFT                 20
+#define REG_G3_TEXIMAGE_PARAM_V_SIZE_SIZE                  3
+#define REG_G3_TEXIMAGE_PARAM_V_SIZE_MASK                  0x00700000
+
+#define REG_G3_TEXIMAGE_PARAM_FT_SHIFT                     19
+#define REG_G3_TEXIMAGE_PARAM_FT_SIZE                      1
+#define REG_G3_TEXIMAGE_PARAM_FT_MASK                      0x00080000
+
+#define REG_G3_TEXIMAGE_PARAM_FS_SHIFT                     18
+#define REG_G3_TEXIMAGE_PARAM_FS_SIZE                      1
+#define REG_G3_TEXIMAGE_PARAM_FS_MASK                      0x00040000
+
+#define REG_G3_TEXIMAGE_PARAM_RT_SHIFT                     17
+#define REG_G3_TEXIMAGE_PARAM_RT_SIZE                      1
+#define REG_G3_TEXIMAGE_PARAM_RT_MASK                      0x00020000
+
+#define REG_G3_TEXIMAGE_PARAM_RS_SHIFT                     16
+#define REG_G3_TEXIMAGE_PARAM_RS_SIZE                      1
+#define REG_G3_TEXIMAGE_PARAM_RS_MASK                      0x00010000
+
+#define REG_G3_TEXIMAGE_PARAM_TEX_ADDR_SHIFT               0
+#define REG_G3_TEXIMAGE_PARAM_TEX_ADDR_SIZE                16
+#define REG_G3_TEXIMAGE_PARAM_TEX_ADDR_MASK                0x0000ffff
+
+
+// DIF_AMB
+
+#define REG_G3_DIF_AMB_AMBIENT_BLUE_SHIFT                  26
+#define REG_G3_DIF_AMB_AMBIENT_BLUE_SIZE                   5
+#define REG_G3_DIF_AMB_AMBIENT_BLUE_MASK                   0x7c000000
+
+#define REG_G3_DIF_AMB_AMBIENT_GREEN_SHIFT                 21
+#define REG_G3_DIF_AMB_AMBIENT_GREEN_SIZE                  5
+#define REG_G3_DIF_AMB_AMBIENT_GREEN_MASK                  0x03e00000
+
+#define REG_G3_DIF_AMB_AMBIENT_RED_SHIFT                   16
+#define REG_G3_DIF_AMB_AMBIENT_RED_SIZE                    5
+#define REG_G3_DIF_AMB_AMBIENT_RED_MASK                    0x001f0000
+
+#define REG_G3_DIF_AMB_C_SHIFT                             15
+#define REG_G3_DIF_AMB_C_SIZE                              1
+#define REG_G3_DIF_AMB_C_MASK                              0x00008000
+
+#define REG_G3_DIF_AMB_DIFFUSE_BLUE_SHIFT                  10
+#define REG_G3_DIF_AMB_DIFFUSE_BLUE_SIZE                   5
+#define REG_G3_DIF_AMB_DIFFUSE_BLUE_MASK                   0x00007c00
+
+#define REG_G3_DIF_AMB_DIFFUSE_GREEN_SHIFT                 5
+#define REG_G3_DIF_AMB_DIFFUSE_GREEN_SIZE                  5
+#define REG_G3_DIF_AMB_DIFFUSE_GREEN_MASK                  0x000003e0
+
+#define REG_G3_DIF_AMB_DIFFUSE_RED_SHIFT                   0
+#define REG_G3_DIF_AMB_DIFFUSE_RED_SIZE                    5
+#define REG_G3_DIF_AMB_DIFFUSE_RED_MASK                    0x0000001f
+
+
+// SPE_EMI
+
+#define REG_G3_SPE_EMI_EMISSION_BLUE_SHIFT                 26
+#define REG_G3_SPE_EMI_EMISSION_BLUE_SIZE                  5
+#define REG_G3_SPE_EMI_EMISSION_BLUE_MASK                  0x7c000000
+
+#define REG_G3_SPE_EMI_EMISSION_GREEN_SHIFT                21
+#define REG_G3_SPE_EMI_EMISSION_GREEN_SIZE                 5
+#define REG_G3_SPE_EMI_EMISSION_GREEN_MASK                 0x03e00000
+
+#define REG_G3_SPE_EMI_EMISSION_RED_SHIFT                  16
+#define REG_G3_SPE_EMI_EMISSION_RED_SIZE                   5
+#define REG_G3_SPE_EMI_EMISSION_RED_MASK                   0x001f0000
+
+#define REG_G3_SPE_EMI_S_SHIFT                             15
+#define REG_G3_SPE_EMI_S_SIZE                              1
+#define REG_G3_SPE_EMI_S_MASK                              0x00008000
+
+#define REG_G3_SPE_EMI_SPECULAR_BLUE_SHIFT                 10
+#define REG_G3_SPE_EMI_SPECULAR_BLUE_SIZE                  5
+#define REG_G3_SPE_EMI_SPECULAR_BLUE_MASK                  0x00007c00
+
+#define REG_G3_SPE_EMI_SPECULAR_GREEN_SHIFT                5
+#define REG_G3_SPE_EMI_SPECULAR_GREEN_SIZE                 5
+#define REG_G3_SPE_EMI_SPECULAR_GREEN_MASK                 0x000003e0
+
+#define REG_G3_SPE_EMI_SPECULAR_RED_SHIFT                  0
+#define REG_G3_SPE_EMI_SPECULAR_RED_SIZE                   5
+#define REG_G3_SPE_EMI_SPECULAR_RED_MASK                   0x0000001f
+
 #endif //POKEDIAMOND_ARM9_REGISTERS_H
