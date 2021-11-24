@@ -3,22 +3,21 @@
 include config.mk
 include graphics_rules.mk
 
-HOSTCC := $(CC)
-HOSTCXX := $(CXX)
-HOSTCFLAGS := $(CFLAGS)
-HOSTCXXFLAGS := $(CXXFLAGS)
-HOSTPKGCONFIG := $(shell which pkg-config)
-HOSTPKGCONFIGPATH := $(PKG_CONFIG_PATH)
-HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)' PKGCONFIG='$(HOSTPKGCONFIG)' PKG_CONFIG_PATH='$(HOSTPKGCONFIGPATH)'
-
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
+ifdef DEVKITARM
 TOOLCHAIN := $(DEVKITARM)
-
-ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
-include $(TOOLCHAIN)/base_tools
 endif
+
+ifdef TOOLCHAIN
+export PATH := $(TOOLCHAIN)/bin:$(PATH)
+endif
+
+PREFIX := arm-none-eabi-
+
+OBJCOPY := $(PREFIX)objcopy
+AR      := $(PREFIX)ar
 
 ### Default target ###
 
@@ -130,6 +129,8 @@ TOOLDIRS = $(dir $(wildcard tools/*/Makefile))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
+TOOLS: tools
+
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
 export MWCIncludes := arm9/lib/libc/include arm9/lib/NitroSDK/include arm9/lib/libnns/include
 export MWLibraries := arm9/lib
@@ -141,7 +142,7 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
 ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(HOST_VARS) $(MAKE) tools patch_mwasmarm)
+$(call infoshell,$(MAKE) tools patch_mwasmarm)
 else
 NODEP := 1
 endif
@@ -152,6 +153,8 @@ endif
 .PHONY: all libs clean mostlyclean tidy tools clean-tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
 
 MAKEFLAGS += --no-print-directory
+
+all: tools patch_mwasmarm
 
 all: $(ROM)
 ifeq ($(COMPARE),1)
@@ -182,10 +185,10 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(HOST_VARS) $(MAKE) -C $@
+	@$(MAKE) -C $@
 
 clean-tools:
-	$(foreach tool,$(TOOLDIRS),$(HOST_VARS) $(MAKE) clean -C $(tool);)
+	$(foreach tool,$(TOOLDIRS),$(MAKE) clean -C $(tool);)
 
 $(MWASMARM): patch_mwasmarm
 	@:
@@ -302,8 +305,8 @@ print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 ### Other targets
 
-diamond:          ; @$(HOST_VARS) $(MAKE) GAME_VERSION=DIAMOND
-pearl:            ; @$(HOST_VARS) $(MAKE) GAME_VERSION=PEARL
-compare_diamond:  ; @$(HOST_VARS) $(MAKE) GAME_VERSION=DIAMOND COMPARE=1
-compare_pearl:    ; @$(HOST_VARS) $(MAKE) GAME_VERSION=PEARL COMPARE=1
+diamond:          ; @$(MAKE) GAME_VERSION=DIAMOND
+pearl:            ; @$(MAKE) GAME_VERSION=PEARL
+compare_diamond:  ; @$(MAKE) GAME_VERSION=DIAMOND COMPARE=1
+compare_pearl:    ; @$(MAKE) GAME_VERSION=PEARL COMPARE=1
 compare: compare_diamond

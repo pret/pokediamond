@@ -2,22 +2,21 @@
 
 include ../config.mk
 
-HOSTCC := $(CC)
-HOSTCXX := $(CXX)
-HOSTCFLAGS := $(CFLAGS)
-HOSTCXXFLAGS := $(CXXFLAGS)
-HOSTPKGCONFIG := $(shell which pkg-config)
-HOSTPKGCONFIGPATH := $(PKG_CONFIG_PATH)
-HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)' PKGCONFIG='$(HOSTPKGCONFIG)' PKG_CONFIG_PATH='$(HOSTPKGCONFIGPATH)'
-
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
+ifdef DEVKITARM
 TOOLCHAIN := $(DEVKITARM)
-
-ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
-include $(TOOLCHAIN)/base_tools
 endif
+
+ifdef TOOLCHAIN
+export PATH := $(TOOLCHAIN)/bin:$(PATH)
+endif
+
+PREFIX := arm-none-eabi-
+
+OBJCOPY := $(PREFIX)objcopy
+AR      := $(PREFIX)ar
 
 ### Default target ###
 
@@ -147,18 +146,21 @@ TOOLDIRS = $(dir $(wildcard $(TOOLS_DIR)/*/Makefile))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
+TOOLS: tools
+
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
 export MWCIncludes := $(CURDIR)/lib/libc/include $(CURDIR)/lib/NitroSDK/include $(CURDIR)/lib/libnns/include
 export MWLibraries := $(CURDIR)/lib
 
 ######################### Targets ###########################
+######################## Targets ###########################
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
 ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(MAKE) tools patch_mwasmarm)
+$(call infoshell,$(MAKE) tools patch_mwasmarm)
 else
 NODEP := 1
 endif
@@ -167,6 +169,8 @@ endif
 .PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
+
+all: tools patch_mwasmarm
 
 all: $(ROM)
 ifeq ($(COMPARE),1)
@@ -187,7 +191,7 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(HOST_VARS) $(MAKE) -C $@
+	@$(MAKE) -C $@
 
 $(MWASMARM): patch_mwasmarm
 
@@ -226,7 +230,7 @@ $(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/$(LD_TEMPLATE): $(BUILD_DIR)/%: %
-	(echo -e "KEEP_SECTION\n{\n\t.exceptix\n}\n"; cat $<) > $@
+	(echo "KEEP_SECTION\n{\n\t.exceptix\n}\n"; cat $<) > $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(BUILD_DIR)/$(LD_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@

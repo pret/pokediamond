@@ -3,11 +3,18 @@
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
+ifdef DEVKITARM
 TOOLCHAIN := $(DEVKITARM)
-
-ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
-include $(TOOLCHAIN)/base_tools
 endif
+
+ifdef TOOLCHAIN
+export PATH := $(TOOLCHAIN)/bin:$(PATH)
+endif
+
+PREFIX := arm-none-eabi-
+
+OBJCOPY := $(PREFIX)objcopy
+AR      := $(PREFIX)ar
 
 ### Default target ###
 
@@ -111,17 +118,20 @@ TOOLDIRS = $(dir $(wildcard $(TOOLS_DIR)/*/Makefile))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
+TOOLS: tools
+
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
 export MWCIncludes := lib/include
 
 ######################### Targets ###########################
+######################## Targets ###########################
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
 ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(MAKE) tools patch_mwasmarm)
+$(call infoshell,$(MAKE) tools patch_mwasmarm)
 else
 NODEP := 1
 endif
@@ -130,6 +140,8 @@ endif
 .PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
+
+all: tools patch_mwasmarm
 
 all: $(ROM)
 ifeq ($(COMPARE),1)
