@@ -2,11 +2,12 @@
 #define POKEDIAMOND_MOD63_021DB450_H
 
 #include "global.h"
+#include "unk_02006D98.h"
 
 typedef struct UnkStruct63_021DB450 //intro base struct type
 {
-    struct UnkStruct63_021DB450 * field_00; //oddly requires this to be set to progress past copyright/pokemon screen.
-    u32 field_04[3]; //mon animations?
+    struct UnkStruct_02006D98 * field_00; //oddly requires this to be set to progress past copyright/pokemon screen.
+    struct UnkStruct_02006D98_2 * field_04[3]; //mon animations?
     u32 field_10;
     void * field_14;
     void * field_18;
@@ -21,13 +22,7 @@ typedef struct UnkStruct63_021DB450 //intro base struct type
     u8 filler_34[0x30];
 } UnkStruct63_021DB450;
 
-typedef struct UnkStruct63_021DB49C
-{
-    u32 field_00;
-    u32 field_04;
-    u32 field_08;
-    u32 field_0C;
-} UnkStruct63_021DB49C;
+
 
 typedef struct UnkStruct63_021DBEF0
 {

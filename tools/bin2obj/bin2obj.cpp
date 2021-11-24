@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <cstring>
 extern "C" {
 #include "elf.h"
 }
@@ -188,27 +189,28 @@ int main(int argc, char** argv) {
     binfile.seekg(0);
 
     // Elf header
-    Elf32_Ehdr ehdr = {
-        .e_ident = {
-            ELFMAG0,        // EI_MAG0
-            ELFMAG1,        // EI_MAG1
-            ELFMAG2,        // EI_MAG2
-            ELFMAG3,        // EI_MAG3
-            ELFCLASS32,     // EI_CLASS
-            endian,         // EI_DATA
-            EV_CURRENT,     // EI_VERSION
-            ELFOSABI_NONE,  // EI_OSABI
-            0,              // EI_ABIVERSION
-        },
-        .e_type = ET_REL,
-        .e_machine = proc,
-        .e_version = EV_CURRENT,
-        .e_shoff = sizeof(Elf32_Ehdr),
-        .e_ehsize = sizeof(Elf32_Ehdr),
-        .e_shentsize = sizeof(Elf32_Shdr),
-        .e_shnum = 5,
-        .e_shstrndx = 1,
+    Elf32_Ehdr ehdr;
+
+    static const unsigned char _eident[EI_NIDENT] {
+        ELFMAG0,        // EI_MAG0
+        ELFMAG1,        // EI_MAG1
+        ELFMAG2,        // EI_MAG2
+        ELFMAG3,        // EI_MAG3
+        ELFCLASS32,     // EI_CLASS
+        endian,         // EI_DATA
+        EV_CURRENT,     // EI_VERSION
+        ELFOSABI_NONE,  // EI_OSABI
+        0,              // EI_ABIVERSION
     };
+    memcpy(ehdr.e_ident, _eident, EI_NIDENT);
+    ehdr.e_type = ET_REL;
+    ehdr.e_machine = proc;
+    ehdr.e_version = EV_CURRENT;
+    ehdr.e_shoff = sizeof(Elf32_Ehdr);
+    ehdr.e_ehsize = sizeof(Elf32_Ehdr);
+    ehdr.e_shentsize = sizeof(Elf32_Shdr);
+    ehdr.e_shnum = 5;
+    ehdr.e_shstrndx = 1;
 
     // Five sections: NULL, user section, symtab, strtab, shstrtab
     Elf32_Shdr shdr[5] = {};

@@ -9,6 +9,7 @@
 #include "unk_020061E8.h"
 #include "unk_0200BB14.h"
 #include "unk_0200CA44.h"
+#include "unk_02006D98.h"
 
 const struct UnkStruct_0200CABC_3 UNK_020ECE88 = {
     10,
@@ -50,8 +51,6 @@ extern void MOD05_021D971C(struct UnkStruct_0200CABC_2 *param0,
     u32 param4,
     u32 param5);
 extern u32 *MOD05_021D9820(struct UnkStruct_0200CABC_2 *param0, void *);
-extern struct UnkStruct63_021DB450 *FUN_02006D98(u32);
-extern void FUN_020072E8(struct UnkStruct63_021DB450 *param0);
 extern void FUN_02012400(u16, u16, u16, void *, void *);
 extern u32 NNS_G2dGetImageLocation(u32, u32);
 extern void *FUN_02012470(u16, u16, u16);
@@ -898,7 +897,7 @@ THUMB_FUNC void FUN_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 
 
 THUMB_FUNC void FUN_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8 param2)
 {
-    struct UnkStruct63_021DB450 *r7 = FUN_02006D98(param0->unk162);
+    struct UnkStruct_02006D98 *r7 = FUN_02006D98(param0->unk162);
     struct SomeDrawPokemonStruct stc;
     FUN_02068C00(&stc, param1, param2, 2, 0, 0, 0);
     FUN_0200DEF4(param0, &stc);
@@ -907,7 +906,7 @@ THUMB_FUNC void FUN_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8
 
 THUMB_FUNC void FUN_0200DEC0(struct UnkStruct_0200CABC_2 *param0, struct Pokemon *param1)
 {
-    struct UnkStruct63_021DB450 *r6 = FUN_02006D98(param0->unk162);
+    struct UnkStruct_02006D98 *r6 = FUN_02006D98(param0->unk162);
     struct SomeDrawPokemonStruct st0;
     FUN_02068B68(&st0, param1, 2);
     FUN_0200DEF4(param0, &st0);
