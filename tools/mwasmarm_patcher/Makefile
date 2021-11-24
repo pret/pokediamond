@@ -2,7 +2,7 @@
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
-CC := gcc-5
+CC := clang
 else
 CC := gcc
 endif
