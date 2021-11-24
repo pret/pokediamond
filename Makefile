@@ -8,7 +8,8 @@ HOSTCXX := $(CXX)
 HOSTCFLAGS := $(CFLAGS)
 HOSTCXXFLAGS := $(CXXFLAGS)
 HOSTPKGCONFIG := $(shell which pkg-config)
-HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)' PKGCONFIG='$(HOSTPKGCONFIG)'
+HOSTPKGCONFIGPATH := $(PKG_CONFIG_PATH)
+HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)' PKGCONFIG='$(HOSTPKGCONFIG)' PKG_CONFIG_PATH='$(HOSTPKGCONFIGPATH)'
 
 .PHONY: clean tidy all default patch_mwasmarm
 
@@ -184,7 +185,7 @@ $(TOOLDIRS):
 	@$(HOST_VARS) $(MAKE) -C $@
 
 clean-tools:
-	$(foreach tool,$(TOOLDIRS),$(MAKE) clean -C $(tool);)
+	$(foreach tool,$(TOOLDIRS),$(HOST_VARS) $(MAKE) clean -C $(tool);)
 
 $(MWASMARM): patch_mwasmarm
 	@:
@@ -225,7 +226,7 @@ else
 endif
 
 # Make sure build directory exists before compiling anything
-DUMMY != mkdir -p $(ALL_DIRS)
+DUMMY := $(shell mkdir -p $(ALL_DIRS))
 
 %.4bpp: %.png
 	$(GFX) $< $@

@@ -2,6 +2,14 @@
 
 include ../config.mk
 
+HOSTCC := $(CC)
+HOSTCXX := $(CXX)
+HOSTCFLAGS := $(CFLAGS)
+HOSTCXXFLAGS := $(CXXFLAGS)
+HOSTPKGCONFIG := $(shell which pkg-config)
+HOSTPKGCONFIGPATH := $(PKG_CONFIG_PATH)
+HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)' PKGCONFIG='$(HOSTPKGCONFIG)' PKG_CONFIG_PATH='$(HOSTPKGCONFIGPATH)'
+
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
@@ -179,7 +187,7 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(MAKE) -C $@
+	@$(HOST_VARS) $(MAKE) -C $@
 
 $(MWASMARM): patch_mwasmarm
 
@@ -237,7 +245,7 @@ $(BUILD_DIR)/lib/libsyscall.a: $(SYSCALL_OBJS)
 	$(AR) $(ARFLAGS) -o $@ $^
 
 # Make sure build directory exists before compiling anything
-DUMMY != mkdir -p $(ALL_DIRS)
+DUMMY := $(shell mkdir -p $(ALL_DIRS))
 
 %.4bpp: %.png
 	$(GFX) $< $@

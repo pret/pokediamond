@@ -2210,75 +2210,75 @@ void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8
     case SPECIES_BURMY:
         if (forme > 2)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 / 2 + 0x48 + forme * 2);
         spC->unk4 = (u16)(shiny + 0x92 + forme * 2);
         break;
     case SPECIES_WORMADAM:
         if (forme > 2)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 / 2 + 0x4E + forme * 2);
         spC->unk4 = (u16)(shiny + 0x98 + forme * 2);
         break;
     case SPECIES_SHELLOS:
         if (forme > 1)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 + 0x54 + forme);
         spC->unk4 = (u16)(shiny + 0x9E + forme * 2);
         break;
     case SPECIES_GASTRODON:
         if (forme > 1)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 + 0x58 + forme);
         spC->unk4 = (u16)(shiny + 0xA2 + forme * 2);
         break;
     case SPECIES_CHERRIM:
         if (forme > 1)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 + 0x5C + forme);
         spC->unk4 = (u16)(shiny * 2 + 0xA6 + forme);
         break;
     case SPECIES_ARCEUS:
         if (forme > 17)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 / 2 + 0x60 + forme * 2);
         spC->unk4 = (u16)(shiny + 0xAA + forme * 2);
         break;
     case SPECIES_CASTFORM:
         if (forme > 3)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 * 2 + 0x40 + forme);
         spC->unk4 = (u16)(shiny * 4 + 0x8A + forme);
         break;
     case SPECIES_DEOXYS:
         if (forme > 3)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 / 2 + forme * 2);
         spC->unk4 = (u16)(shiny + 0x86);
         break;
     case SPECIES_UNOWN:
         if (forme >= 28)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(sp10 / 2 + 0x8 + forme * 2);
         spC->unk4 = (u16)(shiny + 0x88);
         break;
     case SPECIES_EGG:
         if (forme > 1)
             forme = 0;
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = (u16)(0x84 + forme);
         spC->unk4 = (u16)(0xCE + forme);
         break;
     case SPECIES_MANAPHY_EGG:
-        spC->unk0 = 0x75;
+        spC->unk0 = NARC_POKETOOL_POKEGRA_OTHERPOKE;
         spC->unk2 = 0x84;
         spC->unk4 = 0xCE;
         break;
@@ -2403,10 +2403,10 @@ u8 FUN_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
 void FUN_02068FE0(struct SomeDrawPokemonStruct * a0, u16 a1, int a2)
 {
     if (a2 == 2)
-        a0->unk0 = 60;
+        a0->unk0 = NARC_POKETOOL_TRGRA_TRFGRA;
     else
     {
-        a0->unk0 = 6;
+        a0->unk0 = NARC_POKETOOL_TRGRA_TRBGRA;
         a1 = (u16)FUN_0206AA30(a1);
     }
     a0->unk2 = (u16)(a1 * 2);
@@ -2522,7 +2522,7 @@ u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 co
     beauty = (u8)GetMonData(pokemon, MON_DATA_BEAUTY, NULL);
     pid_hi = (u16)((personality & 0xFFFF0000) >> 16);
     r1 = (u8)GetItemAttr(heldItem, 1, 0);
-    if (species != SPECIES_KADABRA && r1 == 0x3F && context != 3)
+    if (species != SPECIES_KADABRA && r1 == HOLD_EFFECT_NO_EVOLVE && context != 3)
         return SPECIES_NONE;
     if (method_ret == NULL)
         method_ret = &sp40;
@@ -3705,21 +3705,21 @@ int FUN_0206AA30(int x)
     switch (x)
     {
     case TRAINER_CLASS_PKMN_TRAINER_BARRY:
-        return 2;
-    case TRAINER_CLASS_PKMN_TRAINER_AROMA_LADY:
-    case TRAINER_CLASS_PKMN_TRAINER_RICH_BOY:
-    case TRAINER_CLASS_PKMN_TRAINER_PICNICKER:
-    case TRAINER_CLASS_PKMN_TRAINER_CAMPER:
-    case TRAINER_CLASS_PKMN_TRAINER_POKEKID:
-        return x - TRAINER_CLASS_COMMANDER_JUPITER;
+        return TRAINER_BACKPIC_BARRY;
+    case TRAINER_CLASS_PKMN_TRAINER_CHERYL:
+    case TRAINER_CLASS_PKMN_TRAINER_RILEY:
+    case TRAINER_CLASS_PKMN_TRAINER_MARLEY:
+    case TRAINER_CLASS_PKMN_TRAINER_BUCK:
+    case TRAINER_CLASS_PKMN_TRAINER_MIRA:
+        return x - TRAINER_CLASS_PKMN_TRAINER_CHERYL + TRAINER_BACKPIC_CHERYL;
     default:
         if (TrainerClass_GetGenderOrTrainerCount(x) == 1)
-            return 1;
+            return TRAINER_BACKPIC_DAWN;
         else
-            return 0;
+            return TRAINER_BACKPIC_LUCAS;
     case TRAINER_CLASS_PKMN_TRAINER_M:
     case TRAINER_CLASS_PKMN_TRAINER_F:
-        return x;
+        return x - TRAINER_CLASS_PKMN_TRAINER_M + TRAINER_BACKPIC_LUCAS;
     }
 }
 
