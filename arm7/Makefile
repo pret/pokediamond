@@ -96,9 +96,9 @@ OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm7_thumb.s -o arm7.o
-ASFLAGS = -proc arm4t -i  ..
-CFLAGS = -O4,s -proc arm7tdmi -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all
-LDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
+MWASFLAGS = -proc arm4t -i  ..
+MWCFLAGS = -O4,s -proc arm7tdmi -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all
+MWLDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
 
@@ -183,17 +183,17 @@ $(BUILD_DIR)/%.o: dep :=
 endif
 
 $(C_OBJS): $(BUILD_DIR)/%.o: %.c $$(dep)
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -c $(MWCFLAGS) -o $@ $<
 
 $(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
-	$(AS) $(ASFLAGS) -o $@ $<
+	$(AS) $(MWASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
 	$(MAKELSF) $< $(LD_TEMPLATE) $@
 
 $(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
 	echo "$(O_FILES) $(BIN_FILES)" > $(ELF).objlist
-	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) @$(ELF).objlist
+	$(LD) $(MWLDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) @$(ELF).objlist
 	$(OBJCOPY) --update-section arm7=$@ -j arm7 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 # Make sure build directory exists before compiling anything
