@@ -2446,7 +2446,7 @@ void FUN_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6)
 
 void FUN_020690AC(struct SomeDrawPokemonStruct * a0, u32 a1)
 {
-    a0->unk0 = 60;
+    a0->unk0 = NARC_POKETOOL_TRGRA_TRFGRA;
     a0->unk2 = (u16)(a1 * 2);
     a0->unk4 = (u16)(a1 * 2 + 1);
     a0->unk6 = 0;

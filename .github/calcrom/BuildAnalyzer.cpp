@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cstring>
 #include <iostream>
 #include "BuildAnalyzer.h"
 #include "Glob.h"
