@@ -69,14 +69,14 @@ _0222D620:
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #0x14
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	b _0222D654
 _0222D648:
 	mov r0, #0x51
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #0x19
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 _0222D654:
 	mov r0, #2
 	str r0, [r4]

@@ -103,11 +103,5 @@ _020DEDCC:
 	ldmia sp!, {r4,pc}
 	arm_func_end fflush
 
-	.section .exceptix,4
-
-	.word fclose
-	.short 117
-	.word 0x00200300
-	.word fflush
-	.short 233
-	.word 0x00100100
+	exception fclose, 117, 0x00200300
+	exception fflush, 233, 0x00100100

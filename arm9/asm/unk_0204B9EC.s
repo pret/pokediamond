@@ -36,7 +36,7 @@ FUN_0204BA1C: ; 0x0204BA1C
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	ldr r4, _0204BA60 ; =UNK_021C5A1C
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r5, r0, #0x0
 	bl GF_RTC_DateTimeToSec
 	add r3, r1, #0x0
@@ -62,7 +62,7 @@ _0204BA52:
 	str r0, [r4, #0x48]
 	add r0, r5, #0x0
 	mov r1, #0x11
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
 	nop
 _0204BA60: .word UNK_021C5A1C

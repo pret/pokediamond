@@ -204,9 +204,9 @@ _0206F34A:
 	mov r0, #0x3
 	mov r1, #0x36
 	bl CreateHeap
-	bl FUN_02088878
+	bl FUN_02088878 ; Loads overlay 13
 	mov r0, #0x36
-	bl MOD07_02211E60
+	bl MOD13_02211E60
 	mov r0, #0x0
 	bl OS_ResetSystem
 	b _0206F380

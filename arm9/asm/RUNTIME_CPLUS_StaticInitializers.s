@@ -50,11 +50,5 @@ _020EC6D8:
 	.balign 4
 _020EC700: .word __global_destructor_chain
 
-	.section .exceptix,4
-
-	.word __call_static_initializers
-	.short 45
-	.word 0x00100100
-	.word __destroy_global_chain
-	.short 69
-	.word 0x00200300
+	exception __call_static_initializers, 45, 0x00100100
+	exception __destroy_global_chain, 69, 0x00200300

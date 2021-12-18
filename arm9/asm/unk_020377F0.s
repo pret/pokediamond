@@ -1279,7 +1279,7 @@ FUN_0203800C: ; 0x0203800C
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	add r0, r5, #0x0
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
 	bl Sav2_PlayerData_GetProfileAddr
@@ -1435,7 +1435,7 @@ FUN_02038144: ; 0x02038144
 	ldr r0, [r0, #0x0]
 	str r0, [r5, #0x1c]
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [r5, #0x20]
 	bl PlayerProfile_sizeof
 	add r1, r0, #0x0
@@ -1647,7 +1647,7 @@ _020382F6:
 	bl Sav2_Bag_get
 	str r0, [sp, #0x28]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [sp, #0x2c]
 	ldr r0, [r5, #0xc]
 	bl Sav2_Poketch_get
@@ -1702,9 +1702,9 @@ _020383B2:
 	mov r0, #0x2
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x10
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 _020383C8:
 	mov r0, #0x0
 	add sp, #0x34
@@ -1771,7 +1771,7 @@ FUN_0203842C: ; 0x0203842C
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [r4, #0xc]
 	add r0, r5, #0x0
 	add r0, #0x98
@@ -2145,7 +2145,7 @@ FUN_020386E0: ; 0x020386E0
 	bl Sav2_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x24]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [r4, #0x28]
 	add r0, r5, #0x0
 	add r0, #0x98
@@ -2473,7 +2473,7 @@ FUN_020389CC: ; 0x020389CC
 	str r0, [r4, #0x4]
 	str r1, [r4, #0x8]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [r4, #0x14]
 	mov r0, #0x0
 	str r0, [r4, #0x18]
@@ -2486,9 +2486,9 @@ FUN_020389CC: ; 0x020389CC
 	bl FUN_02038A3C
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x5
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	ldr r1, _02038A38 ; =FUN_02038914
 	add r0, r7, #0x0
 	add r2, r4, #0x0

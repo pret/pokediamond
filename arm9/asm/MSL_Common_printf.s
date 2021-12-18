@@ -2564,41 +2564,17 @@ sprintf: ; 0x020E185C
 	bx lr
 	arm_func_end sprintf
 
-	.section .exceptix,4
-
-	.word long2str
-	.short 589
-	.word 0x0090FF20
-	.word longlong2str
-	.short 737
-	.word 0x00A0FF20
-	.word double2hex
-	.short 1245
-	.word 0x00F07F20
-	.word float2str
-	.short 1893
-	.word 0x00C0FF20
-	.word __pformatter
-	.short 2084
-	.word UNK_020EC710
-	.word __FileWrite
-	.short 45
-	.word 0x00200300
-	.word __StringWrite
-	.short 69
-	.word 0x00200300
-	.word printf
-	.short 281
-	.word 0x00300120
-	.word vsnprintf
-	.short 105
-	.word 0x00300300
-	.word snprintf
-	.short 41
-	.word 0x00300020
-	.word sprintf
-	.short 45
-	.word 0x00300020
+	exception long2str, 589, 0x0090FF20
+	exception longlong2str, 737, 0x00A0FF20
+	exception double2hex, 1245, 0x00F07F20
+	exception float2str, 1893, 0x00C0FF20
+	exception __pformatter, 2084, UNK_020EC710
+	exception __FileWrite, 45, 0x00200300
+	exception __StringWrite, 69, 0x00200300
+	exception printf, 281, 0x00300120
+	exception vsnprintf, 105, 0x00300300
+	exception snprintf, 41, 0x00300020
+	exception sprintf, 45, 0x00300020
 
 	.section .exception,8
 

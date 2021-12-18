@@ -20,7 +20,6 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 
     s32 i;
     struct String * str;
 
-    // FIXME: String formatting in files/msgdata/msg/narc_0559.txt is abnormal.
     msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 559, heap_id);
     rivalName = GetRivalNamePtr(FUN_02024EC0(sav2));
     for (i = 0; i < 4; i++)
@@ -244,11 +243,11 @@ const u8 sTrainerClassGenderCountTbl[] = {
     /*TRAINER_CLASS_COMMANDER_JUPITER*/          1,
     /*TRAINER_CLASS_COMMANDER_SATURN*/           1,
     /*TRAINER_CLASS_GALACTIC_F*/                 1,
-    /*TRAINER_CLASS_PKMN_TRAINER_AROMA_LADY*/    1,
-    /*TRAINER_CLASS_PKMN_TRAINER_RICH_BOY*/      0,
-    /*TRAINER_CLASS_PKMN_TRAINER_PICNICKER*/     1,
-    /*TRAINER_CLASS_PKMN_TRAINER_CAMPER*/        0,
-    /*TRAINER_CLASS_PKMN_TRAINER_POKEKID*/       1,
+    /*TRAINER_CLASS_PKMN_TRAINER_CHERYL*/        1,
+    /*TRAINER_CLASS_PKMN_TRAINER_RILEY*/         0,
+    /*TRAINER_CLASS_PKMN_TRAINER_MARLEY*/        1,
+    /*TRAINER_CLASS_PKMN_TRAINER_BUCK*/          0,
+    /*TRAINER_CLASS_PKMN_TRAINER_MIRA*/          1,
     /*TRAINER_CLASS_PKMN_TRAINER_LUCAS*/         0,
     /*TRAINER_CLASS_PKMN_TRAINER_DAWN*/          1,
     /*TRAINER_CLASS_TOWER_TYCOON*/               0

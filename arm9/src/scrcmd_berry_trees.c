@@ -3,8 +3,6 @@
 
 extern void* FUN_02039438(struct UnkSavStruct80*, int idx);
 
-extern void FUN_0202A0E8(struct UnkStruct_02029FB0*, int);
-extern void FUN_0202A170(struct UnkStruct_02029FB0*, int);
 extern u8 FUN_0204B5FC(struct UnkSavStruct80*, void*);
 extern void FUN_0204B57C(struct UnkSavStruct80*, void*, int);
 extern u16 FUN_0204B63C(struct UnkSavStruct80*, void*);
@@ -79,11 +77,11 @@ THUMB_FUNC BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx)
 {
     void** unk = FUN_02039438(ctx->unk80, 10);
-    struct UnkStruct_02029FB0* unk2 = FUN_02029FC8(ctx->unk80->saveBlock2);
+    struct GameStats* unk2 = Sav2_GameStats_get(ctx->unk80->saveBlock2);
     u16 unk3 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
 
     FUN_0204B5A8(ctx->unk80, *unk, unk3);
-    FUN_0202A0E8(unk2, 3);
+    GameStats_Inc(unk2, 3);
 
     return FALSE;
 }
@@ -110,11 +108,11 @@ THUMB_FUNC BOOL ScrCmd_Unk0184(struct ScriptContext* ctx) //SetBerryTreeWater/Wa
 
 THUMB_FUNC BOOL ScrCmd_TakeBerryTreeBerries(struct ScriptContext* ctx)
 {
-    struct UnkStruct_02029FB0* unk = FUN_02029FC8(ctx->unk80->saveBlock2);
+    struct GameStats* unk = Sav2_GameStats_get(ctx->unk80->saveBlock2);
     void** unk2 = FUN_02039438(ctx->unk80, 10);
 
     FUN_0204B4FC(ctx->unk80, *unk2);
-    FUN_0202A170(unk, 0);
+    GameStats_AddSpecial(unk, 0);
 
     return FALSE;
 }

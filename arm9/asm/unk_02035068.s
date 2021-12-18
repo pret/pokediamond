@@ -3672,7 +3672,7 @@ FUN_02036E08: ; 0x02036E08
 	bl Sav2_Bag_get
 	str r0, [sp, #0x30]
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [sp, #0x34]
 	ldr r0, [r4, #0xc]
 	bl Sav2_Poketch_get
@@ -3709,7 +3709,7 @@ _02036E9E:
 	bl Sav2_Bag_get
 	str r0, [sp, #0x40]
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	str r0, [sp, #0x44]
 	ldr r0, [r4, #0xc]
 	bl Sav2_Poketch_get

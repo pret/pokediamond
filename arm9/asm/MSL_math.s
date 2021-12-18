@@ -104,7 +104,4 @@ scalbn: ; 0x020E9AA4
 	ldmia sp!, {r3-r4,pc}
 	arm_func_end scalbn
 
-	.section .exceptix,4
-	.word scalbn
-	.short 45
-	.word 0x00200100
+	exception scalbn, 45, 0x00200100

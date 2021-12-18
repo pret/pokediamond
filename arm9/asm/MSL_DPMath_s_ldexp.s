@@ -163,8 +163,4 @@ _020E855C: .word 0x0000C350
 _020E8560: .word 0x3C900000
 	arm_func_end ldexp
 
-	.section .exceptix,4
-
-	.word ldexp
-	.short 589
-	.word 0x00300120
+	exception ldexp, 589, 0x00300120

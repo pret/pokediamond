@@ -3623,26 +3623,26 @@ _020826EA:
 	bl FUN_02060F10
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x3f
 	add r6, r0, #0x0
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r4, #0x0
 	bl FUN_0208217C
 	cmp r0, #0x0
 	bne _02082740
 	add r0, r6, #0x0
 	mov r1, #0x41
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r6, #0x0
 	mov r1, #0xd
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 _02082740:
 	cmp r5, #0x1
 	bne _0208274C
 	add r0, r6, #0x0
 	mov r1, #0x43
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 _0208274C:
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
@@ -3679,20 +3679,20 @@ _02082774:
 	bl FUN_0202C108
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x40
 	add r5, r0, #0x0
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r4, #0x0
 	bl FUN_0208217C
 	cmp r0, #0x0
 	bne _020827BA
 	add r0, r5, #0x0
 	mov r1, #0x42
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r5, #0x0
 	mov r1, #0x13
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 _020827BA:
 	ldr r1, _02082854 ; =0x00000123
 	mov r0, #0xc

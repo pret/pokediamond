@@ -199,7 +199,7 @@ _0225498C:
 	bl MOD47_02254E24
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034984
+	bl MapHeader_MapIsPokemonCenter
 	cmp r0, #0
 	beq _022549CA
 	add r0, r4, #0

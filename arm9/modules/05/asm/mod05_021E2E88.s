@@ -601,7 +601,7 @@ MOD05_021E331C: ; 0x021E331C
 	add r4, r0, #0
 	ldr r0, [r4, #0x1c]
 	ldr r0, [r0]
-	bl FUN_02034944
+	bl MapHeader_IsBuilding
 	cmp r0, #0
 	bne _021E333E
 	ldr r0, [r4, #0x1c]

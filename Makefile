@@ -3,20 +3,21 @@
 include config.mk
 include graphics_rules.mk
 
-HOSTCC = $(CC)
-HOSTCXX = $(CXX)
-HOSTCFLAGS = $(CFLAGS)
-HOSTCXXFLAGS = $(CXXFLAGS)
-HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)'
-
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
+ifdef DEVKITARM
 TOOLCHAIN := $(DEVKITARM)
-
-ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
-include $(TOOLCHAIN)/base_tools
 endif
+
+ifdef TOOLCHAIN
+export PATH := $(TOOLCHAIN)/bin:$(PATH)
+endif
+
+PREFIX := arm-none-eabi-
+
+OBJCOPY := $(PREFIX)objcopy
+AR      := $(PREFIX)ar
 
 ### Default target ###
 
@@ -102,9 +103,9 @@ OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
-ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/libc/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all
-LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
+MWASFLAGS = -proc arm5te
+MWCFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/libc/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all
+MWLDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
 
@@ -124,9 +125,11 @@ MAKEROM    = $(WINE) $(TOOLS_DIR)/bin/makerom.exe
 FIXROM     = $(TOOLS_DIR)/fixrom/fixrom$(EXE)
 NTRCOMP    = $(WINE) $(TOOLS_DIR)/bin/ntrcomp.exe
 
-TOOLDIRS = $(filter-out $(TOOLS_DIR)/asm_processor $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
+TOOLDIRS = $(dir $(wildcard tools/*/Makefile))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
+
+TOOLS: tools
 
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
 export MWCIncludes := arm9/lib/libc/include arm9/lib/NitroSDK/include arm9/lib/libnns/include
@@ -139,7 +142,7 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
 ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(HOST_VARS) $(MAKE) tools patch_mwasmarm)
+$(call infoshell,$(MAKE) tools patch_mwasmarm)
 else
 NODEP := 1
 endif
@@ -150,6 +153,8 @@ endif
 .PHONY: all libs clean mostlyclean tidy tools clean-tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
 
 MAKEFLAGS += --no-print-directory
+
+all: tools patch_mwasmarm
 
 all: $(ROM)
 ifeq ($(COMPARE),1)
@@ -180,7 +185,7 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(HOST_VARS) $(MAKE) -C $@
+	@$(MAKE) -C $@
 
 clean-tools:
 	$(foreach tool,$(TOOLDIRS),$(MAKE) clean -C $(tool);)
@@ -200,10 +205,10 @@ $(BUILD_DIR)/%.o: dep :=
 endif
 
 $(BUILD_DIR)/%.o: %.c $$(dep)
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -c $(MWCFLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.o: %.s $$(dep)
-	$(AS) $(ASFLAGS) $< -o $@
+	$(AS) $(MWASFLAGS) $< -o $@
 
 arm9: filesystem
 	$(MAKE) -C arm9 $(MAKE_VARS)
@@ -224,7 +229,7 @@ else
 endif
 
 # Make sure build directory exists before compiling anything
-DUMMY != mkdir -p $(ALL_DIRS)
+DUMMY := $(shell mkdir -p $(ALL_DIRS))
 
 %.4bpp: %.png
 	$(GFX) $< $@
@@ -257,12 +262,15 @@ $(CLOBBER_SIZE_VERSION101_NCGR_FILES): GFX_FLAGS = -clobbersize -version101
 $(VERSION101_SOPC_8BPP_NCGR_FILES): GFX_FLAGS = -version101 -sopc -bitdepth 8
 $(VERSION101_SOPC_NCGR_FILES): GFX_FLAGS = -version101 -sopc
 $(SCANNED_NCGR_FILES): GFX_FLAGS = -scanned
+$(NOBYTEORDER_NCGR_FILES): GFX_FLAGS = -nobyteorder
+$(NOBYTEORDER_WRONGSIZE_NCGR_FILES): GFX_FLAGS = -nobyteorder -wrongsize
 
 $(IR_NCLR_FILES): GFX_FLAGS = -ir
 $(4BPP_NCLR_FILES): GFX_FLAGS = -bitdepth 4
 $(8BPP_NSCR_FILES): GFX_FLAGS = -bitdepth 8
 $(8BPP_COMP10_NOPAD_NCLR_PNG_FILES): GFX_FLAGS = -bitdepth 8 -nopad -comp 10
 $(8BPP_COMP10_NOPAD_NCLR_PAL_FILES): GFX_FLAGS = -bitdepth 8 -nopad -comp 10
+$(NCPR_NCLR_FILES): GFX_FLAGS = -ncpr
 
 %.NCGR: %.png
 	$(GFX) $< $@ $(GFX_FLAGS)
@@ -297,7 +305,8 @@ print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 ### Other targets
 
-diamond:          ; @$(HOST_VARS) $(MAKE) GAME_VERSION=DIAMOND
-pearl:            ; @$(HOST_VARS) $(MAKE) GAME_VERSION=PEARL
-compare_diamond:  ; @$(HOST_VARS) $(MAKE) GAME_VERSION=DIAMOND COMPARE=1
-compare_pearl:    ; @$(HOST_VARS) $(MAKE) GAME_VERSION=PEARL COMPARE=1
+diamond:          ; @$(MAKE) GAME_VERSION=DIAMOND
+pearl:            ; @$(MAKE) GAME_VERSION=PEARL
+compare_diamond:  ; @$(MAKE) GAME_VERSION=DIAMOND COMPARE=1
+compare_pearl:    ; @$(MAKE) GAME_VERSION=PEARL COMPARE=1
+compare: compare_diamond

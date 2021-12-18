@@ -1262,14 +1262,14 @@ _0222FCEA:
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	mov r1, #0x15
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	b _0222FD54
 _0222FD00:
 	mov r0, #0x51
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	mov r1, #0x1a
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	b _0222FD54
 _0222FD0E:
 	bl FUN_02033590
@@ -1279,14 +1279,14 @@ _0222FD0E:
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	mov r1, #0x16
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	b _0222FD54
 _0222FD24:
 	mov r0, #0x51
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	mov r1, #0x1b
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	b _0222FD54
 _0222FD32:
 	bl FUN_02033590
@@ -1296,14 +1296,14 @@ _0222FD32:
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	mov r1, #0x17
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	b _0222FD54
 _0222FD48:
 	mov r0, #0x51
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
 	mov r1, #0x1c
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 _0222FD54:
 	ldr r1, [r7]
 	mov r0, #8
@@ -4220,7 +4220,7 @@ MOD11_0223128C: ; 0x0223128C
 	ldr r0, [r0, r2]
 	bx r3
 	nop
-_02231298: .word FUN_0202A0E8
+_02231298: .word GameStats_Inc
 
 	thumb_func_start MOD11_0223129C
 MOD11_0223129C: ; 0x0223129C
@@ -4231,7 +4231,7 @@ MOD11_0223129C: ; 0x0223129C
 	mov r1, #0x16
 	bx r3
 	.align 2, 0
-_022312A8: .word FUN_0202A170
+_022312A8: .word GameStats_AddSpecial
 
 	thumb_func_start MOD11_022312AC
 MOD11_022312AC: ; 0x022312AC

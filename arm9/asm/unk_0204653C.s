@@ -348,9 +348,9 @@ _020467C0:
 	add r1, r7, #0x0
 	bl FUN_02047FA4
 	ldr r0, [r7, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x15
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	add r0, r6, #0x0
 	bl FUN_0204AF84
 	ldr r0, [r4, #0x0]
@@ -410,9 +410,9 @@ _02046844:
 	add r1, r6, #0x0
 	bl FUN_02047FA4
 	ldr r0, [r6, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x15
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -710,9 +710,9 @@ _02046ABC:
 	ldr r0, [r5, #0x34]
 	bl FUN_02058780
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x7
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	ldr r1, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	add r0, r6, #0x0
@@ -905,9 +905,9 @@ _02046C68:
 	ldr r0, [r6, #0x34]
 	bl FUN_02058780
 	ldr r0, [r6, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x7
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	ldr r1, [r5, #0x4]
 	ldr r2, [r5, #0x8]
 	add r0, r7, #0x0
@@ -1079,9 +1079,9 @@ FUN_02046DB4: ; 0x02046DB4
 	add r1, r4, #0x0
 	bl MOD06_0223CCDC
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x7
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r4, #0x0
 	bl FUN_020475A0
 	add r5, r0, #0x0
@@ -1131,9 +1131,9 @@ FUN_02046E18: ; 0x02046E18
 	str r0, [r4, r1]
 _02046E60:
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x7
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r4, #0x0
 	bl FUN_020475A0
 	add r5, r0, #0x0
@@ -1181,9 +1181,9 @@ _02046EC6:
 	ldr r0, [r6, #0x34]
 	bl FUN_02058780
 	ldr r0, [r6, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x7
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	ldr r1, [r5, #0x4]
 	ldr r2, [r5, #0x8]
 	add r0, r7, #0x0
@@ -1305,9 +1305,9 @@ FUN_02046FA0: ; 0x02046FA0
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x7
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r4, #0x0
 	bl FUN_020475A0
 	add r5, r0, #0x0
@@ -1484,9 +1484,9 @@ _0204711A:
 	add r0, r4, #0x0
 	bl EnemyTrainerSet_Init
 	ldr r0, [r7, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x8
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	add r0, r4, #0x0
 	bl FUN_020475A0
 	add r5, r0, #0x0
@@ -1702,9 +1702,9 @@ _02047318:
 	cmp r2, #0x1
 	bne _0204732A
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x8
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
 _0204732A:
 	cmp r2, #0x4
@@ -1721,14 +1721,14 @@ _0204732A:
 	cmp r0, #0x0
 	ldr r0, [r4, #0xc]
 	beq _02047358
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x9
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
 _02047358:
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0xa
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
 _02047364:
 	mov r3, #0x1
@@ -1741,9 +1741,9 @@ _02047370:
 	cmp r2, #0x1
 	bne _020473C8
 	ldr r0, [r4, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0xb
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
 _02047382:
 	mov r3, #0x20
@@ -1768,14 +1768,14 @@ _02047390:
 	cmp r0, #0x0
 	ldr r0, [r4, #0xc]
 	beq _020473BE
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x9
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
 _020473BE:
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0xa
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 _020473C8:
 	pop {r3-r5, pc}
 	.balign 4

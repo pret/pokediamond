@@ -5,46 +5,6 @@
 
 #pragma thumb on
 
-BOOL String_IsTrainerName(struct String * string)
-{
-    return string->size != 0 && string->data[0] == 0xF100;
-}
-
-void StringCat_HandleTrainerName(struct String * dest, struct String * src)
-{
-    if (String_IsTrainerName(src))
-    {
-        u16 * dest_p = &dest->data[dest->size];
-        u16 * src_p = &src->data[1];
-        s32 bit = 0;
-        u32 outsize = 0;
-        u16 cur_char = 0;
-
-        while (1)
-        {
-            cur_char = (u16)((*src_p >> bit) & 0x1FF);
-            bit += 9;
-            if (bit >= 15)
-            {
-                src_p++;
-                bit -= 15;
-                if (bit != 0)
-                {
-                    cur_char |= (*src_p << (9 - bit)) & 0x1FF;
-                }
-            }
-            if (cur_char == 0x1FF)
-                break;
-            *dest_p++ = cur_char;
-            outsize++;
-        }
-        *dest_p = EOS;
-        dest->size += outsize;
-    }
-    else
-        StringCat(dest, src);
-}
-
 struct UnkStruct_020220C4 * FUN_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, u32 a4)
 {
     struct UnkStruct_020220C4 * ret;

@@ -500,7 +500,7 @@ static const u16 UNK_020EDC7E[] = // rotations?
     0xF8E4, 0xF99A, 0xFA50, 0xFB06, 0xFBBC, 0xFC72, 0xFD28, 0xFDDE, 0xFE94, 0xFF4A
 };
 
-const u16 UNK_020EDB80[] =
+static const u16 UNK_020EDB80[] =
 {
     0x169F, 0x0F14, 0x0B4F, 0x090C, 0x078A, 0x0676, 0x05A7, 0x0506,
     0x0486, 0x041C, 0x03C5, 0x037A, 0x033B, 0x0304, 0x02D3, 0x02A9,
@@ -592,21 +592,7 @@ THUMB_FUNC s32 Sin32(s32 degrees)
  * Random number generators
  */
 static u32 sMTRNG_State[624]; // Mersenne Twister seed storage/buffer
-#ifdef NONMATCHING
-// Using -ipa file makes the following hack unnecessary,
-// but for some reason forces UNK_020EDC7E to align to
-// word rather than short...
 static u32 sLCRNG_State;
-#define sMTRNG_State_2 sMTRNG_State
-#else
-static union
-{
-    u32 LC_State; // Linear-congruential seed storage/buffer
-    u32 MTRNG_State[]; // Don't bother asking why Game Freak did this. Just don't.
-} sRNGHack;
-#define sLCRNG_State sRNGHack.LC_State
-#define sMTRNG_State_2 (sRNGHack.MTRNG_State + 1)
-#endif
 
 // Returns the Linear-congruential buffer in full.
 THUMB_FUNC u32 GetLCRNGSeed()
@@ -641,7 +627,7 @@ static u32 sMTRNG_XOR[2] = {0, 0x9908b0df}; // Mersenne Twister XOR mask table
 // Initializes the Mersenne Twister buffer with a 32-bit seed.
 THUMB_FUNC void SetMTRNGSeed(u32 seed)
 {
-    sMTRNG_State_2[0] = seed;
+    sMTRNG_State[0] = seed;
 
     for (sMTRNG_Cycles = 1; sMTRNG_Cycles < 624; sMTRNG_Cycles++)
         sMTRNG_State[sMTRNG_Cycles] = 1812433253 * (sMTRNG_State[sMTRNG_Cycles - 1] ^ (sMTRNG_State[sMTRNG_Cycles - 1] >> 30)) + sMTRNG_Cycles;
@@ -669,8 +655,8 @@ THUMB_FUNC u32 MTRandom(void)
             sMTRNG_State[i] = sMTRNG_State[i + -227] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
         }
 
-        val = (sMTRNG_State_2[623] & 0x80000000) | (sMTRNG_State_2[0] & 0x7fffffff);
-        sMTRNG_State_2[623] = sMTRNG_State_2[396] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
+        val = (sMTRNG_State[623] & 0x80000000) | (sMTRNG_State[0] & 0x7fffffff);
+        sMTRNG_State[623] = sMTRNG_State[396] ^ (val >> 1) ^ sMTRNG_XOR[val & 0x1];
 
         sMTRNG_Cycles = 0;
     }
@@ -755,4 +741,10 @@ THUMB_FUNC s32 MathUtil_0201BC84(u16 arg0, s32 arg1)
 {
     return (arg1 * 65535) /
         (FX32_MUL((arg0 * 2) << FX32_INT_SHIFT, FX32_CONST(3.140f)) >> FX32_INT_SHIFT);
+}
+
+// Required to protect UNK_020EDB80 from dead-stripping
+THUMB_FUNC s32 CALC_SomeDeadstrippedFunction(s32 arg)
+{
+    return UNK_020EDB80[arg];
 }

@@ -5,11 +5,18 @@ include ../config.mk
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
+ifdef DEVKITARM
 TOOLCHAIN := $(DEVKITARM)
-
-ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
-include $(TOOLCHAIN)/base_tools
 endif
+
+ifdef TOOLCHAIN
+export PATH := $(TOOLCHAIN)/bin:$(PATH)
+endif
+
+PREFIX := arm-none-eabi-
+
+OBJCOPY := $(PREFIX)objcopy
+AR      := $(PREFIX)ar
 
 ### Default target ###
 
@@ -109,10 +116,10 @@ ASM_PROCESSOR_DIR := ../tools/asm_processor
 ASM_PROCESSOR := $(ASM_PROCESSOR_DIR)/compile.sh
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
-ASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-CFLAGS = -O4,p -gccext,on -proc arm946e -ipa file -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-LDFLAGS = -nodead -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start
+MWASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
+MWCFLAGS = -O4,p -gccext,on -proc arm946e -ipa file -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
+MWCXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
+MWLDFLAGS = -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start
 LIBS := -Llib -lsyscall
 ARFLAGS = rcS
 STATIC_LIBS := $(addprefix $(BUILD_DIR)/lib/,libsyscall.a)
@@ -135,22 +142,25 @@ GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)
 SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
-TOOLDIRS = $(filter-out $(TOOLS_DIR)/asm_processor $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
+TOOLDIRS = $(dir $(wildcard $(TOOLS_DIR)/*/Makefile))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
+
+TOOLS: tools
 
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
 export MWCIncludes := $(CURDIR)/lib/libc/include $(CURDIR)/lib/NitroSDK/include $(CURDIR)/lib/libnns/include
 export MWLibraries := $(CURDIR)/lib
 
 ######################### Targets ###########################
+######################## Targets ###########################
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
 ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(MAKE) tools patch_mwasmarm)
+$(call infoshell,$(MAKE) tools patch_mwasmarm)
 else
 NODEP := 1
 endif
@@ -159,6 +169,8 @@ endif
 .PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
+
+all: tools patch_mwasmarm
 
 all: $(ROM)
 ifeq ($(COMPARE),1)
@@ -192,12 +204,9 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS) $(LIB
 
 # TODO: Move out to lib/Makefile
 $(BUILD_DIR)/lib/%.o: MWCCVERSION = 1.2/sp2p3
-$(BUILD_DIR)/lib/%.o: CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -interworking -DFS_IMPLEMENT -enum int -W all -i ../include -ir ../include-mw -ir lib/libc/include -ir lib/libnns/include -ir lib/NitroSDK/include
+$(BUILD_DIR)/lib/%.o: MWCFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -interworking -DFS_IMPLEMENT -enum int -W all -i ../include -ir ../include-mw -ir lib/libc/include -ir lib/libnns/include -ir lib/NitroSDK/include
 
 $(BUILD_DIR)/lib/libnns/%.o: MWCCVERSION = 1.2/sp3
-
-# FIXME: Using -ipa file breaks .rodata alignment
-$(BUILD_DIR)/src/math_util.o: CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 
 ####################### Everything Else ######################
 
@@ -208,24 +217,28 @@ $(BUILD_DIR)/%.o: dep :=
 endif
 
 # Cpp asm processor is not supported at this time.
-$(GLOBAL_ASM_O_FILES): BUILD_C := $(ASM_PROCESSOR) "$(CC) $(CFLAGS)" "$(AS) $(ASFLAGS)"
-BUILD_C ?= $(CC) -c $(CFLAGS) -o
+$(GLOBAL_ASM_O_FILES): BUILD_C := $(ASM_PROCESSOR) "$(CC) $(MWCFLAGS)" "$(AS) $(MWASFLAGS)"
+BUILD_C ?= $(CC) -c $(MWCFLAGS) -o
 
 $(C_OBJS): $(BUILD_DIR)/%.o: %.c $$(dep)
 	$(BUILD_C) $@ $<
 
 $(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
-	$(CXX) -c $(CXXFLAGS) -o $@ $<
+	$(CXX) -c $(MWCXXFLAGS) -o $@ $<
 
 $(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
-	$(AS) $(ASFLAGS) -o $@ $<
+	$(AS) $(MWASFLAGS) -o $@ $<
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
+# Bugfix note: zsh doesn't like escapes
+$(BUILD_DIR)/$(LD_TEMPLATE): $(BUILD_DIR)/%: %
+	(printf "KEEP_SECTION\n{\n\t.exceptix\n}\n"; cat $<) > $@
+
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(BUILD_DIR)/$(LD_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
 
 $(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
 	echo "$(O_FILES:$(BUILD_DIR)/%=%)" > $(ELF).objlist
-	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) @../../$(ELF).objlist
+	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(MWLDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) @../../$(ELF).objlist
 	$(OBJCOPY) $(foreach ov,arm9 $(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 ifeq ($(SHIFTED),0)
@@ -237,7 +250,7 @@ $(BUILD_DIR)/lib/libsyscall.a: $(SYSCALL_OBJS)
 	$(AR) $(ARFLAGS) -o $@ $^
 
 # Make sure build directory exists before compiling anything
-DUMMY != mkdir -p $(ALL_DIRS)
+DUMMY := $(shell mkdir -p $(ALL_DIRS))
 
 %.4bpp: %.png
 	$(GFX) $< $@

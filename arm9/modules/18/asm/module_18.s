@@ -5702,9 +5702,9 @@ _0223C2D0:
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x1e
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	mov r0, #0xe
 	str r0, [r5]
 	mov r0, #0x19
@@ -15138,9 +15138,9 @@ MOD18_02240A44: ; 0x02240A44
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x22
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	bl FUN_0204F7E4
 	bl MOD18_0223D638
 	add r5, r0, #0
@@ -24150,8 +24150,8 @@ MOD18_02245054: ; 0x02245054
 	bl FUN_02026CC0
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_02029FC8
-	bl FUN_0202A1B8
+	bl Sav2_GameStats_get
+	bl GameStats_GetStat0
 	add r1, r0, #0
 	add r0, r6, #0
 	bl FUN_020268E8
@@ -27797,9 +27797,9 @@ _02246D5C:
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x23
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 _02246D92:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -30426,9 +30426,9 @@ _022481A6:
 _022481D8:
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x20
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	bl MOD18_0224D784
 	add r0, r4, #0
 	mov r1, #9
@@ -30676,9 +30676,9 @@ _022483BC:
 	bl FUN_0205F730
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x1f
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	add r0, r4, #0
 	mov r1, #0x19
 	add r0, #0x37
@@ -30843,9 +30843,9 @@ _02248542:
 	bne _022485F6
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	mov r1, #0x21
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	add r0, r4, #0
 	mov r1, #0x8e
 	bl MOD18_022479E4
@@ -40880,8 +40880,8 @@ MOD18_0224D698: ; 0x0224D698
 	ldr r0, _0224D6FC ; =0x022513FC
 	ldr r0, [r0]
 	ldr r0, [r0, #8]
-	bl FUN_02029FC8
-	bl FUN_0202A1B8
+	bl Sav2_GameStats_get
+	bl GameStats_GetStat0
 	add r6, r0, #0
 	mov r0, #4
 	add r1, r4, #1
@@ -40925,8 +40925,8 @@ MOD18_0224D704: ; 0x0224D704
 	ldr r0, _0224D72C ; =0x022513FC
 	ldr r0, [r0]
 	ldr r0, [r0, #8]
-	bl FUN_02029FC8
-	bl FUN_0202A1B8
+	bl Sav2_GameStats_get
+	bl GameStats_GetStat0
 	add r1, r0, #0
 	ldr r0, _0224D730 ; =0x000F423F
 	cmp r1, r0

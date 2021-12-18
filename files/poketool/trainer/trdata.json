@@ -15351,7 +15351,7 @@
     {
       "index": 608,
       "type": "TRTYPE_MON_MOVES",
-      "class": "TRAINER_CLASS_PKMN_TRAINER_AROMA_LADY",
+      "class": "TRAINER_CLASS_PKMN_TRAINER_CHERYL",
       "name": "Cheryl",
       "unk2": 0,
       "items": [],
@@ -15373,7 +15373,7 @@
     {
       "index": 609,
       "type": "TRTYPE_MON_MOVES",
-      "class": "TRAINER_CLASS_PKMN_TRAINER_RICH_BOY",
+      "class": "TRAINER_CLASS_PKMN_TRAINER_RILEY",
       "name": "Riley",
       "unk2": 0,
       "items": [],
@@ -15396,7 +15396,7 @@
     {
       "index": 610,
       "type": "TRTYPE_MON_MOVES",
-      "class": "TRAINER_CLASS_PKMN_TRAINER_PICNICKER",
+      "class": "TRAINER_CLASS_PKMN_TRAINER_MARLEY",
       "name": "Marley",
       "unk2": 0,
       "items": [],
@@ -15419,7 +15419,7 @@
     {
       "index": 611,
       "type": "TRTYPE_MON_MOVES",
-      "class": "TRAINER_CLASS_PKMN_TRAINER_CAMPER",
+      "class": "TRAINER_CLASS_PKMN_TRAINER_BUCK",
       "name": "Buck",
       "unk2": 0,
       "items": [],
@@ -15442,7 +15442,7 @@
     {
       "index": 612,
       "type": "TRTYPE_MON_MOVES",
-      "class": "TRAINER_CLASS_PKMN_TRAINER_POKEKID",
+      "class": "TRAINER_CLASS_PKMN_TRAINER_MIRA",
       "name": "Mira",
       "unk2": 0,
       "items": [],

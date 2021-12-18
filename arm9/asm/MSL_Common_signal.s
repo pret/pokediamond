@@ -100,8 +100,4 @@ _020E2EA4: .word __cs_ref
 _020E2EA8: .word signal_funcs
 	arm_func_end raise
 
-	.section .exceptix,4
-
-	.word raise
-	.short 305
-	.word 0x00200300
+	exception raise, 305, 0x00200300

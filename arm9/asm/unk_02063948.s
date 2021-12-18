@@ -1015,7 +1015,7 @@ FUN_020640CC: ; 0x020640CC
 	pop {r4, pc}
 _020640DE:
 	ldr r0, [r4, #0x0]
-	bl FUN_020348E4
+	bl MapHeader_IsOutdoorNotTown
 	cmp r0, #0x0
 	bne _020640EC
 	mov r0, #0x1
@@ -1125,7 +1125,7 @@ FUN_020641AC: ; 0x020641AC
 	pop {r4, pc}
 _020641BE:
 	ldr r0, [r4, #0x0]
-	bl FUN_02034930
+	bl MapHeader_IsCave
 	cmp r0, #0x1
 	bne _020641D2
 	ldr r0, [r4, #0x0]

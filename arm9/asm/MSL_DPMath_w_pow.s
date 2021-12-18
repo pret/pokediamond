@@ -11,8 +11,4 @@ pow: ; 0x020E8564
 _020E856C: .word __ieee754_pow
 	arm_func_end pow
 
-	.section .exceptix,4
-
-	.word pow
-	.short 13
-	.word 0x00000000
+	exception pow, 13, 0x00000000

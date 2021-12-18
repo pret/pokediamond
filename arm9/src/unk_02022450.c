@@ -6,35 +6,52 @@
 
 #include "unk_02022450.h"
 
-static const char string_saying_rom[] = "rom";
+static inline u32 GetBakRomCode(void) {
+    return ((CARDRomHeader*)HW_MAIN_MEM_SHARED)->game_code;
+}
+
+static inline void SetBakRomCode(u32 newCode) {
+    ((CARDRomHeader*)HW_MAIN_MEM_SHARED)->game_code = newCode;
+}
+
+static inline u16 GetBakRomMaker(void) {
+    return ((CARDRomHeader*)HW_MAIN_MEM_SHARED)->maker_code;
+}
+
+static const char arc_name[] = "rom";
+
+// Multichar constants are encoded big-endian,
+// but this is a little-endian machine.
+#define ROM_CODE_ADAJ_BE     'JADA'
+#define MAKER_CODE_01_BE     '10'
 
 /*Replacing (HW_MAIN_MEM_SHARED + 0xC) or (HW_MAIN_MEM_SHARED + 0x10) or defining ADAJ or 01 constants causes match failure*/
-THUMB_FUNC void FUN_02022450 () {
+THUMB_FUNC void FUN_02022450() {
     if (!FS_IsAvailable()) {
         OS_Terminate();
     }
     else {
-        struct CARD_Header* card_header_buffer = (struct CARD_Header*)HW_MAIN_MEM_SHARED;
+        CARDRomHeader* card_header_buffer = (CARDRomHeader*)HW_MAIN_MEM_SHARED;
         
-        if (!*(u32*)(HW_MAIN_MEM_SHARED + 0xC)) {
+        if (GetBakRomCode() == 0) {
             CARD_Init();
             MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)card_header_buffer, HW_CARD_ROM_HEADER_SIZE);
             MI_CpuCopy8((u8*)HW_ROM_HEADER_BUF, (u8*)HW_CARD_ROM_HEADER, HW_CARD_ROM_HEADER_SIZE);
-            *(u32*)(HW_MAIN_MEM_SHARED + 0xC) = 0x4A414441 /*"ADAJ" LE*/;
+            SetBakRomCode(ROM_CODE_ADAJ_BE);
         }
-        FSArchive * const r0 = FS_FindArchive(string_saying_rom, 3);
-        r0->fat = card_header_buffer->header_48;
-        r0->fat_size = card_header_buffer->header_4C;
-        r0->fnt = card_header_buffer->header_40;
-        r0->fnt_size = card_header_buffer->header_44;
-        if (*(u32*)(HW_MAIN_MEM_SHARED + 0xC) != 0x4A414441 /*"ADAJ" LE*/ || *(u16*)(HW_MAIN_MEM_SHARED + 0x10) != 0x3130 /*"01" LE*/) {
+        FSArchive * const r0 = FS_FindArchive(arc_name, 3);
+        r0->fat = card_header_buffer->fat.offset;
+        r0->fat_size = card_header_buffer->fat.length;
+        r0->fnt = card_header_buffer->fnt.offset;
+        r0->fnt_size = card_header_buffer->fnt.length;
+        if (GetBakRomCode() != ROM_CODE_ADAJ_BE || GetBakRomMaker() != MAKER_CODE_01_BE) {
             OS_Terminate();
         }
     }
     return;
 }
 
-THUMB_FUNC void Reset_To_File (const char* path) {
+THUMB_FUNC void Reset_To_File(const char* path) {
     FSFile file;
     FS_InitFile(&file);
     if (FS_OpenFile(&file, path)) {

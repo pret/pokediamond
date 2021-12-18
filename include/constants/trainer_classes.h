@@ -91,13 +91,22 @@
 #define TRAINER_CLASS_COMMANDER_JUPITER           87
 #define TRAINER_CLASS_COMMANDER_SATURN            88
 #define TRAINER_CLASS_GALACTIC_F                  89
-#define TRAINER_CLASS_PKMN_TRAINER_AROMA_LADY     90
-#define TRAINER_CLASS_PKMN_TRAINER_RICH_BOY       91
-#define TRAINER_CLASS_PKMN_TRAINER_PICNICKER      92
-#define TRAINER_CLASS_PKMN_TRAINER_CAMPER         93
-#define TRAINER_CLASS_PKMN_TRAINER_POKEKID        94
+#define TRAINER_CLASS_PKMN_TRAINER_CHERYL         90
+#define TRAINER_CLASS_PKMN_TRAINER_RILEY          91
+#define TRAINER_CLASS_PKMN_TRAINER_MARLEY         92
+#define TRAINER_CLASS_PKMN_TRAINER_BUCK           93
+#define TRAINER_CLASS_PKMN_TRAINER_MIRA           94
 #define TRAINER_CLASS_PKMN_TRAINER_LUCAS          95
 #define TRAINER_CLASS_PKMN_TRAINER_DAWN           96
 #define TRAINER_CLASS_TOWER_TYCOON                97
+
+#define TRAINER_BACKPIC_LUCAS                      0
+#define TRAINER_BACKPIC_DAWN                       1
+#define TRAINER_BACKPIC_BARRY                      2
+#define TRAINER_BACKPIC_CHERYL                     3
+#define TRAINER_BACKPIC_RILEY                      4
+#define TRAINER_BACKPIC_MARLEY                     5
+#define TRAINER_BACKPIC_BUCK                       6
+#define TRAINER_BACKPIC_MIRA                       7
 
 #endif //POKEDIAMOND_CONSTANTS_TRAINER_CLASSES_H

@@ -17,8 +17,6 @@ struct UnkStruct_020220C4
     struct UnkStruct_020220C4_sub * field_10;
 };
 
-BOOL String_IsTrainerName(struct String * string);
-void StringCat_HandleTrainerName(struct String * dest, struct String * src);
 struct UnkStruct_020220C4 * FUN_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, u32 a4);
 void FUN_02022120(struct UnkStruct_020220C4_sub * sub);
 void FUN_0202212C(struct UnkStruct_020220C4 * unk);

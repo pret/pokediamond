@@ -316,7 +316,7 @@ _020420A8:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -349,7 +349,7 @@ _020420A8:
 	bl FUN_020421D8
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 _02042106:
 	mov r0, #0x0
 	pop {r3-r7, pc}

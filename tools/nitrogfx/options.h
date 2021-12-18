@@ -32,6 +32,7 @@ struct PngToNtrOptions {
     bool version101;
     bool sopc;
     bool scanned;
+    bool wrongSize;
 };
 
 struct Attr0 {

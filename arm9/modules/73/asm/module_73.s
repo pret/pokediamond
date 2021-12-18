@@ -829,17 +829,17 @@ _021D7B98:
 _021D7BA8:
 	ldr r0, [r6, #0x10]
 	ldr r0, [r0, #0xc]
-	bl FUN_02029FC8
+	bl Sav2_GameStats_get
 	ldr r1, _021D7C90 ; =0x00001428
 	ldr r1, [r4, r1]
 	cmp r1, #0
 	bne _021D7BC0
 	mov r1, #0xc
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	b _021D7BC6
 _021D7BC0:
 	mov r1, #0x12
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 _021D7BC6:
 	ldr r0, _021D7C94 ; =0x00001424
 	ldr r0, [r4, r0]

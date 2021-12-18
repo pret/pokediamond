@@ -108,8 +108,4 @@ _020DF548:
 	bx lr
 	arm_func_end memcmp
 
-	.section .exceptix,4
-
-	.word memset
-	.short 21
-	.word 0x00100100
+	exception memset, 21, 0x00100100

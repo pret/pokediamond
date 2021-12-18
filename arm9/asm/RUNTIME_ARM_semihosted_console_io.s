@@ -74,11 +74,5 @@ __close_console: ; 0x020EC68C
 	mov r0, #0x0
 	bx lr
 
-	.section .exceptix,4
-
-	.word __read_console
-	.short 81
-	.word 0x00300F00
-	.word __write_console
-	.short 53
-	.word 0x00200700
+	exception __read_console, 81, 0x00300F00
+	exception __write_console, 53, 0x00200700

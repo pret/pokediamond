@@ -12,7 +12,6 @@ extern u16 *GetVarPointer(struct UnkSavStruct80 *arg, u16);
 extern u16 MOD06_02244660(struct UnkSavStruct80 *param0, u8 *param1);
 extern u16 MOD06_022446BC(struct UnkSavStruct80 *param0, u8 *param1);
 extern u16 MOD06_022446E0(struct UnkSavStruct80 *param0, u8 *param1);
-extern u32 FUN_0202A150(struct UnkStruct_02029FB0 *param0, u32 param1);
 extern u32 FUN_02026CC4(struct SaveBlock2 *sav2);
 extern u32 FUN_02025D94(u32 param0, u32 param1);
 
@@ -314,7 +313,7 @@ THUMB_FUNC void FUN_0205FDDC(struct UnkStruct_0204639C *param0, u16 param1, u16 
 THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)
 {
 
-    u16 res = (u16)FUN_0202A150(FUN_02029FC8(sav2), 0x35);
+    u16 res = (u16) GameStats_GetCapped(Sav2_GameStats_get(sav2), 0x35);
     if (res < 20)
     {
         return 0;
@@ -394,7 +393,7 @@ THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)
 
 THUMB_FUNC u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
 {
-    u16 res = (u16)FUN_0202A150(FUN_02029FC8(sav2), 0x35);
+    u16 res = (u16) GameStats_GetCapped(Sav2_GameStats_get(sav2), 0x35);
     if (res < 20)
     {
         return 0;

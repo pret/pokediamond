@@ -105,8 +105,4 @@ _020E19D8:
 	ldmia sp!, {r3-r11,pc}
 	arm_func_end qsort
 
-	.section .exceptix,4
-
-	.word qsort
-	.short 357
-	.word 0x0070FF00
+	exception qsort, 357, 0x0070FF00

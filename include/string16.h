@@ -20,8 +20,6 @@ BOOL StringCompare(struct String *, struct String *);
 void CopyU16ArrayToStringN(struct String *, u16 *, u32); // copy
 void StringSetEmpty(struct String *); // set empty
 struct String * StringDup(struct String *, u32 heap_id);
-s32 StringGetWidth(struct FontData * r7, const u16 * arr, u32 r6);
-s32 StringGetWidth_SingleLine_HandleClearToControlCode(struct FontData * r6, const u16 * arr);
 void String_dtor(struct String * str);
 void StringCopy(struct String * dest, struct String * src);
 void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strConvMode, BOOL whichCharset);
@@ -32,7 +30,10 @@ void StringGetLineN(struct String * dest, volatile struct String * src, u32 n);
 void CopyU16ArrayToString(struct String * str, u16 * buf);
 void CopyStringToU16Array(struct String * str, u16 * buf, u32 length);
 u16 * String_c_str(struct String * str);
+void StrAddChar(struct String * str, u16 val);
 void StringCat(struct String * dest, struct String * src);
 void StrUpperFirstChar(struct String * str);
+BOOL String_IsTrainerName(struct String * string);
+void StringCat_HandleTrainerName(struct String * dest, struct String * src);
 
 #endif //POKEDIAMOND_STRING16_H

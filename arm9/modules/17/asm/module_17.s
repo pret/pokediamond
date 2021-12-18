@@ -2444,7 +2444,7 @@ MOD17_021D8738: ; 0x021D8738
 	bne _021D8768
 	ldr r0, [r5, #0x10]
 	mov r1, #7
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	mov r1, #0xfa
 	lsl r1, r1, #2
 	ldr r0, [r5, #4]

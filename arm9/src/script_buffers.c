@@ -13,6 +13,7 @@
 #include "script_buffers.h"
 #include "unk_02024E64.h"
 #include "text.h"
+#include "string16.h"
 #include "msgdata/msg.naix"
 #include "graphic/font.naix"
 
@@ -20,8 +21,6 @@
 
 extern u32 GetCityNamesMsgdataIdByCountry(u32);
 extern void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
-extern void StringCat_HandleTrainerName(struct String * dest, const struct String * src);
-extern void StrAddChar(struct String * str, u16 val);
 extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 extern void * GfGfxLoader_LoadFromNarc(NarcId narcId, s32 memberNo, BOOL isCompressed, u32 heap_id, BOOL allocAtEnd);
 

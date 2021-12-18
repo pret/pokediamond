@@ -1099,10 +1099,10 @@ _0206CFFA:
 	bl Pokedex_SetMonCaughtFlag
 	ldr r0, [r4, #0x50]
 	mov r1, #0xc
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	ldr r0, [r4, #0x50]
 	mov r1, #0x16
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	ldr r0, [r4, #0x28]
 	bl FUN_020690E4
 	add r1, r0, #0x0
@@ -2201,10 +2201,10 @@ _0206D8EA:
 	bl Pokedex_SetMonCaughtFlag
 	ldr r0, [r4, #0x50]
 	mov r1, #0xc
-	bl FUN_0202A0E8
+	bl GameStats_Inc
 	ldr r0, [r4, #0x50]
 	mov r1, #0x16
-	bl FUN_0202A170
+	bl GameStats_AddSpecial
 	add r0, r5, #0x0
 	bl FUN_020690E4
 	add r1, r0, #0x0

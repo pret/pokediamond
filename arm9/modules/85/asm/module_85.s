@@ -221,7 +221,7 @@ _021D76AA:
 	beq _021D76C6
 	ldr r2, [r2, #0xc]
 	mov r1, #0xe
-	bl FUN_0202A11C
+	bl GameStats_Add
 _021D76C6:
 	pop {r3, pc}
 	.align 2, 0

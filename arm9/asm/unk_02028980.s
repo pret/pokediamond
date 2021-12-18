@@ -2207,11 +2207,11 @@ FUN_02029880: ; 0x02029880
 	str r1, [sp, #0x0]
 	add r5, r2, #0x0
 	ldr r6, [sp, #0x20]
-	bl FUN_02034930
+	bl MapHeader_IsCave
 	cmp r0, #0x1
 	bne _020298BA
 	add r0, r5, #0x0
-	bl FUN_02034964
+	bl MapHeader_IsOutdoor
 	cmp r0, #0x1
 	bne _02029942
 	add r0, r4, #0x0
@@ -2224,11 +2224,11 @@ FUN_02029880: ; 0x02029880
 	b _02029942
 _020298BA:
 	add r0, r4, #0x0
-	bl FUN_02034944
+	bl MapHeader_IsBuilding
 	cmp r0, #0x1
 	bne _0202991A
 	add r0, r5, #0x0
-	bl FUN_02034964
+	bl MapHeader_IsOutdoor
 	cmp r0, #0x1
 	bne _02029942
 	ldr r0, _02029958 ; =0x0000019E
@@ -2271,11 +2271,11 @@ _02029910:
 	b _02029942
 _0202991A:
 	add r0, r4, #0x0
-	bl FUN_02034964
+	bl MapHeader_IsOutdoor
 	cmp r0, #0x1
 	bne _02029942
 	add r0, r5, #0x0
-	bl FUN_02034944
+	bl MapHeader_IsBuilding
 	cmp r0, #0x1
 	bne _02029942
 	add r0, r7, #0x0

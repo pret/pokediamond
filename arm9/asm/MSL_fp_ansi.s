@@ -1599,29 +1599,11 @@ UNK_020EC740: ; 0x020EC740
 	.byte 0x00, 0xFF, 0x05, 0x20
 	.balign 8
 
-	.section .exceptix,4
-
-	.word __rounddec
-	.short 65
-	.word 0x00200300
-	.word __ull2dec
-	.short 205
-	.word 0x0050FF00
-	.word __timesdec
-	.short 389
-	.word 0x00D0FF00
-	.word __str2dec
-	.short 157
-	.word 0x00100000
-	.word __two_exp
-	.short 901
-	.word 0x00B00300
-	.word __num2dec_internal
-	.short 385
-	.word 0x00E01F00
-	.word __num2dec_internal2
-	.short 169
-	.word 0x00200300
-	.word __dec2num
-	.short 1572
-	.word UNK_020EC740
+	exception __rounddec, 65, 0x00200300
+	exception __ull2dec, 205, 0x0050FF00
+	exception __timesdec, 389, 0x00D0FF00
+	exception __str2dec, 157, 0x00100000
+	exception __two_exp, 901, 0x00B00300
+	exception __num2dec_internal, 385, 0x00E01F00
+	exception __num2dec_internal2, 169, 0x00200300
+	exception __dec2num, 1572, UNK_020EC740

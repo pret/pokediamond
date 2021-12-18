@@ -162,25 +162,25 @@ FUN_0204C29C: ; 0x0204C29C
 	ldr r0, [r7, #0x1c]
 	ldr r0, [r0, #0x0]
 	str r0, [sp, #0x8]
-	bl FUN_02034930
+	bl MapHeader_IsCave
 	cmp r0, #0x0
 	beq _0204C308
 	add r0, r5, #0x0
-	bl FUN_02034930
+	bl MapHeader_IsCave
 	cmp r0, #0x0
 	beq _0204C2E6
 	mov r4, #0x6
 	b _0204C36A
 _0204C2E6:
 	add r0, r5, #0x0
-	bl FUN_02034964
+	bl MapHeader_IsOutdoor
 	cmp r0, #0x0
 	beq _0204C2F4
 	mov r4, #0x5
 	b _0204C36A
 _0204C2F4:
 	add r0, r5, #0x0
-	bl FUN_02034944
+	bl MapHeader_IsBuilding
 	cmp r0, #0x0
 	beq _0204C302
 	mov r4, #0x6
@@ -190,18 +190,18 @@ _0204C302:
 	b _0204C36A
 _0204C308:
 	ldr r0, [sp, #0x8]
-	bl FUN_02034964
+	bl MapHeader_IsOutdoor
 	cmp r0, #0x0
 	beq _0204C334
 	add r0, r5, #0x0
-	bl FUN_02034930
+	bl MapHeader_IsCave
 	cmp r0, #0x0
 	beq _0204C320
 	mov r4, #0x4
 	b _0204C36A
 _0204C320:
 	add r0, r5, #0x0
-	bl FUN_02034944
+	bl MapHeader_IsBuilding
 	cmp r0, #0x0
 	beq _0204C32E
 	mov r4, #0x6
@@ -211,22 +211,22 @@ _0204C32E:
 	b _0204C36A
 _0204C334:
 	ldr r0, [sp, #0x8]
-	bl FUN_02034944
+	bl MapHeader_IsBuilding
 	cmp r0, #0x0
 	beq _0204C366
 	add r0, r5, #0x0
-	bl FUN_02034964
+	bl MapHeader_IsOutdoor
 	cmp r0, #0x0
 	bne _0204C36A
 	add r0, r5, #0x0
-	bl FUN_02034944
+	bl MapHeader_IsBuilding
 	cmp r0, #0x0
 	beq _0204C356
 	mov r4, #0x6
 	b _0204C36A
 _0204C356:
 	add r0, r5, #0x0
-	bl FUN_02034930
+	bl MapHeader_IsCave
 	cmp r0, #0x0
 	bne _0204C36A
 	bl GF_AssertFail

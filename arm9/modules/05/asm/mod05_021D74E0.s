@@ -960,7 +960,7 @@ MOD05_021D7CF0: ; 0x021D7CF0
 	str r0, [r5, #0x2c]
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0]
-	bl MapHeader_GetField1
+	bl MapHeader_GetMoveModelBank
 	add r4, r0, #0
 	ldr r0, [r5, #0x30]
 	cmp r0, #0
