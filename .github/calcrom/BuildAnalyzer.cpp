@@ -8,6 +8,9 @@
 string default_version("");
 
 void BuildAnalyzer::AnalyzeObject(path fname_s) {
+#ifndef NDEBUG
+    cerr << fname_s << endl;
+#endif //NDEBUG
     string ext = fname_s.extension();
     SourceType sourceType = ext == ".s" ? SOURCE_ASM : SOURCE_C;
     fname_s = builddir / relative(fname_s, srcbase);
@@ -25,9 +28,9 @@ void BuildAnalyzer::AnalyzeObject(path fname_s) {
         if (sectionType != SECTION_OTHER) {
             sizes[sectionType][sourceType] += (hdr.sh_size + 3) & ~3;
             auto data = elf.ReadSectionData<unsigned>(hdr);
-#ifndef NDEBUG
-            unordered_set<unsigned> unique_addrs;
-#endif
+//#ifndef NDEBUG
+//            unordered_set<unsigned> unique_addrs;
+//#endif
             for (const auto & word : data) {
                 if (word == 0) {
                     continue; // might be a relocation
@@ -35,19 +38,19 @@ void BuildAnalyzer::AnalyzeObject(path fname_s) {
                 if (find_if(program.GetProgramHeaders().cbegin(), program.GetProgramHeaders().cend(), [&word](const auto & phdr) {
                     return phdr.p_vaddr <= word && word < phdr.p_vaddr + phdr.p_memsz;
                 }) != program.GetProgramHeaders().cend()) {
-#ifndef NDEBUG
-                    unique_addrs.insert(word);
-#endif
+//#ifndef NDEBUG
+//                    unique_addrs.insert(word);
+//#endif
                     n_hardcoded++;
                 }
             }
-#ifndef NDEBUG
-            if (!version.empty()) {
-                for (const auto & word : unique_addrs) {
-                    cerr << "hardcoded " << version << " pointer to " << hex << word << endl;
-                }
-            }
-#endif
+//#ifndef NDEBUG
+//            if (!version.empty()) {
+//                for (const auto & word : unique_addrs) {
+//                    cerr << "hardcoded " << version << " pointer to " << hex << word << endl;
+//                }
+//            }
+//#endif
         } else if (hdr.sh_type == SHT_RELA) {
             n_relocations += elf.GetSectionElementCount<Elf32_Rela>(hdr);
         }
@@ -87,9 +90,11 @@ BuildAnalyzer &BuildAnalyzer::operator()() {
     if (analyzed) {
         reset();
     }
-    string pattern = srcbase.string() + "/{src,asm,lib/{src,asm},lib/{!syscall}/{src,asm}}/*.{c,s,cpp}";
+    string pattern = srcbase.string() + "/{src,asm,lib/{src,asm},lib/*/{src,asm},modules/*/{asm,src}}/*.{c,s,cpp}";
     for (char const * & fname : Glob(pattern, GLOB_TILDE | GLOB_BRACE | GLOB_NOSORT)) {
-        AnalyzeObject(fname);
+        if (string(fname).find("lib/syscall/") == string::npos) {
+            AnalyzeObject(fname);
+        }
     }
     analyzed = true;
     return *this;

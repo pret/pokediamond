@@ -229,8 +229,9 @@ $(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
 $(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(MWASFLAGS) -o $@ $<
 
+# Bugfix note: zsh doesn't like escapes
 $(BUILD_DIR)/$(LD_TEMPLATE): $(BUILD_DIR)/%: %
-	(echo "KEEP_SECTION\n{\n\t.exceptix\n}\n"; cat $<) > $@
+	(printf "KEEP_SECTION\n{\n\t.exceptix\n}\n"; cat $<) > $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(BUILD_DIR)/$(LD_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
