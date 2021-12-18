@@ -103,9 +103,9 @@ OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
-ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/libc/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all
-LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
+MWASFLAGS = -proc arm5te
+MWCFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/libc/include -ir arm9/lib/libnns/include -ir arm9/lib/NitroSDK/include -W all
+MWLDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
 
@@ -205,10 +205,10 @@ $(BUILD_DIR)/%.o: dep :=
 endif
 
 $(BUILD_DIR)/%.o: %.c $$(dep)
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -c $(MWCFLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.o: %.s $$(dep)
-	$(AS) $(ASFLAGS) $< -o $@
+	$(AS) $(MWASFLAGS) $< -o $@
 
 arm9: filesystem
 	$(MAKE) -C arm9 $(MAKE_VARS)

@@ -311,13 +311,13 @@ endif
 ## This specific target shares its source JSON with trdata.narc
 files/poketool/trainer/trpoke.narc: %/trpoke.narc: %/trdata.json %/trpoke.json.txt $$(dep)
 	$(JSONPROC) $< $(word 2,$^) $*/trpoke.c
-	$(CC) $(CFLAGS) -c -o $*/trpoke.o $*/trpoke.c
+	$(CC) $(MWCFLAGS) -c -o $*/trpoke.o $*/trpoke.c
 	$(O2NARC) $(O2NARCFLAGS) $*/trpoke.o $@
 	@$(RM) $*/trpoke.o $*/trpoke.c
 
 $(O2NARC_TARGETS): %.narc: %.json %.json.txt $$(dep)
 	$(JSONPROC) $*.json $*.json.txt $*.c
-	$(CC) $(CFLAGS) -c -o $*.o $*.c
+	$(CC) $(MWCFLAGS) -c -o $*.o $*.c
 	$(O2NARC) $(O2NARCFLAGS) $*.o $@
 	@$(RM) $*.o $*.c
 
