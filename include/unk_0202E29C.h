@@ -122,7 +122,7 @@ BOOL FUN_0202EE44();
 BOOL FUN_0202EE60();
 void FUN_0202EE84(u32 param0);
 void FUN_0202EEB0(u32 param0);
-u32 FUN_0202EEE8(u16 param0);
+u16 FUN_0202EEE8(u16 param0);
 struct UnkStruct_0202E29C_sub *FUN_0202EF18(u32 param0);
 struct UnkStruct_0202E29C_sub4 *FUN_0202EF44(s32 param0);
 struct PlayerData *FUN_0202EF70();
