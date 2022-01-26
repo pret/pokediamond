@@ -1126,7 +1126,7 @@ FUN_02038E60: ; 0x02038E60
 	bl FUN_02039300
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	str r0, [r5, #0x28]
 	str r6, [r5, #0x2c]
 	ldr r0, [sp, #0x18]
@@ -2341,11 +2341,11 @@ _02039786:
 _020397A0:
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	sub r0, r0, #0x7

@@ -882,10 +882,10 @@ _0205E374:
 	mov r0, #0x0
 	strb r0, [r6, #0x0]
 	ldr r0, [r4, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r3, r4, #0x0
 	add r3, #0x90
 	add r2, r0, #0x0

@@ -3898,11 +3898,11 @@
 .extern FUN_02055160
 .extern FUN_02055168
 .extern FUN_020552A4
-.extern FUN_020552F8
+.extern PlayerAvatar_GetFacingDirection
 .extern FUN_02055304
 .extern FUN_02055314
-.extern FUN_02055320
-.extern FUN_0205532C
+.extern GetPlayerXCoord
+.extern GetPlayerYCoord
 .extern FUN_02055338
 .extern FUN_02055344
 .extern FUN_02055350

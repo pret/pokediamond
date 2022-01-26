@@ -52,10 +52,10 @@ _02060802:
 	mov r0, #0x22
 	str r0, [sp, #0x14]
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0x0
 	mov r0, #0x3
 	str r0, [sp, #0x0]
@@ -81,10 +81,10 @@ _0206085C:
 	ldr r0, _02060918 ; =0x000001C1
 	str r0, [sp, #0x14]
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0x0
 	mov r0, #0x6
 	str r0, [sp, #0x0]

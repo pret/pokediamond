@@ -455,7 +455,7 @@ ScrCmd_Unk0068: ; 0x0203B544
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	bl FUN_02059E74
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -495,10 +495,10 @@ ScrCmd_Unk0069: ; 0x0203B574
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -560,7 +560,7 @@ ScrCmd_Unk01BD: ; 0x0203B618
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2813,7 +2813,7 @@ ScrCmd_Unk00BF: ; 0x0203C844
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x74]
 	add r2, r4, #0x0
@@ -2842,7 +2842,7 @@ ScrCmd_Unk00C0: ; 0x0203C874
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x74]
 	add r2, r4, #0x0
@@ -2866,7 +2866,7 @@ ScrCmd_Unk00C1: ; 0x0203C8B4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x74]
 	add r2, r4, #0x0
