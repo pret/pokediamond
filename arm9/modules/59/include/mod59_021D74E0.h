@@ -38,7 +38,9 @@ typedef struct MOD59_OverlayData
     struct MOD59_UnkPlayerStruct *playerStruct;
     struct MOD59_UnkPlayerStruct *rivalStruct;
     u32 unk78;
-    u8 filler7C[0xC];
+    u32 unk7C;
+    u32 unk80;
+    u8 filler84[0x4];
     u8 unk88;
     u8 unk89;
     u8 unk8A;
@@ -59,5 +61,6 @@ void MOD59_SetupMsg(MOD59_OverlayData *data);
 void MOD59_DestroyMsg(MOD59_OverlayData *data);
 void MOD59_021D7A4C(MOD59_OverlayData *data);
 void MOD59_021D7A5C(MOD59_OverlayData *data);
+BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H

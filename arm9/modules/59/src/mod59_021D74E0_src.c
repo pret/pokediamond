@@ -339,3 +339,111 @@ THUMB_FUNC void MOD59_021D7A5C(MOD59_OverlayData *data) //MOD59_Destroy... somet
 {
     FUN_020145A8(data->unk68);
 }
+
+THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2)
+{
+    BOOL var0;
+    s32 var1;
+    BOOL ret = FALSE;
+    switch (param1)
+    {
+        case 0:
+        case 3:
+        default:
+            var1 = 1;
+            var0 = FALSE;
+            break;
+        case 1:
+            var1 = 2;
+            var0 = FALSE;
+            break;
+        case 2:
+            var1 = 4;
+            var0 = FALSE;
+            break;
+        case 4:
+            var1 = 1;
+            var0 = TRUE;
+            break;
+        case 5:
+            var1 = 2;
+            var0 = TRUE;
+            break;
+        case 6:
+            var1 = 4;
+            var0 = TRUE;
+            break;
+    }
+    switch(data->unk78)
+    {
+        case 0:
+            if (param2 == 0)
+            {
+                data->unk7C = 0;
+                data->unk80 = 16;
+                data->unk78 = 1;
+                if (!var0)
+                {
+                    G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
+                }
+                else
+                {
+                    G2x_SetBlendAlpha_(&reg_G2S_DB_BLEND, var1, 14, data->unk7C, data->unk80);
+                }
+                ToggleBgLayer((u8)param1, GX_LAYER_TOGGLE_ON);
+            }
+            else
+            {
+                data->unk7C = 16;
+                data->unk80 = 0;
+                data->unk78 = 2;
+            }
+            break;
+        case 1:
+            if (data->unk80 != 0)
+            {
+                data->unk7C++;
+                data->unk80--;
+                if (!var0)
+                {
+                    G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
+                }
+                else
+                {
+                    G2x_SetBlendAlpha_(&reg_G2S_DB_BLEND, var1, 14, data->unk7C, data->unk80);
+                }
+            }
+            else
+            {
+                data->unk78 = 3;
+            }
+            break;
+        case 2:
+            if (data->unk7C != 0)
+            {
+                data->unk7C--;
+                data->unk80++;
+                if (!var0)
+                {
+                    G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
+                }
+                else
+                {
+                    G2x_SetBlendAlpha_(&reg_G2S_DB_BLEND, var1, 14, data->unk7C, data->unk80);
+                }
+            }
+            else
+            {
+                data->unk78 = 3;
+                ToggleBgLayer((u8)param1, GX_LAYER_TOGGLE_OFF);
+            }
+            break;
+        case 3:
+            reg_G2_BLDCNT = 0;
+            reg_G2S_DB_BLDCNT = 0;
+            data->unk78 = 0;
+            ret = TRUE;
+            break;
+    }
+    return ret;
+}
