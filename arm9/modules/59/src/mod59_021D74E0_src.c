@@ -461,3 +461,10 @@ THUMB_FUNC BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1)
         return TRUE;
     }
 }
+
+THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 bgId, u32 paletteNum)
+{
+    //TODO: messy hack to trick compiler, fix
+    BgTilemapRectChangePalette(data->bgConfig, bgId & 0xFF, 0, 0, 32, 24, paletteNum);
+    BgCommitTilemapBufferToVram(data->bgConfig, (u8)bgId);
+}

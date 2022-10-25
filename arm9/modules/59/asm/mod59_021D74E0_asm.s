@@ -6,34 +6,7 @@
 	.extern MOD59_021D7730
 	.extern MOD59_021D7A68
 	.extern MOD59_021D7BEC
-
-	thumb_func_start MOD59_021D7C10
-MOD59_021D7C10: ; 0x021D7C10
-	push {r4, r5, lr}
-	sub sp, #0xc
-	add r5, r0, #0
-	mov r0, #0x20
-	str r0, [sp]
-	mov r0, #0x18
-	str r0, [sp, #4]
-	lsl r0, r2, #0x18
-	add r4, r1, #0
-	lsr r0, r0, #0x18
-	str r0, [sp, #8]
-	lsl r1, r4, #0x18
-	mov r2, #0
-	ldr r0, [r5, #0x18]
-	lsr r1, r1, #0x18
-	add r3, r2, #0
-	bl BgTilemapRectChangePalette
-	lsl r1, r4, #0x18
-	ldr r0, [r5, #0x18]
-	lsr r1, r1, #0x18
-	bl BgCommitTilemapBufferToVram
-	add sp, #0xc
-	pop {r4, r5, pc}
-	.align 2, 0
-	thumb_func_end MOD59_021D7C10
+	.extern MOD59_TilemapChangePalette
 
 	thumb_func_start MOD59_021D7C44
 MOD59_021D7C44: ; 0x021D7C44
@@ -711,7 +684,7 @@ _021D814C:
 	add r0, r4, #0
 	mov r1, #1
 	mov r2, #7
-	bl MOD59_021D7C10
+	bl MOD59_TilemapChangePalette
 _021D81BE:
 	add r0, r4, #0
 	add r0, #0x8a
@@ -762,7 +735,7 @@ _021D81BE:
 	add r0, r4, #0
 	mov r1, #2
 	mov r2, #8
-	bl MOD59_021D7C10
+	bl MOD59_TilemapChangePalette
 _021D822A:
 	add sp, #0x68
 	pop {r3, r4, r5, pc}
@@ -809,7 +782,7 @@ MOD59_021D8234: ; 0x021D8234
 	add r0, r4, #0
 	mov r1, #7
 	mov r2, #3
-	bl MOD59_021D7C10
+	bl MOD59_TilemapChangePalette
 	add sp, #0x24
 	pop {r4, r5, pc}
 _021D8288:
@@ -818,7 +791,7 @@ _021D8288:
 	add r0, r4, #0
 	mov r1, #7
 	mov r2, #2
-	bl MOD59_021D7C10
+	bl MOD59_TilemapChangePalette
 _021D8296:
 	add sp, #0x24
 	pop {r4, r5, pc}
@@ -891,7 +864,7 @@ _021D82C8:
 	add r0, r5, #0
 	mov r1, #2
 	mov r2, #9
-	bl MOD59_021D7C10
+	bl MOD59_TilemapChangePalette
 	ldr r3, [r5]
 	mov r0, #2
 	mov r1, #0x20
@@ -942,7 +915,7 @@ _021D82C8:
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0xa
-	bl MOD59_021D7C10
+	bl MOD59_TilemapChangePalette
 	ldr r3, [r5]
 	mov r0, #5
 	mov r1, #0x20
@@ -999,7 +972,7 @@ MOD59_021D83F8: ; 0x021D83F8
 	add r0, r4, #0
 	mov r1, #6
 	mov r2, #9
-	bl MOD59_021D7C10
+	bl MOD59_TilemapChangePalette
 	mov r0, #0x60
 	str r0, [sp]
 	ldr r0, [r4]
@@ -1644,7 +1617,7 @@ _021D88F8:
 	add r0, r4, #0
 	mov r1, #2
 	mov r2, #8
-	bl MOD59_021D7C10
+	bl MOD59_TilemapChangePalette
 	mov r7, #1
 _021D890A:
 	add r0, r7, #0
