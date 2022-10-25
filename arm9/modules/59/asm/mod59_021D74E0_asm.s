@@ -5,29 +5,7 @@
 
 	.extern MOD59_021D7730
 	.extern MOD59_021D7A68
-
-	thumb_func_start MOD59_021D7BEC
-MOD59_021D7BEC: ; 0x021D7BEC
-	add r2, r0, #0
-	add r2, #0x90
-	ldr r2, [r2]
-	cmp r2, r1
-	bge _021D7C06
-	add r1, r0, #0
-	add r1, #0x90
-	ldr r1, [r1]
-	add r0, #0x90
-	add r1, r1, #1
-	str r1, [r0]
-	mov r0, #0
-	bx lr
-_021D7C06:
-	mov r1, #0
-	add r0, #0x90
-	str r1, [r0]
-	mov r0, #1
-	bx lr
-	thumb_func_end MOD59_021D7BEC
+	.extern MOD59_021D7BEC
 
 	thumb_func_start MOD59_021D7C10
 MOD59_021D7C10: ; 0x021D7C10

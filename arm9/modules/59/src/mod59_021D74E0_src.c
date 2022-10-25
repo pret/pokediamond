@@ -447,3 +447,17 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2)
     }
     return ret;
 }
+
+THUMB_FUNC BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1)
+{
+    if (data->unk90 < param1)
+    {
+        data->unk90++;
+        return FALSE;
+    }
+    else
+    {
+        data->unk90 = 0;
+        return TRUE;
+    }
+}
