@@ -1,19 +1,21 @@
 #include "global.h"
-#include "player_data.h"
-#include "overlay_manager.h"
-#include "mod59_021D74E0.h"
-#include "heap.h"
-#include "game_init.h"
 #include "GX_layers.h"
-#include "unk_02024E64.h"
 #include "bg_window.h"
-#include "render_window.h"
+#include "constants/sndseq.h"
+#include "game_init.h"
+#include "heap.h"
+#include "mod59_021D74E0.h"
+#include "module_52.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
-#include "text.h"
-#include "script_buffers.h"
+#include "overlay_manager.h"
+#include "player_data.h"
 #include "render_text.h"
-#include "module_52.h"
+#include "render_window.h"
+#include "script_buffers.h"
+#include "text.h"
+#include "unk_020051F4.h"
+#include "unk_02024E64.h"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
 
@@ -515,4 +517,12 @@ THUMB_FUNC BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2)
             }
     }
     return ret;
+}
+
+THUMB_FUNC void MOD59_021D7D68(u32 param0, u32 param1, u32 param2)
+{
+    if (param2 == 0)
+    {
+        PlaySE(SEQ_SE_DP_SELECT);
+    }
 }

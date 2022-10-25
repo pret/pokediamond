@@ -66,5 +66,6 @@ BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2);
 BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1);
 void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 bgId, u32 paletteNum);
 BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2);
+void MOD59_021D7D68(u32 param0, u32 param1, u32 param2);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H

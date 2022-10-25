@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_CONSTANTS_SNDSEQ_H
 #define POKEDIAMOND_CONSTANTS_SNDSEQ_H
 
+//TODO rename to more useful names
+
 #define SNDARC_BGM_BASE      1000
 #define SNDARC_SE_BASE       1500
 

@@ -1,9 +1,9 @@
 #include "global.h"
 #include "mod05_021E72FC.h"
+#include "constants/sndseq.h"
 #include "heap.h"
+#include "unk_020051F4.h"
 
-
-extern void PlaySE(u32 param0);
 extern void FUN_020463CC(u32 param0, void *func, UnkStruct021E7358 *param2);
 extern u32 FUN_020553A0(u32 param0);
 extern u32 FUN_02058720(u32 param0);
@@ -19,7 +19,6 @@ extern void FUN_02057260(u32 param0, u32 param1);
 extern void FUN_02055304(u32 param0, u32 param1);
 extern BOOL FUN_02056B74(u32 param0, u32 param1, u32 param2);
 extern void FUN_02058418(u32 param0, u32 param1);
-extern void FUN_020054F0(u32 param0, u32 param1);
 
 THUMB_FUNC BOOL MOD05_021E72FC(u32 param0, u32 param1)
 {
@@ -57,7 +56,7 @@ THUMB_FUNC void MOD05_021E7358(u32 param0, u32 param1, u32 param2)
     res->Unk0C = param0;
     res->Unk10 = param1;
     res->Unk00 = param2;
-    PlaySE(1624);
+    PlaySE(SEQ_SE_DP_F209);
     FUN_020463CC(param0, MOD05_021E73B4, res);
 }
 

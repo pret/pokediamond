@@ -8,19 +8,7 @@
 	.extern MOD59_021D7BEC
 	.extern MOD59_TilemapChangePalette
 	.extern MOD59_021D7C44
-
-	thumb_func_start MOD59_021D7D68
-MOD59_021D7D68: ; 0x021D7D68
-	push {r3, lr}
-	cmp r2, #0
-	bne _021D7D74
-	ldr r0, _021D7D78 ; =0x000005DC
-	bl PlaySE
-_021D7D74:
-	pop {r3, pc}
-	nop
-_021D7D78: .word 0x000005DC
-	thumb_func_end MOD59_021D7D68
+	.extern MOD59_021D7D68
 
 	thumb_func_start MOD59_021D7D7C
 MOD59_021D7D7C: ; 0x021D7D7C
