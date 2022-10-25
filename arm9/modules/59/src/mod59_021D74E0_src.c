@@ -12,6 +12,7 @@
 #include "msgdata/msg.naix"
 #include "text.h"
 #include "script_buffers.h"
+#include "render_text.h"
 #include "module_52.h"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
@@ -23,6 +24,8 @@ extern struct GraphicsBanks MOD59_021D9F18;
 extern struct GraphicsModes MOD59_021D9DCC;
 extern struct BgTemplate MOD59_021D9EA0;
 extern struct BgTemplate MOD59_021D9EBC;
+
+extern struct WindowTemplate MOD59_021D9DB8;
 
 extern void MOD59_021D8058(MOD59_OverlayData *data);
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
@@ -467,4 +470,49 @@ THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 bgId, u3
     //TODO: messy hack to trick compiler, fix
     BgTilemapRectChangePalette(data->bgConfig, bgId & 0xFF, 0, 0, 32, 24, paletteNum);
     BgCommitTilemapBufferToVram(data->bgConfig, (u8)bgId);
+}
+
+THUMB_FUNC BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2)
+{
+    BOOL ret = FALSE;
+    switch(data->unk50)
+    {
+        case 0:
+            AddWindow(data->bgConfig, &data->window, &MOD59_021D9DB8);
+            FillWindowPixelRect(&data->window, 15, 0, 0, 216, 32);
+            DrawFrameAndWindow2(&data->window, FALSE, 994, 4);
+
+            TextFlags_SetCanABSpeedUpPrint(TRUE);
+            FUN_02002B7C(0);
+
+            struct String* string = String_ctor(1024, data->heap_id);
+            data->string = String_ctor(1024, data->heap_id);
+            ReadMsgDataIntoString(data->msgData, msgNo, string);
+            BufferString(data->strBufs, 0, data->playerStruct->name, data->unk84, 1, 2);
+            BufferString(data->strBufs, 1, data->rivalStruct->name, 0, 1, 2);
+            StringExpandPlaceholders(data->strBufs, data->string, string);
+            String_dtor(string);
+
+            u32 delay = Options_GetTextFrameDelay(data->options);
+            data->minTextSpacing = AddTextPrinterParameterized(&data->window, 1, data->string, 0, 0, delay, NULL);
+            data->unk50 = 1;
+            break;
+        case 1:
+            if (FUN_0201BD70((u8)data->minTextSpacing))
+            {
+                break;
+            }
+            String_dtor(data->string);
+            data->unk50 = 2;
+            break;
+        case 2:
+            if (param2 != 0 || (gMain.newKeys & 1) == 1)
+            {
+                RemoveWindow(&data->window);
+                data->unk50 = 0;
+                ret = TRUE;
+                break;
+            }
+    }
+    return ret;
 }

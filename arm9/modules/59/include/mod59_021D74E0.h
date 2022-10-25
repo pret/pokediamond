@@ -24,13 +24,14 @@ typedef struct MOD59_OverlayData
     u32 unk10;
     struct UnkStruct_02006234 *unk14;
     struct BgConfig *bgConfig;
-    u8 filler1C[0x10];
+    struct Window window;
     u32 unk2C;
     u8 filler30[0x1C];
     struct MsgData *msgData;
     u32 unk50;
     u32 unk54;
-    u8 filler58[0x8];
+    u32 minTextSpacing;
+    struct String *string;
     u32 unk60; // unknown if this is the right type, possibly a pointer instead?
     struct ScrStrBufs *strBufs;
     u32 unk68;
@@ -40,7 +41,7 @@ typedef struct MOD59_OverlayData
     u32 unk78;
     u32 unk7C;
     u32 unk80;
-    u8 filler84[0x4];
+    u32 unk84;
     u8 unk88;
     u8 unk89;
     u8 unk8A;
@@ -64,5 +65,6 @@ void MOD59_021D7A5C(MOD59_OverlayData *data);
 BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2);
 BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1);
 void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 bgId, u32 paletteNum);
+BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H
