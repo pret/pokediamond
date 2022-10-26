@@ -59,7 +59,13 @@ typedef struct MOD59_OverlayData
 struct MOD59_ListStruct021D9E0C
 {
     u32 msgNo;
-    u32 val;
+    s32 val;
+};
+
+struct MOD59_WindowTemplateGroup
+{
+    struct WindowTemplate template1;
+    struct WindowTemplate template2;
 };
 
 BOOL MOD59_Init(struct UnkStruct_02006234 *param0);

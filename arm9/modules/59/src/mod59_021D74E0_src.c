@@ -39,6 +39,8 @@ extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F40;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F68;
 extern const struct ListMenuTemplate MOD59_021D9EF8;
 
+extern const struct MOD59_WindowTemplateGroup MOD59_021D9D90;
+
 extern void MOD59_021D8058(MOD59_OverlayData *data);
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
 
@@ -603,6 +605,71 @@ THUMB_FUNC BOOL MOD59_021D7D7C(MOD59_OverlayData *data, u32 param1, u32 param2, 
             ListMenuItems_dtor(data->listMenuItem);
             PlaySE(SEQ_SE_DP_SELECT);
             data->unk2C = 0;
+            ret = TRUE;
+    }
+    return ret;
+}
+
+THUMB_FUNC BOOL MOD59_021D7ECC(MOD59_OverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height)
+{
+    BOOL ret = 0;
+    switch (data->unk54)
+    {
+        case 0:
+            ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
+            data->string = String_ctor(1024, data->heap_id);
+            ReadMsgDataIntoString(data->msgData, msgNo, data->string);
+            struct WindowTemplate template;
+            if (param2 == 1)
+            {
+                template = MOD59_021D9D90.template2;
+                u32 count = FUN_02002F90(data->string);
+                template.tilemapTop = 12 - count;
+                template.height = count * 2;
+                AddWindow(data->bgConfig, &data->window, &template);
+                FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
+                AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, 0, MakeFontColor(1, 2, 0), NULL);
+            }
+            else
+            {
+                template = MOD59_021D9D90.template1;
+                template.tilemapTop = tilemapTop;
+                template.height = height;
+                AddWindow(data->bgConfig, &data->window, &template);
+                FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
+                AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, 0, MakeFontColor(15, 2, 0), NULL);
+            }
+            String_dtor(data->string);
+            data->unk54 = 1;
+            break;
+        case 1:
+            CopyWindowToVram(&data->window);
+            data->unk54 = 2;
+            break;
+        case 2:
+            if (MOD59_021D7A68(data, 0, 0) == TRUE)
+            {
+                data->unk54 = 3;
+            }
+            break;
+        case 3:
+            if((gMain.newKeys & 1) != 1 && (gMain.newKeys & 2) != 2)
+            {
+                break;
+            }
+            PlaySE(SEQ_SE_DP_SELECT);
+            data->unk54 = 4;
+            break;
+        case 4:
+            if (MOD59_021D7A68(data, 0, 1) == TRUE)
+            {
+                data->unk54 = 5;
+            }
+            break;
+        case 5:
+            RemoveWindow(&data->window);
+            BgClearTilemapBufferAndCommit(data->bgConfig, 0);
+            data->unk54 = 0;
             ret = TRUE;
     }
     return ret;

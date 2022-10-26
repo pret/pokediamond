@@ -4,6 +4,15 @@
 #include "global.h"
 #include "text.h"
 
+static inline u32 MakeFontColor(u32 fgPal, u32 shdwPal, u32 bgPal)
+{
+    return (u32)(
+        ((u32)(fgPal << 24) >> 8)
+        | ((u32)(shdwPal << 24) >> 16)
+        | ((u32)(bgPal << 24) >> 24)
+    );
+}
+
 struct UnkStruct_02002C14_sub
 {
     const char buf[0x80];
