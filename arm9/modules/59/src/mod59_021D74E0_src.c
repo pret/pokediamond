@@ -16,6 +16,7 @@
 #include "text.h"
 #include "unk_020051F4.h"
 #include "unk_02024E64.h"
+#include "list_menu_items.h"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
 
@@ -28,6 +29,15 @@ extern struct BgTemplate MOD59_021D9EA0;
 extern struct BgTemplate MOD59_021D9EBC;
 
 extern struct WindowTemplate MOD59_021D9DB8;
+
+extern const struct WindowTemplate MOD59_021D9DA8;
+extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C;
+extern const struct WindowTemplate MOD59_021D9DB0;
+extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E58;
+extern const struct WindowTemplate MOD59_021D9DA0;
+extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F40;
+extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F68;
+extern const struct ListMenuTemplate MOD59_021D9EF8;
 
 extern void MOD59_021D8058(MOD59_OverlayData *data);
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
@@ -519,10 +529,81 @@ THUMB_FUNC BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2)
     return ret;
 }
 
-THUMB_FUNC void MOD59_021D7D68(u32 param0, u32 param1, u32 param2)
+THUMB_FUNC void MOD59_021D7D68(struct ListMenu *list, s32 index, u8 onInit)
 {
-    if (param2 == 0)
+    if (onInit == 0)
     {
         PlaySE(SEQ_SE_DP_SELECT);
     }
+}
+
+THUMB_FUNC BOOL MOD59_021D7D7C(MOD59_OverlayData *data, u32 param1, u32 param2, u32 param3)
+{
+    BOOL ret = FALSE;
+    const struct WindowTemplate *windowTemplate;
+    const struct MOD59_ListStruct021D9E0C *listStruct;
+    s32 i; // must be defined here to prevent a regswap
+    s32 menuItemsCount = 0;
+    switch (data->unk2C)
+    {
+        case 0:
+            switch (param1)
+            {
+                default:
+                case 0:
+                    windowTemplate = &MOD59_021D9DA8;
+                    listStruct = &MOD59_021D9E0C;
+                    menuItemsCount = 2;
+                    break;
+                case 1:
+                    windowTemplate = &MOD59_021D9DB0;
+                    listStruct = &MOD59_021D9E58;
+                    menuItemsCount = 3;
+                    break;
+                case 2:
+                    windowTemplate = &MOD59_021D9DA0;
+                    if ((u8)gGameVersion == VERSION_DIAMOND)
+                    {
+                        listStruct = &MOD59_021D9F40;
+                        menuItemsCount = 5;
+                    }
+                    else
+                    {
+                        listStruct = &MOD59_021D9F68;
+                        menuItemsCount = 5;
+                    }
+                    break;
+            }
+            AddWindow(data->bgConfig, &data->window2, windowTemplate);
+            data->listMenuItem = ListMenuItems_ctor(menuItemsCount, data->heap_id);
+            for (i = 0; i < menuItemsCount; i++)
+            {
+                ListMenuItems_AppendFromMsgData(data->listMenuItem, data->msgData, listStruct[i].msgNo, listStruct[i].val);
+            }
+            struct ListMenuTemplate template = MOD59_021D9EF8;
+            template.items = data->listMenuItem;
+            template.totalItems = (u16)menuItemsCount;
+            template.maxShowed = (u16)menuItemsCount;
+            template.moveCursorFunc = MOD59_021D7D68;
+            template.window = &data->window2;
+            data->listMenu = ListMenuInit(&template, 0, 0, (u8)data->heap_id);
+            DrawFrameAndWindow1(template.window, TRUE, 985, 3);
+            CopyWindowToVram(&data->window2);
+            data->unk2C = 1;
+            break;
+        case 1:
+            data->listMenuInput = ListMenu_ProcessInput(data->listMenu);
+            if(data->listMenuInput == ~0 || (data->listMenuInput == (~0 - 1) && param2 == 1))
+            {
+                break;
+            }
+            ClearFrameAndWindow1(&data->window2, FALSE);
+            RemoveWindow(&data->window2);
+            DestroyListMenu(data->listMenu, 0, 0);
+            ListMenuItems_dtor(data->listMenuItem);
+            PlaySE(SEQ_SE_DP_SELECT);
+            data->unk2C = 0;
+            ret = TRUE;
+    }
+    return ret;
 }

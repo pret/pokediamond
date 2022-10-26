@@ -6,6 +6,8 @@
 #include "save_block_2.h"
 #include "main.h"
 #include "player_data.h"
+#include "list_menu_items.h"
+#include "list_menu.h"
 
 struct MOD59_UnkPlayerStruct
 {
@@ -26,7 +28,10 @@ typedef struct MOD59_OverlayData
     struct BgConfig *bgConfig;
     struct Window window;
     u32 unk2C;
-    u8 filler30[0x1C];
+    struct Window window2; // why are there two of these
+    struct ListMenu *listMenu;
+    struct ListMenuItem *listMenuItem;
+    s32 listMenuInput;
     struct MsgData *msgData;
     u32 unk50;
     u32 unk54;
@@ -51,6 +56,12 @@ typedef struct MOD59_OverlayData
     u8 filler94[32];
 } MOD59_OverlayData;
 
+struct MOD59_ListStruct021D9E0C
+{
+    u32 msgNo;
+    u32 val;
+};
+
 BOOL MOD59_Init(struct UnkStruct_02006234 *param0);
 BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1);
 BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0);
@@ -66,6 +77,7 @@ BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2);
 BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1);
 void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 bgId, u32 paletteNum);
 BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2);
-void MOD59_021D7D68(u32 param0, u32 param1, u32 param2);
+void MOD59_021D7D68(struct ListMenu *list, s32 index, u8 onInit);
+BOOL MOD59_021D7D7C(MOD59_OverlayData *data, u32 param1, u32 param2, u32 param3);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H
