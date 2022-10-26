@@ -17,6 +17,8 @@
 #include "unk_020051F4.h"
 #include "unk_02024E64.h"
 #include "list_menu_items.h"
+#include "gf_gfx_loader.h"
+#include "demo/intro/intro.naix"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
 
@@ -41,8 +43,11 @@ extern const struct ListMenuTemplate MOD59_021D9EF8;
 
 extern const struct MOD59_WindowTemplateGroup MOD59_021D9D90;
 
-extern void MOD59_021D8058(MOD59_OverlayData *data);
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
+
+extern void MOD59_021D80FC(MOD59_OverlayData *data);
+extern void MOD59_021D8140(MOD59_OverlayData *data);
+extern void MOD59_021D8234(MOD59_OverlayData *data);
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
@@ -674,3 +679,31 @@ THUMB_FUNC BOOL MOD59_021D7ECC(MOD59_OverlayData *data, u32 msgNo, u32 param2, u
     }
     return ret;
 }
+
+THUMB_FUNC void MOD59_021D8058(MOD59_OverlayData *data)
+{
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0000_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0023_NCGR, data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
+
+    u32 pal1;
+    u32 pal2;
+    if ((u8)gGameVersion == VERSION_DIAMOND)
+    {
+        pal1 = NARC_intro_narc_0001_NCLR;
+        pal2 = NARC_intro_narc_0024_NCLR;
+    }
+    else
+    {
+        pal1 = NARC_intro_narc_0002_NCLR;
+        pal2 = NARC_intro_narc_0025_NCLR;
+    }
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, pal1, GF_BG_LYR_MAIN_0, 0, 0x60, data->heap_id);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, pal2, GF_BG_LYR_SUB_0, 0, 0xa0, data->heap_id);
+    MOD59_021D80FC(data);
+    MOD59_021D8140(data);
+    MOD59_021D8234(data);
+    BG_SetMaskColor(GF_BG_LYR_MAIN_0, 0);
+    BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);
+}
+
