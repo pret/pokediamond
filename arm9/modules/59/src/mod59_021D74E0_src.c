@@ -43,9 +43,10 @@ extern const struct ListMenuTemplate MOD59_021D9EF8;
 
 extern const struct MOD59_WindowTemplateGroup MOD59_021D9D90;
 
+extern u32 MOD59_021D9E1C[5];
+
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
 
-extern void MOD59_021D80FC(MOD59_OverlayData *data);
 extern void MOD59_021D8140(MOD59_OverlayData *data);
 extern void MOD59_021D8234(MOD59_OverlayData *data);
 
@@ -707,3 +708,21 @@ THUMB_FUNC void MOD59_021D8058(MOD59_OverlayData *data)
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);
 }
 
+THUMB_FUNC void MOD59_021D80FC(MOD59_OverlayData *data)
+{
+#ifdef __MWERKS__
+    u32 arr[5];
+    arr = MOD59_021D9E1C; // required for matching? this shouldn't be valid
+#else
+    u32 arr[5] = {};
+    for (int i = 0; i < 5; i++)
+    {
+        arr[i] = MOD59_021D9E1C[i];
+    }
+#endif
+    if (data->unk88 >= 5)
+    {
+        return;
+    }
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, arr[data->unk88], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+}

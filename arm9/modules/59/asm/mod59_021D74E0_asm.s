@@ -10,44 +10,7 @@
 	.extern MOD59_021D7C44
 	.extern MOD59_021D7D7C
 	.extern MOD59_021D7ECC
-
-	thumb_func_start MOD59_021D80FC
-MOD59_021D80FC: ; 0x021D80FC
-	push {r4, r5, lr}
-	sub sp, #0x24
-	ldr r5, _021D813C ; =0x021D9E1C
-	add r3, r0, #0
-	ldmia r5!, {r0, r1}
-	add r4, sp, #0x10
-	add r2, r4, #0
-	stmia r4!, {r0, r1}
-	ldmia r5!, {r0, r1}
-	stmia r4!, {r0, r1}
-	ldr r0, [r5]
-	str r0, [r4]
-	add r0, r3, #0
-	add r0, #0x88
-	ldrb r1, [r0]
-	cmp r1, #5
-	bhs _021D8138
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	ldr r0, [r3]
-	lsl r1, r1, #2
-	str r0, [sp, #0xc]
-	ldr r1, [r2, r1]
-	ldr r2, [r3, #0x18]
-	mov r0, #0x7d
-	mov r3, #3
-	bl GfGfxLoader_LoadScrnData
-_021D8138:
-	add sp, #0x24
-	pop {r4, r5, pc}
-	.align 2, 0
-_021D813C: .word MOD59_021D9E1C
-	thumb_func_end MOD59_021D80FC
+	.extern MOD59_021D80FC
 
 	thumb_func_start MOD59_021D8140
 MOD59_021D8140: ; 0x021D8140

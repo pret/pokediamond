@@ -86,5 +86,6 @@ BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2);
 void MOD59_021D7D68(struct ListMenu *list, s32 index, u8 onInit);
 BOOL MOD59_021D7D7C(MOD59_OverlayData *data, u32 param1, u32 param2, u32 param3);
 void MOD59_021D8058(MOD59_OverlayData *data);
+void MOD59_021D80FC(MOD59_OverlayData *data);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H
