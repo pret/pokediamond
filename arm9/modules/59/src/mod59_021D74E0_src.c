@@ -43,6 +43,8 @@ extern const struct ListMenuTemplate MOD59_021D9EF8;
 
 extern const struct MOD59_WindowTemplateGroup MOD59_021D9D90;
 
+extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
+
 extern u32 MOD59_021D9E1C[5];
 
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
@@ -725,4 +727,23 @@ THUMB_FUNC void MOD59_021D80FC(MOD59_OverlayData *data)
         return;
     }
     GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, arr[data->unk88], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+}
+
+THUMB_FUNC void MOD59_021D8140(MOD59_OverlayData *data)
+{
+    struct MOD59_GraphicsPaletteMap021D9F90 graphicsPaletteMap = MOD59_021D9F90;
+    if (data->unk89 != 0 && data->unk89 < 12)
+    {
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk89].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk89].palNum, GF_BG_LYR_MAIN_0, 0xE0, 0x20, data->heap_id);
+        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0022_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+        MOD59_TilemapChangePalette(data, 1, 7);
+    }
+    if (data->unk8A != 0 && data->unk8A < 12)
+    {
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk8A].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk8A].palNum, GF_BG_LYR_MAIN_0, 0x100, 0x20, data->heap_id);
+        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0022_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
+        MOD59_TilemapChangePalette(data, 2, 8);
+    }
 }

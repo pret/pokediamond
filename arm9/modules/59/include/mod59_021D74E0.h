@@ -68,6 +68,16 @@ struct MOD59_WindowTemplateGroup
     struct WindowTemplate template2;
 };
 
+struct MOD59_GraphicsPaletteMapSubstruct021D9F90
+{
+    u32 charNum;
+    u32 palNum;
+};
+struct MOD59_GraphicsPaletteMap021D9F90
+{
+    struct MOD59_GraphicsPaletteMapSubstruct021D9F90 map[11];
+};
+
 BOOL MOD59_Init(struct UnkStruct_02006234 *param0);
 BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1);
 BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0);
