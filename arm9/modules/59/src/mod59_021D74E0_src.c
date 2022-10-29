@@ -19,6 +19,7 @@
 #include "list_menu_items.h"
 #include "gf_gfx_loader.h"
 #include "demo/intro/intro.naix"
+#include "pokemon.h"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
 
@@ -47,6 +48,9 @@ extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
 
 extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30;
 
+extern const u8 MOD59_021D9FE8[0x64];
+extern const u16 MOD59_021D9ED8[0x10];
+
 extern u32 MOD59_021D9E1C[5];
 
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
@@ -61,6 +65,9 @@ extern void FUN_02077AC4(void *param0);
 extern void FUN_020143D0(u32 param0);
 extern u32 FUN_02014590(u32 heap_id);
 extern void FUN_020145A8(u32 param0);
+
+extern u32 *FUN_0201244C(u16 param0, u16 param1, u32 heap_id);
+extern u32 *FUN_02012470(u16 param0, u16 param1, u32 heap_id);
 
 FS_EXTERN_OVERLAY(MODULE_52);
 
@@ -764,3 +771,188 @@ THUMB_FUNC void MOD59_021D8234(MOD59_OverlayData *data)
         MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_3, 2);
     }
 }
+
+#ifdef NONMATCHING
+THUMB_FUNC void MOD59_021D82A0(MOD59_OverlayData *data)
+{
+    struct SomeDrawPokemonStruct drawStruct;
+    FUN_02068C00(&drawStruct, SPECIES_MUNCHLAX, MON_MALE, 2, FALSE, 0, 0);
+    u16 *src = (u16 *)AllocFromHeap(data->heap_id, 0x64 * sizeof(u16));
+    for (s32 i = 0; i < 0x64; i++)
+    {
+        src[i] = MOD59_021D9FE8[i] + 1;
+    }
+    u32 *charData = FUN_0201244C(drawStruct.unk0, drawStruct.unk2, data->heap_id);
+    u32 *plttData = FUN_02012470(drawStruct.unk0, drawStruct.unk4, data->heap_id);
+
+    FillBgTilemapRect(data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, 0, 32, 24, 9);
+    LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_MAIN_2, src, 11, 11, 10, 10);
+    MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 9);
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 32, 0, data->heap_id);
+    BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_MAIN_2, charData, 0xc80, 1);
+    BG_LoadPlttData(GF_BG_LYR_MAIN_2, plttData, 32, 0x100); //r2 and r3 regswap
+    BG_LoadPlttData(GF_BG_LYR_MAIN_2, MOD59_021D9ED8, 32, 0x120);
+
+    FillBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, 0, 0, 0, 32, 24, 10);
+    LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, src, 11, 7, 10, 10);
+    MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_1, 10);
+    BG_ClearCharDataRange(GF_BG_LYR_SUB_1, 32, 0, data->heap_id);
+    BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_SUB_1, charData, 0xc80, 1);
+    BG_LoadPlttData(GF_BG_LYR_SUB_1, plttData, 32, 0x140);
+    BG_LoadPlttData(GF_BG_LYR_SUB_1, MOD59_021D9ED8, 32, 0x140);
+    FreeToHeap(plttData);
+    FreeToHeap(charData);
+    FreeToHeap(src);
+}
+#else
+THUMB_FUNC asm void MOD59_021D82A0(MOD59_OverlayData *data)
+{
+    //clang-tidy off
+    push {r3, r4, r5, r6, r7, lr}
+    sub sp, #0x20
+    mov r2, #0
+    str r2, [sp]
+    str r2, [sp, #4]
+    add r5, r0, #0
+    ldr r1, =0x000001BE
+    str r2, [sp, #8]
+    add r0, sp, #0x10
+    mov r3, #2
+    bl FUN_02068C00
+    ldr r0, [r5, #0]
+    mov r1, #0xc8
+    bl AllocFromHeap
+    add r7, r0, #0
+    ldr r2, =MOD59_021D9FE8
+    mov r1, #0
+    add r3, r7, #0
+_021D82C8:
+    ldrb r0, [r2]
+    add r1, r1, #1
+    add r2, r2, #1
+    add r0, r0, #1
+    strh r0, [r3]
+    add r3, r3, #2
+    cmp r1, #0x64
+    blt _021D82C8
+    add r1, sp, #0x10
+    ldrh r0, [r1]
+    ldrh r1, [r1, #2]
+    ldr r2, [r5, #0]
+    bl FUN_0201244C
+    add r1, sp, #0x10
+    add r4, r0, #0
+    ldrh r0, [r1]
+    ldrh r1, [r1, #4]
+    ldr r2, [r5, #0]
+    bl FUN_02012470
+    mov r2, #0
+    add r6, r0, #0
+    str r2, [sp]
+    mov r0, #0x20
+    str r0, [sp, #4]
+    mov r0, #0x18
+    str r0, [sp, #8]
+    mov r0, #9
+    str r0, [sp, #0xc]
+    ldr r0, [r5, #0x18]
+    mov r1, #2
+    add r3, r2, #0
+    bl FillBgTilemapRect
+    mov r3, #0xb
+    str r3, [sp]
+    mov r0, #0xa
+    str r0, [sp, #4]
+    str r0, [sp, #8]
+    ldr r0, [r5, #0x18]
+    mov r1, #2
+    add r2, r7, #0
+    bl LoadRectToBgTilemapRect
+    add r0, r5, #0
+    mov r1, #2
+    mov r2, #9
+    bl MOD59_TilemapChangePalette
+    ldr r3, [r5, #0]
+    mov r0, #2
+    mov r1, #0x20
+    mov r2, #0
+    bl BG_ClearCharDataRange
+    mov r0, #1
+    str r0, [sp]
+    mov r3, #0x32
+    ldr r0, [r5, #0x18]
+    mov r1, #2
+    add r2, r4, #0
+    lsl r3, r3, #6
+    bl BG_LoadCharTilesData
+    mov r3, #0x20
+    add r2, r3, #0
+    mov r0, #2
+    add r1, r6, #0
+    add r3, #0xe0
+    bl BG_LoadPlttData
+    mov r3, #0x12
+    ldr r1, =MOD59_021D9ED8
+    mov r0, #2
+    mov r2, #0x20
+    lsl r3, r3, #4
+    bl BG_LoadPlttData
+    mov r2, #0
+    str r2, [sp]
+    mov r0, #0x20
+    str r0, [sp, #4]
+    mov r0, #0x18
+    str r0, [sp, #8]
+    mov r0, #0xa
+    str r0, [sp, #0xc]
+    ldr r0, [r5, #0x18]
+    mov r1, #5
+    add r3, r2, #0
+    bl FillBgTilemapRect
+    mov r0, #7
+    str r0, [sp]
+    mov r0, #0xa
+    str r0, [sp, #4]
+    str r0, [sp, #8]
+    ldr r0, [r5, #0x18]
+    mov r1, #5
+    add r2, r7, #0
+    mov r3, #0xb
+    bl LoadRectToBgTilemapRect
+    add r0, r5, #0
+    mov r1, #5
+    mov r2, #0xa
+    bl MOD59_TilemapChangePalette
+    ldr r3, [r5, #0]
+    mov r0, #5
+    mov r1, #0x20
+    mov r2, #0
+    bl BG_ClearCharDataRange
+    mov r0, #1
+    str r0, [sp]
+    mov r3, #0x32
+    ldr r0, [r5, #0x18]
+    mov r1, #5
+    add r2, r4, #0
+    lsl r3, r3, #6
+    bl BG_LoadCharTilesData
+    mov r0, #5
+    add r1, r6, #0
+    mov r2, #0x20
+    lsl r3, r0, #6
+    bl BG_LoadPlttData
+    mov r0, #5
+    ldr r1, =MOD59_021D9ED8
+    mov r2, #0x20
+    lsl r3, r0, #6
+    bl BG_LoadPlttData
+    add r0, r6, #0
+    bl FreeToHeap
+    add r0, r4, #0
+    bl FreeToHeap
+    add r0, r7, #0
+    bl FreeToHeap
+    add sp, #0x20
+    pop {r3, r4, r5, r6, r7, pc}
+}
+#endif
