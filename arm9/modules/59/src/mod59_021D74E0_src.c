@@ -965,3 +965,52 @@ THUMB_FUNC void MOD59_021D83F8(MOD59_OverlayData *data)
     BG_ClearCharDataRange(GF_BG_LYR_SUB_2, 0x20, 0, data->heap_id);
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0030_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heap_id);
 }
+
+THUMB_FUNC BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2)
+{
+    BOOL ret = FALSE;
+    if (param2 == 0)
+    {
+        fx32 xPos = Bg_GetXpos(data->bgConfig, layer);
+        if (xPos != 0)
+        {
+            if (xPos > 0)
+            {
+                BgSetPosTextAndCommit(data->bgConfig, (u8)layer, 2, 4);
+            }
+            else
+            {
+                BgSetPosTextAndCommit(data->bgConfig, (u8)layer, 1, 4);
+            }
+        }
+        else
+        {
+            ret = TRUE;
+        }
+    }
+    else if (param2 == 1)
+    {
+        fx32 xPos = Bg_GetXpos(data->bgConfig, layer);
+        if (xPos != -48)
+        {
+            BgSetPosTextAndCommit(data->bgConfig, (u8)layer, 2, 4);
+        }
+        else
+        {
+            ret = TRUE;
+        }
+    }
+    else if (param2 == 2)
+    {
+        fx32 xPos = Bg_GetXpos(data->bgConfig, layer);
+        if (xPos != 0)
+        {
+            BgSetPosTextAndCommit(data->bgConfig, (u8)layer, 1, 4);
+        }
+        else
+        {
+            ret = TRUE;
+        }
+    }
+    return ret;
+}

@@ -15,78 +15,7 @@
 	.extern MOD59_021D8234
 	.extern MOD59_021D82A0
 	.extern MOD59_021D83F8
-
-	thumb_func_start MOD59_021D8460
-MOD59_021D8460: ; 0x021D8460
-	push {r4, r5, r6, lr}
-	add r5, r0, #0
-	add r4, r1, #0
-	mov r6, #0
-	cmp r2, #0
-	bne _021D849C
-	ldr r0, [r5, #0x18]
-	bl Bg_GetXpos
-	cmp r0, #0
-	beq _021D8498
-	cmp r0, #0
-	ldr r0, [r5, #0x18]
-	ble _021D848A
-	lsl r1, r4, #0x18
-	lsr r1, r1, #0x18
-	mov r2, #2
-	mov r3, #4
-	bl BgSetPosTextAndCommit
-	b _021D84E2
-_021D848A:
-	lsl r1, r4, #0x18
-	lsr r1, r1, #0x18
-	mov r2, #1
-	mov r3, #4
-	bl BgSetPosTextAndCommit
-	b _021D84E2
-_021D8498:
-	mov r6, #1
-	b _021D84E2
-_021D849C:
-	cmp r2, #1
-	bne _021D84C2
-	ldr r0, [r5, #0x18]
-	bl Bg_GetXpos
-	add r1, r6, #0
-	sub r1, #0x30
-	cmp r0, r1
-	beq _021D84BE
-	lsl r1, r4, #0x18
-	ldr r0, [r5, #0x18]
-	lsr r1, r1, #0x18
-	mov r2, #2
-	mov r3, #4
-	bl BgSetPosTextAndCommit
-	b _021D84E2
-_021D84BE:
-	mov r6, #1
-	b _021D84E2
-_021D84C2:
-	cmp r2, #2
-	bne _021D84E2
-	ldr r0, [r5, #0x18]
-	bl Bg_GetXpos
-	cmp r0, #0
-	beq _021D84E0
-	lsl r1, r4, #0x18
-	ldr r0, [r5, #0x18]
-	lsr r1, r1, #0x18
-	mov r2, #1
-	mov r3, #4
-	bl BgSetPosTextAndCommit
-	b _021D84E2
-_021D84E0:
-	mov r6, #1
-_021D84E2:
-	add r0, r6, #0
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-	thumb_func_end MOD59_021D8460
+	.extern MOD59_021D8460
 
 	thumb_func_start MOD59_021D84E8
 MOD59_021D84E8: ; 0x021D84E8

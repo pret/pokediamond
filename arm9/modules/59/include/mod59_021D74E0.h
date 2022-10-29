@@ -106,5 +106,6 @@ void MOD59_021D8140(MOD59_OverlayData *data);
 void MOD59_021D8234(MOD59_OverlayData *data);
 void MOD59_021D82A0(MOD59_OverlayData *data);
 void MOD59_021D83F8(MOD59_OverlayData *data);
+BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H
