@@ -956,3 +956,12 @@ _021D82C8:
     pop {r3, r4, r5, r6, r7, pc}
 }
 #endif
+
+THUMB_FUNC void MOD59_021D83F8(MOD59_OverlayData *data)
+{
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0038_NSCR, data->bgConfig, GF_BG_LYR_SUB_2, 0, 0, FALSE, data->heap_id);
+    MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_2, 9);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0039_NCLR, GF_BG_LYR_SUB_0, 0xe0, 0x60, data->heap_id);
+    BG_ClearCharDataRange(GF_BG_LYR_SUB_2, 0x20, 0, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0030_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heap_id);
+}

@@ -14,57 +14,7 @@
 	.extern MOD59_021D8140
 	.extern MOD59_021D8234
 	.extern MOD59_021D82A0
-
-	thumb_func_start MOD59_021D83F8
-MOD59_021D83F8: ; 0x021D83F8
-	push {r4, lr}
-	sub sp, #0x10
-	add r4, r0, #0
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	ldr r0, [r4]
-	mov r1, #0x26
-	str r0, [sp, #0xc]
-	ldr r2, [r4, #0x18]
-	mov r0, #0x7d
-	mov r3, #6
-	bl GfGfxLoader_LoadScrnData
-	add r0, r4, #0
-	mov r1, #6
-	mov r2, #9
-	bl MOD59_TilemapChangePalette
-	mov r0, #0x60
-	str r0, [sp]
-	ldr r0, [r4]
-	mov r1, #0x27
-	str r0, [sp, #4]
-	mov r0, #0x7d
-	mov r2, #4
-	mov r3, #0xe0
-	bl GfGfxLoader_GXLoadPal
-	ldr r3, [r4]
-	mov r0, #6
-	mov r1, #0x20
-	mov r2, #0
-	bl BG_ClearCharDataRange
-	mov r0, #0x20
-	str r0, [sp]
-	mov r0, #0
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	ldr r0, [r4]
-	mov r1, #0x1e
-	str r0, [sp, #0xc]
-	ldr r2, [r4, #0x18]
-	mov r0, #0x7d
-	mov r3, #6
-	bl GfGfxLoader_LoadCharData
-	add sp, #0x10
-	pop {r4, pc}
-	.align 2, 0
-	thumb_func_end MOD59_021D83F8
+	.extern MOD59_021D83F8
 
 	thumb_func_start MOD59_021D8460
 MOD59_021D8460: ; 0x021D8460
