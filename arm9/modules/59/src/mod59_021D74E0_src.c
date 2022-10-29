@@ -45,12 +45,11 @@ extern const struct MOD59_WindowTemplateGroup MOD59_021D9D90;
 
 extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
 
+extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30;
+
 extern u32 MOD59_021D9E1C[5];
 
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
-
-extern void MOD59_021D8140(MOD59_OverlayData *data);
-extern void MOD59_021D8234(MOD59_OverlayData *data);
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
@@ -487,11 +486,11 @@ THUMB_FUNC BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1)
     }
 }
 
-THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 bgId, u32 paletteNum)
+THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 layer, u32 paletteNum)
 {
     //TODO: messy hack to trick compiler, fix
-    BgTilemapRectChangePalette(data->bgConfig, bgId & 0xFF, 0, 0, 32, 24, paletteNum);
-    BgCommitTilemapBufferToVram(data->bgConfig, (u8)bgId);
+    BgTilemapRectChangePalette(data->bgConfig, layer & 0xFF, 0, 0, 32, 24, paletteNum);
+    BgCommitTilemapBufferToVram(data->bgConfig, (u8)layer);
 }
 
 THUMB_FUNC BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2)
@@ -737,13 +736,31 @@ THUMB_FUNC void MOD59_021D8140(MOD59_OverlayData *data)
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk89].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
         GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk89].palNum, GF_BG_LYR_MAIN_0, 0xE0, 0x20, data->heap_id);
         GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0022_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
-        MOD59_TilemapChangePalette(data, 1, 7);
+        MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_1, 7);
     }
     if (data->unk8A != 0 && data->unk8A < 12)
     {
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk8A].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
         GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk8A].palNum, GF_BG_LYR_MAIN_0, 0x100, 0x20, data->heap_id);
         GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0022_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
-        MOD59_TilemapChangePalette(data, 2, 8);
+        MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 8);
+    }
+}
+
+THUMB_FUNC void MOD59_021D8234(MOD59_OverlayData *data)
+{
+    struct MOD59_UnkStruct021D9E30 scrnData = MOD59_021D9E30;
+    if (data->unk8B >= 5)
+    {
+        return;
+    }
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->unk8B], data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
+    if (data->unk8B == 1)
+    {
+        MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_3, 3);
+    }
+    else if (data->unk8B == 2)
+    {
+        MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_3, 2);
     }
 }

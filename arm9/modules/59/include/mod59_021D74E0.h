@@ -78,6 +78,11 @@ struct MOD59_GraphicsPaletteMap021D9F90
     struct MOD59_GraphicsPaletteMapSubstruct021D9F90 map[11];
 };
 
+struct MOD59_UnkStruct021D9E30
+{
+    u32 scrnIds[5];
+};
+
 BOOL MOD59_Init(struct UnkStruct_02006234 *param0);
 BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1);
 BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0);
@@ -91,11 +96,13 @@ void MOD59_021D7A4C(MOD59_OverlayData *data);
 void MOD59_021D7A5C(MOD59_OverlayData *data);
 BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2);
 BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1);
-void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 bgId, u32 paletteNum);
+void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 layer, u32 paletteNum);
 BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2);
 void MOD59_021D7D68(struct ListMenu *list, s32 index, u8 onInit);
 BOOL MOD59_021D7D7C(MOD59_OverlayData *data, u32 param1, u32 param2, u32 param3);
 void MOD59_021D8058(MOD59_OverlayData *data);
 void MOD59_021D80FC(MOD59_OverlayData *data);
+void MOD59_021D8140(MOD59_OverlayData *data);
+void MOD59_021D8234(MOD59_OverlayData *data);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H

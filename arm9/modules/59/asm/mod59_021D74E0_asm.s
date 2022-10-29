@@ -12,62 +12,7 @@
 	.extern MOD59_021D7ECC
 	.extern MOD59_021D80FC
 	.extern MOD59_021D8140
-
-	thumb_func_start MOD59_021D8234
-MOD59_021D8234: ; 0x021D8234
-	push {r4, r5, lr}
-	sub sp, #0x24
-	ldr r5, _021D829C ; =0x021D9E30
-	add r4, r0, #0
-	ldmia r5!, {r0, r1}
-	add r3, sp, #0x10
-	add r2, r3, #0
-	stmia r3!, {r0, r1}
-	ldmia r5!, {r0, r1}
-	stmia r3!, {r0, r1}
-	ldr r0, [r5]
-	str r0, [r3]
-	add r0, r4, #0
-	add r0, #0x8b
-	ldrb r1, [r0]
-	cmp r1, #5
-	bhs _021D8296
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	ldr r0, [r4]
-	lsl r1, r1, #2
-	str r0, [sp, #0xc]
-	ldr r1, [r2, r1]
-	ldr r2, [r4, #0x18]
-	mov r0, #0x7d
-	mov r3, #7
-	bl GfGfxLoader_LoadScrnData
-	add r0, r4, #0
-	add r0, #0x8b
-	ldrb r0, [r0]
-	cmp r0, #1
-	bne _021D8288
-	add r0, r4, #0
-	mov r1, #7
-	mov r2, #3
-	bl MOD59_TilemapChangePalette
-	add sp, #0x24
-	pop {r4, r5, pc}
-_021D8288:
-	cmp r0, #2
-	bne _021D8296
-	add r0, r4, #0
-	mov r1, #7
-	mov r2, #2
-	bl MOD59_TilemapChangePalette
-_021D8296:
-	add sp, #0x24
-	pop {r4, r5, pc}
-	nop
-_021D829C: .word MOD59_021D9E30
-	thumb_func_end MOD59_021D8234
+	.extern MOD59_021D8234
 
 	thumb_func_start MOD59_021D82A0
 MOD59_021D82A0: ; 0x021D82A0
