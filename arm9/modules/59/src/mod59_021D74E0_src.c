@@ -1014,3 +1014,11 @@ THUMB_FUNC BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2)
     }
     return ret;
 }
+
+THUMB_FUNC void MOD59_021D84E8(MOD59_OverlayData *data)
+{
+    data->unk8C = 0;
+    data->unk8D = 0;
+    data->unk8E = 0;
+    data->unk8F = 0;
+}

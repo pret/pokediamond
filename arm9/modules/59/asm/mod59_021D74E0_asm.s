@@ -16,24 +16,7 @@
 	.extern MOD59_021D82A0
 	.extern MOD59_021D83F8
 	.extern MOD59_021D8460
-
-	thumb_func_start MOD59_021D84E8
-MOD59_021D84E8: ; 0x021D84E8
-	add r1, r0, #0
-	mov r2, #0
-	add r1, #0x8c
-	strb r2, [r1]
-	add r1, r0, #0
-	add r1, #0x8d
-	strb r2, [r1]
-	add r1, r0, #0
-	add r1, #0x8e
-	strb r2, [r1]
-	add r0, #0x8f
-	strb r2, [r0]
-	bx lr
-	.align 2, 0
-	thumb_func_end MOD59_021D84E8
+	.extern MOD59_021D84E8
 
 	thumb_func_start MOD59_021D8504
 MOD59_021D8504: ; 0x021D8504
