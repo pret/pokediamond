@@ -52,9 +52,9 @@ typedef struct MOD59_OverlayData
     u8 unk8A;
     u8 unk8B;
     u8 unk8C;
-    u8 unk8D;
+    volatile u8 unk8D;
     u8 unk8E;
-    u8 unk8F;
+    volatile u8 unk8F;
     s32 unk90;
     u8 filler94[32];
 } MOD59_OverlayData;
@@ -86,6 +86,11 @@ struct MOD59_UnkStruct021D9E30
     u32 scrnIds[5];
 };
 
+struct MOD59_CharStruct021D9DEC
+{
+    u32 narcId[4];
+};
+
 BOOL MOD59_Init(struct UnkStruct_02006234 *param0);
 BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1);
 BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0);
@@ -111,5 +116,6 @@ void MOD59_021D82A0(MOD59_OverlayData *data);
 void MOD59_021D83F8(MOD59_OverlayData *data);
 BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2);
 void MOD59_021D84E8(MOD59_OverlayData *data);
+void MOD59_021D8504(MOD59_OverlayData *data);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H

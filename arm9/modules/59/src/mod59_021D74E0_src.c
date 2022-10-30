@@ -48,6 +48,9 @@ extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
 
 extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30;
 
+extern const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC;
+extern const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC;
+
 extern const u8 MOD59_021D9FE8[0x64];
 extern const u16 MOD59_021D9ED8[0x10];
 
@@ -1021,4 +1024,43 @@ THUMB_FUNC void MOD59_021D84E8(MOD59_OverlayData *data)
     data->unk8D = 0;
     data->unk8E = 0;
     data->unk8F = 0;
+}
+
+THUMB_FUNC void MOD59_021D8504(MOD59_OverlayData *data)
+{
+    u32 unk0;
+    if (data->unk84 == 0)
+    {
+        if (data->unk8D != 0)
+        {
+            unk0 = data->unk8D - 1;
+        }
+        else
+        {
+            data->unk8C++;
+            data->unk8C &= 3;
+            unk0 = 4;
+        }
+        data->unk8D = unk0;
+        G2x_SetBlendAlpha_(&reg_G2_BLEND, 4, 8, 6, 10);
+        struct MOD59_CharStruct021D9DEC charStruct = MOD59_021D9DEC;
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->unk8C], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+    }
+    else
+    {
+        if(data->unk8F != 0)
+        {
+            unk0 = data->unk8F - 1;
+        }
+        else
+        {
+            data->unk8E++;
+            data->unk8E &= 3;
+            unk0 = 4;
+        }
+        data->unk8F = unk0;
+        G2x_SetBlendAlpha_(&reg_G2_BLEND, 2, 8, 6, 10);
+        struct MOD59_CharStruct021D9DEC charStruct = MOD59_021D9DFC;
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->unk8E], data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
+    }
 }
