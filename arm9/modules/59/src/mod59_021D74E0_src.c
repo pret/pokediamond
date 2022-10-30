@@ -54,6 +54,9 @@ extern const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC;
 extern const u8 MOD59_021D9FE8[0x64];
 extern const u16 MOD59_021D9ED8[0x10];
 
+extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E70;
+extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E88;
+
 extern u32 MOD59_021D9E1C[5];
 
 extern u32 MOD59_021D8920(MOD59_OverlayData *data);
@@ -1074,4 +1077,42 @@ THUMB_FUNC void MOD59_021D8624(MOD59_OverlayData *data)
 {
     data->unk94 = 0;
     data->unk98 = 0;
+}
+
+THUMB_FUNC BOOL MOD59_021D8634(MOD59_OverlayData *data)
+{
+    BOOL ret = FALSE;
+    u32 unk0;
+    if (data->unk98 != 0)
+    {
+        unk0 = data->unk98 - 1;
+    }
+    else
+    {
+        data->unk94++;
+        unk0 = 8;
+    }
+    data->unk98 = unk0;
+    struct MOD59_CharStruct021D9E70 charStruct;
+    struct MOD59_CharStruct021D9E70 charStruct2;
+    const struct MOD59_CharStruct021D9E70 *addr;
+    if (data->unk84 == 0)
+    {
+        charStruct = MOD59_021D9E88;
+        addr = &charStruct;
+    }
+    else
+    {
+        charStruct2 = MOD59_021D9E70;
+        addr = &charStruct2;
+    }
+    if (addr->charData[data->unk94] == 255)
+    {
+        ret = TRUE;
+    }
+    else
+    {
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, addr->charData[data->unk94], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+    }
+    return ret;
 }
