@@ -18,28 +18,8 @@
 	.extern MOD59_021D8460
 	.extern MOD59_021D84E8
 	.extern MOD59_021D8504
-
-	thumb_func_start MOD59_021D8618
-MOD59_021D8618: ; 0x021D8618
-	ldr r0, _021D8620 ; =0x04000050
-	mov r1, #0
-	strh r1, [r0]
-	bx lr
-	.align 2, 0
-_021D8620: .word 0x04000050
-	thumb_func_end MOD59_021D8618
-
-	thumb_func_start MOD59_021D8624
-MOD59_021D8624: ; 0x021D8624
-	add r1, r0, #0
-	mov r2, #0
-	add r1, #0x94
-	str r2, [r1]
-	add r0, #0x98
-	str r2, [r0]
-	bx lr
-	.align 2, 0
-	thumb_func_end MOD59_021D8624
+	.extern MOD59_DisableBlend
+	.extern MOD59_021D8624
 
 	thumb_func_start MOD59_021D8634
 MOD59_021D8634: ; 0x021D8634
@@ -1676,7 +1656,7 @@ _021D9396:
 	cmp r0, #1
 	bne _021D9414
 	add r0, r4, #0
-	bl MOD59_021D8618
+	bl MOD59_DisableBlend
 	mov r0, #0x48
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -1696,7 +1676,7 @@ _021D93C0:
 	cmp r0, #1
 	bne _021D9414
 	add r0, r4, #0
-	bl MOD59_021D8618
+	bl MOD59_DisableBlend
 	mov r0, #0x48
 	str r0, [r4, #0xc]
 	b _021D985C

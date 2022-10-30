@@ -1064,3 +1064,14 @@ THUMB_FUNC void MOD59_021D8504(MOD59_OverlayData *data)
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->unk8E], data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
     }
 }
+
+THUMB_FUNC void MOD59_DisableBlend(void)
+{
+    reg_G2_BLDCNT = 0;
+}
+
+THUMB_FUNC void MOD59_021D8624(MOD59_OverlayData *data)
+{
+    data->unk94 = 0;
+    data->unk98 = 0;
+}
