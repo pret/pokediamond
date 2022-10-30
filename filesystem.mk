@@ -2308,17 +2308,14 @@ files/data/namein.narc: \
         files/data/namein/narc_0007.NSCR.lz
 
 files/demo/title/titledemo.narc: \
-        files/demo/title/titledemo/narc_0000.NSCR \
         files/demo/title/titledemo/narc_0001.NCGR \
         files/demo/title/titledemo/narc_0001.NCLR \
         files/demo/title/titledemo/narc_0003.NCGR \
         files/demo/title/titledemo/narc_0003.NCLR \
         files/demo/title/titledemo/narc_0007.NCGR \
-        files/demo/title/titledemo/narc_0008.NSCR \
         files/demo/title/titledemo/narc_0009.NCLR \
         files/demo/title/titledemo/narc_0010.NCLR \
         files/demo/title/titledemo/narc_0011.NCGR \
-        files/demo/title/titledemo/narc_0012.NSCR \
         files/demo/title/titledemo/narc_0013.NCLR \
         files/demo/title/titledemo/narc_0014.NCLR \
         files/demo/title/titledemo/narc_0015.NCGR \
@@ -3273,10 +3270,8 @@ files/graphic/poketch.narc: \
 files/resource/eng/trial/trial.narc: \
 	files/resource/eng/trial/trial/narc_0000.NCLR \
 	files/resource/eng/trial/trial/narc_0001.NCGR \
-	files/resource/eng/trial/trial/narc_0002.NSCR \
 	files/resource/eng/trial/trial/narc_0003.NCLR \
 	files/resource/eng/trial/trial/narc_0004.NCGR \
-	files/resource/eng/trial/trial/narc_0005.NSCR \
 	files/resource/eng/trial/trial/narc_0006.NCLR \
 	files/resource/eng/trial/trial/narc_0007.NCGR
 
