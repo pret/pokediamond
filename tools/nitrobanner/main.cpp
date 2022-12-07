@@ -1,11 +1,18 @@
+#include <algorithm>
 #include <cstdio>
-#include <cstring>
+#include <string>
 #include "banner.h"
 #include "types.h"
 
-#ifdef _MSC_VER
-#define strcasecmp _stricmp
-#endif
+bool AreSpecfileAndOutfilePathsEqual(std::string specfile_path, std::string outfile_path) {
+    const auto& to_lower = [](unsigned char c) {
+        return tolower(c);
+    };
+    std::transform(specfile_path.begin(), specfile_path.end(), specfile_path.begin(), to_lower);
+    std::transform(outfile_path.begin(), outfile_path.end(), outfile_path.begin(), to_lower);
+
+    return specfile_path.compare(outfile_path) == 0;
+}
 
 int main(int argc, char* argv[]) {
     if (argc != 2 && argc != 3) {
@@ -27,7 +34,7 @@ int main(int argc, char* argv[]) {
     // If the user doesn't provide a path to an outfile, or if the provided outfile is
     // identical to the provided specfile, use the specfile's name + the .bnr extension.
     filesystem::path outfile_path;
-    if (argc == 2 || strcasecmp(argv[1], argv[2]) == 0) {
+    if (argc == 2 || AreSpecfileAndOutfilePathsEqual(argv[1], argv[2])) {
         outfile_path = specfile_path.stem().string() + ".bnr";
     } else {
         outfile_path = argv[2];
