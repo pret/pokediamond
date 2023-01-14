@@ -1116,3 +1116,426 @@ THUMB_FUNC BOOL MOD59_021D8634(MOD59_OverlayData *data)
     }
     return ret;
 }
+
+#ifdef NONMATCHING
+THUMB_FUNC BOOL MOD59_021D86BC(MOD59_OverlayData *data, u32 *param1)
+{
+    BOOL ret = FALSE;
+    u32 b0;
+    u32 ac;
+    switch (*param1)
+    {
+        case 0:
+            BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_X, 0);
+            BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_Y, -104);
+            SetBgPriority(GF_BG_LYR_MAIN_2, 0);
+            ToggleBgLayer(GF_BG_LYR_SUB_1, GX_LAYER_TOGGLE_ON);
+            data->unkA8 = 0;
+            data->unkAC = 8;
+            data->unkB0 = 0;
+            *param1 = 1;
+            break;
+        case 1:
+            Bg_GetXpos(data->bgConfig, GF_BG_LYR_MAIN_2); //result discarded?
+            fx32 pos = Bg_GetYpos(data->bgConfig, GF_BG_LYR_SUB_1);
+
+            b0 = data->unkB0;
+            ac = data->unkAC;
+            u32 unk = b0 * (ac + ac * 8);
+            s32 unk2 = b0 * (b0 + b0 * 8);
+
+            s32 unk3 = unk - unk2 / 2; //some kind of Y coordinate
+
+            if (pos < 88)
+            {
+                data->unkB0++;
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_ADD_X, 2);
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_SUB_1, BG_POS_OP_ADD_X, 2);
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_SUB_1, BG_POS_OP_SET_Y, unk3);
+            }
+            else
+            {
+                ToggleBgLayer(GF_BG_LYR_SUB_1, GX_LAYER_TOGGLE_OFF);
+                data->unkB0 = 30;
+                *param1 = 2;
+            }
+            break;
+        case 2:
+            if (data->unkB0 != 0)
+            {
+                data->unkB0--;
+            }
+            else
+            {
+                ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_ON);
+                data->unkA8 = 0;
+                data->unkAC = 9;
+                data->unkB0 = 0;
+                *param1 = 3;
+            }
+            break;
+        case 3:
+            Bg_GetXpos(data->bgConfig, GF_BG_LYR_MAIN_2); //result discarded?
+            fx32 pos2 = Bg_GetYpos(data->bgConfig, GF_BG_LYR_MAIN_2);
+
+            b0 = data->unkB0;
+            ac = data->unkAC;
+            u32 unk4 = b0 * (ac + ac * 8);
+            s32 unk5 = b0 * (b0 + b0 * 8);
+
+            s32 unk6 = (unk4 - 104) - unk5 / 2;
+
+            if (data->unkA8 > 0 && unk6 <= 0)
+            {
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_Y, 0);
+                data->unkA8 = 0;
+                data->unkAC = 1;
+                data->unkB0 = 0;
+                *param1 = 4;
+            }
+            else
+            {
+                data->unkB0++;
+                data->unkA8 = unk6;
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_ADD_X, 1);
+                s32 unk7 = unk6 >> 1;
+                if (unk7 > 0x90)
+                {
+                    unk7 = 0x90;
+                }
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_Y, unk7);
+            }
+            break;
+        case 4:
+            Bg_GetXpos(data->bgConfig, GF_BG_LYR_MAIN_2); //result discarded?
+            fx32 pos3 = Bg_GetYpos(data->bgConfig, GF_BG_LYR_MAIN_2);
+
+            b0 = data->unkB0;
+            ac = data->unkAC;
+            u32 unk8 = b0 * (ac + ac * 8);
+            s32 unk9 = b0 * (b0 + b0 * 8);
+
+            s32 unk10 = unk8 - unk9 / 2;
+
+            if (data->unkA8 > 0 && unk10 <= 0)
+            {
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_Y, 0);
+                *param1 = 5;
+            }
+            else
+            {
+                data->unkB0++;
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_ADD_X, 2);
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_Y, unk10);
+                data->unkA8 = unk10;
+            }
+            break;
+        case 5:
+            FUN_02005578(SPECIES_MUNCHLAX);
+            MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 8);
+            ret = TRUE;
+    }
+    return ret;
+}
+#else
+THUMB_FUNC asm BOOL MOD59_021D86BC(MOD59_OverlayData *data, u32 *param1)
+{
+    //clang-tidy off
+    push {r3, r4, r5, r6, r7, lr}
+    add r6, r1, #0
+    add r4, r0, #0
+    ldr r0, [r6, #0]
+    mov r7, #0
+    cmp r0, #5
+    bls _021D86CC
+    b _021D890A
+_021D86CC:
+    add r0, r0, r0
+    add r0, pc
+    ldrh r0, [r0, #6]
+    lsl r0, r0, #0x10
+    asr r0, r0, #0x10
+    add pc, r0
+_021D86D8: //jump table
+    dcd 0x004e000a //this fucking thing gave me a headache, hate this compiler with a passion
+    //movs r2, r1    //case 0
+    //lsl r6, r1, #1 //case 1
+    lsl r4, r1, #3 //case 2
+    lsl r6, r0, #4 //case 3
+    lsl r2, r4, #6 //case 4
+    lsl r6, r3, #8 //case 5
+    //.short _021D86E4 - _021D86D8 - 2 //case 0
+    //.short _021D8728 - _021D86D8 - 2 //case 1
+    //.short _021D87A6 - _021D86D8 - 2 //case 2
+    //.short _021D87E0 - _021D86D8 - 2 //case 3
+    //.short _021D887C - _021D86D8 - 2 //case 4
+    //.short _021D88F8 - _021D86D8 - 2 //case 5
+_021D86E4:
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    add r2, r7, #0
+    add r3, r7, #0
+    bl BgSetPosTextAndCommit
+    mov r2, #3
+    add r3, r2, #0
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    sub r3, #0x6b
+    bl BgSetPosTextAndCommit
+    mov r0, #2
+    add r1, r7, #0
+    bl SetBgPriority
+    mov r0, #5
+    mov r1, #1
+    bl ToggleBgLayer
+    add r0, r4, #0
+    add r2, r7, #0
+    add r0, #0xa8
+    str r2, [r0]
+    add r0, r4, #0
+    mov r1, #8
+    add r0, #0xac
+    str r1, [r0]
+    add r4, #0xb0
+    str r2, [r4]
+    mov r0, #1
+    str r0, [r6]
+    b _021D890A
+_021D8728:
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    bl Bg_GetXpos
+    ldr r0, [r4, #0x18]
+    mov r1, #5
+    bl Bg_GetYpos
+    add r1, r4, #0
+    add r1, #0xb0
+    ldr r3, [r1, #0]
+    add r1, r4, #0
+    add r1, #0xac
+    ldr r2, [r1, #0]
+    lsl r1, r2, #3
+    add r1, r2, r1
+    add r2, r3, #0
+    mul r2, r1
+    lsl r1, r3, #3
+    add r1, r3, r1
+    mul r1, r3
+    lsr r3, r1, #0x1f
+    add r3, r1, r3
+    asr r1, r3, #1
+    sub r5, r2, r1
+    cmp r0, #0x58
+    bge _021D8792
+    add r0, r4, #0
+    add r0, #0xb0
+    ldr r0, [r0, #0]
+    mov r2, #1
+    add r1, r0, #1
+    add r0, r4, #0
+    add r0, #0xb0
+    str r1, [r0]
+    mov r1, #2
+    ldr r0, [r4, #0x18]
+    add r3, r1, #0
+    bl BgSetPosTextAndCommit
+    ldr r0, [r4, #0x18]
+    mov r1, #5
+    mov r2, #1
+    mov r3, #2
+    bl BgSetPosTextAndCommit
+    ldr r0, [r4, #0x18]
+    mov r1, #5
+    mov r2, #3
+    add r3, r5, #0
+    bl BgSetPosTextAndCommit
+    b _021D890A
+_021D8792:
+    mov r0, #5
+    add r1, r7, #0
+    bl ToggleBgLayer
+    mov r0, #0x1e
+    add r4, #0xb0
+    str r0, [r4]
+    mov r0, #2
+    str r0, [r6]
+    b _021D890A
+_021D87A6:
+    add r0, r4, #0
+    add r0, #0xb0
+    ldr r0, [r0, #0]
+    cmp r0, #0
+    beq _021D87BE
+    add r0, r4, #0
+    add r0, #0xb0
+    ldr r0, [r0, #0]
+    add r4, #0xb0
+    sub r0, r0, #1
+    str r0, [r4]
+    b _021D890A
+_021D87BE:
+    mov r0, #2
+    mov r1, #1
+    bl ToggleBgLayer
+    add r0, r4, #0
+    add r2, r7, #0
+    add r0, #0xa8
+    str r2, [r0]
+    add r0, r4, #0
+    mov r1, #9
+    add r0, #0xac
+    str r1, [r0]
+    add r4, #0xb0
+    str r2, [r4]
+    mov r0, #3
+    str r0, [r6]
+    b _021D890A
+_021D87E0:
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    bl Bg_GetXpos
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    bl Bg_GetYpos
+    add r0, r4, #0
+    add r0, #0xb0
+    ldr r1, [r0, #0]
+    add r0, r4, #0
+    add r0, #0xac
+    ldr r2, [r0, #0]
+    lsl r0, r2, #3
+    add r0, r2, r0
+    lsl r2, r1, #3
+    add r2, r1, r2
+    mul r0, r1
+    mul r2, r1
+    lsr r1, r2, #0x1f
+    add r1, r2, r1
+    sub r0, #0x68
+    asr r1, r1, #1
+    sub r5, r0, r1
+    add r0, r4, #0
+    add r0, #0xa8
+    ldr r0, [r0, #0]
+    cmp r0, #0
+    ble _021D8846
+    cmp r5, #0
+    bgt _021D8846
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    mov r2, #3
+    add r3, r7, #0
+    bl BgSetPosTextAndCommit
+    add r0, r4, #0
+    add r2, r7, #0
+    add r0, #0xa8
+    str r2, [r0]
+    add r0, r4, #0
+    mov r1, #1
+    add r0, #0xac
+    str r1, [r0]
+    add r4, #0xb0
+    str r2, [r4]
+    mov r0, #4
+    str r0, [r6]
+    b _021D890A
+_021D8846:
+    add r0, r4, #0
+    add r0, #0xb0
+    ldr r0, [r0, #0]
+    mov r2, #1
+    add r1, r0, #1
+    add r0, r4, #0
+    add r0, #0xb0
+    str r1, [r0]
+    add r0, r4, #0
+    add r0, #0xa8
+    str r5, [r0]
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    add r3, r2, #0
+    bl BgSetPosTextAndCommit
+    asr r5, r5, #1
+    cmp r5, #0x90
+    ble _021D886E
+    mov r5, #0x90
+_021D886E:
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    mov r2, #3
+    add r3, r5, #0
+    bl BgSetPosTextAndCommit
+    b _021D890A
+_021D887C:
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    bl Bg_GetXpos
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    bl Bg_GetYpos
+    add r0, r4, #0
+    add r0, #0xb0
+    ldr r1, [r0, #0]
+    add r0, r4, #0
+    add r0, #0xac
+    ldr r2, [r0, #0]
+    lsl r0, r2, #3
+    add r0, r2, r0
+    lsl r2, r1, #3
+    add r2, r1, r2
+    mul r2, r1
+    mul r0, r1
+    lsr r1, r2, #0x1f
+    add r1, r2, r1
+    asr r1, r1, #1
+    sub r5, r0, r1
+    add r0, r4, #0
+    add r0, #0xa8
+    ldr r0, [r0, #0]
+    cmp r0, #0
+    ble _021D88CC
+    cmp r5, #0
+    bgt _021D88CC
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    mov r2, #3
+    add r3, r7, #0
+    bl BgSetPosTextAndCommit
+    mov r0, #5
+    str r0, [r6]
+    b _021D890A
+_021D88CC:
+    add r0, r4, #0
+    add r0, #0xb0
+    ldr r0, [r0, #0]
+    mov r2, #1
+    add r1, r0, #1
+    add r0, r4, #0
+    add r0, #0xb0
+    str r1, [r0]
+    mov r1, #2
+    ldr r0, [r4, #0x18]
+    add r3, r1, #0
+    bl BgSetPosTextAndCommit
+    ldr r0, [r4, #0x18]
+    mov r1, #2
+    mov r2, #3
+    add r3, r5, #0
+    bl BgSetPosTextAndCommit
+    add r4, #0xa8
+    str r5, [r4]
+    b _021D890A
+_021D88F8:
+    ldr r0, =0x000001BE
+    bl FUN_02005578
+    add r0, r4, #0
+    mov r1, #2
+    mov r2, #8
+    bl MOD59_TilemapChangePalette
+    mov r7, #1
+_021D890A:
+    add r0, r7, #0
+    pop {r3, r4, r5, r6, r7, pc}
+    nop
+}
+#endif

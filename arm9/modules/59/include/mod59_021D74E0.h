@@ -58,7 +58,10 @@ typedef struct MOD59_OverlayData
     s32 unk90;
     u32 unk94;
     volatile u32 unk98;
-    u8 filler9C[0x18];
+    u8 filler9C[0xC];
+    s32 unkA8;
+    u32 unkAC;
+    u32 unkB0;
 } MOD59_OverlayData;
 
 struct MOD59_ListStruct021D9E0C
@@ -127,5 +130,6 @@ void MOD59_021D8504(MOD59_OverlayData *data);
 void MOD59_DisableBlend(void);
 void MOD59_021D8624(MOD59_OverlayData *data);
 BOOL MOD59_021D8634(MOD59_OverlayData *data);
+BOOL MOD59_021D86BC(MOD59_OverlayData *data, u32 *param1);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H
