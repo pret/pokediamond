@@ -1736,7 +1736,7 @@ _0205AB72:
 	pop {r3-r7, pc}
 _0205AB8E:
 	add r0, r6, #0x0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_0205532C
@@ -1826,7 +1826,7 @@ _0205AC22:
 	bl FUN_02058738
 	bl FUN_02055698
 	str r0, [sp, #0xc]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0xc]
 	bl FUN_0205532C

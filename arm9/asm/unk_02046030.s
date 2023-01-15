@@ -71,7 +71,7 @@ _02046096: ; jump table (using 16-bit offset)
 	.short _020461E4 - _02046096 - 2; case 11
 _020460AE:
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	strh r0, [r4, #0x4]
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C

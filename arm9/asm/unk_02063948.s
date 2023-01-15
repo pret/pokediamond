@@ -84,7 +84,7 @@ _020639AE:
 	strh r0, [r4, #0xc]
 _020639B6:
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C

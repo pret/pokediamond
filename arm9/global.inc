@@ -3901,7 +3901,7 @@
 .extern PlayerAvatar_GetFacingDirection
 .extern FUN_02055304
 .extern FUN_02055314
-.extern FUN_02055320
+.extern GetPlayerXCoord
 .extern FUN_0205532C
 .extern FUN_02055338
 .extern FUN_02055344

@@ -13,7 +13,7 @@ FUN_02036FA4: ; 0x02036FA4
 	bl PlayerAvatar_GetFacingDirection
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	str r0, [r4, #0x0]
 	ldr r0, [r6, #0x38]
 	bl FUN_0205532C

@@ -4819,7 +4819,7 @@ MOD06_0223BA04: ; 0x0223BA04
 	sub sp, #0xb4
 	add r5, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C
@@ -5351,7 +5351,7 @@ MOD06_0223BE70: ; 0x0223BE70
 	add r5, r0, #0
 	ldr r0, [r5, #0x38]
 	str r1, [sp, #0xc]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C
@@ -5602,7 +5602,7 @@ MOD06_0223C08C: ; 0x0223C08C
 	mov r0, #0
 	str r0, [r4]
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C
@@ -5963,7 +5963,7 @@ _0223C3A6:
 	cmp r4, #0
 	beq _0223C3EC
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C
@@ -15673,7 +15673,7 @@ MOD06_02241230: ; 0x02241230
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r4, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
 	bl FUN_0205532C
@@ -19917,7 +19917,7 @@ MOD06_022433B8: ; 0x022433B8
 	bl FUN_0205532C
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	ldr r1, [r5, #0x1c]
 	ldr r1, [r1]
 	str r1, [r4]
@@ -23734,7 +23734,7 @@ _02245148:
 	blo _02245132
 	ldr r0, [sp]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	strh r0, [r5, #0x14]
 	ldr r0, [sp]
 	ldr r0, [r0, #0x38]
@@ -43359,7 +43359,7 @@ MOD06_0224E8C4: ; 0x0224E8C4
 	add r1, sp, #0
 	bl FUN_02055350
 	add r0, r6, #0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r5, r0, #0
 	add r0, r6, #0
 	bl FUN_0205532C

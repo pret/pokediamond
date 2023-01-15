@@ -438,7 +438,7 @@ ScrCmd_Unk0069: ; 0x0203B574
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C

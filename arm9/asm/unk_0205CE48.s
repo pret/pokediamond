@@ -82,7 +82,7 @@ FUN_0205CE80: ; 0x0205CE80
 	bl FUN_020553C4
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl FUN_0205532C
@@ -492,7 +492,7 @@ _0205D1DA:
 _0205D1EE:
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	ldr r0, [r5, #0x18]

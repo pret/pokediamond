@@ -93,7 +93,7 @@ _02055118:
 	cmp r0, #0x2
 	bne _0205515C
 	add r0, r5, #0x0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0205532C
@@ -329,8 +329,8 @@ FUN_02055314: ; 0x02055314
 	bl FUN_020584D4
 	pop {r3, pc}
 
-	thumb_func_start FUN_02055320
-FUN_02055320: ; 0x02055320
+	thumb_func_start GetPlayerXCoord
+GetPlayerXCoord: ; 0x02055320
 	push {r3, lr}
 	bl FUN_020553A0
 	bl FUN_02058B2C

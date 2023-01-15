@@ -410,7 +410,7 @@ FUN_020531E4: ; 0x020531E4
 	str r0, [sp, #0x0]
 	ldr r0, [r0, #0x8]
 	str r1, [sp, #0x4]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x8]

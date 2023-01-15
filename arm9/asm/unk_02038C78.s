@@ -2341,7 +2341,7 @@ _02039786:
 _020397A0:
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]

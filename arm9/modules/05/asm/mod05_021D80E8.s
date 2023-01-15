@@ -1451,7 +1451,7 @@ _021D8C88:
 	bl Sav2_PlayerData_GetProfileAddr
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r7, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C
@@ -1521,7 +1521,7 @@ _021D8D34:
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8D4C:
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C
@@ -1988,7 +1988,7 @@ MOD05_021D90F8: ; 0x021D90F8
 	ldr r0, [r5, #0x38]
 	add r4, r1, #0
 	add r6, r2, #0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	str r0, [r4]
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C

@@ -486,7 +486,7 @@ FUN_02048CB0: ; 0x02048CB0
 	bl FUN_0205532C
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	ldr r1, [r4, #0x1c]
 	ldr r1, [r1, #0x0]
 	str r1, [r5, #0x0]

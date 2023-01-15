@@ -507,7 +507,7 @@ FUN_0204B70C: ; 0x0204B70C
 	add r7, r0, #0x0
 	ldr r0, [r7, #0x38]
 	add r5, r2, #0x0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r7, #0x38]
 	bl FUN_0205532C
@@ -562,7 +562,7 @@ FUN_0204B770: ; 0x0204B770
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r6, r1, #0x0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C
@@ -588,7 +588,7 @@ FUN_0204B7A0: ; 0x0204B7A0
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r6, r1, #0x0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C

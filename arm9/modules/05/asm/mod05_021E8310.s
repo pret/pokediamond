@@ -372,7 +372,7 @@ MOD05_021E85FC: ; 0x021E85FC
 	mov r2, #0
 	bl MOD05_021EFA9C
 	ldr r0, [r4, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #8]
 	ldr r0, [r4, #0x38]

@@ -480,7 +480,7 @@ _021F5888:
 	cmp r0, #0
 	bge _021F5980
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl FUN_0205532C
