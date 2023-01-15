@@ -22,16 +22,7 @@
 	.extern MOD59_021D8624
 	.extern MOD59_021D8634
 	.extern MOD59_021D86BC
-
-	thumb_func_start MOD59_021D8914
-MOD59_021D8914: ; 0x021D8914
-	ldr r3, _021D891C ; =FUN_020178BC
-	mov r0, #2
-	mov r1, #1
-	bx r3
-	.align 2, 0
-_021D891C: .word SetBgPriority
-	thumb_func_end MOD59_021D8914
+	.extern MOD59_021D8914
 
 	thumb_func_start MOD59_021D8920
 MOD59_021D8920: ; 0x021D8920

@@ -131,5 +131,6 @@ void MOD59_DisableBlend(void);
 void MOD59_021D8624(MOD59_OverlayData *data);
 BOOL MOD59_021D8634(MOD59_OverlayData *data);
 BOOL MOD59_021D86BC(MOD59_OverlayData *data, u32 *param1);
+void MOD59_021D8914(void);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H

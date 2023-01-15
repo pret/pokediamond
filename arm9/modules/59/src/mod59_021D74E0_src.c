@@ -1539,3 +1539,8 @@ _021D890A:
     nop
 }
 #endif
+
+THUMB_FUNC void MOD59_021D8914(void)
+{
+    SetBgPriority(GF_BG_LYR_MAIN_2, 1);
+}
