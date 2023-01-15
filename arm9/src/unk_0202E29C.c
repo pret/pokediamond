@@ -9,6 +9,7 @@
 #include "unk_0202D858.h"
 #include "unk_0202F150.h"
 #include "unk_02031734.h"
+#include "WM_api.h"
 
 struct UnkStruct_0202E29C_const
 {
@@ -867,19 +868,19 @@ THUMB_FUNC void FUN_0202EEB0(u32 param0)
     }
 }
 
-THUMB_FUNC u32 FUN_0202EEE8(u16 param0)
+THUMB_FUNC u16 FUN_0202EEE8(u16 param0)
 {
     u16 r4 = WM_GetDispersionBeaconPeriod();
     GF_ASSERT(param0 < 0x1a);
 
     if (param0 == 0xa)
     {
-        return (u32)(r4 << 0xe) >> 0x10;
+        return (u16)(r4 >> 2);
     }
 
     if (param0 == 9 || param0 == 0xd)
     {
-        return (u32)(r4 << 0xe) >> 0x10;
+        return (u16)(r4 >> 2);
     }
 
     return r4;
@@ -938,78 +939,18 @@ THUMB_FUNC void FUN_0202EFAC(u8 *param0, s32 param1)
     }
 }
 
-#ifdef NONMATCHING
 THUMB_FUNC BOOL FUN_0202EFE4(u8 *param0)
 {
-    u8 (*ptr)[6] = UNK_021C59F0->unkC54;
     for (int i = 0; i < 8; i++)
     {
-        if (ptr[i][0] != param0[0])
-            continue;
-        if (ptr[i][1] != param0[1])
-            continue;
-        if (ptr[i][2] != param0[2])
-            continue;
-        if (ptr[i][3] != param0[3])
-            continue;
-        if (ptr[i][4] != param0[4])
-            continue;
-        if (ptr[i][5] != param0[5])
-            continue;
-        return TRUE;
+        if (WM_IsBssidEqual(UNK_021C59F0->unkC54[i], param0))
+        {
+            return TRUE;
+        }
     }
 
     return FALSE;
 }
-#else
-THUMB_FUNC asm BOOL FUN_0202EFE4(u8 *param0)
-{
-    // clang-format off
-    push {r4-r5}
-	ldr r2, =UNK_021C59E8
-	mov r1, #0x0
-	ldr r3, [r2, #0x8]
-	ldr r2, =0x00000C54
-	add r2, r3, r2
-	ldrb r3, [r0, #0x0]
-_0202EFF2:
-	ldrb r4, [r2, #0x0]
-	cmp r4, r3
-	bne _0202F026
-	ldrb r5, [r2, #0x1]
-	ldrb r4, [r0, #0x1]
-	cmp r5, r4
-	bne _0202F026
-	ldrb r5, [r2, #0x2]
-	ldrb r4, [r0, #0x2]
-	cmp r5, r4
-	bne _0202F026
-	ldrb r5, [r2, #0x3]
-	ldrb r4, [r0, #0x3]
-	cmp r5, r4
-	bne _0202F026
-	ldrb r5, [r2, #0x4]
-	ldrb r4, [r0, #0x4]
-	cmp r5, r4
-	bne _0202F026
-	ldrb r5, [r2, #0x5]
-	ldrb r4, [r0, #0x5]
-	cmp r5, r4
-	bne _0202F026
-	mov r0, #0x1
-	pop {r4-r5}
-	bx lr
-_0202F026:
-	add r1, r1, #0x1
-	add r2, r2, #0x6
-	cmp r1, #0x8
-	blt _0202EFF2
-	mov r0, #0x0
-	pop {r4-r5}
-	bx lr
-    // clang-format on
-}
-#endif
 
 THUMB_FUNC u32 FUN_0202F03C()
 {
