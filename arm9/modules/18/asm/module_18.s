@@ -13451,7 +13451,7 @@ MOD18_0223FDEC: ; 0x0223FDEC
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0
 	add r0, r4, #0
 	bl FUN_0204F610
@@ -13872,7 +13872,7 @@ MOD18_022400A0: ; 0x022400A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r3, r0, #0
 	ldr r0, _022400F8 ; =0x022513A0
 	add r1, r4, #0
@@ -16018,7 +16018,7 @@ _0224110C:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0
 	ldr r0, [r4, #8]
 	cmp r0, #0
@@ -19209,7 +19209,7 @@ _02242A20:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0
 	mov r0, #0x20
 	str r0, [sp]
@@ -22806,7 +22806,7 @@ _02244640:
 	bl GetPlayerXCoord
 	str r0, [r5]
 	ldr r0, [sp]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	str r0, [r5, #4]
 	b _022446AA
 _0224467E:
@@ -26580,7 +26580,7 @@ MOD18_02246338: ; 0x02246338
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD18_0223E2F4
@@ -35025,7 +35025,7 @@ MOD18_0224A6B4: ; 0x0224A6B4
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD18_0223E2F4
@@ -37195,7 +37195,7 @@ MOD18_0224B804: ; 0x0224B804
 	sub r0, r0, r1
 	str r0, [sp]
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	lsl r1, r0, #0x10
 	mov r0, #0x11
 	lsl r0, r0, #0x10

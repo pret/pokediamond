@@ -288,7 +288,7 @@ FUN_0205C794: ; 0x0205C794
 	bl GetPlayerXCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_020584C4
@@ -332,7 +332,7 @@ _0205C802:
 	bl GetPlayerXCoord
 	str r0, [sp, #0x10]
 	add r0, r4, #0x0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

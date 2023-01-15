@@ -414,7 +414,7 @@ FUN_020531E4: ; 0x020531E4
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x8]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r4, [sp, #0x0]
 	str r0, [sp, #0x8]
 	add r6, r4, #0x0

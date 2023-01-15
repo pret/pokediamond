@@ -483,7 +483,7 @@ _021F5888:
 	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0

@@ -3902,7 +3902,7 @@
 .extern FUN_02055304
 .extern FUN_02055314
 .extern GetPlayerXCoord
-.extern FUN_0205532C
+.extern GetPlayerYCoord
 .extern FUN_02055338
 .extern FUN_02055344
 .extern FUN_02055350

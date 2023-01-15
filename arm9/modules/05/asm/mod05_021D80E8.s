@@ -1454,7 +1454,7 @@ _021D8C88:
 	bl GetPlayerXCoord
 	add r7, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
@@ -1524,7 +1524,7 @@ _021D8D4C:
 	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
@@ -1991,7 +1991,7 @@ MOD05_021D90F8: ; 0x021D90F8
 	bl GetPlayerXCoord
 	str r0, [r4]
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	str r0, [r6]
 	pop {r4, r5, r6, pc}
 	.balign 4, 0

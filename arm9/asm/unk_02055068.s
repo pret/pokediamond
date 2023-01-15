@@ -96,7 +96,7 @@ _02055118:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl PlayerAvatar_GetFacingDirection
@@ -336,8 +336,8 @@ GetPlayerXCoord: ; 0x02055320
 	bl FUN_02058B2C
 	pop {r3, pc}
 
-	thumb_func_start FUN_0205532C
-FUN_0205532C: ; 0x0205532C
+	thumb_func_start GetPlayerYCoord
+GetPlayerYCoord: ; 0x0205532C
 	push {r3, lr}
 	bl FUN_020553A0
 	bl FUN_02058B4C

@@ -24,7 +24,7 @@ MOD05_021F3860: ; 0x021F3860
 	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0
 	ldr r0, [r4]
 	cmp r0, r6

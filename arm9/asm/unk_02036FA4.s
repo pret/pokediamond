@@ -16,7 +16,7 @@ FUN_02036FA4: ; 0x02036FA4
 	bl GetPlayerXCoord
 	str r0, [r4, #0x0]
 	ldr r0, [r6, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	str r0, [r5, #0x0]
 	cmp r7, #0x3
 	bhi _02036FFA

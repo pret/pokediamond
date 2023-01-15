@@ -85,7 +85,7 @@ FUN_0205CE80: ; 0x0205CE80
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -497,7 +497,7 @@ _0205D1EE:
 	lsr r4, r0, #0x10
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	lsl r0, r0, #0x10
 	lsr r2, r0, #0x10
 	ldr r0, [r5, #0x18]

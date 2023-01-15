@@ -3378,7 +3378,7 @@ FUN_02057288: ; 0x02057288
 	add r0, r6, r0
 	str r0, [r4, #0x0]
 	ldr r0, [sp, #0x0]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02059C00

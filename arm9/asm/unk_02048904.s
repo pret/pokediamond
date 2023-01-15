@@ -483,7 +483,7 @@ FUN_02048CB0: ; 0x02048CB0
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
 	bl GetPlayerXCoord

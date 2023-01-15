@@ -55,7 +55,7 @@ _02060802:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0x0
 	mov r0, #0x3
 	str r0, [sp, #0x0]
@@ -84,7 +84,7 @@ _0206085C:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0x0
 	mov r0, #0x6
 	str r0, [sp, #0x0]

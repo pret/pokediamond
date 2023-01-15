@@ -256,7 +256,7 @@ FUN_0204CC9C: ; 0x0204CC9C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 _0204CCD6:
 	pop {r3, pc}
 	.balign 4
@@ -619,7 +619,7 @@ FUN_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -658,7 +658,7 @@ FUN_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -845,7 +845,7 @@ FUN_0204D168: ; 0x0204D168
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -2548,7 +2548,7 @@ _0204DE98:
 	sub r0, r0, r1
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x18]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldrh r1, [r5, #0x2]
 	sub r7, r0, r1
 	ldr r0, [sp, #0x18]

@@ -42,7 +42,7 @@ FUN_0205F7A0: ; 0x0205F7A0
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	asr r1, r4, #0x4

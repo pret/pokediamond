@@ -87,7 +87,7 @@ _020639B6:
 	bl GetPlayerXCoord
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0x0
 	ldr r1, [sp, #0x4]
 	str r2, [sp, #0x0]

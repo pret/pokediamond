@@ -2345,7 +2345,7 @@ _020397A0:
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	sub r0, r0, #0x7

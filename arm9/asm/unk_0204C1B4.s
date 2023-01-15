@@ -421,7 +421,7 @@ _0204C4D0:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -481,7 +481,7 @@ _0204C54A:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -699,7 +699,7 @@ _0204C700:
 	bl GetPlayerXCoord
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0x0
 	ldr r1, [sp, #0x0]
 	add r0, r4, #0x0
@@ -729,7 +729,7 @@ _0204C74A:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0x0
 	ldr r2, [r5, #0x1c]
 	add r0, r6, #0x0
@@ -785,7 +785,7 @@ _0204C7BE:
 	bl GetPlayerXCoord
 	str r0, [sp, #0x0]
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0x0
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
@@ -847,7 +847,7 @@ _0204C846:
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0x0
 	ldr r2, [r4, #0x1c]
 	add r0, r6, #0x0
@@ -1061,7 +1061,7 @@ FUN_0204C9EC: ; 0x0204C9EC
 	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0

@@ -376,7 +376,7 @@ MOD05_021E85FC: ; 0x021E85FC
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #8]
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #0xc]
 	mov r1, #0

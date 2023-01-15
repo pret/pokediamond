@@ -678,7 +678,7 @@ _021E6514:
 	bl FUN_02059BF4
 	add r6, r0, #0
 	ldr r0, [r4, #0x20]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0
 	ldr r0, [r4, #4]
 	bl FUN_02059C00
@@ -1335,7 +1335,7 @@ MOD05_021E6A58: ; 0x021E6A58
 	bl FUN_02059BF4
 	add r6, r0, #0
 	ldr r0, [r5, #0x10]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0
 	ldr r0, [r5, #4]
 	bl FUN_02059C00
@@ -2373,7 +2373,7 @@ MOD05_021E727C: ; 0x021E727C
 	bl FUN_02059BF4
 	add r7, r0, #0
 	add r0, r4, #0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	str r0, [sp]
 	add r0, r5, #0
 	bl FUN_02059C00

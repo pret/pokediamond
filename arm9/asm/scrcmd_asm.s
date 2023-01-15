@@ -441,7 +441,7 @@ ScrCmd_Unk0069: ; 0x0203B574
 	bl GetPlayerXCoord
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}

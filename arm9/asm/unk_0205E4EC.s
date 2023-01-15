@@ -163,7 +163,7 @@ FUN_0205E5E0: ; 0x0205E5E0
 	bl GetPlayerXCoord
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	strh r0, [r5, #0x4]
 	mov r0, #0xff
 	strh r0, [r5, #0x6]
@@ -181,7 +181,7 @@ FUN_0205E608: ; 0x0205E608
 	bl GetPlayerXCoord
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	mov r1, #0x2
 	ldrsh r1, [r5, r1]
 	cmp r4, r1
@@ -207,7 +207,7 @@ FUN_0205E63C: ; 0x0205E63C
 	bl GetPlayerXCoord
 	strh r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	strh r0, [r5, #0x4]
 	pop {r3-r5, pc}
 	.balign 4

@@ -45,7 +45,7 @@ MOD05_021F4D2C: ; 0x021F4D2C
 	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetFacingDirection
