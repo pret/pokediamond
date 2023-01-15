@@ -3898,7 +3898,7 @@
 .extern FUN_02055160
 .extern FUN_02055168
 .extern FUN_020552A4
-.extern FUN_020552F8
+.extern PlayerAvatar_GetFacingDirection
 .extern FUN_02055304
 .extern FUN_02055314
 .extern FUN_02055320

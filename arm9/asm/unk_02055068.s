@@ -99,7 +99,7 @@ _02055118:
 	bl FUN_0205532C
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r3, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -306,8 +306,8 @@ _020552F2:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020552F8
-FUN_020552F8: ; 0x020552F8
+	thumb_func_start PlayerAvatar_GetFacingDirection
+PlayerAvatar_GetFacingDirection: ; 0x020552F8
 	push {r3, lr}
 	bl FUN_020553A0
 	bl FUN_020584C4

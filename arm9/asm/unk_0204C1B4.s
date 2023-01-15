@@ -493,7 +493,7 @@ _0204C54A:
 _0204C570:
 	ldr r0, [r5, #0x38]
 	ldr r6, [r4, #0x1c]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r2, r0, #0x0
 	lsl r2, r2, #0x18
 	add r0, r5, #0x0
@@ -540,7 +540,7 @@ _0204C5C4: ; jump table (using 16-bit offset)
 	.short _0204C630 - _0204C5C4 - 2; case 3
 _0204C5CC:
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
 	bl FUN_020553A0
@@ -859,7 +859,7 @@ _0204C846:
 _0204C86C:
 	ldr r0, [r5, #0x38]
 	ldr r6, [r4, #0x1c]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r2, r0, #0x0
 	lsl r2, r2, #0x18
 	add r0, r5, #0x0
@@ -911,7 +911,7 @@ _0204C8C8:
 	bl FUN_020553A0
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #0x2
 	bne _0204C8EA
 	add r0, r6, #0x0
@@ -1003,7 +1003,7 @@ FUN_0204C984: ; 0x0204C984
 	sub sp, #0x10
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r1, sp, #0x4
@@ -1052,7 +1052,7 @@ FUN_0204C9EC: ; 0x0204C9EC
 	sub sp, #0x10
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r1, sp, #0x4

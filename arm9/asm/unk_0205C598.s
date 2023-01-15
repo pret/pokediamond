@@ -1041,7 +1041,7 @@ FUN_0205CCEC: ; 0x0205CCEC
 	bl FUN_02059E80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x28]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r6, r0
 	beq _0205CD60
 	ldr r0, [r5, #0x18]

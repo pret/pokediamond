@@ -124,7 +124,7 @@ _021E60D2:
 	mov r1, #0
 	bl FUN_02055450
 	add r0, r5, #0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r4, r0, #0
 	add r0, r5, #0
 	bl FUN_020553A0
@@ -1044,7 +1044,7 @@ _021E6824:
 	str r0, [r4]
 _021E682A:
 	ldr r0, [r4, #0xc]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	ldr r2, _021E68D4 ; =gMain
 	str r0, [sp]
 	ldr r1, [r2, #0x48]

@@ -93,7 +93,7 @@ FUN_0205CE80: ; 0x0205CE80
 	bl FUN_0204A6E0
 	strh r0, [r5, #0xe]
 	ldr r0, [r4, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #0x3
 	bhi _0205CEEA
 	add r0, r0, r0

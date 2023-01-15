@@ -1295,7 +1295,7 @@ FUN_02056244: ; 0x02056244
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0205625C:
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, r4
 	beq _0205627A
 	add r0, r5, #0x0
@@ -1738,7 +1738,7 @@ _020565AE:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _020565BA:
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2127,7 +2127,7 @@ _020568CC:
 	pop {r4-r6, pc}
 _020568D8:
 	add r0, r5, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, r4
 	beq _02056908
 	add r0, r5, #0x0
@@ -3251,7 +3251,7 @@ FUN_02057194: ; 0x02057194
 	cmp r4, #0x0
 	bne _020571C6
 	add r0, r5, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	mov r1, #0x0
 	bl FUN_0205AFDC
 	pop {r3-r7, pc}
@@ -3393,7 +3393,7 @@ FUN_020572B8: ; 0x020572B8
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r2, r4, #0x0

@@ -1809,7 +1809,7 @@ FUN_02049718: ; 0x02049718
 	add r7, r0, #0x0
 	bl MI_CpuFill8
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	mov r1, #0x0
 	add r2, r7, #0x0
 	str r4, [sp, #0x0]

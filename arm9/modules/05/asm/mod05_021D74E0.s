@@ -240,7 +240,7 @@ _021D76E2:
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #0xc]
 	ldr r0, [r4, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #0x10]
 	add r0, r4, #0
@@ -562,7 +562,7 @@ MOD05_021D79B4: ; 0x021D79B4
 	add r1, r0, r1
 	ldr r0, [r5, #0x38]
 	asr r4, r1, #5
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r3, r0, #0
 	add r0, r7, #0
 	add r1, r6, #0

@@ -10,7 +10,7 @@ FUN_02036FA4: ; 0x02036FA4
 	ldr r0, [r6, #0x38]
 	add r4, r1, #0x0
 	add r5, r2, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x38]
 	bl FUN_02055320

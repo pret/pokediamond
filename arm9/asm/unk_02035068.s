@@ -133,7 +133,7 @@ _020350E6:
 	cmp r0, #0x1
 	bne _02035106
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x38]
 	bl FUN_02055B8C
@@ -165,7 +165,7 @@ FUN_02035118: ; 0x02035118
 	cmp r0, #0x1
 	bne _0203514C
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x38]
 	bl FUN_02055B8C
@@ -197,7 +197,7 @@ FUN_0203515C: ; 0x0203515C
 	cmp r0, #0x1
 	bne _02035190
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x38]
 	bl FUN_02055B8C

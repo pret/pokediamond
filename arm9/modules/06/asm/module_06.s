@@ -8198,7 +8198,7 @@ _0223D48C: .word MOD06_0223D4AC
 MOD06_0223D490: ; 0x0223D490
 	push {r3, lr}
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #0
 	beq _0223D4A4
 	cmp r0, #1
@@ -18189,7 +18189,7 @@ _022426C4:
 	pop {r3, r4, r5, pc}
 _022426D0:
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	add r0, r4, #0
@@ -43365,7 +43365,7 @@ MOD06_0224E8C4: ; 0x0224E8C4
 	bl FUN_0205532C
 	add r4, r0, #0
 	add r0, r6, #0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #3
 	bhi _0224E910
 	add r0, r0, r0

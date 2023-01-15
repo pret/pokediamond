@@ -384,7 +384,7 @@ MOD05_021E85FC: ; 0x021E85FC
 	mvn r1, r1
 	str r1, [r0, #4]
 	ldr r0, [r4, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #0x10]
 	ldr r0, [r4, #0xc]

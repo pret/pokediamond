@@ -16063,7 +16063,7 @@ _0224118C:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r5, r0, #0
 	ldr r0, [r4, #0x18]
 	cmp r0, r5
@@ -16201,7 +16201,7 @@ MOD18_02241288: ; 0x02241288
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	str r0, [r4, #0x18]
 	ldr r0, _022412DC ; =0x022513A0
 	strb r7, [r4, #0xc]
@@ -27302,7 +27302,7 @@ _02246934:
 	bl FUN_0204E50C
 	str r0, [sp, #8]
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	bl FUN_0204F610
 	str r0, [sp, #0xc]
 	bl MOD18_0223D638

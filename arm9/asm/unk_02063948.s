@@ -115,7 +115,7 @@ _020639B6:
 	strh r0, [r4, #0xc]
 _020639FE:
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	bl MOD05_021E69BC

@@ -849,7 +849,7 @@ FUN_0204B9A0: ; 0x0204B9A0
 	str r0, [r4, #0x0]
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	str r0, [r4, #0x4]
 	ldr r0, [r5, #0x10]
 	ldr r1, _0204B9C8 ; =FUN_0204B818

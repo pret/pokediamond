@@ -48,7 +48,7 @@ MOD05_021F4D2C: ; 0x021F4D2C
 	bl FUN_0205532C
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #0
 	bne _021F4D76
 	mov r0, #1
