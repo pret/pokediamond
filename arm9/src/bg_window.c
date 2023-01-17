@@ -663,7 +663,7 @@ THUMB_FUNC void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle)
     }
 }
 
-THUMB_FUNC void BgSetPosTextAndCommit(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 val)
+THUMB_FUNC void BgSetPosTextAndCommit(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 val) //seems to apply to more than just text? name?
 {
     Bg_SetPosText(&bgConfig->bgs[bgId], op, val);
 

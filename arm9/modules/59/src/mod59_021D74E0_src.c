@@ -1,25 +1,28 @@
 #include "global.h"
-#include "GX_layers.h"
 #include "bg_window.h"
+#include "brightness.h"
 #include "constants/sndseq.h"
+#include "demo/intro/intro.naix"
 #include "game_init.h"
+#include "gf_gfx_loader.h"
+#include "GX_layers.h"
 #include "heap.h"
+#include "list_menu_items.h"
 #include "mod59_021D74E0.h"
 #include "module_52.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
 #include "overlay_manager.h"
+#include "PAD_pad.h"
 #include "player_data.h"
+#include "pokemon.h"
 #include "render_text.h"
 #include "render_window.h"
 #include "script_buffers.h"
 #include "text.h"
+#include "unk_020040F4.h"
 #include "unk_020051F4.h"
 #include "unk_02024E64.h"
-#include "list_menu_items.h"
-#include "gf_gfx_loader.h"
-#include "demo/intro/intro.naix"
-#include "pokemon.h"
 
 extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struct Options *options);
 
@@ -59,8 +62,6 @@ extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E88;
 
 extern u32 MOD59_021D9E1C[5];
 
-extern u32 MOD59_021D8920(MOD59_OverlayData *data);
-
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
 
@@ -74,6 +75,16 @@ extern void FUN_020145A8(u32 param0);
 
 extern u32 *FUN_0201244C(u16 param0, u16 param1, u32 heap_id);
 extern u32 *FUN_02012470(u16 param0, u16 param1, u32 heap_id);
+
+extern u32 MOD59_021D9E44[5];
+extern u32 MOD59_021D9DC0[3];
+
+extern const struct Unk21DBE18 UNK_020FA5FC;
+extern const struct Unk21DBE18 MOD59_021D9DDC;
+
+extern void FUN_020145C8(u32 param0, u32 param1[5]);
+extern u32 FUN_02014630(u32 param0);
+extern void FUN_020146C4(u32 param0);
 
 FS_EXTERN_OVERLAY(MODULE_52);
 
@@ -134,7 +145,7 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
             break;
 
         case 1:
-            if (MOD59_021D8920(data) == 1)
+            if (MOD59_MasterController(data) == TRUE)
             {
                 FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
                 *param1 = 2;
@@ -377,38 +388,38 @@ THUMB_FUNC void MOD59_021D7A5C(MOD59_OverlayData *data) //MOD59_Destroy... somet
     FUN_020145A8(data->unk68);
 }
 
-THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2)
+THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 bgId, u32 param2)
 {
-    BOOL var0;
+    BOOL subScreen;
     s32 var1;
     BOOL ret = FALSE;
-    switch (param1)
+    switch (bgId)
     {
-        case 0:
-        case 3:
+        case GF_BG_LYR_MAIN_0:
+        case GF_BG_LYR_MAIN_3:
         default:
             var1 = 1;
-            var0 = FALSE;
+            subScreen = FALSE;
             break;
-        case 1:
+        case GF_BG_LYR_MAIN_1:
             var1 = 2;
-            var0 = FALSE;
+            subScreen = FALSE;
             break;
-        case 2:
+        case GF_BG_LYR_MAIN_2:
             var1 = 4;
-            var0 = FALSE;
+            subScreen = FALSE;
             break;
-        case 4:
+        case GF_BG_LYR_SUB_0:
             var1 = 1;
-            var0 = TRUE;
+            subScreen = TRUE;
             break;
-        case 5:
+        case GF_BG_LYR_SUB_1:
             var1 = 2;
-            var0 = TRUE;
+            subScreen = TRUE;
             break;
-        case 6:
+        case GF_BG_LYR_SUB_2:
             var1 = 4;
-            var0 = TRUE;
+            subScreen = TRUE;
             break;
     }
     switch(data->unk78)
@@ -419,7 +430,7 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2)
                 data->unk7C = 0;
                 data->unk80 = 16;
                 data->unk78 = 1;
-                if (!var0)
+                if (!subScreen)
                 {
                     G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
                 }
@@ -427,7 +438,7 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2)
                 {
                     G2x_SetBlendAlpha_(&reg_G2S_DB_BLEND, var1, 14, data->unk7C, data->unk80);
                 }
-                ToggleBgLayer((u8)param1, GX_LAYER_TOGGLE_ON);
+                ToggleBgLayer((u8)bgId, GX_LAYER_TOGGLE_ON);
             }
             else
             {
@@ -441,7 +452,7 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2)
             {
                 data->unk7C++;
                 data->unk80--;
-                if (!var0)
+                if (!subScreen)
                 {
                     G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
                 }
@@ -460,7 +471,7 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2)
             {
                 data->unk7C--;
                 data->unk80++;
-                if (!var0)
+                if (!subScreen)
                 {
                     G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
                 }
@@ -472,7 +483,7 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2)
             else
             {
                 data->unk78 = 3;
-                ToggleBgLayer((u8)param1, GX_LAYER_TOGGLE_OFF);
+                ToggleBgLayer((u8)bgId, GX_LAYER_TOGGLE_OFF);
             }
             break;
         case 3:
@@ -506,7 +517,7 @@ THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 layer, u
     BgCommitTilemapBufferToVram(data->bgConfig, (u8)layer);
 }
 
-THUMB_FUNC BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2)
+THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_OverlayData *data, u32 msgNo, u32 param2)
 {
     BOOL ret = FALSE;
     switch(data->unk50)
@@ -540,7 +551,7 @@ THUMB_FUNC BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2)
             data->unk50 = 2;
             break;
         case 2:
-            if (param2 != 0 || (gMain.newKeys & 1) == 1)
+            if (param2 != 0 || (gMain.newKeys & PAD_BUTTON_A) == 1)
             {
                 RemoveWindow(&data->window);
                 data->unk50 = 0;
@@ -559,7 +570,7 @@ THUMB_FUNC void MOD59_021D7D68(struct ListMenu *list, s32 index, u8 onInit)
     }
 }
 
-THUMB_FUNC BOOL MOD59_021D7D7C(MOD59_OverlayData *data, u32 param1, u32 param2, u32 param3)
+THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u32 param2)
 {
     BOOL ret = FALSE;
     const struct WindowTemplate *windowTemplate;
@@ -630,7 +641,7 @@ THUMB_FUNC BOOL MOD59_021D7D7C(MOD59_OverlayData *data, u32 param1, u32 param2, 
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_021D7ECC(MOD59_OverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height)
+THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height)
 {
     BOOL ret = 0;
     switch (data->unk54)
@@ -667,13 +678,13 @@ THUMB_FUNC BOOL MOD59_021D7ECC(MOD59_OverlayData *data, u32 msgNo, u32 param2, u
             data->unk54 = 2;
             break;
         case 2:
-            if (MOD59_021D7A68(data, 0, 0) == TRUE)
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_0, 0) == TRUE)
             {
                 data->unk54 = 3;
             }
             break;
         case 3:
-            if((gMain.newKeys & 1) != 1 && (gMain.newKeys & 2) != 2)
+            if((gMain.newKeys & PAD_BUTTON_A) != 1 && (gMain.newKeys & PAD_BUTTON_B) != 2)
             {
                 break;
             }
@@ -681,14 +692,14 @@ THUMB_FUNC BOOL MOD59_021D7ECC(MOD59_OverlayData *data, u32 msgNo, u32 param2, u
             data->unk54 = 4;
             break;
         case 4:
-            if (MOD59_021D7A68(data, 0, 1) == TRUE)
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_0, 1) == TRUE)
             {
                 data->unk54 = 5;
             }
             break;
         case 5:
             RemoveWindow(&data->window);
-            BgClearTilemapBufferAndCommit(data->bgConfig, 0);
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             data->unk54 = 0;
             ret = TRUE;
     }
@@ -982,11 +993,11 @@ THUMB_FUNC BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2)
         {
             if (xPos > 0)
             {
-                BgSetPosTextAndCommit(data->bgConfig, (u8)layer, 2, 4);
+                BgSetPosTextAndCommit(data->bgConfig, (u8)layer, BG_POS_OP_SUB_X, 4);
             }
             else
             {
-                BgSetPosTextAndCommit(data->bgConfig, (u8)layer, 1, 4);
+                BgSetPosTextAndCommit(data->bgConfig, (u8)layer, BG_POS_OP_ADD_X, 4);
             }
         }
         else
@@ -999,7 +1010,7 @@ THUMB_FUNC BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2)
         fx32 xPos = Bg_GetXpos(data->bgConfig, layer);
         if (xPos != -48)
         {
-            BgSetPosTextAndCommit(data->bgConfig, (u8)layer, 2, 4);
+            BgSetPosTextAndCommit(data->bgConfig, (u8)layer, BG_POS_OP_SUB_X, 4);
         }
         else
         {
@@ -1011,7 +1022,7 @@ THUMB_FUNC BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2)
         fx32 xPos = Bg_GetXpos(data->bgConfig, layer);
         if (xPos != 0)
         {
-            BgSetPosTextAndCommit(data->bgConfig, (u8)layer, 1, 4);
+            BgSetPosTextAndCommit(data->bgConfig, (u8)layer, BG_POS_OP_ADD_X, 4);
         }
         else
         {
@@ -1068,8 +1079,9 @@ THUMB_FUNC void MOD59_021D8504(MOD59_OverlayData *data)
     }
 }
 
-THUMB_FUNC void MOD59_DisableBlend(void)
+THUMB_FUNC void MOD59_DisableBlend(MOD59_OverlayData *data)
 {
+#pragma unused(data)
     reg_G2_BLDCNT = 0;
 }
 
@@ -1540,7 +1552,1096 @@ _021D890A:
 }
 #endif
 
-THUMB_FUNC void MOD59_021D8914(void)
+THUMB_FUNC void MOD59_021D8914(MOD59_OverlayData *data)
 {
+#pragma unused (data)
     SetBgPriority(GF_BG_LYR_MAIN_2, 1);
+}
+
+THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
+{
+    BOOL ret = FALSE;
+    switch (data->unk0C)
+    {
+        case 0: //load
+            FUN_0200433C(2, SEQ_OPENING, 1);
+            FUN_02005350(SEQ_OPENING, 0);
+            ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
+            ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
+            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            data->unk0C = 1;
+            break;
+
+        case 1: //some kinda of wait/fade?
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            if (MOD59_021D7BEC(data, 40) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 2;
+            break;
+
+        case 2: //Hello there! It’s so very nice to meet you!
+            if(MOD59_DisplayMessage(data, 0, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 3;
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            break;
+
+        case 3: //play SE, make rowan visible
+            FUN_0200521C(SEQ_OPENING);
+            data->unk89 = 1;
+            data->unk8A = 0;
+            MOD59_021D8140(data);
+            ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
+            ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
+            FUN_0200E1D0(3, 1, 1, 0, 16, 4, data->heap_id);
+            data->unk0C = 4;
+            break;
+
+        case 4: //??
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            data->unk0C = 5;
+            break;
+
+        case 5: //My name is Rowan. However, everyone just calls me the Pokémon Professor.
+            if (MOD59_DisplayMessage(data, 1, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 6;
+            break;
+
+        case 6: //move rowan to the right
+            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 7;
+            break;
+
+        case 7: //help menu input handler
+            if (MOD59_CreateListWithText(data, 1, 1) != TRUE)
+            {
+                break;
+            }
+            switch (data->listMenuInput) //may be chain of ifs
+            {
+                case 1: //Control Info
+                    data->unk10 = 10;
+                    data->unk0C = 8;
+                    break;
+
+                case 2: //Adventure Info
+                    data->unk10 = 31;
+                    data->unk0C = 8;
+                    BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+                    break;
+
+                case 3: //No Info Needed
+                    data->unk0C = 41;
+                    break;
+            }
+            break;
+
+        case 8: //graphics adjust?
+            FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+            data->unk0C = 9;
+            break;
+
+        case 9: //Clear screen of rowan
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);
+            data->unk0C = data->unk10;
+            break;
+
+        case 10: //load screen and palette data
+            data->unk88 = 1;
+            MOD59_021D80FC(data);
+            data->unk8B = 1;
+            MOD59_021D8234(data);
+            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            data->unk0C = 11;
+            break;
+
+        case 11: //??
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            data->unk0C = 12;
+            break;
+
+        case 12: //Moves the main character. Also used to choose various headings and selections.
+            if (MOD59_DisplayControlAdventureMessage(data, 2, 0, 3, 18) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 13;
+            break;
+
+        case 13: //load screen data
+            data->unk88 = 2;
+            MOD59_021D80FC(data);
+            data->unk0C = 14;
+            break;
+
+        case 14: //Press to open the menu.  Press to use an item,
+            if (MOD59_DisplayControlAdventureMessage(data, 3, 0, 7, 12) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 15;
+            break;
+
+        case 15: //load screen data
+            data->unk88 = 3;
+            MOD59_021D80FC(data);
+            data->unk0C = 16;
+            break;
+
+        case 16: //The lower screen is called the Touch Screen.
+            if (MOD59_DisplayControlAdventureMessage(data, 4, 0, 4, 12) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 17;
+            break;
+
+        case 17: //Use DisplayMessage to create the flashing toucscreen icon ({YESNO 0})
+            if (MOD59_DisplayMessage(data, 6, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 18;
+            break;
+
+        case 18: //If this mark is shown in the message window
+            if (MOD59_DisplayControlAdventureMessage(data, 5, 0, 4, 10) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 19;
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            break;
+
+        case 19: //toggle layer 0 (no idea whats in here)
+            ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
+            data->unk0C = 20;
+            break;
+
+        case 20: //Do you understand everything so far?{YESNO 0}
+            if (MOD59_DisplayMessage(data, 7, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 21;
+            break;
+
+        case 21: //Display Yes/No touchscreen buttons
+#ifdef __MWERKS__
+            u32 arr[5];
+            arr = MOD59_021D9E44;
+#else
+            u32 arr[5] = {};
+            for (int i = 0; i < 5; i++)
+            {
+                arr[i] = MOD59_021D9E44[i];
+            }
+#endif
+            arr[0] = (u32)data->bgConfig;
+            FUN_020145C8(data->unk68, arr);
+            ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_ON);
+            data->unk8B = 3;
+            MOD59_021D8234(data);
+            data->unk0C = 22;
+            break;
+
+        case 22: //check input
+            if (gMain.newKeys != 0)
+            {
+                data->unk0C = 27;
+                break;
+            }
+            else
+            {
+                if ((FUN_02014630(data->unk68) - 3) > 1)
+                {
+                    break;
+                }
+                data->unk0C = 23;
+                break;
+            }
+
+        case 23: //check whether yes or no
+            switch (FUN_02014630(data->unk68))
+            {
+                case 1:
+                    data->unk0C = 24;
+                    break;
+
+                case 2:
+                    data->unk0C = 26;
+                    break;
+            }
+            break;
+
+        case 24: //cleanup control info
+            if (MOD59_021D7A68(data, GF_BG_LYR_SUB_2, 1) != TRUE)
+            {
+                break;
+            }
+            FUN_020146C4(data->unk68);
+            FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+            data->unk0C = 25;
+            break;
+
+        case 25: //graphics adjust
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            data->unk0C = 28;
+            break;
+
+        case 26: //reload initial screen data for help
+            if (MOD59_021D7A68(data, GF_BG_LYR_SUB_2, 1) != TRUE)
+            {
+                break;
+            }
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            FUN_020146C4(data->unk68);
+            data->unk88 = 1;
+            MOD59_021D80FC(data);
+            data->unk8B = 1;
+            MOD59_021D8234(data);
+            data->unk0C = 12;
+            break;
+
+        case 27: //Please touch a button on the Touch Screen below.{YESNO 0}
+            if (MOD59_DisplayMessage(data, 8, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 22;
+            break;
+
+        case 28: //redisplay rowan
+            data->unk88 = 0;
+            MOD59_021D80FC(data);
+            data->unk8B = 0;
+            MOD59_021D8234(data);
+            ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
+            BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
+            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            data->unk0C = 29;
+            break;
+
+        case 29: //graphics adjust
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            data->unk0C = 30;
+            break;
+
+        case 30: //Would you like to know more about anything else?
+            if (MOD59_DisplayMessage(data, 9, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 6;
+            break;
+
+        case 31:
+            data->unk88 = 4;
+            MOD59_021D80FC(data);
+            data->unk8B = 2;
+            MOD59_021D8234(data);
+            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            data->unk0C = 32;
+            break;
+
+        case 32:
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            data->unk0C = 33;
+            break;
+
+        case 33:
+            if (MOD59_DisplayControlAdventureMessage(data, 10, 1, 9, 6) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 34;
+            break;
+
+        case 34:
+            if (MOD59_DisplayControlAdventureMessage(data, 11, 1, 8, 8) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 35;
+            break;
+
+        case 35:
+            if (MOD59_DisplayControlAdventureMessage(data, 12, 1, 9, 6) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 36;
+            break;
+
+        case 36:
+            if (MOD59_DisplayControlAdventureMessage(data, 13, 1, 5, 14) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 37;
+            break;
+
+        case 37:
+            if (MOD59_DisplayControlAdventureMessage(data, 14, 1, 10, 4) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 38;
+            break;
+
+        case 38:
+            if (MOD59_DisplayControlAdventureMessage(data, 15, 1, 6, 12) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 39;
+            break;
+
+        case 39:
+            FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+            data->unk0C = 40;
+            break;
+
+        case 40:
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
+            data->unk0C = 28;
+            break;
+
+        case 41:
+            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 2) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 42;
+            break;
+
+        case 42: //This world is widely inhabited by creatures known as Pokémon.
+            if (MOD59_DisplayMessage(data, 16, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 43;
+            break;
+
+        case 43: //graphics adjust
+            FUN_0200E1D0(4, 0, 0, 0, 6, 1, data->heap_id);
+            data->unk0C = 44;
+            break;
+
+        case 44:
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            MOD59_021D83F8(data); // load button?
+            data->unk8B = 4;
+            MOD59_021D8234(data);
+            ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_ON);
+            FUN_0200E1D0(4, 1, 1, 0, 6, 1, data->heap_id);
+            data->unk0C = 45;
+            break;
+
+        case 45:
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            data->unk0C = 46;
+            break;
+
+        case 46:// Here, I have a Poké Ball. Touch the button on the middle
+            if (MOD59_DisplayMessage(data, 17, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 47;
+            break;
+
+        case 47: //test touch location
+            if (MOD59_021D7730() == TRUE)
+            {
+                data->unk94 = 0;
+                data->unk98 = 0;
+                BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+                data->unk0C = 48;
+            }
+            else
+            {
+                if (gMain.newKeys == 0)
+                {
+                    break;
+                }
+                data->unk0C = 49;
+            }
+            break;
+
+        case 48: //load graphics
+            if (data->unk98 != 0)
+            {
+                data->unk98--;
+                break;
+            }
+#ifdef __MWERKS__
+            u32 arr2[3];
+            arr2 = MOD59_021D9DC0;
+#else
+            u32 arr2[3] = {};
+            for (int i = 0; i < 3; i++)
+            {
+                arr2[i] = MOD59_021D9DC0[i];
+            }
+#endif
+            if (arr2[data->unk94] == 0xFFFF)
+            {
+                PlaySE(SEQ_SE_DP_BOWA2);
+                data->unk0C = 50;
+            }
+            else
+            {
+                GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, arr2[data->unk94], data->bgConfig, GF_BG_LYR_SUB_2, 32, 0, FALSE, data->heap_id);
+                data->unk94++;
+                data->unk98 = 4;
+            }
+            break;
+
+        case 49: //No, no! Not that button! The button on the Poké Ball.{YESNO 0}
+            if (MOD59_DisplayMessage(data, 18, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 47;
+            break;
+
+        case 50: //flash
+            StartBrightnessTransition(1, 16, 0, 11, 1); //main screen
+            StartBrightnessTransition(1, 16, 0, 13, 2); //sub screen (should be a mask enum)
+            data->unk0C = 51;
+            break;
+
+        case 51: //unflash
+            if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
+            {
+                break;
+            }
+            StartBrightnessTransition(1, 0, 16, 11, 1); //main screen
+            StartBrightnessTransition(1, 0, 16, 13, 2); //sub screen
+            data->unk0C = 52;
+            break;
+
+        case 52: //flash
+            if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
+            {
+                break;
+            }
+            StartBrightnessTransition(4, 16, 0, 11, 1); //main screen
+            StartBrightnessTransition(4, 16, 0, 13, 2); //sub screen
+            data->unk0C = 53;
+            break;
+
+        case 53: //wait for transition
+            if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 54;
+            break;
+
+        case 54: //spawn munchlax and unflash
+            MOD59_021D82A0(data);
+            ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
+            data->unk94 = 0;
+            MOD59_021D86BC(data, &data->unk94);
+            data->unk8B = 0;
+            MOD59_021D8234(data);
+            StartBrightnessTransition(16, 0, 16, 11, 1); //main screen
+            StartBrightnessTransition(16, 0, 16, 13, 2); //sub screen
+            data->unk0C = 55;
+            break;
+
+        case 55: //movement and wait for transition
+            MOD59_021D86BC(data, &data->unk94);
+            if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 56;
+            break;
+
+        case 56: //finish movement
+            if (MOD59_021D86BC(data, &data->unk94) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 57;
+            break;
+
+        case 57: //wait
+            if (MOD59_021D7BEC(data, 40) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 58;
+            break;
+
+        case 58: // We humans live alongside Pokémon as friends. At times we play together,
+            if (MOD59_DisplayMessage(data, 19, 1) != TRUE)
+            {
+                break;
+            }
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            data->unk0C = 59;
+            break;
+
+        case 59: //adjust BG priority
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_2, 1) != TRUE)
+            {
+                break;
+            }
+            MOD59_021D8914(data);
+            data->unk0C = 60;
+            break;
+
+        case 60: //wait
+            if (MOD59_021D7BEC(data, 30) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 61;
+            break;
+
+        case 61: //Now, why don’t you tell me a little bit about yourself?
+            if (MOD59_DisplayMessage(data, 20, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 62;
+            break;
+
+        case 62: //set blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 63;
+            break;
+
+        case 63: //load and setup boy/girl frontsprites
+            MOD59_021D84E8(data);
+            data->unk89 = 2;
+            data->unk8A = 6;
+            MOD59_021D8140(data);
+            BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, -48);
+            BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_X, 48);
+            data->unk0C = 64;
+            break;
+
+        case 64: //set blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 65;
+            break;
+
+        case 65: //set blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_2, 0) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 66;
+            break;
+
+        case 66: //Are you a boy? Or are you a girl?
+            if (MOD59_DisplayMessage(data, 21, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk84 = 0;
+            data->unk0C = 67;
+            break;
+
+        case 67: //handle gender selection + animation
+            if ((gMain.newKeys & PAD_BUTTON_A) == 1)
+            {
+                data->unk7C = 6;
+                data->unk80 = 10;
+                data->unk78 = 2;
+                if (data->unk84 == 0)
+                {
+                    data->unk0C = 68;
+                }
+                else
+                {
+                    data->unk0C = 70;
+                }
+                break;
+            }
+            if ((gMain.newKeys & PAD_KEY_LEFT) == 0x20 || (gMain.newKeys & PAD_KEY_RIGHT) == 0x10)
+            {
+                data->unk84 = (data->unk84 == 0 ? 1 : 0);
+                PlaySE(SEQ_SE_DP_SELECT);
+            }
+            MOD59_021D8504(data); //animate sprite
+            break;
+
+        case 68: //set blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_2, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 69;
+            break;
+
+        case 69: //move sprite to centre
+            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            {
+                break;
+            }
+            MOD59_DisableBlend(data);
+            data->unk0C = 72;
+            break;
+
+        case 70: //set blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 71;
+            break;
+
+        case 71: //move sprite to centre
+            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_2, 0) != TRUE)
+            {
+                break;
+            }
+            MOD59_DisableBlend(data);
+            data->unk0C = 72;
+            break;
+
+        case 72: //All right, so you’re a boy/girl?
+            u32 msgNo = data->unk84 == 0 ? 22 : 23;
+            if (MOD59_DisplayMessage(data, msgNo, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 73;
+            break;
+
+        case 73: //YES/NO
+            if (MOD59_CreateListWithText(data, 0, 0) != TRUE)
+            {
+                break;
+            }
+            switch (data->listMenuInput)
+            {
+                case 1:
+                    data->unk0C = 75;
+                    break;
+
+                case -2:
+                case 2:
+                    BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+                    data->unk0C = 74;
+                    break;
+            }
+            break;
+
+        case 74: //reset blend
+            enum GFBgLayer layer = ((data->unk84 == 0) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
+            if (MOD59_021D7A68(data, layer, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 63;
+            break;
+
+        case 75: //Tell me, what is your name?
+            if (MOD59_DisplayMessage(data, 24, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 76;
+            break;
+
+        case 76: //load keyboard overlay (except this is not an overlay at all)
+            data->playerStruct->gender = data->unk84;
+            data->unk14 = OverlayManager_new(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heap_id);
+            data->unk0C = 77;
+            break;
+
+        case 77: //toggle bg layers and position
+            ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
+            ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
+            ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
+            if (data->unk84 == 0)
+            {
+                ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
+            }
+            else
+            {
+                ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_ON);
+                BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_X, 0);
+            }
+            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            data->unk0C = 78;
+            break;
+
+        case 78: //graphics adjust
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            data->unk0C = 79;
+            break;
+
+        case 79: //Your name is {STRVAR_1 3, 0}?
+            u32 messageNumber = (data->unk84 == 0 ? 25 : 26); //no idea why these are different strings, they contain the same thing
+            if (MOD59_DisplayMessage(data, messageNumber, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 80;
+            break;
+
+        case 80: //YES/NO
+            if (MOD59_CreateListWithText(data, 0, 0) != TRUE)
+            {
+                break;
+            }
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            switch (data->listMenuInput)
+            {
+                case 1:
+                    data->unk10 = 82;
+                    data->unk0C = 81;
+                    break;
+
+                case -2:
+                case 2:
+                    StringSetEmpty(data->playerStruct->name);
+                    data->unk10 = 63;
+                    data->unk0C = 81;
+                    break;
+            }
+            break;
+
+        case 81: //blend adjust
+            enum GFBgLayer layer2 = ((data->unk84 == 0) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
+            if (MOD59_021D7A68(data, layer2, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = data->unk10;
+            break;
+
+        case 82: //load sprite
+            data->unk89 = 1;
+            data->unk8A = 0;
+            MOD59_021D8140(data);
+            data->unk0C = 83;
+            break;
+
+        case 83: //blend adjust
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 84;
+            break;
+
+        case 84: // OK... So, you’re {STRVAR_1 3, 0}? A fine name that is!
+            if (MOD59_DisplayMessage(data, 27, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 85;
+            break;
+
+        case 85: //blend adjust
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 86;
+            break;
+
+        case 86:
+            data->unk89 = 10;
+            data->unk8A = 0;
+            MOD59_021D8140(data);
+            data->unk0C = 87;
+            break;
+
+        case 87: //blend adjust
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 88;
+            break;
+
+        case 88: //What might his name be?
+            if (MOD59_DisplayMessage(data, 28, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 89;
+            break;
+
+        case 89: //move sprite
+            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 90;
+            break;
+
+        case 90: //rival name list
+            if (MOD59_CreateListWithText(data, 2, 1) != TRUE)
+            {
+                break;
+            }
+            const struct MOD59_ListStruct021D9E0C *nameList;
+            switch (data->listMenuInput)
+            {
+                case 0:
+                    break;
+
+                case 1: //New Name!
+                    data->unk0C = 92;
+                    break;
+
+                case 2: //Barry/Clint
+                case 3: //Damion/Ralph
+                case 4: //Tyson/Lewis
+                case 5: //Markus/Tommy
+                    u32 index;
+                    u32 msgNo;
+                    if ((u8)gGameVersion == VERSION_DIAMOND)
+                    {
+                        index = data->listMenuInput - 1;
+                        nameList = &MOD59_021D9F40;
+                        msgNo = nameList[index].msgNo;
+                    }
+                    else
+                    {
+                        index = data->listMenuInput - 1;
+                        nameList = &MOD59_021D9F68;
+                        msgNo = nameList[index].msgNo;
+                    }
+                    struct String *name = NewString_ReadMsgData(data->msgData, msgNo);
+                    StringCopy(data->rivalStruct->name, name);
+                    String_dtor(name);
+                    data->unk0C = 91;
+                    break;
+            }
+            break;
+
+        case 91: //move sprite
+            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 2) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 95;
+            break;
+
+        case 92: //load keyboard
+            data->unk14 = OverlayManager_new(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heap_id);
+            data->unk0C = 93;
+            break;
+
+        case 93: //toggle layers and position
+            ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
+            ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
+            ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
+            ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
+            BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
+            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            data->unk0C = 94;
+            break;
+
+        case 94: //graphics adjust
+            if (FUN_0200E308() != 1)
+            {
+                break;
+            }
+            data->unk0C = 95;
+            break;
+
+        case 95: //{STRVAR_1 3, 1}, is it? That’s your friend’s name?
+            if (MOD59_DisplayMessage(data, 29, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 96;
+            break;
+
+        case 96: //YES/NO
+            if (MOD59_CreateListWithText(data, 0, 0) != TRUE)
+            {
+                break;
+            }
+            switch (data->listMenuInput)
+            {
+                case 1:
+                    BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+                    data->unk0C = 97;
+                    break;
+
+                case -2:
+                case 2:
+                    StringSetEmpty(data->rivalStruct->name);
+                    data->unk0C = 88;
+                    break;
+            }
+            break;
+
+        case 97: //set blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 98;
+            break;
+
+        case 98: //load sprite
+            data->unk89 = 1;
+            data->unk8A = 0;
+            MOD59_021D8140(data);
+            data->unk0C = 99;
+            break;
+
+        case 99: //send blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 100;
+            break;
+
+        case 100: //wait
+            if (MOD59_021D7BEC(data, 30) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 101;
+            break;
+
+        case 101: //All right, {STRVAR_1 3, 0}, the time has come. Your very own tale of grand...
+            if (MOD59_DisplayMessage(data, 30, 1) != TRUE)
+            {
+                break;
+            }
+            FUN_020053CC(0, 50); //fade music
+            data->unk0C = 102;
+            break;
+
+        case 102: //set blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            {
+                break;
+            }
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
+            data->unk0C = 103;
+            break;
+
+        case 103: //wait
+            if (MOD59_021D7BEC(data, 30) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 104;
+            break;
+
+        case 104: //load sprite
+            if (data->unk84 == 0)
+            {
+                data->unk89 = 2;
+                data->unk8A = 0;
+                MOD59_021D8140(data);
+            }
+            else
+            {
+                data->unk89 = 6;
+                data->unk8A = 0;
+                MOD59_021D8140(data);
+            }
+            data->unk0C = 105;
+            break;
+
+        case 105: //set blend
+            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            {
+                break;
+            }
+            MOD59_021D8624(data);
+            data->unk0C = 106;
+            break;
+
+        case 106: //wait
+            if (MOD59_021D7BEC(data, 30) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 107;
+            break;
+
+        case 107: //load sprites
+            if (MOD59_021D8634(data) != TRUE)
+            {
+                break;
+            }
+            data->unk0C = 108;
+            break;
+
+        case 108: //load overaly 59 pt 2
+            data->unk14 = OverlayManager_new(&MOD59_021D9DDC, 0, data->heap_id);
+            data->unk0C = 109;
+            break;
+
+        case 109:
+            ret = TRUE;
+            break;
+    }
+    return ret;
 }

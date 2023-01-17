@@ -115,9 +115,10 @@ void MOD59_021D7A5C(MOD59_OverlayData *data);
 BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 param1, u32 param2);
 BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1);
 void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 layer, u32 paletteNum);
-BOOL MOD59_021D7C44(MOD59_OverlayData *data, u32 msgNo, u32 param2);
+BOOL MOD59_DisplayMessage(MOD59_OverlayData *data, u32 msgNo, u32 param2);
 void MOD59_021D7D68(struct ListMenu *list, s32 index, u8 onInit);
-BOOL MOD59_021D7D7C(MOD59_OverlayData *data, u32 param1, u32 param2, u32 param3);
+BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u32 param2);
+BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height);
 void MOD59_021D8058(MOD59_OverlayData *data);
 void MOD59_021D80FC(MOD59_OverlayData *data);
 void MOD59_021D8140(MOD59_OverlayData *data);
@@ -127,10 +128,11 @@ void MOD59_021D83F8(MOD59_OverlayData *data);
 BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2);
 void MOD59_021D84E8(MOD59_OverlayData *data);
 void MOD59_021D8504(MOD59_OverlayData *data);
-void MOD59_DisableBlend(void);
+void MOD59_DisableBlend(MOD59_OverlayData *data);
 void MOD59_021D8624(MOD59_OverlayData *data);
 BOOL MOD59_021D8634(MOD59_OverlayData *data);
 BOOL MOD59_021D86BC(MOD59_OverlayData *data, u32 *param1);
-void MOD59_021D8914(void);
+void MOD59_021D8914(MOD59_OverlayData *data);
+BOOL MOD59_MasterController(MOD59_OverlayData *data);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H
