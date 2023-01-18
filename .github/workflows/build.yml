@@ -24,7 +24,9 @@ jobs:
           wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
           sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
           sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main"
-          sudo apt -y --allow-downgrades install libpcre2-8-0=10.34-7
+          sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list
+          sudo apt-get update -qq
+          sudo apt-get remove -qq libmono* moby* mono* nginx* php* libgdiplus libpcre2-posix3 libzip4
           sudo apt -y --allow-downgrades install --install-recommends winehq-stable
       - name: Checkout Repo
         uses: actions/checkout@v2
