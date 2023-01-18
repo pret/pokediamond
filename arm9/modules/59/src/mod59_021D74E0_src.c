@@ -98,21 +98,21 @@ THUMB_FUNC BOOL MOD59_Init(struct UnkStruct_02006234 *param0)
     s32 *field18 = OverlayManager_GetField18(param0);
     data->sav2 = (struct SaveBlock2 *)field18[2]; //?
     data->options = Sav2_PlayerData_GetOptionsAddr(data->sav2);
-    data->unk10 = data->unk0C = 0;
-    data->unk14 = NULL;
+    data->nextControllerCounter = data->controllerCounter = 0;
+    data->loadedOverlay = NULL;
     data->playerStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 0, 0, 7, data->options);
     data->rivalStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 3, 0, 7, data->options);
-    data->unk88 = 0;
-    data->unk89 = 0;
-    data->unk8A = 0;
-    data->unk8B = 0;
-    data->unk90 = 0;
+    data->scrnDataIndex0 = 0;
+    data->spriteDataIndex0 = 0;
+    data->spriteDataIndex1 = 0;
+    data->scrnDataIndex1 = 0;
+    data->tickTimer = 0;
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
+THUMB_FUNC BOOL MOD59_Main(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
 {
-    MOD59_OverlayData *data = (MOD59_OverlayData *) OverlayManager_GetData(param0);
+    MOD59_OverlayData *data = (MOD59_OverlayData *) OverlayManager_GetData(overlayStruct);
     BOOL ret = FALSE;
 
     switch (*param1)
@@ -151,7 +151,7 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
                 *param1 = 2;
             }
 
-            if (data->unk14 == NULL)
+            if (data->loadedOverlay == NULL)
             {
                 break;
             }
@@ -193,13 +193,13 @@ THUMB_FUNC BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1)
             break;
 
         case 4:
-            if (OverlayManager_Run(data->unk14) != TRUE)
+            if (OverlayManager_Run(data->loadedOverlay) != TRUE)
             {
                 break;
             }
 
-            OverlayManager_delete(data->unk14);
-            data->unk14 = NULL;
+            OverlayManager_delete(data->loadedOverlay);
+            data->loadedOverlay = NULL;
 
             *param1 = 5;
 
@@ -328,7 +328,7 @@ THUMB_FUNC void MOD59_SetupBg(MOD59_OverlayData *data)
     ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_OFF);
 
     MOD59_021D8058(data);
-    data->unk78 = 0;
+    data->fadeCounter = 0;
 }
 
 THUMB_FUNC void MOD59_DestroyBg(MOD59_OverlayData *data)
@@ -366,9 +366,9 @@ THUMB_FUNC void MOD59_SetupMsg(MOD59_OverlayData *data)
 
     data->strBufs = ScrStrBufs_new(data->heap_id);
 
-    data->unk50 = 0;
-    data->unk54 = 0;
-    data->unk2C = 0;
+    data->displayMessageCounter = 0;
+    data->displayControlMessageCounter = 0;
+    data->createListCounter = 0;
 }
 
 THUMB_FUNC void MOD59_DestroyMsg(MOD59_OverlayData *data)
@@ -422,14 +422,14 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 bgId, u32 param2)
             subScreen = TRUE;
             break;
     }
-    switch(data->unk78)
+    switch(data->fadeCounter)
     {
         case 0:
             if (param2 == 0)
             {
                 data->unk7C = 0;
                 data->unk80 = 16;
-                data->unk78 = 1;
+                data->fadeCounter = 1;
                 if (!subScreen)
                 {
                     G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
@@ -444,7 +444,7 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 bgId, u32 param2)
             {
                 data->unk7C = 16;
                 data->unk80 = 0;
-                data->unk78 = 2;
+                data->fadeCounter = 2;
             }
             break;
         case 1:
@@ -463,7 +463,7 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 bgId, u32 param2)
             }
             else
             {
-                data->unk78 = 3;
+                data->fadeCounter = 3;
             }
             break;
         case 2:
@@ -482,30 +482,30 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 bgId, u32 param2)
             }
             else
             {
-                data->unk78 = 3;
+                data->fadeCounter = 3;
                 ToggleBgLayer((u8)bgId, GX_LAYER_TOGGLE_OFF);
             }
             break;
         case 3:
             reg_G2_BLDCNT = 0;
             reg_G2S_DB_BLDCNT = 0;
-            data->unk78 = 0;
+            data->fadeCounter = 0;
             ret = TRUE;
             break;
     }
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 param1)
+THUMB_FUNC BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 timer)
 {
-    if (data->unk90 < param1)
+    if (data->tickTimer < timer)
     {
-        data->unk90++;
+        data->tickTimer++;
         return FALSE;
     }
     else
     {
-        data->unk90 = 0;
+        data->tickTimer = 0;
         return TRUE;
     }
 }
@@ -520,7 +520,7 @@ THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 layer, u
 THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_OverlayData *data, u32 msgNo, u32 param2)
 {
     BOOL ret = FALSE;
-    switch(data->unk50)
+    switch(data->displayMessageCounter)
     {
         case 0:
             AddWindow(data->bgConfig, &data->window, &MOD59_021D9DB8);
@@ -533,14 +533,14 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_OverlayData *data, u32 msgNo, u32 par
             struct String* string = String_ctor(1024, data->heap_id);
             data->string = String_ctor(1024, data->heap_id);
             ReadMsgDataIntoString(data->msgData, msgNo, string);
-            BufferString(data->strBufs, 0, data->playerStruct->name, data->unk84, 1, 2);
+            BufferString(data->strBufs, 0, data->playerStruct->name, data->selectedGender, 1, 2);
             BufferString(data->strBufs, 1, data->rivalStruct->name, 0, 1, 2);
             StringExpandPlaceholders(data->strBufs, data->string, string);
             String_dtor(string);
 
             u32 delay = Options_GetTextFrameDelay(data->options);
             data->minTextSpacing = AddTextPrinterParameterized(&data->window, 1, data->string, 0, 0, delay, NULL);
-            data->unk50 = 1;
+            data->displayMessageCounter = 1;
             break;
         case 1:
             if (FUN_0201BD70((u8)data->minTextSpacing))
@@ -548,13 +548,13 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_OverlayData *data, u32 msgNo, u32 par
                 break;
             }
             String_dtor(data->string);
-            data->unk50 = 2;
+            data->displayMessageCounter = 2;
             break;
         case 2:
             if (param2 != 0 || (gMain.newKeys & PAD_BUTTON_A) == 1)
             {
                 RemoveWindow(&data->window);
-                data->unk50 = 0;
+                data->displayMessageCounter = 0;
                 ret = TRUE;
                 break;
             }
@@ -577,7 +577,7 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u3
     const struct MOD59_ListStruct021D9E0C *listStruct;
     s32 i; // must be defined here to prevent a regswap
     s32 menuItemsCount = 0;
-    switch (data->unk2C)
+    switch (data->createListCounter)
     {
         case 0:
             switch (param1)
@@ -607,7 +607,7 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u3
                     }
                     break;
             }
-            AddWindow(data->bgConfig, &data->window2, windowTemplate);
+            AddWindow(data->bgConfig, &data->listWindow, windowTemplate);
             data->listMenuItem = ListMenuItems_ctor(menuItemsCount, data->heap_id);
             for (i = 0; i < menuItemsCount; i++)
             {
@@ -618,11 +618,11 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u3
             template.totalItems = (u16)menuItemsCount;
             template.maxShowed = (u16)menuItemsCount;
             template.moveCursorFunc = MOD59_021D7D68;
-            template.window = &data->window2;
+            template.window = &data->listWindow;
             data->listMenu = ListMenuInit(&template, 0, 0, (u8)data->heap_id);
             DrawFrameAndWindow1(template.window, TRUE, 985, 3);
-            CopyWindowToVram(&data->window2);
-            data->unk2C = 1;
+            CopyWindowToVram(&data->listWindow);
+            data->createListCounter = 1;
             break;
         case 1:
             data->listMenuInput = ListMenu_ProcessInput(data->listMenu);
@@ -630,12 +630,12 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u3
             {
                 break;
             }
-            ClearFrameAndWindow1(&data->window2, FALSE);
-            RemoveWindow(&data->window2);
+            ClearFrameAndWindow1(&data->listWindow, FALSE);
+            RemoveWindow(&data->listWindow);
             DestroyListMenu(data->listMenu, 0, 0);
             ListMenuItems_dtor(data->listMenuItem);
             PlaySE(SEQ_SE_DP_SELECT);
-            data->unk2C = 0;
+            data->createListCounter = 0;
             ret = TRUE;
     }
     return ret;
@@ -644,7 +644,7 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u3
 THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height)
 {
     BOOL ret = 0;
-    switch (data->unk54)
+    switch (data->displayControlMessageCounter)
     {
         case 0:
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
@@ -671,16 +671,16 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u3
                 AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, 0, MakeFontColor(15, 2, 0), NULL);
             }
             String_dtor(data->string);
-            data->unk54 = 1;
+            data->displayControlMessageCounter = 1;
             break;
         case 1:
             CopyWindowToVram(&data->window);
-            data->unk54 = 2;
+            data->displayControlMessageCounter = 2;
             break;
         case 2:
             if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_0, 0) == TRUE)
             {
-                data->unk54 = 3;
+                data->displayControlMessageCounter = 3;
             }
             break;
         case 3:
@@ -689,18 +689,18 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u3
                 break;
             }
             PlaySE(SEQ_SE_DP_SELECT);
-            data->unk54 = 4;
+            data->displayControlMessageCounter = 4;
             break;
         case 4:
             if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_0, 1) == TRUE)
             {
-                data->unk54 = 5;
+                data->displayControlMessageCounter = 5;
             }
             break;
         case 5:
             RemoveWindow(&data->window);
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
-            data->unk54 = 0;
+            data->displayControlMessageCounter = 0;
             ret = TRUE;
     }
     return ret;
@@ -745,27 +745,27 @@ THUMB_FUNC void MOD59_021D80FC(MOD59_OverlayData *data)
         arr[i] = MOD59_021D9E1C[i];
     }
 #endif
-    if (data->unk88 >= 5)
+    if (data->scrnDataIndex0 >= 5)
     {
         return;
     }
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, arr[data->unk88], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, arr[data->scrnDataIndex0], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
 }
 
 THUMB_FUNC void MOD59_021D8140(MOD59_OverlayData *data)
 {
     struct MOD59_GraphicsPaletteMap021D9F90 graphicsPaletteMap = MOD59_021D9F90;
-    if (data->unk89 != 0 && data->unk89 < 12)
+    if (data->spriteDataIndex0 != 0 && data->spriteDataIndex0 < 12)
     {
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk89].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
-        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk89].palNum, GF_BG_LYR_MAIN_0, 0xE0, 0x20, data->heap_id);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].palNum, GF_BG_LYR_MAIN_0, 0xE0, 0x20, data->heap_id);
         GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0022_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
         MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_1, 7);
     }
-    if (data->unk8A != 0 && data->unk8A < 12)
+    if (data->spriteDataIndex1 != 0 && data->spriteDataIndex1 < 12)
     {
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk8A].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
-        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->unk8A].palNum, GF_BG_LYR_MAIN_0, 0x100, 0x20, data->heap_id);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].palNum, GF_BG_LYR_MAIN_0, 0x100, 0x20, data->heap_id);
         GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0022_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
         MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 8);
     }
@@ -774,16 +774,16 @@ THUMB_FUNC void MOD59_021D8140(MOD59_OverlayData *data)
 THUMB_FUNC void MOD59_021D8234(MOD59_OverlayData *data)
 {
     struct MOD59_UnkStruct021D9E30 scrnData = MOD59_021D9E30;
-    if (data->unk8B >= 5)
+    if (data->scrnDataIndex1 >= 5)
     {
         return;
     }
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->unk8B], data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
-    if (data->unk8B == 1)
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndex1], data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
+    if (data->scrnDataIndex1 == 1)
     {
         MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_3, 3);
     }
-    else if (data->unk8B == 2)
+    else if (data->scrnDataIndex1 == 2)
     {
         MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_3, 2);
     }
@@ -1034,48 +1034,48 @@ THUMB_FUNC BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2)
 
 THUMB_FUNC void MOD59_021D84E8(MOD59_OverlayData *data)
 {
-    data->unk8C = 0;
-    data->unk8D = 0;
-    data->unk8E = 0;
-    data->unk8F = 0;
+    data->maleAnimCounter = 0;
+    data->maleAnimTimer = 0;
+    data->femaleAnimCounter = 0;
+    data->femaleAnimTimer = 0;
 }
 
 THUMB_FUNC void MOD59_021D8504(MOD59_OverlayData *data)
 {
-    u32 unk0;
-    if (data->unk84 == 0)
+    u32 timer;
+    if (data->selectedGender == Male)
     {
-        if (data->unk8D != 0)
+        if (data->maleAnimTimer != 0)
         {
-            unk0 = data->unk8D - 1;
+            timer = data->maleAnimTimer - 1;
         }
         else
         {
-            data->unk8C++;
-            data->unk8C &= 3;
-            unk0 = 4;
+            data->maleAnimCounter++;
+            data->maleAnimCounter &= 3;
+            timer = 4;
         }
-        data->unk8D = unk0;
+        data->maleAnimTimer = timer;
         G2x_SetBlendAlpha_(&reg_G2_BLEND, 4, 8, 6, 10);
         struct MOD59_CharStruct021D9DEC charStruct = MOD59_021D9DEC;
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->unk8C], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->maleAnimCounter], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
     }
     else
     {
-        if(data->unk8F != 0)
+        if(data->femaleAnimTimer != 0)
         {
-            unk0 = data->unk8F - 1;
+            timer = data->femaleAnimTimer - 1;
         }
         else
         {
-            data->unk8E++;
-            data->unk8E &= 3;
-            unk0 = 4;
+            data->femaleAnimCounter++;
+            data->femaleAnimCounter &= 3;
+            timer = 4;
         }
-        data->unk8F = unk0;
+        data->femaleAnimTimer = timer;
         G2x_SetBlendAlpha_(&reg_G2_BLEND, 2, 8, 6, 10);
         struct MOD59_CharStruct021D9DEC charStruct = MOD59_021D9DFC;
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->unk8E], data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->femaleAnimCounter], data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
     }
 }
 
@@ -1087,28 +1087,28 @@ THUMB_FUNC void MOD59_DisableBlend(MOD59_OverlayData *data)
 
 THUMB_FUNC void MOD59_021D8624(MOD59_OverlayData *data)
 {
-    data->unk94 = 0;
-    data->unk98 = 0;
+    data->spriteDataIndex2 = 0;
+    data->spriteData2Timer = 0;
 }
 
 THUMB_FUNC BOOL MOD59_021D8634(MOD59_OverlayData *data)
 {
     BOOL ret = FALSE;
-    u32 unk0;
-    if (data->unk98 != 0)
+    u32 timer;
+    if (data->spriteData2Timer != 0)
     {
-        unk0 = data->unk98 - 1;
+        timer = data->spriteData2Timer - 1;
     }
     else
     {
-        data->unk94++;
-        unk0 = 8;
+        data->spriteDataIndex2++;
+        timer = 8;
     }
-    data->unk98 = unk0;
+    data->spriteData2Timer = timer;
     struct MOD59_CharStruct021D9E70 charStruct;
     struct MOD59_CharStruct021D9E70 charStruct2;
     const struct MOD59_CharStruct021D9E70 *addr;
-    if (data->unk84 == 0)
+    if (data->selectedGender == Male)
     {
         charStruct = MOD59_021D9E88;
         addr = &charStruct;
@@ -1118,13 +1118,13 @@ THUMB_FUNC BOOL MOD59_021D8634(MOD59_OverlayData *data)
         charStruct2 = MOD59_021D9E70;
         addr = &charStruct2;
     }
-    if (addr->charData[data->unk94] == 255)
+    if (addr->charData[data->spriteDataIndex2] == 255)
     {
         ret = TRUE;
     }
     else
     {
-        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, addr->charData[data->unk94], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, addr->charData[data->spriteDataIndex2], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
     }
     return ret;
 }
@@ -1561,7 +1561,7 @@ THUMB_FUNC void MOD59_021D8914(MOD59_OverlayData *data)
 THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
 {
     BOOL ret = FALSE;
-    switch (data->unk0C)
+    switch (data->controllerCounter)
     {
         case 0: //load
             FUN_0200433C(2, SEQ_OPENING, 1);
@@ -1569,7 +1569,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
-            data->unk0C = 1;
+            data->controllerCounter = 1;
             break;
 
         case 1: //some kinda of wait/fade?
@@ -1581,7 +1581,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 2;
+            data->controllerCounter = 2;
             break;
 
         case 2: //Hello there! It’s so very nice to meet you!
@@ -1589,19 +1589,19 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 3;
+            data->controllerCounter = 3;
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             break;
 
         case 3: //play SE, make rowan visible
             FUN_0200521C(SEQ_OPENING);
-            data->unk89 = 1;
-            data->unk8A = 0;
+            data->spriteDataIndex0 = 1;
+            data->spriteDataIndex1 = 0;
             MOD59_021D8140(data);
             ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
             FUN_0200E1D0(3, 1, 1, 0, 16, 4, data->heap_id);
-            data->unk0C = 4;
+            data->controllerCounter = 4;
             break;
 
         case 4: //??
@@ -1609,7 +1609,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 5;
+            data->controllerCounter = 5;
             break;
 
         case 5: //My name is Rowan. However, everyone just calls me the Pokémon Professor.
@@ -1617,7 +1617,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 6;
+            data->controllerCounter = 6;
             break;
 
         case 6: //move rowan to the right
@@ -1625,7 +1625,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 7;
+            data->controllerCounter = 7;
             break;
 
         case 7: //help menu input handler
@@ -1633,28 +1633,28 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            switch (data->listMenuInput) //may be chain of ifs
+            switch (data->listMenuInput)
             {
                 case 1: //Control Info
-                    data->unk10 = 10;
-                    data->unk0C = 8;
+                    data->nextControllerCounter = 10;
+                    data->controllerCounter = 8;
                     break;
 
                 case 2: //Adventure Info
-                    data->unk10 = 31;
-                    data->unk0C = 8;
+                    data->nextControllerCounter = 31;
+                    data->controllerCounter = 8;
                     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
                     break;
 
                 case 3: //No Info Needed
-                    data->unk0C = 41;
+                    data->controllerCounter = 41;
                     break;
             }
             break;
 
         case 8: //graphics adjust?
             FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
-            data->unk0C = 9;
+            data->controllerCounter = 9;
             break;
 
         case 9: //Clear screen of rowan
@@ -1664,16 +1664,16 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             }
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);
-            data->unk0C = data->unk10;
+            data->controllerCounter = data->nextControllerCounter;
             break;
 
         case 10: //load screen and palette data
-            data->unk88 = 1;
+            data->scrnDataIndex0 = 1;
             MOD59_021D80FC(data);
-            data->unk8B = 1;
+            data->scrnDataIndex1 = 1;
             MOD59_021D8234(data);
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
-            data->unk0C = 11;
+            data->controllerCounter = 11;
             break;
 
         case 11: //??
@@ -1681,7 +1681,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 12;
+            data->controllerCounter = 12;
             break;
 
         case 12: //Moves the main character. Also used to choose various headings and selections.
@@ -1689,13 +1689,13 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 13;
+            data->controllerCounter = 13;
             break;
 
         case 13: //load screen data
-            data->unk88 = 2;
+            data->scrnDataIndex0 = 2;
             MOD59_021D80FC(data);
-            data->unk0C = 14;
+            data->controllerCounter = 14;
             break;
 
         case 14: //Press to open the menu.  Press to use an item,
@@ -1703,13 +1703,13 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 15;
+            data->controllerCounter = 15;
             break;
 
         case 15: //load screen data
-            data->unk88 = 3;
+            data->scrnDataIndex0 = 3;
             MOD59_021D80FC(data);
-            data->unk0C = 16;
+            data->controllerCounter = 16;
             break;
 
         case 16: //The lower screen is called the Touch Screen.
@@ -1717,7 +1717,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 17;
+            data->controllerCounter = 17;
             break;
 
         case 17: //Use DisplayMessage to create the flashing toucscreen icon ({YESNO 0})
@@ -1725,7 +1725,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 18;
+            data->controllerCounter = 18;
             break;
 
         case 18: //If this mark is shown in the message window
@@ -1733,13 +1733,13 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 19;
+            data->controllerCounter = 19;
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             break;
 
         case 19: //toggle layer 0 (no idea whats in here)
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
-            data->unk0C = 20;
+            data->controllerCounter = 20;
             break;
 
         case 20: //Do you understand everything so far?{YESNO 0}
@@ -1747,7 +1747,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 21;
+            data->controllerCounter = 21;
             break;
 
         case 21: //Display Yes/No touchscreen buttons
@@ -1764,15 +1764,15 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             arr[0] = (u32)data->bgConfig;
             FUN_020145C8(data->unk68, arr);
             ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_ON);
-            data->unk8B = 3;
+            data->scrnDataIndex1 = 3;
             MOD59_021D8234(data);
-            data->unk0C = 22;
+            data->controllerCounter = 22;
             break;
 
         case 22: //check input
             if (gMain.newKeys != 0)
             {
-                data->unk0C = 27;
+                data->controllerCounter = 27;
                 break;
             }
             else
@@ -1781,7 +1781,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 {
                     break;
                 }
-                data->unk0C = 23;
+                data->controllerCounter = 23;
                 break;
             }
 
@@ -1789,11 +1789,11 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             switch (FUN_02014630(data->unk68))
             {
                 case 1:
-                    data->unk0C = 24;
+                    data->controllerCounter = 24;
                     break;
 
                 case 2:
-                    data->unk0C = 26;
+                    data->controllerCounter = 26;
                     break;
             }
             break;
@@ -1805,7 +1805,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             }
             FUN_020146C4(data->unk68);
             FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
-            data->unk0C = 25;
+            data->controllerCounter = 25;
             break;
 
         case 25: //graphics adjust
@@ -1814,7 +1814,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
-            data->unk0C = 28;
+            data->controllerCounter = 28;
             break;
 
         case 26: //reload initial screen data for help
@@ -1824,11 +1824,11 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             }
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             FUN_020146C4(data->unk68);
-            data->unk88 = 1;
+            data->scrnDataIndex0 = 1;
             MOD59_021D80FC(data);
-            data->unk8B = 1;
+            data->scrnDataIndex1 = 1;
             MOD59_021D8234(data);
-            data->unk0C = 12;
+            data->controllerCounter = 12;
             break;
 
         case 27: //Please touch a button on the Touch Screen below.{YESNO 0}
@@ -1836,18 +1836,18 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 22;
+            data->controllerCounter = 22;
             break;
 
         case 28: //redisplay rowan
-            data->unk88 = 0;
+            data->scrnDataIndex0 = 0;
             MOD59_021D80FC(data);
-            data->unk8B = 0;
+            data->scrnDataIndex1 = 0;
             MOD59_021D8234(data);
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
-            data->unk0C = 29;
+            data->controllerCounter = 29;
             break;
 
         case 29: //graphics adjust
@@ -1855,7 +1855,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 30;
+            data->controllerCounter = 30;
             break;
 
         case 30: //Would you like to know more about anything else?
@@ -1863,16 +1863,16 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 6;
+            data->controllerCounter = 6;
             break;
 
         case 31:
-            data->unk88 = 4;
+            data->scrnDataIndex0 = 4;
             MOD59_021D80FC(data);
-            data->unk8B = 2;
+            data->scrnDataIndex1 = 2;
             MOD59_021D8234(data);
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
-            data->unk0C = 32;
+            data->controllerCounter = 32;
             break;
 
         case 32:
@@ -1880,7 +1880,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 33;
+            data->controllerCounter = 33;
             break;
 
         case 33:
@@ -1888,7 +1888,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 34;
+            data->controllerCounter = 34;
             break;
 
         case 34:
@@ -1896,7 +1896,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 35;
+            data->controllerCounter = 35;
             break;
 
         case 35:
@@ -1904,7 +1904,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 36;
+            data->controllerCounter = 36;
             break;
 
         case 36:
@@ -1912,7 +1912,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 37;
+            data->controllerCounter = 37;
             break;
 
         case 37:
@@ -1920,7 +1920,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 38;
+            data->controllerCounter = 38;
             break;
 
         case 38:
@@ -1928,12 +1928,12 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 39;
+            data->controllerCounter = 39;
             break;
 
         case 39:
             FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
-            data->unk0C = 40;
+            data->controllerCounter = 40;
             break;
 
         case 40:
@@ -1943,7 +1943,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             }
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
-            data->unk0C = 28;
+            data->controllerCounter = 28;
             break;
 
         case 41:
@@ -1951,7 +1951,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 42;
+            data->controllerCounter = 42;
             break;
 
         case 42: //This world is widely inhabited by creatures known as Pokémon.
@@ -1959,12 +1959,12 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 43;
+            data->controllerCounter = 43;
             break;
 
         case 43: //graphics adjust
             FUN_0200E1D0(4, 0, 0, 0, 6, 1, data->heap_id);
-            data->unk0C = 44;
+            data->controllerCounter = 44;
             break;
 
         case 44:
@@ -1973,11 +1973,11 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             MOD59_021D83F8(data); // load button?
-            data->unk8B = 4;
+            data->scrnDataIndex1 = 4;
             MOD59_021D8234(data);
             ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_ON);
             FUN_0200E1D0(4, 1, 1, 0, 6, 1, data->heap_id);
-            data->unk0C = 45;
+            data->controllerCounter = 45;
             break;
 
         case 45:
@@ -1985,7 +1985,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 46;
+            data->controllerCounter = 46;
             break;
 
         case 46:// Here, I have a Poké Ball. Touch the button on the middle
@@ -1993,16 +1993,16 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 47;
+            data->controllerCounter = 47;
             break;
 
         case 47: //test touch location
             if (MOD59_021D7730() == TRUE)
             {
-                data->unk94 = 0;
-                data->unk98 = 0;
+                data->spriteDataIndex2 = 0;
+                data->spriteData2Timer = 0;
                 BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
-                data->unk0C = 48;
+                data->controllerCounter = 48;
             }
             else
             {
@@ -2010,14 +2010,14 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 {
                     break;
                 }
-                data->unk0C = 49;
+                data->controllerCounter = 49;
             }
             break;
 
         case 48: //load graphics
-            if (data->unk98 != 0)
+            if (data->spriteData2Timer != 0)
             {
-                data->unk98--;
+                data->spriteData2Timer--;
                 break;
             }
 #ifdef __MWERKS__
@@ -2030,16 +2030,16 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 arr2[i] = MOD59_021D9DC0[i];
             }
 #endif
-            if (arr2[data->unk94] == 0xFFFF)
+            if (arr2[data->spriteDataIndex2] == 0xFFFF)
             {
                 PlaySE(SEQ_SE_DP_BOWA2);
-                data->unk0C = 50;
+                data->controllerCounter = 50;
             }
             else
             {
-                GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, arr2[data->unk94], data->bgConfig, GF_BG_LYR_SUB_2, 32, 0, FALSE, data->heap_id);
-                data->unk94++;
-                data->unk98 = 4;
+                GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, arr2[data->spriteDataIndex2], data->bgConfig, GF_BG_LYR_SUB_2, 32, 0, FALSE, data->heap_id);
+                data->spriteDataIndex2++;
+                data->spriteData2Timer = 4;
             }
             break;
 
@@ -2048,13 +2048,13 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 47;
+            data->controllerCounter = 47;
             break;
 
         case 50: //flash
             StartBrightnessTransition(1, 16, 0, 11, 1); //main screen
             StartBrightnessTransition(1, 16, 0, 13, 2); //sub screen (should be a mask enum)
-            data->unk0C = 51;
+            data->controllerCounter = 51;
             break;
 
         case 51: //unflash
@@ -2064,7 +2064,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             }
             StartBrightnessTransition(1, 0, 16, 11, 1); //main screen
             StartBrightnessTransition(1, 0, 16, 13, 2); //sub screen
-            data->unk0C = 52;
+            data->controllerCounter = 52;
             break;
 
         case 52: //flash
@@ -2074,7 +2074,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             }
             StartBrightnessTransition(4, 16, 0, 11, 1); //main screen
             StartBrightnessTransition(4, 16, 0, 13, 2); //sub screen
-            data->unk0C = 53;
+            data->controllerCounter = 53;
             break;
 
         case 53: //wait for transition
@@ -2082,36 +2082,36 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 54;
+            data->controllerCounter = 54;
             break;
 
         case 54: //spawn munchlax and unflash
             MOD59_021D82A0(data);
             ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
-            data->unk94 = 0;
-            MOD59_021D86BC(data, &data->unk94);
-            data->unk8B = 0;
+            data->spriteDataIndex2 = 0;
+            MOD59_021D86BC(data, &data->spriteDataIndex2);
+            data->scrnDataIndex1 = 0;
             MOD59_021D8234(data);
             StartBrightnessTransition(16, 0, 16, 11, 1); //main screen
             StartBrightnessTransition(16, 0, 16, 13, 2); //sub screen
-            data->unk0C = 55;
+            data->controllerCounter = 55;
             break;
 
         case 55: //movement and wait for transition
-            MOD59_021D86BC(data, &data->unk94);
+            MOD59_021D86BC(data, &data->spriteDataIndex2);
             if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
             {
                 break;
             }
-            data->unk0C = 56;
+            data->controllerCounter = 56;
             break;
 
         case 56: //finish movement
-            if (MOD59_021D86BC(data, &data->unk94) != TRUE)
+            if (MOD59_021D86BC(data, &data->spriteDataIndex2) != TRUE)
             {
                 break;
             }
-            data->unk0C = 57;
+            data->controllerCounter = 57;
             break;
 
         case 57: //wait
@@ -2119,7 +2119,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 58;
+            data->controllerCounter = 58;
             break;
 
         case 58: // We humans live alongside Pokémon as friends. At times we play together,
@@ -2128,7 +2128,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
-            data->unk0C = 59;
+            data->controllerCounter = 59;
             break;
 
         case 59: //adjust BG priority
@@ -2137,7 +2137,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             MOD59_021D8914(data);
-            data->unk0C = 60;
+            data->controllerCounter = 60;
             break;
 
         case 60: //wait
@@ -2145,7 +2145,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 61;
+            data->controllerCounter = 61;
             break;
 
         case 61: //Now, why don’t you tell me a little bit about yourself?
@@ -2153,7 +2153,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 62;
+            data->controllerCounter = 62;
             break;
 
         case 62: //set blend
@@ -2161,17 +2161,17 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 63;
+            data->controllerCounter = 63;
             break;
 
         case 63: //load and setup boy/girl frontsprites
             MOD59_021D84E8(data);
-            data->unk89 = 2;
-            data->unk8A = 6;
+            data->spriteDataIndex0 = 2;
+            data->spriteDataIndex1 = 6;
             MOD59_021D8140(data);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, -48);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_X, 48);
-            data->unk0C = 64;
+            data->controllerCounter = 64;
             break;
 
         case 64: //set blend
@@ -2179,7 +2179,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 65;
+            data->controllerCounter = 65;
             break;
 
         case 65: //set blend
@@ -2187,7 +2187,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 66;
+            data->controllerCounter = 66;
             break;
 
         case 66: //Are you a boy? Or are you a girl?
@@ -2195,8 +2195,8 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk84 = 0;
-            data->unk0C = 67;
+            data->selectedGender = Male;
+            data->controllerCounter = 67;
             break;
 
         case 67: //handle gender selection + animation
@@ -2204,20 +2204,20 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 data->unk7C = 6;
                 data->unk80 = 10;
-                data->unk78 = 2;
-                if (data->unk84 == 0)
+                data->fadeCounter = 2;
+                if (data->selectedGender == Male)
                 {
-                    data->unk0C = 68;
+                    data->controllerCounter = 68;
                 }
                 else
                 {
-                    data->unk0C = 70;
+                    data->controllerCounter = 70;
                 }
                 break;
             }
             if ((gMain.newKeys & PAD_KEY_LEFT) == 0x20 || (gMain.newKeys & PAD_KEY_RIGHT) == 0x10)
             {
-                data->unk84 = (data->unk84 == 0 ? 1 : 0);
+                data->selectedGender = (data->selectedGender == Male ? Female : Male);
                 PlaySE(SEQ_SE_DP_SELECT);
             }
             MOD59_021D8504(data); //animate sprite
@@ -2228,7 +2228,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 69;
+            data->controllerCounter = 69;
             break;
 
         case 69: //move sprite to centre
@@ -2237,7 +2237,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             MOD59_DisableBlend(data);
-            data->unk0C = 72;
+            data->controllerCounter = 72;
             break;
 
         case 70: //set blend
@@ -2245,7 +2245,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 71;
+            data->controllerCounter = 71;
             break;
 
         case 71: //move sprite to centre
@@ -2254,16 +2254,16 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             MOD59_DisableBlend(data);
-            data->unk0C = 72;
+            data->controllerCounter = 72;
             break;
 
         case 72: //All right, so you’re a boy/girl?
-            u32 msgNo = data->unk84 == 0 ? 22 : 23;
+            u32 msgNo = data->selectedGender == Male ? 22 : 23;
             if (MOD59_DisplayMessage(data, msgNo, 1) != TRUE)
             {
                 break;
             }
-            data->unk0C = 73;
+            data->controllerCounter = 73;
             break;
 
         case 73: //YES/NO
@@ -2274,24 +2274,24 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             switch (data->listMenuInput)
             {
                 case 1:
-                    data->unk0C = 75;
+                    data->controllerCounter = 75;
                     break;
 
                 case -2:
                 case 2:
                     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
-                    data->unk0C = 74;
+                    data->controllerCounter = 74;
                     break;
             }
             break;
 
         case 74: //reset blend
-            enum GFBgLayer layer = ((data->unk84 == 0) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
+            enum GFBgLayer layer = ((data->selectedGender == Male) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
             if (MOD59_021D7A68(data, layer, 1) != TRUE)
             {
                 break;
             }
-            data->unk0C = 63;
+            data->controllerCounter = 63;
             break;
 
         case 75: //Tell me, what is your name?
@@ -2299,20 +2299,20 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 76;
+            data->controllerCounter = 76;
             break;
 
         case 76: //load keyboard overlay (except this is not an overlay at all)
-            data->playerStruct->gender = data->unk84;
-            data->unk14 = OverlayManager_new(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heap_id);
-            data->unk0C = 77;
+            data->playerStruct->gender = data->selectedGender;
+            data->loadedOverlay = OverlayManager_new(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heap_id);
+            data->controllerCounter = 77;
             break;
 
         case 77: //toggle bg layers and position
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
-            if (data->unk84 == 0)
+            if (data->selectedGender == Male)
             {
                 ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
                 BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
@@ -2323,7 +2323,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_X, 0);
             }
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
-            data->unk0C = 78;
+            data->controllerCounter = 78;
             break;
 
         case 78: //graphics adjust
@@ -2331,16 +2331,16 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 79;
+            data->controllerCounter = 79;
             break;
 
         case 79: //Your name is {STRVAR_1 3, 0}?
-            u32 messageNumber = (data->unk84 == 0 ? 25 : 26); //no idea why these are different strings, they contain the same thing
+            u32 messageNumber = (data->selectedGender == Male ? 25 : 26); //no idea why these are different strings, they contain the same thing
             if (MOD59_DisplayMessage(data, messageNumber, 1) != TRUE)
             {
                 break;
             }
-            data->unk0C = 80;
+            data->controllerCounter = 80;
             break;
 
         case 80: //YES/NO
@@ -2352,33 +2352,33 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             switch (data->listMenuInput)
             {
                 case 1:
-                    data->unk10 = 82;
-                    data->unk0C = 81;
+                    data->nextControllerCounter = 82;
+                    data->controllerCounter = 81;
                     break;
 
                 case -2:
                 case 2:
                     StringSetEmpty(data->playerStruct->name);
-                    data->unk10 = 63;
-                    data->unk0C = 81;
+                    data->nextControllerCounter = 63;
+                    data->controllerCounter = 81;
                     break;
             }
             break;
 
         case 81: //blend adjust
-            enum GFBgLayer layer2 = ((data->unk84 == 0) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
+            enum GFBgLayer layer2 = ((data->selectedGender == Male) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
             if (MOD59_021D7A68(data, layer2, 1) != TRUE)
             {
                 break;
             }
-            data->unk0C = data->unk10;
+            data->controllerCounter = data->nextControllerCounter;
             break;
 
         case 82: //load sprite
-            data->unk89 = 1;
-            data->unk8A = 0;
+            data->spriteDataIndex0 = 1;
+            data->spriteDataIndex1 = 0;
             MOD59_021D8140(data);
-            data->unk0C = 83;
+            data->controllerCounter = 83;
             break;
 
         case 83: //blend adjust
@@ -2386,7 +2386,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 84;
+            data->controllerCounter = 84;
             break;
 
         case 84: // OK... So, you’re {STRVAR_1 3, 0}? A fine name that is!
@@ -2394,7 +2394,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 85;
+            data->controllerCounter = 85;
             break;
 
         case 85: //blend adjust
@@ -2402,14 +2402,14 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 86;
+            data->controllerCounter = 86;
             break;
 
         case 86:
-            data->unk89 = 10;
-            data->unk8A = 0;
+            data->spriteDataIndex0 = 10;
+            data->spriteDataIndex1 = 0;
             MOD59_021D8140(data);
-            data->unk0C = 87;
+            data->controllerCounter = 87;
             break;
 
         case 87: //blend adjust
@@ -2417,7 +2417,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 88;
+            data->controllerCounter = 88;
             break;
 
         case 88: //What might his name be?
@@ -2425,7 +2425,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 89;
+            data->controllerCounter = 89;
             break;
 
         case 89: //move sprite
@@ -2433,7 +2433,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 90;
+            data->controllerCounter = 90;
             break;
 
         case 90: //rival name list
@@ -2448,7 +2448,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                     break;
 
                 case 1: //New Name!
-                    data->unk0C = 92;
+                    data->controllerCounter = 92;
                     break;
 
                 case 2: //Barry/Clint
@@ -2472,7 +2472,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                     struct String *name = NewString_ReadMsgData(data->msgData, msgNo);
                     StringCopy(data->rivalStruct->name, name);
                     String_dtor(name);
-                    data->unk0C = 91;
+                    data->controllerCounter = 91;
                     break;
             }
             break;
@@ -2482,12 +2482,12 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 95;
+            data->controllerCounter = 95;
             break;
 
         case 92: //load keyboard
-            data->unk14 = OverlayManager_new(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heap_id);
-            data->unk0C = 93;
+            data->loadedOverlay = OverlayManager_new(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heap_id);
+            data->controllerCounter = 93;
             break;
 
         case 93: //toggle layers and position
@@ -2497,7 +2497,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
-            data->unk0C = 94;
+            data->controllerCounter = 94;
             break;
 
         case 94: //graphics adjust
@@ -2505,7 +2505,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 95;
+            data->controllerCounter = 95;
             break;
 
         case 95: //{STRVAR_1 3, 1}, is it? That’s your friend’s name?
@@ -2513,7 +2513,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 96;
+            data->controllerCounter = 96;
             break;
 
         case 96: //YES/NO
@@ -2525,13 +2525,13 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 case 1:
                     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
-                    data->unk0C = 97;
+                    data->controllerCounter = 97;
                     break;
 
                 case -2:
                 case 2:
                     StringSetEmpty(data->rivalStruct->name);
-                    data->unk0C = 88;
+                    data->controllerCounter = 88;
                     break;
             }
             break;
@@ -2541,14 +2541,14 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 98;
+            data->controllerCounter = 98;
             break;
 
         case 98: //load sprite
-            data->unk89 = 1;
-            data->unk8A = 0;
+            data->spriteDataIndex0 = 1;
+            data->spriteDataIndex1 = 0;
             MOD59_021D8140(data);
-            data->unk0C = 99;
+            data->controllerCounter = 99;
             break;
 
         case 99: //send blend
@@ -2556,7 +2556,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 100;
+            data->controllerCounter = 100;
             break;
 
         case 100: //wait
@@ -2564,7 +2564,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 101;
+            data->controllerCounter = 101;
             break;
 
         case 101: //All right, {STRVAR_1 3, 0}, the time has come. Your very own tale of grand...
@@ -2573,7 +2573,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             FUN_020053CC(0, 50); //fade music
-            data->unk0C = 102;
+            data->controllerCounter = 102;
             break;
 
         case 102: //set blend
@@ -2582,7 +2582,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
-            data->unk0C = 103;
+            data->controllerCounter = 103;
             break;
 
         case 103: //wait
@@ -2590,23 +2590,23 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 104;
+            data->controllerCounter = 104;
             break;
 
         case 104: //load sprite
-            if (data->unk84 == 0)
+            if (data->selectedGender == Male)
             {
-                data->unk89 = 2;
-                data->unk8A = 0;
+                data->spriteDataIndex0 = 2;
+                data->spriteDataIndex1 = 0;
                 MOD59_021D8140(data);
             }
             else
             {
-                data->unk89 = 6;
-                data->unk8A = 0;
+                data->spriteDataIndex0 = 6;
+                data->spriteDataIndex1 = 0;
                 MOD59_021D8140(data);
             }
-            data->unk0C = 105;
+            data->controllerCounter = 105;
             break;
 
         case 105: //set blend
@@ -2615,7 +2615,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 break;
             }
             MOD59_021D8624(data);
-            data->unk0C = 106;
+            data->controllerCounter = 106;
             break;
 
         case 106: //wait
@@ -2623,7 +2623,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 107;
+            data->controllerCounter = 107;
             break;
 
         case 107: //load sprites
@@ -2631,12 +2631,12 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            data->unk0C = 108;
+            data->controllerCounter = 108;
             break;
 
         case 108: //load overaly 59 pt 2
-            data->unk14 = OverlayManager_new(&MOD59_021D9DDC, 0, data->heap_id);
-            data->unk0C = 109;
+            data->loadedOverlay = OverlayManager_new(&MOD59_021D9DDC, 0, data->heap_id);
+            data->controllerCounter = 109;
             break;
 
         case 109:
