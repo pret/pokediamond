@@ -40,12 +40,9 @@ extern const struct WindowTemplate MOD59_021D9DA8;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C;
 extern const struct WindowTemplate MOD59_021D9DB0;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E58;
-extern const struct WindowTemplate MOD59_021D9DA0;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F40;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F68;
 extern const struct ListMenuTemplate MOD59_021D9EF8;
-
-extern const struct MOD59_WindowTemplateGroup MOD59_021D9D90;
 
 extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
 
@@ -60,6 +57,39 @@ extern const u16 MOD59_021D9ED8[0x10];
 
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E70;
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E88;
+
+const struct WindowTemplate MOD59_021D9D98 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 4,
+        .tilemapTop = 0,
+        .width = 24,
+        .height = 24,
+        .paletteNum = 5,
+        .baseTile = 301,
+    };
+
+const struct WindowTemplate MOD59_021D9D90 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 8,
+        .tilemapTop = 0,
+        .width = 24,
+        .height = 24,
+        .paletteNum = 5,
+        .baseTile = 301,
+    };
+
+const struct WindowTemplate MOD59_021D9DA0 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 3,
+        .width = 14,
+        .height = 10,
+        .paletteNum = 5,
+        .baseTile = 737,
+    };
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
@@ -652,7 +682,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u3
             struct WindowTemplate template;
             if (param2 == 1)
             {
-                template = MOD59_021D9D90.template2;
+                template = MOD59_021D9D98;
                 u32 count = FUN_02002F90(data->string);
                 template.tilemapTop = 12 - count;
                 template.height = count * 2;
@@ -662,7 +692,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u3
             }
             else
             {
-                template = MOD59_021D9D90.template1;
+                template = MOD59_021D9D90;
                 template.tilemapTop = tilemapTop;
                 template.height = height;
                 AddWindow(data->bgConfig, &data->window, &template);
