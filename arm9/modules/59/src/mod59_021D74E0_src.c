@@ -49,6 +49,7 @@ extern const struct MOD59_WindowTemplateGroup MOD59_021D9D90;
 
 extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
 
+extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C;
 extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30;
 
 extern const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC;
@@ -59,8 +60,6 @@ extern const u16 MOD59_021D9ED8[0x10];
 
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E70;
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E88;
-
-extern u32 MOD59_021D9E1C[5];
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
@@ -102,10 +101,10 @@ THUMB_FUNC BOOL MOD59_Init(struct UnkStruct_02006234 *param0)
     data->loadedOverlay = NULL;
     data->playerStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 0, 0, 7, data->options);
     data->rivalStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 3, 0, 7, data->options);
-    data->scrnDataIndex0 = 0;
+    data->scrnDataIndexMain = 0;
     data->spriteDataIndex0 = 0;
     data->spriteDataIndex1 = 0;
-    data->scrnDataIndex1 = 0;
+    data->scrnDataIndexSub = 0;
     data->tickTimer = 0;
     return TRUE;
 }
@@ -136,7 +135,7 @@ THUMB_FUNC BOOL MOD59_Main(struct UnkStruct_02006234 *overlayStruct, u32 *param1
             MOD59_SetupMsg(data);
             MOD59_021D7A4C(data);
 
-            Main_SetVBlankIntrCB((void (*)(void *))MOD59_021D7724, data);
+            Main_SetVBlankIntrCB((void (*)(void *))MOD59_DoGpuBgUpdate, data);
 
             GX_BothDispOn();
 
@@ -214,7 +213,7 @@ THUMB_FUNC BOOL MOD59_Main(struct UnkStruct_02006234 *overlayStruct, u32 *param1
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0)
+THUMB_FUNC BOOL MOD59_Exit(struct UnkStruct_02006234 *param0)
 {
     MOD59_OverlayData *data = (MOD59_OverlayData *) OverlayManager_GetData(param0);
 
@@ -235,12 +234,12 @@ THUMB_FUNC BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0)
     return TRUE;
 }
 
-THUMB_FUNC void MOD59_021D7724(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_DoGpuBgUpdate(MOD59_OverlayData *data)
 {
     DoScheduledBgGpuUpdates(data->bgConfig);
 }
 
-THUMB_FUNC BOOL MOD59_021D7730(void)
+THUMB_FUNC BOOL MOD59_TestPokeballTouchLocation(void)
 {
     BOOL ret = FALSE;
 
@@ -327,7 +326,7 @@ THUMB_FUNC void MOD59_SetupBg(MOD59_OverlayData *data)
     ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
     ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_OFF);
 
-    MOD59_021D8058(data);
+    MOD59_LoadInitialTilemap(data);
     data->fadeCounter = 0;
 }
 
@@ -388,7 +387,7 @@ THUMB_FUNC void MOD59_021D7A5C(MOD59_OverlayData *data) //MOD59_Destroy... somet
     FUN_020145A8(data->unk68);
 }
 
-THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 bgId, u32 param2)
+THUMB_FUNC BOOL MOD59_FadeController(MOD59_OverlayData *data, u32 bgId, u32 param2)
 {
     BOOL subScreen;
     s32 var1;
@@ -496,7 +495,7 @@ THUMB_FUNC BOOL MOD59_021D7A68(MOD59_OverlayData *data, u32 bgId, u32 param2)
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_021D7BEC(MOD59_OverlayData *data, s32 timer)
+THUMB_FUNC BOOL MOD59_Timer(MOD59_OverlayData *data, s32 timer)
 {
     if (data->tickTimer < timer)
     {
@@ -562,7 +561,7 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_OverlayData *data, u32 msgNo, u32 par
     return ret;
 }
 
-THUMB_FUNC void MOD59_021D7D68(struct ListMenu *list, s32 index, u8 onInit)
+THUMB_FUNC void MOD59_PlaySelectSound(struct ListMenu *list, s32 index, u8 onInit)
 {
     if (onInit == 0)
     {
@@ -617,7 +616,7 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u3
             template.items = data->listMenuItem;
             template.totalItems = (u16)menuItemsCount;
             template.maxShowed = (u16)menuItemsCount;
-            template.moveCursorFunc = MOD59_021D7D68;
+            template.moveCursorFunc = MOD59_PlaySelectSound;
             template.window = &data->listWindow;
             data->listMenu = ListMenuInit(&template, 0, 0, (u8)data->heap_id);
             DrawFrameAndWindow1(template.window, TRUE, 985, 3);
@@ -678,7 +677,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u3
             data->displayControlMessageCounter = 2;
             break;
         case 2:
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_0, 0) == TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_0, 0) == TRUE)
             {
                 data->displayControlMessageCounter = 3;
             }
@@ -692,7 +691,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u3
             data->displayControlMessageCounter = 4;
             break;
         case 4:
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_0, 1) == TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_0, 1) == TRUE)
             {
                 data->displayControlMessageCounter = 5;
             }
@@ -706,7 +705,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u3
     return ret;
 }
 
-THUMB_FUNC void MOD59_021D8058(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_LoadInitialTilemap(MOD59_OverlayData *data)
 {
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0000_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, data->heap_id);
@@ -726,33 +725,24 @@ THUMB_FUNC void MOD59_021D8058(MOD59_OverlayData *data)
     }
     GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, pal1, GF_BG_LYR_MAIN_0, 0, 0x60, data->heap_id);
     GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, pal2, GF_BG_LYR_SUB_0, 0, 0xa0, data->heap_id);
-    MOD59_021D80FC(data);
-    MOD59_021D8140(data);
-    MOD59_021D8234(data);
+    MOD59_LoadMainScrnData(data);
+    MOD59_LoadCharDataFromIndex(data);
+    MOD59_LoadSubScrnData(data);
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, 0);
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);
 }
 
-THUMB_FUNC void MOD59_021D80FC(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_LoadMainScrnData(MOD59_OverlayData *data)
 {
-#ifdef __MWERKS__
-    u32 arr[5];
-    arr = MOD59_021D9E1C; // required for matching? this shouldn't be valid
-#else
-    u32 arr[5] = {};
-    for (int i = 0; i < 5; i++)
-    {
-        arr[i] = MOD59_021D9E1C[i];
-    }
-#endif
-    if (data->scrnDataIndex0 >= 5)
+    struct MOD59_UnkStruct021D9E30 scrnData = MOD59_021D9E1C;
+    if (data->scrnDataIndexMain >= 5)
     {
         return;
     }
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, arr[data->scrnDataIndex0], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndexMain], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
 }
 
-THUMB_FUNC void MOD59_021D8140(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_LoadCharDataFromIndex(MOD59_OverlayData *data)
 {
     struct MOD59_GraphicsPaletteMap021D9F90 graphicsPaletteMap = MOD59_021D9F90;
     if (data->spriteDataIndex0 != 0 && data->spriteDataIndex0 < 12)
@@ -771,26 +761,26 @@ THUMB_FUNC void MOD59_021D8140(MOD59_OverlayData *data)
     }
 }
 
-THUMB_FUNC void MOD59_021D8234(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_LoadSubScrnData(MOD59_OverlayData *data)
 {
     struct MOD59_UnkStruct021D9E30 scrnData = MOD59_021D9E30;
-    if (data->scrnDataIndex1 >= 5)
+    if (data->scrnDataIndexSub >= 5)
     {
         return;
     }
-    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndex1], data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
-    if (data->scrnDataIndex1 == 1)
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndexSub], data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
+    if (data->scrnDataIndexSub == 1)
     {
         MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_3, 3);
     }
-    else if (data->scrnDataIndex1 == 2)
+    else if (data->scrnDataIndexSub == 2)
     {
         MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_3, 2);
     }
 }
 
 #ifdef NONMATCHING
-THUMB_FUNC void MOD59_021D82A0(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_DrawMunchlax(MOD59_OverlayData *data)
 {
     struct SomeDrawPokemonStruct drawStruct;
     FUN_02068C00(&drawStruct, SPECIES_MUNCHLAX, MON_MALE, 2, FALSE, 0, 0);
@@ -822,7 +812,7 @@ THUMB_FUNC void MOD59_021D82A0(MOD59_OverlayData *data)
     FreeToHeap(src);
 }
 #else
-THUMB_FUNC asm void MOD59_021D82A0(MOD59_OverlayData *data)
+THUMB_FUNC asm void MOD59_DrawMunchlax(MOD59_OverlayData *data)
 {
     //clang-tidy off
     push {r3, r4, r5, r6, r7, lr}
@@ -974,7 +964,7 @@ _021D82C8:
 }
 #endif
 
-THUMB_FUNC void MOD59_021D83F8(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_LoadPokeballButton(MOD59_OverlayData *data)
 {
     GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0038_NSCR, data->bgConfig, GF_BG_LYR_SUB_2, 0, 0, FALSE, data->heap_id);
     MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_2, 9);
@@ -983,7 +973,7 @@ THUMB_FUNC void MOD59_021D83F8(MOD59_OverlayData *data)
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0030_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heap_id);
 }
 
-THUMB_FUNC BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2)
+THUMB_FUNC BOOL MOD59_MoveSprite(MOD59_OverlayData *data, u32 layer, u32 param2)
 {
     BOOL ret = FALSE;
     if (param2 == 0)
@@ -1032,7 +1022,7 @@ THUMB_FUNC BOOL MOD59_021D8460(MOD59_OverlayData *data, u32 layer, u32 param2)
     return ret;
 }
 
-THUMB_FUNC void MOD59_021D84E8(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_ResetPlayerAnimation(MOD59_OverlayData *data)
 {
     data->maleAnimCounter = 0;
     data->maleAnimTimer = 0;
@@ -1040,7 +1030,7 @@ THUMB_FUNC void MOD59_021D84E8(MOD59_OverlayData *data)
     data->femaleAnimTimer = 0;
 }
 
-THUMB_FUNC void MOD59_021D8504(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_AnimatePlayerSprite(MOD59_OverlayData *data)
 {
     u32 timer;
     if (data->selectedGender == Male)
@@ -1085,13 +1075,13 @@ THUMB_FUNC void MOD59_DisableBlend(MOD59_OverlayData *data)
     reg_G2_BLDCNT = 0;
 }
 
-THUMB_FUNC void MOD59_021D8624(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_ResetPlayerShrinkAnimation(MOD59_OverlayData *data)
 {
     data->spriteDataIndex2 = 0;
     data->spriteData2Timer = 0;
 }
 
-THUMB_FUNC BOOL MOD59_021D8634(MOD59_OverlayData *data)
+THUMB_FUNC BOOL MOD59_PlayerShrinkAnimation(MOD59_OverlayData *data)
 {
     BOOL ret = FALSE;
     u32 timer;
@@ -1130,7 +1120,7 @@ THUMB_FUNC BOOL MOD59_021D8634(MOD59_OverlayData *data)
 }
 
 #ifdef NONMATCHING
-THUMB_FUNC BOOL MOD59_021D86BC(MOD59_OverlayData *data, u32 *param1)
+THUMB_FUNC BOOL MOD59_MunchlaxJumpAnimation(MOD59_OverlayData *data, u32 *param1)
 {
     BOOL ret = FALSE;
     u32 b0;
@@ -1250,7 +1240,7 @@ THUMB_FUNC BOOL MOD59_021D86BC(MOD59_OverlayData *data, u32 *param1)
     return ret;
 }
 #else
-THUMB_FUNC asm BOOL MOD59_021D86BC(MOD59_OverlayData *data, u32 *param1)
+THUMB_FUNC asm BOOL MOD59_MunchlaxJumpAnimation(MOD59_OverlayData *data, u32 *param1)
 {
     //clang-tidy off
     push {r3, r4, r5, r6, r7, lr}
@@ -1552,7 +1542,7 @@ _021D890A:
 }
 #endif
 
-THUMB_FUNC void MOD59_021D8914(MOD59_OverlayData *data)
+THUMB_FUNC void MOD59_ResetMunchlaxPriority(MOD59_OverlayData *data)
 {
 #pragma unused (data)
     SetBgPriority(GF_BG_LYR_MAIN_2, 1);
@@ -1577,7 +1567,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            if (MOD59_021D7BEC(data, 40) != TRUE)
+            if (MOD59_Timer(data, 40) != TRUE)
             {
                 break;
             }
@@ -1597,7 +1587,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             FUN_0200521C(SEQ_OPENING);
             data->spriteDataIndex0 = 1;
             data->spriteDataIndex1 = 0;
-            MOD59_021D8140(data);
+            MOD59_LoadCharDataFromIndex(data);
             ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
             FUN_0200E1D0(3, 1, 1, 0, 16, 4, data->heap_id);
@@ -1621,7 +1611,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 6: //move rowan to the right
-            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            if (MOD59_MoveSprite(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
             {
                 break;
             }
@@ -1668,10 +1658,10 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 10: //load screen and palette data
-            data->scrnDataIndex0 = 1;
-            MOD59_021D80FC(data);
-            data->scrnDataIndex1 = 1;
-            MOD59_021D8234(data);
+            data->scrnDataIndexMain = 1;
+            MOD59_LoadMainScrnData(data);
+            data->scrnDataIndexSub = 1;
+            MOD59_LoadSubScrnData(data);
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
             data->controllerCounter = 11;
             break;
@@ -1693,8 +1683,8 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 13: //load screen data
-            data->scrnDataIndex0 = 2;
-            MOD59_021D80FC(data);
+            data->scrnDataIndexMain = 2;
+            MOD59_LoadMainScrnData(data);
             data->controllerCounter = 14;
             break;
 
@@ -1707,8 +1697,8 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 15: //load screen data
-            data->scrnDataIndex0 = 3;
-            MOD59_021D80FC(data);
+            data->scrnDataIndexMain = 3;
+            MOD59_LoadMainScrnData(data);
             data->controllerCounter = 16;
             break;
 
@@ -1764,8 +1754,8 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             arr[0] = (u32)data->bgConfig;
             FUN_020145C8(data->unk68, arr);
             ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_ON);
-            data->scrnDataIndex1 = 3;
-            MOD59_021D8234(data);
+            data->scrnDataIndexSub = 3;
+            MOD59_LoadSubScrnData(data);
             data->controllerCounter = 22;
             break;
 
@@ -1799,7 +1789,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 24: //cleanup control info
-            if (MOD59_021D7A68(data, GF_BG_LYR_SUB_2, 1) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_SUB_2, 1) != TRUE)
             {
                 break;
             }
@@ -1818,16 +1808,16 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 26: //reload initial screen data for help
-            if (MOD59_021D7A68(data, GF_BG_LYR_SUB_2, 1) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_SUB_2, 1) != TRUE)
             {
                 break;
             }
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             FUN_020146C4(data->unk68);
-            data->scrnDataIndex0 = 1;
-            MOD59_021D80FC(data);
-            data->scrnDataIndex1 = 1;
-            MOD59_021D8234(data);
+            data->scrnDataIndexMain = 1;
+            MOD59_LoadMainScrnData(data);
+            data->scrnDataIndexSub = 1;
+            MOD59_LoadSubScrnData(data);
             data->controllerCounter = 12;
             break;
 
@@ -1840,10 +1830,10 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 28: //redisplay rowan
-            data->scrnDataIndex0 = 0;
-            MOD59_021D80FC(data);
-            data->scrnDataIndex1 = 0;
-            MOD59_021D8234(data);
+            data->scrnDataIndexMain = 0;
+            MOD59_LoadMainScrnData(data);
+            data->scrnDataIndexSub = 0;
+            MOD59_LoadSubScrnData(data);
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
@@ -1867,10 +1857,10 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 31:
-            data->scrnDataIndex0 = 4;
-            MOD59_021D80FC(data);
-            data->scrnDataIndex1 = 2;
-            MOD59_021D8234(data);
+            data->scrnDataIndexMain = 4;
+            MOD59_LoadMainScrnData(data);
+            data->scrnDataIndexSub = 2;
+            MOD59_LoadSubScrnData(data);
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
             data->controllerCounter = 32;
             break;
@@ -1947,7 +1937,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 41:
-            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 2) != TRUE)
+            if (MOD59_MoveSprite(data, GF_BG_LYR_MAIN_1, 2) != TRUE)
             {
                 break;
             }
@@ -1972,9 +1962,9 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 break;
             }
-            MOD59_021D83F8(data); // load button?
-            data->scrnDataIndex1 = 4;
-            MOD59_021D8234(data);
+            MOD59_LoadPokeballButton(data);
+            data->scrnDataIndexSub = 4;
+            MOD59_LoadSubScrnData(data);
             ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_ON);
             FUN_0200E1D0(4, 1, 1, 0, 6, 1, data->heap_id);
             data->controllerCounter = 45;
@@ -1997,7 +1987,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 47: //test touch location
-            if (MOD59_021D7730() == TRUE)
+            if (MOD59_TestPokeballTouchLocation() == TRUE)
             {
                 data->spriteDataIndex2 = 0;
                 data->spriteData2Timer = 0;
@@ -2086,19 +2076,19 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 54: //spawn munchlax and unflash
-            MOD59_021D82A0(data);
+            MOD59_DrawMunchlax(data);
             ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
             data->spriteDataIndex2 = 0;
-            MOD59_021D86BC(data, &data->spriteDataIndex2);
-            data->scrnDataIndex1 = 0;
-            MOD59_021D8234(data);
+            MOD59_MunchlaxJumpAnimation(data, &data->spriteDataIndex2);
+            data->scrnDataIndexSub = 0;
+            MOD59_LoadSubScrnData(data);
             StartBrightnessTransition(16, 0, 16, 11, 1); //main screen
             StartBrightnessTransition(16, 0, 16, 13, 2); //sub screen
             data->controllerCounter = 55;
             break;
 
         case 55: //movement and wait for transition
-            MOD59_021D86BC(data, &data->spriteDataIndex2);
+            MOD59_MunchlaxJumpAnimation(data, &data->spriteDataIndex2);
             if (IsBrightnessTransitionActive(1) != TRUE || IsBrightnessTransitionActive(2) != TRUE)
             {
                 break;
@@ -2107,7 +2097,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 56: //finish movement
-            if (MOD59_021D86BC(data, &data->spriteDataIndex2) != TRUE)
+            if (MOD59_MunchlaxJumpAnimation(data, &data->spriteDataIndex2) != TRUE)
             {
                 break;
             }
@@ -2115,7 +2105,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 57: //wait
-            if (MOD59_021D7BEC(data, 40) != TRUE)
+            if (MOD59_Timer(data, 40) != TRUE)
             {
                 break;
             }
@@ -2131,17 +2121,17 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             data->controllerCounter = 59;
             break;
 
-        case 59: //adjust BG priority
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_2, 1) != TRUE)
+        case 59: //bring rowan to front
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_2, 1) != TRUE)
             {
                 break;
             }
-            MOD59_021D8914(data);
+            MOD59_ResetMunchlaxPriority(data);
             data->controllerCounter = 60;
             break;
 
         case 60: //wait
-            if (MOD59_021D7BEC(data, 30) != TRUE)
+            if (MOD59_Timer(data, 30) != TRUE)
             {
                 break;
             }
@@ -2157,7 +2147,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 62: //set blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
             {
                 break;
             }
@@ -2165,17 +2155,17 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 63: //load and setup boy/girl frontsprites
-            MOD59_021D84E8(data);
+            MOD59_ResetPlayerAnimation(data);
             data->spriteDataIndex0 = 2;
             data->spriteDataIndex1 = 6;
-            MOD59_021D8140(data);
+            MOD59_LoadCharDataFromIndex(data);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, -48);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_X, 48);
             data->controllerCounter = 64;
             break;
 
         case 64: //set blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
             {
                 break;
             }
@@ -2183,7 +2173,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 65: //set blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_2, 0) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_2, 0) != TRUE)
             {
                 break;
             }
@@ -2220,11 +2210,11 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                 data->selectedGender = (data->selectedGender == Male ? Female : Male);
                 PlaySE(SEQ_SE_DP_SELECT);
             }
-            MOD59_021D8504(data); //animate sprite
+            MOD59_AnimatePlayerSprite(data); //animate sprite
             break;
 
         case 68: //set blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_2, 1) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_2, 1) != TRUE)
             {
                 break;
             }
@@ -2232,7 +2222,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 69: //move sprite to centre
-            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            if (MOD59_MoveSprite(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
             {
                 break;
             }
@@ -2241,7 +2231,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 70: //set blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
             {
                 break;
             }
@@ -2249,7 +2239,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 71: //move sprite to centre
-            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_2, 0) != TRUE)
+            if (MOD59_MoveSprite(data, GF_BG_LYR_MAIN_2, 0) != TRUE)
             {
                 break;
             }
@@ -2287,7 +2277,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
 
         case 74: //reset blend
             enum GFBgLayer layer = ((data->selectedGender == Male) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
-            if (MOD59_021D7A68(data, layer, 1) != TRUE)
+            if (MOD59_FadeController(data, layer, 1) != TRUE)
             {
                 break;
             }
@@ -2367,7 +2357,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
 
         case 81: //blend adjust
             enum GFBgLayer layer2 = ((data->selectedGender == Male) ? GF_BG_LYR_MAIN_1 : GF_BG_LYR_MAIN_2);
-            if (MOD59_021D7A68(data, layer2, 1) != TRUE)
+            if (MOD59_FadeController(data, layer2, 1) != TRUE)
             {
                 break;
             }
@@ -2377,12 +2367,12 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
         case 82: //load sprite
             data->spriteDataIndex0 = 1;
             data->spriteDataIndex1 = 0;
-            MOD59_021D8140(data);
+            MOD59_LoadCharDataFromIndex(data);
             data->controllerCounter = 83;
             break;
 
         case 83: //blend adjust
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
             {
                 break;
             }
@@ -2398,7 +2388,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 85: //blend adjust
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
             {
                 break;
             }
@@ -2408,12 +2398,12 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
         case 86:
             data->spriteDataIndex0 = 10;
             data->spriteDataIndex1 = 0;
-            MOD59_021D8140(data);
+            MOD59_LoadCharDataFromIndex(data);
             data->controllerCounter = 87;
             break;
 
         case 87: //blend adjust
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
             {
                 break;
             }
@@ -2429,7 +2419,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 89: //move sprite
-            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            if (MOD59_MoveSprite(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
             {
                 break;
             }
@@ -2478,7 +2468,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 91: //move sprite
-            if (MOD59_021D8460(data, GF_BG_LYR_MAIN_1, 2) != TRUE)
+            if (MOD59_MoveSprite(data, GF_BG_LYR_MAIN_1, 2) != TRUE)
             {
                 break;
             }
@@ -2537,7 +2527,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 97: //set blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
             {
                 break;
             }
@@ -2547,12 +2537,12 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
         case 98: //load sprite
             data->spriteDataIndex0 = 1;
             data->spriteDataIndex1 = 0;
-            MOD59_021D8140(data);
+            MOD59_LoadCharDataFromIndex(data);
             data->controllerCounter = 99;
             break;
 
         case 99: //send blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
             {
                 break;
             }
@@ -2560,7 +2550,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 100: //wait
-            if (MOD59_021D7BEC(data, 30) != TRUE)
+            if (MOD59_Timer(data, 30) != TRUE)
             {
                 break;
             }
@@ -2577,7 +2567,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 102: //set blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 1) != TRUE)
             {
                 break;
             }
@@ -2586,7 +2576,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             break;
 
         case 103: //wait
-            if (MOD59_021D7BEC(data, 30) != TRUE)
+            if (MOD59_Timer(data, 30) != TRUE)
             {
                 break;
             }
@@ -2598,36 +2588,36 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
             {
                 data->spriteDataIndex0 = 2;
                 data->spriteDataIndex1 = 0;
-                MOD59_021D8140(data);
+                MOD59_LoadCharDataFromIndex(data);
             }
             else
             {
                 data->spriteDataIndex0 = 6;
                 data->spriteDataIndex1 = 0;
-                MOD59_021D8140(data);
+                MOD59_LoadCharDataFromIndex(data);
             }
             data->controllerCounter = 105;
             break;
 
         case 105: //set blend
-            if (MOD59_021D7A68(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
+            if (MOD59_FadeController(data, GF_BG_LYR_MAIN_1, 0) != TRUE)
             {
                 break;
             }
-            MOD59_021D8624(data);
+            MOD59_ResetPlayerShrinkAnimation(data);
             data->controllerCounter = 106;
             break;
 
         case 106: //wait
-            if (MOD59_021D7BEC(data, 30) != TRUE)
+            if (MOD59_Timer(data, 30) != TRUE)
             {
                 break;
             }
             data->controllerCounter = 107;
             break;
 
-        case 107: //load sprites
-            if (MOD59_021D8634(data) != TRUE)
+        case 107: //shrink player sprite
+            if (MOD59_PlayerShrinkAnimation(data) != TRUE)
             {
                 break;
             }

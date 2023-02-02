@@ -7752,7 +7752,7 @@
 .extern MOD58_021D9BF0
 .extern MOD59_Init
 .extern MOD59_Main
-.extern MOD59_021D76C0
+.extern MOD59_Exit
 .extern MOD59_021D9868
 .extern MOD59_021D9898
 .extern MOD59_021D99F8
