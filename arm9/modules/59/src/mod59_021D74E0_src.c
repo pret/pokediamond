@@ -34,11 +34,7 @@ extern struct GraphicsModes MOD59_021D9DCC;
 extern struct BgTemplate MOD59_021D9EA0;
 extern struct BgTemplate MOD59_021D9EBC;
 
-extern struct WindowTemplate MOD59_021D9DB8;
-
-extern const struct WindowTemplate MOD59_021D9DA8;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C;
-extern const struct WindowTemplate MOD59_021D9DB0;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E58;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F40;
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F68;
@@ -57,6 +53,39 @@ extern const u16 MOD59_021D9ED8[0x10];
 
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E70;
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E88;
+
+const struct WindowTemplate MOD59_021D9DB0 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 1,
+        .tilemapTop = 3,
+        .width = 16,
+        .height = 6,
+        .paletteNum = 5,
+        .baseTile = 781,
+    };
+
+const struct WindowTemplate MOD59_021D9DA8 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 3,
+        .width = 6,
+        .height = 4,
+        .paletteNum = 5,
+        .baseTile = 853,
+    };
+
+const struct WindowTemplate MOD59_021D9DA0 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 3,
+        .width = 14,
+        .height = 10,
+        .paletteNum = 5,
+        .baseTile = 737,
+    };
 
 const struct WindowTemplate MOD59_021D9D98 =
     {
@@ -80,15 +109,15 @@ const struct WindowTemplate MOD59_021D9D90 =
         .baseTile = 301,
     };
 
-const struct WindowTemplate MOD59_021D9DA0 =
+const struct WindowTemplate MOD59_021D9DB8 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
         .tilemapLeft = 2,
-        .tilemapTop = 3,
-        .width = 14,
-        .height = 10,
-        .paletteNum = 5,
-        .baseTile = 737,
+        .tilemapTop = 19,
+        .width = 27,
+        .height = 4,
+        .paletteNum = 6,
+        .baseTile = 877,
     };
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
