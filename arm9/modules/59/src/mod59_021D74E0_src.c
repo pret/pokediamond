@@ -37,10 +37,10 @@ extern struct GraphicsBanks MOD59_021D9F18;
 extern struct BgTemplate MOD59_021D9EA0;
 extern struct BgTemplate MOD59_021D9EBC;
 
-extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C;
-extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E58;
-extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F40;
-extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F68;
+extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2];
+extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E58[3];
+extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F40[5];
+extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F68[5];
 extern const struct ListMenuTemplate MOD59_021D9EF8;
 
 extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
@@ -669,24 +669,24 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u3
                 default:
                 case 0:
                     windowTemplate = &MOD59_021D9DA8;
-                    listStruct = &MOD59_021D9E0C;
+                    listStruct = MOD59_021D9E0C;
                     menuItemsCount = 2;
                     break;
                 case 1:
                     windowTemplate = &MOD59_021D9DB0;
-                    listStruct = &MOD59_021D9E58;
+                    listStruct = MOD59_021D9E58;
                     menuItemsCount = 3;
                     break;
                 case 2:
                     windowTemplate = &MOD59_021D9DA0;
                     if ((u8)gGameVersion == VERSION_DIAMOND)
                     {
-                        listStruct = &MOD59_021D9F40;
+                        listStruct = MOD59_021D9F40;
                         menuItemsCount = 5;
                     }
                     else
                     {
-                        listStruct = &MOD59_021D9F68;
+                        listStruct = MOD59_021D9F68;
                         menuItemsCount = 5;
                     }
                     break;
@@ -2535,13 +2535,13 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_OverlayData *data)
                     if ((u8)gGameVersion == VERSION_DIAMOND)
                     {
                         index = data->listMenuInput - 1;
-                        nameList = &MOD59_021D9F40;
+                        nameList = MOD59_021D9F40;
                         msgNo = nameList[index].msgNo;
                     }
                     else
                     {
                         index = data->listMenuInput - 1;
-                        nameList = &MOD59_021D9F68;
+                        nameList = MOD59_021D9F68;
                         msgNo = nameList[index].msgNo;
                     }
                     struct String *name = NewString_ReadMsgData(data->msgData, msgNo);
