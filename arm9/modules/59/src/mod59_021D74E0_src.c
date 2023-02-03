@@ -30,7 +30,6 @@ extern void FUN_0200E3A0(PMLCDTarget, int);
 
 //todo move with the other rodata
 extern struct GraphicsBanks MOD59_021D9F18;
-extern struct GraphicsModes MOD59_021D9DCC;
 extern struct BgTemplate MOD59_021D9EA0;
 extern struct BgTemplate MOD59_021D9EBC;
 
@@ -53,6 +52,28 @@ extern const u16 MOD59_021D9ED8[0x10];
 
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E70;
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E88;
+
+const struct WindowTemplate MOD59_021D9D90 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 8,
+        .tilemapTop = 0,
+        .width = 24,
+        .height = 24,
+        .paletteNum = 5,
+        .baseTile = 301,
+    };
+
+const struct WindowTemplate MOD59_021D9DB8 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 19,
+        .width = 27,
+        .height = 4,
+        .paletteNum = 6,
+        .baseTile = 877,
+    };
 
 const struct WindowTemplate MOD59_021D9DB0 =
     {
@@ -98,26 +119,14 @@ const struct WindowTemplate MOD59_021D9D98 =
         .baseTile = 301,
     };
 
-const struct WindowTemplate MOD59_021D9D90 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 8,
-        .tilemapTop = 0,
-        .width = 24,
-        .height = 24,
-        .paletteNum = 5,
-        .baseTile = 301,
-    };
+const u32 MOD59_021D9DC0[3] = { NARC_intro_narc_0031_NCGR, NARC_intro_narc_0032_NCGR, 0xFFFF };
 
-const struct WindowTemplate MOD59_021D9DB8 =
+const struct GraphicsModes MOD59_021D9DCC =
     {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 19,
-        .width = 27,
-        .height = 4,
-        .paletteNum = 6,
-        .baseTile = 877,
+        .dispMode = GX_DISPMODE_GRAPHICS,
+        .bgMode = GX_BGMODE_0,
+        .subMode = GX_BGMODE_0,
+        ._2d3dMode = GX_BG0_AS_2D
     };
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
@@ -135,7 +144,6 @@ extern u32 *FUN_0201244C(u16 param0, u16 param1, u32 heap_id);
 extern u32 *FUN_02012470(u16 param0, u16 param1, u32 heap_id);
 
 extern u32 MOD59_021D9E44[5];
-extern u32 MOD59_021D9DC0[3];
 
 extern const struct Unk21DBE18 UNK_020FA5FC;
 extern const struct Unk21DBE18 MOD59_021D9DDC;
