@@ -37,7 +37,6 @@ extern struct GraphicsBanks MOD59_021D9F18;
 extern struct BgTemplate MOD59_021D9EA0;
 extern struct BgTemplate MOD59_021D9EBC;
 
-extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2];
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9E58[3];
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F40[5];
 extern const struct MOD59_ListStruct021D9E0C MOD59_021D9F68[5];
@@ -45,7 +44,6 @@ extern const struct ListMenuTemplate MOD59_021D9EF8;
 
 extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
 
-extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C;
 extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30;
 
 extern const u8 MOD59_021D9FE8[0x64];
@@ -76,17 +74,6 @@ const struct WindowTemplate MOD59_021D9DA8 =
         .baseTile = 853,
     };
 
-const struct WindowTemplate MOD59_021D9D98 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 4,
-        .tilemapTop = 0,
-        .width = 24,
-        .height = 24,
-        .paletteNum = 5,
-        .baseTile = 301,
-    };
-
 const struct WindowTemplate MOD59_021D9D90 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
@@ -96,17 +83,6 @@ const struct WindowTemplate MOD59_021D9D90 =
         .height = 24,
         .paletteNum = 5,
         .baseTile = 301,
-    };
-
-const struct WindowTemplate MOD59_021D9DB8 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 19,
-        .width = 27,
-        .height = 4,
-        .paletteNum = 6,
-        .baseTile = 877,
     };
 
 const struct WindowTemplate MOD59_021D9DB0 =
@@ -120,15 +96,30 @@ const struct WindowTemplate MOD59_021D9DB0 =
         .baseTile = 781,
     };
 
-const u32 MOD59_021D9DC0[3] = { NARC_intro_narc_0031_NCGR, NARC_intro_narc_0032_NCGR, 0xFFFF };
-
-const struct Unk21DBE18 MOD59_021D9DDC =
+const struct WindowTemplate MOD59_021D9DB8 =
     {
-        .initFunc = MOD59_021D9868,
-        .mainFunc = MOD59_021D9898,
-        .exitFunc = MOD59_021D99F8,
-        .ovly = 0xFFFFFFFF
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 19,
+        .width = 27,
+        .height = 4,
+        .paletteNum = 6,
+        .baseTile = 877,
     };
+
+const struct WindowTemplate MOD59_021D9D98 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 4,
+        .tilemapTop = 0,
+        .width = 24,
+        .height = 24,
+        .paletteNum = 5,
+        .baseTile = 301,
+    };
+
+
+const u32 MOD59_021D9DC0[3] = { NARC_intro_narc_0031_NCGR, NARC_intro_narc_0032_NCGR, 0xFFFF };
 
 const struct GraphicsModes MOD59_021D9DCC =
     {
@@ -146,6 +137,31 @@ const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC =
 const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC =
     {
         .narcId = { NARC_intro_narc_0013_NCGR, NARC_intro_narc_0014_NCGR, NARC_intro_narc_0015_NCGR, NARC_intro_narc_0016_NCGR }
+    };
+
+const struct Unk21DBE18 MOD59_021D9DDC =
+    {
+        .initFunc = MOD59_021D9868,
+        .mainFunc = MOD59_021D9898,
+        .exitFunc = MOD59_021D99F8,
+        .ovly = 0xFFFFFFFF
+    };
+
+const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2] =
+    {
+        {
+            .msgNo = 34,
+            .val = 1
+        },
+        {
+            .msgNo = 35,
+            .val = 2
+        }
+    };
+
+const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C =
+    {
+        .scrnIds = { NARC_intro_narc_0003_NSCR, NARC_intro_narc_0004_NSCR, NARC_intro_narc_0005_NSCR, NARC_intro_narc_0006_NSCR, NARC_intro_narc_0007_NSCR }
     };
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
