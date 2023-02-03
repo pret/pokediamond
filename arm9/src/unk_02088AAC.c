@@ -45,10 +45,13 @@ THUMB_FUNC u32 FUN_02088AFC(struct UnkStruct_02088AAC *r0)
 {
     FS_EXTERN_OVERLAY(MODULE_73);
 
-    const struct Unk21DBE18 OVERLAY_73_MANAGER = { .unk0 = MOD73_021D74F0,
-        .unk4 = MOD73_021D758C,
-        .unk8 = MOD73_021D7640,
-        .ovly = FS_OVERLAY_ID(MODULE_73) };
+    const struct Unk21DBE18 OVERLAY_73_MANAGER =
+    {
+        .initFunc = MOD73_021D74F0,
+        .mainFunc = MOD73_021D758C,
+        .exitFunc = MOD73_021D7640,
+        .ovly = FS_OVERLAY_ID(MODULE_73)
+    };
     r0->ovly_data = OverlayManager_new(&OVERLAY_73_MANAGER, (s32 *)r0, r0->heap_id);
 
     return 2;
@@ -79,10 +82,13 @@ THUMB_FUNC u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0)
     FS_EXTERN_OVERLAY(MODULE_75);
 
     static const u8 UNK_020FD6F4[] = { 0x04, 0xFF };
-    const struct Unk21DBE18 OVERLAY_75_MANAGER = { .unk0 = MOD75_021E6BA0,
-        .unk4 = MOD75_021E6D6C,
-        .unk8 = MOD75_021E6F00,
-        .ovly = FS_OVERLAY_ID(MODULE_75) };
+    const struct Unk21DBE18 OVERLAY_75_MANAGER =
+        {
+            .initFunc = MOD75_021E6BA0,
+            .mainFunc = MOD75_021E6D6C,
+            .exitFunc = MOD75_021E6F00,
+            .ovly = FS_OVERLAY_ID(MODULE_75)
+        };
     struct BagView *bag_view = CreateBagView(r0->unk10->bag, UNK_020FD6F4, r0->heap_id);
 
     FUN_0206E314(bag_view, r0->unk10->sav2, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
@@ -133,10 +139,13 @@ THUMB_FUNC u32 FUN_02088C3C(struct UnkStruct_02088AAC *r0)
     FS_EXTERN_OVERLAY(MODULE_68);
 
     struct Bag *bag = r0->unk10->bag;
-    const struct Unk21DBE18 OVERLAY_68_MANAGER = { .unk0 = MOD68_021D74E0,
-        .unk4 = MOD68_021D75D8,
-        .unk8 = MOD68_021D762C,
-        .ovly = FS_OVERLAY_ID(MODULE_68) };
+    const struct Unk21DBE18 OVERLAY_68_MANAGER =
+        {
+            .initFunc = MOD68_021D74E0,
+            .mainFunc = MOD68_021D75D8,
+            .exitFunc = MOD68_021D762C,
+            .ovly = FS_OVERLAY_ID(MODULE_68)
+        };
 
     r0->ovly_param = FUN_020851B8((u8)r0->heap_id);
 

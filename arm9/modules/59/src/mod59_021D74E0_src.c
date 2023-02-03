@@ -28,6 +28,10 @@ extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struc
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
 
+extern BOOL MOD59_021D9868(struct UnkStruct_02006234 *param0, u32 *param1);
+extern BOOL MOD59_021D9898(struct UnkStruct_02006234 *param0, u32 *param1);
+extern BOOL MOD59_021D99F8(struct UnkStruct_02006234 *param0, u32 *param1);
+
 //todo move with the other rodata
 extern struct GraphicsBanks MOD59_021D9F18;
 extern struct BgTemplate MOD59_021D9EA0;
@@ -44,14 +48,44 @@ extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
 extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C;
 extern const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30;
 
-extern const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC;
-extern const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC;
-
 extern const u8 MOD59_021D9FE8[0x64];
 extern const u16 MOD59_021D9ED8[0x10];
 
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E70;
 extern const struct MOD59_CharStruct021D9E70 MOD59_021D9E88;
+
+const struct WindowTemplate MOD59_021D9DA0 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 3,
+        .width = 14,
+        .height = 10,
+        .paletteNum = 5,
+        .baseTile = 737,
+    };
+
+const struct WindowTemplate MOD59_021D9DA8 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 3,
+        .width = 6,
+        .height = 4,
+        .paletteNum = 5,
+        .baseTile = 853,
+    };
+
+const struct WindowTemplate MOD59_021D9D98 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 4,
+        .tilemapTop = 0,
+        .width = 24,
+        .height = 24,
+        .paletteNum = 5,
+        .baseTile = 301,
+    };
 
 const struct WindowTemplate MOD59_021D9D90 =
     {
@@ -86,40 +120,15 @@ const struct WindowTemplate MOD59_021D9DB0 =
         .baseTile = 781,
     };
 
-const struct WindowTemplate MOD59_021D9DA8 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 3,
-        .width = 6,
-        .height = 4,
-        .paletteNum = 5,
-        .baseTile = 853,
-    };
-
-const struct WindowTemplate MOD59_021D9DA0 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 3,
-        .width = 14,
-        .height = 10,
-        .paletteNum = 5,
-        .baseTile = 737,
-    };
-
-const struct WindowTemplate MOD59_021D9D98 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 4,
-        .tilemapTop = 0,
-        .width = 24,
-        .height = 24,
-        .paletteNum = 5,
-        .baseTile = 301,
-    };
-
 const u32 MOD59_021D9DC0[3] = { NARC_intro_narc_0031_NCGR, NARC_intro_narc_0032_NCGR, 0xFFFF };
+
+const struct Unk21DBE18 MOD59_021D9DDC =
+    {
+        .initFunc = MOD59_021D9868,
+        .mainFunc = MOD59_021D9898,
+        .exitFunc = MOD59_021D99F8,
+        .ovly = 0xFFFFFFFF
+    };
 
 const struct GraphicsModes MOD59_021D9DCC =
     {
@@ -127,6 +136,16 @@ const struct GraphicsModes MOD59_021D9DCC =
         .bgMode = GX_BGMODE_0,
         .subMode = GX_BGMODE_0,
         ._2d3dMode = GX_BG0_AS_2D
+    };
+
+const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC =
+    {
+        .narcId = { NARC_intro_narc_0008_NCGR, NARC_intro_narc_0009_NCGR, NARC_intro_narc_0010_NCGR, NARC_intro_narc_0011_NCGR }
+    };
+
+const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC =
+    {
+        .narcId = { NARC_intro_narc_0013_NCGR, NARC_intro_narc_0014_NCGR, NARC_intro_narc_0015_NCGR, NARC_intro_narc_0016_NCGR }
     };
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
@@ -146,7 +165,6 @@ extern u32 *FUN_02012470(u16 param0, u16 param1, u32 heap_id);
 extern u32 MOD59_021D9E44[5];
 
 extern const struct Unk21DBE18 UNK_020FA5FC;
-extern const struct Unk21DBE18 MOD59_021D9DDC;
 
 extern void FUN_020145C8(u32 param0, u32 param1[5]);
 extern u32 FUN_02014630(u32 param0);

@@ -53,21 +53,21 @@ THUMB_FUNC BOOL OverlayManager_Run(struct UnkStruct_02006234 * a0)
         a0->unk10 = 1;
         // fallthrough
     case 1:
-        if (a0->ovly_mgr.unk0(a0, &a0->unk14) == TRUE)
+        if (a0->ovly_mgr.initFunc(a0, &a0->unk14) == TRUE)
         {
             a0->unk10 = 2;
             a0->unk14 = 0;
         }
         break;
     case 2:
-        if (a0->ovly_mgr.unk4(a0, &a0->unk14) == TRUE)
+        if (a0->ovly_mgr.mainFunc(a0, &a0->unk14) == TRUE)
         {
             a0->unk10 = 3;
             a0->unk14 = 0;
         }
         break;
     case 3:
-        if (a0->ovly_mgr.unk8(a0, &a0->unk14) == TRUE)
+        if (a0->ovly_mgr.exitFunc(a0, &a0->unk14) == TRUE)
         {
             if (a0->ovly_mgr.ovly != SDK_OVERLAY_INVALID_ID)
                 UnloadOverlayByID(a0->ovly_mgr.ovly);
