@@ -42,7 +42,39 @@ extern const struct ListMenuTemplate MOD59_021D9EF8;
 extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
 
 extern const u8 MOD59_021D9FE8[0x64];
-extern const u16 MOD59_021D9ED8[0x10];
+
+const struct WindowTemplate MOD59_021D9D90 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 8,
+        .tilemapTop = 0,
+        .width = 24,
+        .height = 24,
+        .paletteNum = 5,
+        .baseTile = 301,
+    };
+
+const struct WindowTemplate MOD59_021D9DA8 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 3,
+        .width = 6,
+        .height = 4,
+        .paletteNum = 5,
+        .baseTile = 853,
+    };
+
+const struct WindowTemplate MOD59_021D9DB8 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 19,
+        .width = 27,
+        .height = 4,
+        .paletteNum = 6,
+        .baseTile = 877,
+    };
 
 const struct WindowTemplate MOD59_021D9D98 =
     {
@@ -66,28 +98,6 @@ const struct WindowTemplate MOD59_021D9DB0 =
         .baseTile = 781,
     };
 
-const struct WindowTemplate MOD59_021D9DB8 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 19,
-        .width = 27,
-        .height = 4,
-        .paletteNum = 6,
-        .baseTile = 877,
-    };
-
-const struct WindowTemplate MOD59_021D9DA8 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 3,
-        .width = 6,
-        .height = 4,
-        .paletteNum = 5,
-        .baseTile = 853,
-    };
-
 const struct WindowTemplate MOD59_021D9DA0 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
@@ -97,17 +107,6 @@ const struct WindowTemplate MOD59_021D9DA0 =
         .height = 10,
         .paletteNum = 5,
         .baseTile = 737,
-    };
-
-const struct WindowTemplate MOD59_021D9D90 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 8,
-        .tilemapTop = 0,
-        .width = 24,
-        .height = 24,
-        .paletteNum = 5,
-        .baseTile = 301,
     };
 
 const u32 MOD59_021D9DC0[3] = { NARC_intro_narc_0031_NCGR, NARC_intro_narc_0032_NCGR, 0xFFFF };
@@ -150,26 +149,16 @@ const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2] =
         }
     };
 
-const u32 MOD59_021D9E44[5] = { 0, 6, 1, 12, 2060 };
-
-const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C =
-    {
-        .scrnIds = { NARC_intro_narc_0003_NSCR, NARC_intro_narc_0004_NSCR, NARC_intro_narc_0005_NSCR, NARC_intro_narc_0006_NSCR, NARC_intro_narc_0007_NSCR }
-    };
-
 const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30 =
     {
         .scrnIds = { NARC_intro_narc_0026_NSCR, NARC_intro_narc_0027_NSCR, NARC_intro_narc_0027_NSCR, NARC_intro_narc_0028_NSCR, NARC_intro_narc_0029_NSCR }
     };
 
-const struct MOD59_CharStruct021D9E70 MOD59_021D9E70 =
-    {
-        .charData = { NARC_intro_narc_0013_NCGR, NARC_intro_narc_0044_NCGR, NARC_intro_narc_0045_NCGR, NARC_intro_narc_0046_NCGR, NARC_intro_narc_0047_NCGR, 0xFF }
-    };
+const u32 MOD59_021D9E44[5] = { 0, 6, 1, 12, 2060 };
 
-const struct MOD59_CharStruct021D9E70 MOD59_021D9E88 =
+const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C =
     {
-        .charData = { NARC_intro_narc_0008_NCGR, NARC_intro_narc_0040_NCGR, NARC_intro_narc_0041_NCGR, NARC_intro_narc_0042_NCGR, NARC_intro_narc_0043_NCGR, 0xFF }
+        .scrnIds = { NARC_intro_narc_0003_NSCR, NARC_intro_narc_0004_NSCR, NARC_intro_narc_0005_NSCR, NARC_intro_narc_0006_NSCR, NARC_intro_narc_0007_NSCR }
     };
 
 const struct MOD59_ListStruct021D9E0C MOD59_021D9E58[3] =
@@ -186,6 +175,17 @@ const struct MOD59_ListStruct021D9E0C MOD59_021D9E58[3] =
             .msgNo = 33,
             .val = 3
         }
+    };
+
+
+const struct MOD59_CharStruct021D9E70 MOD59_021D9E70 =
+    {
+        .charData = { NARC_intro_narc_0013_NCGR, NARC_intro_narc_0044_NCGR, NARC_intro_narc_0045_NCGR, NARC_intro_narc_0046_NCGR, NARC_intro_narc_0047_NCGR, 0xFF }
+    };
+
+const struct MOD59_CharStruct021D9E70 MOD59_021D9E88 =
+    {
+        .charData = { NARC_intro_narc_0008_NCGR, NARC_intro_narc_0040_NCGR, NARC_intro_narc_0041_NCGR, NARC_intro_narc_0042_NCGR, NARC_intro_narc_0043_NCGR, 0xFF }
     };
 
 const struct BgTemplate MOD59_021D9EA0 =
@@ -223,6 +223,8 @@ const struct BgTemplate MOD59_021D9EBC =
         .unk17 = 0,
         .mosaic = 0
     };
+
+const u16 MOD59_021D9ED8[0x10] = { 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C };
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
