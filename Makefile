@@ -185,7 +185,7 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(MAKE) -C $@
+	@+$(MAKE) -C $@
 
 clean-tools:
 	$(foreach tool,$(TOOLDIRS),$(MAKE) clean -C $(tool);)
@@ -304,8 +304,8 @@ print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 ### Other targets
 
-diamond:          ; @$(MAKE) GAME_VERSION=DIAMOND
-pearl:            ; @$(MAKE) GAME_VERSION=PEARL
-compare_diamond:  ; @$(MAKE) GAME_VERSION=DIAMOND COMPARE=1
-compare_pearl:    ; @$(MAKE) GAME_VERSION=PEARL COMPARE=1
+diamond:          ; @+$(MAKE) GAME_VERSION=DIAMOND
+pearl:            ; @+$(MAKE) GAME_VERSION=PEARL
+compare_diamond:  ; @+$(MAKE) GAME_VERSION=DIAMOND COMPARE=1
+compare_pearl:    ; @+$(MAKE) GAME_VERSION=PEARL COMPARE=1
 compare: compare_diamond

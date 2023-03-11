@@ -160,7 +160,7 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(MAKE) -C $@
+	@+$(MAKE) -C $@
 
 $(MWASMARM): patch_mwasmarm
 
