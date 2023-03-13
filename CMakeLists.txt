@@ -17,6 +17,8 @@ add_compile_options(-fms-extensions)
 
 add_subdirectory(arm9)
 
+add_subdirectory(arm7)
+
 add_executable(calcrom .github/calcrom/calcrom.cpp)
 target_include_directories(calcrom PRIVATE /usr/local/include)
 
