@@ -154,7 +154,7 @@ _021EDC78:
 	cmp r4, r0
 	beq _021EDCA0
 	ldr r0, [sp, #4]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r4, r0
 	beq _021EDCAE
 _021EDCA0:

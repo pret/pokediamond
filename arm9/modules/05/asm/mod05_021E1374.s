@@ -259,12 +259,12 @@ _021E1562:
 	ldr r0, [sp]
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [sp]
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	sub r1, r4, #7
 	str r1, [sp, #0x14]
 	add r1, r4, #7

@@ -5,8 +5,8 @@ MYDIR=$(dirname $0)
 mkdir -p ${MYDIR}/.bins
 
 DEFAULT_BASEROM=baserom.nds
-DEFAULT_ARM9BUILDDIR=build/heartgold.us
-DEFAULT_ARM7BUILDDIR=sub/build
+DEFAULT_ARM9BUILDDIR=arm9/build/diamond.us
+DEFAULT_ARM7BUILDDIR=arm7/build
 DEFAULT_FSDIR=files
 
 # Build C utils on demand
@@ -137,7 +137,7 @@ case "$mode" in
       ;;
     armv5te)
       romtab=32
-      compname=main
+      compname=arm9
       ;;
     esac
 

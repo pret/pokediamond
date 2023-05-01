@@ -1,6 +1,6 @@
 name: build
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 env:
   LM_LICENSE_FILE: "$GITHUB_WORKSPACE/tools/mwccarm/license.dat"
@@ -12,7 +12,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Update and Install Software

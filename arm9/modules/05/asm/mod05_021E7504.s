@@ -296,7 +296,7 @@ MOD05_021E7750: ; 0x021E7750
 	str r5, [r4]
 	str r7, [r4, #4]
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	str r0, [r4, #0x10]
 	cmp r6, #0
 	beq _021E7786

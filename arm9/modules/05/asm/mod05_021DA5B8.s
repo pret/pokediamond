@@ -1372,7 +1372,7 @@ _021DB06E:
 	bl FUN_020553A0
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #1
 	bne _021DB08C
 	add r0, r6, #0
@@ -1623,7 +1623,7 @@ _021DB27E:
 	bl FUN_020553A0
 	str r0, [sp, #0x14]
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
 	cmp r7, #1
@@ -1774,7 +1774,7 @@ _021DB3AE:
 	bl FUN_020553A0
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	cmp r0, #1

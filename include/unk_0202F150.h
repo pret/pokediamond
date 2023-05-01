@@ -110,7 +110,7 @@ void FUN_0202FC60();
 void FUN_0202FC80();
 void FUN_0202FCA8();
 void FUN_0202FCCC();
-u32 FUN_0202FE2C(int param0);
+BOOL FUN_0202FE2C(int param0);
 void FUN_0202FEEC();
 void FUN_02030074();
 void FUN_02030238(u32 param0, u8 *param1, u32 param2);
@@ -144,7 +144,7 @@ void FUN_02030C8C(struct UnkStruct0202F150_sub1 *param0,
     struct UnkStruct0202F150_sub2 *param4);
 void FUN_02030DA4();
 void FUN_02030DFC();
-u32 FUN_02030E7C(u16 param0);
+BOOL FUN_02030E7C(u16 param0);
 s32 FUN_02030F20();
 BOOL FUN_02030F40();
 void FUN_02030F60(u8 param0);

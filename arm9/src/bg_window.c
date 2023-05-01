@@ -663,7 +663,7 @@ THUMB_FUNC void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle)
     }
 }
 
-THUMB_FUNC void BgSetPosTextAndCommit(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 val)
+THUMB_FUNC void BgSetPosTextAndCommit(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 val) //seems to apply to more than just text? name?
 {
     Bg_SetPosText(&bgConfig->bgs[bgId], op, val);
 
@@ -1667,6 +1667,10 @@ THUMB_FUNC u8 GetBgPriority(struct BgConfig *bgConfig, u32 bgId)
     return 0;
 }
 
+#define GetPixelAddressFromBlit4bpp(ptr, x, y, width) ((u8 *)((ptr) + (((x) >> 1) & 3) + (((x) << 2) & 0x3FE0) + ((((y) << 2) & 0x3FE0) * (width)) + (((u32)(((y) << 2) & 0x1C)))))
+#define GetPixelAddressFromBlit8bpp(ptr, x, y, width) ((u8 *)((ptr) + ((x) & 7) + (((x) << 3) & 0x7FC0) + ((((y) << 3) & 0x7FC0) * (width)) + (((u32)(((y) << 3) & 0x38)))))
+#define ConvertPixelsToTiles(x)    (((x) + ((x) & 7)) >> 3)
+
 THUMB_FUNC void BlitBitmapRect4Bit(const struct Bitmap *src,
                                    const struct Bitmap *dst,
                                    u16 srcX,
@@ -1692,8 +1696,8 @@ THUMB_FUNC void BlitBitmapRect4Bit(const struct Bitmap *src,
         yEnd = dst->height - dstY + srcY;
     else
         yEnd = height + srcY;
-    multiplierSrcY = (src->width + (src->width & 7)) >> 3;
-    multiplierDstY = (dst->width + (dst->width & 7)) >> 3;
+    multiplierSrcY = ConvertPixelsToTiles(src->width);
+    multiplierDstY = ConvertPixelsToTiles(dst->width);
 
     if (colorKey == 0xFFFF)
     {
@@ -1701,8 +1705,8 @@ THUMB_FUNC void BlitBitmapRect4Bit(const struct Bitmap *src,
         {
             for (loopSrcX = srcX, loopDstX = dstX; loopSrcX < xEnd; loopSrcX++, loopDstX++)
             {
-                pixelsSrc = (u8 *)(src->pixels + ((loopSrcX >> 1) & 3) + ((loopSrcX << 2) & 0x3FE0) + (((loopSrcY << 2) & 0x3FE0) * multiplierSrcY) + (((loopSrcY << 2) & 0x1C)));
-                pixelsDst = (u8 *)(dst->pixels + ((loopDstX >> 1) & 3) + ((loopDstX << 2) & 0x3FE0) + (((loopDstY << 2) & 0x3FE0) * multiplierDstY) + (((loopDstY << 2) & 0x1C)));
+                pixelsSrc = GetPixelAddressFromBlit4bpp(src->pixels, loopSrcX, loopSrcY, multiplierSrcY);
+                pixelsDst = GetPixelAddressFromBlit4bpp(dst->pixels, loopDstX, loopDstY, multiplierDstY);
 
                 toOrr = (*pixelsSrc >> ((loopSrcX & 1) * 4)) & 0xF;
                 toShift = (loopDstX & 1) * 4;
@@ -1716,8 +1720,8 @@ THUMB_FUNC void BlitBitmapRect4Bit(const struct Bitmap *src,
         {
             for (loopSrcX = srcX, loopDstX = dstX; loopSrcX < xEnd; loopSrcX++, loopDstX++)
             {
-                pixelsSrc = (u8 *)(src->pixels + ((loopSrcX >> 1) & 3) + ((loopSrcX << 2) & 0x3FE0) + (((loopSrcY << 2) & 0x3FE0) * multiplierSrcY) + ((u32)((loopSrcY << 2) & 0x1C)));
-                pixelsDst = (u8 *)(dst->pixels + ((loopDstX >> 1) & 3) + ((loopDstX << 2) & 0x3FE0) + (((loopDstY << 2) & 0x3FE0) * multiplierDstY) + ((u32)((loopDstY << 2) & 0x1C)));
+                pixelsSrc = GetPixelAddressFromBlit4bpp(src->pixels, loopSrcX, loopSrcY, multiplierSrcY);
+                pixelsDst = GetPixelAddressFromBlit4bpp(dst->pixels, loopDstX, loopDstY, multiplierDstY);
 
                 toOrr = (*pixelsSrc >> ((loopSrcX & 1) * 4)) & 0xF;
                 if (toOrr != colorKey)
@@ -1754,8 +1758,8 @@ THUMB_FUNC void BlitBitmapRect8Bit(const struct Bitmap *src,
         yEnd = dst->height - dstY + srcY;
     else
         yEnd = height + srcY;
-    multiplierSrcY = (src->width + (src->width & 7)) >> 3;
-    multiplierDstY = (dst->width + (dst->width & 7)) >> 3;
+    multiplierSrcY = ConvertPixelsToTiles(src->width);
+    multiplierDstY = ConvertPixelsToTiles(dst->width);
 
     if (colorKey == 0xFFFF)
     {
@@ -1763,8 +1767,8 @@ THUMB_FUNC void BlitBitmapRect8Bit(const struct Bitmap *src,
         {
             for (loopSrcX = srcX, loopDstX = dstX; loopSrcX < xEnd; loopSrcX++, loopDstX++)
             {
-                pixelsSrc = (u8 *)(src->pixels + ((loopSrcX >> 0) & 7) + ((loopSrcX << 3) & 0x7FC0) + (((loopSrcY << 3) & 0x7FC0) * multiplierSrcY) + (((loopSrcY << 3) & 0x38)));
-                pixelsDst = (u8 *)(dst->pixels + ((loopDstX >> 0) & 7) + ((loopDstX << 3) & 0x7FC0) + (((loopDstY << 3) & 0x7FC0) * multiplierDstY) + (((loopDstY << 3) & 0x38)));
+                pixelsSrc = GetPixelAddressFromBlit8bpp(src->pixels, loopSrcX, loopSrcY, multiplierSrcY);
+                pixelsDst = GetPixelAddressFromBlit8bpp(dst->pixels, loopDstX, loopDstY, multiplierDstY);
 
                 *pixelsDst = *pixelsSrc;
             }
@@ -1776,8 +1780,8 @@ THUMB_FUNC void BlitBitmapRect8Bit(const struct Bitmap *src,
         {
             for (loopSrcX = srcX, loopDstX = dstX; loopSrcX < xEnd; loopSrcX++, loopDstX++)
             {
-                pixelsSrc = (u8 *)(src->pixels + ((loopSrcX >> 0) & 7) + ((loopSrcX << 3) & 0x7FC0) + (((loopSrcY << 3) & 0x7FC0) * multiplierSrcY) + (((loopSrcY << 3) & 0x38)));
-                pixelsDst = (u8 *)(dst->pixels + ((loopDstX >> 0) & 7) + ((loopDstX << 3) & 0x7FC0) + (((loopDstY << 3) & 0x7FC0) * multiplierDstY) + (((loopDstY << 3) & 0x38)));
+                pixelsSrc = GetPixelAddressFromBlit8bpp(src->pixels, loopSrcX, loopSrcY, multiplierSrcY);
+                pixelsDst = GetPixelAddressFromBlit8bpp(dst->pixels, loopDstX, loopDstY, multiplierDstY);
 
                 if (*pixelsSrc != colorKey)
                     *pixelsDst = *pixelsSrc;
@@ -1802,26 +1806,25 @@ THUMB_FUNC void FillBitmapRect4Bit(
         r12 = surface->height;
     }
 
-    int lr = (((surface->width) + (surface->width & 7)) >> 3);
+    int lr = ConvertPixelsToTiles(surface->width);
 
-    for (int i = y; i < r12; i++)
+    for (int loopY = y; loopY < r12; loopY++)
     {
 
-        for (int j = x; j < r6; j++)
+        for (int loopX = x; loopX < r6; loopX++)
         {
 
-            u8 *unk = (u8 *)((u8 *)surface->pixels + ((j >> 1) & 3) + ((j << 2) & 0x3fe0) +
-                             (((i << 2) & 0x3fe0) * lr) + ((i << 2) & 0x1c));
+            u8 *pixelAddr = GetPixelAddressFromBlit4bpp(surface->pixels, loopX, loopY, lr);
 
-            if ((j & 1) != 0)
+            if ((loopX & 1) != 0)
             {
-                *unk &= 0xf;
-                *unk |= (fillValue << 4);
+                *pixelAddr &= 0xf;
+                *pixelAddr |= (fillValue << 4);
             }
             else
             {
-                *unk &= 0xf0;
-                *unk |= fillValue;
+                *pixelAddr &= 0xf0;
+                *pixelAddr |= fillValue;
             }
         }
     }
@@ -1843,18 +1846,17 @@ THUMB_FUNC void FillBitmapRect8Bit(
         r12 = surface->height;
     }
 
-    int lr = (((surface->width) + (surface->width & 7)) >> 3);
+    int lr = ConvertPixelsToTiles(surface->width);
 
-    for (int i = y; i < r12; i++)
+    for (int loopY = y; loopY < r12; loopY++)
     {
 
-        for (int j = x; j < r6; j++)
+        for (int loopX = x; loopX < r6; loopX++)
         {
 
-            u8 *unk = (u8 *)((u8 *)surface->pixels + (j & 7) + ((j << 3) & 0x7fc0) +
-                             (((i << 3) & 0x7fc0) * lr) + ((i << 3) & 0x38));
+            u8 *pixelAddr = GetPixelAddressFromBlit8bpp(surface->pixels, loopX, loopY, lr);
 
-            *unk = fillValue;
+            *pixelAddr = fillValue;
         }
     }
 }
@@ -2325,2571 +2327,182 @@ THUMB_FUNC void FillWindowPixelRect(
     }
 }
 
-#ifdef NONMATCHING
-THUMB_FUNC void CopyGlyphToWindow(
-    struct Window *window, u32 *param1, u32 param2, u32 param3, u16 param4, u16 param5, u32 param6)
+#define GLYPH_COPY_4BPP(glyphPixels, srcX, srcY, srcWidth, srcHeight, windowPixels, destX, destY, destWidth, table) { \
+    int srcJ, dstJ, srcI, dstI, bits;                                                                                 \
+    u8 toOrr;                                                                                                         \
+    u8 tableFlag;                                                                                                     \
+    u8 tableBit;                                                                                                      \
+    u8 *dest;                                                                                                         \
+    const u8 *src;                                                                                                    \
+    u32 pixelData;                                                                                                    \
+                                                                                                                      \
+    src = glyphPixels + (srcY / 8 * 64) + (srcX / 8 * 32);                                                            \
+    if (srcY == 0) {                                                                                                  \
+        dstI = destY + srcY;                                                                                          \
+        tableBit = table & 0xFF;                                                                                      \
+    } else {                                                                                                          \
+        dstI = destY + srcY;                                                                                          \
+        for (srcI = 0; srcI < 8; srcI++) {                                                                            \
+            if (((table >> srcI) & 1) != 0) {                                                                         \
+                dstI++;                                                                                               \
+            }                                                                                                         \
+        }                                                                                                             \
+        tableBit = table >> 8;                                                                                        \
+    }                                                                                                                 \
+    for (srcI = 0; srcI < srcHeight; srcI++) {                                                                        \
+        pixelData = *(u32 *)src;                                                                                      \
+        tableFlag = (tableBit >> srcI) & 1;                                                                           \
+        for (srcJ = 0, dstJ = destX + srcX; srcJ < srcWidth; srcJ++, dstJ++) {                                        \
+            dest = GetPixelAddressFromBlit4bpp(windowPixels, dstJ, dstI, destWidth);                                  \
+            toOrr = (pixelData >> (srcJ * 4)) & 0xF;                                                                  \
+            if (toOrr != 0) {                                                                                         \
+                bits = (dstJ & 1) * 4;                                                                                \
+                toOrr = (toOrr << bits) | (*dest & (0xF0 >> bits));                                                   \
+                *dest = toOrr;                                                                                        \
+                if (tableFlag) {                                                                                      \
+                    dest = GetPixelAddressFromBlit4bpp(windowPixels, dstJ, dstI + 1, destWidth);                      \
+                    *dest = toOrr;                                                                                    \
+                }                                                                                                     \
+            }                                                                                                         \
+        }                                                                                                             \
+        if (tableFlag) {                                                                                              \
+            dstI += 2;                                                                                                \
+        } else {                                                                                                      \
+            dstI += 1;                                                                                                \
+        }                                                                                                             \
+        src += 4;                                                                                                     \
+    }                                                                                                                 \
+}
+
+#define GLYPH_COPY_8BPP(glyphPixels, srcX, srcY, srcWidth, srcHeight, windowPixels, destX, destY, destWidth, table) { \
+    int srcJ, dstJ, srcI, dstI;                                                                                       \
+    u8 toOrr;                                                                                                         \
+    u8 tableFlag;                                                                                                     \
+    u8 tableBit;                                                                                                      \
+    u8 *dest;                                                                                                         \
+    const u8 *src;                                                                                                    \
+    u8 *pixelData;                                                                                                    \
+                                                                                                                      \
+    src = glyphPixels + (srcY / 8 * 128) + (srcX / 8 * 64);                                                           \
+    if (srcY == 0) {                                                                                                  \
+        dstI = destY + srcY;                                                                                          \
+        tableBit = table & 0xFF;                                                                                      \
+    } else {                                                                                                          \
+        dstI = destY + srcY;                                                                                          \
+        for (srcI = 0; srcI < 8; srcI++) {                                                                            \
+            if (((table >> srcI) & 1) != 0) {                                                                         \
+                dstI++;                                                                                               \
+            }                                                                                                         \
+        }                                                                                                             \
+        tableBit = table >> 8;                                                                                        \
+    }                                                                                                                 \
+    for (srcI = 0; srcI < srcHeight; srcI++) {                                                                        \
+        pixelData = (u8 *)src;                                                                                        \
+        tableFlag = (tableBit >> srcI) & 1;                                                                           \
+        for (srcJ = 0, dstJ = destX + srcX; srcJ < srcWidth; srcJ++, dstJ++) {                                        \
+            dest = GetPixelAddressFromBlit8bpp(windowPixels, dstJ, dstI, destWidth);                                  \
+            toOrr = pixelData[srcJ];                                                                                  \
+            if (toOrr != 0) {                                                                                         \
+                *dest = toOrr;                                                                                        \
+                if (tableFlag) {                                                                                      \
+                    dest = GetPixelAddressFromBlit8bpp(windowPixels, dstJ, dstI + 1, destWidth);                      \
+                    *dest = toOrr;                                                                                    \
+                }                                                                                                     \
+            }                                                                                                         \
+        }                                                                                                             \
+        if (tableFlag) {                                                                                              \
+            dstI += 2;                                                                                                \
+        } else {                                                                                                      \
+            dstI += 1;                                                                                                \
+        }                                                                                                             \
+        src += 8;                                                                                                     \
+    }                                                                                                                 \
+}
+
+THUMB_FUNC void CopyGlyphToWindow(struct Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHeight, u16 dstX, u16 dstY, u16 table)
 {
-    u32 str330 = param6;
-    u32 *st0 = param1;
-    u16 st5c = param4;
+    u8 *windowPixels;
+    u16 destWidth, destHeight;
+    int srcRight, srcBottom;
+    u8 glyphSizeParam;
 
-    void *st278 = window->unk0c;
-    u16 st58 = window->width << 3;
+    windowPixels = (u8 *)window->pixelBuffer;
+    destWidth = (u16)(window->width * 8);
+    destHeight = (u16)(window->height * 8);
 
-    int st8 = st58 - st5c;
-
-    if (st8 >= param2)
-    {
-        st8 = param2;
+    // Don't overflow the window
+    if (destWidth - dstX < srcWidth) {
+        srcRight = destWidth - dstX;
+    } else {
+        srcRight = srcWidth;
+    }
+    if (destHeight - dstY < srcHeight) {
+        srcBottom = destHeight - dstY;
+    } else {
+        srcBottom = srcHeight;
     }
 
-    int st4 = (u16)(window->height << 3) - param5;
-    u16 st48 = param5;
-
-    if (st4 >= param3)
-    {
-        st4 = param3;
+    // Get the max glyph dimensions
+    // Default: 1x1
+    glyphSizeParam = 0;
+    if (srcRight > 8) {
+        glyphSizeParam |= 1; // 2 wide
+    }
+    if (srcBottom > 8) {
+        glyphSizeParam |= 2; // 2 high
     }
 
-    u8 r4 = 0;
-    if (st8 > 8)
-    {
-        r4 |= 1;
-    }
+    if (window->colorMode == GF_BG_CLR_4BPP) {
+        switch (glyphSizeParam) {
+            case 0: // 1x1
+                GLYPH_COPY_4BPP(glyphPixels, 0, 0, srcRight, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                return;
 
-    if (st4 > 8)
-    {
-        r4 |= 2;
-    }
+            case 1: // 2x1
+                GLYPH_COPY_4BPP(glyphPixels, 0, 0, 8, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 8, 0, srcRight - 8, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                return;
 
-    if (window->unk0b_15 == 0)
-    {
-        switch (r4)
-        {
-        case 0:
-            u8 st70 = param6;
-            for (u32 st274 = 0; st274 < st4; st274++)
-            {
-                u32 st6c = (st58 + (st58 & 7)) >> 3;
+            case 2: // 1x2
+                GLYPH_COPY_4BPP(glyphPixels, 0, 0, srcRight, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 0, 8, srcRight, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                return;
 
-                u32 st26c = st0[0];
-                u8 st270 = (u8)((st70 >> st274) & 1);
-                u32 r2 = st5c;
-
-                for (u32 r1 = 0; r1 < st8; r1++)
-                {
-                    u32 r3 = st5c << 2;
-                    u32 st68 = ((st48 << 2) & 0x3fe0) * st6c;
-                    u32 r7 = (st48 << 2) & 0x1c;
-                    u32 st64 = (((st48 + 1) << 2) & 0x3fe0) * st6c;
-                    u32 st60 = ((st48 + 1) << 2) & 0x1c;
-                    u32 r4 = r1;
-
-                    void *st27c = st278 + ((r2 >> 1) & 3) + (r3 & 0x3fe0);
-                    u8 *r0 = st27c + st68;
-
-                    u8 r5 = (u8)((st26c >> r4) & 0xf);
-                    if (r5 != 0)
-                    {
-                        u32 st280 = (r5 << ((r2 & 1) << 2));
-                        u32 st284 = r0[r7];
-
-                        u8 r5 = ((0xf0 >> ((r2 & 1) << 2)) & st284) | st280;
-                        r0[r7] = r5;
-
-                        if (st270 != 0)
-                        {
-                            *(u8 *)(st27c + st64 + st60) = r5;
-                        }
-                    }
-
-                    r4 += 4;
-                    r3 += 4;
-                    r2 += 1;
-                }
-
-                if (st270 != 0)
-                {
-                    st48 += 2;
-                }
-                else
-                {
-                    st48++;
-                }
-
-                st0++;
-            }
-
-            break;
-
-        case 1:
-            u32 *st25c = st0;
-            u32 st264 = st48;
-            u8 st54 = param6;
-            u8 st84 = param6;
-
-            for (u32 st268 = 0; st268 < st4; st268++)
-            {
-                u32 st80 = (st58 + (st58 & 7)) >> 3;
-
-                u32 st258 = *st25c;
-                u32 r2 = st5c;
-                u8 st260 = (st84 >> st268) & 1;
-                u32 r3 = st5c << 2;
-                u32 st7c = ((st264 << 2) & 0x3fe0) * st80;
-                u32 r7 = (st264 << 2) & 0x1c;
-                u32 st78 = (((st264 + 1) << 2) & 0x3fe0) * st80;
-                u32 st74 = ((st264 + 1) << 2) & 0x1c;
-                u32 r4 = 0;
-
-                for (u32 r1 = 0; r1 < 8; r1++)
-                {
-                    void *st288 = st278 + ((r2 >> 1) & 3) + (r3 & 0x3fe0);
-                    u8 *r0 = st288 + st7c;
-                    u8 r5 = (st258 >> r4) & 0xf;
-                    if (r5 != 0)
-                    {
-                        u32 st28c = r5 << ((r2 & 1) << 2);
-                        u32 st290 = r0[r7];
-                        u8 r5 = ((0xf0 >> ((r2 & 1) << 2)) & st290) | st28c;
-                        r0[r7] = r5;
-
-                        if (st260 != 0)
-                        {
-                            *(u8 *)(st288 + st78 + st74) = r5;
-                        }
-                    }
-
-                    r4 += 4;
-                    r3 += 4;
-                    r2++;
-                }
-
-                if (st260 != 0)
-                {
-                    st264 += 2;
-                }
-                else
-                {
-                    st264++;
-                }
-
-                st25c++;
-            }
-
-            st0 += 0x20;
-            u8 st98 = st54;
-
-            for (u32 st254 = 0; st254 < st4; st254++)
-            {
-                st5c += 8;
-                u32 st94 = (st58 + (st58 & 7)) >> 3;
-
-                //_02019A00
-            }
-
-            break;
-
-        case 2:
-            // TODO
-            break;
-        case 3:
-            // TODO
-            break;
+            case 3: // 2x2
+                GLYPH_COPY_4BPP(glyphPixels, 0, 0, 8, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 8, 0, srcRight - 8, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 0, 8, 8, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_4BPP(glyphPixels, 8, 8, srcRight - 8, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                return;
         }
-    }
-    else
-    {
-        // TODO: _0201A12C
-    }
-}
-#else
-asm void CopyGlyphToWindow(
-    struct Window *window, const char *param1, u16 param2, u16 param3, u16 param4, u16 param5, u16 param6)
-{
-    // clang-format off
-	push {r4-r7, lr}
-	sub sp, #0x1fc
-	sub sp, #0x118
-	add r5, r0, #0x0
-	ldr r0, [sp, #0x330]
-	str r1, [sp, #0x0]
-	str r0, [sp, #0x330]
-	add r1, sp, #0x318
-	ldrh r1, [r1, #0x10]
-	ldr r0, [r5, #0xc]
-	str r1, [sp, #0x5c]
-	ldrb r1, [r5, #0x7]
-	str r0, [sp, #0x278]
-	ldrb r0, [r5, #0x8]
-	lsl r1, r1, #0x13
-	lsr r4, r1, #0x10
-	ldr r1, [sp, #0x5c]
-	lsl r0, r0, #0x13
-	sub r1, r4, r1
-	lsr r0, r0, #0x10
-	str r4, [sp, #0x58]
-	str r1, [sp, #0x8]
-	cmp r1, r2
-	blt _0201977E
-	str r2, [sp, #0x8]
-_0201977E:
-	add r1, sp, #0x318
-	ldrh r1, [r1, #0x14]
-	sub r0, r0, r1
-	str r1, [sp, #0x48]
-	str r0, [sp, #0x4]
-	cmp r0, r3
-	blt _0201978E
-	str r3, [sp, #0x4]
-_0201978E:
-	ldr r0, [sp, #0x8]
-	mov r4, #0x0
-	cmp r0, #0x8
-	ble _0201979E
-	mov r0, #0x1
-	orr r0, r4
-	lsl r0, r0, #0x18
-	lsr r4, r0, #0x18
-_0201979E:
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x8
-	ble _020197AC
-	mov r0, #0x2
-	orr r0, r4
-	lsl r0, r0, #0x18
-	lsr r4, r0, #0x18
-_020197AC:
-	ldrh r0, [r5, #0xa]
-	lsl r0, r0, #0x10
-	lsr r0, r0, #0x1f
-	beq _020197B8
-	bl _0201A12C
-_020197B8:
-	cmp r4, #0x3
-	bls _020197C0
-	bl _0201A8BC
-_020197C0:
-	add r0, r4, r4
-	add r0, pc
-	ldrh r0, [r0, #0x6]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	add pc, r0
-_020197CC:
-	lsl r6, r0, #0
-	lsl r0, r1, #4
-	lsl r0, r3, #12
-	lsl r0, r7, #20
-	// jump table (using 16-bit offset)
-	// .short _020197D4 - _020197CC - 2; case 0
-	// .short _020198D6 - _020197CC - 2; case 1
-	// .short _02019AE6 - _020197CC - 2; case 2
-	// .short _02019D06 - _020197CC - 2; case 3
-_020197D4:
-	ldr r0, [sp, #0x330]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x70]
-	mov r0, #0x0
-	str r0, [sp, #0x274]
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x0
-	bgt _020197EA
-	bl _0201A8BC
-_020197EA:
-	ldr r0, [sp, #0x58]
-	mov r1, #0x7
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x6c]
-_020197F6:
-	ldr r0, [sp, #0x0]
-	ldr r1, [sp, #0x70]
-	ldr r0, [r0, #0x0]
-	ldr r2, [sp, #0x5c]
-	str r0, [sp, #0x26c]
-	ldr r0, [sp, #0x274]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x270]
-	ldr r0, [sp, #0x8]
-	mov r1, #0x0
-	cmp r0, #0x0
-	ble _020198AA
-	ble _020198AA
-	add r0, r2, #0x0
-	lsl r3, r0, #0x2
-	ldr r0, [sp, #0x48]
-	ldr r6, [sp, #0x6c]
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x48]
-	str r6, [sp, #0x68]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x6c]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	add r4, r1, #0x0
-	str r5, [sp, #0x64]
-	str r0, [sp, #0x60]
-_02019848:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0x68]
-	str r5, [sp, #0x27c]
-	add r0, r5, r0
-	ldr r5, [sp, #0x26c]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _0201989C
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x280]
-	ldrb r5, [r0, r7]
-	str r5, [sp, #0x284]
-	mov r5, #0xf0
-	asr r5, r6
-	ldr r6, [sp, #0x284]
-	and r6, r5
-	ldr r5, [sp, #0x280]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x270]
-	cmp r0, #0x0
-	beq _0201989C
-	ldr r6, [sp, #0x27c]
-	ldr r0, [sp, #0x64]
-	add r6, r6, r0
-	ldr r0, [sp, #0x60]
-	strb r5, [r0, r6]
-_0201989C:
-	ldr r0, [sp, #0x8]
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, r0
-	blt _02019848
-_020198AA:
-	ldr r0, [sp, #0x270]
-	cmp r0, #0x0
-	beq _020198B8
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x2
-	str r0, [sp, #0x48]
-	b _020198BE
-_020198B8:
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_020198BE:
-	ldr r0, [sp, #0x0]
-	add r0, r0, #0x4
-	str r0, [sp, #0x0]
-	ldr r0, [sp, #0x274]
-	add r1, r0, #0x1
-	ldr r0, [sp, #0x4]
-	str r1, [sp, #0x274]
-	cmp r1, r0
-	blt _020197F6
-	add sp, #0x1fc
-	add sp, #0x118
-	pop {r4-r7, pc}
-_020198D6:
-	ldr r0, [sp, #0x0]
-	str r0, [sp, #0x25c]
-	ldr r0, [sp, #0x48]
-	str r0, [sp, #0x264]
-	ldr r0, [sp, #0x330]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x54]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x84]
-	mov r0, #0x0
-	str r0, [sp, #0x268]
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x0
-	ble _020199D2
-	ldr r0, [sp, #0x58]
-	mov r1, #0x7
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x80]
-_02019902:
-	ldr r0, [sp, #0x25c]
-	ldr r1, [sp, #0x84]
-	ldr r0, [r0, #0x0]
-	ldr r2, [sp, #0x5c]
-	str r0, [sp, #0x258]
-	ldr r0, [sp, #0x268]
-	ldr r6, [sp, #0x80]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x260]
-	add r0, r2, #0x0
-	lsl r3, r0, #0x2
-	ldr r0, [sp, #0x264]
-	mov r1, #0x0
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x264]
-	str r6, [sp, #0x7c]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x80]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	add r4, r1, #0x0
-	str r5, [sp, #0x78]
-	str r0, [sp, #0x74]
-_0201994C:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0x7c]
-	str r5, [sp, #0x288]
-	add r0, r5, r0
-	ldr r5, [sp, #0x258]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _020199A0
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x28c]
-	ldrb r5, [r0, r7]
-	str r5, [sp, #0x290]
-	mov r5, #0xf0
-	asr r5, r6
-	ldr r6, [sp, #0x290]
-	and r6, r5
-	ldr r5, [sp, #0x28c]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x260]
-	cmp r0, #0x0
-	beq _020199A0
-	ldr r6, [sp, #0x288]
-	ldr r0, [sp, #0x78]
-	add r6, r6, r0
-	ldr r0, [sp, #0x74]
-	strb r5, [r0, r6]
-_020199A0:
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, #0x8
-	blt _0201994C
-	ldr r0, [sp, #0x260]
-	cmp r0, #0x0
-	beq _020199BA
-	ldr r0, [sp, #0x264]
-	add r0, r0, #0x2
-	str r0, [sp, #0x264]
-	b _020199C0
-_020199BA:
-	ldr r0, [sp, #0x264]
-	add r0, r0, #0x1
-	str r0, [sp, #0x264]
-_020199C0:
-	ldr r0, [sp, #0x25c]
-	add r0, r0, #0x4
-	str r0, [sp, #0x25c]
-	ldr r0, [sp, #0x268]
-	add r1, r0, #0x1
-	ldr r0, [sp, #0x4]
-	str r1, [sp, #0x268]
-	cmp r1, r0
-	blt _02019902
-_020199D2:
-	ldr r0, [sp, #0x0]
-	add r0, #0x20
-	str r0, [sp, #0x0]
-	ldr r0, [sp, #0x54]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x98]
-	mov r0, #0x0
-	str r0, [sp, #0x254]
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x0
-	bgt _020199EE
-	bl _0201A8BC
-_020199EE:
-	ldr r0, [sp, #0x5c]
-	mov r1, #0x7
-	add r0, #0x8
-	str r0, [sp, #0x5c]
-	ldr r0, [sp, #0x58]
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x94]
-_02019A00:
-	ldr r0, [sp, #0x0]
-	ldr r1, [sp, #0x98]
-	ldr r0, [r0, #0x0]
-	ldr r2, [sp, #0x5c]
-	str r0, [sp, #0x24c]
-	ldr r0, [sp, #0x254]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x250]
-	ldr r0, [sp, #0x8]
-	mov r1, #0x0
-	str r0, [sp, #0x294]
-	sub r0, #0x8
-	str r0, [sp, #0x294]
-	cmp r0, #0x0
-	ble _02019ABA
-	ble _02019ABA
-	add r0, r2, #0x0
-	lsl r3, r0, #0x2
-	ldr r0, [sp, #0x48]
-	ldr r6, [sp, #0x94]
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x48]
-	str r6, [sp, #0x90]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x94]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	add r4, r1, #0x0
-	str r5, [sp, #0x8c]
-	str r0, [sp, #0x88]
-_02019A58:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0x90]
-	str r5, [sp, #0x298]
-	add r0, r5, r0
-	ldr r5, [sp, #0x24c]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _02019AAC
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x29c]
-	ldrb r5, [r0, r7]
-	str r5, [sp, #0x2a0]
-	mov r5, #0xf0
-	asr r5, r6
-	ldr r6, [sp, #0x2a0]
-	and r6, r5
-	ldr r5, [sp, #0x29c]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x250]
-	cmp r0, #0x0
-	beq _02019AAC
-	ldr r6, [sp, #0x298]
-	ldr r0, [sp, #0x8c]
-	add r6, r6, r0
-	ldr r0, [sp, #0x88]
-	strb r5, [r0, r6]
-_02019AAC:
-	ldr r0, [sp, #0x294]
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, r0
-	blt _02019A58
-_02019ABA:
-	ldr r0, [sp, #0x250]
-	cmp r0, #0x0
-	beq _02019AC8
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x2
-	str r0, [sp, #0x48]
-	b _02019ACE
-_02019AC8:
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_02019ACE:
-	ldr r0, [sp, #0x0]
-	add r0, r0, #0x4
-	str r0, [sp, #0x0]
-	ldr r0, [sp, #0x254]
-	add r1, r0, #0x1
-	ldr r0, [sp, #0x4]
-	str r1, [sp, #0x254]
-	cmp r1, r0
-	blt _02019A00
-	add sp, #0x1fc
-	add sp, #0x118
-	pop {r4-r7, pc}
-_02019AE6:
-	ldr r0, [sp, #0x0]
-	mov r1, #0x7
-	str r0, [sp, #0x23c]
-	ldr r0, [sp, #0x48]
-	str r0, [sp, #0x244]
-	mov r0, #0x0
-	str r0, [sp, #0x248]
-	ldr r0, [sp, #0x330]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0xa8]
-	ldr r0, [sp, #0x58]
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x40]
-_02019B06:
-	ldr r0, [sp, #0x23c]
-	ldr r1, [sp, #0xa8]
-	ldr r0, [r0, #0x0]
-	ldr r2, [sp, #0x5c]
-	str r0, [sp, #0x238]
-	ldr r0, [sp, #0x248]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x240]
-	ldr r0, [sp, #0x8]
-	mov r1, #0x0
-	cmp r0, #0x0
-	ble _02019BC2
-	ble _02019BC2
-	add r0, r2, #0x0
-	lsl r3, r0, #0x2
-	ldr r0, [sp, #0x244]
-	ldr r6, [sp, #0x40]
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x244]
-	str r6, [sp, #0xa4]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x40]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	add r4, r1, #0x0
-	str r5, [sp, #0xa0]
-	str r0, [sp, #0x9c]
-_02019B58:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-// 	b _02019B6C
-// 	nop
-// _02019B68: .word 0x00003FE0
-// _02019B6C:
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0xa4]
-	str r5, [sp, #0x2a4]
-	add r0, r5, r0
-	ldr r5, [sp, #0x238]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _02019BB4
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x2a8]
-	ldrb r5, [r0, r7]
-	str r5, [sp, #0x2ac]
-	mov r5, #0xf0
-	asr r5, r6
-	ldr r6, [sp, #0x2ac]
-	and r6, r5
-	ldr r5, [sp, #0x2a8]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x240]
-	cmp r0, #0x0
-	beq _02019BB4
-	ldr r6, [sp, #0x2a4]
-	ldr r0, [sp, #0xa0]
-	add r6, r6, r0
-	ldr r0, [sp, #0x9c]
-	strb r5, [r0, r6]
-_02019BB4:
-	ldr r0, [sp, #0x8]
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, r0
-	blt _02019B58
-_02019BC2:
-	ldr r0, [sp, #0x240]
-	cmp r0, #0x0
-	beq _02019BD0
-	ldr r0, [sp, #0x244]
-	add r0, r0, #0x2
-	str r0, [sp, #0x244]
-	b _02019BD6
-_02019BD0:
-	ldr r0, [sp, #0x244]
-	add r0, r0, #0x1
-	str r0, [sp, #0x244]
-_02019BD6:
-	ldr r0, [sp, #0x23c]
-	add r0, r0, #0x4
-	str r0, [sp, #0x23c]
-	ldr r0, [sp, #0x248]
-	add r0, r0, #0x1
-	str r0, [sp, #0x248]
-	cmp r0, #0x8
-	blt _02019B06
-	ldr r0, [sp, #0x0]
-	mov r2, #0x0
-	add r0, #0x40
-	str r0, [sp, #0x0]
-	ldr r0, [sp, #0x48]
-	mov r1, #0x1
-	add r0, #0x8
-	str r0, [sp, #0x48]
-_02019BF6:
-	ldr r0, [sp, #0x330]
-	asr r0, r2
-	tst r0, r1
-	beq _02019C04
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_02019C04:
-	add r2, r2, #0x1
-	cmp r2, #0x8
-	blt _02019BF6
-	ldr r0, [sp, #0x330]
-	asr r0, r0, #0x8
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0xb8]
-	mov r0, #0x0
-	str r0, [sp, #0x20]
-	ldr r0, [sp, #0x4]
-	sub r0, #0x8
-	cmp r0, #0x0
-	bgt _02019C24
-	bl _0201A8BC
-_02019C24:
-	ldr r0, [sp, #0x0]
-	ldr r1, [sp, #0xb8]
-	ldr r0, [r0, #0x0]
-	ldr r2, [sp, #0x5c]
-	str r0, [sp, #0x230]
-	ldr r0, [sp, #0x20]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x234]
-	ldr r0, [sp, #0x8]
-	mov r1, #0x0
-	cmp r0, #0x0
-	ble _02019CD8
-	ble _02019CD8
-	add r0, r2, #0x0
-	lsl r3, r0, #0x2
-	ldr r0, [sp, #0x48]
-	ldr r6, [sp, #0x40]
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x48]
-	str r6, [sp, #0xb4]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x40]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	add r4, r1, #0x0
-	str r5, [sp, #0xb0]
-	str r0, [sp, #0xac]
-_02019C76:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0xb4]
-	str r5, [sp, #0x2b0]
-	add r0, r5, r0
-	ldr r5, [sp, #0x230]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _02019CCA
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x2b4]
-	ldrb r5, [r0, r7]
-	str r5, [sp, #0x2b8]
-	mov r5, #0xf0
-	asr r5, r6
-	ldr r6, [sp, #0x2b8]
-	and r6, r5
-	ldr r5, [sp, #0x2b4]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x234]
-	cmp r0, #0x0
-	beq _02019CCA
-	ldr r6, [sp, #0x2b0]
-	ldr r0, [sp, #0xb0]
-	add r6, r6, r0
-	ldr r0, [sp, #0xac]
-	strb r5, [r0, r6]
-_02019CCA:
-	ldr r0, [sp, #0x8]
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, r0
-	blt _02019C76
-_02019CD8:
-	ldr r0, [sp, #0x234]
-	cmp r0, #0x0
-	beq _02019CE6
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x2
-	str r0, [sp, #0x48]
-	b _02019CEC
-_02019CE6:
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_02019CEC:
-	ldr r0, [sp, #0x0]
-	ldr r1, [sp, #0x4]
-	add r0, r0, #0x4
-	str r0, [sp, #0x0]
-	ldr r0, [sp, #0x20]
-	sub r1, #0x8
-	add r0, r0, #0x1
-	str r0, [sp, #0x20]
-	cmp r0, r1
-	blt _02019C24
-	add sp, #0x1fc
-	add sp, #0x118
-	pop {r4-r7, pc}
-_02019D06:
-	ldr r0, [sp, #0x0]
-	str r0, [sp, #0x220]
-	ldr r0, [sp, #0x48]
-	str r0, [sp, #0x228]
-	ldr r0, [sp, #0x330]
-	lsl r0, r0, #0x18
-	lsr r1, r0, #0x18
-	mov r0, #0x0
-	str r0, [sp, #0x22c]
-	lsl r0, r1, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x3c]
-	ldr r0, [sp, #0x58]
-	mov r1, #0x7
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x38]
-_02019D2A:
-	ldr r0, [sp, #0x220]
-	ldr r1, [sp, #0x3c]
-	ldr r0, [r0, #0x0]
-	ldr r2, [sp, #0x5c]
-	str r0, [sp, #0x21c]
-	ldr r0, [sp, #0x22c]
-	ldr r6, [sp, #0x38]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x224]
-	add r0, r2, #0x0
-	lsl r3, r0, #0x2
-	ldr r0, [sp, #0x228]
-	mov r1, #0x0
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x228]
-	str r6, [sp, #0xc4]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x38]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	str r3, [sp, #0x34]
-	add r4, r1, #0x0
-	str r5, [sp, #0xc0]
-	str r0, [sp, #0xbc]
-_02019D76:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0xc4]
-	str r5, [sp, #0x2bc]
-	add r0, r5, r0
-	ldr r5, [sp, #0x21c]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _02019DCA
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x2c0]
-	ldrb r5, [r0, r7]
-	str r5, [sp, #0x2c4]
-	mov r5, #0xf0
-	asr r5, r6
-	ldr r6, [sp, #0x2c4]
-	and r6, r5
-	ldr r5, [sp, #0x2c0]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x224]
-	cmp r0, #0x0
-	beq _02019DCA
-	ldr r6, [sp, #0x2bc]
-	ldr r0, [sp, #0xc0]
-	add r6, r6, r0
-	ldr r0, [sp, #0xbc]
-	strb r5, [r0, r6]
-_02019DCA:
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, #0x8
-	blt _02019D76
-	ldr r0, [sp, #0x224]
-	cmp r0, #0x0
-	beq _02019DE4
-	ldr r0, [sp, #0x228]
-	add r0, r0, #0x2
-	str r0, [sp, #0x228]
-	b _02019DEA
-_02019DE4:
-	ldr r0, [sp, #0x228]
-	add r0, r0, #0x1
-	str r0, [sp, #0x228]
-_02019DEA:
-	ldr r0, [sp, #0x220]
-	add r0, r0, #0x4
-	str r0, [sp, #0x220]
-	ldr r0, [sp, #0x22c]
-	add r0, r0, #0x1
-	str r0, [sp, #0x22c]
-	cmp r0, #0x8
-	blt _02019D2A
-	ldr r0, [sp, #0x0]
-	str r0, [sp, #0x20c]
-	add r0, #0x20
-	str r0, [sp, #0x20c]
-	ldr r0, [sp, #0x48]
-	str r0, [sp, #0x214]
-	mov r0, #0x0
-	str r0, [sp, #0x218]
-	ldr r0, [sp, #0x5c]
-	str r0, [sp, #0xd4]
-	add r0, #0x8
-	str r0, [sp, #0xd4]
-_02019E12:
-	ldr r0, [sp, #0x20c]
-	ldr r1, [sp, #0x3c]
-	ldr r0, [r0, #0x0]
-	ldr r2, [sp, #0xd4]
-	str r0, [sp, #0x208]
-	ldr r0, [sp, #0x218]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x210]
-	ldr r0, [sp, #0x8]
-	mov r1, #0x0
-	str r0, [sp, #0x2c8]
-	sub r0, #0x8
-	str r0, [sp, #0x2c8]
-	cmp r0, #0x0
-	ble _02019ECC
-	ble _02019ECC
-	add r0, r2, #0x0
-	lsl r3, r0, #0x2
-	ldr r0, [sp, #0x214]
-	ldr r6, [sp, #0x38]
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x214]
-	str r6, [sp, #0xd0]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x38]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	add r4, r1, #0x0
-	str r5, [sp, #0xcc]
-	str r0, [sp, #0xc8]
-_02019E6A:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0xd0]
-	str r5, [sp, #0x2cc]
-	add r0, r5, r0
-	ldr r5, [sp, #0x208]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _02019EBE
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x2d0]
-	ldrb r5, [r0, r7]
-	str r5, [sp, #0x2d4]
-	mov r5, #0xf0
-	asr r5, r6
-	ldr r6, [sp, #0x2d4]
-	and r6, r5
-	ldr r5, [sp, #0x2d0]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x210]
-	cmp r0, #0x0
-	beq _02019EBE
-	ldr r6, [sp, #0x2cc]
-	ldr r0, [sp, #0xcc]
-	add r6, r6, r0
-	ldr r0, [sp, #0xc8]
-	strb r5, [r0, r6]
-_02019EBE:
-	ldr r0, [sp, #0x2c8]
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, r0
-	blt _02019E6A
-_02019ECC:
-	ldr r0, [sp, #0x210]
-	cmp r0, #0x0
-	beq _02019EDA
-	ldr r0, [sp, #0x214]
-	add r0, r0, #0x2
-	str r0, [sp, #0x214]
-	b _02019EE0
-_02019EDA:
-	ldr r0, [sp, #0x214]
-	add r0, r0, #0x1
-	str r0, [sp, #0x214]
-_02019EE0:
-	ldr r0, [sp, #0x20c]
-	add r0, r0, #0x4
-	str r0, [sp, #0x20c]
-	ldr r0, [sp, #0x218]
-	add r0, r0, #0x1
-	str r0, [sp, #0x218]
-	cmp r0, #0x8
-	blt _02019E12
-	ldr r0, [sp, #0x0]
-	mov r2, #0x0
-	str r0, [sp, #0x1fc]
-	add r0, #0x40
-	str r0, [sp, #0x1fc]
-	ldr r0, [sp, #0x48]
-	mov r1, #0x1
-	add r0, #0x8
-	str r0, [sp, #0x48]
-	str r0, [sp, #0x204]
-_02019F04:
-	ldr r0, [sp, #0x330]
-	asr r0, r2
-	tst r0, r1
-	beq _02019F12
-	ldr r0, [sp, #0x204]
-	add r0, r0, #0x1
-	str r0, [sp, #0x204]
-_02019F12:
-	add r2, r2, #0x1
-	cmp r2, #0x8
-	blt _02019F04
-	ldr r0, [sp, #0x330]
-	asr r0, r0, #0x8
-	str r0, [sp, #0x50]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0xe4]
-	mov r0, #0x0
-	str r0, [sp, #0x1c]
-	ldr r0, [sp, #0x4]
-	sub r0, #0x8
-	cmp r0, #0x0
-	ble _0201A008
-_02019F30:
-	ldr r0, [sp, #0x1fc]
-	ldr r1, [sp, #0xe4]
-	ldr r0, [r0, #0x0]
-	ldr r6, [sp, #0x38]
-	str r0, [sp, #0x1f8]
-	ldr r0, [sp, #0x1c]
-	ldr r2, [sp, #0x5c]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x200]
-	ldr r0, [sp, #0x204]
-	mov r1, #0x0
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x204]
-	str r6, [sp, #0xe0]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x38]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	ldr r3, [sp, #0x34]
-	add r4, r1, #0x0
-	str r5, [sp, #0xdc]
-	str r0, [sp, #0xd8]
-_02019F78:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-// 	b _02019F8C
-// 	nop
-// _02019F88: .word 0x00003FE0
-// _02019F8C:
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0xe0]
-	str r5, [sp, #0x2d8]
-	add r0, r5, r0
-	ldr r5, [sp, #0x1f8]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _02019FD4
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x2dc]
-	ldrb r5, [r0, r7]
-	str r5, [sp, #0x2e0]
-	mov r5, #0xf0
-	asr r5, r6
-	ldr r6, [sp, #0x2e0]
-	and r6, r5
-	ldr r5, [sp, #0x2dc]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x200]
-	cmp r0, #0x0
-	beq _02019FD4
-	ldr r6, [sp, #0x2d8]
-	ldr r0, [sp, #0xdc]
-	add r6, r6, r0
-	ldr r0, [sp, #0xd8]
-	strb r5, [r0, r6]
-_02019FD4:
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, #0x8
-	blt _02019F78
-	ldr r0, [sp, #0x200]
-	cmp r0, #0x0
-	beq _02019FEE
-	ldr r0, [sp, #0x204]
-	add r0, r0, #0x2
-	str r0, [sp, #0x204]
-	b _02019FF4
-_02019FEE:
-	ldr r0, [sp, #0x204]
-	add r0, r0, #0x1
-	str r0, [sp, #0x204]
-_02019FF4:
-	ldr r0, [sp, #0x1fc]
-	ldr r1, [sp, #0x4]
-	add r0, r0, #0x4
-	str r0, [sp, #0x1fc]
-	ldr r0, [sp, #0x1c]
-	sub r1, #0x8
-	add r0, r0, #0x1
-	str r0, [sp, #0x1c]
-	cmp r0, r1
-	blt _02019F30
-_0201A008:
-	ldr r0, [sp, #0x0]
-	mov r2, #0x0
-	add r0, #0x60
-	str r0, [sp, #0x0]
-	mov r1, #0x1
-_0201A012:
-	ldr r0, [sp, #0x330]
-	asr r0, r2
-	tst r0, r1
-	beq _0201A020
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_0201A020:
-	add r2, r2, #0x1
-	cmp r2, #0x8
-	blt _0201A012
-	ldr r0, [sp, #0x50]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0xf4]
-	mov r0, #0x0
-	str r0, [sp, #0x18]
-	ldr r0, [sp, #0x4]
-	sub r0, #0x8
-	cmp r0, #0x0
-	bgt _0201A03E
-	bl _0201A8BC
-_0201A03E:
-	ldr r0, [sp, #0x5c]
-	add r0, #0x8
-	str r0, [sp, #0x5c]
-_0201A044:
-	ldr r0, [sp, #0x0]
-	ldr r1, [sp, #0xf4]
-	ldr r0, [r0, #0x0]
-	ldr r2, [sp, #0x5c]
-	str r0, [sp, #0x1f0]
-	ldr r0, [sp, #0x18]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x1f4]
-	ldr r0, [sp, #0x8]
-	mov r1, #0x0
-	str r0, [sp, #0x2e4]
-	sub r0, #0x8
-	str r0, [sp, #0x2e4]
-	cmp r0, #0x0
-	ble _0201A0FE
-	ble _0201A0FE
-	add r0, r2, #0x0
-	lsl r3, r0, #0x2
-	ldr r0, [sp, #0x48]
-	ldr r6, [sp, #0x38]
-	lsl r5, r0, #0x2
-	ldr r0, =0x00003FE0
-	add r7, r5, #0x0
-	and r0, r5
-	mul r6, r0
-	mov r0, #0x1c
-	and r7, r0
-	ldr r0, [sp, #0x48]
-	str r6, [sp, #0xf0]
-	add r0, r0, #0x1
-	lsl r6, r0, #0x2
-	ldr r0, =0x00003FE0
-	ldr r5, [sp, #0x38]
-	and r0, r6
-	mul r5, r0
-	mov r0, #0x1c
-	and r0, r6
-	add r4, r1, #0x0
-	str r5, [sp, #0xec]
-	str r0, [sp, #0xe8]
-_0201A09C:
-	asr r5, r2, #0x1
-	mov r0, #0x3
-	and r5, r0
-	ldr r0, [sp, #0x278]
-	add r0, r0, r5
-	ldr r5, =0x00003FE0
-	and r5, r3
-	add r5, r0, r5
-	ldr r0, [sp, #0xf0]
-	str r5, [sp, #0x2e8]
-	add r0, r5, r0
-	ldr r5, [sp, #0x1f0]
-	add r6, r5, #0x0
-	lsr r6, r4
-	mov r5, #0xf
-	and r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	beq _0201A0F0
-	lsl r6, r2, #0x1f
-	lsr r6, r6, #0x1d
-	lsl r5, r6
-	str r5, [sp, #0x2ec]
-	ldrb r5, [r0, r7]
-	mov r12, r5
-	mov r5, #0xf0
-	asr r5, r6
-	mov r6, r12
-	and r6, r5
-	ldr r5, [sp, #0x2ec]
-	orr r5, r6
-	lsl r5, r5, #0x18
-	lsr r5, r5, #0x18
-	strb r5, [r0, r7]
-	ldr r0, [sp, #0x1f4]
-	cmp r0, #0x0
-	beq _0201A0F0
-	ldr r6, [sp, #0x2e8]
-	ldr r0, [sp, #0xec]
-	add r6, r6, r0
-	ldr r0, [sp, #0xe8]
-	strb r5, [r0, r6]
-_0201A0F0:
-	ldr r0, [sp, #0x2e4]
-	add r1, r1, #0x1
-	add r4, r4, #0x4
-	add r3, r3, #0x4
-	add r2, r2, #0x1
-	cmp r1, r0
-	blt _0201A09C
-_0201A0FE:
-	ldr r0, [sp, #0x1f4]
-	cmp r0, #0x0
-	beq _0201A10C
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x2
-	str r0, [sp, #0x48]
-	b _0201A112
-_0201A10C:
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_0201A112:
-	ldr r0, [sp, #0x0]
-	ldr r1, [sp, #0x4]
-	add r0, r0, #0x4
-	str r0, [sp, #0x0]
-	ldr r0, [sp, #0x18]
-	sub r1, #0x8
-	add r0, r0, #0x1
-	str r0, [sp, #0x18]
-	cmp r0, r1
-	blt _0201A044
-	add sp, #0x1fc
-	add sp, #0x118
-	pop {r4-r7, pc}
-_0201A12C: // 0x0201A12C
-	lsl r1, r2, #0x2
-	mul r1, r3
-	ldr r3, [r5, #0x0]
-	ldrb r2, [r5, #0x9]
-	ldr r0, [sp, #0x0]
-	ldr r3, [r3, #0x0]
-	lsl r1, r1, #0x3
-	bl Convert4bppTo8bpp
-	str r0, [sp, #0x1ec]
-	cmp r4, #0x3
-	bhi _0201A21E
-	add r0, r4, r4
-	add r0, pc
-	ldrh r0, [r0, #0x6]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	add pc, r0
-_0201A150:
+    } else { // 8bpp
+        u8 *convertedSrc;
+        convertedSrc = Convert4bppTo8bpp(glyphPixels, srcWidth * 4 * srcHeight * 8, window->paletteNum, window->bgConfig->heap_id);
+        switch (glyphSizeParam) {
+            case 0: // 1x1
+                GLYPH_COPY_8BPP(convertedSrc, 0, 0, srcRight, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                break;
 
-	lsl r6, r0, #0
-	lsl r6, r1, #3
-	lsl r0, r7, #9
-	lsl r4, r3, #16
-	// jump table (using 16-bit offset)
-	// .short _0201A158 - _0201A150 - 2; case 0
-	// .short _0201A220 - _0201A150 - 2; case 1
-	// .short _0201A3CA - _0201A150 - 2; case 2
-	// .short _0201A56E - _0201A150 - 2; case 3
-_0201A158:
-	ldr r0, [sp, #0x330]
-	ldr r7, [sp, #0x1ec]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x10c]
-	mov r0, #0x0
-	str r0, [sp, #0x1e8]
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x0
-	ble _0201A21E
-	ldr r0, [sp, #0x58]
-	mov r1, #0x7
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x108]
-_0201A178:
-	ldr r1, [sp, #0x10c]
-	ldr r0, [sp, #0x1e8]
-	mov r4, #0x0
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x310]
-	ldr r0, [sp, #0x8]
-	ldr r5, [sp, #0x5c]
-	cmp r0, #0x0
-	ble _0201A1FC
-	ble _0201A1FC
-	add r0, r5, #0x0
-	lsl r6, r0, #0x3
-	ldr r0, [sp, #0x48]
-	ldr r2, [sp, #0x108]
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	mov r3, #0x38
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x100]
-	ldr r0, [sp, #0x48]
-	str r2, [sp, #0x104]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x108]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r2, [sp, #0xfc]
-	str r0, [sp, #0xf8]
-_0201A1C4:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x104]
-	ldrb r1, [r7, r4]
-	add r2, r3, r0
-	cmp r1, #0x0
-	beq _0201A1F0
-	ldr r0, [sp, #0x100]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x310]
-	cmp r0, #0x0
-	beq _0201A1F0
-	ldr r0, [sp, #0xfc]
-	add r2, r3, r0
-	ldr r0, [sp, #0xf8]
-	strb r1, [r0, r2]
-_0201A1F0:
-	ldr r0, [sp, #0x8]
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, r0
-	blt _0201A1C4
-_0201A1FC:
-	ldr r0, [sp, #0x310]
-	cmp r0, #0x0
-	beq _0201A20A
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x2
-	str r0, [sp, #0x48]
-	b _0201A210
-_0201A20A:
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_0201A210:
-	ldr r0, [sp, #0x1e8]
-	add r7, #0x8
-	add r1, r0, #0x1
-	ldr r0, [sp, #0x4]
-	str r1, [sp, #0x1e8]
-	cmp r1, r0
-	blt _0201A178
-_0201A21E:
-	b _0201A8B6
-_0201A220:
-	ldr r0, [sp, #0x48]
-	ldr r7, [sp, #0x1ec]
-	str r0, [sp, #0x1e0]
-	ldr r0, [sp, #0x330]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x4c]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x124]
-	mov r0, #0x0
-	str r0, [sp, #0x1e4]
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x0
-	ble _0201A2E6
-	ldr r0, [sp, #0x58]
-	mov r1, #0x7
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x120]
-_0201A24A:
-	ldr r1, [sp, #0x124]
-	ldr r0, [sp, #0x1e4]
-	ldr r5, [sp, #0x5c]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x30c]
-	add r0, r5, #0x0
-	lsl r6, r0, #0x3
-	ldr r0, [sp, #0x1e0]
-	ldr r2, [sp, #0x120]
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	mov r3, #0x38
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x118]
-	ldr r0, [sp, #0x1e0]
-	str r2, [sp, #0x11c]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x120]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	mov r4, #0x0
-	str r2, [sp, #0x114]
-	str r0, [sp, #0x110]
-_0201A28E:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x11c]
-	ldrb r1, [r7, r4]
-	add r2, r3, r0
-	cmp r1, #0x0
-	beq _0201A2BA
-	ldr r0, [sp, #0x118]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x30c]
-	cmp r0, #0x0
-	beq _0201A2BA
-	ldr r0, [sp, #0x114]
-	add r2, r3, r0
-	ldr r0, [sp, #0x110]
-	strb r1, [r0, r2]
-_0201A2BA:
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, #0x8
-	blt _0201A28E
-	ldr r0, [sp, #0x30c]
-	cmp r0, #0x0
-	beq _0201A2D2
-	ldr r0, [sp, #0x1e0]
-	add r0, r0, #0x2
-	str r0, [sp, #0x1e0]
-	b _0201A2D8
-_0201A2D2:
-	ldr r0, [sp, #0x1e0]
-	add r0, r0, #0x1
-	str r0, [sp, #0x1e0]
-_0201A2D8:
-	ldr r0, [sp, #0x1e4]
-	add r7, #0x8
-	add r1, r0, #0x1
-	ldr r0, [sp, #0x4]
-	str r1, [sp, #0x1e4]
-	cmp r1, r0
-	blt _0201A24A
-_0201A2E6:
-	ldr r0, [sp, #0x1ec]
-	str r0, [sp, #0x308]
-	add r0, #0x40
-	str r0, [sp, #0x308]
-	ldr r0, [sp, #0x4c]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x13c]
-	mov r0, #0x0
-	str r0, [sp, #0x1dc]
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x0
-	ble _0201A3C8
-	ldr r0, [sp, #0x5c]
-	mov r1, #0x7
-	add r0, #0x8
-	str r0, [sp, #0x5c]
-	ldr r0, [sp, #0x58]
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x138]
-_0201A312:
-	ldr r1, [sp, #0x13c]
-	ldr r0, [sp, #0x1dc]
-	ldr r7, [sp, #0x8]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	sub r7, #0x8
-	mov r4, #0x0
-	str r0, [sp, #0x1d8]
-	ldr r5, [sp, #0x5c]
-	cmp r7, #0x0
-	ble _0201A398
-	ble _0201A398
-	add r0, r5, #0x0
-	lsl r6, r0, #0x3
-	ldr r0, [sp, #0x48]
-	ldr r2, [sp, #0x138]
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	mov r3, #0x38
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x130]
-	ldr r0, [sp, #0x48]
-	str r2, [sp, #0x134]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x138]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r2, [sp, #0x12c]
-	str r0, [sp, #0x128]
-_0201A360:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x134]
-	add r2, r3, r0
-	ldr r0, [sp, #0x308]
-	ldrb r1, [r0, r4]
-	cmp r1, #0x0
-	beq _0201A38E
-	ldr r0, [sp, #0x130]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x1d8]
-	cmp r0, #0x0
-	beq _0201A38E
-	ldr r0, [sp, #0x12c]
-	add r2, r3, r0
-	ldr r0, [sp, #0x128]
-	strb r1, [r0, r2]
-_0201A38E:
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, r7
-	blt _0201A360
-_0201A398:
-	ldr r0, [sp, #0x1d8]
-	cmp r0, #0x0
-	beq _0201A3B0
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x2
-	str r0, [sp, #0x48]
-	b _0201A3B6
-// 	nop
-// _0201A3A8: .word 0x00003FE0
-// _0201A3AC: .word 0x00007FC0
-_0201A3B0:
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_0201A3B6:
-	ldr r0, [sp, #0x308]
-	add r0, #0x8
-	str r0, [sp, #0x308]
-	ldr r0, [sp, #0x1dc]
-	add r1, r0, #0x1
-	ldr r0, [sp, #0x4]
-	str r1, [sp, #0x1dc]
-	cmp r1, r0
-	blt _0201A312
-_0201A3C8:
-	b _0201A8B6
-_0201A3CA:
-	ldr r0, [sp, #0x48]
-	mov r1, #0x7
-	str r0, [sp, #0x1d0]
-	mov r0, #0x0
-	str r0, [sp, #0x1d4]
-	ldr r0, [sp, #0x330]
-	ldr r7, [sp, #0x1ec]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x150]
-	ldr r0, [sp, #0x58]
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x30]
-_0201A3E8:
-	ldr r1, [sp, #0x150]
-	ldr r0, [sp, #0x1d4]
-	mov r4, #0x0
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x304]
-	ldr r0, [sp, #0x8]
-	ldr r5, [sp, #0x5c]
-	cmp r0, #0x0
-	ble _0201A46C
-	ble _0201A46C
-	add r0, r5, #0x0
-	lsl r6, r0, #0x3
-	ldr r0, [sp, #0x1d0]
-	ldr r2, [sp, #0x30]
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	mov r3, #0x38
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x148]
-	ldr r0, [sp, #0x1d0]
-	str r2, [sp, #0x14c]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x30]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r2, [sp, #0x144]
-	str r0, [sp, #0x140]
-_0201A434:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x14c]
-	ldrb r1, [r7, r4]
-	add r2, r3, r0
-	cmp r1, #0x0
-	beq _0201A460
-	ldr r0, [sp, #0x148]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x304]
-	cmp r0, #0x0
-	beq _0201A460
-	ldr r0, [sp, #0x144]
-	add r2, r3, r0
-	ldr r0, [sp, #0x140]
-	strb r1, [r0, r2]
-_0201A460:
-	ldr r0, [sp, #0x8]
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, r0
-	blt _0201A434
-_0201A46C:
-	ldr r0, [sp, #0x304]
-	cmp r0, #0x0
-	beq _0201A47A
-	ldr r0, [sp, #0x1d0]
-	add r0, r0, #0x2
-	str r0, [sp, #0x1d0]
-	b _0201A480
-_0201A47A:
-	ldr r0, [sp, #0x1d0]
-	add r0, r0, #0x1
-	str r0, [sp, #0x1d0]
-_0201A480:
-	ldr r0, [sp, #0x1d4]
-	add r7, #0x8
-	add r0, r0, #0x1
-	str r0, [sp, #0x1d4]
-	cmp r0, #0x8
-	blt _0201A3E8
-	ldr r0, [sp, #0x48]
-	ldr r7, [sp, #0x1ec]
-	add r0, #0x8
-	str r0, [sp, #0x48]
-	add r7, #0x80
-	mov r0, #0x0
-	mov r2, #0x1
-_0201A49A:
-	ldr r1, [sp, #0x330]
-	asr r1, r0
-	tst r1, r2
-	beq _0201A4A8
-	ldr r1, [sp, #0x48]
-	add r1, r1, #0x1
-	str r1, [sp, #0x48]
-_0201A4A8:
-	add r0, r0, #0x1
-	cmp r0, #0x8
-	blt _0201A49A
-	ldr r0, [sp, #0x330]
-	asr r0, r0, #0x8
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x164]
-	mov r0, #0x0
-	str r0, [sp, #0x14]
-	ldr r0, [sp, #0x4]
-	sub r0, #0x8
-	cmp r0, #0x0
-	ble _0201A56C
-_0201A4C4:
-	ldr r1, [sp, #0x164]
-	ldr r0, [sp, #0x14]
-	mov r4, #0x0
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x300]
-	ldr r0, [sp, #0x8]
-	ldr r5, [sp, #0x5c]
-	cmp r0, #0x0
-	ble _0201A548
-	ble _0201A548
-	add r0, r5, #0x0
-	lsl r6, r0, #0x3
-	ldr r0, [sp, #0x48]
-	ldr r2, [sp, #0x30]
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	mov r3, #0x38
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x15c]
-	ldr r0, [sp, #0x48]
-	str r2, [sp, #0x160]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x30]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r2, [sp, #0x158]
-	str r0, [sp, #0x154]
-_0201A510:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x160]
-	ldrb r1, [r7, r4]
-	add r2, r3, r0
-	cmp r1, #0x0
-	beq _0201A53C
-	ldr r0, [sp, #0x15c]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x300]
-	cmp r0, #0x0
-	beq _0201A53C
-	ldr r0, [sp, #0x158]
-	add r2, r3, r0
-	ldr r0, [sp, #0x154]
-	strb r1, [r0, r2]
-_0201A53C:
-	ldr r0, [sp, #0x8]
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, r0
-	blt _0201A510
-_0201A548:
-	ldr r0, [sp, #0x300]
-	cmp r0, #0x0
-	beq _0201A556
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x2
-	str r0, [sp, #0x48]
-	b _0201A55C
-_0201A556:
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_0201A55C:
-	ldr r0, [sp, #0x14]
-	ldr r1, [sp, #0x4]
-	add r0, r0, #0x1
-	sub r1, #0x8
-	add r7, #0x8
-	str r0, [sp, #0x14]
-	cmp r0, r1
-	blt _0201A4C4
-_0201A56C:
-	b _0201A8B6
-_0201A56E:
-	ldr r0, [sp, #0x48]
-	ldr r7, [sp, #0x1ec]
-	str r0, [sp, #0x1c8]
-	ldr r0, [sp, #0x330]
-	lsl r0, r0, #0x18
-	lsr r1, r0, #0x18
-	mov r0, #0x0
-	str r0, [sp, #0x1cc]
-	lsl r0, r1, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x2c]
-	ldr r0, [sp, #0x58]
-	mov r1, #0x7
-	and r1, r0
-	add r0, r0, r1
-	asr r0, r0, #0x3
-	str r0, [sp, #0x28]
-_0201A590:
-	ldr r1, [sp, #0x2c]
-	ldr r0, [sp, #0x1cc]
-	ldr r5, [sp, #0x5c]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x2fc]
-	add r0, r5, #0x0
-	lsl r6, r0, #0x3
-	ldr r0, [sp, #0x1c8]
-	ldr r2, [sp, #0x28]
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	mov r3, #0x38
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x170]
-	ldr r0, [sp, #0x1c8]
-	str r2, [sp, #0x174]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x28]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	mov r4, #0x0
-	str r6, [sp, #0x24]
-	str r2, [sp, #0x16c]
-	str r0, [sp, #0x168]
-_0201A5D6:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x174]
-	ldrb r1, [r7, r4]
-	add r2, r3, r0
-	cmp r1, #0x0
-	beq _0201A602
-	ldr r0, [sp, #0x170]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x2fc]
-	cmp r0, #0x0
-	beq _0201A602
-	ldr r0, [sp, #0x16c]
-	add r2, r3, r0
-	ldr r0, [sp, #0x168]
-	strb r1, [r0, r2]
-_0201A602:
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, #0x8
-	blt _0201A5D6
-	ldr r0, [sp, #0x2fc]
-	cmp r0, #0x0
-	beq _0201A61A
-	ldr r0, [sp, #0x1c8]
-	add r0, r0, #0x2
-	str r0, [sp, #0x1c8]
-	b _0201A620
-_0201A61A:
-	ldr r0, [sp, #0x1c8]
-	add r0, r0, #0x1
-	str r0, [sp, #0x1c8]
-_0201A620:
-	ldr r0, [sp, #0x1cc]
-	add r7, #0x8
-	add r0, r0, #0x1
-	str r0, [sp, #0x1cc]
-	cmp r0, #0x8
-	blt _0201A590
-	ldr r0, [sp, #0x1ec]
-	str r0, [sp, #0x2f8]
-	add r0, #0x40
-	str r0, [sp, #0x2f8]
-	ldr r0, [sp, #0x48]
-	str r0, [sp, #0x1c0]
-	mov r0, #0x0
-	str r0, [sp, #0x1c4]
-	ldr r0, [sp, #0x5c]
-	str r0, [sp, #0x188]
-	add r0, #0x8
-	str r0, [sp, #0x188]
-_0201A644:
-	ldr r1, [sp, #0x2c]
-	ldr r0, [sp, #0x1c4]
-	ldr r7, [sp, #0x8]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	sub r7, #0x8
-	mov r4, #0x0
-	str r0, [sp, #0x1bc]
-	ldr r5, [sp, #0x188]
-	cmp r7, #0x0
-	ble _0201A6CA
-	ble _0201A6CA
-	add r0, r5, #0x0
-	lsl r6, r0, #0x3
-	ldr r0, [sp, #0x1c0]
-	ldr r2, [sp, #0x28]
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	mov r3, #0x38
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x180]
-	ldr r0, [sp, #0x1c0]
-	str r2, [sp, #0x184]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x28]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r2, [sp, #0x17c]
-	str r0, [sp, #0x178]
-_0201A692:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x184]
-	add r2, r3, r0
-	ldr r0, [sp, #0x2f8]
-	ldrb r1, [r0, r4]
-	cmp r1, #0x0
-	beq _0201A6C0
-	ldr r0, [sp, #0x180]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x1bc]
-	cmp r0, #0x0
-	beq _0201A6C0
-	ldr r0, [sp, #0x17c]
-	add r2, r3, r0
-	ldr r0, [sp, #0x178]
-	strb r1, [r0, r2]
-_0201A6C0:
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, r7
-	blt _0201A692
-_0201A6CA:
-	ldr r0, [sp, #0x1bc]
-	cmp r0, #0x0
-	beq _0201A6D8
-	ldr r0, [sp, #0x1c0]
-	add r0, r0, #0x2
-	str r0, [sp, #0x1c0]
-	b _0201A6DE
-_0201A6D8:
-	ldr r0, [sp, #0x1c0]
-	add r0, r0, #0x1
-	str r0, [sp, #0x1c0]
-_0201A6DE:
-	ldr r0, [sp, #0x2f8]
-	add r0, #0x8
-	str r0, [sp, #0x2f8]
-	ldr r0, [sp, #0x1c4]
-	add r0, r0, #0x1
-	str r0, [sp, #0x1c4]
-	cmp r0, #0x8
-	blt _0201A644
-	ldr r0, [sp, #0x48]
-	ldr r7, [sp, #0x1ec]
-	add r0, #0x8
-	add r7, #0x80
-	str r0, [sp, #0x48]
-	str r0, [sp, #0x1b8]
-	mov r0, #0x0
-	mov r2, #0x1
-_0201A6FE:
-	ldr r1, [sp, #0x330]
-	asr r1, r0
-	tst r1, r2
-	beq _0201A70C
-	ldr r1, [sp, #0x1b8]
-	add r1, r1, #0x1
-	str r1, [sp, #0x1b8]
-_0201A70C:
-	add r0, r0, #0x1
-	cmp r0, #0x8
-	blt _0201A6FE
-	ldr r0, [sp, #0x330]
-	asr r0, r0, #0x8
-	str r0, [sp, #0x44]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x19c]
-	mov r0, #0x0
-	str r0, [sp, #0x10]
-	ldr r0, [sp, #0x4]
-	sub r0, #0x8
-	cmp r0, #0x0
-	ble _0201A7CE
-_0201A72A:
-	ldr r1, [sp, #0x19c]
-	ldr r0, [sp, #0x10]
-	ldr r2, [sp, #0x28]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x2f4]
-	ldr r0, [sp, #0x1b8]
-	mov r3, #0x38
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-// 	b _0201A74C
-// 	nop
-// _0201A748: .word 0x00007FC0
-// _0201A74C:
-	ldr r5, [sp, #0x5c]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x194]
-	ldr r0, [sp, #0x1b8]
-	str r2, [sp, #0x198]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x28]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	ldr r6, [sp, #0x24]
-	mov r4, #0x0
-	str r2, [sp, #0x190]
-	str r0, [sp, #0x18c]
-_0201A774:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x198]
-	ldrb r1, [r7, r4]
-	add r2, r3, r0
-	cmp r1, #0x0
-	beq _0201A7A0
-	ldr r0, [sp, #0x194]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x2f4]
-	cmp r0, #0x0
-	beq _0201A7A0
-	ldr r0, [sp, #0x190]
-	add r2, r3, r0
-	ldr r0, [sp, #0x18c]
-	strb r1, [r0, r2]
-_0201A7A0:
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, #0x8
-	blt _0201A774
-	ldr r0, [sp, #0x2f4]
-	cmp r0, #0x0
-	beq _0201A7B8
-	ldr r0, [sp, #0x1b8]
-	add r0, r0, #0x2
-	str r0, [sp, #0x1b8]
-	b _0201A7BE
-_0201A7B8:
-	ldr r0, [sp, #0x1b8]
-	add r0, r0, #0x1
-	str r0, [sp, #0x1b8]
-_0201A7BE:
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0x4]
-	add r0, r0, #0x1
-	sub r1, #0x8
-	add r7, #0x8
-	str r0, [sp, #0x10]
-	cmp r0, r1
-	blt _0201A72A
-_0201A7CE:
-	ldr r0, [sp, #0x1ec]
-	mov r2, #0x0
-	str r0, [sp, #0x2f0]
-	add r0, #0xc0
-	str r0, [sp, #0x2f0]
-	mov r1, #0x1
-_0201A7DA:
-	ldr r0, [sp, #0x330]
-	asr r0, r2
-	tst r0, r1
-	beq _0201A7E8
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_0201A7E8:
-	add r2, r2, #0x1
-	cmp r2, #0x8
-	blt _0201A7DA
-	ldr r0, [sp, #0x44]
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	str r0, [sp, #0x1b0]
-	mov r0, #0x0
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #0x4]
-	sub r0, #0x8
-	cmp r0, #0x0
-	ble _0201A8B6
-	ldr r0, [sp, #0x5c]
-	add r0, #0x8
-	str r0, [sp, #0x5c]
-_0201A808:
-	ldr r1, [sp, #0x1b0]
-	ldr r0, [sp, #0xc]
-	ldr r7, [sp, #0x8]
-	asr r1, r0
-	mov r0, #0x1
-	and r0, r1
-	lsl r0, r0, #0x18
-	lsr r0, r0, #0x18
-	sub r7, #0x8
-	mov r4, #0x0
-	str r0, [sp, #0x1b4]
-	ldr r5, [sp, #0x5c]
-	cmp r7, #0x0
-	ble _0201A88E
-	ble _0201A88E
-	add r0, r5, #0x0
-	lsl r6, r0, #0x3
-	ldr r0, [sp, #0x48]
-	ldr r2, [sp, #0x28]
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	mov r3, #0x38
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r0, [sp, #0x1a8]
-	ldr r0, [sp, #0x48]
-	str r2, [sp, #0x1ac]
-	add r0, r0, #0x1
-	lsl r1, r0, #0x3
-	ldr r0, =0x00007FC0
-	ldr r2, [sp, #0x28]
-	and r0, r1
-	mul r2, r0
-	add r0, r1, #0x0
-	and r0, r3
-	str r2, [sp, #0x1a4]
-	str r0, [sp, #0x1a0]
-_0201A856:
-	mov r0, #0x7
-	add r1, r5, #0x0
-	and r1, r0
-	ldr r0, [sp, #0x278]
-	add r1, r0, r1
-	ldr r0, =0x00007FC0
-	and r0, r6
-	add r3, r1, r0
-	ldr r0, [sp, #0x1ac]
-	add r2, r3, r0
-	ldr r0, [sp, #0x2f0]
-	ldrb r1, [r0, r4]
-	cmp r1, #0x0
-	beq _0201A884
-	ldr r0, [sp, #0x1a8]
-	strb r1, [r2, r0]
-	ldr r0, [sp, #0x1b4]
-	cmp r0, #0x0
-	beq _0201A884
-	ldr r0, [sp, #0x1a4]
-	add r2, r3, r0
-	ldr r0, [sp, #0x1a0]
-	strb r1, [r0, r2]
-_0201A884:
-	add r4, r4, #0x1
-	add r6, #0x8
-	add r5, r5, #0x1
-	cmp r4, r7
-	blt _0201A856
-_0201A88E:
-	ldr r0, [sp, #0x1b4]
-	cmp r0, #0x0
-	beq _0201A89C
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x2
-	str r0, [sp, #0x48]
-	b _0201A8A2
-_0201A89C:
-	ldr r0, [sp, #0x48]
-	add r0, r0, #0x1
-	str r0, [sp, #0x48]
-_0201A8A2:
-	ldr r0, [sp, #0x2f0]
-	ldr r1, [sp, #0x4]
-	add r0, #0x8
-	str r0, [sp, #0x2f0]
-	ldr r0, [sp, #0xc]
-	sub r1, #0x8
-	add r0, r0, #0x1
-	str r0, [sp, #0xc]
-	cmp r0, r1
-	blt _0201A808
-_0201A8B6:
-	ldr r0, [sp, #0x1ec]
-	bl FreeToHeap
-_0201A8BC: // 0x0201A8BC
-	add sp, #0x1fc
-	add sp, #0x118
-	pop {r4-r7, pc}
-    // clang-format on
+            case 1: // 2x1
+                GLYPH_COPY_8BPP(convertedSrc, 0, 0, 8, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 8, 0, srcRight - 8, srcBottom, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                break;
+
+            case 2: // 1x2
+                GLYPH_COPY_8BPP(convertedSrc, 0, 0, srcRight, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 0, 8, srcRight, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                break;
+
+            case 3: // 2x2
+                GLYPH_COPY_8BPP(convertedSrc, 0, 0, 8, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 8, 0, srcRight - 8, 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 0, 8, 8, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                GLYPH_COPY_8BPP(convertedSrc, 8, 8, srcRight - 8, srcBottom - 8, windowPixels, dstX, dstY, ConvertPixelsToTiles(destWidth), table);
+                break;
+        }
+        FreeToHeap(convertedSrc);
+    }
 }
-#endif
 
 THUMB_FUNC void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3)
 {

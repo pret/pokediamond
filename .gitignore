@@ -53,3 +53,5 @@ files/**/*.c
 
 # MacOS garbage
 .DS_Store
+#decomp.me helper files
+ctx.c

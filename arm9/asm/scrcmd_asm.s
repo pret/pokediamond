@@ -14,63 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start FUN_0203B1A8
-FUN_0203B1A8: ; 0x0203B1A8
-	push {r3-r5, lr}
-	add r5, r1, #0x0
-	ldr r0, [r5, #0xc]
-	mov r1, #0x4
-	bl FUN_02039438
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x4]
-	bl FUN_0205AEF0
-	cmp r0, #0x1
-	bne _0203B1EC
-	ldr r0, [r5, #0x4]
-	bl FUN_0205AEFC
-	ldr r0, [r5, #0x0]
-	bl FUN_0200CAB4
-	ldr r0, [r5, #0x8]
-	cmp r0, #0x0
-	beq _0203B1D6
-	bl FreeToHeap
-_0203B1D6:
-	add r0, r5, #0x0
-	bl FreeToHeap
-	ldrb r0, [r4, #0x0]
-	cmp r0, #0x0
-	bne _0203B1E8
-	bl GF_AssertFail
-	pop {r3-r5, pc}
-_0203B1E8:
-	sub r0, r0, #0x1
-	strb r0, [r4, #0x0]
-_0203B1EC:
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk0060
-ScrCmd_Unk0060: ; 0x0203B1F0
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r4, [r0, #0x0]
-	mov r1, #0xa
-	add r0, r4, #0x0
-	bl FUN_02039438
-	ldr r0, [r0, #0x0]
-	cmp r0, #0x0
-	bne _0203B20E
-	ldr r0, [r4, #0x34]
-	bl FUN_02058780
-	b _0203B214
-_0203B20E:
-	add r0, r5, #0x0
-	bl ScrCmd_Unk02B4
-_0203B214:
-	mov r0, #0x1
-	pop {r3-r5, pc}
-
 	thumb_func_start FUN_0203B218
 FUN_0203B218: ; 0x0203B218
 	push {r4-r6, lr}
@@ -455,7 +398,7 @@ ScrCmd_Unk0068: ; 0x0203B544
 	add r0, #0x80
 	ldr r5, [r0, #0x0]
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	bl FUN_02059E74
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -495,10 +438,10 @@ ScrCmd_Unk0069: ; 0x0203B574
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -560,7 +503,7 @@ ScrCmd_Unk01BD: ; 0x0203B618
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2813,7 +2756,7 @@ ScrCmd_Unk00BF: ; 0x0203C844
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x74]
 	add r2, r4, #0x0
@@ -2842,7 +2785,7 @@ ScrCmd_Unk00C0: ; 0x0203C874
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x74]
 	add r2, r4, #0x0
@@ -2866,7 +2809,7 @@ ScrCmd_Unk00C1: ; 0x0203C8B4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x74]
 	add r2, r4, #0x0

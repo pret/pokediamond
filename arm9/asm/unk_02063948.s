@@ -84,10 +84,10 @@ _020639AE:
 	strh r0, [r4, #0xc]
 _020639B6:
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0x0
 	ldr r1, [sp, #0x4]
 	str r2, [sp, #0x0]
@@ -115,7 +115,7 @@ _020639B6:
 	strh r0, [r4, #0xc]
 _020639FE:
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	bl MOD05_021E69BC

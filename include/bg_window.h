@@ -389,7 +389,7 @@ void BlitBitmapRect(struct Window *window,
 void FillWindowPixelRect(struct Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height);
 void CopyGlyphToWindow(
     struct Window * window,
-    const char * src,
+    u8 *glyphPixels,
     u16 srcWidth,
     u16 srcHeight,
     u16 width,

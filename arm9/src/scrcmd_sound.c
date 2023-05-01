@@ -2,6 +2,8 @@
 #include "unk_020040F4.h"
 #include "sound_chatot.h"
 
+//todo make compatible with the headers
+
 extern BOOL FUN_02005CBC(void);
 extern void PlaySound(u16);
 extern void FUN_0204AB20(struct UnkSavStruct80 *ctx, u16);
@@ -114,8 +116,8 @@ THUMB_FUNC BOOL ScrCmd_Unk0058(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_PlayFanfare(struct ScriptContext* ctx)
 {
-    u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    PlaySE(unk);
+    u16 sound = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    PlaySE(sound);
     return FALSE;
 }
 

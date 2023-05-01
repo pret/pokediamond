@@ -10,13 +10,11 @@ UNK_020F5D1C: ; 0x020F5D1C
 
 	.global UNK_020F5D34
 UNK_020F5D34: ; 0x020F5D34
-	.word FUN_020548F0
-
-	.global UNK_020F5D38
-UNK_020F5D38: ; 0x020F5D38
-	.word 0x00000001, FUN_020549FC, 0x00000002, FUN_02054A24
-	.word 0x00000003, FUN_02054A30, 0x00000004, 0x00000000
-	.word 0x00000006
+	.word FUN_020548F0, 0x00000001
+	.word FUN_020549FC, 0x00000002
+	.word FUN_02054A24, 0x00000003
+	.word FUN_02054A30, 0x00000004
+	.word 0x00000000, 0x00000006
 
 	.text
 
@@ -537,7 +535,7 @@ _02055C24:
 	blx r1
 	cmp r0, #0x1
 	bne _02055C36
-	ldr r0, _02055C48 ; =UNK_020F5D38
+	ldr r0, _02055C48 ; =UNK_020F5D34 + 4
 	lsl r1, r4, #0x3
 	ldr r0, [r0, r1]
 	pop {r3-r7, pc}
@@ -551,7 +549,7 @@ _02055C36:
 	pop {r3-r7, pc}
 	.balign 4
 _02055C44: .word UNK_020F5D34
-_02055C48: .word UNK_020F5D38
+_02055C48: .word UNK_020F5D34 + 4
 
 	thumb_func_start FUN_02055C4C
 FUN_02055C4C: ; 0x02055C4C
@@ -1295,7 +1293,7 @@ FUN_02056244: ; 0x02056244
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0205625C:
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, r4
 	beq _0205627A
 	add r0, r5, #0x0
@@ -1738,7 +1736,7 @@ _020565AE:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _020565BA:
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2127,7 +2125,7 @@ _020568CC:
 	pop {r4-r6, pc}
 _020568D8:
 	add r0, r5, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, r4
 	beq _02056908
 	add r0, r5, #0x0
@@ -3251,7 +3249,7 @@ FUN_02057194: ; 0x02057194
 	cmp r4, #0x0
 	bne _020571C6
 	add r0, r5, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	mov r1, #0x0
 	bl FUN_0205AFDC
 	pop {r3-r7, pc}
@@ -3371,14 +3369,14 @@ FUN_02057288: ; 0x02057288
 	str r0, [sp, #0x0]
 	add r4, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02059BF4
 	add r0, r6, r0
 	str r0, [r4, #0x0]
 	ldr r0, [sp, #0x0]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02059C00
@@ -3393,7 +3391,7 @@ FUN_020572B8: ; 0x020572B8
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r2, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r2, r4, #0x0

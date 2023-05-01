@@ -1,5 +1,5 @@
-CXX := g++
-CXXFLAGS := -g -O2 -std=c++17
+CXX ?= g++
+CXXFLAGS := -g -O2 -std=c++17 -lstdc++fs
 ifeq ($(DEBUG),)
 CXXFLAGS += -DNDEBUG
 endif
