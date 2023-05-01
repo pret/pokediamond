@@ -93,13 +93,13 @@ _02055118:
 	cmp r0, #0x2
 	bne _0205515C
 	add r0, r5, #0x0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r3, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -306,8 +306,8 @@ _020552F2:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020552F8
-FUN_020552F8: ; 0x020552F8
+	thumb_func_start PlayerAvatar_GetFacingDirection
+PlayerAvatar_GetFacingDirection: ; 0x020552F8
 	push {r3, lr}
 	bl FUN_020553A0
 	bl FUN_020584C4
@@ -329,15 +329,15 @@ FUN_02055314: ; 0x02055314
 	bl FUN_020584D4
 	pop {r3, pc}
 
-	thumb_func_start FUN_02055320
-FUN_02055320: ; 0x02055320
+	thumb_func_start GetPlayerXCoord
+GetPlayerXCoord: ; 0x02055320
 	push {r3, lr}
 	bl FUN_020553A0
 	bl FUN_02058B2C
 	pop {r3, pc}
 
-	thumb_func_start FUN_0205532C
-FUN_0205532C: ; 0x0205532C
+	thumb_func_start GetPlayerYCoord
+GetPlayerYCoord: ; 0x0205532C
 	push {r3, lr}
 	bl FUN_020553A0
 	bl FUN_02058B4C

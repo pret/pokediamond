@@ -4819,10 +4819,10 @@ MOD06_0223BA04: ; 0x0223BA04
 	sub sp, #0xb4
 	add r5, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	str r0, [sp, #0x14]
 	ldr r2, [sp, #0x14]
 	add r0, r5, #0
@@ -5351,10 +5351,10 @@ MOD06_0223BE70: ; 0x0223BE70
 	add r5, r0, #0
 	ldr r0, [r5, #0x38]
 	str r1, [sp, #0xc]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r4, #0
@@ -5602,10 +5602,10 @@ MOD06_0223C08C: ; 0x0223C08C
 	mov r0, #0
 	str r0, [r4]
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0
@@ -5963,10 +5963,10 @@ _0223C3A6:
 	cmp r4, #0
 	beq _0223C3EC
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0
 	add r0, r5, #0
 	add r5, #0x90
@@ -8198,7 +8198,7 @@ _0223D48C: .word MOD06_0223D4AC
 MOD06_0223D490: ; 0x0223D490
 	push {r3, lr}
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #0
 	beq _0223D4A4
 	cmp r0, #1
@@ -15673,10 +15673,10 @@ MOD06_02241230: ; 0x02241230
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r4, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -18189,7 +18189,7 @@ _022426C4:
 	pop {r3, r4, r5, pc}
 _022426D0:
 	ldr r0, [r5, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	add r0, r4, #0
@@ -19914,10 +19914,10 @@ MOD06_022433B8: ; 0x022433B8
 	bl FUN_02034DD0
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	ldr r1, [r5, #0x1c]
 	ldr r1, [r1]
 	str r1, [r4]
@@ -23734,11 +23734,11 @@ _02245148:
 	blo _02245132
 	ldr r0, [sp]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	strh r0, [r5, #0x14]
 	ldr r0, [sp]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	strh r0, [r5, #0x16]
 	ldr r0, [sp]
 	ldr r0, [r0, #0x1c]
@@ -24286,7 +24286,7 @@ _02245578:
 	cmp r0, #6
 	bhs _022455BC
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	ble _022455BC
@@ -24302,7 +24302,7 @@ _022455B4:
 	b _02245640
 _022455BC:
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	bgt _02245640
@@ -24333,7 +24333,7 @@ _022455E0:
 	cmp r0, #6
 	bhs _0224561E
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	bge _0224561E
@@ -24349,7 +24349,7 @@ _02245616:
 	b _02245640
 _0224561E:
 	ldr r0, [r5, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	blt _02245640
@@ -43359,13 +43359,13 @@ MOD06_0224E8C4: ; 0x0224E8C4
 	add r1, sp, #0
 	bl FUN_02055350
 	add r0, r6, #0
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r5, r0, #0
 	add r0, r6, #0
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r4, r0, #0
 	add r0, r6, #0
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #3
 	bhi _0224E910
 	add r0, r0, r0

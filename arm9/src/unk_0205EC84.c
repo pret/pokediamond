@@ -1,6 +1,8 @@
 #include "global.h"
 #include "proto.h"
 #include "unk_0205EC84.h"
+#include "constants/sndseq.h"
+#include "constants/maps.h"
 
 static THUMB_FUNC void _flag_set(struct ScriptState * state, u16 flag_id)
 {
@@ -206,93 +208,93 @@ THUMB_FUNC s32 FUN_0205EF20(struct ScriptState * state, s32 a1)
     s32 ret = 0;
     switch (a1)
     {
-    case 314:
+    case MAP_D28R0101:
         if (_flag_check(state, 0x984) == TRUE)
-            ret = 1070;
+            ret = SEQ_D_LAKE;
         break;
-    case 316:
+    case MAP_D28R0103:
         if (_flag_check(state, 0x984) == TRUE)
-            ret = 1065;
+            ret = SEQ_D_RYAYHY;
         break;
-    case 312:
+    case MAP_D27R0102:
         if (_flag_check(state, 0x98E) == TRUE)
-            ret = 1070;
+            ret = SEQ_D_LAKE;
         break;
-    case 318:
+    case MAP_D29R0102:
         if (_flag_check(state, 0x98F) == TRUE)
-            ret = 1070;
+            ret = SEQ_D_LAKE;
         break;
-    case 251:
+    case MAP_D10R0101:
         if (_flag_check(state, 0x995) == TRUE)
-            ret = 1069;
+            ret = SEQ_D_SAFARI;
         break;
-    case 422:
+    case MAP_T02R0101:
         if (_flag_check(state, 0x993) == TRUE)
-            ret = 1098;
+            ret = SEQ_OPENING2;
         break;
-    case 305:
-    case 306:
-    case 307:
-    case 308:
-    case 309:
-    case 310:
-    case 494:
-    case 497:
+    case MAP_D26R0101:
+    case MAP_D26R0102:
+    case MAP_D26R0103:
+    case MAP_D26R0104:
+    case MAP_D26R0105:
+    case MAP_D26R0106:
+    case MAP_D26R0107:
+    case MAP_D26R0108:
         if (_flag_check(state, 0x985) == TRUE)
         {
             if (!IsNighttime())
-                ret = 1016;
+                ret = SEQ_CITY07_D;
             else
-                ret = 1045;
+                ret = SEQ_CITY07_N;
         }
-        else if (a1 == 305)
+        else if (a1 == MAP_D26R0101)
         {
             if (_flag_check(state, 0x986) == TRUE)
-                ret = 1067;
+                ret = SEQ_D_AGITO;
         }
         break;
-    case 72:
-    case 73:
-    case 74:
-    case 75:
+    case MAP_C04R0201:
+    case MAP_C04R0202:
+    case MAP_C04R0203:
+    case MAP_C04R0204:
         if (_flag_check(state, 0x987) == TRUE)
         {
             if (!IsNighttime())
-                ret = 1013;
+                ret = SEQ_CITY04_D;
             else
-                ret = 1042;
+                ret = SEQ_CITY04_N;
         }
         break;
-    case 201:
+    case MAP_D02R0101:
         if (_flag_check(state, 0x988) == TRUE)
         {
             if (!IsNighttime())
-                ret = 1023;
+                ret = SEQ_ROAD_C_D;
             else
-                ret = 1052;
+                ret = SEQ_ROAD_C_N;
         }
         break;
-    case 256:
+    case MAP_D13R0101:
         if (_flag_check(state, 0x989) == TRUE)
         {
             if (!IsNighttime())
-                ret = 1006;
+                ret = SEQ_TOWN03_D;
             else
-                ret = 1035;
+                ret = SEQ_TOWN03_N;
         }
         break;
-    case 399:
+    case MAP_R224:
         if (_flag_check(state, 0x98A) == TRUE)
         {
             if (!IsNighttime())
-                ret = 1006;
+                ret = SEQ_TOWN03_D;
             else
-                ret = 1035;
+                ret = SEQ_TOWN03_N;
         }
         break;
-    case 185:
+    case MAP_C10R0111:
         if (_flag_check(state, 0x98B) == TRUE)
-            ret = 1001;
+            ret = SEQ_SILENCE_FIELD;
         break;
     }
     return ret;

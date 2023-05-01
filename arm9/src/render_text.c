@@ -1,18 +1,18 @@
 #include "global.h"
 #include "render_text.h"
+#include "constants/sndseq.h"
+#include "font.h"
 #include "game_init.h"
 #include "string_util.h"
 #include "text.h"
+#include "unk_020051F4.h"
 #include "unk_0201B8B8.h"
-#include "font.h"
 
 u16 unk00;
 
 TextFlags gTextFlags;
 
 const u8 UNK_020ECB50[] = { 0, 1, 2, 1 };
-
-extern void PlaySE(u16);
 
 THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
 {
@@ -415,7 +415,7 @@ THUMB_FUNC BOOL TextPrinterContinue(struct TextPrinter *printer)
 #pragma unused(printer)
     if ((gMain.newKeys & 3) != 0 || (gMain.touchNew != 0 && gTextFlags.unk0_4 != 0))
     {
-        PlaySE(0x5DC);
+        PlaySE(SEQ_SE_DP_SELECT);
 
         gTextFlags.unk0_7 = 1;
 

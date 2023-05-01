@@ -2789,7 +2789,7 @@
 .extern ScrCmd_Unk005E
 .extern ScrCmd_Unk02A1
 .extern ScrCmd_WaitForMovement
-.extern ScrCmd_Unk0060
+.extern ScrCmd_LockAllEvents
 .extern ScrCmd_Unk02B4
 .extern ScrCmd_Unk0061
 .extern ScrCmd_Unk0062
@@ -3898,11 +3898,11 @@
 .extern FUN_02055160
 .extern FUN_02055168
 .extern FUN_020552A4
-.extern FUN_020552F8
+.extern PlayerAvatar_GetFacingDirection
 .extern FUN_02055304
 .extern FUN_02055314
-.extern FUN_02055320
-.extern FUN_0205532C
+.extern GetPlayerXCoord
+.extern GetPlayerYCoord
 .extern FUN_02055338
 .extern FUN_02055344
 .extern FUN_02055350
@@ -7751,8 +7751,8 @@
 .extern MOD58_021D9B8C
 .extern MOD58_021D9BF0
 .extern MOD59_Init
-.extern MOD59_021D7564
-.extern MOD59_021D76C0
+.extern MOD59_Main
+.extern MOD59_Exit
 .extern MOD59_021D9868
 .extern MOD59_021D9898
 .extern MOD59_021D99F8

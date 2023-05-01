@@ -149,7 +149,7 @@ ifeq ($(COMPARE),1)
 endif
 
 clean: mostlyclean
-	make -C $(TOOLS_DIR)/mwasmarm_patcher clean
+	$(MAKE) -C $(TOOLS_DIR)/mwasmarm_patcher clean
 
 mostlyclean: tidy
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
@@ -160,7 +160,7 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(MAKE) -C $@
+	@+$(MAKE) -C $@
 
 $(MWASMARM): patch_mwasmarm
 

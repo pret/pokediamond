@@ -9,9 +9,9 @@ struct UnkStruct_02006234;
 
 struct Unk21DBE18
 {
-    BOOL (*unk0)(struct UnkStruct_02006234 *, u32 *);
-    BOOL (*unk4)(struct UnkStruct_02006234 *, u32 *);
-    BOOL (*unk8)(struct UnkStruct_02006234 *, u32 *);
+    BOOL (*initFunc)(struct UnkStruct_02006234 *, u32 *);
+    BOOL (*mainFunc)(struct UnkStruct_02006234 *, u32 *);
+    BOOL (*exitFunc)(struct UnkStruct_02006234 *, u32 *);
     FSOverlayID ovly;
 };
 

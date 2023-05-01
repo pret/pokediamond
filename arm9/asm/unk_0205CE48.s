@@ -82,10 +82,10 @@ FUN_0205CE80: ; 0x0205CE80
 	bl FUN_020553C4
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -93,7 +93,7 @@ FUN_0205CE80: ; 0x0205CE80
 	bl FUN_0204A6E0
 	strh r0, [r5, #0xe]
 	ldr r0, [r4, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	cmp r0, #0x3
 	bhi _0205CEEA
 	add r0, r0, r0
@@ -492,12 +492,12 @@ _0205D1DA:
 _0205D1EE:
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	ldr r0, [r5, #0x18]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	lsl r0, r0, #0x10
 	lsr r2, r0, #0x10
 	ldr r0, [r5, #0x18]

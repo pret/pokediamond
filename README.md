@@ -31,12 +31,11 @@ Other disassembly and/or decompilation projects:
 * [**Pokémon Mystery Dungeon: Red Rescue Team**](https://github.com/pret/pmd-red)
 
 Gen 4 decompilation projects:
-* [**Pokémon Platinum (JimB16)**](https://github.com/JimB16/PokePlat)
-* [**Pokémon Platinum (Ganix)**](https://github.com/KernelEquinox/PokePlatinum)
+* [**Pokémon Platinum**](https://github.com/pret/pokeplatinum)
+* [**Pokémon HeartGold**](https://github.com/pret/pokeheartgold)
 
 ## Contacts
 
 You can find us on:
 
-* [Discord (VoidMatrix, #decomp)](https://discord.gg/prUAgd5).
 * [Discord (PRET, #pokediamond)](https://discord.gg/d5dubZ3)

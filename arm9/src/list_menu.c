@@ -10,15 +10,6 @@ void ListMenuDrawCursor(struct ListMenu * list);
 BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorAndCallCallback, u8 count, u8 movingDown);
 void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 onInit);
 
-static inline u32 MakeFontColor(u32 fgPal, u32 shdwPal, u32 bgPal)
-{
-    return (u32)(
-        ((u32)(fgPal << 24) >> 8)
-        | ((u32)(shdwPal << 24) >> 16)
-        | ((u32)(bgPal << 24) >> 24)
-    );
-}
-
 THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id)
 {
     struct ListMenu * list = AllocFromHeap(heap_id, sizeof(struct ListMenu));

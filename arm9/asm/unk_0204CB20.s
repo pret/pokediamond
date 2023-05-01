@@ -251,12 +251,12 @@ FUN_0204CC9C: ; 0x0204CC9C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	ldr r0, _0204CCD8 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 _0204CCD6:
 	pop {r3, pc}
 	.balign 4
@@ -606,7 +606,7 @@ FUN_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -619,7 +619,7 @@ FUN_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -632,7 +632,7 @@ FUN_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -645,7 +645,7 @@ FUN_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -658,7 +658,7 @@ FUN_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -671,7 +671,7 @@ FUN_0204CF60: ; 0x0204CF60
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	ldr r1, _0204D03C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x3
@@ -801,7 +801,7 @@ FUN_0204D118: ; 0x0204D118
 	add r6, r2, #0x0
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	add r1, sp, #0x0
 	strb r4, [r1, #0x0]
 	asr r2, r4, #0x8
@@ -839,13 +839,13 @@ FUN_0204D168: ; 0x0204D168
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	add r4, r0, #0x0
 	ldr r0, _0204D194 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x54]
 	ldr r0, [r0, #0x38]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -2399,7 +2399,7 @@ _0204DD5E:
 	add r0, r7, #0x0
 	add r0, r1, r0
 	ldr r0, [r0, #0x8]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	str r0, [sp, #0x0]
 	ldr r0, _0204DE28 ; =UNK_021C5A68
 	ldr r0, [r0, #0x0]
@@ -2543,16 +2543,16 @@ _0204DE86:
 	bne _0204DE98
 	b _0204E068
 _0204DE98:
-	bl FUN_02055320
+	bl GetPlayerXCoord
 	ldrh r1, [r5, #0x0]
 	sub r0, r0, r1
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x18]
-	bl FUN_0205532C
+	bl GetPlayerYCoord
 	ldrh r1, [r5, #0x2]
 	sub r7, r0, r1
 	ldr r0, [sp, #0x18]
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x10]
 	cmp r0, #0x0
@@ -5749,7 +5749,7 @@ FUN_0204F72C: ; 0x0204F72C
 	ldr r0, [r0, #0x8]
 	cmp r0, #0x0
 	beq _0204F742
-	bl FUN_020552F8
+	bl PlayerAvatar_GetFacingDirection
 	pop {r3, pc}
 _0204F742:
 	mov r0, #0x0

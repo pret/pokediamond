@@ -6,6 +6,8 @@
 #include "save_block_2.h"
 #include "main.h"
 #include "player_data.h"
+#include "list_menu_items.h"
+#include "list_menu.h"
 
 struct MOD59_UnkPlayerStruct
 {
@@ -20,40 +22,117 @@ typedef struct MOD59_OverlayData
     u32 heap_id;
     struct SaveBlock2 *sav2;
     struct Options *options;
-    u32 unk0C;
-    u32 unk10;
-    struct UnkStruct_02006234 *unk14;
+    u32 controllerCounter;
+    u32 nextControllerCounter;
+    struct UnkStruct_02006234 *loadedOverlay;
     struct BgConfig *bgConfig;
-    u8 filler1C[0x10];
-    u32 unk2C;
-    u8 filler30[0x1C];
+    struct Window window;
+    u32 createListCounter;
+    struct Window listWindow;
+    struct ListMenu *listMenu;
+    struct ListMenuItem *listMenuItem;
+    s32 listMenuInput;
     struct MsgData *msgData;
-    u32 unk50;
-    u32 unk54;
-    u8 filler58[0x8];
+    u32 displayMessageCounter;
+    u32 displayControlMessageCounter;
+    u32 minTextSpacing;
+    struct String *string;
     u32 unk60; // unknown if this is the right type, possibly a pointer instead?
     struct ScrStrBufs *strBufs;
-    u8 filler68[0x8];
+    u32 unk68;
+    u8 filler6C[0x4];
     struct MOD59_UnkPlayerStruct *playerStruct;
     struct MOD59_UnkPlayerStruct *rivalStruct;
-    u32 unk78;
-    u8 filler7C[0xC];
-    u8 unk88;
-    u8 unk89;
-    u8 unk8A;
-    u8 unk8B;
-    u8 filler8C[4];
-    u32 unk90;
-    u8 filler94[32];
+    u32 fadeCounter;
+    u32 unk7C;
+    u32 unk80;
+    GenderEnum selectedGender;
+    u8 scrnDataIndexMain;
+    u8 spriteDataIndex0;
+    u8 spriteDataIndex1;
+    u8 scrnDataIndexSub;
+    u8 maleAnimCounter;
+    volatile u8 maleAnimTimer;
+    u8 femaleAnimCounter;
+    volatile u8 femaleAnimTimer;
+    s32 tickTimer;
+    u32 spriteDataIndex2;
+    volatile u32 spriteData2Timer;
+    u8 filler9C[0xC];
+    s32 unkA8;
+    u32 unkAC;
+    u32 unkB0;
 } MOD59_OverlayData;
 
+struct MOD59_ListStruct021D9E0C
+{
+    u32 msgNo;
+    s32 val;
+};
+
+struct MOD59_WindowTemplateGroup
+{
+    struct WindowTemplate template1;
+    struct WindowTemplate template2;
+};
+
+struct MOD59_GraphicsPaletteMapSubstruct021D9F90
+{
+    u32 charNum;
+    u32 palNum;
+};
+struct MOD59_GraphicsPaletteMap021D9F90
+{
+    struct MOD59_GraphicsPaletteMapSubstruct021D9F90 map[11];
+};
+
+struct MOD59_UnkStruct021D9E30
+{
+    u32 scrnIds[5];
+};
+
+struct MOD59_CharStruct021D9DEC
+{
+    u32 narcId[4];
+};
+
+struct MOD59_CharStruct021D9E70
+{
+    u32 charData[6];
+};
+
 BOOL MOD59_Init(struct UnkStruct_02006234 *param0);
-BOOL MOD59_021D7564(struct UnkStruct_02006234 *param0, u32 *param1);
-BOOL MOD59_021D76C0(struct UnkStruct_02006234 *param0);
-void MOD59_021D7724(MOD59_OverlayData *data);
-BOOL MOD59_021D7730(void);
+BOOL MOD59_Main(struct UnkStruct_02006234 *param0, u32 *overlayStruct);
+BOOL MOD59_Exit(struct UnkStruct_02006234 *param0);
+void MOD59_DoGpuBgUpdate(MOD59_OverlayData *data);
+BOOL MOD59_TestPokeballTouchLocation(void);
 void MOD59_SetupBg(MOD59_OverlayData *data);
 void MOD59_DestroyBg(MOD59_OverlayData *data);
 void MOD59_SetupMsg(MOD59_OverlayData *data);
+void MOD59_DestroyMsg(MOD59_OverlayData *data);
+void MOD59_021D7A4C(MOD59_OverlayData *data);
+void MOD59_021D7A5C(MOD59_OverlayData *data);
+BOOL MOD59_FadeController(MOD59_OverlayData *data, u32 param1, u32 param2);
+BOOL MOD59_Timer(MOD59_OverlayData *data, s32 timer);
+void MOD59_TilemapChangePalette(MOD59_OverlayData *data, u32 layer, u32 paletteNum);
+BOOL MOD59_DisplayMessage(MOD59_OverlayData *data, u32 msgNo, u32 param2);
+void MOD59_PlaySelectSound(struct ListMenu *list, s32 index, u8 onInit);
+BOOL MOD59_CreateListWithText(MOD59_OverlayData *data, u32 param1, u32 param2);
+BOOL MOD59_DisplayControlAdventureMessage(MOD59_OverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height);
+void MOD59_LoadInitialTilemap(MOD59_OverlayData *data);
+void MOD59_LoadMainScrnData(MOD59_OverlayData *data);
+void MOD59_LoadCharDataFromIndex(MOD59_OverlayData *data);
+void MOD59_LoadSubScrnData(MOD59_OverlayData *data);
+void MOD59_DrawMunchlax(MOD59_OverlayData *data);
+void MOD59_LoadPokeballButton(MOD59_OverlayData *data);
+BOOL MOD59_MoveSprite(MOD59_OverlayData *data, u32 layer, u32 param2);
+void MOD59_ResetPlayerAnimation(MOD59_OverlayData *data);
+void MOD59_AnimatePlayerSprite(MOD59_OverlayData *data);
+void MOD59_DisableBlend(MOD59_OverlayData *data);
+void MOD59_ResetPlayerShrinkAnimation(MOD59_OverlayData *data);
+BOOL MOD59_PlayerShrinkAnimation(MOD59_OverlayData *data);
+BOOL MOD59_MunchlaxJumpAnimation(MOD59_OverlayData *data, u32 *param1);
+void MOD59_ResetMunchlaxPriority(MOD59_OverlayData *data);
+BOOL MOD59_MasterController(MOD59_OverlayData *data);
 
 #endif //POKEDIAMOND_MOD59_021D74E0_H

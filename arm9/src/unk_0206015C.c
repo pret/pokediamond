@@ -1,8 +1,10 @@
 #include "unk_0206015C.h"
 
-#include "heap.h"
+#include "constants/sndseq.h"
 #include "event_data.h"
+#include "heap.h"
 #include "main.h"
+#include "unk_020051F4.h"
 #include "unk_0204AF24.h"
 
 /*  Note to future reader, there might be some errors
@@ -22,7 +24,6 @@ extern void MOD06_02245190(u32);
 extern void MOD06_02245198(u8, u32);
 extern u32  MOD06_022451F0(u32);
 
-extern void PlaySE(u32);
 extern void FUN_02049160(struct UnkStruct_0204639C*, u32);
 extern void FUN_0204C1B4(struct UnkStruct_0204639C*, u32,u32,u32,u32,u32,u32,u32);
 extern u32  FUN_020553A0(u32);
@@ -92,7 +93,7 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
             MOD06_02244DC4(unkStruct1->unk0, unkAddr);
             MOD06_02244EF8(unkStruct1->unk0);
             unkStruct1->unkE = 0;
-            PlaySE(1657);
+            PlaySE(SEQ_SE_DP_KASYA);
             FUN_0204C1B4(unkStruct0, 0x3, 0x11, 0x0000FFFF, 0, 6, 1, 0xb);
             unkStruct1->action = 5;
         }
@@ -112,7 +113,7 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
         MOD06_02245198(unkStruct1->unkD, unkStruct1->unk4);
         unkStruct1->unk8 = MOD06_022451F0(unkStruct1->unk4);
 
-        PlaySE(1657);
+        PlaySE(SEQ_SE_DP_KASYA);
         FUN_0204C1B4(unkStruct0, 0x3, 0x10, 0x0000FFFF, 0, 6, 1, 0xb);
         unkStruct1->action = 6;
         break;
