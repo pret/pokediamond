@@ -32,33 +32,6 @@ extern BOOL MOD59_021D9868(struct UnkStruct_02006234 *param0, u32 *param1);
 extern BOOL MOD59_021D9898(struct UnkStruct_02006234 *param0, u32 *param1);
 extern BOOL MOD59_021D99F8(struct UnkStruct_02006234 *param0, u32 *param1);
 
-//todo move with the other rodata
-extern const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90;
-
-extern const u8 MOD59_021D9FE8[0x64];
-
-const struct WindowTemplate MOD59_021D9D90 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 8,
-        .tilemapTop = 0,
-        .width = 24,
-        .height = 24,
-        .paletteNum = 5,
-        .baseTile = 301,
-    };
-
-const struct WindowTemplate MOD59_021D9DA0 =
-    {
-        .bgId = GF_BG_LYR_MAIN_0,
-        .tilemapLeft = 2,
-        .tilemapTop = 3,
-        .width = 14,
-        .height = 10,
-        .paletteNum = 5,
-        .baseTile = 737,
-    };
-
 const struct WindowTemplate MOD59_021D9DB8 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
@@ -92,6 +65,17 @@ const struct WindowTemplate MOD59_021D9DB0 =
         .baseTile = 781,
     };
 
+const struct WindowTemplate MOD59_021D9D90 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 8,
+        .tilemapTop = 0,
+        .width = 24,
+        .height = 24,
+        .paletteNum = 5,
+        .baseTile = 301,
+    };
+
 const struct WindowTemplate MOD59_021D9D98 =
     {
         .bgId = GF_BG_LYR_MAIN_0,
@@ -103,13 +87,39 @@ const struct WindowTemplate MOD59_021D9D98 =
         .baseTile = 301,
     };
 
+const struct WindowTemplate MOD59_021D9DA0 =
+    {
+        .bgId = GF_BG_LYR_MAIN_0,
+        .tilemapLeft = 2,
+        .tilemapTop = 3,
+        .width = 14,
+        .height = 10,
+        .paletteNum = 5,
+        .baseTile = 737,
+    };
+
 const u32 MOD59_021D9DC0[3] = { NARC_intro_narc_0031_NCGR, NARC_intro_narc_0032_NCGR, 0xFFFF };
+
+const struct GraphicsModes MOD59_021D9DCC =
+    {
+        .dispMode = GX_DISPMODE_GRAPHICS,
+        .bgMode = GX_BGMODE_0,
+        .subMode = GX_BGMODE_0,
+        ._2d3dMode = GX_BG0_AS_2D
+    };
+
+const struct Unk21DBE18 MOD59_021D9DDC =
+    {
+        .initFunc = MOD59_021D9868,
+        .mainFunc = MOD59_021D9898,
+        .exitFunc = MOD59_021D99F8,
+        .ovly = 0xFFFFFFFF
+    };
 
 const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC =
     {
         .narcId = { NARC_intro_narc_0008_NCGR, NARC_intro_narc_0009_NCGR, NARC_intro_narc_0010_NCGR, NARC_intro_narc_0011_NCGR }
     };
-
 
 const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC =
     {
@@ -126,22 +136,6 @@ const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2] =
             .msgNo = 35,
             .val = 2
         }
-    };
-
-const struct Unk21DBE18 MOD59_021D9DDC =
-    {
-        .initFunc = MOD59_021D9868,
-        .mainFunc = MOD59_021D9898,
-        .exitFunc = MOD59_021D99F8,
-        .ovly = 0xFFFFFFFF
-    };
-
-const struct GraphicsModes MOD59_021D9DCC =
-    {
-        .dispMode = GX_DISPMODE_GRAPHICS,
-        .bgMode = GX_BGMODE_0,
-        .subMode = GX_BGMODE_0,
-        ._2d3dMode = GX_BG0_AS_2D
     };
 
 const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C =
@@ -243,20 +237,6 @@ const struct ListMenuTemplate MOD59_021D9EF8 =
         .unk_1C = 0
     };
 
-const struct GraphicsBanks MOD59_021D9F18 =
-    {
-        .bg = 2,
-        .bgextpltt = 0,
-        .subbg = 4,
-        .subbgextpltt = 0,
-        .obj = 0,
-        .objextpltt = 0,
-        .subobj = 0,
-        .subobjextpltt = 0,
-        .tex = 0,
-        .texpltt = 0
-    };
-
 const struct MOD59_ListStruct021D9E0C MOD59_021D9F40[5] =
     {
         {
@@ -303,6 +283,86 @@ const struct MOD59_ListStruct021D9E0C MOD59_021D9F68[5] =
             .msgNo = 44,
             .val = 5
         }
+    };
+
+const struct GraphicsBanks MOD59_021D9F18 =
+    {
+        .bg = 2,
+        .bgextpltt = 0,
+        .subbg = 4,
+        .subbgextpltt = 0,
+        .obj = 0,
+        .objextpltt = 0,
+        .subobj = 0,
+        .subobjextpltt = 0,
+        .tex = 0,
+        .texpltt = 0
+    };
+
+const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90 =
+    {
+        .map =
+        {
+            {
+                .charNum = 0,
+                .palNum = 0
+            },
+            //rowan sprite
+            {
+                .charNum = NARC_intro_narc_0018_NCGR,
+                .palNum = NARC_intro_narc_0019_NCLR
+            },
+            //boy sprites
+            {
+                .charNum = NARC_intro_narc_0008_NCGR,
+                .palNum = NARC_intro_narc_0012_NCLR
+            },
+            {
+                .charNum = NARC_intro_narc_0009_NCGR,
+                .palNum = NARC_intro_narc_0012_NCLR
+            },
+            {
+                .charNum = NARC_intro_narc_0010_NCGR,
+                .palNum = NARC_intro_narc_0012_NCLR
+            },
+            {
+                .charNum = NARC_intro_narc_0011_NCGR,
+                .palNum = NARC_intro_narc_0012_NCLR
+            },
+            //girl sprites
+            {
+                .charNum = NARC_intro_narc_0013_NCGR,
+                .palNum = NARC_intro_narc_0017_NCLR
+            },
+            {
+                .charNum = NARC_intro_narc_0014_NCGR,
+                .palNum = NARC_intro_narc_0017_NCLR
+            },
+            {
+                .charNum = NARC_intro_narc_0015_NCGR,
+                .palNum = NARC_intro_narc_0017_NCLR
+            },
+            {
+                .charNum = NARC_intro_narc_0016_NCGR,
+                .palNum = NARC_intro_narc_0017_NCLR
+            },
+            //barry sprite
+            {
+                .charNum = NARC_intro_narc_0020_NCGR,
+                .palNum = NARC_intro_narc_0021_NCLR
+            }
+        }
+    };
+
+const u8 MOD59_021D9FE8[0x64] =
+    {
+        0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x40, 0x41, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D,
+        0x0E, 0x0F, 0x42, 0x43, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x44, 0x45, 0x18, 0x19,
+        0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, 0x46, 0x47, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27,
+        0x48, 0x49, 0x28, 0x29, 0x2A, 0x2B, 0x2C, 0x2D, 0x2E, 0x2F, 0x4A, 0x4B, 0x30, 0x31, 0x32, 0x33,
+        0x34, 0x35, 0x36, 0x37, 0x4C, 0x4D, 0x38, 0x39, 0x3A, 0x3B, 0x3C, 0x3D, 0x3E, 0x3F, 0x4E, 0x4F,
+        0x50, 0x51, 0x52, 0x53, 0x58, 0x59, 0x5A, 0x5B, 0x60, 0x61, 0x54, 0x55, 0x56, 0x57, 0x5C, 0x5D,
+        0x5E, 0x5F, 0x62, 0x63
     };
 
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
