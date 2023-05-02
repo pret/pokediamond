@@ -1,6 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 	.section .text
+	.balign 4, 0
 
 	thumb_func_start MOD59_021D9898
 MOD59_021D9898: ; 0x021D9898
