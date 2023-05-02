@@ -1149,7 +1149,8 @@ Overlay MODULE_59
 	##Rowan's intro##
 	After arm9
 	Object mod59_021D74E0.o
-	Object mod59_021D9868.o
+	Object mod59_021D9868_src.o
+	Object mod59_021D9868_asm.o
 }
 
 Overlay MODULE_60

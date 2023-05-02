@@ -1,32 +1,6 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 	.section .text
-	.balign 4, 0
-
-	thumb_func_start MOD59_021D9868
-MOD59_021D9868: ; 0x021D9868
-	push {r4, lr}
-	mov r2, #1
-	add r4, r0, #0
-	mov r0, #3
-	mov r1, #0x53
-	lsl r2, r2, #0x12
-	bl CreateHeap
-	add r0, r4, #0
-	mov r1, #0x28
-	mov r2, #0x53
-	bl OverlayManager_CreateAndGetData
-	mov r1, #0
-	mov r2, #0x28
-	add r4, r0, #0
-	bl memset
-	mov r0, #0x53
-	str r0, [r4]
-	mov r0, #0
-	str r0, [r4, #0x24]
-	mov r0, #1
-	pop {r4, pc}
-	thumb_func_end MOD59_021D9868
 
 	thumb_func_start MOD59_021D9898
 MOD59_021D9898: ; 0x021D9898

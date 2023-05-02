@@ -1,19 +1,20 @@
 #include "global.h"
+#include "mod59_021D74E0.h"
+#include "GX_layers.h"
+#include "PAD_pad.h"
 #include "bg_window.h"
 #include "brightness.h"
 #include "constants/sndseq.h"
 #include "demo/intro/intro.naix"
 #include "game_init.h"
 #include "gf_gfx_loader.h"
-#include "GX_layers.h"
 #include "heap.h"
 #include "list_menu_items.h"
-#include "mod59_021D74E0.h"
+#include "mod59_021D9868_src.h"
 #include "module_52.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
 #include "overlay_manager.h"
-#include "PAD_pad.h"
 #include "player_data.h"
 #include "pokemon.h"
 #include "render_text.h"
@@ -28,7 +29,6 @@ extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struc
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
 
-extern BOOL MOD59_021D9868(struct UnkStruct_02006234 *param0, u32 *param1);
 extern BOOL MOD59_021D9898(struct UnkStruct_02006234 *param0, u32 *param1);
 extern BOOL MOD59_021D99F8(struct UnkStruct_02006234 *param0, u32 *param1);
 
@@ -110,7 +110,7 @@ const struct GraphicsModes MOD59_021D9DCC =
 
 const struct Unk21DBE18 MOD59_021D9DDC =
     {
-        .initFunc = MOD59_021D9868,
+        .initFunc = MOD59_Init2,
         .mainFunc = MOD59_021D9898,
         .exitFunc = MOD59_021D99F8,
         .ovly = 0xFFFFFFFF
