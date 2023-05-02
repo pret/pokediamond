@@ -8,8 +8,7 @@ extern void FUN_020385CC(struct UnkStruct_0204639C*, u32, u32, u32, u32, u16*, u
 extern BOOL FUN_020612EC(struct UnkSavStruct80*);
 extern BOOL FUN_020612F8(struct UnkSavStruct80*);
 
-THUMB_FUNC BOOL ScrCmd_Unk021D(struct ScriptContext* ctx) //docs has this command as ScrCmd_Group, with a comment saying
-                                                          //"This command is the devil"
+THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
 {
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
     struct UnkSaveStruct_020286F8* unk_sav_ptr = FUN_0202881C(ctx->unk80->saveBlock2);

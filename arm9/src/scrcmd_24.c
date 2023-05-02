@@ -11,7 +11,7 @@ extern u8 FUN_02037D5C(struct UnkStruct_02037CF0*);
 extern void FUN_02038864(struct UnkSavStruct80*, struct UnkStruct_02088DD8*);
 extern BOOL FUN_0203BC04(struct ScriptContext* ctx);
 
-THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx) //01C6 - todo: MoveInfo?
 {
     u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     struct UnkStruct_02037CF0** unk_ret_ptr = FUN_02039438(ctx->unk80, 19);
@@ -21,7 +21,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) //01C7 - todo: StoreMove?
 {
     struct UnkStruct_02037CF0** unk_ptr;
     u16* ret_ptr;
@@ -41,13 +41,13 @@ THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk021E(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk021E(struct ScriptContext* ctx) //021E
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) //021F
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -81,13 +81,13 @@ THUMB_FUNC void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* p
     FreeToHeap(a3);
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0220(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0220(struct ScriptContext* ctx) //0220
 {
 #pragma unused(ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
 {
     u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->unk80->saveBlock2);
@@ -98,7 +98,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0224(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMove?
 {
     u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unk2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -113,13 +113,13 @@ THUMB_FUNC BOOL ScrCmd_Unk0224(struct ScriptContext* ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0222(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0222(struct ScriptContext* ctx) //0222 - todo: DummyMoveCmd?
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0223(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: RememberMoveResponse?
 {
     struct UnkStruct_02037CF0** unk;
     struct UnkStruct_02037CF0* unk_sub;
@@ -144,7 +144,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0223(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0225(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0225(struct ScriptContext* ctx) //0225 - todo: TeachMoveResponse?
 {
     struct UnkStruct_02037CF0** unk;
     struct UnkStruct_02037CF0* unk_sub;

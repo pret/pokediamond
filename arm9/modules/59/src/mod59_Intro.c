@@ -1,19 +1,20 @@
 #include "global.h"
+#include "mod59_Intro.h"
+#include "GX_layers.h"
+#include "PAD_pad.h"
 #include "bg_window.h"
 #include "brightness.h"
 #include "constants/sndseq.h"
 #include "demo/intro/intro.naix"
 #include "game_init.h"
 #include "gf_gfx_loader.h"
-#include "GX_layers.h"
 #include "heap.h"
 #include "list_menu_items.h"
-#include "mod59_021D74E0.h"
+#include "mod59_TV_src.h"
 #include "module_52.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
 #include "overlay_manager.h"
-#include "PAD_pad.h"
 #include "player_data.h"
 #include "pokemon.h"
 #include "render_text.h"
@@ -28,8 +29,6 @@ extern void *FUN_02077A84(u32 heap_id, u32 param1, u32 param2, u32 param3, struc
 
 extern void FUN_0200E3A0(PMLCDTarget, int);
 
-extern BOOL MOD59_021D9868(struct UnkStruct_02006234 *param0, u32 *param1);
-extern BOOL MOD59_021D9898(struct UnkStruct_02006234 *param0, u32 *param1);
 extern BOOL MOD59_021D99F8(struct UnkStruct_02006234 *param0, u32 *param1);
 
 const struct WindowTemplate MOD59_021D9DB8 =
@@ -110,8 +109,8 @@ const struct GraphicsModes MOD59_021D9DCC =
 
 const struct Unk21DBE18 MOD59_021D9DDC =
     {
-        .initFunc = MOD59_021D9868,
-        .mainFunc = MOD59_021D9898,
+        .initFunc = MOD59_TVInit,
+        .mainFunc = MOD59_TVMain,
         .exitFunc = MOD59_021D99F8,
         .ovly = 0xFFFFFFFF
     };
@@ -387,14 +386,15 @@ extern void FUN_020146C4(u32 param0);
 
 FS_EXTERN_OVERLAY(MODULE_52);
 
-THUMB_FUNC BOOL MOD59_Init(struct UnkStruct_02006234 *param0)
+THUMB_FUNC BOOL MOD59_IntroInit(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
 {
+#pragma unused(param1)
     CreateHeap(3, 0x52, 1 << 18);
-    MOD59_OverlayData *data = (MOD59_OverlayData *) OverlayManager_CreateAndGetData(param0, sizeof(MOD59_OverlayData), 0x52);
+    MOD59_OverlayData *data = (MOD59_OverlayData *) OverlayManager_CreateAndGetData(overlayStruct, sizeof(MOD59_OverlayData), 0x52);
     (void)memset((void *)data, 0, sizeof(MOD59_OverlayData));
 
     data->heap_id = 0x52;
-    s32 *field18 = OverlayManager_GetField18(param0);
+    s32 *field18 = OverlayManager_GetField18(overlayStruct);
     data->sav2 = (struct SaveBlock2 *)field18[2]; //?
     data->options = Sav2_PlayerData_GetOptionsAddr(data->sav2);
     data->nextControllerCounter = data->controllerCounter = 0;
@@ -409,7 +409,7 @@ THUMB_FUNC BOOL MOD59_Init(struct UnkStruct_02006234 *param0)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD59_Main(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
+THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
 {
     MOD59_OverlayData *data = (MOD59_OverlayData *) OverlayManager_GetData(overlayStruct);
     BOOL ret = FALSE;
@@ -513,9 +513,9 @@ THUMB_FUNC BOOL MOD59_Main(struct UnkStruct_02006234 *overlayStruct, u32 *param1
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_Exit(struct UnkStruct_02006234 *param0)
+THUMB_FUNC BOOL MOD59_IntroExit(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
 {
-    MOD59_OverlayData *data = (MOD59_OverlayData *) OverlayManager_GetData(param0);
+    MOD59_OverlayData *data = (MOD59_OverlayData *) OverlayManager_GetData(overlayStruct);
 
     u32 heap_id = data->heap_id;
     PlayerName_StringToFlat(Sav2_PlayerData_GetProfileAddr(data->sav2), data->playerStruct->name);
@@ -526,7 +526,7 @@ THUMB_FUNC BOOL MOD59_Exit(struct UnkStruct_02006234 *param0)
     FUN_02077AC4(data->playerStruct);
     FUN_02077AC4(data->rivalStruct);
 
-    OverlayManager_FreeData(param0);
+    OverlayManager_FreeData(overlayStruct);
     DestroyHeap(heap_id);
 
     RegisterMainOverlay(FS_OVERLAY_ID(MODULE_52), &MOD52_021D76D8);

@@ -3,6 +3,8 @@
 #include "gx.h"
 #include "main.h"
 
+/* TODO: rename - name implies that this is part of the SDK, when it is a GF custom */
+
 static u32 EngineA_DISPCNT_LayerMask;
 static u32 EngineB_DISPCNT_LayerMask;
 

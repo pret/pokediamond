@@ -17,7 +17,7 @@ extern u16 MOD05_021ED5C4(struct PlayerParty* party, int idx, struct ScrStrBufs*
 extern u16 MOD05_021ED5EC(struct DayCare* daycare);
 extern u32 MOD05_021ED644(struct DayCare* daycare);
 
-THUMB_FUNC BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext* ctx) //016D
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
@@ -28,7 +28,7 @@ THUMB_FUNC BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetDaycareStatus(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetDaycareStatus(struct ScriptContext* ctx) //016E
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct SaveBlock2* sav2 = sav_ptr->saveBlock2;
@@ -40,7 +40,7 @@ THUMB_FUNC BOOL ScrCmd_GetDaycareStatus(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_DeleteDaycareEgg(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_DeleteDaycareEgg(struct ScriptContext* ctx) //01A8
 {
     struct DayCare* daycare = SavArray_get(ctx->unk80->saveBlock2, 8);
     MOD05_021ECD64(daycare);
@@ -48,7 +48,7 @@ THUMB_FUNC BOOL ScrCmd_DeleteDaycareEgg(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext* ctx) //01A9
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct DayCare* daycare = SavArray_get(sav_ptr->saveBlock2, 8);
@@ -61,7 +61,7 @@ THUMB_FUNC BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx) //01A4
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
@@ -76,7 +76,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx) //01AA
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
@@ -90,7 +90,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetDaycareLevel(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetDaycareLevel(struct ScriptContext* ctx) //01AE
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
@@ -103,7 +103,7 @@ THUMB_FUNC BOOL ScrCmd_GetDaycareLevel(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01AF(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01AF(struct ScriptContext* ctx) //01AF
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
@@ -117,7 +117,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01AF(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01B0(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01B0(struct ScriptContext* ctx) //01B0
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
     struct SaveBlock2* sav2 = sav_ptr->saveBlock2;
@@ -130,7 +130,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01B0(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx) //01BC
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
@@ -145,7 +145,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01BE(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01BE(struct ScriptContext* ctx) //01BE
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
@@ -156,7 +156,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01BE(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01BF(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01BF(struct ScriptContext* ctx) //01BF - todo: SaveEggPID?
 {
     struct SaveBlock2* sav2 = ctx->unk80->saveBlock2;
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
@@ -167,25 +167,25 @@ THUMB_FUNC BOOL ScrCmd_Unk01BF(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01A5(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01A5(struct ScriptContext* ctx) //01A5
 {
     u16* unused = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01A6(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01A6(struct ScriptContext* ctx) //01A6
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01A7(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01A7(struct ScriptContext* ctx) //01A7
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01AD(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk01AD(struct ScriptContext* ctx) //01AD
 {
     u16* unused = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     return FALSE;

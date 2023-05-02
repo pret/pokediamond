@@ -3241,7 +3241,7 @@
 .extern ScrCmd_Unk00EF
 .extern ScrCmd_Unk00F0
 .extern ScrCmd_Unk00F1
-.extern ScrCmd_Unk021D
+.extern ScrCmd_UnionGroup
 .extern ScrCmd_Unk0235
 .extern ScrCmd_Unk0236
 .extern ScrCmd_Unk02B8
@@ -3367,9 +3367,9 @@
 .extern ScrCmd_GiveRunningShoes
 .extern ScrCmd_HasBadge
 .extern ScrCmd_GiveBadge
-.extern ScrCmd_GiveBag
-.extern ScrCmd_GetTotalEarnedBadges
 .extern ScrCmd_HasBag
+.extern ScrCmd_GetTotalEarnedBadges
+.extern ScrCmd_GiveBag
 .extern ScrCmd_Unk0160
 .extern ScrCmd_Unk0161
 .extern ScrCmd_Unk0162
@@ -7750,11 +7750,11 @@
 .extern MOD58_021D9A20
 .extern MOD58_021D9B8C
 .extern MOD58_021D9BF0
-.extern MOD59_Init
-.extern MOD59_Main
-.extern MOD59_Exit
-.extern MOD59_021D9868
-.extern MOD59_021D9898
+.extern MOD59_IntroInit
+.extern MOD59_IntroMain
+.extern MOD59_IntroExit
+.extern MOD59_TVInit
+.extern MOD59_TVMain
 .extern MOD59_021D99F8
 .extern MOD60_021D74E0
 .extern MOD60_021D76B8

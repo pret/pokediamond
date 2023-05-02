@@ -98,7 +98,7 @@ static const u16 sAmitySquarePossibleAccessoriesByPokemon[6][10] = {
     },
 };
 
-THUMB_FUNC BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx) //0215
 {
     struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
 
@@ -107,7 +107,7 @@ THUMB_FUNC BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx) //0216
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
@@ -116,7 +116,7 @@ THUMB_FUNC BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetAmitySquareAccessory(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetAmitySquareAccessory(struct ScriptContext* ctx) //0217
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     u16 species = VarGet(ctx->unk80, ScriptReadHalfword(ctx));

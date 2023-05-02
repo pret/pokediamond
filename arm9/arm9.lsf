@@ -71,7 +71,7 @@ Static arm9
 	Object unk_0201D040.o
 	Object unk_0201E00C.o
 	Object GX_layers.o
-	Object unk_0201E7D8.o
+	Object camera.o
 	Object unk_0201F06C.o
 	Object unk_020208B8.o
 	Object timer3.o
@@ -164,7 +164,7 @@ Static arm9
 	Object scrcmd_5.o
 	Object scrcmd_sound.o
 	Object scrcmd_7.o
-	Object scrcmd_8.o
+	Object scrcmd_union.o
 	Object scrcmd_9.o
 	Object scrcmd_10.o
 	Object scrcmd_berry_trees.o
@@ -1146,10 +1146,11 @@ Overlay MODULE_58
 
 Overlay MODULE_59
 {
-	##Rowan's intro##
+	##Rowan's intro + TV intro##
 	After arm9
-	Object mod59_021D74E0.o
-	Object mod59_021D9868.o
+	Object mod59_Intro.o
+	Object mod59_TV_src.o
+	Object mod59_TV_asm.o
 }
 
 Overlay MODULE_60

@@ -7,7 +7,7 @@ extern u32 MOD05_021E27E8(struct UnkSavStruct80* arg, u8, u8);
 extern void MOD05_021E288C(u32 *);
 extern void MOD05_021E28A0(struct UnkSavStruct80* arg, u32 *);
 
-THUMB_FUNC BOOL ScrCmd_GiveMoney(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_GiveMoney(struct ScriptContext * ctx) //006F
 {
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->unk80);
     struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
@@ -18,7 +18,7 @@ THUMB_FUNC BOOL ScrCmd_GiveMoney(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext * ctx) //0070 - todo: TakeMoney?
 {
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->unk80);
     struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
@@ -29,7 +29,7 @@ THUMB_FUNC BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext * ctx) //01A3 - todo: TakeMoneyVar?
 {
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->unk80);
     struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
@@ -40,7 +40,7 @@ THUMB_FUNC BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext * ctx) //0071 - todo: CanAffordMoney?
 {
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->unk80);
     struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
@@ -61,7 +61,7 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext * ctx) //01AB - todo: CanAffordMoneyVar?
 {
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->unk80);
     struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
@@ -82,7 +82,7 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ShowMoneyBox(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_ShowMoneyBox(struct ScriptContext * ctx) //0072
 {
     struct UnkSavStruct80 * sav_ptr = ctx->unk80;
     u32 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -94,7 +94,7 @@ THUMB_FUNC BOOL ScrCmd_ShowMoneyBox(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HideMoneyBox(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_HideMoneyBox(struct ScriptContext * ctx) //0073
 {
     u32 ** unk = FUN_02039438(ctx->unk80, 0x27);
     MOD05_021E288C(*unk);
@@ -102,7 +102,7 @@ THUMB_FUNC BOOL ScrCmd_HideMoneyBox(struct ScriptContext * ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_UpdateMoneyBox(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_UpdateMoneyBox(struct ScriptContext * ctx) //0074
 {
     u32 ** unk = FUN_02039438(ctx->unk80, 0x27);
     MOD05_021E28A0(ctx->unk80, *unk);

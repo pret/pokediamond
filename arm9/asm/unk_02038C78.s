@@ -499,8 +499,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_HasBadge
 	.word ScrCmd_GiveBadge
 	.word ScrCmd_GetTotalEarnedBadges
-	.word ScrCmd_GiveBag
 	.word ScrCmd_HasBag
+	.word ScrCmd_GiveBag
 	.word ScrCmd_Unk0160
 	.word ScrCmd_Unk0161
 	.word ScrCmd_Unk0162
@@ -690,7 +690,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk021A
 	.word ScrCmd_Unk021B
 	.word ScrCmd_Unk021C
-	.word ScrCmd_Unk021D
+	.word ScrCmd_UnionGroup
 	.word ScrCmd_Unk021E
 	.word ScrCmd_Unk021F
 	.word ScrCmd_Unk0220

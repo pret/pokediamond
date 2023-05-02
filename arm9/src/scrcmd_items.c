@@ -3,7 +3,7 @@
 
 extern BOOL FUN_02054CB0(u16 item_id);
 
-THUMB_FUNC BOOL ScrCmd_GiveItem(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GiveItem(struct ScriptContext* ctx) //007B
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
 
@@ -17,7 +17,7 @@ THUMB_FUNC BOOL ScrCmd_GiveItem(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeItem(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_TakeItem(struct ScriptContext* ctx) //007C
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
 
@@ -31,7 +31,7 @@ THUMB_FUNC BOOL ScrCmd_TakeItem(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasSpaceForItem(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_HasSpaceForItem(struct ScriptContext* ctx) //007D
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
 
@@ -45,7 +45,7 @@ THUMB_FUNC BOOL ScrCmd_HasSpaceForItem(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasItem(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_HasItem(struct ScriptContext* ctx) //007E
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
 
@@ -59,7 +59,7 @@ THUMB_FUNC BOOL ScrCmd_HasItem(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ItemIdIsTMOrHM(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_ItemIdIsTMOrHM(struct ScriptContext* ctx) //007F
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
 
@@ -71,7 +71,7 @@ THUMB_FUNC BOOL ScrCmd_ItemIdIsTMOrHM(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetItemPocketId(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetItemPocketId(struct ScriptContext* ctx) //0080
 {
     struct UnkSavStruct80* sav_ptr = ctx->unk80;
 
@@ -83,13 +83,13 @@ THUMB_FUNC BOOL ScrCmd_GetItemPocketId(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0081(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0081(struct ScriptContext* ctx) //0081 - todo: DummyGiveItem?
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0082(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_Unk0082(struct ScriptContext* ctx) //0082 - todo: DummyHasItem?
 {
 #pragma unused(ctx)
     return FALSE;
