@@ -23,7 +23,7 @@ const u16 gGameCornerPrizes[19][2] = {
     { ITEM_TM68, 20000 },
 };
 
-THUMB_FUNC BOOL ScrCmd_GetPrizeItemIdAndCost(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetPrizeItemIdAndCost(struct ScriptContext* ctx) //02A6
 {
     u16 idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16* prize_item_id = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));

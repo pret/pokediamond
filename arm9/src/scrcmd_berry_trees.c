@@ -14,7 +14,7 @@ extern void FUN_0204B5A8(struct UnkSavStruct80*, void*, u16);
 extern void FUN_0204B9A0(struct UnkSavStruct80*);
 extern void FUN_0204B4FC(struct UnkSavStruct80*, void*);
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx) //017D
 {
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
     void** unk = FUN_02039438(ctx->unk80, 10);
@@ -24,7 +24,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeType(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetBerryTreeType(struct ScriptContext* ctx) //017E
 {
     void** unk = FUN_02039438(ctx->unk80, 10);
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
@@ -34,7 +34,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeType(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeMulch(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetBerryTreeMulch(struct ScriptContext* ctx) //017F
 {
     void** unk = FUN_02039438(ctx->unk80, 10);
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
@@ -44,7 +44,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeMulch(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeWater(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetBerryTreeWater(struct ScriptContext* ctx) //0180
 {
     void** unk = FUN_02039438(ctx->unk80, 10);
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
@@ -54,7 +54,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeWater(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeAmount(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_GetBerryTreeAmount(struct ScriptContext* ctx) //0181
 {
     void** unk = FUN_02039438(ctx->unk80, 10);
     u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
@@ -64,7 +64,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeAmount(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx) //0182
 {
     void** unk = FUN_02039438(ctx->unk80, 10);
     u16 unk2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -74,7 +74,7 @@ THUMB_FUNC BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx) //0183
 {
     void** unk = FUN_02039438(ctx->unk80, 10);
     struct GameStats* unk2 = Sav2_GameStats_get(ctx->unk80->saveBlock2);
@@ -86,7 +86,7 @@ THUMB_FUNC BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0184(struct ScriptContext* ctx) //SetBerryTreeWater/WaterBerryTree, or just the animation?
+THUMB_FUNC BOOL ScrCmd_Unk0184(struct ScriptContext* ctx) //0184 - todo: SetBerryTreeWater/WaterBerryTree, or just the animation?
 {
     u16 unk = ScriptReadHalfword(ctx);
 
@@ -106,7 +106,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0184(struct ScriptContext* ctx) //SetBerryTreeWater/Wa
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeBerryTreeBerries(struct ScriptContext* ctx)
+THUMB_FUNC BOOL ScrCmd_TakeBerryTreeBerries(struct ScriptContext* ctx) //0185
 {
     struct GameStats* unk = Sav2_GameStats_get(ctx->unk80->saveBlock2);
     void** unk2 = FUN_02039438(ctx->unk80, 10);

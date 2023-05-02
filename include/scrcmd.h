@@ -199,7 +199,7 @@ BOOL ScrCmd_Unk005D(struct ScriptContext* ctx);
 BOOL ScrCmd_SetVolume(struct ScriptContext *ctx);
 
 //scrcmd_8.c
-BOOL ScrCmd_Unk021D(struct ScriptContext* ctx);
+BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx);
 
 //scrcmd_berry_trees.c
 BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx);
@@ -319,9 +319,9 @@ BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx);
 BOOL ScrCmd_GiveRunningShoes(struct ScriptContext* ctx);
 BOOL ScrCmd_HasBadge(struct ScriptContext* ctx);
 BOOL ScrCmd_GiveBadge(struct ScriptContext* ctx);
-BOOL ScrCmd_GiveBag(struct ScriptContext* ctx);
-BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx);
 BOOL ScrCmd_HasBag(struct ScriptContext* ctx);
+BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx);
+BOOL ScrCmd_GiveBag(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0160(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0161(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0162(struct ScriptContext* ctx);

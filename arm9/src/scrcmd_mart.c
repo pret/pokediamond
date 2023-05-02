@@ -344,7 +344,7 @@ const u16 *sSealsMartPointers[] = {
     UNK_020F41B2,
 };
 
-THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pokemart?
 {
     u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     s32 param;
@@ -398,7 +398,7 @@ THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx) //0148
 {
     u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u32 sp0;
@@ -413,7 +413,7 @@ THUMB_FUNC BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx) //0149
 {
     u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u32 sp0;
@@ -427,7 +427,7 @@ THUMB_FUNC BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SealsMart(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_SealsMart(struct ScriptContext * ctx) //014A
 {
     u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
 
@@ -435,7 +435,7 @@ THUMB_FUNC BOOL ScrCmd_SealsMart(struct ScriptContext * ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx)
+THUMB_FUNC BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx) //0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
 {
     FUN_02038AD0(ctx->unk80->unk10);
     return TRUE;

@@ -3241,7 +3241,7 @@
 .extern ScrCmd_Unk00EF
 .extern ScrCmd_Unk00F0
 .extern ScrCmd_Unk00F1
-.extern ScrCmd_Unk021D
+.extern ScrCmd_UnionGroup
 .extern ScrCmd_Unk0235
 .extern ScrCmd_Unk0236
 .extern ScrCmd_Unk02B8
@@ -3367,9 +3367,9 @@
 .extern ScrCmd_GiveRunningShoes
 .extern ScrCmd_HasBadge
 .extern ScrCmd_GiveBadge
-.extern ScrCmd_GiveBag
-.extern ScrCmd_GetTotalEarnedBadges
 .extern ScrCmd_HasBag
+.extern ScrCmd_GetTotalEarnedBadges
+.extern ScrCmd_GiveBag
 .extern ScrCmd_Unk0160
 .extern ScrCmd_Unk0161
 .extern ScrCmd_Unk0162
