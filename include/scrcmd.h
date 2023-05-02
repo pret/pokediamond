@@ -198,7 +198,7 @@ BOOL ScrCmd_SaveChatotCry(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk005D(struct ScriptContext* ctx);
 BOOL ScrCmd_SetVolume(struct ScriptContext *ctx);
 
-//scrcmd_8.c
+//scrcmd_union.c
 BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx);
 
 //scrcmd_berry_trees.c

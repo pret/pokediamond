@@ -1,4 +1,5 @@
 #include "global.h"
+#include "camera.h"
 #include "heap.h"
 #include "constants/species.h"
 #include "gx.h"
@@ -16,8 +17,7 @@ extern void * FUN_02012CDC(void *, void *, void *, u32, u32, u32);
 
 extern void FUN_02068C00(struct UnkStruct_02006D98_4*, u16, u32, u32, u32, u32, u32);
 extern void FUN_02012CC8(void);
-extern void Camera_SetPerspectiveClippingPlane(u32, u32, u32);
-extern u32 FUN_0201343C(void);
+extern struct CameraWork * FUN_0201343C(void);
 extern void FUN_02013194(void *, u32, u32, u32);
 extern u32 FUN_0201318C(u32, u32, u32);
 
