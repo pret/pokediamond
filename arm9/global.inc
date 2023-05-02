@@ -7750,11 +7750,11 @@
 .extern MOD58_021D9A20
 .extern MOD58_021D9B8C
 .extern MOD58_021D9BF0
-.extern MOD59_Init
-.extern MOD59_Main
-.extern MOD59_Exit
-.extern MOD59_021D9868
-.extern MOD59_021D9898
+.extern MOD59_IntroInit
+.extern MOD59_IntroMain
+.extern MOD59_IntroExit
+.extern MOD59_TVInit
+.extern MOD59_TVMain
 .extern MOD59_021D99F8
 .extern MOD60_021D74E0
 .extern MOD60_021D76B8

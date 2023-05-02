@@ -11,6 +11,7 @@ typedef struct MOD59_OverlayData2
     u32 unk24;
 } MOD59_OverlayData2;
 
-BOOL MOD59_Init2(struct UnkStruct_02006234 *param0, u32 *param1);
+BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1);
+BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
 
 #endif // POKEDIAMOND_MOD59_021D9868_H

@@ -1146,11 +1146,11 @@ Overlay MODULE_58
 
 Overlay MODULE_59
 {
-	##Rowan's intro##
+	##Rowan's intro + TV intro##
 	After arm9
-	Object mod59_021D74E0.o
-	Object mod59_021D9868_src.o
-	Object mod59_021D9868_asm.o
+	Object mod59_Intro.o
+	Object mod59_TV_src.o
+	Object mod59_TV_asm.o
 }
 
 Overlay MODULE_60

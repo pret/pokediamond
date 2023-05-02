@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_MOD59_021D74E0_H
-#define POKEDIAMOND_MOD59_021D74E0_H
+#ifndef POKEDIAMOND_MOD59_INTRO_H
+#define POKEDIAMOND_MOD59_INTRO_H
 
 #include "nitro/types.h"
 #include "options.h"
@@ -101,9 +101,9 @@ struct MOD59_CharStruct021D9E70
     u32 charData[6];
 };
 
-BOOL MOD59_Init(struct UnkStruct_02006234 *param0);
-BOOL MOD59_Main(struct UnkStruct_02006234 *param0, u32 *overlayStruct);
-BOOL MOD59_Exit(struct UnkStruct_02006234 *param0);
+BOOL MOD59_IntroInit(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
+BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
+BOOL MOD59_IntroExit(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
 void MOD59_DoGpuBgUpdate(MOD59_OverlayData *data);
 BOOL MOD59_TestPokeballTouchLocation(void);
 void MOD59_SetupBg(MOD59_OverlayData *data);
@@ -135,4 +135,4 @@ BOOL MOD59_MunchlaxJumpAnimation(MOD59_OverlayData *data, u32 *param1);
 void MOD59_ResetMunchlaxPriority(MOD59_OverlayData *data);
 BOOL MOD59_MasterController(MOD59_OverlayData *data);
 
-#endif //POKEDIAMOND_MOD59_021D74E0_H
+#endif // POKEDIAMOND_MOD59_INTRO_H

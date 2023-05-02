@@ -32,7 +32,7 @@ usage () {
     echo "  -7            Diff the ARM7 module (default: ARM9)"
     echo "  -m OVERLAY    Diff the indicated overlay module (default: static module)"
     echo "  -r BASEROM    Use the indicated baserom (default: baserom.nds)"
-    echo "  -d BUILDDIR   Look for compiled binaries in this directory (default: build/heartgold.us)"
+    echo "  -d BUILDDIR   Look for compiled binaries in this directory (default: build/diamond.us)"
     echo "  -f FILE       Dump the indicated file, and use hexdump instead"
     echo "  -F FSDIR      Filesystem path on the home system"
     echo "  -t            Force THUMB instructions (default: ARM)"
@@ -127,7 +127,7 @@ case "$mode" in
         $MYDIR/ntruncompbw $basefile $vma $((vma+compsize)) || { rm -f $basefile; exit 1; }
       }
     }
-    buildfile=$builddir/OVY_${overlay}.sbin
+    buildfile=$builddir/MODULE_${overlay}.sbin
     ;;
   static)
     case $proc in
