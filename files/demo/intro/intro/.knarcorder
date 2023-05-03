@@ -1,6 +1,11 @@
 buttons.NCGR
 buttons_diamond.NCLR
 buttons_pearl.NCLR
+intro_background.NSCR
+control_info_padab.NSCR
+control_info_xy.NSCR
+control_info_touchscreen.NSCR
+adventure_info.NSCR
 lucas_walk_1.NCGR
 lucas_walk_2.NCGR
 lucas_walk_3.NCGR

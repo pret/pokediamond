@@ -115,7 +115,7 @@ const struct Unk21DBE18 MOD59_021D9DDC =
 
 const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC =
     {
-        .narcId = { NARC_intro_narc_0008_NCGR, NARC_intro_narc_0009_NCGR, NARC_intro_narc_0010_NCGR, NARC_intro_narc_0011_NCGR }
+        .narcId = { NARC_intro_lucas_walk_1_NCGR, NARC_intro_lucas_walk_2_NCGR, NARC_intro_lucas_walk_3_NCGR, NARC_intro_lucas_walk_4_NCGR }
     };
 
 const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC =
@@ -137,7 +137,7 @@ const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2] =
 
 const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C =
     {
-        .scrnIds = { NARC_intro_narc_0003_NSCR, NARC_intro_narc_0004_NSCR, NARC_intro_narc_0005_NSCR, NARC_intro_narc_0006_NSCR, NARC_intro_narc_0007_NSCR }
+        .scrnIds = { NARC_intro_intro_background_NSCR, NARC_intro_control_info_padab_NSCR, NARC_intro_control_info_xy_NSCR, NARC_intro_control_info_touchscreen_NSCR, NARC_intro_adventure_info_NSCR }
     };
 
 const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30 =
@@ -170,7 +170,7 @@ const struct MOD59_CharStruct021D9E70 MOD59_021D9E70 =
 
 const struct MOD59_CharStruct021D9E70 MOD59_021D9E88 =
     {
-        .charData = { NARC_intro_narc_0008_NCGR, NARC_intro_narc_0040_NCGR, NARC_intro_narc_0041_NCGR, NARC_intro_narc_0042_NCGR, NARC_intro_narc_0043_NCGR, 0xFF }
+        .charData = { NARC_intro_lucas_walk_1_NCGR, NARC_intro_narc_0040_NCGR, NARC_intro_narc_0041_NCGR, NARC_intro_narc_0042_NCGR, NARC_intro_narc_0043_NCGR, 0xFF }
     };
 
 const struct BgTemplate MOD59_021D9EA0 =
@@ -311,20 +311,20 @@ const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90 =
             },
             //boy sprites
             {
-                .charNum = NARC_intro_narc_0008_NCGR,
-                .palNum = NARC_intro_narc_0012_NCLR
+                .charNum = NARC_intro_lucas_walk_1_NCGR,
+                .palNum = NARC_intro_lucas_walk_NCLR
             },
             {
-                .charNum = NARC_intro_narc_0009_NCGR,
-                .palNum = NARC_intro_narc_0012_NCLR
+                .charNum = NARC_intro_lucas_walk_2_NCGR,
+                .palNum = NARC_intro_lucas_walk_NCLR
             },
             {
-                .charNum = NARC_intro_narc_0010_NCGR,
-                .palNum = NARC_intro_narc_0012_NCLR
+                .charNum = NARC_intro_lucas_walk_3_NCGR,
+                .palNum = NARC_intro_lucas_walk_NCLR
             },
             {
-                .charNum = NARC_intro_narc_0011_NCGR,
-                .palNum = NARC_intro_narc_0012_NCLR
+                .charNum = NARC_intro_lucas_walk_4_NCGR,
+                .palNum = NARC_intro_lucas_walk_NCLR
             },
             //girl sprites
             {
@@ -1005,7 +1005,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *dat
 
 THUMB_FUNC void MOD59_LoadInitialTilemap(MOD59_IntroOverlayData *data)
 {
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0000_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_buttons_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, data->heap_id);
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0023_NCGR, data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
 
@@ -1013,12 +1013,12 @@ THUMB_FUNC void MOD59_LoadInitialTilemap(MOD59_IntroOverlayData *data)
     u32 pal2;
     if ((u8)gGameVersion == VERSION_DIAMOND)
     {
-        pal1 = NARC_intro_narc_0001_NCLR;
+        pal1 = NARC_intro_buttons_diamond_NCLR;
         pal2 = NARC_intro_narc_0024_NCLR;
     }
     else
     {
-        pal1 = NARC_intro_narc_0002_NCLR;
+        pal1 = NARC_intro_buttons_pearl_NCLR;
         pal2 = NARC_intro_narc_0025_NCLR;
     }
     GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, pal1, GF_BG_LYR_MAIN_0, 0, 0x60, data->heap_id);
@@ -2008,7 +2008,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 17;
             break;
 
-        case 17: //Use DisplayMessage to create the flashing toucscreen icon ({YESNO 0})
+        case 17: //Use DisplayMessage to create the flashing touchscreen icon ({YESNO 0})
             if (MOD59_DisplayMessage(data, 6, 1) != TRUE)
             {
                 break;
@@ -2154,7 +2154,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 6;
             break;
 
-        case 31:
+        case 31: //load screen data
             data->scrnDataIndexMain = 4;
             MOD59_LoadMainScrnData(data);
             data->scrnDataIndexSub = 2;
@@ -2163,7 +2163,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 32;
             break;
 
-        case 32:
+        case 32: // ??
             if (FUN_0200E308() != 1)
             {
                 break;
