@@ -3347,7 +3347,12 @@ files/resource/eng/trial/trial.narc: \
 files/demo/intro/intro.narc: \
 	files/demo/intro/intro/narc_0000.NCGR \
 	files/demo/intro/intro/narc_0001.NCLR \
-	files/demo/intro/intro/narc_0002.NCLR
+	files/demo/intro/intro/narc_0002.NCLR \
+	files/demo/intro/intro/narc_0008.NCGR \
+    files/demo/intro/intro/narc_0009.NCGR \
+    files/demo/intro/intro/narc_0010.NCGR \
+    files/demo/intro/intro/narc_0011.NCGR \
+    files/demo/intro/intro/narc_0012.NCLR
 
 files/graphic/field_board.narc: \
 	files/graphic/field_board/narc_0000.NCGR \
