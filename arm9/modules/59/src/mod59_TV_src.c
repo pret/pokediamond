@@ -419,7 +419,7 @@ THUMB_FUNC BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2,
             u32 unk0 = (u32)FUN_02002F08(0, string, 0);
 
             unk0 = (256 - unk0 ) / 2;
-            AddTextPrinterParameterized2(&data->window, 0, string, unk0, param3, 0, MakeFontColor(15, 2, 0), 0);
+            AddTextPrinterParameterized2(&data->window, 0, string, unk0, param3, 0, MakeFontColor(15, 2, 0), NULL);
             String_dtor(string);
             CopyWindowToVram(&data->window);
             ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_ON);
