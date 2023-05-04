@@ -1,6 +1,7 @@
 #include "global.h"
 #include "mod59_TV_src.h"
 #include "GX_layers.h"
+#include "PAD_pad.h"
 #include "constants/sndseq.h"
 #include "demo/intro/intro_tv.naix"
 #include "filesystem.h"
@@ -19,7 +20,6 @@ extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 par
 extern u32 FUN_0200E308(void);
 
 extern void MOD59_021D9D78(void);
-extern BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 param1, u32 param2, u32 param3);
 
 extern const struct GraphicsBanks MOD59_021DA0D4;
 extern const struct GraphicsModes MOD59_021DA054;
@@ -27,6 +27,7 @@ extern const struct BgTemplate MOD59_021DA080;
 extern const struct BgTemplate MOD59_021DA09C;
 extern const struct BgTemplate MOD59_021DA064;
 extern const struct BgTemplate MOD59_021DA0B8;
+extern const struct WindowTemplate MOD59_021DA04C;
 
 THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)
 {
@@ -402,4 +403,53 @@ THUMB_FUNC void MOD59_TVSetupMsg(MOD59_TVOverlayData *data)
 THUMB_FUNC void MOD59_TVDestroyMsg(MOD59_TVOverlayData *data)
 {
     DestroyMsgData(data->msgData);
+}
+
+THUMB_FUNC BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3)
+{
+    BOOL ret = FALSE;
+    switch (data->unk0C)
+    {
+        case 0:
+            ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_OFF);
+            struct String *string = String_ctor(1024, data->heap_id);
+            ReadMsgDataIntoString(data->msgData, msgNo, string);
+            AddWindow(data->bgConfig, &data->window, &MOD59_021DA04C);
+            FillWindowPixelRect(&data->window, 0, 0, 0, 256, 192);
+            u32 unk0 = (u32)FUN_02002F08(0, string, 0);
+
+            unk0 = (256 - unk0 ) / 2;
+            AddTextPrinterParameterized2(&data->window, 0, string, unk0, param3, 0, MakeFontColor(15, 2, 0), 0);
+            String_dtor(string);
+            CopyWindowToVram(&data->window);
+            ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_ON);
+            data->unk24 = 240;
+            data->unk0C = 1;
+            break;
+
+        case 1:
+            if (data->unk24 != 0)
+            {
+                data->unk24--;
+                break;
+            }
+            data->unk0C = 2;
+            break;
+
+        case 2:
+            if((gMain.newKeys & PAD_BUTTON_A) != 1 && (gMain.newKeys & PAD_BUTTON_B) != 2)
+            {
+                break;
+            }
+            data->unk0C = 3;
+            break;
+
+        case 3:
+            RemoveWindow(&data->window);
+            BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2);
+            data->unk0C = 0;
+            ret = TRUE;
+            break;
+    }
+    return ret;
 }

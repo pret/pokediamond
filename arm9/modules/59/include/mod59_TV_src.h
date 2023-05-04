@@ -12,7 +12,8 @@ typedef struct MOD59_TVOverlayData2
     struct BgConfig *bgConfig;
     struct MsgData *msgData;
     u32 unk0C;
-    u8 padding[0x14];
+    struct Window window;
+    u8 padding[0x4];
     u32 unk24;
 } MOD59_TVOverlayData;
 
@@ -24,5 +25,6 @@ void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data);
 void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data);
 void MOD59_TVSetupMsg(MOD59_TVOverlayData *data);
 void MOD59_TVDestroyMsg(MOD59_TVOverlayData *data);
+BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3);
 
 #endif // POKEDIAMOND_MOD59_TV_H
