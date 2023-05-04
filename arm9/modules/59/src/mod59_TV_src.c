@@ -3,7 +3,11 @@
 #include "GX_layers.h"
 #include "bg_window.h"
 #include "constants/sndseq.h"
+#include "demo/intro/intro_tv.naix"
+#include "filesystem.h"
+#include "font.h"
 #include "game_init.h"
+#include "gf_gfx_loader.h"
 #include "heap.h"
 #include "overlay_manager.h"
 #include "unk_020040F4.h"
@@ -13,12 +17,18 @@ extern void FUN_0200E3A0(PMLCDTarget, s32);
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
 
-extern void MOD59_021D9A20(MOD59_TVOverlayData *data); //setup func
 extern void MOD59_021D9C48(MOD59_TVOverlayData *data); //setup func
 extern void MOD59_021D9D78(void);
 extern BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 param1, u32 param2, u32 param3);
 extern void MOD59_021D9C68(MOD59_TVOverlayData *data);
 extern void MOD59_021D9BD0(MOD59_TVOverlayData *data);
+
+extern const struct GraphicsBanks MOD59_021DA0D4;
+extern const struct GraphicsModes MOD59_021DA054;
+extern const struct BgTemplate MOD59_021DA080;
+extern const struct BgTemplate MOD59_021DA09C;
+extern const struct BgTemplate MOD59_021DA064;
+extern const struct BgTemplate MOD59_021DA0B8;
 
 THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)
 {
@@ -54,7 +64,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
 
             SetKeyRepeatTimers(4, 8);
 
-            MOD59_021D9A20(data);
+            MOD59_TVSetupGraphics(data);
             MOD59_021D9C48(data);
 
             Main_SetVBlankIntrCB((void (*)(void *))MOD59_TVDoGpuBgUpdate, data);
@@ -200,7 +210,7 @@ _021D98C6:
     mov r1, #8
     bl SetKeyRepeatTimers
     add r0, r4, #0
-    bl MOD59_021D9A20
+    bl MOD59_TVSetupGraphics
     add r0, r4, #0
     bl MOD59_021D9C48
     ldr r0, =MOD59_TVDoGpuBgUpdate
@@ -316,4 +326,48 @@ THUMB_FUNC BOOL MOD59_TVExit(struct UnkStruct_02006234 *overlayStruct, u32 *para
 THUMB_FUNC void MOD59_TVDoGpuBgUpdate(MOD59_TVOverlayData *data)
 {
     DoScheduledBgGpuUpdates(data->bgConfig);
+}
+
+THUMB_FUNC void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data)
+{
+    const struct GraphicsBanks banks = MOD59_021DA0D4; //sp #0x90
+    GX_SetBanks(&banks);
+
+    data->bgConfig = BgConfig_Alloc(data->heap_id);
+
+    const struct GraphicsModes modes = MOD59_021DA054; //sp #0x80
+    SetBothScreensModesAndDisable(&modes);
+
+    const struct BgTemplate bgTemplateMain2 = MOD59_021DA080; //sp #0x64
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_2, &bgTemplateMain2, GF_BG_TYPE_TEXT);
+
+    BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 0x20, 0, data->heap_id);
+    BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2);
+
+    const struct BgTemplate bgTemplateMain0 = MOD59_021DA09C; //sp #0x48
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_0, &bgTemplateMain0, GF_BG_TYPE_TEXT);
+
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0001_NCGR, data->bgConfig, GF_BG_LYR_MAIN_0, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0004_NSCR, data->bgConfig, GF_BG_LYR_MAIN_0, 0, 0, FALSE, data->heap_id);
+
+    const struct BgTemplate bgTemplateMain1 = MOD59_021DA064; //sp #0x2C
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_1, &bgTemplateMain1, GF_BG_TYPE_TEXT);
+
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0002_NCGR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0005_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+
+    const struct BgTemplate bgTemplateMain3 = MOD59_021DA0B8; //sp #0x10
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_3, &bgTemplateMain3, GF_BG_TYPE_TEXT);
+
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0000_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0003_NSCR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0006_NCLR, GF_BG_LYR_MAIN_0, 0, 0, data->heap_id);
+
+    FUN_02002ED0(GF_BG_LYR_MAIN_0, 0x20, data->heap_id);
+
+    BG_SetMaskColor(GF_BG_LYR_MAIN_0, 0);
+    BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);
+
+    G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2, 4, 12);
 }

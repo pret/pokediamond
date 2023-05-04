@@ -13,8 +13,8 @@ ARM_FUNC void G2x_SetBGyAffine_(u32 ptr, const struct Mtx22 *mtx, fx32 a, fx32 b
     *((vu32 *)ptr + 3) = (u32)(temp3 >> 4);
 }
 
-ARM_FUNC void G2x_SetBlendAlpha_(u32 *ptr, fx32 a, fx32 b, fx32 c, fx32 d){
-    *ptr = (u32)(((a | 0x40) | (b << 0x8)) | ((c | (d << 0x8)) << 0x10));
+ARM_FUNC void G2x_SetBlendAlpha_(u32 *ptr, GXBlendPlaneMask plane1, GXBlendPlaneMask plane2, fx32 c, fx32 d){
+    *ptr = (u32)(((plane1 | 0x40) | (plane2 << 0x8)) | ((c | (d << 0x8)) << 0x10));
 }
 
 ARM_FUNC void G2x_SetBlendBrightness_(u16 *ptr, fx32 a, fx32 brightness){

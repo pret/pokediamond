@@ -16,5 +16,6 @@ BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1);
 BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
 BOOL MOD59_TVExit(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
 void MOD59_TVDoGpuBgUpdate(MOD59_TVOverlayData *data);
+void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data);
 
 #endif // POKEDIAMOND_MOD59_TV_H

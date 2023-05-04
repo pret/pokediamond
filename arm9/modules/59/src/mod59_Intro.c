@@ -429,7 +429,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
 
             SetKeyRepeatTimers(4, 8);
 
-            MOD59_SetupBg(data);
+            MOD59_IntroSetupBg(data);
             MOD59_SetupMsg(data);
             MOD59_021D7A4C(data);
 
@@ -558,7 +558,7 @@ THUMB_FUNC BOOL MOD59_TestPokeballTouchLocation(void)
     return ret;
 }
 
-THUMB_FUNC void MOD59_SetupBg(MOD59_IntroOverlayData *data)
+THUMB_FUNC void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
 {
     struct GraphicsBanks graphicsBanks = MOD59_021D9F18;
     GX_SetBanks(&graphicsBanks);
@@ -570,22 +570,22 @@ THUMB_FUNC void MOD59_SetupBg(MOD59_IntroOverlayData *data)
     struct BgTemplate bgTemplateMain = MOD59_021D9EA0;
     bgTemplateMain.screenBase = 15;
     bgTemplateMain.charBase = 6;
-    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_0, &bgTemplateMain, 0);
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_0, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
 
     bgTemplateMain.screenBase = 14;
     bgTemplateMain.charBase = 5;
-    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_1, &bgTemplateMain, 0);
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_1, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1);
 
     bgTemplateMain.screenBase = 13;
     bgTemplateMain.charBase = 4;
-    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_2, &bgTemplateMain, 0);
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_2, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2);
 
     bgTemplateMain.screenBase = 12;
     bgTemplateMain.charBase = 3;
-    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_3, &bgTemplateMain, 0);
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_3, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_3);
 
     FUN_0200CD68(data->bgConfig, 0, 994, 4, 0, data->heap_id);
@@ -596,22 +596,22 @@ THUMB_FUNC void MOD59_SetupBg(MOD59_IntroOverlayData *data)
     struct BgTemplate bgTemplateSub = MOD59_021D9EBC;
     bgTemplateSub.screenBase = 15;
     bgTemplateSub.charBase = 6;
-    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_0, &bgTemplateSub, 0);
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_0, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_0);
 
     bgTemplateSub.screenBase = 14;
     bgTemplateSub.charBase = 5;
-    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_1, &bgTemplateSub, 0);
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_1, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_1);
 
     bgTemplateSub.screenBase = 13;
     bgTemplateSub.charBase = 4;
-    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_2, &bgTemplateSub, 0);
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_2, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_2);
 
     bgTemplateSub.screenBase = 12;
     bgTemplateSub.charBase = 3;
-    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_3, &bgTemplateSub, 0);
+    InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_3, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_3);
 
     ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
@@ -688,34 +688,34 @@ THUMB_FUNC void MOD59_021D7A5C(MOD59_IntroOverlayData *data) //MOD59_Destroy... 
 THUMB_FUNC BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32 param2)
 {
     BOOL subScreen;
-    s32 var1;
+    GXBlendPlaneMask planeMask;
     BOOL ret = FALSE;
     switch (bgId)
     {
         case GF_BG_LYR_MAIN_0:
         case GF_BG_LYR_MAIN_3:
         default:
-            var1 = 1;
+            planeMask = GX_BLEND_PLANEMASK_BG0;
             subScreen = FALSE;
             break;
         case GF_BG_LYR_MAIN_1:
-            var1 = 2;
+            planeMask = GX_BLEND_PLANEMASK_BG1;
             subScreen = FALSE;
             break;
         case GF_BG_LYR_MAIN_2:
-            var1 = 4;
+            planeMask = GX_BLEND_PLANEMASK_BG2;
             subScreen = FALSE;
             break;
         case GF_BG_LYR_SUB_0:
-            var1 = 1;
+            planeMask = GX_BLEND_PLANEMASK_BG0;
             subScreen = TRUE;
             break;
         case GF_BG_LYR_SUB_1:
-            var1 = 2;
+            planeMask = GX_BLEND_PLANEMASK_BG1;
             subScreen = TRUE;
             break;
         case GF_BG_LYR_SUB_2:
-            var1 = 4;
+            planeMask = GX_BLEND_PLANEMASK_BG2;
             subScreen = TRUE;
             break;
     }
@@ -729,11 +729,11 @@ THUMB_FUNC BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32
                 data->fadeCounter = 1;
                 if (!subScreen)
                 {
-                    G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
+                    G2_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
                 }
                 else
                 {
-                    G2x_SetBlendAlpha_(&reg_G2S_DB_BLEND, var1, 14, data->unk7C, data->unk80);
+                    G2S_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
                 }
                 ToggleBgLayer((u8)bgId, GX_LAYER_TOGGLE_ON);
             }
@@ -751,11 +751,11 @@ THUMB_FUNC BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32
                 data->unk80--;
                 if (!subScreen)
                 {
-                    G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
+                    G2_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
                 }
                 else
                 {
-                    G2x_SetBlendAlpha_(&reg_G2S_DB_BLEND, var1, 14, data->unk7C, data->unk80);
+                    G2S_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
                 }
             }
             else
@@ -770,11 +770,11 @@ THUMB_FUNC BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32
                 data->unk80++;
                 if (!subScreen)
                 {
-                    G2x_SetBlendAlpha_(&reg_G2_BLEND, var1, 14, data->unk7C, data->unk80);
+                    G2_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
                 }
                 else
                 {
-                    G2x_SetBlendAlpha_(&reg_G2S_DB_BLEND, var1, 14, data->unk7C, data->unk80);
+                    G2S_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
                 }
             }
             else
@@ -1344,7 +1344,7 @@ THUMB_FUNC void MOD59_AnimatePlayerSprite(MOD59_IntroOverlayData *data)
             timer = 4;
         }
         data->maleAnimTimer = timer;
-        G2x_SetBlendAlpha_(&reg_G2_BLEND, 4, 8, 6, 10);
+        G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG2, GX_BLEND_PLANEMASK_BG3, 6, 10);
         struct MOD59_CharStruct021D9DEC charStruct = MOD59_021D9DEC;
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->maleAnimCounter], data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
     }
@@ -1361,7 +1361,7 @@ THUMB_FUNC void MOD59_AnimatePlayerSprite(MOD59_IntroOverlayData *data)
             timer = 4;
         }
         data->femaleAnimTimer = timer;
-        G2x_SetBlendAlpha_(&reg_G2_BLEND, 2, 8, 6, 10);
+        G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, GX_BLEND_PLANEMASK_BG3, 6, 10);
         struct MOD59_CharStruct021D9DEC charStruct = MOD59_021D9DFC;
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, charStruct.narcId[data->femaleAnimCounter], data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
     }
