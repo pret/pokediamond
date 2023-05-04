@@ -19,8 +19,6 @@ extern void FUN_0200E3A0(PMLCDTarget, s32);
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
 
-extern void MOD59_021D9D78(void);
-
 extern const struct GraphicsBanks MOD59_021DA0D4;
 extern const struct GraphicsModes MOD59_021DA054;
 extern const struct BgTemplate MOD59_021DA080;
@@ -104,7 +102,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
             break;
 
         case 3:
-            MOD59_021D9D78();
+            MOD59_021D9D78(data);
 
             if (FUN_0200E308() != 1)
             {
@@ -115,7 +113,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
             break;
 
         case 4:
-            MOD59_021D9D78();
+            MOD59_021D9D78(data);
 
             if (MOD59_021D9C74(data, 0, 40, 48) != TRUE)
             {
@@ -128,7 +126,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
             break;
 
         case 5:
-            MOD59_021D9D78();
+            MOD59_021D9D78(data);
 
             if (FUN_0200E308() != 1)
             {
@@ -452,4 +450,10 @@ THUMB_FUNC BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2,
             break;
     }
     return ret;
+}
+
+THUMB_FUNC void MOD59_021D9D78(MOD59_TVOverlayData *data)
+{
+    data->unk20 += 4;
+    BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_Y, data->unk20 >> 4);
 }

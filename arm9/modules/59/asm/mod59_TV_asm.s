@@ -2,22 +2,6 @@
 	.include "global.inc"
 	.section .text
 	.balign 4, 0
-
-	thumb_func_start MOD59_021D9D78
-MOD59_021D9D78: ; 0x021D9D78
-	push {r3, lr}
-	ldr r1, [r0, #0x20]
-	mov r2, #3
-	add r3, r1, #4
-	str r3, [r0, #0x20]
-	ldr r0, [r0, #4]
-	mov r1, #1
-	asr r3, r3, #4
-	bl BgSetPosTextAndCommit
-	pop {r3, pc}
-	.align 2, 0
-	thumb_func_end MOD59_021D9D78
-
 	.rodata
 
 	.global MOD59_021DA04C
