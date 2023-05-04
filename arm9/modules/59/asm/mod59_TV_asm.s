@@ -3,56 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD59_021D9BD0
-MOD59_021D9BD0: ; 0x021D9BD0
-	push {r4, lr}
-	add r4, r0, #0
-	mov r0, #0
-	add r1, r0, #0
-	bl ToggleBgLayer
-	mov r0, #1
-	mov r1, #0
-	bl ToggleBgLayer
-	mov r0, #2
-	mov r1, #0
-	bl ToggleBgLayer
-	mov r0, #3
-	mov r1, #0
-	bl ToggleBgLayer
-	mov r0, #4
-	mov r1, #0
-	bl ToggleBgLayer
-	mov r0, #5
-	mov r1, #0
-	bl ToggleBgLayer
-	mov r0, #6
-	mov r1, #0
-	bl ToggleBgLayer
-	mov r0, #7
-	mov r1, #0
-	bl ToggleBgLayer
-	ldr r0, _021D9C44 ; =0x04000050
-	mov r1, #0
-	strh r1, [r0]
-	ldr r0, [r4, #4]
-	mov r1, #3
-	bl FreeBgTilemapBuffer
-	ldr r0, [r4, #4]
-	mov r1, #1
-	bl FreeBgTilemapBuffer
-	ldr r0, [r4, #4]
-	mov r1, #0
-	bl FreeBgTilemapBuffer
-	ldr r0, [r4, #4]
-	mov r1, #2
-	bl FreeBgTilemapBuffer
-	ldr r0, [r4, #4]
-	bl FreeToHeap
-	pop {r4, pc}
-	nop
-_021D9C44: .word 0x04000050
-	thumb_func_end MOD59_021D9BD0
-
 	thumb_func_start MOD59_021D9C48
 MOD59_021D9C48: ; 0x021D9C48
 	push {r4, lr}

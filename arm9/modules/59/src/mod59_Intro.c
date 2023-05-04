@@ -465,7 +465,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
             }
 
             MOD59_DestroyMsg(data);
-            MOD59_DestroyBg(data);
+            MOD59_IntroDestroyBg(data);
             MOD59_021D7A5C(data);
 
             Main_SetVBlankIntrCB(NULL, NULL);
@@ -480,7 +480,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
             }
 
             MOD59_DestroyMsg(data);
-            MOD59_DestroyBg(data);
+            MOD59_IntroDestroyBg(data);
             MOD59_021D7A5C(data);
 
             Main_SetVBlankIntrCB(NULL, NULL);
@@ -628,7 +628,7 @@ THUMB_FUNC void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
     data->fadeCounter = 0;
 }
 
-THUMB_FUNC void MOD59_DestroyBg(MOD59_IntroOverlayData *data)
+THUMB_FUNC void MOD59_IntroDestroyBg(MOD59_IntroOverlayData *data)
 {
     ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
     ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);

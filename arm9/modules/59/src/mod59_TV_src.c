@@ -21,7 +21,6 @@ extern void MOD59_021D9C48(MOD59_TVOverlayData *data); //setup func
 extern void MOD59_021D9D78(void);
 extern BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 param1, u32 param2, u32 param3);
 extern void MOD59_021D9C68(MOD59_TVOverlayData *data);
-extern void MOD59_021D9BD0(MOD59_TVOverlayData *data);
 
 extern const struct GraphicsBanks MOD59_021DA0D4;
 extern const struct GraphicsModes MOD59_021DA054;
@@ -137,7 +136,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
             }
 
             MOD59_021D9C68(data);
-            MOD59_021D9BD0(data);
+            MOD59_TVDestroyGraphics(data);
 
             Main_SetVBlankIntrCB(NULL, NULL);
 
@@ -302,7 +301,7 @@ _021D99C0:
     add r0, r4, #0
     bl MOD59_021D9C68
     add r0, r4, #0
-    bl MOD59_021D9BD0
+    bl MOD59_TVDestroyGraphics
     add r0, r6, #0
     add r1, r0, #0
     bl Main_SetVBlankIntrCB
@@ -370,4 +369,24 @@ THUMB_FUNC void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data)
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);
 
     G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2, 4, 12);
+}
+
+THUMB_FUNC void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data)
+{
+    ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_0, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_1, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
+    ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_OFF);
+
+    reg_G2_BLDCNT = 0;
+
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_3);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_1);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_0);
+    FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_2);
+    FreeToHeap(data->bgConfig);
 }
