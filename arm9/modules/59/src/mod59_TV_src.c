@@ -20,7 +20,6 @@ extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 par
 extern u32 FUN_0200E308(void);
 
 extern const struct GraphicsBanks MOD59_021DA0D4;
-extern const struct BgTemplate MOD59_021DA09C;
 extern const struct BgTemplate MOD59_021DA0B8;
 
 const struct WindowTemplate MOD59_021DA04C =
@@ -71,6 +70,24 @@ const struct BgTemplate MOD59_021DA080 =
         .colorMode = GX_BG_COLORMODE_16,
         .screenBase = GX_BG_SCRBASE_0x0000,
         .charBase = GX_BG_CHARBASE_0x18000,
+        .bgExtPltt = GX_BG_EXTPLTT_01,
+        .priority = 1,
+        .areaOver = GX_BG_AREAOVER_XLU,
+        .unk17 = 0,
+        .mosaic = FALSE
+    };
+
+const struct BgTemplate MOD59_021DA09C =
+    {
+        .x = 0,
+        .y = 0,
+        .bufferSize = 2048,
+        .baseTile = 0,
+
+        .size = GF_BG_SCR_SIZE_256x256,
+        .colorMode = GX_BG_COLORMODE_16,
+        .screenBase = GX_BG_SCRBASE_0x0800,
+        .charBase = GX_BG_CHARBASE_0x14000,
         .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 1,
         .areaOver = GX_BG_AREAOVER_XLU,
