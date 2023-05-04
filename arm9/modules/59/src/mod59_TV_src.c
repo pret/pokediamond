@@ -25,7 +25,17 @@ extern const struct BgTemplate MOD59_021DA080;
 extern const struct BgTemplate MOD59_021DA09C;
 extern const struct BgTemplate MOD59_021DA064;
 extern const struct BgTemplate MOD59_021DA0B8;
-extern const struct WindowTemplate MOD59_021DA04C;
+
+const struct WindowTemplate MOD59_021DA04C =
+    {
+        .bgId = GF_BG_LYR_MAIN_2,
+        .tilemapLeft = 0,
+        .tilemapTop = 0,
+        .width = 32,
+        .height = 24,
+        .paletteNum = 0x01,
+        .baseTile = 1,
+    };
 
 THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)
 {
