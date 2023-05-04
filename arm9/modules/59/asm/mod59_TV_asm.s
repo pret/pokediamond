@@ -3,30 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD59_021D99F8
-MOD59_021D99F8: ; 0x021D99F8
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	bl OverlayManager_GetData
-	ldr r4, [r0]
-	add r0, r5, #0
-	bl OverlayManager_FreeData
-	add r0, r4, #0
-	bl DestroyHeap
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-	.align 2, 0
-	thumb_func_end MOD59_021D99F8
-
-	thumb_func_start MOD59_021D9A14
-MOD59_021D9A14: ; 0x021D9A14
-	ldr r3, _021D9A1C ; =FUN_0201AB60
-	ldr r0, [r0, #4]
-	bx r3
-	nop
-_021D9A1C: .word DoScheduledBgGpuUpdates
-	thumb_func_end MOD59_021D9A14
-
 	thumb_func_start MOD59_021D9A20
 MOD59_021D9A20: ; 0x021D9A20
 	push {r3, r4, r5, lr}

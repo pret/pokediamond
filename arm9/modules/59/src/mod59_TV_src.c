@@ -1,6 +1,7 @@
 #include "global.h"
 #include "mod59_TV_src.h"
 #include "GX_layers.h"
+#include "bg_window.h"
 #include "constants/sndseq.h"
 #include "game_init.h"
 #include "heap.h"
@@ -12,20 +13,19 @@ extern void FUN_0200E3A0(PMLCDTarget, s32);
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
 
-extern void MOD59_021D9A20(MOD59_OverlayData2 *data); //setup func
-extern void MOD59_021D9C48(MOD59_OverlayData2 *data); //setup func
-extern void MOD59_021D9A14(MOD59_OverlayData2 *data); //DoGpuBgUpdate
+extern void MOD59_021D9A20(MOD59_TVOverlayData *data); //setup func
+extern void MOD59_021D9C48(MOD59_TVOverlayData *data); //setup func
 extern void MOD59_021D9D78(void);
-extern BOOL MOD59_021D9C74(MOD59_OverlayData2 *data, u32 param1, u32 param2, u32 param3);
-extern void MOD59_021D9C68(MOD59_OverlayData2 *data);
-extern void MOD59_021D9BD0(MOD59_OverlayData2 *data);
+extern BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 param1, u32 param2, u32 param3);
+extern void MOD59_021D9C68(MOD59_TVOverlayData *data);
+extern void MOD59_021D9BD0(MOD59_TVOverlayData *data);
 
 THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)
 {
 #pragma unused(param1)
     CreateHeap(3, 83, 0x40000);
-    MOD59_OverlayData2 *data = (MOD59_OverlayData2 *)OverlayManager_CreateAndGetData(param0, sizeof(MOD59_OverlayData2), 0x53);
-    (void)memset((void *)data, 0, sizeof(MOD59_OverlayData2));
+    MOD59_TVOverlayData *data = (MOD59_TVOverlayData *)OverlayManager_CreateAndGetData(param0, sizeof(MOD59_TVOverlayData), 0x53);
+    (void)memset((void *)data, 0, sizeof(MOD59_TVOverlayData));
     data->heap_id = 0x53;
     data->unk24 = 0;
     return TRUE;
@@ -34,7 +34,7 @@ THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)
 #ifdef NONMATCHING
 THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
 {
-    MOD59_OverlayData2 *data = (MOD59_OverlayData2 *)OverlayManager_GetData(overlayStruct);
+    MOD59_TVOverlayData *data = (MOD59_TVOverlayData *)OverlayManager_GetData(overlayStruct);
     BOOL ret = FALSE;
 
     switch (*param1)
@@ -57,7 +57,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
             MOD59_021D9A20(data);
             MOD59_021D9C48(data);
 
-            Main_SetVBlankIntrCB((void (*)(void *))MOD59_021D9A14, data);
+            Main_SetVBlankIntrCB((void (*)(void *))MOD59_TVDoGpuBgUpdate, data);
 
             GX_BothDispOn();
 
@@ -203,7 +203,7 @@ _021D98C6:
     bl MOD59_021D9A20
     add r0, r4, #0
     bl MOD59_021D9C48
-    ldr r0, =MOD59_021D9A14
+    ldr r0, =MOD59_TVDoGpuBgUpdate
     add r1, r4, #0
     bl Main_SetVBlankIntrCB
     bl GX_BothDispOn
@@ -303,3 +303,17 @@ _021D99E2:
     pop {r3, r4, r5, r6, pc}
 }
 #endif
+
+THUMB_FUNC BOOL MOD59_TVExit(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
+{
+#pragma unused (param1)
+    u32 heap_id = ((MOD59_TVOverlayData *)OverlayManager_GetData(overlayStruct))->heap_id;
+    OverlayManager_FreeData(overlayStruct);
+    DestroyHeap(heap_id);
+    return TRUE;
+}
+
+THUMB_FUNC void MOD59_TVDoGpuBgUpdate(MOD59_TVOverlayData *data)
+{
+    DoScheduledBgGpuUpdates(data->bgConfig);
+}

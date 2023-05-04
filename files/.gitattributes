@@ -2,5 +2,6 @@
 *.txt eol=crlf
 .knarcignore eol=lf
 .knarckeep eol=lf
+.knarcorder eol=lf
 *.pal eol=crlf
 *.key binary

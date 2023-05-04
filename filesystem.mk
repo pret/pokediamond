@@ -3344,6 +3344,16 @@ files/resource/eng/trial/trial.narc: \
 	files/resource/eng/trial/trial/narc_0006.NCLR \
 	files/resource/eng/trial/trial/narc_0007.NCGR
 
+files/demo/intro/intro.narc: \
+	files/demo/intro/intro/buttons.NCGR \
+	files/demo/intro/intro/buttons_diamond.NCLR \
+	files/demo/intro/intro/buttons_pearl.NCLR \
+	files/demo/intro/intro/lucas_walk_1.NCGR \
+	files/demo/intro/intro/lucas_walk_2.NCGR \
+	files/demo/intro/intro/lucas_walk_3.NCGR \
+	files/demo/intro/intro/lucas_walk_4.NCGR \
+	files/demo/intro/intro/lucas_walk.NCLR
+
 files/graphic/field_board.narc: \
 	files/graphic/field_board/narc_0000.NCGR \
 	files/graphic/field_board/narc_0001.NCLR \
