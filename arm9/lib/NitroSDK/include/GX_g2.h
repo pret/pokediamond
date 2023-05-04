@@ -4,8 +4,19 @@
 #include "fx.h"
 #include "registers.h"
 
+typedef enum GXBlendPlaneMask
+{
+    GX_BLEND_PLANEMASK_NONE = 0x0000,
+    GX_BLEND_PLANEMASK_BG0 = 0x0001,
+    GX_BLEND_PLANEMASK_BG1 = 0x0002,
+    GX_BLEND_PLANEMASK_BG2 = 0x0004,
+    GX_BLEND_PLANEMASK_BG3 = 0x0008,
+    GX_BLEND_PLANEMASK_OBJ = 0x0010,
+    GX_BLEND_PLANEMASK_BD = 0x0020
+} GXBlendPlaneMask;
+
 void G2x_SetBGyAffine_(u32 ptr, const struct Mtx22 *mtx, fx32 a, fx32 b, fx32 c, fx32 d);
-void G2x_SetBlendAlpha_(u32 *ptr, fx32 a, fx32 b, fx32 c, fx32 d);
+void G2x_SetBlendAlpha_(u32 *ptr, GXBlendPlaneMask plane1, GXBlendPlaneMask plane2, fx32 c, fx32 d);
 void G2x_SetBlendBrightness_(u16 *ptr, fx32 a, fx32 brightness);
 void G2x_SetBlendBrightnessExt_(u16 *ptr, fx32 a, fx32 b, fx32 c, fx32 d, fx32 brightness);
 void G2x_ChangeBlendBrightness_(u16 *ptr, fx32 brightness);
@@ -15,8 +26,7 @@ typedef struct
     u8      planeMask:5;
     u8      effect:1;
     u8      _reserve:2;
-}
-        GXWndPlane;
+} GXWndPlane;
 
 typedef enum
 {
@@ -26,8 +36,7 @@ typedef enum
     GX_WND_PLANEMASK_BG2 = 0x0004,
     GX_WND_PLANEMASK_BG3 = 0x0008,
     GX_WND_PLANEMASK_OBJ = 0x0010
-}
-        GXWndPlaneMask;
+} GXWndPlaneMask;
 
 static inline void G2_SetWndOutsidePlane(int wnd, BOOL effect)
 {
@@ -119,6 +128,16 @@ static inline void G2_BlendNone(void)
 static inline void G2S_BlendNone(void)
 {
     reg_G2S_DB_BLDCNT = 0;
+}
+
+static inline void G2_SetBlendAlpha(GXBlendPlaneMask plane1, GXBlendPlaneMask plane2, fx32 ev1, fx32 ev2)
+{
+    G2x_SetBlendAlpha_((u32 *)&reg_G2_BLEND, plane1, plane2, ev1, ev2);
+}
+
+static inline void G2S_SetBlendAlpha(GXBlendPlaneMask plane1, GXBlendPlaneMask plane2, fx32 ev1, fx32 ev2)
+{
+    G2x_SetBlendAlpha_((u32 *)&reg_G2S_DB_BLEND, plane1, plane2, ev1, ev2);
 }
 
 //The g2 and g2_oam headers contain a lot of inline functions and enums that may want to be ported over at some point
