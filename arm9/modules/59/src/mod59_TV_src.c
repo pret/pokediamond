@@ -1,7 +1,6 @@
 #include "global.h"
 #include "mod59_TV_src.h"
 #include "GX_layers.h"
-#include "bg_window.h"
 #include "constants/sndseq.h"
 #include "demo/intro/intro_tv.naix"
 #include "filesystem.h"
@@ -9,7 +8,9 @@
 #include "game_init.h"
 #include "gf_gfx_loader.h"
 #include "heap.h"
+#include "msgdata/msg.naix"
 #include "overlay_manager.h"
+#include "text.h"
 #include "unk_020040F4.h"
 
 extern void FUN_0200E3A0(PMLCDTarget, s32);
@@ -17,7 +18,6 @@ extern void FUN_0200E3A0(PMLCDTarget, s32);
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
 
-extern void MOD59_021D9C48(MOD59_TVOverlayData *data); //setup func
 extern void MOD59_021D9D78(void);
 extern BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 param1, u32 param2, u32 param3);
 extern void MOD59_021D9C68(MOD59_TVOverlayData *data);
@@ -64,7 +64,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
             SetKeyRepeatTimers(4, 8);
 
             MOD59_TVSetupGraphics(data);
-            MOD59_021D9C48(data);
+            MOD59_TVSetupMsg(data);
 
             Main_SetVBlankIntrCB((void (*)(void *))MOD59_TVDoGpuBgUpdate, data);
 
@@ -211,7 +211,7 @@ _021D98C6:
     add r0, r4, #0
     bl MOD59_TVSetupGraphics
     add r0, r4, #0
-    bl MOD59_021D9C48
+    bl MOD59_TVSetupMsg
     ldr r0, =MOD59_TVDoGpuBgUpdate
     add r1, r4, #0
     bl Main_SetVBlankIntrCB
@@ -390,3 +390,13 @@ THUMB_FUNC void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data)
     FreeBgTilemapBuffer(data->bgConfig, GF_BG_LYR_MAIN_2);
     FreeToHeap(data->bgConfig);
 }
+
+THUMB_FUNC void MOD59_TVSetupMsg(MOD59_TVOverlayData *data)
+{
+    data->msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0549_bin, data->heap_id);
+
+    FUN_0201BD5C();
+
+    data->unk0C = 0;
+}
+

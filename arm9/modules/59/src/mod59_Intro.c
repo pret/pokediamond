@@ -430,7 +430,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
             SetKeyRepeatTimers(4, 8);
 
             MOD59_IntroSetupBg(data);
-            MOD59_SetupMsg(data);
+            MOD59_IntroSetupMsg(data);
             MOD59_021D7A4C(data);
 
             Main_SetVBlankIntrCB((void (*)(void *))MOD59_IntroDoGpuBgUpdate, data);
@@ -653,7 +653,7 @@ THUMB_FUNC void MOD59_IntroDestroyBg(MOD59_IntroOverlayData *data)
     FreeToHeap(data->bgConfig);
 }
 
-THUMB_FUNC void MOD59_SetupMsg(MOD59_IntroOverlayData *data)
+THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 {
     data->msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0341_bin, data->heap_id);
 

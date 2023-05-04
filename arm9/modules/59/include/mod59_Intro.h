@@ -108,7 +108,7 @@ void MOD59_IntroDoGpuBgUpdate(MOD59_IntroOverlayData *data);
 BOOL MOD59_TestPokeballTouchLocation(void);
 void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data);
 void MOD59_IntroDestroyBg(MOD59_IntroOverlayData *data);
-void MOD59_SetupMsg(MOD59_IntroOverlayData *data);
+void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data);
 void MOD59_DestroyMsg(MOD59_IntroOverlayData *data);
 void MOD59_021D7A4C(MOD59_IntroOverlayData *data);
 void MOD59_021D7A5C(MOD59_IntroOverlayData *data);

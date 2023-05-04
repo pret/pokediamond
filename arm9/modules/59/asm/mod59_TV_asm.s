@@ -3,24 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD59_021D9C48
-MOD59_021D9C48: ; 0x021D9C48
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r2, _021D9C64 ; =0x00000225
-	ldr r3, [r4]
-	mov r0, #1
-	mov r1, #0x1a
-	bl NewMsgDataFromNarc
-	str r0, [r4, #8]
-	bl FUN_0201BD5C
-	mov r0, #0
-	str r0, [r4, #0xc]
-	pop {r4, pc}
-	.align 2, 0
-_021D9C64: .word 0x00000225
-	thumb_func_end MOD59_021D9C48
-
 	thumb_func_start MOD59_021D9C68
 MOD59_021D9C68: ; 0x021D9C68
 	ldr r3, _021D9C70 ; =DestroyMsgData
