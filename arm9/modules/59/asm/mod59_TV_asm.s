@@ -3,15 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD59_021D9C68
-MOD59_021D9C68: ; 0x021D9C68
-	ldr r3, _021D9C70 ; =DestroyMsgData
-	ldr r0, [r0, #8]
-	bx r3
-	nop
-_021D9C70: .word DestroyMsgData
-	thumb_func_end MOD59_021D9C68
-
 	thumb_func_start MOD59_021D9C74
 MOD59_021D9C74: ; 0x021D9C74
 	push {r4, r5, r6, r7, lr}

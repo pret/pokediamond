@@ -23,5 +23,6 @@ void MOD59_TVDoGpuBgUpdate(MOD59_TVOverlayData *data);
 void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data);
 void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data);
 void MOD59_TVSetupMsg(MOD59_TVOverlayData *data);
+void MOD59_TVDestroyMsg(MOD59_TVOverlayData *data);
 
 #endif // POKEDIAMOND_MOD59_TV_H

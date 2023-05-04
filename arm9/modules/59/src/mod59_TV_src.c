@@ -20,7 +20,6 @@ extern u32 FUN_0200E308(void);
 
 extern void MOD59_021D9D78(void);
 extern BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 param1, u32 param2, u32 param3);
-extern void MOD59_021D9C68(MOD59_TVOverlayData *data);
 
 extern const struct GraphicsBanks MOD59_021DA0D4;
 extern const struct GraphicsModes MOD59_021DA054;
@@ -135,7 +134,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
                 break;
             }
 
-            MOD59_021D9C68(data);
+            MOD59_TVDestroyMsg(data);
             MOD59_TVDestroyGraphics(data);
 
             Main_SetVBlankIntrCB(NULL, NULL);
@@ -299,7 +298,7 @@ _021D99C0:
     cmp r0, #1
     bne _021D99E2
     add r0, r4, #0
-    bl MOD59_021D9C68
+    bl MOD59_TVDestroyMsg
     add r0, r4, #0
     bl MOD59_TVDestroyGraphics
     add r0, r6, #0
@@ -400,3 +399,7 @@ THUMB_FUNC void MOD59_TVSetupMsg(MOD59_TVOverlayData *data)
     data->unk0C = 0;
 }
 
+THUMB_FUNC void MOD59_TVDestroyMsg(MOD59_TVOverlayData *data)
+{
+    DestroyMsgData(data->msgData);
+}

@@ -109,7 +109,7 @@ BOOL MOD59_TestPokeballTouchLocation(void);
 void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data);
 void MOD59_IntroDestroyBg(MOD59_IntroOverlayData *data);
 void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data);
-void MOD59_DestroyMsg(MOD59_IntroOverlayData *data);
+void MOD59_IntroDestroyMsg(MOD59_IntroOverlayData *data);
 void MOD59_021D7A4C(MOD59_IntroOverlayData *data);
 void MOD59_021D7A5C(MOD59_IntroOverlayData *data);
 BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 param1, u32 param2);

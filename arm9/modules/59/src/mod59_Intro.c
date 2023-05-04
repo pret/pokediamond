@@ -464,7 +464,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
                 break;
             }
 
-            MOD59_DestroyMsg(data);
+            MOD59_IntroDestroyMsg(data);
             MOD59_IntroDestroyBg(data);
             MOD59_021D7A5C(data);
 
@@ -479,7 +479,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
                 break;
             }
 
-            MOD59_DestroyMsg(data);
+            MOD59_IntroDestroyMsg(data);
             MOD59_IntroDestroyBg(data);
             MOD59_021D7A5C(data);
 
@@ -668,7 +668,7 @@ THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
     data->createListCounter = 0;
 }
 
-THUMB_FUNC void MOD59_DestroyMsg(MOD59_IntroOverlayData *data)
+THUMB_FUNC void MOD59_IntroDestroyMsg(MOD59_IntroOverlayData *data)
 {
     ScrStrBufs_delete(data->strBufs);
     FUN_020143D0(data->unk60);
