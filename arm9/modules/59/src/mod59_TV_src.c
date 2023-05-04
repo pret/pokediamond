@@ -22,7 +22,6 @@ extern u32 FUN_0200E308(void);
 extern const struct GraphicsBanks MOD59_021DA0D4;
 extern const struct BgTemplate MOD59_021DA080;
 extern const struct BgTemplate MOD59_021DA09C;
-extern const struct BgTemplate MOD59_021DA064;
 extern const struct BgTemplate MOD59_021DA0B8;
 
 const struct WindowTemplate MOD59_021DA04C =
@@ -42,6 +41,24 @@ const struct GraphicsModes MOD59_021DA054 =
         .bgMode = GX_BGMODE_0,
         .subMode = GX_BGMODE_0,
         ._2d3dMode = GX_BG0_AS_2D,
+    };
+
+const struct BgTemplate MOD59_021DA064 =
+    {
+        .x = 0,
+        .y = 0,
+        .bufferSize = 2048,
+        .baseTile = 0,
+
+        .size = GF_BG_SCR_SIZE_256x256,
+        .colorMode = GX_BG_COLORMODE_16,
+        .screenBase = GX_BG_SCRBASE_0x1000,
+        .charBase = GX_BG_CHARBASE_0x10000,
+        .bgExtPltt = GX_BG_EXTPLTT_01,
+        .priority = 1,
+        .areaOver = GX_BG_AREAOVER_XLU,
+        .unk17 = 0,
+        .mosaic = FALSE
     };
 
 THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)

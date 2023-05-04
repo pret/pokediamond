@@ -180,15 +180,15 @@ const struct BgTemplate MOD59_021D9EA0 =
         .bufferSize = 2048,
         .baseTile = 0,
 
-        .size = 1,
-        .colorMode = 0,
-        .screenBase = 0,
-        .charBase = 0,
-        .bgExtPltt = 0,
+        .size = GF_BG_SCR_SIZE_256x256,
+        .colorMode = GX_BG_COLORMODE_16,
+        .screenBase = GX_BG_SCRBASE_0x0000,
+        .charBase = GX_BG_CHARBASE_0x00000,
+        .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 1,
-        .areaOver = 0,
+        .areaOver = GX_BG_AREAOVER_XLU,
         .unk17 = 0,
-        .mosaic = 0
+        .mosaic = FALSE
     };
 
 const struct BgTemplate MOD59_021D9EBC =
@@ -198,15 +198,15 @@ const struct BgTemplate MOD59_021D9EBC =
         .bufferSize = 2048,
         .baseTile = 0,
 
-        .size = 1,
-        .colorMode = 0,
-        .screenBase = 0,
-        .charBase = 0,
-        .bgExtPltt = 0,
+        .size = GF_BG_SCR_SIZE_256x256,
+        .colorMode = GX_BG_COLORMODE_16,
+        .screenBase = GX_BG_SCRBASE_0x0000,
+        .charBase = GX_BG_CHARBASE_0x00000,
+        .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 0,
-        .areaOver = 0,
+        .areaOver = GX_BG_AREAOVER_XLU,
         .unk17 = 0,
-        .mosaic = 0
+        .mosaic = FALSE
     };
 
 const u16 MOD59_021D9ED8[0x10] = { 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C, 0x6A3C };
@@ -568,23 +568,23 @@ THUMB_FUNC void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
     SetBothScreensModesAndDisable(&graphicsModes);
 
     struct BgTemplate bgTemplateMain = MOD59_021D9EA0;
-    bgTemplateMain.screenBase = 15;
-    bgTemplateMain.charBase = 6;
+    bgTemplateMain.screenBase = GX_BG_SCRBASE_0x7800;
+    bgTemplateMain.charBase = GX_BG_CHARBASE_0x18000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_0, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
 
-    bgTemplateMain.screenBase = 14;
-    bgTemplateMain.charBase = 5;
+    bgTemplateMain.screenBase = GX_BG_SCRBASE_0x7000;
+    bgTemplateMain.charBase = GX_BG_CHARBASE_0x14000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_1, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1);
 
-    bgTemplateMain.screenBase = 13;
-    bgTemplateMain.charBase = 4;
+    bgTemplateMain.screenBase = GX_BG_SCRBASE_0x6800;
+    bgTemplateMain.charBase = GX_BG_CHARBASE_0x10000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_2, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2);
 
-    bgTemplateMain.screenBase = 12;
-    bgTemplateMain.charBase = 3;
+    bgTemplateMain.screenBase = GX_BG_SCRBASE_0x6000;
+    bgTemplateMain.charBase = GX_BG_CHARBASE_0x0c000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_MAIN_3, &bgTemplateMain, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_3);
 
@@ -594,23 +594,23 @@ THUMB_FUNC void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
     FUN_02002EEC(GF_BG_LYR_MAIN_0, 192, data->heap_id);
 
     struct BgTemplate bgTemplateSub = MOD59_021D9EBC;
-    bgTemplateSub.screenBase = 15;
-    bgTemplateSub.charBase = 6;
+    bgTemplateSub.screenBase = GX_BG_SCRBASE_0x7800;
+    bgTemplateSub.charBase = GX_BG_CHARBASE_0x18000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_0, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_0);
 
-    bgTemplateSub.screenBase = 14;
-    bgTemplateSub.charBase = 5;
+    bgTemplateSub.screenBase = GX_BG_SCRBASE_0x7000;
+    bgTemplateSub.charBase = GX_BG_CHARBASE_0x14000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_1, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_1);
 
-    bgTemplateSub.screenBase = 13;
-    bgTemplateSub.charBase = 4;
+    bgTemplateSub.screenBase = GX_BG_SCRBASE_0x6800;
+    bgTemplateSub.charBase = GX_BG_CHARBASE_0x10000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_2, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_2);
 
-    bgTemplateSub.screenBase = 12;
-    bgTemplateSub.charBase = 3;
+    bgTemplateSub.screenBase = GX_BG_SCRBASE_0x6000;
+    bgTemplateSub.charBase = GX_BG_CHARBASE_0x0c000;
     InitBgFromTemplate(data->bgConfig, GF_BG_LYR_SUB_3, &bgTemplateSub, GF_BG_TYPE_TEXT);
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_SUB_3);
 
