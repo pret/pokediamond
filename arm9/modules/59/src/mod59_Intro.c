@@ -10,7 +10,7 @@
 #include "gf_gfx_loader.h"
 #include "heap.h"
 #include "list_menu_items.h"
-#include "mod59_TV_src.h"
+#include "mod59_TV.h"
 #include "module_52.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"

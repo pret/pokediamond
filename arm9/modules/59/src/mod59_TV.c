@@ -1,5 +1,5 @@
 #include "global.h"
-#include "mod59_TV_src.h"
+#include "mod59_TV.h"
 #include "GX_layers.h"
 #include "PAD_pad.h"
 #include "constants/sndseq.h"
@@ -19,9 +19,6 @@ extern void FUN_0200E3A0(PMLCDTarget, s32);
 extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
 extern u32 FUN_0200E308(void);
 
-extern const struct GraphicsBanks MOD59_021DA0D4;
-extern const struct BgTemplate MOD59_021DA0B8;
-
 const struct WindowTemplate MOD59_021DA04C =
     {
         .bgId = GF_BG_LYR_MAIN_2,
@@ -39,24 +36,6 @@ const struct GraphicsModes MOD59_021DA054 =
         .bgMode = GX_BGMODE_0,
         .subMode = GX_BGMODE_0,
         ._2d3dMode = GX_BG0_AS_2D,
-    };
-
-const struct BgTemplate MOD59_021DA064 =
-    {
-        .x = 0,
-        .y = 0,
-        .bufferSize = 2048,
-        .baseTile = 0,
-
-        .size = GF_BG_SCR_SIZE_256x256,
-        .colorMode = GX_BG_COLORMODE_16,
-        .screenBase = GX_BG_SCRBASE_0x1000,
-        .charBase = GX_BG_CHARBASE_0x10000,
-        .bgExtPltt = GX_BG_EXTPLTT_01,
-        .priority = 1,
-        .areaOver = GX_BG_AREAOVER_XLU,
-        .unk17 = 0,
-        .mosaic = FALSE
     };
 
 const struct BgTemplate MOD59_021DA080 =
@@ -93,6 +72,56 @@ const struct BgTemplate MOD59_021DA09C =
         .areaOver = GX_BG_AREAOVER_XLU,
         .unk17 = 0,
         .mosaic = FALSE
+    };
+
+const struct BgTemplate MOD59_021DA064 =
+    {
+        .x = 0,
+        .y = 0,
+        .bufferSize = 2048,
+        .baseTile = 0,
+
+        .size = GF_BG_SCR_SIZE_256x256,
+        .colorMode = GX_BG_COLORMODE_16,
+        .screenBase = GX_BG_SCRBASE_0x1000,
+        .charBase = GX_BG_CHARBASE_0x10000,
+        .bgExtPltt = GX_BG_EXTPLTT_01,
+        .priority = 1,
+        .areaOver = GX_BG_AREAOVER_XLU,
+        .unk17 = 0,
+        .mosaic = FALSE
+    };
+
+const struct BgTemplate MOD59_021DA0B8 =
+    {
+        .x = 0,
+        .y = 0,
+        .bufferSize = 2048,
+        .baseTile = 0,
+
+        .size = GF_BG_SCR_SIZE_256x256,
+        .colorMode = GX_BG_COLORMODE_256,
+        .screenBase = GX_BG_SCRBASE_0x1800,
+        .charBase = GX_BG_CHARBASE_0x20000,
+        .bgExtPltt = GX_BG_EXTPLTT_01,
+        .priority = 1,
+        .areaOver = GX_BG_AREAOVER_XLU,
+        .unk17 = 0,
+        .mosaic = FALSE
+    };
+
+const struct GraphicsBanks MOD59_021DA0D4 =
+    {
+        .bg = 3,
+        .bgextpltt = 0,
+        .subbg = 0,
+        .subbgextpltt = 0,
+        .obj = 0,
+        .objextpltt = 0,
+        .subobj = 0,
+        .subobjextpltt = 0,
+        .tex = 0,
+        .texpltt = 0
     };
 
 THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)
