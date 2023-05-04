@@ -20,7 +20,6 @@ extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 par
 extern u32 FUN_0200E308(void);
 
 extern const struct GraphicsBanks MOD59_021DA0D4;
-extern const struct GraphicsModes MOD59_021DA054;
 extern const struct BgTemplate MOD59_021DA080;
 extern const struct BgTemplate MOD59_021DA09C;
 extern const struct BgTemplate MOD59_021DA064;
@@ -35,6 +34,14 @@ const struct WindowTemplate MOD59_021DA04C =
         .height = 24,
         .paletteNum = 0x01,
         .baseTile = 1,
+    };
+
+const struct GraphicsModes MOD59_021DA054 =
+    {
+        .dispMode = GX_DISPMODE_GRAPHICS,
+        .bgMode = GX_BGMODE_0,
+        .subMode = GX_BGMODE_0,
+        ._2d3dMode = GX_BG0_AS_2D,
     };
 
 THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)

@@ -11,7 +11,6 @@ typedef enum {
     GX_LAYER_TOGGLE_ON,
 } GX_LayerToggle;
 
-
 struct GraphicsBanks
 {
     s32 bg;
@@ -26,7 +25,6 @@ struct GraphicsBanks
     s32 texpltt;
 };
 
-
 struct GraphicsModes {
     GXDispMode dispMode;
     GXBGMode bgMode;
@@ -34,16 +32,14 @@ struct GraphicsModes {
     GXBG0As _2d3dMode;
 };
 
-
-
 void GX_SetBanks(const struct GraphicsBanks *banks);
-void GX_DisableEngineALayers();
+void GX_DisableEngineALayers(void);
 void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle);
 void GX_SetEngineALayers(u32 layer_mask);
-void GX_DisableEngineBLayers();
+void GX_DisableEngineBLayers(void);
 void GX_EngineBToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle);
-void GX_BothDispOn();
-void GX_SwapDisplay();
-u32 GX_GetEngineALayers();
+void GX_BothDispOn(void);
+void GX_SwapDisplay(void);
+u32 GX_GetEngineALayers(void);
 
 #endif //POKEDIAMOND_GX_LAYERS_H
