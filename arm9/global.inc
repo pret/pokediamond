@@ -2793,7 +2793,7 @@
 .extern ScrCmd_LockAllEvents2
 .extern ScrCmd_ReleaseAllEvents
 .extern ScrCmd_LockEvent
-.extern ScrCmd_Unk0063
+.extern ScrCmd_ReleaseEvent
 .extern ScrCmd_Unk0064
 .extern ScrCmd_Unk0065
 .extern ScrCmd_Unk0066
