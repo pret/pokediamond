@@ -2791,7 +2791,7 @@
 .extern ScrCmd_WaitForMovement
 .extern ScrCmd_LockAllEvents
 .extern ScrCmd_LockAllEvents2
-.extern ScrCmd_Unk0061
+.extern ScrCmd_ReleaseAllEvents
 .extern ScrCmd_Unk0062
 .extern ScrCmd_Unk0063
 .extern ScrCmd_Unk0064

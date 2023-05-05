@@ -14,16 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0061
-ScrCmd_Unk0061: ; 0x0203B3B0
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0x34]
-	bl FUN_020587B0
-	mov r0, #0x1
-	pop {r3, pc}
-
 	thumb_func_start ScrCmd_Unk0062
 ScrCmd_Unk0062: ; 0x0203B3C0
 	push {r4, lr}

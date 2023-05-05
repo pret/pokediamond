@@ -63,6 +63,7 @@ extern void FUN_02058908(u32 *param0);
 extern u32 FUN_02058854(u32 *param0);
 extern u32 *FUN_0205E7C4(u32 *param0);
 extern void FUN_02058914(u32 *param0);
+extern void FUN_020587B0(u32 param0);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1567,5 +1568,11 @@ THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx)
         }
     }
     SetupNativeScript(ctx, FUN_0203B218);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_ReleaseAllEvents(struct ScriptContext *ctx)
+{
+    FUN_020587B0(ctx->unk80->unk34);
     return TRUE;
 }
