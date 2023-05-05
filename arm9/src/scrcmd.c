@@ -1576,3 +1576,11 @@ THUMB_FUNC BOOL ScrCmd_ReleaseAllEvents(struct ScriptContext *ctx)
     FUN_020587B0(ctx->unk80->unk34);
     return TRUE;
 }
+
+THUMB_FUNC BOOL ScrCmd_LockEvent(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u16 eventId = ScriptReadHalfword(ctx);
+    FUN_02058908(FUN_02058060(unk80->unk34, eventId));
+    return FALSE;
+}
