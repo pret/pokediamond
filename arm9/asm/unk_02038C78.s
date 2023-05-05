@@ -249,7 +249,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_ReleaseAllEvents
 	.word ScrCmd_LockEvent
 	.word ScrCmd_ReleaseEvent
-	.word ScrCmd_Unk0064
+	.word ScrCmd_AddOverworldEvent
 	.word ScrCmd_Unk0065
 	.word ScrCmd_Unk0066
 	.word ScrCmd_Unk0067
