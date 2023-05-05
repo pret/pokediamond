@@ -49,11 +49,11 @@ extern void MOD05_021E1F60(u32 param0);
 extern void MOD05_021E26CC(u32 param0, u8 param1);
 extern void MOD05_021E2B80(u32 param0, u8 param1);
 extern void MOD05_021E2B9C(u32 param0, u8 param1);
-extern u32 FUN_0205AEA4(u32 param0, const void *ptr);
-extern u32 FUN_02058B2C(u32 param0);
-extern u32 FUN_02058B4C(u32 param0);
-extern u32 FUN_020580B4(u32 param0, u32 param1); //todo fix types on this
-extern u32 FUN_02058060(u32 param0, u32 param1);
+extern u32 FUN_0205AEA4(u32 *param0, const void *ptr);
+extern u32 FUN_02058B2C(u32 *param0);
+extern u32 FUN_02058B4C(u32 *param0);
+extern u32 *FUN_020580B4(u32 param0, u32 param1);
+extern u32 *FUN_02058060(u32 param0, u32 param1);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
@@ -84,7 +84,7 @@ static BOOL FUN_0203AA0C(struct ScriptContext *ctx);
 static BOOL FUN_0203AB00(struct ScriptContext *ctx);
 static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
-static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
+static u32 *FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
 static BOOL FUN_0203B158(struct ScriptContext *ctx);
 static void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
@@ -1322,7 +1322,7 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMo
     u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u32 unk2 = ScriptReadWord(ctx);
 
-    u32 unk3 = FUN_0203B120(ctx->unk80, unk);
+    u32 *unk3 = FUN_0203B120(ctx->unk80, unk);
     GF_ASSERT(unk3);
 
     u32 unk4 = FUN_0205AEA4(unk3, ctx->scriptPtr + unk2);
@@ -1335,7 +1335,7 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMo
 
 THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
 {
-    u32 unk3; //has to be defined first to match
+    u32 *unk3; //has to be defined first to match
     u16 unk0 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unk2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
@@ -1388,7 +1388,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
     return FALSE;
 }
 
-THUMB_FUNC static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1)
+THUMB_FUNC static u32 *FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1)
 {
     if (param1 == 242)
     {
@@ -1396,7 +1396,7 @@ THUMB_FUNC static u32 FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1)
     }
     else if (param1 == 241)
     {
-        u32 *res = FUN_02039438(arg, 11);
+        u32 **res = (u32 **)FUN_02039438(arg, 11);
         return *res;
     }
     else
@@ -1500,7 +1500,7 @@ THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
     }
     if (UNK_021C5A0C[0] & 2)
     {
-        u32 *unk2 = (u32 *)FUN_020580B4(unk80->unk34, 48); //todo fix type
+        u32 *unk2 = FUN_020580B4(unk80->unk34, 48);
         if (FUN_02058854(unk2) == 0)
         {
             FUN_02058908(unk2);
@@ -1531,7 +1531,7 @@ THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx)
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     u32 **unk0 = (u32 **)FUN_02039438(unk80, 10);
     u32 *unk1 = FUN_020553A0(unk80->unk38);
-    u32 *unk2 = (u32 *)FUN_020580B4(unk80->unk34, 48);
+    u32 *unk2 = FUN_020580B4(unk80->unk34, 48);
     u32 *unk3 = FUN_0205E7C4(*unk0);
     u32 unk34 = unk80->unk34;
     UNK_021C5A0C[0] = 0;
