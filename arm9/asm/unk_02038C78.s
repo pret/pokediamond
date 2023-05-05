@@ -246,11 +246,11 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk005E
 	.word ScrCmd_WaitForMovement
 	.word ScrCmd_LockAllEvents
-	.word ScrCmd_Unk0061
-	.word ScrCmd_Unk0062
-	.word ScrCmd_Unk0063
-	.word ScrCmd_Unk0064
-	.word ScrCmd_Unk0065
+	.word ScrCmd_ReleaseAllEvents
+	.word ScrCmd_LockEvent
+	.word ScrCmd_ReleaseEvent
+	.word ScrCmd_AddOverworldEvent
+	.word ScrCmd_RemoveOverworldEvent
 	.word ScrCmd_Unk0066
 	.word ScrCmd_Unk0067
 	.word ScrCmd_Unk0068
@@ -841,7 +841,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02B1
 	.word ScrCmd_Unk02B2
 	.word ScrCmd_GetSealName
-	.word ScrCmd_Unk02B4
+	.word ScrCmd_LockAllEvents2
 	.word ScrCmd_Unk02B5
 	.word ScrCmd_Unk02B6
 	.word ScrCmd_CheckPartyForBadEgg
