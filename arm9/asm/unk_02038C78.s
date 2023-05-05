@@ -841,7 +841,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02B1
 	.word ScrCmd_Unk02B2
 	.word ScrCmd_GetSealName
-	.word ScrCmd_Unk02B4
+	.word ScrCmd_LockAllEvents2
 	.word ScrCmd_Unk02B5
 	.word ScrCmd_Unk02B6
 	.word ScrCmd_CheckPartyForBadEgg

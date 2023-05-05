@@ -5,7 +5,6 @@
 	.extern UNK_020F3538
 	.extern gMain
 	.extern FUN_0203A2F0
-	.extern FUN_0203B218
 
 	.section .bss
 
@@ -14,99 +13,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 	.space 0x4
 
 	.text
-
-	thumb_func_start ScrCmd_Unk02B4
-ScrCmd_Unk02B4: ; 0x0203B2E0
-	push {r3-r7, lr}
-	sub sp, #0x8
-	str r0, [sp, #0x0]
-	add r0, #0x80
-	ldr r4, [r0, #0x0]
-	mov r1, #0xa
-	add r0, r4, #0x0
-	bl FUN_02039438
-	add r5, r0, #0x0
-	ldr r0, [r4, #0x38]
-	bl FUN_020553A0
-	str r0, [sp, #0x4]
-	ldr r0, [r4, #0x34]
-	mov r1, #0x30
-	bl FUN_020580B4
-	add r7, r0, #0x0
-	ldr r0, [r5, #0x0]
-	bl FUN_0205E7C4
-	add r6, r0, #0x0
-	ldr r0, [r4, #0x34]
-	ldr r1, _0203B3A8 ; =UNK_021C5A0C
-	mov r2, #0x0
-	strb r2, [r1, #0x0]
-	bl FUN_02058780
-	ldr r0, [sp, #0x4]
-	bl FUN_0205AE28
-	cmp r0, #0x0
-	bne _0203B334
-	ldr r1, _0203B3A8 ; =UNK_021C5A0C
-	mov r0, #0x1
-	ldrb r2, [r1, #0x0]
-	orr r0, r2
-	strb r0, [r1, #0x0]
-	ldr r0, [sp, #0x4]
-	bl FUN_02058914
-_0203B334:
-	ldr r0, [r5, #0x0]
-	bl FUN_02058854
-	cmp r0, #0x0
-	beq _0203B34E
-	ldr r1, _0203B3A8 ; =UNK_021C5A0C
-	mov r0, #0x4
-	ldrb r2, [r1, #0x0]
-	orr r0, r2
-	strb r0, [r1, #0x0]
-	ldr r0, [r5, #0x0]
-	bl FUN_02058914
-_0203B34E:
-	cmp r7, #0x0
-	beq _0203B37A
-	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
-	bl FUN_0205ED3C
-	cmp r0, #0x1
-	bne _0203B37A
-	add r0, r7, #0x0
-	bl FUN_02058854
-	cmp r0, #0x0
-	beq _0203B37A
-	ldr r1, _0203B3A8 ; =UNK_021C5A0C
-	mov r0, #0x2
-	ldrb r2, [r1, #0x0]
-	orr r0, r2
-	strb r0, [r1, #0x0]
-	add r0, r7, #0x0
-	bl FUN_02058914
-_0203B37A:
-	cmp r6, #0x0
-	beq _0203B398
-	add r0, r6, #0x0
-	bl FUN_02058854
-	cmp r0, #0x0
-	beq _0203B398
-	ldr r1, _0203B3A8 ; =UNK_021C5A0C
-	mov r0, #0x8
-	ldrb r2, [r1, #0x0]
-	orr r0, r2
-	strb r0, [r1, #0x0]
-	add r0, r6, #0x0
-	bl FUN_02058914
-_0203B398:
-	ldr r0, [sp, #0x0]
-	ldr r1, _0203B3AC ; =FUN_0203B218
-	bl SetupNativeScript
-	mov r0, #0x1
-	add sp, #0x8
-	pop {r3-r7, pc}
-	nop
-_0203B3A8: .word UNK_021C5A0C
-_0203B3AC: .word FUN_0203B218 
 
 	thumb_func_start ScrCmd_Unk0061
 ScrCmd_Unk0061: ; 0x0203B3B0

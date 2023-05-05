@@ -2790,7 +2790,7 @@
 .extern ScrCmd_Unk02A1
 .extern ScrCmd_WaitForMovement
 .extern ScrCmd_LockAllEvents
-.extern ScrCmd_Unk02B4
+.extern ScrCmd_LockAllEvents2
 .extern ScrCmd_Unk0061
 .extern ScrCmd_Unk0062
 .extern ScrCmd_Unk0063
