@@ -67,6 +67,7 @@ extern void FUN_020587B0(u32 param0);
 extern u32 FUN_02034B64(struct UnkSavStruct80 *param0);
 extern u32 FUN_02034B6C(struct UnkSavStruct80 *param0);
 extern u32 FUN_020575D4(u32 param0, u16 eventVar, u32 param2, u32 mapId, u32 param4);
+extern void FUN_02057688(u32 *param0);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1606,5 +1607,14 @@ THUMB_FUNC BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx)
     u32 res = FUN_020575D4(unk80->unk34, eventVar, unk0, *unk80->mapId, unk1);
 
     GF_ASSERT(res);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u16 eventId = ScriptReadHalfword(ctx);
+    u16 eventVar = VarGet(ctx->unk80, eventId);
+    FUN_02057688(FUN_02058060(unk80->unk34, eventVar));
     return FALSE;
 }

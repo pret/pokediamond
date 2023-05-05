@@ -122,6 +122,7 @@ BOOL ScrCmd_ReleaseAllEvents(struct ScriptContext *ctx);
 BOOL ScrCmd_LockEvent(struct ScriptContext *ctx);
 BOOL ScrCmd_ReleaseEvent(struct ScriptContext *ctx);
 BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx);
+BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
