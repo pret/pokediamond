@@ -5,6 +5,7 @@
 	.extern UNK_020F3538
 	.extern gMain
 	.extern FUN_0203A2F0
+	.extern FUN_0203B218
 
 	.section .bss
 
@@ -13,102 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 	.space 0x4
 
 	.text
-
-	thumb_func_start FUN_0203B218
-FUN_0203B218: ; 0x0203B218
-	push {r4-r6, lr}
-	add r0, #0x80
-	ldr r4, [r0, #0x0]
-	mov r1, #0xa
-	add r0, r4, #0x0
-	bl FUN_02039438
-	add r5, r0, #0x0
-	ldr r0, [r4, #0x38]
-	bl FUN_020553A0
-	ldr r1, _0203B2DC ; =UNK_021C5A0C
-	add r6, r0, #0x0
-	ldrb r2, [r1, #0x0]
-	mov r1, #0x1
-	tst r1, r2
-	beq _0203B252
-	bl FUN_0205AE28
-	cmp r0, #0x1
-	bne _0203B252
-	add r0, r6, #0x0
-	bl FUN_02058908
-	ldr r1, _0203B2DC ; =UNK_021C5A0C
-	mov r0, #0xfe
-	ldrb r2, [r1, #0x0]
-	and r0, r2
-	strb r0, [r1, #0x0]
-_0203B252:
-	ldr r0, _0203B2DC ; =UNK_021C5A0C
-	ldrb r1, [r0, #0x0]
-	mov r0, #0x4
-	tst r0, r1
-	beq _0203B276
-	ldr r0, [r5, #0x0]
-	bl FUN_02058854
-	cmp r0, #0x0
-	bne _0203B276
-	ldr r0, [r5, #0x0]
-	bl FUN_02058908
-	ldr r1, _0203B2DC ; =UNK_021C5A0C
-	mov r0, #0xfb
-	ldrb r2, [r1, #0x0]
-	and r0, r2
-	strb r0, [r1, #0x0]
-_0203B276:
-	ldr r0, _0203B2DC ; =UNK_021C5A0C
-	ldrb r1, [r0, #0x0]
-	mov r0, #0x2
-	tst r0, r1
-	beq _0203B2A2
-	ldr r0, [r4, #0x34]
-	mov r1, #0x30
-	bl FUN_020580B4
-	add r4, r0, #0x0
-	bl FUN_02058854
-	cmp r0, #0x0
-	bne _0203B2A2
-	add r0, r4, #0x0
-	bl FUN_02058908
-	ldr r1, _0203B2DC ; =UNK_021C5A0C
-	mov r0, #0xfd
-	ldrb r2, [r1, #0x0]
-	and r0, r2
-	strb r0, [r1, #0x0]
-_0203B2A2:
-	ldr r0, _0203B2DC ; =UNK_021C5A0C
-	ldrb r1, [r0, #0x0]
-	mov r0, #0x8
-	tst r0, r1
-	beq _0203B2CC
-	ldr r0, [r5, #0x0]
-	bl FUN_0205E7C4
-	add r4, r0, #0x0
-	bl FUN_02058854
-	cmp r0, #0x0
-	bne _0203B2CC
-	add r0, r4, #0x0
-	bl FUN_02058908
-	ldr r1, _0203B2DC ; =UNK_021C5A0C
-	mov r0, #0xf7
-	ldrb r2, [r1, #0x0]
-	and r0, r2
-	strb r0, [r1, #0x0]
-_0203B2CC:
-	ldr r0, _0203B2DC ; =UNK_021C5A0C
-	ldrb r0, [r0, #0x0]
-	cmp r0, #0x0
-	bne _0203B2D8
-	mov r0, #0x1
-	pop {r4-r6, pc}
-_0203B2D8:
-	mov r0, #0x0
-	pop {r4-r6, pc}
-	.balign 4
-_0203B2DC: .word UNK_021C5A0C
 
 	thumb_func_start ScrCmd_Unk02B4
 ScrCmd_Unk02B4: ; 0x0203B2E0

@@ -51,11 +51,18 @@ extern void MOD05_021E2B9C(u32 param0, u8 param1);
 extern u32 FUN_0205AEA4(u32 param0, const void *ptr);
 extern u32 FUN_02058B2C(u32 param0);
 extern u32 FUN_02058B4C(u32 param0);
-extern u32 FUN_020580B4(u32 param0, u32 param1);
+extern u32 FUN_020580B4(u32 param0, u32 param1); //todo fix types on this
 extern u32 FUN_02058060(u32 param0, u32 param1);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
+extern u32 *FUN_020553A0(u32 param0);
+extern u32 FUN_0205AE28(u32 *param0);
+extern void FUN_02058908(u32 *param0);
+extern u32 FUN_02058854(u32 *param0);
+extern u32 *FUN_0205E7C4(u32 *param0);
+
+extern u8 UNK_021C5A0C[4];
 
 extern u8 *UNK_020F34E0;
 
@@ -1464,4 +1471,53 @@ THUMB_FUNC BOOL ScrCmd_LockAllEvents(struct ScriptContext *ctx) //0060
         ScrCmd_Unk02B4(ctx);
     }
     return TRUE;
+}
+
+THUMB_FUNC /*static*/ BOOL FUN_0203B218(struct ScriptContext *ctx)
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u32 **unk0 = (u32 **)FUN_02039438(unk80, 10);
+    u32 *unk1 = FUN_020553A0(unk80->unk38);
+    if (UNK_021C5A0C[0] & 1)
+    {
+        if (FUN_0205AE28(unk1) == 1)
+        {
+            FUN_02058908(unk1);
+            UNK_021C5A0C[0] &= 0xfe;
+        }
+    }
+    if (UNK_021C5A0C[0] & 4)
+    {
+        if (FUN_02058854(*unk0) == 0)
+        {
+            FUN_02058908(*unk0);
+            UNK_021C5A0C[0] &= 0xfb;
+        }
+    }
+    if (UNK_021C5A0C[0] & 2)
+    {
+        u32 *unk2 = (u32 *)FUN_020580B4(unk80->unk34, 48); //todo fix type
+        if (FUN_02058854(unk2) == 0)
+        {
+            FUN_02058908(unk2);
+            UNK_021C5A0C[0] &= 0xfd;
+        }
+    }
+    if (UNK_021C5A0C[0] & 8)
+    {
+        u32 *unk3 = FUN_0205E7C4(*unk0);
+        if (FUN_02058854(unk3) == 0)
+        {
+            FUN_02058908(unk3);
+            UNK_021C5A0C[0] &= 0xf7;
+        }
+    }
+    if (UNK_021C5A0C[0] == 0)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
 }
