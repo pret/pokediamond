@@ -1,6 +1,6 @@
 main_background_tileset.NCGR
-background_diamond.NCLR
-background_pearl.NCLR
+main_background_diamond.NCLR
+main_background_pearl.NCLR
 lucas_walk_1.NCGR
 lucas_walk_2.NCGR
 lucas_walk_3.NCGR
@@ -16,3 +16,5 @@ rowan_front.NCLR
 barry_front.NCGR
 barry_front.NCLR
 sub_background_tileset.NCGR
+sub_background_diamond.NCLR
+sub_background_pearl.NCLR
