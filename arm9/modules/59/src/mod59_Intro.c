@@ -95,7 +95,7 @@ const struct WindowTemplate MOD59_021D9DA0 =
         .baseTile = 737,
     };
 
-const u32 MOD59_021D9DC0[3] = { NARC_intro_narc_0031_NCGR, NARC_intro_narc_0032_NCGR, 0xFFFF };
+const u32 MOD59_021D9DC0[3] = { NARC_intro_pokeball_button_2_NCGR, NARC_intro_pokeball_button_3_NCGR, 0xFFFF };
 
 const struct GraphicsModes MOD59_021D9DCC =
     {

@@ -243,7 +243,7 @@ void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size);
 void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, u32 heap_id);
 void BG_FillCharDataRange(
     struct BgConfig *param0, u32 bgId, u32 fillValue, u32 count, u32 offset);
-void BG_LoadPlttData(u32 bgId, void *plttData, u32 size, u32 offset);
+void BG_LoadPlttData(u32 location, void *plttData, u32 size, u32 offset);
 void BG_SetMaskColor(u32 bgId, u32 value);
 u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize);
 u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height);

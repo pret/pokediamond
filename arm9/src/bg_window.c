@@ -984,10 +984,10 @@ THUMB_FUNC void BG_FillCharDataRange(
     FreeToHeap(st4);
 }
 
-THUMB_FUNC void BG_LoadPlttData(u32 bgId, void *plttData, u32 size, u32 offset)
+THUMB_FUNC void BG_LoadPlttData(u32 location, void *plttData, u32 size, u32 offset)
 {
     DC_FlushRange(plttData, size);
-    if (bgId < GF_BG_LYR_MAIN_CNT)
+    if (location < GF_PAL_LOCATION_SUB_BG)
     {
         GX_LoadBGPltt(plttData, offset, size);
         return;
