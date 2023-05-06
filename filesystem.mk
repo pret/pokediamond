@@ -3345,14 +3345,24 @@ files/resource/eng/trial/trial.narc: \
 	files/resource/eng/trial/trial/narc_0007.NCGR
 
 files/demo/intro/intro.narc: \
-	files/demo/intro/intro/buttons.NCGR \
-	files/demo/intro/intro/buttons_diamond.NCLR \
-	files/demo/intro/intro/buttons_pearl.NCLR \
+	files/demo/intro/intro/main_background_tileset.NCGR \
+	files/demo/intro/intro/background_diamond.NCLR \
+	files/demo/intro/intro/background_pearl.NCLR \
 	files/demo/intro/intro/lucas_walk_1.NCGR \
 	files/demo/intro/intro/lucas_walk_2.NCGR \
 	files/demo/intro/intro/lucas_walk_3.NCGR \
 	files/demo/intro/intro/lucas_walk_4.NCGR \
-	files/demo/intro/intro/lucas_walk.NCLR
+	files/demo/intro/intro/lucas_walk.NCLR \
+	files/demo/intro/intro/dawn_walk_1.NCGR \
+	files/demo/intro/intro/dawn_walk_2.NCGR \
+    files/demo/intro/intro/dawn_walk_3.NCGR \
+    files/demo/intro/intro/dawn_walk_4.NCGR \
+	files/demo/intro/intro/dawn_walk.NCLR \
+    files/demo/intro/intro/rowan_front.NCGR \
+    files/demo/intro/intro/rowan_front.NCLR \
+    files/demo/intro/intro/barry_front.NCGR \
+    files/demo/intro/intro/barry_front.NCLR \
+    files/demo/intro/intro/sub_background_tileset.NCGR
 
 files/graphic/field_board.narc: \
 	files/graphic/field_board/narc_0000.NCGR \

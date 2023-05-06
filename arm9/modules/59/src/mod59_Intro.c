@@ -120,7 +120,7 @@ const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC =
 
 const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC =
     {
-        .narcId = { NARC_intro_narc_0013_NCGR, NARC_intro_narc_0014_NCGR, NARC_intro_narc_0015_NCGR, NARC_intro_narc_0016_NCGR }
+        .narcId = { NARC_intro_dawn_walk_1_NCGR, NARC_intro_dawn_walk_2_NCGR, NARC_intro_dawn_walk_3_NCGR, NARC_intro_dawn_walk_4_NCGR }
     };
 
 const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2] =
@@ -137,7 +137,7 @@ const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2] =
 
 const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C =
     {
-        .scrnIds = { NARC_intro_intro_background_NSCR, NARC_intro_control_info_padab_NSCR, NARC_intro_control_info_xy_NSCR, NARC_intro_control_info_touchscreen_NSCR, NARC_intro_adventure_info_NSCR }
+        .scrnIds = { NARC_intro_main_background_NSCR, NARC_intro_control_info_padab_NSCR, NARC_intro_control_info_xy_NSCR, NARC_intro_control_info_touchscreen_NSCR, NARC_intro_adventure_info_NSCR }
     };
 
 const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30 =
@@ -165,7 +165,7 @@ const struct MOD59_ListStruct021D9E0C MOD59_021D9E58[3] =
 
 const struct MOD59_CharStruct021D9E70 MOD59_021D9E70 =
     {
-        .charData = { NARC_intro_narc_0013_NCGR, NARC_intro_narc_0044_NCGR, NARC_intro_narc_0045_NCGR, NARC_intro_narc_0046_NCGR, NARC_intro_narc_0047_NCGR, 0xFF }
+        .charData = { NARC_intro_dawn_walk_1_NCGR, NARC_intro_narc_0044_NCGR, NARC_intro_narc_0045_NCGR, NARC_intro_narc_0046_NCGR, NARC_intro_narc_0047_NCGR, 0xFF }
     };
 
 const struct MOD59_CharStruct021D9E70 MOD59_021D9E88 =
@@ -306,8 +306,8 @@ const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90 =
             },
             //rowan sprite
             {
-                .charNum = NARC_intro_narc_0018_NCGR,
-                .palNum = NARC_intro_narc_0019_NCLR
+                .charNum = NARC_intro_rowan_front_NCGR,
+                .palNum = NARC_intro_rowan_front_NCLR
             },
             //boy sprites
             {
@@ -328,25 +328,25 @@ const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90 =
             },
             //girl sprites
             {
-                .charNum = NARC_intro_narc_0013_NCGR,
-                .palNum = NARC_intro_narc_0017_NCLR
+                .charNum = NARC_intro_dawn_walk_1_NCGR,
+                .palNum = NARC_intro_dawn_walk_NCLR
             },
             {
-                .charNum = NARC_intro_narc_0014_NCGR,
-                .palNum = NARC_intro_narc_0017_NCLR
+                .charNum = NARC_intro_dawn_walk_2_NCGR,
+                .palNum = NARC_intro_dawn_walk_NCLR
             },
             {
-                .charNum = NARC_intro_narc_0015_NCGR,
-                .palNum = NARC_intro_narc_0017_NCLR
+                .charNum = NARC_intro_dawn_walk_3_NCGR,
+                .palNum = NARC_intro_dawn_walk_NCLR
             },
             {
-                .charNum = NARC_intro_narc_0016_NCGR,
-                .palNum = NARC_intro_narc_0017_NCLR
+                .charNum = NARC_intro_dawn_walk_4_NCGR,
+                .palNum = NARC_intro_dawn_walk_NCLR
             },
             //barry sprite
             {
-                .charNum = NARC_intro_narc_0020_NCGR,
-                .palNum = NARC_intro_narc_0021_NCLR
+                .charNum = NARC_intro_barry_front_NCGR,
+                .palNum = NARC_intro_barry_front_NCLR
             }
         }
     };
@@ -1005,20 +1005,20 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *dat
 
 THUMB_FUNC void MOD59_LoadInitialTilemap(MOD59_IntroOverlayData *data)
 {
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_buttons_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_main_background_tileset_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, data->heap_id);
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0023_NCGR, data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_sub_background_tileset_NCGR, data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
 
     u32 pal1;
     u32 pal2;
     if ((u8)gGameVersion == VERSION_DIAMOND)
     {
-        pal1 = NARC_intro_buttons_diamond_NCLR;
+        pal1 = NARC_intro_background_diamond_NCLR;
         pal2 = NARC_intro_narc_0024_NCLR;
     }
     else
     {
-        pal1 = NARC_intro_buttons_pearl_NCLR;
+        pal1 = NARC_intro_background_pearl_NCLR;
         pal2 = NARC_intro_narc_0025_NCLR;
     }
     GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, pal1, GF_BG_LYR_MAIN_0, 0, 0x60, data->heap_id);
@@ -1047,14 +1047,14 @@ THUMB_FUNC void MOD59_LoadCharDataFromIndex(MOD59_IntroOverlayData *data)
     {
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
         GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].palNum, GF_BG_LYR_MAIN_0, 0xE0, 0x20, data->heap_id);
-        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0022_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
         MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_1, 7);
     }
     if (data->spriteDataIndex1 != 0 && data->spriteDataIndex1 < 12)
     {
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
         GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].palNum, GF_BG_LYR_MAIN_0, 0x100, 0x20, data->heap_id);
-        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0022_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
+        GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
         MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 8);
     }
 }
