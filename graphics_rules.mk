@@ -151,12 +151,14 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                                       files/resource/eng/trial/trial/narc_0007.NCGR
 
 4BPP_NCLR_FILES := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
-                   files/demo/intro/intro/background_diamond.NCLR \
-                   files/demo/intro/intro/background_pearl.NCLR \
+                   files/demo/intro/intro/main_background_diamond.NCLR \
+                   files/demo/intro/intro/main_background_pearl.NCLR \
                    files/demo/intro/intro/lucas_walk.NCLR \
                    files/demo/intro/intro/dawn_walk.NCLR \
                    files/demo/intro/intro/rowan_front.NCLR \
                    files/demo/intro/intro/barry_front.NCLR \
+                   files/demo/intro/intro/sub_background_diamond.NCLR \
+                   files/demo/intro/intro/sub_background_pearl.NCLR \
                    files/demo/title/titledemo/narc_0016.NCLR \
                    files/graphic/field_board/narc_0001.NCLR \
                    files/poketool/icongra/poke_icon/narc_0000.NCLR \
@@ -915,12 +917,14 @@ NCGR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
 
 NCLR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0006.NCLR \
                    files/data/cell0.NCLR \
-                   files/demo/intro/intro/background_diamond.NCLR \
-                   files/demo/intro/intro/background_pearl.NCLR \
+                   files/demo/intro/intro/main_background_diamond.NCLR \
+                   files/demo/intro/intro/main_background_pearl.NCLR \
                    files/demo/intro/intro/lucas_walk.NCLR \
                    files/demo/intro/intro/dawn_walk.NCLR \
                    files/demo/intro/intro/rowan_front.NCLR \
                    files/demo/intro/intro/barry_front.NCLR \
+                   files/demo/intro/intro/sub_background_diamond.NCLR \
+                   files/demo/intro/intro/sub_background_pearl.NCLR \
                    files/demo/title/titledemo/narc_0001.NCLR \
                    files/demo/title/titledemo/narc_0003.NCLR \
                    files/demo/title/titledemo/narc_0009.NCLR \

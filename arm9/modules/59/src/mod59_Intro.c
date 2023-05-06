@@ -142,7 +142,7 @@ const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C =
 
 const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30 =
     {
-        .scrnIds = { NARC_intro_narc_0026_NSCR, NARC_intro_narc_0027_NSCR, NARC_intro_narc_0027_NSCR, NARC_intro_narc_0028_NSCR, NARC_intro_narc_0029_NSCR }
+        .scrnIds = { NARC_intro_sub_background_1_NSCR, NARC_intro_sub_background_2_NSCR, NARC_intro_sub_background_2_NSCR, NARC_intro_sub_background_3_NSCR, NARC_intro_sub_background_4_NSCR }
     };
 
 const u32 MOD59_021D9E44[5] = { 0, 6, 1, 12, 2060 };
@@ -1009,20 +1009,20 @@ THUMB_FUNC void MOD59_LoadInitialTilemap(MOD59_IntroOverlayData *data)
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, data->heap_id);
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_sub_background_tileset_NCGR, data->bgConfig, GF_BG_LYR_SUB_3, 0, 0, FALSE, data->heap_id);
 
-    u32 pal1;
-    u32 pal2;
+    u32 mainPal;
+    u32 subPal;
     if ((u8)gGameVersion == VERSION_DIAMOND)
     {
-        pal1 = NARC_intro_background_diamond_NCLR;
-        pal2 = NARC_intro_narc_0024_NCLR;
+        mainPal = NARC_intro_main_background_diamond_NCLR;
+        subPal = NARC_intro_sub_background_diamond_NCLR;
     }
     else
     {
-        pal1 = NARC_intro_background_pearl_NCLR;
-        pal2 = NARC_intro_narc_0025_NCLR;
+        mainPal = NARC_intro_main_background_pearl_NCLR;
+        subPal = NARC_intro_sub_background_pearl_NCLR;
     }
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, pal1, GF_BG_LYR_MAIN_0, 0, 0x60, data->heap_id);
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, pal2, GF_BG_LYR_SUB_0, 0, 0xa0, data->heap_id);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, mainPal, GF_BG_LYR_MAIN_0, 0, 0x60, data->heap_id);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, subPal, GF_BG_LYR_SUB_0, 0, 0xa0, data->heap_id);
     MOD59_LoadMainScrnData(data);
     MOD59_LoadCharDataFromIndex(data);
     MOD59_LoadSubScrnData(data);
