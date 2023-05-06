@@ -142,7 +142,7 @@ const struct MOD59_UnkStruct021D9E30 MOD59_021D9E1C =
 
 const struct MOD59_UnkStruct021D9E30 MOD59_021D9E30 =
     {
-        .scrnIds = { NARC_intro_sub_background_1_NSCR, NARC_intro_sub_background_1_NSCR, NARC_intro_narc_0027_NSCR, NARC_intro_narc_0028_NSCR, NARC_intro_narc_0029_NSCR }
+        .scrnIds = { NARC_intro_sub_background_1_NSCR, NARC_intro_sub_background_2_NSCR, NARC_intro_sub_background_2_NSCR, NARC_intro_sub_background_3_NSCR, NARC_intro_sub_background_4_NSCR }
     };
 
 const u32 MOD59_021D9E44[5] = { 0, 6, 1, 12, 2060 };
