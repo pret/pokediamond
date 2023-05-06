@@ -3364,7 +3364,8 @@ files/demo/intro/intro.narc: \
     files/demo/intro/intro/barry_front.NCLR \
     files/demo/intro/intro/sub_background_tileset.NCGR \
     files/demo/intro/intro/sub_background_diamond.NCLR \
-    files/demo/intro/intro/sub_background_pearl.NCLR
+    files/demo/intro/intro/sub_background_pearl.NCLR \
+    files/demo/intro/intro/pokeball_button_1.NCGR
 
 files/graphic/field_board.narc: \
 	files/graphic/field_board/narc_0000.NCGR \

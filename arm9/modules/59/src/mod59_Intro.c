@@ -1021,8 +1021,8 @@ THUMB_FUNC void MOD59_LoadInitialTilemap(MOD59_IntroOverlayData *data)
         mainPal = NARC_intro_main_background_pearl_NCLR;
         subPal = NARC_intro_sub_background_pearl_NCLR;
     }
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, mainPal, GF_BG_LYR_MAIN_0, 0, 0x60, data->heap_id);
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, subPal, GF_BG_LYR_SUB_0, 0, 0xa0, data->heap_id);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, mainPal, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_0, 0x60, data->heap_id);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, subPal, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_OFFSET_0, 0xa0, data->heap_id);
     MOD59_LoadMainScrnData(data);
     MOD59_LoadCharDataFromIndex(data);
     MOD59_LoadSubScrnData(data);
@@ -1046,14 +1046,14 @@ THUMB_FUNC void MOD59_LoadCharDataFromIndex(MOD59_IntroOverlayData *data)
     if (data->spriteDataIndex0 != 0 && data->spriteDataIndex0 < 12)
     {
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].charNum, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
-        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].palNum, GF_BG_LYR_MAIN_0, 0xE0, 0x20, data->heap_id);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex0].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_7, 0x20, data->heap_id);
         GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_1, 0, 0, FALSE, data->heap_id);
         MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_1, 7);
     }
     if (data->spriteDataIndex1 != 0 && data->spriteDataIndex1 < 12)
     {
         GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].charNum, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
-        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].palNum, GF_BG_LYR_MAIN_0, 0x100, 0x20, data->heap_id);
+        GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, graphicsPaletteMap.map[data->spriteDataIndex1].palNum, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_8, 0x20, data->heap_id);
         GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_character_screen_NSCR, data->bgConfig, GF_BG_LYR_MAIN_2, 0, 0, FALSE, data->heap_id);
         MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 8);
     }
@@ -1266,9 +1266,9 @@ THUMB_FUNC void MOD59_LoadPokeballButton(MOD59_IntroOverlayData *data)
 {
     GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0038_NSCR, data->bgConfig, GF_BG_LYR_SUB_2, 0, 0, FALSE, data->heap_id);
     MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_2, 9);
-    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0039_NCLR, GF_BG_LYR_SUB_0, 0xe0, 0x60, data->heap_id);
+    GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0039_NCLR, GF_PAL_LOCATION_SUB_BG, GF_PAL_SLOT_OFFSET_7, 0x60, data->heap_id);
     BG_ClearCharDataRange(GF_BG_LYR_SUB_2, 0x20, 0, data->heap_id);
-    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0030_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heap_id);
+    GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_pokeball_button_1_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heap_id);
 }
 
 THUMB_FUNC BOOL MOD59_MoveSprite(MOD59_IntroOverlayData *data, u32 layer, u32 param2)

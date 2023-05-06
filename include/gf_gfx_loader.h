@@ -6,8 +6,8 @@
 
 u32 GfGfxLoader_LoadCharData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 layer, u32 numTiles, u32 szByte, BOOL isCompressed, u32 heap_id);
 void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgConfig * unkStruct02016B94_2, u32 layer, u32 tileOffset, u32 szByte, BOOL isCompressed, u32 heap_id);
-void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, u32 layer, u32 baseAddr, u32 szByte, u32 heap_id);
-void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, u32 layer, u32 srcOffset, u32 baseAddr, u32 szByte, u32 heap_id);
+void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 szByte, u32 heap_id);
+void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, enum GFPalLoadLocation location, u32 srcOffset, enum GFPalSlotOffset palSlotOffset, u32 szByte, u32 heap_id);
 u32 GfGfxLoader_LoadWholePalette(NarcId narcId, s32 memberId, u32 layer, u32 baseAddr, u32 szByte, BOOL isCompressed, u32 heap_id);
 void GfGfxLoader_PartiallyLoadPalette(NarcId narcId, s32 memberId, NNS_G2D_VRAM_TYPE vramType, u32 baseAddr, u32 heap_id, NNSG2dImagePaletteProxy * pPltProxy);
 u32 GfGfxLoader_LoadImageMapping(NarcId narcId, s32 memberId, BOOL isCompressed, u32 layer, u32 szByte, NNS_G2D_VRAM_TYPE type, u32 baseAddr, u32 heap_id, NNSG2dImageProxy *pImgProxy);
