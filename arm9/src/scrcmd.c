@@ -1643,7 +1643,7 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
     return FALSE;
 }
 
-THUMB_FUNC BOOL git (struct ScriptContext *ctx) //0067
+THUMB_FUNC BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx) //0067
 {
     struct Vecx32 **targetPtr = FUN_02039438(ctx->unk80, 0xb);
     FUN_02057654(*targetPtr);
