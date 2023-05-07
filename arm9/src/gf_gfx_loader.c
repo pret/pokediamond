@@ -38,12 +38,12 @@ THUMB_FUNC void GfGfxLoader_LoadScrnData(NarcId narcId, s32 memberNo, struct BgC
     }
 }
 
-THUMB_FUNC void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, u32 layer, u32 baseAddr, u32 szByte, u32 heap_id)
+THUMB_FUNC void GfGfxLoader_GXLoadPal(NarcId narcId, s32 memberNo, enum GFPalLoadLocation location, enum GFPalSlotOffset palSlotOffset, u32 szByte, u32 heap_id)
 {
-    GfGfxLoader_GXLoadPalWithSrcOffset(narcId, memberNo, layer, 0, baseAddr, szByte, heap_id);
+    GfGfxLoader_GXLoadPalWithSrcOffset(narcId, memberNo, location, 0, palSlotOffset, szByte, heap_id);
 }
 
-THUMB_FUNC void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, u32 layer, u32 srcOffset, u32 baseAddr, u32 szByte, u32 heap_id)
+THUMB_FUNC void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, enum GFPalLoadLocation location, u32 srcOffset, enum GFPalSlotOffset palSlotOffset, u32 szByte, u32 heap_id)
 {
     static void (*const load_funcs[])(void *, u32, u32) = {
         GX_LoadBGPltt,
@@ -65,30 +65,30 @@ THUMB_FUNC void GfGfxLoader_GXLoadPalWithSrcOffset(NarcId narcId, s32 memberNo, 
             if (szByte == 0)
                 szByte = pPltData->szByte - srcOffset;
             DC_FlushRange(pPltData->pRawData, szByte);
-            switch (layer)
+            switch (location)
             {
-            case 2:
+            case GF_PAL_LOCATION_MAIN_BGEXT:
                 GX_BeginLoadBGExtPltt();
-                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[location](pPltData->pRawData, palSlotOffset, szByte);
                 GX_EndLoadBGExtPltt();
                 break;
-            case 6:
+            case GF_PAL_LOCATION_SUB_BGEXT:
                 GXS_BeginLoadBGExtPltt();
-                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[location](pPltData->pRawData, palSlotOffset, szByte);
                 GXS_EndLoadBGExtPltt();
                 break;
-            case 3:
+            case GF_PAL_LOCATION_MAIN_OBJEXT:
                 GX_BeginLoadOBJExtPltt();
-                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[location](pPltData->pRawData, palSlotOffset, szByte);
                 GX_EndLoadOBJExtPltt();
                 break;
-            case 7:
+            case GF_PAL_LOCATION_SUB_OBJEXT:
                 GXS_BeginLoadOBJExtPltt();
-                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[location](pPltData->pRawData, palSlotOffset, szByte);
                 GXS_EndLoadOBJExtPltt();
                 break;
             default:
-                load_funcs[layer](pPltData->pRawData, baseAddr, szByte);
+                load_funcs[location](pPltData->pRawData, palSlotOffset, szByte);
                 break;
             }
         }

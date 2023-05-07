@@ -216,6 +216,9 @@ VERSION101_SOPC_NCGR_FILES := files/application/wifi_earth/wifi_earth/narc_0005.
                               files/demo/intro/intro/rowan_front.NCGR \
                               files/demo/intro/intro/barry_front.NCGR \
                               files/demo/intro/intro/sub_background_tileset.NCGR \
+                              files/demo/intro/intro/pokeball_button_1.NCGR \
+                              files/demo/intro/intro/pokeball_button_2.NCGR \
+                              files/demo/intro/intro/pokeball_button_3.NCGR \
                               files/demo/title/titledemo/narc_0007.NCGR \
                               files/demo/title/titledemo/narc_0011.NCGR \
                               files/demo/title/titledemo/narc_0015.NCGR \
@@ -563,6 +566,9 @@ NCGR_CLEAN_LIST := files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
                    files/demo/intro/intro/rowan_front.NCGR \
                    files/demo/intro/intro/barry_front.NCGR \
                    files/demo/intro/intro/sub_background_tileset.NCGR \
+                   files/demo/intro/intro/pokeball_button_1.NCGR \
+                   files/demo/intro/intro/pokeball_button_2.NCGR \
+                   files/demo/intro/intro/pokeball_button_3.NCGR \
                    files/demo/title/titledemo/narc_0001.NCGR \
                    files/demo/title/titledemo/narc_0003.NCGR \
                    files/demo/title/titledemo/narc_0007.NCGR \
