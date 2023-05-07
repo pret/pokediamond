@@ -3,6 +3,7 @@
 #include "unk_0204639C.h"
 #include "main.h"
 #include "options.h"
+#include "PAD_pad.h"
 #include "player_data.h"
 #include "text.h"
 #include "bg_window.h"
@@ -50,25 +51,25 @@ extern void MOD05_021E1F60(u32 param0);
 extern void MOD05_021E26CC(u32 param0, u8 param1);
 extern void MOD05_021E2B80(u32 param0, u8 param1);
 extern void MOD05_021E2B9C(u32 param0, u8 param1);
-extern u32 FUN_0205AEA4(u32 *param0, const void *ptr);
-extern u32 FUN_02058B2C(u32 *param0);
-extern u32 FUN_02058B4C(u32 *param0);
-extern u32 *FUN_020580B4(u32 param0, u32 param1);
-extern u32 *FUN_02058060(u32 param0, u32 param1);
+extern u32 FUN_0205AEA4(struct Vecx32 *param0, const void *ptr);
+extern u32 FUN_02058B2C(struct Vecx32 *param0);
+extern u32 FUN_02058B4C(struct Vecx32 *param0);
+extern struct Vecx32 *FUN_020580B4(u32 param0, u32 param1);
+extern struct Vecx32 *FUN_02058060(u32 param0, u32 param1);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
-extern u32 *FUN_020553A0(u32 param0);
-extern u32 FUN_0205AE28(u32 *param0);
-extern void FUN_02058908(u32 *param0);
-extern u32 FUN_02058854(u32 *param0);
-extern u32 *FUN_0205E7C4(u32 *param0);
-extern void FUN_02058914(u32 *param0);
+extern struct Vecx32 *FUN_020553A0(u32 param0);
+extern u32 FUN_0205AE28(struct Vecx32 *param0);
+extern void FUN_02058908(struct Vecx32 *param0);
+extern u32 FUN_02058854(struct Vecx32 *param0);
+extern struct Vecx32 *FUN_0205E7C4(struct Vecx32 *param0);
+extern void FUN_02058914(struct Vecx32 *param0);
 extern void FUN_020587B0(u32 param0);
 extern u32 FUN_02034B64(struct UnkSavStruct80 *param0);
 extern u32 FUN_02034B6C(struct UnkSavStruct80 *param0);
 extern u32 FUN_020575D4(u32 param0, u16 eventVar, u32 param2, u32 mapId, u32 param4);
-extern void FUN_02057688(u32 *param0);
+extern void FUN_02057688(struct Vecx32 *param0);
 extern struct Vecx32 *FUN_0205753C(u32 param0, u16 x, u16 y, u16 z, u32 param4, u32 param5, u32 mapId);
 extern u32 FUN_02059D1C(struct Vecx32 *target);
 extern struct Vecx32 *FUN_0205889C(struct Vecx32 *target, u32 param1);
@@ -95,7 +96,7 @@ static BOOL FUN_0203AA0C(struct ScriptContext *ctx);
 static BOOL FUN_0203AB00(struct ScriptContext *ctx);
 static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
-static u32 *FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
+static struct Vecx32 *FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1);
 static BOOL FUN_0203B158(struct ScriptContext *ctx);
 static void FUN_0203B174(struct UnkSavStruct80 *arg, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
@@ -700,7 +701,7 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonAB(struct ScriptContext *ctx) //0030
 THUMB_FUNC static BOOL FUN_0203A46C(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.newKeys & 0x3) // Mask (A | B) ?
+    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         return TRUE;
     }
@@ -716,7 +717,7 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonABTime(struct ScriptContext *ctx) //0190
 
 THUMB_FUNC static BOOL FUN_0203A4AC(struct ScriptContext *ctx)
 {
-    if (gMain.newKeys & 0x3) // Mask (A | B) ?
+    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         return TRUE;
     }
@@ -737,27 +738,27 @@ THUMB_FUNC BOOL ScrCmd_WaitButton(struct ScriptContext *ctx) //0031
 
 THUMB_FUNC static BOOL FUN_0203A4E0(struct ScriptContext *ctx)
 {
-    if (gMain.newKeys & 3)
+    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         return TRUE;
     }
-    else if (gMain.newKeys & 0x40)
+    else if (gMain.newKeys & PAD_KEY_UP)
     {
         FUN_02055304(ctx->unk80->unk38, 0);
     }
-    else if (gMain.newKeys & 0x80)
+    else if (gMain.newKeys & PAD_KEY_DOWN)
     {
         FUN_02055304(ctx->unk80->unk38, 1);
     }
-    else if (gMain.newKeys & 0x20)
+    else if (gMain.newKeys & PAD_KEY_LEFT)
     {
         FUN_02055304(ctx->unk80->unk38, 2);
     }
-    else if (gMain.newKeys & 0x10)
+    else if (gMain.newKeys & PAD_KEY_RIGHT)
     {
         FUN_02055304(ctx->unk80->unk38, 3);
     }
-    else if (gMain.newKeys & 0x400)
+    else if (gMain.newKeys & PAD_BUTTON_X)
     {
         FUN_02039460(ctx->unk80);
     }
@@ -777,11 +778,11 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonABPad(struct ScriptContext *ctx) //0032
 THUMB_FUNC static BOOL FUN_0203A570(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.newKeys & 0x3)
+    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         return TRUE;
     }
-    else if (gMain.newKeys & 0xf0)
+    else if (gMain.newKeys & (PAD_KEY_RIGHT | PAD_KEY_LEFT | PAD_KEY_UP | PAD_KEY_DOWN))
     {
         return TRUE;
     }
@@ -859,11 +860,11 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
     {
         if (*xdir == 0)
         {
-            BgSetPosTextAndCommit(unk80->unk08, 3, 1, *xval);
+            BgSetPosTextAndCommit(unk80->unk08, GF_BG_LYR_MAIN_3, BG_POS_OP_ADD_X, *xval);
         }
         else
         {
-            BgSetPosTextAndCommit(unk80->unk08, 3, 2, *xval);
+            BgSetPosTextAndCommit(unk80->unk08, GF_BG_LYR_MAIN_3, BG_POS_OP_SUB_X, *xval);
         }
     }
 
@@ -871,11 +872,11 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
     {
         if (*ydir == 0)
         {
-            BgSetPosTextAndCommit(unk80->unk08, 3, 4, *yval);
+            BgSetPosTextAndCommit(unk80->unk08, GF_BG_LYR_MAIN_3, BG_POS_OP_ADD_Y, *yval);
         }
         else
         {
-            BgSetPosTextAndCommit(unk80->unk08, 3, 5, *yval);
+            BgSetPosTextAndCommit(unk80->unk08, GF_BG_LYR_MAIN_3, BG_POS_OP_SUB_Y, *yval);
         }
     }
 
@@ -997,19 +998,19 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
         return TRUE;
     }
 
-    if (gMain.newKeys & 0x40)
+    if (gMain.newKeys & PAD_KEY_UP)
     {
         tmp = 0;
     }
-    else if (gMain.newKeys & 0x80)
+    else if (gMain.newKeys & PAD_KEY_DOWN)
     {
         tmp = 1;
     }
-    else if (gMain.newKeys & 0x20)
+    else if (gMain.newKeys & PAD_KEY_LEFT)
     {
         tmp = 2;
     }
-    else if (gMain.newKeys & 0x10)
+    else if (gMain.newKeys & PAD_KEY_RIGHT)
     {
         tmp = 3;
     }
@@ -1023,7 +1024,7 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
     }
     else
     {
-        if (gMain.newKeys & 0x400)
+        if (gMain.newKeys & PAD_BUTTON_X)
         {
             FUN_0201BD7C(*unk1);
             *varPtr = 1;
@@ -1046,24 +1047,24 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
     u16 *unk = GetVarPointer(ctx->unk80, (u16)ctx->data[0]);
 
     u32 tmp = 0xFFFF;
-    if (gMain.newKeys & 0x3)
+    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         *unk = 0;
         return TRUE;
     }
-    else if (gMain.newKeys & 0x40)
+    else if (gMain.newKeys & PAD_KEY_UP)
     {
         tmp = 0;
     }
-    else if (gMain.newKeys & 0x80)
+    else if (gMain.newKeys & PAD_KEY_DOWN)
     {
         tmp = 1;
     }
-    else if (gMain.newKeys & 0x20)
+    else if (gMain.newKeys & PAD_KEY_LEFT)
     {
         tmp = 2;
     }
-    else if (gMain.newKeys & 0x10)
+    else if (gMain.newKeys & PAD_KEY_RIGHT)
     {
         tmp = 3;
     }
@@ -1076,7 +1077,7 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
     }
     else
     {
-        if (gMain.newKeys & 0x400)
+        if (gMain.newKeys & PAD_BUTTON_X)
         {
             *unk = 1;
             return TRUE;
@@ -1333,7 +1334,7 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMo
     u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u32 unk2 = ScriptReadWord(ctx);
 
-    u32 *unk3 = FUN_0203B120(ctx->unk80, unk);
+    struct Vecx32 *unk3 = FUN_0203B120(ctx->unk80, unk);
     GF_ASSERT(unk3);
 
     u32 unk4 = FUN_0205AEA4(unk3, ctx->scriptPtr + unk2);
@@ -1346,14 +1347,14 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMo
 
 THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
 {
-    u32 *unk3; //has to be defined first to match
+    struct Vecx32 *unk3; //has to be defined first to match
     u16 unk0 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unk1 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 unk2 = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
 
     unk3 = FUN_0203B120(ctx->unk80, unk0);
 
-    GF_ASSERT(unk3 != 0);
+    GF_ASSERT(unk3);
 
     u16 *unk4 = AllocFromHeap(4, 0x100);
     u16 unk5 = (u16)FUN_02058B2C(unk3);
@@ -1399,7 +1400,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
     return FALSE;
 }
 
-THUMB_FUNC static u32 *FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1)
+THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1)
 {
     if (param1 == 242)
     {
@@ -1407,7 +1408,7 @@ THUMB_FUNC static u32 *FUN_0203B120(struct UnkSavStruct80 *arg, u16 param1)
     }
     else if (param1 == 241)
     {
-        u32 **res = (u32 **)FUN_02039438(arg, 11);
+        struct Vecx32 **res = (struct Vecx32 **)FUN_02039438(arg, 11);
         return *res;
     }
     else
@@ -1491,8 +1492,8 @@ THUMB_FUNC BOOL ScrCmd_LockAllEvents(struct ScriptContext *ctx) //0060
 THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
-    u32 **unk0 = (u32 **)FUN_02039438(unk80, 10);
-    u32 *unk1 = FUN_020553A0(unk80->unk38);
+    struct Vecx32 **unk0 = (struct Vecx32 **)FUN_02039438(unk80, 10);
+    struct Vecx32 *unk1 = FUN_020553A0(unk80->unk38);
     if (UNK_021C5A0C[0] & 1)
     {
         if (FUN_0205AE28(unk1) == 1)
@@ -1511,7 +1512,7 @@ THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
     }
     if (UNK_021C5A0C[0] & 2)
     {
-        u32 *unk2 = FUN_020580B4(unk80->unk34, 48);
+        struct Vecx32 *unk2 = FUN_020580B4(unk80->unk34, 48);
         if (FUN_02058854(unk2) == 0)
         {
             FUN_02058908(unk2);
@@ -1520,7 +1521,7 @@ THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
     }
     if (UNK_021C5A0C[0] & 8)
     {
-        u32 *unk3 = FUN_0205E7C4(*unk0);
+        struct Vecx32 *unk3 = FUN_0205E7C4(*unk0);
         if (FUN_02058854(unk3) == 0)
         {
             FUN_02058908(unk3);
@@ -1540,10 +1541,10 @@ THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx) //02B4
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
-    u32 **unk0 = (u32 **)FUN_02039438(unk80, 10);
-    u32 *unk1 = FUN_020553A0(unk80->unk38);
-    u32 *unk2 = FUN_020580B4(unk80->unk34, 48);
-    u32 *unk3 = FUN_0205E7C4(*unk0);
+    struct Vecx32 **unk0 = (struct Vecx32 **)FUN_02039438(unk80, 10);
+    struct Vecx32 *unk1 = FUN_020553A0(unk80->unk38);
+    struct Vecx32 *unk2 = FUN_020580B4(unk80->unk34, 48);
+    struct Vecx32 *unk3 = FUN_0205E7C4(*unk0);
     u32 unk34 = unk80->unk34;
     UNK_021C5A0C[0] = 0;
 
@@ -1630,7 +1631,7 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
 {
     u16 x = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 y = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    struct Vecx32 **targetPtr = FUN_02039438(ctx->unk80, 0xb); //unsure if this is correct
+    struct Vecx32 **targetPtr = FUN_02039438(ctx->unk80, 0xb);
     *targetPtr = FUN_0205753C(ctx->unk80->unk34, x, y, 0, 0x2000, 0, *ctx->unk80->mapId);
     FUN_02059D1C(*targetPtr);
     FUN_0205889C(*targetPtr, 1);
