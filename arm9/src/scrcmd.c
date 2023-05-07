@@ -1537,7 +1537,7 @@ THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
     }
 }
 
-THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx) //02B4
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     u32 **unk0 = (u32 **)FUN_02039438(unk80, 10);
@@ -1582,13 +1582,13 @@ THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ReleaseAllEvents(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_ReleaseAllEvents(struct ScriptContext *ctx) //0061
 {
     FUN_020587B0(ctx->unk80->unk34);
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_LockEvent(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_LockEvent(struct ScriptContext *ctx) //0062
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 eventId = ScriptReadHalfword(ctx);
@@ -1596,7 +1596,7 @@ THUMB_FUNC BOOL ScrCmd_LockEvent(struct ScriptContext *ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ReleaseEvent(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_ReleaseEvent(struct ScriptContext *ctx) //0063
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 eventId = ScriptReadHalfword(ctx);
@@ -1604,7 +1604,7 @@ THUMB_FUNC BOOL ScrCmd_ReleaseEvent(struct ScriptContext *ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx) //0064
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 eventId = ScriptReadHalfword(ctx);
@@ -1617,7 +1617,7 @@ THUMB_FUNC BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx) //0065
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     u16 eventId = ScriptReadHalfword(ctx);
@@ -1626,7 +1626,7 @@ THUMB_FUNC BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
 {
     u16 x = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
     u16 y = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
