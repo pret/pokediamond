@@ -9,6 +9,7 @@
 #include "render_window.h"
 #include "text_02054590.h"
 #include "unk_0205EC84.h"
+#include "camera.h"
 
 extern void *FUN_02039438(struct UnkSavStruct80* arg, u32 id);
 extern void *CreateScriptContext(struct UnkSavStruct80* arg, u16 id);
@@ -68,6 +69,12 @@ extern u32 FUN_02034B64(struct UnkSavStruct80 *param0);
 extern u32 FUN_02034B6C(struct UnkSavStruct80 *param0);
 extern u32 FUN_020575D4(u32 param0, u16 eventVar, u32 param2, u32 mapId, u32 param4);
 extern void FUN_02057688(u32 *param0);
+extern struct Vecx32 *FUN_0205753C(u32 param0, u16 x, u16 y, u16 z, u32 param4, u32 param5, u32 mapId);
+extern u32 FUN_02059D1C(struct Vecx32 *target);
+extern struct Vecx32 *FUN_0205889C(struct Vecx32 *target, u32 param1);
+extern struct Vecx32 *FUN_020588B8(struct Vecx32 *target, u32 param1);
+extern struct Vecx32 *FUN_02058B7C(struct Vecx32 *target);
+extern void MOD05_021EF5E0(struct Vecx32 *target, u32 param1);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1616,5 +1623,20 @@ THUMB_FUNC BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx)
     u16 eventId = ScriptReadHalfword(ctx);
     u16 eventVar = VarGet(ctx->unk80, eventId);
     FUN_02057688(FUN_02058060(unk80->unk34, eventVar));
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx)
+{
+    u16 x = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 y = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    struct Vecx32 **targetPtr = FUN_02039438(ctx->unk80, 0xb); //unsure if this is correct
+    *targetPtr = FUN_0205753C(ctx->unk80->unk34, x, y, 0, 0x2000, 0, *ctx->unk80->mapId);
+    FUN_02059D1C(*targetPtr);
+    FUN_0205889C(*targetPtr, 1);
+    FUN_020588B8(*targetPtr, 0);
+    struct Vecx32 *modifiedTarget = FUN_02058B7C(*targetPtr);
+    MOD05_021EF5E0(modifiedTarget, ctx->unk80->unk24);
+    Camera_SetFixedTarget(modifiedTarget, ctx->unk80->cameraWork);
     return FALSE;
 }

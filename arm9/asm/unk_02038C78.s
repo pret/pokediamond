@@ -251,7 +251,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_ReleaseEvent
 	.word ScrCmd_AddOverworldEvent
 	.word ScrCmd_RemoveOverworldEvent
-	.word ScrCmd_Unk0066
+	.word ScrCmd_LockCamera
 	.word ScrCmd_Unk0067
 	.word ScrCmd_Unk0068
 	.word ScrCmd_Unk0069

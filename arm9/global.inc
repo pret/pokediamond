@@ -2796,7 +2796,7 @@
 .extern ScrCmd_ReleaseEvent
 .extern ScrCmd_AddOverworldEvent
 .extern ScrCmd_RemoveOverworldEvent
-.extern ScrCmd_Unk0066
+.extern ScrCmd_LockCamera
 .extern ScrCmd_Unk0067
 .extern ScrCmd_Unk0068
 .extern ScrCmd_Unk0069

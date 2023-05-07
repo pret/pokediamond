@@ -2,6 +2,7 @@
 #define _SCRIPT_H_
 
 #include "global.h"
+#include "camera.h"
 #include "msgdata.h"
 #include "save_block_2.h"
 #include "bg_window.h"
@@ -34,7 +35,9 @@ struct UnkSavStruct80
     struct UnkStruct_0204639C *unk10;
     u8 padding2[0x8];
     u32 *mapId; //0x1C
-    u8 padding3[0x14];
+    struct CameraWork *cameraWork;
+    u32 unk24;
+    u8 padding3[0xC];
     u32 unk34;
     u32 unk38;
     u8 padding4[0x24];
