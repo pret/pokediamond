@@ -29,7 +29,7 @@ extern void MOD05_021E2CBC(struct ScriptContext *ctx, struct ScrStrBufs *str, u8
 extern void MOD05_021E2BB8(void *param0, struct ScriptContext *ctx);
 extern u32 FUN_02058488(u32 param0);
 extern BOOL FUN_02030F40(void);
-extern void FUN_02055304(u32 param0, u32 param1);
+extern void FUN_02055304(struct PlayerAvatar *playerAvatar, u32 param1);
 extern void FUN_02039460(struct UnkSavStruct80 *arg);
 extern u32 FUN_02058510(u32 param0, u32 param1);
 extern void MOD05_021E8128(u32 param0, u8 type, u16 map);
@@ -59,7 +59,7 @@ extern struct Vecx32 *FUN_02058060(u32 param0, u32 param1);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
-extern struct Vecx32 *FUN_020553A0(u32 param0);
+extern struct Vecx32 *FUN_020553A0(struct PlayerAvatar *playerAvatar); //get player position?
 extern u32 FUN_0205AE28(struct Vecx32 *param0);
 extern void FUN_02058908(struct Vecx32 *param0);
 extern u32 FUN_02058854(struct Vecx32 *param0);
@@ -77,6 +77,9 @@ extern struct Vecx32 *FUN_020588B8(struct Vecx32 *target, u32 param1);
 extern struct Vecx32 *FUN_02058B7C(struct Vecx32 *target);
 extern void MOD05_021EF5E0(struct Vecx32 *target, u32 param1);
 extern void FUN_02057654(struct Vecx32 *target);
+extern u32 PlayerAvatar_GetFacingDirection(struct PlayerAvatar *playerAvatar);
+extern u32 FUN_02059E74(u32 direction);
+extern void MOD05_021F1EC0(struct Vecx32 *param0, u32 param1);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -745,19 +748,19 @@ THUMB_FUNC static BOOL FUN_0203A4E0(struct ScriptContext *ctx)
     }
     else if (gMain.newKeys & PAD_KEY_UP)
     {
-        FUN_02055304(ctx->unk80->unk38, 0);
+        FUN_02055304(ctx->unk80->playerAvatar, 0);
     }
     else if (gMain.newKeys & PAD_KEY_DOWN)
     {
-        FUN_02055304(ctx->unk80->unk38, 1);
+        FUN_02055304(ctx->unk80->playerAvatar, 1);
     }
     else if (gMain.newKeys & PAD_KEY_LEFT)
     {
-        FUN_02055304(ctx->unk80->unk38, 2);
+        FUN_02055304(ctx->unk80->playerAvatar, 2);
     }
     else if (gMain.newKeys & PAD_KEY_RIGHT)
     {
-        FUN_02055304(ctx->unk80->unk38, 3);
+        FUN_02055304(ctx->unk80->playerAvatar, 3);
     }
     else if (gMain.newKeys & PAD_BUTTON_X)
     {
@@ -1019,7 +1022,7 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
     if (tmp != 0xFFFF)
     {
         FUN_0201BD7C(*unk1);
-        FUN_02055304(ctx->unk80->unk38, tmp);
+        FUN_02055304(ctx->unk80->playerAvatar, tmp);
         *varPtr = 0;
         return TRUE;
     }
@@ -1072,7 +1075,7 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
 
     if (tmp != 0xFFFF)
     {
-        FUN_02055304(ctx->unk80->unk38, tmp);
+        FUN_02055304(ctx->unk80->playerAvatar, tmp);
         *unk = 0;
         return TRUE;
     }
@@ -1494,7 +1497,7 @@ THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     struct Vecx32 **unk0 = (struct Vecx32 **)FUN_02039438(unk80, 10);
-    struct Vecx32 *unk1 = FUN_020553A0(unk80->unk38);
+    struct Vecx32 *unk1 = FUN_020553A0(unk80->playerAvatar);
     if (UNK_021C5A0C[0] & 1)
     {
         if (FUN_0205AE28(unk1) == 1)
@@ -1543,7 +1546,7 @@ THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx) //02B4
 {
     struct UnkSavStruct80 *unk80 = ctx->unk80;
     struct Vecx32 **unk0 = (struct Vecx32 **)FUN_02039438(unk80, 10);
-    struct Vecx32 *unk1 = FUN_020553A0(unk80->unk38);
+    struct Vecx32 *unk1 = FUN_020553A0(unk80->playerAvatar);
     struct Vecx32 *unk2 = FUN_020580B4(unk80->unk34, 48);
     struct Vecx32 *unk3 = FUN_0205E7C4(*unk0);
     u32 unk34 = unk80->unk34;
@@ -1650,5 +1653,20 @@ THUMB_FUNC BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx) //0067
     struct Vecx32 *modifiedTarget = FUN_02058B7C(FUN_02058060(ctx->unk80->unk34, 0xff));
     MOD05_021EF5E0(modifiedTarget, ctx->unk80->unk24);
     Camera_SetFixedTarget(modifiedTarget, ctx->unk80->cameraWork);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_FacePlayer(struct ScriptContext *ctx) //0068
+{
+    struct UnkSavStruct80 *unk80 = ctx->unk80;
+    u32 unk0 = FUN_02059E74(PlayerAvatar_GetFacingDirection(unk80->playerAvatar));
+    struct Vecx32 **unk1 = FUN_02039438(unk80, 10);
+
+    if (*unk1 == NULL)
+    {
+        return FALSE;
+    }
+
+    MOD05_021F1EC0(*unk1, unk0);
     return FALSE;
 }

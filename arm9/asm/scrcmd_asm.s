@@ -14,30 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0068
-ScrCmd_Unk0068: ; 0x0203B544
-	push {r3-r5, lr}
-	add r0, #0x80
-	ldr r5, [r0, #0x0]
-	ldr r0, [r5, #0x38]
-	bl PlayerAvatar_GetFacingDirection
-	bl FUN_02059E74
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	mov r1, #0xa
-	bl FUN_02039438
-	ldr r0, [r0, #0x0]
-	cmp r0, #0x0
-	bne _0203B568
-	mov r0, #0x0
-	pop {r3-r5, pc}
-_0203B568:
-	add r1, r4, #0x0
-	bl MOD05_021F1EC0
-	mov r0, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk0069
 ScrCmd_Unk0069: ; 0x0203B574
 	push {r4-r6, lr}

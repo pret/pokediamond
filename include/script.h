@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "camera.h"
+#include "field_player_avatar.h"
 #include "msgdata.h"
 #include "save_block_2.h"
 #include "bg_window.h"
@@ -39,7 +40,7 @@ struct UnkSavStruct80
     u32 unk24;
     u8 padding3[0xC];
     u32 unk34;
-    u32 unk38;
+    struct PlayerAvatar *playerAvatar;
     u8 padding4[0x24];
     u32 unk60;
     u8 padding5[0x14];
