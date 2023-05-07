@@ -124,6 +124,7 @@ BOOL ScrCmd_ReleaseEvent(struct ScriptContext *ctx);
 BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx);
 BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx);
 BOOL ScrCmd_LockCamera(struct ScriptContext *ctx);
+BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

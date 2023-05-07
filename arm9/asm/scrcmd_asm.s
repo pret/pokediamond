@@ -14,37 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0067
-ScrCmd_Unk0067: ; 0x0203B500
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0xb
-	bl FUN_02039438
-	ldr r0, [r0, #0x0]
-	bl FUN_02057654
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0xff
-	ldr r0, [r0, #0x34]
-	bl FUN_02058060
-	bl FUN_02058B7C
-	add r1, r5, #0x0
-	add r1, #0x80
-	ldr r1, [r1, #0x0]
-	add r4, r0, #0x0
-	ldr r1, [r1, #0x24]
-	bl MOD05_021EF5E0
-	add r5, #0x80
-	ldr r1, [r5, #0x0]
-	add r0, r4, #0x0
-	ldr r1, [r1, #0x20]
-	bl Camera_SetFixedTarget
-	mov r0, #0x0
-	pop {r3-r5, pc}
-
 	thumb_func_start ScrCmd_Unk0068
 ScrCmd_Unk0068: ; 0x0203B544
 	push {r3-r5, lr}

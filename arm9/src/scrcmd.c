@@ -76,6 +76,7 @@ extern struct Vecx32 *FUN_0205889C(struct Vecx32 *target, u32 param1);
 extern struct Vecx32 *FUN_020588B8(struct Vecx32 *target, u32 param1);
 extern struct Vecx32 *FUN_02058B7C(struct Vecx32 *target);
 extern void MOD05_021EF5E0(struct Vecx32 *target, u32 param1);
+extern void FUN_02057654(struct Vecx32 *target);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1637,6 +1638,16 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
     FUN_0205889C(*targetPtr, 1);
     FUN_020588B8(*targetPtr, 0);
     struct Vecx32 *modifiedTarget = FUN_02058B7C(*targetPtr);
+    MOD05_021EF5E0(modifiedTarget, ctx->unk80->unk24);
+    Camera_SetFixedTarget(modifiedTarget, ctx->unk80->cameraWork);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL git (struct ScriptContext *ctx) //0067
+{
+    struct Vecx32 **targetPtr = FUN_02039438(ctx->unk80, 0xb);
+    FUN_02057654(*targetPtr);
+    struct Vecx32 *modifiedTarget = FUN_02058B7C(FUN_02058060(ctx->unk80->unk34, 0xff));
     MOD05_021EF5E0(modifiedTarget, ctx->unk80->unk24);
     Camera_SetFixedTarget(modifiedTarget, ctx->unk80->cameraWork);
     return FALSE;
