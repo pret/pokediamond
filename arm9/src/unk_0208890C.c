@@ -7,9 +7,9 @@
 #include "script.h"
 #include "unk_0208890C.h"
 
-extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct UnkSavStruct80*);
+extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct FieldSystem *);
 extern void* FUN_02028048(struct SaveBlock2* sav2);
-extern void FUN_020373D4(struct UnkSavStruct80*, struct Unk21DBE18*, void*);
+extern void FUN_020373D4(struct FieldSystem *, struct Unk21DBE18*, void*);
 extern BOOL FUN_020889B0(struct UnkStruct_02006234*, u32*);
 extern BOOL FUN_02088A00(struct UnkStruct_02006234*, u32*);
 extern BOOL FUN_02088A78(struct UnkStruct_02006234*, u32*);
@@ -37,17 +37,17 @@ THUMB_FUNC struct UnkStruct_0208890C* FUN_0208890C(void* a0, struct SaveBlock2* 
     return ret;
 }
 
-THUMB_FUNC void FUN_02088950(struct UnkSavStruct80* unk, struct UnkStruct_0208890C* unk2)
+THUMB_FUNC void FUN_02088950(struct FieldSystem *fieldSystem, struct UnkStruct_0208890C* unk2)
 {
-    FUN_020373D4(unk, (struct Unk21DBE18*)&UNK_020FD6E4, unk2);
+    FUN_020373D4(fieldSystem, (struct Unk21DBE18*)&UNK_020FD6E4, unk2);
 }
 
-THUMB_FUNC struct UnkStruct_0208890C* FUN_02088960(struct UnkSavStruct80* unk, void* a1, u32 heap_id)
+THUMB_FUNC struct UnkStruct_0208890C* FUN_02088960(struct FieldSystem *fieldSystem, void* a1, u32 heap_id)
 {
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(unk);
-    struct UnkStruct_0208890C* ret = FUN_0208890C(a1, sav2, heap_id, unk->unk98);
+    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
+    struct UnkStruct_0208890C* ret = FUN_0208890C(a1, sav2, heap_id, fieldSystem->unk98);
 
-    FUN_02088950(unk, ret);
+    FUN_02088950(fieldSystem, ret);
 
     return ret;
 }

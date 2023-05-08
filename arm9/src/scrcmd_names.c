@@ -3,13 +3,14 @@
 #include "itemtool.h"
 #include "nutdata.h"
 #include "party.h"
+#include "pokemon.h"
 #include "player_data.h"
 #include "script_buffers.h"
 #include "unk_02024E64.h"
 #include "unk_02064E4C.h"
 #include "unk_0207FC5C.h"
 
-extern void* FUN_02039438(struct UnkSavStruct80* sav_ptr, int idx);
+extern void* FUN_02039438(struct FieldSystem* fieldSystem, int idx);
 
 extern u32 FUN_020536D0(u32 gender, u32 avatar, u32 a2);
 extern u32 FUN_0205F388(struct ScriptState* state);
@@ -20,10 +21,10 @@ extern u32 FUN_02054C14(u32 number);
 
 THUMB_FUNC BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx) //00CD - todo: BufferPlayerName? TextPlayerName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(sav_ptr);
+    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
     struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(sav2);
 
     BufferPlayersName(*mgr, idx, player);
@@ -33,33 +34,33 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx) //00CD - todo: B
 
 THUMB_FUNC BOOL ScrCmd_GetRivalName(struct ScriptContext* ctx) //00CE - todo: BufferRivalName? TextRivalName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
 
-    BufferRivalsName(*mgr, idx, sav_ptr->saveBlock2);
+    BufferRivalsName(*mgr, idx, fieldSystem->saveBlock2);
 
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_GetFriendName(struct ScriptContext* ctx) //00CF - todo: BufferFriendName? TextFriendName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
 
-    BufferFriendsName(*mgr, idx, sav_ptr->saveBlock2);
+    BufferFriendsName(*mgr, idx, fieldSystem->saveBlock2);
 
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_GetPokemonName(struct ScriptContext* ctx) //00D0 - todo: BufferPartyPokemonName? TextPartyPokemonName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    struct PlayerParty* party = SavArray_PlayerParty_get(sav_ptr->saveBlock2);
+    u16 mon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* mon = GetPartyMonByIndex(party, mon_idx);
 
     BufferBoxMonSpeciesName(*mgr, idx, &mon->box);
@@ -69,10 +70,10 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonName(struct ScriptContext* ctx) //00D0 - todo: 
 
 THUMB_FUNC BOOL ScrCmd_GetItemName(struct ScriptContext* ctx) //00D1 - todo: BufferItemName? TextItemName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 item = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 item = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferItemName(*mgr, idx, item);
 
@@ -81,10 +82,10 @@ THUMB_FUNC BOOL ScrCmd_GetItemName(struct ScriptContext* ctx) //00D1 - todo: Buf
 
 THUMB_FUNC BOOL ScrCmd_GetPocketName(struct ScriptContext* ctx) //00D2 - todo: BufferPocketName? TextPocketName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 pocket = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 pocket = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferPocketName(*mgr, idx, pocket);
 
@@ -93,10 +94,10 @@ THUMB_FUNC BOOL ScrCmd_GetPocketName(struct ScriptContext* ctx) //00D2 - todo: B
 
 THUMB_FUNC BOOL ScrCmd_GetTMHMMoveName(struct ScriptContext* ctx) //00D3 - todo: BufferTMHMName? BufferMachineName? TextTMHMName? TextMachineName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 tmhm = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 tmhm = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     u16 move = TMHMGetMove(tmhm);
 
     BufferMoveName(*mgr, idx, move);
@@ -106,10 +107,10 @@ THUMB_FUNC BOOL ScrCmd_GetTMHMMoveName(struct ScriptContext* ctx) //00D3 - todo:
 
 THUMB_FUNC BOOL ScrCmd_GetMoveName(struct ScriptContext* ctx) //00D4 - todo: BufferMoveName? TextMoveName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 move = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 move = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferMoveName(*mgr, idx, move);
 
@@ -118,9 +119,9 @@ THUMB_FUNC BOOL ScrCmd_GetMoveName(struct ScriptContext* ctx) //00D4 - todo: Buf
 
 THUMB_FUNC BOOL ScrCmd_Unk00D5(struct ScriptContext* ctx) //00D5 - todo: BufferNumber? TextNumber?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     u32 digits = FUN_02054C14(unk);
 
     BufferIntegerAsString(*mgr, idx, unk, digits, 1, TRUE);
@@ -130,9 +131,9 @@ THUMB_FUNC BOOL ScrCmd_Unk00D5(struct ScriptContext* ctx) //00D5 - todo: BufferN
 
 THUMB_FUNC BOOL ScrCmd_Unk0280(struct ScriptContext* ctx) //0280 - todo: BufferNumberSpecial? need more info
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     u8 unk2 = ScriptReadByte(ctx);
     u8 digits = ScriptReadByte(ctx);
     if (unk2 == 0)
@@ -147,11 +148,11 @@ THUMB_FUNC BOOL ScrCmd_Unk0280(struct ScriptContext* ctx) //0280 - todo: BufferN
 
 THUMB_FUNC BOOL ScrCmd_GetPokemonNickname(struct ScriptContext* ctx) //00D6 - todo: BufferPartyPokemonNickname? TextPartyPokemonNickname?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    struct PlayerParty* party = SavArray_PlayerParty_get(sav_ptr->saveBlock2);
+    u16 mon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
 
     BufferBoxMonNickname(*mgr, idx, &pokemon->box);
@@ -161,11 +162,11 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonNickname(struct ScriptContext* ctx) //00D6 - to
 
 THUMB_FUNC BOOL ScrCmd_Unk0251(struct ScriptContext* ctx) //0251 - todo: BufferBoxPokemonNickname? TextBoxPokemonNickname?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct PCStorage* pc = GetStoragePCPointer(sav_ptr->saveBlock2);
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct PCStorage* pc = GetStoragePCPointer(fieldSystem->saveBlock2);
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 box_mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 box_mon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     s32 box_no = box_mon_idx / 30;
     s32 slot_no = box_mon_idx % 30;
     struct BoxPokemon* box_mon = PCStorage_GetMonByIndexPair(pc, box_no, slot_no);
@@ -177,9 +178,9 @@ THUMB_FUNC BOOL ScrCmd_Unk0251(struct ScriptContext* ctx) //0251 - todo: BufferB
 
 THUMB_FUNC BOOL ScrCmd_GetPoketchAppName(struct ScriptContext* ctx) //00D7 - todo: BufferPoketchAppName? TextPoketchAppName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 app = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 app = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferPoketchAppName(*mgr, idx, app);
 
@@ -188,9 +189,9 @@ THUMB_FUNC BOOL ScrCmd_GetPoketchAppName(struct ScriptContext* ctx) //00D7 - tod
 
 THUMB_FUNC BOOL ScrCmd_GetTrainerClassName(struct ScriptContext* ctx) //00D8 - todo: BufferTrainerClassName? TextTrainerClassName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 trainer_class = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 trainer_class = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferTrainerClassName(*mgr, idx, trainer_class);
 
@@ -199,10 +200,10 @@ THUMB_FUNC BOOL ScrCmd_GetTrainerClassName(struct ScriptContext* ctx) //00D8 - t
 
 THUMB_FUNC BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx) //00D9 - todo: BufferPlayerTrainerClassName? TextPlayerTrainerClassName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(sav_ptr);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
     struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(sav2);
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
     u32 gender = PlayerProfile_GetTrainerGender(player);
     u32 avatar = PlayerProfile_GetAvatar(player);
@@ -215,9 +216,9 @@ THUMB_FUNC BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx) //00D9 - todo: BufferP
 
 THUMB_FUNC BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx) //00DA - todo: BufferPokemonSpeciesName? TextPokemonSpeciesName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 msg_no = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 msg_no = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     u16 unk1 = ScriptReadHalfword(ctx);
     u8 unk2 = ScriptReadByte(ctx);
     struct String* str = FUN_02040AE4(msg_no, 4);
@@ -239,9 +240,9 @@ THUMB_FUNC struct String* FUN_02040AE4(u32 msg_no, u32 heap_id) //todo: GetPokem
 
 THUMB_FUNC BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx) //00DB - todo: BufferPlayerStarterSpecies?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
     u32 msg_no = FUN_0205F388(state);
     struct String* str = FUN_02040AE4(msg_no, 4);
 
@@ -253,9 +254,9 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx) //00DB - 
 
 THUMB_FUNC BOOL ScrCmd_GetRivalStarterName(struct ScriptContext* ctx) //00DC - todo: BufferRivalStarterSpecies?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
     u32 msg_no = FUN_0205F398(state);
     struct String* str = FUN_02040AE4(msg_no, 4);
 
@@ -267,9 +268,9 @@ THUMB_FUNC BOOL ScrCmd_GetRivalStarterName(struct ScriptContext* ctx) //00DC - t
 
 THUMB_FUNC BOOL ScrCmd_GetCounterpartStarterName(struct ScriptContext* ctx) //00DD - todo: BufferFriendStarterSpecies?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
     u32 msg_no = FUN_0205F3C0(state);
     struct String* str = FUN_02040AE4(msg_no, 4);
 
@@ -281,9 +282,9 @@ THUMB_FUNC BOOL ScrCmd_GetCounterpartStarterName(struct ScriptContext* ctx) //00
 
 THUMB_FUNC BOOL ScrCmd_GetDecorationName(struct ScriptContext* ctx) //00DF - todo: BufferDecorationName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 decoration = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 decoration = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferDecorationName(*mgr, idx, decoration);
 
@@ -292,9 +293,9 @@ THUMB_FUNC BOOL ScrCmd_GetDecorationName(struct ScriptContext* ctx) //00DF - tod
 
 THUMB_FUNC BOOL ScrCmd_GetUndergroundTrapName(struct ScriptContext* ctx) //00E0 - todo: BufferUndergroundTrapName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 underground_trap = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 underground_trap = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferUndergroundTrapName(*mgr, idx, underground_trap);
 
@@ -303,9 +304,9 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundTrapName(struct ScriptContext* ctx) //00E0 
 
 THUMB_FUNC BOOL ScrCmd_GetUndergroundItemName(struct ScriptContext* ctx) //00E1 - todo: BufferUndergroundItemName? BufferTreasureName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 underground_item = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 underground_item = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferUndergroundItemName(*mgr, idx, underground_item);
 
@@ -315,9 +316,9 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundItemName(struct ScriptContext* ctx) //00E1 
 THUMB_FUNC BOOL ScrCmd_GetMapName(struct ScriptContext* ctx) //00E2 - todo: BufferMapName?
 {
     struct String* str = String_ctor(22, 4);
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 map_no = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 map_no = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     FUN_02064E60(map_no, 4, str);
     BufferString(*mgr, idx, str, 0, 1, 2);
@@ -328,10 +329,10 @@ THUMB_FUNC BOOL ScrCmd_GetMapName(struct ScriptContext* ctx) //00E2 - todo: Buff
 
 THUMB_FUNC BOOL ScrCmd_GetBerryName(struct ScriptContext* ctx) //017B - todo: BufferBerryName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 berry = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    u16 unk = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 berry = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     struct String* nut_name = GetNutName((u16)(berry - FIRST_BERRY_IDX), 32);
 
     BufferString(*mgr, idx, nut_name, 0, unk < 2, 2);
@@ -342,9 +343,9 @@ THUMB_FUNC BOOL ScrCmd_GetBerryName(struct ScriptContext* ctx) //017B - todo: Bu
 
 THUMB_FUNC BOOL ScrCmd_GetNatureName(struct ScriptContext* ctx) //017C - todo: BufferNatureName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 nature = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 nature = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferNatureName(*mgr, idx, nature);
 
@@ -353,9 +354,9 @@ THUMB_FUNC BOOL ScrCmd_GetNatureName(struct ScriptContext* ctx) //017C - todo: B
 
 THUMB_FUNC BOOL ScrCmd_GetFashionName(struct ScriptContext* ctx) //0261 - todo: BufferAccessoryName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 fashion = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 fashion = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferFashionName(*mgr, idx, fashion);
 
@@ -364,10 +365,10 @@ THUMB_FUNC BOOL ScrCmd_GetFashionName(struct ScriptContext* ctx) //0261 - todo: 
 
 THUMB_FUNC BOOL ScrCmd_GetWhiteRockInscription(struct ScriptContext* ctx) //0272 - todo: BufferWhiteRockInscription?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
     struct String* str = String_ctor(11, 11);
-    struct UnkStruct_02024E64* unk = FUN_02024EB4(ctx->unk80->saveBlock2);
+    struct UnkStruct_02024E64* unk = FUN_02024EB4(ctx->fieldSystem->saveBlock2);
     u16* unk_buffer = FUN_02024F0C(unk);
 
     CopyU16ArrayToString(str, unk_buffer);
@@ -379,12 +380,12 @@ THUMB_FUNC BOOL ScrCmd_GetWhiteRockInscription(struct ScriptContext* ctx) //0272
 
 THUMB_FUNC BOOL ScrCmd_GetPokemonMoveName(struct ScriptContext* ctx) //01CB - todo: BufferPartyPokemonMoveName?
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    struct ScrStrBufs** mgr = FUN_02039438(sav_ptr, 15);
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 mon_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    u16 mon_move_idx = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    struct PlayerParty* party = SavArray_PlayerParty_get(sav_ptr->saveBlock2);
+    u16 mon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_move_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     u16 move = (u16)GetMonData(pokemon, MON_DATA_MOVE1 + mon_move_idx, NULL);
 
@@ -395,9 +396,9 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonMoveName(struct ScriptContext* ctx) //01CB - to
 
 THUMB_FUNC BOOL ScrCmd_GetRibbonName(struct ScriptContext* ctx) //0232 - todo: BufferRibbonName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u8 unk = (u8)VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u8 unk = (u8)VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     u16 ribbon = (u16)FUN_0207FC5C(unk, 3);
 
     BufferRibbonNameOrDesc(*mgr, idx, ribbon);
@@ -407,9 +408,9 @@ THUMB_FUNC BOOL ScrCmd_GetRibbonName(struct ScriptContext* ctx) //0232 - todo: B
 
 THUMB_FUNC BOOL ScrCmd_GetSealName(struct ScriptContext* ctx) //02B3 - todo: BufferSealName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 seal = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 seal = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferSealName(*mgr, idx, (u16)(seal - 1));
 
@@ -418,9 +419,9 @@ THUMB_FUNC BOOL ScrCmd_GetSealName(struct ScriptContext* ctx) //02B3 - todo: Buf
 
 THUMB_FUNC BOOL ScrCmd_GetItemNameWithIndefArticle(struct ScriptContext* ctx) //02C4 - todo: BufferIndefItemName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 item = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 item = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferItemNameWithIndefArticle(*mgr, idx, item);
 
@@ -429,9 +430,9 @@ THUMB_FUNC BOOL ScrCmd_GetItemNameWithIndefArticle(struct ScriptContext* ctx) //
 
 THUMB_FUNC BOOL ScrCmd_GetItemNamePlural(struct ScriptContext* ctx) //02C5 - todo: BufferPluralItemName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 item = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 item = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferItemNamePlural(*mgr, idx, item);
 
@@ -440,9 +441,9 @@ THUMB_FUNC BOOL ScrCmd_GetItemNamePlural(struct ScriptContext* ctx) //02C5 - tod
 
 THUMB_FUNC BOOL ScrCmd_GetDecorationNameWithArticle(struct ScriptContext* ctx) //02C6 - todo: BufferIndefDecorationName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 decoration = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 decoration = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferDecorationNameWithArticle(*mgr, idx, decoration);
 
@@ -451,9 +452,9 @@ THUMB_FUNC BOOL ScrCmd_GetDecorationNameWithArticle(struct ScriptContext* ctx) /
 
 THUMB_FUNC BOOL ScrCmd_GetUndergroundTrapNameWithArticle(struct ScriptContext* ctx) //02C7 - todo: BufferIndefTrapName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 underground_trap = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 underground_trap = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferUndergroundTrapNameWithArticle(*mgr, idx, underground_trap);
 
@@ -462,9 +463,9 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundTrapNameWithArticle(struct ScriptContext* c
 
 THUMB_FUNC BOOL ScrCmd_GetUndergroundItemNameWithArticle(struct ScriptContext* ctx) //02C8 - todo: BufferIndefUndergroundItemName? BufferIndefTreasureName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 underground_item = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 underground_item = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferUndergroundItemNameWithArticle(*mgr, idx, underground_item);
 
@@ -473,9 +474,9 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundItemNameWithArticle(struct ScriptContext* c
 
 THUMB_FUNC BOOL ScrCmd_Unk02C9(struct ScriptContext* ctx) //02C9 - todo: BufferIndefSpeciesName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 species = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 species = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     u16 unused1 = ScriptReadHalfword(ctx);
     u8 unused2 = ScriptReadByte(ctx);
 
@@ -486,9 +487,9 @@ THUMB_FUNC BOOL ScrCmd_Unk02C9(struct ScriptContext* ctx) //02C9 - todo: BufferI
 
 THUMB_FUNC BOOL ScrCmd_Unk02CA(struct ScriptContext* ctx) //02CA - todo: BufferIndefFriendStarterSpecies?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
     u32 species = FUN_0205F3C0(state);
 
     BufferSpeciesNameWithArticle(*mgr, idx, species);
@@ -498,9 +499,9 @@ THUMB_FUNC BOOL ScrCmd_Unk02CA(struct ScriptContext* ctx) //02CA - todo: BufferI
 
 THUMB_FUNC BOOL ScrCmd_GetFashionNameWithArticle(struct ScriptContext* ctx) //02CB - todo: BufferIndefAccessoryName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 fashion = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 fashion = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferFashionNameWithArticle(*mgr, idx, fashion);
 
@@ -509,9 +510,9 @@ THUMB_FUNC BOOL ScrCmd_GetFashionNameWithArticle(struct ScriptContext* ctx) //02
 
 THUMB_FUNC BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx) //02CC - todo: BufferIndefTrainerClassName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 trainer_class = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 trainer_class = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferTrainerClassNameWithArticle(*mgr, idx, trainer_class);
 
@@ -520,9 +521,9 @@ THUMB_FUNC BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx) //02CC - todo: BufferI
 
 THUMB_FUNC BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx) //02CD - todo: BufferPluralSealName?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
-    u16 seal = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 seal = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     BufferSealNamePlural(*mgr, idx, (u16)(seal - 1));
 
@@ -531,7 +532,7 @@ THUMB_FUNC BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx) //02CD - tod
 
 THUMB_FUNC BOOL ScrCmd_CapitalizeFirstChar(struct ScriptContext* ctx) //02CE - todo CapitalizeText?
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->unk80, 15);
+    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u8 idx = ScriptReadByte(ctx);
 
     ScrStrBufs_UpperFirstChar(*mgr, idx);

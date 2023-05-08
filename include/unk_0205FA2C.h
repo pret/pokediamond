@@ -81,13 +81,13 @@ struct UnkCallbackStruct2_0205FA2C
 };
 
 u32 FUN_0205FA2C(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkSavStruct80 *param1, u32 heap_id);
+    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id);
 u32 FUN_0205FAD8(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkSavStruct80 *param1);
+    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem);
 u32 FUN_0205FB34(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkSavStruct80 *param1, u32 heap_id);
+    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id);
 u32 FUN_0205FBC0(
-    struct UnkCallbackStruct1_0205FA2C *param0, struct UnkSavStruct80 *param1);
+    struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem);
 int FUN_0205FBE8(struct UnkStruct_0204639C *param0);
 void FUN_0205FC50(struct UnkStruct_0204639C *param0,
     void **param1,
@@ -99,9 +99,9 @@ void FUN_0205FC50(struct UnkStruct_0204639C *param0,
     u8 param7);
 
 u32 FUN_0205FC9C(
-    struct UnkCallbackStruct2_0205FA2C *param0, struct UnkSavStruct80 *param1);
+    struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem);
 u32 FUN_0205FCC4(
-    struct UnkCallbackStruct2_0205FA2C *param0, struct UnkSavStruct80 *param1);
+    struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem);
 int FUN_0205FCE8(struct UnkStruct_0204639C *param0);
 void FUN_0205FD38(struct UnkStruct_0204639C *param0, u16 param1, u16 param2, u16 param3);
 

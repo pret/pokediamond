@@ -27,7 +27,7 @@ struct UnkStruct_02046444
     struct UnkStruct_020464D4 unk90[1]; //todo find size
 };
 
-struct UnkSavStruct80
+struct FieldSystem
 {
     u32 *unk00;
     u8 padding[0x4];
@@ -64,8 +64,8 @@ struct ScriptContext
     u32 data[4];
     struct UnkStruct_0204639C *unk74;
     struct MsgData *msgData;
-    u8 *unk7C;
-    struct UnkSavStruct80 *unk80;
+    u8 *mapScripts;
+    struct FieldSystem *fieldSystem;
 };
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

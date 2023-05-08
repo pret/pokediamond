@@ -346,7 +346,7 @@ const u16 *sSealsMartPointers[] = {
 
 THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pokemart?
 {
-    u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 whichMart = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     s32 param;
     u16 martItems[64];
     u8 martIdx = 0;
@@ -355,7 +355,7 @@ THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pok
 
     for (i = 0; i < 8; i++)
     {
-        if (PlayerProfile_TestBadgeFlag(Sav2_PlayerData_GetProfileAddr(ctx->unk80->saveBlock2), i) == TRUE)
+        if (PlayerProfile_TestBadgeFlag(Sav2_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2), i) == TRUE)
             badgeCount++;
     }
     switch (badgeCount)
@@ -394,13 +394,13 @@ THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pok
         }
     }
     martItems[martIdx] = 0xFFFF; // terminator
-    MOD06_0223D3D0(ctx->unk74, ctx->unk80, martItems, MART_ITEMS, 0);
+    MOD06_0223D3D0(ctx->unk74, ctx->fieldSystem, martItems, MART_ITEMS, 0);
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx) //0148
 {
-    u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 whichMart = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     u32 sp0;
 
     // Fakematch?
@@ -409,13 +409,13 @@ THUMB_FUNC BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx) //0148
     else
         sp0 = 0;
 
-    MOD06_0223D3D0(ctx->unk74, ctx->unk80, sSpecialMartPointers[whichMart], MART_ITEMS, sp0);
+    MOD06_0223D3D0(ctx->unk74, ctx->fieldSystem, sSpecialMartPointers[whichMart], MART_ITEMS, sp0);
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx) //0149
 {
-    u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 whichMart = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     u32 sp0;
 
     if (whichMart <= 1)
@@ -423,20 +423,20 @@ THUMB_FUNC BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx) //0149
     else
         sp0 = 0;
 
-    MOD06_0223D3D0(ctx->unk74, ctx->unk80, sDecorationMartPointers[whichMart], MART_DECORATIONS, sp0);
+    MOD06_0223D3D0(ctx->unk74, ctx->fieldSystem, sDecorationMartPointers[whichMart], MART_DECORATIONS, sp0);
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_SealsMart(struct ScriptContext * ctx) //014A
 {
-    u16 whichMart = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 whichMart = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
-    MOD06_0223D3D0(ctx->unk74, ctx->unk80, sSealsMartPointers[whichMart], MART_SEALS, 0);
+    MOD06_0223D3D0(ctx->unk74, ctx->fieldSystem, sSealsMartPointers[whichMart], MART_SEALS, 0);
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_AccessoriesShop(struct ScriptContext * ctx) //0257 - todo: Unsure if this is correct, SDSME has it as SprtSave?
 {
-    FUN_02038AD0(ctx->unk80->unk10);
+    FUN_02038AD0(ctx->fieldSystem->unk10);
     return TRUE;
 }

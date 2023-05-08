@@ -30,8 +30,8 @@ const u8 UNK_020F457F[8] = {
 
 THUMB_FUNC BOOL ScrCmd_HasSinnohDex(struct ScriptContext* ctx) //0157
 {
-    struct Pokedex* pokedex = Sav2_Pokedex_get(ctx->unk80->saveBlock2);
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
+    struct Pokedex* pokedex = Sav2_Pokedex_get(ctx->fieldSystem->saveBlock2);
+    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     *ret_ptr = (u16)Pokedex_GetSinnohDexFlag(pokedex);
 
@@ -40,7 +40,7 @@ THUMB_FUNC BOOL ScrCmd_HasSinnohDex(struct ScriptContext* ctx) //0157
 
 THUMB_FUNC BOOL ScrCmd_GiveSinnohDex(struct ScriptContext* ctx) //0158
 {
-    struct Pokedex* pokedex = Sav2_Pokedex_get(ctx->unk80->saveBlock2);
+    struct Pokedex* pokedex = Sav2_Pokedex_get(ctx->fieldSystem->saveBlock2);
 
     Pokedex_SetSinnohDexFlag(pokedex);
 
@@ -49,8 +49,8 @@ THUMB_FUNC BOOL ScrCmd_GiveSinnohDex(struct ScriptContext* ctx) //0158
 
 THUMB_FUNC BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx) //0159
 {
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    void* unk_sav_ptr = FUN_02034E30(ctx->unk80->saveBlock2);
+    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    void* unk_sav_ptr = FUN_02034E30(ctx->fieldSystem->saveBlock2);
     void* unk = FUN_02034E20(unk_sav_ptr);
 
     *ret_ptr = (u16)FUN_02055474(unk);
@@ -60,7 +60,7 @@ THUMB_FUNC BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx) //0159
 
 THUMB_FUNC BOOL ScrCmd_GiveRunningShoes(struct ScriptContext* ctx) //015A
 {
-    void* unk_sav_ptr = FUN_02034E30(ctx->unk80->saveBlock2);
+    void* unk_sav_ptr = FUN_02034E30(ctx->fieldSystem->saveBlock2);
     void* unk = FUN_02034E20(unk_sav_ptr);
 
     FUN_02055488(unk, 1);
@@ -70,10 +70,10 @@ THUMB_FUNC BOOL ScrCmd_GiveRunningShoes(struct ScriptContext* ctx) //015A
 
 THUMB_FUNC BOOL ScrCmd_HasBadge(struct ScriptContext* ctx) //015B
 {
-    u16 badge_no = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 badge_no = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
     GF_ASSERT(badge_no < 8);
-    struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(ctx->unk80->saveBlock2);
+    struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
 
     *ret_ptr = (u16)PlayerProfile_TestBadgeFlag(player, badge_no);
 
@@ -82,9 +82,9 @@ THUMB_FUNC BOOL ScrCmd_HasBadge(struct ScriptContext* ctx) //015B
 
 THUMB_FUNC BOOL ScrCmd_GiveBadge(struct ScriptContext* ctx) //015C
 {
-    u16 badge_no = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 badge_no = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     GF_ASSERT(badge_no < 8);
-    struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(ctx->unk80->saveBlock2);
+    struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
 
     PlayerProfile_SetBadgeFlag(player, badge_no);
 
@@ -93,8 +93,8 @@ THUMB_FUNC BOOL ScrCmd_GiveBadge(struct ScriptContext* ctx) //015C
 
 THUMB_FUNC BOOL ScrCmd_HasBag(struct ScriptContext* ctx) //015E
 {
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     *ret_ptr = (u16)FUN_0205ECE0(state);
 
@@ -103,13 +103,13 @@ THUMB_FUNC BOOL ScrCmd_HasBag(struct ScriptContext* ctx) //015E
 
 THUMB_FUNC BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx) //015D - todo: CountBadges?
 {
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
+    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     u16 i;
     u16 badges;
     for (i = 0, badges = 0; i < 8; i++)
     {
-        struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(ctx->unk80->saveBlock2);
+        struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
         BOOL has_badge = PlayerProfile_TestBadgeFlag(player, UNK_020F457F[i]);
         if (has_badge == TRUE)
         {
@@ -123,7 +123,7 @@ THUMB_FUNC BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx) //015D - 
 
 THUMB_FUNC BOOL ScrCmd_GiveBag(struct ScriptContext* ctx) //015F
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
     
     FUN_0205ECD4(state);
 
@@ -132,8 +132,8 @@ THUMB_FUNC BOOL ScrCmd_GiveBag(struct ScriptContext* ctx) //015F
 
 THUMB_FUNC BOOL ScrCmd_Unk0160(struct ScriptContext* ctx) //0160 - todo: HasPartner? CheckPartner?
 {
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     *ret_ptr = (u16)FUN_0205ED3C(state);
 
@@ -142,7 +142,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0160(struct ScriptContext* ctx) //0160 - todo: HasPart
 
 THUMB_FUNC BOOL ScrCmd_Unk0161(struct ScriptContext* ctx) //0161 - todo: GivePartner? SetPartner?
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     FUN_0205ED1C(state);
 
@@ -151,7 +151,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0161(struct ScriptContext* ctx) //0161 - todo: GivePar
 
 THUMB_FUNC BOOL ScrCmd_Unk0162(struct ScriptContext* ctx) //0162 - todo: RemovePartner? ClearPartner?
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     FUN_0205ED2C(state);
 
@@ -160,8 +160,8 @@ THUMB_FUNC BOOL ScrCmd_Unk0162(struct ScriptContext* ctx) //0162 - todo: RemoveP
 
 THUMB_FUNC BOOL ScrCmd_Unk0163(struct ScriptContext* ctx) //0163 - todo: GetSteps? CheckSteps? GetStepFlag? CheckStepFlag?
 {
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     *ret_ptr = (u16)FUN_0205ED6C(state);
 
@@ -170,7 +170,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0163(struct ScriptContext* ctx) //0163 - todo: GetStep
 
 THUMB_FUNC BOOL ScrCmd_Unk0164(struct ScriptContext* ctx) //0164 - todo: SetStepFlag?
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     FUN_0205ED4C(state);
 
@@ -179,7 +179,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0164(struct ScriptContext* ctx) //0164 - todo: SetStep
 
 THUMB_FUNC BOOL ScrCmd_Unk0165(struct ScriptContext* ctx) //0165 - todo: ClearStepFlag?
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     FUN_0205ED5C(state);
 
@@ -188,8 +188,8 @@ THUMB_FUNC BOOL ScrCmd_Unk0165(struct ScriptContext* ctx) //0165 - todo: ClearSt
 
 THUMB_FUNC BOOL ScrCmd_CheckGameCompleted(struct ScriptContext* ctx) //0166
 {
-    u16* ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     *ret_ptr = (u16)FUN_0205ED0C(state);
 
@@ -198,7 +198,7 @@ THUMB_FUNC BOOL ScrCmd_CheckGameCompleted(struct ScriptContext* ctx) //0166
 
 THUMB_FUNC BOOL ScrCmd_SetGameCompleted(struct ScriptContext* ctx) //0167
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     FUN_0205ECFC(state);
 
@@ -207,7 +207,7 @@ THUMB_FUNC BOOL ScrCmd_SetGameCompleted(struct ScriptContext* ctx) //0167
 
 THUMB_FUNC BOOL ScrCmd_GetSetStrength(struct ScriptContext* ctx) //01CF - todo: Strength?
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
     u8 option = ScriptReadByte(ctx);
     u16* ret_ptr;
 
@@ -220,7 +220,7 @@ THUMB_FUNC BOOL ScrCmd_GetSetStrength(struct ScriptContext* ctx) //01CF - todo: 
         FUN_0205F264(state, 0);
         break;
     case 2: //get whether strength is on or off
-        ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
+        ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
         *ret_ptr = (u16)FUN_0205F264(state, 2);
         break;
     default:
@@ -233,7 +233,7 @@ THUMB_FUNC BOOL ScrCmd_GetSetStrength(struct ScriptContext* ctx) //01CF - todo: 
 
 THUMB_FUNC BOOL ScrCmd_GetSetFlash(struct ScriptContext* ctx) //01D0 - todo Flash?
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
     u8 option = ScriptReadByte(ctx);
     u16* ret_ptr;
 
@@ -246,7 +246,7 @@ THUMB_FUNC BOOL ScrCmd_GetSetFlash(struct ScriptContext* ctx) //01D0 - todo Flas
         FUN_0205F284(state);
         break;
     case 2: //get whether flash is on or off
-        ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
+        ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
         *ret_ptr = (u16)FUN_0205F294(state);
         break;
     default:
@@ -259,7 +259,7 @@ THUMB_FUNC BOOL ScrCmd_GetSetFlash(struct ScriptContext* ctx) //01D0 - todo Flas
 
 THUMB_FUNC BOOL ScrCmd_GetSetDefog(struct ScriptContext* ctx) //01D1 - todo: Defog
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->unk80->saveBlock2);
+    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
     u8 option = ScriptReadByte(ctx);
     u16* ret_ptr;
 
@@ -272,7 +272,7 @@ THUMB_FUNC BOOL ScrCmd_GetSetDefog(struct ScriptContext* ctx) //01D1 - todo: Def
         FUN_0205F2B4(state);
         break;
     case 2: //get whether defog is on or off
-        ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
+        ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
         *ret_ptr = (u16)FUN_0205F2C4(state);
         break;
     default:

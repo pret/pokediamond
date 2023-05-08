@@ -4,9 +4,9 @@
 #include "global.h"
 #include "script.h"
 
-extern u16 VarGet(struct UnkSavStruct80* arg, u16);
-extern u16* GetVarPointer(struct UnkSavStruct80* arg, u16);
-extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct UnkSavStruct80* unk);
+extern u16 VarGet(struct FieldSystem *fieldSystem, u16);
+extern u16* GetVarPointer(struct FieldSystem *fieldSystem, u16);
+extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct FieldSystem *fieldSystem);
 
 struct UnkStruct_0203A288 {
     u8 unk0;
@@ -20,7 +20,7 @@ typedef struct UnkStruct_0203B174
     BOOL Unk00;
     u32 Unk04;
     void *Unk08;
-    struct UnkSavStruct80 *Unk0C;
+    struct FieldSystem *fieldSystem;
 } UnkStruct_0203B174;
 
 //scrcmd.c
