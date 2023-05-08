@@ -207,6 +207,7 @@ $(BUILD_DIR)/lib/%.o: MWCCVERSION = 1.2/sp2p3
 $(BUILD_DIR)/lib/%.o: MWCFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -interworking -DFS_IMPLEMENT -enum int -W all -i ../include -ir ../include-mw -ir lib/libc/include -ir lib/libnns/include -ir lib/NitroSDK/include
 
 $(BUILD_DIR)/lib/libnns/%.o: MWCCVERSION = 1.2/sp3
+$(BUILD_DIR)/lib/libc/%.o: MWCCVERSION = 2.0/sp1
 
 ####################### Everything Else ######################
 
