@@ -26,8 +26,8 @@ extern u32  MOD06_022451F0(u32);
 
 extern void FUN_02049160(struct UnkStruct_0204639C*, u32);
 extern void FUN_0204C1B4(struct UnkStruct_0204639C*, u32,u32,u32,u32,u32,u32,u32);
-extern u32  FUN_020553A0(u32);
-extern void FUN_0205889C(u32, u32);
+extern struct Vecx32 *FUN_020553A0(struct PlayerAvatar *playerAvatar);
+extern void FUN_0205889C(struct Vecx32 *param0, u32);
 extern void FUN_0205F1C4(struct ScriptState *);
 extern void FUN_0205F1D4(struct ScriptState *);
 extern void FUN_0206367C(struct UnkSavStruct80 *, u32);
@@ -84,7 +84,7 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
         break;
 
     case 4:
-        u32 unk0 = FUN_020553A0(savStruct->unk38);
+        struct Vecx32 *unk0 = FUN_020553A0(savStruct->playerAvatar);
         unkStruct1->unkD += 1;
         if (unkStruct1->unkD <= 5)
         {
