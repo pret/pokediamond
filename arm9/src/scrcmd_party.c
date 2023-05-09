@@ -1,14 +1,14 @@
-#include "scrcmd.h"
 #include "constants/moves.h"
 #include "itemtool.h"
 #include "map_header.h"
 #include "module_05.h"
 #include "party.h"
 #include "save_block_2.h"
+#include "scrcmd.h"
 #include "script_pokemon_util.h"
+#include "task.h"
 #include "unk_02015CC0.h"
 #include "unk_02022504.h"
-#include "unk_0204639C.h"
 #include "unk_0207FC5C.h"
 
 extern u16 FUN_02054DEC(struct SaveBlock2* sav2);

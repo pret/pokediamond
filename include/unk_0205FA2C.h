@@ -8,12 +8,12 @@
 #include "party.h"
 #include "player_data.h"
 #include "script.h"
+#include "task.h"
 #include "unk_020286F8.h"
 #include "unk_02029FB0.h"
 #include "unk_0202A8F4.h"
-#include "unk_0204639C.h"
-#include "unk_0206BB28.h"
 #include "unk_02031480.h"
+#include "unk_0206BB28.h"
 
 struct UnkPlayerStruct1_0205FA2C
 {
@@ -88,8 +88,8 @@ u32 FUN_0205FB34(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id);
 u32 FUN_0205FBC0(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem);
-int FUN_0205FBE8(struct UnkStruct_0204639C *param0);
-void FUN_0205FC50(struct UnkStruct_0204639C *param0,
+BOOL FUN_0205FBE8(struct TaskManager *taskManager);
+void FUN_0205FC50(struct TaskManager *taskManager,
     void **param1,
     u8 param2,
     u8 param3,
@@ -102,11 +102,11 @@ u32 FUN_0205FC9C(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem);
 u32 FUN_0205FCC4(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem);
-int FUN_0205FCE8(struct UnkStruct_0204639C *param0);
-void FUN_0205FD38(struct UnkStruct_0204639C *param0, u16 param1, u16 param2, u16 param3);
+BOOL FUN_0205FCE8(struct TaskManager *taskManager);
+void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3);
 
-int FUN_0205FD70(struct UnkStruct_0204639C *param0);
-void FUN_0205FDDC(struct UnkStruct_0204639C *param0, u16 param1, u16 param2);
+BOOL FUN_0205FD70(struct TaskManager *taskManager);
+void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2);
 
 u32 FUN_0205FE10(struct SaveBlock2 *sav2);
 u32 FUN_0205FF5C(struct SaveBlock2 *sav2);

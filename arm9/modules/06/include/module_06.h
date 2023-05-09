@@ -9,6 +9,6 @@ enum MartType
     MART_DECORATIONS = MART_GOODS,
 };
 
-void MOD06_0223D3D0(struct UnkStruct_0204639C *, struct FieldSystem *, const u16 *, enum MartType, u32);
+void MOD06_0223D3D0(struct TaskManager *, struct FieldSystem *, const u16 *, enum MartType, u32);
 
 #endif //POKEDIAMOND_MODULE_06_H

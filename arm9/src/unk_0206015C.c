@@ -24,8 +24,8 @@ extern void MOD06_02245190(u32);
 extern void MOD06_02245198(u8, u32);
 extern u32  MOD06_022451F0(u32);
 
-extern void FUN_02049160(struct UnkStruct_0204639C*, u32);
-extern void FUN_0204C1B4(struct UnkStruct_0204639C*, u32,u32,u32,u32,u32,u32,u32);
+extern void FUN_02049160(struct TaskManager *taskManager, u32);
+extern void FUN_0204C1B4(struct TaskManager *taskManager, u32,u32,u32,u32,u32,u32,u32);
 extern struct Vecx32 *FUN_020553A0(struct PlayerAvatar *playerAvatar);
 extern void FUN_0205889C(struct Vecx32 *param0, u32);
 extern void FUN_0205F1C4(struct ScriptState *);
@@ -40,13 +40,13 @@ THUMB_FUNC void FUN_0206015C(struct FieldSystem *fieldSystem)
     unkStruct->unkC = 0;
     unkStruct->unkD = 0;
 
-    FUN_0204640C(fieldSystem->unk10, FUN_02060194, (u32 *)unkStruct);
+    FUN_0204640C(fieldSystem->taskManager, FUN_02060194, (u32 *)unkStruct);
 }
 
-THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
+THUMB_FUNC BOOL FUN_02060194(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(unkStruct0);
-    struct UnkStruct_0204652C *unkStruct1 = (struct UnkStruct_0204652C *)FUN_0204652C(unkStruct0);
+    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
+    struct UnkStruct_0204652C *unkStruct1 = (struct UnkStruct_0204652C *)FUN_0204652C(taskManager);
 
     switch (unkStruct1->action)
     {
@@ -54,12 +54,12 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
         FUN_0206367C(fieldSystem, 1);
         MOD06_02245198(unkStruct1->unkD, unkStruct1->unk4);
         unkStruct1->unk8 = MOD06_022451F0(unkStruct1->unk4);
-        FUN_0204AFC8(unkStruct0);
+        FUN_0204AFC8(taskManager);
         unkStruct1->action = 1;
         break;
 
     case 1:
-        FUN_0204AF3C(unkStruct0);
+        FUN_0204AF3C(taskManager);
         unkStruct1->action = 2;
         break;
 
@@ -74,12 +74,12 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
         {
             FUN_0205F1D4(scrState);
         }
-        FUN_02049160(unkStruct0, unkStruct1->unk8);
+        FUN_02049160(taskManager, unkStruct1->unk8);
         unkStruct1->action = 3;
         break;
 
     case 3:
-        FUN_0204AF84(unkStruct0);
+        FUN_0204AF84(taskManager);
         unkStruct1->action = 4;
         break;
 
@@ -94,13 +94,13 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
             MOD06_02244EF8(unkStruct1->unk0);
             unkStruct1->unkE = 0;
             PlaySE(SEQ_SE_DP_KASYA);
-            FUN_0204C1B4(unkStruct0, 0x3, 0x11, 0x0000FFFF, 0, 6, 1, 0xb);
+            FUN_0204C1B4(taskManager, 0x3, 0x11, 0x0000FFFF, 0, 6, 1, 0xb);
             unkStruct1->action = 5;
         }
         else
         {
             FUN_0205889C(unk0, 0);
-            FUN_0204B00C(unkStruct0);
+            FUN_0204B00C(taskManager);
             unkStruct1->action = 8;
         }
         break;
@@ -114,7 +114,7 @@ THUMB_FUNC BOOL FUN_02060194(struct UnkStruct_0204639C *unkStruct0)
         unkStruct1->unk8 = MOD06_022451F0(unkStruct1->unk4);
 
         PlaySE(SEQ_SE_DP_KASYA);
-        FUN_0204C1B4(unkStruct0, 0x3, 0x10, 0x0000FFFF, 0, 6, 1, 0xb);
+        FUN_0204C1B4(taskManager, 0x3, 0x10, 0x0000FFFF, 0, 6, 1, 0xb);
         unkStruct1->action = 6;
         break;
 

@@ -1,16 +1,16 @@
 #include "scrcmd.h"
-#include "unk_0200CA44.h"
-#include "unk_0204639C.h"
+#include "PAD_pad.h"
+#include "bg_window.h"
+#include "camera.h"
 #include "main.h"
 #include "options.h"
-#include "PAD_pad.h"
 #include "player_data.h"
-#include "text.h"
-#include "bg_window.h"
 #include "render_window.h"
+#include "task.h"
+#include "text.h"
 #include "text_02054590.h"
+#include "unk_0200CA44.h"
 #include "unk_0205EC84.h"
-#include "camera.h"
 
 extern void *FUN_02039438(struct FieldSystem* fieldSystem, u32 id);
 extern void *CreateScriptContext(struct FieldSystem* fieldSystem, u16 id);
@@ -351,7 +351,7 @@ THUMB_FUNC BOOL ScrCmd_ObjectGoTo(struct ScriptContext *ctx) //0017
 
 THUMB_FUNC BOOL ScrCmd_BgGoTo(struct ScriptContext *ctx) //0018
 {
-    u32 bgId = FUN_02046534(ctx->unk74);
+    u32 bgId = FUN_02046534(ctx->taskManager);
     u8 id = ScriptReadByte(ctx);
     s32 offset = (s32)ScriptReadWord(ctx);
 

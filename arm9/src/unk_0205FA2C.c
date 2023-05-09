@@ -148,11 +148,11 @@ THUMB_FUNC u32 FUN_0205FBC0(
     return 0;
 }
 
-THUMB_FUNC int FUN_0205FBE8(struct UnkStruct_0204639C *param0)
+THUMB_FUNC BOOL FUN_0205FBE8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(param0);
+    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     struct UnkCallbackStruct1_0205FA2C *res2 =
-        (struct UnkCallbackStruct1_0205FA2C *)FUN_0204652C(param0);
+        (struct UnkCallbackStruct1_0205FA2C *)FUN_0204652C(taskManager);
     switch (res2->unk04)
     {
     case 0:
@@ -169,13 +169,13 @@ THUMB_FUNC int FUN_0205FBE8(struct UnkStruct_0204639C *param0)
         break;
     case 4:
         FreeToHeap(res2);
-        return 1;
+        return TRUE;
     }
 
-    return 0;
+    return FALSE;
 }
 
-THUMB_FUNC void FUN_0205FC50(struct UnkStruct_0204639C *param0,
+THUMB_FUNC void FUN_0205FC50(struct TaskManager *taskManager,
     void **param1,
     u8 param2,
     u8 param3,
@@ -184,7 +184,7 @@ THUMB_FUNC void FUN_0205FC50(struct UnkStruct_0204639C *param0,
     u8 param6,
     u8 param7)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(param0);
+    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
 
     struct UnkCallbackStruct1_0205FA2C *ptr = (struct UnkCallbackStruct1_0205FA2C *)AllocFromHeap(
         0xb, sizeof(struct UnkCallbackStruct1_0205FA2C));
@@ -198,7 +198,7 @@ THUMB_FUNC void FUN_0205FC50(struct UnkStruct_0204639C *param0,
     ptr->unk0d = param7;
     ptr->unk14 = param1;
 
-    FUN_0204640C(fieldSystem->unk10, &FUN_0205FBE8, (u32 *)ptr);
+    FUN_0204640C(fieldSystem->taskManager, &FUN_0205FBE8, ptr);
 }
 
 THUMB_FUNC u32 FUN_0205FC9C(
@@ -229,11 +229,11 @@ THUMB_FUNC u32 FUN_0205FCC4(
     return 2;
 }
 
-THUMB_FUNC int FUN_0205FCE8(struct UnkStruct_0204639C *param0)
+THUMB_FUNC BOOL FUN_0205FCE8(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(param0);
+    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     struct UnkCallbackStruct2_0205FA2C *res2 =
-        (struct UnkCallbackStruct2_0205FA2C *)FUN_0204652C(param0);
+        (struct UnkCallbackStruct2_0205FA2C *)FUN_0204652C(taskManager);
 
     switch (res2->unk04)
     {
@@ -248,15 +248,15 @@ THUMB_FUNC int FUN_0205FCE8(struct UnkStruct_0204639C *param0)
         *var = (u16)res2->unk00;
         FreeToHeap(res2);
 
-        return 1;
+        return TRUE;
     }
 
-    return 0;
+    return FALSE;
 }
 
-THUMB_FUNC void FUN_0205FD38(struct UnkStruct_0204639C *param0, u16 param1, u16 param2, u16 param3)
+THUMB_FUNC void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(param0);
+    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(
         0xb, sizeof(struct UnkCallbackStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkCallbackStruct2_0205FA2C));
@@ -265,17 +265,17 @@ THUMB_FUNC void FUN_0205FD38(struct UnkStruct_0204639C *param0, u16 param1, u16 
     ptr->unk14 = param3;
     ptr->unk10 = param2;
 
-    FUN_0204640C(fieldSystem->unk10, &FUN_0205FCE8, (u32 *)ptr);
+    FUN_0204640C(fieldSystem->taskManager, &FUN_0205FCE8, (u32 *)ptr);
 }
 
-THUMB_FUNC int FUN_0205FD70(struct UnkStruct_0204639C *param0)
+THUMB_FUNC BOOL FUN_0205FD70(struct TaskManager *taskManager)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(param0);
-    u16 *res2 = (u16 *)FUN_0204652C(param0);
+    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
+    u16 *res2 = (u16 *)FUN_0204652C(taskManager);
     u8 *res3 = FUN_020316E0(1 - FUN_02031190());
     if (res3 == NULL)
     {
-        return 0;
+        return FALSE;
     }
 
     u16 *var = GetVarPointer(fieldSystem, res2[1]);
@@ -294,12 +294,12 @@ THUMB_FUNC int FUN_0205FD70(struct UnkStruct_0204639C *param0)
 
     FreeToHeap(res2);
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC void FUN_0205FDDC(struct UnkStruct_0204639C *param0, u16 param1, u16 param2)
+THUMB_FUNC void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
 {
-    struct FieldSystem *fieldSystem = FUN_02046528(param0);
+    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
 
     u16 *ptr = AllocFromHeap(0xb, 2 * sizeof(u16));
     MI_CpuFill8(ptr, 0, 2 * sizeof(u16));
@@ -307,7 +307,7 @@ THUMB_FUNC void FUN_0205FDDC(struct UnkStruct_0204639C *param0, u16 param1, u16 
     ptr[0] = param1;
     ptr[1] = param2;
 
-    FUN_0204640C(fieldSystem->unk10, &FUN_0205FD70, (u32 *)ptr);
+    FUN_0204640C(fieldSystem->taskManager, &FUN_0205FD70, (u32 *)ptr);
 }
 
 THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)

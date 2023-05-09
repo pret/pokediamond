@@ -4,7 +4,7 @@
 
 extern void* FUN_02039438(struct FieldSystem*, u8 idx);
 
-extern void FUN_020385CC(struct UnkStruct_0204639C*, u32, u32, u32, u32, u16*, u16* ret_ptr);
+extern void FUN_020385CC(struct TaskManager *, u32, u32, u32, u32, u16*, u16* ret_ptr);
 extern BOOL FUN_020612EC(struct FieldSystem*);
 extern BOOL FUN_020612F8(struct FieldSystem*);
 
@@ -49,7 +49,7 @@ THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
         u16* unk_str_ptr = FUN_020287A8(unk_sav_ptr, 0, 0);
         u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
-        FUN_020385CC(ctx->unk74, 5, 0, 7, 0, unk_str_ptr, ret_ptr);
+        FUN_020385CC(ctx->taskManager, 5, 0, 7, 0, unk_str_ptr, ret_ptr);
         return TRUE;
     }
     case 5: { //enter in group id (whatever this means, needs more investigation)
