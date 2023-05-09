@@ -259,7 +259,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk006B
 	.word ScrCmd_KeepOverworldEvent
 	.word ScrCmd_SetOverworldEventMovement
-	.word ScrCmd_Unk006E
+	.word ScrCmd_OverworldEventStopFollowing
 	.word ScrCmd_GiveMoney
 	.word ScrCmd_TakeMoneyImmediate
 	.word ScrCmd_HasEnoughMoneyImmediate

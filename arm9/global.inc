@@ -2806,7 +2806,7 @@
 .extern ScrCmd_KeepOverworldEvent
 .extern ScrCmd_SetOverworldEventMovement
 .extern ScrCmd_GetOverworldEventMovement
-.extern ScrCmd_Unk006E
+.extern ScrCmd_OverworldEventStopFollowing
 .extern ScrCmd_Unk02AB
 .extern ScrCmd_Unk0093
 .extern ScrCmd_Unk0094

@@ -86,6 +86,7 @@ extern void FUN_02058BB4(struct Vecx32 *param0, struct Vecx32 *param1);
 extern void FUN_02058994(struct Vecx32 *vector, u8 value);
 extern void FUN_02058E90(struct Vecx32 *vector, u16 movement);
 extern u16 FUN_02058480(struct Vecx32 *vector);
+extern void FUN_02058EB0(struct Vecx32 *vector, u32 param1);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1756,5 +1757,12 @@ THUMB_FUNC BOOL ScrCmd_GetOverworldEventMovement(struct ScriptContext *ctx) //02
     {
         *variable = FUN_02058480(vector);
     }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx) //006E
+{
+    struct Vecx32 *vector = FUN_020580B4(ctx->fieldSystem->unk34, 0x30);
+    FUN_02058EB0(vector, 0xFE);
     return FALSE;
 }
