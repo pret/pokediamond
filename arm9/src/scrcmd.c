@@ -85,6 +85,7 @@ extern u16 GetPlayerYCoord(struct PlayerAvatar *playerAvatar);
 extern void FUN_02058BB4(struct Vecx32 *param0, struct Vecx32 *param1);
 extern void FUN_02058994(struct Vecx32 *vector, u8 value);
 extern void FUN_02058E90(struct Vecx32 *vector, u16 movement);
+extern u16 FUN_02058480(struct Vecx32 *vector);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1741,5 +1742,19 @@ THUMB_FUNC BOOL ScrCmd_SetOverworldEventMovement(struct ScriptContext *ctx) //00
     struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
     u16 movement = ScriptReadHalfword(ctx);
     FUN_02058E90(vector, movement);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetOverworldEventMovement(struct ScriptContext *ctx) //02AD
+{
+    u16 *variable = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    *variable = 0;
+    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    if (vector != NULL)
+    {
+        *variable = FUN_02058480(vector);
+    }
     return FALSE;
 }

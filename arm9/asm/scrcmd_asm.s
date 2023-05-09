@@ -14,40 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk02AD
-ScrCmd_Unk02AD: ; 0x0203B790
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r4, r0, #0x0
-	mov r0, #0x0
-	strh r0, [r4, #0x0]
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r5, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r5, #0x0]
-	ldr r0, [r0, #0x34]
-	bl FUN_02058060
-	cmp r0, #0x0
-	beq _0203B7D2
-	bl FUN_02058480
-	strh r0, [r4, #0x0]
-_0203B7D2:
-	mov r0, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk006E
 ScrCmd_Unk006E: ; 0x0203B7D8
 	push {r3, lr}

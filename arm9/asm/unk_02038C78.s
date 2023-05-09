@@ -834,7 +834,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02AA
 	.word ScrCmd_Unk02AB
 	.word ScrCmd_Unk02AC
-	.word ScrCmd_Unk02AD
+	.word ScrCmd_GetOverworldEventMovement
 	.word ScrCmd_Unk02AE
 	.word ScrCmd_Unk02AF
 	.word ScrCmd_Unk02B0
