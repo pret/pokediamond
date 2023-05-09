@@ -6,6 +6,7 @@
 #include "options.h"
 #include "player_data.h"
 #include "render_window.h"
+#include "seal.h"
 #include "task.h"
 #include "text.h"
 #include "text_02054590.h"
@@ -87,6 +88,7 @@ extern void FUN_02058994(struct Vecx32 *vector, u8 value);
 extern void FUN_02058E90(struct Vecx32 *vector, u16 movement);
 extern u16 FUN_02058480(struct Vecx32 *vector);
 extern void FUN_02058EB0(struct Vecx32 *vector, u32 param1);
+extern u16 FUN_02029E0C(struct SealCase *sealCase);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1764,5 +1766,13 @@ THUMB_FUNC BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx) //
 {
     struct Vecx32 *vector = FUN_020580B4(ctx->fieldSystem->unk34, 0x30);
     FUN_02058EB0(vector, 0xFE);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk02AB(struct ScriptContext *ctx) //02AB
+{
+    u16 *unk0 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
+    *unk0 = FUN_02029E0C(sealCase);
     return FALSE;
 }

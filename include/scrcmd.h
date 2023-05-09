@@ -134,6 +134,7 @@ BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx);
 BOOL ScrCmd_SetOverworldEventMovement(struct ScriptContext *ctx);
 BOOL ScrCmd_GetOverworldEventMovement(struct ScriptContext *ctx);
 BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk02AB(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
