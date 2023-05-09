@@ -296,7 +296,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_TakeUndergroundSphere
 	.word ScrCmd_HasSpaceForSphere
 	.word ScrCmd_GetSphereCount
-	.word ScrCmd_Unk0093
+	.word ScrCmd_GetSealCountFromId
 	.word ScrCmd_Unk0094
 	.word ScrCmd_Unk0095
 	.word ScrCmd_GiveMon

@@ -2808,7 +2808,7 @@
 .extern ScrCmd_GetOverworldEventMovement
 .extern ScrCmd_OverworldEventStopFollowing
 .extern ScrCmd_Unk02AB
-.extern ScrCmd_Unk0093
+.extern ScrCmd_GetSealCountFromId
 .extern ScrCmd_Unk0094
 .extern ScrCmd_Unk0095
 .extern ScrCmd_Unk0191
