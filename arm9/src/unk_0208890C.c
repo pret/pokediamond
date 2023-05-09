@@ -1,24 +1,24 @@
 #include "global.h"
+#include "unk_0208890C.h"
+#include "MI_memory.h"
 #include "bag.h"
 #include "heap.h"
 #include "main.h"
-#include "MI_memory.h"
 #include "player_data.h"
-#include "script.h"
-#include "unk_0208890C.h"
+#include "poke_overlay.h"
 
 extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct FieldSystem *);
 extern void* FUN_02028048(struct SaveBlock2* sav2);
-extern void FUN_020373D4(struct FieldSystem *, struct Unk21DBE18*, void*);
-extern BOOL FUN_020889B0(struct UnkStruct_02006234*, u32*);
-extern BOOL FUN_02088A00(struct UnkStruct_02006234*, u32*);
-extern BOOL FUN_02088A78(struct UnkStruct_02006234*, u32*);
+extern void FUN_020373D4(struct FieldSystem *, struct OverlayManagerTemplate *, void*);
+extern BOOL FUN_020889B0(struct OverlayManager *, u32*);
+extern BOOL FUN_02088A00(struct OverlayManager *, u32*);
+extern BOOL FUN_02088A78(struct OverlayManager *, u32*);
 
-const struct Unk21DBE18 UNK_020FD6E4 = {
+const struct OverlayManagerTemplate UNK_020FD6E4 = {
     FUN_020889B0,
     FUN_02088A00,
     FUN_02088A78,
-    0xFFFFFFFF,
+    SDK_OVERLAY_INVALID_ID,
 };
 
 THUMB_FUNC struct UnkStruct_0208890C* FUN_0208890C(void* a0, struct SaveBlock2* sav2, u32 heap_id, void* a3)
@@ -37,9 +37,9 @@ THUMB_FUNC struct UnkStruct_0208890C* FUN_0208890C(void* a0, struct SaveBlock2* 
     return ret;
 }
 
-THUMB_FUNC void FUN_02088950(struct FieldSystem *fieldSystem, struct UnkStruct_0208890C* unk2)
+THUMB_FUNC void FUN_02088950(struct FieldSystem *fieldSystem, struct UnkStruct_0208890C *param1)
 {
-    FUN_020373D4(fieldSystem, (struct Unk21DBE18*)&UNK_020FD6E4, unk2);
+    FUN_020373D4(fieldSystem, (struct OverlayManagerTemplate *)&UNK_020FD6E4, param1);
 }
 
 THUMB_FUNC struct UnkStruct_0208890C* FUN_02088960(struct FieldSystem *fieldSystem, void* a1, u32 heap_id)

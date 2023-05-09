@@ -3,28 +3,8 @@
 
 #include "FS_overlay.h"
 #include "SPI_pm.h"
+#include "overlay_manager.h"
 #include "save_block_2.h"
-
-struct UnkStruct_02006234;
-
-struct Unk21DBE18
-{
-    BOOL (*initFunc)(struct UnkStruct_02006234 *, u32 *);
-    BOOL (*mainFunc)(struct UnkStruct_02006234 *, u32 *);
-    BOOL (*exitFunc)(struct UnkStruct_02006234 *, u32 *);
-    FSOverlayID ovly;
-};
-
-struct UnkStruct_02006234
-{
-    struct Unk21DBE18 ovly_mgr;
-    u32 unk10;
-    u32 unk14;
-    s32 * unk18;
-    void * unk1C;
-    struct SaveBlock2 * unk20;
-    u32 unk24;
-};
 
 struct Unk21C4818
 {
@@ -96,13 +76,13 @@ extern s32 UNK_02016FA4;
 
 struct UnkStruct_02016FA8
 {
-    FSOverlayID unk0;
-    struct UnkStruct_02006234 *unk4;
-    FSOverlayID unk8;
-    const struct Unk21DBE18 * unkC;
+    FSOverlayID mainOverlayId;
+    struct OverlayManager *overlayManager;
+    FSOverlayID queuedMainOverlayId;
+    const struct OverlayManagerTemplate *template;
     s32 unk10;
     s32 unk14;
-    struct SaveBlock2 * unk18;
+    struct SaveBlock2 *save;
 
 };
 
@@ -114,7 +94,7 @@ extern struct Main gMain;
 
 void FUN_02000DF4(void);
 void Main_RunOverlayManager(void);
-void RegisterMainOverlay(FSOverlayID id, const struct Unk21DBE18 * arg1);
+void RegisterMainOverlay(FSOverlayID id, const struct OverlayManagerTemplate *template);
 void FUN_02000E9C(void);
 void FUN_02000EC8(u32 parameter);
 void FUN_02000EE8(void);

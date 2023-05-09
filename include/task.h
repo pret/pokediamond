@@ -21,7 +21,7 @@ struct TaskManager
 };
 
 extern void LoadOverlay_MODULE_05(void *);
-extern void FUN_020373D4(struct FieldSystem *, struct Unk21DBE18*, void*);
+extern void FUN_020373D4(struct FieldSystem *, struct OverlayManagerTemplate *, void*);
 extern BOOL FUN_020373AC(void *);
 extern BOOL FUN_0203739C(void *);
 extern BOOL FUN_020373C4(void *);

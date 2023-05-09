@@ -15,7 +15,7 @@ struct UnkStruct_02088AAC
     struct UnkStruct_0208890C *unk10;
     u32 unk14;
     void *ovly_param;
-    struct UnkStruct_02006234 *ovly_data;
+    struct OverlayManager *ovly_data;
     u32 unk20;
 };
 

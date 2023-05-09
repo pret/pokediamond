@@ -124,11 +124,11 @@ const struct GraphicsBanks MOD59_021DA0D4 =
         .texpltt = 0
     };
 
-THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)
+THUMB_FUNC BOOL MOD59_TVInit(struct OverlayManager *overlayManager, u32 *status)
 {
-#pragma unused(param1)
+#pragma unused(status)
     CreateHeap(3, 83, 0x40000);
-    MOD59_TVOverlayData *data = (MOD59_TVOverlayData *)OverlayManager_CreateAndGetData(param0, sizeof(MOD59_TVOverlayData), 0x53);
+    MOD59_TVOverlayData *data = (MOD59_TVOverlayData *)OverlayManager_CreateAndGetData(overlayManager, sizeof(MOD59_TVOverlayData), 0x53);
     (void)memset((void *)data, 0, sizeof(MOD59_TVOverlayData));
     data->heap_id = 0x53;
     data->unk24 = 0;
@@ -136,12 +136,12 @@ THUMB_FUNC BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1)
 }
 
 #ifdef NONMATCHING
-THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
+THUMB_FUNC BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
 {
-    MOD59_TVOverlayData *data = (MOD59_TVOverlayData *)OverlayManager_GetData(overlayStruct);
+    MOD59_TVOverlayData *data = (MOD59_TVOverlayData *)OverlayManager_GetData(overlayManager);
     BOOL ret = FALSE;
 
-    switch (*param1)
+    switch (*status)
     {
         case 0:
             FUN_0200E3A0(PM_LCD_TOP, 0);
@@ -167,7 +167,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
 
             data->unk24 = 60;
 
-            *param1 = 1;
+            *status = 1;
             break;
 
         case 1:
@@ -182,7 +182,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
 
             data->unk24 = 90;
 
-            *param1 = 2;
+            *status = 2;
             break;
 
         case 2:
@@ -195,7 +195,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
 
             FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
 
-            *param1 = 3;
+            *status = 3;
             break;
 
         case 3:
@@ -206,7 +206,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
                 break;
             }
 
-            *param1 = 4;
+            *status = 4;
             break;
 
         case 4:
@@ -219,7 +219,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
 
             FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
 
-            *param1 = 5;
+            *status = 5;
             break;
 
         case 5:
@@ -242,7 +242,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *para
     return ret;
 }
 #else
-THUMB_FUNC asm BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
+THUMB_FUNC asm BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
 {
     push {r3, r4, r5, r6, lr}
     sub sp, #0xc
@@ -408,11 +408,11 @@ _021D99E2:
 }
 #endif
 
-THUMB_FUNC BOOL MOD59_TVExit(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
+THUMB_FUNC BOOL MOD59_TVExit(struct OverlayManager *overlayManager, u32 *status)
 {
-#pragma unused (param1)
-    u32 heap_id = ((MOD59_TVOverlayData *)OverlayManager_GetData(overlayStruct))->heap_id;
-    OverlayManager_FreeData(overlayStruct);
+#pragma unused (status)
+    u32 heap_id = ((MOD59_TVOverlayData *)OverlayManager_GetData(overlayManager))->heap_id;
+    OverlayManager_FreeData(overlayManager);
     DestroyHeap(heap_id);
     return TRUE;
 }

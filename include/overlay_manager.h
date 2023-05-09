@@ -3,14 +3,33 @@
 
 #include "nitro/types.h"
 
-struct Unk21DBE18;
+struct OverlayManager;
 
-struct UnkStruct_02006234 * OverlayManager_new(const struct Unk21DBE18 * ovly_mgr, s32 * a1, u32 heap_id);
-void OverlayManager_delete(struct UnkStruct_02006234 * a0);
-void * OverlayManager_CreateAndGetData(struct UnkStruct_02006234 * a0, u32 size, u32 heap_id);
-void * OverlayManager_GetData(struct UnkStruct_02006234 * a0);
-void OverlayManager_FreeData(struct UnkStruct_02006234 * a0);
-s32 * OverlayManager_GetField18(struct UnkStruct_02006234 * a0);
-BOOL OverlayManager_Run(struct UnkStruct_02006234 * a0);
+struct OverlayManagerTemplate
+{
+    BOOL (*initFunc)(struct OverlayManager *manager, u32 *status);
+    BOOL (*mainFunc)(struct OverlayManager *manager, u32 *status);
+    BOOL (*exitFunc)(struct OverlayManager *manager, u32 *status);
+    FSOverlayID ovly;
+};
+
+struct OverlayManager
+{
+    struct OverlayManagerTemplate template;
+    u32 managerStatus;
+    u32 overlayStatus;
+    s32 * unk18; //args?
+    void * data;
+    struct SaveBlock2 *save;
+    u32 unk24;
+};
+
+struct OverlayManager * OverlayManager_new(const struct OverlayManagerTemplate *template, s32 * a1, u32 heap_id);
+void OverlayManager_delete(struct OverlayManager * overlayManager);
+void * OverlayManager_CreateAndGetData(struct OverlayManager * overlayManager, u32 size, u32 heap_id);
+void * OverlayManager_GetData(struct OverlayManager * overlayManager);
+void OverlayManager_FreeData(struct OverlayManager * overlayManager);
+s32 * OverlayManager_GetField18(struct OverlayManager * overlayManager);
+BOOL OverlayManager_Run(struct OverlayManager * overlayManager);
 
 #endif //POKEDIAMOND_OVERLAY_MANAGER_H

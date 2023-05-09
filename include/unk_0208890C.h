@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_UNK_0208890C_H
 #define POKEDIAMOND_UNK_0208890C_H
 
+#include "script.h"
+
 struct Bag;
 struct Options;
 struct PlayerData;
