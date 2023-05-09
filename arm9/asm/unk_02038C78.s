@@ -257,7 +257,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetPlayerPosition
 	.word ScrCmd_GetOverworldEventPosition
 	.word ScrCmd_Unk006B
-	.word ScrCmd_Unk006C
+	.word ScrCmd_KeepOverworldEvent
 	.word ScrCmd_Unk006D
 	.word ScrCmd_Unk006E
 	.word ScrCmd_GiveMoney

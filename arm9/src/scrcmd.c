@@ -83,6 +83,7 @@ extern void MOD05_021F1EC0(struct Vecx32 *param0, u32 param1);
 extern u16 GetPlayerXCoord(struct PlayerAvatar *playerAvatar);
 extern u16 GetPlayerYCoord(struct PlayerAvatar *playerAvatar);
 extern void FUN_02058BB4(struct Vecx32 *param0, struct Vecx32 *param1);
+extern void FUN_02058994(struct Vecx32 *vector, u8 value);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1407,20 +1408,20 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
     return FALSE;
 }
 
-THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 param1)
+THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId)
 {
-    if (param1 == 242)
+    if (eventId == 242)
     {
         return FUN_020580B4(fieldSystem->unk34, 48);
     }
-    else if (param1 == 241)
+    else if (eventId == 241)
     {
         struct Vecx32 **res = (struct Vecx32 **)FUN_02039438(fieldSystem, 11);
         return *res;
     }
     else
     {
-        return FUN_02058060(fieldSystem->unk34, param1);
+        return FUN_02058060(fieldSystem->unk34, eventId);
     }
 }
 
@@ -1722,5 +1723,13 @@ THUMB_FUNC BOOL ScrCmd_Unk006B(struct ScriptContext *ctx) //006B - todo: CheckPe
 
     FUN_02058BB4(FUN_020553A0(ctx->fieldSystem->playerAvatar), &vector);
     Camera_OffsetLookAtPosAndTarget(&vector, ctx->fieldSystem->cameraWork);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx) //006C
+{
+    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    FUN_02058994(vector, ScriptReadByte(ctx));
     return FALSE;
 }

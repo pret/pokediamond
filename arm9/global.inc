@@ -2803,7 +2803,7 @@
 .extern ScrCmd_GetOverworldEventPosition
 .extern ScrCmd_GetPlayerDirection
 .extern ScrCmd_Unk006B
-.extern ScrCmd_Unk006C
+.extern ScrCmd_KeepOverworldEvent
 .extern ScrCmd_Unk006D
 .extern ScrCmd_Unk02AD
 .extern ScrCmd_Unk006E

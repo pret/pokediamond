@@ -130,6 +130,7 @@ BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx);
 BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx);
 BOOL ScrCmd_GetPlayerDirection(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk006B(struct ScriptContext *ctx);
+BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
