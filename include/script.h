@@ -31,7 +31,7 @@ struct FieldSystem
 {
     u32 *unk00;
     u8 padding[0x4];
-    struct BgConfig *unk08;
+    struct BgConfig *bgConfig;
     struct SaveBlock2 *saveBlock2; //0xC
     struct TaskManager *taskManager;
     u8 padding2[0x8];

@@ -797,7 +797,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx) //0033 - todo: OpenMes
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u8 *unk = (u8 *)FUN_02039438(fieldSystem, 6);
-    FUN_020545B8(fieldSystem->unk08, (struct Window *)FUN_02039438(fieldSystem, 1), 3);
+    FUN_020545B8(fieldSystem->bgConfig, (struct Window *)FUN_02039438(fieldSystem, 1), 3);
     FUN_02054608((struct Window *)FUN_02039438(fieldSystem, 1), Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2));
     *unk = 1;
     return FALSE;
@@ -864,11 +864,11 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
     {
         if (*xdir == 0)
         {
-            BgSetPosTextAndCommit(fieldSystem->unk08, GF_BG_LYR_MAIN_3, BG_POS_OP_ADD_X, *xval);
+            BgSetPosTextAndCommit(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, BG_POS_OP_ADD_X, *xval);
         }
         else
         {
-            BgSetPosTextAndCommit(fieldSystem->unk08, GF_BG_LYR_MAIN_3, BG_POS_OP_SUB_X, *xval);
+            BgSetPosTextAndCommit(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, BG_POS_OP_SUB_X, *xval);
         }
     }
 
@@ -876,11 +876,11 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
     {
         if (*ydir == 0)
         {
-            BgSetPosTextAndCommit(fieldSystem->unk08, GF_BG_LYR_MAIN_3, BG_POS_OP_ADD_Y, *yval);
+            BgSetPosTextAndCommit(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, BG_POS_OP_ADD_Y, *yval);
         }
         else
         {
-            BgSetPosTextAndCommit(fieldSystem->unk08, GF_BG_LYR_MAIN_3, BG_POS_OP_SUB_Y, *yval);
+            BgSetPosTextAndCommit(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, BG_POS_OP_SUB_Y, *yval);
         }
     }
 
@@ -1104,8 +1104,8 @@ THUMB_FUNC BOOL ScrCmd_YesNoMenu(struct ScriptContext *ctx) //003E
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FUN_02039438(fieldSystem, 2);
     u16 wk = ScriptReadHalfword(ctx);
-    FUN_0200CB00(fieldSystem->unk08, 3, 985, 11, 0, 4);
-    *unk = Std_CreateYesNoMenu(fieldSystem->unk08, &UNK_020F34E0, 985, 11, 4);
+    FUN_0200CB00(fieldSystem->bgConfig, 3, 985, 11, 0, 4);
+    *unk = Std_CreateYesNoMenu(fieldSystem->bgConfig, &UNK_020F34E0, 985, 11, 4);
     ctx->data[0] = wk;
     SetupNativeScript(ctx, FUN_0203AB00);
     return TRUE;
