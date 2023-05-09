@@ -80,6 +80,8 @@ extern void FUN_02057654(struct Vecx32 *target);
 extern u32 PlayerAvatar_GetFacingDirection(struct PlayerAvatar *playerAvatar);
 extern u32 FUN_02059E74(u32 direction);
 extern void MOD05_021F1EC0(struct Vecx32 *param0, u32 param1);
+extern u16 GetPlayerXCoord(struct PlayerAvatar *playerAvatar);
+extern u16 GetPlayerYCoord(struct PlayerAvatar *playerAvatar);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1668,5 +1670,18 @@ THUMB_FUNC BOOL ScrCmd_FacePlayer(struct ScriptContext *ctx) //0068
     }
 
     MOD05_021F1EC0(*unk1, unk0);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx)
+{
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+
+    u16 *xVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *yVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    *xVar = GetPlayerXCoord(fieldSystem->playerAvatar);
+    *yVar = GetPlayerYCoord(fieldSystem->playerAvatar);
+
     return FALSE;
 }

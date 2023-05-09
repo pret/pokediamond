@@ -2799,7 +2799,7 @@
 .extern ScrCmd_LockCamera
 .extern ScrCmd_ReleaseCamera
 .extern ScrCmd_FacePlayer
-.extern ScrCmd_Unk0069
+.extern ScrCmd_GetPlayerPosition
 .extern ScrCmd_Unk006A
 .extern ScrCmd_Unk01BD
 .extern ScrCmd_Unk006B
