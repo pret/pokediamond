@@ -58,7 +58,7 @@ Static arm9
 	Object unk_0201B1A8.o
 	Object unk_0201B4E8.o
 	Object unk_0201B6D0.o
-	Object unk_0201B8B8.o
+	Object string_control_code.o
 	Object math_util.o
 	Object text.o
 	Object unk_0201C24C.o
@@ -184,7 +184,7 @@ Static arm9
 	Object scrcmd_25.o
 	Object unk_02046030.o
 	Object event_data.o
-	Object unk_0204639C.o
+	Object task.o
 	Object unk_0204653C.o
 	Object unk_02047500.o
 	Object unk_020476CC.o

@@ -1,9 +1,9 @@
 #include "global.h"
-#include "msgdata.h"
-#include "script_buffers.h"
-#include "unk_0201B8B8.h"
 #include "mail_message.h"
+#include "msgdata.h"
 #include "msgdata/msg.naix"
+#include "script_buffers.h"
+#include "string_control_code.h"
 
 #pragma thumb on
 

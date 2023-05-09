@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_UNK_0208890C_H
 #define POKEDIAMOND_UNK_0208890C_H
 
+#include "script.h"
+
 struct Bag;
 struct Options;
 struct PlayerData;
@@ -19,7 +21,7 @@ struct UnkStruct_0208890C
 };
 
 struct UnkStruct_0208890C* FUN_0208890C(void*, struct SaveBlock2* sav2, u32 heap_id, void*);
-void FUN_02088950(struct UnkSavStruct80*, struct UnkStruct_0208890C*);
-struct UnkStruct_0208890C* FUN_02088960(struct UnkSavStruct80*, void*, u32 heap_id);
+void FUN_02088950(struct FieldSystem *fieldSystem, struct UnkStruct_0208890C*);
+struct UnkStruct_0208890C* FUN_02088960(struct FieldSystem *fieldSystem, void*, u32 heap_id);
 
 #endif

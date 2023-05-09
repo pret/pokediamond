@@ -40,7 +40,7 @@ extern void PlayTimerUpdate(void);
 extern void FUN_020222C4(void);
 extern void FUN_0200E2D8(void);
 
-extern struct Unk21DBE18 MOD63_021DBE18;
+extern struct OverlayManagerTemplate MOD63_021DBE18;
 
 extern u8 SDK_STATIC_BSS_START[];
 
@@ -65,12 +65,12 @@ THUMB_FUNC void NitroMain(void)
     FUN_02002C50(1, 3);
     FUN_02002C50(3, 3);
     UNK_02016FA8.unk10 = -1;
-    UNK_02016FA8.unk18 = SaveBlock2_new();
-    InitSoundData(Sav2_Chatot_get(UNK_02016FA8.unk18), Sav2_PlayerData_GetOptionsAddr(UNK_02016FA8.unk18));
+    UNK_02016FA8.save = SaveBlock2_new();
+    InitSoundData(Sav2_Chatot_get(UNK_02016FA8.save), Sav2_PlayerData_GetOptionsAddr(UNK_02016FA8.save));
     Init_Timer3();
     if (FUN_020337E8(3) == 3)
         ShowWFCUserInfoWarning(3, 0);
-    if (FUN_020227FC(UNK_02016FA8.unk18) == 0)
+    if (FUN_020227FC(UNK_02016FA8.save) == 0)
     {
         ShowSaveDataReadError(0);
     }
@@ -137,39 +137,39 @@ THUMB_FUNC void NitroMain(void)
 
 THUMB_FUNC void FUN_02000DF4(void)
 {
-    UNK_02016FA8.unk0 = SDK_OVERLAY_INVALID_ID;
-    UNK_02016FA8.unk4 = NULL;
-    UNK_02016FA8.unk8 = SDK_OVERLAY_INVALID_ID; // overlay invalid
-    UNK_02016FA8.unkC = NULL;
+    UNK_02016FA8.mainOverlayId = SDK_OVERLAY_INVALID_ID;
+    UNK_02016FA8.overlayManager = NULL;
+    UNK_02016FA8.queuedMainOverlayId = SDK_OVERLAY_INVALID_ID; // overlay invalid
+    UNK_02016FA8.template = NULL;
 }
 
 THUMB_FUNC void Main_RunOverlayManager(void)
 {
-    if (UNK_02016FA8.unk4 == NULL)
+    if (UNK_02016FA8.overlayManager == NULL)
     {
-        if (UNK_02016FA8.unkC == NULL)
+        if (UNK_02016FA8.template == NULL)
             return;
-        if (UNK_02016FA8.unk8 != SDK_OVERLAY_INVALID_ID)
-            HandleLoadOverlay(UNK_02016FA8.unk8, 0);
-        UNK_02016FA8.unk0 = UNK_02016FA8.unk8;
-        UNK_02016FA8.unk4 = OverlayManager_new(UNK_02016FA8.unkC, &UNK_02016FA8.unk10, 0);
-        UNK_02016FA8.unk8 = SDK_OVERLAY_INVALID_ID;
-        UNK_02016FA8.unkC = NULL;
+        if (UNK_02016FA8.queuedMainOverlayId != SDK_OVERLAY_INVALID_ID)
+            HandleLoadOverlay(UNK_02016FA8.queuedMainOverlayId, 0);
+        UNK_02016FA8.mainOverlayId = UNK_02016FA8.queuedMainOverlayId;
+        UNK_02016FA8.overlayManager = OverlayManager_new(UNK_02016FA8.template, &UNK_02016FA8.unk10, 0);
+        UNK_02016FA8.queuedMainOverlayId = SDK_OVERLAY_INVALID_ID;
+        UNK_02016FA8.template = NULL;
     }
-    if (OverlayManager_Run(UNK_02016FA8.unk4))
+    if (OverlayManager_Run(UNK_02016FA8.overlayManager))
     {
-        OverlayManager_delete(UNK_02016FA8.unk4);
-        UNK_02016FA8.unk4 = NULL;
-        if (UNK_02016FA8.unk0 != SDK_OVERLAY_INVALID_ID)
-            UnloadOverlayByID(UNK_02016FA8.unk0);
+        OverlayManager_delete(UNK_02016FA8.overlayManager);
+        UNK_02016FA8.overlayManager = NULL;
+        if (UNK_02016FA8.mainOverlayId != SDK_OVERLAY_INVALID_ID)
+            UnloadOverlayByID(UNK_02016FA8.mainOverlayId);
     }
 }
 
-THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, const struct Unk21DBE18 * arg1)
+THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, const struct OverlayManagerTemplate *template)
 {
-    GF_ASSERT(UNK_02016FA8.unkC == NULL);
-    UNK_02016FA8.unk8 = id;
-    UNK_02016FA8.unkC = arg1;
+    GF_ASSERT(UNK_02016FA8.template == NULL);
+    UNK_02016FA8.queuedMainOverlayId = id;
+    UNK_02016FA8.template = template;
 }
 
 THUMB_FUNC void FUN_02000E9C(void)

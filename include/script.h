@@ -2,12 +2,12 @@
 #define _SCRIPT_H_
 
 #include "global.h"
+#include "bg_window.h"
 #include "camera.h"
 #include "field_player_avatar.h"
 #include "msgdata.h"
 #include "save_block_2.h"
-#include "bg_window.h"
-
+#include "task.h"
 
 struct ScriptContext;
 
@@ -27,13 +27,13 @@ struct UnkStruct_02046444
     struct UnkStruct_020464D4 unk90[1]; //todo find size
 };
 
-struct UnkSavStruct80
+struct FieldSystem
 {
     u32 *unk00;
     u8 padding[0x4];
-    struct BgConfig *unk08;
+    struct BgConfig *bgConfig;
     struct SaveBlock2 *saveBlock2; //0xC
-    struct UnkStruct_0204639C *unk10;
+    struct TaskManager *taskManager;
     u8 padding2[0x8];
     u32 *mapId; //0x1C
     struct CameraWork *cameraWork;
@@ -62,10 +62,10 @@ struct ScriptContext
     ScrCmdFunc *cmdTable;
     u32 cmdCount;
     u32 data[4];
-    struct UnkStruct_0204639C *unk74;
+    struct TaskManager *taskManager;
     struct MsgData *msgData;
-    u8 *unk7C;
-    struct UnkSavStruct80 *unk80;
+    u8 *mapScripts;
+    struct FieldSystem *fieldSystem;
 };
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
@@ -74,7 +74,7 @@ void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount);
 u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr);
 void SetupNativeScript(struct ScriptContext *ctx, BOOL (*ptr)(struct ScriptContext *));
 void StopScript(struct ScriptContext *ctx);
-void FUN_02038B6C(struct ScriptContext *ctx, struct UnkStruct_0204639C *r1);
+void FUN_02038B6C(struct ScriptContext *ctx, struct TaskManager *taskManger);
 u8 RunScriptCommand(struct ScriptContext *ctx);
 u8 ScriptPush(struct ScriptContext *ctx, const u8 *ptr);
 const u8 *ScriptPop(struct ScriptContext *ctx);

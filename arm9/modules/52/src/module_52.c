@@ -4,34 +4,34 @@
 #include "play_timer.h"
 
 
-extern struct Unk21DBE18 UNK_020FD144;
-extern struct Unk21DBE18 UNK_020F2B7C;
-extern struct Unk21DBE18 UNK_020F2B8C;
+extern struct OverlayManagerTemplate UNK_020FD144;
+extern struct OverlayManagerTemplate UNK_020F2B7C;
+extern struct OverlayManagerTemplate UNK_020F2B8C;
 
 extern int FUN_02053678(u32 random, u32 gender, u32 param2);
 extern void FUN_020250C4(void *sav_ptr, u32 heap_id, const u16 param2[], u32 param3);
 extern void FUN_020377E0(struct SaveBlock2 *sav2);
 extern void FUN_0205ECD4(struct ScriptState *script_state);
 
-const struct Unk21DBE18 MOD52_021D76E8 = {
+const struct OverlayManagerTemplate MOD52_021D76E8 = {
     MOD52_021D74E0,
     MOD52_021D74F8,
     MOD52_021D750C,
-    0xFFFFFFFF,
+    SDK_OVERLAY_INVALID_ID,
 };
 
-const struct Unk21DBE18 MOD52_021D76D8 = {
+const struct OverlayManagerTemplate MOD52_021D76D8 = {
     MOD52_021D7528,
     MOD52_021D7540,
     MOD52_021D7560,
-    0xFFFFFFFF,
+    SDK_OVERLAY_INVALID_ID,
 };
 
-const struct Unk21DBE18 MOD52_021D76C8 = {
+const struct OverlayManagerTemplate MOD52_021D76C8 = {
     MOD52_021D757C,
     MOD52_021D7594,
     MOD52_021D75E8,
-    0xFFFFFFFF,
+    SDK_OVERLAY_INVALID_ID,
 };
 
 const u16 MOD52_021D76F8[] = {
@@ -155,82 +155,82 @@ const u16 MOD52_021D76F8[] = {
     ITEM_GREPA_BERRY, 1,
 };
 
-THUMB_FUNC BOOL MOD52_021D74E0(struct UnkStruct_02006234 *arg1, u32 *arg2)
+THUMB_FUNC BOOL MOD52_021D74E0(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(arg1)
-#pragma unused(arg2)
+#pragma unused(manager)
+#pragma unused(status)
     CreateHeap(3, 0x4d, 0x20000);
     InitializeMainRNG();
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D74F8(struct UnkStruct_02006234 *param0, u32 *unused)
+THUMB_FUNC BOOL MOD52_021D74F8(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(unused)
-    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(param0)[2]; // weird
+#pragma unused(status)
+    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(manager)[2]; // weird
 
     MOD52_021D769C(0x4d, sav2);
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D750C(struct UnkStruct_02006234 *arg1, u32 *arg2)
+THUMB_FUNC BOOL MOD52_021D750C(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(arg1)
-#pragma unused(arg2)
+#pragma unused(manager)
+#pragma unused(status)
     DestroyHeap(0x4d);
-    RegisterMainOverlay(0XFFFFFFFF, &UNK_020FD144);
+    RegisterMainOverlay(SDK_OVERLAY_INVALID_ID, &UNK_020FD144);
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D7528(struct UnkStruct_02006234 *arg1, u32 *arg2)
+THUMB_FUNC BOOL MOD52_021D7528(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(arg1)
-#pragma unused(arg2)
+#pragma unused(manager)
+#pragma unused(status)
     CreateHeap(3, 0x4d, 0x20000);
     InitializeMainRNG();
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D7540(struct UnkStruct_02006234 *param0, u32 *unused)
+THUMB_FUNC BOOL MOD52_021D7540(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(unused)
-    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(param0)[2]; // weird
+#pragma unused(status)
+    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(manager)[2]; // weird
 
     MOD52_021D7604(0x4d, sav2, 1);
     struct IGT *igt = Sav2_PlayerData_GetIGTAddr(sav2);
     PlayTimerStart(igt);
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D7560(struct UnkStruct_02006234 *arg1, u32 *arg2)
+THUMB_FUNC BOOL MOD52_021D7560(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(arg1)
-#pragma unused(arg2)
+#pragma unused(manager)
+#pragma unused(status)
     DestroyHeap(0x4d);
-    RegisterMainOverlay(0xFFFFFFFF, &UNK_020F2B7C);
+    RegisterMainOverlay(SDK_OVERLAY_INVALID_ID, &UNK_020F2B7C);
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D757C(struct UnkStruct_02006234 *arg1, u32 *arg2)
+THUMB_FUNC BOOL MOD52_021D757C(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(arg1)
-#pragma unused(arg2)
+#pragma unused(manager)
+#pragma unused(status)
     CreateHeap(3, 0x4d, 0x20000);
     InitializeMainRNG();
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D7594(struct UnkStruct_02006234 *param0, u32 *unused)
+THUMB_FUNC BOOL MOD52_021D7594(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(unused)
-    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(param0)[2]; // weird
+#pragma unused(status)
+    struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(manager)[2]; // weird
 
     struct SavSysInfo *sav2_info = Sav2_SysInfo_get(sav2);
 
@@ -245,15 +245,15 @@ THUMB_FUNC BOOL MOD52_021D7594(struct UnkStruct_02006234 *param0, u32 *unused)
 
     PlayTimerStart(Sav2_PlayerData_GetIGTAddr(sav2));
 
-    return 1;
+    return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D75E8(struct UnkStruct_02006234 *arg1, u32 *arg2)
+THUMB_FUNC BOOL MOD52_021D75E8(struct OverlayManager *manager, u32 *status)
 {
-#pragma unused(arg1)
-#pragma unused(arg2)
+#pragma unused(manager)
+#pragma unused(status)
     DestroyHeap(0x4d);
-    RegisterMainOverlay(0XFFFFFFFF, &UNK_020F2B8C);
+    RegisterMainOverlay(SDK_OVERLAY_INVALID_ID, &UNK_020F2B8C);
 
     return 1;
 }

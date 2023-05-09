@@ -1,20 +1,20 @@
 #include "global.h"
-#include "heap.h"
-#include "unk_0204639C.h"
 #include "unk_0204AEA8.h"
+#include "heap.h"
+#include "task.h"
 #include "unk_020040F4.h"
 
-extern void MOD05_021E3444(u32, struct UnkSavStruct80 *, u32);
+extern void MOD05_021E3444(u32, struct FieldSystem *, u32);
 
-THUMB_FUNC BOOL FUN_0204AEA8(struct UnkStruct_0204639C *a0)
+THUMB_FUNC BOOL FUN_0204AEA8(struct TaskManager *taskManager)
 {
-    struct UnkSavStruct80 *v0 = FUN_02046528(a0);
-    u32 *v1 = FUN_0204652C(a0);
+    struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
+    u32 *v1 = FUN_0204652C(taskManager);
 
     switch (v1[0])
     {
         case 0:
-            MOD05_021E3444(v1[2], v0, (u32)v1 + 4);
+            MOD05_021E3444(v1[2], fieldSystem, (u32)v1 + 4);
             FUN_0200433C(5, (u16)v1[3], 1);
             v1[0]++;
             break;
@@ -30,7 +30,7 @@ THUMB_FUNC BOOL FUN_0204AEA8(struct UnkStruct_0204639C *a0)
     return FALSE;
 }
 
-THUMB_FUNC void FUN_0204AEF8(struct UnkStruct_0204639C *a0, u32 a1, u32 a2)
+THUMB_FUNC void FUN_0204AEF8(struct TaskManager *taskManager, u32 a1, u32 a2)
 {
     u32 *v0 = AllocFromHeapAtEnd(11, 4 * sizeof(u32));
     
@@ -39,5 +39,5 @@ THUMB_FUNC void FUN_0204AEF8(struct UnkStruct_0204639C *a0, u32 a1, u32 a2)
     v0[2] = a1;
     v0[3] = a2;
     
-    FUN_0204640C(a0, FUN_0204AEA8, v0);
+    FUN_0204640C(taskManager, FUN_0204AEA8, v0);
 }

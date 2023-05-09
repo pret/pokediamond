@@ -3,7 +3,7 @@
 
 #include "global.h"
 #include "script.h"
-#include "unk_0204639C.h"
+#include "task.h"
 
 struct UnkStruct_0206015C
 {
@@ -24,7 +24,7 @@ struct UnkStruct_0204652C
     u8    unkE; // some kind of counter?
 };
 
-void FUN_0206015C(struct UnkSavStruct80* savStruct);
-BOOL FUN_02060194(struct UnkStruct_0204639C * unkStruct0);
+void FUN_0206015C(struct FieldSystem *fieldSystem);
+BOOL FUN_02060194(struct TaskManager *taskManager);
 
 #endif //UNK_0206015C_H_GUARD

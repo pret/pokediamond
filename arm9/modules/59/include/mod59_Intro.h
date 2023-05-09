@@ -24,7 +24,7 @@ typedef struct MOD59_IntroOverlayData
     struct Options *options;
     u32 controllerCounter;
     u32 nextControllerCounter;
-    struct UnkStruct_02006234 *loadedOverlay;
+    struct OverlayManager *loadedOverlay;
     struct BgConfig *bgConfig;
     struct Window window;
     u32 createListCounter;
@@ -101,9 +101,9 @@ struct MOD59_CharStruct021D9E70
     u32 charData[6];
 };
 
-BOOL MOD59_IntroInit(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
-BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
-BOOL MOD59_IntroExit(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
+BOOL MOD59_IntroInit(struct OverlayManager *overlayManager, u32 *status);
+BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status);
+BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *status);
 void MOD59_IntroDoGpuBgUpdate(MOD59_IntroOverlayData *data);
 BOOL MOD59_TestPokeballTouchLocation(void);
 void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data);

@@ -3,10 +3,10 @@
 #include "constants/sndseq.h"
 #include "font.h"
 #include "game_init.h"
+#include "string_control_code.h"
 #include "string_util.h"
 #include "text.h"
 #include "unk_020051F4.h"
-#include "unk_0201B8B8.h"
 
 u16 unk00;
 

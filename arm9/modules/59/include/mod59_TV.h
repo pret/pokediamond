@@ -17,9 +17,9 @@ typedef struct MOD59_TVOverlayData2
     u32 unk24;
 } MOD59_TVOverlayData;
 
-BOOL MOD59_TVInit(struct UnkStruct_02006234 *param0, u32 *param1);
-BOOL MOD59_TVMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
-BOOL MOD59_TVExit(struct UnkStruct_02006234 *overlayStruct, u32 *param1);
+BOOL MOD59_TVInit(struct OverlayManager *overlayManager, u32 *status);
+BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status);
+BOOL MOD59_TVExit(struct OverlayManager *overlayManager, u32 *status);
 void MOD59_TVDoGpuBgUpdate(MOD59_TVOverlayData *data);
 void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data);
 void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data);

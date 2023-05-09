@@ -13,15 +13,15 @@ const u16 gFossilPokemonMap[7][2] = {
 
 THUMB_FUNC BOOL ScrCmd_CountFossils(struct ScriptContext * ctx) //01F1
 {
-    struct UnkSavStruct80 * sav_ptr = ctx->unk80;
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
 
-    u16 *ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 *ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     u8 i;
     u16 total;
     for (i = 0, total = 0; i < 7; i++)
     {
-        total += Bag_GetQuantity(Sav2_Bag_get(sav_ptr->saveBlock2), gFossilPokemonMap[i][0], 4);
+        total += Bag_GetQuantity(Sav2_Bag_get(fieldSystem->saveBlock2), gFossilPokemonMap[i][0], 4);
     }
 
     *ret_ptr = total;
@@ -30,8 +30,8 @@ THUMB_FUNC BOOL ScrCmd_CountFossils(struct ScriptContext * ctx) //01F1
 
 THUMB_FUNC BOOL ScrCmd_GetFossilPokemon(struct ScriptContext * ctx) //01F4
 {
-    u16 *ret_ptr = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    u16 fossilId = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 *ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 fossilId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     *ret_ptr = 0;
 
@@ -49,10 +49,10 @@ THUMB_FUNC BOOL ScrCmd_GetFossilPokemon(struct ScriptContext * ctx) //01F4
 
 THUMB_FUNC BOOL ScrCmd_GetFossilMinimumAmount(struct ScriptContext * ctx) //01F5
 {
-    struct UnkSavStruct80* sav_ptr = ctx->unk80;
-    u16 * ret_ptr1 = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    u16 * ret_ptr2 = GetVarPointer(ctx->unk80, ScriptReadHalfword(ctx));
-    u16 needed_amount = VarGet(ctx->unk80, ScriptReadHalfword(ctx));
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    u16 * ret_ptr1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 * ret_ptr2 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 needed_amount = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     *ret_ptr1 = 0;
     *ret_ptr2 = 0;
@@ -61,7 +61,7 @@ THUMB_FUNC BOOL ScrCmd_GetFossilMinimumAmount(struct ScriptContext * ctx) //01F5
     u16 total = 0;
     for (; i < 7; i++)
     {
-        total += Bag_GetQuantity(Sav2_Bag_get(sav_ptr->saveBlock2), gFossilPokemonMap[i][0], 4);
+        total += Bag_GetQuantity(Sav2_Bag_get(fieldSystem->saveBlock2), gFossilPokemonMap[i][0], 4);
         if (total >= needed_amount)
         {
             *ret_ptr1 = gFossilPokemonMap[i][0];

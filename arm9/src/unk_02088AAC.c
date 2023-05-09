@@ -4,17 +4,17 @@
 #include "overlay_manager.h"
 #include "unk_020851B8.h"
 
-extern BOOL MOD68_021D74E0(struct UnkStruct_02006234 *, u32 *);
-extern BOOL MOD68_021D75D8(struct UnkStruct_02006234 *, u32 *);
-extern BOOL MOD68_021D762C(struct UnkStruct_02006234 *, u32 *);
-extern BOOL MOD73_021D74F0(struct UnkStruct_02006234 *, u32 *);
-extern BOOL MOD73_021D758C(struct UnkStruct_02006234 *, u32 *);
-extern BOOL MOD73_021D7640(struct UnkStruct_02006234 *, u32 *);
-extern BOOL MOD75_021E6BA0(struct UnkStruct_02006234 *, u32 *);
-extern BOOL MOD75_021E6D6C(struct UnkStruct_02006234 *, u32 *);
-extern BOOL MOD75_021E6F00(struct UnkStruct_02006234 *, u32 *);
+extern BOOL MOD68_021D74E0(struct OverlayManager *, u32 *);
+extern BOOL MOD68_021D75D8(struct OverlayManager *, u32 *);
+extern BOOL MOD68_021D762C(struct OverlayManager *, u32 *);
+extern BOOL MOD73_021D74F0(struct OverlayManager *, u32 *);
+extern BOOL MOD73_021D758C(struct OverlayManager *, u32 *);
+extern BOOL MOD73_021D7640(struct OverlayManager *, u32 *);
+extern BOOL MOD75_021E6BA0(struct OverlayManager *, u32 *);
+extern BOOL MOD75_021E6D6C(struct OverlayManager *, u32 *);
+extern BOOL MOD75_021E6F00(struct OverlayManager *, u32 *);
 
-extern BOOL FUN_0208898C(struct UnkStruct_02006234 **r0);
+extern BOOL FUN_0208898C(struct OverlayManager **r0);
 
 THUMB_FUNC u32 FUN_02088AAC(struct UnkStruct_02088AAC *r0, u32 *r1)
 {
@@ -45,7 +45,7 @@ THUMB_FUNC u32 FUN_02088AFC(struct UnkStruct_02088AAC *r0)
 {
     FS_EXTERN_OVERLAY(MODULE_73);
 
-    const struct Unk21DBE18 OVERLAY_73_MANAGER =
+    const struct OverlayManagerTemplate OVERLAY_73_MANAGER =
     {
         .initFunc = MOD73_021D74F0,
         .mainFunc = MOD73_021D758C,
@@ -82,7 +82,7 @@ THUMB_FUNC u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0)
     FS_EXTERN_OVERLAY(MODULE_75);
 
     static const u8 UNK_020FD6F4[] = { 0x04, 0xFF };
-    const struct Unk21DBE18 OVERLAY_75_MANAGER =
+    const struct OverlayManagerTemplate OVERLAY_75_MANAGER =
         {
             .initFunc = MOD75_021E6BA0,
             .mainFunc = MOD75_021E6D6C,
@@ -139,7 +139,7 @@ THUMB_FUNC u32 FUN_02088C3C(struct UnkStruct_02088AAC *r0)
     FS_EXTERN_OVERLAY(MODULE_68);
 
     struct Bag *bag = r0->unk10->bag;
-    const struct Unk21DBE18 OVERLAY_68_MANAGER =
+    const struct OverlayManagerTemplate OVERLAY_68_MANAGER =
         {
             .initFunc = MOD68_021D74E0,
             .mainFunc = MOD68_021D75D8,

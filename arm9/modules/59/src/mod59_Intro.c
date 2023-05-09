@@ -105,12 +105,12 @@ const struct GraphicsModes MOD59_021D9DCC =
         ._2d3dMode = GX_BG0_AS_2D
     };
 
-const struct Unk21DBE18 MOD59_021D9DDC =
+const struct OverlayManagerTemplate MOD59_021D9DDC =
     {
         .initFunc = MOD59_TVInit,
         .mainFunc = MOD59_TVMain,
         .exitFunc = MOD59_TVExit,
-        .ovly = 0xFFFFFFFF
+        .ovly = SDK_OVERLAY_INVALID_ID
     };
 
 const struct MOD59_CharStruct021D9DEC MOD59_021D9DEC =
@@ -376,7 +376,7 @@ extern void FUN_020145A8(u32 param0);
 extern u32 *FUN_0201244C(u16 param0, u16 param1, u32 heap_id);
 extern u32 *FUN_02012470(u16 param0, u16 param1, u32 heap_id);
 
-extern const struct Unk21DBE18 UNK_020FA5FC;
+extern const struct OverlayManagerTemplate UNK_020FA5FC;
 
 extern void FUN_020145C8(u32 param0, u32 param1[5]);
 extern u32 FUN_02014630(u32 param0);
@@ -384,15 +384,15 @@ extern void FUN_020146C4(u32 param0);
 
 FS_EXTERN_OVERLAY(MODULE_52);
 
-THUMB_FUNC BOOL MOD59_IntroInit(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
+THUMB_FUNC BOOL MOD59_IntroInit(struct OverlayManager *overlayManager, u32 *status)
 {
-#pragma unused(param1)
+#pragma unused(status)
     CreateHeap(3, 0x52, 1 << 18);
-    MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_CreateAndGetData(overlayStruct, sizeof(MOD59_IntroOverlayData), 0x52);
+    MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_CreateAndGetData(overlayManager, sizeof(MOD59_IntroOverlayData), 0x52);
     (void)memset((void *)data, 0, sizeof(MOD59_IntroOverlayData));
 
     data->heap_id = 0x52;
-    s32 *field18 = OverlayManager_GetField18(overlayStruct);
+    s32 *field18 = OverlayManager_GetField18(overlayManager);
     data->sav2 = (struct SaveBlock2 *)field18[2]; //?
     data->options = Sav2_PlayerData_GetOptionsAddr(data->sav2);
     data->nextControllerCounter = data->controllerCounter = 0;
@@ -407,12 +407,12 @@ THUMB_FUNC BOOL MOD59_IntroInit(struct UnkStruct_02006234 *overlayStruct, u32 *p
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
+THUMB_FUNC BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
 {
-    MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayStruct);
+    MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayManager);
     BOOL ret = FALSE;
 
-    switch (*param1)
+    switch (*status)
     {
         case 0:
             FUN_0200E3A0(PM_LCD_TOP, 0);
@@ -437,7 +437,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
 
             GX_BothDispOn();
 
-            *param1 = 1;
+            *status = 1;
 
             break;
 
@@ -445,7 +445,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
             if (MOD59_MasterController(data) == TRUE)
             {
                 FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
-                *param1 = 2;
+                *status = 2;
             }
 
             if (data->loadedOverlay == NULL)
@@ -454,7 +454,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
             }
 
             FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
-            *param1 = 3;
+            *status = 3;
 
             break;
 
@@ -485,7 +485,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
 
             Main_SetVBlankIntrCB(NULL, NULL);
 
-            *param1 = 4;
+            *status = 4;
 
             break;
 
@@ -498,12 +498,12 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
             OverlayManager_delete(data->loadedOverlay);
             data->loadedOverlay = NULL;
 
-            *param1 = 5;
+            *status = 5;
 
             break;
 
         case 5:
-            *param1 = 0;
+            *status = 0;
 
             break;
     }
@@ -511,9 +511,9 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct UnkStruct_02006234 *overlayStruct, u32 *p
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_IntroExit(struct UnkStruct_02006234 *overlayStruct, u32 *param1)
+THUMB_FUNC BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *status)
 {
-    MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayStruct);
+    MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayManager);
 
     u32 heap_id = data->heap_id;
     PlayerName_StringToFlat(Sav2_PlayerData_GetProfileAddr(data->sav2), data->playerStruct->name);
@@ -524,7 +524,7 @@ THUMB_FUNC BOOL MOD59_IntroExit(struct UnkStruct_02006234 *overlayStruct, u32 *p
     FUN_02077AC4(data->playerStruct);
     FUN_02077AC4(data->rivalStruct);
 
-    OverlayManager_FreeData(overlayStruct);
+    OverlayManager_FreeData(overlayManager);
     DestroyHeap(heap_id);
 
     RegisterMainOverlay(FS_OVERLAY_ID(MODULE_52), &MOD52_021D76D8);

@@ -1,5 +1,5 @@
 #include "global.h"
-#include "unk_0201B8B8.h"
+#include "string_control_code.h"
 
 #pragma thumb on
 
