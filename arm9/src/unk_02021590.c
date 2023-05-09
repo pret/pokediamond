@@ -1,8 +1,8 @@
 #include "global.h"
-#include "heap.h"
-#include "filesystem.h"
 #include "unk_02021590.h"
-#include "unk_0201B8B8.h"
+#include "filesystem.h"
+#include "heap.h"
+#include "string_control_code.h"
 #include "string_util.h"
 
 static const u8 sGlyphShapes[][2] = {

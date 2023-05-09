@@ -4,9 +4,9 @@
 #include "graphic/font.naix"
 #include "render_text.h"
 #include "string16.h"
-#include "unk_02021590.h"
+#include "string_control_code.h"
 #include "text.h"
-#include "unk_0201B8B8.h"
+#include "unk_02021590.h"
 
 struct UnkStruct_02002C14 *UNK_02106FC8;
 
