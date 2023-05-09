@@ -82,6 +82,7 @@ extern u32 FUN_02059E74(u32 direction);
 extern void MOD05_021F1EC0(struct Vecx32 *param0, u32 param1);
 extern u16 GetPlayerXCoord(struct PlayerAvatar *playerAvatar);
 extern u16 GetPlayerYCoord(struct PlayerAvatar *playerAvatar);
+extern void FUN_02058BB4(struct Vecx32 *param0, struct Vecx32 *param1);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1406,20 +1407,20 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
     return FALSE;
 }
 
-THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *arg, u16 param1)
+THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 param1)
 {
     if (param1 == 242)
     {
-        return FUN_020580B4(arg->unk34, 48);
+        return FUN_020580B4(fieldSystem->unk34, 48);
     }
     else if (param1 == 241)
     {
-        struct Vecx32 **res = (struct Vecx32 **)FUN_02039438(arg, 11);
+        struct Vecx32 **res = (struct Vecx32 **)FUN_02039438(fieldSystem, 11);
         return *res;
     }
     else
     {
-        return FUN_02058060(arg->unk34, param1);
+        return FUN_02058060(fieldSystem->unk34, param1);
     }
 }
 
@@ -1435,7 +1436,7 @@ THUMB_FUNC static BOOL FUN_0203B158(struct ScriptContext *ctx)
     return *unk == 0 ? TRUE : FALSE;
 }
 
-THUMB_FUNC static void FUN_0203B174(struct FieldSystem *arg, u32 param1, void *param2)
+THUMB_FUNC static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2)
 {
     UnkStruct_0203B174 *unkStruct = (UnkStruct_0203B174 *)AllocFromHeap(4, sizeof(UnkStruct_0203B174));
     if (unkStruct == NULL)
@@ -1443,7 +1444,7 @@ THUMB_FUNC static void FUN_0203B174(struct FieldSystem *arg, u32 param1, void *p
         GF_AssertFail();
         return;
     }
-    unkStruct->fieldSystem = arg;
+    unkStruct->fieldSystem = fieldSystem;
     unkStruct->Unk04 = param1;
     unkStruct->Unk08 = param2;
     unkStruct->Unk00 = FUN_0200CA44((void (*)(u32, void *))FUN_0203B1A8, unkStruct, 0);
@@ -1705,5 +1706,21 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerDirection(struct ScriptContext *ctx) //01BD
     u16 *directionVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     *directionVar = (u16)PlayerAvatar_GetFacingDirection(ctx->fieldSystem->playerAvatar);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk006B(struct ScriptContext *ctx) //006B - todo: CheckPersonPosition?
+{
+    u16 x = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 y = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 z = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    struct Vecx32 vector;
+    vector.x = FX32_CONST(x);
+    vector.y = FX32_CONST(y);
+    vector.z = FX32_CONST(z);
+
+    FUN_02058BB4(FUN_020553A0(ctx->fieldSystem->playerAvatar), &vector);
+    Camera_OffsetLookAtPosAndTarget(&vector, ctx->fieldSystem->cameraWork);
     return FALSE;
 }
