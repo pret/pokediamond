@@ -84,6 +84,7 @@ extern u16 GetPlayerXCoord(struct PlayerAvatar *playerAvatar);
 extern u16 GetPlayerYCoord(struct PlayerAvatar *playerAvatar);
 extern void FUN_02058BB4(struct Vecx32 *param0, struct Vecx32 *param1);
 extern void FUN_02058994(struct Vecx32 *vector, u8 value);
+extern void FUN_02058E90(struct Vecx32 *vector, u16 movement);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -104,7 +105,7 @@ static BOOL FUN_0203AA0C(struct ScriptContext *ctx);
 static BOOL FUN_0203AB00(struct ScriptContext *ctx);
 static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
-static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 param1);
+static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId);
 static BOOL FUN_0203B158(struct ScriptContext *ctx);
 static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
@@ -1731,5 +1732,14 @@ THUMB_FUNC BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx) //006C
     u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
     struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
     FUN_02058994(vector, ScriptReadByte(ctx));
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_SetOverworldEventMovement(struct ScriptContext *ctx) //006D
+{
+    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    u16 movement = ScriptReadHalfword(ctx);
+    FUN_02058E90(vector, movement);
     return FALSE;
 }
