@@ -255,7 +255,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_ReleaseCamera
 	.word ScrCmd_FacePlayer
 	.word ScrCmd_GetPlayerPosition
-	.word ScrCmd_Unk006A
+	.word ScrCmd_GetOverworldEventPosition
 	.word ScrCmd_Unk006B
 	.word ScrCmd_Unk006C
 	.word ScrCmd_Unk006D

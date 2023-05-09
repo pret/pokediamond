@@ -55,7 +55,7 @@ extern u32 FUN_0205AEA4(struct Vecx32 *param0, const void *ptr);
 extern u32 FUN_02058B2C(struct Vecx32 *param0);
 extern u32 FUN_02058B4C(struct Vecx32 *param0);
 extern struct Vecx32 *FUN_020580B4(u32 param0, u32 param1);
-extern struct Vecx32 *FUN_02058060(u32 param0, u32 param1);
+extern struct Vecx32 *FUN_02058060(u32 param0, u32 eventId);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
@@ -1673,7 +1673,7 @@ THUMB_FUNC BOOL ScrCmd_FacePlayer(struct ScriptContext *ctx) //0068
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx)
+THUMB_FUNC BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx) //0069
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
 
@@ -1683,5 +1683,19 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx)
     *xVar = GetPlayerXCoord(fieldSystem->playerAvatar);
     *yVar = GetPlayerYCoord(fieldSystem->playerAvatar);
 
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx) //006A
+{
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    u32 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct Vecx32 *position = FUN_02058060(fieldSystem->unk34, eventId);
+
+    u16 *xVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *yVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    *xVar = FUN_02058B2C(position);
+    *yVar = FUN_02058B4C(position);
     return FALSE;
 }
