@@ -1699,3 +1699,11 @@ THUMB_FUNC BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx) //00
     *yVar = FUN_02058B4C(position);
     return FALSE;
 }
+
+THUMB_FUNC BOOL ScrCmd_GetPlayerDirection(struct ScriptContext *ctx) //01BD
+{
+    u16 *directionVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    *directionVar = (u16)PlayerAvatar_GetFacingDirection(ctx->fieldSystem->playerAvatar);
+    return FALSE;
+}

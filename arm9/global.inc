@@ -2801,7 +2801,7 @@
 .extern ScrCmd_FacePlayer
 .extern ScrCmd_GetPlayerPosition
 .extern ScrCmd_GetOverworldEventPosition
-.extern ScrCmd_Unk01BD
+.extern ScrCmd_GetPlayerDirection
 .extern ScrCmd_Unk006B
 .extern ScrCmd_Unk006C
 .extern ScrCmd_Unk006D

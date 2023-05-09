@@ -14,26 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk01BD
-ScrCmd_Unk01BD: ; 0x0203B618
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r5, #0x80
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x0]
-	ldr r0, [r0, #0x38]
-	bl PlayerAvatar_GetFacingDirection
-	strh r0, [r4, #0x0]
-	mov r0, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk006B
 ScrCmd_Unk006B: ; 0x0203B640
 	push {r4-r7, lr}

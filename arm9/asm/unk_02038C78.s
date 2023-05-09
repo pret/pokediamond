@@ -594,7 +594,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_AddPartyMonFriendship
 	.word ScrCmd_SubtractPartyMonFriendship
 	.word ScrCmd_Unk01BC
-	.word ScrCmd_Unk01BD
+	.word ScrCmd_GetPlayerDirection
 	.word ScrCmd_Unk01BE
 	.word ScrCmd_Unk01BF
 	.word ScrCmd_CheckPartyForSpecies

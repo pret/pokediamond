@@ -128,6 +128,7 @@ BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx);
 BOOL ScrCmd_FacePlayer(struct ScriptContext *ctx);
 BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx);
 BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx);
+BOOL ScrCmd_GetPlayerDirection(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
