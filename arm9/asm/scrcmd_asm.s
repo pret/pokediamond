@@ -14,29 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0191
-ScrCmd_Unk0191: ; 0x0203B8E4
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x13
-	bl FUN_02039438
-	add r1, r5, #0x0
-	add r1, #0x80
-	add r4, r0, #0x0
-	ldr r1, [r1, #0x0]
-	mov r0, #0x20
-	bl FUN_020379F8
-	str r0, [r4, #0x0]
-	ldr r1, _0203B910 ; =FUN_0203BC04
-	add r0, r5, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r3-r5, pc}
-	nop
-_0203B910: .word FUN_0203BC04 
-
 	thumb_func_start ScrCmd_Unk02A5
 ScrCmd_Unk02A5: ; 0x0203B914
 	push {r3-r5, lr}

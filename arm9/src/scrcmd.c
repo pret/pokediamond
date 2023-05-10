@@ -92,6 +92,7 @@ extern void FUN_02058EB0(struct Vecx32 *vector, u32 param1);
 extern u16 FUN_02029E0C(struct SealCase *sealCase);
 extern u16 FUN_02029E2C(struct SealCase *sealCase, u16 sealId);
 extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
+extern u32 FUN_020379F8(u32 param0, struct FieldSystem *fieldSystem);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -117,6 +118,8 @@ static BOOL FUN_0203B158(struct ScriptContext *ctx);
 static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 static BOOL FUN_0203B218(struct ScriptContext *ctx);
+
+extern BOOL FUN_0203BC04(struct ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -1810,3 +1813,10 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx) //0095
     return FALSE;
 }
 
+THUMB_FUNC BOOL ScrCmd_Unk0191(struct ScriptContext *ctx) //0191
+{
+    u32 *unk = FUN_02039438(ctx->fieldSystem, 0x13);
+    *unk = FUN_020379F8(0x20, ctx->fieldSystem);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
