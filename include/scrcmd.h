@@ -126,6 +126,17 @@ BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx);
 BOOL ScrCmd_LockCamera(struct ScriptContext *ctx);
 BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx);
 BOOL ScrCmd_FacePlayer(struct ScriptContext *ctx);
+BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx);
+BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx);
+BOOL ScrCmd_GetPlayerDirection(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk006B(struct ScriptContext *ctx);
+BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx);
+BOOL ScrCmd_SetOverworldEventMovement(struct ScriptContext *ctx);
+BOOL ScrCmd_GetOverworldEventMovement(struct ScriptContext *ctx);
+BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk02AB(struct ScriptContext *ctx);
+BOOL ScrCmd_GetSealCountFromId(struct ScriptContext *ctx);
+BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

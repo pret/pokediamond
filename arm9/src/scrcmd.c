@@ -6,6 +6,7 @@
 #include "options.h"
 #include "player_data.h"
 #include "render_window.h"
+#include "seal.h"
 #include "task.h"
 #include "text.h"
 #include "text_02054590.h"
@@ -55,7 +56,7 @@ extern u32 FUN_0205AEA4(struct Vecx32 *param0, const void *ptr);
 extern u32 FUN_02058B2C(struct Vecx32 *param0);
 extern u32 FUN_02058B4C(struct Vecx32 *param0);
 extern struct Vecx32 *FUN_020580B4(u32 param0, u32 param1);
-extern struct Vecx32 *FUN_02058060(u32 param0, u32 param1);
+extern struct Vecx32 *FUN_02058060(u32 param0, u32 eventId);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
@@ -80,6 +81,16 @@ extern void FUN_02057654(struct Vecx32 *target);
 extern u32 PlayerAvatar_GetFacingDirection(struct PlayerAvatar *playerAvatar);
 extern u32 FUN_02059E74(u32 direction);
 extern void MOD05_021F1EC0(struct Vecx32 *param0, u32 param1);
+extern u16 GetPlayerXCoord(struct PlayerAvatar *playerAvatar);
+extern u16 GetPlayerYCoord(struct PlayerAvatar *playerAvatar);
+extern void FUN_02058BB4(struct Vecx32 *param0, struct Vecx32 *param1);
+extern void FUN_02058994(struct Vecx32 *vector, u8 value);
+extern void FUN_02058E90(struct Vecx32 *vector, u16 movement);
+extern u16 FUN_02058480(struct Vecx32 *vector);
+extern void FUN_02058EB0(struct Vecx32 *vector, u32 param1);
+extern u16 FUN_02029E0C(struct SealCase *sealCase);
+extern u16 FUN_02029E2C(struct SealCase *sealCase, u16 sealId);
+extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -100,7 +111,7 @@ static BOOL FUN_0203AA0C(struct ScriptContext *ctx);
 static BOOL FUN_0203AB00(struct ScriptContext *ctx);
 static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
-static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 param1);
+static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId);
 static BOOL FUN_0203B158(struct ScriptContext *ctx);
 static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
@@ -1404,20 +1415,20 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
     return FALSE;
 }
 
-THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *arg, u16 param1)
+THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId)
 {
-    if (param1 == 242)
+    if (eventId == 242)
     {
-        return FUN_020580B4(arg->unk34, 48);
+        return FUN_020580B4(fieldSystem->unk34, 48);
     }
-    else if (param1 == 241)
+    else if (eventId == 241)
     {
-        struct Vecx32 **res = (struct Vecx32 **)FUN_02039438(arg, 11);
+        struct Vecx32 **res = (struct Vecx32 **)FUN_02039438(fieldSystem, 11);
         return *res;
     }
     else
     {
-        return FUN_02058060(arg->unk34, param1);
+        return FUN_02058060(fieldSystem->unk34, eventId);
     }
 }
 
@@ -1433,7 +1444,7 @@ THUMB_FUNC static BOOL FUN_0203B158(struct ScriptContext *ctx)
     return *unk == 0 ? TRUE : FALSE;
 }
 
-THUMB_FUNC static void FUN_0203B174(struct FieldSystem *arg, u32 param1, void *param2)
+THUMB_FUNC static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2)
 {
     UnkStruct_0203B174 *unkStruct = (UnkStruct_0203B174 *)AllocFromHeap(4, sizeof(UnkStruct_0203B174));
     if (unkStruct == NULL)
@@ -1441,7 +1452,7 @@ THUMB_FUNC static void FUN_0203B174(struct FieldSystem *arg, u32 param1, void *p
         GF_AssertFail();
         return;
     }
-    unkStruct->fieldSystem = arg;
+    unkStruct->fieldSystem = fieldSystem;
     unkStruct->Unk04 = param1;
     unkStruct->Unk08 = param2;
     unkStruct->Unk00 = FUN_0200CA44((void (*)(u32, void *))FUN_0203B1A8, unkStruct, 0);
@@ -1668,5 +1679,121 @@ THUMB_FUNC BOOL ScrCmd_FacePlayer(struct ScriptContext *ctx) //0068
     }
 
     MOD05_021F1EC0(*unk1, unk0);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx) //0069
+{
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+
+    u16 *xVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *yVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    *xVar = GetPlayerXCoord(fieldSystem->playerAvatar);
+    *yVar = GetPlayerYCoord(fieldSystem->playerAvatar);
+
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx) //006A
+{
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    u32 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct Vecx32 *position = FUN_02058060(fieldSystem->unk34, eventId);
+
+    u16 *xVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *yVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    *xVar = FUN_02058B2C(position);
+    *yVar = FUN_02058B4C(position);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetPlayerDirection(struct ScriptContext *ctx) //01BD
+{
+    u16 *directionVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    *directionVar = (u16)PlayerAvatar_GetFacingDirection(ctx->fieldSystem->playerAvatar);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk006B(struct ScriptContext *ctx) //006B - todo: CheckPersonPosition?
+{
+    u16 x = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 y = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 z = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    struct Vecx32 vector;
+    vector.x = FX32_CONST(x);
+    vector.y = FX32_CONST(y);
+    vector.z = FX32_CONST(z);
+
+    FUN_02058BB4(FUN_020553A0(ctx->fieldSystem->playerAvatar), &vector);
+    Camera_OffsetLookAtPosAndTarget(&vector, ctx->fieldSystem->cameraWork);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx) //006C
+{
+    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    FUN_02058994(vector, ScriptReadByte(ctx));
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_SetOverworldEventMovement(struct ScriptContext *ctx) //006D
+{
+    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    u16 movement = ScriptReadHalfword(ctx);
+    FUN_02058E90(vector, movement);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetOverworldEventMovement(struct ScriptContext *ctx) //02AD
+{
+    u16 *variable = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    *variable = 0;
+    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    if (vector != NULL)
+    {
+        *variable = FUN_02058480(vector);
+    }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx) //006E
+{
+    struct Vecx32 *vector = FUN_020580B4(ctx->fieldSystem->unk34, 0x30);
+    FUN_02058EB0(vector, 0xFE);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk02AB(struct ScriptContext *ctx) //02AB
+{
+    u16 *unk0 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
+    *unk0 = FUN_02029E0C(sealCase);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetSealCountFromId(struct ScriptContext *ctx) //0093
+{
+    u16 sealId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *variable = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
+    *variable = FUN_02029E2C(sealCase, sealId);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx) //0094
+{
+    u16 sealId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u32 amount = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
+    FUN_02029D44(sealCase, sealId, (s16)amount);
     return FALSE;
 }

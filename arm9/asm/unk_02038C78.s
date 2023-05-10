@@ -254,12 +254,12 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_LockCamera
 	.word ScrCmd_ReleaseCamera
 	.word ScrCmd_FacePlayer
-	.word ScrCmd_Unk0069
-	.word ScrCmd_Unk006A
+	.word ScrCmd_GetPlayerPosition
+	.word ScrCmd_GetOverworldEventPosition
 	.word ScrCmd_Unk006B
-	.word ScrCmd_Unk006C
-	.word ScrCmd_Unk006D
-	.word ScrCmd_Unk006E
+	.word ScrCmd_KeepOverworldEvent
+	.word ScrCmd_SetOverworldEventMovement
+	.word ScrCmd_OverworldEventStopFollowing
 	.word ScrCmd_GiveMoney
 	.word ScrCmd_TakeMoneyImmediate
 	.word ScrCmd_HasEnoughMoneyImmediate
@@ -296,8 +296,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_TakeUndergroundSphere
 	.word ScrCmd_HasSpaceForSphere
 	.word ScrCmd_GetSphereCount
-	.word ScrCmd_Unk0093
-	.word ScrCmd_Unk0094
+	.word ScrCmd_GetSealCountFromId
+	.word ScrCmd_GiveSeals
 	.word ScrCmd_Unk0095
 	.word ScrCmd_GiveMon
 	.word ScrCmd_GiveEgg
@@ -594,7 +594,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_AddPartyMonFriendship
 	.word ScrCmd_SubtractPartyMonFriendship
 	.word ScrCmd_Unk01BC
-	.word ScrCmd_Unk01BD
+	.word ScrCmd_GetPlayerDirection
 	.word ScrCmd_Unk01BE
 	.word ScrCmd_Unk01BF
 	.word ScrCmd_CheckPartyForSpecies
@@ -834,7 +834,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02AA
 	.word ScrCmd_Unk02AB
 	.word ScrCmd_Unk02AC
-	.word ScrCmd_Unk02AD
+	.word ScrCmd_GetOverworldEventMovement
 	.word ScrCmd_Unk02AE
 	.word ScrCmd_Unk02AF
 	.word ScrCmd_Unk02B0
