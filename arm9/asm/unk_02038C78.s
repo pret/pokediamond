@@ -298,7 +298,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetSphereCount
 	.word ScrCmd_GetSealCountFromId
 	.word ScrCmd_GiveSeals
-	.word ScrCmd_Unk0095
+	.word ScrCmd_GetPokemonForme
 	.word ScrCmd_GiveMon
 	.word ScrCmd_GiveEgg
 	.word ScrCmd_SetPartyMonMove

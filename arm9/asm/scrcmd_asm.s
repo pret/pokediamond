@@ -14,36 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0095
-ScrCmd_Unk0095: ; 0x0203B8A0
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r5, #0x80
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x0]
-	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
-	add r1, r6, #0x0
-	bl GetPartyMonByIndex
-	bl GetMonUnownLetter
-	strh r0, [r4, #0x0]
-	mov r0, #0x0
-	pop {r4-r6, pc}
-
 	thumb_func_start ScrCmd_Unk0191
 ScrCmd_Unk0191: ; 0x0203B8E4
 	push {r3-r5, lr}

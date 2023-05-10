@@ -4,6 +4,7 @@
 #include "camera.h"
 #include "main.h"
 #include "options.h"
+#include "party.h"
 #include "player_data.h"
 #include "render_window.h"
 #include "seal.h"
@@ -1797,3 +1798,15 @@ THUMB_FUNC BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx) //0094
     FUN_02029D44(sealCase, sealId, (s16)amount);
     return FALSE;
 }
+
+THUMB_FUNC BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx) //0095
+{
+    u16 partyPosition = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *var = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    struct PlayerParty *party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
+    *var = GetMonUnownLetter(GetPartyMonByIndex(party, partyPosition));
+
+    return FALSE;
+}
+
