@@ -90,6 +90,7 @@ extern u16 FUN_02058480(struct Vecx32 *vector);
 extern void FUN_02058EB0(struct Vecx32 *vector, u32 param1);
 extern u16 FUN_02029E0C(struct SealCase *sealCase);
 extern u16 FUN_02029E2C(struct SealCase *sealCase, u16 sealId);
+extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1784,5 +1785,15 @@ THUMB_FUNC BOOL ScrCmd_GetSealCountFromId(struct ScriptContext *ctx) //0093
     u16 *variable = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
     struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
     *variable = FUN_02029E2C(sealCase, sealId);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx) //0094
+{
+    u16 sealId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u32 amount = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+
+    struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
+    FUN_02029D44(sealCase, sealId, (s16)amount);
     return FALSE;
 }

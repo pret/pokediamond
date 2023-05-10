@@ -14,37 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0094
-ScrCmd_Unk0094: ; 0x0203B85C
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r5, #0x80
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x0]
-	ldr r0, [r0, #0xc]
-	bl Sav2_SealCase_get
-	lsl r2, r4, #0x10
-	add r1, r6, #0x0
-	asr r2, r2, #0x10
-	bl FUN_02029D44
-	mov r0, #0x0
-	pop {r4-r6, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk0095
 ScrCmd_Unk0095: ; 0x0203B8A0
 	push {r4-r6, lr}

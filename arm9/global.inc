@@ -2809,7 +2809,7 @@
 .extern ScrCmd_OverworldEventStopFollowing
 .extern ScrCmd_Unk02AB
 .extern ScrCmd_GetSealCountFromId
-.extern ScrCmd_Unk0094
+.extern ScrCmd_GiveSeals
 .extern ScrCmd_Unk0095
 .extern ScrCmd_Unk0191
 .extern ScrCmd_Unk02A5
