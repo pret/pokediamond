@@ -15,7 +15,7 @@ THUMB_FUNC BOOL ScrCmd_CountFossils(struct ScriptContext * ctx) //01F1
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
 
-    u16 *ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
 
     u8 i;
     u16 total;
@@ -30,8 +30,8 @@ THUMB_FUNC BOOL ScrCmd_CountFossils(struct ScriptContext * ctx) //01F1
 
 THUMB_FUNC BOOL ScrCmd_GetFossilPokemon(struct ScriptContext * ctx) //01F4
 {
-    u16 *ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 fossilId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    u16 fossilId = ScriptGetVar(ctx);
 
     *ret_ptr = 0;
 
@@ -50,9 +50,9 @@ THUMB_FUNC BOOL ScrCmd_GetFossilPokemon(struct ScriptContext * ctx) //01F4
 THUMB_FUNC BOOL ScrCmd_GetFossilMinimumAmount(struct ScriptContext * ctx) //01F5
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 * ret_ptr1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 * ret_ptr2 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 needed_amount = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 * ret_ptr1 = ScriptGetVarPointer(ctx);
+    u16 * ret_ptr2 = ScriptGetVarPointer(ctx);
+    u16 needed_amount = ScriptGetVar(ctx);
 
     *ret_ptr1 = 0;
     *ret_ptr2 = 0;

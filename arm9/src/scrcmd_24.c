@@ -13,7 +13,7 @@ extern BOOL FUN_0203BC04(struct ScriptContext* ctx);
 
 THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx) //01C6 - todo: MoveInfo?
 {
-    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk = ScriptGetVar(ctx);
     struct UnkStruct_02037CF0** unk_ret_ptr = FUN_02039438(ctx->fieldSystem, 19);
     *unk_ret_ptr = FUN_02037CF0(32, ctx->fieldSystem, (u8)unk);
 
@@ -26,7 +26,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) //01C7 - todo: StoreMo
     struct UnkStruct_02037CF0** unk_ptr;
     u16* ret_ptr;
 
-    ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    ret_ptr = ScriptGetVarPointer(ctx);
     unk_ptr = FUN_02039438(ctx->fieldSystem, 19);
     GF_ASSERT(*unk_ptr != NULL);
 
@@ -49,8 +49,8 @@ THUMB_FUNC BOOL ScrCmd_Unk021E(struct ScriptContext* ctx) //021E
 
 THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) //021F
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_idx = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     void* unk_ptr = GetEligibleLevelUpMoves(pokemon, 32);
@@ -89,7 +89,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0220(struct ScriptContext* ctx) //0220
 
 THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
 {
-    u16 mon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_idx = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     void* unk_ptr = GetEligibleLevelUpMoves(pokemon, 32);
@@ -100,8 +100,8 @@ THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: Remembe
 
 THUMB_FUNC BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMove?
 {
-    u16 mon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_idx = ScriptGetVar(ctx);
+    u16 unk2 = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
 
@@ -125,7 +125,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: Remembe
     struct UnkStruct_02037CF0* unk_sub;
     u16* ret_ptr;
 
-    ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    ret_ptr = ScriptGetVarPointer(ctx);
     unk = FUN_02039438(ctx->fieldSystem, 19);
     unk_sub = *unk;
 
@@ -150,7 +150,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0225(struct ScriptContext* ctx) //0225 - todo: TeachMo
     struct UnkStruct_02037CF0* unk_sub;
     u16* ret_ptr;
 
-    ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    ret_ptr = ScriptGetVarPointer(ctx);
     unk = FUN_02039438(ctx->fieldSystem, 19);
     unk_sub = *unk;
 

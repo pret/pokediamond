@@ -17,10 +17,10 @@ THUMB_FUNC BOOL ScrCmd_GiveMon(struct ScriptContext* ctx) //0096 - todo: GivePok
 {
     u32 mapSec = MapHeader_GetMapSec(*(ctx->fieldSystem->mapId));
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 species = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 level = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 item = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 * varPtr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 species = ScriptGetVar(ctx);
+    u16 level = ScriptGetVar(ctx);
+    u16 item = ScriptGetVar(ctx);
+    u16 * varPtr = ScriptGetVarPointer(ctx);
     struct PlayerParty * party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     *varPtr = (u16)GiveMon(11, fieldSystem->saveBlock2, species, (u8)level, item, mapSec, 12);
     return FALSE;
@@ -32,7 +32,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx) //0198 - to
     u16* ret_ptr;
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* mon_slot = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* mon_slot = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx)); //for some reason this is *required* for matching, cannot use ScriptGetVarPointer here
     ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, *mon_slot);
@@ -57,8 +57,8 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx) //0199 - tod
     struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
     struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(sav2);
 
-    u16* mon_slot = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* mon_slot = ScriptGetVarPointer(ctx);
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, *mon_slot);
@@ -81,8 +81,8 @@ THUMB_FUNC BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(fieldSystem->saveBlock2);
-    u16 species = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 species = ScriptGetVar(ctx);
+    u16 unk = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     u8 party_count = (u8)GetPartyCount(party);
 
@@ -103,9 +103,9 @@ THUMB_FUNC BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
 
 THUMB_FUNC BOOL ScrCmd_SetPartyMonMove(struct ScriptContext* ctx) //0098 - todo: ReplacePartyPokemonMove?
 {
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 move_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 move = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_slot = ScriptGetVar(ctx);
+    u16 move_slot = ScriptGetVar(ctx);
+    u16 move = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
 
     PartyMonSetMoveInSlot(party, mon_slot, move_slot, move);
@@ -116,9 +116,9 @@ THUMB_FUNC BOOL ScrCmd_SetPartyMonMove(struct ScriptContext* ctx) //0098 - todo:
 THUMB_FUNC BOOL ScrCmd_PartyMonHasMove(struct ScriptContext* ctx) //0099
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 required_move = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 required_move = ScriptGetVar(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -144,8 +144,8 @@ THUMB_FUNC BOOL ScrCmd_PartyMonHasMove(struct ScriptContext* ctx) //0099
 THUMB_FUNC BOOL ScrCmd_FindPartyMonWithMove(struct ScriptContext* ctx) //009A - todo: CheckMoveInParty?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 required_move = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 required_move = ScriptGetVar(ctx);
     u8 party_count = (u8)GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     u8 i;
@@ -173,8 +173,8 @@ THUMB_FUNC BOOL ScrCmd_FindPartyMonWithMove(struct ScriptContext* ctx) //009A - 
 
 THUMB_FUNC BOOL ScrCmd_SurvivePsn(struct ScriptContext* ctx) //01F7
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -188,8 +188,8 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMonsAtOrBelowLevel(struct ScriptContext* ctx) /
     u8 i;
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 highest_level = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 highest_level = ScriptGetVar(ctx);
     party_count = (u8)GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     u8 mons;
@@ -216,8 +216,8 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMonsAtOrBelowLevel(struct ScriptContext* ctx) /
 THUMB_FUNC BOOL ScrCmd_GetPartyMonLevel(struct ScriptContext* ctx) //0278
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -235,8 +235,8 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonLevel(struct ScriptContext* ctx) //0278
 THUMB_FUNC BOOL ScrCmd_GetPartyMonNature(struct ScriptContext* ctx) //0212
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     u8 party_count = (u8)GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     if (mon_slot >= party_count)
@@ -262,8 +262,8 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonNature(struct ScriptContext* ctx) //0212
 THUMB_FUNC BOOL ScrCmd_FindPartyMonWithNature(struct ScriptContext* ctx) //0213 - todo: CheckNatureInParty
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 required_nature = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 required_nature = ScriptGetVar(ctx);
     u8 party_count = (u8)GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     u8 i;
@@ -290,8 +290,8 @@ THUMB_FUNC BOOL ScrCmd_FindPartyMonWithNature(struct ScriptContext* ctx) //0213 
 THUMB_FUNC BOOL ScrCmd_GetPartyMonFriendship(struct ScriptContext* ctx) //01B9
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -302,8 +302,8 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonFriendship(struct ScriptContext* ctx) //01B9
 THUMB_FUNC BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx) //01BA
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 friendship_to_add = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 friendship_to_add = ScriptGetVar(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     u16 map_sec = MapHeader_GetMapSec(*ctx->fieldSystem->mapId);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
@@ -346,8 +346,8 @@ THUMB_FUNC BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx) //01BA
 THUMB_FUNC BOOL ScrCmd_SubtractPartyMonFriendship(struct ScriptContext* ctx) //01BB
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 friendship_to_deplete = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 friendship_to_deplete = ScriptGetVar(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -368,9 +368,9 @@ THUMB_FUNC BOOL ScrCmd_SubtractPartyMonFriendship(struct ScriptContext* ctx) //0
 
 THUMB_FUNC BOOL ScrCmd_GetPartyMonContestCondition(struct ScriptContext* ctx) //0281
 {
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 contest_condition_id = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_slot = ScriptGetVar(ctx);
+    u16 contest_condition_id = ScriptGetVar(ctx);
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -380,7 +380,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonContestCondition(struct ScriptContext* ctx) //
 
 THUMB_FUNC BOOL ScrCmd_GetLeadingPartyMonSlot(struct ScriptContext* ctx) //0247
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     *ret_ptr = FUN_02054DEC(ctx->fieldSystem->saveBlock2);
     return FALSE;
@@ -389,9 +389,9 @@ THUMB_FUNC BOOL ScrCmd_GetLeadingPartyMonSlot(struct ScriptContext* ctx) //0247
 THUMB_FUNC BOOL ScrCmd_GetPartyMonTypes(struct ScriptContext* ctx) //0248
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* type1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16* type2 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* type1 = ScriptGetVarPointer(ctx);
+    u16* type2 = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -403,7 +403,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonTypes(struct ScriptContext* ctx) //0248
 THUMB_FUNC BOOL ScrCmd_CountPartyMons(struct ScriptContext* ctx) //0177
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
 
     *ret_ptr = (u16)GetPartyCount(party);
@@ -416,7 +416,7 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMons_OmitEggs(struct ScriptContext* ctx) //019A
     s32 i;
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     s32 party_count = GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     for (i = 0, non_egg_mons = 0; i < party_count; i++)
@@ -442,8 +442,8 @@ THUMB_FUNC BOOL ScrCmd_CountAvailablePartyMons_IgnoreSlot(struct ScriptContext* 
     s32 party_count;
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    slot_to_ignore = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    slot_to_ignore = ScriptGetVar(ctx);
     party_count = GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     u32 available_mons;
@@ -477,7 +477,7 @@ THUMB_FUNC BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx) /
     struct PCStorage* pc;
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     pc = GetStoragePCPointer(fieldSystem->saveBlock2);
     party_count = GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
@@ -509,7 +509,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyEggCount(struct ScriptContext* ctx) //019D
     u32 eggs_in_party;
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     party_count = GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     s32 i;
@@ -535,7 +535,7 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyForPokerus(struct ScriptContext* ctx) //0119
     u16 i;
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     party_count = (u16)GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     for (i = 0, *ret_ptr = 0; i < party_count; i++)
@@ -556,8 +556,8 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyForPokerus(struct ScriptContext* ctx) //0119
 
 THUMB_FUNC BOOL ScrCmd_GetPartyMonGender(struct ScriptContext* ctx) //011A
 {
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_slot = ScriptGetVar(ctx);
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -571,8 +571,8 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMonMoves(struct ScriptContext* ctx) //01C8
     u8 moves;
 
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -616,8 +616,8 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMonMoves(struct ScriptContext* ctx) //01C8
 THUMB_FUNC BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext* ctx) //01C9
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 move_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_slot = ScriptGetVar(ctx);
+    u16 move_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -629,9 +629,9 @@ THUMB_FUNC BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext* ctx) //01C9
 THUMB_FUNC BOOL ScrCmd_GetPartyMonMove(struct ScriptContext* ctx) //01CA
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 move_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
+    u16 move_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -642,8 +642,8 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonMove(struct ScriptContext* ctx) //01CA
 THUMB_FUNC BOOL ScrCmd_GetPartyMonHeldItem(struct ScriptContext* ctx) //01EE
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -654,7 +654,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonHeldItem(struct ScriptContext* ctx) //01EE
 THUMB_FUNC BOOL ScrCmd_ResetPartyMonHeldItem(struct ScriptContext* ctx) //01F0
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -667,8 +667,8 @@ THUMB_FUNC BOOL ScrCmd_ResetPartyMonHeldItem(struct ScriptContext* ctx) //01F0
 THUMB_FUNC BOOL ScrCmd_CheckPartyForSpecies(struct ScriptContext* ctx) //01C0
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 species = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 species = ScriptGetVar(ctx);
     u8 party_count = (u8)GetPartyCount(SavArray_PlayerParty_get(fieldSystem->saveBlock2));
 
     u8 i;
@@ -694,8 +694,8 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyForSpecies(struct ScriptContext* ctx) //01C0
 
 THUMB_FUNC BOOL ScrCmd_CountPartyMonRibbons(struct ScriptContext* ctx) //022E
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -720,7 +720,7 @@ THUMB_FUNC BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx) //022F
     u16 ribbon_idx;
     u16 ribbons;
 
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 party_count = (u16)GetPartyCount(SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2));
     party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
 
@@ -753,9 +753,9 @@ THUMB_FUNC BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx) //022F
 
 THUMB_FUNC BOOL ScrCmd_PartyMonHasRibbon(struct ScriptContext* ctx) //0230
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 ribbon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 mon_slot = ScriptGetVar(ctx);
+    u16 ribbon_idx = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 
@@ -765,8 +765,8 @@ THUMB_FUNC BOOL ScrCmd_PartyMonHasRibbon(struct ScriptContext* ctx) //0230
 
 THUMB_FUNC BOOL ScrCmd_GivePartyMonRibbon(struct ScriptContext* ctx) //0231
 {
-    u16 mon_slot = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 ribbon_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 mon_slot = ScriptGetVar(ctx);
+    u16 ribbon_idx = ScriptGetVar(ctx);
     u8 mon_has_ribbon = TRUE;
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
@@ -780,7 +780,7 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyForBadEgg(struct ScriptContext* ctx) //02B7
 {
     u16 ribbon_idx;
 
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 party_count = (u16)GetPartyCount(SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2));
     struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
 
