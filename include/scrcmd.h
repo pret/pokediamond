@@ -137,6 +137,8 @@ BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk02AB(struct ScriptContext *ctx);
 BOOL ScrCmd_GetSealCountFromId(struct ScriptContext *ctx);
 BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx);
+BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0191(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

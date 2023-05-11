@@ -2810,7 +2810,7 @@
 .extern ScrCmd_Unk02AB
 .extern ScrCmd_GetSealCountFromId
 .extern ScrCmd_GiveSeals
-.extern ScrCmd_Unk0095
+.extern ScrCmd_GetPokemonForme
 .extern ScrCmd_Unk0191
 .extern ScrCmd_Unk02A5
 .extern ScrCmd_Unk0192
