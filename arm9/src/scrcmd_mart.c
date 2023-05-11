@@ -346,7 +346,7 @@ const u16 *sSealsMartPointers[] = {
 
 THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pokemart?
 {
-    u16 whichMart = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 whichMart = ScriptGetVar(ctx);
     s32 param;
     u16 martItems[64];
     u8 martIdx = 0;
@@ -400,7 +400,7 @@ THUMB_FUNC BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pok
 
 THUMB_FUNC BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx) //0148
 {
-    u16 whichMart = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 whichMart = ScriptGetVar(ctx);
     u32 sp0;
 
     // Fakematch?
@@ -415,7 +415,7 @@ THUMB_FUNC BOOL ScrCmd_SpecialMart(struct ScriptContext * ctx) //0148
 
 THUMB_FUNC BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx) //0149
 {
-    u16 whichMart = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 whichMart = ScriptGetVar(ctx);
     u32 sp0;
 
     if (whichMart <= 1)
@@ -429,7 +429,7 @@ THUMB_FUNC BOOL ScrCmd_GoodsMart(struct ScriptContext * ctx) //0149
 
 THUMB_FUNC BOOL ScrCmd_SealsMart(struct ScriptContext * ctx) //014A
 {
-    u16 whichMart = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 whichMart = ScriptGetVar(ctx);
 
     MOD06_0223D3D0(ctx->taskManager, ctx->fieldSystem, sSealsMartPointers[whichMart], MART_SEALS, 0);
     return TRUE;

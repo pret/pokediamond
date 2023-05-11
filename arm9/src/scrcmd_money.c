@@ -34,8 +34,8 @@ THUMB_FUNC BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext * ctx) //01A3 - tod
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
     struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
 
-    u32 amount = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    PlayerProfile_SubMoney(player, amount);
+    u16 amount = ScriptGetVar(ctx);
+    PlayerProfile_SubMoney(player, (u32)amount);
 
     return FALSE;
 }
@@ -44,7 +44,7 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext * ctx) //007
 {
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
     struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
-    u16 * ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 * ret_ptr = ScriptGetVarPointer(ctx);
 
     u32 amount = ScriptReadWord(ctx);
     u32 money = PlayerProfile_GetMoney(player);
@@ -65,9 +65,9 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext * ctx) //01AB 
 {
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
     struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
-    u16 * ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 * ret_ptr = ScriptGetVarPointer(ctx);
 
-    u32 amount = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 amount = ScriptGetVar(ctx);
     u32 money = PlayerProfile_GetMoney(player);
 
     if (money < amount)
@@ -85,8 +85,8 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext * ctx) //01AB 
 THUMB_FUNC BOOL ScrCmd_ShowMoneyBox(struct ScriptContext * ctx) //0072
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 unk1 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u32 unk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk1 = ScriptGetVar(ctx);
+    u16 unk2 = ScriptGetVar(ctx);
     u32 *unk_ret_ptr = FUN_02039438(fieldSystem, 0x27);
 
     *unk_ret_ptr = MOD05_021E27E8(ctx->fieldSystem, (u8)unk1, (u8)unk2);

@@ -18,42 +18,42 @@ THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
     switch (option)
     {
     case 0: { //check if group ID exists
-        u16 unk_var = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-        u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+        u16 unk_var = ScriptGetVar(ctx);
+        u16* ret_ptr = ScriptGetVarPointer(ctx);
 
         *ret_ptr = (u16)FUN_02028828(unk_sav_ptr, unk_var);
         return FALSE;
     }
     case 1: { //check if group ID is accessible
-        u16 unk_var = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-        u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+        u16 unk_var = ScriptGetVar(ctx);
+        u16* ret_ptr = ScriptGetVarPointer(ctx);
 
         *ret_ptr = (u16)FUN_02028840(unk_sav_ptr, unk_var);
         return FALSE;
     }
     case 2: { //writes group ID to string buffer
-        u16 unk_var = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-        u16 idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+        u16 unk_var = ScriptGetVar(ctx);
+        u16 idx = ScriptGetVar(ctx);
 
         BufferEasyChatWord(*mgr, sav2, unk_var, idx, 0);
         break;
     }
     case 3: { //writes group leader name to string buffer
-        u16 unk_var = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-        u16 idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+        u16 unk_var = ScriptGetVar(ctx);
+        u16 idx = ScriptGetVar(ctx);
 
         BufferEasyChatWord(*mgr, sav2, unk_var, idx, 1);
         break;
     }
     case 4: { //opens keyboard, 2 if group id exists, 1 if cancel, 0 otherwise
         u16* unk_str_ptr = FUN_020287A8(unk_sav_ptr, 0, 0);
-        u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+        u16* ret_ptr = ScriptGetVarPointer(ctx);
 
         FUN_020385CC(ctx->taskManager, 5, 0, 7, 0, unk_str_ptr, ret_ptr);
         return TRUE;
     }
     case 5: { //enter in group id (whatever this means, needs more investigation)
-        u16 src_idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+        u16 src_idx = ScriptGetVar(ctx);
         BOOL unk_bool = FUN_02028828(unk_sav_ptr, 1);
 
         FUN_02028700(unk_sav_ptr, src_idx, 1);

@@ -24,7 +24,7 @@ extern BOOL FUN_02005670(void);
 THUMB_FUNC BOOL ScrCmd_Unk02AE(struct ScriptContext *ctx) //02AE
 {
     u16 unk0 = ScriptReadHalfword(ctx);
-    u16 *unk1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *unk1 = ScriptGetVarPointer(ctx);
 
     *unk1 = FUN_02005410(unk0);
 
@@ -116,21 +116,21 @@ THUMB_FUNC BOOL ScrCmd_Unk0058(struct ScriptContext* ctx) //0058
 
 THUMB_FUNC BOOL ScrCmd_PlayFanfare(struct ScriptContext* ctx) //0049
 {
-    u16 sound = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 sound = ScriptGetVar(ctx);
     PlaySE(sound);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_StopFanfare(struct ScriptContext* ctx) //004A
 {
-    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk = ScriptGetVar(ctx);
     FUN_020054F0(unk, 0);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_PlayFanfareWait(struct ScriptContext* ctx) //004B
 {
-    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk = ScriptGetVar(ctx);
 
     ctx->data[0] = unk;
     SetupNativeScript(ctx, FUN_02041540);
@@ -148,8 +148,8 @@ THUMB_FUNC BOOL FUN_02041540(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_PlayCry(struct ScriptContext* ctx) //004C
 {
-    u16 unk0 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unused = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unused = ScriptGetVar(ctx);
     FUN_02005578(unk0);
     return FALSE;
 }
@@ -195,7 +195,7 @@ THUMB_FUNC BOOL FUN_020415CC(struct ScriptContext* ctx)
 
 THUMB_FUNC BOOL ScrCmd_CheckChatotCry(struct ScriptContext* ctx) //0059
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     struct SaveChatotSoundClip* chatotSoundClip = Sav2_Chatot_get(ctx->fieldSystem->saveBlock2);
     if (Chatot_checkCry(chatotSoundClip) == 1)
@@ -212,7 +212,7 @@ THUMB_FUNC BOOL ScrCmd_CheckChatotCry(struct ScriptContext* ctx) //0059
 
 THUMB_FUNC BOOL ScrCmd_StartChatotRecord(struct ScriptContext* ctx) //005A
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     if (Chatot_startRecording() == 0)
     {
@@ -250,8 +250,8 @@ THUMB_FUNC BOOL ScrCmd_Unk005D(struct ScriptContext* ctx) //005D - todo: LoadSpe
 
 THUMB_FUNC BOOL ScrCmd_SetVolume(struct ScriptContext* ctx) //0283
 {
-    u16 unk1 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk1 = ScriptGetVar(ctx);
+    u16 unk2 = ScriptGetVar(ctx);
 
     FUN_0200488C(unk1, unk2);
 

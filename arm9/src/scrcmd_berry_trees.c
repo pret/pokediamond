@@ -16,7 +16,7 @@ extern void FUN_0204B4FC(struct FieldSystem*, void*);
 
 THUMB_FUNC BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx) //017D
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     void** unk = FUN_02039438(ctx->fieldSystem, 10);
 
     *ret_ptr = FUN_0204B5FC(ctx->fieldSystem, *unk);
@@ -27,7 +27,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx) //017D
 THUMB_FUNC BOOL ScrCmd_GetBerryTreeType(struct ScriptContext* ctx) //017E
 {
     void** unk = FUN_02039438(ctx->fieldSystem, 10);
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     *ret_ptr = FUN_0204B63C(ctx->fieldSystem, *unk);
 
@@ -37,7 +37,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeType(struct ScriptContext* ctx) //017E
 THUMB_FUNC BOOL ScrCmd_GetBerryTreeMulch(struct ScriptContext* ctx) //017F
 {
     void** unk = FUN_02039438(ctx->fieldSystem, 10);
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     *ret_ptr = FUN_0204B660(ctx->fieldSystem, *unk);
 
@@ -47,7 +47,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeMulch(struct ScriptContext* ctx) //017F
 THUMB_FUNC BOOL ScrCmd_GetBerryTreeWater(struct ScriptContext* ctx) //0180
 {
     void** unk = FUN_02039438(ctx->fieldSystem, 10);
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     *ret_ptr = FUN_0204B684(ctx->fieldSystem, *unk);
 
@@ -57,7 +57,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeWater(struct ScriptContext* ctx) //0180
 THUMB_FUNC BOOL ScrCmd_GetBerryTreeAmount(struct ScriptContext* ctx) //0181
 {
     void** unk = FUN_02039438(ctx->fieldSystem, 10);
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     *ret_ptr = FUN_0204B6A4(ctx->fieldSystem, *unk);
 
@@ -67,7 +67,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeAmount(struct ScriptContext* ctx) //0181
 THUMB_FUNC BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx) //0182
 {
     void** unk = FUN_02039438(ctx->fieldSystem, 10);
-    u16 unk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk2 = ScriptGetVar(ctx);
 
     FUN_0204B57C(ctx->fieldSystem, *unk, unk2);
 
@@ -78,7 +78,7 @@ THUMB_FUNC BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx) //0183
 {
     void** unk = FUN_02039438(ctx->fieldSystem, 10);
     struct GameStats* unk2 = Sav2_GameStats_get(ctx->fieldSystem->saveBlock2);
-    u16 unk3 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk3 = ScriptGetVar(ctx);
 
     FUN_0204B5A8(ctx->fieldSystem, *unk, unk3);
     GameStats_Inc(unk2, 3);

@@ -8,6 +8,17 @@ extern u16 VarGet(struct FieldSystem *fieldSystem, u16);
 extern u16* GetVarPointer(struct FieldSystem *fieldSystem, u16);
 extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct FieldSystem *fieldSystem);
 
+static inline u16 ScriptGetVar(struct ScriptContext* ctx)
+{
+    return VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+}
+
+static inline u16 *ScriptGetVarPointer(struct ScriptContext* ctx)
+{
+    return GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+}
+
+
 struct UnkStruct_0203A288 {
     u8 unk0;
     u8 unk1;
