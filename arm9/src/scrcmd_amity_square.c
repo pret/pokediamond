@@ -109,7 +109,7 @@ THUMB_FUNC BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx) //0215
 
 THUMB_FUNC BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx) //0216
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
 
     *ret_ptr = FUN_0205F55C(state);
@@ -118,8 +118,8 @@ THUMB_FUNC BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx) //0216
 
 THUMB_FUNC BOOL ScrCmd_GetAmitySquareAccessory(struct ScriptContext* ctx) //0217
 {
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 species = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 species = ScriptGetVar(ctx);
     u16 rand = (u16)(LCRandom() % 100);
 
     u32 j;

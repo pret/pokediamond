@@ -22,7 +22,7 @@ extern void FUN_0208089C(struct Pokemon* pokemon, struct PlayerData* player, u32
 THUMB_FUNC BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 {
     struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
-    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk = ScriptGetVar(ctx);
 
     if (unk == 0)
     {
@@ -46,7 +46,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
 {
     void* unk = FUN_02022528(ctx->fieldSystem->saveBlock2);
     struct Pokemon* pokemon = AllocMonZeroed(32);
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     u16 eggs = FUN_0202C000(unk);
     if (eggs == 6) {
@@ -87,7 +87,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
 
 THUMB_FUNC BOOL ScrCmd_Unk0256(struct ScriptContext* ctx) //0256
 {
-    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk = ScriptGetVar(ctx);
     u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
 
     switch (unk)

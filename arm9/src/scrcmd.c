@@ -57,7 +57,7 @@ extern u32 FUN_0205AEA4(struct Vecx32 *param0, const void *ptr);
 extern u32 FUN_02058B2C(struct Vecx32 *param0);
 extern u32 FUN_02058B4C(struct Vecx32 *param0);
 extern struct Vecx32 *FUN_020580B4(u32 param0, u32 param1);
-extern struct Vecx32 *FUN_02058060(u32 param0, u32 eventId);
+extern struct Vecx32 *FUN_02058060(u32 param0, u16 eventId);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
@@ -162,8 +162,7 @@ THUMB_FUNC static BOOL RunPauseTimer(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_DebugWatch(struct ScriptContext *ctx) //01F9
 {
-    u16 wk = ScriptReadHalfword(ctx);
-    VarGet(ctx->fieldSystem, wk);
+    ScriptGetVar(ctx);
     return FALSE;
 }
 
@@ -284,7 +283,7 @@ THUMB_FUNC BOOL ScrCmd_CompareAddrToAddr(struct ScriptContext *ctx) //0010
 
 THUMB_FUNC BOOL ScrCmd_CompareVarToValue(struct ScriptContext *ctx) //0011
 {
-    u16 a = *GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 a = *ScriptGetVarPointer(ctx);
     u16 b = ScriptReadHalfword(ctx);
     ctx->comparisonResult = (u8)Compare(a, b);
     return FALSE;
@@ -292,8 +291,8 @@ THUMB_FUNC BOOL ScrCmd_CompareVarToValue(struct ScriptContext *ctx) //0011
 
 THUMB_FUNC BOOL ScrCmd_CompareVarToVar(struct ScriptContext *ctx) //0012
 {
-    u16 *a = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 *b = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *a = ScriptGetVarPointer(ctx);
+    u16 *b = ScriptGetVarPointer(ctx);
     ctx->comparisonResult = (u8)Compare(*a, *b);
     return FALSE;
 }
@@ -454,8 +453,8 @@ THUMB_FUNC BOOL ScrCmd_CheckFlag(struct ScriptContext *ctx) //0020
 THUMB_FUNC BOOL ScrCmd_CheckFlagVar(struct ScriptContext *ctx) //0021
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 *wk1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 *wk2 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *wk1 = ScriptGetVarPointer(ctx);
+    u16 *wk2 = ScriptGetVarPointer(ctx);
     *wk2 = FlagCheck(fieldSystem, *wk1);
     return FALSE;
 }
@@ -463,7 +462,7 @@ THUMB_FUNC BOOL ScrCmd_CheckFlagVar(struct ScriptContext *ctx) //0021
 THUMB_FUNC BOOL ScrCmd_SetFlagVar(struct ScriptContext *ctx) //0022
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 *wk = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *wk = ScriptGetVarPointer(ctx);
     FlagSet(fieldSystem, *wk);
     return FALSE;
 }
@@ -471,7 +470,7 @@ THUMB_FUNC BOOL ScrCmd_SetFlagVar(struct ScriptContext *ctx) //0022
 THUMB_FUNC BOOL ScrCmd_SetTrainerFlag(struct ScriptContext *ctx) //0023
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 flag = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 flag = ScriptGetVar(ctx);
     TrainerFlagSet(fieldSystem, flag);
     return FALSE;
 }
@@ -479,7 +478,7 @@ THUMB_FUNC BOOL ScrCmd_SetTrainerFlag(struct ScriptContext *ctx) //0023
 THUMB_FUNC BOOL ScrCmd_ClearTrainerFlag(struct ScriptContext *ctx) //0024
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 flag = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 flag = ScriptGetVar(ctx);
     TrainerFlagClear(fieldSystem, flag);
     return FALSE;
 }
@@ -487,46 +486,46 @@ THUMB_FUNC BOOL ScrCmd_ClearTrainerFlag(struct ScriptContext *ctx) //0024
 THUMB_FUNC BOOL ScrCmd_CheckTrainerFlag(struct ScriptContext *ctx) //0025
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 flag = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 flag = ScriptGetVar(ctx);
     ctx->comparisonResult = TrainerFlagCheck(fieldSystem, flag);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_AddVar(struct ScriptContext *ctx) //0026
 {
-    u16 *wk1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 wk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *wk1 = ScriptGetVarPointer(ctx);
+    u16 wk2 = ScriptGetVar(ctx);
     *wk1 = (u16)(*wk1 + wk2);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_SubVar(struct ScriptContext *ctx) //0027
 {
-    u16 *wk1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 wk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *wk1 = ScriptGetVarPointer(ctx);
+    u16 wk2 = ScriptGetVar(ctx);
     *wk1 = (u16)(*wk1 - wk2);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_SetVar(struct ScriptContext *ctx) //0028
 {
-    u16 *wk = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *wk = ScriptGetVarPointer(ctx);
     *wk = ScriptReadHalfword(ctx);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_CopyVar(struct ScriptContext *ctx) //0029
 {
-    u16 *wk1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 *wk2 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *wk1 = ScriptGetVarPointer(ctx);
+    u16 *wk2 = ScriptGetVarPointer(ctx);
     *wk1 = *wk2;
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_SetOrCopyVar(struct ScriptContext *ctx) //002A - todo: better name
 {
-    u16 *wk1 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 wk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *wk1 = ScriptGetVarPointer(ctx);
+    u16 wk2 = ScriptGetVar(ctx);
     *wk1 = wk2;
     return FALSE;
 }
@@ -540,8 +539,8 @@ THUMB_FUNC BOOL ScrCmd_Message(struct ScriptContext *ctx) //002B - todo: Message
 
 THUMB_FUNC BOOL ScrCmd_MessageFrom(struct ScriptContext *ctx) //01FA - todo: MessageAllFromNarc?
 {
-    u16 arc = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 msg = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 arc = ScriptGetVar(ctx);
+    u16 msg = ScriptGetVar(ctx);
     struct MsgData *msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, arc, 32);
     MOD05_ShowMessageInField(ctx, msgData, msg);
     DestroyMsgData(msgData);
@@ -550,8 +549,8 @@ THUMB_FUNC BOOL ScrCmd_MessageFrom(struct ScriptContext *ctx) //01FA - todo: Mes
 
 THUMB_FUNC BOOL ScrCmd_MessageFrom2(struct ScriptContext *ctx) //01FB - todo: MessageFromNarc?
 {
-    u16 arc = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 msg = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 arc = ScriptGetVar(ctx);
+    u16 msg = ScriptGetVar(ctx);
     struct MsgData *msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, arc, 32);
     MOD05_021E2BD0(ctx, msgData, msg, 1, NULL);
     DestroyMsgData(msgData);
@@ -610,7 +609,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01FF(struct ScriptContext *ctx) //01FF
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u8 msg = ScriptReadByte(ctx);
-    u16 poke = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 poke = ScriptGetVar(ctx);
     u16 sex = ScriptReadHalfword(ctx);
     u8 flag = ScriptReadByte(ctx);
     u8 unk = 0;
@@ -653,7 +652,7 @@ THUMB_FUNC /*static*/ BOOL FUN_0203A2F0(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_Unk002D(struct ScriptContext *ctx) //002D - todo: MessageFromVar? MessageFlex?
 {
-    u16 msg = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 msg = ScriptGetVar(ctx);
     MOD05_021E2BD0(ctx, ctx->msgData, (u8)msg, 1, NULL);
     SetupNativeScript(ctx, FUN_0203A2F0);
     return TRUE;
@@ -662,7 +661,7 @@ THUMB_FUNC BOOL ScrCmd_Unk002D(struct ScriptContext *ctx) //002D - todo: Message
 THUMB_FUNC BOOL ScrCmd_Unk02C0(struct ScriptContext *ctx) //02C0
 {
     struct UnkStruct_0203A288 myLocalStruct;
-    u16 msg = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 msg = ScriptGetVar(ctx);
 
     MOD05_021E2BB8(&myLocalStruct, ctx);
     myLocalStruct.unk1 = 1;
@@ -675,7 +674,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02C0(struct ScriptContext *ctx) //02C0
 
 THUMB_FUNC BOOL ScrCmd_Unk002E(struct ScriptContext *ctx) //002E - todo: MessageWait? MessageNoSkip?
 {
-    u16 msg = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 msg = ScriptGetVar(ctx);
     MOD05_021E2BD0(ctx, ctx->msgData, (u8)msg, 0, NULL);
     SetupNativeScript(ctx, FUN_0203A2F0);
     return TRUE;
@@ -729,7 +728,7 @@ THUMB_FUNC static BOOL FUN_0203A46C(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_WaitButtonABTime(struct ScriptContext *ctx) //0190
 {
-    ctx->data[0] = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    ctx->data[0] = ScriptGetVar(ctx);
     SetupNativeScript(ctx, FUN_0203A4AC);
     return TRUE;
 }
@@ -1212,8 +1211,8 @@ THUMB_FUNC BOOL ScrCmd_Unk029D(struct ScriptContext *ctx) //029D
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FUN_02039438(fieldSystem, 0);
-    u16 unk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unk3 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk2 = ScriptGetVar(ctx);
+    u16 unk3 = ScriptGetVar(ctx);
     MOD05_021E1C4C(*unk, unk2, unk3);
     return FALSE;
 }
@@ -1311,9 +1310,9 @@ THUMB_FUNC BOOL ScrCmd_Unk0045(struct ScriptContext *ctx) //0045
 THUMB_FUNC BOOL ScrCmd_Unk0046(struct ScriptContext *ctx) //0046 - todo: AddListOption?
 {
     u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
-    u16 unk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unk3 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unk4 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk2 = ScriptGetVar(ctx);
+    u16 unk3 = ScriptGetVar(ctx);
+    u16 unk4 = ScriptGetVar(ctx);
     MOD05_021E1F58(*unk, (u8)unk2, (u8)unk3, (u8)unk4);
     return FALSE;
 }
@@ -1350,7 +1349,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx) //02D0
 
 THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMovement?
 {
-    u16 unk = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk = ScriptGetVar(ctx);
     u32 unk2 = ScriptReadWord(ctx);
 
     struct Vecx32 *unk3 = FUN_0203B120(ctx->fieldSystem, unk);
@@ -1367,9 +1366,9 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMo
 THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
 {
     struct Vecx32 *unk3; //has to be defined first to match
-    u16 unk0 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unk1 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 unk2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    u16 unk2 = ScriptGetVar(ctx);
 
     unk3 = FUN_0203B120(ctx->fieldSystem, unk0);
 
@@ -1627,11 +1626,10 @@ THUMB_FUNC BOOL ScrCmd_ReleaseEvent(struct ScriptContext *ctx) //0063
 THUMB_FUNC BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx) //0064
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 eventId = ScriptReadHalfword(ctx);
-    u16 eventVar = VarGet(ctx->fieldSystem, eventId);
+    u16 eventId = ScriptGetVar(ctx);
     u32 unk0 = FUN_02034B64(fieldSystem);
     u32 unk1 = FUN_02034B6C(fieldSystem);
-    u32 res = FUN_020575D4(fieldSystem->unk34, eventVar, unk0, *fieldSystem->mapId, unk1);
+    u32 res = FUN_020575D4(fieldSystem->unk34, eventId, unk0, *fieldSystem->mapId, unk1);
 
     GF_ASSERT(res);
     return FALSE;
@@ -1640,16 +1638,15 @@ THUMB_FUNC BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx) //0064
 THUMB_FUNC BOOL ScrCmd_RemoveOverworldEvent(struct ScriptContext *ctx) //0065
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 eventId = ScriptReadHalfword(ctx);
-    u16 eventVar = VarGet(ctx->fieldSystem, eventId);
-    FUN_02057688(FUN_02058060(fieldSystem->unk34, eventVar));
+    u16 eventId = ScriptGetVar(ctx);
+    FUN_02057688(FUN_02058060(fieldSystem->unk34, eventId));
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
 {
-    u16 x = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 y = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
     struct Vecx32 **targetPtr = FUN_02039438(ctx->fieldSystem, 0xb);
     *targetPtr = FUN_0205753C(ctx->fieldSystem->unk34, x, y, 0, 0x2000, 0, *ctx->fieldSystem->mapId);
     FUN_02059D1C(*targetPtr);
@@ -1690,8 +1687,8 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx) //0069
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
 
-    u16 *xVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 *yVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *xVar = ScriptGetVarPointer(ctx);
+    u16 *yVar = ScriptGetVarPointer(ctx);
 
     *xVar = GetPlayerXCoord(fieldSystem->playerAvatar);
     *yVar = GetPlayerYCoord(fieldSystem->playerAvatar);
@@ -1702,11 +1699,11 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerPosition(struct ScriptContext *ctx) //0069
 THUMB_FUNC BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx) //006A
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 eventId = ScriptGetVar(ctx);
     struct Vecx32 *position = FUN_02058060(fieldSystem->unk34, eventId);
 
-    u16 *xVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 *yVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *xVar = ScriptGetVarPointer(ctx);
+    u16 *yVar = ScriptGetVarPointer(ctx);
 
     *xVar = FUN_02058B2C(position);
     *yVar = FUN_02058B4C(position);
@@ -1715,7 +1712,7 @@ THUMB_FUNC BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx) //00
 
 THUMB_FUNC BOOL ScrCmd_GetPlayerDirection(struct ScriptContext *ctx) //01BD
 {
-    u16 *directionVar = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *directionVar = ScriptGetVarPointer(ctx);
 
     *directionVar = (u16)PlayerAvatar_GetFacingDirection(ctx->fieldSystem->playerAvatar);
     return FALSE;
@@ -1723,9 +1720,9 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerDirection(struct ScriptContext *ctx) //01BD
 
 THUMB_FUNC BOOL ScrCmd_Unk006B(struct ScriptContext *ctx) //006B - todo: CheckPersonPosition?
 {
-    u16 x = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 y = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 z = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 x = ScriptGetVar(ctx);
+    u16 y = ScriptGetVar(ctx);
+    u16 z = ScriptGetVar(ctx);
 
     struct Vecx32 vector;
     vector.x = FX32_CONST(x);
@@ -1739,7 +1736,7 @@ THUMB_FUNC BOOL ScrCmd_Unk006B(struct ScriptContext *ctx) //006B - todo: CheckPe
 
 THUMB_FUNC BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx) //006C
 {
-    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 eventId = ScriptGetVar(ctx);
     struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
     FUN_02058994(vector, ScriptReadByte(ctx));
     return FALSE;
@@ -1747,7 +1744,7 @@ THUMB_FUNC BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx) //006C
 
 THUMB_FUNC BOOL ScrCmd_SetOverworldEventMovement(struct ScriptContext *ctx) //006D
 {
-    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 eventId = ScriptGetVar(ctx);
     struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
     u16 movement = ScriptReadHalfword(ctx);
     FUN_02058E90(vector, movement);
@@ -1756,9 +1753,9 @@ THUMB_FUNC BOOL ScrCmd_SetOverworldEventMovement(struct ScriptContext *ctx) //00
 
 THUMB_FUNC BOOL ScrCmd_GetOverworldEventMovement(struct ScriptContext *ctx) //02AD
 {
-    u16 *variable = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *variable = ScriptGetVarPointer(ctx);
     *variable = 0;
-    u16 eventId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 eventId = ScriptGetVar(ctx);
 
     struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
     if (vector != NULL)
@@ -1777,16 +1774,16 @@ THUMB_FUNC BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx) //
 
 THUMB_FUNC BOOL ScrCmd_Unk02AB(struct ScriptContext *ctx) //02AB
 {
-    u16 *unk0 = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 *variable = ScriptGetVarPointer(ctx);
     struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
-    *unk0 = FUN_02029E0C(sealCase);
+    *variable = FUN_02029E0C(sealCase);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_GetSealCountFromId(struct ScriptContext *ctx) //0093
 {
-    u16 sealId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 *variable = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 sealId = ScriptGetVar(ctx);
+    u16 *variable = ScriptGetVarPointer(ctx);
     struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
     *variable = FUN_02029E2C(sealCase, sealId);
     return FALSE;
@@ -1794,8 +1791,8 @@ THUMB_FUNC BOOL ScrCmd_GetSealCountFromId(struct ScriptContext *ctx) //0093
 
 THUMB_FUNC BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx) //0094
 {
-    u16 sealId = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u32 amount = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 sealId = ScriptGetVar(ctx);
+    u16 amount = ScriptGetVar(ctx);
 
     struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
     FUN_02029D44(sealCase, sealId, (s16)amount);
@@ -1804,11 +1801,11 @@ THUMB_FUNC BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx) //0094
 
 THUMB_FUNC BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx) //0095
 {
-    u16 partyPosition = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 *var = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 partyPosition = ScriptGetVar(ctx);
+    u16 *variable = ScriptGetVarPointer(ctx);
 
     struct PlayerParty *party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
-    *var = GetMonUnownLetter(GetPartyMonByIndex(party, partyPosition));
+    *variable = GetMonUnownLetter(GetPartyMonByIndex(party, partyPosition));
 
     return FALSE;
 }

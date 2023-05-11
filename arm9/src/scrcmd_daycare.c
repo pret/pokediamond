@@ -32,7 +32,7 @@ THUMB_FUNC BOOL ScrCmd_GetDaycareStatus(struct ScriptContext* ctx) //016E
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
     struct SaveBlock2* sav2 = fieldSystem->saveBlock2;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct DayCare* daycare = SavArray_get(sav2, 8);
 
     *ret_ptr = MOD05_021ED5EC(daycare);
@@ -66,8 +66,8 @@ THUMB_FUNC BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx) //01A4
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
     struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     struct SaveBlock2* sav2 = fieldSystem->saveBlock2;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 idx = ScriptGetVar(ctx);
     struct DayCare* daycare = SavArray_get(sav2, 8);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
 
@@ -81,8 +81,8 @@ THUMB_FUNC BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx) //01AA
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
     struct ScrStrBufs** mgr = FUN_02039438(fieldSystem, 15);
     struct SaveBlock2* sav2 = fieldSystem->saveBlock2;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 idx = ScriptGetVar(ctx);
     struct DayCare* daycare = SavArray_get(sav2, 8);
 
     *ret_ptr = MOD05_021EC854(daycare, (u8)idx, *mgr);
@@ -94,8 +94,8 @@ THUMB_FUNC BOOL ScrCmd_GetDaycareLevel(struct ScriptContext* ctx) //01AE
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
+    u16 idx = ScriptGetVar(ctx);
     struct DayCare* daycare = SavArray_get(sav2, 8);
 
     *ret_ptr = MOD05_021EC864(daycare, idx, *mgr);
@@ -108,8 +108,8 @@ THUMB_FUNC BOOL ScrCmd_Unk01AF(struct ScriptContext* ctx) //01AF
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
     u16 unused = ScriptReadHalfword(ctx);
-    u16 idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 idx = ScriptGetVar(ctx);
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
 
     *ret_ptr = MOD05_021ED5C4(party, idx, *mgr);
@@ -121,7 +121,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01B0(struct ScriptContext* ctx) //01B0
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
     struct SaveBlock2* sav2 = fieldSystem->saveBlock2;
-    u16 idx = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 idx = ScriptGetVar(ctx);
     struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
     struct DayCare* daycare = SavArray_get(sav2, 8);
 
@@ -134,10 +134,10 @@ THUMB_FUNC BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx) //01BC
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
     struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
-    u16 idx1 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 idx2 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 idx3 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
-    u16 idx4 = VarGet(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16 idx1 = ScriptGetVar(ctx);
+    u16 idx2 = ScriptGetVar(ctx);
+    u16 idx3 = ScriptGetVar(ctx);
+    u16 idx4 = ScriptGetVar(ctx);
     struct DayCare* daycare = Sav2_DayCare_get(sav2);
 
     MOD05_021ED52C(daycare, (u8)idx1, (u8)idx2, (u8)idx3, (u8)idx4, *mgr);
@@ -148,7 +148,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx) //01BC
 THUMB_FUNC BOOL ScrCmd_Unk01BE(struct ScriptContext* ctx) //01BE
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct DayCare* daycare = SavArray_get(sav2, 8);
 
     *ret_ptr = (u16)MOD05_021ED644(daycare);
@@ -159,7 +159,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01BE(struct ScriptContext* ctx) //01BE
 THUMB_FUNC BOOL ScrCmd_Unk01BF(struct ScriptContext* ctx) //01BF - todo: SaveEggPID?
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
-    u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct DayCare* daycare = SavArray_get(sav2, 8);
 
     *ret_ptr = (u16)Sav2_DayCare_GetEggPID(daycare);
@@ -169,7 +169,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01BF(struct ScriptContext* ctx) //01BF - todo: SaveEgg
 
 THUMB_FUNC BOOL ScrCmd_Unk01A5(struct ScriptContext* ctx) //01A5
 {
-    u16* unused = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* unused = ScriptGetVarPointer(ctx);
     return FALSE;
 }
 
@@ -187,6 +187,6 @@ THUMB_FUNC BOOL ScrCmd_Unk01A7(struct ScriptContext* ctx) //01A7
 
 THUMB_FUNC BOOL ScrCmd_Unk01AD(struct ScriptContext* ctx) //01AD
 {
-    u16* unused = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    u16* unused = ScriptGetVarPointer(ctx);
     return FALSE;
 }
