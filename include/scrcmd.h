@@ -18,7 +18,6 @@ static inline u16 *ScriptGetVarPointer(struct ScriptContext* ctx)
     return GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));
 }
 
-
 struct UnkStruct_0203A288 {
     u8 unk0;
     u8 unk1;
