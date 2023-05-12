@@ -1654,7 +1654,7 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
     FUN_020588B8(*targetPtr, 0);
     struct Vecx32 *modifiedTarget = FUN_02058B7C(*targetPtr);
     MOD05_021EF5E0(modifiedTarget, ctx->fieldSystem->unk24);
-    Camera_SetFixedTarget(modifiedTarget, ctx->fieldSystem->cameraWork);
+    Camera_SetFixedTarget(modifiedTarget, ctx->fieldSystem->camera);
     return FALSE;
 }
 
@@ -1664,7 +1664,7 @@ THUMB_FUNC BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx) //0067
     FUN_02057654(*targetPtr);
     struct Vecx32 *modifiedTarget = FUN_02058B7C(FUN_02058060(ctx->fieldSystem->unk34, 0xff));
     MOD05_021EF5E0(modifiedTarget, ctx->fieldSystem->unk24);
-    Camera_SetFixedTarget(modifiedTarget, ctx->fieldSystem->cameraWork);
+    Camera_SetFixedTarget(modifiedTarget, ctx->fieldSystem->camera);
     return FALSE;
 }
 
@@ -1730,7 +1730,7 @@ THUMB_FUNC BOOL ScrCmd_Unk006B(struct ScriptContext *ctx) //006B - todo: CheckPe
     vector.z = FX32_CONST(z);
 
     FUN_02058BB4(FUN_020553A0(ctx->fieldSystem->playerAvatar), &vector);
-    Camera_OffsetLookAtPosAndTarget(&vector, ctx->fieldSystem->cameraWork);
+    Camera_OffsetLookAtPosAndTarget(&vector, ctx->fieldSystem->camera);
     return FALSE;
 }
 
