@@ -2,7 +2,7 @@
 #include "math_util.h"
 #include "unk_020286F8.h"
 
-extern void* FUN_02039438(struct FieldSystem*, u8 idx);
+extern void* FieldSysGetAttrAddr(struct FieldSystem*, u8 idx);
 
 extern void FUN_020385CC(struct TaskManager *, u32, u32, u32, u32, u16*, u16* ret_ptr);
 extern BOOL FUN_020612EC(struct FieldSystem*);
@@ -10,7 +10,7 @@ extern BOOL FUN_020612F8(struct FieldSystem*);
 
 THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
 {
-    struct ScrStrBufs** mgr = FUN_02039438(ctx->fieldSystem, 15);
+    struct ScrStrBufs** mgr = FieldSysGetAttrAddr(ctx->fieldSystem, 15);
     struct UnkSaveStruct_020286F8* unk_sav_ptr = FUN_0202881C(ctx->fieldSystem->saveBlock2);
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
 

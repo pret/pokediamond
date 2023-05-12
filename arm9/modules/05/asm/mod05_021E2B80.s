@@ -215,30 +215,30 @@ MOD05_021E2D14: ; 0x021E2D14
 	add r4, r1, #0
 	mov r1, #0x10
 	add r5, r0, #0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0]
 	mov r1, #0x11
 	str r0, [r4]
 	add r0, r5, #0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0]
 	mov r1, #0xf
 	str r0, [r4, #4]
 	add r0, r5, #0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0]
 	mov r1, #1
 	str r0, [r4, #8]
 	add r0, r5, #0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	str r0, [r4, #0xc]
 	add r0, r5, #0
 	mov r1, #6
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	str r0, [r4, #0x10]
 	add r0, r5, #0
 	mov r1, #3
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	str r0, [r4, #0x14]
 	pop {r3, r4, r5, pc}
 
@@ -249,26 +249,26 @@ MOD05_021E2D5C: ; 0x021E2D5C
 	mov r1, #0x10
 	add r5, r0, #0
 	add r4, r2, #0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0]
 	mov r1, #0x11
 	str r0, [r4]
 	add r0, r5, #0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0]
 	mov r1, #1
 	str r0, [r4, #4]
 	str r6, [r4, #8]
 	add r0, r5, #0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	str r0, [r4, #0xc]
 	add r0, r5, #0
 	mov r1, #6
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	str r0, [r4, #0x10]
 	add r0, r5, #0
 	mov r1, #3
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	str r0, [r4, #0x14]
 	pop {r4, r5, r6, pc}
 

@@ -103,7 +103,7 @@ _02041ECA:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -268,7 +268,7 @@ ScrCmd_Unk0237: ; 0x02042038
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword

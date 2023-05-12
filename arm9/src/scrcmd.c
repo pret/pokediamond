@@ -14,7 +14,7 @@
 #include "unk_0200CA44.h"
 #include "unk_0205EC84.h"
 
-extern void *FUN_02039438(struct FieldSystem* fieldSystem, u32 id);
+extern void *FieldSysGetAttrAddr(struct FieldSystem* fieldSystem, u32 id);
 extern void *CreateScriptContext(struct FieldSystem* fieldSystem, u16 id);
 extern u8 FUN_02058448(u32 param0);
 extern void FlagSet(struct FieldSystem *fieldSystem, u16 flag);
@@ -300,8 +300,8 @@ THUMB_FUNC BOOL ScrCmd_CompareVarToVar(struct ScriptContext *ctx) //0012
 THUMB_FUNC BOOL ScrCmd_RunScript(struct ScriptContext *ctx) //0013
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u8 *unk1 = (u8 *)FUN_02039438(fieldSystem, 0x7);
-    u32 **unk2 = (u32 **)FUN_02039438(fieldSystem, 0xe);
+    u8 *unk1 = (u8 *)FieldSysGetAttrAddr(fieldSystem, 0x7);
+    u32 **unk2 = (u32 **)FieldSysGetAttrAddr(fieldSystem, 0xe);
     u16 id = ScriptReadHalfword(ctx);
 
     *unk2 = CreateScriptContext(fieldSystem, id);
@@ -312,9 +312,9 @@ THUMB_FUNC BOOL ScrCmd_RunScript(struct ScriptContext *ctx) //0013
 THUMB_FUNC BOOL ScrCmd_RunScriptWait(struct ScriptContext *ctx) //0014
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u8 *unk1 = (u8 *)FUN_02039438(fieldSystem, 0x5);
-    u8 *unk2 = (u8 *)FUN_02039438(fieldSystem, 0x7);
-    u32 **unk3 = (u32 **)FUN_02039438(fieldSystem, 0xe);
+    u8 *unk1 = (u8 *)FieldSysGetAttrAddr(fieldSystem, 0x5);
+    u8 *unk2 = (u8 *)FieldSysGetAttrAddr(fieldSystem, 0x7);
+    u32 **unk3 = (u32 **)FieldSysGetAttrAddr(fieldSystem, 0xe);
 
     u16 id = ScriptReadHalfword(ctx);
     *unk1 = 1;
@@ -327,7 +327,7 @@ THUMB_FUNC BOOL ScrCmd_RunScriptWait(struct ScriptContext *ctx) //0014
 
 THUMB_FUNC static BOOL FUN_02039CC8(struct ScriptContext *ctx)
 {
-    u8* unk = FUN_02039438(ctx->fieldSystem, 0x5);
+    u8* unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x5);
 
     if (*unk == 0)
     {
@@ -338,7 +338,7 @@ THUMB_FUNC static BOOL FUN_02039CC8(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_RestartCurrentScript(struct ScriptContext *ctx) //0015
 {
-    u8* unk = (u8 *)FUN_02039438(ctx->fieldSystem, 0x5);
+    u8* unk = (u8 *)FieldSysGetAttrAddr(ctx->fieldSystem, 0x5);
 
     *unk = 0;
     return FALSE;
@@ -353,7 +353,7 @@ THUMB_FUNC BOOL ScrCmd_GoTo(struct ScriptContext *ctx) //0016
 
 THUMB_FUNC BOOL ScrCmd_ObjectGoTo(struct ScriptContext *ctx) //0017
 {
-    u32* unk = FUN_02039438(ctx->fieldSystem, 0xa);
+    u32* unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0xa);
     u8 id = ScriptReadByte(ctx);
     s32 offset = (s32)ScriptReadWord(ctx);
     if (FUN_02058448(*unk) == id)
@@ -378,7 +378,7 @@ THUMB_FUNC BOOL ScrCmd_BgGoTo(struct ScriptContext *ctx) //0018
 
 THUMB_FUNC BOOL ScrCmd_DirectionGoTo(struct ScriptContext *ctx) //0019
 {
-    u32 *playerDirection = FUN_02039438(ctx->fieldSystem, 0x9);
+    u32 *playerDirection = FieldSysGetAttrAddr(ctx->fieldSystem, 0x9);
     u8 dir = ScriptReadByte(ctx);
     s32 offset = (s32)ScriptReadWord(ctx);
 
@@ -646,7 +646,7 @@ THUMB_FUNC BOOL ScrCmd_Unk002C(struct ScriptContext *ctx) //002C - todo: Message
 
 THUMB_FUNC /*static*/ BOOL FUN_0203A2F0(struct ScriptContext *ctx)
 {
-    u8 *unk = (u8 *)FUN_02039438(ctx->fieldSystem, 3);
+    u8 *unk = (u8 *)FieldSysGetAttrAddr(ctx->fieldSystem, 3);
     return FUN_020546C8(*unk);
 }
 
@@ -682,7 +682,7 @@ THUMB_FUNC BOOL ScrCmd_Unk002E(struct ScriptContext *ctx) //002E - todo: Message
 
 THUMB_FUNC BOOL ScrCmd_Unk020C(struct ScriptContext *ctx) //020C
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0xa);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0xa);
     u8 msg = (u8)FUN_02058488(*unk);
     MOD05_021E2BD0(ctx, ctx->msgData, msg, 1, NULL);
     SetupNativeScript(ctx, FUN_0203A2F0);
@@ -810,9 +810,9 @@ THUMB_FUNC static BOOL FUN_0203A570(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx) //0033 - todo: OpenMessageBox?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u8 *unk = (u8 *)FUN_02039438(fieldSystem, 6);
-    FUN_020545B8(fieldSystem->bgConfig, (struct Window *)FUN_02039438(fieldSystem, 1), 3);
-    FUN_02054608((struct Window *)FUN_02039438(fieldSystem, 1), Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2));
+    u8 *unk = (u8 *)FieldSysGetAttrAddr(fieldSystem, 6);
+    FUN_020545B8(fieldSystem->bgConfig, (struct Window *)FieldSysGetAttrAddr(fieldSystem, 1), 3);
+    FUN_02054608((struct Window *)FieldSysGetAttrAddr(fieldSystem, 1), Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2));
     *unk = 1;
     return FALSE;
 }
@@ -820,8 +820,8 @@ THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx) //0033 - todo: OpenMes
 THUMB_FUNC BOOL ScrCmd_CloseMessageBox(struct ScriptContext* ctx) //0034
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct Window *unk = FUN_02039438(fieldSystem, 0x1);
-    u8 *unk2 = FUN_02039438(fieldSystem, 0x6);
+    struct Window *unk = FieldSysGetAttrAddr(fieldSystem, 0x1);
+    u8 *unk2 = FieldSysGetAttrAddr(fieldSystem, 0x6);
     ClearFrameAndWindow2(unk, 0);
     RemoveWindow(unk);
     *unk2 = 0;
@@ -831,8 +831,8 @@ THUMB_FUNC BOOL ScrCmd_CloseMessageBox(struct ScriptContext* ctx) //0034
 THUMB_FUNC BOOL ScrCmd_Unk0035(struct ScriptContext* ctx) //0035 - todo: FreezeMessageBox?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct Window *unk = FUN_02039438(fieldSystem, 0x1);
-    u8 *unk2 = FUN_02039438(fieldSystem, 0x6);
+    struct Window *unk = FieldSysGetAttrAddr(fieldSystem, 0x1);
+    u8 *unk2 = FieldSysGetAttrAddr(fieldSystem, 0x6);
     RemoveWindow(unk);
     *unk2 = 0;
     return FALSE;
@@ -841,12 +841,12 @@ THUMB_FUNC BOOL ScrCmd_Unk0035(struct ScriptContext* ctx) //0035 - todo: FreezeM
 THUMB_FUNC BOOL ScrCmd_ScrollBg(struct ScriptContext* ctx) //003C
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 *xval = FUN_02039438(fieldSystem, 0x31);
-    u16 *xcnt = FUN_02039438(fieldSystem, 0x2d);
-    u16 *xdir = FUN_02039438(fieldSystem, 0x32);
-    u16 *yval = FUN_02039438(fieldSystem, 0x33);
-    u16 *ycnt = FUN_02039438(fieldSystem, 0x2e);
-    u16 *ydir = FUN_02039438(fieldSystem, 0x34);
+    u16 *xval = FieldSysGetAttrAddr(fieldSystem, 0x31);
+    u16 *xcnt = FieldSysGetAttrAddr(fieldSystem, 0x2d);
+    u16 *xdir = FieldSysGetAttrAddr(fieldSystem, 0x32);
+    u16 *yval = FieldSysGetAttrAddr(fieldSystem, 0x33);
+    u16 *ycnt = FieldSysGetAttrAddr(fieldSystem, 0x2e);
+    u16 *ydir = FieldSysGetAttrAddr(fieldSystem, 0x34);
 
     *xval = ScriptReadByte(ctx);
     *xcnt = ScriptReadByte(ctx);
@@ -862,12 +862,12 @@ THUMB_FUNC BOOL ScrCmd_ScrollBg(struct ScriptContext* ctx) //003C
 THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 *xval = FUN_02039438(fieldSystem, 0x31);
-    u16 *xdir = FUN_02039438(fieldSystem, 0x32);
-    u16 *yval = FUN_02039438(fieldSystem, 0x33);
-    u16 *ydir = FUN_02039438(fieldSystem, 0x34);
-    u16 *xcnt = FUN_02039438(fieldSystem, 0x2d);
-    u16 *ycnt = FUN_02039438(fieldSystem, 0x2e);
+    u16 *xval = FieldSysGetAttrAddr(fieldSystem, 0x31);
+    u16 *xdir = FieldSysGetAttrAddr(fieldSystem, 0x32);
+    u16 *yval = FieldSysGetAttrAddr(fieldSystem, 0x33);
+    u16 *ydir = FieldSysGetAttrAddr(fieldSystem, 0x34);
+    u16 *xcnt = FieldSysGetAttrAddr(fieldSystem, 0x2d);
+    u16 *ycnt = FieldSysGetAttrAddr(fieldSystem, 0x2e);
 
     if (*xcnt == 0 && *ycnt == 0)
     {
@@ -914,9 +914,9 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct String **unk1 = FUN_02039438(fieldSystem, 0x11);
-    struct String **unk2 = FUN_02039438(fieldSystem, 0x10);
-    struct ScrStrBufs **unk3 = FUN_02039438(fieldSystem, 0x0f);
+    struct String **unk1 = FieldSysGetAttrAddr(fieldSystem, 0x11);
+    struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 0x10);
+    struct ScrStrBufs **unk3 = FieldSysGetAttrAddr(fieldSystem, 0x0f);
     u8 typ, msg;
     u16 wk, map;
 
@@ -927,7 +927,7 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
 
     if (map == 0)
     {
-        u32 *unk4 = FUN_02039438(fieldSystem, 10);
+        u32 *unk4 = FieldSysGetAttrAddr(fieldSystem, 10);
         map = (u16)FUN_02058510(*unk4, 0);
     }
 
@@ -985,10 +985,10 @@ THUMB_FUNC static BOOL FUN_0203A8A0(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx) //003A - todo: CreateMessageBoxText?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u8 *unk1 = FUN_02039438(fieldSystem, 3);
-    struct String **unk2 = FUN_02039438(fieldSystem, 17);
-    struct String **unk3 = FUN_02039438(fieldSystem, 16);
-    struct ScrStrBufs **unk4 = FUN_02039438(fieldSystem, 15);
+    u8 *unk1 = FieldSysGetAttrAddr(fieldSystem, 3);
+    struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 17);
+    struct String **unk3 = FieldSysGetAttrAddr(fieldSystem, 16);
+    struct ScrStrBufs **unk4 = FieldSysGetAttrAddr(fieldSystem, 15);
 
     u8 msg = ScriptReadByte(ctx);
     u16 wk = ScriptReadHalfword(ctx);
@@ -1005,7 +1005,7 @@ THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx) //003A - todo: CreateM
 THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u8 *unk1 = FUN_02039438(fieldSystem, 3);
+    u8 *unk1 = FieldSysGetAttrAddr(fieldSystem, 3);
     u16 *varPtr = GetVarPointer(fieldSystem, (u16)ctx->data[0]);
     MOD05_021E8144(fieldSystem->unk60);
 
@@ -1116,7 +1116,7 @@ THUMB_FUNC BOOL ScrCmd_Menu(struct ScriptContext *ctx) //003C
 THUMB_FUNC BOOL ScrCmd_YesNoMenu(struct ScriptContext *ctx) //003E
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *unk = FUN_02039438(fieldSystem, 2);
+    u32 *unk = FieldSysGetAttrAddr(fieldSystem, 2);
     u16 wk = ScriptReadHalfword(ctx);
     FUN_0200CB00(fieldSystem->bgConfig, 3, 985, 11, 0, 4);
     *unk = Std_CreateYesNoMenu(fieldSystem->bgConfig, &UNK_020F34E0, 985, 11, 4);
@@ -1128,7 +1128,7 @@ THUMB_FUNC BOOL ScrCmd_YesNoMenu(struct ScriptContext *ctx) //003E
 THUMB_FUNC static BOOL FUN_0203AB00(struct ScriptContext *ctx)
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *unk = FUN_02039438(fieldSystem, 2);
+    u32 *unk = FieldSysGetAttrAddr(fieldSystem, 2);
     u16 *ptr = GetVarPointer(fieldSystem, (u16)ctx->data[0]);
     u32 unk2 = FUN_020021AC(*unk, 4);
 
@@ -1150,8 +1150,8 @@ THUMB_FUNC static BOOL FUN_0203AB00(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_ShowSaveClock(struct ScriptContext *ctx) //018D
 {
-    struct Window *unk = (struct Window *)FUN_02039438(ctx->fieldSystem, 1);
-    struct UnkStruct_0200CABC_1 **unk2 = (struct UnkStruct_0200CABC_1 **)FUN_02039438(ctx->fieldSystem, 18);
+    struct Window *unk = (struct Window *)FieldSysGetAttrAddr(ctx->fieldSystem, 1);
+    struct UnkStruct_0200CABC_1 **unk2 = (struct UnkStruct_0200CABC_1 **)FieldSysGetAttrAddr(ctx->fieldSystem, 18);
     *unk2 = FUN_0200D858(unk, 994);
     return FALSE;
 }
@@ -1159,7 +1159,7 @@ THUMB_FUNC BOOL ScrCmd_ShowSaveClock(struct ScriptContext *ctx) //018D
 
 THUMB_FUNC BOOL ScrCmd_HideSaveClock(struct ScriptContext *ctx) //018E
 {
-    struct UnkStruct_0200CABC_1 **unk = (struct UnkStruct_0200CABC_1 **)FUN_02039438(ctx->fieldSystem, 18);
+    struct UnkStruct_0200CABC_1 **unk = (struct UnkStruct_0200CABC_1 **)FieldSysGetAttrAddr(ctx->fieldSystem, 18);
     FUN_0200DBFC(*unk);
     return FALSE;
 }
@@ -1167,15 +1167,15 @@ THUMB_FUNC BOOL ScrCmd_HideSaveClock(struct ScriptContext *ctx) //018E
 THUMB_FUNC BOOL ScrCmd_Unk0040(struct ScriptContext *ctx) //0040
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *unk = FUN_02039438(fieldSystem, 0);
-    u32 *unk2 = FUN_02039438(fieldSystem, 15);
+    u32 *unk = FieldSysGetAttrAddr(fieldSystem, 0);
+    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
     u8 unk6 = ScriptReadByte(ctx);
     u16 unk7 = ScriptReadHalfword(ctx);
     u16 *ptr = GetVarPointer(fieldSystem, unk7);
-    u32 *unk8 = FUN_02039438(ctx->fieldSystem, 1);
+    u32 *unk8 = FieldSysGetAttrAddr(ctx->fieldSystem, 1);
     *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *unk2, unk8, NULL);
     ctx->data[0] = unk7;
     return TRUE;
@@ -1184,15 +1184,15 @@ THUMB_FUNC BOOL ScrCmd_Unk0040(struct ScriptContext *ctx) //0040
 THUMB_FUNC BOOL ScrCmd_Unk0041(struct ScriptContext *ctx) //0041
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *unk = FUN_02039438(fieldSystem, 0);
-    u32 *unk2 = FUN_02039438(fieldSystem, 15);
+    u32 *unk = FieldSysGetAttrAddr(fieldSystem, 0);
+    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
     u8 unk6 = ScriptReadByte(ctx);
     u16 unk7 = ScriptReadHalfword(ctx);
     u16 *ptr = GetVarPointer(fieldSystem, unk7);
-    u32 *unk8 = FUN_02039438(ctx->fieldSystem, 1);
+    u32 *unk8 = FieldSysGetAttrAddr(ctx->fieldSystem, 1);
     *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *unk2, unk8, ctx->msgData);
     ctx->data[0] = unk7;
     return TRUE;
@@ -1200,7 +1200,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0041(struct ScriptContext *ctx) //0041
 
 THUMB_FUNC BOOL ScrCmd_Unk0042(struct ScriptContext *ctx) //0042
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0);
     u8 unk2 = ScriptReadByte(ctx);
     u8 unk3 = ScriptReadByte(ctx);
     MOD05_021E1C4C(*unk, unk2, unk3);
@@ -1210,7 +1210,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0042(struct ScriptContext *ctx) //0042
 THUMB_FUNC BOOL ScrCmd_Unk029D(struct ScriptContext *ctx) //029D
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *unk = FUN_02039438(fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(fieldSystem, 0);
     u16 unk2 = ScriptGetVar(ctx);
     u16 unk3 = ScriptGetVar(ctx);
     MOD05_021E1C4C(*unk, unk2, unk3);
@@ -1219,7 +1219,7 @@ THUMB_FUNC BOOL ScrCmd_Unk029D(struct ScriptContext *ctx) //029D
 
 THUMB_FUNC BOOL ScrCmd_Unk0043(struct ScriptContext *ctx) //0043
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0);
     MOD05_021E1C54(*unk);
     SetupNativeScript(ctx, FUN_0203AD2C);
     return TRUE;
@@ -1240,7 +1240,7 @@ THUMB_FUNC static BOOL FUN_0203AD2C(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_Unk02B9(struct ScriptContext *ctx) //02B9
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0);
     MOD05_021E1C54(*unk);
     SetupNativeScript(ctx, FUN_0203AD78);
     return TRUE;
@@ -1250,7 +1250,7 @@ THUMB_FUNC static BOOL FUN_0203AD78(struct ScriptContext *ctx)
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 *varPtr = GetVarPointer(fieldSystem, (u16)ctx->data[0]);
-    u32 *unk = FUN_02039438(fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(fieldSystem, 0);
 
     if (*varPtr == 0xEEEE)
     {
@@ -1274,8 +1274,8 @@ THUMB_FUNC static BOOL FUN_0203AD78(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_Unk0044(struct ScriptContext *ctx) //0044
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *unk = FUN_02039438(fieldSystem, 0);
-    u32 *unk2 = FUN_02039438(fieldSystem, 15);
+    u32 *unk = FieldSysGetAttrAddr(fieldSystem, 0);
+    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1283,7 +1283,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0044(struct ScriptContext *ctx) //0044
 
     u16 halfWord = ScriptReadHalfword(ctx);
     u16 *varPtr = GetVarPointer(fieldSystem, halfWord);
-    u32 *unk7 = FUN_02039438(ctx->fieldSystem, 1);
+    u32 *unk7 = FieldSysGetAttrAddr(ctx->fieldSystem, 1);
     *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *unk2, unk7, NULL);
     ctx->data[0] = halfWord;
     return TRUE;
@@ -1292,8 +1292,8 @@ THUMB_FUNC BOOL ScrCmd_Unk0044(struct ScriptContext *ctx) //0044
 THUMB_FUNC BOOL ScrCmd_Unk0045(struct ScriptContext *ctx) //0045
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *unk = FUN_02039438(fieldSystem, 0);
-    u32 *unk2 = FUN_02039438(fieldSystem, 15);
+    u32 *unk = FieldSysGetAttrAddr(fieldSystem, 0);
+    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1301,7 +1301,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0045(struct ScriptContext *ctx) //0045
 
     u16 halfWord = ScriptReadHalfword(ctx);
     u16 *varPtr = GetVarPointer(fieldSystem, halfWord);
-    u32 *unk7 = FUN_02039438(ctx->fieldSystem, 1);
+    u32 *unk7 = FieldSysGetAttrAddr(ctx->fieldSystem, 1);
     *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *unk2, unk7, ctx->msgData);
     ctx->data[0] = halfWord;
     return TRUE;
@@ -1309,7 +1309,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0045(struct ScriptContext *ctx) //0045
 
 THUMB_FUNC BOOL ScrCmd_Unk0046(struct ScriptContext *ctx) //0046 - todo: AddListOption?
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0);
     u16 unk2 = ScriptGetVar(ctx);
     u16 unk3 = ScriptGetVar(ctx);
     u16 unk4 = ScriptGetVar(ctx);
@@ -1319,7 +1319,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0046(struct ScriptContext *ctx) //0046 - todo: AddList
 
 THUMB_FUNC BOOL ScrCmd_Unk0047(struct ScriptContext *ctx) //0047 - todo: ShowList?
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0);
     MOD05_021E1F60(*unk);
     SetupNativeScript(ctx, FUN_0203AD2C);
     return TRUE;
@@ -1327,7 +1327,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0047(struct ScriptContext *ctx) //0047 - todo: ShowLis
 
 THUMB_FUNC BOOL ScrCmd_Unk0048(struct ScriptContext *ctx) //0048
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0);
     MOD05_021E26CC(*unk, ScriptReadByte(ctx));
     SetupNativeScript(ctx, FUN_0203AD2C);
     return TRUE;
@@ -1335,14 +1335,14 @@ THUMB_FUNC BOOL ScrCmd_Unk0048(struct ScriptContext *ctx) //0048
 
 THUMB_FUNC BOOL ScrCmd_Unk02CF(struct ScriptContext *ctx) //02CF
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0);
     MOD05_021E2B80(*unk, ScriptReadByte(ctx));
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_Unk02D0(struct ScriptContext *ctx) //02D0
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0);
     MOD05_021E2B9C(*unk, ScriptReadByte(ctx));
     return TRUE;
 }
@@ -1356,7 +1356,7 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMo
     GF_ASSERT(unk3);
 
     u32 unk4 = FUN_0205AEA4(unk3, ctx->scriptPtr + unk2);
-    u8 *unk5 = FUN_02039438(ctx->fieldSystem, 4);
+    u8 *unk5 = FieldSysGetAttrAddr(ctx->fieldSystem, 4);
     (*unk5)++;
 
     FUN_0203B174(ctx->fieldSystem, unk4, NULL);
@@ -1410,7 +1410,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
     unk4[pos * 2 + 1] = 0;
 
     u32 unk7 = FUN_0205AEA4(unk3, unk4);
-    u8 *unk8 = FUN_02039438(ctx->fieldSystem, 4);
+    u8 *unk8 = FieldSysGetAttrAddr(ctx->fieldSystem, 4);
 
     (*unk8)++;
 
@@ -1426,7 +1426,7 @@ THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u
     }
     else if (eventId == 241)
     {
-        struct Vecx32 **res = (struct Vecx32 **)FUN_02039438(fieldSystem, 11);
+        struct Vecx32 **res = (struct Vecx32 **)FieldSysGetAttrAddr(fieldSystem, 11);
         return *res;
     }
     else
@@ -1443,7 +1443,7 @@ THUMB_FUNC BOOL ScrCmd_WaitForMovement(struct ScriptContext *ctx) //005F
 
 THUMB_FUNC static BOOL FUN_0203B158(struct ScriptContext *ctx)
 {
-    u8 *unk = FUN_02039438(ctx->fieldSystem, 4);
+    u8 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 4);
     return *unk == 0 ? TRUE : FALSE;
 }
 
@@ -1465,7 +1465,7 @@ THUMB_FUNC void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1)
 {
     //is it tho?
 #pragma unused(param0)
-    u8 *res = (u8 *)FUN_02039438(param1->fieldSystem, 4);
+    u8 *res = (u8 *)FieldSysGetAttrAddr(param1->fieldSystem, 4);
 
     if (FUN_0205AEF0(param1->Unk04) != TRUE)
     {
@@ -1494,7 +1494,7 @@ THUMB_FUNC void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1)
 THUMB_FUNC BOOL ScrCmd_LockAllEvents(struct ScriptContext *ctx) //0060
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *res = (u32 *)FUN_02039438(fieldSystem, 10);
+    u32 *res = (u32 *)FieldSysGetAttrAddr(fieldSystem, 10);
 
     if (*res == 0)
     {
@@ -1510,7 +1510,7 @@ THUMB_FUNC BOOL ScrCmd_LockAllEvents(struct ScriptContext *ctx) //0060
 THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct Vecx32 **unk0 = (struct Vecx32 **)FUN_02039438(fieldSystem, 10);
+    struct Vecx32 **unk0 = (struct Vecx32 **)FieldSysGetAttrAddr(fieldSystem, 10);
     struct Vecx32 *unk1 = FUN_020553A0(fieldSystem->playerAvatar);
     if (UNK_021C5A0C[0] & 1)
     {
@@ -1559,7 +1559,7 @@ THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx) //02B4
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct Vecx32 **unk0 = (struct Vecx32 **)FUN_02039438(fieldSystem, 10);
+    struct Vecx32 **unk0 = (struct Vecx32 **)FieldSysGetAttrAddr(fieldSystem, 10);
     struct Vecx32 *unk1 = FUN_020553A0(fieldSystem->playerAvatar);
     struct Vecx32 *unk2 = FUN_020580B4(fieldSystem->unk34, 48);
     struct Vecx32 *unk3 = FUN_0205E7C4(*unk0);
@@ -1647,7 +1647,7 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
 {
     u16 x = ScriptGetVar(ctx);
     u16 y = ScriptGetVar(ctx);
-    struct Vecx32 **targetPtr = FUN_02039438(ctx->fieldSystem, 0xb);
+    struct Vecx32 **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, 0xb);
     *targetPtr = FUN_0205753C(ctx->fieldSystem->unk34, x, y, 0, 0x2000, 0, *ctx->fieldSystem->mapId);
     FUN_02059D1C(*targetPtr);
     FUN_0205889C(*targetPtr, 1);
@@ -1660,7 +1660,7 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
 
 THUMB_FUNC BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx) //0067
 {
-    struct Vecx32 **targetPtr = FUN_02039438(ctx->fieldSystem, 0xb);
+    struct Vecx32 **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, 0xb);
     FUN_02057654(*targetPtr);
     struct Vecx32 *modifiedTarget = FUN_02058B7C(FUN_02058060(ctx->fieldSystem->unk34, 0xff));
     MOD05_021EF5E0(modifiedTarget, ctx->fieldSystem->unk24);
@@ -1672,7 +1672,7 @@ THUMB_FUNC BOOL ScrCmd_FacePlayer(struct ScriptContext *ctx) //0068
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 unk0 = FUN_02059E74(PlayerAvatar_GetFacingDirection(fieldSystem->playerAvatar));
-    struct Vecx32 **unk1 = FUN_02039438(fieldSystem, 10);
+    struct Vecx32 **unk1 = FieldSysGetAttrAddr(fieldSystem, 10);
 
     if (*unk1 == NULL)
     {
@@ -1812,7 +1812,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx) //0095
 
 THUMB_FUNC BOOL ScrCmd_Unk0191(struct ScriptContext *ctx) //0191
 {
-    u32 *unk = FUN_02039438(ctx->fieldSystem, 0x13);
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
     *unk = FUN_020379F8(0x20, ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;

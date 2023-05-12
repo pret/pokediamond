@@ -239,22 +239,22 @@ _0205CFC6:
 	bl FUN_02038CD8
 	add r0, r5, #0x0
 	mov r1, #0x29
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldrh r1, [r4, #0x4]
 	strh r1, [r0, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x2a
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldrh r1, [r4, #0x6]
 	strh r1, [r0, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x2b
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldrh r1, [r4, #0x8]
 	strh r1, [r0, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x2c
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldrh r1, [r4, #0xa]
 	strh r1, [r0, #0x0]
 	ldr r0, [r6, #0x0]

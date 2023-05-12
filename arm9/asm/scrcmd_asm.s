@@ -21,7 +21,7 @@ ScrCmd_Unk02A5: ; 0x0203B914
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r1, r5, #0x0
 	add r1, #0x80
 	add r4, r0, #0x0
@@ -44,7 +44,7 @@ ScrCmd_Unk0192: ; 0x0203B944
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -70,7 +70,7 @@ ScrCmd_Unk0193: ; 0x0203B968
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
@@ -101,7 +101,7 @@ ScrCmd_Unk0194: ; 0x0203B9B4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -175,7 +175,7 @@ ScrCmd_Unk0195: ; 0x0203BA3C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
@@ -216,7 +216,7 @@ ScrCmd_Unk0196: ; 0x0203BAB0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -254,7 +254,7 @@ ScrCmd_Unk0197: ; 0x0203BAF4
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
@@ -277,7 +277,7 @@ ScrCmd_Unk009B: ; 0x0203BB34
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xa
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -332,7 +332,7 @@ FUN_0203BB90: ; 0x0203BB90
 	ldr r5, [r0, #0x0]
 	mov r1, #0x13
 	add r0, r5, #0x0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0204647C
@@ -355,7 +355,7 @@ FUN_0203BBBC: ; 0x0203BBBC
 	ldr r5, [r0, #0x0]
 	mov r1, #0x13
 	add r0, r5, #0x0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	ldr r6, [r4, #0x0]
@@ -511,7 +511,7 @@ ScrCmd_Unk00A4: ; 0x0203BCD8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -551,7 +551,7 @@ ScrCmd_Unk0208: ; 0x0203BD28
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -618,7 +618,7 @@ ScrCmd_Unk028C: ; 0x0203BDB8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -686,7 +686,7 @@ ScrCmd_Unk0209: ; 0x0203BE50
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
 	strb r1, [r0, #0x0]
@@ -700,7 +700,7 @@ ScrCmd_Unk028D: ; 0x0203BE68
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
 	mov r1, #0x2
 	strb r1, [r0, #0x0]
@@ -729,7 +729,7 @@ FUN_0203BE9C: ; 0x0203BE9C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	ldr r1, [r5, #0x64]
@@ -758,7 +758,7 @@ ScrCmd_Unk020A: ; 0x0203BECC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -780,7 +780,7 @@ ScrCmd_Unk020B: ; 0x0203BF00
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xa
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
 	beq _0203BF1C
@@ -846,7 +846,7 @@ ScrCmd_Unk00A7: ; 0x0203BF84
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -895,7 +895,7 @@ ScrCmd_Unk00A8: ; 0x0203BFEC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -1053,7 +1053,7 @@ ScrCmd_Unk00AA: ; 0x0203C12C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	mov r1, #0x5
 	add r4, r0, #0x0
 	mov r0, #0xb
@@ -1086,7 +1086,7 @@ ScrCmd_Unk01D7: ; 0x0203C174
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -1170,7 +1170,7 @@ ScrCmd_Unk01D9: ; 0x0203C200
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x8
@@ -1208,7 +1208,7 @@ ScrCmd_MonStoragePC: ; 0x0203C278
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0xc
@@ -1279,7 +1279,7 @@ ScrCmd_Unk00AF: ; 0x0203C300
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -1311,7 +1311,7 @@ ScrCmd_Unk00B1: ; 0x0203C33C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -1395,7 +1395,7 @@ ScrCmd_Unk00B4: ; 0x0203C3E8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x8
@@ -1428,7 +1428,7 @@ ScrCmd_Unk00B5: ; 0x0203C430
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -1465,7 +1465,7 @@ _0203C476:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x0]
 	cmp r0, #0x0
@@ -1500,7 +1500,7 @@ ScrCmd_Unk0179: ; 0x0203C4B0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
@@ -1706,7 +1706,7 @@ ScrCmd_Unk0245: ; 0x0203C680
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2079,7 +2079,7 @@ ScrCmd_Unk00C5: ; 0x0203C990
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2124,7 +2124,7 @@ FUN_0203C9F8: ; 0x0203C9F8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl MOD06_022466A0
@@ -2376,17 +2376,17 @@ ScrCmd_Unk00E6: ; 0x0203CBE8
 	ldr r4, [r0, #0x0]
 	mov r1, #0x8
 	add r0, r4, #0x0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r0, r4, #0x0
 	mov r1, #0x10
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x6
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r0, r4, #0x0
 	mov r1, #0x3
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2410,12 +2410,12 @@ ScrCmd_Unk00E6: ; 0x0203CBE8
 	bl GetTrainerMessageByIdPair
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -2601,7 +2601,7 @@ ScrCmd_Unk00F6: ; 0x0203CDD0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	add r5, #0x80
 	ldr r4, [r6, #0x0]
@@ -2712,7 +2712,7 @@ ScrCmd_Unk011D: ; 0x0203CEBC
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
 	str r0, [sp, #0x4]
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x8]
 	add r1, r0, #0x1
@@ -2905,7 +2905,7 @@ ScrCmd_Unk0124: ; 0x0203D050
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x17
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2944,7 +2944,7 @@ ScrCmd_Unk02BD: ; 0x0203D0A4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x17
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -3048,7 +3048,7 @@ ScrCmd_Unk0129: ; 0x0203D178
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x17
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x74]
 	bl FUN_02046DB4
@@ -3279,7 +3279,7 @@ ScrCmd_Unk0137: ; 0x0203D33C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -3310,7 +3310,7 @@ ScrCmd_Unk0138: ; 0x0203D36C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r1, r0, #0x0
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
@@ -3360,13 +3360,13 @@ ScrCmd_Unk013C: ; 0x0203D3DC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xa
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -3449,7 +3449,7 @@ ScrCmd_Unk013F: ; 0x0203D490
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xa
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -3466,7 +3466,7 @@ ScrCmd_Unk013F: ; 0x0203D490
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r7, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl FUN_02058448
@@ -3505,7 +3505,7 @@ ScrCmd_Unk02BA: ; 0x0203D4E8
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
 	bl FreeToHeap
 _0203D522:
@@ -3521,7 +3521,7 @@ ScrCmd_Unk0140: ; 0x0203D528
 	ldr r5, [r0, #0x0]
 	mov r1, #0xa
 	add r0, r5, #0x0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -3547,7 +3547,7 @@ ScrCmd_Unk0146: ; 0x0203D560
 	ldr r5, [r0, #0x0]
 	mov r1, #0xa
 	add r0, r5, #0x0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -3791,7 +3791,7 @@ ScrCmd_Unk0154: ; 0x0203D738
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl PlayerProfile_GetTrainerID
@@ -4334,7 +4334,7 @@ ScrCmd_Unk018F: ; 0x0203DBD4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xc
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -4555,13 +4555,13 @@ ScrCmd_Unk019E: ; 0x0203DD60
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xa
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -4598,7 +4598,7 @@ FUN_0203DDC0: ; 0x0203DDC0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	ldr r1, [r5, #0x64]
@@ -4630,7 +4630,7 @@ ScrCmd_Unk019F: ; 0x0203DE00
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x3
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -4655,7 +4655,7 @@ FUN_0203DE38: ; 0x0203DE38
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x3
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldrb r0, [r0, #0x0]
 	bl FUN_020546C8
 	pop {r3, pc}
@@ -5088,7 +5088,7 @@ ScrCmd_Unk01CD: ; 0x0203E168
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	sub r0, #0x10
@@ -5392,7 +5392,7 @@ ScrCmd_Unk01EA: ; 0x0203E440
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -5416,7 +5416,7 @@ ScrCmd_Unk01EB: ; 0x0203E470
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -5923,7 +5923,7 @@ ScrCmd_Unk0226: ; 0x0203E870
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r1, [r5, #0x8]
 	add r4, r0, #0x0
 	add r0, r1, #0x1
@@ -5942,7 +5942,7 @@ ScrCmd_Unk0227: ; 0x0203E894
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -5965,7 +5965,7 @@ ScrCmd_Unk0228: ; 0x0203E8C4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -5988,7 +5988,7 @@ ScrCmd_Unk0229: ; 0x0203E8F4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -6012,7 +6012,7 @@ ScrCmd_Unk022A: ; 0x0203E928
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x14
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
 	bl MOD06_022488CC
 	mov r0, #0x0
@@ -6560,7 +6560,7 @@ ScrCmd_Unk0258: ; 0x0203EDA4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x16
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r5, #0x80
@@ -6578,7 +6578,7 @@ ScrCmd_Unk0259: ; 0x0203EDC8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x16
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
 	bl MOD05_021E71E8
 	mov r0, #0x1
@@ -7202,7 +7202,7 @@ ScrCmd_Unk0273: ; 0x0203F2AC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r1, [r5, #0x8]
 	add r6, r0, #0x0
 	add r0, r1, #0x1
@@ -7345,7 +7345,7 @@ ScrCmd_Unk027D: ; 0x0203F3AC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r5, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -7852,7 +7852,7 @@ ScrCmd_Unk0290: ; 0x0203F7C8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r1, r5, #0x0
 	add r1, #0x80
 	add r4, r0, #0x0
@@ -7891,7 +7891,7 @@ ScrCmd_Unk0291: ; 0x0203F80C
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
@@ -8292,7 +8292,7 @@ ScrCmd_Unk02AF: ; 0x0203FB64
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0xf
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
 	bl FUN_0205296C
 	strh r0, [r5, #0x0]
@@ -8425,7 +8425,7 @@ ScrCmd_Unk02C1: ; 0x0203FC80
 	ldr r5, [r0, #0x0]
 	mov r1, #0x28
 	add r0, r5, #0x0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_0202280C
@@ -8449,7 +8449,7 @@ ScrCmd_Unk02C2: ; 0x0203FCB0
 	ldr r5, [r0, #0x0]
 	mov r1, #0x28
 	add r0, r5, #0x0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_0202280C

@@ -2676,7 +2676,7 @@
 .extern FUN_02038CD8
 .extern FUN_02038D10
 .extern CreateScriptContext
-.extern FUN_02039438
+.extern FieldSysGetAttrAddr
 .extern FUN_02039460
 .extern GetVarPointer
 .extern VarGet

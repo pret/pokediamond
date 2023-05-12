@@ -1869,8 +1869,8 @@ _02039430:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02039438
-FUN_02039438: ; 0x02039438
+	thumb_func_start FieldSysGetAttrAddr
+FieldSysGetAttrAddr: ; 0x02039438
 	push {r3-r5, lr}
 	ldr r0, [r0, #0x10]
 	add r5, r1, #0x0
@@ -1964,7 +1964,7 @@ _020394DE:
 	ldr r1, _020394EC ; =0x00007FD7
 	add r0, r5, #0x0
 	sub r1, r4, r1
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	pop {r3-r5, pc}
 	nop
 _020394EC: .word 0x00007FD7
@@ -2087,19 +2087,19 @@ FUN_020395BC: ; 0x020395BC
 	mov r1, #0x29
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	strh r4, [r0, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x2a
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	strh r6, [r0, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x2b
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	strh r7, [r0, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x2c
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r1, sp, #0x8
 	ldrh r1, [r1, #0x10]
 	strh r1, [r0, #0x0]
