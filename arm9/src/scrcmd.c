@@ -300,12 +300,12 @@ THUMB_FUNC BOOL ScrCmd_CompareVarToVar(struct ScriptContext *ctx) //0012
 THUMB_FUNC BOOL ScrCmd_RunScript(struct ScriptContext *ctx) //0013
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u8 *unk1 = (u8 *)FieldSysGetAttrAddr(fieldSystem, 0x7);
+    u8 *activeScriptContextsNumber = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_ACTIVE_SCRIPTCONTEXT_COUNT);
     u32 **unk2 = (u32 **)FieldSysGetAttrAddr(fieldSystem, 0xe);
     u16 id = ScriptReadHalfword(ctx);
 
     *unk2 = CreateScriptContext(fieldSystem, id);
-    *unk1 = (u8)(*unk1 + 1);
+    (*activeScriptContextsNumber)++;
     return TRUE;
 }
 
@@ -313,13 +313,13 @@ THUMB_FUNC BOOL ScrCmd_RunScriptWait(struct ScriptContext *ctx) //0014
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u8 *unk1 = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_UNKNOWN_05);
-    u8 *unk2 = (u8 *)FieldSysGetAttrAddr(fieldSystem, 0x7);
+    u8 *activeScriptContextsNumber = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_ACTIVE_SCRIPTCONTEXT_COUNT);
     u32 **unk3 = (u32 **)FieldSysGetAttrAddr(fieldSystem, 0xe);
 
     u16 id = ScriptReadHalfword(ctx);
     *unk1 = 1;
     *unk3 = CreateScriptContext(fieldSystem, id);
-    *unk2 = (u8)(*unk2 + 1);
+    (*activeScriptContextsNumber)++;
 
     SetupNativeScript(ctx, FUN_02039CC8);
     return TRUE;
@@ -378,7 +378,7 @@ THUMB_FUNC BOOL ScrCmd_BgGoTo(struct ScriptContext *ctx) //0018
 
 THUMB_FUNC BOOL ScrCmd_DirectionGoTo(struct ScriptContext *ctx) //0019
 {
-    u32 *playerDirection = FieldSysGetAttrAddr(ctx->fieldSystem, 0x9);
+    u32 *playerDirection = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_FACING_DIRECTION);
     u8 dir = ScriptReadByte(ctx);
     s32 offset = (s32)ScriptReadWord(ctx);
 
@@ -810,7 +810,7 @@ THUMB_FUNC static BOOL FUN_0203A570(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx) //0033 - todo: OpenMessageBox?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u8 *unk = (u8 *)FieldSysGetAttrAddr(fieldSystem, 6);
+    u8 *unk = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_UNKNOWN_06);
     FUN_020545B8(fieldSystem->bgConfig, (struct Window *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW), 3);
     FUN_02054608((struct Window *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW), Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2));
     *unk = 1;
@@ -821,7 +821,7 @@ THUMB_FUNC BOOL ScrCmd_CloseMessageBox(struct ScriptContext* ctx) //0034
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct Window *window = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW);
-    u8 *unk2 = FieldSysGetAttrAddr(fieldSystem, 0x6);
+    u8 *unk2 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_UNKNOWN_06);
     ClearFrameAndWindow2(window, 0);
     RemoveWindow(window);
     *unk2 = 0;
@@ -832,7 +832,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0035(struct ScriptContext* ctx) //0035 - todo: FreezeM
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct Window *window = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW);
-    u8 *unk2 = FieldSysGetAttrAddr(fieldSystem, 0x6);
+    u8 *unk2 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_UNKNOWN_06);
     RemoveWindow(window);
     *unk2 = 0;
     return FALSE;
