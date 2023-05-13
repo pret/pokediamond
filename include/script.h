@@ -74,7 +74,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_LIST_MENU_2D,
     SCRIPTENV_TEXT_PRINTER_NUMBER,
     SCRIPTENV_ACTIVE_MOVEMENT_COUNTER,
-    SCRIPTENV_FIELD_07, //TODO: assuming this matches with heartgold, if not please change
+    SCRIPTENV_UNKNOWN_05,
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

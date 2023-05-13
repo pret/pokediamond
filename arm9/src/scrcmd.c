@@ -312,7 +312,7 @@ THUMB_FUNC BOOL ScrCmd_RunScript(struct ScriptContext *ctx) //0013
 THUMB_FUNC BOOL ScrCmd_RunScriptWait(struct ScriptContext *ctx) //0014
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u8 *unk1 = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_FIELD_07);
+    u8 *unk1 = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_UNKNOWN_05);
     u8 *unk2 = (u8 *)FieldSysGetAttrAddr(fieldSystem, 0x7);
     u32 **unk3 = (u32 **)FieldSysGetAttrAddr(fieldSystem, 0xe);
 
@@ -327,7 +327,7 @@ THUMB_FUNC BOOL ScrCmd_RunScriptWait(struct ScriptContext *ctx) //0014
 
 THUMB_FUNC static BOOL FUN_02039CC8(struct ScriptContext *ctx)
 {
-    u8* unk = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_FIELD_07);
+    u8* unk = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_UNKNOWN_05);
 
     if (*unk == 0)
     {
@@ -338,7 +338,7 @@ THUMB_FUNC static BOOL FUN_02039CC8(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_RestartCurrentScript(struct ScriptContext *ctx) //0015
 {
-    u8* unk = (u8 *)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_FIELD_07);
+    u8* unk = (u8 *)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_UNKNOWN_05);
 
     *unk = 0;
     return FALSE;
