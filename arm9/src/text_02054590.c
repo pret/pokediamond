@@ -57,9 +57,9 @@ THUMB_FUNC u16 DrawFieldMessage(struct Window * window, struct String *str, u8 f
     return AddTextPrinterParameterized(window, fontId, str, 0, 0, speed, NULL);
 }
 
-THUMB_FUNC u8 FUN_020546C8(u32 param0) // bool8?
+THUMB_FUNC u8 FUN_020546C8(u8 textPrinterNumber) // bool8?
 {
-    return !FUN_0201BD70(param0);
+    return !FUN_0201BD70(textPrinterNumber);
 }
 
 THUMB_FUNC void FUN_020546E0(

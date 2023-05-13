@@ -68,6 +68,15 @@ struct ScriptContext
     struct FieldSystem *fieldSystem;
 };
 
+typedef enum ScriptEnvField {
+    SCRIPTENV_MENU_WINDOW,
+    SCRIPTENV_WINDOW,
+    SCRIPTENV_LIST_MENU_2D,
+    SCRIPTENV_TEXT_PRINTER_NUMBER,
+    SCRIPTENV_ACTIVE_MOVEMENT_COUNTER,
+    SCRIPTENV_FIELD_07, //TODO: assuming this matches with heartgold, if not please change
+} ScriptEnvField;
+
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
 
 void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount);
