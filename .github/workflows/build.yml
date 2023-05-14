@@ -27,7 +27,7 @@ jobs:
           sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -cs)/winehq-$(lsb_release -cs).sources
           sudo apt update
           sudo ACCEPT_EULA=Y apt -y --fix-missing --allow-downgrades upgrade
-          sudo apt -y --allow-downgrades install --install-recommends winehq-stable
+          sudo apt -y --allow-downgrades install --install-recommends winehq-staging
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Setup Repo
