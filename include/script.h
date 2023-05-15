@@ -27,7 +27,11 @@ struct UnkStruct_02046444
     struct UnkStruct_020464D4 unk90[1]; //todo find size
 };
 
-struct FieldSystem
+typedef struct LocalMapObject { //todo move to local_map_object.c
+    u8 padding[0x12C]; //todo verify size
+} LocalMapObject;
+
+struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;
     u8 padding[0x4];
@@ -79,6 +83,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_ACTIVE_SCRIPTCONTEXT_COUNT,
     SCRIPTENV_ACTIVE_SCRIPT_NUMBER,
     SCRIPTENV_FACING_DIRECTION,
+    SCRIPTENV_LAST_INTERACTED,
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

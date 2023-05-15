@@ -16,7 +16,7 @@
 
 extern void *FieldSysGetAttrAddr(struct FieldSystem* fieldSystem, enum ScriptEnvField id);
 extern void *CreateScriptContext(struct FieldSystem* fieldSystem, u16 id);
-extern u8 FUN_02058448(u32 param0);
+extern u8 FUN_02058448(LocalMapObject *lastInteracted);
 extern void FlagSet(struct FieldSystem *fieldSystem, u16 flag);
 extern void FlagClear(struct FieldSystem *fieldSystem, u16 flag);
 extern u8 FlagCheck(struct FieldSystem *fieldSystem, u16 flag);
@@ -29,11 +29,11 @@ extern void MOD05_021E2C58(struct ScriptContext *ctx, u16 typ, u16 id, u16 word1
 extern struct ScrStrBufs *MOD06_02244210(struct SaveBlock2 *sav, u16 poke, u16 sex, u8 flag, u8 *unk);
 extern void MOD05_021E2CBC(struct ScriptContext *ctx, struct ScrStrBufs *str, u8 param2, u32 param3);
 extern void MOD05_021E2BB8(void *param0, struct ScriptContext *ctx);
-extern u32 FUN_02058488(u32 param0);
+extern u32 FUN_02058488(LocalMapObject *lastInteracted);
 extern BOOL FUN_02030F40(void);
 extern void FUN_02055304(struct PlayerAvatar *playerAvatar, u32 param1);
 extern void FUN_02039460(struct FieldSystem *arg);
-extern u32 FUN_02058510(u32 param0, u32 param1);
+extern u32 FUN_02058510(LocalMapObject *event, u32 param1);
 extern void MOD05_021E8128(u32 param0, u8 type, u16 map);
 extern void MOD05_021E8130(u32 param0, u32 param1);
 extern void MOD05_021E8158(struct FieldSystem *fieldSystem);
@@ -53,42 +53,42 @@ extern void MOD05_021E1F60(u32 param0);
 extern void MOD05_021E26CC(u32 param0, u8 param1);
 extern void MOD05_021E2B80(u32 param0, u8 param1);
 extern void MOD05_021E2B9C(u32 param0, u8 param1);
-extern u32 FUN_0205AEA4(struct Vecx32 *param0, const void *ptr);
-extern u32 FUN_02058B2C(struct Vecx32 *param0);
-extern u32 FUN_02058B4C(struct Vecx32 *param0);
-extern struct Vecx32 *FUN_020580B4(u32 param0, u32 param1);
-extern struct Vecx32 *FUN_02058060(u32 param0, u16 eventId);
+extern u32 FUN_0205AEA4(LocalMapObject *event, const void *ptr);
+extern u32 FUN_02058B2C(LocalMapObject *event);
+extern u32 FUN_02058B4C(LocalMapObject *event);
+extern LocalMapObject *FUN_020580B4(u32 param0, u32 param1);
+extern LocalMapObject *FUN_02058060(u32 param0, u16 eventId);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
-extern struct Vecx32 *FUN_020553A0(struct PlayerAvatar *playerAvatar); //get player position?
-extern u32 FUN_0205AE28(struct Vecx32 *param0);
-extern void FUN_02058908(struct Vecx32 *param0);
-extern u32 FUN_02058854(struct Vecx32 *param0);
-extern struct Vecx32 *FUN_0205E7C4(struct Vecx32 *param0);
-extern void FUN_02058914(struct Vecx32 *param0);
+extern LocalMapObject *FUN_020553A0(struct PlayerAvatar *playerAvatar);
+extern u32 FUN_0205AE28(LocalMapObject *event);
+extern void FUN_02058908(LocalMapObject *event);
+extern u32 FUN_02058854(LocalMapObject *event);
+extern LocalMapObject *FUN_0205E7C4(LocalMapObject *event);
+extern void FUN_02058914(LocalMapObject *event);
 extern void FUN_020587B0(u32 param0);
 extern u32 FUN_02034B64(struct FieldSystem *fieldSystem);
 extern u32 FUN_02034B6C(struct FieldSystem *fieldSystem);
 extern u32 FUN_020575D4(u32 param0, u16 eventVar, u32 param2, u32 mapId, u32 param4);
-extern void FUN_02057688(struct Vecx32 *param0);
-extern struct Vecx32 *FUN_0205753C(u32 param0, u16 x, u16 y, u16 z, u32 param4, u32 param5, u32 mapId);
-extern u32 FUN_02059D1C(struct Vecx32 *target);
-extern struct Vecx32 *FUN_0205889C(struct Vecx32 *target, u32 param1);
-extern struct Vecx32 *FUN_020588B8(struct Vecx32 *target, u32 param1);
-extern struct Vecx32 *FUN_02058B7C(struct Vecx32 *target);
+extern void FUN_02057688(LocalMapObject *event);
+extern LocalMapObject *FUN_0205753C(u32 param0, u16 x, u16 y, u16 z, u32 param4, u32 param5, u32 mapId);
+extern u32 FUN_02059D1C(LocalMapObject *target);
+extern LocalMapObject *FUN_0205889C(LocalMapObject *target, u32 param1);
+extern LocalMapObject *FUN_020588B8(LocalMapObject *target, u32 param1);
+extern struct Vecx32 *FUN_02058B7C(LocalMapObject *target);
 extern void MOD05_021EF5E0(struct Vecx32 *target, u32 param1);
-extern void FUN_02057654(struct Vecx32 *target);
+extern void FUN_02057654(LocalMapObject *target);
 extern u32 PlayerAvatar_GetFacingDirection(struct PlayerAvatar *playerAvatar);
 extern u32 FUN_02059E74(u32 direction);
-extern void MOD05_021F1EC0(struct Vecx32 *param0, u32 param1);
+extern void MOD05_021F1EC0(LocalMapObject *event, u32 param1);
 extern u16 GetPlayerXCoord(struct PlayerAvatar *playerAvatar);
 extern u16 GetPlayerYCoord(struct PlayerAvatar *playerAvatar);
-extern void FUN_02058BB4(struct Vecx32 *param0, struct Vecx32 *param1);
-extern void FUN_02058994(struct Vecx32 *vector, u8 value);
-extern void FUN_02058E90(struct Vecx32 *vector, u16 movement);
-extern u16 FUN_02058480(struct Vecx32 *vector);
-extern void FUN_02058EB0(struct Vecx32 *vector, u32 param1);
+extern void FUN_02058BB4(LocalMapObject *event, struct Vecx32 *param1);
+extern void FUN_02058994(LocalMapObject *event, u8 value);
+extern void FUN_02058E90(LocalMapObject *event, u16 movement);
+extern u16 FUN_02058480(LocalMapObject *event);
+extern void FUN_02058EB0(LocalMapObject *event, u32 param1);
 extern u16 FUN_02029E0C(struct SealCase *sealCase);
 extern u16 FUN_02029E2C(struct SealCase *sealCase, u16 sealId);
 extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
@@ -113,8 +113,8 @@ static BOOL FUN_0203AA0C(struct ScriptContext *ctx);
 static BOOL FUN_0203AB00(struct ScriptContext *ctx);
 static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
-static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId);
-static BOOL IsAllMovementFinished(struct ScriptContext *ctx);
+static LocalMapObject *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId);
+static BOOL IsAleventvementFinished(struct ScriptContext *ctx);
 static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 static BOOL FUN_0203B218(struct ScriptContext *ctx);
@@ -353,10 +353,10 @@ THUMB_FUNC BOOL ScrCmd_GoTo(struct ScriptContext *ctx) //0016
 
 THUMB_FUNC BOOL ScrCmd_ObjectGoTo(struct ScriptContext *ctx) //0017
 {
-    u32* unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0xa);
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     u8 id = ScriptReadByte(ctx);
     s32 offset = (s32)ScriptReadWord(ctx);
-    if (FUN_02058448(*unk) == id)
+    if (FUN_02058448(*lastInteracted) == id)
     {
         ScriptJump(ctx, ctx->scriptPtr + offset);
     }
@@ -682,8 +682,8 @@ THUMB_FUNC BOOL ScrCmd_Unk002E(struct ScriptContext *ctx) //002E - todo: Message
 
 THUMB_FUNC BOOL ScrCmd_Unk020C(struct ScriptContext *ctx) //020C
 {
-    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0xa);
-    u8 msg = (u8)FUN_02058488(*unk);
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    u8 msg = (u8)FUN_02058488(*lastInteracted);
     MOD05_021E2BD0(ctx, ctx->msgData, msg, 1, NULL);
     SetupNativeScript(ctx, FUN_0203A2F0);
     return TRUE;
@@ -796,12 +796,10 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonABPad(struct ScriptContext *ctx) //0032
 THUMB_FUNC static BOOL FUN_0203A570(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
-    {
+    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) {
         return TRUE;
     }
-    else if (gMain.newKeys & (PAD_KEY_RIGHT | PAD_KEY_LEFT | PAD_KEY_UP | PAD_KEY_DOWN))
-    {
+    else if (gMain.newKeys & (PAD_KEY_RIGHT | PAD_KEY_LEFT | PAD_KEY_UP | PAD_KEY_DOWN)) {
         return TRUE;
     }
     return FALSE;
@@ -925,10 +923,9 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
     map = ScriptReadHalfword(ctx);
     wk = ScriptReadHalfword(ctx);
 
-    if (map == 0)
-    {
-        u32 *unk4 = FieldSysGetAttrAddr(fieldSystem, 10);
-        map = (u16)FUN_02058510(*unk4, 0);
+    if (map == 0) {
+        LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
+        map = (u16)FUN_02058510(*lastInteracted, 0);
     }
 
     MOD05_021E8128(fieldSystem->unk60, typ, map);
@@ -1352,10 +1349,10 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMo
     u16 unk = ScriptGetVar(ctx);
     u32 unk2 = ScriptReadWord(ctx);
 
-    struct Vecx32 *unk3 = FUN_0203B120(ctx->fieldSystem, unk);
-    GF_ASSERT(unk3);
+    LocalMapObject *event = FUN_0203B120(ctx->fieldSystem, unk);
+    GF_ASSERT(event);
 
-    u32 unk4 = FUN_0205AEA4(unk3, ctx->scriptPtr + unk2);
+    u32 unk4 = FUN_0205AEA4(event, ctx->scriptPtr + unk2);
     u8 *movementCounter = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ACTIVE_MOVEMENT_COUNTER);
     (*movementCounter)++;
 
@@ -1363,53 +1360,48 @@ THUMB_FUNC BOOL ScrCmd_Unk005E(struct ScriptContext *ctx) //005E - todo: ApplyMo
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
-{
-    struct Vecx32 *unk3; //has to be defined first to match
+THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) { //02A1
+    LocalMapObject *event; //has to be defined first to match
     u16 unk0 = ScriptGetVar(ctx);
     u16 unk1 = ScriptGetVar(ctx);
     u16 unk2 = ScriptGetVar(ctx);
 
-    unk3 = FUN_0203B120(ctx->fieldSystem, unk0);
+    event = FUN_0203B120(ctx->fieldSystem, unk0);
 
-    GF_ASSERT(unk3);
+    GF_ASSERT(event);
 
     u16 *unk4 = AllocFromHeap(4, 0x100);
-    u16 unk5 = (u16)FUN_02058B2C(unk3);
-    u16 unk6 = (u16)FUN_02058B4C(unk3);
+    u16 xVal = (u16)FUN_02058B2C(event);
+    u16 yVal = (u16)FUN_02058B4C(event);
 
     u32 pos = 0;
 
-    if (unk5 < unk1)
-    {
+    if (xVal < unk1) {
         unk4[0] = 15;
         pos++;
-        unk4[1] = (u16)(unk1 - unk5);
+        unk4[1] = (u16)(unk1 - xVal);
     }
-    else if (unk5 > unk1)
-    {
+    else if (xVal > unk1) {
         unk4[0] = 14;
         pos++;
-        unk4[1] = (u16)(unk5 - unk1);
+        unk4[1] = (u16)(xVal - unk1);
     }
 
-    if (unk6 < unk2)
-    {
+    if (yVal < unk2) {
         unk4[pos * 2] = 12;
-        unk4[pos * 2 + 1] = (u16)(unk2 - unk6);
+        unk4[pos * 2 + 1] = (u16)(unk2 - yVal);
         pos++;
     }
-    else if (unk6 > unk2)
-    {
+    else if (yVal > unk2) {
         unk4[pos * 2] = 13;
-        unk4[pos * 2 + 1] = (u16)(unk6 - unk2);
+        unk4[pos * 2 + 1] = (u16)(yVal - unk2);
         pos++;
     }
 
     unk4[pos * 2] = 254;
     unk4[pos * 2 + 1] = 0;
 
-    u32 unk7 = FUN_0205AEA4(unk3, unk4);
+    u32 unk7 = FUN_0205AEA4(event, unk4);
     u8 *movementCounter = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ACTIVE_MOVEMENT_COUNTER);
 
     (*movementCounter)++;
@@ -1418,7 +1410,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02A1(struct ScriptContext *ctx) //02A1
     return FALSE;
 }
 
-THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId)
+THUMB_FUNC static LocalMapObject *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId)
 {
     if (eventId == 242)
     {
@@ -1426,7 +1418,7 @@ THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u
     }
     else if (eventId == 241)
     {
-        struct Vecx32 **res = (struct Vecx32 **)FieldSysGetAttrAddr(fieldSystem, 11);
+        LocalMapObject **res = FieldSysGetAttrAddr(fieldSystem, 11);
         return *res;
     }
     else
@@ -1437,11 +1429,11 @@ THUMB_FUNC static struct Vecx32 *FUN_0203B120(struct FieldSystem *fieldSystem, u
 
 THUMB_FUNC BOOL ScrCmd_WaitForMovement(struct ScriptContext *ctx) //005F
 {
-    SetupNativeScript(ctx, IsAllMovementFinished);
+    SetupNativeScript(ctx, IsAleventvementFinished);
     return TRUE;
 }
 
-THUMB_FUNC static BOOL IsAllMovementFinished(struct ScriptContext *ctx)
+THUMB_FUNC static BOOL IsAleventvementFinished(struct ScriptContext *ctx)
 {
     u8 *movCounter = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ACTIVE_MOVEMENT_COUNTER);
     return *movCounter == 0;
@@ -1489,107 +1481,86 @@ THUMB_FUNC void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1) {
 THUMB_FUNC BOOL ScrCmd_LockAllEvents(struct ScriptContext *ctx) //0060
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u32 *res = (u32 *)FieldSysGetAttrAddr(fieldSystem, 10);
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
 
-    if (*res == 0)
-    {
+    if (*lastInteracted == NULL) {
         FUN_02058780(fieldSystem->unk34);
     }
-    else
-    {
+    else {
         ScrCmd_LockAllEvents2(ctx);
     }
     return TRUE;
 }
 
-THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx)
-{
+THUMB_FUNC static BOOL FUN_0203B218(struct ScriptContext *ctx) {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct Vecx32 **unk0 = (struct Vecx32 **)FieldSysGetAttrAddr(fieldSystem, 10);
-    struct Vecx32 *unk1 = FUN_020553A0(fieldSystem->playerAvatar);
-    if (UNK_021C5A0C[0] & 1)
-    {
-        if (FUN_0205AE28(unk1) == 1)
-        {
-            FUN_02058908(unk1);
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    LocalMapObject *unk0 = FUN_020553A0(fieldSystem->playerAvatar);
+    if (UNK_021C5A0C[0] & 1) {
+        if (FUN_0205AE28(unk0) == 1) {
+            FUN_02058908(unk0);
             UNK_021C5A0C[0] &= 0xfe;
         }
     }
-    if (UNK_021C5A0C[0] & 4)
-    {
-        if (FUN_02058854(*unk0) == 0)
-        {
-            FUN_02058908(*unk0);
+    if (UNK_021C5A0C[0] & 4) {
+        if (FUN_02058854(*lastInteracted) == 0) {
+            FUN_02058908(*lastInteracted);
             UNK_021C5A0C[0] &= 0xfb;
         }
     }
-    if (UNK_021C5A0C[0] & 2)
-    {
-        struct Vecx32 *unk2 = FUN_020580B4(fieldSystem->unk34, 48);
-        if (FUN_02058854(unk2) == 0)
-        {
-            FUN_02058908(unk2);
+    if (UNK_021C5A0C[0] & 2) {
+        LocalMapObject *unk1 = FUN_020580B4(fieldSystem->unk34, 48);
+        if (FUN_02058854(unk1) == 0) {
+            FUN_02058908(unk1);
             UNK_021C5A0C[0] &= 0xfd;
         }
     }
-    if (UNK_021C5A0C[0] & 8)
-    {
-        struct Vecx32 *unk3 = FUN_0205E7C4(*unk0);
-        if (FUN_02058854(unk3) == 0)
-        {
-            FUN_02058908(unk3);
+    if (UNK_021C5A0C[0] & 8) {
+        LocalMapObject *modifiedevent = FUN_0205E7C4(*lastInteracted);
+        if (FUN_02058854(modifiedevent) == 0) {
+            FUN_02058908(modifiedevent);
             UNK_021C5A0C[0] &= 0xf7;
         }
     }
-    if (UNK_021C5A0C[0] == 0)
-    {
+    if (UNK_021C5A0C[0] == 0) {
         return TRUE;
     }
-    else
-    {
+    else {
         return FALSE;
     }
 }
 
-THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx) //02B4
-{
+THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx) { //02B4
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct Vecx32 **unk0 = (struct Vecx32 **)FieldSysGetAttrAddr(fieldSystem, 10);
-    struct Vecx32 *unk1 = FUN_020553A0(fieldSystem->playerAvatar);
-    struct Vecx32 *unk2 = FUN_020580B4(fieldSystem->unk34, 48);
-    struct Vecx32 *unk3 = FUN_0205E7C4(*unk0);
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    LocalMapObject *unk0 = FUN_020553A0(fieldSystem->playerAvatar);
+    LocalMapObject *unk1 = FUN_020580B4(fieldSystem->unk34, 48);
+    LocalMapObject *unk2 = FUN_0205E7C4(*lastInteracted);
     u32 unk34 = fieldSystem->unk34;
     UNK_021C5A0C[0] = 0;
 
     FUN_02058780(unk34);
-    if (FUN_0205AE28(unk1) == 0)
-    {
+    if (FUN_0205AE28(unk0) == 0) {
         UNK_021C5A0C[0] |= 1;
-        FUN_02058914(unk1);
+        FUN_02058914(unk0);
     }
-    if (FUN_02058854(*unk0) != 0)
-    {
+    if (FUN_02058854(*lastInteracted) != 0) {
         UNK_021C5A0C[0] |= 4;
-        FUN_02058914(*unk0);
+        FUN_02058914(*lastInteracted);
     }
-    if (unk2 != NULL)
-    {
+    if (unk1 != NULL) {
         struct ScriptState *state = SavArray_Flags_get(fieldSystem->saveBlock2);
-        if (FUN_0205ED3C(state) == TRUE)
-        {
-            if (FUN_02058854(unk2) != 0)
-            {
+        if (FUN_0205ED3C(state) == TRUE) {
+            if (FUN_02058854(unk1) != 0) {
                 UNK_021C5A0C[0] |= 2;
-                FUN_02058914(unk2);
+                FUN_02058914(unk1);
             }
         }
     }
-    if (unk3 != NULL)
-    {
-        if (FUN_02058854(unk3) != 0)
-        {
+    if (unk2 != NULL) {
+        if (FUN_02058854(unk2) != 0) {
             UNK_021C5A0C[0] |= 8;
-            FUN_02058914(unk3);
+            FUN_02058914(unk2);
         }
     }
     SetupNativeScript(ctx, FUN_0203B218);
@@ -1642,24 +1613,24 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
 {
     u16 x = ScriptGetVar(ctx);
     u16 y = ScriptGetVar(ctx);
-    struct Vecx32 **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, 0xb);
+    LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, 0xb);
     *targetPtr = FUN_0205753C(ctx->fieldSystem->unk34, x, y, 0, 0x2000, 0, *ctx->fieldSystem->mapId);
     FUN_02059D1C(*targetPtr);
     FUN_0205889C(*targetPtr, 1);
     FUN_020588B8(*targetPtr, 0);
-    struct Vecx32 *modifiedTarget = FUN_02058B7C(*targetPtr);
-    MOD05_021EF5E0(modifiedTarget, ctx->fieldSystem->unk24);
-    Camera_SetFixedTarget(modifiedTarget, ctx->fieldSystem->camera);
+    struct Vecx32 *position = FUN_02058B7C(*targetPtr);
+    MOD05_021EF5E0(position, ctx->fieldSystem->unk24);
+    Camera_SetFixedTarget(position, ctx->fieldSystem->camera);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx) //0067
 {
-    struct Vecx32 **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, 0xb);
+    LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, 0xb);
     FUN_02057654(*targetPtr);
-    struct Vecx32 *modifiedTarget = FUN_02058B7C(FUN_02058060(ctx->fieldSystem->unk34, 0xff));
-    MOD05_021EF5E0(modifiedTarget, ctx->fieldSystem->unk24);
-    Camera_SetFixedTarget(modifiedTarget, ctx->fieldSystem->camera);
+    struct Vecx32 *position = FUN_02058B7C(FUN_02058060(ctx->fieldSystem->unk34, 0xff));
+    MOD05_021EF5E0(position, ctx->fieldSystem->unk24);
+    Camera_SetFixedTarget(position, ctx->fieldSystem->camera);
     return FALSE;
 }
 
@@ -1667,14 +1638,13 @@ THUMB_FUNC BOOL ScrCmd_FacePlayer(struct ScriptContext *ctx) //0068
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 unk0 = FUN_02059E74(PlayerAvatar_GetFacingDirection(fieldSystem->playerAvatar));
-    struct Vecx32 **unk1 = FieldSysGetAttrAddr(fieldSystem, 10);
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
 
-    if (*unk1 == NULL)
-    {
+    if (*lastInteracted == NULL) {
         return FALSE;
     }
 
-    MOD05_021F1EC0(*unk1, unk0);
+    MOD05_021F1EC0(*lastInteracted, unk0);
     return FALSE;
 }
 
@@ -1695,13 +1665,13 @@ THUMB_FUNC BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx) //00
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 eventId = ScriptGetVar(ctx);
-    struct Vecx32 *position = FUN_02058060(fieldSystem->unk34, eventId);
+    LocalMapObject *event = FUN_02058060(fieldSystem->unk34, eventId);
 
     u16 *xVar = ScriptGetVarPointer(ctx);
     u16 *yVar = ScriptGetVarPointer(ctx);
 
-    *xVar = FUN_02058B2C(position);
-    *yVar = FUN_02058B4C(position);
+    *xVar = FUN_02058B2C(event);
+    *yVar = FUN_02058B4C(event);
     return FALSE;
 }
 
@@ -1732,17 +1702,17 @@ THUMB_FUNC BOOL ScrCmd_Unk006B(struct ScriptContext *ctx) //006B - todo: CheckPe
 THUMB_FUNC BOOL ScrCmd_KeepOverworldEvent(struct ScriptContext *ctx) //006C
 {
     u16 eventId = ScriptGetVar(ctx);
-    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
-    FUN_02058994(vector, ScriptReadByte(ctx));
+    LocalMapObject *event = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    FUN_02058994(event, ScriptReadByte(ctx));
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_SetOverworldEventMovement(struct ScriptContext *ctx) //006D
 {
     u16 eventId = ScriptGetVar(ctx);
-    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    LocalMapObject *event = FUN_02058060(ctx->fieldSystem->unk34, eventId);
     u16 movement = ScriptReadHalfword(ctx);
-    FUN_02058E90(vector, movement);
+    FUN_02058E90(event, movement);
     return FALSE;
 }
 
@@ -1752,18 +1722,17 @@ THUMB_FUNC BOOL ScrCmd_GetOverworldEventMovement(struct ScriptContext *ctx) //02
     *variable = 0;
     u16 eventId = ScriptGetVar(ctx);
 
-    struct Vecx32 *vector = FUN_02058060(ctx->fieldSystem->unk34, eventId);
-    if (vector != NULL)
-    {
-        *variable = FUN_02058480(vector);
+    LocalMapObject *event = FUN_02058060(ctx->fieldSystem->unk34, eventId);
+    if (event != NULL) {
+        *variable = FUN_02058480(event);
     }
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx) //006E
 {
-    struct Vecx32 *vector = FUN_020580B4(ctx->fieldSystem->unk34, 0x30);
-    FUN_02058EB0(vector, 0xFE);
+    LocalMapObject *event = FUN_020580B4(ctx->fieldSystem->unk34, 0x30);
+    FUN_02058EB0(event, 0xFE);
     return FALSE;
 }
 
