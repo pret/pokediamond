@@ -93,6 +93,7 @@ extern u16 FUN_02029E0C(struct SealCase *sealCase);
 extern u16 FUN_02029E2C(struct SealCase *sealCase, u16 sealId);
 extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
 extern u32 FUN_020379F8(u32 param0, struct FieldSystem *fieldSystem);
+extern u32 FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1774,10 +1775,16 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx) //0095
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0191(struct ScriptContext *ctx) //0191
-{
+THUMB_FUNC BOOL ScrCmd_Unk0191(struct ScriptContext *ctx) { //0191 - TODO: similar to below?
     u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
     *unk = FUN_020379F8(0x20, ctx->fieldSystem);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_OpenTradeScreen(struct ScriptContext *ctx) {
+    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
+    *unk = FUN_02037A1C(0x20, ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;
 }

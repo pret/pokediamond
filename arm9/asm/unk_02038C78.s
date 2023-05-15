@@ -826,7 +826,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02A2
 	.word ScrCmd_Unk02A3
 	.word ScrCmd_Unk02A4
-	.word ScrCmd_Unk02A5
+	.word ScrCmd_OpenTradeScreen
 	.word ScrCmd_GetPrizeItemIdAndCost
 	.word ScrCmd_Unk02A7
 	.word ScrCmd_TakeCoinsAddress

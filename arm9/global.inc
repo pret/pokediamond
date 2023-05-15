@@ -2812,7 +2812,7 @@
 .extern ScrCmd_GiveSeals
 .extern ScrCmd_GetPokemonForme
 .extern ScrCmd_Unk0191
-.extern ScrCmd_Unk02A5
+.extern ScrCmd_OpenTradeScreen
 .extern ScrCmd_Unk0192
 .extern ScrCmd_Unk0193
 .extern ScrCmd_Unk0194
