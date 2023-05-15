@@ -1421,8 +1421,8 @@ THUMB_FUNC static LocalMapObject *FUN_0203B120(struct FieldSystem *fieldSystem, 
     }
     else if (eventId == 241)
     {
-        LocalMapObject **res = FieldSysGetAttrAddr(fieldSystem, 11);
-        return *res;
+        LocalMapObject **cameraTarget = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_CAMERA_TARGET);
+        return *cameraTarget;
     }
     else
     {
@@ -1616,7 +1616,7 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
 {
     u16 x = ScriptGetVar(ctx);
     u16 y = ScriptGetVar(ctx);
-    LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, 0xb);
+    LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_CAMERA_TARGET);
     *targetPtr = FUN_0205753C(ctx->fieldSystem->unk34, x, y, 0, 0x2000, 0, *ctx->fieldSystem->mapId);
     FUN_02059D1C(*targetPtr);
     FUN_0205889C(*targetPtr, 1);
@@ -1629,7 +1629,7 @@ THUMB_FUNC BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
 
 THUMB_FUNC BOOL ScrCmd_ReleaseCamera(struct ScriptContext *ctx) //0067
 {
-    LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, 0xb);
+    LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_CAMERA_TARGET);
     FUN_02057654(*targetPtr);
     struct Vecx32 *position = FUN_02058B7C(FUN_02058060(ctx->fieldSystem->unk34, 0xff));
     MOD05_021EF5E0(position, ctx->fieldSystem->unk24);

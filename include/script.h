@@ -84,6 +84,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_ACTIVE_SCRIPT_NUMBER,
     SCRIPTENV_FACING_DIRECTION,
     SCRIPTENV_LAST_INTERACTED,
+    SCRIPTENV_CAMERA_TARGET,
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
