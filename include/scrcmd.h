@@ -150,6 +150,7 @@ BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx);
 BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx);
 BOOL ScrCmd_ChoosePokemonMenu(struct ScriptContext *ctx);
 BOOL ScrCmd_OpenTradeScreen(struct ScriptContext *ctx);
+BOOL ScrCmd_ChoosePokemonMenu2(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

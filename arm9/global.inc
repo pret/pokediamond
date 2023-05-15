@@ -2813,7 +2813,7 @@
 .extern ScrCmd_GetPokemonForme
 .extern ScrCmd_ChoosePokemonMenu
 .extern ScrCmd_OpenTradeScreen
-.extern ScrCmd_Unk0192
+.extern ScrCmd_ChoosePokemonMenu2
 .extern ScrCmd_Unk0193
 .extern ScrCmd_Unk0194
 .extern ScrCmd_Unk0195
