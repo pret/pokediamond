@@ -550,7 +550,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_HideSaveClock
 	.word ScrCmd_Unk018F
 	.word ScrCmd_WaitButtonABTime
-	.word ScrCmd_Unk0191
+	.word ScrCmd_ChoosePokemonMenu
 	.word ScrCmd_Unk0192
 	.word ScrCmd_Unk0193
 	.word ScrCmd_Unk0194
