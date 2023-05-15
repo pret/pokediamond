@@ -14,43 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0193
-ScrCmd_Unk0193: ; 0x0203B968
-	push {r3-r5, lr}
-	add r4, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r4, #0x80
-	add r5, r0, #0x0
-	ldr r0, [r4, #0x0]
-	mov r1, #0x13
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	ldr r0, [r4, #0x0]
-	cmp r0, #0x0
-	bne _0203B994
-	bl GF_AssertFail
-_0203B994:
-	ldr r0, [r4, #0x0]
-	bl FUN_02037A40
-	strh r0, [r5, #0x0]
-	ldrh r0, [r5, #0x0]
-	cmp r0, #0x7
-	bne _0203B9A6
-	mov r0, #0xff
-	strh r0, [r5, #0x0]
-_0203B9A6:
-	ldr r0, [r4, #0x0]
-	bl FreeToHeap
-	mov r0, #0x0
-	str r0, [r4, #0x0]
-	pop {r3-r5, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk0194
 ScrCmd_Unk0194: ; 0x0203B9B4
 	push {r4-r7, lr}

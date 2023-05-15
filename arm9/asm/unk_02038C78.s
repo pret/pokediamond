@@ -552,7 +552,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_WaitButtonABTime
 	.word ScrCmd_ChoosePokemonMenu
 	.word ScrCmd_ChoosePokemonMenu2
-	.word ScrCmd_Unk0193
+	.word ScrCmd_GetSelectedPartySlot
 	.word ScrCmd_Unk0194
 	.word ScrCmd_Unk0195
 	.word ScrCmd_Unk0196

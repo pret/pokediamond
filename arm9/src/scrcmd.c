@@ -95,6 +95,7 @@ extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
 extern u32 FUN_020379F8(u32 param0, struct FieldSystem *fieldSystem);
 extern u32 FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
 extern u32 FUN_02037B44(struct TaskManager *taskManager, u32 param1);
+extern u16 FUN_02037A40(u32 *param0);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1794,4 +1795,19 @@ THUMB_FUNC BOOL ScrCmd_ChoosePokemonMenu2(struct ScriptContext *ctx) { //0192
     u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
     *unk = FUN_02037B44(ctx->fieldSystem->taskManager, 0x20);
     return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GetSelectedPartySlot(struct ScriptContext *ctx) { //0193
+    u16 *variable = ScriptGetVarPointer(ctx);
+    u32 **unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
+
+    GF_ASSERT(*unk);
+    *variable = FUN_02037A40(*unk);
+
+    if (*variable == 7) {
+        *variable = 0xFF;
+    }
+    FreeToHeap(*unk);
+    *unk = NULL;
+    return FALSE;
 }

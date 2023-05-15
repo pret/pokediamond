@@ -2814,7 +2814,7 @@
 .extern ScrCmd_ChoosePokemonMenu
 .extern ScrCmd_OpenTradeScreen
 .extern ScrCmd_ChoosePokemonMenu2
-.extern ScrCmd_Unk0193
+.extern ScrCmd_GetSelectedPartySlot
 .extern ScrCmd_Unk0194
 .extern ScrCmd_Unk0195
 .extern ScrCmd_Unk0196
