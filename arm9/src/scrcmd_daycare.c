@@ -20,7 +20,7 @@ extern u32 MOD05_021ED644(struct DayCare* daycare);
 THUMB_FUNC BOOL ScrCmd_GetDaycarePokemonNames(struct ScriptContext* ctx) //016D
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     struct DayCare* daycare = Sav2_DayCare_get(sav2);
 
     MOD05_021ED4E0(daycare, *messageFormat);
@@ -64,7 +64,7 @@ THUMB_FUNC BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext* ctx) //01A9
 THUMB_FUNC BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx) //01A4
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     struct SaveBlock2* sav2 = fieldSystem->saveBlock2;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 idx = ScriptGetVar(ctx);
@@ -79,7 +79,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01A4(struct ScriptContext* ctx) //01A4
 THUMB_FUNC BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx) //01AA
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     struct SaveBlock2* sav2 = fieldSystem->saveBlock2;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 idx = ScriptGetVar(ctx);
@@ -93,7 +93,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01AA(struct ScriptContext* ctx) //01AA
 THUMB_FUNC BOOL ScrCmd_GetDaycareLevel(struct ScriptContext* ctx) //01AE
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 idx = ScriptGetVar(ctx);
     struct DayCare* daycare = SavArray_get(sav2, 8);
@@ -106,7 +106,7 @@ THUMB_FUNC BOOL ScrCmd_GetDaycareLevel(struct ScriptContext* ctx) //01AE
 THUMB_FUNC BOOL ScrCmd_Unk01AF(struct ScriptContext* ctx) //01AF
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u16 unused = ScriptReadHalfword(ctx);
     u16 idx = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -133,7 +133,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01B0(struct ScriptContext* ctx) //01B0
 THUMB_FUNC BOOL ScrCmd_Unk01BC(struct ScriptContext* ctx) //01BC
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u16 idx1 = ScriptGetVar(ctx);
     u16 idx2 = ScriptGetVar(ctx);
     u16 idx3 = ScriptGetVar(ctx);

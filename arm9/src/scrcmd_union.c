@@ -11,7 +11,7 @@ extern BOOL FUN_020612F8(struct FieldSystem*);
 
 THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
 {
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     struct UnkSaveStruct_020286F8* unk_sav_ptr = FUN_0202881C(ctx->fieldSystem->saveBlock2);
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
 

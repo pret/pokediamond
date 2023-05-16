@@ -42,12 +42,12 @@ extern BOOL MOD05_021E8148(u32 param0);
 extern void MOD05_021E8144(u32 param0);
 extern u32 Std_CreateYesNoMenu(struct BgConfig *param0, u8 **param1, u32 param2, u32 param3, u32 param4);
 extern u32 FUN_020021AC(u32 param0, u32 param1);
-extern u32 MOD05_021E1BF8(struct FieldSystem *fieldSystem, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, u32 param6, struct Window *window, struct MsgData *msgData);
+extern u32 MOD05_021E1BF8(struct FieldSystem *fieldSystem, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, MessageFormat *messageFormat, struct Window *window, struct MsgData *msgData);
 extern void MOD05_021E1C4C(u32 param0, u32 param1, u32 param2);
 extern void MOD05_021E1C54(u32 param0);
 extern u32 FUN_02052714(u32 param0);
 extern void MOD05_021E1ECC(u32 param0);
-extern u32 MOD05_021E1F34(struct FieldSystem *fieldSystem, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, u32 param6, struct Window *window, struct MsgData *msgData);
+extern u32 MOD05_021E1F34(struct FieldSystem *fieldSystem, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, MessageFormat *messageFormat, struct Window *window, struct MsgData *msgData);
 extern void MOD05_021E1F58(u32 param0, u8 param1, u8 param2, u8 param3);
 extern void MOD05_021E1F60(u32 param0);
 extern void MOD05_021E26CC(u32 param0, u8 param1);
@@ -917,7 +917,7 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct String **unk1 = FieldSysGetAttrAddr(fieldSystem, 0x11);
     struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 0x10);
-    MessageFormat **unk3 = FieldSysGetAttrAddr(fieldSystem, 0x0f);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 typ, msg;
     u16 wk, map;
 
@@ -935,7 +935,7 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
     MOD05_021E8130(fieldSystem->unk60, 1);
     MOD05_021E8158(fieldSystem);
     ReadMsgDataIntoString(ctx->msgData, msg, *unk1);
-    StringExpandPlaceholders(*unk3, *unk2, *unk1);
+    StringExpandPlaceholders(*messageFormat, *unk2, *unk1);
     AddTextPrinterParameterized(MOD05_021E8140(fieldSystem->unk60), 1, *unk2, 0, 0, 0, NULL);
 
     return TRUE;
@@ -988,7 +988,7 @@ THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx) //003A - todo: CreateM
     u8 *printerNumber = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_TEXT_PRINTER_NUMBER);
     struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 17);
     struct String **unk3 = FieldSysGetAttrAddr(fieldSystem, 16);
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
 
     u8 msg = ScriptReadByte(ctx);
     u16 wk = ScriptReadHalfword(ctx);
@@ -1168,7 +1168,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0040(struct ScriptContext *ctx) //0040
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MENU_WINDOW);
-    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1176,7 +1176,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0040(struct ScriptContext *ctx) //0040
     u16 unk7 = ScriptReadHalfword(ctx);
     u16 *ptr = GetVarPointer(fieldSystem, unk7);
     struct Window *window = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *unk2, window, NULL);
+    *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *messageFormat, window, NULL);
     ctx->data[0] = unk7;
     return TRUE;
 }
@@ -1185,7 +1185,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0041(struct ScriptContext *ctx) //0041
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MENU_WINDOW);
-    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1193,7 +1193,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0041(struct ScriptContext *ctx) //0041
     u16 unk7 = ScriptReadHalfword(ctx);
     u16 *ptr = GetVarPointer(fieldSystem, unk7);
     struct Window *window = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *unk2, window, ctx->msgData);
+    *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *messageFormat, window, ctx->msgData);
     ctx->data[0] = unk7;
     return TRUE;
 }
@@ -1275,7 +1275,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0044(struct ScriptContext *ctx) //0044
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MENU_WINDOW);
-    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1284,7 +1284,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0044(struct ScriptContext *ctx) //0044
     u16 halfWord = ScriptReadHalfword(ctx);
     u16 *varPtr = GetVarPointer(fieldSystem, halfWord);
     struct Window *window = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *unk2, window, NULL);
+    *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *messageFormat, window, NULL);
     ctx->data[0] = halfWord;
     return TRUE;
 }
@@ -1293,7 +1293,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0045(struct ScriptContext *ctx) //0045
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MENU_WINDOW);
-    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1302,7 +1302,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0045(struct ScriptContext *ctx) //0045
     u16 halfWord = ScriptReadHalfword(ctx);
     u16 *varPtr = GetVarPointer(fieldSystem, halfWord);
     struct Window *window = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *unk2, window, ctx->msgData);
+    *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *messageFormat, window, ctx->msgData);
     ctx->data[0] = halfWord;
     return TRUE;
 }
