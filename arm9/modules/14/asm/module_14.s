@@ -7572,7 +7572,7 @@ MOD14_021DB220: ; 0x021DB220
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	mov r0, #9
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r1, #0x67
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -7702,7 +7702,7 @@ _021DB3BE:
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

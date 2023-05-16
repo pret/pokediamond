@@ -131,15 +131,15 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
     struct String* error_message_str = String_ctor(384, heap_id);
     struct String* tmp_str = String_ctor(384, heap_id);
     FUN_0201BD5C();
-    struct ScrStrBufs* mgr = ScrStrBufs_new(heap_id);
+    MessageFormat* messageFormat = MessageFormat_new(heap_id);
 
     AddWindow(bg_config, &window, &sCommunicationErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
     DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
-    BufferIntegerAsString(mgr, 0, (s32)error_code, 5, 2, 1);
+    BufferIntegerAsString(messageFormat, 0, (s32)error_code, 5, 2, 1);
     ReadMsgDataIntoString(error_message_data, error_message_no, tmp_str);
-    StringExpandPlaceholders(mgr, error_message_str, tmp_str);
+    StringExpandPlaceholders(messageFormat, error_message_str, tmp_str);
 
     AddTextPrinterParameterized(&window, 0, error_message_str, 0, 0, 0, NULL);
     String_dtor(error_message_str);
@@ -152,6 +152,6 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
 
     RemoveWindow(&window);
     DestroyMsgData(error_message_data);
-    ScrStrBufs_delete(mgr);
+    MessageFormat_delete(messageFormat);
     FreeToHeap(bg_config);
 }

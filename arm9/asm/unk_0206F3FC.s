@@ -1012,7 +1012,7 @@ _0206FAFC:
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, _0206FB54 ; =0x00000B34
 	ldr r0, [r6, r0]
 	cmp r0, #0x0
@@ -1445,7 +1445,7 @@ _0206FEC2:
 	ldr r1, _0206FF64 ; =0x00000698
 	str r0, [r6, r1]
 	mov r0, #0xc
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	add r7, r1, #0x0

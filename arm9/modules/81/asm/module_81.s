@@ -55,7 +55,7 @@ _02237E84:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x39
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0xc]
 	ldr r2, [r4]
 	ldr r0, [r2, #0x10]
@@ -224,7 +224,7 @@ MOD81_02238004: ; 0x02238004
 	bl FUN_0200CAB4
 	bl FUN_02033ED0
 	ldr r0, [r4, #0xc]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]

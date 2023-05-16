@@ -466,7 +466,7 @@ FUN_02048864: ; 0x02048864
 	cmp r6, #0x2
 	bne _020488AC
 	mov r0, #0x4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Sav2_PlayerData_GetProfileAddr
@@ -481,7 +481,7 @@ FUN_02048864: ; 0x02048864
 	bl ReadMsgData_ExpandPlaceholders
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	b _020488B4
 _020488AC:
 	mov r1, #0x12

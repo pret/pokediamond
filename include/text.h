@@ -77,11 +77,11 @@ struct FontInfo
 
 void SetFontsPointer(const struct FontInfo *fonts);
 u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2);
-void FUN_0201BCFC(u32 param0);
-BOOL FUN_0201BD44(u32 param0);
+void FUN_0201BCFC(u8 textPrinterNumber);
+BOOL FUN_0201BD44(u8 textPrinterNumber);
 void FUN_0201BD5C(void);
-u8 FUN_0201BD70(u32 param0);
-void FUN_0201BD7C(u32 param0);
+u8 FUN_0201BD70(u8 textPrinterNumber);
+void FUN_0201BD7C(u8 textPrinterNumber);
 u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));
 u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16));
 u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16));

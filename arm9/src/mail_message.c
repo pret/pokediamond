@@ -1,8 +1,8 @@
 #include "global.h"
 #include "mail_message.h"
+#include "message_format.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
-#include "script_buffers.h"
 #include "string_control_code.h"
 
 #pragma thumb on
@@ -78,19 +78,19 @@ void MailMsg_init_fromTemplate(struct MailMessage * mailMsg, u32 a1)
 struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, u32 heap_id)
 {
     s32 i;
-    struct ScrStrBufs * mgr = ScrStrBufs_new(heap_id);
+    MessageFormat * messageFormat = MessageFormat_new(heap_id);
     struct MsgData * msgData;
     struct String * ret;
     for (i = 0; i < 2; i++)
     {
         if (mailMsg->fields[i] == 0xFFFF)
             break;
-        FUN_0200B518(mgr, (u32)i, mailMsg->fields[i]);
+        FUN_0200B518(messageFormat, (u32)i, mailMsg->fields[i]);
     }
     msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, UNK_020ED54C[mailMsg->msg_bank], heap_id);
-    ret = ReadMsgData_ExpandPlaceholders(mgr, msgData, mailMsg->msg_no, heap_id);
+    ret = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heap_id);
     DestroyMsgData(msgData);
-    ScrStrBufs_delete(mgr);
+    MessageFormat_delete(messageFormat);
     return ret;
 }
 

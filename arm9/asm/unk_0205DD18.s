@@ -870,7 +870,7 @@ _0205E33A:
 	bl FUN_02038CD8
 	add r0, r4, #0x0
 	mov r1, #0x29
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldrb r2, [r6, #0x0]
 	mov r1, #0x32
 	sub r1, r1, r2

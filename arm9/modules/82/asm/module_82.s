@@ -667,7 +667,7 @@ _0222DA48:
 	mov r0, #0xb
 	mov r1, #0x20
 	mov r2, #0x44
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	ldr r1, _0222DB64 ; =0x00000B78
 	ldr r2, _0222DB68 ; =0x0000024E
 	str r0, [r4, r1]
@@ -875,7 +875,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	bl DestroyMsgData
 	ldr r0, _0222DCC0 ; =0x00000B78
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r4, #0
 	bl MOD82_0222DD20
 	bl FUN_0202E4F0

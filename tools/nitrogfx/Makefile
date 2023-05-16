@@ -11,17 +11,18 @@ CFLAGS = -Wall -Wextra -Werror -Wno-sign-compare -std=c11 -O2 -DPNG_SKIP_SETJMP_
 LIBS = $(shell pkg-config --libs libpng)
 
 SRCS = main.c convert_png.c gfx.c jasc_pal.c lz.c rl.c util.c font.c huff.c json.c cJSON.c
+OBJS = $(SRCS:%.c=%.o)
 
 .PHONY: all clean
 
 all: nitrogfx
 	@:
 
-nitrogfx-debug: $(SRCS) convert_png.h gfx.h global.h jasc_pal.h lz.h rl.h util.h font.h
+nitrogfx-debug: $(SRCS) convert_png.h gfx.h global.h jasc_pal.h lz.h rl.h util.h font.h json.h cJSON.h
 	$(CC) $(CFLAGS) -DDEBUG $(SRCS) -o $@ $(LDFLAGS) $(LIBS)
 
-nitrogfx: $(SRCS) convert_png.h gfx.h global.h jasc_pal.h lz.h rl.h util.h font.h
+nitrogfx: $(SRCS) convert_png.h gfx.h global.h jasc_pal.h lz.h rl.h util.h font.h json.h cJSON.h
 	$(CC) $(CFLAGS) $(SRCS) -o $@ $(LDFLAGS) $(LIBS)
 
 clean:
-	$(RM) nitrogfx nitrogfx.exe
+	$(RM) -r nitrogfx nitrogfx.exe $(OBJS)

@@ -747,7 +747,7 @@ _020772FE:
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	mov r0, #0x12
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r2, #0x5a
 	lsl r2, r2, #0x2
 	str r0, [r4, r2]
@@ -1576,7 +1576,7 @@ _02077A0C:
 	mov r0, #0x5a
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [sp, #0x10]
 	bl OverlayManager_FreeData
 	mov r0, #0x0

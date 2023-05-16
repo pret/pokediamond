@@ -43,7 +43,7 @@ HOF_OverlayInit: ; 0x0222D5C0
 	ldr r1, _0222D718 ; =0x00001B58
 	str r0, [r4, r1]
 	mov r0, #0x3f
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	ldr r1, _0222D71C ; =0x00001B50
 	str r0, [r4, r1]
 	mov r0, #0
@@ -200,7 +200,7 @@ _0222D762:
 	bl MOD69_0222DD18
 	ldr r0, _0222D7E4 ; =0x00001B50
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, _0222D7E8 ; =0x00001B54
 	ldr r0, [r4, r0]
 	bl String_dtor

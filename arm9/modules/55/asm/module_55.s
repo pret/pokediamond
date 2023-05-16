@@ -562,7 +562,7 @@ MOD55_021D7994: ; 0x021D7994
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	mov r0, #0x34
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r6, #0xc]
 	ldr r2, _021D7A34 ; =0x00000251
 	mov r0, #0
@@ -642,7 +642,7 @@ MOD55_021D7A38: ; 0x021D7A38
 	ldr r0, [r6, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r6, #0xc]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r4, #0
 	add r5, r6, #0
 _021D7A4C:

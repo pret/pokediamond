@@ -519,7 +519,7 @@ MOD76_021D7900: ; 0x021D7900
 	add r1, #0xf8
 	str r0, [r1]
 	mov r0, #0x43
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r1, r4, #0
 	add r1, #0xfc
 	str r0, [r1]
@@ -545,7 +545,7 @@ MOD76_021D7938: ; 0x021D7938
 	add r0, r4, #0
 	add r0, #0xfc
 	ldr r0, [r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #1
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]

@@ -8410,7 +8410,7 @@ MOD06_0223D618: ; 0x0223D618
 	add r1, #0x88
 	str r0, [r1]
 	mov r0, #0xb
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r4, #0x8c
 	str r0, [r4]
 	pop {r4, pc}
@@ -8657,7 +8657,7 @@ _0223D804:
 	add r0, r4, #0
 	add r0, #0x8c
 	ldr r0, [r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x23
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -11464,17 +11464,17 @@ _0223EF28:
 	add r0, #0x40
 	bl InitWindow
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	ldr r1, _0223EFF4 ; =0x02252420
 	ldr r1, [r1]
 	str r0, [r1, #0x50]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	ldr r1, _0223EFF4 ; =0x02252420
 	ldr r1, [r1]
 	str r0, [r1, #0x54]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	ldr r1, _0223EFF4 ; =0x02252420
 	ldr r2, [r1]
 	str r0, [r2, #0x58]
@@ -11532,7 +11532,7 @@ _0223F004:
 	ldr r0, [r0, #0x50]
 	cmp r0, #0
 	beq _0223F034
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, _0223F08C ; =0x02252420
 	mov r1, #0
 	ldr r0, [r0]
@@ -11543,7 +11543,7 @@ _0223F034:
 	ldr r0, [r0, #0x54]
 	cmp r0, #0
 	beq _0223F04A
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, _0223F08C ; =0x02252420
 	mov r1, #0
 	ldr r0, [r0]
@@ -11554,7 +11554,7 @@ _0223F04A:
 	ldr r0, [r0, #0x58]
 	cmp r0, #0
 	beq _0223F060
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, _0223F08C ; =0x02252420
 	mov r1, #0
 	ldr r0, [r0]
@@ -15551,7 +15551,7 @@ _0224113A:
 	mov r1, #0
 	bl MOD06_022408D4
 	ldr r0, [r4, #0x64]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x68]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
@@ -15594,7 +15594,7 @@ MOD06_02241188: ; 0x02241188
 	add r5, #0xac
 	str r0, [r5]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x64]
 	mov r0, #0
 	mov r1, #0x1a
@@ -18946,7 +18946,7 @@ MOD06_02242C78: ; 0x02242C78
 	bl NewMsgDataFromNarc
 	str r0, [r5, #0x54]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r5, #0x58]
 	add r0, r5, #0
 	str r4, [r5]
@@ -19455,7 +19455,7 @@ _02243060:
 	cmp r4, #0xc
 	blt _02243060
 	ldr r0, [r6, #0x58]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r6, #0x54]
 	bl DestroyMsgData
 	pop {r4, r5, r6, pc}
@@ -21804,7 +21804,7 @@ MOD06_02244210: ; 0x02244210
 	mov r0, #0x13
 	mov r1, #0xe
 	mov r2, #4
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	mov r1, #0
 	str r1, [sp]
 	mov r3, #1
@@ -40861,7 +40861,7 @@ MOD06_0224D46C: ; 0x0224D46C
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0xb
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x14]
 	mov r2, #3
 	str r2, [sp]
@@ -41099,7 +41099,7 @@ MOD06_0224D6A4: ; 0x0224D6A4
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -41915,7 +41915,7 @@ MOD06_0224DD50: ; 0x0224DD50
 	add r0, r7, #0
 	add r4, r1, #0
 	add r5, r3, #0
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r6, r0, #0
 	mov r0, #0xc8
 	add r1, r7, #0
@@ -41957,7 +41957,7 @@ MOD06_0224DD50: ; 0x0224DD50
 	add r2, r7, #0
 	bl MOD06_0224DCD8
 	add r0, r6, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [sp, #0xc]
 	bl String_dtor
 	ldr r0, [sp, #0x10]
@@ -41975,7 +41975,7 @@ MOD06_0224DDD8: ; 0x0224DDD8
 	add r0, r7, #0
 	add r4, r1, #0
 	add r5, r3, #0
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r6, r0, #0
 	mov r0, #0xc8
 	add r1, r7, #0
@@ -42017,7 +42017,7 @@ MOD06_0224DDD8: ; 0x0224DDD8
 	add r2, r7, #0
 	bl MOD06_0224DCD8
 	add r0, r6, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [sp, #0xc]
 	bl String_dtor
 	ldr r0, [sp, #0x10]
@@ -42057,7 +42057,7 @@ MOD06_0224DE60: ; 0x0224DE60
 	mov r3, #1
 	bl AddWindowParameterized
 	ldr r0, [sp, #0x14]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r6, #8]
 	mov r4, #0
 	add r5, r6, #0
@@ -42104,7 +42104,7 @@ _0224DEE6:
 	ldr r0, [r6, #0xc]
 	bl String_dtor
 	ldr r0, [r6, #8]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r6, #4]
 	bl ClearWindowTilemapAndCopyToVram
 	ldr r0, [r6, #4]
@@ -42232,7 +42232,7 @@ _0224DFC0:
 	mov r3, #0x11
 	bl AddWindowParameterized
 	ldr r0, [sp, #0x14]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r1, #0x49
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -42309,7 +42309,7 @@ _0224E084:
 	mov r0, #0x49
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x4a
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]

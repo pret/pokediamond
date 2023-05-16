@@ -484,7 +484,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x34]
 	ldr r0, [r4]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x38]
 	mov r1, #0
 	add r0, sp, #8
@@ -540,7 +540,7 @@ MOD86_021D7964: ; 0x021D7964
 	add r0, #0x14
 	bl RemoveWindow
 	ldr r0, [r4, #0x38]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x34]
 	bl DestroyMsgData
 	pop {r4, pc}

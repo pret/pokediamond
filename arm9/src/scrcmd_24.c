@@ -4,7 +4,7 @@
 #include "unk_020377F0.h"
 #include "unk_02088DD8.h"
 
-extern void* FUN_02039438(struct FieldSystem*, int idx);
+extern void* FieldSysGetAttrAddr(struct FieldSystem*, int idx);
 
 extern struct UnkStruct_02037CF0* FUN_02037CF0(u32 heap_id, struct FieldSystem*, u8);
 extern u8 FUN_02037D5C(struct UnkStruct_02037CF0*);
@@ -14,7 +14,7 @@ extern BOOL FUN_0203BC04(struct ScriptContext* ctx);
 THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx) //01C6 - todo: MoveInfo?
 {
     u16 unk = ScriptGetVar(ctx);
-    struct UnkStruct_02037CF0** unk_ret_ptr = FUN_02039438(ctx->fieldSystem, 19);
+    struct UnkStruct_02037CF0** unk_ret_ptr = FieldSysGetAttrAddr(ctx->fieldSystem, 19);
     *unk_ret_ptr = FUN_02037CF0(32, ctx->fieldSystem, (u8)unk);
 
     SetupNativeScript(ctx, FUN_0203BC04);
@@ -27,7 +27,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) //01C7 - todo: StoreMo
     u16* ret_ptr;
 
     ret_ptr = ScriptGetVarPointer(ctx);
-    unk_ptr = FUN_02039438(ctx->fieldSystem, 19);
+    unk_ptr = FieldSysGetAttrAddr(ctx->fieldSystem, 19);
     GF_ASSERT(*unk_ptr != NULL);
 
     *ret_ptr = FUN_02037D5C(*unk_ptr);
@@ -63,7 +63,7 @@ THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) //021F
 
 THUMB_FUNC void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, void* a3)
 {
-    struct UnkStruct_02088DD8** unk = FUN_02039438(ctx->fieldSystem, 19);
+    struct UnkStruct_02088DD8** unk = FieldSysGetAttrAddr(ctx->fieldSystem, 19);
     struct UnkStruct_02088DD8* unk2 = FUN_02088DD8(32);
     *unk = unk2;
 
@@ -126,7 +126,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: Remembe
     u16* ret_ptr;
 
     ret_ptr = ScriptGetVarPointer(ctx);
-    unk = FUN_02039438(ctx->fieldSystem, 19);
+    unk = FieldSysGetAttrAddr(ctx->fieldSystem, 19);
     unk_sub = *unk;
 
     GF_ASSERT(unk_sub != NULL);
@@ -151,7 +151,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0225(struct ScriptContext* ctx) //0225 - todo: TeachMo
     u16* ret_ptr;
 
     ret_ptr = ScriptGetVarPointer(ctx);
-    unk = FUN_02039438(ctx->fieldSystem, 19);
+    unk = FieldSysGetAttrAddr(ctx->fieldSystem, 19);
     unk_sub = *unk;
 
     GF_ASSERT(unk_sub != NULL);

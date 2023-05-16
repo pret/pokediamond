@@ -1307,7 +1307,7 @@ _0205188E:
 	str r5, [r4, #0x24]
 	str r6, [r4, #0x8]
 	mov r0, #0xb
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x28]
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -1436,7 +1436,7 @@ _020519BA:
 	ldr r0, [r4, #0x2c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x28]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0xc]
 	bl String_dtor
 	ldr r0, [r4, #0x10]
@@ -2124,7 +2124,7 @@ _02051EE2: ; jump table (using 16-bit offset)
 	.short _02052028 - _02051EE2 - 2; case 7
 _02051EF2:
 	mov r0, #0x4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x18]
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -2194,7 +2194,7 @@ _02051F7C:
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x18]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x0]
 	bl String_dtor
 	ldr r0, [r4, #0x4]

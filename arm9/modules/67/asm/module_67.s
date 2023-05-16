@@ -441,7 +441,7 @@ MOD67_021D7880: ; 0x021D7880
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x50]
 	mov r0, #0x2a
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x54]
 	mov r0, #0x80
 	mov r1, #0x2a
@@ -459,7 +459,7 @@ MOD67_021D78AC: ; 0x021D78AC
 	ldr r0, [r4, #0x50]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x54]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x58]
 	bl String_dtor
 	pop {r4, pc}

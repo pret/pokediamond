@@ -313,7 +313,7 @@ _02042578:
 _0204258A:
 	add r0, r1, #0x0
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r2, r0, #0x0
 	ldr r1, [r7, #0x74]
 	add r0, r5, #0x0
@@ -324,7 +324,7 @@ _0204258A:
 _020425A2:
 	add r0, r1, #0x0
 	mov r1, #0x13
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r7, #0x80
 	ldr r2, [r7, #0x0]
 	add r1, r0, #0x0
@@ -389,7 +389,7 @@ _0204261A:
 _02042626:
 	add r0, r1, #0x0
 	mov r1, #0x17
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r7, #0x80
 	add r2, r0, #0x0
 	ldr r0, [r7, #0x0]
@@ -806,7 +806,7 @@ ScrCmd_Unk0294: ; 0x02042950
 	str r1, [r5, #0x8]
 	ldrb r4, [r2, #0x0]
 	mov r1, #0x26
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r5, #0x80
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -823,7 +823,7 @@ ScrCmd_Unk0295: ; 0x02042980
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x26
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	ldr r0, [r0, #0x0]
 	bl MOD05_021E29B4
 	mov r0, #0x0
@@ -837,7 +837,7 @@ ScrCmd_Unk0296: ; 0x02042998
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	mov r1, #0x26
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r1, r0, #0x0
 	add r4, #0x80
 	ldr r0, [r4, #0x0]

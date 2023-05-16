@@ -56,7 +56,7 @@ _021D9A36:
 	bl BgConfig_Alloc
 	str r0, [r4]
 	mov r0, #0x27
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x10]
 	ldr r2, _021D9B78 ; =0x00000176
 	mov r0, #0
@@ -260,7 +260,7 @@ _021D9C40:
 	ldr r0, [r6, #0x14]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x10]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r6, #0
 	bl MOD58_021D9EA0
 	ldr r0, [sp]

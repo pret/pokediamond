@@ -27,7 +27,11 @@ struct UnkStruct_02046444
     struct UnkStruct_020464D4 unk90[1]; //todo find size
 };
 
-struct FieldSystem
+typedef struct LocalMapObject { //todo move to local_map_object.c
+    u8 padding[0x12C]; //todo verify size
+} LocalMapObject;
+
+struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;
     u8 padding[0x4];
@@ -36,7 +40,7 @@ struct FieldSystem
     struct TaskManager *taskManager;
     u8 padding2[0x8];
     u32 *mapId; //0x1C
-    struct CameraWork *cameraWork;
+    struct Camera *camera;
     u32 unk24;
     u8 padding3[0xC];
     u32 unk34;
@@ -51,7 +55,7 @@ struct FieldSystem
     struct UnkStruct_02046444 * unkA8;
 };
 
-struct ScriptContext
+typedef struct ScriptContext
 {
     u8 stackDepth;
     u8 mode;
@@ -66,7 +70,26 @@ struct ScriptContext
     struct MsgData *msgData;
     u8 *mapScripts;
     struct FieldSystem *fieldSystem;
-};
+} ScriptContext;
+
+typedef enum ScriptEnvField {
+    SCRIPTENV_MENU_WINDOW,
+    SCRIPTENV_WINDOW,
+    SCRIPTENV_LIST_MENU_2D,
+    SCRIPTENV_TEXT_PRINTER_NUMBER,
+    SCRIPTENV_ACTIVE_MOVEMENT_COUNTER,
+    SCRIPTENV_UNKNOWN_05,
+    SCRIPTENV_UNKNOWN_06,
+    SCRIPTENV_ACTIVE_SCRIPTCONTEXT_COUNT,
+    SCRIPTENV_ACTIVE_SCRIPT_NUMBER,
+    SCRIPTENV_FACING_DIRECTION,
+    SCRIPTENV_LAST_INTERACTED,
+    SCRIPTENV_CAMERA_TARGET,
+    SCRIPTENV_UNKNOWN_12,
+    SCRIPTENV_SCRIPT_CONTEXT_0,
+    SCRIPTENV_SCRIPT_CONTEXT_1, //diamond does not appear to have SCRIPT_CONTEXT_2 like HG
+    SCRIPTENV_
+} ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
 

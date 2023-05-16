@@ -259,7 +259,7 @@ MOD05_021F3AE0: ; 0x021F3AE0
 	mov r1, #0xf
 	add r7, r2, #0
 	add r4, r3, #0
-	bl FUN_02039438
+	bl FieldSysGetAttrAddr
 	add r1, sp, #0x10
 	add r5, r0, #0
 	ldrh r1, [r1, #0x10]

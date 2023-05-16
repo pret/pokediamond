@@ -104,7 +104,7 @@ MOD51_022548F0: ; 0x022548F0
 	sub r1, #0xa
 	mov r0, #4
 	strh r2, [r4, r1]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r2, #9
 	str r0, [r4, #0x18]
 	mov r0, #0
@@ -347,7 +347,7 @@ _02254AEC:
 	ldr r0, [r6, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x18]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x72
 	lsl r0, r0, #2
 	add r0, r6, r0

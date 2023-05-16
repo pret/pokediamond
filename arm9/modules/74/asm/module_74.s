@@ -850,7 +850,7 @@ MOD74_021D7B20: ; 0x021D7B20
 	ldr r2, [r5]
 	mov r0, #2
 	mov r1, #0x4c
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	str r0, [r5, #0x2c]
 	ldr r1, [r5]
 	mov r0, #0x4c
@@ -936,7 +936,7 @@ _021D7BEC:
 	ldr r0, [r6, #0x30]
 	bl String_dtor
 	ldr r0, [r6, #0x2c]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r6, #0x28]
 	bl DestroyMsgData
 	pop {r4, r5, r6, pc}

@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_DAYCARE_H
 #define POKEDIAMOND_DAYCARE_H
 
+#include "global.h"
+
 struct DayCareMail
 {
     struct Mail seal;

@@ -27,7 +27,7 @@ Static arm9
 	Object oam.o
 	Object brightness.o
 	Object msgdata.o
-	Object script_buffers.o
+	Object message_format.o
 	Object unk_0200BA78.o
 	Object unk_0200BB14.o
 	Object unk_0200CA44.o

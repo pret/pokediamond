@@ -10,6 +10,7 @@
 #include "gf_gfx_loader.h"
 #include "heap.h"
 #include "list_menu_items.h"
+#include "message_format.h"
 #include "mod59_TV.h"
 #include "module_52.h"
 #include "msgdata.h"
@@ -19,7 +20,6 @@
 #include "pokemon.h"
 #include "render_text.h"
 #include "render_window.h"
-#include "script_buffers.h"
 #include "text.h"
 #include "unk_020040F4.h"
 #include "unk_020051F4.h"
@@ -661,7 +661,7 @@ THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 
     data->unk60 = FUN_020142EC(0, 0, 6, data->heap_id);
 
-    data->strBufs = ScrStrBufs_new(data->heap_id);
+    data->messageFormat = MessageFormat_new(data->heap_id);
 
     data->displayMessageCounter = 0;
     data->displayControlMessageCounter = 0;
@@ -670,7 +670,7 @@ THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 
 THUMB_FUNC void MOD59_IntroDestroyMsg(MOD59_IntroOverlayData *data)
 {
-    ScrStrBufs_delete(data->strBufs);
+    MessageFormat_delete(data->messageFormat);
     FUN_020143D0(data->unk60);
     DestroyMsgData(data->msgData);
 }
@@ -830,9 +830,9 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, u3
             struct String* string = String_ctor(1024, data->heap_id);
             data->string = String_ctor(1024, data->heap_id);
             ReadMsgDataIntoString(data->msgData, msgNo, string);
-            BufferString(data->strBufs, 0, data->playerStruct->name, data->selectedGender, 1, 2);
-            BufferString(data->strBufs, 1, data->rivalStruct->name, 0, 1, 2);
-            StringExpandPlaceholders(data->strBufs, data->string, string);
+            BufferString(data->messageFormat, 0, data->playerStruct->name, data->selectedGender, 1, 2);
+            BufferString(data->messageFormat, 1, data->rivalStruct->name, 0, 1, 2);
+            StringExpandPlaceholders(data->messageFormat, data->string, string);
             String_dtor(string);
 
             u32 delay = Options_GetTextFrameDelay(data->options);

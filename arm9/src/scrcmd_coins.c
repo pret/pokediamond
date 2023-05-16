@@ -1,7 +1,7 @@
 #include "scrcmd.h"
 #include "coins.h"
 
-extern void * FUN_02039438(struct FieldSystem* arg, u8 idx);
+extern void * FieldSysGetAttrAddr(struct FieldSystem* arg, u8 idx);
 
 extern u32 MOD05_021E2950(struct FieldSystem* arg, u8, u8);
 extern void MOD05_021E29B4(u16 *unk);
@@ -12,7 +12,7 @@ THUMB_FUNC BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx) //0075
     struct FieldSystem* sav_ptr = ctx->fieldSystem;
     u32 unk1 = ScriptGetVar(ctx);
     u32 unk2 = ScriptGetVar(ctx);
-    u16 ** unk_ret_ptr = FUN_02039438(sav_ptr, 0x26);
+    u16 ** unk_ret_ptr = FieldSysGetAttrAddr(sav_ptr, 0x26);
 
     u32 unk3 = MOD05_021E2950(ctx->fieldSystem, (u8)unk1, (u8)unk2);
     *unk_ret_ptr = (u16 *)unk3;
@@ -22,7 +22,7 @@ THUMB_FUNC BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx) //0075
 
 THUMB_FUNC BOOL ScrCmd_HideCoinBox(struct ScriptContext * ctx) //0076
 {
-    u16 ** unk = FUN_02039438(ctx->fieldSystem, 0x26);
+    u16 ** unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x26);
     MOD05_021E29B4(*unk);
 
     return FALSE;
@@ -30,7 +30,7 @@ THUMB_FUNC BOOL ScrCmd_HideCoinBox(struct ScriptContext * ctx) //0076
 
 THUMB_FUNC BOOL ScrCmd_UpdateCoinBox(struct ScriptContext * ctx) //0077
 {
-    u16 ** unk = FUN_02039438(ctx->fieldSystem, 0x26);
+    u16 ** unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x26);
     MOD05_021E29C8(ctx->fieldSystem, *unk);
 
     return FALSE;

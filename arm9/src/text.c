@@ -1,12 +1,12 @@
 #include "text.h"
-#include "heap.h"
-#include "string16.h"
 #include "MI_memory.h"
 #include "filesystem.h"
-#include "script_buffers.h"
-#include "unk_0200CA44.h"
 #include "font.h"
 #include "graphic/font.naix"
+#include "heap.h"
+#include "message_format.h"
+#include "string16.h"
+#include "unk_0200CA44.h"
 
 const struct FontInfo *gFonts = NULL;
 
@@ -51,15 +51,15 @@ THUMB_FUNC u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
     return (u8)i;
 }
 
-THUMB_FUNC void FUN_0201BCFC(u32 param0)
+THUMB_FUNC void FUN_0201BCFC(u8 textPrinterNumber)
 {
-    GF_ASSERT(param0 < 8);
-    GF_ASSERT(UNK_021C5714[param0] != 0);
-    if (param0 >= 8)
+    GF_ASSERT(textPrinterNumber < 8);
+    GF_ASSERT(UNK_021C5714[textPrinterNumber] != 0);
+    if (textPrinterNumber >= 8)
     {
         return;
     }
-    if (UNK_021C5714[param0] == 0)
+    if (UNK_021C5714[textPrinterNumber] == 0)
     {
         return;
     }
@@ -69,13 +69,13 @@ THUMB_FUNC void FUN_0201BCFC(u32 param0)
         FUN_0201C238(printer);
         FreeToHeap((void *)printer);
     }
-    FUN_0200CAB4(UNK_021C5714[param0]);
-    UNK_021C5714[param0] = 0;
+    FUN_0200CAB4(UNK_021C5714[textPrinterNumber]);
+    UNK_021C5714[textPrinterNumber] = 0;
 }
 
-THUMB_FUNC BOOL FUN_0201BD44(u32 param0)
+THUMB_FUNC BOOL FUN_0201BD44(u8 textPrinterNumber)
 {
-    return UNK_021C5714[param0] ? TRUE : FALSE;
+    return UNK_021C5714[textPrinterNumber] ? TRUE : FALSE;
 }
 
 THUMB_FUNC void FUN_0201BD5C(void)
@@ -86,14 +86,14 @@ THUMB_FUNC void FUN_0201BD5C(void)
     }
 }
 
-THUMB_FUNC u8 FUN_0201BD70(u32 param0)
+THUMB_FUNC u8 FUN_0201BD70(u8 textPrinterNumber)
 {
-    return (u8)FUN_0201BD44(param0);
+    return (u8)FUN_0201BD44(textPrinterNumber);
 }
 
-THUMB_FUNC void FUN_0201BD7C(u32 param0)
+THUMB_FUNC void FUN_0201BD7C(u8 textPrinterNumber)
 {
-    FUN_0201BCFC(param0);
+    FUN_0201BCFC(textPrinterNumber);
 }
 
 THUMB_FUNC u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
