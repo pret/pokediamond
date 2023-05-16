@@ -349,7 +349,7 @@ void GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 * dest)
     DestroyMsgData(msgData);
 }
 
-struct String * ReadMsgData_ExpandPlaceholders(struct ScrStrBufs * a0, struct MsgData * msgData, u32 msgno, u32 a3)
+struct String * ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, struct MsgData * msgData, u32 msgno, u32 heapId)
 {
     struct String * ret = NULL;
     struct String * r4 = String_ctor(1024, 0);
@@ -359,8 +359,8 @@ struct String * ReadMsgData_ExpandPlaceholders(struct ScrStrBufs * a0, struct Ms
         r5 = NewString_ReadMsgData(msgData, msgno);
         if (r5 != NULL)
         {
-            StringExpandPlaceholders(a0, r4, r5);
-            ret = StringDup(r4, a3);
+            StringExpandPlaceholders(messageFormat, r4, r5);
+            ret = StringDup(r4, heapId);
             String_dtor(r5);
         }
         String_dtor(r4);

@@ -1,6 +1,6 @@
 #include "global.h"
 #include "unk_0200BA78.h"
-#include "script_buffers.h"
+#include "message_format.h"
 
 THUMB_FUNC void FUN_0200BA78(struct UnkStruct_0200B870 *param0,
     int param1,

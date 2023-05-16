@@ -8126,7 +8126,7 @@ ScrCmd_Unk02AA: ; 0x0203FA58
 	bl VarGet
 	add r7, r0, #0x0
 	mov r0, #0x20
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r4, r0, #0x0
 	ldr r2, _0203FB48 ; =0x00000147
 	mov r0, #0x0
@@ -8178,7 +8178,7 @@ _0203FB26:
 	add r0, r5, #0x0
 	bl DestroyMsgData
 	add r0, r4, #0x0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x0
 	add sp, #0x10
 	pop {r3-r7, pc}

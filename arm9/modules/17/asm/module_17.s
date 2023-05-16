@@ -4956,7 +4956,7 @@ MOD17_021D9B74: ; 0x021D9B74
 	add r4, r0, #0
 	bl MOD17_021D9918
 	mov r0, #0xd
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	ldr r1, _021D9B98 ; =0x000006D4
 	str r0, [r4, r1]
 	add sp, #8
@@ -5006,7 +5006,7 @@ MOD17_021D9BCC: ; 0x021D9BCC
 	bl MOD17_021D9B30
 	ldr r0, _021D9BE4 ; =0x000006D4
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, _021D9BE4 ; =0x000006D4
 	mov r1, #0
 	str r1, [r4, r0]
@@ -14347,7 +14347,7 @@ MOD17_021DDFDC: ; 0x021DDFDC
 	bl GF_AssertFail
 _021DDFF8:
 	mov r0, #0xd
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r6, r0, #0
 	mov r0, #0x63
 	lsl r0, r0, #2
@@ -14445,7 +14445,7 @@ _021DDFF8:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -14467,7 +14467,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	bl FUN_02027C58
 	add r6, r0, #0
 	mov r0, #0xd
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r7, r0, #0
 	mov r0, #0xc8
 	mov r1, #0xd
@@ -14593,7 +14593,7 @@ _021DE1A0:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r7, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

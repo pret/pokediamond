@@ -1417,7 +1417,7 @@ _0222DFE4:
 	mov r0, #0xb
 	mov r1, #0x40
 	mov r2, #0x3e
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	mov r1, #0xb3
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -1675,7 +1675,7 @@ MOD80_0222E25C: ; 0x0222E25C
 	mov r0, #0xb3
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r4, #0
 	bl MOD80_0222E398
 	bl FUN_0202E4F0
@@ -5624,7 +5624,7 @@ MOD80_0223022C: ; 0x0223022C
 	str r0, [r5, r1]
 	sub r1, #0x1c
 	ldr r0, [r5, r1]
-	bl ScrStrBufs_ResetBuffers
+	bl MessageFormat_ResetBuffers
 	ldr r0, _022302B4 ; =0x0000011E
 	ldrb r2, [r4, r0]
 	cmp r2, #0

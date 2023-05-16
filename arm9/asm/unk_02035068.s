@@ -653,7 +653,7 @@ _02035526:
 	cmp r3, #0x3
 	bne _02035594
 	mov r0, #0xb
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r6, r0, #0x0
 	mov r0, #0x8
 	mov r1, #0xb
@@ -690,7 +690,7 @@ _02035526:
 	add r0, r7, #0x0
 	bl String_dtor
 	add r0, r6, #0x0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	b _020355A2
 _02035594:
 	ldr r2, _02035664 ; =UNK_020F2ACC
@@ -996,7 +996,7 @@ _020357D6:
 	add r0, r7, #0x0
 	bl String_dtor
 	mov r0, #0xb
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r7, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0xb
@@ -1053,7 +1053,7 @@ _0203584C:
 	ldr r0, [sp, #0x14]
 	bl String_dtor
 	add r0, r7, #0x0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [sp, #0x1c]
 	bl DestroyMsgData
 	add r5, #0x10

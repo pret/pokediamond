@@ -1862,7 +1862,7 @@ FUN_02066270: ; 0x02066270
 	ldr r2, [r6, #0x0]
 	mov r0, #0x1
 	mov r1, #0x80
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
@@ -1932,7 +1932,7 @@ _020662F0:
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x43
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]

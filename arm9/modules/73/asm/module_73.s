@@ -2831,7 +2831,7 @@ MOD73_021D8BDC: ; 0x021D8BDC
 	ldr r2, [r5]
 	mov r0, #4
 	mov r1, #0x40
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	ldr r1, _021D8CE8 ; =0x00001578
 	str r0, [r5, r1]
 	ldr r1, [r5]
@@ -3016,7 +3016,7 @@ _021D8D92:
 	bl String_dtor
 	ldr r0, _021D8DEC ; =0x00001578
 	ldr r0, [r6, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, _021D8DF0 ; =0x00001574
 	ldr r0, [r6, r0]
 	bl DestroyMsgData

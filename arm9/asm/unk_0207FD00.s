@@ -37,7 +37,7 @@ FUN_0207FD00: ; 0x0207FD00
 	ldr r2, [r4, #0x0]
 	mov r0, #0x9
 	mov r1, #0x20
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	str r0, [r4, #0x8]
 	str r5, [r4, #0xc]
 	str r6, [r4, #0x10]
@@ -459,7 +459,7 @@ _020800C0:
 	bl FreeToHeap
 _020800CA:
 	ldr r0, [r4, #0x8]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x4]
 	bl DestroyMsgData
 	add r0, r4, #0x0

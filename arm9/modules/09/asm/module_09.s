@@ -2373,7 +2373,7 @@ MOD09_02213138: ; 0x02213138
 	str r0, [r4, r1]
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	ldr r1, _02213188 ; =0x00001FAC
 	str r0, [r4, r1]
 	ldr r1, [r4]
@@ -2402,7 +2402,7 @@ MOD09_02213190: ; 0x02213190
 	bl MessagePrinter_delete
 	ldr r0, _022131C0 ; =0x00001FAC
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, _022131C4 ; =0x00001FB0
 	ldr r0, [r4, r0]
 	bl String_dtor
@@ -14099,7 +14099,7 @@ MOD09_022192A4: ; 0x022192A4
 	str r0, [r4, #0xc]
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x14]
 	ldr r1, [r4]
 	mov r0, #2
@@ -14119,7 +14119,7 @@ MOD09_022192E4: ; 0x022192E4
 	ldr r0, [r4, #0xc]
 	bl MessagePrinter_delete
 	ldr r0, [r4, #0x14]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x18]
 	bl String_dtor
 	pop {r4, pc}

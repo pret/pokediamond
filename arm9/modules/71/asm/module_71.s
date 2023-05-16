@@ -45,17 +45,17 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	mov r0, #0xc
 	mov r1, #0x16
 	mov r2, #0x1a
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	mov r1, #0x5e
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x1a
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r1, #0x5f
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x1a
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r2, #6
 	lsl r2, r2, #6
 	str r0, [r4, r2]
@@ -1758,15 +1758,15 @@ MOD71_0222E438: ; 0x0222E438
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x5e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -4660,7 +4660,7 @@ _0222FC2C:
 	bl DestroyMsgData
 	ldr r0, _0222FCEC ; =0x00003674
 	ldr r0, [r6, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x13
 	bl FUN_02031588
 	mov r3, #0x5e
@@ -4779,7 +4779,7 @@ MOD71_0222FD08: ; 0x0222FD08
 	pop {r3, r4, pc}
 _0222FD48:
 	mov r0, #0x1a
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	ldr r1, _0222FD88 ; =0x00003674
 	ldr r2, _0222FD8C ; =0x00000251
 	str r0, [r4, r1]

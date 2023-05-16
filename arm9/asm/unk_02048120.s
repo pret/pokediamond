@@ -88,7 +88,7 @@ _0204817A:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x1c]
 	mov r0, #0xb
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x20]
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x8]
@@ -223,7 +223,7 @@ _020482B2:
 	add r0, #0xc
 	bl RemoveWindow
 	ldr r0, [r4, #0x20]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x8]

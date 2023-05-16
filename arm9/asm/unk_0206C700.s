@@ -177,7 +177,7 @@ FUN_0206C700: ; 0x0206C700
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x8]
 	add r0, r5, #0x0
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0xc]
 	mov r0, #0x5
 	lsl r0, r0, #0x6
@@ -323,7 +323,7 @@ FUN_0206C92C: ; 0x0206C92C
 	ldr r0, [r4, #0x8]
 	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x10]
 	bl FreeToHeap
 	ldr r0, [r4, #0x3c]

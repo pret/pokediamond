@@ -1,4 +1,5 @@
 #include "scrcmd.h"
+#include "message_format.h"
 #include "math_util.h"
 #include "unk_020286F8.h"
 
@@ -10,7 +11,7 @@ extern BOOL FUN_020612F8(struct FieldSystem*);
 
 THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
 {
-    struct ScrStrBufs** mgr = FieldSysGetAttrAddr(ctx->fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, 15);
     struct UnkSaveStruct_020286F8* unk_sav_ptr = FUN_0202881C(ctx->fieldSystem->saveBlock2);
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
 
@@ -35,14 +36,14 @@ THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
         u16 unk_var = ScriptGetVar(ctx);
         u16 idx = ScriptGetVar(ctx);
 
-        BufferEasyChatWord(*mgr, sav2, unk_var, idx, 0);
+        BufferEasyChatWord(*messageFormat, sav2, unk_var, idx, 0);
         break;
     }
     case 3: { //writes group leader name to string buffer
         u16 unk_var = ScriptGetVar(ctx);
         u16 idx = ScriptGetVar(ctx);
 
-        BufferEasyChatWord(*mgr, sav2, unk_var, idx, 1);
+        BufferEasyChatWord(*messageFormat, sav2, unk_var, idx, 1);
         break;
     }
     case 4: { //opens keyboard, 2 if group id exists, 1 if cancel, 0 otherwise

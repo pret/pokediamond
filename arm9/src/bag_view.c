@@ -3,9 +3,9 @@
 #include "coins.h"
 #include "constants/items.h"
 #include "heap.h"
+#include "message_format.h"
 #include "msgdata.h"
 #include "player_data.h"
-#include "script_buffers.h"
 #include "seal.h"
 #include "unk_0202A1E0.h"
 
@@ -127,7 +127,7 @@ THUMB_FUNC u32 FUN_0206E3E8(struct SaveBlock2 *sav2)
 THUMB_FUNC BOOL FUN_0206E3F8(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id)
 {
     struct MsgData *msgData = NewMsgDataFromNarc(0, NARC_MSGDATA_MSG, 7, heap_id);
-    struct ScrStrBufs *scrStrBufs = ScrStrBufs_new(heap_id);
+    MessageFormat *messageFormat = MessageFormat_new(heap_id);
     struct String *string;
 
     if (item_id == ITEM_NONE)
@@ -138,38 +138,38 @@ THUMB_FUNC BOOL FUN_0206E3F8(struct SaveBlock2 *sav2, struct String *dest, u32 i
     {
         string = NewString_ReadMsgData(msgData, 0x61);
 
-        BufferIntegerAsString(scrStrBufs, 0, FUN_0206E3E8(sav2), 4, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 0, FUN_0206E3E8(sav2), 4, 0, TRUE);
     }
     else if (item_id == ITEM_SEAL_CASE)
     {
         string = NewString_ReadMsgData(msgData, 0x5C);
 
-        BufferIntegerAsString(scrStrBufs, 0, FUN_0206E3A8(sav2), 4, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 0, FUN_0206E3A8(sav2), 4, 0, TRUE);
     }
     else if (item_id == ITEM_FASHION_CASE)
     {
         string = NewString_ReadMsgData(msgData, 0x5D);
 
-        BufferIntegerAsString(scrStrBufs, 0, FUN_0206E3C8(sav2), 3, 0, TRUE);
-        BufferIntegerAsString(scrStrBufs, 1, FUN_0206E3D8(sav2), 2, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 0, FUN_0206E3C8(sav2), 3, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 1, FUN_0206E3D8(sav2), 2, 0, TRUE);
     }
     else if (item_id == ITEM_COIN_CASE)
     {
         string = NewString_ReadMsgData(msgData, 0x39);
 
-        BufferIntegerAsString(scrStrBufs, 0, FUN_0206E39C(sav2), 5, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 0, FUN_0206E39C(sav2), 5, 0, TRUE);
     }
     else
     {
-        ScrStrBufs_delete(scrStrBufs);
+        MessageFormat_delete(messageFormat);
         DestroyMsgData(msgData);
 
         return FALSE;
     }
 
-    StringExpandPlaceholders(scrStrBufs, dest, string);
+    StringExpandPlaceholders(messageFormat, dest, string);
     String_dtor(string);
-    ScrStrBufs_delete(scrStrBufs);
+    MessageFormat_delete(messageFormat);
     DestroyMsgData(msgData);
 
     return TRUE;
@@ -197,13 +197,13 @@ THUMB_FUNC void FUN_0206E51C(
         return;
     default:
         msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 0xC7, heap_id);
-        struct ScrStrBufs *scrStrBufs = ScrStrBufs_new(heap_id);
+        MessageFormat *messageFormat = MessageFormat_new(heap_id);
         struct String *src = NewString_ReadMsgData(msgData, 0x24);
 
-        BufferPlayersName(scrStrBufs, 0, playerData);
-        StringExpandPlaceholders(scrStrBufs, dest, src);
+        BufferPlayersName(messageFormat, 0, playerData);
+        StringExpandPlaceholders(messageFormat, dest, src);
         String_dtor(src);
-        ScrStrBufs_delete(scrStrBufs);
+        MessageFormat_delete(messageFormat);
         DestroyMsgData(msgData);
         return;
     }

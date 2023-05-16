@@ -1,12 +1,12 @@
 #include "text.h"
-#include "heap.h"
-#include "string16.h"
 #include "MI_memory.h"
 #include "filesystem.h"
-#include "script_buffers.h"
-#include "unk_0200CA44.h"
 #include "font.h"
 #include "graphic/font.naix"
+#include "heap.h"
+#include "message_format.h"
+#include "string16.h"
+#include "unk_0200CA44.h"
 
 const struct FontInfo *gFonts = NULL;
 

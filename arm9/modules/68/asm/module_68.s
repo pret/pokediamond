@@ -446,7 +446,7 @@ MOD68_021D7870: ; 0x021D7870
 	add r1, #0xcc
 	str r0, [r1]
 	mov r0, #0x24
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r4, #0xc8
 	str r0, [r4]
 	pop {r4, pc}
@@ -467,7 +467,7 @@ MOD68_021D78A8: ; 0x021D78A8
 	bl MessagePrinter_delete
 	add r4, #0xc8
 	ldr r0, [r4]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	pop {r4, pc}
 	thumb_func_end MOD68_021D78A8
 

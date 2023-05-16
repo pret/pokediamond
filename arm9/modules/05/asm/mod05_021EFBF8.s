@@ -806,7 +806,7 @@ MOD05_021F0254: ; 0x021F0254
 	add r4, r0, #0
 	bl MI_CpuFill8
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x38]
 	ldr r2, _021F028C ; =0x00000251
 	mov r0, #0
@@ -833,7 +833,7 @@ MOD05_021F0290: ; 0x021F0290
 	ldr r0, [r4, #0x3c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x38]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0xc]
 	bl String_dtor
 	ldr r0, [r4, #8]

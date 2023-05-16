@@ -450,7 +450,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x3d
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r1, #0x63
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -509,7 +509,7 @@ MOD70_021D78A0: ; 0x021D78A0
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x62
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

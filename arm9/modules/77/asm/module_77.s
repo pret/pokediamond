@@ -84,7 +84,7 @@ _021D7540:
 	ldr r2, [r5]
 	mov r0, #8
 	mov r1, #0x40
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	ldr r1, _021D75F8 ; =0x0000C070
 	str r0, [r5, r1]
 	ldr r0, [r5]
@@ -820,7 +820,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	bl Camera_Free
 	ldr r0, _021D7C18 ; =0x0000C070
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	bl FUN_0201B398
 	ldr r0, _021D7C1C ; =0x0000C010
 	ldr r0, [r4, r0]

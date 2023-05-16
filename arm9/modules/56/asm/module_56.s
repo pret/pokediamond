@@ -274,7 +274,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	add r1, #0xc0
 	str r0, [r1]
 	mov r0, #0x36
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r1, r4, #0
 	add r1, #0xc8
 	str r0, [r1]
@@ -528,7 +528,7 @@ _022121EC:
 	bl DestroyMsgData
 	add r6, #0xc8
 	ldr r0, [r6]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 	thumb_func_end MOD56_022121C4

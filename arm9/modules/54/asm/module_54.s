@@ -57,7 +57,7 @@ _021D74F6:
 	ldr r0, _021D763C ; =0x00004A38
 	str r1, [r4, r0]
 	mov r0, #0x33
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x24]
 	ldr r2, _021D7640 ; =0x000001E2
 	mov r0, #0
@@ -317,7 +317,7 @@ _021D776C:
 	ldr r0, [r6, #0x28]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x24]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r6, #0
 	bl MOD54_021D7A34
 	ldr r0, [sp]

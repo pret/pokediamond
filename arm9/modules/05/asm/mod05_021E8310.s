@@ -323,7 +323,7 @@ MOD05_021E8588: ; 0x021E8588
 	ldr r0, [r6, #8]
 	str r0, [r4, #0xc]
 	add r0, r5, #0
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x14]
 	ldr r2, _021E85E0 ; =0x000001E3
 	mov r0, #1
@@ -357,7 +357,7 @@ MOD05_021E85E4: ; 0x021E85E4
 	ldr r0, [r4, #0x18]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}

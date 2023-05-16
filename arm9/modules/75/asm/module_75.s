@@ -450,7 +450,7 @@ MOD75_021E6F00: ; 0x021E6F00
 	mov r0, #0x46
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r4, #0xd4
 	ldr r0, [r4]
 	bl NARC_dtor
@@ -951,7 +951,7 @@ MOD75_021E737C: ; 0x021E737C
 	lsl r1, r1, #4
 	str r0, [r4, r1]
 	mov r0, #6
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r2, #0x46
 	lsl r2, r2, #2
 	str r0, [r4, r2]

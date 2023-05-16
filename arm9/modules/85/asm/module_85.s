@@ -783,7 +783,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	ldr r1, _021D7BA4 ; =0x00000408
 	str r0, [r5, r1]
 	mov r0, #0x4f
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #4]
 	ldr r0, _021D7BB0 ; =0x0000043C
 	add r1, r4, #0
@@ -822,7 +822,7 @@ MOD85_021D7BB8: ; 0x021D7BB8
 	ldr r0, [r5, r0]
 	bl DestroyMsgData
 	ldr r0, [r4, #4]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x18]
 	bl String_dtor
 	pop {r4, r5, r6, pc}

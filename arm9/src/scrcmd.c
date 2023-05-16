@@ -26,8 +26,8 @@ extern u8 TrainerFlagCheck(struct FieldSystem *fieldSystem, u16 flag);
 extern void MOD05_ShowMessageInField(struct ScriptContext *ctx, struct MsgData *msgData, u16 id);
 extern void MOD05_021E2BD0(struct ScriptContext *ctx, struct MsgData *msgData, u16 msgId, u32 param4, void *param5);
 extern void MOD05_021E2C58(struct ScriptContext *ctx, u16 typ, u16 id, u16 word1, s16 word2, u8 param5);
-extern struct ScrStrBufs *MOD06_02244210(struct SaveBlock2 *sav, u16 poke, u16 sex, u8 flag, u8 *unk);
-extern void MOD05_021E2CBC(struct ScriptContext *ctx, struct ScrStrBufs *str, u8 param2, u32 param3);
+extern MessageFormat *MOD06_02244210(struct SaveBlock2 *sav, u16 poke, u16 sex, u8 flag, u8 *unk);
+extern void MOD05_021E2CBC(struct ScriptContext *ctx, MessageFormat *messageFormat, u8 param2, u32 param3);
 extern void MOD05_021E2BB8(void *param0, struct ScriptContext *ctx);
 extern u32 FUN_02058488(LocalMapObject *lastInteracted);
 extern BOOL FUN_02030F40(void);
@@ -617,9 +617,9 @@ THUMB_FUNC BOOL ScrCmd_Unk01FF(struct ScriptContext *ctx) //01FF
     u8 flag = ScriptReadByte(ctx);
     u8 unk = 0;
 
-    struct ScrStrBufs *str = MOD06_02244210(fieldSystem->saveBlock2, poke, sex, flag, &unk);
-    MOD05_021E2CBC(ctx, str, (u8)(msg + unk), 1);
-    ScrStrBufs_delete(str);
+    MessageFormat *messageFormat = MOD06_02244210(fieldSystem->saveBlock2, poke, sex, flag, &unk);
+    MOD05_021E2CBC(ctx, messageFormat, (u8)(msg + unk), 1);
+    MessageFormat_delete(messageFormat);
 
     SetupNativeScript(ctx, FUN_0203A2F0);
     return TRUE;
@@ -917,7 +917,7 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct String **unk1 = FieldSysGetAttrAddr(fieldSystem, 0x11);
     struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 0x10);
-    struct ScrStrBufs **unk3 = FieldSysGetAttrAddr(fieldSystem, 0x0f);
+    MessageFormat **unk3 = FieldSysGetAttrAddr(fieldSystem, 0x0f);
     u8 typ, msg;
     u16 wk, map;
 
@@ -988,13 +988,13 @@ THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx) //003A - todo: CreateM
     u8 *printerNumber = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_TEXT_PRINTER_NUMBER);
     struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 17);
     struct String **unk3 = FieldSysGetAttrAddr(fieldSystem, 16);
-    struct ScrStrBufs **unk4 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, 15);
 
     u8 msg = ScriptReadByte(ctx);
     u16 wk = ScriptReadHalfword(ctx);
 
     ReadMsgDataIntoString(ctx->msgData, msg, *unk2);
-    StringExpandPlaceholders(*unk4, *unk3, *unk2);
+    StringExpandPlaceholders(*messageFormat, *unk3, *unk2);
 
     *printerNumber = (u8)FUN_02054658(MOD05_021E8140(fieldSystem->unk60), *unk3, Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2), 1);
     ctx->data[0] = wk;

@@ -537,9 +537,9 @@
 .extern ReadMsgData_ExpandPlaceholders
 .extern GetMoveName
 .extern GetSpeciesName
-.extern ScrStrBufs_new
-.extern ScrStrBufs_new_custom
-.extern ScrStrBufs_delete
+.extern MessageFormat_new
+.extern MessageFormat_new_custom
+.extern MessageFormat_delete
 .extern BufferString
 .extern BufferPlayersName
 .extern BufferRivalsName
@@ -596,9 +596,9 @@
 .extern BufferContestBackgroundName
 .extern BufferEasyChatWord
 .extern BufferMonthNameAbbr
-.extern ScrStrBufs_UpperFirstChar
+.extern MessageFormat_UpperFirstChar
 .extern StringExpandPlaceholders
-.extern ScrStrBufs_ResetBuffers
+.extern MessageFormat_ResetBuffers
 .extern MessagePrinter_new
 .extern MessagePrinter_delete
 .extern FUN_0200B9A8

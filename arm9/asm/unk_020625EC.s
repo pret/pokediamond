@@ -926,7 +926,7 @@ FUN_02062C80: ; 0x02062C80
 	ldr r2, [r5, #0x0]
 	mov r0, #0x2
 	mov r1, #0x4c
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	str r0, [r5, #0x30]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4c
@@ -1052,7 +1052,7 @@ _02062D84:
 	ldr r0, [r6, #0x34]
 	bl String_dtor
 	ldr r0, [r6, #0x30]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r6, #0x2c]
 	bl DestroyMsgData
 	pop {r4-r6, pc}

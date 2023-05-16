@@ -7704,7 +7704,7 @@ _0223D212:
 	cmp r1, #0
 	beq _0223D26E
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r5, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -7720,7 +7720,7 @@ _0223D212:
 	bl BufferUndergroundItemNameWithArticle
 	add r0, r5, #0
 	mov r1, #2
-	bl ScrStrBufs_UpperFirstChar
+	bl MessageFormat_UpperFirstChar
 	bl MOD18_0223D638
 	bl MOD18_0224DBB4
 	mov r1, #0x5f
@@ -7752,7 +7752,7 @@ _0223D280:
 	cmp r5, #0
 	beq _0223D28A
 	add r0, r5, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 _0223D28A:
 	add r0, r7, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8319,7 +8319,7 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	cmp r6, #0
 	beq _0223D73E
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r4, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -8345,7 +8345,7 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8366,7 +8366,7 @@ MOD18_0223D744: ; 0x0223D744
 	cmp r5, #0
 	beq _0223D79C
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r4, r0, #0
 	mov r0, #0x64
 	mov r1, #4
@@ -8388,7 +8388,7 @@ MOD18_0223D744: ; 0x0223D744
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -10136,7 +10136,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r1, #0xdc
 	str r0, [r1]
 	mov r0, #0xb
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r6, r0, #0
 	mov r0, #0x64
 	mov r1, #0xb
@@ -10164,7 +10164,7 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r6, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 _0223E54E:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -32895,7 +32895,7 @@ MOD18_022494C8: ; 0x022494C8
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x70]
 	ldr r0, _02249538 ; =MOD18_02249684
 	ldr r2, _0224953C ; =0x00002710
@@ -35184,7 +35184,7 @@ MOD18_0224A7C8: ; 0x0224A7C8
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x70]
 	bl FUN_0204F7E4
 	bl MOD18_0223D648
@@ -35283,7 +35283,7 @@ _0224A8C0:
 	ldr r0, [r5, #0x6c]
 	bl String_dtor
 	ldr r0, [r5, #0x70]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	bl MOD18_0223D648
 	bl MOD18_0224DD94
 	bl MOD18_0223D638
@@ -35947,7 +35947,7 @@ _0224AE48:
 	ldr r0, [r5, #0x70]
 	cmp r0, #0
 	beq _0224AE52
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 _0224AE52:
 	ldr r0, [r5, #4]
 	cmp r0, #0
@@ -36091,7 +36091,7 @@ MOD18_0224AF28: ; 0x0224AF28
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x70]
 	add r0, r4, #0
 	bl MOD18_0224AA4C
@@ -37370,7 +37370,7 @@ MOD18_0224B980: ; 0x0224B980
 	ldr r0, [r4, #0x6c]
 	bl String_dtor
 	ldr r0, [r4, #0x70]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -37836,7 +37836,7 @@ MOD18_0224BD54: ; 0x0224BD54
 	bl String_ctor
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x70]
 	mov r0, #4
 	bl FUN_0205EB38
@@ -39374,7 +39374,7 @@ MOD18_0224CA34: ; 0x0224CA34
 	ldr r0, [r4, #0x6c]
 	bl String_dtor
 	ldr r0, [r4, #0x70]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -40368,7 +40368,7 @@ MOD18_0224D1F8: ; 0x0224D1F8
 	bl String_ctor
 	str r0, [r6, #0x6c]
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r6, #0x70]
 	ldr r0, _0224D2DC ; =0x00000246
 	mov r1, #0
@@ -40506,7 +40506,7 @@ MOD18_0224D364: ; 0x0224D364
 	str r1, [sp, #0xc]
 	add r5, r2, #0
 	str r3, [sp, #0x10]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [sp, #0x1c]
 	mov r0, #0x1e
 	mov r1, #4
@@ -40721,7 +40721,7 @@ _0224D500:
 	ldr r0, [sp, #0x18]
 	bl String_dtor
 	ldr r0, [sp, #0x1c]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -41074,7 +41074,7 @@ MOD18_0224D814: ; 0x0224D814
 	mov r0, #4
 	add r5, r2, #0
 	str r3, [sp, #0x14]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r7, r0, #0
 	mov r0, #0x28
 	mov r1, #4
@@ -41277,7 +41277,7 @@ _0224D9DE:
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r7, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD18_0224D814
@@ -41421,7 +41421,7 @@ _0224DB08:
 	bl String_ctor
 	str r0, [r4, #4]
 	add r0, r5, #0
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x28]
 	ldr r0, [sp]
 	ldr r2, [sp]
@@ -41460,7 +41460,7 @@ MOD18_0224DB5C: ; 0x0224DB5C
 	ldr r0, [r4, #4]
 	bl String_dtor
 	ldr r0, [r4, #0x28]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x24]
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -42041,11 +42041,11 @@ MOD18_0224DF40: ; 0x0224DF40
 
 	thumb_func_start MOD18_0224DF54
 MOD18_0224DF54: ; 0x0224DF54
-	ldr r3, _0224DF5C ; =ScrStrBufs_UpperFirstChar
+	ldr r3, _0224DF5C ; =MessageFormat_UpperFirstChar
 	ldr r0, [r0, #0x28]
 	bx r3
 	nop
-_0224DF5C: .word ScrStrBufs_UpperFirstChar
+_0224DF5C: .word MessageFormat_UpperFirstChar
 	thumb_func_end MOD18_0224DF54
 
 	thumb_func_start MOD18_0224DF60
@@ -42829,7 +42829,7 @@ _0224E454:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	mov r0, #4
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	mov r1, #1
 	str r1, [sp]
 	add r2, r5, #0
@@ -42865,7 +42865,7 @@ _0224E454:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [sp, #0x28]
 	bl String_dtor
 	ldr r0, [sp, #0x2c]

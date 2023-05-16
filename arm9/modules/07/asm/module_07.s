@@ -4976,7 +4976,7 @@ MOD07_0221469C: ; 0x0221469C
 	str r0, [sp, #0xc]
 	ldr r0, [r6]
 	ldr r0, [r0, #0x24]
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	ldr r1, [r6]
 	str r0, [sp, #8]
 	ldr r1, [r1, #0x24]
@@ -5010,7 +5010,7 @@ _022146F6:
 	ldr r0, [sp, #0xc]
 	bl MessagePrinter_delete
 	ldr r0, [sp, #8]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

@@ -38,7 +38,7 @@ typedef struct MOD59_IntroOverlayData
     u32 minTextSpacing;
     struct String *string;
     u32 unk60; // unknown if this is the right type, possibly a pointer instead?
-    struct ScrStrBufs *strBufs;
+    MessageFormat *messageFormat;
     u32 unk68;
     u8 filler6C[0x4];
     struct MOD59_UnkPlayerStruct *playerStruct;

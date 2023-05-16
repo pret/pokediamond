@@ -2802,7 +2802,7 @@ _021D8AE0:
 	mov r0, #6
 	mov r1, #0x20
 	mov r2, #0x19
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	mov r2, #0
 	str r5, [sp]
 	add r4, r0, #0
@@ -3014,7 +3014,7 @@ _021D8C32:
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r5, #0
 	bl String_dtor
 	ldr r0, [sp, #0x14]
@@ -3116,7 +3116,7 @@ _021D8D72:
 	mov r0, #5
 	mov r1, #0x20
 	mov r2, #0x19
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	ldr r1, [sp, #0x10]
 	add r4, r0, #0
 	add r1, #0x33
@@ -3331,7 +3331,7 @@ _021D8E74:
 	ldr r0, [sp, #0x14]
 	bl String_dtor
 	add r0, r4, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r5, #0
 	bl String_dtor
 	add r0, r7, #0
@@ -3473,7 +3473,7 @@ _021D906E:
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0x19
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	add r6, r0, #0
 	ldr r0, [r5, #0x18]
 	bl GetIGTHours
@@ -3525,7 +3525,7 @@ _021D906E:
 	ldr r0, [sp, #0x14]
 	bl String_dtor
 	add r0, r6, #0
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

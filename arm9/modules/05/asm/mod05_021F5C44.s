@@ -644,7 +644,7 @@ MOD05_021F60C4: ; 0x021F60C4
 	mov r0, #8
 	mov r1, #0x40
 	mov r2, #4
-	bl ScrStrBufs_new_custom
+	bl MessageFormat_new_custom
 	str r0, [r4, #0x34]
 	pop {r4, pc}
 
@@ -653,7 +653,7 @@ MOD05_021F60FC: ; 0x021F60FC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x34]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x2c]
 	bl String_dtor
 	ldr r0, [r4, #0x30]

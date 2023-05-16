@@ -187,7 +187,7 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	bl FUN_02011744
 	str r0, [r4, #0x60]
 	mov r0, #0x15
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r4, #0x54]
 	mov r0, #0x1e
 	lsl r0, r0, #4
@@ -498,7 +498,7 @@ MOD12_0222D9B0: ; 0x0222D9B0
 	ldr r0, [r4, #0x58]
 	bl String_dtor
 	ldr r0, [r4, #0x54]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x44]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x48]
@@ -3286,7 +3286,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	bl NewMsgDataFromNarc
 	str r0, [r5, #0x44]
 	mov r0, #0x16
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	str r0, [r5, #0x48]
 	mov r0, #5
 	lsl r0, r0, #6
@@ -3667,7 +3667,7 @@ _0222F3AE:
 	ldr r0, [r4, #0x50]
 	bl FUN_02002FEC
 	ldr r0, [r4, #0x48]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	ldr r0, [r4, #0x4c]
 	bl String_dtor
 	ldr r0, [r4, #0x44]
@@ -5156,7 +5156,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	add r1, #0x98
 	str r0, [r1]
 	mov r0, #0x17
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r1, r5, #0
 	add r1, #0x9c
 	str r0, [r1]
@@ -5511,7 +5511,7 @@ _02230296:
 	add r0, r4, #0
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r4, #0
 	add r0, #0x98
 	ldr r0, [r0]
@@ -41227,7 +41227,7 @@ MOD12_02241210: ; 0x02241210
 	add r1, #0xc4
 	str r0, [r1]
 	mov r0, #0x18
-	bl ScrStrBufs_new
+	bl MessageFormat_new
 	add r1, r5, #0
 	add r1, #0xc8
 	str r0, [r1]
@@ -41546,7 +41546,7 @@ _022415D4:
 	add r0, r4, #0
 	add r0, #0xc8
 	ldr r0, [r0]
-	bl ScrStrBufs_delete
+	bl MessageFormat_delete
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
