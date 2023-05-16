@@ -2464,7 +2464,7 @@ MOD80_0222E8BC: ; 0x0222E8BC
 	ldr r0, _0222E8D0 ; =0x00000E98
 	mov r1, #1
 	add r0, r4, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _0222E8D4 ; =0x00000FD8
 	str r0, [r4, r1]
 	pop {r4, pc}

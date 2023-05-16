@@ -3618,7 +3618,7 @@ _0222F2C4:
 	add r0, r4, #0
 	add r0, #0x28
 	mov r1, #0xa
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _0222F5E4 ; =0x000034D8
 	str r0, [r4, r1]
 	mov r0, #3
@@ -3859,7 +3859,7 @@ _0222F4AA:
 	add r0, r4, #0
 	add r0, #0x28
 	mov r1, #0xa
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _0222F5E4 ; =0x000034D8
 	str r0, [r4, r1]
 	add r0, r4, #0
@@ -4573,7 +4573,7 @@ MOD83_0222FA0C: ; 0x0222FA0C
 	add r0, r4, #0
 	add r0, #0x18
 	mov r1, #1
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _0222FA40 ; =0x00002994
 	str r0, [r4, r1]
 	pop {r4, pc}
@@ -8417,7 +8417,7 @@ MOD83_02231930: ; 0x02231930
 	ldr r0, _022319C0 ; =0x00002B70
 	mov r1, #0x13
 	add r0, r4, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _022319C4 ; =0x00003CF0
 	str r0, [r4, r1]
 	mov r1, #0xad
@@ -10190,7 +10190,7 @@ _0223270E:
 	ldr r0, _02232780 ; =0x00002B70
 	mov r1, #0x13
 	add r0, r5, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _02232784 ; =0x00003CF0
 	str r0, [r5, r1]
 _02232746:
@@ -18845,7 +18845,7 @@ _02236A10:
 	ldr r1, _02236B5C ; =0x00000498
 	add r0, r4, r1
 	sub r1, #0xc6
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _02236B60 ; =0x0000E898
 	str r0, [r4, r1]
 	mov r0, #0xa
@@ -19162,7 +19162,7 @@ _02236CAE:
 	ldr r1, _02236DA8 ; =0x00000498
 	add r0, r4, r1
 	sub r1, #0xc6
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _02236DBC ; =0x0000E898
 	str r0, [r4, r1]
 	mov r0, #0x15

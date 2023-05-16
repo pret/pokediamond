@@ -234,7 +234,7 @@ _0222F30E:
 	bl FUN_02003210
 	ldr r0, [r5, #8]
 	mov r1, #1
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _0222F4E0 ; =0x00001024
 	str r0, [r5, r1]
 	bl FUN_02033E74
@@ -65184,7 +65184,7 @@ MOD11_0224EBF4: ; 0x0224EBF4
 	mov r1, #0
 	bl MOD11_0222FF6C
 	mov r1, #1
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	add r1, r0, #0
 	add r0, r5, #0
 	bl MOD11_022312C8

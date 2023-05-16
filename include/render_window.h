@@ -6,15 +6,14 @@
 #include "pokemon.h"
 #include "unk_02008DEC.h"
 
-struct UnkStruct_0200CABC_1
-{
-    struct Window *unk000;
+typedef struct WaitingIcon {
+    struct Window *window;
     u8 unk004[9][0x80];
     u16 fillValue;
     u8 unk486;
     u8 unk487 : 7;
     u8 unk488 : 2;
-};
+} WaitingIcon;
 
 struct UnkStruct_0200CABC_2
 {
@@ -102,24 +101,15 @@ void DrawFrame3(struct BgConfig *bgConfig,
     u8 paletteNum,
     u16 fillValue);
 void DrawWindowCorner(struct Window *window, u16 fillValue, u8 paletteNum);
-void DrawFrameAndWindow3(
-    struct Window *window, BOOL copy_to_vram, u16 fillValue, u8 paletteNum, u8 param4);
+void DrawFrameAndWindow3(struct Window *window, BOOL copy_to_vram, u16 fillValue, u8 paletteNum, u8 param4);
 void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy_to_vram);
-struct UnkStruct_0200CABC_1 *FUN_0200D858(struct Window *window, u32 param1);
-void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1);
+WaitingIcon *WaitingIcon_new(struct Window *window, u32 param1);
+void FUN_0200D980(WaitingIcon *waitingIcon, u32 param1);
 void FUN_0200DB7C(u32 param0, void *param1);
 void FUN_0200DBE8(u32 param0, void *param1);
-void FUN_0200DBFC(struct UnkStruct_0200CABC_1 *param0);
-void FUN_0200DC24(struct UnkStruct_0200CABC_1 *param0);
-u8 *FUN_0200DC4C(struct BgConfig *bg_config,
-    u8 bg_id,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u16 param5,
-    u16 param6,
-    u8 param7,
-    s32 param8);
+void FUN_0200DBFC(WaitingIcon *waitingIcon);
+void FUN_0200DC24(WaitingIcon *waitingIcon);
+u8 *FUN_0200DC4C(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 param5, u16 param6, u8 param7, s32 param8);
 u8 *FUN_0200DCA4(struct BgConfig *bg_config,
     u8 bg_id,
     u8 param2,
@@ -129,8 +119,7 @@ u8 *FUN_0200DCA4(struct BgConfig *bg_config,
     struct Pokemon *param6,
     s32 param7);
 void FUN_0200DCF8(u32 param0, void *param1);
-struct UnkStruct_0200CABC_2 *FUN_0200DD70(
-    struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u32 param4);
+struct UnkStruct_0200CABC_2 *FUN_0200DD70(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u32 param4);
 void FUN_0200DDAC(struct UnkStruct_0200CABC_2 *param0, u32 param1);
 void FUN_0200DDD8(struct UnkStruct_0200CABC_2 *param0);
 void FUN_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2);

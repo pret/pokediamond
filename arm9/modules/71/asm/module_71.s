@@ -6503,7 +6503,7 @@ MOD71_02230B88: ; 0x02230B88
 	ldr r0, _02230B9C ; =0x000005A8
 	ldr r1, _02230BA0 ; =0x000001D9
 	add r0, r4, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _02230BA4 ; =0x000036A8
 	str r0, [r4, r1]
 	pop {r4, pc}

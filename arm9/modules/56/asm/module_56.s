@@ -1676,7 +1676,7 @@ _02212BA2:
 	lsl r0, r0, #2
 	ldr r1, _02212BE4 ; =0x000001E2
 	add r0, r5, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -1855,7 +1855,7 @@ _02212CEC:
 	lsl r0, r0, #2
 	ldr r1, _02212D50 ; =0x000001E2
 	add r0, r5, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -1921,7 +1921,7 @@ _02212D74:
 	lsl r0, r0, #2
 	ldr r1, _02212DD4 ; =0x000001E2
 	add r0, r5, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -2531,7 +2531,7 @@ _02213226:
 	lsl r0, r0, #2
 	ldr r1, _02213278 ; =0x000001E2
 	add r0, r6, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r6, r1]
@@ -6031,7 +6031,7 @@ _02214D76:
 	lsl r0, r0, #2
 	ldr r1, _02214E24 ; =0x000001E2
 	add r0, r4, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r4, r1]
@@ -7922,7 +7922,7 @@ _02215CB8:
 	lsl r0, r0, #2
 	ldr r1, _02215D1C ; =0x000001E2
 	add r0, r5, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -8092,7 +8092,7 @@ _02215DCA:
 	lsl r0, r0, #2
 	ldr r1, _02215E70 ; =0x000001E2
 	add r0, r5, r0
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]

@@ -1148,19 +1148,17 @@ THUMB_FUNC static BOOL FUN_0203AB00(struct ScriptContext *ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ShowSaveClock(struct ScriptContext *ctx) //018D
-{
+THUMB_FUNC BOOL ScrCmd_ShowWaitingIcon(struct ScriptContext *ctx) { //018D
     struct Window *window = (struct Window *)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    struct UnkStruct_0200CABC_1 **unk2 = (struct UnkStruct_0200CABC_1 **)FieldSysGetAttrAddr(ctx->fieldSystem, 18);
-    *unk2 = FUN_0200D858(window, 994);
+    WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, 18);
+    *waitingIcon = WaitingIcon_new(window, 994);
     return FALSE;
 }
 
-
-THUMB_FUNC BOOL ScrCmd_HideSaveClock(struct ScriptContext *ctx) //018E
+THUMB_FUNC BOOL ScrCmd_HideWaitingIcon(struct ScriptContext *ctx) //018E
 {
-    struct UnkStruct_0200CABC_1 **unk = (struct UnkStruct_0200CABC_1 **)FieldSysGetAttrAddr(ctx->fieldSystem, 18);
-    FUN_0200DBFC(*unk);
+    WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, 18);
+    FUN_0200DBFC(*waitingIcon);
     return FALSE;
 }
 

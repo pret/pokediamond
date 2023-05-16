@@ -14,6 +14,7 @@ struct ScriptContext;
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
 typedef u8 Script[];
 
+typedef struct WaitingIcon WaitingIcon; //todo: define and move to another file
 
 struct UnkStruct_020464D4
 {
@@ -91,6 +92,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_MESSAGE_FORMAT,
     SCRIPTENV_STRING_BUFFER_0,
     SCRIPTENV_STRING_BUFFER_1,
+    SCRIPTENV_WAITING_ICON,
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

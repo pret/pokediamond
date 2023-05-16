@@ -486,7 +486,7 @@ _0208984C:
 	add r0, r4, #0x0
 	ldr r1, _02089898 ; =0x000001E2
 	add r0, #0x1c
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	str r0, [r4, #0x34]
 	mov r0, #0x5
 	str r0, [r4, #0x4]
