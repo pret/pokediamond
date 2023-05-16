@@ -55,7 +55,7 @@ struct FieldSystem //todo move to field_system.c
     struct UnkStruct_02046444 * unkA8;
 };
 
-struct ScriptContext
+typedef struct ScriptContext
 {
     u8 stackDepth;
     u8 mode;
@@ -70,7 +70,7 @@ struct ScriptContext
     struct MsgData *msgData;
     u8 *mapScripts;
     struct FieldSystem *fieldSystem;
-};
+} ScriptContext;
 
 typedef enum ScriptEnvField {
     SCRIPTENV_MENU_WINDOW,
@@ -86,6 +86,9 @@ typedef enum ScriptEnvField {
     SCRIPTENV_LAST_INTERACTED,
     SCRIPTENV_CAMERA_TARGET,
     SCRIPTENV_UNKNOWN_12,
+    SCRIPTENV_SCRIPT_CONTEXT_0,
+    SCRIPTENV_SCRIPT_CONTEXT_1, //diamond does not appear to have SCRIPT_CONTEXT_2 like HG
+    SCRIPTENV_
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

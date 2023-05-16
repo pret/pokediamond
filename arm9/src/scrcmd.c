@@ -15,7 +15,7 @@
 #include "unk_0205EC84.h"
 
 extern void *FieldSysGetAttrAddr(struct FieldSystem* fieldSystem, enum ScriptEnvField id);
-extern void *CreateScriptContext(struct FieldSystem* fieldSystem, u16 id);
+extern ScriptContext *CreateScriptContext(struct FieldSystem* fieldSystem, u16 id);
 extern u8 FUN_02058448(LocalMapObject *lastInteracted);
 extern void FlagSet(struct FieldSystem *fieldSystem, u16 flag);
 extern void FlagClear(struct FieldSystem *fieldSystem, u16 flag);
@@ -304,10 +304,10 @@ THUMB_FUNC BOOL ScrCmd_RunScript(struct ScriptContext *ctx) //0013
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u8 *activeScriptContextsNumber = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_ACTIVE_SCRIPTCONTEXT_COUNT);
-    u32 **unk2 = (u32 **)FieldSysGetAttrAddr(fieldSystem, 0xe);
+    ScriptContext **scriptContext1 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SCRIPT_CONTEXT_1);
     u16 id = ScriptReadHalfword(ctx);
 
-    *unk2 = CreateScriptContext(fieldSystem, id);
+    *scriptContext1 = CreateScriptContext(fieldSystem, id);
     (*activeScriptContextsNumber)++;
     return TRUE;
 }
@@ -317,11 +317,11 @@ THUMB_FUNC BOOL ScrCmd_RunScriptWait(struct ScriptContext *ctx) //0014
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u8 *unk1 = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_UNKNOWN_05);
     u8 *activeScriptContextsNumber = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_ACTIVE_SCRIPTCONTEXT_COUNT);
-    u32 **unk3 = (u32 **)FieldSysGetAttrAddr(fieldSystem, 0xe);
+    ScriptContext **scriptContext1 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SCRIPT_CONTEXT_1);
 
     u16 id = ScriptReadHalfword(ctx);
     *unk1 = 1;
-    *unk3 = CreateScriptContext(fieldSystem, id);
+    *scriptContext1 = CreateScriptContext(fieldSystem, id);
     (*activeScriptContextsNumber)++;
 
     SetupNativeScript(ctx, FUN_02039CC8);
