@@ -915,7 +915,7 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct String **unk1 = FieldSysGetAttrAddr(fieldSystem, 0x11);
+    struct String **stringBuffer1 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_STRING_BUFFER_1);
     struct String **stringBuffer0 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_STRING_BUFFER_0);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 typ, msg;
@@ -934,8 +934,8 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
     MOD05_021E8128(fieldSystem->unk60, typ, map);
     MOD05_021E8130(fieldSystem->unk60, 1);
     MOD05_021E8158(fieldSystem);
-    ReadMsgDataIntoString(ctx->msgData, msg, *unk1);
-    StringExpandPlaceholders(*messageFormat, *stringBuffer0, *unk1);
+    ReadMsgDataIntoString(ctx->msgData, msg, *stringBuffer1);
+    StringExpandPlaceholders(*messageFormat, *stringBuffer0, *stringBuffer1);
     AddTextPrinterParameterized(MOD05_021E8140(fieldSystem->unk60), 1, *stringBuffer0, 0, 0, 0, NULL);
 
     return TRUE;
@@ -986,15 +986,15 @@ THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx) //003A - todo: CreateM
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u8 *printerNumber = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_TEXT_PRINTER_NUMBER);
-    struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 17);
+    struct String **stringBuffer1 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_STRING_BUFFER_1);
     struct String **stringBuffer0 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_STRING_BUFFER_0);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
 
     u8 msg = ScriptReadByte(ctx);
     u16 wk = ScriptReadHalfword(ctx);
 
-    ReadMsgDataIntoString(ctx->msgData, msg, *unk2);
-    StringExpandPlaceholders(*messageFormat, *stringBuffer0, *unk2);
+    ReadMsgDataIntoString(ctx->msgData, msg, *stringBuffer1);
+    StringExpandPlaceholders(*messageFormat, *stringBuffer0, *stringBuffer1);
 
     *printerNumber = (u8)FUN_02054658(MOD05_021E8140(fieldSystem->unk60), *stringBuffer0, Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2), 1);
     ctx->data[0] = wk;

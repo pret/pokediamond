@@ -90,6 +90,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_SCRIPT_CONTEXT_1, //diamond does not appear to have SCRIPT_CONTEXT_2 like HG
     SCRIPTENV_MESSAGE_FORMAT,
     SCRIPTENV_STRING_BUFFER_0,
+    SCRIPTENV_STRING_BUFFER_1,
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
