@@ -1150,14 +1150,14 @@ THUMB_FUNC static BOOL FUN_0203AB00(struct ScriptContext *ctx)
 
 THUMB_FUNC BOOL ScrCmd_ShowWaitingIcon(struct ScriptContext *ctx) { //018D
     struct Window *window = (struct Window *)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, 18);
+    WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WAITING_ICON);
     *waitingIcon = WaitingIcon_new(window, 994);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_HideWaitingIcon(struct ScriptContext *ctx) //018E
 {
-    WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, 18);
+    WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WAITING_ICON);
     FUN_0200DBFC(*waitingIcon);
     return FALSE;
 }

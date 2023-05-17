@@ -81,8 +81,7 @@ void BlitRect4Bit(u8 *srcPixels,
     u16 width,
     u16 height);
 void FUN_0200D18C(struct Window *window, u16 fill_value);
-void FUN_0200D274(
-    struct BgConfig *bg_config, u8 bg_id, u16 param2, u8 param3, u8 param4, u32 heap_id);
+void FUN_0200D274(struct BgConfig *bg_config, u8 bg_id, u16 param2, u8 param3, u8 param4, u32 heap_id); //todo: LoadUserFrameGfx1?
 void FUN_0200D300(struct BgConfig *bg_config,
     u8 bg_id,
     u16 numtiles,
@@ -90,8 +89,7 @@ void FUN_0200D300(struct BgConfig *bg_config,
     u8 param4,
     u16 param5,
     u32 heap_id);
-void FUN_0200D378(
-    struct BgConfig *bg_config, u8 bg_id, u16 numtiles, u8 param3, u16 param4, u32 heap_id);
+void FUN_0200D378(struct BgConfig *bg_config, u8 bg_id, u16 numtiles, u8 param3, u16 param4, u32 heap_id); //todo: LoadUserFrameGfx2?
 void DrawFrame3(struct BgConfig *bgConfig,
     u8 bgId,
     u8 x,
@@ -103,7 +101,7 @@ void DrawFrame3(struct BgConfig *bgConfig,
 void DrawWindowCorner(struct Window *window, u16 fillValue, u8 paletteNum);
 void DrawFrameAndWindow3(struct Window *window, BOOL copy_to_vram, u16 fillValue, u8 paletteNum, u8 param4);
 void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy_to_vram);
-WaitingIcon *WaitingIcon_new(struct Window *window, u32 param1);
+WaitingIcon *WaitingIcon_new(struct Window *window, u32 param1); //todo param1 -> u16 tileNum?
 void FUN_0200D980(WaitingIcon *waitingIcon, u32 param1);
 void FUN_0200DB7C(u32 param0, void *param1);
 void FUN_0200DBE8(u32 param0, void *param1);
