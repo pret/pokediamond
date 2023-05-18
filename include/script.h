@@ -6,6 +6,7 @@
 #include "camera.h"
 #include "field_player_avatar.h"
 #include "msgdata.h"
+#include "render_window.h"
 #include "save_block_2.h"
 #include "task.h"
 
@@ -13,7 +14,6 @@ struct ScriptContext;
 
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
 typedef u8 Script[];
-
 
 struct UnkStruct_020464D4
 {
@@ -30,6 +30,8 @@ struct UnkStruct_02046444
 typedef struct LocalMapObject { //todo move to local_map_object.c
     u8 padding[0x12C]; //todo verify size
 } LocalMapObject;
+
+typedef struct PartyMenuAppData PartyMenuAppData; //todo move to own file
 
 struct FieldSystem //todo move to field_system.c
 {
@@ -88,7 +90,11 @@ typedef enum ScriptEnvField {
     SCRIPTENV_UNKNOWN_12,
     SCRIPTENV_SCRIPT_CONTEXT_0,
     SCRIPTENV_SCRIPT_CONTEXT_1, //diamond does not appear to have SCRIPT_CONTEXT_2 like HG
-    SCRIPTENV_
+    SCRIPTENV_MESSAGE_FORMAT,
+    SCRIPTENV_STRING_BUFFER_0,
+    SCRIPTENV_STRING_BUFFER_1,
+    SCRIPTENV_WAITING_ICON,
+    SCRIPTENV_RUNNING_APP_DATA,
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

@@ -42,12 +42,12 @@ extern BOOL MOD05_021E8148(u32 param0);
 extern void MOD05_021E8144(u32 param0);
 extern u32 Std_CreateYesNoMenu(struct BgConfig *param0, u8 **param1, u32 param2, u32 param3, u32 param4);
 extern u32 FUN_020021AC(u32 param0, u32 param1);
-extern u32 MOD05_021E1BF8(struct FieldSystem *fieldSystem, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, u32 param6, struct Window *window, struct MsgData *msgData);
+extern u32 MOD05_021E1BF8(struct FieldSystem *fieldSystem, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, MessageFormat *messageFormat, struct Window *window, struct MsgData *msgData);
 extern void MOD05_021E1C4C(u32 param0, u32 param1, u32 param2);
 extern void MOD05_021E1C54(u32 param0);
 extern u32 FUN_02052714(u32 param0);
 extern void MOD05_021E1ECC(u32 param0);
-extern u32 MOD05_021E1F34(struct FieldSystem *fieldSystem, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, u32 param6, struct Window *window, struct MsgData *msgData);
+extern u32 MOD05_021E1F34(struct FieldSystem *fieldSystem, u8 param1, u8 param2, u8 param3, u8 param4, u16 *param5, MessageFormat *messageFormat, struct Window *window, struct MsgData *msgData);
 extern void MOD05_021E1F58(u32 param0, u8 param1, u8 param2, u8 param3);
 extern void MOD05_021E1F60(u32 param0);
 extern void MOD05_021E26CC(u32 param0, u8 param1);
@@ -92,10 +92,10 @@ extern void FUN_02058EB0(LocalMapObject *event, u32 param1);
 extern u16 FUN_02029E0C(struct SealCase *sealCase);
 extern u16 FUN_02029E2C(struct SealCase *sealCase, u16 sealId);
 extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
-extern u32 FUN_020379F8(u32 param0, struct FieldSystem *fieldSystem);
-extern u32 FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
-extern u32 FUN_02037B44(struct TaskManager *taskManager, u32 param1);
-extern u16 FUN_02037A40(u32 *param0);
+extern PartyMenuAppData *FUN_020379F8(u32 param0, struct FieldSystem *fieldSystem);
+extern PartyMenuAppData *FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
+extern PartyMenuAppData *FUN_02037B44(struct TaskManager *taskManager, u32 param1);
+extern u16 FUN_02037A40(PartyMenuAppData *partyMenu);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -915,9 +915,9 @@ THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
 THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct String **unk1 = FieldSysGetAttrAddr(fieldSystem, 0x11);
-    struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 0x10);
-    MessageFormat **unk3 = FieldSysGetAttrAddr(fieldSystem, 0x0f);
+    struct String **stringBuffer1 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_STRING_BUFFER_1);
+    struct String **stringBuffer0 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_STRING_BUFFER_0);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 typ, msg;
     u16 wk, map;
 
@@ -934,9 +934,9 @@ THUMB_FUNC BOOL ScrCmd_CreateMessageBox(struct ScriptContext* ctx) //003C
     MOD05_021E8128(fieldSystem->unk60, typ, map);
     MOD05_021E8130(fieldSystem->unk60, 1);
     MOD05_021E8158(fieldSystem);
-    ReadMsgDataIntoString(ctx->msgData, msg, *unk1);
-    StringExpandPlaceholders(*unk3, *unk2, *unk1);
-    AddTextPrinterParameterized(MOD05_021E8140(fieldSystem->unk60), 1, *unk2, 0, 0, 0, NULL);
+    ReadMsgDataIntoString(ctx->msgData, msg, *stringBuffer1);
+    StringExpandPlaceholders(*messageFormat, *stringBuffer0, *stringBuffer1);
+    AddTextPrinterParameterized(MOD05_021E8140(fieldSystem->unk60), 1, *stringBuffer0, 0, 0, 0, NULL);
 
     return TRUE;
 }
@@ -986,17 +986,17 @@ THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx) //003A - todo: CreateM
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u8 *printerNumber = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_TEXT_PRINTER_NUMBER);
-    struct String **unk2 = FieldSysGetAttrAddr(fieldSystem, 17);
-    struct String **unk3 = FieldSysGetAttrAddr(fieldSystem, 16);
-    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, 15);
+    struct String **stringBuffer1 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_STRING_BUFFER_1);
+    struct String **stringBuffer0 = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_STRING_BUFFER_0);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
 
     u8 msg = ScriptReadByte(ctx);
     u16 wk = ScriptReadHalfword(ctx);
 
-    ReadMsgDataIntoString(ctx->msgData, msg, *unk2);
-    StringExpandPlaceholders(*messageFormat, *unk3, *unk2);
+    ReadMsgDataIntoString(ctx->msgData, msg, *stringBuffer1);
+    StringExpandPlaceholders(*messageFormat, *stringBuffer0, *stringBuffer1);
 
-    *printerNumber = (u8)FUN_02054658(MOD05_021E8140(fieldSystem->unk60), *unk3, Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2), 1);
+    *printerNumber = (u8)FUN_02054658(MOD05_021E8140(fieldSystem->unk60), *stringBuffer0, Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2), 1);
     ctx->data[0] = wk;
     SetupNativeScript(ctx, FUN_0203A94C);
     return TRUE;
@@ -1148,19 +1148,17 @@ THUMB_FUNC static BOOL FUN_0203AB00(struct ScriptContext *ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ShowSaveClock(struct ScriptContext *ctx) //018D
-{
+THUMB_FUNC BOOL ScrCmd_ShowWaitingIcon(struct ScriptContext *ctx) { //018D
     struct Window *window = (struct Window *)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    struct UnkStruct_0200CABC_1 **unk2 = (struct UnkStruct_0200CABC_1 **)FieldSysGetAttrAddr(ctx->fieldSystem, 18);
-    *unk2 = FUN_0200D858(window, 994);
+    WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WAITING_ICON);
+    *waitingIcon = WaitingIcon_new(window, 994);
     return FALSE;
 }
 
-
-THUMB_FUNC BOOL ScrCmd_HideSaveClock(struct ScriptContext *ctx) //018E
+THUMB_FUNC BOOL ScrCmd_HideWaitingIcon(struct ScriptContext *ctx) //018E
 {
-    struct UnkStruct_0200CABC_1 **unk = (struct UnkStruct_0200CABC_1 **)FieldSysGetAttrAddr(ctx->fieldSystem, 18);
-    FUN_0200DBFC(*unk);
+    WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WAITING_ICON);
+    FUN_0200DBFC(*waitingIcon);
     return FALSE;
 }
 
@@ -1168,7 +1166,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0040(struct ScriptContext *ctx) //0040
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MENU_WINDOW);
-    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1176,7 +1174,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0040(struct ScriptContext *ctx) //0040
     u16 unk7 = ScriptReadHalfword(ctx);
     u16 *ptr = GetVarPointer(fieldSystem, unk7);
     struct Window *window = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *unk2, window, NULL);
+    *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *messageFormat, window, NULL);
     ctx->data[0] = unk7;
     return TRUE;
 }
@@ -1185,7 +1183,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0041(struct ScriptContext *ctx) //0041
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MENU_WINDOW);
-    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1193,7 +1191,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0041(struct ScriptContext *ctx) //0041
     u16 unk7 = ScriptReadHalfword(ctx);
     u16 *ptr = GetVarPointer(fieldSystem, unk7);
     struct Window *window = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *unk2, window, ctx->msgData);
+    *unk = MOD05_021E1BF8(fieldSystem, unk3, unk4, unk5, unk6, ptr, *messageFormat, window, ctx->msgData);
     ctx->data[0] = unk7;
     return TRUE;
 }
@@ -1275,7 +1273,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0044(struct ScriptContext *ctx) //0044
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MENU_WINDOW);
-    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1284,7 +1282,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0044(struct ScriptContext *ctx) //0044
     u16 halfWord = ScriptReadHalfword(ctx);
     u16 *varPtr = GetVarPointer(fieldSystem, halfWord);
     struct Window *window = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *unk2, window, NULL);
+    *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *messageFormat, window, NULL);
     ctx->data[0] = halfWord;
     return TRUE;
 }
@@ -1293,7 +1291,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0045(struct ScriptContext *ctx) //0045
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MENU_WINDOW);
-    u32 *unk2 = FieldSysGetAttrAddr(fieldSystem, 15);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 unk3 = ScriptReadByte(ctx);
     u8 unk4 = ScriptReadByte(ctx);
     u8 unk5 = ScriptReadByte(ctx);
@@ -1302,7 +1300,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0045(struct ScriptContext *ctx) //0045
     u16 halfWord = ScriptReadHalfword(ctx);
     u16 *varPtr = GetVarPointer(fieldSystem, halfWord);
     struct Window *window = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
-    *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *unk2, window, ctx->msgData);
+    *unk = MOD05_021E1F34(fieldSystem, unk3, unk4, unk5, unk6, varPtr, *messageFormat, window, ctx->msgData);
     ctx->data[0] = halfWord;
     return TRUE;
 }
@@ -1777,37 +1775,37 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx) //0095
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ChoosePokemonMenu(struct ScriptContext *ctx) { //0191 - TODO: similar to below?
-    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
-    *unk = FUN_020379F8(0x20, ctx->fieldSystem);
+THUMB_FUNC BOOL ScrCmd_ChoosePokemonMenu(struct ScriptContext *ctx) { //0191
+    PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *partyMenu = FUN_020379F8(0x20, ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_OpenTradeScreen(struct ScriptContext *ctx) { //02A5
-    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
-    *unk = FUN_02037A1C(0x20, ctx->fieldSystem);
+    PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *partyMenu = FUN_02037A1C(0x20, ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ChoosePokemonMenu2(struct ScriptContext *ctx) { //0192
-    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
-    *unk = FUN_02037B44(ctx->fieldSystem->taskManager, 0x20);
+THUMB_FUNC BOOL ScrCmd_UnionChoosePokemonMenu(struct ScriptContext *ctx) { //0192
+    PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *partyMenu = FUN_02037B44(ctx->fieldSystem->taskManager, 0x20);
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_GetSelectedPartySlot(struct ScriptContext *ctx) { //0193
     u16 *variable = ScriptGetVarPointer(ctx);
-    u32 **unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
+    PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
 
-    GF_ASSERT(*unk);
-    *variable = FUN_02037A40(*unk);
+    GF_ASSERT(*partyMenu);
+    *variable = FUN_02037A40(*partyMenu);
 
     if (*variable == 7) {
         *variable = 0xFF;
     }
-    FreeToHeap(*unk);
-    *unk = NULL;
+    FreeToHeap(*partyMenu);
+    *partyMenu = NULL;
     return FALSE;
 }

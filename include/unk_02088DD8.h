@@ -7,19 +7,20 @@ struct Options;
 struct PlayerData;
 struct Pokemon;
 
-struct UnkStruct_02088DD8
+typedef struct MoveRelearner
 {
     struct Pokemon* pokemon;
     struct PlayerData* player;
     struct Options* options;
-    void* unkC;
+    u16 *eligibleMoves;
     u8 padding[0x5];
     u8 unk15;
-    u8 padding2[0x2];
-};
+    u8 unk16;
+    u8 padding2[1];
+} MoveRelearner;
 
-struct UnkStruct_02088DD8* FUN_02088DD8(u32 heap_id);
-void FUN_02088DF0(struct UnkStruct_02037CF0 *r0);
+MoveRelearner *FUN_02088DD8(u32 heap_id);
+void FUN_02088DF0(MoveRelearner *moveRelearner);
 u16* GetEligibleLevelUpMoves(struct Pokemon* pokemon, u32 heap_id);
 BOOL FUN_02088EF8(u16 *r0);
 

@@ -421,7 +421,7 @@ FUN_020487E4: ; 0x020487E4
 	add r0, r4, #0x0
 	ldr r1, _02048834 ; =0x000003E2
 	add r0, #0x1c
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	str r0, [r4, #0x30]
 	pop {r4-r6, pc}
 	.balign 4

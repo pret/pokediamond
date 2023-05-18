@@ -108,8 +108,8 @@ BOOL ScrCmd_Unk003A(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk003B(struct ScriptContext *ctx);
 BOOL ScrCmd_Menu(struct ScriptContext *ctx);
 BOOL ScrCmd_YesNoMenu(struct ScriptContext *ctx);
-BOOL ScrCmd_ShowSaveClock(struct ScriptContext *ctx);
-BOOL ScrCmd_HideSaveClock(struct ScriptContext *ctx);
+BOOL ScrCmd_ShowWaitingIcon(struct ScriptContext *ctx);
+BOOL ScrCmd_HideWaitingIcon(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0040(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0041(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0042(struct ScriptContext *ctx);
@@ -150,7 +150,7 @@ BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx);
 BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx);
 BOOL ScrCmd_ChoosePokemonMenu(struct ScriptContext *ctx);
 BOOL ScrCmd_OpenTradeScreen(struct ScriptContext *ctx);
-BOOL ScrCmd_ChoosePokemonMenu2(struct ScriptContext *ctx);
+BOOL ScrCmd_UnionChoosePokemonMenu(struct ScriptContext *ctx);
 BOOL ScrCmd_GetSelectedPartySlot(struct ScriptContext *ctx);
 
 // scrcmd_mart.c
@@ -402,7 +402,7 @@ BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk021E(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk021F(struct ScriptContext* ctx);
-void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, void* a3);
+void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16 *eligibleMoves);
 BOOL ScrCmd_Unk0220(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0221(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk0224(struct ScriptContext* ctx);

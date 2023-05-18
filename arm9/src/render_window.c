@@ -596,176 +596,98 @@ THUMB_FUNC void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy
     }
 }
 
-THUMB_FUNC struct UnkStruct_0200CABC_1 *FUN_0200D858(struct Window *window, u32 param1)
-{
+THUMB_FUNC WaitingIcon *WaitingIcon_new(struct Window *window, u32 param1) {
     u32 heap_id = BgConfig_GetHeapId(window->bgConfig);
     void *charptr = BgGetCharPtr(GetWindowBgId(window));
 
-    struct UnkStruct_0200CABC_1 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_0200CABC_1));
-    memcpy(ptr->unk004[8], charptr + (param1 + 18) * 32, 0x80);
+    WaitingIcon *waitingIcon = AllocFromHeap(heap_id, sizeof(WaitingIcon));
+    memcpy(waitingIcon->unk004[8], charptr + (param1 + 18) * 32, 0x80);
     void *ptr2 = AllocFromHeap(heap_id, 0x80);
     memcpy(ptr2, charptr + (param1 + 10) * 32, 0x20);
     memcpy(ptr2 + 0x20, charptr + (param1 + 11) * 32, 0x20);
     memcpy(ptr2 + 0x40, charptr + (param1 + 10) * 32, 0x20);
     memcpy(ptr2 + 0x60, charptr + (param1 + 11) * 32, 0x20);
 
-    for (u8 i = 0; i < 8; i++)
-    {
-        memcpy(ptr->unk004[i], ptr2, 0x80);
+    for (u8 i = 0; i < 8; i++) {
+        memcpy(waitingIcon->unk004[i], ptr2, 0x80);
     }
     FreeToHeap(ptr2);
 
     NNSG2dCharacterData *pCharData;
-    void *r5 = GfGfxLoader_GetCharData(
-        NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0023_NCGR, FALSE, &pCharData, heap_id);
-    BlitRect4Bit(
-        pCharData->pRawData, 0, 0, 0x10, 0x80, ptr->unk004[0], 0x10, 0x80, 0, 0, 0x10, 0x80);
+    void *r5 = GfGfxLoader_GetCharData(NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0023_NCGR, FALSE, &pCharData, heap_id);
+    BlitRect4Bit(pCharData->pRawData, 0, 0, 0x10, 0x80, waitingIcon->unk004[0], 0x10, 0x80, 0, 0, 0x10, 0x80);
     FreeToHeap(r5);
 
-    ptr->unk000 = window;
-    ptr->fillValue = (u16)param1;
-    ptr->unk486 = 0;
-    ptr->unk487 = 0;
-    ptr->unk488 = 0;
+    waitingIcon->window = window;
+    waitingIcon->fillValue = (u16)param1;
+    waitingIcon->unk486 = 0;
+    waitingIcon->unk487 = 0;
+    waitingIcon->unk488 = 0;
 
-    FUN_0200CA60(FUN_0200DB7C, ptr, 0);
-    FUN_0200D980(ptr, 1);
+    FUN_0200CA60(FUN_0200DB7C, waitingIcon, 0);
+    FUN_0200D980(waitingIcon, 1);
 
-    return ptr;
+    return waitingIcon;
 }
 
-THUMB_FUNC void FUN_0200D980(struct UnkStruct_0200CABC_1 *param0, u32 param1)
-{
-    u8 bg_id = GetWindowBgId(param0->unk000);
-    u8 x = GetWindowX(param0->unk000);
-    u8 y = GetWindowY(param0->unk000);
-    u8 width = GetWindowWidth(param0->unk000);
+THUMB_FUNC void FUN_0200D980(WaitingIcon *waitingIcon, u32 param1) {
+    u8 bg_id = GetWindowBgId(waitingIcon->window);
+    u8 x = GetWindowX(waitingIcon->window);
+    u8 y = GetWindowY(waitingIcon->window);
+    u8 width = GetWindowWidth(waitingIcon->window);
 
-    if (param1 == 2)
-    {
-        BG_LoadCharTilesData(param0->unk000->bgConfig,
-            bg_id,
-            (u32 *)param0->unk004[8],
-            0x80,
-            (u32)(param0->fillValue + 18));
-        FillBgTilemapRect(param0->unk000->bgConfig,
-            bg_id,
-            (u16)(param0->fillValue + 10),
-            (u8)(x + width + 1),
-            (u8)(y + 2),
-            1,
-            1,
-            0x10);
-        FillBgTilemapRect(param0->unk000->bgConfig,
-            bg_id,
-            (u16)(param0->fillValue + 11),
-            (u8)(x + width + 2),
-            (u8)(y + 2),
-            1,
-            1,
-            0x10);
-        FillBgTilemapRect(param0->unk000->bgConfig,
-            bg_id,
-            (u16)(param0->fillValue + 10),
-            (u8)(x + width + 1),
-            (u8)(y + 3),
-            1,
-            1,
-            0x10);
-        FillBgTilemapRect(param0->unk000->bgConfig,
-            bg_id,
-            (u16)(param0->fillValue + 11),
-            (u8)(x + width + 2),
-            (u8)(y + 3),
-            1,
-            1,
-            0x10);
-        BgCommitTilemapBufferToVram(param0->unk000->bgConfig, bg_id);
+    if (param1 == 2) {
+        BG_LoadCharTilesData(waitingIcon->window->bgConfig, bg_id, (u32 *)waitingIcon->unk004[8], 0x80, (u32)(waitingIcon->fillValue + 18));
+        FillBgTilemapRect(waitingIcon->window->bgConfig, bg_id, (u16)(waitingIcon->fillValue + 10), (u8)(x + width + 1), (u8)(y + 2), 1, 1, 0x10);
+        FillBgTilemapRect(waitingIcon->window->bgConfig, bg_id, (u16)(waitingIcon->fillValue + 11), (u8)(x + width + 2), (u8)(y + 2), 1, 1, 0x10);
+        FillBgTilemapRect(waitingIcon->window->bgConfig, bg_id, (u16)(waitingIcon->fillValue + 10), (u8)(x + width + 1), (u8)(y + 3), 1, 1, 0x10);
+        FillBgTilemapRect(waitingIcon->window->bgConfig, bg_id, (u16)(waitingIcon->fillValue + 11), (u8)(x + width + 2), (u8)(y + 3), 1, 1, 0x10);
+        BgCommitTilemapBufferToVram(waitingIcon->window->bgConfig, bg_id);
         return;
     }
 
-    BG_LoadCharTilesData(param0->unk000->bgConfig,
-        bg_id,
-        (u32 *)param0->unk004[param0->unk487],
-        0x80,
-        (u32)(param0->fillValue + 18));
-    if (param1 != 0)
-    {
-        FillBgTilemapRect(param0->unk000->bgConfig,
-            bg_id,
-            (u16)(param0->fillValue + 18),
-            (u8)(x + width + 1),
-            (u8)(y + 2),
-            1,
-            1,
-            0x10);
-        FillBgTilemapRect(param0->unk000->bgConfig,
-            bg_id,
-            (u16)(param0->fillValue + 19),
-            (u8)(x + width + 2),
-            (u8)(y + 2),
-            1,
-            1,
-            0x10);
-        FillBgTilemapRect(param0->unk000->bgConfig,
-            bg_id,
-            (u16)(param0->fillValue + 20),
-            (u8)(x + width + 1),
-            (u8)(y + 3),
-            1,
-            1,
-            0x10);
-        FillBgTilemapRect(param0->unk000->bgConfig,
-            bg_id,
-            (u16)(param0->fillValue + 21),
-            (u8)(x + width + 2),
-            (u8)(y + 3),
-            1,
-            1,
-            0x10);
-        BgCommitTilemapBufferToVram(param0->unk000->bgConfig, bg_id);
+    BG_LoadCharTilesData(waitingIcon->window->bgConfig, bg_id, (u32 *)waitingIcon->unk004[waitingIcon->unk487], 0x80, (u32)(waitingIcon->fillValue + 18));
+    if (param1 != 0) {
+        FillBgTilemapRect(waitingIcon->window->bgConfig, bg_id, (u16)(waitingIcon->fillValue + 18), (u8)(x + width + 1), (u8)(y + 2), 1, 1, 0x10);
+        FillBgTilemapRect(waitingIcon->window->bgConfig, bg_id, (u16)(waitingIcon->fillValue + 19), (u8)(x + width + 2), (u8)(y + 2), 1, 1, 0x10);
+        FillBgTilemapRect(waitingIcon->window->bgConfig, bg_id, (u16)(waitingIcon->fillValue + 20), (u8)(x + width + 1), (u8)(y + 3), 1, 1, 0x10);
+        FillBgTilemapRect(waitingIcon->window->bgConfig, bg_id, (u16)(waitingIcon->fillValue + 21), (u8)(x + width + 2), (u8)(y + 3), 1, 1, 0x10);
+        BgCommitTilemapBufferToVram(waitingIcon->window->bgConfig, bg_id);
     }
 }
 
-THUMB_FUNC void FUN_0200DB7C(u32 param0, void *param1)
-{
-    struct UnkStruct_0200CABC_1 *r1 = (struct UnkStruct_0200CABC_1 *)param1;
+THUMB_FUNC void FUN_0200DB7C(u32 param0, void *param1) {
+    WaitingIcon *waitingIcon = (WaitingIcon *)param1; //todo: see if this matches using a param
 
-    if (r1->unk488 != 0)
-    {
-        if (r1->unk488 == 1)
-        {
-            FUN_0200D980(r1, 2);
+    if (waitingIcon->unk488 != 0) {
+        if (waitingIcon->unk488 == 1) {
+            FUN_0200D980(waitingIcon, 2);
         }
         FUN_0200CAB4((s32)param0);
         return;
     }
 
-    r1->unk486++;
-    if (r1->unk486 == 16)
-    {
-        r1->unk486 = 0;
-        r1->unk487 = (r1->unk487 + 1) & 7;
-        FUN_0200D980(r1, 0);
+    waitingIcon->unk486++;
+    if (waitingIcon->unk486 == 16) {
+        waitingIcon->unk486 = 0;
+        waitingIcon->unk487 = (waitingIcon->unk487 + 1) & 7;
+        FUN_0200D980(waitingIcon, 0);
     }
 }
 
-THUMB_FUNC void FUN_0200DBE8(u32 param0, void *param1)
-{
+THUMB_FUNC void FUN_0200DBE8(u32 param0, void *param1) {
     FreeToHeap(param1);
     FUN_0200CAB4((s32)param0);
 }
 
-THUMB_FUNC void FUN_0200DBFC(struct UnkStruct_0200CABC_1 *param0)
-{
-    FUN_0200CA98(FUN_0200DBE8, param0, 0);
-    param0->unk488 = 1;
+THUMB_FUNC void FUN_0200DBFC(WaitingIcon *waitingIcon) {
+    FUN_0200CA98(FUN_0200DBE8, waitingIcon, 0);
+    waitingIcon->unk488 = 1;
 }
 
-THUMB_FUNC void FUN_0200DC24(struct UnkStruct_0200CABC_1 *param0)
-{
-    FUN_0200CA98(FUN_0200DBE8, param0, 0);
-    param0->unk488 = 2;
+THUMB_FUNC void FUN_0200DC24(WaitingIcon *waitingIcon) {
+    FUN_0200CA98(FUN_0200DBE8, waitingIcon, 0);
+    waitingIcon->unk488 = 2;
 }
 
 THUMB_FUNC u8 *FUN_0200DC4C(struct BgConfig *bg_config,

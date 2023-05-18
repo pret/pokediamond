@@ -4322,7 +4322,7 @@ MOD82_0222F700: ; 0x0222F700
 	lsl r0, r0, #6
 	add r0, r4, r0
 	mov r1, #1
-	bl FUN_0200D858
+	bl WaitingIcon_new
 	ldr r1, _0222F720 ; =0x00000EB4
 	str r0, [r4, r1]
 _0222F71C:

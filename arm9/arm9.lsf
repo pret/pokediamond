@@ -180,7 +180,7 @@ Static arm9
 	Object scrcmd_flags.o
 	Object scrcmd_items.o
 	Object scrcmd_underground.o
-	Object scrcmd_24.o
+	Object scrcmd_move_relearner.o
 	Object scrcmd_25.o
 	Object unk_02046030.o
 	Object event_data.o

@@ -701,7 +701,7 @@
 .extern FUN_0200D300
 .extern DrawFrameAndWindow3
 .extern ClearFrameAndWindow3
-.extern FUN_0200D858
+.extern WaitingIcon_new
 .extern FUN_0200DBFC
 .extern FUN_0200DC24
 .extern FUN_0200DC4C
@@ -2771,8 +2771,8 @@
 .extern ScrCmd_Unk003B
 .extern ScrCmd_Menu
 .extern ScrCmd_YesNoMenu
-.extern ScrCmd_ShowSaveClock
-.extern ScrCmd_HideSaveClock
+.extern ScrCmd_ShowWaitingIcon
+.extern ScrCmd_HideWaitingIcon
 .extern ScrCmd_Unk0040
 .extern ScrCmd_Unk0041
 .extern ScrCmd_Unk0042
@@ -2813,7 +2813,7 @@
 .extern ScrCmd_GetPokemonForme
 .extern ScrCmd_ChoosePokemonMenu
 .extern ScrCmd_OpenTradeScreen
-.extern ScrCmd_ChoosePokemonMenu2
+.extern ScrCmd_UnionChoosePokemonMenu
 .extern ScrCmd_GetSelectedPartySlot
 .extern ScrCmd_Unk0194
 .extern ScrCmd_Unk0195
