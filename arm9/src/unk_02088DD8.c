@@ -5,14 +5,14 @@
 
 extern void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
 
-THUMB_FUNC struct UnkStruct_02088DD8* FUN_02088DD8(u32 heap_id) {
-    struct UnkStruct_02088DD8 *returnPointer = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02088DD8));
-    __builtin__clear(returnPointer, sizeof(struct UnkStruct_02088DD8));
+THUMB_FUNC MoveRelearner *FUN_02088DD8(u32 heap_id) {
+    MoveRelearner *returnPointer = AllocFromHeap(heap_id, sizeof(MoveRelearner));
+    __builtin__clear(returnPointer, sizeof(MoveRelearner));
     return returnPointer;
 }
 
-THUMB_FUNC void FUN_02088DF0(struct UnkStruct_02037CF0 *r0) {
-    FreeToHeap(r0);
+THUMB_FUNC void FUN_02088DF0(MoveRelearner *moveRelearner) {
+    FreeToHeap(moveRelearner);
 }
 
 #define WOTBL_END           0xFFFF

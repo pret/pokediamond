@@ -92,10 +92,10 @@ extern void FUN_02058EB0(LocalMapObject *event, u32 param1);
 extern u16 FUN_02029E0C(struct SealCase *sealCase);
 extern u16 FUN_02029E2C(struct SealCase *sealCase, u16 sealId);
 extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
-extern u32 FUN_020379F8(u32 param0, struct FieldSystem *fieldSystem);
-extern u32 FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
-extern u32 FUN_02037B44(struct TaskManager *taskManager, u32 param1);
-extern u16 FUN_02037A40(u32 *param0);
+extern PartyMenuAppData *FUN_020379F8(u32 param0, struct FieldSystem *fieldSystem);
+extern PartyMenuAppData *FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
+extern PartyMenuAppData *FUN_02037B44(struct TaskManager *taskManager, u32 param1);
+extern u16 FUN_02037A40(PartyMenuAppData *partyMenu);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1775,37 +1775,37 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx) //0095
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ChoosePokemonMenu(struct ScriptContext *ctx) { //0191 - TODO: similar to below?
-    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
-    *unk = FUN_020379F8(0x20, ctx->fieldSystem);
+THUMB_FUNC BOOL ScrCmd_ChoosePokemonMenu(struct ScriptContext *ctx) { //0191
+    PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *partyMenu = FUN_020379F8(0x20, ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_OpenTradeScreen(struct ScriptContext *ctx) { //02A5
-    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
-    *unk = FUN_02037A1C(0x20, ctx->fieldSystem);
+    PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *partyMenu = FUN_02037A1C(0x20, ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ChoosePokemonMenu2(struct ScriptContext *ctx) { //0192
-    u32 *unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
-    *unk = FUN_02037B44(ctx->fieldSystem->taskManager, 0x20);
+THUMB_FUNC BOOL ScrCmd_UnionChoosePokemonMenu(struct ScriptContext *ctx) { //0192
+    PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *partyMenu = FUN_02037B44(ctx->fieldSystem->taskManager, 0x20);
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_GetSelectedPartySlot(struct ScriptContext *ctx) { //0193
     u16 *variable = ScriptGetVarPointer(ctx);
-    u32 **unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x13);
+    PartyMenuAppData **partyMenu = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
 
-    GF_ASSERT(*unk);
-    *variable = FUN_02037A40(*unk);
+    GF_ASSERT(*partyMenu);
+    *variable = FUN_02037A40(*partyMenu);
 
     if (*variable == 7) {
         *variable = 0xFF;
     }
-    FreeToHeap(*unk);
-    *unk = NULL;
+    FreeToHeap(*partyMenu);
+    *partyMenu = NULL;
     return FALSE;
 }
