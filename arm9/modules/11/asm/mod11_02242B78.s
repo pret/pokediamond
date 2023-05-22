@@ -20726,6 +20726,220 @@ _0224C8D6:
 _0224C8E4: .word 0x000003DE
 _0224C8E8: .word MOD11_0225E260
 
+	thumb_func_start MOD11_0224C8EC
+MOD11_0224C8EC: ; 0x0224C8EC
+	push {r3, r4, r5, r6, r7, lr}
+	add r6, r2, #0
+	ldr r2, _0224CA58 ; =0x00000137
+	add r7, r0, #0
+	add r4, r1, #0
+	cmp r3, r2
+	bgt _0224C904
+	blt _0224C8FE
+	b _0224CA00
+_0224C8FE:
+	cmp r3, #0xed
+	beq _0224C9A6
+	b _0224CA52
+_0224C904:
+	add r0, r2, #0
+	add r0, #0x34
+	cmp r3, r0
+	bgt _0224C914
+	add r2, #0x34
+	cmp r3, r2
+	beq _0224C91C
+	b _0224CA52
+_0224C914:
+	add r2, #0x8a
+	cmp r3, r2
+	beq _0224C928
+	b _0224CA52
+_0224C91C:
+	add r0, r4, #0
+	add r1, r6, #0
+	bl MOD11_02249E04
+	add r5, r0, #0
+	b _0224CA54
+_0224C928:
+	add r0, r4, #0
+	add r1, r6, #0
+	bl MOD11_02249D90
+	sub r0, #0x7d
+	cmp r0, #0xf
+	bhi _0224C9A2
+	add r0, r0, r0
+	add r0, pc
+	ldrh r0, [r0, #6]
+	lsl r0, r0, #0x10
+	asr r0, r0, #0x10
+	add pc, r0
+_0224C942: ; jump table
+	.short _0224C982 - _0224C942 - 2 ; case 0
+	.short _0224C986 - _0224C942 - 2 ; case 1
+	.short _0224C98E - _0224C942 - 2 ; case 2
+	.short _0224C98A - _0224C942 - 2 ; case 3
+	.short _0224C996 - _0224C942 - 2 ; case 4
+	.short _0224C962 - _0224C942 - 2 ; case 5
+	.short _0224C96A - _0224C942 - 2 ; case 6
+	.short _0224C96E - _0224C942 - 2 ; case 7
+	.short _0224C966 - _0224C942 - 2 ; case 8
+	.short _0224C992 - _0224C942 - 2 ; case 9
+	.short _0224C976 - _0224C942 - 2 ; case 10
+	.short _0224C972 - _0224C942 - 2 ; case 11
+	.short _0224C97A - _0224C942 - 2 ; case 12
+	.short _0224C99A - _0224C942 - 2 ; case 13
+	.short _0224C99E - _0224C942 - 2 ; case 14
+	.short _0224C97E - _0224C942 - 2 ; case 15
+_0224C962:
+	mov r5, #1
+	b _0224CA54
+_0224C966:
+	mov r5, #2
+	b _0224CA54
+_0224C96A:
+	mov r5, #3
+	b _0224CA54
+_0224C96E:
+	mov r5, #4
+	b _0224CA54
+_0224C972:
+	mov r5, #5
+	b _0224CA54
+_0224C976:
+	mov r5, #6
+	b _0224CA54
+_0224C97A:
+	mov r5, #7
+	b _0224CA54
+_0224C97E:
+	mov r5, #8
+	b _0224CA54
+_0224C982:
+	mov r5, #0xa
+	b _0224CA54
+_0224C986:
+	mov r5, #0xb
+	b _0224CA54
+_0224C98A:
+	mov r5, #0xc
+	b _0224CA54
+_0224C98E:
+	mov r5, #0xd
+	b _0224CA54
+_0224C992:
+	mov r5, #0xe
+	b _0224CA54
+_0224C996:
+	mov r5, #0xf
+	b _0224CA54
+_0224C99A:
+	mov r5, #0x10
+	b _0224CA54
+_0224C99E:
+	mov r5, #0x11
+	b _0224CA54
+_0224C9A2:
+	mov r5, #0
+	b _0224CA54
+_0224C9A6:
+	ldr r0, _0224CA5C ; =0x00002D54
+	add r1, r4, r0
+	mov r0, #0xc0
+	mul r0, r6
+	ldr r4, [r1, r0]
+	lsl r0, r4, #2
+	lsr r0, r0, #0x1b
+	lsl r0, r0, #0x1f
+	lsr r5, r0, #0x1a
+	lsl r0, r4, #7
+	lsr r0, r0, #0x1b
+	lsl r0, r0, #0x1f
+	lsr r3, r0, #0x1b
+	lsl r0, r4, #0xc
+	lsr r0, r0, #0x1b
+	lsl r0, r0, #0x1f
+	lsr r2, r0, #0x1c
+	lsl r0, r4, #0x11
+	lsr r0, r0, #0x1b
+	lsl r0, r0, #0x1f
+	lsr r1, r0, #0x1d
+	lsl r0, r4, #0x1b
+	lsl r4, r4, #0x16
+	lsr r4, r4, #0x1b
+	lsr r6, r0, #0x1b
+	mov r0, #1
+	lsl r4, r4, #0x1f
+	and r0, r6
+	lsr r4, r4, #0x1e
+	orr r0, r4
+	orr r0, r1
+	orr r0, r2
+	orr r0, r3
+	add r1, r5, #0
+	orr r1, r0
+	mov r0, #0xf
+	mul r0, r1
+	mov r1, #0x3f
+	bl _s32_div_f
+	add r5, r0, #1
+	cmp r5, #9
+	blt _0224CA54
+	add r5, r5, #1
+	b _0224CA54
+_0224CA00:
+	mov r2, #0xd
+	str r2, [sp]
+	mov r2, #8
+	mov r3, #0
+	bl MOD11_02246870
+	cmp r0, #0
+	bne _0224CA54
+	mov r0, #0x4c
+	str r0, [sp]
+	add r0, r7, #0
+	add r1, r4, #0
+	mov r2, #8
+	mov r3, #0
+	bl MOD11_02246870
+	cmp r0, #0
+	bne _0224CA54
+	mov r0, #6
+	lsl r0, r0, #6
+	ldr r0, [r4, r0]
+	ldr r1, _0224CA60 ; =0x000080FF
+	tst r1, r0
+	beq _0224CA54
+	mov r1, #3
+	tst r1, r0
+	beq _0224CA38
+	mov r5, #0xb
+_0224CA38:
+	mov r1, #0xc
+	tst r1, r0
+	beq _0224CA40
+	mov r5, #5
+_0224CA40:
+	mov r1, #0x30
+	tst r1, r0
+	beq _0224CA48
+	mov r5, #0xa
+_0224CA48:
+	mov r1, #0xc0
+	tst r0, r1
+	beq _0224CA54
+	mov r5, #0xf
+	b _0224CA54
+_0224CA52:
+	mov r5, #0
+_0224CA54:
+	add r0, r5, #0
+	pop {r3, r4, r5, r6, r7, pc}
+	.align 2, 0
+_0224CA58: .word 0x00000137
+_0224CA5C: .word 0x00002D54
+_0224CA60: .word 0x000080FF
+
 	.section .rodata
 
 	.global MOD11_0225E244
