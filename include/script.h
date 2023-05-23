@@ -96,6 +96,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_WAITING_ICON,
     SCRIPTENV_RUNNING_APP_DATA,
     SCRIPTENV_MISC_DATA_PTR,
+    SCRIPTENV_UNKNOWN_21,
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
