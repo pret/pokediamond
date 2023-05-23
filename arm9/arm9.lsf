@@ -792,9 +792,23 @@ Overlay MODULE_11
 {
 	##Battles##
 	After MODULE_08
-	Object module_11_thumb1.o
-	Object module_11_sinit.o
-	Object module_11_thumb2.o
+	Object mod11_0222D5C0_1.o
+	Object mod11_0222D5C0_2.o
+	Object mod11_0222D5C0_3.o
+	Object mod11_0222FF68.o
+	Object mod11_02232264.o
+	Object mod11_0223D1DC.o
+	Object mod11_02242B78.o
+	Object mod11_0224CA64.o
+	Object mod11_0224D550.o
+	Object mod11_0225464C.o
+	Object mod11_02254710.o
+	Object mod11_02256C08.o
+	Object mod11_02258238.o
+	Object mod11_02258428.o
+	Object mod11_0225C91C.o
+	Object mod11_0225D3EC.o
+	Object mod11_0225D6A4.o
 }
 
 Overlay MODULE_12
