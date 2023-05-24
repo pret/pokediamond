@@ -1,3 +1,5 @@
 *.sha1 text eol=lf
 charmap.txt text eol=crlf
 m2ctx.sh text eol=lf
+
+* text eol=crlf
