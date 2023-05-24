@@ -44,8 +44,8 @@ typedef struct MOD59_IntroOverlayData
     struct MOD59_UnkPlayerStruct *playerStruct;
     struct MOD59_UnkPlayerStruct *rivalStruct;
     u32 fadeCounter;
-    u32 unk7C;
-    u32 unk80;
+    fx32 alphaBlend1;
+    fx32 alphaBlend2;
     GenderEnum selectedGender;
     u8 scrnDataIndexMain;
     u8 spriteDataIndex0;

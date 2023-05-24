@@ -513,6 +513,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *stat
 
 THUMB_FUNC BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *status)
 {
+#pragma unused(status)
     MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayManager);
 
     u32 heap_id = data->heap_id;
@@ -724,38 +725,38 @@ THUMB_FUNC BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32
         case 0:
             if (param2 == 0)
             {
-                data->unk7C = 0;
-                data->unk80 = 16;
+                data->alphaBlend1 = 0;
+                data->alphaBlend2 = 16;
                 data->fadeCounter = 1;
                 if (!subScreen)
                 {
-                    G2_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
+                    G2_SetBlendAlpha(planeMask, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1), data->alphaBlend1, data->alphaBlend2);
                 }
                 else
                 {
-                    G2S_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
+                    G2S_SetBlendAlpha(planeMask, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1), data->alphaBlend1, data->alphaBlend2);
                 }
                 ToggleBgLayer((u8)bgId, GX_LAYER_TOGGLE_ON);
             }
             else
             {
-                data->unk7C = 16;
-                data->unk80 = 0;
+                data->alphaBlend1 = 16;
+                data->alphaBlend2 = 0;
                 data->fadeCounter = 2;
             }
             break;
         case 1:
-            if (data->unk80 != 0)
+            if (data->alphaBlend2 != 0)
             {
-                data->unk7C++;
-                data->unk80--;
+                data->alphaBlend1++;
+                data->alphaBlend2--;
                 if (!subScreen)
                 {
-                    G2_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
+                    G2_SetBlendAlpha(planeMask, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1), data->alphaBlend1, data->alphaBlend2);
                 }
                 else
                 {
-                    G2S_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
+                    G2S_SetBlendAlpha(planeMask, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1), data->alphaBlend1, data->alphaBlend2);
                 }
             }
             else
@@ -764,17 +765,17 @@ THUMB_FUNC BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32
             }
             break;
         case 2:
-            if (data->unk7C != 0)
+            if (data->alphaBlend1 != 0)
             {
-                data->unk7C--;
-                data->unk80++;
+                data->alphaBlend1--;
+                data->alphaBlend2++;
                 if (!subScreen)
                 {
-                    G2_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
+                    G2_SetBlendAlpha(planeMask, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1), data->alphaBlend1, data->alphaBlend2);
                 }
                 else
                 {
-                    G2S_SetBlendAlpha(planeMask, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1, data->unk7C, data->unk80);
+                    G2S_SetBlendAlpha(planeMask, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG1), data->alphaBlend1, data->alphaBlend2);
                 }
             }
             else
@@ -810,7 +811,7 @@ THUMB_FUNC BOOL MOD59_Timer(MOD59_IntroOverlayData *data, s32 timer)
 THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_IntroOverlayData *data, u32 layer, u32 paletteNum)
 {
     //TODO: messy hack to trick compiler, fix
-    BgTilemapRectChangePalette(data->bgConfig, layer & 0xFF, 0, 0, 32, 24, paletteNum);
+    BgTilemapRectChangePalette(data->bgConfig, layer & 0xFF, 0, 0, 32, 24, (u8)paletteNum);
     BgCommitTilemapBufferToVram(data->bgConfig, (u8)layer);
 }
 
@@ -861,6 +862,8 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, u3
 
 THUMB_FUNC void MOD59_PlaySelectSound(struct ListMenu *list, s32 index, u8 onInit)
 {
+#pragma unused(index)
+#pragma unused(list)
     if (onInit == 0)
     {
         PlaySE(SEQ_SE_DP_SELECT);
@@ -952,8 +955,8 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *dat
             {
                 template = MOD59_021D9D98;
                 u32 count = FUN_02002F90(data->string);
-                template.tilemapTop = 12 - count;
-                template.height = count * 2;
+                template.tilemapTop = (u8)(12 - count);
+                template.height = (u8)(count * 2);
                 AddWindow(data->bgConfig, &data->window, &template);
                 FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
                 AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, 0, MakeFontColor(1, 2, 0), NULL);
@@ -961,8 +964,8 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *dat
             else
             {
                 template = MOD59_021D9D90;
-                template.tilemapTop = tilemapTop;
-                template.height = height;
+                template.tilemapTop = (u8)tilemapTop;
+                template.height = (u8)height;
                 AddWindow(data->bgConfig, &data->window, &template);
                 FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
                 AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, 0, MakeFontColor(15, 2, 0), NULL);
@@ -2490,8 +2493,8 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
         case 67: //handle gender selection + animation
             if ((gMain.newKeys & PAD_BUTTON_A) == 1)
             {
-                data->unk7C = 6;
-                data->unk80 = 10;
+                data->alphaBlend1 = 6;
+                data->alphaBlend2 = 10;
                 data->fadeCounter = 2;
                 if (data->selectedGender == Male)
                 {

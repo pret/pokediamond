@@ -5,3 +5,8 @@
 .knarcorder eol=lf
 *.pal eol=crlf
 *.key binary
+*.NCGR binary
+*.NSCR binary
+*.NCLR binary
+*.NANR binary
+*.NCER binary

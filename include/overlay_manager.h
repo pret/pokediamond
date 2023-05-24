@@ -5,13 +5,13 @@
 
 struct OverlayManager;
 
-struct OverlayManagerTemplate
+typedef struct OverlayManagerTemplate
 {
     BOOL (*initFunc)(struct OverlayManager *manager, u32 *status);
     BOOL (*mainFunc)(struct OverlayManager *manager, u32 *status);
     BOOL (*exitFunc)(struct OverlayManager *manager, u32 *status);
     FSOverlayID ovly;
-};
+} OverlayManagerTemplate;
 
 struct OverlayManager
 {

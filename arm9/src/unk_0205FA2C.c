@@ -1,9 +1,10 @@
 #include "unk_0205FA2C.h"
 #include "unk_020337E8.h"
 #include "unk_0202A1E0.h"
+#include "overlay_manager.h"
 
-extern void *UNK_020F96DC;
-extern void *UNK_020FA6E8;
+extern OverlayManagerTemplate UNK_020F96DC;
+extern OverlayManagerTemplate UNK_020FA6E8;
 extern u32 FUN_02079C70(struct SaveBlock2 *sav2);
 extern void FUN_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[12]);
 extern void FUN_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, struct PlayerData *player_data);
@@ -54,7 +55,7 @@ THUMB_FUNC u32 FUN_0205FA2C(
         ptr->unk2c[i] = param0->unk0e[i];
     }
 
-    FUN_020373D4(fieldSystem, (u32)&UNK_020F96DC, (u32)ptr);
+    FUN_020373D4(fieldSystem, &UNK_020F96DC, ptr);
 
     *param0->unk14 = ptr;
 
@@ -124,7 +125,7 @@ THUMB_FUNC u32 FUN_0205FB34(
 
     FUN_0207C2A4(ptr, Sav2_PlayerData_GetProfileAddr(sav2));
 
-    FUN_020373D4(fieldSystem, (u32)&UNK_020FA6E8, (u32)ptr);
+    FUN_020373D4(fieldSystem, &UNK_020FA6E8, ptr);
 
     *param0->unk14 = ptr;
 

@@ -117,9 +117,9 @@ ASM_PROCESSOR := $(ASM_PROCESSOR_DIR)/compile.sh
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 MWASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-MWCFLAGS = -O4,p -gccext,on -proc arm946e -ipa file -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-MWCXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-MWLDFLAGS = -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start
+MWCFLAGS = -O4,p -gccext,on -proc arm946e -msgstyle gcc -gccinc -ipa file -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W noimpl_signedunsigned
+MWCXXFLAGS = -O4,p -proc arm946e -msgstyle gcc -gccinc -fp soft -lang c99 -Cpp_exceptions off $(foreach dir,$(INCLUDE_DIRS),-i $(dir)) $(foreach dir,$(INCLUDE_RECURSIVE_DIRS),-ir $(dir)) -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE) -W noimpl_signedunsigned
+MWLDFLAGS = -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start -msgstyle gcc
 LIBS := -Llib -lsyscall
 ARFLAGS = rcS
 STATIC_LIBS := $(addprefix $(BUILD_DIR)/lib/,libsyscall.a)

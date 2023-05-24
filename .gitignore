@@ -15,6 +15,9 @@ arm*/build/**
 .idea/
 cmake-build-*/
 
+# VSCode folders
+.vscode/
+
 # ROM
 *.srl
 
@@ -53,5 +56,6 @@ files/**/*.c
 
 # MacOS garbage
 .DS_Store
+
 #decomp.me helper files
 ctx.c
