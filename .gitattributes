@@ -2,4 +2,6 @@
 charmap.txt text eol=crlf
 m2ctx.sh text eol=lf
 
+*.png binary
+
 * text eol=crlf
