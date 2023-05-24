@@ -4,4 +4,10 @@ m2ctx.sh text eol=lf
 
 *.png binary
 
-* text eol=crlf
+*.c text eol=crlf
+*.h text eol=crlf
+*.cpp text eol=crlf
+*.hpp text eol=crlf
+*.s text eol=crlf
+.gitattributes text eol=crlf
+.gitignore text eol=crlf
