@@ -75,7 +75,7 @@ struct WindowTemplate
     u16 baseTile;
 };
 
-struct Window
+typedef struct Window
 {
     struct BgConfig *bgConfig;
     u8 bgId;
@@ -87,7 +87,7 @@ struct Window
     u16 baseTile : 15;
     u16 colorMode : 1;
     void *pixelBuffer;
-};
+} Window;
 
 enum GFBppMode
 {

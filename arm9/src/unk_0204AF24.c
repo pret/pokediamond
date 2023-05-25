@@ -50,7 +50,7 @@ THUMB_FUNC void FUN_0204AF84(struct TaskManager *taskManager)
 
 THUMB_FUNC BOOL FUN_0204AFB4(struct TaskManager *taskManager)
 {
-#pragma unused(arg0)
+#pragma unused(taskManager)
     if(FUN_0200E308())
     {
         return TRUE;

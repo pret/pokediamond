@@ -113,6 +113,7 @@ typedef enum ScriptEnvField {
     SCRIPTENV_ENGAGED_TRAINER_1_ENCOUNTER_TYPE,
     SCRIPTENV_ENGAGED_TRAINER_1_EVENT,
     SCRIPTENV_ENGAGED_TRAINER_1_FIELD_18,
+    SCRIPTENV_COIN_BOX, //differs from heartgold due to athlete points
 } ScriptEnvField;
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
