@@ -842,12 +842,12 @@ THUMB_FUNC BOOL ScrCmd_Unk0035(struct ScriptContext* ctx) //0035 - todo: FreezeM
 THUMB_FUNC BOOL ScrCmd_ScrollBg(struct ScriptContext* ctx) //003C
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 *xval = FieldSysGetAttrAddr(fieldSystem, 0x31);
-    u16 *xcnt = FieldSysGetAttrAddr(fieldSystem, 0x2d);
-    u16 *xdir = FieldSysGetAttrAddr(fieldSystem, 0x32);
-    u16 *yval = FieldSysGetAttrAddr(fieldSystem, 0x33);
-    u16 *ycnt = FieldSysGetAttrAddr(fieldSystem, 0x2e);
-    u16 *ydir = FieldSysGetAttrAddr(fieldSystem, 0x34);
+    u16 *xval = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_8008);
+    u16 *xcnt = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_8004);
+    u16 *xdir = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_8009);
+    u16 *yval = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_800A);
+    u16 *ycnt = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_8005);
+    u16 *ydir = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_800B);
 
     *xval = ScriptReadByte(ctx);
     *xcnt = ScriptReadByte(ctx);
@@ -863,12 +863,12 @@ THUMB_FUNC BOOL ScrCmd_ScrollBg(struct ScriptContext* ctx) //003C
 THUMB_FUNC static BOOL FUN_0203A6C8(struct ScriptContext* ctx)
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 *xval = FieldSysGetAttrAddr(fieldSystem, 0x31);
-    u16 *xdir = FieldSysGetAttrAddr(fieldSystem, 0x32);
-    u16 *yval = FieldSysGetAttrAddr(fieldSystem, 0x33);
-    u16 *ydir = FieldSysGetAttrAddr(fieldSystem, 0x34);
-    u16 *xcnt = FieldSysGetAttrAddr(fieldSystem, 0x2d);
-    u16 *ycnt = FieldSysGetAttrAddr(fieldSystem, 0x2e);
+    u16 *xval = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_8008);
+    u16 *xdir = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_8009);
+    u16 *yval = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_800A);
+    u16 *ydir = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_800B);
+    u16 *xcnt = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_8004);
+    u16 *ycnt = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_SPECIAL_VAR_8005);
 
     if (*xcnt == 0 && *ycnt == 0)
     {
