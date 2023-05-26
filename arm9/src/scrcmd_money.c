@@ -3,9 +3,9 @@
 
 extern void * FieldSysGetAttrAddr(struct FieldSystem *fieldSystem, u8 idx);
 
-extern u32 MOD05_021E27E8(struct FieldSystem *fieldSystem, u8, u8);
-extern void MOD05_021E288C(u32 *);
-extern void MOD05_021E28A0(struct FieldSystem *fieldSystem, u32 *);
+extern Window *MOD05_021E27E8(struct FieldSystem *fieldSystem, u8 xVal, u8 yVal);
+extern void MOD05_021E288C(Window *moneyBox);
+extern void MOD05_021E28A0(struct FieldSystem *fieldSystem, Window *moneyBox);
 
 THUMB_FUNC BOOL ScrCmd_GiveMoney(struct ScriptContext * ctx) //006F
 {
@@ -85,27 +85,27 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext * ctx) //01AB 
 THUMB_FUNC BOOL ScrCmd_ShowMoneyBox(struct ScriptContext * ctx) //0072
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    u16 unk1 = ScriptGetVar(ctx);
-    u16 unk2 = ScriptGetVar(ctx);
-    u32 *unk_ret_ptr = FieldSysGetAttrAddr(fieldSystem, 0x27);
+    u16 xVal = ScriptGetVar(ctx);
+    u16 yVal = ScriptGetVar(ctx);
+    Window **moneyBox = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MONEY_BOX);
 
-    *unk_ret_ptr = MOD05_021E27E8(ctx->fieldSystem, (u8)unk1, (u8)unk2);
+    *moneyBox = MOD05_021E27E8(ctx->fieldSystem, (u8)xVal, (u8)yVal);
 
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_HideMoneyBox(struct ScriptContext * ctx) //0073
 {
-    u32 ** unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x27);
-    MOD05_021E288C(*unk);
+    Window **moneyBox = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MONEY_BOX);
+    MOD05_021E288C(*moneyBox);
 
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_UpdateMoneyBox(struct ScriptContext * ctx) //0074
 {
-    u32 ** unk = FieldSysGetAttrAddr(ctx->fieldSystem, 0x27);
-    MOD05_021E28A0(ctx->fieldSystem, *unk);
+    Window **moneyBox = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MONEY_BOX);
+    MOD05_021E28A0(ctx->fieldSystem, *moneyBox);
 
     return FALSE;
 }
