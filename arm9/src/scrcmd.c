@@ -96,6 +96,7 @@ extern PartyMenuAppData *FUN_020379F8(u32 param0, struct FieldSystem *fieldSyste
 extern PartyMenuAppData *FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
 extern PartyMenuAppData *FUN_02037B44(struct TaskManager *taskManager, u32 param1);
 extern u16 FUN_02037A40(PartyMenuAppData *partyMenu);
+extern u16 FUN_02037A70(PartyMenuAppData *partyMenu);
 extern void *FUN_02037BB0(u32 param0, struct FieldSystem *fieldSystem, u16 param2, u16 param3, u16 param4, u16 param5);
 
 extern u8 UNK_021C5A0C[4];
@@ -1821,4 +1822,24 @@ THUMB_FUNC BOOL ScrCmd_Unk0194(ScriptContext *ctx) { //0194
     *runningAppData = FUN_02037BB0(0x20, ctx->fieldSystem, unk2, unk1, unk3, unk0);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0195(ScriptContext *ctx) { //0195
+    u16 *unk0 = ScriptGetVarPointer(ctx);
+    u16 *unk1 = ScriptGetVarPointer(ctx);
+    PartyMenuAppData **partyMenuData = (PartyMenuAppData **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    GF_ASSERT(*partyMenuData);
+
+    *unk0 = FUN_02037A40(*partyMenuData);
+
+    if (*unk0 == 7) {
+        *unk0 = 0xFF;
+    }
+
+    *unk1 = FUN_02037A70(*partyMenuData);
+    *unk1 = (*unk1 == 1);
+
+    FreeToHeap(*partyMenuData);
+    *partyMenuData = NULL;
+    return FALSE;
 }

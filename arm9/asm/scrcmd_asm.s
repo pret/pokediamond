@@ -14,62 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0195
-ScrCmd_Unk0195: ; 0x0203BA3C
-	push {r4-r6, lr}
-	add r4, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r6, r0, #0x0
-	add r0, r4, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r4, #0x80
-	add r5, r0, #0x0
-	ldr r0, [r4, #0x0]
-	mov r1, #0x13
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	ldr r0, [r4, #0x0]
-	cmp r0, #0x0
-	bne _0203BA7C
-	bl GF_AssertFail
-_0203BA7C:
-	ldr r0, [r4, #0x0]
-	bl FUN_02037A40
-	strh r0, [r6, #0x0]
-	ldrh r0, [r6, #0x0]
-	cmp r0, #0x7
-	bne _0203BA8E
-	mov r0, #0xff
-	strh r0, [r6, #0x0]
-_0203BA8E:
-	ldr r0, [r4, #0x0]
-	bl FUN_02037A70
-	strh r0, [r5, #0x0]
-	ldrh r0, [r5, #0x0]
-	cmp r0, #0x1
-	bne _0203BAA0
-	mov r0, #0x1
-	b _0203BAA2
-_0203BAA0:
-	mov r0, #0x0
-_0203BAA2:
-	strh r0, [r5, #0x0]
-	ldr r0, [r4, #0x0]
-	bl FreeToHeap
-	mov r0, #0x0
-	str r0, [r4, #0x0]
-	pop {r4-r6, pc}
-
 	thumb_func_start ScrCmd_Unk0196
 ScrCmd_Unk0196: ; 0x0203BAB0
 	push {r3-r5, lr}
