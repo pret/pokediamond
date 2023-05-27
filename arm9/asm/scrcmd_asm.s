@@ -6,44 +6,9 @@
 	.extern gMain
 	.extern FUN_0203A2F0
 	.extern FUN_0203BB90
+	.extern FUN_0203BBBC
 
 	.text
-
-	thumb_func_start FUN_0203BBBC
-FUN_0203BBBC: ; 0x0203BBBC
-	push {r4-r6, lr}
-	add r0, #0x80
-	ldr r5, [r0, #0x0]
-	mov r1, #0x13
-	add r0, r5, #0x0
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	ldr r6, [r4, #0x0]
-	bl FUN_0204647C
-	cmp r0, #0x0
-	beq _0203BBDC
-	mov r0, #0x0
-	pop {r4-r6, pc}
-_0203BBDC:
-	ldr r0, [r6, #0x8]
-	cmp r0, #0x1
-	bne _0203BBF4
-	mov r0, #0xb
-	bl FUN_02029048
-	add r5, #0x98
-	add r1, r0, #0x0
-	ldr r0, [r5, #0x0]
-	mov r2, #0x1
-	bl FUN_02028AD4
-_0203BBF4:
-	ldr r0, [r4, #0x0]
-	bl FreeToHeap
-	mov r0, #0x0
-	str r0, [r4, #0x0]
-	mov r0, #0x1
-	pop {r4-r6, pc}
-	.balign 4
 
 	thumb_func_start FUN_0203BC04
 FUN_0203BC04: ; 0x0203BC04

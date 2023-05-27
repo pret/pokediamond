@@ -101,6 +101,8 @@ extern void *FUN_02037BB0(u32 param0, struct FieldSystem *fieldSystem, u16 param
 extern void *FUN_02037C00(u32 param0, struct FieldSystem *fieldSystem, u16 param2);
 extern u16 FUN_02037A78(void *runningAppData);
 extern u16 MOD05_021E1858(struct FieldSystem *fieldSystem, LocalMapObject *event, u16 param2);
+extern u32 FUN_02029048(u32 param0);
+extern void FUN_02028AD4(u32 *param0, u32 param1, u32 param2);
 
 u8 UNK_021C5A0C[4];
 
@@ -127,6 +129,7 @@ static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *para
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 static BOOL FUN_0203B218(struct ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BB90(ScriptContext *ctx);
+/*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx);
 
 extern BOOL FUN_0203BC04(struct ScriptContext *ctx);
 
@@ -1880,18 +1883,22 @@ THUMB_FUNC BOOL ScrCmd_Unk009B(ScriptContext *ctx) { //009B
 }
 
 THUMB_FUNC BOOL ScrCmd_DummySetWeather(ScriptContext *ctx) { //009C
+#pragma unused(ctx)
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_DummyInitWeather(ScriptContext *ctx) { //009D
+#pragma unused(ctx)
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_DummyUpdateWeather(ScriptContext *ctx) { //009E
+#pragma unused(ctx)
     return TRUE;
 }
 
 THUMB_FUNC BOOL ScrCmd_DummyGetMapPosition(ScriptContext *ctx) { //009F
+#pragma unused(ctx)
     return FALSE;
 }
 
@@ -1904,5 +1911,20 @@ THUMB_FUNC /*static*/ BOOL FUN_0203BB90(ScriptContext *ctx) {
     }
     FreeToHeap(*runningAppData);
     *runningAppData = NULL;
+    return TRUE;
+}
+
+THUMB_FUNC /*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx) {
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    PCBoxAppData **pcBoxDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    PCBoxAppData *pcBoxData = *pcBoxDataPtr;
+    if (FUN_0204647C(fieldSystem)) {
+        return FALSE;
+    }
+    if (pcBoxData->unk08 == TRUE) {
+        FUN_02028AD4(fieldSystem->unk98, FUN_02029048(11), 1);
+    }
+    FreeToHeap(*pcBoxDataPtr);
+    *pcBoxDataPtr = NULL;
     return TRUE;
 }
