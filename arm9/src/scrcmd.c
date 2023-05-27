@@ -126,6 +126,7 @@ static BOOL IsAleventvementFinished(struct ScriptContext *ctx);
 static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 static BOOL FUN_0203B218(struct ScriptContext *ctx);
+/*static*/ BOOL FUN_0203BB90(ScriptContext *ctx);
 
 extern BOOL FUN_0203BC04(struct ScriptContext *ctx);
 
@@ -1876,4 +1877,32 @@ THUMB_FUNC BOOL ScrCmd_Unk009B(ScriptContext *ctx) { //009B
 
     *unk1 = MOD05_021E1858(ctx->fieldSystem, *lastInteracted, unk0);
     return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_DummySetWeather(ScriptContext *ctx) { //009C
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_DummyInitWeather(ScriptContext *ctx) { //009D
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_DummyUpdateWeather(ScriptContext *ctx) { //009E
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_DummyGetMapPosition(ScriptContext *ctx) { //009F
+    return FALSE;
+}
+
+THUMB_FUNC /*static*/ BOOL FUN_0203BB90(ScriptContext *ctx) {
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    void **runningAppData = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+
+    if (FUN_0204647C(fieldSystem)) {
+        return FALSE;
+    }
+    FreeToHeap(*runningAppData);
+    *runningAppData = NULL;
+    return TRUE;
 }

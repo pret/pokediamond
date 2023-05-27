@@ -5,51 +5,9 @@
 	.extern UNK_020F3538
 	.extern gMain
 	.extern FUN_0203A2F0
+	.extern FUN_0203BB90
 
 	.text
-
-	thumb_func_start ScrCmd_Unk009C
-ScrCmd_Unk009C: ; 0x0203BB80
-	mov r0, #0x0
-	bx lr
-
-	thumb_func_start ScrCmd_Unk009D
-ScrCmd_Unk009D: ; 0x0203BB84
-	mov r0, #0x0
-	bx lr
-
-	thumb_func_start ScrCmd_Unk009E
-ScrCmd_Unk009E: ; 0x0203BB88
-	mov r0, #0x1
-	bx lr
-
-	thumb_func_start ScrCmd_Unk009F
-ScrCmd_Unk009F: ; 0x0203BB8C
-	mov r0, #0x0
-	bx lr
-
-	thumb_func_start FUN_0203BB90
-FUN_0203BB90: ; 0x0203BB90
-	push {r3-r5, lr}
-	add r0, #0x80
-	ldr r5, [r0, #0x0]
-	mov r1, #0x13
-	add r0, r5, #0x0
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl FUN_0204647C
-	cmp r0, #0x0
-	beq _0203BBAE
-	mov r0, #0x0
-	pop {r3-r5, pc}
-_0203BBAE:
-	ldr r0, [r4, #0x0]
-	bl FreeToHeap
-	mov r0, #0x0
-	str r0, [r4, #0x0]
-	mov r0, #0x1
-	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0203BBBC
 FUN_0203BBBC: ; 0x0203BBBC

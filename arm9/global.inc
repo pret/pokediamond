@@ -2820,10 +2820,10 @@
 .extern ScrCmd_Unk0196
 .extern ScrCmd_Unk0197
 .extern ScrCmd_Unk009B
-.extern ScrCmd_Unk009C
-.extern ScrCmd_Unk009D
-.extern ScrCmd_Unk009E
-.extern ScrCmd_Unk009F
+.extern ScrCmd_DummySetWeather
+.extern ScrCmd_DummyInitWeather
+.extern ScrCmd_DummyUpdateWeather
+.extern ScrCmd_DummyGetMapPosition
 .extern FUN_0203BC04
 .extern ScrCmd_Unk00A1
 .extern ScrCmd_Unk01F8
