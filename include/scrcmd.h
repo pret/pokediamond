@@ -154,6 +154,7 @@ BOOL ScrCmd_UnionChoosePokemonMenu(struct ScriptContext *ctx);
 BOOL ScrCmd_GetSelectedPartySlot(struct ScriptContext *ctx);
 BOOL ScrCmd_Unk0194(ScriptContext *ctx);
 BOOL ScrCmd_Unk0195(ScriptContext *ctx);
+BOOL ScrCmd_Unk0196(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

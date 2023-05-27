@@ -6,44 +6,7 @@
 	.extern gMain
 	.extern FUN_0203A2F0
 
-	.section .bss
-
-	.global UNK_021C5A0C
-UNK_021C5A0C: ; 0x021C5A0C
-	.space 0x4
-
 	.text
-
-	thumb_func_start ScrCmd_Unk0196
-ScrCmd_Unk0196: ; 0x0203BAB0
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x13
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r1, r5, #0x0
-	add r1, #0x80
-	add r2, r0, #0x0
-	ldr r1, [r1, #0x0]
-	mov r0, #0x20
-	bl FUN_02037C00
-	str r0, [r4, #0x0]
-	ldr r1, _0203BAF0 ; =FUN_0203BC04
-	add r0, r5, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r3-r5, pc}
-	nop
-_0203BAF0: .word FUN_0203BC04 
 
 	thumb_func_start ScrCmd_Unk0197
 ScrCmd_Unk0197: ; 0x0203BAF4
