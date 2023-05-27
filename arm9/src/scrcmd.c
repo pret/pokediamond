@@ -99,6 +99,8 @@ extern u16 FUN_02037A40(PartyMenuAppData *partyMenu);
 extern u16 FUN_02037A70(PartyMenuAppData *partyMenu);
 extern void *FUN_02037BB0(u32 param0, struct FieldSystem *fieldSystem, u16 param2, u16 param3, u16 param4, u16 param5);
 extern void *FUN_02037C00(u32 param0, struct FieldSystem *fieldSystem, u16 param2);
+extern u16 FUN_02037A78(void *runningAppData);
+extern u16 MOD05_021E1858(struct FieldSystem *fieldSystem, LocalMapObject *event, u16 param2);
 
 u8 UNK_021C5A0C[4];
 
@@ -1852,4 +1854,26 @@ THUMB_FUNC BOOL ScrCmd_Unk0196(ScriptContext *ctx) { //0196
     *runningAppData = FUN_02037C00(0x20, ctx->fieldSystem, unk0);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0197(ScriptContext *ctx) { //0197
+    u16 *unk0 = ScriptGetVarPointer(ctx);
+    void **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+
+    GF_ASSERT(*runningAppData);
+
+    *unk0 = FUN_02037A78(*runningAppData);
+    FreeToHeap(*runningAppData);
+    *runningAppData = NULL;
+
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk009B(ScriptContext *ctx) { //009B
+    LocalMapObject **lastInteracted = (LocalMapObject **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 *unk1 = ScriptGetVarPointer(ctx);
+
+    *unk1 = MOD05_021E1858(ctx->fieldSystem, *lastInteracted, unk0);
+    return FALSE;
 }
