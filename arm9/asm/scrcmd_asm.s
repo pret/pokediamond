@@ -14,66 +14,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0194
-ScrCmd_Unk0194: ; 0x0203B9B4
-	push {r4-r7, lr}
-	sub sp, #0xc
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x13
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r7, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	str r0, [sp, #0x8]
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	str r0, [sp, #0x0]
-	add r1, r5, #0x0
-	str r6, [sp, #0x4]
-	add r1, #0x80
-	ldr r1, [r1, #0x0]
-	ldr r2, [sp, #0x8]
-	mov r0, #0x20
-	add r3, r7, #0x0
-	bl FUN_02037BB0
-	str r0, [r4, #0x0]
-	ldr r1, _0203BA38 ; =FUN_0203BC04
-	add r0, r5, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	add sp, #0xc
-	pop {r4-r7, pc}
-	.balign 4
-_0203BA38: .word FUN_0203BC04 
-
 	thumb_func_start ScrCmd_Unk0195
 ScrCmd_Unk0195: ; 0x0203BA3C
 	push {r4-r6, lr}

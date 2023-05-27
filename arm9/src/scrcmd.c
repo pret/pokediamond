@@ -96,6 +96,7 @@ extern PartyMenuAppData *FUN_020379F8(u32 param0, struct FieldSystem *fieldSyste
 extern PartyMenuAppData *FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
 extern PartyMenuAppData *FUN_02037B44(struct TaskManager *taskManager, u32 param1);
 extern u16 FUN_02037A40(PartyMenuAppData *partyMenu);
+extern void *FUN_02037BB0(u32 param0, struct FieldSystem *fieldSystem, u16 param2, u16 param3, u16 param4, u16 param5);
 
 extern u8 UNK_021C5A0C[4];
 
@@ -1671,7 +1672,7 @@ THUMB_FUNC BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx) //00
     u16 *xVar = ScriptGetVarPointer(ctx);
     u16 *yVar = ScriptGetVarPointer(ctx);
 
-    *xVar = FUN_02058B2C(event);
+    *xVar = (u16)FUN_02058B2C(event);
     *yVar = FUN_02058B4C(event);
     return FALSE;
 }
@@ -1808,4 +1809,16 @@ THUMB_FUNC BOOL ScrCmd_GetSelectedPartySlot(struct ScriptContext *ctx) { //0193
     FreeToHeap(*partyMenu);
     *partyMenu = NULL;
     return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0194(ScriptContext *ctx) { //0194
+    void **runningAppData = (void **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    u16 unk2 = ScriptGetVar(ctx);
+    u16 unk3 = ScriptGetVar(ctx);
+
+    *runningAppData = FUN_02037BB0(0x20, ctx->fieldSystem, unk2, unk1, unk3, unk0);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
 }
