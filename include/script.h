@@ -33,6 +33,12 @@ typedef struct LocalMapObject { //todo move to local_map_object.c
 
 typedef struct PartyMenuAppData PartyMenuAppData; //todo move to own file
 
+typedef struct PCBoxAppData {
+    struct SaveBlock2 *save;
+    void *unk04;
+    BOOL unk08;
+} PCBoxAppData; //todo move to own file
+
 struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;
@@ -52,7 +58,7 @@ struct FieldSystem //todo move to field_system.c
     u8 padding5[0x14];
     u32 unk78;
     u8 padding6[0x1C];
-    void *unk98;
+    u32 *unk98;
     u8 padding7[0xC];
     struct UnkStruct_02046444 * unkA8;
 };

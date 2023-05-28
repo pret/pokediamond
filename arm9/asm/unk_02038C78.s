@@ -305,10 +305,10 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_PartyMonHasMove
 	.word ScrCmd_FindPartyMonWithMove
 	.word ScrCmd_Unk009B
-	.word ScrCmd_Unk009C
-	.word ScrCmd_Unk009D
-	.word ScrCmd_Unk009E
-	.word ScrCmd_Unk009F
+	.word ScrCmd_DummySetWeather
+	.word ScrCmd_DummyInitWeather
+	.word ScrCmd_DummyUpdateWeather
+	.word ScrCmd_DummyGetMapPosition
 	.word ScrCmd_Unk00A0
 	.word ScrCmd_Unk00A1
 	.word ScrCmd_Unk00A2

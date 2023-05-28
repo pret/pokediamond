@@ -67,9 +67,9 @@ BOOL FUN_0204646C(struct TaskManager *taskManager)
     return (taskManager->unk10 != NULL);
 }
 
-BOOL FUN_0204647C(void * r4)
+BOOL FUN_0204647C(struct FieldSystem *fieldSystem)
 {
-    return (FUN_0203739C(r4) || FUN_020373C4(r4));
+    return (FUN_0203739C(fieldSystem) || FUN_020373C4(fieldSystem));
 }
 
 void FUN_0204649C(void * r0)

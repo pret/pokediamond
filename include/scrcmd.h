@@ -152,6 +152,15 @@ BOOL ScrCmd_ChoosePokemonMenu(struct ScriptContext *ctx);
 BOOL ScrCmd_OpenTradeScreen(struct ScriptContext *ctx);
 BOOL ScrCmd_UnionChoosePokemonMenu(struct ScriptContext *ctx);
 BOOL ScrCmd_GetSelectedPartySlot(struct ScriptContext *ctx);
+BOOL ScrCmd_Unk0194(ScriptContext *ctx);
+BOOL ScrCmd_Unk0195(ScriptContext *ctx);
+BOOL ScrCmd_Unk0196(ScriptContext *ctx);
+BOOL ScrCmd_Unk0197(ScriptContext *ctx);
+BOOL ScrCmd_Unk009B(ScriptContext *ctx);
+BOOL ScrCmd_DummySetWeather(ScriptContext *ctx);
+BOOL ScrCmd_DummyInitWeather(ScriptContext *ctx);
+BOOL ScrCmd_DummyUpdateWeather(ScriptContext *ctx);
+BOOL ScrCmd_DummyGetMapPosition(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
@@ -397,7 +406,7 @@ BOOL ScrCmd_TakeUndergroundSphere(struct ScriptContext* ctx);
 BOOL ScrCmd_HasSpaceForSphere(struct ScriptContext* ctx);
 BOOL ScrCmd_GetSphereCount(struct ScriptContext* ctx);
 
-//scrcmd_24.c
+//scrcmd_move_relearner.c
 BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx);
 BOOL ScrCmd_Unk021E(struct ScriptContext* ctx);

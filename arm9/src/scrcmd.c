@@ -96,8 +96,15 @@ extern PartyMenuAppData *FUN_020379F8(u32 param0, struct FieldSystem *fieldSyste
 extern PartyMenuAppData *FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
 extern PartyMenuAppData *FUN_02037B44(struct TaskManager *taskManager, u32 param1);
 extern u16 FUN_02037A40(PartyMenuAppData *partyMenu);
+extern u16 FUN_02037A70(PartyMenuAppData *partyMenu);
+extern void *FUN_02037BB0(u32 param0, struct FieldSystem *fieldSystem, u16 param2, u16 param3, u16 param4, u16 param5);
+extern void *FUN_02037C00(u32 param0, struct FieldSystem *fieldSystem, u16 param2);
+extern u16 FUN_02037A78(void *runningAppData);
+extern u16 MOD05_021E1858(struct FieldSystem *fieldSystem, LocalMapObject *event, u16 param2);
+extern u32 FUN_02029048(u32 param0);
+extern void FUN_02028AD4(u32 *param0, u32 param1, u32 param2);
 
-extern u8 UNK_021C5A0C[4];
+u8 UNK_021C5A0C[4];
 
 extern u8 *UNK_020F34E0;
 
@@ -121,6 +128,8 @@ static BOOL IsAleventvementFinished(struct ScriptContext *ctx);
 static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 static BOOL FUN_0203B218(struct ScriptContext *ctx);
+/*static*/ BOOL FUN_0203BB90(ScriptContext *ctx);
+/*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx);
 
 extern BOOL FUN_0203BC04(struct ScriptContext *ctx);
 
@@ -1671,8 +1680,8 @@ THUMB_FUNC BOOL ScrCmd_GetOverworldEventPosition(struct ScriptContext *ctx) //00
     u16 *xVar = ScriptGetVarPointer(ctx);
     u16 *yVar = ScriptGetVarPointer(ctx);
 
-    *xVar = FUN_02058B2C(event);
-    *yVar = FUN_02058B4C(event);
+    *xVar = (u16)FUN_02058B2C(event);
+    *yVar = (u16)FUN_02058B4C(event);
     return FALSE;
 }
 
@@ -1808,4 +1817,114 @@ THUMB_FUNC BOOL ScrCmd_GetSelectedPartySlot(struct ScriptContext *ctx) { //0193
     FreeToHeap(*partyMenu);
     *partyMenu = NULL;
     return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0194(ScriptContext *ctx) { //0194
+    void **runningAppData = (void **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    u16 unk2 = ScriptGetVar(ctx);
+    u16 unk3 = ScriptGetVar(ctx);
+
+    *runningAppData = FUN_02037BB0(0x20, ctx->fieldSystem, unk2, unk1, unk3, unk0);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0195(ScriptContext *ctx) { //0195
+    u16 *unk0 = ScriptGetVarPointer(ctx);
+    u16 *unk1 = ScriptGetVarPointer(ctx);
+    PartyMenuAppData **partyMenuData = (PartyMenuAppData **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    GF_ASSERT(*partyMenuData);
+
+    *unk0 = FUN_02037A40(*partyMenuData);
+
+    if (*unk0 == 7) {
+        *unk0 = 0xFF;
+    }
+
+    *unk1 = FUN_02037A70(*partyMenuData);
+    *unk1 = (*unk1 == 1);
+
+    FreeToHeap(*partyMenuData);
+    *partyMenuData = NULL;
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0196(ScriptContext *ctx) { //0196
+    void **runningAppData = (void **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    u16 unk0 = ScriptGetVar(ctx);
+
+    *runningAppData = FUN_02037C00(0x20, ctx->fieldSystem, unk0);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0197(ScriptContext *ctx) { //0197
+    u16 *unk0 = ScriptGetVarPointer(ctx);
+    void **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+
+    GF_ASSERT(*runningAppData);
+
+    *unk0 = FUN_02037A78(*runningAppData);
+    FreeToHeap(*runningAppData);
+    *runningAppData = NULL;
+
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk009B(ScriptContext *ctx) { //009B
+    LocalMapObject **lastInteracted = (LocalMapObject **)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 *unk1 = ScriptGetVarPointer(ctx);
+
+    *unk1 = MOD05_021E1858(ctx->fieldSystem, *lastInteracted, unk0);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_DummySetWeather(ScriptContext *ctx) { //009C
+#pragma unused(ctx)
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_DummyInitWeather(ScriptContext *ctx) { //009D
+#pragma unused(ctx)
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_DummyUpdateWeather(ScriptContext *ctx) { //009E
+#pragma unused(ctx)
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_DummyGetMapPosition(ScriptContext *ctx) { //009F
+#pragma unused(ctx)
+    return FALSE;
+}
+
+THUMB_FUNC /*static*/ BOOL FUN_0203BB90(ScriptContext *ctx) {
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    void **runningAppData = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+
+    if (FUN_0204647C(fieldSystem)) {
+        return FALSE;
+    }
+    FreeToHeap(*runningAppData);
+    *runningAppData = NULL;
+    return TRUE;
+}
+
+THUMB_FUNC /*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx) {
+    struct FieldSystem *fieldSystem = ctx->fieldSystem;
+    PCBoxAppData **pcBoxDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    PCBoxAppData *pcBoxData = *pcBoxDataPtr;
+    if (FUN_0204647C(fieldSystem)) {
+        return FALSE;
+    }
+    if (pcBoxData->unk08 == TRUE) {
+        FUN_02028AD4(fieldSystem->unk98, FUN_02029048(11), 1);
+    }
+    FreeToHeap(*pcBoxDataPtr);
+    *pcBoxDataPtr = NULL;
+    return TRUE;
 }

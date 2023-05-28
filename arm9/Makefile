@@ -24,10 +24,10 @@ default: all
 
 # If you are using WSL, it is recommended you build with NOWINE=1.
 WSLENV ?= no
-ifeq ($(WSLENV),)
-NOWINE = 1
-else
+ifeq ($(WSLENV),no)
 NOWINE = 0
+else
+NOWINE = 1
 endif
 
 ifeq ($(OS),Windows_NT)

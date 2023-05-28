@@ -23,8 +23,8 @@ struct TaskManager
 extern void LoadOverlay_MODULE_05(void *);
 extern void FUN_020373D4(struct FieldSystem *, struct OverlayManagerTemplate *, void*);
 extern BOOL FUN_020373AC(void *);
-extern BOOL FUN_0203739C(void *);
-extern BOOL FUN_020373C4(void *);
+extern BOOL FUN_0203739C(struct FieldSystem *fieldSystem);
+extern BOOL FUN_020373C4(struct FieldSystem *fieldSystem);
 
 struct TaskManager *FieldSys_CreateTask(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env);
 void FUN_020463CC(struct FieldSystem *fieldSystem, TaskFunc taskFunc, void *env);
@@ -32,7 +32,7 @@ void FUN_020463EC(struct TaskManager *taskManager, TaskFunc taskFunc, void *env)
 void FUN_0204640C(struct TaskManager *taskManager, TaskFunc taskFunc, void *env);
 BOOL FUN_02046420(struct TaskManager *taskManager);
 BOOL FUN_0204646C(struct TaskManager *taskManager);
-BOOL FUN_0204647C(void * r4);
+BOOL FUN_0204647C(struct FieldSystem *fieldSystem);
 void FUN_0204649C(void * r0);
 BOOL FUN_020464A4(void * r0);
 BOOL FUN_020464B8(struct TaskManager *taskManager);
