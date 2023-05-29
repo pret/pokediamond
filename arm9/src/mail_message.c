@@ -4,6 +4,7 @@
 #include "msgdata.h"
 #include "msgdata/msg.naix"
 #include "string_control_code.h"
+#include "constants/easy_chat.h"
 
 #pragma thumb on
 
@@ -19,7 +20,7 @@ struct UnkStruct_020ED556
 
 extern u16 GetECWordIndexByPair(s16 bank, u16 num);
 
-const u16 UNK_020ED54C[] = {
+static const u16 sMessageBanks[] = {
     NARC_msg_narc_0397_bin,
     NARC_msg_narc_0399_bin,
     NARC_msg_narc_0395_bin,
@@ -37,10 +38,10 @@ const struct UnkStruct_020ED556 UNK_020ED556[] = {
 void MailMsg_init(struct MailMessage * mailMsg)
 {
     s32 i;
-    mailMsg->msg_bank = 0xFFFF;
+    mailMsg->msg_bank = MAILMSG_BANK_NONE;
     for (i = 0; i < 2; i++)
     {
-        mailMsg->fields[i] = 0xFFFF;
+        mailMsg->fields[i] = EC_WORD_NULL;
     }
 }
 
@@ -49,9 +50,9 @@ void MailMsg_init_withBank(struct MailMessage * mailMsg, u16 bank)
     s32 i;
     mailMsg->msg_bank = bank;
     mailMsg->msg_no = 0;
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < MAILMSG_FIELDS_MAX; i++)
     {
-        mailMsg->fields[i] = 0xFFFF;
+        mailMsg->fields[i] = EC_WORD_NULL;
     }
 }
 
@@ -81,13 +82,13 @@ struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, u32 heap
     MessageFormat * messageFormat = MessageFormat_new(heap_id);
     struct MsgData * msgData;
     struct String * ret;
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < MAILMSG_FIELDS_MAX; i++)
     {
-        if (mailMsg->fields[i] == 0xFFFF)
+        if (mailMsg->fields[i] == EC_WORD_NULL)
             break;
-        FUN_0200B518(messageFormat, (u32)i, mailMsg->fields[i]);
+        BufferECWord(messageFormat, (u32)i, mailMsg->fields[i]);
     }
-    msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, UNK_020ED54C[mailMsg->msg_bank], heap_id);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], heap_id);
     ret = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heap_id);
     DestroyMsgData(msgData);
     MessageFormat_delete(messageFormat);
@@ -96,12 +97,12 @@ struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, u32 heap
 
 struct String * MailMsg_GetRawString(struct MailMessage * mailMsg, u32 heap_id)
 {
-    return ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, UNK_020ED54C[mailMsg->msg_bank], mailMsg->msg_no, heap_id);
+    return ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], mailMsg->msg_no, heap_id);
 }
 
 BOOL MailMsg_IsInit(struct MailMessage * mailMsg)
 {
-    return mailMsg->msg_bank != 0xFFFF;
+    return mailMsg->msg_bank != MAILMSG_BANK_NONE;
 }
 
 BOOL MailMsg_AllFieldsAreInit(struct MailMessage * mailMsg)
@@ -110,7 +111,7 @@ BOOL MailMsg_AllFieldsAreInit(struct MailMessage * mailMsg)
     u32 n = MailMsg_NumFields(mailMsg->msg_bank, mailMsg->msg_no);
     for (i = 0; i < n; i++)
     {
-        if (mailMsg->fields[i] == 0xFFFF)
+        if (mailMsg->fields[i] == EC_WORD_NULL)
             return FALSE;
     }
     return TRUE;
@@ -121,14 +122,14 @@ u32 MailMsg_NumFields(u16 bank, u16 num)
     struct String * str;
     const u16 * cstr;
     u32 count;
-    GF_ASSERT(bank < 5);
+    GF_ASSERT(bank < NELEMS(sMessageBanks));
     GF_ASSERT(num < MailMsg_NumMsgsInBank(bank));
-    str = ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, UNK_020ED54C[bank], num, 0);
+    str = ReadMsgData_NewNarc_NewString(NARC_MSGDATA_MSG, sMessageBanks[bank], num, 0);
     cstr = String_c_str(str);
     count = 0;
     while (*cstr != EOS)
     {
-        if (*cstr == 0xFFFE)
+        if (*cstr == EXT_CTRL_CODE_BEGIN)
         {
             if (MsgArray_ControlCodeIsStrVar(cstr))
                 count++;
@@ -161,7 +162,7 @@ BOOL MailMsg_compare(const struct MailMessage *mailMsg, const struct MailMessage
     s32 i;
     if (mailMsg->msg_bank != a1->msg_bank || mailMsg->msg_no != a1->msg_no)
         return FALSE;
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < MAILMSG_FIELDS_MAX; i++)
     {
         if (mailMsg->fields[i] != a1->fields[i])
             return FALSE;
@@ -176,27 +177,27 @@ void MailMsg_copy(struct MailMessage * mailMsg, const struct MailMessage * a1)
 
 u32 MailMsg_NumMsgsInBank(u16 bank)
 {
-    return (u32)((bank < 5) ? 20 : 0);
+    return (u32)((bank < NELEMS(sMessageBanks)) ? 20 : 0);
 }
 
 void MailMsg_SetMsgBankAndNum(struct MailMessage * mailMsg, u16 bank, u16 num)
 {
-    GF_ASSERT(bank < 5);
+    GF_ASSERT(bank < NELEMS(sMessageBanks));
     mailMsg->msg_bank = bank;
     mailMsg->msg_no = num;
 }
 
 void MailMsg_SetFieldI(struct MailMessage * mailMsg, u32 idx, u16 word)
 {
-    GF_ASSERT(idx < 2);
+    GF_ASSERT(idx < MAILMSG_FIELDS_MAX);
     mailMsg->fields[idx] = word;
 }
 
 void MailMsg_SetTrailingFieldsEmpty(struct MailMessage * mailMsg)
 {
     u32 n;
-    for (n = MailMsg_NumFields(mailMsg->msg_bank, mailMsg->msg_no); n < 2; n++)
+    for (n = MailMsg_NumFields(mailMsg->msg_bank, mailMsg->msg_no); n < MAILMSG_FIELDS_MAX; n++)
     {
-        mailMsg->fields[n] = 0xFFFF;
+        mailMsg->fields[n] = EC_WORD_NULL;
     }
 }

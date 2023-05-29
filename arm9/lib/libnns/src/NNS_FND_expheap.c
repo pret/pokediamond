@@ -1,11 +1,6 @@
 #include "global.h"
 #include "NNS_FND_expheap.h"
 
-typedef struct NNSiMemRegion {
-    void* start;
-    void* end;
-} NNSiMemRegion;
-
 static inline u16 GetAlignmentForMBlock(NNSiFndExpHeapMBlockHead* block)
 {
     return NNSi_FndGetBitValue(block->attribute, 8, 7);
@@ -304,7 +299,7 @@ ARM_FUNC BOOL RecycleRegion(NNSiFndExpHeapHead* pEHHead, const NNSiMemRegion* pR
     }
     if (GetOffsetFromPtr(freeRgn.start, freeRgn.end) < sizeof(NNSiFndExpHeapMBlockHead))
         return FALSE;
-    InsertMBlock(&pEHHead->mbFreeList, InitFreeMBlock(&freeRgn), pBlkPtrFree);
+    (void)InsertMBlock(&pEHHead->mbFreeList, InitFreeMBlock(&freeRgn), pBlkPtrFree);
     return TRUE;
 }
 

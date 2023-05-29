@@ -17,7 +17,7 @@ ARM_FUNC void G2x_SetBlendAlpha_(u32 *ptr, GXBlendPlaneMask plane1, GXBlendPlane
     *ptr = (u32)(((plane1 | 0x40) | (plane2 << 0x8)) | ((c | (d << 0x8)) << 0x10));
 }
 
-ARM_FUNC void G2x_SetBlendBrightness_(u16 *ptr, fx32 a, fx32 brightness){
+ARM_FUNC void G2x_SetBlendBrightness_(volatile u16 *ptr, fx32 a, fx32 brightness){
     if (brightness < 0)
     {
         ptr[0] = (u16)(a | 0xC0);

@@ -231,4 +231,6 @@ static inline void GXS_SetOBJVRamModeChar(GXOBJVRamModeChar mode)
     reg_GXS_DB_DISPCNT = (u32)(reg_GXS_DB_DISPCNT & ~(REG_GXS_DB_DISPCNT_EXOBJ_CH_MASK | REG_GXS_DB_DISPCNT_OBJMAP_CH_MASK) | mode);
 }
 
+#define GX_DEFAULT_DMAID 3
+
 #endif //GUARD_GX_H

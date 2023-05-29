@@ -89,7 +89,7 @@ BOOL FUN_020464B8(struct TaskManager *taskManager)
     switch (r4_2[0])
     {
     case 0:
-        FUN_020373D4(fieldSystem, r4_2[1], r4_2[2]);
+        FUN_020373D4(fieldSystem, (struct OverlayManagerTemplate *)r4_2[1], (void *)r4_2[2]); //FIXME: typing is wrong
         r4_2[0]++;
         break;
     case 1:

@@ -422,7 +422,7 @@ _021D7844:
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x2a
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r0, #4
 	mov r1, #0
 	bl BG_SetMaskColor

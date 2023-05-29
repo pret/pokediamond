@@ -2,9 +2,11 @@
 #include "bag_view.h"
 #include "coins.h"
 #include "constants/items.h"
+#include "constants/seal_constants.h"
 #include "heap.h"
 #include "message_format.h"
 #include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "player_data.h"
 #include "seal.h"
 #include "unk_0202A1E0.h"
@@ -13,7 +15,10 @@ extern u32 *FUN_0202708C(u32 *);
 extern u32 FUN_02027168(u32 *);
 extern u16 FUN_02027184(u32 *);
 extern u32 *FUN_02027E24(struct SaveBlock2 *sav2);
-extern u8 FUN_02029E2C(struct SealCase *, u32);
+extern u8 SealCase_CountSealOccurrenceAnywhere(struct SealCase *, u32);
+
+static u32 GetCoinCount(struct SaveBlock2 *sav2);
+static u32 GetSealCount(struct SaveBlock2 *sav2);
 
 THUMB_FUNC struct BagView *BagView_New(u8 heap_id)
 {
@@ -90,25 +95,26 @@ THUMB_FUNC u8 FUN_0206E394(struct BagView *bag_view)
     return bag_view->unk75;
 }
 
-THUMB_FUNC u32 FUN_0206E39C(struct SaveBlock2 *sav2)
+THUMB_FUNC static u32 GetCoinCount(struct SaveBlock2 *sav2)
 {
     return (u32)CheckCoins(Sav2_PlayerData_GetCoinsAddr(sav2));
 }
 
-THUMB_FUNC u32 FUN_0206E3A8(struct SaveBlock2 *sav2)
+THUMB_FUNC static u32 GetSealCount(struct SaveBlock2 *sav2)
 {
     struct SealCase *seal_case = Sav2_SealCase_get(sav2);
     u32 i;
     u32 count = 0;
 
-    for (i = 1; i <= 0x50; ++i)
+    for (i = SEAL_MIN; i <= SEAL_MAX; ++i)
     {
-        count += FUN_02029E2C(seal_case, i);
+        count += SealCase_CountSealOccurrenceAnywhere(seal_case, i);
     }
 
     return count;
 }
 
+//todo: do these match up with HG?
 THUMB_FUNC u32 FUN_0206E3C8(struct SaveBlock2 *sav2)
 {
     return FUN_02027168(FUN_0202708C(FUN_02027E24(sav2)));
@@ -124,9 +130,9 @@ THUMB_FUNC u32 FUN_0206E3E8(struct SaveBlock2 *sav2)
     return SaveStruct23_Substruct2_SetField_0x0(SaveStruct23_GetSubstruct2(sav2), 0, DATA_GET);
 }
 
-THUMB_FUNC BOOL FUN_0206E3F8(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id)
+THUMB_FUNC BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id)
 {
-    struct MsgData *msgData = NewMsgDataFromNarc(0, NARC_MSGDATA_MSG, 7, heap_id);
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
     MessageFormat *messageFormat = MessageFormat_new(heap_id);
     struct String *string;
 
@@ -138,26 +144,26 @@ THUMB_FUNC BOOL FUN_0206E3F8(struct SaveBlock2 *sav2, struct String *dest, u32 i
     {
         string = NewString_ReadMsgData(msgData, 0x61);
 
-        BufferIntegerAsString(messageFormat, 0, FUN_0206E3E8(sav2), 4, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 0, FUN_0206E3E8(sav2), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_SEAL_CASE)
     {
         string = NewString_ReadMsgData(msgData, 0x5C);
 
-        BufferIntegerAsString(messageFormat, 0, FUN_0206E3A8(sav2), 4, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 0, GetSealCount(sav2), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_FASHION_CASE)
     {
         string = NewString_ReadMsgData(msgData, 0x5D);
 
-        BufferIntegerAsString(messageFormat, 0, FUN_0206E3C8(sav2), 3, 0, TRUE);
-        BufferIntegerAsString(messageFormat, 1, FUN_0206E3D8(sav2), 2, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 0, FUN_0206E3C8(sav2), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 1, FUN_0206E3D8(sav2), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_COIN_CASE)
     {
         string = NewString_ReadMsgData(msgData, 0x39);
 
-        BufferIntegerAsString(messageFormat, 0, FUN_0206E39C(sav2), 5, 0, TRUE);
+        BufferIntegerAsString(messageFormat, 0, GetCoinCount(sav2), 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else
     {
@@ -175,7 +181,7 @@ THUMB_FUNC BOOL FUN_0206E3F8(struct SaveBlock2 *sav2, struct String *dest, u32 i
     return TRUE;
 }
 
-THUMB_FUNC void FUN_0206E51C(
+THUMB_FUNC void FUN_0206E51C( //todo: sync with HG
     struct PlayerData *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id)
 {
 #pragma unused(r2)
@@ -184,19 +190,19 @@ THUMB_FUNC void FUN_0206E51C(
     switch (r3)
     {
     case 1:
-        msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 7, heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 7, heap_id);
 
         ReadMsgDataIntoString(msgData, 0x38, dest);
         DestroyMsgData(msgData);
         return;
     case 2:
-        msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 7, heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 7, heap_id);
 
         ReadMsgDataIntoString(msgData, 0x6F, dest);
         DestroyMsgData(msgData);
         return;
     default:
-        msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 0xC7, heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 0xC7, heap_id);
         MessageFormat *messageFormat = MessageFormat_new(heap_id);
         struct String *src = NewString_ReadMsgData(msgData, 0x24);
 

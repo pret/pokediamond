@@ -680,7 +680,7 @@ MOD58_021D9F14: ; 0x021D9F14
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0

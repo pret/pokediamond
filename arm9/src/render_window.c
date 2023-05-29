@@ -86,8 +86,7 @@ THUMB_FUNC s32 FUN_0200CAFC(void)
     return NARC_winframe_narc_0024_NCLR;
 }
 
-THUMB_FUNC void FUN_0200CB00(
-    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 param3, u8 frame_id, u32 heap_id)
+THUMB_FUNC void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer layer, u32 num_tiles, u32 paletteNumber, u8 frame_id, u32 heap_id)
 {
     s32 r1;
     if (frame_id != 0)
@@ -99,8 +98,7 @@ THUMB_FUNC void FUN_0200CB00(
         r1 = NARC_winframe_narc_0000_NCGR;
     }
 
-    GfGfxLoader_LoadCharData(
-        NARC_GRAPHIC_WINFRAME, r1, bg_config, layer, num_tiles, 0, FALSE, heap_id);
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_WINFRAME, r1, bg_config, layer, num_tiles, 0, FALSE, heap_id);
 
     if (frame_id == 2)
     {
@@ -111,13 +109,13 @@ THUMB_FUNC void FUN_0200CB00(
         r1 = NARC_winframe_narc_0024_NCLR;
     }
 
-    if (layer < 4)
+    if ((u32)layer < 4)
     {
-        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, 0, param3 << 5, 32, heap_id);
+        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(paletteNumber << 5), 32, heap_id);
         return;
     }
 
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, 4, param3 << 5, 32, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(paletteNumber << 5), 32, heap_id);
 }
 
 THUMB_FUNC void DrawFrame1(struct BgConfig *bgConfig,
@@ -199,12 +197,11 @@ THUMB_FUNC void FUN_0200CD68(
 
     if (layer < 4)
     {
-        GfGfxLoader_GXLoadPal(
-            NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), 0, param3 << 5, 32, heap_id);
+        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(param3 << 5), 32, heap_id);
         return;
     }
 
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), 4, param3 << 5, 32, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(param3 << 5), 32, heap_id);
 }
 
 THUMB_FUNC void DrawFrame2(struct BgConfig *bgConfig,

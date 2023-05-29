@@ -72,9 +72,9 @@ _021D74F6:
 	ldr r0, [r4]
 	bl MOD54_021D7894
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #1
@@ -784,7 +784,7 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0

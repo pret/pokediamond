@@ -178,14 +178,14 @@ THUMB_FUNC u32 FUN_02008C9C(u32 param0, void *param1, u32 param2)
     st0[1] = 0;
     st0[2] = 0xFF000;
     st0[3] = 0xC0000;
-    FUN_02009FD8(param1 + 0x98, st0, 1, param1);
+    FUN_02009FD8(param1 + 0x98, st0, 1, (u32)param1);
 
     st0[0] = 0;
     st0[1] = 0xC0000;
     st0[2] = 0xFF000;
     st0[3] = 0xC0000;
 
-    FUN_02009FD8(param1 + 0xe0, st0, 2, param1);
+    FUN_02009FD8(param1 + 0xe0, st0, 2, (u32)param1);
 
     st10[0] = param0;
     st10[1] = (u32)param1;

@@ -5913,11 +5913,11 @@ MOD73_021DA2AC: ; 0x021DA2AC
 	ldr r0, [r7, #4]
 	mov r2, #0x1f
 	mov r3, #1
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, [sp, #0x14]
 	mov r0, #0
 	mov r1, #0x60
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	ldr r5, _021DA350 ; =0x021DBF80
 	mov r6, #0
 	add r4, r7, #0

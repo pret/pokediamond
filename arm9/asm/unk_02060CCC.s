@@ -2142,7 +2142,7 @@ FUN_02061C00: ; 0x02061C00
 	ldrh r2, [r4, #0x4]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200B518
+	bl BufferECWord
 	ldrb r0, [r4, #0x1]
 	cmp r0, #0x1
 	bne _02061C42
@@ -2238,7 +2238,7 @@ FUN_02061CA8: ; 0x02061CA8
 	ldrh r2, [r4, #0x1c]
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl FUN_0200B518
+	bl BufferECWord
 	add sp, #0x8
 	mov r0, #0xa
 	pop {r4-r6, pc}
@@ -2259,7 +2259,7 @@ _02061D00:
 	ldrh r2, [r4, #0x1c]
 	add r0, r5, #0x0
 	mov r1, #0x3
-	bl FUN_0200B518
+	bl BufferECWord
 	mov r0, #0xb
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -2319,7 +2319,7 @@ FUN_02061D74: ; 0x02061D74
 	ldrh r2, [r4, #0x4]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200B518
+	bl BufferECWord
 	mov r0, #0x10
 	pop {r4-r6, pc}
 
@@ -2400,7 +2400,7 @@ FUN_02061DE4: ; 0x02061DE4
 	ldrh r2, [r4, #0xa]
 	add r0, r5, #0x0
 	mov r1, #0x5
-	bl FUN_0200B518
+	bl BufferECWord
 	ldrb r0, [r4, #0x9]
 	cmp r0, #0x1
 	bne _02061E5A
@@ -2468,7 +2468,7 @@ FUN_02061EAC: ; 0x02061EAC
 	ldrh r2, [r4, #0x2]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200B518
+	bl BufferECWord
 	mov r0, #0x14
 	pop {r4-r6, pc}
 
@@ -2561,7 +2561,7 @@ FUN_02061F60: ; 0x02061F60
 	ldrh r2, [r6, #0x2]
 	add r0, r5, #0x0
 	mov r1, #0x2
-	bl FUN_0200B518
+	bl BufferECWord
 	sub r4, #0x19
 	cmp r4, #0x3
 	bhi _02061FB8
@@ -2652,7 +2652,7 @@ FUN_02061FF8: ; 0x02061FF8
 	ldrh r2, [r4, #0x24]
 	add r0, r5, #0x0
 	mov r1, #0x5
-	bl FUN_0200B518
+	bl BufferECWord
 	ldrb r0, [r4, #0x1f]
 	cmp r0, #0x0
 	beq _0206204A
@@ -2783,7 +2783,7 @@ _0206211E:
 	ldr r1, [r1, #0xc]
 	ldr r2, [sp, #0xc]
 	mov r3, #0x0
-	bl BufferEasyChatWord
+	bl BufferGroupName
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x4]
@@ -2791,7 +2791,7 @@ _0206211E:
 	ldr r1, [r1, #0xc]
 	ldr r2, [sp, #0xc]
 	mov r3, #0x1
-	bl BufferEasyChatWord
+	bl BufferGroupName
 	ldr r0, [sp, #0x8]
 	mov r1, #0x2
 	add r2, r4, #0x0
@@ -3396,7 +3396,7 @@ _0206257A:
 	add r2, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x1
-	bl FUN_0200B518
+	bl BufferECWord
 	mov r0, #0x32
 	add sp, #0xc
 	pop {r4-r7, pc}

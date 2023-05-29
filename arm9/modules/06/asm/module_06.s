@@ -8547,7 +8547,7 @@ _0223D710:
 	ldr r0, [r5]
 	ldr r2, _0223D784 ; =0x000003D9
 	mov r1, #3
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r5, #0
 	ldr r2, _0223D784 ; =0x000003D9
 	add r0, #8
@@ -8925,7 +8925,7 @@ _0223DA3E:
 	ldr r0, [r4]
 	mov r1, #3
 	mov r2, #0x1f
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0x85
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -9822,7 +9822,7 @@ _0223E1FA:
 	sub r0, #0x31
 	ldrh r1, [r5, r1]
 	ldr r0, [r5, r0]
-	bl FUN_02029E2C
+	bl SealCase_CountSealOccurrenceAnywhere
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	b _0223E214
@@ -19015,7 +19015,7 @@ MOD06_02242CDC: ; 0x02242CDC
 	ldr r0, [r0, #8]
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, _02242D44 ; =0x000003D9
 	add r0, r4, #4
 	mov r1, #1
@@ -40884,7 +40884,7 @@ MOD06_0224D46C: ; 0x0224D46C
 	mov r1, #3
 	mov r2, #1
 	str r3, [sp, #4]
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r1, #1
 	add r0, r4, #0
 	add r2, r1, #0
@@ -41738,12 +41738,12 @@ MOD06_0224DBCC: ; 0x0224DBCC
 	ldr r0, [r4, #0x14]
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r1, #0x1a
 	ldr r2, [r4, #0x18]
 	mov r0, #0
 	lsl r1, r1, #4
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	ldr r0, [r4, #0x14]
 	mov r1, #3
 	bl BgClearTilemapBufferAndCommit

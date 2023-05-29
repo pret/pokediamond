@@ -310,7 +310,7 @@ _0222F50E: ; jump table
 	.short _0222F908 - _0222F50E - 2 ; case 33
 _0222F552:
 	add r0, r7, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	ldr r0, _0222F804 ; =0x00001021
 	ldrb r1, [r4, r0]
 	add r1, r1, #1

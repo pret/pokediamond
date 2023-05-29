@@ -17,7 +17,7 @@ typedef enum GXBlendPlaneMask
 
 void G2x_SetBGyAffine_(u32 ptr, const struct Mtx22 *mtx, fx32 a, fx32 b, fx32 c, fx32 d);
 void G2x_SetBlendAlpha_(u32 *ptr, GXBlendPlaneMask plane1, GXBlendPlaneMask plane2, fx32 c, fx32 d);
-void G2x_SetBlendBrightness_(u16 *ptr, fx32 a, fx32 brightness);
+void G2x_SetBlendBrightness_(volatile u16 *ptr, fx32 a, fx32 brightness);
 void G2x_SetBlendBrightnessExt_(u16 *ptr, fx32 a, fx32 b, fx32 c, fx32 d, fx32 brightness);
 void G2x_ChangeBlendBrightness_(u16 *ptr, fx32 brightness);
 

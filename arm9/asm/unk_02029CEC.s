@@ -193,7 +193,7 @@ FUN_02029E0C: ; 0x02029E0C
 _02029E14:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_02029E2C
+	bl SealCase_CountSealOccurrenceAnywhere
 	cmp r0, #0x0
 	beq _02029E22
 	add r5, r5, #0x1
@@ -204,8 +204,8 @@ _02029E22:
 	add r0, r5, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02029E2C
-FUN_02029E2C: ; 0x02029E2C
+	thumb_func_start SealCase_CountSealOccurrenceAnywhere
+SealCase_CountSealOccurrenceAnywhere: ; 0x02029E2C
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	sub r1, r5, #0x1

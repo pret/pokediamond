@@ -1398,7 +1398,7 @@ FUN_0205D8B8: ; 0x0205D8B8
 	ldr r1, [r4, #0x10]
 	lsr r2, r2, #0x10
 	mov r3, #0xb
-	bl FUN_0206E3F8
+	bl TryFormatRegisteredKeyItemUseMessage
 	ldr r0, [r5, #0x0]
 	ldr r1, _0205D900 ; =FUN_0205D904
 	add r2, r4, #0x0

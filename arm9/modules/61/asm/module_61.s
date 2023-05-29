@@ -595,7 +595,7 @@ _021D794E:
 	mov r1, #1
 	bl GX_EngineAToggleLayers
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r1, #4
 	ldr r0, _021D7A60 ; =0x04000050
 	mov r2, #8
@@ -1062,7 +1062,7 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	str r0, [sp, #4]
 	ldr r0, [r5, #0x18]
 	mov r3, #5
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldrh r0, [r5, #0xa]
 	mov r1, #0
 	mov r2, #0xa

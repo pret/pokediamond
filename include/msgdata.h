@@ -5,6 +5,11 @@
 #include "message_format.h"
 #include "string16.h"
 
+typedef enum MsgDataLoadType {
+    MSGDATA_LOAD_DIRECT,
+    MSGDATA_LOAD_LAZY,
+} MsgDataLoadType;
+
 struct MsgDataAlloc
 {
     u32 offset;
@@ -31,7 +36,7 @@ struct MsgData
 };
 
 void ReadMsgData_NewNarc_ExistingString(NarcId narc_id, u32 group, u32 num, u32 heap_id, struct String * dest);
-struct MsgData * NewMsgDataFromNarc(u32 type, NarcId narcId, s32 msgId, u32 heapno);
+struct MsgData * NewMsgDataFromNarc(MsgDataLoadType type, NarcId narcId, s32 msgId, u32 heapno);
 void DestroyMsgData(struct MsgData *);
 struct String * ReadMsgData_NewNarc_NewString(NarcId narc_id, u32 group, u32 num, u32 heap_id);
 void ReadMsgDataIntoString(struct MsgData * msgData, u32 msg_no, struct String * dest);

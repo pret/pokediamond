@@ -29,6 +29,10 @@ struct NNSFndAllocator
     u32                         heapParam2;
 };
 
+void *AllocatorAllocForExpHeap(NNSFndAllocator * pAllocator, u32 size);
+void AllocatorFreeForExpHeap(NNSFndAllocator * pAllocator, void *memBlock);
+void *NNS_FndAllocFromAllocator(NNSFndAllocator * pAllocator, u32 size);
+void NNS_FndFreeToAllocator(NNSFndAllocator * pAllocator, void *memBlock);
 void NNS_FndInitAllocatorForExpHeap(NNSFndAllocator * pAllocator, NNSFndHeapHandle heap, int alignment);
 
 #endif //GUARD_NNS_FND_ALLOCATOR_H

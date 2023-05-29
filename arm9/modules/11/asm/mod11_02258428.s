@@ -1727,7 +1727,7 @@ MOD11_0225916C: ; 0x0225916C
 	bl FUN_0200CA44
 	ldr r0, _02259268 ; =MOD11_0225B644
 	add r1, r4, #0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	cmp r0, #1
 	beq _02259232
 	bl GF_AssertFail

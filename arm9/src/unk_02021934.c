@@ -56,7 +56,7 @@ struct String * StringDup(struct String * src, u32 heap_id)
     return dest;
 }
 
-void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strConvMode, BOOL whichCharset)
+void String16_FormatInteger(struct String * str, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset)
 {
     static const u16 sCharset_EN[10] = {
         0x121, 0x122, 0x123, 0x124, 0x125,
@@ -101,18 +101,18 @@ void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strCo
         {
             u16 digit = (u16)(num / dividend);
             num -= dividend * digit;
-            if (strConvMode == 2)
+            if (printingMode == PRINTING_MODE_LEADING_ZEROS)
             {
                 u16 value = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
                 str->data[str->size++] = value;
             }
             else if (digit != 0 || dividend == 1)
             {
-                strConvMode = 2;
+                printingMode = PRINTING_MODE_LEADING_ZEROS;
                 u16 value = (u16)((digit < 10) ? charbase[digit] : 0x00E2);
                 str->data[str->size++] = value;
             }
-            else if (strConvMode == 1)
+            else if (printingMode == PRINTING_MODE_RIGHT_ALIGN)
             {
                 u16 value = (u16)((whichCharset == 0) ? 0x0001 : 0x01E2);
                 str->data[str->size++] = value;
@@ -122,7 +122,7 @@ void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strCo
         str->data[str->size] = EOS;
         return;
     }
-    GF_ASSERT(0);
+    GF_ASSERT(FALSE);
 }
 
 s64 String_atoi(struct String * str, BOOL * flag)

@@ -12,7 +12,7 @@ MOD77_021D74E0: ; 0x021D74E0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #1
@@ -80,7 +80,7 @@ _021D7540:
 	ldr r1, _021D75F4 ; =0x0000C010
 	str r0, [r5, r1]
 	bl GX_BothDispOn
-	bl FUN_0201BD5C
+	bl ResetAllTextPrinters
 	ldr r2, [r5]
 	mov r0, #8
 	mov r1, #0x40
@@ -1404,11 +1404,11 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r1, #6
 	ldr r0, [r5, r0]
 	mov r3, #7
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, [r5]
 	mov r0, #4
 	mov r1, #0x80
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	ldr r3, [r5]
 	mov r0, #6
 	mov r1, #0x20
@@ -1499,11 +1499,11 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	mov r1, #2
 	ldr r0, [r5, r0]
 	mov r3, #7
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, [r5]
 	mov r0, #0
 	mov r1, #0x80
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	ldr r3, [r5]
 	mov r0, #2
 	mov r1, #0x20

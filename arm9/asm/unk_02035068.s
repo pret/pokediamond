@@ -625,7 +625,7 @@ FUN_0203549C: ; 0x0203549C
 	ldr r0, [r0, #0x8]
 	ldr r2, _0203565C ; =0x000003D9
 	mov r1, #0x3
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, _0203565C ; =0x000003D9
 	add r0, r4, #0x0
 	mov r1, #0x1
@@ -956,7 +956,7 @@ _0203576C:
 	ldr r0, [r4, #0x8]
 	ldr r2, _02035898 ; =0x000003D9
 	mov r1, #0x3
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r5, #0x0
 	ldr r2, _02035898 ; =0x000003D9
 	add r0, #0x10

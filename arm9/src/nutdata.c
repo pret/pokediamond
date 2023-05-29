@@ -1,3 +1,5 @@
+//TODO: RENAME THIS ENTIRE FILE - WE SHOULD NOT BE USING NUT
+
 #include "global.h"
 #include "filesystem.h"
 #include "nutdata.h"
@@ -64,7 +66,7 @@ u32 GetNutAttr(struct NutData * nut, u32 attr)
 
 struct String * GetNutName(u32 berry_idx, u32 heap_id)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 373, heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 373, heap_id);
     struct String * ret = NewString_ReadMsgData(msgData, berry_idx);
     DestroyMsgData(msgData);
     return ret;
@@ -72,7 +74,7 @@ struct String * GetNutName(u32 berry_idx, u32 heap_id)
 
 struct String * GetNutDesc(u32 berry_idx, u32 heap_id)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 372, heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 372, heap_id);
     struct String * ret = NewString_ReadMsgData(msgData, berry_idx);
     DestroyMsgData(msgData);
     return ret;

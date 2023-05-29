@@ -2034,7 +2034,7 @@ _020498DC:
 	ldr r0, [r5, #0x8]
 	ldr r2, _02049AB8 ; =0x000003D9
 	mov r1, #0x3
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r3, #0xb
 	str r3, [sp, #0x0]
 	ldr r0, [r5, #0x8]

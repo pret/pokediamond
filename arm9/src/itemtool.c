@@ -761,14 +761,14 @@ void * LoadItemDataOrGfx(u16 a0, u16 a1, u32 heap_id)
 
 void GetItemNameIntoString(struct String * dest, u16 item_id, u32 heap_no)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 344, heap_no);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 344, heap_no);
     ReadMsgDataIntoString(msgData, item_id, dest);
     DestroyMsgData(msgData);
 }
 
 void GetItemDescIntoString(struct String * dest, u16 item_id, u32 heap_no)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 343, heap_no);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 343, heap_no);
     ReadMsgDataIntoString(msgData, item_id, dest);
     DestroyMsgData(msgData);
 }

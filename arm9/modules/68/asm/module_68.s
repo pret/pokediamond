@@ -403,7 +403,7 @@ _021D7812:
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x24
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop

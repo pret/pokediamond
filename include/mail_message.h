@@ -8,6 +8,9 @@ struct MailMessage
     u16 fields[2];
 };
 
+#define MAILMSG_BANK_NONE           (0xFFFF)
+#define MAILMSG_FIELDS_MAX          (2)
+
 void MailMsg_init(struct MailMessage * mailMsg);
 void MailMsg_init_withBank(struct MailMessage * mailMsg, u16 bank);
 void MailMsg_init_default(struct MailMessage * mailMsg);

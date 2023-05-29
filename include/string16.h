@@ -22,7 +22,7 @@ void StringSetEmpty(struct String *); // set empty
 struct String * StringDup(struct String *, u32 heap_id);
 void String_dtor(struct String * str);
 void StringCopy(struct String * dest, struct String * src);
-void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strConvMode, BOOL whichCharset);
+void String16_FormatInteger(struct String * str, int num, u32 ndigits, enum PrintingMode printingMode, BOOL whichCharset);
 s64 String_atoi(struct String * str, BOOL * flag);
 u16 StringGetLength(struct String * str);
 int StringCountLines(volatile struct String * str);

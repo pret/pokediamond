@@ -100,7 +100,7 @@ ARM_FUNC void GX_SetGraphicsMode(GXDispMode dispMode, GXBGMode bgMode, GXBG0As b
     u32 temp2 = reg_GX_DISPCNT;
     sDispMode = (u16)dispMode;
     if (!sIsDispOn)
-        dispMode = 0;
+        dispMode = (GXDispMode)0;
     reg_GX_DISPCNT = ((bgMode << REG_GX_DISPCNT_BGMODE_SHIFT) | ((temp2 & ~(REG_GX_DISPCNT_BGMODE_MASK | REG_GX_DISPCNT_MODE_MASK | REG_GX_DISPCNT_BG02D3D_MASK | REG_GX_DISPCNT_VRAM_MASK)) | (dispMode << REG_GX_DISPCNT_MODE_SHIFT))) | (bg0_2d3d << REG_GX_DISPCNT_BG02D3D_SHIFT);
     if (!sDispMode)
         sIsDispOn = FALSE;

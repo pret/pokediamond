@@ -124,7 +124,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00D5(struct ScriptContext* ctx) //00D5 - todo: BufferN
     u16 unk = ScriptGetVar(ctx);
     u32 digits = FUN_02054C14(unk);
 
-    BufferIntegerAsString(*messageFormat, idx, unk, digits, 1, TRUE);
+    BufferIntegerAsString(*messageFormat, idx, unk, digits, PRINTING_MODE_RIGHT_ALIGN, TRUE);
 
     return FALSE;
 }
@@ -134,14 +134,14 @@ THUMB_FUNC BOOL ScrCmd_Unk0280(struct ScriptContext* ctx) //0280 - todo: BufferN
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u16 unk = ScriptGetVar(ctx);
-    u8 unk2 = ScriptReadByte(ctx);
+    enum PrintingMode printingMode = (enum PrintingMode)ScriptReadByte(ctx);
     u8 digits = ScriptReadByte(ctx);
-    if (unk2 == 0)
+    if (printingMode == PRINTING_MODE_LEFT_ALIGN)
     {
         digits = (u8)FUN_02054C14(unk);
     }
 
-    BufferIntegerAsString(*messageFormat, idx, unk, digits, unk2, TRUE);
+    BufferIntegerAsString(*messageFormat, idx, unk, digits, printingMode, TRUE);
 
     return FALSE;
 }
@@ -231,7 +231,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx) //00DA - todo: BufferP
 
 THUMB_FUNC struct String* FUN_02040AE4(u32 msg_no, u32 heap_id) //todo: GetPokemonSpeciesName?
 {
-    struct MsgData* msg_data = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 362, heap_id); //todo change to NAIX
+    struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 362, heap_id); //todo change to NAIX
     struct String* ret = NewString_ReadMsgData(msg_data, msg_no);
     DestroyMsgData(msg_data);
 

@@ -756,7 +756,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	ldr r0, [r5, r0]
 	mov r2, #1
 	mov r3, #0xf
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r1, _021D7BA8 ; =0x000004C4
 	mov r2, #0x1f
 	ldr r0, [r5, r1]

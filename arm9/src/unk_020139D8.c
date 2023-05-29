@@ -84,7 +84,7 @@ struct UnkStruct_020139D8 * EasyChatManager_new(u32 heap_id)
     for (i = 0; i < 11; i++)
     {
         ret->heap_id = heap_id; // inadvertently inside the loop
-        ret->msgDatas[i] = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, sNarcMsgBanks[i], heap_id);
+        ret->msgDatas[i] = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sNarcMsgBanks[i], heap_id);
     }
     return ret;
 }

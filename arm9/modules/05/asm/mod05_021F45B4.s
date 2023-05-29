@@ -38,7 +38,7 @@ MOD05_021F45E8: ; 0x021F45E8
 	add r4, r0, #0
 	ldr r0, _021F4604 ; =MOD05_021F4688
 	add r1, r4, #0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	cmp r0, #1
 	beq _021F45FC
 	bl GF_AssertFail
@@ -55,7 +55,7 @@ MOD05_021F4608: ; 0x021F4608
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	cmp r0, #1
 	beq _021F461C
 	bl GF_AssertFail

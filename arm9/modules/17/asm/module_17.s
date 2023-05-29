@@ -4511,7 +4511,7 @@ MOD17_021D9778: ; 0x021D9778
 	mov r1, #1
 	bl GX_EngineAToggleLayers
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	pop {r4, pc}
 	nop
 _021D97FC: .word 0x04000008
@@ -14264,7 +14264,7 @@ MOD17_021DDF1C: ; 0x021DDF1C
 	mov r0, #0
 	mov r1, #0xa0
 	mov r2, #0xe
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r0, #3
 	mov r1, #0
 	bl SetBgPriority
@@ -14403,7 +14403,7 @@ _021DDFF8:
 	add r2, r0, #0
 	add r0, r6, #0
 	mov r1, #0
-	bl FUN_0200B518
+	bl BufferECWord
 	mov r0, #0xc8
 	mov r1, #0xd
 	bl String_ctor

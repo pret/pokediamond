@@ -16,7 +16,7 @@ struct BrightnessData
     s16 step_size_integer;
     u16 step_size_fractional;
     u16 fractional_count;
-    s16 current_brightness;
+    fx16 current_brightness;
     BOOL transitionActive;
 };
 
@@ -29,7 +29,7 @@ void InitBrightnessTransition(struct BrightnessData *brightnessData,
     u32 screenMask);
 void StartBrightnessTransition(
     u16 step_count, s16 target_brightness, s16 start_brightness, fx32 surfaceMask, u32 screenMask);
-void SetBrightness(fx32 brightness, fx32 surfaceMask, u32 screenMask);
+void SetBlendBrightness(fx32 brightness, fx32 surfaceMask, u32 screenMask);
 void InitAllScreenBrightnessData(void);
 void InitScreenBrightnessData(u32 screenMask);
 void DoAllScreenBrightnessTransitionStep(void);

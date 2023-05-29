@@ -1306,7 +1306,7 @@ FUN_0206FD24: ; 0x0206FD24
 	ldr r0, [r5, #0x0]
 	mov r2, #0x1
 	mov r3, #0xe
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, _0206FE70 ; =0x000005A4
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0xc]

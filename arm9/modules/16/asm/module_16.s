@@ -105,7 +105,7 @@ _021D75AC:
 	mvn r0, r0
 	mov r1, #0x3f
 	mov r2, #3
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -13346,7 +13346,7 @@ _021DD77E:
 	mvn r0, r0
 	mov r1, #0x3f
 	mov r2, #1
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, [r5]
 	mov r1, #0
 	add r0, r0, #4

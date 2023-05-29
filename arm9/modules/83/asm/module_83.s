@@ -351,7 +351,7 @@ _0222D832:
 	ldr r0, [r4]
 	add r2, r1, #0
 	mov r3, #2
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, [r4]
 	mov r1, #1
 	bl BgClearTilemapBufferAndCommit
@@ -684,15 +684,15 @@ _0222DA5C:
 	mov r1, #0x20
 	mov r2, #0
 	bl BG_ClearCharDataRange
-	bl FUN_0201BD5C
+	bl ResetAllTextPrinters
 	mov r0, #0
 	mov r1, #0x20
 	mov r2, #0x51
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r0, #0
 	add r1, r0, #0
 	mov r2, #0x51
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r2, #5
 	mov r1, #0
 	lsl r2, r2, #0x18
@@ -705,7 +705,7 @@ _0222DA5C:
 	ldr r0, [r4]
 	mov r2, #1
 	mov r3, #2
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x51
@@ -714,7 +714,7 @@ _0222DA5C:
 	mov r1, #0
 	mov r2, #0xa
 	mov r3, #3
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r1, _0222DB60 ; =0x00006B5A
 	ldr r0, _0222DB64 ; =0x05000042
 	strh r1, [r0]
@@ -2547,11 +2547,11 @@ _0222E960:
 	mov r2, #1
 	lsl r3, r3, #0xc
 	bl MOD83_022387D8
-	bl FUN_0201BD5C
+	bl ResetAllTextPrinters
 	mov r0, #0
 	ldr r2, [r4]
 	add r1, r0, #0
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #0
 	str r1, [sp]
 	ldr r0, [r4]
@@ -2559,7 +2559,7 @@ _0222E960:
 	str r0, [sp, #4]
 	ldr r0, [r4, #4]
 	add r3, r2, #0
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, [r4, #0x14]
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
@@ -6142,15 +6142,15 @@ MOD83_02230668: ; 0x02230668
 	sub sp, #0x14
 	add r5, r0, #0
 	add r4, r1, #0
-	bl FUN_0201BD5C
+	bl ResetAllTextPrinters
 	mov r0, #0
 	add r1, r0, #0
 	mov r2, #0x56
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r0, #0
 	mov r1, #0x20
 	mov r2, #0x56
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	ldr r0, [r4, #8]
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
@@ -6171,7 +6171,7 @@ MOD83_02230668: ; 0x02230668
 	mov r1, #0
 	mov r2, #0x1f
 	mov r3, #3
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #5
 	ldr r1, _02230710 ; =0x00007D8C
 	lsl r0, r0, #0x18
@@ -10327,7 +10327,7 @@ _02232854:
 	str r0, [r5]
 	b _02232CF4
 _02232866:
-	bl FUN_0201BD5C
+	bl ResetAllTextPrinters
 	add r0, r4, #0
 	mov r1, #0
 	bl MOD83_02232118
@@ -10335,7 +10335,7 @@ _02232866:
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x57
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0x57
@@ -10344,7 +10344,7 @@ _02232866:
 	mov r2, #1
 	ldr r0, [r4, r0]
 	mov r3, #0xd
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #0x57
@@ -10354,7 +10354,7 @@ _02232866:
 	ldr r0, [r4, r0]
 	mov r2, #0xa
 	mov r3, #0xe
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, _02232B5C ; =0x00002B4C
 	mov r1, #0
 	ldr r0, [r4, r0]
@@ -10740,7 +10740,7 @@ _02232BE8:
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x57
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	add r0, r4, #0
 	mov r1, #1
 	mov r2, #4
@@ -11402,7 +11402,7 @@ MOD83_02233168: ; 0x02233168
 	lsl r1, r1, #4
 	add r2, r5, #0
 	str r5, [r4]
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	ldr r0, _022331BC ; =0x00002B54
 	mov r2, #0
 	str r7, [r4, r0]
@@ -17531,12 +17531,12 @@ _02235F48:
 	mov r1, #1
 	strb r1, [r0, #5]
 	bl GX_SwapDisplay
-	bl FUN_0201BD5C
+	bl ResetAllTextPrinters
 	mov r1, #0x1e
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x4e
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r0, #0xc0
 	str r0, [sp]
 	mov r0, #0x4e
@@ -17620,7 +17620,7 @@ MOD83_0223600C: ; 0x0223600C
 	mov r0, #0
 	lsl r1, r1, #6
 	mov r2, #0x4e
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #0
 	mov r2, #0x3f
 	str r1, [sp]
@@ -17629,7 +17629,7 @@ MOD83_0223600C: ; 0x0223600C
 	ldr r0, [r4, #0x20]
 	lsl r2, r2, #4
 	mov r3, #0xe
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, [r4, #0x1c]
 	ldr r2, _022360B4 ; =0x000003D2
 	lsl r0, r0, #0x18
@@ -17870,7 +17870,7 @@ _02236148:
 	mov r0, #0
 	lsl r1, r1, #6
 	mov r2, #0x4e
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #0
 	mov r2, #0x3f
 	str r1, [sp]
@@ -17879,7 +17879,7 @@ _02236148:
 	ldr r0, [r6, #0x20]
 	lsl r2, r2, #4
 	mov r3, #0xe
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, [r6, #0x1c]
 	ldr r2, _02236294 ; =0x000003D2
 	lsl r0, r0, #0x18

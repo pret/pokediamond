@@ -182,7 +182,7 @@ ScrCmd_Unk0208: ; 0x0203BD28
 	ldr r0, [r0, #0x8]
 	mov r1, #0x3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0xb
 	str r0, [sp, #0x0]
 	ldr r0, _0203BDB4 ; =0x000003D9
@@ -249,7 +249,7 @@ ScrCmd_Unk028C: ; 0x0203BDB8
 	ldr r0, [r0, #0x8]
 	mov r1, #0x3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0xb
 	str r0, [sp, #0x0]
 	ldr r0, _0203BE4C ; =0x000003D9
@@ -1327,7 +1327,7 @@ ScrCmd_Unk0245: ; 0x0203C680
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x0]
 	add r1, r6, #0x0
-	bl FUN_0200B518
+	bl BufferECWord
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -6966,7 +6966,7 @@ _0203F3FE:
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r7, #0x0
-	bl FUN_0200B518
+	bl BufferECWord
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	nop
@@ -7818,19 +7818,19 @@ ScrCmd_Unk02AA: ; 0x0203FA58
 	ldr r2, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0200B518
+	bl BufferECWord
 	ldr r2, [sp, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x1
-	bl FUN_0200B518
+	bl BufferECWord
 	ldr r2, [sp, #0xc]
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_0200B518
+	bl BufferECWord
 	add r0, r4, #0x0
 	mov r1, #0x3
 	add r2, r7, #0x0
-	bl FUN_0200B518
+	bl BufferECWord
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	mov r2, #0x1

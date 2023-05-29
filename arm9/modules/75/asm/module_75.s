@@ -837,7 +837,7 @@ MOD75_021E7214: ; 0x021E7214
 	ldr r0, [r4]
 	ldr r2, _021E7374 ; =0x000003F7
 	mov r3, #0xe
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
@@ -4561,7 +4561,7 @@ _021E8F3A:
 	ldrh r2, [r2]
 	ldr r1, [r4, r1]
 	mov r3, #6
-	bl FUN_0206E3F8
+	bl TryFormatRegisteredKeyItemUseMessage
 	cmp r0, #1
 	bne _021E8F7A
 	add r0, r4, #0

@@ -42,7 +42,7 @@ MOD86_021D74E0: ; 0x021D74E0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #1
@@ -476,7 +476,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	ldrh r1, [r1, #6]
 	strh r2, [r0, #4]
 	strh r1, [r0, #6]
-	bl FUN_0201BD5C
+	bl ResetAllTextPrinters
 	mov r0, #1
 	ldr r3, [r4]
 	mov r1, #0x1a
@@ -781,11 +781,11 @@ _021D7A06:
 	ldr r2, [r5]
 	mov r0, #0
 	mov r1, #0x40
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	ldr r2, [r5]
 	mov r0, #4
 	mov r1, #0x40
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD86_021D79D4

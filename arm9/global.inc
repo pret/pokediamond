@@ -237,7 +237,7 @@
 .extern FUN_02002DE0
 .extern FUN_02002E14
 .extern GetFontAttribute
-.extern FUN_02002ED0
+.extern LoadFontPal0
 .extern FUN_02002EEC
 .extern FUN_02002F08
 .extern FUN_02002F40
@@ -521,7 +521,7 @@
 .extern FUN_0200A064
 .extern FUN_0200A06C
 .extern StartBrightnessTransition
-.extern SetBrightness
+.extern SetBlendBrightness
 .extern InitAllScreenBrightnessData
 .extern DoAllScreenBrightnessTransitionStep
 .extern IsBrightnessTransitionActive
@@ -586,7 +586,7 @@
 .extern BufferTimeOfDayName
 .extern BufferCountryName
 .extern BufferCityName
-.extern FUN_0200B518
+.extern BufferECWord
 .extern BufferSealName
 .extern BufferSealNamePlural
 .extern BufferLocationName
@@ -594,7 +594,7 @@
 .extern BufferFashionName
 .extern BufferFashionNameWithArticle
 .extern BufferContestBackgroundName
-.extern BufferEasyChatWord
+.extern BufferGroupName
 .extern BufferMonthNameAbbr
 .extern MessageFormat_UpperFirstChar
 .extern StringExpandPlaceholders
@@ -688,7 +688,7 @@
 .extern FUN_0200CAB4
 .extern FUN_0200CABC
 .extern FUN_0200CAFC
-.extern FUN_0200CB00
+.extern LoadUserFrameGfx1
 .extern DrawFrameAndWindow1
 .extern ClearFrameAndWindow1
 .extern FUN_0200CD60
@@ -711,7 +711,7 @@
 .extern FUN_0200E308
 .extern FUN_0200E31C
 .extern FUN_0200E388
-.extern FUN_0200E394
+.extern SetMasterBrightnessNeutral
 .extern FUN_0200E3A0
 .extern FUN_0200E3BC
 .extern FUN_0200E420
@@ -1009,7 +1009,7 @@
 .extern FUN_02015EF4
 .extern Main_SetVBlankIntrCB
 .extern FUN_02015F1C
-.extern FUN_02015F34
+.extern Main_SetHBlankIntrCB
 .extern AllocAndReadFile
 .extern OpenAndReadWholeFile
 .extern ClearFileCache
@@ -1154,7 +1154,7 @@
 .extern CircularDistance
 .extern MathUtil_0201BC84
 .extern SetFontsPointer
-.extern FUN_0201BD5C
+.extern ResetAllTextPrinters
 .extern FUN_0201BD70
 .extern FUN_0201BD7C
 .extern AddTextPrinterParameterized
@@ -1972,7 +1972,7 @@
 .extern FUN_02029D84
 .extern FUN_02029DD4
 .extern FUN_02029E0C
-.extern FUN_02029E2C
+.extern SealCase_CountSealOccurrenceAnywhere
 .extern InitIGT
 .extern AddIGTSeconds
 .extern GetIGTHours
@@ -4986,7 +4986,7 @@
 .extern FUN_0206E384
 .extern FUN_0206E38C
 .extern FUN_0206E394
-.extern FUN_0206E3F8
+.extern TryFormatRegisteredKeyItemUseMessage
 .extern FUN_0206E51C
 .extern MoveItemSlotInList
 .extern GetItemIndexMapping

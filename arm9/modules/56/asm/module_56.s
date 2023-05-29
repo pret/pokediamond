@@ -1033,7 +1033,7 @@ MOD56_0221257C: ; 0x0221257C
 	add r0, r4, #0
 	mov r1, #2
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0x36
@@ -1042,7 +1042,7 @@ MOD56_0221257C: ; 0x0221257C
 	add r0, r4, #0
 	mov r1, #1
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	.align 2, 0

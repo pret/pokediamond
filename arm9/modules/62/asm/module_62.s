@@ -3124,7 +3124,7 @@ MOD62_0222ED34: ; 0x0222ED34
 	mov r1, #1
 	mov r2, #0x1f
 	mov r3, #0xd
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	bl FUN_0200CAFC
 	add r2, r0, #0
 	mov r0, #0
@@ -3189,7 +3189,7 @@ MOD62_0222EDBC: ; 0x0222EDBC
 	mov r1, #4
 	mov r2, #0x1f
 	mov r3, #0xd
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	bl FUN_0200CAFC
 	add r2, r0, #0
 	mov r0, #1

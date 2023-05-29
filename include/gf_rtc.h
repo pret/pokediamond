@@ -2,6 +2,7 @@
 #define POKEDIAMOND_GF_RTC_H
 
 #include "RTC_api.h"
+#include "nitro/types.h"
 
 enum RTC_Month
 {
@@ -27,5 +28,19 @@ enum RTC_TimeOfDay
     RTC_TIMEOFDAY_NITE,
     RTC_TIMEOFDAY_LATE,
 };
+
+void GF_InitRTCWork(void);
+void GF_RTC_UpdateOnFrame(void);
+void GF_RTC_GetDateTime_Callback(RTCResult result, void * data);
+void GF_RTC_CopyDateTime(RTCDate * date, RTCTime * time);
+void GF_RTC_CopyTime(RTCTime * time);
+void GF_RTC_CopyDate(RTCDate * date);
+s32 GF_RTC_TimeToSec(void);
+s64 GF_RTC_DateTimeToSec(void);
+s32 GF_RTC_GetDayOfYear(const RTCDate * date);
+BOOL IsNighttime(void);
+enum RTC_TimeOfDay GF_RTC_GetTimeOfDay(void);
+enum RTC_TimeOfDay GF_RTC_GetTimeOfDayByHour(s32 hour);
+s64 GF_RTC_TimeDelta(s64 first, s64 last);
 
 #endif //POKEDIAMOND_GF_RTC_H
