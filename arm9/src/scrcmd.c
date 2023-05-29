@@ -12,6 +12,7 @@
 #include "text.h"
 #include "text_02054590.h"
 #include "unk_0200CA44.h"
+#include "unk_0204AF24.h"
 #include "unk_0205EC84.h"
 
 extern void *FieldSysGetAttrAddr(struct FieldSystem* fieldSystem, enum ScriptEnvField id);
@@ -130,8 +131,7 @@ static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 static BOOL FUN_0203B218(struct ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BB90(ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx);
-
-extern BOOL FUN_0203BC04(struct ScriptContext *ctx);
+/*static*/ BOOL FUN_0203BC04(ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -1926,5 +1926,14 @@ THUMB_FUNC /*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx) {
     }
     FreeToHeap(*pcBoxDataPtr);
     *pcBoxDataPtr = NULL;
+    return TRUE;
+}
+
+THUMB_FUNC /*static*/ BOOL FUN_0203BC04(ScriptContext *ctx) {
+    return !FUN_0204647C(ctx->fieldSystem);
+}
+
+THUMB_FUNC BOOL ScrCmd_RestoreOverworld(ScriptContext *ctx) { //00A1
+    FUN_0204AF84(ctx->fieldSystem->taskManager);
     return TRUE;
 }
