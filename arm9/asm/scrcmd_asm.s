@@ -7,33 +7,9 @@
 	.extern FUN_0203A2F0
 	.extern FUN_0203BB90
 	.extern FUN_0203BBBC
+	.extern FUN_0203BC04
 
 	.text
-
-	thumb_func_start FUN_0203BC04
-FUN_0203BC04: ; 0x0203BC04
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl FUN_0204647C
-	cmp r0, #0x0
-	bne _0203BC16
-	mov r0, #0x1
-	pop {r3, pc}
-_0203BC16:
-	mov r0, #0x0
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk00A1
-ScrCmd_Unk00A1: ; 0x0203BC1C
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0x10]
-	bl FUN_0204AF84
-	mov r0, #0x1
-	pop {r3, pc}
 
 	thumb_func_start ScrCmd_Unk01F8
 ScrCmd_Unk01F8: ; 0x0203BC2C

@@ -39,7 +39,7 @@ typedef struct PCBoxAppData {
     BOOL unk08;
 } PCBoxAppData; //todo move to own file
 
-struct FieldSystem //todo move to field_system.c
+typedef struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;
     u8 padding[0x4];
@@ -61,7 +61,7 @@ struct FieldSystem //todo move to field_system.c
     u32 *unk98;
     u8 padding7[0xC];
     struct UnkStruct_02046444 * unkA8;
-};
+} FieldSystem;
 
 typedef struct ScriptContext
 {

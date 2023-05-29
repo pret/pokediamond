@@ -36,7 +36,7 @@ THUMB_FUNC BOOL FUN_0204AF6C(struct TaskManager *taskManager)
     return FALSE;
 }
 
-THUMB_FUNC void FUN_0204AF84(struct TaskManager *taskManager)
+THUMB_FUNC void FUN_0204AF84(struct TaskManager *taskManager) //TODO: RestoreOverworld
 {
     struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     if(FUN_0203739C(fieldSystem))

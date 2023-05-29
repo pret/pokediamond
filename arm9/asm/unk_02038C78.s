@@ -310,7 +310,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_DummyUpdateWeather
 	.word ScrCmd_DummyGetMapPosition
 	.word ScrCmd_Unk00A0
-	.word ScrCmd_Unk00A1
+	.word ScrCmd_RestoreOverworld
 	.word ScrCmd_Unk00A2
 	.word ScrCmd_Unk00A3
 	.word ScrCmd_Unk00A4

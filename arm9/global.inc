@@ -2825,7 +2825,7 @@
 .extern ScrCmd_DummyUpdateWeather
 .extern ScrCmd_DummyGetMapPosition
 .extern FUN_0203BC04
-.extern ScrCmd_Unk00A1
+.extern ScrCmd_RestoreOverworld
 .extern ScrCmd_Unk01F8
 .extern ScrCmd_Unk00A2
 .extern ScrCmd_Unk00A3
