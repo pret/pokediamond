@@ -13,63 +13,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk00A2
-ScrCmd_Unk00A2: ; 0x0203BCBC
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl MOD05_021F02C4
-	mov r0, #0x1
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk00A3
-ScrCmd_Unk00A3: ; 0x0203BCCC
-	push {r3, lr}
-	ldr r0, [r0, #0x74]
-	bl FUN_0206F3B8
-	mov r0, #0x1
-	pop {r3, pc}
-
-	thumb_func_start ScrCmd_Unk00A4
-ScrCmd_Unk00A4: ; 0x0203BCD8
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x13
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r5, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r5, #0x0]
-	bl GetVarPointer
-	ldr r1, [r4, #0x0]
-	ldr r1, [r1, #0x4]
-	strh r1, [r0, #0x0]
-	ldr r0, [r4, #0x0]
-	bl FreeToHeap
-	mov r0, #0x0
-	pop {r3-r5, pc}
-
-	thumb_func_start ScrCmd_Unk0207
-ScrCmd_Unk0207: ; 0x0203BD08
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl ScriptReadHalfword
-	add r4, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r4, #0x0]
-	bl GetVarPointer
-	add r4, r0, #0x0
-	bl FUN_02031190
-	strh r0, [r4, #0x0]
-	mov r0, #0x1
-	pop {r4, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk0208
 ScrCmd_Unk0208: ; 0x0203BD28
 	push {r4-r7, lr}

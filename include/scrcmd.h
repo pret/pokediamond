@@ -163,6 +163,10 @@ BOOL ScrCmd_DummyUpdateWeather(ScriptContext *ctx);
 BOOL ScrCmd_DummyGetMapPosition(ScriptContext *ctx);
 BOOL ScrCmd_RestoreOverworld(ScriptContext *ctx);
 BOOL ScrCmd_TerminateOverworldProcess(ScriptContext *ctx);
+BOOL ScrCmd_Unk00A2(ScriptContext *ctx);
+BOOL ScrCmd_Unk00A3(ScriptContext *ctx);
+BOOL ScrCmd_Unk00A4(ScriptContext *ctx);
+BOOL ScrCmd_Unk0207(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

@@ -109,6 +109,9 @@ extern void FUN_0204AF3C(struct TaskManager *taskManager);
 extern SaveFashionData *Save_FashionData_get(struct SaveBlock2 *save);
 extern BOOL FUN_02027098(SaveFashionData *fashionData, u32 param1);
 extern BOOL FUN_020270B4(SaveFashionData *fashionData, u32 param1);
+extern void MOD05_021F02C4(struct FieldSystem *fieldSystem);
+extern void FUN_0206F3B8(struct TaskManager *taskManager);
+extern u16 FUN_02031190(void);
 
 u8 UNK_021C5A0C[4];
 
@@ -130,7 +133,7 @@ static BOOL FUN_0203AB00(struct ScriptContext *ctx);
 static BOOL FUN_0203AD2C(struct ScriptContext *ctx);
 static BOOL FUN_0203AD78(struct ScriptContext *ctx);
 static LocalMapObject *FUN_0203B120(struct FieldSystem *fieldSystem, u16 eventId);
-static BOOL IsAleventvementFinished(struct ScriptContext *ctx);
+static BOOL IsAllMovementFinished(struct ScriptContext *ctx);
 static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *param2);
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 static BOOL FUN_0203B218(struct ScriptContext *ctx);
@@ -1446,11 +1449,11 @@ THUMB_FUNC static LocalMapObject *FUN_0203B120(struct FieldSystem *fieldSystem, 
 
 THUMB_FUNC BOOL ScrCmd_WaitForMovement(struct ScriptContext *ctx) //005F
 {
-    SetupNativeScript(ctx, IsAleventvementFinished);
+    SetupNativeScript(ctx, IsAllMovementFinished);
     return TRUE;
 }
 
-THUMB_FUNC static BOOL IsAleventvementFinished(struct ScriptContext *ctx)
+THUMB_FUNC static BOOL IsAllMovementFinished(struct ScriptContext *ctx)
 {
     u8 *movCounter = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_ACTIVE_MOVEMENT_COUNTER);
     return *movCounter == 0;
@@ -1975,4 +1978,28 @@ THUMB_FUNC /*static*/ FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSyste
     appData->unk08 = param2;
     appData->unk04 = param3;
     return appData;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk00A2(ScriptContext *ctx) { //00A2
+    MOD05_021F02C4(ctx->fieldSystem);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk00A3(ScriptContext *ctx) { //00A3
+    FUN_0206F3B8(ctx->taskManager);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk00A4(ScriptContext *ctx) { //00A4
+    FashionAppData **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    u16 *unk0 = ScriptGetVarPointer(ctx);
+    *unk0 = (*runningAppData)->unk04;
+    FreeToHeap(*runningAppData);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Unk0207(ScriptContext *ctx) { //0207
+    u16 *ptr = ScriptGetVarPointer(ctx);
+    *ptr = FUN_02031190();
+    return TRUE;
 }
