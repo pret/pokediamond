@@ -2127,7 +2127,7 @@ THUMB_FUNC void FUN_020335F4()
 
         FUN_0200541C();
         FUN_0202287C(UNK_021C5A00->unk28);
-        gMain.touchpadReadAuto = 1;
+        gSystem.touchpadReadAuto = 1;
         if (UNK_021C5A00->unk4E == 3)
         {
             FUN_020335A4(3);

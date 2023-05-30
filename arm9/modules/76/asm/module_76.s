@@ -574,7 +574,7 @@ _021D7970:
 MOD76_021D7974: ; 0x021D7974
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	ldr r0, _021D7A88 ; =gMain
+	ldr r0, _021D7A88 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x30
 	tst r1, r0
@@ -699,7 +699,7 @@ _021D7A82:
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop
-_021D7A88: .word gMain
+_021D7A88: .word gSystem
 _021D7A8C: .word 0x000005DD
 _021D7A90: .word 0x00000186
 	thumb_func_end MOD76_021D7974

@@ -6982,7 +6982,7 @@ _02250D98:
 	strb r0, [r4, #0xa]
 	pop {r4, r5, r6, r7, pc}
 _02250DA0:
-	ldr r0, _02250E98 ; =gMain
+	ldr r0, _02250E98 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #8
 	tst r0, r1
@@ -7093,7 +7093,7 @@ _02250E88: .word 0x000004CA
 _02250E8C: .word 0x0000039A
 _02250E90: .word 0x000004C6
 _02250E94: .word 0x00000197
-_02250E98: .word gMain
+_02250E98: .word gSystem
 _02250E9C: .word 0x000005DD
 _02250EA0:
 	ldrb r1, [r4, #9]

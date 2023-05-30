@@ -20,7 +20,7 @@ static struct {
     u32 name_hash;
 } sFileCache[128];
 
-struct Main gMain;
+struct Main gSystem;
 
 void Main_ToggleHBlankInterrupt(BOOL enableFlag);
 void FUN_0201B5CC(void *);
@@ -29,8 +29,8 @@ void FUN_02015EA0(void)
 {
     DTCM.intr_check |= 1;
     MI_WaitDma(3);
-    FUN_0201B5CC(gMain.unk1C);
-    gMain.unk30++;
+    FUN_0201B5CC(gSystem.unk1C);
+    gSystem.unk30++;
 }
 
 void FUN_02015ED4(void)
@@ -48,15 +48,15 @@ void FUN_02015EF4(void)
 
 void Main_SetVBlankIntrCB(void (*a0)(void *), void * a1)
 {
-    gMain.vBlankIntr = a0;
-    gMain.vBlankIntrArg = a1;
+    gSystem.vBlankIntr = a0;
+    gSystem.vBlankIntrArg = a1;
 }
 
 void FUN_02015F1C(void)
 {
     Main_ToggleHBlankInterrupt(FALSE);
-    gMain.hBlankIntr = NULL;
-    gMain.hBlankIntrArg = NULL;
+    gSystem.hBlankIntr = NULL;
+    gSystem.hBlankIntrArg = NULL;
 }
 
 BOOL Main_SetHBlankIntrCB(void (*a0)(void *), void * a1)
@@ -64,14 +64,14 @@ BOOL Main_SetHBlankIntrCB(void (*a0)(void *), void * a1)
     if (a0 == 0)
     {
         Main_ToggleHBlankInterrupt(FALSE);
-        gMain.hBlankIntr = NULL;
-        gMain.hBlankIntrArg = NULL;
+        gSystem.hBlankIntr = NULL;
+        gSystem.hBlankIntrArg = NULL;
         return TRUE;
     }
-    else if (gMain.hBlankIntr == NULL)
+    else if (gSystem.hBlankIntr == NULL)
     {
-        gMain.hBlankIntrArg = a1;
-        gMain.hBlankIntr = a0;
+        gSystem.hBlankIntrArg = a1;
+        gSystem.hBlankIntr = a0;
         Main_ToggleHBlankInterrupt(TRUE);
         return TRUE;
     }
@@ -83,8 +83,8 @@ BOOL Main_SetHBlankIntrCB(void (*a0)(void *), void * a1)
 
 void Main_CallHBlankCallback(void)
 {
-    if (gMain.hBlankIntr != NULL)
-        gMain.hBlankIntr(gMain.hBlankIntrArg);
+    if (gSystem.hBlankIntr != NULL)
+        gSystem.hBlankIntr(gSystem.hBlankIntrArg);
 }
 
 void Main_ToggleHBlankInterrupt(BOOL enableFlag)
@@ -140,10 +140,10 @@ void InitSystemForTheGame(void)
     GX_Init();
     OS_InitTick();
     FUN_02015FC8();
-    gMain.unk18 = FUN_0201B580(0xa0, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0xa0), 4));
-    gMain.unk1C = FUN_0201B580(0x10, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x10), 4));
-    gMain.unk20 = FUN_0201B580(0x20, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x20), 4));
-    gMain.unk24 = FUN_0201B580(0x04, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x04), 4));
+    gSystem.unk18 = FUN_0201B580(0xa0, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0xa0), 4));
+    gSystem.unk1C = FUN_0201B580(0x10, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x10), 4));
+    gSystem.unk20 = FUN_0201B580(0x20, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x20), 4));
+    gSystem.unk24 = FUN_0201B580(0x04, OS_AllocFromArenaLo(OS_ARENA_MAIN, FUN_0201B578(0x04), 4));
     GX_DispOff();
     reg_GXS_DB_DISPCNT &= ~0x10000;
     reg_GX_POWCNT |= REG_GX_POWCNT_DSEL_MASK;
@@ -158,12 +158,12 @@ void InitSystemForTheGame(void)
     void * table = OS_AllocFromArenaLo(OS_ARENA_MAIN, size, 4);
     GF_ASSERT(table != NULL);
     FS_TryLoadTable(table, size);
-    gMain.vBlankIntr = NULL;
-    gMain.hBlankIntr = NULL;
-    gMain.unk10 = 0;
-    gMain.unk14 = 0;
-    gMain.unk2C = 0;
-    gMain.screensFlipped = 0;
+    gSystem.vBlankIntr = NULL;
+    gSystem.hBlankIntr = NULL;
+    gSystem.unk10 = 0;
+    gSystem.unk14 = 0;
+    gSystem.unk2C = 0;
+    gSystem.screensFlipped = 0;
 }
 
 void InitGraphicMemory(void)
@@ -327,21 +327,21 @@ void * OpenFileCached(const s8 * str, u32 heap_id)
 void InitKeypadAndTouchpad(void)
 {
     TPCalibrateParam tp;
-    gMain.buttonMode = 0;
-    gMain.heldKeysRaw = 0;
-    gMain.newKeysRaw = 0;
-    gMain.newAndRepeatedKeysRaw = 0;
-    gMain.heldKeys = 0;
-    gMain.newKeys = 0;
-    gMain.newAndRepeatedKeys = 0;
-    gMain.keyRepeatCounter = 0;
-    gMain.keyRepeatContinueDelay = 8;
-    gMain.keyRepeatStartDelay = 15;
-    gMain.touchX = 0;
-    gMain.touchY = 0;
-    gMain.touchNew = 0;
-    gMain.touchHeld = 0;
-    gMain.touchpadReadAuto = 0;
+    gSystem.buttonMode = 0;
+    gSystem.heldKeysRaw = 0;
+    gSystem.newKeysRaw = 0;
+    gSystem.newAndRepeatedKeysRaw = 0;
+    gSystem.heldKeys = 0;
+    gSystem.newKeys = 0;
+    gSystem.newAndRepeatedKeys = 0;
+    gSystem.keyRepeatCounter = 0;
+    gSystem.keyRepeatContinueDelay = 8;
+    gSystem.keyRepeatStartDelay = 15;
+    gSystem.touchX = 0;
+    gSystem.touchY = 0;
+    gSystem.touchNew = 0;
+    gSystem.touchHeld = 0;
+    gSystem.touchpadReadAuto = 0;
     TP_Init();
     if (TP_GetUserInfo(&tp) == TRUE)
         TP_SetCalibrateParam(&tp);
@@ -357,17 +357,17 @@ void InitKeypadAndTouchpad(void)
 
 void FUN_02016438(u8 a0)
 {
-    gMain.unk66 = a0;
+    gSystem.unk66 = a0;
 }
 
 void FUN_02016444(u8 a0)
 {
-    gMain.unk67 |= a0;
+    gSystem.unk67 |= a0;
 }
 
 void FUN_02016454(u8 a0)
 {
-    gMain.unk67 &= ~a0;
+    gSystem.unk67 &= ~a0;
 }
 
 void ReadKeypadAndTocuhpad(void)
@@ -376,11 +376,11 @@ void ReadKeypadAndTocuhpad(void)
     if (PAD_DetectFold())
     {
         // Can't press any buttons while the lid is closed.
-        gMain.newKeys = 0;
-        gMain.heldKeys = 0;
-        gMain.newAndRepeatedKeys = 0;
-        gMain.touchNew = 0;
-        gMain.touchHeld = 0;
+        gSystem.newKeys = 0;
+        gSystem.heldKeys = 0;
+        gSystem.newAndRepeatedKeys = 0;
+        gSystem.touchNew = 0;
+        gSystem.touchHeld = 0;
         return;
     }
 
@@ -388,35 +388,35 @@ void ReadKeypadAndTocuhpad(void)
 
     // newKeys is all keys that were pressed on this frame but
     // not the last frame.
-    gMain.newAndRepeatedKeysRaw = gMain.newKeysRaw = (padRead ^ gMain.heldKeysRaw) & padRead;
+    gSystem.newAndRepeatedKeysRaw = gSystem.newKeysRaw = (padRead ^ gSystem.heldKeysRaw) & padRead;
 
     // If you are holding down buttons, indicate them "repeated" every few frames
     // as defined by .keyRepeatStartDelay and .keyRepeatContinueDelay.
     // Same logic as gen3, but fixes the bug where the
     // remapped keys are incorrectly used here.
     // See also: pokeemerald/src/main.c:ReadKeys
-    if (padRead != 0 && gMain.heldKeysRaw == padRead)
+    if (padRead != 0 && gSystem.heldKeysRaw == padRead)
     {
-        if (--gMain.keyRepeatCounter == 0)
+        if (--gSystem.keyRepeatCounter == 0)
         {
-            gMain.newAndRepeatedKeysRaw = padRead;
-            gMain.keyRepeatCounter = gMain.keyRepeatContinueDelay;
+            gSystem.newAndRepeatedKeysRaw = padRead;
+            gSystem.keyRepeatCounter = gSystem.keyRepeatContinueDelay;
         }
     }
     else
     {
-        gMain.keyRepeatCounter = gMain.keyRepeatStartDelay;
+        gSystem.keyRepeatCounter = gSystem.keyRepeatStartDelay;
     }
-    gMain.heldKeysRaw = padRead;
+    gSystem.heldKeysRaw = padRead;
 
     // Apply the button mode option to the read key input
-    gMain.newKeys = gMain.newKeysRaw;
-    gMain.heldKeys = padRead;
-    gMain.newAndRepeatedKeys = gMain.newAndRepeatedKeysRaw;
+    gSystem.newKeys = gSystem.newKeysRaw;
+    gSystem.heldKeys = padRead;
+    gSystem.newAndRepeatedKeys = gSystem.newAndRepeatedKeysRaw;
     ApplyButtonModeToInput();
 
     // Read the touchpad. New to gen 4.
-    if (gMain.touchpadReadAuto == 0)
+    if (gSystem.touchpadReadAuto == 0)
     {
         while (TP_RequestRawSampling(&raw))
             ;
@@ -428,20 +428,20 @@ void ReadKeypadAndTocuhpad(void)
     // If the touchpad is valid, we gucci.
     if (calib.validity == TP_VALIDITY_VALID)
     {
-        gMain.touchX = calib.x;
-        gMain.touchY = calib.y;
+        gSystem.touchX = calib.x;
+        gSystem.touchY = calib.y;
     }
 
     // If the touchpad was used last frame, salvage what we can.
-    else if (gMain.touchHeld)
+    else if (gSystem.touchHeld)
     {
         switch (calib.validity)
         {
         case TP_VALIDITY_INVALID_X:
-            gMain.touchY = calib.y;
+            gSystem.touchY = calib.y;
             break;
         case TP_VALIDITY_INVALID_Y:
-            gMain.touchX = calib.x;
+            gSystem.touchX = calib.x;
             break;
         case TP_VALIDITY_INVALID_XY:
             break;
@@ -451,90 +451,90 @@ void ReadKeypadAndTocuhpad(void)
     // Ignore touch input.
     else
         calib.touch = 0;
-    gMain.touchNew = (u16)((gMain.touchHeld ^ calib.touch) & calib.touch);
-    gMain.touchHeld = calib.touch;
+    gSystem.touchNew = (u16)((gSystem.touchHeld ^ calib.touch) & calib.touch);
+    gSystem.touchHeld = calib.touch;
 }
 
 void ApplyButtonModeToInput(void)
 {
-    switch (gMain.buttonMode)
+    switch (gSystem.buttonMode)
     {
     case 0: // Normal
         break;
     case 1: // Start = X
-        if (gMain.newKeys & PAD_BUTTON_START)
-            gMain.newKeys |= PAD_BUTTON_X;
-        if (gMain.heldKeys & PAD_BUTTON_START)
-            gMain.heldKeys |= PAD_BUTTON_X;
-        if (gMain.newAndRepeatedKeys & PAD_BUTTON_START)
-            gMain.newAndRepeatedKeys |= PAD_BUTTON_X;
+        if (gSystem.newKeys & PAD_BUTTON_START)
+            gSystem.newKeys |= PAD_BUTTON_X;
+        if (gSystem.heldKeys & PAD_BUTTON_START)
+            gSystem.heldKeys |= PAD_BUTTON_X;
+        if (gSystem.newAndRepeatedKeys & PAD_BUTTON_START)
+            gSystem.newAndRepeatedKeys |= PAD_BUTTON_X;
         break;
     case 2: // Swap X and Y; unused in the retail game
         {
             u32 swapMask = 0;
-            if (gMain.newKeys & PAD_BUTTON_X)
+            if (gSystem.newKeys & PAD_BUTTON_X)
             {
                 swapMask |= PAD_BUTTON_Y;
             }
-            if (gMain.newKeys & PAD_BUTTON_Y)
+            if (gSystem.newKeys & PAD_BUTTON_Y)
             {
                 swapMask |= PAD_BUTTON_X;
             }
-            gMain.newKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);;
-            gMain.newKeys |= swapMask;
+            gSystem.newKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);;
+            gSystem.newKeys |= swapMask;
         }
         {
             u32 swapMask = 0;
-            if (gMain.heldKeys & PAD_BUTTON_X)
+            if (gSystem.heldKeys & PAD_BUTTON_X)
             {
                 swapMask |= PAD_BUTTON_Y;
             }
-            if (gMain.heldKeys & PAD_BUTTON_Y)
+            if (gSystem.heldKeys & PAD_BUTTON_Y)
             {
                 swapMask |= PAD_BUTTON_X;
             }
-            gMain.heldKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);
-            gMain.heldKeys |= swapMask;
+            gSystem.heldKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);
+            gSystem.heldKeys |= swapMask;
         }
         {
             u32 swapMask = 0;
-            if (gMain.newAndRepeatedKeys & PAD_BUTTON_X)
+            if (gSystem.newAndRepeatedKeys & PAD_BUTTON_X)
             {
                 swapMask |= PAD_BUTTON_Y;
             }
-            if (gMain.newAndRepeatedKeys & PAD_BUTTON_Y)
+            if (gSystem.newAndRepeatedKeys & PAD_BUTTON_Y)
             {
                 swapMask |= PAD_BUTTON_X;
             }
-            gMain.newAndRepeatedKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);
-            gMain.newAndRepeatedKeys |= swapMask;
+            gSystem.newAndRepeatedKeys &= ((PAD_BUTTON_X | PAD_BUTTON_Y) ^ 0xFFFF);
+            gSystem.newAndRepeatedKeys |= swapMask;
         }
         break;
     case 3: // L = A
-        if (gMain.newKeys & PAD_BUTTON_L)
-            gMain.newKeys |= PAD_BUTTON_A;
-        if (gMain.heldKeys & PAD_BUTTON_L)
-            gMain.heldKeys |= PAD_BUTTON_A;
-        if (gMain.newAndRepeatedKeys & PAD_BUTTON_L)
-            gMain.newAndRepeatedKeys |= PAD_BUTTON_A;
-        gMain.newKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
-        gMain.heldKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
-        gMain.newAndRepeatedKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
+        if (gSystem.newKeys & PAD_BUTTON_L)
+            gSystem.newKeys |= PAD_BUTTON_A;
+        if (gSystem.heldKeys & PAD_BUTTON_L)
+            gSystem.heldKeys |= PAD_BUTTON_A;
+        if (gSystem.newAndRepeatedKeys & PAD_BUTTON_L)
+            gSystem.newAndRepeatedKeys |= PAD_BUTTON_A;
+        gSystem.newKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
+        gSystem.heldKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
+        gSystem.newAndRepeatedKeys &= ((PAD_BUTTON_L | PAD_BUTTON_R) ^ 0xFFFF);
     }
 }
 
 void SetKeyRepeatTimers(int continueDelay, int startDelay)
 {
-    gMain.keyRepeatContinueDelay = continueDelay;
-    gMain.keyRepeatStartDelay = startDelay;
+    gSystem.keyRepeatContinueDelay = continueDelay;
+    gSystem.keyRepeatStartDelay = startDelay;
 }
 
 void SetSoftResetDisableMask(u8 a0)
 {
-    gMain.softResetDisabled |= a0;
+    gSystem.softResetDisabled |= a0;
 }
 
 void ClearSoftResetDisableMask(u8 a0)
 {
-    gMain.softResetDisabled &= ~a0;
+    gSystem.softResetDisabled &= ~a0;
 }

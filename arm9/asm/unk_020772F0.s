@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gMain
+	.extern gSystem
 
 	.section .rodata
 
@@ -843,7 +843,7 @@ _020772FE:
 	bl FUN_0200E1D0
 	mov r0, #0x1
 	bl FUN_02077C84
-	ldr r0, _020774A8 ; =gMain + 0x60
+	ldr r0, _020774A8 ; =gSystem + 0x60
 	mov r1, #0x1
 	strb r1, [r0, #0x5]
 	bl GX_SwapDisplay
@@ -888,7 +888,7 @@ _02077498: .word 0xFFFFE0FF
 _0207749C: .word 0x04001000
 _020774A0: .word FUN_02077AE8
 _020774A4: .word 0x000004C4
-_020774A8: .word gMain + 0x60
+_020774A8: .word gSystem + 0x60
 _020774AC: .word 0x000004B8
 _020774B0: .word UNK_021C5C54
 _020774B4: .word 0x000005C4
@@ -1153,7 +1153,7 @@ FUN_020776C4: ; 0x020776C4
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	bl FUN_02078C98
-	ldr r0, _020777BC ; =gMain
+	ldr r0, _020777BC ; =gSystem
 	mov r1, #0x4
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -1272,7 +1272,7 @@ _020777B8:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_020777BC: .word gMain
+_020777BC: .word gSystem
 _020777C0: .word 0x0000045C
 _020777C4: .word 0x0000069E
 _020777C8: .word 0x000005C8
@@ -1584,7 +1584,7 @@ _02077A0C:
 	bl Main_SetVBlankIntrCB
 	mov r0, #0x12
 	bl DestroyHeap
-	ldr r0, _02077A80 ; =gMain + 0x60
+	ldr r0, _02077A80 ; =gSystem + 0x60
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
 	bl GX_SwapDisplay
@@ -1597,7 +1597,7 @@ _02077A70: .word 0x000004AC
 _02077A74: .word 0x000004B4
 _02077A78: .word 0x000004BC
 _02077A7C: .word 0xFFFF1FFF
-_02077A80: .word gMain + 0x60
+_02077A80: .word gSystem + 0x60
 
 	thumb_func_start FUN_02077A84
 FUN_02077A84: ; 0x02077A84
@@ -3821,7 +3821,7 @@ _02078C94: .word 0x0000E001
 FUN_02078C98: ; 0x02078C98
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	ldr r0, _02078D70 ; =gMain
+	ldr r0, _02078D70 ; =gSystem
 	mov r4, #0x0
 	ldr r1, [r0, #0x4c]
 	mov r0, #0x40
@@ -3838,7 +3838,7 @@ FUN_02078C98: ; 0x02078C98
 	mov r6, #0x1
 	add r4, r4, #0x1
 _02078CC0:
-	ldr r0, _02078D70 ; =gMain
+	ldr r0, _02078D70 ; =gSystem
 	ldr r1, [r0, #0x4c]
 	mov r0, #0x80
 	tst r0, r1
@@ -3853,7 +3853,7 @@ _02078CC0:
 	mov r6, #0x2
 	add r4, r4, #0x1
 _02078CE0:
-	ldr r0, _02078D70 ; =gMain
+	ldr r0, _02078D70 ; =gSystem
 	ldr r1, [r0, #0x4c]
 	mov r0, #0x20
 	tst r0, r1
@@ -3868,7 +3868,7 @@ _02078CE0:
 	mov r6, #0x3
 	add r4, r4, #0x1
 _02078D00:
-	ldr r0, _02078D70 ; =gMain
+	ldr r0, _02078D70 ; =gSystem
 	ldr r1, [r0, #0x4c]
 	mov r0, #0x10
 	tst r0, r1
@@ -3883,7 +3883,7 @@ _02078D00:
 	mov r6, #0x4
 	add r4, r4, #0x1
 _02078D20:
-	ldr r0, _02078D70 ; =gMain
+	ldr r0, _02078D70 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x8
 	tst r0, r1
@@ -3922,7 +3922,7 @@ _02078D5A:
 _02078D6E:
 	pop {r4-r6, pc}
 	.balign 4
-_02078D70: .word gMain
+_02078D70: .word gSystem
 _02078D74: .word 0x000005DC
 _02078D78: .word 0x000005C8
 
@@ -5451,7 +5451,7 @@ FUN_02079930: ; 0x02079930
 	mov r0, #0x4
 	mov r12, r0
 _02079944:
-	ldr r2, _020799E0 ; =gMain + 0x40
+	ldr r2, _020799E0 ; =gSystem + 0x40
 	ldrh r0, [r2, #0x20]
 	cmp r0, #0x0
 	beq _020799DA
@@ -5536,5 +5536,5 @@ _020799DA:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	nop
-_020799E0: .word gMain + 0x40
+_020799E0: .word gSystem + 0x40
 _020799E4: .word UNK_020FA264

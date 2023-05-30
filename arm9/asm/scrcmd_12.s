@@ -1024,7 +1024,7 @@ _02043502:
 	pop {r3-r5, pc}
 _02043512:
 	ldr r0, [r5, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	mov r2, #0x1
@@ -1032,7 +1032,7 @@ _02043512:
 	pop {r3-r5, pc}
 _02043526:
 	ldr r0, [r5, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	bl FUN_02027264

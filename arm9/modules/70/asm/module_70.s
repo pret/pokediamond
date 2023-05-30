@@ -115,7 +115,7 @@ _021D75B8:
 	beq _021D768A
 	b _021D768E
 _021D75C4:
-	ldr r0, _021D7694 ; =gMain
+	ldr r0, _021D7694 ; =gSystem
 	mov r1, #2
 	ldr r0, [r0, #0x48]
 	add r2, r0, #0
@@ -216,7 +216,7 @@ _021D768E:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D7694: .word gMain
+_021D7694: .word gSystem
 	thumb_func_end MOD70_021D758C
 
 	thumb_func_start MOD70_021D7698

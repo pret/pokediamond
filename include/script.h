@@ -4,6 +4,7 @@
 #include "global.h"
 #include "bg_window.h"
 #include "camera.h"
+#include "fashion_case.h"
 #include "field_player_avatar.h"
 #include "msgdata.h"
 #include "render_window.h"
@@ -38,6 +39,12 @@ typedef struct PCBoxAppData {
     void *unk04;
     BOOL unk08;
 } PCBoxAppData; //todo move to own file
+
+typedef struct FashionAppData {
+    struct SaveFashionData *fashionData;
+    u32 unk04;
+    u32 unk08;
+} FashionAppData;
 
 typedef struct FieldSystem //todo move to field_system.c
 {

@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gMain
+	.extern gSystem
 	.extern UNK_020FA6E8
 
 	.section .rodata
@@ -451,7 +451,7 @@ _0206CA9C:
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x8
 	bne _0206CAD6
-	ldr r0, _0206CE0C ; =gMain
+	ldr r0, _0206CE0C ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x2
 	tst r0, r1
@@ -859,7 +859,7 @@ _0206CDD6:
 	ldr r2, _0206CE14 ; =0x0000F3FF
 	b _0206CE2C
 	.balign 4
-_0206CE0C: .word gMain
+_0206CE0C: .word gSystem
 _0206CE10: .word 0x00007FFF
 _0206CE14: .word 0x0000F3FF
 _0206CE18: .word 0x00000395

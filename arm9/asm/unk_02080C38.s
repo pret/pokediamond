@@ -128,7 +128,7 @@ _02080CB4:
 	str r5, [sp, #0x10]
 	str r0, [sp, #0x14]
 	ldr r0, [r6, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	str r0, [sp, #0x18]
 	ldr r0, [r6, #0xc]
 	bl Sav2_PlayerData_GetOptionsAddr
@@ -3233,7 +3233,7 @@ _02082414:
 _0208241C:
 	ldr r0, _02082440 ; =0x0000198C
 	ldr r0, [r5, r0]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	mov r2, #0x1
@@ -3721,7 +3721,7 @@ _020827E8:
 	bne _02082820
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	ldr r1, _0208284C ; =0x0000011F
 	ldrb r1, [r4, r1]
 	bl FUN_02027044

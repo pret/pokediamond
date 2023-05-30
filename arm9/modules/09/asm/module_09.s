@@ -1544,7 +1544,7 @@ _02212AA0: .word 0x0000207B
 MOD09_02212AA4: ; 0x02212AA4
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _02212AC4 ; =gMain
+	ldr r0, _02212AC4 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -1560,7 +1560,7 @@ _02212AC0:
 	mov r0, #0x12
 	pop {r4, pc}
 	.align 2, 0
-_02212AC4: .word gMain
+_02212AC4: .word gSystem
 _02212AC8: .word 0x00002079
 
 	thumb_func_start MOD09_02212ACC
@@ -13585,7 +13585,7 @@ _02218E8A:
 MOD09_02218E90: ; 0x02218E90
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _02218EB0 ; =gMain
+	ldr r0, _02218EB0 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -13601,7 +13601,7 @@ _02218EAC:
 	mov r0, #0xa
 	pop {r4, pc}
 	.align 2, 0
-_02218EB0: .word gMain
+_02218EB0: .word gSystem
 _02218EB4: .word 0x0000114B
 
 	thumb_func_start MOD09_02218EB8
@@ -17372,7 +17372,7 @@ MOD09_0221AC98: ; 0x0221AC98
 	mov r0, #1
 	pop {r3, r4, pc}
 _0221ACA8:
-	ldr r1, _0221ACDC ; =gMain
+	ldr r1, _0221ACDC ; =gSystem
 	ldr r2, [r1, #0x48]
 	mov r1, #0xf3
 	tst r1, r2
@@ -17397,7 +17397,7 @@ _0221ACD4:
 	add sp, #4
 	pop {r3, r4, pc}
 	nop
-_0221ACDC: .word gMain
+_0221ACDC: .word gSystem
 _0221ACE0: .word 0x000005DC
 
 	thumb_func_start MOD09_0221ACE4
@@ -17460,7 +17460,7 @@ MOD09_0221AD30: ; 0x0221AD30
 	mvn r0, r0
 	pop {r4, r5, r6, r7, pc}
 _0221AD46:
-	ldr r0, _0221AEBC ; =gMain
+	ldr r0, _0221AEBC ; =gSystem
 	mov r1, #0x40
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -17631,7 +17631,7 @@ _0221AE8A:
 	mvn r0, r0
 	pop {r4, r5, r6, r7, pc}
 _0221AE92:
-	ldr r0, _0221AEBC ; =gMain
+	ldr r0, _0221AEBC ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -17654,7 +17654,7 @@ _0221AEB6:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0221AEBC: .word gMain
+_0221AEBC: .word gSystem
 _0221AEC0: .word 0x000005DC
 _0221AEC4: .word 0x000005DD
 

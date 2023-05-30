@@ -542,10 +542,10 @@ THUMB_FUNC BOOL MOD59_TestPokeballTouchLocation(void)
 {
     BOOL ret = FALSE;
 
-    if (gMain.touchNew != 0 && gMain.touchX < 256 && gMain.touchY < 192)
+    if (gSystem.touchNew != 0 && gSystem.touchX < 256 && gSystem.touchY < 192)
     {
-        s32 distanceFromXCentre = gMain.touchX < 128 ? (u16)(128 - gMain.touchX) : (u16)(gMain.touchX - 128);
-        s32 distanceFromYCentre = gMain.touchY < 100 ? (u16)(100 - gMain.touchY) : (u16)(gMain.touchY - 100);
+        s32 distanceFromXCentre = gSystem.touchX < 128 ? (u16)(128 - gSystem.touchX) : (u16)(gSystem.touchX - 128);
+        s32 distanceFromYCentre = gSystem.touchY < 100 ? (u16)(100 - gSystem.touchY) : (u16)(gSystem.touchY - 100);
 
         s32 distanceXSquare = distanceFromXCentre * distanceFromXCentre;
         s32 distanceYSquare = distanceFromYCentre * distanceFromYCentre;
@@ -849,7 +849,7 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, u3
             data->displayMessageCounter = 2;
             break;
         case 2:
-            if (param2 != 0 || (gMain.newKeys & PAD_BUTTON_A) == 1)
+            if (param2 != 0 || (gSystem.newKeys & PAD_BUTTON_A) == 1)
             {
                 RemoveWindow(&data->window);
                 data->displayMessageCounter = 0;
@@ -984,7 +984,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *dat
             }
             break;
         case 3:
-            if((gMain.newKeys & PAD_BUTTON_A) != 1 && (gMain.newKeys & PAD_BUTTON_B) != 2)
+            if((gSystem.newKeys & PAD_BUTTON_A) != 1 && (gSystem.newKeys & PAD_BUTTON_B) != 2)
             {
                 break;
             }
@@ -2061,7 +2061,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 22: //check input
-            if (gMain.newKeys != 0)
+            if (gSystem.newKeys != 0)
             {
                 data->controllerCounter = 27;
                 break;
@@ -2297,7 +2297,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             }
             else
             {
-                if (gMain.newKeys == 0)
+                if (gSystem.newKeys == 0)
                 {
                     break;
                 }
@@ -2491,7 +2491,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 67: //handle gender selection + animation
-            if ((gMain.newKeys & PAD_BUTTON_A) == 1)
+            if ((gSystem.newKeys & PAD_BUTTON_A) == 1)
             {
                 data->alphaBlend1 = 6;
                 data->alphaBlend2 = 10;
@@ -2506,7 +2506,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
                 }
                 break;
             }
-            if ((gMain.newKeys & PAD_KEY_LEFT) == 0x20 || (gMain.newKeys & PAD_KEY_RIGHT) == 0x10)
+            if ((gSystem.newKeys & PAD_KEY_LEFT) == 0x20 || (gSystem.newKeys & PAD_KEY_RIGHT) == 0x10)
             {
                 data->selectedGender = (data->selectedGender == Male ? Female : Male);
                 PlaySE(SEQ_SE_DP_SELECT);

@@ -611,7 +611,7 @@ _0222DAB4:
 	str r0, [r4]
 	b _0222DAD4
 _0222DAC4:
-	ldr r0, _0222DAE0 ; =gMain
+	ldr r0, _0222DAE0 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -625,7 +625,7 @@ _0222DAD4:
 	pop {r4, pc}
 	nop
 _0222DADC: .word 0x00001B3C
-_0222DAE0: .word gMain
+_0222DAE0: .word gSystem
 
 	thumb_func_start MOD69_0222DAE4
 MOD69_0222DAE4: ; 0x0222DAE4

@@ -1279,7 +1279,7 @@ MOD54_021D7F70: ; 0x021D7F70
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	ldr r0, _021D808C ; =gMain
+	ldr r0, _021D808C ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -1405,7 +1405,7 @@ _021D8086:
 	add sp, #4
 	pop {r3, r4, pc}
 	nop
-_021D808C: .word gMain
+_021D808C: .word gSystem
 _021D8090: .word 0x00004A48
 _021D8094: .word 0x000005F2
 _021D8098: .word 0x00004A3C
@@ -1530,7 +1530,7 @@ MOD54_021D8150: ; 0x021D8150
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021D81A8
-	ldr r0, _021D8270 ; =gMain
+	ldr r0, _021D8270 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0xc3
 	tst r0, r1
@@ -1548,7 +1548,7 @@ _021D8184:
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021D81A8
-	ldr r0, _021D8270 ; =gMain
+	ldr r0, _021D8270 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0xc3
 	tst r0, r1
@@ -1652,7 +1652,7 @@ _021D825E:
 	pop {r4, r5, r6, pc}
 	nop
 _021D826C: .word 0x00004A3C
-_021D8270: .word gMain
+_021D8270: .word gSystem
 _021D8274: .word 0x000005F2
 _021D8278: .word 0x00004A50
 _021D827C: .word 0x00004A54
@@ -1797,7 +1797,7 @@ MOD54_021D8370: ; 0x021D8370
 	cmp r0, #0
 	beq _021D83A4
 _021D838A:
-	ldr r0, _021D8414 ; =gMain
+	ldr r0, _021D8414 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0xc3
 	tst r0, r1
@@ -1861,7 +1861,7 @@ _021D8404:
 	pop {r3, r4, r5, pc}
 	nop
 _021D8410: .word 0x00004A48
-_021D8414: .word gMain
+_021D8414: .word gSystem
 _021D8418: .word 0x000005F2
 _021D841C: .word 0x00004A56
 	thumb_func_end MOD54_021D8370
@@ -1968,7 +1968,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	ldr r0, _021D8514 ; =gMain + 0x60
+	ldr r0, _021D8514 ; =gSystem + 0x60
 	mov r1, #1
 	strb r1, [r0, #8]
 	mov r0, #0x33
@@ -1993,7 +1993,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D8514: .word gMain + 0x60
+_021D8514: .word gSystem + 0x60
 	thumb_func_end MOD54_021D84D4
 
 	thumb_func_start MOD54_021D8518
@@ -2035,7 +2035,7 @@ _021D852A:
 	str r1, [r5, #0xc]
 	lsl r0, r0, #4
 	str r1, [r5, r0]
-	ldr r0, _021D8580 ; =gMain + 0x60
+	ldr r0, _021D8580 ; =gSystem + 0x60
 	strb r1, [r0, #8]
 	ldr r0, _021D8584 ; =0x00004A40
 	strb r1, [r5, r0]
@@ -2044,7 +2044,7 @@ _021D8576:
 	pop {r3, r4, r5, pc}
 	nop
 _021D857C: .word 0x00000658
-_021D8580: .word gMain + 0x60
+_021D8580: .word gSystem + 0x60
 _021D8584: .word 0x00004A40
 	thumb_func_end MOD54_021D8518
 
@@ -2158,7 +2158,7 @@ MOD54_021D8630: ; 0x021D8630
 	cmp r0, #0
 	beq _021D8664
 _021D864A:
-	ldr r0, _021D86D4 ; =gMain
+	ldr r0, _021D86D4 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0xc3
 	tst r0, r1
@@ -2223,7 +2223,7 @@ _021D86C6:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021D86D0: .word 0x00004A48
-_021D86D4: .word gMain
+_021D86D4: .word gSystem
 _021D86D8: .word 0x000005F2
 	thumb_func_end MOD54_021D8630
 
@@ -4097,7 +4097,7 @@ MOD54_021D9464: ; 0x021D9464
 	thumb_func_start MOD54_021D947C
 MOD54_021D947C: ; 0x021D947C
 	push {r3, lr}
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_02026FE0
 	pop {r3, pc}
 	thumb_func_end MOD54_021D947C
@@ -4107,7 +4107,7 @@ MOD54_021D9488: ; 0x021D9488
 	push {r4, r5, r6, lr}
 	add r4, r1, #0
 	add r5, r2, #0
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
@@ -4129,7 +4129,7 @@ MOD54_021D94B4: ; 0x021D94B4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	add r2, r0, #0
 	ldr r0, [r4, #8]
 	ldr r1, [r4, #0xc]

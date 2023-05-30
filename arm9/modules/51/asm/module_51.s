@@ -1303,7 +1303,7 @@ _02255290: .word MOD51_02255740
 MOD51_02255294: ; 0x02255294
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _022552F4 ; =gMain
+	ldr r0, _022552F4 ; =gSystem
 	mov r1, #2
 	ldr r2, [r0, #0x48]
 	lsl r1, r1, #8
@@ -1347,7 +1347,7 @@ _022552C6:
 _022552F0:
 	pop {r4, pc}
 	nop
-_022552F4: .word gMain
+_022552F4: .word gSystem
 _022552F8: .word 0x000005E5
 	thumb_func_end MOD51_02255294
 

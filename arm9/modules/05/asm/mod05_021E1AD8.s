@@ -1063,7 +1063,7 @@ _021E22B8:
 	ldr r0, _021E235C ; =0x000005DC
 	bl PlaySE
 _021E22EE:
-	ldr r0, _021E2360 ; =gMain
+	ldr r0, _021E2360 ; =gSystem
 	mov r1, #0x40
 	ldr r0, [r0, #0x4c]
 	tst r1, r0
@@ -1120,7 +1120,7 @@ _021E235A:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 _021E235C: .word 0x000005DC
-_021E2360: .word gMain
+_021E2360: .word gSystem
 _021E2364: .word 0x0000FFFE
 
 	thumb_func_start MOD05_021E2368

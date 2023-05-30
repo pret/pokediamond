@@ -653,7 +653,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetFossilMinimumAmount
 	.word ScrCmd_CountPartyMonsAtOrBelowLevel
 	.word ScrCmd_SurvivePsn
-	.word ScrCmd_Unk01F8
+	.word ScrCmd_TerminateOverworldProcess
 	.word ScrCmd_DebugWatch
 	.word ScrCmd_MessageFrom
 	.word ScrCmd_MessageFrom2

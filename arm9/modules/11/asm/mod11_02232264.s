@@ -2456,7 +2456,7 @@ MOD11_02233598: ; 0x02233598
 	mov r1, #4
 	tst r0, r1
 	bne _022335D2
-	ldr r0, _022335FC ; =gMain
+	ldr r0, _022335FC ; =gSystem
 	ldr r1, [r0, #0x48]
 	ldr r0, _02233600 ; =0x00000C03
 	tst r0, r1
@@ -2491,7 +2491,7 @@ _022335F2:
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	nop
-_022335FC: .word gMain
+_022335FC: .word gSystem
 _02233600: .word 0x00000C03
 
 	thumb_func_start MOD11_02233604
@@ -17759,7 +17759,7 @@ _0223ADEC:
 	str r0, [r4, #0x28]
 	pop {r4, r5, r6, r7, pc}
 _0223AE3C:
-	ldr r0, _0223AF68 ; =gMain
+	ldr r0, _0223AF68 ; =gSystem
 	ldr r1, [r0, #0x48]
 	ldr r0, _0223AF6C ; =0x00000C03
 	tst r0, r1
@@ -17897,7 +17897,7 @@ _0223AF58: .word MOD11_0225DC60
 _0223AF5C: .word 0x000003B3
 _0223AF60: .word MOD11_0225DC90
 _0223AF64: .word 0x000003B5
-_0223AF68: .word gMain
+_0223AF68: .word gSystem
 _0223AF6C: .word 0x00000C03
 _0223AF70: .word 0x000005DC
 _0223AF74: .word 0x0000FFFE
@@ -19125,7 +19125,7 @@ _0223B990:
 	bl MOD16_021EEF84
 	cmp r0, #0
 	beq _0223BA4C
-	ldr r0, _0223BBE0 ; =gMain
+	ldr r0, _0223BBE0 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -19387,7 +19387,7 @@ _0223BBCA:
 _0223BBD4: .word 0x0000FFFF
 _0223BBD8: .word 0x00000367
 _0223BBDC: .word 0x0000219C
-_0223BBE0: .word gMain
+_0223BBE0: .word gSystem
 _0223BBE4: .word 0x000005DC
 _0223BBE8: .word 0x00000496
 _0223BBEC:

@@ -1837,7 +1837,7 @@
 .extern FUN_02027D00
 .extern FUN_02027D04
 .extern FUN_02027D7C
-.extern FUN_02027E24
+.extern Save_FashionData_get
 .extern FUN_02027E30
 .extern FUN_02027E34
 .extern FUN_02027E5C
@@ -2826,7 +2826,7 @@
 .extern ScrCmd_DummyGetMapPosition
 .extern FUN_0203BC04
 .extern ScrCmd_RestoreOverworld
-.extern ScrCmd_Unk01F8
+.extern ScrCmd_TerminateOverworldProcess
 .extern ScrCmd_Unk00A2
 .extern ScrCmd_Unk00A3
 .extern ScrCmd_Unk00A4
@@ -8843,7 +8843,7 @@
 .extern UNK_020FD6D4
 .extern NNS_GfdDefaultFuncAllocTexVram
 .extern NNS_GfdDefaultFuncAllocPlttVram
-.extern gMain
+.extern gSystem
 .extern UNK_021C8ECC
 .extern UNK_021C8ED0
 .extern UNK_021C8ED4

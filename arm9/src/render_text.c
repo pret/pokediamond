@@ -24,8 +24,8 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
     switch (printer->state)
     {
         case 0:
-            if (((gMain.heldKeys & 3) != 0 && subStruct->hasPrintBeenSpedUp != 0) ||
-                (gMain.touchHeld != 0 && gTextFlags.unk0_4 != 0))
+            if (((gSystem.heldKeys & 3) != 0 && subStruct->hasPrintBeenSpedUp != 0) ||
+                (gSystem.touchHeld != 0 && gTextFlags.unk0_4 != 0))
             {
                 printer->delayCounter = 0;
                 if (printer->textSpeedBottom != 0)
@@ -40,7 +40,7 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
 
                 if (gTextFlags.canABSpeedUpPrint != 0)
                 {
-                    if ((gMain.newKeys & 3) || (gMain.touchNew != 0 && gTextFlags.unk0_4))
+                    if ((gSystem.newKeys & 3) || (gSystem.touchNew != 0 && gTextFlags.unk0_4))
                     {
                         subStruct->hasPrintBeenSpedUp = 1;
                         printer->delayCounter = 0;
@@ -413,7 +413,7 @@ THUMB_FUNC void TextPrinterClearDownArrow(struct TextPrinter *printer)
 THUMB_FUNC BOOL TextPrinterContinue(struct TextPrinter *printer)
 {
 #pragma unused(printer)
-    if ((gMain.newKeys & 3) != 0 || (gMain.touchNew != 0 && gTextFlags.unk0_4 != 0))
+    if ((gSystem.newKeys & 3) != 0 || (gSystem.touchNew != 0 && gTextFlags.unk0_4 != 0))
     {
         PlaySE(SEQ_SE_DP_SELECT);
 

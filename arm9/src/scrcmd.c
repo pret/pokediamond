@@ -2,6 +2,7 @@
 #include "PAD_pad.h"
 #include "bg_window.h"
 #include "camera.h"
+#include "fashion_case.h"
 #include "main.h"
 #include "options.h"
 #include "party.h"
@@ -104,6 +105,10 @@ extern u16 FUN_02037A78(void *runningAppData);
 extern u16 MOD05_021E1858(struct FieldSystem *fieldSystem, LocalMapObject *event, u16 param2);
 extern u32 FUN_02029048(u32 param0);
 extern void FUN_02028AD4(u32 *param0, u32 param1, u32 param2);
+extern void FUN_0204AF3C(struct TaskManager *taskManager);
+extern SaveFashionData *Save_FashionData_get(struct SaveBlock2 *save);
+extern BOOL FUN_02027098(SaveFashionData *fashionData, u32 param1);
+extern BOOL FUN_020270B4(SaveFashionData *fashionData, u32 param1);
 
 u8 UNK_021C5A0C[4];
 
@@ -132,6 +137,8 @@ static BOOL FUN_0203B218(struct ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BB90(ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BC04(ScriptContext *ctx);
+/*static*/ BOOL FUN_0203BC3C(struct FieldSystem *fieldSystem, u32 param1, u32 param2);
+/*static*/ FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 param3);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -731,7 +738,7 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonAB(struct ScriptContext *ctx) //0030
 THUMB_FUNC static BOOL FUN_0203A46C(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
+    if (gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         return TRUE;
     }
@@ -747,7 +754,7 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonABTime(struct ScriptContext *ctx) //0190
 
 THUMB_FUNC static BOOL FUN_0203A4AC(struct ScriptContext *ctx)
 {
-    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
+    if (gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         return TRUE;
     }
@@ -768,27 +775,27 @@ THUMB_FUNC BOOL ScrCmd_WaitButton(struct ScriptContext *ctx) //0031
 
 THUMB_FUNC static BOOL FUN_0203A4E0(struct ScriptContext *ctx)
 {
-    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
+    if (gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         return TRUE;
     }
-    else if (gMain.newKeys & PAD_KEY_UP)
+    else if (gSystem.newKeys & PAD_KEY_UP)
     {
         FUN_02055304(ctx->fieldSystem->playerAvatar, 0);
     }
-    else if (gMain.newKeys & PAD_KEY_DOWN)
+    else if (gSystem.newKeys & PAD_KEY_DOWN)
     {
         FUN_02055304(ctx->fieldSystem->playerAvatar, 1);
     }
-    else if (gMain.newKeys & PAD_KEY_LEFT)
+    else if (gSystem.newKeys & PAD_KEY_LEFT)
     {
         FUN_02055304(ctx->fieldSystem->playerAvatar, 2);
     }
-    else if (gMain.newKeys & PAD_KEY_RIGHT)
+    else if (gSystem.newKeys & PAD_KEY_RIGHT)
     {
         FUN_02055304(ctx->fieldSystem->playerAvatar, 3);
     }
-    else if (gMain.newKeys & PAD_BUTTON_X)
+    else if (gSystem.newKeys & PAD_BUTTON_X)
     {
         FUN_02039460(ctx->fieldSystem);
     }
@@ -808,10 +815,10 @@ THUMB_FUNC BOOL ScrCmd_WaitButtonABPad(struct ScriptContext *ctx) //0032
 THUMB_FUNC static BOOL FUN_0203A570(struct ScriptContext *ctx)
 {
 #pragma unused(ctx)
-    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) {
+    if (gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) {
         return TRUE;
     }
-    else if (gMain.newKeys & (PAD_KEY_RIGHT | PAD_KEY_LEFT | PAD_KEY_UP | PAD_KEY_DOWN)) {
+    else if (gSystem.newKeys & (PAD_KEY_RIGHT | PAD_KEY_LEFT | PAD_KEY_UP | PAD_KEY_DOWN)) {
         return TRUE;
     }
     return FALSE;
@@ -1025,19 +1032,19 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
         return TRUE;
     }
 
-    if (gMain.newKeys & PAD_KEY_UP)
+    if (gSystem.newKeys & PAD_KEY_UP)
     {
         tmp = 0;
     }
-    else if (gMain.newKeys & PAD_KEY_DOWN)
+    else if (gSystem.newKeys & PAD_KEY_DOWN)
     {
         tmp = 1;
     }
-    else if (gMain.newKeys & PAD_KEY_LEFT)
+    else if (gSystem.newKeys & PAD_KEY_LEFT)
     {
         tmp = 2;
     }
-    else if (gMain.newKeys & PAD_KEY_RIGHT)
+    else if (gSystem.newKeys & PAD_KEY_RIGHT)
     {
         tmp = 3;
     }
@@ -1051,7 +1058,7 @@ THUMB_FUNC static BOOL FUN_0203A94C(struct ScriptContext *ctx)
     }
     else
     {
-        if (gMain.newKeys & PAD_BUTTON_X)
+        if (gSystem.newKeys & PAD_BUTTON_X)
         {
             FUN_0201BD7C(*printerNumber);
             *varPtr = 1;
@@ -1074,24 +1081,24 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
     u16 *unk = GetVarPointer(ctx->fieldSystem, (u16)ctx->data[0]);
 
     u32 tmp = 0xFFFF;
-    if (gMain.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
+    if (gSystem.newKeys & (PAD_BUTTON_A | PAD_BUTTON_B))
     {
         *unk = 0;
         return TRUE;
     }
-    else if (gMain.newKeys & PAD_KEY_UP)
+    else if (gSystem.newKeys & PAD_KEY_UP)
     {
         tmp = 0;
     }
-    else if (gMain.newKeys & PAD_KEY_DOWN)
+    else if (gSystem.newKeys & PAD_KEY_DOWN)
     {
         tmp = 1;
     }
-    else if (gMain.newKeys & PAD_KEY_LEFT)
+    else if (gSystem.newKeys & PAD_KEY_LEFT)
     {
         tmp = 2;
     }
-    else if (gMain.newKeys & PAD_KEY_RIGHT)
+    else if (gSystem.newKeys & PAD_KEY_RIGHT)
     {
         tmp = 3;
     }
@@ -1104,7 +1111,7 @@ THUMB_FUNC static BOOL FUN_0203AA0C(struct ScriptContext *ctx)
     }
     else
     {
-        if (gMain.newKeys & PAD_BUTTON_X)
+        if (gSystem.newKeys & PAD_BUTTON_X)
         {
             *unk = 1;
             return TRUE;
@@ -1936,4 +1943,36 @@ THUMB_FUNC /*static*/ BOOL FUN_0203BC04(ScriptContext *ctx) {
 THUMB_FUNC BOOL ScrCmd_RestoreOverworld(ScriptContext *ctx) { //00A1
     FUN_0204AF84(ctx->fieldSystem->taskManager);
     return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TerminateOverworldProcess(ScriptContext *ctx) { //01F8
+    FUN_0204AF3C(ctx->fieldSystem->taskManager);
+    return TRUE;
+}
+
+THUMB_FUNC /*static*/ BOOL FUN_0203BC3C(struct FieldSystem *fieldSystem, u32 param1, u32 param2) {
+    SaveFashionData *fashionData = Save_FashionData_get(fieldSystem->saveBlock2);
+    if (param1 == 0) {
+        if (!FUN_02027098(fashionData, param2)) {
+            return FALSE;
+        }
+    } else {
+        if (!FUN_020270B4(fashionData, param2)) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
+THUMB_FUNC /*static*/ FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 param3) {
+    SaveFashionData *fashionData = Save_FashionData_get(fieldSystem->saveBlock2);
+    if (!FUN_0203BC3C(fieldSystem, param2, param3)) {
+        return NULL;
+    }
+    FashionAppData *appData = AllocFromHeap(heapId, sizeof(FashionAppData));
+    __builtin__clear(appData, sizeof(FashionAppData));
+    appData->fashionData = fashionData;
+    appData->unk08 = param2;
+    appData->unk04 = param3;
+    return appData;
 }

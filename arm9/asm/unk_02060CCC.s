@@ -2434,7 +2434,7 @@ FUN_02061E7C: ; 0x02061E7C
 	add r0, sp, #0x0
 	strh r1, [r0, #0x2]
 	ldr r0, [r4, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	mov r1, #0x0
 	bl FUN_02027008
 	bl FUN_020275D8
@@ -3329,7 +3329,7 @@ FUN_0206252C: ; 0x0206252C
 	sub sp, #0xc
 	ldr r0, [r0, #0xc]
 	add r7, r1, #0x0
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	add r6, r0, #0x0
 	bl FUN_0206250C
 	add r4, r0, #0x0
@@ -3406,7 +3406,7 @@ _0206257A:
 FUN_020625D4: ; 0x020625D4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0206250C
 	cmp r0, #0x0
 	beq _020625E8

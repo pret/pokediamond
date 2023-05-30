@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gMain
+	.extern gSystem
 
 	.section .rodata
 
@@ -247,7 +247,7 @@ FUN_02062770: ; 0x02062770
 	add r0, #0xc0
 	ldr r0, [r0, #0x0]
 	bl ListMenu_ProcessInput
-	ldr r1, _020627C8 ; =gMain
+	ldr r1, _020627C8 ; =gSystem
 	ldr r3, [r1, #0x48]
 	mov r1, #0x2
 	tst r1, r3
@@ -287,7 +287,7 @@ _020627B8:
 	mov r0, #0x4
 	pop {r4, pc}
 	.balign 4
-_020627C8: .word gMain
+_020627C8: .word gSystem
 _020627CC: .word 0x0000FFFF
 
 	thumb_func_start FUN_020627D0
@@ -301,7 +301,7 @@ FUN_020627D0: ; 0x020627D0
 	thumb_func_start FUN_020627DC
 FUN_020627DC: ; 0x020627DC
 	push {r3, lr}
-	ldr r1, _02062804 ; =gMain
+	ldr r1, _02062804 ; =gSystem
 	ldr r2, [r1, #0x48]
 	mov r1, #0x3
 	tst r1, r2
@@ -320,12 +320,12 @@ _020627FE:
 	mov r0, #0x5
 	pop {r3, pc}
 	nop
-_02062804: .word gMain
+_02062804: .word gSystem
 
 	thumb_func_start FUN_02062808
 FUN_02062808: ; 0x02062808
 	push {r4, lr}
-	ldr r1, _020628B8 ; =gMain
+	ldr r1, _020628B8 ; =gSystem
 	mov r2, #0x2
 	ldr r1, [r1, #0x48]
 	add r4, r0, #0x0
@@ -387,7 +387,7 @@ _0206285C:
 	asr r2, r2, #0x10
 	bl FUN_0200C714
 _02062882:
-	ldr r0, _020628B8 ; =gMain
+	ldr r0, _020628B8 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x80
 	tst r0, r1
@@ -415,7 +415,7 @@ _020628B4:
 	mov r0, #0x6
 	pop {r4, pc}
 	.balign 4
-_020628B8: .word gMain
+_020628B8: .word gSystem
 
 	thumb_func_start FUN_020628BC
 FUN_020628BC: ; 0x020628BC
@@ -613,7 +613,7 @@ _02062A2A:
 	str r0, [r4, #0xc]
 	b _02062A60
 _02062A3C:
-	ldr r1, _02062A6C ; =gMain
+	ldr r1, _02062A6C ; =gSystem
 	ldr r2, [r1, #0x48]
 	mov r1, #0x3
 	tst r1, r2
@@ -635,7 +635,7 @@ _02062A60:
 	pop {r4, pc}
 	nop
 _02062A68: .word 0x0001020F
-_02062A6C: .word gMain
+_02062A6C: .word gSystem
 
 	thumb_func_start FUN_02062A70
 FUN_02062A70: ; 0x02062A70
@@ -2074,7 +2074,7 @@ _02063602:
 	bl FUN_0201FDEC
 	b _02063646
 _02063618:
-	ldr r0, _0206364C ; =gMain
+	ldr r0, _0206364C ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -2102,7 +2102,7 @@ _02063646:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	nop
-_0206364C: .word gMain
+_0206364C: .word gSystem
 
 	thumb_func_start FUN_02063650
 FUN_02063650: ; 0x02063650

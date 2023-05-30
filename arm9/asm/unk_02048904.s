@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gMain
+	.extern gSystem
 
 	.section .rodata
 
@@ -146,11 +146,11 @@ _020489EA:
 	ldr r0, [r0, #0x0]
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x1c
-	ldr r0, _020489F8 ; =gMain + 0x60
+	ldr r0, _020489F8 ; =gSystem + 0x60
 	strb r1, [r0, #0x5]
 	pop {r4, pc}
 	.balign 4
-_020489F8: .word gMain + 0x60
+_020489F8: .word gSystem + 0x60
 
 	thumb_func_start FUN_020489FC
 FUN_020489FC: ; 0x020489FC
