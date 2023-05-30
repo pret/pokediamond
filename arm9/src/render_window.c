@@ -687,51 +687,36 @@ THUMB_FUNC void FUN_0200DC24(WaitingIcon *waitingIcon) {
     waitingIcon->unk488 = 2;
 }
 
-THUMB_FUNC u8 *FUN_0200DC4C(struct BgConfig *bg_config,
-    u8 bg_id,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u16 param5,
-    u16 param6,
-    u8 param7,
-    s32 param8)
+THUMB_FUNC PokepicManager *FUN_0200DC4C(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, s32 heapId) //DrawPokemonPicFromSpecies?
 {
-    struct UnkStruct_0200CABC_2 *r4 = FUN_0200DD70(bg_config, bg_id, param2, param3, (u32)param8);
-    FUN_0200DDAC(r4, (u32)param8);
+    struct UnkStruct_0200CABC_2 *r4 = FUN_0200DD70(bg_config, bg_id, param2, param3, heapId);
+    FUN_0200DDAC(r4, heapId);
     FUN_0200DDD8(r4);
     FUN_0200DE30(r4, param2, param3);
-    FUN_0200DE80(r4, param6, param7);
-    DrawFramed10x10Square(r4, param4, param5);
+    FUN_0200DE80(r4, species, gender);
+    DrawFramed10x10Square(r4, param4, numTiles);
     BgCommitTilemapBufferToVram(bg_config, bg_id);
 
-    return &r4->unk16f;
+    return &r4->pokepicManager;
 }
 
-THUMB_FUNC u8 *FUN_0200DCA4(struct BgConfig *bg_config,
-    u8 bg_id,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u16 param5,
-    struct Pokemon *param6,
-    s32 param7)
+THUMB_FUNC PokepicManager *FUN_0200DCA4(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, s32 heapId) //DrawPokemonPicFromMon?
 {
-    struct UnkStruct_0200CABC_2 *r4 = FUN_0200DD70(bg_config, bg_id, param2, param3, (u32)param7);
-    FUN_0200DDAC(r4, (u32)param7);
+    struct UnkStruct_0200CABC_2 *r4 = FUN_0200DD70(bg_config, bg_id, param2, param3, heapId);
+    FUN_0200DDAC(r4, heapId);
     FUN_0200DDD8(r4);
     FUN_0200DE30(r4, param2, param3);
-    FUN_0200DEC0(r4, param6);
-    DrawFramed10x10Square(r4, param4, param5);
+    FUN_0200DEC0(r4, mon);
+    DrawFramed10x10Square(r4, param4, numTiles);
     BgCommitTilemapBufferToVram(bg_config, bg_id);
 
-    return &r4->unk16f;
+    return &r4->pokepicManager;
 }
 
 THUMB_FUNC void FUN_0200DCF8(u32 param0, void *param1)
 {
     struct UnkStruct_0200CABC_2 *unk = (struct UnkStruct_0200CABC_2 *)param1;
-    switch (unk->unk16f)
+    switch (unk->pokepicManager.unk00)
     {
         case 1:
             ClearFramed10x10Square(unk);
@@ -740,13 +725,13 @@ THUMB_FUNC void FUN_0200DCF8(u32 param0, void *param1)
             FUN_0200621C((s32)param0);
             return;
         case 2:
-            unk->unk16f = 3;
+            unk->pokepicManager.unk00 = 3;
             FUN_02020130(*unk->unk164, 1);
             break;
         case 3:
             if (FUN_0202022C(*unk->unk164) == 6)
             {
-                unk->unk16f = 0;
+                unk->pokepicManager.unk00 = 0;
             }
     }
 
@@ -759,7 +744,7 @@ THUMB_FUNC struct UnkStruct_0200CABC_2 *FUN_0200DD70(
 {
     struct UnkStruct_0200CABC_2 *res = FUN_0201B6C8(FUN_020061E8(FUN_0200DCF8, 0x170, 0, param4));
 
-    res->unk16f = 0;
+    res->pokepicManager.unk00 = 0;
     res->bgConfig = bg_config;
     res->bgId = bg_id;
     res->x = param2;

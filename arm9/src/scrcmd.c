@@ -112,6 +112,7 @@ extern BOOL FUN_020270B4(SaveFashionData *fashionData, u32 param1);
 extern void MOD05_021F02C4(struct FieldSystem *fieldSystem);
 extern void FUN_0206F3B8(struct TaskManager *taskManager);
 extern u16 FUN_02031190(void);
+extern void Script_SetMonSeenFlagBySpecies(struct FieldSystem *fieldSystem, u16 species);
 
 u8 UNK_021C5A0C[4];
 
@@ -2002,4 +2003,14 @@ THUMB_FUNC BOOL ScrCmd_Unk0207(ScriptContext *ctx) { //0207
     u16 *ptr = ScriptGetVarPointer(ctx);
     *ptr = FUN_02031190();
     return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_ShowPokemonPic(ScriptContext *ctx) { //0208
+    PokepicManager **pokepicManager = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    u16 species = ScriptGetVar(ctx);
+    u16 gender = ScriptGetVar(ctx);
+    LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, 4);
+    *pokepicManager = FUN_0200DC4C(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, species, gender, 4);
+    Script_SetMonSeenFlagBySpecies(ctx->fieldSystem, species);
+    return FALSE;
 }

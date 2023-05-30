@@ -2831,7 +2831,7 @@
 .extern ScrCmd_Unk00A3
 .extern ScrCmd_Unk00A4
 .extern ScrCmd_Unk0207
-.extern ScrCmd_Unk0208
+.extern ScrCmd_ShowPokemonPic
 .extern ScrCmd_Unk028C
 .extern ScrCmd_Unk0209
 .extern ScrCmd_Unk028D

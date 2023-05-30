@@ -13,73 +13,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0208
-ScrCmd_Unk0208: ; 0x0203BD28
-	push {r4-r7, lr}
-	sub sp, #0x14
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x14
-	bl FieldSysGetAttrAddr
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r7, r0, #0x0
-	mov r0, #0x0
-	str r0, [sp, #0x0]
-	mov r0, #0x4
-	str r0, [sp, #0x4]
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r2, _0203BDB4 ; =0x000003D9
-	ldr r0, [r0, #0x8]
-	mov r1, #0x3
-	mov r3, #0xb
-	bl LoadUserFrameGfx1
-	mov r0, #0xb
-	str r0, [sp, #0x0]
-	ldr r0, _0203BDB4 ; =0x000003D9
-	mov r1, #0x3
-	str r0, [sp, #0x4]
-	lsl r0, r7, #0x18
-	str r4, [sp, #0x8]
-	lsr r0, r0, #0x18
-	str r0, [sp, #0xc]
-	mov r0, #0x4
-	str r0, [sp, #0x10]
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r2, #0xa
-	ldr r0, [r0, #0x8]
-	mov r3, #0x5
-	bl FUN_0200DC4C
-	add r5, #0x80
-	str r0, [r6, #0x0]
-	ldr r0, [r5, #0x0]
-	add r1, r4, #0x0
-	bl FUN_0203ED2C
-	mov r0, #0x0
-	add sp, #0x14
-	pop {r4-r7, pc}
-	.balign 4
-_0203BDB4: .word 0x000003D9
-
 	thumb_func_start ScrCmd_Unk028C
 ScrCmd_Unk028C: ; 0x0203BDB8
 	push {r4-r6, lr}
@@ -143,7 +76,7 @@ ScrCmd_Unk028C: ; 0x0203BDB8
 	lsl r1, r1, #0x10
 	ldr r0, [r5, #0x0]
 	lsr r1, r1, #0x10
-	bl FUN_0203ED2C
+	bl Script_SetMonSeenFlagBySpecies
 	mov r0, #0x0
 	add sp, #0x10
 	pop {r4-r6, pc}
@@ -5967,8 +5900,8 @@ ScrCmd_Unk024D: ; 0x0203ED10
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203ED2C
-FUN_0203ED2C: ; 0x0203ED2C
+	thumb_func_start Script_SetMonSeenFlagBySpecies
+Script_SetMonSeenFlagBySpecies: ; 0x0203ED2C
 	push {r4-r6, lr}
 	sub sp, #0x10
 	ldr r0, [r0, #0xc]
