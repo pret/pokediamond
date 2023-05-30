@@ -883,7 +883,7 @@ MOD70_021D7AF4: ; 0x021D7AF4
 	mov r1, #1
 	lsr r2, r2, #0x10
 	mov r3, #2
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r5, #0
 	lsl r2, r4, #0x10
 	add r0, #0x14

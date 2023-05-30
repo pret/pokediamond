@@ -86,7 +86,7 @@ _020899B8:
 	bl Main_SetVBlankIntrCB
 	add r0, r4, #0x0
 	add r1, r0, #0x0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #0x1
@@ -211,11 +211,11 @@ _02089A78:
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0x18]
 	mov r3, #0x3
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, [r4, #0x0]
 	mov r0, #0x0
 	mov r1, #0x20
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r0, #0x0
 	ldr r3, [r4, #0x0]
 	mov r1, #0x20
@@ -282,7 +282,7 @@ FUN_02089B80: ; 0x02089B80
 	mov r1, #0x1a
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x1c]
-	bl FUN_0201BD5C
+	bl ResetAllTextPrinters
 	mov r0, #0x0
 	str r0, [r4, #0xc]
 	add r1, r4, #0x0

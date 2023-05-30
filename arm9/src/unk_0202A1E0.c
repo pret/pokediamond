@@ -471,7 +471,7 @@ THUMB_FUNC void FUN_0202A798(struct SaveStruct23_Substruct4 *substruct4, struct 
 
     if(substruct4_substruct1->u_C8_0)
     {
-        message = NewMsgDataFromNarc(0, NARC_MSGDATA_MSG, 17, 11);
+        message = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, 17, 11);
         ReadMsgDataIntoU16Array(message, (u32) (22 + substruct4_substruct1->u_C8_1), unk_substruct->u_8);
         DestroyMsgData(message);
     }

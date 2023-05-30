@@ -84,4 +84,7 @@
 #define SEAL_BURST            79
 #define SEAL_TWINKLE          80
 
+#define SEAL_MIN SEAL_HEART_A
+#define SEAL_MAX SEAL_TWINKLE
+
 #endif //POKEDIAMOND_CONSTANTS_SEAL_CONSTANTS_H

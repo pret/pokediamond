@@ -947,7 +947,7 @@ MOD65_021D7C04: ; 0x021D7C04
 	ldr r0, [r6, #0x24]
 	mov r2, #0x1f
 	mov r3, #0xf
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, [r6, #0x20]
 	ldr r0, [r0, #0x18]
 	bl Options_GetFrame
@@ -965,7 +965,7 @@ MOD65_021D7C04: ; 0x021D7C04
 	ldr r2, [r6]
 	mov r0, #0
 	lsl r1, r1, #4
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #6
 	ldr r2, [r6]
 	mov r0, #0
@@ -975,7 +975,7 @@ MOD65_021D7C04: ; 0x021D7C04
 	ldr r2, [r6]
 	mov r0, #4
 	lsl r1, r1, #4
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	add r5, r6, #0
 	ldr r4, _021D7CA4 ; =0x021DA0D8
 	mov r7, #0

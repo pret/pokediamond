@@ -45,12 +45,10 @@ u16 FUN_0206E37C(struct BagView *bag_view);
 u16 FUN_0206E384(struct BagView *bag_view);
 u8 FUN_0206E38C(struct BagView *bag_view);
 u8 FUN_0206E394(struct BagView *bag_view);
-u32 FUN_0206E39C(struct SaveBlock2 *sav2);
-u32 FUN_0206E3A8(struct SaveBlock2 *sav2);
 u32 FUN_0206E3C8(struct SaveBlock2 *sav2);
 u32 FUN_0206E3D8(struct SaveBlock2 *sav2);
 u32 FUN_0206E3E8(struct SaveBlock2 *sav2);
-BOOL FUN_0206E3F8(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id);
+BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id);
 void FUN_0206E51C(struct PlayerData *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id);
 
 #endif // POKEDIAMOND_BAG_VIEW_H

@@ -1656,7 +1656,7 @@ MOD82_0222E264: ; 0x0222E264
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r1, #0
 	mov r0, #0x36
 	str r1, [sp]

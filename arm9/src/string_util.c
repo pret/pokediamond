@@ -126,14 +126,14 @@ THUMB_FUNC u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMo
     for (u32 x = (u32)gPowersOfTen[n - 1]; x != 0; x = x / 10) {
         u16 res = (u16)(value / x);
         value = value - x * res;
-        if (mode == PAD_ZEROES) {
+        if (mode == PRINTING_MODE_LEADING_ZEROS) {
             *dest = res >= 10 ? (u16)NON_DIGIT : gDigitTable[res];
             dest++;
         } else if (res != 0 || x == 1) {
-            mode = PAD_ZEROES;
+            mode = PRINTING_MODE_LEADING_ZEROS;
             *dest = res >= 10 ? (u16)NON_DIGIT : gDigitTable[res];
             dest++;
-        } else if (mode == PAD_SPACE) {
+        } else if (mode == PRINTING_MODE_RIGHT_ALIGN) {
             *dest = 1;
             dest++;
         }

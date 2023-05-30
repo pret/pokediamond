@@ -827,7 +827,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	add r0, r4, #0
 	mov r1, #2
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add sp, #0x14
 	pop {r4, r5, pc}
 	nop

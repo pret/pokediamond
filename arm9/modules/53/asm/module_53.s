@@ -864,7 +864,7 @@ MOD53_021D7B60: ; 0x021D7B60
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD53_021D7B60

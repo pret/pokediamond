@@ -41344,7 +41344,7 @@ _022414B2:
 	bne _0224157A
 	ldr r0, _02241580 ; =MOD12_022417DC
 	add r1, r4, #0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	mov r0, #0xff
 	str r0, [sp]
 	ldr r0, _02241584 ; =0x0000D6D8

@@ -2477,7 +2477,7 @@ _0223AA08:
 	pop {r4, r5, r6, r7, pc}
 _0223AA4C:
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	bl FUN_0200E308
 	cmp r0, #0
 	bne _0223AA5C
@@ -2510,7 +2510,7 @@ _0223AA5C:
 	ldr r0, [r0, #8]
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	bl FUN_0204CC9C
 	bl MOD18_022451EC
 	bl MOD18_0223CC94
@@ -2637,7 +2637,7 @@ _0223ABAC:
 	mov r0, #0
 	bl FUN_0200E388
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	bl MOD18_0223D638
 	mov r2, #0
 	mov r1, #0x3f
@@ -8085,7 +8085,7 @@ MOD18_0223D414: ; 0x0223D414
 	ldr r0, [r0, #0xc]
 	mov r3, #0xb
 	ldr r0, [r0, #8]
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r3, #0
 	ldr r0, _0223D580 ; =0x02251388
 	add r4, r3, #0
@@ -14011,7 +14011,7 @@ _022401D2:
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	add r0, r4, #0
 	bl FreeToHeap
 	add r0, r5, #0
@@ -14123,7 +14123,7 @@ MOD18_022402A0: ; 0x022402A0
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	add r0, r4, #0
 	bl FreeToHeap
 	ldr r0, _022402EC ; =0x022513A0
@@ -14372,7 +14372,7 @@ _02240480:
 	strh r0, [r1]
 	mov r1, #1
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, _022404EC ; =0x022513A0
 	mov r1, #2
 	ldr r0, [r0, #4]
@@ -15358,7 +15358,7 @@ MOD18_02240C14: ; 0x02240C14
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, _02240C70 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -15593,7 +15593,7 @@ MOD18_02240DC8: ; 0x02240DC8
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, _02240E28 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -15692,7 +15692,7 @@ _02240EA4:
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, _02240EE0 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -15826,7 +15826,7 @@ _02240FB4:
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, _02241004 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -16742,7 +16742,7 @@ _022416D6:
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	mov r0, #1
 	mov r1, #0
 	sub r2, r1, #4
@@ -18683,7 +18683,7 @@ _02242604:
 	strh r0, [r1]
 	mov r1, #1
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, _02242664 ; =0x0400006C
 	mov r1, #0
 	bl GXx_SetMasterBrightness_
@@ -20251,7 +20251,7 @@ _02243268:
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	mov r0, #0x10
 	bl FUN_0204F774
 	ldr r0, _022432AC ; =0x022513A0
@@ -20991,7 +20991,7 @@ _02243840:
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, _02243890 ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -21257,7 +21257,7 @@ _02243A44:
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	ldr r0, _02243A8C ; =0x04000050
 	mov r1, #0
 	strh r1, [r0]
@@ -23197,7 +23197,7 @@ MOD18_0224486C: ; 0x0224486C
 	str r2, [sp, #4]
 	bl GfGfxLoader_GXLoadPal
 	mov r0, #1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	add sp, #0x64
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -26982,7 +26982,7 @@ _02246668:
 	ldr r2, _02246854 ; =0x000003D9
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r4, #0
 	add r0, #0x2d
 	ldrb r0, [r0]
@@ -36157,7 +36157,7 @@ MOD18_0224AFE8: ; 0x0224AFE8
 	mov r1, #1
 	mov r0, #0
 	add r2, r1, #0
-	bl SetBrightness
+	bl SetBlendBrightness
 	mov r1, #1
 	add r0, r4, #0
 	mvn r1, r1
@@ -42202,7 +42202,7 @@ MOD18_0224E028: ; 0x0224E028
 	ldr r2, _0224E058 ; =0x000003D9
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	nop
@@ -42553,7 +42553,7 @@ MOD18_0224E2E4: ; 0x0224E2E4
 	ldr r2, _0224E310 ; =0x000003D9
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add sp, #8
 	pop {r3, r4, r5, pc}
 	.align 2, 0

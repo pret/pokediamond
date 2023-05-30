@@ -481,7 +481,7 @@ FUN_020866FC: ; 0x020866FC
 	mov r1, #0x1
 	mov r2, #0x32
 	mov r3, #0xd
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	bl FUN_0200CAFC
 	add r2, r0, #0x0
 	mov r0, #0x0

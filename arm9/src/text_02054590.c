@@ -5,16 +5,14 @@
 #include "render_text.h"
 #include "render_window.h"
 
-extern void FUN_0201BD5C(void);
-
-THUMB_FUNC void FUN_02054590(u32 param0, u32 param1)
+THUMB_FUNC void FUN_02054590(enum GFPalLoadLocation location, u32 param1)
 {
     if (param1 == 1)
     {
-        FUN_0201BD5C();
+        ResetAllTextPrinters();
     }
-    FUN_02002ED0(param0, 416, 4);
-    FUN_02002EEC(param0, 384, 4);
+    LoadFontPal0(location, GF_PAL_SLOT_OFFSET_13, 4);
+    FUN_02002EEC(location, GF_PAL_SLOT_OFFSET_12, 4);
 }
 
 THUMB_FUNC void FUN_020545B8(struct BgConfig *param0, struct Window *param1, u32 param2)

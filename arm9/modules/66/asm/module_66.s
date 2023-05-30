@@ -644,12 +644,12 @@ MOD66_021D78B4: ; 0x021D78B4
 	ldr r2, [r5, #4]
 	mov r0, #0
 	lsl r1, r1, #4
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #0x1e
 	ldr r2, [r5, #4]
 	mov r0, #4
 	lsl r1, r1, #4
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	add sp, #0x14
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1003,9 +1003,9 @@ MOD66_021D7CAC: ; 0x021D7CAC
 	ldr r0, _021D7CF0 ; =0x0000068F
 	bl PlaySE
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r1, #4
 	ldr r0, _021D7CF4 ; =0x04000050
 	mov r2, #8
@@ -1063,7 +1063,7 @@ MOD66_021D7D24: ; 0x021D7D24
 	ldr r0, _021D7D64 ; =0x0000068F
 	bl PlaySE
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r1, #4
 	ldr r0, _021D7D68 ; =0x04000050
 	mov r2, #8

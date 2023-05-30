@@ -7,6 +7,8 @@
 
 struct SaveBlock2;
 
+#define MAX_MONEY 999999
+
 typedef enum
 {
     Male = 0,

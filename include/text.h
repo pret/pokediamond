@@ -79,7 +79,7 @@ void SetFontsPointer(const struct FontInfo *fonts);
 u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2);
 void FUN_0201BCFC(u8 textPrinterNumber);
 BOOL FUN_0201BD44(u8 textPrinterNumber);
-void FUN_0201BD5C(void);
+void ResetAllTextPrinters(void);
 u8 FUN_0201BD70(u8 textPrinterNumber);
 void FUN_0201BD7C(u8 textPrinterNumber);
 u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16));

@@ -117,7 +117,7 @@ THUMB_FUNC void StartBrightnessTransition(
     }
 }
 
-THUMB_FUNC void SetBrightness(fx32 brightness, fx32 surfaceMask, u32 screenMask)
+THUMB_FUNC void SetBlendBrightness(fx32 brightness, fx32 surfaceMask, u32 screenMask)
 {
 
     if ((screenMask & 1) != 0)

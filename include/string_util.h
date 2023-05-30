@@ -7,13 +7,15 @@
 
 #include "global.h"
 
+//todo: move to charcode.h
 #define EOS 0xFFFF
 #define NON_DIGIT 0xE2
+#define EXT_CTRL_CODE_BEGIN 0xFFFE
 
 enum PrintingMode {
-    NORMAL,
-    PAD_SPACE,
-    PAD_ZEROES
+    PRINTING_MODE_LEFT_ALIGN,
+    PRINTING_MODE_RIGHT_ALIGN,
+    PRINTING_MODE_LEADING_ZEROS
 };
 
 void CopyU16StringArray(u16 *dest, const u16 *src);

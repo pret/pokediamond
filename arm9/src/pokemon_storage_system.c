@@ -36,7 +36,7 @@ void PCStorage_InitializeBoxes(struct PCStorage * pc)
             j = 0;
     }
     pc->unlockedWallpapers = 0;
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 14, 0);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 14, 0);
     if (msgData != NULL)
     {
         for (i = 0; i < NUM_BOXES; i++)

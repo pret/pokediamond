@@ -2455,11 +2455,11 @@ MOD64_021D87CC: ; 0x021D87CC
 	ldr r0, [r0]
 	ldr r2, _021D882C ; =0x0000029E
 	add r3, r1, #0
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	mov r1, #0x60
 	add r2, r4, #0
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	add sp, #8
 	pop {r4, pc}
 	nop

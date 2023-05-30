@@ -22,7 +22,7 @@ MOD63_021D74E0: ; 0x021D74E0
 	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r2, #1
@@ -1753,17 +1753,17 @@ _021D8272:
 	mov r1, #1
 	bl GX_EngineAToggleLayers
 	add r0, r4, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	add r0, r4, #0
 	mov r1, #6
 	mov r2, #1
-	bl SetBrightness
+	bl SetBlendBrightness
 	add r0, r4, #0
 	mov r1, #7
 	mov r2, #2
-	bl SetBrightness
+	bl SetBlendBrightness
 	add r0, r5, #0
 	mov r1, #2
 	add r0, #0xa4

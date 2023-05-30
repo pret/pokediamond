@@ -2823,7 +2823,7 @@ MOD80_0222EB6C: ; 0x0222EB6C
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #3
@@ -4117,7 +4117,7 @@ MOD80_0222F5A8: ; 0x0222F5A8
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xa
@@ -5406,7 +5406,7 @@ MOD80_02230054: ; 0x02230054
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xa
@@ -6413,7 +6413,7 @@ MOD80_02230840: ; 0x02230840
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xa
@@ -8825,7 +8825,7 @@ MOD80_02231BF4: ; 0x02231BF4
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xa
@@ -11854,7 +11854,7 @@ MOD80_0223346C: ; 0x0223346C
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xa
@@ -14398,7 +14398,7 @@ MOD80_022348CC: ; 0x022348CC
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, _02234954 ; =0x00000FEC
 	ldrh r0, [r5, r0]
 	cmp r0, #0
@@ -18042,7 +18042,7 @@ MOD80_02236488: ; 0x02236488
 	add r0, r4, #0
 	mov r2, #0x1f
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r1, #0
 	mov r0, #0x36
 	str r1, [sp]

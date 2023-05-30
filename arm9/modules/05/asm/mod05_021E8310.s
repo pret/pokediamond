@@ -273,7 +273,7 @@ MOD05_021E84F4: ; 0x021E84F4
 	ldrb r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0
 	mov r1, #6
 	bl GetFontAttribute

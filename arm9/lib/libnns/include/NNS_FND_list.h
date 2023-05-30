@@ -32,4 +32,9 @@ void NNS_FndRemoveListObject(
     void* object
 );
 
+void NNS_FndPrependListObject(NNSFndList* list, void* object);
+void NNS_FndInsertListObject(NNSFndList* list, void* where, void* object);
+void * NNS_FndGetNextListObject(NNSFndList* list, void* object);
+void * NNS_FndGetPrevListObject(NNSFndList* list, void* object);
+
 #endif //GUARD_NNS_FND_LIST_H

@@ -20,7 +20,7 @@ void FUN_02015ED4(void);
 void FUN_02015EF4(void);
 void Main_SetVBlankIntrCB(void (*a0)(void *), void * a1);
 void FUN_02015F1C(void);
-BOOL FUN_02015F34(void (*a0)(void *), void * a1);
+BOOL Main_SetHBlankIntrCB(void (*a0)(void *), void * a1);
 void Main_CallHBlankCallback(void);
 void Main_ToggleHBlankInterrupt(BOOL enableFlag);
 void FUN_02015FC8(void);

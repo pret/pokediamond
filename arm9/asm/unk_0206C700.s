@@ -552,9 +552,9 @@ _0206CB48:
 	pop {r3-r4, pc}
 _0206CB70:
 	mov r0, #0x0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #0x1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	ldr r0, [r4, #0x58]
 	mov r1, #0x0
 	bl FUN_020143A8
@@ -1480,9 +1480,9 @@ _0206D2EE:
 	pop {r3-r4, pc}
 _0206D360:
 	mov r0, #0x0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #0x1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	ldr r0, [r4, #0x14]
 	bl FUN_020038E4
 	cmp r0, #0x0

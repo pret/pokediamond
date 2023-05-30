@@ -7,7 +7,7 @@
 #include "string16.h"
 
 
-void FUN_02054590(u32 param0, u32 param1);
+void FUN_02054590(enum GFPalLoadLocation location, u32 param1);
 void FUN_020545B8(struct BgConfig *param0, struct Window *param1, u32 param2);
 void FUN_02054608(struct Window *param0, struct Options *options);
 void FUN_0205464C(struct Window *param0);

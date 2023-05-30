@@ -1722,7 +1722,7 @@ _02052C8A:
 	beq _02052CA6
 	add r0, r6, #0x0
 	mov r1, #0x0
-	bl FUN_0200B518
+	bl BufferECWord
 _02052CA6:
 	ldr r0, _02052CB4 ; =UNK_020F5A74
 	lsl r1, r4, #0x2

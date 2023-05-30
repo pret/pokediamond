@@ -376,12 +376,12 @@ _0204840C:
 	mvn r0, r0
 	mov r1, #0x37
 	mov r2, #0x1
-	bl SetBrightness
+	bl SetBlendBrightness
 	mov r0, #0xf
 	mvn r0, r0
 	mov r1, #0x3f
 	mov r2, #0x2
-	bl SetBrightness
+	bl SetBlendBrightness
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	bl FUN_02048164
@@ -400,7 +400,7 @@ _02048442:
 	mov r0, #0x0
 	mov r1, #0x3f
 	mov r2, #0x3
-	bl SetBrightness
+	bl SetBlendBrightness
 	bl FUN_02034E8C
 	add r7, r0, #0x0
 	ldr r0, [r6, #0xc]

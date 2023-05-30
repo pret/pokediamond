@@ -387,7 +387,7 @@ _0208A656:
 	ldr r0, [r4, #0xc]
 	mov r1, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200B518
+	bl BufferECWord
 	add r0, r4, #0x0
 	mov r1, #0x8
 	mov r2, #0x1
@@ -538,7 +538,7 @@ FUN_0208A77C: ; 0x0208A77C
 	ldr r0, [r0, #0x8]
 	mov r2, #0xa5
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r1, #0xd
 	str r1, [sp, #0x0]
 	mov r0, #0xe
@@ -626,7 +626,7 @@ FUN_0208A82C: ; 0x0208A82C
 	ldr r0, [r0, #0x8]
 	mov r2, #0xa5
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r1, #0xd
 	str r1, [sp, #0x0]
 	mov r0, #0x6

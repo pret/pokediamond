@@ -284,7 +284,7 @@ _021E1CA8:
 	ldr r0, [r0, #8]
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r4, #0
 	ldr r2, _021E1D30 ; =0x000003D9
 	add r0, #8
@@ -721,7 +721,7 @@ _021E2032:
 	ldr r0, [r0, #8]
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r4, #0
 	ldr r2, _021E208C ; =0x000003D9
 	add r0, #8
@@ -1301,7 +1301,7 @@ _021E2496:
 	ldr r0, [r0, #8]
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r5, #0
 	ldr r2, _021E2538 ; =0x000003D9
 	add r0, #8
@@ -1636,7 +1636,7 @@ _021E270A:
 	ldr r0, [r0, #8]
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r5, #0
 	ldr r2, _021E2794 ; =0x000003D9
 	add r0, #8
@@ -1742,7 +1742,7 @@ MOD05_021E27E8: ; 0x021E27E8
 	ldr r2, _021E2888 ; =0x000003D9
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, _021E2888 ; =0x000003D9
 	add r0, r4, #0
 	mov r1, #1
@@ -1902,7 +1902,7 @@ MOD05_021E2950: ; 0x021E2950
 	ldr r2, _021E29B0 ; =0x000003D9
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, _021E29B0 ; =0x000003D9
 	add r0, r4, #0
 	mov r1, #1
@@ -2031,7 +2031,7 @@ MOD05_021E2A70: ; 0x021E2A70
 	ldr r2, _021E2AD0 ; =0x000003D9
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r2, _021E2AD0 ; =0x000003D9
 	add r0, r4, #0
 	mov r1, #1

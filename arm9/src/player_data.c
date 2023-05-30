@@ -118,7 +118,7 @@ void PlayerProfile_SetTrainerGender(struct PlayerData * data, GenderEnum gender)
 
 GenderEnum PlayerProfile_GetTrainerGender(struct PlayerData * data)
 {
-    return data->gender;
+    return (GenderEnum)data->gender;
 }
 
 BOOL PlayerProfile_TestBadgeFlag(struct PlayerData * data, u32 badgeno)
@@ -150,8 +150,8 @@ u32 PlayerProfile_GetMoney(struct PlayerData * data)
 
 u32 PlayerProfile_SetMoney(struct PlayerData * data, u32 amount)
 {
-    if (amount > 999999)
-        amount = 999999;
+    if (amount > MAX_MONEY)
+        amount = MAX_MONEY;
     data->money = amount;
     return amount;
 }
@@ -168,12 +168,12 @@ void PlayerProfile_SetAvatar(struct PlayerData * data, u8 avatar)
 
 u32 PlayerProfile_AddMoney(struct PlayerData * data, u32 amount)
 {
-    if (amount > 999999)
-        data->money = 999999;
+    if (amount > MAX_MONEY)
+        data->money = MAX_MONEY;
     else
         data->money += amount;
-    if (data->money > 999999)
-        data->money = 999999;
+    if (data->money > MAX_MONEY)
+        data->money = MAX_MONEY;
     return data->money;
 }
 
@@ -208,7 +208,7 @@ void PlayerProfile_SetLanguage(struct PlayerData * data, u8 language)
 
 void PlayerProfile_SetGameClearFlag(struct PlayerData * data)
 {
-    data->gameCleared = 1;
+    data->gameCleared = TRUE;
 }
 
 BOOL PlayerProfile_GetGameClearFlag(struct PlayerData * data)
@@ -218,7 +218,7 @@ BOOL PlayerProfile_GetGameClearFlag(struct PlayerData * data)
 
 void PlayerProfile_SetNatDexFlag(struct PlayerData * data)
 {
-    data->nationalDex = 1;
+    data->nationalDex = TRUE;
 }
 
 BOOL PlayerProfile_GetNatDexFlag(struct PlayerData * data)

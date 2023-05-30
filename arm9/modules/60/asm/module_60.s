@@ -885,7 +885,7 @@ MOD60_021D7BA4: ; 0x021D7BA4
 	ldr r0, [r4, #0x14]
 	mov r1, #1
 	mov r3, #0xe
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldrh r0, [r4, #0x18]
 	ldr r2, _021D7CD0 ; =0x0000023B
 	mov r1, #1
@@ -903,12 +903,12 @@ MOD60_021D7BA4: ; 0x021D7BA4
 	ldr r2, [r4]
 	mov r0, #0
 	lsl r1, r1, #4
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #0x1a
 	ldr r2, [r4]
 	mov r0, #4
 	lsl r1, r1, #4
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #6
 	ldr r2, [r4]
 	mov r0, #0

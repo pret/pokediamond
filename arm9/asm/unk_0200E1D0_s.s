@@ -262,8 +262,8 @@ FUN_0200E388: ; 0x0200E388
 	.balign 4
 _0200E390: .word FUN_02011480
 
-	thumb_func_start FUN_0200E394
-FUN_0200E394: ; 0x0200E394
+	thumb_func_start SetMasterBrightnessNeutral
+SetMasterBrightnessNeutral: ; 0x0200E394
 	ldr r3, _0200E39C ; =FUN_0200E440
 	mov r1, #0x0
 	bx r3
@@ -657,7 +657,7 @@ _0200E658:
 	bne _0200E672
 	ldr r0, _0200E698 ; =FUN_0200E610
 	add r1, r5, #0x0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x4]

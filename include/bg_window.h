@@ -207,7 +207,7 @@ void SetScreenModeAndDisable(const struct GraphicsModes *gfxModes, u32 whichScre
 void InitBgFromTemplate(
     struct BgConfig *bgConfig, u8 bgId, const struct BgTemplate *template, u8 bgMode);
 void SetBgControlParam(struct BgConfig *config, u8 bgId, u32 attr, u8 value);
-u8 TranslateGFBgModePairToGXScreenSize(u8 size, u32 bgMode);
+u8 TranslateGFBgModePairToGXScreenSize(enum GFBgScreenSize size,  enum GFBgType type);
 void GetBgScreenDimensions(u32 screenSize, u8 *width_p, u8 *height_p);
 void FreeBgTilemapBuffer(struct BgConfig *bgConfig, u32 bgId);
 void SetBgPriority(u32 bgId, u16 priority);

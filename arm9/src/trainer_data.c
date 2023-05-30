@@ -20,7 +20,7 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 
     s32 i;
     struct String * str;
 
-    msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 559, heap_id);
+    msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 559, heap_id);
     rivalName = GetRivalNamePtr(FUN_02024EC0(sav2));
     for (i = 0; i < 4; i++)
     {

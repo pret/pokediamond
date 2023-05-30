@@ -434,7 +434,7 @@ MOD76_021D7814: ; 0x021D7814
 	ldr r0, [r4, #4]
 	mov r2, #1
 	mov r3, #0xc
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
 	bl Options_GetFrame

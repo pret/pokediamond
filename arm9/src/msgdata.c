@@ -63,7 +63,7 @@ static void ReadMsgData_ExistingTable_ExistingArray(struct MsgDataTable * table,
     }
     else
     {
-        GF_ASSERT(0);
+        GF_ASSERT(FALSE);
     }
 }
 
@@ -107,7 +107,7 @@ static void ReadMsgData_ExistingTable_ExistingString(struct MsgDataTable * table
     }
     else
     {
-        GF_ASSERT(0);
+        GF_ASSERT(FALSE);
         StringSetEmpty(dest);
     }
 }
@@ -139,7 +139,7 @@ static struct String * ReadMsgData_ExistingTable_NewString(struct MsgDataTable *
     }
     else
     {
-        GF_ASSERT(0);
+        GF_ASSERT(FALSE);
         return String_ctor(4, heap_id);
     }
 }
@@ -179,7 +179,7 @@ static void ReadMsgData_ExistingNarc_ExistingString(NARC * narc, u32 group, u32 
     }
     else
     {
-        GF_ASSERT(0);
+        GF_ASSERT(FALSE);
         StringSetEmpty(dest);
     }
 }
@@ -230,7 +230,7 @@ static struct String * ReadMsgData_ExistingNarc_NewString(NARC * narc, u32 group
     }
     else
     {
-        GF_ASSERT(0);
+        GF_ASSERT(FALSE);
         return String_ctor(4, heap_id);
     }
 }
@@ -247,12 +247,12 @@ static u16 GetMsgCount_TableFromNarc(NarcId narc_id, s32 file_id)
     return n[0];
 }
 
-struct MsgData * NewMsgDataFromNarc(u32 type, NarcId narc_id, s32 file_id, u32 heap_id)
+struct MsgData * NewMsgDataFromNarc(MsgDataLoadType type, NarcId narc_id, s32 file_id, u32 heap_id)
 {
     struct MsgData * msgData = AllocFromHeapAtEnd(heap_id, sizeof(struct MsgData));
     if (msgData != NULL)
     {
-        if (type == 0)
+        if (type == MSGDATA_LOAD_DIRECT)
         {
             msgData->data.raw = LoadSingleElementFromNarc(narc_id, file_id, heap_id);
             if (msgData->data.raw == NULL)
@@ -279,10 +279,10 @@ void DestroyMsgData(struct MsgData * msgData)
     {
         switch (msgData->type)
         {
-        case 0:
+        case MSGDATA_LOAD_DIRECT:
             FreeMsgDataRawData(msgData->data.raw);
             break;
-        case 1:
+        case MSGDATA_LOAD_LAZY:
             NARC_dtor(msgData->data.narc);
             break;
         }
@@ -294,10 +294,10 @@ void ReadMsgDataIntoString(struct MsgData * msgData, u32 msg_no, struct String *
 {
     switch (msgData->type)
     {
-    case 0:
+    case MSGDATA_LOAD_DIRECT:
         ReadMsgData_ExistingTable_ExistingString(msgData->data.raw, msg_no, dest);
         break;
-    case 1:
+    case MSGDATA_LOAD_LAZY:
         ReadMsgData_ExistingNarc_ExistingString(msgData->data.narc, msgData->file_id, msg_no, msgData->heap_id, dest);
         break;
     }
@@ -307,9 +307,9 @@ struct String * NewString_ReadMsgData(struct MsgData * msgData, u32 msg_no)
 {
     switch (msgData->type)
     {
-    case 0:
+    case MSGDATA_LOAD_DIRECT:
         return ReadMsgData_ExistingTable_NewString(msgData->data.raw, msg_no, msgData->heap_id);
-    case 1:
+    case MSGDATA_LOAD_LAZY:
         return ReadMsgData_ExistingNarc_NewString(msgData->data.narc, msgData->file_id, msg_no, msgData->heap_id);
     default:
         return NULL;
@@ -320,9 +320,9 @@ u16 MsgDataGetCount(struct MsgData * msgData)
 {
     switch (msgData->type)
     {
-    case 0:
+    case MSGDATA_LOAD_DIRECT:
         return GetMsgCount_ExistingTable(msgData->data.raw);
-    case 1:
+    case MSGDATA_LOAD_LAZY:
         return GetMsgCount_TableFromNarc((NarcId)msgData->narc_id, msgData->file_id);
     default:
         return 0;
@@ -333,10 +333,10 @@ void ReadMsgDataIntoU16Array(struct MsgData * msgData, u32 msg_no, u16 * dest)
 {
     switch (msgData->type)
     {
-    case 0:
+    case MSGDATA_LOAD_DIRECT:
         ReadMsgData_ExistingTable_ExistingArray(msgData->data.raw, msg_no, dest);
         break;
-    case 1:
+    case MSGDATA_LOAD_LAZY:
         ReadMsgData_NewNarc_ExistingArray((NarcId)msgData->narc_id, msgData->file_id, msg_no, msgData->heap_id, dest);
         break;
     }
@@ -344,7 +344,7 @@ void ReadMsgDataIntoU16Array(struct MsgData * msgData, u32 msg_no, u16 * dest)
 
 void GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 * dest)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 362, heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 362, heap_id);
     ReadMsgDataIntoU16Array(msgData, species, dest);
     DestroyMsgData(msgData);
 }
@@ -370,7 +370,7 @@ struct String * ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, str
 
 struct String * GetMoveName(u32 move, u32 heapno)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 588, heapno);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 588, heapno);
     struct String * ret;
     if (msgData != NULL)
     {
@@ -388,7 +388,7 @@ struct String * GetMoveName(u32 move, u32 heapno)
 struct String * GetSpeciesName(u16 species, u32 heap_id)
 {
     struct String * ret;
-    struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 362, heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 362, heap_id);
     if (msgData != NULL)
     {
         ret = NewString_ReadMsgData(msgData, species);

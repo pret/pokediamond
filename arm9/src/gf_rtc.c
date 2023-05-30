@@ -128,9 +128,6 @@ THUMB_FUNC s32 GF_RTC_GetDayOfYear(const RTCDate * date)
     return days;
 }
 
-enum RTC_TimeOfDay GF_RTC_GetTimeOfDay(void);
-enum RTC_TimeOfDay GF_RTC_GetTimeOfDayByHour(s32 hour);
-
 THUMB_FUNC BOOL IsNighttime(void)
 {
     switch (GF_RTC_GetTimeOfDay())
@@ -166,12 +163,12 @@ THUMB_FUNC enum RTC_TimeOfDay GF_RTC_GetTimeOfDayByHour(s32 hour)
     };
 
     GF_ASSERT(hour >= 0 && hour < 24);
-    return sTimeOfDayByHour[hour];
+    return (enum RTC_TimeOfDay)sTimeOfDayByHour[hour];
 }
 
 THUMB_FUNC s64 GF_RTC_TimeDelta(s64 first, s64 last)
 {
-    RTCDate maxDate = { 99, 12, 31, 0 };
+    RTCDate maxDate = { 99, 12, 31, RTC_WEEK_SUNDAY };
     RTCTime maxTime = { 23, 59, 59 };
 
     s64 check = RTC_ConvertDateTimeToSecond(&maxDate, &maxTime);

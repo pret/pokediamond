@@ -148,7 +148,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
             FUN_0200E3A0(PM_LCD_BOTTOM, 0);
 
             Main_SetVBlankIntrCB(NULL, NULL);
-            FUN_02015F34(NULL, NULL);
+            Main_SetHBlankIntrCB(NULL, NULL);
 
             GX_DisableEngineALayers();
             GX_DisableEngineBLayers();
@@ -287,7 +287,7 @@ _021D98C6:
     bl Main_SetVBlankIntrCB
     add r0, r6, #0
     add r1, r0, #0
-    bl FUN_02015F34
+    bl Main_SetHBlankIntrCB
     bl GX_DisableEngineALayers
     bl GX_DisableEngineBLayers
     mov r2, #1
@@ -458,12 +458,12 @@ THUMB_FUNC void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data)
 
     GfGfxLoader_GXLoadPal(NARC_DEMO_INTRO_INTRO_TV, NARC_intro_tv_narc_0006_NCLR, GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_0, 0, data->heap_id);
 
-    FUN_02002ED0(GF_BG_LYR_MAIN_0, 0x20, data->heap_id);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, data->heap_id);
 
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, 0);
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);
 
-    G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2, 4, 12);
+    G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2), 4, 12);
 }
 
 THUMB_FUNC void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data)
@@ -488,9 +488,9 @@ THUMB_FUNC void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data)
 
 THUMB_FUNC void MOD59_TVSetupMsg(MOD59_TVOverlayData *data)
 {
-    data->msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0549_bin, data->heap_id);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0549_bin, data->heap_id);
 
-    FUN_0201BD5C();
+    ResetAllTextPrinters();
 
     data->unk0C = 0;
 }

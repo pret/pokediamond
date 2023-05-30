@@ -1708,7 +1708,7 @@ FUN_02051B68: ; 0x02051B68
 	ldr r0, [r0, #0x8]
 	mov r2, #0x1
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	ldr r0, [sp, #0x20]
 	mov r1, #0xf
 	bl FillWindowPixelBuffer
@@ -1834,7 +1834,7 @@ FUN_02051C88: ; 0x02051C88
 	ldr r0, [r0, #0x8]
 	mov r2, #0x1
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	add r0, r7, #0x0
 	mov r1, #0xf
 	bl FillWindowPixelBuffer

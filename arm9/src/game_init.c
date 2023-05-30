@@ -59,7 +59,7 @@ void FUN_02015F1C(void)
     gMain.hBlankIntrArg = NULL;
 }
 
-BOOL FUN_02015F34(void (*a0)(void *), void * a1)
+BOOL Main_SetHBlankIntrCB(void (*a0)(void *), void * a1)
 {
     if (a0 == 0)
     {

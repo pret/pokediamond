@@ -50,7 +50,7 @@ _021EFC20:
 	ldr r0, [r0, #8]
 	mov r1, #3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #1
 	str r0, [r4, #0x48]
 	mov r0, #0

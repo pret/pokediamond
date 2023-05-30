@@ -1130,7 +1130,7 @@ FUN_02062DB0: ; 0x02062DB0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x3
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
@@ -1141,12 +1141,12 @@ FUN_02062DB0: ; 0x02062DB0
 	ldr r0, [r0, #0x0]
 	mov r1, #0x1
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r1, #0x1a
 	ldr r2, [r4, #0x0]
 	mov r0, #0x0
 	lsl r1, r1, #0x4
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r1, #0x6
 	ldr r2, [r4, #0x0]
 	mov r0, #0x0

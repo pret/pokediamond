@@ -38,6 +38,11 @@ struct NNSiFndExpHeapHead
     u16                         feature;        // Attribute
 };
 
+typedef struct NNSiMemRegion {
+    void* start;
+    void* end;
+} NNSiMemRegion;
+
 NNSFndHeapHandle NNS_FndCreateExpHeapEx(void *startAddress, u32 size, u16 optFlag);
 void *NNS_FndAllocFromExpHeapEx(NNSFndHeapHandle heap, u32 size, int alignment);
 void NNS_FndDestroyExpHeap(NNSFndHeapHandle heap);
@@ -45,6 +50,15 @@ void NNS_FndFreeToExpHeap(NNSFndHeapHandle heap, void *memBlock);
 u32 NNS_FndGetTotalFreeSizeForExpHeap(NNSFndHeapHandle heap);
 u32 NNS_FndGetSizeForMBlockExpHeap(const void *memBlock);
 u32 NNS_FndResizeForMBlockExpHeap(NNSFndHeapHandle heap, void *memBlock, u32 size);
+NNSiFndExpHeapMBlockHead* InsertMBlock(NNSiFndExpMBlockList* list, NNSiFndExpHeapMBlockHead* target, NNSiFndExpHeapMBlockHead* prev);
+NNSiFndExpHeapMBlockHead* InitMBlock(const NNSiMemRegion* pRegion, u16 signature);
+NNSiFndHeapHead* InitExpHeap(void* startAddress, void* endAddress, u16 optFlag);
+void* AllocUsedBlockFromFreeBlock(NNSiFndExpHeapHead* pEHHead, NNSiFndExpHeapMBlockHead* pMBHeadFree, void* mblock, u32 size, u16 direction);
+void GetRegionOfMBlock(NNSiMemRegion* region, NNSiFndExpHeapMBlockHead* block);
+void* AllocFromHead(NNSiFndHeapHead* pHeapHd, u32 size, int alignment);
+void* AllocFromTail(NNSiFndHeapHead* pHeapHd, u32 size, int alignment);
+BOOL RecycleRegion(NNSiFndExpHeapHead* pEHHead, const NNSiMemRegion* pRegion);
+NNSiFndExpHeapMBlockHead* RemoveMBlock(NNSiFndExpMBlockList* list, NNSiFndExpHeapMBlockHead* block);
 
 #define             NNS_FndCreateExpHeap(startAddress, size) \
                         NNS_FndCreateExpHeapEx(startAddress, size, 0)

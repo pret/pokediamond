@@ -78,7 +78,7 @@ THUMB_FUNC BOOL FUN_0201BD44(u8 textPrinterNumber)
     return UNK_021C5714[textPrinterNumber] ? TRUE : FALSE;
 }
 
-THUMB_FUNC void FUN_0201BD5C(void)
+THUMB_FUNC void ResetAllTextPrinters(void)
 {
     for (s32 i = 0; i < 8; i++)
     {

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "bg_window.h"
 #include "filesystem.h"
+#include "font.h"
 #include "game_init.h"
 #include "GX_layers.h"
 #include "main.h"
@@ -13,8 +14,7 @@
 #include "brightness.h"
 #include "render_window.h"
 
-extern void FUN_02002ED0(enum GFBgLayer layer, u32 base_addr, u32 heap_id);
-extern void FUN_0200E394(BOOL set_brightness_on_bottom_screen);
+extern void SetMasterBrightnessNeutral(BOOL set_brightness_on_bottom_screen);
 extern void FUN_0200E3A0(BOOL set_brightness_on_bottom_screen, s32);
 
 static const struct WindowTemplate sWFCWarningMsgWindowTemplate = {
@@ -73,7 +73,7 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
 
     FUN_02015EF4();
     Main_SetVBlankIntrCB(NULL, NULL);
-    FUN_02015F34(NULL, NULL);
+    Main_SetHBlankIntrCB(NULL, NULL);
 
     GX_DisableEngineALayers();
     GX_DisableEngineBLayers();
@@ -96,16 +96,16 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     SetBothScreensModesAndDisable(&sWFCWarningMsgGraphicsModes);
 
     InitBgFromTemplate(bg_config, 0, &sWFCWarningMsgBgTemplate, 0);
-    BgClearTilemapBufferAndCommit(bg_config, 0);
-    FUN_0200CB00(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heap_id);
-    FUN_02002ED0(GF_BG_LYR_MAIN_0, 0x20, heap_id);
+    BgClearTilemapBufferAndCommit(bg_config, GF_BG_LYR_MAIN_0);
+    LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heap_id);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heap_id);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heap_id);
     BG_SetMaskColor(GF_BG_LYR_MAIN_0, 0x6C21);
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0x6C21);
 
-    struct MsgData* warning_messages_data = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0613_bin, heap_id);
+    struct MsgData* warning_messages_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0613_bin, heap_id);
     struct String* warning_message = String_ctor(384, heap_id);
-    FUN_0201BD5C();
+    ResetAllTextPrinters();
     AddWindow(bg_config, &window, &sWFCWarningMsgWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
     DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
@@ -115,9 +115,9 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     String_dtor(warning_message);
 
     GX_BothDispOn();
-    FUN_0200E394(0);
-    FUN_0200E394(1);
-    SetBrightness(0, 0x3F, 3);
+    SetMasterBrightnessNeutral(PM_LCD_TOP);
+    SetMasterBrightnessNeutral(PM_LCD_BOTTOM);
+    SetBlendBrightness(0, 0x3F, 3);
 
     while (TRUE)
     {
@@ -145,6 +145,6 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_OFF);
     ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_OFF);
 
-    FreeBgTilemapBuffer(bg_config, 0);
+    FreeBgTilemapBuffer(bg_config, GF_BG_LYR_MAIN_0);
     FreeToHeap(bg_config);
 }

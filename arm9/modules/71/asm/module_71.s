@@ -300,7 +300,7 @@ MOD71_0222D820: ; 0x0222D820
 	ldr r0, [r4, r2]
 	add r2, #0x83
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r3, #0x5e
 	lsl r3, r3, #2
 	ldr r0, [r4, r3]
@@ -2361,7 +2361,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #0
 	mov r1, #0x60
 	mov r2, #0x1a
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #2
@@ -2411,7 +2411,7 @@ MOD71_0222E900: ; 0x0222E900
 	mov r0, #4
 	mov r1, #0x60
 	mov r2, #0x1a
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	add r0, r4, #0
 	mov r1, #4
 	bl BgClearTilemapBufferAndCommit
@@ -6686,7 +6686,7 @@ MOD71_02230C48: ; 0x02230C48
 	ldr r0, [sp, #0x14]
 	ldr r2, _02230E7C ; =0x000001F7
 	mov r3, #0xb
-	bl FUN_0200CB00
+	bl LoadUserFrameGfx1
 	mov r1, #0x15
 	str r1, [sp]
 	mov r0, #0x14

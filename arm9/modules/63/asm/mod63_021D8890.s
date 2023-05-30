@@ -577,7 +577,7 @@ MOD63_021D8D10: ; 0x021D8D10
 	bl Main_SetVBlankIntrCB
 	mov r0, #0
 	add r1, r0, #0
-	bl FUN_02015F34
+	bl Main_SetHBlankIntrCB
 	bl GX_DisableEngineALayers
 	bl GX_DisableEngineBLayers
 	mov r0, #4
@@ -1007,9 +1007,9 @@ MOD63_021D8F38: ; 0x021D8F38
 	add r1, r0, #0
 	bl OS_WaitIrq
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	bl GX_BothDispOn
 	add sp, #0x10
 	pop {r4, pc}
@@ -1599,7 +1599,7 @@ _021D950C:
 	mov r0, #0x10
 	mov r1, #1
 	mov r2, #2
-	bl SetBrightness
+	bl SetBlendBrightness
 	mov r0, #1
 	add r5, #0x36
 	strb r0, [r5]
@@ -1891,9 +1891,9 @@ _021D96F8:
 	mov r1, #0
 	bl GX_EngineBToggleLayers
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #1
 	strb r0, [r5, #3]
 	add sp, #0x28

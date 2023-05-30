@@ -91,7 +91,7 @@ extern void FUN_02058E90(LocalMapObject *event, u16 movement);
 extern u16 FUN_02058480(LocalMapObject *event);
 extern void FUN_02058EB0(LocalMapObject *event, u32 param1);
 extern u16 FUN_02029E0C(struct SealCase *sealCase);
-extern u16 FUN_02029E2C(struct SealCase *sealCase, u16 sealId);
+extern u16 SealCase_CountSealOccurrenceAnywhere(struct SealCase *sealCase, u16 sealId);
 extern void FUN_02029D44(struct SealCase *sealCase, u16 sealId, s16 amount);
 extern PartyMenuAppData *FUN_020379F8(u32 param0, struct FieldSystem *fieldSystem);
 extern PartyMenuAppData *FUN_02037A1C(u32 param0, struct FieldSystem *fieldSystem);
@@ -553,7 +553,7 @@ THUMB_FUNC BOOL ScrCmd_MessageFrom(struct ScriptContext *ctx) //01FA - todo: Mes
 {
     u16 arc = ScriptGetVar(ctx);
     u16 msg = ScriptGetVar(ctx);
-    struct MsgData *msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, arc, 32);
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, arc, 32);
     MOD05_ShowMessageInField(ctx, msgData, msg);
     DestroyMsgData(msgData);
     return FALSE;
@@ -563,7 +563,7 @@ THUMB_FUNC BOOL ScrCmd_MessageFrom2(struct ScriptContext *ctx) //01FB - todo: Me
 {
     u16 arc = ScriptGetVar(ctx);
     u16 msg = ScriptGetVar(ctx);
-    struct MsgData *msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, arc, 32);
+    struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, arc, 32);
     MOD05_021E2BD0(ctx, msgData, msg, 1, NULL);
     DestroyMsgData(msgData);
     SetupNativeScript(ctx, FUN_0203A2F0);
@@ -605,7 +605,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01FE(struct ScriptContext *ctx) //01FE
     u16 *unkArr = ctx->fieldSystem->unkA8->unk90[id].unk0;
     if (unkArr[0] == 0xFFFF)
     {
-        struct MsgData *msgdata = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 0x22b, 32);
+        struct MsgData *msgdata = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 0x22b, 32);
         MOD05_021E2BD0(ctx, msgdata, unkArr[1], 1, NULL);
         DestroyMsgData(msgdata);
     }
@@ -1127,7 +1127,7 @@ THUMB_FUNC BOOL ScrCmd_YesNoMenu(struct ScriptContext *ctx) //003E
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u32 *unk = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LIST_MENU_2D);
     u16 wk = ScriptReadHalfword(ctx);
-    FUN_0200CB00(fieldSystem->bgConfig, 3, 985, 11, 0, 4);
+    LoadUserFrameGfx1(fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 985, 11, 0, 4);
     *unk = Std_CreateYesNoMenu(fieldSystem->bgConfig, &UNK_020F34E0, 985, 11, 4);
     ctx->data[0] = wk;
     SetupNativeScript(ctx, FUN_0203AB00);
@@ -1759,7 +1759,7 @@ THUMB_FUNC BOOL ScrCmd_GetSealCountFromId(struct ScriptContext *ctx) //0093
     u16 sealId = ScriptGetVar(ctx);
     u16 *variable = ScriptGetVarPointer(ctx);
     struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
-    *variable = FUN_02029E2C(sealCase, sealId);
+    *variable = SealCase_CountSealOccurrenceAnywhere(sealCase, sealId);
     return FALSE;
 }
 

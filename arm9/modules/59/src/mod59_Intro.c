@@ -419,8 +419,8 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *stat
             FUN_0200E3A0(PM_LCD_BOTTOM, 0);
 
             Main_SetVBlankIntrCB(NULL, NULL);
+            Main_SetHBlankIntrCB(NULL, NULL);
 
-            FUN_02015F34(NULL, NULL);
             GX_DisableEngineALayers();
             GX_DisableEngineBLayers();
 
@@ -590,9 +590,9 @@ THUMB_FUNC void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
     BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_3);
 
     FUN_0200CD68(data->bgConfig, 0, 994, 4, 0, data->heap_id);
-    FUN_0200CB00(data->bgConfig, 0, 985, 3, 0, data->heap_id);
-    FUN_02002ED0(GF_BG_LYR_MAIN_0, 160, data->heap_id);
-    FUN_02002EEC(GF_BG_LYR_MAIN_0, 192, data->heap_id);
+    LoadUserFrameGfx1(data->bgConfig, GF_BG_LYR_MAIN_0, 985, 3, 0, data->heap_id);
+    LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_5, data->heap_id);
+    FUN_02002EEC(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_6, data->heap_id);
 
     struct BgTemplate bgTemplateSub = MOD59_021D9EBC;
     bgTemplateSub.screenBase = GX_BG_SCRBASE_0x7800;
@@ -656,9 +656,9 @@ THUMB_FUNC void MOD59_IntroDestroyBg(MOD59_IntroOverlayData *data)
 
 THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 {
-    data->msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, NARC_msg_narc_0341_bin, data->heap_id);
+    data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0341_bin, data->heap_id);
 
-    FUN_0201BD5C();
+    ResetAllTextPrinters();
 
     data->unk60 = FUN_020142EC(0, 0, 6, data->heap_id);
 

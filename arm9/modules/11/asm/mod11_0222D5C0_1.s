@@ -1422,9 +1422,9 @@ MOD11_0222E264: ; 0x0222E264
 	add r4, r1, #0
 	bl GX_DisableEngineALayers
 	mov r0, #0
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	mov r0, #1
-	bl FUN_0200E394
+	bl SetMasterBrightnessNeutral
 	ldr r6, _0222E450 ; =MOD11_0225DA68
 	add r3, sp, #0x20
 	mov r2, #5

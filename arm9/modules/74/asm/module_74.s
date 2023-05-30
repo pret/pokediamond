@@ -800,7 +800,7 @@ _021D7ADC:
 	ldr r2, [r6]
 	mov r0, #0
 	mov r1, #0x40
-	bl FUN_02002ED0
+	bl LoadFontPal0
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _021D7AE8: .word MOD74_021D8540
