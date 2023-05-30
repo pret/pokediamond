@@ -687,7 +687,7 @@ THUMB_FUNC void FUN_0200DC24(WaitingIcon *waitingIcon) {
     waitingIcon->unk488 = 2;
 }
 
-THUMB_FUNC PokepicManager *FUN_0200DC4C(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, s32 heapId) //DrawPokemonPicFromSpecies?
+THUMB_FUNC PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, s32 heapId)
 {
     struct UnkStruct_0200CABC_2 *r4 = FUN_0200DD70(bg_config, bg_id, param2, param3, heapId);
     FUN_0200DDAC(r4, heapId);
@@ -700,7 +700,7 @@ THUMB_FUNC PokepicManager *FUN_0200DC4C(struct BgConfig *bg_config, u8 bg_id, u8
     return &r4->pokepicManager;
 }
 
-THUMB_FUNC PokepicManager *FUN_0200DCA4(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, s32 heapId) //DrawPokemonPicFromMon?
+THUMB_FUNC PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, s32 heapId)
 {
     struct UnkStruct_0200CABC_2 *r4 = FUN_0200DD70(bg_config, bg_id, param2, param3, heapId);
     FUN_0200DDAC(r4, heapId);

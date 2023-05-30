@@ -704,8 +704,8 @@
 .extern WaitingIcon_new
 .extern FUN_0200DBFC
 .extern FUN_0200DC24
-.extern FUN_0200DC4C
-.extern FUN_0200DCA4
+.extern DrawPokemonPicFromSpecies
+.extern DrawPokemonPicFromMon
 .extern FUN_0200E1D0
 .extern FUN_0200E2D8
 .extern FUN_0200E308
@@ -2832,7 +2832,7 @@
 .extern ScrCmd_Unk00A4
 .extern ScrCmd_Unk0207
 .extern ScrCmd_ShowPokemonPic
-.extern ScrCmd_Unk028C
+.extern ScrCmd_ShowPartyPokemonPic
 .extern ScrCmd_Unk0209
 .extern ScrCmd_Unk028D
 .extern ScrCmd_Unk028E

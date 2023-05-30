@@ -2010,7 +2010,18 @@ THUMB_FUNC BOOL ScrCmd_ShowPokemonPic(ScriptContext *ctx) { //0208
     u16 species = ScriptGetVar(ctx);
     u16 gender = ScriptGetVar(ctx);
     LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, 4);
-    *pokepicManager = FUN_0200DC4C(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, species, gender, 4);
+    *pokepicManager = DrawPokemonPicFromSpecies(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, species, gender, 4);
     Script_SetMonSeenFlagBySpecies(ctx->fieldSystem, species);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx) { //028C
+    PokepicManager **pokepicManager = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    u16 partyId = ScriptGetVar(ctx);
+    struct Pokemon *mon = GetPartyMonByIndex(SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2), partyId);
+    LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, 4);
+    *pokepicManager = DrawPokemonPicFromMon(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, mon, 4);
+    u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    Script_SetMonSeenFlagBySpecies(ctx->fieldSystem, (u16)species);
     return FALSE;
 }

@@ -168,6 +168,7 @@ BOOL ScrCmd_Unk00A3(ScriptContext *ctx);
 BOOL ScrCmd_Unk00A4(ScriptContext *ctx);
 BOOL ScrCmd_Unk0207(ScriptContext *ctx);
 BOOL ScrCmd_ShowPokemonPic(ScriptContext *ctx);
+ BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

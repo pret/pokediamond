@@ -801,7 +801,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0289
 	.word ScrCmd_Unk028A
 	.word ScrCmd_Unk028B
-	.word ScrCmd_Unk028C
+	.word ScrCmd_ShowPartyPokemonPic
 	.word ScrCmd_Unk028D
 	.word ScrCmd_Unk028E
 	.word ScrCmd_Unk028F
