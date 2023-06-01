@@ -93,8 +93,8 @@ THUMB_FUNC void NitroMain(void)
             break;
         }
     }
-    gMain.unk6C = 1;
-    gMain.unk30 = 0;
+    gSystem.unk6C = 1;
+    gSystem.unk30 = 0;
     InitializeMainRNG();
     InitAllScreenBrightnessData();
     PlayTimerInit();
@@ -104,34 +104,34 @@ THUMB_FUNC void NitroMain(void)
         FUN_02000EE8();
         HandleDSLidAction();
         ReadKeypadAndTocuhpad();
-        if ((gMain.heldKeysRaw & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gMain.softResetDisabled) // soft reset?
+        if ((gSystem.heldKeysRaw & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gSystem.softResetDisabled) // soft reset?
         {
             DoSoftReset(0); // soft reset?
         }
         if (FUN_0202FB80())
         {
             Main_RunOverlayManager();
-            FUN_0201B5CC(gMain.unk18);
-            FUN_0201B5CC(gMain.unk24);
-            if (!gMain.unk30)
+            FUN_0201B5CC(gSystem.unk18);
+            FUN_0201B5CC(gSystem.unk24);
+            if (!gSystem.unk30)
             {
                 OS_WaitIrq(1, 1);
-                gMain.unk2C++;
+                gSystem.unk2C++;
             }
         }
         GF_RTC_UpdateOnFrame();
         PlayTimerUpdate();
         FUN_020222C4();
-        FUN_0201B5CC(gMain.unk24);
+        FUN_0201B5CC(gSystem.unk24);
         OS_WaitIrq(1, 1);
-        gMain.unk2C++;
-        gMain.unk30 = 0;
+        gSystem.unk2C++;
+        gSystem.unk30 = 0;
         DoAllScreenBrightnessTransitionStep();
         FUN_0200E2D8();
-        if (gMain.vBlankIntr)
-            gMain.vBlankIntr(gMain.vBlankIntrArg);
+        if (gSystem.vBlankIntr)
+            gSystem.vBlankIntr(gSystem.vBlankIntrArg);
         DoSoundUpdateFrame();
-        FUN_0201B5CC(gMain.unk20);
+        FUN_0201B5CC(gSystem.unk20);
     }
 }
 
@@ -176,10 +176,10 @@ THUMB_FUNC void FUN_02000E9C(void)
 {
     FUN_0202FB80();
     OS_WaitIrq(TRUE, OS_IE_V_BLANK);
-    gMain.unk2C++;
-    gMain.unk30 = 0;
-    if (gMain.vBlankIntr != NULL)
-        gMain.vBlankIntr(gMain.vBlankIntrArg);
+    gSystem.unk2C++;
+    gSystem.unk30 = 0;
+    if (gSystem.vBlankIntr != NULL)
+        gSystem.vBlankIntr(gSystem.vBlankIntrArg);
 }
 
 THUMB_FUNC void FUN_02000EC8(u32 parameter)
@@ -245,7 +245,7 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
     {
         HandleDSLidAction();
         ReadKeypadAndTocuhpad();
-        if (gMain.newKeys & 1)
+        if (gSystem.newKeys & 1)
             break;
         FUN_02000E9C();
     }
@@ -262,7 +262,7 @@ THUMB_FUNC void InitializeMainRNG(void)
     struct Unk21C4828 sp0;
     GF_RTC_CopyDateTime(&spC, &sp0);
     {
-        u32 r4 = gMain.unk2C;
+        u32 r4 = gSystem.unk2C;
         u32 r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));
         SetMTRNGSeed(r4 + r5);
         SetLCRNGSeed(r4 + r5);
@@ -277,7 +277,7 @@ THUMB_FUNC void HandleDSLidAction(void)
     PMBackLightSwitch top, bottom;
     if (PAD_DetectFold())
     {
-        if (!gMain.unk67)
+        if (!gSystem.unk67)
         {
             FUN_0201CE04();
             if (CTRDG_IsPulledOut() == TRUE)
@@ -289,7 +289,7 @@ THUMB_FUNC void HandleDSLidAction(void)
                 while (1)
                 {
                     PMWakeUpTrigger trigger = PM_TRIGGER_COVER_OPEN | PM_TRIGGER_CARD;
-                    if (gMain.unk66 && !r1)
+                    if (gSystem.unk66 && !r1)
                         trigger |= PM_TRIGGER_CARTRIDGE;
                     PM_GoSleepMode(trigger, PM_PAD_LOGIC_OR, 0);
                     if (CARD_IsPulledOut())

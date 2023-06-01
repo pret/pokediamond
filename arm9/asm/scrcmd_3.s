@@ -157,7 +157,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	str r0, [sp, #0x28]
 	add r0, r5, #0x0
 	add r0, #0x80

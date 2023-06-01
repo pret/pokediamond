@@ -6,6 +6,10 @@
 #include "pokemon.h"
 #include "unk_02008DEC.h"
 
+typedef struct PokepicManager {
+    u8 unk00;
+} PokepicManager; //todo: fill out
+
 typedef struct WaitingIcon {
     struct Window *window;
     u8 unk004[9][0x80];
@@ -28,7 +32,7 @@ struct UnkStruct_0200CABC_2
     u8 bgId;
     u8 x;
     u8 y;
-    u8 unk16f;
+    PokepicManager pokepicManager;
 };
 
 struct UnkStruct_0200CABC_3
@@ -106,15 +110,8 @@ void FUN_0200DB7C(u32 param0, void *param1);
 void FUN_0200DBE8(u32 param0, void *param1);
 void FUN_0200DBFC(WaitingIcon *waitingIcon);
 void FUN_0200DC24(WaitingIcon *waitingIcon);
-u8 *FUN_0200DC4C(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 param5, u16 param6, u8 param7, s32 param8);
-u8 *FUN_0200DCA4(struct BgConfig *bg_config,
-    u8 bg_id,
-    u8 param2,
-    u8 param3,
-    u8 param4,
-    u16 param5,
-    struct Pokemon *param6,
-    s32 param7);
+PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, s32 heapId);
+PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, s32 heapId);
 void FUN_0200DCF8(u32 param0, void *param1);
 struct UnkStruct_0200CABC_2 *FUN_0200DD70(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u32 param4);
 void FUN_0200DDAC(struct UnkStruct_0200CABC_2 *param0, u32 param1);

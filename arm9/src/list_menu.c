@@ -51,18 +51,18 @@ THUMB_FUNC s32 ListMenu_ProcessInput(struct ListMenu * list)
 {
     list->unk_33 = 0;
 
-    if (gMain.newKeys & REG_PAD_KEYINPUT_A_MASK) {
+    if (gSystem.newKeys & REG_PAD_KEYINPUT_A_MASK) {
         return list->template.items[list->cursorPos + list->itemsAbove].value;
     }
-    else if (gMain.newKeys & REG_PAD_KEYINPUT_B_MASK) {
+    else if (gSystem.newKeys & REG_PAD_KEYINPUT_B_MASK) {
         return LIST_CANCEL;
     }
-    else if (gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_UP_MASK) {
+    else if (gSystem.newAndRepeatedKeys & REG_PAD_KEYINPUT_UP_MASK) {
         if (!ListMenuChangeSelection(list, TRUE, 1, FALSE))
             list->unk_33 = 1;
         return LIST_NOTHING_CHOSEN;
     }
-    else if (gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_DOWN_MASK) {
+    else if (gSystem.newAndRepeatedKeys & REG_PAD_KEYINPUT_DOWN_MASK) {
         if (!ListMenuChangeSelection(list, TRUE, 1, TRUE))
             list->unk_33 = 2;
         return LIST_NOTHING_CHOSEN;
@@ -78,12 +78,12 @@ THUMB_FUNC s32 ListMenu_ProcessInput(struct ListMenu * list)
             rightButton = FALSE;
             break;
         case LIST_MULTIPLE_SCROLL_DPAD:
-            leftButton = (u16)(gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_LEFT_MASK);
-            rightButton = (u16)(gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_RIGHT_MASK);
+            leftButton = (u16)(gSystem.newAndRepeatedKeys & REG_PAD_KEYINPUT_LEFT_MASK);
+            rightButton = (u16)(gSystem.newAndRepeatedKeys & REG_PAD_KEYINPUT_RIGHT_MASK);
             break;
         case LIST_MULTIPLE_SCROLL_L_R:
-            leftButton = (u16)(gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_L_MASK);
-            rightButton = (u16)(gMain.newAndRepeatedKeys & REG_PAD_KEYINPUT_R_MASK);
+            leftButton = (u16)(gSystem.newAndRepeatedKeys & REG_PAD_KEYINPUT_L_MASK);
+            rightButton = (u16)(gSystem.newAndRepeatedKeys & REG_PAD_KEYINPUT_R_MASK);
             break;
         }
         if (leftButton)

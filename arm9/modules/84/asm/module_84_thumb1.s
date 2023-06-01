@@ -318,7 +318,7 @@ _021D778E:
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	bne _021D77C8
-	ldr r0, _021D7928 ; =gMain
+	ldr r0, _021D7928 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #8
 	tst r0, r1
@@ -438,7 +438,7 @@ _021D7868:
 	str r0, [r5]
 	b _021D7920
 _021D7874:
-	ldr r0, _021D7928 ; =gMain
+	ldr r0, _021D7928 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #9
 	tst r0, r1
@@ -526,7 +526,7 @@ _021D7920:
 	add sp, #0xc
 	pop {r4, r5, pc}
 	nop
-_021D7928: .word gMain
+_021D7928: .word gSystem
 _021D792C: .word 0x0000122C
 _021D7930: .word MOD84_021DA6FC
 _021D7934: .word 0x00001228

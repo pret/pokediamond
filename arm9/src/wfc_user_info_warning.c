@@ -82,7 +82,7 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
 
     SetKeyRepeatTimers(4, 8);
 
-    gMain.screensFlipped = 0;
+    gSystem.screensFlipped = 0;
 
     GX_SwapDisplay();
     reg_G2_BLDCNT = 0;

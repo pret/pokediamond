@@ -1266,7 +1266,7 @@ FUN_0203800C: ; 0x0203800C
 	bl GetPartyMonByIndex
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	str r0, [sp, #0x0]
 	mov r1, #0x0
 	bl FUN_02027008

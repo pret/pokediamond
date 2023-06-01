@@ -83,7 +83,7 @@ THUMB_FUNC void ShowSaveDataWriteError(u32 heap_id, u32 err_no)
 
     SetKeyRepeatTimers(4, 8);
 
-    gMain.screensFlipped = FALSE;
+    gSystem.screensFlipped = FALSE;
 
     GX_SwapDisplay();
     G2_BlendNone();

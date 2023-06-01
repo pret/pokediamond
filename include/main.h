@@ -69,7 +69,7 @@ struct Main
     s32 unk6C;
 };
 
-//extern struct UnkStruct_021C4918 gMain + 0x60;
+//extern struct UnkStruct_021C4918 gSystem + 0x60;
 
 extern PMBackLightSwitch gBacklightTop;
 extern s32 UNK_02016FA4;
@@ -90,7 +90,7 @@ extern struct UnkStruct_02016FA8 UNK_02016FA8;
 
 void NitroMain(void);
 
-extern struct Main gMain;
+extern struct Main gSystem;
 
 void FUN_02000DF4(void);
 void Main_RunOverlayManager(void);

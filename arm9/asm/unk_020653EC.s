@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gMain
+	.extern gSystem
 	.extern UNK_020F96DC
 
 	.section .rodata
@@ -155,7 +155,7 @@ FUN_020654D0: ; 0x020654D0
 	beq _020654EE
 	bl FUN_0205EC18
 _020654EE:
-	ldr r0, _02065544 ; =gMain
+	ldr r0, _02065544 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x2
 	tst r0, r1
@@ -198,7 +198,7 @@ _02065536:
 _02065542:
 	pop {r3-r5, pc}
 	.balign 4
-_02065544: .word gMain
+_02065544: .word gSystem
 _02065548: .word FUN_02065658
 _0206554C: .word FUN_020654A4
 _02065550: .word 0x000005DC
@@ -258,7 +258,7 @@ FUN_020655B0: ; 0x020655B0
 	ldr r0, [r4, r0]
 	bl ListMenu_ProcessInput
 	add r5, r0, #0x0
-	ldr r0, _02065638 ; =gMain
+	ldr r0, _02065638 ; =gSystem
 	mov r1, #0x2
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -317,7 +317,7 @@ _0206562C:
 _02065634:
 	pop {r4-r6, pc}
 	nop
-_02065638: .word gMain
+_02065638: .word gSystem
 _0206563C: .word FUN_02065674
 _02065640: .word FUN_020654B0
 _02065644: .word 0x000005DC
@@ -586,7 +586,7 @@ _0206584E:
 	add sp, #0x4
 	pop {r3-r4, pc}
 _0206585C:
-	ldr r0, _02065888 ; =gMain
+	ldr r0, _02065888 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -609,7 +609,7 @@ _02065884:
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4
-_02065888: .word gMain
+_02065888: .word gSystem
 _0206588C: .word FUN_02065674
 _02065890: .word FUN_020654B0
 
@@ -733,7 +733,7 @@ _02065970:
 	add sp, #0x4
 	pop {r3-r4, pc}
 _0206597E:
-	ldr r0, _020659AC ; =gMain
+	ldr r0, _020659AC ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -756,7 +756,7 @@ _020659A6:
 	add sp, #0x4
 	pop {r3-r4, pc}
 	nop
-_020659AC: .word gMain
+_020659AC: .word gSystem
 _020659B0: .word FUN_02065674
 _020659B4: .word FUN_020654B0
 

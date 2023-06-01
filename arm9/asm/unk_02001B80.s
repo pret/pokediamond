@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gMain
+	.extern gSystem
 
 	.section .rodata
 
@@ -133,7 +133,7 @@ FUN_02001C78: ; 0x02001C78
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	mov r1, #0x0
-	ldr r2, _02001D24 ; =gMain
+	ldr r2, _02001D24 ; =gSystem
 	strb r1, [r4, #0x1b]
 	ldr r2, [r2, #0x48]
 	mov r5, #0x1
@@ -220,7 +220,7 @@ _02001D1C:
 	add r0, r1, #0x0
 	pop {r3-r5, pc}
 	nop
-_02001D24: .word gMain
+_02001D24: .word gSystem
 _02001D28: .word 0x000005DC
 
 	thumb_func_start FUN_02001D2C
@@ -229,7 +229,7 @@ FUN_02001D2C: ; 0x02001D2C
 	add r2, r1, #0x0
 	add r4, r0, #0x0
 	mov r1, #0x0
-	ldr r3, _02001DD4 ; =gMain
+	ldr r3, _02001DD4 ; =gSystem
 	strb r1, [r4, #0x1b]
 	ldr r5, [r3, #0x48]
 	mov r3, #0x1
@@ -314,7 +314,7 @@ _02001DCE:
 	add r0, r1, #0x0
 	pop {r4-r6, pc}
 	.balign 4
-_02001DD4: .word gMain
+_02001DD4: .word gSystem
 _02001DD8: .word 0x000005DC
 
 	thumb_func_start FUN_02001DDC

@@ -39,7 +39,7 @@ MOD62_0222D5F8: ; 0x0222D5F8
 	beq _0222D64C
 	cmp r2, #1
 	bne _0222D628
-	ldr r3, _0222D650 ; =gMain + 0x40
+	ldr r3, _0222D650 ; =gSystem + 0x40
 	mov r1, #0x1c
 	mov r2, #0x1e
 	ldrsh r1, [r3, r1]
@@ -74,7 +74,7 @@ _0222D628:
 _0222D64C:
 	pop {r3, r4, r5, pc}
 	nop
-_0222D650: .word gMain + 0x40
+_0222D650: .word gSystem + 0x40
 	thumb_func_end MOD62_0222D5F8
 
 	thumb_func_start MOD62_0222D654
@@ -4697,7 +4697,7 @@ _0222F9B0: .word MOD62_02231220
 MOD62_0222F9B4: ; 0x0222F9B4
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _0222FA3C ; =gMain
+	ldr r0, _0222FA3C ; =gSystem
 	mov r1, #0x10
 	ldr r0, [r0, #0x4c]
 	tst r1, r0
@@ -4769,7 +4769,7 @@ _0222FA38:
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
-_0222FA3C: .word gMain
+_0222FA3C: .word gSystem
 	thumb_func_end MOD62_0222F9B4
 
 	thumb_func_start MOD62_0222FA40
@@ -5005,7 +5005,7 @@ _0222FBF0:
 	bl PlaySE
 	b _0222FD4C
 _0222FC4C:
-	ldr r0, _0222FD68 ; =gMain
+	ldr r0, _0222FD68 ; =gSystem
 	ldr r2, [r0, #0x48]
 	mov r0, #1
 	tst r0, r2
@@ -5133,7 +5133,7 @@ _0222FD4C:
 	nop
 _0222FD60: .word 0x00000418
 _0222FD64: .word 0x000005DC
-_0222FD68: .word gMain
+_0222FD68: .word gSystem
 _0222FD6C: .word 0x000005DD
 	thumb_func_end MOD62_0222FAB4
 
@@ -7120,7 +7120,7 @@ _02230D84:
 	str r1, [r4, r0]
 	b _02230DC6
 _02230DA2:
-	ldr r0, _02230DD8 ; =gMain
+	ldr r0, _02230DD8 ; =gSystem
 	ldr r3, [r0, #0x48]
 	ldr r0, _02230DDC ; =0x00000CF3
 	tst r0, r3
@@ -7145,7 +7145,7 @@ _02230DC6:
 	mov r0, #1
 	pop {r4, pc}
 	nop
-_02230DD8: .word gMain
+_02230DD8: .word gSystem
 _02230DDC: .word 0x00000CF3
 	thumb_func_end MOD62_02230D6C
 
@@ -7215,7 +7215,7 @@ _02230E46:
 	bl PlaySE
 	b _02230F18
 _02230E66:
-	ldr r0, _02230F2C ; =gMain
+	ldr r0, _02230F2C ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -7263,7 +7263,7 @@ _02230EA4:
 	bl PlaySE
 	b _02230F18
 _02230ED0:
-	ldr r1, _02230F2C ; =gMain
+	ldr r1, _02230F2C ; =gSystem
 	ldr r2, [r1, #0x48]
 	ldr r1, _02230F34 ; =0x00000CF3
 	tst r1, r2
@@ -7304,7 +7304,7 @@ _02230F18:
 	pop {r4, pc}
 	.align 2, 0
 _02230F28: .word 0x000005DC
-_02230F2C: .word gMain
+_02230F2C: .word gSystem
 _02230F30: .word 0x000005DD
 _02230F34: .word 0x00000CF3
 	thumb_func_end MOD62_02230DE0

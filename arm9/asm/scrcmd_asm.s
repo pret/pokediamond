@@ -3,284 +3,15 @@
 
 	.extern UNK_020F34FC
 	.extern UNK_020F3538
-	.extern gMain
+	.extern gSystem
 	.extern FUN_0203A2F0
 	.extern FUN_0203BB90
 	.extern FUN_0203BBBC
 	.extern FUN_0203BC04
+	.extern FUN_0203BC3C
+	.extern FUN_0203BC6C
 
 	.text
-
-	thumb_func_start ScrCmd_Unk01F8
-ScrCmd_Unk01F8: ; 0x0203BC2C
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0x10]
-	bl FUN_0204AF3C
-	mov r0, #0x1
-	pop {r3, pc}
-
-	thumb_func_start FUN_0203BC3C
-FUN_0203BC3C: ; 0x0203BC3C
-	push {r3-r5, lr}
-	ldr r0, [r0, #0xc]
-	add r5, r1, #0x0
-	add r4, r2, #0x0
-	bl FUN_02027E24
-	cmp r5, #0x0
-	bne _0203BC5A
-	add r1, r4, #0x0
-	bl FUN_02027098
-	cmp r0, #0x0
-	bne _0203BC68
-	mov r0, #0x0
-	pop {r3-r5, pc}
-_0203BC5A:
-	add r1, r4, #0x0
-	bl FUN_020270B4
-	cmp r0, #0x0
-	bne _0203BC68
-	mov r0, #0x0
-	pop {r3-r5, pc}
-_0203BC68:
-	mov r0, #0x1
-	pop {r3-r5, pc}
-
-	thumb_func_start FUN_0203BC6C
-FUN_0203BC6C: ; 0x0203BC6C
-	push {r3-r7, lr}
-	add r5, r1, #0x0
-	str r0, [sp, #0x0]
-	ldr r0, [r5, #0xc]
-	add r4, r2, #0x0
-	add r6, r3, #0x0
-	bl FUN_02027E24
-	add r7, r0, #0x0
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	add r2, r6, #0x0
-	bl FUN_0203BC3C
-	cmp r0, #0x0
-	bne _0203BC90
-	mov r0, #0x0
-	pop {r3-r7, pc}
-_0203BC90:
-	ldr r0, [sp, #0x0]
-	mov r1, #0xc
-	bl AllocFromHeap
-	mov r1, #0x0
-	strb r1, [r0, #0x0]
-	strb r1, [r0, #0x1]
-	strb r1, [r0, #0x2]
-	strb r1, [r0, #0x3]
-	strb r1, [r0, #0x4]
-	strb r1, [r0, #0x5]
-	strb r1, [r0, #0x6]
-	strb r1, [r0, #0x7]
-	strb r1, [r0, #0x8]
-	strb r1, [r0, #0x9]
-	strb r1, [r0, #0xa]
-	strb r1, [r0, #0xb]
-	str r7, [r0, #0x0]
-	str r4, [r0, #0x8]
-	str r6, [r0, #0x4]
-	pop {r3-r7, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk00A2
-ScrCmd_Unk00A2: ; 0x0203BCBC
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl MOD05_021F02C4
-	mov r0, #0x1
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk00A3
-ScrCmd_Unk00A3: ; 0x0203BCCC
-	push {r3, lr}
-	ldr r0, [r0, #0x74]
-	bl FUN_0206F3B8
-	mov r0, #0x1
-	pop {r3, pc}
-
-	thumb_func_start ScrCmd_Unk00A4
-ScrCmd_Unk00A4: ; 0x0203BCD8
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x13
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r5, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r5, #0x0]
-	bl GetVarPointer
-	ldr r1, [r4, #0x0]
-	ldr r1, [r1, #0x4]
-	strh r1, [r0, #0x0]
-	ldr r0, [r4, #0x0]
-	bl FreeToHeap
-	mov r0, #0x0
-	pop {r3-r5, pc}
-
-	thumb_func_start ScrCmd_Unk0207
-ScrCmd_Unk0207: ; 0x0203BD08
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl ScriptReadHalfword
-	add r4, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r4, #0x0]
-	bl GetVarPointer
-	add r4, r0, #0x0
-	bl FUN_02031190
-	strh r0, [r4, #0x0]
-	mov r0, #0x1
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk0208
-ScrCmd_Unk0208: ; 0x0203BD28
-	push {r4-r7, lr}
-	sub sp, #0x14
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x14
-	bl FieldSysGetAttrAddr
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r7, r0, #0x0
-	mov r0, #0x0
-	str r0, [sp, #0x0]
-	mov r0, #0x4
-	str r0, [sp, #0x4]
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r2, _0203BDB4 ; =0x000003D9
-	ldr r0, [r0, #0x8]
-	mov r1, #0x3
-	mov r3, #0xb
-	bl LoadUserFrameGfx1
-	mov r0, #0xb
-	str r0, [sp, #0x0]
-	ldr r0, _0203BDB4 ; =0x000003D9
-	mov r1, #0x3
-	str r0, [sp, #0x4]
-	lsl r0, r7, #0x18
-	str r4, [sp, #0x8]
-	lsr r0, r0, #0x18
-	str r0, [sp, #0xc]
-	mov r0, #0x4
-	str r0, [sp, #0x10]
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r2, #0xa
-	ldr r0, [r0, #0x8]
-	mov r3, #0x5
-	bl FUN_0200DC4C
-	add r5, #0x80
-	str r0, [r6, #0x0]
-	ldr r0, [r5, #0x0]
-	add r1, r4, #0x0
-	bl FUN_0203ED2C
-	mov r0, #0x0
-	add sp, #0x14
-	pop {r4-r7, pc}
-	.balign 4
-_0203BDB4: .word 0x000003D9
-
-	thumb_func_start ScrCmd_Unk028C
-ScrCmd_Unk028C: ; 0x0203BDB8
-	push {r4-r6, lr}
-	sub sp, #0x10
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x14
-	bl FieldSysGetAttrAddr
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
-	add r1, r4, #0x0
-	bl GetPartyMonByIndex
-	add r4, r0, #0x0
-	mov r0, #0x0
-	str r0, [sp, #0x0]
-	mov r0, #0x4
-	str r0, [sp, #0x4]
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r2, _0203BE4C ; =0x000003D9
-	ldr r0, [r0, #0x8]
-	mov r1, #0x3
-	mov r3, #0xb
-	bl LoadUserFrameGfx1
-	mov r0, #0xb
-	str r0, [sp, #0x0]
-	ldr r0, _0203BE4C ; =0x000003D9
-	mov r1, #0x3
-	str r0, [sp, #0x4]
-	str r4, [sp, #0x8]
-	mov r0, #0x4
-	str r0, [sp, #0xc]
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r2, #0xa
-	ldr r0, [r0, #0x8]
-	mov r3, #0x5
-	bl FUN_0200DCA4
-	str r0, [r6, #0x0]
-	add r0, r4, #0x0
-	mov r1, #0x5
-	mov r2, #0x0
-	bl GetMonData
-	add r1, r0, #0x0
-	add r5, #0x80
-	lsl r1, r1, #0x10
-	ldr r0, [r5, #0x0]
-	lsr r1, r1, #0x10
-	bl FUN_0203ED2C
-	mov r0, #0x0
-	add sp, #0x10
-	pop {r4-r6, pc}
-	.balign 4
-_0203BE4C: .word 0x000003D9
 
 	thumb_func_start ScrCmd_Unk0209
 ScrCmd_Unk0209: ; 0x0203BE50
@@ -613,7 +344,7 @@ ScrCmd_Unk0130: ; 0x0203C0CC
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	mov r1, #0x0
 	bl FUN_02027008
 	add r1, r4, #0x0
@@ -3349,7 +3080,7 @@ FUN_0203D6E0: ; 0x0203D6E0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x78]
 	bl FUN_02052648
-	ldr r1, _0203D724 ; =gMain
+	ldr r1, _0203D724 ; =gSystem
 	ldr r2, [r1, #0x48]
 	mov r1, #0x2
 	tst r1, r2
@@ -3369,7 +3100,7 @@ _0203D720:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_0203D724: .word gMain
+_0203D724: .word gSystem
 
 	thumb_func_start ScrCmd_Unk0153
 ScrCmd_Unk0153: ; 0x0203D728
@@ -4785,7 +4516,7 @@ ScrCmd_Unk01D2: ; 0x0203E258
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	add r2, r6, #0x0
@@ -4823,7 +4554,7 @@ ScrCmd_Unk01D3: ; 0x0203E29C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r6, #0x0
 	add r2, r7, #0x0
@@ -4863,7 +4594,7 @@ ScrCmd_Unk01D4: ; 0x0203E2F8
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r7, #0x0
 	bl FUN_02027114
@@ -4893,7 +4624,7 @@ ScrCmd_Unk01D5: ; 0x0203E35C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	bl FUN_02027264
@@ -4923,7 +4654,7 @@ ScrCmd_Unk01D6: ; 0x0203E38C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r6, #0x0
 	bl FUN_02027100
@@ -6099,8 +5830,8 @@ ScrCmd_Unk024D: ; 0x0203ED10
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0203ED2C
-FUN_0203ED2C: ; 0x0203ED2C
+	thumb_func_start Script_SetMonSeenFlagBySpecies
+Script_SetMonSeenFlagBySpecies: ; 0x0203ED2C
 	push {r4-r6, lr}
 	sub sp, #0x10
 	ldr r0, [r0, #0xc]
@@ -6673,7 +6404,7 @@ ScrCmd_Unk026C: ; 0x0203F19C
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	mov r6, #0x0
 	add r7, r0, #0x0
@@ -6744,13 +6475,13 @@ ScrCmd_Unk026E: ; 0x0203F234
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl GetVarPointer
-	ldr r1, _0203F250 ; =gMain + 0x60
+	ldr r1, _0203F250 ; =gSystem + 0x60
 	ldrb r1, [r1, #0x6]
 	strh r1, [r0, #0x0]
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
-_0203F250: .word gMain + 0x60
+_0203F250: .word gSystem + 0x60
 
 	thumb_func_start ScrCmd_Unk026F
 ScrCmd_Unk026F: ; 0x0203F254
@@ -6896,7 +6627,7 @@ ScrCmd_Unk0279: ; 0x0203F348
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	add r2, r6, #0x0

@@ -75,7 +75,7 @@ THUMB_FUNC void ShowSaveDataReadError(u32 heap_id)
 
     SetKeyRepeatTimers(4, 8);
 
-    gMain.screensFlipped = FALSE;
+    gSystem.screensFlipped = FALSE;
 
     GX_SwapDisplay();
     G2_BlendNone();
@@ -138,7 +138,7 @@ THUMB_FUNC void ShowGBACartRemovedError(u32 heap_id)
 
     SetKeyRepeatTimers(4, 8);
 
-    gMain.screensFlipped = FALSE;
+    gSystem.screensFlipped = FALSE;
 
     GX_SwapDisplay();
     G2_BlendNone();

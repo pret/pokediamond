@@ -627,7 +627,7 @@ FUN_02042314: ; 0x02042314
 FUN_02042324: ; 0x02042324
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02027E24
+	bl Save_FashionData_get
 	mov r1, #0x0
 	bl FUN_02027098
 	pop {r3, pc}

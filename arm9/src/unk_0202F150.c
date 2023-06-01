@@ -528,7 +528,7 @@ THUMB_FUNC BOOL FUN_0202FB80()
         {
             UNK_021C59F4 = 0;
             FUN_0202F984();
-            UNK_021C59F8->unk628 |= gMain.heldKeys & 0x7FFF;
+            UNK_021C59F8->unk628 |= gSystem.heldKeys & 0x7FFF;
             FUN_02030674();
             FUN_0202FCCC();
 
@@ -2284,7 +2284,7 @@ THUMB_FUNC void FUN_020312BC(s64 *param0)
     RTCTime st4;
     GF_RTC_CopyDateTime(&st10, &st4);
 
-    gMain.unk2C + st4.second;
+    gSystem.unk2C + st4.second;
     u32 r6 = st10.year << 4 + st10.month;
     u32 r5 = 0 << 4 | st10.year >> 0x1c;
     st4.second;
@@ -2306,7 +2306,7 @@ THUMB_FUNC asm void FUN_020312BC(s64 *param0)
 	add r0, sp, #0x10
 	add r1, sp, #0x4
 	bl GF_RTC_CopyDateTime
-	ldr r0, =gMain
+	ldr r0, =gSystem
 	ldr r6, [sp, #0x10]
 	mov r5, #0x0
 	lsr r7, r6, #0x1c

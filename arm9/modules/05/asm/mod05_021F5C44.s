@@ -595,7 +595,7 @@ _021F6088:
 
 	thumb_func_start MOD05_021F6098
 MOD05_021F6098: ; 0x021F6098
-	ldr r0, _021F60A8 ; =gMain
+	ldr r0, _021F60A8 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r1, r0
@@ -604,11 +604,11 @@ MOD05_021F6098: ; 0x021F6098
 _021F60A4:
 	bx lr
 	nop
-_021F60A8: .word gMain
+_021F60A8: .word gSystem
 
 	thumb_func_start MOD05_021F60AC
 MOD05_021F60AC: ; 0x021F60AC
-	ldr r0, _021F60C0 ; =gMain
+	ldr r0, _021F60C0 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -619,7 +619,7 @@ _021F60BA:
 	mov r0, #0
 	bx lr
 	nop
-_021F60C0: .word gMain
+_021F60C0: .word gSystem
 
 	thumb_func_start MOD05_021F60C4
 MOD05_021F60C4: ; 0x021F60C4

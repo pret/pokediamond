@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gMain
+	.extern gSystem
 
 	.section .rodata
 
@@ -593,7 +593,7 @@ _02089920:
 _0208993C:
 	cmp r2, #0x0
 	bne _0208994A
-	ldr r0, _0208995C ; =gMain
+	ldr r0, _0208995C ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -608,4 +608,4 @@ _02089950:
 	pop {r4-r7, pc}
 	nop
 _02089958: .word 0x000001E2
-_0208995C: .word gMain
+_0208995C: .word gSystem

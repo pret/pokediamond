@@ -604,7 +604,7 @@ MOD63_021D8D10: ; 0x021D8D10
 	str r1, [r4, #8]
 	lsl r0, r0, #2
 	strb r1, [r4, r0]
-	ldr r0, _021D8D94 ; =gMain + 0x60
+	ldr r0, _021D8D94 ; =gSystem + 0x60
 	strb r1, [r0, #5]
 	bl GX_SwapDisplay
 	bl GetLCRNGSeed
@@ -615,7 +615,7 @@ MOD63_021D8D10: ; 0x021D8D10
 	pop {r4, pc}
 	.align 2, 0
 _021D8D90: .word 0x00007FFF
-_021D8D94: .word gMain + 0x60
+_021D8D94: .word gSystem + 0x60
 	thumb_func_end MOD63_021D8D10
 
 	thumb_func_start MOD63_021D8D98
@@ -629,7 +629,7 @@ MOD63_021D8D98: ; 0x021D8D98
 	ldrb r0, [r5, r0]
 	cmp r0, #0
 	beq _021D8DD4
-	ldr r0, _021D8E5C ; =gMain
+	ldr r0, _021D8E5C ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -640,7 +640,7 @@ MOD63_021D8D98: ; 0x021D8D98
 _021D8DBC:
 	mov r0, #1
 	str r0, [r5, #8]
-	ldr r1, _021D8E5C ; =gMain
+	ldr r1, _021D8E5C ; =gSystem
 	mov r0, #0
 	str r0, [r1, #0x6c]
 	ldr r1, _021D8E60 ; =0x00007FFF
@@ -722,7 +722,7 @@ _021D8E50:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D8E5C: .word gMain
+_021D8E5C: .word gSystem
 _021D8E60: .word 0x00007FFF
 _021D8E64: .word 0x00000A8C
 	thumb_func_end MOD63_021D8D98
@@ -1544,7 +1544,7 @@ MOD63_021D9498: ; 0x021D9498
 	ldr r0, [r5, #0xc]
 	mov r1, #1
 	str r0, [r5, #0x40]
-	ldr r0, _021D9588 ; =gMain + 0x60
+	ldr r0, _021D9588 ; =gSystem + 0x60
 	strb r1, [r0, #5]
 	bl GX_SwapDisplay
 	ldr r6, _021D958C ; =MOD63_021DBDE8
@@ -1606,7 +1606,7 @@ _021D950C:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021D9588: .word gMain + 0x60
+_021D9588: .word gSystem + 0x60
 _021D958C: .word MOD63_021DBDE8
 _021D9590: .word MOD63_021DBAD0
 _021D9594: .word 0x00004210

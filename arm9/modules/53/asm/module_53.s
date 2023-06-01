@@ -1716,7 +1716,7 @@ _021D8316:
 	bl FUN_02031190
 	lsl r1, r0, #2
 	ldr r0, [sp]
-	ldr r2, _021D83D0 ; =gMain + 0x40
+	ldr r2, _021D83D0 ; =gSystem + 0x40
 	add r1, r0, r1
 	mov r0, #0x76
 	lsl r0, r0, #2
@@ -1774,7 +1774,7 @@ _021D83C0: .word 0x0000438B
 _021D83C4: .word 0x00004377
 _021D83C8: .word 0x000005E5
 _021D83CC: .word MOD53_021D94F0
-_021D83D0: .word gMain + 0x40
+_021D83D0: .word gSystem + 0x40
 _021D83D4: .word 0x00004378
 _021D83D8: .word 0x00004380
 	thumb_func_end MOD53_021D81B0

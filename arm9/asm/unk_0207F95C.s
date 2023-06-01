@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern gMain
+	.extern gSystem
 	.section .rodata
 
 	.global UNK_020FB6F8
@@ -274,7 +274,7 @@ _0207FADA:
 	strh r1, [r0, #0x0]
 	add r0, sp, #0x4
 	str r0, [sp, #0x0]
-	ldr r3, _0207FB24 ; =gMain + 0x40
+	ldr r3, _0207FB24 ; =gSystem + 0x40
 	ldr r0, [r5, #0x0]
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
@@ -294,7 +294,7 @@ _0207FB12:
 _0207FB18: .word 0x0000068F
 _0207FB1C: .word UNK_0210613C
 _0207FB20: .word 0x0000FFFE
-_0207FB24: .word gMain + 0x40
+_0207FB24: .word gSystem + 0x40
 
 	thumb_func_start FUN_0207FB28
 FUN_0207FB28: ; 0x0207FB28

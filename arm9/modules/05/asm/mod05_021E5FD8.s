@@ -1045,7 +1045,7 @@ _021E6824:
 _021E682A:
 	ldr r0, [r4, #0xc]
 	bl PlayerAvatar_GetFacingDirection
-	ldr r2, _021E68D4 ; =gMain
+	ldr r2, _021E68D4 ; =gSystem
 	str r0, [sp]
 	ldr r1, [r2, #0x48]
 	ldr r2, [r2, #0x44]
@@ -1119,7 +1119,7 @@ _021E68C6:
 	.balign 4, 0
 _021E68CC: .word 0x00000651
 _021E68D0: .word 0x00000652
-_021E68D4: .word gMain
+_021E68D4: .word gSystem
 
 	thumb_func_start MOD05_021E68D8
 MOD05_021E68D8: ; 0x021E68D8

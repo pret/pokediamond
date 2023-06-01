@@ -325,7 +325,7 @@ MOD65_021D774C: ; 0x021D774C
 _021D7762:
 	bl MOD65_021D7710
 	add r1, r0, #0
-	ldr r0, _021D77F8 ; =gMain
+	ldr r0, _021D77F8 ; =gSystem
 	ldr r0, [r0, #0x44]
 	cmp r0, #0
 	beq _021D7784
@@ -356,7 +356,7 @@ _021D7796:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 _021D77A2:
-	ldr r0, _021D77F8 ; =gMain
+	ldr r0, _021D77F8 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -401,7 +401,7 @@ _021D77F2:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D77F8: .word gMain
+_021D77F8: .word gSystem
 _021D77FC: .word 0x000005DC
 	thumb_func_end MOD65_021D774C
 
@@ -427,7 +427,7 @@ MOD65_021D7818: ; 0x021D7818
 	ldr r0, [r0]
 	bl ListMenu_ProcessInput
 	add r4, r0, #0
-	ldr r0, _021D78A4 ; =gMain
+	ldr r0, _021D78A4 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -488,7 +488,7 @@ _021D789E:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D78A4: .word gMain
+_021D78A4: .word gSystem
 _021D78A8: .word 0x000005DC
 	thumb_func_end MOD65_021D7818
 
@@ -565,7 +565,7 @@ MOD65_021D7920: ; 0x021D7920
 	mov r0, #0
 	pop {r4, pc}
 _021D7932:
-	ldr r0, _021D7988 ; =gMain
+	ldr r0, _021D7988 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -605,7 +605,7 @@ _021D7940:
 	strh r0, [r4, #0x18]
 	pop {r4, pc}
 	.align 2, 0
-_021D7988: .word gMain
+_021D7988: .word gSystem
 	thumb_func_end MOD65_021D7920
 
 	thumb_func_start MOD65_021D798C
@@ -3898,7 +3898,7 @@ MOD65_021D9338: ; 0x021D9338
 	mov r0, #7
 	pop {r4, pc}
 _021D934E:
-	ldr r0, _021D937C ; =gMain
+	ldr r0, _021D937C ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -3921,7 +3921,7 @@ _021D9366:
 	mov r0, #8
 	pop {r4, pc}
 	.align 2, 0
-_021D937C: .word gMain
+_021D937C: .word gSystem
 	thumb_func_end MOD65_021D9338
 
 	thumb_func_start MOD65_021D9380

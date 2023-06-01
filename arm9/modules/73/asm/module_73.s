@@ -1055,11 +1055,11 @@ _021D7D94:
 	sub r0, r0, #1
 	str r0, [r4, #0x1c]
 	bmi _021D7DAE
-	ldr r0, _021D7F50 ; =gMain + 0x40
+	ldr r0, _021D7F50 ; =gSystem + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _021D7DAE
-	ldr r0, _021D7F54 ; =gMain
+	ldr r0, _021D7F54 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -1101,14 +1101,14 @@ _021D7DF4:
 	ldr r0, [r4, #0x1c]
 	sub r0, r0, #1
 	str r0, [r4, #0x1c]
-	ldr r0, _021D7F50 ; =gMain + 0x40
+	ldr r0, _021D7F50 ; =gSystem + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _021D7E14
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	blt _021D7E14
-	ldr r0, _021D7F54 ; =gMain
+	ldr r0, _021D7F54 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -1214,14 +1214,14 @@ _021D7ED6:
 	ldr r0, [r4, #0x1c]
 	sub r0, r0, #1
 	str r0, [r4, #0x1c]
-	ldr r0, _021D7F50 ; =gMain + 0x40
+	ldr r0, _021D7F50 ; =gSystem + 0x40
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _021D7EF4
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	blt _021D7EF4
-	ldr r0, _021D7F54 ; =gMain
+	ldr r0, _021D7F54 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -1271,8 +1271,8 @@ _021D7F3E:
 _021D7F44: .word 0x0000063C
 _021D7F48: .word 0x00001410
 _021D7F4C: .word 0x000006C3
-_021D7F50: .word gMain + 0x40
-_021D7F54: .word gMain
+_021D7F50: .word gSystem + 0x40
+_021D7F54: .word gSystem
 _021D7F58: .word 0x0000152C
 _021D7F5C: .word 0x00001420
 _021D7F60: .word 0x00001418
@@ -2230,7 +2230,7 @@ MOD73_021D8630: ; 0x021D8630
 	bl MOD73_021DAFA8
 	add r0, r4, #0
 	bl MOD73_021D8BDC
-	ldr r0, _021D8758 ; =gMain + 0x60
+	ldr r0, _021D8758 ; =gSystem + 0x60
 	mov r1, #1
 	strb r1, [r0, #5]
 	bl GX_SwapDisplay
@@ -2245,7 +2245,7 @@ _021D8748: .word 0x0000058C
 _021D874C: .word 0x0000061C
 _021D8750: .word 0x00000A84
 _021D8754: .word 0x00000B04
-_021D8758: .word gMain + 0x60
+_021D8758: .word gSystem + 0x60
 	thumb_func_end MOD73_021D8630
 
 	thumb_func_start MOD73_021D875C
@@ -2299,7 +2299,7 @@ MOD73_021D875C: ; 0x021D875C
 	bl MOD73_021D8BD0
 	add r0, r4, #0
 	bl MOD73_021D8D18
-	ldr r0, _021D880C ; =gMain + 0x60
+	ldr r0, _021D880C ; =gSystem + 0x60
 	mov r1, #0
 	strb r1, [r0, #5]
 	bl GX_SwapDisplay
@@ -2313,7 +2313,7 @@ _021D87FC: .word 0x00000598
 _021D8800: .word 0x0000061C
 _021D8804: .word 0x00000A84
 _021D8808: .word 0x00000B04
-_021D880C: .word gMain + 0x60
+_021D880C: .word gSystem + 0x60
 	thumb_func_end MOD73_021D875C
 
 	thumb_func_start MOD73_021D8810
@@ -8110,7 +8110,7 @@ MOD73_021DB318: ; 0x021DB318
 	push {r4, lr}
 	sub sp, #8
 	add r4, r0, #0
-	ldr r0, _021DB364 ; =gMain + 0x40
+	ldr r0, _021DB364 ; =gSystem + 0x40
 	ldrh r1, [r0, #0x22]
 	cmp r1, #0
 	beq _021DB33C
@@ -8140,13 +8140,13 @@ _021DB33C:
 	str r0, [r4, #8]
 	ldr r0, [r4, #4]
 	str r0, [r4, #0xc]
-	ldr r0, _021DB364 ; =gMain + 0x40
+	ldr r0, _021DB364 ; =gSystem + 0x40
 	ldrh r0, [r0, #0x22]
 	str r0, [r4, #0x14]
 	add sp, #8
 	pop {r4, pc}
 	.align 2, 0
-_021DB364: .word gMain + 0x40
+_021DB364: .word gSystem + 0x40
 	thumb_func_end MOD73_021DB318
 
 	thumb_func_start MOD73_021DB368

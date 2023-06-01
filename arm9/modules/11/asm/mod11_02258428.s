@@ -6447,7 +6447,7 @@ MOD11_0225B824: ; 0x0225B824
 	mov r1, #1
 	bl PaletteData_GetFadedBuf
 	add r4, r0, #0
-	ldr r0, _0225B8AC ; =gMain + 0x40
+	ldr r0, _0225B8AC ; =gSystem + 0x40
 	ldrh r0, [r0, #0x22]
 	cmp r0, #0
 	beq _0225B888
@@ -6489,7 +6489,7 @@ _0225B888:
 _0225B8A8:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_0225B8AC: .word gMain + 0x40
+_0225B8AC: .word gSystem + 0x40
 
 	thumb_func_start MOD11_0225B8B0
 MOD11_0225B8B0: ; 0x0225B8B0
@@ -6519,7 +6519,7 @@ _0225B8D4:
 	ldrb r0, [r5, r0]
 	cmp r0, #1
 	beq _0225B8EC
-	ldr r1, _0225B918 ; =gMain
+	ldr r1, _0225B918 ; =gSystem
 	ldr r2, [r1, #0x48]
 	ldr r1, _0225B91C ; =0x00000CF3
 	tst r1, r2
@@ -6548,7 +6548,7 @@ _0225B90C:
 	pop {r4, r5, r6, pc}
 	nop
 _0225B914: .word MOD11_0225FAAC
-_0225B918: .word gMain
+_0225B918: .word gSystem
 _0225B91C: .word 0x00000CF3
 _0225B920: .word 0x000005DC
 _0225B924: .word 0x000006F4
@@ -6646,7 +6646,7 @@ _0225B9CA:
 	str r0, [sp, #0xc]
 	cmp r0, #3
 	bne _0225B9EC
-	ldr r0, _0225BAF8 ; =gMain
+	ldr r0, _0225BAF8 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x40
 	tst r0, r1
@@ -6662,7 +6662,7 @@ _0225B9EC:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0
 	bne _0225BA34
-	ldr r0, _0225BAF8 ; =gMain
+	ldr r0, _0225BAF8 ; =gSystem
 	ldr r1, [r0, #0x48]
 	mov r0, #0x20
 	tst r0, r1
@@ -6793,7 +6793,7 @@ _0225BAE8: .word MOD11_0225FAAC
 _0225BAEC: .word MOD11_0225F698
 _0225BAF0: .word 0x000006EC
 _0225BAF4: .word 0x0000069F
-_0225BAF8: .word gMain
+_0225BAF8: .word gSystem
 _0225BAFC: .word 0x000005DC
 _0225BB00: .word 0x000006A3
 
@@ -8236,7 +8236,7 @@ _0225C594:
 	str r1, [sp]
 	ldrsb r1, [r0, r5]
 	mov ip, r1
-	ldr r1, _0225C764 ; =gMain
+	ldr r1, _0225C764 ; =gSystem
 	ldr r1, [r1, #0x48]
 	tst r3, r1
 	beq _0225C5FA
@@ -8486,7 +8486,7 @@ _0225C75E:
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_0225C764: .word gMain
+_0225C764: .word gSystem
 _0225C768: .word 0x000005DC
 
 	thumb_func_start MOD11_0225C76C

@@ -2477,8 +2477,8 @@ _02027E1E:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02027E24
-FUN_02027E24: ; 0x02027E24
+	thumb_func_start Save_FashionData_get
+Save_FashionData_get: ; 0x02027E24
 	ldr r3, _02027E2C ; =SavArray_get
 	mov r1, #0xe
 	bx r3

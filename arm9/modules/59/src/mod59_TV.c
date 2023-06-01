@@ -532,7 +532,7 @@ THUMB_FUNC BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2,
             break;
 
         case 2:
-            if((gMain.newKeys & PAD_BUTTON_A) != 1 && (gMain.newKeys & PAD_BUTTON_B) != 2)
+            if((gSystem.newKeys & PAD_BUTTON_A) != 1 && (gSystem.newKeys & PAD_BUTTON_B) != 2)
             {
                 break;
             }

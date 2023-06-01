@@ -653,7 +653,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetFossilMinimumAmount
 	.word ScrCmd_CountPartyMonsAtOrBelowLevel
 	.word ScrCmd_SurvivePsn
-	.word ScrCmd_Unk01F8
+	.word ScrCmd_TerminateOverworldProcess
 	.word ScrCmd_DebugWatch
 	.word ScrCmd_MessageFrom
 	.word ScrCmd_MessageFrom2
@@ -669,7 +669,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0205
 	.word ScrCmd_Unk0206
 	.word ScrCmd_Unk0207
-	.word ScrCmd_Unk0208
+	.word ScrCmd_ShowPokemonPic
 	.word ScrCmd_Unk0209
 	.word ScrCmd_Unk020A
 	.word ScrCmd_Unk020B
@@ -801,7 +801,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0289
 	.word ScrCmd_Unk028A
 	.word ScrCmd_Unk028B
-	.word ScrCmd_Unk028C
+	.word ScrCmd_ShowPartyPokemonPic
 	.word ScrCmd_Unk028D
 	.word ScrCmd_Unk028E
 	.word ScrCmd_Unk028F

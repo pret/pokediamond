@@ -677,7 +677,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	add r0, sp, #0x20
 	add r1, sp, #0x14
 	bl GF_RTC_CopyDateTime
-	ldr r0, _0222DF10 ; =gMain
+	ldr r0, _0222DF10 ; =gSystem
 	ldr r6, [sp, #0x24]
 	ldr r5, [r0, #0x2c]
 	ldr r1, [sp, #0x18]
@@ -1057,7 +1057,7 @@ _0222DC42:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0222DF0C: .word 0x00002430
-_0222DF10: .word gMain
+_0222DF10: .word gSystem
 _0222DF14: .word MOD11_0225DA20
 _0222DF18: .word MOD11_0225D9D8
 _0222DF1C: .word 0x00100010
