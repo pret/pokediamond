@@ -507,7 +507,7 @@ THUMB_FUNC BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2,
     {
         case 0:
             ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_OFF);
-            struct String *string = String_ctor(1024, data->heap_id);
+            struct String *string = String_New(1024, data->heap_id);
             ReadMsgDataIntoString(data->msgData, msgNo, string);
             AddWindow(data->bgConfig, &data->window, &MOD59_021DA04C);
             FillWindowPixelRect(&data->window, 0, 0, 0, 256, 192);
@@ -515,7 +515,7 @@ THUMB_FUNC BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2,
 
             unk0 = (256 - unk0 ) / 2;
             AddTextPrinterParameterized2(&data->window, 0, string, unk0, param3, 0, MakeFontColor(15, 2, 0), NULL);
-            String_dtor(string);
+            String_Delete(string);
             CopyWindowToVram(&data->window);
             ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_ON);
             data->unk24 = 240;

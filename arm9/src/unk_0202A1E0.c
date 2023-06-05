@@ -22,10 +22,10 @@ THUMB_FUNC void SaveStruct23_Substruct2_Init(struct SaveStruct23_Substruct2 *sub
 
 THUMB_FUNC void SaveStruct23_Messages_Init(struct SaveStruct23_Messages *messages)
 {
-    MailMsg_init_fromTemplate(&messages->messages[0], 0);
-    MailMsg_init_fromTemplate(&messages->messages[1], 1);
-    MailMsg_init_fromTemplate(&messages->messages[2], 2);
-    MailMsg_init_fromTemplate(&messages->messages[3], 3);
+    MailMsg_Init_FromTemplate(&messages->messages[0], 0);
+    MailMsg_Init_FromTemplate(&messages->messages[1], 1);
+    MailMsg_Init_FromTemplate(&messages->messages[2], 2);
+    MailMsg_Init_FromTemplate(&messages->messages[3], 3);
 }
 
 THUMB_FUNC void SaveStruct23_Substruct4_Init(struct SaveStruct23_Substruct4 *substruct4)
@@ -347,13 +347,13 @@ THUMB_FUNC u32 SaveStruct23_Substruct2_GetField_0x4(struct SaveStruct23_Substruc
 
 THUMB_FUNC void SaveStruct23_SetMessage(struct SaveBlock2 *sav2, u32 index, struct MailMessage *message)
 {
-    struct SaveStruct23 *data = SavArray_get(sav2, 23);
-    MailMsg_copy(&data->messages.messages[index], message);
+    struct SaveStruct23 *data = SaveArray_Get(sav2, 23);
+    MailMsg_Copy(&data->messages.messages[index], message);
 }
 
 THUMB_FUNC struct MailMessage *SaveStruct23_GetMessage(struct SaveBlock2 *sav2, u32 index)
 {
-    struct SaveStruct23 *data = SavArray_get(sav2, 23);
+    struct SaveStruct23 *data = SaveArray_Get(sav2, 23);
     return &data->messages.messages[index];
 }
 
@@ -522,15 +522,15 @@ THUMB_FUNC void SaveStruct23_Init(struct SaveStruct23 *saveStruct23)
 
 THUMB_FUNC struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveBlock2* sav2)
 {
-    return &((struct SaveStruct23 *)SavArray_get(sav2, 23))->substruct1;
+    return &((struct SaveStruct23 *)SaveArray_Get(sav2, 23))->substruct1;
 }
 
 THUMB_FUNC struct SaveStruct23_Substruct2 *SaveStruct23_GetSubstruct2(struct SaveBlock2* sav2)
 {
-    return &((struct SaveStruct23 *)SavArray_get(sav2, 23))->substruct2;
+    return &((struct SaveStruct23 *)SaveArray_Get(sav2, 23))->substruct2;
 }
 
 THUMB_FUNC struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveBlock2* sav2)
 {
-    return &((struct SaveStruct23 *)SavArray_get(sav2, 23))->substruct4;
+    return &((struct SaveStruct23 *)SaveArray_Get(sav2, 23))->substruct4;
 }

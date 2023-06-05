@@ -1505,7 +1505,7 @@ MOD11_0224E130: ; 0x0224E130
 	ldr r1, [r4, #8]
 	str r0, [r1, #4]
 	mov r0, #5
-	bl SavArray_Party_alloc
+	bl SaveArray_Party_Alloc
 	ldr r1, [r4, #8]
 	mov r6, #0
 	ldr r1, [r1, #4]
@@ -2873,7 +2873,7 @@ MOD11_0224EBF4: ; 0x0224EBF4
 	mov r1, #0
 	bl MOD11_0222FF6C
 	mov r1, #1
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	add r1, r0, #0
 	add r0, r5, #0
 	bl MOD11_022312C8
@@ -9399,7 +9399,7 @@ _02252146:
 	bl AllocFromHeap
 	str r0, [r4, #4]
 	mov r0, #5
-	bl SavArray_Party_alloc
+	bl SaveArray_Party_Alloc
 	ldr r1, [r4, #4]
 	str r0, [r1]
 	ldr r0, [r4]

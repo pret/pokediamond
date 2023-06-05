@@ -1184,7 +1184,7 @@ MOD11_022574F0: ; 0x022574F0
 	add r4, r0, #0
 	mov r0, #0x16
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	mov r1, #0xf1
 	str r0, [sp, #0x18]
 	add r0, r7, #0
@@ -1306,9 +1306,9 @@ MOD11_022574F0: ; 0x022574F0
 	add r0, sp, #0x24
 	bl RemoveWindow
 	ldr r0, [sp, #0x18]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1852,7 +1852,7 @@ _02257A26:
 	add r0, sp, #0x18
 	bl RemoveWindow
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -1875,7 +1875,7 @@ MOD11_02257AD4: ; 0x02257AD4
 	add r7, r0, #0
 	mov r0, #0x1e
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	mov r1, #1
 	add r6, r0, #0
 	lsl r1, r1, #0xa
@@ -1977,9 +1977,9 @@ _02257B1E:
 	add r0, sp, #0x24
 	bl RemoveWindow
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x18]
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

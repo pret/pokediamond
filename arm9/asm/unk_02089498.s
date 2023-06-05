@@ -486,7 +486,7 @@ _0208984C:
 	add r0, r4, #0x0
 	ldr r1, _02089898 ; =0x000001E2
 	add r0, #0x1c
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	str r0, [r4, #0x34]
 	mov r0, #0x5
 	str r0, [r4, #0x4]
@@ -549,7 +549,7 @@ _020898B8:
 	mov r0, #0x1
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0xa
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x10]
 	ldr r0, [r5, #0x18]
 	ldr r2, [r5, #0x10]
@@ -568,7 +568,7 @@ _020898B8:
 	cmp r4, #0x0
 	bne _02089918
 	ldr r0, [r5, #0x10]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0x8]
 	add r0, r0, #0x1
 	str r0, [r5, #0x8]
@@ -585,7 +585,7 @@ _02089920:
 	cmp r0, #0x0
 	bne _02089950
 	ldr r0, [r5, #0x10]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0x8]
 	add r0, r0, #0x1
 	str r0, [r5, #0x8]

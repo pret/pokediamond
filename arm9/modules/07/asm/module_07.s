@@ -4513,7 +4513,7 @@ _022142BE:
 	add r1, r6, #0
 	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x20]
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4627,7 +4627,7 @@ MOD07_0221437C: ; 0x0221437C
 	add r2, r7, #0
 	bl StringExpandPlaceholders
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4684,7 +4684,7 @@ MOD07_022143FC: ; 0x022143FC
 	add r1, r4, #0
 	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x20]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -4748,7 +4748,7 @@ MOD07_022143FC: ; 0x022143FC
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0
 	ldr r3, [sp, #0x24]
 	str r1, [sp]
@@ -4972,16 +4972,16 @@ MOD07_0221469C: ; 0x0221469C
 	mov r0, #0xf
 	mov r1, #0xe
 	mov r2, #0
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	str r0, [sp, #0xc]
 	ldr r0, [r6]
 	ldr r0, [r0, #0x24]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	ldr r1, [r6]
 	str r0, [sp, #8]
 	ldr r1, [r1, #0x24]
 	mov r0, #0x20
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	mov r4, #0
 	add r5, r6, #0
@@ -5004,13 +5004,13 @@ _022146F6:
 	cmp r4, #6
 	blo _022146DC
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 	ldr r0, [sp, #8]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

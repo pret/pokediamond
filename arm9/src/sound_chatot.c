@@ -24,7 +24,7 @@ THUMB_FUNC BOOL Chatot_checkCry(struct SaveChatotSoundClip *param0)
 {
     u8 *r4 = FUN_02003D38(30);
 
-    if (!Chatot_exists(param0))
+    if (!Chatot_Exists(param0))
     {
         return FALSE;
     }
@@ -147,7 +147,7 @@ THUMB_FUNC void FUN_02005E90(struct SaveChatotSoundClip *param0, u32 param1, s32
 
 THUMB_FUNC u32 FUN_02005EE0(struct SaveChatotSoundClip *param0)
 {
-    if (!Chatot_exists(param0))
+    if (!Chatot_Exists(param0))
     {
         return 0;
     }

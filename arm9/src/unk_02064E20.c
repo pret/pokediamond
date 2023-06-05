@@ -6,7 +6,7 @@
 
 THUMB_FUNC void FUN_02064E20(struct FieldSystem* fieldSystem)
 {
-    struct unk_2025484 * r4 = (struct unk_2025484 *)FUN_02024ED8(ScriptEnvironment_GetSav2Ptr(fieldSystem));
+    struct unk_2025484 * r4 = (struct unk_2025484 *)FUN_02024ED8(ScriptEnvironment_GetSavePtr(fieldSystem));
     if((u32)FUN_020254B4(r4) == 6)
     {
         return;

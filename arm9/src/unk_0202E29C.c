@@ -70,7 +70,7 @@ THUMB_FUNC void FUN_0202E29C(struct PlayerData *player_data)
         UNK_021C59F0->unkCC0 = 0x333;
         UNK_021C59F0->unkCB8 = player_data;
 
-        MailMsg_init(&UNK_021C59F0->unkCA8);
+        MailMsg_Init(&UNK_021C59F0->unkCA8);
         FUN_0202E500();
     }
 }

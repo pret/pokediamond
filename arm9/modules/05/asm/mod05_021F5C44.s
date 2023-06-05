@@ -86,7 +86,7 @@ _021F5CBA:
 	lsr r2, r2, #0x10
 	bl FUN_02061208
 	ldr r0, [r4, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0xa
 	bl GameStats_Inc
 	ldr r2, [r5, #0x10]
@@ -439,7 +439,7 @@ MOD05_021F5F5C: ; 0x021F5F5C
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #0x20]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x49
 	bl GameStats_Inc
 	ldr r0, [r4, #0x1c]
@@ -634,17 +634,17 @@ MOD05_021F60C4: ; 0x021F60C4
 	mov r0, #1
 	lsl r0, r0, #0xa
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x2c]
 	mov r0, #1
 	lsl r0, r0, #0xa
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x30]
 	mov r0, #8
 	mov r1, #0x40
 	mov r2, #4
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	str r0, [r4, #0x34]
 	pop {r4, pc}
 
@@ -653,11 +653,11 @@ MOD05_021F60FC: ; 0x021F60FC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x34]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x2c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x30]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x48]
 	bl DestroyMsgData
 	pop {r4, pc}
@@ -674,7 +674,7 @@ MOD05_021F611C: ; 0x021F611C
 	mov r2, #3
 	bl FUN_020545B8
 	ldr r0, [r4, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r5, #0x38
 	add r1, r0, #0
 	add r0, r5, #0
@@ -697,7 +697,7 @@ MOD05_021F6140: ; 0x021F6140
 	ldr r2, [r5, #0x30]
 	bl StringExpandPlaceholders
 	ldr r0, [r4, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0
 	add r0, r5, #0
 	ldr r1, [r5, #0x2c]

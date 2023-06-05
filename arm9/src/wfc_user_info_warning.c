@@ -104,7 +104,7 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0x6C21);
 
     struct MsgData* warning_messages_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0613_bin, heap_id);
-    struct String* warning_message = String_ctor(384, heap_id);
+    struct String* warning_message = String_New(384, heap_id);
     ResetAllTextPrinters();
     AddWindow(bg_config, &window, &sWFCWarningMsgWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
@@ -112,7 +112,7 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
 
     ReadMsgDataIntoString(warning_messages_data, 15, warning_message);
     AddTextPrinterParameterized(&window, 0, warning_message, 0, 0, 0, 0);
-    String_dtor(warning_message);
+    String_Delete(warning_message);
 
     GX_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);

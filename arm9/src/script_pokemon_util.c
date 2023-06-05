@@ -25,8 +25,8 @@ BOOL MonNotFaintedOrEgg(struct Pokemon * pokemon)
 BOOL GiveMon(u32 heap_id, struct SaveBlock2 * sav2, u16 species, u8 level, u16 item, u32 mapSec, u32 encounterType)
 {
     u32 ptr;
-    struct PlayerData * data = Sav2_PlayerData_GetProfileAddr(sav2);
-    struct PlayerParty * party = SavArray_PlayerParty_get(sav2);
+    struct PlayerData * data = Save_PlayerData_GetProfileAddr(sav2);
+    struct PlayerParty * party = SaveArray_PlayerParty_Get(sav2);
     struct Pokemon * mon = AllocMonZeroed(heap_id);
     ZeroMonData(mon);
     CreateMon(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
@@ -46,8 +46,8 @@ BOOL GiveMon(u32 heap_id, struct SaveBlock2 * sav2, u16 species, u8 level, u16 i
 BOOL GiveEgg(u32 heapId, struct SaveBlock2 * sav2, u16 species, int level, int metLocIndex, int a3)
 {
 #pragma unused(heapId)
-    struct PlayerData * data = Sav2_PlayerData_GetProfileAddr(sav2);
-    struct PlayerParty * party = SavArray_PlayerParty_get(sav2);
+    struct PlayerData * data = Save_PlayerData_GetProfileAddr(sav2);
+    struct PlayerParty * party = SaveArray_PlayerParty_Get(sav2);
     struct Pokemon * mon = AllocMonZeroed(32);
     ZeroMonData(mon);
     MOD05_SetEggStats(mon, species, level, data, 4, FUN_02015CF8(metLocIndex, a3));

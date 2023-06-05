@@ -430,7 +430,7 @@ MOD75_021E6F00: ; 0x021E6F00
 	mov r0, #0xfe
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -446,11 +446,11 @@ MOD75_021E6F00: ; 0x021E6F00
 	mov r0, #0x11
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 	mov r0, #0x46
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r4, #0xd4
 	ldr r0, [r4]
 	bl NARC_dtor
@@ -473,7 +473,7 @@ MOD75_021E6FA4: ; 0x021E6FA4
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r1, r4, #0
 	add r1, #0xc8
 	str r0, [r1]
@@ -481,7 +481,7 @@ MOD75_021E6FA4: ; 0x021E6FA4
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -489,7 +489,7 @@ MOD75_021E6FA4: ; 0x021E6FA4
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r4, #0xd0
 	str r0, [r4]
 	pop {r4, pc}
@@ -946,12 +946,12 @@ MOD75_021E737C: ; 0x021E737C
 	mov r1, #2
 	mov r2, #0
 	mov r3, #6
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	mov r1, #0x11
 	lsl r1, r1, #4
 	str r0, [r4, r1]
 	mov r0, #6
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r2, #0x46
 	lsl r2, r2, #2
 	str r0, [r4, r2]
@@ -975,7 +975,7 @@ MOD75_021E737C: ; 0x021E737C
 	sub r1, #0x20
 	add r0, r1, #0
 	mov r1, #6
-	bl String_ctor
+	bl String_New
 	mov r1, #0xfe
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1233,7 +1233,7 @@ MOD75_021E7580: ; 0x021E7580
 	ldrb r0, [r0, r1]
 	mov r1, #6
 	add r0, r0, #3
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	mov r1, #0x16
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -1432,7 +1432,7 @@ MOD75_021E771C: ; 0x021E771C
 _021E7728:
 	add r0, r7, #0
 	mov r1, #6
-	bl String_ctor
+	bl String_New
 	str r0, [r5, r6]
 	add r4, r4, #1
 	add r5, r5, #4
@@ -1450,7 +1450,7 @@ MOD75_021E773C: ; 0x021E773C
 	lsl r6, r6, #2
 _021E7746:
 	ldr r0, [r5, r6]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0xa5
@@ -1915,7 +1915,7 @@ MOD75_021E7AA4: ; 0x021E7AA4
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r0, #0x57
 	mov r1, #0
 	lsl r0, r0, #2
@@ -2834,7 +2834,7 @@ _021E81D2:
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 _021E8206:
 	add r0, r5, #0
 	add r0, #0xc4
@@ -3900,7 +3900,7 @@ MOD75_021E89F0: ; 0x021E89F0
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r4, #0
 	bl MOD75_021E7580
 _021E8A3C:
@@ -4736,7 +4736,7 @@ _021E908E:
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl MOD75_021EB660
 	ldr r1, _021E91AC ; =0x00000426
@@ -4930,7 +4930,7 @@ _021E923E:
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop
@@ -5026,7 +5026,7 @@ MOD75_021E92BC: ; 0x021E92BC
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r4, #0
 	bl MOD75_021E7580
 	add r0, r4, #0
@@ -5469,7 +5469,7 @@ _021E967A:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	add r0, #0x64
 	mov r1, #0xf
@@ -5743,7 +5743,7 @@ _021E9872:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl MOD75_021EB660
 	ldr r1, _021E992C ; =0x00000426
@@ -5924,7 +5924,7 @@ _021E9A38:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl MOD75_021EB660
 	ldr r1, _021E9B44 ; =0x00000426
@@ -5986,7 +5986,7 @@ _021E9A6E:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl MOD75_021EB660
 	ldr r1, _021E9B44 ; =0x00000426
@@ -6010,7 +6010,7 @@ _021E9AF4:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl MOD75_021EB660
 	ldr r1, _021E9B44 ; =0x00000426
@@ -6130,7 +6130,7 @@ _021E9BAC:
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl MOD75_021EB660
 	ldr r1, _021E9D58 ; =0x00000426
@@ -6225,7 +6225,7 @@ _021E9C80:
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl MOD75_021EB660
 	ldr r1, _021E9D58 ; =0x00000426
@@ -6401,7 +6401,7 @@ _021E9E2A:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	add r0, #0x64
 	mov r1, #0xf
@@ -7656,7 +7656,7 @@ _021EA800:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, r6]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -8048,7 +8048,7 @@ MOD75_021EAAE8: ; 0x021EAAE8
 	beq _021EAB0A
 	mov r0, #0x82
 	mov r1, #6
-	bl String_ctor
+	bl String_New
 	add r1, r6, #0
 	mov r2, #6
 	add r4, r0, #0
@@ -8075,7 +8075,7 @@ _021EAB18:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -8111,7 +8111,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -8131,7 +8131,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -8150,7 +8150,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -8170,7 +8170,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -8190,7 +8190,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x10]
 	mov r1, #0
 	bl WazaGetMaxPp
@@ -8220,7 +8220,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #0xff
@@ -8275,7 +8275,7 @@ _021EACC6:
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #0xff
@@ -8329,7 +8329,7 @@ _021EAD3C:
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0xff
@@ -8381,11 +8381,11 @@ MOD75_021EADC0: ; 0x021EADC0
 	mov r0, #0xff
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #1
 	lsl r0, r0, #0xa
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD75_021EADC0
@@ -8435,7 +8435,7 @@ _021EAE18:
 _021EAE2E:
 	mov r0, #0xa
 	mov r1, #6
-	bl String_ctor
+	bl String_New
 	mov r1, #0
 	add r7, r0, #0
 	str r1, [sp]
@@ -8472,7 +8472,7 @@ _021EAE2E:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -8659,7 +8659,7 @@ MOD75_021EAFB0: ; 0x021EAFB0
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	nop
@@ -8804,7 +8804,7 @@ _021EB11A:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, r6]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -8881,7 +8881,7 @@ _021EB180:
 _021EB1B0:
 	add r0, r7, #0
 	mov r1, #6
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	mov r1, #0x55
 	lsl r1, r1, #2
 	mov r4, #0
@@ -9010,7 +9010,7 @@ _021EB298:
 	str r0, [sp, #0x18]
 	mov r0, #0x38
 	mov r1, #6
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	add r0, r5, #0
 	add r0, #0xc4
@@ -9044,9 +9044,9 @@ _021EB298:
 	str r3, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x18]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, r6
 	bl ScheduleWindowCopyToVram
 _021EB31E:
@@ -9112,7 +9112,7 @@ _021EB37A:
 	mov r0, #0x55
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r5, #0
 	add r0, #0xb4
 	bl RemoveWindow
@@ -9153,7 +9153,7 @@ MOD75_021EB3D8: ; 0x021EB3D8
 	add r6, r0, #0
 	mov r0, #0x82
 	mov r1, #6
-	bl String_ctor
+	bl String_New
 	ldr r1, _021EB44C ; =0x0000047B
 	add r4, r0, #0
 	ldrb r1, [r5, r1]
@@ -9183,9 +9183,9 @@ MOD75_021EB3D8: ; 0x021EB3D8
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -9223,7 +9223,7 @@ MOD75_021EB454: ; 0x021EB454
 	add r6, r0, #0
 	mov r0, #0x38
 	mov r1, #6
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	add r0, r5, #0
 	add r0, #0xc4
@@ -9261,9 +9261,9 @@ MOD75_021EB454: ; 0x021EB454
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -9322,7 +9322,7 @@ MOD75_021EB504: ; 0x021EB504
 	add r0, r4, #0
 	bl ScheduleWindowCopyToVram
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -9422,7 +9422,7 @@ _021EB616:
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl MOD75_021EB660
 	ldr r1, _021EB65C ; =0x00000426
@@ -9582,7 +9582,7 @@ _021EB722:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -9634,7 +9634,7 @@ _021EB722:
 	add r0, r4, #0
 	bl ScheduleWindowCopyToVram
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -9676,7 +9676,7 @@ MOD75_021EB808: ; 0x021EB808
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	b _021EB866
 _021EB854:
 	mov r0, #0x50
@@ -9739,7 +9739,7 @@ _021EB866:
 	add r0, r4, #0
 	bl ScheduleWindowCopyToVram
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -9777,7 +9777,7 @@ MOD75_021EB8E8: ; 0x021EB8E8
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -9809,7 +9809,7 @@ MOD75_021EB8E8: ; 0x021EB8E8
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0xfe
 	lsl r1, r1, #2
 	mov r0, #0

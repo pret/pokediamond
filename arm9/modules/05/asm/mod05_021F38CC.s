@@ -168,7 +168,7 @@ MOD05_021F3A18: ; 0x021F3A18
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	add r5, r1, #0
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r5, #0
 	bl GetPartyMonByIndex
 	mov r1, #5
@@ -186,7 +186,7 @@ MOD05_021F3A18: ; 0x021F3A18
 	bl MOD05_021F39A0
 	add r6, r0, #0
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F3E8
 	add r1, sp, #4
 	strh r0, [r1]
@@ -237,14 +237,14 @@ MOD05_021F3AB4: ; 0x021F3AB4
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
 	add r5, r1, #0
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r5, #0
 	bl GetPartyMonByIndex
 	bl MOD05_021F38CC
 	add r1, sp, #0
 	strh r0, [r1]
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r1, sp, #0
 	ldrh r1, [r1]
 	bl FUN_0205F3F8
@@ -309,7 +309,7 @@ MOD05_021F3B4C: ; 0x021F3B4C
 	add r4, r1, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F3E8
 	add r1, sp, #4
 	strh r0, [r1]
@@ -333,7 +333,7 @@ MOD05_021F3B7C: ; 0x021F3B7C
 	ldr r0, [r5, #0xc]
 	add r4, r3, #0
 	add r7, r1, #0
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r4, #0
 	bl GetPartyMonByIndex
 	mov r1, #5

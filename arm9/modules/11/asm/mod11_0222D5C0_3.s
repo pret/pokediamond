@@ -202,7 +202,7 @@ _0222F30E:
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	ldr r1, _0222F4D4 ; =0x0000039B
 	add r0, r4, #0
@@ -217,7 +217,7 @@ _0222F30E:
 	add r2, r6, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl DestroyMsgData
 	ldr r0, _0222F4D8 ; =MOD11_0222F0D4
@@ -234,7 +234,7 @@ _0222F30E:
 	bl FUN_02003210
 	ldr r0, [r5, #8]
 	mov r1, #1
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _0222F4E0 ; =0x00001024
 	str r0, [r5, r1]
 	bl FUN_02033E74
@@ -810,7 +810,7 @@ MOD11_0222F93C: ; 0x0222F93C
 	bl FUN_02002FEC
 	ldr r0, [r4, #8]
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	mov r0, #2
 	mov r1, #0
 	bl GX_EngineAToggleLayers

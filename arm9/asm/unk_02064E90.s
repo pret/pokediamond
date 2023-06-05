@@ -14,12 +14,12 @@ FUN_02064E90: ; 0x02064E90
 	add r0, r6, #0x0
 	str r3, [sp, #0x1c]
 	ldr r5, [sp, #0xbc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	str r0, [sp, #0x20]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x20]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x1c]
 	strb r0, [r5, #0x5]
@@ -48,11 +48,11 @@ FUN_02064E90: ; 0x02064E90
 	bl PlayerProfile_GetMoney
 	str r0, [sp, #0x34]
 	ldr r0, [r6, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl Pokedex_CountSeenMons
 	str r0, [sp, #0x38]
 	ldr r0, [r6, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl Pokedex_GetSinnohDexFlag
 	str r0, [sp, #0x3c]
 	add r0, r4, #0x0
@@ -71,7 +71,7 @@ FUN_02064E90: ; 0x02064E90
 	str r5, [sp, #0xc]
 	bl FUN_02065178
 	ldr r0, [sp, #0x20]
-	bl Sav2_PlayerData_GetIGTAddr
+	bl Save_PlayerData_GetIGTAddr
 	str r0, [sp, #0x40]
 	add r0, r6, #0x0
 	add r1, sp, #0x90
@@ -82,7 +82,7 @@ FUN_02064E90: ; 0x02064E90
 	add r2, sp, #0x74
 	bl Script_SavRTC_x2CtoDateTime
 	ldr r0, [r6, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED0C
 	add r1, sp, #0x74
 	str r1, [sp, #0x0]
@@ -218,12 +218,12 @@ _02065074: .word FreeToHeap
 	thumb_func_start FUN_02065078
 FUN_02065078: ; 0x02065078
 	push {r3-r7, lr}
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	add r7, r0, #0x0
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_02026CB4
@@ -238,7 +238,7 @@ FUN_02065078: ; 0x02065078
 	lsr r4, r0, #0x18
 _020650A8:
 	add r0, r7, #0x0
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl Pokedex_HasCompletedNationalDex
 	cmp r0, #0x0
 	beq _020650BC

@@ -38,7 +38,7 @@ THUMB_FUNC BOOL ScrCmd_UpdateCoinBox(struct ScriptContext * ctx) //0077
 
 THUMB_FUNC BOOL ScrCmd_GetCoins(struct ScriptContext * ctx) //0078 - todo: CheckCoins instead?
 {
-    u16 * coins_ptr = Sav2_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
+    u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
 
     *ret_ptr = CheckCoins(coins_ptr);
@@ -48,7 +48,7 @@ THUMB_FUNC BOOL ScrCmd_GetCoins(struct ScriptContext * ctx) //0078 - todo: Check
 
 THUMB_FUNC BOOL ScrCmd_GiveCoins(struct ScriptContext * ctx) //0079
 {
-    u16 * coins_ptr = Sav2_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
+    u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 amount = ScriptGetVar(ctx);
 
     GiveCoins(coins_ptr, amount);
@@ -58,7 +58,7 @@ THUMB_FUNC BOOL ScrCmd_GiveCoins(struct ScriptContext * ctx) //0079
 
 THUMB_FUNC BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext * ctx) //0080 - todo: TakeCoins instead?
 {
-    u16 * coins_ptr = Sav2_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
+    u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 amount = ScriptGetVar(ctx);
 
     TakeCoins(coins_ptr, amount);
@@ -68,7 +68,7 @@ THUMB_FUNC BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext * ctx) //0080 - t
 
 THUMB_FUNC BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext * ctx) //02A8 - todo: TakeCoinsVar instead?
 {
-    u16 * coins_ptr = Sav2_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
+    u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 * amount = ScriptGetVarPointer(ctx);
 
     TakeCoins(coins_ptr, *amount);
@@ -79,10 +79,10 @@ THUMB_FUNC BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext * ctx) //02A8 - tod
 THUMB_FUNC BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext * ctx) //0274 - todo: CanAffordCoins?
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
+    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
     // Created, but discarded.
-    struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
-    u16 * coins_ptr = Sav2_PlayerData_GetCoinsAddr(fieldSystem->saveBlock2);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
+    u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(fieldSystem->saveBlock2);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
 
     u32 amount = ScriptReadWord(ctx);
@@ -103,10 +103,10 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext * ctx) //027
 THUMB_FUNC BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext * ctx) //02A9 - todo: CanAffordCoinsVar?
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
+    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
     // Created, but discarded
-    struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
-    u16 * coins_ptr = Sav2_PlayerData_GetCoinsAddr(fieldSystem->saveBlock2);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
+    u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(fieldSystem->saveBlock2);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
 
     u16 amount = *ScriptGetVarPointer(ctx);
@@ -126,7 +126,7 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext * ctx) //02A9 
 
 THUMB_FUNC BOOL ScrCmd_CanGiveCoins(struct ScriptContext * ctx) //0276
 {
-    u16 * coins_ptr = Sav2_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
+    u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
     u16 amount = ScriptGetVar(ctx);
 

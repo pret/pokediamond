@@ -7,7 +7,7 @@
 #include "player_data.h"
 #include "poke_overlay.h"
 
-extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct FieldSystem *);
+extern struct SaveBlock2* ScriptEnvironment_GetSavePtr(struct FieldSystem *);
 extern void* FUN_02028048(struct SaveBlock2* sav2);
 extern void FUN_020373D4(struct FieldSystem *, struct OverlayManagerTemplate *, void*);
 extern BOOL FUN_020889B0(struct OverlayManager *, u32*);
@@ -28,9 +28,9 @@ THUMB_FUNC struct UnkStruct_0208890C* FUN_0208890C(void* a0, struct SaveBlock2* 
 
     ret->sav2 = sav2;
     ret->unk8 = FUN_02028048(sav2);
-    ret->player = Sav2_PlayerData_GetProfileAddr(sav2);
-    ret->bag = Sav2_Bag_get(sav2);
-    ret->options = Sav2_PlayerData_GetOptionsAddr(sav2);
+    ret->player = Save_PlayerData_GetProfileAddr(sav2);
+    ret->bag = Save_Bag_Get(sav2);
+    ret->options = Save_PlayerData_GetOptionsAddr(sav2);
     ret->unk1C = a3;
     ret->unk4 = a0;
 
@@ -44,7 +44,7 @@ THUMB_FUNC void FUN_02088950(struct FieldSystem *fieldSystem, struct UnkStruct_0
 
 THUMB_FUNC struct UnkStruct_0208890C* FUN_02088960(struct FieldSystem *fieldSystem, void* a1, u32 heap_id)
 {
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
+    struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
     struct UnkStruct_0208890C* ret = FUN_0208890C(a1, sav2, heap_id, fieldSystem->unk98);
 
     FUN_02088950(fieldSystem, ret);

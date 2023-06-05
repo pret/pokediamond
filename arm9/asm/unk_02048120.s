@@ -88,7 +88,7 @@ _0204817A:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x1c]
 	mov r0, #0xb
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x20]
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x8]
@@ -96,8 +96,8 @@ _0204817A:
 	add r1, #0xc
 	bl AddWindow
 	add r0, r5, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x20]
 	mov r1, #0x0
@@ -223,7 +223,7 @@ _020482B2:
 	add r0, #0xc
 	bl RemoveWindow
 	ldr r0, [r4, #0x20]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x8]
@@ -253,12 +253,12 @@ FUN_020482F4: ; 0x020482F4
 	lsl r0, r0, #0xa
 	mov r1, #0xb
 	add r7, r3, #0x0
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0x0
 	mov r0, #0x1
 	lsl r0, r0, #0xa
 	mov r1, #0xb
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0xc
@@ -297,9 +297,9 @@ FUN_020482F4: ; 0x020482F4
 	lsr r3, r3, #0x18
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0x0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4

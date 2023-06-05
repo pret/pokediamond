@@ -529,7 +529,7 @@ MOD38_02254BC4: ; 0x02254BC4
 	str r0, [r1]
 	mov r0, #0x80
 	mov r1, #8
-	bl String_ctor
+	bl String_New
 	add r1, r4, #0
 	add r1, #0xbc
 	str r0, [r1]
@@ -659,7 +659,7 @@ MOD38_02254D04: ; 0x02254D04
 	beq _02254D32
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	add r0, #0xb4
 	ldr r0, [r0]

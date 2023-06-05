@@ -90,7 +90,7 @@ MOD26_022548E8: ; 0x022548E8
 	add r4, r1, #0
 	bl MOD20_02252C3C
 	add r6, r0, #0
-	bl Sav2_Poketch_DotArtistIsEnabled
+	bl Save_Poketch_DotArtistIsEnabled
 	cmp r0, #0
 	beq _0225490E
 	add r0, r5, #0
@@ -114,7 +114,7 @@ MOD26_02254918: ; 0x02254918
 	lsl r1, r1, #2
 	add r0, r2, #0
 	add r1, r5, r1
-	bl Sav2_Poketch_DotArtistGetDrawing
+	bl Save_Poketch_DotArtistGetDrawing
 	mov r3, #0
 	mov r7, #0x7d
 	mov ip, r3
@@ -207,7 +207,7 @@ _0225498A:
 	lsl r2, r2, #2
 	ldr r0, [sp]
 	add r1, r1, r2
-	bl Sav2_Poketch_DotArtistSetDrawingAndEnable
+	bl Save_Poketch_DotArtistSetDrawingAndEnable
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD26_0225496C

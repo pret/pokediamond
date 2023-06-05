@@ -781,7 +781,7 @@ _0206F914:
 	bl FUN_02001C5C
 	ldr r0, _0206F978 ; =0x000006F8
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r4, #0x0
 	mov r1, #0x1d
 	mov r2, #0x1
@@ -982,23 +982,23 @@ FUN_0206FAA4: ; 0x0206FAA4
 	lsl r7, r7, #0x8
 _0206FAD8:
 	ldr r0, [r5, r7]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #0x1
 	add r5, #0x2c
 	cmp r4, #0x6
 	blo _0206FAD8
 	ldr r0, _0206FB40 ; =0x000006A4
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _0206FB44 ; =0x000006A8
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r7, _0206FB48 ; =0x000006AC
 	mov r5, #0x0
 	add r4, r6, #0x0
 _0206FAFC:
 	ldr r0, [r4, r7]
-	bl String_dtor
+	bl String_Delete
 	add r5, r5, #0x1
 	add r4, r4, #0x4
 	cmp r5, #0x13
@@ -1008,11 +1008,11 @@ _0206FAFC:
 	bl DestroyMsgData
 	ldr r0, _0206FB50 ; =0x00000698
 	ldr r0, [r6, r0]
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 	mov r0, #0x6a
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, _0206FB54 ; =0x00000B34
 	ldr r0, [r6, r0]
 	cmp r0, #0x0
@@ -1441,11 +1441,11 @@ _0206FEC2:
 	mov r0, #0xf
 	mov r1, #0xe
 	mov r3, #0xc
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	ldr r1, _0206FF64 ; =0x00000698
 	str r0, [r6, r1]
 	mov r0, #0xc
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r1, #0x6a
 	lsl r1, r1, #0x4
 	add r7, r1, #0x0
@@ -1456,7 +1456,7 @@ _0206FEC2:
 _0206FEF6:
 	mov r0, #0xb
 	mov r1, #0xc
-	bl String_ctor
+	bl String_New
 	str r0, [r5, r7]
 	add r4, r4, #0x1
 	add r5, #0x2c
@@ -1465,13 +1465,13 @@ _0206FEF6:
 	mov r0, #0x1
 	lsl r0, r0, #0x8
 	mov r1, #0xc
-	bl String_ctor
+	bl String_New
 	ldr r1, _0206FF68 ; =0x000006A4
 	str r0, [r6, r1]
 	mov r0, #0x1
 	lsl r0, r0, #0x8
 	mov r1, #0xc
-	bl String_ctor
+	bl String_New
 	ldr r1, _0206FF6C ; =0x000006A8
 	mov r5, #0x0
 	str r0, [r6, r1]
@@ -1480,7 +1480,7 @@ _0206FEF6:
 _0206FF2A:
 	mov r0, #0x20
 	mov r1, #0xc
-	bl String_ctor
+	bl String_New
 	str r0, [r4, r7]
 	add r5, r5, #0x1
 	add r4, r4, #0x4
@@ -4409,7 +4409,7 @@ _02071630:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1
@@ -5070,7 +5070,7 @@ _02071B34:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0x0
 	add r0, r4, #0x0
 	mvn r1, r1

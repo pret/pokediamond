@@ -2421,7 +2421,7 @@ MOD05_021E72E8: ; 0x021E72E8
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r4, #0
 	bl GetPartyMonByIndex
 	pop {r4, pc}

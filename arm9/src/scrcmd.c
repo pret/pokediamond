@@ -106,7 +106,7 @@ extern u16 MOD05_021E1858(struct FieldSystem *fieldSystem, LocalMapObject *event
 extern u32 FUN_02029048(u32 param0);
 extern void FUN_02028AD4(u32 *param0, u32 param1, u32 param2);
 extern void FUN_0204AF3C(struct TaskManager *taskManager);
-extern SaveFashionData *Save_FashionData_get(struct SaveBlock2 *save);
+extern SaveFashionData *Save_FashionData_Get(struct SaveBlock2 *save);
 extern BOOL FUN_02027098(SaveFashionData *fashionData, u32 param1);
 extern BOOL FUN_020270B4(SaveFashionData *fashionData, u32 param1);
 extern void MOD05_021F02C4(struct FieldSystem *fieldSystem);
@@ -639,7 +639,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01FF(struct ScriptContext *ctx) //01FF
 
     MessageFormat *messageFormat = MOD06_02244210(fieldSystem->saveBlock2, poke, sex, flag, &unk);
     MOD05_021E2CBC(ctx, messageFormat, (u8)(msg + unk), 1);
-    MessageFormat_delete(messageFormat);
+    MessageFormat_Delete(messageFormat);
 
     SetupNativeScript(ctx, FUN_0203A2F0);
     return TRUE;
@@ -833,7 +833,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0033(struct ScriptContext *ctx) //0033 - todo: OpenMes
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u8 *unk = (u8 *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_UNKNOWN_06);
     FUN_020545B8(fieldSystem->bgConfig, (struct Window *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW), 3);
-    FUN_02054608((struct Window *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW), Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2));
+    FUN_02054608((struct Window *)FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW), Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2));
     *unk = 1;
     return FALSE;
 }
@@ -1016,7 +1016,7 @@ THUMB_FUNC BOOL ScrCmd_Unk003A(struct ScriptContext *ctx) //003A - todo: CreateM
     ReadMsgDataIntoString(ctx->msgData, msg, *stringBuffer1);
     StringExpandPlaceholders(*messageFormat, *stringBuffer0, *stringBuffer1);
 
-    *printerNumber = (u8)FUN_02054658(MOD05_021E8140(fieldSystem->unk60), *stringBuffer0, Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2), 1);
+    *printerNumber = (u8)FUN_02054658(MOD05_021E8140(fieldSystem->unk60), *stringBuffer0, Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2), 1);
     ctx->data[0] = wk;
     SetupNativeScript(ctx, FUN_0203A94C);
     return TRUE;
@@ -1171,7 +1171,7 @@ THUMB_FUNC static BOOL FUN_0203AB00(struct ScriptContext *ctx)
 THUMB_FUNC BOOL ScrCmd_ShowWaitingIcon(struct ScriptContext *ctx) { //018D
     struct Window *window = (struct Window *)FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WINDOW);
     WaitingIcon **waitingIcon = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_WAITING_ICON);
-    *waitingIcon = WaitingIcon_new(window, 994);
+    *waitingIcon = WaitingIcon_New(window, 994);
     return FALSE;
 }
 
@@ -1570,7 +1570,7 @@ THUMB_FUNC BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx) { //02B4
         FUN_02058914(*lastInteracted);
     }
     if (unk1 != NULL) {
-        struct ScriptState *state = SavArray_Flags_get(fieldSystem->saveBlock2);
+        struct ScriptState *state = SaveArray_Flags_Get(fieldSystem->saveBlock2);
         if (FUN_0205ED3C(state) == TRUE) {
             if (FUN_02058854(unk1) != 0) {
                 UNK_021C5A0C[0] |= 2;
@@ -1760,7 +1760,7 @@ THUMB_FUNC BOOL ScrCmd_OverworldEventStopFollowing(struct ScriptContext *ctx) //
 THUMB_FUNC BOOL ScrCmd_Unk02AB(struct ScriptContext *ctx) //02AB
 {
     u16 *variable = ScriptGetVarPointer(ctx);
-    struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
+    struct SealCase *sealCase = Save_SealCase_Get(ctx->fieldSystem->saveBlock2);
     *variable = FUN_02029E0C(sealCase);
     return FALSE;
 }
@@ -1769,7 +1769,7 @@ THUMB_FUNC BOOL ScrCmd_GetSealCountFromId(struct ScriptContext *ctx) //0093
 {
     u16 sealId = ScriptGetVar(ctx);
     u16 *variable = ScriptGetVarPointer(ctx);
-    struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
+    struct SealCase *sealCase = Save_SealCase_Get(ctx->fieldSystem->saveBlock2);
     *variable = SealCase_CountSealOccurrenceAnywhere(sealCase, sealId);
     return FALSE;
 }
@@ -1779,7 +1779,7 @@ THUMB_FUNC BOOL ScrCmd_GiveSeals(struct ScriptContext *ctx) //0094
     u16 sealId = ScriptGetVar(ctx);
     u16 amount = ScriptGetVar(ctx);
 
-    struct SealCase *sealCase = Sav2_SealCase_get(ctx->fieldSystem->saveBlock2);
+    struct SealCase *sealCase = Save_SealCase_Get(ctx->fieldSystem->saveBlock2);
     FUN_02029D44(sealCase, sealId, (s16)amount);
     return FALSE;
 }
@@ -1789,7 +1789,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonForme(struct ScriptContext *ctx) //0095
     u16 partyPosition = ScriptGetVar(ctx);
     u16 *variable = ScriptGetVarPointer(ctx);
 
-    struct PlayerParty *party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
+    struct PlayerParty *party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
     *variable = GetMonUnownLetter(GetPartyMonByIndex(party, partyPosition));
 
     return FALSE;
@@ -1955,7 +1955,7 @@ THUMB_FUNC BOOL ScrCmd_TerminateOverworldProcess(ScriptContext *ctx) { //01F8
 }
 
 THUMB_FUNC /*static*/ BOOL FUN_0203BC3C(struct FieldSystem *fieldSystem, u32 param1, u32 param2) {
-    SaveFashionData *fashionData = Save_FashionData_get(fieldSystem->saveBlock2);
+    SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveBlock2);
     if (param1 == 0) {
         if (!FUN_02027098(fashionData, param2)) {
             return FALSE;
@@ -1969,7 +1969,7 @@ THUMB_FUNC /*static*/ BOOL FUN_0203BC3C(struct FieldSystem *fieldSystem, u32 par
 }
 
 THUMB_FUNC /*static*/ FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 param3) {
-    SaveFashionData *fashionData = Save_FashionData_get(fieldSystem->saveBlock2);
+    SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveBlock2);
     if (!FUN_0203BC3C(fieldSystem, param2, param3)) {
         return NULL;
     }
@@ -2018,7 +2018,7 @@ THUMB_FUNC BOOL ScrCmd_ShowPokemonPic(ScriptContext *ctx) { //0208
 THUMB_FUNC BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx) { //028C
     PokepicManager **pokepicManager = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
     u16 partyId = ScriptGetVar(ctx);
-    struct Pokemon *mon = GetPartyMonByIndex(SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2), partyId);
+    struct Pokemon *mon = GetPartyMonByIndex(SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2), partyId);
     LoadUserFrameGfx1(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 0x3D9, 11, 0, 4);
     *pokepicManager = DrawPokemonPicFromMon(ctx->fieldSystem->bgConfig, GF_BG_LYR_MAIN_3, 10, 5, 11, 0x3D9, mon, 4);
     u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);

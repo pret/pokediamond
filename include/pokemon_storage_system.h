@@ -20,7 +20,7 @@ struct PCStorage
     /* 0x121C7 */ u8 pad_byte; // suppresses mwcc warning
 };
 
-void PCStorage_init(struct PCStorage * pc);
+void PCStorage_Init(struct PCStorage * pc);
 u32 PCStorage_sizeof(void);
 void PCStorage_InitializeBoxes(struct PCStorage * pc);
 BOOL PCStorage_PlaceMonInFirstEmptySlotInAnyBox(struct PCStorage * pc, struct BoxPokemon * boxmon);

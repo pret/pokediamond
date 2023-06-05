@@ -6,7 +6,7 @@
 
 extern u16 VarGet(struct FieldSystem *fieldSystem, u16);
 extern u16* GetVarPointer(struct FieldSystem *fieldSystem, u16);
-extern struct SaveBlock2* ScriptEnvironment_GetSav2Ptr(struct FieldSystem *fieldSystem);
+extern struct SaveBlock2* ScriptEnvironment_GetSavePtr(struct FieldSystem *fieldSystem);
 
 static inline u16 ScriptGetVar(struct ScriptContext* ctx)
 {

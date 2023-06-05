@@ -105,7 +105,7 @@ THUMB_FUNC void ShowSaveDataWriteError(u32 heap_id, u32 err_no)
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
     struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0006_bin, heap_id);
-    struct String* str = String_ctor(384, heap_id);
+    struct String* str = String_New(384, heap_id);
 
     ResetAllTextPrinters();
 
@@ -115,7 +115,7 @@ THUMB_FUNC void ShowSaveDataWriteError(u32 heap_id, u32 err_no)
 
     ReadMsgDataIntoString(msg_data, msg_no, str);
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
-    String_dtor(str);
+    String_Delete(str);
 
     GX_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);

@@ -7,17 +7,17 @@
 
 #pragma thumb on
 
-struct Options * Options_new(u32 heap_id) {
+struct Options * Options_New(u32 heap_id) {
     struct Options * ret = AllocFromHeap(heap_id, sizeof(struct Options));
-    Options_init(ret);
+    Options_Init(ret);
     return ret;
 }
 
-void Options_copy(struct Options * src, struct Options * dest) {
+void Options_Copy(struct Options * src, struct Options * dest) {
     MI_CpuCopy8(src, dest, sizeof(struct Options));
 }
 
-void Options_init(struct Options * options) {
+void Options_Init(struct Options * options) {
     MI_CpuFill8(options, 0, sizeof(struct Options));
 
     options->textSpeed = 1;   // mid speed
@@ -30,7 +30,7 @@ void Options_init(struct Options * options) {
 
 void Options_SetButtonModeOnMain(struct SaveBlock2 * sav2, u32 buttonMode) {
     if (sav2 != NULL) {
-        buttonMode = Options_GetButtonMode(Sav2_PlayerData_GetOptionsAddr(sav2));
+        buttonMode = Options_GetButtonMode(Save_PlayerData_GetOptionsAddr(sav2));
     }
 
     switch (buttonMode) {

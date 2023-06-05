@@ -210,7 +210,7 @@ MOD56_02211F88: ; 0x02211F88
 	push {r3, r4, r5, r6, r7, lr}
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [sp]
 	bl GetPartyCount
 	mov r5, #0
@@ -274,7 +274,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	add r1, #0xc0
 	str r0, [r1]
 	mov r0, #0x36
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r1, r4, #0
 	add r1, #0xc8
 	str r0, [r1]
@@ -528,7 +528,7 @@ _022121EC:
 	bl DestroyMsgData
 	add r6, #0xc8
 	ldr r0, [r6]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 	thumb_func_end MOD56_022121C4
@@ -784,7 +784,7 @@ MOD56_0221244C: ; 0x0221244C
 _02212456:
 	add r0, r7, #0
 	mov r1, #0x36
-	bl String_ctor
+	bl String_New
 	add r1, r5, #0
 	add r1, #0xd4
 	str r0, [r1]
@@ -803,14 +803,14 @@ _02212456:
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	mov r1, #0x36
-	bl String_ctor
+	bl String_New
 	mov r1, #0x57
 	lsl r1, r1, #2
 	str r0, [r6, r1]
 	add r1, #0x20
 	add r0, r1, #0
 	mov r1, #0x36
-	bl String_ctor
+	bl String_New
 	mov r1, #0x5d
 	lsl r1, r1, #2
 	add r7, r1, #0
@@ -822,7 +822,7 @@ _022124A8:
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	mov r1, #0x36
-	bl String_ctor
+	bl String_New
 	str r0, [r4, r7]
 	add r5, r5, #1
 	add r4, r4, #4
@@ -831,13 +831,13 @@ _022124A8:
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	mov r1, #0x36
-	bl String_ctor
+	bl String_New
 	mov r1, #0x56
 	lsl r1, r1, #2
 	str r0, [r6, r1]
 	mov r0, #0xb4
 	mov r1, #0x36
-	bl String_ctor
+	bl String_New
 	mov r1, #0x16
 	lsl r1, r1, #4
 	str r0, [r6, r1]
@@ -858,7 +858,7 @@ _022124EC:
 	add r0, r5, #0
 	add r0, #0xd4
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x20
@@ -866,22 +866,22 @@ _022124EC:
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r7, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x57
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x5d
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r6, #0x59
 	mov r5, #0
 	add r4, r7, #0
 	lsl r6, r6, #2
 _02212524:
 	ldr r0, [r4, r6]
-	bl String_dtor
+	bl String_Delete
 	add r5, r5, #1
 	add r4, r4, #4
 	cmp r5, #4
@@ -889,7 +889,7 @@ _02212524:
 	mov r0, #0x56
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
-	bl String_dtor
+	bl String_Delete
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 	thumb_func_end MOD56_022124E4
@@ -1013,7 +1013,7 @@ MOD56_0221257C: ; 0x0221257C
 	bl GfGfxLoader_LoadScrnData
 	add r5, #0xc4
 	ldr r0, [r5]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -1457,7 +1457,7 @@ _022129EA:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02212A00
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r4, #0
 	mov r1, #0
 	add r0, #0xb0
@@ -1676,7 +1676,7 @@ _02212BA2:
 	lsl r0, r0, #2
 	ldr r1, _02212BE4 ; =0x000001E2
 	add r0, r5, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -1855,7 +1855,7 @@ _02212CEC:
 	lsl r0, r0, #2
 	ldr r1, _02212D50 ; =0x000001E2
 	add r0, r5, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -1921,7 +1921,7 @@ _02212D74:
 	lsl r0, r0, #2
 	ldr r1, _02212DD4 ; =0x000001E2
 	add r0, r5, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -1974,17 +1974,17 @@ MOD56_02212E0C: ; 0x02212E0C
 	add r0, #0xc4
 	ldr r0, [r0]
 	str r1, [sp]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x14]
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [sp, #0xc]
 	add r0, r5, #0
 	add r0, #0xc4
@@ -2487,7 +2487,7 @@ MOD56_02213194: ; 0x02213194
 	add r0, r6, #0
 	add r0, #0xb0
 	ldr r0, [r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r6, #0
 	mov r1, #0
 	add r0, #0xb0
@@ -2531,7 +2531,7 @@ _02213226:
 	lsl r0, r0, #2
 	ldr r1, _02213278 ; =0x000001E2
 	add r0, r6, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r6, r1]
@@ -2767,7 +2767,7 @@ MOD56_0221341C: ; 0x0221341C
 	add r0, #0xc4
 	ldr r0, [r0]
 	ldr r5, _02213618 ; =0x00010200
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x36
 	bl PlayerProfile_GetPlayerName_NewString
 	add r6, r0, #0
@@ -2778,7 +2778,7 @@ MOD56_0221341C: ; 0x0221341C
 	cmp r0, #0
 	bne _0221344C
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 _0221344C:
@@ -2801,7 +2801,7 @@ _0221344C:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #4]
 	ldrb r0, [r0, #0x1b]
 	cmp r0, #0x10
@@ -3498,7 +3498,7 @@ MOD56_02213990: ; 0x02213990
 	add r5, r0, #0
 	mov r0, #0x22
 	mov r1, #0x36
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r1, r5, #0
 	add r1, #0xb0
 	str r0, [r1]
@@ -3683,7 +3683,7 @@ _02213AF0:
 	add r0, r5, #0
 	add r0, #0xb0
 	ldr r0, [r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r5, #0
 	mov r1, #0
 	add r0, #0xb0
@@ -4107,7 +4107,7 @@ _02213E5C:
 	add r0, r5, #0
 	add r0, #0xb0
 	ldr r0, [r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r5, #0
 	mov r1, #0
 	add r0, #0xb0
@@ -5059,7 +5059,7 @@ MOD56_022145D4: ; 0x022145D4
 	stmia r2!, {r0, r1}
 	mov r0, #4
 	mov r1, #0x36
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r1, r5, #0
 	add r1, #0xb8
 	ldr r4, _022146C4 ; =0x02216480
@@ -5261,7 +5261,7 @@ _0221476E:
 	add r0, r5, #0
 	add r0, #0xb8
 	ldr r0, [r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD56_02214808
@@ -5301,7 +5301,7 @@ _022147CE:
 	bl DestroyListMenu
 	add r5, #0xb8
 	ldr r0, [r5]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -5338,7 +5338,7 @@ _02214820:
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
 	mov r1, #0x36
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r1, r5, #0
 	add r1, #0xb8
 	mov r6, #0
@@ -5524,7 +5524,7 @@ _02214994:
 	bl DestroyListMenu
 	add r5, #0xb8
 	ldr r0, [r5]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r6, #0
 	pop {r4, r5, r6, pc}
 	nop
@@ -5585,7 +5585,7 @@ MOD56_022149D8: ; 0x022149D8
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x1c]
 	mov r0, #3
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r1, r5, #0
 	add r1, #0xb8
 	str r0, [r1]
@@ -6031,7 +6031,7 @@ _02214D76:
 	lsl r0, r0, #2
 	ldr r1, _02214E24 ; =0x000001E2
 	add r0, r4, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r4, r1]
@@ -6077,7 +6077,7 @@ _02214DEC:
 	bl DestroyListMenu
 	add r4, #0xb8
 	ldr r0, [r4]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	ldr r0, [sp]
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -7098,7 +7098,7 @@ _02215532:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	mov r0, #0x36
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	add r6, r0, #0
 	ldr r0, [r5]
 	add r1, r4, #0
@@ -7922,7 +7922,7 @@ _02215CB8:
 	lsl r0, r0, #2
 	ldr r1, _02215D1C ; =0x000001E2
 	add r0, r5, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -8092,7 +8092,7 @@ _02215DCA:
 	lsl r0, r0, #2
 	ldr r1, _02215E70 ; =0x000001E2
 	add r0, r5, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	mov r1, #6
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -8163,7 +8163,7 @@ MOD56_02215EA4: ; 0x02215EA4
 	ldr r0, [r0]
 	add r4, r1, #0
 	add r6, r2, #0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetTextFrameDelay
 	add r7, r0, #0
 	mov r0, #0xdb
@@ -8431,7 +8431,7 @@ MOD56_022160E4: ; 0x022160E4
 	cmp r6, r0
 	beq _0221611C
 	mov r0, #0x36
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	add r4, r0, #0
 	ldr r0, [r5]
 	add r1, r6, #0

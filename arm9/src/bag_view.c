@@ -15,7 +15,7 @@
 extern u32 *FUN_0202708C(SaveFashionData *);
 extern u32 FUN_02027168(u32 *);
 extern u16 FUN_02027184(u32 *);
-extern SaveFashionData *Save_FashionData_get(struct SaveBlock2 *sav2);
+extern SaveFashionData *Save_FashionData_Get(struct SaveBlock2 *sav2);
 extern u8 SealCase_CountSealOccurrenceAnywhere(struct SealCase *, u32);
 
 static u32 GetCoinCount(struct SaveBlock2 *sav2);
@@ -98,12 +98,12 @@ THUMB_FUNC u8 FUN_0206E394(struct BagView *bag_view)
 
 THUMB_FUNC static u32 GetCoinCount(struct SaveBlock2 *sav2)
 {
-    return (u32)CheckCoins(Sav2_PlayerData_GetCoinsAddr(sav2));
+    return (u32)CheckCoins(Save_PlayerData_GetCoinsAddr(sav2));
 }
 
 THUMB_FUNC static u32 GetSealCount(struct SaveBlock2 *sav2)
 {
-    struct SealCase *seal_case = Sav2_SealCase_get(sav2);
+    struct SealCase *seal_case = Save_SealCase_Get(sav2);
     u32 i;
     u32 count = 0;
 
@@ -118,12 +118,12 @@ THUMB_FUNC static u32 GetSealCount(struct SaveBlock2 *sav2)
 //todo: do these match up with HG?
 THUMB_FUNC u32 FUN_0206E3C8(struct SaveBlock2 *sav2)
 {
-    return FUN_02027168(FUN_0202708C(Save_FashionData_get(sav2)));
+    return FUN_02027168(FUN_0202708C(Save_FashionData_Get(sav2)));
 }
 
 THUMB_FUNC u32 FUN_0206E3D8(struct SaveBlock2 *sav2)
 {
-    return FUN_02027184(FUN_0202708C(Save_FashionData_get(sav2)));
+    return FUN_02027184(FUN_0202708C(Save_FashionData_Get(sav2)));
 }
 
 THUMB_FUNC u32 FUN_0206E3E8(struct SaveBlock2 *sav2)
@@ -134,7 +134,7 @@ THUMB_FUNC u32 FUN_0206E3E8(struct SaveBlock2 *sav2)
 THUMB_FUNC BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id)
 {
     struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
-    MessageFormat *messageFormat = MessageFormat_new(heap_id);
+    MessageFormat *messageFormat = MessageFormat_New(heap_id);
     struct String *string;
 
     if (item_id == ITEM_NONE)
@@ -168,15 +168,15 @@ THUMB_FUNC BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, st
     }
     else
     {
-        MessageFormat_delete(messageFormat);
+        MessageFormat_Delete(messageFormat);
         DestroyMsgData(msgData);
 
         return FALSE;
     }
 
     StringExpandPlaceholders(messageFormat, dest, string);
-    String_dtor(string);
-    MessageFormat_delete(messageFormat);
+    String_Delete(string);
+    MessageFormat_Delete(messageFormat);
     DestroyMsgData(msgData);
 
     return TRUE;
@@ -204,13 +204,13 @@ THUMB_FUNC void FUN_0206E51C( //todo: sync with HG
         return;
     default:
         msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 0xC7, heap_id);
-        MessageFormat *messageFormat = MessageFormat_new(heap_id);
+        MessageFormat *messageFormat = MessageFormat_New(heap_id);
         struct String *src = NewString_ReadMsgData(msgData, 0x24);
 
         BufferPlayersName(messageFormat, 0, playerData);
         StringExpandPlaceholders(messageFormat, dest, src);
-        String_dtor(src);
-        MessageFormat_delete(messageFormat);
+        String_Delete(src);
+        MessageFormat_Delete(messageFormat);
         DestroyMsgData(msgData);
         return;
     }

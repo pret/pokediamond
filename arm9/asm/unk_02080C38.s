@@ -106,13 +106,13 @@ _02080CA6:
 	b _02080DF2
 _02080CB4:
 	ldr r0, [r6, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	mov r1, #0x0
 	bl GetPartyMonByIndex
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0xb
 	str r0, [sp, #0x0]
 	bl PlayerProfile_GetPlayerName_NewString
@@ -128,16 +128,16 @@ _02080CB4:
 	str r5, [sp, #0x10]
 	str r0, [sp, #0x14]
 	ldr r0, [r6, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	str r0, [sp, #0x18]
 	ldr r0, [r6, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x1c]
 	add r0, sp, #0x4
 	bl FUN_02081214
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x0]
 	bl FUN_02081DC4
 	ldr r0, [r4, #0x4]
@@ -899,7 +899,7 @@ _020812B6:
 	mov r1, #0xb
 	bl FUN_02082ED0
 	mov r0, #0x14
-	bl SavArray_Party_alloc
+	bl SaveArray_Party_Alloc
 	mov r1, #0x56
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -916,7 +916,7 @@ _020812F2:
 	add r5, r4, #0x0
 _02081304:
 	mov r0, #0x14
-	bl Chatot_new
+	bl Chatot_New
 	mov r1, #0x57
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -927,13 +927,13 @@ _02081304:
 	add r0, r1, #0x0
 	ldr r0, [r4, r0]
 	ldr r1, [r6, #0x20]
-	bl Chatot_copy
+	bl Chatot_Copy
 	ldr r0, [r6, #0x8]
 	ldr r1, [r4, #0x0]
 	bl CopyPokemonToPokemon
 	mov r0, #0x8
 	mov r1, #0x14
-	bl String_ctor
+	bl String_New
 	add r1, r4, #0x0
 	add r1, #0xe8
 	str r0, [r1, #0x0]
@@ -1073,7 +1073,7 @@ _0208143C:
 	bne _02081454
 	add r0, r7, #0x0
 	mov r1, #0x14
-	bl String_ctor
+	bl String_New
 	add r1, r4, #0x0
 	add r1, #0xe8
 	str r0, [r1, #0x0]
@@ -1173,7 +1173,7 @@ _020814FE:
 	add r0, r5, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
@@ -1900,7 +1900,7 @@ _02081A7C:
 	strb r0, [r4, r2]
 	pop {r3-r7, pc}
 _02081A8A:
-	bl Sav2_Chatot_sizeof
+	bl Save_Chatot_sizeof
 	add r2, r0, #0x0
 	mov r0, #0x57
 	lsl r0, r0, #0x2
@@ -3233,7 +3233,7 @@ _02082414:
 _0208241C:
 	ldr r0, _02082440 ; =0x0000198C
 	ldr r0, [r5, r0]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	mov r2, #0x1
@@ -3547,7 +3547,7 @@ _02082666:
 	b _02082774
 _02082672:
 	ldr r0, [r4, r0]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0x0
 	ldr r0, _02082840 ; =0x00000121
 	ldrb r1, [r4, r0]
@@ -3623,7 +3623,7 @@ _020826EA:
 	bl FUN_02060F10
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x3f
 	add r6, r0, #0x0
 	bl GameStats_Inc
@@ -3646,7 +3646,7 @@ _02082740:
 _0208274C:
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r7, r0, #0x0
 	ldr r0, _02082858 ; =0x00000127
 	ldrb r6, [r4, r0]
@@ -3679,7 +3679,7 @@ _02082774:
 	bl FUN_0202C108
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x40
 	add r5, r0, #0x0
 	bl GameStats_Inc
@@ -3721,7 +3721,7 @@ _020827E8:
 	bne _02082820
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	ldr r1, _0208284C ; =0x0000011F
 	ldrb r1, [r4, r1]
 	bl FUN_02027044

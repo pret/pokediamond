@@ -20,7 +20,7 @@ static void (*const sDestructors[])(struct FontData *) = {
     FreeLoadedFontResources_LazyFromNarc,
 };
 
-THUMB_FUNC struct FontData *FontData_new(NarcId narcId, s32 fileId, u32 unk2, BOOL unk3, u32 heap_id)
+THUMB_FUNC struct FontData *FontData_New(NarcId narcId, s32 fileId, u32 unk2, BOOL unk3, u32 heap_id)
 {
     struct FontData * ret = (struct FontData *)AllocFromHeap(heap_id, sizeof(struct FontData));
     if (ret != NULL)
@@ -31,7 +31,7 @@ THUMB_FUNC struct FontData *FontData_new(NarcId narcId, s32 fileId, u32 unk2, BO
     return ret;
 }
 
-THUMB_FUNC void FontData_delete(struct FontData * ptr)
+THUMB_FUNC void FontData_Delete(struct FontData * ptr)
 {
     FreeLoadedFontResources(ptr);
     FontData_FreeWidthsAndNarc(ptr);

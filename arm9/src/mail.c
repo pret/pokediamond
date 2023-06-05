@@ -12,7 +12,7 @@
 extern u32 FUN_0206B6C8(struct Pokemon * pokemon);
 extern u16 FUN_0206B7BC(u16 species, u32 forme, BOOL is_egg);
 
-void Mail_init(struct Mail * mail)
+void Mail_Init(struct Mail * mail)
 {
     s32 i;
     mail->author_otId = 0;
@@ -27,7 +27,7 @@ void Mail_init(struct Mail * mail)
     }
     for (i = 0; i < 3; i++)
     {
-        MailMsg_init(&mail->unk_20[i]);
+        MailMsg_Init(&mail->unk_20[i]);
     }
 }
 
@@ -36,14 +36,14 @@ BOOL Mail_TypeIsValid(struct Mail * mail)
     return mail->mail_type <= 11;
 }
 
-struct Mail * Mail_new(u32 heap_id)
+struct Mail * Mail_New(u32 heap_id)
 {
     struct Mail * ret = (struct Mail *)AllocFromHeapAtEnd(heap_id, sizeof(struct Mail));
-    Mail_init(ret);
+    Mail_Init(ret);
     return ret;
 }
 
-void Mail_copy(const struct Mail * src, struct Mail * dest)
+void Mail_Copy(const struct Mail * src, struct Mail * dest)
 {
     MI_CpuCopy8(src, dest, sizeof(struct Mail));
 }
@@ -60,10 +60,10 @@ void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct Sa
     u16 r7;
     u8 i;
 
-    Mail_init(mail);
+    Mail_Init(mail);
     mail->mail_type = type;
-    party = SavArray_PlayerParty_get(sav2);
-    profile = Sav2_PlayerData_GetProfileAddr(sav2);
+    party = SaveArray_PlayerParty_Get(sav2);
+    profile = Save_PlayerData_GetProfileAddr(sav2);
 
     CopyU16StringArray(mail->author_name, PlayerProfile_GetNamePtr(profile));
     mail->author_gender = (u8)PlayerProfile_GetTrainerGender(profile);
@@ -151,25 +151,25 @@ struct MailMessage * Mail_GetUnk20Array(struct Mail * mail, u32 idx)
 void Mail_CopyToUnk20Array(struct Mail * mail, const struct MailMessage * src, u32 idx)
 {
     if (idx < 3)
-        MailMsg_copy(&mail->unk_20[idx], src);
+        MailMsg_Copy(&mail->unk_20[idx], src);
 }
 
-struct Mail * Sav2_Mailbox_get(struct SaveBlock2 * sav2)
+struct Mail * Save_Mailbox_Get(struct SaveBlock2 * sav2)
 {
-    return (struct Mail *)SavArray_get(sav2, 15);
+    return (struct Mail *)SaveArray_Get(sav2, 15);
 }
 
-u32 Sav2_Mailbox_sizeof(void)
+u32 Save_Mailbox_sizeof(void)
 {
     return 20 * sizeof(struct Mail);
 }
 
-void Sav2_Mailbox_init(struct Mail * mail)
+void Save_Mailbox_Init(struct Mail * mail)
 {
     s32 i;
     for (i = 0; i < 20; i++)
     {
-        Mail_init(&mail[i]);
+        Mail_Init(&mail[i]);
     }
 }
 
@@ -188,14 +188,14 @@ void Mailbox_DeleteSlotI(struct Mail * mail, BOOL r1, s32 idx)
 {
     mail = Mailbox_GetPtrToSlotI(mail, r1, idx);
     if (mail != NULL)
-        Mail_init(mail);
+        Mail_Init(mail);
 }
 
 void Mailbox_CopyMailToSlotI(struct Mail * mail, BOOL r1, s32 idx, const struct Mail * src)
 {
     mail = Mailbox_GetPtrToSlotI(mail, r1, idx);
     if (mail != NULL)
-        Mail_copy(src, mail);
+        Mail_Copy(src, mail);
 }
 
 s32 Mailbox_CountMessages(struct Mail * mail, BOOL r1)
@@ -213,9 +213,9 @@ struct Mail * Mailbox_AllocAndFetchMailI(struct Mail * mail, BOOL r1, s32 idx, u
 {
     struct Mail * ret;
     mail = Mailbox_GetPtrToSlotI(mail, r1, idx);
-    ret = Mail_new(heap_id);
+    ret = Mail_New(heap_id);
     if (mail != NULL)
-        Mail_copy(mail, ret);
+        Mail_Copy(mail, ret);
     return ret;
 }
 
@@ -223,9 +223,9 @@ void Mailbox_FetchMailIToBuffer(struct Mail * mail, BOOL r1, s32 idx, struct Mai
 {
     mail = Mailbox_GetPtrToSlotI(mail, r1, idx);
     if (mail == NULL)
-        Mail_init(dest);
+        Mail_Init(dest);
     else
-        Mail_copy(mail, dest);
+        Mail_Copy(mail, dest);
 }
 
 s32 MailArray_GetFirstEmptySlotIdx(struct Mail * mail, s32 count)

@@ -40,7 +40,7 @@ FUN_02052EE8: ; 0x02052EE8
 	ldr r0, [r4, r1]
 	mov r1, #0x9
 	ldr r0, [r0, #0xc]
-	bl SavArray_get
+	bl SaveArray_Get
 	ldr r1, _02052F64 ; =0x000004D8
 	ldr r2, _02052F68 ; =0x00002710
 	str r0, [r4, r1]
@@ -874,14 +874,14 @@ FUN_02053598: ; 0x02053598
 	add r4, r0, #0x0
 	mov r0, #0x8
 	mov r1, #0x59
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x0]
 	mov r1, #0x0
 	add r0, r4, #0x0
 	str r1, [r4, #0x4]
 	add r0, #0x14
 	str r1, [r4, #0x8]
-	bl MailMsg_init_withBank
+	bl MailMsg_Init_WithBank
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	str r0, [r4, #0xc]
@@ -917,12 +917,12 @@ FUN_020535E0: ; 0x020535E0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _020535F4
-	bl String_dtor
+	bl String_Delete
 _020535F4:
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	beq _020535FE
-	bl String_dtor
+	bl String_Delete
 _020535FE:
 	pop {r4, pc}
 

@@ -57,7 +57,7 @@ _021D74F6:
 	ldr r0, _021D763C ; =0x00004A38
 	str r1, [r4, r0]
 	mov r0, #0x33
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x24]
 	ldr r2, _021D7640 ; =0x000001E2
 	mov r0, #0
@@ -317,7 +317,7 @@ _021D776C:
 	ldr r0, [r6, #0x28]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x24]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r6, #0
 	bl MOD54_021D7A34
 	ldr r0, [sp]
@@ -564,7 +564,7 @@ MOD54_021D799C: ; 0x021D799C
 _021D79A6:
 	mov r0, #8
 	mov r1, #0x33
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x2c]
 	mov r0, #0xd9
 	mov r1, #0
@@ -582,11 +582,11 @@ _021D79A6:
 	blt _021D79A6
 	mov r0, #0xb4
 	mov r1, #0x33
-	bl String_ctor
+	bl String_New
 	str r0, [r7, #0x44]
 	mov r0, #0x28
 	mov r1, #0x33
-	bl String_ctor
+	bl String_New
 	str r0, [r7, #0x48]
 	mov r0, #0xd1
 	mov r1, #0
@@ -643,15 +643,15 @@ MOD54_021D7A34: ; 0x021D7A34
 	add r5, r6, #0
 _021D7A50:
 	ldr r0, [r5, #0x2c]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
 	blt _021D7A50
 	ldr r0, [r6, #0x48]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x44]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD54_021D7A34
 
@@ -2879,7 +2879,7 @@ _021D8BAC:
 	bl AddTextPrinterParameterized2
 _021D8BDE:
 	ldr r0, [sp, #0x18]
-	bl String_dtor
+	bl String_Delete
 _021D8BE4:
 	ldr r0, [sp, #0x20]
 	add r7, #8
@@ -2997,7 +2997,7 @@ MOD54_021D8C90: ; 0x021D8C90
 	mov r0, #0xb4
 	mov r1, #0x33
 	add r6, r2, #0
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	ldr r0, [r5, #0x28]
 	add r1, r7, #0
@@ -3008,7 +3008,7 @@ MOD54_021D8C90: ; 0x021D8C90
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0xba
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3718,7 +3718,7 @@ MOD54_021D91C4: ; 0x021D91C4
 	str r3, [sp, #4]
 	add r5, r1, #0
 	str r2, [sp]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	mov r7, #0
@@ -4097,7 +4097,7 @@ MOD54_021D9464: ; 0x021D9464
 	thumb_func_start MOD54_021D947C
 MOD54_021D947C: ; 0x021D947C
 	push {r3, lr}
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_02026FE0
 	pop {r3, pc}
 	thumb_func_end MOD54_021D947C
@@ -4107,7 +4107,7 @@ MOD54_021D9488: ; 0x021D9488
 	push {r4, r5, r6, lr}
 	add r4, r1, #0
 	add r5, r2, #0
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
@@ -4129,7 +4129,7 @@ MOD54_021D94B4: ; 0x021D94B4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	add r2, r0, #0
 	ldr r0, [r4, #8]
 	ldr r1, [r4, #0xc]

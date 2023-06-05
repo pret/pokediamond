@@ -264,7 +264,7 @@ FUN_02060D90: ; 0x02060D90
 	mov r0, #0x40
 	mov r1, #0x4
 	str r3, [sp, #0x8]
-	bl String_ctor
+	bl String_New
 	add r1, r7, #0x0
 	add r4, r0, #0x0
 	bl CopyU16ArrayToString
@@ -278,7 +278,7 @@ FUN_02060D90: ; 0x02060D90
 	add r2, r4, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -318,7 +318,7 @@ FUN_02060E04: ; 0x02060E04
 	mov r0, #0x40
 	add r1, r3, #0x0
 	add r6, r2, #0x0
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x76
@@ -329,7 +329,7 @@ FUN_02060E04: ; 0x02060E04
 	mov r2, #0xb
 	bl CopyStringToU16Array
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -427,7 +427,7 @@ FUN_02060ECC: ; 0x02060ECC
 	beq _02060F0C
 	mov r0, #0x40
 	add r1, r6, #0x0
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x76
@@ -438,7 +438,7 @@ FUN_02060ECC: ; 0x02060ECC
 	mov r2, #0xb
 	bl CopyStringToU16Array
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 _02060F0C:
 	pop {r3-r7, pc}
 	.balign 4
@@ -828,7 +828,7 @@ FUN_020611E8: ; 0x020611E8
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl MOD06_02248B60
@@ -919,7 +919,7 @@ FUN_02061288: ; 0x02061288
 	pop {r3-r5, pc}
 _0206129E:
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x0]
 	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
@@ -1135,7 +1135,7 @@ FUN_02061444: ; 0x02061444
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x0]
 	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
@@ -1221,7 +1221,7 @@ FUN_020614FC: ; 0x020614FC
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl MOD06_02248B60
@@ -1348,7 +1348,7 @@ FUN_020615F8: ; 0x020615F8
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl MOD06_02248B60
@@ -1423,7 +1423,7 @@ FUN_02061688: ; 0x02061688
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x0]
 	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
@@ -1546,7 +1546,7 @@ FUN_02061750: ; 0x02061750
 	mov r3, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x5
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -1632,7 +1632,7 @@ FUN_02061834: ; 0x02061834
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x0]
 	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
@@ -1726,7 +1726,7 @@ FUN_020618E0: ; 0x020618E0
 FUN_020618EC: ; 0x020618EC
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	mov r1, #0x6b
 	lsl r1, r1, #0x2
 	mov r2, #0x1
@@ -1814,7 +1814,7 @@ FUN_02061990: ; 0x02061990
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x2]
 	bl Pokedex_CheckMonSeenFlag
 	cmp r0, #0x0
@@ -1823,7 +1823,7 @@ FUN_02061990: ; 0x02061990
 	pop {r3-r5, pc}
 _020619B0:
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x2
 	mov r2, #0x11
 	bl FUN_0205F2E4
@@ -1920,7 +1920,7 @@ FUN_02061A70: ; 0x02061A70
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x0]
 	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
@@ -2083,7 +2083,7 @@ FUN_02061B80: ; 0x02061B80
 FUN_02061BB4: ; 0x02061BB4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	mov r1, #0x6b
 	lsl r1, r1, #0x2
 	mov r2, #0x1
@@ -2158,7 +2158,7 @@ _02061C42:
 FUN_02061C48: ; 0x02061C48
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x2
 	mov r2, #0x11
 	bl FUN_0205F2E4
@@ -2172,7 +2172,7 @@ FUN_02061C5C: ; 0x02061C5C
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl GetFirstNonEggInParty
 	add r1, sp, #0x8
 	add r2, sp, #0x4
@@ -2273,7 +2273,7 @@ FUN_02061D30: ; 0x02061D30
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x0]
 	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
@@ -2420,7 +2420,7 @@ FUN_02061E60: ; 0x02061E60
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x2]
 	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
@@ -2434,7 +2434,7 @@ FUN_02061E7C: ; 0x02061E7C
 	add r0, sp, #0x0
 	strh r1, [r0, #0x2]
 	ldr r0, [r4, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	mov r1, #0x0
 	bl FUN_02027008
 	bl FUN_020275D8
@@ -2480,7 +2480,7 @@ FUN_02061EDC: ; 0x02061EDC
 	bl MOD06_02248B60
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	ldrh r1, [r4, #0x0]
 	bl Pokedex_CheckMonSeenFlag
 	pop {r3-r5, pc}
@@ -3081,7 +3081,7 @@ FUN_0206234C: ; 0x0206234C
 	push {r3-r7, lr}
 	sub sp, #0x88
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	ldr r4, _020623E8 ; =UNK_020F7658
 	add r7, r0, #0x0
 	mov r6, #0x0
@@ -3221,7 +3221,7 @@ _0206245C: .word UNK_020F79EE
 FUN_02062460: ; 0x02062460
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x2
 	mov r2, #0x9
 	bl FUN_0205F2E4
@@ -3329,7 +3329,7 @@ FUN_0206252C: ; 0x0206252C
 	sub sp, #0xc
 	ldr r0, [r0, #0xc]
 	add r7, r1, #0x0
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	add r6, r0, #0x0
 	bl FUN_0206250C
 	add r4, r0, #0x0
@@ -3371,7 +3371,7 @@ _0206257A:
 	add r5, r0, #0x0
 	mov r0, #0x8
 	mov r1, #0x4
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0202763C
@@ -3390,7 +3390,7 @@ _0206257A:
 	add r3, r6, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0x0
 	bl FUN_0202769C
 	add r2, r0, #0x0
@@ -3406,7 +3406,7 @@ _0206257A:
 FUN_020625D4: ; 0x020625D4
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0206250C
 	cmp r0, #0x0
 	beq _020625E8

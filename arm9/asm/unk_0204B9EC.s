@@ -36,7 +36,7 @@ FUN_0204BA1C: ; 0x0204BA1C
 	push {r3-r5, lr}
 	ldr r0, [r0, #0xc]
 	ldr r4, _0204BA60 ; =UNK_021C5A1C
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r5, r0, #0x0
 	bl GF_RTC_DateTimeToSec
 	add r3, r1, #0x0

@@ -375,7 +375,7 @@ void AddWindow(struct BgConfig *bgConfig,
                struct Window *window,
                const struct WindowTemplate *template);
 void RemoveWindow(struct Window *window);
-void WindowArray_dtor(struct Window *windows, int count);
+void WindowArray_Delete(struct Window *windows, int count);
 void CopyWindowToVram(struct Window *window);
 void ScheduleWindowCopyToVram(struct Window *window);
 void PutWindowTilemap(struct Window *window);

@@ -4,22 +4,22 @@
 
 #pragma thumb on
 
-void SavArray_Party_init(struct PlayerParty * party);
+void SaveArray_Party_Init(struct PlayerParty * party);
 void InitPartyWithMaxSize(struct PlayerParty * party, int count);
 
-u32 SavArray_Party_sizeof(void)
+u32 SaveArray_Party_sizeof(void)
 {
     return sizeof(struct PlayerParty);
 }
 
-struct PlayerParty * SavArray_Party_alloc(u32 heap_id)
+struct PlayerParty * SaveArray_Party_Alloc(u32 heap_id)
 {
     struct PlayerParty * ret = (struct PlayerParty *)AllocFromHeap(heap_id, sizeof(struct PlayerParty));
-    SavArray_Party_init(ret);
+    SaveArray_Party_Init(ret);
     return ret;
 }
 
-void SavArray_Party_init(struct PlayerParty * party)
+void SaveArray_Party_Init(struct PlayerParty * party)
 {
     InitPartyWithMaxSize(party, PARTY_SIZE);
 }
@@ -120,7 +120,7 @@ BOOL PartyHasMon(struct PlayerParty * party, u16 species)
     return i != party->curCount;
 }
 
-struct PlayerParty * SavArray_PlayerParty_get(struct SaveBlock2 * ptr)
+struct PlayerParty * SaveArray_PlayerParty_Get(struct SaveBlock2 * ptr)
 {
-    return (struct PlayerParty *)SavArray_get(ptr, 2);
+    return (struct PlayerParty *)SaveArray_Get(ptr, 2);
 }

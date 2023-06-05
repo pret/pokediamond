@@ -122,8 +122,8 @@ StoragePC_Overlay_Teardown: ; 0x021D75B8
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl Sav2_Chatot_get
-	bl Chatot_invalidate
+	bl Save_Chatot_Get
+	bl Chatot_Invalidate
 _021D75DE:
 	mov r0, #0x45
 	lsl r0, r0, #2
@@ -1925,7 +1925,7 @@ _021D84AA:
 	str r1, [r4, r0]
 	sub r0, #0x38
 	ldr r0, [r4, r0]
-	bl SavArray_IsNatDexEnabled
+	bl SaveArray_IsNatDexEnabled
 	mov r1, #0x52
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1948,7 +1948,7 @@ _021D84AA:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r1, r0, #0
 	mov r0, #0x4b
 	lsl r0, r0, #2
@@ -5564,7 +5564,7 @@ _021DA1FE:
 	ldr r0, _021DA2C0 ; =MOD14_020FA5FC
 	ldr r1, [r4, r1]
 	mov r2, #9
-	bl OverlayManager_new
+	bl OverlayManager_New
 	mov r1, #0x21
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -5587,7 +5587,7 @@ _021DA256:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	mov r2, #0xf
 	mov r0, #3
 	mov r1, #0xa
@@ -5666,7 +5666,7 @@ _021DA2F2:
 	ldr r0, _021DA394 ; =UNK_020FA6E8
 	add r1, r5, r1
 	mov r2, #9
-	bl OverlayManager_new
+	bl OverlayManager_New
 	mov r1, #0x21
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -5688,7 +5688,7 @@ _021DA334:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	mov r2, #0xf
 	mov r0, #3
 	mov r1, #0xa
@@ -5807,7 +5807,7 @@ _021DA41E:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r1, _021DA5D8 ; =MOD14_021E6264
 	mov r2, #9
 	bl CreateBagView
@@ -5828,7 +5828,7 @@ _021DA41E:
 	ldr r0, _021DA5E0 ; =MOD75_021EC68C
 	ldr r1, [r4, r1]
 	mov r2, #9
-	bl OverlayManager_new
+	bl OverlayManager_New
 	mov r1, #0x21
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -5855,7 +5855,7 @@ _021DA498:
 	mov r0, #0x21
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	mov r0, #0x85
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -5869,7 +5869,7 @@ _021DA498:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	lsl r1, r6, #0x10
 	lsr r1, r1, #0x10
 	mov r2, #1
@@ -6122,7 +6122,7 @@ _021DA6E4:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r1, _021DA7B4 ; =MOD14_021E6A00
 	mov r2, #1
 	ldr r1, [r1, #4]
@@ -6344,7 +6344,7 @@ _021DA8BA:
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r1, _021DA9C0 ; =MOD14_021E6A00
 	mov r2, #1
 	ldr r1, [r1]
@@ -7527,12 +7527,12 @@ MOD14_021DB220: ; 0x021DB220
 	sub r0, r1, #4
 	str r2, [r5, r0]
 	ldr r0, [r4]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	mov r1, #0x49
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	ldr r0, [r4]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	mov r1, #0x69
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -7572,7 +7572,7 @@ MOD14_021DB220: ; 0x021DB220
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	mov r0, #9
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r1, #0x67
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -7702,7 +7702,7 @@ _021DB3BE:
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -7820,7 +7820,7 @@ MOD14_021DB49C: ; 0x021DB49C
 	strb r0, [r4]
 	mov r0, #0x14
 	mov r1, #9
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #4]
 	add r0, r5, #0
 	add r1, r4, #0
@@ -7829,11 +7829,11 @@ MOD14_021DB49C: ; 0x021DB49C
 
 	thumb_func_start MOD14_021DB4BC
 MOD14_021DB4BC: ; 0x021DB4BC
-	ldr r3, _021DB4C4 ; =String_dtor
+	ldr r3, _021DB4C4 ; =String_Delete
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021DB4C4: .word String_dtor
+_021DB4C4: .word String_Delete
 
 	thumb_func_start MOD14_021DB4C8
 MOD14_021DB4C8: ; 0x021DB4C8
@@ -7841,23 +7841,23 @@ MOD14_021DB4C8: ; 0x021DB4C8
 	add r4, r0, #0
 	mov r0, #0xc
 	mov r1, #9
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x14]
 	mov r0, #0xc
 	mov r1, #9
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x18]
 	mov r0, #0x12
 	mov r1, #9
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x1c]
 	mov r0, #0xc
 	mov r1, #9
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x20]
 	mov r0, #0x10
 	mov r1, #9
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x24]
 	pop {r4, pc}
 
@@ -7866,15 +7866,15 @@ MOD14_021DB500: ; 0x021DB500
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x14]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x18]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x20]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x24]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, pc}
 
 	thumb_func_start MOD14_021DB524
@@ -7892,11 +7892,11 @@ _021DB534:
 	strb r7, [r0, #2]
 	mov r0, #0xc
 	mov r1, #9
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x30]
 	mov r0, #0xc
 	mov r1, #9
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x34]
 	add r4, r4, #1
 	add r5, #0x30
@@ -7912,9 +7912,9 @@ MOD14_021DB558: ; 0x021DB558
 	mov r4, #0
 _021DB55E:
 	ldr r0, [r5, #0x30]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0x34]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, #0x30
 	cmp r4, #2
@@ -9205,7 +9205,7 @@ MOD14_021DBEAC: ; 0x021DBEAC
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl SavArray_IsNatDexEnabled
+	bl SaveArray_IsNatDexEnabled
 	ldrh r1, [r4, #4]
 	bl FUN_0206BB48
 	strh r0, [r4, #8]
@@ -19435,13 +19435,13 @@ _021E0DAC:
 	mov r1, #6
 	mov r2, #0xf
 	mov r3, #0xa
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	str r0, [r5, #0x18]
 	mov r0, #1
 	mov r1, #2
 	mov r2, #0xf
 	mov r3, #0xa
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	str r0, [r5, #0x1c]
 	mov r0, #0xa
 	add r3, r5, #0
@@ -19516,22 +19516,22 @@ _021E0E72:
 	ldr r0, [r5, #0x18]
 	cmp r0, #0
 	beq _021E0E7C
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 _021E0E7C:
 	ldr r0, [r5, #0x1c]
 	cmp r0, #0
 	beq _021E0E86
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 _021E0E86:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
 	beq _021E0E90
-	bl String_dtor
+	bl String_Delete
 _021E0E90:
 	ldr r0, [r5, #0x48]
 	cmp r0, #0
 	beq _021E0E9A
-	bl String_dtor
+	bl String_Delete
 _021E0E9A:
 	ldr r0, [r5, #0x24]
 	cmp r0, #0
@@ -20662,11 +20662,11 @@ MOD14_021E1750: ; 0x021E1750
 	str r0, [r4, #0x14]
 	mov r0, #0x40
 	mov r1, #0xa
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x30]
 	mov r0, #0x40
 	mov r1, #0xa
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x34]
 	mov r0, #0
 	strh r0, [r4, #0x1c]
@@ -20729,12 +20729,12 @@ _021E17F6:
 	ldr r0, [r5, #0x30]
 	cmp r0, #0
 	beq _021E1800
-	bl String_dtor
+	bl String_Delete
 _021E1800:
 	ldr r0, [r5, #0x34]
 	cmp r0, #0
 	beq _021E180A
-	bl String_dtor
+	bl String_Delete
 _021E180A:
 	ldr r0, [r5, #0x18]
 	bl FreeToHeap
@@ -21555,12 +21555,12 @@ _021E1DBC:
 	mov r1, #0xd
 	mov r2, #4
 	mov r3, #0xa
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	str r0, [r5, #0x44]
 	mov r0, #0x7d
 	lsl r0, r0, #2
 	mov r1, #0xa
-	bl String_ctor
+	bl String_New
 	ldr r1, _021E1EE0 ; =0x00004BFC
 	ldr r2, _021E1EE4 ; =0x00000157
 	str r0, [r5, r1]
@@ -21687,13 +21687,13 @@ _021E1F58:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
 	beq _021E1F62
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 _021E1F62:
 	ldr r0, _021E1F94 ; =0x00004BFC
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021E1F6E
-	bl String_dtor
+	bl String_Delete
 _021E1F6E:
 	ldr r0, [r5, #0x10]
 	cmp r0, #0
@@ -24404,7 +24404,7 @@ _021E33E4:
 	mov r0, #0
 	str r0, [r4, #0x14]
 	mov r0, #0x20
-	bl String_ctor
+	bl String_New
 	add r1, r4, #0
 	add r1, #0x84
 	str r0, [r1]
@@ -24553,7 +24553,7 @@ _021E3518:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021E3526
-	bl String_dtor
+	bl String_Delete
 _021E3526:
 	mov r4, #0
 	add r5, r6, #0
@@ -28217,7 +28217,7 @@ _021E5064:
 	str r0, [r4, #0x70]
 	mov r0, #0x20
 	mov r1, #0xa
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x74]
 	mov r0, #0xe
 	mov r1, #0
@@ -28252,7 +28252,7 @@ MOD14_021E50EC: ; 0x021E50EC
 	add r0, r4, #0
 	bl MOD14_021E5474
 	ldr r0, [r4, #0x74]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl FreeToHeap
 _021E5124:

@@ -137,7 +137,7 @@ _021E1BBA:
 _021E1BD4:
 	add r0, r7, #0
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x1c]
 	add r5, r5, #1
 	add r4, r4, #4
@@ -322,7 +322,7 @@ MOD05_021E1D38: ; 0x021E1D38
 	mov r0, #0x50
 	mov r1, #4
 	add r6, r2, #0
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	add r0, r5, #0
 	add r0, #0x8c
@@ -352,7 +352,7 @@ MOD05_021E1D38: ; 0x021E1D38
 	add r0, #0xb4
 	str r1, [r0]
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	add r0, #0x9b
 	ldrb r0, [r0]
@@ -550,7 +550,7 @@ MOD05_021E1ECC: ; 0x021E1ECC
 	add r5, r6, #0
 _021E1EFC:
 	ldr r0, [r5, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x1c
@@ -764,7 +764,7 @@ MOD05_021E2094: ; 0x021E2094
 	mov r1, #4
 	add r7, r2, #0
 	add r4, r3, #0
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	add r0, r5, #0
 	add r0, #0x8c
@@ -795,7 +795,7 @@ MOD05_021E2094: ; 0x021E2094
 	lsl r1, r1, #2
 	str r0, [r2, r1]
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	cmp r4, #0xfa
 	bne _021E2104
 	add r0, r5, #0
@@ -1147,7 +1147,7 @@ MOD05_021E2368: ; 0x021E2368
 	add r5, r6, #0
 _021E2398:
 	ldr r0, [r5, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x1c
@@ -1181,11 +1181,11 @@ MOD05_021E23D0: ; 0x021E23D0
 	mov r0, #0x50
 	mov r1, #4
 	add r7, r2, #0
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	mov r0, #0x50
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	ldr r0, [r5, #0x18]
 	mov r1, #0xf
@@ -1211,9 +1211,9 @@ MOD05_021E23D0: ; 0x021E23D0
 	add r2, r6, #0
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -1356,11 +1356,11 @@ MOD05_021E2540: ; 0x021E2540
 	mov r1, #4
 	str r2, [sp, #0x10]
 	add r7, r3, #0
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	mov r0, #0x50
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	add r0, r5, #0
 	add r0, #0x8c
@@ -1385,9 +1385,9 @@ MOD05_021E2540: ; 0x021E2540
 	add r2, r6, #0
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -1416,7 +1416,7 @@ MOD05_021E25A4: ; 0x021E25A4
 	add r5, r6, #0
 _021E25D0:
 	ldr r0, [r5, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x1c
@@ -1773,7 +1773,7 @@ MOD05_021E27E8: ; 0x021E27E8
 	add r0, r7, #0
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	add r1, r4, #0
 	bl MOD05_021E28A0
@@ -1791,7 +1791,7 @@ MOD05_021E288C: ; 0x021E288C
 	bl ClearFrameAndWindow1
 	add r0, r4, #0
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E28A0
@@ -1816,18 +1816,18 @@ MOD05_021E28A0: ; 0x021E28A0
 	bl NewMsgDataFromNarc
 	str r0, [sp, #0xc]
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r6, r0, #0
 	mov r0, #0x10
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	ldr r0, [sp, #0xc]
 	mov r1, #0x13
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x10]
 	ldr r0, [r7, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetMoney
 	add r2, r0, #0
 	mov r0, #1
@@ -1857,11 +1857,11 @@ MOD05_021E28A0: ; 0x021E28A0
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [sp, #0xc]
 	bl DestroyMsgData
 	add r0, r5, #0
@@ -1925,7 +1925,7 @@ MOD05_021E29B4: ; 0x021E29B4
 	bl ClearFrameAndWindow1
 	add r0, r4, #0
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E29C8
@@ -1944,18 +1944,18 @@ MOD05_021E29C8: ; 0x021E29C8
 	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r5, r0, #0
 	mov r0, #0x10
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	add r0, r7, #0
 	mov r1, #0xc5
 	bl NewString_ReadMsgData
 	str r0, [sp, #0x10]
 	ldr r0, [r6, #0xc]
-	bl Sav2_PlayerData_GetCoinsAddr
+	bl Save_PlayerData_GetCoinsAddr
 	bl CheckCoins
 	add r2, r0, #0
 	mov r0, #1
@@ -1984,11 +1984,11 @@ MOD05_021E29C8: ; 0x021E29C8
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
@@ -2062,11 +2062,11 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r5, r0, #0
 	mov r0, #0x10
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	add r0, r7, #0
 	mov r1, #0xe6
@@ -2104,11 +2104,11 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]

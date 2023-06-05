@@ -22,7 +22,7 @@ THUMB_FUNC void FUN_02024E6C(struct UnkStruct_02024E64 *param0)
 
 THUMB_FUNC struct UnkStruct_02024E64 *FUN_02024EB4(struct SaveBlock2 *sav2)
 {
-    return SavArray_get(sav2, 0xa);
+    return SaveArray_Get(sav2, 0xa);
 }
 
 THUMB_FUNC void *FUN_02024EC0(struct SaveBlock2 *sav2)
@@ -32,12 +32,12 @@ THUMB_FUNC void *FUN_02024EC0(struct SaveBlock2 *sav2)
 
 THUMB_FUNC struct UnkStruct_02024E64 *FUN_02024ECC(struct SaveBlock2 *sav2)
 {
-    return SavArray_get(sav2, 0xa);
+    return SaveArray_Get(sav2, 0xa);
 }
 
 THUMB_FUNC void *FUN_02024ED8(struct SaveBlock2 *sav2)
 {
-    struct UnkStruct_02024E64 *res = SavArray_get(sav2, 0xa);
+    struct UnkStruct_02024E64 *res = SaveArray_Get(sav2, 0xa);
     return res->unk700;
 }
 

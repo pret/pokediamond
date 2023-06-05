@@ -104,7 +104,7 @@ void DrawFrame3(struct BgConfig *bgConfig,
 void DrawWindowCorner(struct Window *window, u16 fillValue, u8 paletteNum);
 void DrawFrameAndWindow3(struct Window *window, BOOL copy_to_vram, u16 fillValue, u8 paletteNum, u8 param4);
 void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy_to_vram);
-WaitingIcon *WaitingIcon_new(struct Window *window, u32 param1); //todo param1 -> u16 tileNum?
+WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1); //todo param1 -> u16 tileNum?
 void FUN_0200D980(WaitingIcon *waitingIcon, u32 param1);
 void FUN_0200DB7C(u32 param0, void *param1);
 void FUN_0200DBE8(u32 param0, void *param1);

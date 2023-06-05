@@ -61,7 +61,7 @@ FUN_02023AF4: ; 0x02023AF4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r0, #0x18
-	bl String_ctor
+	bl String_New
 	add r1, r5, #0x0
 	add r4, r0, #0x0
 	bl CopyU16ArrayToString
@@ -175,7 +175,7 @@ FUN_02023BA4: ; 0x02023BA4
 _02023BB2:
 	add r0, r4, #0x0
 	mov r1, #0xd
-	bl SavArray_get
+	bl SaveArray_Get
 	add r4, r0, #0x0
 	lsl r5, r5, #0x5
 	add r0, r4, r5
@@ -195,7 +195,7 @@ FUN_02023BD4: ; 0x02023BD4
 	push {r4, lr}
 	add r4, r1, #0x0
 	mov r1, #0xd
-	bl SavArray_get
+	bl SaveArray_Get
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02023ACC
@@ -212,7 +212,7 @@ FUN_02023BE8: ; 0x02023BE8
 	pop {r3, pc}
 _02023BF6:
 	mov r1, #0xd
-	bl SavArray_get
+	bl SaveArray_Get
 	pop {r3, pc}
 	nop
 _02023C00: .word UNK_02105BD4

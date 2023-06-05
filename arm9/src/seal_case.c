@@ -5,24 +5,24 @@
 
 #pragma thumb on
 
-u32 Sav2_SealCase_sizeof(void)
+u32 Save_SealCase_sizeof(void)
 {
     return sizeof(struct SealCase);
 }
 
-void Sav2_SealCase_init(struct SealCase * sealCase)
+void Save_SealCase_Init(struct SealCase * sealCase)
 {
-    MI_CpuClear8(sealCase, Sav2_SealCase_sizeof());
+    MI_CpuClear8(sealCase, Save_SealCase_sizeof());
 }
 
-void CapsuleArray_copy(const CapsuleArray * a0, CapsuleArray * a1)
+void CapsuleArray_Copy(const CapsuleArray * a0, CapsuleArray * a1)
 {
     MI_CpuCopy8(a0, a1, sizeof(CapsuleArray));
 }
 
-struct SealCase * Sav2_SealCase_get(struct SaveBlock2 * sav2)
+struct SealCase * Save_SealCase_Get(struct SaveBlock2 * sav2)
 {
-    return (struct SealCase *)SavArray_get(sav2, 21);
+    return (struct SealCase *)SaveArray_Get(sav2, 21);
 }
 
 CapsuleArray * SealCase_GetCapsuleI(struct SealCase * sealCase, s32 idx)
@@ -34,7 +34,7 @@ CapsuleArray * SealCase_GetCapsuleI(struct SealCase * sealCase, s32 idx)
 void SealCase_SetCapsuleI(struct SealCase * sealCase, const CapsuleArray * src, s32 idx)
 {
     GF_ASSERT(idx < 12);
-    CapsuleArray_copy(src, SealCase_GetCapsuleI(sealCase, idx));
+    CapsuleArray_Copy(src, SealCase_GetCapsuleI(sealCase, idx));
 }
 
 Coords8 * Capsule_GetSealI(CapsuleArray * a0, s32 a1)

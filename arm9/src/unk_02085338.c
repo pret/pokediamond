@@ -10,16 +10,16 @@ THUMB_FUNC struct UnkStruct_02085338 * FUN_02085338(u8 r5, u8 r7, struct SaveBlo
     struct UnkStruct_02085338 * ret = (struct UnkStruct_02085338 *) AllocFromHeap(heap_id, sizeof(struct UnkStruct_02085338));
     ret->unk_00 = r5;
     ret->unk_01 = r7;
-    ret->unk_0c = Sav2_Pokedex_get(sav2);
+    ret->unk_0c = Save_Pokedex_Get(sav2);
     ret->unk_10 = FUN_02013B5C(sav2);
-    ret->unk_04 = (u8)FUN_0205ED0C(SavArray_Flags_get(sav2));
+    ret->unk_04 = (u8)FUN_0205ED0C(SaveArray_Flags_Get(sav2));
     ret->unk_05 = 0;
     ret->unk_02 = 1;
     ret->unk_03 = 0;
-    ret->unk_08 = Options_GetFrame(Sav2_PlayerData_GetOptionsAddr(sav2));
+    ret->unk_08 = Options_GetFrame(Save_PlayerData_GetOptionsAddr(sav2));
     if (r5 == 2)
     {
-        MailMsg_init_withBank(&ret->unk_14, 3);
+        MailMsg_Init_WithBank(&ret->unk_14, 3);
     }
     else
     {
@@ -86,7 +86,7 @@ THUMB_FUNC void FUN_020853F0(struct UnkStruct_02085338 * ptr, u16 * a1)
 
 THUMB_FUNC void FUN_020853FC(struct UnkStruct_02085338 * ptr, struct MailMessage * a1)
 {
-    return MailMsg_copy(a1, &ptr->unk_14);
+    return MailMsg_Copy(a1, &ptr->unk_14);
 }
 
 THUMB_FUNC u8 FUN_0208540C(struct UnkStruct_02085338 * ptr)
@@ -151,7 +151,7 @@ THUMB_FUNC BOOL FUN_0208545C(struct UnkStruct_02085338 * ptr, const u16 * a1, co
         return a1[0] == ptr->unk_1c[0] && a1[1] == ptr->unk_1c[1];
     case 2:
     default:
-        return MailMsg_compare(&ptr->unk_14, a2);
+        return MailMsg_Compare(&ptr->unk_14, a2);
     }
 }
 

@@ -562,7 +562,7 @@ MOD55_021D7994: ; 0x021D7994
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	mov r0, #0x34
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r6, #0xc]
 	ldr r2, _021D7A34 ; =0x00000251
 	mov r0, #0
@@ -576,7 +576,7 @@ MOD55_021D7994: ; 0x021D7994
 _021D79B4:
 	add r0, r7, #0
 	mov r1, #0x34
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x38]
 	add r4, r4, #1
 	add r5, r5, #4
@@ -584,19 +584,19 @@ _021D79B4:
 	blt _021D79B4
 	mov r0, #0x10
 	mov r1, #0x34
-	bl String_ctor
+	bl String_New
 	add r1, r6, #0
 	add r1, #0xd4
 	str r0, [r1]
 	mov r0, #0x1a
 	mov r1, #0x34
-	bl String_ctor
+	bl String_New
 	add r1, r6, #0
 	add r1, #0xd8
 	str r0, [r1]
 	mov r0, #0xb4
 	mov r1, #0x34
-	bl String_ctor
+	bl String_New
 	add r1, r6, #0
 	add r1, #0xbc
 	str r0, [r1]
@@ -606,7 +606,7 @@ _021D79B4:
 _021D79F6:
 	add r0, r7, #0
 	mov r1, #0x34
-	bl String_ctor
+	bl String_New
 	add r1, r4, #0
 	add r1, #0xc4
 	add r5, r5, #1
@@ -616,13 +616,13 @@ _021D79F6:
 	blt _021D79F6
 	mov r0, #0xb4
 	mov r1, #0x34
-	bl String_ctor
+	bl String_New
 	add r1, r6, #0
 	add r1, #0xb8
 	str r0, [r1]
 	mov r0, #0x28
 	mov r1, #0x34
-	bl String_ctor
+	bl String_New
 	add r1, r6, #0
 	add r1, #0xc0
 	str r0, [r1]
@@ -642,12 +642,12 @@ MOD55_021D7A38: ; 0x021D7A38
 	ldr r0, [r6, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r6, #0xc]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r4, #0
 	add r5, r6, #0
 _021D7A4C:
 	ldr r0, [r5, #0x38]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #0x20
@@ -655,22 +655,22 @@ _021D7A4C:
 	add r0, r6, #0
 	add r0, #0xb8
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
 	add r0, #0xc0
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	mov r5, #0
 	add r4, r6, #0
 _021D7A7C:
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r5, r5, #1
 	add r4, r4, #4
 	cmp r5, #4
@@ -678,10 +678,10 @@ _021D7A7C:
 	add r0, r6, #0
 	add r0, #0xd4
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r6, #0xd8
 	ldr r0, [r6]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end MOD55_021D7A38
@@ -807,7 +807,7 @@ MOD55_021D7AE0: ; 0x021D7AE0
 	mov r3, #4
 	bl GfGfxLoader_LoadScrnData
 	ldr r0, [r5, #8]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -1309,7 +1309,7 @@ _021D7F86:
 	cmp r6, #2
 	bne _021D7FF4
 	ldr r0, [r5, #8]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #0
@@ -1769,7 +1769,7 @@ MOD55_021D8320: ; 0x021D8320
 	add r0, r5, #0
 	bl MOD55_021D778C
 	ldr r0, [r5, #8]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	mov r1, #7
 	str r0, [sp]
 	mov r0, #0x34
@@ -1780,7 +1780,7 @@ MOD55_021D8320: ; 0x021D8320
 	ldr r0, _021D836C ; =UNK_020FA5FC
 	ldr r1, [r5]
 	mov r2, #0x34
-	bl OverlayManager_new
+	bl OverlayManager_New
 	mov r1, #0x3d
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -1809,7 +1809,7 @@ MOD55_021D8370: ; 0x021D8370
 	mov r0, #0x3d
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	ldr r1, [r5]
 	ldr r0, [r1, #0x14]
 	cmp r0, #0
@@ -1869,7 +1869,7 @@ MOD55_021D8404: ; 0x021D8404
 	add r5, r0, #0
 	ldr r0, [r5, #8]
 	add r4, r1, #0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [sp]
 	mov r0, #0x34
 	mov r1, #4
@@ -1880,7 +1880,7 @@ MOD55_021D8404: ; 0x021D8404
 	ldr r0, _021D843C ; =UNK_020FA5FC
 	ldr r1, [r5]
 	mov r2, #0x34
-	bl OverlayManager_new
+	bl OverlayManager_New
 	mov r1, #0x3d
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -1908,7 +1908,7 @@ MOD55_021D8440: ; 0x021D8440
 	mov r0, #0x3d
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	add r0, r5, #0
 	ldr r1, [r5]
 	add r0, #0xd8
@@ -1974,7 +1974,7 @@ MOD55_021D84C8: ; 0x021D84C8
 	cmp r0, #0
 	beq _021D8534
 	mov r0, #0x34
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	add r4, r0, #0
 	add r0, r5, #0
 	add r0, #0xd4
@@ -3213,7 +3213,7 @@ MOD55_021D8E6C: ; 0x021D8E6C
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
 	mov r1, #0x34
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r4, _021D8FD0 ; =0x021DA3D8
 	str r0, [r5, #0x14]
 	mov r6, #0
@@ -3241,7 +3241,7 @@ _021D8ECC:
 	stmia r2!, {r0, r1}
 	add r0, r7, #0
 	mov r1, #0x34
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r4, _021D8FD8 ; =0x021DA438
 	str r0, [r5, #0x14]
 	mov r6, #0
@@ -3314,7 +3314,7 @@ _021D8F1A:
 	add r0, r5, r1
 	bl ScheduleWindowCopyToVram
 	mov r0, #0x34
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	mov r1, #0xf2
 	lsl r1, r1, #2
 	ldrb r1, [r5, r1]
@@ -3460,7 +3460,7 @@ _021D9098:
 	add r2, r1, #0
 	bl DestroyListMenu
 	ldr r0, [r5, #0x14]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r6, #0
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -3504,7 +3504,7 @@ MOD55_021D90D8: ; 0x021D90D8
 	orr r0, r1
 	beq _021D9170
 	mov r0, #0x34
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	mov r1, #0xf2
 	lsl r1, r1, #2
 	ldrb r1, [r5, r1]
@@ -3607,7 +3607,7 @@ _021D91D6:
 	mov r1, #0
 	bl FillWindowPixelBuffer
 	ldr r0, [r5, #8]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0
 	ldr r0, [r5, #0xc]
 	mov r1, #0
@@ -4166,7 +4166,7 @@ _021D969A:
 	mov r1, #0
 	bl FillWindowPixelBuffer
 	mov r0, #0x34
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
@@ -4406,7 +4406,7 @@ _021D987C:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized2
 	mov r0, #0x34
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	add r5, r0, #0
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x18]
@@ -5057,7 +5057,7 @@ MOD55_021D9E40: ; 0x021D9E40
 	add r0, r4, #0
 	bl MOD55_021D778C
 	ldr r0, [r4, #8]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	mov r1, #7
 	str r0, [sp]
 	mov r0, #0x34
@@ -5068,7 +5068,7 @@ MOD55_021D9E40: ; 0x021D9E40
 	ldr r0, _021D9EC4 ; =UNK_020FA5FC
 	ldr r1, [r4]
 	mov r2, #0x34
-	bl OverlayManager_new
+	bl OverlayManager_New
 	mov r1, #0x3d
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -5118,7 +5118,7 @@ MOD55_021D9EC8: ; 0x021D9EC8
 	mov r0, #0x3d
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	ldr r1, [r5]
 	ldr r0, [r1, #0x14]
 	cmp r0, #0
@@ -5204,7 +5204,7 @@ MOD55_021D9F8C: ; 0x021D9F8C
 	add r5, r0, #0
 	mov r0, #0x34
 	add r6, r1, #0
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	add r4, r0, #0
 	ldr r0, [r5, #8]
 	bl FUN_020286EC
@@ -5348,7 +5348,7 @@ MOD55_021DA0A4: ; 0x021DA0A4
 	add r5, r0, #0
 	ldr r0, [r5, #8]
 	add r6, r1, #0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetTextFrameDelay
 	add r4, r0, #0
 	mov r0, #0xce

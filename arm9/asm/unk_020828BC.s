@@ -816,9 +816,9 @@ _02082D9A:
 	mov r1, #0x90
 	bl SetMonData
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x14]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0x0
 	bl DestroyMsgData
 	add r2, sp, #0x1c

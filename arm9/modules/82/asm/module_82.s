@@ -667,7 +667,7 @@ _0222DA48:
 	mov r0, #0xb
 	mov r1, #0x20
 	mov r2, #0x44
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	ldr r1, _0222DB64 ; =0x00000B78
 	ldr r2, _0222DB68 ; =0x0000024E
 	str r0, [r4, r1]
@@ -875,7 +875,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	bl DestroyMsgData
 	ldr r0, _0222DCC0 ; =0x00000B78
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r4, #0
 	bl MOD82_0222DD20
 	bl FUN_0202E4F0
@@ -1883,18 +1883,18 @@ MOD82_0222E4AC: ; 0x0222E4AC
 	add r4, r0, #0
 	mov r0, #0xb4
 	mov r1, #0x44
-	bl String_ctor
+	bl String_New
 	ldr r1, _0222E4F4 ; =0x00000B88
 	str r0, [r4, r1]
 	mov r0, #4
 	mov r1, #0x44
-	bl String_ctor
+	bl String_New
 	mov r1, #0xb9
 	lsl r1, r1, #4
 	str r0, [r4, r1]
 	mov r0, #3
 	mov r1, #0x44
-	bl String_ctor
+	bl String_New
 	ldr r1, _0222E4F8 ; =0x00000B94
 	str r0, [r4, r1]
 	sub r1, #0x18
@@ -1906,7 +1906,7 @@ MOD82_0222E4AC: ; 0x0222E4AC
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0x44
-	bl String_ctor
+	bl String_New
 	ldr r1, _0222E500 ; =0x00000B98
 	str r0, [r4, r1]
 	pop {r4, pc}
@@ -1923,20 +1923,20 @@ MOD82_0222E504: ; 0x0222E504
 	add r4, r0, #0
 	ldr r0, _0222E534 ; =0x00000B98
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _0222E538 ; =0x00000B8C
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _0222E53C ; =0x00000B94
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0xb9
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _0222E540 ; =0x00000B88
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, pc}
 	.align 2, 0
 _0222E534: .word 0x00000B98
@@ -4059,7 +4059,7 @@ MOD82_0222F4D8: ; 0x0222F4D8
 	ldr r1, _0222F544 ; =0x00000B9C
 	str r0, [r5, r1]
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -4322,7 +4322,7 @@ MOD82_0222F700: ; 0x0222F700
 	lsl r0, r0, #6
 	add r0, r4, r0
 	mov r1, #1
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _0222F720 ; =0x00000EB4
 	str r0, [r4, r1]
 _0222F71C:
@@ -4358,7 +4358,7 @@ MOD82_0222F740: ; 0x0222F740
 	add r6, r1, #0
 	lsl r0, r0, #8
 	mov r1, #0x44
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	ldr r0, _0222F7B0 ; =0x00000B84
 	add r1, r6, #0
@@ -4397,7 +4397,7 @@ MOD82_0222F740: ; 0x0222F740
 	ldr r1, _0222F7BC ; =0x00000B9C
 	str r0, [r5, r1]
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0

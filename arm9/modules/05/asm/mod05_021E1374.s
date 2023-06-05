@@ -26,7 +26,7 @@ _021E1396:
 	bl memset
 	str r7, [r4, #4]
 	ldr r0, [r7, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	str r0, [r4, #8]
 	mov r0, #0x45
 	lsl r0, r0, #2
@@ -388,7 +388,7 @@ MOD05_021E1654: ; 0x021E1654
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	ldr r0, [r7, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0
 	bl FUN_0205F41C
 	add r6, r0, #0
@@ -396,7 +396,7 @@ MOD05_021E1654: ; 0x021E1654
 	bl FUN_0205F43C
 	add r5, r0, #0
 	ldr r0, [r7, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r1, _021E16C4 ; =0x000001BB
 	mov r2, #1
 	mov r3, #4
@@ -553,7 +553,7 @@ MOD05_021E17A0: ; 0x021E17A0
 	add r5, r0, #0
 	ldr r0, [r5, #4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	str r0, [sp]
 	mov r0, #0x11
 	lsl r0, r0, #4
@@ -737,7 +737,7 @@ MOD05_021E1908: ; 0x021E1908
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0
 	add r4, r2, #0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	cmp r4, #0
 	beq _021E192C
 	add r1, r4, #0

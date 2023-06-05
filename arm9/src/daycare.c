@@ -6,12 +6,12 @@
 
 #pragma thumb on
 
-u32 Sav2_DayCare_sizeof(void)
+u32 Save_DayCare_sizeof(void)
 {
     return sizeof(struct DayCare);
 }
 
-void Sav2_DayCare_init(struct DayCare * daycare)
+void Save_DayCare_Init(struct DayCare * daycare)
 {
     memset(daycare, 0, sizeof(struct DayCare));
     ZeroBoxMonData(&daycare->mons[0].mon);
@@ -20,7 +20,7 @@ void Sav2_DayCare_init(struct DayCare * daycare)
     daycare->egg_cycles = 0;
 }
 
-struct DayCareMon * Sav2_DayCare_GetMonX(struct DayCare * daycare, s32 i)
+struct DayCareMon * Save_DayCare_GetMonX(struct DayCare * daycare, s32 i)
 {
     return &daycare->mons[i];
 }
@@ -45,12 +45,12 @@ struct Mail * DayCareMail_GetCapsule(struct DayCareMail * dcmail)
     return &dcmail->seal;
 }
 
-u32 Sav2_DayCare_GetEggPID(struct DayCare * daycare)
+u32 Save_DayCare_GetEggPID(struct DayCare * daycare)
 {
     return daycare->egg_pid;
 }
 
-u8 Sav2_DayCare_GetEggCycleCounter(struct DayCare * daycare)
+u8 Save_DayCare_GetEggCycleCounter(struct DayCare * daycare)
 {
     return daycare->egg_cycles;
 }
@@ -65,17 +65,17 @@ void DayCareMon_AddSteps(struct DayCareMon * dcmon, u32 steps)
     dcmon->steps += steps;
 }
 
-void Sav2_DayCare_SetEggPID(struct DayCare * daycare, u32 pid)
+void Save_DayCare_SetEggPID(struct DayCare * daycare, u32 pid)
 {
     daycare->egg_pid = pid;
 }
 
-void Sav2_DayCare_SetEggCycleCounter(struct DayCare * daycare, u8 count)
+void Save_DayCare_SetEggCycleCounter(struct DayCare * daycare, u8 count)
 {
     daycare->egg_cycles = count;
 }
 
-BOOL Sav2_DayCare_MasudaCheck(struct DayCare * daycare)
+BOOL Save_DayCare_MasudaCheck(struct DayCare * daycare)
 {
     // Checks if the pokemon come from different countries.
     // Uses language as a proxy for country, even though it
@@ -89,7 +89,7 @@ void DayCareMon_Copy(struct DayCareMon * dest, const struct DayCareMon * src)
     *dest = *src;
 }
 
-void DayCareMon_Extras_init(struct DayCareMail * mail)
+void DayCareMon_Extras_Init(struct DayCareMail * mail)
 {
     int i;
 
@@ -105,10 +105,10 @@ void DayCareMon_Init(struct DayCareMon * mon)
 {
     ZeroBoxMonData(&mon->mon);
     mon->steps = 0;
-    DayCareMon_Extras_init(&mon->mail);
+    DayCareMon_Extras_Init(&mon->mail);
 }
 
-struct DayCare * Sav2_DayCare_get(struct SaveBlock2 * sav2)
+struct DayCare * Save_DayCare_Get(struct SaveBlock2 * sav2)
 {
-    return (struct DayCare *)SavArray_get(sav2, 8);
+    return (struct DayCare *)SaveArray_Get(sav2, 8);
 }

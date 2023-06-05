@@ -43,7 +43,7 @@ THUMB_FUNC void FUN_02002C14()
 THUMB_FUNC void FUN_02002C50(u32 font_id, u32 heap_id)
 {
     UNK_02106FC8->unk94[font_id] =
-        FontData_new(NARC_GRAPHIC_FONT, UNK_020ECB54[font_id][0], 1, UNK_020ECB54[font_id][1], heap_id);
+        FontData_New(NARC_GRAPHIC_FONT, UNK_020ECB54[font_id][0], 1, UNK_020ECB54[font_id][1], heap_id);
 }
 
 THUMB_FUNC void FUN_02002C84(s32 param0, u32 param1)
@@ -89,7 +89,7 @@ THUMB_FUNC void FUN_02002CF8(int param0)
 
     if (UNK_02106FC8->unk94[param0] != NULL)
     {
-        FontData_delete(UNK_02106FC8->unk94[param0]);
+        FontData_Delete(UNK_02106FC8->unk94[param0]);
         UNK_02106FC8->unk94[param0] = NULL;
     }
 }

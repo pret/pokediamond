@@ -4336,7 +4336,7 @@ MOD15_021D95E8: ; 0x021D95E8
 	str r0, [r4, #0x44]
 	mov r0, #0x80
 	mov r1, #0x23
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x4c]
 	ldr r2, _021D9630 ; =0x00000182
 	mov r0, #0
@@ -4384,7 +4384,7 @@ _021D966A:
 	ldr r0, [r4, #0x4c]
 	cmp r0, #0
 	beq _021D9674
-	bl String_dtor
+	bl String_Delete
 _021D9674:
 	add r0, r4, #0
 	add r0, #0xc
@@ -4933,7 +4933,7 @@ _021D9ADE:
 	str r0, [sp, #0x10]
 	bl MOD15_021D9B30
 	ldr r0, [sp, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x18]
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
@@ -4967,11 +4967,11 @@ _021D9B2C: .word 0x0000FFFE
 
 	thumb_func_start MOD15_021D9B30
 MOD15_021D9B30: ; 0x021D9B30
-	ldr r3, _021D9B38 ; =String_dtor
+	ldr r3, _021D9B38 ; =String_Delete
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9B38: .word String_dtor
+_021D9B38: .word String_Delete
 
 	thumb_func_start MOD15_021D9B3C
 MOD15_021D9B3C: ; 0x021D9B3C
@@ -5212,12 +5212,12 @@ _021D9CDC:
 	mov r0, #2
 	mov r1, #0x3c
 	mov r2, #0
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	add r5, r0, #0
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0
-	bl String_ctor
+	bl String_New
 	mov r1, #0
 	add r6, r0, #0
 	add r0, r5, #0
@@ -5246,9 +5246,9 @@ _021D9CDC:
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	b _021D9DB0
 _021D9D40:
 	ldr r0, [r4, #0x48]
@@ -5678,7 +5678,7 @@ MOD15_021DA044: ; 0x021DA044
 	add r0, sp, #0x10
 	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, sp, #0x10
 	bl RemoveWindow
 	add sp, #0x20
@@ -6046,7 +6046,7 @@ _021DA31A:
 	add r0, sp, #0x28
 	bl CopyWindowPixelsToVram_TextMode
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, sp, #0x28
 	bl RemoveWindow
 	add r4, r4, #1
@@ -6098,7 +6098,7 @@ _021DA3CC:
 	bl AddWindowParameterized
 	mov r0, #4
 	mov r1, #0x23
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	add r0, sp, #0x20
 	mov r1, #0xf
@@ -6147,7 +6147,7 @@ _021DA452:
 	add r0, sp, #0x20
 	bl PutWindowTilemap
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, sp, #0x20
 	bl RemoveWindow
 	ldr r0, [sp, #0x14]
@@ -6241,7 +6241,7 @@ _021DA4C2:
 	cmp r7, #2
 	blo _021DA4B6
 	ldr r0, [sp, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x20]
 	bl DestroyMsgData
 	add r0, r5, #0
@@ -6667,7 +6667,7 @@ MOD15_021DA828: ; 0x021DA828
 	str r0, [r4, #0xc]
 	mov r0, #0x20
 	mov r1, #0x23
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x3c]
 	mov r0, #0
 	str r0, [sp]
@@ -6730,7 +6730,7 @@ _021DA8C6:
 	ldr r0, [r4, #0x3c]
 	cmp r0, #0
 	beq _021DA8D0
-	bl String_dtor
+	bl String_Delete
 _021DA8D0:
 	add r0, r4, #0
 	add r0, #0x20
@@ -7737,13 +7737,13 @@ MOD15_021DAFF8: ; 0x021DAFF8
 	bl FreeToHeap
 _021DB0D4:
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #4]
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #2
 	bl FUN_02002CF8
 	add sp, #0x20

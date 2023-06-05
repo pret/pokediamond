@@ -133,7 +133,7 @@ FUN_02034FE4: ; 0x02034FE4
 	cmp r4, #0x18
 	blt _0203505C
 	ldr r0, [r7, #0xc]
-	bl Sav2_SysInfo_RTC_get
+	bl Save_SysInfo_RTC_Get
 	add r6, r0, #0x0
 	add r0, r6, #0x4
 	bl GF_RTC_GetDayOfYear

@@ -40,7 +40,7 @@ FUN_02014518: ; 0x02014518
 _0201453E:
 	mov r0, #0x16
 	add r1, r7, #0x0
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x4]
 	ldr r0, [r6, #0x0]
 	ldr r2, [r5, #0x4]
@@ -64,7 +64,7 @@ FUN_02014564: ; 0x02014564
 	add r5, #0x70
 _0201456E:
 	ldr r0, [r5, #0x4]
-	bl String_dtor
+	bl String_Delete
 	sub r5, r5, #0x4
 	sub r4, r4, #0x1
 	bpl _0201456E

@@ -181,7 +181,7 @@ FUN_02052110: ; 0x02052110
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _0205211E:
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	add r6, r0, #0x0
 	bl FUN_02031A7C
 	mov r1, #0x19
@@ -205,7 +205,7 @@ _0205211E:
 	str r5, [r4, #0x0]
 	str r6, [r4, #0x4]
 	add r0, r6, #0x0
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	bl FUN_02052E1C
@@ -227,7 +227,7 @@ FUN_02052178: ; 0x02052178
 	cmp r0, #0x0
 	beq _020521A4
 	add r0, sp, #0x0
-	bl MailMsg_init_default
+	bl MailMsg_Init_Default
 	add r0, sp, #0x0
 	bl FUN_02052DE8
 	add r0, r4, #0x0
@@ -1759,7 +1759,7 @@ FUN_02052CD8: ; 0x02052CD8
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	add r0, r4, r0
-	bl MailMsg_copy
+	bl MailMsg_Copy
 	mov r0, #0x6
 	mov r1, #0x1
 	lsl r0, r0, #0x6

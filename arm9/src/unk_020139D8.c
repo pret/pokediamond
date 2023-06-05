@@ -77,7 +77,7 @@ const struct UnkStruct_020ED5EC
     { UNK_020ED594, NELEMS(UNK_020ED594) },
 };
 
-struct UnkStruct_020139D8 * EasyChatManager_new(u32 heap_id)
+struct UnkStruct_020139D8 * EasyChatManager_New(u32 heap_id)
 {
     struct UnkStruct_020139D8 * ret = (struct UnkStruct_020139D8 *)AllocFromHeap(heap_id, sizeof(struct UnkStruct_020139D8));
     s32 i;
@@ -89,7 +89,7 @@ struct UnkStruct_020139D8 * EasyChatManager_new(u32 heap_id)
     return ret;
 }
 
-void EasyChatManager_delete(struct UnkStruct_020139D8 * unk)
+void EasyChatManager_Delete(struct UnkStruct_020139D8 * unk)
 {
     s32 i;
     for (i = 0; i < 11; i++)
@@ -181,7 +181,7 @@ void FUN_02013B2C(struct UnkStruct_02013B28 * unk)
 
 struct UnkStruct_02013B28 * FUN_02013B5C(struct SaveBlock2 * sav2)
 {
-    return (struct UnkStruct_02013B28 *)SavArray_get(sav2, 34);
+    return (struct UnkStruct_02013B28 *)SaveArray_Get(sav2, 34);
 }
 
 BOOL FUN_02013B68(struct UnkStruct_02013B28 * unk, u32 a1)

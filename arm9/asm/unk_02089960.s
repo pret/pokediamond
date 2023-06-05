@@ -476,7 +476,7 @@ _02089CE8:
 	mov r0, #0x1
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0xa
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x14]
 	ldr r0, [r5, #0x1c]
 	ldr r2, [r5, #0x14]
@@ -495,7 +495,7 @@ _02089CE8:
 	cmp r4, #0x0
 	bne _02089D48
 	ldr r0, [r5, #0x14]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0xc]
 	add r0, r0, #0x1
 	str r0, [r5, #0xc]
@@ -512,7 +512,7 @@ _02089D50:
 	cmp r0, #0x0
 	bne _02089D80
 	ldr r0, [r5, #0x14]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0xc]
 	add r0, r0, #0x1
 	str r0, [r5, #0xc]

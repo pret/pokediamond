@@ -130,10 +130,10 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
     struct MsgData* error_message_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0200_bin, heap_id);
-    struct String* error_message_str = String_ctor(384, heap_id);
-    struct String* tmp_str = String_ctor(384, heap_id);
+    struct String* error_message_str = String_New(384, heap_id);
+    struct String* tmp_str = String_New(384, heap_id);
     ResetAllTextPrinters();
-    MessageFormat* messageFormat = MessageFormat_new(heap_id);
+    MessageFormat* messageFormat = MessageFormat_New(heap_id);
 
     AddWindow(bg_config, &window, &sCommunicationErrorWindowTemplate);
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
@@ -144,7 +144,7 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
     StringExpandPlaceholders(messageFormat, error_message_str, tmp_str);
 
     AddTextPrinterParameterized(&window, 0, error_message_str, 0, 0, 0, NULL);
-    String_dtor(error_message_str);
+    String_Delete(error_message_str);
     // BUG: tmp_str is never destroyed.
 
     GX_BothDispOn();
@@ -154,6 +154,6 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
 
     RemoveWindow(&window);
     DestroyMsgData(error_message_data);
-    MessageFormat_delete(messageFormat);
+    MessageFormat_Delete(messageFormat);
     FreeToHeap(bg_config);
 }

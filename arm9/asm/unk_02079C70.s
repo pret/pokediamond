@@ -49,7 +49,7 @@ UNK_020FA6E8: ; 0x020FA6E8
 	thumb_func_start FUN_02079C70
 FUN_02079C70: ; 0x02079C70
 	push {r3, lr}
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F184
 	pop {r3, pc}
 
@@ -664,35 +664,35 @@ FUN_0207A1A0: ; 0x0207A1A0
 	mov r0, #0x1
 	mov r1, #0x2
 	mov r3, #0x13
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	mov r1, #0x67
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	mov r0, #0x13
-	bl MessageFormat_new
+	bl MessageFormat_New
 	ldr r1, _0207A258 ; =0x0000067C
 	str r0, [r4, r1]
 	mov r0, #0xc
 	mov r1, #0x13
-	bl String_ctor
+	bl String_New
 	mov r1, #0x25
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	mov r0, #0xc
 	mov r1, #0x13
-	bl String_ctor
+	bl String_New
 	mov r1, #0x95
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
 	mov r0, #0x8
 	mov r1, #0x13
-	bl String_ctor
+	bl String_New
 	mov r1, #0x96
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
 	mov r0, #0x80
 	mov r1, #0x13
-	bl String_ctor
+	bl String_New
 	mov r1, #0x1a
 	lsl r1, r1, #0x6
 	str r0, [r4, r1]
@@ -706,7 +706,7 @@ FUN_0207A1A0: ; 0x0207A1A0
 	str r0, [r4, r1]
 	mov r0, #0x8
 	mov r1, #0x13
-	bl String_ctor
+	bl String_New
 	ldr r2, _0207A260 ; =0x00000684
 	str r0, [r4, r2]
 	mov r0, #0x93
@@ -742,29 +742,29 @@ FUN_0207A264: ; 0x0207A264
 	mov r0, #0x67
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 	ldr r0, _0207A2D0 ; =0x0000067C
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x25
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x96
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x1a
 	lsl r0, r0, #0x6
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _0207A2D4 ; =0x00000684
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, pc}
 	.balign 4
 _0207A2C4: .word 0x00000688

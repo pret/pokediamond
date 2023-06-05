@@ -197,7 +197,7 @@ THUMB_FUNC BOOL ScrCmd_CheckChatotCry(struct ScriptContext* ctx) //0059
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
-    struct SaveChatotSoundClip* chatotSoundClip = Sav2_Chatot_get(ctx->fieldSystem->saveBlock2);
+    struct SaveChatotSoundClip* chatotSoundClip = Save_Chatot_Get(ctx->fieldSystem->saveBlock2);
     if (Chatot_checkCry(chatotSoundClip) == 1)
     {
         *ret_ptr = 1;
@@ -235,7 +235,7 @@ THUMB_FUNC BOOL ScrCmd_StopChatotRecord(struct ScriptContext* ctx) //005B
 
 THUMB_FUNC BOOL ScrCmd_SaveChatotCry(struct ScriptContext* ctx) //005C
 {
-    struct SaveChatotSoundClip* chatotSoundClip = Sav2_Chatot_get(ctx->fieldSystem->saveBlock2);
+    struct SaveChatotSoundClip* chatotSoundClip = Save_Chatot_Get(ctx->fieldSystem->saveBlock2);
     Chatot_saveRecording(chatotSoundClip);
 
     return TRUE;

@@ -104,7 +104,7 @@ MOD51_022548F0: ; 0x022548F0
 	sub r1, #0xa
 	mov r0, #4
 	strh r2, [r4, r1]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r2, #9
 	str r0, [r4, #0x18]
 	mov r0, #0
@@ -291,7 +291,7 @@ MOD51_02254A68: ; 0x02254A68
 	ldr r0, [r5, #0x78]
 	str r0, [r4, #8]
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r4, #0x10]
 	mov r0, #0
 	mov r1, #0xa2
@@ -347,7 +347,7 @@ _02254AEC:
 	ldr r0, [r6, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x18]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x72
 	lsl r0, r0, #2
 	add r0, r6, r0
@@ -1562,7 +1562,7 @@ _0225548C:
 	sub r5, r4, #2
 	mov r0, #0xa
 	mov r1, #0x59
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r5, #0
@@ -1581,7 +1581,7 @@ _0225548C:
 	add r3, r1, #0
 	bl BufferString
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 _022554CA:
 	ldr r1, [sp, #8]
 	add r0, r7, #0
@@ -1629,7 +1629,7 @@ _0225550A:
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _0225551E
-	bl String_dtor
+	bl String_Delete
 _0225551E:
 	ldr r1, [r5]
 	mov r0, #0x1c
@@ -1638,7 +1638,7 @@ _0225551E:
 	ldr r0, [r0, #8]
 	cmp r0, #0
 	beq _02255530
-	bl String_dtor
+	bl String_Delete
 _02255530:
 	ldr r0, [sp, #8]
 	bl PlayerProfile_GetNamePtr
@@ -1739,7 +1739,7 @@ _022555E8:
 	bne _022555FC
 	ldr r0, [sp]
 	add r1, #0x14
-	bl MailMsg_compare
+	bl MailMsg_Compare
 	cmp r0, #0
 	bne _02255610
 _022555FC:
@@ -1774,7 +1774,7 @@ _02255626:
 	beq _0225563A
 	ldr r0, [sp]
 	add r1, #0x14
-	bl MailMsg_compare
+	bl MailMsg_Compare
 _0225563A:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1834,7 +1834,7 @@ MOD51_02255690: ; 0x02255690
 	cmp r0, #0
 	bne _02255714
 	mov r0, #4
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	str r0, [sp, #4]
 	mov r6, #0
 _022556AA:

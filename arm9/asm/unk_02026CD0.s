@@ -1105,7 +1105,7 @@ _02027492:
 _0202749A:
 	add r0, r5, #0x0
 	add r0, #0x40
-	bl MailMsg_init
+	bl MailMsg_Init
 	add r5, #0x40
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -2477,10 +2477,10 @@ _02027E1E:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start Save_FashionData_get
-Save_FashionData_get: ; 0x02027E24
-	ldr r3, _02027E2C ; =SavArray_get
+	thumb_func_start Save_FashionData_Get
+Save_FashionData_Get: ; 0x02027E24
+	ldr r3, _02027E2C ; =SaveArray_Get
 	mov r1, #0xe
 	bx r3
 	nop
-_02027E2C: .word SavArray_get
+_02027E2C: .word SaveArray_Get

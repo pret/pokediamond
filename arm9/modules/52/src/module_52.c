@@ -201,7 +201,7 @@ THUMB_FUNC BOOL MOD52_021D7540(struct OverlayManager *manager, u32 *status)
     struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(manager)[2]; // weird
 
     MOD52_021D7604(0x4d, sav2, 1);
-    struct IGT *igt = Sav2_PlayerData_GetIGTAddr(sav2);
+    struct IGT *igt = Save_PlayerData_GetIGTAddr(sav2);
     PlayTimerStart(igt);
 
     return TRUE;
@@ -232,18 +232,18 @@ THUMB_FUNC BOOL MOD52_021D7594(struct OverlayManager *manager, u32 *status)
 #pragma unused(status)
     struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(manager)[2]; // weird
 
-    struct SavSysInfo *sav2_info = Sav2_SysInfo_get(sav2);
+    struct SavSysInfo *sav2_info = Save_SysInfo_Get(sav2);
 
     MOD52_021D7688(0x4d, sav2);
     Options_SetButtonModeOnMain(sav2, 0);
 
-    if (!Sav2_SysInfo_MacAddressIsMine(sav2_info) || !Sav2_SysInfo_RTCOffsetIsMine(sav2_info))
+    if (!Save_SysInfo_MacAddressIsMine(sav2_info) || !Save_SysInfo_RTCOffsetIsMine(sav2_info))
     {
-        FUN_020238A4(Sav2_SysInfo_RTC_get(sav2));
-        Sav2_SysInfo_InitFromSystem(sav2_info);
+        FUN_020238A4(Save_SysInfo_RTC_Get(sav2));
+        Save_SysInfo_InitFromSystem(sav2_info);
     }
 
-    PlayTimerStart(Sav2_PlayerData_GetIGTAddr(sav2));
+    PlayTimerStart(Save_PlayerData_GetIGTAddr(sav2));
 
     return TRUE;
 }
@@ -260,15 +260,15 @@ THUMB_FUNC BOOL MOD52_021D75E8(struct OverlayManager *manager, u32 *status)
 
 THUMB_FUNC void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *sav2, BOOL set_trainerid)
 {
-    Sav2_SysInfo_InitFromSystem(Sav2_SysInfo_get(sav2));
-    Sav2_SysInfo_RTC_init(Sav2_SysInfo_RTC_get(sav2));
+    Save_SysInfo_InitFromSystem(Save_SysInfo_Get(sav2));
+    Save_SysInfo_RTC_Init(Save_SysInfo_RTC_Get(sav2));
 
     struct UnkSaveStruct_020286F8 *unk_sav2 = FUN_0202881C(sav2);
 
     FUN_02028788(unk_sav2, 1, MTRandom());
     FUN_0206007C(sav2);
 
-    struct PlayerData *player_data = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct PlayerData *player_data = Save_PlayerData_GetProfileAddr(sav2);
     u32 trainerid = MTRandom();
 
     if (set_trainerid)
@@ -300,9 +300,9 @@ THUMB_FUNC void MOD52_021D769C(u32 unused, struct SaveBlock2 *sav2)
 {
 #pragma unused(unused)
 
-    Sav2_InitDynamicRegion(sav2);
+    Save_InitDynamicRegion(sav2);
     FUN_020377E0(sav2);
-    struct PlayerData *player_data = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct PlayerData *player_data = Save_PlayerData_GetProfileAddr(sav2);
     PlayerProfile_SetMoney(player_data, 3000);
-    FUN_0205ECD4(SavArray_Flags_get(sav2));
+    FUN_0205ECD4(SaveArray_Flags_Get(sav2));
 }

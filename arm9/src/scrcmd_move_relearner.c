@@ -45,7 +45,7 @@ THUMB_FUNC BOOL ScrCmd_Unk021E(struct ScriptContext* ctx) //021E
 THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
-    struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
+    struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     u16 *eligibleMoves = GetEligibleLevelUpMoves(pokemon, 32);
 
@@ -62,10 +62,10 @@ THUMB_FUNC void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* p
 
     moveRelearner->pokemon = pokemon;
 
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
-    moveRelearner->player = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
+    moveRelearner->player = Save_PlayerData_GetProfileAddr(sav2);
 
-    moveRelearner->options = Sav2_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2);
+    moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2);
     moveRelearner->eligibleMoves = eligibleMoves;
     moveRelearner->unk15 = a1;
     FUN_02038864(ctx->fieldSystem, moveRelearner);
@@ -83,7 +83,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0220(struct ScriptContext* ctx) //0220
 THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
 {
     u16 mon_idx = ScriptGetVar(ctx);
-    struct PlayerParty* party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
+    struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     u16 *eligibleMoves  = GetEligibleLevelUpMoves(pokemon, 32);
 
@@ -95,7 +95,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMo
 {
     u16 mon_idx = ScriptGetVar(ctx);
     u16 move = ScriptGetVar(ctx);
-    struct PlayerParty *party = SavArray_PlayerParty_get(ctx->fieldSystem->saveBlock2);
+    struct PlayerParty *party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
     struct Pokemon *pokemon = GetPartyMonByIndex(party, mon_idx);
 
     u16 *eligibleMoves = AllocFromHeap(32, 2 * sizeof(u16));

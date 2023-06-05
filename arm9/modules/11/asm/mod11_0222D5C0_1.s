@@ -706,7 +706,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	mov r1, #1
 	mov r2, #0xf
 	mov r3, #5
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	mov r1, #0x6a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -902,12 +902,12 @@ _0222DC42:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #5
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x14]
 	mov r0, #5
 	lsl r0, r0, #6
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x18]
 	ldr r0, [r4, #0x28]
 	mov r1, #0
@@ -1178,14 +1178,14 @@ _0222DFEC:
 	lsl r1, r1, #2
 	ldr r0, [r4, #0x58]
 	ldr r1, [r7, r1]
-	bl Sav2_Bag_copy
+	bl Save_Bag_Copy
 	ldr r0, [r4, #0x58]
 	bl FreeToHeap
 	mov r1, #0x11
 	lsl r1, r1, #4
 	ldr r0, [r4, #0x60]
 	ldr r1, [r7, r1]
-	bl Sav2_Pokedex_Copy
+	bl Save_Pokedex_Copy
 	ldr r0, [r4, #0x60]
 	bl FreeToHeap
 	mov r0, #0x45
@@ -1307,7 +1307,7 @@ _0222E10A:
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x71
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -1355,7 +1355,7 @@ _0222E1AC:
 	bl FUN_02002BB8
 	ldr r0, [r4, #8]
 	mov r1, #3
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	ldr r0, [r4, #4]
 	bl FreeToHeap
 	mov r0, #0x87
@@ -1369,7 +1369,7 @@ _0222E1AC:
 	mov r0, #0x6a
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 	mov r0, #2
 	bl FUN_02002CF8
 	ldr r0, [r4, #0x1c]
@@ -1741,7 +1741,7 @@ MOD11_0222E520: ; 0x0222E520
 	add r5, r1, #0
 _0222E532:
 	mov r0, #5
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	add r1, r0, #0
 	add r0, r5, #0
 	str r1, [r6, #0x48]
@@ -1758,23 +1758,23 @@ _0222E532:
 	cmp r7, #4
 	blt _0222E532
 	mov r0, #5
-	bl Sav2_Bag_new
+	bl Save_Bag_New
 	str r0, [r4, #0x58]
 	mov r1, #0x42
 	ldr r0, [sp, #4]
 	lsl r1, r1, #2
 	ldr r0, [r0, r1]
 	ldr r1, [r4, #0x58]
-	bl Sav2_Bag_copy
+	bl Save_Bag_Copy
 	mov r0, #5
-	bl Sav2_Pokedex_new
+	bl Save_Pokedex_New
 	str r0, [r4, #0x60]
 	mov r1, #0x11
 	ldr r0, [sp, #4]
 	lsl r1, r1, #4
 	ldr r0, [r0, r1]
 	ldr r1, [r4, #0x60]
-	bl Sav2_Pokedex_Copy
+	bl Save_Pokedex_Copy
 	mov r1, #0x45
 	lsl r1, r1, #2
 	ldr r0, [sp, #4]
@@ -1945,7 +1945,7 @@ _0222E69E:
 	mov r7, #5
 _0222E6D2:
 	add r0, r7, #0
-	bl SavArray_Party_alloc
+	bl SaveArray_Party_Alloc
 	str r0, [r5, #0x68]
 	add r6, r6, #1
 	add r5, r5, #4

@@ -283,7 +283,7 @@ _02042F0C: .word UNK_020F43E4
 FUN_02042F10: ; 0x02042F10
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl GetPartyCount
 	cmp r0, #0x6
 	bge _02042F24
@@ -322,7 +322,7 @@ FUN_02042F48: ; 0x02042F48
 	strh r0, [r2, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x4]
 	mov r1, #0x0
@@ -339,7 +339,7 @@ FUN_02042F6C: ; 0x02042F6C
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0xc]
 	ldr r0, [sp, #0x10]
 	mov r7, #0x0
@@ -640,7 +640,7 @@ _020431D4:
 	bl SetMonData
 	add r0, r5, #0x0
 	add r4, r7, #0x0
-	bl String_dtor
+	bl String_Delete
 _0204322C:
 	ldr r1, [sp, #0x8]
 	mov r0, #0x2
@@ -656,7 +656,7 @@ _0204322C:
 	bl CalcMonLevelAndStats
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r4, #0x0
 	bl AddMonToParty
 	cmp r0, #0x0
@@ -690,7 +690,7 @@ FUN_02043274: ; 0x02043274
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -736,7 +736,7 @@ FUN_020432C8: ; 0x020432C8
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -755,7 +755,7 @@ FUN_02043308: ; 0x02043308
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -775,7 +775,7 @@ FUN_02043330: ; 0x02043330
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -808,7 +808,7 @@ FUN_02043358: ; 0x02043358
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -827,7 +827,7 @@ FUN_02043394: ; 0x02043394
 	add r4, r1, #0x0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0x0
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r0, [r5, #0x0]
 	bl FUN_02042D04
 	ldr r0, [r0, #0x0]
@@ -876,7 +876,7 @@ FUN_020433DC: ; 0x020433DC
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -894,7 +894,7 @@ FUN_020433DC: ; 0x020433DC
 	mov r3, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x8
 	pop {r3-r7, pc}
 
@@ -949,7 +949,7 @@ FUN_0204346C: ; 0x0204346C
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -985,7 +985,7 @@ FUN_020434B0: ; 0x020434B0
 	b _020434E2
 _020434CA:
 	ldr r0, [r5, #0xc]
-	bl Sav2_SealCase_get
+	bl Save_SealCase_Get
 	add r1, r4, #0x0
 	mov r2, #0x1
 	bl FUN_02029DD4
@@ -1017,14 +1017,14 @@ FUN_020434E8: ; 0x020434E8
 	pop {r3-r5, pc}
 _02043502:
 	ldr r0, [r5, #0xc]
-	bl Sav2_SealCase_get
+	bl Save_SealCase_Get
 	add r1, r4, #0x0
 	mov r2, #0x1
 	bl FUN_02029D44
 	pop {r3-r5, pc}
 _02043512:
 	ldr r0, [r5, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	mov r2, #0x1
@@ -1032,7 +1032,7 @@ _02043512:
 	pop {r3-r5, pc}
 _02043526:
 	ldr r0, [r5, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	bl FUN_02027264
@@ -1077,7 +1077,7 @@ _02043574:
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1099,7 +1099,7 @@ FUN_020435A0: ; 0x020435A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -1117,12 +1117,12 @@ FUN_020435C4: ; 0x020435C4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02042D04
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	ldr r1, _020435F4 ; =0x000001C6
 	add r0, r5, #0x0
@@ -1151,7 +1151,7 @@ FUN_020435F8: ; 0x020435F8
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1172,7 +1172,7 @@ FUN_02043634: ; 0x02043634
 	add r4, r1, #0x0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0x0
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r0, [r5, #0x0]
 	bl FUN_02042D04
 	mov r2, #0x53
@@ -1191,7 +1191,7 @@ FUN_02043660: ; 0x02043660
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -1209,12 +1209,12 @@ FUN_02043684: ; 0x02043684
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02042D04
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x71
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -1243,7 +1243,7 @@ FUN_020436B8: ; 0x020436B8
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1263,7 +1263,7 @@ FUN_020436F0: ; 0x020436F0
 	add r4, r1, #0x0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0x0
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r0, [r5, #0x0]
 	bl FUN_02042D04
 	mov r2, #0x53
@@ -1282,7 +1282,7 @@ FUN_0204371C: ; 0x0204371C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
@@ -1300,12 +1300,12 @@ FUN_02043740: ; 0x02043740
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02042D04
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	ldr r1, _02043770 ; =0x000001C7
 	add r0, r5, #0x0
@@ -1334,7 +1334,7 @@ FUN_02043774: ; 0x02043774
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1355,7 +1355,7 @@ FUN_020437B0: ; 0x020437B0
 	add r4, r1, #0x0
 	ldr r0, [r0, #0xc]
 	add r6, r2, #0x0
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r0, [r5, #0x0]
 	bl FUN_02042D04
 	mov r2, #0x53
@@ -1374,12 +1374,12 @@ FUN_020437DC: ; 0x020437DC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
 	add r0, r4, #0x0
-	bl Sav2_Poketch_IsGiven
+	bl Save_Poketch_IsGiven
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1388,14 +1388,14 @@ FUN_020437F8: ; 0x020437F8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02042D04
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
 	add r0, r4, #0x0
-	bl Sav2_Poketch_UnlockApp
+	bl Save_Poketch_UnlockApp
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1415,7 +1415,7 @@ FUN_02043818: ; 0x02043818
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0
@@ -1441,7 +1441,7 @@ FUN_02043850: ; 0x02043850
 	strh r0, [r6, #0x0]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x4]
 	mov r1, #0x0

@@ -57,7 +57,7 @@ _021E33A0:
 	cmp r0, #0
 	beq _021E3414
 	ldr r0, [r5, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r6, r0, #0
 	ldr r0, _021E341C ; =SDK_OVERLAY_MODULE_19_ID
 	bl UnloadOverlayByID
@@ -65,7 +65,7 @@ _021E33A0:
 	mov r1, #2
 	bl HandleLoadOverlay
 	add r0, r6, #0
-	bl Sav2_Poketch_Give
+	bl Save_Poketch_Give
 	mov r0, #1
 	bl GetOamManager
 	str r0, [sp]

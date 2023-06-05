@@ -173,7 +173,7 @@ _0225499A:
 	add r0, #0x98
 	ldr r0, [r0]
 	ldr r1, [r6]
-	bl Sav2_Poketch_CalendarDateIsHighlighted
+	bl Save_Poketch_CalendarDateIsHighlighted
 	strb r0, [r5, #0xf]
 	add r0, r7, r4
 	strb r0, [r5, #0xe]
@@ -362,7 +362,7 @@ _02254AB8:
 	ldr r0, [r0]
 	ldr r1, [r5, #4]
 	add r2, r4, #1
-	bl Sav2_Poketch_CalendarDateIsHighlighted
+	bl Save_Poketch_CalendarDateIsHighlighted
 	cmp r0, #0
 	beq _02254B08
 	add r0, r5, #0
@@ -370,7 +370,7 @@ _02254AB8:
 	ldr r0, [r0]
 	ldr r1, [r5, #4]
 	add r2, r4, #1
-	bl Sav2_Poketch_CalendarDateUnhighlight
+	bl Save_Poketch_CalendarDateUnhighlight
 	b _02254B16
 _02254B08:
 	add r0, r5, #0
@@ -378,7 +378,7 @@ _02254B08:
 	ldr r0, [r0]
 	ldr r1, [r5, #4]
 	add r2, r4, #1
-	bl Sav2_Poketch_CalendarDateHighlight
+	bl Save_Poketch_CalendarDateHighlight
 _02254B16:
 	add r3, r5, #0
 	add r3, #0x13

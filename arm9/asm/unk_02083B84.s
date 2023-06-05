@@ -64,7 +64,7 @@ FUN_02083BAC: ; 0x02083BAC
 	ldr r0, [r4, #0x58]
 	add r0, r0, #0x1
 	str r0, [r4, #0x58]
-	bl SavArray_Party_sizeof
+	bl SaveArray_Party_sizeof
 	mov r1, #0x59
 	ldr r2, [r4, #0x58]
 	lsl r1, r1, #0x4

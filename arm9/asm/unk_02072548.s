@@ -418,7 +418,7 @@ FUN_020727FC: ; 0x020727FC
 	add r2, r6, #0x0
 	bl StringExpandPlaceholders
 	add r0, r6, #0x0
-	bl String_dtor
+	bl String_Delete
 	pop {r3-r7, pc}
 	nop
 _02072840: .word 0x0000069C
@@ -453,7 +453,7 @@ FUN_02072844: ; 0x02072844
 	bl AddWindowParameterized
 	ldr r0, [sp, #0x14]
 	mov r1, #0xc
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r1, _0207294C ; =0x000006F8
 	mov r6, #0x0
 	str r0, [r5, r1]
@@ -605,7 +605,7 @@ _0207297E:
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	pop {r4-r6, pc}
 	nop
 _020729C4: .word 0x000005A4
@@ -669,7 +669,7 @@ FUN_02072A00: ; 0x02072A00
 	add r2, r6, #0x0
 	bl StringExpandPlaceholders
 	add r0, r6, #0x0
-	bl String_dtor
+	bl String_Delete
 	pop {r3-r7, pc}
 	nop
 _02072A4C: .word 0x0000069C
@@ -1795,7 +1795,7 @@ _02073332:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, r6
 	bl ScheduleWindowCopyToVram
 	add sp, #0x14
@@ -1858,7 +1858,7 @@ _020733B4:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, r7
 	bl ScheduleWindowCopyToVram
 	add sp, #0x14
@@ -1906,7 +1906,7 @@ _02073416:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, r6
 	bl ScheduleWindowCopyToVram
 	add sp, #0x10
@@ -1964,7 +1964,7 @@ _02073490:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, r7
 	bl ScheduleWindowCopyToVram
 	add sp, #0x10
@@ -2071,7 +2071,7 @@ _0207356C:
 	add r3, r1, #0x0
 	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x18]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _02073630 ; =0x0000069C
 	mov r1, #0xbf
 	ldr r0, [r5, r0]
@@ -2099,7 +2099,7 @@ _0207356C:
 	ldr r2, [sp, #0x1c]
 	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	ldr r1, _02073638 ; =0x000006A4
 	mov r0, #0x0
 	ldr r1, [r5, r1]
@@ -2216,7 +2216,7 @@ _0207366E:
 	cmp r0, #0x6
 	blo _0207366E
 	ldr r0, [sp, #0xc]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x95
 	lsl r0, r0, #0x2
 	add r0, r5, r0

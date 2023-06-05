@@ -29,7 +29,7 @@ MOD86_021D74E0: ; 0x021D74E0
 	ldr r0, [r0, #4]
 	str r0, [r4, #4]
 	ldr r0, [r4, #8]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r4, #0xc]
 	mov r0, #0
 	add r1, r0, #0
@@ -484,7 +484,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x34]
 	ldr r0, [r4]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x38]
 	mov r1, #0
 	add r0, sp, #8
@@ -540,7 +540,7 @@ MOD86_021D7964: ; 0x021D7964
 	add r0, #0x14
 	bl RemoveWindow
 	ldr r0, [r4, #0x38]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x34]
 	bl DestroyMsgData
 	pop {r4, pc}
@@ -798,12 +798,12 @@ MOD86_021D7B80: ; 0x021D7B80
 	mov r0, #2
 	ldr r1, [r5]
 	lsl r0, r0, #8
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	mov r0, #2
 	ldr r1, [r5]
 	lsl r0, r0, #8
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	ldr r0, [r5, #0x34]
 	mov r1, #0
@@ -842,7 +842,7 @@ MOD86_021D7B80: ; 0x021D7B80
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _021D7C00
@@ -905,7 +905,7 @@ _021D7C02:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	nop

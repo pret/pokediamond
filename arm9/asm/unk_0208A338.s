@@ -19,15 +19,15 @@ FUN_0208A338: ; 0x0208A338
 	str r5, [r4, #0x0]
 	lsl r0, r0, #0x4
 	mov r1, #0x20
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x4]
 	mov r0, #0x19
 	lsl r0, r0, #0x4
 	mov r1, #0x20
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x8]
 	mov r0, #0x20
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0xc]
 	ldr r2, _0208A3C0 ; =0x00000171
 	mov r0, #0x1
@@ -75,11 +75,11 @@ FUN_0208A3C8: ; 0x0208A3C8
 	ldr r0, [r4, #0x14]
 	bl DestroyListMenuCursorObj
 	ldr r0, [r4, #0x4]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x8]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0xc]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	add r0, r4, #0x0
@@ -212,7 +212,7 @@ _0208A4E8:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl MailMsg_copy
+	bl MailMsg_Copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -224,7 +224,7 @@ _0208A502:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl MailMsg_copy
+	bl MailMsg_Copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -236,7 +236,7 @@ _0208A51C:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl MailMsg_copy
+	bl MailMsg_Copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -248,7 +248,7 @@ _0208A536:
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x48
-	bl MailMsg_copy
+	bl MailMsg_Copy
 	mov r0, #0x3
 	str r0, [r4, #0x54]
 	b _0208A6C8
@@ -465,7 +465,7 @@ _0208A6FA:
 	bl FUN_020545B8
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02054608
@@ -481,7 +481,7 @@ _0208A722:
 _0208A734:
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	ldr r1, [r5, #0x8]
 	add r0, r4, #0x0

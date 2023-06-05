@@ -704,7 +704,7 @@ MOD47_02254D14: ; 0x02254D14
 	str r0, [r4, #0x58]
 	mov r0, #0x60
 	mov r1, #8
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x5c]
 	add r0, r4, #0
 	add r1, r5, #0
@@ -725,7 +725,7 @@ MOD47_02254D6C: ; 0x02254D6C
 	add r4, r0, #0
 	beq _02254D8A
 	ldr r0, [r4, #0x5c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x58]
 	bl DestroyMsgData
 	add r0, r4, #0

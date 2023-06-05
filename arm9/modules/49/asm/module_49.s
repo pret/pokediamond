@@ -50,7 +50,7 @@ MOD49_0225489C: ; 0x0225489C
 	str r2, [sp, #8]
 	bl MOD20_02252C3C
 	str r0, [sp, #0xc]
-	bl Sav2_Poketch_PokemonHistoryGetFirstEmptySlot
+	bl Save_Poketch_PokemonHistoryGetFirstEmptySlot
 	mov r6, #0
 	str r0, [r7, #0x64]
 	cmp r0, #0
@@ -63,7 +63,7 @@ _022548C0:
 	add r1, r6, #0
 	add r2, r5, #0
 	add r3, r4, #0
-	bl Sav2_Poketch_PokemonHistoryGetSlotN
+	bl Save_Poketch_PokemonHistoryGetSlotN
 	ldr r0, [r7, #0x64]
 	add r6, r6, #1
 	add r4, #8
@@ -452,7 +452,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	add r0, sp, #0x1c
 	bl CopyWindowPixelsToVram_TextMode
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 _02254B94:
 	add r0, sp, #0x1c
 	bl RemoveWindow

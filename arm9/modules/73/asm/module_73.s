@@ -829,7 +829,7 @@ _021D7B98:
 _021D7BA8:
 	ldr r0, [r6, #0x10]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	ldr r1, _021D7C90 ; =0x00001428
 	ldr r1, [r4, r1]
 	cmp r1, #0
@@ -2831,12 +2831,12 @@ MOD73_021D8BDC: ; 0x021D8BDC
 	ldr r2, [r5]
 	mov r0, #4
 	mov r1, #0x40
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	ldr r1, _021D8CE8 ; =0x00001578
 	str r0, [r5, r1]
 	ldr r1, [r5]
 	mov r0, #0x40
-	bl String_ctor
+	bl String_New
 	ldr r1, _021D8CEC ; =0x0000157C
 	str r0, [r5, r1]
 	sub r1, #8
@@ -2958,44 +2958,44 @@ MOD73_021D8D18: ; 0x021D8D18
 	add r6, r0, #0
 	ldr r0, _021D8DBC ; =0x000015A8
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DC0 ; =0x000015A4
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DC4 ; =0x00001594
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DC8 ; =0x00001590
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DCC ; =0x0000158C
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DD0 ; =0x00001588
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DD4 ; =0x00001584
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x56
 	lsl r0, r0, #6
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DD8 ; =0x00001598
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DDC ; =0x0000159C
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DE0 ; =0x000015A0
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r7, _021D8DE4 ; =0x000015AC
 	mov r4, #0
 	add r5, r6, #0
 _021D8D7C:
 	ldr r0, [r5, r7]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
@@ -3006,17 +3006,17 @@ _021D8D7C:
 	lsl r7, r7, #6
 _021D8D92:
 	ldr r0, [r4, r7]
-	bl String_dtor
+	bl String_Delete
 	add r5, r5, #1
 	add r4, r4, #4
 	cmp r5, #0xa
 	blt _021D8D92
 	ldr r0, _021D8DE8 ; =0x0000157C
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8DEC ; =0x00001578
 	ldr r0, [r6, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, _021D8DF0 ; =0x00001574
 	ldr r0, [r6, r0]
 	bl DestroyMsgData
@@ -5020,12 +5020,12 @@ MOD73_021D9C7C: ; 0x021D9C7C
 	bl RemoveWindow
 	ldr r0, [r4, #8]
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	ldr r0, [r4, #0xc]
 	bl RemoveWindow
 	ldr r0, [r4, #0xc]
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021D9C7C
@@ -5976,7 +5976,7 @@ _021DA35C:
 	bl RemoveWindow
 	ldr r0, [r5, #8]
 	add r1, r6, #0
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #4

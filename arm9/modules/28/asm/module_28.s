@@ -57,7 +57,7 @@ MOD28_0225489C: ; 0x0225489C
 	strb r0, [r7, #2]
 	str r4, [r7, #0x60]
 	bl FUN_020225F8
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	mov r1, #0
 	str r0, [sp, #4]
 	str r1, [sp]

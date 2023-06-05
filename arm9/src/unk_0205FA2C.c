@@ -37,11 +37,11 @@ THUMB_FUNC u32 FUN_0205FA2C(
     struct SaveBlock2 *sav2 = fieldSystem->saveBlock2;
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
-    ptr->options = Sav2_PlayerData_GetOptionsAddr(sav2);
+    ptr->options = Save_PlayerData_GetOptionsAddr(sav2);
 
-    ptr->player_party = SavArray_PlayerParty_get(sav2);
+    ptr->player_party = SaveArray_PlayerParty_Get(sav2);
 
-    ptr->bag = Sav2_Bag_get(sav2);
+    ptr->bag = Save_Bag_Get(sav2);
 
     ptr->unk21 = 0;
     ptr->unk20 = param0->unk08;
@@ -106,9 +106,9 @@ THUMB_FUNC u32 FUN_0205FB34(
         heap_id, sizeof(struct UnkPlayerStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct2_0205FA2C));
 
-    ptr->options = Sav2_PlayerData_GetOptionsAddr(sav2);
-    ptr->player_party = SavArray_PlayerParty_get(sav2);
-    ptr->IsNatDex = SavArray_IsNatDexEnabled(sav2);
+    ptr->options = Save_PlayerData_GetOptionsAddr(sav2);
+    ptr->player_party = SaveArray_PlayerParty_Get(sav2);
+    ptr->IsNatDex = SaveArray_IsNatDexEnabled(sav2);
     ptr->unk2c = FUN_02079C70(sav2);
 
     ptr->unk11 = 1;
@@ -123,7 +123,7 @@ THUMB_FUNC u32 FUN_0205FB34(
 
     FUN_0207B000(ptr, UNK_020F7454);
 
-    FUN_0207C2A4(ptr, Sav2_PlayerData_GetProfileAddr(sav2));
+    FUN_0207C2A4(ptr, Save_PlayerData_GetProfileAddr(sav2));
 
     FUN_020373D4(fieldSystem, &UNK_020FA6E8, ptr);
 
@@ -314,7 +314,7 @@ THUMB_FUNC void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 pa
 THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)
 {
 
-    u16 res = (u16) GameStats_GetCapped(Sav2_GameStats_get(sav2), 0x35);
+    u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(sav2), 0x35);
     if (res < 20)
     {
         return 0;
@@ -394,7 +394,7 @@ THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)
 
 THUMB_FUNC u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
 {
-    u16 res = (u16) GameStats_GetCapped(Sav2_GameStats_get(sav2), 0x35);
+    u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(sav2), 0x35);
     if (res < 20)
     {
         return 0;

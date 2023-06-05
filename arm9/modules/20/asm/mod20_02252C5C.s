@@ -161,7 +161,7 @@ MOD20_02252D7C: ; 0x02252D7C
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	bl MOD20_02252C3C
-	bl Sav2_Poketch_GetScreenTint
+	bl Save_Poketch_GetScreenTint
 	mov r1, #0x62
 	lsl r1, r1, #2
 	add r5, r4, r1
@@ -186,7 +186,7 @@ MOD20_02252DB4: ; 0x02252DB4
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	bl MOD20_02252C3C
-	bl Sav2_Poketch_GetScreenTint
+	bl Save_Poketch_GetScreenTint
 	mov r1, #0x62
 	lsl r0, r0, #5
 	lsl r1, r1, #2
@@ -214,7 +214,7 @@ MOD20_02252DEC: ; 0x02252DEC
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	bl MOD20_02252C3C
-	bl Sav2_Poketch_GetScreenTint
+	bl Save_Poketch_GetScreenTint
 	mov r1, #0x62
 	lsl r1, r1, #2
 	add r1, r4, r1
@@ -1093,7 +1093,7 @@ MOD20_022534D4: ; 0x022534D4
 	ldr r0, [r5, r0]
 	add r4, r1, #0
 	bl MOD20_02252C3C
-	bl Sav2_Poketch_GetScreenTint
+	bl Save_Poketch_GetScreenTint
 	mov r1, #0x62
 	lsl r0, r0, #5
 	lsl r1, r1, #2

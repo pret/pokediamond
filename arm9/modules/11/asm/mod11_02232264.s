@@ -19410,7 +19410,7 @@ _0223BBEE:
 	ldr r0, _0223BF18 ; =UNK_020FA5FC
 	add r1, r5, #0
 	mov r2, #5
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r4, #0x50]
 	mov r0, #0x15
 	str r0, [r4, #0x28]
@@ -19446,7 +19446,7 @@ _0223BC62:
 	add r0, r5, #0
 	bl FUN_02077AC4
 	ldr r0, [r4, #0x50]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	ldr r0, [r4]
 	mov r1, #2
 	bl MOD11_02231338
@@ -21825,7 +21825,7 @@ _0223CF5C:
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, sp, #0x68
 	bl InitWindow
 	mov r0, #0

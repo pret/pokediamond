@@ -177,12 +177,12 @@ FUN_0206C700: ; 0x0206C700
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x8]
 	add r0, r5, #0x0
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0xc]
 	mov r0, #0x5
 	lsl r0, r0, #0x6
 	add r1, r5, #0x0
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
 	mov r1, #0x30
@@ -297,7 +297,7 @@ FUN_0206C92C: ; 0x0206C92C
 	bl Main_SetVBlankIntrCB
 	ldr r0, [r4, #0x4]
 	mov r1, #0x1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	ldr r0, [r4, #0x14]
 	mov r1, #0x0
 	bl PaletteData_FreeBuffers
@@ -323,7 +323,7 @@ FUN_0206C92C: ; 0x0206C92C
 	ldr r0, [r4, #0x8]
 	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x10]
 	bl FreeToHeap
 	ldr r0, [r4, #0x3c]
@@ -1107,7 +1107,7 @@ _0206CFFA:
 	bl FUN_020690E4
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x54]
-	bl Sav2_Poketch_PokemonHistoryAddMon
+	bl Save_Poketch_PokemonHistoryAddMon
 	ldr r0, [r4, #0x28]
 	mov r1, #0x4d
 	mov r2, #0x0
@@ -1432,7 +1432,7 @@ _0206D2EC:
 	b _0206D806
 _0206D2EE:
 	ldr r0, [r4, #0x38]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	ldr r1, [r4, #0x0]
 	add r0, r4, #0x0
 	bl FUN_0206D9B4
@@ -2169,7 +2169,7 @@ _0206D8EA:
 	add r2, sp, #0x0
 	bl SetMonData
 	ldr r0, [r4, #0x5c]
-	bl Mail_new
+	bl Mail_New
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa9
@@ -2209,7 +2209,7 @@ _0206D8EA:
 	bl FUN_020690E4
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x54]
-	bl Sav2_Poketch_PokemonHistoryAddMon
+	bl Save_Poketch_PokemonHistoryAddMon
 	add r0, r5, #0x0
 	bl FreeToHeap
 	ldr r0, [r4, #0x4c]
@@ -2743,7 +2743,7 @@ FUN_0206DE0C: ; 0x0206DE0C
 	ldr r0, _0206DE20 ; =UNK_020FA6E8
 	ldr r1, [r4, #0x3c]
 	ldr r2, [r4, #0x5c]
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r4, #0x38]
 	pop {r4, pc}
 	nop

@@ -448,7 +448,7 @@ FUN_0205F5FC: ; 0x0205F5FC
 FUN_0205F618: ; 0x0205F618
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0202881C
@@ -487,7 +487,7 @@ _0205F664: .word 0x00004041
 	thumb_func_start FUN_0205F668
 FUN_0205F668: ; 0x0205F668
 	push {r4, lr}
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	bl LCRandom
 	mov r1, #0x62

@@ -270,7 +270,7 @@ void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, in
     MonEncryptSegment((u16 *)&pokemon->party, sizeof(pokemon->party), 0);
     ENCRYPT_PTY(pokemon);
     SetMonData(pokemon, MON_DATA_LEVEL, &level);
-    mail = Mail_new(0);
+    mail = Mail_New(0);
     SetMonData(pokemon, MON_DATA_MAIL_STRUCT, mail);
     FreeToHeap(mail);
     capsule = 0;
@@ -565,10 +565,10 @@ u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * dest)
     case MON_DATA_SPDEF:
         return pokemon->party.spdef;
     case MON_DATA_MAIL_STRUCT:
-        Mail_copy(&pokemon->party.mail, dest);
+        Mail_Copy(&pokemon->party.mail, dest);
         return 1;
     case MON_DATA_SEAL_COORDS:
-        CapsuleArray_copy(&pokemon->party.sealCoords, dest);
+        CapsuleArray_Copy(&pokemon->party.sealCoords, dest);
         return 1;
     default:
         return GetBoxMonDataInternal(&pokemon->box, attr, dest);
@@ -870,7 +870,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         {
             struct String * buffer = GetSpeciesName(SPECIES_MANAPHY_EGG, 0);
             StringCopy(dest, buffer);
-            String_dtor(buffer);
+            String_Delete(buffer);
         }
         else
         {
@@ -1053,10 +1053,10 @@ void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * value)
         pokemon->party.spdef = VALUE(u16);
         break;
     case MON_DATA_MAIL_STRUCT:
-        Mail_copy((const struct Mail *)value, &pokemon->party.mail);
+        Mail_Copy((const struct Mail *)value, &pokemon->party.mail);
         break;
     case MON_DATA_SEAL_COORDS:
-        CapsuleArray_copy((CapsuleArray *)value, &pokemon->party.sealCoords);
+        CapsuleArray_Copy((CapsuleArray *)value, &pokemon->party.sealCoords);
         break;
     default:
         SetBoxMonDataInternal(&pokemon->box, attr, value);
@@ -1430,7 +1430,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
     case MON_DATA_SPECIES_NAME:
         speciesName = GetSpeciesName(blockA->species, 0);
         CopyStringToU16Array(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
-        String_dtor(speciesName);
+        String_Delete(speciesName);
         break;
     }
 #undef VALUE
@@ -3003,7 +3003,7 @@ void CopyBoxPokemonToPokemon(struct BoxPokemon * src, struct Pokemon * dest)
     SetMonData(dest, MON_DATA_STATUS, &sp0);
     SetMonData(dest, MON_DATA_HP, &sp0);
     SetMonData(dest, MON_DATA_MAXHP, &sp0);
-    mail = Mail_new(0);
+    mail = Mail_New(0);
     SetMonData(dest, MON_DATA_MAIL_STRUCT, mail);
     FreeToHeap(mail);
     SetMonData(dest, MON_DATA_CAPSULE, &sp0);
@@ -3690,13 +3690,13 @@ BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct PlayerData * sb2, u32 heap_
     u32 myGender = PlayerProfile_GetTrainerGender(sb2);
     u32 otGender = GetBoxMonData(boxmon, MON_DATA_MET_GENDER, NULL);
     struct String * r7 = PlayerProfile_GetPlayerName_NewString(sb2, heap_id);
-    struct String * r6 = String_ctor(OT_NAME_LENGTH + 1, heap_id);
+    struct String * r6 = String_New(OT_NAME_LENGTH + 1, heap_id);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
     if (myId == otId && myGender == otGender && StringCompare(r7, r6) == 0)
         ret = TRUE;
-    String_dtor(r6);
-    String_dtor(r7);
+    String_Delete(r6);
+    String_Delete(r7);
     return ret;
 }
 

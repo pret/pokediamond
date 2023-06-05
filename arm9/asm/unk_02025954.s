@@ -549,7 +549,7 @@ _02025CE8:
 	cmp r0, #0x0
 	beq _02025D32
 	add r0, r1, #0x0
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	ldr r1, [sp, #0x0]
 	add r6, r0, #0x0
 	add r1, r7, r1
@@ -2887,17 +2887,17 @@ FUN_02026CA0: ; 0x02026CA0
 
 	thumb_func_start FUN_02026CA8
 FUN_02026CA8: ; 0x02026CA8
-	ldr r3, _02026CB0 ; =SavArray_get
+	ldr r3, _02026CB0 ; =SaveArray_Get
 	mov r1, #0xc
 	bx r3
 	nop
-_02026CB0: .word SavArray_get
+_02026CB0: .word SaveArray_Get
 
 	thumb_func_start FUN_02026CB4
 FUN_02026CB4: ; 0x02026CB4
 	push {r3, lr}
 	mov r1, #0xc
-	bl SavArray_get
+	bl SaveArray_Get
 	add r0, #0x50
 	pop {r3, pc}
 
@@ -2908,8 +2908,8 @@ FUN_02026CC0: ; 0x02026CC0
 
 	thumb_func_start FUN_02026CC4
 FUN_02026CC4: ; 0x02026CC4
-	ldr r3, _02026CCC ; =SavArray_get
+	ldr r3, _02026CCC ; =SaveArray_Get
 	mov r1, #0xc
 	bx r3
 	nop
-_02026CCC: .word SavArray_get
+_02026CCC: .word SaveArray_Get

@@ -16,7 +16,7 @@ ScrCmd_Unk024E: ; 0x02041194
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -74,7 +74,7 @@ ScrCmd_Unk024F: ; 0x020411C4
 	bl VarGet
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl GetPartyCount
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
@@ -85,7 +85,7 @@ ScrCmd_Unk024F: ; 0x020411C4
 	beq _02041286
 _0204123C:
 	ldr r0, [r7, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r5, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x4c
@@ -219,7 +219,7 @@ ScrCmd_Unk0250: ; 0x02041340
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F5FC
 	mov r0, #0x0
 	pop {r3, pc}

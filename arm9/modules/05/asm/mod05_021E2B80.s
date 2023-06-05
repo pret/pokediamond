@@ -204,7 +204,7 @@ MOD05_ScriptContext_GetTextFrameDelay: ; 0x021E2D00
 	add r0, #0x80
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetTextFrameDelay
 	pop {r3, pc}
 	.balign 4, 0
@@ -286,7 +286,7 @@ MOD05_CreateMessageBox: ; 0x021E2D9C
 	mov r2, #3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_02054608
@@ -324,7 +324,7 @@ MOD05_ExpandEasyChatMessage: ; 0x021E2DF0
 	add r6, r2, #0
 	add r0, sp, #0
 	add r7, r3, #0
-	bl MailMsg_init
+	bl MailMsg_Init
 	add r0, sp, #0
 	add r1, r4, #0
 	add r2, r6, #0
@@ -346,7 +346,7 @@ MOD05_ExpandEasyChatMessage: ; 0x021E2DF0
 	add r1, r4, #0
 	bl StringCopy
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
