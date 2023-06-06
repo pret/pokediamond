@@ -8,7 +8,7 @@
 #include <sstream>
 using std::string; using std::to_string;
 
-#include <inja.hpp>
+#include "inja.hpp"
 using namespace inja;
 using json = nlohmann::json;
 
@@ -130,6 +130,41 @@ int main(int argc, char *argv[])
 
     env.add_void_callback("log", 1, [](Arguments& args) {
         std::cout << args.at(0)->get<int>() << std::endl;
+    });
+
+    env.add_callback("fmtInt", 3, [](Arguments& args) {
+        int num = args.at(0)->get<int>();
+        int ndigits = args.at(1)->get<int>();
+        int format = args.at(2)->get<int>();
+        char buf[ndigits + 1];
+        bool printing_zeros = (format == 2);
+        int pow10 = 1;
+        for (int i = 1; i < ndigits; i++) {
+            pow10 *= 10;
+        }
+        char *ptr = buf;
+        while (pow10 > 0) {
+            div_t div_result = div(num, pow10);
+            num = div_result.rem;
+            pow10 /= 10;
+            if (div_result.quot != 0) {
+                printing_zeros = true;
+            } else if (!printing_zeros) {
+                if (pow10 == 0) {
+                    printing_zeros = true;
+                } else {
+                    if (format == 1) {
+                        *ptr++ = ' ';
+                    }
+                    continue;
+                }
+            }
+            if (div_result.quot != 0 || printing_zeros) {
+                *ptr++ = '0' + div_result.quot;
+            }
+        }
+        *ptr = 0;
+        return string{buf};
     });
 
     try

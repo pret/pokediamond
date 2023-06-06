@@ -1,8 +1,22 @@
 CHARMAP = charmap.txt
 
+MSGDATA_DIR := files/msgdata
+MSGDATA_MSG_DIR := $(MSGDATA_DIR)/msg
+
+TRNAME_GMM := $(MSGDATA_MSG_DIR)/narc_0559.gmm
+MSGFILE_GMM := $(sort $(wildcard $(MSGDATA_MSG_DIR)/*.gmm) $(TRNAME_GMM))
+MSGFILE_BIN := $(patsubst %.gmm,%.bin,$(MSGFILE_GMM))
+MSGFILE_H := $(patsubst %.gmm,%.h,$(MSGFILE_GMM))
+
+$(MSGFILE_H): %.h: %.bin
+
 ## Trainer names
-files/msgdata/msg/narc_0559.txt: files/poketool/trainer/trdata.json
-	(echo " -"; $(GREP) -w '"name":' $< | cut -d'"' -f4) | $(SED) 's/^(.+)$$/{TRNAME}\1\r/g' > $@
+$(TRNAME_GMM): files/poketool/trainer/trdata.json files/poketool/trainer/trname.json.txt
+	$(JSONPROC) $^ $@
+	$(SED) -i 's/&/&amp;/g' $@
+
+$(MSGFILE_BIN): %.bin: %.gmm $(CHARMAP)
+	$(MSGENC) $(MSGENCFLAGS) -e -c $(CHARMAP) --gmm -H $*.h $< $@
 
 files/msgdata/msg/%.bin: files/msgdata/msg/%.txt $(CHARMAP)
 	$(MSGENC) $(MSGENCFLAGS) -e -c $(CHARMAP) $< $@
@@ -631,3 +645,5 @@ files/msgdata/msg/narc_0620.bin: MSGENCFLAGS = -k 0x1395
 files/msgdata/msg/narc_0621.bin: MSGENCFLAGS = -k 0xbea9
 files/msgdata/msg/narc_0622.bin: MSGENCFLAGS = -k 0x7df9
 files/msgdata/msg/narc_0623.bin: MSGENCFLAGS = -k 0x5938
+
+FS_CLEAN_LIST += $(TRNAME_GMM) $(MSGFILE_H)

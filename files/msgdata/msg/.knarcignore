@@ -2,3 +2,5 @@
 *.pal
 *.txt
 *.key
+*.h
+*.gmm
