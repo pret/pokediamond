@@ -19,7 +19,7 @@ static inline void usage() {
     cout << endl;
     cout << "INFILE        Required: Path to the input file to convert (-e: plaintext; -d: binary)." << endl;
     cout << "OUTFILE       Required: Path to the output file (-e: binary; -d: plaintext)." << endl;
-    cout << "-c CHARMAP    Required: Path to a text file with a character mapping, for example pokeheartgold/charmap.txt." << endl;
+    cout << "-c CHARMAP    Required: Path to a text file with a character mapping, for example pokediamond/charmap.txt." << endl;
     cout << "-d            Decode from binary to text, also print the key" << endl;
     cout << "-e            Encode from text to binary using the provided key" << endl;
     cout << "--gmm         Text file is GMM (Gamefreak XML format)" << endl;
