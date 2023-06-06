@@ -435,7 +435,7 @@ MOD43_02254B60: ; 0x02254B60
 	add r5, r0, #0
 	add r0, r1, #0
 	bl MOD20_02252C40
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0
 	mov r4, #0
 _02254B72:
@@ -673,7 +673,7 @@ MOD43_02254CD0: ; 0x02254CD0
 	add r0, sp, #0x14
 	bl RemoveWindow
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 _02254D44:
 	add sp, #0x24
 	pop {r3, r4, r5, r6, pc}

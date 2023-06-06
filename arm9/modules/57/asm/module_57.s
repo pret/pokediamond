@@ -579,12 +579,12 @@ MOD57_021D79AC: ; 0x021D79AC
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x19
-	bl String_ctor
+	bl String_New
 	ldr r1, _021D79E8 ; =0x00003308
 	str r0, [r5, r1]
 	mov r0, #5
 	mov r1, #0x19
-	bl String_ctor
+	bl String_New
 	ldr r1, _021D79EC ; =0x0000330C
 	ldr r2, _021D79F0 ; =0x0000022D
 	str r0, [r5, r1]
@@ -612,10 +612,10 @@ MOD57_021D79F4: ; 0x021D79F4
 	add r4, r0, #0
 	ldr r0, _021D7A0C ; =0x00003308
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D7A10 ; =0x0000330C
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, pc}
 	nop
 _021D7A0C: .word 0x00003308
@@ -2758,7 +2758,7 @@ MOD57_021D89F0: ; 0x021D89F0
 	str r0, [sp, #0x14]
 	mov r0, #0x20
 	mov r1, #0x19
-	bl String_ctor
+	bl String_New
 	add r5, r0, #0
 	mov r4, #0
 _021D8AA8:
@@ -2797,12 +2797,12 @@ _021D8AE0:
 	blo _021D8AA8
 	mov r0, #0x20
 	mov r1, #0x19
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x10]
 	mov r0, #6
 	mov r1, #0x20
 	mov r2, #0x19
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	mov r2, #0
 	str r5, [sp]
 	add r4, r0, #0
@@ -3012,11 +3012,11 @@ _021D8C32:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
 	add sp, #0x18
@@ -3081,7 +3081,7 @@ MOD57_021D8CF8: ; 0x021D8CF8
 	add r7, r0, #0
 	mov r0, #0x20
 	mov r1, #0x19
-	bl String_ctor
+	bl String_New
 	add r5, r0, #0
 	mov r4, #7
 _021D8D72:
@@ -3111,12 +3111,12 @@ _021D8D72:
 	blo _021D8D72
 	mov r0, #0x20
 	mov r1, #0x19
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x14]
 	mov r0, #5
 	mov r1, #0x20
 	mov r2, #0x19
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	ldr r1, [sp, #0x10]
 	add r4, r0, #0
 	add r1, #0x33
@@ -3329,11 +3329,11 @@ _021D8E74:
 	add r3, r2, #0
 	bl MOD57_021D8FD8
 	ldr r0, [sp, #0x14]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	add sp, #0x18
@@ -3464,16 +3464,16 @@ _021D906E:
 	str r0, [sp, #0x10]
 	mov r0, #0x20
 	mov r1, #0x19
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	mov r0, #0x20
 	mov r1, #0x19
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x14]
 	mov r0, #2
 	mov r1, #0x20
 	mov r2, #0x19
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	add r6, r0, #0
 	ldr r0, [r5, #0x18]
 	bl GetIGTHours
@@ -3521,11 +3521,11 @@ _021D906E:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x14]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -3685,7 +3685,7 @@ _021D91BC:
 	stmia r2!, {r0, r1}
 	mov r0, #0x33
 	mov r1, #0x19
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x14]
 	mov r0, #0x1e
 	lsl r0, r0, #4
@@ -3727,7 +3727,7 @@ _021D92CE:
 	cmp r4, #8
 	blo _021D9290
 	ldr r0, [sp, #0x14]
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers

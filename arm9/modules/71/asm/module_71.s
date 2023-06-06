@@ -45,17 +45,17 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	mov r0, #0xc
 	mov r1, #0x16
 	mov r2, #0x1a
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	mov r1, #0x5e
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x1a
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r1, #0x5f
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x1a
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r2, #6
 	lsl r2, r2, #6
 	str r0, [r4, r2]
@@ -247,11 +247,11 @@ MOD71_0222D780: ; 0x0222D780
 	mov r3, #0
 	bl MOD71_02230EFC
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -559,7 +559,7 @@ _0222DAAE:
 	cmp r0, #0
 	beq _0222DB32
 	ldr r0, [r4, #0x40]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	add r0, r4, #0
 	bl MOD71_0222D820
 	add r0, r6, #0
@@ -697,7 +697,7 @@ _0222DBB0:
 	mov r3, #0
 	bl MOD71_02230EFC
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x10]
 	add r5, #0x10
 	add r4, r4, #1
@@ -1161,7 +1161,7 @@ _0222DF74:
 	b _0222E0E8
 _0222DF80:
 	ldr r0, [r4, #4]
-	bl Sav2_Chatot_get
+	bl Save_Chatot_Get
 	bl MOD71_0222F528
 	ldr r0, [r4, #0x4c]
 	add r0, r0, #1
@@ -1733,7 +1733,7 @@ MOD71_0222E438: ; 0x0222E438
 	mov r0, #0x19
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _0222E4D4 ; =0x0000221C
 	ldr r0, [r4, r0]
 	bl FreeToHeap
@@ -1758,19 +1758,19 @@ MOD71_0222E438: ; 0x0222E438
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x5e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0
@@ -2143,7 +2143,7 @@ MOD71_0222E76C: ; 0x0222E76C
 	str r0, [r5, r1]
 	ldr r0, [r4, #0x10]
 	str r0, [r5, #4]
-	bl SavArray_Party_sizeof
+	bl SaveArray_Party_sizeof
 	add r1, r0, #0
 	mov r0, #0x1a
 	bl AllocFromHeap
@@ -2152,7 +2152,7 @@ MOD71_0222E76C: ; 0x0222E76C
 	ldr r0, [r5, r1]
 	mov r1, #6
 	bl InitPartyWithMaxSize
-	bl SavArray_Party_sizeof
+	bl SaveArray_Party_sizeof
 	add r2, r0, #0
 	ldr r0, _0222E844 ; =0x0000221C
 	mov r1, #0xff
@@ -2690,7 +2690,7 @@ MOD71_0222EC5C: ; 0x0222EC5C
 	mov r0, #0x14
 	mov r1, #0x1a
 	str r3, [sp, #8]
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r7, #0
@@ -2711,7 +2711,7 @@ MOD71_0222EC5C: ; 0x0222EC5C
 	mov r3, #0
 	bl MOD71_02230EFC
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD71_0222EC5C
@@ -2902,7 +2902,7 @@ _0222EE14:
 	bne _0222EE9A
 	mov r0, #0xa
 	mov r1, #0x1a
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	add r0, r5, #0
 	add r0, #0x1c
@@ -2951,7 +2951,7 @@ _0222EE14:
 	str r3, [sp, #4]
 	bl MOD71_02230EFC
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	b _0222EEA6
 _0222EE9A:
 	add r0, r5, #0
@@ -2988,7 +2988,7 @@ _0222EEA6:
 	bl FillWindowPixelBuffer
 	mov r0, #0x14
 	mov r1, #0x1a
-	bl String_ctor
+	bl String_New
 	add r1, r7, #0
 	mov r2, #0x1a
 	add r5, r0, #0
@@ -3002,7 +3002,7 @@ _0222EEA6:
 	str r3, [sp, #4]
 	bl MOD71_02230EFC
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x38
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3446,7 +3446,7 @@ MOD71_0222F264: ; 0x0222F264
 	cmp r0, r1
 	bne _0222F2AE
 	ldr r0, [r4, #4]
-	bl Sav2_Chatot_get
+	bl Save_Chatot_Get
 	mov r1, #0
 	mov r2, #0x64
 	add r3, r1, #0
@@ -3937,7 +3937,7 @@ _0222F606:
 	ldr r0, _0222F670 ; =UNK_020FA6E8
 	add r1, #0xc
 	mov r2, #0x1a
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r5, #0x40]
 	str r4, [r5, #0x3c]
 	pop {r3, r4, r5, pc}
@@ -4348,7 +4348,7 @@ _0222F9A0:
 	ldr r0, _0222FA24 ; =0x00003670
 	str r4, [r5, r0]
 	mov r0, #0x1a
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	add r6, r0, #0
 	ldr r0, _0222FA28 ; =0x00003694
 	add r1, r4, #0
@@ -4386,7 +4386,7 @@ _0222F9E4:
 	bl DestroyListMenu
 	ldr r0, _0222FA34 ; =0x0000367C
 	ldr r0, [r5, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4412,12 +4412,12 @@ MOD71_0222FA38: ; 0x0222FA38
 	str r0, [sp]
 	add r0, r0, #1
 	mov r1, #0x1a
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r1, _0222FAD0 ; =0x0000367C
 	str r0, [r5, r1]
 	mov r0, #0x64
 	mov r1, #0x1a
-	bl String_ctor
+	bl String_New
 	ldr r7, _0222FACC ; =0x00003694
 	add r6, r0, #0
 	mov r4, #0
@@ -4452,7 +4452,7 @@ _0222FA8A:
 	sub r3, #0xd
 	bl ListMenuItems_AppendFromMsgData
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r2, _0222FAD0 ; =0x0000367C
 	mov r3, #0x5d
 	lsl r3, r3, #2
@@ -4660,7 +4660,7 @@ _0222FC2C:
 	bl DestroyMsgData
 	ldr r0, _0222FCEC ; =0x00003674
 	ldr r0, [r6, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x13
 	bl FUN_02031588
 	mov r3, #0x5e
@@ -4681,7 +4681,7 @@ _0222FC2C:
 	pop {r3, r4, r5, r6, r7, pc}
 _0222FC70:
 	ldr r0, [r6, #4]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r1, _0222FCFC ; =0x000001B5
 	mov r2, #1
 	mov r3, #0x1a
@@ -4779,7 +4779,7 @@ MOD71_0222FD08: ; 0x0222FD08
 	pop {r3, r4, pc}
 _0222FD48:
 	mov r0, #0x1a
-	bl MessageFormat_new
+	bl MessageFormat_New
 	ldr r1, _0222FD88 ; =0x00003674
 	ldr r2, _0222FD8C ; =0x00000251
 	str r0, [r4, r1]
@@ -4909,7 +4909,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	bl MOD71_02230F40
 	mov r0, #3
 	mov r1, #0x1a
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r1, _0222FED8 ; =0x0000065C
 	mov r2, #0x11
 	str r0, [r4, r1]
@@ -5024,7 +5024,7 @@ _0222FF10:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	ldr r1, _02230010 ; =MOD71_0222F538
 	ldr r0, _02230014 ; =0x00002214
 	add sp, #0x10
@@ -5063,7 +5063,7 @@ _0222FF64:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	ldr r1, _0223001C ; =MOD71_02230020
 	ldr r0, _02230014 ; =0x00002214
 	str r1, [r4, r0]
@@ -5100,7 +5100,7 @@ _0222FFB4:
 	bl FUN_02001C5C
 	ldr r0, _0223000C ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	ldr r1, _02230010 ; =MOD71_0222F538
 	ldr r0, _02230014 ; =0x00002214
 	str r1, [r4, r0]
@@ -6155,7 +6155,7 @@ MOD71_02230810: ; 0x02230810
 	bl MOD71_02230F40
 	mov r0, #2
 	mov r1, #0x1a
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r1, _02230900 ; =0x0000065C
 	mov r2, #0x11
 	str r0, [r4, r1]
@@ -6259,7 +6259,7 @@ _0223092E:
 	bl FUN_02001C5C
 	ldr r0, _022309E4 ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add sp, #0x10
 	mov r0, #3
 	pop {r4, pc}
@@ -6295,7 +6295,7 @@ _02230982:
 	bl FUN_02001C5C
 	ldr r0, _022309E4 ; =0x0000065C
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	ldr r1, _022309DC ; =MOD71_0222F538
 	ldr r0, _022309E0 ; =0x00002214
 	str r1, [r4, r0]
@@ -6379,8 +6379,8 @@ _02230A40:
 	cmp r0, #0
 	bne _02230A98
 	ldr r0, [r5, #0x10]
-	bl Sav2_Chatot_get
-	bl Chatot_invalidate
+	bl Save_Chatot_Get
+	bl Chatot_Invalidate
 _02230A98:
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0
@@ -6503,7 +6503,7 @@ MOD71_02230B88: ; 0x02230B88
 	ldr r0, _02230B9C ; =0x000005A8
 	ldr r1, _02230BA0 ; =0x000001D9
 	add r0, r4, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _02230BA4 ; =0x000036A8
 	str r0, [r4, r1]
 	pop {r4, pc}
@@ -7008,7 +7008,7 @@ _02230F76:
 	bl AddTextPrinterParameterized2
 	add r4, r0, #0
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	add sp, #0x10
 	pop {r4, r5, r6, pc}

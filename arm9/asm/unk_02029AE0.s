@@ -23,11 +23,11 @@ _02029AF8: .word 0x00000FF8
 
 	thumb_func_start FUN_02029AFC
 FUN_02029AFC: ; 0x02029AFC
-	ldr r3, _02029B04 ; =SavArray_get
+	ldr r3, _02029B04 ; =SaveArray_Get
 	mov r1, #0x1e
 	bx r3
 	nop
-_02029B04: .word SavArray_get
+_02029B04: .word SaveArray_Get
 
 	thumb_func_start FUN_02029B08
 FUN_02029B08: ; 0x02029B08

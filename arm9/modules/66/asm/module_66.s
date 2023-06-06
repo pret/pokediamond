@@ -254,7 +254,7 @@ _021D7694:
 	str r0, [r1]
 	ldr r1, [r4, #4]
 	mov r0, #0x16
-	bl String_ctor
+	bl String_New
 	add r1, r4, #0
 	add r1, #0x88
 	str r0, [r1]
@@ -349,7 +349,7 @@ _021D7782:
 	add r0, r5, #0
 	add r0, #0x88
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	add r0, #0x84
 	ldr r0, [r0]
@@ -483,7 +483,7 @@ MOD66_021D78B4: ; 0x021D78B4
 	add r5, r0, #0
 	ldr r1, [r5, #4]
 	mov r0, #0x11
-	bl NARC_ctor
+	bl NARC_New
 	add r4, r0, #0
 	mov r0, #0x13
 	str r0, [sp]
@@ -639,7 +639,7 @@ MOD66_021D78B4: ; 0x021D78B4
 	add r1, #0xb4
 	str r0, [r1]
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r1, #0x1e
 	ldr r2, [r5, #4]
 	mov r0, #0
@@ -1781,7 +1781,7 @@ _021D8278:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 _021D82AA:
 	add r0, r4, #0
 	bl CopyWindowToVram
@@ -1845,7 +1845,7 @@ _021D8300:
 	add r0, r6, #0
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 _021D832C:
 	ldrh r1, [r4, #0xa]
 	ldr r0, _021D8378 ; =0x0000FFFF
@@ -1879,7 +1879,7 @@ _021D8348:
 	add r0, r6, #0
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 _021D8372:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -2119,7 +2119,7 @@ MOD66_021D84C8: ; 0x021D84C8
 	add r0, r5, #0
 	bl CopyWindowToVram
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	nop

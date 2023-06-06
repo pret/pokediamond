@@ -308,7 +308,7 @@ THUMB_FUNC u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx)
     return chunk_size;
 }
 
-THUMB_FUNC NARC * NARC_ctor(NarcId narc_id, u32 heap_id)
+THUMB_FUNC NARC * NARC_New(NarcId narc_id, u32 heap_id)
 {
     NARC * narc = (NARC *)AllocFromHeap(heap_id, sizeof(NARC));
     u32 btnf_start;
@@ -331,7 +331,7 @@ THUMB_FUNC NARC * NARC_ctor(NarcId narc_id, u32 heap_id)
     return narc;
 }
 
-THUMB_FUNC void NARC_dtor(NARC * narc)
+THUMB_FUNC void NARC_Delete(NARC * narc)
 {
     FS_CloseFile(&narc->file);
     FreeToHeap(narc); // free to heap

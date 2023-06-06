@@ -20,13 +20,13 @@ MOD05_021EFAAC: ; 0x021EFAAC
 	sub sp, #4
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0
 	add r0, r4, #0
-	bl Sav2_Poketch_IsGiven
+	bl Save_Poketch_IsGiven
 	cmp r0, #0
 	beq _021EFAF8
 	add r0, r6, #0
@@ -64,13 +64,13 @@ MOD05_021EFB14: ; 0x021EFB14
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0
 	add r0, r4, #0
-	bl Sav2_Poketch_IsGiven
+	bl Save_Poketch_IsGiven
 	cmp r0, #0
 	beq _021EFB46
 	add r0, r6, #0
@@ -92,13 +92,13 @@ MOD05_021EFB50: ; 0x021EFB50
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0
 	add r0, r4, #0
-	bl Sav2_Poketch_IsGiven
+	bl Save_Poketch_IsGiven
 	cmp r0, #0
 	beq _021EFB94
 	add r0, r6, #0

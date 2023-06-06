@@ -57,7 +57,7 @@ MOD28_0225489C: ; 0x0225489C
 	strb r0, [r7, #2]
 	str r4, [r7, #0x60]
 	bl FUN_020225F8
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	mov r1, #0
 	str r0, [sp, #4]
 	str r1, [sp]
@@ -626,7 +626,7 @@ MOD28_02254CB4: ; 0x02254CB4
 	bl GfGfxLoader_LoadWholePalette
 	mov r0, #0x13
 	mov r1, #8
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x1c]
 	cmp r0, #0
 	bne _02254CE8
@@ -795,7 +795,7 @@ _02254DE0:
 	b _02254D24
 _02254E40:
 	ldr r0, [sp, #0x1c]
-	bl NARC_dtor
+	bl NARC_Delete
 _02254E46:
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}

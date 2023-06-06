@@ -60,16 +60,16 @@ FUN_02087D00: ; 0x02087D00
 	bl FUN_02028048
 	str r0, [r7, #0x8]
 	add r0, r4, #0x0
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r7, #0xc]
 	add r0, r4, #0x0
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [r7, #0x10]
 	add r0, r4, #0x0
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	str r0, [r7, #0x14]
 	add r0, r4, #0x0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r7, #0x18]
 	add r0, r5, #0x0
 	bl FUN_02027E5C
@@ -77,7 +77,7 @@ FUN_02087D00: ; 0x02087D00
 	mov r0, #0x1
 	mov r1, #0x20
 	add r2, r5, #0x0
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	str r0, [sp, #0x4]
 	mov r6, #0x0
 _02087D60:
@@ -157,7 +157,7 @@ _02087DEE:
 	cmp r6, #0x64
 	blo _02087D60
 	ldr r0, [sp, #0x4]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r4, #0x0
 	bl FreeToHeap
 	ldr r0, [sp, #0x0]
@@ -187,7 +187,7 @@ FUN_02087E1C: ; 0x02087E1C
 	cmp r0, #0x0
 	beq _02087E3C
 	ldr r0, [r4, #0x0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x1
@@ -347,7 +347,7 @@ FUN_02087F50: ; 0x02087F50
 	ldr r0, _02087F64 ; =UNK_020FD15C
 	ldr r1, [r4, #0xc]
 	ldr r2, [r4, #0x0]
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r4, #0x14]
 	mov r0, #0x1
 	pop {r4, pc}
@@ -401,7 +401,7 @@ _02087F86:
 	str r0, [r4, #0xc]
 	ldr r0, _02087FD0 ; =UNK_020F96DC
 	ldr r2, [r5, #0x0]
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r5, #0x14]
 	str r4, [r5, #0x10]
 	mov r0, #0x2
@@ -465,7 +465,7 @@ _02087FFE:
 	ldr r0, _02088058 ; =UNK_020FA6E8
 	ldr r2, [r5, #0x0]
 	add r1, r7, #0x0
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r5, #0x14]
 	str r4, [r5, #0x10]
 	mov r0, #0x3
@@ -553,7 +553,7 @@ FUN_020880A0: ; 0x020880A0
 	ldr r0, _02088108 ; =UNK_020FD16C
 	ldr r2, [r5, #0x0]
 	add r1, r4, #0x0
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r5, #0x14]
 	str r4, [r5, #0x10]
 	mov r0, #0x5
@@ -628,7 +628,7 @@ FUN_02088130: ; 0x02088130
 	ldr r0, _020881A8 ; =UNK_020FA6E8
 	ldr r2, [r5, #0x0]
 	add r1, r4, #0x0
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r5, #0x14]
 	str r4, [r5, #0x10]
 	mov r0, #0x7

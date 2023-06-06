@@ -575,7 +575,7 @@ FUN_020867EC: ; 0x020867EC
 	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	mov r0, #0x47
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0
@@ -583,7 +583,7 @@ FUN_020867EC: ; 0x020867EC
 	str r0, [sp, #0x14]
 	mov r0, #0xff
 	mov r1, #0x47
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x10]
 	bl FUN_020690E4
@@ -607,11 +607,11 @@ FUN_020867EC: ; 0x020867EC
 	add r0, r7, #0x0
 	bl DestroyMsgData
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x14]
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0x0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r6, #0x0
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -658,7 +658,7 @@ FUN_02086878: ; 0x02086878
 	bl AddWindowParameterized
 	mov r0, #0x2
 	mov r1, #0x47
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x44]
 	ldr r2, _0208695C ; =0x0000013F
 	mov r0, #0x0
@@ -677,7 +677,7 @@ _020868DE:
 	add r2, r4, #0x0
 	bl ListMenuItems_AddItem
 	add r0, r6, #0x0
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #0x1
 	cmp r4, #0x2
 	blt _020868DE
@@ -744,7 +744,7 @@ FUN_02086960: ; 0x02086960
 	mov r1, #0x0
 	bl FUN_02001C5C
 	ldr r0, [r4, #0x44]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	pop {r4, pc}
 
 	thumb_func_start FUN_0208698C

@@ -43,13 +43,13 @@ struct HofDisplayMon
     u16 moves[4];
 };
 
-u32 Sav2_HOF_sizeof(void);
-void Sav2_HOF_init(struct HallOfFame * hof);
-void Sav2_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, RTCDate * date);
-u32 Sav2_HOF_GetNumRecords(struct HallOfFame * hof);
-int Sav2_HOF_TranslateRecordIdx(struct HallOfFame * hof, int a1);
-u32 Sav2_HOF_RecordCountMons(struct HallOfFame * hof, int a1);
-void Sav2_HOF_GetMonStatsByIndexPair(struct HallOfFame * hof, int a1, int a2, struct HofDisplayMon * dest);
-void Sav2_HOF_GetClearDate(struct HallOfFame * hof, int a1, RTCDate * dest);
+u32 Save_HOF_sizeof(void);
+void Save_HOF_Init(struct HallOfFame * hof);
+void Save_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, RTCDate * date);
+u32 Save_HOF_GetNumRecords(struct HallOfFame * hof);
+int Save_HOF_TranslateRecordIdx(struct HallOfFame * hof, int a1);
+u32 Save_HOF_RecordCountMons(struct HallOfFame * hof, int a1);
+void Save_HOF_GetMonStatsByIndexPair(struct HallOfFame * hof, int a1, int a2, struct HofDisplayMon * dest);
+void Save_HOF_GetClearDate(struct HallOfFame * hof, int a1, RTCDate * dest);
 
 #endif //POKEDIAMOND_HALL_OF_FAME_H

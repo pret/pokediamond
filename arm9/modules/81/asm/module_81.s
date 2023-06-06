@@ -46,7 +46,7 @@ _02237E84:
 	mov r0, #0x19
 	lsl r0, r0, #4
 	mov r1, #0x39
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x14]
 	ldr r2, _02237FD4 ; =0x00000137
 	mov r0, #0
@@ -55,7 +55,7 @@ _02237E84:
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x39
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0xc]
 	ldr r2, [r4]
 	ldr r0, [r2, #0x10]
@@ -224,11 +224,11 @@ MOD81_02238004: ; 0x02238004
 	bl FUN_0200CAB4
 	bl FUN_02033ED0
 	ldr r0, [r4, #0xc]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #8]
 	bl FreeToHeap
 	ldr r0, [r4, #0x18]
@@ -2026,12 +2026,12 @@ MOD81_02238D18: ; 0x02238D18
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0x3a
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x54]
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0x3a
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x58]
 	mov r0, #0
 	str r0, [r4, #0x64]
@@ -2052,9 +2052,9 @@ MOD81_02238D64: ; 0x02238D64
 	add r0, r4, #0
 	bl MOD81_02239498
 	ldr r0, [r4, #0x54]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x58]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x5c]
 	bl MOD81_0223890C
 	ldr r0, [r4, #0x40]
@@ -9081,12 +9081,12 @@ MOD81_0223C530: ; 0x0223C530
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0x3a
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x58]
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0x3a
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x5c]
 	mov r0, #0
 	str r0, [r4, #0x68]
@@ -9109,9 +9109,9 @@ MOD81_0223C580: ; 0x0223C580
 	ldr r0, [r4, #0x6c]
 	bl MOD81_0223CDE0
 	ldr r0, [r4, #0x58]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x5c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x60]
 	cmp r0, #0
 	beq _0223C5AC

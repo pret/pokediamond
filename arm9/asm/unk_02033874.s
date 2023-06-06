@@ -285,7 +285,7 @@ _02033AA6:
 	add r1, r5, #0x0
 	bl FUN_020283C0
 	ldr r0, [sp, #0xc]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0x0
 	bl PlayerProfile_GetTrainerGender
 	add r3, r0, #0x0
@@ -327,7 +327,7 @@ _02033AEC:
 _02033B22:
 	ldr r1, [sp, #0x4]
 	mov r0, #0x78
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x10]
 	add r0, r7, #0x0
 	bl FUN_0202DFFC
@@ -339,7 +339,7 @@ _02033B22:
 	add r1, r5, #0x0
 	bl FUN_02028404
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0x0
 	bl PlayerProfile_GetAvatar
 	add r3, r0, #0x0

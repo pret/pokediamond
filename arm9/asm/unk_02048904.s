@@ -177,7 +177,7 @@ _02048A28:
 	bl FUN_02063684
 _02048A2E:
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F408
 	cmp r4, #0x0
 	bne _02048A42
@@ -191,7 +191,7 @@ _02048A42:
 	bl FUN_02025484
 _02048A50:
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	add r1, r7, #0x0
@@ -268,7 +268,7 @@ FUN_02048AE4: ; 0x02048AE4
 	bl FUN_02057380
 	str r0, [r5, #0x34]
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerGender
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -321,7 +321,7 @@ FUN_02048B50: ; 0x02048B50
 	bl FUN_02034E20
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerGender
 	add r2, r0, #0x0
 	ldr r0, [r5, #0x34]
@@ -348,7 +348,7 @@ _02048BA2:
 	ldr r0, [r0, #0x0]
 	bl MapMatrix_Load
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x3
 	bl FUN_0205F524
 	cmp r0, #0x0
@@ -357,7 +357,7 @@ _02048BA2:
 	bl FUN_020346CC
 _02048BC2:
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x2
 	bl FUN_0205F524
 	cmp r0, #0x0
@@ -532,7 +532,7 @@ FUN_02048D04: ; 0x02048D04
 	bl FUN_02034DD0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	ldr r0, [r5, #0x1c]
 	ldr r0, [r0, #0x0]
 	str r0, [r4, #0x0]
@@ -615,7 +615,7 @@ FUN_02048DAC: ; 0x02048DAC
 	bl FUN_02046528
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_02046530
@@ -755,7 +755,7 @@ FUN_02048EDC: ; 0x02048EDC
 	bl FUN_0204652C
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
 	bl FUN_02046530
@@ -868,7 +868,7 @@ FUN_02048FC8: ; 0x02048FC8
 	cmp r0, #0x0
 	beq _02048FF8
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02048D04
@@ -1999,13 +1999,13 @@ _02049884:
 	mov r2, #0x3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x24
 	bl FUN_02054608
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x34]
@@ -2026,7 +2026,7 @@ _020498DC:
 	cmp r0, #0x1
 	bne _0204992C
 	ldr r0, [r4, #0x34]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r3, #0xb

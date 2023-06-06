@@ -1933,13 +1933,13 @@ _0225934A:
 	add r2, r4, #0
 	bl MOD11_0225A458
 	ldr r0, [sp, #0x24]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x20]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5]
 	bl MOD11_0222FF74
 	mov r1, #0x22
@@ -2347,7 +2347,7 @@ _02259748:
 	add r2, r4, #0
 	bl MOD11_0225A458
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	mov r4, #0
 	mov r7, #3
 	b _022597B0
@@ -2520,9 +2520,9 @@ MOD11_02259898: ; 0x02259898
 	add r2, r6, #0
 	bl MOD11_0225A458
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -2587,9 +2587,9 @@ MOD11_02259930: ; 0x02259930
 	add r2, r6, #0
 	bl MOD11_0225A458
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -2621,11 +2621,11 @@ MOD11_022599CC: ; 0x022599CC
 	str r0, [sp, #0x20]
 	mov r0, #0x64
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	mov r0, #0x64
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	ldrh r2, [r5, #0x18]
 	add r0, r4, #0
@@ -2679,13 +2679,13 @@ MOD11_022599CC: ; 0x022599CC
 	add r2, r7, #0
 	bl MOD11_0225A458
 	ldr r0, [sp, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x20]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2717,11 +2717,11 @@ MOD11_02259AB0: ; 0x02259AB0
 	str r0, [sp, #0x20]
 	mov r0, #0x64
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	mov r0, #0x64
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	ldrh r2, [r5, #0x18]
 	add r0, r4, #0
@@ -2775,13 +2775,13 @@ MOD11_02259AB0: ; 0x02259AB0
 	add r2, r7, #0
 	bl MOD11_0225A458
 	ldr r0, [sp, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x20]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2814,11 +2814,11 @@ MOD11_02259B94: ; 0x02259B94
 	str r0, [sp, #0x20]
 	mov r0, #0x64
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	mov r0, #0x64
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	ldrh r2, [r5, #0x18]
 	add r0, r4, #0
@@ -2872,13 +2872,13 @@ MOD11_02259B94: ; 0x02259B94
 	add r2, r7, #0
 	bl MOD11_0225A458
 	ldr r0, [sp, #0x1c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x20]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2929,7 +2929,7 @@ MOD11_02259C74: ; 0x02259C74
 	bl MOD11_022314E0
 	mov r0, #0x18
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x28]
 	ldr r0, _02259E38 ; =0x000004CC
 	mov r4, #0
@@ -3024,7 +3024,7 @@ _02259D5C:
 	add r0, r5, #0
 	bl MOD11_0225A458
 	ldr r0, [sp, #0x24]
-	bl String_dtor
+	bl String_Delete
 	cmp r4, #1
 	beq _02259DA2
 	cmp r4, #3
@@ -3074,7 +3074,7 @@ _02259DEC:
 	b _02259CE0
 _02259DF2:
 	ldr r0, [sp, #0x28]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x2c]
 	ldr r1, _02259E54 ; =0x000003A2
 	bl NewString_ReadMsgData
@@ -3100,7 +3100,7 @@ _02259DF2:
 	add r1, r5, r1
 	bl MOD11_0225A458
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x44
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -4309,7 +4309,7 @@ MOD11_0225A760: ; 0x0225A760
 	str r0, [sp, #0x24]
 	mov r0, #0x10
 	mov r1, #5
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x30]
 	ldr r1, _0225A960 ; =0x000003A9
 	add r0, r4, #0
@@ -4386,7 +4386,7 @@ _0225A826:
 	mov r2, #2
 	bl MOD11_0225A968
 	ldr r0, [sp, #0x48]
-	bl String_dtor
+	bl String_Delete
 _0225A846:
 	add r0, r6, #0
 	add r0, #0x84
@@ -4506,11 +4506,11 @@ _0225A906:
 	b _0225A7CE
 _0225A930:
 	ldr r0, [sp, #0x28]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x2c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x30]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0xc
 _0225A944:
 	ldr r1, [sp, #8]

@@ -441,12 +441,12 @@ MOD68_021D7870: ; 0x021D7870
 	mov r1, #2
 	mov r2, #0
 	mov r3, #0x24
-	bl MessagePrinter_new
+	bl MessagePrinter_New
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]
 	mov r0, #0x24
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r4, #0xc8
 	str r0, [r4]
 	pop {r4, pc}
@@ -464,10 +464,10 @@ MOD68_021D78A8: ; 0x021D78A8
 	add r0, r4, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl MessagePrinter_delete
+	bl MessagePrinter_Delete
 	add r4, #0xc8
 	ldr r0, [r4]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	pop {r4, pc}
 	thumb_func_end MOD68_021D78A8
 
@@ -542,7 +542,7 @@ MOD68_021D7904: ; 0x021D7904
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, r4
 	bl ScheduleWindowCopyToVram
 	add sp, #0x14
@@ -678,7 +678,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	add r7, r0, #0
 	mov r0, #6
 	mov r1, #0x24
-	bl String_ctor
+	bl String_New
 	mov r3, #2
 	add r6, r0, #0
 	mov r2, #0x7e
@@ -712,9 +712,9 @@ MOD68_021D7A18: ; 0x021D7A18
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x7e
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -734,7 +734,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl ScheduleWindowCopyToVram
 	add sp, #0x10
@@ -772,7 +772,7 @@ MOD68_021D7AE4: ; 0x021D7AE4
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
 	add sp, #0x10
@@ -808,7 +808,7 @@ MOD68_021D7B34: ; 0x021D7B34
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
 	add sp, #0x10
@@ -853,7 +853,7 @@ _021D7BA4:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
 	add sp, #0x10
@@ -889,7 +889,7 @@ MOD68_021D7BDC: ; 0x021D7BDC
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl ScheduleWindowCopyToVram
 	add sp, #0x10
@@ -931,7 +931,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	str r0, [sp, #0x10]
 	mov r0, #0x20
 	mov r1, #0x24
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	add r0, r7, #0
 	mov r1, #0xa
@@ -976,9 +976,9 @@ MOD68_021D7C28: ; 0x021D7C28
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
 	bl ScheduleWindowCopyToVram
 	add sp, #0x14

@@ -146,7 +146,7 @@ FUN_0204FC5C: ; 0x0204FC5C
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
 	bne _0204FC9A
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02031824
 	add r0, r4, #0x0
 	bl FUN_0204FBB0
@@ -159,7 +159,7 @@ FUN_0204FC5C: ; 0x0204FC5C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F194
 	cmp r0, #0x0
 	bne _0204FC9A
@@ -180,7 +180,7 @@ FUN_0204FCA0: ; 0x0204FCA0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x24
 	bl GameStats_AddSpecial
 	ldr r0, _0204FCD0 ; =UNK_021C5A6C
@@ -444,7 +444,7 @@ FUN_0204FEB0: ; 0x0204FEB0
 	cmp r0, #0x0
 	bne _0204FEE8
 	add r0, r5, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	mov r1, #0x0
 	add r3, r5, #0x0
 	str r1, [sp, #0x0]
@@ -475,7 +475,7 @@ FUN_0204FEF0: ; 0x0204FEF0
 	cmp r0, #0x0
 	bne _0204FF28
 	add r0, r5, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	mov r1, #0x0
 	add r3, r5, #0x0
 	str r1, [sp, #0x0]
@@ -712,7 +712,7 @@ _020500B6:
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F194
 	cmp r0, #0x0
 	bne _020500F8
@@ -739,7 +739,7 @@ FUN_02050114: ; 0x02050114
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x18]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F194
 	cmp r0, #0x0
 	beq _0205013A
@@ -1755,7 +1755,7 @@ FUN_02050968: ; 0x02050968
 	add r4, r1, #0x0
 	beq _02050986
 	mov r0, #0xb
-	bl SavArray_Party_alloc
+	bl SaveArray_Party_Alloc
 	ldr r1, _020509AC ; =UNK_021C5A6C
 	ldr r2, [r1, #0x0]
 	str r0, [r2, #0x44]

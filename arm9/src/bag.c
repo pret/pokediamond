@@ -6,24 +6,24 @@
 
 #pragma thumb on
 
-u32 Sav2_Bag_sizeof(void)
+u32 Save_Bag_sizeof(void)
 {
     return sizeof(struct Bag);
 }
 
-struct Bag * Sav2_Bag_new(u32 heap_id)
+struct Bag * Save_Bag_New(u32 heap_id)
 {
     struct Bag * ret = (struct Bag *)AllocFromHeap(heap_id, sizeof(struct Bag));
-    Sav2_Bag_init(ret);
+    Save_Bag_Init(ret);
     return ret;
 }
 
-void Sav2_Bag_init(struct Bag * bag)
+void Save_Bag_Init(struct Bag * bag)
 {
     MI_CpuClear16(bag, sizeof(struct Bag));
 }
 
-void Sav2_Bag_copy(const struct Bag * src, struct Bag * dest)
+void Save_Bag_Copy(const struct Bag * src, struct Bag * dest)
 {
     MI_CpuCopy8(src, dest, sizeof(struct Bag));
 }
@@ -377,9 +377,9 @@ struct ItemSlot * Bag_GetPocketSlotN(struct Bag * bag, u32 pocket, u32 slot)
     return &slots[slot];
 }
 
-struct Bag * Sav2_Bag_get(struct SaveBlock2 * sav2)
+struct Bag * Save_Bag_Get(struct SaveBlock2 * sav2)
 {
-    return (struct Bag *)SavArray_get(sav2, 3);
+    return (struct Bag *)SaveArray_Get(sav2, 3);
 }
 
 struct UnkStruct_0206F164 * FUN_0206F164(u32 heap_id)

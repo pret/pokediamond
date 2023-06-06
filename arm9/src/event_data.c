@@ -8,19 +8,19 @@ u8 UNK_021C5A14[8];
 
 u8 * GetFlagAddr(struct ScriptState * state, u16 flag_id);
 
-u32 SavArray_Flags_sizeof(void)
+u32 SaveArray_Flags_sizeof(void)
 {
     return sizeof(struct ScriptState);
 }
 
-void SavArray_Flags_init(struct ScriptState * state)
+void SaveArray_Flags_Init(struct ScriptState * state)
 {
     memset(state, 0, sizeof(struct ScriptState));
 }
 
-struct ScriptState * SavArray_Flags_get(struct SaveBlock2 * sav2)
+struct ScriptState * SaveArray_Flags_Get(struct SaveBlock2 * sav2)
 {
-    return (struct ScriptState *)SavArray_get(sav2, 4);
+    return (struct ScriptState *)SaveArray_Get(sav2, 4);
 }
 
 BOOL CheckFlagInArray(struct ScriptState * state, u16 flag_id)

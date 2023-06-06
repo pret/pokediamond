@@ -519,14 +519,14 @@ MOD76_021D7900: ; 0x021D7900
 	add r1, #0xf8
 	str r0, [r1]
 	mov r0, #0x43
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r1, r4, #0
 	add r1, #0xfc
 	str r0, [r1]
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0x43
-	bl String_ctor
+	bl String_New
 	mov r1, #1
 	lsl r1, r1, #8
 	str r0, [r4, r1]
@@ -545,11 +545,11 @@ MOD76_021D7938: ; 0x021D7938
 	add r0, r4, #0
 	add r0, #0xfc
 	ldr r0, [r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #1
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D7938
@@ -1100,7 +1100,7 @@ MOD76_021D7D60: ; 0x021D7D60
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1257,7 +1257,7 @@ MOD76_021D7ECC: ; 0x021D7ECC
 	strb r1, [r5, r0]
 	ldrb r0, [r5, r0]
 	mov r1, #0x43
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	mov r1, #0x42
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -1369,7 +1369,7 @@ MOD76_021D7FAC: ; 0x021D7FAC
 	mov r0, #0x42
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD76_021D7FAC
@@ -2002,7 +2002,7 @@ _021D84D8:
 	add r2, r5, #0
 	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021D8510: .word MOD76_021D8F6C
@@ -3165,7 +3165,7 @@ MOD76_021D8D5C: ; 0x021D8D5C
 	ldr r0, _021D8DE8 ; =UNK_020FA6E8
 	add r1, r4, r1
 	mov r2, #0x43
-	bl OverlayManager_new
+	bl OverlayManager_New
 	mov r1, #0x5f
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -3190,7 +3190,7 @@ MOD76_021D8DEC: ; 0x021D8DEC
 	mov r0, #0x5f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	add r0, r4, #0
 	bl MOD76_021D7638
 	ldr r1, [r4]

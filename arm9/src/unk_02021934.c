@@ -7,7 +7,7 @@
 
 #define ASSERT_STR16(_str) ({ GF_ASSERT(_str != NULL); GF_ASSERT(_str->magic == STR16_MAGIC); })
 
-struct String * String_ctor(u32 length, u32 heap_id)
+struct String * String_New(u32 length, u32 heap_id)
 {
     struct String * ret = AllocFromHeap(heap_id, length * 2 + 10);
     if (ret != NULL)
@@ -20,7 +20,7 @@ struct String * String_ctor(u32 length, u32 heap_id)
     return ret;
 }
 
-void String_dtor(struct String * str)
+void String_Delete(struct String * str)
 {
     ASSERT_STR16(str);
     str->magic = STR16_MAGIC | 1;
@@ -50,7 +50,7 @@ void StringCopy(struct String * dest, struct String * src)
 struct String * StringDup(struct String * src, u32 heap_id)
 {
     ASSERT_STR16(src);
-    struct String * dest = String_ctor((u32)(src->size + 1), heap_id);
+    struct String * dest = String_New((u32)(src->size + 1), heap_id);
     if (dest != NULL)
         StringCopy(dest, src);
     return dest;

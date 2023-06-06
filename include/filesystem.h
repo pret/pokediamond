@@ -171,8 +171,8 @@ void ReadFromNarcMemberByIdPair(void * dest, NarcId narc_id, s32 file_id, u32 of
 void * AllocAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size);
 void * AllocAtEndAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size);
 u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx);
-NARC * NARC_ctor(NarcId narc_id, u32 heap_id);
-void NARC_dtor(NARC * narc);
+NARC * NARC_New(NarcId narc_id, u32 heap_id);
+void NARC_Delete(NARC * narc);
 void * NARC_AllocAndReadWholeMember(NARC * narc, u32 file_id, u32 heap_id);
 void NARC_ReadWholeMember(NARC * narc, u32 file_id, void * dest);
 u32 NARC_GetMemberSize(NARC * narc, u32 file_id);

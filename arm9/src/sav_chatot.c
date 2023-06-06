@@ -3,35 +3,35 @@
 #include "heap.h"
 #include "sav_chatot.h"
 
-THUMB_FUNC u32 Sav2_Chatot_sizeof(void)
+THUMB_FUNC u32 Save_Chatot_sizeof(void)
 {
     return sizeof(struct SaveChatotSoundClip);
 }
 
-THUMB_FUNC void Sav2_Chatot_init(struct SaveChatotSoundClip * chatot)
+THUMB_FUNC void Save_Chatot_Init(struct SaveChatotSoundClip * chatot)
 {
     MI_CpuClear32(chatot, sizeof(struct SaveChatotSoundClip));
     chatot->exists = FALSE;
 }
 
-THUMB_FUNC struct SaveChatotSoundClip * Chatot_new(u32 heap_id)
+THUMB_FUNC struct SaveChatotSoundClip * Chatot_New(u32 heap_id)
 {
     struct SaveChatotSoundClip * ret = (struct SaveChatotSoundClip *)AllocFromHeap(heap_id, sizeof(struct SaveChatotSoundClip));
-    Sav2_Chatot_init(ret);
+    Save_Chatot_Init(ret);
     return ret;
 }
 
-THUMB_FUNC struct SaveChatotSoundClip * Sav2_Chatot_get(struct SaveBlock2 * sav2)
+THUMB_FUNC struct SaveChatotSoundClip * Save_Chatot_Get(struct SaveBlock2 * sav2)
 {
-    return (struct SaveChatotSoundClip *) SavArray_get(sav2, 22);
+    return (struct SaveChatotSoundClip *) SaveArray_Get(sav2, 22);
 }
 
-THUMB_FUNC BOOL Chatot_exists(struct SaveChatotSoundClip * chatot)
+THUMB_FUNC BOOL Chatot_Exists(struct SaveChatotSoundClip * chatot)
 {
     return chatot->exists;
 }
 
-THUMB_FUNC void Chatot_invalidate(struct SaveChatotSoundClip * chatot)
+THUMB_FUNC void Chatot_Invalidate(struct SaveChatotSoundClip * chatot)
 {
     chatot->exists = FALSE;
 }
@@ -92,7 +92,7 @@ THUMB_FUNC void Chatot_Encode(struct SaveChatotSoundClip * chatot, const s8 * da
     }
 }
 
-THUMB_FUNC void Chatot_copy(struct SaveChatotSoundClip * dest, const struct SaveChatotSoundClip * src)
+THUMB_FUNC void Chatot_Copy(struct SaveChatotSoundClip * dest, const struct SaveChatotSoundClip * src)
 {
     MI_CpuCopyFast(src, dest, sizeof(struct SaveChatotSoundClip));
 }

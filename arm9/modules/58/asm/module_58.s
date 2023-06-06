@@ -56,7 +56,7 @@ _021D9A36:
 	bl BgConfig_Alloc
 	str r0, [r4]
 	mov r0, #0x27
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x10]
 	ldr r2, _021D9B78 ; =0x00000176
 	mov r0, #0
@@ -88,11 +88,11 @@ _021D9A36:
 	str r0, [r4, r1]
 	add r0, r6, #0
 	bl OverlayManager_GetField18
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	str r0, [r4, #8]
 	add r0, r6, #0
 	bl OverlayManager_GetField18
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	add r0, r4, #0
 	bl MOD58_021D9F14
@@ -260,7 +260,7 @@ _021D9C40:
 	ldr r0, [r6, #0x14]
 	bl DestroyMsgData
 	ldr r0, [r6, #0x10]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r6, #0
 	bl MOD58_021D9EA0
 	ldr r0, [sp]
@@ -454,7 +454,7 @@ MOD58_021D9E04: ; 0x021D9E04
 _021D9E14:
 	mov r0, #8
 	mov r1, #0x27
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x18]
 	ldrb r1, [r5]
 	ldr r0, [sp]
@@ -470,15 +470,15 @@ _021D9E14:
 	blt _021D9E14
 	mov r0, #0x14
 	mov r1, #0x27
-	bl String_ctor
+	bl String_New
 	str r0, [r7, #0x2c]
 	mov r0, #0x28
 	mov r1, #0x27
-	bl String_ctor
+	bl String_New
 	str r0, [r7, #0x30]
 	mov r0, #0x50
 	mov r1, #0x27
-	bl String_ctor
+	bl String_New
 	str r0, [r7, #0x34]
 	ldr r0, _021D9E98 ; =0x0000431A
 	mov r1, #0
@@ -523,17 +523,17 @@ MOD58_021D9EA0: ; 0x021D9EA0
 	add r5, r6, #0
 _021D9EB0:
 	ldr r0, [r5, #0x18]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
 	blt _021D9EB0
 	ldr r0, [r6, #0x34]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x30]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x2c]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, r5, r6, pc}
 	nop
 _021D9ED4: .word 0x00005C9C
@@ -2201,7 +2201,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	add r6, r1, #0
 	mov r0, #0x50
 	mov r1, #0x27
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	ldr r0, [r5, #0x14]
 	add r1, r6, #0
@@ -2212,7 +2212,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	add r2, r4, #0
 	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0xb5
 	lsl r0, r0, #2
 	add r0, r5, r0

@@ -1234,7 +1234,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	ldr r1, [sp, #0x70]
 	bl FUN_02011AC0
 	ldr r0, [sp, #0x18]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
 	add r0, sp, #0x1c
@@ -1957,7 +1957,7 @@ _0222E442:
 	bl AddWindowParameterized
 	add r0, r7, #0
 	mov r1, #0x35
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	mov r2, #0x67
 	ldr r1, [sp, #0x1c]
 	lsl r2, r2, #2
@@ -1992,7 +1992,7 @@ _0222E49A:
 	add r1, r4, #0
 	bl ListMenuItems_AddItem
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r6, r6, #1
 	add r5, r5, #4
 	cmp r6, r7
@@ -3017,18 +3017,18 @@ _0222EC9A:
 	add r7, #8
 	ldr r0, [r7, r6]
 	add r1, sp, #0x10
-	bl CapsuleArray_copy
+	bl CapsuleArray_Copy
 	add r0, r5, #0
 	str r0, [sp, #4]
 	add r0, #8
 	str r0, [sp, #4]
 	ldr r0, [r0, r4]
 	ldr r1, [r7, r6]
-	bl CapsuleArray_copy
+	bl CapsuleArray_Copy
 	ldr r1, [sp, #4]
 	add r0, sp, #0x10
 	ldr r1, [r1, r4]
-	bl CapsuleArray_copy
+	bl CapsuleArray_Copy
 	add r0, r5, #0
 	bl MOD62_0222EC28
 	add sp, #0x28
@@ -3280,7 +3280,7 @@ _0222EE96:
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0xc
@@ -3562,7 +3562,7 @@ _0222F0FE:
 	bl FillWindowPixelBuffer
 	mov r0, #0x64
 	mov r1, #0x35
-	bl String_ctor
+	bl String_New
 	ldr r1, [sp, #0x10]
 	add r4, r0, #0
 	ldr r0, [r7, #0x64]
@@ -3591,7 +3591,7 @@ _0222F0FE:
 	add r0, r5, #0
 	bl CopyWindowToVram
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 _0222F152:
 	add r6, r6, #1
 	add r5, #0x10
@@ -3632,7 +3632,7 @@ _0222F194:
 	bl FillWindowPixelBuffer
 	mov r0, #0x64
 	mov r1, #0x35
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x10]
 	ldr r0, [r6, #0x64]
 	sub r1, r7, #1
@@ -3657,7 +3657,7 @@ _0222F194:
 	add r0, r5, r4
 	bl CopyWindowToVram
 	ldr r0, [sp, #0x10]
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3722,7 +3722,7 @@ _0222F226:
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0xc
@@ -4363,14 +4363,14 @@ MOD62_0222F778: ; 0x0222F778
 	mov r0, #0xf1
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	ldr r3, _0222F78C ; =CapsuleArray_copy
+	ldr r3, _0222F78C ; =CapsuleArray_Copy
 	lsl r0, r0, #3
 	add r0, r1, r0
 	ldr r0, [r0, #8]
 	add r1, #0x68
 	bx r3
 	.align 2, 0
-_0222F78C: .word CapsuleArray_copy
+_0222F78C: .word CapsuleArray_Copy
 	thumb_func_end MOD62_0222F778
 
 	thumb_func_start MOD62_0222F790
@@ -4379,14 +4379,14 @@ MOD62_0222F790: ; 0x0222F790
 	add r2, r0, #0
 	lsl r1, r1, #2
 	ldr r1, [r2, r1]
-	ldr r3, _0222F7A4 ; =CapsuleArray_copy
+	ldr r3, _0222F7A4 ; =CapsuleArray_Copy
 	lsl r1, r1, #3
 	add r1, r2, r1
 	add r0, #0x68
 	ldr r1, [r1, #8]
 	bx r3
 	.align 2, 0
-_0222F7A4: .word CapsuleArray_copy
+_0222F7A4: .word CapsuleArray_Copy
 	thumb_func_end MOD62_0222F790
 
 	thumb_func_start MOD62_0222F7A8
@@ -4612,7 +4612,7 @@ MOD62_0222F904: ; 0x0222F904
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r4, #0xfc
 	add r0, r4, #0
 	bl RemoveWindow
@@ -6497,7 +6497,7 @@ _02230860:
 	bl MOD62_0222EC28
 	ldr r0, [r4]
 	ldr r0, [r0, #0x28]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #6
 	bl GameStats_AddSpecial
 	mov r0, #0xf1

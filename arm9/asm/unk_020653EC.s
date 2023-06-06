@@ -55,7 +55,7 @@ FUN_020653EC: ; 0x020653EC
 	bl MI_CpuFill8
 	add r0, r5, #0x0
 	str r6, [r4, #0x4]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	mov r1, #0x5b
 	lsl r1, r1, #0x2
 	str r5, [r4, r1]
@@ -66,11 +66,11 @@ FUN_020653EC: ; 0x020653EC
 	mov r1, #0xff
 	add r6, r0, #0x0
 	strb r1, [r4, #0x1a]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetTextFrameDelay
 	strb r0, [r4, #0x16]
 	add r0, r6, #0x0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetFrame
 	strh r0, [r4, #0x14]
 	add r0, r4, #0x0
@@ -976,7 +976,7 @@ FUN_02065AF4: ; 0x02065AF4
 	ldrb r0, [r5, #0x1b]
 	ldr r1, [r5, #0x0]
 	add r0, r0, #0x1
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	add r7, r5, #0x0
@@ -1280,7 +1280,7 @@ FUN_02065DD8: ; 0x02065DD8
 	str r2, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	mov r1, #0x59
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
@@ -1422,7 +1422,7 @@ FUN_02065EF8: ; 0x02065EF8
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r0, #0x65
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1499,7 +1499,7 @@ FUN_02065F8C: ; 0x02065F8C
 	mov r0, #0x59
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -1554,7 +1554,7 @@ FUN_02066010: ; 0x02066010
 _0206601E:
 	mov r0, #0x8
 	add r1, r7, #0x0
-	bl String_ctor
+	bl String_New
 	mov r1, #0xc
 	mul r1, r4
 	add r1, r5, r1
@@ -1586,7 +1586,7 @@ _02066050:
 	ldr r0, [r0, #0x8]
 	cmp r0, #0x0
 	beq _02066060
-	bl String_dtor
+	bl String_Delete
 _02066060:
 	add r0, r4, #0x1
 	lsl r0, r0, #0x18
@@ -1606,18 +1606,18 @@ FUN_02066070: ; 0x02066070
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r5, r2, #0x0
-	bl Sav2_Mailbox_get
+	bl Save_Mailbox_Get
 	mov r1, #0x6b
 	lsl r1, r1, #0x2
 	str r0, [sp, #0x4]
 	str r0, [r6, r1]
 	add r0, r4, #0x0
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	mov r1, #0x1b
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
 	add r0, r5, #0x0
-	bl Mail_new
+	bl Mail_New
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	str r0, [sp, #0x10]
@@ -1807,8 +1807,8 @@ FUN_020661F8: ; 0x020661F8
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl SavArray_PlayerParty_get
+	bl ScriptEnvironment_GetSavePtr
+	bl SaveArray_PlayerParty_Get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	add r2, r0, #0x0
@@ -1862,13 +1862,13 @@ FUN_02066270: ; 0x02066270
 	ldr r2, [r6, #0x0]
 	mov r0, #0x1
 	mov r1, #0x80
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	mov r1, #0x11
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
 	ldr r1, [r6, #0x0]
 	mov r0, #0x80
-	bl String_ctor
+	bl String_New
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
@@ -1912,7 +1912,7 @@ FUN_020662E4: ; 0x020662E4
 	lsl r7, r7, #0x4
 _020662F0:
 	ldr r0, [r5, r7]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x6
@@ -1920,19 +1920,19 @@ _020662F0:
 	mov r0, #0x47
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x46
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x43
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
@@ -2376,26 +2376,26 @@ _02066676:
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl SavArray_PlayerParty_get
+	bl ScriptEnvironment_GetSavePtr
+	bl SaveArray_PlayerParty_Get
 	str r0, [r4, #0x0]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_Bag_get
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_Bag_Get
 	str r0, [r4, #0x4]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Mailbox_get
+	bl Save_Mailbox_Get
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x0

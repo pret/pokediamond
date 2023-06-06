@@ -1981,7 +1981,7 @@ THUMB_FUNC void RemoveWindow(struct Window *window)
     window->pixelBuffer = NULL;
 }
 
-THUMB_FUNC void WindowArray_dtor(struct Window *windows, int count)
+THUMB_FUNC void WindowArray_Delete(struct Window *windows, int count)
 {
     for (u16 i = 0; i < count; i++)
     {

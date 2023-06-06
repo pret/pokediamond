@@ -25,7 +25,7 @@ FUN_020854E0: ; 0x020854E0
 	add r7, r1, #0x0
 	add r6, r2, #0x0
 	str r3, [sp, #0x0]
-	bl Sav2_Mailbox_get
+	bl Save_Mailbox_Get
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x20]
 	mov r1, #0x1c
@@ -46,9 +46,9 @@ FUN_020854E0: ; 0x020854E0
 	strh r0, [r4, #0xc]
 	ldr r0, [sp, #0x20]
 	str r5, [r4, #0x10]
-	bl Mail_new
+	bl Mail_New
 	str r0, [r4, #0x14]
-	bl Mail_init
+	bl Mail_Init
 	ldr r0, [r4, #0x14]
 	mov r1, #0xff
 	add r2, r6, #0x0
@@ -78,7 +78,7 @@ FUN_02085538: ; 0x02085538
 	strh r6, [r4, #0xc]
 	add r0, r7, #0x0
 	str r7, [r4, #0x10]
-	bl Sav2_Mailbox_get
+	bl Save_Mailbox_Get
 	ldr r3, [sp, #0x0]
 	add r1, r5, #0x0
 	add r2, r6, #0x0
@@ -106,7 +106,7 @@ FUN_02085578: ; 0x02085578
 	strh r0, [r4, #0x0]
 	str r5, [r4, #0x10]
 	add r0, r7, #0x0
-	bl Mail_new
+	bl Mail_New
 	str r0, [r4, #0x14]
 	ldr r2, [r4, #0x14]
 	add r0, r6, #0x0
@@ -133,7 +133,7 @@ FUN_020855B0: ; 0x020855B0
 	strh r0, [r4, #0x0]
 	add r0, r7, #0x0
 	str r5, [r4, #0x10]
-	bl Mail_new
+	bl Mail_New
 	add r1, r6, #0x0
 	str r0, [r4, #0x14]
 	bl Mail_SetType
@@ -213,7 +213,7 @@ FUN_02085644: ; 0x02085644
 	cmp r6, r0
 	beq _0208569E
 	add r0, r4, #0x0
-	bl Mail_new
+	bl Mail_New
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa9
@@ -225,7 +225,7 @@ FUN_02085644: ; 0x02085644
 	add r3, r4, #0x0
 	bl Mailbox_CopyMailToSlotI
 	add r0, r4, #0x0
-	bl Mail_init
+	bl Mail_Init
 	add r0, r5, #0x0
 	mov r1, #0xa9
 	add r2, r4, #0x0
@@ -296,7 +296,7 @@ FUN_020856F0: ; 0x020856F0
 	str r0, [r6, #0x8]
 	mov r0, #0x8
 	add r1, r5, #0x0
-	bl String_ctor
+	bl String_New
 	str r0, [r6, #0x10]
 	add r0, r4, #0x0
 	bl Mail_GetAuthorNamePtr
@@ -339,7 +339,7 @@ _0208576A:
 	add r1, r0, #0x0
 	lsl r0, r5, #0x3
 	add r0, r7, r0
-	bl MailMsg_copy
+	bl MailMsg_Copy
 	add r0, r5, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -355,7 +355,7 @@ FUN_0208578C: ; 0x0208578C
 	ldr r0, [r4, #0x10]
 	cmp r0, #0x0
 	beq _0208579A
-	bl String_dtor
+	bl String_Delete
 _0208579A:
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -399,7 +399,7 @@ FUN_020857D4: ; 0x020857D4
 	cmp r0, #0x0
 	beq _020857F4
 	ldr r0, [r4, #0x0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x1
@@ -433,7 +433,7 @@ FUN_020857F8: ; 0x020857F8
 	bl FUN_020856F0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x10]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	ldr r1, [r4, #0x10]
 	str r0, [r1, #0x4]
 	ldrh r0, [r5, #0x0]
@@ -491,7 +491,7 @@ _0208588E:
 	ldr r0, _02085994 ; =UNK_020FCAA8
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0x0]
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r4, #0xc]
 	mov r0, #0x1
 	str r0, [r5, #0x0]
@@ -531,7 +531,7 @@ _020858D2:
 	ldr r0, [r6, #0x14]
 	bl FUN_020857A4
 	ldr r0, [r6, #0x10]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x2
 	bl GameStats_AddSpecial
 	mov r0, #0x1
@@ -567,13 +567,13 @@ _02085900:
 	add r0, #0x14
 	lsl r1, r1, #0x3
 	add r1, r2, r1
-	bl MailMsg_copy
+	bl MailMsg_Copy
 	b _02085942
 _02085938:
 	add r0, r4, #0x0
 	add r0, #0x14
 	mov r1, #0x3
-	bl MailMsg_init_withBank
+	bl MailMsg_Init_WithBank
 _02085942:
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x8]
@@ -582,7 +582,7 @@ _02085942:
 	ldr r0, _0208599C ; =UNK_020FCAB8
 	ldr r1, [r4, #0x8]
 	ldr r2, [r4, #0x0]
-	bl OverlayManager_new
+	bl OverlayManager_New
 	str r0, [r4, #0xc]
 	mov r0, #0x4
 	str r0, [r5, #0x0]

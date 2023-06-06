@@ -40,12 +40,12 @@ const u16 UNK_020ECE64[] = {
     0
 };
 
-MessageFormat *MessageFormat_new(u32 heap_id)
+MessageFormat *MessageFormat_New(u32 heap_id)
 {
-    return MessageFormat_new_custom(8, 32, heap_id);
+    return MessageFormat_New_Custom(8, 32, heap_id);
 }
 
-MessageFormat *MessageFormat_new_custom(u32 nstr, u32 strlen, u32 heap_id)
+MessageFormat *MessageFormat_New_Custom(u32 nstr, u32 strlen, u32 heap_id)
 {
     GF_ASSERT(nstr != 0);
     GF_ASSERT(strlen != 0);
@@ -54,7 +54,7 @@ MessageFormat *MessageFormat_new_custom(u32 nstr, u32 strlen, u32 heap_id)
     {
         messageFormat->count = nstr;
         messageFormat->heap_id = heap_id;
-        messageFormat->buffer = String_ctor(strlen, heap_id);
+        messageFormat->buffer = String_New(strlen, heap_id);
         if (messageFormat->buffer != NULL)
         {
             messageFormat->fields = AllocFromHeapAtEnd(heap_id, nstr * sizeof(MessageFormatFields));
@@ -64,7 +64,7 @@ MessageFormat *MessageFormat_new_custom(u32 nstr, u32 strlen, u32 heap_id)
                 for (i = 0; i < nstr; i++)
                 {
                     MessageFormat_InitFields(&messageFormat->fields[i]);
-                    messageFormat->fields[i].msg = String_ctor(strlen, heap_id);
+                    messageFormat->fields[i].msg = String_New(strlen, heap_id);
                     if (messageFormat->fields[i].msg == NULL)
                         break;
                 }
@@ -76,7 +76,7 @@ MessageFormat *MessageFormat_new_custom(u32 nstr, u32 strlen, u32 heap_id)
     return NULL;
 }
 
-void MessageFormat_delete(MessageFormat *messageFormat)
+void MessageFormat_Delete(MessageFormat *messageFormat)
 {
     GF_ASSERT(messageFormat->count != 0);
     if (messageFormat->fields != NULL)
@@ -86,12 +86,12 @@ void MessageFormat_delete(MessageFormat *messageFormat)
             if (messageFormat->fields[i].msg == NULL) {
                 break;
             }
-            String_dtor(messageFormat->fields[i].msg);
+            String_Delete(messageFormat->fields[i].msg);
         }
         FreeToHeap(messageFormat->fields);
     }
     if (messageFormat->buffer != NULL)
-        String_dtor(messageFormat->buffer);
+        String_Delete(messageFormat->buffer);
     messageFormat->count = 0;
     FreeToHeap(messageFormat);
 }
@@ -136,7 +136,7 @@ void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveBlock2 *
 
 void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveBlock2 * sav2)
 {
-    struct PlayerData * data = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct PlayerData * data = Save_PlayerData_GetProfileAddr(sav2);
     struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, messageFormat->heap_id);
     if (PlayerProfile_GetTrainerGender(data) == Male)
     {
@@ -688,10 +688,10 @@ void BufferGroupName(MessageFormat *messageFormat, struct SaveBlock2 * sav2, u32
     void * r6 = FUN_0202881C(sav2);
     u8 sp10 = FUN_020287F8(r6, r5);
     u8 r7 = FUN_02028804(r6, r5);
-    struct String * r4 = String_ctor(64, 4);
+    struct String * r4 = String_New(64, 4);
     CopyU16ArrayToString(r4, FUN_020287A8(r6, r5, sp28));
     BufferString(messageFormat, idx, r4, sp10, 1, r7);
-    String_dtor(r4);
+    String_Delete(r4);
 }
 
 void BufferMonthNameAbbr(MessageFormat *messageFormat, u32 idx, u32 month)
@@ -746,7 +746,7 @@ void MessageFormat_ResetBuffers(MessageFormat *messageFormat)
         StringSetEmpty(messageFormat->fields[i].msg);
 }
 
-struct UnkStruct_0200B870 * MessagePrinter_new(u32 color1, u32 color2, u32 color3, u32 heap_id)
+struct UnkStruct_0200B870 * MessagePrinter_New(u32 color1, u32 color2, u32 color3, u32 heap_id)
 {
     struct UnkStruct_0200B870 * sp8 = AllocFromHeap(heap_id, sizeof(struct UnkStruct_0200B870));
     if (sp8 != NULL)
@@ -792,7 +792,7 @@ struct UnkStruct_0200B870 * MessagePrinter_new(u32 color1, u32 color2, u32 color
     return sp8;
 }
 
-void MessagePrinter_delete(struct UnkStruct_0200B870 * a0)
+void MessagePrinter_Delete(struct UnkStruct_0200B870 * a0)
 {
     if (a0 != NULL)
     {

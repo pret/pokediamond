@@ -783,7 +783,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	ldr r1, _021D7BA4 ; =0x00000408
 	str r0, [r5, r1]
 	mov r0, #0x4f
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #4]
 	ldr r0, _021D7BB0 ; =0x0000043C
 	add r1, r4, #0
@@ -794,7 +794,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0x4f
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x18]
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -822,9 +822,9 @@ MOD85_021D7BB8: ; 0x021D7BB8
 	ldr r0, [r5, r0]
 	bl DestroyMsgData
 	ldr r0, [r4, #4]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x18]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, r5, r6, pc}
 	nop
 _021D7BE8: .word 0x00000408
@@ -1494,7 +1494,7 @@ MOD85_021D811C: ; 0x021D811C
 	add r4, r0, #0
 	mov r0, #0x85
 	mov r1, #0x4f
-	bl NARC_ctor
+	bl NARC_New
 	ldr r1, _021D8130 ; =0x00000438
 	str r0, [r4, r1]
 	pop {r4, pc}
@@ -1505,12 +1505,12 @@ _021D8130: .word 0x00000438
 	thumb_func_start MOD85_021D8134
 MOD85_021D8134: ; 0x021D8134
 	ldr r1, _021D813C ; =0x00000438
-	ldr r3, _021D8140 ; =NARC_dtor
+	ldr r3, _021D8140 ; =NARC_Delete
 	ldr r0, [r0, r1]
 	bx r3
 	.align 2, 0
 _021D813C: .word 0x00000438
-_021D8140: .word NARC_dtor
+_021D8140: .word NARC_Delete
 	thumb_func_end MOD85_021D8134
 
 	thumb_func_start MOD85_021D8144

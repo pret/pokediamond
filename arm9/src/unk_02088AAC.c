@@ -52,7 +52,7 @@ THUMB_FUNC u32 FUN_02088AFC(struct UnkStruct_02088AAC *r0)
         .exitFunc = MOD73_021D7640,
         .ovly = FS_OVERLAY_ID(MODULE_73)
     };
-    r0->ovly_data = OverlayManager_new(&OVERLAY_73_MANAGER, (s32 *)r0, r0->heap_id);
+    r0->ovly_data = OverlayManager_New(&OVERLAY_73_MANAGER, (s32 *)r0, r0->heap_id);
 
     return 2;
 }
@@ -93,7 +93,7 @@ THUMB_FUNC u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0)
 
     FUN_0206E314(bag_view, r0->unk10->sav2, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
 
-    r0->ovly_data = OverlayManager_new(&OVERLAY_75_MANAGER, (s32 *)bag_view, r0->heap_id);
+    r0->ovly_data = OverlayManager_New(&OVERLAY_75_MANAGER, (s32 *)bag_view, r0->heap_id);
     r0->ovly_param = bag_view;
 
     return 1;
@@ -169,7 +169,7 @@ THUMB_FUNC u32 FUN_02088C3C(struct UnkStruct_02088AAC *r0)
     FUN_0206F17C(r0->unk0C, 4, &sp6, &sp5);
     FUN_020851F8(r0->ovly_param, sp5, sp6, (u8)(berry_count + 2));
 
-    r0->ovly_data = OverlayManager_new(&OVERLAY_68_MANAGER, (s32 *)r0->ovly_param, r0->heap_id);
+    r0->ovly_data = OverlayManager_New(&OVERLAY_68_MANAGER, (s32 *)r0->ovly_param, r0->heap_id);
 
     return 3;
 }

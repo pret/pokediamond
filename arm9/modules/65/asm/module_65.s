@@ -831,7 +831,7 @@ MOD65_021D7B24: ; 0x021D7B24
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x53
-	bl NARC_ctor
+	bl NARC_New
 	add r4, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -916,7 +916,7 @@ MOD65_021D7B24: ; 0x021D7B24
 	mov r3, #0x53
 	bl FUN_02079B60
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r0, [r5, #0x24]
 	mov r1, #3
 	bl ScheduleBgTilemapBufferTransfer
@@ -1051,11 +1051,11 @@ MOD65_021D7CC8: ; 0x021D7CC8
 	ldr r2, [r5]
 	mov r0, #2
 	mov r1, #0x40
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	str r0, [r5, #0x30]
 	ldr r1, [r5]
 	mov r0, #0x40
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x34]
 	ldr r0, [r5, #0x2c]
 	mov r1, #6
@@ -1117,32 +1117,32 @@ MOD65_021D7D74: ; 0x021D7D74
 	add r5, r6, #0
 _021D7D7C:
 	ldr r0, [r5, #0x50]
-	bl String_dtor
+	bl String_Delete
 	cmp r4, #5
 	bge _021D7D94
 	ldr r0, [r5, #0x68]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6
 	blt _021D7D7C
 _021D7D94:
 	ldr r0, [r6, #0x4c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x48]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x44]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x40]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x3c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x38]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x34]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x30]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r6, #0x28]
 	bl FUN_02014564
 	ldr r0, [r6, #0x2c]
@@ -1542,7 +1542,7 @@ MOD65_021D80C8: ; 0x021D80C8
 	strb r0, [r5, #0x1c]
 	ldrb r0, [r5, #0x1c]
 	ldr r1, [r5]
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r1, r5, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -1729,7 +1729,7 @@ _021D823E:
 	add r0, r5, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r5, #0
 	add r0, #0x80
 	ldrh r1, [r0]
@@ -2223,7 +2223,7 @@ MOD65_021D8634: ; 0x021D8634
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #3
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r1, r5, #0
 	add r1, #0xd0
 	str r0, [r1]
@@ -2308,7 +2308,7 @@ MOD65_021D86BC: ; 0x021D86BC
 	add r0, r4, #0
 	add r0, #0xd0
 	ldr r0, [r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r4, #0
 	mov r1, #0
 	add r0, #0xc8
@@ -3161,7 +3161,7 @@ MOD65_021D8D90: ; 0x021D8D90
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x57
-	bl NARC_ctor
+	bl NARC_New
 	add r4, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -3245,7 +3245,7 @@ MOD65_021D8D90: ; 0x021D8D90
 	mov r3, #0x57
 	bl FUN_02079B60
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r0, [r5, #0x68]
 	mov r1, #2
 	bl ScheduleBgTilemapBufferTransfer
@@ -3316,11 +3316,11 @@ MOD65_021D8EC4: ; 0x021D8EC4
 	ldr r2, [r6]
 	mov r0, #1
 	mov r1, #0x40
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	str r0, [r6, #0x1c]
 	ldr r1, [r6]
 	mov r0, #0x40
-	bl String_ctor
+	bl String_New
 	str r0, [r6, #0x20]
 	mov r4, #0
 	add r5, r6, #0
@@ -3346,15 +3346,15 @@ MOD65_021D8F08: ; 0x021D8F08
 	add r5, r6, #0
 _021D8F10:
 	ldr r0, [r5, #0x24]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #3
 	blt _021D8F10
 	ldr r0, [r6, #0x20]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x1c]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r6, #0x18]
 	bl DestroyMsgData
 	pop {r4, r5, r6, pc}
@@ -3396,7 +3396,7 @@ MOD65_021D8F34: ; 0x021D8F34
 	strb r1, [r0]
 	ldr r1, [r4]
 	mov r0, #0xc
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x3c]
 	ldr r0, [r4, #0x10]
 	ldr r2, [r4, #0x3c]
@@ -3416,11 +3416,11 @@ MOD65_021D8F34: ; 0x021D8F34
 
 	thumb_func_start MOD65_021D8FA4
 MOD65_021D8FA4: ; 0x021D8FA4
-	ldr r3, _021D8FAC ; =String_dtor
+	ldr r3, _021D8FAC ; =String_Delete
 	ldr r0, [r0, #0x3c]
 	bx r3
 	nop
-_021D8FAC: .word String_dtor
+_021D8FAC: .word String_Delete
 	thumb_func_end MOD65_021D8FA4
 
 	thumb_func_start MOD65_021D8FB0

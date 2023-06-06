@@ -65,8 +65,8 @@ THUMB_FUNC void NitroMain(void)
     FUN_02002C50(1, 3);
     FUN_02002C50(3, 3);
     UNK_02016FA8.unk10 = -1;
-    UNK_02016FA8.save = SaveBlock2_new();
-    InitSoundData(Sav2_Chatot_get(UNK_02016FA8.save), Sav2_PlayerData_GetOptionsAddr(UNK_02016FA8.save));
+    UNK_02016FA8.save = SaveBlock2_New();
+    InitSoundData(Save_Chatot_Get(UNK_02016FA8.save), Save_PlayerData_GetOptionsAddr(UNK_02016FA8.save));
     Init_Timer3();
     if (FUN_020337E8(3) == 3)
         ShowWFCUserInfoWarning(3, 0);
@@ -152,13 +152,13 @@ THUMB_FUNC void Main_RunOverlayManager(void)
         if (UNK_02016FA8.queuedMainOverlayId != SDK_OVERLAY_INVALID_ID)
             HandleLoadOverlay(UNK_02016FA8.queuedMainOverlayId, 0);
         UNK_02016FA8.mainOverlayId = UNK_02016FA8.queuedMainOverlayId;
-        UNK_02016FA8.overlayManager = OverlayManager_new(UNK_02016FA8.template, &UNK_02016FA8.unk10, 0);
+        UNK_02016FA8.overlayManager = OverlayManager_New(UNK_02016FA8.template, &UNK_02016FA8.unk10, 0);
         UNK_02016FA8.queuedMainOverlayId = SDK_OVERLAY_INVALID_ID;
         UNK_02016FA8.template = NULL;
     }
     if (OverlayManager_Run(UNK_02016FA8.overlayManager))
     {
-        OverlayManager_delete(UNK_02016FA8.overlayManager);
+        OverlayManager_Delete(UNK_02016FA8.overlayManager);
         UNK_02016FA8.overlayManager = NULL;
         if (UNK_02016FA8.mainOverlayId != SDK_OVERLAY_INVALID_ID)
             UnloadOverlayByID(UNK_02016FA8.mainOverlayId);

@@ -17,7 +17,7 @@ UNK_020F7E54: ; 0x020F7E54
 	thumb_func_start FUN_02064CA8
 FUN_02064CA8: ; 0x02064CA8
 	push {r4, lr}
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x1
@@ -33,7 +33,7 @@ FUN_02064CA8: ; 0x02064CA8
 FUN_02064CC8: ; 0x02064CC8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x2
@@ -47,7 +47,7 @@ FUN_02064CC8: ; 0x02064CC8
 	cmp r0, #0x16
 	bne _02064D08
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ECEC
 	cmp r0, #0x0
 	beq _02064D02
@@ -67,7 +67,7 @@ _02064D08:
 	thumb_func_start FUN_02064D10
 FUN_02064D10: ; 0x02064D10
 	push {r4-r6, lr}
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x3
@@ -95,7 +95,7 @@ _02064D48: .word UNK_020F7E54
 	thumb_func_start FUN_02064D4C
 FUN_02064D4C: ; 0x02064D4C
 	push {r4-r6, lr}
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x4
@@ -130,7 +130,7 @@ FUN_02064D88: ; 0x02064D88
 	bl GF_AssertFail
 _02064D96:
 	add r0, r7, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02024ED8
 	add r4, r0, #0x0
 	mov r1, #0x5

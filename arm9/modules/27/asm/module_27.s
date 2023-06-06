@@ -56,7 +56,7 @@ MOD27_0225489C: ; 0x0225489C
 	strb r0, [r5, #2]
 	add r0, r4, #0
 	bl MOD20_02252C40
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r0, #0
 	add r0, r5, #4
 	bl MOD27_02254A48
@@ -223,7 +223,7 @@ _0225499C:
 	blo _02254A02
 	ldr r0, [r4, #0x78]
 	bl MOD20_02252C40
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r0, #0
 	add r0, r4, #4
 	bl MOD27_02254A48
@@ -971,7 +971,7 @@ MOD27_02254FAC: ; 0x02254FAC
 	str r1, [sp, #8]
 	mov r0, #0x13
 	mov r1, #8
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x14]
 	cmp r0, #0
 	beq _022550C0
@@ -1095,7 +1095,7 @@ _02255098:
 	blt _02254FFC
 _022550BA:
 	ldr r0, [sp, #0x14]
-	bl NARC_dtor
+	bl NARC_Delete
 _022550C0:
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}

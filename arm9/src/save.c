@@ -20,7 +20,7 @@ struct {
     BOOL iswritten;
 } UNK_021C59C8;
 
-struct SaveBlock2 * SaveBlock2_new(void)
+struct SaveBlock2 * SaveBlock2_New(void)
 {
     struct SaveBlock2 * sav2 = AllocFromHeap(1, sizeof(struct SaveBlock2));
     MI_CpuClearFast(sav2, sizeof(struct SaveBlock2));
@@ -39,13 +39,13 @@ struct SaveBlock2 * SaveBlock2_new(void)
         sav2->largeSectorChanged = 0;
         // fallthrough
     case 2:
-        Sav2_LoadDynamicRegion(sav2);
+        Save_LoadDynamicRegion(sav2);
         sav2->unk_00004 = 1;
         sav2->unk_00008 = 0;
         break;
     case 0:
     case 3:
-        Sav2_InitDynamicRegion(sav2);
+        Save_InitDynamicRegion(sav2);
         break;
     }
     return sav2;
@@ -57,7 +57,7 @@ struct SaveBlock2 * FUN_020225F8(void)
     return UNK_021C59C8.ptr;
 }
 
-void * SavArray_get(struct SaveBlock2 * sav2, int idx)
+void * SaveArray_Get(struct SaveBlock2 * sav2, int idx)
 {
     GF_ASSERT(idx < 36);
     return (void *)(sav2->dynamic_region + sav2->arrayHeaders[idx].offset);
@@ -65,7 +65,7 @@ void * SavArray_get(struct SaveBlock2 * sav2, int idx)
 
 void * FUN_02022634(struct SaveBlock2 * sav2, int idx)
 {
-    return SavArray_get(sav2, idx);
+    return SaveArray_Get(sav2, idx);
 }
 
 // Sets bits at 0x021C491
@@ -86,7 +86,7 @@ BOOL FUN_0202263C(struct SaveBlock2 * sav2)
         FlashWriteChunk((u32)(0x1000 * (i + 0x40)), r6, 0x1000);
     }
     FreeToHeap(r6);
-    Sav2_InitDynamicRegion(sav2);
+    Save_InitDynamicRegion(sav2);
     sav2->unk_00004 = 0;
     FUN_02016454(1);
     return TRUE;
@@ -96,7 +96,7 @@ BOOL FUN_020226FC(struct SaveBlock2 * sav2)
 {
     if (sav2->flashOkay == 0)
         return FALSE;
-    if (Sav2_LoadDynamicRegion(sav2))
+    if (Save_LoadDynamicRegion(sav2))
     {
         sav2->unk_00004 = 1;
         sav2->unk_00008 = 0;
@@ -140,11 +140,11 @@ void FUN_020227A0(struct SaveBlock2 * sav2, int a1)
     } while (res == 0 || res == 1);
 }
 
-void Sav2_InitDynamicRegion(struct SaveBlock2 * sav2)
+void Save_InitDynamicRegion(struct SaveBlock2 * sav2)
 {
     sav2->unk_00008 = 1;
     sav2->largeSectorChanged = 1;
-    Sav2_InitDynamicRegion_Internal(sav2->dynamic_region, sav2->arrayHeaders);
+    Save_InitDynamicRegion_Internal(sav2->dynamic_region, sav2->arrayHeaders);
 }
 
 int FUN_020227FC(struct SaveBlock2 * sav2)
@@ -458,7 +458,7 @@ BOOL FlashLoadChunkIntoDynamicRegionFromHeader(u32 slot, struct SaveBlock2_Sub_2
     return FlashLoadChunk(GetChunkOffsetFromCurrentSaveSlot(slot, header), dest + header->offset, header->size);
 }
 
-BOOL Sav2_LoadDynamicRegion(struct SaveBlock2 * sav2)
+BOOL Save_LoadDynamicRegion(struct SaveBlock2 * sav2)
 {
     for (int i = 0; i < 2; i++)
     {
@@ -637,7 +637,7 @@ int FlashClobberChunkFooter(struct SaveBlock2 * sav2, int x, u32 y)
     return FlashWriteChunk((u32)(GetChunkOffsetFromCurrentSaveSlot(y, r5) + r5->size - 20), sp0, 20);
 }
 
-u32 SavArray_sizeof(int idx)
+u32 SaveArray_sizeof(int idx)
 {
     const struct SaveChunkHeader * sch = UNK_020EE700;
     GF_ASSERT(idx < UNK_020EE6DC);
@@ -646,7 +646,7 @@ u32 SavArray_sizeof(int idx)
     return (u32)ret;
 }
 
-void SaveBlock2_InitSubstructs(struct SavArrayHeader * headers)
+void SaveBlock2_InitSubstructs(struct SaveArrayHeader * headers)
 {
     const struct SaveChunkHeader * sch = UNK_020EE700;
     s32 offset = 0;
@@ -655,7 +655,7 @@ void SaveBlock2_InitSubstructs(struct SavArrayHeader * headers)
     {
         GF_ASSERT(i == sch[i].id);
         headers[i].id = sch[i].id;
-        headers[i].size = SavArray_sizeof(i);
+        headers[i].size = SaveArray_sizeof(i);
         headers[i].offset = (u32)offset;
         headers[i].field_C = 0;
         headers[i].field_E = (u16)sch[i].linkedId;
@@ -666,7 +666,7 @@ void SaveBlock2_InitSubstructs(struct SavArrayHeader * headers)
     GF_ASSERT(offset <= 0x20000);
 }
 
-void FUN_02023160(struct SaveBlock2_Sub_20464 * spec, struct SavArrayHeader * headers)
+void FUN_02023160(struct SaveBlock2_Sub_20464 * spec, struct SaveArrayHeader * headers)
 {
     int i = 0;
     int sp4 = 0;
@@ -692,7 +692,7 @@ void FUN_02023160(struct SaveBlock2_Sub_20464 * spec, struct SavArrayHeader * he
     GF_ASSERT(sp4 <= 32);
 }
 
-void Sav2_InitDynamicRegion_Internal(u8 * dynamic_region, struct SavArrayHeader * headers)
+void Save_InitDynamicRegion_Internal(u8 * dynamic_region, struct SaveArrayHeader * headers)
 {
     const struct SaveChunkHeader * sch = UNK_020EE700;
     MI_CpuClearFast(dynamic_region, 0x20000);
@@ -706,7 +706,7 @@ void Sav2_InitDynamicRegion_Internal(u8 * dynamic_region, struct SavArrayHeader 
 
 void CreateChunkFooter(struct SaveBlock2 * sav2, u8 * data, int id, u32 size)
 {
-    struct SavArrayFooter * footer = (struct SavArrayFooter *)(data + size);
+    struct SaveArrayFooter * footer = (struct SaveArrayFooter *)(data + size);
     footer->magic = 0x20060623;
     footer->unk_4 = sav2->unk_204A4 + 1;
     footer->unk_8 = size;
@@ -716,7 +716,7 @@ void CreateChunkFooter(struct SaveBlock2 * sav2, u8 * data, int id, u32 size)
 
 BOOL ValidateChunk(struct SaveBlock2 * sav2, u8 * data, int id, u32 size)
 {
-    struct SavArrayFooter * footer = (struct SavArrayFooter *)(data + size);
+    struct SaveArrayFooter * footer = (struct SaveArrayFooter *)(data + size);
     if (footer->magic != 0x20060623)
         return FALSE;
     if (footer->unk_8 != size)
@@ -728,7 +728,7 @@ BOOL ValidateChunk(struct SaveBlock2 * sav2, u8 * data, int id, u32 size)
 
 u32 FUN_020232B4(u8 * data, u32 size)
 {
-    struct SavArrayFooter * footer = (struct SavArrayFooter *)(data + size);
+    struct SaveArrayFooter * footer = (struct SaveArrayFooter *)(data + size);
     return footer->unk_4;
 }
 

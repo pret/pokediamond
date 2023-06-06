@@ -656,13 +656,13 @@ _02085DDC:
 	add r0, r5, #0x0
 	bl FUN_0204AF3C
 	ldr r0, [r6, #0x10]
-	bl Sav2_SealCase_get
+	bl Save_SealCase_Get
 	str r0, [r7, #0x20]
 	add r0, r7, #0x0
 	mov r1, #0x0
 	bl FUN_02085D8C
 	ldr r0, [r6, #0x10]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [r7, #0x1c]
 	bl GetPartyCount
 	mov r4, #0x0
@@ -726,10 +726,10 @@ _02085E66:
 	ldr r0, [r7, #0x1c]
 	str r0, [r4, #0x0]
 	ldr r0, [r6, #0x10]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	str r0, [r4, #0x4]
 	ldr r0, [r6, #0x10]
-	bl Sav2_Mailbox_get
+	bl Save_Mailbox_Get
 	str r0, [r4, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -847,7 +847,7 @@ _02085F5E:
 	str r0, [r4, #0x8]
 	bl memset
 	add r0, r5, #0x0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	ldr r1, [r4, #0x8]
 	str r0, [r1, #0x24]
 	ldr r0, [r4, #0x8]

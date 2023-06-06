@@ -9,40 +9,40 @@
 
 #pragma thumb on
 
-void PlayerProfile_init(struct PlayerData * data);
+void PlayerProfile_Init(struct PlayerData * data);
 
-u32 Sav2_PlayerData_sizeof(void)
+u32 Save_PlayerData_sizeof(void)
 {
     return sizeof(struct PlayerDataSav);
 }
 
-void Sav2_PlayerData_init(struct PlayerDataSav * pds)
+void Save_PlayerData_Init(struct PlayerDataSav * pds)
 {
     MI_CpuClearFast(pds, sizeof(struct PlayerDataSav));
-    Options_init(&pds->options);
-    PlayerProfile_init(&pds->data);
+    Options_Init(&pds->options);
+    PlayerProfile_Init(&pds->data);
     InitCoins(&pds->coins);
     InitIGT(&pds->igt);
 }
 
-struct PlayerData * Sav2_PlayerData_GetProfileAddr(struct SaveBlock2 * sav2)
+struct PlayerData * Save_PlayerData_GetProfileAddr(struct SaveBlock2 * sav2)
 {
-    return &((struct PlayerDataSav *)SavArray_get(sav2, 1))->data;
+    return &((struct PlayerDataSav *)SaveArray_Get(sav2, 1))->data;
 }
 
-struct Options * Sav2_PlayerData_GetOptionsAddr(struct SaveBlock2 * sav2)
+struct Options * Save_PlayerData_GetOptionsAddr(struct SaveBlock2 * sav2)
 {
-    return &((struct PlayerDataSav *)SavArray_get(sav2, 1))->options;
+    return &((struct PlayerDataSav *)SaveArray_Get(sav2, 1))->options;
 }
 
-u16 * Sav2_PlayerData_GetCoinsAddr(struct SaveBlock2 * sav2)
+u16 * Save_PlayerData_GetCoinsAddr(struct SaveBlock2 * sav2)
 {
-    return &((struct PlayerDataSav *)SavArray_get(sav2, 1))->coins;
+    return &((struct PlayerDataSav *)SaveArray_Get(sav2, 1))->coins;
 }
 
-struct IGT * Sav2_PlayerData_GetIGTAddr(struct SaveBlock2 * sav2)
+struct IGT * Save_PlayerData_GetIGTAddr(struct SaveBlock2 * sav2)
 {
-    return &((struct PlayerDataSav *)SavArray_get(sav2, 1))->igt;
+    return &((struct PlayerDataSav *)SaveArray_Get(sav2, 1))->igt;
 }
 
 u32 PlayerProfile_sizeof(void)
@@ -50,10 +50,10 @@ u32 PlayerProfile_sizeof(void)
     return sizeof(struct PlayerData);
 }
 
-struct PlayerData * PlayerProfile_new(u32 heap_id)
+struct PlayerData * PlayerProfile_New(u32 heap_id)
 {
     struct PlayerData * ret = (struct PlayerData *)AllocFromHeap(heap_id, sizeof(struct PlayerData));
-    PlayerProfile_init(ret);
+    PlayerProfile_Init(ret);
     return ret;
 }
 
@@ -62,7 +62,7 @@ void PlayerProfile_Copy(const struct PlayerData * src, struct PlayerData * dest)
     MI_CpuCopy8(src, dest, sizeof(struct PlayerData));
 }
 
-void PlayerProfile_init(struct PlayerData * data)
+void PlayerProfile_Init(struct PlayerData * data)
 {
     memset(data, 0, sizeof(struct PlayerData));
     data->language = LANGUAGE_ENGLISH;
@@ -91,7 +91,7 @@ void PlayerName_FlatToString(struct PlayerData * data, struct String * str)
 
 struct String * PlayerProfile_GetPlayerName_NewString(struct PlayerData * data, u32 heap_id)
 {
-    struct String * str = String_ctor(OT_NAME_LENGTH + 1, heap_id);
+    struct String * str = String_New(OT_NAME_LENGTH + 1, heap_id);
     PlayerName_FlatToString(data, str);
     return str;
 }

@@ -593,7 +593,7 @@ THUMB_FUNC void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy
     }
 }
 
-THUMB_FUNC WaitingIcon *WaitingIcon_new(struct Window *window, u32 param1) {
+THUMB_FUNC WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
     u32 heap_id = BgConfig_GetHeapId(window->bgConfig);
     void *charptr = BgGetCharPtr(GetWindowBgId(window));
 

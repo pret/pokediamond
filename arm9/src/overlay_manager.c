@@ -4,7 +4,7 @@
 #include "heap.h"
 #include "overlay_manager.h"
 
-THUMB_FUNC struct OverlayManager * OverlayManager_new(const struct OverlayManagerTemplate *template, s32 * a1, u32 heap_id)
+THUMB_FUNC struct OverlayManager * OverlayManager_New(const struct OverlayManagerTemplate *template, s32 * a1, u32 heap_id)
 {
     struct OverlayManager * ret = (struct OverlayManager *)AllocFromHeap(heap_id, sizeof(struct OverlayManager));
     ret->template = *template;
@@ -17,7 +17,7 @@ THUMB_FUNC struct OverlayManager * OverlayManager_new(const struct OverlayManage
     return ret;
 }
 
-THUMB_FUNC void OverlayManager_delete(struct OverlayManager * overlayManager)
+THUMB_FUNC void OverlayManager_Delete(struct OverlayManager * overlayManager)
 {
     FreeToHeap(overlayManager);
 }

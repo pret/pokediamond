@@ -210,7 +210,7 @@ FUN_02063A9C: ; 0x02063A9C
 	pop {r4, pc}
 _02063AAE:
 	ldr r0, [r1, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x1
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -294,7 +294,7 @@ FUN_02063B40: ; 0x02063B40
 	pop {r4, pc}
 _02063B52:
 	ldr r0, [r1, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x2
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -311,7 +311,7 @@ _02063B66:
 _02063B74:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _02063B88
@@ -320,13 +320,13 @@ _02063B74:
 _02063B88:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	beq _02063BA8
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _02063BAC
@@ -398,7 +398,7 @@ FUN_02063C14: ; 0x02063C14
 	pop {r4, pc}
 _02063C26:
 	ldr r0, [r1, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x4
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -423,7 +423,7 @@ _02063C4A:
 _02063C56:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _02063C6A
@@ -501,7 +501,7 @@ FUN_02063CE0: ; 0x02063CE0
 	pop {r4, pc}
 _02063CF2:
 	ldr r0, [r1, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x5
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -587,7 +587,7 @@ FUN_02063D88: ; 0x02063D88
 	pop {r4, pc}
 _02063D9A:
 	ldr r0, [r1, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x3
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -673,7 +673,7 @@ FUN_02063E30: ; 0x02063E30
 	pop {r4, pc}
 _02063E42:
 	ldr r0, [r1, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x0
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -759,7 +759,7 @@ FUN_02063ED8: ; 0x02063ED8
 	pop {r4, pc}
 _02063EEA:
 	ldr r0, [r1, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x7
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -845,7 +845,7 @@ FUN_02063F80: ; 0x02063F80
 	pop {r4, pc}
 _02063F92:
 	ldr r0, [r1, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x6
 	bl PlayerProfile_TestBadgeFlag
 	cmp r0, #0x0
@@ -862,7 +862,7 @@ _02063FA6:
 _02063FB2:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _02063FC6
@@ -1023,7 +1023,7 @@ _020640DE:
 _020640EC:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _02064100
@@ -1032,13 +1032,13 @@ _020640EC:
 _02064100:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F214
 	cmp r0, #0x1
 	beq _02064120
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _02064124
@@ -1138,7 +1138,7 @@ _020641D2:
 _020641D6:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _020641EA
@@ -1228,7 +1228,7 @@ FUN_02064284: ; 0x02064284
 	pop {r3, pc}
 _02064294:
 	ldr r0, [r1, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F244
 	cmp r0, #0x1
 	bne _020642A6

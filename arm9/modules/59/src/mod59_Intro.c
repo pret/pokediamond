@@ -394,7 +394,7 @@ THUMB_FUNC BOOL MOD59_IntroInit(struct OverlayManager *overlayManager, u32 *stat
     data->heap_id = 0x52;
     s32 *field18 = OverlayManager_GetField18(overlayManager);
     data->sav2 = (struct SaveBlock2 *)field18[2]; //?
-    data->options = Sav2_PlayerData_GetOptionsAddr(data->sav2);
+    data->options = Save_PlayerData_GetOptionsAddr(data->sav2);
     data->nextControllerCounter = data->controllerCounter = 0;
     data->loadedOverlay = NULL;
     data->playerStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 0, 0, 7, data->options);
@@ -495,7 +495,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *stat
                 break;
             }
 
-            OverlayManager_delete(data->loadedOverlay);
+            OverlayManager_Delete(data->loadedOverlay);
             data->loadedOverlay = NULL;
 
             *status = 5;
@@ -517,8 +517,8 @@ THUMB_FUNC BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *stat
     MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayManager);
 
     u32 heap_id = data->heap_id;
-    PlayerName_StringToFlat(Sav2_PlayerData_GetProfileAddr(data->sav2), data->playerStruct->name);
-    PlayerProfile_SetTrainerGender(Sav2_PlayerData_GetProfileAddr(data->sav2), data->playerStruct->gender);
+    PlayerName_StringToFlat(Save_PlayerData_GetProfileAddr(data->sav2), data->playerStruct->name);
+    PlayerProfile_SetTrainerGender(Save_PlayerData_GetProfileAddr(data->sav2), data->playerStruct->gender);
 
     RivalsNameToU16Array(FUN_02024EB4(data->sav2), data->rivalStruct->name);
 
@@ -662,7 +662,7 @@ THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 
     data->unk60 = FUN_020142EC(0, 0, 6, data->heap_id);
 
-    data->messageFormat = MessageFormat_new(data->heap_id);
+    data->messageFormat = MessageFormat_New(data->heap_id);
 
     data->displayMessageCounter = 0;
     data->displayControlMessageCounter = 0;
@@ -671,7 +671,7 @@ THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 
 THUMB_FUNC void MOD59_IntroDestroyMsg(MOD59_IntroOverlayData *data)
 {
-    MessageFormat_delete(data->messageFormat);
+    MessageFormat_Delete(data->messageFormat);
     FUN_020143D0(data->unk60);
     DestroyMsgData(data->msgData);
 }
@@ -828,13 +828,13 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, u3
             TextFlags_SetCanABSpeedUpPrint(TRUE);
             FUN_02002B7C(0);
 
-            struct String* string = String_ctor(1024, data->heap_id);
-            data->string = String_ctor(1024, data->heap_id);
+            struct String* string = String_New(1024, data->heap_id);
+            data->string = String_New(1024, data->heap_id);
             ReadMsgDataIntoString(data->msgData, msgNo, string);
             BufferString(data->messageFormat, 0, data->playerStruct->name, data->selectedGender, 1, 2);
             BufferString(data->messageFormat, 1, data->rivalStruct->name, 0, 1, 2);
             StringExpandPlaceholders(data->messageFormat, data->string, string);
-            String_dtor(string);
+            String_Delete(string);
 
             u32 delay = Options_GetTextFrameDelay(data->options);
             data->minTextSpacing = AddTextPrinterParameterized(&data->window, 1, data->string, 0, 0, delay, NULL);
@@ -845,7 +845,7 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, u3
             {
                 break;
             }
-            String_dtor(data->string);
+            String_Delete(data->string);
             data->displayMessageCounter = 2;
             break;
         case 2:
@@ -908,7 +908,7 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_IntroOverlayData *data, u32 param
                     break;
             }
             AddWindow(data->bgConfig, &data->listWindow, windowTemplate);
-            data->listMenuItem = ListMenuItems_ctor(menuItemsCount, data->heap_id);
+            data->listMenuItem = ListMenuItems_New(menuItemsCount, data->heap_id);
             for (i = 0; i < menuItemsCount; i++)
             {
                 ListMenuItems_AppendFromMsgData(data->listMenuItem, data->msgData, listStruct[i].msgNo, listStruct[i].val);
@@ -933,7 +933,7 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_IntroOverlayData *data, u32 param
             ClearFrameAndWindow1(&data->listWindow, FALSE);
             RemoveWindow(&data->listWindow);
             DestroyListMenu(data->listMenu, 0, 0);
-            ListMenuItems_dtor(data->listMenuItem);
+            ListMenuItems_Delete(data->listMenuItem);
             PlaySE(SEQ_SE_DP_SELECT);
             data->createListCounter = 0;
             ret = TRUE;
@@ -948,7 +948,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *dat
     {
         case 0:
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
-            data->string = String_ctor(1024, data->heap_id);
+            data->string = String_New(1024, data->heap_id);
             ReadMsgDataIntoString(data->msgData, msgNo, data->string);
             struct WindowTemplate template;
             if (param2 == 1)
@@ -970,7 +970,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *dat
                 FillWindowPixelRect(&data->window, 0, 0, 0, 192, 192);
                 AddTextPrinterParameterized2(&data->window, 0, data->string, 0, 0, 0, MakeFontColor(15, 2, 0), NULL);
             }
-            String_dtor(data->string);
+            String_Delete(data->string);
             data->displayControlMessageCounter = 1;
             break;
         case 1:
@@ -2595,7 +2595,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
 
         case 76: //load keyboard overlay (except this is not an overlay at all)
             data->playerStruct->gender = data->selectedGender;
-            data->loadedOverlay = OverlayManager_new(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heap_id);
+            data->loadedOverlay = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->playerStruct, data->heap_id);
             data->controllerCounter = 77;
             break;
 
@@ -2762,7 +2762,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
                     }
                     struct String *name = NewString_ReadMsgData(data->msgData, msgNo);
                     StringCopy(data->rivalStruct->name, name);
-                    String_dtor(name);
+                    String_Delete(name);
                     data->controllerCounter = 91;
                     break;
             }
@@ -2777,7 +2777,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 92: //load keyboard
-            data->loadedOverlay = OverlayManager_new(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heap_id);
+            data->loadedOverlay = OverlayManager_New(&UNK_020FA5FC, (s32 *)data->rivalStruct, data->heap_id);
             data->controllerCounter = 93;
             break;
 
@@ -2926,7 +2926,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 108: //load overaly 59 pt 2
-            data->loadedOverlay = OverlayManager_new(&MOD59_021D9DDC, 0, data->heap_id);
+            data->loadedOverlay = OverlayManager_New(&MOD59_021D9DDC, 0, data->heap_id);
             data->controllerCounter = 109;
             break;
 

@@ -147,7 +147,7 @@ _021F4A78:
 	str r1, [r5, r0]
 	mov r0, #0x28
 	mov r1, #4
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0xc]
 	ldr r0, [r7, #4]
 	bl MOD05_021DA220
@@ -235,7 +235,7 @@ _021F4B36:
 	bl GF_AssertFail
 _021F4B46:
 	ldr r0, [sp, #0xc]
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r2, _021F4BB8 ; =0x04000060
 	ldr r0, _021F4BBC ; =0xFFFFCFFF
 	ldrh r1, [r2]

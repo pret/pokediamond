@@ -1001,17 +1001,17 @@ _02038D68:
 	mov r0, #0x8
 	mov r1, #0x40
 	mov r2, #0xb
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	str r0, [r4, #0x40]
 	mov r0, #0x1
 	lsl r0, r0, #0xa
 	mov r1, #0xb
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x44]
 	mov r0, #0x1
 	lsl r0, r0, #0xa
 	mov r1, #0xb
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x48]
 	ldrb r0, [r4, #0x4]
 	add r0, r0, #0x1
@@ -1056,11 +1056,11 @@ _02038DD2:
 	add r0, #0xa4
 	ldr r5, [r0, #0x0]
 	ldr r0, [r4, #0x40]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x44]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x48]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	add r0, r4, #0x0
@@ -1946,7 +1946,7 @@ GetVarPointer: ; 0x020394B8
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x1
 	lsl r1, r1, #0xe
 	cmp r4, r1
@@ -2006,7 +2006,7 @@ FlagCheck: ; 0x02039528
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r1, r4, #0x0
 	bl CheckFlagInArray
 	pop {r4, pc}
@@ -2017,7 +2017,7 @@ FlagSet: ; 0x0203953C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r1, r4, #0x0
 	bl SetFlagInArray
 	pop {r4, pc}
@@ -2028,7 +2028,7 @@ FlagClear: ; 0x02039550
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r1, r4, #0x0
 	bl ClearFlagInArray
 	pop {r4, pc}
@@ -2038,7 +2038,7 @@ FlagClear: ; 0x02039550
 ResetTempFlagsAndVars: ; 0x02039564
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x1
 	add r4, r0, #0x0
 	bl GetFlagAddr
@@ -2065,7 +2065,7 @@ ResetTempFlagsAndVars: ; 0x02039564
 FUN_0203959C: ; 0x0203959C
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0xaa
 	lsl r1, r1, #0x4
 	bl GetFlagAddr
@@ -2157,7 +2157,7 @@ TrainerFlagCheck: ; 0x02039640
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1
@@ -2172,7 +2172,7 @@ TrainerFlagSet: ; 0x0203965C
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1
@@ -2187,7 +2187,7 @@ TrainerFlagClear: ; 0x02039678
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x55
 	lsl r1, r1, #0x4
 	add r1, r4, r1

@@ -97,7 +97,7 @@ THUMB_FUNC void ShowSaveDataReadError(u32 heap_id)
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
     struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0005_bin, heap_id);
-    struct String* str = String_ctor(384, heap_id);
+    struct String* str = String_New(384, heap_id);
 
     ResetAllTextPrinters();
 
@@ -107,7 +107,7 @@ THUMB_FUNC void ShowSaveDataReadError(u32 heap_id)
 
     ReadMsgDataIntoString(msg_data, 0, str);
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
-    String_dtor(str);
+    String_Delete(str);
 
     GX_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);
@@ -160,7 +160,7 @@ THUMB_FUNC void ShowGBACartRemovedError(u32 heap_id)
     BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
     struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0005_bin, heap_id);
-    struct String* str = String_ctor(384, heap_id);
+    struct String* str = String_New(384, heap_id);
 
     ResetAllTextPrinters();
 
@@ -170,7 +170,7 @@ THUMB_FUNC void ShowGBACartRemovedError(u32 heap_id)
 
     ReadMsgDataIntoString(msg_data, 1, str);
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
-    String_dtor(str);
+    String_Delete(str);
 
     GX_BothDispOn();
     SetMasterBrightnessNeutral(PM_LCD_TOP);

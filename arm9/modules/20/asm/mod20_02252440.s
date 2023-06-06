@@ -35,7 +35,7 @@ MOD20_02252448: ; 0x02252448
 	ldr r0, [sp]
 	str r6, [r4, #0x5c]
 	str r0, [r4, #0x54]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	str r0, [r4, #0x58]
 	ldr r0, [sp, #0x18]
 	str r7, [r4, #0x4c]
@@ -114,7 +114,7 @@ _022524FC:
 	pop {r4, pc}
 _02252502:
 	ldr r0, [r4, #0x58]
-	bl Sav2_Poketch_GetStepCounter
+	bl Save_Poketch_GetStepCounter
 	add r1, r0, #1
 	ldr r0, _02252530 ; =0x0001869F
 	cmp r1, r0
@@ -122,7 +122,7 @@ _02252502:
 	mov r1, #0
 _02252512:
 	ldr r0, [r4, #0x58]
-	bl Sav2_Poketch_SetStepCounter
+	bl Save_Poketch_SetStepCounter
 	mov r0, #1
 	strb r0, [r4, #7]
 	pop {r4, pc}
@@ -295,7 +295,7 @@ _0225262E:
 	cmp r0, #0
 	beq _02252684
 	ldr r0, [r4, #0x58]
-	bl Sav2_Poketch_GetSelectedApp
+	bl Save_Poketch_GetSelectedApp
 	add r5, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
@@ -388,7 +388,7 @@ _022526E2:
 	cmp r0, #0
 	beq _022527AA
 	ldr r0, [r4, #0x58]
-	bl Sav2_Poketch_CycleNextApp
+	bl Save_Poketch_CycleNextApp
 	str r0, [r4, #0x20]
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
@@ -457,7 +457,7 @@ _0225276C:
 	bne _0225278C
 _02252776:
 	ldr r0, [r4, #0x58]
-	bl Sav2_Poketch_CycleNextApp
+	bl Save_Poketch_CycleNextApp
 	str r0, [r4, #0x20]
 	mov r0, #0x1e
 	str r0, [r4, #0x10]
@@ -500,7 +500,7 @@ _022527C0:
 	mov r0, #1
 	strb r0, [r4, #6]
 	ldr r0, [r4, #0x58]
-	bl Sav2_Poketch_GetSelectedApp
+	bl Save_Poketch_GetSelectedApp
 	add r5, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
@@ -1194,7 +1194,7 @@ MOD20_02252C40: ; 0x02252C40
 MOD20_02252C44: ; 0x02252C44
 	push {r3, lr}
 	ldr r0, [r0, #0x54]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerGender
 	cmp r0, #1
 	beq _02252C58

@@ -26,9 +26,9 @@ struct Pokedex
     /* 0x013A */ u8 padding_013A[2];
 };
 
-u32 Sav2_Pokedex_sizeof(void);
-struct Pokedex * Sav2_Pokedex_new(u32 heap_id);
-void Sav2_Pokedex_Copy(const struct Pokedex * src, struct Pokedex * dest);
+u32 Save_Pokedex_sizeof(void);
+struct Pokedex * Save_Pokedex_New(u32 heap_id);
+void Save_Pokedex_Copy(const struct Pokedex * src, struct Pokedex * dest);
 s32 Pokedex_CountSeenShellosOrGastrodon_Internal(struct Pokedex * pokedex, u32 species);
 BOOL Pokedex_HasSeenShellosOrGastrodonForme(struct Pokedex * pokedex, u32 species, u8 state);
 void Pokedex_SetSeenShellosOrGastrodonForme(struct Pokedex * pokedex, u32 species, u32 state);
@@ -45,7 +45,7 @@ void Pokedex_SetMeisterFlagBySpeciesAndLanguage(struct Pokedex * pokedex, u32 sp
 s32 FUN_020242C8(struct Pokedex * pokedex, u16 species, s32 r4);
 BOOL Pokedex_SpeciesIsNotMythical(u16 species);
 BOOL Pokedex_SpeciesIsNotSinnohMythical(u16 species);
-void Sav2_Pokedex_init(struct Pokedex * pokedex);
+void Save_Pokedex_Init(struct Pokedex * pokedex);
 u16 Pokedex_CountNationalDexCaughtMons(struct Pokedex * pokedex);
 u16 Pokedex_CountNationalDexSeenMons(struct Pokedex * pokedex);
 u16 Pokedex_CountSeenMons(struct Pokedex * pokedex);
@@ -82,7 +82,7 @@ void FUN_02024D4C(struct Pokedex * pokedex);
 BOOL FUN_02024D58(struct Pokedex * pokedex);
 BOOL Pokedex_GetSinnohDexFlag(struct Pokedex * pokedex);
 void Pokedex_SetSinnohDexFlag(struct Pokedex * pokedex);
-struct Pokedex * Sav2_Pokedex_get(struct SaveBlock2 * sav2);
+struct Pokedex * Save_Pokedex_Get(struct SaveBlock2 * sav2);
 s32 Pokedex_GetSeenMonForme(struct Pokedex * pokedex, s32 a1, u32 a2);
 
 #endif //POKEDIAMOND_POKEDEX_H

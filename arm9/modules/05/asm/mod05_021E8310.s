@@ -13,7 +13,7 @@ MOD05_021E8310: ; 0x021E8310
 	bl FUN_02034DC0
 	add r6, r0, #0
 	add r0, r4, #0
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r7, r0, #0
 	ldr r0, [r6]
 	bl MapHeader_GetMapSec
@@ -30,10 +30,10 @@ _021E8344:
 _021E8346:
 	str r0, [r5]
 	add r0, r4, #0
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r5, #8]
 	add r0, r4, #0
-	bl Sav2_PlayerData_GetIGTAddr
+	bl Save_PlayerData_GetIGTAddr
 	str r0, [r5, #0xc]
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -163,7 +163,7 @@ MOD05_021E8410: ; 0x021E8410
 	add r3, r1, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #1
 	str r0, [sp, #0x10]
 	ldr r0, _021E84EC ; =UNK05_021F78D4
@@ -194,7 +194,7 @@ _021E846E:
 	add r3, r1, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	sub r2, r7, #4
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
@@ -221,7 +221,7 @@ _021E846E:
 	add r2, r6, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 _021E84D6:
 	ldr r0, [sp, #0xc]
 	add r7, r7, #4
@@ -323,7 +323,7 @@ MOD05_021E8588: ; 0x021E8588
 	ldr r0, [r6, #8]
 	str r0, [r4, #0xc]
 	add r0, r5, #0
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x14]
 	ldr r2, _021E85E0 ; =0x000001E3
 	mov r0, #1
@@ -357,7 +357,7 @@ MOD05_021E85E4: ; 0x021E85E4
 	ldr r0, [r4, #0x18]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}

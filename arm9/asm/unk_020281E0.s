@@ -704,8 +704,8 @@ _020286E8: .word 0x0000FFFF
 
 	thumb_func_start FUN_020286EC
 FUN_020286EC: ; 0x020286EC
-	ldr r3, _020286F4 ; =SavArray_get
+	ldr r3, _020286F4 ; =SaveArray_Get
 	mov r1, #0x1d
 	bx r3
 	nop
-_020286F4: .word SavArray_get
+_020286F4: .word SaveArray_Get

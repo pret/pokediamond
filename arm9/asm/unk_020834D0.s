@@ -830,7 +830,7 @@ FUN_02083AA8: ; 0x02083AA8
 	push {r3-r5, lr}
 	add r5, r2, #0x0
 	add r4, r3, #0x0
-	bl Sav2_Chatot_sizeof
+	bl Save_Chatot_sizeof
 	add r2, r0, #0x0
 	ldrb r1, [r5, r2]
 	add r0, r5, #0x0
@@ -854,7 +854,7 @@ FUN_02083AD4: ; 0x02083AD4
 	add r4, r0, #0x0
 	add r7, r1, #0x0
 	add r6, r2, #0x0
-	bl Sav2_Chatot_sizeof
+	bl Save_Chatot_sizeof
 	add r5, r0, #0x0
 	ldr r0, _02083B0C ; =0x00000585
 	add r4, r4, r0

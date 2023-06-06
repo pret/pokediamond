@@ -10,7 +10,7 @@
 
 NARC * OpenNutsDataNarc(u32 heap_id)
 {
-    return NARC_ctor(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, heap_id);
+    return NARC_New(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, heap_id);
 }
 
 struct NutData * ReadNutDataFromNarc(NARC * narc, u32 berry_idx, u32 heap_id)
@@ -20,7 +20,7 @@ struct NutData * ReadNutDataFromNarc(NARC * narc, u32 berry_idx, u32 heap_id)
 
 void CloseNutsDataNarc(NARC * narc)
 {
-    NARC_dtor(narc);
+    NARC_Delete(narc);
 }
 
 struct NutData * LoadNutDataSingle(s32 berry_idx, u32 heap_id)

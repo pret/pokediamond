@@ -923,7 +923,7 @@ MOD83_0222DCA0: ; 0x0222DCA0
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD83_0222DCA0
@@ -973,7 +973,7 @@ MOD83_0222DD24: ; 0x0222DD24
 	bl NewMsgDataFromNarc
 	str r0, [sp, #0x24]
 	mov r0, #0x51
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [sp, #0x28]
 	ldr r0, [sp, #0x10]
 	ldr r0, [r0, #0xc]
@@ -1030,7 +1030,7 @@ _0222DD88:
 	mov r3, #0x20
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 _0222DDB8:
 	add r6, r6, #1
 	add r4, r4, #4
@@ -1138,7 +1138,7 @@ _0222DE76:
 	add r0, #0xcc
 	str r2, [r0]
 	ldr r0, [sp, #0x28]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [sp, #0x24]
 	bl DestroyMsgData
 	mov r0, #1
@@ -1240,7 +1240,7 @@ MOD83_0222DF40: ; 0x0222DF40
 	str r0, [r5, #0x34]
 _0222DF60:
 	ldr r0, [r5, #4]
-	bl Sav2_SysInfo_get
+	bl Save_SysInfo_Get
 	bl FUN_02023820
 	cmp r0, #1
 	bne _0222DF72
@@ -1949,13 +1949,13 @@ MOD83_0222E48C: ; 0x0222E48C
 	add r0, r0, #4
 	str r1, [r4, r0]
 	ldr r0, [r4, #4]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #4]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	str r0, [r4, #8]
 	ldr r0, [r4, #4]
-	bl Sav2_PlayerData_GetIGTAddr
+	bl Save_PlayerData_GetIGTAddr
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #8]
 	bl Pokedex_GetSinnohDexFlag
@@ -2871,7 +2871,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	sub sp, #0x20
 	add r5, r0, #0
 	ldr r0, [r5]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r4, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -2979,7 +2979,7 @@ MOD83_0222EC78: ; 0x0222EC78
 	add r3, r2, #0
 	bl MOD83_02238A38
 	add r0, r4, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x20
 	pop {r3, r4, r5, pc}
 	nop
@@ -3051,13 +3051,13 @@ MOD83_0222EDF8: ; 0x0222EDF8
 	bl OverlayManager_GetField18
 	ldr r0, [r0, #8]
 	str r0, [r4, #8]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #8]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #8]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x14]
 	ldr r0, [r4]
 	bl MOD83_02238770
@@ -3347,7 +3347,7 @@ MOD83_0222F074: ; 0x0222F074
 	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	ldr r0, [r5]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r1, #0xc6
 	mov r2, #7
 	lsl r1, r1, #6
@@ -3364,7 +3364,7 @@ MOD83_0222F074: ; 0x0222F074
 	mov r2, #0x24
 	bl CopyStringToU16Array
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0xc
 	bl MOD83_02238EF4
 	add r7, r0, #0
@@ -3421,7 +3421,7 @@ MOD83_0222F074: ; 0x0222F074
 	mov r2, #0xfa
 	bl CopyStringToU16Array
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0xd2
 	lsl r0, r0, #2
 	mov r1, #0
@@ -3443,7 +3443,7 @@ MOD83_0222F074: ; 0x0222F074
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	ldr r0, [sp]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r0, _0222F1A8 ; =0x00003174
@@ -3618,7 +3618,7 @@ _0222F2C4:
 	add r0, r4, #0
 	add r0, #0x28
 	mov r1, #0xa
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _0222F5E4 ; =0x000034D8
 	str r0, [r4, r1]
 	mov r0, #3
@@ -3859,7 +3859,7 @@ _0222F4AA:
 	add r0, r4, #0
 	add r0, #0x28
 	mov r1, #0xa
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _0222F5E4 ; =0x000034D8
 	str r0, [r4, r1]
 	add r0, r4, #0
@@ -4573,7 +4573,7 @@ MOD83_0222FA0C: ; 0x0222FA0C
 	add r0, r4, #0
 	add r0, #0x18
 	mov r1, #1
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _0222FA40 ; =0x00002994
 	str r0, [r4, r1]
 	pop {r4, pc}
@@ -4609,7 +4609,7 @@ MOD83_0222FA4C: ; 0x0222FA4C
 	ldr r0, [r7, #0x7c]
 	cmp r0, #0
 	beq _0222FA62
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 _0222FA62:
 	ldr r0, [r7, #0x78]
 	cmp r0, #0
@@ -5812,11 +5812,11 @@ MOD83_022303B0: ; 0x022303B0
 	ldr r0, [r4, #0x7c]
 	cmp r0, #0
 	beq _022303CC
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 _022303CC:
 	add r0, r7, #0
 	mov r1, #0x56
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r4, #0x7c]
 	ldr r2, _0223045C ; =0x00000172
 	mov r0, #0
@@ -5986,7 +5986,7 @@ MOD83_0223050C: ; 0x0223050C
 	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x56
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0xc]
 	mov r0, #1
 	mov r1, #6
@@ -6020,7 +6020,7 @@ _02230554:
 	cmp r0, #0
 	bne _0223057A
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 _0223057A:
 	add r0, r5, #0
 	mov r1, #0
@@ -6030,7 +6030,7 @@ _0223057A:
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0xff
 	str r0, [r4, #0x68]
 	add sp, #0x10
@@ -6049,7 +6049,7 @@ MOD83_022305A4: ; 0x022305A4
 	bl OverlayManager_GetData
 	mov r0, #0x25
 	mov r1, #0x56
-	bl String_ctor
+	bl String_New
 	add r1, r6, #0
 	mov r2, #0x24
 	add r4, r0, #0
@@ -6077,7 +6077,7 @@ MOD83_022305A4: ; 0x022305A4
 	mov r3, #3
 	bl DrawFrameAndWindow1
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -6311,7 +6311,7 @@ _022307C8:
 	mov r1, #0
 	bl BgClearTilemapBufferAndCommit
 	mov r0, #0x56
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r1, #2
 	str r1, [sp]
 	mov r1, #1
@@ -6349,7 +6349,7 @@ _022307C8:
 	add r3, r2, #0
 	bl MOD83_02238A38
 	add r0, r6, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x5c
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -6426,7 +6426,7 @@ MOD83_0223089C: ; 0x0223089C
 	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	mov r0, #0x56
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r1, r7, #0
 	add r2, r5, #0
 	mov r3, #0x56
@@ -6442,7 +6442,7 @@ MOD83_0223089C: ; 0x0223089C
 	ldr r0, [sp, #4]
 	str r0, [r4, #0x74]
 	ldr r0, [sp, #8]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	b _02230918
@@ -6454,7 +6454,7 @@ _022308F8:
 	cmp r0, #0
 	bne _02230918
 	ldr r0, [r4, #0x14]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0
 	str r0, [r4, #0x14]
 	str r0, [r4, #0x68]
@@ -6553,7 +6553,7 @@ _022309D0:
 	bl OverlayManager_GetField18
 	ldr r0, [r0, #8]
 	str r0, [r4, #4]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #8]
 	mov r0, #0xff
 	mov r2, #3
@@ -8142,7 +8142,7 @@ MOD83_022316F0: ; 0x022316F0
 	str r3, [sp]
 	cmp r0, #0
 	beq _02231708
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 _02231708:
 	ldr r0, _02231798 ; =0x00002B68
 	ldr r0, [r5, r0]
@@ -8154,7 +8154,7 @@ _02231708:
 _02231718:
 	add r0, r7, #0
 	mov r1, #0x57
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r1, _02231794 ; =0x00002B6C
 	ldr r2, _0223179C ; =0x00000172
 	str r0, [r5, r1]
@@ -8231,7 +8231,7 @@ MOD83_022317A8: ; 0x022317A8
 	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	mov r0, #0x57
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r6, r0, #0
 	mov r0, #1
 	mov r1, #6
@@ -8259,11 +8259,11 @@ MOD83_022317A8: ; 0x022317A8
 	add r0, r5, #0
 	bl CopyWindowToVram
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -8417,7 +8417,7 @@ MOD83_02231930: ; 0x02231930
 	ldr r0, _022319C0 ; =0x00002B70
 	mov r1, #0x13
 	add r0, r4, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _022319C4 ; =0x00003CF0
 	str r0, [r4, r1]
 	mov r1, #0xad
@@ -8503,7 +8503,7 @@ MOD83_02231A00: ; 0x02231A00
 	add r4, r0, #0
 	ldr r0, _02231A40 ; =0x00002B6C
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r1, #0
 	ldr r0, _02231A40 ; =0x00002B6C
 	add r2, r1, #0
@@ -8546,7 +8546,7 @@ MOD83_02231A4C: ; 0x02231A4C
 	ldr r1, [r5]
 	mov r0, #0x25
 	add r4, r2, #0
-	bl String_ctor
+	bl String_New
 	ldr r1, _02231A9C ; =0x00002B60
 	add r6, r0, #0
 	ldr r2, [r5, r1]
@@ -8570,7 +8570,7 @@ MOD83_02231A4C: ; 0x02231A4C
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #1
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8632,7 +8632,7 @@ _02231ADE:
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #1
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
@@ -8702,7 +8702,7 @@ MOD83_02231B84: ; 0x02231B84
 	mov r0, #0xfb
 	mov r1, #0x57
 	add r4, r2, #0
-	bl String_ctor
+	bl String_New
 	ldr r1, _02231BD4 ; =0x00002B60
 	add r6, r0, #0
 	ldr r2, [r5, r1]
@@ -8726,7 +8726,7 @@ MOD83_02231B84: ; 0x02231B84
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8771,7 +8771,7 @@ MOD83_02231BD8: ; 0x02231BD8
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	mov r0, #0
 	pop {r4, r5, r6, pc}
@@ -9028,7 +9028,7 @@ MOD83_02231DF0: ; 0x02231DF0
 	ldr r1, _02231F70 ; =0x000029A4
 	str r0, [r5, r1]
 	ldr r0, [r5]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	ldr r1, _02231F74 ; =0x000029A0
 	str r0, [r5, r1]
 	ldr r1, _02231F78 ; =0x00002B64
@@ -9159,7 +9159,7 @@ _02231EBE:
 	add r0, r6, #0
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x30]
-	bl String_dtor
+	bl String_Delete
 _02231F20:
 	add r0, r6, #0
 	bl CopyWindowToVram
@@ -9186,7 +9186,7 @@ _02231F2E:
 	bl DestroyMsgData
 	ldr r0, _02231F74 ; =0x000029A0
 	ldr r0, [r5, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [sp, #0x14]
 	cmp r0, #0
 	bne _02231F64
@@ -9261,7 +9261,7 @@ _02231FD2:
 	ldr r1, _02232090 ; =0x000029A4
 	str r0, [r5, r1]
 	mov r0, #0x57
-	bl MessageFormat_new
+	bl MessageFormat_New
 	ldr r1, _02232094 ; =0x000029A0
 	str r0, [r5, r1]
 _02231FFE:
@@ -9296,13 +9296,13 @@ _02231FFE:
 	add r0, r6, #0
 	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x14]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _02232090 ; =0x000029A4
 	ldr r0, [r5, r0]
 	bl DestroyMsgData
 	ldr r0, _02232094 ; =0x000029A0
 	ldr r0, [r5, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 _02232054:
 	ldr r0, _022320A0 ; =0x00002B70
 	add r0, r5, r0
@@ -10190,7 +10190,7 @@ _0223270E:
 	ldr r0, _02232780 ; =0x00002B70
 	mov r1, #0x13
 	add r0, r5, r0
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _02232784 ; =0x00003CF0
 	str r0, [r5, r1]
 _02232746:
@@ -10283,7 +10283,7 @@ _022327E6:
 	str r0, [r4, r1]
 	add r0, r1, #4
 	ldr r0, [r4, r0]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	ldr r1, _02232B58 ; =0x00002B48
 	str r0, [r4, r1]
 	ldr r0, [r4, r1]
@@ -11077,7 +11077,7 @@ _02232E7E:
 	bl MOD83_02232DB4
 	str r0, [sp, #0x34]
 	mov r0, #0x57
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r4, r0, #0
 	ldr r2, _02232FD8 ; =0x00000172
 	mov r0, #1
@@ -11143,7 +11143,7 @@ _02232F30:
 	bl AddTextPrinterParameterized2
 _02232F4A:
 	ldr r0, [sp, #0x20]
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
 	bl PlayerProfile_GetTrainerID
 	add r2, r0, #0
@@ -11176,7 +11176,7 @@ _02232F4A:
 	mov r3, #0x50
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add r5, #0x18
 _02232F9E:
 	ldr r0, [sp, #0x18]
@@ -11196,7 +11196,7 @@ _02232FB8:
 	ldr r0, [sp, #0x1c]
 	bl DestroyMsgData
 	add r0, r4, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r6, #0
 	add sp, #0x48
 	pop {r3, r4, r5, r6, r7, pc}
@@ -11225,7 +11225,7 @@ MOD83_02232FE4: ; 0x02232FE4
 	ldr r1, _02233078 ; =0x000029A4
 	str r0, [r5, r1]
 	mov r0, #0x57
-	bl MessageFormat_new
+	bl MessageFormat_New
 	ldr r1, _0223307C ; =0x000029A0
 	str r0, [r5, r1]
 	add r0, r4, #0
@@ -11262,13 +11262,13 @@ MOD83_02232FE4: ; 0x02232FE4
 	add r0, r4, #0
 	bl CopyWindowToVram
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _02233078 ; =0x000029A4
 	ldr r0, [r5, r0]
 	bl DestroyMsgData
 	ldr r0, _0223307C ; =0x000029A0
 	ldr r0, [r5, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -15528,7 +15528,7 @@ _02234F8C:
 	cmp r7, #0
 	bne _02234FB2
 	mov r0, #0x4e
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r7, r0, #0
 _02234FB2:
 	ldr r1, [sp, #0x14]
@@ -15555,12 +15555,12 @@ _02234FB2:
 	bl AddTextPrinterParameterized2
 	str r0, [r5, #0x48]
 	ldr r0, [sp, #0x18]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0x40]
 	cmp r0, #0
 	bne _02234FF8
 	add r0, r7, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 _02234FF8:
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
@@ -15573,7 +15573,7 @@ _02235004:
 	beq _0223504C
 	mov r0, #0x40
 	mov r1, #0x4e
-	bl String_ctor
+	bl String_New
 	ldr r1, [r5, #0x38]
 	add r7, r0, #0
 	mov r2, #0x40
@@ -15596,7 +15596,7 @@ _02235004:
 	bl AddTextPrinterParameterized2
 	str r0, [r5, #0x48]
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0
 	str r0, [r5, #0x38]
 _0223504C:
@@ -16222,7 +16222,7 @@ MOD83_022354F0: ; 0x022354F0
 	add r5, r0, #0
 	mov r0, #0x13
 	mov r1, #0x4e
-	bl NARC_ctor
+	bl NARC_New
 	mov r1, #1
 	str r0, [sp, #0xc]
 	mov r0, #0x4e
@@ -16350,7 +16350,7 @@ _02235602:
 	ldr r0, [sp, #0x10]
 	bl FreeToHeap
 	ldr r0, [sp, #0xc]
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r1, _02235640 ; =MOD83_022354AC
 	ldr r0, _02235644 ; =0x00012604
 	str r1, [r5, r0]
@@ -17253,7 +17253,7 @@ _02235CCA:
 	bl MOD83_02234F2C
 	mov r0, #0x40
 	mov r1, #0x4e
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	ldr r2, _02235E00 ; =0x0000016A
 	mov r0, #1
@@ -17285,7 +17285,7 @@ _02235CCA:
 	add r0, r7, #0
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	mov r1, #0xc
 	mov r2, #0
@@ -17298,7 +17298,7 @@ _02235CCA:
 	add r7, r0, #0
 	mov r0, #0x40
 	mov r1, #0x4e
-	bl String_ctor
+	bl String_New
 	lsl r1, r7, #0x10
 	lsr r1, r1, #0x10
 	mov r2, #0x4e
@@ -17317,14 +17317,14 @@ _02235CCA:
 	str r6, [sp, #0x68]
 	bl MOD83_02234F2C
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 _02235DAC:
 	add r0, r4, #0
 	bl MOD83_02237EDC
 	add r6, r0, #0
 	mov r0, #0xa
 	mov r1, #0x4e
-	bl String_ctor
+	bl String_New
 	mov r3, #1
 	add r1, r6, #0
 	mov r2, #3
@@ -17344,7 +17344,7 @@ _02235DAC:
 	str r4, [sp, #0x68]
 	bl MOD83_02234F2C
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #4]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -18158,11 +18158,11 @@ MOD83_02236484: ; 0x02236484
 	mov r2, #8
 	bl ConvertRSStringToDPStringInternational
 	mov r0, #0x4e
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r4, r0, #0
 	mov r0, #8
 	mov r1, #0x4e
-	bl String_ctor
+	bl String_New
 	add r1, sp, #8
 	add r6, r0, #0
 	bl CopyU16ArrayToString
@@ -18192,9 +18192,9 @@ MOD83_02236484: ; 0x02236484
 	add r1, r5, r1
 	bl MOD83_02234F2C
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r5, #0
 	bl MOD83_02236450
 	add sp, #0x18
@@ -18535,10 +18535,10 @@ MOD83_02236764: ; 0x02236764
 	bl OverlayManager_GetField18
 	ldr r0, [r0, #8]
 	str r0, [r4, #0x10]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r4, #0x14]
 	ldr r0, [r4, #0x10]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x18]
 	bl Options_GetFrame
 	str r0, [r4, #0x1c]
@@ -18845,7 +18845,7 @@ _02236A10:
 	ldr r1, _02236B5C ; =0x00000498
 	add r0, r4, r1
 	sub r1, #0xc6
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _02236B60 ; =0x0000E898
 	str r0, [r4, r1]
 	mov r0, #0xa
@@ -19162,7 +19162,7 @@ _02236CAE:
 	ldr r1, _02236DA8 ; =0x00000498
 	add r0, r4, r1
 	sub r1, #0xc6
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	ldr r1, _02236DBC ; =0x0000E898
 	str r0, [r4, r1]
 	mov r0, #0x15
@@ -23101,7 +23101,7 @@ _02238976:
 	cmp r6, #0
 	bne _0223899C
 	ldr r0, [r4, #4]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r6, r0, #0
 _0223899C:
 	ldr r1, [sp, #0x10]
@@ -23160,12 +23160,12 @@ _022389D0:
 	str r0, [r5, #0xc]
 _02238A12:
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
 	bne _02238A24
 	add r0, r6, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 _02238A24:
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData

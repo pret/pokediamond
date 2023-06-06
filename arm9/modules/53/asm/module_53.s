@@ -50,7 +50,7 @@ _021D74F6:
 	bl BgConfig_Alloc
 	str r0, [r4]
 	mov r0, #0x27
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0xc]
 	ldr r2, _021D7644 ; =0x00000176
 	mov r0, #0
@@ -363,7 +363,7 @@ _021D77D8:
 	ldr r0, [r6, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r6, #0xc]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r7]
 	add r0, r0, #1
 	str r0, [r7]
@@ -604,7 +604,7 @@ MOD53_021D79F8: ; 0x021D79F8
 _021D7A0E:
 	mov r0, #8
 	mov r1, #0x27
-	bl String_ctor
+	bl String_New
 	str r0, [r6, #0x14]
 	ldrb r1, [r4]
 	ldr r0, [sp, #4]
@@ -628,11 +628,11 @@ _021D7A0E:
 	blt _021D7A0E
 	mov r0, #0xa
 	mov r1, #0x27
-	bl String_ctor
+	bl String_New
 	str r0, [r7, #0x28]
 	mov r0, #0x50
 	mov r1, #0x27
-	bl String_ctor
+	bl String_New
 	str r0, [r7, #0x2c]
 	ldr r0, _021D7AD4 ; =0x00004376
 	mov r2, #0
@@ -712,15 +712,15 @@ MOD53_021D7AE8: ; 0x021D7AE8
 	add r5, r6, #0
 _021D7B00:
 	ldr r0, [r5, #0x14]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
 	blt _021D7B00
 	ldr r0, [r6, #0x2c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x28]
-	bl String_dtor
+	bl String_Delete
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021D7B1C: .word 0x000043C8
@@ -3617,7 +3617,7 @@ MOD53_021D91C8: ; 0x021D91C8
 	mov r0, #0x50
 	mov r1, #0x27
 	add r4, r2, #0
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	ldr r0, [r5, #0x10]
 	add r1, r7, #0
@@ -3628,7 +3628,7 @@ MOD53_021D91C8: ; 0x021D91C8
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0xb6
 	lsl r0, r0, #2
 	add r0, r5, r0

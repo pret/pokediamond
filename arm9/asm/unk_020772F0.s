@@ -747,7 +747,7 @@ _020772FE:
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	mov r0, #0x12
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r2, #0x5a
 	lsl r2, r2, #0x2
 	str r0, [r4, r2]
@@ -1323,7 +1323,7 @@ _0207781A:
 	add r1, r6, #0x0
 	bl StringCopy
 	add r0, r6, #0x0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x18]
 	add r4, #0x1c
 	add r1, r4, #0x0
@@ -1347,7 +1347,7 @@ _02077836:
 	add r1, r5, #0x0
 	bl StringCopy
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x18]
 	add r4, #0x1c
 	add r1, r4, #0x0
@@ -1462,7 +1462,7 @@ _02077932:
 	mov r0, #0x61
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r7, #0xe7
 	mov r6, #0x0
 	add r5, r4, #0x0
@@ -1551,16 +1551,16 @@ _020779C2:
 	ldr r0, [r4, r0]
 	cmp r0, #0x0
 	beq _02077A0C
-	bl String_dtor
+	bl String_Delete
 _02077A0C:
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x5f
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1576,7 +1576,7 @@ _02077A0C:
 	mov r0, #0x5a
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [sp, #0x10]
 	bl OverlayManager_FreeData
 	mov r0, #0x0
@@ -1618,7 +1618,7 @@ FUN_02077A84: ; 0x02077A84
 	ldr r1, [sp, #0x0]
 	strh r0, [r4, #0x1c]
 	add r0, r5, #0x1
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x18]
 	mov r1, #0x0
 	str r1, [r4, #0x44]
@@ -1646,7 +1646,7 @@ _02077AD2:
 	bl GF_AssertFail
 _02077ADA:
 	ldr r0, [r4, #0x18]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -2104,7 +2104,7 @@ FUN_02077E90: ; 0x02077E90
 	beq _02077FA0
 	mov r0, #0xc8
 	mov r1, #0x12
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0x0
 	mov r0, #0x6
 	mov r1, #0x0
@@ -2216,7 +2216,7 @@ _02077F7E:
 	mov r0, #0x1
 	str r0, [r5, #0x14]
 	add r0, r7, #0x0
-	bl String_dtor
+	bl String_Delete
 _02077FA0:
 	add sp, #0x14
 	pop {r4-r7, pc}
@@ -4065,7 +4065,7 @@ FUN_02078E7C: ; 0x02078E7C
 	str r2, [sp, #0x1c]
 	str r3, [sp, #0x20]
 	mov r4, #0x0
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x28]
 	ldrh r1, [r7, #0x0]
 	ldr r0, _02078F6C ; =0x0000FFFF
@@ -4173,7 +4173,7 @@ _02078F58:
 	bne _02078EB4
 _02078F62:
 	ldr r0, [sp, #0x28]
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x3c
 	pop {r4-r7, pc}
 	.balign 4
@@ -4252,7 +4252,7 @@ _02078FD0:
 	blo _02078FD0
 	mov r0, #0x15
 	mov r1, #0x12
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0x0
 	mov r5, #0x0
 _02079012:
@@ -4291,7 +4291,7 @@ _02079012:
 	cmp r5, #0x3
 	blo _02079012
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x38
 	pop {r3-r7, pc}
 	nop

@@ -78,8 +78,8 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -117,7 +117,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	str r0, [sp, #0x10]
@@ -136,7 +136,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED0C
 	add r1, sp, #0x14
 	strb r0, [r1, #0x3]
@@ -144,7 +144,7 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	add r1, sp, #0x14
 	strb r0, [r1, #0x4]
@@ -157,13 +157,13 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	str r0, [sp, #0x28]
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x2c]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -173,14 +173,14 @@ ScrCmd_Unk00FA: ; 0x0203FF10
 	str r0, [sp, #0x30]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Chatot_get
+	bl Save_Chatot_Get
 	str r0, [sp, #0x34]
 	add r0, sp, #0x14
 	bl FUN_02081214
 	ldr r1, [sp, #0x0]
 	str r0, [r1, #0x0]
 	add r0, r7, #0x0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x0
 	add sp, #0x38
 	pop {r3-r7, pc}

@@ -5,7 +5,7 @@
 
 void ListMenuItems_DestroyMenuStrings(struct ListMenuItem * items);
 
-THUMB_FUNC struct ListMenuItem * ListMenuItems_ctor(u32 count, u32 heap_id)
+THUMB_FUNC struct ListMenuItem * ListMenuItems_New(u32 count, u32 heap_id)
 {
     s32 i;
     struct ListMenuItem * ret = AllocFromHeap(heap_id, (count + 1) * sizeof(struct ListMenuItem));
@@ -22,7 +22,7 @@ THUMB_FUNC struct ListMenuItem * ListMenuItems_ctor(u32 count, u32 heap_id)
     return ret;
 }
 
-THUMB_FUNC void ListMenuItems_dtor(struct ListMenuItem * items)
+THUMB_FUNC void ListMenuItems_Delete(struct ListMenuItem * items)
 {
     ListMenuItems_DestroyMenuStrings(items);
     FreeToHeap(items);
@@ -86,7 +86,7 @@ THUMB_FUNC void ListMenuItems_DestroyMenuStrings(struct ListMenuItem * items)
     {
         if (items[i].text == NULL)
             break;
-        String_dtor(items[i].text);
+        String_Delete(items[i].text);
         items[i].text = NULL;
     }
 }

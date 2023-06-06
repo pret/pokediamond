@@ -197,12 +197,12 @@ _02046690:
 	pop {r3-r7, pc}
 _020466A4:
 	ldr r0, [r6, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED3C
 	cmp r0, #0x0
 	beq _020466BC
 	ldr r0, [r6, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl HealParty
 _020466BC:
 	ldr r1, [r5, #0x10]
@@ -348,7 +348,7 @@ _020467C0:
 	add r1, r7, #0x0
 	bl FUN_02047FA4
 	ldr r0, [r7, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x15
 	bl GameStats_AddSpecial
 	add r0, r6, #0x0
@@ -410,7 +410,7 @@ _02046844:
 	add r1, r6, #0x0
 	bl FUN_02047FA4
 	ldr r0, [r6, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x15
 	bl GameStats_AddSpecial
 	ldr r0, [r4, #0x0]
@@ -594,7 +594,7 @@ FUN_020469B8: ; 0x020469B8
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F214
 	cmp r0, #0x0
 	beq _020469F2
@@ -639,7 +639,7 @@ FUN_02046A20: ; 0x02046A20
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F214
 	cmp r0, #0x0
 	beq _02046A5A
@@ -710,7 +710,7 @@ _02046ABC:
 	ldr r0, [r5, #0x34]
 	bl FUN_02058780
 	ldr r0, [r5, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x7
 	bl GameStats_Inc
 	ldr r1, [r4, #0x4]
@@ -765,12 +765,12 @@ _02046AFE:
 	pop {r4-r6, pc}
 _02046B3E:
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED3C
 	cmp r0, #0x0
 	beq _02046B56
 	ldr r0, [r5, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl HealParty
 _02046B56:
 	ldr r1, [r4, #0x10]
@@ -905,7 +905,7 @@ _02046C68:
 	ldr r0, [r6, #0x34]
 	bl FUN_02058780
 	ldr r0, [r6, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x7
 	bl GameStats_Inc
 	ldr r1, [r5, #0x4]
@@ -1018,7 +1018,7 @@ _02046D5C:
 	bl GetStoragePCPointer
 	str r0, [sp, #0x8]
 	ldr r0, [r6, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x8]
 	bl PCStorage_FindFirstBoxWithEmptySlot
@@ -1079,7 +1079,7 @@ FUN_02046DB4: ; 0x02046DB4
 	add r1, r4, #0x0
 	bl MOD06_0223CCDC
 	ldr r0, [r5, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x7
 	bl GameStats_Inc
 	add r0, r4, #0x0
@@ -1131,7 +1131,7 @@ FUN_02046E18: ; 0x02046E18
 	str r0, [r4, r1]
 _02046E60:
 	ldr r0, [r5, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x7
 	bl GameStats_Inc
 	add r0, r4, #0x0
@@ -1181,7 +1181,7 @@ _02046EC6:
 	ldr r0, [r6, #0x34]
 	bl FUN_02058780
 	ldr r0, [r6, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x7
 	bl GameStats_Inc
 	ldr r1, [r5, #0x4]
@@ -1305,7 +1305,7 @@ FUN_02046FA0: ; 0x02046FA0
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x7
 	bl GameStats_Inc
 	add r0, r4, #0x0
@@ -1484,7 +1484,7 @@ _0204711A:
 	add r0, r4, #0x0
 	bl EnemyTrainerSet_Init
 	ldr r0, [r7, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x8
 	bl GameStats_Inc
 	add r0, r4, #0x0
@@ -1702,7 +1702,7 @@ _02047318:
 	cmp r2, #0x1
 	bne _0204732A
 	ldr r0, [r4, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x8
 	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
@@ -1721,12 +1721,12 @@ _0204732A:
 	cmp r0, #0x0
 	ldr r0, [r4, #0xc]
 	beq _02047358
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x9
 	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
 _02047358:
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0xa
 	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
@@ -1741,7 +1741,7 @@ _02047370:
 	cmp r2, #0x1
 	bne _020473C8
 	ldr r0, [r4, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0xb
 	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
@@ -1768,12 +1768,12 @@ _02047390:
 	cmp r0, #0x0
 	ldr r0, [r4, #0xc]
 	beq _020473BE
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x9
 	bl GameStats_AddSpecial
 	pop {r3-r5, pc}
 _020473BE:
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0xa
 	bl GameStats_AddSpecial
 _020473C8:
@@ -1830,7 +1830,7 @@ _02047400:
 	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetIGTAddr
+	bl Save_PlayerData_GetIGTAddr
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
 	mov r1, #0x5
@@ -1874,7 +1874,7 @@ _02047470:
 	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetIGTAddr
+	bl Save_PlayerData_GetIGTAddr
 	str r0, [sp, #0x8]
 	add r0, r6, #0x0
 	mov r1, #0x5

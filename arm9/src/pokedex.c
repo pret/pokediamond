@@ -41,19 +41,19 @@ static inline void UpdateDexFlagPair(u8 * flagArray, u16 offset, u8 state)
     flagArray[offset >> 2] |= (state << (2 * (offset & 3)));
 }
 
-u32 Sav2_Pokedex_sizeof(void)
+u32 Save_Pokedex_sizeof(void)
 {
     return sizeof(struct Pokedex);
 }
 
-struct Pokedex * Sav2_Pokedex_new(u32 heap_id)
+struct Pokedex * Save_Pokedex_New(u32 heap_id)
 {
     struct Pokedex * ret = (struct Pokedex *)AllocFromHeap(heap_id, sizeof(struct Pokedex));
-    Sav2_Pokedex_init(ret);
+    Save_Pokedex_Init(ret);
     return ret;
 }
 
-void Sav2_Pokedex_Copy(const struct Pokedex * src, struct Pokedex * dest)
+void Save_Pokedex_Copy(const struct Pokedex * src, struct Pokedex * dest)
 {
     MI_CpuCopy8(src, dest, sizeof(struct Pokedex));
 }
@@ -356,7 +356,7 @@ BOOL Pokedex_SpeciesIsNotSinnohMythical(u16 species)
     return ret;
 }
 
-void Sav2_Pokedex_init(struct Pokedex * pokedex)
+void Save_Pokedex_Init(struct Pokedex * pokedex)
 {
     memset(pokedex, 0, sizeof(struct Pokedex));
     pokedex->magic = 0xBEEFCAFE;
@@ -746,9 +746,9 @@ void Pokedex_SetSinnohDexFlag(struct Pokedex * pokedex)
     pokedex->unlockedSinnohDex = 1;
 }
 
-struct Pokedex * Sav2_Pokedex_get(struct SaveBlock2 * sav2)
+struct Pokedex * Save_Pokedex_Get(struct SaveBlock2 * sav2)
 {
-    return (struct Pokedex *)SavArray_get(sav2, 7);
+    return (struct Pokedex *)SaveArray_Get(sav2, 7);
 }
 
 s32 Pokedex_GetSeenMonForme(struct Pokedex * pokedex, s32 species, u32 forme)

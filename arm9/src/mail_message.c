@@ -35,7 +35,7 @@ const struct UnkStruct_020ED556 UNK_020ED556[] = {
     { 1, 4, 0x184,  1, -1, 0 }
 };
 
-void MailMsg_init(struct MailMessage * mailMsg)
+void MailMsg_Init(struct MailMessage * mailMsg)
 {
     s32 i;
     mailMsg->msg_bank = MAILMSG_BANK_NONE;
@@ -45,7 +45,7 @@ void MailMsg_init(struct MailMessage * mailMsg)
     }
 }
 
-void MailMsg_init_withBank(struct MailMessage * mailMsg, u16 bank)
+void MailMsg_Init_WithBank(struct MailMessage * mailMsg, u16 bank)
 {
     s32 i;
     mailMsg->msg_bank = bank;
@@ -56,18 +56,18 @@ void MailMsg_init_withBank(struct MailMessage * mailMsg, u16 bank)
     }
 }
 
-void MailMsg_init_default(struct MailMessage * mailMsg)
+void MailMsg_Init_Default(struct MailMessage * mailMsg)
 {
-    MailMsg_init_withBank(mailMsg, 4);
+    MailMsg_Init_WithBank(mailMsg, 4);
     mailMsg->msg_no = 5;
 }
 
-void MailMsg_init_fromTemplate(struct MailMessage * mailMsg, u32 a1)
+void MailMsg_Init_FromTemplate(struct MailMessage * mailMsg, u32 a1)
 {
     GF_ASSERT(a1 < 4);
     if (a1 < 4)
     {
-        MailMsg_init_withBank(mailMsg, UNK_020ED556[a1].unk_0);
+        MailMsg_Init_WithBank(mailMsg, UNK_020ED556[a1].unk_0);
         mailMsg->msg_no = UNK_020ED556[a1].unk_1;
         if (UNK_020ED556[a1].unk_2 != -1)
             mailMsg->fields[0] = GetECWordIndexByPair(UNK_020ED556[a1].unk_2, UNK_020ED556[a1].unk_4);
@@ -79,7 +79,7 @@ void MailMsg_init_fromTemplate(struct MailMessage * mailMsg, u32 a1)
 struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, u32 heap_id)
 {
     s32 i;
-    MessageFormat * messageFormat = MessageFormat_new(heap_id);
+    MessageFormat * messageFormat = MessageFormat_New(heap_id);
     struct MsgData * msgData;
     struct String * ret;
     for (i = 0; i < MAILMSG_FIELDS_MAX; i++)
@@ -91,7 +91,7 @@ struct String * MailMsg_GetExpandedString(struct MailMessage * mailMsg, u32 heap
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, sMessageBanks[mailMsg->msg_bank], heap_id);
     ret = ReadMsgData_ExpandPlaceholders(messageFormat, msgData, mailMsg->msg_no, heap_id);
     DestroyMsgData(msgData);
-    MessageFormat_delete(messageFormat);
+    MessageFormat_Delete(messageFormat);
     return ret;
 }
 
@@ -138,7 +138,7 @@ u32 MailMsg_NumFields(u16 bank, u16 num)
         else
             cstr++;
     }
-    String_dtor(str);
+    String_Delete(str);
     return count;
 }
 
@@ -157,7 +157,7 @@ u16 MailMsg_GetMsgNo(struct MailMessage * mailMsg)
     return mailMsg->msg_no;
 }
 
-BOOL MailMsg_compare(const struct MailMessage *mailMsg, const struct MailMessage *a1)
+BOOL MailMsg_Compare(const struct MailMessage *mailMsg, const struct MailMessage *a1)
 {
     s32 i;
     if (mailMsg->msg_bank != a1->msg_bank || mailMsg->msg_no != a1->msg_no)
@@ -170,7 +170,7 @@ BOOL MailMsg_compare(const struct MailMessage *mailMsg, const struct MailMessage
     return TRUE;
 }
 
-void MailMsg_copy(struct MailMessage * mailMsg, const struct MailMessage * a1)
+void MailMsg_Copy(struct MailMessage * mailMsg, const struct MailMessage * a1)
 {
     *mailMsg = *a1;
 }

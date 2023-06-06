@@ -45110,7 +45110,7 @@ _022282D4: ; jump table
 _022282DC:
 	ldr r1, [r4]
 	mov r0, #0x63
-	bl NARC_ctor
+	bl NARC_New
 	add r1, r4, #0
 	add r1, #0x8c
 	str r0, [r1]
@@ -45387,7 +45387,7 @@ _02228504:
 	add r4, #0x8c
 	str r1, [r0]
 	ldr r0, [r4]
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r0, [sp]
 	bl FUN_0200CAB4
 _02228520:

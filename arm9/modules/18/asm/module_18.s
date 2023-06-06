@@ -2199,7 +2199,7 @@ _0223A7EA:
 	ldr r0, _0223AB04 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r5, r0, #0
 	bl MOD18_0223D638
@@ -2713,7 +2713,7 @@ MOD18_0223AC24: ; 0x0223AC24
 	ldr r0, [r0, #0x1c]
 	bl MOD05_021F4608
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205EDBC
 	ldr r0, _0223AC78 ; =MOD18_0223A64C
 	add r1, r4, #0
@@ -3021,13 +3021,13 @@ MOD18_0223AE88: ; 0x0223AE88
 	ldr r0, _0223AED0 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	add r6, r0, #0
 	bl FUN_02026CC4
 	bl FUN_02025C38
 	add r4, r0, #0
 	add r0, r6, #0
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	mov r1, #0
 	cmp r0, #0
@@ -3153,7 +3153,7 @@ MOD18_0223AF48: ; 0x0223AF48
 	ldr r0, [r0]
 	str r2, [sp, #8]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	str r0, [sp, #0x38]
 	bl MOD18_0223AED4
@@ -5023,12 +5023,12 @@ MOD18_0223BD94: ; 0x0223BD94
 	add r4, r1, #0
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CB4
 	ldr r0, _0223BDDC ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r6, r0, #0
 	add r0, r5, #0
@@ -5057,7 +5057,7 @@ MOD18_0223BDE0: ; 0x0223BDE0
 	ldr r0, _0223BE24 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r5, r0, #0
 	add r0, r4, #0
@@ -5337,7 +5337,7 @@ _0223C000:
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0
 	bl FUN_0205F740
 	add r1, r0, #0
@@ -5583,7 +5583,7 @@ MOD18_0223C1F0: ; 0x0223C1F0
 	ldr r0, _0223C338 ; =0x02251380
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r6, r0, #0
 	ldr r0, _0223C338 ; =0x02251380
@@ -5702,7 +5702,7 @@ _0223C2D0:
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x1e
 	bl GameStats_AddSpecial
 	mov r0, #0xe
@@ -6847,7 +6847,7 @@ MOD18_0223CB94: ; 0x0223CB94
 	ldr r0, _0223CC28 ; =0x000004C8
 	str r4, [r1, r0]
 	add r0, r4, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	mov r4, #0
 	ldr r7, _0223CC20 ; =0x02251384
@@ -6910,7 +6910,7 @@ MOD18_0223CC2C: ; 0x0223CC2C
 	ldr r1, [r0]
 	ldr r0, _0223CC74 ; =0x000004C8
 	ldr r0, [r1, r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	mov r4, #0
 	ldr r7, _0223CC70 ; =0x02251384
@@ -7510,7 +7510,7 @@ _0223D07E:
 	ldr r0, _0223D0E0 ; =0x000004C8
 	ldr r0, [r1, r0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205EDCC
 	ldr r0, _0223D0DC ; =0x02251384
 	add r2, r7, #0
@@ -7704,11 +7704,11 @@ _0223D212:
 	cmp r1, #0
 	beq _0223D26E
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r5, r0, #0
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	ldr r2, _0223D290 ; =0x02251384
 	add r6, r0, #0
 	ldr r2, [r2]
@@ -7747,12 +7747,12 @@ _0223D276:
 	cmp r6, #0
 	beq _0223D280
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 _0223D280:
 	cmp r5, #0
 	beq _0223D28A
 	add r0, r5, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 _0223D28A:
 	add r0, r7, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -7769,7 +7769,7 @@ MOD18_0223D298: ; 0x0223D298
 	ldr r1, [r0]
 	ldr r0, _0223D2E8 ; =0x000004C8
 	ldr r0, [r1, r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r4, r0, #0
 	mov r5, #0
@@ -7962,7 +7962,7 @@ MOD18_0223D414: ; 0x0223D414
 	add r5, r1, #0
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetTextFrameDelay
 	add r4, r0, #0
 	ldr r0, _0223D580 ; =0x02251388
@@ -8112,7 +8112,7 @@ _0223D536:
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205EDAC
 	mov r1, #0
 	ldr r0, _0223D59C ; =MOD18_0223E7AC
@@ -8150,7 +8150,7 @@ _0223D5AC:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0223D5BC
-	bl String_dtor
+	bl String_Delete
 _0223D5BC:
 	add r4, r4, #1
 	add r5, r5, #4
@@ -8319,11 +8319,11 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	cmp r6, #0
 	beq _0223D73E
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r4, r0, #0
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	add r0, r4, #0
 	mov r1, #0
@@ -8343,9 +8343,9 @@ MOD18_0223D6D8: ; 0x0223D6D8
 	add r2, r7, #0
 	bl StringExpandPlaceholders
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8366,11 +8366,11 @@ MOD18_0223D744: ; 0x0223D744
 	cmp r5, #0
 	beq _0223D79C
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r4, r0, #0
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, r7, #0
@@ -8386,9 +8386,9 @@ MOD18_0223D744: ; 0x0223D744
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8501,7 +8501,7 @@ _0223D84E:
 	add r0, r0, r4
 	add r0, #0xdc
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _0223D8A0 ; =0x02251388
 	mov r1, #0
 	ldr r0, [r0]
@@ -9566,17 +9566,17 @@ MOD18_0223E060: ; 0x0223E060
 	bl AllocFromHeap
 	add r4, r0, #0
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CB4
 	add r6, r0, #0
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
 	bl MOD18_0224D2F0
 	add r0, r5, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	bl MOD18_022492F8
 _0223E110:
@@ -10129,18 +10129,18 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	bne _0223E54E
 	mov r0, #0x64
 	mov r1, #0xf
-	bl String_ctor
+	bl String_New
 	ldr r1, _0223E550 ; =0x02251388
 	ldr r1, [r1]
 	add r1, r1, r4
 	add r1, #0xdc
 	str r0, [r1]
 	mov r0, #0xb
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r6, r0, #0
 	mov r0, #0x64
 	mov r1, #0xb
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	add r0, r5, #0
 	bl FUN_0202DFA4
@@ -10162,9 +10162,9 @@ MOD18_0223E4D4: ; 0x0223E4D4
 	ldr r1, [r1]
 	bl StringExpandPlaceholders
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 _0223E54E:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -10646,7 +10646,7 @@ MOD18_0223E8A8: ; 0x0223E8A8
 	ldr r0, _0223E948 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	mov r4, #0
 	ldr r7, _0223E948 ; =0x022513A0
@@ -10739,7 +10739,7 @@ MOD18_0223E958: ; 0x0223E958
 	ldr r0, [r0, #4]
 	str r4, [r0, #0x40]
 	add r0, r4, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	ldr r2, _0223E9B0 ; =0x022513A0
 	mov r1, #0xa3
@@ -11874,7 +11874,7 @@ MOD18_0223F1DC: ; 0x0223F1DC
 	ldr r0, _0223F228 ; =0x022513A0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	mov r4, #0
 	add r7, r0, #0
@@ -12305,7 +12305,7 @@ MOD18_0223F50C: ; 0x0223F50C
 	add r6, r2, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r7, r0, #0
 	add r0, r5, #0
@@ -12817,7 +12817,7 @@ MOD18_0223F918: ; 0x0223F918
 	b _0223FA5E
 _0223F926:
 	ldr r0, [r0, #0x40]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CB4
 	add r6, r0, #0
 	ldr r0, _0223FA64 ; =0x00000622
@@ -12954,7 +12954,7 @@ _0223FA34:
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r5, r0, #0
 	bl FUN_0205F760
 	add r1, r0, #0
@@ -15123,7 +15123,7 @@ MOD18_02240A44: ; 0x02240A44
 	add r4, r2, #0
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CB4
 	add r5, r0, #0
 	ldrb r0, [r4, #1]
@@ -15138,7 +15138,7 @@ MOD18_02240A44: ; 0x02240A44
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0x40]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x22
 	bl GameStats_AddSpecial
 	bl FUN_0204F7E4
@@ -22044,7 +22044,7 @@ MOD18_02244028: ; 0x02244028
 	ldr r1, [sp, #0xc]
 	ldrh r0, [r5, #0x10]
 	ldrb r1, [r1, #0x1d]
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r7, r0, #0
 	ldrh r0, [r5, #0x10]
 	mov r6, #0
@@ -22216,7 +22216,7 @@ _022441BA:
 	blx r3
 	ldrb r1, [r5, #0x1d]
 	add r0, r7, #0
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	mov r4, #0
 	add r6, r4, #0
 	str r0, [sp]
@@ -23414,7 +23414,7 @@ MOD18_02244B28: ; 0x02244B28
 _02244B32:
 	add r0, r7, #0
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r6, r6, #1
 	stmia r4!, {r0}
 	cmp r6, #0x20
@@ -23428,7 +23428,7 @@ _02244B32:
 	str r1, [r0]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r1, r5, #0
 	add r1, #0x80
 	str r0, [r1]
@@ -23438,7 +23438,7 @@ _02244B32:
 _02244B64:
 	add r0, r6, #0
 	add r1, r7, #0
-	bl String_ctor
+	bl String_New
 	add r1, r5, #0
 	add r1, #0x84
 	add r4, r4, #1
@@ -23457,7 +23457,7 @@ MOD18_02244B7C: ; 0x02244B7C
 	add r4, r5, #0
 _02244B84:
 	ldr r0, [r4]
-	bl String_dtor
+	bl String_Delete
 	add r6, r6, #1
 	add r4, r4, #4
 	cmp r6, #0x20
@@ -23465,13 +23465,13 @@ _02244B84:
 	add r0, r5, #0
 	add r0, #0x80
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	mov r4, #0
 _02244B9E:
 	add r0, r5, #0
 	add r0, #0x84
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #2
@@ -24144,13 +24144,13 @@ _02245050: .word MOD18_02246338
 MOD18_02245054: ; 0x02245054
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CA8
 	add r4, r0, #0
 	bl FUN_02026CC0
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	bl GameStats_GetStat0
 	add r1, r0, #0
 	add r0, r6, #0
@@ -25548,7 +25548,7 @@ MOD18_02245B1C: ; 0x02245B1C
 	add r5, r0, #0
 	ldr r1, [sp, #0x30]
 	mov r0, #2
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r4, r0, #0
 	add r1, r5, #0
 	mov r2, #0x26
@@ -27700,7 +27700,7 @@ MOD18_02246C94: ; 0x02246C94
 	add r5, r2, #0
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CB4
 	ldrb r4, [r5]
 	add r7, r0, #0
@@ -27797,7 +27797,7 @@ _02246D5C:
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x23
 	bl GameStats_AddSpecial
 _02246D92:
@@ -28092,13 +28092,13 @@ MOD18_02246FB4: ; 0x02246FB4
 	ldr r0, _02247108 ; =0x022513EC
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CA8
 	str r0, [sp, #0xc]
 	ldr r0, _02247108 ; =0x022513EC
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r4, r0, #0
 	mov r0, #0
@@ -28118,7 +28118,7 @@ MOD18_02246FB4: ; 0x02246FB4
 	ldr r0, [r0]
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205EDD8
 	ldr r0, [sp, #0xc]
 	bl FUN_020266E0
@@ -29532,7 +29532,7 @@ MOD18_02247AA8: ; 0x02247AA8
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -29658,7 +29658,7 @@ MOD18_02247BB8: ; 0x02247BB8
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -29831,7 +29831,7 @@ MOD18_02247D1C: ; 0x02247D1C
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x1c]
 	mov r3, #1
 	str r3, [sp]
@@ -30029,7 +30029,7 @@ MOD18_02247EA0: ; 0x02247EA0
 	add r3, r2, #0
 	bl MOD18_0224DCB8
 	ldr r0, [r4, #8]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CB4
 	bl FUN_02026940
 	add r4, #0x2a
@@ -30167,7 +30167,7 @@ MOD18_02247FC0: ; 0x02247FC0
 	add r0, #0xc
 	bl RemoveWindow
 	ldr r0, [r4, #0x1c]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r0, #0
 	str r0, [r4, #0x1c]
 _02247FF8:
@@ -30426,7 +30426,7 @@ _022481A6:
 _022481D8:
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x20
 	bl GameStats_AddSpecial
 	bl MOD18_0224D784
@@ -30665,7 +30665,7 @@ _022483BC:
 	bl MOD18_02247EA0
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0
 	bl FUN_0205F720
 	add r1, r0, #0
@@ -30676,7 +30676,7 @@ _022483BC:
 	bl FUN_0205F730
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x1f
 	bl GameStats_AddSpecial
 	add r0, r4, #0
@@ -30843,7 +30843,7 @@ _02248542:
 	bne _022485F6
 	ldr r0, [r4, #8]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x21
 	bl GameStats_AddSpecial
 	add r0, r4, #0
@@ -31041,7 +31041,7 @@ MOD18_022486B8: ; 0x022486B8
 	cmp r0, #0
 	beq _02248704
 	ldr r0, [r4, #4]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CB4
 	bl FUN_02026B90
 	ldr r0, _0224873C ; =0x000005E3
@@ -31143,7 +31143,7 @@ MOD18_02248784: ; 0x02248784
 	add r0, #8
 	bl RemoveWindow
 	ldr r0, [r4, #0x18]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r0, #0
 	str r0, [r4, #0x18]
 _022487BC:
@@ -31202,7 +31202,7 @@ MOD18_02248820: ; 0x02248820
 	add r5, r0, #0
 	mov r0, #5
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x18]
 	mov r3, #1
 	add r1, r5, #0
@@ -32640,7 +32640,7 @@ _02249334: .word FreeToHeap
 MOD18_02249338: ; 0x02249338
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	bl FUN_0202623C
 	pop {r3, pc}
@@ -32651,7 +32651,7 @@ MOD18_02249338: ; 0x02249338
 MOD18_0224934C: ; 0x0224934C
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	bl FUN_02025DB0
 	pop {r3, pc}
@@ -32663,7 +32663,7 @@ MOD18_02249360: ; 0x02249360
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02025DC8
@@ -32675,7 +32675,7 @@ MOD18_02249360: ; 0x02249360
 MOD18_02249378: ; 0x02249378
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	bl FUN_02025F80
 	pop {r3, pc}
@@ -32687,7 +32687,7 @@ MOD18_0224938C: ; 0x0224938C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02025F98
@@ -32719,7 +32719,7 @@ _022493C4: .word MOD18_022513F8
 MOD18_022493C8: ; 0x022493C8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	bl FUN_02026050
 	pop {r3, pc}
@@ -32731,7 +32731,7 @@ MOD18_022493DC: ; 0x022493DC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02026258
@@ -32744,7 +32744,7 @@ MOD18_022493F4: ; 0x022493F4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02026068
@@ -32757,7 +32757,7 @@ MOD18_0224940C: ; 0x0224940C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02026074
@@ -32769,7 +32769,7 @@ MOD18_0224940C: ; 0x0224940C
 MOD18_02249424: ; 0x02249424
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	bl FUN_0202616C
 	pop {r3, pc}
@@ -32781,7 +32781,7 @@ MOD18_02249438: ; 0x02249438
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r1, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02026188
@@ -32888,14 +32888,14 @@ MOD18_022494C8: ; 0x022494C8
 	strb r1, [r4, r0]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x68]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x70]
 	ldr r0, _02249538 ; =MOD18_02249684
 	ldr r2, _0224953C ; =0x00002710
@@ -32943,7 +32943,7 @@ MOD18_02249564: ; 0x02249564
 	bl MOD18_02249544
 	mov r0, #7
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r0, #1
 	str r0, [sp]
@@ -32977,8 +32977,8 @@ _022495BA:
 	cmp r6, #4
 	bne _022495E2
 	ldr r0, [r5, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #4
 	bl PlayerProfile_GetPlayerName_NewString
 	add r7, r0, #0
@@ -32987,7 +32987,7 @@ _022495BA:
 	add r1, r7, #0
 	bl ListMenuItems_AddItem
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	b _022495EE
 _022495E2:
 	ldr r0, [r5, #0x40]
@@ -33413,7 +33413,7 @@ _02249936:
 	add r0, #0x10
 	bl RemoveWindow
 	ldr r0, [r4, #0x40]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r4, #0
 	bl MOD18_0224CBAC
 _02249968:
@@ -33456,7 +33456,7 @@ _02249998:
 _022499A2:
 	add r0, r6, #0
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x44]
 	lsl r0, r7, #0x18
 	lsr r0, r0, #0x18
@@ -33559,7 +33559,7 @@ MOD18_02249A64: ; 0x02249A64
 	ldr r0, [r4, #0x20]
 	bl ScheduleBgTilemapBufferTransfer
 	ldr r0, [r4, #0x44]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r0, #0
 	str r0, [r4, #0x50]
 _02249A8C:
@@ -33730,7 +33730,7 @@ MOD18_02249BA8: ; 0x02249BA8
 	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -34197,7 +34197,7 @@ MOD18_02249F8C: ; 0x02249F8C
 	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -34646,7 +34646,7 @@ MOD18_0224A360: ; 0x0224A360
 	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -34906,7 +34906,7 @@ _0224A5A6:
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r6, r0, #0
 	ldr r0, _0224A694 ; =0x000005DC
 	bl PlaySE
@@ -35134,8 +35134,8 @@ MOD18_0224A78C: ; 0x0224A78C
 	bl MOD18_022498EC
 	bl MOD18_0224D704
 	ldr r0, [r4, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r1, r0, #0
 	mov r0, #1
 	str r0, [sp]
@@ -35177,14 +35177,14 @@ MOD18_0224A7C8: ; 0x0224A7C8
 	strb r1, [r4, r0]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x68]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x70]
 	bl FUN_0204F7E4
 	bl MOD18_0223D648
@@ -35279,11 +35279,11 @@ MOD18_0224A8AC: ; 0x0224A8AC
 	bl FUN_020021EC
 _0224A8C0:
 	ldr r0, [r5, #0x68]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0x6c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5, #0x70]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	bl MOD18_0223D648
 	bl MOD18_0224DD94
 	bl MOD18_0223D638
@@ -35433,7 +35433,7 @@ MOD18_0224A9EC: ; 0x0224A9EC
 	add r5, r0, #0
 	bl ListMenuGetTemplateField
 	ldr r0, [r0, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r1, r4, #0
 	bl FUN_02025F0C
@@ -35584,7 +35584,7 @@ MOD18_0224AB08: ; 0x0224AB08
 	bl MOD18_LoadMsgBank
 	add r0, r6, #1
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -35937,17 +35937,17 @@ _0224AE34:
 	ldr r0, [r5, #0x68]
 	cmp r0, #0
 	beq _0224AE3E
-	bl String_dtor
+	bl String_Delete
 _0224AE3E:
 	ldr r0, [r5, #0x6c]
 	cmp r0, #0
 	beq _0224AE48
-	bl String_dtor
+	bl String_Delete
 _0224AE48:
 	ldr r0, [r5, #0x70]
 	cmp r0, #0
 	beq _0224AE52
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 _0224AE52:
 	ldr r0, [r5, #4]
 	cmp r0, #0
@@ -36084,14 +36084,14 @@ MOD18_0224AF28: ; 0x0224AF28
 	str r2, [r4, #0x60]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x68]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x70]
 	add r0, r4, #0
 	bl MOD18_0224AA4C
@@ -36386,7 +36386,7 @@ MOD18_0224B190: ; 0x0224B190
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r1, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r4, r0, #0
 	add r1, r5, #0
@@ -36412,7 +36412,7 @@ MOD18_0224B1C4: ; 0x0224B1C4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r1, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r1, r5, #0
 	add r4, r0, #0
@@ -36627,7 +36627,7 @@ _0224B374:
 	bl MOD18_022498EC
 	ldr r0, [sp, #0x18]
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r2, #3
 	str r2, [sp]
@@ -36750,7 +36750,7 @@ MOD18_0224B464: ; 0x0224B464
 	bl MOD18_022498EC
 	ldr r0, [sp, #0x1c]
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -37342,7 +37342,7 @@ _0224B946:
 	add r0, r4, #0
 	bl MOD18_02245054
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205EDE8
 	add r0, r4, #0
 	bl MOD18_0224BD54
@@ -37366,11 +37366,11 @@ MOD18_0224B980: ; 0x0224B980
 	add r4, r1, #0
 	add r5, r0, #0
 	ldr r0, [r4, #0x68]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x6c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x70]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r1, [r4, r0]
@@ -37482,11 +37482,11 @@ _0224BA70:
 	bl MOD18_0223D658
 	bl MOD18_0224DD94
 	ldr r0, [r4, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r5, r0, #0
 	ldr r0, [r4, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	mov r3, #0
 	str r3, [sp]
@@ -37829,14 +37829,14 @@ MOD18_0224BD54: ; 0x0224BD54
 	strb r1, [r4, r0]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x68]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x6c]
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x70]
 	mov r0, #4
 	bl FUN_0205EB38
@@ -38088,7 +38088,7 @@ MOD18_0224BFAC: ; 0x0224BFAC
 	add r6, r0, #0
 	ldr r0, [r6, #0xc]
 	add r4, r1, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	bl FUN_02025D40
 	add r7, r4, r0
@@ -38223,12 +38223,12 @@ MOD18_0224C0AC: ; 0x0224C0AC
 	add r6, r0, #0
 	ldr r0, [r6, #0xc]
 	add r4, r1, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	add r5, r0, #0
 	bl FUN_02026CC4
 	add r7, r0, #0
 	add r0, r5, #0
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	str r0, [sp, #4]
 	add r0, r7, #0
@@ -38366,7 +38366,7 @@ MOD18_0224C1C0: ; 0x0224C1C0
 	ldr r0, [r5, #0xc]
 	add r7, r2, #0
 	add r4, r1, #0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	add r6, r0, #0
 	add r0, r7, #0
@@ -38462,7 +38462,7 @@ _0224C288:
 	bl MOD18_022498EC
 	add r0, r4, #0
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -38749,7 +38749,7 @@ MOD18_0224C510: ; 0x0224C510
 	bl ListMenuGetTemplateField
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	str r0, [sp, #0x2c]
 	add r0, r4, #0
@@ -39086,7 +39086,7 @@ MOD18_0224C7D4: ; 0x0224C7D4
 	bl MOD18_022498EC
 	mov r0, #6
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x40]
 	mov r2, #3
 	add r1, r5, #0
@@ -39310,7 +39310,7 @@ MOD18_0224C9C4: ; 0x0224C9C4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02026CC4
 	ldr r1, _0224CA24 ; =0x00000215
 	add r4, r0, #0
@@ -39370,11 +39370,11 @@ MOD18_0224CA34: ; 0x0224CA34
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x68]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x6c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x70]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -40361,14 +40361,14 @@ MOD18_0224D1F8: ; 0x0224D1F8
 	str r1, [r6, r0]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r6, #0x68]
 	mov r0, #0x64
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r6, #0x6c]
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r6, #0x70]
 	ldr r0, _0224D2DC ; =0x00000246
 	mov r1, #0
@@ -40506,15 +40506,15 @@ MOD18_0224D364: ; 0x0224D364
 	str r1, [sp, #0xc]
 	add r5, r2, #0
 	str r3, [sp, #0x10]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [sp, #0x1c]
 	mov r0, #0x1e
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	mov r0, #0x1e
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0xc]
 	mov r1, #0
@@ -40717,11 +40717,11 @@ _0224D500:
 	cmp r0, #7
 	blt _0224D500
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x18]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x1c]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -40880,7 +40880,7 @@ MOD18_0224D698: ; 0x0224D698
 	ldr r0, _0224D6FC ; =0x022513FC
 	ldr r0, [r0]
 	ldr r0, [r0, #8]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	bl GameStats_GetStat0
 	add r6, r0, #0
 	mov r0, #4
@@ -40925,7 +40925,7 @@ MOD18_0224D704: ; 0x0224D704
 	ldr r0, _0224D72C ; =0x022513FC
 	ldr r0, [r0]
 	ldr r0, [r0, #8]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	bl GameStats_GetStat0
 	add r1, r0, #0
 	ldr r0, _0224D730 ; =0x000F423F
@@ -41074,15 +41074,15 @@ MOD18_0224D814: ; 0x0224D814
 	mov r0, #4
 	add r5, r2, #0
 	str r3, [sp, #0x14]
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r7, r0, #0
 	mov r0, #0x28
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	mov r0, #0x28
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	add r0, r7, #0
 	mov r1, #1
@@ -41273,11 +41273,11 @@ _0224D9DE:
 	cmp r0, #5
 	blt _0224D8FA
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD18_0224D814
@@ -41414,14 +41414,14 @@ MOD18_0224DAE0: ; 0x0224DAE0
 _0224DB08:
 	add r0, r6, #0
 	add r1, r5, #0
-	bl String_ctor
+	bl String_New
 	str r0, [r4]
 	add r0, r6, #0
 	add r1, r5, #0
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #4]
 	add r0, r5, #0
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x28]
 	ldr r0, [sp]
 	ldr r2, [sp]
@@ -41456,11 +41456,11 @@ MOD18_0224DB5C: ; 0x0224DB5C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #4]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x28]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x24]
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -42287,7 +42287,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r0, #0
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x24]
 	mov r2, #3
 	str r2, [sp]
@@ -42362,7 +42362,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	mov r6, #0
 	add r4, sp, #0x14
 _0224E186:
@@ -42497,7 +42497,7 @@ MOD18_0224E26C: ; 0x0224E26C
 	add r0, #0x14
 	bl RemoveWindow
 	ldr r0, [r4, #0x24]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD18_0224E26C
@@ -42742,7 +42742,7 @@ _0224E454:
 	ldr r0, [sp, #0x20]
 	mov r1, #4
 	add r0, r0, #1
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5, #0x28]
 	mov r2, #3
 	str r2, [sp]
@@ -42816,7 +42816,7 @@ _0224E454:
 	str r0, [sp, #0x2c]
 	mov r0, #6
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	mov r1, #0
 	add r4, r0, #0
 	str r1, [sp]
@@ -42829,7 +42829,7 @@ _0224E454:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	mov r1, #1
 	str r1, [sp]
 	add r2, r5, #0
@@ -42865,13 +42865,13 @@ _0224E454:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [sp, #0x28]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x2c]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x24]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x20]
@@ -43026,7 +43026,7 @@ MOD18_0224E6A8: ; 0x0224E6A8
 	add r0, #0x18
 	bl RemoveWindow
 	ldr r0, [r4, #0x28]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	ldr r0, [r4, #4]
 	bl FUN_0205EBEC
 	pop {r4, pc}

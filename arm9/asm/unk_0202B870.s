@@ -97,11 +97,11 @@ _0202B8CC:
 
 	thumb_func_start FUN_0202B8E4
 FUN_0202B8E4: ; 0x0202B8E4
-	ldr r3, _0202B8EC ; =SavArray_get
+	ldr r3, _0202B8EC ; =SaveArray_Get
 	mov r1, #0x1c
 	bx r3
 	nop
-_0202B8EC: .word SavArray_get
+_0202B8EC: .word SaveArray_Get
 
 	thumb_func_start FUN_0202B8F0
 FUN_0202B8F0: ; 0x0202B8F0
@@ -154,7 +154,7 @@ FUN_0202B93C: ; 0x0202B93C
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r1, #0x0
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x34
@@ -243,7 +243,7 @@ FUN_0202B9EC: ; 0x0202B9EC
 	sub sp, #0xc
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	mov r1, #0x4e
 	add r6, r0, #0x0
 	add r0, r4, #0x0
@@ -288,7 +288,7 @@ _0202BA38:
 	ldr r0, [sp, #0x0]
 	bl FreeToHeap
 	add r0, r7, #0x0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x4]
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -718,7 +718,7 @@ FUN_0202BD6C: ; 0x0202BD6C
 	str r2, [sp, #0x0]
 	add r4, r0, #0x0
 	add r5, r1, #0x0
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x4c
@@ -809,7 +809,7 @@ _0202BE14:
 	str r0, [r1, #0x8]
 	mov r0, #0x8
 	add r1, r7, #0x0
-	bl String_ctor
+	bl String_New
 	ldr r2, [r4, #0x0]
 	mov r1, #0xc
 	mul r1, r2
@@ -844,7 +844,7 @@ _0202BE74:
 	ldr r0, [r5, #0xc]
 	cmp r0, #0x0
 	beq _0202BE7E
-	bl String_dtor
+	bl String_Delete
 _0202BE7E:
 	add r4, r4, #0x1
 	add r5, #0xc

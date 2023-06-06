@@ -100,11 +100,11 @@ FUN_020625EC: ; 0x020625EC
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
 	add r0, r6, #0x0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetTextFrameDelay
 	strh r0, [r4, #0x1a]
 	add r0, r6, #0x0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetFrame
 	strh r0, [r4, #0x1c]
 	str r4, [r7, #0x8]
@@ -926,11 +926,11 @@ FUN_02062C80: ; 0x02062C80
 	ldr r2, [r5, #0x0]
 	mov r0, #0x2
 	mov r1, #0x4c
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	str r0, [r5, #0x30]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4c
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x34]
 	ldr r0, [r5, #0x2c]
 	mov r1, #0xd
@@ -1011,7 +1011,7 @@ _02062D40:
 	add r0, r5, #0x0
 	add r0, #0x94
 	ldr r0, [r0, #0x0]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x3
@@ -1020,7 +1020,7 @@ _02062D40:
 	add r4, r6, #0x0
 _02062D56:
 	ldr r0, [r4, #0x48]
-	bl String_dtor
+	bl String_Delete
 	add r5, r5, #0x1
 	add r4, r4, #0x4
 	cmp r5, #0x7
@@ -1032,9 +1032,9 @@ _02062D56:
 	add r4, r6, #0x0
 _02062D6E:
 	ldr r0, [r4, #0x64]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x7c]
-	bl String_dtor
+	bl String_Delete
 	ldrb r0, [r6, #0x18]
 	add r5, r5, #0x1
 	add r4, r4, #0x4
@@ -1042,17 +1042,17 @@ _02062D6E:
 	blt _02062D6E
 _02062D84:
 	ldr r0, [r6, #0x44]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x40]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x3c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x38]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x34]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x30]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r6, #0x2c]
 	bl DestroyMsgData
 	pop {r4-r6, pc}
@@ -1361,7 +1361,7 @@ FUN_02063028: ; 0x02063028
 	ldr r1, [r5, #0x0]
 	add r7, r0, #0x1
 	add r0, r7, #0x0
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r1, r5, #0x0
 	add r1, #0xc4
 	str r0, [r1, #0x0]
@@ -1519,7 +1519,7 @@ FUN_02063178: ; 0x02063178
 	add r0, r4, #0x0
 	add r0, #0xc4
 	ldr r0, [r0, #0x0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r4, #0x0
 	add r0, #0xd4
 	bl ClearWindowTilemapAndCopyToVram

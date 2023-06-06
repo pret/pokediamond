@@ -66,8 +66,8 @@ THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
         return FALSE;
     }
     case 6: { //create a group
-        struct String* player_name = String_ctor(64, 32);
-        struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
+        struct String* player_name = String_New(64, 32);
+        struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
 
         PlayerName_FlatToString(player, player_name);
         FUN_020287C0(unk_sav_ptr, 0, 1, player_name);
@@ -75,7 +75,7 @@ THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
         FUN_02028810(unk_sav_ptr, 0, 2);
         FUN_02028788(unk_sav_ptr, 0, MTRandom());
 
-        String_dtor(player_name);
+        String_Delete(player_name);
 
         FUN_02028700(unk_sav_ptr, 0, 1);
         FUN_020612EC(ctx->fieldSystem);

@@ -12,9 +12,9 @@ struct Options {
     u16 frame:5;
 };
 
-struct Options * Options_new(u32 heap_id);
-void Options_copy(struct Options * src, struct Options * dest);
-void Options_init(struct Options * options);
+struct Options * Options_New(u32 heap_id);
+void Options_Copy(struct Options * src, struct Options * dest);
+void Options_Init(struct Options * options);
 void Options_SetButtonModeOnMain(struct SaveBlock2 * sav2, u32 buttonMode);
 u16 Options_GetTextSpeed(struct Options * options);
 void Options_SetTextSpeed(struct Options * options, u16 textSpeed);

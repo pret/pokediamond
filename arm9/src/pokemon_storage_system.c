@@ -7,7 +7,7 @@
 
 #pragma thumb on
 
-void PCStorage_init(struct PCStorage * pc)
+void PCStorage_Init(struct PCStorage * pc)
 {
     PCStorage_InitializeBoxes(pc);
     SaveSetDirtyBit();

@@ -24,8 +24,8 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx) //00CD - todo: B
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
-    struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(sav2);
 
     BufferPlayersName(*messageFormat, idx, player);
 
@@ -60,7 +60,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonName(struct ScriptContext* ctx) //00D0 - todo: 
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
-    struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
+    struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveBlock2);
     struct Pokemon* mon = GetPartyMonByIndex(party, mon_idx);
 
     BufferBoxMonSpeciesName(*messageFormat, idx, &mon->box);
@@ -152,7 +152,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonNickname(struct ScriptContext* ctx) //00D6 - to
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
-    struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
+    struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
 
     BufferBoxMonNickname(*messageFormat, idx, &pokemon->box);
@@ -201,8 +201,8 @@ THUMB_FUNC BOOL ScrCmd_GetTrainerClassName(struct ScriptContext* ctx) //00D8 - t
 THUMB_FUNC BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx) //00D9 - todo: BufferPlayerTrainerClassName? TextPlayerTrainerClassName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSav2Ptr(fieldSystem);
-    struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(sav2);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u32 gender = PlayerProfile_GetTrainerGender(player);
@@ -224,7 +224,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx) //00DA - todo: BufferP
     struct String* str = FUN_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, unk1, unk2, 2);
-    String_dtor(str);
+    String_Delete(str);
 
     return FALSE;
 }
@@ -242,12 +242,12 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx) //00DB - 
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
-    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
     u32 msg_no = FUN_0205F388(state);
     struct String* str = FUN_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
-    String_dtor(str);
+    String_Delete(str);
 
     return FALSE;
 }
@@ -256,12 +256,12 @@ THUMB_FUNC BOOL ScrCmd_GetRivalStarterName(struct ScriptContext* ctx) //00DC - t
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
-    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
     u32 msg_no = FUN_0205F398(state);
     struct String* str = FUN_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
-    String_dtor(str);
+    String_Delete(str);
 
     return FALSE;
 }
@@ -270,12 +270,12 @@ THUMB_FUNC BOOL ScrCmd_GetCounterpartStarterName(struct ScriptContext* ctx) //00
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
-    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
     u32 msg_no = FUN_0205F3C0(state);
     struct String* str = FUN_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);
-    String_dtor(str);
+    String_Delete(str);
 
     return FALSE;
 }
@@ -315,14 +315,14 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundItemName(struct ScriptContext* ctx) //00E1 
 
 THUMB_FUNC BOOL ScrCmd_GetMapName(struct ScriptContext* ctx) //00E2 - todo: BufferMapName?
 {
-    struct String* str = String_ctor(22, 4);
+    struct String* str = String_New(22, 4);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u16 map_no = ScriptGetVar(ctx);
 
     FUN_02064E60(map_no, 4, str);
     BufferString(*messageFormat, idx, str, 0, 1, 2);
-    String_dtor(str);
+    String_Delete(str);
 
     return FALSE;
 }
@@ -336,7 +336,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryName(struct ScriptContext* ctx) //017B - todo: Bu
     struct String* nut_name = GetNutName((u16)(berry - FIRST_BERRY_IDX), 32);
 
     BufferString(*messageFormat, idx, nut_name, 0, unk < 2, 2);
-    String_dtor(nut_name);
+    String_Delete(nut_name);
 
     return FALSE;
 }
@@ -367,13 +367,13 @@ THUMB_FUNC BOOL ScrCmd_GetWhiteRockInscription(struct ScriptContext* ctx) //0272
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
-    struct String* str = String_ctor(11, 11);
+    struct String* str = String_New(11, 11);
     struct UnkStruct_02024E64* unk = FUN_02024EB4(ctx->fieldSystem->saveBlock2);
     u16* unk_buffer = FUN_02024F0C(unk);
 
     CopyU16ArrayToString(str, unk_buffer);
     BufferString(*messageFormat, idx, str, 0, 0, gGameLanguage);
-    String_dtor(str);
+    String_Delete(str);
 
     return FALSE;
 }
@@ -385,7 +385,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonMoveName(struct ScriptContext* ctx) //01CB - to
     u8 idx = ScriptReadByte(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
     u16 mon_move_idx = ScriptGetVar(ctx);
-    struct PlayerParty* party = SavArray_PlayerParty_get(fieldSystem->saveBlock2);
+    struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveBlock2);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     u16 move = (u16)GetMonData(pokemon, MON_DATA_MOVE1 + mon_move_idx, NULL);
 
@@ -489,7 +489,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02CA(struct ScriptContext* ctx) //02CA - todo: BufferI
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
-    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
     u32 species = FUN_0205F3C0(state);
 
     BufferSpeciesNameWithArticle(*messageFormat, idx, species);

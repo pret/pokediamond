@@ -2830,7 +2830,7 @@ _021E9FA4:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
@@ -3763,7 +3763,7 @@ _021EA76C:
 	lsl r0, r0, #8
 	ldr r0, [r4, r0]
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
@@ -5232,7 +5232,7 @@ _021EB394:
 	bl RemoveWindow
 	ldr r0, [r4]
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	mov r0, #3
 	mov r1, #0x20
 	mov r2, #0
@@ -6356,7 +6356,7 @@ _021EBCC4: .word UNK05_021F7970
 MOD05_021EBCC8: ; 0x021EBCC8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerGender
 	pop {r3, pc}
 	.balign 4, 0

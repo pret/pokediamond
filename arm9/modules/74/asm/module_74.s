@@ -29,10 +29,10 @@ MOD74_021D74E0: ; 0x021D74E0
 	ldrh r0, [r5, #6]
 	strb r0, [r4, #0xa]
 	ldr r0, [r5]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x18]
 	ldr r0, [r5]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	str r0, [r4, #0x1c]
 	ldr r0, [r5]
 	bl SaveStruct23_GetSubstruct2
@@ -687,7 +687,7 @@ MOD74_021D79F8: ; 0x021D79F8
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x7b
-	bl NARC_ctor
+	bl NARC_New
 	add r4, r0, #0
 	mov r0, #5
 	str r0, [sp]
@@ -744,7 +744,7 @@ _021D7A5A:
 	mov r3, #0x7b
 	bl FUN_02079B60
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r0, [r5, #0x10]
 	mov r1, #1
 	bl ScheduleBgTilemapBufferTransfer
@@ -850,11 +850,11 @@ MOD74_021D7B20: ; 0x021D7B20
 	ldr r2, [r5]
 	mov r0, #2
 	mov r1, #0x4c
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	str r0, [r5, #0x2c]
 	ldr r1, [r5]
 	mov r0, #0x4c
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x30]
 	mov r6, #0
 	add r4, r5, #0
@@ -909,34 +909,34 @@ MOD74_021D7BB4: ; 0x021D7BB4
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
 	ldr r0, [r6, #0x68]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x64]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x48]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x44]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x40]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x34]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x3c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x38]
-	bl String_dtor
+	bl String_Delete
 	mov r4, #0
 	add r5, r6, #0
 _021D7BEC:
 	ldr r0, [r5, #0x4c]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6
 	blt _021D7BEC
 	ldr r0, [r6, #0x30]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r6, #0x2c]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r6, #0x28]
 	bl DestroyMsgData
 	pop {r4, r5, r6, pc}
@@ -1284,7 +1284,7 @@ _021D7EB8:
 	bl MI_CpuCopy8
 	ldr r1, [r7]
 	mov r0, #8
-	bl String_ctor
+	bl String_New
 	str r0, [r4]
 	ldrb r0, [r4, #7]
 	cmp r0, #0
@@ -1324,7 +1324,7 @@ _021D7F2E:
 	add r0, r5, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	add r4, r4, #1
 	add r5, #0x10
 	cmp r4, #0x1e
@@ -1651,7 +1651,7 @@ MOD74_021D818C: ; 0x021D818C
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop

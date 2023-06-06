@@ -552,7 +552,7 @@ FUN_02088F0C: ; 0x02088F0C
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	str r5, [r4, #0x0]
-	bl EasyChatManager_new
+	bl EasyChatManager_New
 	str r0, [r4, #0x4]
 	mov r3, #0x0
 	ldr r0, _02088F48 ; =0x0000189E
@@ -579,7 +579,7 @@ FUN_02088F4C: ; 0x02088F4C
 	add r4, r0, #0x0
 	beq _02088F5E
 	ldr r0, [r4, #0x4]
-	bl EasyChatManager_delete
+	bl EasyChatManager_Delete
 	add r0, r4, #0x0
 	bl FreeToHeap
 _02088F5E:

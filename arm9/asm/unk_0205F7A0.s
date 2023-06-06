@@ -24,7 +24,7 @@ FUN_0205F7A0: ; 0x0205F7A0
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
 	str r2, [sp, #0x4]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
@@ -70,8 +70,8 @@ _0205F806:
 	str r0, [r5, #0x4]
 _0205F812:
 	ldr r0, [sp, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0xc]
 	ldr r0, [sp, #0x0]
@@ -164,7 +164,7 @@ FUN_0205F8CC: ; 0x0205F8CC
 	ldr r0, [r7, #0xc]
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	str r0, [sp, #0x0]
 	add r0, sp, #0x28
 	bl FS_InitFile

@@ -13,7 +13,7 @@ u32 FUN_020254B8(void)
 
 struct UnkStruct_020254B8 * FUN_020254C0(struct SaveBlock2 * sav2)
 {
-    return (struct UnkStruct_020254B8 *)SavArray_get(sav2, 9);
+    return (struct UnkStruct_020254B8 *)SaveArray_Get(sav2, 9);
 }
 
 void FUN_020254CC(struct UnkStruct_020254B8 * arr)

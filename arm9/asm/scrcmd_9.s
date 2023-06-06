@@ -242,7 +242,7 @@ ScrCmd_Unk02B8: ; 0x02042000
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -316,7 +316,7 @@ _020420A8:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -407,7 +407,7 @@ _02042170:
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -524,7 +524,7 @@ FUN_0204224C: ; 0x0204224C
 	mov r0, #0x40
 	mov r1, #0x4
 	str r3, [sp, #0x8]
-	bl String_ctor
+	bl String_New
 	add r1, r7, #0x0
 	add r4, r0, #0x0
 	bl CopyU16ArrayToString
@@ -538,7 +538,7 @@ FUN_0204224C: ; 0x0204224C
 	add r2, r4, #0x0
 	bl BufferString
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -548,7 +548,7 @@ FUN_02042288: ; 0x02042288
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl GetFirstNonEggInParty
 	bl FUN_020690E4
 	add r2, r0, #0x0
@@ -609,8 +609,8 @@ FUN_020422F4: ; 0x020422F4
 FUN_02042304: ; 0x02042304
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl Sav2_Poketch_get
-	bl Sav2_Poketch_IsGiven
+	bl Save_Poketch_Get
+	bl Save_Poketch_IsGiven
 	pop {r3, pc}
 	.balign 4
 
@@ -627,7 +627,7 @@ FUN_02042314: ; 0x02042314
 FUN_02042324: ; 0x02042324
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	mov r1, #0x0
 	bl FUN_02027098
 	pop {r3, pc}

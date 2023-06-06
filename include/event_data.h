@@ -9,9 +9,9 @@ struct ScriptState
     u8 flags[364];
 };
 
-u32 SavArray_Flags_sizeof(void);
-void SavArray_Flags_init(struct ScriptState * state);
-struct ScriptState * SavArray_Flags_get(struct SaveBlock2 * sav2);
+u32 SaveArray_Flags_sizeof(void);
+void SaveArray_Flags_Init(struct ScriptState * state);
+struct ScriptState * SaveArray_Flags_Get(struct SaveBlock2 * sav2);
 BOOL CheckFlagInArray(struct ScriptState * state, u16 flag_id);
 void SetFlagInArray(struct ScriptState * state, u16 flag_id);
 void ClearFlagInArray(struct ScriptState * state, u16 flag_id);

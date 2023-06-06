@@ -26,12 +26,12 @@ struct Mail
     struct MailMessage unk_20[3];
 };
 
-struct Mail * Mail_new(u32 heap_id);
+struct Mail * Mail_New(u32 heap_id);
 
-void Mail_init(struct Mail * mail);
+void Mail_Init(struct Mail * mail);
 BOOL Mail_TypeIsValid(struct Mail * mail);
-struct Mail * Mail_new(u32 heap_id);
-void Mail_copy(const struct Mail * src, struct Mail * dest);
+struct Mail * Mail_New(u32 heap_id);
+void Mail_Copy(const struct Mail * src, struct Mail * dest);
 void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct SaveBlock2 * sav2);
 u32 Mail_GetOTID(struct Mail * mail);
 u16 * Mail_GetAuthorNamePtr(struct Mail * mail);
@@ -43,9 +43,9 @@ u8 Mail_GetVersion(struct Mail * mail);
 u16 Mail_GetAttrFromUnk18Array(struct Mail * mail, u32 idx, u32 attr);
 struct MailMessage * Mail_GetUnk20Array(struct Mail * mail, u32 idx);
 void Mail_CopyToUnk20Array(struct Mail * mail, const struct MailMessage * src, u32 idx);
-struct Mail * Sav2_Mailbox_get(struct SaveBlock2 * sav2);
-u32 Sav2_Mailbox_sizeof(void);
-void Sav2_Mailbox_init(struct Mail * mail);
+struct Mail * Save_Mailbox_Get(struct SaveBlock2 * sav2);
+u32 Save_Mailbox_sizeof(void);
+void Save_Mailbox_Init(struct Mail * mail);
 s32 Mailbox_GetFirstEmptySlotIdx(struct Mail * mail, BOOL r1);
 void Mailbox_DeleteSlotI(struct Mail * mail, BOOL r1, s32 idx);
 void Mailbox_CopyMailToSlotI(struct Mail * mail, BOOL r1, s32 idx, const struct Mail * src);

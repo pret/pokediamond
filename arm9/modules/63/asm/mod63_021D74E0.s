@@ -2048,7 +2048,7 @@ _021D844C:
 	add r7, r0, #0
 	mov r0, #0x40
 	add r1, r4, #0
-	bl String_ctor
+	bl String_New
 	add r1, r6, #0
 	add r4, r0, #0
 	ldr r2, _021D85D0 ; =MOD63_021DB9A0
@@ -2092,7 +2092,7 @@ _021D844C:
 	str r1, [sp, #0x14]
 	bl AddTextPrinterParameterized3
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	mov r1, #0x15

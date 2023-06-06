@@ -1037,7 +1037,7 @@ FUN_0205E4A4: ; 0x0205E4A4
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r1, _0205E4D4 ; =0x000001AF
 	mov r2, #0x1
 	mov r3, #0x4

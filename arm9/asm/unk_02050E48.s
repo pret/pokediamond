@@ -30,18 +30,18 @@ FUN_02050E48: ; 0x02050E48
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0207C2A4
 	add r0, r6, #0x0
-	bl SavArray_IsNatDexEnabled
+	bl SaveArray_IsNatDexEnabled
 	str r0, [r4, #0x1c]
 	add r0, r6, #0x0
 	bl FUN_02079C70
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0x4]
 	ldr r0, [sp, #0x0]
 	str r0, [r4, #0x0]
@@ -86,7 +86,7 @@ FUN_02050ED4: ; 0x02050ED4
 	bl MI_CpuFill8
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r4, #0xc]
 	ldr r0, [r5, #0x24]
 	add r0, #0xac
@@ -94,11 +94,11 @@ FUN_02050ED4: ; 0x02050ED4
 	str r0, [r4, #0x14]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	str r0, [r4, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -627,7 +627,7 @@ _02051308:
 _0205130E:
 	ldr r0, [r4, #0x24]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -1211,7 +1211,7 @@ FUN_020517C0: ; 0x020517C0
 	bl FUN_020545B8
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02054608
@@ -1222,7 +1222,7 @@ _020517F2:
 _020517F8:
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -1307,7 +1307,7 @@ _0205188E:
 	str r5, [r4, #0x24]
 	str r6, [r4, #0x8]
 	mov r0, #0xb
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x28]
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -1317,11 +1317,11 @@ _0205188E:
 	str r0, [r4, #0x2c]
 	mov r0, #0xc8
 	mov r1, #0xb
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0xc]
 	mov r0, #0xc8
 	mov r1, #0xb
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x10]
 	add r0, r4, #0x0
 	add r0, #0x14
@@ -1377,7 +1377,7 @@ _02051938:
 	bl AllocFromHeapAtEnd
 	str r0, [r4, #0x48]
 	mov r0, #0xb
-	bl SavArray_Party_alloc
+	bl SaveArray_Party_Alloc
 	mov r1, #0x3
 	str r0, [r4, #0x50]
 	bl InitPartyWithMaxSize
@@ -1436,11 +1436,11 @@ _020519BA:
 	ldr r0, [r4, #0x2c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x28]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0xc]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x10]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x78]
 	bl DestroyListMenuCursorObj
 	add r0, r4, #0x0
@@ -1464,7 +1464,7 @@ FUN_020519F0: ; 0x020519F0
 	ldr r0, [r7, #0x24]
 	add r5, r1, #0x0
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [sp, #0x0]
 	ldr r4, [r7, #0x4c]
 	bl FUN_020690C4
@@ -2124,7 +2124,7 @@ _02051EE2: ; jump table (using 16-bit offset)
 	.short _02052028 - _02051EE2 - 2; case 7
 _02051EF2:
 	mov r0, #0x4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x18]
 	mov r0, #0x0
 	mov r1, #0x1a
@@ -2134,11 +2134,11 @@ _02051EF2:
 	str r0, [r4, #0x1c]
 	mov r0, #0xc8
 	mov r1, #0x4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x0]
 	mov r0, #0xc8
 	mov r1, #0x4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x4]
 	ldrb r1, [r6, #0x3]
 	ldr r0, [r4, #0x1c]
@@ -2161,13 +2161,13 @@ _02051EF2:
 	mov r2, #0x3
 	bl FUN_020545B8
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x8
 	bl FUN_02054608
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x4]
@@ -2194,11 +2194,11 @@ _02051F7C:
 	ldr r0, [r4, #0x1c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x18]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x4]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0x0
 	add r0, #0x8
 	mov r1, #0x0

@@ -115,7 +115,7 @@ struct SaveStruct23_Substruct4
     /* 0x740 */ struct SaveStruct23_Substruct4_Substruct2 substruct2;
 }; // total size 0xB3C (2876)
 
-struct SaveStruct23 // Struct fetched with SavArray_get(sav2, 23)
+struct SaveStruct23 // Struct fetched with SaveArray_Get(sav2, 23)
 {
     /* 0x000 */ struct SaveStruct23_Substruct1 substruct1;
     /* 0x03C */ struct SaveStruct23_Substruct2 substruct2;

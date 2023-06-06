@@ -28,7 +28,7 @@ _021EFC20:
 	add r0, #0x8c
 	str r1, [r0]
 	ldr r0, [r4, #0x34]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -105,7 +105,7 @@ _021EFCB0:
 	pop {r3, r4, r5, r6, pc}
 _021EFCC4:
 	ldr r0, [r6, #0x34]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	ldr r1, _021EFD3C ; =0x000001B5
 	mov r2, #1
 	mov r3, #4
@@ -389,7 +389,7 @@ MOD05_021EFEDC: ; 0x021EFEDC
 	add r7, r0, #0
 	add r0, r7, #1
 	mov r1, #4
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	str r0, [r5]
 	mov r0, #1
 	str r0, [sp]
@@ -528,7 +528,7 @@ _021F000E:
 	bl FUN_020286EC
 	add r7, r0, #0
 	mov r0, #4
-	bl PlayerProfile_new
+	bl PlayerProfile_New
 	add r6, r0, #0
 	add r0, r7, #0
 	add r1, r4, #0
@@ -560,7 +560,7 @@ _021F0056:
 	add r2, r1, #0
 	bl DestroyListMenu
 	ldr r0, [r5]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -780,14 +780,14 @@ _021F0204:
 	bl FUN_020545B8
 	ldr r0, [r4, #0x30]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r1, r0, #0
 	add r0, r4, #0
 	add r0, #0x10
 	bl FUN_02054608
 	ldr r0, [r4, #0x30]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0
 	add r0, r4, #0
 	ldr r1, [r4, #0xc]
@@ -806,7 +806,7 @@ MOD05_021F0254: ; 0x021F0254
 	add r4, r0, #0
 	bl MI_CpuFill8
 	mov r0, #4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	str r0, [r4, #0x38]
 	ldr r2, _021F028C ; =0x00000251
 	mov r0, #0
@@ -816,11 +816,11 @@ MOD05_021F0254: ; 0x021F0254
 	str r0, [r4, #0x3c]
 	mov r0, #0x6e
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0xc]
 	mov r0, #0x6e
 	mov r1, #4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #8]
 	pop {r4, pc}
 	.balign 4, 0
@@ -833,11 +833,11 @@ MOD05_021F0290: ; 0x021F0290
 	ldr r0, [r4, #0x3c]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x38]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0xc]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #8]
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	add r0, #0x10
 	bl WindowIsInUse

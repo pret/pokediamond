@@ -265,12 +265,12 @@ ScrCmd_Unk00E5: ; 0x0204188C
 	ldr r0, [r0, #0x0]
 	mov r6, #0x0
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205ED3C
 	cmp r0, #0x1
 	bne _020418F2
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F368
 	add r6, r0, #0x0
 _020418F2:
@@ -590,7 +590,7 @@ ScrCmd_Unk00EE: ; 0x02041B70
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl HasEnoughAlivePokemonForDoubleBattle
 	strh r0, [r4, #0x0]
 	mov r0, #0x0

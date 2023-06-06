@@ -37,7 +37,7 @@ FUN_0207FD00: ; 0x0207FD00
 	ldr r2, [r4, #0x0]
 	mov r0, #0x9
 	mov r1, #0x20
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	str r0, [r4, #0x8]
 	str r5, [r4, #0xc]
 	str r6, [r4, #0x10]
@@ -459,7 +459,7 @@ _020800C0:
 	bl FreeToHeap
 _020800CA:
 	ldr r0, [r4, #0x8]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, [r4, #0x4]
 	bl DestroyMsgData
 	add r0, r4, #0x0
@@ -478,7 +478,7 @@ FUN_020800E0: ; 0x020800E0
 	bgt _02080106
 	ldr r1, [r5, #0x0]
 	mov r0, #0x48
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x18]
 	add r4, #0x18
 	ldr r0, [r5, #0x4]
@@ -497,12 +497,12 @@ FUN_02080108: ; 0x02080108
 	mov r0, #0x9
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0x6
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0x0
 	mov r0, #0x9
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0x6
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x20]
 	ldr r0, [r5, #0x4]
 	add r1, r6, #0x0
@@ -608,7 +608,7 @@ FUN_02080108: ; 0x02080108
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x8
 	pop {r4-r6, pc}
 
@@ -621,12 +621,12 @@ FUN_02080228: ; 0x02080228
 	mov r0, #0x12
 	ldr r1, [r4, #0x0]
 	lsl r0, r0, #0x4
-	bl String_ctor
+	bl String_New
 	add r5, r0, #0x0
 	mov r0, #0x12
 	ldr r1, [r4, #0x0]
 	lsl r0, r0, #0x4
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x20]
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
@@ -766,7 +766,7 @@ _0208036E:
 	add r2, r5, #0x0
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x8
 	pop {r4-r6, pc}
 	.balign 4
@@ -781,12 +781,12 @@ FUN_02080384: ; 0x02080384
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0x2
 	add r6, r2, #0x0
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0x0
 	mov r0, #0x5a
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0x2
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x20]
 	ldr r0, [r5, #0x4]
 	add r1, r7, #0x0
@@ -883,7 +883,7 @@ _02080478:
 	add r2, r4, #0x0
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x8
 	pop {r3-r7, pc}
 
@@ -894,7 +894,7 @@ FUN_0208048C: ; 0x0208048C
 	add r4, r0, #0x0
 	ldr r1, [r4, #0x0]
 	mov r0, #0x48
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x28]
 	ldr r0, [r4, #0xc]
 	mov r1, #0x46
@@ -1164,7 +1164,7 @@ FUN_02080678: ; 0x02080678
 	add r5, r0, #0x0
 	ldr r1, [r5, #0x0]
 	mov r0, #0x48
-	bl String_ctor
+	bl String_New
 	mov r6, #0x0
 	str r0, [r5, #0x30]
 	add r4, r6, #0x0
@@ -1201,7 +1201,7 @@ FUN_020806B4: ; 0x020806B4
 	mov r0, #0x12
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0x4
-	bl String_ctor
+	bl String_New
 	str r0, [r5, #0x38]
 	cmp r4, #0x5
 	bgt _020806D8
@@ -1733,7 +1733,7 @@ FUN_02080AE4: ; 0x02080AE4
 	add r2, r4, #0x0
 	bl SetBoxMonData
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x8
 	pop {r4-r6, pc}
 

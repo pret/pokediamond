@@ -66,7 +66,7 @@ _022548BE:
 	ldr r3, [sp, #8]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl Sav2_Poketch_MarkingMapGetPos
+	bl Save_Poketch_MarkingMapGetPos
 	ldrb r0, [r4, #0x10]
 	add r7, r7, #4
 	add r0, #0x10
@@ -92,7 +92,7 @@ _022548BE:
 	str r0, [r5, #0xc]
 	ldr r0, [sp]
 	bl MOD20_02252C40
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r7, r0, #0
 	mov r4, #0
 	add r6, r5, #0
@@ -205,7 +205,7 @@ _022549D4:
 	add r1, r4, #0
 	lsr r2, r2, #0x18
 	lsr r3, r3, #0x18
-	bl Sav2_Poketch_MarkingMapSetPos
+	bl Save_Poketch_MarkingMapSetPos
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #6

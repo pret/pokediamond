@@ -68,7 +68,7 @@ THUMB_FUNC void FUN_02031734(struct SaveBlock2 *sav2, u8 param1)
         UNK_021C5A00->unk43 = 1;
         UNK_021C5A00->unk28 = sav2;
 
-        UNK_021C5A00->unk2C = Sav2_PlayerData_GetProfileAddr(sav2);
+        UNK_021C5A00->unk2C = Save_PlayerData_GetProfileAddr(sav2);
 
         UNK_021C5A00->unk3C = 2;
         UNK_021C5A00->unk3D = 0;
@@ -1979,7 +1979,7 @@ THUMB_FUNC void FUN_0203341C()
 
 THUMB_FUNC void *FUN_0203346C(struct SaveBlock2 *sav2, u32 param1)
 {
-    Sav2_PlayerData_GetProfileAddr(sav2);
+    Save_PlayerData_GetProfileAddr(sav2);
     if (FUN_02030F40() != 0)
     {
         return 0;

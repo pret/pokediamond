@@ -27,5 +27,5 @@ THUMB_FUNC void FUN_0202A8F8(struct Unk0202A8F4 *unk)
 
 THUMB_FUNC void *FUN_0202A918(struct SaveBlock2* sav2)
 {
-    return SavArray_get(sav2, 24);
+    return SaveArray_Get(sav2, 24);
 }

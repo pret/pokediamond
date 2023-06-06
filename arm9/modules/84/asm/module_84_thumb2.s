@@ -555,7 +555,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0x4b
-	bl String_ctor
+	bl String_New
 	str r0, [r4, #0x30]
 	mov r0, #0x4b
 	mov r1, #1
@@ -624,7 +624,7 @@ MOD84_021D85B8: ; 0x021D85B8
 	bl FUN_0200CAB4
 _021D85C6:
 	ldr r0, [r4, #0x30]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x24]
 	bl RemoveWindow
 	ldr r0, [r4, #0x28]

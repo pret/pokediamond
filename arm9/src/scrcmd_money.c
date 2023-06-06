@@ -9,8 +9,8 @@ extern void MOD05_021E28A0(struct FieldSystem *fieldSystem, Window *moneyBox);
 
 THUMB_FUNC BOOL ScrCmd_GiveMoney(struct ScriptContext * ctx) //006F
 {
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
-    struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
 
     u32 amount = ScriptReadWord(ctx);
     PlayerProfile_AddMoney(player, amount);
@@ -20,8 +20,8 @@ THUMB_FUNC BOOL ScrCmd_GiveMoney(struct ScriptContext * ctx) //006F
 
 THUMB_FUNC BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext * ctx) //0070 - todo: TakeMoney?
 {
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
-    struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
 
     u32 amount = ScriptReadWord(ctx);
     PlayerProfile_SubMoney(player, amount);
@@ -31,8 +31,8 @@ THUMB_FUNC BOOL ScrCmd_TakeMoneyImmediate(struct ScriptContext * ctx) //0070 - t
 
 THUMB_FUNC BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext * ctx) //01A3 - todo: TakeMoneyVar?
 {
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
-    struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
 
     u16 amount = ScriptGetVar(ctx);
     PlayerProfile_SubMoney(player, (u32)amount);
@@ -42,8 +42,8 @@ THUMB_FUNC BOOL ScrCmd_TakeMoneyAddress(struct ScriptContext * ctx) //01A3 - tod
 
 THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext * ctx) //0071 - todo: CanAffordMoney?
 {
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
-    struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
 
     u32 amount = ScriptReadWord(ctx);
@@ -63,8 +63,8 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyImmediate(struct ScriptContext * ctx) //007
 
 THUMB_FUNC BOOL ScrCmd_HasEnoughMoneyAddress(struct ScriptContext * ctx) //01AB - todo: CanAffordMoneyVar?
 {
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSav2Ptr(ctx->fieldSystem);
-    struct PlayerData * player = Sav2_PlayerData_GetProfileAddr(sav2);
+    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
 
     u16 amount = ScriptGetVar(ctx);

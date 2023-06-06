@@ -525,7 +525,7 @@ _021D7906:
 	add r5, r6, #0
 _021D7914:
 	ldr r0, [r5, #0x60]
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
 	add r0, #0x5c
 	ldrh r0, [r0]
@@ -673,7 +673,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x49
-	bl NARC_ctor
+	bl NARC_New
 	add r4, r0, #0
 	mov r0, #0x49
 	mov r1, #1
@@ -750,7 +750,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	add r1, #0x28
 	bl NNS_G2dGetUnpackedScreenData
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20
@@ -1000,7 +1000,7 @@ MOD60_021D7D18: ; 0x021D7D18
 	add r6, r0, #0
 	ldr r1, [r6]
 	mov r0, #0x28
-	bl String_ctor
+	bl String_New
 	add r5, r0, #0
 	ldr r0, [r6, #0x20]
 	mov r1, #0
@@ -1085,7 +1085,7 @@ _021D7DB6:
 	add r0, r6, #0
 	bl CopyWindowToVram
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

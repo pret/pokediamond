@@ -242,7 +242,7 @@ _020604D0:
 	add r2, r6, #0x0
 	bl FUN_0202AAFC
 	ldr r0, [sp, #0x10]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x18]
 	mov r0, #0x4
 	bl AllocMonZeroed

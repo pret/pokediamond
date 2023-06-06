@@ -764,7 +764,7 @@ CreateYesNoMenu: ; 0x020020EC
 	add r4, r0, #0x0
 	mov r0, #0x2
 	add r1, r5, #0x0
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	add r1, r4, #0x0
 	mov r2, #0x29
 	mov r3, #0x0
@@ -888,7 +888,7 @@ FUN_020021EC: ; 0x020021EC
 	add r0, r4, #0x0
 	bl FreeToHeapExplicit
 	ldr r0, [r5, #0x0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl FUN_02001C5C

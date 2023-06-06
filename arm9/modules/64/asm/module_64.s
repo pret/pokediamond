@@ -2338,7 +2338,7 @@ _021D86F8:
 	add r3, r1, #0
 	bl DrawFrameAndWindow2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl DestroyMsgData
 	add r0, r7, #0
@@ -2408,7 +2408,7 @@ MOD64_021D87B8: ; 0x021D87B8
 	add r4, r0, #0
 	add r0, #0xac
 	ldr r0, [r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0
 	add r4, #0xac
 	str r0, [r4]
@@ -3524,7 +3524,7 @@ _021D8FEC:
 	str r1, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
 	bl DestroyMsgData
 	add sp, #0x10

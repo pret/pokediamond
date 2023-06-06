@@ -83,10 +83,10 @@ _0206C00C: .word PlayerProfile_sizeof
 
 	thumb_func_start FUN_0206C010
 FUN_0206C010: ; 0x0206C010
-	ldr r3, _0206C014 ; =SavArray_Party_sizeof
+	ldr r3, _0206C014 ; =SaveArray_Party_sizeof
 	bx r3
 	.balign 4
-_0206C014: .word SavArray_Party_sizeof
+_0206C014: .word SaveArray_Party_sizeof
 
 	thumb_func_start FUN_0206C018
 FUN_0206C018: ; 0x0206C018
@@ -537,7 +537,7 @@ _0206C30C:
 	mov r0, #0x0
 	pop {r4, pc}
 _0206C31A:
-	bl SavArray_Party_sizeof
+	bl SaveArray_Party_sizeof
 	add r4, #0x20
 	add r2, r0, #0x0
 	mov r0, #0x1b
@@ -572,7 +572,7 @@ _0206C350:
 	add r0, r4, #0x0
 	ldr r1, [r2, r1]
 	add r0, #0x20
-	bl Chatot_copy
+	bl Chatot_Copy
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
@@ -817,7 +817,7 @@ _0206C508:
 _0206C518:
 	cmp r4, #0x1
 	bne _0206C52E
-	bl SavArray_Party_sizeof
+	bl SaveArray_Party_sizeof
 	add r5, #0x20
 	add r2, r0, #0x0
 	mov r0, #0x1f
@@ -825,7 +825,7 @@ _0206C518:
 	bl FUN_02030A78
 	pop {r4-r6, pc}
 _0206C52E:
-	bl SavArray_Party_sizeof
+	bl SaveArray_Party_sizeof
 	add r5, #0x20
 	add r2, r0, #0x0
 	mov r0, #0x20

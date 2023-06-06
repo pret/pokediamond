@@ -14,7 +14,7 @@ FUN_0208898C: ; 0x0208898C
 	cmp r0, #0x0
 	beq _020889AC
 	ldr r0, [r4, #0x0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x1

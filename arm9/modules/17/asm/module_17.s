@@ -2472,7 +2472,7 @@ _021D8780:
 	ldr r0, _021D8810 ; =0x000006A8
 	mov r1, #1
 	ldr r0, [r4, r0]
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	add r0, r4, #0
 	bl MOD17_021D92AC
 	ldr r0, _021D8814 ; =0x0000048C
@@ -3080,7 +3080,7 @@ MOD17_021D8C9C: ; 0x021D8C9C
 	ldr r0, _021D8D58 ; =0x000006A8
 	mov r1, #1
 	ldr r0, [r4, r0]
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	add r0, r4, #0
 	bl MOD17_021D92AC
 	ldr r0, _021D8D5C ; =0x0000048C
@@ -4260,7 +4260,7 @@ MOD17_021D95AC: ; 0x021D95AC
 	add r1, r5, #0
 	bl FUN_020274F0
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 _021D95EC:
 	ldr r0, [sp]
 	mov r5, #0
@@ -4347,7 +4347,7 @@ MOD17_021D964C: ; 0x021D964C
 	add r1, r5, #0
 	bl FUN_02027A58
 	add r0, r5, #0
-	bl String_dtor
+	bl String_Delete
 _021D969A:
 	ldr r1, [sp]
 	add r0, r6, #0
@@ -4729,7 +4729,7 @@ MOD17_021D9918: ; 0x021D9918
 	add r2, r4, #0
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r0, _021D99D4 ; =0x000006A8
@@ -4766,7 +4766,7 @@ MOD17_021D99E0: ; 0x021D99E0
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0xd
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	ldr r0, _021D9A60 ; =0x000006D4
 	add r1, r4, #0
@@ -4785,9 +4785,9 @@ MOD17_021D99E0: ; 0x021D99E0
 	add r2, r4, #0
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, _021D9A58 ; =0x000006A8
@@ -4831,7 +4831,7 @@ _021D9A7E:
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0xd
-	bl String_ctor
+	bl String_New
 	mov r1, #0x6d
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -4866,7 +4866,7 @@ _021D9AD0:
 	bl AddTextPrinterParameterized2
 	add r6, r0, #0
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, _021D9B08 ; =0x000006A8
@@ -4889,7 +4889,7 @@ MOD17_021D9B18: ; 0x021D9B18
 	mov r0, #0x6d
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x6d
 	mov r1, #0
 	lsl r0, r0, #4
@@ -4956,7 +4956,7 @@ MOD17_021D9B74: ; 0x021D9B74
 	add r4, r0, #0
 	bl MOD17_021D9918
 	mov r0, #0xd
-	bl MessageFormat_new
+	bl MessageFormat_New
 	ldr r1, _021D9B98 ; =0x000006D4
 	str r0, [r4, r1]
 	add sp, #8
@@ -5006,7 +5006,7 @@ MOD17_021D9BCC: ; 0x021D9BCC
 	bl MOD17_021D9B30
 	ldr r0, _021D9BE4 ; =0x000006D4
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	ldr r0, _021D9BE4 ; =0x000006D4
 	mov r1, #0
 	str r1, [r4, r0]
@@ -11292,7 +11292,7 @@ _021DC898:
 	str r3, [sp, #0xc]
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r6, #0
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -11308,7 +11308,7 @@ MOD17_021DC8F8: ; 0x021DC8F8
 	mov r1, #1
 	bx r3
 	nop
-_021DC900: .word WindowArray_dtor
+_021DC900: .word WindowArray_Delete
 	thumb_func_end MOD17_021DC8F8
 
 	thumb_func_start MOD17_021DC904
@@ -11681,7 +11681,7 @@ MOD17_021DCBC0: ; 0x021DCBC0
 	mov r0, #0x51
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0x51
 	mov r1, #0
 	lsl r0, r0, #2
@@ -11848,7 +11848,7 @@ MOD17_021DCCE0: ; 0x021DCCE0
 	mov r1, #1
 	bx r3
 	nop
-_021DCCE8: .word WindowArray_dtor
+_021DCCE8: .word WindowArray_Delete
 	thumb_func_end MOD17_021DCCE0
 
 	thumb_func_start MOD17_021DCCEC
@@ -11957,7 +11957,7 @@ _021DCD98:
 	bl AddTextPrinterParameterized2
 	add r6, r0, #0
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0
 	bl DestroyMsgData
 	add r0, r6, #0
@@ -14300,7 +14300,7 @@ MOD17_021DDF84: ; 0x021DDF84
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
 	mov r1, #1
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD17_021DDF84
@@ -14347,7 +14347,7 @@ MOD17_021DDFDC: ; 0x021DDFDC
 	bl GF_AssertFail
 _021DDFF8:
 	mov r0, #0xd
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r6, r0, #0
 	mov r0, #0x63
 	lsl r0, r0, #2
@@ -14369,7 +14369,7 @@ _021DDFF8:
 	bl FUN_02020044
 	mov r0, #0xc
 	mov r1, #0xd
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	ldr r0, [r5]
 	add r1, r7, #0
@@ -14397,7 +14397,7 @@ _021DDFF8:
 	sub r3, r3, r4
 	bl AddTextPrinterParameterized2
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r5]
 	bl FUN_0202769C
 	add r2, r0, #0
@@ -14406,7 +14406,7 @@ _021DDFF8:
 	bl BufferECWord
 	mov r0, #0xc8
 	mov r1, #0xd
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	ldr r0, [sp, #0x10]
 	mov r1, #0x2d
@@ -14439,13 +14439,13 @@ _021DDFF8:
 	sub r3, r3, r5
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r6, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -14467,11 +14467,11 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	bl FUN_02027C58
 	add r6, r0, #0
 	mov r0, #0xd
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r7, r0, #0
 	mov r0, #0xc8
 	mov r1, #0xd
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	ldr r0, [r5, #8]
 	bl FUN_02083298
@@ -14533,7 +14533,7 @@ _021DE1A0:
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -14565,7 +14565,7 @@ _021DE1A0:
 	add r2, r6, #0
 	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -14589,11 +14589,11 @@ _021DE1A0:
 	sub r3, r3, r5
 	bl AddTextPrinterParameterized2
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r7, #0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop

@@ -344,7 +344,7 @@ ScrCmd_Unk0130: ; 0x0203C0CC
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	mov r1, #0x0
 	bl FUN_02027008
 	add r1, r4, #0x0
@@ -454,7 +454,7 @@ ScrCmd_Unk01D8: ; 0x0203C1AC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	mov r1, #0x4
 	bl Bag_PocketNotEmpty
 	cmp r0, #0x0
@@ -739,7 +739,7 @@ ScrCmd_Unk00B4: ; 0x0203C3E8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r6, #0x4]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -766,7 +766,7 @@ ScrCmd_Unk00B5: ; 0x0203C430
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	ldr r1, [r4, #0x0]
 	ldr r1, [r1, #0x0]
 	lsl r1, r1, #0x10
@@ -889,7 +889,7 @@ ScrCmd_Unk00BB: ; 0x0203C520
 	bl VarGet
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x74
@@ -1426,7 +1426,7 @@ ScrCmd_Unk00C5: ; 0x0203C990
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r6, #0x0
 	bl GetPartyMonByIndex
 	add r6, r0, #0x0
@@ -1694,7 +1694,7 @@ ScrCmd_Unk00DE: ; 0x0203CBBC
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F388
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
@@ -1754,7 +1754,7 @@ ScrCmd_Unk00E6: ; 0x0203CBE8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	ldr r1, [r6, #0x0]
 	add r0, r4, #0x0
@@ -2078,7 +2078,7 @@ ScrCmd_Unk011E: ; 0x0203CF04
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2101,7 +2101,7 @@ ScrCmd_Unk011F: ; 0x0203CF34
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2124,7 +2124,7 @@ ScrCmd_Unk0120: ; 0x0203CF64
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2147,7 +2147,7 @@ ScrCmd_Unk0121: ; 0x0203CF94
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2175,13 +2175,13 @@ ScrCmd_Unk0123: ; 0x0203CFC8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	ldr r1, [r5, #0x8]
 	str r0, [sp, #0x0]
 	add r0, r1, #0x1
@@ -2203,7 +2203,7 @@ ScrCmd_Unk0123: ; 0x0203CFC8
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x2
 	mov r2, #0xa
 	bl FUN_0205F2E4
@@ -2493,7 +2493,7 @@ ScrCmd_Unk0132: ; 0x0203D248
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -2503,7 +2503,7 @@ ScrCmd_Unk0132: ; 0x0203D248
 	bl GetVarPointer
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl Sav2_Poketch_IsGiven
+	bl Save_Poketch_IsGiven
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}
@@ -2523,9 +2523,9 @@ ScrCmd_Unk0133: ; 0x0203D278
 	bl VarGet
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r1, r5, #0x0
-	bl Sav2_Poketch_UnlockApp
+	bl Save_Poketch_UnlockApp
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -2552,9 +2552,9 @@ ScrCmd_Unk0134: ; 0x0203D2A4
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_Poketch_get
+	bl Save_Poketch_Get
 	add r1, r6, #0x0
-	bl Sav2_Poketch_AppIsUnlocked
+	bl Save_Poketch_AppIsUnlocked
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -2707,12 +2707,12 @@ ScrCmd_Unk013C: ; 0x0203D3DC
 	add r0, r5, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r5, #0x80
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02013B5C
 	add r5, r0, #0x0
 	cmp r4, #0x0
@@ -3118,8 +3118,8 @@ ScrCmd_Unk0154: ; 0x0203D738
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r4, #0x80
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -3145,8 +3145,8 @@ ScrCmd_Unk0155: ; 0x0203D774
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -3189,8 +3189,8 @@ ScrCmd_Unk029C: ; 0x0203D7DC
 	add r4, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -3227,8 +3227,8 @@ ScrCmd_Unk0156: ; 0x0203D834
 	add r5, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -3280,8 +3280,8 @@ ScrCmd_GetPlayerGender: ; 0x0203D8A0
 	add r5, r0, #0x0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -3302,7 +3302,7 @@ ScrCmd_HealParty: ; 0x0203D8D0
 	ldr r0, [r0, #0x74]
 	bl FUN_02046528
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl HealParty
 	mov r0, #0x0
 	pop {r3, pc}
@@ -3396,7 +3396,7 @@ ScrCmd_Unk017A: ; 0x0203D958
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r1, r6, #0x0
 	bl Bag_PocketNotEmpty
 	strh r0, [r4, #0x0]
@@ -4129,7 +4129,7 @@ ScrCmd_Unk01B4: ; 0x0203DF38
 	bl GetVarPointer
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Sav2_Mailbox_get
+	bl Save_Mailbox_Get
 	mov r1, #0x0
 	bl Mailbox_CountMessages
 	strh r0, [r5, #0x0]
@@ -4348,7 +4348,7 @@ ScrCmd_Unk01C5: ; 0x0203E120
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x82
 	lsl r1, r1, #0x8
 	bl FUN_0205F3F8
@@ -4361,7 +4361,7 @@ ScrCmd_Unk01CC: ; 0x0203E138
 	add r0, #0x80
 	ldr r4, [r0, #0x0]
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x1
 	bl FUN_0205F2D4
 	ldr r0, [r4, #0xc]
@@ -4516,7 +4516,7 @@ ScrCmd_Unk01D2: ; 0x0203E258
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	add r2, r6, #0x0
@@ -4554,7 +4554,7 @@ ScrCmd_Unk01D3: ; 0x0203E29C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r6, #0x0
 	add r2, r7, #0x0
@@ -4594,7 +4594,7 @@ ScrCmd_Unk01D4: ; 0x0203E2F8
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r7, #0x0
 	bl FUN_02027114
@@ -4624,7 +4624,7 @@ ScrCmd_Unk01D5: ; 0x0203E35C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	bl FUN_02027264
@@ -4654,7 +4654,7 @@ ScrCmd_Unk01D6: ; 0x0203E38C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r6, #0x0
 	bl FUN_02027100
@@ -4669,7 +4669,7 @@ ScrCmd_Unk01E8: ; 0x0203E3D0
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -4697,7 +4697,7 @@ ScrCmd_Unk01E9: ; 0x0203E408
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -4818,7 +4818,7 @@ ScrCmd_Unk01E5: ; 0x0203E4F0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r1, r4, #0x0
 	bl GameStats_Inc
 	mov r0, #0x0
@@ -4852,7 +4852,7 @@ ScrCmd_Unk01E6: ; 0x0203E510
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r1, r7, #0x0
 	bl GameStats_GetCapped
 	ldr r1, _0203E564 ; =0xFFFF0000
@@ -4894,7 +4894,7 @@ _0203E59C:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r1, r6, #0x0
 	add r2, r4, #0x0
 	bl GameStats_Add
@@ -4903,7 +4903,7 @@ _0203E5B0:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r1, r6, #0x0
 	add r2, r4, #0x0
 	bl GameStats_SetCapped
@@ -4912,7 +4912,7 @@ _0203E5C4:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r1, r6, #0x0
 	add r2, r4, #0x0
 	bl GameStats_UpdateBounded
@@ -4935,7 +4935,7 @@ ScrCmd_Unk0202: ; 0x0203E5DC
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -5106,7 +5106,7 @@ ScrCmd_Unk0214: ; 0x0203E744
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -5129,7 +5129,7 @@ ScrCmd_Unk0218: ; 0x0203E774
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -5197,7 +5197,7 @@ ScrCmd_Unk0219: ; 0x0203E7F0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r1, r4, #0x0
 	bl FUN_0205F5A4
 	mov r0, #0x0
@@ -5218,7 +5218,7 @@ ScrCmd_Unk021A: ; 0x0203E81C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F594
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
@@ -5358,7 +5358,7 @@ ScrCmd_Unk022B: ; 0x0203E940
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl FUN_02024D4C
 	mov r0, #0x0
 	pop {r3, pc}
@@ -5369,7 +5369,7 @@ ScrCmd_Unk022C: ; 0x0203E954
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl FUN_02024CE0
 	mov r0, #0x0
 	pop {r3, pc}
@@ -5397,12 +5397,12 @@ ScrCmd_Unk022D: ; 0x0203E968
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl Pokedex_SetNatDexFlag
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_SetNatDexFlag
 	b _0203E9C8
 _0203E9AE:
@@ -5411,7 +5411,7 @@ _0203E9AE:
 	add r5, #0x80
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	bl Pokedex_GetNatDexFlag
 	strh r0, [r6, #0x0]
 	b _0203E9C8
@@ -5444,7 +5444,7 @@ ScrCmd_Unk0233: ; 0x0203E9CC
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r4, #0x0
 	bl GetPartyMonByIndex
 	add r5, r0, #0x0
@@ -5556,7 +5556,7 @@ ScrCmd_Unk023A: ; 0x0203EAB0
 	add r7, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r7, #0x0
 	bl GetPartyMonByIndex
 	mov r1, #0x5
@@ -5678,8 +5678,8 @@ ScrCmd_GiveWallpaper: ; 0x0203EBE4
 	add r0, #0x80
 	ldr r6, [r0, #0x0]
 	add r0, r6, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -5836,7 +5836,7 @@ Script_SetMonSeenFlagBySpecies: ; 0x0203ED2C
 	sub sp, #0x10
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r6, r0, #0x0
 	mov r0, #0x20
 	bl AllocMonZeroed
@@ -6013,7 +6013,7 @@ ScrCmd_Unk0260: ; 0x0203EE78
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	add r1, r4, #0x0
 	bl GameStats_AddSpecial
 	mov r0, #0x0
@@ -6042,7 +6042,7 @@ ScrCmd_Unk0262: ; 0x0203EE98
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r1, r6, #0x0
 	bl PartyHasMon
 	strh r0, [r4, #0x0]
@@ -6066,14 +6066,14 @@ ScrCmd_Unk0263: ; 0x0203EED8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [sp, #0x0]
 	bl GetPartyCount
 	add r4, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r7, r0, #0x0
 	mov r5, #0x0
 	cmp r6, #0x0
@@ -6124,7 +6124,7 @@ ScrCmd_Unk0264: ; 0x0203EF58
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [sp, #0xc]
 	bl GetPartyCount
 	add r2, sp, #0x18
@@ -6207,7 +6207,7 @@ ScrCmd_Unk0265: ; 0x0203F00C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F1C4
 	mov r0, #0x0
 	pop {r3, pc}
@@ -6218,7 +6218,7 @@ ScrCmd_Unk0266: ; 0x0203F020
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F1D4
 	mov r0, #0x0
 	pop {r3, pc}
@@ -6404,7 +6404,7 @@ ScrCmd_Unk026C: ; 0x0203F19C
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	mov r6, #0x0
 	add r7, r0, #0x0
@@ -6489,7 +6489,7 @@ ScrCmd_Unk026F: ; 0x0203F254
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	mov r1, #0x0
 	bl FUN_0205F698
 	mov r0, #0x0
@@ -6514,7 +6514,7 @@ ScrCmd_Unk0270: ; 0x0203F26C
 	ldr r0, [r5, #0x0]
 	ldrb r4, [r1, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	cmp r4, #0x0
 	beq _0203F2A0
 	add r1, r6, #0x0
@@ -6562,7 +6562,7 @@ ScrCmd_Unk0275: ; 0x0203F2E4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -6598,7 +6598,7 @@ ScrCmd_Unk0277: ; 0x0203F31C
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	bl FUN_0205F648
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
@@ -6627,7 +6627,7 @@ ScrCmd_Unk0279: ; 0x0203F348
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Save_FashionData_get
+	bl Save_FashionData_Get
 	bl FUN_0202708C
 	add r1, r4, #0x0
 	add r2, r6, #0x0
@@ -6737,7 +6737,7 @@ ScrCmd_Unk027E: ; 0x0203F44C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -6773,16 +6773,16 @@ ScrCmd_Unk0282: ; 0x0203F484
 	ldr r5, [r5, #0x0]
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_SysInfo_get
+	bl Save_SysInfo_Get
 	add r7, r0, #0x0
-	bl Sav2_SysInfo_GetBirthMonth
+	bl Save_SysInfo_GetBirthMonth
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl Script_GetMonth
 	cmp r6, r0
 	bne _0203F4CE
 	add r0, r7, #0x0
-	bl Sav2_SysInfo_GetBirthDay
+	bl Save_SysInfo_GetBirthDay
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl Script_GetDay
@@ -6806,7 +6806,7 @@ ScrCmd_Unk0284: ; 0x0203F4D8
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -6933,7 +6933,7 @@ ScrCmd_Unk0286: ; 0x0203F5D4
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -6956,7 +6956,7 @@ ScrCmd_Unk0287: ; 0x0203F604
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -6979,7 +6979,7 @@ ScrCmd_Unk0288: ; 0x0203F634
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -7106,7 +7106,7 @@ ScrCmd_Unk028B: ; 0x0203F720
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r5, r0, #0x0
 	cmp r4, #0x3
 	bls _0203F752
@@ -7149,7 +7149,7 @@ _0203F798:
 	cmp r1, #0x1
 	bne _0203F7AE
 	mov r1, #0x0
-	bl Sav2_HOF_TranslateRecordIdx
+	bl Save_HOF_TranslateRecordIdx
 	strh r0, [r5, #0x0]
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -7349,7 +7349,7 @@ ScrCmd_Unk0293: ; 0x0203F924
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
@@ -7538,7 +7538,7 @@ ScrCmd_Unk02AA: ; 0x0203FA58
 	bl VarGet
 	add r7, r0, #0x0
 	mov r0, #0x20
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r4, r0, #0x0
 	ldr r2, _0203FB48 ; =0x00000147
 	mov r0, #0x0
@@ -7584,13 +7584,13 @@ _0203FB24:
 _0203FB26:
 	strh r0, [r6, #0x0]
 	add r0, r7, #0x0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [sp, #0x0]
-	bl String_dtor
+	bl String_Delete
 	add r0, r5, #0x0
 	bl DestroyMsgData
 	add r0, r4, #0x0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	mov r0, #0x0
 	add sp, #0x10
 	pop {r3-r7, pc}
@@ -7603,7 +7603,7 @@ ScrCmd_Unk02AC: ; 0x0203FB4C
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl Sav2_SysInfo_get
+	bl Save_SysInfo_Get
 	mov r1, #0x1
 	bl FUN_02023828
 	mov r0, #0x0

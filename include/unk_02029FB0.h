@@ -9,9 +9,9 @@ struct GameStats
     u16 unk_B0[0x4D];
 };
 
-u32 Sav2_GameStats_sizeof(void);
-void Sav2_GameStats_init(struct GameStats * ptr);
-struct GameStats * Sav2_GameStats_get(struct SaveBlock2 * sav2);
+u32 Save_GameStats_sizeof(void);
+void Save_GameStats_Init(struct GameStats * ptr);
+struct GameStats * Save_GameStats_Get(struct SaveBlock2 * sav2);
 u32 GameStats_GetValue(struct GameStats * ptr, s32 a1);
 u32 GameStats_SetValue(struct GameStats * ptr, s32 a1, u32 a2);
 u32 GameStats_GetMaxValue(s32 a0);

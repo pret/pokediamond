@@ -38,17 +38,17 @@ FUN_020484A8: ; 0x020484A8
 	bne _020484CC
 _020484C6:
 	add r0, r4, #0x0
-	bl Sav2_HOF_init
+	bl Save_HOF_Init
 _020484CC:
 	ldr r0, [r5, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	add r6, r0, #0x0
 	add r0, sp, #0x4
 	bl GF_RTC_CopyDate
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	add r2, sp, #0x4
-	bl Sav2_HOF_RecordParty
+	bl Save_HOF_RecordParty
 	ldr r0, [r5, #0xc]
 	add r1, r4, #0x0
 	bl SaveHallOfFame
@@ -158,7 +158,7 @@ _020485AE:
 	b _02048688
 _020485C0:
 	ldr r0, [r6, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl HealParty
 	bl SaveSetDirtyBit
 	ldr r0, [r6, #0xc]
@@ -265,10 +265,10 @@ Special_EnterHallOfFame: ; 0x02048694
 	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r6, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
 	bl FUN_02034E30
@@ -282,23 +282,23 @@ Special_EnterHallOfFame: ; 0x02048694
 	bl FUN_0205ED0C
 	str r0, [r5, #0x0]
 	ldr r0, [r4, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0xc]
-	bl Sav2_PlayerData_GetIGTAddr
+	bl Save_PlayerData_GetIGTAddr
 	str r0, [r5, #0xc]
 	ldr r0, [r4, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	bl PlayerProfile_GetTrainerGender
 	str r0, [r5, #0x10]
 	add r0, r6, #0x0
 	bl FUN_0205ED0C
 	str r0, [r5, #0x14]
 	ldr r0, [r4, #0xc]
-	bl Sav2_Pokedex_get
+	bl Save_Pokedex_Get
 	str r0, [r5, #0x18]
 	add r0, r6, #0x0
 	bl FUN_0205ED0C
@@ -308,7 +308,7 @@ Special_EnterHallOfFame: ; 0x02048694
 	bl Script_SavRTC_DateTimeTox2C
 _0204871E:
 	ldr r0, [r4, #0xc]
-	bl SavArray_PlayerParty_get
+	bl SaveArray_PlayerParty_Get
 	bl GiveAllMonsTheSinnohChampRibbon
 	ldr r0, [sp, #0x8]
 	bl FUN_020377B0
@@ -321,7 +321,7 @@ _0204871E:
 	ldr r0, [sp, #0x0]
 	bl PlayerProfile_SetGameClearFlag
 	ldr r0, [r4, #0xc]
-	bl Sav2_GameStats_get
+	bl Save_GameStats_Get
 	mov r1, #0x2e
 	bl GameStats_Inc
 	ldr r1, _02048760 ; =FUN_020484F8
@@ -394,7 +394,7 @@ FUN_020487E4: ; 0x020487E4
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r6, r0, #0x0
 	mov r0, #0x1a
 	mov r1, #0xc7
@@ -421,7 +421,7 @@ FUN_020487E4: ; 0x020487E4
 	add r0, r4, #0x0
 	ldr r1, _02048834 ; =0x000003E2
 	add r0, #0x1c
-	bl WaitingIcon_new
+	bl WaitingIcon_New
 	str r0, [r4, #0x30]
 	pop {r4-r6, pc}
 	.balign 4
@@ -442,7 +442,7 @@ FUN_02048848: ; 0x02048848
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x2c]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, [r4, #0x30]
 	bl FUN_0200DBFC
 	add r4, #0x1c
@@ -466,10 +466,10 @@ FUN_02048864: ; 0x02048864
 	cmp r6, #0x2
 	bne _020488AC
 	mov r0, #0x4
-	bl MessageFormat_new
+	bl MessageFormat_New
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x0
@@ -481,7 +481,7 @@ FUN_02048864: ; 0x02048864
 	bl ReadMsgData_ExpandPlaceholders
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	b _020488B4
 _020488AC:
 	mov r1, #0x12
@@ -491,7 +491,7 @@ _020488B4:
 	add r0, r7, #0x0
 	bl DestroyMsgData
 	ldr r0, [r5, #0xc]
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	ldr r1, [r4, #0x2c]
@@ -510,7 +510,7 @@ FUN_020488D4: ; 0x020488D4
 	ldr r0, [r4, #0x2c]
 	cmp r0, #0x0
 	beq _020488E4
-	bl String_dtor
+	bl String_Delete
 _020488E4:
 	add r0, r4, #0x0
 	add r0, #0x1c

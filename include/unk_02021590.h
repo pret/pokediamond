@@ -31,8 +31,8 @@ struct FontData
     u8 * glyphWidths;
 };
 
-struct FontData *FontData_new(NarcId narcId, s32 fileId, u32 unk2, BOOL unk3, u32 heap_id);
-void FontData_delete(struct FontData * ptr);
+struct FontData *FontData_New(NarcId narcId, s32 fileId, u32 unk2, BOOL unk3, u32 heap_id);
+void FontData_Delete(struct FontData * ptr);
 void FontData_ModeSwitch(struct FontData * ptr, u32 a1, u32 heap_id);
 void FontData_Init(struct FontData *ptr, NarcId narcId, s32 fileId, BOOL unk, u32 heap_id);
 void FontData_FreeWidthsAndNarc(struct FontData * ptr);

@@ -332,7 +332,7 @@ MOD78_021D778C: ; 0x021D778C
 	add r5, r0, #0
 	mov r0, #0x78
 	mov r1, #0x48
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp]
 	add r0, r5, #0
 	add r0, #0x70
@@ -428,7 +428,7 @@ _021D780E:
 	cmp r6, #4
 	blo _021D780E
 	ldr r0, [sp]
-	bl NARC_dtor
+	bl NARC_Delete
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

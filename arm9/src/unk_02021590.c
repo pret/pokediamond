@@ -20,7 +20,7 @@ static void (*const sDestructors[])(struct FontData *) = {
     FreeLoadedFontResources_LazyFromNarc,
 };
 
-THUMB_FUNC struct FontData *FontData_new(NarcId narcId, s32 fileId, u32 unk2, BOOL unk3, u32 heap_id)
+THUMB_FUNC struct FontData *FontData_New(NarcId narcId, s32 fileId, u32 unk2, BOOL unk3, u32 heap_id)
 {
     struct FontData * ret = (struct FontData *)AllocFromHeap(heap_id, sizeof(struct FontData));
     if (ret != NULL)
@@ -31,7 +31,7 @@ THUMB_FUNC struct FontData *FontData_new(NarcId narcId, s32 fileId, u32 unk2, BO
     return ret;
 }
 
-THUMB_FUNC void FontData_delete(struct FontData * ptr)
+THUMB_FUNC void FontData_Delete(struct FontData * ptr)
 {
     FreeLoadedFontResources(ptr);
     FontData_FreeWidthsAndNarc(ptr);
@@ -49,7 +49,7 @@ THUMB_FUNC void FontData_ModeSwitch(struct FontData * ptr, u32 a1, u32 heap_id)
 
 THUMB_FUNC void FontData_Init(struct FontData *ptr, NarcId narcId, s32 fileId, BOOL unk, u32 heap_id)
 {
-    ptr->narc = NARC_ctor(narcId, heap_id);
+    ptr->narc = NARC_New(narcId, heap_id);
     if (ptr->narc != NULL)
     {
         NARC_ReadFromMember(ptr->narc, (u32)fileId, 0, 16, &ptr->gfxHeader);
@@ -78,7 +78,7 @@ THUMB_FUNC void FontData_FreeWidthsAndNarc(struct FontData * ptr)
     if (ptr->glyphWidths != NULL)
         FreeToHeap(ptr->glyphWidths);
     if (ptr->narc != NULL)
-        NARC_dtor(ptr->narc);
+        NARC_Delete(ptr->narc);
 }
 
 THUMB_FUNC void InitFontResources(struct FontData * ptr, u32 a1, u32 heap_id)

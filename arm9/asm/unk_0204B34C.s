@@ -288,7 +288,7 @@ FUN_0204B4FC: ; 0x0204B4FC
 	add r0, r7, #0x0
 	bl FUN_0205C374
 	ldr r0, [r5, #0xc]
-	bl Sav2_Bag_get
+	bl Save_Bag_Get
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x4]
 	bl FUN_0204B34C

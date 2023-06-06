@@ -101,7 +101,7 @@ _0203736C:
 	str r1, [r0, #0x8]
 	ldr r0, _02037390 ; =UNK05_021F64C8
 	add r1, r4, #0x0
-	bl OverlayManager_new
+	bl OverlayManager_New
 	ldr r1, [r4, #0x0]
 	str r0, [r1, #0x0]
 	pop {r4, pc}
@@ -173,7 +173,7 @@ _020373E8:
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	mov r2, #0xb
-	bl OverlayManager_new
+	bl OverlayManager_New
 	ldr r1, [r5, #0x0]
 	str r0, [r1, #0x4]
 	pop {r4-r6, pc}
@@ -300,7 +300,7 @@ FUN_02037504: ; 0x02037504
 	cmp r0, #0x0
 	beq _02037520
 	ldr r0, [r4, #0x0]
-	bl OverlayManager_delete
+	bl OverlayManager_Delete
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 _02037520:
@@ -632,7 +632,7 @@ FUN_020377A8: ; 0x020377A8
 	ldr r0, [r0, #0x8]
 	bx lr
 
-	thumb_func_start ScriptEnvironment_GetSav2Ptr
-ScriptEnvironment_GetSav2Ptr: ; 0x020377AC
+	thumb_func_start ScriptEnvironment_GetSavePtr
+ScriptEnvironment_GetSavePtr: ; 0x020377AC
 	ldr r0, [r0, #0xc]
 	bx lr

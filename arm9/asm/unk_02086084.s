@@ -274,8 +274,8 @@ _020862D6:
 	bl FUN_02046528
 	add r6, r0, #0x0
 	ldr r5, [r4, #0xc]
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetProfileAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetProfileAddr
 	add r7, r0, #0x0
 	ldr r0, [r6, #0x1c]
 	ldr r0, [r0, #0x0]
@@ -299,7 +299,7 @@ _020862D6:
 	mov r2, #0x0
 	bl SetMonData
 	add r0, r6, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	ldr r1, [r4, #0xc]
 	bl FUN_0202C144
 	ldr r0, [r4, #0x4]
@@ -322,8 +322,8 @@ _0208633A:
 	bl GetMonData
 	add r7, r0, #0x0
 	add r0, r6, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl ScriptEnvironment_GetSavePtr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [sp, #0x0]
 	mov r0, #0xb
 	mov r1, #0x1

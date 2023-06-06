@@ -202,13 +202,13 @@ _021D9B98:
 	bl GF_ExpHeap_FndInitAllocator
 	mov r0, #0x6e
 	mov r1, #4
-	bl NARC_ctor
+	bl NARC_New
 	mov r1, #0x2b
 	lsl r1, r1, #4
 	str r0, [r7, r1]
 	mov r0, #0x6f
 	mov r1, #4
-	bl NARC_ctor
+	bl NARC_New
 	mov r1, #0xad
 	lsl r1, r1, #2
 	str r0, [r7, r1]
@@ -816,11 +816,11 @@ MOD05_021DA018: ; 0x021DA018
 	mov r0, #0x2b
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r0, #0xad
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl NARC_dtor
+	bl NARC_Delete
 	add r0, r4, #0
 	bl FreeToHeap
 _021DA038:

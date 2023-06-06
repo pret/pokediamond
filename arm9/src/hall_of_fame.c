@@ -9,17 +9,17 @@
 
 #pragma thumb on
 
-u32 Sav2_HOF_sizeof(void)
+u32 Save_HOF_sizeof(void)
 {
     return sizeof(struct HallOfFame);
 }
 
-void Sav2_HOF_init(struct HallOfFame * hof)
+void Save_HOF_Init(struct HallOfFame * hof)
 {
     MI_CpuClear32(hof, sizeof(struct HallOfFame));
 }
 
-void Sav2_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, RTCDate * date)
+void Save_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, RTCDate * date)
 {
     GF_ASSERT(hof != NULL);
     GF_ASSERT(hof->next_record < NUM_HOF_RECORDS);
@@ -27,7 +27,7 @@ void Sav2_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, R
     {
         struct HOFParty * hof_party = &hof->parties[hof->next_record];
         int nmons = GetPartyCount(party);
-        struct String * str = String_ctor(POKEMON_NAME_LENGTH + 1, 0);
+        struct String * str = String_New(POKEMON_NAME_LENGTH + 1, 0);
         MI_CpuClear16(hof_party->party, 6 * sizeof(struct HOFMon));
         int i, j;
         for (i = 0, j = 0; i < nmons; i++)
@@ -69,11 +69,11 @@ void Sav2_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, R
             hof->next_record = 0;
         hof->num_total++;
         if (str != NULL)
-            String_dtor(str);
+            String_Delete(str);
     }
 }
 
-u32 Sav2_HOF_GetNumRecords(struct HallOfFame * hof)
+u32 Save_HOF_GetNumRecords(struct HallOfFame * hof)
 {
     GF_ASSERT(hof != NULL);
     GF_ASSERT(hof->next_record < NUM_HOF_RECORDS);
@@ -83,7 +83,7 @@ u32 Sav2_HOF_GetNumRecords(struct HallOfFame * hof)
         return NUM_HOF_RECORDS;
 }
 
-int Sav2_HOF_TranslateRecordIdx(struct HallOfFame * hof, int a1)
+int Save_HOF_TranslateRecordIdx(struct HallOfFame * hof, int a1)
 {
     GF_ASSERT(hof != NULL);
     GF_ASSERT(hof->next_record < NUM_HOF_RECORDS);
@@ -91,7 +91,7 @@ int Sav2_HOF_TranslateRecordIdx(struct HallOfFame * hof, int a1)
     return (int)(hof->num_total - a1);
 }
 
-u32 Sav2_HOF_RecordCountMons(struct HallOfFame * hof, int a1)
+u32 Save_HOF_RecordCountMons(struct HallOfFame * hof, int a1)
 {
     GF_ASSERT(hof != NULL);
     GF_ASSERT(hof->next_record < NUM_HOF_RECORDS);
@@ -109,7 +109,7 @@ u32 Sav2_HOF_RecordCountMons(struct HallOfFame * hof, int a1)
     return i;
 }
 
-void Sav2_HOF_GetMonStatsByIndexPair(struct HallOfFame * hof, int a1, int a2, struct HofDisplayMon * dest)
+void Save_HOF_GetMonStatsByIndexPair(struct HallOfFame * hof, int a1, int a2, struct HofDisplayMon * dest)
 {
     GF_ASSERT(hof != NULL);
     GF_ASSERT(hof->next_record < NUM_HOF_RECORDS);
@@ -131,7 +131,7 @@ void Sav2_HOF_GetMonStatsByIndexPair(struct HallOfFame * hof, int a1, int a2, st
     }
 }
 
-void Sav2_HOF_GetClearDate(struct HallOfFame * hof, int a1, RTCDate * dest)
+void Save_HOF_GetClearDate(struct HallOfFame * hof, int a1, RTCDate * dest)
 {
     GF_ASSERT(hof != NULL);
     GF_ASSERT(hof->next_record < NUM_HOF_RECORDS);

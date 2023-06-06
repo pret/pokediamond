@@ -21,7 +21,7 @@ extern void FUN_0208089C(struct Pokemon* pokemon, struct PlayerData* player, u32
 
 THUMB_FUNC BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 {
-    struct ScriptState* state = SavArray_Flags_get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
     u16 unk = ScriptGetVar(ctx);
 
     if (unk == 0)
@@ -65,8 +65,8 @@ THUMB_FUNC BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
     void* unk = FUN_02022528(ctx->fieldSystem->saveBlock2);
     struct PCStorage* pc = GetStoragePCPointer(ctx->fieldSystem->saveBlock2);
     struct Pokemon* pokemon = AllocMonZeroed(32);
-    struct PlayerData* player = Sav2_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
-    struct Pokedex* pokedex = Sav2_Pokedex_get(ctx->fieldSystem->saveBlock2); // unused
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
+    struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveBlock2); // unused
 
     for (s32 i = 0; i < PARTY_SIZE; i++)
     {

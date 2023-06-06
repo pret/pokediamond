@@ -85,7 +85,7 @@ MOD05_021F1D68: ; 0x021F1D68
 	add r4, r0, #0
 	mov r0, #0x51
 	mov r1, #4
-	bl NARC_ctor
+	bl NARC_New
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_020583F0
@@ -96,7 +96,7 @@ MOD05_021F1D68: ; 0x021F1D68
 MOD05_021F1D80: ; 0x021F1D80
 	push {r3, lr}
 	bl FUN_020583F4
-	bl NARC_dtor
+	bl NARC_Delete
 	pop {r3, pc}
 
 	thumb_func_start MOD05_021F1D8C

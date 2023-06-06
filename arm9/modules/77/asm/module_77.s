@@ -67,7 +67,7 @@ _021D7540:
 	ldr r1, _021D75F0 ; =0x0000C324
 	str r0, [r5, r1]
 	add r0, r4, #0
-	bl Sav2_PlayerData_GetOptionsAddr
+	bl Save_PlayerData_GetOptionsAddr
 	str r0, [r5, #8]
 	bl MOD77_021D7C24
 	bl MOD77_021D7C44
@@ -84,7 +84,7 @@ _021D7540:
 	ldr r2, [r5]
 	mov r0, #8
 	mov r1, #0x40
-	bl MessageFormat_new_custom
+	bl MessageFormat_New_Custom
 	ldr r1, _021D75F8 ; =0x0000C070
 	str r0, [r5, r1]
 	ldr r0, [r5]
@@ -820,7 +820,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	bl Camera_Free
 	ldr r0, _021D7C18 ; =0x0000C070
 	ldr r0, [r4, r0]
-	bl MessageFormat_delete
+	bl MessageFormat_Delete
 	bl FUN_0201B398
 	ldr r0, _021D7C1C ; =0x0000C010
 	ldr r0, [r4, r0]
@@ -1514,7 +1514,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	bl BG_SetMaskColor
 	ldr r1, [r5]
 	mov r0, #0x10
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	ldr r1, [r5]
 	mov r0, #2
@@ -1588,7 +1588,7 @@ MOD77_021D7FAC: ; 0x021D7FAC
 	add r2, r4, #0
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	mov r0, #2
 	bl FUN_02002CF8
 	add sp, #0x18
@@ -1675,7 +1675,7 @@ _021D82B0:
 	mov r0, #1
 	ldr r1, [r5]
 	lsl r0, r0, #0xa
-	bl String_ctor
+	bl String_New
 	ldr r2, _021D834C ; =0x0000C06C
 	add r1, r6, #0
 	str r0, [r5, r2]
@@ -1712,7 +1712,7 @@ _021D830A:
 	bne _021D8340
 	ldr r0, _021D834C ; =0x0000C06C
 	ldr r0, [r5, r0]
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8348 ; =0x0000C064
 	mov r1, #2
 	str r1, [r5, r0]
@@ -1767,7 +1767,7 @@ MOD77_021D8370: ; 0x021D8370
 	bl AddWindow
 	ldrh r0, [r6, #0x10]
 	ldr r1, [r5]
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r1, _021D8404 ; =0x0000C058
 	mov r7, #0
 	str r0, [r5, r1]
@@ -1853,7 +1853,7 @@ MOD77_021D8418: ; 0x021D8418
 	str r0, [sp, #8]
 	ldr r1, [r5]
 	add r0, r6, #0
-	bl ListMenuItems_ctor
+	bl ListMenuItems_New
 	ldr r1, _021D84C8 ; =0x0000C058
 	mov r4, #0
 	str r0, [r5, r1]
@@ -1940,7 +1940,7 @@ MOD77_021D84D8: ; 0x021D84D8
 	bl DestroyListMenu
 	ldr r0, _021D850C ; =0x0000C058
 	ldr r0, [r4, r0]
-	bl ListMenuItems_dtor
+	bl ListMenuItems_Delete
 	pop {r4, pc}
 	.align 2, 0
 _021D8504: .word 0x0000C024
@@ -1956,12 +1956,12 @@ MOD77_021D8510: ; 0x021D8510
 	mov r0, #1
 	ldr r1, [r5]
 	lsl r0, r0, #0xa
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	mov r0, #1
 	ldr r1, [r5]
 	lsl r0, r0, #0xa
-	bl String_ctor
+	bl String_New
 	ldr r1, _021D85C4 ; =0x0000C010
 	add r6, r0, #0
 	ldr r0, [r5, r1]
@@ -2019,9 +2019,9 @@ MOD77_021D8510: ; 0x021D8510
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D85CC ; =0x0000C044
 	add r0, r5, r0
 	bl CopyWindowToVram
@@ -2046,11 +2046,11 @@ MOD77_021D85E0: ; 0x021D85E0
 	ldr r1, [r5]
 	mov r0, #0x40
 	add r4, r2, #0
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x40
-	bl String_ctor
+	bl String_New
 	ldr r1, _021D8688 ; =0x0000C010
 	add r6, r0, #0
 	ldr r0, [r5, r1]
@@ -2105,9 +2105,9 @@ _021D865C:
 	str r1, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _021D8690 ; =0x0000C044
 	add r0, r5, r0
 	bl CopyWindowToVram
@@ -2148,7 +2148,7 @@ MOD77_021D86B4: ; 0x021D86B4
 	mov r0, #1
 	ldr r1, [r5]
 	lsl r0, r0, #0xa
-	bl String_ctor
+	bl String_New
 	add r4, r0, #0
 	mov r0, #0xd8
 	str r0, [sp]
@@ -2175,7 +2175,7 @@ MOD77_021D86B4: ; 0x021D86B4
 	str r3, [sp, #8]
 	bl AddTextPrinterParameterized
 	add r0, r4, #0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 _021D870E:
@@ -2230,11 +2230,11 @@ _021D8748:
 	beq _021D87EC
 	ldr r1, [r5]
 	mov r0, #0x40
-	bl String_ctor
+	bl String_New
 	add r7, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x40
-	bl String_ctor
+	bl String_New
 	add r6, r0, #0
 	mov r0, #0xd8
 	str r0, [sp]
@@ -2280,9 +2280,9 @@ _021D87C8:
 	mov r3, #0
 	bl AddTextPrinterParameterized
 	add r0, r6, #0
-	bl String_dtor
+	bl String_Delete
 	add r0, r7, #0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #1
 _021D87EC:
 	ldr r0, [sp, #0x1c]

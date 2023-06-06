@@ -179,19 +179,19 @@ static inline s32 GetOffsetToUnkB0(s32 a0)
     return a0 - 44;
 }
 
-THUMB_FUNC u32 Sav2_GameStats_sizeof(void)
+THUMB_FUNC u32 Save_GameStats_sizeof(void)
 {
     return sizeof(struct GameStats);
 }
 
-THUMB_FUNC void Sav2_GameStats_init(struct GameStats * ptr)
+THUMB_FUNC void Save_GameStats_Init(struct GameStats * ptr)
 {
     MI_CpuClear32(ptr, sizeof(struct GameStats));
 }
 
-THUMB_FUNC struct GameStats * Sav2_GameStats_get(struct SaveBlock2 * sav2)
+THUMB_FUNC struct GameStats * Save_GameStats_Get(struct SaveBlock2 * sav2)
 {
-    return SavArray_get(sav2, 20);
+    return SaveArray_Get(sav2, 20);
 }
 
 THUMB_FUNC u32 GameStats_GetValue(struct GameStats * ptr, s32 a1)

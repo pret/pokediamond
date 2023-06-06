@@ -24,7 +24,7 @@ UNK_020F7240: ; 0x020F7240
 FUN_0205CDB4: ; 0x0205CDB4
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02024ED8
 	bl FUN_020254B4
 	add r1, r0, #0x0
@@ -43,7 +43,7 @@ _0205CDD4: .word UNK_020F7220
 FUN_0205CDD8: ; 0x0205CDD8
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02024ED8
 	bl FUN_020254B4
 	cmp r0, #0x0
@@ -68,7 +68,7 @@ FUN_0205CE00: ; 0x0205CE00
 	add r4, r1, #0x0
 	add r7, r2, #0x0
 	str r3, [sp, #0x4]
-	bl ScriptEnvironment_GetSav2Ptr
+	bl ScriptEnvironment_GetSavePtr
 	bl FUN_02024ED8
 	bl FUN_020254B4
 	cmp r0, #0x0

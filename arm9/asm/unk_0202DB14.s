@@ -15,7 +15,7 @@ FUN_0202DB14: ; 0x0202DB14
 	sub sp, #0xc
 	str r0, [sp, #0x0]
 	str r1, [sp, #0x4]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x8]
 	ldr r0, _0202DBA0 ; =UNK_021C59E4
 	ldr r0, [r0, #0x0]
@@ -137,7 +137,7 @@ FUN_0202DBE0: ; 0x0202DBE0
 	ldr r0, _0202DCD8 ; =UNK_021C59E4
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
-	bl Sav2_PlayerData_GetProfileAddr
+	bl Save_PlayerData_GetProfileAddr
 	ldr r1, _0202DCD8 ; =UNK_021C59E4
 	ldr r2, [r1, #0x0]
 	lsl r1, r4, #0x2
@@ -452,7 +452,7 @@ FUN_0202DE78: ; 0x0202DE78
 	mov r0, #0xd2
 	lsl r0, r0, #0x2
 	ldr r0, [r1, r0]
-	bl PlayerProfile_init
+	bl PlayerProfile_Init
 	ldr r0, _0202DEA0 ; =UNK_021C59E4
 	mov r2, #0x0
 	ldr r0, [r0, #0x0]

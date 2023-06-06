@@ -10,28 +10,28 @@
 
 extern void GF_RTC_CopyDateTime(RTCDate *, RTCTime *);
 
-u32 Sav2_SysInfo_sizeof(void)
+u32 Save_SysInfo_sizeof(void)
 {
     return sizeof(struct SavSysInfo);
 }
 
-void Sav2_SysInfo_init(struct SavSysInfo * unk)
+void Save_SysInfo_Init(struct SavSysInfo * unk)
 {
     MI_CpuClearFast(unk, sizeof(struct SavSysInfo));
-    Sav2_SysInfo_RTC_init(&unk->rtcInfo);
+    Save_SysInfo_RTC_Init(&unk->rtcInfo);
 }
 
-struct SavSysInfo * Sav2_SysInfo_get(struct SaveBlock2 * sav2)
+struct SavSysInfo * Save_SysInfo_Get(struct SaveBlock2 * sav2)
 {
-    return (struct SavSysInfo *)SavArray_get(sav2, 0);
+    return (struct SavSysInfo *)SaveArray_Get(sav2, 0);
 }
 
-struct UnkSaveStruct_0202376C_sub * Sav2_SysInfo_RTC_get(struct SaveBlock2 * sav2)
+struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveBlock2 * sav2)
 {
-    return &Sav2_SysInfo_get(sav2)->rtcInfo;
+    return &Save_SysInfo_Get(sav2)->rtcInfo;
 }
 
-void Sav2_SysInfo_InitFromSystem(struct SavSysInfo * unk)
+void Save_SysInfo_InitFromSystem(struct SavSysInfo * unk)
 {
     OSOwnerInfo info;
     unk->rtcOffset = OS_GetOwnerRtcOffset();
@@ -41,7 +41,7 @@ void Sav2_SysInfo_InitFromSystem(struct SavSysInfo * unk)
     unk->birthDay = info.birthday.day;
 }
 
-BOOL Sav2_SysInfo_MacAddressIsMine(struct SavSysInfo * unk)
+BOOL Save_SysInfo_MacAddressIsMine(struct SavSysInfo * unk)
 {
     u8 macAddr[6];
     OS_GetMacAddress(macAddr);
@@ -53,17 +53,17 @@ BOOL Sav2_SysInfo_MacAddressIsMine(struct SavSysInfo * unk)
     return TRUE;
 }
 
-BOOL Sav2_SysInfo_RTCOffsetIsMine(struct SavSysInfo * unk)
+BOOL Save_SysInfo_RTCOffsetIsMine(struct SavSysInfo * unk)
 {
     return OS_GetOwnerRtcOffset() == unk->rtcOffset;
 }
 
-u8 Sav2_SysInfo_GetBirthMonth(struct SavSysInfo * unk)
+u8 Save_SysInfo_GetBirthMonth(struct SavSysInfo * unk)
 {
     return unk->birthMonth;
 }
 
-u8 Sav2_SysInfo_GetBirthDay(struct SavSysInfo * unk)
+u8 Save_SysInfo_GetBirthDay(struct SavSysInfo * unk)
 {
     return unk->birthDay;
 }
@@ -89,7 +89,7 @@ void FUN_02023834(struct SavSysInfo * unk, u32 val)
         unk->field_4C = val;
 }
 
-void Sav2_SysInfo_RTC_init(struct UnkSaveStruct_0202376C_sub * sub)
+void Save_SysInfo_RTC_Init(struct UnkSaveStruct_0202376C_sub * sub)
 {
     sub->field_00 = 1;
     GF_RTC_CopyDateTime(&sub->date, &sub->time);

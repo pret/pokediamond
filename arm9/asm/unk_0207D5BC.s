@@ -269,7 +269,7 @@ _0207D732:
 	ldr r1, [r1, r2]
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	bl WindowArray_dtor
+	bl WindowArray_Delete
 _0207D744:
 	pop {r3, pc}
 	nop
@@ -412,7 +412,7 @@ FUN_0207D800: ; 0x0207D800
 	ldr r1, [r5, r1]
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0x0
 	mov r2, #0x1a
 	str r1, [sp, #0x0]
@@ -465,7 +465,7 @@ FUN_0207D8A0: ; 0x0207D8A0
 	ldr r1, [r5, r1]
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	b _0207D8F2
 _0207D8E4:
 	ldr r2, _0207D920 ; =0x00000674
@@ -674,7 +674,7 @@ FUN_0207DA48: ; 0x0207DA48
 	ldr r1, [r5, r1]
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
@@ -1769,7 +1769,7 @@ FUN_0207E200: ; 0x0207E200
 	ldr r1, [r4, r1]
 	bl StringExpandPlaceholders
 	add r0, r5, #0x0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -2301,7 +2301,7 @@ FUN_0207E840: ; 0x0207E840
 	ldr r1, [r5, r1]
 	bl StringExpandPlaceholders
 	add r0, r4, #0x0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0x1a
 	lsl r1, r1, #0x6
 	mov r0, #0x0
@@ -2359,7 +2359,7 @@ FUN_0207E840: ; 0x0207E840
 	add r0, #0x10
 	bl AddTextPrinterParameterized2
 	add r0, r6, #0x0
-	bl String_dtor
+	bl String_Delete
 	ldr r0, _0207E994 ; =0x00000674
 	mov r1, #0xb8
 	ldr r0, [r5, r0]
@@ -2388,7 +2388,7 @@ FUN_0207E840: ; 0x0207E840
 	ldr r1, [r5, r1]
 	bl StringExpandPlaceholders
 	add r0, r6, #0x0
-	bl String_dtor
+	bl String_Delete
 	mov r1, #0x1a
 	lsl r1, r1, #0x6
 	mov r0, #0x0

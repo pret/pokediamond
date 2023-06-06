@@ -129,7 +129,7 @@ _0204ABBE:
 _0204ABC4:
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl SavArray_Flags_get
+	bl SaveArray_Flags_Get
 	add r1, r4, #0x0
 	bl FUN_0205EF20
 	cmp r0, #0x0
