@@ -1494,7 +1494,7 @@ MOD85_021D811C: ; 0x021D811C
 	add r4, r0, #0
 	mov r0, #0x85
 	mov r1, #0x4f
-	bl NARC_ctor
+	bl NARC_New
 	ldr r1, _021D8130 ; =0x00000438
 	str r0, [r4, r1]
 	pop {r4, pc}
@@ -1505,12 +1505,12 @@ _021D8130: .word 0x00000438
 	thumb_func_start MOD85_021D8134
 MOD85_021D8134: ; 0x021D8134
 	ldr r1, _021D813C ; =0x00000438
-	ldr r3, _021D8140 ; =NARC_dtor
+	ldr r3, _021D8140 ; =NARC_Delete
 	ldr r0, [r0, r1]
 	bx r3
 	.align 2, 0
 _021D813C: .word 0x00000438
-_021D8140: .word NARC_dtor
+_021D8140: .word NARC_Delete
 	thumb_func_end MOD85_021D8134
 
 	thumb_func_start MOD85_021D8144

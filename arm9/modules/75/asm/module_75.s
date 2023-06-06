@@ -453,7 +453,7 @@ MOD75_021E6F00: ; 0x021E6F00
 	bl MessageFormat_Delete
 	add r4, #0xd4
 	ldr r0, [r4]
-	bl NARC_dtor
+	bl NARC_Delete
 	add r0, r5, #0
 	bl OverlayManager_FreeData
 	mov r0, #0
@@ -771,7 +771,7 @@ MOD75_021E7214: ; 0x021E7214
 	add r4, r0, #0
 	mov r0, #0xd
 	mov r1, #6
-	bl NARC_ctor
+	bl NARC_New
 	add r1, r4, #0
 	add r1, #0xd4
 	str r0, [r1]

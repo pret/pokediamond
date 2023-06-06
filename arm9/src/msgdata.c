@@ -69,7 +69,7 @@ static void ReadMsgData_ExistingTable_ExistingArray(struct MsgDataTable * table,
 
 static void ReadMsgData_NewNarc_ExistingArray(NarcId narc_id, u32 group, u32 num, u32 heap_id, u16 * dest)
 {
-    NARC * narc = NARC_ctor(narc_id, heap_id);
+    NARC * narc = NARC_New(narc_id, heap_id);
     u16 header[2];
     struct MsgDataAlloc alloc;
     if (narc != NULL)
@@ -79,7 +79,7 @@ static void ReadMsgData_NewNarc_ExistingArray(NarcId narc_id, u32 group, u32 num
         Decrypt1(&alloc, num, header[1]);
         NARC_ReadFromMember(narc, group, alloc.offset, 2 * alloc.length, dest);
         Decrypt2(dest, alloc.length, num);
-        NARC_dtor(narc);
+        NARC_Delete(narc);
     }
 }
 
@@ -146,11 +146,11 @@ static struct String * ReadMsgData_ExistingTable_NewString(struct MsgDataTable *
 
 void ReadMsgData_NewNarc_ExistingString(NarcId narc_id, u32 group, u32 num, u32 heap_id, struct String * dest)
 {
-    NARC * narc = NARC_ctor(narc_id, heap_id);
+    NARC * narc = NARC_New(narc_id, heap_id);
     if (narc != NULL)
     {
         ReadMsgData_ExistingNarc_ExistingString(narc, group, num, heap_id, dest);
-        NARC_dtor(narc);
+        NARC_Delete(narc);
     }
 }
 
@@ -186,12 +186,12 @@ static void ReadMsgData_ExistingNarc_ExistingString(NARC * narc, u32 group, u32 
 
 struct String * ReadMsgData_NewNarc_NewString(NarcId narc_id, u32 group, u32 num, u32 heap_id)
 {
-    NARC * narc = NARC_ctor(narc_id, heap_id);
+    NARC * narc = NARC_New(narc_id, heap_id);
     struct String * string;
     if (narc != NULL)
     {
         string = ReadMsgData_ExistingNarc_NewString(narc, group, num, heap_id);
-        NARC_dtor(narc);
+        NARC_Delete(narc);
     }
     else
     {
@@ -263,7 +263,7 @@ struct MsgData * NewMsgDataFromNarc(MsgDataLoadType type, NarcId narc_id, s32 fi
         }
         else
         {
-            msgData->data.narc = NARC_ctor(narc_id, heap_id);
+            msgData->data.narc = NARC_New(narc_id, heap_id);
         }
         msgData->type = (u16)type;
         msgData->narc_id = (u16)narc_id;
@@ -283,7 +283,7 @@ void DestroyMsgData(struct MsgData * msgData)
             FreeMsgDataRawData(msgData->data.raw);
             break;
         case MSGDATA_LOAD_LAZY:
-            NARC_dtor(msgData->data.narc);
+            NARC_Delete(msgData->data.narc);
             break;
         }
         FreeToHeap(msgData);

@@ -386,8 +386,8 @@
 .extern ReadFromNarcMemberByIdPair
 .extern AllocAndReadFromNarcMemberByIdPair
 .extern AllocAtEndAndReadFromNarcMemberByIdPair
-.extern NARC_ctor
-.extern NARC_dtor
+.extern NARC_New
+.extern NARC_Delete
 .extern NARC_AllocAndReadWholeMember
 .extern NARC_ReadWholeMember
 .extern NARC_GetMemberSize

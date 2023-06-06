@@ -1053,7 +1053,7 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	add r0, #0x18
 	str r0, [sp, #0x20]
 	mov r0, #0x4f
-	bl NARC_ctor
+	bl NARC_New
 	mov r1, #0
 	str r1, [sp]
 	add r6, r0, #0
@@ -1270,7 +1270,7 @@ _021D7E00:
 	add r1, #0x40
 	bl NNS_G2dGetUnpackedScreenData
 	add r0, r6, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20

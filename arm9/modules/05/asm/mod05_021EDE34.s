@@ -2894,7 +2894,7 @@ _021EF3AE:
 	str r1, [r0]
 	mov r0, #0x43
 	mov r1, #4
-	bl NARC_ctor
+	bl NARC_New
 	add r1, r4, #0
 	add r1, #0xf8
 	str r0, [r1]
@@ -3105,7 +3105,7 @@ MOD05_021EF5A8: ; 0x021EF5A8
 	add r4, r0, #0
 	add r0, #0xf8
 	ldr r0, [r0]
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r0, [r4]
 	bl MOD05_021F3C30
 	add r0, r4, #0

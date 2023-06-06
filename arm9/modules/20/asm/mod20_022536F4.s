@@ -480,7 +480,7 @@ MOD20_02253A04: ; 0x02253A04
 	beq _02253A98
 	mov r0, #0x13
 	mov r1, #8
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x1c]
 	cmp r0, #0
 	beq _02253A92
@@ -529,7 +529,7 @@ _02253A4E:
 	blo _02253A4E
 _02253A8C:
 	ldr r0, [sp, #0x1c]
-	bl NARC_dtor
+	bl NARC_Delete
 _02253A92:
 	add r0, r7, #0
 	bl FreeToHeap

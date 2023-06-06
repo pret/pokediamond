@@ -49,7 +49,7 @@ THUMB_FUNC void FontData_ModeSwitch(struct FontData * ptr, u32 a1, u32 heap_id)
 
 THUMB_FUNC void FontData_Init(struct FontData *ptr, NarcId narcId, s32 fileId, BOOL unk, u32 heap_id)
 {
-    ptr->narc = NARC_ctor(narcId, heap_id);
+    ptr->narc = NARC_New(narcId, heap_id);
     if (ptr->narc != NULL)
     {
         NARC_ReadFromMember(ptr->narc, (u32)fileId, 0, 16, &ptr->gfxHeader);
@@ -78,7 +78,7 @@ THUMB_FUNC void FontData_FreeWidthsAndNarc(struct FontData * ptr)
     if (ptr->glyphWidths != NULL)
         FreeToHeap(ptr->glyphWidths);
     if (ptr->narc != NULL)
-        NARC_dtor(ptr->narc);
+        NARC_Delete(ptr->narc);
 }
 
 THUMB_FUNC void InitFontResources(struct FontData * ptr, u32 a1, u32 heap_id)

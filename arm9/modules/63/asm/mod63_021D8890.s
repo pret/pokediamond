@@ -1747,7 +1747,7 @@ MOD63_021D96A0: ; 0x021D96A0
 	stmia r2!, {r0, r1}
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	str r0, [sp, #0x14]
@@ -1783,7 +1783,7 @@ _021D96F8:
 	cmp r4, #4
 	blo _021D96C6
 	ldr r0, [sp, #0x10]
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1933,7 +1933,7 @@ _021D9840:
 	bl ReallocFromHeap
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0xc]
 	add r0, r5, #0
 	str r0, [sp, #0x10]
@@ -2014,7 +2014,7 @@ _021D98BC:
 	cmp r7, #6
 	blo _021D9862
 	ldr r0, [sp, #0xc]
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r0, #0x4c
 	bl Camera_Alloc
 	add r3, sp, #0x20
@@ -3028,7 +3028,7 @@ MOD63_021DA158: ; 0x021DA158
 	add r4, r0, #0
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl NARC_ctor
+	bl NARC_New
 	mov r1, #0x35
 	mov r2, #0x4c
 	add r5, r0, #0
@@ -3049,7 +3049,7 @@ _021DA18E:
 	bl GF_AssertFail
 _021DA192:
 	add r0, r5, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r1, #0
 	str r1, [sp]
 	ldr r0, [r4, #0x14]

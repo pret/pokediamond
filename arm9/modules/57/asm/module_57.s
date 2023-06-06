@@ -3685,7 +3685,7 @@ _021D91BC:
 	stmia r2!, {r0, r1}
 	mov r0, #0x33
 	mov r1, #0x19
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x14]
 	mov r0, #0x1e
 	lsl r0, r0, #4
@@ -3727,7 +3727,7 @@ _021D92CE:
 	cmp r4, #8
 	blo _021D9290
 	ldr r0, [sp, #0x14]
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r0, #0x10
 	mov r1, #1
 	bl GX_EngineAToggleLayers

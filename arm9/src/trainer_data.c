@@ -101,7 +101,7 @@ BOOL TrainerMessageWithIdPairExists(u32 trainer_idx, u32 msg_id, u32 heap_id)
 
     trTblSize = GetNarcMemberSizeByIdPair(NARC_POKETOOL_TRMSG_TRTBL, 0);
     ReadFromNarcMemberByIdPair(&rdbuf[0], NARC_POKETOOL_TRMSG_TRTBLOFS, 0, trainer_idx * 2, 2);
-    trTblNarc = NARC_ctor(NARC_POKETOOL_TRMSG_TRTBL, heap_id);
+    trTblNarc = NARC_New(NARC_POKETOOL_TRMSG_TRTBL, heap_id);
     while (rdbuf[0] != trTblSize)
     {
         NARC_ReadFromMember(trTblNarc, 0, rdbuf[0], 4, &rdbuf[1]);
@@ -114,7 +114,7 @@ BOOL TrainerMessageWithIdPairExists(u32 trainer_idx, u32 msg_id, u32 heap_id)
             break;
         rdbuf[0] += 4;
     }
-    NARC_dtor(trTblNarc);
+    NARC_Delete(trTblNarc);
     return ret;
 }
 
@@ -126,7 +126,7 @@ void GetTrainerMessageByIdPair(u32 trainer_idx, u32 msg_id, struct String * str,
 
     trTblSize = GetNarcMemberSizeByIdPair(NARC_POKETOOL_TRMSG_TRTBL, 0);
     ReadFromNarcMemberByIdPair(&rdbuf[0], NARC_POKETOOL_TRMSG_TRTBLOFS, 0, trainer_idx * 2, 2);
-    trTblNarc = NARC_ctor(NARC_POKETOOL_TRMSG_TRTBL, heap_id);
+    trTblNarc = NARC_New(NARC_POKETOOL_TRMSG_TRTBL, heap_id);
     while (rdbuf[0] != trTblSize)
     {
         NARC_ReadFromMember(trTblNarc, 0, rdbuf[0], 4, &rdbuf[1]);
@@ -137,7 +137,7 @@ void GetTrainerMessageByIdPair(u32 trainer_idx, u32 msg_id, struct String * str,
         }
         rdbuf[0] += 4;
     }
-    NARC_dtor(trTblNarc);
+    NARC_Delete(trTblNarc);
     if (rdbuf[0] == trTblSize)
         StringSetEmpty(str);
 }

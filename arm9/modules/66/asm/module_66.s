@@ -483,7 +483,7 @@ MOD66_021D78B4: ; 0x021D78B4
 	add r5, r0, #0
 	ldr r1, [r5, #4]
 	mov r0, #0x11
-	bl NARC_ctor
+	bl NARC_New
 	add r4, r0, #0
 	mov r0, #0x13
 	str r0, [sp]
@@ -639,7 +639,7 @@ MOD66_021D78B4: ; 0x021D78B4
 	add r1, #0xb4
 	str r0, [r1]
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r1, #0x1e
 	ldr r2, [r5, #4]
 	mov r0, #0

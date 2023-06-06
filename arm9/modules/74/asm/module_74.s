@@ -687,7 +687,7 @@ MOD74_021D79F8: ; 0x021D79F8
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x7b
-	bl NARC_ctor
+	bl NARC_New
 	add r4, r0, #0
 	mov r0, #5
 	str r0, [sp]
@@ -744,7 +744,7 @@ _021D7A5A:
 	mov r3, #0x7b
 	bl FUN_02079B60
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r0, [r5, #0x10]
 	mov r1, #1
 	bl ScheduleBgTilemapBufferTransfer

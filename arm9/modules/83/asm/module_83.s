@@ -16222,7 +16222,7 @@ MOD83_022354F0: ; 0x022354F0
 	add r5, r0, #0
 	mov r0, #0x13
 	mov r1, #0x4e
-	bl NARC_ctor
+	bl NARC_New
 	mov r1, #1
 	str r0, [sp, #0xc]
 	mov r0, #0x4e
@@ -16350,7 +16350,7 @@ _02235602:
 	ldr r0, [sp, #0x10]
 	bl FreeToHeap
 	ldr r0, [sp, #0xc]
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r1, _02235640 ; =MOD83_022354AC
 	ldr r0, _02235644 ; =0x00012604
 	str r1, [r5, r0]

@@ -23350,7 +23350,7 @@ _02244E10:
 	str r0, [r7, #0x38]
 	mov r0, #0x61
 	mov r1, #4
-	bl NARC_ctor
+	bl NARC_New
 	ldr r4, _02244EF4 ; =0x022512E0
 	str r0, [sp, #0x10]
 	mov r6, #0
@@ -23426,7 +23426,7 @@ _02244E48:
 	ldr r3, [r7, #0x24]
 	bl MOD06_02244F84
 	ldr r0, [sp, #0x10]
-	bl NARC_dtor
+	bl NARC_Delete
 	add r0, r7, #0
 	bl MOD06_02244FFC
 	add sp, #0x14
@@ -26459,12 +26459,12 @@ MOD06_02246600: ; 0x02246600
 
 	thumb_func_start MOD06_02246604
 MOD06_02246604: ; 0x02246604
-	ldr r3, _0224660C ; =NARC_ctor
+	ldr r3, _0224660C ; =NARC_New
 	mov r0, #0x61
 	mov r1, #4
 	bx r3
 	.align 2, 0
-_0224660C: .word NARC_ctor
+_0224660C: .word NARC_New
 
 	thumb_func_start MOD06_02246610
 MOD06_02246610: ; 0x02246610
@@ -27762,7 +27762,7 @@ MOD06_02246F0C: ; 0x02246F0C
 	add r1, r4, #0
 	bl MOD06_02247018
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	mov r0, #4
 	mov r1, #0x20
 	bl FUN_020643C0
@@ -27816,12 +27816,12 @@ _02247008: .word 0x04000008
 
 	thumb_func_start MOD06_0224700C
 MOD06_0224700C: ; 0x0224700C
-	ldr r3, _02247014 ; =NARC_ctor
+	ldr r3, _02247014 ; =NARC_New
 	mov r0, #0x61
 	mov r1, #4
 	bx r3
 	.align 2, 0
-_02247014: .word NARC_ctor
+_02247014: .word NARC_New
 
 	thumb_func_start MOD06_02247018
 MOD06_02247018: ; 0x02247018
@@ -28477,7 +28477,7 @@ _02247530:
 	bl GF_AssertFail
 _02247538:
 	add r0, r6, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -30597,7 +30597,7 @@ _02248522:
 	bl MOD06_02245D10
 _02248582:
 	add r0, r4, #0
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]

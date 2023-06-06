@@ -18727,7 +18727,7 @@ _021E0818:
 	str r0, [r5, #0x18]
 	mov r0, #0x13
 	mov r1, #0xa
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [r5, #0x48]
 	ldr r0, [r5, #8]
 	cmp r0, #0
@@ -18788,7 +18788,7 @@ _021E08D8:
 	ldr r0, [r4, #0x48]
 	cmp r0, #0
 	beq _021E08E2
-	bl NARC_dtor
+	bl NARC_Delete
 _021E08E2:
 	pop {r4, pc}
 

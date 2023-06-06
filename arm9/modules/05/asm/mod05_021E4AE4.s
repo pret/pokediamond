@@ -199,17 +199,17 @@ MOD05_021E4C34: ; 0x021E4C34
 	bl MOD05_021E4C30
 	add r1, r0, #0
 	mov r0, #0x6b
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [r4, #0x20]
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E4C48
 MOD05_021E4C48: ; 0x021E4C48
-	ldr r3, _021E4C50 ; =NARC_dtor
+	ldr r3, _021E4C50 ; =NARC_Delete
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
-_021E4C50: .word NARC_dtor
+_021E4C50: .word NARC_Delete
 
 	thumb_func_start MOD05_021E4C54
 MOD05_021E4C54: ; 0x021E4C54

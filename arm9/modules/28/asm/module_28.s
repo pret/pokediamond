@@ -626,7 +626,7 @@ MOD28_02254CB4: ; 0x02254CB4
 	bl GfGfxLoader_LoadWholePalette
 	mov r0, #0x13
 	mov r1, #8
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x1c]
 	cmp r0, #0
 	bne _02254CE8
@@ -795,7 +795,7 @@ _02254DE0:
 	b _02254D24
 _02254E40:
 	ldr r0, [sp, #0x1c]
-	bl NARC_dtor
+	bl NARC_Delete
 _02254E46:
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}

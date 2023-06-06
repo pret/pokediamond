@@ -10953,7 +10953,7 @@ MOD80_02232D7C: ; 0x02232D7C
 	str r0, [r5, r1]
 	mov r0, #0x13
 	mov r1, #0x3e
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
@@ -11142,7 +11142,7 @@ _02232F14:
 	bl ReadMsgDataIntoString
 _02232F22:
 	ldr r0, [sp, #0x1c]
-	bl NARC_dtor
+	bl NARC_Delete
 	ldr r0, _02232F9C ; =0x00000EC8
 	mov r1, #0
 	add r0, r5, r0

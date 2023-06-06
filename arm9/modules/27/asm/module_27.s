@@ -971,7 +971,7 @@ MOD27_02254FAC: ; 0x02254FAC
 	str r1, [sp, #8]
 	mov r0, #0x13
 	mov r1, #8
-	bl NARC_ctor
+	bl NARC_New
 	str r0, [sp, #0x14]
 	cmp r0, #0
 	beq _022550C0
@@ -1095,7 +1095,7 @@ _02255098:
 	blt _02254FFC
 _022550BA:
 	ldr r0, [sp, #0x14]
-	bl NARC_dtor
+	bl NARC_Delete
 _022550C0:
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}

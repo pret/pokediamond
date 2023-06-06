@@ -98,7 +98,7 @@ _0204A402:
 _0204A410:
 	mov r0, #0x43
 	mov r1, #0xb
-	bl NARC_ctor
+	bl NARC_New
 	add r7, r0, #0x0
 	ldr r0, [sp, #0xc]
 	mov r6, #0x0
@@ -130,7 +130,7 @@ _0204A42E:
 	blt _0204A42E
 _0204A452:
 	add r0, r7, #0x0
-	bl NARC_dtor
+	bl NARC_Delete
 	add sp, #0x3c
 	pop {r4-r7, pc}
 
