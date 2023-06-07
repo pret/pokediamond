@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0423_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If I had a Bike, I could zip down\nCycling Road in one gnarly ride!</language>
+	</row>
+	<row id="narc_0423_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I heard that there’s a cave, but\nI can’t seem to find it.</language>
+	</row>
+	<row id="narc_0423_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 206\nEterna City</language>
+	</row>
+	<row id="narc_0423_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 206\nOreburgh City</language>
+	</row>
+	<row id="narc_0423_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Caution!\rDon’t throw litter here!\nDon’t throw Pokémon battles, either!</language>
+	</row>
+</body>

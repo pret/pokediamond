@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0228_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I found this during the Safari\nGame.\rIt’s the Hidden Machine Defog, but\nnone of my Pokémon can learn it.\rYou’d be doing me a favor if you\ntook this.\r</language>
+	</row>
+	<row id="narc_0228_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’d be good if we could set up signs\nfor the Safari Game. Some markers.</language>
+	</row>
+	<row id="narc_0228_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Great Marsh Area 6</language>
+	</row>
+</body>

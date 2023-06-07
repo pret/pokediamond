@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0056_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">...Welcome...\r...\n...Kekeke...\rWe’ve had a reservation for you.\nWe’ve held it a long time...\r</language>
+	</row>
+	<row id="narc_0056_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} lay down on the bed\nas if bidden there...\r</language>
+	</row>
+	<row id="narc_0056_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} awakened!</language>
+	</row>
+</body>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0122_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">And there do I see my father.\nMy son. My life.\rAnd there do I see nature.\nPokémon. The world.</language>
+	</row>
+	<row id="narc_0122_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The art of crafting things fatigues\none’s spirit.\rWhen the spirit is healed, the desire\nto make something returns.\rIt is such a wondrous cycle.</language>
+	</row>
+	<row id="narc_0122_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">When people and Pokémon join hands,\neveryone’s happy.\rIt makes everyone come together.\nIt could even make the world one!</language>
+	</row>
+	<row id="narc_0122_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">That people are lonely is only natural.\nIt gives me compassion for others.\rIt’s what makes me look forward to\na better tomorrow.\rBut there are still moments of\nfondness for the past.\fThough, time can heal some sadness...</language>
+	</row>
+	<row id="narc_0122_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There are still words that not everyone\ncan describe...\fThe words are “love” and “joy.”</language>
+	</row>
+	<row id="narc_0122_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon... People... It’s only natural\nthat we are all so very different.\rMake sure that you never judge\na Pokémon on if it’s weak or strong.\rYou must always look for the good\ninside of them. That’s what counts!</language>
+	</row>
+</body>

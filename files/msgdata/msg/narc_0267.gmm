@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0267_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Team Galactic will set free all\nPokémon, all of nature!\rUwahahaha! Team Galactic will then\nown it all!</language>
+	</row>
+	<row id="narc_0267_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’ve been with Team Galactic for five\nyears.\rI haven’t gotten a promotion yet...</language>
+	</row>
+	<row id="narc_0267_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The door is locked.\nA special key is needed.</language>
+	</row>
+	<row id="narc_0267_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The door is locked.\nA special key is needed.\rUse the Galactic Key?</language>
+	</row>
+	<row id="narc_0267_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The door opened.</language>
+	</row>
+</body>

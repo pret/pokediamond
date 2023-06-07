@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0415_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Hey, you saw that news\nreport that was on TV, right?\rYou know, “Search for the Red\nGYARADOS! The mysterious appearance\fof the furious Pokémon in a lake!”\rThat show got me to thinking.\rI’ll bet our local lake has a Pokémon\nlike that in it, too!\rSo, that’s what we’re gonna do.\nWe’ll go find a Pokémon like that!</language>
+	</row>
+	<row id="narc_0415_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Hey!\nWhere are you wandering off to?!\rThat mystery Pokémon on TV!\nIt’s calling out to me!\rForget about going back home!\r</language>
+	</row>
+	<row id="narc_0415_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Remember what your mother said?\rMom: “{STRVAR_1 3, 0}!\nDon’t go into the tall grass!\r“Remember, wild Pokémon may attack\nyou if you’re walking in tall grass.\r“It would be OK if you had your\nown Pokémon, but...”</language>
+	</row>
+	<row id="narc_0415_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Hey, it’s those people!\nIs that old guy staring at us?\r</language>
+	</row>
+	<row id="narc_0415_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Professor: Hmm...\rI heard from {STRVAR_1 3, 0} that\nyou used our Pokémon?\fLet me see them, please.\rHmm...\n{STRVAR_1 0, 1} and {STRVAR_1 0, 2}...\r...\rHmm...\fI see...\nThat’s how it is...\r</language>
+	</row>
+	<row id="narc_0415_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}!\nI’m going back to my lab!\r</language>
+	</row>
+	<row id="narc_0415_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Um... Yes!\nProfessor, please wait for me!\r</language>
+	</row>
+	<row id="narc_0415_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I think you should visit our lab\nlater.\rOK, see you!\r</language>
+	</row>
+	<row id="narc_0415_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Uh... Yeah, of course!\nProfessor, wait for me!\r</language>
+	</row>
+	<row id="narc_0415_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You should visit us at our lab later,\nI think.\rWe’ll be seeing you!\r</language>
+	</row>
+	<row id="narc_0415_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: What was all that\ncraziness about?\rI mean, if he was angry, he could’ve\njust yelled at us, or whatever...\rAnd didn’t he want their Pokémon\nback...?\r{STRVAR_1 3, 1}...\nWe should go home, too...\r</language>
+	</row>
+	<row id="narc_0415_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wild Pokémon lurk in tall grass. They\ncan come bursting out at any time.\rSo, if you’re wanting to battle wild\nPokémon, just walk in tall grass.\rIf you want to avoid wild Pokémon,\nthen stay out of the tall grass.</language>
+	</row>
+	<row id="narc_0415_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hi!\nI work at a Pokémon Mart.\rDid you know that a Pokémon’s health\nis measured by Hit Points (HP)?\rIf a Pokémon runs out of HP, it\nfaints and can’t battle anymore.\rIf a Pokémon’s HP gets low, you\nshould heal it with a Potion.\rHere, let me give you a Potion as\na free sample. First one’s free!\rIt will automatically go in the\nMedicine Pocket of your Bag.\r</language>
+	</row>
+	<row id="narc_0415_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You can find a Pokémon Mart in cities\nand most major towns.</language>
+	</row>
+	<row id="narc_0415_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">That ledge is one way. Jump down\nfor a shortcut to Twinleaf Town!</language>
+	</row>
+	<row id="narc_0415_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If your Pokémon’s health--that’s its\nHP--is getting low, you should go\fhome and get some rest.</language>
+	</row>
+	<row id="narc_0415_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If your Pokémon’s health--that’s its\nHP--is getting low, you should go\fto a Pokémon Center!</language>
+	</row>
+	<row id="narc_0415_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 201\nTwinleaf Town</language>
+	</row>
+	<row id="narc_0415_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 201\nSandgem Town</language>
+	</row>
+	<row id="narc_0415_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Trainer Tips!\rDon’t be shy! Talk to anyone and\neveryone you happen to see.\rBy talking to people, you will get\ninvaluable information and advice.</language>
+	</row>
+</body>

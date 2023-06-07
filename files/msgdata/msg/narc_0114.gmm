@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0114_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Contests are interesting, but the\nruins of Solaceon Town are as well...</language>
+	</row>
+	<row id="narc_0114_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">As a cameraman, it makes me happy\nto see all sorts of Pokémon involved\fin Contests.</language>
+	</row>
+	<row id="narc_0114_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I traveled a long way to take part\nin these Contests.</language>
+	</row>
+	<row id="narc_0114_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Fantina’s the Gym Leader.\nThat lady baffles me.</language>
+	</row>
+	<row id="narc_0114_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’ve given my Pokémon lots of Poffins.\rI’m confident that we’ll win our share\nof Contests.</language>
+	</row>
+	<row id="narc_0114_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There’s a Day Care in Solaceon Town\nthat raises Pokémon for you.</language>
+	</row>
+</body>

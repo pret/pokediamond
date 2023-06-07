@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0285_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thank you so much for participating!\rPlease wait while I save the game.\nDon’t turn off the power.</language>
+	</row>
+	<row id="narc_0285_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We hope to see you again!</language>
+	</row>
+	<row id="narc_0285_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Your Pokémon will be restored to\nfull health.</language>
+	</row>
+	<row id="narc_0285_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Up next, opponent pair no. {STRVAR_1 50, 0}.\nAre you ready?</language>
+	</row>
+	<row id="narc_0285_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to save and\nquit the game?</language>
+	</row>
+	<row id="narc_0285_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to cancel your\nBattle Room challenge?</language>
+	</row>
+	<row id="narc_0285_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You have chosen to retire from\nthis Battle Room challenge.</language>
+	</row>
+	<row id="narc_0285_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Awaiting response from a friend...</language>
+	</row>
+</body>

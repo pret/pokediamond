@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0185_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Battle Tower’s as tough as they\nsay...\rIt’s no cakewalk, that’s for sure.</language>
+	</row>
+	<row id="narc_0185_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The best Trainers from around the\ncountry...\rNo, the best Trainers from around\nthe world gather here.</language>
+	</row>
+	<row id="narc_0185_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">To toughen myself!\nTo toughen my Pokémon!\rFor that alone, I have come!</language>
+	</row>
+</body>

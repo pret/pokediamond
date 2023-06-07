@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0147_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome!\rYou may exchange your Coins for\nfabulous prizes here!\r</language>
+	</row>
+	<row id="narc_0147_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Which prize would you like?</language>
+	</row>
+	<row id="narc_0147_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">So your choice is\nthe {STRVAR_1 8, 0}?</language>
+	</row>
+	<row id="narc_0147_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">So your choice is {STRVAR_1 8, 0}:\n{STRVAR_1 6, 1}?</language>
+	</row>
+	<row id="narc_0147_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Here you go!</language>
+	</row>
+	<row id="narc_0147_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You don’t have enough Coins.\r</language>
+	</row>
+	<row id="narc_0147_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There isn’t any room available for\nthat {STRVAR_1 8, 0}.\r</language>
+	</row>
+	<row id="narc_0147_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh, is that so? \nPlease come back with some Coins!</language>
+	</row>
+	<row id="narc_0147_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I love words like “walk-off,\ngrand-slam home run.”</language>
+	</row>
+	<row id="narc_0147_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">They have prizes I really want, but\nit’d be tough saving up the Coins.</language>
+	</row>
+</body>

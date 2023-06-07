@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0540_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’ve traveled a long way to make my\nbeloved Pokémon even more beautiful.\rThat will make it love me even more.</language>
+	</row>
+	<row id="narc_0540_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Nothing is too good for my Pokémon.\nThere’s no mountain too high to climb.\fThat’s how I look at it.</language>
+	</row>
+	<row id="narc_0540_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m kind of stuck here...\nThey tell me there’s no shop here!\rHow am I supposed to get ready for\nthe road?</language>
+	</row>
+	<row id="narc_0540_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You know how you can dig up cool\nstuff underground?\rPeople are saying they’re digging up\nnew, different stuff.</language>
+	</row>
+	<row id="narc_0540_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I spend a lot of time in the pool.\rWill I melt into the water the way\nVAPOREON can?</language>
+	</row>
+	<row id="narc_0540_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Resort Area\nRelax &amp; Play!</language>
+	</row>
+	<row id="narc_0540_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Ribbon Syndicate\nMembers Only</language>
+	</row>
+</body>

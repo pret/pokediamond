@@ -1,9 +1,0 @@
-Your name?{YESNO 0}
-{STRVAR_1 1, 0}’s nickname?{YESNO 0}
-Box name?{YESNO 0}
-Your friend’s name?{YESNO 0}
-Enter the Friend Code.{YESNO 0}
-Group name?{YESNO 0}
-Thank who?{YESNO 0}
-Group
-        

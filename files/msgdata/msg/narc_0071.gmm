@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0071_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Roark is a user of Rock-type\nPokémon.\rDon’t you think Rock-type Pokémon\nare nice? I like how lumpy they are!</language>
+	</row>
+	<row id="narc_0071_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Roark is our town’s Gym Leader.\rHe may be young, but he keeps the\nmine running safely and efficiently.</language>
+	</row>
+</body>

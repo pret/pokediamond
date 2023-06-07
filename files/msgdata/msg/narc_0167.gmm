@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0167_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Only the chosen may enter\nthe Snowpoint Temple.\rI’m sorry, but you will have to\nleave.\r</language>
+	</row>
+	<row id="narc_0167_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Only the chosen may enter\nthe Snowpoint Temple.\rI’m sorry, but you will have to\nleave.</language>
+	</row>
+	<row id="narc_0167_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The temple is said to have been\nbuilt in ancient times.\rIt pays homage to the Pokémon\nof rock, ice, and steel that shape\fthe land.\rSo it is told.</language>
+	</row>
+	<row id="narc_0167_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Candice: It’s OK!\nYou can let that person in.\r</language>
+	</row>
+	<row id="narc_0167_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Cynthia sent word to me.\rYou’re working on a Pokédex,\naren’t you?\rThere should be many rare Pokémon\nin the temple.\rEnjoy your exploring!</language>
+	</row>
+	<row id="narc_0167_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Brrr... This snowbound town is\nalways freezing cold.\rBut the spirits of the Trainers and\ntheir Pokémon burn hot and bright.\rEspecially the Gym Leader.</language>
+	</row>
+	<row id="narc_0167_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ewww, aren’t you cold with just\nthat scarf? Yikes!</language>
+	</row>
+	<row id="narc_0167_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You’re going to the Snowpoint Temple?\nYou know you’re not allowed to go in?</language>
+	</row>
+	<row id="narc_0167_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You’re going to the Snowpoint Temple?\nSome awesome Pokémon are there!</language>
+	</row>
+	<row id="narc_0167_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Candice is teaching me about Pokémon.\rShe says I have to start by making\nfriends with Pokémon.</language>
+	</row>
+	<row id="narc_0167_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What is it? Do you want to sail\nto the Battle Zone?</language>
+	</row>
+	<row id="narc_0167_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Aye, aye, then!\nLet’s set sail!\r</language>
+	</row>
+	<row id="narc_0167_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What is it?\nThe Battle Zone’s rough to get to.\rThe sea around it is always roiling\nwith choppy waves.\rYou can’t go there using Surf,\nthat’s for sure.</language>
+	</row>
+	<row id="narc_0167_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A great Trainer recognized by\nthe Pokémon League...\rI look forward to carrying someone\nlike that on this ship!</language>
+	</row>
+	<row id="narc_0167_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There’s nothing here!\nAnd that’s what makes us unique.</language>
+	</row>
+	<row id="narc_0167_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Snowpoint City\nCity of Snow</language>
+	</row>
+	<row id="narc_0167_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Snowpoint City Pokémon Gym\nLeader: Candice\fThe Diamond Dust Girl!</language>
+	</row>
+</body>

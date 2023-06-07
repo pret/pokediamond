@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0537_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Let me tell you about the volcano\nnamed Stark Mountain.\rThat volcano dates to when Sinnoh\nwas made by the melding of time\fand space.\rFiery lava spilled out and pooled,\nand then it turned into a Pokémon.\rIt’s said the Magma Stone was used\nto keep the Pokémon under control.\rOver time, the Pokémon turned into\nthe volcano, according to legend.</language>
+	</row>
+	<row id="narc_0537_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You say the Magma Stone was found?\nThe legend was true, then?\rIf so, the volcano’s Pokémon may\nawaken and cause an eruption!</language>
+	</row>
+	<row id="narc_0537_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">HEATRAN...\nSo there was such a Pokémon?\rDid it come to be when Sinnoh was\ncreated?</language>
+	</row>
+	<row id="narc_0537_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Buck: Gotcha, gramps!\nI’ll put the Magma Stone back.\rThat Magma Stone was keeping the\nvolcano Pokémon under control.\rIt’s all right, though.\nI can go put it back myself.\r</language>
+	</row>
+	<row id="narc_0537_00004" index="4">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+</body>

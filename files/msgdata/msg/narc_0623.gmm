@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0623_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">へびポケモン</language>
+	</row>
+	<row id="narc_0623_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SNAKE Pokémon</language>
+	</row>
+	<row id="narc_0623_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon SERPENT</language>
+	</row>
+	<row id="narc_0623_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SCHLANGE</language>
+	</row>
+	<row id="narc_0623_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon SERPENTE</language>
+	</row>
+	<row id="narc_0623_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon SERPIENTE</language>
+	</row>
+	<row id="narc_0623_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">ねずみポケモン</language>
+	</row>
+	<row id="narc_0623_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">MOUSE Pokémon</language>
+	</row>
+	<row id="narc_0623_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon SOURIS</language>
+	</row>
+	<row id="narc_0623_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">MAUS</language>
+	</row>
+	<row id="narc_0623_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon TOPO</language>
+	</row>
+	<row id="narc_0623_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon RATÓN</language>
+	</row>
+	<row id="narc_0623_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">あひるポケモン</language>
+	</row>
+	<row id="narc_0623_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">DUCK Pokémon</language>
+	</row>
+	<row id="narc_0623_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon CANARD</language>
+	</row>
+	<row id="narc_0623_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">ENTE</language>
+	</row>
+	<row id="narc_0623_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon PAPERO</language>
+	</row>
+	<row id="narc_0623_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon PATO</language>
+	</row>
+	<row id="narc_0623_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">ひのうまポケモン</language>
+	</row>
+	<row id="narc_0623_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">FIRE HORSE Pokémon</language>
+	</row>
+	<row id="narc_0623_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon CHEVAL FEU</language>
+	</row>
+	<row id="narc_0623_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">FEUERPFERD</language>
+	</row>
+	<row id="narc_0623_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon CAVALFUOCO</language>
+	</row>
+	<row id="narc_0623_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon CABALLO F.</language>
+	</row>
+	<row id="narc_0623_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">ほしがたポケモン</language>
+	</row>
+	<row id="narc_0623_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">STARSHAPE Pokémon</language>
+	</row>
+	<row id="narc_0623_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon ETOILE</language>
+	</row>
+	<row id="narc_0623_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">STERNFORM</language>
+	</row>
+	<row id="narc_0623_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon STELLA</language>
+	</row>
+	<row id="narc_0623_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon ESTRELLADA</language>
+	</row>
+	<row id="narc_0623_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">さかなポケモン</language>
+	</row>
+	<row id="narc_0623_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">FISH Pokémon</language>
+	</row>
+	<row id="narc_0623_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon POISSON</language>
+	</row>
+	<row id="narc_0623_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">FISCH</language>
+	</row>
+	<row id="narc_0623_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon PESCE</language>
+	</row>
+	<row id="narc_0623_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon PEZ</language>
+	</row>
+	<row id="narc_0623_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">がまんポケモン</language>
+	</row>
+	<row id="narc_0623_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PATIENT Pokémon</language>
+	</row>
+	<row id="narc_0623_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon PATIENT</language>
+	</row>
+	<row id="narc_0623_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">GEDULD</language>
+	</row>
+	<row id="narc_0623_00040" index="40">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon PAZIENZA</language>
+	</row>
+	<row id="narc_0623_00041" index="41">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon PACIENTE</language>
+	</row>
+	<row id="narc_0623_00042" index="42">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">１ぽんヅノポケモン</language>
+	</row>
+	<row id="narc_0623_00043" index="43">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SINGLE HORN Pokémon</language>
+	</row>
+	<row id="narc_0623_00044" index="44">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon UNICORNE</language>
+	</row>
+	<row id="narc_0623_00045" index="45">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">EINZELHORN</language>
+	</row>
+	<row id="narc_0623_00046" index="46">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon MONOCORNO</language>
+	</row>
+	<row id="narc_0623_00047" index="47">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon UNICORNIO</language>
+	</row>
+	<row id="narc_0623_00048" index="48">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">かぎづめポケモン</language>
+	</row>
+	<row id="narc_0623_00049" index="49">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SHARP CLAW Pokémon</language>
+	</row>
+	<row id="narc_0623_00050" index="50">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon GRIFACEREE</language>
+	</row>
+	<row id="narc_0623_00051" index="51">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">STICHKLAUE</language>
+	</row>
+	<row id="narc_0623_00052" index="52">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon LAMARTIGLI</language>
+	</row>
+	<row id="narc_0623_00053" index="53">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon GARRA FILO</language>
+	</row>
+	<row id="narc_0623_00054" index="54">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">こぐまポケモン</language>
+	</row>
+	<row id="narc_0623_00055" index="55">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">LITTLE BEAR Pokémon</language>
+	</row>
+	<row id="narc_0623_00056" index="56">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon MINI OURS</language>
+	</row>
+	<row id="narc_0623_00057" index="57">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">KLEINBÄR</language>
+	</row>
+	<row id="narc_0623_00058" index="58">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon ORSETTO</language>
+	</row>
+	<row id="narc_0623_00059" index="59">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon OSITO</language>
+	</row>
+	<row id="narc_0623_00060" index="60">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">ダ－クポケモン</language>
+	</row>
+	<row id="narc_0623_00061" index="61">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">DARK Pokémon</language>
+	</row>
+	<row id="narc_0623_00062" index="62">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon SOMBRE</language>
+	</row>
+	<row id="narc_0623_00063" index="63">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">HADES</language>
+	</row>
+	<row id="narc_0623_00064" index="64">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon BUIO</language>
+	</row>
+	<row id="narc_0623_00065" index="65">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon SINIESTRO</language>
+	</row>
+	<row id="narc_0623_00066" index="66">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">うみねこポケモン</language>
+	</row>
+	<row id="narc_0623_00067" index="67">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SEAGULL Pokémon</language>
+	</row>
+	<row id="narc_0623_00068" index="68">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon MOUETTE</language>
+	</row>
+	<row id="narc_0623_00069" index="69">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SEEMÖWE</language>
+	</row>
+	<row id="narc_0623_00070" index="70">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon GABBIANO</language>
+	</row>
+	<row id="narc_0623_00071" index="71">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon GAVIOTA</language>
+	</row>
+	<row id="narc_0623_00072" index="72">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">なまけものポケモン</language>
+	</row>
+	<row id="narc_0623_00073" index="73">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SLACKER Pokémon</language>
+	</row>
+	<row id="narc_0623_00074" index="74">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon FLANEUR</language>
+	</row>
+	<row id="narc_0623_00075" index="75">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">FAULPELZ</language>
+	</row>
+	<row id="narc_0623_00076" index="76">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon OZIOSO</language>
+	</row>
+	<row id="narc_0623_00077" index="77">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon GANDUL</language>
+	</row>
+	<row id="narc_0623_00078" index="78">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">いばらポケモン</language>
+	</row>
+	<row id="narc_0623_00079" index="79">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">THORN Pokémon</language>
+	</row>
+	<row id="narc_0623_00080" index="80">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon EPINE</language>
+	</row>
+	<row id="narc_0623_00081" index="81">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">DORN</language>
+	</row>
+	<row id="narc_0623_00082" index="82">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon SPINA</language>
+	</row>
+	<row id="narc_0623_00083" index="83">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon ESPINA</language>
+	</row>
+</body>

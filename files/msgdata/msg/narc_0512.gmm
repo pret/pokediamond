@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0512_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon grow steadily stronger from\nbattling against other Pokémon.\rAt first, you should heal your\nPokémon regularly at Poké Centers\fwhile you’re leveling them up.</language>
+	</row>
+	<row id="narc_0512_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A good Trainer is one that takes care\nnot to let their Pokémon faint from\flosing HP.</language>
+	</row>
+</body>

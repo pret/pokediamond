@@ -1,0 +1,501 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0283_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to the Battle Tower!\rI am your guide to the Single\nand Double Battle Rooms.\r</language>
+	</row>
+	<row id="narc_0283_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to take the\nBattle Room challenge?</language>
+	</row>
+	<row id="narc_0283_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We hope to see you again!</language>
+	</row>
+	<row id="narc_0283_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Battle Tower’s Single Battle\nRooms are facilities for conducting\fSingle Battles with three Pokémon.\rSimilarly, the Double Battle Rooms\nare facilities for conducting Double\fBattles with four Pokémon.\rThere are many Battle Rooms in the\nBattle Tower for team battles.\rIn each of the Battle Rooms, seven\nTrainers await your challenge.\rIf you manage to defeat all seven,\nyou will earn Battle Points (BP).\rIf you want to interrupt your\nchallenge, please save the game.\rIf you don’t save, you will be\ndisqualified from your challenge.\r</language>
+	</row>
+	<row id="narc_0283_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Which Battle Room would you like?\nSingle or Double?</language>
+	</row>
+	<row id="narc_0283_00005" index="5">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00006" index="6">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00007" index="7">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Please select the Pokémon you wish\nto enter.\r</language>
+	</row>
+	<row id="narc_0283_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Your Pokémon must all be different.\r</language>
+	</row>
+	<row id="narc_0283_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hold items must all be different.\r</language>
+	</row>
+	<row id="narc_0283_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I will now show you to the\nBattle Room.</language>
+	</row>
+	<row id="narc_0283_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations!\nYou’ve beaten all seven Trainers!\r</language>
+	</row>
+	<row id="narc_0283_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations!\nYou’ve beaten the Tower Tycoon!\rWe present you with these Battle\nPoints in recognition of your talent!\r{STRVAR_1 3, 0} received\n{STRVAR_1 50, 1} BP!\r</language>
+	</row>
+	<row id="narc_0283_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Saving...\nDon’t turn off the power.</language>
+	</row>
+	<row id="narc_0283_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We hope to see you again.</language>
+	</row>
+	<row id="narc_0283_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We’ve been waiting for you!\rBefore entering a Battle Room, your\nprogress will be saved.\rSaving...\nDon’t turn off the power.</language>
+	</row>
+	<row id="narc_0283_00017" index="17">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00018" index="18">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou didn’t save before you quit your\nchallenge last time.\rBecause of that, you have been\ndisqualified from your challenge!\r</language>
+	</row>
+	<row id="narc_0283_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to the Battle Tower!\rI am your guide to the Multi\nBattle Rooms.\r</language>
+	</row>
+	<row id="narc_0283_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to take the Multi\nBattle Room challenge?</language>
+	</row>
+	<row id="narc_0283_00022" index="22">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Battle Tower’s Multi Battle\nRooms are facilities for conducting\fMulti Battles.\rFor Multi Battles, you must partner\nwith a Trainer in the tower and enter\fwith two Pokémon each.\rInside the tower is a room named\nthe Battle Salon where you can meet\fother Trainers.\rThere, you must find a Trainer to act\nas your partner in the Multi Battles.\rOnce you have partnered up, you will\nbe shown to a Multi Battle Room.\rIn the Multi Battle Room, seven\ntag teams await your challenge.\rIf you manage to defeat all seven\nteams, you will earn Battle Points.\rIf you want to interrupt your\nchallenge, please save the game.\rIf you don’t save, you will be\ndisqualified from your challenge.\rAlso, if you are in a tag team with\na friend, you may not interrupt your\fchallenge.\r</language>
+	</row>
+	<row id="narc_0283_00024" index="24">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00025" index="25">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to communicate with\na friend and form a tag team?</language>
+	</row>
+	<row id="narc_0283_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">One Trainer should select\n“BECOME LEADER.”\rThe other Trainer must select\n“JOIN GROUP.”</language>
+	</row>
+	<row id="narc_0283_00028" index="28">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00029" index="29">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00030" index="30">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00031" index="31">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’ll direct you to your\nMulti Battle Room now.</language>
+	</row>
+	<row id="narc_0283_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Both Trainers have chosen the\nPokémon {STRVAR_1 0, 0}.\rPlease confer with the other Trainer\nand choose different Pokémon.\r</language>
+	</row>
+	<row id="narc_0283_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Both Trainers have chosen the\nPokémon {STRVAR_1 0, 0} and\f{STRVAR_1 0, 1}.\rPlease confer with the other Trainer\nand choose different Pokémon.\r</language>
+	</row>
+	<row id="narc_0283_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I will now show you to the\nBattle Salon.\r</language>
+	</row>
+	<row id="narc_0283_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to the Battle Tower!\rI am your guide to the Wi-Fi\nBattle Rooms.\r</language>
+	</row>
+	<row id="narc_0283_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to take the Wi-Fi\nBattle Room challenge?</language>
+	</row>
+	<row id="narc_0283_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Battle Tower’s Wi-Fi Battle Rooms\nare places to conduct battles over\fNintendo Wi-Fi Connection (WFC).\rIn Wi-Fi Battles, you will be battling\nTrainers from around the world over\fNintendo WFC.\rInside the Battle Tower, there are\nmany Battle Rooms.\rIn each of the Battle Rooms, seven\nTrainers await your challenge.\rIf you manage to defeat all seven,\nyou will earn Battle Points.\rDepending on how you do, you may\neven become the room’s leader!\rAlso, the Wi-Fi Battle Rooms are\noperated on a ranking system.\rTrainers will go up in rank if they\nkeep winning Wi-Fi Battles.\rContrarily, their rankings could go\ndown if they lose consistently.\rTo raise your rank, keep winning,\nespecially against tougher Trainers.\rIf you want to interrupt your\nchallenge, please save the game.\rIf you don’t save, you will be\ndisqualified from your challenge.\r</language>
+	</row>
+	<row id="narc_0283_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We hope to see you again!</language>
+	</row>
+	<row id="narc_0283_00040" index="40">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00041" index="41">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00042" index="42">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00043" index="43">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00044" index="44">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00045" index="45">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00046" index="46">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00047" index="47">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">OK. I’ll direct you to your Battle\nRoom now.\rAre you ready?</language>
+	</row>
+	<row id="narc_0283_00048" index="48">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to save and\ninterrupt your challenge?</language>
+	</row>
+	<row id="narc_0283_00049" index="49">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00050" index="50">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00051" index="51">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00052" index="52">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’ve downloaded the Rank {STRVAR_1 51, 0}, Battle\nRoom {STRVAR_1 52, 1}’s past leader history.\rPlease confirm it on the Performance\nMonitor next to me.</language>
+	</row>
+	<row id="narc_0283_00053" index="53">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thank you for playing!\r</language>
+	</row>
+	<row id="narc_0283_00054" index="54">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations!\nYou’ve beaten all seven Trainers!\r</language>
+	</row>
+	<row id="narc_0283_00055" index="55">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}, you have also been\npromoted to Rank {STRVAR_1 51, 1}!\r</language>
+	</row>
+	<row id="narc_0283_00056" index="56">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Saving...\nDon’t turn off the power.</language>
+	</row>
+	<row id="narc_0283_00057" index="57">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to send these results\nusing Nintendo WFC?</language>
+	</row>
+	<row id="narc_0283_00058" index="58">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">For your 7-win streak, we present\nyou these Battle Points!\r{STRVAR_1 3, 0} obtained\n{STRVAR_1 50, 1} BP.\r</language>
+	</row>
+	<row id="narc_0283_00059" index="59">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00060" index="60">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Your results were sent out using\nNintendo WFC!\r</language>
+	</row>
+	<row id="narc_0283_00061" index="61">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s good to see you back.\rYour previous results were not sent\nout using Nintendo WFC.\rWould you like to send them now?</language>
+	</row>
+	<row id="narc_0283_00062" index="62">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00063" index="63">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00064" index="64">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00065" index="65">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s very unfortunate, but you have\nbeen demoted to Rank {STRVAR_1 51, 0}...\r</language>
+	</row>
+	<row id="narc_0283_00066" index="66">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00067" index="67">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00068" index="68">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00069" index="69">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Your record will be saved.\nPlease wait.</language>
+	</row>
+	<row id="narc_0283_00070" index="70">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations on achieving\nRank {STRVAR_1 51, 0}.\rYour winning Pokémon team has won\nspecial Ribbons for this feat!</language>
+	</row>
+	<row id="narc_0283_00071" index="71">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations on achieving {STRVAR_1 52, 0}\nconsecutive wins!\rYour winning Pokémon team has been\ngiven a special award for this feat!</language>
+	</row>
+	<row id="narc_0283_00072" index="72">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} obtained {STRVAR_1 8, 1}!</language>
+	</row>
+	<row id="narc_0283_00073" index="73">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations on achieving your\n50-win streak.\rYour winning Pokémon team has won\nspecial Ribbons for this feat!</language>
+	</row>
+	<row id="narc_0283_00074" index="74">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Yeah, I used to live in a place\ncalled Hoenn.\rThere was a place like this back\nthere, too.</language>
+	</row>
+	<row id="narc_0283_00075" index="75">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Wi-Fi Battle Rooms are full of\nsurprises.\rCan you imagine running into an old\nrival who moved far away?\rWho knows what cool encounters you’ll\nhave?</language>
+	</row>
+	<row id="narc_0283_00076" index="76">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">They profile you on TV if you set\na good record here.\rThis is my only chance to regain\nmy glory as an Idol!</language>
+	</row>
+	<row id="narc_0283_00077" index="77">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I trained my little guy till we\ncouldn’t take any more.\rHe’s going to do a 100-win streak\nfor sure...\rRight, PIKACHU?</language>
+	</row>
+	<row id="narc_0283_00078" index="78">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PIKACHU: ...</language>
+	</row>
+	<row id="narc_0283_00079" index="79">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ooh-la-la!\nYou look tremendously powerful!\rVerily, I shall look forward to\nengaging you in a battle.</language>
+	</row>
+	<row id="narc_0283_00080" index="80">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There are so many tough Trainers\naround...\rIt’s scary, but let’s do our best,\nPIKACHU!</language>
+	</row>
+	<row id="narc_0283_00081" index="81">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PIKACHU: Pichuu! Pichuu!</language>
+	</row>
+	<row id="narc_0283_00082" index="82">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations on achieving\na 50-win streak!\rThe Pokémon on your team will be\nprovided with commemorative Ribbons.</language>
+	</row>
+	<row id="narc_0283_00083" index="83">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations on advancing to\nRank {STRVAR_1 50, 0}!\rThe Pokémon on your team will be\nprovided with commemorative Ribbons.</language>
+	</row>
+	<row id="narc_0283_00084" index="84">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations on defeating\nthe Tower Tycoon!\rThe Pokémon on your team will be\nprovided with commemorative Ribbons.</language>
+	</row>
+	<row id="narc_0283_00085" index="85">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Congratulations on achieving\nyour {STRVAR_1 52, 0}-win streak!\rPlease accept this trophy for your\nfantastic achievement!\r</language>
+	</row>
+	<row id="narc_0283_00086" index="86">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">...Uh-oh... You’ve run out of room\nfor decoration goods.\rPlease make room, and come back\nfor your prize.</language>
+	</row>
+	<row id="narc_0283_00087" index="87">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0283_00088" index="88">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs are not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00089" index="89">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs and {STRVAR_1 0, 1} are\nnot allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00090" index="90">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, and {STRVAR_1 0, 2}\nare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00091" index="91">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\nand {STRVAR_1 0, 3} are not allowed.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00092" index="92">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, and {STRVAR_1 0, 4}\fare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00093" index="93">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4}, and\f{STRVAR_1 0, 5} are not allowed.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00094" index="94">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, and {STRVAR_1 0, 6}\nare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00095" index="95">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6}, and\n{STRVAR_1 0, 7} are not allowed.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00096" index="96">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, and {STRVAR_1 0, 8}\fare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00097" index="97">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\fand {STRVAR_1 0, 9} are not allowed.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00098" index="98">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, and {STRVAR_1 0, 10}\nare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00099" index="99">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, {STRVAR_1 0, 10},\nand {STRVAR_1 0, 11} are ineligible.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00100" index="100">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, {STRVAR_1 0, 10},\n{STRVAR_1 0, 11}, and {STRVAR_1 0, 12}\fare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00101" index="101">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, {STRVAR_1 0, 10},\n{STRVAR_1 0, 11}, {STRVAR_1 0, 12},\fand {STRVAR_1 0, 13} are not allowed.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00102" index="102">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, {STRVAR_1 0, 10},\n{STRVAR_1 0, 11}, {STRVAR_1 0, 12},\r{STRVAR_1 0, 13}, and {STRVAR_1 0, 14}\nare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00103" index="103">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, {STRVAR_1 0, 10},\n{STRVAR_1 0, 11}, {STRVAR_1 0, 12},\r{STRVAR_1 0, 13}, {STRVAR_1 0, 14},\nand {STRVAR_1 0, 15} are not allowed.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00104" index="104">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, {STRVAR_1 0, 10},\n{STRVAR_1 0, 11}, {STRVAR_1 0, 12},\r{STRVAR_1 0, 13}, {STRVAR_1 0, 14},\n{STRVAR_1 0, 15}, and {STRVAR_1 0, 16}\fare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00105" index="105">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, {STRVAR_1 0, 10},\n{STRVAR_1 0, 11}, {STRVAR_1 0, 12},\r{STRVAR_1 0, 13}, {STRVAR_1 0, 14},\n{STRVAR_1 0, 15}, {STRVAR_1 0, 16},\fand {STRVAR_1 0, 17} are not allowed.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00106" index="106">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excuse me!\rYou don’t have {STRVAR_1 50, 0} eligible Pokémon.\rYou must have {STRVAR_1 50, 0} different Pokémon\nto enter.\rThey also must be holding different\nkinds of items.\rEggs, {STRVAR_1 0, 1}, {STRVAR_1 0, 2},\n{STRVAR_1 0, 3}, {STRVAR_1 0, 4},\r{STRVAR_1 0, 5}, {STRVAR_1 0, 6},\n{STRVAR_1 0, 7}, {STRVAR_1 0, 8},\r{STRVAR_1 0, 9}, {STRVAR_1 0, 10},\n{STRVAR_1 0, 11}, {STRVAR_1 0, 12},\r{STRVAR_1 0, 13}, {STRVAR_1 0, 14},\n{STRVAR_1 0, 15}, {STRVAR_1 0, 16},\r{STRVAR_1 0, 17}, and {STRVAR_1 0, 18}\nare not allowed to enter.\rPlease come see me when you are\nready.\r</language>
+	</row>
+	<row id="narc_0283_00107" index="107">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thank you so much for participating!\nPlease come again!</language>
+	</row>
+	<row id="narc_0283_00108" index="108">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hi, there!\rCan you tell me how you’d introduce\nyourself before a battle, and what\fyou’d say if you won or lost?</language>
+	</row>
+	<row id="narc_0283_00109" index="109">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">OK! So, how would you introduce\nyourself before a battle?</language>
+	</row>
+	<row id="narc_0283_00110" index="110">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">OK! So, what would you say if \nyou lost a battle?</language>
+	</row>
+	<row id="narc_0283_00111" index="111">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">OK! So, what would you say if \nyou won a battle?</language>
+	</row>
+	<row id="narc_0283_00112" index="112">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thanks for telling me. You’d say\n“{STRVAR_1 28}”...</language>
+	</row>
+	<row id="narc_0283_00113" index="113">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh? You’re not going to tell me?\nThat’s too bad...</language>
+	</row>
+	<row id="narc_0283_00114" index="114">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There doesn’t appear to be any\ndata yet...\r</language>
+	</row>
+	<row id="narc_0283_00115" index="115">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">DS Wireless Communications will\nbe launched.</language>
+	</row>
+	<row id="narc_0283_00116" index="116">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We look forward to your next visit.\r</language>
+	</row>
+</body>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0174_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Victory Road...\nIt lives up to that lofty name...</language>
+	</row>
+	<row id="narc_0174_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">...It broke me once, but that only\nadded to my resolve!</language>
+	</row>
+</body>

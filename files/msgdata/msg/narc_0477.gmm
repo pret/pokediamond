@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0477_00000" index="0">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0477_00001" index="1">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0477_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m going to become number one in\nSinnoh’s Contests!\rI’m going to win with a Pokémon that\nyou can only find here!</language>
+	</row>
+</body>

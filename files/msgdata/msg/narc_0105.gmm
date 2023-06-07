@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0105_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Have you checked out the GTS\nin Jubilife City?\rIt uses the Nintendo Wi-Fi Connection!\nI can’t explain it, but it’s wicked!</language>
+	</row>
+	<row id="narc_0105_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hello, do you have a Poffin Case?\rIf you haven’t got one, you really\nmust visit the Pokémon Fan Club.</language>
+	</row>
+	<row id="narc_0105_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If you feed your Pokémon Poffins\nroutinely, you’ll be able to enter\fContests whenever you like.</language>
+	</row>
+	<row id="narc_0105_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">They’re saying that Gym Leader\nFantina’s not around.\rHeh! She must’ve heard I’m around\nand chickened out!</language>
+	</row>
+	<row id="narc_0105_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Yeah, so the Gym Leader came back,\nand I challenged her.\r...She wiped the floor with us.\nI have to heal up my team now...</language>
+	</row>
+</body>

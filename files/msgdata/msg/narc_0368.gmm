@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0368_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Reporter: Hello! The time for\nDiscovering Groups is upon us.\rToday, we dropped in to check up on\nthe Trainer {STRVAR_1 3, 0}.\r{STRVAR_1 3, 0} is a member of the\ngroup {STRVAR_1 61, 1}.\rOh, that must be {STRVAR_1 3, 0}\nover there.\r{STRVAR_1 3, 0} is obviously enjoying\nbeing a member of the group.\rIt’s like {STRVAR_1 3, 0} has found\na second home!\rIf I had to describe this group,\nin my uninformed, subjective view,\fit would be the {STRVAR_1 15, 2} type?\rPlease look forward to the next\nshow!</language>
+	</row>
+	<row id="narc_0368_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\r{STRVAR_1 4, 0} is blessed with\ncloudless skies!\rI would like to take this opportunity\nto do my piled-up laundry!\rIt will be nice to dry them under\nthe sun here!\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\r{STRVAR_1 4, 0} is under clear\nskies!\rIt’s the perfect sort of day to\ngo cycling.\rIf you were to crash into a stream,\nyou’d dry off quickly today!\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\rIt’s nothing but blue skies over\n{STRVAR_1 4, 0}!\rIt would be a shame to spend a day\nlike this cooped up indoors.\rWhy not step outside and bask under\nthe sun?\rWhy not amuse yourself with a solo\nwhistling performance?\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\rThere isn’t a cloud in the sky above\n{STRVAR_1 4, 0}!\rIt’s the sort of day that’s ideal\nfor having your picture taken.\rEveryone looks prettier under\nthe smiling sun!\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\r{STRVAR_1 4, 0} is under gloomy\nclouds.\rBut watch out!\nDon’t be fooled by the sun’s absence.\rIt’s days like this that you can get\nsunburned!\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\r{STRVAR_1 4, 0} is getting doused\nby rain.\rIt’s the sort of weather that’s right\nfor enjoying music at home.\rMaybe have some tea and gaze at\nthe rain-covered plants.\rPerhaps you can giggle at people\nrunning to avoid the downpour.\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\rA steady downpour continues to\nfall on {STRVAR_1 4, 0}!\rThis is your chance to shout your\nloved one’s name to the skies!\rForget about an umbrella!\nThink of the dramatic possibilities!\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\rIt’s cold!\nSnow is falling on {STRVAR_1 4, 0}!\rI would like to not act my age and\ntry to charm you with my cuteness...\rBut it’s too cold for me to be\nfrolicking!\rI’m heading home right after this\nto curl up with my CLEFAIRY.\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\r{STRVAR_1 4, 0} is taking cover\nin a blizzard!\rSome of you may brave the weather\nin hopes of finding rare Pokémon\funder these extreme conditions.\rBe sure to dress extra warm, and\ndon’t fall asleep!\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\rA-as y-you c-can see...\r{STRVAR_1 4, 0} is besieged by \na howling blizzard!\rMy hair, even in my nostrils,\nis caked with ice!\rI’m grateful for having the sense to\nbuy a new coat with my bonus!\rBut even under these brutal\nconditions, there are Trainers about!\rI think they are foolish, and yet\nI can’t help but respect them.\r...May I please go inside now?\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weath...\rGiyaaaah!\nThunder!\rThere is a thunderstorm over\n{STRVAR_1 4, 0}!\rIt’s...\nGiyaaaaaah!\rThat camera’s like a lightning rod!\nLet’s finish this now!\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Helena: This is Helena bringing you\non-the-spot weather!\rToday, we bring you a sight you\nvery rarely get to see.\rDiamond dust is visible in the sky\nabove {STRVAR_1 4, 0}.\rThe glittery cloud of ice is\nfantastically beautiful.\rCouples should step out for a truly\nmagical and romantic experience.\rEvery girl can be a princess\non a day like this.\rGuys, there’s no better setting\nto propose to your girl!\rThat’s the weather brought to you\nby Helena!</language>
+	</row>
+	<row id="narc_0368_00013" index="13">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00014" index="14">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00015" index="15">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00016" index="16">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00017" index="17">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00018" index="18">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00019" index="19">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00020" index="20">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00021" index="21">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00022" index="22">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00023" index="23">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00024" index="24">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00025" index="25">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00026" index="26">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00027" index="27">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Newscaster: We bring you this\nnews flash.\rWe’ve just received word that hordes\nof {STRVAR_1 0, 1} have been spotted in\fthe vicinity of {STRVAR_1 4, 0}.\rIf you’ve ever had the desire to be\nsurrounded by {STRVAR_1 0, 1}...\rOr wished to make a team full of\n{STRVAR_1 0, 1}...\rOr wanted to wear them on your\nhead...\rIf you’re a true viva {STRVAR_1 0, 1}\nsort of Trainer...\rThen make your way to\n{STRVAR_1 4, 0} right now!\rThat concludes this news flash.</language>
+	</row>
+	<row id="narc_0368_00029" index="29">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ace Trainer: Hey, how are y’all doing,\nPoké fans?\rThanks for tuning in to the Matchup\nChannel!\rHey, fans, you’ve all used\n{STRVAR_1 15, 0}-type moves, right?\rThey’re super effective against\n{STRVAR_1 15, 1}-type Pokémon!\rI’m telling you, the effect is like\nseeing me in person!\rThat’s all for today, but don’t\nforget to send me fan mail!\rGive it to your bird Pokémon, then\nset them free into the skies!\rA chance encounter with greatness--\nthat’s me--is always possible!\rSee you again!</language>
+	</row>
+	<row id="narc_0368_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ace Trainer: Hey, how are y’all doing,\nPoké fans?\rThanks for tuning in to the Matchup\nChannel!\rHey, fans, you’ve all used\n{STRVAR_1 15, 0}-type moves, right?\rThey’re, like, not much better than\nOK against {STRVAR_1 15, 1}-type Pokémon!\rThey’re plain, like other Ace\nTrainers are plain next to me.\rThat’s all for today, but don’t\nforget to send me fan mail!\rGive it to your bird Pokémon, then\nset them free into the skies!\rA chance encounter with greatness--\nthat’s me--is always possible!\rSee you again!</language>
+	</row>
+	<row id="narc_0368_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ace Trainer: Hey, how are y’all doing,\nPoké fans?\rThanks for tuning in to the Matchup\nChannel!\rHey, fans, you’ve all used\n{STRVAR_1 15, 0}-type moves, right?\rThey’re not very effective against\n{STRVAR_1 15, 1}-type Pokémon!\rIn fact, they’re wimpy like the many\nwannabe Trainers that copy me!\rThat’s all for today, but don’t\nforget to send me fan mail!\rGive it to your bird Pokémon, then\nset them free into the skies!\rA chance encounter with greatness--\nthat’s me--is always possible!\rSee you again!</language>
+	</row>
+	<row id="narc_0368_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ace Trainer: Hey, how are y’all doing,\nPoké fans?\rThanks for tuning in to the Matchup\nChannel!\rHey, fans, you’ve all used\n{STRVAR_1 15, 0}-type moves, right?\rThey’re absolutely hopeless against\n{STRVAR_1 15, 1}-type Pokémon!\rIt’s a totally wasted effort, like the\nway other Trainers try to mess\fwith me out of jealousy!\rThat’s all for today, but don’t\nforget to send me fan mail!\rGive it to your bird Pokémon, then\nset them free into the skies!\rA chance encounter with greatness--\nthat’s me--is always possible!\rSee you again!</language>
+	</row>
+	<row id="narc_0368_00034" index="34">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Berry Prof: Say hey, hey, how are\nyour Berries growing today?\rSay hey, Berry fans, how goes\nit today? OK?\rEnough fooling about, let me roll it\nright out, today’s Berry Lookout!\r{STRVAR_1 4, 0} is where I went,\nhoping to find Berries by scent!\rAnd there I found them!\rMy journey was rewarded!\rMy heart raced!\nI felt enfevered!\rBut there I left them.\nAs gifts for you!\rSay hey! Check your Berries today!\nThanks, everyone!</language>
+	</row>
+	<row id="narc_0368_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Berry Prof: Say hey, hey, how do\nyour Berries grow today?\rSay hey, Berry fans, how goes\nit today? OK?\rEnough fooling around, let me lay it\nright out, today’s Berry Lookout!\r{STRVAR_1 4, 0} is where I went,\nhoping to find Berries by scent!\rBut!\nNo Berries there were...\rStill, there is hope!\nFor flowers were in bloom.\rThe aroma tickled and danced in\nmy nose!\rFlowers bloomed in the cockles of\nmy heart!\rI grew heartened, for the Berries\nthey will come, they will come!\rSay hey! Check your Berries today!\nThanks, everyone!</language>
+	</row>
+	<row id="narc_0368_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Berry Prof: Say hey, hey, how do\nyour Berries grow today?\rSay hey, Berry fans, how goes\nit today? OK?\rEnough fooling around, let me lay it\nright out, today’s Berry Lookout!\r{STRVAR_1 4, 0} is where I went,\nhoping to find Berries by scent!\rBut!\nNo Berries there were...\rStill, all is not lost!\rThe plant’s stem grows thick, and\nwith it my hope!\rI surely look forward to seeing\nits flowers in bloom!\rSay hey! Check your Berries today!\nThanks, everyone!</language>
+	</row>
+	<row id="narc_0368_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Berry Prof: Say hey, hey, how do\nyour Berries grow today?\rSay hey, Berry fans, how goes\nit today? OK?\rEnough fooling around, let me lay it\nright out, today’s Berry Lookout!\r{STRVAR_1 4, 0} is where I went,\nhoping to find Berries by scent!\rBut!\nNo Berries there were...\rStill, all is not lost!\rThe plant’s sprout has burst up!\nIt’s a celebration of life!\rAll of you watching, don’t trample\nit under!\rSay hey! Check your Berries today!\nThanks, everyone!</language>
+	</row>
+	<row id="narc_0368_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Berry Prof: Say hey, hey, how do\nyour Berries grow today?\rSay hey, Berry fans, how goes\nit today? OK?\rEnough fooling around, let me lay it\nright out, today’s Berry Lookout!\r{STRVAR_1 4, 0} is where I went,\nhoping to find Berries by scent!\rBut!\nNo Berries there were...\rMy time had been wasted!\nI had traveled in vain!\rMy excitement shriveled and withered\naway...\rBut it must mean someone’s happy\nfor having picked Berries!\rSay hey! Plant your Berries today!\nThanks, everyone!</language>
+	</row>
+	<row id="narc_0368_00040" index="40">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00041" index="41">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00042" index="42">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Researcher: It’s the Pokémon\nResearch Corner!\rToday, we’ll examine a wild Pokémon\nlive in the field.\rAh, here we go, a wild {STRVAR_1 0, 0}\nconveniently just came along...\rOh? It’s holding something!\nLet’s roll on up and take a look!\rHi, there!\nCan I take a look...\rYow! Ouch!\nIt scratched my finger!\rBut OK, we now know that wild\n{STRVAR_1 0, 0} have the possibility\fof holding the item {STRVAR_1 8, 1}.\rThank you, {STRVAR_1 0, 0}, here’s your\n{STRVAR_1 8, 1} back...\rAiyaaah! Ow, ow, ow!\nScratched me again!\rAs usual, I got a Pokémon riled up\nat me!\rIt’s time for me to go!\nSo long!</language>
+	</row>
+	<row id="narc_0368_00043" index="43">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00044" index="44">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00045" index="45">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00046" index="46">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00047" index="47">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00048" index="48">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00049" index="49">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00050" index="50">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Reporter: I’m bringing you this report\nfrom the second floor of Jubilife TV.\rI’m here to examine a recently added\nphoto titled “{STRVAR_1 28, 1}”\fwhich belongs to {STRVAR_1 3, 0}.\rOh, is this it here?\nLet’s see...\rThe title “{STRVAR_1 28, 1}” does\nsound fitting for this photo...\rBut one can’t help but think perhaps\na better title could have been found.\rAll controversy aside, it’s certainly\nworth seeing. Please do visit!</language>
+	</row>
+	<row id="narc_0368_00051" index="51">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00052" index="52">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0368_00053" index="53">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+</body>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0529_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Where are you from?\r...\rHm, Twinleaf Town, you say.\nIsn’t that close to Lake Verity?\rThat lake is said to be home to\nMESPRIT, the being of emotion.\rIt must be looking over you.</language>
+	</row>
+	<row id="narc_0529_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hm? If you get the Gym Badge from\nHearthome, you can use Surf anytime.\rUsing Surf, you’ll be able to go to\nplaces that were once out of reach.\rYou may be in for some surprises\nas to where you can go using Surf.</language>
+	</row>
+	<row id="narc_0529_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Celestic Town is the oldest town in\nall of Sinnoh.\rThe town was founded to honor\nPokémon from the distant past.\rOr at least that’s the legend...</language>
+	</row>
+	<row id="narc_0529_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Well, hello!\nYou look good.\rI did some research of my own since\nthat spot of trouble last time.\rMt. Coronet acting up had me very\nconcerned, too.\rWell, this is what I found in the\nshrine.\rIt’s a book, and it’s quite old.\nSee for yourself.\r</language>
+	</row>
+	<row id="narc_0529_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">“PALKIA, the Pokémon that binds the\nspatial dimensions,” it is written...\r</language>
+	</row>
+	<row id="narc_0529_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">“DIALGA, the guardian Pokémon of\ntime,” it is written...\r</language>
+	</row>
+	<row id="narc_0529_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It seems that there were two\nPokémon in ancient Sinnoh.\rThey respectively stood as symbols\nof time and spatial dimensions...</language>
+	</row>
+	<row id="narc_0529_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">My big sister is studying the myths\nof Sinnoh.\rShe wants to know how people and\nPokémon interacted in the days of\fmyths.\rWere things different back then?\nOr were they the same as now?\rShe says that’s the focus of her\nresearch.</language>
+	</row>
+	<row id="narc_0529_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s hard to tell for sure, but it’s\nprobably an invaluable scroll.</language>
+	</row>
+	<row id="narc_0529_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s an old book.\n{STRVAR_1 3, 0} began reading it.\r“When that Pokémon was born,\nintelligence bloomed among us,\fenriching our lives.\r“When that Pokémon was born,\nemotions bloomed among us,\fgiving us joy and sorrow.\r“When that Pokémon was born,\nwillpower bloomed among us,\fspurring us into action...”</language>
+	</row>
+</body>

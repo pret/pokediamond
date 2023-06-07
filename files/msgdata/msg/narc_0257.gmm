@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0257_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to sail somewhere?</language>
+	</row>
+	<row id="narc_0257_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Aye, aye!\nAnchors aweigh!\r</language>
+	</row>
+	<row id="narc_0257_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You just go on and tell me whenever\nyou want to set sail again!</language>
+	</row>
+</body>

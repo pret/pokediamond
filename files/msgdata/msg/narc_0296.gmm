@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0296_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Can’t be seen</language>
+	</row>
+	<row id="narc_0296_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Close</language>
+	</row>
+	<row id="narc_0296_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Poffin</language>
+	</row>
+	<row id="narc_0296_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Poffin Max</language>
+	</row>
+	<row id="narc_0296_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">No Poffin</language>
+	</row>
+	<row id="narc_0296_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Battle Tower</language>
+	</row>
+	<row id="narc_0296_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Max Records</language>
+	</row>
+	<row id="narc_0296_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0296_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">BP500</language>
+	</row>
+	<row id="narc_0296_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">BP9998</language>
+	</row>
+</body>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0075_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Oreburgh Mine is operated\nwith the utmost care.\rWe avoid causing any damage to\nthe natural habitats of Pokémon.</language>
+	</row>
+	<row id="narc_0075_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wow... Your Pokémon’s eyes are\ntwinkling brightly!\rSeeing that makes me happy!\nHere, I want you to have this!\r</language>
+	</row>
+	<row id="narc_0075_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You know how Pokémon stay inside\ntheir Poké Balls?\rI try to think about what would be\nthe best Poké Balls for them.</language>
+	</row>
+	<row id="narc_0075_00003" index="3">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0075_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The whole system of taking the coal\nout of the mine is automated.\rThere’s nothing backbreaking about\nit!</language>
+	</row>
+</body>

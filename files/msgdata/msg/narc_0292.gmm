@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0292_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Animation Test</language>
+	</row>
+	<row id="narc_0292_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0292_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Move freely</language>
+	</row>
+	<row id="narc_0292_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Surf</language>
+	</row>
+	<row id="narc_0292_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Cut-in</language>
+	</row>
+	<row id="narc_0292_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Snowball</language>
+	</row>
+	<row id="narc_0292_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bicycle</language>
+	</row>
+	<row id="narc_0292_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wall climb</language>
+	</row>
+	<row id="narc_0292_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Walk together</language>
+	</row>
+	<row id="narc_0292_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Watering</language>
+	</row>
+	<row id="narc_0292_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Waterfall</language>
+	</row>
+	<row id="narc_0292_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0292_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dash flag ON</language>
+	</row>
+	<row id="narc_0292_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Contest time</language>
+	</row>
+	<row id="narc_0292_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Fly</language>
+	</row>
+	<row id="narc_0292_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Fishing</language>
+	</row>
+	<row id="narc_0292_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Escape</language>
+	</row>
+	<row id="narc_0292_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dig</language>
+	</row>
+	<row id="narc_0292_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Teleport</language>
+	</row>
+	<row id="narc_0292_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+</body>

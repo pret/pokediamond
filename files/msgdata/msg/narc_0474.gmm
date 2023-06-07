@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0474_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Buck: Yo, if it isn’t {STRVAR_1 3, 0}!\rDon’t tell me you’re going to Stark\nMountain, too?\rYou’re pretty wimpy...\nYou’re sure you’re going to be OK?\rHeh, why am I asking you that?\nIt’s not like I care.\rAnyways, if we see each other on\nStark Mountain, the race is on to\fsee who gets the Magma Stone first!\r</language>
+	</row>
+	<row id="narc_0474_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wake: Oh, if it isn’t {STRVAR_1 3, 0}!\nIt’s been a while!\rYou’ve grown so tough that you’re\ntraining out here now...\rEveryone keeps getting tougher and\ntougher...\rAnd, in doing that, they develop\ncloser bonds with their Pokémon...\r</language>
+	</row>
+	<row id="narc_0474_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 1}: ...For someone born\noverseas, that tough dude doesn’t\fhave an accent or anything.\r</language>
+	</row>
+	<row id="narc_0474_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}, there’s a volcano\nahead of us called Stark Mountain.\rThat blowhard Buck guy is on his way\nthere, as well.\rI’m going to find the volcano’s\ntreasure before that guy does.\rIf I could do that, a 21-win streak\nat the Battle Tower’d be possible!\r</language>
+	</row>
+	<row id="narc_0474_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wake: ...You’re serious?\nYou’re going to Stark Mountain?\rEven the wild Pokémon there are\nvery, very tough...\rIf your Pokémon aren’t well trained,\nthey’ll have a miserable time...\rThen again, that kind of challenge\nis an exciting prospect...\rBut no matter what, you’d better\nbe fully prepared!\rI’ve got to get ready for another\ntournament. Farewell!\r</language>
+	</row>
+	<row id="narc_0474_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 227\nStark Mountain</language>
+	</row>
+	<row id="narc_0474_00006" index="6">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+</body>

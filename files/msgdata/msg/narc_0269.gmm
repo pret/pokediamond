@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0269_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I cooperated with Team Galactic, but\nthis experiment has gone too far...</language>
+	</row>
+	<row id="narc_0269_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">...I can’t say anything in our\ndefense...\rBut that thing we made...\nWhat is it going to be used for?</language>
+	</row>
+	<row id="narc_0269_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There is something suspended in\na green fluid...</language>
+	</row>
+</body>

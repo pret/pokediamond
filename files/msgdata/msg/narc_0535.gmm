@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0535_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A word of advice from a grizzled\nmountain man!\rBuy up as many items as you can\nhold in your Bag. I’m not joking.</language>
+	</row>
+	<row id="narc_0535_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I was on a 54-win streak...\nIf only I used that move when...</language>
+	</row>
+</body>

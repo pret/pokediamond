@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0050_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The same kinds of Pokémon can\nsometimes have different abilities.\rMaybe I ought to raise two with\ndifferent natures.</language>
+	</row>
+	<row id="narc_0050_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I can’t use the hidden move Strength\nuntil I beat Byron, the Gym Leader.\rI already got the Strength HM from\nthe Lost Tower on Route 209, also...</language>
+	</row>
+	<row id="narc_0050_00002" index="2">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+</body>

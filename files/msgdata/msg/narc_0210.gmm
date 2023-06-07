@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0210_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Don’t you dare go into the Valley\nWindworks.\rI got ordered to keep everyone out\nif they’re not part of Team Galactic.\rYou’re giving me a look that makes\nme think you’re gonna try to get in.\rOK, then.\nYou’ll have to battle me for it!\r</language>
+	</row>
+	<row id="narc_0210_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Isn’t that just great.\nGetting owned by some kid.\rBut you can’t do a thing if I lock\nmyself in with my Works Key!\rThat’s right, the other Works Key’s\nnot here!\rMy cohorts in the flower patch\nhave the only other one!\rHahaha! In that sense, I’m no\nlonger the loser!\r</language>
+	</row>
+	<row id="narc_0210_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ker-chunk!\r</language>
+	</row>
+	<row id="narc_0210_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s locked from inside!</language>
+	</row>
+	<row id="narc_0210_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s locked from inside!\rUse the Works Key?</language>
+	</row>
+	<row id="narc_0210_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ker-chunk!\rThe door to Valley Windworks opened!</language>
+	</row>
+	<row id="narc_0210_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Floooooon!\r</language>
+	</row>
+	<row id="narc_0210_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Valley Windworks\nEcological, Wind-Driven Energy</language>
+	</row>
+</body>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0110_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">In Amity Square, you may go for\na stroll with a cute Pokémon.</language>
+	</row>
+	<row id="narc_0110_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">My PIKACHU seems delighted to be out\nof its Poké Ball for a walk outside.\rI can tell because its cheeks are\ntwitching like crazy!</language>
+	</row>
+	<row id="narc_0110_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PIKACHU: Pikappi!</language>
+	</row>
+</body>

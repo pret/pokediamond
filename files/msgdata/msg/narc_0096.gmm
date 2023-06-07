@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0096_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Eterna came to be long ago in honor\nof ancient Pokémon.\rThough many things have changed,\nwhat is important has not.\rI hope it remains that way forever\nmore...</language>
+	</row>
+	<row id="narc_0096_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Have you seen the Pokémon statue?\rWhen I was a wee child, it used to be\nthe centerpiece of many festivals...</language>
+	</row>
+</body>

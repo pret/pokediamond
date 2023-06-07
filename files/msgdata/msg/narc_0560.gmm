@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0560_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Youngster</language>
+	</row>
+	<row id="narc_0560_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lass</language>
+	</row>
+	<row id="narc_0560_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Camper</language>
+	</row>
+	<row id="narc_0560_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Picnicker</language>
+	</row>
+	<row id="narc_0560_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bug Catcher</language>
+	</row>
+	<row id="narc_0560_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Aroma Lady</language>
+	</row>
+	<row id="narc_0560_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Twins</language>
+	</row>
+	<row id="narc_0560_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hiker</language>
+	</row>
+	<row id="narc_0560_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Battle Girl</language>
+	</row>
+	<row id="narc_0560_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Fisherman</language>
+	</row>
+	<row id="narc_0560_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Cyclist</language>
+	</row>
+	<row id="narc_0560_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Cyclist</language>
+	</row>
+	<row id="narc_0560_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Black Belt</language>
+	</row>
+	<row id="narc_0560_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Artist</language>
+	</row>
+	<row id="narc_0560_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Breeder</language>
+	</row>
+	<row id="narc_0560_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Breeder</language>
+	</row>
+	<row id="narc_0560_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Cowgirl</language>
+	</row>
+	<row id="narc_0560_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jogger</language>
+	</row>
+	<row id="narc_0560_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokéfan</language>
+	</row>
+	<row id="narc_0560_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokéfan</language>
+	</row>
+	<row id="narc_0560_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Poké Kid</language>
+	</row>
+	<row id="narc_0560_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Young Couple</language>
+	</row>
+	<row id="narc_0560_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ace Trainer</language>
+	</row>
+	<row id="narc_0560_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ace Trainer</language>
+	</row>
+	<row id="narc_0560_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Waitress</language>
+	</row>
+	<row id="narc_0560_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Veteran</language>
+	</row>
+	<row id="narc_0560_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ninja Boy</language>
+	</row>
+	<row id="narc_0560_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dragon Tamer</language>
+	</row>
+	<row id="narc_0560_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bird Keeper</language>
+	</row>
+	<row id="narc_0560_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Double Team</language>
+	</row>
+	<row id="narc_0560_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rich Boy</language>
+	</row>
+	<row id="narc_0560_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lady</language>
+	</row>
+	<row id="narc_0560_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Gentleman</language>
+	</row>
+	<row id="narc_0560_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Socialite</language>
+	</row>
+	<row id="narc_0560_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Beauty</language>
+	</row>
+	<row id="narc_0560_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Collector</language>
+	</row>
+	<row id="narc_0560_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Policeman</language>
+	</row>
+	<row id="narc_0560_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Ranger</language>
+	</row>
+	<row id="narc_0560_00040" index="40">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Ranger</language>
+	</row>
+	<row id="narc_0560_00041" index="41">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Scientist</language>
+	</row>
+	<row id="narc_0560_00042" index="42">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Swimmer♂</language>
+	</row>
+	<row id="narc_0560_00043" index="43">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Swimmer♀</language>
+	</row>
+	<row id="narc_0560_00044" index="44">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Tuber</language>
+	</row>
+	<row id="narc_0560_00045" index="45">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Tuber</language>
+	</row>
+	<row id="narc_0560_00046" index="46">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sailor</language>
+	</row>
+	<row id="narc_0560_00047" index="47">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sis and Bro</language>
+	</row>
+	<row id="narc_0560_00048" index="48">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ruin Maniac</language>
+	</row>
+	<row id="narc_0560_00049" index="49">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Psychic</language>
+	</row>
+	<row id="narc_0560_00050" index="50">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Psychic</language>
+	</row>
+	<row id="narc_0560_00051" index="51">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PI</language>
+	</row>
+	<row id="narc_0560_00052" index="52">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Guitarist</language>
+	</row>
+	<row id="narc_0560_00053" index="53">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ace Trainer</language>
+	</row>
+	<row id="narc_0560_00054" index="54">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ace Trainer</language>
+	</row>
+	<row id="narc_0560_00055" index="55">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Skier</language>
+	</row>
+	<row id="narc_0560_00056" index="56">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Skier</language>
+	</row>
+	<row id="narc_0560_00057" index="57">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Roughneck</language>
+	</row>
+	<row id="narc_0560_00058" index="58">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Clown</language>
+	</row>
+	<row id="narc_0560_00059" index="59">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Worker</language>
+	</row>
+	<row id="narc_0560_00060" index="60">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">School Kid</language>
+	</row>
+	<row id="narc_0560_00061" index="61">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">School Kid</language>
+	</row>
+	<row id="narc_0560_00062" index="62">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Leader</language>
+	</row>
+	<row id="narc_0560_00063" index="63">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00064" index="64">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Leader</language>
+	</row>
+	<row id="narc_0560_00065" index="65">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Elite Four</language>
+	</row>
+	<row id="narc_0560_00066" index="66">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Elite Four</language>
+	</row>
+	<row id="narc_0560_00067" index="67">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Elite Four</language>
+	</row>
+	<row id="narc_0560_00068" index="68">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Elite Four</language>
+	</row>
+	<row id="narc_0560_00069" index="69">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Champion</language>
+	</row>
+	<row id="narc_0560_00070" index="70">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Belle &amp; Pa</language>
+	</row>
+	<row id="narc_0560_00071" index="71">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rancher</language>
+	</row>
+	<row id="narc_0560_00072" index="72">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Commander</language>
+	</row>
+	<row id="narc_0560_00073" index="73">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Galactic</language>
+	</row>
+	<row id="narc_0560_00074" index="74">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Leader</language>
+	</row>
+	<row id="narc_0560_00075" index="75">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Leader</language>
+	</row>
+	<row id="narc_0560_00076" index="76">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Leader</language>
+	</row>
+	<row id="narc_0560_00077" index="77">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Leader</language>
+	</row>
+	<row id="narc_0560_00078" index="78">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Leader</language>
+	</row>
+	<row id="narc_0560_00079" index="79">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Leader</language>
+	</row>
+	<row id="narc_0560_00080" index="80">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Parasol Lady</language>
+	</row>
+	<row id="narc_0560_00081" index="81">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Waiter</language>
+	</row>
+	<row id="narc_0560_00082" index="82">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Interviewers</language>
+	</row>
+	<row id="narc_0560_00083" index="83">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Cameraman</language>
+	</row>
+	<row id="narc_0560_00084" index="84">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Reporter</language>
+	</row>
+	<row id="narc_0560_00085" index="85">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Idol</language>
+	</row>
+	<row id="narc_0560_00086" index="86">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Galactic Boss</language>
+	</row>
+	<row id="narc_0560_00087" index="87">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Commander</language>
+	</row>
+	<row id="narc_0560_00088" index="88">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Commander</language>
+	</row>
+	<row id="narc_0560_00089" index="89">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Galactic</language>
+	</row>
+	<row id="narc_0560_00090" index="90">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00091" index="91">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00092" index="92">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00093" index="93">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00094" index="94">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00095" index="95">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00096" index="96">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">₧₦ Trainer</language>
+	</row>
+	<row id="narc_0560_00097" index="97">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Tower Tycoon</language>
+	</row>
+</body>

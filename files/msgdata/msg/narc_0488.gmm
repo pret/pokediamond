@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0488_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome!\nHow may I serve you?</language>
+	</row>
+	<row id="narc_0488_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Please come again!</language>
+	</row>
+	<row id="narc_0488_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Is there anything else I may do\nfor you?</language>
+	</row>
+	<row id="narc_0488_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You don’t have enough money.</language>
+	</row>
+	<row id="narc_0488_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 8, 0}? Certainly.\nHow many would you like?</language>
+	</row>
+	<row id="narc_0488_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 8, 0}, and you want {STRVAR_1 51, 1}.\nThat will be ${STRVAR_1 55, 2}. OK?</language>
+	</row>
+	<row id="narc_0488_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Here you are!\nThank you!\rYou put away the {STRVAR_1 8, 0}\nin the {STRVAR_1 27, 1} Pocket.</language>
+	</row>
+	<row id="narc_0488_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You have no more room for this\nitem.</language>
+	</row>
+	<row id="narc_0488_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">CANCEL</language>
+	</row>
+	<row id="narc_0488_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">${STRVAR_1 53, 0}</language>
+	</row>
+	<row id="narc_0488_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You also get a Premier Ball as\nan added bonus.</language>
+	</row>
+	<row id="narc_0488_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thank you! We’ll send\nthe {STRVAR_1 10, 0} to your PC.</language>
+	</row>
+	<row id="narc_0488_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Your PC is full.\nYou have no more room for goods.</language>
+	</row>
+	<row id="narc_0488_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You placed the {STRVAR_1 10, 0}\nin the Seal Case.</language>
+	</row>
+	<row id="narc_0488_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Seal Case is full.\nYou have no more room for Seals.</language>
+	</row>
+	<row id="narc_0488_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">BUY</language>
+	</row>
+	<row id="narc_0488_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SELL</language>
+	</row>
+	<row id="narc_0488_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SEE YA!</language>
+	</row>
+	<row id="narc_0488_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Money</language>
+	</row>
+	<row id="narc_0488_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">${STRVAR_1 55, 0}</language>
+	</row>
+	<row id="narc_0488_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">In Bag: {STRVAR_1 52, 0}</language>
+	</row>
+	<row id="narc_0488_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">x{STRVAR_1 51, 0}</language>
+	</row>
+	<row id="narc_0488_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">${STRVAR_1 55, 0}</language>
+	</row>
+	<row id="narc_0488_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">YES</language>
+	</row>
+	<row id="narc_0488_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">NO</language>
+	</row>
+</body>

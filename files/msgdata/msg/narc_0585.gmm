@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0585_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 230\nFight Area</language>
+	</row>
+	<row id="narc_0585_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hold it right there, Trainer!\rSince you’re here, you’ve got\nto visit the Battle Tower.\rYou don’t earn Exp. Points, and your\nPokédex isn’t updated there.\rIt’s a place solely for Trainers to\nhone their own skills.</language>
+	</row>
+	<row id="narc_0585_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hold it right there, Trainer!\nHave you been to the Battle Tower?\rIt’s a good place to learn useful\nbattle techniques.\rYou get to see all sorts of Pokémon\nand their moves, also!</language>
+	</row>
+</body>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0315_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hey! I’ve been waiting for you!\nWelcome to the Sinnoh region!\rThis is a region of great natural beauty\nwhere Pokémon that have never been\rseen before can be found! Follow me!\nI’ll walk you through Jubilife City!\r</language>
+	</row>
+	<row id="narc_0315_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You’ll find a cave if you walk straight\ndown this road.\fYou should go there and check it out!\r</language>
+	</row>
+	<row id="narc_0315_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You’ll find a cave if you walk straight\ndown this road.\fYou should go there and check it out!\r</language>
+	</row>
+	<row id="narc_0315_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A Pokémon Watch is for all Trainers!\nWe call it a Pokétch for short!\r</language>
+	</row>
+	<row id="narc_0315_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There are various Pokétch apps\nthat you can add to it!</language>
+	</row>
+	<row id="narc_0315_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} obtained the Digital Watch\nPokétch app!\r</language>
+	</row>
+	<row id="narc_0315_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wow! You’ve done a great job.\rI can sense that you could be a truly\ngreat Pokémon Trainer.\rYou have the Thorn Pokémon ROSELIA.\nSome Pokémon that haven’t evolved in\rother regions might evolve here in\nthe Sinnoh region.\rHmm... Let’s see what happens with\nyour ROSELIA...\r</language>
+	</row>
+	<row id="narc_0315_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wow! You’ve done a great job.\rI can sense that you could be a truly\ngreat Pokémon Trainer.\rYou have the Thorn Pokémon ROSELIA.\nSome Pokémon that haven’t evolved in\rother regions might evolve here in\nthe Sinnoh region.\rLet’s heal your ROSELIA and see what\nhappens...\r</language>
+	</row>
+	<row id="narc_0315_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A wondrous journey awaits you in\nthe Sinnoh region!\r</language>
+	</row>
+	<row id="narc_0315_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A wondrous journey awaits you in\nthe Sinnoh region!</language>
+	</row>
+	<row id="narc_0315_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thank you for playing!\rWe will see you again at the launch of\fPokémon Diamond and Pokémon Pearl!</language>
+	</row>
+	<row id="narc_0315_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thank you for playing!\rWe will see you again at the launch of\fPokémon Diamond and Pokémon Pearl!</language>
+	</row>
+	<row id="narc_0315_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Please try again.</language>
+	</row>
+	<row id="narc_0315_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jubilife City\nCity of Joy</language>
+	</row>
+	<row id="narc_0315_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 203\nJubilife City</language>
+	</row>
+	<row id="narc_0315_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 203\nOreburgh City</language>
+	</row>
+	<row id="narc_0315_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Trainer Tip!\rAll Pokémon that are involved in\na battle earn Exp. Points!\rWhen those Exp. Points reach a certain\namount, the Pokémon levels up\fand becomes stronger!\n</language>
+	</row>
+	<row id="narc_0315_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Trainer Tip!\rA Pokémon’s health is called its\nHit Points (HP).\rBe careful: if your Pokémon’s HP hits 0,\nit will no longer be able to battle!\n</language>
+	</row>
+	<row id="narc_0315_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">This is the end of the demo version.\n\nWe look forward to seeing you again soon!</language>
+	</row>
+</body>

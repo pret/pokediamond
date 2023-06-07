@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0456_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m using the Dowsing Machine on\nmy Pokétch.\rI’m looking for things buried under\nthe snow.</language>
+	</row>
+	<row id="narc_0456_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The boulder is encrusted with ice.\nIt is bone chilling to touch.</language>
+	</row>
+	<row id="narc_0456_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 217\nLake Acuity</language>
+	</row>
+	<row id="narc_0456_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 216\nLake Acuity</language>
+	</row>
+</body>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0546_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The weather and the terrain here\nare much more extreme than Sinnoh.\rI imagine there would be a large\nvariety of Pokémon here.</language>
+	</row>
+	<row id="narc_0546_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s not only Sinnoh’s best that\ngather at the Battle Tower.\rWe’re talking about the best Trainers\nin the world.\rIt must be cool being able to get\nyour own Pokémon and battle against\fpeople like you around the world!</language>
+	</row>
+	<row id="narc_0546_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wow, you’ve seen all the Pokémon in\nSinnoh?!\rThat’s awesome! I’m gonna travel with\nPokémon when I get big like you!</language>
+	</row>
+	<row id="narc_0546_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wow, you’ve seen all the Pokémon in\nSinnoh?!\rThat’s awesome! I’m gonna travel with\nPokémon when I get big like you!</language>
+	</row>
+</body>

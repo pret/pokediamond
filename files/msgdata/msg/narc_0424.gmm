@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0424_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You need a Bicycle to go out on\nCycling Road!</language>
+	</row>
+	<row id="narc_0424_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You need a Bicycle to go out on\nCycling Road!\r</language>
+	</row>
+	<row id="narc_0424_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Learn how to shift gears, and you’ll\nbe able to ride anywhere.</language>
+	</row>
+	<row id="narc_0424_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What’s a Bicycle without this?\rYou’ve got to have a Flag!\nIt’s a Pokémon Accessory!\r</language>
+	</row>
+	<row id="narc_0424_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Go through Mt. Coronet from here,\nand you can get to Hearthome City.\rHearthome is where they hold Pokémon\nContests.\rYou should dress up your Pokémon for\nContests with your Accessories.</language>
+	</row>
+</body>

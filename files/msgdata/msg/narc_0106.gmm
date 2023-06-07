@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0106_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There are the Contests!\nThen, we have the Amity Square!\rWe have visitors from all over, so we\nneed to keep the city looking nice!</language>
+	</row>
+	<row id="narc_0106_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">People all over the world follow\nPokémon Contests.\rWhat should I do?\nI could captivate the whole world!</language>
+	</row>
+</body>

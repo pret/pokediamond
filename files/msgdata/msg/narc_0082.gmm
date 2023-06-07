@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0082_00000" index="0">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0082_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">When a Pokémon faints, it just means\nit doesn’t have the power to battle.\rBut it can still use hidden moves\noutside of battle!</language>
+	</row>
+	<row id="narc_0082_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Team Galactic took my Pokémon away.\nThey took other people’s, too.\rSomething should be done, but Team\nGalactic creeps everyone out...\rWhat are they doing to my Pokémon?</language>
+	</row>
+	<row id="narc_0082_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I got my Pokémon back!\rI’m so happy, I feel like riding my Bike\ndown Cycling Road together with it!</language>
+	</row>
+	<row id="narc_0082_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">BUNEARY: Bunbun!</language>
+	</row>
+	<row id="narc_0082_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hi, you cute little Trainer!\nWhat kinds of Pokémon are with you?\rThis Pokétch app will show how\nclose your Pokémon feel to you.\r</language>
+	</row>
+	<row id="narc_0082_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If you spend enough time with them,\nall Pokémon will open up to you.</language>
+	</row>
+	<row id="narc_0082_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hi, you cute little Trainer!\nWhat kinds of Pokémon are with you?\rOh, your {STRVAR_1 0, 0}...\r</language>
+	</row>
+	<row id="narc_0082_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It seems to like you.\nIt must be happy being with you.</language>
+	</row>
+	<row id="narc_0082_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s becoming comfortable around\nyou, I think.</language>
+	</row>
+	<row id="narc_0082_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hmm...\nIt needs to get used to you more.</language>
+	</row>
+</body>

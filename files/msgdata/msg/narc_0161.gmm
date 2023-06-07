@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0161_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’d heard that Team Galactic was\nup to no good.\rBut here in Sunyshore, we’ve never\neven seen any of them around.</language>
+	</row>
+	<row id="narc_0161_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A long time ago, there was a boy\nnamed Cyrus who lived here.\rHe seemed to shun others, and he\npreferred the company of machines.\rHe was a brilliant student, I recall.\nI often wonder what became of him.</language>
+	</row>
+</body>

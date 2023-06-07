@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0521_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Day-Care Man was saying Pokémon\ngrow at different rates.</language>
+	</row>
+	<row id="narc_0521_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s a fair distance from Solaceon\nTown to Veilstone City.\rI suppose you can rest at the cafe,\nbut that place...</language>
+	</row>
+</body>

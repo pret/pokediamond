@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0063_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There are eight Gym Leaders in\nthe Sinnoh region.\rThe objective for Trainers is\nto get Gym Badges from them all.</language>
+	</row>
+	<row id="narc_0063_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A Gym Leader isn’t just like any\nTrainer you meet.\rI’d take as many Pokémon as possible\nif I were you.</language>
+	</row>
+	<row id="narc_0063_00002" index="2">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0063_00003" index="3">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0063_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Roark lets us train our Pokémon in\nthe mine.</language>
+	</row>
+</body>

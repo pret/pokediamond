@@ -1,0 +1,451 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0382_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mystery Zone</language>
+	</row>
+	<row id="narc_0382_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Twinleaf Town</language>
+	</row>
+	<row id="narc_0382_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sandgem Town</language>
+	</row>
+	<row id="narc_0382_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Floaroma Town</language>
+	</row>
+	<row id="narc_0382_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Solaceon Town</language>
+	</row>
+	<row id="narc_0382_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Celestic Town</language>
+	</row>
+	<row id="narc_0382_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jubilife City</language>
+	</row>
+	<row id="narc_0382_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Canalave City</language>
+	</row>
+	<row id="narc_0382_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oreburgh City</language>
+	</row>
+	<row id="narc_0382_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Eterna City</language>
+	</row>
+	<row id="narc_0382_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hearthome City</language>
+	</row>
+	<row id="narc_0382_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pastoria City</language>
+	</row>
+	<row id="narc_0382_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Veilstone City</language>
+	</row>
+	<row id="narc_0382_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sunyshore City</language>
+	</row>
+	<row id="narc_0382_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Snowpoint City</language>
+	</row>
+	<row id="narc_0382_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon League</language>
+	</row>
+	<row id="narc_0382_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 201</language>
+	</row>
+	<row id="narc_0382_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 202</language>
+	</row>
+	<row id="narc_0382_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 203</language>
+	</row>
+	<row id="narc_0382_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 204</language>
+	</row>
+	<row id="narc_0382_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 205</language>
+	</row>
+	<row id="narc_0382_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 206</language>
+	</row>
+	<row id="narc_0382_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 207</language>
+	</row>
+	<row id="narc_0382_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 208</language>
+	</row>
+	<row id="narc_0382_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 209</language>
+	</row>
+	<row id="narc_0382_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 210</language>
+	</row>
+	<row id="narc_0382_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 211</language>
+	</row>
+	<row id="narc_0382_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 212</language>
+	</row>
+	<row id="narc_0382_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 213</language>
+	</row>
+	<row id="narc_0382_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 214</language>
+	</row>
+	<row id="narc_0382_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 215</language>
+	</row>
+	<row id="narc_0382_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 216</language>
+	</row>
+	<row id="narc_0382_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 217</language>
+	</row>
+	<row id="narc_0382_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 218</language>
+	</row>
+	<row id="narc_0382_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 219</language>
+	</row>
+	<row id="narc_0382_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 220</language>
+	</row>
+	<row id="narc_0382_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 221</language>
+	</row>
+	<row id="narc_0382_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 222</language>
+	</row>
+	<row id="narc_0382_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 223</language>
+	</row>
+	<row id="narc_0382_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 224</language>
+	</row>
+	<row id="narc_0382_00040" index="40">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 225</language>
+	</row>
+	<row id="narc_0382_00041" index="41">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 226</language>
+	</row>
+	<row id="narc_0382_00042" index="42">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 227</language>
+	</row>
+	<row id="narc_0382_00043" index="43">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 228</language>
+	</row>
+	<row id="narc_0382_00044" index="44">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 229</language>
+	</row>
+	<row id="narc_0382_00045" index="45">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Route 230</language>
+	</row>
+	<row id="narc_0382_00046" index="46">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oreburgh Mine</language>
+	</row>
+	<row id="narc_0382_00047" index="47">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Valley Windworks</language>
+	</row>
+	<row id="narc_0382_00048" index="48">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Eterna Forest</language>
+	</row>
+	<row id="narc_0382_00049" index="49">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Fuego Ironworks</language>
+	</row>
+	<row id="narc_0382_00050" index="50">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mt. Coronet</language>
+	</row>
+	<row id="narc_0382_00051" index="51">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Spear Pillar</language>
+	</row>
+	<row id="narc_0382_00052" index="52">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Great Marsh</language>
+	</row>
+	<row id="narc_0382_00053" index="53">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Solaceon Ruins</language>
+	</row>
+	<row id="narc_0382_00054" index="54">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Victory Road</language>
+	</row>
+	<row id="narc_0382_00055" index="55">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pal Park</language>
+	</row>
+	<row id="narc_0382_00056" index="56">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Amity Square</language>
+	</row>
+	<row id="narc_0382_00057" index="57">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ravaged Path</language>
+	</row>
+	<row id="narc_0382_00058" index="58">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Floaroma Meadow</language>
+	</row>
+	<row id="narc_0382_00059" index="59">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oreburgh Gate</language>
+	</row>
+	<row id="narc_0382_00060" index="60">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Fullmoon Island</language>
+	</row>
+	<row id="narc_0382_00061" index="61">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sendoff Spring</language>
+	</row>
+	<row id="narc_0382_00062" index="62">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Turnback Cave</language>
+	</row>
+	<row id="narc_0382_00063" index="63">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Flower Paradise</language>
+	</row>
+	<row id="narc_0382_00064" index="64">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Snowpoint Temple</language>
+	</row>
+	<row id="narc_0382_00065" index="65">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wayward Cave</language>
+	</row>
+	<row id="narc_0382_00066" index="66">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ruin Maniac Cave</language>
+	</row>
+	<row id="narc_0382_00067" index="67">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Maniac Tunnel</language>
+	</row>
+	<row id="narc_0382_00068" index="68">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Trophy Garden</language>
+	</row>
+	<row id="narc_0382_00069" index="69">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Iron Island</language>
+	</row>
+	<row id="narc_0382_00070" index="70">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Old Chateau</language>
+	</row>
+	<row id="narc_0382_00071" index="71">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Galactic HQ</language>
+	</row>
+	<row id="narc_0382_00072" index="72">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Verity Lakefront</language>
+	</row>
+	<row id="narc_0382_00073" index="73">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Valor Lakefront</language>
+	</row>
+	<row id="narc_0382_00074" index="74">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Acuity Lakefront</language>
+	</row>
+	<row id="narc_0382_00075" index="75">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Spring Path</language>
+	</row>
+	<row id="narc_0382_00076" index="76">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lake Verity</language>
+	</row>
+	<row id="narc_0382_00077" index="77">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lake Valor</language>
+	</row>
+	<row id="narc_0382_00078" index="78">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lake Acuity</language>
+	</row>
+	<row id="narc_0382_00079" index="79">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Newmoon Island</language>
+	</row>
+	<row id="narc_0382_00080" index="80">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Battle Tower</language>
+	</row>
+	<row id="narc_0382_00081" index="81">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Fight Area</language>
+	</row>
+	<row id="narc_0382_00082" index="82">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Survival Area</language>
+	</row>
+	<row id="narc_0382_00083" index="83">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Resort Area</language>
+	</row>
+	<row id="narc_0382_00084" index="84">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Stark Mountain</language>
+	</row>
+	<row id="narc_0382_00085" index="85">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Seabreak Path</language>
+	</row>
+	<row id="narc_0382_00086" index="86">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hall of Origin</language>
+	</row>
+	<row id="narc_0382_00087" index="87">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Verity Cavern</language>
+	</row>
+	<row id="narc_0382_00088" index="88">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Valor Cavern</language>
+	</row>
+	<row id="narc_0382_00089" index="89">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Acuity Cavern</language>
+	</row>
+	<row id="narc_0382_00090" index="90">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jubilife TV</language>
+	</row>
+	<row id="narc_0382_00091" index="91">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokétch Co.</language>
+	</row>
+	<row id="narc_0382_00092" index="92">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">GTS</language>
+	</row>
+	<row id="narc_0382_00093" index="93">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Trainers’ School</language>
+	</row>
+	<row id="narc_0382_00094" index="94">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mining Museum</language>
+	</row>
+	<row id="narc_0382_00095" index="95">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Flower Shop</language>
+	</row>
+	<row id="narc_0382_00096" index="96">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Cycle Shop</language>
+	</row>
+	<row id="narc_0382_00097" index="97">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Contest Hall</language>
+	</row>
+	<row id="narc_0382_00098" index="98">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Poffin House</language>
+	</row>
+	<row id="narc_0382_00099" index="99">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Foreign Building</language>
+	</row>
+	<row id="narc_0382_00100" index="100">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon Day Care</language>
+	</row>
+	<row id="narc_0382_00101" index="101">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Veilstone Store</language>
+	</row>
+	<row id="narc_0382_00102" index="102">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Game Corner</language>
+	</row>
+	<row id="narc_0382_00103" index="103">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Canalave Library</language>
+	</row>
+	<row id="narc_0382_00104" index="104">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Vista Lighthouse</language>
+	</row>
+	<row id="narc_0382_00105" index="105">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sunyshore Market</language>
+	</row>
+	<row id="narc_0382_00106" index="106">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon Mansion</language>
+	</row>
+	<row id="narc_0382_00107" index="107">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Footstep House</language>
+	</row>
+	<row id="narc_0382_00108" index="108">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Cafe</language>
+	</row>
+	<row id="narc_0382_00109" index="109">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Grand Lake</language>
+	</row>
+	<row id="narc_0382_00110" index="110">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Restaurant</language>
+	</row>
+	<row id="narc_0382_00111" index="111">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Battle Park</language>
+	</row>
+</body>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0542_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pokémon appear where there’s still\nlots of nature left.\rAnd Trainers gather where Pokémon\nappear.\rAnd where Trainers gather, that’s\nwhere Pokémon Centers appear.</language>
+	</row>
+	<row id="narc_0542_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">An Idol goes anywhere to sing for\ntheir adoring fans.\rA Trainer goes anywhere as long\nas it’s with their Pokémon.</language>
+	</row>
+</body>

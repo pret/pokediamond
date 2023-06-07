@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0469_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If I had to describe Sunyshore Gym\nin a word, it’d be...\rShockingly electric!\rWhoops, that’s two words!</language>
+	</row>
+	<row id="narc_0469_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sunyshore’s Gym Leader has been\nbored lately, I hear.\rApparently, there’s been a lack\nof worthwhile challengers.</language>
+	</row>
+</body>

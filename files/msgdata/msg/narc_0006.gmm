@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0006_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The data could not be written.\n\nPlease turn off the power, then\nremove and reinsert the DS Game\nCard.</language>
+	</row>
+	<row id="narc_0006_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Error saving data.\n\nThe backup memory has failed.\nThe game may be played, but\nit is impossible to save.\n\nPlease turn off the power.</language>
+	</row>
+</body>

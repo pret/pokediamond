@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0068_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">All Pokémon have a special power\ncalled an ability.</language>
+	</row>
+	<row id="narc_0068_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">How my Pokémon and I are alike...\rIt’s not anything I can explain\neasily.</language>
+	</row>
+	<row id="narc_0068_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The view is good from up here, but\nit’s a pain going out.\rIf you don’t mind, how about showing\nme a Pokémon called ZUBAT?</language>
+	</row>
+	<row id="narc_0068_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The view is good from up here, but\nit’s a pain going out.\rIf you don’t mind, how about showing\nme a Pokémon called ZUBAT?\rOh! That Pokémon!\nThat’s a ZUBAT!\rWow, that’s cool...\nIt’s so cute...\rThat does it!\nI’ll go out and catch Pokémon, too!\rThank you, my friend!\nThis is a token of my thanks!\r</language>
+	</row>
+	<row id="narc_0068_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Yeah, there are so many kinds of\nPokémon out in the world.\rI want to see them all now!</language>
+	</row>
+</body>

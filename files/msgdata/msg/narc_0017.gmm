@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0017_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Battle Room Results</language>
+	</row>
+	<row id="narc_0017_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Multi Battle Room Results</language>
+	</row>
+	<row id="narc_0017_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Wi-Fi Battle Room Results</language>
+	</row>
+	<row id="narc_0017_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}Single{COLOR 3} {COLOR 2}\n{COLOR 1}Record{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}Multi{COLOR 3} {COLOR 0}\n{COLOR 1}Record{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}Current{COLOR 3} {COLOR 0}\n{COLOR 1}Rank{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}Double{COLOR 3} {COLOR 0}\n{COLOR 1}Record{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}Link{COLOR 3} {COLOR 0}\n{COLOR 1}Record{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}Wi-Fi{COLOR 0}\n{COLOR 1}Record{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}PREV{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}CURRENT{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}RECORD{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}RANK{COLOR 0}</language>
+	</row>
+	<row id="narc_0017_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Win streak: {COLOR 2}{STRVAR_1 53, 0}{COLOR 0} </language>
+	</row>
+	<row id="narc_0017_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 51, 0}</language>
+	</row>
+	<row id="narc_0017_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rank {STRVAR_1 51, 0}, Battle Room {STRVAR_1 52, 1}</language>
+	</row>
+	<row id="narc_0017_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">LIST OF LEADERS</language>
+	</row>
+	<row id="narc_0017_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}</language>
+	</row>
+	<row id="narc_0017_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">CANCEL</language>
+	</row>
+	<row id="narc_0017_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 36, 0}\n{STRVAR_1 37, 1}</language>
+	</row>
+	<row id="narc_0017_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 36, 0}</language>
+	</row>
+	<row id="narc_0017_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Home country\nunregistered</language>
+	</row>
+	<row id="narc_0017_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">DIAMOND</language>
+	</row>
+	<row id="narc_0017_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PEARL</language>
+	</row>
+</body>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0137_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If you use the hidden move Fly,\nyou’ll be instantly whisked to any\ftown you’ve visited before.</language>
+	</row>
+	<row id="narc_0137_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Maylene, the Gym Leader, is a cute\nlittle girl.\rBut don’t let her looks fool you.\nEven grown-ups have trouble with her.</language>
+	</row>
+</body>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0384_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Day-Care Couple</language>
+	</row>
+	<row id="narc_0384_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Link trade</language>
+	</row>
+	<row id="narc_0384_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Link trade</language>
+	</row>
+	<row id="narc_0384_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Kanto</language>
+	</row>
+	<row id="narc_0384_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Johto</language>
+	</row>
+	<row id="narc_0384_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hoenn</language>
+	</row>
+	<row id="narc_0384_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sinnoh</language>
+	</row>
+	<row id="narc_0384_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">----------</language>
+	</row>
+	<row id="narc_0384_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Distant land</language>
+	</row>
+	<row id="narc_0384_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Traveling Man</language>
+	</row>
+	<row id="narc_0384_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Riley</language>
+	</row>
+</body>

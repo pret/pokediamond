@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0443_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">My big sister collects shards.\rShe says they remind her of the place\nshe worked at long ago.</language>
+	</row>
+	<row id="narc_0443_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If you find ten shards of the same\ncolor, please let me know.\rI would gladly trade you a Technical\nMachine for them.</language>
+	</row>
+	<row id="narc_0443_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You’ve got ten shards in the same\ncolor, haven’t you?\rWould you like to trade them for\na Technical Machine?</language>
+	</row>
+	<row id="narc_0443_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">For your ten Red Shards, you get\nthis {STRVAR_1 8, 0} {STRVAR_1 6, 1}.\r</language>
+	</row>
+	<row id="narc_0443_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">For your ten Blue Shards, you get\nthis {STRVAR_1 8, 0} {STRVAR_1 6, 1}.\r</language>
+	</row>
+	<row id="narc_0443_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">For your ten Yellow Shards, you get\nthis {STRVAR_1 8, 0} {STRVAR_1 6, 1}.\r</language>
+	</row>
+	<row id="narc_0443_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">For your ten Green Shards, you get\nthis {STRVAR_1 8, 0} {STRVAR_1 6, 1}.\r</language>
+	</row>
+	<row id="narc_0443_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You don’t want anything?\nI feel unwanted...</language>
+	</row>
+	<row id="narc_0443_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh, your Bag is full.\rGiggle... It’s OK, I can trade\nanytime. Next time will be fine.</language>
+	</row>
+	<row id="narc_0443_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Red Shards: Sunny Day\nBlue Shards: Rain Dance\fYellow Shards: Sandstorm\fGreen Shards: Hail\f...The Weather Institute</language>
+	</row>
+</body>

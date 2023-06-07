@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0220_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Something huge is going to happen,\nI think...maybe. Right?\rDon’t meddle around! Of course,\nyou’re going to, aren’t you?\rThat’s why the two of us will team up\nto take you down to the ground!\r</language>
+	</row>
+	<row id="narc_0220_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Something huge is going to happen,\nI think...maybe. Right?\rDon’t meddle around! Of course,\nyou’re going to, aren’t you?\rThat’s why the two of us will team up\nto take you down to the ground!\rOh, but you have only one Pokémon?\nScram, then!\r</language>
+	</row>
+	<row id="narc_0220_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Well, that was just pathetic...\rWe’re just gonna let you pass so you\ncan get pulverized by our bosses!</language>
+	</row>
+	<row id="narc_0220_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: ...\rNow, all will end.\nAnd everything will begin.\rWith this Red Chain I will pry open\nthe portal to another dimension.\rI command that you unleash your\npower for me...\rDIALGA, the mythical Pokémon, and\nthe master of time!\r</language>
+	</row>
+	<row id="narc_0220_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: ...\rNow, all will end.\nAnd everything will begin.\rWith this Red Chain I will pry open\nthe portal to another dimension.\rI command that you unleash your\npower for me...\rPALKIA, the mythical Pokémon, and\nthe master of space and dimensions!\r</language>
+	</row>
+	<row id="narc_0220_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: ...This will bring about the\ndestruction of all things.\rWith everything gone, there will be\nno fighting and no strife.\rCan you feel time distorting?\nOnly I can choose to stop it.\r</language>
+	</row>
+	<row id="narc_0220_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: ...This will bring about the\ndestruction of all things.\rWith everything gone, there will be\nno fighting and no strife.\rFeel the dimensions distorting...\nOnly I can stop it.\r</language>
+	</row>
+	<row id="narc_0220_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: This is the mythical Pokémon\nthat created Sinnoh!\rDIALGA, the ancient deity of time!\r</language>
+	</row>
+	<row id="narc_0220_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: This is the mythical Pokémon\nthat created Sinnoh!\rPALKIA, the ancient deity of space\nand the dimensions!\r</language>
+	</row>
+	<row id="narc_0220_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">DIALGA: Gugyugubah!\r</language>
+	</row>
+	<row id="narc_0220_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PALKIA: Gagyagyaah!\r</language>
+	</row>
+	<row id="narc_0220_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: This world cannot be molded\ninto the ultimate world I seek!\rIt’s far easier to create an entirely\nnew world than to change this one!\rA new world in which I am the ruler\nof all things! I shall become a deity!</language>
+	</row>
+	<row id="narc_0220_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mars: There’s no need to rush.\rI can understand you want to battle\nour boss real bad, but you’ll have\fto go through me first.\rAfter all, you’ve made me look bad\nmore times than I care to remember!\r</language>
+	</row>
+	<row id="narc_0220_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jupiter: And I’ll be next.\rYou might be tough, but this time,\nthe gloves are coming off!\r</language>
+	</row>
+	<row id="narc_0220_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Hold on one second!\rDon’t you start the party without\nme!\r</language>
+	</row>
+	<row id="narc_0220_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jupiter: Humph!\rWell, if it isn’t the little boy who\nran off crying at Lake Acuity!\rDid you get any tougher since then?\nWe’ll beat you two-on-two!\r</language>
+	</row>
+	<row id="narc_0220_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mars: You don’t think you can just\nrun off now, do you?\r</language>
+	</row>
+	<row id="narc_0220_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mars: Well, hotshot?\nNow what?</language>
+	</row>
+	<row id="narc_0220_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jupiter: Oh? You chickening out now?\rYou finally realized that you can’t\nbeat our boss, eh?\r</language>
+	</row>
+	<row id="narc_0220_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jupiter: What’s the matter?\nDon’t tell me you’re shaking?</language>
+	</row>
+	<row id="narc_0220_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: ...Heh.\nMy Pokémon are tough, right?\fI can get even tougher!\r...But, you know, that’s it for us.\nWe’ve hit the wall...\r{STRVAR_1 3, 1}, I’ll help you with\nthis!\r</language>
+	</row>
+	<row id="narc_0220_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} fully healed\n{STRVAR_1 3, 1}’s Pokémon!\r</language>
+	</row>
+	<row id="narc_0220_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Hey, {STRVAR_1 3, 1}!\nThis is it! It’s your show now!</language>
+	</row>
+	<row id="narc_0220_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: Oh! DIALGA...\nThis is...\rFantastic!\nBeautiful!\rIt’s the creation of a new galaxy!\nMy new world!\r</language>
+	</row>
+	<row id="narc_0220_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: Oh! PALKIA...\nThis is...\rFantastic!\nBeautiful!\rIt’s the creation of a new galaxy!\nMy new world!\r</language>
+	</row>
+	<row id="narc_0220_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: ...Wh-what?!\r</language>
+	</row>
+	<row id="narc_0220_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">UXIE: Piiih!\r</language>
+	</row>
+	<row id="narc_0220_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">MESPRIT: Piiih!\r</language>
+	</row>
+	<row id="narc_0220_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">AZELF: Piiih!\r</language>
+	</row>
+	<row id="narc_0220_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: ...!\rThe Red Chain!\nIt crumbled away to nothing?!\rBut why?\rWhy would MESPRIT, the Pokémon of\nLake Verity, appear by your side?\rBut never mind that!\nIt’s all destroyed!\fMy galaxy is gone!\r...I won’t allow this...\rI will capture those three again\nand craft another Red Chain!\rBut before I even think about that,\nI’m going to completely crush you!</language>
+	</row>
+	<row id="narc_0220_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: ...!\rWhat is truly the ultimate to you?\nWhat do you consider perfection?\rThe most important thing...\nWhat shines the brightest...\r...Telling you is meaningless.\nBut I will not give up.\rI will become a deity one day...\nAnd I will make the ultimate mine...</language>
+	</row>
+	<row id="narc_0220_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Boss: ...!\rWhat is truly the ultimate to you?\nWhat do you consider perfection?\rThe most beautiful thing...\nJoy that shines the brightest...\r...Telling you is meaningless.\nBut I will not give up.\rI will become a deity one day...\nAnd I will make the ultimate mine...</language>
+	</row>
+	<row id="narc_0220_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">DIALGA: Gugyugubah!</language>
+	</row>
+	<row id="narc_0220_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PALKIA: Gagyagyaah!</language>
+	</row>
+	<row id="narc_0220_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">DIALGA returned to the world from\nwhich it came...</language>
+	</row>
+	<row id="narc_0220_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PALKIA returned to the world from\nwhich it came...</language>
+	</row>
+	<row id="narc_0220_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: DIALGA, the master of\ntime...\rIt’s impossible to tell if it is\nenraged or saddened...\rBut to me, DIALGA appears to be\nwaiting for you, {STRVAR_1 3, 0}...\rIt seems to be challenging you\nas a test...\rGo on, {STRVAR_1 3, 0}.\nFace up to DIALGA!\rListen to its heart.\nUnderstand its thoughts.\rDIALGA is out of control after being\ndragged out by the Red Chain\fand forced to use its power.\rDIALGA seems to be entrusting you\nwith stopping it...</language>
+	</row>
+	<row id="narc_0220_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: PALKIA, the master of\nspace and the dimensions...\rIt’s impossible to tell if it is\nenraged or saddened...\rBut to me, PALKIA appears to be\nwaiting for you, {STRVAR_1 3, 0}...\rIt seems to be challenging you\nas a test...\rGo on, {STRVAR_1 3, 0}.\nFace up to PALKIA!\rListen to its heart.\nUnderstand its thoughts.\rPALKIA is out of control after being\ndragged out by the Red Chain\fand forced to use its power.\rPALKIA seems to be entrusting you\nwith stopping it...</language>
+	</row>
+	<row id="narc_0220_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: Go on, {STRVAR_1 3, 0}.\nFace up to the Pokémon!\rListen to its heart.\nUnderstand its thoughts.\rThe mythical Pokémon seems to be\nentrusting you with stopping it...\r</language>
+	</row>
+	<row id="narc_0220_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: {STRVAR_1 3, 0}... I ran into\n{STRVAR_1 3, 1} a little while ago.\rHe said that he believed in you,\n{STRVAR_1 3, 0}.\rHe said that you could get the job\ndone.\rI feel the same way.\rPlease help that Pokémon!\rIt’s suffering from being dragged\nout by Team Galactic!</language>
+	</row>
+	<row id="narc_0220_00040" index="40">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: {STRVAR_1 3, 0}...\nI just ran into {STRVAR_1 3, 1}.\rHe said that he believed in you,\n{STRVAR_1 3, 0}.\rHe said that you could get the job\ndone.\rI think so too.\rYou’ve got to help that Pokémon!\rIt’s suffering from being dragged\nout by Team Galactic!</language>
+	</row>
+	<row id="narc_0220_00041" index="41">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: {STRVAR_1 3, 1}!\nI don’t know how...\rYou were magnificent.\nTruly, you were incredible.\rI’ve lived for sixty years, but I’ve\nnever been thrilled like this!\r</language>
+	</row>
+	<row id="narc_0220_00042" index="42">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Since the last time, the\nprofessor did a lot of research...\rHe became very concerned about you,\n{STRVAR_1 3, 1}, so he came out to\fa place as treacherous as this...\r{STRVAR_1 3, 1}, I’m so glad you’re\nsafe.\rLet’s go home!\r</language>
+	</row>
+	<row id="narc_0220_00043" index="43">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Since the last time, the\nprofessor did a lot of research...\rHe became very worried about you,\n{STRVAR_1 3, 1}, so he came out to\fa place as terrible as this...\r{STRVAR_1 3, 1}, I’m glad to see\nyou’re safe.\rLet’s leave this place already!\r</language>
+	</row>
+	<row id="narc_0220_00044" index="44">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: No one has the right to take\naway anyone’s future or anyone’s\fworld...</language>
+	</row>
+	<row id="narc_0220_00045" index="45">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: {STRVAR_1 3, 0}, I’ll be looking\nforward to seeing your Pokédex.\rGo wherever you’ve never visited\nbefore.\rThat way, you should see Pokémon\nyou haven’t yet seen.</language>
+	</row>
+	<row id="narc_0220_00046" index="46">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: ...You know, that Pokémon was\nextraordinary, wasn’t it?\rWas it really the Pokémon that\ncreated the Sinnoh region...?</language>
+	</row>
+	<row id="narc_0220_00047" index="47">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: ...You know, that Pokémon was\nextraordinary, wasn’t it?\rWas it really the Pokémon that\ncreated the Sinnoh region...?</language>
+	</row>
+	<row id="narc_0220_00048" index="48">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}’s Azure Flute is\nmaking a sound.\rWould you like to play\nthe Azure Flute?</language>
+	</row>
+	<row id="narc_0220_00049" index="49">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} played\nthe Azure Flute.\r</language>
+	</row>
+	<row id="narc_0220_00050" index="50">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A stairway of light appeared!</language>
+	</row>
+	<row id="narc_0220_00051" index="51">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Azure Flute’s notes rang hollowly\nto no effect...\rIt appears to be useless here...</language>
+	</row>
+</body>

@@ -1,5 +1,0 @@
-The locked doors only open with\na special key.\rNow, if I was a comedy relief sort\nof bad guy, I’d tell you...\rBut I really don’t know!
-The door is locked.\nA special key is needed.
-The door is locked.\nA special key is needed.\rUse the Galactic Key?
-The door opened.
-The Team Galactic credo!\nEverything belongs to Team Galactic!\rLook beyond the world--space will\nbecome Team Galactic’s!

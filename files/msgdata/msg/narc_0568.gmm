@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0568_00000" index="0">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語"></language>
+	</row>
+	<row id="narc_0568_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PC{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PC{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PC{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PC{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PC{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Big Boulder{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Yellow Cushion{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Blue Cushion{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Wooden Chair{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Big Table{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Plain Table{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Small Table{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Long Table{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Wide Table{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Poké Table{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Big Bookshelf{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Small Bookshelf{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Research Rack{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Bike Rack{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Shop Shelf{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Display Shelf{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Cupboard{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Wood Dresser{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Pink Dresser{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}TV{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Refrigerator{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Pretty Sink{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Feathery Bed{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Trash Can{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Cardboard Box{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Crate{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Container{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Oil Drum{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Big Oil Drum{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Iron Beam{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Potted Plant{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Poké Flower{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Healing Machine{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Lab Machine{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00040" index="40">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Test Machine{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00041" index="41">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Game System{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00042" index="42">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Vending Machine{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00043" index="43">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Red Bike{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00044" index="44">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Green Bike{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00045" index="45">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Binoculars</language>
+	</row>
+	<row id="narc_0568_00046" index="46">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Globe{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00047" index="47">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Gym Statue{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00048" index="48">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Red Tent{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00049" index="49">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Blue Tent{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00050" index="50">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Clear Tent{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00051" index="51">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Maze Block 1{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00052" index="52">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Maze Block 2{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00053" index="53">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Maze Block 3{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00054" index="54">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Maze Block 4{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00055" index="55">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Maze Block 5{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00056" index="56">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Hole Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00057" index="57">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Pit Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00058" index="58">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Smoke Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00059" index="59">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Big Smoke Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00060" index="60">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Rock Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00061" index="61">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Rockfall Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00062" index="62">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Foam Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00063" index="63">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Bubble Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00064" index="64">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Alert Tool 1{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00065" index="65">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Alert Tool 2{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00066" index="66">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Alert Tool 3{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00067" index="67">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Alert Tool 4{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00068" index="68">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Leaf Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00069" index="69">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Flower Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00070" index="70">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Ember Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00071" index="71">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Fire Tool{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00072" index="72">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Cute Cup{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00073" index="73">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Cool Cup{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00074" index="74">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Beauty Cup{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00075" index="75">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Tough Cup{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00076" index="76">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Clever Cup{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00077" index="77">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Blue Crystal{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00078" index="78">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Pink Crystal{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00079" index="79">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Red Crystal{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00080" index="80">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Yellow Crystal{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00081" index="81">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Pretty Gem{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00082" index="82">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Shiny Gem{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00083" index="83">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Mystic Gem{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00084" index="84">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Glitter Gem{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00085" index="85">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Bronze Trophy{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00086" index="86">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Silver Trophy{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00087" index="87">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Gold Trophy{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00088" index="88">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Great Trophy{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00089" index="89">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Ball Ornament{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00090" index="90">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Round Ornament{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00091" index="91">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Clear Ornament{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00092" index="92">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}CHARMANDER Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00093" index="93">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}BULBASAUR Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00094" index="94">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}SQUIRTLE Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00095" index="95">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}CYNDAQUIL Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00096" index="96">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}CHIKORITA Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00097" index="97">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}TOTODILE Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00098" index="98">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}TORCHIC Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00099" index="99">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}TREECKO Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00100" index="100">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}MUDKIP Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00101" index="101">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}CHIMCHAR Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00102" index="102">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}TURTWIG Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00103" index="103">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PIPLUP Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00104" index="104">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PIKACHU Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00105" index="105">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PLUSLE Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00106" index="106">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}MINUN Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00107" index="107">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}CLEFAIRY Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00108" index="108">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}JIGGLYPUFF Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00109" index="109">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}WOBBUFFET Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00110" index="110">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}MEOWTH Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00111" index="111">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}SKITTY Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00112" index="112">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}GLAMEOW Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00113" index="113">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}BUNEARY Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00114" index="114">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}WEAVILE Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00115" index="115">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}MUNCHLAX Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00116" index="116">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}BONSLY Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00117" index="117">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}MIME JR. Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00118" index="118">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}LUCARIO Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00119" index="119">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}MANTYKE Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00120" index="120">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}BUIZEL Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00121" index="121">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}CHATOT Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00122" index="122">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}MANAPHY Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00123" index="123">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}SNORLAX Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00124" index="124">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}WAILORD Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00125" index="125">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}MAGNEZONE Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00126" index="126">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}DRIFLOON Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00127" index="127">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}HAPPINY Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00128" index="128">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}PACHIRISU Doll{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00129" index="129">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English"> -</language>
+	</row>
+	<row id="narc_0568_00130" index="130">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English"> -</language>
+	</row>
+	<row id="narc_0568_00131" index="131">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English"> -</language>
+	</row>
+	<row id="narc_0568_00132" index="132">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English"> -</language>
+	</row>
+	<row id="narc_0568_00133" index="133">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Wide Sofa{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00134" index="134">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Bonsai{COLOR 0}</language>
+	</row>
+	<row id="narc_0568_00135" index="135">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dainty Flowers</language>
+	</row>
+	<row id="narc_0568_00136" index="136">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lovely Flowers</language>
+	</row>
+	<row id="narc_0568_00137" index="137">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Pretty Flowers</language>
+	</row>
+	<row id="narc_0568_00138" index="138">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lavish Flowers</language>
+	</row>
+</body>

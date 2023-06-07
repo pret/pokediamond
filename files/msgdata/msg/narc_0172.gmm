@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0172_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hello, hello. Would you like to hear\na trendy saying?</language>
+	</row>
+	<row id="narc_0172_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Very well...\rThe trendy thing to say for you\nwould be...\r{STRVAR_1 28, 0}!\rThat’s a trendy sort of thing\nto say.</language>
+	</row>
+	<row id="narc_0172_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh, come on now. With an attitude like\nthat, you’ll fall behind the times!</language>
+	</row>
+	<row id="narc_0172_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I hope you’ll use trendy sayings\nin a trendy way.</language>
+	</row>
+	<row id="narc_0172_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hello, hello. Are you using trendy\nsayings?</language>
+	</row>
+	<row id="narc_0172_00005" index="5">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0172_00006" index="6">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXX</language>
+	</row>
+</body>

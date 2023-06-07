@@ -1,7 +1,0 @@
-Despite the exploration team’s best\nefforts, the rare, oddly colored\nPokémon eluded detection.\nThe rumored red GYARADOS failed to\nappear to the dispirited team...
-That concludes our special report,\n“Search for the Red GYARADOS!”\rBrought to you by Jubilife TV on\nNationwide Net!\r
-See you next week, same time,\nsame channel!
-The TV is showing the title screen\nof a video game.
-The X Button\nopens the menu!
-It’s a Wii!\nIt’s controlled by a Wii Remote!
-{STRVAR_1 3, 0} checked the PC.\rPokémon Basics...\rPeople live alongside Pokémon in\nthis world.\rThe people that battle Pokémon are\ncalled Pokémon Trainers.
