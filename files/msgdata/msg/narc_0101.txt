@@ -1,3 +1,0 @@
-Question: 12 plus 28 is?\nAnswer: ←30 ↑40 →50
-Correct!\nCongratulations!
-Please answer the quiz!

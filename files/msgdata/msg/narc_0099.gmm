@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0099_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’d like to buy the item Revive, but\nthey won’t sell it to someone with\fonly two Gym Badges...</language>
+	</row>
+	<row id="narc_0099_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’ve heard there are Accessories\nto be found.\rSomeone told me that you can find\nsome in Amity Square.</language>
+	</row>
+</body>

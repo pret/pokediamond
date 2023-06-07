@@ -5,6 +5,7 @@
 #include "game_init.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0006.h"
 #include "save_data_write_error.h"
 #include "text.h"
 #include "render_window.h"
@@ -64,9 +65,9 @@ THUMB_FUNC void ShowSaveDataWriteError(u32 heap_id, u32 err_no)
 
     u32 msg_no;
     if (err_no == 0) {
-        msg_no = 1;
+        msg_no = narc_0006_00001; // Error saving data. The backup memory has failed...
     } else {
-        msg_no = 0;
+        msg_no = narc_0006_00000; // The data could not be written. Please turn off the power...
     }
 
     FUN_0200E3A0(PM_LCD_TOP, 0);

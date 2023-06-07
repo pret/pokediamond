@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0093_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You need a Bicycle to go out on\nCycling Road!</language>
+	</row>
+	<row id="narc_0093_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You need a Bicycle to go out on\nCycling Road!\r</language>
+	</row>
+	<row id="narc_0093_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Learn how to shift gears, and you’ll\nbe able to ride anywhere.</language>
+	</row>
+	<row id="narc_0093_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}, long time, no see!\rOh? You look puzzled.\nYou’re wondering who I am.\rI’m Professor Rowan’s assistant and\n{STRVAR_1 3, 1}’s father.\rI’ve come a long way to help you on\nyour adventure at the professor’s\fbehest.\r{STRVAR_1 3, 0}, let me ask you,\nhow many Pokémon have you met?\r</language>
+	</row>
+	<row id="narc_0093_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}, long time, no see!\rOh? You look puzzled.\nYou’re wondering who I am.\rI’m Professor Rowan’s assistant and\n{STRVAR_1 3, 1}’s father.\rI’ve come a long way to help you on\nyour adventure at the professor’s\fbehest.\r{STRVAR_1 3, 0}, let me ask you,\nhow many Pokémon have you met?\r</language>
+	</row>
+	<row id="narc_0093_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh, my!\nYou’ve met {STRVAR_1 52, 1} Pokémon!\rWonderful! Yes, bravo!\nProfessor Rowan should be delighted!\rHere is something for you!\r</language>
+	</row>
+	<row id="narc_0093_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A Pokémon holding an Exp. Share\nwill be given some of the Exp. Points\ffrom battle.\rIt will get Exp. Points even if it\ndidn’t actually battle.\rI would say an Exp. Share is quite\nuseful for raising weak Pokémon.\rAlso, a Pokémon you get in a trade\nmay disobey you if it is too high\fin level.\rDon’t worry, though. It will obey if\nyou have enough Gym Badges.</language>
+	</row>
+	<row id="narc_0093_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You’ve met only {STRVAR_1 52, 1} Pokémon?\rHmm...\nYou’ve got to find at least 35.\rIf you can’t, it will be tough to\ncomplete the Sinnoh Pokédex.</language>
+	</row>
+</body>

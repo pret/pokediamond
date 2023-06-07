@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0221_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dodogyuuun!\r</language>
+	</row>
+	<row id="narc_0221_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">ARCEUS disappeared from sight...</language>
+	</row>
+</body>

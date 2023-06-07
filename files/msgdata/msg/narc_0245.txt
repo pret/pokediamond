@@ -1,3 +1,0 @@
-{STRVAR_1 3, 0}: Darn it!\nWhat was that all about?!\rOh, hey, {STRVAR_1 3, 1}.\nThat Buck guy wiped us!\rOh, man... There’s always tough\nTrainers around everywhere.\rBut you know? Losing means I have\nroom to become even tougher.\rThat’s why there’s the Battle Tower\nin the Battle Zone.
-{STRVAR_1 3, 0}: Darn it!\nI’m still choked up from losing.\rBut you know? Losing means I have\nroom to become even tougher.\rThat’s why there’s the Battle Tower\nin the Battle Zone.
-{STRVAR_1 3, 0}: Hey, {STRVAR_1 3, 1}!\nAre you still raising your Pokémon?\rMe? You need to ask? Of course I am.\nThey’re my partners!\rI’m going to rule at the Battle Tower\nwith them.\rI’ll prove how strong we’ve become\nand totally shock the guy there.

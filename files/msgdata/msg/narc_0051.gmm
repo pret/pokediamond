@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0051_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hello.\nThis is the Canalave Library.\rPlease keep quiet while you’re on\nthe premises.</language>
+	</row>
+	<row id="narc_0051_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">H-hello!\nThis is the Canalave Library.\rPlease keep quiet while you’re on\nthe premises.\rIt certainly wasn’t me who screamed,\r{SIZE 200}“Gyaaah!!”{SIZE 100}\r{SIZE 200}{SIZE 100}or shouted,\r{SIZE 200}“Help meee!!”{SIZE 100}\r{SIZE 200}{SIZE 100}No, really, that wasn’t me\nscreaming!</language>
+	</row>
+	<row id="narc_0051_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">...\r</language>
+	</row>
+	<row id="narc_0051_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What is it? Please don’t disturb\nme when I’m reading.\r</language>
+	</row>
+	<row id="narc_0051_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’ve been asking people not to\ndisturb me while I’m reading...\rI shouldn’t even have bothered...\nI’m all agitated now!</language>
+	</row>
+	<row id="narc_0051_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The ceiling-high bookshelves are\ncrammed with books.</language>
+	</row>
+	<row id="narc_0051_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The shelves are lined with books\nworn from being read by many people.</language>
+	</row>
+</body>

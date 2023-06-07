@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0187_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Survival Area’s past here.\nStark Mountain is this way, too.</language>
+	</row>
+	<row id="narc_0187_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I should catch me some wicked\nPokémon for the Battle Tower.</language>
+	</row>
+</body>

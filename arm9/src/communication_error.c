@@ -5,6 +5,7 @@
 #include "MI_dma.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0200.h"
 #include "text.h"
 #include "brightness.h"
 #include "render_window.h"
@@ -75,19 +76,19 @@ THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
     {
         default:
         case 0:
-            error_message_no = 1;
+            error_message_no = narc_0200_00001; //A communication error has occurred. If you were in the Union Room...
             break;
         case 1:
-            error_message_no = 2;
+            error_message_no = narc_0200_00002; //An error occurred while attempting to communicate. ({STRVAR_1 54, 0}) Please turn off the power...
             break;
         case 2:
-            error_message_no = 3;
+            error_message_no = narc_0200_00003; //A communication error has occurred. You will be returned to the title screen...
             break;
         case 3:
-            error_message_no = 4;
+            error_message_no = narc_0200_00004; //The GTS is extremely busy now. Please wait a while and try again.
             break;
         case 4:
-            error_message_no = 5;
+            error_message_no = narc_0200_00005; //An error occurred while attempting\nto communicate.\nPlease turn off the power...
             break;
     }
 

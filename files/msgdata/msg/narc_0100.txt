@@ -1,9 +1,0 @@
-Question: 3 plus 5 plus 7 is?\nAnswer: ←2 ↑16 →15
-Correct!\nCongratulations!
-Please answer the quiz!
-Hey, there!\nHow’s it going, Trainer?\rYou being here tells me you’re going\nto challenge the Gym Leader.\rWell... I hate to break it to\nyou, but that’s impossible.\rYou’re questioning why, and the\nanswer is: she’s not here.\rCome back another time, OK?\nI’ll be right here waiting.
-So, where’s the Gym Leader, you ask.\rI can’t precisely say, but I have a\nhunch that she’ll return one day...\rBut only after you visit other\nplaces, I think.\rHey, I’m sorry I’m not useful to you.\nMy advice giving needs work...
-Hey, there!\nHow’s it going, Champ-to-be?\rThe Gym Leader here is a user of\nGhost-type Pokémon.\rBeware, Normal-type moves have no\neffect at all on ghosts!\rIt’s as if they weren’t there!\nBut you’ll have to see for yourself.\rGo get ’em, challenger!\nI believe in you!
-Oh! {STRVAR_1 3, 0}!\nYou’ve beaten the Gym Leader!\rThere seems to be no end to how\ntough you are getting!\rAt least that’s how I see it!\r...You do realize I say that to\neveryone, right?
-Hearthome City Pokémon Gym\nLeader: Fantina\rCertified Trainers:\n{STRVAR_1 3, 1}
-Hearthome City Pokémon Gym\nLeader: Fantina\rCertified Trainers:\n{STRVAR_1 3, 0}\f{STRVAR_1 3, 1}

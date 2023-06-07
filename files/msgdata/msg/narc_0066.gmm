@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0066_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hahaha!\nI’m gonna swipe your Flag!</language>
+	</row>
+	<row id="narc_0066_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I set some nasty Traps!\nCatch me if you can!</language>
+	</row>
+	<row id="narc_0066_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thanks to the Gym Leader, we can\nplay underground.</language>
+	</row>
+</body>

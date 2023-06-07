@@ -1,2 +1,0 @@
-The save file is corrupted.\nThe previous save file will be loaded.
-The save file has been erased\ndue to corruption or damage.

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0136_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hello.\nI’m pleased to meet you.\rI’m Maylene, and I’m the Gym\nLeader.\rI don’t really know what it means to\nbe strong, or how I got to be the\fGym Leader.\rBut I will do the best I can as the\nGym Leader.\rI take battling very seriously.\nWhenever you’re ready!\r</language>
+	</row>
+	<row id="narc_0136_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">...OK.\nYou win.\rThat was a tough loss.\nI learned a lot from it.\rPlease, accept this Gym Badge.\r</language>
+	</row>
+	<row id="narc_0136_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} received\nthe Cobble Badge from Maylene.</language>
+	</row>
+	<row id="narc_0136_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Um...\nI should explain about that Badge.\rIf you have that official Pokémon\nLeague Badge, you can use the hidden\fmove Fly outside of battle.\rOh, and please take this as well.\r</language>
+	</row>
+	<row id="narc_0136_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">That {STRVAR_1 8, 0} contains\nthe move {STRVAR_1 6, 1}.\rUm... That move inflicts damage,\nand it robs the target’s HP.</language>
+	</row>
+	<row id="narc_0136_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Gee, I’m hungry...\rOh, sorry, it’s nothing.\nI didn’t say anything.\r{STRVAR_1 3, 0}, I can’t explain what\nit means to be strong.\rI don’t know how much effort goes\ninto being strong...\rBut being with Pokémon lets us\nkeep making the effort, doesn’t it?</language>
+	</row>
+	<row id="narc_0136_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hey, there!\nHow’s it going, Champ-to-be?\rThe Gym Leader is a user of\nFighting-type Pokémon.\rShe’d be a terror against Normal-type\nPokémon.\rBut! And it’s a big but!\nJust between you and me...\rMaylene, the Gym Leader, said Flying-\nand Psychic-type Pokémon could be\freal trouble for her!</language>
+	</row>
+	<row id="narc_0136_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh! {STRVAR_1 3, 0}!\nYou’ve beaten the Gym Leader!\rOf course, I thought you’d win.</language>
+	</row>
+	<row id="narc_0136_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Veilstone City Pokémon Gym\nLeader: Maylene\rCertified Trainers:\n{STRVAR_1 3, 1}</language>
+	</row>
+	<row id="narc_0136_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Veilstone City Pokémon Gym\nLeader: Maylene\rCertified Trainers:\n{STRVAR_1 3, 0}\f{STRVAR_1 3, 1}</language>
+	</row>
+</body>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0034_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Did you know?\rSome kinds of Pokémon evolve when\nthey get stronger from battling!\rWhen they evolve, they can take on\ncompletely different forms!</language>
+	</row>
+	<row id="narc_0034_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Evolution makes Pokémon just that\nmuch more fascinating.</language>
+	</row>
+</body>

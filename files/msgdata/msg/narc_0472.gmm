@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0472_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Are you traveling to train?\nHere, have this refreshing drink.\r</language>
+	</row>
+	<row id="narc_0472_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Water is the wellspring of life.\rHaving said that, no one knows where\nPokémon originated.</language>
+	</row>
+</body>

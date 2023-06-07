@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0359_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The save file is corrupted.\nThe previous save file will be loaded.</language>
+	</row>
+	<row id="narc_0359_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The save file has been erased\ndue to corruption or damage.</language>
+	</row>
+</body>

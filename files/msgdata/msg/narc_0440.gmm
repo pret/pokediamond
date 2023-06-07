@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0440_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You know how you can catch Pokémon\nin the trophy garden?\rIf you put this on a caught Pokémon,\nit warms up to you faster.\rI’ll share one with you, so give it\na try.\r</language>
+	</row>
+	<row id="narc_0440_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I hope you become a Trainer that\nPokémon can love and trust.</language>
+	</row>
+	<row id="narc_0440_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m not loafing off.\nI’m just taking a personal break.</language>
+	</row>
+</body>

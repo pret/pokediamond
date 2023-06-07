@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0047_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Whoops!\nHey, {STRVAR_1 3, 1}!\rYou’re going to challenge the Gym\nLeader up past here, eh?\rSomeone should check to see if you’re\nready for this challenge!\rThat someone is me!\nWith my brand-new Gym Badge!\r</language>
+	</row>
+	<row id="narc_0047_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Yeah, yeah, you’re just\na bit better than me, as usual.\rBut listen up!\rLet me tell you who’s going to take\non the Pokémon League and become\fthe Champion.\rYou guessed right!\nIt’s going to be me!\rAnyways, you should be able to\ntake the Gym Leader here.\rHurry up and go make the challenge!\r</language>
+	</row>
+	<row id="narc_0047_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Hey! That’s the Mine\nBadge! Good going!\rYou’re tough enough to consider\nbecoming the Pokémon Champ.\rOf course, I’m tougher, so it’s\nnot going to actually happen.\rAnyways, {STRVAR_1 3, 1}, come with\nme to the library.\r</language>
+	</row>
+	<row id="narc_0047_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: !\r...That tremor...\nThat wasn’t a natural occurrence.\r</language>
+	</row>
+	<row id="narc_0047_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hey, hey! Old dude and kids!\nSomething big just happened!\rThey’re saying there was a huge\nexplosion at Lake Valor!\r{SIZE 200}Ka-boom!!{SIZE 100}\r{SIZE 200}{SIZE 100}Like that!\r</language>
+	</row>
+	<row id="narc_0047_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Gramps!\rI’m going to the lake!\nI have a bad feeling about this!\r</language>
+	</row>
+	<row id="narc_0047_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: !\r...That {STRVAR_1 3, 0}...\nCan’t sit still...\r{STRVAR_1 3, 1}, I’m worried about\nLake Valor.\rBut I have no idea what is taking\nplace. You must find out!\rBut before you go, let me stress:\ndon’t get in over your head.\rWe will try to join you as soon as\nwe inspect Lake Verity.\r</language>
+	</row>
+	<row id="narc_0047_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: ...{STRVAR_1 3, 0}, you’ll be OK,\nwon’t you?</language>
+	</row>
+	<row id="narc_0047_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Lake Valor...\nI wonder what happened?</language>
+	</row>
+	<row id="narc_0047_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: We’re going off to Lake Verity\nfirst...\rDon’t do anything rash if something\ndoes happen.</language>
+	</row>
+	<row id="narc_0047_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: We’re going to investigate\nLake Verity before we join you.\rDon’t try to be a hero if anything\ncrazy happens.</language>
+	</row>
+	<row id="narc_0047_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: Hmm...\rWhat is taking place at Lake\nValor... You must find out!\rBut before you go, let me stress:\ndon’t get in over your head.\rWe will try to join you as soon as\nwe inspect Lake Verity.</language>
+	</row>
+	<row id="narc_0047_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What’s up?\nYour clothes look damp.\rWere you swimming at the beach\nright by Sandgem Town?</language>
+	</row>
+	<row id="narc_0047_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The tremor earlier...\nIt didn’t feel like an earthquake.\rIt felt more like an explosion.\n</language>
+	</row>
+	<row id="narc_0047_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to Canalave City, the Canal\nCity!\rIn the old days, this port used to\nbe a hub of cargo transportation.</language>
+	</row>
+	<row id="narc_0047_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What was that tremor?\nI thought Mt. Coronet erupted!</language>
+	</row>
+	<row id="narc_0047_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m going to study at the library.\nI love reading.\rI love how reading takes me to places\nfar away in time and space.</language>
+	</row>
+	<row id="narc_0047_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">An explosion at Lake Valor?\nBut there isn’t anything there?</language>
+	</row>
+	<row id="narc_0047_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">My PSYDUCK is very close to me.\nIt can use the move Return!</language>
+	</row>
+	<row id="narc_0047_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">E-even PS-PSYDUCK’s Future Sight\ncouldn’t foretell that tremor!</language>
+	</row>
+	<row id="narc_0047_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PSYDUCK: Gua?</language>
+	</row>
+	<row id="narc_0047_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PSYDUCK: Gua! Gua! Gwa?\nGuaa! Guuagwa?!</language>
+	</row>
+	<row id="narc_0047_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Gym Leader and Trainers of this Gym\noften go out to Iron Island.\rThey not only train their Pokémon,\nbut they work out as well.</language>
+	</row>
+	<row id="narc_0047_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m flabbergasted!</language>
+	</row>
+	<row id="narc_0047_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you wanna set sail?</language>
+	</row>
+	<row id="narc_0047_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Anchors aweigh!\r</language>
+	</row>
+	<row id="narc_0047_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You just tell me whenever you need\nto set sail!</language>
+	</row>
+	<row id="narc_0047_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ahoy! You just go on and tell me\nwhenever you want to set sail again!</language>
+	</row>
+	<row id="narc_0047_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’ve lost my love of sailing since my\nson fell into that horrid nightmare...\rI need the Lunar Wing from Fullmoon\nIsland to awaken him!\rWould you go to Fullmoon Island for me?\nIf not for me, then for my son?</language>
+	</row>
+	<row id="narc_0047_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We’re both counting on you!\rOnly you can awaken my son from his\nawful nightmare...\rPlease, I need the Lunar Wing from\nFullmoon Island to awaken him!\r</language>
+	</row>
+	<row id="narc_0047_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you need to get ready?\rI’ll be waiting here.\nWe’re desperate for your help.</language>
+	</row>
+	<row id="narc_0047_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">That Lunar Wing...\nPlease! Take it to my son...</language>
+	</row>
+	<row id="narc_0047_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You’ve been asleep for a long,\nlong time... What happened to you?\rAnd what were you doing here?\nNo one’s lived here for fifty years.\r</language>
+	</row>
+	<row id="narc_0047_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Canalave City\nCargo Port</language>
+	</row>
+	<row id="narc_0047_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Canalave City Pokémon Gym\nLeader: Byron\fThe Man with the Steel Body!</language>
+	</row>
+	<row id="narc_0047_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Canalave Library</language>
+	</row>
+	<row id="narc_0047_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sailor Eldritch’s House</language>
+	</row>
+	<row id="narc_0047_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Canalave Dock</language>
+	</row>
+	<row id="narc_0047_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Harbor Inn...\nThe text is too faded to read.</language>
+	</row>
+	<row id="narc_0047_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Harbor Inn\nA Roost for Restless Sailors\r“Enjoy sweet dreams in our\nsumptuous beds!”</language>
+	</row>
+	<row id="narc_0047_00040" index="40">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The door is tightly shut.\nIt appears impossible to open.</language>
+	</row>
+</body>

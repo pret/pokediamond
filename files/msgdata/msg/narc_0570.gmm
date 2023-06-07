@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0570_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Prism Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Prism Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 4}Pale Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 1}Red Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 2}Blue Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 3}Green Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Prism Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 4}Pale Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 1}Red Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 2}Blue Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 3}Green Sphere{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Oval Stone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Odd Keystone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Sun Stone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Star Piece{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Moon Stone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Hard Stone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Thunderstone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Everstone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Fire Stone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Water Stone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Leaf Stone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Nugget{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Helix Fossil{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Dome Fossil{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Claw Fossil{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Root Fossil{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Old Amber{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Rare Bone{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Revive{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Max Revive{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Red Shard{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Blue Shard{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Yellow Shard{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Green Shard{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Heart Scale{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Armor Fossil{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Skull Fossil{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Light Clay{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Iron Ball{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00040" index="40">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Icy Rock{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00041" index="41">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Smooth Rock{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00042" index="42">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Heat Rock{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00043" index="43">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Damp Rock{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00044" index="44">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Flame Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00045" index="45">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Splash Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00046" index="46">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Zap Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00047" index="47">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Meadow Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00048" index="48">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Icicle Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00049" index="49">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Fist Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00050" index="50">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Toxic Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00051" index="51">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Earth Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00052" index="52">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Sky Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00053" index="53">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Mind Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00054" index="54">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Insect Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00055" index="55">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Stone Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00056" index="56">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Spooky Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00057" index="57">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Draco Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00058" index="58">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">a {COLOR 255}Dread Plate{COLOR 0}</language>
+	</row>
+	<row id="narc_0570_00059" index="59">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">an {COLOR 255}Iron Plate{COLOR 0}</language>
+	</row>
+</body>

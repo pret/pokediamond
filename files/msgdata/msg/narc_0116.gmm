@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0116_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">All my grandchildren are clamoring\nfor Pokémon of their own.\rIt may be tricky to manage it, but\nit will brighten up the mood more.</language>
+	</row>
+	<row id="narc_0116_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh, no, there are no stairs in\nthis house. It’s easier that way.\rThe lack of stairs makes it easy for\nthe little Pokémon to get about.</language>
+	</row>
+	<row id="narc_0116_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A world in which people are\ncompassionate to others...\rThat’s all that matters to me.</language>
+	</row>
+	<row id="narc_0116_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hearthome is a kid-friendly city,\nthey say, but I disagree.\rHearthome is friendly to kids,\ngrown-ups, and Pokémon too.</language>
+	</row>
+</body>

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0186_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to the Battle Park!\rIt’s your first time, isn’t it?\nPlease step this way.\r</language>
+	</row>
+	<row id="narc_0186_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Since this is your first visit, you\nneed to be given a Point Card.\rPoint Cards are used only in\nthe Battle Park.\rHere you go.\r</language>
+	</row>
+	<row id="narc_0186_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If you need information on the Point\nCard, please ask the receptionist\fnext to me.\rI’m the one to ask if you need any\ninformation on the facilities here\fin the Battle Park.\rFor information on the battle rules\nused at the Battle Park, please ask\fthe receptionist across from me.\r</language>
+	</row>
+	<row id="narc_0186_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to the Battle Park!\rIf you need any information on the\nfacilities, I’m the one to ask.\r</language>
+	</row>
+	<row id="narc_0186_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What would you like me to explain?</language>
+	</row>
+	<row id="narc_0186_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Battle Park is a place where\nTrainers may enjoy battles.\rThere are two facilities in\nthe Battle Park: the Exchange Service\fCorner and the Battle Tower.\r</language>
+	</row>
+	<row id="narc_0186_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Exchange Service Corner is the\nbuilding that looks like a castle.\rThere, you may exchange the BP\n(Battle Points) you’ve earned for\fitems.\rFabulous prizes are offered, so\nplease do visit the Exchange Service\fCorner when you save up BP.\r</language>
+	</row>
+	<row id="narc_0186_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Battle Tower is the building\nat the back of the Battle Park.\rThe tower has four sets of Battle\nRooms for different kinds of battles.\rThe Single Battle Rooms are for\nconducting one-on-one battles.\rThe Double Battle Rooms are for\ntwo-on-two battles.\rThe Multi Battle Rooms are for\ntag team battles with a partner.\rThe Wi-Fi Battle Rooms are for\nbattling other Trainers from around\fthe world.\r</language>
+	</row>
+	<row id="narc_0186_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to the Battle Park!\rI can explain how the Point Card and\nthe BP (Battle Points) work.\r</language>
+	</row>
+	<row id="narc_0186_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What would you like me to explain?</language>
+	</row>
+	<row id="narc_0186_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Every Trainer visiting the Battle Park\nis provided with a Point Card that\fconfirms their challenger status.\rThe Point Card stores BP (Battle\nPoints) that you earn from battling\fin the Battle Tower.\r</language>
+	</row>
+	<row id="narc_0186_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">BP, short for Battle Points, are used\nonly in the Battle Park.\rYou will earn BP by hitting certain\nperformance targets battling at\fthe Battle Tower.\rThe BP can be traded for prizes at\nthe Exchange Service Corner.\r</language>
+	</row>
+	<row id="narc_0186_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to the Battle Park!\rI can give you a rundown of the\nbattle rules that are used at\fthe Battle Tower.\r</language>
+	</row>
+	<row id="narc_0186_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What would you like me to explain?</language>
+	</row>
+	<row id="narc_0186_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">In the Battle Tower, you may enter\nPokémon in battles that are capped\fat Lv. 50.\rPokémon up to Lv. 50 may be entered\nwith a few exceptions.\rPokémon above Lv. 50 may also be\nentered, but their level will be\fcut to Lv. 50 in the Battle Tower.\rThe reduced level will be restored\nwhen you leave the Battle Tower.\rPlease keep in mind that your\nopponents will not use Pokémon below\fLv. 50.\r</language>
+	</row>
+	<row id="narc_0186_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Excluding Eggs and certain exotic\nPokémon, virtually every species of\fPokémon may enter the Battle Tower.\rPlease be aware that the number of\nPokémon you may enter will depend\fon the course you challenge.\rYou are also permitted to take only\none of each kind of Pokémon into\fthe Battle Tower.\r</language>
+	</row>
+	<row id="narc_0186_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Your Pokémon may not be holding the\nsame kind of item in the Battle\fTower.\rPlease be sure the Pokémon entering\nthe Battle Tower are all holding\fdifferent items.\r</language>
+	</row>
+	<row id="narc_0186_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Good luck!</language>
+	</row>
+	<row id="narc_0186_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Welcome to the Battle Park!</language>
+	</row>
+	<row id="narc_0186_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">EXIT</language>
+	</row>
+	<row id="narc_0186_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">BATTLE PARK</language>
+	</row>
+	<row id="narc_0186_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">EXCHANGE SERVICE CORNER</language>
+	</row>
+	<row id="narc_0186_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">BATTLE TOWER</language>
+	</row>
+	<row id="narc_0186_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">POINT CARD</language>
+	</row>
+	<row id="narc_0186_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">BP</language>
+	</row>
+	<row id="narc_0186_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">LEVEL LIMIT</language>
+	</row>
+	<row id="narc_0186_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">SPECIES &amp; NUMBERS</language>
+	</row>
+	<row id="narc_0186_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">HOLD ITEMS</language>
+	</row>
+	<row id="narc_0186_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Battle Tower’s up ahead.\rI wonder what kind of Trainers\nare waiting there?</language>
+	</row>
+</body>

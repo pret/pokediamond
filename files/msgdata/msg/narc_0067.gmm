@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0067_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Listen, listen. Do you have a Pokémon\ncalled MACHOP?\rWould you be willing to trade your\nMACHOP for my ABRA?</language>
+	</row>
+	<row id="narc_0067_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Be nice to my ABRA!\rI’ll be sure to look after your\nMACHOP in return!</language>
+	</row>
+	<row id="narc_0067_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What I asked for was a MACHOP...</language>
+	</row>
+	<row id="narc_0067_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh, OK...\nWell, I can’t make you trade me.\rBut if you change your mind,\nI’ll be right here waiting!</language>
+	</row>
+	<row id="narc_0067_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thanks to Pokémon, I got to be\nfriends with you!</language>
+	</row>
+	<row id="narc_0067_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">A Pokémon obtained in a trade\ngrows quickly.\rBut if a Pokémon grows too much,\nit will often ignore the Trainer.\rOf course, it won’t matter if you\nhave lots of Gym Badges.</language>
+	</row>
+</body>

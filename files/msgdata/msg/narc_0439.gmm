@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0439_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mr. Backlot is the master of this\nhouse. This is his office.</language>
+	</row>
+	<row id="narc_0439_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">This is the way out to the trophy\ngarden.\rThe garden is open for all visitors\nto enjoy.\rHowever, please beware--wild Pokémon\nmay appear in the garden.</language>
+	</row>
+	<row id="narc_0439_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m so sorry... Everything beyond\nthis point is secret and off-limits.</language>
+	</row>
+	<row id="narc_0439_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m so sorry. Everything beyond this\npoint is strictly off-limits.</language>
+	</row>
+</body>

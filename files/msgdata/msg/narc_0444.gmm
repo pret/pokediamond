@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0444_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We needed the energy from the\nValley Windworks to make this...\rIt would take a scientific genius to\nmake something like this...\rTherefore, our boss, who made this,\nis a scientific genius!\r</language>
+	</row>
+	<row id="narc_0444_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Graw! You were eavesdropping!\nI was just thinking out loud!\rYou’re a persistent pest...\nI’m getting tired of running away...\rBut I’m not going to waste my energy\nknocking you around...\r</language>
+	</row>
+	<row id="narc_0444_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There’s a fancy hotel in a fancy\nplace with a fancy restaurant.\rThe fancy restaurant’s filled with\nfancy people who think of themselves\fas being too fancy to battle alone.</language>
+	</row>
+	<row id="narc_0444_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’d rather be in a pool than the sea.\rThe salty tang of the sea tastes like\nmy tears after a hard day at work...</language>
+	</row>
+	<row id="narc_0444_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There’s something on top of this\nbig cliff here!\rMy instincts tell me that, but how\nam I supposed to climb up?</language>
+	</row>
+	<row id="narc_0444_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rt. 213\nPastoria City</language>
+	</row>
+	<row id="narc_0444_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hotel Grand Lake\nAnother World on Lake Valor</language>
+	</row>
+	<row id="narc_0444_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dr. Footstep’s House\nFootprints Reveal All</language>
+	</row>
+</body>

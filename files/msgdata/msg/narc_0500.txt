@@ -1,4 +1,0 @@
-{STRVAR_1 3, 0}: ...I’d better take\nmy Bag and Journal, too...\r
-Oh, hey, {STRVAR_1 3, 0}!\rWe’re going to the lake!\nI’ll be waiting on the road!\fIt’s a $10 million fine if you’re late!\r
-It’s a Wii!\nIt’s controlled by a Wii Remote!
-{STRVAR_1 3, 0} checked the PC screen.\rAdventure Rule No. 1\nThe X Button opens the menu!\rAdventure Rule No. 2\nRecord your progress with SAVE.\rThere is nothing else on here...

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0431_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Lost Tower is where the spirits\nof departed Pokémon are put to rest.\rThose that enjoyed long lives...\nThose whose times were short...\rAll the departed Pokémon shall\nfind solace here...\rIt is good of you to have visited.\nHere, take this Hidden Machine.\r</language>
+	</row>
+	<row id="narc_0431_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">To use that hidden move Strength...\r...I’ve forgotten where exactly, but\nyou must visit a Pokémon Gym.</language>
+	</row>
+	<row id="narc_0431_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">That Fantina...\nShe’s a hard one to get a read on...\rBut she is the compassionate sort.\nYou know, she’s a regular visitor.</language>
+	</row>
+	<row id="narc_0431_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Let me make your journey out of this\nplace less frightening. Take this.\r</language>
+	</row>
+	<row id="narc_0431_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Cleanse Tag... Let the first\nPokémon in your team hold it.\rIt will help keep wild Pokémon away\nso you can leave unhindered.</language>
+	</row>
+</body>

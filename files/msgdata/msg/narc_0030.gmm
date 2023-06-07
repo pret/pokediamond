@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0030_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Someone broke my Pokémon-catching\nrecord!\rI’ll reclaim my record and regain\nmy place in the standings!</language>
+	</row>
+	<row id="narc_0030_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">My name isn’t on the rankings?\nWhat kind of nonsense is that?!\r...It’s because I’ve never taken\npart in a Contest.\rI bet it’d feel great if I could\nbe number one here!</language>
+	</row>
+	<row id="narc_0030_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I really don’t win many battles...\nBut it doesn’t get me down.\rI’m trying for the world record\nat Pokémon fishing!</language>
+	</row>
+	<row id="narc_0030_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Sorry, I’m still fine-tuning this\nthingy here.</language>
+	</row>
+</body>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0118_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hiya!\nOh, you’re a Trainer!\rThat means you’re using Pokémon\nBoxes! I love meeting end users!\rOh, what’s up?\nWhy that astonished look?\rOh, right, sorry!\nThere I go running my mouth again!\rMy name’s Bebe!\rYou know the PC Pokémon Boxes?\nI’m the system administrator!</language>
+	</row>
+	<row id="narc_0118_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bebe: My buddy Bill developed the\nbasic storage system.\rI tinkered with it here and there\nto make it easier for me to use.</language>
+	</row>
+	<row id="narc_0118_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bebe: Hiya! Been a long time!\nHow’s it going? Using the PC Boxes?\rOh? Now lookie here, that’s a National\nPokédex I’m seeing. Good for you!\rYou’ll be using my Boxes like crazy\nif you’re using that now.\rWell, I always thought a good Trainer\nought to juggle Boxes smartly, though\fI shouldn’t be the one to say so.\rOh yeah, do you want a Pokémon named\nEEVEE?</language>
+	</row>
+	<row id="narc_0118_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bebe: So, do you want that EEVEE\nthat I’ve got?</language>
+	</row>
+	<row id="narc_0118_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bebe: Here you go!\nNow, you be good to it.\r</language>
+	</row>
+	<row id="narc_0118_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} obtained\nan EEVEE!\r</language>
+	</row>
+	<row id="narc_0118_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Would you like to give a nickname\nto the EEVEE that Bebe gave you?</language>
+	</row>
+	<row id="narc_0118_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bebe: Here you go!\rWait, I can’t do that! You can’t\ntake any more Pokémon with you!\rRight about now, my Pokémon Boxes\ncome in handy!</language>
+	</row>
+	<row id="narc_0118_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bebe: Oh, OK...\nGuess I’ll have to raise it myself.</language>
+	</row>
+	<row id="narc_0118_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bebe: That EEVEE I gave you,\nI got it from a good mate in Johto.\rWho knows how many EEVEE he’s raised\nover the years.</language>
+	</row>
+</body>

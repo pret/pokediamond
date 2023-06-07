@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0356_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Thanks for helping me out.\nHere’s something for your trouble!\r</language>
+	</row>
+	<row id="narc_0356_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I get careless with the Suite Key\nwhen I get caught up in the scenery\fon my walks.</language>
+	</row>
+</body>

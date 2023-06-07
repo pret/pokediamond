@@ -1,6 +1,7 @@
 #include "global.h"
 #include "itemtool.h"
 #include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "heap.h"
 #include "constants/moves.h"
 
@@ -191,6 +192,7 @@ static const u16 sTMHMMoves[] = {
     MOVE_ROCK_CLIMB,
 };
 
+//TODO: use narc constants
 static const u16 sItemIndexMappings[][4] = {
     /* Col 1: Offset in item_data.narc
      * Col 2: Gfx offset in item_icon.narc
@@ -761,14 +763,14 @@ void * LoadItemDataOrGfx(u16 a0, u16 a1, u32 heap_id)
 
 void GetItemNameIntoString(struct String * dest, u16 item_id, u32 heap_no)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 344, heap_no);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0344_bin, heap_no);
     ReadMsgDataIntoString(msgData, item_id, dest);
     DestroyMsgData(msgData);
 }
 
 void GetItemDescIntoString(struct String * dest, u16 item_id, u32 heap_no)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 343, heap_no);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0343_bin, heap_no);
     ReadMsgDataIntoString(msgData, item_id, dest);
     DestroyMsgData(msgData);
 }

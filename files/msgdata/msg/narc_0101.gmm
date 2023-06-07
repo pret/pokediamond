@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0101_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Question: 12 plus 28 is?\nAnswer: ←30 ↑40 →50</language>
+	</row>
+	<row id="narc_0101_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Correct!\nCongratulations!</language>
+	</row>
+	<row id="narc_0101_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Please answer the quiz!</language>
+	</row>
+</body>

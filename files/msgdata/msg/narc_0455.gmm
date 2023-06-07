@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0455_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Feel free to take a power nap in\nthat bed.\rAs you can see, this lodge is beat\nup. Do what you like here.</language>
+	</row>
+	<row id="narc_0455_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I don’t have Thick Fat like some\nPokémon, so I have to bundle up\fin clothes to keep warm.</language>
+	</row>
+	<row id="narc_0455_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s a bed...\nWant to take a rest?</language>
+	</row>
+	<row id="narc_0455_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} quickly fell asleep\nin the bed...\r</language>
+	</row>
+	<row id="narc_0455_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} and the Pokémon\nbecame fully healed from the rest!</language>
+	</row>
+</body>

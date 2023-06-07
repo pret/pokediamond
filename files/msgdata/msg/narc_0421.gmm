@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0421_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You seem to be tired...\nRest a while.</language>
+	</row>
+	<row id="narc_0421_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You and your Pokémon look\ncompletely refreshed!</language>
+	</row>
+	<row id="narc_0421_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Just because you’re young doesn’t\nmean you should push yourself.</language>
+	</row>
+	<row id="narc_0421_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You think you can get through the\nEterna Forest by yourself?</language>
+	</row>
+</body>

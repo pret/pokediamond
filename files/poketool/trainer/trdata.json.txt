@@ -8,7 +8,6 @@
 u32 __size = sizeof(struct TrainerData);
 
 const struct TrainerData __data[] = {
-    {},
 ## for trainer in trdata
     {
         // Trainer #{{trainer.index}}, {{ trainer.class }} {{ trainer.name }}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0052_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The books on the third floor are\neasy to read.\rThe ones down here are all too tough\nfor me to understand...</language>
+	</row>
+	<row id="narc_0052_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I looked up a book called\n“Surviving Disasters” right away!</language>
+	</row>
+	<row id="narc_0052_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The ceiling-high bookshelves are\ncrammed with books.</language>
+	</row>
+	<row id="narc_0052_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The shelves are lined with books\nworn from being read by many.</language>
+	</row>
+	<row id="narc_0052_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Please refrain from bringing food\nor beverages into the library.</language>
+	</row>
+</body>

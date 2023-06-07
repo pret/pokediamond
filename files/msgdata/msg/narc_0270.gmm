@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0270_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: What’s going on...?\r</language>
+	</row>
+	<row id="narc_0270_00001" index="1">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00002" index="2">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Professor, there isn’t anything out\nof the ordinary on the other side,\feither!\r</language>
+	</row>
+	<row id="narc_0270_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Professor, there’s nothing out of the\nordinary on the other side, either!\r</language>
+	</row>
+	<row id="narc_0270_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Professor: Hmm...\nI may have been mistaken...\rSomething appears to be different\nthan it was before, but...\rFine! It’s enough that we have\nseen the lake.\r</language>
+	</row>
+	<row id="narc_0270_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}, we’re leaving.\r</language>
+	</row>
+	<row id="narc_0270_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Professor, how are you enjoying\nbeing back in Sinnoh?\rAfter being away for four years,\nit must be exciting again?\r</language>
+	</row>
+	<row id="narc_0270_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Professor, you’ve been gone\nfor four years now.\rHow are you enjoying being back in\nSinnoh?\r</language>
+	</row>
+	<row id="narc_0270_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Professor: ...Hm.\nThere is one thing I can say.\rThere are many rare kinds of Pokémon\nin Sinnoh.\rThe region should serve us very well\nin regard to our studies.\r</language>
+	</row>
+	<row id="narc_0270_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Professor: Excuse me.\nLet us pass, please.\r</language>
+	</row>
+	<row id="narc_0270_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: I beg your pardon...\nWe’ll be on our way.\r</language>
+	</row>
+	<row id="narc_0270_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Sorry, folks.\r</language>
+	</row>
+	<row id="narc_0270_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: What was that about?\nThose two...\r</language>
+	</row>
+	<row id="narc_0270_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Huh? {STRVAR_1 3, 0}!\nLet’s go check this out!\r</language>
+	</row>
+	<row id="narc_0270_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">...\n...\rWhat’s that?\nDon’t go into the tall grass?\rNo problem, no problem!\rWe won’t be in there long enough\nfor a wild Pokémon to come out.\r</language>
+	</row>
+	<row id="narc_0270_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s...\nA briefcase?\rThose people forgot it here.\nWhat are we supposed to do with it?\rWe can try to deliver it, but who are\nthey? I heard them say professor...\r</language>
+	</row>
+	<row id="narc_0270_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Waaah!\nPo-Pokémon?!\r</language>
+	</row>
+	<row id="narc_0270_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">What’s going on?!\r</language>
+	</row>
+	<row id="narc_0270_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: Fwaaah!\nYour {STRVAR_1 0, 1} totally rocked!\rBut my {STRVAR_1 0, 2} was way tougher\nthan yours!\r...They were other people’s\nPokémon, though...\rBut we had to use them...\nThey won’t mind, will they?\r</language>
+	</row>
+	<row id="narc_0270_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Oh! There’s the briefcase!\rThe professor would have been furious\nif I’d lost it...\r</language>
+	</row>
+	<row id="narc_0270_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Huh?\nOh, no!\rDid you...\nDid you use the Pokémon in here?\rYou did?! Oh, my gosh!\nWhat’s the professor going to say...?\r...This is so not good...\nI’ll take this briefcase for now.\r</language>
+	</row>
+	<row id="narc_0270_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Whew! You found the briefcase?\rThe professor would’ve gone through\nthe roof if he knew I forgot it here.\r</language>
+	</row>
+	<row id="narc_0270_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hunh?\nWhaaaat?!\rDid you guys...\nDid you use these Pokémon?!\rOh, man... How am I gonna explain\nthis to the professor?\r...This briefcase is the professor’s,\nso I’ll take it, OK?\r</language>
+	</row>
+	<row id="narc_0270_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0}: What was that about?\r</language>
+	</row>
+	<row id="narc_0270_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I don’t know what’s going on.\n{STRVAR_1 3, 0}, let’s get out of here.\rMy Pokémon got hurt from that\nbattle.\rIf we get attacked by another\nPokémon, we might be in trouble.\r</language>
+	</row>
+	<row id="narc_0270_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: Hmmm...\rNo legendary Pokémon, nothing out\nof the ordinary...\r{STRVAR_1 3, 0}, how was Lake Valor?\nAnything to report?\rWhat? You’re just going there now?\nYou’ve got to move faster than that!</language>
+	</row>
+	<row id="narc_0270_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Rowan: {STRVAR_1 3, 0}, how was Lake\nValor? Anything to report?\rWhat? You’re just going there now?\nYou’ve got to move faster than that!</language>
+	</row>
+	<row id="narc_0270_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: {STRVAR_1 3, 0}, how was\nLake Valor?\rThere’s nothing wrong here.\nThe lake hasn’t changed at all.\rWe haven’t found a legendary\nPokémon, either, though...</language>
+	</row>
+	<row id="narc_0270_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hiya, {STRVAR_1 3, 0}!\nHow’s Lake Valor?\rThere’s nothing wrong here.\nThe lake is ordinary, as usual.\rThere’s no legendary Pokémon,\neither...</language>
+	</row>
+	<row id="narc_0270_00030" index="30">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00031" index="31">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00032" index="32">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00033" index="33">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00034" index="34">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00035" index="35">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00036" index="36">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00037" index="37">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00038" index="38">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00039" index="39">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00040" index="40">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00041" index="41">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00042" index="42">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00043" index="43">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0270_00044" index="44">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+</body>

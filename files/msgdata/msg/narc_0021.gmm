@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0021_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You know how Pokémon have types like\nWater, Fire, and Grass?\rThey say those types have strengths\nand weaknesses against other types.</language>
+	</row>
+	<row id="narc_0021_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">In the Union Room upstairs, you can\nchat and trade with other people.\rAnd that’s not all you can do.\nCheck it out!</language>
+	</row>
+	<row id="narc_0021_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">You can still catch a Pokémon if you\nalready have six traveling with you.\rIt automatically gets sent to the PC\nnetwork in Pokémon Centers.\rKnowing that, I can keep on catching\nmore and more Pokémon!\rIt’ll make it more fun to check\nthe PC in any Pokémon Center!</language>
+	</row>
+</body>

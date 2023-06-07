@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0447_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ah, hello. You wish to stay a night?\nAh, but you’ve no reservations.\rI’m afraid we are totally booked.\nYou may rest a while, if you wish.\r</language>
+	</row>
+	<row id="narc_0447_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We’ve restored your Pokémon\nto full health.\rWe hope to see you again!</language>
+	</row>
+	<row id="narc_0447_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">This hotel is so romantic...\rI hope a knight on a Pokémon will\nsweep me away for a honeymoon here!</language>
+	</row>
+</body>

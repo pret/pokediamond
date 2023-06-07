@@ -8,13 +8,13 @@
 
 #define max(a, b) ((a) >= (b) ? (a) : (b))
 
-u32 __size[] = { 8,
+u32 __size[] = {
 ## for trainer in trdata
     (max({{ length(trainer.party) }} * {% if trainer.type == "TRTYPE_MON" %}6{% else if trainer.type == "TRTYPE_MON_MOVES" %}14{% else if trainer.type == "TRTYPE_MONE_ITEM" %}8{% else %}16{% endif %}, 8) + 3) & ~3,
 ## endfor
 };
 
-const u16 __data[] = { 0, 0, 0, 0,
+const u16 __data[] = {
 ## for trainer in trdata
     // Trainer #{{ trainer.index }}, {{ trainer.class }} {{ trainer.name }}
 ##   if trainer.type == "TRTYPE_MON"
@@ -45,8 +45,12 @@ const u16 __data[] = { 0, 0, 0, 0,
 ##       endfor
 ##     endif
 ##   endfor
-##   if total_length < 4 or total_length % 2 != 0
+##   if total_length < 4
+##     for i in range(4 - total_length)
     0, // Padding
+##     endfor
+##   else if total_length % 2 != 0
+    0, //Padding
 ##   endif
 ## endfor
 };

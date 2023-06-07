@@ -1,2 +1,0 @@
-You managed to come out here?\nThat takes focus!\rFor someone like you, this\n{STRVAR_1 8, 0} might be perfect.\rLet a Pokémon hold it, yah?\r
-There are items that are useful only\nwhen they’re held by Pokémon.\rTry finding other items like that\nand spice up your adventure!

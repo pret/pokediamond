@@ -10,6 +10,7 @@
 #include "gf_gfx_loader.h"
 #include "heap.h"
 #include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0549.h"
 #include "overlay_manager.h"
 #include "text.h"
 #include "unk_020040F4.h"
@@ -112,16 +113,16 @@ const struct BgTemplate MOD59_021DA0B8 =
 
 const struct GraphicsBanks MOD59_021DA0D4 =
     {
-        .bg = 3,
-        .bgextpltt = 0,
-        .subbg = 0,
-        .subbgextpltt = 0,
-        .obj = 0,
-        .objextpltt = 0,
-        .subobj = 0,
-        .subobjextpltt = 0,
-        .tex = 0,
-        .texpltt = 0
+        .bg = GX_VRAM_BG_256_AB,
+        .bgextpltt = GX_VRAM_BGEXTPLTT_NONE,
+        .subbg = GX_VRAM_SUB_BG_NONE,
+        .subbgextpltt = GX_VRAM_SUB_BGEXTPLTT_NONE,
+        .obj = GX_VRAM_OBJ_NONE,
+        .objextpltt = GX_VRAM_OBJEXTPLTT_NONE,
+        .subobj = GX_VRAM_SUB_OBJ_NONE,
+        .subobjextpltt = GX_VRAM_SUB_OBJEXTPLTT_NONE,
+        .tex = GX_VRAM_TEX_NONE,
+        .texpltt = GX_VRAM_TEXPLTT_NONE
     };
 
 THUMB_FUNC BOOL MOD59_TVInit(struct OverlayManager *overlayManager, u32 *status)
@@ -212,7 +213,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
         case 4:
             MOD59_021D9D78(data);
 
-            if (MOD59_021D9C74(data, 0, 40, 48) != TRUE)
+            if (MOD59_021D9C74(data, narc_0549_00000, 40, 48) != TRUE)
             {
                 break;
             }

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0246_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Buck: Hey!\n{STRVAR_1 3, 0}, right?\rYour zippity little buddy challenged\nme to a battle earlier.\rYeah, I owned the little dude.\nMade sure he was taught a lesson.\rBut I don’t know if I could beat\nhim again the next time.\rSeriously, you’re bound to run into\ntough Trainers wherever you go!\rAnyway, I found out about this place,\nbut the Pokémon here are tough...\rWhat do you say we team up and\ngo together?\r</language>
+	</row>
+	<row id="narc_0246_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} decided to go with\nBuck!</language>
+	</row>
+	<row id="narc_0246_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Buck: You won’t regret teaming up!\nI’ll keep your Pokémon healthy!</language>
+	</row>
+	<row id="narc_0246_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Buck: So, yeah, the Pokémon here\nare tough...\rWhat do you say we team up and\ngo together?\r</language>
+	</row>
+	<row id="narc_0246_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Buck: Whoa, wait up!\rI can’t go on by myself if you leave\nme now.\rWell, if you gotta go, you gotta go.\nI’ll stick around here for you.\r</language>
+	</row>
+	<row id="narc_0246_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Buck: There we go!\nThere’s the exit!\rMy instincts tell me the volcano’s\ntreasure is just ahead of us.\rSee you around, {STRVAR_1 3, 0}!\nYou might be the toughest besides me!\r</language>
+	</row>
+	<row id="narc_0246_00006" index="6">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0246_00007" index="7">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0246_00008" index="8">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0246_00009" index="9">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0246_00010" index="10">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0246_00011" index="11">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+</body>

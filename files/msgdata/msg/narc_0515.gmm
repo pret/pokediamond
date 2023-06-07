@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0515_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If you’ve got Pokémon with you,\nit’s safe for even a kid like you\fto go off traveling alone.</language>
+	</row>
+	<row id="narc_0515_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I had a battle the other day,\nand my Pokémon’s HP got low,\rand I thought we were done for,\rand then, all of a sudden, my Pokémon\nate the Berry it was holding! Whew!</language>
+	</row>
+	<row id="narc_0515_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">We’re kinda close to Eterna City,\nbut it’s still quite far away.\rYou should be prepared for a long\njourney.</language>
+	</row>
+</body>

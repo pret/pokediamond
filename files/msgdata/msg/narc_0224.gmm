@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0224_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I think the Pokémon you find here\nare different over time.</language>
+	</row>
+	<row id="narc_0224_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Great Marsh Area 2</language>
+	</row>
+</body>

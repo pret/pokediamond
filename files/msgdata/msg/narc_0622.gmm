@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0622_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">０２３  ア－ボ</language>
+	</row>
+	<row id="narc_0622_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">023  EKANS</language>
+	</row>
+	<row id="narc_0622_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">023  ABO</language>
+	</row>
+	<row id="narc_0622_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">023  RETTAN</language>
+	</row>
+	<row id="narc_0622_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">023  EKANS</language>
+	</row>
+	<row id="narc_0622_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">023  EKANS</language>
+	</row>
+	<row id="narc_0622_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">０２５  ピカチュウ</language>
+	</row>
+	<row id="narc_0622_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">025  PIKACHU</language>
+	</row>
+	<row id="narc_0622_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">025  PIKACHU</language>
+	</row>
+	<row id="narc_0622_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">025  PIKACHU </language>
+	</row>
+	<row id="narc_0622_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">025  PIKACHU</language>
+	</row>
+	<row id="narc_0622_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">025  PIKACHU</language>
+	</row>
+	<row id="narc_0622_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">０５４  コダック</language>
+	</row>
+	<row id="narc_0622_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">054  PSYDUCK</language>
+	</row>
+	<row id="narc_0622_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">054  PSYKOKWAK</language>
+	</row>
+	<row id="narc_0622_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">054  ENTON </language>
+	</row>
+	<row id="narc_0622_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">054  PSYDUCK</language>
+	</row>
+	<row id="narc_0622_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">054  PSYDUCK</language>
+	</row>
+	<row id="narc_0622_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">０７７  ポニ－タ</language>
+	</row>
+	<row id="narc_0622_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">077  PONYTA</language>
+	</row>
+	<row id="narc_0622_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">077  PONYTA </language>
+	</row>
+	<row id="narc_0622_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">077  PONITA </language>
+	</row>
+	<row id="narc_0622_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">077  PONYTA</language>
+	</row>
+	<row id="narc_0622_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">077  PONYTA</language>
+	</row>
+	<row id="narc_0622_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">１２０  ヒトデマン</language>
+	</row>
+	<row id="narc_0622_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">120  STARYU</language>
+	</row>
+	<row id="narc_0622_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">120  STARI </language>
+	</row>
+	<row id="narc_0622_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">120  STERNDU </language>
+	</row>
+	<row id="narc_0622_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">120  STARYU</language>
+	</row>
+	<row id="narc_0622_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">120  STARYU</language>
+	</row>
+	<row id="narc_0622_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">１２９  コイキング</language>
+	</row>
+	<row id="narc_0622_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">129  MAGIKARP</language>
+	</row>
+	<row id="narc_0622_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">129  MAGICARPE</language>
+	</row>
+	<row id="narc_0622_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">129  KARPADOR</language>
+	</row>
+	<row id="narc_0622_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">129  MAGIKARP</language>
+	</row>
+	<row id="narc_0622_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">129  MAGIKARP</language>
+	</row>
+	<row id="narc_0622_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">２０２  ソ－ナンス</language>
+	</row>
+	<row id="narc_0622_00037" index="37">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">202  WOBBUFFET</language>
+	</row>
+	<row id="narc_0622_00038" index="38">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">202  QULBUTOKE</language>
+	</row>
+	<row id="narc_0622_00039" index="39">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">202  WOINGENAU</language>
+	</row>
+	<row id="narc_0622_00040" index="40">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">202  WOBBUFFET</language>
+	</row>
+	<row id="narc_0622_00041" index="41">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">202  WOBBUFFET</language>
+	</row>
+	<row id="narc_0622_00042" index="42">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">２１４  ヘラクロス</language>
+	</row>
+	<row id="narc_0622_00043" index="43">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">214  HERACROSS</language>
+	</row>
+	<row id="narc_0622_00044" index="44">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">214  SCARHINO</language>
+	</row>
+	<row id="narc_0622_00045" index="45">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">214  SKARABORN</language>
+	</row>
+	<row id="narc_0622_00046" index="46">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">214  HERACROSS</language>
+	</row>
+	<row id="narc_0622_00047" index="47">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">214  HERACROSS</language>
+	</row>
+	<row id="narc_0622_00048" index="48">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">２１５  ニュ－ラ</language>
+	</row>
+	<row id="narc_0622_00049" index="49">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">215  SNEASEL</language>
+	</row>
+	<row id="narc_0622_00050" index="50">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">215  FARFURET</language>
+	</row>
+	<row id="narc_0622_00051" index="51">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">215  SNIEBEL</language>
+	</row>
+	<row id="narc_0622_00052" index="52">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">215  SNEASEL</language>
+	</row>
+	<row id="narc_0622_00053" index="53">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">215  SNEASEL</language>
+	</row>
+	<row id="narc_0622_00054" index="54">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">２１６  ヒメグマ</language>
+	</row>
+	<row id="narc_0622_00055" index="55">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">216  TEDDIURSA</language>
+	</row>
+	<row id="narc_0622_00056" index="56">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">216  TEDDIURSA</language>
+	</row>
+	<row id="narc_0622_00057" index="57">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">216  TEDDIURSA</language>
+	</row>
+	<row id="narc_0622_00058" index="58">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">216  TEDDIURSA</language>
+	</row>
+	<row id="narc_0622_00059" index="59">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">216  TEDDIURSA</language>
+	</row>
+	<row id="narc_0622_00060" index="60">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">２２８  デルビル</language>
+	</row>
+	<row id="narc_0622_00061" index="61">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">228  HOUNDOUR</language>
+	</row>
+	<row id="narc_0622_00062" index="62">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">228  MALOSSE</language>
+	</row>
+	<row id="narc_0622_00063" index="63">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">228  HUNDUSTER</language>
+	</row>
+	<row id="narc_0622_00064" index="64">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">228  HOUNDOUR</language>
+	</row>
+	<row id="narc_0622_00065" index="65">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">228  HOUNDOUR</language>
+	</row>
+	<row id="narc_0622_00066" index="66">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">２７８  キャモメ</language>
+	</row>
+	<row id="narc_0622_00067" index="67">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">278  WINGULL</language>
+	</row>
+	<row id="narc_0622_00068" index="68">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">278  GOELISE</language>
+	</row>
+	<row id="narc_0622_00069" index="69">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">278  WINGULL</language>
+	</row>
+	<row id="narc_0622_00070" index="70">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">278  WINGULL</language>
+	</row>
+	<row id="narc_0622_00071" index="71">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">278  WINGULL</language>
+	</row>
+	<row id="narc_0622_00072" index="72">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">２８７  ナマケロ</language>
+	</row>
+	<row id="narc_0622_00073" index="73">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">287  SLAKOTH</language>
+	</row>
+	<row id="narc_0622_00074" index="74">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">287  PARECOOL</language>
+	</row>
+	<row id="narc_0622_00075" index="75">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">287  BUMMELZ</language>
+	</row>
+	<row id="narc_0622_00076" index="76">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">287  SLAKOTH</language>
+	</row>
+	<row id="narc_0622_00077" index="77">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">287  SLAKOTH</language>
+	</row>
+	<row id="narc_0622_00078" index="78">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">３１５  ロゼリア</language>
+	</row>
+	<row id="narc_0622_00079" index="79">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">315  ROSELIA</language>
+	</row>
+	<row id="narc_0622_00080" index="80">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">315  ROSELIA</language>
+	</row>
+	<row id="narc_0622_00081" index="81">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">315  ROSELIA</language>
+	</row>
+	<row id="narc_0622_00082" index="82">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">315  ROSELIA</language>
+	</row>
+	<row id="narc_0622_00083" index="83">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">315  ROSELIA</language>
+	</row>
+</body>

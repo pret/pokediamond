@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0216_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">According to one theory, Mt. Coronet\nis where the Sinnoh region began.\r</language>
+	</row>
+	<row id="narc_0216_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">...In a newly created world...\rA world where only time flowed and\nspace expanded...\fThere should have been no strife.\r</language>
+	</row>
+	<row id="narc_0216_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">But what became of that world?\rBecause the human spirit is weak\nand incomplete, strife has spread...\rThis world is being ruined by it...\rI find the state of things to\nbe deplorable...\r</language>
+	</row>
+	<row id="narc_0216_00003" index="3">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+	<row id="narc_0216_00004" index="4">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+	</row>
+</body>

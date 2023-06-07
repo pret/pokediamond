@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0189_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Battle Zone used to attract only\nthe hardiest of the Trainers.\rThey were considered eccentric for\ngathering at a place like this.\rIt’s hard to believe how much it’s\nchanged since then.\rPlaces like the Fight Area and the\nSurvival Area just seemed to spring\fup overnight.</language>
+	</row>
+	<row id="narc_0189_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">He was one of those early eccentrics\nwho were around during the early days\rof the Battle Zone. Well, I was too.</language>
+	</row>
+	<row id="narc_0189_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">TORCHIC: Chiic chic!</language>
+	</row>
+</body>

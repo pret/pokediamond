@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0501_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: {STRVAR_1 3, 0}!\r{STRVAR_1 3, 1} came calling for you\na little while ago.\rI don’t know what it was about, but\nhe said it was an emergency.\r</language>
+	</row>
+	<row id="narc_0501_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: You know how impatient\n{STRVAR_1 3, 0} is.\rHe took off before I could even\nask what it was about.</language>
+	</row>
+	<row id="narc_0501_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Bye-bye, {STRVAR_1 3, 0}!\nYou take care now!</language>
+	</row>
+	<row id="narc_0501_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: But that {STRVAR_1 3, 0}...\nHe always invites you along.</language>
+	</row>
+	<row id="narc_0501_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Oh, yes!\n{STRVAR_1 3, 0}!\rDon’t go into the tall grass.\nWild Pokémon might attack you.\rIt would be OK if you had your own\nPokémon, but you don’t, so...</language>
+	</row>
+	<row id="narc_0501_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: What is it, dear?\nIsn’t {STRVAR_1 3, 0} waiting for you?</language>
+	</row>
+	<row id="narc_0501_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: What’s up, dear?\r...\rWow.\nI can’t believe that happened to you.\rAm I ever glad that both you and\n{STRVAR_1 3, 0} are unharmed.\rThe professor you mentioned is\nmost likely Professor Rowan of\fSandgem Town.\rI’ve heard that he is well known for\nhis studies on Pokémon.\rI hear he’s also quite intimidating...\r{STRVAR_1 3, 1}, I think you need to\nvisit him in Sandgem Town.\rYou need to properly explain why you\nhad no choice but to use his Pokémon.\rDon’t worry!\nI’m sure he will understand.\r</language>
+	</row>
+	<row id="narc_0501_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Oh, I know!\n{STRVAR_1 3, 0}, put these on.\r</language>
+	</row>
+	<row id="narc_0501_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} received a pair of\n{COLOR 1}Running Shoes{COLOR 0}!</language>
+	</row>
+	<row id="narc_0501_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Going to Sandgem Town is like an\nadventure in itself, right?\rWith those Running Shoes, you can\nget to faraway places much faster.\rOK...\nLet me read the instructions...\r“Press the B Button and dash\nabout faster than ever before!\r“Put on the Running Shoes and\nblaze new trails of adventure!”\rWell, isn’t that just nifty!</language>
+	</row>
+	<row id="narc_0501_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: I’ll read you the instructions\nfor the Running Shoes...\r“Press the B Button and dash\nabout faster than ever before!\r“Put on the Running Shoes and\nblaze new trails of adventure!”\rWell, isn’t that just nifty!</language>
+	</row>
+	<row id="narc_0501_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Welcome home, {STRVAR_1 3, 0}.\nAre you and your Pokémon healthy?\rIt’s still early in the morning.\nTake a quick rest, dear.\r</language>
+	</row>
+	<row id="narc_0501_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Welcome home, {STRVAR_1 3, 0}.\nAre you and your Pokémon healthy?\fTake a quick rest, dear.\r</language>
+	</row>
+	<row id="narc_0501_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Welcome home, {STRVAR_1 3, 0}.\nAre you and your Pokémon healthy?\rI just made dinner.\nTake a quick rest, dear.\r</language>
+	</row>
+	<row id="narc_0501_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Welcome home, {STRVAR_1 3, 0}.\nAre you and your Pokémon healthy?\rIt’s so late right now...\nTake a quick rest, dear.\r</language>
+	</row>
+	<row id="narc_0501_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: What’s up, {STRVAR_1 3, 0}?\r...\rWow. Professor Rowan asked you\nto do something that big.\rOK, dear, go for it!\nYour mom’s got your back!\rOh, I know! {STRVAR_1 3, 0}, I’ve got\nsomething that you’ll find useful.\r</language>
+	</row>
+	<row id="narc_0501_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">That’s a Journal. It keeps a record\nof your daily events.\rCheck it, and you’ll be able to\nremember what you did last.\r</language>
+	</row>
+	<row id="narc_0501_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Gee, a journey full of adventure...\nI envy you, kiddo.\rPlus, you’re not alone.\nYou have your Pokémon with you.\fI wish I could go instead!\r</language>
+	</row>
+	<row id="narc_0501_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I’m just joking, dear!\nYup, {STRVAR_1 3, 0}!\rI’ll be all right by myself, so you\ngo and enjoy your adventure!\rWhen you’re exposed to new things,\nand experience new sensations...\fIt makes your mother happy too.\r...But come back sometimes.\rI would like to see the kinds of\nPokémon you’ve caught, dear.\r</language>
+	</row>
+	<row id="narc_0501_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 1}’s mom: Excuse me.\nIs my little {STRVAR_1 3, 1} here?\r</language>
+	</row>
+	<row id="narc_0501_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Oh?\nNo, he’s not...\r</language>
+	</row>
+	<row id="narc_0501_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 1}’s mom: Oh...\nThen, he must have left already...\fWhat to do...\rThat boy shouted about going on an\nadventure, then he bolted.\rHe’s so headstrong and reckless...\nI at least wanted him to take this...\r</language>
+	</row>
+	<row id="narc_0501_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Not to worry, {STRVAR_1 3, 0} will\ndeliver that to him.\r</language>
+	</row>
+	<row id="narc_0501_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Won’t you, {STRVAR_1 3, 0}?\r</language>
+	</row>
+	<row id="narc_0501_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 1}’s mom: Oh, really?\nYou’d do that for me?\r{STRVAR_1 3, 0}, please take this to\n{STRVAR_1 3, 1} for me.\r</language>
+	</row>
+	<row id="narc_0501_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 1}’s mom: Oh, really?\nYou’d do that for me?\r{STRVAR_1 3, 0}, please take this to\n{STRVAR_1 3, 1} for me.\r</language>
+	</row>
+	<row id="narc_0501_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 1}’s mom: Let me think...\rKnowing my boy, he would probably\nhead straight to Jubilife City...\rOK, please take that to my\n{STRVAR_1 3, 1}.\r</language>
+	</row>
+	<row id="narc_0501_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Bye-bye, {STRVAR_1 3, 0}!\nEnjoy your adventure!\r</language>
+	</row>
+	<row id="narc_0501_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: Bye-bye, {STRVAR_1 3, 0}!\nEnjoy your adventure!</language>
+	</row>
+	<row id="narc_0501_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">MC: Here we are!\nIt’s the Contest Digest!\rThe winner of today’s Normal Rank\nCute Contest is...\rBrooke, who entered a breathtakingly\ncute Pokémon!\rThat’s all the time we have today!\nUntil next time!</language>
+	</row>
+	<row id="narc_0501_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">MC: Here we are!\nIt’s the Contest Digest!\rThe winner of today’s Normal Rank\nSmart Contest is...\rWestley, who won with his bright spark\nof a Pokémon!\rThat’s all the time we have today!\nLet’s meet again!</language>
+	</row>
+	<row id="narc_0501_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">MC: Here we are!\nIt’s the Contest Digest!\rThe winner of today’s Normal Rank\nTough Contest is...\rDominic, who overwhelmed with his\nawesomely buffed Pokémon!\rThat’s all the time we have today!\nLet’s meet again!</language>
+	</row>
+	<row id="narc_0501_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom’s favorite dessert is in\nthe refrigerator.</language>
+	</row>
+	<row id="narc_0501_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom’s kitchen is spotless!\nYou can see your face on the floor!</language>
+	</row>
+	<row id="narc_0501_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">This is where Mom does all her\ndelicious cooking.</language>
+	</row>
+	<row id="narc_0501_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: {STRVAR_1 3, 0}!\r{STRVAR_1 3, 1} came looking for you\na little while ago.\rI don’t know what it was about, but\nhe was shouting about you needing\fto get on a ship at Snowpoint City.\rYou know how impatient he is.\nHe was gone before I could ask.</language>
+	</row>
+	<row id="narc_0501_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Mom: {STRVAR_1 3, 0}!\r{STRVAR_1 3, 1} came looking for you\na little while ago.\rI don’t know what it was about, but\nhe was shouting about you needing\fto get on a ship at Snowpoint City.\rYou know how impatient he is.\nHe was gone before I could ask.\rAnyway, how’s it going, kid?\rIs your project with Professor Rowan\ncoming along?</language>
+	</row>
+</body>

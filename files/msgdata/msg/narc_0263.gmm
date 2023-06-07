@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0263_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">It’s a bed...\nWant to take a rest?</language>
+	</row>
+	<row id="narc_0263_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} quickly fell asleep\nin the bed...\r</language>
+	</row>
+	<row id="narc_0263_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0} and the Pokémon\nbecame fully healed from the rest!</language>
+	</row>
+	<row id="narc_0263_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Team Galactic Nap Room\rEnsure the bed is unoccupied\nbefore getting into it!</language>
+	</row>
+	<row id="narc_0263_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Team Galactic TV Room\rState-of-the-art audio &amp; video\nsystem for member use only!\rOnward to a new universe!\nTeam Galactic!</language>
+	</row>
+	<row id="narc_0263_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The Team Galactic credo!\nEverything belongs to Team Galactic!\rLook beyond the world--space will\nbecome Team Galactic’s!</language>
+	</row>
+	<row id="narc_0263_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There is a notice tacked on to\nthe kitchen sink.\r“Health and prosperity through\nthe partaking of favorite foods!”\rFoul, unidentifiable substances are\ncaked around the sink...</language>
+	</row>
+	<row id="narc_0263_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">There is a notice taped on to\nthe refrigerator.\r“Drink all you wish and gain the\nenergy to move us forward!”\rThe refrigerator is filled with murky,\nsinister drinks and nothing else...</language>
+	</row>
+</body>

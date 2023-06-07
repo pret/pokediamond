@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0520_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Someone gave me a Seal Case, but\nI can’t buy any Seals here.</language>
+	</row>
+	<row id="narc_0520_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">If you use a Repel, it keeps weak\nPokémon away from you.\rIt’s useful if you need to get\nsomewhere in a hurry.</language>
+	</row>
+</body>

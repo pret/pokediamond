@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<body language="English">
+	<row id="narc_0496_00000" index="0">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Hey, {STRVAR_1 3, 0}?\nThe professor told me something.\rHe thinks {STRVAR_1 0, 1} may have\nreappeared at the Spear Pillar...</language>
+	</row>
+	<row id="narc_0496_00001" index="1">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Hi, {STRVAR_1 3, 0}!\rYou’re friends with the elder of\nCelestic Town, aren’t you?\rShe told me that she had something\nshe wanted to show you.</language>
+	</row>
+	<row id="narc_0496_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Hi, {STRVAR_1 3, 0}!\nMay I see your Pokédex?\r...\rOh, my gosh! You’ve seen every kind\nof Pokémon in Sinnoh!\rHave you shown your Pokédex to\nProf. Rowan yet?</language>
+	</row>
+	<row id="narc_0496_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Hey, {STRVAR_1 3, 0}, have you\never chatted with my kid sister?</language>
+	</row>
+	<row id="narc_0496_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Oh, {STRVAR_1 3, 0}, are you\nacquainted with Bebe?\rShe lives in Hearthome City.\rEvery Trainer should make it a point\nto pay Bebe a visit.</language>
+	</row>
+	<row id="narc_0496_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Hey! {STRVAR_1 3, 0}, you’ve got\na Poké Radar?\rWatch for tall grass to rustle wildly\nwhen you use your Poké Radar.\rThat could be a sign that a rare\nPokémon is hiding in there.</language>
+	</row>
+	<row id="narc_0496_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Hi, {STRVAR_1 3, 0}!\nHow’s your Poké Radar?\rWhen you use it, do you sometimes\nsee more than one patch of tall\fgrass rustling?\rThe patch farther away gives you a\nbetter chance of seeing the same\fkind of Pokémon in a row.\rThat’s the feeling I get, anyways.</language>
+	</row>
+	<row id="narc_0496_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Sometimes a patch of grass\nsparkles when a Poké Radar is used.\rPeople say a different-colored\nPokémon is hiding there!\rCould that be true?</language>
+	</row>
+	<row id="narc_0496_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: So, {STRVAR_1 3, 0}.\rI’m also helping the professor put\ntogether the National Pokédex.\rCatching Pokémon can be really\nchallenging, can’t it?\rBut, it’s also so much fun!</language>
+	</row>
+	<row id="narc_0496_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: {STRVAR_1 3, 0}!\r{STRVAR_1 3, 0}, {STRVAR_1 3, 0},\n{STRVAR_1 3, 0}!\rCongratulations for completing\nthe National Pokédex!</language>
+	</row>
+	<row id="narc_0496_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Is today maybe...\nYour birthday, {STRVAR_1 3, 0}?</language>
+	</row>
+	<row id="narc_0496_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Giggle...\nCongratulations, {STRVAR_1 3, 0}!\fAnd many more happy returns!</language>
+	</row>
+	<row id="narc_0496_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: Oh, it isn’t?\rI wonder what made me think that\ntoday was your birthday?</language>
+	</row>
+	<row id="narc_0496_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Dawn: {STRVAR_1 3, 0}!\nI heard from the professor!\rCongratulations, Champ!</language>
+	</row>
+	<row id="narc_0496_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hey, {STRVAR_1 3, 0}!\nThe prof told me something cool.\rHe thinks {STRVAR_1 0, 1} has\nreappeared at the Spear Pillar!</language>
+	</row>
+	<row id="narc_0496_00015" index="15">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hi, {STRVAR_1 3, 0}!\rYou know the elder of Celestic Town,\nright?\rShe told me she wanted to show you\nsomething.</language>
+	</row>
+	<row id="narc_0496_00016" index="16">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hey, {STRVAR_1 3, 0}!\nLet me take a look at your Pokédex.\r...\rAwesome! You’ve seen every kind\nof Pokémon in Sinnoh!\rHave you shown this Pokédex to\nProf. Rowan yet?</language>
+	</row>
+	<row id="narc_0496_00017" index="17">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hey, {STRVAR_1 3, 0}, have you\never seen my kid sister?</language>
+	</row>
+	<row id="narc_0496_00018" index="18">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hey, {STRVAR_1 3, 0}, have you\nmet Bebe?\rShe lives out in Hearthome City.\rIf you’re a Trainer, you owe it to\nyourself to visit her.</language>
+	</row>
+	<row id="narc_0496_00019" index="19">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hey! {STRVAR_1 3, 0}, you’ve got\nyourself a Poké Radar, too?\rWatch for tall grass to rustle wildly\nwhen you use that Poké Radar.\rThat’s a sign that rare Pokémon\nmay be hiding there.</language>
+	</row>
+	<row id="narc_0496_00020" index="20">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hi, {STRVAR_1 3, 0}!\nHow’s your Poké Radar working out?\rWhen you use it, do you sometimes\nsee more than one patch of tall\fgrass rustling?\rThe patch farther away gives you a\nbetter chance of seeing the same\fkind of Pokémon right in a row.\rI think that’s how it goes.</language>
+	</row>
+	<row id="narc_0496_00021" index="21">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Sometimes a patch of grass\nsparkles when a Poké Radar is used.\rThey say a different-colored\nPokémon is hiding there!\rI wonder if that’s true?</language>
+	</row>
+	<row id="narc_0496_00022" index="22">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: So, {STRVAR_1 3, 0}.\rI’m also helping the professor out\nwith the National Pokédex.\rCatching Pokémon can be really\nchallenging, can’t it?\rBut I also have a ton of fun doing it!</language>
+	</row>
+	<row id="narc_0496_00023" index="23">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: {STRVAR_1 3, 0}!\rWow! I don’t know what to say!\nI mean, it’s so awesome and all...\rSincerely, congratulations for\ncompleting the National Pokédex!</language>
+	</row>
+	<row id="narc_0496_00024" index="24">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Hey, {STRVAR_1 3, 0}?\nIs it maybe your birthday today?</language>
+	</row>
+	<row id="narc_0496_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: I thought so!\nCongratulations, {STRVAR_1 3, 0}!\fYou know, I’m glad we’re friends!</language>
+	</row>
+	<row id="narc_0496_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: Huh?\nIt isn’t?\rNow, what made me think it was\nyour birthday? Freaky weird.</language>
+	</row>
+	<row id="narc_0496_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Lucas: {STRVAR_1 3, 0}!\nThe professor told me the news!\rCongratulations, Champ!</language>
+	</row>
+</body>

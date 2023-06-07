@@ -319,7 +319,7 @@ $(O2NARC_TARGETS): %.narc: %.json %.json.txt $$(dep)
 	$(JSONPROC) $*.json $*.json.txt $*.c
 	$(CC) $(MWCFLAGS) -c -o $*.o $*.c
 	$(O2NARC) $(O2NARCFLAGS) $*.o $@
-	@$(RM) $*.o $*.c
+	@$(RM) $*.o $*.c $*/*.c $*/*.o
 
 files/application/wifi_earth/wifi_earth.narc: \
 		files/application/wifi_earth/wifi_earth/narc_0005.NCGR \
@@ -2707,7 +2707,7 @@ files/poketool/icongra/poke_icon.narc: \
         files/poketool/icongra/poke_icon/narc_0402.NCGR
 
 files/msgdata/msg.narc: \
-		files/msgdata/msg/narc_0000.bin \
+	files/msgdata/msg/narc_0000.bin \
         files/msgdata/msg/narc_0001.bin \
         files/msgdata/msg/narc_0002.bin \
         files/msgdata/msg/narc_0003.bin \

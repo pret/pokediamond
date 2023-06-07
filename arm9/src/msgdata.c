@@ -1,6 +1,7 @@
 #include "global.h"
 #include "filesystem.h"
 #include "msgdata.h"
+#include "msgdata/msg.naix"
 #include "heap.h"
 #include "MI_memory.h"
 #include "string16.h"
@@ -370,7 +371,7 @@ struct String * ReadMsgData_ExpandPlaceholders(MessageFormat *messageFormat, str
 
 struct String * GetMoveName(u32 move, u32 heapno)
 {
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 588, heapno);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0588_bin, heapno);
     struct String * ret;
     if (msgData != NULL)
     {
@@ -388,7 +389,7 @@ struct String * GetMoveName(u32 move, u32 heapno)
 struct String * GetSpeciesName(u16 species, u32 heap_id)
 {
     struct String * ret;
-    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 362, heap_id);
+    struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0362_bin, heap_id);
     if (msgData != NULL)
     {
         ret = NewString_ReadMsgData(msgData, species);
