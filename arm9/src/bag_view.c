@@ -8,6 +8,8 @@
 #include "message_format.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0007.h"
+#include "msgdata/msg/narc_0199.h"
 #include "player_data.h"
 #include "seal.h"
 #include "unk_0202A1E0.h"
@@ -139,30 +141,30 @@ THUMB_FUNC BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, st
 
     if (item_id == ITEM_NONE)
     {
-        string = NewString_ReadMsgData(msgData, 0x63);
+        string = NewString_ReadMsgData(msgData, narc_0007_00099); // A Key Item in the Bag can be assigned to this button for instant use.
     }
     else if (item_id == ITEM_POINT_CARD)
     {
-        string = NewString_ReadMsgData(msgData, 0x61);
+        string = NewString_ReadMsgData(msgData, narc_0007_00097); // Saved Battle Points {STRVAR_1 53, 0}BP
 
         BufferIntegerAsString(messageFormat, 0, FUN_0206E3E8(sav2), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_SEAL_CASE)
     {
-        string = NewString_ReadMsgData(msgData, 0x5C);
+        string = NewString_ReadMsgData(msgData, narc_0007_00092); // Seals: {STRVAR_1 53, 0}
 
         BufferIntegerAsString(messageFormat, 0, GetSealCount(sav2), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_FASHION_CASE)
     {
-        string = NewString_ReadMsgData(msgData, 0x5D);
+        string = NewString_ReadMsgData(msgData, narc_0007_00093); // Accessories: {STRVAR_1 52, 0} Backdrops: {STRVAR_1 51, 1}
 
         BufferIntegerAsString(messageFormat, 0, FUN_0206E3C8(sav2), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
         BufferIntegerAsString(messageFormat, 1, FUN_0206E3D8(sav2), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_COIN_CASE)
     {
-        string = NewString_ReadMsgData(msgData, 0x39);
+        string = NewString_ReadMsgData(msgData, narc_0007_00057); // Your Coins: {STRVAR_1 54, 0}
 
         BufferIntegerAsString(messageFormat, 0, GetCoinCount(sav2), 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
@@ -191,21 +193,21 @@ THUMB_FUNC void FUN_0206E51C( //todo: sync with HG
     switch (r3)
     {
     case 1:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 7, heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
 
-        ReadMsgDataIntoString(msgData, 0x38, dest);
+        ReadMsgDataIntoString(msgData, narc_0007_00056, dest); // You can’t dismount your Bike here.
         DestroyMsgData(msgData);
         return;
     case 2:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 7, heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
 
-        ReadMsgDataIntoString(msgData, 0x6F, dest);
+        ReadMsgDataIntoString(msgData, narc_0007_00111, dest); // It can’t be used when you have someone with you.
         DestroyMsgData(msgData);
         return;
     default:
-        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 0xC7, heap_id);
+        msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0199_bin, heap_id);
         MessageFormat *messageFormat = MessageFormat_New(heap_id);
-        struct String *src = NewString_ReadMsgData(msgData, 0x24);
+        struct String *src = NewString_ReadMsgData(msgData, narc_0199_00036); // Rowan’s words echoed... {STRVAR_1 3, 0}! There’s a time and place for everything! But not now.
 
         BufferPlayersName(messageFormat, 0, playerData);
         StringExpandPlaceholders(messageFormat, dest, src);

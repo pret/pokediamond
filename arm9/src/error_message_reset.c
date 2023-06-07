@@ -9,7 +9,7 @@
 #include "brightness.h"
 #include "render_window.h"
 #include "msgdata/msg.naix"
-
+#include "msgdata/msg/narc_0200.h"
 
 static const struct WindowTemplate sErrorMessageWindowTemplate = {
     .bgId = GF_BG_LYR_MAIN_0,
@@ -134,7 +134,7 @@ THUMB_FUNC void PrintErrorMessageAndReset()
         FillWindowPixelRect(&buf, 15, 0, 0, 0xd0, 0x90);
         DrawFrameAndWindow1(&buf, FALSE, 0x1f7, 2);
 
-        ReadMsgDataIntoString(msg_data, 3, str); //todo: msgenc needs to be updated to use the constant
+        ReadMsgDataIntoString(msg_data, narc_0200_00003, str); //A communication error has occurred. You will be returned to the title screen...
 
         AddTextPrinterParameterized(&buf, 0, str, 0, 0, 0, NULL);
 

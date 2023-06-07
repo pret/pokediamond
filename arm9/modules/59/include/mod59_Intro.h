@@ -115,7 +115,7 @@ void MOD59_021D7A5C(MOD59_IntroOverlayData *data);
 BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 param1, u32 param2);
 BOOL MOD59_Timer(MOD59_IntroOverlayData *data, s32 timer);
 void MOD59_TilemapChangePalette(MOD59_IntroOverlayData *data, u32 layer, u32 paletteNum);
-BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, u32 param2);
+BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvance);
 void MOD59_PlaySelectSound(struct ListMenu *list, s32 index, u8 onInit);
 BOOL MOD59_CreateListWithText(MOD59_IntroOverlayData *data, u32 param1, u32 param2);
 BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height);

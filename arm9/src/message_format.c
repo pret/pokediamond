@@ -5,6 +5,9 @@
 #include "message_format.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0199.h"
+#include "msgdata/msg/narc_0382.h"
+#include "msgdata/msg/narc_0497.h"
 #include "player_data.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
@@ -140,11 +143,11 @@ void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveBlock2 
     struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, messageFormat->heap_id);
     if (PlayerProfile_GetTrainerGender(data) == Male)
     {
-        ReadMsgDataIntoString(msgData, 1, messageFormat->buffer);
+        ReadMsgDataIntoString(msgData, narc_0497_00001, messageFormat->buffer); //Dawn
     }
     else
     {
-        ReadMsgDataIntoString(msgData, 0, messageFormat->buffer);
+        ReadMsgDataIntoString(msgData, narc_0497_00000, messageFormat->buffer); //Lucas
     }
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
     DestroyMsgData(msgData);
@@ -517,10 +520,10 @@ void BufferGenderSymbol(MessageFormat *messageFormat, u32 idx, u32 gender)
     switch (gender)
     {
     case 0:
-        ReadMsgDataIntoString(msgData, 68, messageFormat->buffer);
+        ReadMsgDataIntoString(msgData, narc_0199_00068, messageFormat->buffer); // ♂
         break;
     case 1:
-        ReadMsgDataIntoString(msgData, 69, messageFormat->buffer);
+        ReadMsgDataIntoString(msgData, narc_0199_00069, messageFormat->buffer); // ♀
         break;
     default:
         StringSetEmpty(messageFormat->buffer);
@@ -632,7 +635,7 @@ void BufferLocationName(MessageFormat *messageFormat, u32 idx, u16 location)
         msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0382_bin, messageFormat->heap_id);
         if (msgData != NULL)
         {
-            ReadMsgDataIntoString(msgData, 0, messageFormat->buffer);
+            ReadMsgDataIntoString(msgData, narc_0382_00000, messageFormat->buffer); // Mystery Zone
             SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
             DestroyMsgData(msgData);
         }

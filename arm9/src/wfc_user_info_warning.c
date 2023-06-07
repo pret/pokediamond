@@ -7,6 +7,7 @@
 #include "main.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0613.h"
 #include "PAD_pad.h"
 #include "string16.h"
 #include "text.h"
@@ -51,16 +52,16 @@ static const struct BgTemplate sWFCWarningMsgBgTemplate = {
 };
 
 static const struct GraphicsBanks sWFCWarningMsgGraphicsBanks = {
-    .bg = 3,
-    .bgextpltt = 0,
-    .subbg = 0,
-    .subbgextpltt = 0,
-    .obj = 0,
-    .objextpltt = 0,
-    .subobj = 0,
-    .subobjextpltt = 0,
-    .tex = 0,
-    .texpltt = 0,
+    .bg = GX_VRAM_BG_256_AB,
+    .bgextpltt = GX_VRAM_BGEXTPLTT_NONE,
+    .subbg = GX_VRAM_SUB_BG_NONE,
+    .subbgextpltt = GX_VRAM_SUB_BGEXTPLTT_NONE,
+    .obj = GX_VRAM_OBJ_NONE,
+    .objextpltt = GX_VRAM_OBJEXTPLTT_NONE,
+    .subobj = GX_VRAM_SUB_OBJ_NONE,
+    .subobjextpltt = GX_VRAM_SUB_OBJEXTPLTT_NONE,
+    .tex = GX_VRAM_TEX_NONE,
+    .texpltt = GX_VRAM_TEXPLTT_NONE,
 };
 
 THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
@@ -77,18 +78,18 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
 
     GX_DisableEngineALayers();
     GX_DisableEngineBLayers();
-    reg_GX_DISPCNT &= ~REG_GX_DISPCNT_DISPLAY_MASK;
-    reg_GXS_DB_DISPCNT &= ~REG_GX_DISPCNT_DISPLAY_MASK;
+    GX_SetVisiblePlane(0);
+    GXS_SetVisiblePlane(0);
 
     SetKeyRepeatTimers(4, 8);
 
     gSystem.screensFlipped = 0;
 
     GX_SwapDisplay();
-    reg_G2_BLDCNT = 0;
-    reg_G2S_DB_BLDCNT = 0;
-    reg_GX_DISPCNT &= ~(REG_GX_DISPCNT_OW_MASK | REG_GX_DISPCNT_W1_MASK | REG_GX_DISPCNT_W0_MASK);
-    reg_GXS_DB_DISPCNT &= ~(REG_GXS_DB_DISPCNT_OW_MASK | REG_GXS_DB_DISPCNT_W1_MASK | REG_GXS_DB_DISPCNT_W0_MASK);
+    G2_BlendNone();
+    G2S_BlendNone();
+    GX_SetVisibleWnd(0);
+    GXS_SetVisibleWnd(0);
     GX_SetBanks(&sWFCWarningMsgGraphicsBanks);
 
     struct BgConfig* bg_config = BgConfig_Alloc(heap_id);
@@ -100,8 +101,8 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     LoadUserFrameGfx1(bg_config, GF_BG_LYR_MAIN_0, 0x01F7, 2, 0, heap_id);
     LoadFontPal0(GF_PAL_LOCATION_MAIN_BG, GF_PAL_SLOT_OFFSET_1, heap_id);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, heap_id);
-    BG_SetMaskColor(GF_BG_LYR_MAIN_0, 0x6C21);
-    BG_SetMaskColor(GF_BG_LYR_SUB_0, 0x6C21);
+    BG_SetMaskColor(GF_BG_LYR_MAIN_0, GX_RGB(1, 1, 27));
+    BG_SetMaskColor(GF_BG_LYR_SUB_0, GX_RGB(1, 1, 27));
 
     struct MsgData* warning_messages_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0613_bin, heap_id);
     struct String* warning_message = String_New(384, heap_id);
@@ -110,7 +111,7 @@ THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
     DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
-    ReadMsgDataIntoString(warning_messages_data, 15, warning_message);
+    ReadMsgDataIntoString(warning_messages_data, narc_0613_00015, warning_message); // Your Nintendo Wi-Fi Connection User Information may have been erased...
     AddTextPrinterParameterized(&window, 0, warning_message, 0, 0, 0, 0);
     String_Delete(warning_message);
 

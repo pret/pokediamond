@@ -15,6 +15,7 @@
 #include "module_52.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0341.h"
 #include "overlay_manager.h"
 #include "player_data.h"
 #include "pokemon.h"
@@ -126,11 +127,11 @@ const struct MOD59_CharStruct021D9DEC MOD59_021D9DFC =
 const struct MOD59_ListStruct021D9E0C MOD59_021D9E0C[2] =
     {
         {
-            .msgNo = 34,
+            .msgNo = narc_0341_00034, //YES
             .val = 1
         },
         {
-            .msgNo = 35,
+            .msgNo = narc_0341_00035, //NO
             .val = 2
         }
     };
@@ -150,15 +151,15 @@ const u32 MOD59_021D9E44[5] = { 0, 6, 1, 12, 2060 };
 const struct MOD59_ListStruct021D9E0C MOD59_021D9E58[3] =
     {
         {
-            .msgNo = 31,
+            .msgNo = narc_0341_00031, //CONTROL INFO
             .val = 1
         },
         {
-            .msgNo = 32,
+            .msgNo = narc_0341_00032, //ADVENTURE INFO
             .val = 2
         },
         {
-            .msgNo = 33,
+            .msgNo = narc_0341_00033, //NO INFO NEEDED
             .val = 3
         }
     };
@@ -237,23 +238,23 @@ const struct ListMenuTemplate MOD59_021D9EF8 =
 const struct MOD59_ListStruct021D9E0C MOD59_021D9F40[5] =
     {
         {
-            .msgNo = 36,
+            .msgNo = narc_0341_00036, //New name!
             .val = 1
         },
         {
-            .msgNo = 37,
+            .msgNo = narc_0341_00037, //Barry
             .val = 2
         },
         {
-            .msgNo = 38,
+            .msgNo = narc_0341_00038, //Damion
             .val = 3
         },
         {
-            .msgNo = 39,
+            .msgNo = narc_0341_00039, //Tyson
             .val = 4
         },
         {
-            .msgNo = 40,
+            .msgNo = narc_0341_00040, //Markus
             .val = 5
         }
     };
@@ -261,39 +262,39 @@ const struct MOD59_ListStruct021D9E0C MOD59_021D9F40[5] =
 const struct MOD59_ListStruct021D9E0C MOD59_021D9F68[5] =
     {
         {
-            .msgNo = 36,
+            .msgNo = narc_0341_00036, //New name!
             .val = 1
         },
         {
-            .msgNo = 41,
+            .msgNo = narc_0341_00041, //Clint
             .val = 2
         },
         {
-            .msgNo = 42,
+            .msgNo = narc_0341_00042, //Ralph
             .val = 3
         },
         {
-            .msgNo = 43,
+            .msgNo = narc_0341_00043, //Lewis
             .val = 4
         },
         {
-            .msgNo = 44,
+            .msgNo = narc_0341_00044, //Tommy
             .val = 5
         }
     };
 
 const struct GraphicsBanks MOD59_021D9F18 =
     {
-        .bg = 2,
-        .bgextpltt = 0,
-        .subbg = 4,
-        .subbgextpltt = 0,
-        .obj = 0,
-        .objextpltt = 0,
-        .subobj = 0,
-        .subobjextpltt = 0,
-        .tex = 0,
-        .texpltt = 0
+        .bg = GX_VRAM_BG_128_B,
+        .bgextpltt = GX_VRAM_BGEXTPLTT_NONE,
+        .subbg = GX_VRAM_SUB_BG_128_C,
+        .subbgextpltt = GX_VRAM_SUB_BGEXTPLTT_NONE,
+        .obj = GX_VRAM_OBJ_NONE,
+        .objextpltt = GX_VRAM_OBJEXTPLTT_NONE,
+        .subobj = GX_VRAM_SUB_OBJ_NONE,
+        .subobjextpltt = GX_VRAM_SUB_OBJEXTPLTT_NONE,
+        .tex = GX_VRAM_TEX_NONE,
+        .texpltt = GX_VRAM_TEXPLTT_NONE
     };
 
 const struct MOD59_GraphicsPaletteMap021D9F90 MOD59_021D9F90 =
@@ -815,7 +816,7 @@ THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_IntroOverlayData *data, u32 lay
     BgCommitTilemapBufferToVram(data->bgConfig, (u8)layer);
 }
 
-THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, u32 param2)
+THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvance)
 {
     BOOL ret = FALSE;
     switch(data->displayMessageCounter)
@@ -849,7 +850,7 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, u3
             data->displayMessageCounter = 2;
             break;
         case 2:
-            if (param2 != 0 || (gSystem.newKeys & PAD_BUTTON_A) == 1)
+            if (autoAdvance != FALSE || (gSystem.newKeys & PAD_BUTTON_A) == 1)
             {
                 RemoveWindow(&data->window);
                 data->displayMessageCounter = 0;
@@ -1876,7 +1877,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 2: //Hello there! It’s so very nice to meet you!
-            if(MOD59_DisplayMessage(data, 0, 1) != TRUE)
+            if(MOD59_DisplayMessage(data, narc_0341_00000, TRUE) != TRUE)
             {
                 break;
             }
@@ -1904,7 +1905,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 5: //My name is Rowan. However, everyone just calls me the Pokémon Professor.
-            if (MOD59_DisplayMessage(data, 1, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00001, TRUE) != TRUE)
             {
                 break;
             }
@@ -1976,7 +1977,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 12: //Moves the main character. Also used to choose various headings and selections.
-            if (MOD59_DisplayControlAdventureMessage(data, 2, 0, 3, 18) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00002, 0, 3, 18) != TRUE)
             {
                 break;
             }
@@ -1990,7 +1991,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 14: //Press to open the menu.  Press to use an item,
-            if (MOD59_DisplayControlAdventureMessage(data, 3, 0, 7, 12) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00003, 0, 7, 12) != TRUE)
             {
                 break;
             }
@@ -2004,7 +2005,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 16: //The lower screen is called the Touch Screen.
-            if (MOD59_DisplayControlAdventureMessage(data, 4, 0, 4, 12) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00004, 0, 4, 12) != TRUE)
             {
                 break;
             }
@@ -2012,7 +2013,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 17: //Use DisplayMessage to create the flashing touchscreen icon ({YESNO 0})
-            if (MOD59_DisplayMessage(data, 6, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00006, TRUE) != TRUE)
             {
                 break;
             }
@@ -2020,7 +2021,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 18: //If this mark is shown in the message window
-            if (MOD59_DisplayControlAdventureMessage(data, 5, 0, 4, 10) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00005, 0, 4, 10) != TRUE)
             {
                 break;
             }
@@ -2034,7 +2035,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 20: //Do you understand everything so far?{YESNO 0}
-            if (MOD59_DisplayMessage(data, 7, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00007, TRUE) != TRUE)
             {
                 break;
             }
@@ -2123,7 +2124,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 27: //Please touch a button on the Touch Screen below.{YESNO 0}
-            if (MOD59_DisplayMessage(data, 8, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00008, TRUE) != TRUE)
             {
                 break;
             }
@@ -2150,7 +2151,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 30: //Would you like to know more about anything else?
-            if (MOD59_DisplayMessage(data, 9, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00009, TRUE) != TRUE)
             {
                 break;
             }
@@ -2175,7 +2176,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 33:
-            if (MOD59_DisplayControlAdventureMessage(data, 10, 1, 9, 6) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00010, 1, 9, 6) != TRUE)
             {
                 break;
             }
@@ -2183,7 +2184,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 34:
-            if (MOD59_DisplayControlAdventureMessage(data, 11, 1, 8, 8) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00011, 1, 8, 8) != TRUE)
             {
                 break;
             }
@@ -2191,7 +2192,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 35:
-            if (MOD59_DisplayControlAdventureMessage(data, 12, 1, 9, 6) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00012, 1, 9, 6) != TRUE)
             {
                 break;
             }
@@ -2199,7 +2200,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 36:
-            if (MOD59_DisplayControlAdventureMessage(data, 13, 1, 5, 14) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00013, 1, 5, 14) != TRUE)
             {
                 break;
             }
@@ -2207,7 +2208,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 37:
-            if (MOD59_DisplayControlAdventureMessage(data, 14, 1, 10, 4) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00014, 1, 10, 4) != TRUE)
             {
                 break;
             }
@@ -2215,7 +2216,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 38:
-            if (MOD59_DisplayControlAdventureMessage(data, 15, 1, 6, 12) != TRUE)
+            if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00015, 1, 6, 12) != TRUE)
             {
                 break;
             }
@@ -2246,7 +2247,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 42: //This world is widely inhabited by creatures known as Pokémon.
-            if (MOD59_DisplayMessage(data, 16, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00016, TRUE) != TRUE)
             {
                 break;
             }
@@ -2280,7 +2281,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 46:// Here, I have a Poké Ball. Touch the button on the middle
-            if (MOD59_DisplayMessage(data, 17, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00017, TRUE) != TRUE)
             {
                 break;
             }
@@ -2335,7 +2336,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 49: //No, no! Not that button! The button on the Poké Ball.{YESNO 0}
-            if (MOD59_DisplayMessage(data, 18, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00018, TRUE) != TRUE)
             {
                 break;
             }
@@ -2414,7 +2415,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 58: // We humans live alongside Pokémon as friends. At times we play together,
-            if (MOD59_DisplayMessage(data, 19, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00019, TRUE) != TRUE)
             {
                 break;
             }
@@ -2440,7 +2441,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 61: //Now, why don’t you tell me a little bit about yourself?
-            if (MOD59_DisplayMessage(data, 20, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00020, TRUE) != TRUE)
             {
                 break;
             }
@@ -2482,7 +2483,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 66: //Are you a boy? Or are you a girl?
-            if (MOD59_DisplayMessage(data, 21, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00021, TRUE) != TRUE)
             {
                 break;
             }
@@ -2549,8 +2550,8 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 72: //All right, so you’re a boy/girl?
-            u32 msgNo = data->selectedGender == Male ? 22 : 23;
-            if (MOD59_DisplayMessage(data, msgNo, 1) != TRUE)
+            u32 msgNo = data->selectedGender == Male ? narc_0341_00022 : narc_0341_00023;
+            if (MOD59_DisplayMessage(data, msgNo, TRUE) != TRUE)
             {
                 break;
             }
@@ -2586,7 +2587,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 75: //Tell me, what is your name?
-            if (MOD59_DisplayMessage(data, 24, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00024, TRUE) != TRUE)
             {
                 break;
             }
@@ -2626,8 +2627,8 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 79: //Your name is {STRVAR_1 3, 0}?
-            u32 messageNumber = (data->selectedGender == Male ? 25 : 26); //no idea why these are different strings, they contain the same thing
-            if (MOD59_DisplayMessage(data, messageNumber, 1) != TRUE)
+            u32 messageNumber = (data->selectedGender == Male ? narc_0341_00025 : narc_0341_00026); //no idea why these are different strings, they contain the same thing
+            if (MOD59_DisplayMessage(data, messageNumber, TRUE) != TRUE)
             {
                 break;
             }
@@ -2681,7 +2682,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 84: // OK... So, you’re {STRVAR_1 3, 0}? A fine name that is!
-            if (MOD59_DisplayMessage(data, 27, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00027, TRUE) != TRUE)
             {
                 break;
             }
@@ -2712,7 +2713,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 88: //What might his name be?
-            if (MOD59_DisplayMessage(data, 28, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00028, TRUE) != TRUE)
             {
                 break;
             }
@@ -2800,7 +2801,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 95: //{STRVAR_1 3, 1}, is it? That’s your friend’s name?
-            if (MOD59_DisplayMessage(data, 29, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00029, TRUE) != TRUE)
             {
                 break;
             }
@@ -2859,7 +2860,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             break;
 
         case 101: //All right, {STRVAR_1 3, 0}, the time has come. Your very own tale of grand...
-            if (MOD59_DisplayMessage(data, 30, 1) != TRUE)
+            if (MOD59_DisplayMessage(data, narc_0341_00030, TRUE) != TRUE)
             {
                 break;
             }
@@ -2925,7 +2926,7 @@ THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 108;
             break;
 
-        case 108: //load overaly 59 pt 2
+        case 108: //load overaly 59 TV
             data->loadedOverlay = OverlayManager_New(&MOD59_021D9DDC, 0, data->heap_id);
             data->controllerCounter = 109;
             break;

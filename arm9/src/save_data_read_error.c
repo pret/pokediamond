@@ -5,6 +5,7 @@
 #include "game_init.h"
 #include "msgdata.h"
 #include "msgdata/msg.naix"
+#include "msgdata/msg/narc_0005.h"
 #include "save_data_read_error.h"
 #include "text.h"
 #include "render_window.h"
@@ -105,7 +106,7 @@ THUMB_FUNC void ShowSaveDataReadError(u32 heap_id)
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
     DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
-    ReadMsgDataIntoString(msg_data, 0, str);
+    ReadMsgDataIntoString(msg_data, narc_0005_00000, str); // The data could not be read. Please turn off the power...
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
     String_Delete(str);
 
@@ -168,7 +169,7 @@ THUMB_FUNC void ShowGBACartRemovedError(u32 heap_id)
     FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
     DrawFrameAndWindow1(&window, FALSE, 0x01F7, 2);
 
-    ReadMsgDataIntoString(msg_data, 1, str);
+    ReadMsgDataIntoString(msg_data, narc_0005_00001, str); // Error reading data. The GBA Game Pak was removed...
     AddTextPrinterParameterized(&window, 0, str, 0, 0, 0, NULL);
     String_Delete(str);
 
