@@ -42,7 +42,7 @@ typedef struct PCBoxAppData {
 
 typedef struct FashionAppData {
     struct SaveFashionData *fashionData;
-    u32 unk04;
+    u32 portraitSlot;
     u32 unk08;
 } FashionAppData;
 

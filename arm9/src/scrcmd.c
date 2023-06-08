@@ -117,6 +117,8 @@ extern void Script_SetMonSeenFlagBySpecies(struct FieldSystem *fieldSystem, u16 
 extern void MOD05_021E1374(struct TaskManager *taskManager, MessageFormat *messageFormat, u16 *ptr);
 extern void MOD05_021E1994(FieldSystem *fieldSystem, LocalMapObject *lastInteracted);
 extern void FUN_0208A338(struct TaskManager *taskManager);
+extern void FUN_020380CC(struct TaskManager *taskManager, u16 *param1, struct SaveBlock2 *save, u16 partyPos, u16 param4);
+extern void FUN_02038130(FieldSystem *fieldSystem, FashionAppData *fashionData);
 
 u8 UNK_021C5A0C[4];
 
@@ -146,7 +148,7 @@ static BOOL FUN_0203B218(struct ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BC04(ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BC3C(struct FieldSystem *fieldSystem, u32 param1, u32 param2);
-/*static*/ FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 param3);
+static FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 portraitSlot);
 static BOOL FUN_0203BE9C(ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
@@ -1973,16 +1975,16 @@ BOOL ScrCmd_TerminateOverworldProcess(ScriptContext *ctx) { //01F8
     return TRUE;
 }
 
-/*static*/ FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 param3) {
+static FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 portraitSlot) {
     SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveBlock2);
-    if (!FUN_0203BC3C(fieldSystem, param2, param3)) {
+    if (!FUN_0203BC3C(fieldSystem, param2, portraitSlot)) {
         return NULL;
     }
     FashionAppData *appData = AllocFromHeap(heapId, sizeof(FashionAppData));
     __builtin__clear(appData, sizeof(FashionAppData));
     appData->fashionData = fashionData;
     appData->unk08 = param2;
-    appData->unk04 = param3;
+    appData->portraitSlot = portraitSlot;
     return appData;
 }
 
@@ -1996,10 +1998,10 @@ BOOL ScrCmd_Unk00A3(ScriptContext *ctx) { //00A3
     return TRUE;
 }
 
-BOOL ScrCmd_Unk00A4(ScriptContext *ctx) { //00A4
+BOOL ScrCmd_GetDressupPortraitSlot(ScriptContext *ctx) { //00A4
     FashionAppData **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
-    u16 *unk0 = ScriptGetVarPointer(ctx);
-    *unk0 = (*runningAppData)->unk04;
+    u16 *portraitSlotPtr = ScriptGetVarPointer(ctx);
+    *portraitSlotPtr = (*runningAppData)->portraitSlot;
     FreeToHeap(*runningAppData);
     return FALSE;
 }
@@ -2073,5 +2075,43 @@ BOOL ScrCmd_Unk020B(ScriptContext *ctx) { //020B
 
 BOOL ScrCmd_Unk00A5(ScriptContext *ctx) { //00A5
     FUN_0208A338(ctx->taskManager);
+    return TRUE;
+}
+
+BOOL ScrCmd_DressupPokemon(ScriptContext *ctx) { //00A6
+    u16 partyPos = ScriptGetVar(ctx);
+    u16 *unk0 = ScriptGetVarPointer(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    FUN_020380CC(ctx->fieldSystem->taskManager, unk0, ctx->fieldSystem->saveBlock2, partyPos, unk1);
+    return TRUE;
+}
+
+BOOL ScrCmd_ShowDressedPokemon(ScriptContext *ctx) { //00A7
+    FashionAppData **fashionAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    u16 portraitSlot = ScriptReadHalfword(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *fashionAppData = FUN_0203BC6C(11, ctx->fieldSystem, 0, portraitSlot);
+    if (*fashionAppData == NULL) {
+        *var = 1;
+        return TRUE;
+    }
+    *var = 0;
+    FUN_02038130(ctx->fieldSystem, *fashionAppData);
+    SetupNativeScript(ctx, FUN_0203BB90);
+    return TRUE;
+}
+
+BOOL ScrCmd_ShowContestPokemon(ScriptContext *ctx) { //00A8
+    FashionAppData **fashionAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    u16 portraitSlot = ScriptReadHalfword(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *fashionAppData = FUN_0203BC6C(11, ctx->fieldSystem, 1, portraitSlot);
+    if (*fashionAppData == NULL) {
+        *var = 1;
+        return TRUE;
+    }
+    *var = 0;
+    FUN_02038130(ctx->fieldSystem, *fashionAppData);
+    SetupNativeScript(ctx, FUN_0203BB90);
     return TRUE;
 }
