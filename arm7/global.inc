@@ -280,7 +280,7 @@
 .extern RTC_WriteTime
 .extern WVR_Shutdown
 .extern WVR_Init
-.extern FUN_038073EC
+.extern OSi_DoResetSystem
 .extern WMSP_GetAllowedChannel
 .extern OS_DisableIrqMask
 .extern OS_EnableIrqMask

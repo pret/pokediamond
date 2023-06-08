@@ -1,5 +1,6 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "fx.h"
+#include "code32.h"
 
 const fx16 FX_AtanTable_[] = {
     FX16_CONST(0.0),
@@ -133,7 +134,7 @@ const fx16 FX_AtanTable_[] = {
     FX16_CONST(2.0),
 };
 
-ARM_FUNC u16 FX_Atan(fx32 x){
+u16 FX_Atan(fx32 x){
     if (x >= 0)
     {
         if (x > 0x1000)
@@ -170,7 +171,7 @@ ARM_FUNC u16 FX_Atan(fx32 x){
     }
 }
 
-ARM_FUNC u16 FX_Atan2(fx32 x, fx32 y){
+u16 FX_Atan2(fx32 x, fx32 y){
     u32 positive, bias, denominator, numerator;
     if (x > 0)
     {

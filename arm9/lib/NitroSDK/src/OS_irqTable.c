@@ -1,6 +1,6 @@
-#include "function_target.h"
 #include "sections.h"
 #include "OS_irqTable.h"
+#include "code32.h"
 
 #pragma section DTCM begin
 OSIrqFunction OS_IRQTable[22] = {
@@ -44,12 +44,12 @@ static u16 OSi_IrqCallbackInfoIndex[8] = {
         8, 9, 10, 11, 3, 4, 5, 6
 };
 
-ARM_FUNC void OS_IrqDummy(void)
+void OS_IrqDummy(void)
 {
     //noop
 }
 
-ARM_FUNC void OSi_IrqCallback(s32 index)
+void OSi_IrqCallback(s32 index)
 {
     OSIrqMask mask = (1UL << OSi_IrqCallbackInfoIndex[index]);
     void (*callback)(void *) = OSi_IrqCallbackInfo[index].func;
@@ -69,42 +69,42 @@ ARM_FUNC void OSi_IrqCallback(s32 index)
     }
 }
 
-ARM_FUNC void OSi_IrqDma0(void)
+void OSi_IrqDma0(void)
 {
     OSi_IrqCallback(0);
 }
 
-ARM_FUNC void OSi_IrqDma1(void)
+void OSi_IrqDma1(void)
 {
     OSi_IrqCallback(1);
 }
 
-ARM_FUNC void OSi_IrqDma2(void)
+void OSi_IrqDma2(void)
 {
     OSi_IrqCallback(2);
 }
 
-ARM_FUNC void OSi_IrqDma3(void)
+void OSi_IrqDma3(void)
 {
     OSi_IrqCallback(3);
 }
 
-ARM_FUNC void OSi_IrqTimer0(void)
+void OSi_IrqTimer0(void)
 {
     OSi_IrqCallback(4);
 }
 
-ARM_FUNC void OSi_IrqTimer1(void)
+void OSi_IrqTimer1(void)
 {
     OSi_IrqCallback(5);
 }
 
-ARM_FUNC void OSi_IrqTimer2(void)
+void OSi_IrqTimer2(void)
 {
     OSi_IrqCallback(6);
 }
 
-ARM_FUNC void OSi_IrqTimer3(void)
+void OSi_IrqTimer3(void)
 {
     OSi_IrqCallback(7);
 }

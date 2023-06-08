@@ -1,16 +1,16 @@
 #include "nitro/types.h"
-#include "function_target.h"
 #include "OS_mutex.h"
 #include "OS_system.h"
+#include "code32.h"
 
-ARM_FUNC void OS_InitMutex(OSMutex *mutex)
+void OS_InitMutex(OSMutex *mutex)
 {
     OS_InitThreadQueue(&mutex->queue);
     mutex->thread = NULL;
     mutex->count = 0;
 }
 
-ARM_FUNC void OS_LockMutex(OSMutex *mutex)
+void OS_LockMutex(OSMutex *mutex)
 {
     OSIntrMode prevIntrMode = OS_DisableInterrupts();
     OSThread *currentThread = OS_GetCurrentThread();
@@ -43,7 +43,7 @@ ARM_FUNC void OS_LockMutex(OSMutex *mutex)
     (void)OS_RestoreInterrupts(prevIntrMode);
 }
 
-ARM_FUNC void OS_UnlockMutex(OSMutex *mutex)
+void OS_UnlockMutex(OSMutex *mutex)
 {
     OSIntrMode prevIntrMode = OS_DisableInterrupts();
     OSThread *currentThread = OS_GetCurrentThread();
@@ -59,7 +59,7 @@ ARM_FUNC void OS_UnlockMutex(OSMutex *mutex)
     (void)OS_RestoreInterrupts(prevIntrMode);
 }
 
-ARM_FUNC void OSi_UnlockAllMutex(OSThread *thread)
+void OSi_UnlockAllMutex(OSThread *thread)
 {
     OSMutex *mutex;
     while (thread->mutexQueue.head)
@@ -72,7 +72,7 @@ ARM_FUNC void OSi_UnlockAllMutex(OSThread *thread)
     }
 }
 
-ARM_FUNC BOOL OS_TryLockMutex(OSMutex *mutex)
+BOOL OS_TryLockMutex(OSMutex *mutex)
 {
     OSIntrMode prevIntrMode = OS_DisableInterrupts();
     OSThread *currentThread = OS_GetCurrentThread();
@@ -99,7 +99,7 @@ ARM_FUNC BOOL OS_TryLockMutex(OSMutex *mutex)
     return locked;
 }
 
-ARM_FUNC void OSi_EnqueueTail(OSThread *thread, OSMutex *mutex)
+void OSi_EnqueueTail(OSThread *thread, OSMutex *mutex)
 {
     OSMutex *prev = thread->mutexQueue.tail;
 
@@ -117,7 +117,7 @@ ARM_FUNC void OSi_EnqueueTail(OSThread *thread, OSMutex *mutex)
     thread->mutexQueue.tail = mutex;
 }
 
-ARM_FUNC void OSi_DequeueItem(OSThread *thread, OSMutex *mutex)
+void OSi_DequeueItem(OSThread *thread, OSMutex *mutex)
 {
     OSMutex *next = mutex->link.next;
     OSMutex *prev = mutex->link.prev;

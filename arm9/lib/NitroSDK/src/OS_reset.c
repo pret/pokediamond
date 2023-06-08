@@ -1,6 +1,6 @@
 #include "OS_reset.h"
 
-#include "global.h"
+#include "nitro/types.h"
 #include "MB_mb.h"
 #include "OS_terminate_proc.h"
 #include "OS_interrupt.h"
@@ -12,6 +12,7 @@
 #include "CARD_common.h"
 #include "PXI_init.h"
 #include "PXI_fifo.h"
+#include "code32.h"
 
 static u16 OSi_IsInitReset = 0;
 vu16 OSi_IsResetOccurred = 0;
@@ -23,7 +24,7 @@ static void OSi_CpuClear32(register u32 data, register void *destp, register u32
 static void OSi_ReloadRomData(void);
 static void OSi_ReadCardRom32(u32 src, void *dst, s32 len);
 
-ARM_FUNC void OS_InitReset(void) {
+void OS_InitReset(void) {
     if (OSi_IsInitReset) {
         return;
     }
@@ -34,7 +35,7 @@ ARM_FUNC void OS_InitReset(void) {
     PXI_SetFifoRecvCallback(PXI_FIFO_TAG_OS, OSi_CommonCallback);
 }
 
-ARM_FUNC static void OSi_CommonCallback(PXIFifoTag tag, u32 data, BOOL err) {
+static void OSi_CommonCallback(PXIFifoTag tag, u32 data, BOOL err) {
 #pragma unused(tag, err) //needed because otherwise -W all errors
     u16 command = (u16)((data & OS_PXI_COMMAND_MASK) >> OS_PXI_COMMAND_SHIFT);
     if (command == OS_PXI_COMMAND_RESET)
@@ -45,11 +46,11 @@ ARM_FUNC static void OSi_CommonCallback(PXIFifoTag tag, u32 data, BOOL err) {
     OS_Terminate();
 }
 
-ARM_FUNC static void OSi_SendToPxi(u16 data) {
+static void OSi_SendToPxi(u16 data) {
     while (PXI_SendWordByFifo(PXI_FIFO_TAG_OS, (u32)data << 0x8, FALSE)) {}
 }
 
-ARM_FUNC void OS_ResetSystem(u32 parameter) {
+void OS_ResetSystem(u32 parameter) {
     if (MB_IsMultiBootChild()) {
         OS_Terminate();
     }
@@ -66,7 +67,7 @@ ARM_FUNC void OS_ResetSystem(u32 parameter) {
 }
 
 #pragma section ITCM begin
-ARM_FUNC static void OSi_DoResetSystem(void)
+static void OSi_DoResetSystem(void)
 {
     while (!OSi_IsResetOccurred) { }
 
@@ -75,7 +76,7 @@ ARM_FUNC static void OSi_DoResetSystem(void)
     OSi_DoBoot();
 }
 
-ARM_FUNC asm void OSi_DoBoot(void)
+asm void OSi_DoBoot(void)
 {
     mov ip, #0x04000000
     str ip, [ip, #0x208]
@@ -124,7 +125,7 @@ _01FF822C:
     bx ip
 }
 
-ARM_FUNC static asm void OSi_CpuClear32(register u32 data, register void *destp, register u32 size)
+static asm void OSi_CpuClear32(register u32 data, register void *destp, register u32 size)
 {
     add ip, r1, r2
 _01FF8284:
@@ -134,7 +135,7 @@ _01FF8284:
     bx lr
 }
 
-ARM_FUNC static void OSi_ReloadRomData(void)
+static void OSi_ReloadRomData(void)
 {
     u32 header = (u32)HW_ROM_HEADER_BUF;
     const u32 rom_base = *(u32 *)HW_ROM_BASE_OFFSET_BUF;
@@ -188,7 +189,7 @@ enum
     CARD_ENUM_END
 };
 
-ARM_FUNC static void OSi_ReadCardRom32(u32 src, void *dst, s32 len)
+static void OSi_ReadCardRom32(u32 src, void *dst, s32 len)
 {
     vu32 *const hdr_GAME_BUF = (vu32 *)(HW_ROM_HEADER_BUF + 0x60);
 

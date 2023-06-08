@@ -1,10 +1,10 @@
-#include "function_target.h"
 #include "consts.h"
 #include "OS_alarm.h"
 #include "OS_interrupt.h"
 #include "OS_irqTable.h"
 #include "OS_terminate_proc.h"
 #include "OS_system.h"
+#include "code32.h"
 
 static struct OSiAlarmQueue OSi_AlarmQueue;
 
@@ -14,7 +14,7 @@ static void OSi_SetTimer(OSAlarm *alarm);
 static void OSi_InsertAlarm(OSAlarm *alarm, OSTick fire);
 static void OSi_ArrangeTimer(void);
 
-ARM_FUNC static void OSi_SetTimer(OSAlarm *alarm)
+static void OSi_SetTimer(OSAlarm *alarm)
 {
     OSTick tick = OS_GetTick();
 
@@ -44,7 +44,7 @@ ARM_FUNC static void OSi_SetTimer(OSAlarm *alarm)
     (void)OS_EnableIrqMask(OS_IE_TIMER1);
 }
 
-ARM_FUNC void OS_InitAlarm(void)
+void OS_InitAlarm(void)
 {
     if (!OSi_UseAlarm)
     {
@@ -59,18 +59,18 @@ ARM_FUNC void OS_InitAlarm(void)
     }
 }
 
-ARM_FUNC BOOL OS_IsAlarmAvailable(void)
+BOOL OS_IsAlarmAvailable(void)
 {
     return OSi_UseAlarm;
 }
 
-ARM_FUNC void OS_CreateAlarm(OSAlarm *alarm)
+void OS_CreateAlarm(OSAlarm *alarm)
 {
     alarm->handler = 0;
     alarm->tag = 0;
 }
 
-ARM_FUNC static void OSi_InsertAlarm(OSAlarm *alarm, OSTick fire)
+static void OSi_InsertAlarm(OSAlarm *alarm, OSTick fire)
 {
     if (alarm->period > 0)
     {
@@ -127,7 +127,7 @@ ARM_FUNC static void OSi_InsertAlarm(OSAlarm *alarm, OSTick fire)
     }
 }
 
-ARM_FUNC void OS_SetAlarm(OSAlarm * alarm, OSTick tick, OSAlarmHandler handler, void *arg)
+void OS_SetAlarm(OSAlarm * alarm, OSTick tick, OSAlarmHandler handler, void *arg)
 {
     if (!alarm || alarm->handler)
     {
@@ -146,7 +146,7 @@ ARM_FUNC void OS_SetAlarm(OSAlarm * alarm, OSTick tick, OSAlarmHandler handler, 
     (void)OS_RestoreInterrupts(enabled);
 }
 
-ARM_FUNC void OS_CancelAlarm(OSAlarm *alarm)
+void OS_CancelAlarm(OSAlarm *alarm)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
 
@@ -186,7 +186,7 @@ ARM_FUNC void OS_CancelAlarm(OSAlarm *alarm)
     (void)OS_RestoreInterrupts(enabled);
 }
 
-ARM_FUNC asm void OSi_AlarmHandler(void *arg)
+asm void OSi_AlarmHandler(void *arg)
 {
     stmfd sp!, {r0, lr}
     bl OSi_ArrangeTimer
@@ -194,7 +194,7 @@ ARM_FUNC asm void OSi_AlarmHandler(void *arg)
     bx lr
 }
 
-ARM_FUNC static void OSi_ArrangeTimer(void)
+static void OSi_ArrangeTimer(void)
 {
     OS_SetTimerControl(OS_TIMER_1, 0);
 

@@ -1,7 +1,7 @@
 #ifndef GUARD_SND_INTERFACE_H
 #define GUARD_SND_INTERFACE_H
 
-#include "global.h"
+#include "nitro/types.h"
 #include "SND_bank.h"
 #include "SND_work.h"
 #include "SND_alarm.h"

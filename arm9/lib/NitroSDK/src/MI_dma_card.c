@@ -1,8 +1,8 @@
 #include "MI_dma_card.h"
 #include "MI_dma.h"
-#include "function_target.h"
+#include "code32.h"
 
-ARM_FUNC void MIi_CardDmaCopy32(u32 dmaNo, const void *src, void *dest, u32 size)
+void MIi_CardDmaCopy32(u32 dmaNo, const void *src, void *dest, u32 size)
 {
     MIi_CheckAnotherAutoDMA(dmaNo, MIi_DMA_TIMING_ANY);
     MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, MI_DMA_SRC_FIX);

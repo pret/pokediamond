@@ -4,6 +4,7 @@
 #include "SND_main.h"
 
 #include "mmap.h"
+#include "code32.h"
 
 static const struct SNDWaveData *GetWaveData(
     const struct SNDBankData *bankData, s32 waveArc, s32 wave);

@@ -4,8 +4,6 @@
 #include "heap.h"
 #include "unk_020254B8.h"
 
-#pragma thumb on
-
 u32 FUN_020254B8(void)
 {
     return 16 * sizeof(struct UnkStruct_020254B8);

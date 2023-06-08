@@ -1,7 +1,5 @@
 #include "SND_main.h"
 
-#include "global.h"
-
 #include "SND_alarm.h"
 #include "SND_capture.h"
 #include "SND_command.h"
@@ -15,6 +13,7 @@
 #include "OS_message.h"
 #include "OS_thread.h"
 #include "OS_tick.h"
+#include "code32.h"
 
 static void FUN_037fc330(void *);
 static void SndThread(void *);
@@ -105,7 +104,7 @@ static void SndThread(void *arg)
     SND_SetMasterVolume(0x7F);
     SND_StartIntervalTimer();
 
-    while (1)
+    while (TRUE)
     {
         BOOL update = FALSE;
 

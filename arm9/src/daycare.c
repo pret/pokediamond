@@ -4,8 +4,6 @@
 #include "save_block_2.h"
 #include "daycare.h"
 
-#pragma thumb on
-
 u32 Save_DayCare_sizeof(void)
 {
     return sizeof(struct DayCare);

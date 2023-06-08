@@ -1,7 +1,6 @@
 #include "CARD_common.h"
 #include "CARD_request.h"
 #include "consts.h"
-#include "function_target.h"
 #include "MI_memory.h"
 #include "OS_terminate_proc.h"
 #include "OS_spinLock.h"
@@ -9,6 +8,7 @@
 #include "MB_mb.h"
 #include "PXI_fifo.h"
 #include "mmap.h"
+#include "code32.h"
 
 CARDiCommon cardi_common ALIGN(32);
 static CARDiCommandArg cardi_arg ALIGN(32);
@@ -18,7 +18,7 @@ u8 cardi_thread_stack[0x400] ALIGN(4);
 static void CARDi_LockResource(CARDiOwner owner, CARDTargetMode target);
 static void CARDi_UnlockResource(CARDiOwner owner, CARDTargetMode target);
 
-ARM_FUNC void CARDi_SetTask(void (*task) (CARDiCommon *))
+void CARDi_SetTask(void (*task) (CARDiCommon *))
 {
     CARDiCommon *const p = &cardi_common;
 
@@ -30,7 +30,7 @@ ARM_FUNC void CARDi_SetTask(void (*task) (CARDiCommon *))
     OS_WakeupThreadDirect(p->thread);
 }
 
-ARM_FUNC static void CARDi_LockResource(CARDiOwner owner, CARDTargetMode target)
+static void CARDi_LockResource(CARDiOwner owner, CARDTargetMode target)
 {
     CARDiCommon *const p = &cardi_common;
     OSIntrMode bak_psr = OS_DisableInterrupts();
@@ -55,7 +55,7 @@ ARM_FUNC static void CARDi_LockResource(CARDiOwner owner, CARDTargetMode target)
     (void)OS_RestoreInterrupts(bak_psr);
 }
 
-ARM_FUNC static void CARDi_UnlockResource(CARDiOwner owner, CARDTargetMode target)
+static void CARDi_UnlockResource(CARDiOwner owner, CARDTargetMode target)
 {
     CARDiCommon *p = &cardi_common;
     OSIntrMode bak_psr = OS_DisableInterrupts();
@@ -80,7 +80,7 @@ ARM_FUNC static void CARDi_UnlockResource(CARDiOwner owner, CARDTargetMode targe
     (void)OS_RestoreInterrupts(bak_psr);
 }
 
-ARM_FUNC void CARDi_InitCommon(void)
+void CARDi_InitCommon(void)
 {
     CARDiCommon *p = &cardi_common;
 
@@ -113,12 +113,12 @@ ARM_FUNC void CARDi_InitCommon(void)
 
 static BOOL CARDi_EnableFlag = FALSE;
 
-ARM_FUNC BOOL CARD_IsEnabled(void)
+BOOL CARD_IsEnabled(void)
 {
     return CARDi_EnableFlag;
 }
 
-ARM_FUNC void CARD_CheckEnabled(void)
+void CARD_CheckEnabled(void)
 {
     if (!CARD_IsEnabled())
     {
@@ -126,12 +126,12 @@ ARM_FUNC void CARD_CheckEnabled(void)
     }
 }
 
-ARM_FUNC void CARD_Enable(BOOL enable)
+void CARD_Enable(BOOL enable)
 {
     CARDi_EnableFlag = enable;
 }
 
-ARM_FUNC BOOL CARDi_WaitAsync(void)
+BOOL CARDi_WaitAsync(void)
 {
     CARDiCommon *const p = &cardi_common;
 
@@ -144,38 +144,38 @@ ARM_FUNC BOOL CARDi_WaitAsync(void)
     return (p->cmd->result == CARD_RESULT_SUCCESS);
 }
 
-ARM_FUNC BOOL CARDi_TryWaitAsync(void)
+BOOL CARDi_TryWaitAsync(void)
 {
     CARDiCommon *const p = &cardi_common;
 
     return !(p->flag & CARD_STAT_BUSY);
 }
 
-ARM_FUNC CARDResult CARD_GetResultCode(void)
+CARDResult CARD_GetResultCode(void)
 {
     CARDiCommon *const p = &cardi_common;
 
     return p->cmd->result;
 }
 
-ARM_FUNC void CARD_LockRom(u16 lock_id)
+void CARD_LockRom(u16 lock_id)
 {
     CARDi_LockResource(lock_id, CARD_TARGET_ROM);
     (void)OS_TryLockCard(lock_id);
 }
 
-ARM_FUNC void CARD_UnlockRom(u16 lock_id)
+void CARD_UnlockRom(u16 lock_id)
 {
     (void)OS_UnlockCard(lock_id);
     CARDi_UnlockResource(lock_id, CARD_TARGET_ROM);
 }
 
-ARM_FUNC void CARD_LockBackup(u16 lock_id)
+void CARD_LockBackup(u16 lock_id)
 {
     CARDi_LockResource(lock_id, CARD_TARGET_BACKUP);
 }
 
-ARM_FUNC void CARD_UnlockBackup(u16 lock_id)
+void CARD_UnlockBackup(u16 lock_id)
 {
     CARDi_UnlockResource(lock_id, CARD_TARGET_BACKUP);
 }

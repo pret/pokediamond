@@ -13,8 +13,6 @@
 #include "heap.h"
 #include "OS_interrupt.h"
 
-#pragma thumb on
-
 static struct {
     void * contents;
     u32 name_hash;

@@ -1,6 +1,7 @@
 #include "SND_capture.h"
 
 #include "registers.h"
+#include "code32.h"
 
 enum SNDLoop
 {

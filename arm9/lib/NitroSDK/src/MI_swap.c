@@ -1,5 +1,7 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "MI_swap.h"
+
+#include "code32.h"
 
 /*
  * Exchange 32 bits of data between register and memory.
@@ -8,8 +10,7 @@
  * but it is not linked in pokediamond.
  */
 
-asm
-u32 MI_SwapWord(register u32 setData, register vu32 * destp)
+asm u32 MI_SwapWord(register u32 setData, register vu32 * destp)
 {
     swp setData, setData, [destp]
     bx lr

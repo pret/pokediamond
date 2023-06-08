@@ -1,11 +1,11 @@
 #include "MI_dma.h"
-#include "function_target.h"
 #include "OS_interrupt.h"
 #include "OS_terminate_proc.h"
 #include "sections.h"
+#include "code32.h"
 
 #pragma section ITCM begin
-ARM_FUNC void MIi_DmaSetParams(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
+void MIi_DmaSetParams(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
 {
     OSIntrMode lastIntrMode = OS_DisableInterrupts();
     vu32 *p = (vu32 *)((u32)REG_ADDR_DMA0SAD + dmaNo * 12);
@@ -15,7 +15,7 @@ ARM_FUNC void MIi_DmaSetParams(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
     (void)OS_RestoreInterrupts(lastIntrMode);
 }
 
-ARM_FUNC void MIi_DmaSetParams_wait(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
+void MIi_DmaSetParams_wait(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
     vu32 *p = (vu32 *)((u32)REG_ADDR_DMA0SAD + dmaNo * 12);
@@ -41,7 +41,7 @@ ARM_FUNC void MIi_DmaSetParams_wait(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
     (void)OS_RestoreInterrupts(enabled);
 }
 
-ARM_FUNC void MIi_DmaSetParams_noInt(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
+void MIi_DmaSetParams_noInt(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
 {
     vu32   *p = (vu32 *)((u32)REG_ADDR_DMA0SAD + dmaNo * 12);
     *p = (vu32)src;
@@ -49,7 +49,7 @@ ARM_FUNC void MIi_DmaSetParams_noInt(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
     *(p + 2) = (vu32)ctrl;
 }
 
-ARM_FUNC void MIi_DmaSetParams_wait_noInt(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
+void MIi_DmaSetParams_wait_noInt(u32 dmaNo, u32 src, u32 dest, u32 ctrl)
 {
     vu32 *p = (vu32 *)((u32)REG_ADDR_DMA0SAD + dmaNo * 12);
     *p = (vu32)src;
@@ -81,7 +81,7 @@ ARM_FUNC void MIi_DmaSetParams_wait_noInt(u32 dmaNo, u32 src, u32 dest, u32 ctrl
 }
 #pragma section ITCM end
 
-ARM_FUNC void MI_DmaFill32(u32 dmaNo, void *dest, u32 data, u32 size)
+void MI_DmaFill32(u32 dmaNo, void *dest, u32 data, u32 size)
 {
     vu32 *dmaCntp;
     if (!size)
@@ -103,7 +103,7 @@ ARM_FUNC void MI_DmaFill32(u32 dmaNo, void *dest, u32 data, u32 size)
     } while(0);
 }
 
-ARM_FUNC void MI_DmaCopy32(u32 dmaNo, const void *src, void *dest, u32 size)
+void MI_DmaCopy32(u32 dmaNo, const void *src, void *dest, u32 size)
 {
     vu32 *dmaCntp;
     MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, DMA_SRC_INC);
@@ -127,7 +127,7 @@ ARM_FUNC void MI_DmaCopy32(u32 dmaNo, const void *src, void *dest, u32 size)
     } while(0);
 }
 
-ARM_FUNC void MI_DmaCopy16(u32 dmaNo, const void *src, void *dest, u32 size)
+void MI_DmaCopy16(u32 dmaNo, const void *src, void *dest, u32 size)
 {
     vu32 *dmaCntp;
 
@@ -152,7 +152,7 @@ ARM_FUNC void MI_DmaCopy16(u32 dmaNo, const void *src, void *dest, u32 size)
     } while(0);
 }
 
-ARM_FUNC void MI_DmaFill32Async(u32 dmaNo, void *dest, u32 data, u32 size, MIDmaCallback callback, void *arg)
+void MI_DmaFill32Async(u32 dmaNo, void *dest, u32 data, u32 size, MIDmaCallback callback, void *arg)
 {
     if (!size)
     {
@@ -174,7 +174,7 @@ ARM_FUNC void MI_DmaFill32Async(u32 dmaNo, void *dest, u32 data, u32 size, MIDma
     }
 }
 
-ARM_FUNC void MI_DmaCopy32Async(u32 dmaNo, const void *src, void *dest, u32 size, MIDmaCallback callback, void *arg)
+void MI_DmaCopy32Async(u32 dmaNo, const void *src, void *dest, u32 size, MIDmaCallback callback, void *arg)
 {
     MIi_CheckDma0SourceAddress(dmaNo, (u32)src, size, DMA_SRC_INC);
 
@@ -198,7 +198,7 @@ ARM_FUNC void MI_DmaCopy32Async(u32 dmaNo, const void *src, void *dest, u32 size
     }
 }
 
-ARM_FUNC void MI_WaitDma(u32 dmaNo)
+void MI_WaitDma(u32 dmaNo)
 {
     OSIntrMode lastIntrMode = OS_DisableInterrupts();
     vu32 *dmaCntp = &((vu32 *)REG_ADDR_DMA0SAD)[dmaNo * 3 + 2];
@@ -216,7 +216,7 @@ ARM_FUNC void MI_WaitDma(u32 dmaNo)
     (void)OS_RestoreInterrupts(lastIntrMode);
 }
 
-ARM_FUNC void MI_StopDma(u32 dmaNo)
+void MI_StopDma(u32 dmaNo)
 {
     OSIntrMode lastIntrMode = OS_DisableInterrupts();
     vu16 *dmaCntp = &((vu16 *)REG_ADDR_DMA0SAD)[dmaNo * 6 + 5];
@@ -243,7 +243,7 @@ ARM_FUNC void MI_StopDma(u32 dmaNo)
     (void)OS_RestoreInterrupts(lastIntrMode);
 }
 
-ARM_FUNC void MIi_CheckAnotherAutoDMA(u32 dmaNo, u32 dmaType)
+void MIi_CheckAnotherAutoDMA(u32 dmaNo, u32 dmaType)
 {
     u32 dmaCnt;
     u32 timing;
@@ -277,7 +277,7 @@ ARM_FUNC void MIi_CheckAnotherAutoDMA(u32 dmaNo, u32 dmaType)
     }
 }
 
-ARM_FUNC void MIi_CheckDma0SourceAddress(u32 dmaNo, u32 src, u32 size, u32 dir)
+void MIi_CheckDma0SourceAddress(u32 dmaNo, u32 src, u32 size, u32 dir)
 {
     if (!dmaNo)
     {

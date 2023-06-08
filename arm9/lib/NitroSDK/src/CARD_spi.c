@@ -1,12 +1,12 @@
-#include "function_target.h"
 #include "nitro/types.h"
 #include "CARD_common.h"
 #include "CARD_spi.h"
 #include "MI_memory.h"
+#include "code32.h"
 
 extern CARDiCommon cardi_common;
 
-ARM_FUNC void CARDi_IdentifyBackupCore(CARDBackupType type)
+void CARDi_IdentifyBackupCore(CARDBackupType type)
 {
     CARDiCommandArg *const p = cardi_common.cmd;
 

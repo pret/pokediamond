@@ -12,7 +12,7 @@ extern void FUN_02021390(u32, u32 *);
 extern void FUN_0201D194(u32, u32, u32);
 extern void FUN_0201E068(u32, u32);
 
-THUMB_FUNC void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
+void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     s32 param1,
     s32 param2,
     s32 param3,
@@ -114,7 +114,7 @@ THUMB_FUNC void FUN_02008AA4(struct UnkStruct_0200BB14_sub *param0,
     param0->unk20 = (u8)param8;
 }
 
-THUMB_FUNC struct UnkStruct_02008AA4_1 *FUN_02008BE0(struct UnkStruct_02008AA4_2 *param0,
+struct UnkStruct_02008AA4_1 *FUN_02008BE0(struct UnkStruct_02008AA4_2 *param0,
     u32 param1,
     struct UnkStruct_02008DEC_1 *param2,
     struct UnkStruct_02008DEC_1 *param3,
@@ -156,7 +156,7 @@ THUMB_FUNC struct UnkStruct_02008AA4_1 *FUN_02008BE0(struct UnkStruct_02008AA4_2
     return r6;
 }
 
-THUMB_FUNC void FUN_02008C80(struct UnkStruct_02008AA4_1 *param0)
+void FUN_02008C80(struct UnkStruct_02008AA4_1 *param0)
 {
     GF_ASSERT(param0);
 
@@ -167,7 +167,7 @@ THUMB_FUNC void FUN_02008C80(struct UnkStruct_02008AA4_1 *param0)
     FreeToHeap(param0);
 }
 
-THUMB_FUNC u32 FUN_02008C9C(u32 param0, void *param1, u32 param2)
+u32 FUN_02008C9C(u32 param0, void *param1, u32 param2)
 {
     FUN_0202134C(param1, 0xFFFFF000);
 
@@ -194,7 +194,7 @@ THUMB_FUNC u32 FUN_02008C9C(u32 param0, void *param1, u32 param2)
     return FUN_0201FCB0(st10);
 }
 
-THUMB_FUNC void FUN_02008D04(u32 param0, u32 param1, u32 param2)
+void FUN_02008D04(u32 param0, u32 param1, u32 param2)
 {
     u32 st0[4];
     st0[0] = param1;
@@ -204,7 +204,7 @@ THUMB_FUNC void FUN_02008D04(u32 param0, u32 param1, u32 param2)
     FUN_02021390(param0 + 0x98, st0);
 }
 
-THUMB_FUNC void FUN_02008D24(u32 param0, u32 param1, u32 param2)
+void FUN_02008D24(u32 param0, u32 param1, u32 param2)
 {
     u32 st0[4];
     st0[0] = param1;
@@ -214,7 +214,7 @@ THUMB_FUNC void FUN_02008D24(u32 param0, u32 param1, u32 param2)
     FUN_02021390(param0 + 0xe0, st0);
 }
 
-THUMB_FUNC void FUN_02008D44(u32 param0, u32 param1)
+void FUN_02008D44(u32 param0, u32 param1)
 {
     switch (param1)
     {
@@ -243,7 +243,7 @@ THUMB_FUNC void FUN_02008D44(u32 param0, u32 param1)
     GF_AssertFail();
 }
 
-THUMB_FUNC void FUN_02008DDC(u32 param0)
+void FUN_02008DDC(u32 param0)
 {
     FUN_0201E068(0xC000, param0);
 }

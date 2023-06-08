@@ -17,7 +17,7 @@ extern void FUN_02020404(u32 heap_id);
 
 struct OamData *oamData;
 
-THUMB_FUNC void FUN_02009EAC(s32 param0,
+void FUN_02009EAC(s32 param0,
     s32 param1,
     s32 param2,
     s32 param3,
@@ -58,7 +58,7 @@ THUMB_FUNC void FUN_02009EAC(s32 param0,
     InitOamData(r0, param1, r2, param3, param4, param5, param6, param7, param8);
 }
 
-THUMB_FUNC void InitOamData(s32 param0,
+void InitOamData(s32 param0,
     s32 param1,
     s32 param2,
     s32 param3,
@@ -80,7 +80,7 @@ THUMB_FUNC void InitOamData(s32 param0,
         &oamData->oamManagers[1], (u16)param4, (u16)param5, (u16)param6, (u16)param7, 1));
 }
 
-THUMB_FUNC void ApplyAndResetOamManagerBuffer(void)
+void ApplyAndResetOamManagerBuffer(void)
 {
     if (oamData != NULL)
     {
@@ -89,7 +89,7 @@ THUMB_FUNC void ApplyAndResetOamManagerBuffer(void)
     }
 }
 
-THUMB_FUNC void DeinitOamData(void)
+void DeinitOamData(void)
 {
     GF_ASSERT(oamData);
 
@@ -100,7 +100,7 @@ THUMB_FUNC void DeinitOamData(void)
     oamData = NULL;
 }
 
-THUMB_FUNC void FUN_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3)
+void FUN_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3)
 {
     GF_ASSERT(oamData);
 
@@ -113,7 +113,7 @@ THUMB_FUNC void FUN_02009FD8(void *param0, u32 *param1, u32 param2, u32 param3)
     FUN_0202135C(param0, param1, EntryOamManagerOamWithAffineIdxSubScreen, EntryOamManagerAffineSubScreen, FUN_020213A0, param2, param3);
 }
 
-THUMB_FUNC NNSG2dOamManager *GetOamManager(u32 screen)
+NNSG2dOamManager *GetOamManager(u32 screen)
 {
     GF_ASSERT(oamData);
     if (screen == 0)
@@ -126,17 +126,17 @@ THUMB_FUNC NNSG2dOamManager *GetOamManager(u32 screen)
     }
 }
 
-THUMB_FUNC void FUN_0200A064(u32 heap_id)
+void FUN_0200A064(u32 heap_id)
 {
     FUN_020203CC(heap_id);
 }
 
-THUMB_FUNC void FUN_0200A06C(u32 heap_id)
+void FUN_0200A06C(u32 heap_id)
 {
     FUN_02020404(heap_id);
 }
 
-THUMB_FUNC u32 EntryOamManagerOamWithAffineIdxMainScreen(u32 param0, u32 param1)
+u32 EntryOamManagerOamWithAffineIdxMainScreen(u32 param0, u32 param1)
 {
     u32 res = NNS_G2dEntryOamManagerOamWithAffineIdx(&oamData->oamManagers[0], param0, param1);
     GF_ASSERT(res);
@@ -144,7 +144,7 @@ THUMB_FUNC u32 EntryOamManagerOamWithAffineIdxMainScreen(u32 param0, u32 param1)
     return res;
 }
 
-THUMB_FUNC u32 EntryOamManagerOamWithAffineIdxSubScreen(u32 param0, u32 param1)
+u32 EntryOamManagerOamWithAffineIdxSubScreen(u32 param0, u32 param1)
 {
     u32 res = NNS_G2dEntryOamManagerOamWithAffineIdx(&oamData->oamManagers[1], param0, param1);
     GF_ASSERT(res);
@@ -152,7 +152,7 @@ THUMB_FUNC u32 EntryOamManagerOamWithAffineIdxSubScreen(u32 param0, u32 param1)
     return res;
 }
 
-THUMB_FUNC u32 EntryOamManagerAffineMainScreen(u32 param0)
+u32 EntryOamManagerAffineMainScreen(u32 param0)
 {
     u32 res = NNS_G2dEntryOamManagerAffine(&oamData->oamManagers[0], param0);
     GF_ASSERT(res != 0xFFFE);
@@ -160,7 +160,7 @@ THUMB_FUNC u32 EntryOamManagerAffineMainScreen(u32 param0)
     return res;
 }
 
-THUMB_FUNC u32 EntryOamManagerAffineSubScreen(u32 param0)
+u32 EntryOamManagerAffineSubScreen(u32 param0)
 {
     u32 res = NNS_G2dEntryOamManagerAffine(&oamData->oamManagers[1], param0);
     GF_ASSERT(res != 0xFFFE);

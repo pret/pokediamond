@@ -1,19 +1,19 @@
 #include "OS_vramExclusive.h"
-#include "function_target.h"
 #include "OS_system.h"
+#include "code32.h"
 
 static u32 OSi_vramExclusive;
 static u16 OSi_vramLockId[9];
 
 static u32 OsCountZeroBits(register u32 bitmap);
 
-ARM_FUNC static asm u32 OsCountZeroBits(register u32 bitmap)
+static asm u32 OsCountZeroBits(register u32 bitmap)
 {
     clz r0, r0
     bx lr
 }
 
-ARM_FUNC void OSi_InitVramExclusive(void)
+void OSi_InitVramExclusive(void)
 {
     OSi_vramExclusive = 0x0000;
 
@@ -23,7 +23,7 @@ ARM_FUNC void OSi_InitVramExclusive(void)
     }
 }
 
-ARM_FUNC BOOL OSi_TryLockVram(u16 bank, u16 lockId)
+BOOL OSi_TryLockVram(u16 bank, u16 lockId)
 {
     u32 workMap;
     s32 zeroBits;
@@ -62,7 +62,7 @@ ARM_FUNC BOOL OSi_TryLockVram(u16 bank, u16 lockId)
     return TRUE;
 }
 
-ARM_FUNC void OSi_UnlockVram(u16 bank, u16 lockId)
+void OSi_UnlockVram(u16 bank, u16 lockId)
 {
     u32 workMap;
     s32 zeroBits;

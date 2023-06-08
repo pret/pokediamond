@@ -1,3 +1,4 @@
+#include "global.h"
 #include "scrcmd.h"
 #include "unk_02029FB0.h"
 
@@ -14,7 +15,7 @@ extern void FUN_0204B5A8(struct FieldSystem*, LocalMapObject *berryTree, u16);
 extern void FUN_0204B9A0(struct FieldSystem*);
 extern void FUN_0204B4FC(struct FieldSystem*, LocalMapObject *berryTree);
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx) { //017D
+BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx) { //017D
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
 
@@ -23,7 +24,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeGrowth(struct ScriptContext* ctx) { //017D
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeType(struct ScriptContext* ctx) { //017E
+BOOL ScrCmd_GetBerryTreeType(struct ScriptContext* ctx) { //017E
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
@@ -32,7 +33,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeType(struct ScriptContext* ctx) { //017E
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeMulch(struct ScriptContext* ctx) { //017F
+BOOL ScrCmd_GetBerryTreeMulch(struct ScriptContext* ctx) { //017F
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
@@ -41,7 +42,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeMulch(struct ScriptContext* ctx) { //017F
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeWater(struct ScriptContext* ctx) { //0180
+BOOL ScrCmd_GetBerryTreeWater(struct ScriptContext* ctx) { //0180
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
@@ -50,7 +51,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeWater(struct ScriptContext* ctx) { //0180
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryTreeAmount(struct ScriptContext* ctx) { //0181
+BOOL ScrCmd_GetBerryTreeAmount(struct ScriptContext* ctx) { //0181
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
@@ -59,7 +60,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryTreeAmount(struct ScriptContext* ctx) { //0181
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx) { //0182
+BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx) { //0182
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     u16 mulchVal = ScriptGetVar(ctx);
 
@@ -68,7 +69,7 @@ THUMB_FUNC BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx) { //0182
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx) //0183 - todo: PlantBerryTree?
+BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx) //0183 - todo: PlantBerryTree?
 {
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     struct GameStats* gameStats = Save_GameStats_Get(ctx->fieldSystem->saveBlock2);
@@ -80,7 +81,7 @@ THUMB_FUNC BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx) //0183 - todo
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0184(struct ScriptContext* ctx) //0184 - todo: SetBerryTreeWater/WaterBerryTree, or just the animation?
+BOOL ScrCmd_Unk0184(struct ScriptContext* ctx) //0184 - todo: SetBerryTreeWater/WaterBerryTree, or just the animation?
 {
     u16 unk = ScriptReadHalfword(ctx);
 
@@ -100,7 +101,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0184(struct ScriptContext* ctx) //0184 - todo: SetBerr
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeBerryTreeBerries(struct ScriptContext* ctx) //0185
+BOOL ScrCmd_TakeBerryTreeBerries(struct ScriptContext* ctx) //0185
 {
     struct GameStats* gameStats = Save_GameStats_Get(ctx->fieldSystem->saveBlock2);
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);

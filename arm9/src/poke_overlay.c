@@ -6,14 +6,14 @@
 
 static struct LoadedOverlay gLoadedOverlays[3][8];
 
-THUMB_FUNC void FreeOverlayAllocation(struct LoadedOverlay * loaded)
+void FreeOverlayAllocation(struct LoadedOverlay * loaded)
 {
     GF_ASSERT(loaded->active == TRUE);
     GF_ASSERT(FS_UnloadOverlay(MI_PROCESSOR_ARM9, loaded->id) == TRUE);
     loaded->active = FALSE;
 }
 
-THUMB_FUNC void UnloadOverlayByID(FSOverlayID id)
+void UnloadOverlayByID(FSOverlayID id)
 {
     struct LoadedOverlay * loaded = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(id));
     int i;
@@ -27,7 +27,7 @@ THUMB_FUNC void UnloadOverlayByID(FSOverlayID id)
     }
 }
 
-THUMB_FUNC s32 GetOverlayLoadDestination(FSOverlayID id)
+s32 GetOverlayLoadDestination(FSOverlayID id)
 {
     FSOverlayInfo info;
     u8 *end;
@@ -44,7 +44,7 @@ THUMB_FUNC s32 GetOverlayLoadDestination(FSOverlayID id)
     return OVERLAY_LOAD_WRAM;
 }
 
-THUMB_FUNC BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
+BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
 {
     u32 sp0 = FS_DMA_NOT_USE;
     struct LoadedOverlay *r3;
@@ -103,7 +103,7 @@ THUMB_FUNC BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
     return TRUE;
 }
 
-THUMB_FUNC BOOL CanOverlayBeLoaded(FSOverlayID id)
+BOOL CanOverlayBeLoaded(FSOverlayID id)
 {
     void *start, *end, *start2, *end2;
     struct LoadedOverlay *r5;
@@ -125,7 +125,7 @@ THUMB_FUNC BOOL CanOverlayBeLoaded(FSOverlayID id)
     return TRUE;
 }
 
-THUMB_FUNC struct LoadedOverlay* GetLoadedOverlaysInRegion(s32 a0)
+struct LoadedOverlay* GetLoadedOverlaysInRegion(s32 a0)
 {
     switch (a0)
     {
@@ -139,7 +139,7 @@ THUMB_FUNC struct LoadedOverlay* GetLoadedOverlaysInRegion(s32 a0)
     }
 }
 
-THUMB_FUNC BOOL GetOverlayRamBounds(FSOverlayID id, void ** start, void ** end)
+BOOL GetOverlayRamBounds(FSOverlayID id, void ** start, void ** end)
 {
     FSOverlayInfo info;
     if (!FS_LoadOverlayInfo(&info, MI_PROCESSOR_ARM9, id)) {
@@ -151,12 +151,12 @@ THUMB_FUNC BOOL GetOverlayRamBounds(FSOverlayID id, void ** start, void ** end)
     return TRUE;
 }
 
-THUMB_FUNC BOOL LoadOverlayNormal(MIProcessor target, FSOverlayID id)
+BOOL LoadOverlayNormal(MIProcessor target, FSOverlayID id)
 {
     return FS_LoadOverlay(target, id);
 }
 
-THUMB_FUNC BOOL LoadOverlayNoInit(MIProcessor target, FSOverlayID id)
+BOOL LoadOverlayNoInit(MIProcessor target, FSOverlayID id)
 {
     FSOverlayInfo info;
     if (!FS_LoadOverlayInfo(&info, target, id))
@@ -167,7 +167,7 @@ THUMB_FUNC BOOL LoadOverlayNoInit(MIProcessor target, FSOverlayID id)
     return TRUE;
 }
 
-THUMB_FUNC BOOL LoadOverlayNoInitAsync(MIProcessor target, FSOverlayID id)
+BOOL LoadOverlayNoInitAsync(MIProcessor target, FSOverlayID id)
 {
     FSOverlayInfo info;
     FSFile file;

@@ -1,5 +1,7 @@
 #include "SND_bank.h"
 #include "OS_mutex.h"
+#include "nitro/types.h"
+#include "code32.h"
 
 void DC_StoreRange(const void *, u32);
 
@@ -18,7 +20,7 @@ void DC_StoreRange(const void *, u32);
 /*
  * Set bank's wavearc link at index to specified wavearc
  */
-ARM_FUNC void SND_AssignWaveArc(struct SNDBankData *bankData, s32 index, struct SNDWaveArc *waveArc) {
+void SND_AssignWaveArc(struct SNDBankData *bankData, s32 index, struct SNDWaveArc *waveArc) {
     SNDi_LockMutex();
     struct SNDWaveArc *selectedWaveArc = bankData->waveArcLinks[index].waveArc;
     if (selectedWaveArc != NULL) {
@@ -50,7 +52,7 @@ ARM_FUNC void SND_AssignWaveArc(struct SNDBankData *bankData, s32 index, struct 
     DC_StoreRange(waveArc, sizeof(*waveArc));
 }
 
-ARM_FUNC void SND_DestroyBank(struct SNDBankData *bankData) {
+void SND_DestroyBank(struct SNDBankData *bankData) {
     SNDi_LockMutex();
 
     for (s32 i = 0; i < SND_BANK_MAX_WAVEARC; i++) {
@@ -77,7 +79,7 @@ ARM_FUNC void SND_DestroyBank(struct SNDBankData *bankData) {
     SNDi_UnlockMutex();
 }
 
-ARM_FUNC void SND_DestroyWaveArc(struct SNDWaveArc *waveArc) {
+void SND_DestroyWaveArc(struct SNDWaveArc *waveArc) {
     SNDi_LockMutex();
     struct SNDWaveArcLink *cur = waveArc->waveArcLLHead;
 
@@ -92,7 +94,7 @@ ARM_FUNC void SND_DestroyWaveArc(struct SNDWaveArc *waveArc) {
     SNDi_UnlockMutex();
 }
 
-ARM_FUNC struct SNDInstPos SND_GetFirstInstDataPos(const struct SNDBankData *bankData) {
+struct SNDInstPos SND_GetFirstInstDataPos(const struct SNDBankData *bankData) {
 #pragma unused (bankData)
     struct SNDInstPos retval;
     retval.program = 0;
@@ -100,11 +102,11 @@ ARM_FUNC struct SNDInstPos SND_GetFirstInstDataPos(const struct SNDBankData *ban
     return retval;
 }
 
-ARM_FUNC static inline struct SNDDrumSet *test(const struct SNDBankData *bank, u32 off) {
+static inline struct SNDDrumSet *test(const struct SNDBankData *bank, u32 off) {
     return (struct SNDDrumSet *)((u8 *)bank + (off >> 8));
 }
 
-ARM_FUNC BOOL SND_GetNextInstData(const struct SNDBankData *bankData, struct SNDInstData *instData, struct SNDInstPos *instPos) {
+BOOL SND_GetNextInstData(const struct SNDBankData *bankData, struct SNDInstData *instData, struct SNDInstPos *instPos) {
     while (instPos->program < bankData->instCount) {
         struct SNDDrumSet *drums;
         struct SNDKeySplit *keySplit;
@@ -148,18 +150,18 @@ ARM_FUNC BOOL SND_GetNextInstData(const struct SNDBankData *bankData, struct SND
     return FALSE;
 }
 
-ARM_FUNC u32 SND_GetWaveDataCount(const struct SNDWaveArc *waveArc) {
+u32 SND_GetWaveDataCount(const struct SNDWaveArc *waveArc) {
     return waveArc->waveCount;
 }
 
-ARM_FUNC void SND_SetWaveDataAddress(struct SNDWaveArc *waveArc, s32 index, const struct SNDWaveData *waveData) {
+void SND_SetWaveDataAddress(struct SNDWaveArc *waveArc, s32 index, const struct SNDWaveData *waveData) {
     SNDi_LockMutex();
     waveArc->waveOffsets[index] = (u32)waveData;
     DC_StoreRange(&waveArc->waveOffsets[index], sizeof(u32));
     SNDi_UnlockMutex();
 }
 
-ARM_FUNC const struct SNDWaveData *SND_GetWaveDataAddress(const struct SNDWaveArc *waveArc, s32 index) {
+const struct SNDWaveData *SND_GetWaveDataAddress(const struct SNDWaveArc *waveArc, s32 index) {
     SNDi_LockMutex();
     u32 retval = waveArc->waveOffsets[index];
     if (retval != 0) {

@@ -23,7 +23,7 @@ extern u8 SealCase_CountSealOccurrenceAnywhere(struct SealCase *, u32);
 static u32 GetCoinCount(struct SaveBlock2 *sav2);
 static u32 GetSealCount(struct SaveBlock2 *sav2);
 
-THUMB_FUNC struct BagView *BagView_New(u8 heap_id)
+struct BagView *BagView_New(u8 heap_id)
 {
     struct BagView *ptr = AllocFromHeap(heap_id, sizeof(struct BagView));
 
@@ -32,17 +32,17 @@ THUMB_FUNC struct BagView *BagView_New(u8 heap_id)
     return ptr;
 }
 
-THUMB_FUNC u32 BagView_sizeof()
+u32 BagView_sizeof()
 {
     return sizeof(struct BagView);
 }
 
-THUMB_FUNC void FUN_0206E30C(struct BagView *bag_view, u8 r1)
+void FUN_0206E30C(struct BagView *bag_view, u8 r1)
 {
     bag_view->unk65 = r1;
 }
 
-THUMB_FUNC void FUN_0206E314(
+void FUN_0206E314(
     struct BagView *bag_view, struct SaveBlock2 *sav2, u8 r2, struct UnkStruct_0206F164 *r3)
 {
     FUN_0206E30C(bag_view, r2);
@@ -52,58 +52,58 @@ THUMB_FUNC void FUN_0206E314(
     bag_view->unk66 = 0;
 }
 
-THUMB_FUNC void BagView_SetItem(struct BagView *bag_view, struct ItemSlot *slot, u8 pocket, u8 idx)
+void BagView_SetItem(struct BagView *bag_view, struct ItemSlot *slot, u8 pocket, u8 idx)
 {
     bag_view->slots[idx].slot = slot;
     bag_view->slots[idx].pocket = pocket;
 }
 
-THUMB_FUNC void FUN_0206E340(struct BagView *bag_view)
+void FUN_0206E340(struct BagView *bag_view)
 {
     bag_view->unk76 = 1;
 }
 
-THUMB_FUNC void FUN_0206E354(struct BagView *bag_view, u32 r1)
+void FUN_0206E354(struct BagView *bag_view, u32 r1)
 {
     bag_view->unk70 = r1;
 }
 
-THUMB_FUNC void FUN_0206E358(struct BagView *bag_view, u8 r1)
+void FUN_0206E358(struct BagView *bag_view, u8 r1)
 {
     bag_view->unk74 = r1;
 }
 
-THUMB_FUNC void FUN_0206E360(struct BagView *bag_view, u16 r1)
+void FUN_0206E360(struct BagView *bag_view, u16 r1)
 {
     bag_view->unk76_2 = r1;
 }
 
-THUMB_FUNC u16 FUN_0206E37C(struct BagView *bag_view)
+u16 FUN_0206E37C(struct BagView *bag_view)
 {
     return bag_view->unk66;
 }
 
-THUMB_FUNC u16 FUN_0206E384(struct BagView *bag_view)
+u16 FUN_0206E384(struct BagView *bag_view)
 {
     return bag_view->unk68;
 }
 
-THUMB_FUNC u8 FUN_0206E38C(struct BagView *bag_view)
+u8 FUN_0206E38C(struct BagView *bag_view)
 {
     return bag_view->unk74;
 }
 
-THUMB_FUNC u8 FUN_0206E394(struct BagView *bag_view)
+u8 FUN_0206E394(struct BagView *bag_view)
 {
     return bag_view->unk75;
 }
 
-THUMB_FUNC static u32 GetCoinCount(struct SaveBlock2 *sav2)
+static u32 GetCoinCount(struct SaveBlock2 *sav2)
 {
     return (u32)CheckCoins(Save_PlayerData_GetCoinsAddr(sav2));
 }
 
-THUMB_FUNC static u32 GetSealCount(struct SaveBlock2 *sav2)
+static u32 GetSealCount(struct SaveBlock2 *sav2)
 {
     struct SealCase *seal_case = Save_SealCase_Get(sav2);
     u32 i;
@@ -118,22 +118,22 @@ THUMB_FUNC static u32 GetSealCount(struct SaveBlock2 *sav2)
 }
 
 //todo: do these match up with HG?
-THUMB_FUNC u32 FUN_0206E3C8(struct SaveBlock2 *sav2)
+u32 FUN_0206E3C8(struct SaveBlock2 *sav2)
 {
     return FUN_02027168(FUN_0202708C(Save_FashionData_Get(sav2)));
 }
 
-THUMB_FUNC u32 FUN_0206E3D8(struct SaveBlock2 *sav2)
+u32 FUN_0206E3D8(struct SaveBlock2 *sav2)
 {
     return FUN_02027184(FUN_0202708C(Save_FashionData_Get(sav2)));
 }
 
-THUMB_FUNC u32 FUN_0206E3E8(struct SaveBlock2 *sav2)
+u32 FUN_0206E3E8(struct SaveBlock2 *sav2)
 {
     return SaveStruct23_Substruct2_SetField_0x0(SaveStruct23_GetSubstruct2(sav2), 0, DATA_GET);
 }
 
-THUMB_FUNC BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id)
+BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id)
 {
     struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
     MessageFormat *messageFormat = MessageFormat_New(heap_id);
@@ -184,7 +184,7 @@ THUMB_FUNC BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, st
     return TRUE;
 }
 
-THUMB_FUNC void FUN_0206E51C( //todo: sync with HG
+void FUN_0206E51C( //todo: sync with HG
     struct PlayerData *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id)
 {
 #pragma unused(r2)

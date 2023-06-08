@@ -56,7 +56,7 @@ extern u32 NNS_G2dGetImageLocation(u32, u32);
 extern void *FUN_02012470(u16, u16, u16);
 extern u32 NNS_G2dGetImagePaletteLocation(u32, u32);
 
-THUMB_FUNC u32 FUN_0200CABC(
+u32 FUN_0200CABC(
     struct BgConfig *bgConfig, u32 layer, u32 numTiles, u32 param3, u32 heap_id)
 {
     if (param3 == 0)
@@ -81,12 +81,12 @@ THUMB_FUNC u32 FUN_0200CABC(
         heap_id);
 }
 
-THUMB_FUNC s32 FUN_0200CAFC(void)
+s32 FUN_0200CAFC(void)
 {
     return NARC_winframe_narc_0024_NCLR;
 }
 
-THUMB_FUNC void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer layer, u32 num_tiles, u32 paletteNumber, u8 frame_id, u32 heap_id)
+void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer layer, u32 num_tiles, u32 paletteNumber, u8 frame_id, u32 heap_id)
 {
     s32 r1;
     if (frame_id != 0)
@@ -118,7 +118,7 @@ THUMB_FUNC void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer lay
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(paletteNumber << 5), 32, heap_id);
 }
 
-THUMB_FUNC void DrawFrame1(struct BgConfig *bgConfig,
+void DrawFrame1(struct BgConfig *bgConfig,
     u8 bgId,
     u8 x,
     u8 y,
@@ -142,7 +142,7 @@ THUMB_FUNC void DrawFrame1(struct BgConfig *bgConfig,
         bgConfig, bgId, (u16)(fillValue + 8), (u8)(x + width), (u8)(y + height), 1, 1, paletteNum);
 }
 
-THUMB_FUNC void DrawFrameAndWindow1(
+void DrawFrameAndWindow1(
     struct Window *window, BOOL copy_to_vram, u16 fill_value, u8 palette_num)
 {
     DrawFrame1(window->bgConfig,
@@ -160,7 +160,7 @@ THUMB_FUNC void DrawFrameAndWindow1(
     }
 }
 
-THUMB_FUNC void ClearFrameAndWindow1(struct Window *window, BOOL copy_to_vram)
+void ClearFrameAndWindow1(struct Window *window, BOOL copy_to_vram)
 {
 
     FillBgTilemapRect(window->bgConfig,
@@ -178,17 +178,17 @@ THUMB_FUNC void ClearFrameAndWindow1(struct Window *window, BOOL copy_to_vram)
     }
 }
 
-THUMB_FUNC s32 FUN_0200CD60(s32 param0)
+s32 FUN_0200CD60(s32 param0)
 {
     return param0 + 2;
 }
 
-THUMB_FUNC s32 FUN_0200CD64(s32 param0)
+s32 FUN_0200CD64(s32 param0)
 {
     return param0 + 25;
 }
 
-THUMB_FUNC void FUN_0200CD68(
+void FUN_0200CD68(
     struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 param3, u8 frame_id, u32 heap_id)
 {
 
@@ -204,7 +204,7 @@ THUMB_FUNC void FUN_0200CD68(
     GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(param3 << 5), 32, heap_id);
 }
 
-THUMB_FUNC void DrawFrame2(struct BgConfig *bgConfig,
+void DrawFrame2(struct BgConfig *bgConfig,
     u8 bgId,
     u8 x,
     u8 y,
@@ -257,7 +257,7 @@ THUMB_FUNC void DrawFrame2(struct BgConfig *bgConfig,
         paletteNum);
 }
 
-THUMB_FUNC void DrawWindowFrame2(struct Window *window, u32 fill_value, u32 palette_num)
+void DrawWindowFrame2(struct Window *window, u32 fill_value, u32 palette_num)
 {
     DrawFrame2(window->bgConfig,
         GetWindowBgId(window),
@@ -269,7 +269,7 @@ THUMB_FUNC void DrawWindowFrame2(struct Window *window, u32 fill_value, u32 pale
         (u16)fill_value);
 }
 
-THUMB_FUNC void DrawFrameAndWindow2(
+void DrawFrameAndWindow2(
     struct Window *window, BOOL copy_to_vram, u16 fill_value, u8 palette_num)
 {
     DrawWindowFrame2(window, fill_value, palette_num);
@@ -281,7 +281,7 @@ THUMB_FUNC void DrawFrameAndWindow2(
     FUN_0200D18C(window, fill_value);
 }
 
-THUMB_FUNC void ClearFrameAndWindow2(struct Window *window, BOOL param1)
+void ClearFrameAndWindow2(struct Window *window, BOOL param1)
 {
     FillBgTilemapRect(window->bgConfig,
         GetWindowBgId(window),
@@ -298,7 +298,7 @@ THUMB_FUNC void ClearFrameAndWindow2(struct Window *window, BOOL param1)
     }
 }
 
-THUMB_FUNC void BlitRect4Bit(u8 *srcPixels,
+void BlitRect4Bit(u8 *srcPixels,
     u16 srcX,
     u16 srcY,
     u16 srcWidth,
@@ -324,7 +324,7 @@ THUMB_FUNC void BlitRect4Bit(u8 *srcPixels,
     BlitBitmapRect4Bit(&src, &dst, srcX, srcY, dstX, dstY, width, height, 0);
 }
 
-THUMB_FUNC void FUN_0200D18C(struct Window *window, u16 fill_value)
+void FUN_0200D18C(struct Window *window, u16 fill_value)
 {
     u32 heap_id = BgConfig_GetHeapId(window->bgConfig);
     u8 bg_id = GetWindowBgId(window);
@@ -354,7 +354,7 @@ THUMB_FUNC void FUN_0200D18C(struct Window *window, u16 fill_value)
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void FUN_0200D274(
+void FUN_0200D274(
     struct BgConfig *bg_config, u8 bg_id, u16 param2, u8 param3, u8 param4, u32 heap_id)
 {
 
@@ -385,7 +385,7 @@ THUMB_FUNC void FUN_0200D274(
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void FUN_0200D300(struct BgConfig *bg_config,
+void FUN_0200D300(struct BgConfig *bg_config,
     u8 bg_id,
     u16 numtiles,
     u8 param3,
@@ -416,7 +416,7 @@ THUMB_FUNC void FUN_0200D300(struct BgConfig *bg_config,
     }
 }
 
-THUMB_FUNC void FUN_0200D378(
+void FUN_0200D378(
     struct BgConfig *bg_config, u8 bg_id, u16 numtiles, u8 param3, u16 param4, u32 heap_id)
 {
     if (param3 == 0)
@@ -432,7 +432,7 @@ THUMB_FUNC void FUN_0200D378(
         NARC_GRAPHIC_FIELD_BOARD, param4, bg_config, bg_id, numtiles, 0x300, FALSE, heap_id);
 }
 
-THUMB_FUNC void DrawFrame3(struct BgConfig *bgConfig,
+void DrawFrame3(struct BgConfig *bgConfig,
     u8 bgId,
     u8 x,
     u8 y,
@@ -499,7 +499,7 @@ THUMB_FUNC void DrawFrame3(struct BgConfig *bgConfig,
         paletteNum);
 }
 
-THUMB_FUNC void DrawWindowCorner(struct Window *window, u16 fillValue, u8 paletteNum)
+void DrawWindowCorner(struct Window *window, u16 fillValue, u8 paletteNum)
 {
     u16 i, j;
     u16 x, y;
@@ -525,7 +525,7 @@ THUMB_FUNC void DrawWindowCorner(struct Window *window, u16 fillValue, u8 palett
     }
 }
 
-THUMB_FUNC void DrawFrameAndWindow3(
+void DrawFrameAndWindow3(
     struct Window *window, BOOL copy_to_vram, u16 fillValue, u8 paletteNum, u8 param4)
 {
     u8 bg_id = GetWindowBgId(window);
@@ -561,7 +561,7 @@ THUMB_FUNC void DrawFrameAndWindow3(
     FUN_0200D18C(window, fillValue);
 }
 
-THUMB_FUNC void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy_to_vram)
+void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy_to_vram)
 {
     u8 bg_id = GetWindowBgId(window);
     if (param1 <= 1)
@@ -593,7 +593,7 @@ THUMB_FUNC void ClearFrameAndWindow3(struct Window *window, u8 param1, BOOL copy
     }
 }
 
-THUMB_FUNC WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
+WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
     u32 heap_id = BgConfig_GetHeapId(window->bgConfig);
     void *charptr = BgGetCharPtr(GetWindowBgId(window));
 
@@ -627,7 +627,7 @@ THUMB_FUNC WaitingIcon *WaitingIcon_New(struct Window *window, u32 param1) {
     return waitingIcon;
 }
 
-THUMB_FUNC void FUN_0200D980(WaitingIcon *waitingIcon, u32 param1) {
+void FUN_0200D980(WaitingIcon *waitingIcon, u32 param1) {
     u8 bg_id = GetWindowBgId(waitingIcon->window);
     u8 x = GetWindowX(waitingIcon->window);
     u8 y = GetWindowY(waitingIcon->window);
@@ -653,7 +653,7 @@ THUMB_FUNC void FUN_0200D980(WaitingIcon *waitingIcon, u32 param1) {
     }
 }
 
-THUMB_FUNC void FUN_0200DB7C(u32 param0, void *param1) {
+void FUN_0200DB7C(u32 param0, void *param1) {
     WaitingIcon *waitingIcon = (WaitingIcon *)param1; //todo: see if this matches using a param
 
     if (waitingIcon->unk488 != 0) {
@@ -672,22 +672,22 @@ THUMB_FUNC void FUN_0200DB7C(u32 param0, void *param1) {
     }
 }
 
-THUMB_FUNC void FUN_0200DBE8(u32 param0, void *param1) {
+void FUN_0200DBE8(u32 param0, void *param1) {
     FreeToHeap(param1);
     FUN_0200CAB4((s32)param0);
 }
 
-THUMB_FUNC void FUN_0200DBFC(WaitingIcon *waitingIcon) {
+void FUN_0200DBFC(WaitingIcon *waitingIcon) {
     FUN_0200CA98(FUN_0200DBE8, waitingIcon, 0);
     waitingIcon->unk488 = 1;
 }
 
-THUMB_FUNC void FUN_0200DC24(WaitingIcon *waitingIcon) {
+void FUN_0200DC24(WaitingIcon *waitingIcon) {
     FUN_0200CA98(FUN_0200DBE8, waitingIcon, 0);
     waitingIcon->unk488 = 2;
 }
 
-THUMB_FUNC PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, s32 heapId)
+PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, u16 species, u8 gender, s32 heapId)
 {
     struct UnkStruct_0200CABC_2 *r4 = FUN_0200DD70(bg_config, bg_id, param2, param3, heapId);
     FUN_0200DDAC(r4, heapId);
@@ -700,7 +700,7 @@ THUMB_FUNC PokepicManager *DrawPokemonPicFromSpecies(struct BgConfig *bg_config,
     return &r4->pokepicManager;
 }
 
-THUMB_FUNC PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, s32 heapId)
+PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u8 param4, u16 numTiles, struct Pokemon *mon, s32 heapId)
 {
     struct UnkStruct_0200CABC_2 *r4 = FUN_0200DD70(bg_config, bg_id, param2, param3, heapId);
     FUN_0200DDAC(r4, heapId);
@@ -713,7 +713,7 @@ THUMB_FUNC PokepicManager *DrawPokemonPicFromMon(struct BgConfig *bg_config, u8 
     return &r4->pokepicManager;
 }
 
-THUMB_FUNC void FUN_0200DCF8(u32 param0, void *param1)
+void FUN_0200DCF8(u32 param0, void *param1)
 {
     struct UnkStruct_0200CABC_2 *unk = (struct UnkStruct_0200CABC_2 *)param1;
     switch (unk->pokepicManager.unk00)
@@ -739,7 +739,7 @@ THUMB_FUNC void FUN_0200DCF8(u32 param0, void *param1)
     FUN_0201FDEC(unk->unk000);
 }
 
-THUMB_FUNC struct UnkStruct_0200CABC_2 *FUN_0200DD70(
+struct UnkStruct_0200CABC_2 *FUN_0200DD70(
     struct BgConfig *bg_config, u8 bg_id, u8 param2, u8 param3, u32 param4)
 {
     struct UnkStruct_0200CABC_2 *res = FUN_0201B6C8(FUN_020061E8(FUN_0200DCF8, 0x170, 0, param4));
@@ -753,7 +753,7 @@ THUMB_FUNC struct UnkStruct_0200CABC_2 *FUN_0200DD70(
     return res;
 }
 
-THUMB_FUNC void FUN_0200DDAC(struct UnkStruct_0200CABC_2 *param0, u32 param1)
+void FUN_0200DDAC(struct UnkStruct_0200CABC_2 *param0, u32 param1)
 {
 
     const u32 UNK_020ECEA8[] = {
@@ -767,7 +767,7 @@ THUMB_FUNC void FUN_0200DDAC(struct UnkStruct_0200CABC_2 *param0, u32 param1)
     MOD05_021D959C(param0, UNK_020ECEA8, 1, param1);
 }
 
-THUMB_FUNC void FUN_0200DDD8(struct UnkStruct_0200CABC_2 *param0)
+void FUN_0200DDD8(struct UnkStruct_0200CABC_2 *param0)
 {
     MOD05_021D967C(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0049_NCLR, 0, 1, 1, 0x15CD5);
     MOD05_021D96F4(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0047_NCER, 0, 0x15CD5);
@@ -775,7 +775,7 @@ THUMB_FUNC void FUN_0200DDD8(struct UnkStruct_0200CABC_2 *param0)
     MOD05_021D971C(param0, NARC_GRAPHIC_WINFRAME, NARC_winframe_narc_0048_NCGR, 0, 1, 0x15CD5);
 }
 
-THUMB_FUNC void FUN_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2)
+void FUN_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 param2)
 {
     u32 UNK_020ECEC0[] = {
         0x00,
@@ -799,7 +799,7 @@ THUMB_FUNC void FUN_0200DE30(struct UnkStruct_0200CABC_2 *param0, u8 param1, u8 
     GX_EngineBToggleLayers(0x10, GX_LAYER_TOGGLE_ON);
 }
 
-THUMB_FUNC void FUN_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8 param2)
+void FUN_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8 param2)
 {
     struct UnkStruct_02006D98 *r7 = FUN_02006D98(param0->unk162);
     struct SomeDrawPokemonStruct stc;
@@ -808,7 +808,7 @@ THUMB_FUNC void FUN_0200DE80(struct UnkStruct_0200CABC_2 *param0, u16 param1, u8
     FUN_020072E8(r7);
 }
 
-THUMB_FUNC void FUN_0200DEC0(struct UnkStruct_0200CABC_2 *param0, struct Pokemon *param1)
+void FUN_0200DEC0(struct UnkStruct_0200CABC_2 *param0, struct Pokemon *param1)
 {
     struct UnkStruct_02006D98 *r6 = FUN_02006D98(param0->unk162);
     struct SomeDrawPokemonStruct st0;
@@ -817,7 +817,7 @@ THUMB_FUNC void FUN_0200DEC0(struct UnkStruct_0200CABC_2 *param0, struct Pokemon
     FUN_020072E8(r6);
 }
 
-THUMB_FUNC void FUN_0200DEF4(
+void FUN_0200DEF4(
     struct UnkStruct_0200CABC_2 *param0, struct SomeDrawPokemonStruct *param1)
 {
     void *r4 = AllocFromHeap(param0->unk162, 0x1900);
@@ -843,7 +843,7 @@ THUMB_FUNC void FUN_0200DEF4(
     FreeToHeap(res);
 }
 
-THUMB_FUNC void DrawFramed10x10Square(
+void DrawFramed10x10Square(
     struct UnkStruct_0200CABC_2 *param0, u8 paletteNum, u16 fillValue)
 {
     FillBgTilemapRect(param0->bgConfig,
@@ -922,7 +922,7 @@ THUMB_FUNC void DrawFramed10x10Square(
     ScheduleBgTilemapBufferTransfer(param0->bgConfig, param0->bgId);
 }
 
-THUMB_FUNC void ClearFramed10x10Square(struct UnkStruct_0200CABC_2 *param0)
+void ClearFramed10x10Square(struct UnkStruct_0200CABC_2 *param0)
 {
     FillBgTilemapRect(
         param0->bgConfig, param0->bgId, 0, (u8)(param0->x - 1), (u8)(param0->y - 1), 12, 12, 0);

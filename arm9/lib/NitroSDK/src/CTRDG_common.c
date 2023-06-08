@@ -1,5 +1,4 @@
 #include "CTRDG_common.h"
-#include "function_target.h"
 #include "syscall.h"
 #include "OS_cache.h"
 #include "OS_protectionRegion.h"
@@ -8,36 +7,37 @@
 #include "MI_dma.h"
 #include "MI_memory.h"
 #include "mmap.h"
+#include "code32.h"
 
 CTRDGWork CTRDGi_Work;
 
 static BOOL CTRDGi_EnableFlag = FALSE;
 
-ARM_FUNC void CTRDGi_InitCommon(void)
+void CTRDGi_InitCommon(void)
 {
     SVC_CpuClear(0, &CTRDGi_Work, sizeof(CTRDGi_Work), 32);
 
     CTRDGi_Work.lockID = (u16)OS_GetLockID();
 }
 
-ARM_FUNC BOOL CTRDG_IsAgbCartridge(void)
+BOOL CTRDG_IsAgbCartridge(void)
 {
     return (CTRDG_IsExisting() && CTRDGi_IsAgbCartridgeAtInit());
 }
 
-ARM_FUNC BOOL CTRDG_IsOptionCartridge(void)
+BOOL CTRDG_IsOptionCartridge(void)
 {
     return (CTRDG_IsExisting() && !CTRDGi_IsAgbCartridgeAtInit());
 }
 
-ARM_FUNC BOOL CTRDGi_IsAgbCartridgeAtInit(void)
+BOOL CTRDGi_IsAgbCartridgeAtInit(void)
 {
     CTRDGModuleInfo *cip = CTRDGi_GetModuleInfoAddr();
 
     return cip->isAgbCartridge;
 }
 
-ARM_FUNC u32 CTRDG_GetAgbGameCode(void)
+u32 CTRDG_GetAgbGameCode(void)
 {
     u32 ret = 0;
 
@@ -49,7 +49,7 @@ ARM_FUNC u32 CTRDG_GetAgbGameCode(void)
     return ret;
 }
 
-ARM_FUNC u32 CTRDGi_GetAgbGameCodeAtInit(void)
+u32 CTRDGi_GetAgbGameCodeAtInit(void)
 {
     CTRDGModuleInfo *cip = CTRDGi_GetModuleInfoAddr();
     u32 ret = 0;
@@ -62,7 +62,7 @@ ARM_FUNC u32 CTRDGi_GetAgbGameCodeAtInit(void)
     return ret;
 }
 
-ARM_FUNC u16 CTRDG_GetAgbMakerCode(void)
+u16 CTRDG_GetAgbMakerCode(void)
 {
     u16 ret = 0;
 
@@ -74,7 +74,7 @@ ARM_FUNC u16 CTRDG_GetAgbMakerCode(void)
     return ret;
 }
 
-ARM_FUNC u16 CTRDGi_GetAgbMakerCodeAtInit(void)
+u16 CTRDGi_GetAgbMakerCodeAtInit(void)
 {
     CTRDGModuleInfo *cip = CTRDGi_GetModuleInfoAddr();
     u16 ret = 0;
@@ -87,7 +87,7 @@ ARM_FUNC u16 CTRDGi_GetAgbMakerCodeAtInit(void)
     return ret;
 }
 
-ARM_FUNC BOOL CTRDG_IsPulledOut(void)
+BOOL CTRDG_IsPulledOut(void)
 {
     CTRDGModuleInfo *cip = CTRDGi_GetModuleInfoAddr();
 
@@ -104,7 +104,7 @@ ARM_FUNC BOOL CTRDG_IsPulledOut(void)
     return cip->detectPullOut;
 }
 
-ARM_FUNC BOOL CTRDG_IsExisting(void)
+BOOL CTRDG_IsExisting(void)
 {
     BOOL ret = TRUE;
     CTRDGLockByProc lockInfo;
@@ -144,7 +144,7 @@ ARM_FUNC BOOL CTRDG_IsExisting(void)
     return ret;
 }
 
-ARM_FUNC void CTRDGi_ChangeLatestAccessCycle(CTRDGRomCycle *r)
+void CTRDGi_ChangeLatestAccessCycle(CTRDGRomCycle *r)
 {
     r->c1 = MI_GetCartridgeRomCycle1st();
     r->c2 = MI_GetCartridgeRomCycle2nd();
@@ -153,13 +153,13 @@ ARM_FUNC void CTRDGi_ChangeLatestAccessCycle(CTRDGRomCycle *r)
     MI_SetCartridgeRomCycle2nd(MI_CTRDG_ROMCYCLE2_6);
 }
 
-ARM_FUNC void CTRDGi_RestoreAccessCycle(CTRDGRomCycle *r)
+void CTRDGi_RestoreAccessCycle(CTRDGRomCycle *r)
 {
     MI_SetCartridgeRomCycle1st(r->c1);
     MI_SetCartridgeRomCycle2nd(r->c2);
 }
 
-ARM_FUNC void CTRDGi_LockByProcessor(u16 lockID, CTRDGLockByProc *info)
+void CTRDGi_LockByProcessor(u16 lockID, CTRDGLockByProc *info)
 {
     while (TRUE)
     {
@@ -175,7 +175,7 @@ ARM_FUNC void CTRDGi_LockByProcessor(u16 lockID, CTRDGLockByProc *info)
     }
 }
 
-ARM_FUNC void CTRDGi_UnlockByProcessor(u16 lockID, CTRDGLockByProc *info)
+void CTRDGi_UnlockByProcessor(u16 lockID, CTRDGLockByProc *info)
 {
     if (!info->locked)
     {
@@ -185,7 +185,7 @@ ARM_FUNC void CTRDGi_UnlockByProcessor(u16 lockID, CTRDGLockByProc *info)
     (void)OS_RestoreInterrupts(info->irq);
 }
 
-ARM_FUNC void CTRDGi_SendtoPxi(u32 data)
+void CTRDGi_SendtoPxi(u32 data)
 {
     while (PXI_SendWordByFifo(PXI_FIFO_TAG_CTRDG, data, FALSE) != PXI_FIFO_SUCCESS)
     {
@@ -193,7 +193,7 @@ ARM_FUNC void CTRDGi_SendtoPxi(u32 data)
     }
 }
 
-ARM_FUNC BOOL CTRDG_CpuCopy8(const void *src, void *dest, u32 size)
+BOOL CTRDG_CpuCopy8(const void *src, void *dest, u32 size)
 {
     if (HW_CTRDG_ROM <= (u32)dest && (u32)dest < HW_CTRDG_RAM_END)
     {
@@ -205,17 +205,17 @@ ARM_FUNC BOOL CTRDG_CpuCopy8(const void *src, void *dest, u32 size)
     }
 }
 
-ARM_FUNC BOOL CTRDG_CpuCopy16(const void *src, void *dest, u32 size)
+BOOL CTRDG_CpuCopy16(const void *src, void *dest, u32 size)
 {
     return CTRDGi_CopyCommon(0, src, dest, size, CTRDGi_FORWARD_CPU16);
 }
 
-ARM_FUNC BOOL CTRDG_CpuCopy32(const void *src, void *dest, u32 size)
+BOOL CTRDG_CpuCopy32(const void *src, void *dest, u32 size)
 {
     return CTRDGi_CopyCommon(0, src, dest, size, CTRDGi_FORWARD_CPU32);
 }
 
-ARM_FUNC BOOL CTRDGi_CopyCommon(u32 dmaNo, const void *src, void *dest, u32 size, u32 forwardType)
+BOOL CTRDGi_CopyCommon(u32 dmaNo, const void *src, void *dest, u32 size, u32 forwardType)
 {
     if (!CTRDG_IsExisting())
     {
@@ -267,12 +267,12 @@ ARM_FUNC BOOL CTRDGi_CopyCommon(u32 dmaNo, const void *src, void *dest, u32 size
     return TRUE;
 }
 
-ARM_FUNC BOOL CTRDG_Read32(const u32 *address, u32 *rdata)
+BOOL CTRDG_Read32(const u32 *address, u32 *rdata)
 {
     return CTRDGi_AccessCommon((void *)address, 0, rdata, CTRDGi_ACCESS_READ32);
 }
 
-ARM_FUNC BOOL CTRDGi_AccessCommon(void *address, u32 data, void *rdata, u32 accessType)
+BOOL CTRDGi_AccessCommon(void *address, u32 data, void *rdata, u32 accessType)
 {
     if (!CTRDG_IsExisting())
     {
@@ -324,12 +324,12 @@ ARM_FUNC BOOL CTRDGi_AccessCommon(void *address, u32 data, void *rdata, u32 acce
     return TRUE;
 }
 
-ARM_FUNC BOOL CTRDG_IsEnabled(void)
+BOOL CTRDG_IsEnabled(void)
 {
     return CTRDGi_EnableFlag;
 }
 
-ARM_FUNC void CTRDG_Enable(BOOL enable)
+void CTRDG_Enable(BOOL enable)
 {
     OSIntrMode bak_cpsr = OS_DisableInterrupts();
     CTRDGi_EnableFlag = enable;
@@ -341,7 +341,7 @@ ARM_FUNC void CTRDG_Enable(BOOL enable)
     (void)OS_RestoreInterrupts(bak_cpsr);
 }
 
-ARM_FUNC void CTRDG_CheckEnabled(void)
+void CTRDG_CheckEnabled(void)
 {
     if (!CTRDG_IsOptionCartridge() && !CTRDG_IsEnabled())
     {

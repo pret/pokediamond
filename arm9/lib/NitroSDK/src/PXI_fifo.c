@@ -1,16 +1,16 @@
-#include "function_target.h"
 #include "consts.h"
 #include "OS_interrupt.h"
 #include "OS_system.h"
 #include "PXI_fifo.h"
 #include "systemWork.h"
+#include "code32.h"
 
 static u16 FifoCtrlInit = 0;
 static PXIFifoCallback FifoRecvCallbackTable[PXI_MAX_FIFO_TAG];
 
 static inline PXIFifoStatus PXIi_SetToFifo(u32 data);
 
-ARM_FUNC void PXI_InitFifo(void)
+void PXI_InitFifo(void)
 {
     OSSystemWork *p = OS_GetSystemWork();
     OSIntrMode enabled = OS_DisableInterrupts();
@@ -62,7 +62,7 @@ ARM_FUNC void PXI_InitFifo(void)
     (void)OS_RestoreInterrupts(enabled);
 }
 
-ARM_FUNC void PXI_SetFifoRecvCallback(s32 fifotag, PXIFifoCallback callback)
+void PXI_SetFifoRecvCallback(s32 fifotag, PXIFifoCallback callback)
 {
     OSSystemWork *p = OS_GetSystemWork();
     OSIntrMode enabled = OS_DisableInterrupts();
@@ -79,14 +79,14 @@ ARM_FUNC void PXI_SetFifoRecvCallback(s32 fifotag, PXIFifoCallback callback)
     (void)OS_RestoreInterrupts(enabled);
 }
 
-ARM_FUNC BOOL PXI_IsCallbackReady(s32 fifotag, PXIProc proc)
+BOOL PXI_IsCallbackReady(s32 fifotag, PXIProc proc)
 {
     OSSystemWork *p = OS_GetSystemWork();
 
     return (p->pxiHandleChecker[proc] & (1UL << fifotag)) ? TRUE : FALSE;
 }
 
-ARM_FUNC s32 PXI_SendWordByFifo(s32 fifotag, u32 data, BOOL err)
+s32 PXI_SendWordByFifo(s32 fifotag, u32 data, BOOL err)
 {
     PXIFifoMessage fifomsg;
 
@@ -139,7 +139,7 @@ static inline PXIFifoStatus PXIi_GetFromFifo(u32 *data_buf)
     return PXI_FIFO_SUCCESS;
 }
 
-ARM_FUNC void PXIi_HandlerRecvFifoNotEmpty(void)
+void PXIi_HandlerRecvFifoNotEmpty(void)
 {
     PXIFifoMessage fifomsg;
     PXIFifoStatus ret_code;

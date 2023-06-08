@@ -3,8 +3,6 @@
 #include "heap.h"
 #include "unk_02021FF8.h"
 
-#pragma thumb on
-
 struct UnkStruct_020220C4 * FUN_020220C4(u8 * a0, u32 a1, void (*a2)(s32, s32, u32), u32 a3, u32 a4)
 {
     struct UnkStruct_020220C4 * ret;

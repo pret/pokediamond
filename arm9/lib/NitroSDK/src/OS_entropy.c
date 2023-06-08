@@ -1,15 +1,13 @@
-//
-// Created by red031000 on 2020-05-03.
-//
-
 #include "OS_entropy.h"
 
-#include "global.h"
+#include "nitro/types.h"
 #include "registers.h"
 #include "systemWork.h"
 #include "userInfo.h"
 
-ARM_FUNC void OS_GetLowEntropyData(u32 * arr)
+#include "code32.h"
+
+void OS_GetLowEntropyData(u32 * arr)
 {
     const OSSystemWork* work = OS_GetSystemWork();
     const u8 * macAddress = (u8 *)((u32)(work->nvramUserInfo) + ((sizeof(NVRAMConfig) + 3) & ~3));

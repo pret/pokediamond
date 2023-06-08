@@ -16,7 +16,7 @@ extern BOOL MOD75_021E6F00(struct OverlayManager *, u32 *);
 
 extern BOOL FUN_0208898C(struct OverlayManager **r0);
 
-THUMB_FUNC u32 FUN_02088AAC(struct UnkStruct_02088AAC *r0, u32 *r1)
+u32 FUN_02088AAC(struct UnkStruct_02088AAC *r0, u32 *r1)
 {
     switch (*r1)
     {
@@ -41,7 +41,7 @@ THUMB_FUNC u32 FUN_02088AAC(struct UnkStruct_02088AAC *r0, u32 *r1)
     return 0;
 }
 
-THUMB_FUNC u32 FUN_02088AFC(struct UnkStruct_02088AAC *r0)
+u32 FUN_02088AFC(struct UnkStruct_02088AAC *r0)
 {
     FS_EXTERN_OVERLAY(MODULE_73);
 
@@ -57,7 +57,7 @@ THUMB_FUNC u32 FUN_02088AFC(struct UnkStruct_02088AAC *r0)
     return 2;
 }
 
-THUMB_FUNC u32 FUN_02088B28(struct UnkStruct_02088AAC *r0)
+u32 FUN_02088B28(struct UnkStruct_02088AAC *r0)
 {
     if (!FUN_0208898C(&r0->ovly_data))
     {
@@ -72,12 +72,12 @@ THUMB_FUNC u32 FUN_02088B28(struct UnkStruct_02088AAC *r0)
     return 3;
 }
 
-THUMB_FUNC u32 FUN_02088B48()
+u32 FUN_02088B48()
 {
     return 4;
 }
 
-THUMB_FUNC u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0)
+u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0)
 {
     FS_EXTERN_OVERLAY(MODULE_75);
 
@@ -99,7 +99,7 @@ THUMB_FUNC u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0)
     return 1;
 }
 
-THUMB_FUNC u32 FUN_02088BA8(struct UnkStruct_02088AAC *r0)
+u32 FUN_02088BA8(struct UnkStruct_02088AAC *r0)
 {
     if (!FUN_0208898C(&r0->ovly_data))
     {
@@ -134,7 +134,7 @@ THUMB_FUNC u32 FUN_02088BA8(struct UnkStruct_02088AAC *r0)
     }
 }
 
-THUMB_FUNC u32 FUN_02088C3C(struct UnkStruct_02088AAC *r0)
+u32 FUN_02088C3C(struct UnkStruct_02088AAC *r0)
 {
     FS_EXTERN_OVERLAY(MODULE_68);
 
@@ -174,7 +174,7 @@ THUMB_FUNC u32 FUN_02088C3C(struct UnkStruct_02088AAC *r0)
     return 3;
 }
 
-THUMB_FUNC u32 FUN_02088CDC(struct UnkStruct_02088AAC *r0)
+u32 FUN_02088CDC(struct UnkStruct_02088AAC *r0)
 {
     if (!FUN_0208898C(&r0->ovly_data))
     {

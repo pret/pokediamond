@@ -1,14 +1,11 @@
-//
-// Created by mart on 4/23/20.
-//
-#include "function_target.h"
 #include "OS_alloc.h"
 #include "consts.h"
 #include "OS_system.h"
+#include "code32.h"
 
 void* OSiHeapInfo[OS_ARENA_MAX];
 
-ARM_FUNC Cell* DLAddFront(Cell* list, Cell* cell)
+Cell* DLAddFront(Cell* list, Cell* cell)
 {
     cell->next = list;
     cell->prev = NULL;
@@ -18,7 +15,7 @@ ARM_FUNC Cell* DLAddFront(Cell* list, Cell* cell)
     return cell;
 }
 
-ARM_FUNC Cell* DLExtract(Cell* list, Cell* cell)
+Cell* DLExtract(Cell* list, Cell* cell)
 {
     if (cell->next) {
         cell->next->prev = cell->prev;
@@ -31,7 +28,7 @@ ARM_FUNC Cell* DLExtract(Cell* list, Cell* cell)
     return list;
 }
 
-ARM_FUNC Cell *DLInsert(Cell *original, Cell *inserted)
+Cell *DLInsert(Cell *original, Cell *inserted)
 {
     Cell *prevCell = NULL;
     Cell *nextCell = original;
@@ -82,7 +79,7 @@ ARM_FUNC Cell *DLInsert(Cell *original, Cell *inserted)
 #define HEADERSIZE OSi_ROUND(sizeof(Cell), 32)
 #define MINOBJSIZE (HEADERSIZE+32)
 
-ARM_FUNC void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size) {
+void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size) {
     OSHeapInfo* heapInfo;
     HeapDesc* hd;
     Cell* cell;
@@ -145,7 +142,7 @@ ARM_FUNC void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size) {
     return (void *)((char *)cell + HEADERSIZE);
 }
 
-ARM_FUNC void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void* ptr) {
+void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void* ptr) {
     OSHeapInfo *heapInfo;
     HeapDesc *hd;
     Cell   *cell;

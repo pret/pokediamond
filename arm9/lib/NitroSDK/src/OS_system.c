@@ -1,8 +1,9 @@
 #include "OS_system.h"
 #include "OS_irqHandler.h"
 #include "syscall.h"
+#include "code32.h"
 
-ARM_FUNC asm OSIntrMode OS_EnableInterrupts(void)
+asm OSIntrMode OS_EnableInterrupts(void)
 {
     mrs r0, cpsr
     bic r1, r0, #HW_PSR_DISABLE_IRQ
@@ -11,7 +12,7 @@ ARM_FUNC asm OSIntrMode OS_EnableInterrupts(void)
     bx lr
 }
 
-ARM_FUNC asm OSIntrMode OS_DisableInterrupts(void)
+asm OSIntrMode OS_DisableInterrupts(void)
 {
     mrs r0, cpsr
     orr r1, r0, #HW_PSR_DISABLE_IRQ
@@ -20,7 +21,7 @@ ARM_FUNC asm OSIntrMode OS_DisableInterrupts(void)
     bx lr
 }
 
-ARM_FUNC asm OSIntrMode OS_RestoreInterrupts(OSIntrMode state)
+asm OSIntrMode OS_RestoreInterrupts(OSIntrMode state)
 {
     mrs r1, cpsr
     bic r2, r1, #HW_PSR_DISABLE_IRQ
@@ -30,7 +31,7 @@ ARM_FUNC asm OSIntrMode OS_RestoreInterrupts(OSIntrMode state)
     bx lr
 }
 
-ARM_FUNC asm OSIntrMode OS_DisableInterrupts_IrqAndFiq(void)
+asm OSIntrMode OS_DisableInterrupts_IrqAndFiq(void)
 {
     mrs r0, cpsr
     orr r1, r0, #HW_PSR_DISABLE_IRQ_FIQ
@@ -39,7 +40,7 @@ ARM_FUNC asm OSIntrMode OS_DisableInterrupts_IrqAndFiq(void)
     bx lr
 }
 
-ARM_FUNC asm OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state)
+asm OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state)
 {
     mrs r1, cpsr
     bic r2, r1, #HW_PSR_DISABLE_IRQ_FIQ
@@ -49,28 +50,28 @@ ARM_FUNC asm OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state)
     bx lr
 }
 
-ARM_FUNC asm OSIntrMode OS_GetCpsrIrq(void)
+asm OSIntrMode OS_GetCpsrIrq(void)
 {
     mrs r0, cpsr
     and r0, r0, #HW_PSR_DISABLE_IRQ
     bx lr
 }
 
-ARM_FUNC asm OSProcMode OS_GetProcMode(void)
+asm OSProcMode OS_GetProcMode(void)
 {
     mrs r0, cpsr
     and r0, r0, #HW_PSR_CPU_MODE_MASK
     bx lr
 }
 
-ARM_FUNC asm void OS_SpinWait(u32 cycles)
+asm void OS_SpinWait(u32 cycles)
 {
     subs r0, r0, #0x4
     bhs OS_SpinWait
     bx lr
 }
 
-ARM_FUNC void OS_WaitVBlankIntr(void)
+void OS_WaitVBlankIntr(void)
 {
     SVC_WaitByLoop(0x1);
     OS_WaitIrq(TRUE, OS_IE_V_BLANK);

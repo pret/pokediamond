@@ -1,5 +1,5 @@
 #include "CARD_backup.h"
-#include "function_target.h"
+#include "nitro/types.h"
 #include "CARD_common.h"
 #include "CARD_request.h"
 #include "CARD_spi.h"
@@ -7,6 +7,7 @@
 #include "MI_memory.h"
 #include "OS_terminate_proc.h"
 #include "OS_system.h"
+#include "code32.h"
 
 extern void OSi_ReferSymbol(void *symbol);
 extern char _SDK_NintendoBackup[];
@@ -15,7 +16,7 @@ extern CARDiCommon cardi_common;
 
 static void CARDi_RequestStreamCommandCore(CARDiCommon *p);
 
-ARM_FUNC static void CARDi_RequestStreamCommandCore(CARDiCommon *p)
+static void CARDi_RequestStreamCommandCore(CARDiCommon *p)
 {
     const int req_type = p->req_type;
     const int req_mode = p->req_mode;
@@ -84,7 +85,7 @@ ARM_FUNC static void CARDi_RequestStreamCommandCore(CARDiCommon *p)
     CARDi_EndTask(p, TRUE);
 }
 
-ARM_FUNC BOOL CARDi_RequestStreamCommand(u32 src, u32 dst, u32 len, MIDmaCallback callback, void *arg, BOOL is_async,
+BOOL CARDi_RequestStreamCommand(u32 src, u32 dst, u32 len, MIDmaCallback callback, void *arg, BOOL is_async,
                                          CARDRequest req_type, int req_retry, CARDRequestMode req_mode)
 {
     CARDiCommon *const p = &cardi_common;
@@ -111,12 +112,12 @@ ARM_FUNC BOOL CARDi_RequestStreamCommand(u32 src, u32 dst, u32 len, MIDmaCallbac
     }
 }
 
-ARM_FUNC u32 CARD_GetBackupSectorSize(void)
+u32 CARD_GetBackupSectorSize(void)
 {
     return cardi_common.cmd->spec.sect_size;
 }
 
-ARM_FUNC BOOL CARD_IdentifyBackup(CARDBackupType type)
+BOOL CARD_IdentifyBackup(CARDBackupType type)
 {
     CARDiCommon *const p = &cardi_common;
 
@@ -141,17 +142,17 @@ ARM_FUNC BOOL CARD_IdentifyBackup(CARDBackupType type)
     return (p->cmd->result == CARD_RESULT_SUCCESS);
 }
 
-ARM_FUNC BOOL CARD_WaitBackupAsync(void)
+BOOL CARD_WaitBackupAsync(void)
 {
     return CARDi_WaitAsync();
 }
 
-ARM_FUNC BOOL CARD_TryWaitBackupAsync(void)
+BOOL CARD_TryWaitBackupAsync(void)
 {
     return CARDi_TryWaitAsync();
 }
 
-ARM_FUNC void CARD_CancelBackupAsync(void)
+void CARD_CancelBackupAsync(void)
 {
     OSIntrMode bak_cpsr = OS_DisableInterrupts();
     cardi_common.flag |= CARD_STAT_CANCEL;

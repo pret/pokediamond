@@ -3,9 +3,6 @@
 #include "unk_02064E4C.h"
 #include "font.h"
 
-#pragma thumb on
-
-
 void FUN_02064E4C(struct MsgData * msgData, u16 map_sec, struct String * dest)
 {
     ReadMsgDataIntoString(msgData, map_sec, dest);

@@ -7,6 +7,7 @@
 #include "PM.h"
 #include "registers.h"
 #include "syscall.h"
+#include "code32.h"
 
 void SND_Enable(void)
 {

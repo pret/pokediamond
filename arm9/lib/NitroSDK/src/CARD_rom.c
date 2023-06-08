@@ -1,4 +1,3 @@
-#include "function_target.h"
 #include "nitro/types.h"
 #include "CARD_pullOut.h"
 #include "CARD_rom.h"
@@ -6,6 +5,7 @@
 #include "MI_memory.h"
 #include "OS_cache.h"
 #include "OS_interrupt.h"
+#include "code32.h"
 
 extern u32 cardi_rom_base;
 u32 cardi_rom_base;
@@ -29,7 +29,7 @@ static inline BOOL CARDi_OnReadPageDirect(CARDRomStat *arg)
     return (p->len > 0);
 }
 
-ARM_FUNC static BOOL CARDi_ReadFromCache(CARDRomStat *p)
+static BOOL CARDi_ReadFromCache(CARDRomStat *p)
 {
     CARDiCommon *c = &cardi_common;
     const u32 cur_page = CARD_ALIGN_HI_BIT(c->src);
@@ -49,7 +49,7 @@ ARM_FUNC static BOOL CARDi_ReadFromCache(CARDRomStat *p)
     return (c->len > 0);
 }
 
-ARM_FUNC static void CARDi_SetRomOp(u32 cmd1, u32 cmd2)
+static void CARDi_SetRomOp(u32 cmd1, u32 cmd2)
 {
     while ((reg_CARD_CNT & CARD_START) != 0) {}
 
@@ -72,7 +72,7 @@ static inline void CARDi_SetRomOpReadPage1(u32 src)
     CARDi_SetRomOp((u32)(MROMOP_G_READ_PAGE | (src >> 8)), (u32)(src << 24));
 }
 
-ARM_FUNC static void CARDi_SetCardDma(void)
+static void CARDi_SetCardDma(void)
 {
     CARDiCommon *const c = &cardi_common;
     CARDRomStat *const p = &rom_stat;
@@ -81,7 +81,7 @@ ARM_FUNC static void CARDi_SetCardDma(void)
     reg_CARD_CNT = p->ctrl;
 }
 
-ARM_FUNC static void CARDi_OnReadCard(void)
+static void CARDi_OnReadCard(void)
 {
     CARDRomStat *const p = &rom_stat;
     CARDiCommon *const c = &cardi_common;
@@ -98,7 +98,7 @@ ARM_FUNC static void CARDi_OnReadCard(void)
     }
 }
 
-ARM_FUNC BOOL CARDi_TryReadCardDma(CARDRomStat *p)
+BOOL CARDi_TryReadCardDma(CARDRomStat *p)
 {
     CARDiCommon *const c = &cardi_common;
     const u32 dst = c->dst;
@@ -135,7 +135,7 @@ ARM_FUNC BOOL CARDi_TryReadCardDma(CARDRomStat *p)
     return is_async;
 }
 
-ARM_FUNC void CARDi_ReadCard(CARDRomStat *p)
+void CARDi_ReadCard(CARDRomStat *p)
 {
     CARDiCommon *const c = &cardi_common;
     while (TRUE)
@@ -191,7 +191,7 @@ ARM_FUNC void CARDi_ReadCard(CARDRomStat *p)
     }
 }
 
-ARM_FUNC u32 CARDi_ReadRomIDCore(void)
+u32 CARDi_ReadRomIDCore(void)
 {
     CARDi_SetRomOp(MROMOP_G_READ_ID, 0);
     reg_CARD_CNT = (u32)(CARDi_GetRomFlag(CARD_COMMAND_ID) & ~CARD_LATENCY1_MASK);
@@ -199,7 +199,7 @@ ARM_FUNC u32 CARDi_ReadRomIDCore(void)
     return reg_CARD_DATA;
 }
 
-ARM_FUNC static void CARDi_ReadRomSyncCore(CARDiCommon *c)
+static void CARDi_ReadRomSyncCore(CARDiCommon *c)
 {
 #pragma unused(c)
     CARDRomStat *const p = &rom_stat;
@@ -211,7 +211,7 @@ ARM_FUNC static void CARDi_ReadRomSyncCore(CARDiCommon *c)
     CARDi_ReadEnd();
 }
 
-ARM_FUNC void CARDi_ReadRom(u32 dma, const void *src, void *dst, u32 len, MIDmaCallback callback, void *arg, BOOL is_async)
+void CARDi_ReadRom(u32 dma, const void *src, void *dst, u32 len, MIDmaCallback callback, void *arg, BOOL is_async)
 {
     CARDRomStat *const p = &rom_stat;
     CARDiCommon *const c = &cardi_common;
@@ -247,7 +247,7 @@ ARM_FUNC void CARDi_ReadRom(u32 dma, const void *src, void *dst, u32 len, MIDmaC
     }
 }
 
-ARM_FUNC void CARD_Init(void)
+void CARD_Init(void)
 {
     CARDiCommon *const p = &cardi_common;
 
@@ -269,12 +269,12 @@ ARM_FUNC void CARD_Init(void)
     }
 }
 
-ARM_FUNC void CARD_WaitRomAsync(void)
+void CARD_WaitRomAsync(void)
 {
     (void)CARDi_WaitAsync();
 }
 
-ARM_FUNC void (*CARDi_GetRomAccessor(void)) (CARDRomStat *)
+void (*CARDi_GetRomAccessor(void)) (CARDRomStat *)
 {
     return CARDi_ReadCard;
 }

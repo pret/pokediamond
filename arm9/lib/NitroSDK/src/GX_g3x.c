@@ -1,10 +1,11 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "main.h"
 #include "gx.h"
+#include "code32.h"
 
 extern u32 GXi_DmaId;
 
-ARM_FUNC asm void GXi_NopClearFifo128_(void *reg){
+asm void GXi_NopClearFifo128_(void *reg){
     mov r1, #0x0
     mov r2, #0x0
     mov r3, #0x0
@@ -44,7 +45,7 @@ ARM_FUNC asm void GXi_NopClearFifo128_(void *reg){
     bx lr
 }
 
-ARM_FUNC void G3X_Init(){
+void G3X_Init(){
     G3X_ClearFifo();
     reg_G3_END_VTXS = 0x0;
     while (reg_G3X_GXSTAT & 0x8000000) {} //wait for geometry engine to not be busy
@@ -71,7 +72,7 @@ ARM_FUNC void G3X_Init(){
     reg_G3_TEXPLTT_BASE = 0x0;
 }
 
-ARM_FUNC void G3X_ResetMtxStack(){
+void G3X_ResetMtxStack(){
     while (reg_G3X_GXSTAT & 0x8000000) {}
     reg_G3X_GXSTAT |= 0x8000;
     reg_G3X_DISP3DCNT |= 0x2000;
@@ -82,12 +83,12 @@ ARM_FUNC void G3X_ResetMtxStack(){
     reg_G3_TEXPLTT_BASE = 0x0;
 }
 
-ARM_FUNC void G3X_ClearFifo(){
+void G3X_ClearFifo(){
     GXi_NopClearFifo128_((void *)&reg_G3X_GXFIFO);
     while (reg_G3X_GXSTAT & 0x8000000) {}
 }
 
-ARM_FUNC void G3X_InitMtxStack(){
+void G3X_InitMtxStack(){
     u32 PV_level, PJ_level;
     reg_G3X_GXSTAT |= 0x8000;
     while (G3X_GetMtxStackLevelPV(&PV_level)) {}
@@ -105,7 +106,7 @@ ARM_FUNC void G3X_InitMtxStack(){
     reg_G3_MTX_IDENTITY = 0x0;
 }
 
-ARM_FUNC void G3X_ResetMtxStack_2(){
+void G3X_ResetMtxStack_2(){
     u32 PV_level, PJ_level;
     reg_G3X_GXSTAT |= 0x8000;
     while (G3X_GetMtxStackLevelPV(&PV_level)) {}
@@ -124,7 +125,7 @@ ARM_FUNC void G3X_ResetMtxStack_2(){
 
 }
 
-ARM_FUNC void G3X_SetFog(u32 enable, u32 alphamode, u32 depth, s32 offset){
+void G3X_SetFog(u32 enable, u32 alphamode, u32 depth, s32 offset){
     if (enable)
     {
         reg_G3X_FOG_OFFSET = (u16)offset;
@@ -137,7 +138,7 @@ ARM_FUNC void G3X_SetFog(u32 enable, u32 alphamode, u32 depth, s32 offset){
     }
 }
 
-ARM_FUNC u32 G3X_GetClipMtx(struct Mtx44 *dst){
+u32 G3X_GetClipMtx(struct Mtx44 *dst){
     if (reg_G3X_GXSTAT & 0x8000000)
     {
         return (u32)-1;
@@ -149,7 +150,7 @@ ARM_FUNC u32 G3X_GetClipMtx(struct Mtx44 *dst){
     }
 }
 
-ARM_FUNC u32 G3X_GetVectorMtx(struct Mtx33 *dst){
+u32 G3X_GetVectorMtx(struct Mtx33 *dst){
     if (reg_G3X_GXSTAT & 0x8000000)
     {
         return (u32)-1;
@@ -161,15 +162,15 @@ ARM_FUNC u32 G3X_GetVectorMtx(struct Mtx33 *dst){
     }
 }
 
-ARM_FUNC void G3X_SetEdgeColorTable(void *tbl_ptr){
+void G3X_SetEdgeColorTable(void *tbl_ptr){
     MIi_CpuCopy16(tbl_ptr, (void *)&reg_G3X_EDGE_COLOR_0, 0x10);
 }
 
-ARM_FUNC void G3X_SetFogTable(void *tbl_ptr){
+void G3X_SetFogTable(void *tbl_ptr){
     MI_Copy32B(tbl_ptr, (void *)&reg_G3X_FOG_TABLE_0);
 }
 
-ARM_FUNC void G3X_SetClearColor(u32 col, u32 alpha, u32 depth, u32 polygon_id, u32 enable_fog){
+void G3X_SetClearColor(u32 col, u32 alpha, u32 depth, u32 polygon_id, u32 enable_fog){
     u32 temp = col | (alpha << 0x10) | (polygon_id << 0x18);
     if (enable_fog)
         temp |= 0x8000;
@@ -177,7 +178,7 @@ ARM_FUNC void G3X_SetClearColor(u32 col, u32 alpha, u32 depth, u32 polygon_id, u
     reg_G3X_CLEAR_DEPTH = (u16)depth;
 }
 
-ARM_FUNC void G3X_InitTable(){
+void G3X_InitTable(){
     if (GXi_DmaId != -1)
     {
         MI_DmaFill32Async(GXi_DmaId, (void *)&reg_G3X_EDGE_COLOR_0, 0x0, 0x10, 0x0, 0x0);
@@ -194,7 +195,7 @@ ARM_FUNC void G3X_InitTable(){
     }
 }
 
-ARM_FUNC u32 G3X_GetMtxStackLevelPV(u32 *level){
+u32 G3X_GetMtxStackLevelPV(u32 *level){
     if (reg_G3X_GXSTAT & 0x4000)
     {
         return (u32)-1;
@@ -206,7 +207,7 @@ ARM_FUNC u32 G3X_GetMtxStackLevelPV(u32 *level){
     }
 }
 
-ARM_FUNC u32 G3X_GetMtxStackLevelPJ(u32 *level){
+u32 G3X_GetMtxStackLevelPJ(u32 *level){
     if (reg_G3X_GXSTAT & 0x4000)
     {
         return (u32)-1;
@@ -218,7 +219,7 @@ ARM_FUNC u32 G3X_GetMtxStackLevelPJ(u32 *level){
     }
 }
 
-ARM_FUNC u32 G3X_GetBoxTestResult(u32 *result){
+u32 G3X_GetBoxTestResult(u32 *result){
     if (reg_G3X_GXSTAT & 0x1)
     {
         return (u32)-1;
@@ -230,6 +231,6 @@ ARM_FUNC u32 G3X_GetBoxTestResult(u32 *result){
     }
 }
 
-ARM_FUNC void G3X_SetHOffset(u32 offset){
+void G3X_SetHOffset(u32 offset){
     reg_G2_BG0OFS = offset;
 }

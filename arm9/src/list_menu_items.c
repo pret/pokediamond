@@ -5,7 +5,7 @@
 
 void ListMenuItems_DestroyMenuStrings(struct ListMenuItem * items);
 
-THUMB_FUNC struct ListMenuItem * ListMenuItems_New(u32 count, u32 heap_id)
+struct ListMenuItem * ListMenuItems_New(u32 count, u32 heap_id)
 {
     s32 i;
     struct ListMenuItem * ret = AllocFromHeap(heap_id, (count + 1) * sizeof(struct ListMenuItem));
@@ -22,13 +22,13 @@ THUMB_FUNC struct ListMenuItem * ListMenuItems_New(u32 count, u32 heap_id)
     return ret;
 }
 
-THUMB_FUNC void ListMenuItems_Delete(struct ListMenuItem * items)
+void ListMenuItems_Delete(struct ListMenuItem * items)
 {
     ListMenuItems_DestroyMenuStrings(items);
     FreeToHeap(items);
 }
 
-THUMB_FUNC void ListMenuItems_AppendFromMsgData(struct ListMenuItem * items, struct MsgData * msgData, u32 msgNo, s32 value)
+void ListMenuItems_AppendFromMsgData(struct ListMenuItem * items, struct MsgData * msgData, u32 msgNo, s32 value)
 {
     u32 heap_id;
     struct ListMenuItem * newItem = ListMenuItems_SeekEnd(items, &heap_id);
@@ -39,7 +39,7 @@ THUMB_FUNC void ListMenuItems_AppendFromMsgData(struct ListMenuItem * items, str
     }
 }
 
-THUMB_FUNC void ListMenuItems_AddItem(struct ListMenuItem * items, struct String * str, s32 value)
+void ListMenuItems_AddItem(struct ListMenuItem * items, struct String * str, s32 value)
 {
     u32 heap_id;
     struct ListMenuItem * newItem = ListMenuItems_SeekEnd(items, &heap_id);
@@ -50,7 +50,7 @@ THUMB_FUNC void ListMenuItems_AddItem(struct ListMenuItem * items, struct String
     }
 }
 
-THUMB_FUNC void ListMenuItems_CopyItem(struct ListMenuItem * items, struct ListMenuItem * src)
+void ListMenuItems_CopyItem(struct ListMenuItem * items, struct ListMenuItem * src)
 {
     u32 heap_id;
     struct ListMenuItem * newItem = ListMenuItems_SeekEnd(items, &heap_id);
@@ -61,7 +61,7 @@ THUMB_FUNC void ListMenuItems_CopyItem(struct ListMenuItem * items, struct ListM
     }
 }
 
-THUMB_FUNC struct ListMenuItem * ListMenuItems_SeekEnd(struct ListMenuItem * items, u32 * heap_id_p)
+struct ListMenuItem * ListMenuItems_SeekEnd(struct ListMenuItem * items, u32 * heap_id_p)
 {
     struct ListMenuItem * ret;
     for (; items->text != NULL; items++)
@@ -79,7 +79,7 @@ THUMB_FUNC struct ListMenuItem * ListMenuItems_SeekEnd(struct ListMenuItem * ite
     return ret;
 }
 
-THUMB_FUNC void ListMenuItems_DestroyMenuStrings(struct ListMenuItem * items)
+void ListMenuItems_DestroyMenuStrings(struct ListMenuItem * items)
 {
     s32 i;
     for (i = 0; items[i].text != (struct String *)-1u; i++)

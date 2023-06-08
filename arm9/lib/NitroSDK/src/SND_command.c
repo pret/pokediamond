@@ -5,6 +5,7 @@
 #include "OS_system.h"
 #include "OS_cache.h"
 #include "PXI_fifo.h"
+#include "code32.h"
 
 #define SND_CMD_WAIT_QUEUE_COUNT 8
 
@@ -26,7 +27,7 @@ static void RequestCommandProc(void);
 static struct SNDCommand *AllocCommand(void);
 static BOOL IsCommandAvailable(void);
 
-ARM_FUNC void SND_CommandInit(void) {
+void SND_CommandInit(void) {
     InitPXI();
     sFreeList = sCommandArray;
     for (int i = 0; i < SND_CMD_COUNT - 1; i++) {
@@ -54,7 +55,7 @@ ARM_FUNC void SND_CommandInit(void) {
     (void)SND_FlushCommand(SND_CMD_FLAG_BLOCK);
 }
 
-ARM_FUNC const struct SNDCommand *SND_RecvCommandReply(u32 flags) {
+const struct SNDCommand *SND_RecvCommandReply(u32 flags) {
     OSIntrMode oldirq = OS_DisableInterrupts();
 
     if (flags & SND_CMD_FLAG_BLOCK) {
@@ -96,7 +97,7 @@ ARM_FUNC const struct SNDCommand *SND_RecvCommandReply(u32 flags) {
     return queueRead;
 }
 
-ARM_FUNC struct SNDCommand *SND_AllocCommand(u32 flags) {
+struct SNDCommand *SND_AllocCommand(u32 flags) {
     struct SNDCommand *cmd;
     if (!IsCommandAvailable())
         return NULL;
@@ -127,7 +128,7 @@ ARM_FUNC struct SNDCommand *SND_AllocCommand(u32 flags) {
     return cmd;
 }
 
-ARM_FUNC void SND_PushCommand(struct SNDCommand *cmd) {
+void SND_PushCommand(struct SNDCommand *cmd) {
     OSIntrMode oldirq = OS_DisableInterrupts();
 
     struct SNDCommand *newend = cmd;
@@ -144,7 +145,7 @@ ARM_FUNC void SND_PushCommand(struct SNDCommand *cmd) {
     (void)OS_RestoreInterrupts(oldirq);
 }
 
-ARM_FUNC BOOL SND_FlushCommand(u32 flags) {
+BOOL SND_FlushCommand(u32 flags) {
     OSIntrMode oldirq = OS_DisableInterrupts();
 
     if (sReserveList == NULL) {
@@ -200,7 +201,7 @@ ARM_FUNC BOOL SND_FlushCommand(u32 flags) {
     return TRUE;
 }
 
-ARM_FUNC void SND_WaitForCommandProc(u32 tag) {
+void SND_WaitForCommandProc(u32 tag) {
     if (SND_IsFinishedCommandTag(tag))
         return;
 
@@ -219,7 +220,7 @@ ARM_FUNC void SND_WaitForCommandProc(u32 tag) {
     } while (SND_IsFinishedCommandTag(tag) == 0);
 }
 
-ARM_FUNC u32 SND_GetCurrentCommandTag(void) {
+u32 SND_GetCurrentCommandTag(void) {
     OSIntrMode oldirq = OS_DisableInterrupts();
 
     u32 retval;
@@ -232,7 +233,7 @@ ARM_FUNC u32 SND_GetCurrentCommandTag(void) {
     return retval;
 }
 
-ARM_FUNC BOOL SND_IsFinishedCommandTag(u32 tag) {
+BOOL SND_IsFinishedCommandTag(u32 tag) {
     OSIntrMode oldirq = OS_DisableInterrupts();
 
     BOOL result;
@@ -252,7 +253,7 @@ ARM_FUNC BOOL SND_IsFinishedCommandTag(u32 tag) {
     return result;
 }
 
-ARM_FUNC s32 SND_CountFreeCommand(void) {
+s32 SND_CountFreeCommand(void) {
     OSIntrMode oldirq = OS_DisableInterrupts();
     
     s32 count = 0;
@@ -263,7 +264,7 @@ ARM_FUNC s32 SND_CountFreeCommand(void) {
     return count;
 }
 
-ARM_FUNC s32 SND_CountReservedCommand(void) {
+s32 SND_CountReservedCommand(void) {
     OSIntrMode oldirq = OS_DisableInterrupts();
     
     s32 count = 0;
@@ -274,18 +275,18 @@ ARM_FUNC s32 SND_CountReservedCommand(void) {
     return count;
 }
 
-ARM_FUNC s32 SND_CountWaitingCommand(void) {
+s32 SND_CountWaitingCommand(void) {
     return SND_CMD_COUNT - SND_CountFreeCommand() - SND_CountReservedCommand();
 }
 
-ARM_FUNC static void PxiFifoCallback(PXIFifoTag tag, u32 data, BOOL) {
+static void PxiFifoCallback(PXIFifoTag tag, u32 data, BOOL) {
 #pragma unused (tag)
     OSIntrMode oldirq = OS_DisableInterrupts();
     SNDi_CallAlarmHandler((s32)data);
     (void)OS_RestoreInterrupts(oldirq);
 }
 
-ARM_FUNC static void InitPXI(void) {
+static void InitPXI(void) {
     PXI_SetFifoRecvCallback(PXI_FIFO_TAG_SOUND, PxiFifoCallback);
 
     if (!IsCommandAvailable())
@@ -299,11 +300,11 @@ ARM_FUNC static void InitPXI(void) {
     } while (!PXI_IsCallbackReady(PXI_FIFO_TAG_SOUND, PXI_PROC_ARM7));
 }
 
-ARM_FUNC static void RequestCommandProc(void) {
+static void RequestCommandProc(void) {
     while (PXI_SendWordByFifo(7, 0, 0) < 0) { }
 }
 
-ARM_FUNC static struct SNDCommand *AllocCommand(void) {
+static struct SNDCommand *AllocCommand(void) {
     OSIntrMode oldirq = OS_DisableInterrupts();
     if (sFreeList == NULL) {
         (void)OS_RestoreInterrupts(oldirq);
@@ -319,7 +320,7 @@ ARM_FUNC static struct SNDCommand *AllocCommand(void) {
     return retval;
 }
 
-ARM_FUNC static BOOL IsCommandAvailable(void) {
+static BOOL IsCommandAvailable(void) {
     if (!OS_IsRunOnEmulator())
         return TRUE;
 

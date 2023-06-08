@@ -5,7 +5,7 @@
 #include "heap.h"
 #include "map_header.h"
 
-THUMB_FUNC static void MapMatrix_MapMatrixData_Load(
+static void MapMatrix_MapMatrixData_Load(
     struct MapMatrixData *map_matrix, u16 file_id, u32 map_id)
 {
     map_matrix->width = 0;
@@ -64,7 +64,7 @@ THUMB_FUNC static void MapMatrix_MapMatrixData_Load(
     FreeToHeap(buffer);
 }
 
-THUMB_FUNC struct MapMatrix *MapMatrix_New(void)
+struct MapMatrix *MapMatrix_New(void)
 {
     struct MapMatrix *map_matrix = AllocFromHeap(11, sizeof(struct MapMatrix));
 
@@ -75,7 +75,7 @@ THUMB_FUNC struct MapMatrix *MapMatrix_New(void)
     return map_matrix;
 }
 
-THUMB_FUNC void MapMatrix_Load(u16 map_id, struct MapMatrix *map_matrix)
+void MapMatrix_Load(u16 map_id, struct MapMatrix *map_matrix)
 {
     u16 matrix_id = MapHeader_GetMatrixId(map_id);
 
@@ -86,33 +86,33 @@ THUMB_FUNC void MapMatrix_Load(u16 map_id, struct MapMatrix *map_matrix)
     map_matrix->width = map_matrix->data.width;
 }
 
-THUMB_FUNC void MapMatrix_Free(struct MapMatrix *map_matrix)
+void MapMatrix_Free(struct MapMatrix *map_matrix)
 {
     FreeToHeap(map_matrix);
 }
 
-THUMB_FUNC u16 MapMatrix_GetMapData(s32 map_id, struct MapMatrix *map_matrix)
+u16 MapMatrix_GetMapData(s32 map_id, struct MapMatrix *map_matrix)
 {
     GF_ASSERT(map_id < map_matrix->width * map_matrix->height);
 
     return map_matrix->data.maps.data[map_id];
 }
 
-THUMB_FUNC u8 MapMatrix_GetWidth(struct MapMatrix *map_matrix)
+u8 MapMatrix_GetWidth(struct MapMatrix *map_matrix)
 {
     GF_ASSERT(map_matrix != NULL);
 
     return map_matrix->width;
 }
 
-THUMB_FUNC u8 MapMatrix_GetHeight(struct MapMatrix *map_matrix)
+u8 MapMatrix_GetHeight(struct MapMatrix *map_matrix)
 {
     GF_ASSERT(map_matrix != NULL);
 
     return map_matrix->height;
 }
 
-THUMB_FUNC u16 MapMatrix_GetMapHeader(struct MapMatrix *map_matrix, s32 x, s32 y)
+u16 MapMatrix_GetMapHeader(struct MapMatrix *map_matrix, s32 x, s32 y)
 {
     s32 width = map_matrix->width;
     s32 height = map_matrix->height;
@@ -123,7 +123,7 @@ THUMB_FUNC u16 MapMatrix_GetMapHeader(struct MapMatrix *map_matrix, s32 x, s32 y
     return map_matrix->data.headers[y * width + x];
 }
 
-THUMB_FUNC u16 MapMatrix_GetMapHeaderFromID(struct MapMatrix *map_matrix, s32 map_id)
+u16 MapMatrix_GetMapHeaderFromID(struct MapMatrix *map_matrix, s32 map_id)
 {
     s32 max_map_id = map_matrix->width * map_matrix->height;
 
@@ -132,12 +132,12 @@ THUMB_FUNC u16 MapMatrix_GetMapHeaderFromID(struct MapMatrix *map_matrix, s32 ma
     return map_matrix->data.headers[map_id];
 }
 
-THUMB_FUNC u8 MapMatrix_GetMatrixID(struct MapMatrix *map_matrix)
+u8 MapMatrix_GetMatrixID(struct MapMatrix *map_matrix)
 {
     return map_matrix->matrix_id;
 }
 
-THUMB_FUNC u32 MapMatrix_GetMapAltitude(
+u32 MapMatrix_GetMapAltitude(
     struct MapMatrix *map_matrix, u8 param1, s16 x, s16 y, int matrix_width)
 {
 #pragma unused(param1)
@@ -147,7 +147,7 @@ THUMB_FUNC u32 MapMatrix_GetMapAltitude(
     return map_matrix->data.altitudes[y * matrix_width + x];
 }
 
-THUMB_FUNC struct MapData *MapMatrix_MapData_New(u32 heap_id)
+struct MapData *MapMatrix_MapData_New(u32 heap_id)
 {
     struct MapData *map_data = AllocFromHeap(heap_id, sizeof(struct MapData));
     void *buffer =
@@ -165,18 +165,18 @@ THUMB_FUNC struct MapData *MapMatrix_MapData_New(u32 heap_id)
     return map_data;
 }
 
-THUMB_FUNC void MapMatrix_MapData_Free(struct MapData *map_data)
+void MapMatrix_MapData_Free(struct MapData *map_data)
 {
     GF_ASSERT(map_data != NULL);
     FreeToHeap(map_data);
 }
 
-THUMB_FUNC u16 MapMatrix_MapData_GetData(struct MapData *map_data, s32 x, s32 y)
+u16 MapMatrix_MapData_GetData(struct MapData *map_data, s32 x, s32 y)
 {
     return map_data->data[MAP_MATRIX_MAX_WIDTH * y + x];
 }
 
-THUMB_FUNC u16 GetMapHeader(u32 file_id, u16 x, u16 y)
+u16 GetMapHeader(u32 file_id, u16 x, u16 y)
 {
     struct MapMatrixData map_matrix;
 
@@ -187,13 +187,13 @@ THUMB_FUNC u16 GetMapHeader(u32 file_id, u16 x, u16 y)
     return map_matrix.headers[y * map_matrix.width + x];
 }
 
-THUMB_FUNC u16 GetMapData(s32 map_id, struct MapMatrix *map_matrix)
+u16 GetMapData(s32 map_id, struct MapMatrix *map_matrix)
 {
     GF_ASSERT(map_matrix != NULL);
     return MapMatrix_GetMapData(map_id, map_matrix);
 }
 
-THUMB_FUNC void FUN_02034678(struct MapMatrix *map_matrix)
+void FUN_02034678(struct MapMatrix *map_matrix)
 {
     u16 *maps = map_matrix->data.maps.data;
     u8 *altitudes = map_matrix->data.altitudes;
@@ -214,7 +214,7 @@ THUMB_FUNC void FUN_02034678(struct MapMatrix *map_matrix)
     altitudes[width * 0x16 + 0x18] = 2;
 }
 
-THUMB_FUNC void FUN_020346CC(struct MapMatrix *map_matrix)
+void FUN_020346CC(struct MapMatrix *map_matrix)
 {
     u16 *maps = map_matrix->data.maps.data;
     u8 width = map_matrix->width;

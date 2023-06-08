@@ -1,7 +1,8 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "MATH_crc.h"
+#include "code32.h"
 
-ARM_FUNC void MATHi_CRC8InitTable(struct MATHCRC8Table *table, u8 poly) {
+void MATHi_CRC8InitTable(struct MATHCRC8Table *table, u8 poly) {
     u32 r, i, j;
     u8 *t = table->table;
 
@@ -19,7 +20,7 @@ ARM_FUNC void MATHi_CRC8InitTable(struct MATHCRC8Table *table, u8 poly) {
     }
 }
 
-ARM_FUNC void MATHi_CRC8Update(const struct MATHCRC8Table *table, MATHCRC8Context *context, const void *input, u32 length) {
+void MATHi_CRC8Update(const struct MATHCRC8Table *table, MATHCRC8Context *context, const void *input, u32 length) {
     u32 r, i;
     const u8* t = table->table;
     u8* data = (u8*)input;
@@ -32,7 +33,7 @@ ARM_FUNC void MATHi_CRC8Update(const struct MATHCRC8Table *table, MATHCRC8Contex
     *context = (MATHCRC8Context)r;
 }
 
-ARM_FUNC void MATHi_CRC16InitTable(struct MATHCRC16Table *table, u16 poly) {
+void MATHi_CRC16InitTable(struct MATHCRC16Table *table, u16 poly) {
     u32 r, i, j;
     u16 *t = table->table;
 
@@ -50,7 +51,7 @@ ARM_FUNC void MATHi_CRC16InitTable(struct MATHCRC16Table *table, u16 poly) {
     }
 }
 
-ARM_FUNC void MATHi_CRC16InitTableRev(struct MATHCRC16Table *table, u16 poly) {
+void MATHi_CRC16InitTableRev(struct MATHCRC16Table *table, u16 poly) {
     u32 r, i, j;
     u16 *t = table->table;
 
@@ -68,7 +69,7 @@ ARM_FUNC void MATHi_CRC16InitTableRev(struct MATHCRC16Table *table, u16 poly) {
     }
 }
 
-ARM_FUNC void MATHi_CRC16Update(const struct MATHCRC16Table *table, MATHCRC16Context *context, const void *input, u32 length) {
+void MATHi_CRC16Update(const struct MATHCRC16Table *table, MATHCRC16Context *context, const void *input, u32 length) {
     u32 r, i;
     const u16* t = table->table;
     u8* data = (u8*)input;
@@ -81,7 +82,7 @@ ARM_FUNC void MATHi_CRC16Update(const struct MATHCRC16Table *table, MATHCRC16Con
     *context = (MATHCRC16Context)r;
 }
 
-ARM_FUNC void MATHi_CRC16UpdateRev(const struct MATHCRC16Table *table, MATHCRC16Context *context, const void *input, u32 length) {
+void MATHi_CRC16UpdateRev(const struct MATHCRC16Table *table, MATHCRC16Context *context, const void *input, u32 length) {
     u32 r, i;
     const u16* t = table->table;
     u8* data = (u8*)input;
@@ -94,7 +95,7 @@ ARM_FUNC void MATHi_CRC16UpdateRev(const struct MATHCRC16Table *table, MATHCRC16
     *context = (MATHCRC16Context)r;
 }
 
-ARM_FUNC void MATHi_CRC32InitTableRev(struct MATHCRC32Table *table, u32 poly) {
+void MATHi_CRC32InitTableRev(struct MATHCRC32Table *table, u32 poly) {
     u32 r, i, j;
     u32 *t = table->table;
 
@@ -112,7 +113,7 @@ ARM_FUNC void MATHi_CRC32InitTableRev(struct MATHCRC32Table *table, u32 poly) {
     }
 }
 
-ARM_FUNC void MATHi_CRC32UpdateRev(const struct MATHCRC32Table *table, MATHCRC32Context *context, const void *input, u32 length) {
+void MATHi_CRC32UpdateRev(const struct MATHCRC32Table *table, MATHCRC32Context *context, const void *input, u32 length) {
     u32 r, i;
     const u32* t = table->table;
     u8* data = (u8*)input;
@@ -125,25 +126,25 @@ ARM_FUNC void MATHi_CRC32UpdateRev(const struct MATHCRC32Table *table, MATHCRC32
     *context = r;
 }
 
-ARM_FUNC u8 MATH_CalcCRC8(const struct MATHCRC8Table *table, const void *data, u32 dataLength) {
+u8 MATH_CalcCRC8(const struct MATHCRC8Table *table, const void *data, u32 dataLength) {
     MATHCRC8Context ctx = 0;
     MATHi_CRC8Update(table, &ctx, data, dataLength);
     return ctx;
 }
 
-ARM_FUNC u16 MATH_CalcCRC16(const struct MATHCRC16Table *table, const void *data, u32 dataLength) {
+u16 MATH_CalcCRC16(const struct MATHCRC16Table *table, const void *data, u32 dataLength) {
     MATHCRC16Context ctx = 0;
     MATHi_CRC16UpdateRev(table, &ctx, data, dataLength);
     return ctx;
 }
 
-ARM_FUNC u16 MATH_CalcCRC16CCITT(const struct MATHCRC16Table *table, const void *data, u32 dataLength) {
+u16 MATH_CalcCRC16CCITT(const struct MATHCRC16Table *table, const void *data, u32 dataLength) {
     MATHCRC16Context ctx = 0xffff;
     MATHi_CRC16Update(table, &ctx, data, dataLength);
     return ctx;
 }
 
-ARM_FUNC u32 MATH_CalcCRC32(const struct MATHCRC32Table *table, const void *data, u32 dataLength) {
+u32 MATH_CalcCRC32(const struct MATHCRC32Table *table, const void *data, u32 dataLength) {
     MATHCRC32Context ctx = (MATHCRC32Context)(~0);
     MATHi_CRC32UpdateRev(table, &ctx, data, dataLength);
     return ~ctx;

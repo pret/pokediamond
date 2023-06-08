@@ -1,3 +1,4 @@
+#include "global.h"
 #include "scrcmd.h"
 #include "constants/accessories.h"
 #include "constants/pokemon.h"
@@ -98,7 +99,7 @@ static const u16 sAmitySquarePossibleAccessoriesByPokemon[6][10] = {
     },
 };
 
-THUMB_FUNC BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx) //0215
+BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx) //0215
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
 
@@ -107,7 +108,7 @@ THUMB_FUNC BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx) //0215
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx) //0216
+BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx) //0216
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
@@ -116,7 +117,7 @@ THUMB_FUNC BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx) //0216
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetAmitySquareAccessory(struct ScriptContext* ctx) //0217
+BOOL ScrCmd_GetAmitySquareAccessory(struct ScriptContext* ctx) //0217
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 species = ScriptGetVar(ctx);

@@ -11,8 +11,6 @@
 #include "constants/items.h"
 #include "constants/script_pokemon_util.h"
 
-#pragma thumb on
-
 BOOL MonNotFaintedOrEgg(struct Pokemon * pokemon)
 {
     if (GetMonData(pokemon, MON_DATA_HP, NULL) == 0)

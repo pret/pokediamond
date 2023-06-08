@@ -41,7 +41,7 @@ struct UnkStruct_02006D98_2 * FUN_0201341C(struct UnkStruct63_021DB450 *);
 const s32 MOD63_021DBEC0[3] = {0x703, 0x7CE, 0x8A8};
 const struct UnkStruct63_021DBEF0 MOD63_021DBEF0[3];
 
-THUMB_FUNC u32 MOD63_021DB450(u32 param0, u32 param1)
+u32 MOD63_021DB450(u32 param0, u32 param1)
 {
     u32 res0 = (NNS_GfdDefaultFuncAllocTexVram)(param0, param1, 0);
     FUN_0201327C(res0);
@@ -49,7 +49,7 @@ THUMB_FUNC u32 MOD63_021DB450(u32 param0, u32 param1)
     return (u32)((u16)res0 * 8);
 }
 
-THUMB_FUNC u32 MOD63_021DB474(u32 param0, u32 param1)
+u32 MOD63_021DB474(u32 param0, u32 param1)
 {
     u32 res0 = (NNS_GfdDefaultFuncAllocPlttVram)(param0, param1, 1);
     GF_ASSERT(res0);
@@ -57,12 +57,12 @@ THUMB_FUNC u32 MOD63_021DB474(u32 param0, u32 param1)
     return (u32)((u16)res0 * 8);
 }
 
-THUMB_FUNC u32 MOD63_021DB498(void)
+u32 MOD63_021DB498(void)
 {
     return 32;
 }
 
-THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg0) //TODO: this does a lot more than setup anim sprites
+void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg0) //TODO: this does a lot more than setup anim sprites
 {
     struct UnkStruct_02006D98_4 sp1C;
     int introMonArray[3] = {SPECIES_TURTWIG, SPECIES_CHIMCHAR, SPECIES_PIPLUP};
@@ -84,14 +84,14 @@ THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg
     FUN_02013194(arg0->field_18, FUN_0201318C(0x3D, 4, 0x4C), 10, 1);
 }
 
-THUMB_FUNC void MOD63_021DB580(UnkStruct63_021DB450 *param0)
+void MOD63_021DB580(UnkStruct63_021DB450 *param0)
 {
     FUN_02012DE4(param0->field_18);
     FreeToHeap(param0->field_14);
     FUN_020072E8(param0->field_00);
 }
 
-THUMB_FUNC void MOD63_021DB598(UnkStruct63_021DB450 *param0)
+void MOD63_021DB598(UnkStruct63_021DB450 *param0)
 {
     if (param0 == NULL)
     {
@@ -100,7 +100,7 @@ THUMB_FUNC void MOD63_021DB598(UnkStruct63_021DB450 *param0)
     FUN_020081C4(param0->field_00);
 }
 
-THUMB_FUNC void MOD63_021DB5A8(UnkStruct63_021DB450 *param0)
+void MOD63_021DB5A8(UnkStruct63_021DB450 *param0)
 {
     if (param0 == NULL)
     {
@@ -131,7 +131,7 @@ const struct UnkStruct63_021DBEF0 MOD63_021DBF08[3] = { //no idea if this is the
         {0, 1}
 };
 
-THUMB_FUNC BOOL MOD63_021DB5CC(UnkStruct63_021DB450 *param0, u32 param1, s32 param2)
+BOOL MOD63_021DB5CC(UnkStruct63_021DB450 *param0, u32 param1, s32 param2)
 {
     u8 * state = &param0->field_1C;
     switch(*state)
@@ -184,7 +184,7 @@ THUMB_FUNC BOOL MOD63_021DB5CC(UnkStruct63_021DB450 *param0, u32 param1, s32 par
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB720(UnkStruct63_021DB450 *param0, u32 param1)
+BOOL MOD63_021DB720(UnkStruct63_021DB450 *param0, u32 param1)
 {
     struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, 0x6);
@@ -201,7 +201,7 @@ THUMB_FUNC BOOL MOD63_021DB720(UnkStruct63_021DB450 *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB784(UnkStruct63_021DB450 *param0, u32 param1)
+BOOL MOD63_021DB784(UnkStruct63_021DB450 *param0, u32 param1)
 {
     struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, -0x3);
@@ -216,7 +216,7 @@ THUMB_FUNC BOOL MOD63_021DB784(UnkStruct63_021DB450 *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB7D0(UnkStruct63_021DB450 *param0, u32 param1)
+BOOL MOD63_021DB7D0(UnkStruct63_021DB450 *param0, u32 param1)
 {
     struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, -0x10);
@@ -233,7 +233,7 @@ THUMB_FUNC BOOL MOD63_021DB7D0(UnkStruct63_021DB450 *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB838(UnkStruct63_021DB450 *param0, u32 param1)
+BOOL MOD63_021DB838(UnkStruct63_021DB450 *param0, u32 param1)
 {
     struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0, -0x6);
@@ -248,7 +248,7 @@ THUMB_FUNC BOOL MOD63_021DB838(UnkStruct63_021DB450 *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB884(UnkStruct63_021DB450 *param0, u32 param1)
+BOOL MOD63_021DB884(UnkStruct63_021DB450 *param0, u32 param1)
 {
     struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0, 0x8);
@@ -265,7 +265,7 @@ THUMB_FUNC BOOL MOD63_021DB884(UnkStruct63_021DB450 *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB8E8(UnkStruct63_021DB450 *param0, u32 param1)
+BOOL MOD63_021DB8E8(UnkStruct63_021DB450 *param0, u32 param1)
 {
     struct UnkStruct_02006D98_2 *field = param0->field_04[param1];
     FUN_020079E0(field, 0, 0x6);
@@ -280,13 +280,13 @@ THUMB_FUNC BOOL MOD63_021DB8E8(UnkStruct63_021DB450 *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC void MOD63_021DB934(void)
+void MOD63_021DB934(void)
 {
     FUN_02013364();
     FUN_02013388();
 }
 
-THUMB_FUNC void MOD63_021DB940(struct UnkStruct63_021DB450 * a0)
+void MOD63_021DB940(struct UnkStruct63_021DB450 * a0)
 {
     struct UnkStruct_02006D98_2 * r4 = FUN_0201341C(a0);
     int sp0[3] = {0, 0, 0};

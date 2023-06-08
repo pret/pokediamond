@@ -313,11 +313,11 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_RestoreOverworld
 	.word ScrCmd_Unk00A2
 	.word ScrCmd_Unk00A3
-	.word ScrCmd_Unk00A4
+	.word ScrCmd_GetDressupPortraitSlot
 	.word ScrCmd_Unk00A5
-	.word ScrCmd_Unk00A6
-	.word ScrCmd_Unk00A7
-	.word ScrCmd_Unk00A8
+	.word ScrCmd_DressupPokemon
+	.word ScrCmd_ShowDressedPokemon
+	.word ScrCmd_ShowContestPokemon
 	.word ScrCmd_Unk00A9
 	.word ScrCmd_Unk00AA
 	.word ScrCmd_MonStoragePC

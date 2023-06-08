@@ -50,7 +50,7 @@ void (*const sClearWindowTilemapFuncs[])(struct Window *) = {
     ClearWindowTilemapText,
 };
 
-THUMB_FUNC struct BgConfig *BgConfig_Alloc(u32 heap_id)
+struct BgConfig *BgConfig_Alloc(u32 heap_id)
 {
     struct BgConfig *ptr = AllocFromHeap(heap_id, sizeof(struct BgConfig));
     memset(ptr, 0, sizeof(struct BgConfig));
@@ -61,12 +61,12 @@ THUMB_FUNC struct BgConfig *BgConfig_Alloc(u32 heap_id)
     return ptr;
 }
 
-THUMB_FUNC u32 BgConfig_GetHeapId(struct BgConfig *bgConfig)
+u32 BgConfig_GetHeapId(struct BgConfig *bgConfig)
 {
     return bgConfig->heap_id;
 }
 
-THUMB_FUNC void SetBothScreensModesAndDisable(const struct GraphicsModes *modes)
+void SetBothScreensModesAndDisable(const struct GraphicsModes *modes)
 {
     GX_SetGraphicsMode(modes->dispMode, modes->bgMode, modes->_2d3dMode);
     GXS_SetGraphicsMode(modes->subMode);
@@ -77,7 +77,7 @@ THUMB_FUNC void SetBothScreensModesAndDisable(const struct GraphicsModes *modes)
     GX_DisableEngineBLayers();
 }
 
-THUMB_FUNC void SetScreenModeAndDisable(const struct GraphicsModes *gfxModes, u32 whichScreen)
+void SetScreenModeAndDisable(const struct GraphicsModes *gfxModes, u32 whichScreen)
 {
     if (whichScreen == 0)
     {
@@ -91,7 +91,7 @@ THUMB_FUNC void SetScreenModeAndDisable(const struct GraphicsModes *gfxModes, u3
     }
 }
 
-THUMB_FUNC void InitBgFromTemplate(
+void InitBgFromTemplate(
     struct BgConfig *bgConfig, u8 bgId, const struct BgTemplate *template, u8 bgMode)
 {
     u8 screenSize = TranslateGFBgModePairToGXScreenSize((enum GFBgScreenSize)template->size, (enum GFBgType)bgMode);
@@ -241,7 +241,7 @@ THUMB_FUNC void InitBgFromTemplate(
     BgSetPosTextAndCommit(bgConfig, (enum GFBgLayer)bgId, BG_POS_OP_SET_Y, template->y);
 }
 
-THUMB_FUNC void SetBgControlParam(struct BgConfig *config, u8 bgId, u32 attr, u8 value)
+void SetBgControlParam(struct BgConfig *config, u8 bgId, u32 attr, u8 value)
 {
     if (attr == GF_BG_CNT_SET_COLOR_MODE)
     {
@@ -485,7 +485,7 @@ THUMB_FUNC void SetBgControlParam(struct BgConfig *config, u8 bgId, u32 attr, u8
     }
 }
 
-THUMB_FUNC u8 TranslateGFBgModePairToGXScreenSize(enum GFBgScreenSize size, enum GFBgType type)
+u8 TranslateGFBgModePairToGXScreenSize(enum GFBgScreenSize size, enum GFBgType type)
 {
     switch (type)
     {
@@ -553,7 +553,7 @@ THUMB_FUNC u8 TranslateGFBgModePairToGXScreenSize(enum GFBgScreenSize size, enum
     return GX_BG_SCRSIZE_TEXT_256x256; // GX_BG_SCRSIZE_AFFINE_128x128; GX_BG_SCRSIZE_256x16PLTT_128x128;
 }
 
-THUMB_FUNC void GetBgScreenDimensions(u32 screenSize, u8 *width_p, u8 *height_p)
+void GetBgScreenDimensions(u32 screenSize, u8 *width_p, u8 *height_p)
 {
     switch (screenSize)
     {
@@ -584,7 +584,7 @@ THUMB_FUNC void GetBgScreenDimensions(u32 screenSize, u8 *width_p, u8 *height_p)
     }
 }
 
-THUMB_FUNC void FreeBgTilemapBuffer(struct BgConfig *bgConfig, u32 bgId)
+void FreeBgTilemapBuffer(struct BgConfig *bgConfig, u32 bgId)
 {
     if (bgConfig->bgs[bgId].tilemapBuffer != NULL)
     {
@@ -593,7 +593,7 @@ THUMB_FUNC void FreeBgTilemapBuffer(struct BgConfig *bgConfig, u32 bgId)
     }
 }
 
-THUMB_FUNC void SetBgPriority(u32 bgId, u16 priority)
+void SetBgPriority(u32 bgId, u16 priority)
 {
     switch (bgId)
     {
@@ -624,7 +624,7 @@ THUMB_FUNC void SetBgPriority(u32 bgId, u16 priority)
     }
 }
 
-THUMB_FUNC void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle)
+void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle)
 {
     switch (bgId)
     {
@@ -655,7 +655,7 @@ THUMB_FUNC void ToggleBgLayer(u32 bgId, GX_LayerToggle toggle)
     }
 }
 
-THUMB_FUNC void BgSetPosTextAndCommit(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 val) //seems to apply to more than just text? name?
+void BgSetPosTextAndCommit(struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 val) //seems to apply to more than just text? name?
 {
     Bg_SetPosText(&bgConfig->bgs[bgId], op, val);
 
@@ -719,17 +719,17 @@ THUMB_FUNC void BgSetPosTextAndCommit(struct BgConfig *bgConfig, u32 bgId, u32 o
     }
 }
 
-THUMB_FUNC fx32 Bg_GetXpos(struct BgConfig *bgConfig, u32 bgId)
+fx32 Bg_GetXpos(struct BgConfig *bgConfig, u32 bgId)
 {
     return bgConfig->bgs[bgId].hOffset;
 }
 
-THUMB_FUNC fx32 Bg_GetYpos(struct BgConfig *bgConfig, u32 bgId)
+fx32 Bg_GetYpos(struct BgConfig *bgConfig, u32 bgId)
 {
     return bgConfig->bgs[bgId].vOffset;
 }
 
-THUMB_FUNC void Bg_SetTextDimAndAffineParams(struct BgConfig *bgConfig,
+void Bg_SetTextDimAndAffineParams(struct BgConfig *bgConfig,
                                              u32 bgId,
                                              u32 txOp,
                                              fx32 txVal,
@@ -741,7 +741,7 @@ THUMB_FUNC void Bg_SetTextDimAndAffineParams(struct BgConfig *bgConfig,
     SetBgAffine(bgConfig, bgId, mtx, centerX, centerY);
 }
 
-THUMB_FUNC void Bg_SetPosText(struct Bg *bg, u32 op, fx32 val)
+void Bg_SetPosText(struct Bg *bg, u32 op, fx32 val)
 {
     switch (op)
     {
@@ -766,7 +766,7 @@ THUMB_FUNC void Bg_SetPosText(struct Bg *bg, u32 op, fx32 val)
     }
 }
 
-THUMB_FUNC void SetBgAffine(
+void SetBgAffine(
     struct BgConfig *bgConfig, u32 bgId, struct Mtx22 *mtx, fx32 centerX, fx32 centerY)
 {
     switch (bgId)
@@ -786,14 +786,14 @@ THUMB_FUNC void SetBgAffine(
     }
 }
 
-THUMB_FUNC void BgAffineReset(struct BgConfig *bgConfig, u32 bgId)
+void BgAffineReset(struct BgConfig *bgConfig, u32 bgId)
 {
     struct Mtx22 mtx;
     MTX22_2DAffine(&mtx, 0, FX32_ONE, FX32_ONE, 0);
     SetBgAffine(bgConfig, bgId, &mtx, 0, 0);
 }
 
-THUMB_FUNC void CopyOrUncompressTilemapData(const void *src, void *dest, u32 size)
+void CopyOrUncompressTilemapData(const void *src, void *dest, u32 size)
 {
     if (size == 0)
     {
@@ -810,7 +810,7 @@ THUMB_FUNC void CopyOrUncompressTilemapData(const void *src, void *dest, u32 siz
     MI_CpuCopy16(src, dest, size);
 }
 
-THUMB_FUNC void BgCommitTilemapBufferToVram(struct BgConfig *bgConfig, u32 bgId)
+void BgCommitTilemapBufferToVram(struct BgConfig *bgConfig, u32 bgId)
 {
     BgCopyOrUncompressTilemapBufferRangeToVram(bgConfig,
                                                bgId,
@@ -819,7 +819,7 @@ THUMB_FUNC void BgCommitTilemapBufferToVram(struct BgConfig *bgConfig, u32 bgId)
                                                bgConfig->bgs[bgId].baseTile);
 }
 
-THUMB_FUNC void BgCopyOrUncompressTilemapBufferRangeToVram(
+void BgCopyOrUncompressTilemapBufferRangeToVram(
     struct BgConfig *bgConfig, u32 bgId, u32 *src, u32 size, u32 tileOffset)
 {
     if (size == 0)
@@ -843,7 +843,7 @@ THUMB_FUNC void BgCopyOrUncompressTilemapBufferRangeToVram(
     LoadBgVramScr(bgId, src, tileOffset * 2, size);
 }
 
-THUMB_FUNC void LoadBgVramScr(u32 bgId, void *buffer_p, u32 offset, u32 size)
+void LoadBgVramScr(u32 bgId, void *buffer_p, u32 offset, u32 size)
 {
     DC_FlushRange(buffer_p, size);
 
@@ -876,13 +876,13 @@ THUMB_FUNC void LoadBgVramScr(u32 bgId, void *buffer_p, u32 offset, u32 size)
     }
 }
 
-THUMB_FUNC void BG_LoadScreenTilemapData(
+void BG_LoadScreenTilemapData(
     struct BgConfig *bgConfig, u32 bgId, void *src, u32 numTiles)
 {
     CopyOrUncompressTilemapData(src, bgConfig->bgs[bgId].tilemapBuffer, numTiles);
 }
 
-THUMB_FUNC void BG_LoadCharTilesData(
+void BG_LoadCharTilesData(
     struct BgConfig *bgConfig, u32 bgId, u32 *charData, u32 offset, u32 numTiles)
 {
     if (bgConfig->bgs[bgId].colorMode == GX_BG_COLORMODE_16)
@@ -893,7 +893,7 @@ THUMB_FUNC void BG_LoadCharTilesData(
     BG_LoadCharPixelData(bgConfig, bgId, charData, offset, numTiles << 6);
 }
 
-THUMB_FUNC void BG_LoadCharPixelData(
+void BG_LoadCharPixelData(
     struct BgConfig *bgConfig, u32 bgId, u32 *charData, u32 size, u32 offset)
 {
     if (size == 0)
@@ -910,7 +910,7 @@ THUMB_FUNC void BG_LoadCharPixelData(
     LoadBgVramChar(bgId, charData, offset, size);
 }
 
-THUMB_FUNC void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size)
+void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size)
 {
     DC_FlushRange(buffer_p, size);
 
@@ -943,7 +943,7 @@ THUMB_FUNC void LoadBgVramChar(u32 bgId, void *buffer_p, u32 offset, u32 size)
     }
 }
 
-THUMB_FUNC void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, u32 heap_id)
+void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, u32 heap_id)
 {
     void *ptr = AllocFromHeapAtEnd(heap_id, size);
     memset(ptr, 0, size);
@@ -952,7 +952,7 @@ THUMB_FUNC void BG_ClearCharDataRange(u32 bgId, u32 size, u32 offset, u32 heap_i
     FreeToHeapExplicit(heap_id, ptr);
 }
 
-THUMB_FUNC void BG_FillCharDataRange(
+void BG_FillCharDataRange(
     struct BgConfig *param0, u32 bgId, u32 fillValue, u32 count, u32 offset)
 {
     void *st4;
@@ -976,7 +976,7 @@ THUMB_FUNC void BG_FillCharDataRange(
     FreeToHeap(st4);
 }
 
-THUMB_FUNC void BG_LoadPlttData(u32 location, void *plttData, u32 size, u32 offset)
+void BG_LoadPlttData(u32 location, void *plttData, u32 size, u32 offset)
 {
     DC_FlushRange(plttData, size);
     if (location < GF_PAL_LOCATION_SUB_BG)
@@ -988,12 +988,12 @@ THUMB_FUNC void BG_LoadPlttData(u32 location, void *plttData, u32 size, u32 offs
     GXS_LoadBGPltt(plttData, offset, size);
 }
 
-THUMB_FUNC void BG_SetMaskColor(u32 bgId, u32 value)
+void BG_SetMaskColor(u32 bgId, u32 value)
 {
     BG_LoadPlttData(bgId, &value, 2, 0);
 }
 
-THUMB_FUNC u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize)
+u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize)
 {
     switch (screenSize)
     {
@@ -1015,7 +1015,7 @@ THUMB_FUNC u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize)
     return x;
 }
 
-THUMB_FUNC u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height)
+u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height)
 {
     u8 coordType = 0;
     u16 r3 = 0;
@@ -1076,7 +1076,7 @@ THUMB_FUNC u16 GetSrcTileMapIndexFromCoords(u8 x, u8 y, u8 width, u8 height)
     return r3;
 }
 
-THUMB_FUNC void LoadRectToBgTilemapRect(struct BgConfig *bgConfig,
+void LoadRectToBgTilemapRect(struct BgConfig *bgConfig,
                                         u32 bgId,
                                         void *src,
                                         u8 dstX,
@@ -1087,7 +1087,7 @@ THUMB_FUNC void LoadRectToBgTilemapRect(struct BgConfig *bgConfig,
     CopyToBgTilemapRect(bgConfig, bgId, dstX, dstY, width, height, src, 0, 0, width, height);
 }
 
-THUMB_FUNC void CopyToBgTilemapRect(struct BgConfig *bgConfig,
+void CopyToBgTilemapRect(struct BgConfig *bgConfig,
                                     u32 bgId,
                                     u8 dstX,
                                     u8 dstY,
@@ -1129,7 +1129,7 @@ THUMB_FUNC void CopyToBgTilemapRect(struct BgConfig *bgConfig,
     }
 }
 
-THUMB_FUNC void CopyRectToBgTilemapRect(struct BgConfig *bgConfig,
+void CopyRectToBgTilemapRect(struct BgConfig *bgConfig,
                                     u32 bgId,
                                     u8 dstX,
                                     u8 dstY,
@@ -1171,7 +1171,7 @@ THUMB_FUNC void CopyRectToBgTilemapRect(struct BgConfig *bgConfig,
     }
 }
 
-THUMB_FUNC void CopyBgTilemapRectText(struct Bg *bg,
+void CopyBgTilemapRectText(struct Bg *bg,
                                       u8 dstX,
                                       u8 dstY,
                                       u8 dstWidth,
@@ -1264,7 +1264,7 @@ THUMB_FUNC void CopyBgTilemapRectText(struct Bg *bg,
     }
 }
 
-THUMB_FUNC void CopyBgTilemapRectAffine(struct Bg *bg,
+void CopyBgTilemapRectAffine(struct Bg *bg,
                                         u8 dstX,
                                         u8 dstY,
                                         u8 dstWidth,
@@ -1357,7 +1357,7 @@ THUMB_FUNC void CopyBgTilemapRectAffine(struct Bg *bg,
     }
 }
 
-THUMB_FUNC void FillBgTilemapRect(struct BgConfig *bgConfig,
+void FillBgTilemapRect(struct BgConfig *bgConfig,
                                   u8 bgId,
                                   u16 fillValue,
                                   u8 x,
@@ -1377,7 +1377,7 @@ THUMB_FUNC void FillBgTilemapRect(struct BgConfig *bgConfig,
     }
 }
 
-THUMB_FUNC void FillBgTilemapRectText(struct Bg *bg,
+void FillBgTilemapRectText(struct Bg *bg,
                                                 u16 fillValue,
                                                 u8 x,
                                                 u8 y,
@@ -1429,7 +1429,7 @@ THUMB_FUNC void FillBgTilemapRectText(struct Bg *bg,
     }
 }
 
-THUMB_FUNC void FillBgTilemapRectAffine(
+void FillBgTilemapRectAffine(
     struct Bg *bg, u8 fillValue, u8 x, u8 y, u8 width, u8 height)
 {
     void *tilemapBuffer = bg->tilemapBuffer;
@@ -1463,7 +1463,7 @@ THUMB_FUNC void FillBgTilemapRectAffine(
     }
 }
 
-THUMB_FUNC void BgTilemapRectChangePalette(struct BgConfig *bgConfig,
+void BgTilemapRectChangePalette(struct BgConfig *bgConfig,
                                            u32 bgId,
                                            u8 x,
                                            u8 y,
@@ -1502,7 +1502,7 @@ THUMB_FUNC void BgTilemapRectChangePalette(struct BgConfig *bgConfig,
     }
 }
 
-THUMB_FUNC void BgClearTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgId)
+void BgClearTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgId)
 {
     if (bgConfig->bgs[bgId].tilemapBuffer != NULL)
     {
@@ -1511,7 +1511,7 @@ THUMB_FUNC void BgClearTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgI
     }
 }
 
-THUMB_FUNC void BgFillTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgId, u16 fillValue)
+void BgFillTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgId, u16 fillValue)
 {
     if (bgConfig->bgs[bgId].tilemapBuffer != NULL)
     {
@@ -1520,7 +1520,7 @@ THUMB_FUNC void BgFillTilemapBufferAndCommit(struct BgConfig *bgConfig, u32 bgId
     }
 }
 
-THUMB_FUNC void BgFillTilemapBufferAndSchedule(struct BgConfig *bgConfig, u32 bgId, u16 fillValue)
+void BgFillTilemapBufferAndSchedule(struct BgConfig *bgConfig, u32 bgId, u16 fillValue)
 {
     if (bgConfig->bgs[bgId].tilemapBuffer != NULL)
     {
@@ -1529,7 +1529,7 @@ THUMB_FUNC void BgFillTilemapBufferAndSchedule(struct BgConfig *bgConfig, u32 bg
     }
 }
 
-THUMB_FUNC void *BgGetCharPtr(u32 bgId)
+void *BgGetCharPtr(u32 bgId)
 {
     switch (bgId)
     {
@@ -1554,7 +1554,7 @@ THUMB_FUNC void *BgGetCharPtr(u32 bgId)
     return NULL;
 }
 
-THUMB_FUNC void Convert4bppTo8bppInternal(u8 *src4bpp, u32 size, u8 (*dest8bpp), u8 paletteNum)
+void Convert4bppTo8bppInternal(u8 *src4bpp, u32 size, u8 (*dest8bpp), u8 paletteNum)
 {
     paletteNum <<= 4;
     for (u32 i = 0; i < size; i++)
@@ -1573,7 +1573,7 @@ THUMB_FUNC void Convert4bppTo8bppInternal(u8 *src4bpp, u32 size, u8 (*dest8bpp),
     }
 }
 
-THUMB_FUNC u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, u32 heap_id)
+u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, u32 heap_id)
 {
     u8 *ptr = (u8*)AllocFromHeap(heap_id, size * 2);
 
@@ -1582,17 +1582,17 @@ THUMB_FUNC u8 *Convert4bppTo8bpp(u8 *src4Bpp, u32 size, u8 paletteNum, u32 heap_
     return ptr;
 }
 
-THUMB_FUNC void *GetBgTilemapBuffer(struct BgConfig *bgConfig, u8 bgId)
+void *GetBgTilemapBuffer(struct BgConfig *bgConfig, u8 bgId)
 {
     return bgConfig->bgs[bgId].tilemapBuffer;
 }
 
-THUMB_FUNC u16 GetBgAffineRotation(struct BgConfig *bgConfig, u32 bgId)
+u16 GetBgAffineRotation(struct BgConfig *bgConfig, u32 bgId)
 {
     return bgConfig->bgs[bgId].rotation;
 }
 
-THUMB_FUNC u8 GetBgPriority(struct BgConfig *bgConfig, u32 bgId)
+u8 GetBgPriority(struct BgConfig *bgConfig, u32 bgId)
 {
     switch (bgId)
     {
@@ -1663,7 +1663,7 @@ THUMB_FUNC u8 GetBgPriority(struct BgConfig *bgConfig, u32 bgId)
 #define GetPixelAddressFromBlit8bpp(ptr, x, y, width) ((u8 *)((ptr) + ((x) & 7) + (((x) << 3) & 0x7FC0) + ((((y) << 3) & 0x7FC0) * (width)) + (((u32)(((y) << 3) & 0x38)))))
 #define ConvertPixelsToTiles(x)    (((x) + ((x) & 7)) >> 3)
 
-THUMB_FUNC void BlitBitmapRect4Bit(const struct Bitmap *src,
+void BlitBitmapRect4Bit(const struct Bitmap *src,
                                    const struct Bitmap *dst,
                                    u16 srcX,
                                    u16 srcY,
@@ -1726,7 +1726,7 @@ THUMB_FUNC void BlitBitmapRect4Bit(const struct Bitmap *src,
     }
 }
 
-THUMB_FUNC void BlitBitmapRect8Bit(const struct Bitmap *src,
+void BlitBitmapRect8Bit(const struct Bitmap *src,
                                    const struct Bitmap *dst,
                                    u16 srcX,
                                    u16 srcY,
@@ -1782,7 +1782,7 @@ THUMB_FUNC void BlitBitmapRect8Bit(const struct Bitmap *src,
     }
 }
 
-THUMB_FUNC void FillBitmapRect4Bit(
+void FillBitmapRect4Bit(
     struct Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue)
 {
 
@@ -1822,7 +1822,7 @@ THUMB_FUNC void FillBitmapRect4Bit(
     }
 }
 
-THUMB_FUNC void FillBitmapRect8Bit(
+void FillBitmapRect8Bit(
     struct Bitmap *surface, u16 x, u16 y, u16 width, u16 height, u8 fillValue)
 {
 
@@ -1853,7 +1853,7 @@ THUMB_FUNC void FillBitmapRect8Bit(
     }
 }
 
-THUMB_FUNC struct Window *AllocWindows(u32 heap_id, s32 size)
+struct Window *AllocWindows(u32 heap_id, s32 size)
 {
     struct Window *ptr = AllocFromHeap(heap_id, (u32)(size << 4));
 
@@ -1865,7 +1865,7 @@ THUMB_FUNC struct Window *AllocWindows(u32 heap_id, s32 size)
     return ptr;
 }
 
-THUMB_FUNC void InitWindow(struct Window *window)
+void InitWindow(struct Window *window)
 {
     window->bgConfig = NULL;
     window->bgId = GF_BG_LYR_UNALLOC;
@@ -1881,7 +1881,7 @@ THUMB_FUNC void InitWindow(struct Window *window)
     window->colorMode = GF_BG_CLR_4BPP;
 }
 
-THUMB_FUNC BOOL WindowIsInUse(struct Window *window)
+BOOL WindowIsInUse(struct Window *window)
 {
     if (window->bgConfig == NULL || window->bgId == 0xff || window->pixelBuffer == NULL)
     {
@@ -1891,7 +1891,7 @@ THUMB_FUNC BOOL WindowIsInUse(struct Window *window)
     return TRUE;
 }
 
-THUMB_FUNC void AddWindowParameterized(struct BgConfig *param0,
+void AddWindowParameterized(struct BgConfig *param0,
                                        struct Window *window,
                                        u8 bgId,
                                        u8 tilemapLeft,
@@ -1926,7 +1926,7 @@ THUMB_FUNC void AddWindowParameterized(struct BgConfig *param0,
     window->colorMode = param0->bgs[bgId].colorMode == GX_BG_COLORMODE_16 ? GF_BG_CLR_4BPP : GF_BG_CLR_8BPP;
 }
 
-THUMB_FUNC void AddTextWindowTopLeftCorner(struct BgConfig *param0,
+void AddTextWindowTopLeftCorner(struct BgConfig *param0,
                                            struct Window *window,
                                            u8 width,
                                            u8 height,
@@ -1951,7 +1951,7 @@ THUMB_FUNC void AddTextWindowTopLeftCorner(struct BgConfig *param0,
     }
 }
 
-THUMB_FUNC void AddWindow(
+void AddWindow(
     struct BgConfig *bgConfig, struct Window *window, const struct WindowTemplate *template)
 {
 
@@ -1966,7 +1966,7 @@ THUMB_FUNC void AddWindow(
                            template->baseTile);
 }
 
-THUMB_FUNC void RemoveWindow(struct Window *window)
+void RemoveWindow(struct Window *window)
 {
     FreeToHeap(window->pixelBuffer);
 
@@ -1981,7 +1981,7 @@ THUMB_FUNC void RemoveWindow(struct Window *window)
     window->pixelBuffer = NULL;
 }
 
-THUMB_FUNC void WindowArray_Delete(struct Window *windows, int count)
+void WindowArray_Delete(struct Window *windows, int count)
 {
     for (u16 i = 0; i < count; i++)
     {
@@ -1994,7 +1994,7 @@ THUMB_FUNC void WindowArray_Delete(struct Window *windows, int count)
     FreeToHeap(windows);
 }
 
-THUMB_FUNC void CopyWindowToVram(struct Window *window)
+void CopyWindowToVram(struct Window *window)
 {
 
     GF_ASSERT(window != NULL);
@@ -2005,7 +2005,7 @@ THUMB_FUNC void CopyWindowToVram(struct Window *window)
     sCopyWindowToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void ScheduleWindowCopyToVram(struct Window *window)
+void ScheduleWindowCopyToVram(struct Window *window)
 {
 
     GF_ASSERT(window);
@@ -2016,12 +2016,12 @@ THUMB_FUNC void ScheduleWindowCopyToVram(struct Window *window)
     sScheduleWindowCopyToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void PutWindowTilemap(struct Window *window)
+void PutWindowTilemap(struct Window *window)
 {
     sPutWindowTilemapFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void PutWindowTilemapRectAnchoredTopLeft(struct Window *window, u8 width, u8 height)
+void PutWindowTilemapRectAnchoredTopLeft(struct Window *window, u8 width, u8 height)
 {
     u8 widthBak = window->width;
     u8 heightBak = window->height;
@@ -2034,12 +2034,12 @@ THUMB_FUNC void PutWindowTilemapRectAnchoredTopLeft(struct Window *window, u8 wi
     window->height = heightBak;
 }
 
-THUMB_FUNC void ClearWindowTilemap(struct Window *window)
+void ClearWindowTilemap(struct Window *window)
 {
     sClearWindowTilemapFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void PutWindowTilemap_TextMode(struct Window *param0)
+void PutWindowTilemap_TextMode(struct Window *param0)
 {
     u32 i, j;
     u32 r3;
@@ -2067,7 +2067,7 @@ THUMB_FUNC void PutWindowTilemap_TextMode(struct Window *param0)
     }
 }
 
-THUMB_FUNC void PutWindowTilemap_AffineMode(struct Window *window)
+void PutWindowTilemap_AffineMode(struct Window *window)
 {
     int j, i;
     u8 *dst;
@@ -2096,7 +2096,7 @@ THUMB_FUNC void PutWindowTilemap_AffineMode(struct Window *window)
     }
 }
 
-THUMB_FUNC void ClearWindowTilemapText(struct Window *window)
+void ClearWindowTilemapText(struct Window *window)
 {
 
     u32 i, j;
@@ -2125,7 +2125,7 @@ THUMB_FUNC void ClearWindowTilemapText(struct Window *window)
     }
 }
 
-THUMB_FUNC void ClearWindowTilemapAffine(struct Window *window)
+void ClearWindowTilemapAffine(struct Window *window)
 {
 
     int j, i;
@@ -2151,7 +2151,7 @@ THUMB_FUNC void ClearWindowTilemapAffine(struct Window *window)
     }
 }
 
-THUMB_FUNC void CopyWindowToVram_TextMode(struct Window *window)
+void CopyWindowToVram_TextMode(struct Window *window)
 {
     PutWindowTilemap_TextMode(window);
     CopyWindowPixelsToVram_TextMode(window);
@@ -2162,14 +2162,14 @@ THUMB_FUNC void CopyWindowToVram_TextMode(struct Window *window)
                                                window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-THUMB_FUNC void ScheduleWindowCopyToVram_TextMode(struct Window *window)
+void ScheduleWindowCopyToVram_TextMode(struct Window *window)
 {
     PutWindowTilemap_TextMode(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
     CopyWindowPixelsToVram_TextMode(window);
 }
 
-THUMB_FUNC void CopyWindowToVram_AffineMode(struct Window *window)
+void CopyWindowToVram_AffineMode(struct Window *window)
 {
     PutWindowTilemap_AffineMode(window);
     BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
@@ -2185,7 +2185,7 @@ THUMB_FUNC void CopyWindowToVram_AffineMode(struct Window *window)
         window->baseTile);
 }
 
-THUMB_FUNC void ScheduleWindowCopyToVram_AffineMode(struct Window *window)
+void ScheduleWindowCopyToVram_AffineMode(struct Window *window)
 {
     PutWindowTilemap_AffineMode(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
@@ -2196,7 +2196,7 @@ THUMB_FUNC void ScheduleWindowCopyToVram_AffineMode(struct Window *window)
         window->baseTile);
 }
 
-THUMB_FUNC void CopyWindowPixelsToVram_TextMode(struct Window *window)
+void CopyWindowPixelsToVram_TextMode(struct Window *window)
 {
     BG_LoadCharTilesData(window->bgConfig,
         window->bgId,
@@ -2205,17 +2205,17 @@ THUMB_FUNC void CopyWindowPixelsToVram_TextMode(struct Window *window)
         window->baseTile);
 }
 
-THUMB_FUNC void ClearWindowTilemapAndCopyToVram(struct Window *window)
+void ClearWindowTilemapAndCopyToVram(struct Window *window)
 {
     sClearWindowTilemapAndCopyToVramFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void ClearWindowTilemapAndScheduleTransfer(struct Window *window)
+void ClearWindowTilemapAndScheduleTransfer(struct Window *window)
 {
     sClearWindowTilemapAndScheduleTransferFuncs[window->bgConfig->bgs[window->bgId].mode](window);
 }
 
-THUMB_FUNC void ClearWindowTilemapAndCopyToVram_TextMode(struct Window *window)
+void ClearWindowTilemapAndCopyToVram_TextMode(struct Window *window)
 {
     ClearWindowTilemapText(window);
     BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
@@ -2225,13 +2225,13 @@ THUMB_FUNC void ClearWindowTilemapAndCopyToVram_TextMode(struct Window *window)
                                                window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-THUMB_FUNC void ClearWindowTilemapAndScheduleTransfer_TextMode(struct Window *window)
+void ClearWindowTilemapAndScheduleTransfer_TextMode(struct Window *window)
 {
     ClearWindowTilemapText(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
-THUMB_FUNC void ClearWindowTilemapAndCopyToVram_AffineMode(struct Window *window)
+void ClearWindowTilemapAndCopyToVram_AffineMode(struct Window *window)
 {
     ClearWindowTilemapAffine(window);
     BgCopyOrUncompressTilemapBufferRangeToVram(window->bgConfig,
@@ -2241,13 +2241,13 @@ THUMB_FUNC void ClearWindowTilemapAndCopyToVram_AffineMode(struct Window *window
                                                window->bgConfig->bgs[window->bgId].baseTile);
 }
 
-THUMB_FUNC void ClearWindowTilemapAndScheduleTransfer_AffineMode(struct Window *window)
+void ClearWindowTilemapAndScheduleTransfer_AffineMode(struct Window *window)
 {
     ClearWindowTilemapAffine(window);
     ScheduleBgTilemapBufferTransfer(window->bgConfig, window->bgId);
 }
 
-THUMB_FUNC void FillWindowPixelBuffer(struct Window *window, u8 param1)
+void FillWindowPixelBuffer(struct Window *window, u8 param1)
 {
     if (window->bgConfig->bgs[window->bgId].tileSize == 0x20)
     {
@@ -2260,7 +2260,7 @@ THUMB_FUNC void FillWindowPixelBuffer(struct Window *window, u8 param1)
     (u32)(window->bgConfig->bgs[window->bgId].tileSize * window->width * window->height));
 }
 
-THUMB_FUNC void BlitBitmapRectToWindow(struct Window *window,
+void BlitBitmapRectToWindow(struct Window *window,
     const void *src,
     u16 srcX,
     u16 srcY,
@@ -2275,7 +2275,7 @@ THUMB_FUNC void BlitBitmapRectToWindow(struct Window *window,
         window, src, srcX, srcY, srcWidth, srcHeight, dstX, dstY, dstWidth, dstHeight, 0);
 }
 
-THUMB_FUNC void BlitBitmapRect(struct Window *window,
+void BlitBitmapRect(struct Window *window,
     void *param1,
     u16 param2,
     u16 param3,
@@ -2302,7 +2302,7 @@ THUMB_FUNC void BlitBitmapRect(struct Window *window,
     }
 }
 
-THUMB_FUNC void FillWindowPixelRect(
+void FillWindowPixelRect(
     struct Window *window, u8 fillValue, u16 x, u16 y, u16 width, u16 height)
 {
     struct Bitmap st8 = {
@@ -2411,7 +2411,7 @@ THUMB_FUNC void FillWindowPixelRect(
     }                                                                                                                 \
 }
 
-THUMB_FUNC void CopyGlyphToWindow(struct Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHeight, u16 dstX, u16 dstY, u16 table)
+void CopyGlyphToWindow(struct Window *window, u8 *glyphPixels, u16 srcWidth, u16 srcHeight, u16 dstX, u16 dstY, u16 table)
 {
     u8 *windowPixels;
     u16 destWidth, destHeight;
@@ -2496,7 +2496,7 @@ THUMB_FUNC void CopyGlyphToWindow(struct Window *window, u8 *glyphPixels, u16 sr
     }
 }
 
-THUMB_FUNC void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3)
+void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 param3)
 {
     if (window->bgConfig->bgs[window->bgId].colorMode == GX_BG_COLORMODE_16)
     {
@@ -2508,7 +2508,7 @@ THUMB_FUNC void ScrollWindow(struct Window *window, u32 param1, u8 param2, u8 pa
     }
 }
 
-THUMB_FUNC void ScrollWindow4bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue)
+void ScrollWindow4bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue)
 {
     void *r2;
     int r5, r1, r3;
@@ -2576,7 +2576,7 @@ THUMB_FUNC void ScrollWindow4bpp(struct Window *window, u32 param1, u8 param2, u
     }
 }
 
-THUMB_FUNC void ScrollWindow8bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue)
+void ScrollWindow8bpp(struct Window *window, u32 param1, u8 param2, u8 fillValue)
 {
 
     void *pixelBuffer;
@@ -2667,41 +2667,41 @@ THUMB_FUNC void ScrollWindow8bpp(struct Window *window, u32 param1, u8 param2, u
     }
 }
 
-THUMB_FUNC u8 GetWindowBgId(struct Window *window)
+u8 GetWindowBgId(struct Window *window)
 {
     return window->bgId;
 }
 
-THUMB_FUNC u8 GetWindowWidth(struct Window *window)
+u8 GetWindowWidth(struct Window *window)
 {
     return window->width;
 }
-THUMB_FUNC u8 GetWindowHeight(struct Window *window)
+u8 GetWindowHeight(struct Window *window)
 {
     return window->height;
 }
-THUMB_FUNC u8 GetWindowX(struct Window *window)
+u8 GetWindowX(struct Window *window)
 {
     return window->tilemapLeft;
 }
-THUMB_FUNC u8 GetWindowY(struct Window *window)
+u8 GetWindowY(struct Window *window)
 {
     return window->tilemapTop;
 }
-THUMB_FUNC void MoveWindowX(struct Window *window, u8 x)
+void MoveWindowX(struct Window *window, u8 x)
 {
     window->tilemapLeft = x;
 }
-THUMB_FUNC void MoveWindowY(struct Window *window, u8 y)
+void MoveWindowY(struct Window *window, u8 y)
 {
     window->tilemapTop = y;
 }
-THUMB_FUNC void SetWindowPaletteNum(struct Window *window, u8 paletteNum)
+void SetWindowPaletteNum(struct Window *window, u8 paletteNum)
 {
     window->paletteNum = paletteNum;
 }
 
-THUMB_FUNC NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, u32 heap_id, const char *path)
+NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, u32 heap_id, const char *path)
 {
     void *ptr = AllocAndReadFile(heap_id, path);
     *char_ret = ptr;
@@ -2711,7 +2711,7 @@ THUMB_FUNC NNSG2dCharacterData * LoadCharacterDataFromFile(void **char_ret, u32 
     return st0;
 }
 
-THUMB_FUNC NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, u32 heap_id, const char *path)
+NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, u32 heap_id, const char *path)
 {
     void *ptr = AllocAndReadFile(heap_id, path);
     *pltt_ret = ptr;
@@ -2721,7 +2721,7 @@ THUMB_FUNC NNSG2dPaletteData * LoadPaletteDataFromFile(void **pltt_ret, u32 heap
     return st0;
 }
 
-THUMB_FUNC void DoScheduledBgGpuUpdates(struct BgConfig *bgConfig)
+void DoScheduledBgGpuUpdates(struct BgConfig *bgConfig)
 {
     ApplyScheduledBgPosUpdate(bgConfig);
     DoScheduledBgTilemapBufferTransfers(bgConfig);
@@ -2730,7 +2730,7 @@ THUMB_FUNC void DoScheduledBgGpuUpdates(struct BgConfig *bgConfig)
     bgConfig->bufferTransferScheduled = 0;
 }
 
-THUMB_FUNC void DoScheduledBgTilemapBufferTransfers(struct BgConfig *bgConfig)
+void DoScheduledBgTilemapBufferTransfers(struct BgConfig *bgConfig)
 {
     if ((bgConfig->bufferTransferScheduled & (1 << GF_BG_LYR_MAIN_0)) != 0)
     {
@@ -2773,12 +2773,12 @@ THUMB_FUNC void DoScheduledBgTilemapBufferTransfers(struct BgConfig *bgConfig)
     }
 }
 
-THUMB_FUNC void ScheduleBgTilemapBufferTransfer(struct BgConfig *bgConfig, u32 bgId)
+void ScheduleBgTilemapBufferTransfer(struct BgConfig *bgConfig, u32 bgId)
 {
     bgConfig->bufferTransferScheduled |= 1 << bgId;
 }
 
-THUMB_FUNC void ApplyScheduledBgPosUpdate(struct BgConfig *bgConfig)
+void ApplyScheduledBgPosUpdate(struct BgConfig *bgConfig)
 {
     if ((bgConfig->scrollScheduled & (1 << GF_BG_LYR_MAIN_0)) != 0)
     {
@@ -2881,21 +2881,21 @@ THUMB_FUNC void ApplyScheduledBgPosUpdate(struct BgConfig *bgConfig)
     }
 }
 
-THUMB_FUNC void ScheduleSetBgPosText(
+void ScheduleSetBgPosText(
     struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 value)
 {
     Bg_SetPosText(&bgConfig->bgs[bgId], op, value);
     bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-THUMB_FUNC void ScheduleSetBgAffineRotation(
+void ScheduleSetBgAffineRotation(
     struct BgConfig *bgConfig, u32 bgId, u32 op, u16 value)
 {
     Bg_SetAffineRotation(&bgConfig->bgs[bgId], op, value);
     bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-THUMB_FUNC void Bg_SetAffineRotation(struct Bg *bg, u32 op, u16 val)
+void Bg_SetAffineRotation(struct Bg *bg, u32 op, u16 val)
 {
     switch (op)
     {
@@ -2911,14 +2911,14 @@ THUMB_FUNC void Bg_SetAffineRotation(struct Bg *bg, u32 op, u16 val)
     }
 }
 
-THUMB_FUNC void ScheduleSetBgAffinePos(
+void ScheduleSetBgAffinePos(
     struct BgConfig *bgConfig, u32 bgId, u32 op, fx32 value)
 {
     Bg_SetAffinePos(&bgConfig->bgs[bgId], op, value);
     bgConfig->scrollScheduled |= 1 << bgId;
 }
 
-THUMB_FUNC void Bg_SetAffinePos(struct Bg *bg, u32 op, fx32 val)
+void Bg_SetAffinePos(struct Bg *bg, u32 op, fx32 val)
 {
     switch (op)
     {
@@ -2943,7 +2943,7 @@ THUMB_FUNC void Bg_SetAffinePos(struct Bg *bg, u32 op, fx32 val)
     }
 }
 
-THUMB_FUNC u32 DoesPixelAtScreenXYMatchPtrVal(
+u32 DoesPixelAtScreenXYMatchPtrVal(
     struct BgConfig *bgConfig, u8 bgId, u8 x, u8 y, u16 *src)
 {
     void *bgCharPtr;
@@ -3021,7 +3021,7 @@ THUMB_FUNC u32 DoesPixelAtScreenXYMatchPtrVal(
     return 0;
 }
 
-THUMB_FUNC void ApplyFlipFlagsToTile(struct BgConfig *bgConfig, u8 flag, u8 *src)
+void ApplyFlipFlagsToTile(struct BgConfig *bgConfig, u8 flag, u8 *src)
 {
     u8 i, j;
     if (flag != 0)

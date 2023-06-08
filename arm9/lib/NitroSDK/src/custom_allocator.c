@@ -1,13 +1,14 @@
 #include "custom_allocator.h"
 
-#include "global.h"
+#include "nitro/types.h"
 #include "OS_alloc.h"
+#include "code32.h"
 
 static FreeFunc sDestructor;
 static AllocFunc sAllocator;
 
 // Custom allocator
-ARM_FUNC void* CallCustomAllocator(u32 size)
+void* CallCustomAllocator(u32 size)
 {
     if (sAllocator != NULL)
         return sAllocator(size);
@@ -16,7 +17,7 @@ ARM_FUNC void* CallCustomAllocator(u32 size)
 }
 
 // Custom destructor
-ARM_FUNC void CallCustomDestructor(void * ptr)
+void CallCustomDestructor(void * ptr)
 {
     if (sDestructor != NULL)
         sDestructor(ptr);
@@ -25,7 +26,7 @@ ARM_FUNC void CallCustomDestructor(void * ptr)
 }
 
 // Custom alloc/free setter
-ARM_FUNC void SetCustomAllocatorAndDestructor(AllocFunc allocator, FreeFunc destructor)
+void SetCustomAllocatorAndDestructor(AllocFunc allocator, FreeFunc destructor)
 {
     sAllocator = allocator;
     sDestructor = destructor;

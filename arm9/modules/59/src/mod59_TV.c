@@ -125,7 +125,7 @@ const struct GraphicsBanks MOD59_021DA0D4 =
         .texpltt = GX_VRAM_TEXPLTT_NONE
     };
 
-THUMB_FUNC BOOL MOD59_TVInit(struct OverlayManager *overlayManager, u32 *status)
+BOOL MOD59_TVInit(struct OverlayManager *overlayManager, u32 *status)
 {
 #pragma unused(status)
     CreateHeap(3, 83, 0x40000);
@@ -137,7 +137,7 @@ THUMB_FUNC BOOL MOD59_TVInit(struct OverlayManager *overlayManager, u32 *status)
 }
 
 #ifdef NONMATCHING
-THUMB_FUNC BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
+BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
 {
     MOD59_TVOverlayData *data = (MOD59_TVOverlayData *)OverlayManager_GetData(overlayManager);
     BOOL ret = FALSE;
@@ -243,7 +243,7 @@ THUMB_FUNC BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
     return ret;
 }
 #else
-THUMB_FUNC asm BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
+asm BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
 {
     push {r3, r4, r5, r6, lr}
     sub sp, #0xc
@@ -409,7 +409,7 @@ _021D99E2:
 }
 #endif
 
-THUMB_FUNC BOOL MOD59_TVExit(struct OverlayManager *overlayManager, u32 *status)
+BOOL MOD59_TVExit(struct OverlayManager *overlayManager, u32 *status)
 {
 #pragma unused (status)
     u32 heap_id = ((MOD59_TVOverlayData *)OverlayManager_GetData(overlayManager))->heap_id;
@@ -418,12 +418,12 @@ THUMB_FUNC BOOL MOD59_TVExit(struct OverlayManager *overlayManager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC void MOD59_TVDoGpuBgUpdate(MOD59_TVOverlayData *data)
+void MOD59_TVDoGpuBgUpdate(MOD59_TVOverlayData *data)
 {
     DoScheduledBgGpuUpdates(data->bgConfig);
 }
 
-THUMB_FUNC void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data)
+void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data)
 {
     const struct GraphicsBanks banks = MOD59_021DA0D4; //sp #0x90
     GX_SetBanks(&banks);
@@ -467,7 +467,7 @@ THUMB_FUNC void MOD59_TVSetupGraphics(MOD59_TVOverlayData *data)
     G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, (GXBlendPlaneMask)(GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BG2), 4, 12);
 }
 
-THUMB_FUNC void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data)
+void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data)
 {
     ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
     ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);
@@ -487,7 +487,7 @@ THUMB_FUNC void MOD59_TVDestroyGraphics(MOD59_TVOverlayData *data)
     FreeToHeap(data->bgConfig);
 }
 
-THUMB_FUNC void MOD59_TVSetupMsg(MOD59_TVOverlayData *data)
+void MOD59_TVSetupMsg(MOD59_TVOverlayData *data)
 {
     data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0549_bin, data->heap_id);
 
@@ -496,12 +496,12 @@ THUMB_FUNC void MOD59_TVSetupMsg(MOD59_TVOverlayData *data)
     data->unk0C = 0;
 }
 
-THUMB_FUNC void MOD59_TVDestroyMsg(MOD59_TVOverlayData *data)
+void MOD59_TVDestroyMsg(MOD59_TVOverlayData *data)
 {
     DestroyMsgData(data->msgData);
 }
 
-THUMB_FUNC BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3)
+BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2, u32 param3)
 {
     BOOL ret = FALSE;
     switch (data->unk0C)
@@ -550,7 +550,7 @@ THUMB_FUNC BOOL MOD59_021D9C74(MOD59_TVOverlayData *data, u32 msgNo, u32 param2,
     return ret;
 }
 
-THUMB_FUNC void MOD59_021D9D78(MOD59_TVOverlayData *data)
+void MOD59_021D9D78(MOD59_TVOverlayData *data)
 {
     data->unk20 += 4;
     BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_Y, data->unk20 >> 4);

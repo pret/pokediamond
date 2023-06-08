@@ -6,7 +6,7 @@
 #include "unk_0200CA44.h"
 #include "unk_020222E8.h"
 
-THUMB_FUNC struct PaletteData *FUN_02002FD0(u32 heap_id)
+struct PaletteData *FUN_02002FD0(u32 heap_id)
 {
     struct PaletteData *ptr = AllocFromHeap(heap_id, sizeof(struct PaletteData));
     MI_CpuFill8(ptr, 0, sizeof(struct PaletteData));
@@ -14,12 +14,12 @@ THUMB_FUNC struct PaletteData *FUN_02002FD0(u32 heap_id)
     return ptr;
 }
 
-THUMB_FUNC void FUN_02002FEC(struct PaletteData *ptr)
+void FUN_02002FEC(struct PaletteData *ptr)
 {
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void PaletteData_SetBuffers(
+void PaletteData_SetBuffers(
     struct PaletteData *paletteData, u32 index, void *unfadedBuf, void *fadedBuf, u32 size)
 {
     paletteData->pltt[index].unfadedBuf = unfadedBuf;
@@ -27,7 +27,7 @@ THUMB_FUNC void PaletteData_SetBuffers(
     paletteData->pltt[index].bufSize = size;
 }
 
-THUMB_FUNC void PaletteData_AllocBuffers(
+void PaletteData_AllocBuffers(
     struct PaletteData *paletteData, u32 index, u32 size, u32 heap_id)
 {
     void *ptr = AllocFromHeap(heap_id, size);
@@ -36,20 +36,20 @@ THUMB_FUNC void PaletteData_AllocBuffers(
     PaletteData_SetBuffers(paletteData, index, ptr, ptr2, size);
 }
 
-THUMB_FUNC void PaletteData_FreeBuffers(struct PaletteData *paletteData, u32 index)
+void PaletteData_FreeBuffers(struct PaletteData *paletteData, u32 index)
 {
     FreeToHeap(paletteData->pltt[index].unfadedBuf);
     FreeToHeap(paletteData->pltt[index].fadedBuf);
 }
 
-THUMB_FUNC void PaletteData_LoadPalette(
+void PaletteData_LoadPalette(
     struct PaletteData *paletteData, const void *src, u32 index, u32 offset, u16 size)
 {
     MIi_CpuCopy16(src, paletteData->pltt[index].unfadedBuf + offset, size);
     MIi_CpuCopy16(src, paletteData->pltt[index].fadedBuf + offset, size);
 }
 
-THUMB_FUNC void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
+void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
     u32 heap_id,
@@ -74,7 +74,7 @@ THUMB_FUNC void PaletteData_LoadFromNarc(struct PaletteData *paletteData,
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void PaletteData_LoadNarc(struct PaletteData *paletteData,
+void PaletteData_LoadNarc(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
     u32 heap_id,
@@ -85,7 +85,7 @@ THUMB_FUNC void PaletteData_LoadNarc(struct PaletteData *paletteData,
     PaletteData_LoadFromNarc(paletteData, narcId, memberId, heap_id, index, size, offset, 0);
 }
 
-THUMB_FUNC void FUN_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 size)
+void FUN_02003108(struct PaletteData *paletteData, u32 index, u16 offset, u32 size)
 {
     GF_ASSERT(offset * 2 + size <= paletteData->pltt[index].bufSize);
 
@@ -112,7 +112,7 @@ THUMB_FUNC void FUN_02003108(struct PaletteData *paletteData, u32 index, u16 off
     PaletteData_LoadPalette(paletteData, ptr + offset, index, offset, (u16)size);
 }
 
-THUMB_FUNC void CopyPaletteFromNarc(
+void CopyPaletteFromNarc(
     NarcId narcId, s32 memberId, u32 heap_id, u32 size, u16 offset, void *dest)
 {
     NNSG2dPaletteData *pltData;
@@ -130,7 +130,7 @@ THUMB_FUNC void CopyPaletteFromNarc(
     FreeToHeap(ptr);
 }
 
-THUMB_FUNC void PaletteData_CopyPalette(struct PaletteData *paletteData,
+void PaletteData_CopyPalette(struct PaletteData *paletteData,
     u32 srcIdx,
     u16 srcOffset,
     u32 destIdx,
@@ -146,17 +146,17 @@ THUMB_FUNC void PaletteData_CopyPalette(struct PaletteData *paletteData,
         size);
 }
 
-THUMB_FUNC u16 *PaletteData_GetUnfadedBuf(struct PaletteData *paletteData, u32 index)
+u16 *PaletteData_GetUnfadedBuf(struct PaletteData *paletteData, u32 index)
 {
     return paletteData->pltt[index].unfadedBuf;
 }
 
-THUMB_FUNC u16 *PaletteData_GetFadedBuf(struct PaletteData *paletteData, u32 index)
+u16 *PaletteData_GetFadedBuf(struct PaletteData *paletteData, u32 index)
 {
     return paletteData->pltt[index].fadedBuf;
 }
 
-THUMB_FUNC u32 FUN_02003210(struct PaletteData *paletteData,
+u32 FUN_02003210(struct PaletteData *paletteData,
     u16 param1,
     u16 param2,
     s16 delay,
@@ -218,7 +218,7 @@ THUMB_FUNC u32 FUN_02003210(struct PaletteData *paletteData,
     return r6;
 }
 
-THUMB_FUNC u8 IsPaletteSelected(u16 selectedPalettes, u16 index)
+u8 IsPaletteSelected(u16 selectedPalettes, u16 index)
 {
     u32 r3 = 1;
     if ((selectedPalettes & (1 << index)) == 0)
@@ -229,7 +229,7 @@ THUMB_FUNC u8 IsPaletteSelected(u16 selectedPalettes, u16 index)
     return (u8)r3;
 }
 
-THUMB_FUNC void FUN_02003328(struct PaletteData *param0, u16 param1)
+void FUN_02003328(struct PaletteData *param0, u16 param1)
 {
     if (IsPaletteSelected(param0->unk11a_0, param1) != 1)
     {
@@ -237,7 +237,7 @@ THUMB_FUNC void FUN_02003328(struct PaletteData *param0, u16 param1)
     }
 }
 
-THUMB_FUNC void FUN_02003368(s32 param0, struct Palette *param1, u16 *param2)
+void FUN_02003368(s32 param0, struct Palette *param1, u16 *param2)
 {
     u8 r0;
     if (param0 < 4)
@@ -258,7 +258,7 @@ THUMB_FUNC void FUN_02003368(s32 param0, struct Palette *param1, u16 *param2)
     *param2 &= r4;
 }
 
-THUMB_FUNC void FUN_020033A4(struct PaletteFadeControl *paletteFade,
+void FUN_020033A4(struct PaletteFadeControl *paletteFade,
     u16 selectedPalettes,
     s16 delay,
     u8 startY,
@@ -291,7 +291,7 @@ THUMB_FUNC void FUN_020033A4(struct PaletteFadeControl *paletteFade,
     paletteFade->yDec = 1;
 }
 
-THUMB_FUNC void FUN_02003464(u32 param0, struct PaletteData *param1)
+void FUN_02003464(u32 param0, struct PaletteData *param1)
 {
     if (param1->unk11c == 1)
     {
@@ -317,7 +317,7 @@ THUMB_FUNC void FUN_02003464(u32 param0, struct PaletteData *param1)
     }
 }
 
-THUMB_FUNC void FUN_02003500(struct PaletteData *param0)
+void FUN_02003500(struct PaletteData *param0)
 {
     for (u8 i = 0; i < 4; i++)
     {
@@ -325,7 +325,7 @@ THUMB_FUNC void FUN_02003500(struct PaletteData *param0)
     }
 }
 
-THUMB_FUNC void FUN_02003520(struct PaletteData *param0)
+void FUN_02003520(struct PaletteData *param0)
 {
     for (u8 i = 4; i < 14; i++)
     {
@@ -333,7 +333,7 @@ THUMB_FUNC void FUN_02003520(struct PaletteData *param0)
     }
 }
 
-THUMB_FUNC void FUN_02003540(struct PaletteData *paletteData, u8 index, u32 param2)
+void FUN_02003540(struct PaletteData *paletteData, u8 index, u32 param2)
 {
     if (IsPaletteSelected(paletteData->activeFadePalettes, index) != 0)
     {
@@ -349,7 +349,7 @@ THUMB_FUNC void FUN_02003540(struct PaletteData *paletteData, u8 index, u32 para
     }
 }
 
-THUMB_FUNC void FUN_0200359C(struct PaletteData *paletteData, u32 index, u32 param2)
+void FUN_0200359C(struct PaletteData *paletteData, u32 index, u32 param2)
 {
 
     for (u32 i = 0; i < 0x10; i++)
@@ -366,7 +366,7 @@ THUMB_FUNC void FUN_0200359C(struct PaletteData *paletteData, u32 index, u32 par
     FUN_02003684(paletteData, (u8)index, &paletteData->pltt[index].fadeCtrl);
 }
 
-THUMB_FUNC void FUN_020035F8(
+void FUN_020035F8(
     u16 *src, u16 *dest, struct PaletteFadeControl *fadeCtrl, u32 numEntries)
 {
     for (u32 i = 0; i < numEntries; i++)
@@ -387,7 +387,7 @@ THUMB_FUNC void FUN_020035F8(
     }
 }
 
-THUMB_FUNC void FUN_02003684(
+void FUN_02003684(
     struct PaletteData *paletteData, u8 index, struct PaletteFadeControl *fadeCtrl)
 {
     if (fadeCtrl->y == fadeCtrl->targetY)
@@ -426,7 +426,7 @@ THUMB_FUNC void FUN_02003684(
     fadeCtrl->y = val;
 }
 
-THUMB_FUNC void FUN_0200372C(struct PaletteData *paletteData)
+void FUN_0200372C(struct PaletteData *paletteData)
 {
     if (paletteData->unk11a_f == 0 && paletteData->unk118_0 != 1)
     {
@@ -526,17 +526,17 @@ THUMB_FUNC void FUN_0200372C(struct PaletteData *paletteData)
     }
 }
 
-THUMB_FUNC u16 FUN_020038E4(struct PaletteData *paletteData)
+u16 FUN_020038E4(struct PaletteData *paletteData)
 {
     return paletteData->activeFadePalettes;
 }
 
-THUMB_FUNC void FUN_020038F0(struct PaletteData *paletteData, u32 param1)
+void FUN_020038F0(struct PaletteData *paletteData, u32 param1)
 {
     paletteData->unk11a_f = param1;
 }
 
-THUMB_FUNC void PaletteData_FillPalette(struct PaletteData *paletteData,
+void PaletteData_FillPalette(struct PaletteData *paletteData,
     u32 index,
     u32 selection,
     u16 value,
@@ -559,7 +559,7 @@ THUMB_FUNC void PaletteData_FillPalette(struct PaletteData *paletteData,
     }
 }
 
-THUMB_FUNC void BlendPalette(u16 *src, u16 *dest, u16 numEntries, u8 coeff, u16 blendColor)
+void BlendPalette(u16 *src, u16 *dest, u16 numEntries, u8 coeff, u16 blendColor)
 {
     s32 r2 = ((struct PlttData *)&blendColor)->r;
     s32 g2 = ((struct PlttData *)&blendColor)->g;
@@ -576,7 +576,7 @@ THUMB_FUNC void BlendPalette(u16 *src, u16 *dest, u16 numEntries, u8 coeff, u16 
     }
 }
 
-THUMB_FUNC void BlendPaletteUnfaded(struct PaletteData *paletteData,
+void BlendPaletteUnfaded(struct PaletteData *paletteData,
     u32 index,
     u16 offset,
     u16 numEntries,
@@ -598,7 +598,7 @@ THUMB_FUNC void BlendPaletteUnfaded(struct PaletteData *paletteData,
         blendColor);
 }
 
-THUMB_FUNC void BlendPalettes(u16 *src, u16 *dest, u16 selectedPalettes, u8 coeff, u16 blendColor)
+void BlendPalettes(u16 *src, u16 *dest, u16 selectedPalettes, u8 coeff, u16 blendColor)
 {
     while (selectedPalettes != 0)
     {
@@ -613,7 +613,7 @@ THUMB_FUNC void BlendPalettes(u16 *src, u16 *dest, u16 selectedPalettes, u8 coef
     }
 }
 
-THUMB_FUNC void BlendPalettesUnfaded(
+void BlendPalettesUnfaded(
     struct PaletteData *paletteData, u32 index, u16 selectedPalettes, u8 coeff, u16 blendColor)
 {
     u32 r4 = 0;
@@ -637,7 +637,7 @@ THUMB_FUNC void BlendPalettesUnfaded(
     }
 }
 
-THUMB_FUNC void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 gTone, s32 bTone)
+void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 gTone, s32 bTone)
 {
     s32 r, g, b, i;
     u32 gray;
@@ -665,7 +665,7 @@ THUMB_FUNC void TintPalette_CustomTone(u16 *palette, s32 count, s32 rTone, s32 g
     }
 }
 
-THUMB_FUNC void FUN_02003B40(struct PaletteData *paletteData,
+void FUN_02003B40(struct PaletteData *paletteData,
     NarcId narcId,
     s32 memberId,
     u32 heap_id,

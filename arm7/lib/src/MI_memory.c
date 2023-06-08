@@ -1,5 +1,5 @@
-#include "function_target.h"
 #include "MI_memory.h"
+#include "code32.h"
 
 asm void MIi_CpuClear16(register u16 value, register u16 * dst, register u32 size) {
     mov	r3, #0

@@ -2,8 +2,6 @@
 #include "unk_0207FC5C.h"
 #include "constants/pokemon.h"
 
-#pragma thumb on
-
 struct UnkStruct_020FB788
 {
     u32 monDataId;

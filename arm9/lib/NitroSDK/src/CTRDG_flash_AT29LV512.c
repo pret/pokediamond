@@ -1,10 +1,10 @@
 #include "CTRDG_flash_AT29LV512.h"
-#include "function_target.h"
 #include "CTRDG_backup.h"
 #include "CTRDG_flash.h"
 #include "MI_exMemory.h"
 #include "OS_interrupt.h"
 #include "OS_spinLock.h"
+#include "code32.h"
 
 #define CTRDG_BACKUP_COM_ADR1   (CTRDG_AGB_FLASH_ADR+0x00005555)
 #define CTRDG_BACKUP_COM_ADR2   (CTRDG_AGB_FLASH_ADR+0x00002aaa)
@@ -25,42 +25,52 @@ static const u16 atMaxTime[] = {
 };
 
 const CTRDGiFlashTypePlus AT29LV512_lib = {
-        CTRDGi_WriteFlash4KBAT,
-        CTRDGi_EraseFlashChipAT,
-        CTRDGi_EraseFlash4KBAT,
-        CTRDGi_WriteFlash4KBAsyncAT,
-        CTRDGi_EraseFlashChipAsyncAT,
-        CTRDGi_EraseFlash4KBAsyncAT,
-        CTRDGi_PollingSR512kCOMMON,
-        atMaxTime,
-        {
-                0x00010000, //ROM size
-                {0x00001000, 12, 16, 0}, //sector
-                {MI_CTRDG_RAMCYCLE_18, MI_CTRDG_RAMCYCLE_18}, //read cycle and write cycle
-                0x1f, //maker ID
-                0x3d, //device ID
+        .CTRDGi_WriteAgbFlashSector = CTRDGi_WriteFlash4KBAT,
+        .CTRDGi_EraseAgbFlashChip = CTRDGi_EraseFlashChipAT,
+        .CTRDGi_EraseAgbFlashSector = CTRDGi_EraseFlash4KBAT,
+        .CTRDGi_WriteAgbFlashSectorAsync = CTRDGi_WriteFlash4KBAsyncAT,
+        .CTRDGi_EraseAgbFlashChipAsync = CTRDGi_EraseFlashChipAsyncAT,
+        .CTRDGi_EraseAgbFlashSectorAsync = CTRDGi_EraseFlash4KBAsyncAT,
+        .CTRDGi_PollingSR = CTRDGi_PollingSR512kCOMMON,
+        .maxtime = atMaxTime,
+        .type = {
+                .romSize = 0x00010000,
+                .sector = {
+                    .size = 0x00001000,
+                    .shift = 12,
+                    .count = 16,
+                    .top = 0
+                },
+                .agbWait = {MI_CTRDG_RAMCYCLE_18, MI_CTRDG_RAMCYCLE_18}, //read cycle and write cycle
+                .makerID = 0x1f,
+                .deviceID = 0x3d,
         }
 };
 
 const CTRDGiFlashTypePlus AT29LV512_org = {
-        CTRDGi_WriteFlashSectorAT,
-        CTRDGi_EraseFlashChipAT,
-        CTRDGi_EraseFlashSectorAT,
-        CTRDGi_WriteFlashSectorAsyncAT,
-        CTRDGi_EraseFlashChipAsyncAT,
-        CTRDGi_EraseFlashSectorAsyncAT,
-        CTRDGi_PollingSR512kCOMMON,
-        atMaxTime,
-        {
-                0x00010000, //ROM size
-                {0x00000080, 7, 512, 0}, //sector
-                {MI_CTRDG_RAMCYCLE_18, MI_CTRDG_RAMCYCLE_18}, //read cycle and write cycle
-                0x1f, //maker ID
-                0x3d, //device ID
+        .CTRDGi_WriteAgbFlashSector = CTRDGi_WriteFlashSectorAT,
+        .CTRDGi_EraseAgbFlashChip = CTRDGi_EraseFlashChipAT,
+        .CTRDGi_EraseAgbFlashSector = CTRDGi_EraseFlashSectorAT,
+        .CTRDGi_WriteAgbFlashSectorAsync = CTRDGi_WriteFlashSectorAsyncAT,
+        .CTRDGi_EraseAgbFlashChipAsync = CTRDGi_EraseFlashChipAsyncAT,
+        .CTRDGi_EraseAgbFlashSectorAsync = CTRDGi_EraseFlashSectorAsyncAT,
+        .CTRDGi_PollingSR = CTRDGi_PollingSR512kCOMMON,
+        .maxtime = atMaxTime,
+        .type = {
+                .romSize = 0x00010000,
+                .sector = {
+                    .size = 0x00000080,
+                    .shift = 7,
+                    .count = 512,
+                    .top = 0
+                },
+                .agbWait = {MI_CTRDG_RAMCYCLE_18, MI_CTRDG_RAMCYCLE_18}, //read cycle and write cycle
+                .makerID = 0x1f,
+                .deviceID = 0x3d,
         }
 };
 
-ARM_FUNC u32 CTRDGi_EraseFlashChipCoreAT(CTRDGTaskInfo *arg)
+u32 CTRDGi_EraseFlashChipCoreAT(CTRDGTaskInfo *arg)
 {
     MICartridgeRamCycle ram_cycle;
     u32 result;
@@ -91,7 +101,7 @@ ARM_FUNC u32 CTRDGi_EraseFlashChipCoreAT(CTRDGTaskInfo *arg)
     return result;
 }
 
-ARM_FUNC u32 CTRDGi_EraseFlashSectorCoreAT(CTRDGTaskInfo *arg)
+u32 CTRDGi_EraseFlashSectorCoreAT(CTRDGTaskInfo *arg)
 {
     u32 i;
     u8 *dst;
@@ -136,7 +146,7 @@ ARM_FUNC u32 CTRDGi_EraseFlashSectorCoreAT(CTRDGTaskInfo *arg)
     return result;
 }
 
-ARM_FUNC u32 CTRDGi_EraseFlash4KBCoreAT(CTRDGTaskInfo *arg)
+u32 CTRDGi_EraseFlash4KBCoreAT(CTRDGTaskInfo *arg)
 {
     u32 result;
     u16 i, p_secNo, retry;
@@ -169,7 +179,7 @@ ARM_FUNC u32 CTRDGi_EraseFlash4KBCoreAT(CTRDGTaskInfo *arg)
     return result;
 }
 
-ARM_FUNC u32 CTRDGi_WriteFlashSectorCoreAT(CTRDGTaskInfo *arg)
+u32 CTRDGi_WriteFlashSectorCoreAT(CTRDGTaskInfo *arg)
 {
     u32 i;
     u8 *dst;
@@ -211,7 +221,7 @@ ARM_FUNC u32 CTRDGi_WriteFlashSectorCoreAT(CTRDGTaskInfo *arg)
     return result;
 }
 
-ARM_FUNC u32 CTRDGi_WriteFlash4KBCoreAT(CTRDGTaskInfo *arg)
+u32 CTRDGi_WriteFlash4KBCoreAT(CTRDGTaskInfo *arg)
 {
     u32 result;
     u16 p_secNo, retry;
@@ -248,20 +258,20 @@ ARM_FUNC u32 CTRDGi_WriteFlash4KBCoreAT(CTRDGTaskInfo *arg)
     return result;
 }
 
-ARM_FUNC u16 CTRDGi_EraseFlashChipAT(void)
+u16 CTRDGi_EraseFlashChipAT(void)
 {
     CTRDGTaskInfo p;
     return (u16)CTRDGi_EraseFlashChipCoreAT(&p);
 }
 
-ARM_FUNC u16 CTRDGi_EraseFlash4KBAT(u16 l_secNo)
+u16 CTRDGi_EraseFlash4KBAT(u16 l_secNo)
 {
     CTRDGTaskInfo p;
     p.sec_num = l_secNo;
     return (u16)CTRDGi_EraseFlash4KBCoreAT(&p);
 }
 
-ARM_FUNC u16 CTRDGi_WriteFlash4KBAT(u16 l_secNo, u8 *src)
+u16 CTRDGi_WriteFlash4KBAT(u16 l_secNo, u8 *src)
 {
     CTRDGTaskInfo p;
     p.sec_num = l_secNo;
@@ -269,14 +279,14 @@ ARM_FUNC u16 CTRDGi_WriteFlash4KBAT(u16 l_secNo, u8 *src)
     return (u16)CTRDGi_WriteFlash4KBCoreAT(&p);
 }
 
-ARM_FUNC void CTRDGi_EraseFlashChipAsyncAT(CTRDG_TASK_FUNC callback)
+void CTRDGi_EraseFlashChipAsyncAT(CTRDG_TASK_FUNC callback)
 {
     CTRDGTaskInfo p;
 
     CTRDGi_SetTask(&p, CTRDGi_EraseFlashChipCoreAT, callback);
 }
 
-ARM_FUNC void CTRDGi_EraseFlash4KBAsyncAT(u16 l_secNo, CTRDG_TASK_FUNC callback)
+void CTRDGi_EraseFlash4KBAsyncAT(u16 l_secNo, CTRDG_TASK_FUNC callback)
 {
     CTRDGTaskInfo p;
 
@@ -284,7 +294,7 @@ ARM_FUNC void CTRDGi_EraseFlash4KBAsyncAT(u16 l_secNo, CTRDG_TASK_FUNC callback)
     CTRDGi_SetTask(&p, CTRDGi_EraseFlash4KBCoreAT, callback);
 }
 
-ARM_FUNC void CTRDGi_WriteFlash4KBAsyncAT(u16 l_secNo, u8 *src, CTRDG_TASK_FUNC callback)
+void CTRDGi_WriteFlash4KBAsyncAT(u16 l_secNo, u8 *src, CTRDG_TASK_FUNC callback)
 {
     CTRDGTaskInfo p;
 
@@ -293,14 +303,14 @@ ARM_FUNC void CTRDGi_WriteFlash4KBAsyncAT(u16 l_secNo, u8 *src, CTRDG_TASK_FUNC 
     CTRDGi_SetTask(&p, CTRDGi_WriteFlash4KBCoreAT, callback);
 }
 
-ARM_FUNC u16 CTRDGi_EraseFlashSectorAT(u16 p_secNo)
+u16 CTRDGi_EraseFlashSectorAT(u16 p_secNo)
 {
     CTRDGTaskInfo p;
     p.sec_num = p_secNo;
     return (u16)CTRDGi_EraseFlashSectorCoreAT(&p);
 }
 
-ARM_FUNC u16 CTRDGi_WriteFlashSectorAT(u16 p_secNo, u8 *src)
+u16 CTRDGi_WriteFlashSectorAT(u16 p_secNo, u8 *src)
 {
     CTRDGTaskInfo p;
 
@@ -309,7 +319,7 @@ ARM_FUNC u16 CTRDGi_WriteFlashSectorAT(u16 p_secNo, u8 *src)
     return (u16)CTRDGi_WriteFlashSectorCoreAT(&p);
 }
 
-ARM_FUNC void CTRDGi_EraseFlashSectorAsyncAT(u16 p_secNo, CTRDG_TASK_FUNC callback)
+void CTRDGi_EraseFlashSectorAsyncAT(u16 p_secNo, CTRDG_TASK_FUNC callback)
 {
     CTRDGTaskInfo p;
 
@@ -317,7 +327,7 @@ ARM_FUNC void CTRDGi_EraseFlashSectorAsyncAT(u16 p_secNo, CTRDG_TASK_FUNC callba
     CTRDGi_SetTask(&p, CTRDGi_EraseFlashSectorCoreAT, callback);
 }
 
-ARM_FUNC void CTRDGi_WriteFlashSectorAsyncAT(u16 p_secNo, u8 *src, CTRDG_TASK_FUNC callback)
+void CTRDGi_WriteFlashSectorAsyncAT(u16 p_secNo, u8 *src, CTRDG_TASK_FUNC callback)
 {
     CTRDGTaskInfo p;
 

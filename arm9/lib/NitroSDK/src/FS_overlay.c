@@ -10,12 +10,13 @@
 #include "FS_overlay.h"
 #include "FS_mw_dtor.h"
 #include "MB_mb.h"
+#include "code32.h"
 
 #define FS_OVERLAY_FLAG_COMP    0x0001
 #define FS_OVERLAY_FLAG_AUTH    0x0002
 #define FS_OVERLAY_DIGEST_SIZE  DGT_HASH2_DIGEST_SIZE
 
-ARM_FUNC u32 FSi_GetOverlayBinarySize(FSOverlayInfo * p_ovi)
+u32 FSi_GetOverlayBinarySize(FSOverlayInfo * p_ovi)
 {
     u32 size = (p_ovi->header.flag & FS_OVERLAY_FLAG_COMP)
         ? p_ovi->header.compressed
@@ -23,7 +24,7 @@ ARM_FUNC u32 FSi_GetOverlayBinarySize(FSOverlayInfo * p_ovi)
     return size;
 }
 
-ARM_FUNC void FS_ClearOverlayImage(FSOverlayInfo * p_ovi)
+void FS_ClearOverlayImage(FSOverlayInfo * p_ovi)
 {
     u8 * const im_start = FS_GetOverlayAddress(p_ovi);
     u32 const ram_size = FS_GetOverlayImageSize(p_ovi);
@@ -34,7 +35,7 @@ ARM_FUNC void FS_ClearOverlayImage(FSOverlayInfo * p_ovi)
     MI_CpuFill8(im_start + ram_size, 0, total_size - ram_size);
 }
 
-ARM_FUNC FSFileID FS_GetOverlayFileID(FSOverlayInfo * p_ovi)
+FSFileID FS_GetOverlayFileID(FSOverlayInfo * p_ovi)
 {
     FSFileID ret;
     ret.arc = &fsi_arc_rom;
@@ -42,7 +43,7 @@ ARM_FUNC FSFileID FS_GetOverlayFileID(FSOverlayInfo * p_ovi)
     return ret;
 }
 
-ARM_FUNC BOOL FSi_LoadOverlayInfoCore(FSOverlayInfo * p_ovi, MIProcessor target, FSOverlayID id, FSArchive * arc, u32 offset_arm9, u32 len_arm9, u32 offset_arm7, u32 len_arm7)
+BOOL FSi_LoadOverlayInfoCore(FSOverlayInfo * p_ovi, MIProcessor target, FSOverlayID id, FSArchive * arc, u32 offset_arm9, u32 len_arm9, u32 offset_arm7, u32 len_arm7)
 {
     CARDRomRegion pr[1];
     u32 pos;
@@ -80,7 +81,7 @@ ARM_FUNC BOOL FSi_LoadOverlayInfoCore(FSOverlayInfo * p_ovi, MIProcessor target,
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_LoadOverlayInfo(FSOverlayInfo * p_ovi, MIProcessor target, FSOverlayID id)
+BOOL FS_LoadOverlayInfo(FSOverlayInfo * p_ovi, MIProcessor target, FSOverlayID id)
 {
     CARDRomRegion * const pr = (target == MI_PROCESSOR_ARM9) ? &fsi_ovt9 : &fsi_ovt7;
     if (pr->offset)
@@ -107,7 +108,7 @@ ARM_FUNC BOOL FS_LoadOverlayInfo(FSOverlayInfo * p_ovi, MIProcessor target, FSOv
     }
 }
 
-ARM_FUNC BOOL FS_LoadOverlayImageAsync(FSOverlayInfo * p_ovi, FSFile * p_file)
+BOOL FS_LoadOverlayImageAsync(FSOverlayInfo * p_ovi, FSFile * p_file)
 {
     FS_InitFile(p_file);
     if (!FS_OpenFileFast(p_file, FS_GetOverlayFileID(p_ovi)))
@@ -125,7 +126,7 @@ ARM_FUNC BOOL FS_LoadOverlayImageAsync(FSOverlayInfo * p_ovi, FSFile * p_file)
     }
 }
 
-ARM_FUNC BOOL FS_LoadOverlayImage(FSOverlayInfo * p_ovi)
+BOOL FS_LoadOverlayImage(FSOverlayInfo * p_ovi)
 {
     FSFile file[1];
     FS_InitFile(file);
@@ -170,7 +171,7 @@ static const u8 fsi_def_digest_key[64] = {
 static const void *fsi_digest_key_ptr = fsi_def_digest_key;
 static u32 fsi_digest_key_len = sizeof(fsi_def_digest_key);
 
-ARM_FUNC BOOL FSi_CompareDigest(const u8 *spec_digest, void *src, u32 len)
+BOOL FSi_CompareDigest(const u8 *spec_digest, void *src, u32 len)
 {
     int i;
     u8 digest[FS_OVERLAY_DIGEST_SIZE];
@@ -190,7 +191,7 @@ ARM_FUNC BOOL FSi_CompareDigest(const u8 *spec_digest, void *src, u32 len)
 extern u8 SDK_OVERLAY_DIGEST[];
 extern u8 SDK_OVERLAY_DIGEST_END[];
 
-ARM_FUNC void FS_StartOverlay(FSOverlayInfo * p_ovi)
+void FS_StartOverlay(FSOverlayInfo * p_ovi)
 {
     u32 rare_size = FSi_GetOverlayBinarySize(p_ovi);
     if (MB_IsMultiBootChild())
@@ -230,7 +231,7 @@ ARM_FUNC void FS_StartOverlay(FSOverlayInfo * p_ovi)
     }
 }
 
-ARM_FUNC void FS_EndOverlay(FSOverlayInfo *p_ovi)
+void FS_EndOverlay(FSOverlayInfo *p_ovi)
 {
     for (;;)
     {
@@ -296,13 +297,13 @@ ARM_FUNC void FS_EndOverlay(FSOverlayInfo *p_ovi)
     }
 }
 
-ARM_FUNC BOOL FS_UnloadOverlayImage(FSOverlayInfo * p_ovi)
+BOOL FS_UnloadOverlayImage(FSOverlayInfo * p_ovi)
 {
     FS_EndOverlay(p_ovi);
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_LoadOverlay(MIProcessor target, FSOverlayID id)
+BOOL FS_LoadOverlay(MIProcessor target, FSOverlayID id)
 {
     FSOverlayInfo ovi;
     if (!FS_LoadOverlayInfo(&ovi, target, id) || !FS_LoadOverlayImage(&ovi))
@@ -311,7 +312,7 @@ ARM_FUNC BOOL FS_LoadOverlay(MIProcessor target, FSOverlayID id)
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_UnloadOverlay(MIProcessor target, FSOverlayID id)
+BOOL FS_UnloadOverlay(MIProcessor target, FSOverlayID id)
 {
     FSOverlayInfo ovi;
     if (!FS_LoadOverlayInfo(&ovi, target, id) || !FS_UnloadOverlayImage(&ovi))

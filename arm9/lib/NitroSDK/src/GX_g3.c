@@ -1,8 +1,8 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "gx.h"
+#include "code32.h"
 
-
-ARM_FUNC void G3_BeginMakeDL(struct GXDLInfo *displaylist, void *r1, u32 r2){
+void G3_BeginMakeDL(struct GXDLInfo *displaylist, void *r1, u32 r2){
     displaylist->length = r2;
     displaylist->bottom = r1;
     displaylist->curr_cmd = r1;
@@ -10,7 +10,7 @@ ARM_FUNC void G3_BeginMakeDL(struct GXDLInfo *displaylist, void *r1, u32 r2){
     displaylist->param0_cmd_flg = 0x0;
 }
 
-ARM_FUNC s32 G3_EndMakeDL(struct GXDLInfo *displaylist){
+s32 G3_EndMakeDL(struct GXDLInfo *displaylist){
     if (displaylist->bottom == (u32 *)displaylist->curr_cmd)
         return 0;
     //pads the buffer with 0 to 4byte alignment if needed

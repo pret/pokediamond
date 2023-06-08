@@ -20,7 +20,7 @@ extern void FUN_02055304(u32 param0, u32 param1);
 extern BOOL FUN_02056B74(u32 param0, u32 param1, u32 param2);
 extern void FUN_02058418(u32 param0, u32 param1);
 
-THUMB_FUNC BOOL MOD05_021E72FC(u32 param0, u32 param1)
+BOOL MOD05_021E72FC(u32 param0, u32 param1)
 {
     u8 res = (u8)FUN_02058720(FUN_020553A0(param1));
     u32 r2;
@@ -50,7 +50,7 @@ label:
     return TRUE;
 }
 
-THUMB_FUNC void MOD05_021E7358(u32 param0, u32 param1, u32 param2)
+void MOD05_021E7358(u32 param0, u32 param1, u32 param2)
 {
     UnkStruct021E7358 *res = MOD05_021E74D4(24);
     res->Unk0C = param0;
@@ -60,7 +60,7 @@ THUMB_FUNC void MOD05_021E7358(u32 param0, u32 param1, u32 param2)
     FUN_020463CC(param0, MOD05_021E73B4, res);
 }
 
-THUMB_FUNC u32 MOD05_021E7388(u32 param0)
+u32 MOD05_021E7388(u32 param0)
 {
     switch (param0)
     {
@@ -76,7 +76,7 @@ THUMB_FUNC u32 MOD05_021E7388(u32 param0)
     return 0;
 }
 
-THUMB_FUNC BOOL MOD05_021E73B4(UnkStruct021E7358 *param0)
+BOOL MOD05_021E73B4(UnkStruct021E7358 *param0)
 {
     UnkStruct021E7358 *strct = FUN_0204652C(param0);
     u32 res = FUN_020553A0(strct->Unk10);
@@ -142,7 +142,7 @@ THUMB_FUNC BOOL MOD05_021E73B4(UnkStruct021E7358 *param0)
     return FALSE;
 }
 
-THUMB_FUNC UnkStruct021E7358 *MOD05_021E74D4(u32 param0)
+UnkStruct021E7358 *MOD05_021E74D4(u32 param0)
 {
     UnkStruct021E7358 *res = (UnkStruct021E7358 *)AllocFromHeapAtEnd(4, param0);
     if (res == NULL)
@@ -153,7 +153,7 @@ THUMB_FUNC UnkStruct021E7358 *MOD05_021E74D4(u32 param0)
     return res;
 }
 
-THUMB_FUNC void MOD05_021E74F8(UnkStruct021E7358 *param0)
+void MOD05_021E74F8(UnkStruct021E7358 *param0)
 {
     FreeToHeapExplicit(4, param0);
 }

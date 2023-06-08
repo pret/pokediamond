@@ -1,9 +1,9 @@
 #include "OS_message.h"
-#include "function_target.h"
 #include "OS_system.h"
 #include "OS_thread.h"
+#include "code32.h"
 
-ARM_FUNC void OS_InitMessageQueue(OSMessageQueue *mq, OSMessage *msgArray, s32 msgCount)
+void OS_InitMessageQueue(OSMessageQueue *mq, OSMessage *msgArray, s32 msgCount)
 {
     OS_InitThreadQueue(&mq->queueSend);
     OS_InitThreadQueue(&mq->queueReceive);
@@ -13,7 +13,7 @@ ARM_FUNC void OS_InitMessageQueue(OSMessageQueue *mq, OSMessage *msgArray, s32 m
     mq->usedCount = 0;
 }
 
-ARM_FUNC BOOL OS_SendMessage(OSMessageQueue *mq, OSMessage msg, s32 flags)
+BOOL OS_SendMessage(OSMessageQueue *mq, OSMessage msg, s32 flags)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
 
@@ -40,7 +40,7 @@ ARM_FUNC BOOL OS_SendMessage(OSMessageQueue *mq, OSMessage msg, s32 flags)
     return TRUE;
 }
 
-ARM_FUNC BOOL OS_ReceiveMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags)
+BOOL OS_ReceiveMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
 
@@ -70,7 +70,7 @@ ARM_FUNC BOOL OS_ReceiveMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags)
     return TRUE;
 }
 
-ARM_FUNC BOOL OS_JamMessage(OSMessageQueue *mq, OSMessage msg, s32 flags)
+BOOL OS_JamMessage(OSMessageQueue *mq, OSMessage msg, s32 flags)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
 
@@ -97,7 +97,7 @@ ARM_FUNC BOOL OS_JamMessage(OSMessageQueue *mq, OSMessage msg, s32 flags)
     return TRUE;
 }
 
-ARM_FUNC BOOL OS_ReadMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags)
+BOOL OS_ReadMessage(OSMessageQueue *mq, OSMessage *msg, s32 flags)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
 

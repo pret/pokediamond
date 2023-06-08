@@ -1,25 +1,27 @@
-#include "global.h"
+#include "nitro/types.h"
+#include "registers.h"
 #include "gx.h"
+#include "code32.h"
 
-ARM_FUNC void *G2_GetBG0ScrPtr(){
+void *G2_GetBG0ScrPtr(){
     u32 temp = (u32)(((reg_G2_BG0CNT & 0x1F00) >> 0x8) << 0xB);
     return (void *)(0x6000000 + (((reg_GX_DISPCNT & 0x38000000) >> 0x1B) << 0x10) + temp);
 }
 
-ARM_FUNC void *G2S_GetBG0ScrPtr(){
+void *G2S_GetBG0ScrPtr(){
     return (void *)(0x6200000 + (((reg_G2S_DB_BG0CNT & 0x1F00) >> 0x8) << 0xB));
 }
 
-ARM_FUNC void *G2_GetBG1ScrPtr(){
+void *G2_GetBG1ScrPtr(){
     u32 temp = (u32)(((reg_G2_BG1CNT & 0x1F00) >> 0x8) << 0xB);
     return (void *)(0x6000000 + (((reg_GX_DISPCNT & 0x38000000) >> 0x1B) << 0x10) + temp);
 }
 
-ARM_FUNC void *G2S_GetBG1ScrPtr(){
+void *G2S_GetBG1ScrPtr(){
     return (void *)(0x6200000 + (((reg_G2S_DB_BG1CNT & 0x1F00) >> 0x8) << 0xB));
 }
 
-ARM_FUNC void *G2_GetBG2ScrPtr(){
+void *G2_GetBG2ScrPtr(){
     u32 temp12 = (reg_GX_DISPCNT & 0x7);
     u32 temp3 = reg_G2_BG2CNT;
     u32 temp2 = (((reg_GX_DISPCNT & 0x38000000) >> 0x1B) << 0x10);
@@ -44,7 +46,7 @@ ARM_FUNC void *G2_GetBG2ScrPtr(){
     }
 }
 
-ARM_FUNC void *G2S_GetBG2ScrPtr(){
+void *G2S_GetBG2ScrPtr(){
     u32 temp12 = (reg_GXS_DB_DISPCNT & 0x7);
     u32 temp3 = reg_G2S_DB_BG2CNT;
     u32 temp1 = ((temp3 & 0x1F00) >> 0x8);
@@ -68,7 +70,7 @@ ARM_FUNC void *G2S_GetBG2ScrPtr(){
     }
 }
 
-ARM_FUNC void *G2_GetBG3ScrPtr(){
+void *G2_GetBG3ScrPtr(){
     u32 temp12 = (reg_GX_DISPCNT & 0x7);
     u32 temp3 = reg_G2_BG3CNT;
     u32 temp2 = (((reg_GX_DISPCNT & 0x38000000) >> 0x1B) << 0x10);
@@ -93,7 +95,7 @@ ARM_FUNC void *G2_GetBG3ScrPtr(){
     }
 }
 
-ARM_FUNC void *G2S_GetBG3ScrPtr(){
+void *G2S_GetBG3ScrPtr(){
     u32 temp12 = (reg_GXS_DB_DISPCNT & 0x7);
     u32 temp3 = reg_G2S_DB_BG3CNT;
     u32 temp1 = ((temp3 & 0x1F00) >> 0x8);
@@ -117,25 +119,25 @@ ARM_FUNC void *G2S_GetBG3ScrPtr(){
     }
 }
 
-ARM_FUNC void *G2_GetBG0CharPtr(){
+void *G2_GetBG0CharPtr(){
     u32 temp = (u32)(((reg_G2_BG0CNT & 0x3C) >> 0x2) << 0xE);
     return (void *)(0x6000000 + (((reg_GX_DISPCNT & 0x7000000) >> 0x18) << 0x10) + temp);
 }
 
-ARM_FUNC void *G2S_GetBG0CharPtr(){
+void *G2S_GetBG0CharPtr(){
     return (void *)(0x6200000 + (((reg_G2S_DB_BG0CNT & 0x3C) >> 0x2) << 0xE));
 }
 
-ARM_FUNC void *G2_GetBG1CharPtr(){
+void *G2_GetBG1CharPtr(){
     u32 temp = (u32)(((reg_G2_BG1CNT & 0x3C) >> 0x2) << 0xE);
     return (void *)(0x6000000 + (((reg_GX_DISPCNT & 0x7000000) >> 0x18) << 0x10) + temp);
 }
 
-ARM_FUNC void *G2S_GetBG1CharPtr(){
+void *G2S_GetBG1CharPtr(){
     return (void *)(0x6200000 + (((reg_G2S_DB_BG1CNT & 0x3C) >> 0x2) << 0xE));
 }
 
-ARM_FUNC void *G2_GetBG2CharPtr(){
+void *G2_GetBG2CharPtr(){
     s32 temp1 = (s32)(reg_GX_DISPCNT & 0x7);
     u32 temp = reg_G2_BG2CNT;
     if (temp1 < 5 || !(temp & 0x80))
@@ -150,7 +152,7 @@ ARM_FUNC void *G2_GetBG2CharPtr(){
     }
 }
 
-ARM_FUNC void *G2S_GetBG2CharPtr(){
+void *G2S_GetBG2CharPtr(){
     s32 temp1 = (s32)(reg_GXS_DB_DISPCNT & 0x7);
     u32 temp = reg_G2S_DB_BG2CNT;
     if (temp1 < 5 || !(temp & 0x80))
@@ -164,7 +166,7 @@ ARM_FUNC void *G2S_GetBG2CharPtr(){
     }
 }
 
-ARM_FUNC void *G2_GetBG3CharPtr(){
+void *G2_GetBG3CharPtr(){
     s32 temp1 = (s32)(reg_GX_DISPCNT & 0x7);
     u32 temp = reg_G2_BG3CNT;
     if (temp1 < 3 || (temp1 < 6 && !(temp & 0x80)))
@@ -179,7 +181,7 @@ ARM_FUNC void *G2_GetBG3CharPtr(){
     }
 }
 
-ARM_FUNC void *G2S_GetBG3CharPtr(){
+void *G2S_GetBG3CharPtr(){
     s32 temp1 = (s32)(reg_GXS_DB_DISPCNT & 0x7);
     u32 temp = reg_G2S_DB_BG3CNT;
     if (temp1 < 3 || (temp1 < 6 && !(temp & 0x80)))

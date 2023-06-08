@@ -10,7 +10,7 @@ void ListMenuDrawCursor(struct ListMenu * list);
 BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorAndCallCallback, u8 count, u8 movingDown);
 void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 onInit);
 
-THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id)
+struct ListMenu * ListMenuInit(const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u32 heap_id)
 {
     struct ListMenu * list = AllocFromHeap(heap_id, sizeof(struct ListMenu));
     list->template = *template;
@@ -47,7 +47,7 @@ THUMB_FUNC struct ListMenu * ListMenuInit(const struct ListMenuTemplate * templa
     return list;
 }
 
-THUMB_FUNC s32 ListMenu_ProcessInput(struct ListMenu * list)
+s32 ListMenu_ProcessInput(struct ListMenu * list)
 {
     list->unk_33 = 0;
 
@@ -105,7 +105,7 @@ THUMB_FUNC s32 ListMenu_ProcessInput(struct ListMenu * list)
     }
 }
 
-THUMB_FUNC void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * itemsAbove)
+void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * itemsAbove)
 {
     if (cursorPos != NULL)
         *cursorPos = list->cursorPos;
@@ -115,7 +115,7 @@ THUMB_FUNC void DestroyListMenu(struct ListMenu * list, u16 * cursorPos, u16 * i
     FreeToHeapExplicit(list->heap_id, list);
 }
 
-THUMB_FUNC void RedrawListMenu(struct ListMenu * list)
+void RedrawListMenu(struct ListMenu * list)
 {
     FillWindowPixelBuffer(list->template.window, list->template.fillValue);
     ListMenuPrintEntries(list, list->cursorPos, 0, list->template.maxShowed);
@@ -123,7 +123,7 @@ THUMB_FUNC void RedrawListMenu(struct ListMenu * list)
     CopyWindowToVram(list->template.window);
 }
 
-THUMB_FUNC s32 ListMenuTestInputInternal(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 updateFlag, u16 input, u16 *newCursorPos, u16 *newItemsAbove)
+s32 ListMenuTestInputInternal(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 updateFlag, u16 input, u16 *newCursorPos, u16 *newItemsAbove)
 {
     if (template != NULL)
         list->template = *template;
@@ -151,12 +151,12 @@ THUMB_FUNC s32 ListMenuTestInputInternal(struct ListMenu * list, const struct Li
     return -1;
 }
 
-THUMB_FUNC s32 ListMenuTestInput(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 input, u16 *newCursorPos, u16 *newItemsAbove)
+s32 ListMenuTestInput(struct ListMenu * list, const struct ListMenuTemplate * template, u16 cursorPos, u16 itemsAbove, u16 input, u16 *newCursorPos, u16 *newItemsAbove)
 {
     return ListMenuTestInputInternal(list, template, cursorPos, itemsAbove, FALSE, input, newCursorPos, newItemsAbove);
 }
 
-THUMB_FUNC void ListMenuOverrideSetColors(struct ListMenu * list, u8 cursorPal, u8 fillValue, u8 cursorShadowPal)
+void ListMenuOverrideSetColors(struct ListMenu * list, u8 cursorPal, u8 fillValue, u8 cursorShadowPal)
 {
     list->cursorPal = cursorPal;
     list->fillValue = fillValue;
@@ -164,12 +164,12 @@ THUMB_FUNC void ListMenuOverrideSetColors(struct ListMenu * list, u8 cursorPal, 
     list->overrideEnabled = TRUE;
 }
 
-THUMB_FUNC void ListMenuGetCurrentItemArrayId(struct ListMenu * list, u16 * index_p)
+void ListMenuGetCurrentItemArrayId(struct ListMenu * list, u16 * index_p)
 {
     *index_p = (u16)(list->cursorPos + list->itemsAbove);
 }
 
-THUMB_FUNC void ListMenuGetScrollAndRow(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p)
+void ListMenuGetScrollAndRow(struct ListMenu * list, u16 * cursorPos_p, u16 * itemsAbove_p)
 {
     if (cursorPos_p != NULL)
         *cursorPos_p = list->cursorPos;
@@ -177,17 +177,17 @@ THUMB_FUNC void ListMenuGetScrollAndRow(struct ListMenu * list, u16 * cursorPos_
         *itemsAbove_p = list->itemsAbove;
 }
 
-THUMB_FUNC u8 ListMenuGetUnk33(struct ListMenu * list)
+u8 ListMenuGetUnk33(struct ListMenu * list)
 {
     return list->unk_33;
 }
 
-THUMB_FUNC s32 ListMenuGetValueByArrayId(struct ListMenu * list, s32 index)
+s32 ListMenuGetValueByArrayId(struct ListMenu * list, s32 index)
 {
     return list->template.items[index].value;
 }
 
-THUMB_FUNC s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
+s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
 {
     switch (attr)
     {
@@ -236,7 +236,7 @@ THUMB_FUNC s32 ListMenuGetTemplateField(struct ListMenu * list, u32 attr)
     return -1;
 }
 
-THUMB_FUNC void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 value)
+void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 value)
 {
     switch (attr)
     {
@@ -301,12 +301,12 @@ THUMB_FUNC void ListMenuSetTemplateField(struct ListMenu * list, u32 attr, s32 v
     }
 }
 
-THUMB_FUNC void ListMenuGetItemStr(struct ListMenu * list, struct ListMenuItem * items)
+void ListMenuGetItemStr(struct ListMenu * list, struct ListMenuItem * items)
 {
     list->template.items = items;
 }
 
-THUMB_FUNC void ListMenuPrint(struct ListMenu * list, struct String * str, u8 x, u8 y)
+void ListMenuPrint(struct ListMenu * list, struct String * str, u8 x, u8 y)
 {
     if (str != NULL)
     {
@@ -321,7 +321,7 @@ THUMB_FUNC void ListMenuPrint(struct ListMenu * list, struct String * str, u8 x,
     }
 }
 
-THUMB_FUNC void ListMenuPrintEntries(struct ListMenu * list, u16 startIndex, u16 yOffset, u16 count)
+void ListMenuPrintEntries(struct ListMenu * list, u16 startIndex, u16 yOffset, u16 count)
 {
     s32 i;
     u8 x, y;
@@ -341,7 +341,7 @@ THUMB_FUNC void ListMenuPrintEntries(struct ListMenu * list, u16 startIndex, u16
     }
 }
 
-THUMB_FUNC void ListMenuDrawCursor(struct ListMenu * list)
+void ListMenuDrawCursor(struct ListMenu * list)
 {
     u8 yMultiplier = (u8)(GetFontAttribute((u8)list->template.fontId, 1) + list->template.itemVerticalPadding);
     u8 x = list->template.cursor_X;
@@ -358,7 +358,7 @@ THUMB_FUNC void ListMenuDrawCursor(struct ListMenu * list)
     }
 }
 
-THUMB_FUNC void ListMenuErasePrintedCursor(struct ListMenu * list, u16 itemsAbove)
+void ListMenuErasePrintedCursor(struct ListMenu * list, u16 itemsAbove)
 {
     switch (list->template.cursorKind)
     {
@@ -380,7 +380,7 @@ THUMB_FUNC void ListMenuErasePrintedCursor(struct ListMenu * list, u16 itemsAbov
     }
 }
 
-THUMB_FUNC u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *list, u8 movingDown)
+u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *list, u8 movingDown)
 {
     u32 cursorPos;
     u16 itemsAbove;
@@ -462,7 +462,7 @@ THUMB_FUNC u8 ListMenuUpdateSelectedRowIndexAndScrollOffset(struct ListMenu *lis
     return 2;
 }
 
-THUMB_FUNC void ListMenuScroll(struct ListMenu * list, u8 count, u8 movingDown)
+void ListMenuScroll(struct ListMenu * list, u8 count, u8 movingDown)
 {
     if (count >= list->template.maxShowed)
     {
@@ -502,7 +502,7 @@ THUMB_FUNC void ListMenuScroll(struct ListMenu * list, u8 count, u8 movingDown)
     }
 }
 
-THUMB_FUNC BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorAndCallCallback, u8 count, u8 movingDown)
+BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorAndCallCallback, u8 count, u8 movingDown)
 {
     u16 oldSelectedRow;
     u8 selectionChange, i, cursorCount;
@@ -550,7 +550,7 @@ THUMB_FUNC BOOL ListMenuChangeSelection(struct ListMenu * list, u8 updateCursorA
     return FALSE;
 }
 
-THUMB_FUNC void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 onInit)
+void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 onInit)
 {
     if (list->template.moveCursorFunc != NULL)
     {
@@ -558,7 +558,7 @@ THUMB_FUNC void ListMenuCallSelectionChangedCallback(struct ListMenu * list, u8 
     }
 }
 
-THUMB_FUNC void ListMenuCopyToVram(struct ListMenu * list)
+void ListMenuCopyToVram(struct ListMenu * list)
 {
     CopyWindowToVram(list->template.window);
 }

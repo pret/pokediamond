@@ -1,8 +1,8 @@
-#include "function_target.h"
 #include "OS_tick.h"
 #include "OS_interrupt.h"
 #include "OS_timer.h"
 #include "OS_system.h"
+#include "code32.h"
 
 static u16 OSi_UseTick = FALSE;
 vu64 OSi_TickCounter;
@@ -10,7 +10,7 @@ BOOL OSi_NeedResetTimer = FALSE;
 
 static void OSi_CountUpTick(void);
 
-ARM_FUNC void OS_InitTick(void)
+void OS_InitTick(void)
 {
     if (OSi_UseTick)
     {
@@ -27,12 +27,12 @@ ARM_FUNC void OS_InitTick(void)
     OSi_NeedResetTimer = FALSE;
 }
 
-ARM_FUNC BOOL OS_IsTickAvailable(void)
+BOOL OS_IsTickAvailable(void)
 {
     return OSi_UseTick;
 }
 
-ARM_FUNC static void OSi_CountUpTick(void)
+static void OSi_CountUpTick(void)
 {
     OSi_TickCounter++;
 
@@ -48,7 +48,7 @@ ARM_FUNC static void OSi_CountUpTick(void)
     OSi_EnterTimerCallback(OS_TIMER_0, (void (*)(void *))OSi_CountUpTick, 0);
 }
 
-ARM_FUNC OSTick OS_GetTick(void)
+OSTick OS_GetTick(void)
 {
     OSIntrMode prev = OS_DisableInterrupts();
     vu16 countL = *(REGType16 *)((u32)&reg_OS_TM0CNT_L + OS_TIMER_0 * 4);
@@ -64,7 +64,7 @@ ARM_FUNC OSTick OS_GetTick(void)
     return (countH << 16) | countL;
 }
 
-ARM_FUNC u16 OS_GetTickLo(void)
+u16 OS_GetTickLo(void)
 {
     return reg_OS_TM0CNT_L;
 }

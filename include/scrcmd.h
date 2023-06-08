@@ -165,10 +165,19 @@ BOOL ScrCmd_RestoreOverworld(ScriptContext *ctx);
 BOOL ScrCmd_TerminateOverworldProcess(ScriptContext *ctx);
 BOOL ScrCmd_Unk00A2(ScriptContext *ctx);
 BOOL ScrCmd_Unk00A3(ScriptContext *ctx);
-BOOL ScrCmd_Unk00A4(ScriptContext *ctx);
+BOOL ScrCmd_GetDressupPortraitSlot(ScriptContext *ctx);
 BOOL ScrCmd_Unk0207(ScriptContext *ctx);
 BOOL ScrCmd_ShowPokemonPic(ScriptContext *ctx);
- BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx);
+BOOL ScrCmd_ShowPartyPokemonPic(ScriptContext *ctx);
+BOOL ScrCmd_Unk0209(ScriptContext *ctx);
+BOOL ScrCmd_Unk028D(ScriptContext *ctx);
+BOOL ScrCmd_Unk028E(ScriptContext *ctx);
+BOOL ScrCmd_Unk020A(ScriptContext *ctx);
+BOOL ScrCmd_Unk020B(ScriptContext *ctx);
+BOOL ScrCmd_Unk00A5(ScriptContext *ctx);
+BOOL ScrCmd_DressupPokemon(ScriptContext *ctx);
+BOOL ScrCmd_ShowDressedPokemon(ScriptContext *ctx);
+BOOL ScrCmd_ShowContestPokemon(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

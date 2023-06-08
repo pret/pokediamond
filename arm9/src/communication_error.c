@@ -61,13 +61,13 @@ static const struct GraphicsBanks sCommunicationErrorGraphicsBanks = {
 
 static void VBlankIntr(void);
 
-THUMB_FUNC static void VBlankIntr(void)
+static void VBlankIntr(void)
 {
     DTCM.intr_check |= OS_IE_V_BLANK;
     MI_WaitDma(GX_DEFAULT_DMAID);
 }
 
-THUMB_FUNC void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
+void ShowCommunicationError(u32 heap_id, u32 error, u32 error_code)
 {
     struct Window window;
     

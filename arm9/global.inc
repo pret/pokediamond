@@ -2829,7 +2829,7 @@
 .extern ScrCmd_TerminateOverworldProcess
 .extern ScrCmd_Unk00A2
 .extern ScrCmd_Unk00A3
-.extern ScrCmd_Unk00A4
+.extern ScrCmd_GetDressupPortraitSlot
 .extern ScrCmd_Unk0207
 .extern ScrCmd_ShowPokemonPic
 .extern ScrCmd_ShowPartyPokemonPic
@@ -2839,9 +2839,9 @@
 .extern ScrCmd_Unk020A
 .extern ScrCmd_Unk020B
 .extern ScrCmd_Unk00A5
-.extern ScrCmd_Unk00A6
-.extern ScrCmd_Unk00A7
-.extern ScrCmd_Unk00A8
+.extern ScrCmd_DressupPokemon
+.extern ScrCmd_ShowDressedPokemon
+.extern ScrCmd_ShowContestPokemon
 .extern ScrCmd_Unk012E
 .extern ScrCmd_Unk012F
 .extern ScrCmd_Unk0130

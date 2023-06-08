@@ -1,6 +1,7 @@
 #include "SND_util.h"
 
 #include "syscall.h"
+#include "code32.h"
 
 // TODO remove this extern once the static const definition of it is here
 extern s8 sLfoSinTable[0x21];

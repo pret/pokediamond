@@ -1,13 +1,14 @@
 #include "nitro.h"
 #include "NNS_FND_heapcommon.h"
 #include "NNS_FND_list.h"
+#include "code32.h"
 
 BOOL sRootListInitialized;
 NNSFndList sRootList;
 
-ARM_FUNC void *NNS_FndGetNextListObject(NNSFndList *, void *);
+void *NNS_FndGetNextListObject(NNSFndList *, void *);
 
-ARM_FUNC static NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBlock)
+static NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void * memBlock)
 {
     NNSiFndHeapHead * pHead = NULL;
 
@@ -24,7 +25,7 @@ ARM_FUNC static NNSiFndHeapHead* FindContainHeap(NNSFndList * pList, const void 
     return NULL;
 }
 
-ARM_FUNC static NNSFndList* FindListContainHeap(const void * memBlock)
+static NNSFndList* FindListContainHeap(const void * memBlock)
 {
     NNSFndList* ret = &sRootList;
     NNSiFndHeapHead* pHead = FindContainHeap(&sRootList, memBlock);
@@ -33,7 +34,7 @@ ARM_FUNC static NNSFndList* FindListContainHeap(const void * memBlock)
     return ret;
 }
 
-ARM_FUNC void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart, void* heapEnd, u16 optionFlag)
+void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* heapStart, void* heapEnd, u16 optionFlag)
 {
     pHead->signature = signature;
     pHead->heapStart = heapStart;
@@ -49,7 +50,7 @@ ARM_FUNC void NNSi_FndInitHeapHead(NNSiFndHeapHead *pHead, u32 signature, void* 
     NNS_FndAppendListObject(FindListContainHeap(pHead), pHead);
 }
 
-ARM_FUNC void NNSi_FndFinalizeHeap(NNSiFndHeapHead *pHead)
+void NNSi_FndFinalizeHeap(NNSiFndHeapHead *pHead)
 {
     NNS_FndRemoveListObject(FindListContainHeap(pHead), pHead);
 }

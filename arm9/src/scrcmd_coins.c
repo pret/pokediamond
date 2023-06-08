@@ -1,3 +1,4 @@
+#include "global.h"
 #include "scrcmd.h"
 #include "coins.h"
 
@@ -7,7 +8,7 @@ extern Window *MOD05_021E2950(struct FieldSystem* arg, u8 xVal, u8 yVal);
 extern void MOD05_021E29B4(Window *coinBox);
 extern void MOD05_021E29C8(struct FieldSystem *arg, Window *coinBox);
 
-THUMB_FUNC BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx) //0075
+BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx) //0075
 {
     struct FieldSystem* sav_ptr = ctx->fieldSystem;
     u16 xVal = ScriptGetVar(ctx);
@@ -20,7 +21,7 @@ THUMB_FUNC BOOL ScrCmd_ShowCoinBox(struct ScriptContext * ctx) //0075
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HideCoinBox(struct ScriptContext * ctx) //0076
+BOOL ScrCmd_HideCoinBox(struct ScriptContext * ctx) //0076
 {
     Window **coinBoxPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_COIN_BOX);
     MOD05_021E29B4(*coinBoxPtr);
@@ -28,7 +29,7 @@ THUMB_FUNC BOOL ScrCmd_HideCoinBox(struct ScriptContext * ctx) //0076
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_UpdateCoinBox(struct ScriptContext * ctx) //0077
+BOOL ScrCmd_UpdateCoinBox(struct ScriptContext * ctx) //0077
 {
     Window **coinBoxPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_COIN_BOX);
     MOD05_021E29C8(ctx->fieldSystem, *coinBoxPtr);
@@ -36,7 +37,7 @@ THUMB_FUNC BOOL ScrCmd_UpdateCoinBox(struct ScriptContext * ctx) //0077
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetCoins(struct ScriptContext * ctx) //0078 - todo: CheckCoins instead?
+BOOL ScrCmd_GetCoins(struct ScriptContext * ctx) //0078 - todo: CheckCoins instead?
 {
     u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
@@ -46,7 +47,7 @@ THUMB_FUNC BOOL ScrCmd_GetCoins(struct ScriptContext * ctx) //0078 - todo: Check
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GiveCoins(struct ScriptContext * ctx) //0079
+BOOL ScrCmd_GiveCoins(struct ScriptContext * ctx) //0079
 {
     u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 amount = ScriptGetVar(ctx);
@@ -56,7 +57,7 @@ THUMB_FUNC BOOL ScrCmd_GiveCoins(struct ScriptContext * ctx) //0079
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext * ctx) //0080 - todo: TakeCoins instead?
+BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext * ctx) //0080 - todo: TakeCoins instead?
 {
     u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 amount = ScriptGetVar(ctx);
@@ -66,7 +67,7 @@ THUMB_FUNC BOOL ScrCmd_TakeCoinsImmediate(struct ScriptContext * ctx) //0080 - t
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext * ctx) //02A8 - todo: TakeCoinsVar instead?
+BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext * ctx) //02A8 - todo: TakeCoinsVar instead?
 {
     u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 * amount = ScriptGetVarPointer(ctx);
@@ -76,7 +77,7 @@ THUMB_FUNC BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext * ctx) //02A8 - tod
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext * ctx) //0274 - todo: CanAffordCoins?
+BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext * ctx) //0274 - todo: CanAffordCoins?
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
@@ -100,7 +101,7 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext * ctx) //027
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext * ctx) //02A9 - todo: CanAffordCoinsVar?
+BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext * ctx) //02A9 - todo: CanAffordCoinsVar?
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
     struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
@@ -124,7 +125,7 @@ THUMB_FUNC BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext * ctx) //02A9 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CanGiveCoins(struct ScriptContext * ctx) //0276
+BOOL ScrCmd_CanGiveCoins(struct ScriptContext * ctx) //0276
 {
     u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(ctx->fieldSystem->saveBlock2);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);

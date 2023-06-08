@@ -5,8 +5,6 @@
 #include "heap.h"
 #include "constants/moves.h"
 
-#pragma thumb on
-
 static const u16 sMailIdxs[] = {
     ITEM_GRASS_MAIL,
     ITEM_FLAME_MAIL,

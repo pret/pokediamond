@@ -2,6 +2,7 @@
 
 #include "SND_work.h"
 #include "registers.h"
+#include "code32.h"
 
 static int sMasterPan = -1;
 

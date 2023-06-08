@@ -3,8 +3,6 @@
 #include "heap.h"
 #include "string_util.h"
 
-#pragma thumb on
-
 #define ASSERT_STR16(_str) ({ GF_ASSERT(_str != NULL); GF_ASSERT(_str->magic == STR16_MAGIC); })
 
 struct String * String_New(u32 length, u32 heap_id)

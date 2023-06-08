@@ -1,15 +1,16 @@
 #include "OS_ownerInfo.h"
 
-#include "global.h"
+#include "nitro/types.h"
 #include "systemWork.h"
 #include "MI_memory.h"
+#include "code32.h"
 
-ARM_FUNC void OS_GetMacAddress(u8 *macAddress)
+void OS_GetMacAddress(u8 *macAddress)
 {
     MI_CpuCopy8((void *)0x027FFCF4, macAddress, 0x6);
 }
 
-ARM_FUNC void OS_GetOwnerInfo(OSOwnerInfo* info)
+void OS_GetOwnerInfo(OSOwnerInfo* info)
 {
     NVRAMConfig *src = (NVRAMConfig *)OS_GetSystemWork()->nvramUserInfo;
     info->language = (u8)src->ncd.option.language;
@@ -22,7 +23,7 @@ ARM_FUNC void OS_GetOwnerInfo(OSOwnerInfo* info)
     MIi_CpuCopy16(src->ncd.owner.comment.str, info->comment, 26 * sizeof(u16));
 }
 
-ARM_FUNC s64 OS_GetOwnerRtcOffset(void)
+s64 OS_GetOwnerRtcOffset(void)
 {
     NVRAMConfig *src = (NVRAMConfig *)OS_GetSystemWork()->nvramUserInfo;
     return src->ncd.option.rtcOffset;

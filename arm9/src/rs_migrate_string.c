@@ -252,7 +252,7 @@ static const u16 conversion_table[][2] = {
     {0x019B, 0x019B}, // ü
 };
 
-static THUMB_FUNC u16 GetOpeningQuote(u32 language)
+static u16 GetOpeningQuote(u32 language)
 {
     switch (language)
     {
@@ -269,7 +269,7 @@ static THUMB_FUNC u16 GetOpeningQuote(u32 language)
     }
 }
 
-static THUMB_FUNC u16 GetClosingQuote(u32 language)
+static u16 GetClosingQuote(u32 language)
 {
     switch (language)
     {
@@ -286,7 +286,7 @@ static THUMB_FUNC u16 GetClosingQuote(u32 language)
     }
 }
 
-THUMB_FUNC BOOL ConvertRSStringToDPStringInternational(const u8 * rs_str, u16 * dp_str, u32 length, u32 language)
+BOOL ConvertRSStringToDPStringInternational(const u8 * rs_str, u16 * dp_str, u32 length, u32 language)
 {
     BOOL notFullWidth;
     u32 i;

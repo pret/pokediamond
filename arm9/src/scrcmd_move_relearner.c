@@ -1,3 +1,4 @@
+#include "global.h"
 #include "scrcmd.h"
 #include "heap.h"
 #include "party.h"
@@ -11,7 +12,7 @@ extern u8 FUN_02037D5C(struct UnkStruct_02037CF0*);
 extern void FUN_02038864(struct FieldSystem*, MoveRelearner *moveRelearner);
 extern BOOL FUN_0203BC04(struct ScriptContext* ctx);
 
-THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx) { //01C6 - todo: MoveInfo?
+BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx) { //01C6 - todo: MoveInfo?
     u16 unk = ScriptGetVar(ctx);
     struct UnkStruct_02037CF0 **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     *runningAppData = FUN_02037CF0(32, ctx->fieldSystem, (u8)unk);
@@ -20,7 +21,7 @@ THUMB_FUNC BOOL ScrCmd_Unk01C6(struct ScriptContext* ctx) { //01C6 - todo: MoveI
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) { //01C7 - todo: StoreMove?
+BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) { //01C7 - todo: StoreMove?
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
     struct UnkStruct_02037CF0 **runningAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     GF_ASSERT(*runningAppData != NULL);
@@ -36,13 +37,13 @@ THUMB_FUNC BOOL ScrCmd_Unk01C7(struct ScriptContext* ctx) { //01C7 - todo: Store
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk021E(struct ScriptContext* ctx) //021E
+BOOL ScrCmd_Unk021E(struct ScriptContext* ctx) //021E
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
+BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
     struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
@@ -55,7 +56,7 @@ THUMB_FUNC BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     return FALSE;
 }
 
-THUMB_FUNC void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16 *eligibleMoves) {
+void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16 *eligibleMoves) {
     MoveRelearner **moveRelearnerPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     MoveRelearner *moveRelearner = FUN_02088DD8(32);
     *moveRelearnerPtr = moveRelearner;
@@ -74,13 +75,13 @@ THUMB_FUNC void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* p
     FreeToHeap(eligibleMoves);
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0220(struct ScriptContext* ctx) //0220
+BOOL ScrCmd_Unk0220(struct ScriptContext* ctx) //0220
 {
 #pragma unused(ctx)
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
+BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
 {
     u16 mon_idx = ScriptGetVar(ctx);
     struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
@@ -91,7 +92,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: Remembe
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMove?
+BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMove?
 {
     u16 mon_idx = ScriptGetVar(ctx);
     u16 move = ScriptGetVar(ctx);
@@ -106,13 +107,13 @@ THUMB_FUNC BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMo
     return TRUE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0222(struct ScriptContext* ctx) //0222 - todo: DummyMoveCmd?
+BOOL ScrCmd_Unk0222(struct ScriptContext* ctx) //0222 - todo: DummyMoveCmd?
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: RememberMoveResponse? - destroys the MoveRelearner - find better name
+BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: RememberMoveResponse? - destroys the MoveRelearner - find better name
 {
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
     MoveRelearner **moveRelearnerPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
@@ -133,7 +134,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0223(struct ScriptContext* ctx) //0223 - todo: Remembe
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0225(struct ScriptContext* ctx) //0225 - todo: TeachMoveResponse? - destroys the MoveRelearner - find better name
+BOOL ScrCmd_Unk0225(struct ScriptContext* ctx) //0225 - todo: TeachMoveResponse? - destroys the MoveRelearner - find better name
 {
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
     MoveRelearner **moveRelearnerPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);

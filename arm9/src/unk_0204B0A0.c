@@ -24,7 +24,7 @@ extern void FUN_0203959C(struct FieldSystem*);
 extern void FUN_02025A60(struct SaveBlock2* sav2, s32);
 extern struct SaveBlock2* ScriptEnvironment_GetSavePtr(struct FieldSystem*);
 
-THUMB_FUNC void FUN_0204B0F8(struct FieldSystem *fieldSystem)
+void FUN_0204B0F8(struct FieldSystem *fieldSystem)
 {
     RTCDate date;
     RTCTime time;
@@ -38,7 +38,7 @@ THUMB_FUNC void FUN_0204B0F8(struct FieldSystem *fieldSystem)
     }
 }
 
-THUMB_FUNC void FUN_0204B130(struct FieldSystem *fieldSystem, struct UnkSaveStruct_0202376C_sub* rtc_info, struct RTCDate* date)
+void FUN_0204B130(struct FieldSystem *fieldSystem, struct UnkSaveStruct_0202376C_sub* rtc_info, struct RTCDate* date)
 {
     u32 days = (u32)RTC_ConvertDateToDay(date);
     u32 days_since_nitro_epoch = (u32)rtc_info->daysSinceNitroEpoch;
@@ -54,7 +54,7 @@ THUMB_FUNC void FUN_0204B130(struct FieldSystem *fieldSystem, struct UnkSaveStru
     }
 }
 
-THUMB_FUNC void FUN_0204B158(struct FieldSystem *fieldSystem, struct UnkSaveStruct_0202376C_sub* rtc_info, struct RTCDate* date, struct RTCTime* time)
+void FUN_0204B158(struct FieldSystem *fieldSystem, struct UnkSaveStruct_0202376C_sub* rtc_info, struct RTCDate* date, struct RTCTime* time)
 {
     s64 unk1 = RTC_ConvertDateTimeToSecond(date, time);
     s64 unk2 = RTC_ConvertDateTimeToSecond(&rtc_info->date, &rtc_info->time);
@@ -77,7 +77,7 @@ THUMB_FUNC void FUN_0204B158(struct FieldSystem *fieldSystem, struct UnkSaveStru
     }
 }
 
-THUMB_FUNC void FUN_0204B1DC(struct FieldSystem *fieldSystem, s32 a1)
+void FUN_0204B1DC(struct FieldSystem *fieldSystem, s32 a1)
 {
     struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
     FUN_02025A60(sav2, a1);
@@ -117,7 +117,7 @@ THUMB_FUNC void FUN_0204B1DC(struct FieldSystem *fieldSystem, s32 a1)
     FUN_02029C08(unk_sav_ptr3);
 }
 
-THUMB_FUNC void FUN_0204B270(struct FieldSystem *fieldSystem, s32 a1, struct RTCTime* time)
+void FUN_0204B270(struct FieldSystem *fieldSystem, s32 a1, struct RTCTime* time)
 {
     FUN_0204B3D0(fieldSystem, a1);
     FUN_0202A9D0(fieldSystem->saveBlock2, a1);
@@ -127,70 +127,70 @@ THUMB_FUNC void FUN_0204B270(struct FieldSystem *fieldSystem, s32 a1, struct RTC
     FUN_0202B3C4(unk_sav_ptr, a1, time->minute);
 }
 
-THUMB_FUNC u32 Script_GetTimeOfDay(struct FieldSystem *fieldSystem)
+u32 Script_GetTimeOfDay(struct FieldSystem *fieldSystem)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     return GF_RTC_GetTimeOfDayByHour(rtc_info->time.hour);
 }
 
-THUMB_FUNC u32 Script_GetMonth(struct FieldSystem *fieldSystem)
+u32 Script_GetMonth(struct FieldSystem *fieldSystem)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     return rtc_info->date.month;
 }
 
-THUMB_FUNC u32 Script_GetDay(struct FieldSystem *fieldSystem)
+u32 Script_GetDay(struct FieldSystem *fieldSystem)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     return rtc_info->date.day;
 }
 
-THUMB_FUNC RTCWeek Script_GetWeekday(struct FieldSystem *fieldSystem)
+RTCWeek Script_GetWeekday(struct FieldSystem *fieldSystem)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     return rtc_info->date.week;
 }
 
-THUMB_FUNC u32 Script_GetHour(struct FieldSystem *fieldSystem)
+u32 Script_GetHour(struct FieldSystem *fieldSystem)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     return rtc_info->time.hour;
 }
 
-THUMB_FUNC u32 Script_GetMinute(struct FieldSystem *fieldSystem)
+u32 Script_GetMinute(struct FieldSystem *fieldSystem)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     return rtc_info->time.minute;
 }
 
-THUMB_FUNC void Script_SavRTC_x24toDateTime(struct FieldSystem *fieldSystem, struct RTCDate* date, struct RTCTime* time)
+void Script_SavRTC_x24toDateTime(struct FieldSystem *fieldSystem, struct RTCDate* date, struct RTCTime* time)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     RTC_ConvertSecondToDateTime(date, time, rtc_info->secondsSinceNitroEpoch);
 }
 
-THUMB_FUNC void Script_SavRTC_x2CtoDateTime(struct FieldSystem *fieldSystem, struct RTCDate* date, struct RTCTime* time)
+void Script_SavRTC_x2CtoDateTime(struct FieldSystem *fieldSystem, struct RTCDate* date, struct RTCTime* time)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     RTC_ConvertSecondToDateTime(date, time, rtc_info->field_2C);
 }
 
-THUMB_FUNC void Script_SavRTC_DateTimeTox2C(struct FieldSystem *fieldSystem)
+void Script_SavRTC_DateTimeTox2C(struct FieldSystem *fieldSystem)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 
     rtc_info->field_2C = GF_RTC_DateTimeToSec();
 }
 
-THUMB_FUNC BOOL FUN_0204B33C(struct FieldSystem *fieldSystem)
+BOOL FUN_0204B33C(struct FieldSystem *fieldSystem)
 {
     struct UnkSaveStruct_0202376C_sub* rtc_info = Save_SysInfo_RTC_Get(fieldSystem->saveBlock2);
 

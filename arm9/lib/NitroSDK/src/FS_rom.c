@@ -6,6 +6,7 @@
 #include "CARD_common.h"
 #include "MB_mb.h"
 #include "OS_printf.h"
+#include "code32.h"
 
 static u32 fsi_default_dma_no;
 s32 fsi_card_lock_id;
@@ -13,24 +14,24 @@ CARDRomRegion fsi_ovt9;
 CARDRomRegion fsi_ovt7;
 FSArchive fsi_arc_rom;
 
-ARM_FUNC void FSi_OnRomReadDone(void * p_arc)
+void FSi_OnRomReadDone(void * p_arc)
 {
     FS_NotifyArchiveAsyncEnd(p_arc, CARD_IsPulledOut() ? FS_RESULT_ERROR : FS_RESULT_SUCCESS);
 }
 
-ARM_FUNC FSResult FSi_ReadRomCallback(FSArchive * p_arc, void * dst, u32 src, u32 len)
+FSResult FSi_ReadRomCallback(FSArchive * p_arc, void * dst, u32 src, u32 len)
 {
     CARD_ReadRomAsync(fsi_default_dma_no, (const void *)src, dst, len, FSi_OnRomReadDone, p_arc);
     return FS_RESULT_PROC_ASYNC;
 }
 
-ARM_FUNC FSResult FSi_WriteDummyCallback(FSArchive * p_arc, const void *src, u32 dst, u32 len)
+FSResult FSi_WriteDummyCallback(FSArchive * p_arc, const void *src, u32 dst, u32 len)
 {
 #pragma unused(p_arc, src, dst, len)
     return FS_RESULT_FAILURE;
 }
 
-ARM_FUNC FSResult FSi_RomArchiveProc(FSFile * p_arc, FSCommandType cmd)
+FSResult FSi_RomArchiveProc(FSFile * p_arc, FSCommandType cmd)
 {
 #pragma unused(p_arc)
     switch (cmd)
@@ -48,19 +49,19 @@ ARM_FUNC FSResult FSi_RomArchiveProc(FSFile * p_arc, FSCommandType cmd)
     }
 }
 
-ARM_FUNC FSResult FSi_ReadDummyCallback(FSArchive *p_arc, void *dst, u32 src, u32 len)
+FSResult FSi_ReadDummyCallback(FSArchive *p_arc, void *dst, u32 src, u32 len)
 {
 #pragma unused (p_arc, dst, src, len)
     return FS_RESULT_FAILURE;
 }
 
-ARM_FUNC FSResult FSi_EmptyArchiveProc(FSFile *p_file, FSCommandType cmd)
+FSResult FSi_EmptyArchiveProc(FSFile *p_file, FSCommandType cmd)
 {
 #pragma unused(p_file, cmd)
     return FS_RESULT_UNSUPPORTED;
 }
 
-ARM_FUNC void FSi_InitRom(u32 default_dma_no)
+void FSi_InitRom(u32 default_dma_no)
 {
     fsi_default_dma_no = default_dma_no;
     fsi_card_lock_id = OS_GetLockID();
@@ -107,7 +108,7 @@ ARM_FUNC void FSi_InitRom(u32 default_dma_no)
     }
 }
 
-ARM_FUNC u32 FS_SetDefaultDMA(u32 dma_no)
+u32 FS_SetDefaultDMA(u32 dma_no)
 {
     OSIntrMode bak_psr = OS_DisableInterrupts();
     u32 bak_dma_no = fsi_default_dma_no;
@@ -119,7 +120,7 @@ ARM_FUNC u32 FS_SetDefaultDMA(u32 dma_no)
     return bak_dma_no;
 }
 
-ARM_FUNC u32 FS_TryLoadTable(void * p_mem, u32 size)
+u32 FS_TryLoadTable(void * p_mem, u32 size)
 {
     return FS_LoadArchiveTables(&fsi_arc_rom, p_mem, size);
 }

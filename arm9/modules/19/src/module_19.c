@@ -20,7 +20,7 @@ const struct BgTemplate MOD19_02252508 = {
     .mosaic = 0
 };
 
-THUMB_FUNC void MOD19_02252440(struct BgConfig * bgConfig)
+void MOD19_02252440(struct BgConfig * bgConfig)
 {
     CreateHeap(3, 8, 0x18000);
     GXS_SetGraphicsMode(GX_BGMODE_0);
@@ -35,13 +35,13 @@ THUMB_FUNC void MOD19_02252440(struct BgConfig * bgConfig)
     GXS_SetVisiblePlane(GX_PLANEMASK_BG0);
 }
 
-THUMB_FUNC void MOD19_022524F4(struct BgConfig * bgConfig)
+void MOD19_022524F4(struct BgConfig * bgConfig)
 {
     FreeBgTilemapBuffer(bgConfig, GF_BG_LYR_SUB_0);
     DestroyHeap(8);
 }
 
-THUMB_FUNC BOOL MOD19_02252504(struct BgConfig * bgConfig)
+BOOL MOD19_02252504(struct BgConfig * bgConfig)
 {
 #pragma unused(bgConfig)
     return TRUE;

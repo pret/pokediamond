@@ -2,8 +2,6 @@
 #include "party.h"
 #include "heap.h"
 
-#pragma thumb on
-
 void SaveArray_Party_Init(struct PlayerParty * party);
 void InitPartyWithMaxSize(struct PlayerParty * party, int count);
 

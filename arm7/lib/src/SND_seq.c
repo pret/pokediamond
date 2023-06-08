@@ -6,6 +6,7 @@
 #include "SND_main.h"
 #include "SND_util.h"
 #include "SND_work.h"
+#include "code32.h"
 
 #define SND_TIMER_RATE 240
 

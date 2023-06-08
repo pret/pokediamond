@@ -1,7 +1,7 @@
 #ifndef GUARD_SND_UTIL_H
 #define GUARD_SND_UTIL_H
 
-#include "global.h"
+#include "nitro/types.h"
 
 void SND_CalcTimer(void);
 u16 SND_CalcChannelVolume(s32 x);

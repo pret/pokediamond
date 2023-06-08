@@ -1,7 +1,7 @@
 #include "global.h"
 #include "unk_0201C6B4.h"
 
-THUMB_FUNC s32 FUN_0201C6B4(s8 * r0)
+s32 FUN_0201C6B4(s8 * r0)
 {
     s32 r2 = 0;
     while(r0[r2] != 0)
@@ -11,7 +11,7 @@ THUMB_FUNC s32 FUN_0201C6B4(s8 * r0)
     return r2;
 }
 
-THUMB_FUNC s8 * FUN_0201C6C8(s8 * r0, s8 * r1, s8 r2)
+s8 * FUN_0201C6C8(s8 * r0, s8 * r1, s8 r2)
 {
     for(int r3 = 0; r3 < 0x100; r3++)
     {
@@ -29,7 +29,7 @@ THUMB_FUNC s8 * FUN_0201C6C8(s8 * r0, s8 * r1, s8 r2)
     return NULL;
 }
 
-THUMB_FUNC s32 FUN_0201C70C(s8 * r4)
+s32 FUN_0201C70C(s8 * r4)
 {
     s32 unk0 = FUN_0201C6B4(r4);
     s32 r3;
@@ -60,7 +60,7 @@ THUMB_FUNC s32 FUN_0201C70C(s8 * r4)
     return r6;
 }
 
-THUMB_FUNC void FUN_0201C750(s8 * r5, s8 * r4)
+void FUN_0201C750(s8 * r5, s8 * r4)
 {
     for(u8 r2 = 0; r2 < 4; r2++)
     {
@@ -74,7 +74,7 @@ THUMB_FUNC void FUN_0201C750(s8 * r5, s8 * r4)
     }
 }
 
-THUMB_FUNC BOOL FUN_0201C78C(u32 r0)
+BOOL FUN_0201C78C(u32 r0)
 {
     return r0 < 0x121;
 }

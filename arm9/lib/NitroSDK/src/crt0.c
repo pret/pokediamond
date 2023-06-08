@@ -1,5 +1,6 @@
 #include "nitro.h"
 #include "MI_uncompress.h"
+#include "code32.h"
 
 extern void NitroMain(void);
 extern void SDK_IRQ_STACKSIZE(void);
@@ -26,7 +27,7 @@ void _start(void);
 #define SDK_NITROCODE_LE 0x2106c0de
 #define SDK_NITROCODE_BE 0xdec00621
 
-ARM_FUNC asm void _start(void)
+asm void _start(void)
 {
     //set IME to 0
     mov r12, #0x4000000
@@ -136,7 +137,7 @@ _020008C4:
     bx r1
 }
 
-ARM_FUNC static asm void INITi_CpuClear32(register u32 data, register void *destp, register u32 size)
+static asm void INITi_CpuClear32(register u32 data, register void *destp, register u32 size)
 {
     add r12, r1, r2
 _02000940:
@@ -158,7 +159,7 @@ void   *const _start_ModuleParams[] = {
         (void *)SDK_NITROCODE_LE,          // Checker 2
 };
 
-ARM_FUNC asm void MIi_UncompressBackward(register void *bottom)
+asm void MIi_UncompressBackward(register void *bottom)
 {
     cmp r0, #0
     beq _020009F8
@@ -215,7 +216,7 @@ _020009F8:
     bx lr
 }
 
-ARM_FUNC static asm void do_autoload(void)
+static asm void do_autoload(void)
 {
     ldr r0, =_start_ModuleParams
     ldr r1, [r0, #0]
@@ -260,7 +261,7 @@ _02000A6C:
     b _start_AutoloadDoneCallback
 }
 
-ARM_FUNC asm void _start_AutoloadDoneCallback(void *argv[])
+asm void _start_AutoloadDoneCallback(void *argv[])
 {
     bx lr
 }
@@ -269,7 +270,7 @@ ARM_FUNC asm void _start_AutoloadDoneCallback(void *argv[])
 #define SET_PROTECTION_B(id, addr, size)        mcr p15, 0, r0, c6, id, 0
 #define REGION_BIT(a,b,c,d,e,f,g,h)     (((a)<<0)|((b)<<1)|((c)<<2)|((d)<<3)|((e)<<4)|((f)<<5)|((g)<<6)|((h)<<7))
 #define REGION_ACC(a,b,c,d,e,f,g,h)     (((a)<<0)|((b)<<4)|((c)<<8)|((d)<<12)|((e)<<16)|((f)<<20)|((g)<<24)|((h)<<28))
-ARM_FUNC static asm void init_cp15(void)
+static asm void init_cp15(void)
 {
     //Disable TCM/Cache/Protection Unit
     mrc p15, 0, r0, c1, c0, 0 //Save Control Register
@@ -368,11 +369,11 @@ ARM_FUNC static asm void init_cp15(void)
 #undef REGION_BIT
 #undef REGION_ACC
 
-ARM_FUNC void NitroStartUp(void)
+void NitroStartUp(void)
 {
 }
 
-ARM_FUNC void OSi_ReferSymbol(void *symbol)
+void OSi_ReferSymbol(void *symbol)
 {
 #pragma unused(symbol)
 }

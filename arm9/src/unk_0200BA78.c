@@ -2,7 +2,7 @@
 #include "unk_0200BA78.h"
 #include "message_format.h"
 
-THUMB_FUNC void FUN_0200BA78(struct UnkStruct_0200B870 *param0,
+void FUN_0200BA78(struct UnkStruct_0200B870 *param0,
     int param1,
     u32 value,
     u32 n,
@@ -15,7 +15,7 @@ THUMB_FUNC void FUN_0200BA78(struct UnkStruct_0200B870 *param0,
     FUN_0200B9EC(param0, value, n, mode, window, x + 16, y);
 }
 
-THUMB_FUNC void FUN_0200BAAC(
+void FUN_0200BAAC(
     struct UnkStruct_0200B870 *param0, u32 value, u32 n, enum PrintingMode mode, void *dest)
 {
     u8 st0 = (u8)((param0->unk_28 << 4) | param0->unk_28);

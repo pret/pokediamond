@@ -1,3 +1,4 @@
+#include "global.h"
 #include "constants/moves.h"
 #include "itemtool.h"
 #include "map_header.h"
@@ -13,7 +14,7 @@
 
 extern u16 FUN_02054DEC(struct SaveBlock2* sav2);
 
-THUMB_FUNC BOOL ScrCmd_GiveMon(struct ScriptContext* ctx) //0096 - todo: GivePokemon?
+BOOL ScrCmd_GiveMon(struct ScriptContext* ctx) //0096 - todo: GivePokemon?
 {
     u32 mapSec = MapHeader_GetMapSec(*(ctx->fieldSystem->mapId));
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
@@ -26,7 +27,7 @@ THUMB_FUNC BOOL ScrCmd_GiveMon(struct ScriptContext* ctx) //0096 - todo: GivePok
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx) //0198 - todo: GetPartyPokemonSpecies?
+BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx) //0198 - todo: GetPartyPokemonSpecies?
 {
     u32 species;
     u16* ret_ptr;
@@ -51,7 +52,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx) //0198 - to
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx) //0199 - todo: CheckPartyPokemonTraded?
+BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx) //0199 - todo: CheckPartyPokemonTraded?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
@@ -77,7 +78,7 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx) //0199 - tod
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
+BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct PlayerData* player = Save_PlayerData_GetProfileAddr(fieldSystem->saveBlock2);
@@ -101,7 +102,7 @@ THUMB_FUNC BOOL ScrCmd_GiveEgg(struct ScriptContext* ctx) //0097
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SetPartyMonMove(struct ScriptContext* ctx) //0098 - todo: ReplacePartyPokemonMove?
+BOOL ScrCmd_SetPartyMonMove(struct ScriptContext* ctx) //0098 - todo: ReplacePartyPokemonMove?
 {
     u16 mon_slot = ScriptGetVar(ctx);
     u16 move_slot = ScriptGetVar(ctx);
@@ -113,7 +114,7 @@ THUMB_FUNC BOOL ScrCmd_SetPartyMonMove(struct ScriptContext* ctx) //0098 - todo:
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_PartyMonHasMove(struct ScriptContext* ctx) //0099
+BOOL ScrCmd_PartyMonHasMove(struct ScriptContext* ctx) //0099
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -141,7 +142,7 @@ THUMB_FUNC BOOL ScrCmd_PartyMonHasMove(struct ScriptContext* ctx) //0099
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_FindPartyMonWithMove(struct ScriptContext* ctx) //009A - todo: CheckMoveInParty?
+BOOL ScrCmd_FindPartyMonWithMove(struct ScriptContext* ctx) //009A - todo: CheckMoveInParty?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -171,7 +172,7 @@ THUMB_FUNC BOOL ScrCmd_FindPartyMonWithMove(struct ScriptContext* ctx) //009A - 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SurvivePsn(struct ScriptContext* ctx) //01F7
+BOOL ScrCmd_SurvivePsn(struct ScriptContext* ctx) //01F7
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
@@ -182,7 +183,7 @@ THUMB_FUNC BOOL ScrCmd_SurvivePsn(struct ScriptContext* ctx) //01F7
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountPartyMonsAtOrBelowLevel(struct ScriptContext* ctx) //01F6
+BOOL ScrCmd_CountPartyMonsAtOrBelowLevel(struct ScriptContext* ctx) //01F6
 {
     u8 party_count;
     u8 i;
@@ -213,7 +214,7 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMonsAtOrBelowLevel(struct ScriptContext* ctx) /
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonLevel(struct ScriptContext* ctx) //0278
+BOOL ScrCmd_GetPartyMonLevel(struct ScriptContext* ctx) //0278
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -232,7 +233,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonLevel(struct ScriptContext* ctx) //0278
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonNature(struct ScriptContext* ctx) //0212
+BOOL ScrCmd_GetPartyMonNature(struct ScriptContext* ctx) //0212
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -259,7 +260,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonNature(struct ScriptContext* ctx) //0212
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_FindPartyMonWithNature(struct ScriptContext* ctx) //0213 - todo: CheckNatureInParty
+BOOL ScrCmd_FindPartyMonWithNature(struct ScriptContext* ctx) //0213 - todo: CheckNatureInParty
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -287,7 +288,7 @@ THUMB_FUNC BOOL ScrCmd_FindPartyMonWithNature(struct ScriptContext* ctx) //0213 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonFriendship(struct ScriptContext* ctx) //01B9
+BOOL ScrCmd_GetPartyMonFriendship(struct ScriptContext* ctx) //01B9
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -299,7 +300,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonFriendship(struct ScriptContext* ctx) //01B9
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx) //01BA
+BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx) //01BA
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 friendship_to_add = ScriptGetVar(ctx);
@@ -343,7 +344,7 @@ THUMB_FUNC BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx) //01BA
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_SubtractPartyMonFriendship(struct ScriptContext* ctx) //01BB
+BOOL ScrCmd_SubtractPartyMonFriendship(struct ScriptContext* ctx) //01BB
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 friendship_to_deplete = ScriptGetVar(ctx);
@@ -366,7 +367,7 @@ THUMB_FUNC BOOL ScrCmd_SubtractPartyMonFriendship(struct ScriptContext* ctx) //0
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonContestCondition(struct ScriptContext* ctx) //0281
+BOOL ScrCmd_GetPartyMonContestCondition(struct ScriptContext* ctx) //0281
 {
     u16 mon_slot = ScriptGetVar(ctx);
     u16 contest_condition_id = ScriptGetVar(ctx);
@@ -378,7 +379,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonContestCondition(struct ScriptContext* ctx) //
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetLeadingPartyMonSlot(struct ScriptContext* ctx) //0247
+BOOL ScrCmd_GetLeadingPartyMonSlot(struct ScriptContext* ctx) //0247
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
@@ -386,7 +387,7 @@ THUMB_FUNC BOOL ScrCmd_GetLeadingPartyMonSlot(struct ScriptContext* ctx) //0247
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonTypes(struct ScriptContext* ctx) //0248
+BOOL ScrCmd_GetPartyMonTypes(struct ScriptContext* ctx) //0248
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* type1 = ScriptGetVarPointer(ctx);
@@ -400,7 +401,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonTypes(struct ScriptContext* ctx) //0248
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountPartyMons(struct ScriptContext* ctx) //0177
+BOOL ScrCmd_CountPartyMons(struct ScriptContext* ctx) //0177
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -410,7 +411,7 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMons(struct ScriptContext* ctx) //0177
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountPartyMons_OmitEggs(struct ScriptContext* ctx) //019A
+BOOL ScrCmd_CountPartyMons_OmitEggs(struct ScriptContext* ctx) //019A
 {
     u32 non_egg_mons;
     s32 i;
@@ -436,7 +437,7 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMons_OmitEggs(struct ScriptContext* ctx) //019A
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountAvailablePartyMons_IgnoreSlot(struct ScriptContext* ctx) //019B
+BOOL ScrCmd_CountAvailablePartyMons_IgnoreSlot(struct ScriptContext* ctx) //019B
 {
     u16 slot_to_ignore;
     s32 party_count;
@@ -471,7 +472,7 @@ THUMB_FUNC BOOL ScrCmd_CountAvailablePartyMons_IgnoreSlot(struct ScriptContext* 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx) //019C
+BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx) //019C
 {
     s32 party_count;
     struct PCStorage* pc;
@@ -503,7 +504,7 @@ THUMB_FUNC BOOL ScrCmd_CountAvailablePartyAndPCMons(struct ScriptContext* ctx) /
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyEggCount(struct ScriptContext* ctx) //019D
+BOOL ScrCmd_GetPartyEggCount(struct ScriptContext* ctx) //019D
 {
     s32 party_count;
     u32 eggs_in_party;
@@ -529,7 +530,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyEggCount(struct ScriptContext* ctx) //019D
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CheckPartyForPokerus(struct ScriptContext* ctx) //0119
+BOOL ScrCmd_CheckPartyForPokerus(struct ScriptContext* ctx) //0119
 {
     u16 party_count;
     u16 i;
@@ -554,7 +555,7 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyForPokerus(struct ScriptContext* ctx) //0119
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonGender(struct ScriptContext* ctx) //011A
+BOOL ScrCmd_GetPartyMonGender(struct ScriptContext* ctx) //011A
 {
     u16 mon_slot = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -565,7 +566,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonGender(struct ScriptContext* ctx) //011A
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountPartyMonMoves(struct ScriptContext* ctx) //01C8
+BOOL ScrCmd_CountPartyMonMoves(struct ScriptContext* ctx) //01C8
 {
     struct Pokemon* party_mon;
     u8 moves;
@@ -613,7 +614,7 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMonMoves(struct ScriptContext* ctx) //01C8
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext* ctx) //01C9
+BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext* ctx) //01C9
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 mon_slot = ScriptGetVar(ctx);
@@ -626,7 +627,7 @@ THUMB_FUNC BOOL ScrCmd_ForgetPartyMonMove(struct ScriptContext* ctx) //01C9
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonMove(struct ScriptContext* ctx) //01CA
+BOOL ScrCmd_GetPartyMonMove(struct ScriptContext* ctx) //01CA
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -639,7 +640,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonMove(struct ScriptContext* ctx) //01CA
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPartyMonHeldItem(struct ScriptContext* ctx) //01EE
+BOOL ScrCmd_GetPartyMonHeldItem(struct ScriptContext* ctx) //01EE
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -651,7 +652,7 @@ THUMB_FUNC BOOL ScrCmd_GetPartyMonHeldItem(struct ScriptContext* ctx) //01EE
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_ResetPartyMonHeldItem(struct ScriptContext* ctx) //01F0
+BOOL ScrCmd_ResetPartyMonHeldItem(struct ScriptContext* ctx) //01F0
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 mon_slot = ScriptGetVar(ctx);
@@ -664,7 +665,7 @@ THUMB_FUNC BOOL ScrCmd_ResetPartyMonHeldItem(struct ScriptContext* ctx) //01F0
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CheckPartyForSpecies(struct ScriptContext* ctx) //01C0
+BOOL ScrCmd_CheckPartyForSpecies(struct ScriptContext* ctx) //01C0
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -692,7 +693,7 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyForSpecies(struct ScriptContext* ctx) //01C0
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountPartyMonRibbons(struct ScriptContext* ctx) //022E
+BOOL ScrCmd_CountPartyMonRibbons(struct ScriptContext* ctx) //022E
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
@@ -714,7 +715,7 @@ THUMB_FUNC BOOL ScrCmd_CountPartyMonRibbons(struct ScriptContext* ctx) //022E
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx) //022F
+BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx) //022F
 {
     struct PlayerParty* party;
     u16 ribbon_idx;
@@ -751,7 +752,7 @@ THUMB_FUNC BOOL ScrCmd_CountTotalPartyRibbons(struct ScriptContext* ctx) //022F
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_PartyMonHasRibbon(struct ScriptContext* ctx) //0230
+BOOL ScrCmd_PartyMonHasRibbon(struct ScriptContext* ctx) //0230
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
@@ -763,7 +764,7 @@ THUMB_FUNC BOOL ScrCmd_PartyMonHasRibbon(struct ScriptContext* ctx) //0230
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GivePartyMonRibbon(struct ScriptContext* ctx) //0231
+BOOL ScrCmd_GivePartyMonRibbon(struct ScriptContext* ctx) //0231
 {
     u16 mon_slot = ScriptGetVar(ctx);
     u16 ribbon_idx = ScriptGetVar(ctx);
@@ -776,7 +777,7 @@ THUMB_FUNC BOOL ScrCmd_GivePartyMonRibbon(struct ScriptContext* ctx) //0231
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CheckPartyForBadEgg(struct ScriptContext* ctx) //02B7
+BOOL ScrCmd_CheckPartyForBadEgg(struct ScriptContext* ctx) //02B7
 {
     u16 ribbon_idx;
 
@@ -808,7 +809,7 @@ THUMB_FUNC BOOL ScrCmd_CheckPartyForBadEgg(struct ScriptContext* ctx) //02B7
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00A0(struct ScriptContext* ctx) //00A0 - todo: DummyCountPartyPokemon
+BOOL ScrCmd_Unk00A0(struct ScriptContext* ctx) //00A0 - todo: DummyCountPartyPokemon
 {
 #pragma unused(ctx)
     return FALSE;

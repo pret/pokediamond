@@ -1,4 +1,3 @@
-#include "function_target.h"
 #include "CARD_common.h"
 #include "CARD_pullOut.h"
 #include "PXI_init.h"
@@ -9,6 +8,7 @@
 #include "SPI_pm.h"
 #include "syscall.h"
 #include "mmap.h"
+#include "code32.h"
 
 static CARDPulledOutCallback CARD_UserCallback;
 static BOOL CARDi_IsPulledOutFlag = FALSE;
@@ -16,7 +16,7 @@ static BOOL CARDi_IsPulledOutFlag = FALSE;
 static void CARDi_PulledOutCallback(PXIFifoTag tag, u32 data, BOOL err);
 static void CARDi_SendtoPxi(u32 data, u32 wait);
 
-ARM_FUNC void CARD_InitPulledOutCallback(void)
+void CARD_InitPulledOutCallback(void)
 {
     PXI_Init();
 
@@ -25,7 +25,7 @@ ARM_FUNC void CARD_InitPulledOutCallback(void)
     CARD_UserCallback = NULL;
 }
 
-ARM_FUNC static void CARDi_PulledOutCallback(PXIFifoTag tag, u32 data, BOOL err)
+static void CARDi_PulledOutCallback(PXIFifoTag tag, u32 data, BOOL err)
 {
 #pragma unused(tag, err)
     u32 command = data & CARD_PXI_COMMAND_MASK;
@@ -54,12 +54,12 @@ ARM_FUNC static void CARDi_PulledOutCallback(PXIFifoTag tag, u32 data, BOOL err)
     }
 }
 
-ARM_FUNC BOOL CARD_IsPulledOut(void)
+BOOL CARD_IsPulledOut(void)
 {
     return CARDi_IsPulledOutFlag;
 }
 
-ARM_FUNC void CARD_TerminateForPulledOut(void)
+void CARD_TerminateForPulledOut(void)
 {
     BOOL should_be_halt = TRUE;
 
@@ -84,7 +84,7 @@ ARM_FUNC void CARD_TerminateForPulledOut(void)
     OS_Terminate();
 }
 
-ARM_FUNC void CARDi_CheckPulledOutCore(u32 id)
+void CARDi_CheckPulledOutCore(u32 id)
 {
     vu32 iplCardID = *(vu32 *)((*(u16 *)HW_CHECK_DEBUGGER_SW == 0) ? HW_RED_RESERVED : HW_BOOT_CHECK_INFO_BUF);
 
@@ -96,7 +96,7 @@ ARM_FUNC void CARDi_CheckPulledOutCore(u32 id)
     }
 }
 
-ARM_FUNC static void CARDi_SendtoPxi(u32 data, u32 wait)
+static void CARDi_SendtoPxi(u32 data, u32 wait)
 {
     while (PXI_SendWordByFifo(PXI_FIFO_TAG_CARD, data, FALSE) != PXI_FIFO_SUCCESS)
     {

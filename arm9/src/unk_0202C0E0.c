@@ -2,12 +2,12 @@
 #include "save_block_2.h"
 #include "unk_0202C0E0.h"
 
-THUMB_FUNC u32 FUN_0202C0E0()
+u32 FUN_0202C0E0()
 {
     return sizeof(struct UnkSaveStruct0202C0E4); // 0x28
 }
 
-THUMB_FUNC void FUN_0202C0E4(struct UnkSaveStruct0202C0E4 *unkStruct)
+void FUN_0202C0E4(struct UnkSaveStruct0202C0E4 *unkStruct)
 {
     s32 j, i;
 
@@ -20,7 +20,7 @@ THUMB_FUNC void FUN_0202C0E4(struct UnkSaveStruct0202C0E4 *unkStruct)
     }
 }
 
-THUMB_FUNC void FUN_0202C108(struct SaveBlock2 *sav2, u32 a1, u32 a2)
+void FUN_0202C108(struct SaveBlock2 *sav2, u32 a1, u32 a2)
 {
     struct UnkSaveStruct0202C0E4 *unkSavStruct = SaveArray_Get(sav2, 33);
     if (unkSavStruct->data[a1][a2] < 9999)
@@ -29,7 +29,7 @@ THUMB_FUNC void FUN_0202C108(struct SaveBlock2 *sav2, u32 a1, u32 a2)
     }
 }
 
-THUMB_FUNC u16 FUN_0202C12C(struct SaveBlock2 *sav2, u32 a1, u32 a2)
+u16 FUN_0202C12C(struct SaveBlock2 *sav2, u32 a1, u32 a2)
 {
     struct UnkSaveStruct0202C0E4 *unkSavStruct = SaveArray_Get(sav2, 33);
     return unkSavStruct->data[a1][a2];

@@ -1,4 +1,5 @@
 
+#include "global.h"
 #include "play_timer.h"
 
 u64 sTimer3Start;
@@ -7,12 +8,12 @@ u64 sDuration;
 struct IGT * sIGT_p;
 BOOL sTimerActive;
 
-THUMB_FUNC void PlayTimerInit()
+void PlayTimerInit()
 {
     sTimerActive = FALSE;
 }
 
-THUMB_FUNC void PlayTimerStart(struct IGT *igt)
+void PlayTimerStart(struct IGT *igt)
 {
     sTimerActive = TRUE;
     sUnused = 0;
@@ -22,7 +23,7 @@ THUMB_FUNC void PlayTimerStart(struct IGT *igt)
     sTimer3Start = GetTimer3Count();
 }
 
-THUMB_FUNC void PlayTimerUpdate(void)
+void PlayTimerUpdate(void)
 {
     if (sTimerActive)
     {

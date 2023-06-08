@@ -7,8 +7,6 @@
 #include "RTC_api.h"
 #include "hall_of_fame.h"
 
-#pragma thumb on
-
 u32 Save_HOF_sizeof(void)
 {
     return sizeof(struct HallOfFame);

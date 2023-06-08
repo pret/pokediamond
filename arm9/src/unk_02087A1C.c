@@ -2,8 +2,6 @@
 #include "constants/species.h"
 #include "unk_02087A1C.h"
 
-#pragma thumb on
-
 struct MeisterRodata
 {
     u16 species[14];

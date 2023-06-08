@@ -13,8 +13,6 @@
 #include "constants/sndseq.h"
 #include "constants/maps.h"
 
-#pragma thumb on
-
 #define ENCDATA(dia,pea) ((GAME_VERSION == VERSION_DIAMOND) ? (dia) : (pea))
 
 // Static decls

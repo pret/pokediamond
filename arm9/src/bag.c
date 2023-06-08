@@ -4,8 +4,6 @@
 #include "itemtool.h"
 #include "heap.h"
 
-#pragma thumb on
-
 u32 Save_Bag_sizeof(void)
 {
     return sizeof(struct Bag);

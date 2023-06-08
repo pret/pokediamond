@@ -1,8 +1,6 @@
 #include "global.h"
 #include "string_control_code.h"
 
-#pragma thumb on
-
 const u16 * MsgArray_SkipControlCode(const u16 * r4)
 {
     GF_ASSERT(*r4 == 0xFFFE);

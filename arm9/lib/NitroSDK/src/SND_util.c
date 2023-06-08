@@ -1,4 +1,6 @@
 #include "SND_util.h"
+#include "nitro/types.h"
+#include "code32.h"
 
 // not used in pokediamond
 //static const u16 sPitchTable[0x600] = {
@@ -209,7 +211,7 @@ const s16 SNDi_DecibelTable[0x80] = {
 //     -10,   -8,   -7,   -6,  -4,   -3,   -1,     0,
 //};
 
-ARM_FUNC u16 SND_CalcChannelVolume(s32 x) {
+u16 SND_CalcChannelVolume(s32 x) {
     // directly using s32 doesn't match
     int decibels = (int)x;
     if (decibels < -723)

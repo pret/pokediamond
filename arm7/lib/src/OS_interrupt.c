@@ -1,18 +1,18 @@
-#include "function_target.h"
 #include "consts.h"
 #include "OS_interrupt.h"
 #include "OS_thread.h"
+#include "code32.h"
 
 extern OSThreadQueue OSi_IrqThreadQueue;
 
-ARM_FUNC void OS_InitIrqTable(void)
+void OS_InitIrqTable(void)
 {
     OS_InitThreadQueue(&OSi_IrqThreadQueue);
 
     OSi_SetVBlankCount(0);
 }
 
-ARM_FUNC void OS_SetIrqFunction(OSIrqMask intrBit, OSIrqFunction function)
+void OS_SetIrqFunction(OSIrqMask intrBit, OSIrqFunction function)
 {
     s32 i;
     OSIrqCallbackInfo *info;
@@ -51,7 +51,7 @@ ARM_FUNC void OS_SetIrqFunction(OSIrqMask intrBit, OSIrqFunction function)
     }
 }
 
-ARM_FUNC void OSi_EnterTimerCallback(u32 timerNo, void (*callback) (void *), void *arg)
+void OSi_EnterTimerCallback(u32 timerNo, void (*callback) (void *), void *arg)
 {
     OSIrqMask mask = 1UL << (timerNo + 3);
     OSi_IrqCallbackInfo[timerNo + 4].func = callback;
@@ -61,7 +61,7 @@ ARM_FUNC void OSi_EnterTimerCallback(u32 timerNo, void (*callback) (void *), voi
     OSi_IrqCallbackInfo[timerNo + 4].enable = TRUE;
 }
 
-ARM_FUNC OSIrqMask OS_SetIrqMask(OSIrqMask mask)
+OSIrqMask OS_SetIrqMask(OSIrqMask mask)
 {
     u16 regIme = reg_OS_IME;
     reg_OS_IME = 0;
@@ -72,7 +72,7 @@ ARM_FUNC OSIrqMask OS_SetIrqMask(OSIrqMask mask)
     return regIe;
 }
 
-ARM_FUNC OSIrqMask OS_EnableIrqMask(OSIrqMask mask)
+OSIrqMask OS_EnableIrqMask(OSIrqMask mask)
 {
     u16 regIme = reg_OS_IME;
     reg_OS_IME = 0;
@@ -83,7 +83,7 @@ ARM_FUNC OSIrqMask OS_EnableIrqMask(OSIrqMask mask)
     return regIe;
 }
 
-ARM_FUNC OSIrqMask OS_DisableIrqMask(OSIrqMask mask)
+OSIrqMask OS_DisableIrqMask(OSIrqMask mask)
 {
     u16 regIme = reg_OS_IME;
     reg_OS_IME = 0;
@@ -94,7 +94,7 @@ ARM_FUNC OSIrqMask OS_DisableIrqMask(OSIrqMask mask)
     return regIe;
 }
 
-ARM_FUNC OSIrqMask OS_ResetRequestIrqMask(OSIrqMask mask)
+OSIrqMask OS_ResetRequestIrqMask(OSIrqMask mask)
 {
     u16 regIme = reg_OS_IME;
     reg_OS_IME = 0;

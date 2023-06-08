@@ -13,7 +13,7 @@ static struct Camera * sCameraPtr;
 void Camera_OffsetLookAtPosAndTarget(const VecFx32 *delta, struct Camera * camera);
 void Camera_ApplyPerspectiveType(u8 perspectiveType, struct Camera * camera);
 
-THUMB_FUNC void Camera_CalcLookAtPosFromTargetAndAngle(struct Camera * camera)
+void Camera_CalcLookAtPosFromTargetAndAngle(struct Camera * camera)
 {
     u16 negx = -camera->angle.x;
     camera->lookAt.camPos.x = FX_Mul(FX_Mul(FX_SinIdx(camera->angle.y), camera->distance), FX_CosIdx(camera->angle.x));
@@ -22,7 +22,7 @@ THUMB_FUNC void Camera_CalcLookAtPosFromTargetAndAngle(struct Camera * camera)
     VEC_Add(&camera->lookAt.camPos, &camera->lookAt.camTarget, &camera->lookAt.camPos);
 }
 
-THUMB_FUNC void Camera_CalcLookAtTargetFromPosAndAngle(struct Camera * camera)
+void Camera_CalcLookAtTargetFromPosAndAngle(struct Camera * camera)
 {
     u16 negx = -camera->angle.x;
     camera->lookAt.camTarget.x = -FX_Mul(FX_Mul(FX_SinIdx(camera->angle.y), camera->distance), FX_CosIdx(camera->angle.x));
@@ -31,7 +31,7 @@ THUMB_FUNC void Camera_CalcLookAtTargetFromPosAndAngle(struct Camera * camera)
     VEC_Add(&camera->lookAt.camTarget, &camera->lookAt.camPos, &camera->lookAt.camTarget);
 }
 
-THUMB_FUNC void Camera_InitInternal(u16 perspectiveAngle, struct Camera * camera)
+void Camera_InitInternal(u16 perspectiveAngle, struct Camera * camera)
 {
     camera->perspectiveAngle = perspectiveAngle;
     camera->perspective.fovySin = FX_SinIdx(perspectiveAngle);
@@ -49,7 +49,7 @@ THUMB_FUNC void Camera_InitInternal(u16 perspectiveAngle, struct Camera * camera
     camera->history = NULL;
 }
 
-THUMB_FUNC void Camera_VecResetCoordsIfOffsetComponentNotEnabled(struct Camera * camera, VecFx32 * vec)
+void Camera_VecResetCoordsIfOffsetComponentNotEnabled(struct Camera * camera, VecFx32 * vec)
 {
     if (!camera->enableOffsetX)
         vec->x = 0;
@@ -59,7 +59,7 @@ THUMB_FUNC void Camera_VecResetCoordsIfOffsetComponentNotEnabled(struct Camera *
         vec->z = 0;
 }
 
-THUMB_FUNC void Camera_GetVecFromSomeRingBufferMaybe(struct Camera * camera, const VecFx32 * vecDefault, VecFx32 * vecDst)
+void Camera_GetVecFromSomeRingBufferMaybe(struct Camera * camera, const VecFx32 * vecDefault, VecFx32 * vecDst)
 {
     s32 * idx_p;
     s32 * idx2_p;
@@ -93,7 +93,7 @@ THUMB_FUNC void Camera_GetVecFromSomeRingBufferMaybe(struct Camera * camera, con
     }
 }
 
-THUMB_FUNC void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEnableFlags, s32 heap_id, struct Camera * camera)
+void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEnableFlags, s32 heap_id, struct Camera * camera)
 {
     s32 i;
     struct CameraHistory * history;
@@ -127,7 +127,7 @@ THUMB_FUNC void Camera_AllocHistory(s32 count, s32 initialWriteIdx, s32 updateEn
     }
 }
 
-THUMB_FUNC void Camera_FreeHistory(struct Camera * camera)
+void Camera_FreeHistory(struct Camera * camera)
 {
     if (camera->history != NULL)
     {
@@ -137,32 +137,32 @@ THUMB_FUNC void Camera_FreeHistory(struct Camera * camera)
     }
 }
 
-THUMB_FUNC struct Camera * Camera_Alloc(u32 heap_id)
+struct Camera * Camera_Alloc(u32 heap_id)
 {
     return AllocFromHeap(heap_id, sizeof(struct Camera));
 }
 
-THUMB_FUNC void Camera_Free(struct Camera * camera)
+void Camera_Free(struct Camera * camera)
 {
     FreeToHeap(camera);
 }
 
-THUMB_FUNC void Camera_Copy(struct Camera * src, struct Camera * dest)
+void Camera_Copy(struct Camera * src, struct Camera * dest)
 {
     *dest = *src;
 }
 
-THUMB_FUNC void Camera_SetWorkPtr(struct Camera * camera)
+void Camera_SetWorkPtr(struct Camera * camera)
 {
     sCameraPtr = camera;
 }
 
-THUMB_FUNC void Camera_UnsetWorkPtr(void)
+void Camera_UnsetWorkPtr(void)
 {
     sCameraPtr = NULL;
 }
 
-THUMB_FUNC void Camera_PushLookAtToNNSGlb(void)
+void Camera_PushLookAtToNNSGlb(void)
 {
     VecFx32 diff;
     VecFx32 offset;
@@ -180,12 +180,12 @@ THUMB_FUNC void Camera_PushLookAtToNNSGlb(void)
     }
 }
 
-THUMB_FUNC void Camera_SetLookAtCamUp(VecFx32 * camUp, struct Camera * camera)
+void Camera_SetLookAtCamUp(VecFx32 * camUp, struct Camera * camera)
 {
     camera->lookAt.camUp = *camUp;
 }
 
-THUMB_FUNC void Camera_SetFixedTarget(VecFx32 * target, struct Camera * camera)
+void Camera_SetFixedTarget(VecFx32 * target, struct Camera * camera)
 {
     camera->currTarget_p = target;
     camera->lastTarget = *target;
@@ -194,7 +194,7 @@ THUMB_FUNC void Camera_SetFixedTarget(VecFx32 * target, struct Camera * camera)
     camera->enableOffsetZ = TRUE;
 }
 
-THUMB_FUNC void Camera_ClearFixedTarget(struct Camera * camera)
+void Camera_ClearFixedTarget(struct Camera * camera)
 {
     camera->currTarget_p = NULL;
     camera->enableOffsetX = FALSE;
@@ -202,14 +202,14 @@ THUMB_FUNC void Camera_ClearFixedTarget(struct Camera * camera)
     camera->enableOffsetZ = FALSE;
 }
 
-THUMB_FUNC void Camera_SetPerspectiveClippingPlane(s32 n, s32 f, struct Camera * camera)
+void Camera_SetPerspectiveClippingPlane(s32 n, s32 f, struct Camera * camera)
 {
     camera->perspective.near = n;
     camera->perspective.far = f,
         Camera_ApplyPerspectiveType(camera->perspectiveType, camera);
 }
 
-THUMB_FUNC void Camera_InitWithTargetAndAngle(VecFx32 * target, fx32 distance, struct CameraAngle * angle, u16 perspectiveAngle, u8 perspectiveType, BOOL fixReference, struct Camera * camera)
+void Camera_InitWithTargetAndAngle(VecFx32 * target, fx32 distance, struct CameraAngle * angle, u16 perspectiveAngle, u8 perspectiveType, BOOL fixReference, struct Camera * camera)
 {
     Camera_InitInternal(perspectiveAngle, camera);
     camera->lookAt.camTarget = *target;
@@ -227,7 +227,7 @@ THUMB_FUNC void Camera_InitWithTargetAndAngle(VecFx32 * target, fx32 distance, s
     }
 }
 
-THUMB_FUNC void Camera_InitWithPosAndAngle(VecFx32 * pos, fx32 distance, struct CameraAngle * angle, u16 perspectiveAngle, u8 sp18, struct Camera * camera)
+void Camera_InitWithPosAndAngle(VecFx32 * pos, fx32 distance, struct CameraAngle * angle, u16 perspectiveAngle, u8 sp18, struct Camera * camera)
 {
     Camera_InitInternal(perspectiveAngle, camera);
     camera->lookAt.camPos = *pos;
@@ -237,7 +237,7 @@ THUMB_FUNC void Camera_InitWithPosAndAngle(VecFx32 * pos, fx32 distance, struct 
     Camera_ApplyPerspectiveType(sp18, camera);
 }
 
-THUMB_FUNC void Camera_InitWithPosAndTarget(const VecFx32 *target, const VecFx32 *pos, u16 perspectiveAngle, u8 perspectiveType, BOOL setReference, struct Camera * camera)
+void Camera_InitWithPosAndTarget(const VecFx32 *target, const VecFx32 *pos, u16 perspectiveAngle, u8 perspectiveType, BOOL setReference, struct Camera * camera)
 {
     VecFx32 vec_from_pos_to_target;
     Camera_InitInternal(perspectiveAngle, camera);
@@ -282,7 +282,7 @@ THUMB_FUNC void Camera_InitWithPosAndTarget(const VecFx32 *target, const VecFx32
     }
 }
 
-THUMB_FUNC void Camera_ApplyPerspectiveType(u8 perspectiveType, struct Camera * camera)
+void Camera_ApplyPerspectiveType(u8 perspectiveType, struct Camera * camera)
 {
     if (perspectiveType == 0)
     {
@@ -300,7 +300,7 @@ THUMB_FUNC void Camera_ApplyPerspectiveType(u8 perspectiveType, struct Camera * 
     }
 }
 
-THUMB_FUNC void Camera_SetPerspectiveAngle(u16 perspectiveAngle, struct Camera * camera)
+void Camera_SetPerspectiveAngle(u16 perspectiveAngle, struct Camera * camera)
 {
     camera->perspectiveAngle = perspectiveAngle;
     camera->perspective.fovySin = FX_SinIdx(camera->perspectiveAngle);
@@ -308,7 +308,7 @@ THUMB_FUNC void Camera_SetPerspectiveAngle(u16 perspectiveAngle, struct Camera *
     Camera_ApplyPerspectiveType(camera->perspectiveType, camera);
 }
 
-THUMB_FUNC void Camera_AdjustPerspectiveAngle(u16 rotation, struct Camera * camera)
+void Camera_AdjustPerspectiveAngle(u16 rotation, struct Camera * camera)
 {
     camera->perspectiveAngle += rotation;
     camera->perspective.fovySin = FX_SinIdx(camera->perspectiveAngle);
@@ -316,19 +316,19 @@ THUMB_FUNC void Camera_AdjustPerspectiveAngle(u16 rotation, struct Camera * came
     Camera_ApplyPerspectiveType(camera->perspectiveType, camera);
 }
 
-THUMB_FUNC void Camera_OffsetLookAtPosAndTarget(const VecFx32 *delta, struct Camera * camera)
+void Camera_OffsetLookAtPosAndTarget(const VecFx32 *delta, struct Camera * camera)
 {
     VEC_Add(&camera->lookAt.camPos, delta, &camera->lookAt.camPos);
     VEC_Add(&camera->lookAt.camTarget, delta, &camera->lookAt.camTarget);
 }
 
-THUMB_FUNC void Camera_SetAngle(const struct CameraAngle * angle, struct Camera * camera)
+void Camera_SetAngle(const struct CameraAngle * angle, struct Camera * camera)
 {
     camera->angle = *angle;
     Camera_CalcLookAtPosFromTargetAndAngle(camera);
 }
 
-THUMB_FUNC void Camera_AdjustAngle(const struct CameraAngle * delta, struct Camera * camera)
+void Camera_AdjustAngle(const struct CameraAngle * delta, struct Camera * camera)
 {
     camera->angle.x += delta->x;
     camera->angle.y += delta->y;
@@ -336,48 +336,48 @@ THUMB_FUNC void Camera_AdjustAngle(const struct CameraAngle * delta, struct Came
     Camera_CalcLookAtTargetFromPosAndAngle(camera);
 }
 
-THUMB_FUNC void Camera_SetDistance(fx32 distance, struct Camera * camera)
+void Camera_SetDistance(fx32 distance, struct Camera * camera)
 {
     camera->distance = distance;
     Camera_CalcLookAtPosFromTargetAndAngle(camera);
 }
 
-THUMB_FUNC void Camera_SetLookAtTargetAndRecalcPos(const VecFx32 * target, struct Camera * camera)
+void Camera_SetLookAtTargetAndRecalcPos(const VecFx32 * target, struct Camera * camera)
 {
     camera->lookAt.camTarget = *target;
     Camera_CalcLookAtPosFromTargetAndAngle(camera);
 }
 
-THUMB_FUNC u16 Camera_GetPerspectiveAngle(struct Camera * camera)
+u16 Camera_GetPerspectiveAngle(struct Camera * camera)
 {
     return camera->perspectiveAngle;
 }
 
-THUMB_FUNC fx32 Camera_GetDistance(struct Camera * camera)
+fx32 Camera_GetDistance(struct Camera * camera)
 {
     return camera->distance;
 }
 
-THUMB_FUNC void Camera_GetAngle(struct CameraAngle * dest, struct Camera * camera)
+void Camera_GetAngle(struct CameraAngle * dest, struct Camera * camera)
 {
     *dest = camera->angle;
 }
 
-THUMB_FUNC void Camera_GetLookAtCamTarget(VecFx32 * dest, const struct Camera * camera)
+void Camera_GetLookAtCamTarget(VecFx32 * dest, const struct Camera * camera)
 {
     *dest = camera->lookAt.camTarget;
 }
-THUMB_FUNC void Camera_GetLookAtCamPos(VecFx32 * dest, const struct Camera * camera)
+void Camera_GetLookAtCamPos(VecFx32 * dest, const struct Camera * camera)
 {
     *dest = camera->lookAt.camPos;
 }
 
-THUMB_FUNC void Camera_SetLookAtCamTarget(const VecFx32 * target, struct Camera * camera)
+void Camera_SetLookAtCamTarget(const VecFx32 * target, struct Camera * camera)
 {
     camera->lookAt.camTarget = *target;
 }
 
-THUMB_FUNC void Camera_SetLookAtCamPos(const VecFx32 * pos, struct Camera * camera)
+void Camera_SetLookAtCamPos(const VecFx32 * pos, struct Camera * camera)
 {
     camera->lookAt.camPos = *pos;
 }

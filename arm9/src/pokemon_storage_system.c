@@ -5,8 +5,6 @@
 #include "msgdata.h"
 #include "string16.h"
 
-#pragma thumb on
-
 void PCStorage_Init(struct PCStorage * pc)
 {
     PCStorage_InitializeBoxes(pc);

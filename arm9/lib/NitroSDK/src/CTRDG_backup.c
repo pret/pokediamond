@@ -1,6 +1,6 @@
 #include "CTRDG_backup.h"
-#include "function_target.h"
 #include "OS_spinLock.h"
+#include "code32.h"
 
 extern u16 ctrdgi_flash_lock_id;
 extern u16 ctrdgi_sram_lock_id;
@@ -33,7 +33,7 @@ static const u16 readidtime[] = {
         20
 };
 
-ARM_FUNC u16 CTRDG_IdentifyAgbBackup(CTRDGBackupType type)
+u16 CTRDG_IdentifyAgbBackup(CTRDGBackupType type)
 {
     u16 result = 1;
     u16 flashID;

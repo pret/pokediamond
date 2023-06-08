@@ -3,8 +3,6 @@
 #include "MI_memory.h"
 #include "seal.h"
 
-#pragma thumb on
-
 u32 Save_SealCase_sizeof(void)
 {
     return sizeof(struct SealCase);

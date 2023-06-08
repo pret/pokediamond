@@ -1,3 +1,4 @@
+#include "global.h"
 #include "unk_0206015C.h"
 
 #include "constants/sndseq.h"
@@ -32,7 +33,7 @@ extern void FUN_0205F1C4(struct ScriptState *);
 extern void FUN_0205F1D4(struct ScriptState *);
 extern void FUN_0206367C(struct FieldSystem *, u32);
 
-THUMB_FUNC void FUN_0206015C(struct FieldSystem *fieldSystem)
+void FUN_0206015C(struct FieldSystem *fieldSystem)
 {
     struct UnkStruct_0206015C *unkStruct = AllocFromHeapAtEnd(0xb, 0x10);
     unkStruct->unk0 = MOD06_02244DB0(0xb);
@@ -43,7 +44,7 @@ THUMB_FUNC void FUN_0206015C(struct FieldSystem *fieldSystem)
     FUN_0204640C(fieldSystem->taskManager, FUN_02060194, (u32 *)unkStruct);
 }
 
-THUMB_FUNC BOOL FUN_02060194(struct TaskManager *taskManager)
+BOOL FUN_02060194(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     struct UnkStruct_0204652C *unkStruct1 = (struct UnkStruct_0204652C *)FUN_0204652C(taskManager);

@@ -1,7 +1,6 @@
 #ifndef GUARD_SND_ALARM_H
 #define GUARD_SND_ALARM_H
 
-#include "global.h"
 #include "nitro/SND_alarm_shared.h"
 
 void SND_AlarmInit(void);

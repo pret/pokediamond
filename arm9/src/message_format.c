@@ -19,8 +19,6 @@
 #include "unk_02024E64.h"
 #include "unk_020286F8.h"
 
-#pragma thumb on
-
 extern u32 GetCityNamesMsgdataIdByCountry(u32);
 extern void GetECWordIntoStringByIndex(u32 a0, struct String * a1);
 extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);

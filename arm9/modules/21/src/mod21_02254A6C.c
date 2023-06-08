@@ -38,7 +38,7 @@ extern void CopyToBgTilemapRect(u32 param0, u32 param1, u32 param2, u32 param3, 
 
 extern void MOD11_02252DB4(u32 param0, u32 param1);
 
-THUMB_FUNC BOOL MOD21_02254A6C(UnkStruct02254A6C *param0, void *param1)
+BOOL MOD21_02254A6C(UnkStruct02254A6C *param0, void *param1)
 {
     UnkStruct02254A6C *strct = (UnkStruct02254A6C *)AllocFromHeap(8, 3 << 8);
     u32 sp4;
@@ -61,7 +61,7 @@ THUMB_FUNC BOOL MOD21_02254A6C(UnkStruct02254A6C *param0, void *param1)
     return FALSE;
 }
 
-THUMB_FUNC void MOD21_02254AD4(void *param0, void *param1)
+void MOD21_02254AD4(void *param0, void *param1)
 {
     s32 i = 0;
     for (u32 r6 = 9 << 6; i < 9; r6 -= 0x30)
@@ -74,7 +74,7 @@ THUMB_FUNC void MOD21_02254AD4(void *param0, void *param1)
     }
 }
 
-THUMB_FUNC void MOD21_02254B04(void *param0)
+void MOD21_02254B04(void *param0)
 {
     if (param0 != NULL)
     {
@@ -82,27 +82,27 @@ THUMB_FUNC void MOD21_02254B04(void *param0)
     }
 }
 
-THUMB_FUNC void MOD21_02254B10(u32 *param0, u32 param1)
+void MOD21_02254B10(u32 *param0, u32 param1)
 {
     MOD20_022537E0(MOD21_02254DAC, param1, param0, *param0, (void *)(param0 + 2), 2, 8);
 }
 
-THUMB_FUNC BOOL MOD21_02254B34(void *param0, u32 param1)
+BOOL MOD21_02254B34(void *param0, u32 param1)
 {
     return MOD20_02253794((void *)((u32)param0 + 8), param1);
 }
 
-THUMB_FUNC BOOL MOD21_02254B40(void *param0)
+BOOL MOD21_02254B40(void *param0)
 {
     return MOD20_022537B8((void *)((u32)param0 + 8));
 }
 
-THUMB_FUNC BOOL MOD21_02254B4C(void *param0)
+BOOL MOD21_02254B4C(void *param0)
 {
     return MOD20_02253888((void *)((u32)MOD20_022538A0(param0) + 8), param0);
 }
 
-THUMB_FUNC BOOL MOD21_02254B60(u32 param0, void *param1)
+BOOL MOD21_02254B60(u32 param0, void *param1)
 {
 #pragma unused (param0)
     UnkStruct02254A6C *strct = MOD20_022538A0(param1);
@@ -125,7 +125,7 @@ THUMB_FUNC BOOL MOD21_02254B60(u32 param0, void *param1)
     return MOD21_02254B4C(param1);
 }
 
-THUMB_FUNC BOOL MOD21_02254BF4(u32 param0, void *param1)
+BOOL MOD21_02254BF4(u32 param0, void *param1)
 {
 #pragma unused (param0)
     UnkStruct02254A6C *strct = MOD20_022538A0(param1);
@@ -134,7 +134,7 @@ THUMB_FUNC BOOL MOD21_02254BF4(u32 param0, void *param1)
     return MOD21_02254B4C(param1);
 }
 
-THUMB_FUNC BOOL MOD21_02254C14(u32 param0, void *param1)
+BOOL MOD21_02254C14(u32 param0, void *param1)
 {
 #pragma unused (param0)
     UnkStruct02254A6C *strct = MOD20_022538A0(param1);
@@ -149,7 +149,7 @@ THUMB_FUNC BOOL MOD21_02254C14(u32 param0, void *param1)
     return MOD21_02254B4C(param1);
 }
 
-THUMB_FUNC BOOL MOD21_02254C40(u32 param0, void *param1)
+BOOL MOD21_02254C40(u32 param0, void *param1)
 {
 #pragma unused (param0)
     UnkStruct02254A6C *strct = MOD20_022538A0(param1);
@@ -157,7 +157,7 @@ THUMB_FUNC BOOL MOD21_02254C40(u32 param0, void *param1)
     return MOD21_02254B4C(param1);
 }
 
-THUMB_FUNC void MOD21_02254C5C(UnkStruct02254A6C *param0)
+void MOD21_02254C5C(UnkStruct02254A6C *param0)
 {
     u32 tmp = (u32)param0->Unk00->Unk00;
     reg_CP_DIVCNT = 0;

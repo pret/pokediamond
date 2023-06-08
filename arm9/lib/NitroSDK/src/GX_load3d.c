@@ -1,6 +1,6 @@
-#include "global.h"
-#include "main.h"
+#include "nitro/types.h"
 #include "gx.h"
+#include "code32.h"
 
 extern u32 GXi_DmaId;
 
@@ -50,7 +50,7 @@ static const u16 sTexPlttStartAddrTable[8] = {
 static s32 sClrImg = 0;
 static u32 sClrImgLCDCBlk = 0;
 
-ARM_FUNC void GX_BeginLoadTex(){
+void GX_BeginLoadTex(){
     u32 temp = GX_ResetBankForTex();
     sTex = (s32)temp;
     sTexLCDCBlk1 = (u32)(sTexStartAddrTable[temp].blk1 << 0xC);
@@ -58,7 +58,7 @@ ARM_FUNC void GX_BeginLoadTex(){
     sSzTexBlk1 = (u32)(sTexStartAddrTable[temp].szBlk1 << 0xC);
 }
 
-ARM_FUNC void GX_LoadTex(void *src, u32 offset, u32 size){
+void GX_LoadTex(void *src, u32 offset, u32 size){
     void *temp;
     if (!sTexLCDCBlk2)
     {
@@ -87,7 +87,7 @@ ARM_FUNC void GX_LoadTex(void *src, u32 offset, u32 size){
     GXi_DmaCopy32Async(GXi_DmaId, src, temp, size, NULL, NULL);
 }
 
-ARM_FUNC void GX_EndLoadTex(){
+void GX_EndLoadTex(){
     GXi_WaitDma(GXi_DmaId);
     GX_SetBankForTex(sTex);
     sSzTexBlk1 = 0x0;
@@ -96,24 +96,24 @@ ARM_FUNC void GX_EndLoadTex(){
     sTex = 0x0;
 }
 
-ARM_FUNC void GX_BeginLoadTexPltt(){
+void GX_BeginLoadTexPltt(){
     s32 temp = (s32)GX_ResetBankForTexPltt();
     sTexPltt = temp;
     sTexPlttLCDCBlk = (u32)(sTexPlttStartAddrTable[temp >> 4] << 0xC);
 }
 
-ARM_FUNC void GX_LoadTexPltt(void *src, u32 offset, u32 size){
+void GX_LoadTexPltt(void *src, u32 offset, u32 size){
     GXi_DmaCopy32Async(GXi_DmaId, src, (void *)(sTexPlttLCDCBlk + offset), size, NULL, NULL);
 }
 
-ARM_FUNC void GX_EndLoadTexPltt(){
+void GX_EndLoadTexPltt(){
     GXi_WaitDma(GXi_DmaId);
     GX_SetBankForTexPltt(sTexPltt);
     sTexPltt = 0x0;
     sTexPlttLCDCBlk = 0x0;
 }
 
-ARM_FUNC void GX_BeginLoadClearImage(){
+void GX_BeginLoadClearImage(){
     u32 temp = GX_ResetBankForClearImage();
     sClrImg = (s32)temp;
     switch (temp)
@@ -134,15 +134,15 @@ ARM_FUNC void GX_BeginLoadClearImage(){
     }
 }
 
-ARM_FUNC void GX_LoadClearImageColor(void *src, u32 size){
+void GX_LoadClearImageColor(void *src, u32 size){
     GXi_DmaCopy32Async(GXi_DmaId, src, (void *)(sClrImgLCDCBlk), size, NULL, NULL);
 }
 
-ARM_FUNC void GX_LoadClearImageDepth(void *src, u32 size){
+void GX_LoadClearImageDepth(void *src, u32 size){
     GXi_DmaCopy32Async(GXi_DmaId, src, (void *)(sClrImgLCDCBlk + 0x20000), size, NULL, NULL);
 }
 
-ARM_FUNC void GX_EndLoadClearImage(){
+void GX_EndLoadClearImage(){
     GXi_WaitDma(GXi_DmaId);
     GX_SetBankForClearImage(sClrImg);
     sClrImg = 0x0;

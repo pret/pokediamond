@@ -523,32 +523,32 @@ static const u16 UNK_020EDB80[] =
 /*
  * Temporary prototypes; keep until all files using math_util are decompiled.
  */
-THUMB_FUNC s32 Sin(u16 degrees);
-THUMB_FUNC s32 Cos(u16 degrees);
-THUMB_FUNC s32 Sin_Wrap(u16 degrees);
-THUMB_FUNC s32 Cos_Wrap(u16 degrees);
-THUMB_FUNC u16 MathUtil_0201B9A0(u16 x);
-THUMB_FUNC s32 Sin32(s32 degrees);
+s32 Sin(u16 degrees);
+s32 Cos(u16 degrees);
+s32 Sin_Wrap(u16 degrees);
+s32 Cos_Wrap(u16 degrees);
+u16 MathUtil_0201B9A0(u16 x);
+s32 Sin32(s32 degrees);
 
-THUMB_FUNC u32 GetLCRNGSeed();
-THUMB_FUNC void SetLCRNGSeed(u32 seed);
-THUMB_FUNC u16 LCRandom(void);
+u32 GetLCRNGSeed();
+void SetLCRNGSeed(u32 seed);
+u16 LCRandom(void);
 
-THUMB_FUNC u32 PRandom(u32 seed);
+u32 PRandom(u32 seed);
 
-THUMB_FUNC void SetMTRNGSeed(u32 seed);
-THUMB_FUNC u32 MTRandom(void);
+void SetMTRNGSeed(u32 seed);
+u32 MTRandom(void);
 
-THUMB_FUNC void MTX22_2DAffine(struct Mtx22 * mtx, u16 radians, fx32 x, fx32 y, u8 type);
+void MTX22_2DAffine(struct Mtx22 * mtx, u16 radians, fx32 x, fx32 y, u8 type);
 
-THUMB_FUNC s32 CircularDistance(s32 x1, s32 y1, s32 x2, s32 y2);
-THUMB_FUNC s32 MathUtil_0201BC84(u16 arg0, s32 arg1);
+s32 CircularDistance(s32 x1, s32 y1, s32 x2, s32 y2);
+s32 MathUtil_0201BC84(u16 arg0, s32 arg1);
 
 /*
  * Trigonometric functions
  */
 // Returns the sine of a 16-bit unsigned degree value.
-THUMB_FUNC s32 Sin(u16 degrees)
+s32 Sin(u16 degrees)
 {
     if (degrees >= 360)
         return 0;
@@ -556,7 +556,7 @@ THUMB_FUNC s32 Sin(u16 degrees)
         return gSineTable[degrees];
 }
 // Returns the cosine of a 16-bit unsigned degree value.
-THUMB_FUNC s32 Cos(u16 degrees)
+s32 Cos(u16 degrees)
 {
     if (degrees >= 360)
         return 0;
@@ -565,25 +565,25 @@ THUMB_FUNC s32 Cos(u16 degrees)
 }
 
 // Returns the wrapped sine of a 16-bit unsigned degree value.
-THUMB_FUNC s32 Sin_Wrap(u16 degrees)
+s32 Sin_Wrap(u16 degrees)
 {
     return gSineTable[degrees % 360];
 }
 
 // Returns the wrapped cosine of a 16-bit unsigned degree value.
-THUMB_FUNC s32 Cos_Wrap(u16 degrees)
+s32 Cos_Wrap(u16 degrees)
 {
     return gSineTable[(degrees % 360) + 90];
 }
 
 // Purpose unknown.
-THUMB_FUNC u16 MathUtil_0201B9A0(u16 x)
+u16 MathUtil_0201B9A0(u16 x)
 {
     return UNK_020EDC7E[x % 360];
 }
 
 // Returns the sine of a 32-bit signed degree value.
-THUMB_FUNC s32 Sin32(s32 degrees)
+s32 Sin32(s32 degrees)
 {
     return gSineTable[(u16)(degrees >> 12) % 360];
 }
@@ -595,19 +595,19 @@ static u32 sMTRNG_State[624]; // Mersenne Twister seed storage/buffer
 static u32 sLCRNG_State;
 
 // Returns the Linear-congruential buffer in full.
-THUMB_FUNC u32 GetLCRNGSeed()
+u32 GetLCRNGSeed()
 {
     return sLCRNG_State;
 }
 
 // Initializes the Linear-congruential buffer with a 32-bit seed.
-THUMB_FUNC void SetLCRNGSeed(u32 seed)
+void SetLCRNGSeed(u32 seed)
 {
     sLCRNG_State = seed;
 }
 
 // Calculates an unsigned 16-bit random integer using the Linear-congruential algorithm.
-THUMB_FUNC u16 LCRandom(void)
+u16 LCRandom(void)
 {
     // cycle the RNG
     sLCRNG_State *= 0x41C64E6D;
@@ -616,7 +616,7 @@ THUMB_FUNC u16 LCRandom(void)
 }
 
 // Returns a cheap, psuedo-random unsigned 32-bit random integer from a seed.
-THUMB_FUNC u32 PRandom(u32 seed)
+u32 PRandom(u32 seed)
 {
     return seed * 1812433253 + 1; // seed from Mersenne Twister algorithm
 }
@@ -625,7 +625,7 @@ static s32 sMTRNG_Cycles = 625; // Mersenne Twister cycle counter, 625 default v
 static u32 sMTRNG_XOR[2] = {0, 0x9908b0df}; // Mersenne Twister XOR mask table
 
 // Initializes the Mersenne Twister buffer with a 32-bit seed.
-THUMB_FUNC void SetMTRNGSeed(u32 seed)
+void SetMTRNGSeed(u32 seed)
 {
     sMTRNG_State[0] = seed;
 
@@ -634,7 +634,7 @@ THUMB_FUNC void SetMTRNGSeed(u32 seed)
 }
 
 // Calculates an unsigned 32-bit random integer using the Mersenne Twister algorithm.
-THUMB_FUNC u32 MTRandom(void)
+u32 MTRandom(void)
 {
     u32 val;
     s32 i;
@@ -675,7 +675,7 @@ THUMB_FUNC u32 MTRandom(void)
  * Nitro FX specific functions
  */
 // Rotates and scales a 2D plane by a number of degrees.
-THUMB_FUNC void MTX22_2DAffine(struct Mtx22 * mtx, u16 radians, fx32 x, fx32 y, u8 type)
+void MTX22_2DAffine(struct Mtx22 * mtx, u16 radians, fx32 x, fx32 y, u8 type)
 {
     if (type == 1)
         radians = (u16)((u32)(radians * 65535) >> 8); // shut up the compiler
@@ -692,7 +692,7 @@ THUMB_FUNC void MTX22_2DAffine(struct Mtx22 * mtx, u16 radians, fx32 x, fx32 y, 
  * Vector functions
  */
 // Calculates the circular distance between two vector coordinates.
-THUMB_FUNC s32 CircularDistance(s32 x1, s32 y1, s32 x2, s32 y2)
+s32 CircularDistance(s32 x1, s32 y1, s32 x2, s32 y2)
 {
     struct Vecx32 v1, v2, v3, v4;
     fx32 f1, f2;
@@ -737,14 +737,14 @@ THUMB_FUNC s32 CircularDistance(s32 x1, s32 y1, s32 x2, s32 y2)
     return ret;
 }
 
-THUMB_FUNC s32 MathUtil_0201BC84(u16 arg0, s32 arg1)
+s32 MathUtil_0201BC84(u16 arg0, s32 arg1)
 {
     return (arg1 * 65535) /
         (FX32_MUL((arg0 * 2) << FX32_INT_SHIFT, FX32_CONST(3.140f)) >> FX32_INT_SHIFT);
 }
 
 // Required to protect UNK_020EDB80 from dead-stripping
-THUMB_FUNC s32 CALC_SomeDeadstrippedFunction(s32 arg)
+s32 CALC_SomeDeadstrippedFunction(s32 arg)
 {
     return UNK_020EDB80[arg];
 }

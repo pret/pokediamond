@@ -1,3 +1,4 @@
+#include "global.h"
 #include "scrcmd.h"
 #include "event_data.h"
 #include "heap.h"
@@ -19,7 +20,7 @@ extern void FUN_0205F224(struct ScriptState* state);
 extern void FUN_0205F234(struct ScriptState* state);
 extern void FUN_0208089C(struct Pokemon* pokemon, struct PlayerData* player, u32 a2, u32 a3, u32 heap_id);
 
-THUMB_FUNC BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
+BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 {
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
     u16 unk = ScriptGetVar(ctx);
@@ -42,7 +43,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
+BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
 {
     void* unk = FUN_02022528(ctx->fieldSystem->saveBlock2);
     struct Pokemon* pokemon = AllocMonZeroed(32);
@@ -60,7 +61,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
+BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
 {
     void* unk = FUN_02022528(ctx->fieldSystem->saveBlock2);
     struct PCStorage* pc = GetStoragePCPointer(ctx->fieldSystem->saveBlock2);
@@ -85,7 +86,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0256(struct ScriptContext* ctx) //0256
+BOOL ScrCmd_Unk0256(struct ScriptContext* ctx) //0256
 {
     u16 unk = ScriptGetVar(ctx);
     u16* ret_ptr = GetVarPointer(ctx->fieldSystem, ScriptReadHalfword(ctx));

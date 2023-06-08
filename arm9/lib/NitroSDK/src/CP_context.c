@@ -1,8 +1,8 @@
 #include "CP_context.h"
-#include "function_target.h"
 #include "registers.h"
+#include "code32.h"
 
-ARM_FUNC asm void CP_SaveContext(register CPContext *context)
+asm void CP_SaveContext(register CPContext *context)
 {
     ldr r1, =REG_DIV_NUMER_ADDR
     stmfd sp!, {r4}
@@ -24,7 +24,7 @@ ARM_FUNC asm void CP_SaveContext(register CPContext *context)
     bx lr
 }
 
-ARM_FUNC asm void CPi_RestoreContext(register const CPContext *context)
+asm void CPi_RestoreContext(register const CPContext *context)
 {
     stmfd sp!, {r4}
     ldr r1, =REG_DIV_NUMER_ADDR
