@@ -2,8 +2,6 @@
 #include "save_block_2.h"
 #include "event_data.h"
 
-#pragma thumb on
-
 u8 UNK_021C5A14[8];
 
 u8 * GetFlagAddr(struct ScriptState * state, u16 flag_id);

@@ -6,8 +6,6 @@
 #include "MI_memory.h"
 #include "string16.h"
 
-#pragma thumb on
-
 static void * LoadSingleElementFromNarc(NarcId narc_id, s32 file_id, u32 heap_id);
 static void FreeMsgDataRawData(void * data);
 static void ReadMsgData_ExistingTable_ExistingArray(struct MsgDataTable * table, u32 num, u16 * dest);

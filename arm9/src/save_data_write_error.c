@@ -59,7 +59,7 @@ static const struct GraphicsBanks sSaveDataWriteErrorGraphicsBanks = {
     .texpltt = GX_VRAM_TEXPLTT_NONE,
 };
 
-THUMB_FUNC void ShowSaveDataWriteError(u32 heap_id, u32 err_no)
+void ShowSaveDataWriteError(u32 heap_id, u32 err_no)
 {
     struct Window window;
 

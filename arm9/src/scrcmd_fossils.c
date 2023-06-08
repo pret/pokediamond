@@ -1,3 +1,4 @@
+#include "global.h"
 #include "scrcmd.h"
 #include "bag.h"
 
@@ -11,7 +12,7 @@ const u16 gFossilPokemonMap[7][2] = {
     { ITEM_SKULL_FOSSIL, SPECIES_CRANIDOS },
 };
 
-THUMB_FUNC BOOL ScrCmd_CountFossils(struct ScriptContext * ctx) //01F1
+BOOL ScrCmd_CountFossils(struct ScriptContext * ctx) //01F1
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
 
@@ -28,7 +29,7 @@ THUMB_FUNC BOOL ScrCmd_CountFossils(struct ScriptContext * ctx) //01F1
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetFossilPokemon(struct ScriptContext * ctx) //01F4
+BOOL ScrCmd_GetFossilPokemon(struct ScriptContext * ctx) //01F4
 {
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
     u16 fossilId = ScriptGetVar(ctx);
@@ -47,7 +48,7 @@ THUMB_FUNC BOOL ScrCmd_GetFossilPokemon(struct ScriptContext * ctx) //01F4
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetFossilMinimumAmount(struct ScriptContext * ctx) //01F5
+BOOL ScrCmd_GetFossilMinimumAmount(struct ScriptContext * ctx) //01F5
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 * ret_ptr1 = ScriptGetVarPointer(ctx);
@@ -73,13 +74,13 @@ THUMB_FUNC BOOL ScrCmd_GetFossilMinimumAmount(struct ScriptContext * ctx) //01F5
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01F2(struct ScriptContext * ctx) //01F2
+BOOL ScrCmd_Unk01F2(struct ScriptContext * ctx) //01F2
 {
 #pragma unused(ctx)
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk01F3(struct ScriptContext * ctx) //01F3
+BOOL ScrCmd_Unk01F3(struct ScriptContext * ctx) //01F3
 {
 #pragma unused(ctx)
     return FALSE;

@@ -6,8 +6,6 @@
 #include "RTC_convert.h"
 #include "sav_system_info.h"
 
-#pragma thumb on
-
 extern void GF_RTC_CopyDateTime(RTCDate *, RTCTime *);
 
 u32 Save_SysInfo_sizeof(void)

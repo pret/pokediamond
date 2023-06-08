@@ -1,7 +1,8 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "MATH_pop.h"
+#include "code32.h"
 
-ARM_FUNC u8 MATH_CountPopulation(u32 x) {
+u8 MATH_CountPopulation(u32 x) {
     x -= (x >> 1) & 0x55555555;
     x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
     x += x >> 4;

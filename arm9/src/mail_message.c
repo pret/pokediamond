@@ -6,8 +6,6 @@
 #include "string_control_code.h"
 #include "constants/easy_chat.h"
 
-#pragma thumb on
-
 struct UnkStruct_020ED556
 {
     u8 unk_0;

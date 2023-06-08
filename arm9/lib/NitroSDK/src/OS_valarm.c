@@ -1,6 +1,6 @@
 #include "OS_valarm.h"
-#include "function_target.h"
 #include "OS_interrupt.h"
+#include "code32.h"
 
 static struct OSiVAlarmQueue
 {
@@ -13,7 +13,7 @@ static u16 OSi_UseVAlarm = FALSE;
 static s32 OSi_VFrameCount;
 static s32 OSi_PreviousVCount;
 
-ARM_FUNC void OS_InitVAlarm(void)
+void OS_InitVAlarm(void)
 {
     if (!OSi_UseVAlarm)
     {

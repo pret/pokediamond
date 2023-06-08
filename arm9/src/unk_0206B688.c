@@ -2,8 +2,6 @@
 #include "pokemon.h"
 #include "unk_0206B688.h"
 
-#pragma thumb on
-
 u16 BoxMon_GetAlternateForme(struct BoxPokemon * boxmon);
 u32 FUN_0206B6D4(u32 species, u32 is_egg, u32 forme);
 

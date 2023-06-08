@@ -1,9 +1,10 @@
 #include "OS_arena.h"
 
-#include "global.h"
+#include "nitro/types.h"
 #include "OS_protectionRegion.h"
 #include "OS_emulator.h"
 #include "mmap.h"
+#include "code32.h"
 
 static BOOL OSi_Initialized = FALSE;
 static BOOL OSi_MainExArenaEnabled = FALSE;
@@ -15,7 +16,7 @@ extern void SDK_SECTION_ARENA_DTCM_START(); // TODO: technically this should be 
 extern void SDK_IRQ_STACKSIZE(); // TODO: technically this should be defined in the lcf
 extern void SDK_SYS_STACKSIZE(); // TODO: technically this should be defined in the lcf
 
-ARM_FUNC void OS_InitArena(void) {
+void OS_InitArena(void) {
     if (OSi_Initialized) {
         return;
     }
@@ -40,7 +41,7 @@ ARM_FUNC void OS_InitArena(void) {
     OS_SetArenaLo(OS_ARENA_WRAM_MAIN, OS_GetInitArenaLo(OS_ARENA_WRAM_MAIN));
 }
 
-ARM_FUNC void OS_InitArenaEx(void) {
+void OS_InitArenaEx(void) {
     OS_SetArenaHi(OS_ARENA_MAINEX, OS_GetInitArenaHi(OS_ARENA_MAINEX));
     OS_SetArenaLo(OS_ARENA_MAINEX, OS_GetInitArenaLo(OS_ARENA_MAINEX));
 
@@ -50,15 +51,15 @@ ARM_FUNC void OS_InitArenaEx(void) {
     }
 }
 
-ARM_FUNC void* OS_GetArenaHi(OSArenaId id) {
+void* OS_GetArenaHi(OSArenaId id) {
     return OSi_GetArenaInfo().hi[id];
 }
 
-ARM_FUNC void* OS_GetArenaLo(OSArenaId id) {
+void* OS_GetArenaLo(OSArenaId id) {
     return OSi_GetArenaInfo().lo[id];
 }
 
-ARM_FUNC void* OS_GetInitArenaHi(OSArenaId id) {
+void* OS_GetInitArenaHi(OSArenaId id) {
     switch (id) {
         case OS_ARENA_MAIN:
             return (void *)OSi_MAIN_ARENA_HI_DEFAULT;
@@ -96,7 +97,7 @@ ARM_FUNC void* OS_GetInitArenaHi(OSArenaId id) {
     }
 }
 
-ARM_FUNC void* OS_GetInitArenaLo(OSArenaId id) {
+void* OS_GetInitArenaLo(OSArenaId id) {
     switch (id) {
         case OS_ARENA_MAIN:
             return (void *)SDK_MAIN_ARENA_LO;
@@ -119,15 +120,15 @@ ARM_FUNC void* OS_GetInitArenaLo(OSArenaId id) {
     }
 }
 
-ARM_FUNC void OS_SetArenaHi(OSArenaId id, void* newHi) {
+void OS_SetArenaHi(OSArenaId id, void* newHi) {
     OSi_GetArenaInfo().hi[id] = newHi;
 }
 
-ARM_FUNC void OS_SetArenaLo(OSArenaId id, void* newLo) {
+void OS_SetArenaLo(OSArenaId id, void* newLo) {
     OSi_GetArenaInfo().lo[id] = newLo;
 }
 
-ARM_FUNC void* OS_AllocFromArenaLo(OSArenaId id, u32 size, u32 align) {
+void* OS_AllocFromArenaLo(OSArenaId id, u32 size, u32 align) {
     void* ptr;
     u8* arenaLo;
     ptr = OS_GetArenaLo(id);
@@ -145,7 +146,7 @@ ARM_FUNC void* OS_AllocFromArenaLo(OSArenaId id, u32 size, u32 align) {
     return ptr;
 }
 
-ARM_FUNC void* OS_AllocFromArenaHi(OSArenaId id, u32 size, u32 align) {
+void* OS_AllocFromArenaHi(OSArenaId id, u32 size, u32 align) {
     void* ptr;
     u8* arenaHi;
 

@@ -1,3 +1,4 @@
+#include "global.h"
 #include "module_52.h"
 #include "heap.h"
 #include "unk_0205FA2C.h"
@@ -155,7 +156,7 @@ const u16 MOD52_021D76F8[] = {
     ITEM_GREPA_BERRY, 1,
 };
 
-THUMB_FUNC BOOL MOD52_021D74E0(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D74E0(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
@@ -165,7 +166,7 @@ THUMB_FUNC BOOL MOD52_021D74E0(struct OverlayManager *manager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D74F8(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D74F8(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(status)
     struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(manager)[2]; // weird
@@ -175,7 +176,7 @@ THUMB_FUNC BOOL MOD52_021D74F8(struct OverlayManager *manager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D750C(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D750C(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
@@ -185,7 +186,7 @@ THUMB_FUNC BOOL MOD52_021D750C(struct OverlayManager *manager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D7528(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D7528(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
@@ -195,7 +196,7 @@ THUMB_FUNC BOOL MOD52_021D7528(struct OverlayManager *manager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D7540(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D7540(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(status)
     struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(manager)[2]; // weird
@@ -207,7 +208,7 @@ THUMB_FUNC BOOL MOD52_021D7540(struct OverlayManager *manager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D7560(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D7560(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
@@ -217,7 +218,7 @@ THUMB_FUNC BOOL MOD52_021D7560(struct OverlayManager *manager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D757C(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D757C(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
@@ -227,7 +228,7 @@ THUMB_FUNC BOOL MOD52_021D757C(struct OverlayManager *manager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D7594(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D7594(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(status)
     struct SaveBlock2 *sav2 = (struct SaveBlock2 *)OverlayManager_GetField18(manager)[2]; // weird
@@ -248,7 +249,7 @@ THUMB_FUNC BOOL MOD52_021D7594(struct OverlayManager *manager, u32 *status)
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD52_021D75E8(struct OverlayManager *manager, u32 *status)
+BOOL MOD52_021D75E8(struct OverlayManager *manager, u32 *status)
 {
 #pragma unused(manager)
 #pragma unused(status)
@@ -258,7 +259,7 @@ THUMB_FUNC BOOL MOD52_021D75E8(struct OverlayManager *manager, u32 *status)
     return 1;
 }
 
-THUMB_FUNC void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *sav2, BOOL set_trainerid)
+void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *sav2, BOOL set_trainerid)
 {
     Save_SysInfo_InitFromSystem(Save_SysInfo_Get(sav2));
     Save_SysInfo_RTC_Init(Save_SysInfo_RTC_Get(sav2));
@@ -284,7 +285,7 @@ THUMB_FUNC void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *sav2, BOOL set_tr
     FUN_020250C4(FUN_02024ECC(sav2), heap_id, MOD52_021D76F8, NELEMS(MOD52_021D76F8) / 2);
 }
 
-THUMB_FUNC void MOD52_021D7688(u32 unused, struct SaveBlock2 *sav2)
+void MOD52_021D7688(u32 unused, struct SaveBlock2 *sav2)
 {
 #pragma unused(unused)
 
@@ -296,7 +297,7 @@ THUMB_FUNC void MOD52_021D7688(u32 unused, struct SaveBlock2 *sav2)
     OS_ResetSystem(0);
 }
 
-THUMB_FUNC void MOD52_021D769C(u32 unused, struct SaveBlock2 *sav2)
+void MOD52_021D769C(u32 unused, struct SaveBlock2 *sav2)
 {
 #pragma unused(unused)
 

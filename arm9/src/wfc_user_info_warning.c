@@ -64,7 +64,7 @@ static const struct GraphicsBanks sWFCWarningMsgGraphicsBanks = {
     .texpltt = GX_VRAM_TEXPLTT_NONE,
 };
 
-THUMB_FUNC void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
+void ShowWFCUserInfoWarning(u32 heap_id, u32 a1)
 {
 #pragma unused(a1)
     struct Window window;

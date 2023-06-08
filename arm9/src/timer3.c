@@ -1,3 +1,4 @@
+#include "global.h"
 #include "timer3.h"
 
 #include "OS_interrupt.h"
@@ -10,7 +11,7 @@ static BOOL timer3_needReset;
 static vu64 timer3_counter;
 
 
-THUMB_FUNC void Init_Timer3()
+void Init_Timer3()
 {
     timer3_counter = 0;
     timer3_needReset = FALSE;
@@ -24,7 +25,7 @@ THUMB_FUNC void Init_Timer3()
 }
 
 
-THUMB_FUNC void CountUpTimer3()
+void CountUpTimer3()
 {
     timer3_counter++;
 
@@ -40,7 +41,7 @@ THUMB_FUNC void CountUpTimer3()
     OS_SetIrqFunction(OS_IE_TIMER3, &CountUpTimer3);
 }
 
-THUMB_FUNC u64 internal_GetTimer3Count()
+u64 internal_GetTimer3Count()
 {
     OSIntrMode intr_mode = OS_DisableInterrupts();
 
@@ -56,17 +57,17 @@ THUMB_FUNC u64 internal_GetTimer3Count()
     return (counter << 16) | timer3;
 }
 
-THUMB_FUNC u64 GetTimer3Count()
+u64 GetTimer3Count()
 {
     return internal_GetTimer3Count();
 }
 
-THUMB_FUNC u64 Timer3CountToMilliSeconds(u64 count)
+u64 Timer3CountToMilliSeconds(u64 count)
 {
     return (count * 64) / (HW_SYSTEM_CLOCK / 1000);
 }
 
-THUMB_FUNC u64 Timer3CountToSeconds(u64 count)
+u64 Timer3CountToSeconds(u64 count)
 {
     return (count * 64) / HW_SYSTEM_CLOCK;
 }

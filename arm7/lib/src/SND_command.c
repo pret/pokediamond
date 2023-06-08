@@ -16,6 +16,8 @@
 #include "SND_seq.h"
 #include "SND_work.h"
 
+#include "code32.h"
+
 #define SND_MSG_ARRAY_SIZE 8
 
 static OSMessage sMsgArray[SND_MSG_ARRAY_SIZE];

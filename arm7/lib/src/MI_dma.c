@@ -1,8 +1,8 @@
-#include "function_target.h"
 #include "MI_dma.h"
 #include "OS_system.h"
+#include "code32.h"
 
-ARM_FUNC void MI_WaitDma(u32 channel) {
+void MI_WaitDma(u32 channel) {
     OSIntrMode mode = OS_DisableInterrupts();
     vu32 * addr = (vu32 *)(REG_ADDR_DMA0SAD + (channel * 3 + 2) * 4);
     while(addr[0] & 0x80000000) ;
@@ -15,7 +15,7 @@ ARM_FUNC void MI_WaitDma(u32 channel) {
     mode = OS_RestoreInterrupts(mode);
 }
 
-ARM_FUNC void MI_StopDma(u32 channel) {
+void MI_StopDma(u32 channel) {
     OSIntrMode mode = OS_DisableInterrupts();
     vu16 * addr = (vu16 *)(REG_ADDR_DMA0SAD + (channel * 6 + 5) * 2);
     addr[0] &= ~(DMA_START_MASK | DMA_REPEAT);

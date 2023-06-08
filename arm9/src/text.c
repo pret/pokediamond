@@ -1,3 +1,4 @@
+#include "global.h"
 #include "text.h"
 #include "MI_memory.h"
 #include "filesystem.h"
@@ -25,12 +26,12 @@ extern void FUN_0201C1A8(struct TextPrinter *printer);
 extern void * GfGfxLoader_GetCharData(NarcId, s32, s32, struct UnkStruct_0200B870_sub **, u32);
 
 
-THUMB_FUNC void SetFontsPointer(const struct FontInfo *fonts)
+void SetFontsPointer(const struct FontInfo *fonts)
 {
     gFonts = fonts;
 }
 
-THUMB_FUNC u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
+u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
 {
     u32 *r4 = UNK_021C5714;
     s32 i;
@@ -51,7 +52,7 @@ THUMB_FUNC u8 FUN_0201BCC8(void (*func)(u32, void *), void *printer, u32 param2)
     return (u8)i;
 }
 
-THUMB_FUNC void FUN_0201BCFC(u8 textPrinterNumber)
+void FUN_0201BCFC(u8 textPrinterNumber)
 {
     GF_ASSERT(textPrinterNumber < 8);
     GF_ASSERT(UNK_021C5714[textPrinterNumber] != 0);
@@ -73,12 +74,12 @@ THUMB_FUNC void FUN_0201BCFC(u8 textPrinterNumber)
     UNK_021C5714[textPrinterNumber] = 0;
 }
 
-THUMB_FUNC BOOL FUN_0201BD44(u8 textPrinterNumber)
+BOOL FUN_0201BD44(u8 textPrinterNumber)
 {
     return UNK_021C5714[textPrinterNumber] ? TRUE : FALSE;
 }
 
-THUMB_FUNC void ResetAllTextPrinters(void)
+void ResetAllTextPrinters(void)
 {
     for (s32 i = 0; i < 8; i++)
     {
@@ -86,17 +87,17 @@ THUMB_FUNC void ResetAllTextPrinters(void)
     }
 }
 
-THUMB_FUNC u8 FUN_0201BD70(u8 textPrinterNumber)
+u8 FUN_0201BD70(u8 textPrinterNumber)
 {
     return (u8)FUN_0201BD44(textPrinterNumber);
 }
 
-THUMB_FUNC void FUN_0201BD7C(u8 textPrinterNumber)
+void FUN_0201BD7C(u8 textPrinterNumber)
 {
     FUN_0201BCFC(textPrinterNumber);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
+u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
@@ -119,7 +120,7 @@ THUMB_FUNC u16 AddTextPrinterParameterized(struct Window * window, u8 fontId, st
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
+u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
@@ -142,7 +143,7 @@ THUMB_FUNC u16 AddTextPrinterParameterized2(struct Window * window, u8 fontId, s
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
+u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, struct String *str, u32 x, u32 y, u32 speed, u32 colors, u32 letterSpacing, u32 lineSpacing, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     struct TextPrinterTemplate printerTemplate;
 
@@ -165,7 +166,7 @@ THUMB_FUNC u16 AddTextPrinterParameterized3(struct Window * window, u32 fontId, 
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
-THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
+u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 speed, u8 (*callback)(struct TextPrinterTemplate *, u16))
 {
     if (!gFonts)
         return 0xff;
@@ -219,7 +220,7 @@ THUMB_FUNC u16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u32 s
     }
 }
 
-THUMB_FUNC void RunTextPrinter(u32 param0, struct TextPrinter *printer)
+void RunTextPrinter(u32 param0, struct TextPrinter *printer)
 {
 #pragma unused(param0)
     if (UNK_021C570C == 0)
@@ -255,7 +256,7 @@ THUMB_FUNC void RunTextPrinter(u32 param0, struct TextPrinter *printer)
     }
 }
 
-THUMB_FUNC u32 RenderFont(struct TextPrinter *printer)
+u32 RenderFont(struct TextPrinter *printer)
 {
     u32 ret;
     while (TRUE)
@@ -268,7 +269,7 @@ THUMB_FUNC u32 RenderFont(struct TextPrinter *printer)
     }
 }
 
-THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor)
+void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadowColor)
 {
     s32 r5 = 0;
     u32 sp20[4];
@@ -302,7 +303,7 @@ THUMB_FUNC void GenerateFontHalfRowLookupTable(u8 fgColor, u8 bgColor, u8 shadow
     }
 }
 
-THUMB_FUNC void DecompressGlyphTile(const u16 *src, u16 *dst)
+void DecompressGlyphTile(const u16 *src, u16 *dst)
 {
     dst[0] = sFontHalfRowLookupTable[(u32)src[0] >> 8];
     dst[1] = sFontHalfRowLookupTable[(u8)src[0]];
@@ -322,12 +323,12 @@ THUMB_FUNC void DecompressGlyphTile(const u16 *src, u16 *dst)
     dst[15] = sFontHalfRowLookupTable[(u8)src[7]];
 }
 
-THUMB_FUNC void FUN_0201C1A8(struct TextPrinter *printer)
+void FUN_0201C1A8(struct TextPrinter *printer)
 {
     printer->Unk2C = NULL;
 }
 
-THUMB_FUNC u16 *FUN_0201C1B0(void)
+u16 *FUN_0201C1B0(void)
 {
     void *res = AllocFromHeap(0, 32 * 24 * sizeof(u16));
     struct UnkStruct_0200B870_sub * var;
@@ -337,7 +338,7 @@ THUMB_FUNC u16 *FUN_0201C1B0(void)
     return res;
 }
 
-THUMB_FUNC void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2, u32 param3)
+void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2, u32 param3)
 {
 #pragma unused (param1, param2)
     struct Window * window = printer->printerTemplate.window;
@@ -350,7 +351,7 @@ THUMB_FUNC void FUN_0201C1EC(struct TextPrinter *printer, u32 param1, u32 param2
     BlitBitmapRectToWindow(window, r6, 0, 0, 24, 32, r2, 0, 24, 32);
 }
 
-THUMB_FUNC void FUN_0201C238(struct TextPrinter *printer)
+void FUN_0201C238(struct TextPrinter *printer)
 {
     if (printer->Unk2C == NULL)
     {

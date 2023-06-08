@@ -6,8 +6,6 @@
 #include "string16.h"
 #include "unk_020286F8.h"
 
-#pragma thumb on
-
 struct UnkSaveStruct_020286F8 * UNK_021C59D0;
 
 u32 FUN_020286F8(void)

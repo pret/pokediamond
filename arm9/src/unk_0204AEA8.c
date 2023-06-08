@@ -6,7 +6,7 @@
 
 extern void MOD05_021E3444(u32, struct FieldSystem *, u32);
 
-THUMB_FUNC BOOL FUN_0204AEA8(struct TaskManager *taskManager)
+BOOL FUN_0204AEA8(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     u32 *v1 = FUN_0204652C(taskManager);
@@ -30,7 +30,7 @@ THUMB_FUNC BOOL FUN_0204AEA8(struct TaskManager *taskManager)
     return FALSE;
 }
 
-THUMB_FUNC void FUN_0204AEF8(struct TaskManager *taskManager, u32 a1, u32 a2)
+void FUN_0204AEF8(struct TaskManager *taskManager, u32 a1, u32 a2)
 {
     u32 *v0 = AllocFromHeapAtEnd(11, 4 * sizeof(u32));
     

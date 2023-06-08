@@ -4,8 +4,6 @@
 #include "unk_02029FB0.h"
 #include "unk_0202C144.h"
 
-#pragma thumb on
-
 void FUN_0202C144(struct SaveBlock2 * sav2, struct Pokemon * mon)
 {
     u32 is_egg = GetMonData(mon, MON_DATA_IS_EGG, NULL);

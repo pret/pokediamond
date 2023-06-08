@@ -1,7 +1,7 @@
-#include "function_target.h"
 #include "MI_uncompress.h"
+#include "code32.h"
 
-ARM_FUNC asm void MI_UncompressLZ8(register const void *srcp, register void *destp)
+asm void MI_UncompressLZ8(register const void *srcp, register void *destp)
 {
     stmfd sp!, {r4-r6, lr}
 

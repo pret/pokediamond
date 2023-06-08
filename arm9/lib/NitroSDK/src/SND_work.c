@@ -2,6 +2,8 @@
 #include "SND_alarm.h"
 #include "SND_main.h"
 #include "OS_cache.h"
+#include "nitro/types.h"
+#include "code32.h"
 
 struct SNDSharedWork *SNDi_SharedWork;
 
@@ -87,12 +89,12 @@ u32 SND_GetPlayerTickCounter(u32 playerId) {
 //    return TRUE;
 //}
 
-ARM_FUNC u32 SNDi_GetFinishedCommandTag(void) {
+u32 SNDi_GetFinishedCommandTag(void) {
     DC_InvalidateRange(&SNDi_SharedWork->finishedCommandTag, 4);
     return SNDi_SharedWork->finishedCommandTag;
 }
 
-ARM_FUNC void SNDi_InitSharedWork(struct SNDSharedWork *sw) {
+void SNDi_InitSharedWork(struct SNDSharedWork *sw) {
     sw->playerStatus = 0;
     sw->channelStatus = 0;
     sw->captureStatus = 0;

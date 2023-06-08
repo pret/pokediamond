@@ -1,7 +1,7 @@
 #ifndef GUARD_SND_WORK_H
 #define GUARD_SND_WORK_H
 
-#include "global.h"
+#include "nitro/types.h"
 
 #include "SND_main.h"
 #include "nitro/SND_work_shared.h"

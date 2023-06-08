@@ -1,11 +1,11 @@
-#include "function_target.h"
 #include "consts.h"
 #include "OS_alloc.h"
 #include "OS_system.h"
+#include "code32.h"
 
 void* OSiHeapInfo[OS_ARENA_MAX];
 
-ARM_FUNC Cell* DLAddFront(Cell* list, Cell* cell)
+Cell* DLAddFront(Cell* list, Cell* cell)
 {
     cell->next = list;
     cell->prev = NULL;
@@ -15,7 +15,7 @@ ARM_FUNC Cell* DLAddFront(Cell* list, Cell* cell)
     return cell;
 }
 
-ARM_FUNC Cell* DLExtract(Cell* list, Cell* cell)
+Cell* DLExtract(Cell* list, Cell* cell)
 {
     if (cell->next) {
         cell->next->prev = cell->prev;
@@ -28,7 +28,7 @@ ARM_FUNC Cell* DLExtract(Cell* list, Cell* cell)
     return list;
 }
 
-ARM_FUNC Cell *DLInsert(Cell *original, Cell *inserted)
+Cell *DLInsert(Cell *original, Cell *inserted)
 {
     Cell *prevCell;
     Cell *nextCell;
@@ -78,7 +78,7 @@ ARM_FUNC Cell *DLInsert(Cell *original, Cell *inserted)
 #define HEADERSIZE OSi_ROUND(sizeof(Cell), 32)
 #define MINOBJSIZE (HEADERSIZE+32)
 
-ARM_FUNC void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size)
+void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size)
 {
     OSHeapInfo* heapInfo;
     HeapDesc* hd;
@@ -142,7 +142,7 @@ ARM_FUNC void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size)
     return (void *)((char *)cell + HEADERSIZE);
 }
 
-ARM_FUNC void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void* ptr)
+void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void* ptr)
 {
     OSHeapInfo *heapInfo;
     HeapDesc *hd;
@@ -164,7 +164,7 @@ ARM_FUNC void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void* ptr)
     (void)OS_RestoreInterrupts(enabled);
 }
 
-ARM_FUNC OSHeapHandle OS_SetCurrentHeap(OSArenaId id, OSHeapHandle heap)
+OSHeapHandle OS_SetCurrentHeap(OSArenaId id, OSHeapHandle heap)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
 
@@ -176,7 +176,7 @@ ARM_FUNC OSHeapHandle OS_SetCurrentHeap(OSArenaId id, OSHeapHandle heap)
     return prev;
 }
 
-ARM_FUNC void *OS_InitAlloc(OSArenaId id, void *arenaStart, void *arenaEnd, s32 maxHeaps)
+void *OS_InitAlloc(OSArenaId id, void *arenaStart, void *arenaEnd, s32 maxHeaps)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
 
@@ -207,7 +207,7 @@ ARM_FUNC void *OS_InitAlloc(OSArenaId id, void *arenaStart, void *arenaEnd, s32 
     return heapInfo->arenaStart;
 }
 
-ARM_FUNC OSHeapHandle OS_CreateHeap(OSArenaId id, void *start, void *end)
+OSHeapHandle OS_CreateHeap(OSArenaId id, void *start, void *end)
 {
     OSIntrMode enabled = OS_DisableInterrupts();
 
@@ -250,7 +250,7 @@ ARM_FUNC OSHeapHandle OS_CreateHeap(OSArenaId id, void *start, void *end)
         }                                   \
     } while (0)
 
-ARM_FUNC s32 OS_CheckHeap(OSArenaId id, OSHeapHandle heap)
+s32 OS_CheckHeap(OSArenaId id, OSHeapHandle heap)
 {
     OSHeapInfo *heapInfo;
     HeapDesc *hd;

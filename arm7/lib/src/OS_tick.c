@@ -2,13 +2,13 @@
 #include "OS_system.h"
 #include "OS_tick.h"
 #include "OS_timer.h"
-#include "function_target.h"
+#include "code32.h"
 
 static u16 OSi_UseTick;
 static OSTick OSi_TickCounter;
 static BOOL OSi_NeedResetTimer;
 
-ARM_FUNC void OS_InitTick(void) {
+void OS_InitTick(void) {
     if (OSi_UseTick == 0) {
         OSi_UseTick = 1;
         OSi_SetTimerReserved(0);
@@ -22,11 +22,11 @@ ARM_FUNC void OS_InitTick(void) {
     }
 }
 
-ARM_FUNC u16 OS_IsTickAvailable(void) {
+u16 OS_IsTickAvailable(void) {
     return OSi_UseTick;
 }
 
-ARM_FUNC void OSi_CountUpTick(void) {
+void OSi_CountUpTick(void) {
     OSi_TickCounter++;
     if (OSi_NeedResetTimer != 0) {
         OS_SetTimerControl(OS_TIMER_0, 0);
@@ -37,7 +37,7 @@ ARM_FUNC void OSi_CountUpTick(void) {
     OSi_EnterTimerCallback(0, (void(*)(void*))OSi_CountUpTick, NULL);
 }
 
-ARM_FUNC OSTick OS_GetTick(void) {
+OSTick OS_GetTick(void) {
     OSIntrMode prev = OS_DisableInterrupts();
     vu16 countL = *(REGType16 *)((u32)&reg_OS_TM0CNT_L + OS_TIMER_0 * 4);
     vu64 countH = OSi_TickCounter & 0xffffffffffffULL;

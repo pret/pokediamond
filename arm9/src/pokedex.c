@@ -7,8 +7,6 @@
 #include "unk_02087A1C.h"
 #include "constants/species.h"
 
-#pragma thumb on
-
 static inline BOOL CheckDexFlag(u8 * flagArray, u16 species)
 {
     species--;

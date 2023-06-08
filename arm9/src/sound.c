@@ -5,8 +5,6 @@
 #include "unk_020040F4.h"
 #include "sound_chatot.h"
 
-#pragma thumb on
-
 static struct SoundData sSoundDataBuffer;
 static u32 UNK_02107070;
 static u32 UNK_02107074;

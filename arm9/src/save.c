@@ -7,8 +7,6 @@
 #include "save_data_read_error.h"
 #include "save_data_write_error.h"
 
-#pragma thumb on
-
 // TODO: Migrate to headers
 
 // unk_02015EA0.s

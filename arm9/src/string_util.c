@@ -1,3 +1,4 @@
+#include "global.h"
 #include "string_util.h"
 
 const u16 gDigitTable[] = {
@@ -32,7 +33,7 @@ const s32 gPowersOfTen[] = {
     1000000000,
 };
 
-THUMB_FUNC void CopyU16StringArray(u16 *dest, const u16 *src)
+void CopyU16StringArray(u16 *dest, const u16 *src)
 {
     u16 c = *src;
     while (c != EOS) {
@@ -44,7 +45,7 @@ THUMB_FUNC void CopyU16StringArray(u16 *dest, const u16 *src)
     *dest = EOS;
 }
 
-THUMB_FUNC u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num)
+u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num)
 {
     u32 copied = 0;
     if (num > copied) {
@@ -60,7 +61,7 @@ THUMB_FUNC u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num)
     return dest + num;
 }
 
-THUMB_FUNC u32 StringLength(const u16 *s)
+u32 StringLength(const u16 *s)
 {
     u16 c = *s;
     u32 len = 0;
@@ -72,7 +73,7 @@ THUMB_FUNC u32 StringLength(const u16 *s)
     return len;
 }
 
-THUMB_FUNC BOOL StringNotEqual(const u16 *s1, const u16 *s2)
+BOOL StringNotEqual(const u16 *s1, const u16 *s2)
 {
     for (; *s1 == *s2; s1++, s2++) {
         if (*s1 == EOS)
@@ -81,7 +82,7 @@ THUMB_FUNC BOOL StringNotEqual(const u16 *s1, const u16 *s2)
     return TRUE;
 }
 
-THUMB_FUNC BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num)
+BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num)
 {
     u16 c1, c2;
     c2 = *s2;
@@ -102,7 +103,7 @@ THUMB_FUNC BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num)
     return TRUE;
 }
 
-THUMB_FUNC u16 *StringFill(u16 *dest, u16 value, u32 num)
+u16 *StringFill(u16 *dest, u16 value, u32 num)
 {
     u32 copied = 0;
     if (num > copied) {
@@ -116,12 +117,12 @@ THUMB_FUNC u16 *StringFill(u16 *dest, u16 value, u32 num)
     return dest + copied;
 }
 
-THUMB_FUNC u16 *StringFillEOS(u16 *dest, u32 num)
+u16 *StringFillEOS(u16 *dest, u32 num)
 {
     return StringFill(dest, EOS, num);
 }
 
-THUMB_FUNC u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n)
+u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n)
 {
     for (u32 x = (u32)gPowersOfTen[n - 1]; x != 0; x = x / 10) {
         u16 res = (u16)(value / x);

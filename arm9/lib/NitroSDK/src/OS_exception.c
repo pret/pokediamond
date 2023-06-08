@@ -1,8 +1,10 @@
 #include "OS_exception.h"
 
-#include "global.h"
+#include "nitro/types.h"
 #include "OS_protectionUnit.h"
 #include "mmap.h"
+
+#include "code32.h"
 
 static OSiExContext OSi_ExContext;
 
@@ -17,7 +19,7 @@ static void OSi_GetAndDisplayContext(void);
 static void OSi_SetExContext(void);
 static void OSi_DisplayExContext(void);
 
-ARM_FUNC void OS_InitException(void)
+void OS_InitException(void)
 {
     if (0x2600000 <= *(u32 *)HW_EXCEP_VECTOR_BUF_FOR_DEBUGGER
         && *(u32 *)HW_EXCEP_VECTOR_BUF_FOR_DEBUGGER < 0x2800000)
@@ -39,7 +41,7 @@ ARM_FUNC void OS_InitException(void)
     OSi_UserExceptionHandler = NULL;
 }
 
-ARM_FUNC asm void OSi_ExceptionHandler(void)
+asm void OSi_ExceptionHandler(void)
 {
     ldr r12, =OSi_DebuggerHandler
     ldr r12, [r12]
@@ -83,7 +85,7 @@ _020CCA54:
     bx lr
 }
 
-ARM_FUNC static asm void OSi_GetAndDisplayContext(void)
+static asm void OSi_GetAndDisplayContext(void)
 {
     stmfd sp!, {r0, lr}
 
@@ -94,7 +96,7 @@ ARM_FUNC static asm void OSi_GetAndDisplayContext(void)
     bx lr
 }
 
-ARM_FUNC static asm void OSi_SetExContext(void)
+static asm void OSi_SetExContext(void)
 {
     ldr r1, =OSi_ExContext;
 
@@ -143,7 +145,7 @@ ARM_FUNC static asm void OSi_SetExContext(void)
     bx lr
 }
 
-ARM_FUNC static void OSi_DisplayExContext(void)
+static void OSi_DisplayExContext(void)
 {
     if (OSi_UserExceptionHandler)
     {

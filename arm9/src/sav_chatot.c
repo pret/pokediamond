@@ -3,40 +3,40 @@
 #include "heap.h"
 #include "sav_chatot.h"
 
-THUMB_FUNC u32 Save_Chatot_sizeof(void)
+u32 Save_Chatot_sizeof(void)
 {
     return sizeof(struct SaveChatotSoundClip);
 }
 
-THUMB_FUNC void Save_Chatot_Init(struct SaveChatotSoundClip * chatot)
+void Save_Chatot_Init(struct SaveChatotSoundClip * chatot)
 {
     MI_CpuClear32(chatot, sizeof(struct SaveChatotSoundClip));
     chatot->exists = FALSE;
 }
 
-THUMB_FUNC struct SaveChatotSoundClip * Chatot_New(u32 heap_id)
+struct SaveChatotSoundClip * Chatot_New(u32 heap_id)
 {
     struct SaveChatotSoundClip * ret = (struct SaveChatotSoundClip *)AllocFromHeap(heap_id, sizeof(struct SaveChatotSoundClip));
     Save_Chatot_Init(ret);
     return ret;
 }
 
-THUMB_FUNC struct SaveChatotSoundClip * Save_Chatot_Get(struct SaveBlock2 * sav2)
+struct SaveChatotSoundClip * Save_Chatot_Get(struct SaveBlock2 * sav2)
 {
     return (struct SaveChatotSoundClip *) SaveArray_Get(sav2, 22);
 }
 
-THUMB_FUNC BOOL Chatot_Exists(struct SaveChatotSoundClip * chatot)
+BOOL Chatot_Exists(struct SaveChatotSoundClip * chatot)
 {
     return chatot->exists;
 }
 
-THUMB_FUNC void Chatot_Invalidate(struct SaveChatotSoundClip * chatot)
+void Chatot_Invalidate(struct SaveChatotSoundClip * chatot)
 {
     chatot->exists = FALSE;
 }
 
-THUMB_FUNC s8 * Chatot_GetData(struct SaveChatotSoundClip * chatot)
+s8 * Chatot_GetData(struct SaveChatotSoundClip * chatot)
 {
     return chatot->data;
 }
@@ -46,7 +46,7 @@ static inline s8 transform(u8 value)
     return (s8)(value - 8);
 }
 
-THUMB_FUNC void Chatot_Decode(s8 * dest, const s8 * data)
+void Chatot_Decode(s8 * dest, const s8 * data)
 {
     s32 i;
     s32 dest_i;
@@ -70,7 +70,7 @@ static inline u8 untransform(s8 val)
     return (u8)(val + 8);
 }
 
-THUMB_FUNC void Chatot_Encode(struct SaveChatotSoundClip * chatot, const s8 * data)
+void Chatot_Encode(struct SaveChatotSoundClip * chatot, const s8 * data)
 {
     s32 src_i;
     s32 i = 0;
@@ -92,7 +92,7 @@ THUMB_FUNC void Chatot_Encode(struct SaveChatotSoundClip * chatot, const s8 * da
     }
 }
 
-THUMB_FUNC void Chatot_Copy(struct SaveChatotSoundClip * dest, const struct SaveChatotSoundClip * src)
+void Chatot_Copy(struct SaveChatotSoundClip * dest, const struct SaveChatotSoundClip * src)
 {
     MI_CpuCopyFast(src, dest, sizeof(struct SaveChatotSoundClip));
 }

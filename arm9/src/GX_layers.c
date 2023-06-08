@@ -1,3 +1,4 @@
+#include "global.h"
 #include "GX_layers.h"
 #include "GX_vramcnt.h"
 #include "gx.h"
@@ -8,7 +9,7 @@
 static u32 EngineA_DISPCNT_LayerMask;
 static u32 EngineB_DISPCNT_LayerMask;
 
-THUMB_FUNC void GX_SetBanks(const struct GraphicsBanks *banks)
+void GX_SetBanks(const struct GraphicsBanks *banks)
 {
     GX_ResetBankForBG();
     GX_ResetBankForBGExtPltt();
@@ -34,12 +35,12 @@ THUMB_FUNC void GX_SetBanks(const struct GraphicsBanks *banks)
 }
 
 
-THUMB_FUNC void GX_DisableEngineALayers()
+void GX_DisableEngineALayers()
 {
     EngineA_DISPCNT_LayerMask = 0;
 }
 
-THUMB_FUNC void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle)
+void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle)
 {
     if (layer_toggle == GX_LAYER_TOGGLE_ON)
     {
@@ -59,18 +60,18 @@ THUMB_FUNC void GX_EngineAToggleLayers(u32 layer_mask, GX_LayerToggle layer_togg
     GX_SetVisiblePlane(EngineA_DISPCNT_LayerMask ^= layer_mask);
 }
 
-THUMB_FUNC void GX_SetEngineALayers(u32 layer_mask)
+void GX_SetEngineALayers(u32 layer_mask)
 {
     EngineA_DISPCNT_LayerMask = layer_mask;
     GX_SetVisiblePlane(layer_mask);
 }
 
-THUMB_FUNC void GX_DisableEngineBLayers()
+void GX_DisableEngineBLayers()
 {
     EngineB_DISPCNT_LayerMask = 0;
 }
 
-THUMB_FUNC void GX_EngineBToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle)
+void GX_EngineBToggleLayers(u32 layer_mask, GX_LayerToggle layer_toggle)
 {
     if (layer_toggle == GX_LAYER_TOGGLE_ON)
     {
@@ -90,13 +91,13 @@ THUMB_FUNC void GX_EngineBToggleLayers(u32 layer_mask, GX_LayerToggle layer_togg
     GXS_SetVisiblePlane(EngineB_DISPCNT_LayerMask ^= layer_mask);
 }
 
-THUMB_FUNC void GX_BothDispOn()
+void GX_BothDispOn()
 {
     GX_DispOn();
     GXS_DispOn();
 }
 
-THUMB_FUNC void GX_SwapDisplay()
+void GX_SwapDisplay()
 {
     if (gSystem.screensFlipped == 0)
     {
@@ -108,7 +109,7 @@ THUMB_FUNC void GX_SwapDisplay()
     }
 }
 
-THUMB_FUNC u32 GX_GetEngineALayers()
+u32 GX_GetEngineALayers()
 {
     return EngineA_DISPCNT_LayerMask;
 }

@@ -1,4 +1,4 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "fx.h"
 
 /*

@@ -1,15 +1,15 @@
 #include "OS_cache.h"
 #include "nitro/types.h"
-#include "function_target.h"
+#include "code32.h"
 
-ARM_FUNC asm void DC_InvalidateAll(void)
+asm void DC_InvalidateAll(void)
 {
     mov r0, #0
     mcr p15, 0, r0, c7, c6, 0 //Invalidate Entire Data Cache
     bx lr
 }
 
-ARM_FUNC asm void DC_StoreAll(void)
+asm void DC_StoreAll(void)
 {
     mov r1, #0
 
@@ -30,7 +30,7 @@ _020CC0CC:
     bx lr
 }
 
-ARM_FUNC asm void DC_FlushAll(void)
+asm void DC_FlushAll(void)
 {
     mov r12, #0
     mov r1, #0
@@ -53,7 +53,7 @@ _020CC0FC:
     bx lr
 }
 
-ARM_FUNC asm void DC_InvalidateRange(register void *startAddr, register u32 nBytes)
+asm void DC_InvalidateRange(register void *startAddr, register u32 nBytes)
 {
     add r1, r1, r0
     bic r0, r0, #31
@@ -67,7 +67,7 @@ _020CC12C:
     bx lr
 }
 
-ARM_FUNC asm void DC_StoreRange(register void *startAddr, register u32 nBytes)
+asm void DC_StoreRange(register void *startAddr, register u32 nBytes)
 {
     add r1, r1, r0
     bic r0, r0, #31
@@ -81,7 +81,7 @@ _020CC148:
     bx lr
 }
 
-ARM_FUNC asm void DC_FlushRange(register const void *startAddr, register u32 nBytes)
+asm void DC_FlushRange(register const void *startAddr, register u32 nBytes)
 {
     mov r12, #0
     add r1, r1, r0
@@ -97,21 +97,21 @@ _020CC168:
     bx lr
 }
 
-ARM_FUNC asm void DC_WaitWriteBufferEmpty(void)
+asm void DC_WaitWriteBufferEmpty(void)
 {
     mov r0, #0
     mcr p15, 0, r0, c7, c10, 4 //Drain Write Buffer
     bx lr
 }
 
-ARM_FUNC asm void IC_InvalidateAll(void)
+asm void IC_InvalidateAll(void)
 {
     mov r0, #0
     mcr p15, 0, r0, c7, c5, 0 //Invalidate Entire Instruction Cache
     bx lr
 }
 
-ARM_FUNC asm void IC_InvalidateRange(register void *startAddr, register u32 nBytes)
+asm void IC_InvalidateRange(register void *startAddr, register u32 nBytes)
 {
     add r1, r1, r0
     bic r0, r0, #31

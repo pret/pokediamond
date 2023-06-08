@@ -16,7 +16,7 @@ extern void MOD20_0225298C(u32 param0);
 
 extern void Poketch_InitApp(void *func1, void *func2);
 
-THUMB_FUNC static void MOD21_02254840(void)
+static void MOD21_02254840(void)
 {
     Poketch_InitApp(MOD21_02254854, MOD21_0225496C);
 }
@@ -24,7 +24,7 @@ THUMB_FUNC static void MOD21_02254840(void)
 #define NitroStaticInit MOD21_02254840
 #include "sinit.h"
 
-THUMB_FUNC BOOL MOD21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param2, u32 param3)
+BOOL MOD21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param2, u32 param3)
 {
     UnkStruct02254854 *alloced = (UnkStruct02254854 *)AllocFromHeap(8, sizeof(UnkStruct02254854));
     if (alloced != NULL)
@@ -39,7 +39,7 @@ THUMB_FUNC BOOL MOD21_02254854(UnkStruct02254854 **param0, u32 param1, u32 param
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2, u32 param3)
+BOOL MOD21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2, u32 param3)
 {
 #pragma unused (param2, param3) //not sure, please check
     if (MOD21_02254A6C((UnkStruct02254A6C *)&param0->Unk24, &param0->time)) //todo fix
@@ -73,14 +73,14 @@ THUMB_FUNC BOOL MOD21_0225489C(UnkStruct02254854 *param0, u32 param1, u32 param2
 
 BOOL (* const MOD21_02254D84[])(UnkStruct02254854 *) = { MOD21_022549A4, MOD21_022549E4, MOD21_02254A38 };
 
-THUMB_FUNC void MOD21_02254918(UnkStruct02254854 *param0)
+void MOD21_02254918(UnkStruct02254854 *param0)
 {
     MOD21_02254B04(param0->Unk24);
     MOD20_02254198(param0->Unk10);
     FreeToHeap((void *)param0);
 }
 
-THUMB_FUNC void MOD21_02254930(u32 param0, UnkStruct02254854 *param1)
+void MOD21_02254930(u32 param0, UnkStruct02254854 *param1)
 {
     if (param1->bytearray[0] >= 3)
     {
@@ -96,12 +96,12 @@ THUMB_FUNC void MOD21_02254930(u32 param0, UnkStruct02254854 *param1)
     MOD20_022529A0(param1->Unk28);
 }
 
-THUMB_FUNC void MOD21_0225496C(UnkStruct02254854 *param0)
+void MOD21_0225496C(UnkStruct02254854 *param0)
 {
     param0->bytearray[2] = 1;
 }
 
-THUMB_FUNC void MOD21_02254974(u32 param0, u32 param1, u32 param2, UnkStruct02254854 * param3)
+void MOD21_02254974(u32 param0, u32 param1, u32 param2, UnkStruct02254854 * param3)
 {
 #pragma unused (param0, param1)
     switch (param2)
@@ -119,7 +119,7 @@ THUMB_FUNC void MOD21_02254974(u32 param0, u32 param1, u32 param2, UnkStruct0225
     }
 }
 
-THUMB_FUNC void MOD21_02254990(UnkStruct02254854 * param0, u8 param1)
+void MOD21_02254990(UnkStruct02254854 * param0, u8 param1)
 {
     if (param0->bytearray[2] == 0)
     {
@@ -132,7 +132,7 @@ THUMB_FUNC void MOD21_02254990(UnkStruct02254854 * param0, u8 param1)
     param0->bytearray[1] = 0;
 }
 
-THUMB_FUNC BOOL MOD21_022549A4(UnkStruct02254854 * param0)
+BOOL MOD21_022549A4(UnkStruct02254854 * param0)
 {
     switch (param0->bytearray[1])
     {
@@ -154,7 +154,7 @@ THUMB_FUNC BOOL MOD21_022549A4(UnkStruct02254854 * param0)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD21_022549E4(UnkStruct02254854 * param0)
+BOOL MOD21_022549E4(UnkStruct02254854 * param0)
 {
     if (param0->bytearray[2])
     {
@@ -178,7 +178,7 @@ THUMB_FUNC BOOL MOD21_022549E4(UnkStruct02254854 * param0)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD21_02254A38(UnkStruct02254854 * param0)
+BOOL MOD21_02254A38(UnkStruct02254854 * param0)
 {
     switch (param0->bytearray[1])
     {

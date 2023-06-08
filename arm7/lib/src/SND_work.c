@@ -3,6 +3,7 @@
 #include "SND_capture.h"
 #include "SND_channel.h"
 #include "SND_exChannel.h"
+#include "code32.h"
 
 struct SNDWork SNDi_Work;
 struct SNDSharedWork *SNDi_SharedWork;

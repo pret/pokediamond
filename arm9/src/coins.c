@@ -1,8 +1,6 @@
 #include "global.h"
 #include "coins.h"
 
-#pragma thumb on
-
 void InitCoins(u16 * coins)
 {
     *coins = 0;

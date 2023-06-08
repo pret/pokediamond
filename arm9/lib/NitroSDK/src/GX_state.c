@@ -1,9 +1,10 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "gx.h"
+#include "code32.h"
 
 struct GX_State gGXState;
 
-ARM_FUNC void GX_InitGXState(){
+void GX_InitGXState(){
     gGXState.lcdc = 0x0;
     gGXState.bg = 0x0;
     gGXState.obj = 0x0;

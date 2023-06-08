@@ -1,7 +1,7 @@
-#include "function_target.h"
 #include "OS_protectionUnit.h"
+#include "code32.h"
 
-ARM_FUNC asm void OS_EnableProtectionUnit(void)
+asm void OS_EnableProtectionUnit(void)
 {
     mrc p15, 0x0, r0, c1, c0, 0x0 //Control Register
     orr r0, r0, #0x1
@@ -9,7 +9,7 @@ ARM_FUNC asm void OS_EnableProtectionUnit(void)
     bx lr
 }
 
-ARM_FUNC asm void OS_DisableProtectionUnit(void)
+asm void OS_DisableProtectionUnit(void)
 {
     mrc p15, 0x0, r0, c1, c0, 0x0 //Control Register
     bic r0, r0, #0x1

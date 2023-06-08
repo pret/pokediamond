@@ -6,7 +6,7 @@
 
 FS_EXTERN_OVERLAY(MODULE_16);
 
-THUMB_FUNC static void MOD11_0222F284(void)
+static void MOD11_0222F284(void)
 {
     if (!FUN_02033590())
     {

@@ -7,8 +7,6 @@
 #include "options.h"
 #include "coins.h"
 
-#pragma thumb on
-
 void PlayerProfile_Init(struct PlayerData * data);
 
 u32 Save_PlayerData_sizeof(void)

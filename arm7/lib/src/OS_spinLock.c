@@ -1,9 +1,9 @@
-#include "function_target.h"
 #include "OS_spinLock.h"
 #include "OS_system.h"
 #include "MI_swap.h"
+#include "code32.h"
 
-ARM_FUNC void OS_InitLock(void)
+void OS_InitLock(void)
 {
     static BOOL isInitialized = FALSE;
 
@@ -25,12 +25,12 @@ ARM_FUNC void OS_InitLock(void)
     lockp->extension = 0xbf;
 }
 
-ARM_FUNC void FUN_037F8CB4(s32 ct)
+void FUN_037F8CB4(s32 ct)
 {
     SVC_WaitByLoop((u32)ct); //todo this should be linker generated, figure out why it broke
 }
 
-ARM_FUNC s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
+s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
                               BOOL disableFiq)
 {
     s32 lastLockFlag;
@@ -41,7 +41,7 @@ ARM_FUNC s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (
     return lastLockFlag;
 }
 
-ARM_FUNC s32 OSi_DoUnlockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
+s32 OSi_DoUnlockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
                                 BOOL disableFIQ)
 {
     if (lockID != lockp->ownerID)
@@ -67,7 +67,7 @@ ARM_FUNC s32 OSi_DoUnlockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp)
     return 0;
 }
 
-ARM_FUNC s32 OSi_DoTryLockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
+s32 OSi_DoTryLockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
                                  BOOL disableFiq)
 {
     OSIntrMode lastIntrMode = (disableFiq) ? OS_DisableInterrupts_IrqAndFiq() : OS_DisableInterrupts();
@@ -95,43 +95,43 @@ ARM_FUNC s32 OSi_DoTryLockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp
     return lastLockFlag;
 }
 
-ARM_FUNC s32 OS_LockCartridge(u16 lockID)
+s32 OS_LockCartridge(u16 lockID)
 {
     return OSi_DoLockByWord(lockID, (OSLockWord *)HW_CTRDG_LOCK_BUF, OSi_AllocateCartridgeBus, TRUE);
 }
 
-ARM_FUNC s32 OS_UnlockCartridge(u16 lockID)
+s32 OS_UnlockCartridge(u16 lockID)
 {
     return OSi_DoUnlockByWord(lockID, (OSLockWord *)HW_CTRDG_LOCK_BUF, OSi_FreeCartridgeBus, TRUE);
 }
 
-ARM_FUNC s32 OS_TryLockCartridge(u16 lockID)
+s32 OS_TryLockCartridge(u16 lockID)
 {
     return OSi_DoTryLockByWord(lockID, (OSLockWord *)HW_CTRDG_LOCK_BUF, OSi_AllocateCartridgeBus, TRUE);
 }
 
-ARM_FUNC void OSi_AllocateCartridgeBus(void)
+void OSi_AllocateCartridgeBus(void)
 {
     //noop
 }
 
-ARM_FUNC void OSi_FreeCartridgeBus(void)
+void OSi_FreeCartridgeBus(void)
 {
     //noop
 }
 
-ARM_FUNC u16 OS_ReadOwnerOfLockWord(OSLockWord * lock)
+u16 OS_ReadOwnerOfLockWord(OSLockWord * lock)
 {
     return lock->ownerID;
 }
 
-ARM_FUNC asm s32 OS_UnLockCartridge(u16 lockID)
+asm s32 OS_UnLockCartridge(u16 lockID)
 {
     ldr r1, =OS_UnlockCartridge
     bx r1
 }
 
-ARM_FUNC asm s32 OS_GetLockID(void)
+asm s32 OS_GetLockID(void)
 {
     ldr	r3, =HW_LOCK_ID_FLAG_SUB
     ldr	r1, [r3]
@@ -176,7 +176,7 @@ _037F8A98:
     bx	lr
 }
 
-ARM_FUNC asm void OS_ReleaseLockID(register u16 lockID)
+asm void OS_ReleaseLockID(register u16 lockID)
 {
     ldr r3, =HW_LOCK_ID_FLAG_SUB
     cmp r0, #0xa0

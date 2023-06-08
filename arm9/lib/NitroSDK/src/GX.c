@@ -1,8 +1,9 @@
 #include "gx.h"
 
-#include "global.h"
+#include "nitro/types.h"
 #include "OS_spinLock.h"
 #include "OS_terminate_proc.h"
+#include "code32.h"
 
 u32 GXi_DmaId = 3;
 vu16 GXi_VRamLockId = 0;
@@ -12,7 +13,7 @@ static u16 sIsDispOn = TRUE;
 
 #define _powcnt_init_mask (REG_GX_POWCNT_E2DGB_MASK | REG_GX_POWCNT_E2DG_MASK | REG_GX_POWCNT_RE_MASK | REG_GX_POWCNT_GE_MASK)
 
-ARM_FUNC void GX_Init(){
+void GX_Init(){
     reg_GX_POWCNT |= REG_GX_POWCNT_DSEL_MASK;
     reg_GX_POWCNT = (u16)((reg_GX_POWCNT & ~_powcnt_init_mask) | _powcnt_init_mask);
     reg_GX_POWCNT = (u16)(reg_GX_POWCNT | REG_GX_POWCNT_LCD_MASK);
@@ -51,7 +52,7 @@ ARM_FUNC void GX_Init(){
     reg_G2S_DB_BG3PD = 0x100;
 }
 
-ARM_FUNC u32 GX_HBlankIntr(u32 enable){
+u32 GX_HBlankIntr(u32 enable){
     u32 temp = (u32)(reg_GX_DISPSTAT & REG_GX_DISPSTAT_HBI_MASK);
     if (enable)
     {
@@ -64,7 +65,7 @@ ARM_FUNC u32 GX_HBlankIntr(u32 enable){
     return temp;
 }
 
-ARM_FUNC u32 GX_VBlankIntr(u32 enable){
+u32 GX_VBlankIntr(u32 enable){
     u32 temp = (u32)(reg_GX_DISPSTAT & REG_GX_DISPSTAT_VBI_MASK);
     if (enable)
     {
@@ -77,14 +78,14 @@ ARM_FUNC u32 GX_VBlankIntr(u32 enable){
     return temp;
 }
 
-ARM_FUNC void GX_DispOff(){
+void GX_DispOff(){
     u32 temp = reg_GX_DISPCNT;
     sIsDispOn = FALSE;
     sDispMode = (u16)((temp & REG_GX_DISPCNT_MODE_MASK) >> REG_GX_DISPCNT_MODE_SHIFT);
     reg_GX_DISPCNT = temp & ~REG_GX_DISPCNT_MODE_MASK;
 }
 
-ARM_FUNC void GX_DispOn(){
+void GX_DispOn(){
     sIsDispOn = TRUE;
     if (sDispMode)
     {
@@ -96,7 +97,7 @@ ARM_FUNC void GX_DispOn(){
     }
 }
 
-ARM_FUNC void GX_SetGraphicsMode(GXDispMode dispMode, GXBGMode bgMode, GXBG0As bg0_2d3d){
+void GX_SetGraphicsMode(GXDispMode dispMode, GXBGMode bgMode, GXBG0As bg0_2d3d){
     u32 temp2 = reg_GX_DISPCNT;
     sDispMode = (u16)dispMode;
     if (!sIsDispOn)
@@ -106,11 +107,11 @@ ARM_FUNC void GX_SetGraphicsMode(GXDispMode dispMode, GXBGMode bgMode, GXBG0As b
         sIsDispOn = FALSE;
 }
 
-ARM_FUNC void GXS_SetGraphicsMode(GXBGMode mode){
+void GXS_SetGraphicsMode(GXBGMode mode){
     reg_GXS_DB_DISPCNT = (reg_GXS_DB_DISPCNT & ~REG_GXS_DB_DISPCNT_BGMODE_MASK) | mode;
 }
 
-ARM_FUNC void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness){
+void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness){
     if (!brightness)
     {
         *dst = 0x0;

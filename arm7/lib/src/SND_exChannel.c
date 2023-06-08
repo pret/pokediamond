@@ -6,6 +6,7 @@
 #include "SND_work.h"
 
 #include "registers.h"
+#include "code32.h"
 
 // TODO import these tables into here if we have a working .rodata section
 extern const u8 sChannelAllocationOrder[SND_CHANNEL_COUNT];

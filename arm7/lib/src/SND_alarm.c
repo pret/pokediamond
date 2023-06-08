@@ -4,6 +4,7 @@
 #include "OS_tick.h"
 #include "PXI_fifo.h"
 #include "SND_work.h"
+#include "code32.h"
 
 static void AlarmHandler(void *msg);
 

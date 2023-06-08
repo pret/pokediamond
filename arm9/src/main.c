@@ -48,7 +48,7 @@ const int gGameLanguage = GAME_LANGUAGE;
 const int gGameVersion = GAME_VERSION;
 
 __declspec(noreturn)
-THUMB_FUNC void NitroMain(void)
+void NitroMain(void)
 {
     InitSystemForTheGame();
     InitGraphicMemory();
@@ -135,7 +135,7 @@ THUMB_FUNC void NitroMain(void)
     }
 }
 
-THUMB_FUNC void FUN_02000DF4(void)
+void FUN_02000DF4(void)
 {
     UNK_02016FA8.mainOverlayId = SDK_OVERLAY_INVALID_ID;
     UNK_02016FA8.overlayManager = NULL;
@@ -143,7 +143,7 @@ THUMB_FUNC void FUN_02000DF4(void)
     UNK_02016FA8.template = NULL;
 }
 
-THUMB_FUNC void Main_RunOverlayManager(void)
+void Main_RunOverlayManager(void)
 {
     if (UNK_02016FA8.overlayManager == NULL)
     {
@@ -165,14 +165,14 @@ THUMB_FUNC void Main_RunOverlayManager(void)
     }
 }
 
-THUMB_FUNC void RegisterMainOverlay(FSOverlayID id, const struct OverlayManagerTemplate *template)
+void RegisterMainOverlay(FSOverlayID id, const struct OverlayManagerTemplate *template)
 {
     GF_ASSERT(UNK_02016FA8.template == NULL);
     UNK_02016FA8.queuedMainOverlayId = id;
     UNK_02016FA8.template = template;
 }
 
-THUMB_FUNC void FUN_02000E9C(void)
+void FUN_02000E9C(void)
 {
     FUN_0202FB80();
     OS_WaitIrq(TRUE, OS_IE_V_BLANK);
@@ -182,7 +182,7 @@ THUMB_FUNC void FUN_02000E9C(void)
         gSystem.vBlankIntr(gSystem.vBlankIntrArg);
 }
 
-THUMB_FUNC void FUN_02000EC8(u32 parameter)
+void FUN_02000EC8(u32 parameter)
 {
     if (FUN_02033678() && CARD_TryWaitBackupAsync() == TRUE)
     {
@@ -191,7 +191,7 @@ THUMB_FUNC void FUN_02000EC8(u32 parameter)
     FUN_02000E9C();
 }
 
-THUMB_FUNC void FUN_02000EE8(void)
+void FUN_02000EE8(void)
 {
     u32 r1 = FUN_020335B8();
     switch (r1)
@@ -211,7 +211,7 @@ THUMB_FUNC void FUN_02000EE8(void)
 extern void FUN_0200E3A0(PMLCDTarget, int);
 
 __declspec(noreturn)
-THUMB_FUNC void DoSoftReset(u32 parameter)
+void DoSoftReset(u32 parameter)
 {
     FUN_0200E3A0(PM_LCD_TOP, 0x7FFF);
     FUN_0200E3A0(PM_LCD_BOTTOM, 0x7FFF);
@@ -226,7 +226,7 @@ THUMB_FUNC void DoSoftReset(u32 parameter)
     } while (1);
 }
 
-THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
+void FUN_02000F4C(u32 arg0, u32 arg1)
 {
     if (arg1 == 3)
     {
@@ -256,7 +256,7 @@ extern void GF_RTC_CopyDateTime(struct Unk21C4818 *, struct Unk21C4828 *);
 extern void SetMTRNGSeed(u32);
 extern void SetLCRNGSeed(u32);
 
-THUMB_FUNC void InitializeMainRNG(void)
+void InitializeMainRNG(void)
 {
     struct Unk21C4818 spC;
     struct Unk21C4828 sp0;
@@ -272,7 +272,7 @@ THUMB_FUNC void InitializeMainRNG(void)
 extern void FUN_0201CE04(void);
 extern void FUN_0201CDD0(void);
 
-THUMB_FUNC void HandleDSLidAction(void)
+void HandleDSLidAction(void)
 {
     PMBackLightSwitch top, bottom;
     if (PAD_DetectFold())

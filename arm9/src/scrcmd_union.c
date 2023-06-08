@@ -1,3 +1,4 @@
+#include "global.h"
 #include "scrcmd.h"
 #include "message_format.h"
 #include "math_util.h"
@@ -9,7 +10,7 @@ extern void FUN_020385CC(struct TaskManager *, u32, u32, u32, u32, u16*, u16* re
 extern BOOL FUN_020612EC(struct FieldSystem*);
 extern BOOL FUN_020612F8(struct FieldSystem*);
 
-THUMB_FUNC BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
+BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     struct UnkSaveStruct_020286F8* unk_sav_ptr = FUN_0202881C(ctx->fieldSystem->saveBlock2);

@@ -1,3 +1,4 @@
+#include "global.h"
 #include "unk_0202D858.h"
 
 struct UnkStruct_0202D858
@@ -63,7 +64,7 @@ static const struct UnkStruct_0202D858 UNK_020EEB1E = { {
     0x00,
 } };
 
-THUMB_FUNC u8 FUN_0202D858(u16 param0)
+u8 FUN_0202D858(u16 param0)
 {
     struct UnkStruct_0202D858 st0 = UNK_020EEB04;
 
@@ -72,7 +73,7 @@ THUMB_FUNC u8 FUN_0202D858(u16 param0)
     return st0.unk00[param0];
 }
 
-THUMB_FUNC u8 FUN_0202D884(u16 param0)
+u8 FUN_0202D884(u16 param0)
 {
     struct UnkStruct_0202D858 st0 = UNK_020EEB1E;
 
@@ -81,7 +82,7 @@ THUMB_FUNC u8 FUN_0202D884(u16 param0)
     return st0.unk00[param0];
 }
 
-THUMB_FUNC u32 FUN_0202D8B0(int param0)
+u32 FUN_0202D8B0(int param0)
 {
     switch (param0)
     {

@@ -2,8 +2,6 @@
 #include "task.h"
 #include "heap.h"
 
-#pragma thumb on
-
 struct TaskManager *FieldSys_CreateTask(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)
 {
     struct TaskManager *taskManager = AllocFromHeapAtEnd(32, sizeof(struct TaskManager));

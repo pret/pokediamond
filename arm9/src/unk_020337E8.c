@@ -1,3 +1,4 @@
+#include "global.h"
 #include "unk_020337E8.h"
 #include "heap.h"
 
@@ -16,7 +17,7 @@ extern BOOL DWC_CheckValidConsole(struct DWC_Struct *);
 extern BOOL DWC_CheckUserData(struct DWC_Struct *);
 extern s32 DWC_GetGsProfileId(struct DWC_Struct *, struct DWC_token *);
 
-THUMB_FUNC s32 FUN_020337E8(u32 heap_id)
+s32 FUN_020337E8(u32 heap_id)
 {
     s32 ret = (s32)AllocFromHeap(heap_id, 0x720);
     s32 ret1 = DWC_Init((ret + 0x1F) & ~0x1F);
@@ -24,7 +25,7 @@ THUMB_FUNC s32 FUN_020337E8(u32 heap_id)
     return ret1;
 }
 
-THUMB_FUNC void FUN_0203380C(struct DWC_Struct *dwc)
+void FUN_0203380C(struct DWC_Struct *dwc)
 {
     struct DWC_Struct * dwc1 = FUN_02028228(dwc);
     if(!DWC_CheckUserData(dwc1))
@@ -34,7 +35,7 @@ THUMB_FUNC void FUN_0203380C(struct DWC_Struct *dwc)
     }
 }
 
-THUMB_FUNC s32 FUN_02033830(struct DWC_Struct *dwc)
+s32 FUN_02033830(struct DWC_Struct *dwc)
 {
     struct DWC_token token;
 
@@ -43,7 +44,7 @@ THUMB_FUNC s32 FUN_02033830(struct DWC_Struct *dwc)
     return DWC_GetGsProfileId(dwc1, &token);
 }
 
-THUMB_FUNC BOOL FUN_0203384C(struct SaveBlock2 *sav2)
+BOOL FUN_0203384C(struct SaveBlock2 *sav2)
 {
     struct DWC_Struct * dwc = FUN_02028228(FUN_020286EC(sav2));
     return (DWC_CheckHasProfile(dwc) && DWC_CheckValidConsole(dwc));

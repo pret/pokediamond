@@ -385,7 +385,7 @@ extern void FUN_020146C4(u32 param0);
 
 FS_EXTERN_OVERLAY(MODULE_52);
 
-THUMB_FUNC BOOL MOD59_IntroInit(struct OverlayManager *overlayManager, u32 *status)
+BOOL MOD59_IntroInit(struct OverlayManager *overlayManager, u32 *status)
 {
 #pragma unused(status)
     CreateHeap(3, 0x52, 1 << 18);
@@ -408,7 +408,7 @@ THUMB_FUNC BOOL MOD59_IntroInit(struct OverlayManager *overlayManager, u32 *stat
     return TRUE;
 }
 
-THUMB_FUNC BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
+BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
 {
     MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayManager);
     BOOL ret = FALSE;
@@ -512,7 +512,7 @@ THUMB_FUNC BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *stat
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *status)
+BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *status)
 {
 #pragma unused(status)
     MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayManager);
@@ -534,12 +534,12 @@ THUMB_FUNC BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *stat
     return TRUE;
 }
 
-THUMB_FUNC void MOD59_IntroDoGpuBgUpdate(MOD59_IntroOverlayData *data)
+void MOD59_IntroDoGpuBgUpdate(MOD59_IntroOverlayData *data)
 {
     DoScheduledBgGpuUpdates(data->bgConfig);
 }
 
-THUMB_FUNC BOOL MOD59_TestPokeballTouchLocation(void)
+BOOL MOD59_TestPokeballTouchLocation(void)
 {
     BOOL ret = FALSE;
 
@@ -560,7 +560,7 @@ THUMB_FUNC BOOL MOD59_TestPokeballTouchLocation(void)
     return ret;
 }
 
-THUMB_FUNC void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
+void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
 {
     struct GraphicsBanks graphicsBanks = MOD59_021D9F18;
     GX_SetBanks(&graphicsBanks);
@@ -630,7 +630,7 @@ THUMB_FUNC void MOD59_IntroSetupBg(MOD59_IntroOverlayData *data)
     data->fadeCounter = 0;
 }
 
-THUMB_FUNC void MOD59_IntroDestroyBg(MOD59_IntroOverlayData *data)
+void MOD59_IntroDestroyBg(MOD59_IntroOverlayData *data)
 {
     ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_OFF);
     ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_OFF);
@@ -655,7 +655,7 @@ THUMB_FUNC void MOD59_IntroDestroyBg(MOD59_IntroOverlayData *data)
     FreeToHeap(data->bgConfig);
 }
 
-THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
+void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
 {
     data->msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0341_bin, data->heap_id);
 
@@ -670,24 +670,24 @@ THUMB_FUNC void MOD59_IntroSetupMsg(MOD59_IntroOverlayData *data)
     data->createListCounter = 0;
 }
 
-THUMB_FUNC void MOD59_IntroDestroyMsg(MOD59_IntroOverlayData *data)
+void MOD59_IntroDestroyMsg(MOD59_IntroOverlayData *data)
 {
     MessageFormat_Delete(data->messageFormat);
     FUN_020143D0(data->unk60);
     DestroyMsgData(data->msgData);
 }
 
-THUMB_FUNC void MOD59_021D7A4C(MOD59_IntroOverlayData *data) //MOD59_Setup... something?
+void MOD59_021D7A4C(MOD59_IntroOverlayData *data) //MOD59_Setup... something?
 {
     data->unk68 = FUN_02014590(data->heap_id);
 }
 
-THUMB_FUNC void MOD59_021D7A5C(MOD59_IntroOverlayData *data) //MOD59_Destroy... something?
+void MOD59_021D7A5C(MOD59_IntroOverlayData *data) //MOD59_Destroy... something?
 {
     FUN_020145A8(data->unk68);
 }
 
-THUMB_FUNC BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32 param2)
+BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32 param2)
 {
     BOOL subScreen;
     GXBlendPlaneMask planeMask;
@@ -795,7 +795,7 @@ THUMB_FUNC BOOL MOD59_FadeController(MOD59_IntroOverlayData *data, u32 bgId, u32
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_Timer(MOD59_IntroOverlayData *data, s32 timer)
+BOOL MOD59_Timer(MOD59_IntroOverlayData *data, s32 timer)
 {
     if (data->tickTimer < timer)
     {
@@ -809,14 +809,14 @@ THUMB_FUNC BOOL MOD59_Timer(MOD59_IntroOverlayData *data, s32 timer)
     }
 }
 
-THUMB_FUNC void MOD59_TilemapChangePalette(MOD59_IntroOverlayData *data, u32 layer, u32 paletteNum)
+void MOD59_TilemapChangePalette(MOD59_IntroOverlayData *data, u32 layer, u32 paletteNum)
 {
     //TODO: messy hack to trick compiler, fix
     BgTilemapRectChangePalette(data->bgConfig, layer & 0xFF, 0, 0, 32, 24, (u8)paletteNum);
     BgCommitTilemapBufferToVram(data->bgConfig, (u8)layer);
 }
 
-THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvance)
+BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, BOOL autoAdvance)
 {
     BOOL ret = FALSE;
     switch(data->displayMessageCounter)
@@ -861,7 +861,7 @@ THUMB_FUNC BOOL MOD59_DisplayMessage(MOD59_IntroOverlayData *data, u32 msgNo, BO
     return ret;
 }
 
-THUMB_FUNC void MOD59_PlaySelectSound(struct ListMenu *list, s32 index, u8 onInit)
+void MOD59_PlaySelectSound(struct ListMenu *list, s32 index, u8 onInit)
 {
 #pragma unused(index)
 #pragma unused(list)
@@ -871,7 +871,7 @@ THUMB_FUNC void MOD59_PlaySelectSound(struct ListMenu *list, s32 index, u8 onIni
     }
 }
 
-THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_IntroOverlayData *data, u32 param1, u32 param2)
+BOOL MOD59_CreateListWithText(MOD59_IntroOverlayData *data, u32 param1, u32 param2)
 {
     BOOL ret = FALSE;
     const struct WindowTemplate *windowTemplate;
@@ -942,7 +942,7 @@ THUMB_FUNC BOOL MOD59_CreateListWithText(MOD59_IntroOverlayData *data, u32 param
     return ret;
 }
 
-THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height)
+BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *data, u32 msgNo, u32 param2, u32 tilemapTop, u32 height)
 {
     BOOL ret = 0;
     switch (data->displayControlMessageCounter)
@@ -1007,7 +1007,7 @@ THUMB_FUNC BOOL MOD59_DisplayControlAdventureMessage(MOD59_IntroOverlayData *dat
     return ret;
 }
 
-THUMB_FUNC void MOD59_LoadInitialTilemap(MOD59_IntroOverlayData *data)
+void MOD59_LoadInitialTilemap(MOD59_IntroOverlayData *data)
 {
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_main_background_tileset_NCGR, data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_0, 0x20, 0, data->heap_id);
@@ -1034,7 +1034,7 @@ THUMB_FUNC void MOD59_LoadInitialTilemap(MOD59_IntroOverlayData *data)
     BG_SetMaskColor(GF_BG_LYR_SUB_0, 0);
 }
 
-THUMB_FUNC void MOD59_LoadMainScrnData(MOD59_IntroOverlayData *data)
+void MOD59_LoadMainScrnData(MOD59_IntroOverlayData *data)
 {
     struct MOD59_UnkStruct021D9E30 scrnData = MOD59_021D9E1C;
     if (data->scrnDataIndexMain >= 5)
@@ -1044,7 +1044,7 @@ THUMB_FUNC void MOD59_LoadMainScrnData(MOD59_IntroOverlayData *data)
     GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, scrnData.scrnIds[data->scrnDataIndexMain], data->bgConfig, GF_BG_LYR_MAIN_3, 0, 0, FALSE, data->heap_id);
 }
 
-THUMB_FUNC void MOD59_LoadCharDataFromIndex(MOD59_IntroOverlayData *data)
+void MOD59_LoadCharDataFromIndex(MOD59_IntroOverlayData *data)
 {
     struct MOD59_GraphicsPaletteMap021D9F90 graphicsPaletteMap = MOD59_021D9F90;
     if (data->spriteDataIndex0 != 0 && data->spriteDataIndex0 < 12)
@@ -1063,7 +1063,7 @@ THUMB_FUNC void MOD59_LoadCharDataFromIndex(MOD59_IntroOverlayData *data)
     }
 }
 
-THUMB_FUNC void MOD59_LoadSubScrnData(MOD59_IntroOverlayData *data)
+void MOD59_LoadSubScrnData(MOD59_IntroOverlayData *data)
 {
     struct MOD59_UnkStruct021D9E30 scrnData = MOD59_021D9E30;
     if (data->scrnDataIndexSub >= 5)
@@ -1082,7 +1082,7 @@ THUMB_FUNC void MOD59_LoadSubScrnData(MOD59_IntroOverlayData *data)
 }
 
 #ifdef NONMATCHING
-THUMB_FUNC void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
+void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
 {
     struct SomeDrawPokemonStruct drawStruct;
     FUN_02068C00(&drawStruct, SPECIES_MUNCHLAX, MON_MALE, 2, FALSE, 0, 0);
@@ -1114,7 +1114,7 @@ THUMB_FUNC void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
     FreeToHeap(src);
 }
 #else
-THUMB_FUNC asm void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
+asm void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
 {
     //clang-tidy off
     push {r3, r4, r5, r6, r7, lr}
@@ -1266,7 +1266,7 @@ _021D82C8:
 }
 #endif
 
-THUMB_FUNC void MOD59_LoadPokeballButton(MOD59_IntroOverlayData *data)
+void MOD59_LoadPokeballButton(MOD59_IntroOverlayData *data)
 {
     GfGfxLoader_LoadScrnData(NARC_DEMO_INTRO_INTRO, NARC_intro_narc_0038_NSCR, data->bgConfig, GF_BG_LYR_SUB_2, 0, 0, FALSE, data->heap_id);
     MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_2, 9);
@@ -1275,7 +1275,7 @@ THUMB_FUNC void MOD59_LoadPokeballButton(MOD59_IntroOverlayData *data)
     GfGfxLoader_LoadCharData(NARC_DEMO_INTRO_INTRO, NARC_intro_pokeball_button_1_NCGR, data->bgConfig, GF_BG_LYR_SUB_2, 0x20, 0, FALSE, data->heap_id);
 }
 
-THUMB_FUNC BOOL MOD59_MoveSprite(MOD59_IntroOverlayData *data, u32 layer, u32 param2)
+BOOL MOD59_MoveSprite(MOD59_IntroOverlayData *data, u32 layer, u32 param2)
 {
     BOOL ret = FALSE;
     if (param2 == 0)
@@ -1324,7 +1324,7 @@ THUMB_FUNC BOOL MOD59_MoveSprite(MOD59_IntroOverlayData *data, u32 layer, u32 pa
     return ret;
 }
 
-THUMB_FUNC void MOD59_ResetPlayerAnimation(MOD59_IntroOverlayData *data)
+void MOD59_ResetPlayerAnimation(MOD59_IntroOverlayData *data)
 {
     data->maleAnimCounter = 0;
     data->maleAnimTimer = 0;
@@ -1332,7 +1332,7 @@ THUMB_FUNC void MOD59_ResetPlayerAnimation(MOD59_IntroOverlayData *data)
     data->femaleAnimTimer = 0;
 }
 
-THUMB_FUNC void MOD59_AnimatePlayerSprite(MOD59_IntroOverlayData *data)
+void MOD59_AnimatePlayerSprite(MOD59_IntroOverlayData *data)
 {
     u32 timer;
     if (data->selectedGender == Male)
@@ -1371,19 +1371,19 @@ THUMB_FUNC void MOD59_AnimatePlayerSprite(MOD59_IntroOverlayData *data)
     }
 }
 
-THUMB_FUNC void MOD59_DisableBlend(MOD59_IntroOverlayData *data)
+void MOD59_DisableBlend(MOD59_IntroOverlayData *data)
 {
 #pragma unused(data)
     reg_G2_BLDCNT = 0;
 }
 
-THUMB_FUNC void MOD59_ResetPlayerShrinkAnimation(MOD59_IntroOverlayData *data)
+void MOD59_ResetPlayerShrinkAnimation(MOD59_IntroOverlayData *data)
 {
     data->spriteDataIndex2 = 0;
     data->spriteData2Timer = 0;
 }
 
-THUMB_FUNC BOOL MOD59_PlayerShrinkAnimation(MOD59_IntroOverlayData *data)
+BOOL MOD59_PlayerShrinkAnimation(MOD59_IntroOverlayData *data)
 {
     BOOL ret = FALSE;
     u32 timer;
@@ -1422,7 +1422,7 @@ THUMB_FUNC BOOL MOD59_PlayerShrinkAnimation(MOD59_IntroOverlayData *data)
 }
 
 #ifdef NONMATCHING
-THUMB_FUNC BOOL MOD59_MunchlaxJumpAnimation(MOD59_IntroOverlayData *data, u32 *param1)
+BOOL MOD59_MunchlaxJumpAnimation(MOD59_IntroOverlayData *data, u32 *param1)
 {
     BOOL ret = FALSE;
     u32 b0;
@@ -1542,7 +1542,7 @@ THUMB_FUNC BOOL MOD59_MunchlaxJumpAnimation(MOD59_IntroOverlayData *data, u32 *p
     return ret;
 }
 #else
-THUMB_FUNC asm BOOL MOD59_MunchlaxJumpAnimation(MOD59_IntroOverlayData *data, u32 *param1)
+asm BOOL MOD59_MunchlaxJumpAnimation(MOD59_IntroOverlayData *data, u32 *param1)
 {
     //clang-tidy off
     push {r3, r4, r5, r6, r7, lr}
@@ -1844,13 +1844,13 @@ _021D890A:
 }
 #endif
 
-THUMB_FUNC void MOD59_ResetMunchlaxPriority(MOD59_IntroOverlayData *data)
+void MOD59_ResetMunchlaxPriority(MOD59_IntroOverlayData *data)
 {
 #pragma unused (data)
     SetBgPriority(GF_BG_LYR_MAIN_2, 1);
 }
 
-THUMB_FUNC BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
+BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
 {
     BOOL ret = FALSE;
     switch (data->controllerCounter)

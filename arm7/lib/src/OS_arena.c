@@ -1,6 +1,6 @@
-#include "function_target.h"
 #include "consts.h"
 #include "OS_arena.h"
+#include "code32.h"
 
 static BOOL OSi_Initialized = FALSE;
 
@@ -9,7 +9,7 @@ extern void SDK_WRAM_ARENA_LO(void);
 extern void SDK_IRQ_STACKSIZE(void);
 extern void SDK_SYS_STACKSIZE(void);
 
-ARM_FUNC void OS_InitArena(void)
+void OS_InitArena(void)
 {
     if (OSi_Initialized)
     {
@@ -27,17 +27,17 @@ ARM_FUNC void OS_InitArena(void)
     OS_SetArenaLo(OS_ARENA_WRAM_SUBPRIV, OS_GetInitArenaLo(OS_ARENA_WRAM_SUBPRIV));
 }
 
-ARM_FUNC void* OS_GetArenaHi(OSArenaId id)
+void* OS_GetArenaHi(OSArenaId id)
 {
     return OSi_GetArenaInfo().hi[id];
 }
 
-ARM_FUNC void* OS_GetArenaLo(OSArenaId id)
+void* OS_GetArenaLo(OSArenaId id)
 {
     return OSi_GetArenaInfo().lo[id];
 }
 
-ARM_FUNC void* OS_GetInitArenaHi(OSArenaId id)
+void* OS_GetInitArenaHi(OSArenaId id)
 {
     switch (id) {
         case OS_ARENA_MAIN_SUBPRIV:
@@ -74,7 +74,7 @@ ARM_FUNC void* OS_GetInitArenaHi(OSArenaId id)
     }
 }
 
-ARM_FUNC void* OS_GetInitArenaLo(OSArenaId id) {
+void* OS_GetInitArenaLo(OSArenaId id) {
     switch (id) {
         case OS_ARENA_MAIN_SUBPRIV:
             return (void *)((u32)0x027fafcc); //todo SDK_SUBPRIV_ARENA_LO
@@ -101,10 +101,10 @@ ARM_FUNC void* OS_GetInitArenaLo(OSArenaId id) {
     }
 }
 
-ARM_FUNC void OS_SetArenaHi(OSArenaId id, void* newHi) {
+void OS_SetArenaHi(OSArenaId id, void* newHi) {
     OSi_GetArenaInfo().hi[id] = newHi;
 }
 
-ARM_FUNC void OS_SetArenaLo(OSArenaId id, void* newLo) {
+void OS_SetArenaLo(OSArenaId id, void* newLo) {
     OSi_GetArenaInfo().lo[id] = newLo;
 }

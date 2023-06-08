@@ -1,9 +1,9 @@
+// TODO: RENAME FILE - WE SHOULD NOT BE USING WAZA
+
 #include "global.h"
 #include "move_data.h"
 #include "filesystem.h"
 #include "constants/moves.h"
-
-#pragma thumb on
 
 void LoadWazaEntry(u16 waza, struct WazaTbl * dest);
 

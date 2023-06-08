@@ -6,8 +6,6 @@
 #include "unk_020139D8.h"
 #include "msgdata/msg.naix"
 
-#pragma thumb on
-
 const u8 sNarcLanguages[][2] = {
     { LANGUAGE_JAPANESE, 0 },
     { LANGUAGE_ENGLISH,  1 },

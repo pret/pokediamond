@@ -8,9 +8,6 @@
 #include "constants/trainer_classes.h"
 #include "unk_02024E64.h"
 
-#pragma thumb on
-
-
 // Loads all battle opponents, including multi-battle partner if exists.
 void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 * sav2, u32 heap_id)
 {

@@ -1,3 +1,4 @@
+#include "global.h"
 #include "heap.h"
 #include "error_message_reset.h"
 #include "unk_02031734.h"
@@ -26,7 +27,7 @@ typedef struct MemoryBlock
 
 struct HeapInfo sHeapInfo;
 
-THUMB_FUNC void InitHeapSystem(const struct HeapParam *templates, u32 nTemplates, u32 totalNumHeaps, u32 pre_size)
+void InitHeapSystem(const struct HeapParam *templates, u32 nTemplates, u32 totalNumHeaps, u32 pre_size)
 {
     void * ptr;
     u32 unk_size, i;
@@ -111,7 +112,7 @@ THUMB_FUNC void InitHeapSystem(const struct HeapParam *templates, u32 nTemplates
     }
 }
 
-THUMB_FUNC s32 FindFirstAvailableHeapHandle()
+s32 FindFirstAvailableHeapHandle()
 {
     s32 i;
 
@@ -124,17 +125,17 @@ THUMB_FUNC s32 FindFirstAvailableHeapHandle()
     return -1;
 }
 
-THUMB_FUNC BOOL CreateHeap(u32 parent, u32 child, u32 size)
+BOOL CreateHeap(u32 parent, u32 child, u32 size)
 {
     return CreateHeapInternal(parent, child, size, 4);
 }
 
-THUMB_FUNC BOOL CreateHeapAtEnd(u32 parent, u32 child, u32 size)
+BOOL CreateHeapAtEnd(u32 parent, u32 child, u32 size)
 {
     return CreateHeapInternal(parent, child, size, -4);
 }
 
-THUMB_FUNC BOOL CreateHeapInternal(u32 parent, u32 child, u32 size, s32 alignment)
+BOOL CreateHeapInternal(u32 parent, u32 child, u32 size, s32 alignment)
 {
     GF_ASSERT(OS_GetProcMode() != OS_PROCMODE_IRQ);
 
@@ -188,7 +189,7 @@ THUMB_FUNC BOOL CreateHeapInternal(u32 parent, u32 child, u32 size, s32 alignmen
     return FALSE;
 }
 
-THUMB_FUNC void DestroyHeap(u32 heap_id)
+void DestroyHeap(u32 heap_id)
 {
     GF_ASSERT(OS_GetProcMode() != OS_PROCMODE_IRQ);
 
@@ -218,7 +219,7 @@ THUMB_FUNC void DestroyHeap(u32 heap_id)
     }
 }
 
-THUMB_FUNC void *AllocFromHeapInternal(NNSFndHeapHandle heap, u32 size, s32 alignment, u32 heap_id)
+void *AllocFromHeapInternal(NNSFndHeapHandle heap, u32 size, s32 alignment, u32 heap_id)
 {
     GF_ASSERT(heap);
 
@@ -237,7 +238,7 @@ THUMB_FUNC void *AllocFromHeapInternal(NNSFndHeapHandle heap, u32 size, s32 alig
     return ptr;
 }
 
-THUMB_FUNC void AllocFail()
+void AllocFail()
 {
     if (FUN_02031810() != 0)
     {
@@ -336,7 +337,7 @@ void FreeToHeapExplicit(u32 heap_id, void *ptr)
     GF_ASSERT(0);
 }
 
-THUMB_FUNC u32 GF_ExpHeap_FndGetTotalFreeSize(u32 heap_id)
+u32 GF_ExpHeap_FndGetTotalFreeSize(u32 heap_id)
 {
     if (heap_id < sHeapInfo.totalNumHeaps)
     {
@@ -348,7 +349,7 @@ THUMB_FUNC u32 GF_ExpHeap_FndGetTotalFreeSize(u32 heap_id)
     return 0;
 }
 
-THUMB_FUNC void GF_ExpHeap_FndInitAllocator(NNSFndAllocator * pAllocator, u32 heap_id, int alignment)
+void GF_ExpHeap_FndInitAllocator(NNSFndAllocator * pAllocator, u32 heap_id, int alignment)
 {
     if (heap_id < sHeapInfo.totalNumHeaps)
     {
@@ -361,7 +362,7 @@ THUMB_FUNC void GF_ExpHeap_FndInitAllocator(NNSFndAllocator * pAllocator, u32 he
     GF_ASSERT(0);
 }
 
-THUMB_FUNC void ReallocFromHeap(void *ptr, u32 newSize)
+void ReallocFromHeap(void *ptr, u32 newSize)
 {
     GF_ASSERT(OS_GetProcMode() != OS_PROCMODE_IRQ);
 
@@ -379,7 +380,7 @@ THUMB_FUNC void ReallocFromHeap(void *ptr, u32 newSize)
     GF_ASSERT(0);
 }
 
-THUMB_FUNC BOOL GF_heap_c_dummy_return_true(u32 heap_id)
+BOOL GF_heap_c_dummy_return_true(u32 heap_id)
 {
 #pragma unused(heap_id)
     return TRUE;

@@ -1,6 +1,7 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "RTC_api.h"
 #include "RTC_convert.h"
+#include "code32.h"
 
 static s32 sDayOfYear[12] = {
       0, // Jan

@@ -295,7 +295,7 @@ extern void NNS_G2dDrawSpriteFast(s16 param0,
     int param7,
     int param8);
 
-THUMB_FUNC struct UnkStruct_02006D98 *FUN_02006D98(u32 heap_id)
+struct UnkStruct_02006D98 *FUN_02006D98(u32 heap_id)
 {
     struct UnkStruct_02006D98 *ptr = AllocFromHeap(heap_id, sizeof(struct UnkStruct_02006D98));
     ptr->unk298 = heap_id;
@@ -350,7 +350,7 @@ THUMB_FUNC struct UnkStruct_02006D98 *FUN_02006D98(u32 heap_id)
     return ptr;
 }
 
-THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
+void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
 {
     s32 arg3;
     s32 arg4;
@@ -518,7 +518,7 @@ THUMB_FUNC void FUN_02006ED4(struct UnkStruct_02006D98 *param0)
     G3_PopMtx(1);
 }
 
-THUMB_FUNC void FUN_020072E8(struct UnkStruct_02006D98 *param0)
+void FUN_020072E8(struct UnkStruct_02006D98 *param0)
 {
     FreeToHeap(param0->unk2AC);
     FreeToHeap(param0->unk2B0);
@@ -526,7 +526,7 @@ THUMB_FUNC void FUN_020072E8(struct UnkStruct_02006D98 *param0)
     FreeToHeap(param0);
 }
 
-THUMB_FUNC void FUN_02007314(struct UnkStruct_02006D98_2 *param0)
+void FUN_02007314(struct UnkStruct_02006D98_2 *param0)
 {
     param0->unk59 = 0;
     for (s32 i = 0; i < 10; i++)
@@ -544,13 +544,13 @@ THUMB_FUNC void FUN_02007314(struct UnkStruct_02006D98_2 *param0)
     param0->unk5A = param0->unk84[param0->unk59].unk1;
 }
 
-THUMB_FUNC void FUN_0200737C(
+void FUN_0200737C(
     struct UnkStruct_02006D98_2 *param0, struct UnkStruct_02006D98_sub *param1)
 {
     MI_CpuCopy8(param1, param0->unk84, sizeof(struct UnkStruct_02006D98_sub) * 10);
 }
 
-THUMB_FUNC BOOL FUN_02007390(struct UnkStruct_02006D98_2 *param0)
+BOOL FUN_02007390(struct UnkStruct_02006D98_2 *param0)
 {
     if (param0->unk58 != 0)
     {
@@ -559,7 +559,7 @@ THUMB_FUNC BOOL FUN_02007390(struct UnkStruct_02006D98_2 *param0)
     return FALSE;
 }
 
-THUMB_FUNC struct UnkStruct_02006D98_2 *FUN_020073A0(struct UnkStruct_02006D98 *param0,
+struct UnkStruct_02006D98_2 *FUN_020073A0(struct UnkStruct_02006D98 *param0,
     struct UnkStruct_02006D98_4 *param1,
     u32 param2,
     u32 param3,
@@ -581,7 +581,7 @@ THUMB_FUNC struct UnkStruct_02006D98_2 *FUN_020073A0(struct UnkStruct_02006D98 *
     return FUN_020073E8(param0, param1, param2, param3, param4, param5, i, param6, param7);
 }
 
-THUMB_FUNC struct UnkStruct_02006D98_2 *FUN_020073E8(struct UnkStruct_02006D98 *param0,
+struct UnkStruct_02006D98_2 *FUN_020073E8(struct UnkStruct_02006D98 *param0,
     struct UnkStruct_02006D98_4 *param1,
     u32 param2,
     u32 param3,
@@ -628,12 +628,12 @@ THUMB_FUNC struct UnkStruct_02006D98_2 *FUN_020073E8(struct UnkStruct_02006D98 *
     return &param0->unk000[param6];
 }
 
-THUMB_FUNC void FUN_02007534(struct UnkStruct_02006D98_2 *param0)
+void FUN_02007534(struct UnkStruct_02006D98_2 *param0)
 {
     param0->unk00_0 = 0;
 }
 
-THUMB_FUNC void FUN_02007540(struct UnkStruct_02006D98 *param0)
+void FUN_02007540(struct UnkStruct_02006D98 *param0)
 {
     for (s32 i = 0; i < 4; i++)
     {
@@ -641,7 +641,7 @@ THUMB_FUNC void FUN_02007540(struct UnkStruct_02006D98 *param0)
     }
 }
 
-THUMB_FUNC void FUN_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2)
+void FUN_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2)
 {
     switch (param1)
     {
@@ -794,7 +794,7 @@ THUMB_FUNC void FUN_02007558(struct UnkStruct_02006D98_2 *param0, u32 param1, u3
     }
 }
 
-THUMB_FUNC u32 FUN_0200782C(struct UnkStruct_02006D98_2 *param0, u32 param1)
+u32 FUN_0200782C(struct UnkStruct_02006D98_2 *param0, u32 param1)
 {
     switch (param1)
     {
@@ -942,7 +942,7 @@ THUMB_FUNC u32 FUN_0200782C(struct UnkStruct_02006D98_2 *param0, u32 param1)
     return 0;
 }
 
-THUMB_FUNC void FUN_020079E0(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2)
+void FUN_020079E0(struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2)
 {
     switch (param1)
     {
@@ -1095,7 +1095,7 @@ THUMB_FUNC void FUN_020079E0(struct UnkStruct_02006D98_2 *param0, u32 param1, u3
     }
 }
 
-THUMB_FUNC void FUN_02007E40(
+void FUN_02007E40(
     struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4)
 {
     param0->unk54_1 = 1;
@@ -1105,7 +1105,7 @@ THUMB_FUNC void FUN_02007E40(
     param0->unk47 = (u8)param4;
 }
 
-THUMB_FUNC void FUN_02007E68(
+void FUN_02007E68(
     struct UnkStruct_02006D98_2 *param0, u32 param1, u32 param2, u32 param3, u32 param4)
 {
     param0->unk54_C = 1;
@@ -1116,7 +1116,7 @@ THUMB_FUNC void FUN_02007E68(
     param0->unk4C = param4;
 }
 
-THUMB_FUNC void FUN_02007E98(
+void FUN_02007E98(
     struct UnkStruct_02006D98 *param0, u32 param1, u32 param2, u32 param3, u32 param4)
 {
     for (s32 i = 0; i < 4; i++)
@@ -1135,7 +1135,7 @@ THUMB_FUNC void FUN_02007E98(
     }
 }
 
-THUMB_FUNC void FUN_02007EEC(struct UnkStruct_02006D98_2 *param0)
+void FUN_02007EEC(struct UnkStruct_02006D98_2 *param0)
 {
     param0->unk54_C = 0;
     param0->unk48 = 0;
@@ -1146,12 +1146,12 @@ THUMB_FUNC void FUN_02007EEC(struct UnkStruct_02006D98_2 *param0)
     param0->unk00_8 = 1;
 }
 
-THUMB_FUNC BOOL FUN_02007F20(struct UnkStruct_02006D98_2 *param0)
+BOOL FUN_02007F20(struct UnkStruct_02006D98_2 *param0)
 {
     return param0->unk54_C == 1;
 }
 
-THUMB_FUNC void FUN_02007F34(struct UnkStruct_02006D98_2 *param0, s32 param1)
+void FUN_02007F34(struct UnkStruct_02006D98_2 *param0, s32 param1)
 {
     param0->unk2E = (s16)((40 - param1) - (((40 - param1) * param0->unk36) >> 8));
 }
@@ -1204,7 +1204,7 @@ static inline void inlineLoop(u8 *unk58,
     }
 }
 
-THUMB_FUNC void FUN_02007F48(struct UnkStruct_02006D98_2 *param0)
+void FUN_02007F48(struct UnkStruct_02006D98_2 *param0)
 {
     inlineLoop(&param0->unk58,
         &param0->unk59,
@@ -1214,7 +1214,7 @@ THUMB_FUNC void FUN_02007F48(struct UnkStruct_02006D98_2 *param0)
         param0->unk84);
 }
 
-THUMB_FUNC void FUN_02008010(
+void FUN_02008010(
     struct UnkStruct_02006D98_5 *param0, struct UnkStruct_02006D98_sub *param1)
 {
     param0->unk00 = 1;
@@ -1229,7 +1229,7 @@ THUMB_FUNC void FUN_02008010(
     }
 }
 
-THUMB_FUNC s32 FUN_02008030(struct UnkStruct_02006D98_5 *param0)
+s32 FUN_02008030(struct UnkStruct_02006D98_5 *param0)
 {
     if (param0->unk00 != 0)
     {
@@ -1245,19 +1245,19 @@ THUMB_FUNC s32 FUN_02008030(struct UnkStruct_02006D98_5 *param0)
     return -1;
 }
 
-THUMB_FUNC void FUN_020080D0(struct UnkStruct_02006D98_2 *param0)
+void FUN_020080D0(struct UnkStruct_02006D98_2 *param0)
 {
     param0->unk00_7 = 1;
     param0->unk00_8 = 1;
 }
 
-THUMB_FUNC void FUN_020080E0(struct UnkStruct_02006D98_2 *param0)
+void FUN_020080E0(struct UnkStruct_02006D98_2 *param0)
 {
     param0->unk14 = param0->unk04;
     param0->unk78 = param0->unk6C;
 }
 
-THUMB_FUNC void FUN_0200813C(struct UnkStruct_02006D98_2 *param0)
+void FUN_0200813C(struct UnkStruct_02006D98_2 *param0)
 {
     param0->unk04 = param0->unk14;
     param0->unk6C = param0->unk78;
@@ -1265,24 +1265,24 @@ THUMB_FUNC void FUN_0200813C(struct UnkStruct_02006D98_2 *param0)
     param0->unk00_8 = 1;
 }
 
-THUMB_FUNC void FUN_020081A8(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2)
+void FUN_020081A8(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2)
 {
     param0->unk29C = param1;
     param0->unk2A0 = param2;
 }
 
-THUMB_FUNC void FUN_020081B4(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2)
+void FUN_020081B4(struct UnkStruct_02006D98 *param0, u32 param1, u32 param2)
 {
     param0->unk2A4 = param1;
     param0->unk2A8 = param2;
 }
 
-THUMB_FUNC u32 FUN_020081C0(u32 param0)
+u32 FUN_020081C0(u32 param0)
 {
     return param0 + 4;
 }
 
-THUMB_FUNC void FUN_020081C4(struct UnkStruct_02006D98 *param0)
+void FUN_020081C4(struct UnkStruct_02006D98 *param0)
 {
     if (param0->unk2E1 != 0)
     {
@@ -1311,28 +1311,28 @@ THUMB_FUNC void FUN_020081C4(struct UnkStruct_02006D98 *param0)
     }
 }
 
-THUMB_FUNC void FUN_0200825C(struct UnkStruct_02006D98 *param0, u8 param1)
+void FUN_0200825C(struct UnkStruct_02006D98 *param0, u8 param1)
 {
     param0->unk2E3 = param1;
 }
 
-THUMB_FUNC BOOL FUN_02008268(struct UnkStruct_02006D98_2 *param0)
+BOOL FUN_02008268(struct UnkStruct_02006D98_2 *param0)
 {
     GF_ASSERT(param0);
     return param0->unk00_0 != 0;
 }
 
-THUMB_FUNC void FUN_02008284(struct UnkStruct_02006D98 *param0, u32 param1)
+void FUN_02008284(struct UnkStruct_02006D98 *param0, u32 param1)
 {
     param0->unk2E4 |= param1;
 }
 
-THUMB_FUNC void FUN_02008290(struct UnkStruct_02006D98 *param0, u32 param1)
+void FUN_02008290(struct UnkStruct_02006D98 *param0, u32 param1)
 {
     param0->unk2E4 &= (param1 ^ ~0);
 }
 
-THUMB_FUNC void FUN_020082A8(struct UnkStruct_02006D98 *param0)
+void FUN_020082A8(struct UnkStruct_02006D98 *param0)
 {
     NNSG2dCharacterData *st58;
     int st54;
@@ -1528,7 +1528,7 @@ THUMB_FUNC void FUN_020082A8(struct UnkStruct_02006D98 *param0)
     param0->unk2E1 = st48;
 }
 
-THUMB_FUNC void FUN_020086F4(struct UnkStruct_02006D98 *param0)
+void FUN_020086F4(struct UnkStruct_02006D98 *param0)
 {
     NNSG2dPaletteData *st18;
     int st14, r7;
@@ -1615,12 +1615,12 @@ THUMB_FUNC void FUN_020086F4(struct UnkStruct_02006D98 *param0)
     param0->unk2E2 = stc;
 }
 
-THUMB_FUNC u8 FUN_020088D8(u8 param0)
+u8 FUN_020088D8(u8 param0)
 {
     return (u8)(((u8)((param0 & 0xf0) >> 4)) | ((u8)(param0 << 4)));
 }
 
-THUMB_FUNC void FUN_020088EC(struct UnkStruct_02006D98_2 *param0, u8 *param1)
+void FUN_020088EC(struct UnkStruct_02006D98_2 *param0, u8 *param1)
 {
     if (param0->unk04.field_06 != 0)
     {
@@ -1628,7 +1628,7 @@ THUMB_FUNC void FUN_020088EC(struct UnkStruct_02006D98_2 *param0, u8 *param1)
     }
 }
 
-THUMB_FUNC void FUN_02008904(u8 *param0, u32 param1, u32 param2)
+void FUN_02008904(u8 *param0, u32 param1, u32 param2)
 {
     const struct UnkStruct_02006D98_3 *st10;
     s32 i;
@@ -1701,14 +1701,14 @@ THUMB_FUNC void FUN_02008904(u8 *param0, u32 param1, u32 param2)
     }
 }
 
-THUMB_FUNC u16 FUN_02008A54(u32 *param0)
+u16 FUN_02008A54(u32 *param0)
 {
     *param0 = (*param0) * 0x41C64E6D + 0x6073;
 
     return (u16)(*param0 >> 16);
 }
 
-THUMB_FUNC void FUN_02008A74(u8 *param0)
+void FUN_02008A74(u8 *param0)
 {
     u32 st0 = ((u16 *)param0)[0xc7f];
     for (s32 r4 = 0xc7f; r4 > -1; r4--)

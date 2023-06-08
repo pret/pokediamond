@@ -1274,8 +1274,8 @@ _038073E0:	.word	0x0380FFFC
 _038073E4:	.word	0x04000180
 _038073E8:	.word	0x027FFE00
 
-	arm_func_start FUN_038073EC
-FUN_038073EC: ;@ 0x038073EC
+	arm_func_start OSi_DoResetSystem
+OSi_DoResetSystem: ;@ 0x038073EC
 	mov	r1, #0
 	ldr	r0, _03807400	;@ =0x04000208
 	strh	r1, [r0]

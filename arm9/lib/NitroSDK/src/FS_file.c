@@ -3,13 +3,14 @@
 #include "FS_rom.h"
 #include "FS_file.h"
 #include "FSi_util.h"
+#include "code32.h"
 
 extern FSDirPos current_dir_pos;
 BOOL is_init = FALSE;
 
 static BOOL FSi_FindPath(FSFile * p_dir, const char * path, FSFileID * p_file_id, FSDirPos * p_dir_pos);
 
-ARM_FUNC void FS_Init(u32 default_dma_no)
+void FS_Init(u32 default_dma_no)
 {
     if (!is_init)
     {
@@ -18,12 +19,12 @@ ARM_FUNC void FS_Init(u32 default_dma_no)
     }
 }
 
-ARM_FUNC BOOL FS_IsAvailable(void)
+BOOL FS_IsAvailable(void)
 {
     return is_init;
 }
 
-ARM_FUNC void FS_InitFile(FSFile * p_file)
+void FS_InitFile(FSFile * p_file)
 {
     p_file->link.next = p_file->link.prev = NULL;
     OS_InitThreadQueue(p_file->queue);
@@ -90,7 +91,7 @@ static BOOL FSi_FindPath(FSFile * p_dir, const char * path, FSFileID * p_file_id
     return FSi_SendCommand(p_dir, FS_COMMAND_FINDPATH);
 }
 
-ARM_FUNC int FSi_ReadFileCore(FSFile * p_file, void * dst, s32 len, BOOL async)
+int FSi_ReadFileCore(FSFile * p_file, void * dst, s32 len, BOOL async)
 {
     const s32 pos = (s32)p_file->prop.file.pos;
     const s32 rest = (s32)(p_file->prop.file.bottom - pos);
@@ -115,7 +116,7 @@ ARM_FUNC int FSi_ReadFileCore(FSFile * p_file, void * dst, s32 len, BOOL async)
     return len;
 }
 
-ARM_FUNC BOOL FS_ConvertPathToFileID(FSFileID * p_file_id, const char * path)
+BOOL FS_ConvertPathToFileID(FSFileID * p_file_id, const char * path)
 {
     FSFile dir;
     FS_InitFile(&dir);
@@ -124,7 +125,7 @@ ARM_FUNC BOOL FS_ConvertPathToFileID(FSFileID * p_file_id, const char * path)
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_OpenFileDirect(FSFile * p_file, FSArchive * p_arc, u32 image_top, u32 image_bottom, u32 file_index)
+BOOL FS_OpenFileDirect(FSFile * p_file, FSArchive * p_arc, u32 image_top, u32 image_bottom, u32 file_index)
 {
     p_file->arc = p_arc;
     p_file->arg.openfiledirect.index = file_index;
@@ -137,7 +138,7 @@ ARM_FUNC BOOL FS_OpenFileDirect(FSFile * p_file, FSArchive * p_arc, u32 image_to
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_OpenFileFast(FSFile * p_file, FSFileID file_id)
+BOOL FS_OpenFileFast(FSFile * p_file, FSFileID file_id)
 {
     if (!file_id.arc)
         return FALSE;
@@ -150,13 +151,13 @@ ARM_FUNC BOOL FS_OpenFileFast(FSFile * p_file, FSFileID file_id)
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_OpenFile(FSFile * p_file, const char * path)
+BOOL FS_OpenFile(FSFile * p_file, const char * path)
 {
     FSFileID file_id;
     return FS_ConvertPathToFileID(&file_id, path) && FS_OpenFileFast(p_file, file_id);
 }
 
-ARM_FUNC BOOL FS_CloseFile(FSFile * p_file)
+BOOL FS_CloseFile(FSFile * p_file)
 {
     if (!FSi_SendCommand(p_file, FS_COMMAND_CLOSEFILE))
         return FALSE;
@@ -166,7 +167,7 @@ ARM_FUNC BOOL FS_CloseFile(FSFile * p_file)
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_WaitAsync(FSFile * p_file)
+BOOL FS_WaitAsync(FSFile * p_file)
 {
     BOOL is_owner = FALSE;
     OSIntrMode bak_par = OS_DisableInterrupts();
@@ -198,17 +199,17 @@ ARM_FUNC BOOL FS_WaitAsync(FSFile * p_file)
     return FS_IsSucceeded(p_file);
 }
 
-ARM_FUNC int FS_ReadFileAsync(FSFile * p_file, void * dst, s32 len)
+int FS_ReadFileAsync(FSFile * p_file, void * dst, s32 len)
 {
     return FSi_ReadFileCore(p_file, dst, len, TRUE);
 }
 
-ARM_FUNC int FS_ReadFile(FSFile * p_file, void * dst, s32 len)
+int FS_ReadFile(FSFile * p_file, void * dst, s32 len)
 {
     return FSi_ReadFileCore(p_file, dst, len, FALSE);
 }
 
-ARM_FUNC BOOL FS_SeekFile(FSFile * p_file, s32 offset, FSSeekFileMode origin)
+BOOL FS_SeekFile(FSFile * p_file, s32 offset, FSSeekFileMode origin)
 {
     switch (origin)
     {
@@ -232,7 +233,7 @@ ARM_FUNC BOOL FS_SeekFile(FSFile * p_file, s32 offset, FSSeekFileMode origin)
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_ChangeDir(const char * path)
+BOOL FS_ChangeDir(const char * path)
 {
     FSDirPos pos;
     FSFile dir;

@@ -7,8 +7,6 @@
 #include "party.h"
 #include "player_data.h"
 
-#pragma thumb on
-
 extern u32 FUN_0206B6C8(struct Pokemon * pokemon);
 extern u16 FUN_0206B7BC(u16 species, u32 forme, BOOL is_egg);
 

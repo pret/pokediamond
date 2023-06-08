@@ -1,15 +1,15 @@
-#include "function_target.h"
 #include "OS_alarm.h"
 #include "OS_tick.h"
 #include "PAD_xyButton.h"
 #include "registers.h"
+#include "code32.h"
 
 static BOOL PADi_XYButtonAvailable;
 static OSAlarm PADi_Alarm;
 
 void EXIi_SelectRcnt(u16);
 
-ARM_FUNC BOOL PAD_InitXYButton(void) {
+BOOL PAD_InitXYButton(void) {
     OSTick tick;
     if (!OS_IsTickAvailable() || !OS_IsAlarmAvailable())
         return FALSE;

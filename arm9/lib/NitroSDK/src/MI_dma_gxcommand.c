@@ -1,8 +1,8 @@
 #include "MI_dma_gxcommand.h"
-#include "function_target.h"
 #include "OS_interrupt.h"
 #include "OS_reset.h"
 #include "sections.h"
+#include "code32.h"
 
 static MIiGXDmaParams MIi_GXDmaParams = { FALSE };
 
@@ -11,7 +11,7 @@ static void MIi_DMACallback(void *arg);
 static void MIi_DMAFastCallback(void *arg);
 
 #pragma section ITCM begin
-ARM_FUNC void MI_SendGXCommand(u32 dmaNo, const void *src, u32 commandLength)
+void MI_SendGXCommand(u32 dmaNo, const void *src, u32 commandLength)
 {
     vu32 *dmaCntp;
     u32 leftLength = commandLength;
@@ -44,7 +44,7 @@ ARM_FUNC void MI_SendGXCommand(u32 dmaNo, const void *src, u32 commandLength)
 }
 #pragma section ITCM end
 
-ARM_FUNC void MI_SendGXCommandAsync(u32 dmaNo, const void *src, u32 commandLength, MIDmaCallback callback, void *arg)
+void MI_SendGXCommandAsync(u32 dmaNo, const void *src, u32 commandLength, MIDmaCallback callback, void *arg)
 {
     if (!commandLength)
     {
@@ -82,7 +82,7 @@ ARM_FUNC void MI_SendGXCommandAsync(u32 dmaNo, const void *src, u32 commandLengt
     }
 }
 
-ARM_FUNC static void MIi_FIFOCallback(void)
+static void MIi_FIFOCallback(void)
 {
     if (!MIi_GXDmaParams.length)
     {
@@ -108,7 +108,7 @@ ARM_FUNC static void MIi_FIFOCallback(void)
     }
 }
 
-ARM_FUNC static void MIi_DMACallback(void *arg)
+static void MIi_DMACallback(void *arg)
 {
 #pragma unused(arg)
     (void)OS_DisableIrqMask(OS_IE_GXFIFO);
@@ -121,7 +121,7 @@ ARM_FUNC static void MIi_DMACallback(void *arg)
     MIi_CallCallback(MIi_GXDmaParams.callback, MIi_GXDmaParams.arg);
 }
 
-ARM_FUNC void MI_SendGXCommandAsyncFast(u32 dmaNo, const void *src, u32 commandLength, MIDmaCallback callback, void *arg)
+void MI_SendGXCommandAsyncFast(u32 dmaNo, const void *src, u32 commandLength, MIDmaCallback callback, void *arg)
 {
     if (!commandLength)
     {
@@ -146,7 +146,7 @@ ARM_FUNC void MI_SendGXCommandAsyncFast(u32 dmaNo, const void *src, u32 commandL
     MIi_DmaSetParams(dmaNo, (u32)src, (u32)REG_GXFIFO_ADDR, MI_CNT_GXCOPY_IF(commandLength));
 }
 
-ARM_FUNC static void MIi_DMAFastCallback(void *arg)
+static void MIi_DMAFastCallback(void *arg)
 {
 #pragma unused(arg)
     MIi_GXDmaParams.isBusy = FALSE;

@@ -6,8 +6,6 @@
 #include "msgdata.h"
 #include "constants/items.h"
 
-#pragma thumb on
-
 NARC * OpenNutsDataNarc(u32 heap_id)
 {
     return NARC_New(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, heap_id);

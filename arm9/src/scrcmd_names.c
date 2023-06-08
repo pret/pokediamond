@@ -1,3 +1,4 @@
+#include "global.h"
 #include "event_data.h"
 #include "itemtool.h"
 #include "message_format.h"
@@ -19,7 +20,7 @@ extern struct PCStorage* GetStoragePCPointer(struct SaveBlock2* sav2);
 extern u32 FUN_0205F3C0(struct ScriptState* state);
 extern u32 FUN_02054C14(u32 number);
 
-THUMB_FUNC BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx) //00CD - todo: BufferPlayerName? TextPlayerName?
+BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx) //00CD - todo: BufferPlayerName? TextPlayerName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -32,7 +33,7 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx) //00CD - todo: B
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetRivalName(struct ScriptContext* ctx) //00CE - todo: BufferRivalName? TextRivalName?
+BOOL ScrCmd_GetRivalName(struct ScriptContext* ctx) //00CE - todo: BufferRivalName? TextRivalName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -43,7 +44,7 @@ THUMB_FUNC BOOL ScrCmd_GetRivalName(struct ScriptContext* ctx) //00CE - todo: Bu
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetFriendName(struct ScriptContext* ctx) //00CF - todo: BufferFriendName? TextFriendName?
+BOOL ScrCmd_GetFriendName(struct ScriptContext* ctx) //00CF - todo: BufferFriendName? TextFriendName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -54,7 +55,7 @@ THUMB_FUNC BOOL ScrCmd_GetFriendName(struct ScriptContext* ctx) //00CF - todo: B
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPokemonName(struct ScriptContext* ctx) //00D0 - todo: BufferPartyPokemonName? TextPartyPokemonName?
+BOOL ScrCmd_GetPokemonName(struct ScriptContext* ctx) //00D0 - todo: BufferPartyPokemonName? TextPartyPokemonName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -68,7 +69,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonName(struct ScriptContext* ctx) //00D0 - todo: 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetItemName(struct ScriptContext* ctx) //00D1 - todo: BufferItemName? TextItemName?
+BOOL ScrCmd_GetItemName(struct ScriptContext* ctx) //00D1 - todo: BufferItemName? TextItemName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -80,7 +81,7 @@ THUMB_FUNC BOOL ScrCmd_GetItemName(struct ScriptContext* ctx) //00D1 - todo: Buf
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPocketName(struct ScriptContext* ctx) //00D2 - todo: BufferPocketName? TextPocketName?
+BOOL ScrCmd_GetPocketName(struct ScriptContext* ctx) //00D2 - todo: BufferPocketName? TextPocketName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -92,7 +93,7 @@ THUMB_FUNC BOOL ScrCmd_GetPocketName(struct ScriptContext* ctx) //00D2 - todo: B
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetTMHMMoveName(struct ScriptContext* ctx) //00D3 - todo: BufferTMHMName? BufferMachineName? TextTMHMName? TextMachineName?
+BOOL ScrCmd_GetTMHMMoveName(struct ScriptContext* ctx) //00D3 - todo: BufferTMHMName? BufferMachineName? TextTMHMName? TextMachineName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -105,7 +106,7 @@ THUMB_FUNC BOOL ScrCmd_GetTMHMMoveName(struct ScriptContext* ctx) //00D3 - todo:
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetMoveName(struct ScriptContext* ctx) //00D4 - todo: BufferMoveName? TextMoveName?
+BOOL ScrCmd_GetMoveName(struct ScriptContext* ctx) //00D4 - todo: BufferMoveName? TextMoveName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -117,7 +118,7 @@ THUMB_FUNC BOOL ScrCmd_GetMoveName(struct ScriptContext* ctx) //00D4 - todo: Buf
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00D5(struct ScriptContext* ctx) //00D5 - todo: BufferNumber? TextNumber?
+BOOL ScrCmd_Unk00D5(struct ScriptContext* ctx) //00D5 - todo: BufferNumber? TextNumber?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -129,7 +130,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00D5(struct ScriptContext* ctx) //00D5 - todo: BufferN
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0280(struct ScriptContext* ctx) //0280 - todo: BufferNumberSpecial? need more info
+BOOL ScrCmd_Unk0280(struct ScriptContext* ctx) //0280 - todo: BufferNumberSpecial? need more info
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -146,7 +147,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0280(struct ScriptContext* ctx) //0280 - todo: BufferN
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPokemonNickname(struct ScriptContext* ctx) //00D6 - todo: BufferPartyPokemonNickname? TextPartyPokemonNickname?
+BOOL ScrCmd_GetPokemonNickname(struct ScriptContext* ctx) //00D6 - todo: BufferPartyPokemonNickname? TextPartyPokemonNickname?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -160,7 +161,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonNickname(struct ScriptContext* ctx) //00D6 - to
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk0251(struct ScriptContext* ctx) //0251 - todo: BufferBoxPokemonNickname? TextBoxPokemonNickname?
+BOOL ScrCmd_Unk0251(struct ScriptContext* ctx) //0251 - todo: BufferBoxPokemonNickname? TextBoxPokemonNickname?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct PCStorage* pc = GetStoragePCPointer(fieldSystem->saveBlock2);
@@ -176,7 +177,7 @@ THUMB_FUNC BOOL ScrCmd_Unk0251(struct ScriptContext* ctx) //0251 - todo: BufferB
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPoketchAppName(struct ScriptContext* ctx) //00D7 - todo: BufferPoketchAppName? TextPoketchAppName?
+BOOL ScrCmd_GetPoketchAppName(struct ScriptContext* ctx) //00D7 - todo: BufferPoketchAppName? TextPoketchAppName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -187,7 +188,7 @@ THUMB_FUNC BOOL ScrCmd_GetPoketchAppName(struct ScriptContext* ctx) //00D7 - tod
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetTrainerClassName(struct ScriptContext* ctx) //00D8 - todo: BufferTrainerClassName? TextTrainerClassName?
+BOOL ScrCmd_GetTrainerClassName(struct ScriptContext* ctx) //00D8 - todo: BufferTrainerClassName? TextTrainerClassName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -198,7 +199,7 @@ THUMB_FUNC BOOL ScrCmd_GetTrainerClassName(struct ScriptContext* ctx) //00D8 - t
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx) //00D9 - todo: BufferPlayerTrainerClassName? TextPlayerTrainerClassName?
+BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx) //00D9 - todo: BufferPlayerTrainerClassName? TextPlayerTrainerClassName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
@@ -214,7 +215,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx) //00D9 - todo: BufferP
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx) //00DA - todo: BufferPokemonSpeciesName? TextPokemonSpeciesName?
+BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx) //00DA - todo: BufferPokemonSpeciesName? TextPokemonSpeciesName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -229,7 +230,7 @@ THUMB_FUNC BOOL ScrCmd_Unk00DA(struct ScriptContext* ctx) //00DA - todo: BufferP
     return FALSE;
 }
 
-THUMB_FUNC struct String* FUN_02040AE4(u32 msg_no, u32 heap_id) //todo: GetPokemonSpeciesName?
+struct String* FUN_02040AE4(u32 msg_no, u32 heap_id) //todo: GetPokemonSpeciesName?
 {
     struct MsgData* msg_data = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 362, heap_id); //todo change to NAIX
     struct String* ret = NewString_ReadMsgData(msg_data, msg_no);
@@ -238,7 +239,7 @@ THUMB_FUNC struct String* FUN_02040AE4(u32 msg_no, u32 heap_id) //todo: GetPokem
     return ret;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx) //00DB - todo: BufferPlayerStarterSpecies?
+BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx) //00DB - todo: BufferPlayerStarterSpecies?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -252,7 +253,7 @@ THUMB_FUNC BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx) //00DB - 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetRivalStarterName(struct ScriptContext* ctx) //00DC - todo: BufferRivalStarterSpecies?
+BOOL ScrCmd_GetRivalStarterName(struct ScriptContext* ctx) //00DC - todo: BufferRivalStarterSpecies?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -266,7 +267,7 @@ THUMB_FUNC BOOL ScrCmd_GetRivalStarterName(struct ScriptContext* ctx) //00DC - t
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetCounterpartStarterName(struct ScriptContext* ctx) //00DD - todo: BufferFriendStarterSpecies?
+BOOL ScrCmd_GetCounterpartStarterName(struct ScriptContext* ctx) //00DD - todo: BufferFriendStarterSpecies?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -280,7 +281,7 @@ THUMB_FUNC BOOL ScrCmd_GetCounterpartStarterName(struct ScriptContext* ctx) //00
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetDecorationName(struct ScriptContext* ctx) //00DF - todo: BufferDecorationName?
+BOOL ScrCmd_GetDecorationName(struct ScriptContext* ctx) //00DF - todo: BufferDecorationName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -291,7 +292,7 @@ THUMB_FUNC BOOL ScrCmd_GetDecorationName(struct ScriptContext* ctx) //00DF - tod
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetUndergroundTrapName(struct ScriptContext* ctx) //00E0 - todo: BufferUndergroundTrapName?
+BOOL ScrCmd_GetUndergroundTrapName(struct ScriptContext* ctx) //00E0 - todo: BufferUndergroundTrapName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -302,7 +303,7 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundTrapName(struct ScriptContext* ctx) //00E0 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetUndergroundItemName(struct ScriptContext* ctx) //00E1 - todo: BufferUndergroundItemName? BufferTreasureName?
+BOOL ScrCmd_GetUndergroundItemName(struct ScriptContext* ctx) //00E1 - todo: BufferUndergroundItemName? BufferTreasureName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -313,7 +314,7 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundItemName(struct ScriptContext* ctx) //00E1 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetMapName(struct ScriptContext* ctx) //00E2 - todo: BufferMapName?
+BOOL ScrCmd_GetMapName(struct ScriptContext* ctx) //00E2 - todo: BufferMapName?
 {
     struct String* str = String_New(22, 4);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -327,7 +328,7 @@ THUMB_FUNC BOOL ScrCmd_GetMapName(struct ScriptContext* ctx) //00E2 - todo: Buff
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetBerryName(struct ScriptContext* ctx) //017B - todo: BufferBerryName?
+BOOL ScrCmd_GetBerryName(struct ScriptContext* ctx) //017B - todo: BufferBerryName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -341,7 +342,7 @@ THUMB_FUNC BOOL ScrCmd_GetBerryName(struct ScriptContext* ctx) //017B - todo: Bu
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetNatureName(struct ScriptContext* ctx) //017C - todo: BufferNatureName?
+BOOL ScrCmd_GetNatureName(struct ScriptContext* ctx) //017C - todo: BufferNatureName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -352,7 +353,7 @@ THUMB_FUNC BOOL ScrCmd_GetNatureName(struct ScriptContext* ctx) //017C - todo: B
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetFashionName(struct ScriptContext* ctx) //0261 - todo: BufferAccessoryName?
+BOOL ScrCmd_GetFashionName(struct ScriptContext* ctx) //0261 - todo: BufferAccessoryName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -363,7 +364,7 @@ THUMB_FUNC BOOL ScrCmd_GetFashionName(struct ScriptContext* ctx) //0261 - todo: 
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetWhiteRockInscription(struct ScriptContext* ctx) //0272 - todo: BufferWhiteRockInscription?
+BOOL ScrCmd_GetWhiteRockInscription(struct ScriptContext* ctx) //0272 - todo: BufferWhiteRockInscription?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -378,7 +379,7 @@ THUMB_FUNC BOOL ScrCmd_GetWhiteRockInscription(struct ScriptContext* ctx) //0272
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetPokemonMoveName(struct ScriptContext* ctx) //01CB - todo: BufferPartyPokemonMoveName?
+BOOL ScrCmd_GetPokemonMoveName(struct ScriptContext* ctx) //01CB - todo: BufferPartyPokemonMoveName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
@@ -394,7 +395,7 @@ THUMB_FUNC BOOL ScrCmd_GetPokemonMoveName(struct ScriptContext* ctx) //01CB - to
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetRibbonName(struct ScriptContext* ctx) //0232 - todo: BufferRibbonName?
+BOOL ScrCmd_GetRibbonName(struct ScriptContext* ctx) //0232 - todo: BufferRibbonName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -406,7 +407,7 @@ THUMB_FUNC BOOL ScrCmd_GetRibbonName(struct ScriptContext* ctx) //0232 - todo: B
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetSealName(struct ScriptContext* ctx) //02B3 - todo: BufferSealName?
+BOOL ScrCmd_GetSealName(struct ScriptContext* ctx) //02B3 - todo: BufferSealName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -417,7 +418,7 @@ THUMB_FUNC BOOL ScrCmd_GetSealName(struct ScriptContext* ctx) //02B3 - todo: Buf
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetItemNameWithIndefArticle(struct ScriptContext* ctx) //02C4 - todo: BufferIndefItemName?
+BOOL ScrCmd_GetItemNameWithIndefArticle(struct ScriptContext* ctx) //02C4 - todo: BufferIndefItemName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -428,7 +429,7 @@ THUMB_FUNC BOOL ScrCmd_GetItemNameWithIndefArticle(struct ScriptContext* ctx) //
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetItemNamePlural(struct ScriptContext* ctx) //02C5 - todo: BufferPluralItemName?
+BOOL ScrCmd_GetItemNamePlural(struct ScriptContext* ctx) //02C5 - todo: BufferPluralItemName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -439,7 +440,7 @@ THUMB_FUNC BOOL ScrCmd_GetItemNamePlural(struct ScriptContext* ctx) //02C5 - tod
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetDecorationNameWithArticle(struct ScriptContext* ctx) //02C6 - todo: BufferIndefDecorationName?
+BOOL ScrCmd_GetDecorationNameWithArticle(struct ScriptContext* ctx) //02C6 - todo: BufferIndefDecorationName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -450,7 +451,7 @@ THUMB_FUNC BOOL ScrCmd_GetDecorationNameWithArticle(struct ScriptContext* ctx) /
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetUndergroundTrapNameWithArticle(struct ScriptContext* ctx) //02C7 - todo: BufferIndefTrapName?
+BOOL ScrCmd_GetUndergroundTrapNameWithArticle(struct ScriptContext* ctx) //02C7 - todo: BufferIndefTrapName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -461,7 +462,7 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundTrapNameWithArticle(struct ScriptContext* c
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetUndergroundItemNameWithArticle(struct ScriptContext* ctx) //02C8 - todo: BufferIndefUndergroundItemName? BufferIndefTreasureName?
+BOOL ScrCmd_GetUndergroundItemNameWithArticle(struct ScriptContext* ctx) //02C8 - todo: BufferIndefUndergroundItemName? BufferIndefTreasureName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -472,7 +473,7 @@ THUMB_FUNC BOOL ScrCmd_GetUndergroundItemNameWithArticle(struct ScriptContext* c
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk02C9(struct ScriptContext* ctx) //02C9 - todo: BufferIndefSpeciesName?
+BOOL ScrCmd_Unk02C9(struct ScriptContext* ctx) //02C9 - todo: BufferIndefSpeciesName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -485,7 +486,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02C9(struct ScriptContext* ctx) //02C9 - todo: BufferI
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk02CA(struct ScriptContext* ctx) //02CA - todo: BufferIndefFriendStarterSpecies?
+BOOL ScrCmd_Unk02CA(struct ScriptContext* ctx) //02CA - todo: BufferIndefFriendStarterSpecies?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -497,7 +498,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02CA(struct ScriptContext* ctx) //02CA - todo: BufferI
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetFashionNameWithArticle(struct ScriptContext* ctx) //02CB - todo: BufferIndefAccessoryName?
+BOOL ScrCmd_GetFashionNameWithArticle(struct ScriptContext* ctx) //02CB - todo: BufferIndefAccessoryName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -508,7 +509,7 @@ THUMB_FUNC BOOL ScrCmd_GetFashionNameWithArticle(struct ScriptContext* ctx) //02
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx) //02CC - todo: BufferIndefTrainerClassName?
+BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx) //02CC - todo: BufferIndefTrainerClassName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -519,7 +520,7 @@ THUMB_FUNC BOOL ScrCmd_Unk02CC(struct ScriptContext* ctx) //02CC - todo: BufferI
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx) //02CD - todo: BufferPluralSealName?
+BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx) //02CD - todo: BufferPluralSealName?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
@@ -530,7 +531,7 @@ THUMB_FUNC BOOL ScrCmd_GetSealNamePlural(struct ScriptContext* ctx) //02CD - tod
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_CapitalizeFirstChar(struct ScriptContext* ctx) //02CE - todo CapitalizeText?
+BOOL ScrCmd_CapitalizeFirstChar(struct ScriptContext* ctx) //02CE - todo CapitalizeText?
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);

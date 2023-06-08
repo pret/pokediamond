@@ -1,11 +1,12 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "fx.h"
+#include "code32.h"
 
-ARM_FUNC void FX_Init(){
+void FX_Init() {
     return;
 }
 
-ARM_FUNC fx32 FX_Modf(fx32 x, fx32 *iptr){
+fx32 FX_Modf(fx32 x, fx32 *iptr) {
     if (x >= 0)
     {
         *iptr = x & 0x7FFFF000;

@@ -7,8 +7,6 @@
 #include "use_item_on_mon.h"
 #include "constants/moves.h"
 
-#pragma thumb on
-
 BOOL CanUseItemOnPokemon(struct Pokemon * pokemon, u16 itemId, s32 moveId, u32 heap_id)
 {
     s32 atkEv;

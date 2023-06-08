@@ -1,3 +1,4 @@
+#include "global.h"
 #include "error_message_reset.h"
 #include "GX_layers.h"
 #include "gx.h"
@@ -66,13 +67,13 @@ static u32 sErrorMessagePrinterLock;
 extern void FUN_0200E3A0(PMLCDTarget, int);
 extern void SetMasterBrightnessNeutral(u32 screen);
 
-THUMB_FUNC void VBlankHandler()
+void VBlankHandler()
 {
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
     MI_WaitDma(GX_DEFAULT_DMAID);
 }
 
-THUMB_FUNC void PrintErrorMessageAndReset()
+void PrintErrorMessageAndReset()
 {
 
     struct BgConfig *ptr;

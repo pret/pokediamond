@@ -21,9 +21,6 @@
 #include "unk_020051F4.h"
 #include "sound_chatot.h"
 
-
-#pragma thumb on
-
 u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
 u32 GetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
 void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);

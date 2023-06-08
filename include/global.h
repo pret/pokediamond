@@ -18,4 +18,6 @@ extern const u8 gGameLanguage;
 extern const u8 gGameVersion;
 #endif //IN_MAIN_C
 
+#include "code16.h"
+
 #endif //GUARD_GLOBAL_H

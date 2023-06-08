@@ -1,3 +1,4 @@
+#include "global.h"
 #include "unk_0205FA2C.h"
 #include "unk_020337E8.h"
 #include "unk_0202A1E0.h"
@@ -28,7 +29,7 @@ const u8 UNK_020F7454[] = {
     0x08,
 };
 
-THUMB_FUNC u32 FUN_0205FA2C(
+u32 FUN_0205FA2C(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id)
 {
     struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)AllocFromHeapAtEnd(
@@ -62,7 +63,7 @@ THUMB_FUNC u32 FUN_0205FA2C(
     return 1;
 }
 
-THUMB_FUNC u32 FUN_0205FAD8(
+u32 FUN_0205FAD8(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
     if (FUN_0204647C(fieldSystem))
@@ -97,7 +98,7 @@ THUMB_FUNC u32 FUN_0205FAD8(
     return 2;
 }
 
-THUMB_FUNC u32 FUN_0205FB34(
+u32 FUN_0205FB34(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id)
 {
     struct SaveBlock2 *sav2 = fieldSystem->saveBlock2;
@@ -132,7 +133,7 @@ THUMB_FUNC u32 FUN_0205FB34(
     return 3;
 }
 
-THUMB_FUNC u32 FUN_0205FBC0(
+u32 FUN_0205FBC0(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
     if (FUN_0204647C(fieldSystem))
@@ -149,7 +150,7 @@ THUMB_FUNC u32 FUN_0205FBC0(
     return 0;
 }
 
-THUMB_FUNC BOOL FUN_0205FBE8(struct TaskManager *taskManager)
+BOOL FUN_0205FBE8(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     struct UnkCallbackStruct1_0205FA2C *res2 =
@@ -176,7 +177,7 @@ THUMB_FUNC BOOL FUN_0205FBE8(struct TaskManager *taskManager)
     return FALSE;
 }
 
-THUMB_FUNC void FUN_0205FC50(struct TaskManager *taskManager,
+void FUN_0205FC50(struct TaskManager *taskManager,
     void **param1,
     u8 param2,
     u8 param3,
@@ -202,7 +203,7 @@ THUMB_FUNC void FUN_0205FC50(struct TaskManager *taskManager,
     FUN_0204640C(fieldSystem->taskManager, &FUN_0205FBE8, ptr);
 }
 
-THUMB_FUNC u32 FUN_0205FC9C(
+u32 FUN_0205FC9C(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
     if (FUN_0203384C(fieldSystem->saveBlock2))
@@ -216,7 +217,7 @@ THUMB_FUNC u32 FUN_0205FC9C(
     return 2;
 }
 
-THUMB_FUNC u32 FUN_0205FCC4(
+u32 FUN_0205FCC4(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
     if (FUN_0204647C(fieldSystem))
@@ -230,7 +231,7 @@ THUMB_FUNC u32 FUN_0205FCC4(
     return 2;
 }
 
-THUMB_FUNC BOOL FUN_0205FCE8(struct TaskManager *taskManager)
+BOOL FUN_0205FCE8(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     struct UnkCallbackStruct2_0205FA2C *res2 =
@@ -255,7 +256,7 @@ THUMB_FUNC BOOL FUN_0205FCE8(struct TaskManager *taskManager)
     return FALSE;
 }
 
-THUMB_FUNC void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3)
+void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 param3)
 {
     struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     struct UnkCallbackStruct2_0205FA2C *ptr = (struct UnkCallbackStruct2_0205FA2C *)AllocFromHeap(
@@ -269,7 +270,7 @@ THUMB_FUNC void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 pa
     FUN_0204640C(fieldSystem->taskManager, &FUN_0205FCE8, (u32 *)ptr);
 }
 
-THUMB_FUNC BOOL FUN_0205FD70(struct TaskManager *taskManager)
+BOOL FUN_0205FD70(struct TaskManager *taskManager)
 {
     struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
     u16 *res2 = (u16 *)FUN_0204652C(taskManager);
@@ -298,7 +299,7 @@ THUMB_FUNC BOOL FUN_0205FD70(struct TaskManager *taskManager)
     return TRUE;
 }
 
-THUMB_FUNC void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
+void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
 {
     struct FieldSystem *fieldSystem = FUN_02046528(taskManager);
 
@@ -311,7 +312,7 @@ THUMB_FUNC void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 pa
     FUN_0204640C(fieldSystem->taskManager, &FUN_0205FD70, (u32 *)ptr);
 }
 
-THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)
+u32 FUN_0205FE10(struct SaveBlock2 *sav2)
 {
 
     u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(sav2), 0x35);
@@ -392,7 +393,7 @@ THUMB_FUNC u32 FUN_0205FE10(struct SaveBlock2 *sav2)
     return 4;
 }
 
-THUMB_FUNC u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
+u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
 {
     u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(sav2), 0x35);
     if (res < 20)
@@ -458,7 +459,7 @@ THUMB_FUNC u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
     return 3;
 }
 
-THUMB_FUNC void FUN_02060044(u16 **param0, u32 *param1)
+void FUN_02060044(u16 **param0, u32 *param1)
 {
     u16 *ptr = param0[42];
 
@@ -467,17 +468,17 @@ THUMB_FUNC void FUN_02060044(u16 **param0, u32 *param1)
     ptr[19] += param1[2];
 }
 
-THUMB_FUNC u32 FUN_02060064(u32 param0)
+u32 FUN_02060064(u32 param0)
 {
     return param0 * 0x02E90EDD + 1;
 }
 
-THUMB_FUNC u32 FUN_02060070(u32 param0)
+u32 FUN_02060070(u32 param0)
 {
     return param0 * 0x5D588B65 + 1;
 }
 
-THUMB_FUNC u32 FUN_0206007C(struct SaveBlock2 *sav2)
+u32 FUN_0206007C(struct SaveBlock2 *sav2)
 {
     u32 res = FUN_02060070(FUN_020287A4(FUN_0202881C(sav2)));
 
@@ -486,7 +487,7 @@ THUMB_FUNC u32 FUN_0206007C(struct SaveBlock2 *sav2)
     return res;
 }
 
-THUMB_FUNC u32 FUN_020600A0(struct SaveBlock2 *sav2)
+u32 FUN_020600A0(struct SaveBlock2 *sav2)
 {
     struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
 
@@ -500,7 +501,7 @@ THUMB_FUNC u32 FUN_020600A0(struct SaveBlock2 *sav2)
     return res3;
 }
 
-THUMB_FUNC u32 FUN_020600DC(struct SaveBlock2 *sav2)
+u32 FUN_020600DC(struct SaveBlock2 *sav2)
 {
     struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
 
@@ -521,7 +522,7 @@ THUMB_FUNC u32 FUN_020600DC(struct SaveBlock2 *sav2)
     return res3;
 }
 
-THUMB_FUNC BOOL FUN_02060144(u32 **param0)
+BOOL FUN_02060144(u32 **param0)
 {
     if (param0[7][0] == SPECIES_ARCEUS)
     {

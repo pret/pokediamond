@@ -7,7 +7,7 @@ struct BrightnessData mainScreenBrightnessData;
 
 struct BrightnessData subScreenBrightnessData;
 
-THUMB_FUNC void DoBrightnessTransitionStep(struct BrightnessData *brightness)
+void DoBrightnessTransitionStep(struct BrightnessData *brightness)
 {
     BOOL transitionFinished = FALSE;
 
@@ -56,7 +56,7 @@ THUMB_FUNC void DoBrightnessTransitionStep(struct BrightnessData *brightness)
     }
 }
 
-THUMB_FUNC void InitBrightnessTransition(struct BrightnessData *brightnessData,
+void InitBrightnessTransition(struct BrightnessData *brightnessData,
     u16 step_count,
     s16 target_brightness,
     s16 start_brightness,
@@ -88,7 +88,7 @@ THUMB_FUNC void InitBrightnessTransition(struct BrightnessData *brightnessData,
     brightnessData->fractional_count = 0;
 }
 
-THUMB_FUNC void StartBrightnessTransition(
+void StartBrightnessTransition(
     u16 step_count, s16 target_brightness, s16 start_brightness, fx32 surfaceMask, u32 screenMask)
 {
     if (step_count != 0)
@@ -117,7 +117,7 @@ THUMB_FUNC void StartBrightnessTransition(
     }
 }
 
-THUMB_FUNC void SetBlendBrightness(fx32 brightness, fx32 surfaceMask, u32 screenMask)
+void SetBlendBrightness(fx32 brightness, fx32 surfaceMask, u32 screenMask)
 {
 
     if ((screenMask & 1) != 0)
@@ -133,7 +133,7 @@ THUMB_FUNC void SetBlendBrightness(fx32 brightness, fx32 surfaceMask, u32 screen
     InitScreenBrightnessData(screenMask);
 }
 
-THUMB_FUNC void InitAllScreenBrightnessData(void)
+void InitAllScreenBrightnessData(void)
 {
     MI_CpuFill8(&mainScreenBrightnessData, 0, sizeof(struct BrightnessData));
     MI_CpuFill8(&subScreenBrightnessData, 0, sizeof(struct BrightnessData));
@@ -142,7 +142,7 @@ THUMB_FUNC void InitAllScreenBrightnessData(void)
     subScreenBrightnessData.transitionActive = FALSE;
 }
 
-THUMB_FUNC void InitScreenBrightnessData(u32 screenMask)
+void InitScreenBrightnessData(u32 screenMask)
 {
     if (screenMask & 1)
     {
@@ -157,7 +157,7 @@ THUMB_FUNC void InitScreenBrightnessData(u32 screenMask)
     }
 }
 
-THUMB_FUNC void DoAllScreenBrightnessTransitionStep(void)
+void DoAllScreenBrightnessTransitionStep(void)
 {
     if (mainScreenBrightnessData.transitionActive)
     {
@@ -170,7 +170,7 @@ THUMB_FUNC void DoAllScreenBrightnessTransitionStep(void)
     }
 }
 
-THUMB_FUNC BOOL IsBrightnessTransitionActive(u32 screenMask)
+BOOL IsBrightnessTransitionActive(u32 screenMask)
 {
     if (screenMask == 3)
     {

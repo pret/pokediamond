@@ -179,22 +179,22 @@ static inline s32 GetOffsetToUnkB0(s32 a0)
     return a0 - 44;
 }
 
-THUMB_FUNC u32 Save_GameStats_sizeof(void)
+u32 Save_GameStats_sizeof(void)
 {
     return sizeof(struct GameStats);
 }
 
-THUMB_FUNC void Save_GameStats_Init(struct GameStats * ptr)
+void Save_GameStats_Init(struct GameStats * ptr)
 {
     MI_CpuClear32(ptr, sizeof(struct GameStats));
 }
 
-THUMB_FUNC struct GameStats * Save_GameStats_Get(struct SaveBlock2 * sav2)
+struct GameStats * Save_GameStats_Get(struct SaveBlock2 * sav2)
 {
     return SaveArray_Get(sav2, 20);
 }
 
-THUMB_FUNC u32 GameStats_GetValue(struct GameStats * ptr, s32 a1)
+u32 GameStats_GetValue(struct GameStats * ptr, s32 a1)
 {
     if (a1 < 44)
     {
@@ -211,7 +211,7 @@ THUMB_FUNC u32 GameStats_GetValue(struct GameStats * ptr, s32 a1)
     }
 }
 
-THUMB_FUNC u32 GameStats_SetValue(struct GameStats * ptr, s32 a1, u32 a2)
+u32 GameStats_SetValue(struct GameStats * ptr, s32 a1, u32 a2)
 {
     if (a1 < 44)
     {
@@ -228,7 +228,7 @@ THUMB_FUNC u32 GameStats_SetValue(struct GameStats * ptr, s32 a1, u32 a2)
     return GameStats_GetValue(ptr, a1);
 }
 
-THUMB_FUNC u32 GameStats_GetMaxValue(s32 a0)
+u32 GameStats_GetMaxValue(s32 a0)
 {
     if (a0 < 44)
     {
@@ -251,12 +251,12 @@ THUMB_FUNC u32 GameStats_GetMaxValue(s32 a0)
     }
 }
 
-THUMB_FUNC u16 GameStats_GetStdInc(s32 a0)
+u16 GameStats_GetStdInc(s32 a0)
 {
     return UNK_020EEA7C[a0];
 }
 
-THUMB_FUNC u32 GameStats_SetCapped(struct GameStats * ptr, s32 a1, u32 a2)
+u32 GameStats_SetCapped(struct GameStats * ptr, s32 a1, u32 a2)
 {
     u32 r2 = GameStats_GetMaxValue(a1);
     if (a2 < r2)
@@ -269,7 +269,7 @@ THUMB_FUNC u32 GameStats_SetCapped(struct GameStats * ptr, s32 a1, u32 a2)
     }
 }
 
-THUMB_FUNC u32 GameStats_UpdateBounded(struct GameStats * ptr, s32 a1, u32 a2)
+u32 GameStats_UpdateBounded(struct GameStats * ptr, s32 a1, u32 a2)
 {
     u32 r4 = GameStats_GetMaxValue(a1);
     u32 r0 = GameStats_GetValue(ptr, a1);
@@ -291,7 +291,7 @@ THUMB_FUNC u32 GameStats_UpdateBounded(struct GameStats * ptr, s32 a1, u32 a2)
     }
 }
 
-THUMB_FUNC u32 GameStats_Inc(struct GameStats * ptr, s32 a1)
+u32 GameStats_Inc(struct GameStats * ptr, s32 a1)
 {
     u32 r4 = GameStats_GetMaxValue(a1);
     u32 r2 = GameStats_GetValue(ptr, a1) + 1;
@@ -305,7 +305,7 @@ THUMB_FUNC u32 GameStats_Inc(struct GameStats * ptr, s32 a1)
     }
 }
 
-THUMB_FUNC u32 GameStats_Add(struct GameStats * ptr, s32 a1, u32 a2)
+u32 GameStats_Add(struct GameStats * ptr, s32 a1, u32 a2)
 {
     u32 r6 = GameStats_GetMaxValue(a1);
     u32 r2 = GameStats_GetValue(ptr, a1);
@@ -320,7 +320,7 @@ THUMB_FUNC u32 GameStats_Add(struct GameStats * ptr, s32 a1, u32 a2)
     }
 }
 
-THUMB_FUNC u32 GameStats_GetCapped(struct GameStats * ptr, s32 a1)
+u32 GameStats_GetCapped(struct GameStats * ptr, s32 a1)
 {
     u32 r4 = GameStats_GetMaxValue(a1);
     u32 r0 = GameStats_GetValue(ptr, a1);
@@ -329,7 +329,7 @@ THUMB_FUNC u32 GameStats_GetCapped(struct GameStats * ptr, s32 a1)
     return r4;
 }
 
-THUMB_FUNC u32 GameStats_AddSpecial(struct GameStats * ptr, s32 a1)
+u32 GameStats_AddSpecial(struct GameStats * ptr, s32 a1)
 {
     GF_ASSERT(a1 < 38);
     u32 r0 = GameStats_GetCapped(ptr, 0) + GameStats_GetStdInc(a1);
@@ -343,12 +343,12 @@ THUMB_FUNC u32 GameStats_AddSpecial(struct GameStats * ptr, s32 a1)
     }
 }
 
-THUMB_FUNC u32 GameStats_GetStat0(struct GameStats * ptr)
+u32 GameStats_GetStat0(struct GameStats * ptr)
 {
     return GameStats_GetCapped(ptr, 0);
 }
 
-THUMB_FUNC void GameStats_IncSpeciesCaught(struct GameStats * ptr, struct Pokedex * pokedex, u16 species)
+void GameStats_IncSpeciesCaught(struct GameStats * ptr, struct Pokedex * pokedex, u16 species)
 {
     if (!Pokedex_CheckMonCaughtFlag(pokedex, species))
     {

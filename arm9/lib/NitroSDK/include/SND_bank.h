@@ -1,8 +1,7 @@
 #ifndef GUARD_SND_BANK_H
 #define GUARD_SND_BANK_H
 
-#include "global.h"
-
+#include "nitro/types.h"
 #include "SND_main.h"
 #include "nitro/SND_bank_shared.h"
 

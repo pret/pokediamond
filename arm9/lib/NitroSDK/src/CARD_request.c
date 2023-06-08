@@ -1,12 +1,12 @@
-#include "function_target.h"
 #include "CARD_request.h"
 #include "OS_cache.h"
 #include "OS_system.h"
 #include "OS_thread.h"
+#include "code32.h"
 
 extern CARDiCommon cardi_common;
 
-ARM_FUNC void CARDi_OnFifoRecv(PXIFifoTag tag, u32 data, BOOL err)
+void CARDi_OnFifoRecv(PXIFifoTag tag, u32 data, BOOL err)
 {
 #pragma unused (data)
     if ((tag == PXI_FIFO_TAG_FS) && err)
@@ -17,7 +17,7 @@ ARM_FUNC void CARDi_OnFifoRecv(PXIFifoTag tag, u32 data, BOOL err)
     }
 }
 
-ARM_FUNC void CARDi_TaskThread(void *arg)
+void CARDi_TaskThread(void *arg)
 {
 #pragma unused (arg)
     CARDiCommon *const p = &cardi_common;
@@ -35,7 +35,7 @@ ARM_FUNC void CARDi_TaskThread(void *arg)
     }
 }
 
-ARM_FUNC BOOL CARDi_Request(CARDiCommon *p, s32 req_type, s32 retry_count)
+BOOL CARDi_Request(CARDiCommon *p, s32 req_type, s32 retry_count)
 {
     if ((p->flag & CARD_STAT_INIT_CMD) == 0)
     {

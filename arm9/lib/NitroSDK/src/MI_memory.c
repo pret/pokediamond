@@ -1,7 +1,7 @@
 #include "MI_memory.h"
-#include "function_target.h"
+#include "code32.h"
 
-ARM_FUNC asm void MIi_CpuClear16(register u16 data, register void *destp, register u32 size)
+asm void MIi_CpuClear16(register u16 data, register void *destp, register u32 size)
 {
     mov r3, #0
 
@@ -14,7 +14,7 @@ _020CE1CC:
     bx lr
 }
 
-ARM_FUNC asm void MIi_CpuCopy16(register const void *srcp, register void *destp, register u32 size)
+asm void MIi_CpuCopy16(register const void *srcp, register void *destp, register u32 size)
 {
     mov r12, #0
 
@@ -28,7 +28,7 @@ _020CE1CC:
     bx lr
 }
 
-ARM_FUNC asm void MIi_CpuClear32(register u32 data, register void *destp, register u32 size)
+asm void MIi_CpuClear32(register u32 data, register void *destp, register u32 size)
 {
     add r12, r1, r2
 
@@ -39,7 +39,7 @@ _020CE200:
     bx lr
 }
 
-ARM_FUNC asm void MIi_CpuCopy32(register const void *srcp, register void *destp, register u32 size)
+asm void MIi_CpuCopy32(register const void *srcp, register void *destp, register u32 size)
 {
     add r12, r1, r2
 
@@ -51,7 +51,7 @@ _020CE214:
     bx lr
 }
 
-ARM_FUNC asm void MIi_CpuSend32(register const void *srcp, volatile void *destp, u32 size)
+asm void MIi_CpuSend32(register const void *srcp, volatile void *destp, u32 size)
 {
     add r12, r0, r2
 
@@ -64,7 +64,7 @@ _020CE22C:
     bx lr
 }
 
-ARM_FUNC asm void MIi_CpuClearFast(register u32 data, register void *destp, register u32 size)
+asm void MIi_CpuClearFast(register u32 data, register void *destp, register u32 size)
 {
     stmfd sp!, {r4-r9}
 
@@ -93,7 +93,7 @@ _020CE278:
     bx lr
 }
 
-ARM_FUNC asm void MIi_CpuCopyFast(register const void *srcp, register void *destp, register u32 size)
+asm void MIi_CpuCopyFast(register const void *srcp, register void *destp, register u32 size)
 {
     stmfd sp!, {r4-r10}
 
@@ -116,7 +116,7 @@ _020CE2AC:
     bx lr
 }
 
-ARM_FUNC asm void MI_Copy32B(register const void *pSrc, register void *pDest)
+asm void MI_Copy32B(register const void *pSrc, register void *pDest)
 {
     ldmia r0!, {r2, r3, r12}
     stmia r1!, {r2, r3, r12}
@@ -128,7 +128,7 @@ ARM_FUNC asm void MI_Copy32B(register const void *pSrc, register void *pDest)
     bx lr
 }
 
-ARM_FUNC asm void MI_Copy36B(register const void *pSrc, register void *pDest)
+asm void MI_Copy36B(register const void *pSrc, register void *pDest)
 {
     ldmia r0!, {r2, r3, r12}
     stmia r1!, {r2, r3, r12}
@@ -140,7 +140,7 @@ ARM_FUNC asm void MI_Copy36B(register const void *pSrc, register void *pDest)
     bx lr
 }
 
-ARM_FUNC asm void MI_Copy48B(register const void *pSrc, register void *pDest)
+asm void MI_Copy48B(register const void *pSrc, register void *pDest)
 {
     ldmia r0!, {r2, r3, r12}
     stmia r1!, {r2, r3, r12}
@@ -154,7 +154,7 @@ ARM_FUNC asm void MI_Copy48B(register const void *pSrc, register void *pDest)
     bx lr
 }
 
-ARM_FUNC asm void MI_Copy64B(register const void *pSrc, register void *pDest)
+asm void MI_Copy64B(register const void *pSrc, register void *pDest)
 {
     ldmia r0!, {r2, r3, r12}
     stmia r1!, {r2, r3, r12}
@@ -170,7 +170,7 @@ ARM_FUNC asm void MI_Copy64B(register const void *pSrc, register void *pDest)
     bx lr
 }
 
-ARM_FUNC asm void MI_CpuFill8(register void *dstp, register u8 data, register u32 size)
+asm void MI_CpuFill8(register void *dstp, register u8 data, register u32 size)
 {
     cmp r2, #0
     bxeq lr
@@ -222,7 +222,7 @@ _020CE3C0:
     bx lr
 }
 
-ARM_FUNC asm void MI_CpuCopy8(register const void *srcp, register void *dstp, register u32 size)
+asm void MI_CpuCopy8(register const void *srcp, register void *dstp, register u32 size)
 {
     cmp r2, #0
     bxeq lr
@@ -326,7 +326,9 @@ _020CE4EC:
     bx lr
 }
 
-THUMB_FUNC asm void MI_Zero36B(register void *pDest)
+#include "code16.h" //following func is thumb
+
+asm void MI_Zero36B(register void *pDest)
 {
     mov r1, #0
     mov r2, #0

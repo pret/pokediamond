@@ -1,8 +1,6 @@
 #include "global.h"
 #include "igt.h"
 
-#pragma thumb on
-
 void InitIGT(struct IGT * igt)
 {
     igt->hours = 0;

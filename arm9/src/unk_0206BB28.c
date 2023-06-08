@@ -4,8 +4,6 @@
 #include "pokemon.h"
 #include "unk_0206BB28.h"
 
-#pragma thumb on
-
 BOOL SaveArray_IsNatDexEnabled(struct SaveBlock2 * sav2)
 {
     return Pokedex_IsNatDexEnabled(Save_Pokedex_Get(sav2));

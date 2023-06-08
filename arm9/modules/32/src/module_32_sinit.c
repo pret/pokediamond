@@ -4,7 +4,7 @@ extern void Poketch_InitApp(void *func1, void *func2);
 extern void MOD32_02254854();
 extern void MOD32_0225495C();
 
-THUMB_FUNC static void MOD32_02254840(void)
+static void MOD32_02254840(void)
 {
     Poketch_InitApp(MOD32_02254854, MOD32_0225495C);
 }

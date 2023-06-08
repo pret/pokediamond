@@ -1,3 +1,4 @@
+#include "global.h"
 #include "scrcmd.h"
 
 extern BOOL FUN_02025D6C(void*, u16);
@@ -8,7 +9,7 @@ extern BOOL FUN_020260C4(void*, u16, u16);
 
 /* Given the amount of dummy functions in this file, I believe this is a debug file of some kind */
 
-THUMB_FUNC BOOL ScrCmd_GiveSecretBaseDecoration(struct ScriptContext* ctx) //0083
+BOOL ScrCmd_GiveSecretBaseDecoration(struct ScriptContext* ctx) //0083
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
     u16 unk1 = ScriptGetVar(ctx);
@@ -21,7 +22,7 @@ THUMB_FUNC BOOL ScrCmd_GiveSecretBaseDecoration(struct ScriptContext* ctx) //008
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeSecretBaseDecoration(struct ScriptContext* ctx) //0084
+BOOL ScrCmd_TakeSecretBaseDecoration(struct ScriptContext* ctx) //0084
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -30,7 +31,7 @@ THUMB_FUNC BOOL ScrCmd_TakeSecretBaseDecoration(struct ScriptContext* ctx) //008
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasSpaceForDecoration(struct ScriptContext* ctx) //0085
+BOOL ScrCmd_HasSpaceForDecoration(struct ScriptContext* ctx) //0085
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
     u16 unk1 = ScriptGetVar(ctx);
@@ -43,7 +44,7 @@ THUMB_FUNC BOOL ScrCmd_HasSpaceForDecoration(struct ScriptContext* ctx) //0085
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetDecorationCount(struct ScriptContext* ctx) //0086 - somewhat unsure on name, was originally CheckGoods
+BOOL ScrCmd_GetDecorationCount(struct ScriptContext* ctx) //0086 - somewhat unsure on name, was originally CheckGoods
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -52,7 +53,7 @@ THUMB_FUNC BOOL ScrCmd_GetDecorationCount(struct ScriptContext* ctx) //0086 - so
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GiveUndergroundTrap(struct ScriptContext* ctx) //0087
+BOOL ScrCmd_GiveUndergroundTrap(struct ScriptContext* ctx) //0087
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
     u16 unk1 = ScriptGetVar(ctx);
@@ -65,7 +66,7 @@ THUMB_FUNC BOOL ScrCmd_GiveUndergroundTrap(struct ScriptContext* ctx) //0087
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeUndergroundTrap(struct ScriptContext* ctx) //0088
+BOOL ScrCmd_TakeUndergroundTrap(struct ScriptContext* ctx) //0088
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -74,7 +75,7 @@ THUMB_FUNC BOOL ScrCmd_TakeUndergroundTrap(struct ScriptContext* ctx) //0088
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasSpaceForTrap(struct ScriptContext* ctx) //0089
+BOOL ScrCmd_HasSpaceForTrap(struct ScriptContext* ctx) //0089
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -83,7 +84,7 @@ THUMB_FUNC BOOL ScrCmd_HasSpaceForTrap(struct ScriptContext* ctx) //0089
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetTrapCount(struct ScriptContext* ctx) //008A
+BOOL ScrCmd_GetTrapCount(struct ScriptContext* ctx) //008A
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -92,7 +93,7 @@ THUMB_FUNC BOOL ScrCmd_GetTrapCount(struct ScriptContext* ctx) //008A
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GiveTreasure(struct ScriptContext* ctx) //008B
+BOOL ScrCmd_GiveTreasure(struct ScriptContext* ctx) //008B
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
     u16 unused1 = ScriptGetVar(ctx);
@@ -103,7 +104,7 @@ THUMB_FUNC BOOL ScrCmd_GiveTreasure(struct ScriptContext* ctx) //008B
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeTreasure(struct ScriptContext* ctx) //008C
+BOOL ScrCmd_TakeTreasure(struct ScriptContext* ctx) //008C
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -112,7 +113,7 @@ THUMB_FUNC BOOL ScrCmd_TakeTreasure(struct ScriptContext* ctx) //008C
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasSpaceForTreasure(struct ScriptContext* ctx) //008D
+BOOL ScrCmd_HasSpaceForTreasure(struct ScriptContext* ctx) //008D
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -121,7 +122,7 @@ THUMB_FUNC BOOL ScrCmd_HasSpaceForTreasure(struct ScriptContext* ctx) //008D
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetTreasureCount(struct ScriptContext* ctx) //008E
+BOOL ScrCmd_GetTreasureCount(struct ScriptContext* ctx) //008E
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -130,7 +131,7 @@ THUMB_FUNC BOOL ScrCmd_GetTreasureCount(struct ScriptContext* ctx) //008E
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GiveUndergroundSphere(struct ScriptContext* ctx) //008F
+BOOL ScrCmd_GiveUndergroundSphere(struct ScriptContext* ctx) //008F
 {
     struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
     u16 unk1 = ScriptGetVar(ctx);
@@ -143,7 +144,7 @@ THUMB_FUNC BOOL ScrCmd_GiveUndergroundSphere(struct ScriptContext* ctx) //008F
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_TakeUndergroundSphere(struct ScriptContext* ctx) //0090
+BOOL ScrCmd_TakeUndergroundSphere(struct ScriptContext* ctx) //0090
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -152,7 +153,7 @@ THUMB_FUNC BOOL ScrCmd_TakeUndergroundSphere(struct ScriptContext* ctx) //0090
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_HasSpaceForSphere(struct ScriptContext* ctx) //0091
+BOOL ScrCmd_HasSpaceForSphere(struct ScriptContext* ctx) //0091
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
@@ -161,7 +162,7 @@ THUMB_FUNC BOOL ScrCmd_HasSpaceForSphere(struct ScriptContext* ctx) //0091
     return FALSE;
 }
 
-THUMB_FUNC BOOL ScrCmd_GetSphereCount(struct ScriptContext* ctx) //0092
+BOOL ScrCmd_GetSphereCount(struct ScriptContext* ctx) //0092
 {
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);

@@ -4,11 +4,12 @@
 #include "MI_memory.h"
 #include "MI_byteAccess.h"
 #include "OS_printf.h"
+#include "code32.h"
 
 FSArchive * arc_list = NULL;
 FSDirPos current_dir_pos;
 
-ARM_FUNC u32 FSi_GetPackedName(const char * name, int name_len)
+u32 FSi_GetPackedName(const char * name, int name_len)
 {
     u32 ret = 0;
     if (name_len <= FS_ARCHIVE_NAME_LEN_MAX)
@@ -30,26 +31,26 @@ ARM_FUNC u32 FSi_GetPackedName(const char * name, int name_len)
     return ret;
 }
 
-ARM_FUNC FSResult FSi_ReadMemCallback(struct FSArchive * p_arc, void * dest, u32 pos, u32 size)
+FSResult FSi_ReadMemCallback(struct FSArchive * p_arc, void * dest, u32 pos, u32 size)
 {
     MI_CpuCopy8((const void *)FS_GetArchiveOffset(p_arc, pos), dest, size);
     return FS_RESULT_SUCCESS;
 }
 
-ARM_FUNC FSResult FSi_WriteMemCallback(struct FSArchive * p_arc, const void * src, u32 pos, u32 size)
+FSResult FSi_WriteMemCallback(struct FSArchive * p_arc, const void * src, u32 pos, u32 size)
 {
     MI_CpuCopy8(src, (void *)FS_GetArchiveOffset(p_arc, pos), size);
     return FS_RESULT_SUCCESS;
 }
 
-ARM_FUNC FSResult FSi_ReadMemoryCore(FSArchive * p_arc, void * dest, u32 pos, u32 size)
+FSResult FSi_ReadMemoryCore(FSArchive * p_arc, void * dest, u32 pos, u32 size)
 {
 #pragma unused(p_arc)
     MI_CpuCopy8((const void *)pos, dest, size);
     return FS_RESULT_SUCCESS;
 }
 
-ARM_FUNC FSFile * FSi_NextCommand(FSArchive * p_arc)
+FSFile * FSi_NextCommand(FSArchive * p_arc)
 {
     OSIntrMode bak_psr = OS_DisableInterrupts();
     if (FSi_IsArchiveCanceling(p_arc))
@@ -116,7 +117,7 @@ ARM_FUNC FSFile * FSi_NextCommand(FSArchive * p_arc)
     return NULL;
 }
 
-ARM_FUNC void FSi_ExecuteAsyncCommand(FSFile * p_file)
+void FSi_ExecuteAsyncCommand(FSFile * p_file)
 {
     FSArchive *const p_arc = p_file->arc;
     while (p_file)
@@ -137,7 +138,7 @@ ARM_FUNC void FSi_ExecuteAsyncCommand(FSFile * p_file)
     }
 }
 
-ARM_FUNC BOOL FSi_ExecuteSyncCommand(FSFile * p_file)
+BOOL FSi_ExecuteSyncCommand(FSFile * p_file)
 {
     FSFile * p_target;
     FSResult ret = FSi_TranslateCommand(p_file, p_file->command);
@@ -148,7 +149,7 @@ ARM_FUNC BOOL FSi_ExecuteSyncCommand(FSFile * p_file)
     return FS_IsSucceeded(p_file);
 }
 
-ARM_FUNC BOOL FSi_SendCommand(FSFile * p_file, FSCommandType command)
+BOOL FSi_SendCommand(FSFile * p_file, FSCommandType command)
 {
     FSArchive * p_arc = p_file->arc;
     const int bit = 1 << command;
@@ -199,14 +200,14 @@ ARM_FUNC BOOL FSi_SendCommand(FSFile * p_file, FSCommandType command)
     return FSi_ExecuteSyncCommand(p_file);
 }
 
-ARM_FUNC void FS_InitArchive(FSArchive * p_arc)
+void FS_InitArchive(FSArchive * p_arc)
 {
     MI_CpuClear8(p_arc, sizeof(FSArchive));
     p_arc->sync_q.head = p_arc->sync_q.tail = NULL;
     p_arc->stat_q.head = p_arc->stat_q.tail = NULL;
 }
 
-ARM_FUNC FSArchive * const FS_FindArchive(const char * name, int name_len)
+FSArchive * const FS_FindArchive(const char * name, int name_len)
 {
     u32 pack = FSi_GetPackedName(name, name_len);
     OSIntrMode bak_psr = OS_DisableInterrupts();
@@ -217,7 +218,7 @@ ARM_FUNC FSArchive * const FS_FindArchive(const char * name, int name_len)
     return p_arc;
 }
 
-ARM_FUNC BOOL FS_RegisterArchiveName(FSArchive * p_arc, const char * name, int name_len)
+BOOL FS_RegisterArchiveName(FSArchive * p_arc, const char * name, int name_len)
 {
     BOOL ret = FALSE;
     OSIntrMode bak_psr = OS_DisableInterrupts();
@@ -247,7 +248,7 @@ ARM_FUNC BOOL FS_RegisterArchiveName(FSArchive * p_arc, const char * name, int n
     return ret;
 }
 
-ARM_FUNC void FS_ReleaseArchiveName(FSArchive * p_arc)
+void FS_ReleaseArchiveName(FSArchive * p_arc)
 {
     if (p_arc->name.pack)
     {
@@ -270,7 +271,7 @@ ARM_FUNC void FS_ReleaseArchiveName(FSArchive * p_arc)
     }
 }
 
-ARM_FUNC BOOL FS_LoadArchive(FSArchive * p_arc, u32 base, u32 fat, u32 fat_size, u32 fnt, u32 fnt_size, FS_ARCHIVE_READ_FUNC read_func, FS_ARCHIVE_WRITE_FUNC write_func)
+BOOL FS_LoadArchive(FSArchive * p_arc, u32 base, u32 fat, u32 fat_size, u32 fnt, u32 fnt_size, FS_ARCHIVE_READ_FUNC read_func, FS_ARCHIVE_WRITE_FUNC write_func)
 {
     p_arc->base = base;
     p_arc->fat_size = fat_size;
@@ -285,7 +286,7 @@ ARM_FUNC BOOL FS_LoadArchive(FSArchive * p_arc, u32 base, u32 fat, u32 fat_size,
     return TRUE;
 }
 
-ARM_FUNC BOOL FS_UnloadArchive(FSArchive * p_arc)
+BOOL FS_UnloadArchive(FSArchive * p_arc)
 {
     OSIntrMode bak_psr = OS_DisableInterrupts();
     if (FS_IsArchiveLoaded(p_arc))
@@ -319,7 +320,7 @@ ARM_FUNC BOOL FS_UnloadArchive(FSArchive * p_arc)
     return TRUE;
 }
 
-ARM_FUNC u32 FS_LoadArchiveTables(FSArchive *p_arc, void *p_mem, u32 max_size)
+u32 FS_LoadArchiveTables(FSArchive *p_arc, void *p_mem, u32 max_size)
 {
     u32 total_size = ALIGN_BYTE(p_arc->fat_size + p_arc->fnt_size + 32, 32);
     if (total_size <= max_size)
@@ -353,7 +354,7 @@ ARM_FUNC u32 FS_LoadArchiveTables(FSArchive *p_arc, void *p_mem, u32 max_size)
     return total_size;
 }
 
-ARM_FUNC void * FS_UnloadArchiveTables(FSArchive * p_arc)
+void * FS_UnloadArchiveTables(FSArchive * p_arc)
 {
     void *ret = NULL;
     if (FS_IsArchiveLoaded(p_arc))
@@ -374,7 +375,7 @@ ARM_FUNC void * FS_UnloadArchiveTables(FSArchive * p_arc)
     return ret;
 }
 
-ARM_FUNC BOOL FS_SuspendArchive(FSArchive * p_arc)
+BOOL FS_SuspendArchive(FSArchive * p_arc)
 {
     OSIntrMode bak_psr = OS_DisableInterrupts();
     const BOOL bak_stat = !FS_IsArchiveSuspended(p_arc);
@@ -396,7 +397,7 @@ ARM_FUNC BOOL FS_SuspendArchive(FSArchive * p_arc)
     return bak_stat;
 }
 
-ARM_FUNC BOOL FS_ResumeArchive(FSArchive * p_arc)
+BOOL FS_ResumeArchive(FSArchive * p_arc)
 {
     FSFile * p_target = NULL;
     OSIntrMode bak_psr = OS_DisableInterrupts();
@@ -412,7 +413,7 @@ ARM_FUNC BOOL FS_ResumeArchive(FSArchive * p_arc)
     return bak_stat;
 }
 
-ARM_FUNC void FS_SetArchiveProc(struct FSArchive * p_arc, FS_ARCHIVE_PROC_FUNC proc, u32 flags)
+void FS_SetArchiveProc(struct FSArchive * p_arc, FS_ARCHIVE_PROC_FUNC proc, u32 flags)
 {
     if (!flags)
         proc = NULL;
@@ -422,7 +423,7 @@ ARM_FUNC void FS_SetArchiveProc(struct FSArchive * p_arc, FS_ARCHIVE_PROC_FUNC p
     p_arc->proc_flag = flags;
 }
 
-ARM_FUNC void FS_NotifyArchiveAsyncEnd(FSArchive *p_arc, FSResult ret)
+void FS_NotifyArchiveAsyncEnd(FSArchive *p_arc, FSResult ret)
 {
     if (FSi_IsArchiveAsync(p_arc))
     {

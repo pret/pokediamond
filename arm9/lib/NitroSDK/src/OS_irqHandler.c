@@ -1,14 +1,14 @@
-#include "function_target.h"
 #include "OS_irqHandler.h"
 #include "OS_system.h"
 #include "OS_thread.h"
 #include "sections.h"
 #include "CP_context.h"
+#include "code32.h"
 
 OSThreadQueue OSi_IrqThreadQueue = { NULL, NULL };
 
 #pragma section ITCM begin
-ARM_FUNC asm void OS_IrqHandler(void)
+asm void OS_IrqHandler(void)
 {
     stmfd sp!, {lr}
     mov ip, #0x04000000
@@ -33,7 +33,7 @@ _01FF8028:
     bx r0
 }
 
-ARM_FUNC asm void OS_IrqHandler_ThreadSwitch(void)
+asm void OS_IrqHandler_ThreadSwitch(void)
 {
     ldr ip, =OSi_IrqThreadQueue
     mov r3, #0x0
@@ -127,7 +127,7 @@ _01FF8120:
 }
 #pragma section ITCM end
 
-ARM_FUNC void OS_WaitIrq(BOOL clear, OSIrqMask irqFlags)
+void OS_WaitIrq(BOOL clear, OSIrqMask irqFlags)
 {
     OSIntrMode lastIntrMode = OS_DisableInterrupts();
     if (clear)

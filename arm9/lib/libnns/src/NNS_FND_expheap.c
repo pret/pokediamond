@@ -1,5 +1,6 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "NNS_FND_expheap.h"
+#include "code32.h"
 
 static inline u16 GetAlignmentForMBlock(NNSiFndExpHeapMBlockHead* block)
 {
@@ -61,13 +62,13 @@ static inline NNSiFndHeapHead* GetHeapHeadPtrFromExpHeapHead(NNSiFndExpHeapHead*
     return SubU32ToPtr(pEHHead, sizeof(NNSiFndHeapHead));
 }
 
-ARM_FUNC void GetRegionOfMBlock(NNSiMemRegion* region, NNSiFndExpHeapMBlockHead* block)
+void GetRegionOfMBlock(NNSiMemRegion* region, NNSiFndExpHeapMBlockHead* block)
 {
     region->start = SubU32ToPtr(block, GetAlignmentForMBlock(block));
     region->end = GetMBlockEndAddr(block);
 }
 
-ARM_FUNC NNSiFndExpHeapMBlockHead* RemoveMBlock(NNSiFndExpMBlockList* list, NNSiFndExpHeapMBlockHead* block)
+NNSiFndExpHeapMBlockHead* RemoveMBlock(NNSiFndExpMBlockList* list, NNSiFndExpHeapMBlockHead* block)
 {
     NNSiFndExpHeapMBlockHead* const prev = block->pMBHeadPrev;
     NNSiFndExpHeapMBlockHead* const next = block->pMBHeadNext;
@@ -93,7 +94,7 @@ ARM_FUNC NNSiFndExpHeapMBlockHead* RemoveMBlock(NNSiFndExpMBlockList* list, NNSi
     return prev;
 }
 
-ARM_FUNC NNSiFndExpHeapMBlockHead* InsertMBlock(NNSiFndExpMBlockList* list, NNSiFndExpHeapMBlockHead* target, NNSiFndExpHeapMBlockHead* prev)
+NNSiFndExpHeapMBlockHead* InsertMBlock(NNSiFndExpMBlockList* list, NNSiFndExpHeapMBlockHead* target, NNSiFndExpHeapMBlockHead* prev)
 {
     NNSiFndExpHeapMBlockHead* next;
     target->pMBHeadPrev = prev;
@@ -120,7 +121,7 @@ ARM_FUNC NNSiFndExpHeapMBlockHead* InsertMBlock(NNSiFndExpMBlockList* list, NNSi
     return target;
 }
 
-ARM_FUNC NNSiFndExpHeapMBlockHead* InitMBlock(const NNSiMemRegion* pRegion, u16 signature)
+NNSiFndExpHeapMBlockHead* InitMBlock(const NNSiMemRegion* pRegion, u16 signature)
 {
     NNSiFndExpHeapMBlockHead* block = pRegion->start;
     block->signature = signature;
@@ -136,7 +137,7 @@ static inline NNSiFndExpHeapMBlockHead* InitFreeMBlock(const NNSiMemRegion* regi
     return InitMBlock(region, 0x4652);
 }
 
-ARM_FUNC NNSiFndHeapHead* InitExpHeap(void* startAddress, void* endAddress, u16 optFlag)
+NNSiFndHeapHead* InitExpHeap(void* startAddress, void* endAddress, u16 optFlag)
 {
     NNSiFndHeapHead* pHeapHd = (NNSiFndHeapHead*)startAddress;
     NNSiFndExpHeapHead* pExpHeapHd = GetExpHeapHeadPtrFromHeapHead(pHeapHd);
@@ -165,7 +166,7 @@ static inline void AppendMBlock(NNSiFndExpMBlockList* list, NNSiFndExpHeapMBlock
     (void) InsertMBlock(list, block, list->tail);
 }
 
-ARM_FUNC void* AllocUsedBlockFromFreeBlock(NNSiFndExpHeapHead* pEHHead, NNSiFndExpHeapMBlockHead* pMBHeadFree, void* mblock, u32 size, u16 direction)
+void* AllocUsedBlockFromFreeBlock(NNSiFndExpHeapHead* pEHHead, NNSiFndExpHeapMBlockHead* pMBHeadFree, void* mblock, u32 size, u16 direction)
 {
     NNSiMemRegion freeRgnT;
     NNSiMemRegion freeRgnB;
@@ -213,7 +214,7 @@ ARM_FUNC void* AllocUsedBlockFromFreeBlock(NNSiFndExpHeapHead* pEHHead, NNSiFndE
     return mblock;
 }
 
-ARM_FUNC void* AllocFromHead(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
+void* AllocFromHead(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
 {
     NNSiFndExpHeapHead* pExpHeapHd = GetExpHeapHeadPtrFromHeapHead(pHeapHd);
     const BOOL bAllocFirst = GetAllocMode(pExpHeapHd) == 0;
@@ -243,7 +244,7 @@ ARM_FUNC void* AllocFromHead(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
     return AllocUsedBlockFromFreeBlock(pExpHeapHd, pMBlkHdFound, foundMBlock, size, 0);
 }
 
-ARM_FUNC void* AllocFromTail(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
+void* AllocFromTail(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
 {
     NNSiFndExpHeapHead* pExpHeapHd = GetExpHeapHeadPtrFromHeapHead(pHeapHd);
     const BOOL bAllocFirst = GetAllocMode(pExpHeapHd) == 0;
@@ -273,7 +274,7 @@ ARM_FUNC void* AllocFromTail(NNSiFndHeapHead* pHeapHd, u32 size, int alignment)
     return AllocUsedBlockFromFreeBlock(pExpHeapHd, pMBlkHdFound, foundMBlock, size, 1);
 }
 
-ARM_FUNC BOOL RecycleRegion(NNSiFndExpHeapHead* pEHHead, const NNSiMemRegion* pRegion)
+BOOL RecycleRegion(NNSiFndExpHeapHead* pEHHead, const NNSiMemRegion* pRegion)
 {
     NNSiFndExpHeapMBlockHead* pBlkPtrFree = NULL;
     NNSiMemRegion freeRgn = *pRegion;
@@ -303,7 +304,7 @@ ARM_FUNC BOOL RecycleRegion(NNSiFndExpHeapHead* pEHHead, const NNSiMemRegion* pR
     return TRUE;
 }
 
-ARM_FUNC NNSFndHeapHandle NNS_FndCreateExpHeapEx(void *startAddress, u32 size, u16 optFlag)
+NNSFndHeapHandle NNS_FndCreateExpHeapEx(void *startAddress, u32 size, u16 optFlag)
 {
     void* endAddress = NNSi_FndRoundDownPtr(AddU32ToPtr(startAddress, size), 4);
     startAddress = NNSi_FndRoundUpPtr(startAddress, 4);
@@ -312,12 +313,12 @@ ARM_FUNC NNSFndHeapHandle NNS_FndCreateExpHeapEx(void *startAddress, u32 size, u
     return InitExpHeap(startAddress, endAddress, optFlag);
 }
 
-ARM_FUNC void NNS_FndDestroyExpHeap(NNSFndHeapHandle handle)
+void NNS_FndDestroyExpHeap(NNSFndHeapHandle handle)
 {
     NNSi_FndFinalizeHeap(handle);
 }
 
-ARM_FUNC void* NNS_FndAllocFromExpHeapEx(NNSFndHeapHandle handle, u32 size, int alignment)
+void* NNS_FndAllocFromExpHeapEx(NNSFndHeapHandle handle, u32 size, int alignment)
 {
     if (size == 0)
         size = 1;
@@ -329,7 +330,7 @@ ARM_FUNC void* NNS_FndAllocFromExpHeapEx(NNSFndHeapHandle handle, u32 size, int 
 }
 
 /*
-ARM_FUNC u32 NNS_FndResizeForMBlockExpHeap(NNSFndHeapHandle heap, void *memBlock, u32 size)
+u32 NNS_FndResizeForMBlockExpHeap(NNSFndHeapHandle heap, void *memBlock, u32 size)
 {
     NNSiFndExpHeapHead* pEHHead;
     NNSiFndExpHeapMBlockHead* pMBHead;

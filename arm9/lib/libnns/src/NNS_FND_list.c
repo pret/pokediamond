@@ -1,9 +1,10 @@
 #include "nitro.h"
 #include "NNS_FND_list.h"
+#include "code32.h"
 
 #define OBJ_TO_LINK(list, obj) ((NNSFndLink*)((void*)(obj) + (list)->offset))
 
-ARM_FUNC void NNS_FndInitList(NNSFndList* list, s32 alignment)
+void NNS_FndInitList(NNSFndList* list, s32 alignment)
 {
     list->headObject = NULL;
     list->tailObject = NULL;
@@ -11,7 +12,7 @@ ARM_FUNC void NNS_FndInitList(NNSFndList* list, s32 alignment)
     list->offset = (u16)alignment;
 }
 
-ARM_FUNC static void SetFirstObject(NNSFndList* list, void* object)
+static void SetFirstObject(NNSFndList* list, void* object)
 {
     NNSFndLink* tail = OBJ_TO_LINK(list, object);
     tail->nextObject = NULL;
@@ -21,7 +22,7 @@ ARM_FUNC static void SetFirstObject(NNSFndList* list, void* object)
     list->numObjects++;
 }
 
-ARM_FUNC void NNS_FndAppendListObject(NNSFndList* list, void* object)
+void NNS_FndAppendListObject(NNSFndList* list, void* object)
 {
     if (list->headObject == NULL)
     {
@@ -38,7 +39,7 @@ ARM_FUNC void NNS_FndAppendListObject(NNSFndList* list, void* object)
     }
 }
 
-ARM_FUNC void NNS_FndPrependListObject(NNSFndList* list, void* object)
+void NNS_FndPrependListObject(NNSFndList* list, void* object)
 {
     if (list->headObject == NULL)
     {
@@ -55,7 +56,7 @@ ARM_FUNC void NNS_FndPrependListObject(NNSFndList* list, void* object)
     }
 }
 
-ARM_FUNC void NNS_FndInsertListObject(NNSFndList* list, void* where, void* object)
+void NNS_FndInsertListObject(NNSFndList* list, void* where, void* object)
 {
     if (where == NULL)
     {
@@ -79,7 +80,7 @@ ARM_FUNC void NNS_FndInsertListObject(NNSFndList* list, void* where, void* objec
     }
 }
 
-ARM_FUNC void NNS_FndRemoveListObject(NNSFndList* list, void* object)
+void NNS_FndRemoveListObject(NNSFndList* list, void* object)
 {
     NNSFndLink* node = OBJ_TO_LINK(list, object);
     if (node->prevObject == NULL)
@@ -103,7 +104,7 @@ ARM_FUNC void NNS_FndRemoveListObject(NNSFndList* list, void* object)
     list->numObjects--;
 }
 
-ARM_FUNC void * NNS_FndGetNextListObject(NNSFndList* list, void* object)
+void * NNS_FndGetNextListObject(NNSFndList* list, void* object)
 {
     if (object == NULL)
     {
@@ -115,7 +116,7 @@ ARM_FUNC void * NNS_FndGetNextListObject(NNSFndList* list, void* object)
     }
 }
 
-ARM_FUNC void * NNS_FndGetPrevListObject(NNSFndList* list, void* object)
+void * NNS_FndGetPrevListObject(NNSFndList* list, void* object)
 {
     if (object == NULL)
     {

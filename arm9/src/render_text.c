@@ -14,7 +14,7 @@ TextFlags gTextFlags;
 
 const u8 UNK_020ECB50[] = { 0, 1, 2, 1 };
 
-THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
+u32 RenderText(struct TextPrinter *printer)
 {
 
     struct TextPrinterSubStruct *subStruct =
@@ -302,12 +302,12 @@ THUMB_FUNC u32 RenderText(struct TextPrinter *printer)
     return 1;
 }
 
-THUMB_FUNC void FUN_02002840(u16 flag)
+void FUN_02002840(u16 flag)
 {
     unk00 = flag;
 }
 
-THUMB_FUNC void TextPrinterInitDownArrowCounters(struct TextPrinter *printer)
+void TextPrinterInitDownArrowCounters(struct TextPrinter *printer)
 {
     struct TextPrinterSubStruct *subStruct =
         (struct TextPrinterSubStruct *)(&printer->subStructFields);
@@ -322,7 +322,7 @@ THUMB_FUNC void TextPrinterInitDownArrowCounters(struct TextPrinter *printer)
     subStruct->downArrowDelay = 0;
 }
 
-THUMB_FUNC void TextPrinterDrawDownArrow(struct TextPrinter *printer)
+void TextPrinterDrawDownArrow(struct TextPrinter *printer)
 {
     struct TextPrinterSubStruct *subStruct =
         (struct TextPrinterSubStruct *)(&printer->subStructFields);
@@ -383,7 +383,7 @@ THUMB_FUNC void TextPrinterDrawDownArrow(struct TextPrinter *printer)
     subStruct->downArrowYPosIdx++;
 }
 
-THUMB_FUNC void TextPrinterClearDownArrow(struct TextPrinter *printer)
+void TextPrinterClearDownArrow(struct TextPrinter *printer)
 {
     u8 bg_id = GetWindowBgId(printer->printerTemplate.window);
     u8 x = GetWindowX(printer->printerTemplate.window);
@@ -410,7 +410,7 @@ THUMB_FUNC void TextPrinterClearDownArrow(struct TextPrinter *printer)
     BgCommitTilemapBufferToVram(printer->printerTemplate.window->bgConfig, bg_id);
 }
 
-THUMB_FUNC BOOL TextPrinterContinue(struct TextPrinter *printer)
+BOOL TextPrinterContinue(struct TextPrinter *printer)
 {
 #pragma unused(printer)
     if ((gSystem.newKeys & 3) != 0 || (gSystem.touchNew != 0 && gTextFlags.unk0_4 != 0))
@@ -425,7 +425,7 @@ THUMB_FUNC BOOL TextPrinterContinue(struct TextPrinter *printer)
     return FALSE;
 }
 
-THUMB_FUNC BOOL TextPrinterWaitAutoMode(struct TextPrinter *printer)
+BOOL TextPrinterWaitAutoMode(struct TextPrinter *printer)
 {
     struct TextPrinterSubStruct *subStruct =
         (struct TextPrinterSubStruct *)(&printer->subStructFields);
@@ -444,7 +444,7 @@ THUMB_FUNC BOOL TextPrinterWaitAutoMode(struct TextPrinter *printer)
     return FALSE;
 }
 
-THUMB_FUNC BOOL TextPrinterWaitWithDownArrow(struct TextPrinter *printer)
+BOOL TextPrinterWaitWithDownArrow(struct TextPrinter *printer)
 {
     if (gTextFlags.autoScroll)
     {
@@ -455,7 +455,7 @@ THUMB_FUNC BOOL TextPrinterWaitWithDownArrow(struct TextPrinter *printer)
     return TextPrinterContinue(printer);
 }
 
-THUMB_FUNC u8 TextPrinterWait(struct TextPrinter *printer)
+u8 TextPrinterWait(struct TextPrinter *printer)
 {
     if (gTextFlags.autoScroll)
     {
@@ -465,38 +465,38 @@ THUMB_FUNC u8 TextPrinterWait(struct TextPrinter *printer)
     return (u8)TextPrinterContinue(printer);
 }
 
-THUMB_FUNC void TextFlags_SetCanABSpeedUpPrint(BOOL param0)
+void TextFlags_SetCanABSpeedUpPrint(BOOL param0)
 {
     gTextFlags.canABSpeedUpPrint = param0;
 }
 
-THUMB_FUNC void FUN_02002B7C(s32 param0)
+void FUN_02002B7C(s32 param0)
 {
     gTextFlags.autoScroll = param0 & 1;
     gTextFlags.unk0_5 = (param0 >> 1) & 1;
 }
 
-THUMB_FUNC void FUN_02002BB8(u32 param0)
+void FUN_02002BB8(u32 param0)
 {
     gTextFlags.unk0_4 = param0;
 }
 
-THUMB_FUNC u8 FUN_02002BD4()
+u8 FUN_02002BD4()
 {
     return gTextFlags.unk0_6;
 }
 
-THUMB_FUNC void FUN_02002BE4()
+void FUN_02002BE4()
 {
     gTextFlags.unk0_6 = 0;
 }
 
-THUMB_FUNC u8 FUN_02002BF4()
+u8 FUN_02002BF4()
 {
     return gTextFlags.unk0_7;
 }
 
-THUMB_FUNC void FUN_02002C04()
+void FUN_02002C04()
 {
     gTextFlags.unk0_7 = 0;
 }

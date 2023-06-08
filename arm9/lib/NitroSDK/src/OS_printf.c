@@ -1,5 +1,6 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "OS_printf.h"
+#include "code32.h"
 
 typedef struct printfStr
 {
@@ -12,7 +13,7 @@ void string_put_char(struct printfStr *dest, s8 value);
 void string_fill_char(struct printfStr *dest, s8 value, s32 count);
 void string_put_string(struct printfStr *dest, const s8 *src, s32 count);
 
-ARM_FUNC void string_put_char(struct printfStr *dest, s8 value)
+void string_put_char(struct printfStr *dest, s8 value)
 {
     if (dest->spaceLeft != 0)
     {
@@ -22,7 +23,7 @@ ARM_FUNC void string_put_char(struct printfStr *dest, s8 value)
     dest->stringEnd++;
 }
 
-ARM_FUNC void string_fill_char(struct printfStr *dest, s8 value, s32 count)
+void string_fill_char(struct printfStr *dest, s8 value, s32 count)
 {
     if (count <= 0)
         return;
@@ -41,7 +42,7 @@ ARM_FUNC void string_fill_char(struct printfStr *dest, s8 value, s32 count)
     dest->stringEnd += count; // this is wrong but matching...
 }
 
-ARM_FUNC void string_put_string(struct printfStr *dest, const s8 *src, s32 count)
+void string_put_string(struct printfStr *dest, const s8 *src, s32 count)
 {
     if (count <= 0)
         return;
@@ -60,18 +61,18 @@ ARM_FUNC void string_put_string(struct printfStr *dest, const s8 *src, s32 count
     dest->stringEnd += count; // this is wrong but matching...
 }
 
-ARM_FUNC s32 OS_SPrintf(s8 *buffer, const s8 *format, ...)
+s32 OS_SPrintf(s8 *buffer, const s8 *format, ...)
 {
     void *args = (void *)((u32 *)((u32)&format & ~0x3) + 1); // hack since mwccarm doesn't have <stdarg.h> apparently
     return OS_VSPrintf(buffer, format, args);
 }
 
-ARM_FUNC s32 OS_VSPrintf(s8 *buffer, const s8 *format, void *args)
+s32 OS_VSPrintf(s8 *buffer, const s8 *format, void *args)
 {
     return OS_VSNPrintf(buffer, 0x7FFFFFFF, format, args);
 }
 
-ARM_FUNC s32 OS_SNPrintf(s8 *buffer, s32 bufsz, const s8 *format, ...)
+s32 OS_SNPrintf(s8 *buffer, s32 bufsz, const s8 *format, ...)
 {
     void *args = (void *)((u32 *)((u32)&format & ~0x3) + 1); // hack since mwccarm doesn't have <stdarg.h> apparently
     return OS_VSNPrintf(buffer, bufsz, format, args);
@@ -80,7 +81,7 @@ ARM_FUNC s32 OS_SNPrintf(s8 *buffer, s32 bufsz, const s8 *format, ...)
 #define va_arg(list, ty) *(ty *)((u32 *)(list = (void *)((u32 *)(list) + 1)) - 1)
 #define va_arg_64(list, sgn) *((sgn##64 *)(list = (void *)((sgn##64 *)(list) + 1)) - 1)
 
-ARM_FUNC s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
+s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
 {
     s8 buf[24];
     s32 n_buf;

@@ -2,13 +2,14 @@
 #include "SND_command.h"
 #include "SND_alarm.h"
 
-#include "global.h"
+#include "nitro/types.h"
 #include "OS_mutex.h"
+#include "code32.h"
 
 static struct OSMutex sSndMutex;
 static s32 sSndInitialized;
 
-ARM_FUNC void SND_Init(void) {
+void SND_Init(void) {
     if (sSndInitialized)
         return;
     sSndInitialized = 1;
@@ -17,10 +18,10 @@ ARM_FUNC void SND_Init(void) {
     SND_AlarmInit();
 }
 
-ARM_FUNC void SNDi_LockMutex(void) {
+void SNDi_LockMutex(void) {
     OS_LockMutex(&sSndMutex);
 }
 
-ARM_FUNC void SNDi_UnlockMutex(void) {
+void SNDi_UnlockMutex(void) {
     OS_UnlockMutex(&sSndMutex);
 }

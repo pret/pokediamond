@@ -54,7 +54,7 @@ extern u32 FUN_0202CB8C();
 extern u16 WM_GetDispersionBeaconPeriod();
 extern BOOL FUN_0202D2D0();
 
-THUMB_FUNC void FUN_0202E29C(struct PlayerData *player_data)
+void FUN_0202E29C(struct PlayerData *player_data)
 {
     if (UNK_021C59F0 == NULL)
     {
@@ -75,7 +75,7 @@ THUMB_FUNC void FUN_0202E29C(struct PlayerData *player_data)
     }
 }
 
-THUMB_FUNC BOOL FUN_0202E344()
+BOOL FUN_0202E344()
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -85,7 +85,7 @@ THUMB_FUNC BOOL FUN_0202E344()
     return FALSE;
 }
 
-THUMB_FUNC BOOL FUN_0202E358(u8 *param0, u8 *param1, s32 param2)
+BOOL FUN_0202E358(u8 *param0, u8 *param1, s32 param2)
 {
     int i = 0;
     while (i < param2)
@@ -103,7 +103,7 @@ THUMB_FUNC BOOL FUN_0202E358(u8 *param0, u8 *param1, s32 param2)
     return TRUE;
 }
 
-THUMB_FUNC void FUN_0202E380(struct UnkStruct_0202E29C_sub *param0, u32 param1)
+void FUN_0202E380(struct UnkStruct_0202E29C_sub *param0, u32 param1)
 {
 #pragma unused(param1)
     s32 r5 = FUN_02033534();
@@ -172,7 +172,7 @@ THUMB_FUNC void FUN_0202E380(struct UnkStruct_0202E29C_sub *param0, u32 param1)
     }
 }
 
-THUMB_FUNC void FUN_0202E470(u32 param0, u32 param1)
+void FUN_0202E470(u32 param0, u32 param1)
 {
 #pragma unused(param0)
     if (param1 != 0)
@@ -183,13 +183,13 @@ THUMB_FUNC void FUN_0202E470(u32 param0, u32 param1)
     UNK_021C59EC = 2;
 }
 
-THUMB_FUNC void FUN_0202E488()
+void FUN_0202E488()
 {
     UNK_021C59EC = 0;
     FUN_02016454(4);
 }
 
-THUMB_FUNC void FUN_0202E49C()
+void FUN_0202E49C()
 {
     FUN_02016444(4);
     UNK_021C59EC = 1;
@@ -199,7 +199,7 @@ THUMB_FUNC void FUN_0202E49C()
     }
 }
 
-THUMB_FUNC BOOL FUN_0202E4C8()
+BOOL FUN_0202E4C8()
 {
     if (UNK_021C59EC == 2)
     {
@@ -209,7 +209,7 @@ THUMB_FUNC BOOL FUN_0202E4C8()
     return FALSE;
 }
 
-THUMB_FUNC BOOL FUN_0202E4DC()
+BOOL FUN_0202E4DC()
 {
     if (UNK_021C59EC != 0)
     {
@@ -219,12 +219,12 @@ THUMB_FUNC BOOL FUN_0202E4DC()
     return FALSE;
 }
 
-THUMB_FUNC void FUN_0202E4F0()
+void FUN_0202E4F0()
 {
     FUN_02090CC8(FUN_0202E488, 0);
 }
 
-THUMB_FUNC void FUN_0202E500()
+void FUN_0202E500()
 {
     UNK_021C59F0->unkCB0 = 0;
     FUN_0202CE64(UNK_021C59F0->unkCA4 + (32 - (u32)(UNK_021C59F0->unkCA4) % 32));
@@ -232,7 +232,7 @@ THUMB_FUNC void FUN_0202E500()
     FUN_0202CB70(UNK_021C59F0->unkCC0);
 }
 
-THUMB_FUNC void FUN_0202E538()
+void FUN_0202E538()
 {
     for (int i = 0; i < 0x10; i++)
     {
@@ -242,12 +242,12 @@ THUMB_FUNC void FUN_0202E538()
     MI_CpuFill8(UNK_021C59F0->unk054, 0, 0xC00);
 }
 
-THUMB_FUNC void FUN_0202E56C(u32 param0)
+void FUN_0202E56C(u32 param0)
 {
     UNK_021C59F0->unkDAD_3 = (u8)param0;
 }
 
-THUMB_FUNC void FUN_0202E594()
+void FUN_0202E594()
 {
     UNK_021C59F0->unkCB4 = 0;
 
@@ -264,7 +264,7 @@ THUMB_FUNC void FUN_0202E594()
     UNK_021C59F0->unkDAB = 0;
 }
 
-THUMB_FUNC BOOL FUN_0202E5F8(u32 param0, u32 param1, u32 param2)
+BOOL FUN_0202E5F8(u32 param0, u32 param1, u32 param2)
 {
 #pragma unused(param0)
     FUN_0202E594();
@@ -286,7 +286,7 @@ THUMB_FUNC BOOL FUN_0202E5F8(u32 param0, u32 param1, u32 param2)
     return FALSE;
 }
 
-THUMB_FUNC u32 FUN_0202E66C(u32 param0, u32 param1)
+u32 FUN_0202E66C(u32 param0, u32 param1)
 {
 #pragma unused(param0)
     FUN_0202E594();
@@ -314,7 +314,7 @@ THUMB_FUNC u32 FUN_0202E66C(u32 param0, u32 param1)
     return 0;
 }
 
-THUMB_FUNC u32 FUN_0202E6F0()
+u32 FUN_0202E6F0()
 {
     if (UNK_021C59F0 == NULL)
     {
@@ -359,7 +359,7 @@ THUMB_FUNC u32 FUN_0202E6F0()
     return 0;
 }
 
-THUMB_FUNC BOOL FUN_0202E784()
+BOOL FUN_0202E784()
 {
     if (UNK_021C59F0 != NULL && UNK_021C59F0->unkDAA == 0)
     {
@@ -371,7 +371,7 @@ THUMB_FUNC BOOL FUN_0202E784()
     return FALSE;
 }
 
-THUMB_FUNC void FUN_0202E7B0(u32 param0)
+void FUN_0202E7B0(u32 param0)
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -386,7 +386,7 @@ THUMB_FUNC void FUN_0202E7B0(u32 param0)
     }
 }
 
-THUMB_FUNC void FUN_0202E7D8()
+void FUN_0202E7D8()
 {
     FreeToHeap(UNK_021C59F0->unkCBC);
     FreeToHeap(UNK_021C59F0->unkCA4);
@@ -395,7 +395,7 @@ THUMB_FUNC void FUN_0202E7D8()
     UNK_021C59F0 = NULL;
 }
 
-THUMB_FUNC u32 FUN_0202E810()
+u32 FUN_0202E810()
 {
     if (FUN_02030F40() == 0)
     {
@@ -414,7 +414,7 @@ THUMB_FUNC u32 FUN_0202E810()
     return count;
 }
 
-THUMB_FUNC s32 FUN_0202E844(u32 param0)
+s32 FUN_0202E844(u32 param0)
 {
     int i;
     u32 count = 0;
@@ -437,17 +437,17 @@ THUMB_FUNC s32 FUN_0202E844(u32 param0)
     return 0;
 }
 
-THUMB_FUNC u8 FUN_0202E878()
+u8 FUN_0202E878()
 {
     return UNK_021C59F0->unkCB4;
 }
 
-THUMB_FUNC void FUN_0202E88C()
+void FUN_0202E88C()
 {
     UNK_021C59F0->unkCB4 = 0;
 }
 
-THUMB_FUNC s32 FUN_0202E8A0(s32 param0)
+s32 FUN_0202E8A0(s32 param0)
 {
     if (UNK_021C59F0->unkC84[param0] != 0)
     {
@@ -464,7 +464,7 @@ THUMB_FUNC s32 FUN_0202E8A0(s32 param0)
     return 0;
 }
 
-THUMB_FUNC s32 FUN_0202E8D0(s32 param0)
+s32 FUN_0202E8D0(s32 param0)
 {
     for (int i = 0xf; i >= 0; i--)
     {
@@ -478,7 +478,7 @@ THUMB_FUNC s32 FUN_0202E8D0(s32 param0)
     return -1;
 }
 
-THUMB_FUNC s32 FUN_0202E8F4()
+s32 FUN_0202E8F4()
 {
     if (FUN_0202E810() == 0)
     {
@@ -500,7 +500,7 @@ THUMB_FUNC s32 FUN_0202E8F4()
     return -1;
 }
 
-THUMB_FUNC s32 FUN_0202E950()
+s32 FUN_0202E950()
 {
     if (FUN_0202E810() == 0)
     {
@@ -525,7 +525,7 @@ THUMB_FUNC s32 FUN_0202E950()
     return ret;
 }
 
-THUMB_FUNC void FUN_0202E9AC(u32 param0, struct PlayerData *player_data)
+void FUN_0202E9AC(u32 param0, struct PlayerData *player_data)
 {
     int i;
     u32 count = 0;
@@ -547,7 +547,7 @@ THUMB_FUNC void FUN_0202E9AC(u32 param0, struct PlayerData *player_data)
     }
 }
 
-THUMB_FUNC u32 FUN_0202E9E8(u32 param0)
+u32 FUN_0202E9E8(u32 param0)
 {
     if (FUN_0202CBD4() == 2)
     {
@@ -574,7 +574,7 @@ THUMB_FUNC u32 FUN_0202E9E8(u32 param0)
     return 0;
 }
 
-THUMB_FUNC void FUN_0202EA54()
+void FUN_0202EA54()
 {
     for (int i = 0; i < 0x10; i++)
     {
@@ -596,7 +596,7 @@ THUMB_FUNC void FUN_0202EA54()
     }
 }
 
-THUMB_FUNC void FUN_0202EA9C()
+void FUN_0202EA9C()
 {
     s32 res = FUN_02033534();
     struct PlayerData *player_data = FUN_0202EF70();
@@ -632,7 +632,7 @@ THUMB_FUNC void FUN_0202EA9C()
     FUN_0202CB7C(&UNK_021C59F0->unkCC4, sizeof(struct UnkStruct_0202E29C_sub2));
 }
 
-THUMB_FUNC void FUN_0202EB7C()
+void FUN_0202EB7C()
 {
     struct UnkStruct_0202E29C_sub2 *r4 = &UNK_021C59F0->unkCC4;
     if (r4->unk06 != FUN_0202EDB8())
@@ -648,7 +648,7 @@ THUMB_FUNC void FUN_0202EB7C()
     }
 }
 
-THUMB_FUNC void FUN_0202EBD0(u16 param0)
+void FUN_0202EBD0(u16 param0)
 {
     u32 r5 = FUN_0202CBD4();
     FUN_0202DF54();
@@ -745,7 +745,7 @@ THUMB_FUNC void FUN_0202EBD0(u16 param0)
     }
 }
 
-THUMB_FUNC void FUN_0202ED70(u16 param0)
+void FUN_0202ED70(u16 param0)
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -753,7 +753,7 @@ THUMB_FUNC void FUN_0202ED70(u16 param0)
     }
 }
 
-THUMB_FUNC u32 FUN_0202ED84(u16 param0)
+u32 FUN_0202ED84(u16 param0)
 {
     if (UNK_021C59F0 == NULL)
     {
@@ -773,7 +773,7 @@ THUMB_FUNC u32 FUN_0202ED84(u16 param0)
     return 1;
 }
 
-THUMB_FUNC u32 FUN_0202EDB8()
+u32 FUN_0202EDB8()
 {
     u32 count = 0;
     for (int i = 0; i < 8; i++)
@@ -787,7 +787,7 @@ THUMB_FUNC u32 FUN_0202EDB8()
     return count;
 }
 
-THUMB_FUNC BOOL FUN_0202EDD8()
+BOOL FUN_0202EDD8()
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -800,7 +800,7 @@ THUMB_FUNC BOOL FUN_0202EDD8()
     return FALSE;
 }
 
-THUMB_FUNC BOOL FUN_0202EDF8()
+BOOL FUN_0202EDF8()
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -810,7 +810,7 @@ THUMB_FUNC BOOL FUN_0202EDF8()
     return FALSE;
 }
 
-THUMB_FUNC u32 FUN_0202EE0C()
+u32 FUN_0202EE0C()
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -820,7 +820,7 @@ THUMB_FUNC u32 FUN_0202EE0C()
     return 1;
 }
 
-THUMB_FUNC u32 FUN_0202EE24()
+u32 FUN_0202EE24()
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -830,7 +830,7 @@ THUMB_FUNC u32 FUN_0202EE24()
     return 0;
 }
 
-THUMB_FUNC BOOL FUN_0202EE44()
+BOOL FUN_0202EE44()
 {
     if (FUN_0202EE60() && FUN_0202CBE8() == 0x14)
     {
@@ -840,7 +840,7 @@ THUMB_FUNC BOOL FUN_0202EE44()
     return FALSE;
 }
 
-THUMB_FUNC BOOL FUN_0202EE60()
+BOOL FUN_0202EE60()
 {
     if (UNK_021C59F0 != NULL && UNK_021C59F0->unkDAD_0)
     {
@@ -850,7 +850,7 @@ THUMB_FUNC BOOL FUN_0202EE60()
     return FALSE;
 }
 
-THUMB_FUNC void FUN_0202EE84(u32 param0)
+void FUN_0202EE84(u32 param0)
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -858,7 +858,7 @@ THUMB_FUNC void FUN_0202EE84(u32 param0)
     }
 }
 
-THUMB_FUNC void FUN_0202EEB0(u32 param0)
+void FUN_0202EEB0(u32 param0)
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -868,7 +868,7 @@ THUMB_FUNC void FUN_0202EEB0(u32 param0)
     }
 }
 
-THUMB_FUNC u16 FUN_0202EEE8(u16 param0)
+u16 FUN_0202EEE8(u16 param0)
 {
     u16 r4 = WM_GetDispersionBeaconPeriod();
     GF_ASSERT(param0 < 0x1a);
@@ -886,7 +886,7 @@ THUMB_FUNC u16 FUN_0202EEE8(u16 param0)
     return r4;
 }
 
-THUMB_FUNC struct UnkStruct_0202E29C_sub *FUN_0202EF18(u32 param0)
+struct UnkStruct_0202E29C_sub *FUN_0202EF18(u32 param0)
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -899,7 +899,7 @@ THUMB_FUNC struct UnkStruct_0202E29C_sub *FUN_0202EF18(u32 param0)
     return NULL;
 }
 
-THUMB_FUNC struct UnkStruct_0202E29C_sub4 *FUN_0202EF44(s32 param0)
+struct UnkStruct_0202E29C_sub4 *FUN_0202EF44(s32 param0)
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -912,12 +912,12 @@ THUMB_FUNC struct UnkStruct_0202E29C_sub4 *FUN_0202EF44(s32 param0)
     return NULL;
 }
 
-THUMB_FUNC struct PlayerData *FUN_0202EF70()
+struct PlayerData *FUN_0202EF70()
 {
     return UNK_021C59F0->unkCB8;
 }
 
-THUMB_FUNC struct PlayerData *FUN_0202EF84(int param0)
+struct PlayerData *FUN_0202EF84(int param0)
 {
     if (UNK_021C59F0->unkC84[param0] == 0)
     {
@@ -929,7 +929,7 @@ THUMB_FUNC struct PlayerData *FUN_0202EF84(int param0)
     return &r0->unk10;
 }
 
-THUMB_FUNC void FUN_0202EFAC(u8 *param0, s32 param1)
+void FUN_0202EFAC(u8 *param0, s32 param1)
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -939,7 +939,7 @@ THUMB_FUNC void FUN_0202EFAC(u8 *param0, s32 param1)
     }
 }
 
-THUMB_FUNC BOOL FUN_0202EFE4(u8 *param0)
+BOOL FUN_0202EFE4(u8 *param0)
 {
     for (int i = 0; i < 8; i++)
     {
@@ -952,7 +952,7 @@ THUMB_FUNC BOOL FUN_0202EFE4(u8 *param0)
     return FALSE;
 }
 
-THUMB_FUNC u32 FUN_0202F03C()
+u32 FUN_0202F03C()
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -962,7 +962,7 @@ THUMB_FUNC u32 FUN_0202F03C()
     return 0;
 }
 
-THUMB_FUNC void FUN_0202F05C()
+void FUN_0202F05C()
 {
     if (UNK_021C59F0 != NULL)
     {
@@ -970,17 +970,17 @@ THUMB_FUNC void FUN_0202F05C()
     }
 }
 
-THUMB_FUNC void FUN_0202F078(struct MailMessage *mail_message)
+void FUN_0202F078(struct MailMessage *mail_message)
 {
     MI_CpuCopy8(mail_message, &UNK_021C59F0->unkCA8, sizeof(struct MailMessage));
 }
 
-THUMB_FUNC void FUN_0202F094(void *param0)
+void FUN_0202F094(void *param0)
 {
     MI_CpuCopy8(param0, UNK_021C59F0->unkCBC, FUN_02023AC4());
 }
 
-THUMB_FUNC void FUN_0202F0B8()
+void FUN_0202F0B8()
 {
     FUN_0202EA9C();
     FUN_0202D240(&UNK_021C59F0->unkCC4,
@@ -989,7 +989,7 @@ THUMB_FUNC void FUN_0202F0B8()
         UNK_021C59E8);
 }
 
-THUMB_FUNC u32 FUN_0202F0DC(u8 param0)
+u32 FUN_0202F0DC(u8 param0)
 {
     int i;
     u32 r5 = 0;
@@ -1005,18 +1005,18 @@ THUMB_FUNC u32 FUN_0202F0DC(u8 param0)
     return r5;
 }
 
-THUMB_FUNC BOOL FUN_0202F104()
+BOOL FUN_0202F104()
 {
     return FUN_0202D2D0();
 }
 
-THUMB_FUNC void FUN_0202F10C(struct UnkStruct_0202E29C_sub3 *param0)
+void FUN_0202F10C(struct UnkStruct_0202E29C_sub3 *param0)
 {
     MI_CpuCopy8(param0, &UNK_021C59F0->unk000, sizeof(struct UnkStruct_0202E29C_sub3));
     FUN_0202F0B8();
 }
 
-THUMB_FUNC u8 *FUN_0202F124(u32 param0)
+u8 *FUN_0202F124(u32 param0)
 {
     if (UNK_021C59F0 != NULL && UNK_021C59F0->unkC84[param0] != 0)
     {

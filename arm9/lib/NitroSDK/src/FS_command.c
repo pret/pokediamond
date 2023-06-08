@@ -2,8 +2,9 @@
 #include "FS_archive.h"
 #include "FSi_util.h"
 #include "FS_command.h"
+#include "code32.h"
 
-ARM_FUNC void FSi_ReleaseCommand(FSFile * p_file, FSResult ret)
+void FSi_ReleaseCommand(FSFile * p_file, FSResult ret)
 {
     OSIntrMode bak_psr = OS_DisableInterrupts();
     FSi_CutFromList(p_file);
@@ -13,7 +14,7 @@ ARM_FUNC void FSi_ReleaseCommand(FSFile * p_file, FSResult ret)
     (void)OS_RestoreInterrupts(bak_psr);
 }
 
-ARM_FUNC FSResult FSi_TranslateCommand(FSFile *p_file, FSCommandType command)
+FSResult FSi_TranslateCommand(FSFile *p_file, FSCommandType command)
 {
     FSResult ret;
 

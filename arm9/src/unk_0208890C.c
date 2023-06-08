@@ -21,7 +21,7 @@ const struct OverlayManagerTemplate UNK_020FD6E4 = {
     SDK_OVERLAY_INVALID_ID,
 };
 
-THUMB_FUNC struct UnkStruct_0208890C* FUN_0208890C(void* a0, struct SaveBlock2* sav2, u32 heap_id, void* a3)
+struct UnkStruct_0208890C* FUN_0208890C(void* a0, struct SaveBlock2* sav2, u32 heap_id, void* a3)
 {
     struct UnkStruct_0208890C* ret = AllocFromHeap(heap_id, sizeof(struct UnkStruct_0208890C));
     MI_CpuFill8(ret, 0, sizeof(struct UnkStruct_0208890C));
@@ -37,12 +37,12 @@ THUMB_FUNC struct UnkStruct_0208890C* FUN_0208890C(void* a0, struct SaveBlock2* 
     return ret;
 }
 
-THUMB_FUNC void FUN_02088950(struct FieldSystem *fieldSystem, struct UnkStruct_0208890C *param1)
+void FUN_02088950(struct FieldSystem *fieldSystem, struct UnkStruct_0208890C *param1)
 {
     FUN_020373D4(fieldSystem, (struct OverlayManagerTemplate *)&UNK_020FD6E4, param1);
 }
 
-THUMB_FUNC struct UnkStruct_0208890C* FUN_02088960(struct FieldSystem *fieldSystem, void* a1, u32 heap_id)
+struct UnkStruct_0208890C* FUN_02088960(struct FieldSystem *fieldSystem, void* a1, u32 heap_id)
 {
     struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
     struct UnkStruct_0208890C* ret = FUN_0208890C(a1, sav2, heap_id, fieldSystem->unk98);

@@ -3,8 +3,6 @@
 #include "pokemon.h"
 #include "poketch.h"
 
-#pragma thumb on
-
 extern u16 BoxMon_GetAlternateForme(struct BoxPokemon * mon);
 
 static const u8 sMarkingMapInitialPos[][2] = {

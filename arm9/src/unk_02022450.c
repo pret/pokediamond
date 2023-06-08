@@ -26,7 +26,7 @@ static const char arc_name[] = "rom";
 #define MAKER_CODE_01_BE     '10'
 
 /*Replacing (HW_MAIN_MEM_SHARED + 0xC) or (HW_MAIN_MEM_SHARED + 0x10) or defining ADAJ or 01 constants causes match failure*/
-THUMB_FUNC void FUN_02022450() {
+void FUN_02022450() {
     if (!FS_IsAvailable()) {
         OS_Terminate();
     }
@@ -51,7 +51,7 @@ THUMB_FUNC void FUN_02022450() {
     return;
 }
 
-THUMB_FUNC void Reset_To_File(const char* path) {
+void Reset_To_File(const char* path) {
     FSFile file;
     FS_InitFile(&file);
     if (FS_OpenFile(&file, path)) {

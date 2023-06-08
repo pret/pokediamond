@@ -1,7 +1,8 @@
-#include "global.h"
+#include "nitro/types.h"
 #include "gx.h"
+#include "code32.h"
 
-ARM_FUNC void G2x_SetBGyAffine_(u32 ptr, const struct Mtx22 *mtx, fx32 a, fx32 b, fx32 c, fx32 d){
+void G2x_SetBGyAffine_(u32 ptr, const struct Mtx22 *mtx, fx32 a, fx32 b, fx32 c, fx32 d){
     fx32 temp0, temp1, temp2, temp3;
     *((vu32 *)ptr + 0) = (u32)((u16)(fx16)(mtx->_[0] >> 4) | (u16)(fx16)(mtx->_[1] >> 4)<< 0x10);
     *((vu32 *)ptr + 1) = (u32)((u16)(fx16)(mtx->_[2] >> 4) | (u16)(fx16)(mtx->_[3] >> 4)<< 0x10);
@@ -13,11 +14,11 @@ ARM_FUNC void G2x_SetBGyAffine_(u32 ptr, const struct Mtx22 *mtx, fx32 a, fx32 b
     *((vu32 *)ptr + 3) = (u32)(temp3 >> 4);
 }
 
-ARM_FUNC void G2x_SetBlendAlpha_(u32 *ptr, GXBlendPlaneMask plane1, GXBlendPlaneMask plane2, fx32 c, fx32 d){
+void G2x_SetBlendAlpha_(u32 *ptr, GXBlendPlaneMask plane1, GXBlendPlaneMask plane2, fx32 c, fx32 d){
     *ptr = (u32)(((plane1 | 0x40) | (plane2 << 0x8)) | ((c | (d << 0x8)) << 0x10));
 }
 
-ARM_FUNC void G2x_SetBlendBrightness_(volatile u16 *ptr, fx32 a, fx32 brightness){
+void G2x_SetBlendBrightness_(volatile u16 *ptr, fx32 a, fx32 brightness){
     if (brightness < 0)
     {
         ptr[0] = (u16)(a | 0xC0);
@@ -30,7 +31,7 @@ ARM_FUNC void G2x_SetBlendBrightness_(volatile u16 *ptr, fx32 a, fx32 brightness
     }
 }
 
-ARM_FUNC void G2x_SetBlendBrightnessExt_(u16 *ptr, fx32 a, fx32 b, fx32 c, fx32 d, fx32 brightness){
+void G2x_SetBlendBrightnessExt_(u16 *ptr, fx32 a, fx32 b, fx32 c, fx32 d, fx32 brightness){
     ptr[1] = (u16)(c | (d << 0x8));
     if (brightness < 0)
     {
@@ -44,7 +45,7 @@ ARM_FUNC void G2x_SetBlendBrightnessExt_(u16 *ptr, fx32 a, fx32 b, fx32 c, fx32 
     }
 }
 
-ARM_FUNC void G2x_ChangeBlendBrightness_(u16 *ptr, fx32 brightness){
+void G2x_ChangeBlendBrightness_(u16 *ptr, fx32 brightness){
     u32 temp = *ptr;
     if (brightness < 0)
     {
