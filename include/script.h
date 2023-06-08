@@ -41,10 +41,14 @@ typedef struct PCBoxAppData {
 } PCBoxAppData; //todo move to own file
 
 typedef struct FashionAppData {
-    struct SaveFashionData *fashionData;
+    SaveFashionData *fashionData;
     u32 portraitSlot;
-    u32 unk08;
+    BOOL isContest;
 } FashionAppData;
+
+typedef struct TownMapAppData { //todo fill out
+    u8 padding[0x140];
+} TownMapAppData; //todo move to own file
 
 typedef struct FieldSystem //todo move to field_system.c
 {
@@ -52,7 +56,7 @@ typedef struct FieldSystem //todo move to field_system.c
     u8 padding[0x4];
     struct BgConfig *bgConfig;
     struct SaveBlock2 *saveBlock2; //0xC
-    struct TaskManager *taskManager;
+    TaskManager *taskManager;
     u8 padding2[0x8];
     u32 *mapId; //0x1C
     struct Camera *camera;
@@ -81,10 +85,10 @@ typedef struct ScriptContext
     ScrCmdFunc *cmdTable;
     u32 cmdCount;
     u32 data[4];
-    struct TaskManager *taskManager;
+    TaskManager *taskManager;
     struct MsgData *msgData;
     u8 *mapScripts;
-    struct FieldSystem *fieldSystem;
+    FieldSystem *fieldSystem;
 } ScriptContext;
 
 typedef enum ScriptEnvField {

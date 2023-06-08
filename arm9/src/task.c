@@ -1,5 +1,6 @@
 #include "global.h"
 #include "task.h"
+#include "script.h"
 #include "heap.h"
 
 struct TaskManager *FieldSys_CreateTask(struct FieldSystem * fieldSystem, TaskFunc taskFunc, void *env)

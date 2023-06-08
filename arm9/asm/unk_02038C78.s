@@ -318,8 +318,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_DressupPokemon
 	.word ScrCmd_ShowDressedPokemon
 	.word ScrCmd_ShowContestPokemon
-	.word ScrCmd_Unk00A9
-	.word ScrCmd_Unk00AA
+	.word ScrCmd_ShowSealCapsuleEditor
+	.word ScrCmd_ShowTownMapScreen
 	.word ScrCmd_MonStoragePC
 	.word ScrCmd_Unk00AC
 	.word ScrCmd_Unk00AD
@@ -451,8 +451,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk012B
 	.word ScrCmd_Unk012C
 	.word ScrCmd_Unk012D
-	.word ScrCmd_Unk012E
-	.word ScrCmd_Unk012F
+	.word ScrCmd_CheckPortraitSlot
+	.word ScrCmd_CheckContestPortraitSlot
 	.word ScrCmd_Unk0130
 	.word ScrCmd_Unk0131
 	.word ScrCmd_Unk0132
@@ -666,7 +666,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0202
 	.word ScrCmd_Unk0203
 	.word ScrCmd_Unk0204
-	.word ScrCmd_Unk0205
+	.word ScrCmd_ShowGeonetScreen
 	.word ScrCmd_Unk0206
 	.word ScrCmd_Unk0207
 	.word ScrCmd_ShowPokemonPic

@@ -1,12 +1,14 @@
 #ifndef POKEDIAMOND_TASK_H
 #define POKEDIAMOND_TASK_H
 
-#include "script.h"
+//#include "script.h" - dirty hack while FieldSystem is still in script.h
 #include "main.h"
 
-struct TaskManager;
+typedef struct TaskManager TaskManager;
 
-typedef BOOL (*TaskFunc)(struct TaskManager *taskManager);
+typedef BOOL (*TaskFunc)(TaskManager *taskManager);
+
+struct FieldSystem; //FIXME: dirty hack
 
 struct TaskManager
 {

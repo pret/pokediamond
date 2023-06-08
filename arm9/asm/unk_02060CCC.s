@@ -3312,7 +3312,7 @@ FUN_0206250C: ; 0x0206250C
 _02062514:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_02027098
+	bl CheckPortraitSlotFull
 	cmp r0, #0x1
 	bne _02062522
 	add r5, r5, #0x1
@@ -3347,7 +3347,7 @@ _02062554:
 _02062556:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_02027098
+	bl CheckPortraitSlotFull
 	cmp r0, #0x1
 	bne _0206256C
 	cmp r5, #0x0
