@@ -2226,8 +2226,8 @@ FUN_02038790: ; 0x02038790
 	.balign 4
 _02038800: .word UNK_020F2C74
 
-	thumb_func_start FUN_02038804
-FUN_02038804: ; 0x02038804
+	thumb_func_start ShowGeonetScreen
+ShowGeonetScreen: ; 0x02038804
 	ldr r3, _0203880C ; =FUN_020373D4
 	ldr r1, _02038810 ; =UNK_020F2D14
 	ldr r2, [r0, #0xc]

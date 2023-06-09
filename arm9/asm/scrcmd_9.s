@@ -629,7 +629,7 @@ FUN_02042324: ; 0x02042324
 	ldr r0, [r0, #0xc]
 	bl Save_FashionData_Get
 	mov r1, #0x0
-	bl FUN_02027098
+	bl CheckPortraitSlotFull
 	pop {r3, pc}
 
 	thumb_func_start FUN_02042334

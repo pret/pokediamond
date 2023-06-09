@@ -821,8 +821,8 @@ _02085F38:
 _02085F40: .word UNK_020FCAD8
 _02085F44: .word UNK_020F96DC
 
-	thumb_func_start FUN_02085F48
-FUN_02085F48: ; 0x02085F48
+	thumb_func_start ShowSealCapsuleEditor
+ShowSealCapsuleEditor: ; 0x02085F48
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r5, r1, #0x0

@@ -535,8 +535,8 @@ FUN_0202708C: ; 0x0202708C
 	nop
 _02027094: .word 0x000007F4
 
-	thumb_func_start FUN_02027098
-FUN_02027098: ; 0x02027098
+	thumb_func_start CheckPortraitSlotFull
+CheckPortraitSlotFull: ; 0x02027098
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -551,8 +551,8 @@ _020270A6:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020270B4
-FUN_020270B4: ; 0x020270B4
+	thumb_func_start CheckContestPortraitSlotFull
+CheckContestPortraitSlotFull: ; 0x020270B4
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0

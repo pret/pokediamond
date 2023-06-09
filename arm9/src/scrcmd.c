@@ -108,8 +108,8 @@ extern u32 FUN_02029048(u32 param0);
 extern void FUN_02028AD4(u32 *param0, u32 param1, u32 param2);
 extern void FUN_0204AF3C(struct TaskManager *taskManager);
 extern SaveFashionData *Save_FashionData_Get(struct SaveBlock2 *save);
-extern BOOL FUN_02027098(SaveFashionData *fashionData, u32 param1);
-extern BOOL FUN_020270B4(SaveFashionData *fashionData, u32 param1);
+extern BOOL CheckPortraitSlotFull(SaveFashionData *fashionData, u32 portraitSlot);
+extern BOOL CheckContestPortraitSlotFull(SaveFashionData *fashionData, u32 portraitSlot);
 extern void MOD05_021F02C4(struct FieldSystem *fieldSystem);
 extern void FUN_0206F3B8(struct TaskManager *taskManager);
 extern u16 FUN_02031190(void);
@@ -119,6 +119,12 @@ extern void MOD05_021E1994(FieldSystem *fieldSystem, LocalMapObject *lastInterac
 extern void FUN_0208A338(struct TaskManager *taskManager);
 extern void FUN_020380CC(struct TaskManager *taskManager, u16 *param1, struct SaveBlock2 *save, u16 partyPos, u16 param4);
 extern void FUN_02038130(FieldSystem *fieldSystem, FashionAppData *fashionData);
+extern u32 FUN_02027008(SaveFashionData *fashionData, u32 param1);
+extern void FUN_02027478(u32 param0, u16 param1);
+extern void ShowGeonetScreen(FieldSystem *fieldSystem);
+extern void ShowSealCapsuleEditor(TaskManager *taskManager, struct SaveBlock2 *save);
+extern void FUN_0205F7A0(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2); //TownMap_Init?
+extern void FUN_02037E90(FieldSystem *fieldSystem, TownMapAppData *townMap); //ShowTownMap?
 
 u8 UNK_021C5A0C[4];
 
@@ -147,8 +153,8 @@ static BOOL FUN_0203B218(struct ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BB90(ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BC04(ScriptContext *ctx);
-/*static*/ BOOL FUN_0203BC3C(struct FieldSystem *fieldSystem, u32 param1, u32 param2);
-static FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 portraitSlot);
+static BOOL CheckPortraitSlotFullInternal(struct FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
+static FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
 static BOOL FUN_0203BE9C(ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
@@ -1961,29 +1967,29 @@ BOOL ScrCmd_TerminateOverworldProcess(ScriptContext *ctx) { //01F8
     return TRUE;
 }
 
-/*static*/ BOOL FUN_0203BC3C(struct FieldSystem *fieldSystem, u32 param1, u32 param2) {
+static BOOL CheckPortraitSlotFullInternal(struct FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
     SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveBlock2);
-    if (param1 == 0) {
-        if (!FUN_02027098(fashionData, param2)) {
+    if (!isContest) {
+        if (!CheckPortraitSlotFull(fashionData, portraitSlot)) {
             return FALSE;
         }
     } else {
-        if (!FUN_020270B4(fashionData, param2)) {
+        if (!CheckContestPortraitSlotFull(fashionData, portraitSlot)) {
             return FALSE;
         }
     }
     return TRUE;
 }
 
-static FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, u32 param2, u32 portraitSlot) {
+static FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot) {
     SaveFashionData *fashionData = Save_FashionData_Get(fieldSystem->saveBlock2);
-    if (!FUN_0203BC3C(fieldSystem, param2, portraitSlot)) {
+    if (!CheckPortraitSlotFullInternal(fieldSystem, isContest, portraitSlot)) {
         return NULL;
     }
     FashionAppData *appData = AllocFromHeap(heapId, sizeof(FashionAppData));
     __builtin__clear(appData, sizeof(FashionAppData));
     appData->fashionData = fashionData;
-    appData->unk08 = param2;
+    appData->isContest = isContest;
     appData->portraitSlot = portraitSlot;
     return appData;
 }
@@ -2090,7 +2096,7 @@ BOOL ScrCmd_ShowDressedPokemon(ScriptContext *ctx) { //00A7
     FashionAppData **fashionAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     u16 portraitSlot = ScriptReadHalfword(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
-    *fashionAppData = FUN_0203BC6C(11, ctx->fieldSystem, 0, portraitSlot);
+    *fashionAppData = FUN_0203BC6C(11, ctx->fieldSystem, FALSE, portraitSlot);
     if (*fashionAppData == NULL) {
         *var = 1;
         return TRUE;
@@ -2105,13 +2111,62 @@ BOOL ScrCmd_ShowContestPokemon(ScriptContext *ctx) { //00A8
     FashionAppData **fashionAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     u16 portraitSlot = ScriptReadHalfword(ctx);
     u16 *var = ScriptGetVarPointer(ctx);
-    *fashionAppData = FUN_0203BC6C(11, ctx->fieldSystem, 1, portraitSlot);
+    *fashionAppData = FUN_0203BC6C(11, ctx->fieldSystem, TRUE, portraitSlot);
     if (*fashionAppData == NULL) {
         *var = 1;
         return TRUE;
     }
     *var = 0;
     FUN_02038130(ctx->fieldSystem, *fashionAppData);
+    SetupNativeScript(ctx, FUN_0203BB90);
+    return TRUE;
+}
+
+BOOL ScrCmd_CheckPortraitSlot(ScriptContext *ctx) { //012E
+    u16 portraitSlot = ScriptReadHalfword(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    if (CheckPortraitSlotFullInternal(ctx->fieldSystem, FALSE, portraitSlot) == TRUE) {
+        *var = TRUE;
+        return TRUE;
+    }
+    *var = FALSE;
+    return TRUE;
+}
+
+BOOL ScrCmd_CheckContestPortraitSlot(ScriptContext *ctx) { //012F
+    u16 portraitSlot = ScriptReadHalfword(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    if (CheckPortraitSlotFullInternal(ctx->fieldSystem, TRUE, portraitSlot) == TRUE) {
+        *var = TRUE;
+        return TRUE;
+    }
+    *var = FALSE;
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk0130(ScriptContext *ctx) { //0130
+    u16 unk0 = ScriptGetVar(ctx);
+    SaveFashionData *fashionData = Save_FashionData_Get(ctx->fieldSystem->saveBlock2);
+    FUN_02027478(FUN_02027008(fashionData, 0), unk0);
+    return TRUE;
+}
+
+BOOL ScrCmd_ShowGeonetScreen(ScriptContext *ctx) { //0205
+    ShowGeonetScreen(ctx->fieldSystem);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
+
+BOOL ScrCmd_ShowSealCapsuleEditor(ScriptContext *ctx) { //00A9
+    ShowSealCapsuleEditor(ctx->taskManager, ctx->fieldSystem->saveBlock2);
+    return TRUE;
+}
+
+BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx) { //00AA
+    TownMapAppData **townMap = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *townMap = AllocFromHeap(11, sizeof(TownMapAppData));
+    FUN_0205F7A0(ctx->fieldSystem, *townMap, 2); //TownMap_Init?
+    FUN_02037E90(ctx->fieldSystem, *townMap); //ShowTownMap?
     SetupNativeScript(ctx, FUN_0203BB90);
     return TRUE;
 }

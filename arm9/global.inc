@@ -1782,8 +1782,8 @@
 .extern FUN_02027008
 .extern FUN_02027044
 .extern FUN_0202708C
-.extern FUN_02027098
-.extern FUN_020270B4
+.extern CheckPortraitSlotFull
+.extern CheckContestPortraitSlotFull
 .extern FUN_020270D8
 .extern FUN_02027100
 .extern FUN_02027114
@@ -2660,7 +2660,7 @@
 .extern FUN_020386B4
 .extern FUN_020386E0
 .extern FUN_02038790
-.extern FUN_02038804
+.extern ShowGeonetScreen
 .extern FUN_02038814
 .extern FUN_02038824
 .extern FUN_02038854
@@ -2842,12 +2842,12 @@
 .extern ScrCmd_DressupPokemon
 .extern ScrCmd_ShowDressedPokemon
 .extern ScrCmd_ShowContestPokemon
-.extern ScrCmd_Unk012E
-.extern ScrCmd_Unk012F
+.extern ScrCmd_CheckPortraitSlot
+.extern ScrCmd_CheckContestPortraitSlot
 .extern ScrCmd_Unk0130
-.extern ScrCmd_Unk0205
-.extern ScrCmd_Unk00A9
-.extern ScrCmd_Unk00AA
+.extern ScrCmd_ShowGeonetScreen
+.extern ScrCmd_ShowSealCapsuleEditor
+.extern ScrCmd_ShowTownMapScreen
 .extern ScrCmd_Unk01D7
 .extern ScrCmd_Unk01D8
 .extern ScrCmd_Unk01D9
@@ -5351,7 +5351,7 @@
 .extern FUN_02085BB0
 .extern FUN_02085C08
 .extern FUN_02085D9C
-.extern FUN_02085F48
+.extern ShowSealCapsuleEditor
 .extern FUN_02085FAC
 .extern FUN_02085FD0
 .extern FUN_02085FF4

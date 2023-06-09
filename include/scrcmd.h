@@ -178,6 +178,12 @@ BOOL ScrCmd_Unk00A5(ScriptContext *ctx);
 BOOL ScrCmd_DressupPokemon(ScriptContext *ctx);
 BOOL ScrCmd_ShowDressedPokemon(ScriptContext *ctx);
 BOOL ScrCmd_ShowContestPokemon(ScriptContext *ctx);
+BOOL ScrCmd_CheckPortraitSlot(ScriptContext *ctx);
+BOOL ScrCmd_CheckContestPortraitSlot(ScriptContext *ctx);
+BOOL ScrCmd_Unk0130(ScriptContext *ctx);
+BOOL ScrCmd_ShowGeonetScreen(ScriptContext *ctx);
+BOOL ScrCmd_ShowSealCapsuleEditor(ScriptContext *ctx);
+BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
