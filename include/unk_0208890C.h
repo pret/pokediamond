@@ -8,20 +8,19 @@ struct Options;
 struct PlayerData;
 struct SaveBlock2;
 
-struct UnkStruct_0208890C
-{
+typedef struct PoffinCaseAppData {
     u8 padding[0x4];
-    void* unk4;
-    void* unk8;
+    u32 unk4;
+    u32 unk8;
     struct SaveBlock2* sav2;
     struct PlayerData* player;
     struct Bag* bag;
     struct Options* options;
-    void* unk1C;
-};
+    u32 *unk1C;
+} PoffinCaseAppData;
 
-struct UnkStruct_0208890C* FUN_0208890C(void*, struct SaveBlock2* sav2, u32 heap_id, void*);
-void FUN_02088950(struct FieldSystem *fieldSystem, struct UnkStruct_0208890C*);
-struct UnkStruct_0208890C* FUN_02088960(struct FieldSystem *fieldSystem, void*, u32 heap_id);
+struct PoffinCaseAppData* FUN_0208890C(u32, struct SaveBlock2* sav2, u32 heap_id, u32 *);
+void FUN_02088950(struct FieldSystem *fieldSystem, struct PoffinCaseAppData*);
+struct PoffinCaseAppData* FUN_02088960(struct FieldSystem *fieldSystem, u32, u32 heap_id);
 
 #endif

@@ -184,6 +184,15 @@ BOOL ScrCmd_Unk0130(ScriptContext *ctx);
 BOOL ScrCmd_ShowGeonetScreen(ScriptContext *ctx);
 BOOL ScrCmd_ShowSealCapsuleEditor(ScriptContext *ctx);
 BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx);
+BOOL ScrCmd_Unk01D7(ScriptContext *ctx);
+BOOL ScrCmd_Unk01D8(ScriptContext *ctx);
+BOOL ScrCmd_Unk01D9(ScriptContext *ctx);
+BOOL ScrCmd_ShowPCBoxScreen(ScriptContext *ctx);
+BOOL ScrCmd_Unk00AC(ScriptContext *ctx);
+BOOL ScrCmd_Unk00AD(ScriptContext *ctx);
+BOOL ScrCmd_Unk00AE(ScriptContext *ctx);
+BOOL ScrCmd_Unk00AF(ScriptContext *ctx);
+BOOL ScrCmd_ShowEndGameScreen(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

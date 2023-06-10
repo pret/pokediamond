@@ -1,8 +1,10 @@
 #include "global.h"
 #include "scrcmd.h"
 #include "PAD_pad.h"
+#include "bag.h"
 #include "bg_window.h"
 #include "camera.h"
+#include "constants/items.h"
 #include "fashion_case.h"
 #include "main.h"
 #include "options.h"
@@ -16,6 +18,7 @@
 #include "unk_0200CA44.h"
 #include "unk_0204AF24.h"
 #include "unk_0205EC84.h"
+#include "unk_0208890C.h"
 
 extern void *FieldSysGetAttrAddr(struct FieldSystem* fieldSystem, enum ScriptEnvField id);
 extern ScriptContext *CreateScriptContext(struct FieldSystem* fieldSystem, u16 id);
@@ -125,6 +128,15 @@ extern void ShowGeonetScreen(FieldSystem *fieldSystem);
 extern void ShowSealCapsuleEditor(TaskManager *taskManager, struct SaveBlock2 *save);
 extern void FUN_0205F7A0(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2); //TownMap_Init?
 extern void FUN_02037E90(FieldSystem *fieldSystem, TownMapAppData *townMap); //ShowTownMap?
+extern u32 FUN_02028048(struct SaveBlock2 *save);
+extern u32 FUN_020281B8(u32 param0);
+extern void FUN_02037FE4(FieldSystem *fieldSystem, ScrCmdUnkStruct01D9 *param1);
+extern void LaunchStoragePCInterface(FieldSystem *fieldSystem, PCBoxAppData *pcBoxAppData);
+extern void FUN_020383F8(FieldSystem *fieldSystem);
+extern void FUN_02065344(FieldSystem *fieldSystem);
+extern void FUN_020383D8(TaskManager *taskManager);
+extern void *FUN_0203842C(FieldSystem *fieldSystem);
+extern void Task_GameClear(TaskManager *taskManager);
 
 u8 UNK_021C5A0C[4];
 
@@ -151,7 +163,7 @@ static void FUN_0203B174(struct FieldSystem *fieldSystem, u32 param1, void *para
 static void FUN_0203B1A8(u32 param0, UnkStruct_0203B174 *param1);
 static BOOL FUN_0203B218(struct ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BB90(ScriptContext *ctx);
-/*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx);
+static BOOL FUN_0203BBBC(ScriptContext *ctx);
 /*static*/ BOOL FUN_0203BC04(ScriptContext *ctx);
 static BOOL CheckPortraitSlotFullInternal(struct FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
 static FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
@@ -1938,7 +1950,7 @@ BOOL ScrCmd_DummyGetMapPosition(ScriptContext *ctx) { //009F
     return TRUE;
 }
 
-/*static*/ BOOL FUN_0203BBBC(ScriptContext *ctx) {
+static BOOL FUN_0203BBBC(ScriptContext *ctx) {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     PCBoxAppData **pcBoxDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     PCBoxAppData *pcBoxData = *pcBoxDataPtr;
@@ -2168,5 +2180,82 @@ BOOL ScrCmd_ShowTownMapScreen(ScriptContext *ctx) { //00AA
     FUN_0205F7A0(ctx->fieldSystem, *townMap, 2); //TownMap_Init?
     FUN_02037E90(ctx->fieldSystem, *townMap); //ShowTownMap?
     SetupNativeScript(ctx, FUN_0203BB90);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk01D7(ScriptContext *ctx) { //01D7 - TODO: ShowPoffinCaseScreen?
+    PoffinCaseAppData **poffinCaseAppData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    u8 unk0 = ScriptReadHalfword(ctx);
+    *poffinCaseAppData = FUN_02088960(ctx->fieldSystem, unk0, 11);
+    SetupNativeScript(ctx, FUN_0203BB90);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk01D8(ScriptContext *ctx) { //01D8
+    u16 *unk0 = ScriptGetVarPointer(ctx);
+    struct Bag *bag = Save_Bag_Get(ctx->fieldSystem->saveBlock2);
+    if (!Bag_PocketNotEmpty(bag, POCKET_BERRIES)) {
+        *unk0 = 1;
+        return FALSE;
+    }
+    else if (FUN_020281B8(FUN_02028048(ctx->fieldSystem->saveBlock2)) >= 0x64) {
+        *unk0 = 2;
+        return FALSE;
+    }
+    *unk0 = 0;
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk01D9(ScriptContext *ctx) { //01D9
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    ScrCmdUnkStruct01D9 **unkStructPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *unkStructPtr = AllocFromHeap(11, sizeof(ScrCmdUnkStruct01D9));
+    ScrCmdUnkStruct01D9 *unkStruct = *unkStructPtr;
+    MI_CpuFill8(unkStruct, 0, sizeof(ScrCmdUnkStruct01D9)); //consider inlining as is in heartgold
+    unkStruct->unk04 = unk0;
+    unkStruct->unk06 = unk1;
+    unkStruct->save = ctx->fieldSystem->saveBlock2;
+    FUN_02037FE4(ctx->fieldSystem, *unkStructPtr);
+    SetupNativeScript(ctx, FUN_0203BB90);
+    return TRUE;
+}
+
+BOOL ScrCmd_ShowPCBoxScreen(ScriptContext *ctx) { //00AB
+    PCBoxAppData **pcBoxAppDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    PCBoxAppData *pcBoxAppData = AllocFromHeap(11, sizeof(PCBoxAppData)); //also seems inlined
+    pcBoxAppData->save = ctx->fieldSystem->saveBlock2;
+    pcBoxAppData->operation = (enum PCBoxOperation)ScriptReadByte(ctx);
+    *pcBoxAppDataPtr = pcBoxAppData;
+    LaunchStoragePCInterface(ctx->fieldSystem, *pcBoxAppDataPtr);
+    SetupNativeScript(ctx, FUN_0203BBBC);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk00AC(ScriptContext *ctx) {
+    FUN_020383F8(ctx->fieldSystem);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk00AD(ScriptContext *ctx) {
+    FUN_02065344(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk00AE(ScriptContext *ctx) {
+    FUN_020383D8(ctx->fieldSystem->taskManager);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk00AF(ScriptContext *ctx) {
+    void **appData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA); //todo: define an app type for this
+    *appData = FUN_0203842C(ctx->fieldSystem);
+    SetupNativeScript(ctx, FUN_0203BB90);
+    return TRUE;
+}
+
+BOOL ScrCmd_ShowEndGameScreen(ScriptContext *ctx) {
+    Task_GameClear(ctx->fieldSystem->taskManager);
     return TRUE;
 }

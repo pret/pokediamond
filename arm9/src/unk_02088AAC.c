@@ -89,9 +89,9 @@ u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0)
             .exitFunc = MOD75_021E6F00,
             .ovly = FS_OVERLAY_ID(MODULE_75)
         };
-    struct BagView *bag_view = CreateBagView(r0->unk10->bag, UNK_020FD6F4, r0->heap_id);
+    struct BagView *bag_view = CreateBagView(r0->poffinCaseAppData->bag, UNK_020FD6F4, r0->heap_id);
 
-    FUN_0206E314(bag_view, r0->unk10->sav2, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
+    FUN_0206E314(bag_view, r0->poffinCaseAppData->sav2, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
 
     r0->ovly_data = OverlayManager_New(&OVERLAY_75_MANAGER, (s32 *)bag_view, r0->heap_id);
     r0->ovly_param = bag_view;
@@ -129,7 +129,7 @@ u32 FUN_02088BA8(struct UnkStruct_02088AAC *r0)
     case 2:
     case 3:
     case 4:
-        GF_ASSERT(Bag_TakeItem(r0->unk10->bag, (u16)r0->item, 1, r0->heap_id));
+        GF_ASSERT(Bag_TakeItem(r0->poffinCaseAppData->bag, (u16)r0->item, 1, r0->heap_id));
         return 4;
     }
 }
@@ -138,7 +138,7 @@ u32 FUN_02088C3C(struct UnkStruct_02088AAC *r0)
 {
     FS_EXTERN_OVERLAY(MODULE_68);
 
-    struct Bag *bag = r0->unk10->bag;
+    struct Bag *bag = r0->poffinCaseAppData->bag;
     const struct OverlayManagerTemplate OVERLAY_68_MANAGER =
         {
             .initFunc = MOD68_021D74E0,

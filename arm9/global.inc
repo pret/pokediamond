@@ -2851,12 +2851,12 @@
 .extern ScrCmd_Unk01D7
 .extern ScrCmd_Unk01D8
 .extern ScrCmd_Unk01D9
-.extern ScrCmd_MonStoragePC
+.extern ScrCmd_ShowPCBoxScreen
 .extern ScrCmd_Unk00AC
 .extern ScrCmd_Unk00AD
 .extern ScrCmd_Unk00AE
 .extern ScrCmd_Unk00AF
-.extern ScrCmd_HallOfFame
+.extern ScrCmd_ShowEndGameScreen
 .extern ScrCmd_Unk00B1
 .extern ScrCmd_Unk00B2
 .extern ScrCmd_Unk00B3
@@ -3476,7 +3476,7 @@
 .extern FUN_020480E4
 .extern FUN_0204837C
 .extern FUN_02048498
-.extern Special_EnterHallOfFame
+.extern Task_GameClear
 .extern FUN_020489DC
 .extern FUN_020489FC
 .extern FUN_02048C58

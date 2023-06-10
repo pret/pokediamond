@@ -320,12 +320,12 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_ShowContestPokemon
 	.word ScrCmd_ShowSealCapsuleEditor
 	.word ScrCmd_ShowTownMapScreen
-	.word ScrCmd_MonStoragePC
+	.word ScrCmd_ShowPCBoxScreen
 	.word ScrCmd_Unk00AC
 	.word ScrCmd_Unk00AD
 	.word ScrCmd_Unk00AE
 	.word ScrCmd_Unk00AF
-	.word ScrCmd_HallOfFame
+	.word ScrCmd_ShowEndGameScreen
 	.word ScrCmd_Unk00B1
 	.word ScrCmd_Unk00B2
 	.word ScrCmd_Unk00B3
