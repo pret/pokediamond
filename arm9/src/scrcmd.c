@@ -6,6 +6,7 @@
 #include "camera.h"
 #include "constants/items.h"
 #include "fashion_case.h"
+#include "hall_of_fame.h"
 #include "main.h"
 #include "options.h"
 #include "party.h"
@@ -137,6 +138,7 @@ extern void FUN_02065344(FieldSystem *fieldSystem);
 extern void FUN_020383D8(TaskManager *taskManager);
 extern void *FUN_0203842C(FieldSystem *fieldSystem);
 extern void Task_GameClear(TaskManager *taskManager);
+extern HallOfFame *FUN_02038824(FieldSystem *fieldSystem);
 
 u8 UNK_021C5A0C[4];
 
@@ -2232,30 +2234,37 @@ BOOL ScrCmd_ShowPCBoxScreen(ScriptContext *ctx) { //00AB
     return TRUE;
 }
 
-BOOL ScrCmd_Unk00AC(ScriptContext *ctx) {
+BOOL ScrCmd_Unk00AC(ScriptContext *ctx) { //00AC
     FUN_020383F8(ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BC04);
     return TRUE;
 }
 
-BOOL ScrCmd_Unk00AD(ScriptContext *ctx) {
+BOOL ScrCmd_Unk00AD(ScriptContext *ctx) { //00AD
     FUN_02065344(ctx->fieldSystem);
     return TRUE;
 }
 
-BOOL ScrCmd_Unk00AE(ScriptContext *ctx) {
+BOOL ScrCmd_Unk00AE(ScriptContext *ctx) { //00AE
     FUN_020383D8(ctx->fieldSystem->taskManager);
     return TRUE;
 }
 
-BOOL ScrCmd_Unk00AF(ScriptContext *ctx) {
+BOOL ScrCmd_Unk00AF(ScriptContext *ctx) { //00AF
     void **appData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA); //todo: define an app type for this
     *appData = FUN_0203842C(ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BB90);
     return TRUE;
 }
 
-BOOL ScrCmd_ShowEndGameScreen(ScriptContext *ctx) {
+BOOL ScrCmd_ShowEndGameScreen(ScriptContext *ctx) { //00B0
     Task_GameClear(ctx->fieldSystem->taskManager);
+    return TRUE;
+}
+
+BOOL ScrCmd_InitHallOfFame(ScriptContext *ctx) { //00B1
+    HallOfFame **hallOfFameData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    *hallOfFameData = FUN_02038824(ctx->fieldSystem);
+    SetupNativeScript(ctx, FUN_0203BB90);
     return TRUE;
 }

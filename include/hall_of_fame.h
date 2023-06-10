@@ -3,6 +3,8 @@
 
 #define NUM_HOF_RECORDS 30
 
+#include "RTC_api.h"
+
 struct HOFMon
 {
     /* 0x00 */ u16 species;
@@ -24,12 +26,12 @@ struct HOFParty
     u8 day;
 };
 
-struct HallOfFame
+typedef struct HallOfFame
 {
     struct HOFParty parties[NUM_HOF_RECORDS];
     u32 next_record;
     u32 num_total;
-};
+} HallOfFame;
 
 struct HofDisplayMon
 {

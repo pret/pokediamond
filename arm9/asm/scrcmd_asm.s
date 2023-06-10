@@ -10,28 +10,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk00B1
-ScrCmd_Unk00B1: ; 0x0203C33C
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x13
-	bl FieldSysGetAttrAddr
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl FUN_02038824
-	str r0, [r4, #0x0]
-	ldr r1, _0203C364 ; =FUN_0203BB90
-	add r0, r5, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r3-r5, pc}
-	.balign 4
-_0203C364: .word FUN_0203BB90 
-
 	thumb_func_start ScrCmd_Unk00B2
 ScrCmd_Unk00B2: ; 0x0203C368
 	push {r4-r6, lr}

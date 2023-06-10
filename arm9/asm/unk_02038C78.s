@@ -326,7 +326,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk00AE
 	.word ScrCmd_Unk00AF
 	.word ScrCmd_ShowEndGameScreen
-	.word ScrCmd_Unk00B1
+	.word ScrCmd_InitHallOfFame
 	.word ScrCmd_Unk00B2
 	.word ScrCmd_Unk00B3
 	.word ScrCmd_Unk00B4

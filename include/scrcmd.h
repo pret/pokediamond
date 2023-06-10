@@ -193,6 +193,7 @@ BOOL ScrCmd_Unk00AD(ScriptContext *ctx);
 BOOL ScrCmd_Unk00AE(ScriptContext *ctx);
 BOOL ScrCmd_Unk00AF(ScriptContext *ctx);
 BOOL ScrCmd_ShowEndGameScreen(ScriptContext *ctx);
+BOOL ScrCmd_InitHallOfFame(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

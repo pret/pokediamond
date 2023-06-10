@@ -2857,7 +2857,7 @@
 .extern ScrCmd_Unk00AE
 .extern ScrCmd_Unk00AF
 .extern ScrCmd_ShowEndGameScreen
-.extern ScrCmd_Unk00B1
+.extern ScrCmd_InitHallOfFame
 .extern ScrCmd_Unk00B2
 .extern ScrCmd_Unk00B3
 .extern ScrCmd_Unk00B4
