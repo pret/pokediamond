@@ -64,6 +64,15 @@ typedef struct ScrCmdUnkStruct01D9 {
     u16 unk06;
 } ScrCmdUnkStruct01D9; //todo identify and move to own file
 
+typedef struct StarterSelectionData {
+    s32 state;
+    struct Options *options;
+} StarterSelectionData; //todo move to own file
+
+typedef struct BagScreenAppData {
+
+} BagScreenAppData; //todo fill out and move to own file
+
 typedef struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;

@@ -3,10 +3,10 @@
 #include "message_format.h"
 #include "math_util.h"
 #include "unk_020286F8.h"
+#include "unk_020377F0.h"
 
 extern void* FieldSysGetAttrAddr(struct FieldSystem*, u8 idx);
 
-extern void FUN_020385CC(struct TaskManager *, u32, u32, u32, u32, u16*, u16* ret_ptr);
 extern BOOL FUN_020612EC(struct FieldSystem*);
 extern BOOL FUN_020612F8(struct FieldSystem*);
 
@@ -51,7 +51,7 @@ BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
         u16* unk_str_ptr = FUN_020287A8(unk_sav_ptr, 0, 0);
         u16* ret_ptr = ScriptGetVarPointer(ctx);
 
-        FUN_020385CC(ctx->taskManager, 5, 0, 7, 0, unk_str_ptr, ret_ptr);
+        CreateNamingScreen(ctx->taskManager, NAMINGSCREEN_GROUP, 0, PLAYER_NAME_LENGTH, 0, unk_str_ptr, ret_ptr); //should be GROUP_NAME_LENGTH?
         return TRUE;
     }
     case 5: { //enter in group id (whatever this means, needs more investigation)

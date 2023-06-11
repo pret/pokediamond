@@ -329,13 +329,13 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_InitHallOfFame
 	.word ScrCmd_Unk00B2
 	.word ScrCmd_Unk00B3
-	.word ScrCmd_Unk00B4
-	.word ScrCmd_Unk00B5
+	.word ScrCmd_StarterSelectionScreen
+	.word ScrCmd_EndStarterSelectionScreen
 	.word ScrCmd_Unk00B6
 	.word ScrCmd_Unk00B7
 	.word ScrCmd_Unk00B8
 	.word ScrCmd_Unk00B9
-	.word ScrCmd_Unk00BA
+	.word ScrCmd_NamePlayerScreen
 	.word ScrCmd_Unk00BB
 	.word ScrCmd_Unk00BC
 	.word ScrCmd_Unk00BD
@@ -525,8 +525,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0175
 	.word ScrCmd_Unk0176
 	.word ScrCmd_CountPartyMons
-	.word ScrCmd_Unk0178
-	.word ScrCmd_Unk0179
+	.word ScrCmd_ShowBagScreen
+	.word ScrCmd_GetBagScreenSelection
 	.word ScrCmd_Unk017A
 	.word ScrCmd_GetBerryName
 	.word ScrCmd_GetNatureName

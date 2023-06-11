@@ -65,7 +65,7 @@ struct TrainerData
 struct TrainerDataLoaded
 {
     struct TrainerData data;
-    u16 name[OT_NAME_LENGTH + 1];
+    u16 name[PLAYER_NAME_LENGTH + 1];
     u8 padding[16];
 };
 

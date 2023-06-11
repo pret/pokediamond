@@ -3,7 +3,7 @@
 
 #include "save_block_2.h"
 
-struct ScriptState
+struct ScriptState //todo this is not a very good name
 {
     u16 vars[288];
     u8 flags[364];

@@ -17,6 +17,8 @@
 #include "text.h"
 #include "text_02054590.h"
 #include "unk_0200CA44.h"
+#include "unk_020337E8.h"
+#include "unk_020377F0.h"
 #include "unk_0204AF24.h"
 #include "unk_0205EC84.h"
 #include "unk_0208890C.h"
@@ -139,6 +141,12 @@ extern void FUN_020383D8(TaskManager *taskManager);
 extern void *FUN_0203842C(FieldSystem *fieldSystem);
 extern void Task_GameClear(TaskManager *taskManager);
 extern HallOfFame *FUN_02038824(FieldSystem *fieldSystem);
+extern void FUN_020386E0(FieldSystem *fieldSystem, u16 param1);
+extern void FUN_0206F3D8(TaskManager *taskManager, u16 *param1);
+extern void FUN_020386A4(FieldSystem *fieldSystem, StarterSelectionData *starterSelectionData); 
+extern void FUN_0205F378(struct ScriptState *flags, u16 state);
+extern BagScreenAppData *FUN_0203789C(FieldSystem *fieldSystem, u8 mode);
+extern u16 FUN_020378FC(BagScreenAppData *bagScreenAppData);
 
 u8 UNK_021C5A0C[4];
 
@@ -2266,5 +2274,71 @@ BOOL ScrCmd_InitHallOfFame(ScriptContext *ctx) { //00B1
     HallOfFame **hallOfFameData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
     *hallOfFameData = FUN_02038824(ctx->fieldSystem);
     SetupNativeScript(ctx, FUN_0203BB90);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk00B2(ScriptContext *ctx) { //00B2
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 *unk1 = ScriptGetVarPointer(ctx);
+    if (FUN_0203384C(ctx->fieldSystem->saveBlock2)) {
+        *unk1 = 1;
+        FUN_020386E0(ctx->fieldSystem, unk0);
+        SetupNativeScript(ctx, FUN_0203BC04);
+    }
+    else {
+        *unk1 = 0;
+    }
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk00B3(ScriptContext *ctx) { //00B3
+    u16 *var = ScriptGetVarPointer(ctx);
+    FUN_0206F3D8(ctx->taskManager, var);
+    return TRUE;
+}
+
+BOOL ScrCmd_StarterSelectionScreen(ScriptContext *ctx) { //00B4
+    StarterSelectionData **starterSelectionPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    *starterSelectionPtr = AllocFromHeap(11, sizeof(StarterSelectionData));
+    StarterSelectionData *starterSelectionData = *starterSelectionPtr; //consider inlining
+    starterSelectionData->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2);
+    FUN_020386A4(ctx->fieldSystem, *starterSelectionPtr);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
+
+BOOL ScrCmd_EndStarterSelectionScreen(ScriptContext *ctx) { //00B5
+    StarterSelectionData **starterSelectionData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MISC_DATA_PTR);
+    struct ScriptState *flags = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    FUN_0205F378(flags, (*starterSelectionData)->state);
+    FreeToHeap(*starterSelectionData);
+    return FALSE;
+}
+
+BOOL ScrCmd_ShowBagScreen(ScriptContext *ctx) { //0178
+    BagScreenAppData **bagData; //required for matching
+    u8 mode = ScriptReadByte(ctx) != 0 ? 1 : 0;
+    bagData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+
+    GF_ASSERT(*bagData == NULL);
+    *bagData = FUN_0203789C(ctx->fieldSystem, mode); //BagData_New?
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
+
+BOOL ScrCmd_GetBagScreenSelection(ScriptContext *ctx) { //0179
+    u16 *var = ScriptGetVarPointer(ctx);
+    BagScreenAppData **bagData = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+
+    GF_ASSERT(*bagData != NULL);
+    *var = FUN_020378FC(*bagData); //BagData_GetSelection?
+    FreeToHeap(*bagData);
+    *bagData = NULL;
+    return FALSE;
+}
+
+BOOL ScrCmd_NamePlayerScreen(ScriptContext *ctx) { //00BA
+    u16 *var = ScriptGetVarPointer(ctx);
+    CreateNamingScreen(ctx->taskManager, NAMINGSCREEN_PLAYER, 0, PLAYER_NAME_LENGTH, 0, NULL, var);
     return TRUE;
 }

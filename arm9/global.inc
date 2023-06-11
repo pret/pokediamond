@@ -2653,7 +2653,7 @@
 .extern FUN_020383F8
 .extern FUN_0203842C
 .extern FUN_0203846C
-.extern FUN_020385CC
+.extern CreateNamingScreen
 .extern FUN_02038680
 .extern FUN_02038690
 .extern FUN_020386A4
@@ -2860,11 +2860,11 @@
 .extern ScrCmd_InitHallOfFame
 .extern ScrCmd_Unk00B2
 .extern ScrCmd_Unk00B3
-.extern ScrCmd_Unk00B4
-.extern ScrCmd_Unk00B5
-.extern ScrCmd_Unk0178
-.extern ScrCmd_Unk0179
-.extern ScrCmd_Unk00BA
+.extern ScrCmd_StarterSelectionScreen
+.extern ScrCmd_EndStarterSelectionScreen
+.extern ScrCmd_ShowBagScreen
+.extern ScrCmd_GetBagScreenSelection
+.extern ScrCmd_NamePlayerScreen
 .extern ScrCmd_Unk00BB
 .extern ScrCmd_Unk0271
 .extern ScrCmd_Unk0243

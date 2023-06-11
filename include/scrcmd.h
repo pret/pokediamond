@@ -194,6 +194,13 @@ BOOL ScrCmd_Unk00AE(ScriptContext *ctx);
 BOOL ScrCmd_Unk00AF(ScriptContext *ctx);
 BOOL ScrCmd_ShowEndGameScreen(ScriptContext *ctx);
 BOOL ScrCmd_InitHallOfFame(ScriptContext *ctx);
+BOOL ScrCmd_Unk00B2(ScriptContext *ctx);
+BOOL ScrCmd_Unk00B3(ScriptContext *ctx);
+BOOL ScrCmd_StarterSelectionScreen(ScriptContext *ctx);
+BOOL ScrCmd_EndStarterSelectionScreen(ScriptContext *ctx);
+BOOL ScrCmd_ShowBagScreen(ScriptContext *ctx);
+BOOL ScrCmd_GetBagScreenSelection(ScriptContext *ctx);
+BOOL ScrCmd_NamePlayerScreen(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

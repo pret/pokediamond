@@ -68,13 +68,13 @@ void PlayerProfile_Init(struct PlayerData * data)
 
 void CopyPlayerName(u16 * dest, struct PlayerData * data)
 {
-    GF_ASSERT((s32)StringLength(data->playerName) < OT_NAME_LENGTH + 1);
+    GF_ASSERT((s32)StringLength(data->playerName) < PLAYER_NAME_LENGTH + 1);
     CopyU16StringArray(dest, data->playerName);
 }
 
 void PlayerName_StringToFlat(struct PlayerData * data, struct String * str)
 {
-    CopyStringToU16Array(str, data->playerName, OT_NAME_LENGTH + 1);
+    CopyStringToU16Array(str, data->playerName, PLAYER_NAME_LENGTH + 1);
 }
 
 u16 * PlayerProfile_GetNamePtr(struct PlayerData * data)
@@ -89,7 +89,7 @@ void PlayerName_FlatToString(struct PlayerData * data, struct String * str)
 
 struct String * PlayerProfile_GetPlayerName_NewString(struct PlayerData * data, u32 heap_id)
 {
-    struct String * str = String_New(OT_NAME_LENGTH + 1, heap_id);
+    struct String * str = String_New(PLAYER_NAME_LENGTH + 1, heap_id);
     PlayerName_FlatToString(data, str);
     return str;
 }
@@ -226,5 +226,5 @@ BOOL PlayerProfile_GetNatDexFlag(struct PlayerData * data)
 
 BOOL PlayerProfile_NameAndOTIDMatchPlayer(struct PlayerData * a, struct PlayerData * b)
 {
-    return !StringNotEqualN(a->playerName, b->playerName, OT_NAME_LENGTH) && a->playerId == b->playerId;
+    return !StringNotEqualN(a->playerName, b->playerName, PLAYER_NAME_LENGTH) && a->playerId == b->playerId;
 }
