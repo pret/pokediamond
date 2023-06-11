@@ -147,6 +147,7 @@ extern void FUN_020386A4(FieldSystem *fieldSystem, StarterSelectionData *starter
 extern void FUN_0205F378(struct ScriptState *flags, u16 state);
 extern BagScreenAppData *FUN_0203789C(FieldSystem *fieldSystem, u8 mode);
 extern u16 FUN_020378FC(BagScreenAppData *bagScreenAppData);
+extern void FUN_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u32 param3);
 
 u8 UNK_021C5A0C[4];
 
@@ -2340,5 +2341,38 @@ BOOL ScrCmd_GetBagScreenSelection(ScriptContext *ctx) { //0179
 BOOL ScrCmd_NamePlayerScreen(ScriptContext *ctx) { //00BA
     u16 *var = ScriptGetVarPointer(ctx);
     CreateNamingScreen(ctx->taskManager, NAMINGSCREEN_PLAYER, 0, PLAYER_NAME_LENGTH, 0, NULL, var);
+    return TRUE;
+}
+
+BOOL ScrCmd_NamePokemonScreen(ScriptContext *ctx) { //00BB
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+
+    u16 partyPos = ScriptGetVar(ctx);
+    PlayerParty *party = SaveArray_PlayerParty_Get(fieldSystem->saveBlock2);
+    Pokemon *mon = GetPartyMonByIndex(party, partyPos);
+
+    u16 monNick[20];
+    GetMonData(mon, MON_DATA_NICKNAME, monNick);
+
+    u16 *var = ScriptGetVarPointer(ctx);
+
+    s32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+
+    CreateNamingScreen(ctx->taskManager, NAMINGSCREEN_POKEMON, species, POKEMON_NAME_LENGTH, partyPos, monNick, var);
+    return TRUE;
+}
+
+BOOL ScrCmd_WriteWhiteRockInscription(ScriptContext *ctx) { //0271
+    u16 *var = ScriptGetVarPointer(ctx);
+    CreateNamingScreen(ctx->taskManager, NAMINGSCREEN_SHAYMIN_ROCK, 0, POKEMON_NAME_LENGTH, 0, NULL, var);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk0243(ScriptContext *ctx) { //0243
+    u16 unused = ScriptGetVar(ctx);
+    u16 *unk1 = ScriptGetVarPointer(ctx);
+    u16 *unk2 = ScriptGetVarPointer(ctx);
+    *unk2 = 0xFFFF;
+    FUN_02037E18(ctx->fieldSystem->taskManager, unk1, unk2, 0);
     return TRUE;
 }

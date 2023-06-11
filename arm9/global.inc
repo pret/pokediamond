@@ -2865,8 +2865,8 @@
 .extern ScrCmd_ShowBagScreen
 .extern ScrCmd_GetBagScreenSelection
 .extern ScrCmd_NamePlayerScreen
-.extern ScrCmd_Unk00BB
-.extern ScrCmd_Unk0271
+.extern ScrCmd_NamePokemonScreen
+.extern ScrCmd_WriteWhiteRockInscription
 .extern ScrCmd_Unk0243
 .extern ScrCmd_Unk0244
 .extern ScrCmd_Unk0245

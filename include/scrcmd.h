@@ -201,6 +201,9 @@ BOOL ScrCmd_EndStarterSelectionScreen(ScriptContext *ctx);
 BOOL ScrCmd_ShowBagScreen(ScriptContext *ctx);
 BOOL ScrCmd_GetBagScreenSelection(ScriptContext *ctx);
 BOOL ScrCmd_NamePlayerScreen(ScriptContext *ctx);
+BOOL ScrCmd_NamePokemonScreen(ScriptContext *ctx);
+BOOL ScrCmd_WriteWhiteRockInscription(ScriptContext *ctx);
+BOOL ScrCmd_Unk0243(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

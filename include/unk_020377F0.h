@@ -37,6 +37,7 @@ enum NamingScreenType {
     NAMINGSCREEN_BOX,
     NAMINGSCREEN_RIVAL,
     NAMINGSCREEN_GROUP = 5,
+    NAMINGSCREEN_SHAYMIN_ROCK = 6,
 };
 
 void CreateNamingScreen(TaskManager *taskManager, enum NamingScreenType type, s32 param2, s32 maxLen, s32 initPos, const u16 *defaultStr, u16 *retVar);

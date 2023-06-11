@@ -336,7 +336,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk00B8
 	.word ScrCmd_Unk00B9
 	.word ScrCmd_NamePlayerScreen
-	.word ScrCmd_Unk00BB
+	.word ScrCmd_NamePokemonScreen
 	.word ScrCmd_Unk00BC
 	.word ScrCmd_Unk00BD
 	.word ScrCmd_Unk00BE
@@ -774,7 +774,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk026E
 	.word ScrCmd_Unk026F
 	.word ScrCmd_Unk0270
-	.word ScrCmd_Unk0271
+	.word ScrCmd_WriteWhiteRockInscription
 	.word ScrCmd_GetWhiteRockInscription
 	.word ScrCmd_Unk0273
 	.word ScrCmd_HasEnoughCoinsImmediate
