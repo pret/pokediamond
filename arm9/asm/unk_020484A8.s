@@ -129,7 +129,7 @@ _02048556:
 	str r0, [r4, #0x0]
 	b _02048688
 _02048586:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02048688
 	ldr r0, [r6, #0xc]
@@ -218,7 +218,7 @@ _02048624:
 	str r0, [r4, #0x0]
 	b _02048688
 _02048644:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02048688
 	add r0, r6, #0x0

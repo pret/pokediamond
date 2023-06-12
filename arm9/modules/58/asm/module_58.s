@@ -165,7 +165,7 @@ MOD58_021D9B8C: ; 0x021D9B8C
 	beq _021D9BD2
 	b _021D9BDE
 _021D9BA6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9BDE
 	mov r0, #1
@@ -188,7 +188,7 @@ _021D9BC8:
 	bl MOD58_021DAB34
 	b _021D9BDE
 _021D9BD2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9BDE
 	mov r0, #1

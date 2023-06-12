@@ -207,6 +207,7 @@ BOOL ScrCmd_Unk0243(ScriptContext *ctx);
 BOOL ScrCmd_Unk0244(ScriptContext *ctx);
 BOOL ScrCmd_Unk0245(ScriptContext *ctx);
 BOOL ScrCmd_FadeScreen(ScriptContext *ctx);
+BOOL ScrCmd_WaitFadeScreen(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

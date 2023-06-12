@@ -123,7 +123,7 @@ _021E7584:
 	pop {r4, r5, r6, r7, pc}
 _021E75EA:
 	ble _021E7606
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021E7606
 	ldr r0, [r5, #4]
@@ -258,7 +258,7 @@ _021E770E:
 	str r0, [r5, #8]
 	pop {r3, r4, r5, r6, r7, pc}
 _021E771C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021E7740
 	ldr r0, [r5]

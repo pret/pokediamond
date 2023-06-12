@@ -179,7 +179,7 @@ _021D7622:
 	bl FUN_02079A70
 	b _021D7662
 _021D7654:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7662
 	add sp, #0x3c

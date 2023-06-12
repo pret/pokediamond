@@ -187,7 +187,7 @@ _021D7684: ; jump table
 	.short _021D7702 - _021D7684 - 2 ; case 2
 	.short _021D771A - _021D7684 - 2 ; case 3
 _021D768C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7726
 	mov r0, #1
@@ -255,7 +255,7 @@ _021D7702:
 	str r0, [r5]
 	b _021D7726
 _021D771A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7726
 	mov r0, #1

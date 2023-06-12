@@ -708,7 +708,7 @@
 .extern DrawPokemonPicFromMon
 .extern BeginNormalPaletteFade
 .extern FUN_0200E2D8
-.extern FUN_0200E308
+.extern IsPaletteFadeFinished
 .extern FUN_0200E31C
 .extern FUN_0200E388
 .extern SetMasterBrightnessNeutral
@@ -2871,7 +2871,7 @@
 .extern ScrCmd_Unk0244
 .extern ScrCmd_Unk0245
 .extern ScrCmd_FadeScreen
-.extern ScrCmd_Unk00BD
+.extern ScrCmd_WaitFadeScreen
 .extern ScrCmd_Unk00BE
 .extern ScrCmd_Unk0203
 .extern ScrCmd_Unk0204

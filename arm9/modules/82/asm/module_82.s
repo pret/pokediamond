@@ -797,7 +797,7 @@ _0222DBCC:
 	str r0, [r4]
 	b _0222DC24
 _0222DBE0:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222DC24
 	mov r0, #3
@@ -815,7 +815,7 @@ _0222DBEE:
 	str r0, [r4]
 	b _0222DC24
 _0222DC02:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222DC24
 	ldr r3, [r5, #0x10]

@@ -364,7 +364,7 @@ const u8 MOD59_021D9FE8[0x64] =
     };
 
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
-extern u32 FUN_0200E308(void);
+extern BOOL IsPaletteFadeFinished(void);
 
 extern u32 FUN_020142EC(u32 param0, u32 param1, u32 param2, u32 heap_id);
 
@@ -425,8 +425,8 @@ BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
             GX_DisableEngineALayers();
             GX_DisableEngineBLayers();
 
-            reg_GX_DISPCNT = reg_GX_DISPCNT & 0xFFFFE0FF;
-            reg_GXS_DB_DISPCNT = reg_GXS_DB_DISPCNT & 0xFFFFE0FF;
+            GX_SetVisiblePlane(0);
+            GXS_SetVisiblePlane(0);
 
             SetKeyRepeatTimers(4, 8);
 
@@ -459,8 +459,8 @@ BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
 
             break;
 
-        case 2:
-            if (FUN_0200E308() != 1)
+        case 2: //wait for fade, cleanup
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -474,8 +474,8 @@ BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
             ret = TRUE;
             break;
 
-        case 3:
-            if (FUN_0200E308() != 1)
+        case 3: //wait for fade, cleanup
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -1864,8 +1864,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 1;
             break;
 
-        case 1: //some kinda of wait/fade?
-            if (FUN_0200E308() != 1)
+        case 1: //wait for fade, and wait 40 ticks
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -1896,8 +1896,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 4;
             break;
 
-        case 4: //??
-            if (FUN_0200E308() != 1)
+        case 4: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -1949,8 +1949,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 9;
             break;
 
-        case 9: //Clear screen of rowan
-            if (FUN_0200E308() != 1)
+        case 9: //wait for fade and clear screen of rowan
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -1968,8 +1968,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 11;
             break;
 
-        case 11: //??
-            if (FUN_0200E308() != 1)
+        case 11: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2100,8 +2100,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 25;
             break;
 
-        case 25: //graphics adjust
-            if (FUN_0200E308() != 1)
+        case 25: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2142,8 +2142,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 29;
             break;
 
-        case 29: //graphics adjust
-            if (FUN_0200E308() != 1)
+        case 29: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2167,8 +2167,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 32;
             break;
 
-        case 32: // ??
-            if (FUN_0200E308() != 1)
+        case 32: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2228,8 +2228,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 40;
             break;
 
-        case 40:
-            if (FUN_0200E308() != 1)
+        case 40: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2259,8 +2259,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 44;
             break;
 
-        case 44: //display pokeball button, fade from black
-            if (FUN_0200E308() != 1)
+        case 44: //wait for fade, display pokeball button, fade from black
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2272,8 +2272,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 45;
             break;
 
-        case 45:
-            if (FUN_0200E308() != 1)
+        case 45: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2618,8 +2618,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 78;
             break;
 
-        case 78: //graphics adjust
-            if (FUN_0200E308() != 1)
+        case 78: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2792,8 +2792,8 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 94;
             break;
 
-        case 94: //graphics adjust
-            if (FUN_0200E308() != 1)
+        case 94: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2931,7 +2931,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 109;
             break;
 
-        case 109:
+        case 109: //return
             ret = TRUE;
             break;
     }

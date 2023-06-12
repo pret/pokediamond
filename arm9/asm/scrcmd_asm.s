@@ -10,29 +10,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk00BD
-ScrCmd_Unk00BD: ; 0x0203C70C
-	push {r3, lr}
-	ldr r1, _0203C718 ; =FUN_0203C71C
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r3, pc}
-	.balign 4
-_0203C718: .word FUN_0203C71C 
-
-	thumb_func_start FUN_0203C71C
-FUN_0203C71C: ; 0x0203C71C
-	push {r3, lr}
-	bl FUN_0200E308
-	cmp r0, #0x1
-	bne _0203C72A
-	mov r0, #0x1
-	pop {r3, pc}
-_0203C72A:
-	mov r0, #0x0
-	pop {r3, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk00BE
 ScrCmd_Unk00BE: ; 0x0203C730
 	push {r3-r7, lr}

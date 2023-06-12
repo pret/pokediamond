@@ -441,7 +441,7 @@ MOD56_02212164: ; 0x02212164
 	beq _022121A2
 	b _022121AE
 _0221217E:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _022121AE
 	mov r0, #1
@@ -460,7 +460,7 @@ _0221218C:
 	str r0, [r5]
 	b _022121AE
 _022121A2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _022121AE
 	mov r0, #1

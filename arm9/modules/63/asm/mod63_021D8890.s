@@ -1164,7 +1164,7 @@ _021D91CE:
 	strb r0, [r4, #1]
 	b _021D9208
 _021D91FA:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9208
 	add sp, #0xc
@@ -2253,7 +2253,7 @@ _021D9AEE:
 	ldr r0, [r4, #0x10]
 	add r1, r5, #0
 	bl MOD63_021DAD6C
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9B0C
 	ldr r0, _021D9DDC ; =0x0000064A
@@ -2286,7 +2286,7 @@ _021D9B0E:
 _021D9B3E:
 	add r0, r4, #0
 	bl MOD63_021D9EE0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9C12
 	ldr r0, _021D9DE0 ; =0x000006B3
@@ -2308,7 +2308,7 @@ _021D9B3E:
 	strb r0, [r4, #1]
 	b _021D9EA0
 _021D9B72:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9C12
 	mov r1, #0
@@ -2347,7 +2347,7 @@ _021D9B72:
 _021D9BC8:
 	add r0, r4, #0
 	bl MOD63_021D9F20
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9C12
 	ldr r0, [r4, #0x18]
@@ -2372,7 +2372,7 @@ _021D9BC8:
 	strb r0, [r4, #1]
 	b _021D9EA0
 _021D9C04:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9C12
 	ldr r0, _021D9DE8 ; =0x00000721
@@ -2423,7 +2423,7 @@ _021D9C14:
 _021D9C70:
 	add r0, r4, #0
 	bl MOD63_021D9F20
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9D46
 	ldr r0, _021D9DE8 ; =0x00000721
@@ -2452,7 +2452,7 @@ _021D9C70:
 	strb r0, [r4, #1]
 	b _021D9EA0
 _021D9CB4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9D46
 	ldr r0, [r4, #0x10]
@@ -2486,7 +2486,7 @@ _021D9CB4:
 _021D9CFC:
 	add r0, r4, #0
 	bl MOD63_021D9F20
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9D46
 	ldr r0, [r4, #0x18]
@@ -2511,7 +2511,7 @@ _021D9CFC:
 	strb r0, [r4, #1]
 	b _021D9EA0
 _021D9D38:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9D46
 	ldr r0, _021D9DF0 ; =0x000007F8
@@ -2555,7 +2555,7 @@ _021D9D48:
 _021D9D94:
 	add r0, r4, #0
 	bl MOD63_021D9F00
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9EA0
 	ldr r0, _021D9DF4 ; =0x00000861
@@ -2591,7 +2591,7 @@ _021D9DEC: .word 0x00000785
 _021D9DF0: .word 0x000007F8
 _021D9DF4: .word 0x00000861
 _021D9DF8:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9EA0
 	mov r1, #0
@@ -2628,7 +2628,7 @@ _021D9DF8:
 _021D9E48:
 	add r0, r4, #0
 	bl MOD63_021D9F20
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9EA0
 	ldr r0, [r4, #0x18]
@@ -2655,7 +2655,7 @@ _021D9E48:
 _021D9E84:
 	add r0, r4, #0
 	bl MOD63_021D9F20
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9EA0
 	ldrb r0, [r4, #1]
@@ -3256,7 +3256,7 @@ _021DA32E:
 	strb r0, [r4, #1]
 	b _021DA3EC
 _021DA352:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DA3EC
 	ldrb r0, [r4, #1]
@@ -3324,7 +3324,7 @@ _021DA3AE:
 	b _021DA3EC
 _021DA3DA:
 	bl MOD63_021DA504
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DA3EC
 	add sp, #0xc

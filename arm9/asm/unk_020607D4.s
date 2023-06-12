@@ -335,7 +335,7 @@ _02060A4E:
 	strb r0, [r4, #0x0]
 	b _02060B00
 _02060A74:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02060A84
 	bl FUN_02005404

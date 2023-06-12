@@ -621,7 +621,7 @@ _021D7984:
 	str r0, [r4]
 	b _021D79BA
 _021D79AC:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D79BA
 	add sp, #0xc
@@ -664,7 +664,7 @@ _021D79D4:
 	str r0, [r4]
 	b _021D7A14
 _021D79FA:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7A14
 	add r0, r5, #0

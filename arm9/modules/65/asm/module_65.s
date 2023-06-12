@@ -162,7 +162,7 @@ _021D7602:
 	b _021D76C4
 _021D761C:
 	bl MOD65_021D8954
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _021D76C4
 	add sp, #0xc
@@ -197,7 +197,7 @@ _021D7648:
 	b _021D76C4
 _021D7664:
 	bl MOD65_021D8954
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _021D76C4
 	add sp, #0xc
@@ -2830,7 +2830,7 @@ _021D8AF8:
 	bl BeginNormalPaletteFade
 	b _021D8BA4
 _021D8B12:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _021D8BA4
 	add sp, #0xc
@@ -2858,7 +2858,7 @@ _021D8B30:
 	bl BeginNormalPaletteFade
 	b _021D8BA4
 _021D8B4A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _021D8BA4
 	add sp, #0xc

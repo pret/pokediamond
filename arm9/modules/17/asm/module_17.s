@@ -2193,7 +2193,7 @@ _021D8532:
 	str r0, [r5]
 	b _021D8710
 _021D854E:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D85BA
 	ldr r0, [r5]
@@ -2400,7 +2400,7 @@ _021D86D4:
 	str r0, [r5]
 	b _021D8710
 _021D86F2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D8710
 	add r0, r6, #0
@@ -2899,7 +2899,7 @@ _021D8B1C:
 	str r0, [r4]
 	b _021D8C64
 _021D8B3A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _021D8B44
 _021D8B42:
@@ -3015,7 +3015,7 @@ _021D8C04:
 	str r0, [r4]
 	b _021D8C64
 _021D8C34:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D8C64
 	add r0, r6, #0
@@ -13920,7 +13920,7 @@ _021DDC7E:
 	str r0, [r4]
 	b _021DDCEA
 _021DDC9C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DDCEA
 	ldr r0, [r4]
@@ -13953,7 +13953,7 @@ _021DDCBC:
 	str r0, [r4]
 	b _021DDCEA
 _021DDCDC:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DDCEA
 	add sp, #0xc

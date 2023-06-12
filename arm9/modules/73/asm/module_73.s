@@ -374,7 +374,7 @@ _021D77C6:
 	str r0, [r4]
 	b _021D77F4
 _021D77E4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D77F4
 	ldr r0, [r5, #0xc]
@@ -819,7 +819,7 @@ _021D7B6C:
 	str r0, [r5]
 	b _021D7C60
 _021D7B98:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7C60
 	ldr r0, [r5]
@@ -1003,7 +1003,7 @@ _021D7CD2:
 	str r0, [r5]
 	b _021D7F3E
 _021D7D2E:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7E12
 	ldr r0, [r5]
@@ -1389,7 +1389,7 @@ _021D8010:
 	str r0, [r5]
 	b _021D8056
 _021D8030:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D8056
 	ldr r0, [r5]

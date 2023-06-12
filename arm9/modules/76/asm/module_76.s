@@ -558,7 +558,7 @@ MOD76_021D7938: ; 0x021D7938
 MOD76_021D795C: ; 0x021D795C
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D7970
 	mov r0, #6

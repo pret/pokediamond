@@ -3,7 +3,7 @@
 #include "unk_0204AF24.h"
 
 extern void FUN_02037394(struct FieldSystem *);
-extern u32 FUN_0200E308(void);
+extern u32 IsPaletteFadeFinished(void);
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
 extern void MOD05_021E331C(struct FieldSystem *);
 
@@ -52,7 +52,7 @@ void FUN_0204AF84(struct TaskManager *taskManager) //TODO: RestoreOverworld
 BOOL FUN_0204AFB4(struct TaskManager *taskManager)
 {
 #pragma unused(taskManager)
-    if(FUN_0200E308())
+    if(IsPaletteFadeFinished())
     {
         return TRUE;
     }

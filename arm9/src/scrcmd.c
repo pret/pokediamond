@@ -151,6 +151,7 @@ extern u16 FUN_020378FC(BagScreenAppData *bagScreenAppData);
 extern void FUN_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u16 *param3);
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
 extern void FUN_0200E388(u32 param0);
+extern BOOL IsPaletteFadeFinished(void);
 
 u8 UNK_021C5A0C[4];
 
@@ -182,6 +183,7 @@ static BOOL FUN_0203BBBC(ScriptContext *ctx);
 static BOOL CheckPortraitSlotFullInternal(struct FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
 static FashionAppData *FUN_0203BC6C(u32 heapId, struct FieldSystem *fieldSystem, BOOL isContest, u32 portraitSlot);
 static BOOL FUN_0203BE9C(ScriptContext *ctx);
+static BOOL FUN_0203C71C(ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -2399,7 +2401,7 @@ BOOL ScrCmd_Unk0245(ScriptContext *ctx) { //0245
     return FALSE;
 }
 
-BOOL ScrCmd_FadeScreen(ScriptContext *ctx) { //00BC
+BOOL ScrCmd_FadeScreen(ScriptContext *ctx) { //00BC8
     u16 duration = ScriptReadHalfword(ctx);
     u16 speed = ScriptReadHalfword(ctx);
     u16 type = ScriptReadHalfword(ctx);
@@ -2408,4 +2410,13 @@ BOOL ScrCmd_FadeScreen(ScriptContext *ctx) { //00BC
     FUN_0200E388(0);
     FUN_0200E388(1);
     return FALSE;
+}
+
+BOOL ScrCmd_WaitFadeScreen(ScriptContext *ctx) { //00BD
+    SetupNativeScript(ctx, FUN_0203C71C);
+    return TRUE;
+}
+
+static BOOL FUN_0203C71C(ScriptContext *ctx) {
+    return IsPaletteFadeFinished() == TRUE;
 }

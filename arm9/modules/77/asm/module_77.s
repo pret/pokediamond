@@ -199,7 +199,7 @@ _021D764C:
 	str r0, [r5]
 	b _021D7B66
 _021D76A8:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D7780
 	mov r0, #2
@@ -757,7 +757,7 @@ _021D7B1C:
 	str r0, [r5]
 	b _021D7B66
 _021D7B3E:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D7B66
 	ldr r0, _021D7BA4 ; =0x0000C2E8

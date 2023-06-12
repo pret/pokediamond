@@ -177,7 +177,7 @@ _021D7620:
 	str r0, [r5]
 	b _021D7668
 _021D765A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7668
 	add sp, #0x14
@@ -458,14 +458,14 @@ _021D7874:
 	str r0, [r5]
 	b _021D7920
 _021D789C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7920
 	add sp, #0xc
 	mov r0, #1
 	pop {r4, r5, pc}
 _021D78AA:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7920
 	ldr r0, _021D7934 ; =0x00001228
@@ -516,7 +516,7 @@ _021D78BE:
 	str r0, [r5]
 	b _021D7920
 _021D7914:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7920
 	mov r0, #5

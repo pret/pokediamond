@@ -468,7 +468,7 @@ MOD67_021D78AC: ; 0x021D78AC
 	thumb_func_start MOD67_021D78C4
 MOD67_021D78C4: ; 0x021D78C4
 	push {r3, lr}
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D78D2
 	mov r0, #1
@@ -708,10 +708,10 @@ _021D7AA4: .word 0x0000105F
 
 	thumb_func_start MOD67_021D7AA8
 MOD67_021D7AA8: ; 0x021D7AA8
-	ldr r3, _021D7AAC ; =FUN_0200E308
+	ldr r3, _021D7AAC ; =IsPaletteFadeFinished
 	bx r3
 	.align 2, 0
-_021D7AAC: .word FUN_0200E308
+_021D7AAC: .word IsPaletteFadeFinished
 	thumb_func_end MOD67_021D7AA8
 
 	thumb_func_start MOD67_021D7AB0

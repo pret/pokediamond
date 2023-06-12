@@ -1563,7 +1563,7 @@ _0222E180:
 	bl MOD80_0222E7F0
 	b _0222E224
 _0222E1A4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222E224
 	mov r0, #3
@@ -1581,7 +1581,7 @@ _0222E1B2:
 	str r0, [r5]
 	b _0222E224
 _0222E1C6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222E224
 	add r0, r4, #0
@@ -3186,7 +3186,7 @@ MOD80_0222EE74: ; 0x0222EE74
 MOD80_0222EE98: ; 0x0222EE98
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222EEA8
 	mov r0, #5
@@ -3200,7 +3200,7 @@ _0222EEA8:
 MOD80_0222EEAC: ; 0x0222EEAC
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222EEBC
 	mov r0, #5
@@ -9385,7 +9385,7 @@ _02232124: .word 0x00000B48
 MOD80_02232128: ; 0x02232128
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _02232138
 	mov r0, #1
@@ -12102,7 +12102,7 @@ MOD80_022336C4: ; 0x022336C4
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _022336EC
 	ldr r0, _022336F4 ; =0x00000F0F

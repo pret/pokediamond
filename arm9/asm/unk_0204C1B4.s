@@ -88,7 +88,7 @@ _0204C214:
 	str r0, [r4, #0x0]
 	b _0204C258
 _0204C23C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _0204C258
 	ldr r0, [r5, #0x4]
@@ -585,7 +585,7 @@ _0204C61C:
 	str r0, [r4, #0x4]
 	b _0204C63C
 _0204C630:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _0204C63C
 	mov r0, #0x1
@@ -946,7 +946,7 @@ _0204C904:
 	str r0, [r4, #0x4]
 	b _0204C936
 _0204C922:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _0204C936
 	ldr r0, [r4, #0x4]

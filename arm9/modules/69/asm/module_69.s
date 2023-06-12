@@ -293,7 +293,7 @@ _0222D83A:
 	str r0, [r4]
 	b _0222D866
 _0222D858:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222D866
 	add sp, #0xc
@@ -335,7 +335,7 @@ _0222D87E:
 	str r0, [r4]
 	b _0222D8BC
 _0222D8A6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222D8BC
 	bl FUN_02005404

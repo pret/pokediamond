@@ -1042,7 +1042,7 @@ _0205167A:
 	str r0, [r4, #0x34]
 	b _020517B8
 _02051686:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	bne _02051690
 _0205168E:
@@ -2213,7 +2213,7 @@ _02051F7C:
 	str r0, [r4, #0x28]
 	b _0205203A
 _02051FCC:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _0205203A
 	ldr r0, [r4, #0x28]

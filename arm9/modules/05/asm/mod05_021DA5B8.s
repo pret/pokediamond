@@ -494,7 +494,7 @@ _021DA980:
 	bl MOD05_021DA58C
 	cmp r0, #0
 	beq _021DA9BE
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DA9BE
 	ldr r0, [r5, #0x20]
@@ -510,7 +510,7 @@ _021DA980:
 	mov r0, #1
 	pop {r4, r5, r6, r7, pc}
 _021DA9B0:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DA9BE
 	add sp, #0x84
@@ -843,7 +843,7 @@ _021DAC34:
 	bl MOD05_021DA58C
 	cmp r0, #0
 	beq _021DAC60
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DAC60
 	ldr r0, [r5, #0x4c]
@@ -1044,7 +1044,7 @@ _021DADD8:
 	bl MOD05_021DA58C
 	cmp r0, #0
 	beq _021DAE04
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DAE04
 	ldr r0, [r5, #0x4c]
@@ -1436,7 +1436,7 @@ _021DB0E8:
 	str r0, [r4]
 	b _021DB126
 _021DB106:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DB126
 	ldr r0, [r5, #0x20]
@@ -1508,7 +1508,7 @@ _021DB164:
 	str r0, [r5]
 	b _021DB1B4
 _021DB1A0:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DB1B4
 	add r0, r5, #0
@@ -1572,7 +1572,7 @@ _021DB1F0:
 	str r0, [r4]
 	b _021DB236
 _021DB222:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DB236
 	add r0, r4, #0
@@ -1718,7 +1718,7 @@ _021DB32A:
 	str r0, [r4]
 	b _021DB368
 _021DB348:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DB368
 	ldr r0, [r5, #0x20]
@@ -1830,7 +1830,7 @@ _021DB414:
 	str r0, [r4]
 	b _021DB446
 _021DB432:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021DB446
 	add r0, r4, #0

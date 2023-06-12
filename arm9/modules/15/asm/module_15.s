@@ -3025,7 +3025,7 @@ _021D8B6E:
 	str r0, [r6, #0x14]
 	pop {r4, r5, r6, r7, pc}
 _021D8B90:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D8C2A
 	mov r0, #0x1e
@@ -3177,7 +3177,7 @@ _021D8CC6:
 	str r0, [r4, #0x14]
 	pop {r3, r4, pc}
 _021D8CE6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D8CFE
 	ldr r0, [r4, #0x14]

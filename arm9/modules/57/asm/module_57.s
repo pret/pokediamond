@@ -277,7 +277,7 @@ _021D7732: ; jump table
 	.short _021D7878 - _021D7732 - 2 ; case 3
 	.short _021D7886 - _021D7732 - 2 ; case 4
 _021D773C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _021D7746
 _021D7744:
@@ -428,7 +428,7 @@ _021D7856:
 	bl MOD57_021D88A4
 	b _021D790C
 _021D786A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D790C
 	add sp, #0xc

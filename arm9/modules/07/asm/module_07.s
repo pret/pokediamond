@@ -389,7 +389,7 @@ _02212170: .word MOD07_02212D68
 MOD07_02212174: ; 0x02212174
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _02212184
 	mov r0, #0
@@ -900,7 +900,7 @@ _022125B4:
 	ldrb r0, [r4, r0]
 	cmp r0, #8
 	blo _022125D0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _022125D0
 	ldr r0, _022126AC ; =0x00000B7F
@@ -1609,7 +1609,7 @@ MOD07_02212B64: ; 0x02212B64
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _02212B76
 	mov r0, #0

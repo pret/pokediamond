@@ -10829,7 +10829,7 @@ _02232CC8:
 	bl MOD83_02231DBC
 	b _02232CF4
 _02232CD4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _02232CF4
 	ldr r0, _02232D28 ; =0x00002BE0
@@ -19240,7 +19240,7 @@ _02236D64:
 	bl PlaySE
 	b _02236D90
 _02236D78:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _02236D90
 	ldr r0, [r4, #0x24]
@@ -22986,7 +22986,7 @@ MOD83_022388CC: ; 0x022388CC
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	ldr r5, _022388E0 ; =MOD83_0223BC30
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _022388DE
 	ldr r0, [r5, #8]

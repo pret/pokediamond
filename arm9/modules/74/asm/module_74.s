@@ -103,7 +103,7 @@ _021D7584:
 	str r0, [r4]
 	b _021D760C
 _021D75AA:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D760C
 	ldr r0, [r4]
@@ -137,7 +137,7 @@ _021D75CA:
 	str r0, [r4]
 	b _021D760C
 _021D75EE:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D760C
 	ldr r0, [r4]

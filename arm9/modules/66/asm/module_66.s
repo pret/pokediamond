@@ -751,7 +751,7 @@ _021D7AE4: .word MOD66_021D95D0
 	thumb_func_start MOD66_021D7AE8
 MOD66_021D7AE8: ; 0x021D7AE8
 	push {r3, lr}
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7AF6
 	mov r0, #4
@@ -801,7 +801,7 @@ MOD66_021D7B38: ; 0x021D7B38
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7B76
 	mov r1, #0
@@ -3401,7 +3401,7 @@ _021D8F40:
 	str r0, [r4, #4]
 	pop {r4, r5, r6, pc}
 _021D8F7C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9014
 	mov r0, #1
@@ -3454,7 +3454,7 @@ _021D8F7C:
 	str r0, [r4, #4]
 	pop {r4, r5, r6, pc}
 _021D8FF2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9014
 	mov r0, #0
@@ -3514,7 +3514,7 @@ _021D903C:
 	str r0, [r4, #4]
 	pop {r4, r5, r6, pc}
 _021D9066:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D90E8
 	mov r2, #0
@@ -3556,7 +3556,7 @@ _021D9066:
 	str r0, [r4, #4]
 	pop {r4, r5, r6, pc}
 _021D90C4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D90E8
 	mov r0, #0

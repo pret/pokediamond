@@ -941,7 +941,7 @@ _0207750C: ; jump table (using 16-bit offset)
 	.short _0207755C - _0207750C - 2; case 2
 	.short _0207768A - _0207750C - 2; case 3
 _02077514:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02077550
 	mov r0, #0x1
@@ -1124,7 +1124,7 @@ _02077636:
 	bl FUN_02078E3C
 	b _02077698
 _0207768A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02077698
 	add sp, #0x10

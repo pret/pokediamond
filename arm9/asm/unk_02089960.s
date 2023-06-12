@@ -391,7 +391,7 @@ _02089C3C:
 	str r0, [r4, #0x4]
 	b _02089CC2
 _02089C68:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _02089CC2
 	mov r0, #0x3
@@ -419,7 +419,7 @@ _02089C76:
 	str r0, [r4, #0x4]
 	b _02089CC2
 _02089CA2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _02089CC2
 	add r0, r5, #0x0

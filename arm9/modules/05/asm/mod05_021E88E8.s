@@ -489,7 +489,7 @@ _021E8CB2:
 	str r0, [r4]
 	pop {r3, r4, r5, r6, pc}
 _021E8CD4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021E8D16
 	ldr r0, [r4]
@@ -646,7 +646,7 @@ _021E8DE8:
 	str r0, [r4]
 	pop {r3, r4, r5, r6, pc}
 _021E8E0A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021E8E4C
 	ldr r0, [r4]
@@ -896,7 +896,7 @@ _021E8FDC:
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
 	bl Camera_SetDistance
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021E9026
 	ldr r0, [r4]
@@ -1031,7 +1031,7 @@ _021E90EC:
 	ldr r0, [r5, #4]
 	ldr r1, [r5]
 	bl Camera_SetDistance
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021E9136
 	ldr r0, [r4]
@@ -2212,7 +2212,7 @@ _021E9A8E:
 	ldr r0, [sp, #0x18]
 	cmp r0, #1
 	bne _021E9B2A
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021E9B2A
 	ldr r0, [r7]
@@ -3219,7 +3219,7 @@ _021EA310:
 	sub r1, r1, #4
 	ldr r1, [r4, r1]
 	bl Camera_SetDistance
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021EA382
 	ldr r0, [r5]
@@ -4097,7 +4097,7 @@ _021EAA38:
 	bl FUN_02020064
 	cmp r6, #1
 	bne _021EAAC6
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021EAAC6
 	ldr r0, [r4]
@@ -4401,7 +4401,7 @@ _021EACC0:
 	str r0, [r6]
 	b _021EAD4C
 _021EACEA:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021EAD4C
 	ldr r0, [r6]
@@ -4771,7 +4771,7 @@ _021EAFAE:
 	str r1, [r0]
 	b _021EB04A
 _021EAFDE:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021EB04A
 	ldr r0, [sp, #0x14]
@@ -5431,7 +5431,7 @@ _021EB534:
 	str r0, [r4]
 	pop {r3, r4, r5, r6, pc}
 _021EB556:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021EB5A0
 	mov r0, #0
@@ -5642,7 +5642,7 @@ _021EB6E8:
 	str r0, [r4]
 	pop {r3, r4, r5, r6, pc}
 _021EB70A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021EB754
 	mov r0, #0
@@ -6121,7 +6121,7 @@ _021EBAAA:
 	ldr r2, [sp, #0x1c]
 	mov r3, #0x40
 	bl MOD05_021E49F0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021EBB72
 	ldr r0, [r5]
@@ -7126,7 +7126,7 @@ _021EC284:
 	ldr r0, [r4, r0]
 	add r1, sp, #0x40
 	bl FUN_02020044
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021EC3A0
 	ldr r0, [r5]

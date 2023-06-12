@@ -312,7 +312,7 @@ MOD12_0222D89C: ; 0x0222D89C
 	beq _0222D986
 	b _0222D994
 _0222D8BE:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _0222D994
 	mov r0, #1
@@ -409,7 +409,7 @@ _0222D93E:
 	bl BeginNormalPaletteFade
 	b _0222D994
 _0222D986:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _0222D994
 	add sp, #0xc
@@ -3420,7 +3420,7 @@ MOD12_0222F19C: ; 0x0222F19C
 _0222F1BE:
 	b _0222F2FA
 _0222F1C0:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	beq _0222F1CA
 	b _0222F2FA
@@ -3563,7 +3563,7 @@ _0222F2A8:
 	bl BeginNormalPaletteFade
 	b _0222F2FA
 _0222F2EC:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _0222F2FA
 	add sp, #0xc
@@ -5285,7 +5285,7 @@ MOD12_02230128: ; 0x02230128
 	beq _0223020E
 	b _0223021C
 _0223014A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _0223021C
 	mov r0, #1
@@ -5380,7 +5380,7 @@ _022301CA:
 	bl BeginNormalPaletteFade
 	b _0223021C
 _0223020E:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _0223021C
 	add sp, #0xc
@@ -41339,7 +41339,7 @@ MOD12_02241490: ; 0x02241490
 	beq _0224156C
 	b _0224157A
 _022414B2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _0224157A
 	ldr r0, _02241580 ; =MOD12_022417DC
@@ -41430,7 +41430,7 @@ _02241540:
 	bl MI_CpuFill8
 	b _0224157A
 _0224156C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _0224157A
 	add sp, #8
@@ -46986,7 +46986,7 @@ _022440B2:
 	strb r0, [r4, #0x10]
 	pop {r4, r5, r6, r7, pc}
 _022440DC:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _022441B2
 	ldrb r0, [r4, #0x10]
@@ -47061,7 +47061,7 @@ _0224415A:
 	strb r0, [r4, #0x10]
 	pop {r4, r5, r6, r7, pc}
 _02244182:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _022441B2
 	ldr r0, _022441C4 ; =0x0000049D

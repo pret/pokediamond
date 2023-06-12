@@ -362,10 +362,10 @@ MOD64_021D77E8: ; 0x021D77E8
 
 	thumb_func_start MOD64_021D7808
 MOD64_021D7808: ; 0x021D7808
-	ldr r3, _021D780C ; =FUN_0200E308
+	ldr r3, _021D780C ; =IsPaletteFadeFinished
 	bx r3
 	.align 2, 0
-_021D780C: .word FUN_0200E308
+_021D780C: .word IsPaletteFadeFinished
 	thumb_func_end MOD64_021D7808
 
 	thumb_func_start MOD64_021D7810
