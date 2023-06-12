@@ -1373,7 +1373,7 @@ MOD82_0222E050: ; 0x0222E050
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #4]
 	bl MOD82_0222E15C
 	add r0, r4, #0
@@ -3823,7 +3823,7 @@ MOD82_0222F360: ; 0x0222F360
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x1c]
 	mov r0, #4

@@ -79,7 +79,7 @@ _021D9A36:
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r6, #0
 	bl OverlayManager_GetField18
 	bl FUN_02029ABC
@@ -1581,7 +1581,7 @@ _021DA70E:
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	mov r0, #2
 	pop {r4, r5, pc}

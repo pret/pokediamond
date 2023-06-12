@@ -706,7 +706,7 @@
 .extern FUN_0200DC24
 .extern DrawPokemonPicFromSpecies
 .extern DrawPokemonPicFromMon
-.extern FUN_0200E1D0
+.extern BeginNormalPaletteFade
 .extern FUN_0200E2D8
 .extern FUN_0200E308
 .extern FUN_0200E31C
@@ -2870,7 +2870,7 @@
 .extern ScrCmd_Unk0243
 .extern ScrCmd_Unk0244
 .extern ScrCmd_Unk0245
-.extern ScrCmd_Unk00BC
+.extern ScrCmd_FadeScreen
 .extern ScrCmd_Unk00BD
 .extern ScrCmd_Unk00BE
 .extern ScrCmd_Unk0203

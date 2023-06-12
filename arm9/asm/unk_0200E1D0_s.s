@@ -52,8 +52,8 @@ UNK_020ECEF4: ; 0x020ECEF4
 
 	.text
 
-	thumb_func_start FUN_0200E1D0
-FUN_0200E1D0: ; 0x0200E1D0
+	thumb_func_start BeginNormalPaletteFade
+BeginNormalPaletteFade: ; 0x0200E1D0
 	push {r4-r7, lr}
 	sub sp, #0x1c
 	add r5, r0, #0x0

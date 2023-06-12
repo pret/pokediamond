@@ -82,7 +82,7 @@ _0204C214:
 	ldr r0, [r4, #0x4]
 	ldr r1, [r4, #0x8]
 	ldr r2, [r4, #0xc]
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

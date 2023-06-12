@@ -2250,7 +2250,7 @@ _0206658A:
 	str r0, [sp, #0x8]
 	mov r0, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldrh r0, [r4, #0x12]
 	add r0, r0, #0x1
 	strh r0, [r4, #0x12]

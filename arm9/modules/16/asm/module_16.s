@@ -202,7 +202,7 @@ MOD16_021D7664: ; 0x021D7664
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	.align 2, 0
@@ -222,7 +222,7 @@ MOD16_021D7684: ; 0x021D7684
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	thumb_func_end MOD16_021D7684

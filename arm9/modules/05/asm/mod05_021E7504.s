@@ -118,7 +118,7 @@ _021E7584:
 	mov r0, #2
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 _021E75EA:
@@ -248,7 +248,7 @@ _021E76AA:
 	add r1, r0, #0
 	add r2, r0, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _021E770E:
 	ldr r0, [r5, #0xc]
 	cmp r0, #0x14

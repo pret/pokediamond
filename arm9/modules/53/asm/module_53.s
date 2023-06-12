@@ -80,7 +80,7 @@ _021D74F6:
 	mov r1, #0x11
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r6, #0
 	bl OverlayManager_GetField18
 	str r0, [r4, #8]
@@ -2334,7 +2334,7 @@ MOD53_021D8824: ; 0x021D8824
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r4, #3
 _021D8854:
 	add r0, r5, #0
@@ -2538,7 +2538,7 @@ _021D89E2:
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r5, #3
 _021D89FA:
 	add r0, r4, #0

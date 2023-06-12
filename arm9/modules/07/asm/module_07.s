@@ -894,7 +894,7 @@ MOD07_0221258C: ; 0x0221258C
 	mov r0, #0
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _022125B4:
 	ldr r0, _022126A4 ; =0x00000B82
 	ldrb r0, [r4, r0]

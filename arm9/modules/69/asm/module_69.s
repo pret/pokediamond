@@ -287,7 +287,7 @@ _0222D83A:
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -326,7 +326,7 @@ _0222D87E:
 	mov r0, #3
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	mov r1, #0x1e
 	bl FUN_020053CC

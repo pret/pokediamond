@@ -85,7 +85,7 @@ _021D74F6:
 	mov r1, #0x11
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r4, #0
 	bl MOD54_021D7AA0
 	ldr r0, _021D7644 ; =MOD54_021D784C
@@ -2107,7 +2107,7 @@ MOD54_021D85C4: ; 0x021D85C4
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r4, #3
 _021D85F4:
 	add r0, r5, #0
@@ -2328,7 +2328,7 @@ MOD54_021D8770: ; 0x021D8770
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r5, #3
 _021D87A2:
 	add r0, r4, #0

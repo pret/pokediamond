@@ -26479,7 +26479,7 @@ MOD06_02246610: ; 0x02246610
 	ldr r3, _02246630 ; =0x00007FFF
 	mov r0, #0
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	nop
@@ -26499,7 +26499,7 @@ MOD06_02246634: ; 0x02246634
 	ldr r3, _02246654 ; =0x00007FFF
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	.align 2, 0
@@ -39210,7 +39210,7 @@ _0224C7F6:
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	b _0224C82E
 _0224C816:
 	mov r0, #6
@@ -39223,7 +39223,7 @@ _0224C816:
 	ldr r3, _0224C840 ; =0x00007FFF
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _0224C82E:
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -39391,7 +39391,7 @@ MOD06_0224C954: ; 0x0224C954
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	b _0224C990
 _0224C97A:
 	mov r0, #6
@@ -39403,7 +39403,7 @@ _0224C97A:
 	ldr r3, _0224C9BC ; =0x00007FFF
 	mov r0, #0
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _0224C990:
 	add r0, r5, #0
 	mov r1, #4

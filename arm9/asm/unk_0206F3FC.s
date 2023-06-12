@@ -161,7 +161,7 @@ FUN_0206F3FC: ; 0x0206F3FC
 	mov r1, #0x3
 	add r2, r1, #0x0
 	mov r3, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r4, #0x0
 	bl FUN_0206FF74
 	bl FUN_0206FB80

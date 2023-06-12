@@ -1,9 +1,10 @@
 #include "global.h"
+#include "gx.h"
 #include "unk_0204AF24.h"
 
 extern void FUN_02037394(struct FieldSystem *);
 extern u32 FUN_0200E308(void);
-extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
 extern void MOD05_021E331C(struct FieldSystem *);
 
 BOOL FUN_0204AF24(struct TaskManager *taskManager)
@@ -65,7 +66,7 @@ void FUN_0204AFC8(struct TaskManager *taskManager)
         GF_ASSERT(0);
         return;
     }
-    FUN_0200E1D0(0, 0, 0, 0, 6, 1, 4);
+    BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, 4);
     FUN_0204640C(taskManager, &FUN_0204AFB4, 0);
 }
 
@@ -76,7 +77,7 @@ void FUN_0204B00C(struct TaskManager *taskManager)
         GF_ASSERT(0);
         return;
     }
-    FUN_0200E1D0(0, 1, 1, 0, 6, 1, 4);
+    BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, 4);
     FUN_0204640C(taskManager, FUN_0204AFB4, 0);
 }
 

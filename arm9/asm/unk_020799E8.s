@@ -110,7 +110,7 @@ FUN_02079A70: ; 0x02079A70
 	str r1, [sp, #0x8]
 	add r1, r2, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 _02079A90:
@@ -123,7 +123,7 @@ _02079A90:
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	.balign 4

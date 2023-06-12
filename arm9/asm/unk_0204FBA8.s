@@ -1498,7 +1498,7 @@ _02050738:
 	mov r0, #0x0
 	add r2, r1, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0x0
 	bl FUN_0200E388
 	mov r0, #0x1
@@ -1648,7 +1648,7 @@ _02050864:
 	mov r0, #0x0
 	add r2, r1, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0x0
 	bl FUN_0200E388
 	mov r0, #0x1

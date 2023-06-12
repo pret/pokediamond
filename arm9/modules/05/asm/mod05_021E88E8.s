@@ -482,7 +482,7 @@ _021E8CB2:
 	mov r0, #3
 	mov r1, #0x1e
 	add r3, r2, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add sp, #0x14
 	add r0, r0, #1
@@ -639,7 +639,7 @@ _021E8DE8:
 	mov r0, #3
 	mov r1, #0x1e
 	add r3, r2, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add sp, #0x14
 	add r0, r0, #1
@@ -871,7 +871,7 @@ _021E8F92:
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
 	str r0, [r5]
@@ -1006,7 +1006,7 @@ _021E90A2:
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x20]
 	str r0, [r5]
@@ -2166,7 +2166,7 @@ _021E9A12:
 	mov r0, #3
 	mov r1, #0x18
 	add r3, r2, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r7]
 	add r0, r0, #1
 	str r0, [r7]
@@ -3203,7 +3203,7 @@ _021EA2C2:
 	mov r0, #3
 	mov r1, #0x12
 	add r3, r2, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -4068,7 +4068,7 @@ _021EA9C8:
 	mov r0, #3
 	mov r1, #0x10
 	add r3, r2, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -4395,7 +4395,7 @@ _021EACC0:
 	mov r0, #3
 	mov r1, #0x22
 	add r3, r2, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r6]
 	add r0, r0, #1
 	str r0, [r6]
@@ -4763,7 +4763,7 @@ _021EAFAE:
 	mov r0, #3
 	mov r1, #0x22
 	add r3, r2, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0]
 	add r1, r0, #1
@@ -5424,7 +5424,7 @@ _021EB534:
 	ldr r3, _021EB5AC ; =0x00007FFF
 	mov r0, #3
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -5635,7 +5635,7 @@ _021EB6E8:
 	ldr r3, _021EB75C ; =0x00007FFF
 	mov r0, #3
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -6079,7 +6079,7 @@ _021EBA8A:
 	ldr r3, _021EBB5C ; =0x00007FFF
 	mov r0, #3
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -7043,7 +7043,7 @@ _021EC21C:
 	ldr r3, _021EC3B4 ; =0x00007FFF
 	mov r0, #3
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]

@@ -17,7 +17,7 @@
 
 extern void FUN_0200E3A0(PMLCDTarget, s32);
 
-extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
 extern u32 FUN_0200E308(void);
 
 const struct WindowTemplate MOD59_021DA04C =
@@ -194,7 +194,7 @@ BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
             }
             data->unk24 = 0; //??
 
-            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
 
             *status = 3;
             break;
@@ -218,7 +218,7 @@ BOOL MOD59_TVMain(struct OverlayManager *overlayManager, u32 *status)
                 break;
             }
 
-            FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
 
             *status = 5;
             break;
@@ -354,7 +354,7 @@ _021D995E:
     str r0, [sp, #8]
     add r0, r6, #0
     add r3, r6, #0
-    bl FUN_0200E1D0
+    bl BeginNormalPaletteFade
     mov r0, #3
     str r0, [r5]
     b _021D99E2
@@ -385,7 +385,7 @@ _021D998E:
     add r1, r0, #0
     add r2, r0, #0
     add r3, r0, #0
-    bl FUN_0200E1D0
+    bl BeginNormalPaletteFade
     mov r0, #5
     str r0, [r5]
     b _021D99E2

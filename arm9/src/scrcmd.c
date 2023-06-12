@@ -8,6 +8,7 @@
 #include "fashion_case.h"
 #include "hall_of_fame.h"
 #include "main.h"
+#include "message_format.h"
 #include "options.h"
 #include "party.h"
 #include "player_data.h"
@@ -147,7 +148,9 @@ extern void FUN_020386A4(FieldSystem *fieldSystem, StarterSelectionData *starter
 extern void FUN_0205F378(struct ScriptState *flags, u16 state);
 extern BagScreenAppData *FUN_0203789C(FieldSystem *fieldSystem, u8 mode);
 extern u16 FUN_020378FC(BagScreenAppData *bagScreenAppData);
-extern void FUN_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u32 param3);
+extern void FUN_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u16 *param3);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
+extern void FUN_0200E388(u32 param0);
 
 u8 UNK_021C5A0C[4];
 
@@ -2373,6 +2376,36 @@ BOOL ScrCmd_Unk0243(ScriptContext *ctx) { //0243
     u16 *unk1 = ScriptGetVarPointer(ctx);
     u16 *unk2 = ScriptGetVarPointer(ctx);
     *unk2 = 0xFFFF;
-    FUN_02037E18(ctx->fieldSystem->taskManager, unk1, unk2, 0);
+    FUN_02037E18(ctx->fieldSystem->taskManager, unk1, unk2, NULL);
     return TRUE;
+}
+
+BOOL ScrCmd_Unk0244(ScriptContext *ctx) { //0244
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 *unk1 = ScriptGetVarPointer(ctx);
+    u16 *unk2 = ScriptGetVarPointer(ctx);
+    u16 *unk3 = ScriptGetVarPointer(ctx);
+    *unk2 = 0xFFFF;
+    *unk3 = 0xFFFF;
+    FUN_02037E18(ctx->fieldSystem->taskManager, unk1, unk2, unk3);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk0245(ScriptContext *ctx) { //0245
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    BufferECWord(*messageFormat, unk0, unk1);
+    return FALSE;
+}
+
+BOOL ScrCmd_FadeScreen(ScriptContext *ctx) { //00BC
+    u16 duration = ScriptReadHalfword(ctx);
+    u16 speed = ScriptReadHalfword(ctx);
+    u16 type = ScriptReadHalfword(ctx);
+    u16 colour = ScriptReadHalfword(ctx);
+    BeginNormalPaletteFade(0, type, type, colour, duration, speed, 4);
+    FUN_0200E388(0);
+    FUN_0200E388(1);
+    return FALSE;
 }

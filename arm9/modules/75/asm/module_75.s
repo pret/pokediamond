@@ -65,7 +65,7 @@ MOD75_021E6BA0: ; 0x021E6BA0
 	str r1, [sp, #8]
 	mov r1, #3
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #3
 	mov r1, #8
 	bl SetKeyRepeatTimers

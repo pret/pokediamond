@@ -337,7 +337,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk00B9
 	.word ScrCmd_NamePlayerScreen
 	.word ScrCmd_NamePokemonScreen
-	.word ScrCmd_Unk00BC
+	.word ScrCmd_FadeScreen
 	.word ScrCmd_Unk00BD
 	.word ScrCmd_Unk00BE
 	.word ScrCmd_Unk00BF

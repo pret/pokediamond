@@ -335,7 +335,7 @@ MOD64_021D77C8: ; 0x021D77C8
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	.align 2, 0
@@ -355,7 +355,7 @@ MOD64_021D77E8: ; 0x021D77E8
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	thumb_func_end MOD64_021D77E8

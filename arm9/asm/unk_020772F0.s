@@ -840,7 +840,7 @@ _020772FE:
 	mov r0, #0x0
 	add r2, r1, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0x1
 	bl FUN_02077C84
 	ldr r0, _020774A8 ; =gSystem + 0x60
@@ -1080,7 +1080,7 @@ _0207760C:
 	mov r0, #0x2
 	add r2, r1, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0x3
 	str r0, [r5, #0x0]
 _02077636:
@@ -4800,7 +4800,7 @@ _0207940E:
 	mov r0, #0x2
 	add r2, r1, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0x10
 	mov r0, #0x3
 	pop {r4-r6, pc}

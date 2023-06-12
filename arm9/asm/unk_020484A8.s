@@ -123,7 +123,7 @@ _02048556:
 	mov r0, #0x3
 	add r2, r1, #0x0
 	mov r3, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -212,7 +212,7 @@ _02048624:
 	mov r0, #0x3
 	add r2, r1, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

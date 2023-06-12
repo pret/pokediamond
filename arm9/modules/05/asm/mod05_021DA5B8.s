@@ -1405,7 +1405,7 @@ _021DB096:
 	ldr r3, _021DB140 ; =0x00007FFF
 	mov r0, #0
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #1
 	str r0, [r4, #8]
 	b _021DB126
@@ -1500,7 +1500,7 @@ _021DB164:
 	ldr r3, _021DB1CC ; =0x00007FFF
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #1
 	str r0, [r5, #8]
 	ldr r0, [r5]

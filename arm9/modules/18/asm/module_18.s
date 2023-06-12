@@ -2067,7 +2067,7 @@ _0223A6BE:
 	mov r1, #0x10
 	mov r2, #0x12
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -2125,7 +2125,7 @@ _0223A73A:
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #1
 	add r1, r0, #0
 	bl GX_EngineAToggleLayers
@@ -2422,7 +2422,7 @@ _0223A9A8:
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -2469,7 +2469,7 @@ _0223AA08:
 	mov r1, #0x11
 	mov r2, #0x13
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4]
 	add sp, #0xc
 	add r0, r0, #1
@@ -2584,7 +2584,7 @@ _0223AB28:
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, _0223AC18 ; =0x000006A1
 	bl PlaySE
 	mov r0, #0x18
@@ -26862,7 +26862,7 @@ _02246580:
 	mov r1, #0x10
 	mov r2, #0x12
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r5, #0x68]
 	bl MOD18_0224484C
 	ldr r0, _02246850 ; =0x00000603
@@ -26935,7 +26935,7 @@ _02246610:
 	mov r1, #0x11
 	mov r2, #0x13
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0xc]
 	add r0, r0, #1
 	str r0, [r4, #0xc]
@@ -28630,7 +28630,7 @@ _022473DA:
 	mov r0, #2
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {r4, r5, pc}
 _022473F6:
@@ -37258,7 +37258,7 @@ _0224B880:
 	mov r0, #2
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #1
 	str r0, [r5]
 	b _0224B970
@@ -37281,7 +37281,7 @@ _0224B8A4:
 	mov r1, #0x29
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #2
 	str r0, [r5]
 	b _0224B970
@@ -37308,7 +37308,7 @@ _0224B8EE:
 	mov r0, #2
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #4
 	str r0, [r5]
 	b _0224B970
@@ -37331,7 +37331,7 @@ _0224B912:
 	add r1, r0, #0
 	add r2, r0, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #5
 	str r0, [r5]
 	b _0224B970
