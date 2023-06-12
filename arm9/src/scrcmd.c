@@ -154,6 +154,7 @@ extern void FUN_0200E388(u32 param0);
 extern BOOL IsPaletteFadeFinished(void);
 extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
 extern void FUN_02049F98(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
+extern void FUN_02049FFC(TaskManager *taskManager);
 
 u8 UNK_021C5A0C[4];
 
