@@ -109,7 +109,7 @@ void LoadUserFrameGfx1(struct BgConfig *bg_config, enum GFBgLayer layer, u32 num
         r1 = NARC_winframe_narc_0024_NCLR;
     }
 
-    if ((u32)layer < 4)
+    if ((u32)layer < GF_BG_LYR_SUB_FIRST)
     {
         GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, r1, GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(paletteNumber << 5), 32, heap_id);
         return;
@@ -189,19 +189,19 @@ s32 FUN_0200CD64(s32 param0)
 }
 
 void FUN_0200CD68(
-    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 param3, u8 frame_id, u32 heap_id)
+    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 palNumber, u8 frame_id, u32 heap_id)
 {
 
     GfGfxLoader_LoadCharData(
         NARC_GRAPHIC_WINFRAME, FUN_0200CD60(frame_id), bg_config, layer, num_tiles, 0, FALSE, heap_id);
 
-    if (layer < 4)
+    if (layer < GF_BG_LYR_SUB_FIRST)
     {
-        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(param3 << 5), 32, heap_id);
+        GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), GF_PAL_LOCATION_MAIN_BG, (enum GFPalSlotOffset)(palNumber << 5), 32, heap_id);
         return;
     }
 
-    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(param3 << 5), 32, heap_id);
+    GfGfxLoader_GXLoadPal(NARC_GRAPHIC_WINFRAME, FUN_0200CD64(frame_id), GF_PAL_LOCATION_SUB_BG, (enum GFPalSlotOffset)(palNumber << 5), 32, heap_id);
 }
 
 void DrawFrame2(struct BgConfig *bgConfig,
@@ -385,33 +385,17 @@ void FUN_0200D274(
     FreeToHeap(ptr);
 }
 
-void FUN_0200D300(struct BgConfig *bg_config,
-    u8 bg_id,
-    u16 numtiles,
-    u8 param3,
-    u8 param4,
-    u16 param5,
-    u32 heap_id)
-{
-    GfGfxLoader_LoadCharData(NARC_GRAPHIC_FIELD_BOARD,
-        NARC_field_board_narc_0000_NCGR,
-        bg_config,
-        bg_id,
-        numtiles,
-        0x3C0,
-        FALSE,
-        heap_id);
+void FUN_0200D300(struct BgConfig *bg_config, u8 bg_id, u16 numtiles, u8 palIndex, u8 param4, u16 param5, u32 heap_id) {
+    GfGfxLoader_LoadCharData(NARC_GRAPHIC_FIELD_BOARD, NARC_field_board_narc_0000_NCGR, bg_config, bg_id, numtiles, 0x3C0, FALSE, heap_id);
 
     NNSG2dPaletteData *pPltData;
     void *st14;
-    st14 = AllocAndReadWholeNarcMemberByIdPair(
-        NARC_GRAPHIC_FIELD_BOARD, NARC_field_board_narc_0001_NCLR, heap_id);
+    st14 = AllocAndReadWholeNarcMemberByIdPair( NARC_GRAPHIC_FIELD_BOARD, NARC_field_board_narc_0001_NCLR, heap_id);
     NNS_G2dGetUnpackedPaletteData(st14, &pPltData);
-    BG_LoadPlttData(bg_id, pPltData->pRawData + param4 * 0x20, 0x20, (u16)(param3 << 5));
+    BG_LoadPlttData(bg_id, pPltData->pRawData + param4 * 0x20, 0x20, (enum GFPalSlotOffset)(u16)(palIndex << 5));
     FreeToHeapExplicit(heap_id, st14);
 
-    if (param4 <= 1)
-    {
+    if (param4 <= 1) {
         FUN_0200D378(bg_config, bg_id, (u16)(numtiles + 30), param4, param5, heap_id);
     }
 }

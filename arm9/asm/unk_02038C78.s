@@ -339,7 +339,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_NamePokemonScreen
 	.word ScrCmd_FadeScreen
 	.word ScrCmd_WaitFadeScreen
-	.word ScrCmd_Unk00BE
+	.word ScrCmd_Warp
 	.word ScrCmd_Unk00BF
 	.word ScrCmd_Unk00C0
 	.word ScrCmd_Unk00C1
@@ -664,8 +664,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0200
 	.word ScrCmd_Unk0201
 	.word ScrCmd_Unk0202
-	.word ScrCmd_Unk0203
-	.word ScrCmd_Unk0204
+	.word ScrCmd_BattleRoomWarp
+	.word ScrCmd_ExitBattleRoom
 	.word ScrCmd_ShowGeonetScreen
 	.word ScrCmd_Unk0206
 	.word ScrCmd_Unk0207

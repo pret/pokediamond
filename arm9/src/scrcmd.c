@@ -152,6 +152,8 @@ extern void FUN_02037E18(TaskManager *taskManager, u16 *param1, u16 *param2, u16
 extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
 extern void FUN_0200E388(u32 param0);
 extern BOOL IsPaletteFadeFinished(void);
+extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
+extern void FUN_02049F98(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
 
 u8 UNK_021C5A0C[4];
 
@@ -2419,4 +2421,29 @@ BOOL ScrCmd_WaitFadeScreen(ScriptContext *ctx) { //00BD
 
 static BOOL FUN_0203C71C(ScriptContext *ctx) {
     return IsPaletteFadeFinished() == TRUE;
+}
+
+BOOL ScrCmd_Warp(ScriptContext *ctx) { //00BE
+    u16 mapId = ScriptReadHalfword(ctx);
+    u16 door = ScriptReadHalfword(ctx); //unused?
+    u16 xVar = ScriptGetVar(ctx);
+    u16 yVar = ScriptGetVar(ctx);
+    u16 dir = ScriptReadHalfword(ctx);
+    CallTask_ScriptWarp(ctx->taskManager, mapId, -1, xVar, yVar, dir);
+    return TRUE;
+}
+
+BOOL ScrCmd_BattleRoomWarp(ScriptContext *ctx) { //0203
+    u16 mapId = ScriptReadHalfword(ctx);
+    u16 door = ScriptReadHalfword(ctx); //unused?
+    u16 xVar = ScriptGetVar(ctx);
+    u16 yVar = ScriptGetVar(ctx);
+    u16 dir = ScriptReadHalfword(ctx);
+    FUN_02049F98(ctx->fieldSystem->taskManager, mapId, -1, xVar, yVar, dir);
+    return TRUE;
+}
+
+BOOL ScrCmd_ExitBattleRoom(ScriptContext *ctx) { //0204
+    FUN_02049FFC(ctx->fieldSystem->taskManager);
+    return TRUE;
 }

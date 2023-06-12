@@ -2872,9 +2872,9 @@
 .extern ScrCmd_Unk0245
 .extern ScrCmd_FadeScreen
 .extern ScrCmd_WaitFadeScreen
-.extern ScrCmd_Unk00BE
-.extern ScrCmd_Unk0203
-.extern ScrCmd_Unk0204
+.extern ScrCmd_Warp
+.extern ScrCmd_BattleRoomWarp
+.extern ScrCmd_ExitBattleRoom
 .extern ScrCmd_Unk0200
 .extern ScrCmd_Unk0201
 .extern ScrCmd_Unk00BF
@@ -3485,7 +3485,7 @@
 .extern FUN_02048FC8
 .extern FUN_02049160
 .extern FUN_020491A8
-.extern FUN_02049240
+.extern CallTask_ScriptWarp
 .extern FUN_02049274
 .extern FUN_020492BC
 .extern FUN_02049494

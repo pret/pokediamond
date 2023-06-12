@@ -1099,16 +1099,16 @@ void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
     MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 9);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 32, 0, data->heap_id);
     BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_MAIN_2, charData, 0xc80, 1);
-    BG_LoadPlttData(GF_BG_LYR_MAIN_2, plttData, 32, 0x100); //r2 and r3 regswap
-    BG_LoadPlttData(GF_BG_LYR_MAIN_2, MOD59_021D9ED8, 32, 0x120);
+    BG_LoadPlttData(GF_BG_LYR_MAIN_2, plttData, 32, GF_PAL_SLOT_OFFSET_8); //r2 and r3 regswap
+    BG_LoadPlttData(GF_BG_LYR_MAIN_2, MOD59_021D9ED8, 32, GF_PAL_SLOT_OFFSET_9);
 
     FillBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, 0, 0, 0, 32, 24, 10);
     LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, src, 11, 7, 10, 10);
     MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_1, 10);
     BG_ClearCharDataRange(GF_BG_LYR_SUB_1, 32, 0, data->heap_id);
     BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_SUB_1, charData, 0xc80, 1);
-    BG_LoadPlttData(GF_BG_LYR_SUB_1, plttData, 32, 0x140);
-    BG_LoadPlttData(GF_BG_LYR_SUB_1, MOD59_021D9ED8, 32, 0x140);
+    BG_LoadPlttData(GF_BG_LYR_SUB_1, plttData, 32, GF_PAL_SLOT_OFFSET_10);
+    BG_LoadPlttData(GF_BG_LYR_SUB_1, MOD59_021D9ED8, 32, GF_PAL_SLOT_OFFSET_10);
     FreeToHeap(plttData);
     FreeToHeap(charData);
     FreeToHeap(src);
