@@ -363,8 +363,8 @@ const u8 MOD59_021D9FE8[0x64] =
         0x5E, 0x5F, 0x62, 0x63
     };
 
-extern void FUN_0200E1D0(u32 param0, u32 param1, u32 param2, u32 param3, u32 param4, u32 param5, u32 heap_id);
-extern u32 FUN_0200E308(void);
+extern void BeginNormalPaletteFade(u32 pattern, u32 typeTop, u32 typeBottom, u16 colour, u32 duration, u32 framesPer, u32 heapId);
+extern BOOL IsPaletteFadeFinished(void);
 
 extern u32 FUN_020142EC(u32 param0, u32 param1, u32 param2, u32 heap_id);
 
@@ -425,8 +425,8 @@ BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
             GX_DisableEngineALayers();
             GX_DisableEngineBLayers();
 
-            reg_GX_DISPCNT = reg_GX_DISPCNT & 0xFFFFE0FF;
-            reg_GXS_DB_DISPCNT = reg_GXS_DB_DISPCNT & 0xFFFFE0FF;
+            GX_SetVisiblePlane(0);
+            GXS_SetVisiblePlane(0);
 
             SetKeyRepeatTimers(4, 8);
 
@@ -445,7 +445,7 @@ BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
         case 1:
             if (MOD59_MasterController(data) == TRUE)
             {
-                FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+                BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
                 *status = 2;
             }
 
@@ -454,13 +454,13 @@ BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
                 break;
             }
 
-            FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
             *status = 3;
 
             break;
 
-        case 2:
-            if (FUN_0200E308() != 1)
+        case 2: //wait for fade, cleanup
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -474,8 +474,8 @@ BOOL MOD59_IntroMain(struct OverlayManager *overlayManager, u32 *status)
             ret = TRUE;
             break;
 
-        case 3:
-            if (FUN_0200E308() != 1)
+        case 3: //wait for fade, cleanup
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -1099,16 +1099,16 @@ void MOD59_DrawMunchlax(MOD59_IntroOverlayData *data)
     MOD59_TilemapChangePalette(data, GF_BG_LYR_MAIN_2, 9);
     BG_ClearCharDataRange(GF_BG_LYR_MAIN_2, 32, 0, data->heap_id);
     BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_MAIN_2, charData, 0xc80, 1);
-    BG_LoadPlttData(GF_BG_LYR_MAIN_2, plttData, 32, 0x100); //r2 and r3 regswap
-    BG_LoadPlttData(GF_BG_LYR_MAIN_2, MOD59_021D9ED8, 32, 0x120);
+    BG_LoadPlttData(GF_BG_LYR_MAIN_2, plttData, 32, GF_PAL_SLOT_OFFSET_8); //r2 and r3 regswap
+    BG_LoadPlttData(GF_BG_LYR_MAIN_2, MOD59_021D9ED8, 32, GF_PAL_SLOT_OFFSET_9);
 
     FillBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, 0, 0, 0, 32, 24, 10);
     LoadRectToBgTilemapRect(data->bgConfig, GF_BG_LYR_SUB_1, src, 11, 7, 10, 10);
     MOD59_TilemapChangePalette(data, GF_BG_LYR_SUB_1, 10);
     BG_ClearCharDataRange(GF_BG_LYR_SUB_1, 32, 0, data->heap_id);
     BG_LoadCharTilesData(data->bgConfig, GF_BG_LYR_SUB_1, charData, 0xc80, 1);
-    BG_LoadPlttData(GF_BG_LYR_SUB_1, plttData, 32, 0x140);
-    BG_LoadPlttData(GF_BG_LYR_SUB_1, MOD59_021D9ED8, 32, 0x140);
+    BG_LoadPlttData(GF_BG_LYR_SUB_1, plttData, 32, GF_PAL_SLOT_OFFSET_10);
+    BG_LoadPlttData(GF_BG_LYR_SUB_1, MOD59_021D9ED8, 32, GF_PAL_SLOT_OFFSET_10);
     FreeToHeap(plttData);
     FreeToHeap(charData);
     FreeToHeap(src);
@@ -1855,17 +1855,17 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
     BOOL ret = FALSE;
     switch (data->controllerCounter)
     {
-        case 0: //load
+        case 0: //load and fade from black
             FUN_0200433C(2, SEQ_OPENING, 1);
             FUN_02005350(SEQ_OPENING, 0);
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
-            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 1;
             break;
 
-        case 1: //some kinda of wait/fade?
-            if (FUN_0200E308() != 1)
+        case 1: //wait for fade, and wait 40 ticks
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -1885,19 +1885,19 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             BgClearTilemapBufferAndCommit(data->bgConfig, GF_BG_LYR_MAIN_0);
             break;
 
-        case 3: //play SE, make rowan visible
+        case 3: //play SE, make rowan visible, fade from black
             FUN_0200521C(SEQ_OPENING);
             data->spriteDataIndex0 = 1;
             data->spriteDataIndex1 = 0;
             MOD59_LoadCharDataFromIndex(data);
             ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
-            FUN_0200E1D0(3, 1, 1, 0, 16, 4, data->heap_id);
+            BeginNormalPaletteFade(3, 1, 1, GX_RGB_BLACK, 16, 4, data->heap_id);
             data->controllerCounter = 4;
             break;
 
-        case 4: //??
-            if (FUN_0200E308() != 1)
+        case 4: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -1944,13 +1944,13 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             }
             break;
 
-        case 8: //graphics adjust?
-            FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+        case 8: //fade to black
+            BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 9;
             break;
 
-        case 9: //Clear screen of rowan
-            if (FUN_0200E308() != 1)
+        case 9: //wait for fade and clear screen of rowan
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -1959,17 +1959,17 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = data->nextControllerCounter;
             break;
 
-        case 10: //load screen and palette data
+        case 10: //load screen and palette data, fade from black
             data->scrnDataIndexMain = 1;
             MOD59_LoadMainScrnData(data);
             data->scrnDataIndexSub = 1;
             MOD59_LoadSubScrnData(data);
-            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 11;
             break;
 
-        case 11: //??
-            if (FUN_0200E308() != 1)
+        case 11: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2090,18 +2090,18 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             }
             break;
 
-        case 24: //cleanup control info
+        case 24: //cleanup control info and fade to black
             if (MOD59_FadeController(data, GF_BG_LYR_SUB_2, 1) != TRUE)
             {
                 break;
             }
             FUN_020146C4(data->unk68);
-            FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 25;
             break;
 
-        case 25: //graphics adjust
-            if (FUN_0200E308() != 1)
+        case 25: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2131,19 +2131,19 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 22;
             break;
 
-        case 28: //redisplay rowan
+        case 28: //redisplay rowan, fade from black
             data->scrnDataIndexMain = 0;
             MOD59_LoadMainScrnData(data);
             data->scrnDataIndexSub = 0;
             MOD59_LoadSubScrnData(data);
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
-            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 29;
             break;
 
-        case 29: //graphics adjust
-            if (FUN_0200E308() != 1)
+        case 29: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2158,24 +2158,24 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 6;
             break;
 
-        case 31: //load screen data
+        case 31: //load screen data, fade from black
             data->scrnDataIndexMain = 4;
             MOD59_LoadMainScrnData(data);
             data->scrnDataIndexSub = 2;
             MOD59_LoadSubScrnData(data);
-            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 32;
             break;
 
-        case 32: // ??
-            if (FUN_0200E308() != 1)
+        case 32: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
             data->controllerCounter = 33;
             break;
 
-        case 33:
+        case 33: //You are about to enter a world where you will embark on a grand...
             if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00010, 1, 9, 6) != TRUE)
             {
                 break;
@@ -2183,7 +2183,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 34;
             break;
 
-        case 34:
+        case 34: //Speak to people and check things wherever you go, be it in towns, roads, or caves.
             if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00011, 1, 8, 8) != TRUE)
             {
                 break;
@@ -2191,7 +2191,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 35;
             break;
 
-        case 35:
+        case 35: //New paths will open to you when you help people in need...
             if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00012, 1, 9, 6) != TRUE)
             {
                 break;
@@ -2199,7 +2199,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 36;
             break;
 
-        case 36:
+        case 36: //At times, you will be challenged by others to a battle. At other times, wild creatures may stand in your way.
             if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00013, 1, 5, 14) != TRUE)
             {
                 break;
@@ -2207,7 +2207,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 37;
             break;
 
-        case 37:
+        case 37: //However, your adventure is not solely about becoming powerful.
             if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00014, 1, 10, 4) != TRUE)
             {
                 break;
@@ -2215,7 +2215,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 38;
             break;
 
-        case 38:
+        case 38: //On your travels, we hope that you will meet countless people and, through them, achieve personal growth.
             if (MOD59_DisplayControlAdventureMessage(data, narc_0341_00015, 1, 6, 12) != TRUE)
             {
                 break;
@@ -2223,13 +2223,13 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 39;
             break;
 
-        case 39:
-            FUN_0200E1D0(0, 0, 0, 0, 6, 1, data->heap_id);
+        case 39: //fade to black
+            BeginNormalPaletteFade(0, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 40;
             break;
 
-        case 40:
-            if (FUN_0200E308() != 1)
+        case 40: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2254,13 +2254,13 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 43;
             break;
 
-        case 43: //graphics adjust
-            FUN_0200E1D0(4, 0, 0, 0, 6, 1, data->heap_id);
+        case 43: //fade to black
+            BeginNormalPaletteFade(4, 0, 0, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 44;
             break;
 
-        case 44:
-            if (FUN_0200E308() != 1)
+        case 44: //wait for fade, display pokeball button, fade from black
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2268,12 +2268,12 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->scrnDataIndexSub = 4;
             MOD59_LoadSubScrnData(data);
             ToggleBgLayer(GF_BG_LYR_SUB_2, GX_LAYER_TOGGLE_ON);
-            FUN_0200E1D0(4, 1, 1, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(4, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 45;
             break;
 
-        case 45:
-            if (FUN_0200E308() != 1)
+        case 45: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2600,7 +2600,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 77;
             break;
 
-        case 77: //toggle bg layers and position
+        case 77: //toggle bg layers and position, fade from black
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
@@ -2614,12 +2614,12 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
                 ToggleBgLayer(GF_BG_LYR_MAIN_2, GX_LAYER_TOGGLE_ON);
                 BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_2, BG_POS_OP_SET_X, 0);
             }
-            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 78;
             break;
 
-        case 78: //graphics adjust
-            if (FUN_0200E308() != 1)
+        case 78: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2782,18 +2782,18 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 93;
             break;
 
-        case 93: //toggle layers and position
+        case 93: //toggle layers and position, fade from black
             ToggleBgLayer(GF_BG_LYR_MAIN_0, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_MAIN_3, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_SUB_3, GX_LAYER_TOGGLE_ON);
             ToggleBgLayer(GF_BG_LYR_MAIN_1, GX_LAYER_TOGGLE_ON);
             BgSetPosTextAndCommit(data->bgConfig, GF_BG_LYR_MAIN_1, BG_POS_OP_SET_X, 0);
-            FUN_0200E1D0(0, 1, 1, 0, 6, 1, data->heap_id);
+            BeginNormalPaletteFade(0, 1, 1, GX_RGB_BLACK, 6, 1, data->heap_id);
             data->controllerCounter = 94;
             break;
 
-        case 94: //graphics adjust
-            if (FUN_0200E308() != 1)
+        case 94: //wait for fade
+            if (IsPaletteFadeFinished() != TRUE)
             {
                 break;
             }
@@ -2931,7 +2931,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
             data->controllerCounter = 109;
             break;
 
-        case 109:
+        case 109: //return
             ret = TRUE;
             break;
     }

@@ -74,7 +74,7 @@ MOD85_021D74E0: ; 0x021D74E0
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #1
 	add sp, #0xc
 	pop {r4, r5, pc}
@@ -103,7 +103,7 @@ _021D75BE: ; jump table
 	.short _021D7608 - _021D75BE - 2 ; case 2
 	.short _021D7616 - _021D75BE - 2 ; case 3
 _021D75C6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7626
 	ldr r0, [r4]
@@ -128,13 +128,13 @@ _021D75D6:
 	mov r0, #2
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r5, #0
 	mov r1, #0
 	bl MOD85_021D7FF4
 	b _021D7626
 _021D7608:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D7626
 	ldr r0, [r4]

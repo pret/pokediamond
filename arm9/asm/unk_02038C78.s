@@ -320,27 +320,27 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_ShowContestPokemon
 	.word ScrCmd_ShowSealCapsuleEditor
 	.word ScrCmd_ShowTownMapScreen
-	.word ScrCmd_MonStoragePC
+	.word ScrCmd_ShowPCBoxScreen
 	.word ScrCmd_Unk00AC
 	.word ScrCmd_Unk00AD
 	.word ScrCmd_Unk00AE
 	.word ScrCmd_Unk00AF
-	.word ScrCmd_HallOfFame
-	.word ScrCmd_Unk00B1
+	.word ScrCmd_ShowEndGameScreen
+	.word ScrCmd_InitHallOfFame
 	.word ScrCmd_Unk00B2
 	.word ScrCmd_Unk00B3
-	.word ScrCmd_Unk00B4
-	.word ScrCmd_Unk00B5
+	.word ScrCmd_StarterSelectionScreen
+	.word ScrCmd_EndStarterSelectionScreen
 	.word ScrCmd_Unk00B6
 	.word ScrCmd_Unk00B7
 	.word ScrCmd_Unk00B8
 	.word ScrCmd_Unk00B9
-	.word ScrCmd_Unk00BA
-	.word ScrCmd_Unk00BB
-	.word ScrCmd_Unk00BC
-	.word ScrCmd_Unk00BD
-	.word ScrCmd_Unk00BE
-	.word ScrCmd_Unk00BF
+	.word ScrCmd_NamePlayerScreen
+	.word ScrCmd_NamePokemonScreen
+	.word ScrCmd_FadeScreen
+	.word ScrCmd_WaitFadeScreen
+	.word ScrCmd_Warp
+	.word ScrCmd_RockClimb
 	.word ScrCmd_Unk00C0
 	.word ScrCmd_Unk00C1
 	.word ScrCmd_Unk00C2
@@ -525,8 +525,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0175
 	.word ScrCmd_Unk0176
 	.word ScrCmd_CountPartyMons
-	.word ScrCmd_Unk0178
-	.word ScrCmd_Unk0179
+	.word ScrCmd_ShowBagScreen
+	.word ScrCmd_GetBagScreenSelection
 	.word ScrCmd_Unk017A
 	.word ScrCmd_GetBerryName
 	.word ScrCmd_GetNatureName
@@ -661,11 +661,11 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01FD
 	.word ScrCmd_Unk01FE
 	.word ScrCmd_Unk01FF
-	.word ScrCmd_Unk0200
-	.word ScrCmd_Unk0201
+	.word ScrCmd_GetPreviousMapID
+	.word ScrCmd_GetCurrentMapID
 	.word ScrCmd_Unk0202
-	.word ScrCmd_Unk0203
-	.word ScrCmd_Unk0204
+	.word ScrCmd_BattleRoomWarp
+	.word ScrCmd_ExitBattleRoom
 	.word ScrCmd_ShowGeonetScreen
 	.word ScrCmd_Unk0206
 	.word ScrCmd_Unk0207
@@ -774,7 +774,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk026E
 	.word ScrCmd_Unk026F
 	.word ScrCmd_Unk0270
-	.word ScrCmd_Unk0271
+	.word ScrCmd_WriteWhiteRockInscription
 	.word ScrCmd_GetWhiteRockInscription
 	.word ScrCmd_Unk0273
 	.word ScrCmd_HasEnoughCoinsImmediate

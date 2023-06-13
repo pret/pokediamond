@@ -797,7 +797,7 @@ _0222DBCC:
 	str r0, [r4]
 	b _0222DC24
 _0222DBE0:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222DC24
 	mov r0, #3
@@ -815,7 +815,7 @@ _0222DBEE:
 	str r0, [r4]
 	b _0222DC24
 _0222DC02:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222DC24
 	ldr r3, [r5, #0x10]
@@ -1373,7 +1373,7 @@ MOD82_0222E050: ; 0x0222E050
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #4]
 	bl MOD82_0222E15C
 	add r0, r4, #0
@@ -3823,7 +3823,7 @@ MOD82_0222F360: ; 0x0222F360
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x1c]
 	mov r0, #4

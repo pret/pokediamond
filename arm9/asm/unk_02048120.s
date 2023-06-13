@@ -164,13 +164,13 @@ _0204823A:
 	mov r0, #0x3
 	mov r2, #0x2a
 	mov r3, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _020482EA
 _02048258:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _020482EA
 	ldr r0, [r4, #0x0]
@@ -197,13 +197,13 @@ _02048278:
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _020482EA
 _02048298:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _020482EA
 	add r0, r4, #0x0

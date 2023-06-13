@@ -13,6 +13,9 @@ typedef u16 GXRgb;
                                            ((g) << GX_RGB_G_SHIFT) | \
                                            ((b) << GX_RGB_B_SHIFT)))
 
+#define GX_RGB_BLACK              (GX_RGB(0, 0, 0))
+#define GX_RGB_WHITE              (GX_RGB(31, 31, 31))
+
 typedef u16 GXRgba;
 #define GX_RGBA_R_SHIFT           (0)
 #define GX_RGBA_R_MASK            (0x001f)

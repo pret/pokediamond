@@ -1837,7 +1837,7 @@ _0205DC68:
 	strb r0, [r4, #0x0]
 	b _0205DCFA
 _0205DC7C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _0205DCFA
 	ldr r1, [r4, #0x20]
@@ -1885,7 +1885,7 @@ _0205DCC4:
 	strb r0, [r4, #0x0]
 	b _0205DCFA
 _0205DCE2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _0205DCFA
 	ldr r0, [r5, #0x34]

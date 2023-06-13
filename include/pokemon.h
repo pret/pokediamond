@@ -147,10 +147,10 @@ struct PartyPokemon
     /* 0x0D4 */ u8 sealCoords[8][3]; // seal coords
 };
 
-struct Pokemon {
+typedef struct Pokemon {
     /* 0x000 */ struct BoxPokemon box;
     /* 0x088 */ struct PartyPokemon party;
-}; // size: 0xEC
+} Pokemon; // size: 0xEC
 
 struct SomeDrawPokemonStruct
 {
@@ -193,12 +193,12 @@ struct Evolution
 
 #define PARTY_SIZE 6
 
-struct PlayerParty
+typedef struct PlayerParty
 {
     int maxCount;
     int curCount;
     struct Pokemon mons[PARTY_SIZE];
-};
+} PlayerParty;
 
 void ZeroMonData(struct Pokemon * pokemon);
 void ZeroBoxMonData(struct BoxPokemon * boxmon);

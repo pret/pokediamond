@@ -777,7 +777,7 @@ _0207A2D4: .word 0x00000684
 FUN_0207A2D8: ; 0x0207A2D8
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _0207A30C
 	add r0, r4, #0x0
@@ -1776,7 +1776,7 @@ FUN_0207AA88: ; 0x0207AA88
 	thumb_func_start FUN_0207AA98
 FUN_0207AA98: ; 0x0207AA98
 	push {r3, lr}
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _0207AAA6
 	mov r0, #0x1

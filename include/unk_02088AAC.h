@@ -12,7 +12,7 @@ struct UnkStruct_02088AAC
     u16 unk06;
     u32 item;
     struct UnkStruct_0206F164 *unk0C;
-    struct UnkStruct_0208890C *unk10;
+    struct PoffinCaseAppData *poffinCaseAppData;
     u32 unk14;
     void *ovly_param;
     struct OverlayManager *ovly_data;

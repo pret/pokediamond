@@ -131,12 +131,12 @@ _021D75B8:
 	str r0, [sp, #8]
 	add r0, r6, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #1
 	str r0, [r5]
 	b _021D76A0
 _021D7614:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D76A0
 	add r0, r6, #0
@@ -199,12 +199,12 @@ _021D7678:
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #5
 	str r0, [r5]
 	b _021D76A0
 _021D7696:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D76A0
 	mov r6, #1

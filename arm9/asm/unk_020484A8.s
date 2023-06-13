@@ -123,13 +123,13 @@ _02048556:
 	mov r0, #0x3
 	add r2, r1, #0x0
 	mov r3, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02048688
 _02048586:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02048688
 	ldr r0, [r6, #0xc]
@@ -212,13 +212,13 @@ _02048624:
 	mov r0, #0x3
 	add r2, r1, #0x0
 	add r3, r1, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]
 	b _02048688
 _02048644:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02048688
 	add r0, r6, #0x0
@@ -253,8 +253,8 @@ _02048688:
 	nop
 _02048690: .word 0x0000061B
 
-	thumb_func_start Special_EnterHallOfFame
-Special_EnterHallOfFame: ; 0x02048694
+	thumb_func_start CallTask_GameClear
+CallTask_GameClear: ; 0x02048694
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r7, r0, #0x0

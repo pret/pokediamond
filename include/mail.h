@@ -20,7 +20,7 @@ struct Mail
     u8 author_language; // language
     u8 author_version; // version
     u8 mail_type; // mail type
-    u16 author_name[OT_NAME_LENGTH + 1]; // author name
+    u16 author_name[PLAYER_NAME_LENGTH + 1]; // author name
     union MailPatternData unk_18[3];
     u8 padding_1E[2];
     struct MailMessage unk_20[3];

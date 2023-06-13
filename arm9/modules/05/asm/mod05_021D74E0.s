@@ -911,7 +911,7 @@ MOD05_021D7CA4: ; 0x021D7CA4
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 _021D7CC6:
@@ -927,7 +927,7 @@ _021D7CC6:
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 _021D7CE6:

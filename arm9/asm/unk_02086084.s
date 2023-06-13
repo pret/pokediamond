@@ -114,7 +114,7 @@ FUN_02086168: ; 0x02086168
 	beq _020861AA
 	b _020861C6
 _0208617E:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _0208618C
 	ldr r0, [r5, #0x0]
@@ -150,7 +150,7 @@ _020861BA:
 	bl FUN_02086698
 	b _020861D2
 _020861C6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _020861D2
 	mov r0, #0x1

@@ -274,7 +274,7 @@ _0208A566:
 	str r0, [r4, #0x54]
 	b _0208A6C8
 _0208A57A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _0208A5B0
 	add r1, r4, #0x0
@@ -315,7 +315,7 @@ _0208A5BE:
 	str r0, [r4, #0x54]
 	b _0208A6C8
 _0208A5D4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _0208A6C8
 	ldr r0, [r4, #0x50]

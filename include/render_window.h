@@ -59,7 +59,7 @@ void ClearFrameAndWindow1(struct Window *window, BOOL copy_to_vram);
 s32 FUN_0200CD60(s32 param0);
 s32 FUN_0200CD64(s32 param0);
 void FUN_0200CD68(
-    struct BgConfig *bg_config, u32 layer, u32 param2, u32 param3, u8 frame_id, u32 heap_id);
+    struct BgConfig *bg_config, u32 layer, u32 num_tiles, u32 palNumber, u8 frame_id, u32 heap_id);
 void DrawFrame2(struct BgConfig *bgConfig,
     u8 bgId,
     u8 x,

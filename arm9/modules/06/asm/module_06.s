@@ -11149,7 +11149,7 @@ _0223ECEC: .word 0x0000022F
 MOD06_0223ECF0: ; 0x0223ECF0
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0223ED46
 	add r0, r6, #0
@@ -11193,7 +11193,7 @@ MOD06_0223ED54: ; 0x0223ED54
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	add r5, r1, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _0223ED66
 	mov r0, #0x12
@@ -26479,7 +26479,7 @@ MOD06_02246610: ; 0x02246610
 	ldr r3, _02246630 ; =0x00007FFF
 	mov r0, #0
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	nop
@@ -26499,7 +26499,7 @@ MOD06_02246634: ; 0x02246634
 	ldr r3, _02246654 ; =0x00007FFF
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	.align 2, 0
@@ -27440,7 +27440,7 @@ _02246D12:
 MOD06_02246D24: ; 0x02246D24
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _02246D36
 	ldr r0, [r4]
@@ -39210,7 +39210,7 @@ _0224C7F6:
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	b _0224C82E
 _0224C816:
 	mov r0, #6
@@ -39223,7 +39223,7 @@ _0224C816:
 	ldr r3, _0224C840 ; =0x00007FFF
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _0224C82E:
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -39250,7 +39250,7 @@ MOD06_0224C844: ; 0x0224C844
 	bl FUN_0205AEA4
 	str r0, [r4, #0xc]
 _0224C862:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _0224C86E
 	mov r0, #0
@@ -39391,7 +39391,7 @@ MOD06_0224C954: ; 0x0224C954
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	b _0224C990
 _0224C97A:
 	mov r0, #6
@@ -39403,7 +39403,7 @@ _0224C97A:
 	ldr r3, _0224C9BC ; =0x00007FFF
 	mov r0, #0
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _0224C990:
 	add r0, r5, #0
 	mov r1, #4
@@ -39443,7 +39443,7 @@ MOD06_0224C9C8: ; 0x0224C9C8
 	bl FUN_0205AEA4
 	str r0, [r4, #0xc]
 _0224C9E6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	bne _0224C9F2
 	mov r0, #0

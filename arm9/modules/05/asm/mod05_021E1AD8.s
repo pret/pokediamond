@@ -483,7 +483,7 @@ MOD05_021E1E58: ; 0x021E1E58
 	strb r0, [r4]
 	pop {r4, pc}
 _021E1E74:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021E1EC4
 	add r0, r4, #0
@@ -1039,7 +1039,7 @@ MOD05_021E229C: ; 0x021E229C
 	strb r0, [r5]
 	pop {r4, r5, r6, pc}
 _021E22B8:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021E235A
 	mov r0, #0x6d

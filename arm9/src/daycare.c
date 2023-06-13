@@ -91,7 +91,7 @@ void DayCareMon_Extras_Init(struct DayCareMail * mail)
 {
     int i;
 
-    for (i = 0; i < OT_NAME_LENGTH + 1; i++)
+    for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
         mail->ot_name[i] = 0;
     for (i = 0; i < POKEMON_NAME_LENGTH + 1; i++)
         mail->nickname[i] = 0;

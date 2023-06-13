@@ -1563,7 +1563,7 @@ _0222E180:
 	bl MOD80_0222E7F0
 	b _0222E224
 _0222E1A4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222E224
 	mov r0, #3
@@ -1581,7 +1581,7 @@ _0222E1B2:
 	str r0, [r5]
 	b _0222E224
 _0222E1C6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222E224
 	add r0, r4, #0
@@ -2527,7 +2527,7 @@ MOD80_0222E8F4: ; 0x0222E8F4
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x2c]
 	mov r0, #1
@@ -2553,7 +2553,7 @@ _0222E968:
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	b _0222E99E
 _0222E988:
 	mov r0, #6
@@ -2565,7 +2565,7 @@ _0222E988:
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _0222E99E:
 	mov r0, #5
 	str r0, [r4, #0x2c]
@@ -3175,7 +3175,7 @@ MOD80_0222EE74: ; 0x0222EE74
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #3
 	str r0, [r4, #0x2c]
 	add sp, #0xc
@@ -3186,7 +3186,7 @@ MOD80_0222EE74: ; 0x0222EE74
 MOD80_0222EE98: ; 0x0222EE98
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222EEA8
 	mov r0, #5
@@ -3200,7 +3200,7 @@ _0222EEA8:
 MOD80_0222EEAC: ; 0x0222EEAC
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _0222EEBC
 	mov r0, #5
@@ -3488,7 +3488,7 @@ MOD80_0222F0E4: ; 0x0222F0E4
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	b _0222F122
 _0222F10A:
 	mov r0, #6
@@ -3501,7 +3501,7 @@ _0222F10A:
 	mov r0, #3
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _0222F122:
 	mov r0, #0
 	str r0, [r4, #0x2c]
@@ -3896,7 +3896,7 @@ MOD80_0222F394: ; 0x0222F394
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x2c]
 	mov r0, #2
@@ -4478,7 +4478,7 @@ MOD80_0222F8CC: ; 0x0222F8CC
 	mov r0, #3
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x2c]
 	mov r0, #4
@@ -5224,7 +5224,7 @@ MOD80_0222FE60: ; 0x0222FE60
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x2c]
 	mov r0, #2
@@ -5803,7 +5803,7 @@ MOD80_02230394: ; 0x02230394
 	mov r0, #3
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x2c]
 	mov r0, #4
@@ -6213,7 +6213,7 @@ MOD80_0223065C: ; 0x0223065C
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x2c]
 	mov r0, #2
@@ -7483,7 +7483,7 @@ MOD80_02231114: ; 0x02231114
 	mov r0, #3
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x2c]
 	mov r0, #4
@@ -8563,7 +8563,7 @@ MOD80_022319F0: ; 0x022319F0
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	b _02231A46
 _02231A30:
 	mov r0, #6
@@ -8575,7 +8575,7 @@ _02231A30:
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _02231A46:
 	add r1, r4, #0
 	add r1, #0xb8
@@ -9385,7 +9385,7 @@ _02232124: .word 0x00000B48
 MOD80_02232128: ; 0x02232128
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _02232138
 	mov r0, #1
@@ -10282,7 +10282,7 @@ _0223285C:
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, _022328A0 ; =0x0000100C
 	mov r1, #1
 	str r1, [r4, r0]
@@ -10298,7 +10298,7 @@ _0223287C:
 	mov r0, #3
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _02232894:
 	mov r0, #0
 	str r0, [r4, #0x2c]
@@ -11559,7 +11559,7 @@ MOD80_02233218: ; 0x02233218
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r4, #0
 	bl MOD80_02236D84
 	mov r0, #0
@@ -12102,7 +12102,7 @@ MOD80_022336C4: ; 0x022336C4
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _022336EC
 	ldr r0, _022336F4 ; =0x00000F0F
@@ -13014,7 +13014,7 @@ MOD80_02233E30: ; 0x02233E30
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, _02233E80 ; =0x0000100C
 	mov r1, #1
 	str r1, [r4, r0]
@@ -13030,7 +13030,7 @@ _02233E5C:
 	mov r0, #3
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _02233E74:
 	mov r0, #0
 	str r0, [r4, #0x2c]
@@ -14165,7 +14165,7 @@ MOD80_022346FC: ; 0x022346FC
 	mov r0, #3
 	add r2, r1, #0
 	mov r3, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r4, #0
 	bl MOD80_02236D84
 	mov r0, #0
@@ -16010,7 +16010,7 @@ MOD80_022354BC: ; 0x022354BC
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	b _02235504
 _022354EC:
 	mov r0, #6
@@ -16023,7 +16023,7 @@ _022354EC:
 	mov r0, #3
 	add r2, r1, #0
 	add r3, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _02235504:
 	mov r0, #0
 	str r0, [r4, #0x2c]
@@ -17767,7 +17767,7 @@ MOD80_02236284: ; 0x02236284
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, [r4, #4]
 	bl MOD80_02236378
 	add r0, r4, #0
@@ -18823,7 +18823,7 @@ MOD80_02236ADC: ; 0x02236ADC
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0
 	str r0, [r4, #0x2c]
 	ldr r0, _02236B14 ; =0x0000100C

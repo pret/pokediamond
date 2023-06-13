@@ -976,7 +976,7 @@ void BG_FillCharDataRange(
     FreeToHeap(st4);
 }
 
-void BG_LoadPlttData(u32 location, void *plttData, u32 size, u32 offset)
+void BG_LoadPlttData(u32 location, void *plttData, u32 size, enum GFPalSlotOffset offset)
 {
     DC_FlushRange(plttData, size);
     if (location < GF_PAL_LOCATION_SUB_BG)
@@ -990,7 +990,7 @@ void BG_LoadPlttData(u32 location, void *plttData, u32 size, u32 offset)
 
 void BG_SetMaskColor(u32 bgId, u32 value)
 {
-    BG_LoadPlttData(bgId, &value, 2, 0);
+    BG_LoadPlttData(bgId, &value, 2, GF_PAL_SLOT_OFFSET_0);
 }
 
 u16 GetTileMapIndexFromCoords(u8 x, u8 y, u8 screenSize)

@@ -65,7 +65,7 @@ MOD75_021E6BA0: ; 0x021E6BA0
 	str r1, [sp, #8]
 	mov r1, #3
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #3
 	mov r1, #8
 	bl SetKeyRepeatTimers
@@ -234,7 +234,7 @@ _021E6D88: ; jump table
 	.short _021E6ECC - _021E6D88 - 2 ; case 23
 	.short _021E6ED4 - _021E6D88 - 2 ; case 24
 _021E6DBA:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	beq _021E6DC4
 _021E6DC2:
@@ -382,7 +382,7 @@ _021E6ECC:
 	str r0, [r4]
 	b _021E6EE0
 _021E6ED4:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021E6EE0
 	mov r0, #1

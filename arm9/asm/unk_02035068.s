@@ -499,7 +499,7 @@ _020353C0:
 	strh r0, [r4, #0x2a]
 	b _02035484
 _020353D6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02035484
 	add r0, r4, #0x0
@@ -524,7 +524,7 @@ _020353F6:
 	strh r0, [r4, #0x2a]
 	b _02035484
 _02035412:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02035484
 	mov r2, #0x72
@@ -565,7 +565,7 @@ _02035440:
 	mov r0, #0x1
 	pop {r4-r6, pc}
 _02035478:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02035484
 	mov r0, #0x1
@@ -1577,7 +1577,7 @@ _02035C9E:
 FUN_02035CA0: ; 0x02035CA0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02035CD8
 	add r0, r5, #0x0

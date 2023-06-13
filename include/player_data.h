@@ -17,7 +17,7 @@ typedef enum
 
 struct PlayerData
 {
-    /* 0x00 */ u16 playerName[OT_NAME_LENGTH + 1];
+    /* 0x00 */ u16 playerName[PLAYER_NAME_LENGTH + 1];
     /* 0x10 */ u32 playerId;
     /* 0x14 */ u32 money;
     /* 0x18 */ u8 gender;

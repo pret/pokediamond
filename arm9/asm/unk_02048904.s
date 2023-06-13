@@ -1162,8 +1162,8 @@ _0204923C:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02049240
-FUN_02049240: ; 0x02049240
+	thumb_func_start CallTask_ScriptWarp
+CallTask_ScriptWarp: ; 0x02049240
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r5, r1, #0x0

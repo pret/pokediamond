@@ -1212,8 +1212,8 @@ MOD05_021E6954: ; 0x021E6954
 	nop
 _021E698C: .word MOD05_021E69FC
 
-	thumb_func_start MOD05_021E6990
-MOD05_021E6990: ; 0x021E6990
+	thumb_func_start CallFieldTask_RockClimb
+CallFieldTask_RockClimb: ; 0x021E6990
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
 	add r6, r2, #0

@@ -110,7 +110,7 @@ _0208706A:
 	add r0, r0, #0x1
 	str r0, [r4, #0x5c]
 _02087074:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _0208712A
 	bl FUN_0200541C
@@ -303,7 +303,7 @@ _020871F4:
 	add r0, r0, #0x1
 	str r0, [r4, #0x5c]
 _020871FE:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _02087232
 	ldr r0, [r4, #0x5c]
@@ -426,7 +426,7 @@ _020872FE:
 	add r0, r0, #0x1
 	str r0, [r4, #0x5c]
 _02087308:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _0208737E
 	ldr r1, _02087494 ; =0x00000475
@@ -588,7 +588,7 @@ _02087448:
 	add r0, r0, #0x1
 	str r0, [r4, #0x5c]
 _02087452:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _02087486
 	ldr r0, [r4, #0x5c]

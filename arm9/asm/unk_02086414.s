@@ -421,7 +421,7 @@ FUN_020866BC: ; 0x020866BC
 	mov r0, #0x0
 	add r2, r1, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	.balign 4
@@ -440,7 +440,7 @@ FUN_020866DC: ; 0x020866DC
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 

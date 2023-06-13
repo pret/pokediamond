@@ -406,7 +406,7 @@ FUN_02085BB0: ; 0x02085BB0
 	beq _02085BF6
 	b _02085C02
 _02085BCA:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _02085C02
 	mov r0, #0x1
@@ -427,7 +427,7 @@ _02085BE6:
 	bl MOD62_0222E3A0
 	b _02085C02
 _02085BF6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _02085C02
 	mov r0, #0x1

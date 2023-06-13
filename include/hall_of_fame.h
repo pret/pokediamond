@@ -3,6 +3,8 @@
 
 #define NUM_HOF_RECORDS 30
 
+#include "RTC_api.h"
+
 struct HOFMon
 {
     /* 0x00 */ u16 species;
@@ -11,7 +13,7 @@ struct HOFMon
     /* 0x04 */ u32 personality;
     /* 0x08 */ u32 otid;
     /* 0x0C */ u16 nickname[POKEMON_NAME_LENGTH + 1];
-    /* 0x22 */ u16 otname[OT_NAME_LENGTH + 1];
+    /* 0x22 */ u16 otname[PLAYER_NAME_LENGTH + 1];
     /* 0x32 */ u16 moves[4];
     /* 0x3A */ u8 padding[2];
 };
@@ -24,12 +26,12 @@ struct HOFParty
     u8 day;
 };
 
-struct HallOfFame
+typedef struct HallOfFame
 {
     struct HOFParty parties[NUM_HOF_RECORDS];
     u32 next_record;
     u32 num_total;
-};
+} HallOfFame;
 
 struct HofDisplayMon
 {

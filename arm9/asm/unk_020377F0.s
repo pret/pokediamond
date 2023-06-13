@@ -1962,8 +1962,8 @@ _020385BC:
 _020385CA:
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_020385CC
-FUN_020385CC: ; 0x020385CC
+	thumb_func_start CreateNamingScreen
+CreateNamingScreen: ; 0x020385CC
 	push {r3-r7, lr}
 	sub sp, #0x10
 	str r0, [sp, #0x4]

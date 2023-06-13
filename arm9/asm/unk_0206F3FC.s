@@ -161,7 +161,7 @@ FUN_0206F3FC: ; 0x0206F3FC
 	mov r1, #0x3
 	add r2, r1, #0x0
 	mov r3, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r4, #0x0
 	bl FUN_0206FF74
 	bl FUN_0206FB80
@@ -488,7 +488,7 @@ _0206F6FC:
 	str r0, [r4, #0x0]
 	b _0206F722
 _0206F70A:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _0206F722
 	ldr r0, _0206F744 ; =0x00000B25
@@ -521,7 +521,7 @@ _0206F74C: .word 0x000005AC
 FUN_0206F750: ; 0x0206F750
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x1
 	bne _0206F7CA
 	ldr r0, _0206F7D0 ; =0x000005A4

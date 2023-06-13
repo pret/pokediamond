@@ -202,7 +202,7 @@ MOD16_021D7664: ; 0x021D7664
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	.align 2, 0
@@ -222,17 +222,17 @@ MOD16_021D7684: ; 0x021D7684
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	pop {pc}
 	thumb_func_end MOD16_021D7684
 
 	thumb_func_start MOD16_021D76A4
 MOD16_021D76A4: ; 0x021D76A4
-	ldr r3, _021D76A8 ; =FUN_0200E308
+	ldr r3, _021D76A8 ; =IsPaletteFadeFinished
 	bx r3
 	.align 2, 0
-_021D76A8: .word FUN_0200E308
+_021D76A8: .word IsPaletteFadeFinished
 	thumb_func_end MOD16_021D76A4
 
 	thumb_func_start MOD16_021D76AC

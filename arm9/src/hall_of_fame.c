@@ -48,7 +48,7 @@ void Save_HOF_RecordParty(struct HallOfFame * hof, struct PlayerParty * party, R
                     GetMonData(mon, MON_DATA_NICKNAME_3, str);
                     CopyStringToU16Array(str, hof_party->party[j].nickname, POKEMON_NAME_LENGTH + 1);
                     GetMonData(mon, MON_DATA_OT_NAME_2, str);
-                    CopyStringToU16Array(str, hof_party->party[j].otname, OT_NAME_LENGTH + 1);
+                    CopyStringToU16Array(str, hof_party->party[j].otname, PLAYER_NAME_LENGTH + 1);
                 }
                 else
                 {

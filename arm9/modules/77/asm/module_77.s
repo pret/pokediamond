@@ -182,7 +182,7 @@ _021D764C:
 	ldr r2, [r4]
 	str r2, [sp, #8]
 	add r2, r1, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #4
 	mov r1, #1
 	bl GX_EngineAToggleLayers
@@ -199,7 +199,7 @@ _021D764C:
 	str r0, [r5]
 	b _021D7B66
 _021D76A8:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D7780
 	mov r0, #2
@@ -752,12 +752,12 @@ _021D7B1C:
 	str r0, [sp, #8]
 	add r0, r7, #0
 	add r3, r7, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0x12
 	str r0, [r5]
 	b _021D7B66
 _021D7B3E:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D7B66
 	ldr r0, _021D7BA4 ; =0x0000C2E8

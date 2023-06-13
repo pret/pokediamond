@@ -79,7 +79,7 @@ _021D9A36:
 	mov r0, #0
 	add r2, r1, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add r0, r6, #0
 	bl OverlayManager_GetField18
 	bl FUN_02029ABC
@@ -165,7 +165,7 @@ MOD58_021D9B8C: ; 0x021D9B8C
 	beq _021D9BD2
 	b _021D9BDE
 _021D9BA6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9BDE
 	mov r0, #1
@@ -188,7 +188,7 @@ _021D9BC8:
 	bl MOD58_021DAB34
 	b _021D9BDE
 _021D9BD2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0
 	beq _021D9BDE
 	mov r0, #1
@@ -1581,7 +1581,7 @@ _021DA70E:
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	add sp, #0xc
 	mov r0, #2
 	pop {r4, r5, pc}

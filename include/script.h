@@ -34,9 +34,17 @@ typedef struct LocalMapObject { //todo move to local_map_object.c
 
 typedef struct PartyMenuAppData PartyMenuAppData; //todo move to own file
 
+enum PCBoxOperation {
+    PC_BOX_OPERATION_DEPOSIT_MON,
+    PC_BOX_OPERATION_WITHDRAW_MON,
+    PC_BOX_OPERATION_MOVE_MONS,
+    PC_BOX_OPERATION_MOVE_ITEMS,
+    PC_BOX_OPERATION_COMPARE_MONS,
+};
+
 typedef struct PCBoxAppData {
     struct SaveBlock2 *save;
-    void *unk04;
+    enum PCBoxOperation operation;
     BOOL unk08;
 } PCBoxAppData; //todo move to own file
 
@@ -49,6 +57,29 @@ typedef struct FashionAppData {
 typedef struct TownMapAppData { //todo fill out
     u8 padding[0x140];
 } TownMapAppData; //todo move to own file
+
+typedef struct ScrCmdUnkStruct01D9 {
+    struct SaveBlock2 *save;
+    u16 unk04;
+    u16 unk06;
+} ScrCmdUnkStruct01D9; //todo identify and move to own file
+
+typedef struct StarterSelectionData {
+    s32 state;
+    struct Options *options;
+} StarterSelectionData; //todo move to own file
+
+typedef struct BagScreenAppData {
+
+} BagScreenAppData; //todo fill out and move to own file
+
+typedef struct Location {
+    u32 mapId;
+    u32 warpId;
+    u32 x;
+    u32 y;
+    u32 direction;
+} Location;
 
 typedef struct FieldSystem //todo move to field_system.c
 {

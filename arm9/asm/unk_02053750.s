@@ -174,7 +174,7 @@ _02053810:
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _0205382E:
 	mov r0, #0x5f
 	lsl r0, r0, #0x2
@@ -202,7 +202,7 @@ _0205384A:
 	str r1, [r4, r0]
 	pop {r3-r7, pc}
 _0205385C:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _020538B2
 	mov r0, #0x6
@@ -327,7 +327,7 @@ _02053912:
 	mov r0, #0x0
 	add r2, r1, #0x0
 	add r3, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	ldr r0, _020539F0 ; =0x0000062F
 	bl PlaySE
 	mov r0, #0x5f
@@ -350,7 +350,7 @@ _0205396E:
 	blx r1
 	cmp r0, #0x0
 	bne _020539EA
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _020539EA
 	ldr r0, _020539F4 ; =0x00000631
@@ -519,7 +519,7 @@ _02053AA0:
 	ldr r3, _02053B34 ; =0x00007FFF
 	add r1, r0, #0x0
 	add r2, r0, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 _02053AD0:
 	cmp r5, #0x0
 	bne _02053B30
@@ -531,7 +531,7 @@ _02053AD0:
 	str r1, [r4, r0]
 	pop {r4-r5, pc}
 _02053AE2:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02053B30
 	mov r0, #0x61
@@ -647,7 +647,7 @@ _02053BB2:
 	ldr r3, _02053C90 ; =0x00007FFF
 	mov r0, #0x0
 	add r2, r1, #0x0
-	bl FUN_0200E1D0
+	bl BeginNormalPaletteFade
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	ldr r1, [r4, r0]
@@ -656,7 +656,7 @@ _02053BB2:
 	str r1, [r4, r0]
 	pop {r4-r5, pc}
 _02053BD6:
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #0x0
 	beq _02053C8C
 	ldr r0, _02053C94 ; =0x00000632

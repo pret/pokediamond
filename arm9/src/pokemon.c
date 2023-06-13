@@ -909,7 +909,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_OT_NAME:
     {
         u16 * dest16 = (u16 *)dest;
-        for (ret = 0; ret < OT_NAME_LENGTH; ret++)
+        for (ret = 0; ret < PLAYER_NAME_LENGTH; ret++)
             dest16[ret] = blockD->otTrainerName[ret];
         dest16[ret] = EOS;
     }
@@ -1366,13 +1366,13 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
             blockC->sinnohRibbons2 &= -1ull ^ mask;
         break;
     case MON_DATA_OT_NAME:
-        for (i = 0; i < OT_NAME_LENGTH + 1; i++)
+        for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
         {
             blockD->otTrainerName[i] = VALUE(u16); value = (void *)((char *)value + 2);
         }
         break;
     case MON_DATA_OT_NAME_2:
-        CopyStringToU16Array(value, blockD->otTrainerName, OT_NAME_LENGTH + 1);
+        CopyStringToU16Array(value, blockD->otTrainerName, PLAYER_NAME_LENGTH + 1);
         break;
     case MON_DATA_EGG_MET_YEAR:
         blockD->dateEggReceived[0] = VALUE(u8);
@@ -3687,7 +3687,7 @@ BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct PlayerData * sb2, u32 heap_
     u32 myGender = PlayerProfile_GetTrainerGender(sb2);
     u32 otGender = GetBoxMonData(boxmon, MON_DATA_MET_GENDER, NULL);
     struct String * r7 = PlayerProfile_GetPlayerName_NewString(sb2, heap_id);
-    struct String * r6 = String_New(OT_NAME_LENGTH + 1, heap_id);
+    struct String * r6 = String_New(PLAYER_NAME_LENGTH + 1, heap_id);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
     if (myId == otId && myGender == otGender && StringCompare(r7, r6) == 0)

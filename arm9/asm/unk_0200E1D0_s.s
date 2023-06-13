@@ -52,8 +52,8 @@ UNK_020ECEF4: ; 0x020ECEF4
 
 	.text
 
-	thumb_func_start FUN_0200E1D0
-FUN_0200E1D0: ; 0x0200E1D0
+	thumb_func_start BeginNormalPaletteFade
+BeginNormalPaletteFade: ; 0x0200E1D0
 	push {r4-r7, lr}
 	sub sp, #0x1c
 	add r5, r0, #0x0
@@ -192,8 +192,8 @@ _0200E2FC:
 _0200E300: .word UNK_021C46B4 + 0x140
 _0200E304: .word UNK_021C46B4
 
-	thumb_func_start FUN_0200E308
-FUN_0200E308: ; 0x0200E308
+	thumb_func_start IsPaletteFadeFinished
+IsPaletteFadeFinished: ; 0x0200E308
 	ldr r0, _0200E318 ; =UNK_021C46B4 + 0x140
 	ldrh r0, [r0, #0xc]
 	cmp r0, #0x0

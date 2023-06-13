@@ -1062,7 +1062,7 @@ _021D7D62:
 	thumb_func_start MOD68_021D7D74
 MOD68_021D7D74: ; 0x021D7D74
 	push {r3, lr}
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	cmp r0, #1
 	bne _021D7D92
 	mov r0, #0
@@ -1204,7 +1204,7 @@ _021D7E74: .word gSystem + 0x40
 	thumb_func_start MOD68_021D7E78
 MOD68_021D7E78: ; 0x021D7E78
 	push {r3, lr}
-	bl FUN_0200E308
+	bl IsPaletteFadeFinished
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	pop {r3, pc}

@@ -1,6 +1,10 @@
 #ifndef POKEDIAMOND_UNK_020377F0_H
 #define POKEDIAMOND_UNK_020377F0_H
 
+#include "task.h"
+
+// this file likely has to do with scrcmd apps.
+
 struct Options;
 struct PlayerParty;
 
@@ -26,5 +30,16 @@ struct UnkStruct_02037CF0
     u8 padding3[0xC];
     BOOL unk2C;
 };
+
+enum NamingScreenType {
+    NAMINGSCREEN_PLAYER,
+    NAMINGSCREEN_POKEMON,
+    NAMINGSCREEN_BOX,
+    NAMINGSCREEN_RIVAL,
+    NAMINGSCREEN_GROUP = 5,
+    NAMINGSCREEN_SHAYMIN_ROCK = 6,
+};
+
+void CreateNamingScreen(TaskManager *taskManager, enum NamingScreenType type, s32 param2, s32 maxLen, s32 initPos, const u16 *defaultStr, u16 *retVar);
 
 #endif
