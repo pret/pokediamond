@@ -79,7 +79,7 @@ FUN_0204AB58: ; 0x0204AB58
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r4, r1, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x2
 	bne _0204AB6C
 	ldr r0, _0204ABA0 ; =0x0000047F
@@ -147,7 +147,7 @@ FUN_0204ABDC: ; 0x0204ABDC
 	ldr r0, [r5, #0x38]
 	add r4, r1, #0x0
 	add r7, r2, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	add r6, r0, #0x0
 	bl FUN_02004104
 	cmp r0, #0x1

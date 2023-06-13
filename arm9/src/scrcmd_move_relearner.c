@@ -46,7 +46,7 @@ BOOL ScrCmd_Unk021E(struct ScriptContext* ctx) //021E
 BOOL ScrCmd_Unk021F(struct ScriptContext* ctx) { //021F
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     u16 mon_idx = ScriptGetVar(ctx);
-    struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
+    struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     u16 *eligibleMoves = GetEligibleLevelUpMoves(pokemon, 32);
 
@@ -66,7 +66,7 @@ void FUN_02045E74(struct ScriptContext* ctx, u8 a1, struct Pokemon* pokemon, u16
     struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
     moveRelearner->player = Save_PlayerData_GetProfileAddr(sav2);
 
-    moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveBlock2);
+    moveRelearner->options = Save_PlayerData_GetOptionsAddr(ctx->fieldSystem->saveData);
     moveRelearner->eligibleMoves = eligibleMoves;
     moveRelearner->unk15 = a1;
     FUN_02038864(ctx->fieldSystem, moveRelearner);
@@ -84,7 +84,7 @@ BOOL ScrCmd_Unk0220(struct ScriptContext* ctx) //0220
 BOOL ScrCmd_Unk0221(struct ScriptContext* ctx) //0221 - todo: RememberMove?
 {
     u16 mon_idx = ScriptGetVar(ctx);
-    struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
+    struct PlayerParty* party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = GetPartyMonByIndex(party, mon_idx);
     u16 *eligibleMoves  = GetEligibleLevelUpMoves(pokemon, 32);
 
@@ -96,7 +96,7 @@ BOOL ScrCmd_Unk0224(struct ScriptContext* ctx) //0224 - todo: TeachMove?
 {
     u16 mon_idx = ScriptGetVar(ctx);
     u16 move = ScriptGetVar(ctx);
-    struct PlayerParty *party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveBlock2);
+    struct PlayerParty *party = SaveArray_PlayerParty_Get(ctx->fieldSystem->saveData);
     struct Pokemon *pokemon = GetPartyMonByIndex(party, mon_idx);
 
     u16 *eligibleMoves = AllocFromHeap(32, 2 * sizeof(u16));

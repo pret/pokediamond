@@ -79,7 +79,7 @@ FUN_0205CE80: ; 0x0205CE80
 	bl FUN_0205ED3C
 	str r0, [r5, #0x4]
 	ldr r0, [r4, #0x38]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	str r0, [r5, #0x8]
 	ldr r0, [r4, #0x38]
 	bl GetPlayerXCoord
@@ -473,7 +473,7 @@ _0205D1C4:
 	pop {r3-r5, pc}
 _0205D1CA:
 	ldr r0, [r5, #0x14]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x2
 	bne _0205D1DA
 	mov r0, #0x0
@@ -578,7 +578,7 @@ _0205D290:
 	b _0205D324
 _0205D296:
 	ldr r0, [r4, #0x38]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x1
 	bne _0205D2D6
 	ldr r0, [r4, #0x38]
@@ -1037,7 +1037,7 @@ FUN_0205D628: ; 0x0205D628
 _0205D636:
 	ldr r0, [r4, #0x18]
 	ldr r0, [r0, #0x38]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x1
 	bne _0205D648
 	mov r0, #0x0

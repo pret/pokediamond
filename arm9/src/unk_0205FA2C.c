@@ -35,7 +35,7 @@ u32 FUN_0205FA2C(
     struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)AllocFromHeapAtEnd(
         heap_id, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
-    struct SaveBlock2 *sav2 = fieldSystem->saveBlock2;
+    struct SaveBlock2 *sav2 = fieldSystem->saveData;
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
     ptr->options = Save_PlayerData_GetOptionsAddr(sav2);
@@ -101,7 +101,7 @@ u32 FUN_0205FAD8(
 u32 FUN_0205FB34(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id)
 {
-    struct SaveBlock2 *sav2 = fieldSystem->saveBlock2;
+    struct SaveBlock2 *sav2 = fieldSystem->saveData;
 
     struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)AllocFromHeapAtEnd(
         heap_id, sizeof(struct UnkPlayerStruct2_0205FA2C));
@@ -206,7 +206,7 @@ void FUN_0205FC50(struct TaskManager *taskManager,
 u32 FUN_0205FC9C(
     struct UnkCallbackStruct2_0205FA2C *param0, struct FieldSystem *fieldSystem)
 {
-    if (FUN_0203384C(fieldSystem->saveBlock2))
+    if (FUN_0203384C(fieldSystem->saveData))
     {
 
         param0->unk08 = FUN_02038790(fieldSystem, param0->unk12, param0->unk14);

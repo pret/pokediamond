@@ -219,6 +219,9 @@ BOOL ScrCmd_Waterfall(ScriptContext *ctx);
 BOOL ScrCmd_Fly(ScriptContext *ctx);
 BOOL ScrCmd_Flash(ScriptContext *ctx);
 BOOL ScrCmd_Defog(ScriptContext *ctx);
+BOOL ScrCmd_Cut(ScriptContext *ctx);
+BOOL ScrCmd_ApplyContestDress(ScriptContext *ctx);
+BOOL ScrCmd_CheckBike(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

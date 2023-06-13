@@ -61,7 +61,7 @@ _02055812:
 	pop {r3-r7, pc}
 _0205584E:
 	add r0, r5, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x0
 	bne _02055878
 	add r0, r5, #0x0
@@ -138,7 +138,7 @@ _020558E4:
 	cmp r0, #0x20
 	bne _020558F6
 	add r0, r5, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x2
 	bne _020558F6
 	mov r0, #0x1
@@ -725,7 +725,7 @@ FUN_02055DAC: ; 0x02055DAC
 	cmp r4, #0x0
 	bne _02055E62
 	add r0, r5, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x1
 	bne _02055DFE
 	add r0, r5, #0x0
@@ -1121,7 +1121,7 @@ FUN_02056110: ; 0x02056110
 	add r7, r1, #0x0
 	str r2, [sp, #0x8]
 	add r5, r3, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_020553A0
@@ -1338,7 +1338,7 @@ FUN_020562A8: ; 0x020562A8
 	bl FUN_02056B74
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x2
 	beq _0205632A
 	mov r0, #0x4
@@ -1492,7 +1492,7 @@ FUN_020563F0: ; 0x020563F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x1
 	bne _0205642C
 	mov r0, #0x2
@@ -2878,7 +2878,7 @@ FUN_02056EC8: ; 0x02056EC8
 	bl FUN_0204A6E0
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x1
 	bne _02056F54
 	add r0, r5, #0x0
@@ -2941,7 +2941,7 @@ FUN_02056F78: ; 0x02056F78
 	mvn r1, r1
 	cmp r4, r1
 	beq _0205701A
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x1
 	bne _0205701A
 	add r0, r5, #0x0
@@ -3200,7 +3200,7 @@ FUN_0205714C: ; 0x0205714C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x0
 	beq _02057162
 	cmp r0, #0x1
@@ -3467,7 +3467,7 @@ FUN_0205733C: ; 0x0205733C
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0205734E:
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x1
 	beq _0205735A
 	mov r0, #0x0

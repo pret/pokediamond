@@ -6107,7 +6107,7 @@ _0223C4B0:
 	b _0223C4D4
 _0223C4C4:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #1
 	bne _0223C4D4
 	add r4, #0x1e
@@ -39580,7 +39580,7 @@ MOD06_0224CAE8: ; 0x0224CAE8
 	add r5, r1, #0
 	ldr r0, [r5, #0x38]
 	add r4, r2, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r3, r0, #0
 	ldr r2, [r4, #0x20]
 	add r0, r5, #0

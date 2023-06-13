@@ -42,7 +42,7 @@ _021E6010: .word UNK05_021F7734
 MOD05_021E6014: ; 0x021E6014
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #0
 	bl FUN_020555A0
@@ -70,7 +70,7 @@ _021E6048:
 MOD05_021E6054: ; 0x021E6054
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #1
 	bl FUN_020555A0
@@ -102,7 +102,7 @@ MOD05_021E609C: ; 0x021E609C
 	push {r3, r4, r5, r6, lr}
 	sub sp, #4
 	add r5, r0, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #2
 	bl FUN_020555A0
@@ -156,7 +156,7 @@ _021E6114: .word FUN_020556C8
 MOD05_021E6118: ; 0x021E6118
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #4
 	bl FUN_020555A0
@@ -170,7 +170,7 @@ MOD05_021E6118: ; 0x021E6118
 MOD05_021E6134: ; 0x021E6134
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #6
 	bl FUN_020555A0
@@ -184,7 +184,7 @@ MOD05_021E6134: ; 0x021E6134
 MOD05_021E6150: ; 0x021E6150
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #7
 	bl FUN_020555A0
@@ -198,7 +198,7 @@ MOD05_021E6150: ; 0x021E6150
 MOD05_021E616C: ; 0x021E616C
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #8
 	bl FUN_020555A0
@@ -212,7 +212,7 @@ MOD05_021E616C: ; 0x021E616C
 MOD05_021E6188: ; 0x021E6188
 	push {r4, lr}
 	add r4, r0, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #9
 	bl FUN_020555A0
@@ -708,7 +708,7 @@ _021E655E:
 	cmp r0, #0xa
 	ble _021E65E4
 	ldr r0, [r4, #0x20]
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #0
 	bl FUN_020555A0
@@ -747,7 +747,7 @@ _021E65AC:
 	mov r1, #1
 	bl MOD06_0224ADF8
 	ldr r0, [r4, #0x20]
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #2
 	bl FUN_020555A0
@@ -773,7 +773,7 @@ MOD05_021E65EC: ; 0x021E65EC
 	cmp r3, #1
 	bne _021E6602
 	add r0, r5, #0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #2
 	beq _021E6606
 _021E6602:
@@ -852,7 +852,7 @@ _021E668C:
 	cmp r0, #1
 	bne _021E6710
 	ldr r0, [r4, #0xc]
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #0
 	bl FUN_020555A0
@@ -914,7 +914,7 @@ MOD05_021E6714: ; 0x021E6714
 	cmp r3, #1
 	bne _021E672E
 	add r0, r5, #0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #2
 	beq _021E6732
 _021E672E:
@@ -2099,7 +2099,7 @@ MOD05_021E703C: ; 0x021E703C
 	bl FUN_020553A0
 	str r0, [r4, #8]
 	ldr r0, [r4, #4]
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x10]
 	ldr r1, _021E7068 ; =MOD05_021E706C
@@ -2180,7 +2180,7 @@ MOD05_021E70F0: ; 0x021E70F0
 	cmp r0, #0
 	beq _021E7136
 	add r0, r4, #0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0
 	bne _021E7136
 	add r0, r5, #0
@@ -2212,7 +2212,7 @@ MOD05_021E7138: ; 0x021E7138
 	cmp r0, #0
 	beq _021E7180
 	add r0, r4, #0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0
 	bne _021E7180
 	add r0, r5, #0
@@ -2243,7 +2243,7 @@ MOD05_021E7184: ; 0x021E7184
 	add r6, r0, #0
 	ldr r5, [r6, #0x38]
 	add r0, r5, #0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	add r7, r0, #0
 	beq _021E7198
 	mov r0, #0
@@ -2291,7 +2291,7 @@ MOD05_021E71E8: ; 0x021E71E8
 	add r6, r0, #0
 	ldr r4, [r6, #0xc]
 	add r0, r4, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #0
 	bl FUN_020555A0
@@ -2321,7 +2321,7 @@ MOD05_021E7228: ; 0x021E7228
 	str r2, [r4]
 	str r1, [r4, #8]
 	ldr r0, [r0, #0x38]
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	str r0, [r4, #4]
 	pop {r4, pc}
 

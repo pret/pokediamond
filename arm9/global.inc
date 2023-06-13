@@ -2883,9 +2883,9 @@
 .extern ScrCmd_Fly
 .extern ScrCmd_Flash
 .extern ScrCmd_Defog
-.extern ScrCmd_Unk00C5
-.extern ScrCmd_Unk00C6
-.extern ScrCmd_Unk00C7
+.extern ScrCmd_Cut
+.extern ScrCmd_ApplyContestDress
+.extern ScrCmd_CheckBike
 .extern ScrCmd_Unk00C8
 .extern ScrCmd_Unk02BF
 .extern ScrCmd_Unk00C9
@@ -3914,11 +3914,11 @@
 .extern FUN_0205537C
 .extern FUN_020553A0
 .extern FUN_020553A8
-.extern FUN_020553C4
+.extern PlayerAvatar_GetState
 .extern FUN_020553D4
 .extern FUN_020553DC
 .extern FUN_020553E0
-.extern FUN_020553E8
+.extern PlayerAvatar_GetGender
 .extern FUN_02055408
 .extern FUN_0205540C
 .extern FUN_02055410

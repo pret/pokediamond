@@ -408,7 +408,7 @@ _02063C26:
 _02063C3A:
 	ldr r0, [r4, #0x4]
 	ldr r0, [r0, #0x38]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x2
 	bne _02063C4A
 	mov r0, #0x4

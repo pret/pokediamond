@@ -95,7 +95,7 @@ typedef struct FieldSystem //todo move to field_system.c
     u32 *unk00;
     UnkFieldStruct04 *unk04;
     struct BgConfig *bgConfig;
-    struct SaveBlock2 *saveBlock2; //0xC
+    struct SaveBlock2 *saveData; //0xC
     TaskManager *taskManager;
     u8 padding2[0x8];
     u32 *mapId; //0x1C

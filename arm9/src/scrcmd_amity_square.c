@@ -101,7 +101,7 @@ static const u16 sAmitySquarePossibleAccessoriesByPokemon[6][10] = {
 
 BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx) //0215
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     FUN_0205F54C(state);
 
@@ -111,7 +111,7 @@ BOOL ScrCmd_ClearAmitySquareSteps(struct ScriptContext* ctx) //0215
 BOOL ScrCmd_CheckAmitySquareSteps(struct ScriptContext* ctx) //0216
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = FUN_0205F55C(state);
     return FALSE;

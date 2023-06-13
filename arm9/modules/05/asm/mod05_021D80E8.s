@@ -1444,7 +1444,7 @@ _021D8C78:
 	pop {r3, r4, r5, r6, r7, pc}
 _021D8C88:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #2
 	beq _021D8CE0
 	ldr r0, [r5, #0xc]

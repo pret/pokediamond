@@ -11,7 +11,7 @@ extern BOOL FUN_020260C4(void*, u16, u16);
 
 BOOL ScrCmd_GiveSecretBaseDecoration(struct ScriptContext* ctx) //0083
 {
-    struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
+    struct SaveBlock2* sav2 = ctx->fieldSystem->saveData;
     u16 unk1 = ScriptGetVar(ctx);
     u16 unused = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -33,7 +33,7 @@ BOOL ScrCmd_TakeSecretBaseDecoration(struct ScriptContext* ctx) //0084
 
 BOOL ScrCmd_HasSpaceForDecoration(struct ScriptContext* ctx) //0085
 {
-    struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
+    struct SaveBlock2* sav2 = ctx->fieldSystem->saveData;
     u16 unk1 = ScriptGetVar(ctx);
     u16 unused = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -55,7 +55,7 @@ BOOL ScrCmd_GetDecorationCount(struct ScriptContext* ctx) //0086 - somewhat unsu
 
 BOOL ScrCmd_GiveUndergroundTrap(struct ScriptContext* ctx) //0087
 {
-    struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
+    struct SaveBlock2* sav2 = ctx->fieldSystem->saveData;
     u16 unk1 = ScriptGetVar(ctx);
     u16 unused = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -95,7 +95,7 @@ BOOL ScrCmd_GetTrapCount(struct ScriptContext* ctx) //008A
 
 BOOL ScrCmd_GiveTreasure(struct ScriptContext* ctx) //008B
 {
-    struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
+    struct SaveBlock2* sav2 = ctx->fieldSystem->saveData;
     u16 unused1 = ScriptGetVar(ctx);
     u16 unused2 = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
@@ -133,7 +133,7 @@ BOOL ScrCmd_GetTreasureCount(struct ScriptContext* ctx) //008E
 
 BOOL ScrCmd_GiveUndergroundSphere(struct ScriptContext* ctx) //008F
 {
-    struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
+    struct SaveBlock2* sav2 = ctx->fieldSystem->saveData;
     u16 unk1 = ScriptGetVar(ctx);
     u16 unk2 = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);

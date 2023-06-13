@@ -13,8 +13,8 @@ extern BOOL FUN_020612F8(struct FieldSystem*);
 BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
-    struct UnkSaveStruct_020286F8* unk_sav_ptr = FUN_0202881C(ctx->fieldSystem->saveBlock2);
-    struct SaveBlock2* sav2 = ctx->fieldSystem->saveBlock2;
+    struct UnkSaveStruct_020286F8* unk_sav_ptr = FUN_0202881C(ctx->fieldSystem->saveData);
+    struct SaveBlock2* sav2 = ctx->fieldSystem->saveData;
 
     u16 option = ScriptReadHalfword(ctx);
     switch (option)
@@ -68,7 +68,7 @@ BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
     }
     case 6: { //create a group
         struct String* player_name = String_New(64, 32);
-        struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
+        struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
 
         PlayerName_FlatToString(player, player_name);
         FUN_020287C0(unk_sav_ptr, 0, 1, player_name);

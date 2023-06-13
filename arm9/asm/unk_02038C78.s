@@ -346,9 +346,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Fly
 	.word ScrCmd_Flash
 	.word ScrCmd_Defog
-	.word ScrCmd_Unk00C5
-	.word ScrCmd_Unk00C6
-	.word ScrCmd_Unk00C7
+	.word ScrCmd_Cut
+	.word ScrCmd_ApplyContestDress
+	.word ScrCmd_CheckBike
 	.word ScrCmd_Unk00C8
 	.word ScrCmd_Unk00C9
 	.word ScrCmd_Unk00CA

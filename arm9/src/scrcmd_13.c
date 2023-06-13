@@ -22,7 +22,7 @@ extern void FUN_0208089C(struct Pokemon* pokemon, struct PlayerData* player, u32
 
 BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
     u16 unk = ScriptGetVar(ctx);
 
     if (unk == 0)
@@ -45,7 +45,7 @@ BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 
 BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
 {
-    void* unk = FUN_02022528(ctx->fieldSystem->saveBlock2);
+    void* unk = FUN_02022528(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = AllocMonZeroed(32);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
@@ -63,11 +63,11 @@ BOOL ScrCmd_Unk0254(struct ScriptContext* ctx) //0254
 
 BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
 {
-    void* unk = FUN_02022528(ctx->fieldSystem->saveBlock2);
-    struct PCStorage* pc = GetStoragePCPointer(ctx->fieldSystem->saveBlock2);
+    void* unk = FUN_02022528(ctx->fieldSystem->saveData);
+    struct PCStorage* pc = GetStoragePCPointer(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = AllocMonZeroed(32);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
-    struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveBlock2); // unused
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
+    struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData); // unused
 
     for (s32 i = 0; i < PARTY_SIZE; i++)
     {
@@ -77,7 +77,7 @@ BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
         struct BoxPokemon* box_mon = FUN_020690E4(pokemon);
         GF_ASSERT(PCStorage_PlaceMonInFirstEmptySlotInAnyBox(pc, box_mon));
 
-        FUN_0202C144(ctx->fieldSystem->saveBlock2, pokemon);
+        FUN_0202C144(ctx->fieldSystem->saveData, pokemon);
     }
 
     FreeToHeap(pokemon);

@@ -1435,7 +1435,7 @@ FUN_02049430: ; 0x02049430
 	pop {r4-r6, pc}
 _02049452:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MOD06_022483BC
