@@ -10,69 +10,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk0200
-ScrCmd_Unk0200: ; 0x0203C7F4
-	push {r3-r5, lr}
-	add r4, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0xc]
-	bl FUN_02034E30
-	bl FUN_02034DC8
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	bl ScriptReadHalfword
-	add r4, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r4, #0x0]
-	bl GetVarPointer
-	ldr r1, [r5, #0x0]
-	strh r1, [r0, #0x0]
-	mov r0, #0x0
-	pop {r3-r5, pc}
-
-	thumb_func_start ScrCmd_Unk0201
-ScrCmd_Unk0201: ; 0x0203C820
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r4, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r4, #0x80
-	ldr r1, [r4, #0x0]
-	ldr r1, [r1, #0x1c]
-	ldr r1, [r1, #0x0]
-	strh r1, [r0, #0x0]
-	mov r0, #0x0
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk00BF
-ScrCmd_Unk00BF: ; 0x0203C844
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl VarGet
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0x38]
-	bl PlayerAvatar_GetFacingDirection
-	add r1, r0, #0x0
-	ldr r0, [r5, #0x74]
-	add r2, r4, #0x0
-	bl MOD05_021E6990
-	mov r0, #0x1
-	pop {r3-r5, pc}
-
 	thumb_func_start ScrCmd_Unk00C0
 ScrCmd_Unk00C0: ; 0x0203C874
 	push {r3-r5, lr}

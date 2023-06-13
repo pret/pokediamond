@@ -253,8 +253,8 @@ _02048688:
 	nop
 _02048690: .word 0x0000061B
 
-	thumb_func_start Task_GameClear
-Task_GameClear: ; 0x02048694
+	thumb_func_start CallTask_GameClear
+CallTask_GameClear: ; 0x02048694
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r7, r0, #0x0

@@ -340,7 +340,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_FadeScreen
 	.word ScrCmd_WaitFadeScreen
 	.word ScrCmd_Warp
-	.word ScrCmd_Unk00BF
+	.word ScrCmd_RockClimb
 	.word ScrCmd_Unk00C0
 	.word ScrCmd_Unk00C1
 	.word ScrCmd_Unk00C2
@@ -661,8 +661,8 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk01FD
 	.word ScrCmd_Unk01FE
 	.word ScrCmd_Unk01FF
-	.word ScrCmd_Unk0200
-	.word ScrCmd_Unk0201
+	.word ScrCmd_GetPreviousMapID
+	.word ScrCmd_GetCurrentMapID
 	.word ScrCmd_Unk0202
 	.word ScrCmd_BattleRoomWarp
 	.word ScrCmd_ExitBattleRoom

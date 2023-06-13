@@ -2875,9 +2875,9 @@
 .extern ScrCmd_Warp
 .extern ScrCmd_BattleRoomWarp
 .extern ScrCmd_ExitBattleRoom
-.extern ScrCmd_Unk0200
-.extern ScrCmd_Unk0201
-.extern ScrCmd_Unk00BF
+.extern ScrCmd_GetPreviousMapID
+.extern ScrCmd_GetCurrentMapID
+.extern ScrCmd_RockClimb
 .extern ScrCmd_Unk00C0
 .extern ScrCmd_Unk00C1
 .extern ScrCmd_Unk00C2
@@ -3476,7 +3476,7 @@
 .extern FUN_020480E4
 .extern FUN_0204837C
 .extern FUN_02048498
-.extern Task_GameClear
+.extern CallTask_GameClear
 .extern FUN_020489DC
 .extern FUN_020489FC
 .extern FUN_02048C58
@@ -6681,7 +6681,7 @@
 .extern MOD05_021E61A4
 .extern MOD05_021E6410
 .extern MOD05_021E643C
-.extern MOD05_021E6990
+.extern CallFieldTask_RockClimb
 .extern MOD05_021E69BC
 .extern MOD05_021E6BF4
 .extern MOD05_021E7030

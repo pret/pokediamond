@@ -73,6 +73,14 @@ typedef struct BagScreenAppData {
 
 } BagScreenAppData; //todo fill out and move to own file
 
+typedef struct Location {
+    u32 mapId;
+    u32 warpId;
+    u32 x;
+    u32 y;
+    u32 direction;
+} Location;
+
 typedef struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;

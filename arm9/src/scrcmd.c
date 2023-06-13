@@ -140,7 +140,7 @@ extern void FUN_020383F8(FieldSystem *fieldSystem);
 extern void FUN_02065344(FieldSystem *fieldSystem);
 extern void FUN_020383D8(TaskManager *taskManager);
 extern void *FUN_0203842C(FieldSystem *fieldSystem);
-extern void Task_GameClear(TaskManager *taskManager);
+extern void CallTask_GameClear(TaskManager *taskManager);
 extern HallOfFame *FUN_02038824(FieldSystem *fieldSystem);
 extern void FUN_020386E0(FieldSystem *fieldSystem, u16 param1);
 extern void FUN_0206F3D8(TaskManager *taskManager, u16 *param1);
@@ -155,6 +155,9 @@ extern BOOL IsPaletteFadeFinished(void);
 extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
 extern void FUN_02049F98(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
 extern void FUN_02049FFC(TaskManager *taskManager);
+extern void *FUN_02034E30(struct SaveBlock2 *save);
+extern Location *FUN_02034DC8(void *param0);
+extern void CallFieldTask_RockClimb(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
 
 u8 UNK_021C5A0C[4];
 
@@ -2275,7 +2278,7 @@ BOOL ScrCmd_Unk00AF(ScriptContext *ctx) { //00AF
 }
 
 BOOL ScrCmd_ShowEndGameScreen(ScriptContext *ctx) { //00B0
-    Task_GameClear(ctx->fieldSystem->taskManager);
+    CallTask_GameClear(ctx->fieldSystem->taskManager);
     return TRUE;
 }
 
@@ -2446,5 +2449,25 @@ BOOL ScrCmd_BattleRoomWarp(ScriptContext *ctx) { //0203
 
 BOOL ScrCmd_ExitBattleRoom(ScriptContext *ctx) { //0204
     FUN_02049FFC(ctx->fieldSystem->taskManager);
+    return TRUE;
+}
+
+BOOL ScrCmd_GetPreviousMapID(ScriptContext *ctx) { //0200
+    Location *location = FUN_02034DC8(FUN_02034E30(ctx->fieldSystem->saveBlock2));
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = location->mapId;
+    return FALSE;
+}
+
+BOOL ScrCmd_GetCurrentMapID(ScriptContext *ctx) { //0201
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = *ctx->fieldSystem->mapId;
+    return FALSE;
+}
+
+BOOL ScrCmd_RockClimb(ScriptContext *ctx) { //00BF
+    u16 partyPosition = ScriptGetVar(ctx);
+    u32 playerDirection = PlayerAvatar_GetFacingDirection(ctx->fieldSystem->playerAvatar);
+    CallFieldTask_RockClimb(ctx->taskManager, playerDirection, partyPosition);
     return TRUE;
 }

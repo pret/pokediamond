@@ -211,6 +211,9 @@ BOOL ScrCmd_WaitFadeScreen(ScriptContext *ctx);
 BOOL ScrCmd_Warp(ScriptContext *ctx);
 BOOL ScrCmd_BattleRoomWarp(ScriptContext *ctx);
 BOOL ScrCmd_ExitBattleRoom(ScriptContext *ctx);
+BOOL ScrCmd_GetPreviousMapID(ScriptContext *ctx);
+BOOL ScrCmd_GetCurrentMapID(ScriptContext *ctx);
+BOOL ScrCmd_RockClimb(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
