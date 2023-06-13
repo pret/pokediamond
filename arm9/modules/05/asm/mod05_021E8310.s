@@ -9,7 +9,7 @@ MOD05_021E8310: ; 0x021E8310
 	ldr r4, [r1, #0xc]
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DC0
 	add r6, r0, #0
 	add r0, r4, #0

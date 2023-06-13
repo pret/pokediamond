@@ -224,7 +224,7 @@ FUN_02037400: ; 0x02037400
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DC0
 	str r0, [r4, #0x1c]
 	bl MapMatrix_New

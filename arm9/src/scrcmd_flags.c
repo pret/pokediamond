@@ -4,7 +4,7 @@
 #include "pokedex.h"
 
 extern void* FUN_02034E20(void*);
-extern void* FUN_02034E30(void*);
+extern void* Save_LocalFieldData_Get(void*);
 extern BOOL FUN_02055474(void*);
 extern void FUN_02055488(void*, u32);
 extern void FUN_0205ECD4(struct ScriptState* state);
@@ -51,7 +51,7 @@ BOOL ScrCmd_GiveSinnohDex(struct ScriptContext* ctx) //0158
 BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx) //0159
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    void* unk_sav_ptr = FUN_02034E30(ctx->fieldSystem->saveBlock2);
+    void* unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveBlock2);
     void* unk = FUN_02034E20(unk_sav_ptr);
 
     *ret_ptr = (u16)FUN_02055474(unk);
@@ -61,7 +61,7 @@ BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx) //0159
 
 BOOL ScrCmd_GiveRunningShoes(struct ScriptContext* ctx) //015A
 {
-    void* unk_sav_ptr = FUN_02034E30(ctx->fieldSystem->saveBlock2);
+    void* unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveBlock2);
     void* unk = FUN_02034E20(unk_sav_ptr);
 
     FUN_02055488(unk, 1);

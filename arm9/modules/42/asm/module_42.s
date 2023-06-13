@@ -134,7 +134,7 @@ _02254932:
 	bl MOD20_02252C38
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DCC
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]
@@ -522,7 +522,7 @@ MOD42_02254C04: ; 0x02254C04
 	bl MOD20_02252C38
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DCC
 	add r6, r0, #0
 	ldr r0, [r4, #0x1c]

@@ -46,7 +46,7 @@ _020377DC: .word UNK_020F2BB0
 	thumb_func_start FUN_020377E0
 FUN_020377E0: ; 0x020377E0
 	push {r3, lr}
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DC0
 	bl FUN_020377B0
 	pop {r3, pc}

@@ -341,11 +341,11 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_WaitFadeScreen
 	.word ScrCmd_Warp
 	.word ScrCmd_RockClimb
-	.word ScrCmd_Unk00C0
-	.word ScrCmd_Unk00C1
-	.word ScrCmd_Unk00C2
-	.word ScrCmd_Unk00C3
-	.word ScrCmd_Unk00C4
+	.word ScrCmd_Surf
+	.word ScrCmd_Waterfall
+	.word ScrCmd_Fly
+	.word ScrCmd_Flash
+	.word ScrCmd_Defog
 	.word ScrCmd_Unk00C5
 	.word ScrCmd_Unk00C6
 	.word ScrCmd_Unk00C7

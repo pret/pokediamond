@@ -1009,7 +1009,7 @@ _020357D6:
 	cmp r6, #0x0
 	bne _02035834
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E24
 	mov r1, #0x0
 	add r2, r0, #0x0

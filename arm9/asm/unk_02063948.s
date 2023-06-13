@@ -137,7 +137,7 @@ _02063A18:
 	strh r0, [r4, #0xc]
 _02063A2C:
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DEC
 	cmp r0, #0xe
 	beq _02063A42

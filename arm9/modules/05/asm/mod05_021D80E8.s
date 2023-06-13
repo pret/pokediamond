@@ -1877,7 +1877,7 @@ MOD05_021D9010: ; 0x021D9010
 	bl SaveArray_PlayerParty_Get
 	add r4, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E2C
 	ldrh r1, [r0]
 	add r1, r1, #1
@@ -1945,7 +1945,7 @@ MOD05_021D9090: ; 0x021D9090
 	pop {r4, pc}
 _021D90A6:
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E24
 	ldrh r0, [r0]
 	cmp r0, #0
@@ -1958,7 +1958,7 @@ _021D90A6:
 	pop {r4, pc}
 _021D90C4:
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E28
 	ldrh r1, [r0]
 	add r1, r1, #1
@@ -2121,7 +2121,7 @@ _021D91DC:
 	bl GF_AssertFail
 _021D91F2:
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r2, r0, #0
 	ldmia r2!, {r0, r1}
@@ -2143,7 +2143,7 @@ _021D920C:
 	str r0, [r5, #0x10]
 _021D921E:
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DC4
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]
@@ -2169,7 +2169,7 @@ MOD05_021D9248: ; 0x021D9248
 	add r7, r1, #0
 	str r2, [sp]
 	add r4, r3, #0
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DCC
 	add r6, r0, #0
 	ldr r3, [r5, #0x1c]

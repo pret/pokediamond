@@ -1079,7 +1079,7 @@ FUN_02037EB8: ; 0x02037EB8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E0C
 	mov r1, #0x5
 	mov r0, #0xb

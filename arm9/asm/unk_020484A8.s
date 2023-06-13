@@ -271,11 +271,11 @@ CallTask_GameClear: ; 0x02048694
 	bl Save_PlayerData_GetProfileAddr
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DCC
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0

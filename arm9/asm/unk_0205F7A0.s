@@ -28,7 +28,7 @@ FUN_0205F7A0: ; 0x0205F7A0
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DCC
 	mov r2, #0x5
 	str r0, [sp, #0xc]
@@ -76,7 +76,7 @@ _0205F812:
 	str r0, [r5, #0xc]
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E0C
 	str r0, [sp, #0x8]
 	ldr r0, [r0, #0x0]

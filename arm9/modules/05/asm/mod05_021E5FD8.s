@@ -535,8 +535,8 @@ MOD05_021E63D4: ; 0x021E63D4
 	nop
 _021E640C: .word MOD05_021E6484
 
-	thumb_func_start MOD05_021E6410
-MOD05_021E6410: ; 0x021E6410
+	thumb_func_start CallFieldTask_Surf
+CallFieldTask_Surf: ; 0x021E6410
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
 	add r6, r2, #0
@@ -1532,8 +1532,8 @@ MOD05_021E6BD8: ; 0x021E6BD8
 	nop
 _021E6BF0: .word MOD05_021E6C30
 
-	thumb_func_start MOD05_021E6BF4
-MOD05_021E6BF4: ; 0x021E6BF4
+	thumb_func_start CallFieldTask_Waterfall
+CallFieldTask_Waterfall: ; 0x021E6BF4
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r7, r2, #0

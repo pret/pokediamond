@@ -4,6 +4,7 @@
 #include "bag.h"
 #include "bg_window.h"
 #include "camera.h"
+#include "constants/global_fieldmap.h"
 #include "constants/items.h"
 #include "fashion_case.h"
 #include "hall_of_fame.h"
@@ -155,9 +156,16 @@ extern BOOL IsPaletteFadeFinished(void);
 extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
 extern void FUN_02049F98(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
 extern void FUN_02049FFC(TaskManager *taskManager);
-extern void *FUN_02034E30(struct SaveBlock2 *save);
-extern Location *FUN_02034DC8(void *param0);
+extern LocalFieldData *Save_LocalFieldData_Get(struct SaveBlock2 *save);
+extern Location *FUN_02034DC8(LocalFieldData *localFieldData);
 extern void CallFieldTask_RockClimb(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
+extern void FUN_0205DD40(u32 param0);
+extern void CallFieldTask_Surf(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
+extern void FUN_02049274(FieldSystem *fieldSystem, u16 mapId, s32 warpId, u16 x, u16 y, u32 direction);
+extern u32 FUN_02034DEC(LocalFieldData *localFieldData);
+extern void MOD05_021DC174(u32 param0, u32 weather);
+extern void FUN_02034DF4(LocalFieldData *localFieldData, u32 weather);
+extern void CallFieldTask_Waterfall(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
 
 u8 UNK_021C5A0C[4];
 
@@ -2453,7 +2461,7 @@ BOOL ScrCmd_ExitBattleRoom(ScriptContext *ctx) { //0204
 }
 
 BOOL ScrCmd_GetPreviousMapID(ScriptContext *ctx) { //0200
-    Location *location = FUN_02034DC8(FUN_02034E30(ctx->fieldSystem->saveBlock2));
+    Location *location = FUN_02034DC8(Save_LocalFieldData_Get(ctx->fieldSystem->saveBlock2));
     u16 *var = ScriptGetVarPointer(ctx);
     *var = location->mapId;
     return FALSE;
@@ -2469,5 +2477,42 @@ BOOL ScrCmd_RockClimb(ScriptContext *ctx) { //00BF
     u16 partyPosition = ScriptGetVar(ctx);
     u32 playerDirection = PlayerAvatar_GetFacingDirection(ctx->fieldSystem->playerAvatar);
     CallFieldTask_RockClimb(ctx->taskManager, playerDirection, partyPosition);
+    return TRUE;
+}
+
+BOOL ScrCmd_Surf(ScriptContext *ctx) { //00C0
+    FUN_0205DD40(ctx->fieldSystem->unk90);
+    u16 partyPosition = ScriptGetVar(ctx);
+    u32 playerDirection = PlayerAvatar_GetFacingDirection(ctx->fieldSystem->playerAvatar);
+    CallFieldTask_Surf(ctx->taskManager, playerDirection, partyPosition);
+    return TRUE;
+}
+
+BOOL ScrCmd_Waterfall(ScriptContext *ctx) { //00C1
+    u16 partyPosition = ScriptGetVar(ctx);
+    u32 playerDirection = PlayerAvatar_GetFacingDirection(ctx->fieldSystem->playerAvatar);
+    CallFieldTask_Waterfall(ctx->taskManager, playerDirection, partyPosition);
+    return TRUE;
+}
+
+BOOL ScrCmd_Fly(ScriptContext *ctx) { //00C2
+    u16 mapId = ScriptReadHalfword(ctx);
+    u16 xVar = ScriptGetVar(ctx);
+    u16 yVar = ScriptGetVar(ctx);
+    FUN_02049274(ctx->fieldSystem, mapId, -1, xVar, yVar, DIR_SOUTH); //fly function
+    return TRUE;
+}
+
+BOOL ScrCmd_Flash(ScriptContext *ctx) { //00C3
+    LocalFieldData *localFieldData = Save_LocalFieldData_Get(ctx->fieldSystem->saveBlock2);
+    FUN_02034DF4(localFieldData, 0); //clear weather
+    MOD05_021DC174(ctx->fieldSystem->unk04->unk0C, FUN_02034DEC(localFieldData)); //CallFieldTask_SetWeather? second param is get weather
+    return TRUE;
+}
+
+BOOL ScrCmd_Defog(ScriptContext *ctx) { //00C4
+    LocalFieldData *localFieldData = Save_LocalFieldData_Get(ctx->fieldSystem->saveBlock2);
+    FUN_02034DF4(localFieldData, 0); //clear weather
+    MOD05_021DC174(ctx->fieldSystem->unk04->unk0C, FUN_02034DEC(localFieldData)); //CallFieldTask_SetWeather? second param is get weather
     return TRUE;
 }
