@@ -2348,7 +2348,7 @@ _020388CC:
 	ldr r1, [r4, #0x1c]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0204AB58
+	bl FieldSystem_GetOverriddenMusicId
 	add r1, sp, #0x0
 	strh r0, [r1, #0xc]
 	ldr r0, [r4, #0x10]

@@ -12,4 +12,9 @@
 #define PLAYER_STATE_CYCLING         1
 #define PLAYER_STATE_SURFING         2
 
+// Player transition bits
+#define PLAYER_TRANSITION_WALKING               1 << 0
+#define PLAYER_TRANSITION_CYCLING               1 << 1
+#define PLAYER_TRANSITION_SURFING               1 << 2
+
 #endif //POKEDIAMOND_CONSTANTS_GLOBAL_FIELDMAP_H

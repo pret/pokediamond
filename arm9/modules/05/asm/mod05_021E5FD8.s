@@ -3,20 +3,20 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD05_021E5FD8
-MOD05_021E5FD8: ; 0x021E5FD8
-	ldr r3, _021E5FDC ; =FUN_020553D4
+	thumb_func_start Field_PlayerAvatar_OrrTransitionFlags
+Field_PlayerAvatar_OrrTransitionFlags: ; 0x021E5FD8
+	ldr r3, _021E5FDC ; =PlayerAvatar_OrrTransitionFlags
 	bx r3
 	.balign 4, 0
-_021E5FDC: .word FUN_020553D4
+_021E5FDC: .word PlayerAvatar_OrrTransitionFlags
 
-	thumb_func_start MOD05_021E5FE0
-MOD05_021E5FE0: ; 0x021E5FE0
+	thumb_func_start Field_PlayerAvatar_ApplyTransitionFlags
+Field_PlayerAvatar_ApplyTransitionFlags: ; 0x021E5FE0
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	mov r6, #0
-	bl FUN_020553E0
-	ldr r5, _021E6010 ; =UNK05_021F7734
+	bl PlayerAvatar_GetTransitionFlags
+	ldr r5, _021E6010 ; =sPlayerAvatarBitUpdateFuncs
 	add r4, r0, #0
 _021E5FEE:
 	mov r0, #1
@@ -33,10 +33,10 @@ _021E5FFA:
 	blo _021E5FEE
 	add r0, r7, #0
 	mov r1, #0
-	bl FUN_020553DC
+	bl PlayerAvatar_SetTransitionFlags
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021E6010: .word UNK05_021F7734
+_021E6010: .word sPlayerAvatarBitUpdateFuncs
 
 	thumb_func_start MOD05_021E6014
 MOD05_021E6014: ; 0x021E6014
@@ -45,13 +45,13 @@ MOD05_021E6014: ; 0x021E6014
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #0
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E726C
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_020553A8
+	bl PlayerAvatar_SetState
 	add r0, r4, #0
 	bl FUN_02055410
 	add r0, r4, #0
@@ -73,13 +73,13 @@ MOD05_021E6054: ; 0x021E6054
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #1
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E726C
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_020553A8
+	bl PlayerAvatar_SetState
 	add r0, r4, #0
 	bl FUN_02055410
 	add r0, r4, #0
@@ -105,13 +105,13 @@ MOD05_021E609C: ; 0x021E609C
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #2
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	add r0, r5, #0
 	bl MOD05_021E726C
 	add r0, r5, #0
 	mov r1, #2
-	bl FUN_020553A8
+	bl PlayerAvatar_SetState
 	add r0, r5, #0
 	bl FUN_02055410
 	add r0, r5, #0
@@ -127,9 +127,9 @@ _021E60D2:
 	bl PlayerAvatar_GetFacingDirection
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	mov r0, #1
 	mov r1, #0
 	str r0, [sp]
@@ -159,7 +159,7 @@ MOD05_021E6118: ; 0x021E6118
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #4
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E726C
@@ -173,7 +173,7 @@ MOD05_021E6134: ; 0x021E6134
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #6
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E726C
@@ -187,7 +187,7 @@ MOD05_021E6150: ; 0x021E6150
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #7
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E726C
@@ -201,7 +201,7 @@ MOD05_021E616C: ; 0x021E616C
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #8
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E726C
@@ -215,7 +215,7 @@ MOD05_021E6188: ; 0x021E6188
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #9
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	add r0, r4, #0
 	bl MOD05_021E726C
@@ -436,7 +436,7 @@ MOD05_021E632C: ; 0x021E632C
 	bl FUN_0204652C
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	ldr r0, [r4]
 	ldr r5, [r4, #0x10]
@@ -519,7 +519,7 @@ MOD05_021E63D4: ; 0x021E63D4
 	str r6, [r4, #0x1c]
 	ldr r0, [r6, #0x38]
 	str r0, [r4, #0x20]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r2, r4, #0
 	str r0, [r4, #0x24]
 	add r2, #0xc
@@ -561,7 +561,7 @@ MOD05_021E643C: ; 0x021E643C
 	push {r4, r5, r6, lr}
 	add r4, r2, #0
 	add r5, r1, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	lsl r0, r4, #0x18
 	lsr r0, r0, #0x18
@@ -619,11 +619,11 @@ _021E649E: ; jump table
 _021E64AE:
 	ldr r0, [r4, #0x1c]
 	mov r1, #0
-	bl FUN_0204AB20
+	bl FieldSystem_SetSavedMusicId
 	ldr r0, [r4, #0x1c]
 	ldr r1, _021E65E8 ; =0x0000047F
 	mov r2, #1
-	bl FUN_0204ABDC
+	bl FieldSystem_PlayOrFadeToNewMusicId
 	ldr r0, [r4]
 	add r0, r0, #1
 	add r0, r0, #1
@@ -696,7 +696,7 @@ _021E6514:
 	bl FUN_02055450
 	ldr r0, [r4, #0x20]
 	mov r1, #2
-	bl FUN_020553A8
+	bl PlayerAvatar_SetState
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -711,7 +711,7 @@ _021E655E:
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #0
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	ldr r0, [r4, #0x20]
 	bl MOD05_021E726C
@@ -750,7 +750,7 @@ _021E65AC:
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #2
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	ldr r0, [r4, #0x20]
 	bl MOD05_021E726C
@@ -781,7 +781,7 @@ _021E6602:
 	pop {r4, r5, r6, pc}
 _021E6606:
 	add r0, r5, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -818,7 +818,7 @@ MOD05_021E6638: ; 0x021E6638
 	str r5, [r4, #8]
 	str r7, [r4, #0xc]
 	add r0, r7, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [r4, #0x10]
 	add r0, r7, #0
 	bl FUN_02055454
@@ -855,7 +855,7 @@ _021E668C:
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #0
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	ldr r0, [r4, #0xc]
 	bl MOD05_021E726C
@@ -886,7 +886,7 @@ _021E66CC:
 	bl FUN_02055450
 	ldr r0, [r4, #0xc]
 	mov r1, #0
-	bl FUN_020553A8
+	bl PlayerAvatar_SetState
 	ldr r0, [r4, #8]
 	ldr r1, [r0, #0x1c]
 	ldr r1, [r1]
@@ -894,7 +894,7 @@ _021E66CC:
 	add r1, r0, #0
 	ldr r0, [r4, #8]
 	mov r2, #1
-	bl FUN_0204ABDC
+	bl FieldSystem_PlayOrFadeToNewMusicId
 	add r0, r4, #0
 	bl MOD05_021E72DC
 	mov r0, #1
@@ -952,7 +952,7 @@ MOD05_021E6758: ; 0x021E6758
 	pop {r4, r5, r6, pc}
 _021E676C:
 	add r0, r4, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058720
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
@@ -999,7 +999,7 @@ MOD05_021E67C0: ; 0x021E67C0
 	bl FUN_0204652C
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r7, r0, #0
 	ldr r0, [r4]
 	cmp r0, #0
@@ -1127,7 +1127,7 @@ MOD05_021E68D8: ; 0x021E68D8
 	add r4, r1, #0
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_0205AD98
 	cmp r0, #0
 	bne _021E68F0
@@ -1196,7 +1196,7 @@ MOD05_021E6954: ; 0x021E6954
 	str r6, [r4, #0xc]
 	ldr r0, [r6, #0x38]
 	str r0, [r4, #0x10]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r2, r4, #0
 	str r0, [r4, #0x14]
 	add r2, #0x1c
@@ -1504,7 +1504,7 @@ _021E6BB8: .word 0x63A06BB0
 	thumb_func_start MOD05_021E6BBC
 MOD05_021E6BBC: ; 0x021E6BBC
 	ldr r0, [r6, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [r4, #0x3c]
 	cmp r5, #0
 	beq _021E6BD4
@@ -2096,7 +2096,7 @@ MOD05_021E703C: ; 0x021E703C
 	str r5, [r4]
 	ldr r0, [r5, #0x38]
 	str r0, [r4, #4]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [r4, #8]
 	ldr r0, [r4, #4]
 	bl PlayerAvatar_GetGender
@@ -2138,7 +2138,7 @@ _021E7096:
 	bne _021E70E2
 	ldr r1, [r4, #0x10]
 	mov r0, #5
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r1, r0, #0
 	ldr r0, [r4, #4]
 	bl MOD05_021E726C
@@ -2174,7 +2174,7 @@ _021E70EC: .word UNK05_021F77BC
 MOD05_021E70F0: ; 0x021E70F0
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_02058934
 	cmp r0, #0
@@ -2189,16 +2189,16 @@ MOD05_021E70F0: ; 0x021E70F0
 	cmp r0, #1
 	bls _021E7136
 	add r0, r4, #0
-	bl FUN_020553E0
+	bl PlayerAvatar_GetTransitionFlags
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0x40
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	add r0, r4, #0
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	add r0, r4, #0
 	add r1, r5, #0
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 _021E7136:
 	pop {r3, r4, r5, pc}
 
@@ -2206,7 +2206,7 @@ _021E7136:
 MOD05_021E7138: ; 0x021E7138
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_02058934
 	cmp r0, #0
@@ -2223,16 +2223,16 @@ MOD05_021E7138: ; 0x021E7138
 	bne _021E7180
 _021E7162:
 	add r0, r4, #0
-	bl FUN_020553E0
+	bl PlayerAvatar_GetTransitionFlags
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #1
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	add r0, r4, #0
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	add r0, r4, #0
 	add r1, r5, #0
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 _021E7180:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -2250,7 +2250,7 @@ MOD05_021E7184: ; 0x021E7184
 	pop {r3, r4, r5, r6, r7, pc}
 _021E7198:
 	add r0, r5, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [sp]
 	mov r0, #4
 	mov r1, #0x10
@@ -2265,9 +2265,9 @@ _021E7198:
 	bl FUN_02058914
 	add r0, r5, #0
 	mov r1, #0x80
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	add r0, r5, #0
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	ldr r0, _021E71E0 ; =MOD05_021E7218
 	ldr r2, _021E71E4 ; =0x0000FFFF
 	add r1, r4, #0
@@ -2294,7 +2294,7 @@ MOD05_021E71E8: ; 0x021E71E8
 	bl PlayerAvatar_GetGender
 	add r1, r0, #0
 	mov r0, #0
-	bl FUN_020555A0
+	bl PlayerAvatar_GetSpriteByStateAndGender
 	add r0, r4, #0
 	bl MOD05_021E6014
 	add r0, r6, #0
@@ -2308,7 +2308,7 @@ _021E7216:
 MOD05_021E7218: ; 0x021E7218
 	push {r3, lr}
 	ldr r0, [r1, #0xc]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_020586A0
 	pop {r3, pc}
 	.balign 4, 0
@@ -2357,7 +2357,7 @@ _021E7268:
 MOD05_021E726C: ; 0x021E726C
 	push {r4, lr}
 	add r4, r1, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0
 	bl MOD05_021F3490
 	pop {r4, pc}
@@ -2379,7 +2379,7 @@ MOD05_021E727C: ; 0x021E727C
 	bl FUN_02059C00
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058578
 	ldr r2, [sp]
 	add r1, r6, r7
@@ -2444,8 +2444,8 @@ UNK05_021F7714: ; 0x021F7714
 	.word MOD05_021E6A28, MOD05_021E6A40, MOD05_021E6A58, MOD05_021E6AAC
 	.word MOD05_021E6AD4, MOD05_021E6AF4, MOD05_021E6B1C, MOD05_021E6B80
 
-	.global UNK05_021F7734
-UNK05_021F7734: ; 0x021F7734
+	.global sPlayerAvatarBitUpdateFuncs
+sPlayerAvatarBitUpdateFuncs: ; 0x021F7734
 	.word MOD05_021E6014, MOD05_021E6054, MOD05_021E609C, MOD05_021E610C
 	.word MOD05_021E6118, MOD05_021E6134, MOD05_021E6150, MOD05_021E616C
 	.word MOD05_021E6188

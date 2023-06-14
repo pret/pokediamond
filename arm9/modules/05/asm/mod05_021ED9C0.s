@@ -81,7 +81,7 @@ MOD05_021EDA48: ; 0x021EDA48
 	bl MOD05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x14]
 	add r0, r4, #0
 	mov r1, #0x18

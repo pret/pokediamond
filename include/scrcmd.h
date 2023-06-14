@@ -222,6 +222,8 @@ BOOL ScrCmd_Defog(ScriptContext *ctx);
 BOOL ScrCmd_Cut(ScriptContext *ctx);
 BOOL ScrCmd_ApplyContestDress(ScriptContext *ctx);
 BOOL ScrCmd_CheckBike(ScriptContext *ctx);
+BOOL ScrCmd_RideBike(ScriptContext *ctx);
+BOOL ScrCmd_DummyRideBike(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

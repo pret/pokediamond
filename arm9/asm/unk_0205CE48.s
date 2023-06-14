@@ -582,43 +582,43 @@ _0205D296:
 	cmp r0, #0x1
 	bne _0205D2D6
 	ldr r0, [r4, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058914
 	ldr r0, [r4, #0x38]
 	mov r1, #0x1
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	ldr r0, [r4, #0x38]
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0204AB20
+	bl FieldSystem_SetSavedMusicId
 	ldr r1, [r4, #0x1c]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0204AB58
+	bl FieldSystem_GetOverriddenMusicId
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	mov r2, #0x1
-	bl FUN_0204ABDC
+	bl FieldSystem_PlayOrFadeToNewMusicId
 	b _0205D30C
 _0205D2D6:
 	mov r1, #0x12
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
-	bl FUN_0204AB20
+	bl FieldSystem_SetSavedMusicId
 	mov r1, #0x12
 	add r0, r4, #0x0
 	lsl r1, r1, #0x6
 	mov r2, #0x1
-	bl FUN_0204ABDC
+	bl FieldSystem_PlayOrFadeToNewMusicId
 	ldr r0, [r4, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058914
 	ldr r0, [r4, #0x38]
 	mov r1, #0x2
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	ldr r0, [r4, #0x38]
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	add r4, #0x90
 	ldr r0, [r4, #0x0]
 	bl FUN_0205DD40
@@ -658,7 +658,7 @@ _0205D336:
 	pop {r3-r5, pc}
 _0205D344:
 	ldr r0, [r4, #0x14]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	ldrh r1, [r4, #0xe]
 	add r5, r0, #0x0
 	bl FUN_02059BB4
@@ -1357,7 +1357,7 @@ _0205D86E:
 	bne _0205D8AC
 _0205D898:
 	ldr r0, [r4, #0x14]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058A68
 	cmp r0, #0x1
 	bne _0205D8AC

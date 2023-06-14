@@ -27,7 +27,7 @@ extern u32  MOD06_022451F0(u32);
 
 extern void FUN_02049160(struct TaskManager *taskManager, u32);
 extern void FUN_0204C1B4(struct TaskManager *taskManager, u32,u32,u32,u32,u32,u32,u32);
-extern struct Vecx32 *FUN_020553A0(struct PlayerAvatar *playerAvatar);
+extern struct Vecx32 *PlayerAvatar_GetMapObject(struct PlayerAvatar *playerAvatar);
 extern void FUN_0205889C(struct Vecx32 *param0, u32);
 extern void FUN_0205F1C4(struct ScriptState *);
 extern void FUN_0205F1D4(struct ScriptState *);
@@ -85,7 +85,7 @@ BOOL FUN_02060194(struct TaskManager *taskManager)
         break;
 
     case 4:
-        struct Vecx32 *unk0 = FUN_020553A0(fieldSystem->playerAvatar);
+        struct Vecx32 *unk0 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
         unkStruct1->unkD += 1;
         if (unkStruct1->unkD <= 5)
         {

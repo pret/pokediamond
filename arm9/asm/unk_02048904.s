@@ -216,7 +216,7 @@ _02048A80:
 _02048A82:
 	ldr r0, [sp, #0x4]
 	add r1, r6, #0x0
-	bl FUN_02034DF4
+	bl LocalFieldData_SetWeatherType
 	cmp r4, #0x0
 	beq _02048AA6
 	ldr r0, [sp, #0x4]
@@ -1299,7 +1299,7 @@ _02049334:
 _0204934A:
 	ldr r0, [r6, #0x38]
 	mov r1, #0x0
-	bl FUN_020553A8
+	bl PlayerAvatar_SetState
 	add r1, r4, #0x0
 	add r0, r7, #0x0
 	add r1, #0x8
@@ -1532,7 +1532,7 @@ _020494FC:
 _02049512:
 	ldr r0, [r5, #0x38]
 	mov r1, #0x0
-	bl FUN_020553A8
+	bl PlayerAvatar_SetState
 	add r1, r4, #0x0
 	add r0, r7, #0x0
 	add r1, #0xc

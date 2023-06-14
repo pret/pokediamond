@@ -50,7 +50,7 @@ _02055812:
 	add r2, r6, #0x0
 	bl FUN_02055900
 	add r0, r5, #0x0
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl FUN_02055BD4
@@ -106,7 +106,7 @@ FUN_020558A0: ; 0x020558A0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0x0
 	bl FUN_0205AD98
 	cmp r0, #0x1
@@ -192,7 +192,7 @@ FUN_02055928: ; 0x02055928
 	mov r1, #0x0
 	bl FUN_0205574C
 	add r0, r4, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #0x0
 	bl FUN_02058A18
 _02055964:
@@ -207,7 +207,7 @@ FUN_02055968: ; 0x02055968
 	cmp r0, #0x1
 	bne _02055A20
 	add r0, r4, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	bl FUN_02058720
 	lsl r0, r0, #0x18
@@ -298,7 +298,7 @@ FUN_02055A38: ; 0x02055A38
 	bl FUN_02055378
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -438,7 +438,7 @@ _02055B5C:
 	pop {r3-r5, pc}
 _02055B60:
 	add r0, r5, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	bl FUN_0205AD98
 	cmp r0, #0x1
@@ -469,7 +469,7 @@ FUN_02055B8C: ; 0x02055B8C
 	mov r1, #0x0
 	bl FUN_02055374
 	add r0, r4, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	add r1, r5, #0x0
 	bl FUN_020584AC
@@ -507,7 +507,7 @@ FUN_02055BEC: ; 0x02055BEC
 	add r5, r0, #0x0
 	add r6, r1, #0x0
 	mov r4, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058720
 	add r7, r0, #0x0
 	add r0, r5, #0x0
@@ -582,7 +582,7 @@ FUN_02055C6C: ; 0x02055C6C
 FUN_02055C78: ; 0x02055C78
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	bl FUN_020584D4
 	add r6, r0, #0x0
@@ -716,7 +716,7 @@ FUN_02055DAC: ; 0x02055DAC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r7, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0x0
 	bl FUN_020584D4
 	add r4, r0, #0x0
@@ -858,7 +858,7 @@ _02055EF4: .word 0x00000654
 FUN_02055EF8: ; 0x02055EF8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	bl FUN_020584D4
 	add r0, r5, #0x0
@@ -893,7 +893,7 @@ _02055F40: .word 0x00000656
 FUN_02055F44: ; 0x02055F44
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	bl FUN_020584D4
 	add r0, r5, #0x0
@@ -928,7 +928,7 @@ _02055F8C: .word 0x00000656
 FUN_02055F90: ; 0x02055F90
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -979,7 +979,7 @@ FUN_02055FFC: ; 0x02055FFC
 	cmp r0, #0x1
 	bne _0205603E
 	add r0, r4, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #0x6
 	lsl r1, r1, #0x6
 	bl FUN_02058418
@@ -1007,9 +1007,9 @@ FUN_02056040: ; 0x02056040
 	push {r4-r6, lr}
 	sub sp, #0x18
 	add r5, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r1, sp, #0xc
@@ -1083,7 +1083,7 @@ FUN_020560D0: ; 0x020560D0
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r6, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r4, #0x10
@@ -1124,7 +1124,7 @@ FUN_02056110: ; 0x02056110
 	bl PlayerAvatar_GetState
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r0, #0x0
 	cmp r4, #0x0
 	beq _02056136
@@ -2547,7 +2547,7 @@ FUN_02056C0C: ; 0x02056C0C
 	orr r4, r0
 _02056C60:
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	ldr r2, [sp, #0x14]
 	add r1, sp, #0x18
 	str r1, [sp, #0x0]
@@ -2610,7 +2610,7 @@ FUN_02056CCC: ; 0x02056CCC
 	cmp r4, r0
 	beq _02056D54
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl FUN_02058B2C
@@ -2679,7 +2679,7 @@ FUN_02056D58: ; 0x02056D58
 	cmp r4, r0
 	beq _02056E00
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02058B2C
@@ -2763,7 +2763,7 @@ FUN_02056E04: ; 0x02056E04
 	cmp r5, r0
 	beq _02056E68
 	add r0, r4, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	bl FUN_02058B2C
@@ -2813,7 +2813,7 @@ FUN_02056E6C: ; 0x02056E6C
 	cmp r4, r0
 	beq _02056EC2
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl FUN_02058B2C
@@ -2857,7 +2857,7 @@ FUN_02056EC8: ; 0x02056EC8
 	cmp r4, r0
 	beq _02056F72
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	bl FUN_02058B2C
@@ -2945,7 +2945,7 @@ FUN_02056F78: ; 0x02056F78
 	cmp r0, #0x1
 	bne _0205701A
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	bl FUN_02058B2C
@@ -3114,7 +3114,7 @@ _020570C0:
 	thumb_func_start FUN_020570C4
 FUN_020570C4: ; 0x020570C4
 	push {r4, lr}
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	bl FUN_0205AD98
 	cmp r0, #0x1
@@ -3262,7 +3262,7 @@ _020571C6:
 	pop {r3-r7, pc}
 _020571D4:
 	add r0, r5, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	ldr r0, [sp, #0x1c]
 	mov r4, #0x4
 	add r1, r0, #0x0
@@ -3336,7 +3336,7 @@ _02057250: .word 0x00000601
 	thumb_func_start FUN_02057254
 FUN_02057254: ; 0x02057254
 	push {r3, lr}
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_0205AD98
 	pop {r3, pc}
 
@@ -3345,7 +3345,7 @@ FUN_02057260: ; 0x02057260
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r2, r4, #0x0
@@ -3357,7 +3357,7 @@ FUN_02057260: ; 0x02057260
 FUN_02057278: ; 0x02057278
 	push {r4, lr}
 	add r4, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
 	bl FUN_02059C90
 	pop {r4, pc}
@@ -3403,8 +3403,8 @@ FUN_020572B8: ; 0x020572B8
 	thumb_func_start FUN_020572D4
 FUN_020572D4: ; 0x020572D4
 	push {r3, lr}
-	bl FUN_020553A0
-	bl FUN_02058738
+	bl PlayerAvatar_GetMapObject
+	bl MapObject_GetFieldSysPtr
 	ldr r0, [r0, #0xc]
 	bl Save_GameStats_Get
 	mov r1, #0x5
@@ -3481,7 +3481,7 @@ _0205735A:
 	pop {r3-r5, pc}
 _02057368:
 	add r0, r5, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
 	bl FUN_02059B94
 	cmp r0, #0x1

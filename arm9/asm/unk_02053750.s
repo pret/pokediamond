@@ -95,7 +95,7 @@ _0205377A: ; jump table (using 16-bit offset)
 _02053786:
 	ldr r0, [r4, #0x0]
 	ldr r0, [r0, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058914
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0

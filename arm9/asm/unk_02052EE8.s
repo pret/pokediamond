@@ -552,7 +552,7 @@ _0205330A:
 _02053316:
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x8]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r0, #0x0
 	ldr r2, _02053338 ; =0x000004BC
 	ldr r0, [sp, #0x0]

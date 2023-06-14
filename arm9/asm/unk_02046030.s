@@ -239,7 +239,7 @@ _02046210: .word gSystem
 FUN_02046214: ; 0x02046214
 	push {r4, lr}
 	add r4, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
 	bl FUN_0205889C
 	pop {r4, pc}

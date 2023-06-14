@@ -349,7 +349,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Cut
 	.word ScrCmd_ApplyContestDress
 	.word ScrCmd_CheckBike
-	.word ScrCmd_Unk00C8
+	.word ScrCmd_RideBike
 	.word ScrCmd_Unk00C9
 	.word ScrCmd_Unk00CA
 	.word ScrCmd_Unk00CB
@@ -852,7 +852,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02BC
 	.word ScrCmd_Unk02BD
 	.word ScrCmd_Unk02BE
-	.word ScrCmd_Unk02BF
+	.word ScrCmd_DummyRideBike
 	.word ScrCmd_Unk02C0
 	.word ScrCmd_Unk02C1
 	.word ScrCmd_Unk02C2

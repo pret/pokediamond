@@ -182,7 +182,7 @@ MOD05_021E4C20: ; 0x021E4C20
 	thumb_func_start MOD05_021E4C24
 MOD05_021E4C24: ; 0x021E4C24
 	push {r3, lr}
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	ldr r0, [r0, #0x3c]
 	pop {r3, pc}
 	.balign 4, 0

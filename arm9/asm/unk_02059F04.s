@@ -1694,7 +1694,7 @@ FUN_0205AB20: ; 0x0205AB20
 	pop {r3-r7, pc}
 _0205AB36:
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	bl FUN_02055698
 	add r6, r0, #0x0
 	bl FUN_02057124
@@ -1724,7 +1724,7 @@ _0205AB68:
 	pop {r3-r7, pc}
 _0205AB72:
 	add r0, r6, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058BE4
 	add r4, r0, #0x0
 	add r0, r5, #0x0
@@ -1823,7 +1823,7 @@ _0205AC22:
 	bl FUN_02058B4C
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	bl FUN_02055698
 	str r0, [sp, #0xc]
 	bl GetPlayerXCoord
