@@ -155,8 +155,8 @@ FUN_02034E2C: ; 0x02034E2C
 	add r0, #0x94
 	bx lr
 
-	thumb_func_start FUN_02034E30
-FUN_02034E30: ; 0x02034E30
+	thumb_func_start Save_LocalFieldData_Get
+Save_LocalFieldData_Get: ; 0x02034E30
 	ldr r3, _02034E38 ; =SaveArray_Get
 	mov r1, #0x6
 	bx r3

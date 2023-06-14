@@ -538,7 +538,7 @@ _021F602C:
 	add r0, r5, #0
 	bl MOD05_021F60FC
 	add r0, r4, #0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	bl FUN_02055648
 	add r1, r0, #0
 	add r0, r4, #0

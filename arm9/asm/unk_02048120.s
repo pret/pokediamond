@@ -334,7 +334,7 @@ _020483A2: ; jump table (using 16-bit offset)
 	.short _02048482 - _020483A2 - 2; case 6
 _020483B0:
 	ldr r0, [r6, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	add r7, r0, #0x0
 	bl FUN_02034DFC
 	add r1, sp, #0x4
@@ -404,7 +404,7 @@ _02048442:
 	bl FUN_02034E8C
 	add r7, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DFC
 	cmp r7, r0
 	bne _0204846E

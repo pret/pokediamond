@@ -878,7 +878,7 @@ FUN_02046C1C: ; 0x02046C1C
 	bl FUN_02046530
 	add r4, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E24
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
@@ -962,7 +962,7 @@ _02046CD4:
 	cmp r0, #0x4
 	beq _02046CFE
 	ldr r0, [r6, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r1, r0, #0x0
 	add r0, r7, #0x0

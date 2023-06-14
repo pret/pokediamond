@@ -864,7 +864,7 @@ FUN_0204B9CC: ; 0x0204B9CC
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	bl FUN_02055648
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x38]

@@ -198,7 +198,7 @@ BOOL ScrCmd_CheckChatotCry(struct ScriptContext* ctx) //0059
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
-    struct SaveChatotSoundClip* chatotSoundClip = Save_Chatot_Get(ctx->fieldSystem->saveBlock2);
+    struct SaveChatotSoundClip* chatotSoundClip = Save_Chatot_Get(ctx->fieldSystem->saveData);
     if (Chatot_checkCry(chatotSoundClip) == 1)
     {
         *ret_ptr = 1;
@@ -236,7 +236,7 @@ BOOL ScrCmd_StopChatotRecord(struct ScriptContext* ctx) //005B
 
 BOOL ScrCmd_SaveChatotCry(struct ScriptContext* ctx) //005C
 {
-    struct SaveChatotSoundClip* chatotSoundClip = Save_Chatot_Get(ctx->fieldSystem->saveBlock2);
+    struct SaveChatotSoundClip* chatotSoundClip = Save_Chatot_Get(ctx->fieldSystem->saveData);
     Chatot_saveRecording(chatotSoundClip);
 
     return TRUE;

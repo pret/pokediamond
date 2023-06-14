@@ -72,7 +72,7 @@ BOOL ScrCmd_SetBerryTreeMulch(struct ScriptContext* ctx) { //0182
 BOOL ScrCmd_SetBerryTreeType(struct ScriptContext* ctx) //0183 - todo: PlantBerryTree?
 {
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
-    struct GameStats* gameStats = Save_GameStats_Get(ctx->fieldSystem->saveBlock2);
+    struct GameStats* gameStats = Save_GameStats_Get(ctx->fieldSystem->saveData);
     u16 treeType = ScriptGetVar(ctx);
 
     FUN_0204B5A8(ctx->fieldSystem, *berryTree, treeType);
@@ -103,7 +103,7 @@ BOOL ScrCmd_Unk0184(struct ScriptContext* ctx) //0184 - todo: SetBerryTreeWater/
 
 BOOL ScrCmd_TakeBerryTreeBerries(struct ScriptContext* ctx) //0185
 {
-    struct GameStats* gameStats = Save_GameStats_Get(ctx->fieldSystem->saveBlock2);
+    struct GameStats* gameStats = Save_GameStats_Get(ctx->fieldSystem->saveData);
     LocalMapObject **berryTree = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
 
     FUN_0204B4FC(ctx->fieldSystem, *berryTree);

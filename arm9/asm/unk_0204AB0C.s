@@ -47,7 +47,7 @@ FUN_0204AB20: ; 0x0204AB20
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DE8
 	strh r4, [r0, #0x0]
 	pop {r4, pc}
@@ -57,7 +57,7 @@ FUN_0204AB20: ; 0x0204AB20
 FUN_0204AB34: ; 0x0204AB34
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DE8
 	ldrh r0, [r0, #0x0]
 	pop {r3, pc}
@@ -66,7 +66,7 @@ FUN_0204AB34: ; 0x0204AB34
 FUN_0204AB44: ; 0x0204AB44
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DE8
 	mov r1, #0x0
 	strh r1, [r0, #0x0]
@@ -79,7 +79,7 @@ FUN_0204AB58: ; 0x0204AB58
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
 	add r4, r1, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x2
 	bne _0204AB6C
 	ldr r0, _0204ABA0 ; =0x0000047F
@@ -147,7 +147,7 @@ FUN_0204ABDC: ; 0x0204ABDC
 	ldr r0, [r5, #0x38]
 	add r4, r1, #0x0
 	add r7, r2, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	add r6, r0, #0x0
 	bl FUN_02004104
 	cmp r0, #0x1

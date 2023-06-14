@@ -99,7 +99,7 @@ _020636F8:
 	bl FUN_0205F2B4
 _02063758:
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E20
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
@@ -126,7 +126,7 @@ _02063786:
 	cmp r0, #0x0
 	beq _020637A6
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E0C
 	ldr r2, [r5, #0x1c]
 	ldr r1, [r2, #0x8]
@@ -224,7 +224,7 @@ FUN_0206384C: ; 0x0206384C
 	sub sp, #0x4
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DC8
 	ldr r1, [r5, #0x1c]
 	ldr r6, [r0, #0x0]

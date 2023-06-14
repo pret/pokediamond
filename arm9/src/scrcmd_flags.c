@@ -4,7 +4,7 @@
 #include "pokedex.h"
 
 extern void* FUN_02034E20(void*);
-extern void* FUN_02034E30(void*);
+extern void* Save_LocalFieldData_Get(void*);
 extern BOOL FUN_02055474(void*);
 extern void FUN_02055488(void*, u32);
 extern void FUN_0205ECD4(struct ScriptState* state);
@@ -31,7 +31,7 @@ const u8 UNK_020F457F[8] = {
 
 BOOL ScrCmd_HasSinnohDex(struct ScriptContext* ctx) //0157
 {
-    struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveBlock2);
+    struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
 
     *ret_ptr = (u16)Pokedex_GetSinnohDexFlag(pokedex);
@@ -41,7 +41,7 @@ BOOL ScrCmd_HasSinnohDex(struct ScriptContext* ctx) //0157
 
 BOOL ScrCmd_GiveSinnohDex(struct ScriptContext* ctx) //0158
 {
-    struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveBlock2);
+    struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
 
     Pokedex_SetSinnohDexFlag(pokedex);
 
@@ -51,7 +51,7 @@ BOOL ScrCmd_GiveSinnohDex(struct ScriptContext* ctx) //0158
 BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx) //0159
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    void* unk_sav_ptr = FUN_02034E30(ctx->fieldSystem->saveBlock2);
+    void* unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
     void* unk = FUN_02034E20(unk_sav_ptr);
 
     *ret_ptr = (u16)FUN_02055474(unk);
@@ -61,7 +61,7 @@ BOOL ScrCmd_HasRunningShoes(struct ScriptContext* ctx) //0159
 
 BOOL ScrCmd_GiveRunningShoes(struct ScriptContext* ctx) //015A
 {
-    void* unk_sav_ptr = FUN_02034E30(ctx->fieldSystem->saveBlock2);
+    void* unk_sav_ptr = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
     void* unk = FUN_02034E20(unk_sav_ptr);
 
     FUN_02055488(unk, 1);
@@ -74,7 +74,7 @@ BOOL ScrCmd_HasBadge(struct ScriptContext* ctx) //015B
     u16 badge_no = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     GF_ASSERT(badge_no < 8);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)PlayerProfile_TestBadgeFlag(player, badge_no);
 
@@ -85,7 +85,7 @@ BOOL ScrCmd_GiveBadge(struct ScriptContext* ctx) //015C
 {
     u16 badge_no = ScriptGetVar(ctx);
     GF_ASSERT(badge_no < 8);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
 
     PlayerProfile_SetBadgeFlag(player, badge_no);
 
@@ -95,7 +95,7 @@ BOOL ScrCmd_GiveBadge(struct ScriptContext* ctx) //015C
 BOOL ScrCmd_HasBag(struct ScriptContext* ctx) //015E
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)FUN_0205ECE0(state);
 
@@ -110,7 +110,7 @@ BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx) //015D - todo: Count
     u16 badges;
     for (i = 0, badges = 0; i < 8; i++)
     {
-        struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2);
+        struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
         BOOL has_badge = PlayerProfile_TestBadgeFlag(player, UNK_020F457F[i]);
         if (has_badge == TRUE)
         {
@@ -124,7 +124,7 @@ BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx) //015D - todo: Count
 
 BOOL ScrCmd_GiveBag(struct ScriptContext* ctx) //015F
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
     
     FUN_0205ECD4(state);
 
@@ -134,7 +134,7 @@ BOOL ScrCmd_GiveBag(struct ScriptContext* ctx) //015F
 BOOL ScrCmd_Unk0160(struct ScriptContext* ctx) //0160 - todo: HasPartner? CheckPartner?
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)FUN_0205ED3C(state);
 
@@ -143,7 +143,7 @@ BOOL ScrCmd_Unk0160(struct ScriptContext* ctx) //0160 - todo: HasPartner? CheckP
 
 BOOL ScrCmd_Unk0161(struct ScriptContext* ctx) //0161 - todo: GivePartner? SetPartner?
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     FUN_0205ED1C(state);
 
@@ -152,7 +152,7 @@ BOOL ScrCmd_Unk0161(struct ScriptContext* ctx) //0161 - todo: GivePartner? SetPa
 
 BOOL ScrCmd_Unk0162(struct ScriptContext* ctx) //0162 - todo: RemovePartner? ClearPartner?
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     FUN_0205ED2C(state);
 
@@ -162,7 +162,7 @@ BOOL ScrCmd_Unk0162(struct ScriptContext* ctx) //0162 - todo: RemovePartner? Cle
 BOOL ScrCmd_Unk0163(struct ScriptContext* ctx) //0163 - todo: GetSteps? CheckSteps? GetStepFlag? CheckStepFlag?
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)FUN_0205ED6C(state);
 
@@ -171,7 +171,7 @@ BOOL ScrCmd_Unk0163(struct ScriptContext* ctx) //0163 - todo: GetSteps? CheckSte
 
 BOOL ScrCmd_Unk0164(struct ScriptContext* ctx) //0164 - todo: SetStepFlag?
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     FUN_0205ED4C(state);
 
@@ -180,7 +180,7 @@ BOOL ScrCmd_Unk0164(struct ScriptContext* ctx) //0164 - todo: SetStepFlag?
 
 BOOL ScrCmd_Unk0165(struct ScriptContext* ctx) //0165 - todo: ClearStepFlag?
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     FUN_0205ED5C(state);
 
@@ -190,7 +190,7 @@ BOOL ScrCmd_Unk0165(struct ScriptContext* ctx) //0165 - todo: ClearStepFlag?
 BOOL ScrCmd_CheckGameCompleted(struct ScriptContext* ctx) //0166
 {
     u16* ret_ptr = ScriptGetVarPointer(ctx);
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)FUN_0205ED0C(state);
 
@@ -199,7 +199,7 @@ BOOL ScrCmd_CheckGameCompleted(struct ScriptContext* ctx) //0166
 
 BOOL ScrCmd_SetGameCompleted(struct ScriptContext* ctx) //0167
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
 
     FUN_0205ECFC(state);
 
@@ -208,7 +208,7 @@ BOOL ScrCmd_SetGameCompleted(struct ScriptContext* ctx) //0167
 
 BOOL ScrCmd_GetSetStrength(struct ScriptContext* ctx) //01CF - todo: Strength?
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
     u8 option = ScriptReadByte(ctx);
     u16* ret_ptr;
 
@@ -234,7 +234,7 @@ BOOL ScrCmd_GetSetStrength(struct ScriptContext* ctx) //01CF - todo: Strength?
 
 BOOL ScrCmd_GetSetFlash(struct ScriptContext* ctx) //01D0 - todo Flash?
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
     u8 option = ScriptReadByte(ctx);
     u16* ret_ptr;
 
@@ -260,7 +260,7 @@ BOOL ScrCmd_GetSetFlash(struct ScriptContext* ctx) //01D0 - todo Flash?
 
 BOOL ScrCmd_GetSetDefog(struct ScriptContext* ctx) //01D1 - todo: Defog
 {
-    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveBlock2);
+    struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
     u8 option = ScriptReadByte(ctx);
     u16* ret_ptr;
 

@@ -65,7 +65,7 @@ BOOL FUN_02060194(struct TaskManager *taskManager)
         break;
 
     case 2:
-        struct ScriptState *scrState = SaveArray_Flags_Get(fieldSystem->saveBlock2);
+        struct ScriptState *scrState = SaveArray_Flags_Get(fieldSystem->saveData);
         u8 unkD = unkStruct1->unkD;
         if (unkD == 0)
         {

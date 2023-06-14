@@ -486,7 +486,7 @@ FUN_02047A78: ; 0x02047A78
 	bl Save_PlayerData_GetOptionsAddr
 	str r0, [sp, #0xc]
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	str r0, [sp, #0x10]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1022,7 +1022,7 @@ FUN_02047F38: ; 0x02047F38
 	bl Save_Pokedex_Get
 	str r0, [sp, #0x4]
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E24
 	add r5, r0, #0x0
 	add r0, r4, #0x0
@@ -1156,7 +1156,7 @@ FUN_0204806C: ; 0x0204806C
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E20
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x1c]

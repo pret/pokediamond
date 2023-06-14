@@ -74,7 +74,7 @@ FUN_02048958: ; 0x02048958
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	add r4, r1, #0x0
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	add r6, r0, #0x0
 	bl FUN_02034DC8
 	add r2, r0, #0x0
@@ -161,7 +161,7 @@ FUN_020489FC: ; 0x020489FC
 	add r4, r1, #0x0
 	ldr r7, [r0, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	bl FUN_0204AB44
@@ -272,7 +272,7 @@ FUN_02048AE4: ; 0x02048AE4
 	bl PlayerProfile_GetTrainerGender
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E20
 	ldr r3, [r5, #0x1c]
 	ldr r1, [r0, #0x4]
@@ -317,7 +317,7 @@ FUN_02048B50: ; 0x02048B50
 	add r0, r5, #0x0
 	bl FUN_02034E60
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E20
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -462,7 +462,7 @@ FUN_02048C80: ; 0x02048C80
 	cmp r0, #0x0
 	beq _02048CAE
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	ldr r0, [r0, #0x0]
 	mov r1, #0xb
@@ -528,7 +528,7 @@ FUN_02048D04: ; 0x02048D04
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
@@ -671,7 +671,7 @@ _02048E10:
 	cmp r0, #0x0
 	beq _02048E78
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02048CDC
@@ -1435,7 +1435,7 @@ FUN_02049430: ; 0x02049430
 	pop {r4-r6, pc}
 _02049452:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	bl MOD06_022483BC
@@ -1839,7 +1839,7 @@ FUN_0204976C: ; 0x0204976C
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	ldr r0, [r6, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r4, r0, #0x0
 	mov r0, #0xb
@@ -2610,7 +2610,7 @@ FUN_02049D9C: ; 0x02049D9C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r4, r0, #0x0
 	mov r0, #0xb
@@ -2741,7 +2741,7 @@ FUN_02049EA4: ; 0x02049EA4
 	bl FUN_02046528
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r7, r0, #0x0
 	mov r0, #0xb
@@ -2858,7 +2858,7 @@ FUN_02049F98: ; 0x02049F98
 	bl FUN_02046528
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r1, r4, #0x0
 	bl FUN_02048CB0
@@ -2899,7 +2899,7 @@ FUN_02049FFC: ; 0x02049FFC
 	bl FUN_02046528
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r1, r0, #0x0
 	mov r0, #0x0

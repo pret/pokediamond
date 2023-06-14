@@ -2044,7 +2044,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
 
         case 21: //Display Yes/No touchscreen buttons
 #ifdef __MWERKS__
-            u32 arr[5];
+            u32 arr[5]; //todo - this is 100% a struct
             arr = MOD59_021D9E44;
 #else
             u32 arr[5] = {};
@@ -2313,7 +2313,7 @@ BOOL MOD59_MasterController(MOD59_IntroOverlayData *data)
                 break;
             }
 #ifdef __MWERKS__
-            u32 arr2[3];
+            u32 arr2[3]; //todo - this is 100% a struct
             arr2 = MOD59_021D9DC0;
 #else
             u32 arr2[3] = {};

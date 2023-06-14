@@ -355,7 +355,7 @@ BOOL ScrCmd_NormalMart(struct ScriptContext * ctx) //0147 - todo: Pokemart?
 
     for (i = 0; i < 8; i++)
     {
-        if (PlayerProfile_TestBadgeFlag(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveBlock2), i) == TRUE)
+        if (PlayerProfile_TestBadgeFlag(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData), i) == TRUE)
             badgeCount++;
     }
     switch (badgeCount)

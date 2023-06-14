@@ -129,7 +129,7 @@ _021D75DE:
 	add r0, r4, #0
 	bl MOD05_021D7E4C
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DEC
 	add r1, r0, #0
 	ldr r0, [r4, #4]
@@ -435,7 +435,7 @@ MOD05_021D7894: ; 0x021D7894
 	pop {r3, r4, r5, r6, r7, pc}
 _021D78CE:
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	add r7, r0, #0
 	ldr r0, [r5, #0x1c]
 	add r1, r4, #0
@@ -546,7 +546,7 @@ MOD05_021D79B4: ; 0x021D79B4
 	cmp r0, #0
 	beq _021D79FE
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E0C
 	add r7, r0, #0
 	ldr r0, [r5, #0x38]
@@ -1105,7 +1105,7 @@ MOD05_021D7E4C: ; 0x021D7E4C
 	bl MOD05_021DBA00
 	str r0, [r4, #0x44]
 	ldr r0, [r4, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E10
 	add r5, r0, #0
 	ldr r0, [r4, #0x38]

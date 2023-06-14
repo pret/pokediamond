@@ -4874,7 +4874,7 @@ _0223BA42:
 	strb r0, [r1, #0x18]
 _0223BA8C:
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DEC
 	add r3, r0, #0
 	ldr r0, [sp, #0x20]
@@ -5204,7 +5204,7 @@ _0223BD2E:
 	bl MOD06_0223D2DC
 	ldr r0, [sp, #8]
 	ldr r0, [r0, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DEC
 	add r3, r0, #0
 	ldr r0, [sp, #0x14]
@@ -5656,7 +5656,7 @@ _0223C0CE:
 	strb r0, [r1, #0x14]
 _0223C118:
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DEC
 	add r3, r0, #0
 	ldr r0, [sp, #0x1c]
@@ -6107,7 +6107,7 @@ _0223C4B0:
 	b _0223C4D4
 _0223C4C4:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #1
 	bne _0223C4D4
 	add r4, #0x1e
@@ -7593,7 +7593,7 @@ MOD06_0223CFD0: ; 0x0223CFD0
 	pop {r4, pc}
 _0223CFE4:
 	ldr r0, [r0, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034E24
 	add r1, r0, #0
 	ldrh r1, [r1]
@@ -19910,7 +19910,7 @@ MOD06_022433B8: ; 0x022433B8
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	bl FUN_02034DD0
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
@@ -39275,7 +39275,7 @@ MOD06_0224C888: ; 0x0224C888
 	add r5, r0, #0
 	ldr r0, [r1, #0xc]
 	add r4, r2, #0
-	bl FUN_02034E30
+	bl Save_LocalFieldData_Get
 	ldr r1, [r4, #8]
 	cmp r1, #2
 	bne _0224C8B2
@@ -39580,7 +39580,7 @@ MOD06_0224CAE8: ; 0x0224CAE8
 	add r5, r1, #0
 	ldr r0, [r5, #0x38]
 	add r4, r2, #0
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r3, r0, #0
 	ldr r2, [r4, #0x20]
 	add r0, r5, #0

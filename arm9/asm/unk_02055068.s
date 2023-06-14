@@ -89,7 +89,7 @@ _02055118:
 	add r0, r5, #0x0
 	bl MOD05_021EDBC8
 	add r0, r5, #0x0
-	bl FUN_020553C4
+	bl PlayerAvatar_GetState
 	cmp r0, #0x2
 	bne _0205515C
 	add r0, r5, #0x0
@@ -441,8 +441,8 @@ _020553B6:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020553C4
-FUN_020553C4: ; 0x020553C4
+	thumb_func_start PlayerAvatar_GetState
+PlayerAvatar_GetState: ; 0x020553C4
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _020553CE
@@ -474,8 +474,8 @@ FUN_020553E4: ; 0x020553E4
 	str r1, [r0, #0x1c]
 	bx lr
 
-	thumb_func_start FUN_020553E8
-FUN_020553E8: ; 0x020553E8
+	thumb_func_start PlayerAvatar_GetGender
+PlayerAvatar_GetGender: ; 0x020553E8
 	ldr r0, [r0, #0x1c]
 	bx lr
 

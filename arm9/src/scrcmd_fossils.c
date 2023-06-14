@@ -22,7 +22,7 @@ BOOL ScrCmd_CountFossils(struct ScriptContext * ctx) //01F1
     u16 total;
     for (i = 0, total = 0; i < 7; i++)
     {
-        total += Bag_GetQuantity(Save_Bag_Get(fieldSystem->saveBlock2), gFossilPokemonMap[i][0], 4);
+        total += Bag_GetQuantity(Save_Bag_Get(fieldSystem->saveData), gFossilPokemonMap[i][0], 4);
     }
 
     *ret_ptr = total;
@@ -62,7 +62,7 @@ BOOL ScrCmd_GetFossilMinimumAmount(struct ScriptContext * ctx) //01F5
     u16 total = 0;
     for (; i < 7; i++)
     {
-        total += Bag_GetQuantity(Save_Bag_Get(fieldSystem->saveBlock2), gFossilPokemonMap[i][0], 4);
+        total += Bag_GetQuantity(Save_Bag_Get(fieldSystem->saveData), gFossilPokemonMap[i][0], 4);
         if (total >= needed_amount)
         {
             *ret_ptr1 = gFossilPokemonMap[i][0];

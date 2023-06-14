@@ -58,7 +58,7 @@ _021F63AC:
 _021F63CC:
 	ldr r0, [sp]
 	ldr r0, [r0, #0x38]
-	bl FUN_020553E8
+	bl PlayerAvatar_GetGender
 	add r3, r0, #0
 	ldr r0, [sp]
 	ldr r2, [r6]

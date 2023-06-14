@@ -81,12 +81,21 @@ typedef struct Location {
     u32 direction;
 } Location;
 
+typedef struct UnkFieldStruct04 {
+    u8 padding[0xC];
+    u32 unk0C;
+} UnkFieldStruct04;
+
+typedef struct LocalFieldData {
+
+} LocalFieldData; //todo fill out and move to own file
+
 typedef struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;
-    u8 padding[0x4];
+    UnkFieldStruct04 *unk04;
     struct BgConfig *bgConfig;
-    struct SaveBlock2 *saveBlock2; //0xC
+    struct SaveBlock2 *saveData; //0xC
     TaskManager *taskManager;
     u8 padding2[0x8];
     u32 *mapId; //0x1C
@@ -99,9 +108,11 @@ typedef struct FieldSystem //todo move to field_system.c
     u32 unk60;
     u8 padding5[0x14];
     u32 unk78;
-    u8 padding6[0x1C];
+    u8 padding6[0x14];
+    u32 unk90;
+    u8 padding7[0x4];
     u32 *unk98;
-    u8 padding7[0xC];
+    u8 padding8[0xC];
     struct UnkStruct_02046444 * unkA8;
 } FieldSystem;
 
