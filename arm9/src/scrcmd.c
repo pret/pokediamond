@@ -180,6 +180,7 @@ extern void Field_PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u3
 extern void Field_PlayerAvatar_ApplyTransitionFlags(PlayerAvatar *playerAvatar);
 extern u16 FieldSystem_GetOverriddenMusicId(FieldSystem *fieldSystem, u32 mapId);
 extern void FUN_02055720(PlayerAvatar *avatar, u8 action);
+extern void PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
 
 u8 UNK_021C5A0C[4];
 
