@@ -10,63 +10,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk00C9
-ScrCmd_Unk00C9: ; 0x0203CB08
-	push {r3, lr}
-	ldr r2, [r0, #0x8]
-	add r1, r2, #0x1
-	str r1, [r0, #0x8]
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldrb r1, [r2, #0x0]
-	ldr r0, [r0, #0x38]
-	bl FUN_02055720
-	mov r0, #0x0
-	pop {r3, pc}
-
-	thumb_func_start ScrCmd_Unk00CA
-ScrCmd_Unk00CA: ; 0x0203CB20
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	bl ScriptReadHalfword
-	add r1, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl GetVarPointer
-	add r5, #0x80
-	add r4, r0, #0x0
-	ldr r0, [r5, #0x0]
-	ldr r0, [r0, #0x38]
-	bl PlayerAvatar_GetState
-	strh r0, [r4, #0x0]
-	mov r0, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk00CB
-ScrCmd_Unk00CB: ; 0x0203CB48
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl ScriptReadHalfword
-	add r4, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r4, #0x0]
-	ldr r0, [r0, #0x38]
-	bl PlayerAvatar_OrrTransitionFlags
-	mov r0, #0x1
-	pop {r4, pc}
-
-	thumb_func_start ScrCmd_Unk00CC
-ScrCmd_Unk00CC: ; 0x0203CB60
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	ldr r0, [r0, #0x38]
-	bl Field_PlayerAvatar_ApplyTransitionFlags
-	mov r0, #0x0
-	pop {r3, pc}
-
 	thumb_func_start ScrCmd_Unk00E3
 ScrCmd_Unk00E3: ; 0x0203CB70
 	push {r4-r6, lr}

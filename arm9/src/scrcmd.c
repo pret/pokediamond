@@ -179,6 +179,7 @@ extern void FieldSystem_PlayOrFadeToNewMusicId(FieldSystem *fieldSystem, u16 mus
 extern void Field_PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
 extern void Field_PlayerAvatar_ApplyTransitionFlags(PlayerAvatar *playerAvatar);
 extern u16 FieldSystem_GetOverriddenMusicId(FieldSystem *fieldSystem, u32 mapId);
+extern void FUN_02055720(PlayerAvatar *avatar, u8 action);
 
 u8 UNK_021C5A0C[4];
 
@@ -2584,5 +2585,28 @@ BOOL ScrCmd_RideBike(ScriptContext *ctx) { //00C8
 BOOL ScrCmd_DummyRideBike(ScriptContext *ctx) { //02BF
     Field_PlayerAvatar_OrrTransitionFlags(ctx->fieldSystem->playerAvatar, PLAYER_TRANSITION_CYCLING);
     FieldSystem_SetSavedMusicId(ctx->fieldSystem, SEQ_BICYCLE);
+    return FALSE;
+}
+
+BOOL ScrCmd_CyclingRoad(ScriptContext *ctx) { //00C9
+    u8 action = ScriptReadByte(ctx);
+    FUN_02055720(ctx->fieldSystem->playerAvatar, action);
+    return FALSE;
+}
+
+BOOL ScrCmd_GetPlayerState(ScriptContext *ctx) { //00CA
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = PlayerAvatar_GetState(ctx->fieldSystem->playerAvatar);
+    return FALSE;
+}
+
+BOOL ScrCmd_SetPlayerState(ScriptContext *ctx) { //00CB
+    u16 state = ScriptReadHalfword(ctx);
+    PlayerAvatar_OrrTransitionFlags(ctx->fieldSystem->playerAvatar, state);
+    return TRUE;
+}
+
+BOOL ScrCmd_ApplyPlayerState(ScriptContext *ctx) { //00CC
+    Field_PlayerAvatar_ApplyTransitionFlags(ctx->fieldSystem->playerAvatar);
     return FALSE;
 }

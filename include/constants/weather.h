@@ -24,7 +24,7 @@
 #define WEATHER_UNKNOWN_20        20  //WEATHER_RAINBOW?
 #define WEATHER_UNKNOWN_21        21  //WEATHER_SNOW_STORM?
 #define WEATHER_UNKNOWN_22        22  //WEATHER_STORM?
-#define WEATHER_UNKNOWN_23        23  //WEATHER_KOGOREBI??
+#define WEATHER_CANOPY            23
 #define WEATHER_CAVE_1            24
 #define WEATHER_CAVE_2            25
 #define WEATHER_UNKNOWN_26        26  //WEATHER_GALAXY?

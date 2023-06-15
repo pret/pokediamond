@@ -350,10 +350,10 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_ApplyContestDress
 	.word ScrCmd_CheckBike
 	.word ScrCmd_RideBike
-	.word ScrCmd_Unk00C9
-	.word ScrCmd_Unk00CA
-	.word ScrCmd_Unk00CB
-	.word ScrCmd_Unk00CC
+	.word ScrCmd_CyclingRoad
+	.word ScrCmd_GetPlayerState
+	.word ScrCmd_SetPlayerState
+	.word ScrCmd_ApplyPlayerState
 	.word ScrCmd_GetPlayerName
 	.word ScrCmd_GetRivalName
 	.word ScrCmd_GetFriendName

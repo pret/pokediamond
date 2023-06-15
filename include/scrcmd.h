@@ -224,6 +224,10 @@ BOOL ScrCmd_ApplyContestDress(ScriptContext *ctx);
 BOOL ScrCmd_CheckBike(ScriptContext *ctx);
 BOOL ScrCmd_RideBike(ScriptContext *ctx);
 BOOL ScrCmd_DummyRideBike(ScriptContext *ctx);
+BOOL ScrCmd_CyclingRoad(ScriptContext *ctx);
+BOOL ScrCmd_GetPlayerState(ScriptContext *ctx);
+BOOL ScrCmd_SetPlayerState(ScriptContext *ctx);
+BOOL ScrCmd_ApplyPlayerState(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

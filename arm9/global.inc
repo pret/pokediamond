@@ -2888,10 +2888,10 @@
 .extern ScrCmd_CheckBike
 .extern ScrCmd_RideBike
 .extern ScrCmd_DummyRideBike
-.extern ScrCmd_Unk00C9
-.extern ScrCmd_Unk00CA
-.extern ScrCmd_Unk00CB
-.extern ScrCmd_Unk00CC
+.extern ScrCmd_CyclingRoad
+.extern ScrCmd_GetPlayerState
+.extern ScrCmd_SetPlayerState
+.extern ScrCmd_ApplyPlayerState
 .extern ScrCmd_Unk00E3
 .extern ScrCmd_Unk00DE
 .extern ScrCmd_Unk00E6
