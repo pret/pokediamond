@@ -219,11 +219,11 @@ _0205DE90:
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x1c]
 	ldr r1, [r1, #0x0]
-	bl FUN_0204AB58
+	bl FieldSystem_GetOverriddenMusicId
 	add r1, r0, #0x0
 	ldr r0, [sp, #0xc]
 	mov r2, #0x1
-	bl FUN_0204ABDC
+	bl FieldSystem_PlayOrFadeToNewMusicId
 	b _0205DEC4
 _0205DEBE:
 	ldr r0, [sp, #0x18]
@@ -558,11 +558,11 @@ _0205E102:
 	ldr r1, [r7, #0x1c]
 	add r0, r7, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0204AB58
+	bl FieldSystem_GetOverriddenMusicId
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	mov r2, #0x1
-	bl FUN_0204ABDC
+	bl FieldSystem_PlayOrFadeToNewMusicId
 _0205E126:
 	pop {r3-r7, pc}
 

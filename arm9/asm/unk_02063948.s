@@ -138,7 +138,7 @@ _02063A18:
 _02063A2C:
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DEC
+	bl LocalFieldData_GetWeatherType
 	cmp r0, #0xe
 	beq _02063A42
 	cmp r0, #0x10

@@ -643,7 +643,7 @@ FUN_0204B800: ; 0x0204B800
 	ldr r0, [r0, #0x38]
 	add r4, r2, #0x0
 	add r5, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0x0
 	bl FUN_0205AEA4
 	str r0, [r5, #0xc]
@@ -679,11 +679,11 @@ _0204B83E: ; jump table (using 16-bit offset)
 _0204B848:
 	ldr r0, [r5, #0x38]
 	mov r1, #0x10
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	ldr r0, [r5, #0x38]
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058914
 	mov r0, #0x1
 	str r0, [r4, #0x0]
@@ -823,7 +823,7 @@ _0204B972:
 	ldr r1, [r4, #0x4]
 	bl FUN_02055304
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058908
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -868,8 +868,8 @@ FUN_0204B9CC: ; 0x0204B9CC
 	bl FUN_02055648
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x38]
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	ldr r0, [r4, #0x38]
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	pop {r4, pc}
 	.balign 4

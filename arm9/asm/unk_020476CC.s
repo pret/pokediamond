@@ -552,7 +552,7 @@ FUN_02047A78: ; 0x02047A78
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]
 	ldr r0, [sp, #0x10]
-	bl FUN_02034DEC
+	bl LocalFieldData_GetWeatherType
 	mov r1, #0x5d
 	lsl r1, r1, #0x2
 	str r0, [r5, r1]

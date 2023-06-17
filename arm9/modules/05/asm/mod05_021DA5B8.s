@@ -179,7 +179,7 @@ _021DA6EC:
 	b _021DA78E
 _021DA700:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #0xc
 	bl FUN_0205ADDC
 	ldr r0, [r4]
@@ -188,7 +188,7 @@ _021DA700:
 	b _021DA78E
 _021DA714:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1
@@ -430,7 +430,7 @@ _021DA8F6:
 	cmp r0, #0
 	beq _021DA9BE
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #0
 	bl FUN_0205889C
 	ldr r0, [r4]
@@ -439,7 +439,7 @@ _021DA8F6:
 	b _021DA9BE
 _021DA916:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #0xd
 	bl FUN_0205ADDC
 	ldr r0, [r4]
@@ -448,7 +448,7 @@ _021DA916:
 	b _021DA9BE
 _021DA92A:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1
@@ -743,7 +743,7 @@ _021DAB5E:
 	pop {r3, r4, r5, r6, r7, pc}
 _021DAB68:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AD98
 	cmp r0, #1
@@ -768,7 +768,7 @@ _021DAB8E:
 	mov r2, #0
 	bl MOD05_021DA514
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AD98
 	cmp r0, #1
@@ -792,7 +792,7 @@ _021DABC6:
 	b _021DAC60
 _021DABCE:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AD98
 	cmp r0, #1
@@ -806,7 +806,7 @@ _021DABCE:
 	b _021DAC60
 _021DABEE:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AD98
 	cmp r0, #1
@@ -826,7 +826,7 @@ _021DAC08:
 	b _021DAC60
 _021DAC16:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1
@@ -964,7 +964,7 @@ _021DAD2A:
 	pop {r3, r4, r5, r6, r7, pc}
 _021DAD34:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AD98
 	cmp r0, #1
@@ -987,7 +987,7 @@ _021DAD5A:
 	mov r2, #0
 	bl MOD05_021DA514
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AD98
 	cmp r0, #1
@@ -1011,7 +1011,7 @@ _021DAD8C:
 	b _021DAE04
 _021DAD94:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AD98
 	cmp r0, #1
@@ -1027,7 +1027,7 @@ _021DAD94:
 	b _021DAE04
 _021DADBA:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1
@@ -1369,7 +1369,7 @@ _021DB066: ; jump table
 	.short _021DB106 - _021DB066 - 2 ; case 3
 _021DB06E:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetFacingDirection
@@ -1411,7 +1411,7 @@ _021DB096:
 	b _021DB126
 _021DB0CA:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	mov r1, #0
 	bl FUN_0205889C
@@ -1424,7 +1424,7 @@ _021DB0CA:
 	b _021DB126
 _021DB0E8:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1
@@ -1482,7 +1482,7 @@ MOD05_021DB144: ; 0x021DB144
 	b _021DB1B4
 _021DB164:
 	ldr r0, [r4, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #1
 	bl FUN_0205889C
 	mov r0, #0
@@ -1620,7 +1620,7 @@ _021DB276: ; jump table
 	.short _021DB348 - _021DB276 - 2 ; case 3
 _021DB27E:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [sp, #0x14]
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetFacingDirection
@@ -1693,7 +1693,7 @@ _021DB2EE:
 	b _021DB368
 _021DB30C:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	mov r1, #0
 	bl FUN_0205889C
@@ -1706,7 +1706,7 @@ _021DB30C:
 	b _021DB368
 _021DB32A:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1
@@ -1771,7 +1771,7 @@ _021DB3A6: ; jump table
 	.short _021DB432 - _021DB3A6 - 2 ; case 3
 _021DB3AE:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	bl PlayerAvatar_GetFacingDirection
@@ -1805,7 +1805,7 @@ _021DB3DA:
 	b _021DB446
 _021DB3F6:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	mov r1, #0
 	bl FUN_0205889C
@@ -1818,7 +1818,7 @@ _021DB3F6:
 	b _021DB446
 _021DB414:
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1

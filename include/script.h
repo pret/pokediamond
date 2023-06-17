@@ -98,7 +98,7 @@ typedef struct FieldSystem //todo move to field_system.c
     struct SaveBlock2 *saveData; //0xC
     TaskManager *taskManager;
     u8 padding2[0x8];
-    u32 *mapId; //0x1C
+    Location *location;
     struct Camera *camera;
     u32 unk24;
     u8 padding3[0xC];

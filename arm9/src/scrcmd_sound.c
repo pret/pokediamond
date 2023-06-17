@@ -7,7 +7,7 @@
 
 extern BOOL FUN_02005CBC(void);
 extern void PlaySound(u16);
-extern void FUN_0204AB20(struct FieldSystem *fieldSystem, u16);
+extern void FieldSystem_SetSavedMusicId(struct FieldSystem *fieldSystem, u16);
 extern u16 FUN_0204ABA8(struct FieldSystem *fieldSystem, u32);
 extern void FUN_0200521C(u16);
 extern void FUN_02005308(u32, u16);
@@ -48,14 +48,14 @@ BOOL ScrCmd_StopBgm(struct ScriptContext *ctx) //0051
 
 BOOL ScrCmd_PlayDefaultBgm(struct ScriptContext *ctx) //0052
 {
-    u16 unk0 = FUN_0204ABA8(ctx->fieldSystem, *ctx->fieldSystem->mapId);
+    u16 unk0 = FUN_0204ABA8(ctx->fieldSystem, ctx->fieldSystem->location->mapId);
     FUN_0200521C(unk0);
     return FALSE;
 }
 
 BOOL ScrCmd_Unk0053(struct ScriptContext *ctx) //0053 - todo: SetMusic? SpecialMusic?
 {
-    FUN_0204AB20(ctx->fieldSystem, ScriptReadHalfword(ctx));
+    FieldSystem_SetSavedMusicId(ctx->fieldSystem, ScriptReadHalfword(ctx));
     return FALSE;
 }
 

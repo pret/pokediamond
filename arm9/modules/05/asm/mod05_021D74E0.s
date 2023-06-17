@@ -130,7 +130,7 @@ _021D75DE:
 	bl MOD05_021D7E4C
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DEC
+	bl LocalFieldData_GetWeatherType
 	add r1, r0, #0
 	ldr r0, [r4, #4]
 	ldr r0, [r0, #0xc]
@@ -463,15 +463,15 @@ _021D78CE:
 	ldr r1, [r5, #0x1c]
 	add r0, r5, #0
 	ldr r1, [r1]
-	bl FUN_0204AB58
+	bl FieldSystem_GetOverriddenMusicId
 	add r1, r0, #0
 	add r0, r5, #0
 	mov r2, #1
-	bl FUN_0204ABDC
+	bl FieldSystem_PlayOrFadeToNewMusicId
 	add r0, r5, #0
 	bl FUN_02034AC8
 	add r0, r7, #0
-	bl FUN_02034DEC
+	bl LocalFieldData_GetWeatherType
 	add r1, r0, #0
 	ldr r0, [r5, #4]
 	ldr r0, [r0, #0xc]

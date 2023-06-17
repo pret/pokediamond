@@ -5,7 +5,7 @@
 #include "unk_020051F4.h"
 
 extern void FUN_020463CC(u32 param0, void *func, UnkStruct021E7358 *param2);
-extern u32 FUN_020553A0(u32 param0);
+extern u32 PlayerAvatar_GetMapObject(u32 param0);
 extern u32 FUN_02058720(u32 param0);
 extern BOOL FUN_02054B30(u8 param0);
 extern BOOL FUN_02054B3C(u8 param0);
@@ -22,7 +22,7 @@ extern void FUN_02058418(u32 param0, u32 param1);
 
 BOOL MOD05_021E72FC(u32 param0, u32 param1)
 {
-    u8 res = (u8)FUN_02058720(FUN_020553A0(param1));
+    u8 res = (u8)FUN_02058720(PlayerAvatar_GetMapObject(param1));
     u32 r2;
     if (FUN_02054B30(res) == TRUE)
     {
@@ -79,7 +79,7 @@ u32 MOD05_021E7388(u32 param0)
 BOOL MOD05_021E73B4(UnkStruct021E7358 *param0)
 {
     UnkStruct021E7358 *strct = FUN_0204652C(param0);
-    u32 res = FUN_020553A0(strct->Unk10);
+    u32 res = PlayerAvatar_GetMapObject(strct->Unk10);
     u8 res2 = (u8)FUN_02058720(res);
     switch (strct->Unk08)
     {

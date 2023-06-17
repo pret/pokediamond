@@ -88,15 +88,15 @@ FUN_02034DE8: ; 0x02034DE8
 	add r0, #0x64
 	bx lr
 
-	thumb_func_start FUN_02034DEC
-FUN_02034DEC: ; 0x02034DEC
+	thumb_func_start LocalFieldData_GetWeatherType
+LocalFieldData_GetWeatherType: ; 0x02034DEC
 	add r0, #0x66
 	ldrh r0, [r0, #0x0]
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02034DF4
-FUN_02034DF4: ; 0x02034DF4
+	thumb_func_start LocalFieldData_SetWeatherType
+LocalFieldData_SetWeatherType: ; 0x02034DF4
 	add r0, #0x66
 	strh r1, [r0, #0x0]
 	bx lr

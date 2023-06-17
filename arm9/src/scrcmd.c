@@ -6,6 +6,8 @@
 #include "camera.h"
 #include "constants/global_fieldmap.h"
 #include "constants/items.h"
+#include "constants/sndseq.h"
+#include "constants/weather.h"
 #include "fashion_case.h"
 #include "hall_of_fame.h"
 #include "main.h"
@@ -72,7 +74,7 @@ extern LocalMapObject *FUN_02058060(u32 param0, u16 eventId);
 extern BOOL FUN_0205AEF0(u32 param0);
 extern void FUN_0205AEFC(u32 param0);
 extern void FUN_02058780(u32 param0);
-extern LocalMapObject *FUN_020553A0(struct PlayerAvatar *playerAvatar);
+extern LocalMapObject *PlayerAvatar_GetMapObject(struct PlayerAvatar *playerAvatar);
 extern u32 FUN_0205AE28(LocalMapObject *event);
 extern void FUN_02058908(LocalMapObject *event);
 extern u32 FUN_02058854(LocalMapObject *event);
@@ -162,9 +164,9 @@ extern void CallFieldTask_RockClimb(TaskManager *taskManager, u32 playerDirectio
 extern void FUN_0205DD40(u32 param0);
 extern void CallFieldTask_Surf(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
 extern void FUN_02049274(FieldSystem *fieldSystem, u16 mapId, s32 warpId, u16 x, u16 y, u32 direction);
-extern u32 FUN_02034DEC(LocalFieldData *localFieldData);
+extern u32 LocalFieldData_GetWeatherType(LocalFieldData *localFieldData);
 extern void MOD05_021DC174(u32 param0, u32 weather);
-extern void FUN_02034DF4(LocalFieldData *localFieldData, u32 weather);
+extern void LocalFieldData_SetWeatherType(LocalFieldData *localFieldData, u32 weather);
 extern void CallFieldTask_Waterfall(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
 extern u32 PlayerAvatar_GetGender(PlayerAvatar *avatar);
 extern void *MOD06_0224666C(FieldSystem *fieldSystem, u32 param1, Pokemon *mon, u32 playerGender);
@@ -172,6 +174,13 @@ extern BOOL MOD06_022466A0(void *param0);
 extern void MOD06_022466AC(void *param0);
 extern void MOD05_021E7030(TaskManager *taskManager);
 extern u32 PlayerAvatar_GetState(PlayerAvatar *avatar);
+extern void FieldSystem_SetSavedMusicId(FieldSystem *fieldSystem, u16 musicId);
+extern void FieldSystem_PlayOrFadeToNewMusicId(FieldSystem *fieldSystem, u16 musicId, u32 param2);
+extern void Field_PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
+extern void Field_PlayerAvatar_ApplyTransitionFlags(PlayerAvatar *playerAvatar);
+extern u16 FieldSystem_GetOverriddenMusicId(FieldSystem *fieldSystem, u32 mapId);
+extern void FUN_02055720(PlayerAvatar *avatar, u8 action);
+extern void PlayerAvatar_OrrTransitionFlags(PlayerAvatar *playerAvatar, u32 transitionFlags);
 
 u8 UNK_021C5A0C[4];
 
@@ -1578,10 +1587,10 @@ BOOL ScrCmd_LockAllEvents(struct ScriptContext *ctx) //0060
 static BOOL FUN_0203B218(struct ScriptContext *ctx) {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
-    LocalMapObject *unk0 = FUN_020553A0(fieldSystem->playerAvatar);
+    LocalMapObject *playerAvatar = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
     if (UNK_021C5A0C[0] & 1) {
-        if (FUN_0205AE28(unk0) == 1) {
-            FUN_02058908(unk0);
+        if (FUN_0205AE28(playerAvatar) == 1) {
+            FUN_02058908(playerAvatar);
             UNK_021C5A0C[0] &= 0xfe;
         }
     }
@@ -1616,16 +1625,16 @@ static BOOL FUN_0203B218(struct ScriptContext *ctx) {
 BOOL ScrCmd_LockAllEvents2(struct ScriptContext *ctx) { //02B4
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     LocalMapObject **lastInteracted = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_LAST_INTERACTED);
-    LocalMapObject *unk0 = FUN_020553A0(fieldSystem->playerAvatar);
+    LocalMapObject *playerAvatar = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
     LocalMapObject *unk1 = FUN_020580B4(fieldSystem->unk34, 48);
     LocalMapObject *unk2 = FUN_0205E7C4(*lastInteracted);
     u32 unk34 = fieldSystem->unk34;
     UNK_021C5A0C[0] = 0;
 
     FUN_02058780(unk34);
-    if (FUN_0205AE28(unk0) == 0) {
+    if (FUN_0205AE28(playerAvatar) == 0) {
         UNK_021C5A0C[0] |= 1;
-        FUN_02058914(unk0);
+        FUN_02058914(playerAvatar);
     }
     if (FUN_02058854(*lastInteracted) != 0) {
         UNK_021C5A0C[0] |= 4;
@@ -1678,7 +1687,7 @@ BOOL ScrCmd_AddOverworldEvent(struct ScriptContext *ctx) //0064
     u16 eventId = ScriptGetVar(ctx);
     u32 unk0 = FUN_02034B64(fieldSystem);
     u32 unk1 = FUN_02034B6C(fieldSystem);
-    u32 res = FUN_020575D4(fieldSystem->unk34, eventId, unk0, *fieldSystem->mapId, unk1);
+    u32 res = FUN_020575D4(fieldSystem->unk34, eventId, unk0, fieldSystem->location->mapId, unk1);
 
     GF_ASSERT(res);
     return FALSE;
@@ -1697,7 +1706,7 @@ BOOL ScrCmd_LockCamera(struct ScriptContext *ctx) //0066
     u16 x = ScriptGetVar(ctx);
     u16 y = ScriptGetVar(ctx);
     LocalMapObject **targetPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_CAMERA_TARGET);
-    *targetPtr = FUN_0205753C(ctx->fieldSystem->unk34, x, y, 0, 0x2000, 0, *ctx->fieldSystem->mapId);
+    *targetPtr = FUN_0205753C(ctx->fieldSystem->unk34, x, y, 0, 0x2000, 0, ctx->fieldSystem->location->mapId);
     FUN_02059D1C(*targetPtr);
     FUN_0205889C(*targetPtr, 1);
     FUN_020588B8(*targetPtr, 0);
@@ -1777,7 +1786,7 @@ BOOL ScrCmd_Unk006B(struct ScriptContext *ctx) //006B - todo: CheckPersonPositio
     vector.y = FX32_CONST(y);
     vector.z = FX32_CONST(z);
 
-    FUN_02058BB4(FUN_020553A0(ctx->fieldSystem->playerAvatar), &vector);
+    FUN_02058BB4(PlayerAvatar_GetMapObject(ctx->fieldSystem->playerAvatar), &vector);
     Camera_OffsetLookAtPosAndTarget(&vector, ctx->fieldSystem->camera);
     return FALSE;
 }
@@ -2476,7 +2485,7 @@ BOOL ScrCmd_GetPreviousMapID(ScriptContext *ctx) { //0200
 
 BOOL ScrCmd_GetCurrentMapID(ScriptContext *ctx) { //0201
     u16 *var = ScriptGetVarPointer(ctx);
-    *var = *ctx->fieldSystem->mapId;
+    *var = ctx->fieldSystem->location->mapId;
     return FALSE;
 }
 
@@ -2512,15 +2521,15 @@ BOOL ScrCmd_Fly(ScriptContext *ctx) { //00C2
 
 BOOL ScrCmd_Flash(ScriptContext *ctx) { //00C3
     LocalFieldData *localFieldData = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
-    FUN_02034DF4(localFieldData, 0); //clear weather
-    MOD05_021DC174(ctx->fieldSystem->unk04->unk0C, FUN_02034DEC(localFieldData)); //CallFieldTask_SetWeather? second param is get weather
+    LocalFieldData_SetWeatherType(localFieldData, WEATHER_SUNNY); //clear weather
+    MOD05_021DC174(ctx->fieldSystem->unk04->unk0C, LocalFieldData_GetWeatherType(localFieldData)); //CallFieldTask_SetWeather? second param is get weather
     return TRUE;
 }
 
 BOOL ScrCmd_Defog(ScriptContext *ctx) { //00C4
     LocalFieldData *localFieldData = Save_LocalFieldData_Get(ctx->fieldSystem->saveData);
-    FUN_02034DF4(localFieldData, 0); //clear weather
-    MOD05_021DC174(ctx->fieldSystem->unk04->unk0C, FUN_02034DEC(localFieldData)); //CallFieldTask_SetWeather? second param is get weather
+    LocalFieldData_SetWeatherType(localFieldData, WEATHER_SUNNY); //clear weather
+    MOD05_021DC174(ctx->fieldSystem->unk04->unk0C, LocalFieldData_GetWeatherType(localFieldData)); //CallFieldTask_SetWeather? second param is get weather
     return TRUE;
 }
 
@@ -2555,5 +2564,50 @@ BOOL ScrCmd_CheckBike(ScriptContext *ctx) { //00C7
     } else {
         *var = FALSE;
     }
+    return FALSE;
+}
+
+BOOL ScrCmd_RideBike(ScriptContext *ctx) { //00C8
+    u8 action = ScriptReadByte(ctx);
+    if (action == TRUE) {
+        FieldSystem_SetSavedMusicId(ctx->fieldSystem, SEQ_BICYCLE);
+        FieldSystem_PlayOrFadeToNewMusicId(ctx->fieldSystem, SEQ_BICYCLE, 1);
+        Field_PlayerAvatar_OrrTransitionFlags(ctx->fieldSystem->playerAvatar, PLAYER_TRANSITION_CYCLING);
+        Field_PlayerAvatar_ApplyTransitionFlags(ctx->fieldSystem->playerAvatar);
+    } else {
+        Field_PlayerAvatar_OrrTransitionFlags(ctx->fieldSystem->playerAvatar, PLAYER_TRANSITION_WALKING);
+        Field_PlayerAvatar_ApplyTransitionFlags(ctx->fieldSystem->playerAvatar);
+        FieldSystem_SetSavedMusicId(ctx->fieldSystem, 0);
+        FieldSystem_PlayOrFadeToNewMusicId(ctx->fieldSystem, FieldSystem_GetOverriddenMusicId(ctx->fieldSystem, ctx->fieldSystem->location->mapId), 1);
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_DummyRideBike(ScriptContext *ctx) { //02BF
+    Field_PlayerAvatar_OrrTransitionFlags(ctx->fieldSystem->playerAvatar, PLAYER_TRANSITION_CYCLING);
+    FieldSystem_SetSavedMusicId(ctx->fieldSystem, SEQ_BICYCLE);
+    return FALSE;
+}
+
+BOOL ScrCmd_CyclingRoad(ScriptContext *ctx) { //00C9
+    u8 action = ScriptReadByte(ctx);
+    FUN_02055720(ctx->fieldSystem->playerAvatar, action);
+    return FALSE;
+}
+
+BOOL ScrCmd_GetPlayerState(ScriptContext *ctx) { //00CA
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = PlayerAvatar_GetState(ctx->fieldSystem->playerAvatar);
+    return FALSE;
+}
+
+BOOL ScrCmd_SetPlayerState(ScriptContext *ctx) { //00CB
+    u16 state = ScriptReadHalfword(ctx);
+    PlayerAvatar_OrrTransitionFlags(ctx->fieldSystem->playerAvatar, state);
+    return TRUE;
+}
+
+BOOL ScrCmd_ApplyPlayerState(ScriptContext *ctx) { //00CC
+    Field_PlayerAvatar_ApplyTransitionFlags(ctx->fieldSystem->playerAvatar);
     return FALSE;
 }

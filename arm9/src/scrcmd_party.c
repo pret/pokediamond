@@ -16,7 +16,7 @@ extern u16 FUN_02054DEC(struct SaveBlock2* sav2);
 
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx) //0096 - todo: GivePokemon?
 {
-    u32 mapSec = MapHeader_GetMapSec(*(ctx->fieldSystem->mapId));
+    u32 mapSec = MapHeader_GetMapSec(ctx->fieldSystem->location->mapId);
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 species = ScriptGetVar(ctx);
     u16 level = ScriptGetVar(ctx);
@@ -305,7 +305,7 @@ BOOL ScrCmd_AddPartyMonFriendship(struct ScriptContext* ctx) //01BA
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 friendship_to_add = ScriptGetVar(ctx);
     u16 mon_slot = ScriptGetVar(ctx);
-    u16 map_sec = MapHeader_GetMapSec(*ctx->fieldSystem->mapId);
+    u16 map_sec = MapHeader_GetMapSec(ctx->fieldSystem->location->mapId);
     struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
     struct Pokemon* party_mon = GetPartyMonByIndex(party, mon_slot);
 

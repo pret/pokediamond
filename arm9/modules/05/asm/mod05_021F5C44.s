@@ -164,7 +164,7 @@ MOD05_021F5D7C: ; 0x021F5D7C
 	ldr r0, [r5, #0x20]
 	ldr r6, [r0, #0x38]
 	add r0, r6, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	ldr r7, _021F5DA4 ; =UNK05_021FC9B8
 	add r4, r0, #0
 _021F5D8E:
@@ -208,9 +208,9 @@ MOD05_021F5DC0: ; 0x021F5DC0
 	bl FUN_0205AE50
 	add r0, r4, #0
 	mov r1, #0x20
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	add r0, r4, #0
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	add r0, r6, #0
 	mov r1, #1
 	bl FUN_02058544
@@ -542,9 +542,9 @@ _021F602C:
 	bl FUN_02055648
 	add r1, r0, #0
 	add r0, r4, #0
-	bl MOD05_021E5FD8
+	bl Field_PlayerAvatar_OrrTransitionFlags
 	add r0, r4, #0
-	bl MOD05_021E5FE0
+	bl Field_PlayerAvatar_ApplyTransitionFlags
 	mov r0, #0
 	str r0, [r5, #0x10]
 	mov r0, #0x10

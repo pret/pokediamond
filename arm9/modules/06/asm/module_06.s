@@ -4875,7 +4875,7 @@ _0223BA42:
 _0223BA8C:
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DEC
+	bl LocalFieldData_GetWeatherType
 	add r3, r0, #0
 	ldr r0, [sp, #0x20]
 	add r1, sp, #0x24
@@ -5205,7 +5205,7 @@ _0223BD2E:
 	ldr r0, [sp, #8]
 	ldr r0, [r0, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DEC
+	bl LocalFieldData_GetWeatherType
 	add r3, r0, #0
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
@@ -5657,7 +5657,7 @@ _0223C0CE:
 _0223C118:
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DEC
+	bl LocalFieldData_GetWeatherType
 	add r3, r0, #0
 	ldr r0, [sp, #0x1c]
 	add r1, sp, #0x20
@@ -17290,7 +17290,7 @@ MOD06_02241F7C: ; 0x02241F7C
 	ldr r0, [r7, #4]
 	ldr r5, [r0, #0x24]
 	ldr r0, [r7, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	ldr r1, [r4]
 	add r6, r0, #0
 	cmp r1, #4
@@ -17449,7 +17449,7 @@ MOD06_022420CC: ; 0x022420CC
 	ldr r0, [r6, #4]
 	ldr r5, [r0, #0x24]
 	ldr r0, [r6, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	ldr r1, [r4]
 	add r7, r0, #0
 	cmp r1, #4
@@ -17572,7 +17572,7 @@ _022421CC:
 	b _02242214
 _022421E4:
 	ldr r0, [r6, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1
@@ -18265,7 +18265,7 @@ MOD06_02242744: ; 0x02242744
 	ldr r0, [r6, #4]
 	ldr r5, [r0, #0x24]
 	ldr r0, [r6, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r7, r0, #0
 	ldr r0, [r4]
 	cmp r0, #3
@@ -18352,7 +18352,7 @@ _022427FE:
 	b _0224283A
 _02242808:
 	ldr r0, [r6, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_0205AE28
 	cmp r0, #1
@@ -24251,7 +24251,7 @@ MOD06_02245544: ; 0x02245544
 	add r4, r1, #0
 	add r7, r2, #0
 	str r3, [sp]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	ldr r0, [r5, #0x38]
 	add r1, sp, #4
@@ -26510,7 +26510,7 @@ MOD06_02246658: ; 0x02246658
 	push {r4, lr}
 	ldr r0, [r0, #0x38]
 	add r4, r1, #0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r4, #0
 	bl FUN_0205889C
 	pop {r4, pc}
@@ -30713,7 +30713,7 @@ MOD06_02248654: ; 0x02248654
 	ldr r0, [r0, #0x60]
 	add r4, r1, #0
 	ldr r0, [r0, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0
 	bl FUN_02058914
 	add r0, r5, #0
@@ -33028,7 +33028,7 @@ MOD06_022497E8: ; 0x022497E8
 	sub sp, #0x24
 	add r5, r0, #0
 	add r4, r1, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #8]
 	add r0, r5, #0
 	bl MOD05_021E4C24
@@ -34577,7 +34577,7 @@ _0224A3A6:
 	cmp r0, #1
 	beq _0224A3C8
 	add r0, r4, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	add r1, r4, #0
 	bl FUN_0204B5FC
 	cmp r0, #0
@@ -34589,7 +34589,7 @@ _0224A3C8:
 	pop {r3, r4, r5, r6, pc}
 _0224A3D0:
 	add r0, r4, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	add r1, r4, #0
 	bl FUN_0204B684
 	str r0, [r5, #0xc]
@@ -35649,7 +35649,7 @@ MOD06_0224ABAC: ; 0x0224ABAC
 	cmp r0, #0
 	bne _0224ABF6
 	add r0, r5, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	mov r1, #2
 	lsl r2, r4, #0x10
 	lsl r1, r1, #0xe
@@ -36083,7 +36083,7 @@ MOD06_0224AEE8: ; 0x0224AEE8
 	str r4, [sp, #0x1c]
 	str r0, [sp, #0x18]
 	add r0, r5, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x20]
 	add r0, r4, #0
 	mov r1, #0x12
@@ -37464,7 +37464,7 @@ MOD06_0224B9E0: ; 0x0224B9E0
 	bl MOD05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x14]
 	add r0, r4, #0
 	mov r1, #0x17
@@ -37719,7 +37719,7 @@ MOD06_0224BBEC: ; 0x0224BBEC
 	bl MOD05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x14]
 	add r0, r4, #0
 	mov r1, #0x19
@@ -39086,7 +39086,7 @@ MOD06_0224C700: ; 0x0224C700
 	str r0, [r4, #8]
 	str r5, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [r4, #0x18]
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
@@ -39311,7 +39311,7 @@ MOD06_0224C8C8: ; 0x0224C8C8
 	str r6, [r4, #8]
 	str r5, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [r4, #0x18]
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
@@ -39537,7 +39537,7 @@ MOD06_0224CA88: ; 0x0224CA88
 	str r0, [r4, #8]
 	str r5, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [r4, #0x18]
 	str r6, [r4, #0x20]
 	add r0, r4, #0
@@ -39626,7 +39626,7 @@ MOD06_0224CB30: ; 0x0224CB30
 	str r0, [r4, #8]
 	str r5, [r4, #0x1c]
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	str r0, [r4, #0x18]
 	str r6, [r4, #0x20]
 	add r0, r4, #0
@@ -40651,7 +40651,7 @@ MOD06_0224D2E0: ; 0x0224D2E0
 	bl MOD05_021E4C24
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	str r0, [sp, #0x14]
 	add r0, r4, #0
 	mov r1, #0x1d

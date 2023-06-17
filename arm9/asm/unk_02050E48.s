@@ -534,7 +534,7 @@ _0205123E:
 	b _020517B8
 _02051256:
 	ldr r0, [r0, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_0205AE28
 	cmp r0, #0x0
 	beq _020512FA

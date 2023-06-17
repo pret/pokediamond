@@ -365,7 +365,7 @@ FUN_02057688: ; 0x02057688
 	bl FUN_02058490
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	lsl r1, r5, #0x10
 	lsr r1, r1, #0x10
 	bl FlagSet
@@ -2691,8 +2691,8 @@ FUN_02058730: ; 0x02058730
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02058738
-FUN_02058738: ; 0x02058738
+	thumb_func_start MapObject_GetFieldSysPtr
+MapObject_GetFieldSysPtr: ; 0x02058738
 	push {r3, lr}
 	bl FUN_02058580
 	bl FUN_020583E8

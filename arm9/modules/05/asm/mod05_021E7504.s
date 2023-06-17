@@ -52,7 +52,7 @@ MOD05_021E7544: ; 0x021E7544
 	add r7, r0, #0
 	ldr r0, [r5]
 	ldr r0, [r0, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r6, r0, #0
 	ldr r0, [r5, #8]
 	cmp r0, #0
@@ -149,7 +149,7 @@ MOD05_021E7618: ; 0x021E7618
 	add r6, r0, #0
 	ldr r0, [r5]
 	ldr r0, [r0, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	ldr r1, [r5, #8]
 	add r4, r0, #0
 	cmp r1, #0

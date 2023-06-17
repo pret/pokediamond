@@ -27262,7 +27262,7 @@ _022468CC:
 	ldr r0, _02246AD0 ; =0x0000061E
 	bl PlaySE
 	ldr r0, [r5, #0x38]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r1, r7, #0
 	add r2, r1, #0
 	add r3, r1, #0

@@ -42,8 +42,8 @@ FUN_0204AB0C: ; 0x0204AB0C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204AB20
-FUN_0204AB20: ; 0x0204AB20
+	thumb_func_start FieldSystem_SetSavedMusicId
+FieldSystem_SetSavedMusicId: ; 0x0204AB20
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
@@ -73,8 +73,8 @@ FUN_0204AB44: ; 0x0204AB44
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204AB58
-FUN_0204AB58: ; 0x0204AB58
+	thumb_func_start FieldSystem_GetOverriddenMusicId
+FieldSystem_GetOverriddenMusicId: ; 0x0204AB58
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x38]
@@ -139,8 +139,8 @@ _0204ABD8:
 	add r0, r6, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0204ABDC
-FUN_0204ABDC: ; 0x0204ABDC
+	thumb_func_start FieldSystem_PlayOrFadeToNewMusicId
+FieldSystem_PlayOrFadeToNewMusicId: ; 0x0204ABDC
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
@@ -248,7 +248,7 @@ FUN_0204ACA8: ; 0x0204ACA8
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	add r6, r2, #0x0
-	bl FUN_0204AB58
+	bl FieldSystem_GetOverriddenMusicId
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_0204AD44
@@ -395,7 +395,7 @@ FUN_0204ADBC: ; 0x0204ADBC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0204AB58
+	bl FieldSystem_GetOverriddenMusicId
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0

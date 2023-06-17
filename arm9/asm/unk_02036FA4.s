@@ -59,7 +59,7 @@ _02036FFA:
 FUN_02037000: ; 0x02037000
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_02058BE4
 	add r4, r0, #0x0
 	add r0, r5, #0x0

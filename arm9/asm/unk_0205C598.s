@@ -789,7 +789,7 @@ FUN_0205CB5C: ; 0x0205CB5C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x28]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl FUN_0205AE28
 	cmp r0, #0x0
 	bne _0205CB72
@@ -1022,7 +1022,7 @@ FUN_0205CCEC: ; 0x0205CCEC
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x28]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	bl FUN_02058B2C
 	add r6, r0, #0x0
@@ -1079,7 +1079,7 @@ FUN_0205CD68: ; 0x0205CD68
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x28]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0x0
 	bl FUN_0205AE28
 	cmp r0, #0x0

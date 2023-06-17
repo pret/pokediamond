@@ -63,7 +63,7 @@ MOD05_021EDBC8: ; 0x021EDBC8
 	str r1, [r2, #4]
 	add r5, r0, #0
 	str r1, [r2, #8]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0
 	bl MOD05_021E4C24
 	add r6, r0, #0
@@ -102,7 +102,7 @@ MOD05_021EDC14: ; 0x021EDC14
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r4, #8]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #0
 	mvn r1, r1
 	add r4, r0, #0
@@ -128,7 +128,7 @@ MOD05_021EDC50: ; 0x021EDC50
 	str r0, [sp]
 	ldr r0, [r5, #0x2c]
 	str r0, [sp, #4]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	ldr r1, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	add r6, r0, #0

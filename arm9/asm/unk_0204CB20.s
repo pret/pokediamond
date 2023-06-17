@@ -1136,7 +1136,7 @@ _0204D3B2:
 	add r0, r0, r6
 	str r7, [r0, #0x8]
 	add r0, r7, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #0x1
 	lsl r1, r1, #0x8
 	add r1, r5, r1
@@ -2392,7 +2392,7 @@ _0204DD54:
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0204DD5E:
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r4, r0, #0x0
 	ldr r0, _0204DE28 ; =UNK_021C5A68
 	ldr r1, [r0, #0x0]
@@ -3015,7 +3015,7 @@ FUN_0204E214: ; 0x0204E214
 	ldr r0, [r0, #0x8]
 	cmp r0, #0x0
 	beq _0204E248
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	mov r1, #0x80
 	add r6, r0, #0x0
 	bl FUN_02058410
@@ -3052,7 +3052,7 @@ FUN_0204E254: ; 0x0204E254
 	mvn r1, r1
 	cmp r2, r1
 	beq _0204E29E
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	add r5, r0, #0x0
 	bl FUN_0205AE50
 	add r0, r5, #0x0
@@ -4864,7 +4864,7 @@ _0204F004:
 	cmp r0, #0x0
 	bne _0204F01E
 	add r0, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl MOD05_021E5970
 	ldr r1, _0204F06C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
@@ -4884,7 +4884,7 @@ _0204F02C:
 	cmp r0, #0x0
 	bne _0204F068
 	add r0, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl MOD05_021E57D4
 	ldr r1, _0204F06C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
@@ -4897,7 +4897,7 @@ _0204F048:
 	cmp r0, #0x0
 	bne _0204F068
 	add r0, r1, #0x0
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	bl MOD05_021E5614
 	ldr r1, _0204F06C ; =UNK_021C5A68
 	ldr r2, [r1, #0x0]
@@ -5951,7 +5951,7 @@ _0204F89E:
 	ldr r0, [r0, #0x0]
 	add r0, r0, r4
 	ldr r0, [r0, #0x8]
-	bl FUN_020553A0
+	bl PlayerAvatar_GetMapObject
 	ldr r1, _0204F908 ; =UNK_021C5A68
 	str r0, [sp, #0xc]
 	ldr r1, [r1, #0x0]

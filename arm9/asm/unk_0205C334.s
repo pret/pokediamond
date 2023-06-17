@@ -66,7 +66,7 @@ FUN_0205C390: ; 0x0205C390
 	bl FUN_020585B0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	add r1, r5, #0x0
 	bl FUN_0204B5FC
 	strh r0, [r4, #0x0]
@@ -104,7 +104,7 @@ FUN_0205C3D0: ; 0x0205C3D0
 	bl FUN_02058628
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	add r1, r5, #0x0
 	bl FUN_0204B5FC
 	add r6, r0, #0x0
@@ -121,7 +121,7 @@ FUN_0205C3D0: ; 0x0205C3D0
 	add r1, #0x8
 	bl MOD05_021F2094
 	add r0, r5, #0x0
-	bl FUN_02058738
+	bl MapObject_GetFieldSysPtr
 	add r1, r5, #0x0
 	bl FUN_0204B61C
 	add r1, r6, #0x0
