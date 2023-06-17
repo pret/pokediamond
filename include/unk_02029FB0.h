@@ -11,7 +11,7 @@ struct GameStats
 
 u32 Save_GameStats_sizeof(void);
 void Save_GameStats_Init(struct GameStats * ptr);
-struct GameStats * Save_GameStats_Get(struct SaveBlock2 * sav2);
+struct GameStats * Save_GameStats_Get(struct SaveData * save);
 u32 GameStats_GetValue(struct GameStats * ptr, s32 a1);
 u32 GameStats_SetValue(struct GameStats * ptr, s32 a1, u32 a2);
 u32 GameStats_GetMaxValue(s32 a0);

@@ -65,7 +65,7 @@ void NitroMain(void)
     FUN_02002C50(1, 3);
     FUN_02002C50(3, 3);
     UNK_02016FA8.unk10 = -1;
-    UNK_02016FA8.save = SaveBlock2_New();
+    UNK_02016FA8.save = SaveData_New();
     InitSoundData(Save_Chatot_Get(UNK_02016FA8.save), Save_PlayerData_GetOptionsAddr(UNK_02016FA8.save));
     Init_Timer3();
     if (FUN_020337E8(3) == 3)

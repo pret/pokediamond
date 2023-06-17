@@ -21,9 +21,9 @@ struct SaveChatotSoundClip * Chatot_New(u32 heap_id)
     return ret;
 }
 
-struct SaveChatotSoundClip * Save_Chatot_Get(struct SaveBlock2 * sav2)
+struct SaveChatotSoundClip * Save_Chatot_Get(struct SaveData * save)
 {
-    return (struct SaveChatotSoundClip *) SaveArray_Get(sav2, 22);
+    return (struct SaveChatotSoundClip *) SaveArray_Get(save, 22);
 }
 
 BOOL Chatot_Exists(struct SaveChatotSoundClip * chatot)

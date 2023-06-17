@@ -681,7 +681,7 @@ FUN_0205E1F0: ; 0x0205E1F0
 	push {r4-r6, lr}
 	ldr r0, [r0, #0xc]
 	add r5, r1, #0x0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9AC
 	add r3, r5, #0x0
 	add r3, #0xd0
@@ -734,7 +734,7 @@ _0205E256:
 FUN_0205E258: ; 0x0205E258
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9AC
 	mov r2, #0x0
 _0205E266:
@@ -857,7 +857,7 @@ _0205E33A:
 	ldr r0, [r4, #0x34]
 	bl FUN_02058780
 	ldr r0, [r4, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202AB40
 	add r6, r0, #0x0
 	ldrb r0, [r6, #0x0]
@@ -1045,7 +1045,7 @@ FUN_0205E4A4: ; 0x0205E4A4
 	cmp r0, #0x1
 	bne _0205E4D0
 	ldr r0, [r4, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202AB40
 	ldrb r1, [r0, #0x0]
 	cmp r1, #0x32

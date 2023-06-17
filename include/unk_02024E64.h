@@ -3,7 +3,7 @@
 
 #include "global.h"
 #include "MI_memory.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "string16.h"
 
 struct UnkStruct_02024E64 {
@@ -16,10 +16,10 @@ struct UnkStruct_02024E64 {
 
 u32 FUN_02024E64();
 void FUN_02024E6C(struct UnkStruct_02024E64 *param0);
-struct UnkStruct_02024E64 *FUN_02024EB4(struct SaveBlock2 *sav2);
-void *FUN_02024EC0(struct SaveBlock2 *sav2);
-struct UnkStruct_02024E64 *FUN_02024ECC(struct SaveBlock2 *sav2);
-void *FUN_02024ED8(struct SaveBlock2 *sav2);
+struct UnkStruct_02024E64 *FUN_02024EB4(struct SaveData *save);
+void *FUN_02024EC0(struct SaveData *save);
+struct UnkStruct_02024E64 *FUN_02024ECC(struct SaveData *save);
+void *FUN_02024ED8(struct SaveData *save);
 u16 *GetRivalNamePtr(struct UnkStruct_02024E64 *unk);
 void RivalsNameToU16Array(struct UnkStruct_02024E64 *unk, struct String *str);
 u16 *FUN_02024F0C(struct UnkStruct_02024E64 *unk);

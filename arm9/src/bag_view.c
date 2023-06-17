@@ -17,11 +17,11 @@
 extern u32 *FUN_0202708C(SaveFashionData *);
 extern u32 FUN_02027168(u32 *);
 extern u16 FUN_02027184(u32 *);
-extern SaveFashionData *Save_FashionData_Get(struct SaveBlock2 *sav2);
+extern SaveFashionData *Save_FashionData_Get(struct SaveData *save);
 extern u8 SealCase_CountSealOccurrenceAnywhere(struct SealCase *, u32);
 
-static u32 GetCoinCount(struct SaveBlock2 *sav2);
-static u32 GetSealCount(struct SaveBlock2 *sav2);
+static u32 GetCoinCount(struct SaveData *save);
+static u32 GetSealCount(struct SaveData *save);
 
 struct BagView *BagView_New(u8 heap_id)
 {
@@ -43,11 +43,11 @@ void FUN_0206E30C(struct BagView *bag_view, u8 r1)
 }
 
 void FUN_0206E314(
-    struct BagView *bag_view, struct SaveBlock2 *sav2, u8 r2, struct UnkStruct_0206F164 *r3)
+    struct BagView *bag_view, struct SaveData *save, u8 r2, struct UnkStruct_0206F164 *r3)
 {
     FUN_0206E30C(bag_view, r2);
 
-    bag_view->sav2 = sav2;
+    bag_view->save = save;
     bag_view->unk6C = r3;
     bag_view->unk66 = 0;
 }
@@ -98,14 +98,14 @@ u8 FUN_0206E394(struct BagView *bag_view)
     return bag_view->unk75;
 }
 
-static u32 GetCoinCount(struct SaveBlock2 *sav2)
+static u32 GetCoinCount(struct SaveData *save)
 {
-    return (u32)CheckCoins(Save_PlayerData_GetCoinsAddr(sav2));
+    return (u32)CheckCoins(Save_PlayerData_GetCoinsAddr(save));
 }
 
-static u32 GetSealCount(struct SaveBlock2 *sav2)
+static u32 GetSealCount(struct SaveData *save)
 {
-    struct SealCase *seal_case = Save_SealCase_Get(sav2);
+    struct SealCase *seal_case = Save_SealCase_Get(save);
     u32 i;
     u32 count = 0;
 
@@ -118,22 +118,22 @@ static u32 GetSealCount(struct SaveBlock2 *sav2)
 }
 
 //todo: do these match up with HG?
-u32 FUN_0206E3C8(struct SaveBlock2 *sav2)
+u32 FUN_0206E3C8(struct SaveData *save)
 {
-    return FUN_02027168(FUN_0202708C(Save_FashionData_Get(sav2)));
+    return FUN_02027168(FUN_0202708C(Save_FashionData_Get(save)));
 }
 
-u32 FUN_0206E3D8(struct SaveBlock2 *sav2)
+u32 FUN_0206E3D8(struct SaveData *save)
 {
-    return FUN_02027184(FUN_0202708C(Save_FashionData_Get(sav2)));
+    return FUN_02027184(FUN_0202708C(Save_FashionData_Get(save)));
 }
 
-u32 FUN_0206E3E8(struct SaveBlock2 *sav2)
+u32 FUN_0206E3E8(struct SaveData *save)
 {
-    return SaveStruct23_Substruct2_SetField_0x0(SaveStruct23_GetSubstruct2(sav2), 0, DATA_GET);
+    return SaveStruct23_Substruct2_SetField_0x0(SaveStruct23_GetSubstruct2(save), 0, DATA_GET);
 }
 
-BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id)
+BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, u32 heap_id)
 {
     struct MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, NARC_MSGDATA_MSG, NARC_msg_narc_0007_bin, heap_id);
     MessageFormat *messageFormat = MessageFormat_New(heap_id);
@@ -147,26 +147,26 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, struct String
     {
         string = NewString_ReadMsgData(msgData, narc_0007_00097); // Saved Battle Points {STRVAR_1 53, 0}BP
 
-        BufferIntegerAsString(messageFormat, 0, FUN_0206E3E8(sav2), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 0, FUN_0206E3E8(save), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_SEAL_CASE)
     {
         string = NewString_ReadMsgData(msgData, narc_0007_00092); // Seals: {STRVAR_1 53, 0}
 
-        BufferIntegerAsString(messageFormat, 0, GetSealCount(sav2), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 0, GetSealCount(save), 4, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_FASHION_CASE)
     {
         string = NewString_ReadMsgData(msgData, narc_0007_00093); // Accessories: {STRVAR_1 52, 0} Backdrops: {STRVAR_1 51, 1}
 
-        BufferIntegerAsString(messageFormat, 0, FUN_0206E3C8(sav2), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
-        BufferIntegerAsString(messageFormat, 1, FUN_0206E3D8(sav2), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 0, FUN_0206E3C8(save), 3, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 1, FUN_0206E3D8(save), 2, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else if (item_id == ITEM_COIN_CASE)
     {
         string = NewString_ReadMsgData(msgData, narc_0007_00057); // Your Coins: {STRVAR_1 54, 0}
 
-        BufferIntegerAsString(messageFormat, 0, GetCoinCount(sav2), 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
+        BufferIntegerAsString(messageFormat, 0, GetCoinCount(save), 5, PRINTING_MODE_LEFT_ALIGN, TRUE);
     }
     else
     {

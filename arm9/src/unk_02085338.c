@@ -5,18 +5,18 @@
 
 extern BOOL FUN_0205ED0C(struct ScriptState * state);
 
-struct UnkStruct_02085338 * FUN_02085338(u8 r5, u8 r7, struct SaveBlock2 * sav2, u32 heap_id)
+struct UnkStruct_02085338 * FUN_02085338(u8 r5, u8 r7, struct SaveData * save, u32 heap_id)
 {
     struct UnkStruct_02085338 * ret = (struct UnkStruct_02085338 *) AllocFromHeap(heap_id, sizeof(struct UnkStruct_02085338));
     ret->unk_00 = r5;
     ret->unk_01 = r7;
-    ret->unk_0c = Save_Pokedex_Get(sav2);
-    ret->unk_10 = FUN_02013B5C(sav2);
-    ret->unk_04 = (u8)FUN_0205ED0C(SaveArray_Flags_Get(sav2));
+    ret->unk_0c = Save_Pokedex_Get(save);
+    ret->unk_10 = FUN_02013B5C(save);
+    ret->unk_04 = (u8)FUN_0205ED0C(SaveArray_Flags_Get(save));
     ret->unk_05 = 0;
     ret->unk_02 = 1;
     ret->unk_03 = 0;
-    ret->unk_08 = Options_GetFrame(Save_PlayerData_GetOptionsAddr(sav2));
+    ret->unk_08 = Options_GetFrame(Save_PlayerData_GetOptionsAddr(save));
     if (r5 == 2)
     {
         MailMsg_Init_WithBank(&ret->unk_14, 3);

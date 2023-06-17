@@ -3,7 +3,7 @@
 
 #include "nitro/types.h"
 #include "options.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "main.h"
 #include "player_data.h"
 #include "list_menu_items.h"
@@ -20,7 +20,7 @@ struct MOD59_UnkPlayerStruct
 typedef struct MOD59_IntroOverlayData
 {
     u32 heap_id;
-    struct SaveBlock2 *sav2;
+    struct SaveData *save;
     struct Options *options;
     u32 controllerCounter;
     u32 nextControllerCounter;

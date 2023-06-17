@@ -1,5 +1,5 @@
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "player_data.h"
 #include "MI_memory.h"
 #include "heap.h"
@@ -23,24 +23,24 @@ void Save_PlayerData_Init(struct PlayerDataSav * pds)
     InitIGT(&pds->igt);
 }
 
-struct PlayerData * Save_PlayerData_GetProfileAddr(struct SaveBlock2 * sav2)
+struct PlayerData * Save_PlayerData_GetProfileAddr(struct SaveData * save)
 {
-    return &((struct PlayerDataSav *)SaveArray_Get(sav2, 1))->data;
+    return &((struct PlayerDataSav *)SaveArray_Get(save, 1))->data;
 }
 
-struct Options * Save_PlayerData_GetOptionsAddr(struct SaveBlock2 * sav2)
+struct Options * Save_PlayerData_GetOptionsAddr(struct SaveData * save)
 {
-    return &((struct PlayerDataSav *)SaveArray_Get(sav2, 1))->options;
+    return &((struct PlayerDataSav *)SaveArray_Get(save, 1))->options;
 }
 
-u16 * Save_PlayerData_GetCoinsAddr(struct SaveBlock2 * sav2)
+u16 * Save_PlayerData_GetCoinsAddr(struct SaveData * save)
 {
-    return &((struct PlayerDataSav *)SaveArray_Get(sav2, 1))->coins;
+    return &((struct PlayerDataSav *)SaveArray_Get(save, 1))->coins;
 }
 
-struct IGT * Save_PlayerData_GetIGTAddr(struct SaveBlock2 * sav2)
+struct IGT * Save_PlayerData_GetIGTAddr(struct SaveData * save)
 {
-    return &((struct PlayerDataSav *)SaveArray_Get(sav2, 1))->igt;
+    return &((struct PlayerDataSav *)SaveArray_Get(save, 1))->igt;
 }
 
 u32 PlayerProfile_sizeof(void)

@@ -3,7 +3,7 @@
 #include "party.h"
 #include "player_data.h"
 #include "pokemon.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "unk_02015CC0.h"
 #include "unk_0202C144.h"
 #include "module_05.h"
@@ -20,11 +20,11 @@ BOOL MonNotFaintedOrEgg(struct Pokemon * pokemon)
     return TRUE;
 }
 
-BOOL GiveMon(u32 heap_id, struct SaveBlock2 * sav2, u16 species, u8 level, u16 item, u32 mapSec, u32 encounterType)
+BOOL GiveMon(u32 heap_id, struct SaveData * save, u16 species, u8 level, u16 item, u32 mapSec, u32 encounterType)
 {
     u32 ptr;
-    struct PlayerData * data = Save_PlayerData_GetProfileAddr(sav2);
-    struct PlayerParty * party = SaveArray_PlayerParty_Get(sav2);
+    struct PlayerData * data = Save_PlayerData_GetProfileAddr(save);
+    struct PlayerParty * party = SaveArray_PlayerParty_Get(save);
     struct Pokemon * mon = AllocMonZeroed(heap_id);
     ZeroMonData(mon);
     CreateMon(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
@@ -34,18 +34,18 @@ BOOL GiveMon(u32 heap_id, struct SaveBlock2 * sav2, u16 species, u8 level, u16 i
     BOOL isAdded = AddMonToParty(party, mon);
     if (isAdded)
     {
-        FUN_0202C144(sav2, mon);
+        FUN_0202C144(save, mon);
     }
     FreeToHeap(mon);
     return isAdded;
 }
 
 /* Seems to have something to do with Manaphy Egg*/
-BOOL GiveEgg(u32 heapId, struct SaveBlock2 * sav2, u16 species, int level, int metLocIndex, int a3)
+BOOL GiveEgg(u32 heapId, struct SaveData * save, u16 species, int level, int metLocIndex, int a3)
 {
 #pragma unused(heapId)
-    struct PlayerData * data = Save_PlayerData_GetProfileAddr(sav2);
-    struct PlayerParty * party = SaveArray_PlayerParty_Get(sav2);
+    struct PlayerData * data = Save_PlayerData_GetProfileAddr(save);
+    struct PlayerParty * party = SaveArray_PlayerParty_Get(save);
     struct Pokemon * mon = AllocMonZeroed(32);
     ZeroMonData(mon);
     MOD05_SetEggStats(mon, species, level, data, 4, FUN_02015CF8(metLocIndex, a3));

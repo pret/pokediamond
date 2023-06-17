@@ -1,7 +1,7 @@
 #include "global.h"
 #include "msgdata.h"
 #include "heap.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "math_util.h"
 #include "unk_020139D8.h"
 #include "msgdata/msg.naix"
@@ -177,9 +177,9 @@ void FUN_02013B2C(struct UnkStruct_02013B28 * unk)
     }
 }
 
-struct UnkStruct_02013B28 * FUN_02013B5C(struct SaveBlock2 * sav2)
+struct UnkStruct_02013B28 * FUN_02013B5C(struct SaveData * save)
 {
-    return (struct UnkStruct_02013B28 *)SaveArray_Get(sav2, 34);
+    return (struct UnkStruct_02013B28 *)SaveArray_Get(save, 34);
 }
 
 BOOL FUN_02013B68(struct UnkStruct_02013B28 * unk, u32 a1)

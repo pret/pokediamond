@@ -12,7 +12,7 @@ struct UnkStruct_020254B8
 };
 
 u32 FUN_020254B8(void);
-struct UnkStruct_020254B8 * FUN_020254C0(struct SaveBlock2 * sav2);
+struct UnkStruct_020254B8 * FUN_020254C0(struct SaveData * save);
 void FUN_020254CC(struct UnkStruct_020254B8 * arr);
 u16 * FUN_020254F0(struct UnkStruct_020254B8 * arr, s32 i);
 u8 FUN_020254F8(struct UnkStruct_020254B8 * unk, s32 i);

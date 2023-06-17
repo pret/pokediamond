@@ -2,7 +2,7 @@
 #include "unk_020337E8.h"
 #include "heap.h"
 
-extern struct DWC_Struct *FUN_020286EC(struct SaveBlock2 *sav2);
+extern struct DWC_Struct *FUN_020286EC(struct SaveData *save);
 extern struct DWC_Struct *FUN_02028228(struct DWC_Struct *);
 
 // DWC_init
@@ -44,8 +44,8 @@ s32 FUN_02033830(struct DWC_Struct *dwc)
     return DWC_GetGsProfileId(dwc1, &token);
 }
 
-BOOL FUN_0203384C(struct SaveBlock2 *sav2)
+BOOL FUN_0203384C(struct SaveData *save)
 {
-    struct DWC_Struct * dwc = FUN_02028228(FUN_020286EC(sav2));
+    struct DWC_Struct * dwc = FUN_02028228(FUN_020286EC(save));
     return (DWC_CheckHasProfile(dwc) && DWC_CheckValidConsole(dwc));
 }

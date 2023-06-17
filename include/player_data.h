@@ -5,7 +5,7 @@
 #include "igt.h"
 #include "string16.h"
 
-struct SaveBlock2;
+struct SaveData;
 
 #define MAX_MONEY 999999
 
@@ -43,10 +43,10 @@ struct PlayerDataSav
 
 u32 Save_PlayerData_sizeof(void);
 void Save_PlayerData_Init(struct PlayerDataSav * pds);
-struct PlayerData * Save_PlayerData_GetProfileAddr(struct SaveBlock2 * sav2);
-struct Options * Save_PlayerData_GetOptionsAddr(struct SaveBlock2 * sav2);
-u16 * Save_PlayerData_GetCoinsAddr(struct SaveBlock2 * sav2);
-struct IGT * Save_PlayerData_GetIGTAddr(struct SaveBlock2 * sav2);
+struct PlayerData * Save_PlayerData_GetProfileAddr(struct SaveData * save);
+struct Options * Save_PlayerData_GetOptionsAddr(struct SaveData * save);
+u16 * Save_PlayerData_GetCoinsAddr(struct SaveData * save);
+struct IGT * Save_PlayerData_GetIGTAddr(struct SaveData * save);
 u32 PlayerProfile_sizeof(void);
 struct PlayerData * PlayerProfile_New(u32 heap_id);
 void PlayerProfile_Copy(const struct PlayerData * src, struct PlayerData * dest);

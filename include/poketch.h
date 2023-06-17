@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_POKETCH_H
 #define POKEDIAMOND_POKETCH_H
 
-#include "save_block_2.h"
+#include "save.h"
 
 #define DOT_ARTIST_SIZE (480 / 4) // 2bpp
 
@@ -90,6 +90,6 @@ void Save_Poketch_DotArtistSetDrawingAndEnable(struct SavePoketch * poketch, voi
 void Save_Poketch_PokemonHistoryAddMon(struct SavePoketch * poketch, struct BoxPokemon * mon);
 int Save_Poketch_PokemonHistoryGetFirstEmptySlot(struct SavePoketch * poketch);
 void Save_Poketch_PokemonHistoryGetSlotN(struct SavePoketch * poketch, s32 i, u32 * species_p, u32 * forme_p);
-struct SavePoketch * Save_Poketch_Get(struct SaveBlock2 * sav2);
+struct SavePoketch * Save_Poketch_Get(struct SaveData * save);
 
 #endif //POKEDIAMOND_POKETCH_H

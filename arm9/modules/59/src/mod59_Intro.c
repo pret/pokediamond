@@ -394,8 +394,8 @@ BOOL MOD59_IntroInit(struct OverlayManager *overlayManager, u32 *status)
 
     data->heap_id = 0x52;
     s32 *field18 = OverlayManager_GetField18(overlayManager);
-    data->sav2 = (struct SaveBlock2 *)field18[2]; //?
-    data->options = Save_PlayerData_GetOptionsAddr(data->sav2);
+    data->save = (struct SaveData *)field18[2]; //?
+    data->options = Save_PlayerData_GetOptionsAddr(data->save);
     data->nextControllerCounter = data->controllerCounter = 0;
     data->loadedOverlay = NULL;
     data->playerStruct = (struct MOD59_UnkPlayerStruct *)FUN_02077A84(0x52, 0, 0, 7, data->options);
@@ -518,10 +518,10 @@ BOOL MOD59_IntroExit(struct OverlayManager *overlayManager, u32 *status)
     MOD59_IntroOverlayData *data = (MOD59_IntroOverlayData *) OverlayManager_GetData(overlayManager);
 
     u32 heap_id = data->heap_id;
-    PlayerName_StringToFlat(Save_PlayerData_GetProfileAddr(data->sav2), data->playerStruct->name);
-    PlayerProfile_SetTrainerGender(Save_PlayerData_GetProfileAddr(data->sav2), data->playerStruct->gender);
+    PlayerName_StringToFlat(Save_PlayerData_GetProfileAddr(data->save), data->playerStruct->name);
+    PlayerProfile_SetTrainerGender(Save_PlayerData_GetProfileAddr(data->save), data->playerStruct->gender);
 
-    RivalsNameToU16Array(FUN_02024EB4(data->sav2), data->rivalStruct->name);
+    RivalsNameToU16Array(FUN_02024EB4(data->save), data->rivalStruct->name);
 
     FUN_02077AC4(data->playerStruct);
     FUN_02077AC4(data->rivalStruct);

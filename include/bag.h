@@ -3,7 +3,7 @@
 
 #include "bag_view.h"
 #include "itemtool.h"
-#include "save_block_2.h"
+#include "save.h"
 
 struct Bag
 {
@@ -55,7 +55,7 @@ void PocketCompaction(struct ItemSlot * slots, u32 count);
 void SortPocket(struct ItemSlot * slots, u32 count);
 struct BagView * CreateBagView(struct Bag * bag, const u8 * pockets, u32 heap_id);
 struct ItemSlot * Bag_GetPocketSlotN(struct Bag * bag, u32 pocket, u32 slot);
-struct Bag * Save_Bag_Get(struct SaveBlock2 * sav2);
+struct Bag * Save_Bag_Get(struct SaveData * save);
 struct UnkStruct_0206F164 * FUN_0206F164(u32 heap_id);
 void FUN_0206F17C(struct UnkStruct_0206F164 * a0, u32 a1, u8 * a2, u8 * a3);
 u16 FUN_0206F18C(struct UnkStruct_0206F164 * a0);

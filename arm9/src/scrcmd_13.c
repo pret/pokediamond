@@ -6,8 +6,8 @@
 #include "pokemon_storage_system.h"
 #include "unk_0202C144.h"
 
-extern struct PCStorage* GetStoragePCPointer(struct SaveBlock2* sav2);
-extern void* FUN_02022528(struct SaveBlock2* sav2);
+extern struct PCStorage* GetStoragePCPointer(struct SaveData* save);
+extern void* FUN_02022528(struct SaveData* save);
 extern void FUN_0202BEDC(struct Pokemon* pokemon);
 extern void FUN_0202BFD8(void* a0, s32 a1, struct Pokemon* pokemon);
 extern u16 FUN_0202C000(struct Pokemon* pokemon);

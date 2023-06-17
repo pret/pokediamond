@@ -107,7 +107,7 @@ _0225490E:
 	blt _0225490E
 	ldr r0, [sp]
 	bl MOD20_02252C40
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	str r0, [sp, #0xc]
 	mov r4, #0
 	add r7, r5, #0

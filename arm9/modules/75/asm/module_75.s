@@ -499,11 +499,11 @@ MOD75_021E6FA4: ; 0x021E6FA4
 MOD75_021E6FDC: ; 0x021E6FDC
 	add r0, #0xc4
 	ldr r0, [r0]
-	ldr r3, _021E6FE8 ; =FUN_0202A9B0
+	ldr r3, _021E6FE8 ; =Save_Roamers_Get
 	ldr r0, [r0]
 	bx r3
 	nop
-_021E6FE8: .word FUN_0202A9B0
+_021E6FE8: .word Save_Roamers_Get
 	thumb_func_end MOD75_021E6FDC
 
 	thumb_func_start MOD75_021E6FEC

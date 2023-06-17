@@ -39,7 +39,7 @@ extern u8 TrainerFlagCheck(struct FieldSystem *fieldSystem, u16 flag);
 extern void MOD05_ShowMessageInField(struct ScriptContext *ctx, struct MsgData *msgData, u16 id);
 extern void MOD05_021E2BD0(struct ScriptContext *ctx, struct MsgData *msgData, u16 msgId, u32 param4, void *param5);
 extern void MOD05_021E2C58(struct ScriptContext *ctx, u16 typ, u16 id, u16 word1, s16 word2, u8 param5);
-extern MessageFormat *MOD06_02244210(struct SaveBlock2 *sav, u16 poke, u16 sex, u8 flag, u8 *unk);
+extern MessageFormat *MOD06_02244210(struct SaveData *sav, u16 poke, u16 sex, u8 flag, u8 *unk);
 extern void MOD05_021E2CBC(struct ScriptContext *ctx, MessageFormat *messageFormat, u8 param2, u32 param3);
 extern void MOD05_021E2BB8(void *param0, struct ScriptContext *ctx);
 extern u32 FUN_02058488(LocalMapObject *lastInteracted);
@@ -117,7 +117,7 @@ extern u16 MOD05_021E1858(struct FieldSystem *fieldSystem, LocalMapObject *event
 extern u32 FUN_02029048(u32 param0);
 extern void FUN_02028AD4(u32 *param0, u32 param1, u32 param2);
 extern void FUN_0204AF3C(struct TaskManager *taskManager);
-extern SaveFashionData *Save_FashionData_Get(struct SaveBlock2 *save);
+extern SaveFashionData *Save_FashionData_Get(struct SaveData *save);
 extern BOOL CheckPortraitSlotFull(SaveFashionData *fashionData, u32 portraitSlot);
 extern BOOL CheckContestPortraitSlotFull(SaveFashionData *fashionData, u32 portraitSlot);
 extern void MOD05_021F02C4(struct FieldSystem *fieldSystem);
@@ -127,15 +127,15 @@ extern void Script_SetMonSeenFlagBySpecies(struct FieldSystem *fieldSystem, u16 
 extern void MOD05_021E1374(struct TaskManager *taskManager, MessageFormat *messageFormat, u16 *ptr);
 extern void MOD05_021E1994(FieldSystem *fieldSystem, LocalMapObject *lastInteracted);
 extern void FUN_0208A338(struct TaskManager *taskManager);
-extern void FUN_020380CC(struct TaskManager *taskManager, u16 *param1, struct SaveBlock2 *save, u16 partyPos, u16 param4);
+extern void FUN_020380CC(struct TaskManager *taskManager, u16 *param1, struct SaveData *save, u16 partyPos, u16 param4);
 extern void FUN_02038130(FieldSystem *fieldSystem, FashionAppData *fashionData);
 extern u32 FUN_02027008(SaveFashionData *fashionData, u32 param1);
 extern void FUN_02027478(u32 param0, u16 param1);
 extern void ShowGeonetScreen(FieldSystem *fieldSystem);
-extern void ShowSealCapsuleEditor(TaskManager *taskManager, struct SaveBlock2 *save);
+extern void ShowSealCapsuleEditor(TaskManager *taskManager, struct SaveData *save);
 extern void FUN_0205F7A0(FieldSystem *fieldSystem, TownMapAppData *townMap, u32 param2); //TownMap_Init?
 extern void FUN_02037E90(FieldSystem *fieldSystem, TownMapAppData *townMap); //ShowTownMap?
-extern u32 FUN_02028048(struct SaveBlock2 *save);
+extern u32 FUN_02028048(struct SaveData *save);
 extern u32 FUN_020281B8(u32 param0);
 extern void FUN_02037FE4(FieldSystem *fieldSystem, ScrCmdUnkStruct01D9 *param1);
 extern void LaunchStoragePCInterface(FieldSystem *fieldSystem, PCBoxAppData *pcBoxAppData);
@@ -158,7 +158,7 @@ extern BOOL IsPaletteFadeFinished(void);
 extern void CallTask_ScriptWarp(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
 extern void FUN_02049F98(TaskManager *taskManager, u16 mapId, s32 param2, u16 xVar, u16 yVar, u16 dir);
 extern void FUN_02049FFC(TaskManager *taskManager);
-extern LocalFieldData *Save_LocalFieldData_Get(struct SaveBlock2 *save);
+extern LocalFieldData *Save_LocalFieldData_Get(struct SaveData *save);
 extern Location *FUN_02034DC8(LocalFieldData *localFieldData);
 extern void CallFieldTask_RockClimb(TaskManager *taskManager, u32 playerDirection, u16 partyPosition);
 extern void FUN_0205DD40(u32 param0);

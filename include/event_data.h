@@ -1,7 +1,7 @@
 #ifndef GUARD_SCRIPT_STATE_H
 #define GUARD_SCRIPT_STATE_H
 
-#include "save_block_2.h"
+#include "save.h"
 
 struct ScriptState //todo this is not a very good name
 {
@@ -11,7 +11,7 @@ struct ScriptState //todo this is not a very good name
 
 u32 SaveArray_Flags_sizeof(void);
 void SaveArray_Flags_Init(struct ScriptState * state);
-struct ScriptState * SaveArray_Flags_Get(struct SaveBlock2 * sav2);
+struct ScriptState * SaveArray_Flags_Get(struct SaveData * save);
 BOOL CheckFlagInArray(struct ScriptState * state, u16 flag_id);
 void SetFlagInArray(struct ScriptState * state, u16 flag_id);
 void ClearFlagInArray(struct ScriptState * state, u16 flag_id);

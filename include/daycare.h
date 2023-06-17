@@ -43,6 +43,6 @@ BOOL Save_DayCare_MasudaCheck(struct DayCare * daycare);
 void DayCareMon_Copy(struct DayCareMon * dest, const struct DayCareMon * src);
 void DayCareMon_Extras_Init(struct DayCareMail * mail);
 void DayCareMon_Init(struct DayCareMon * mon);
-struct DayCare * Save_DayCare_Get(struct SaveBlock2 * sav2);
+struct DayCare * Save_DayCare_Get(struct SaveData * save);
 
 #endif //POKEDIAMOND_DAYCARE_H

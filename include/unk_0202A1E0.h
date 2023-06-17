@@ -2,7 +2,7 @@
 #define POKEDIAMOND_UNK_0202A1E0_H
 
 #include "mail_message.h"
-#include "save_block_2.h"
+#include "save.h"
 
 typedef enum
 {
@@ -115,7 +115,7 @@ struct SaveStruct23_Substruct4
     /* 0x740 */ struct SaveStruct23_Substruct4_Substruct2 substruct2;
 }; // total size 0xB3C (2876)
 
-struct SaveStruct23 // Struct fetched with SaveArray_Get(sav2, 23)
+struct SaveStruct23 // Struct fetched with SaveArray_Get(save, 23)
 {
     /* 0x000 */ struct SaveStruct23_Substruct1 substruct1;
     /* 0x03C */ struct SaveStruct23_Substruct2 substruct2;
@@ -186,8 +186,8 @@ u16 SaveStruct23_Substruct2_SetField_0xC(struct SaveStruct23_Substruct2 *substru
 BOOL SaveStruct23_Substruct2_SetFlag(struct SaveStruct23_Substruct2 *substruct2, u16 flagNumber, DataSetMode mode);
 void SaveStruct23_Substruct2_SetField_0x4(struct SaveStruct23_Substruct2 *substruct2, u32 arg1);
 u32 SaveStruct23_Substruct2_GetField_0x4(struct SaveStruct23_Substruct2 *substruct2);
-void SaveStruct23_SetMessage(struct SaveBlock2 *sav2, u32 index, struct MailMessage *message);
-struct MailMessage *SaveStruct23_GetMessage(struct SaveBlock2 *sav2, u32 index);
+void SaveStruct23_SetMessage(struct SaveData *save, u32 index, struct MailMessage *message);
+struct MailMessage *SaveStruct23_GetMessage(struct SaveData *save, u32 index);
 void SaveStruct23_Substruct4_SetArrayFlag(struct SaveStruct23_Substruct4 *substruct4, u8 arg1, u8 arg2, struct Unk0202A68C *arg3);
 void SaveStruct23_Substruct4_ClearArrayFlags(struct SaveStruct23_Substruct4 *substruct4);
 BOOL StructUnk0202A68C_Compare(struct Unk0202A68C *struct1, struct Unk0202A68C *struct2);
@@ -202,8 +202,8 @@ void FUN_0202A864(struct SaveStruct23_Substruct4 *substruct4, struct Unk0202A784
 struct SaveStruct23_Substruct4_Substruct2 *FUN_0202A878(struct SaveStruct23_Substruct4 *substruct4, u32 heap_id);
 s32 SaveStruct23_sizeof();
 void SaveStruct23_Init(struct SaveStruct23 *saveStruct23);
-struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveBlock2* sav2);
-struct SaveStruct23_Substruct2 *SaveStruct23_GetSubstruct2(struct SaveBlock2* sav2);
-struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveBlock2* sav2);
+struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveData* save);
+struct SaveStruct23_Substruct2 *SaveStruct23_GetSubstruct2(struct SaveData* save);
+struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveData* save);
 
 #endif //POKEDIAMOND_UNK_0202A1E0_H

@@ -1,7 +1,7 @@
 #include "global.h"
 #include "pokemon.h"
 #include "mail.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "daycare.h"
 
 u32 Save_DayCare_sizeof(void)
@@ -106,7 +106,7 @@ void DayCareMon_Init(struct DayCareMon * mon)
     DayCareMon_Extras_Init(&mon->mail);
 }
 
-struct DayCare * Save_DayCare_Get(struct SaveBlock2 * sav2)
+struct DayCare * Save_DayCare_Get(struct SaveData * save)
 {
-    return (struct DayCare *)SaveArray_Get(sav2, 8);
+    return (struct DayCare *)SaveArray_Get(save, 8);
 }

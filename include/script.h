@@ -8,7 +8,7 @@
 #include "field_player_avatar.h"
 #include "msgdata.h"
 #include "render_window.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "task.h"
 
 struct ScriptContext;
@@ -43,7 +43,7 @@ enum PCBoxOperation {
 };
 
 typedef struct PCBoxAppData {
-    struct SaveBlock2 *save;
+    struct SaveData *save;
     enum PCBoxOperation operation;
     BOOL unk08;
 } PCBoxAppData; //todo move to own file
@@ -59,7 +59,7 @@ typedef struct TownMapAppData { //todo fill out
 } TownMapAppData; //todo move to own file
 
 typedef struct ScrCmdUnkStruct01D9 {
-    struct SaveBlock2 *save;
+    struct SaveData *save;
     u16 unk04;
     u16 unk06;
 } ScrCmdUnkStruct01D9; //todo identify and move to own file
@@ -95,7 +95,7 @@ typedef struct FieldSystem //todo move to field_system.c
     u32 *unk00;
     UnkFieldStruct04 *unk04;
     struct BgConfig *bgConfig;
-    struct SaveBlock2 *saveData; //0xC
+    struct SaveData *saveData; //0xC
     TaskManager *taskManager;
     u8 padding2[0x8];
     Location *location;

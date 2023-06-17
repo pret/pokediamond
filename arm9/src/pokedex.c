@@ -1,5 +1,5 @@
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "heap.h"
 #include "MI_memory.h"
 #include "pokemon.h"
@@ -744,9 +744,9 @@ void Pokedex_SetSinnohDexFlag(struct Pokedex * pokedex)
     pokedex->unlockedSinnohDex = 1;
 }
 
-struct Pokedex * Save_Pokedex_Get(struct SaveBlock2 * sav2)
+struct Pokedex * Save_Pokedex_Get(struct SaveData * save)
 {
-    return (struct Pokedex *)SaveArray_Get(sav2, 7);
+    return (struct Pokedex *)SaveArray_Get(save, 7);
 }
 
 s32 Pokedex_GetSeenMonForme(struct Pokedex * pokedex, s32 species, u32 forme)

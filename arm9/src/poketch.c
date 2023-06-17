@@ -254,7 +254,7 @@ void Save_Poketch_PokemonHistoryGetSlotN(struct SavePoketch * poketch, s32 i, u3
     *forme_p = poketch->pokemonHistory[i][1];
 }
 
-struct SavePoketch * Save_Poketch_Get(struct SaveBlock2 * sav2)
+struct SavePoketch * Save_Poketch_Get(struct SaveData * save)
 {
-    return (struct SavePoketch *)SaveArray_Get(sav2, 5);
+    return (struct SavePoketch *)SaveArray_Get(save, 5);
 }

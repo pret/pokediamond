@@ -1,7 +1,7 @@
 #include "global.h"
 #include "bag.h"
 #include "player_data.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "party.h"
 #include "event_data.h"
 #include "pokemon_storage_system.h"

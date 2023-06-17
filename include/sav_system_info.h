@@ -3,7 +3,7 @@
 
 #include "RTC_api.h"
 
-struct SaveBlock2;
+struct SaveData;
 
 struct UnkSaveStruct_0202376C_sub
 {
@@ -31,8 +31,8 @@ struct SavSysInfo
 
 u32 Save_SysInfo_sizeof(void);
 void Save_SysInfo_Init(struct SavSysInfo * unk);
-struct SavSysInfo * Save_SysInfo_Get(struct SaveBlock2 * sav2);
-struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveBlock2 * sav2);
+struct SavSysInfo * Save_SysInfo_Get(struct SaveData * save);
+struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveData * save);
 void Save_SysInfo_InitFromSystem(struct SavSysInfo * unk);
 BOOL Save_SysInfo_MacAddressIsMine(struct SavSysInfo * unk);
 BOOL Save_SysInfo_RTCOffsetIsMine(struct SavSysInfo * unk);

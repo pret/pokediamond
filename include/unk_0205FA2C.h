@@ -108,14 +108,14 @@ void FUN_0205FD38(struct TaskManager *taskManager, u16 param1, u16 param2, u16 p
 BOOL FUN_0205FD70(struct TaskManager *taskManager);
 void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2);
 
-u32 FUN_0205FE10(struct SaveBlock2 *sav2);
-u32 FUN_0205FF5C(struct SaveBlock2 *sav2);
+u32 FUN_0205FE10(struct SaveData *save);
+u32 FUN_0205FF5C(struct SaveData *save);
 void FUN_02060044(u16 **param0, u32 *param1);
 u32 FUN_02060064(u32 param0);
 u32 FUN_02060070(u32 param0);
-u32 FUN_0206007C(struct SaveBlock2 *sav2);
-u32 FUN_020600A0(struct SaveBlock2 *sav2);
-u32 FUN_020600DC(struct SaveBlock2 *sav2);
+u32 FUN_0206007C(struct SaveData *save);
+u32 FUN_020600A0(struct SaveData *save);
+u32 FUN_020600DC(struct SaveData *save);
 BOOL FUN_02060144(u32 **param0);
 
 #endif // POKEDIAMOND_UNK_0205FA2C_H

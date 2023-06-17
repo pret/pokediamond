@@ -9,7 +9,7 @@
 #include "unk_02024E64.h"
 
 // Loads all battle opponents, including multi-battle partner if exists.
-void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 * sav2, u32 heap_id)
+void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveData * save, u32 heap_id)
 {
     struct TrainerDataLoaded trdata;
     struct MsgData * msgData;
@@ -18,7 +18,7 @@ void EnemyTrainerSet_Init(struct BattleSetupStruct * enemies, struct SaveBlock2 
     struct String * str;
 
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, 559, heap_id);
-    rivalName = GetRivalNamePtr(FUN_02024EC0(sav2));
+    rivalName = GetRivalNamePtr(FUN_02024EC0(save));
     for (i = 0; i < 4; i++)
     {
         if (enemies->trainer_idxs[i] != 0)

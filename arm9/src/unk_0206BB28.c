@@ -1,12 +1,12 @@
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "pokedex.h"
 #include "pokemon.h"
 #include "unk_0206BB28.h"
 
-BOOL SaveArray_IsNatDexEnabled(struct SaveBlock2 * sav2)
+BOOL SaveArray_IsNatDexEnabled(struct SaveData * save)
 {
-    return Pokedex_IsNatDexEnabled(Save_Pokedex_Get(sav2));
+    return Pokedex_IsNatDexEnabled(Save_Pokedex_Get(save));
 }
 
 BOOL Pokedex_IsNatDexEnabled(struct Pokedex * pokedex)

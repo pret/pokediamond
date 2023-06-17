@@ -1,5 +1,5 @@
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "MI_memory.h"
 #include "seal.h"
 
@@ -18,9 +18,9 @@ void CapsuleArray_Copy(const CapsuleArray * a0, CapsuleArray * a1)
     MI_CpuCopy8(a0, a1, sizeof(CapsuleArray));
 }
 
-struct SealCase * Save_SealCase_Get(struct SaveBlock2 * sav2)
+struct SealCase * Save_SealCase_Get(struct SaveData * save)
 {
-    return (struct SealCase *)SaveArray_Get(sav2, 21);
+    return (struct SealCase *)SaveArray_Get(save, 21);
 }
 
 CapsuleArray * SealCase_GetCapsuleI(struct SealCase * sealCase, s32 idx)

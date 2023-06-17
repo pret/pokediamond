@@ -17,7 +17,7 @@ ScrCmd_Unk00E3: ; 0x0203CB70
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword

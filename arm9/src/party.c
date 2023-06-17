@@ -118,7 +118,7 @@ BOOL PartyHasMon(struct PlayerParty * party, u16 species)
     return i != party->curCount;
 }
 
-struct PlayerParty * SaveArray_PlayerParty_Get(struct SaveBlock2 * ptr)
+struct PlayerParty * SaveArray_PlayerParty_Get(struct SaveData * ptr)
 {
     return (struct PlayerParty *)SaveArray_Get(ptr, 2);
 }

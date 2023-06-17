@@ -10,7 +10,7 @@
 #include "player_data.h"
 #include "poke_overlay.h"
 #include "sav_system_info.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "unk_02024E64.h"
 #include "unk_020286F8.h"
 
@@ -30,8 +30,8 @@ BOOL MOD52_021D757C(struct OverlayManager *arg1, u32 *status);
 BOOL MOD52_021D7594(struct OverlayManager *param0, u32 *status);
 BOOL MOD52_021D75E8(struct OverlayManager *arg1, u32 *status);
 
-void MOD52_021D7604(u32 heap_id, struct SaveBlock2 *sav2, BOOL set_trainerid);
-void MOD52_021D7688(u32 param0, struct SaveBlock2 *sav2);
-void MOD52_021D769C(u32 param0, struct SaveBlock2 *sav2);
+void MOD52_021D7604(u32 heap_id, struct SaveData *save, BOOL set_trainerid);
+void MOD52_021D7688(u32 param0, struct SaveData *save);
+void MOD52_021D769C(u32 param0, struct SaveData *save);
 
 #endif // POKEDIAMOND_MODULE_52_H

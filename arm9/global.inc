@@ -1432,7 +1432,7 @@
 .extern FUN_02022528
 .extern LoadHallOfFame
 .extern SaveHallOfFame
-.extern SaveBlock2_New
+.extern SaveData_New
 .extern FUN_020225F8
 .extern SaveArray_Get
 .extern FUN_02022634
@@ -2045,7 +2045,7 @@
 .extern FUN_0202A988
 .extern FUN_0202A990
 .extern FUN_0202A9AC
-.extern FUN_0202A9B0
+.extern Save_Roamers_Get
 .extern FUN_0202A9BC
 .extern FUN_0202A9C0
 .extern FUN_0202A9C4
