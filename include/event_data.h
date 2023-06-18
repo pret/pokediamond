@@ -3,11 +3,11 @@
 
 #include "save.h"
 
-struct ScriptState //todo this is not a very good name
+typedef struct ScriptState //todo this is not a very good name
 {
     u16 vars[288];
     u8 flags[364];
-};
+} ScriptState;
 
 u32 SaveArray_Flags_sizeof(void);
 void SaveArray_Flags_Init(struct ScriptState * state);

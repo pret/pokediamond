@@ -62,8 +62,8 @@ FUN_0202A988: ; 0x0202A988
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202A990
-FUN_0202A990: ; 0x0202A990
+	thumb_func_start Roamers_GetRand
+Roamers_GetRand: ; 0x0202A990
 	push {r3, lr}
 	cmp r1, #0x1
 	beq _0202A99C

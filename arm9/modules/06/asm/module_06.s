@@ -4753,7 +4753,7 @@ MOD06_0223B970: ; 0x0223B970
 	beq _0223B9A6
 	ldr r0, [sp]
 	mov r1, #2
-	bl FUN_0202A990
+	bl Roamers_GetRand
 	bl MOD06_022458FC
 	ldr r1, [r5, #0x1c]
 	ldr r1, [r1]
@@ -7614,7 +7614,7 @@ MOD06_0223CFFC: ; 0x0223CFFC
 	ldr r0, [r5, #0xc]
 	bl Save_Roamers_Get
 	mov r1, #1
-	bl FUN_0202A990
+	bl Roamers_GetRand
 	add r1, r4, #0
 	add r1, #0x38
 	str r1, [sp]
@@ -23659,7 +23659,7 @@ _02245098:
 	ldr r0, [r5, #0xc]
 	bl Save_Roamers_Get
 	mov r1, #1
-	bl FUN_0202A990
+	bl Roamers_GetRand
 	add r1, sp, #0x20
 	str r1, [sp]
 	ldr r2, [r5, #0x1c]
@@ -24762,8 +24762,8 @@ MOD06_022458FC: ; 0x022458FC
 	.align 2, 0
 _0224590C: .word MOD6_02251340
 
-	thumb_func_start MOD06_02245910
-MOD06_02245910: ; 0x02245910
+	thumb_func_start GetSwarmInfoFromRand
+GetSwarmInfoFromRand: ; 0x02245910
 	push {r4, r5, r6, lr}
 	sub sp, #0x1a8
 	add r5, r1, #0

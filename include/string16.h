@@ -4,14 +4,14 @@
 #include "string_util.h"
 #include "unk_02021590.h"
 
-struct String
+typedef struct String
 {
     u16 maxsize;
     u16 size;
     u32 magic;
     u16 data[1];
     u8 padding[2];
-};
+} String;
 
 #define STR16_MAGIC 0xB6F8D2EC
 

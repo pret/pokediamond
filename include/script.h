@@ -90,6 +90,10 @@ typedef struct LocalFieldData {
 
 } LocalFieldData; //todo fill out and move to own file
 
+typedef struct RoamerSaveData {
+
+} RoamerSaveData; //todo: fill out and move to own file
+
 typedef struct FieldSystem //todo move to field_system.c
 {
     u32 *unk00;

@@ -371,15 +371,15 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_GetPlayerStarterName
 	.word ScrCmd_GetRivalStarterName
 	.word ScrCmd_GetCounterpartStarterName
-	.word ScrCmd_Unk00DE
+	.word ScrCmd_GetStarter
 	.word ScrCmd_GetDecorationName
 	.word ScrCmd_GetUndergroundTrapName
 	.word ScrCmd_GetUndergroundItemName
 	.word ScrCmd_GetMapName
-	.word ScrCmd_Unk00E3
+	.word ScrCmd_GetSwarmInfo
 	.word ScrCmd_Unk00E4
 	.word ScrCmd_Unk00E5
-	.word ScrCmd_Unk00E6
+	.word ScrCmd_TrainerMessage
 	.word ScrCmd_Unk00E7
 	.word ScrCmd_Unk00E8
 	.word ScrCmd_Unk00E9

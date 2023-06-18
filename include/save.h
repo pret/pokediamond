@@ -61,7 +61,7 @@ struct UnkStruct_0202288C
     u32 size;
 };
 
-struct SaveData
+typedef struct SaveData
 {
     /* 0x00000 */ BOOL flashOkay;
     /* 0x00004 */ int unk_00004;
@@ -79,7 +79,7 @@ struct SaveData
     /* 0x2047C */ struct AsyncWriteManager asyncWriteMan;
     /* 0x204A0 */ u32 unk_204A0;
     /* 0x204A4 */ u32 unk_204A4;
-}; // size: 0x204A8
+} SaveData; // size: 0x204A8
 
 typedef u32 (*SAVSIZEFN)(void);
 typedef void (*SAVINITFN)(void *);

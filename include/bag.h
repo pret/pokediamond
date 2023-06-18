@@ -5,7 +5,7 @@
 #include "itemtool.h"
 #include "save.h"
 
-struct Bag
+typedef struct Bag
 {
     struct ItemSlot items[NUM_BAG_ITEMS];
     struct ItemSlot keyItems[NUM_BAG_KEY_ITEMS];
@@ -16,7 +16,7 @@ struct Bag
     struct ItemSlot balls[NUM_BAG_BALLS];
     struct ItemSlot battleItems[NUM_BAG_BATTLE_ITEMS];
     u32 registeredItem;
-};
+} Bag;
 
 struct UnkStruct_0206F164
 {

@@ -4,11 +4,11 @@
 typedef u8 Coords8[3];
 typedef Coords8 CapsuleArray[8];
 
-struct SealCase
+typedef struct SealCase
 {
     CapsuleArray coords[12];
     u8 sealCounts[80];
-};
+} SealCase;
 
 u32 Save_SealCase_sizeof(void);
 void Save_SealCase_Init(struct SealCase * sealCase);
