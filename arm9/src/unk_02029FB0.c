@@ -189,9 +189,9 @@ void Save_GameStats_Init(struct GameStats * ptr)
     MI_CpuClear32(ptr, sizeof(struct GameStats));
 }
 
-struct GameStats * Save_GameStats_Get(struct SaveBlock2 * sav2)
+struct GameStats * Save_GameStats_Get(struct SaveData * save)
 {
-    return SaveArray_Get(sav2, 20);
+    return SaveArray_Get(save, 20);
 }
 
 u32 GameStats_GetValue(struct GameStats * ptr, s32 a1)

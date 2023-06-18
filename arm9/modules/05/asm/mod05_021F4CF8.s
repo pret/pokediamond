@@ -88,7 +88,7 @@ MOD05_021F4D80: ; 0x021F4D80
 	bl GF_AssertFail
 _021F4D96:
 	ldr r0, [r4, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9BC
 	add r1, r0, #0
 	add r0, r5, #0
@@ -124,7 +124,7 @@ MOD05_021F4DC8: ; 0x021F4DC8
 	bl GF_AssertFail
 _021F4DDE:
 	ldr r0, [r6, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9BC
 	str r0, [sp]
 	ldr r1, [sp]
@@ -490,7 +490,7 @@ MOD05_021F5068: ; 0x021F5068
 	cmp r4, #0x15
 	beq _021F50F8
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9BC
 	add r1, r0, #0
 	add r0, r4, #0
@@ -674,7 +674,7 @@ MOD05_021F51D0: ; 0x021F51D0
 	bl GF_AssertFail
 _021F51E6:
 	ldr r0, [r4, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9BC
 	add r1, r0, #0
 	add r0, r5, #0
@@ -727,7 +727,7 @@ _021F5242:
 	add r0, r1, r0
 	str r2, [r0, #4]
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9BC
 	add r1, r0, #0
 	add r0, r4, #0

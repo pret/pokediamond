@@ -1432,7 +1432,7 @@
 .extern FUN_02022528
 .extern LoadHallOfFame
 .extern SaveHallOfFame
-.extern SaveBlock2_New
+.extern SaveData_New
 .extern FUN_020225F8
 .extern SaveArray_Get
 .extern FUN_02022634
@@ -2043,9 +2043,9 @@
 .extern FUN_0202A924
 .extern FUN_0202A92C
 .extern FUN_0202A988
-.extern FUN_0202A990
+.extern Roamers_GetRand
 .extern FUN_0202A9AC
-.extern FUN_0202A9B0
+.extern Save_Roamers_Get
 .extern FUN_0202A9BC
 .extern FUN_0202A9C0
 .extern FUN_0202A9C4
@@ -2892,9 +2892,9 @@
 .extern ScrCmd_GetPlayerState
 .extern ScrCmd_SetPlayerState
 .extern ScrCmd_ApplyPlayerState
-.extern ScrCmd_Unk00E3
-.extern ScrCmd_Unk00DE
-.extern ScrCmd_Unk00E6
+.extern ScrCmd_GetSwarmInfo
+.extern ScrCmd_GetStarter
+.extern ScrCmd_TrainerMessage
 .extern ScrCmd_Unk00F2
 .extern ScrCmd_Unk00F3
 .extern ScrCmd_Unk00F4
@@ -4582,7 +4582,7 @@
 .extern FUN_0205F358
 .extern FUN_0205F368
 .extern FUN_0205F378
-.extern FUN_0205F388
+.extern ScriptState_GetStarter
 .extern FUN_0205F398
 .extern FUN_0205F3C0
 .extern FUN_0205F3E8
@@ -7061,7 +7061,7 @@
 .extern MOD06_02245824
 .extern MOD06_0224582C
 .extern MOD06_02245844
-.extern MOD06_02245910
+.extern GetSwarmInfoFromRand
 .extern MOD06_02245FA0
 .extern MOD06_0224666C
 .extern MOD06_022466A0

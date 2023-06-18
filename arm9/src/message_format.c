@@ -128,16 +128,16 @@ void BufferPlayersName(MessageFormat *messageFormat, u32 idx, struct PlayerData 
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
-void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveBlock2 * sav2)
+void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveData * save)
 {
-    u16 * name = GetRivalNamePtr(FUN_02024EC0(sav2));
+    u16 * name = GetRivalNamePtr(FUN_02024EC0(save));
     CopyU16ArrayToString(messageFormat->buffer, name);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
 
-void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveBlock2 * sav2)
+void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveData * save)
 {
-    struct PlayerData * data = Save_PlayerData_GetProfileAddr(sav2);
+    struct PlayerData * data = Save_PlayerData_GetProfileAddr(save);
     struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, messageFormat->heap_id);
     if (PlayerProfile_GetTrainerGender(data) == Male)
     {
@@ -684,9 +684,9 @@ void BufferContestBackgroundName(MessageFormat *messageFormat, u32 idx, u32 bg)
     }
 }
 
-void BufferGroupName(MessageFormat *messageFormat, struct SaveBlock2 * sav2, u32 r5, u32 idx, u32 sp28)
+void BufferGroupName(MessageFormat *messageFormat, struct SaveData * save, u32 r5, u32 idx, u32 sp28)
 {
-    void * r6 = FUN_0202881C(sav2);
+    void * r6 = FUN_0202881C(save);
     u8 sp10 = FUN_020287F8(r6, r5);
     u8 r7 = FUN_02028804(r6, r5);
     struct String * r4 = String_New(64, 4);

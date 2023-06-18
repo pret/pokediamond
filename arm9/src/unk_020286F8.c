@@ -1,5 +1,5 @@
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "MI_memory.h"
 #include "string_util.h"
 #include "math_util.h"
@@ -93,9 +93,9 @@ void FUN_02028810(struct UnkSaveStruct_020286F8 * ptr, u32 i, u32 j)
     ptr[i].unk_21 = (u8)j;
 }
 
-struct UnkSaveStruct_020286F8 * FUN_0202881C(struct SaveBlock2 * sav2)
+struct UnkSaveStruct_020286F8 * FUN_0202881C(struct SaveData * save)
 {
-    return (struct UnkSaveStruct_020286F8 *)SaveArray_Get(sav2, 17);
+    return (struct UnkSaveStruct_020286F8 *)SaveArray_Get(save, 17);
 }
 
 BOOL FUN_0202888C(struct UnkSaveStruct_020286F8 * ptr);

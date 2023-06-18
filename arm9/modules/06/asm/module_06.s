@@ -4746,14 +4746,14 @@ MOD06_0223B970: ; 0x0223B970
 	add r4, r1, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	str r0, [sp]
 	bl FUN_0202AA14
 	cmp r0, #0
 	beq _0223B9A6
 	ldr r0, [sp]
 	mov r1, #2
-	bl FUN_0202A990
+	bl Roamers_GetRand
 	bl MOD06_022458FC
 	ldr r1, [r5, #0x1c]
 	ldr r1, [r1]
@@ -4859,7 +4859,7 @@ _0223BA42:
 	add r3, sp, #0x30
 	bl MOD06_0223D2DC
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202AB54
 	cmp r0, #0
 	bne _0223BA8C
@@ -5641,7 +5641,7 @@ _0223C0CE:
 	add r3, sp, #0x28
 	bl MOD06_0223D2DC
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202AB54
 	cmp r0, #0
 	bne _0223C118
@@ -6489,7 +6489,7 @@ MOD06_0223C764: ; 0x0223C764
 	push {r4, lr}
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202AB80
 	cmp r0, #1
 	bne _0223C77E
@@ -7612,9 +7612,9 @@ MOD06_0223CFFC: ; 0x0223CFFC
 	cmp r1, #0
 	beq _0223D02A
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	mov r1, #1
-	bl FUN_0202A990
+	bl Roamers_GetRand
 	add r1, r4, #0
 	add r1, #0x38
 	str r1, [sp]
@@ -7723,7 +7723,7 @@ MOD06_0223D0E8: ; 0x0223D0E8
 	ldr r0, [r0, #0xc]
 	str r1, [sp, #4]
 	mov r5, #0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	add r6, r0, #0
 	add r4, r5, #0
 _0223D0FC:
@@ -23657,9 +23657,9 @@ _02245098:
 	bl Pokedex_GetNatDexFlag
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	mov r1, #1
-	bl FUN_0202A990
+	bl Roamers_GetRand
 	add r1, sp, #0x20
 	str r1, [sp]
 	ldr r2, [r5, #0x1c]
@@ -24564,7 +24564,7 @@ _022457A4: .word MOD6_02252424
 MOD06_022457A8: ; 0x022457A8
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9AC
 	mov r2, #0
 	ldrh r0, [r0, #2]
@@ -24592,7 +24592,7 @@ MOD06_022457CC: ; 0x022457CC
 	bl GF_AssertFail
 _022457DC:
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9AC
 	add r1, sp, #0
 	bl MOD06_02245884
@@ -24614,7 +24614,7 @@ MOD06_022457F8: ; 0x022457F8
 	bl GF_AssertFail
 _02245808:
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202A9AC
 	add r1, sp, #0
 	bl MOD06_02245884
@@ -24762,8 +24762,8 @@ MOD06_022458FC: ; 0x022458FC
 	.align 2, 0
 _0224590C: .word MOD6_02251340
 
-	thumb_func_start MOD06_02245910
-MOD06_02245910: ; 0x02245910
+	thumb_func_start GetSwarmInfoFromRand
+GetSwarmInfoFromRand: ; 0x02245910
 	push {r4, r5, r6, lr}
 	sub sp, #0x1a8
 	add r5, r1, #0
@@ -30829,7 +30829,7 @@ MOD06_02248724: ; 0x02248724
 	bl GetPartyMonByIndex
 	add r6, r0, #0
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	add r7, r0, #0
 	add r0, r6, #0
 	mov r1, #5
@@ -38501,7 +38501,7 @@ _0224C238:
 MOD06_0224C24C: ; 0x0224C24C
 	push {r4, lr}
 	add r4, r1, #0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202AB4C
 	ldrb r1, [r0]
 	cmp r1, #0

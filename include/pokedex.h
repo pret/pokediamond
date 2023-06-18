@@ -3,7 +3,7 @@
 
 #include "global.h"
 #include "pokemon.h"
-#include "save_block_2.h"
+#include "save.h"
 
 struct Pokedex
 {
@@ -82,7 +82,7 @@ void FUN_02024D4C(struct Pokedex * pokedex);
 BOOL FUN_02024D58(struct Pokedex * pokedex);
 BOOL Pokedex_GetSinnohDexFlag(struct Pokedex * pokedex);
 void Pokedex_SetSinnohDexFlag(struct Pokedex * pokedex);
-struct Pokedex * Save_Pokedex_Get(struct SaveBlock2 * sav2);
+struct Pokedex * Save_Pokedex_Get(struct SaveData * save);
 s32 Pokedex_GetSeenMonForme(struct Pokedex * pokedex, s32 a1, u32 a2);
 
 #endif //POKEDIAMOND_POKEDEX_H

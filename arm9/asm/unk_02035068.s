@@ -325,7 +325,7 @@ FUN_02035270: ; 0x02035270
 _02035288:
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Flags_Get
-	bl FUN_0205F388
+	bl ScriptState_GetStarter
 	cmp r0, #0x0
 	bne _0203529A
 	mov r0, #0x2

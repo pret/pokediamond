@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_OPTIONS_H
 #define POKEDIAMOND_OPTIONS_H
 
-struct SaveBlock2;
+struct SaveData;
 
 struct Options {
     u16 textSpeed:4;
@@ -15,7 +15,7 @@ struct Options {
 struct Options * Options_New(u32 heap_id);
 void Options_Copy(struct Options * src, struct Options * dest);
 void Options_Init(struct Options * options);
-void Options_SetButtonModeOnMain(struct SaveBlock2 * sav2, u32 buttonMode);
+void Options_SetButtonModeOnMain(struct SaveData * save, u32 buttonMode);
 u16 Options_GetTextSpeed(struct Options * options);
 void Options_SetTextSpeed(struct Options * options, u16 textSpeed);
 u32 Options_GetTextFrameDelay(struct Options * options);

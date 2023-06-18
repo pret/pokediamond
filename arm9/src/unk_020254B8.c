@@ -1,6 +1,6 @@
 #include "global.h"
 #include "string_util.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "heap.h"
 #include "unk_020254B8.h"
 
@@ -9,9 +9,9 @@ u32 FUN_020254B8(void)
     return 16 * sizeof(struct UnkStruct_020254B8);
 }
 
-struct UnkStruct_020254B8 * FUN_020254C0(struct SaveBlock2 * sav2)
+struct UnkStruct_020254B8 * FUN_020254C0(struct SaveData * save)
 {
-    return (struct UnkStruct_020254B8 *)SaveArray_Get(sav2, 9);
+    return (struct UnkStruct_020254B8 *)SaveArray_Get(save, 9);
 }
 
 void FUN_020254CC(struct UnkStruct_020254B8 * arr)

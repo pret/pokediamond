@@ -6,7 +6,7 @@
 
 extern OverlayManagerTemplate UNK_020F96DC;
 extern OverlayManagerTemplate UNK_020FA6E8;
-extern u32 FUN_02079C70(struct SaveBlock2 *sav2);
+extern u32 FUN_02079C70(struct SaveData *save);
 extern void FUN_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[12]);
 extern void FUN_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, struct PlayerData *player_data);
 extern u32 *FUN_02038790(struct FieldSystem *fieldSystem, u16 param1, u16 param2);
@@ -14,7 +14,7 @@ extern u16 *GetVarPointer(struct FieldSystem *fieldSystem, u16);
 extern u16 MOD06_02244660(struct FieldSystem *fieldSystem, u8 *param1);
 extern u16 MOD06_022446BC(struct FieldSystem *fieldSystem, u8 *param1);
 extern u16 MOD06_022446E0(struct FieldSystem *fieldSystem, u8 *param1);
-extern u32 FUN_02026CC4(struct SaveBlock2 *sav2);
+extern u32 FUN_02026CC4(struct SaveData *save);
 extern u32 FUN_02025D94(u32 param0, u32 param1);
 
 const u8 UNK_020F7454[] = {
@@ -35,14 +35,14 @@ u32 FUN_0205FA2C(
     struct UnkPlayerStruct1_0205FA2C *ptr = (struct UnkPlayerStruct1_0205FA2C *)AllocFromHeapAtEnd(
         heap_id, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
-    struct SaveBlock2 *sav2 = fieldSystem->saveData;
+    struct SaveData *save = fieldSystem->saveData;
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct1_0205FA2C));
 
-    ptr->options = Save_PlayerData_GetOptionsAddr(sav2);
+    ptr->options = Save_PlayerData_GetOptionsAddr(save);
 
-    ptr->player_party = SaveArray_PlayerParty_Get(sav2);
+    ptr->player_party = SaveArray_PlayerParty_Get(save);
 
-    ptr->bag = Save_Bag_Get(sav2);
+    ptr->bag = Save_Bag_Get(save);
 
     ptr->unk21 = 0;
     ptr->unk20 = param0->unk08;
@@ -101,16 +101,16 @@ u32 FUN_0205FAD8(
 u32 FUN_0205FB34(
     struct UnkCallbackStruct1_0205FA2C *param0, struct FieldSystem *fieldSystem, u32 heap_id)
 {
-    struct SaveBlock2 *sav2 = fieldSystem->saveData;
+    struct SaveData *save = fieldSystem->saveData;
 
     struct UnkPlayerStruct2_0205FA2C *ptr = (struct UnkPlayerStruct2_0205FA2C *)AllocFromHeapAtEnd(
         heap_id, sizeof(struct UnkPlayerStruct2_0205FA2C));
     MI_CpuFill8(ptr, 0, sizeof(struct UnkPlayerStruct2_0205FA2C));
 
-    ptr->options = Save_PlayerData_GetOptionsAddr(sav2);
-    ptr->player_party = SaveArray_PlayerParty_Get(sav2);
-    ptr->IsNatDex = SaveArray_IsNatDexEnabled(sav2);
-    ptr->unk2c = FUN_02079C70(sav2);
+    ptr->options = Save_PlayerData_GetOptionsAddr(save);
+    ptr->player_party = SaveArray_PlayerParty_Get(save);
+    ptr->IsNatDex = SaveArray_IsNatDexEnabled(save);
+    ptr->unk2c = FUN_02079C70(save);
 
     ptr->unk11 = 1;
     ptr->unk14 = param0->unk0d;
@@ -120,11 +120,11 @@ u32 FUN_0205FB34(
     ptr->unk18 = 0;
     ptr->unk12 = param0->unk09;
 
-    ptr->unk20 = FUN_0202A918(sav2);
+    ptr->unk20 = FUN_0202A918(save);
 
     FUN_0207B000(ptr, UNK_020F7454);
 
-    FUN_0207C2A4(ptr, Save_PlayerData_GetProfileAddr(sav2));
+    FUN_0207C2A4(ptr, Save_PlayerData_GetProfileAddr(save));
 
     FUN_020373D4(fieldSystem, &UNK_020FA6E8, ptr);
 
@@ -312,16 +312,16 @@ void FUN_0205FDDC(struct TaskManager *taskManager, u16 param1, u16 param2)
     FUN_0204640C(fieldSystem->taskManager, &FUN_0205FD70, (u32 *)ptr);
 }
 
-u32 FUN_0205FE10(struct SaveBlock2 *sav2)
+u32 FUN_0205FE10(struct SaveData *save)
 {
 
-    u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(sav2), 0x35);
+    u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(save), 0x35);
     if (res < 20)
     {
         return 0;
     }
 
-    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
+    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
 
     BOOL flagD = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_GET);
     BOOL flag0 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_GET);
@@ -336,7 +336,7 @@ u32 FUN_0205FE10(struct SaveBlock2 *sav2)
         return 0;
     }
 
-    u32 res9 = FUN_02026CC4(sav2);
+    u32 res9 = FUN_02026CC4(save);
     if (!flagD)
     {
         if (FUN_02025D94(res9, 0x55) != 0)
@@ -393,15 +393,15 @@ u32 FUN_0205FE10(struct SaveBlock2 *sav2)
     return 4;
 }
 
-u32 FUN_0205FF5C(struct SaveBlock2 *sav2)
+u32 FUN_0205FF5C(struct SaveData *save)
 {
-    u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(sav2), 0x35);
+    u16 res = (u16) GameStats_GetCapped(Save_GameStats_Get(save), 0x35);
     if (res < 20)
     {
         return 0;
     }
 
-    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
+    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
 
     BOOL flagD = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0xd, DATA_GET);
     BOOL flag0 = (u8)SaveStruct23_Substruct2_SetFlag(saveStruct23_substruct2, 0, DATA_GET);
@@ -478,34 +478,34 @@ u32 FUN_02060070(u32 param0)
     return param0 * 0x5D588B65 + 1;
 }
 
-u32 FUN_0206007C(struct SaveBlock2 *sav2)
+u32 FUN_0206007C(struct SaveData *save)
 {
-    u32 res = FUN_02060070(FUN_020287A4(FUN_0202881C(sav2)));
+    u32 res = FUN_02060070(FUN_020287A4(FUN_0202881C(save)));
 
-    SaveStruct23_Substruct2_SetField_0x4(SaveStruct23_GetSubstruct2(sav2), res);
+    SaveStruct23_Substruct2_SetField_0x4(SaveStruct23_GetSubstruct2(save), res);
 
     return res;
 }
 
-u32 FUN_020600A0(struct SaveBlock2 *sav2)
+u32 FUN_020600A0(struct SaveData *save)
 {
-    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
+    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
 
     u32 res2 = FUN_02060070(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
 
     SaveStruct23_Substruct2_SetField_0x4(saveStruct23_substruct2, res2);
     u32 res3 = FUN_02060064(res2);
 
-    SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(sav2), FIELD_0x28, &res3);
+    SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(save), FIELD_0x28, &res3);
 
     return res3;
 }
 
-u32 FUN_020600DC(struct SaveBlock2 *sav2)
+u32 FUN_020600DC(struct SaveData *save)
 {
-    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(sav2);
+    struct SaveStruct23_Substruct2 *saveStruct23_substruct2 = SaveStruct23_GetSubstruct2(save);
 
-    struct SaveStruct23_Substruct1 *saveStruct23_substruct1 = SaveStruct23_GetSubstruct1(sav2);
+    struct SaveStruct23_Substruct1 *saveStruct23_substruct1 = SaveStruct23_GetSubstruct1(save);
 
     u32 res3 = FUN_02060064(SaveStruct23_Substruct2_GetField_0x4(saveStruct23_substruct2));
 
@@ -517,7 +517,7 @@ u32 FUN_020600DC(struct SaveBlock2 *sav2)
         res3 = FUN_02060064(res3);
     }
 
-    SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(sav2), FIELD_0x28, &res3);
+    SaveStruct23_Substruct1_SetField(SaveStruct23_GetSubstruct1(save), FIELD_0x28, &res3);
 
     return res3;
 }

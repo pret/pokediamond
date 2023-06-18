@@ -1,5 +1,5 @@
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "MI_memory.h"
 #include "OS_ownerInfo.h"
 #include "RTC_api.h"
@@ -19,14 +19,14 @@ void Save_SysInfo_Init(struct SavSysInfo * unk)
     Save_SysInfo_RTC_Init(&unk->rtcInfo);
 }
 
-struct SavSysInfo * Save_SysInfo_Get(struct SaveBlock2 * sav2)
+struct SavSysInfo * Save_SysInfo_Get(struct SaveData * save)
 {
-    return (struct SavSysInfo *)SaveArray_Get(sav2, 0);
+    return (struct SavSysInfo *)SaveArray_Get(save, 0);
 }
 
-struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveBlock2 * sav2)
+struct UnkSaveStruct_0202376C_sub * Save_SysInfo_RTC_Get(struct SaveData * save)
 {
-    return &Save_SysInfo_Get(sav2)->rtcInfo;
+    return &Save_SysInfo_Get(save)->rtcInfo;
 }
 
 void Save_SysInfo_InitFromSystem(struct SavSysInfo * unk)

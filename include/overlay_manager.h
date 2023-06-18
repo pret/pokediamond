@@ -20,7 +20,7 @@ struct OverlayManager
     u32 overlayStatus;
     s32 * unk18; //args?
     void * data;
-    struct SaveBlock2 *save;
+    struct SaveData *save;
     u32 unk24;
 };
 

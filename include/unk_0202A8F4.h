@@ -21,6 +21,6 @@ struct Unk0202A8F4
 
 u32 FUN_0202A8F4();
 void FUN_0202A8F8(struct Unk0202A8F4 *unk);
-void *FUN_0202A918(struct SaveBlock2 *sav2);
+void *FUN_0202A918(struct SaveData *save);
 
 #endif //POKEDIAMOND_UNK_0202A8F4_H

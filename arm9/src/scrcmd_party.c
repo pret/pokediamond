@@ -4,7 +4,7 @@
 #include "map_header.h"
 #include "module_05.h"
 #include "party.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "scrcmd.h"
 #include "script_pokemon_util.h"
 #include "task.h"
@@ -12,7 +12,7 @@
 #include "unk_02022504.h"
 #include "unk_0207FC5C.h"
 
-extern u16 FUN_02054DEC(struct SaveBlock2* sav2);
+extern u16 FUN_02054DEC(struct SaveData* save);
 
 BOOL ScrCmd_GiveMon(struct ScriptContext* ctx) //0096 - todo: GivePokemon?
 {
@@ -55,8 +55,8 @@ BOOL ScrCmd_GetPartyMonSpecies(struct ScriptContext* ctx) //0198 - todo: GetPart
 BOOL ScrCmd_CheckPartyMonOTID(struct ScriptContext* ctx) //0199 - todo: CheckPartyPokemonTraded?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(sav2);
+    struct SaveData* save = ScriptEnvironment_GetSavePtr(fieldSystem);
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(save);
 
     u16* mon_slot = ScriptGetVarPointer(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);

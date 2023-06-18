@@ -1,6 +1,6 @@
 #include "global.h"
 #include "pokemon.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "pokemon_storage_system.h"
 #include "msgdata.h"
 #include "string16.h"

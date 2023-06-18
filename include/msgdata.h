@@ -23,7 +23,7 @@ struct MsgDataTable
     struct MsgDataAlloc alloc[1];
 };
 
-struct MsgData
+typedef struct MsgData
 {
     u16 type;
     u16 heap_id;
@@ -33,7 +33,7 @@ struct MsgData
         struct MsgDataTable * raw;
         NARC * narc;
     } data;
-};
+} MsgData;
 
 void ReadMsgData_NewNarc_ExistingString(NarcId narc_id, u32 group, u32 num, u32 heap_id, struct String * dest);
 struct MsgData * NewMsgDataFromNarc(MsgDataLoadType type, NarcId narcId, s32 msgId, u32 heapno);

@@ -4,7 +4,7 @@
 #include "FS_overlay.h"
 #include "SPI_pm.h"
 #include "overlay_manager.h"
-#include "save_block_2.h"
+#include "save.h"
 
 struct Unk21C4818
 {
@@ -82,7 +82,7 @@ struct UnkStruct_02016FA8
     const struct OverlayManagerTemplate *template;
     s32 unk10;
     s32 unk14;
-    struct SaveBlock2 *save;
+    struct SaveData *save;
 
 };
 

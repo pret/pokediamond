@@ -62,8 +62,8 @@ FUN_0202A988: ; 0x0202A988
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0202A990
-FUN_0202A990: ; 0x0202A990
+	thumb_func_start Roamers_GetRand
+Roamers_GetRand: ; 0x0202A990
 	push {r3, lr}
 	cmp r1, #0x1
 	beq _0202A99C
@@ -86,8 +86,8 @@ FUN_0202A9AC: ; 0x0202A9AC
 	add r0, #0xbc
 	bx lr
 
-	thumb_func_start FUN_0202A9B0
-FUN_0202A9B0: ; 0x0202A9B0
+	thumb_func_start Save_Roamers_Get
+Save_Roamers_Get: ; 0x0202A9B0
 	ldr r3, _0202A9B8 ; =SaveArray_Get
 	mov r1, #0x19
 	bx r3
@@ -120,7 +120,7 @@ FUN_0202A9C8: ; 0x0202A9C8
 FUN_0202A9D0: ; 0x0202A9D0
 	push {r3-r7, lr}
 	add r5, r1, #0x0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	add r6, r0, #0x0
 	mov r4, #0x0
 	add r6, #0x10
@@ -146,7 +146,7 @@ _0202A9F8:
 	thumb_func_start FUN_0202AA00
 FUN_0202AA00: ; 0x0202AA00
 	push {r3, lr}
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	ldr r1, _0202AA10 ; =0x0000010F
 	mov r2, #0x1
 	strb r2, [r0, r1]
@@ -412,7 +412,7 @@ FUN_0202AB8C: ; 0x0202AB8C
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	ldrh r1, [r0, #0xc]
 	strh r1, [r5, #0x0]
 	ldrh r0, [r0, #0xe]
@@ -423,7 +423,7 @@ FUN_0202AB8C: ; 0x0202AB8C
 FUN_0202ABA0: ; 0x0202ABA0
 	push {r3-r5, lr}
 	add r5, r1, #0x0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	add r4, r0, #0x0
 	cmp r5, #0x10
 	blo _0202ABB2

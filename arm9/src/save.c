@@ -1,6 +1,6 @@
 #include "global.h"
 #include "MI_memory.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "heap.h"
 #include "CARD_backup.h"
 #include "OS_spinLock.h"
@@ -14,69 +14,69 @@ extern void FUN_02016444(u8 mask);
 extern void FUN_02016454(u8 mask);
 
 struct {
-    struct SaveBlock2 * ptr;
+    struct SaveData * ptr;
     BOOL iswritten;
 } UNK_021C59C8;
 
-struct SaveBlock2 * SaveBlock2_New(void)
+struct SaveData * SaveData_New(void)
 {
-    struct SaveBlock2 * sav2 = AllocFromHeap(1, sizeof(struct SaveBlock2));
-    MI_CpuClearFast(sav2, sizeof(struct SaveBlock2));
-    UNK_021C59C8.ptr = sav2;
-    sav2->flashOkay = SaveDetectFlash();
-    sav2->unk_00004 = 0;
-    sav2->unk_00008 = 1;
-    sav2->largeSectorChanged = 1;
-    MATH_CRC16InitTable(&sav2->crcTable);
-    SaveBlock2_InitSubstructs(sav2->arrayHeaders);
-    FUN_02023160(sav2->saveSlotSpecs, sav2->arrayHeaders);
-    MI_CpuClearFast(sav2->unk_20218, 8);
-    switch (sav2->unk_00010 = FUN_02022AD8(sav2))
+    struct SaveData * save = AllocFromHeap(1, sizeof(struct SaveData));
+    MI_CpuClearFast(save, sizeof(struct SaveData));
+    UNK_021C59C8.ptr = save;
+    save->flashOkay = SaveDetectFlash();
+    save->unk_00004 = 0;
+    save->unk_00008 = 1;
+    save->largeSectorChanged = 1;
+    MATH_CRC16InitTable(&save->crcTable);
+    SaveData_InitSubstructs(save->arrayHeaders);
+    FUN_02023160(save->saveSlotSpecs, save->arrayHeaders);
+    MI_CpuClearFast(save->unk_20218, 8);
+    switch (save->unk_00010 = FUN_02022AD8(save))
     {
     case 1:
-        sav2->largeSectorChanged = 0;
+        save->largeSectorChanged = 0;
         // fallthrough
     case 2:
-        Save_LoadDynamicRegion(sav2);
-        sav2->unk_00004 = 1;
-        sav2->unk_00008 = 0;
+        Save_LoadDynamicRegion(save);
+        save->unk_00004 = 1;
+        save->unk_00008 = 0;
         break;
     case 0:
     case 3:
-        Save_InitDynamicRegion(sav2);
+        Save_InitDynamicRegion(save);
         break;
     }
-    return sav2;
+    return save;
 }
 
-struct SaveBlock2 * FUN_020225F8(void)
+struct SaveData * FUN_020225F8(void)
 {
     GF_ASSERT(UNK_021C59C8.ptr != NULL);
     return UNK_021C59C8.ptr;
 }
 
-void * SaveArray_Get(struct SaveBlock2 * sav2, int idx)
+void * SaveArray_Get(struct SaveData * save, int idx)
 {
     GF_ASSERT(idx < 36);
-    return (void *)(sav2->dynamic_region + sav2->arrayHeaders[idx].offset);
+    return (void *)(save->dynamic_region + save->arrayHeaders[idx].offset);
 }
 
-void * FUN_02022634(struct SaveBlock2 * sav2, int idx)
+void * FUN_02022634(struct SaveData * save, int idx)
 {
-    return SaveArray_Get(sav2, idx);
+    return SaveArray_Get(save, idx);
 }
 
 // Sets bits at 0x021C491
 // Clears bits at 0x021C491
 
-BOOL FUN_0202263C(struct SaveBlock2 * sav2)
+BOOL FUN_0202263C(struct SaveData * save)
 {
     u8 * r6 = AllocFromHeapAtEnd(3, 0x1000);
     FUN_02016444(1);
-    FlashClobberChunkFooter(sav2, 0, (u32)(sav2->unk_20220[0] == 0 ? 1 : 0));
-    FlashClobberChunkFooter(sav2, 1, (u32)(sav2->unk_20220[1] == 0 ? 1 : 0));
-    FlashClobberChunkFooter(sav2, 0, (u32)(sav2->unk_20220[0]));
-    FlashClobberChunkFooter(sav2, 1, (u32)(sav2->unk_20220[1]));
+    FlashClobberChunkFooter(save, 0, (u32)(save->unk_20220[0] == 0 ? 1 : 0));
+    FlashClobberChunkFooter(save, 1, (u32)(save->unk_20220[1] == 0 ? 1 : 0));
+    FlashClobberChunkFooter(save, 0, (u32)(save->unk_20220[0]));
+    FlashClobberChunkFooter(save, 1, (u32)(save->unk_20220[1]));
     MI_CpuFillFast(r6, -1u, 0x1000);
     for (int i = 0; i < 64; i++)
     {
@@ -84,95 +84,95 @@ BOOL FUN_0202263C(struct SaveBlock2 * sav2)
         FlashWriteChunk((u32)(0x1000 * (i + 0x40)), r6, 0x1000);
     }
     FreeToHeap(r6);
-    Save_InitDynamicRegion(sav2);
-    sav2->unk_00004 = 0;
+    Save_InitDynamicRegion(save);
+    save->unk_00004 = 0;
     FUN_02016454(1);
     return TRUE;
 }
 
-BOOL FUN_020226FC(struct SaveBlock2 * sav2)
+BOOL FUN_020226FC(struct SaveData * save)
 {
-    if (sav2->flashOkay == 0)
+    if (save->flashOkay == 0)
         return FALSE;
-    if (Save_LoadDynamicRegion(sav2))
+    if (Save_LoadDynamicRegion(save))
     {
-        sav2->unk_00004 = 1;
-        sav2->unk_00008 = 0;
+        save->unk_00004 = 1;
+        save->unk_00008 = 0;
         return TRUE;
     }
     return FALSE;
 }
 
-int FUN_02022720(struct SaveBlock2 * sav2)
+int FUN_02022720(struct SaveData * save)
 {
-    if (sav2->flashOkay == 0)
+    if (save->flashOkay == 0)
         return 3;
-    if (sav2->unk_00008)
+    if (save->unk_00008)
     {
         FUN_02016444(1);
-        FlashClobberChunkFooter(sav2, 0, (u32)(sav2->unk_20220[0] == 0 ? 1 : 0));
-        FlashClobberChunkFooter(sav2, 1, (u32)(sav2->unk_20220[1] == 0 ? 1 : 0));
-        FlashClobberChunkFooter(sav2, 0, (u32)(sav2->unk_20220[0]));
-        FlashClobberChunkFooter(sav2, 1, (u32)(sav2->unk_20220[1]));
+        FlashClobberChunkFooter(save, 0, (u32)(save->unk_20220[0] == 0 ? 1 : 0));
+        FlashClobberChunkFooter(save, 1, (u32)(save->unk_20220[1] == 0 ? 1 : 0));
+        FlashClobberChunkFooter(save, 0, (u32)(save->unk_20220[0]));
+        FlashClobberChunkFooter(save, 1, (u32)(save->unk_20220[1]));
         FUN_02016454(1);
     }
-    int ret = FUN_02023044(sav2);
+    int ret = FUN_02023044(save);
     if (ret == 2)
     {
-        sav2->unk_00004 = 1;
-        sav2->unk_00008 = 0;
+        save->unk_00004 = 1;
+        save->unk_00008 = 0;
     }
     return ret;
 }
 
-void FUN_020227A0(struct SaveBlock2 * sav2, int a1)
+void FUN_020227A0(struct SaveData * save, int a1)
 {
     GF_ASSERT(a1 < 2);
-    GF_ASSERT(sav2->unk_00008 == 0);
-    GF_ASSERT(sav2->unk_00004 == 1);
-    FUN_02022840(sav2, a1);
+    GF_ASSERT(save->unk_00008 == 0);
+    GF_ASSERT(save->unk_00004 == 1);
+    FUN_02022840(save, a1);
     int res;
     do
     {
-        res = FUN_02022854(sav2);
+        res = FUN_02022854(save);
     } while (res == 0 || res == 1);
 }
 
-void Save_InitDynamicRegion(struct SaveBlock2 * sav2)
+void Save_InitDynamicRegion(struct SaveData * save)
 {
-    sav2->unk_00008 = 1;
-    sav2->largeSectorChanged = 1;
-    Save_InitDynamicRegion_Internal(sav2->dynamic_region, sav2->arrayHeaders);
+    save->unk_00008 = 1;
+    save->largeSectorChanged = 1;
+    Save_InitDynamicRegion_Internal(save->dynamic_region, save->arrayHeaders);
 }
 
-int FUN_020227FC(struct SaveBlock2 * sav2)
+int FUN_020227FC(struct SaveData * save)
 {
-    return sav2->flashOkay;
+    return save->flashOkay;
 }
 
-int FUN_02022800(struct SaveBlock2 * sav2)
+int FUN_02022800(struct SaveData * save)
 {
-    return sav2->unk_00010;
+    return save->unk_00010;
 }
 
-int FUN_02022804(struct SaveBlock2 * sav2)
+int FUN_02022804(struct SaveData * save)
 {
-    return sav2->unk_00004;
+    return save->unk_00004;
 }
 
-int FUN_02022808(struct SaveBlock2 * sav2)
+int FUN_02022808(struct SaveData * save)
 {
-    return sav2->unk_00008;
+    return save->unk_00008;
 }
 
-BOOL FUN_0202280C(struct SaveBlock2 * sav2)
+BOOL FUN_0202280C(struct SaveData * save)
 {
-    return (FUN_02022808(sav2) != 0 && FUN_02022804(sav2) != 0);
+    return (FUN_02022808(save) != 0 && FUN_02022804(save) != 0);
 }
 
-int SaveGetDirtyBit(struct SaveBlock2 * sav2)
+int SaveGetDirtyBit(struct SaveData * save)
 {
-    return sav2->largeSectorChanged;
+    return save->largeSectorChanged;
 }
 
 void SaveSetDirtyBit(void)
@@ -180,24 +180,24 @@ void SaveSetDirtyBit(void)
     UNK_021C59C8.ptr->largeSectorChanged = 1;
 }
 
-void FUN_02022840(struct SaveBlock2 * sav2, int a1)
+void FUN_02022840(struct SaveData * save, int a1)
 {
-    FUN_02022DFC(sav2, &sav2->unk_2047C, a1);
+    FUN_02022DFC(save, &save->asyncWriteMan, a1);
 }
 
-int FUN_02022854(struct SaveBlock2 * sav2)
+int FUN_02022854(struct SaveData * save)
 {
-    int r4 = FUN_02022E78(sav2, &sav2->unk_2047C);
+    int r4 = FUN_02022E78(save, &save->asyncWriteMan);
     if (r4 != 0 && r4 != 1)
     {
-        FUN_02022F80(sav2, &sav2->unk_2047C, r4);
+        FUN_02022F80(save, &save->asyncWriteMan, r4);
     }
     return r4;
 }
 
-void FUN_0202287C(struct SaveBlock2 * sav2)
+void FUN_0202287C(struct SaveData * save)
 {
-    FUN_02022FF0(sav2, &sav2->unk_2047C);
+    FUN_02022FF0(save, &save->asyncWriteMan);
 }
 
 void FUN_0202288C(struct UnkStruct_0202288C * header)
@@ -207,12 +207,12 @@ void FUN_0202288C(struct UnkStruct_0202288C * header)
     header->size = 0;
 }
 
-u16 FUN_02022898(struct SaveBlock2 * sav2, void * data, u32 size)
+u16 FUN_02022898(struct SaveData * save, void * data, u32 size)
 {
-    return MATH_CalcCRC16CCITT(&sav2->crcTable, data, size - 20);
+    return MATH_CalcCRC16CCITT(&save->crcTable, data, size - 20);
 }
 
-u32 GetChunkOffsetFromCurrentSaveSlot(u32 slot, struct SaveBlock2_Sub_20464 * header)
+u32 GetChunkOffsetFromCurrentSaveSlot(u32 slot, struct SaveSlotSpec * header)
 {
     u32 offset;
     if (slot == 0)
@@ -222,58 +222,58 @@ u32 GetChunkOffsetFromCurrentSaveSlot(u32 slot, struct SaveBlock2_Sub_20464 * he
     return offset + header->offset;
 }
 
-struct SaveChunkFooter * FUN_020228B8(struct SaveBlock2 * sav2, u8 * offset, int idx)
+struct SaveChunkFooter * FUN_020228B8(struct SaveData * save, u8 * offset, int idx)
 {
     u8 * r4;
-    struct SaveBlock2_Sub_20464 * sub20464;
+    struct SaveSlotSpec * spec;
 
-    sub20464 = &sav2->saveSlotSpecs[idx];
-    r4 = offset + sub20464->offset;
-    GF_ASSERT(sub20464->size != 0);
-    return (struct SaveChunkFooter *)(r4 + sub20464->size - 20);
+    spec = &save->saveSlotSpecs[idx];
+    r4 = offset + spec->offset;
+    GF_ASSERT(spec->size != 0);
+    return (struct SaveChunkFooter *)(r4 + spec->size - 20);
 }
 
-BOOL FUN_020228E0(struct SaveBlock2 * sav2, void * data, int idx)
+BOOL FUN_020228E0(struct SaveData * save, void * data, int idx)
 {
     struct SaveChunkFooter * r4;
-    struct SaveBlock2_Sub_20464 * sub20464;
+    struct SaveSlotSpec * spec;
 
-    sub20464 = &sav2->saveSlotSpecs[idx];
-    r4 = FUN_020228B8(sav2, data, idx);
-    u32 size = sub20464->size;
-    u32 offset = sub20464->offset;
+    spec = &save->saveSlotSpecs[idx];
+    r4 = FUN_020228B8(save, data, idx);
+    u32 size = spec->size;
+    u32 offset = spec->offset;
     if (r4->size != size)
         return FALSE;
     if (r4->magic != 0x20060623)
         return FALSE;
     if (r4->unk_10 != idx)
         return FALSE;
-    return r4->crc == FUN_02022898(sav2, (u8 *)data + offset, size);
+    return r4->crc == FUN_02022898(save, (u8 *)data + offset, size);
 }
 
-void FUN_0202293C(struct UnkStruct_0202288C * r5, struct SaveBlock2 * sav2, void * data, int idx)
+void FUN_0202293C(struct UnkStruct_0202288C * r5, struct SaveData * save, void * data, int idx)
 {
     struct SaveChunkFooter * r4;
-    r4 = FUN_020228B8(sav2, data, idx);
-    r5->unk_0 = FUN_020228E0(sav2, data, idx);
+    r4 = FUN_020228B8(save, data, idx);
+    r5->unk_0 = FUN_020228E0(save, data, idx);
     r5->offset = r4->unk_0;
     r5->size = r4->offset;
 }
 
-void FUN_02022968(struct SaveBlock2 * sav2, void * data, int idx)
+void FUN_02022968(struct SaveData * save, void * data, int idx)
 {
     struct SaveChunkFooter * r4;
-    struct SaveBlock2_Sub_20464 * sub20464;
+    struct SaveSlotSpec * spec;
 
-    sub20464 = &sav2->saveSlotSpecs[idx];
-    r4 = FUN_020228B8(sav2, data, idx);
-    data = (void *)((u8 *)data + sub20464->offset);
-    r4->unk_0 = sav2->unk_20214;
-    r4->offset = sav2->unk_20218[idx];
-    r4->size = sub20464->size;
+    spec = &save->saveSlotSpecs[idx];
+    r4 = FUN_020228B8(save, data, idx);
+    data = (void *)((u8 *)data + spec->offset);
+    r4->unk_0 = save->unk_20214;
+    r4->offset = save->unk_20218[idx];
+    r4->size = spec->size;
     r4->magic = 0x20060623;
     r4->unk_10 = (u8)idx;
-    r4->crc = FUN_02022898(sav2, data, sub20464->size);
+    r4->crc = FUN_02022898(save, data, spec->size);
 }
 
 int FUN_020229B8(u32 x, u32 y)
@@ -342,16 +342,16 @@ int FUN_020229F0(struct UnkStruct_0202288C * r7, struct UnkStruct_0202288C * r6,
     }
 }
 
-void FUN_02022AA0(struct SaveBlock2 * sav2, struct UnkStruct_0202288C * a1, struct UnkStruct_0202288C * a2, u32 a3, u32 a4)
+void FUN_02022AA0(struct SaveData * save, struct UnkStruct_0202288C * a1, struct UnkStruct_0202288C * a2, u32 a3, u32 a4)
 {
-    sav2->unk_20214 = a1[a3].offset;
-    sav2->unk_20218[0] = a1[a3].size;
-    sav2->unk_20218[1] = a2[a4].size;
-    sav2->unk_20220[0] = (u8)a3;
-    sav2->unk_20220[1] = (u8)a4;
+    save->unk_20214 = a1[a3].offset;
+    save->unk_20218[0] = a1[a3].size;
+    save->unk_20218[1] = a2[a4].size;
+    save->unk_20220[0] = (u8)a3;
+    save->unk_20220[1] = (u8)a4;
 }
 
-int FUN_02022AD8(struct SaveBlock2 * sav2)
+int FUN_02022AD8(struct SaveData * save)
 {
     struct UnkStruct_0202288C sp2C[2];
     struct UnkStruct_0202288C sp14[2];
@@ -364,8 +364,8 @@ int FUN_02022AD8(struct SaveBlock2 * sav2)
         u8 *r4 = AllocFromHeapAtEnd(3, 0x20000);
         if (FlashLoadChunk(0, r6, 0x20000))
         {
-            FUN_0202293C(&sp2C[0], sav2, r6, 0);
-            FUN_0202293C(&sp14[0], sav2, r6, 1);
+            FUN_0202293C(&sp2C[0], save, r6, 0);
+            FUN_0202293C(&sp14[0], save, r6, 1);
         }
         else
         {
@@ -374,8 +374,8 @@ int FUN_02022AD8(struct SaveBlock2 * sav2)
         }
         if (FlashLoadChunk(0x40000, r4, 0x20000))
         {
-            FUN_0202293C(&sp2C[1], sav2, r4, 0);
-            FUN_0202293C(&sp14[1], sav2, r4, 1);
+            FUN_0202293C(&sp2C[1], save, r4, 0);
+            FUN_0202293C(&sp14[1], save, r4, 1);
         }
         else
         {
@@ -397,12 +397,12 @@ int FUN_02022AD8(struct SaveBlock2 * sav2)
         {
             if (sp2C[sp10].offset == sp14[spC].offset)
             {
-                FUN_02022AA0(sav2, sp2C, sp14, sp10, spC);
+                FUN_02022AA0(save, sp2C, sp14, sp10, spC);
                 return 1;
             }
             else
             {
-                FUN_02022AA0(sav2, sp2C, sp14, sp8, spC);
+                FUN_02022AA0(save, sp2C, sp14, sp8, spC);
                 return 2;
             }
         }
@@ -410,12 +410,12 @@ int FUN_02022AD8(struct SaveBlock2 * sav2)
         {
             if (sp2C[sp10].offset == sp14[spC].offset)
             {
-                FUN_02022AA0(sav2, sp2C, sp14, sp10, spC);
+                FUN_02022AA0(save, sp2C, sp14, sp10, spC);
                 return 2;
             }
             else if (sp2C[sp10].offset == sp14[sp4].offset)
             {
-                FUN_02022AA0(sav2, sp2C, sp14, sp10, sp4);
+                FUN_02022AA0(save, sp2C, sp14, sp10, sp4);
                 return 2;
             }
             else
@@ -427,212 +427,212 @@ int FUN_02022AD8(struct SaveBlock2 * sav2)
         {
             if (sp2C[sp10].offset == sp14[spC].offset)
             {
-                FUN_02022AA0(sav2, sp2C, sp14, sp10, spC);
+                FUN_02022AA0(save, sp2C, sp14, sp10, spC);
                 return 1;
             }
             else
             {
-                FUN_02022AA0(sav2, sp2C, sp14, sp8, spC);
+                FUN_02022AA0(save, sp2C, sp14, sp8, spC);
                 return 2;
             }
         }
         else if (r4 == 1 && r0 == 1 && sp10 == spC)
         {
             GF_ASSERT(sp2C[sp10].offset == sp14[spC].offset);
-            FUN_02022AA0(sav2, sp2C, sp14, sp10, spC);
+            FUN_02022AA0(save, sp2C, sp14, sp10, spC);
             return 1;
         }
         else
         {
             GF_ASSERT(sp2C[sp10].offset == sp14[spC].offset);
-            FUN_02022AA0(sav2, sp2C, sp14, sp10, spC);
+            FUN_02022AA0(save, sp2C, sp14, sp10, spC);
             return 2;
         }
     }
 }
 
-BOOL FlashLoadChunkIntoDynamicRegionFromHeader(u32 slot, struct SaveBlock2_Sub_20464 * header, u8 * dest)
+BOOL FlashLoadChunkIntoDynamicRegionFromHeader(u32 slot, struct SaveSlotSpec * header, u8 * dest)
 {
     return FlashLoadChunk(GetChunkOffsetFromCurrentSaveSlot(slot, header), dest + header->offset, header->size);
 }
 
-BOOL Save_LoadDynamicRegion(struct SaveBlock2 * sav2)
+BOOL Save_LoadDynamicRegion(struct SaveData * save)
 {
     for (int i = 0; i < 2; i++)
     {
-        if (!FlashLoadChunkIntoDynamicRegionFromHeader(sav2->unk_20220[i], &sav2->saveSlotSpecs[i], sav2->dynamic_region)) return FALSE;
-        if (!FUN_020228E0(sav2, sav2->dynamic_region, i)) return FALSE;
+        if (!FlashLoadChunkIntoDynamicRegionFromHeader(save->unk_20220[i], &save->saveSlotSpecs[i], save->dynamic_region)) return FALSE;
+        if (!FUN_020228E0(save, save->dynamic_region, i)) return FALSE;
     }
     return TRUE;
 }
 
-int FUN_02022D54(struct SaveBlock2 * sav2, int chunk, u8 slot)
+int FUN_02022D54(struct SaveData * save, int chunk, u8 slot)
 {
-    struct SaveBlock2_Sub_20464 * header = &sav2->saveSlotSpecs[chunk];
-    FUN_02022968(sav2, sav2->dynamic_region, chunk);
-    return FlashWriteChunkInternal(GetChunkOffsetFromCurrentSaveSlot(slot, header), sav2->dynamic_region + header->offset, header->size - 20);
+    struct SaveSlotSpec * header = &save->saveSlotSpecs[chunk];
+    FUN_02022968(save, save->dynamic_region, chunk);
+    return FlashWriteChunkInternal(GetChunkOffsetFromCurrentSaveSlot(slot, header), save->dynamic_region + header->offset, header->size - 20);
 }
 
-int FUN_02022D94(struct SaveBlock2 * sav2, int chunk, u8 slot)
+int FUN_02022D94(struct SaveData * save, int chunk, u8 slot)
 {
-    struct SaveBlock2_Sub_20464 * header = &sav2->saveSlotSpecs[chunk];
+    struct SaveSlotSpec * header = &save->saveSlotSpecs[chunk];
     u32 size = header->size;
-    return FlashWriteChunkInternal(GetChunkOffsetFromCurrentSaveSlot(slot, header) + size - 20, sav2->dynamic_region + header->offset + size - 20, 20);
+    return FlashWriteChunkInternal(GetChunkOffsetFromCurrentSaveSlot(slot, header) + size - 20, save->dynamic_region + header->offset + size - 20, 20);
 }
 
-int FUN_02022DC8(struct SaveBlock2 * sav2, int chunk, u8 slot)
+int FUN_02022DC8(struct SaveData * save, int chunk, u8 slot)
 {
-    struct SaveBlock2_Sub_20464 * header = &sav2->saveSlotSpecs[chunk];
+    struct SaveSlotSpec * header = &save->saveSlotSpecs[chunk];
     u32 size = header->size;
-    return FlashWriteChunkInternal(GetChunkOffsetFromCurrentSaveSlot(slot, header) + size - 12, sav2->dynamic_region + header->offset + size - 12, 8);
+    return FlashWriteChunkInternal(GetChunkOffsetFromCurrentSaveSlot(slot, header) + size - 12, save->dynamic_region + header->offset + size - 12, 8);
 }
 
-void FUN_02022DFC(struct SaveBlock2 * sav2, struct UnkSavSub_2047C * a1, int a2)
+void FUN_02022DFC(struct SaveData * save, struct AsyncWriteManager * a1, int a2)
 {
     for (int i = 0; i < 2; i++)
     {
-        a1->unk_1C[i] = sav2->unk_20218[i];
-        sav2->unk_20218[i]++;
+        a1->unk_1C[i] = save->unk_20218[i];
+        save->unk_20218[i]++;
     }
-    a1->unk_14 = 0;
-    a1->unk_0 = 0;
+    a1->state = 0;
+    a1->rollbackCounter = 0;
     if (a2 == 2)
     {
-        if (sav2->largeSectorChanged)
+        if (save->largeSectorChanged)
         {
-            a1->unk_0 = 1;
-            a1->unk_18 = sav2->unk_20214;
-            sav2->unk_20214++;
+            a1->rollbackCounter = 1;
+            a1->count = save->unk_20214;
+            save->unk_20214++;
             a1->unk_4 = 0;
-            a1->unk_8 = 0;
-            a1->unk_C = 2;
+            a1->curSector = 0;
+            a1->numSectors = 2;
         }
         else
         {
             a1->unk_4 = 0;
-            a1->unk_8 = 0;
-            a1->unk_C = 1;
+            a1->curSector = 0;
+            a1->numSectors = 1;
         }
     }
     else
     {
         a1->unk_4 = a2;
-        a1->unk_8 = a2;
-        a1->unk_C = a2 + 1;
+        a1->curSector = a2;
+        a1->numSectors = a2 + 1;
     }
     FUN_02016444(1);
 }
 
-int FUN_02022E78(struct SaveBlock2 * sav2, struct UnkSavSub_2047C * a1)
+int FUN_02022E78(struct SaveData * save, struct AsyncWriteManager * a1)
 {
     BOOL sp0;
-    switch (a1->unk_14)
+    switch (a1->state)
     {
     case 0:
-        a1->unk_10 = FUN_02022D54(sav2, a1->unk_8, (u8)(sav2->unk_20220[a1->unk_8] == 0));
-        a1->unk_14++;
+        a1->lockId = FUN_02022D54(save, a1->curSector, (u8)(save->unk_20220[a1->curSector] == 0));
+        a1->state++;
         // fallthrough
     case 1:
-        if (!WaitFlashWrite(a1->unk_10, &sp0))
+        if (!WaitFlashWrite(a1->lockId, &sp0))
             break;
         if (sp0 == 0)
             return 3;
-        a1->unk_14++;
+        a1->state++;
         // fallthrough
     case 2:
-        a1->unk_10 = FUN_02022DC8(sav2, a1->unk_8, (u8)(sav2->unk_20220[a1->unk_8] == 0));
-        a1->unk_14++;
+        a1->lockId = FUN_02022DC8(save, a1->curSector, (u8)(save->unk_20220[a1->curSector] == 0));
+        a1->state++;
         // fallthrough
     case 3:
-        if (!WaitFlashWrite(a1->unk_10, &sp0))
+        if (!WaitFlashWrite(a1->lockId, &sp0))
             break;
         if (sp0 == 0)
             return 3;
-        a1->unk_14++;
-        if (a1->unk_8 + 1 == a1->unk_C)
+        a1->state++;
+        if (a1->curSector + 1 == a1->numSectors)
             return 1;
         // fallthrough
     case 4:
-        a1->unk_10 = FUN_02022D94(sav2, a1->unk_8, (u8)(sav2->unk_20220[a1->unk_8] == 0));
-        a1->unk_14++;
+        a1->lockId = FUN_02022D94(save, a1->curSector, (u8)(save->unk_20220[a1->curSector] == 0));
+        a1->state++;
         // fallthrough
     case 5:
-        if (!WaitFlashWrite(a1->unk_10, &sp0))
+        if (!WaitFlashWrite(a1->lockId, &sp0))
             break;
         if (sp0 == 0)
             return 3;
-        a1->unk_8++;
-        if (a1->unk_8 == a1->unk_C)
+        a1->curSector++;
+        if (a1->curSector == a1->numSectors)
             return 2;
-        a1->unk_14 = 0;
+        a1->state = 0;
         break;
     }
     return 0;
 }
 
-void FUN_02022F80(struct SaveBlock2 * sav2, struct UnkSavSub_2047C * a1, int a2)
+void FUN_02022F80(struct SaveData * save, struct AsyncWriteManager * a1, int a2)
 {
     int i;
     if (a2 == 3)
     {
-        if (a1->unk_0)
+        if (a1->rollbackCounter)
         {
-            sav2->unk_20214 = a1->unk_18;
+            save->unk_20214 = a1->count;
         }
         for (i = 0; i < 2; i++)
         {
-            sav2->unk_20218[i] = a1->unk_1C[i];
+            save->unk_20218[i] = a1->unk_1C[i];
         }
     }
     else
     {
-        for (i = a1->unk_4; i < a1->unk_C; i++)
+        for (i = a1->unk_4; i < a1->numSectors; i++)
         {
-            sav2->unk_20220[i] = (u8)(sav2->unk_20220[i] == 0);
+            save->unk_20220[i] = (u8)(save->unk_20220[i] == 0);
         }
-        sav2->unk_00004 = 1;
-        sav2->unk_00008 = 0;
-        sav2->largeSectorChanged = 0;
+        save->unk_00004 = 1;
+        save->unk_00008 = 0;
+        save->largeSectorChanged = 0;
     }
     FUN_02016454(1);
 }
 
-void FUN_02022FF0(struct SaveBlock2 * sav2, struct UnkSavSub_2047C * a1)
+void FUN_02022FF0(struct SaveData * save, struct AsyncWriteManager * a1)
 {
-    if (a1->unk_0)
-        sav2->unk_20214 = a1->unk_18;
+    if (a1->rollbackCounter)
+        save->unk_20214 = a1->count;
     for (int i = 0; i < 2; i++)
     {
-        sav2->unk_20218[i] = a1->unk_1C[i];
+        save->unk_20218[i] = a1->unk_1C[i];
     }
     if (!CARD_TryWaitBackupAsync())
     {
         CARD_CancelBackupAsync();
-        CARD_UnlockBackup((u16)a1->unk_10);
-        OS_ReleaseLockID((u16)a1->unk_10);
+        CARD_UnlockBackup((u16)a1->lockId);
+        OS_ReleaseLockID((u16)a1->lockId);
     }
     FUN_02016454(1);
 }
 
-int FUN_02023044(struct SaveBlock2 * sav2)
+int FUN_02023044(struct SaveData * save)
 {
     int r4;
-    struct UnkSavSub_2047C sp0;
-    FUN_02022DFC(sav2, &sp0, 2);
+    struct AsyncWriteManager sp0;
+    FUN_02022DFC(save, &sp0, 2);
     do
     {
-        r4 = FUN_02022E78(sav2, &sp0);
+        r4 = FUN_02022E78(save, &sp0);
     } while (r4 == 0 || r4 == 1);
-    FUN_02022F80(sav2, &sp0, r4);
+    FUN_02022F80(save, &sp0, r4);
     return r4;
 }
 
-int FlashClobberChunkFooter(struct SaveBlock2 * sav2, int x, u32 y)
+int FlashClobberChunkFooter(struct SaveData * save, int x, u32 y)
 {
     u8 sp0[20];
-    struct SaveBlock2_Sub_20464 * r5 = &sav2->saveSlotSpecs[x];
+    struct SaveSlotSpec * spec = &save->saveSlotSpecs[x];
     MI_CpuFill8(sp0, 0xFF, 20);
-    return FlashWriteChunk((u32)(GetChunkOffsetFromCurrentSaveSlot(y, r5) + r5->size - 20), sp0, 20);
+    return FlashWriteChunk((u32)(GetChunkOffsetFromCurrentSaveSlot(y, spec) + spec->size - 20), sp0, 20);
 }
 
 u32 SaveArray_sizeof(int idx)
@@ -644,7 +644,7 @@ u32 SaveArray_sizeof(int idx)
     return (u32)ret;
 }
 
-void SaveBlock2_InitSubstructs(struct SaveArrayHeader * headers)
+void SaveData_InitSubstructs(struct SaveArrayHeader * headers)
 {
     const struct SaveChunkHeader * sch = UNK_020EE700;
     s32 offset = 0;
@@ -655,8 +655,8 @@ void SaveBlock2_InitSubstructs(struct SaveArrayHeader * headers)
         headers[i].id = sch[i].id;
         headers[i].size = SaveArray_sizeof(i);
         headers[i].offset = (u32)offset;
-        headers[i].field_C = 0;
-        headers[i].field_E = (u16)sch[i].linkedId;
+        headers[i].crc = 0;
+        headers[i].slot = (u16)sch[i].linkedId;
         offset += headers[i].size;
         if (i == UNK_020EE6DC - 1 || sch[i].linkedId != sch[i + 1].linkedId)
             offset += 20;
@@ -664,7 +664,7 @@ void SaveBlock2_InitSubstructs(struct SaveArrayHeader * headers)
     GF_ASSERT(offset <= 0x20000);
 }
 
-void FUN_02023160(struct SaveBlock2_Sub_20464 * spec, struct SaveArrayHeader * headers)
+void FUN_02023160(struct SaveSlotSpec * spec, struct SaveArrayHeader * headers)
 {
     int i = 0;
     int sp4 = 0;
@@ -672,21 +672,21 @@ void FUN_02023160(struct SaveBlock2_Sub_20464 * spec, struct SaveArrayHeader * h
     int j = 0;
     for (i = 0; i < 2; i++)
     {
-        spec[i].unk_0 = (u8)i;
+        spec[i].id = (u8)i;
         spec[i].size = 0;
-        while (i == headers[j].field_E && j < UNK_020EE6DC)
+        while (i == headers[j].slot && j < UNK_020EE6DC)
         {
             spec[i].size += headers[j].size;
             j++;
         }
         spec[i].size += 20;
-        spec[i].unk_1 = (u8)sp4;
+        spec[i].firstPage = (u8)sp4;
         spec[i].offset = r12;
-        spec[i].unk_2 = (u8)((spec[i].size + 0xFFF) / 0x1000);
-        sp4 += spec[i].unk_2;
+        spec[i].numPages = (u8)((spec[i].size + 0xFFF) / 0x1000);
+        sp4 += spec[i].numPages;
         r12 += spec[i].size;
     }
-    GF_ASSERT(spec[1].unk_1 + spec[1].unk_2 == sp4);
+    GF_ASSERT(spec[1].firstPage + spec[1].numPages == sp4);
     GF_ASSERT(sp4 <= 32);
 }
 
@@ -702,35 +702,35 @@ void Save_InitDynamicRegion_Internal(u8 * dynamic_region, struct SaveArrayHeader
     }
 }
 
-void CreateChunkFooter(struct SaveBlock2 * sav2, u8 * data, int id, u32 size)
+void CreateChunkFooter(struct SaveData * save, u8 * data, int id, u32 size)
 {
     struct SaveArrayFooter * footer = (struct SaveArrayFooter *)(data + size);
     footer->magic = 0x20060623;
-    footer->unk_4 = sav2->unk_204A4 + 1;
-    footer->unk_8 = size;
-    footer->unk_C = (u16)id;
-    footer->crc = MATH_CalcCRC16CCITT(&sav2->crcTable, data, size + 14);
+    footer->saveno = save->unk_204A4 + 1;
+    footer->size = size;
+    footer->idx = (u16)id;
+    footer->crc = MATH_CalcCRC16CCITT(&save->crcTable, data, size + 14);
 }
 
-BOOL ValidateChunk(struct SaveBlock2 * sav2, u8 * data, int id, u32 size)
+BOOL ValidateChunk(struct SaveData * save, u8 * data, int id, u32 size)
 {
     struct SaveArrayFooter * footer = (struct SaveArrayFooter *)(data + size);
     if (footer->magic != 0x20060623)
         return FALSE;
-    if (footer->unk_8 != size)
+    if (footer->size != size)
         return FALSE;
-    if (footer->unk_C != id)
+    if (footer->idx != id)
         return FALSE;
-    return (footer->crc == MATH_CalcCRC16CCITT(&sav2->crcTable, data, size + 14));
+    return (footer->crc == MATH_CalcCRC16CCITT(&save->crcTable, data, size + 14));
 }
 
 u32 FUN_020232B4(u8 * data, u32 size)
 {
     struct SaveArrayFooter * footer = (struct SaveArrayFooter *)(data + size);
-    return footer->unk_4;
+    return footer->saveno;
 }
 
-int WriteSaveFileToFlash(struct SaveBlock2 * sav2, int idx, u8 * data)
+int WriteSaveFileToFlash(struct SaveData * save, int idx, u8 * data)
 {
     FUN_02016444(1);
     GF_ASSERT(idx < UNK_020EE6D8);
@@ -738,23 +738,23 @@ int WriteSaveFileToFlash(struct SaveBlock2 * sav2, int idx, u8 * data)
     GF_ASSERT(sch->id == idx);
     u32 sp4 = sch->sizeFunc() + 16;
     int sp0;
-    if (sav2->unk_204A0 == 1)
+    if (save->unk_204A0 == 1)
     {
-        CreateChunkFooter(sav2, data, idx, sch->sizeFunc());
+        CreateChunkFooter(save, data, idx, sch->sizeFunc());
         sp0 = FlashWriteChunk((u32)(sch->linkedId << 12), data, sp4);
-        GF_ASSERT(ValidateChunk(sav2, data, idx, sch->sizeFunc()) == 1);
-        CreateChunkFooter(sav2, data, idx, sch->sizeFunc());
+        GF_ASSERT(ValidateChunk(save, data, idx, sch->sizeFunc()) == 1);
+        CreateChunkFooter(save, data, idx, sch->sizeFunc());
         sp0 |= FlashWriteChunk((u32)((sch->linkedId + 0x40) << 12), data, sp4);
-        GF_ASSERT(ValidateChunk(sav2, data, idx, sch->sizeFunc()) == 1);
+        GF_ASSERT(ValidateChunk(save, data, idx, sch->sizeFunc()) == 1);
     }
     else
     {
-        CreateChunkFooter(sav2, data, idx, sch->sizeFunc());
+        CreateChunkFooter(save, data, idx, sch->sizeFunc());
         sp0 = FlashWriteChunk((u32)((sch->linkedId + 0x40) << 12), data, sp4);
-        GF_ASSERT(ValidateChunk(sav2, data, idx, sch->sizeFunc()) == 1);
-        CreateChunkFooter(sav2, data, idx, sch->sizeFunc());
+        GF_ASSERT(ValidateChunk(save, data, idx, sch->sizeFunc()) == 1);
+        CreateChunkFooter(save, data, idx, sch->sizeFunc());
         sp0 |= FlashWriteChunk((u32)(sch->linkedId << 12), data, sp4);
-        GF_ASSERT(ValidateChunk(sav2, data, idx, sch->sizeFunc()) == 1);
+        GF_ASSERT(ValidateChunk(save, data, idx, sch->sizeFunc()) == 1);
     }
     if (sp0 == 1)
     {
@@ -765,7 +765,7 @@ int WriteSaveFileToFlash(struct SaveBlock2 * sav2, int idx, u8 * data)
     return 3;
 }
 
-u8 * ReadSaveFileFromFlash(struct SaveBlock2 * sav2, u32 heap_id, int idx, int * ret_p)
+u8 * ReadSaveFileFromFlash(struct SaveData * save, u32 heap_id, int idx, int * ret_p)
 {
     GF_ASSERT(idx < UNK_020EE6D8);
     const struct SaveChunkHeader * sch = &UNK_020EE6E0[idx];
@@ -777,23 +777,23 @@ u8 * ReadSaveFileFromFlash(struct SaveBlock2 * sav2, u32 heap_id, int idx, int *
     u32 sp4;
     u8 * r6 = AllocFromHeap(heap_id, sp10);
     FlashLoadChunk((u32)(sch->linkedId << 12), r6, sp10);
-    spC = ValidateChunk(sav2, r6, idx, sch->sizeFunc());
+    spC = ValidateChunk(save, r6, idx, sch->sizeFunc());
     sp8 = FUN_020232B4(r6, sch->sizeFunc());
     FlashLoadChunk((u32)((sch->linkedId + 0x40) << 12), r6, sp10);
-    r7 = ValidateChunk(sav2, r6, idx, sch->sizeFunc());
+    r7 = ValidateChunk(save, r6, idx, sch->sizeFunc());
     sp4 = FUN_020232B4(r6, sch->sizeFunc());
     *ret_p = 1;
     if (spC == 1 && r7 == 0)
     {
-        sav2->unk_204A0 = 0;
-        sav2->unk_204A4 = sp8;
+        save->unk_204A0 = 0;
+        save->unk_204A4 = sp8;
         FlashLoadChunk((u32)(sch->linkedId << 12), r6, sp10);
         return r6;
     }
     if (spC == 0 && r7 == 1)
     {
-        sav2->unk_204A0 = 1;
-        sav2->unk_204A4 = sp4;
+        save->unk_204A0 = 1;
+        save->unk_204A4 = sp4;
         FlashLoadChunk((u32)((sch->linkedId + 0x40) << 12), r6, sp10);
         return r6;
     }
@@ -801,19 +801,19 @@ u8 * ReadSaveFileFromFlash(struct SaveBlock2 * sav2, u32 heap_id, int idx, int *
     {
         if (FUN_020229B8(sp8, sp4) != -1)
         {
-            sav2->unk_204A0 = 0;
-            sav2->unk_204A4 = sp8;
+            save->unk_204A0 = 0;
+            save->unk_204A4 = sp8;
             FlashLoadChunk((u32)(sch->linkedId << 12), r6, sp10);
             return r6;
         }
-        sav2->unk_204A0 = 1;
-        sav2->unk_204A4 = sp4;
+        save->unk_204A0 = 1;
+        save->unk_204A4 = sp4;
         FlashLoadChunk((u32)((sch->linkedId + 0x40) << 12), r6, sp10);
         return r6;
     }
     *ret_p = 2;
-    sav2->unk_204A0 = 0;
-    sav2->unk_204A4 = 0;
+    save->unk_204A0 = 0;
+    save->unk_204A4 = 0;
     return r6;
 }
 

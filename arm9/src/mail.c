@@ -3,7 +3,7 @@
 #include "heap.h"
 #include "string_util.h"
 #include "MI_memory.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "party.h"
 #include "player_data.h"
 
@@ -46,7 +46,7 @@ void Mail_Copy(const struct Mail * src, struct Mail * dest)
     MI_CpuCopy8(src, dest, sizeof(struct Mail));
 }
 
-void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct SaveBlock2 * sav2)
+void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct SaveData * save)
 {
     u32 sp10;
     u32 forme;
@@ -60,8 +60,8 @@ void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct Sa
 
     Mail_Init(mail);
     mail->mail_type = type;
-    party = SaveArray_PlayerParty_Get(sav2);
-    profile = Save_PlayerData_GetProfileAddr(sav2);
+    party = SaveArray_PlayerParty_Get(save);
+    profile = Save_PlayerData_GetProfileAddr(save);
 
     CopyU16StringArray(mail->author_name, PlayerProfile_GetNamePtr(profile));
     mail->author_gender = (u8)PlayerProfile_GetTrainerGender(profile);
@@ -152,9 +152,9 @@ void Mail_CopyToUnk20Array(struct Mail * mail, const struct MailMessage * src, u
         MailMsg_Copy(&mail->unk_20[idx], src);
 }
 
-struct Mail * Save_Mailbox_Get(struct SaveBlock2 * sav2)
+struct Mail * Save_Mailbox_Get(struct SaveData * save)
 {
-    return (struct Mail *)SaveArray_Get(sav2, 15);
+    return (struct Mail *)SaveArray_Get(save, 15);
 }
 
 u32 Save_Mailbox_sizeof(void)

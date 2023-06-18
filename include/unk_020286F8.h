@@ -25,7 +25,7 @@ void FUN_020287EC(struct UnkSaveStruct_020286F8 * ptr, u32 i, u32 j);
 u8 FUN_020287F8(struct UnkSaveStruct_020286F8 * ptr, u32 i);
 u8 FUN_02028804(struct UnkSaveStruct_020286F8 * ptr, u32 i);
 void FUN_02028810(struct UnkSaveStruct_020286F8 * ptr, u32 i, u32 j);
-struct UnkSaveStruct_020286F8 * FUN_0202881C(struct SaveBlock2 * sav2);
+struct UnkSaveStruct_020286F8 * FUN_0202881C(struct SaveData * save);
 BOOL FUN_02028828(struct UnkSaveStruct_020286F8 * ptr, u32 i);
 BOOL FUN_02028840(struct UnkSaveStruct_020286F8 * ptr, int i);
 BOOL FUN_02028854(struct UnkSaveStruct_020286F8 * ptr, const u16 * str);

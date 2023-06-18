@@ -345,15 +345,15 @@ u32 SaveStruct23_Substruct2_GetField_0x4(struct SaveStruct23_Substruct2 *substru
 }
 
 
-void SaveStruct23_SetMessage(struct SaveBlock2 *sav2, u32 index, struct MailMessage *message)
+void SaveStruct23_SetMessage(struct SaveData *save, u32 index, struct MailMessage *message)
 {
-    struct SaveStruct23 *data = SaveArray_Get(sav2, 23);
+    struct SaveStruct23 *data = SaveArray_Get(save, 23);
     MailMsg_Copy(&data->messages.messages[index], message);
 }
 
-struct MailMessage *SaveStruct23_GetMessage(struct SaveBlock2 *sav2, u32 index)
+struct MailMessage *SaveStruct23_GetMessage(struct SaveData *save, u32 index)
 {
-    struct SaveStruct23 *data = SaveArray_Get(sav2, 23);
+    struct SaveStruct23 *data = SaveArray_Get(save, 23);
     return &data->messages.messages[index];
 }
 
@@ -520,17 +520,17 @@ void SaveStruct23_Init(struct SaveStruct23 *saveStruct23)
     SaveStruct23_Substruct4_Init(&saveStruct23->substruct4);
 }
 
-struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveBlock2* sav2)
+struct SaveStruct23_Substruct1 *SaveStruct23_GetSubstruct1(struct SaveData* save)
 {
-    return &((struct SaveStruct23 *)SaveArray_Get(sav2, 23))->substruct1;
+    return &((struct SaveStruct23 *)SaveArray_Get(save, 23))->substruct1;
 }
 
-struct SaveStruct23_Substruct2 *SaveStruct23_GetSubstruct2(struct SaveBlock2* sav2)
+struct SaveStruct23_Substruct2 *SaveStruct23_GetSubstruct2(struct SaveData* save)
 {
-    return &((struct SaveStruct23 *)SaveArray_Get(sav2, 23))->substruct2;
+    return &((struct SaveStruct23 *)SaveArray_Get(save, 23))->substruct2;
 }
 
-struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveBlock2* sav2)
+struct SaveStruct23_Substruct4 *SaveStruct23_GetSubstruct4(struct SaveData* save)
 {
-    return &((struct SaveStruct23 *)SaveArray_Get(sav2, 23))->substruct4;
+    return &((struct SaveStruct23 *)SaveArray_Get(save, 23))->substruct4;
 }

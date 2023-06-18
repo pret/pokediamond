@@ -21,24 +21,24 @@ void FUN_02024E6C(struct UnkStruct_02024E64 *param0)
     MI_CpuFill16(param0->unk734, EOS, sizeof(param0->unk734) / sizeof(u16));
 }
 
-struct UnkStruct_02024E64 *FUN_02024EB4(struct SaveBlock2 *sav2)
+struct UnkStruct_02024E64 *FUN_02024EB4(struct SaveData *save)
 {
-    return SaveArray_Get(sav2, 0xa);
+    return SaveArray_Get(save, 0xa);
 }
 
-void *FUN_02024EC0(struct SaveBlock2 *sav2)
+void *FUN_02024EC0(struct SaveData *save)
 {
-    return FUN_02022634(sav2, 0xa);
+    return FUN_02022634(save, 0xa);
 }
 
-struct UnkStruct_02024E64 *FUN_02024ECC(struct SaveBlock2 *sav2)
+struct UnkStruct_02024E64 *FUN_02024ECC(struct SaveData *save)
 {
-    return SaveArray_Get(sav2, 0xa);
+    return SaveArray_Get(save, 0xa);
 }
 
-void *FUN_02024ED8(struct SaveBlock2 *sav2)
+void *FUN_02024ED8(struct SaveData *save)
 {
-    struct UnkStruct_02024E64 *res = SaveArray_Get(sav2, 0xa);
+    struct UnkStruct_02024E64 *res = SaveArray_Get(save, 0xa);
     return res->unk700;
 }
 

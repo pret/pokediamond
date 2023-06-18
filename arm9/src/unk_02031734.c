@@ -36,7 +36,7 @@ extern void FUN_0202D36C(u32 param0);
 extern u32 MOD04_021DDB08();
 extern void FUN_02033EEC(u32 param0);
 extern u32 WM_GetLinkLevel();
-extern void FUN_0202DB14(struct SaveBlock2 *sav2, u32 param1);
+extern void FUN_0202DB14(struct SaveData *save, u32 param1);
 extern s64 _ll_mul(s64, s64);
 extern void FUN_0202DBE0();
 extern void FUN_0202DDE8();
@@ -51,11 +51,11 @@ extern void MOD04_021D836C();
 extern u32 MOD04_021DD718(u32 *param0, u32 *param1);
 extern void MOD04_021DD6F0();
 extern s32 MOD04_021D76AC();
-extern MOD05_021D74E0(struct SaveBlock2 *sav2, u32 param1);
+extern MOD05_021D74E0(struct SaveData *save, u32 param1);
 extern void MOD04_021D83A8(void (*param0)(s32));
 extern void FUN_0200541C();
 
-void FUN_02031734(struct SaveBlock2 *sav2, u8 param1)
+void FUN_02031734(struct SaveData *save, u8 param1)
 {
     if (UNK_021C5A00 == NULL)
     {
@@ -66,9 +66,9 @@ void FUN_02031734(struct SaveBlock2 *sav2, u8 param1)
 
         UNK_021C5A00->unk3A = 0x32;
         UNK_021C5A00->unk43 = 1;
-        UNK_021C5A00->unk28 = sav2;
+        UNK_021C5A00->unk28 = save;
 
-        UNK_021C5A00->unk2C = Save_PlayerData_GetProfileAddr(sav2);
+        UNK_021C5A00->unk2C = Save_PlayerData_GetProfileAddr(save);
 
         UNK_021C5A00->unk3C = 2;
         UNK_021C5A00->unk3D = 0;
@@ -119,12 +119,12 @@ BOOL FUN_02031810()
     return FALSE;
 }
 
-void FUN_02031824(struct SaveBlock2 *sav2)
+void FUN_02031824(struct SaveData *save)
 {
     if (UNK_021C5A00 == NULL)
     {
         CreateHeapAtEnd(3, 0xf, 0xe000);
-        FUN_02031734(sav2, 0xa);
+        FUN_02031734(save, 0xa);
 
         UNK_021C5A00->unk40 = 0;
         FUN_02031D20(FUN_02031D30, 0x32);
@@ -197,24 +197,24 @@ void FUN_02031934()
     FUN_02031D20(FUN_02032194, 0);
 }
 
-void FUN_02031948(struct SaveBlock2 *sav2, u8 param1, u8 param2, u32 param3)
+void FUN_02031948(struct SaveData *save, u8 param1, u8 param2, u32 param3)
 {
     if (FUN_02030F40() == 0)
     {
         CreateHeapAtEnd(3, 0xf, 0x7080);
-        FUN_02031734(sav2, param1);
+        FUN_02031734(save, param1);
         UNK_021C5A00->unk40 = param2;
         UNK_021C5A00->unk30 = param3;
         FUN_02031D20(FUN_020321D0, 0);
     }
 }
 
-void FUN_02031990(struct SaveBlock2 *sav2, u8 param1, u8 param2, u32 param3)
+void FUN_02031990(struct SaveData *save, u8 param1, u8 param2, u32 param3)
 {
     if (FUN_02030F40() == 0)
     {
         CreateHeapAtEnd(3, 0xf, 0x7080);
-        FUN_02031734(sav2, param1);
+        FUN_02031734(save, param1);
         UNK_021C5A00->unk40 = param2;
         UNK_021C5A00->unk30 = param3;
         FUN_02031D20(FUN_0203224C, 0);
@@ -269,7 +269,7 @@ BOOL FUN_02031A2C()
     return FALSE;
 }
 
-void FUN_02031A7C(struct SaveBlock2 *sav2)
+void FUN_02031A7C(struct SaveData *save)
 {
     if (UNK_021C5A00 == NULL)
     {
@@ -278,7 +278,7 @@ void FUN_02031A7C(struct SaveBlock2 *sav2)
             FUN_020335E0();
         }
 
-        FUN_02031734(sav2, 9);
+        FUN_02031734(save, 9);
         UNK_021C5A00->unk3F = 9;
         UNK_021C5A00->unk40 = 0;
         FUN_02031D20(FUN_02032478, 0);
@@ -402,22 +402,22 @@ void FUN_02031C64()
     UNK_021C5A00->unk3F = 0x9;
 }
 
-void FUN_02031C74(struct SaveBlock2 *sav2, u8 param1)
+void FUN_02031C74(struct SaveData *save, u8 param1)
 {
     if (FUN_02030F40() == 0)
     {
         CreateHeapAtEnd(3, 0xf, 0x7080);
-        FUN_02031734(sav2, param1);
+        FUN_02031734(save, param1);
         FUN_02031D20(FUN_02032E00, 0);
     }
 }
 
-void FUN_02031CA8(struct SaveBlock2 *sav2, u8 param1)
+void FUN_02031CA8(struct SaveData *save, u8 param1)
 {
     if (FUN_02030F40() == 0)
     {
         CreateHeapAtEnd(3, 0xf, 0x7080);
-        FUN_02031734(sav2, param1);
+        FUN_02031734(save, param1);
         FUN_02031D20(FUN_02032E48, 0);
     }
 }
@@ -1389,12 +1389,12 @@ void FUN_02032B8C()
     }
 }
 
-void FUN_02032BD0(struct SaveBlock2 *sav2)
+void FUN_02032BD0(struct SaveData *save)
 {
     if (FUN_02030F40() == 0)
     {
         CreateHeapAtEnd(3, 0xf, 0x7000);
-        FUN_02031734(sav2, 0xe);
+        FUN_02031734(save, 0xe);
         UNK_021C5A00->unk40 = 0;
         FUN_02031D20(FUN_02032B8C, 0);
     }
@@ -1475,12 +1475,12 @@ void FUN_02032CF4()
     }
 }
 
-void FUN_02032D44(struct SaveBlock2 *sav2)
+void FUN_02032D44(struct SaveData *save)
 {
     if (FUN_02030F40() == 0)
     {
         CreateHeapAtEnd(3, 0xf, 0x7000);
-        FUN_02031734(sav2, 0x11);
+        FUN_02031734(save, 0x11);
         UNK_021C5A00->unk40 = 0;
         FUN_02031D20(FUN_02032CF4, 0);
     }
@@ -1862,7 +1862,7 @@ u32 FUN_02033250()
     return 0;
 }
 
-void FUN_02033288(struct SaveBlock2 *sav2)
+void FUN_02033288(struct SaveData *save)
 {
     if (UNK_021C5A00 == NULL)
     {
@@ -1873,7 +1873,7 @@ void FUN_02033288(struct SaveBlock2 *sav2)
 
         UNK_021C5A00->unk3F = 0x18;
         UNK_021C5A00->unk46 = 1;
-        UNK_021C5A00->unk28 = sav2;
+        UNK_021C5A00->unk28 = save;
         FUN_020334E8(0, 1);
         SetSoftResetDisableMask(1);
     }
@@ -1891,7 +1891,7 @@ void FUN_020332DC()
     }
 }
 
-void FUN_02033310(struct SaveBlock2 *sav2)
+void FUN_02033310(struct SaveData *save)
 {
     if (UNK_021C5A00 == NULL)
     {
@@ -1901,7 +1901,7 @@ void FUN_02033310(struct SaveBlock2 *sav2)
         MI_CpuFill8(UNK_021C5A00, 0, sizeof(struct UnkStruct_02031734));
         UNK_021C5A00->unk3F = 0x19;
         UNK_021C5A00->unk46 = 1;
-        UNK_021C5A00->unk28 = sav2;
+        UNK_021C5A00->unk28 = save;
         FUN_020334E8(0, 1);
         SetSoftResetDisableMask(1);
     }
@@ -1977,9 +1977,9 @@ void FUN_0203341C()
     }
 }
 
-void *FUN_0203346C(struct SaveBlock2 *sav2, u32 param1)
+void *FUN_0203346C(struct SaveData *save, u32 param1)
 {
-    Save_PlayerData_GetProfileAddr(sav2);
+    Save_PlayerData_GetProfileAddr(save);
     if (FUN_02030F40() != 0)
     {
         return 0;
@@ -1987,12 +1987,12 @@ void *FUN_0203346C(struct SaveBlock2 *sav2, u32 param1)
 
     SetSoftResetDisableMask(1);
     CreateHeapAtEnd(3, 0xf, 0x7080);
-    FUN_02031734(sav2, 0x17);
+    FUN_02031734(save, 0x17);
     UNK_021C5A00->unk00 = AllocFromHeap(0xf, param1);
     MI_CpuFill8(UNK_021C5A00->unk00, 0, param1);
 
     UNK_021C5A00->unk40 = 0;
-    UNK_021C5A00->unk28 = sav2;
+    UNK_021C5A00->unk28 = save;
     FUN_02031D20(FUN_0203341C, 0);
 
     return UNK_021C5A00->unk00;

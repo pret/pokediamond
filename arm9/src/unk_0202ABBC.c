@@ -1,11 +1,11 @@
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "MI_memory.h"
 #include "unk_0202ABBC.h"
 
-void *FUN_0202ABBC(struct SaveBlock2* sav2)
+void *FUN_0202ABBC(struct SaveData* save)
 {
-    return SaveArray_Get(sav2, 26);
+    return SaveArray_Get(save, 26);
 }
 
 u32 FUN_0202ABC8()

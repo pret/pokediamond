@@ -1,5 +1,5 @@
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 #include "event_data.h"
 
 u8 UNK_021C5A14[8];
@@ -16,9 +16,9 @@ void SaveArray_Flags_Init(struct ScriptState * state)
     memset(state, 0, sizeof(struct ScriptState));
 }
 
-struct ScriptState * SaveArray_Flags_Get(struct SaveBlock2 * sav2)
+struct ScriptState * SaveArray_Flags_Get(struct SaveData * save)
 {
-    return (struct ScriptState *)SaveArray_Get(sav2, 4);
+    return (struct ScriptState *)SaveArray_Get(save, 4);
 }
 
 BOOL CheckFlagInArray(struct ScriptState * state, u16 flag_id)

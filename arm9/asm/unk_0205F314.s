@@ -83,8 +83,8 @@ FUN_0205F378: ; 0x0205F378
 _0205F380: .word FUN_0205F314
 _0205F384: .word 0x00004030
 
-	thumb_func_start FUN_0205F388
-FUN_0205F388: ; 0x0205F388
+	thumb_func_start ScriptState_GetStarter
+ScriptState_GetStarter: ; 0x0205F388
 	ldr r3, _0205F390 ; =FUN_0205F344
 	ldr r1, _0205F394 ; =0x00004030
 	bx r3

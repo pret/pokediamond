@@ -14,7 +14,7 @@ BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
 {
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     struct UnkSaveStruct_020286F8* unk_sav_ptr = FUN_0202881C(ctx->fieldSystem->saveData);
-    struct SaveBlock2* sav2 = ctx->fieldSystem->saveData;
+    struct SaveData* save = ctx->fieldSystem->saveData;
 
     u16 option = ScriptReadHalfword(ctx);
     switch (option)
@@ -37,14 +37,14 @@ BOOL ScrCmd_UnionGroup(struct ScriptContext* ctx) //021D
         u16 unk_var = ScriptGetVar(ctx);
         u16 idx = ScriptGetVar(ctx);
 
-        BufferGroupName(*messageFormat, sav2, unk_var, idx, 0);
+        BufferGroupName(*messageFormat, save, unk_var, idx, 0);
         break;
     }
     case 3: { //writes group leader name to string buffer
         u16 unk_var = ScriptGetVar(ctx);
         u16 idx = ScriptGetVar(ctx);
 
-        BufferGroupName(*messageFormat, sav2, unk_var, idx, 1);
+        BufferGroupName(*messageFormat, save, unk_var, idx, 1);
         break;
     }
     case 4: { //opens keyboard, 2 if group id exists, 1 if cancel, 0 otherwise

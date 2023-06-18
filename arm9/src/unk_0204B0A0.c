@@ -8,21 +8,21 @@ extern void FUN_02029C08(void*);
 extern void FUN_0202B3C4(void*, s32, u32);
 extern u8 GF_RTC_GetTimeOfDayByHour(u32 hour);
 extern s64 GF_RTC_DateTimeToSec(void);
-extern void* FUN_02029AFC(struct SaveBlock2* sav2);
-extern void* FUN_02022504(struct SaveBlock2* sav2);
-extern void FUN_02025B60(struct SaveBlock2* sav2, s32, BOOL);
-extern BOOL FUN_0205F668(struct SaveBlock2* sav2);
-extern void FUN_0202A9D0(struct SaveBlock2* sav2, s32);
-extern BOOL FUN_0205F618(struct SaveBlock2* sav2, u16);
+extern void* FUN_02029AFC(struct SaveData* save);
+extern void* FUN_02022504(struct SaveData* save);
+extern void FUN_02025B60(struct SaveData* save, s32, BOOL);
+extern BOOL FUN_0205F668(struct SaveData* save);
+extern void FUN_0202A9D0(struct SaveData* save, s32);
+extern BOOL FUN_0205F618(struct SaveData* save, u16);
 extern void FUN_0204B3D0(struct FieldSystem*, s32);
 extern void FUN_0205F5A4(struct ScriptState* state, u16);
 extern s32 FUN_0205F594(struct ScriptState* state);
 extern void FUN_0202A988(void*, u32);
-extern void* FUN_0202A9B0(struct SaveBlock2* sav2);
-extern void FUN_02060344(struct SaveBlock2* sav2, s32);
+extern void* Save_Roamers_Get(struct SaveData* save);
+extern void FUN_02060344(struct SaveData* save, s32);
 extern void FUN_0203959C(struct FieldSystem*);
-extern void FUN_02025A60(struct SaveBlock2* sav2, s32);
-extern struct SaveBlock2* ScriptEnvironment_GetSavePtr(struct FieldSystem*);
+extern void FUN_02025A60(struct SaveData* save, s32);
+extern struct SaveData* ScriptEnvironment_GetSavePtr(struct FieldSystem*);
 
 void FUN_0204B0F8(struct FieldSystem *fieldSystem)
 {
@@ -79,15 +79,15 @@ void FUN_0204B158(struct FieldSystem *fieldSystem, struct UnkSaveStruct_0202376C
 
 void FUN_0204B1DC(struct FieldSystem *fieldSystem, s32 a1)
 {
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
-    FUN_02025A60(sav2, a1);
+    struct SaveData* save = ScriptEnvironment_GetSavePtr(fieldSystem);
+    FUN_02025A60(save, a1);
     FUN_0203959C(fieldSystem);
     FUN_02060344(fieldSystem->saveData, a1);
 
     void* unk_sav_ptr1 = FUN_0202881C(fieldSystem->saveData);
     FUN_02028754(unk_sav_ptr1, (u32)a1);
 
-    void* unk_sav_ptr2 = FUN_0202A9B0(fieldSystem->saveData);
+    void* unk_sav_ptr2 = Save_Roamers_Get(fieldSystem->saveData);
     unk_sav_ptr1 = FUN_0202881C(fieldSystem->saveData);
     u32 unk1 = FUN_020287A4(unk_sav_ptr1);
     FUN_0202A988(unk_sav_ptr2, unk1);

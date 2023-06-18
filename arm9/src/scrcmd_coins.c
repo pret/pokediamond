@@ -80,9 +80,9 @@ BOOL ScrCmd_TakeCoinsAddress(struct ScriptContext * ctx) //02A8 - todo: TakeCoin
 BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext * ctx) //0274 - todo: CanAffordCoins?
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
+    struct SaveData * save = ScriptEnvironment_GetSavePtr(fieldSystem);
     // Created, but discarded.
-    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(save);
     u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(fieldSystem->saveData);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
 
@@ -104,9 +104,9 @@ BOOL ScrCmd_HasEnoughCoinsImmediate(struct ScriptContext * ctx) //0274 - todo: C
 BOOL ScrCmd_HasEnoughCoinsAddress(struct ScriptContext * ctx) //02A9 - todo: CanAffordCoinsVar?
 {
     struct FieldSystem* fieldSystem = ctx->fieldSystem;
-    struct SaveBlock2 * sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
+    struct SaveData * save = ScriptEnvironment_GetSavePtr(fieldSystem);
     // Created, but discarded
-    struct PlayerData * player = Save_PlayerData_GetProfileAddr(sav2);
+    struct PlayerData * player = Save_PlayerData_GetProfileAddr(save);
     u16 * coins_ptr = Save_PlayerData_GetCoinsAddr(fieldSystem->saveData);
     u16 * ret_ptr = ScriptGetVarPointer(ctx);
 

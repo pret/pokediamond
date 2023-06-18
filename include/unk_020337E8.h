@@ -2,7 +2,7 @@
 #define POKEDIAMOND_UNK_020337E8_H
 
 #include "global.h"
-#include "save_block_2.h"
+#include "save.h"
 
 // Dummy struct until DWC_account
 struct DWC_Struct
@@ -19,7 +19,7 @@ struct DWC_token
 s32 FUN_020337E8(u32 heap_id);
 void FUN_0203380C(struct DWC_Struct *);
 s32 FUN_02033830(struct DWC_Struct *);
-BOOL FUN_0203384C(struct SaveBlock2 *);
+BOOL FUN_0203384C(struct SaveData *);
 
 
 #endif //  POKEDIAMOND_UNK_020337E8_H

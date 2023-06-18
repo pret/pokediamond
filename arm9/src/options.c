@@ -26,9 +26,9 @@ void Options_Init(struct Options * options) {
     options->frame = 0;       // frame 1
 }
 
-void Options_SetButtonModeOnMain(struct SaveBlock2 * sav2, u32 buttonMode) {
-    if (sav2 != NULL) {
-        buttonMode = Options_GetButtonMode(Save_PlayerData_GetOptionsAddr(sav2));
+void Options_SetButtonModeOnMain(struct SaveData * save, u32 buttonMode) {
+    if (save != NULL) {
+        buttonMode = Options_GetButtonMode(Save_PlayerData_GetOptionsAddr(save));
     }
 
     switch (buttonMode) {

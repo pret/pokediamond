@@ -203,7 +203,7 @@ FUN_02060490: ; 0x02060490
 	sub sp, #0x20
 	add r5, r1, #0x0
 	str r0, [sp, #0x10]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	add r1, r5, #0x0
 	str r0, [sp, #0x14]
 	bl FUN_0202AAA0

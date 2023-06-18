@@ -24,7 +24,7 @@ FUN_02063684: ; 0x02063684
 	ldr r1, [r1, #0x0]
 	bl FUN_02034F88
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	mov r1, #0x0
 	bl FUN_0202AB68
 	add r0, r5, #0x0
@@ -37,7 +37,7 @@ FUN_02063684: ; 0x02063684
 	cmp r0, #0x0
 	bne _020636DA
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	ldr r1, [r5, #0x1c]
 	add r4, r0, #0x0
 	ldr r1, [r1, #0x0]
@@ -74,7 +74,7 @@ _020636F8:
 	ldr r1, [r1, #0x0]
 	bl FUN_02034F88
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	mov r1, #0x0
 	bl FUN_0202AB68
 	add r0, r5, #0x0
@@ -82,7 +82,7 @@ _020636F8:
 	add r0, #0x74
 	strh r1, [r0, #0x0]
 	ldr r0, [r5, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	ldr r1, [r5, #0x1c]
 	ldr r1, [r1, #0x0]
 	bl FUN_02060478
@@ -143,7 +143,7 @@ FUN_020637A8: ; 0x020637A8
 	bl SaveArray_Flags_Get
 	bl FUN_0205F204
 	ldr r0, [r4, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_020603C8
 	pop {r4, pc}
 	.balign 4
@@ -156,7 +156,7 @@ FUN_020637C4: ; 0x020637C4
 	bl SaveArray_Flags_Get
 	bl FUN_0205F204
 	ldr r0, [r4, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_020603C8
 	pop {r4, pc}
 	.balign 4
@@ -186,7 +186,7 @@ FUN_020637F0: ; 0x020637F0
 FUN_02063808: ; 0x02063808
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_020603C8
 	pop {r3, pc}
 	.balign 4

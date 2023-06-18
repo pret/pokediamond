@@ -91,7 +91,7 @@ u32 FUN_02088B4C(struct UnkStruct_02088AAC *r0)
         };
     struct BagView *bag_view = CreateBagView(r0->poffinCaseAppData->bag, UNK_020FD6F4, r0->heap_id);
 
-    FUN_0206E314(bag_view, r0->poffinCaseAppData->sav2, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
+    FUN_0206E314(bag_view, r0->poffinCaseAppData->save, (u8)((u8)r0->unk06 == 1 ? 5 : 4), r0->unk0C);
 
     r0->ovly_data = OverlayManager_New(&OVERLAY_75_MANAGER, (s32 *)bag_view, r0->heap_id);
     r0->ovly_param = bag_view;

@@ -375,9 +375,9 @@ struct ItemSlot * Bag_GetPocketSlotN(struct Bag * bag, u32 pocket, u32 slot)
     return &slots[slot];
 }
 
-struct Bag * Save_Bag_Get(struct SaveBlock2 * sav2)
+struct Bag * Save_Bag_Get(struct SaveData * save)
 {
-    return (struct Bag *)SaveArray_Get(sav2, 3);
+    return (struct Bag *)SaveArray_Get(save, 3);
 }
 
 struct UnkStruct_0206F164 * FUN_0206F164(u32 heap_id)

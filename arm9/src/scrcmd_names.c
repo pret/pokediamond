@@ -14,9 +14,9 @@
 extern void* FieldSysGetAttrAddr(struct FieldSystem* fieldSystem, int idx);
 
 extern u32 FUN_020536D0(u32 gender, u32 avatar, u32 a2);
-extern u32 FUN_0205F388(struct ScriptState* state);
+extern u32 ScriptState_GetStarter(struct ScriptState* state);
 extern u32 FUN_0205F398(struct ScriptState* state);
-extern struct PCStorage* GetStoragePCPointer(struct SaveBlock2* sav2);
+extern struct PCStorage* GetStoragePCPointer(struct SaveData* save);
 extern u32 FUN_0205F3C0(struct ScriptState* state);
 extern u32 FUN_02054C14(u32 number);
 
@@ -25,8 +25,8 @@ BOOL ScrCmd_GetPlayerName(struct ScriptContext* ctx) //00CD - todo: BufferPlayer
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(sav2);
+    struct SaveData* save = ScriptEnvironment_GetSavePtr(fieldSystem);
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(save);
 
     BufferPlayersName(*messageFormat, idx, player);
 
@@ -202,8 +202,8 @@ BOOL ScrCmd_GetTrainerClassName(struct ScriptContext* ctx) //00D8 - todo: Buffer
 BOOL ScrCmd_Unk00D9(struct ScriptContext* ctx) //00D9 - todo: BufferPlayerTrainerClassName? TextPlayerTrainerClassName?
 {
     struct FieldSystem *fieldSystem = ctx->fieldSystem;
-    struct SaveBlock2* sav2 = ScriptEnvironment_GetSavePtr(fieldSystem);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(sav2);
+    struct SaveData* save = ScriptEnvironment_GetSavePtr(fieldSystem);
+    struct PlayerData* player = Save_PlayerData_GetProfileAddr(save);
     MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     u32 gender = PlayerProfile_GetTrainerGender(player);
@@ -244,7 +244,7 @@ BOOL ScrCmd_GetPlayerStarterName(struct ScriptContext* ctx) //00DB - todo: Buffe
     MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
     u8 idx = ScriptReadByte(ctx);
     struct ScriptState* state = SaveArray_Flags_Get(ctx->fieldSystem->saveData);
-    u32 msg_no = FUN_0205F388(state);
+    u32 msg_no = ScriptState_GetStarter(state);
     struct String* str = FUN_02040AE4(msg_no, 4);
 
     BufferString(*messageFormat, idx, str, 0, 1, 2);

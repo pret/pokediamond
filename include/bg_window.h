@@ -49,13 +49,13 @@ struct Bg
     fx32 centerY;
 };
 
-struct BgConfig
+typedef struct BgConfig
 {
     u32 heap_id;
     u16 scrollScheduled;
     u16 bufferTransferScheduled;
     struct Bg bgs[8];
-};
+} BgConfig;
 
 struct Bitmap
 {

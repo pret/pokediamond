@@ -2940,13 +2940,13 @@ FUN_02062240: ; 0x02062240
 	sub sp, #0x4
 	ldr r0, [r0, #0xc]
 	add r4, r1, #0x0
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	mov r1, #0x2
-	bl FUN_0202A990
+	bl Roamers_GetRand
 	add r1, sp, #0x0
 	add r1, #0x2
 	add r2, sp, #0x0
-	bl MOD06_02245910
+	bl GetSwarmInfoFromRand
 	add r0, sp, #0x0
 	ldrh r0, [r0, #0x2]
 	bl MapHeader_GetMapSec
@@ -2967,7 +2967,7 @@ FUN_02062240: ; 0x02062240
 FUN_02062280: ; 0x02062280
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
-	bl FUN_0202A9B0
+	bl Save_Roamers_Get
 	bl FUN_0202AA14
 	pop {r3, pc}
 	.balign 4

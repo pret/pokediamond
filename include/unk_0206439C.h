@@ -2,7 +2,7 @@
 #define POKEDIAMOND_UNK_0206439C_H
 
 struct Pokemon;
-struct SaveBlock2;
+struct SaveData;
 
 struct UnkStruct_0206439C
 {
@@ -10,6 +10,6 @@ struct UnkStruct_0206439C
     void* unk4;
 };
 
-struct UnkStruct_0206439C* FUN_0206439C(u32 heap_id, u8 mon_idx, struct SaveBlock2* sav2);
+struct UnkStruct_0206439C* FUN_0206439C(u32 heap_id, u8 mon_idx, struct SaveData* save);
 
 #endif

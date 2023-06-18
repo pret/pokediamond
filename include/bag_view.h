@@ -2,7 +2,7 @@
 #define POKEDIAMOND_BAG_VIEW_H
 
 #include "player_data.h"
-#include "save_block_2.h"
+#include "save.h"
 
 struct UnkStruct_0206F164;
 
@@ -16,7 +16,7 @@ struct BagView_UnkSub
 
 struct BagView
 {
-    struct SaveBlock2 *sav2;
+    struct SaveData *save;
     struct BagView_UnkSub slots[8];
     u8 padding;
     u8 unk65;
@@ -35,7 +35,7 @@ struct BagView *BagView_New(u8 heap_id);
 u32 BagView_sizeof();
 void FUN_0206E30C(struct BagView *bag_view, u8 r1);
 void FUN_0206E314(
-    struct BagView *bag_view, struct SaveBlock2 *sav2, u8 r2, struct UnkStruct_0206F164 *r3);
+    struct BagView *bag_view, struct SaveData *save, u8 r2, struct UnkStruct_0206F164 *r3);
 void BagView_SetItem(struct BagView *bag_view, struct ItemSlot *slot, u8 pocket, u8 idx);
 void FUN_0206E340(struct BagView *bag_view);
 void FUN_0206E354(struct BagView *bag_view, u32 r1);
@@ -45,10 +45,10 @@ u16 FUN_0206E37C(struct BagView *bag_view);
 u16 FUN_0206E384(struct BagView *bag_view);
 u8 FUN_0206E38C(struct BagView *bag_view);
 u8 FUN_0206E394(struct BagView *bag_view);
-u32 FUN_0206E3C8(struct SaveBlock2 *sav2);
-u32 FUN_0206E3D8(struct SaveBlock2 *sav2);
-u32 FUN_0206E3E8(struct SaveBlock2 *sav2);
-BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveBlock2 *sav2, struct String *dest, u32 item_id, u32 heap_id);
+u32 FUN_0206E3C8(struct SaveData *save);
+u32 FUN_0206E3D8(struct SaveData *save);
+u32 FUN_0206E3E8(struct SaveData *save);
+BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, u32 heap_id);
 void FUN_0206E51C(struct PlayerData *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id);
 
 #endif // POKEDIAMOND_BAG_VIEW_H
