@@ -21,6 +21,7 @@ Building the ROM requires the following packages:
 * wine (to run the mwcc executables)
 * python3 (for asm preprocessor)
 * libpng-devel (libpng-dev on Ubuntu)
+* zlib-devel (installed by libpng; zlib1g-dev on Ubuntu)
 * pkg-config
 * pugixml (libpugixml-dev on Ubuntu)
 
@@ -50,6 +51,7 @@ You will still require the following packages:
 * git
 * build-essentials
 * libpng-devel
+* zlib-devel
 * pkg-config
 * pugixml
 
