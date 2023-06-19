@@ -6,9 +6,9 @@ ifeq ($(HAVE_LIBPNG),1)
 $(error No package 'libpng' found)
 endif
 
-CFLAGS = -Wall -Wextra -Werror -Wno-sign-compare -std=c11 -O2 -DPNG_SKIP_SETJMP_CHECK $(shell pkg-config --cflags libpng)
+CFLAGS = -Wall -Wextra -Werror -Wno-sign-compare -std=c11 -O2 -DPNG_SKIP_SETJMP_CHECK $(shell pkg-config --cflags libpng zlib)
 
-LIBS = $(shell pkg-config --libs libpng)
+LIBS = $(shell pkg-config --libs libpng zlib)
 
 SRCS = main.c convert_png.c gfx.c jasc_pal.c lz.c rl.c util.c font.c huff.c json.c cJSON.c
 OBJS = $(SRCS:%.c=%.o)
