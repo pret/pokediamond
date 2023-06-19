@@ -1,13 +1,9 @@
 CC = gcc
 
 HAVE_LIBPNG := $(shell pkg-config libpng; echo $?)
-HAVE_ZLIB := $(shell pkg-config zlib; echo $?)
 
 ifeq ($(HAVE_LIBPNG),1)
 $(error No package 'libpng' found)
-endif
-ifeq ($(HAVE_ZLIB),1)
-$(error No package 'zlib' found)
 endif
 
 CFLAGS = -Wall -Wextra -Werror -Wno-sign-compare -std=c11 -O2 -DPNG_SKIP_SETJMP_CHECK $(shell pkg-config --cflags libpng zlib)
