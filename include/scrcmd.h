@@ -232,6 +232,9 @@ BOOL ScrCmd_GetSwarmInfo(ScriptContext *ctx);
 BOOL ScrCmd_GetStarter(ScriptContext *ctx);
 BOOL ScrCmd_TrainerMessage(ScriptContext *ctx);
 BOOL ScrCmd_Unk00F2(ScriptContext *ctx);
+BOOL ScrCmd_Unk00F3(ScriptContext *ctx);
+BOOL ScrCmd_Unk00F4(ScriptContext *ctx);
+BOOL ScrCmd_Unk00F5(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

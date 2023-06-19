@@ -187,6 +187,8 @@ extern void GetSwarmInfoFromRand(u32 rand, u16 *map, u16 *species);
 extern u16 ScriptState_GetStarter(ScriptState *state);
 extern u32 MOD06_022407DC(void);
 extern void MOD06_02240790(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3);
+extern void MOD06_022407F8(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3);
+extern u32 MOD06_02240844(void);
 
 u8 UNK_021C5A0C[4];
 
@@ -221,6 +223,7 @@ static BOOL FUN_0203BE9C(ScriptContext *ctx);
 static BOOL FUN_0203C71C(ScriptContext *ctx);
 static BOOL FUN_0203C9F8(ScriptContext *ctx);
 static BOOL FUN_0203CCF8(ScriptContext *ctx);
+static BOOL FUN_0203CD90(ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -2568,4 +2571,37 @@ static BOOL FUN_0203CCF8(ScriptContext *ctx) {
         *var = result;
         return TRUE;
     }
+}
+
+BOOL ScrCmd_Unk00F3(ScriptContext *ctx) { //00F3
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u16 unk0 = ScriptGetVar(ctx);
+    u16 unk1 = ScriptGetVar(ctx);
+    u16 unk2 = ScriptGetVar(ctx);
+    u16 unk3 = ScriptReadHalfword(ctx);
+    MOD06_022407F8(fieldSystem, unk0, unk1, unk2);
+    ctx->data[0] = unk3;
+    SetupNativeScript(ctx, FUN_0203CD90);
+    return TRUE;
+}
+
+static BOOL FUN_0203CD90(ScriptContext *ctx) {
+    u16 *var = GetVarPointer(ctx->fieldSystem, ctx->data[0]);
+    u32 result = MOD06_02240844();
+    if (result == 0) {
+        return FALSE;
+    } else {
+        *var = result;
+        return TRUE;
+    }
+}
+
+BOOL ScrCmd_Unk00F4(ScriptContext *ctx) { //00F4
+    u16 unused = ScriptReadHalfword(ctx);
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk00F5(ScriptContext *ctx) { //00F5
+    u16 unused = ScriptReadHalfword(ctx);
+    return TRUE;
 }
