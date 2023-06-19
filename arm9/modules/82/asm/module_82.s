@@ -1630,12 +1630,12 @@ MOD82_0222E264: ; 0x0222E264
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x44
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #0x1a
 	mov r0, #4
 	lsl r1, r1, #4
 	mov r2, #0x44
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x10]
 	bl Options_GetFrame

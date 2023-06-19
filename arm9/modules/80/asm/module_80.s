@@ -2802,7 +2802,7 @@ MOD80_0222EB6C: ; 0x0222EB6C
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x3e
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
 	bl Options_GetFrame
@@ -4096,7 +4096,7 @@ MOD80_0222F5A8: ; 0x0222F5A8
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x3e
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
 	bl Options_GetFrame
@@ -5385,7 +5385,7 @@ MOD80_02230054: ; 0x02230054
 	lsl r1, r1, #4
 	mov r2, #0x3e
 	ldr r4, [r5, #4]
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
 	bl Options_GetFrame
@@ -6392,7 +6392,7 @@ MOD80_02230840: ; 0x02230840
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x3e
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
 	bl Options_GetFrame
@@ -8804,7 +8804,7 @@ MOD80_02231BF4: ; 0x02231BF4
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x3e
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
 	bl Options_GetFrame
@@ -11833,7 +11833,7 @@ MOD80_0223346C: ; 0x0223346C
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x3e
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
 	bl Options_GetFrame
@@ -14377,7 +14377,7 @@ MOD80_022348CC: ; 0x022348CC
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x3e
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
 	bl Options_GetFrame
@@ -18016,12 +18016,12 @@ MOD80_02236488: ; 0x02236488
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x3e
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #0x1a
 	mov r0, #4
 	lsl r1, r1, #4
 	mov r2, #0x3e
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5]
 	ldr r0, [r0, #0x24]
 	bl Options_GetFrame

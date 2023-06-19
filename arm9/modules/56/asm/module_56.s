@@ -963,12 +963,12 @@ MOD56_0221257C: ; 0x0221257C
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x36
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #6
 	mov r0, #0
 	lsl r1, r1, #6
 	mov r2, #0x36
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]

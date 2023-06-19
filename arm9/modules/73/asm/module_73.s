@@ -5001,7 +5001,7 @@ MOD73_021D9BE0: ; 0x021D9BE0
 	mov r0, #4
 	mov r1, #0x20
 	add r2, r4, #0
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #1
 	ldr r0, [r5, #8]
 	add r2, r1, #0
@@ -5904,7 +5904,7 @@ MOD73_021DA2AC: ; 0x021DA2AC
 	ldr r2, [sp, #0x14]
 	mov r0, #0
 	mov r1, #0x40
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [sp, #0x14]

@@ -708,12 +708,12 @@ MOD54_021D7AA0: ; 0x021D7AA0
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x33
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #0x1a
 	mov r0, #4
 	lsl r1, r1, #4
 	mov r2, #0x33
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]

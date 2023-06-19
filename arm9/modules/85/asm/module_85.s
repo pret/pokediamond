@@ -774,7 +774,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #0x4f
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r2, _021D7BAC ; =0x000001E9
 	mov r0, #0
 	mov r1, #0x1a

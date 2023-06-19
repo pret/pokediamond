@@ -829,7 +829,7 @@ MOD75_021E7214: ; 0x021E7214
 	mov r0, #0
 	lsl r1, r1, #4
 	mov r2, #6
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #6

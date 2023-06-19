@@ -2353,7 +2353,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r0, #0x0
 	lsl r1, r1, #0x6
 	mov r2, #0x12
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	ldr r0, [r5, #0x18]
 	bl Options_GetFrame
 	lsl r0, r0, #0x18
@@ -2373,7 +2373,7 @@ FUN_02077FE8: ; 0x02077FE8
 	mov r0, #0x4
 	lsl r1, r1, #0x6
 	mov r2, #0x12
-	bl FUN_02002EEC
+	bl LoadFontPal1
 	mov r3, #0x4b
 	mov r0, #0x12
 	lsl r3, r3, #0x4
