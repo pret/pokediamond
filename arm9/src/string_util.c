@@ -64,7 +64,7 @@ u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num)
 u32 StringLength(const u16 *str)
 {
     int i;
-    for (i = 0; str[i] != EOS; i++);
+    for (i = 0; str[i] != EOS; i++) {}
     return i;
 }
 
