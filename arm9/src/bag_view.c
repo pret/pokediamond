@@ -185,7 +185,7 @@ BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *
 }
 
 void FUN_0206E51C( //todo: sync with HG
-    struct PlayerData *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id)
+    PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id)
 {
 #pragma unused(r2)
     struct MsgData *msgData;

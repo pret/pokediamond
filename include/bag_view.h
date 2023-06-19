@@ -49,6 +49,6 @@ u32 FUN_0206E3C8(struct SaveData *save);
 u32 FUN_0206E3D8(struct SaveData *save);
 u32 FUN_0206E3E8(struct SaveData *save);
 BOOL TryFormatRegisteredKeyItemUseMessage(struct SaveData *save, struct String *dest, u32 item_id, u32 heap_id);
-void FUN_0206E51C(struct PlayerData *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id);
+void FUN_0206E51C(PlayerProfile *playerData, struct String *dest, u32 r2, u32 r3, u32 heap_id);
 
 #endif // POKEDIAMOND_BAG_VIEW_H

@@ -13,7 +13,7 @@ struct UnkStruct_0202E29C_sub4
     u8 unk06;
     u8 unk07;
     u8 unk08[8];
-    struct PlayerData unk10;
+    PlayerProfile unk10;
     u8 unk30[0x40];
 };
 
@@ -30,7 +30,7 @@ struct UnkStruct_0202E29C_sub
 struct UnkStruct_0202E29C_sub3
 {
     struct MailMessage unk00;
-    struct PlayerData unk08;
+    PlayerProfile unk08;
     u8 unk28[0x20];
     u8 unk48[0x4];
     u8 unk4C;
@@ -56,7 +56,7 @@ struct UnkStruct_0202E29C
     struct MailMessage unkCA8;
     u32 unkCB0;
     u8 unkCB4;
-    struct PlayerData *unkCB8;
+    PlayerProfile *unkCB8;
     void *unkCBC;
     u32 unkCC0;
     struct UnkStruct_0202E29C_sub2 unkCC4;
@@ -77,7 +77,7 @@ struct UnkStruct_0202E29C
     u8 unkDAE[0x2];
 };
 
-void FUN_0202E29C(struct PlayerData *player_data);
+void FUN_0202E29C(PlayerProfile *player_data);
 BOOL FUN_0202E344();
 BOOL FUN_0202E358(u8 *param0, u8 *param1, s32 param2);
 void FUN_0202E380(struct UnkStruct_0202E29C_sub *param0, u32 param1);
@@ -105,7 +105,7 @@ s32 FUN_0202E8A0(s32 param0);
 s32 FUN_0202E8D0(s32 param0);
 s32 FUN_0202E8F4();
 s32 FUN_0202E950();
-void FUN_0202E9AC(u32 param0, struct PlayerData *player_data);
+void FUN_0202E9AC(u32 param0, PlayerProfile *player_data);
 u32 FUN_0202E9E8(u32 param0);
 void FUN_0202EA54();
 void FUN_0202EA9C();
@@ -125,8 +125,8 @@ void FUN_0202EEB0(u32 param0);
 u16 FUN_0202EEE8(u16 param0);
 struct UnkStruct_0202E29C_sub *FUN_0202EF18(u32 param0);
 struct UnkStruct_0202E29C_sub4 *FUN_0202EF44(s32 param0);
-struct PlayerData *FUN_0202EF70();
-struct PlayerData *FUN_0202EF84(int param0);
+PlayerProfile *FUN_0202EF70();
+PlayerProfile *FUN_0202EF84(int param0);
 void FUN_0202EFAC(u8 *param0, s32 param1);
 BOOL FUN_0202EFE4(u8 *param0);
 u32 FUN_0202F03C();

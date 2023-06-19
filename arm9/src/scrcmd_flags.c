@@ -74,7 +74,7 @@ BOOL ScrCmd_HasBadge(struct ScriptContext* ctx) //015B
     u16 badge_no = ScriptGetVar(ctx);
     u16* ret_ptr = ScriptGetVarPointer(ctx);
     GF_ASSERT(badge_no < 8);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
+    PlayerProfile* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
 
     *ret_ptr = (u16)PlayerProfile_TestBadgeFlag(player, badge_no);
 
@@ -85,7 +85,7 @@ BOOL ScrCmd_GiveBadge(struct ScriptContext* ctx) //015C
 {
     u16 badge_no = ScriptGetVar(ctx);
     GF_ASSERT(badge_no < 8);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
+    PlayerProfile* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
 
     PlayerProfile_SetBadgeFlag(player, badge_no);
 
@@ -110,7 +110,7 @@ BOOL ScrCmd_GetTotalEarnedBadges(struct ScriptContext* ctx) //015D - todo: Count
     u16 badges;
     for (i = 0, badges = 0; i < 8; i++)
     {
-        struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
+        PlayerProfile* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
         BOOL has_badge = PlayerProfile_TestBadgeFlag(player, UNK_020F457F[i]);
         if (has_badge == TRUE)
         {

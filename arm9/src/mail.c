@@ -53,7 +53,7 @@ void Mail_SetNewMessageDetails(struct Mail * mail, u8 type, u8 monIdx, struct Sa
     BOOL is_egg;
     u16 species;
     struct PlayerParty * party;
-    struct PlayerData * profile;
+    PlayerProfile * profile;
     struct Pokemon * pokemon;
     u16 r7;
     u8 i;

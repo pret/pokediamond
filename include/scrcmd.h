@@ -235,6 +235,23 @@ BOOL ScrCmd_Unk00F2(ScriptContext *ctx);
 BOOL ScrCmd_Unk00F3(ScriptContext *ctx);
 BOOL ScrCmd_Unk00F4(ScriptContext *ctx);
 BOOL ScrCmd_Unk00F5(ScriptContext *ctx);
+BOOL ScrCmd_Unk00F6(ScriptContext *ctx);
+BOOL ScrCmd_Unk00F7(ScriptContext *ctx);
+BOOL ScrCmd_SetDynamicWarp(ScriptContext *ctx);
+BOOL ScrCmd_GetDynamicWarpFloorNumber(ScriptContext *ctx);
+BOOL ScrCmd_ShowCurrentFloorNumber(ScriptContext *ctx);
+BOOL ScrCmd_CountSinnohDexSeen(ScriptContext *ctx);
+BOOL ScrCmd_CountSinnohDexOwned(ScriptContext *ctx);
+BOOL ScrCmd_CountNationalDexSeen(ScriptContext *ctx);
+BOOL ScrCmd_CountNationalDexOwned(ScriptContext *ctx);
+BOOL ScrCmd_DummyDexCheck(ScriptContext *ctx);
+BOOL ScrCmd_GetDexEvaluationMessage(ScriptContext *ctx);
+BOOL ScrCmd_WildBattle(ScriptContext *ctx);
+BOOL ScrCmd_LegendaryBattle(ScriptContext *ctx);
+BOOL ScrCmd_FirstBattle(ScriptContext *ctx);
+BOOL ScrCmd_CatchTutorial(ScriptContext *ctx);
+BOOL ScrCmd_UpdateHoneyTree(ScriptContext *ctx);
+BOOL ScrCmd_CheckHoneyTree(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);

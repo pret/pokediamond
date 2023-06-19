@@ -5,7 +5,7 @@
 #include "pokemon.h"
 #include "save.h"
 
-struct Pokedex
+typedef struct Pokedex
 {
     /* 0x0000 */ u32 magic; // BEEFCAFE
     /* 0x0004 */ u8 caughtFlags[0x3C];
@@ -24,7 +24,7 @@ struct Pokedex
     /* 0x0138 */ u8 unlockedSinnohDex;
     /* 0x0139 */ u8 unlockedNationalDex;
     /* 0x013A */ u8 padding_013A[2];
-};
+} Pokedex;
 
 u32 Save_Pokedex_sizeof(void);
 struct Pokedex * Save_Pokedex_New(u32 heap_id);
@@ -46,15 +46,15 @@ s32 FUN_020242C8(struct Pokedex * pokedex, u16 species, s32 r4);
 BOOL Pokedex_SpeciesIsNotMythical(u16 species);
 BOOL Pokedex_SpeciesIsNotSinnohMythical(u16 species);
 void Save_Pokedex_Init(struct Pokedex * pokedex);
-u16 Pokedex_CountNationalDexCaughtMons(struct Pokedex * pokedex);
-u16 Pokedex_CountNationalDexSeenMons(struct Pokedex * pokedex);
+u16 Pokedex_CountNationalDexOwned(struct Pokedex * pokedex);
+u16 Pokedex_CountNationalDexSeen(struct Pokedex * pokedex);
 u16 Pokedex_CountSeenMons(struct Pokedex * pokedex);
-u16 Pokedex_CountSinnohDexCaughtMons(struct Pokedex * pokedex);
-u16 Pokedex_CountSinnohDexSeenMons(struct Pokedex * pokedex);
+u16 Pokedex_CountSinnohDexOwned(struct Pokedex * pokedex);
+u16 Pokedex_CountSinnohDexSeen(struct Pokedex * pokedex);
 BOOL Pokedex_HasCompletedNationalDex(struct Pokedex * pokedex);
 BOOL Pokedex_HasCompletedSinnohDex(struct Pokedex * pokedex);
-u16 Pokedex_CountNationalDexCaughtMons_OmitMythicals(struct Pokedex * pokedex);
-u16 Pokedex_CountSinnohDexSeenMons_OmitMythicals(struct Pokedex * pokedex);
+u16 Pokedex_CountNationalDexOwned_OmitMythicals(struct Pokedex * pokedex);
+u16 Pokedex_CountSinnohDexSeen_OmitMythicals(struct Pokedex * pokedex);
 BOOL Pokedex_CheckMonCaughtFlag(struct Pokedex * pokedex, u16 species);
 BOOL Pokedex_CheckMonSeenFlag(struct Pokedex * pokedex, u16 species);
 u32 Pokedex_GetSeenSpindaPersonality(struct Pokedex * pokedex, u32 a1);

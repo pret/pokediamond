@@ -432,20 +432,20 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk0118
 	.word ScrCmd_CheckPartyForPokerus
 	.word ScrCmd_GetPartyMonGender
-	.word ScrCmd_Unk011B
-	.word ScrCmd_Unk011C
-	.word ScrCmd_Unk011D
-	.word ScrCmd_Unk011E
-	.word ScrCmd_Unk011F
-	.word ScrCmd_Unk0120
-	.word ScrCmd_Unk0121
-	.word ScrCmd_Unk0122
-	.word ScrCmd_Unk0123
-	.word ScrCmd_Unk0124
-	.word ScrCmd_Unk0125
-	.word ScrCmd_Unk0126
-	.word ScrCmd_Unk0127
-	.word ScrCmd_Unk0128
+	.word ScrCmd_SetDynamicWarp
+	.word ScrCmd_GetDynamicWarpFloorNumber
+	.word ScrCmd_ShowCurrentFloorNumber
+	.word ScrCmd_CountSinnohDexSeen
+	.word ScrCmd_CountSinnohDexOwned
+	.word ScrCmd_CountNationalDexSeen
+	.word ScrCmd_CountNationalDexOwned
+	.word ScrCmd_DummyDexCheck
+	.word ScrCmd_GetDexEvaluationMessage
+	.word ScrCmd_WildBattle
+	.word ScrCmd_FirstBattle
+	.word ScrCmd_CatchTutorial
+	.word ScrCmd_UpdateHoneyTree
+	.word ScrCmd_CheckHoneyTree
 	.word ScrCmd_Unk0129
 	.word ScrCmd_Unk012A
 	.word ScrCmd_Unk012B
@@ -850,7 +850,7 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_Unk02BA
 	.word ScrCmd_Unk02BB
 	.word ScrCmd_Unk02BC
-	.word ScrCmd_Unk02BD
+	.word ScrCmd_LegendaryBattle
 	.word ScrCmd_Unk02BE
 	.word ScrCmd_DummyRideBike
 	.word ScrCmd_Unk02C0

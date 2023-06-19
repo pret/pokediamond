@@ -3,7 +3,7 @@
 #include "unk_0202F150.h"
 #include "player_data.h"
 
-extern struct PlayerData *FUN_0202DFA4(s32 param0);
+extern PlayerProfile *FUN_0202DFA4(s32 param0);
 extern u32 FUN_0202E020(s32 param0);
 extern u32 FUN_0202E044(s32 param0);
 extern u32 FUN_02029B40(u32 param0, u32 param1, u32 param2, u32 language);

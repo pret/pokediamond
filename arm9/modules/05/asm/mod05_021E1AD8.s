@@ -1243,8 +1243,8 @@ _021E245E:
 	.balign 4, 0
 _021E2460: .word 0x000001BA
 
-	thumb_func_start MOD05_021E2464
-MOD05_021E2464: ; 0x021E2464
+	thumb_func_start PrintCurrentFloorInNewWindow
+PrintCurrentFloorInNewWindow: ; 0x021E2464
 	push {r4, r5, lr}
 	sub sp, #0x14
 	mov r4, #0
@@ -1442,8 +1442,8 @@ _021E2602:
 	.balign 4, 0
 _021E2604: .word 0x0000FFFF
 
-	thumb_func_start MOD05_021E2608
-MOD05_021E2608: ; 0x021E2608
+	thumb_func_start MapNumToFloorNo
+MapNumToFloorNo: ; 0x021E2608
 	cmp r0, #0x89
 	bgt _021E2646
 	bge _021E269E

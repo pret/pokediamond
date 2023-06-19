@@ -75,8 +75,8 @@ _021F4D76:
 	.balign 4, 0
 _021F4D7C: .word 0x000007D8
 
-	thumb_func_start MOD05_021F4D80
-MOD05_021F4D80: ; 0x021F4D80
+	thumb_func_start CheckHoneyTree
+CheckHoneyTree: ; 0x021F4D80
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x1c]
@@ -111,8 +111,8 @@ _021F4DC2:
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
 
-	thumb_func_start MOD05_021F4DC8
-MOD05_021F4DC8: ; 0x021F4DC8
+	thumb_func_start UpdateHoneyTree
+UpdateHoneyTree: ; 0x021F4DC8
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	ldr r0, [r6, #0x1c]

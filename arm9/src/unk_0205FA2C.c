@@ -8,7 +8,7 @@ extern OverlayManagerTemplate UNK_020F96DC;
 extern OverlayManagerTemplate UNK_020FA6E8;
 extern u32 FUN_02079C70(struct SaveData *save);
 extern void FUN_0207B000(struct UnkPlayerStruct2_0205FA2C *ptr, const u8 param1[12]);
-extern void FUN_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, struct PlayerData *player_data);
+extern void FUN_0207C2A4(struct UnkPlayerStruct2_0205FA2C *ptr, PlayerProfile *player_data);
 extern u32 *FUN_02038790(struct FieldSystem *fieldSystem, u16 param1, u16 param2);
 extern u16 *GetVarPointer(struct FieldSystem *fieldSystem, u16);
 extern u16 MOD06_02244660(struct FieldSystem *fieldSystem, u8 *param1);

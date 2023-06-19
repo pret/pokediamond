@@ -272,7 +272,7 @@ CallTask_GameClear: ; 0x02048694
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get

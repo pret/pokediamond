@@ -15,6 +15,7 @@
 #include "options.h"
 #include "party.h"
 #include "player_data.h"
+#include "pokedex.h"
 #include "render_window.h"
 #include "seal.h"
 #include "task.h"
@@ -189,6 +190,19 @@ extern u32 MOD06_022407DC(void);
 extern void MOD06_02240790(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3);
 extern void MOD06_022407F8(FieldSystem *fieldSystem, u16 param1, u16 param2, u16 param3);
 extern u32 MOD06_02240844(void);
+extern void FUN_02047174(TaskManager *taskManager, u32 *param1, u32 param2);
+extern void LocalFieldData_SetDynamicWarp(LocalFieldData *localFieldData, Location *warp);
+extern void FUN_02080C38(TaskManager *taskManager);
+extern Location *LocalFieldData_GetDynamicWarp(LocalFieldData *localFieldData);
+extern u16 MapNumToFloorNo(u32 mapId);
+extern void PrintCurrentFloorInNewWindow(FieldSystem *fieldSystem, u32 x, u32 y, u16 *var, MessageFormat *messageFormat);
+extern u16 FUN_02054CC8(u32 param0, u16 param1);
+extern u16 FUN_02054D1C(u32 param0, u16 param1);
+extern void SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL isLegendary);
+extern void SetupAndStartFirstBattle(TaskManager *taskManager, u16 species, u8 level);
+extern void SetupAndStartTutorialBattle(TaskManager *taskManager);
+extern void UpdateHoneyTree(FieldSystem *fieldSystem);
+extern u16 CheckHoneyTree(FieldSystem *fieldSystem);
 
 u8 UNK_021C5A0C[4];
 
@@ -2604,4 +2618,131 @@ BOOL ScrCmd_Unk00F4(ScriptContext *ctx) { //00F4
 BOOL ScrCmd_Unk00F5(ScriptContext *ctx) { //00F5
     u16 unused = ScriptReadHalfword(ctx);
     return TRUE;
+}
+
+BOOL ScrCmd_Unk00F6(ScriptContext *ctx) { //00F6
+    ScrCmdUnkStruct00F4 **appDataPtr = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_RUNNING_APP_DATA);
+    ScrCmdUnkStruct00F4 *appData = *appDataPtr;
+    FUN_02047174(ctx->fieldSystem->taskManager, &appData->unk2C, 5);
+    FreeToHeap(appData);
+    *appDataPtr = NULL;
+    return TRUE;
+}
+
+BOOL ScrCmd_Unk00F7(ScriptContext *ctx) { //00F7
+    FUN_02080C38(ctx->taskManager);
+    return TRUE;
+}
+
+BOOL ScrCmd_SetDynamicWarp(ScriptContext *ctx) { //011B
+    Location warp;
+    warp.mapId = ScriptGetVar(ctx);
+    warp.warpId = ScriptGetVar(ctx);
+    warp.x = ScriptGetVar(ctx);
+    warp.y = ScriptGetVar(ctx);
+    warp.direction = ScriptGetVar(ctx);
+    LocalFieldData_SetDynamicWarp(Save_LocalFieldData_Get(ctx->fieldSystem->saveData), &warp);
+    return FALSE;
+}
+
+BOOL ScrCmd_GetDynamicWarpFloorNumber(ScriptContext *ctx) { //011C
+    u16 *var = ScriptGetVarPointer(ctx);
+    Location *dynamicWarp = LocalFieldData_GetDynamicWarp(Save_LocalFieldData_Get(ctx->fieldSystem->saveData));
+    *var = MapNumToFloorNo(dynamicWarp->mapId);
+    return FALSE;
+}
+
+BOOL ScrCmd_ShowCurrentFloorNumber(ScriptContext *ctx) { //011D
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    PrintCurrentFloorInNewWindow(fieldSystem, x, y, var, *messageFormat);
+    return FALSE;
+}
+
+BOOL ScrCmd_CountSinnohDexSeen(ScriptContext *ctx) { //011E
+    Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Pokedex_CountSinnohDexSeen(pokedex);
+    return FALSE;
+}
+
+BOOL ScrCmd_CountSinnohDexOwned(ScriptContext *ctx) { //011F
+    Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Pokedex_CountSinnohDexOwned(pokedex);
+    return FALSE;
+}
+
+BOOL ScrCmd_CountNationalDexSeen(ScriptContext *ctx) { //0120
+    Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Pokedex_CountNationalDexSeen(pokedex);
+    return FALSE;
+}
+
+BOOL ScrCmd_CountNationalDexOwned(ScriptContext *ctx) { //0121
+    Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Pokedex_CountNationalDexOwned(pokedex);
+    return FALSE;
+}
+
+BOOL ScrCmd_DummyDexCheck(ScriptContext *ctx) { //0122
+    return FALSE;
+}
+
+BOOL ScrCmd_GetDexEvaluationMessage(ScriptContext *ctx) { //0123
+    Pokedex *pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData);
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
+    u8 mode = ScriptReadByte(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    if (mode == 0) {
+        *var = FUN_02054CC8(Pokedex_CountSinnohDexSeen_OmitMythicals(pokedex), FUN_0205F2E4(SaveArray_Flags_Get(ctx->fieldSystem->saveData), 2, 10));
+    } else {
+        *var = FUN_02054D1C(Pokedex_CountNationalDexOwned_OmitMythicals(pokedex), PlayerProfile_GetTrainerGender(playerProfile));
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_WildBattle(ScriptContext *ctx) { //0124
+    u32 *winFlag = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_BATTLE_WIN_FLAG);
+    u16 species = ScriptGetVar(ctx);
+    u16 level = ScriptGetVar(ctx);
+    SetupAndStartWildBattle(ctx->taskManager, species, level, winFlag, FALSE);
+    return TRUE;
+}
+
+BOOL ScrCmd_LegendaryBattle(ScriptContext *ctx) { //02BD
+    u32 *winFlag = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_BATTLE_WIN_FLAG);
+    u16 species = ScriptGetVar(ctx);
+    u16 level = ScriptGetVar(ctx);
+    SetupAndStartWildBattle(ctx->taskManager, species, level, winFlag, TRUE);
+    return TRUE;
+}
+
+BOOL ScrCmd_FirstBattle(ScriptContext *ctx) { //0125
+    u16 species = ScriptGetVar(ctx);
+    u16 level = ScriptGetVar(ctx);
+    SetupAndStartFirstBattle(ctx->taskManager, species, level);
+    return TRUE;
+}
+
+BOOL ScrCmd_CatchTutorial(ScriptContext *ctx) { //0126
+    SetupAndStartTutorialBattle(ctx->taskManager);
+    return TRUE;
+}
+
+BOOL ScrCmd_UpdateHoneyTree(ScriptContext *ctx) { //0127
+    UpdateHoneyTree(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_CheckHoneyTree(ScriptContext *ctx) { //0128
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = CheckHoneyTree(fieldSystem);
+    return FALSE;
 }
