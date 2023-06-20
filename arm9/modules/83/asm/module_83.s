@@ -1970,7 +1970,7 @@ MOD83_0222E48C: ; 0x0222E48C
 	mov r0, #0x51
 	bl MOD83_02238770
 	ldr r0, [r4, #4]
-	bl FUN_02022804
+	bl Save_FileExists
 	cmp r0, #0
 	bne _0222E530
 	mov r0, #0x4d
@@ -8428,7 +8428,7 @@ MOD83_02231930: ; 0x02231930
 	bl FUN_0202ADC8
 	ldr r0, _022319C8 ; =0x00002B44
 	ldr r0, [r4, r0]
-	bl FUN_02022720
+	bl SaveGame
 	ldr r0, _022319C4 ; =0x00003CF0
 	ldr r0, [r4, r0]
 	bl FUN_0200DBFC
@@ -15355,7 +15355,7 @@ MOD83_02234E40: ; 0x02234E40
 	mov r0, #4
 	bl SetSoftResetDisableMask
 	ldr r0, [r5, #0x10]
-	bl FUN_02022720
+	bl SaveGame
 	mov r0, #4
 	bl ClearSoftResetDisableMask
 	pop {r3, r4, r5, pc}

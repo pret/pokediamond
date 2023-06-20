@@ -54,7 +54,7 @@ extern u32 FUN_0202CB8C();
 extern u16 WM_GetDispersionBeaconPeriod();
 extern BOOL FUN_0202D2D0();
 
-void FUN_0202E29C(struct PlayerData *player_data)
+void FUN_0202E29C(PlayerProfile *player_data)
 {
     if (UNK_021C59F0 == NULL)
     {
@@ -525,7 +525,7 @@ s32 FUN_0202E950()
     return ret;
 }
 
-void FUN_0202E9AC(u32 param0, struct PlayerData *player_data)
+void FUN_0202E9AC(u32 param0, PlayerProfile *player_data)
 {
     int i;
     u32 count = 0;
@@ -599,7 +599,7 @@ void FUN_0202EA54()
 void FUN_0202EA9C()
 {
     s32 res = FUN_02033534();
-    struct PlayerData *player_data = FUN_0202EF70();
+    PlayerProfile *player_data = FUN_0202EF70();
 
     if (res != 0xf)
     {
@@ -912,12 +912,12 @@ struct UnkStruct_0202E29C_sub4 *FUN_0202EF44(s32 param0)
     return NULL;
 }
 
-struct PlayerData *FUN_0202EF70()
+PlayerProfile *FUN_0202EF70()
 {
     return UNK_021C59F0->unkCB8;
 }
 
-struct PlayerData *FUN_0202EF84(int param0)
+PlayerProfile *FUN_0202EF84(int param0)
 {
     if (UNK_021C59F0->unkC84[param0] == 0)
     {

@@ -110,8 +110,8 @@ _021E3414:
 _021E341C: .word SDK_OVERLAY_MODULE_19_ID
 _021E3420: .word SDK_OVERLAY_MODULE_20_ID
 
-	thumb_func_start MOD05_021E3424
-MOD05_021E3424: ; 0x021E3424
+	thumb_func_start Field_GivePoketch
+Field_GivePoketch: ; 0x021E3424
 	push {r4, lr}
 	add r4, r0, #0
 	mov r0, #0xb

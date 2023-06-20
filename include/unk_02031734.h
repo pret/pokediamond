@@ -2,6 +2,7 @@
 #define POKEDIAMOND_UNK_02031734_H
 
 #include "global.h"
+#include "player_data.h"
 
 struct UnkStruct_02031734_const1
 {
@@ -20,7 +21,7 @@ struct UnkStruct_02031734
     s64 unk0C[3];
     void (*unk24)();
     struct SaveData *unk28;
-    struct PlayerData *unk2C;
+    PlayerProfile *unk2C;
     u32 unk30;
     u32 unk34;
     u16 unk38;

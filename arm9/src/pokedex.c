@@ -367,7 +367,7 @@ void Save_Pokedex_Init(struct Pokedex * pokedex)
     Pokedex_InitSeenDeoxysFormesArray(pokedex);
 }
 
-u16 Pokedex_CountNationalDexCaughtMons(struct Pokedex * pokedex)
+u16 Pokedex_CountNationalDexOwned(struct Pokedex * pokedex)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
@@ -380,7 +380,7 @@ u16 Pokedex_CountNationalDexCaughtMons(struct Pokedex * pokedex)
     return (u16)count;
 }
 
-u16 Pokedex_CountNationalDexSeenMons(struct Pokedex * pokedex)
+u16 Pokedex_CountNationalDexSeen(struct Pokedex * pokedex)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
@@ -396,12 +396,12 @@ u16 Pokedex_CountNationalDexSeenMons(struct Pokedex * pokedex)
 u16 Pokedex_CountSeenMons(struct Pokedex * pokedex)
 {
     if (Pokedex_GetNatDexFlag(pokedex))
-        return Pokedex_CountNationalDexSeenMons(pokedex);
+        return Pokedex_CountNationalDexSeen(pokedex);
     else
-        return Pokedex_CountSinnohDexSeenMons(pokedex);
+        return Pokedex_CountSinnohDexSeen(pokedex);
 }
 
-u16 Pokedex_CountSinnohDexCaughtMons(struct Pokedex * pokedex)
+u16 Pokedex_CountSinnohDexOwned(struct Pokedex * pokedex)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
@@ -414,7 +414,7 @@ u16 Pokedex_CountSinnohDexCaughtMons(struct Pokedex * pokedex)
     return (u16)count;
 }
 
-u16 Pokedex_CountSinnohDexSeenMons(struct Pokedex * pokedex)
+u16 Pokedex_CountSinnohDexSeen(struct Pokedex * pokedex)
 {
     GF_ASSERT(pokedex->magic == 0xBEEFCAFE);
     s32 i;
@@ -429,15 +429,15 @@ u16 Pokedex_CountSinnohDexSeenMons(struct Pokedex * pokedex)
 
 BOOL Pokedex_HasCompletedNationalDex(struct Pokedex * pokedex)
 {
-    return Pokedex_CountNationalDexCaughtMons_OmitMythicals(pokedex) >= 482;
+    return Pokedex_CountNationalDexOwned_OmitMythicals(pokedex) >= 482;
 }
 
 BOOL Pokedex_HasCompletedSinnohDex(struct Pokedex * pokedex)
 {
-    return Pokedex_CountSinnohDexSeenMons_OmitMythicals(pokedex) >= 150;
+    return Pokedex_CountSinnohDexSeen_OmitMythicals(pokedex) >= 150;
 }
 
-u16 Pokedex_CountNationalDexCaughtMons_OmitMythicals(struct Pokedex * pokedex)
+u16 Pokedex_CountNationalDexOwned_OmitMythicals(struct Pokedex * pokedex)
 {
     s32 i;
     u16 count = 0;
@@ -449,7 +449,7 @@ u16 Pokedex_CountNationalDexCaughtMons_OmitMythicals(struct Pokedex * pokedex)
     return count;
 }
 
-u16 Pokedex_CountSinnohDexSeenMons_OmitMythicals(struct Pokedex * pokedex)
+u16 Pokedex_CountSinnohDexSeen_OmitMythicals(struct Pokedex * pokedex)
 {
     s32 i;
     u16 count = 0;

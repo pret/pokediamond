@@ -2677,7 +2677,7 @@ FUN_020365F0: ; 0x020365F0
 	add r0, r5, #0x0
 	bl FUN_02046528
 	ldr r0, [r0, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	beq _02036618
 	mov r2, #0x0
@@ -2721,7 +2721,7 @@ FUN_02036644: ; 0x02036644
 	lsl r0, r0, #0x2
 	ldr r5, [r4, r0]
 	ldr r0, [r6, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	beq _0203666C
 	mov r0, #0x0

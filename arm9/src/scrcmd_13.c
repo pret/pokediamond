@@ -18,7 +18,7 @@ extern u16 FUN_0204BAD4(struct FieldSystem*);
 extern u16 FUN_0204BAE4(struct FieldSystem*);
 extern void FUN_0205F224(struct ScriptState* state);
 extern void FUN_0205F234(struct ScriptState* state);
-extern void FUN_0208089C(struct Pokemon* pokemon, struct PlayerData* player, u32 a2, u32 a3, u32 heap_id);
+extern void FUN_0208089C(struct Pokemon* pokemon, PlayerProfile* player, u32 a2, u32 a3, u32 heap_id);
 
 BOOL ScrCmd_Unk0253(struct ScriptContext* ctx) //0253
 {
@@ -66,7 +66,7 @@ BOOL ScrCmd_Unk0255(struct ScriptContext* ctx) //0255
     void* unk = FUN_02022528(ctx->fieldSystem->saveData);
     struct PCStorage* pc = GetStoragePCPointer(ctx->fieldSystem->saveData);
     struct Pokemon* pokemon = AllocMonZeroed(32);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
+    PlayerProfile* player = Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData);
     struct Pokedex* pokedex = Save_Pokedex_Get(ctx->fieldSystem->saveData); // unused
 
     for (s32 i = 0; i < PARTY_SIZE; i++)

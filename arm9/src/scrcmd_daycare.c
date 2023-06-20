@@ -11,7 +11,7 @@ extern u16 MOD05_021EC71C(struct PlayerParty* party, MessageFormat *messageForma
 extern u16 MOD05_021EC854(struct DayCare* daycare, u8 idx, MessageFormat *messageFormat);
 extern u8 MOD05_021EC864(struct DayCare* daycare, int idx, MessageFormat *messageFormat);
 extern void MOD05_021ECD64(struct DayCare* daycare);
-extern void MOD05_DayCare_GiveEggToPlayer(struct DayCare* daycare, struct PlayerParty* party, struct PlayerData* player);
+extern void MOD05_DayCare_GiveEggToPlayer(struct DayCare* daycare, struct PlayerParty* party, PlayerProfile* player);
 extern void MOD05_021ED4E0(struct DayCare* daycare, MessageFormat *messageFormat);
 extern void MOD05_021ED52C(struct DayCare* daycare, u8 idx1, u8 idx2, u8 idx3, u8 idx4, MessageFormat *messageFormat);
 extern u16 MOD05_021ED5C4(struct PlayerParty* party, int idx, MessageFormat *messageFormat);
@@ -55,7 +55,7 @@ BOOL ScrCmd_GiveDaycareEgg(struct ScriptContext* ctx) //01A9
     struct DayCare* daycare = SaveArray_Get(fieldSystem->saveData, 8);
     struct PlayerParty* party = SaveArray_PlayerParty_Get(fieldSystem->saveData);
     struct SaveData* save = ScriptEnvironment_GetSavePtr(ctx->fieldSystem);
-    struct PlayerData* player = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile* player = Save_PlayerData_GetProfileAddr(save);
 
     MOD05_DayCare_GiveEggToPlayer(daycare, party, player);
 

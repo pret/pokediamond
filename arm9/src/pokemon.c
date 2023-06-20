@@ -44,7 +44,7 @@ BOOL BoxMon_HasPokerus(struct BoxPokemon * boxmon);
 BOOL BoxMon_IsImmuneToPokerus(struct BoxPokemon * boxmon);
 void BoxMon_UpdateArceusForme(struct BoxPokemon * boxmon);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
-void FUN_0206A054(struct BoxPokemon *  boxmon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
+void FUN_0206A054(struct BoxPokemon *  boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id);
 BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
 BOOL FUN_0206A144(struct BoxPokemon * boxmon, u32 a1);
 BOOL FUN_0206A16C(u16 species, int forme, u32 a2);
@@ -3325,7 +3325,7 @@ void FUN_02069FB0(struct SaveChatotSoundClip *r7, u32 r5, u16 r4, s32 r6, s32 sp
     }
 }
 
-void FUN_0206A014(struct Pokemon * pokemon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
+void FUN_0206A014(struct Pokemon * pokemon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
 {
     u32 hp;
     FUN_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, heap_id);
@@ -3338,7 +3338,7 @@ void FUN_0206A014(struct Pokemon * pokemon, struct PlayerData * a1, u32 pokeball
     }
 }
 
-void FUN_0206A054(struct BoxPokemon * boxmon, struct PlayerData * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
+void FUN_0206A054(struct BoxPokemon * boxmon, PlayerProfile * a1, u32 pokeball, u32 a3, u32 encounterType, u32 heap_id)
 {
     FUN_020808AC(boxmon, a1, 0, a3, heap_id);
     SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (void *)&gGameVersion);
@@ -3680,7 +3680,7 @@ BOOL FUN_0206A998(struct Pokemon * pokemon)
     return IsPokemonLegendaryOrMythical(species);
 }
 
-BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct PlayerData * sb2, u32 heap_id)
+BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, PlayerProfile * sb2, u32 heap_id)
 {
     u32 myId = PlayerProfile_GetTrainerID(sb2);
     u32 otId = GetBoxMonData(boxmon, MON_DATA_OTID, NULL);

@@ -2,15 +2,15 @@
 #define POKEDIAMOND_UNK_02088DD8_H
 
 #include "unk_020377F0.h"
+#include "player_data.h"
 
 struct Options;
-struct PlayerData;
 struct Pokemon;
 
 typedef struct MoveRelearner
 {
     struct Pokemon* pokemon;
-    struct PlayerData* player;
+    PlayerProfile* player;
     struct Options* options;
     u16 *eligibleMoves;
     u8 padding[0x5];

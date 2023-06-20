@@ -362,8 +362,8 @@ MOD05_021E85E4: ; 0x021E85E4
 	bl FreeToHeap
 	pop {r4, pc}
 
-	thumb_func_start MOD05_021E85FC
-MOD05_021E85FC: ; 0x021E85FC
+	thumb_func_start Field_SaveGame
+Field_SaveGame: ; 0x021E85FC
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_02034E48
@@ -388,7 +388,7 @@ MOD05_021E85FC: ; 0x021E85FC
 	ldr r1, [r4, #0x1c]
 	str r0, [r1, #0x10]
 	ldr r0, [r4, #0xc]
-	bl FUN_02022720
+	bl SaveGame
 	cmp r0, #2
 	bne _021E8642
 	mov r0, #1

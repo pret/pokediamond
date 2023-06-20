@@ -269,18 +269,18 @@ void MOD52_021D7604(u32 heap_id, struct SaveData *save, BOOL set_trainerid)
     FUN_02028788(unk_save, 1, MTRandom());
     FUN_0206007C(save);
 
-    struct PlayerData *player_data = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(save);
     u32 trainerid = MTRandom();
 
     if (set_trainerid)
     {
-        PlayerProfile_SetTrainerID(player_data, trainerid);
+        PlayerProfile_SetTrainerID(playerProfile, trainerid);
     }
 
-    u32 gender = PlayerProfile_GetTrainerGender(player_data);
+    u32 gender = PlayerProfile_GetTrainerGender(playerProfile);
     int avatar = FUN_02053678(trainerid, gender, 0);
 
-    PlayerProfile_SetAvatar(player_data, (u8)avatar);
+    PlayerProfile_SetAvatar(playerProfile, (u8)avatar);
 
     FUN_020250C4(FUN_02024ECC(save), heap_id, MOD52_021D76F8, NELEMS(MOD52_021D76F8) / 2);
 }
@@ -303,7 +303,7 @@ void MOD52_021D769C(u32 unused, struct SaveData *save)
 
     Save_InitDynamicRegion(save);
     FUN_020377E0(save);
-    struct PlayerData *player_data = Save_PlayerData_GetProfileAddr(save);
-    PlayerProfile_SetMoney(player_data, 3000);
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile_SetMoney(playerProfile, 3000);
     FUN_0205ECD4(SaveArray_Flags_Get(save));
 }

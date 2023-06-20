@@ -65,13 +65,13 @@ FUN_02034DCC: ; 0x02034DCC
 	add r0, #0x50
 	bx lr
 
-	thumb_func_start FUN_02034DD0
-FUN_02034DD0: ; 0x02034DD0
+	thumb_func_start LocalFieldData_GetDynamicWarp
+LocalFieldData_GetDynamicWarp: ; 0x02034DD0
 	add r0, #0x3c
 	bx lr
 
-	thumb_func_start FUN_02034DD4
-FUN_02034DD4: ; 0x02034DD4
+	thumb_func_start LocalFieldData_SetDynamicWarp
+LocalFieldData_SetDynamicWarp: ; 0x02034DD4
 	add r3, r1, #0x0
 	add r2, r0, #0x0
 	ldmia r3!, {r0-r1}

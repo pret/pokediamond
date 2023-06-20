@@ -8,7 +8,7 @@
 void PCStorage_Init(struct PCStorage * pc)
 {
     PCStorage_InitializeBoxes(pc);
-    SaveSetDirtyBit();
+    Save_SetDirtyBit();
 }
 
 u32 PCStorage_sizeof(void)
@@ -54,7 +54,7 @@ BOOL PCStorage_PlaceMonInFirstEmptySlotInAnyBox(struct PCStorage * pc, struct Bo
         RestoreBoxMonPP(boxmon);
         if (PCStorage_PlaceMonInBoxFirstEmptySlot(pc, i, boxmon))
         {
-            SaveSetDirtyBit();
+            Save_SetDirtyBit();
             return TRUE;
         }
         i++;
@@ -74,7 +74,7 @@ BOOL PCStorage_PlaceMonInBoxFirstEmptySlot(struct PCStorage * pc, int boxno, str
         if (GetBoxMonData(&pc->boxes[boxno][i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
         {
             pc->boxes[boxno][i] = *boxmon;
-            SaveSetDirtyBit();
+            Save_SetDirtyBit();
             return TRUE;
         }
     }
@@ -89,7 +89,7 @@ BOOL PCStorage_PlaceMonInBoxByIndexPair(struct PCStorage * pc, int boxno, int sl
     if (boxno < NUM_BOXES && slotno < MONS_PER_BOX)
     {
         pc->boxes[boxno][slotno] = *boxmon;
-        SaveSetDirtyBit();
+        Save_SetDirtyBit();
         return TRUE;
     }
     GF_ASSERT(0);
@@ -103,7 +103,7 @@ void PCStorage_DeleteBoxMonByIndexPair(struct PCStorage * pc, int boxno, int slo
     if (slotno < MONS_PER_BOX && boxno < NUM_BOXES)
     {
         ZeroBoxMonData(&pc->boxes[boxno][slotno]);
-        SaveSetDirtyBit();
+        Save_SetDirtyBit();
         return;
     }
     GF_ASSERT(0);
@@ -178,7 +178,7 @@ void PCStorage_SetActiveBox(struct PCStorage * pc, int boxno)
     if (boxno < NUM_BOXES)
     {
         pc->curBox = (u32)boxno;
-        SaveSetDirtyBit();
+        Save_SetDirtyBit();
         return;
     }
     GF_ASSERT(0);
@@ -199,7 +199,7 @@ void PCStorage_SetBoxWallpaper(struct PCStorage * pc, int boxno, u8 wallpaper)
     if (boxno < NUM_BOXES && wallpaper < NUM_WALLPAPERS)
     {
         pc->wallpapers[boxno] = wallpaper;
-        SaveSetDirtyBit();
+        Save_SetDirtyBit();
         return;
     }
     GF_ASSERT(0);
@@ -224,7 +224,7 @@ void PCStorage_SetBoxName(struct PCStorage * pc, int boxno, struct String * src)
     if (boxno < NUM_BOXES)
     {
         CopyStringToU16Array(src, pc->names[boxno], BOX_NAME_LENGTH);
-        SaveSetDirtyBit();
+        Save_SetDirtyBit();
     }
 }
 
@@ -282,7 +282,7 @@ void PCStorage_SetBoxMonDataByIndexPair(struct PCStorage * pc, int boxno, int sl
     if (boxno == -1)
         boxno = (int)pc->curBox;
     SetBoxMonData(&pc->boxes[boxno][slotno], (int)attr, value);
-    SaveSetDirtyBit();
+    Save_SetDirtyBit();
 }
 
 struct BoxPokemon * PCStorage_GetMonByIndexPair(struct PCStorage * pc, int boxno, int slotno)
@@ -299,7 +299,7 @@ void PCStorage_UnlockBonusWallpaper(struct PCStorage * pc, int wallpaper)
 {
     GF_ASSERT(wallpaper < NUM_BONUS_WALLPAPERS);
     pc->unlockedWallpapers |= (1u << wallpaper);
-    SaveSetDirtyBit();
+    Save_SetDirtyBit();
 }
 
 BOOL PCStorage_IsBonusWallpaperUnlocked(struct PCStorage * pc, int wallpaper)

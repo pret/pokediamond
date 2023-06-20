@@ -46,7 +46,7 @@ void MessageFormat_Delete(MessageFormat *messageFormat);
 void MessageFormat_InitFields(MessageFormatFields *fields);
 void SetStringAsPlaceholder(MessageFormat *messageFormat, u32 idx, struct String * str, MessageFormatAttrs *attrs);
 void BufferString(MessageFormat *messageFormat, u32 idx, struct String * str, u32 a3, u32 a4, u32 a5);
-void BufferPlayersName(MessageFormat *messageFormat, u32 idx, struct PlayerData * data);
+void BufferPlayersName(MessageFormat *messageFormat, u32 idx, PlayerProfile * data);
 void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveData * save);
 void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveData * save);
 void BufferBoxMonSpeciesName(MessageFormat *messageFormat, u32 idx, struct BoxPokemon * mon);

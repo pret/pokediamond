@@ -19911,7 +19911,7 @@ MOD06_022433B8: ; 0x022433B8
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r4, r0, #0
 	ldr r0, [r5, #0x38]
 	bl GetPlayerYCoord

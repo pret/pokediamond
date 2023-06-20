@@ -119,7 +119,7 @@ _0204898C:
 	cmp r1, r0
 	bne _020489DA
 	add r0, r6, #0x0
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_02034DC4
@@ -463,7 +463,7 @@ FUN_02048C80: ; 0x02048C80
 	beq _02048CAE
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	ldr r0, [r0, #0x0]
 	mov r1, #0xb
 	lsl r0, r0, #0x10
@@ -529,7 +529,7 @@ FUN_02048D04: ; 0x02048D04
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl SaveArray_Flags_Get
@@ -683,7 +683,7 @@ _02048E4E:
 	add r0, r6, #0x0
 	bl FUN_0205F164
 	add r0, r7, #0x0
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02048958
@@ -1840,7 +1840,7 @@ FUN_0204976C: ; 0x0204976C
 	add r6, r0, #0x0
 	ldr r0, [r6, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x40
@@ -2081,7 +2081,7 @@ _02049946:
 	b _02049AB2
 _0204995E:
 	ldr r0, [r5, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	beq _02049976
 	mov r2, #0x0
@@ -2112,7 +2112,7 @@ _0204999C:
 	b _02049AB2
 _020499A2:
 	ldr r0, [r5, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	beq _020499B2
 	mov r0, #0x5
@@ -2611,7 +2611,7 @@ FUN_02049D9C: ; 0x02049D9C
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x1c
@@ -2742,7 +2742,7 @@ FUN_02049EA4: ; 0x02049EA4
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r7, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x1c
@@ -2859,7 +2859,7 @@ FUN_02049F98: ; 0x02049F98
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r1, r4, #0x0
 	bl FUN_02048CB0
 	mov r0, #0x3
@@ -2900,7 +2900,7 @@ FUN_02049FFC: ; 0x02049FFC
 	add r4, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r1, r0, #0x0
 	mov r0, #0x0
 	str r0, [r4, #0x6c]
