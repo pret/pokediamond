@@ -626,7 +626,7 @@ FUN_02057894: ; 0x02057894
 	bl FUN_02058440
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
-	bl FUN_02058448
+	bl MapObject_GetID
 	strb r0, [r4, #0x8]
 	add r0, r5, #0x0
 	bl FUN_02058450
@@ -1091,7 +1091,7 @@ _02057CB6:
 	cmp r0, #0x1
 	bne _02057CDA
 	ldr r0, [sp, #0x0]
-	bl FUN_02058448
+	bl MapObject_GetID
 	cmp r5, r0
 	bne _02057CDA
 	ldr r0, [sp, #0x0]
@@ -1414,7 +1414,7 @@ _02057F9E:
 	bl FUN_02058BFC
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02058448
+	bl MapObject_GetID
 	cmp r7, r0
 	bne _02058002
 	add r0, r4, #0x0
@@ -1481,7 +1481,7 @@ FUN_02058010: ; 0x02058010
 	add r7, sp, #0x0
 _0205802E:
 	ldr r0, [sp, #0x0]
-	bl FUN_02058448
+	bl MapObject_GetID
 	cmp r5, r0
 	bne _02058048
 	ldr r0, [sp, #0x0]
@@ -1533,7 +1533,7 @@ _02058082:
 	cmp r0, #0x0
 	bne _020580A6
 	add r0, r5, #0x0
-	bl FUN_02058448
+	bl MapObject_GetID
 	cmp r6, r0
 	bne _020580A6
 	add r0, r5, #0x0
@@ -1818,7 +1818,7 @@ FUN_020582A8: ; 0x020582A8
 	pop {r4-r6, pc}
 _020582BE:
 	add r0, r5, #0x0
-	bl FUN_02058448
+	bl MapObject_GetID
 	cmp r6, r0
 	beq _020582CC
 	mov r0, #0x0
@@ -2112,8 +2112,8 @@ FUN_02058444: ; 0x02058444
 	str r1, [r0, #0x8]
 	bx lr
 
-	thumb_func_start FUN_02058448
-FUN_02058448: ; 0x02058448
+	thumb_func_start MapObject_GetID
+MapObject_GetID: ; 0x02058448
 	ldr r0, [r0, #0x8]
 	bx lr
 

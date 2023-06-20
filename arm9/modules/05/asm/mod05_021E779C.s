@@ -496,7 +496,7 @@ MOD05_021E7B08: ; 0x021E7B08
 	ldmia r3!, {r0, r1}
 	stmia r2!, {r0, r1}
 	ldr r0, [r4, #0x3c]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x3c]
 	bl FUN_02058450

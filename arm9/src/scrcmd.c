@@ -24,6 +24,7 @@
 #include "text.h"
 #include "text_02054590.h"
 #include "unk_0200CA44.h"
+#include "unk_020139D8.h"
 #include "unk_020337E8.h"
 #include "unk_020377F0.h"
 #include "unk_0204AF24.h"
@@ -32,7 +33,7 @@
 
 extern void *FieldSysGetAttrAddr(FieldSystem *fieldSystem, enum ScriptEnvField id);
 extern ScriptContext *CreateScriptContext(FieldSystem *fieldSystem, u16 id);
-extern u8 FUN_02058448(LocalMapObject *lastInteracted);
+extern u32 MapObject_GetID(LocalMapObject *lastInteracted);
 extern void FlagSet(FieldSystem *fieldSystem, u16 flag);
 extern void FlagClear(FieldSystem *fieldSystem, u16 flag);
 extern u8 FlagCheck(FieldSystem *fieldSystem, u16 flag);
@@ -219,6 +220,7 @@ extern u16 FUN_02052C0C(u32 param0, MessageFormat *messageFormat);
 extern void FUN_02031C54(void);
 extern void FUN_02031C64(void);
 extern void FUN_02052B74(u16 param0);
+extern void FUN_02052D08(MessageFormat *messageFormat, u32 unk0, u16 objId, PlayerProfile *playerProfile, SaveEasyChat *easyChat);
 
 u8 UNK_021C5A0C[4];
 
@@ -491,7 +493,7 @@ BOOL ScrCmd_ObjectGoTo(ScriptContext *ctx) //0017
     LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
     u8 id = ScriptReadByte(ctx);
     s32 offset = (s32)ScriptReadWord(ctx);
-    if (FUN_02058448(*lastInteracted) == id)
+    if (MapObject_GetID(*lastInteracted) == id)
     {
         ScriptJump(ctx, ctx->scriptPtr + offset);
     }
@@ -2878,5 +2880,22 @@ BOOL ScrCmd_Unk0139(ScriptContext *ctx) { //0139
     if (FUN_02031190() == 0) {
         FUN_02052B74(unk0);
     }
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk013C(ScriptContext *ctx) { //013C
+    LocalMapObject **lastInteracted = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_LAST_INTERACTED);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    u16 unk0 = ScriptReadHalfword(ctx);
+    PlayerProfile *playerProfile = Save_PlayerData_GetProfileAddr(ScriptEnvironment_GetSavePtr(ctx->fieldSystem));
+    SaveEasyChat *easyChat = Save_EasyChat_Get(ScriptEnvironment_GetSavePtr(ctx->fieldSystem));
+
+    u16 objId;
+    if (unk0 == 0) {
+        objId = MapObject_GetID(*lastInteracted);
+    } else {
+        objId = 0;
+    }
+    FUN_02052D08(*messageFormat, unk0, objId, playerProfile, easyChat);
     return FALSE;
 }

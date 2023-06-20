@@ -9,56 +9,6 @@
 
 	.text
 
-	thumb_func_start ScrCmd_Unk013C
-ScrCmd_Unk013C: ; 0x0203D3DC
-	push {r3-r7, lr}
-	sub sp, #0x8
-	add r5, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0xa
-	bl FieldSysGetAttrAddr
-	add r7, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0xf
-	bl FieldSysGetAttrAddr
-	add r6, r0, #0x0
-	add r0, r5, #0x0
-	bl ScriptReadHalfword
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl ScriptEnvironment_GetSavePtr
-	bl Save_PlayerData_GetProfileAddr
-	add r5, #0x80
-	str r0, [sp, #0x4]
-	ldr r0, [r5, #0x0]
-	bl ScriptEnvironment_GetSavePtr
-	bl FUN_02013B5C
-	add r5, r0, #0x0
-	cmp r4, #0x0
-	bne _0203D432
-	ldr r0, [r7, #0x0]
-	bl FUN_02058448
-	lsl r0, r0, #0x10
-	lsr r2, r0, #0x10
-	b _0203D434
-_0203D432:
-	mov r2, #0x0
-_0203D434:
-	str r5, [sp, #0x0]
-	ldr r0, [r6, #0x0]
-	ldr r3, [sp, #0x4]
-	add r1, r4, #0x0
-	bl FUN_02052D08
-	mov r0, #0x0
-	add sp, #0x8
-	pop {r3-r7, pc}
-	.balign 4
-
 	thumb_func_start ScrCmd_Unk013D
 ScrCmd_Unk013D: ; 0x0203D448
 	push {r3, lr}
@@ -126,7 +76,7 @@ ScrCmd_Unk013F: ; 0x0203D490
 	bl FieldSysGetAttrAddr
 	add r7, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_02058448
+	bl MapObject_GetID
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -188,7 +138,7 @@ ScrCmd_Unk0140: ; 0x0203D528
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl FUN_02058448
+	bl MapObject_GetID
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x78]
 	bl FUN_020524CC
@@ -222,7 +172,7 @@ ScrCmd_Unk0146: ; 0x0203D560
 	bl GetVarPointer
 	add r4, r0, #0x0
 	ldr r0, [r6, #0x0]
-	bl FUN_02058448
+	bl MapObject_GetID
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x78]
 	add r2, r7, #0x0
@@ -1232,7 +1182,7 @@ ScrCmd_Unk019E: ; 0x0203DD60
 	bl ScriptReadHalfword
 	str r0, [r5, #0x64]
 	ldr r0, [r6, #0x0]
-	bl FUN_02058448
+	bl MapObject_GetID
 	add r1, r5, #0x0
 	add r1, #0x80
 	add r2, r0, #0x0
@@ -4007,7 +3957,7 @@ ScrCmd_Unk027D: ; 0x0203F3AC
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02013B5C
+	bl Save_EasyChat_Get
 	bl FUN_02013B74
 	cmp r0, #0x20
 	bne _0203F3FE
@@ -4041,7 +3991,7 @@ ScrCmd_Unk027F: ; 0x0203F418
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl FUN_02013B5C
+	bl Save_EasyChat_Get
 	bl FUN_02013BC8
 	cmp r0, #0x1
 	bne _0203F444

@@ -910,7 +910,7 @@
 .extern GetECWordIndexByPair
 .extern FUN_02013B28
 .extern FUN_02013B2C
-.extern FUN_02013B5C
+.extern Save_EasyChat_Get
 .extern FUN_02013B68
 .extern FUN_02013B74
 .extern FUN_02013BC8
@@ -4022,7 +4022,7 @@
 .extern FUN_02058424
 .extern FUN_0205842C
 .extern FUN_02058444
-.extern FUN_02058448
+.extern MapObject_GetID
 .extern FUN_02058450
 .extern FUN_02058454
 .extern FUN_02058458

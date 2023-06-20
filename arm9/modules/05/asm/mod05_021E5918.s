@@ -97,7 +97,7 @@ MOD05_021E59AC: ; 0x021E59AC
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r4, #0x3c]
-	bl FUN_02058448
+	bl MapObject_GetID
 	str r0, [r4, #8]
 	ldr r0, [r4, #0x3c]
 	bl FUN_02058450

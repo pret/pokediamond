@@ -266,6 +266,7 @@ BOOL ScrCmd_Unk0136(ScriptContext *ctx);
 BOOL ScrCmd_Unk0137(ScriptContext *ctx);
 BOOL ScrCmd_Unk0138(ScriptContext *ctx);
 BOOL ScrCmd_Unk0139(ScriptContext *ctx);
+BOOL ScrCmd_Unk013C(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
