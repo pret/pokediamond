@@ -15,6 +15,7 @@
 #include "options.h"
 #include "party.h"
 #include "player_data.h"
+#include "poketch.h"
 #include "pokedex.h"
 #include "render_window.h"
 #include "save.h"
@@ -209,6 +210,15 @@ extern void MOD05_021F4E7C(FieldSystem *fieldSystem);
 extern void FUN_020386B4(FieldSystem *fieldSystem);
 extern u16 Field_SaveGame(FieldSystem *fieldSystem);
 extern void Field_GivePoketch(TaskManager *taskManager);
+extern void FUN_02031588(u8 param0);
+extern s32 FUN_02030F20(void);
+extern BOOL FUN_020315D8(u8 param0);
+extern void FUN_0203168C(void);
+extern u16 FUN_0205296C(MessageFormat *messageFormat);
+extern u16 FUN_02052C0C(u32 param0, MessageFormat *messageFormat);
+extern void FUN_02031C54(void);
+extern void FUN_02031C64(void);
+extern void FUN_02052B74(u16 param0);
 
 u8 UNK_021C5A0C[4];
 
@@ -244,6 +254,7 @@ static BOOL FUN_0203C71C(ScriptContext *ctx);
 static BOOL FUN_0203C9F8(ScriptContext *ctx);
 static BOOL FUN_0203CCF8(ScriptContext *ctx);
 static BOOL FUN_0203CD90(ScriptContext *ctx);
+static BOOL FUN_0203D314(ScriptContext *ctx);
 
 extern u8 sScriptConditionTable[6][3];
 
@@ -2796,4 +2807,76 @@ BOOL ScrCmd_SaveGame(ScriptContext *ctx) { //012D
 BOOL ScrCmd_GivePoketch(ScriptContext *ctx) { //0131
     Field_GivePoketch(ctx->taskManager);
     return TRUE;
+}
+
+BOOL ScrCmd_CheckPoketch(ScriptContext *ctx) { //0132
+    Poketch *poketch = Save_Poketch_Get(ctx->fieldSystem->saveData);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Save_Poketch_IsGiven(poketch);
+    return FALSE;
+}
+
+BOOL ScrCmd_UnlockPoketchApp(ScriptContext *ctx) { //0133
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u16 appNumber = ScriptGetVar(ctx);
+    Poketch *poketch = Save_Poketch_Get(fieldSystem->saveData);
+    Save_Poketch_UnlockApp(poketch, (PoketchApp)appNumber);
+    return FALSE;
+}
+
+BOOL ScrCmd_CheckPoketchApp(ScriptContext *ctx) { //0134
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u16 appNumber = ScriptGetVar(ctx);
+    u16 *var = ScriptGetVarPointer(ctx);
+    Poketch *poketch = Save_Poketch_Get(fieldSystem->saveData);
+    *var = Save_Poketch_AppIsUnlocked(poketch, (PoketchApp)appNumber);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0135(ScriptContext *ctx) { //0135
+    u16 unk0 = ScriptGetVar(ctx);
+    ctx->data[0] = unk0;
+    FUN_02031588(unk0);
+    SetupNativeScript(ctx, FUN_0203D314);
+    return TRUE;
+}
+
+static BOOL FUN_0203D314(ScriptContext *ctx) {
+    if (FUN_02030F20() < 2) {
+        return TRUE;
+    }
+    return FUN_020315D8(ctx->data[0]);
+}
+
+BOOL ScrCmd_Unk0136(ScriptContext *ctx) { //0136
+    FUN_0203168C();
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0137(ScriptContext *ctx) { //0137
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = FUN_0205296C(*messageFormat);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0138(ScriptContext *ctx) { //0138
+    u16 *var = ScriptGetVarPointer(ctx);
+    MessageFormat **messageFormat = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_MESSAGE_FORMAT);
+    *var = FUN_02052C0C(ctx->fieldSystem->unk78, *messageFormat);
+    return FALSE;
+}
+
+BOOL ScrCmd_Unk0139(ScriptContext *ctx) { //0139
+    u16 unk0 = ScriptReadHalfword(ctx);
+
+    if (unk0 == 5 || unk0 == 7 || unk0 == 9 || unk0 == 6) {
+        FUN_02031C54();
+    } else if (unk0 == 11) {
+        FUN_02031C64();
+    }
+    if (FUN_02031190() == 0) {
+        FUN_02052B74(unk0);
+    }
+    return FALSE;
 }

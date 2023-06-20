@@ -455,9 +455,9 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_CheckContestPortraitSlot
 	.word ScrCmd_Unk0130
 	.word ScrCmd_GivePoketch
-	.word ScrCmd_Unk0132
-	.word ScrCmd_Unk0133
-	.word ScrCmd_Unk0134
+	.word ScrCmd_CheckPoketch
+	.word ScrCmd_UnlockPoketchApp
+	.word ScrCmd_CheckPoketchApp
 	.word ScrCmd_Unk0135
 	.word ScrCmd_Unk0136
 	.word ScrCmd_Unk0137

@@ -37,7 +37,7 @@ typedef enum PoketchApp
 }
 PoketchApp;
 
-struct SavePoketch
+typedef struct Poketch
 {
     u8 isGiven:1; // set by completing the coupon sidequest in Jubilife
     u8 pedometerActive:1; // set when you receive the Pedometer
@@ -62,34 +62,34 @@ struct SavePoketch
     u8 markingMapPos[6][2];
     u8 filler_B5[1]; // silence warnings
     u16 pokemonHistory[12][2];
-};
+} Poketch;
 
 u32 Save_Poketch_sizeof(void);
-void Save_Poketch_Init(struct SavePoketch * poketch);
-void Save_Poketch_Give(struct SavePoketch * poketch);
-BOOL Save_Poketch_IsGiven(struct SavePoketch * poketch);
-u8 Save_Poketch_AppIsUnlocked(struct SavePoketch * poketch, PoketchApp app);
-BOOL Save_Poketch_UnlockApp(struct SavePoketch * poketch, PoketchApp app);
-PoketchApp Save_Poketch_GetSelectedApp(struct SavePoketch * poketch);
-PoketchApp Save_Poketch_CycleNextApp(struct SavePoketch * poketch);
-u8 Save_Poketch_GetScreenTint(struct SavePoketch * poketch);
-void Save_Poketch_SetScreenTint(struct SavePoketch * poketch, u32 color);
-u32 Save_Poketch_GetStepCounter(struct SavePoketch * poketch);
-void Save_Poketch_SetStepCounter(struct SavePoketch * poketch, u32 steps);
-BOOL Save_Poketch_GetAlarmState(struct SavePoketch * poketch);
-void Save_Poketch_GetAlarmSetTime(struct SavePoketch * poketch, u32 * hour_p, u32 * min_p);
-void Save_Poketch_SetAlarm(struct SavePoketch * poketch, BOOL enabled, u32 hour, u32 minute);
-void Save_Poketch_CalendarDateHighlight(struct SavePoketch * poketch, u32 month, u32 day);
-void Save_Poketch_CalendarDateUnhighlight(struct SavePoketch * poketch, u32 month, u32 day);
-BOOL Save_Poketch_CalendarDateIsHighlighted(struct SavePoketch * poketch, u32 month, u32 day);
-void Save_Poketch_MarkingMapSetPos(struct SavePoketch * poketch, s32 mark, u8 x, u8 y);
-void Save_Poketch_MarkingMapGetPos(struct SavePoketch * poketch, s32 mark, u8 * x_p, u8 * y_p);
-u32 Save_Poketch_DotArtistIsEnabled(struct SavePoketch * poketch);
-void Save_Poketch_DotArtistGetDrawing(struct SavePoketch * poketch, void * grid);
-void Save_Poketch_DotArtistSetDrawingAndEnable(struct SavePoketch * poketch, void * grid);
-void Save_Poketch_PokemonHistoryAddMon(struct SavePoketch * poketch, struct BoxPokemon * mon);
-int Save_Poketch_PokemonHistoryGetFirstEmptySlot(struct SavePoketch * poketch);
-void Save_Poketch_PokemonHistoryGetSlotN(struct SavePoketch * poketch, s32 i, u32 * species_p, u32 * forme_p);
-struct SavePoketch * Save_Poketch_Get(struct SaveData * save);
+void Save_Poketch_Init(struct Poketch * poketch);
+void Save_Poketch_Give(struct Poketch * poketch);
+BOOL Save_Poketch_IsGiven(struct Poketch * poketch);
+u8 Save_Poketch_AppIsUnlocked(struct Poketch * poketch, PoketchApp app);
+BOOL Save_Poketch_UnlockApp(struct Poketch * poketch, PoketchApp app);
+PoketchApp Save_Poketch_GetSelectedApp(struct Poketch * poketch);
+PoketchApp Save_Poketch_CycleNextApp(struct Poketch * poketch);
+u8 Save_Poketch_GetScreenTint(struct Poketch * poketch);
+void Save_Poketch_SetScreenTint(struct Poketch * poketch, u32 color);
+u32 Save_Poketch_GetStepCounter(struct Poketch * poketch);
+void Save_Poketch_SetStepCounter(struct Poketch * poketch, u32 steps);
+BOOL Save_Poketch_GetAlarmState(struct Poketch * poketch);
+void Save_Poketch_GetAlarmSetTime(struct Poketch * poketch, u32 * hour_p, u32 * min_p);
+void Save_Poketch_SetAlarm(struct Poketch * poketch, BOOL enabled, u32 hour, u32 minute);
+void Save_Poketch_CalendarDateHighlight(struct Poketch * poketch, u32 month, u32 day);
+void Save_Poketch_CalendarDateUnhighlight(struct Poketch * poketch, u32 month, u32 day);
+BOOL Save_Poketch_CalendarDateIsHighlighted(struct Poketch * poketch, u32 month, u32 day);
+void Save_Poketch_MarkingMapSetPos(struct Poketch * poketch, s32 mark, u8 x, u8 y);
+void Save_Poketch_MarkingMapGetPos(struct Poketch * poketch, s32 mark, u8 * x_p, u8 * y_p);
+u32 Save_Poketch_DotArtistIsEnabled(struct Poketch * poketch);
+void Save_Poketch_DotArtistGetDrawing(struct Poketch * poketch, void * grid);
+void Save_Poketch_DotArtistSetDrawingAndEnable(struct Poketch * poketch, void * grid);
+void Save_Poketch_PokemonHistoryAddMon(struct Poketch * poketch, struct BoxPokemon * mon);
+int Save_Poketch_PokemonHistoryGetFirstEmptySlot(struct Poketch * poketch);
+void Save_Poketch_PokemonHistoryGetSlotN(struct Poketch * poketch, s32 i, u32 * species_p, u32 * forme_p);
+struct Poketch * Save_Poketch_Get(struct SaveData * save);
 
 #endif //POKEDIAMOND_POKETCH_H
