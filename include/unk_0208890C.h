@@ -2,10 +2,10 @@
 #define POKEDIAMOND_UNK_0208890C_H
 
 #include "script.h"
+#include "player_data.h"
 
 struct Bag;
 struct Options;
-struct PlayerData;
 struct SaveData;
 
 typedef struct PoffinCaseAppData {
@@ -13,7 +13,7 @@ typedef struct PoffinCaseAppData {
     u32 unk4;
     u32 unk8;
     struct SaveData* save;
-    struct PlayerData* player;
+    PlayerProfile* player;
     struct Bag* bag;
     struct Options* options;
     u32 *unk1C;

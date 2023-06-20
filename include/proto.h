@@ -11,6 +11,6 @@ int TrainerClass_GetGenderOrTrainerCount(int x);
 int FUN_02014C3C(u8);
 void FUN_02014C54(int, int, struct UnkStruct_02069038 *, u8);
 u32 IsNighttime(void); // is day or night
-void FUN_020808AC(struct BoxPokemon *, struct PlayerData *, int, u32, u32);
+void FUN_020808AC(struct BoxPokemon *, PlayerProfile *, int, u32, u32);
 
 #endif //POKEDIAMOND_PROTO_H

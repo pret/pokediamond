@@ -7,129 +7,129 @@
 #include "options.h"
 #include "coins.h"
 
-void PlayerProfile_Init(struct PlayerData * data);
+void PlayerProfile_Init(PlayerProfile *data);
 
 u32 Save_PlayerData_sizeof(void)
 {
-    return sizeof(struct PlayerDataSav);
+    return sizeof(PlayerData);
 }
 
-void Save_PlayerData_Init(struct PlayerDataSav * pds)
+void Save_PlayerData_Init(PlayerData * pds)
 {
-    MI_CpuClearFast(pds, sizeof(struct PlayerDataSav));
+    MI_CpuClearFast(pds, sizeof(PlayerData));
     Options_Init(&pds->options);
-    PlayerProfile_Init(&pds->data);
+    PlayerProfile_Init(&pds->profile);
     InitCoins(&pds->coins);
     InitIGT(&pds->igt);
 }
 
-struct PlayerData * Save_PlayerData_GetProfileAddr(struct SaveData * save)
+PlayerProfile * Save_PlayerData_GetProfileAddr(struct SaveData * save)
 {
-    return &((struct PlayerDataSav *)SaveArray_Get(save, 1))->data;
+    return &((PlayerData *)SaveArray_Get(save, 1))->profile;
 }
 
 struct Options * Save_PlayerData_GetOptionsAddr(struct SaveData * save)
 {
-    return &((struct PlayerDataSav *)SaveArray_Get(save, 1))->options;
+    return &((PlayerData *)SaveArray_Get(save, 1))->options;
 }
 
 u16 * Save_PlayerData_GetCoinsAddr(struct SaveData * save)
 {
-    return &((struct PlayerDataSav *)SaveArray_Get(save, 1))->coins;
+    return &((PlayerData *)SaveArray_Get(save, 1))->coins;
 }
 
 struct IGT * Save_PlayerData_GetIGTAddr(struct SaveData * save)
 {
-    return &((struct PlayerDataSav *)SaveArray_Get(save, 1))->igt;
+    return &((PlayerData *)SaveArray_Get(save, 1))->igt;
 }
 
 u32 PlayerProfile_sizeof(void)
 {
-    return sizeof(struct PlayerData);
+    return sizeof(PlayerProfile);
 }
 
-struct PlayerData * PlayerProfile_New(u32 heap_id)
+PlayerProfile * PlayerProfile_New(u32 heap_id)
 {
-    struct PlayerData * ret = (struct PlayerData *)AllocFromHeap(heap_id, sizeof(struct PlayerData));
+    PlayerProfile * ret = (PlayerProfile *)AllocFromHeap(heap_id, sizeof(PlayerProfile));
     PlayerProfile_Init(ret);
     return ret;
 }
 
-void PlayerProfile_Copy(const struct PlayerData * src, struct PlayerData * dest)
+void PlayerProfile_Copy(const PlayerProfile * src, PlayerProfile * dest)
 {
-    MI_CpuCopy8(src, dest, sizeof(struct PlayerData));
+    MI_CpuCopy8(src, dest, sizeof(PlayerProfile));
 }
 
-void PlayerProfile_Init(struct PlayerData * data)
+void PlayerProfile_Init(PlayerProfile * data)
 {
-    memset(data, 0, sizeof(struct PlayerData));
+    memset(data, 0, sizeof(PlayerProfile));
     data->language = LANGUAGE_ENGLISH;
 }
 
-void CopyPlayerName(u16 * dest, struct PlayerData * data)
+void CopyPlayerName(u16 * dest, PlayerProfile * data)
 {
     GF_ASSERT((s32)StringLength(data->playerName) < PLAYER_NAME_LENGTH + 1);
     CopyU16StringArray(dest, data->playerName);
 }
 
-void PlayerName_StringToFlat(struct PlayerData * data, struct String * str)
+void PlayerName_StringToFlat(PlayerProfile * data, struct String * str)
 {
     CopyStringToU16Array(str, data->playerName, PLAYER_NAME_LENGTH + 1);
 }
 
-u16 * PlayerProfile_GetNamePtr(struct PlayerData * data)
+u16 * PlayerProfile_GetNamePtr(PlayerProfile * data)
 {
     return data->playerName;
 }
 
-void PlayerName_FlatToString(struct PlayerData * data, struct String * str)
+void PlayerName_FlatToString(PlayerProfile * data, struct String * str)
 {
     CopyU16ArrayToString(str, data->playerName);
 }
 
-struct String * PlayerProfile_GetPlayerName_NewString(struct PlayerData * data, u32 heap_id)
+struct String * PlayerProfile_GetPlayerName_NewString(PlayerProfile * data, u32 heap_id)
 {
     struct String * str = String_New(PLAYER_NAME_LENGTH + 1, heap_id);
     PlayerName_FlatToString(data, str);
     return str;
 }
 
-void PlayerProfile_SetTrainerID(struct PlayerData * data, u32 otid)
+void PlayerProfile_SetTrainerID(PlayerProfile * data, u32 otid)
 {
     data->playerId = otid;
 }
 
-u32 PlayerProfile_GetTrainerID(struct PlayerData * data)
+u32 PlayerProfile_GetTrainerID(PlayerProfile * data)
 {
     return data->playerId;
 }
 
-u16 PlayerProfile_GetTrainerID_VisibleHalf(struct PlayerData * data)
+u16 PlayerProfile_GetTrainerID_VisibleHalf(PlayerProfile * data)
 {
     return (u16)data->playerId;
 }
 
-void PlayerProfile_SetTrainerGender(struct PlayerData * data, GenderEnum gender)
+void PlayerProfile_SetTrainerGender(PlayerProfile * data, GenderEnum gender)
 {
     data->gender = gender;
 }
 
-GenderEnum PlayerProfile_GetTrainerGender(struct PlayerData * data)
+GenderEnum PlayerProfile_GetTrainerGender(PlayerProfile * data)
 {
     return (GenderEnum)data->gender;
 }
 
-BOOL PlayerProfile_TestBadgeFlag(struct PlayerData * data, u32 badgeno)
+BOOL PlayerProfile_TestBadgeFlag(PlayerProfile * data, u32 badgeno)
 {
     return (data->badges & (1 << badgeno)) != 0;
 }
 
-void PlayerProfile_SetBadgeFlag(struct PlayerData * data, u32 badgeno)
+void PlayerProfile_SetBadgeFlag(PlayerProfile * data, u32 badgeno)
 {
     data->badges |= (1 << badgeno);
 }
 
-u32 PlayerProfile_CountBadges(struct PlayerData * data)
+u32 PlayerProfile_CountBadges(PlayerProfile * data)
 {
     u32 count;
     u32 badges;
@@ -141,12 +141,12 @@ u32 PlayerProfile_CountBadges(struct PlayerData * data)
     return count;
 }
 
-u32 PlayerProfile_GetMoney(struct PlayerData * data)
+u32 PlayerProfile_GetMoney(PlayerProfile * data)
 {
     return data->money;
 }
 
-u32 PlayerProfile_SetMoney(struct PlayerData * data, u32 amount)
+u32 PlayerProfile_SetMoney(PlayerProfile * data, u32 amount)
 {
     if (amount > MAX_MONEY)
         amount = MAX_MONEY;
@@ -154,17 +154,17 @@ u32 PlayerProfile_SetMoney(struct PlayerData * data, u32 amount)
     return amount;
 }
 
-u8 PlayerProfile_GetAvatar(struct PlayerData * data)
+u8 PlayerProfile_GetAvatar(PlayerProfile * data)
 {
     return data->avatar;
 }
 
-void PlayerProfile_SetAvatar(struct PlayerData * data, u8 avatar)
+void PlayerProfile_SetAvatar(PlayerProfile * data, u8 avatar)
 {
     data->avatar = avatar;
 }
 
-u32 PlayerProfile_AddMoney(struct PlayerData * data, u32 amount)
+u32 PlayerProfile_AddMoney(PlayerProfile * data, u32 amount)
 {
     if (amount > MAX_MONEY)
         data->money = MAX_MONEY;
@@ -175,7 +175,7 @@ u32 PlayerProfile_AddMoney(struct PlayerData * data, u32 amount)
     return data->money;
 }
 
-u32 PlayerProfile_SubMoney(struct PlayerData * data, u32 amount)
+u32 PlayerProfile_SubMoney(PlayerProfile * data, u32 amount)
 {
     if (data->money < amount)
         data->money = 0;
@@ -184,47 +184,47 @@ u32 PlayerProfile_SubMoney(struct PlayerData * data, u32 amount)
     return data->money;
 }
 
-u8 PlayerProfile_GetVersion(struct PlayerData * data)
+u8 PlayerProfile_GetVersion(PlayerProfile * data)
 {
     return data->version;
 }
 
-void PlayerProfile_SetVersion(struct PlayerData * data, u8 a1)
+void PlayerProfile_SetVersion(PlayerProfile * data, u8 a1)
 {
     data->version = a1;
 }
 
-u8 PlayerProfile_GetLanguage(struct PlayerData * data)
+u8 PlayerProfile_GetLanguage(PlayerProfile * data)
 {
     return data->language;
 }
 
-void PlayerProfile_SetLanguage(struct PlayerData * data, u8 language)
+void PlayerProfile_SetLanguage(PlayerProfile * data, u8 language)
 {
     data->language = language;
 }
 
-void PlayerProfile_SetGameClearFlag(struct PlayerData * data)
+void PlayerProfile_SetGameClearFlag(PlayerProfile * data)
 {
     data->gameCleared = TRUE;
 }
 
-BOOL PlayerProfile_GetGameClearFlag(struct PlayerData * data)
+BOOL PlayerProfile_GetGameClearFlag(PlayerProfile * data)
 {
     return data->gameCleared;
 }
 
-void PlayerProfile_SetNatDexFlag(struct PlayerData * data)
+void PlayerProfile_SetNatDexFlag(PlayerProfile * data)
 {
     data->nationalDex = TRUE;
 }
 
-BOOL PlayerProfile_GetNatDexFlag(struct PlayerData * data)
+BOOL PlayerProfile_GetNatDexFlag(PlayerProfile * data)
 {
     return data->nationalDex;
 }
 
-BOOL PlayerProfile_NameAndOTIDMatchPlayer(struct PlayerData * a, struct PlayerData * b)
+BOOL PlayerProfile_NameAndOTIDMatchPlayer(PlayerProfile * a, PlayerProfile * b)
 {
     return !StringNotEqualN(a->playerName, b->playerName, PLAYER_NAME_LENGTH) && a->playerId == b->playerId;
 }

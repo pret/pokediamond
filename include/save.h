@@ -64,8 +64,8 @@ struct UnkStruct_0202288C
 typedef struct SaveData
 {
     /* 0x00000 */ BOOL flashOkay;
-    /* 0x00004 */ int unk_00004;
-    /* 0x00008 */ int unk_00008;
+    /* 0x00004 */ u32 saveFileExists;
+    /* 0x00008 */ u32 isNewGame;
     /* 0x0000C */ int largeSectorChanged;
     /* 0x00010 */ int unk_00010;
     /* 0x00014 */ struct MATHCRC16Table crcTable;
@@ -103,16 +103,16 @@ void * SaveArray_Get(struct SaveData * save, int idx);
 void * FUN_02022634(struct SaveData * save, int idx);
 BOOL FUN_0202263C(struct SaveData * save);
 BOOL FUN_020226FC(struct SaveData * save);
-int FUN_02022720(struct SaveData * save);
+int SaveGame(struct SaveData * save);
 void FUN_020227A0(struct SaveData * save, int a1);
 void Save_InitDynamicRegion(struct SaveData * save);
 int FUN_020227FC(struct SaveData * save);
 int FUN_02022800(struct SaveData * save);
-int FUN_02022804(struct SaveData * save);
-int FUN_02022808(struct SaveData * save);
-BOOL FUN_0202280C(struct SaveData * save);
-int SaveGetDirtyBit(struct SaveData * save);
-void SaveSetDirtyBit(void);
+u32 Save_FileExists(struct SaveData * save);
+u32 Save_IsNewGame(struct SaveData * save);
+BOOL Save_FileDoesNotBelongToPlayer(struct SaveData * save);
+int Save_GetDirtyBit(struct SaveData * save);
+void Save_SetDirtyBit(void);
 void FUN_02022840(struct SaveData * save, int a1);
 int FUN_02022854(struct SaveData * save);
 void FUN_0202287C(struct SaveData * save);

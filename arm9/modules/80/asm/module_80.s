@@ -15852,7 +15852,7 @@ MOD80_02235398: ; 0x02235398
 MOD80_022353B4: ; 0x022353B4
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl SaveSetDirtyBit
+	bl Save_SetDirtyBit
 	ldr r0, [r4]
 	mov r1, #2
 	ldr r0, [r0, #0x20]
@@ -15940,7 +15940,7 @@ _02235450: .word 0x00000FE6
 MOD80_02235454: ; 0x02235454
 	push {r4, lr}
 	add r4, r0, #0
-	bl SaveSetDirtyBit
+	bl Save_SetDirtyBit
 	ldr r0, [r4]
 	mov r1, #2
 	ldr r0, [r0, #0x20]

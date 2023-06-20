@@ -963,7 +963,7 @@ _02046CD4:
 	beq _02046CFE
 	ldr r0, [r6, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r1, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_02049160
@@ -1053,8 +1053,8 @@ _02046DA8: .word 0x00002262
 _02046DAC: .word 0x00002269
 _02046DB0: .word 0x00002276
 
-	thumb_func_start FUN_02046DB4
-FUN_02046DB4: ; 0x02046DB4
+	thumb_func_start SetupAndStartHoneyTreeBattle
+SetupAndStartHoneyTreeBattle: ; 0x02046DB4
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r6, r1, #0x0
@@ -1096,8 +1096,8 @@ FUN_02046DB4: ; 0x02046DB4
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02046E18
-FUN_02046E18: ; 0x02046E18
+	thumb_func_start SetupAndStartWildBattle
+SetupAndStartWildBattle: ; 0x02046E18
 	push {r4-r7, lr}
 	sub sp, #0xc
 	str r0, [sp, #0x4]
@@ -1280,8 +1280,8 @@ FUN_02046F70: ; 0x02046F70
 	.balign 4
 _02046F9C: .word FUN_02046E8C
 
-	thumb_func_start FUN_02046FA0
-FUN_02046FA0: ; 0x02046FA0
+	thumb_func_start SetupAndStartFirstBattle
+SetupAndStartFirstBattle: ; 0x02046FA0
 	push {r3-r7, lr}
 	sub sp, #0x8
 	str r0, [sp, #0x4]
@@ -1409,8 +1409,8 @@ _020470A6:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020470AC
-FUN_020470AC: ; 0x020470AC
+	thumb_func_start SetupAndStartTutorialBattle
+SetupAndStartTutorialBattle: ; 0x020470AC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl FUN_02046528

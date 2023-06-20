@@ -73,6 +73,11 @@ typedef struct BagScreenAppData {
 
 } BagScreenAppData; //todo fill out and move to own file
 
+typedef struct ScrCmdUnkStruct00F4 {
+    u8 padding[0x2C];
+    u32 unk2C;
+} ScrCmdUnkStruct00F4; //todo identify and move to own file
+
 typedef struct Location {
     u32 mapId;
     u32 warpId;

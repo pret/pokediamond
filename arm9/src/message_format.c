@@ -121,9 +121,9 @@ void BufferString(MessageFormat *messageFormat, u32 idx, struct String * str, u3
     SetStringAsPlaceholder(messageFormat, idx, str, NULL);
 }
 
-void BufferPlayersName(MessageFormat *messageFormat, u32 idx, struct PlayerData * data)
+void BufferPlayersName(MessageFormat *messageFormat, u32 idx, PlayerProfile *profile)
 {
-    u16 * name = PlayerProfile_GetNamePtr(data);
+    u16 * name = PlayerProfile_GetNamePtr(profile);
     CopyU16ArrayToString(messageFormat->buffer, name);
     SetStringAsPlaceholder(messageFormat, idx, messageFormat->buffer, NULL);
 }
@@ -137,9 +137,9 @@ void BufferRivalsName(MessageFormat *messageFormat, u32 idx, struct SaveData * s
 
 void BufferFriendsName(MessageFormat *messageFormat, u32 idx, struct SaveData * save)
 {
-    struct PlayerData * data = Save_PlayerData_GetProfileAddr(save);
+    PlayerProfile *profile = Save_PlayerData_GetProfileAddr(save);
     struct MsgData * msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, NARC_MSGDATA_MSG, NARC_msg_narc_0497_bin, messageFormat->heap_id);
-    if (PlayerProfile_GetTrainerGender(data) == Male)
+    if (PlayerProfile_GetTrainerGender(profile) == Male)
     {
         ReadMsgDataIntoString(msgData, narc_0497_00001, messageFormat->buffer); //Dawn
     }

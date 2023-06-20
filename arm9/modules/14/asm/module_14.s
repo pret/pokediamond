@@ -9566,7 +9566,7 @@ MOD14_021DC1AC: ; 0x021DC1AC
 	bl MOD14_021DC3F4
 	cmp r0, #1
 	bne _021DC1E2
-	bl SaveSetDirtyBit
+	bl Save_SetDirtyBit
 _021DC1E2:
 	add sp, #4
 	pop {r3, r4, pc}

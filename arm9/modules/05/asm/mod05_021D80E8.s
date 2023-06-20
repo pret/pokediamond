@@ -2122,7 +2122,7 @@ _021D91DC:
 _021D91F2:
 	ldr r0, [r4, #0xc]
 	bl Save_LocalFieldData_Get
-	bl FUN_02034DD0
+	bl LocalFieldData_GetDynamicWarp
 	add r2, r0, #0
 	ldmia r2!, {r0, r1}
 	stmia r5!, {r0, r1}
