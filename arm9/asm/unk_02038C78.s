@@ -446,15 +446,15 @@ gScriptCmdTable: ; 0x020F355C
 	.word ScrCmd_CatchTutorial
 	.word ScrCmd_UpdateHoneyTree
 	.word ScrCmd_CheckHoneyTree
-	.word ScrCmd_Unk0129
-	.word ScrCmd_Unk012A
-	.word ScrCmd_Unk012B
-	.word ScrCmd_Unk012C
-	.word ScrCmd_Unk012D
+	.word ScrCmd_HoneyTreeBattle
+	.word ScrCmd_StopHoneyTreeAnimation
+	.word ScrCmd_ShowSignatureScreen
+	.word ScrCmd_CheckSaveStatus
+	.word ScrCmd_SaveGame
 	.word ScrCmd_CheckPortraitSlot
 	.word ScrCmd_CheckContestPortraitSlot
 	.word ScrCmd_Unk0130
-	.word ScrCmd_Unk0131
+	.word ScrCmd_GivePoketch
 	.word ScrCmd_Unk0132
 	.word ScrCmd_Unk0133
 	.word ScrCmd_Unk0134

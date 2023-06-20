@@ -17,6 +17,7 @@
 #include "player_data.h"
 #include "pokedex.h"
 #include "render_window.h"
+#include "save.h"
 #include "seal.h"
 #include "task.h"
 #include "text.h"
@@ -203,6 +204,11 @@ extern void SetupAndStartFirstBattle(TaskManager *taskManager, u16 species, u8 l
 extern void SetupAndStartTutorialBattle(TaskManager *taskManager);
 extern void UpdateHoneyTree(FieldSystem *fieldSystem);
 extern u16 CheckHoneyTree(FieldSystem *fieldSystem);
+extern void SetupAndStartHoneyTreeBattle(TaskManager *taskManager, u32 *winFlag);
+extern void MOD05_021F4E7C(FieldSystem *fieldSystem);
+extern void FUN_020386B4(FieldSystem *fieldSystem);
+extern u16 Field_SaveGame(FieldSystem *fieldSystem);
+extern void Field_GivePoketch(TaskManager *taskManager);
 
 u8 UNK_021C5A0C[4];
 
@@ -2745,4 +2751,49 @@ BOOL ScrCmd_CheckHoneyTree(ScriptContext *ctx) { //0128
     u16 *var = ScriptGetVarPointer(ctx);
     *var = CheckHoneyTree(fieldSystem);
     return FALSE;
+}
+
+BOOL ScrCmd_HoneyTreeBattle(ScriptContext *ctx) { //0129
+    u32 *winFlag = FieldSysGetAttrAddr(ctx->fieldSystem, SCRIPTENV_BATTLE_WIN_FLAG);
+    SetupAndStartHoneyTreeBattle(ctx->taskManager, winFlag);
+    return TRUE;
+}
+
+BOOL ScrCmd_StopHoneyTreeAnimation(ScriptContext *ctx) { //012A
+    MOD05_021F4E7C(ctx->fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_ShowSignatureScreen(ScriptContext *ctx) { //012B
+    FUN_020386B4(ctx->fieldSystem);
+    SetupNativeScript(ctx, FUN_0203BC04);
+    return TRUE;
+}
+
+BOOL ScrCmd_CheckSaveStatus(ScriptContext *ctx) { //012C
+    SaveData *saveData = ctx->fieldSystem->saveData;
+    u16 *var = ScriptGetVarPointer(ctx);
+
+    if (Save_FileDoesNotBelongToPlayer(saveData)) {
+        *var = 0;
+    } else if (!Save_FileExists(saveData)) {
+        *var = 1;
+    } else if (Save_GetDirtyBit(saveData)) {
+        *var = 2;
+    } else {
+        *var = 3;
+    }
+    return FALSE;
+}
+
+BOOL ScrCmd_SaveGame(ScriptContext *ctx) { //012D
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    u16 *var = ScriptGetVarPointer(ctx);
+    *var = Field_SaveGame(fieldSystem);
+    return FALSE;
+}
+
+BOOL ScrCmd_GivePoketch(ScriptContext *ctx) { //0131
+    Field_GivePoketch(ctx->taskManager);
+    return TRUE;
 }

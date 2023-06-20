@@ -133,7 +133,7 @@ _02048586:
 	cmp r0, #0x0
 	beq _02048688
 	ldr r0, [r6, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	bne _020485A8
 	add r0, r6, #0x0
@@ -160,9 +160,9 @@ _020485C0:
 	ldr r0, [r6, #0xc]
 	bl SaveArray_PlayerParty_Get
 	bl HealParty
-	bl SaveSetDirtyBit
+	bl Save_SetDirtyBit
 	ldr r0, [r6, #0xc]
-	bl FUN_02022720
+	bl SaveGame
 	add r7, r0, #0x0
 	ldr r1, [r5, #0x0]
 	add r0, r6, #0x0

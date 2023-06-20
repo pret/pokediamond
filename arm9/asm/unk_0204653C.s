@@ -1053,8 +1053,8 @@ _02046DA8: .word 0x00002262
 _02046DAC: .word 0x00002269
 _02046DB0: .word 0x00002276
 
-	thumb_func_start FUN_02046DB4
-FUN_02046DB4: ; 0x02046DB4
+	thumb_func_start SetupAndStartHoneyTreeBattle
+SetupAndStartHoneyTreeBattle: ; 0x02046DB4
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r6, r1, #0x0

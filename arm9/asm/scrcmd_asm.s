@@ -9,118 +9,6 @@
 
 	.text 
 
-	thumb_func_start ScrCmd_Unk0129
-ScrCmd_Unk0129: ; 0x0203D178
-	push {r4, lr}
-	add r4, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	mov r1, #0x17
-	bl FieldSysGetAttrAddr
-	add r1, r0, #0x0
-	ldr r0, [r4, #0x74]
-	bl FUN_02046DB4
-	mov r0, #0x1
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk012A
-ScrCmd_Unk012A: ; 0x0203D194
-	push {r3, lr}
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl MOD05_021F4E7C
-	mov r0, #0x0
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk012B
-ScrCmd_Unk012B: ; 0x0203D1A4
-	push {r4, lr}
-	add r4, r0, #0x0
-	add r0, #0x80
-	ldr r0, [r0, #0x0]
-	bl FUN_020386B4
-	ldr r1, _0203D1BC ; =FUN_0203BC04
-	add r0, r4, #0x0
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r4, pc}
-	.balign 4
-_0203D1BC: .word FUN_0203BC04 
-
-	thumb_func_start ScrCmd_Unk012C
-ScrCmd_Unk012C: ; 0x0203D1C0
-	push {r3-r5, lr}
-	add r4, r0, #0x0
-	add r1, r4, #0x0
-	add r1, #0x80
-	ldr r1, [r1, #0x0]
-	ldr r5, [r1, #0xc]
-	bl ScriptReadHalfword
-	add r4, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r4, #0x0]
-	bl GetVarPointer
-	add r4, r0, #0x0
-	add r0, r5, #0x0
-	bl FUN_0202280C
-	cmp r0, #0x0
-	beq _0203D1EC
-	mov r0, #0x0
-	strh r0, [r4, #0x0]
-	b _0203D210
-_0203D1EC:
-	add r0, r5, #0x0
-	bl FUN_02022804
-	cmp r0, #0x0
-	bne _0203D1FC
-	mov r0, #0x1
-	strh r0, [r4, #0x0]
-	b _0203D210
-_0203D1FC:
-	add r0, r5, #0x0
-	bl SaveGetDirtyBit
-	cmp r0, #0x0
-	beq _0203D20C
-	mov r0, #0x2
-	strh r0, [r4, #0x0]
-	b _0203D210
-_0203D20C:
-	mov r0, #0x3
-	strh r0, [r4, #0x0]
-_0203D210:
-	mov r0, #0x0
-	pop {r3-r5, pc}
-
-	thumb_func_start ScrCmd_Unk012D
-ScrCmd_Unk012D: ; 0x0203D214
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	add r1, r5, #0x0
-	add r1, #0x80
-	ldr r4, [r1, #0x0]
-	bl ScriptReadHalfword
-	add r5, #0x80
-	add r1, r0, #0x0
-	ldr r0, [r5, #0x0]
-	bl GetVarPointer
-	add r5, r0, #0x0
-	add r0, r4, #0x0
-	bl MOD05_021E85FC
-	strh r0, [r5, #0x0]
-	mov r0, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
-	thumb_func_start ScrCmd_Unk0131
-ScrCmd_Unk0131: ; 0x0203D23C
-	push {r3, lr}
-	ldr r0, [r0, #0x74]
-	bl MOD05_021E3424
-	mov r0, #0x1
-	pop {r3, pc}
-
 	thumb_func_start ScrCmd_Unk0132
 ScrCmd_Unk0132: ; 0x0203D248
 	push {r3-r5, lr}
@@ -5396,7 +5284,7 @@ ScrCmd_Unk02C1: ; 0x0203FC80
 	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	bne _0203FCAA
 	add r0, r5, #0x0
@@ -5420,7 +5308,7 @@ ScrCmd_Unk02C2: ; 0x0203FCB0
 	bl FieldSysGetAttrAddr
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	bne _0203FCD6
 	ldr r0, [r4, #0x0]

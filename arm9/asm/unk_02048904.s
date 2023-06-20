@@ -2081,7 +2081,7 @@ _02049946:
 	b _02049AB2
 _0204995E:
 	ldr r0, [r5, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	beq _02049976
 	mov r2, #0x0
@@ -2112,7 +2112,7 @@ _0204999C:
 	b _02049AB2
 _020499A2:
 	ldr r0, [r5, #0xc]
-	bl FUN_0202280C
+	bl Save_FileDoesNotBelongToPlayer
 	cmp r0, #0x0
 	beq _020499B2
 	mov r0, #0x5

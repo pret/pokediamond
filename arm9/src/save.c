@@ -13,19 +13,17 @@
 extern void FUN_02016444(u8 mask);
 extern void FUN_02016454(u8 mask);
 
-struct {
-    struct SaveData * ptr;
-    BOOL iswritten;
-} UNK_021C59C8;
+static BOOL saveWritten;
+static SaveData *sSaveDataPtr;
 
 struct SaveData * SaveData_New(void)
 {
     struct SaveData * save = AllocFromHeap(1, sizeof(struct SaveData));
     MI_CpuClearFast(save, sizeof(struct SaveData));
-    UNK_021C59C8.ptr = save;
+    sSaveDataPtr = save;
     save->flashOkay = SaveDetectFlash();
-    save->unk_00004 = 0;
-    save->unk_00008 = 1;
+    save->saveFileExists = 0;
+    save->isNewGame = 1;
     save->largeSectorChanged = 1;
     MATH_CRC16InitTable(&save->crcTable);
     SaveData_InitSubstructs(save->arrayHeaders);
@@ -38,8 +36,8 @@ struct SaveData * SaveData_New(void)
         // fallthrough
     case 2:
         Save_LoadDynamicRegion(save);
-        save->unk_00004 = 1;
-        save->unk_00008 = 0;
+        save->saveFileExists = 1;
+        save->isNewGame = 0;
         break;
     case 0:
     case 3:
@@ -51,8 +49,8 @@ struct SaveData * SaveData_New(void)
 
 struct SaveData * FUN_020225F8(void)
 {
-    GF_ASSERT(UNK_021C59C8.ptr != NULL);
-    return UNK_021C59C8.ptr;
+    GF_ASSERT(sSaveDataPtr != NULL);
+    return sSaveDataPtr;
 }
 
 void * SaveArray_Get(struct SaveData * save, int idx)
@@ -85,7 +83,7 @@ BOOL FUN_0202263C(struct SaveData * save)
     }
     FreeToHeap(r6);
     Save_InitDynamicRegion(save);
-    save->unk_00004 = 0;
+    save->saveFileExists = 0;
     FUN_02016454(1);
     return TRUE;
 }
@@ -96,18 +94,18 @@ BOOL FUN_020226FC(struct SaveData * save)
         return FALSE;
     if (Save_LoadDynamicRegion(save))
     {
-        save->unk_00004 = 1;
-        save->unk_00008 = 0;
+        save->saveFileExists = 1;
+        save->isNewGame = 0;
         return TRUE;
     }
     return FALSE;
 }
 
-int FUN_02022720(struct SaveData * save)
+int SaveGame(struct SaveData * save)
 {
     if (save->flashOkay == 0)
         return 3;
-    if (save->unk_00008)
+    if (save->isNewGame)
     {
         FUN_02016444(1);
         FlashClobberChunkFooter(save, 0, (u32)(save->unk_20220[0] == 0 ? 1 : 0));
@@ -119,8 +117,8 @@ int FUN_02022720(struct SaveData * save)
     int ret = FUN_02023044(save);
     if (ret == 2)
     {
-        save->unk_00004 = 1;
-        save->unk_00008 = 0;
+        save->saveFileExists = 1;
+        save->isNewGame = 0;
     }
     return ret;
 }
@@ -128,8 +126,8 @@ int FUN_02022720(struct SaveData * save)
 void FUN_020227A0(struct SaveData * save, int a1)
 {
     GF_ASSERT(a1 < 2);
-    GF_ASSERT(save->unk_00008 == 0);
-    GF_ASSERT(save->unk_00004 == 1);
+    GF_ASSERT(save->isNewGame == 0);
+    GF_ASSERT(save->saveFileExists == 1);
     FUN_02022840(save, a1);
     int res;
     do
@@ -140,7 +138,7 @@ void FUN_020227A0(struct SaveData * save, int a1)
 
 void Save_InitDynamicRegion(struct SaveData * save)
 {
-    save->unk_00008 = 1;
+    save->isNewGame = 1;
     save->largeSectorChanged = 1;
     Save_InitDynamicRegion_Internal(save->dynamic_region, save->arrayHeaders);
 }
@@ -155,29 +153,29 @@ int FUN_02022800(struct SaveData * save)
     return save->unk_00010;
 }
 
-int FUN_02022804(struct SaveData * save)
+u32 Save_FileExists(struct SaveData * save)
 {
-    return save->unk_00004;
+    return save->saveFileExists;
 }
 
-int FUN_02022808(struct SaveData * save)
+u32 Save_IsNewGame(struct SaveData * save)
 {
-    return save->unk_00008;
+    return save->isNewGame;
 }
 
-BOOL FUN_0202280C(struct SaveData * save)
+BOOL Save_FileDoesNotBelongToPlayer(struct SaveData * save)
 {
-    return (FUN_02022808(save) != 0 && FUN_02022804(save) != 0);
+    return (Save_IsNewGame(save) != 0 && Save_FileExists(save) != 0);
 }
 
-int SaveGetDirtyBit(struct SaveData * save)
+int Save_GetDirtyBit(struct SaveData * save)
 {
     return save->largeSectorChanged;
 }
 
-void SaveSetDirtyBit(void)
+void Save_SetDirtyBit(void)
 {
-    UNK_021C59C8.ptr->largeSectorChanged = 1;
+    sSaveDataPtr->largeSectorChanged = 1;
 }
 
 void FUN_02022840(struct SaveData * save, int a1)
@@ -590,8 +588,8 @@ void FUN_02022F80(struct SaveData * save, struct AsyncWriteManager * a1, int a2)
         {
             save->unk_20220[i] = (u8)(save->unk_20220[i] == 0);
         }
-        save->unk_00004 = 1;
-        save->unk_00008 = 0;
+        save->saveFileExists = 1;
+        save->isNewGame = 0;
         save->largeSectorChanged = 0;
     }
     FUN_02016454(1);
@@ -854,7 +852,7 @@ BOOL FlashLoadChunk(u32 src, void * dest, u32 size)
     OS_ReleaseLockID((u16)lock);
     if (!r5)
     {
-        FreeToHeap(UNK_021C59C8.ptr);
+        FreeToHeap(sSaveDataPtr);
         ShowSaveDataReadError(1);
     }
     return r5;
@@ -863,7 +861,7 @@ BOOL FlashLoadChunk(u32 src, void * dest, u32 size)
 void FlashWriteCommandCallback(void * arg)
 {
 #pragma unused(arg)
-    UNK_021C59C8.iswritten = TRUE;
+    saveWritten = TRUE;
 }
 
 int FlashWriteChunkInternal(u32 dest, void * src, u32 size)
@@ -874,14 +872,14 @@ int FlashWriteChunkInternal(u32 dest, void * src, u32 size)
     int sp14;
     if (!CARDi_ReadBackup(0, &sp14, 4, NULL, NULL, FALSE))
         SaveErrorHandling(lock, 1);
-    UNK_021C59C8.iswritten = FALSE;
+    saveWritten = FALSE;
     CARDi_WriteAndVerifyBackup(dest, src, size, FlashWriteCommandCallback, NULL, TRUE);
     return lock;
 }
 
 BOOL WaitFlashWrite(int lock, BOOL * res)
 {
-    if (UNK_021C59C8.iswritten == TRUE)
+    if (saveWritten == TRUE)
     {
         CARD_UnlockBackup((u16)lock);
         OS_ReleaseLockID((u16)lock);
@@ -891,7 +889,7 @@ BOOL WaitFlashWrite(int lock, BOOL * res)
             *res = TRUE;
             break;
         default:
-            GF_ASSERT(0);
+            GF_ASSERT(FALSE);
         case CARD_RESULT_TIMEOUT:
             *res = FALSE;
             SaveErrorHandling(lock, 0);
@@ -908,6 +906,6 @@ void SaveErrorHandling(int lock, u32 errno)
 {
     CARD_UnlockBackup((u16)lock);
     OS_ReleaseLockID((u16)lock);
-    FreeToHeap(UNK_021C59C8.ptr);
+    FreeToHeap(sSaveDataPtr);
     ShowSaveDataWriteError(1, errno);
 }

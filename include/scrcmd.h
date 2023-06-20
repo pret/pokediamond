@@ -252,6 +252,12 @@ BOOL ScrCmd_FirstBattle(ScriptContext *ctx);
 BOOL ScrCmd_CatchTutorial(ScriptContext *ctx);
 BOOL ScrCmd_UpdateHoneyTree(ScriptContext *ctx);
 BOOL ScrCmd_CheckHoneyTree(ScriptContext *ctx);
+BOOL ScrCmd_HoneyTreeBattle(ScriptContext *ctx);
+BOOL ScrCmd_StopHoneyTreeAnimation(ScriptContext *ctx);
+BOOL ScrCmd_ShowSignatureScreen(ScriptContext *ctx);
+BOOL ScrCmd_CheckSaveStatus(ScriptContext *ctx);
+BOOL ScrCmd_SaveGame(ScriptContext *ctx);
+BOOL ScrCmd_GivePoketch(ScriptContext *ctx);
 
 // scrcmd_mart.c
 BOOL ScrCmd_NormalMart(struct ScriptContext * ctx);
